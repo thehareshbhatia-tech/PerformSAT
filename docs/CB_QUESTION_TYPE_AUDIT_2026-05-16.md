@@ -1,5 +1,11 @@
 # CB Question Type Coverage Audit (2026-05-16)
 
+> **STATUS — DELIVERED 2026-05-16.** All Priority-1, Priority-2, and Priority-3
+> work in this audit is shipped on `main`. Bank grew from 968 → 1125
+> hand-authored items; CB skills: 8 healthy / 10 thin / 1 empty → **10 healthy /
+> 9 thin / 0 empty**. See CHANGELOG `[3.2.0]` and Part F (below) for the full
+> completion checklist.
+
 **Trigger:** User asked whether PerformSAT's bank has every CB question type from PT4–11 + the Educator Question Bank, and whether the taxonomy crisply differentiates types. Gave one example of a likely gap: "a is 45% of b and b is 15% of c."
 
 **Scope:** Math-only. R&W stays Tier-3 (skill) per the existing decision in `rwBank/index.js`.
@@ -214,3 +220,60 @@ Run the chained-percent (B1) authoring as a tight batch — 8 items + Tier-1 pro
 3. Adds a Tier-1 pool in Q.B. (Percentages), the most student-relevant CB skill.
 
 If you want, the next move is `/autoplan` over this audit to lock in the work order and let me start on B1.
+
+---
+
+## Part F — Completion Checklist (2026-05-16)
+
+All Part D priorities are SHIPPED. Net additions across two commits on `main`:
+
+| Item | Status | Items added | Notes |
+|---|---|---:|---|
+| B1 `chained-percent-relationship` | ✓ shipped | 8 (`bank-ps-225..232`) | Closes the user's exact example |
+| B2 `observational-vs-experimental-study` (Q.G.) | ✓ shipped | 10 (`bank-ps-233..240`, +2 healthy-push) | Q.G. no longer empty |
+| B2 `scope-of-inference` (Q.G.) | ✓ shipped | 10 (`bank-ps-241..248`, +2 healthy-push) | Q.G. now healthy (20 items) |
+| B3 `percent-greater-than-less-than` | ✓ shipped | 8 (`bank-ps-249..256`) | + 3 alias entries for test-bundle variant slugs |
+| `compound-percent-of` Tier-1 promotion | ✓ shipped | +5 (`bank-ps-257..261`) | 3 → 8 (Tier-1 threshold) |
+| B4 `reverse-exponential-back-in-time` | ✓ shipped | 8 (`bank-am-219..226`) | |
+| B5 `function-from-shifted-graph` | ✓ shipped | 8 (`bank-am-227..234`) | |
+| B6 `symbolic-area-or-volume` | ✓ shipped | 8 (`bank-geo-187..194`) | |
+| B7 `tangent-with-parameter` (find-x variant) | ✓ shipped | 4 (`bank-am-235..238`) | Same SAT Pattern, different direction of question |
+| C2 Topic-file header backfill | ✓ shipped via architectural fallback | (~170 lifted to Tier-1) | `TOPIC_SECTION_TO_PATTERN` map in `bank/index.js` — no rewrites |
+| Granular transformations (user-flagged gap) | ✓ shipped (round 2) | 32 (`bank-am-239..270`) | `vertical-shift`, `horizontal-shift`, `reflection-of-graph`, `vertical-stretch` |
+| Long-tail concept gaps | ✓ shipped (round 2) | 40 | `probability-without-replacement` (8), `compound-interest` (8), `similar-figures-area-ratio` (8), `area-of-triangle-from-coordinates` (8), `rational-equation-with-extraneous-solution` (8) |
+| Q.G. healthy push (round 2) | ✓ shipped | 4 (`bank-ps-270..273`) | 16 → 20 items |
+| `PATTERN_ALIASES` expansion | ✓ shipped | 6 new entries | Closes test-bundle slug mismatches |
+| `PATTERN_TO_CB_SKILL` mapping | ✓ shipped | 17 new entries | All 85 surfaced patterns mapped |
+| `docs/CB_QUESTION_TYPE_AUDIT_2026-05-16.md` | ✓ shipped | this file | |
+| `CHANGELOG.md` `[3.2.0]` entry | ✓ shipped | | |
+| `CLAUDE.md` bank counts refresh | ✓ shipped | | |
+
+**Final state (2026-05-16):**
+
+- Math bank: **1125 hand-authored items** (was 968) + ~170 topic items routable via section-name fallback
+- CB skill coverage: **10 healthy / 9 thin / 0 empty** (was 8 / 10 / 1)
+- Surfaced patterns ≥ 4 items: **85** (was 68)
+- All surfaced patterns mapped to CB skills
+
+**Validation receipts:**
+
+- `npm run bank:validate` → 1125 items, all checks pass
+- `CI=true react-scripts test` → 986/986 pass
+- `node scripts/auditCBCoverage.mjs` → 85 surfaced patterns, 0 unmapped, 0 empty CB skills
+- `CI=true npm run build` → compiled successfully
+
+**What remains as future work (lower priority):**
+
+Thin CB skills still below the 20-item threshold (audit deferred these as "telemetry-justified" Priority-3+):
+
+- Q.F. Margin of Error: 5 items / 1 pattern — needs more pattern diversity (e.g., sample-size-for-margin)
+- H.E. Linear Inequalities: 6 / 1 — needs system-of-inequalities, absolute-value-inequality patterns
+- Q.D. Two-variable data: 6 / 2 — needs scatterplot-best-fit-from-graph, residual-from-table
+- S.B. Lines, angles, triangles: 7 / 2 — needs parallel-lines-transversal-with-system, special-right-triangles
+- Q.A. Ratios / rates: 8 / 2 — needs scale-drawing, mixture, density patterns
+- H.C. Lines in xy-plane: 11 / 3 — needs distance-formula, midpoint-formula
+- Q.C. One-variable data: 12 / 3 — needs box-plot, std-deviation-comparison
+- P.A. Equivalent Expressions: 17 / 4 — needs factor-by-grouping, simplify-radicals
+- S.D. Circles: 17 / 4 — needs arc-length, sector-area, inscribed-angle
+
+Each represents ~8-15 items of authoring to reach healthy. Defer unless telemetry shows real student demand or PT12+ tests start emphasizing them.

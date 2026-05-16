@@ -4172,5 +4172,113 @@ export const problemSolvingBank = [
     choices: [{ id: 'A', text: '$20$' }, { id: 'B', text: '$40$' }, { id: 'C', text: '$60$' }, { id: 'D', text: '$160$' }],
     correctAnswer: 'B',
     explanation: "**SAT Pattern: Compound Percent Of**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** $\\dfrac{2}{3} \\cdot 240 \\cdot 0.25 = 160 \\cdot 0.25 = 40$.\n\n**The Full Solution:**\nStep 1: Chocolate candies $= \\dfrac{2}{3} \\cdot 240 = 160$.\nStep 2: Of those, with nuts $= 0.25 \\cdot 160 = 40$.\n\nVerification: net rate $= \\dfrac{2}{3} \\cdot 0.25 = \\dfrac{1}{6}$. $240 / 6 = 40$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A ($20$): one arithmetic error — divides the chocolate count by $8$ instead of multiplying by $0.25$.\n* Choice C ($60$): $0.25 \\cdot 240$ — applies the nut rate to ALL candies, ignoring the chocolate filter.\n* Choice D ($160$): stops at chocolates.\n\n**Test Day Takeaway:** When one of the 'percents' is given as a FRACTION (like $2/3$), convert it consistently. Don't switch between fraction and decimal arithmetic — pick one and stay with it.",
-    calculatorAllowed: false, tags: [], sourceStyleRef: 'compound-percent-of', authoredBy: 'performsat-engine', createdAt: '2026-05-16' }
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'compound-percent-of', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  // ─── PROBABILITY WITHOUT REPLACEMENT (bank-ps-262..269) ───────────────────
+  // Sequential probabilities where the population shrinks. Distinct from
+  // with-replacement because the second draw's denominator is N-1, not N.
+  { id: 'bank-ps-262', domain: 'problem-solving', skills: ['probability-basics'], difficulty: 'easy', type: 'multiple-choice',
+    question: 'A bag contains $5$ red marbles and $3$ blue marbles. Two marbles are drawn at random without replacement. What is the probability that both marbles are red?',
+    choices: [{ id: 'A', text: '$\\dfrac{5}{14}$' }, { id: 'B', text: '$\\dfrac{25}{64}$' }, { id: 'C', text: '$\\dfrac{5}{8}$' }, { id: 'D', text: '$\\dfrac{1}{2}$' }],
+    correctAnswer: 'A',
+    explanation: "**SAT Pattern: Probability Without Replacement**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** $P(R_1 \\cap R_2) = \\dfrac{5}{8} \\cdot \\dfrac{4}{7} = \\dfrac{20}{56} = \\dfrac{5}{14}$.\n\n**The Full Solution:**\nFirst draw: $5$ red of $8$ total $\\Rightarrow P(R_1) = 5/8$.\nSecond draw (after removing one red): $4$ red of $7$ total $\\Rightarrow P(R_2 | R_1) = 4/7$.\nJoint: $5/8 \\cdot 4/7 = 20/56 = 5/14$.\n\n**Why the wrong answers are tempting:**\n* B ($25/64$): treats as WITH replacement: $(5/8)^2$.\n* C ($5/8$): just the first-draw probability.\n* D ($1/2$): adds rather than multiplies, or some other arithmetic slip.\n\n**Test Day Takeaway:** Without replacement: the second draw's denominator DROPS by $1$, and the favorable count drops by $1$ if the prior matched.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'probability-without-replacement', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-ps-263', domain: 'problem-solving', skills: ['probability-basics'], difficulty: 'easy', type: 'multiple-choice',
+    question: 'A drawer holds $6$ pencils and $4$ pens. Two items are pulled out at random without replacement. What is the probability that the first item is a pencil and the second is a pen?',
+    choices: [{ id: 'A', text: '$\\dfrac{4}{15}$' }, { id: 'B', text: '$\\dfrac{6}{25}$' }, { id: 'C', text: '$\\dfrac{2}{5}$' }, { id: 'D', text: '$\\dfrac{12}{45}$' }],
+    correctAnswer: 'A',
+    explanation: "**SAT Pattern: Probability Without Replacement**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** $P(\\text{pencil then pen}) = \\dfrac{6}{10} \\cdot \\dfrac{4}{9} = \\dfrac{24}{90} = \\dfrac{4}{15}$.\n\n**The Full Solution:**\nFirst draw: $P(\\text{pencil}) = 6/10$.\nSecond draw (no replacement; pencil removed): $P(\\text{pen}) = 4/9$.\nJoint: $6/10 \\cdot 4/9 = 4/15$.\n\nVerification: $24/90 = 4/15$ after dividing by $6$.\n\n**Why the wrong answers are tempting:**\n* B: with replacement, $6/10 \\cdot 4/10$.\n* C: marginal $P(\\text{pencil})$ alone.\n* D ($12/45$): off by an arithmetic factor (wrong denominator).\n\n**Test Day Takeaway:** Order matters when 'first this, then that': multiply the conditional probabilities sequentially.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'probability-without-replacement', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-ps-264', domain: 'problem-solving', skills: ['probability-basics'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'A deck contains $4$ aces among $52$ cards. Two cards are drawn at random without replacement. What is the probability that both cards are aces?',
+    choices: [{ id: 'A', text: '$\\dfrac{1}{169}$' }, { id: 'B', text: '$\\dfrac{1}{221}$' }, { id: 'C', text: '$\\dfrac{1}{13}$' }, { id: 'D', text: '$\\dfrac{4}{52}$' }],
+    correctAnswer: 'B',
+    explanation: "**SAT Pattern: Probability Without Replacement**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $\\dfrac{4}{52} \\cdot \\dfrac{3}{51} = \\dfrac{12}{2652} = \\dfrac{1}{221}$.\n\n**The Full Solution:**\nFirst ace: $4/52 = 1/13$.\nSecond ace (3 aces left in 51 cards): $3/51 = 1/17$.\nJoint: $1/13 \\cdot 1/17 = 1/221$.\n\n**Why the wrong answers are tempting:**\n* A ($1/169$): WITH replacement $(1/13)^2 = 1/169$.\n* C ($1/13$): just $P(\\text{first ace})$.\n* D ($4/52$): same — marginal alone.\n\n**Test Day Takeaway:** Drawing two aces from a deck WITHOUT replacement: $\\dfrac{4 \\cdot 3}{52 \\cdot 51}$, not $(4/52)^2$.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'probability-without-replacement', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-ps-265', domain: 'problem-solving', skills: ['probability-basics'], difficulty: 'medium', type: 'fill-in',
+    question: 'A box contains $8$ marbles, of which $3$ are red. Two marbles are drawn at random without replacement. What is the probability that NEITHER of them is red? Express your answer as a fraction in lowest terms.',
+    correctAnswer: '5/14',
+    explanation: "**SAT Pattern: Probability Without Replacement**\n\n**The correct answer is $\\dfrac{5}{14}$.**\n\n**The Fast Way (~10s):** $P(\\text{neither red}) = \\dfrac{5}{8} \\cdot \\dfrac{4}{7} = \\dfrac{20}{56} = \\dfrac{5}{14}$.\n\n**The Full Solution:**\nFirst draw not red: $5/8$ (5 non-red of 8).\nSecond draw not red: $4/7$ (4 non-red of 7 remaining).\nJoint: $5/8 \\cdot 4/7 = 20/56$, which reduces to $5/14$ (divide by $4$).\n\n**Common Mistakes:**\n* Reporting $\\dfrac{15}{56}$: uses $5/8 \\cdot 3/7$ (mistakes 'not red' counts).\n* Reporting $\\dfrac{5}{16}$: uses $(5/8)^2$ (with-replacement form).\n\n**Test Day Takeaway:** When asked for 'neither A', track the NON-A counts and apply without-replacement to those. Reduce the final fraction.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'probability-without-replacement', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-ps-266', domain: 'problem-solving', skills: ['probability-basics'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'A class has $12$ students, $5$ of whom are seniors. The teacher randomly selects $2$ different students to be hall monitors. What is the probability that both monitors are seniors?',
+    choices: [{ id: 'A', text: '$\\dfrac{5}{33}$' }, { id: 'B', text: '$\\dfrac{25}{144}$' }, { id: 'C', text: '$\\dfrac{5}{12}$' }, { id: 'D', text: '$\\dfrac{1}{6}$' }],
+    correctAnswer: 'A',
+    explanation: "**SAT Pattern: Probability Without Replacement**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** $P = \\dfrac{5}{12} \\cdot \\dfrac{4}{11} = \\dfrac{20}{132} = \\dfrac{5}{33}$.\n\n**The Full Solution:**\nFirst pick a senior: $5/12$.\nSecond pick a senior (one already chosen): $4/11$.\nJoint: $5/12 \\cdot 4/11 = 20/132 = 5/33$.\n\nVerification: gcd($20, 132$) = $4$; $20/4 = 5$ and $132/4 = 33$.\n\n**Why the wrong answers are tempting:**\n* B ($25/144$): WITH replacement $(5/12)^2$.\n* C ($5/12$): one-draw probability.\n* D ($1/6$): rough estimate, not exact.\n\n**Test Day Takeaway:** Selecting people to roles where order doesn't matter (both 'monitors'): the without-replacement probability is the same whether you think of it as ordered draws or as a single combination — multiply pairwise.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'probability-without-replacement', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-ps-267', domain: 'problem-solving', skills: ['probability-basics'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'A jar contains $4$ green and $6$ yellow marbles. Three marbles are drawn at random without replacement. What is the probability that ALL THREE are yellow?',
+    choices: [{ id: 'A', text: '$\\dfrac{1}{6}$' }, { id: 'B', text: '$\\dfrac{1}{3}$' }, { id: 'C', text: '$\\dfrac{27}{125}$' }, { id: 'D', text: '$\\dfrac{1}{120}$' }],
+    correctAnswer: 'A',
+    explanation: "**SAT Pattern: Probability Without Replacement**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** $\\dfrac{6}{10} \\cdot \\dfrac{5}{9} \\cdot \\dfrac{4}{8} = \\dfrac{120}{720} = \\dfrac{1}{6}$.\n\n**The Full Solution:**\n$P(\\text{yellow}_1) = 6/10$; $P(\\text{yellow}_2 | \\text{yellow}_1) = 5/9$; $P(\\text{yellow}_3 | \\text{yellow}_1 \\cap \\text{yellow}_2) = 4/8$.\nProduct: $6/10 \\cdot 5/9 \\cdot 4/8 = 120/720 = 1/6$.\n\n**Why the wrong answers are tempting:**\n* B ($1/3$): only does two draws.\n* C ($27/125$): treats it as WITH replacement $(6/10)^3 = 216/1000$ — wrong arithmetic.\n* D ($1/120$): divides by something wrong.\n\n**Test Day Takeaway:** Three sequential draws without replacement multiply three fractions: $N/T$ then $(N-1)/(T-1)$ then $(N-2)/(T-2)$.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'probability-without-replacement', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-ps-268', domain: 'problem-solving', skills: ['probability-basics'], difficulty: 'hard', type: 'multiple-choice',
+    question: 'A bag contains $4$ red, $3$ green, and $5$ blue marbles ($12$ total). Three marbles are drawn at random one at a time without replacement. What is the probability that the three marbles drawn are one red, one green, and one blue (in any order)?',
+    choices: [{ id: 'A', text: '$\\dfrac{3}{11}$' }, { id: 'B', text: '$\\dfrac{1}{22}$' }, { id: 'C', text: '$\\dfrac{60}{1320}$' }, { id: 'D', text: '$\\dfrac{1}{6}$' }],
+    correctAnswer: 'A',
+    explanation: "**SAT Pattern: Probability Without Replacement**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** Number of favorable ordered sequences: $3! \\cdot (4 \\cdot 3 \\cdot 5) = 360$. Total ordered: $12 \\cdot 11 \\cdot 10 = 1320$. $P = 360/1320 = 3/11$.\n\n**The Full Solution:**\nCount favorable ordered outcomes: pick one R, one G, one B in any order. Number of orderings: $3! = 6$. Number of ways for each ordering: $4 \\cdot 3 \\cdot 5 = 60$ (one of each color). Total: $6 \\cdot 60 = 360$.\n\nTotal ordered draws of 3 from 12: $12 \\cdot 11 \\cdot 10 = 1320$.\n\n$P = 360/1320 = 3/11$.\n\nVerification: gcd($360, 1320$) = $120$; $360/120 = 3$ and $1320/120 = 11$.\n\n**Why the wrong answers are tempting:**\n* B: divides by some wrong number.\n* C ($60/1320$): forgets to multiply by $3!$ orderings — gives $P$(specific order: R, G, B) only.\n* D ($1/6$): unrelated arithmetic.\n\n**Test Day Takeaway:** 'In any order': multiply the favorable count by the number of orderings, $3! = 6$ for three distinct slots.",
+    calculatorAllowed: true, tags: [], sourceStyleRef: 'probability-without-replacement', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-ps-269', domain: 'problem-solving', skills: ['probability-basics'], difficulty: 'hard', type: 'fill-in',
+    question: 'A box has $10$ cards, of which $4$ are winners. Three cards are drawn at random without replacement. What is the probability that EXACTLY one is a winner? Express your answer as a decimal rounded to the nearest hundredth.',
+    correctAnswer: '0.5',
+    explanation: "**SAT Pattern: Probability Without Replacement**\n\n**The correct answer is $0.5$ (i.e., $1/2$).**\n\n**The Fast Way (~25s):** $P = \\dfrac{\\binom{4}{1} \\binom{6}{2}}{\\binom{10}{3}} = \\dfrac{4 \\cdot 15}{120} = \\dfrac{60}{120} = 0.5$.\n\n**The Full Solution:**\nNumber of ways to pick 1 winner from 4: $\\binom{4}{1} = 4$.\nNumber of ways to pick 2 losers from 6: $\\binom{6}{2} = 15$.\nTotal ways to pick any 3 from 10: $\\binom{10}{3} = 120$.\n\n$P = (4 \\cdot 15) / 120 = 60/120 = 0.5$.\n\nVerification: alternative counting. Specific ordering W-L-L: $4/10 \\cdot 6/9 \\cdot 5/8 = 120/720 = 1/6$. There are $\\binom{3}{1} = 3$ positions for the winner: total $3 \\cdot 1/6 = 1/2$ \\checkmark.\n\n**Common Mistakes:**\n* Reporting $0.4$: uses $4/10$ marginal.\n* Reporting $0.06$: forgets to multiply by orderings ($3$ positions).\n* Reporting $0.20$: arithmetic error.\n\n**Test Day Takeaway:** 'Exactly one winner in 3 draws' is a combinations question. Use $\\binom{W}{1} \\binom{L}{n-1} / \\binom{T}{n}$ when $W, L, T$ are winners, losers, total and $n$ is the draw size.",
+    calculatorAllowed: true, tags: [], sourceStyleRef: 'probability-without-replacement', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  // ─── Q.G. STATISTICAL CLAIMS — HEALTHY PUSH (bank-ps-270..273) ────────────
+  // 2 obs-vs-exp + 2 scope-of-inference items to lift Q.G. from 16 → 20
+  // (healthy CB-skill threshold).
+  { id: 'bank-ps-270', domain: 'problem-solving', skills: ['observational-vs-experimental', 'causation-vs-association'], difficulty: 'easy', type: 'multiple-choice',
+    question: 'A study tracks the daily exercise habits of $300$ adults over $6$ months and finds that adults who report exercising daily also report fewer headaches. Which conclusion is best supported by the study?',
+    choices: [
+      { id: 'A', text: 'Daily exercise causes a reduction in headaches.' },
+      { id: 'B', text: 'There is an association between daily exercise and fewer headaches, but causation cannot be established.' },
+      { id: 'C', text: 'Frequent headaches cause adults to exercise less.' },
+      { id: 'D', text: 'Exercise and headache frequency are unrelated.' },
+    ],
+    correctAnswer: 'B',
+    explanation: "**SAT Pattern: Observational vs Experimental Study**\n\n**Choice B is correct.**\n\n**The Key Distinction:** This is observational tracking. Adults were not randomly assigned to exercise / no-exercise groups. Confounding variables (overall health, age, lifestyle) could explain the association.\n\n**Why the wrong answers are tempting:**\n* A: causal claim from observational data.\n* C: reverse-direction causation — equally unsupported.\n* D: contradicts the observed association.\n\n**Test Day Takeaway:** 'Tracks habits' / 'finds an association' = OBSERVATIONAL. Causation needs random assignment.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'observational-vs-experimental', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-ps-271', domain: 'problem-solving', skills: ['observational-vs-experimental', 'causation-vs-association'], difficulty: 'hard', type: 'multiple-choice',
+    question: 'A pharmaceutical company plans a study to determine whether a new drug reduces cholesterol in adults with elevated cholesterol. Which study design would provide the STRONGEST evidence of a causal effect?',
+    choices: [
+      { id: 'A', text: 'Survey $500$ adults with elevated cholesterol about whether they take the drug.' },
+      { id: 'B', text: 'Track $1{,}000$ adults who began taking the drug five years ago and compare their current cholesterol to a database average.' },
+      { id: 'C', text: 'Randomly assign $400$ adults to receive either the drug or a placebo for $12$ weeks, double-blind, and compare cholesterol changes.' },
+      { id: 'D', text: 'Compare drug users and non-users in a hospital database for the past decade.' },
+    ],
+    correctAnswer: 'C',
+    explanation: "**SAT Pattern: Observational vs Experimental Study**\n\n**Choice C is correct.**\n\n**The Key Distinction:** Only randomized double-blind controlled trials provide the strongest causal evidence. Random assignment balances out confounders on average. Double-blinding controls for placebo and observer biases.\n\n**Why the wrong answers are tempting:**\n* A: survey is observational; self-selection bias dominates.\n* B: longitudinal tracking of existing users is observational; no control group.\n* D: database comparison is observational; confounders abound (initial cholesterol differences, lifestyle differences).\n\n**Test Day Takeaway:** RCT signal words: 'randomly assigned,' 'placebo,' 'control group,' 'double-blind.' These together are the gold standard for causal inference.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'observational-vs-experimental', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-ps-272', domain: 'problem-solving', skills: ['scope-of-inference', 'sampling-and-generalization'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'A research team conducted a phone poll among $1{,}500$ registered voters in one city who use landline telephones. They reported that $52\\%$ of those polled support a new city ordinance. To which population does this estimate most defensibly apply?',
+    choices: [
+      { id: 'A', text: 'All adults in the city.' },
+      { id: 'B', text: 'Registered voters in the city who use landlines.' },
+      { id: 'C', text: 'All registered voters in the state.' },
+      { id: 'D', text: 'Future voters in the city.' },
+    ],
+    correctAnswer: 'B',
+    explanation: "**SAT Pattern: Scope of Inference**\n\n**Choice B is correct.**\n\n**The Key Rule:** Inference generalizes to the EXACT sampled population. The sample is registered voters in this city who use landlines — that defines the scope.\n\n**Why the wrong answers are tempting:**\n* A: too broad — adults who AREN'T registered or DON'T use landlines weren't sampled.\n* C: too broad geographically.\n* D: future voters are not the polled group; even current voters' future opinions may shift.\n\n**Test Day Takeaway:** 'Landline-only' sampling SYSTEMATICALLY EXCLUDES cell-phone-only users. Watch for these methodological narrows when identifying the population.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'scope-of-inference', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-ps-273', domain: 'problem-solving', skills: ['scope-of-inference', 'sampling-and-generalization'], difficulty: 'hard', type: 'multiple-choice',
+    question: 'A research team randomly selected $400$ middle-aged adults from a large suburb and tracked their cardiovascular health and weekly exercise habits for $3$ years. They found that weekly exercise was associated with better cardiovascular outcomes. Which conclusion is the strongest scope-of-inference statement?',
+    choices: [
+      { id: 'A', text: 'All adults nationwide who exercise weekly have better cardiovascular health.' },
+      { id: 'B', text: 'Middle-aged adults in the studied suburb who exercise weekly tend to have better cardiovascular health — and only an association, not causation.' },
+      { id: 'C', text: 'Children and teenagers in this suburb benefit from weekly exercise.' },
+      { id: 'D', text: 'Weekly exercise causes better cardiovascular health for everyone in this suburb.' },
+    ],
+    correctAnswer: 'B',
+    explanation: "**SAT Pattern: Scope of Inference**\n\n**Choice B is correct.**\n\n**The Key Rule:** This study has random SAMPLING from middle-aged adults in one suburb, but does NOT have random ASSIGNMENT to exercise vs no-exercise groups. So:\n  - Population scope: middle-aged adults in this suburb (the sampled group).\n  - Claim type: association only (no random assignment to support causation).\nChoice B threads both correctly.\n\n**Why the wrong answers are tempting:**\n* A: extrapolates beyond the sampled suburb AND assumes causation.\n* C: completely different population (children/teens).\n* D: causal claim without random assignment.\n\n**Test Day Takeaway:** Random sampling = scope of generalization (to whom the result applies). Random assignment = causal-claim license. They're independent — a study can have one without the other, and the conclusion must reflect what's present.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'scope-of-inference', authoredBy: 'performsat-engine', createdAt: '2026-05-16' }
 ];

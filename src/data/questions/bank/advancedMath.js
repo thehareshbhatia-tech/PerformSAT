@@ -3675,5 +3675,352 @@ export const advancedMathBank = [
     question: 'In the $xy$-plane, the line $y = 7x + a$ is tangent to the parabola $y = x^2 + 5x + 11$, where $a$ is a constant. What is the $x$-coordinate of the point of tangency?',
     correctAnswer: '1',
     explanation: "**SAT Pattern: Tangent Line and Discriminant**\n\n**The correct answer is $1$.**\n\n**The Fast Way (~25s):** Set equal: $x^2 + 5x + 11 = 7x + a \\Rightarrow x^2 - 2x + (11 - a) = 0$. Double root at $x_0 = -(-2)/2 = 1$.\n\n**The Full Solution:**\n$x^2 + 5x + 11 = 7x + a$\n$x^2 - 2x + (11 - a) = 0$.\nTangency: $\\Delta = 4 - 4(11 - a) = 0 \\Rightarrow 11 - a = 1 \\Rightarrow a = 10$.\nDouble root: $x_0 = -(-2)/(2 \\cdot 1) = 1$.\n\nVerification at $a = 10$: $x^2 - 2x + 1 = (x - 1)^2 = 0$, so $x = 1$. Then $y = 7(1) + 10 = 17$ and $y = 1 + 5 + 11 = 17$ \\checkmark.\n\n**Common Mistakes:**\n* Reporting $10$ — solves for $a$ instead of $x_0$. The question asks for the x-coordinate.\n* Reporting $2$ — uses $-B$ without dividing by $2A$.\n* Reporting $-1$ — sign flip on $-B/(2A)$.\n\n**Test Day Takeaway:** When the line has a parameter $a$ in the CONSTANT term, the tangent x-coordinate is fully determined by the LEADING and MIDDLE coefficients after rearrangement. $a$ controls vertical position, not horizontal.",
-    calculatorAllowed: false, tags: [], sourceStyleRef: 'tangent-line-and-discriminant', authoredBy: 'performsat-engine', createdAt: '2026-05-16' }
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'tangent-line-and-discriminant', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  // ─── VERTICAL SHIFT (bank-am-239..246) ───────────────────────────────────
+  // y = f(x) + k shifts vertically. Distinct from horizontal shift,
+  // reflection, and vertical stretch in METHOD (you add/subtract k from y).
+  { id: 'bank-am-239', domain: 'advanced-math', skills: ['function-transformations'], difficulty: 'easy', type: 'multiple-choice',
+    question: 'The function $g$ is defined by $g(x) = f(x) + 3$. If $f(2) = 5$, what is the value of $g(2)$?',
+    choices: [{ id: 'A', text: '$2$' }, { id: 'B', text: '$5$' }, { id: 'C', text: '$8$' }, { id: 'D', text: '$15$' }],
+    correctAnswer: 'C',
+    explanation: "**SAT Pattern: Vertical Shift**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** $g(2) = f(2) + 3 = 5 + 3 = 8$.\n\n**The Full Solution:**\nVertical shift adds $3$ to every $y$-value of $f$: $g(2) = f(2) + 3 = 5 + 3 = 8$.\n\nVerification: the rule $g = f + 3$ means each point on $g$ is $3$ units above the corresponding point on $f$.\n\n**Why the wrong answers are tempting:**\n* A ($2$): reports the input ($x = 2$).\n* B ($5$): reports $f(2)$ unchanged — forgets the $+3$ shift.\n* D ($15$): multiplies by $3$ instead of adding.\n\n**Test Day Takeaway:** $f(x) + k$ shifts the graph $k$ units UP (or DOWN if $k < 0$). Applied pointwise to the $y$-values.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'vertical-shift', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-am-240', domain: 'advanced-math', skills: ['function-transformations'], difficulty: 'easy', type: 'multiple-choice',
+    question: 'The graph of $y = f(x) + 7$ in the $xy$-plane is the graph of $y = f(x)$ shifted in which direction?',
+    choices: [{ id: 'A', text: '$7$ units up' }, { id: 'B', text: '$7$ units down' }, { id: 'C', text: '$7$ units right' }, { id: 'D', text: '$7$ units left' }],
+    correctAnswer: 'A',
+    explanation: "**SAT Pattern: Vertical Shift**\n\n**Choice A is correct.**\n\n**The Fast Way (~5s):** Adding outside the function ($+ 7$) shifts the graph UP $7$ units.\n\n**The Full Solution:**\nThe transformation $y = f(x) + k$ adds $k$ to every $y$-value. Positive $k$ moves the graph UP; negative $k$ moves it DOWN. Horizontal shifts come from changes INSIDE the function, like $f(x - h)$.\n\n**Why the wrong answers are tempting:**\n* B: opposite vertical direction.\n* C: confuses outside-shift with inside-shift; horizontal shifts are $f(x \\pm h)$, not $f(x) \\pm k$.\n* D: same confusion as C, opposite horizontal direction.\n\n**Test Day Takeaway:** OUTSIDE the function = VERTICAL shift, intuitive direction (+ is up). INSIDE the function = HORIZONTAL shift, opposite direction (subtract = right).",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'vertical-shift', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-am-241', domain: 'advanced-math', skills: ['function-transformations'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'The function $f$ satisfies $f(0) = 4$. If $g(x) = f(x) - 5$, what is the value of $g(0)$?',
+    choices: [{ id: 'A', text: '$-9$' }, { id: 'B', text: '$-1$' }, { id: 'C', text: '$4$' }, { id: 'D', text: '$9$' }],
+    correctAnswer: 'B',
+    explanation: "**SAT Pattern: Vertical Shift**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** $g(0) = f(0) - 5 = 4 - 5 = -1$.\n\n**The Full Solution:**\nVertical shift down by $5$: $g(0) = f(0) - 5 = -1$.\n\n**Why the wrong answers are tempting:**\n* A ($-9$): adds $-5 - 4 = -9$ instead of $4 - 5 = -1$.\n* C ($4$): reports $f(0)$ unchanged.\n* D ($9$): adds instead of subtracts.\n\n**Test Day Takeaway:** Vertical shift down by $k$: subtract $k$ from $f(x)$.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'vertical-shift', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-am-242', domain: 'advanced-math', skills: ['function-transformations'], difficulty: 'medium', type: 'fill-in',
+    question: 'The graph of $y = f(x)$ in the $xy$-plane has a maximum value of $8$. What is the maximum value of $y = f(x) + 2$?',
+    correctAnswer: '10',
+    explanation: "**SAT Pattern: Vertical Shift**\n\n**The correct answer is $10$.**\n\n**The Fast Way (~5s):** Shift up by $2$: new maximum $= 8 + 2 = 10$.\n\n**The Full Solution:**\nVertical shift adds the same constant to EVERY $y$-value, including the maximum. So the new maximum is $8 + 2 = 10$. The $x$-coordinate of the maximum stays the same.\n\n**Test Day Takeaway:** Vertical shift preserves $x$-coordinates of extrema and shifts $y$-coordinates by $k$.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'vertical-shift', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-am-243', domain: 'advanced-math', skills: ['function-transformations'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'If $h(x) = x^2$, which of the following functions represents the graph of $h$ shifted DOWN by $5$ units?',
+    choices: [{ id: 'A', text: '$h(x) = (x - 5)^2$' }, { id: 'B', text: '$h(x) = (x + 5)^2$' }, { id: 'C', text: '$h(x) = x^2 - 5$' }, { id: 'D', text: '$h(x) = x^2 + 5$' }],
+    correctAnswer: 'C',
+    explanation: "**SAT Pattern: Vertical Shift**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** Shift DOWN $5$ = subtract $5$ on the OUTSIDE: $x^2 - 5$.\n\n**The Full Solution:**\nOutside changes affect $y$-values: $h(x) - 5$ moves the graph down $5$ units. Inside changes affect $x$-values (horizontal shifts).\n\n**Why the wrong answers are tempting:**\n* A: $(x - 5)^2$ shifts the graph RIGHT $5$, not down.\n* B: $(x + 5)^2$ shifts the graph LEFT $5$.\n* D: $x^2 + 5$ shifts the graph UP $5$, not down.\n\n**Test Day Takeaway:** To shift down by $k$, subtract $k$ OUTSIDE the function. Don't move the subtraction inside the squared term.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'vertical-shift', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-am-244', domain: 'advanced-math', skills: ['function-transformations'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'The graph of $y = g(x)$ in the $xy$-plane passes through the point $(3, 7)$. Which of the following points must lie on the graph of $y = g(x) - 4$?',
+    choices: [{ id: 'A', text: '$(-1, 7)$' }, { id: 'B', text: '$(3, 3)$' }, { id: 'C', text: '$(3, 11)$' }, { id: 'D', text: '$(7, 3)$' }],
+    correctAnswer: 'B',
+    explanation: "**SAT Pattern: Vertical Shift**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** Vertical shift down $4$: $x$ stays at $3$, $y$ drops from $7$ to $7 - 4 = 3$.\n\n**The Full Solution:**\n$y = g(x) - 4$ takes every point $(a, b)$ on $g$ and maps it to $(a, b - 4)$. So $(3, 7)$ becomes $(3, 3)$.\n\n**Why the wrong answers are tempting:**\n* A: subtracts from $x$-coordinate — confuses vertical and horizontal shifts.\n* C: adds $4$ to $y$ — wrong direction.\n* D: swaps coordinates.\n\n**Test Day Takeaway:** Vertical shift moves $y$-coordinate only. $x$ is preserved.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'vertical-shift', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-am-245', domain: 'advanced-math', skills: ['function-transformations'], difficulty: 'hard', type: 'multiple-choice',
+    question: 'The graph of $y = (x - 3)^2 + 5$ is the graph of $y = (x - 3)^2 + 2$ transformed in which way?',
+    choices: [{ id: 'A', text: 'shifted $3$ units up' }, { id: 'B', text: 'shifted $3$ units down' }, { id: 'C', text: 'shifted $5$ units up' }, { id: 'D', text: 'shifted $2$ units up' }],
+    correctAnswer: 'A',
+    explanation: "**SAT Pattern: Vertical Shift**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Both share $(x - 3)^2$. Constants differ by $5 - 2 = 3$. So the new graph is $3$ units up.\n\n**The Full Solution:**\nThe parts inside (i.e., $(x - 3)^2$) are identical, so the horizontal shape is the same. The constants (vertex $y$-values) differ by $5 - 2 = 3$, so the new graph is $3$ units higher than the old.\n\n**Why the wrong answers are tempting:**\n* B: opposite direction.\n* C ($5$): reports the new constant alone.\n* D ($2$): reports the old constant alone.\n\n**Test Day Takeaway:** When two vertex-form graphs have the same $(x - h)^2$ part but different constants $k_1, k_2$, the difference $k_2 - k_1$ is the vertical shift between them.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'vertical-shift', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-am-246', domain: 'advanced-math', skills: ['function-transformations'], difficulty: 'hard', type: 'fill-in',
+    question: 'The graph of $y = f(x) + k$ in the $xy$-plane passes through the point $(0, 10)$. If $f(0) = -2$, what is the value of $k$?',
+    correctAnswer: '12',
+    explanation: "**SAT Pattern: Vertical Shift**\n\n**The correct answer is $12$.**\n\n**The Fast Way (~10s):** $y = f(0) + k = -2 + k = 10 \\Rightarrow k = 12$.\n\n**The Full Solution:**\nAt $x = 0$: $y = f(0) + k = -2 + k$. The graph passes through $(0, 10)$, so $-2 + k = 10$, giving $k = 12$.\n\nVerification: $y = f(0) + 12 = -2 + 12 = 10$ \\checkmark.\n\n**Test Day Takeaway:** To find an unknown shift constant, plug in a known point and solve.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'vertical-shift', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  // ─── HORIZONTAL SHIFT (bank-am-247..254) ─────────────────────────────────
+  // y = f(x ± h). Counter-intuitive sign: f(x - h) shifts RIGHT, f(x + h) LEFT.
+  { id: 'bank-am-247', domain: 'advanced-math', skills: ['function-transformations'], difficulty: 'easy', type: 'multiple-choice',
+    question: 'If $g(x) = f(x - 4)$ and $f(3) = 7$, what is the value of $g(7)$?',
+    choices: [{ id: 'A', text: '$3$' }, { id: 'B', text: '$4$' }, { id: 'C', text: '$7$' }, { id: 'D', text: '$11$' }],
+    correctAnswer: 'C',
+    explanation: "**SAT Pattern: Horizontal Shift**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** $g(7) = f(7 - 4) = f(3) = 7$.\n\n**The Full Solution:**\nApply the rule: $g(x) = f(x - 4)$, so $g(7) = f(7 - 4) = f(3) = 7$.\n\n**Why the wrong answers are tempting:**\n* A ($3$): reports the shifted input.\n* B ($4$): reports the shift amount.\n* D ($11$): adds $7 + 4$ — uses $+ 4$ instead of $- 4$ in the substitution.\n\n**Test Day Takeaway:** For $g(x) = f(x - h)$, the input to $f$ at any $x$ is $x - h$. The shift is on the INPUT, not the output.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'horizontal-shift', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-am-248', domain: 'advanced-math', skills: ['function-transformations'], difficulty: 'easy', type: 'multiple-choice',
+    question: 'In the $xy$-plane, the graph of $y = f(x + 5)$ is the graph of $y = f(x)$ shifted in which direction?',
+    choices: [{ id: 'A', text: '$5$ units up' }, { id: 'B', text: '$5$ units down' }, { id: 'C', text: '$5$ units left' }, { id: 'D', text: '$5$ units right' }],
+    correctAnswer: 'C',
+    explanation: "**SAT Pattern: Horizontal Shift**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** $f(x + 5)$ shifts the graph $5$ units LEFT (opposite of the sign inside).\n\n**The Full Solution:**\nInside-function shifts go OPPOSITE the apparent direction: $f(x + h)$ shifts LEFT by $h$; $f(x - h)$ shifts RIGHT by $h$. The intuition: to get the same output as $f$ once had at $x = 5$, you now feed in $x = 0$ (since $0 + 5 = 5$). The graph 'arrives' at $x = 0$ that used to be at $x = 5$ — it moved left.\n\n**Why the wrong answers are tempting:**\n* A/B: vertical shifts come from OUTSIDE the function, not inside.\n* D: wrong direction; positive inside means LEFT, not right.\n\n**Test Day Takeaway:** Inside-function sign FLIPS the direction. Memorize: $f(x + h) =$ LEFT, $f(x - h) =$ RIGHT.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'horizontal-shift', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-am-249', domain: 'advanced-math', skills: ['function-transformations'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'If $h(x) = x^2$, which of the following functions represents the graph of $h$ shifted to the RIGHT by $3$ units?',
+    choices: [{ id: 'A', text: '$h(x) = (x - 3)^2$' }, { id: 'B', text: '$h(x) = (x + 3)^2$' }, { id: 'C', text: '$h(x) = x^2 - 3$' }, { id: 'D', text: '$h(x) = x^2 + 3$' }],
+    correctAnswer: 'A',
+    explanation: "**SAT Pattern: Horizontal Shift**\n\n**Choice A is correct.**\n\n**The Fast Way (~5s):** Shift RIGHT $3$ = SUBTRACT $3$ inside: $(x - 3)^2$.\n\n**The Full Solution:**\nInside-function shift: $f(x - h)$ moves the graph RIGHT by $h$. So shifting $x^2$ right by $3$ gives $(x - 3)^2$.\n\n**Why the wrong answers are tempting:**\n* B: $(x + 3)^2$ shifts LEFT, not right.\n* C: $x^2 - 3$ shifts DOWN, not right.\n* D: $x^2 + 3$ shifts UP, not right.\n\n**Test Day Takeaway:** Right = subtract inside. Left = add inside. Up = add outside. Down = subtract outside.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'horizontal-shift', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-am-250', domain: 'advanced-math', skills: ['function-transformations'], difficulty: 'medium', type: 'fill-in',
+    question: 'The graph of $y = f(x)$ in the $xy$-plane has its vertex at $(2, -1)$. The graph of $y = f(x + 6)$ has its vertex at $(a, -1)$. What is the value of $a$?',
+    correctAnswer: '-4',
+    explanation: "**SAT Pattern: Horizontal Shift**\n\n**The correct answer is $-4$.**\n\n**The Fast Way (~5s):** $f(x + 6)$ shifts the graph LEFT $6$ units. New vertex $x = 2 - 6 = -4$.\n\n**The Full Solution:**\nThe vertex of $y = f(x + 6)$ is the vertex of $y = f(x)$ shifted left by $6$: $(2, -1) \\to (2 - 6, -1) = (-4, -1)$.\n\nVerification: if the original vertex is where $f(2)$ takes its extreme value, then the shifted vertex is where $f(x + 6) = f(2)$, i.e., where $x + 6 = 2 \\Rightarrow x = -4$ \\checkmark.\n\n**Test Day Takeaway:** Vertex shifts the same way the graph does. $f(x + h)$ moves the vertex LEFT by $h$.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'horizontal-shift', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-am-251', domain: 'advanced-math', skills: ['function-transformations'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'The graph of $y = g(x)$ in the $xy$-plane passes through the point $(5, 12)$. Which of the following points must lie on the graph of $y = g(x - 3)$?',
+    choices: [{ id: 'A', text: '$(2, 12)$' }, { id: 'B', text: '$(5, 9)$' }, { id: 'C', text: '$(5, 15)$' }, { id: 'D', text: '$(8, 12)$' }],
+    correctAnswer: 'D',
+    explanation: "**SAT Pattern: Horizontal Shift**\n\n**Choice D is correct.**\n\n**The Fast Way (~5s):** $g(x - 3)$ shifts RIGHT $3$. So $(5, 12) \\to (8, 12)$.\n\n**The Full Solution:**\nThe rule: any point $(a, b)$ on $y = g(x)$ becomes $(a + 3, b)$ on $y = g(x - 3)$ — verify by checking $g((a + 3) - 3) = g(a) = b$. So $(5, 12) \\to (8, 12)$.\n\n**Why the wrong answers are tempting:**\n* A: subtracts from $x$ — wrong direction.\n* B: subtracts from $y$ — confuses vertical/horizontal.\n* C: adds to $y$ — same confusion as B.\n\n**Test Day Takeaway:** $g(x - h)$: every point's $x$-coordinate goes UP by $h$, $y$ stays. Counter-intuitive sign, but the LOGIC is clear: feed in a value $h$ higher to recover the same output.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'horizontal-shift', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-am-252', domain: 'advanced-math', skills: ['function-transformations'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'If $g(x) = f(x + 2)$ and $g(0) = 5$, what is the value of $f(2)$?',
+    choices: [{ id: 'A', text: '$-3$' }, { id: 'B', text: '$0$' }, { id: 'C', text: '$2$' }, { id: 'D', text: '$5$' }],
+    correctAnswer: 'D',
+    explanation: "**SAT Pattern: Horizontal Shift**\n\n**Choice D is correct.**\n\n**The Fast Way (~5s):** $g(0) = f(0 + 2) = f(2)$, and $g(0) = 5$, so $f(2) = 5$.\n\n**The Full Solution:**\nApply the definition: $g(x) = f(x + 2)$, so $g(0) = f(2)$. Given $g(0) = 5$, we get $f(2) = 5$.\n\n**Why the wrong answers are tempting:**\n* A ($-3$): adds $0$ and $2$ negatively, or some other sign-mix-up.\n* B ($0$): reports the input $x = 0$.\n* C ($2$): reports the shift amount.\n\n**Test Day Takeaway:** When asked to evaluate $f$ at a specific input given $g$ values, find the $x$ where $x + h$ equals that input.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'horizontal-shift', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-am-253', domain: 'advanced-math', skills: ['function-transformations'], difficulty: 'hard', type: 'multiple-choice',
+    question: 'The function $f$ has its minimum at $x = 4$. At what value of $x$ does the function defined by $f(x - 6)$ attain its minimum?',
+    choices: [{ id: 'A', text: '$-10$' }, { id: 'B', text: '$-2$' }, { id: 'C', text: '$2$' }, { id: 'D', text: '$10$' }],
+    correctAnswer: 'D',
+    explanation: "**SAT Pattern: Horizontal Shift**\n\n**Choice D is correct.**\n\n**The Fast Way (~5s):** $f(x - 6)$ shifts RIGHT $6$. Min moves from $x = 4$ to $x = 4 + 6 = 10$.\n\n**The Full Solution:**\n$f(x - 6)$ attains its minimum where $x - 6 = 4$ (i.e., where $f$'s argument is $4$, $f$'s minimum location). Solving: $x = 10$.\n\nVerification: at $x = 10$, $f(10 - 6) = f(4) = $ min of $f$. At any other $x$, $f$'s argument is not $4$, so $f$ is greater than its min \\checkmark.\n\n**Test Day Takeaway:** Extremes shift the same way the graph does. $f(x - h)$: every special $x$-value goes UP by $h$.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'horizontal-shift', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-am-254', domain: 'advanced-math', skills: ['function-transformations'], difficulty: 'hard', type: 'fill-in',
+    question: 'The graph of $y = f(x)$ in the $xy$-plane has an $x$-intercept at $x = -3$. The graph of $y = f(x - 7)$ has an $x$-intercept at $x = a$. What is the value of $a$?',
+    correctAnswer: '4',
+    explanation: "**SAT Pattern: Horizontal Shift**\n\n**The correct answer is $4$.**\n\n**The Fast Way (~5s):** $f(x - 7)$ shifts RIGHT $7$. $x$-intercept moves from $-3$ to $-3 + 7 = 4$.\n\n**The Full Solution:**\nAn $x$-intercept of $y = f(x - 7)$ is a value of $x$ where $f(x - 7) = 0$. Since $f(-3) = 0$, set $x - 7 = -3$, giving $x = 4$.\n\nVerification: at $x = 4$, $f(4 - 7) = f(-3) = 0$ \\checkmark.\n\n**Test Day Takeaway:** $x$-intercepts (zeros) shift the same way every other $x$-coordinate shifts. They follow the graph.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'horizontal-shift', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  // ─── REFLECTION OF GRAPH (bank-am-255..262) ──────────────────────────────
+  // y = -f(x) reflects over x-axis. y = f(-x) reflects over y-axis. EVEN
+  // functions are unchanged by f(-x); ODD functions become -f(x).
+  { id: 'bank-am-255', domain: 'advanced-math', skills: ['function-transformations'], difficulty: 'easy', type: 'multiple-choice',
+    question: 'The graph of $y = -f(x)$ in the $xy$-plane is the graph of $y = f(x)$ reflected over which axis?',
+    choices: [{ id: 'A', text: 'the $x$-axis' }, { id: 'B', text: 'the $y$-axis' }, { id: 'C', text: 'the line $y = x$' }, { id: 'D', text: 'no reflection — it is a vertical stretch' }],
+    correctAnswer: 'A',
+    explanation: "**SAT Pattern: Reflection of Graph**\n\n**Choice A is correct.**\n\n**The Fast Way (~5s):** Negating the OUTPUT ($-f(x)$) reflects over the $x$-axis.\n\n**The Full Solution:**\n$y = -f(x)$ takes every point $(a, b)$ on $y = f(x)$ and maps it to $(a, -b)$ — the same $x$, opposite $y$. That's a reflection over the $x$-axis.\n\n**Why the wrong answers are tempting:**\n* B: reflection over the $y$-axis is $f(-x)$ (negating INPUT), not $-f(x)$.\n* C: reflection over $y = x$ swaps $x$ and $y$ (this is the inverse function).\n* D: a vertical stretch is multiplication by a constant other than $-1$. $-1$ specifically is reflection.\n\n**Test Day Takeaway:** Negate the OUTPUT $\\Rightarrow$ reflect over $x$-axis. Negate the INPUT $\\Rightarrow$ reflect over $y$-axis.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'reflection-of-graph', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-am-256', domain: 'advanced-math', skills: ['function-transformations'], difficulty: 'easy', type: 'multiple-choice',
+    question: 'If $g(x) = f(-x)$ and $f(3) = 8$, what is the value of $g(-3)$?',
+    choices: [{ id: 'A', text: '$-8$' }, { id: 'B', text: '$-3$' }, { id: 'C', text: '$3$' }, { id: 'D', text: '$8$' }],
+    correctAnswer: 'D',
+    explanation: "**SAT Pattern: Reflection of Graph**\n\n**Choice D is correct.**\n\n**The Fast Way (~5s):** $g(-3) = f(-(-3)) = f(3) = 8$.\n\n**The Full Solution:**\nApply the definition: $g(x) = f(-x)$, so $g(-3) = f(-(-3)) = f(3) = 8$.\n\n**Why the wrong answers are tempting:**\n* A ($-8$): confuses $f(-x)$ (reflect over $y$-axis) with $-f(x)$ (reflect over $x$-axis).\n* B ($-3$): reports the input.\n* C ($3$): reports the simplified input.\n\n**Test Day Takeaway:** $f(-x)$: negate input only, output is unchanged. The function VALUE doesn't change sign; only the input does.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'reflection-of-graph', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-am-257', domain: 'advanced-math', skills: ['function-transformations'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'The graph of $y = f(x)$ in the $xy$-plane passes through the point $(2, 5)$. Which of the following points must lie on the graph of $y = -f(x)$?',
+    choices: [{ id: 'A', text: '$(-2, 5)$' }, { id: 'B', text: '$(-2, -5)$' }, { id: 'C', text: '$(2, -5)$' }, { id: 'D', text: '$(5, 2)$' }],
+    correctAnswer: 'C',
+    explanation: "**SAT Pattern: Reflection of Graph**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** $-f(x)$ flips the $y$-coordinate. $(2, 5) \\to (2, -5)$.\n\n**The Full Solution:**\n$y = -f(x)$ reflects over the $x$-axis: $x$ stays, $y$ negates. $(2, 5) \\to (2, -5)$.\n\n**Why the wrong answers are tempting:**\n* A: negates only $x$ — reflection over $y$-axis, not $x$-axis.\n* B: negates BOTH — combines two reflections.\n* D: swaps $x$ and $y$.\n\n**Test Day Takeaway:** $-f(x)$ flips $y$, keeps $x$. The fixed points are on the $x$-axis (where $y = 0$).",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'reflection-of-graph', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-am-258', domain: 'advanced-math', skills: ['function-transformations'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'If $h(x) = x^2 + 3x$, which of the following defines a function whose graph is the reflection of $y = h(x)$ over the $x$-axis?',
+    choices: [{ id: 'A', text: '$h(-x) = x^2 - 3x$' }, { id: 'B', text: '$-h(x) = -x^2 - 3x$' }, { id: 'C', text: '$h(x) + 1 = x^2 + 3x + 1$' }, { id: 'D', text: '$-h(-x) = -x^2 + 3x$' }],
+    correctAnswer: 'B',
+    explanation: "**SAT Pattern: Reflection of Graph**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** Reflection over $x$-axis $\\Rightarrow$ negate OUTPUT: $-h(x) = -(x^2 + 3x) = -x^2 - 3x$.\n\n**The Full Solution:**\n$-h(x) = -(x^2 + 3x) = -x^2 - 3x$. Every $y$-value flips sign.\n\n**Why the wrong answers are tempting:**\n* A: $h(-x)$ negates INPUT — reflection over $y$-axis, not $x$-axis.\n* C: vertical shift, not reflection.\n* D: $-h(-x)$ is reflection over BOTH axes (origin symmetry).\n\n**Test Day Takeaway:** Reflection over $x$-axis $\\equiv$ negate OUTPUT (entire expression). Don't distribute the negative sign onto only some terms.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'reflection-of-graph', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-am-259', domain: 'advanced-math', skills: ['function-transformations'], difficulty: 'medium', type: 'fill-in',
+    question: 'The graph of $y = f(x)$ in the $xy$-plane has a maximum value of $12$. What is the minimum value of $y = -f(x)$?',
+    correctAnswer: '-12',
+    explanation: "**SAT Pattern: Reflection of Graph**\n\n**The correct answer is $-12$.**\n\n**The Fast Way (~5s):** Reflection over $x$-axis turns the maximum into a minimum and flips its sign: $\\max = 12 \\to \\min = -12$.\n\n**The Full Solution:**\nThe graph of $y = -f(x)$ is the graph of $y = f(x)$ flipped over the $x$-axis. The MAXIMUM $y$-value of $f$ (which was $12$) becomes the MINIMUM $y$-value of $-f$ (which is $-12$). The corresponding $x$-coordinate is unchanged.\n\n**Test Day Takeaway:** Reflection over the $x$-axis turns max into min (and vice versa), with the $y$-value sign flipped.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'reflection-of-graph', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-am-260', domain: 'advanced-math', skills: ['function-transformations'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'Which of the following transformations produces the graph of $y = f(-x)$ from the graph of $y = f(x)$?',
+    choices: [{ id: 'A', text: 'reflection over the $x$-axis' }, { id: 'B', text: 'reflection over the $y$-axis' }, { id: 'C', text: 'reflection over the line $y = x$' }, { id: 'D', text: 'rotation by $90°$' }],
+    correctAnswer: 'B',
+    explanation: "**SAT Pattern: Reflection of Graph**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** Negating the INPUT ($f(-x)$) reflects over the $y$-axis.\n\n**The Full Solution:**\n$y = f(-x)$ maps every point $(a, b)$ on $f$ to $(-a, b)$ — same $y$, opposite $x$. That's a reflection over the $y$-axis.\n\n**Why the wrong answers are tempting:**\n* A: $-f(x)$ is reflection over $x$-axis. $f(-x)$ is different.\n* C: reflection over $y = x$ is the INVERSE function — swaps $x$ and $y$.\n* D: rotation is not a standard function transformation in this form.\n\n**Test Day Takeaway:** Reflection over $y$-axis $\\equiv$ negate INPUT only. The output value is unchanged.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'reflection-of-graph', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-am-261', domain: 'advanced-math', skills: ['function-transformations'], difficulty: 'hard', type: 'multiple-choice',
+    question: 'The graph of $y = g(x)$ in the $xy$-plane passes through the point $(-4, 6)$. Which of the following points must lie on the graph of $y = g(-x)$?',
+    choices: [{ id: 'A', text: '$(-4, -6)$' }, { id: 'B', text: '$(4, -6)$' }, { id: 'C', text: '$(4, 6)$' }, { id: 'D', text: '$(6, -4)$' }],
+    correctAnswer: 'C',
+    explanation: "**SAT Pattern: Reflection of Graph**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** Reflection over $y$-axis: negate $x$. $(-4, 6) \\to (4, 6)$.\n\n**The Full Solution:**\n$y = g(-x)$ takes every $(a, b)$ on $g$ to $(-a, b)$: $(-4, 6) \\to (4, 6)$.\n\n**Why the wrong answers are tempting:**\n* A: negates only $y$.\n* B: negates BOTH.\n* D: swaps coordinates.\n\n**Test Day Takeaway:** $g(-x)$: $x$ flips sign; $y$ stays. Fixed points on the $y$-axis (where $x = 0$).",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'reflection-of-graph', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-am-262', domain: 'advanced-math', skills: ['function-transformations'], difficulty: 'hard', type: 'fill-in',
+    question: 'A function $f$ is EVEN, meaning $f(-x) = f(x)$ for every $x$ in its domain. If $f(5) = 7$, what is the value of $f(-5)$?',
+    correctAnswer: '7',
+    explanation: "**SAT Pattern: Reflection of Graph**\n\n**The correct answer is $7$.**\n\n**The Fast Way (~5s):** Definition of even: $f(-x) = f(x)$. So $f(-5) = f(5) = 7$.\n\n**The Full Solution:**\nAn even function has $f(-x) = f(x)$ for all $x$. Apply with $x = 5$: $f(-5) = f(5) = 7$.\n\nVerification: an even function's graph is symmetric over the $y$-axis. $(5, 7)$ and $(-5, 7)$ are mirror images.\n\n**Common Mistakes:**\n* Reporting $-7$: confuses 'even' with 'odd' ($f(-x) = -f(x)$, which would give $-7$).\n* Reporting $5$ or $-5$: reports an $x$-value.\n\n**Test Day Takeaway:** EVEN = symmetric over $y$-axis (input sign doesn't matter). ODD = symmetric over origin ($f(-x) = -f(x)$).",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'reflection-of-graph', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  // ─── VERTICAL STRETCH (bank-am-263..270) ─────────────────────────────────
+  // y = a·f(x) stretches vertically by factor a. a > 1: stretch; 0 < a < 1:
+  // compression. Negative a combines reflection over x-axis.
+  { id: 'bank-am-263', domain: 'advanced-math', skills: ['function-transformations'], difficulty: 'easy', type: 'multiple-choice',
+    question: 'If $g(x) = 3 \\cdot f(x)$ and $f(2) = 4$, what is the value of $g(2)$?',
+    choices: [{ id: 'A', text: '$3$' }, { id: 'B', text: '$7$' }, { id: 'C', text: '$12$' }, { id: 'D', text: '$24$' }],
+    correctAnswer: 'C',
+    explanation: "**SAT Pattern: Vertical Stretch**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** $g(2) = 3 \\cdot f(2) = 3 \\cdot 4 = 12$.\n\n**The Full Solution:**\nVertical stretch by factor $3$: multiply $f$'s output by $3$. $g(2) = 3 \\cdot 4 = 12$.\n\n**Why the wrong answers are tempting:**\n* A: reports the stretch factor.\n* B: ADDS instead of multiplies ($3 + 4 = 7$).\n* D: multiplies the input by $3$ before evaluating — wrong order.\n\n**Test Day Takeaway:** $a \\cdot f(x)$ scales the OUTPUT by $a$. Multiply, don't add.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'vertical-stretch', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-am-264', domain: 'advanced-math', skills: ['function-transformations'], difficulty: 'easy', type: 'multiple-choice',
+    question: 'The graph of $y = 2 f(x)$ in the $xy$-plane is the graph of $y = f(x)$ stretched vertically by a factor of:',
+    choices: [{ id: 'A', text: '$0.5$' }, { id: 'B', text: '$2$' }, { id: 'C', text: '$4$' }, { id: 'D', text: '$-2$' }],
+    correctAnswer: 'B',
+    explanation: "**SAT Pattern: Vertical Stretch**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** The coefficient $2$ in $2 f(x)$ is the vertical stretch factor.\n\n**The Full Solution:**\nMultiplying $f(x)$ by $2$ doubles every $y$-value, stretching the graph vertically by factor $2$.\n\n**Why the wrong answers are tempting:**\n* A: reciprocal — would be a compression.\n* C: squares the factor.\n* D: would also reflect over $x$-axis, which isn't here.\n\n**Test Day Takeaway:** For $a \\cdot f(x)$ with $a > 1$: stretch by $a$. With $0 < a < 1$: compress by $a$. With $a < 0$: stretch by $|a|$ AND reflect over $x$-axis.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'vertical-stretch', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-am-265', domain: 'advanced-math', skills: ['function-transformations'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'If $h(x) = x^2$, which of the following functions stretches $h$ vertically by a factor of $5$?',
+    choices: [{ id: 'A', text: '$h(x) = (5x)^2$' }, { id: 'B', text: '$h(x) = 5x^2$' }, { id: 'C', text: '$h(x) = x^2 + 5$' }, { id: 'D', text: '$h(x) = x^{10}$' }],
+    correctAnswer: 'B',
+    explanation: "**SAT Pattern: Vertical Stretch**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** Vertical stretch by $5$ = multiply OUTSIDE: $5 \\cdot x^2 = 5x^2$.\n\n**The Full Solution:**\n$5 \\cdot h(x) = 5x^2$. Multiplies $h$'s output by $5$.\n\n**Why the wrong answers are tempting:**\n* A: $(5x)^2 = 25x^2$ — INSIDE multiplication = HORIZONTAL compression by $1/5$, equivalent to a vertical stretch by $25$ (factor of $5^2$). Wrong factor.\n* C: vertical SHIFT by $5$, not stretch.\n* D: changes the exponent — not a stretch.\n\n**Test Day Takeaway:** OUTSIDE multiplication = vertical stretch (intuitive direction). INSIDE multiplication = horizontal compression (counter-intuitive).",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'vertical-stretch', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-am-266', domain: 'advanced-math', skills: ['function-transformations'], difficulty: 'medium', type: 'fill-in',
+    question: 'The graph of $y = f(x)$ in the $xy$-plane has a maximum value of $10$. What is the maximum value of $y = 4 f(x)$?',
+    correctAnswer: '40',
+    explanation: "**SAT Pattern: Vertical Stretch**\n\n**The correct answer is $40$.**\n\n**The Fast Way (~5s):** Vertical stretch by $4$: max $\\to 4 \\cdot 10 = 40$.\n\n**The Full Solution:**\nMultiplying $f$ by $4$ multiplies every $y$-value by $4$, including the max. So max $= 4 \\cdot 10 = 40$.\n\n**Test Day Takeaway:** Vertical stretch by $a > 0$ multiplies extrema's $y$-values by $a$. $x$-coordinates of extrema are unchanged.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'vertical-stretch', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-am-267', domain: 'advanced-math', skills: ['function-transformations'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'The graph of $y = g(x)$ in the $xy$-plane passes through the point $(1, 6)$. Which of the following points must lie on the graph of $y = \\dfrac{1}{2} g(x)$?',
+    choices: [{ id: 'A', text: '$(0.5, 6)$' }, { id: 'B', text: '$(1, 3)$' }, { id: 'C', text: '$(1, 12)$' }, { id: 'D', text: '$(2, 6)$' }],
+    correctAnswer: 'B',
+    explanation: "**SAT Pattern: Vertical Stretch**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** Compress vertically by $1/2$: $(1, 6) \\to (1, 3)$.\n\n**The Full Solution:**\n$\\dfrac{1}{2} g(x)$ halves every $y$-value: $(1, 6) \\to (1, 6/2) = (1, 3)$.\n\n**Why the wrong answers are tempting:**\n* A: halves $x$ — applies to wrong axis.\n* C: doubles $y$ instead of halving.\n* D: doubles $x$ — wrong.\n\n**Test Day Takeaway:** $a \\cdot g(x)$ scales $y$ only. $x$ stays.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'vertical-stretch', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-am-268', domain: 'advanced-math', skills: ['function-transformations'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'Which of the following transformations produces the graph of $y = 0.5 f(x)$ from the graph of $y = f(x)$?',
+    choices: [{ id: 'A', text: 'vertical stretch by a factor of $2$' }, { id: 'B', text: 'vertical compression by a factor of $\\dfrac{1}{2}$' }, { id: 'C', text: 'horizontal stretch by a factor of $2$' }, { id: 'D', text: 'reflection over the $x$-axis' }],
+    correctAnswer: 'B',
+    explanation: "**SAT Pattern: Vertical Stretch**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** Multiplying by $0.5 < 1$ COMPRESSES vertically (toward the $x$-axis).\n\n**The Full Solution:**\nFor $a \\cdot f(x)$: $a > 1$ stretches; $0 < a < 1$ compresses. Here $a = 0.5$, so it's a compression by factor $1/2$.\n\n**Why the wrong answers are tempting:**\n* A: would require multiplying by $2$, not $0.5$.\n* C: horizontal scaling is INSIDE the function, not outside.\n* D: requires a NEGATIVE multiplier.\n\n**Test Day Takeaway:** 'Compression' and 'stretch' are opposite descriptions of the same idea. $a > 1 \\Rightarrow$ stretch by $a$. $a < 1 \\Rightarrow$ compress by $1/a$ (or equivalently, stretch by $a$). Choose the description the problem asks for.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'vertical-stretch', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-am-269', domain: 'advanced-math', skills: ['function-transformations'], difficulty: 'hard', type: 'multiple-choice',
+    question: 'If $f(x) = x^2 - 4$ and $g(x) = 3 f(x)$, what is the minimum value of $g(x)$?',
+    choices: [{ id: 'A', text: '$-12$' }, { id: 'B', text: '$-4$' }, { id: 'C', text: '$-1$' }, { id: 'D', text: '$0$' }],
+    correctAnswer: 'A',
+    explanation: "**SAT Pattern: Vertical Stretch**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** $f$ has min $-4$ at $x = 0$. $g(x) = 3 f(x)$ stretches vertically by $3$: new min $= 3 \\cdot (-4) = -12$.\n\n**The Full Solution:**\n$f(x) = x^2 - 4$ has minimum $f(0) = -4$. $g(x) = 3 f(x) = 3(x^2 - 4) = 3x^2 - 12$. Minimum at $x = 0$: $g(0) = -12$.\n\nVerification: $g'(x) = 6x = 0 \\Rightarrow x = 0$; $g(0) = -12$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* B: reports $f$'s min unchanged — forgets to stretch.\n* C: forgets the stretch entirely.\n* D: confuses with the $x$-axis crossings.\n\n**Test Day Takeaway:** Vertical stretch by $a > 0$ multiplies the MIN VALUE by $a$ too. Negative minima become MORE negative, not less.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'vertical-stretch', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-am-270', domain: 'advanced-math', skills: ['function-transformations'], difficulty: 'hard', type: 'fill-in',
+    question: 'The function $h$ has an $x$-intercept at $x = 5$. The function $k$ is defined by $k(x) = 4 h(x)$. What is an $x$-intercept of $k$?',
+    correctAnswer: '5',
+    explanation: "**SAT Pattern: Vertical Stretch**\n\n**The correct answer is $5$.**\n\n**The Fast Way (~5s):** Vertical stretch preserves $x$-intercepts: $4 \\cdot 0 = 0$, so where $h = 0$, $k = 0$ too.\n\n**The Full Solution:**\nAt $x = 5$, $h(5) = 0$. Then $k(5) = 4 \\cdot h(5) = 4 \\cdot 0 = 0$. So $k$ also has an $x$-intercept at $x = 5$.\n\n**Common Mistakes:**\n* Reporting $20$ — multiplies the $x$-value by $4$ instead of the $y$-value.\n* Reporting $1.25$ — divides the $x$-value by $4$.\n* Reporting $0$ — confuses $x$-intercept with $y$-intercept.\n\n**Test Day Takeaway:** Vertical scaling DOES NOT MOVE $x$-intercepts. Why? $a \\cdot 0 = 0$ for any $a$. The zeros of $f$ are the zeros of $a \\cdot f$.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'vertical-stretch', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  // ─── COMPOUND INTEREST (bank-am-271..278) ────────────────────────────────
+  // Formula: A = P(1 + r/n)^(nt). SAT typically uses annual compounding (n=1).
+  // Distinct from generic exponential growth via the financial framing and
+  // standard $A = P(1+r)^t$ form.
+  { id: 'bank-am-271', domain: 'advanced-math', skills: ['exponential-functions'], difficulty: 'easy', type: 'multiple-choice',
+    question: 'A savings account opens with $\\$1{,}000$ and earns $5\\%$ annual interest, compounded annually. What is the balance, in dollars, after $1$ year?',
+    choices: [{ id: 'A', text: '$\\$50$' }, { id: 'B', text: '$\\$1{,}005$' }, { id: 'C', text: '$\\$1{,}050$' }, { id: 'D', text: '$\\$5{,}000$' }],
+    correctAnswer: 'C',
+    explanation: "**SAT Pattern: Compound Interest**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** $1000 \\cdot 1.05 = 1050$.\n\n**The Full Solution:**\nAfter one year, the balance is the principal plus the interest earned: $1000 + 1000(0.05) = 1000(1.05) = 1050$.\n\n**Why the wrong answers are tempting:**\n* A ($50$): reports the INTEREST earned, not the balance.\n* B ($1005$): treats $5\\%$ as $0.005$ instead of $0.05$.\n* D ($5000$): multiplies by $5$ instead of $1.05$.\n\n**Test Day Takeaway:** Balance after 1 year = principal × (1 + rate). The '1' keeps the original; the 'rate' adds the new interest.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'compound-interest', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-am-272', domain: 'advanced-math', skills: ['exponential-functions'], difficulty: 'easy', type: 'multiple-choice',
+    question: 'An investment of $\\$2{,}000$ earns $4\\%$ annual interest, compounded annually. Which of the following functions gives the balance $B(t)$, in dollars, after $t$ years?',
+    choices: [{ id: 'A', text: '$B(t) = 2000 + 0.04 t$' }, { id: 'B', text: '$B(t) = 2000(1.04)^t$' }, { id: 'C', text: '$B(t) = 2000(4)^t$' }, { id: 'D', text: '$B(t) = 2000 \\cdot 1.04 \\cdot t$' }],
+    correctAnswer: 'B',
+    explanation: "**SAT Pattern: Compound Interest**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** Compound interest: $A = P(1 + r)^t$. Here $P = 2000, r = 0.04$, so $B(t) = 2000(1.04)^t$.\n\n**The Full Solution:**\nCompound interest formula (annual compounding): $A = P(1 + r)^t$. Each year multiplies by the SAME factor $(1 + r)$, so the balance grows EXPONENTIALLY, not linearly.\n\n**Why the wrong answers are tempting:**\n* A: SIMPLE interest formula, not compound. Simple interest is linear.\n* C: uses $4$ instead of $1.04$ — the rate, not the multiplier.\n* D: treats compound as a single multiplication times $t$ — confuses with simple interest.\n\n**Test Day Takeaway:** Compound interest is EXPONENTIAL in time: $P(1 + r)^t$. The $1$ inside the parentheses is what keeps the principal; the $r$ adds new interest each period.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'compound-interest', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-am-273', domain: 'advanced-math', skills: ['exponential-functions'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'A principal of $\\$500$ is invested at $6\\%$ annual interest, compounded annually. What is the balance, in dollars, after $3$ years? (Round to the nearest cent.)',
+    choices: [{ id: 'A', text: '$\\$518$' }, { id: 'B', text: '$\\$540$' }, { id: 'C', text: '$\\$590$' }, { id: 'D', text: '$\\$595.51$' }],
+    correctAnswer: 'D',
+    explanation: "**SAT Pattern: Compound Interest**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** $500 \\cdot 1.06^3 = 500 \\cdot 1.191016 = 595.508$, rounded to $\\$595.51$.\n\n**The Full Solution:**\n$A = 500(1.06)^3$. Compute $1.06^3$: $1.06^2 = 1.1236$; $1.06^3 = 1.06 \\cdot 1.1236 = 1.191016$. Then $500 \\cdot 1.191016 = 595.508$.\n\n**Why the wrong answers are tempting:**\n* A ($518$): treats it as SIMPLE interest year-by-year incorrectly, or one year only.\n* B ($540$): uses simple interest: $500 + 500 \\cdot 0.06 \\cdot 3 = 540$.\n* C ($590$): rough estimate, low.\n\n**Test Day Takeaway:** Compound interest > Simple interest at the same rate (for $t > 1$). The growth COMPOUNDS each year on the new balance.",
+    calculatorAllowed: true, tags: [], sourceStyleRef: 'compound-interest', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-am-274', domain: 'advanced-math', skills: ['exponential-functions'], difficulty: 'medium', type: 'fill-in',
+    question: 'An account earns $8\\%$ annual interest, compounded annually. How much, in dollars, must be deposited today to have $\\$10{,}000$ after $2$ years? Round to the nearest dollar.',
+    correctAnswer: '8573',
+    explanation: "**SAT Pattern: Compound Interest**\n\n**The correct answer is $8573$.**\n\n**The Fast Way (~15s):** $P \\cdot 1.08^2 = 10000 \\Rightarrow P = 10000 / 1.1664 \\approx 8573.39$. Round to $8573$.\n\n**The Full Solution:**\nPresent value: $P = A / (1 + r)^t = 10000 / (1.08)^2 = 10000 / 1.1664 \\approx 8573.39$. Rounded: $\\$8573$.\n\nVerification: $8573 \\cdot 1.08^2 \\approx 8573 \\cdot 1.1664 \\approx 9999.99 \\approx 10000$ \\checkmark.\n\n**Common Mistakes:**\n* Reporting $9259$: divides by $1.08$ once ($10000/1.08$) — reverses one year only.\n* Reporting $9200$: subtracts $8\\%$ once $(10000 \\cdot 0.92)$ — wrong inverse.\n* Reporting $8000$: subtracts $20\\%$ ($10000 \\cdot 0.8$).\n\n**Test Day Takeaway:** Present-value problems: divide the future amount by $(1 + r)^t$, NOT by $(1 + rt)$ or by $r$ alone.",
+    calculatorAllowed: true, tags: [], sourceStyleRef: 'compound-interest', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-am-275', domain: 'advanced-math', skills: ['exponential-functions', 'function-interpretation'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'The function $A(t) = 5{,}000(1.03)^t$ models a savings account balance, in dollars, $t$ years after a deposit. Which of the following best describes the meaning of $1.03$ in this function?',
+    choices: [
+      { id: 'A', text: 'The account earns $1.03\\%$ interest per year.' },
+      { id: 'B', text: 'The account balance multiplies by $1.03$ each year, indicating $3\\%$ annual interest.' },
+      { id: 'C', text: 'The account balance increases by $\\$1.03$ each year.' },
+      { id: 'D', text: 'The initial deposit was $\\$1.03$ million.' },
+    ],
+    correctAnswer: 'B',
+    explanation: "**SAT Pattern: Compound Interest**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** $1.03 = 1 + 0.03$ is the annual GROWTH FACTOR, i.e., $3\\%$ annual interest.\n\n**The Full Solution:**\nIn $A(t) = P(1 + r)^t$ form: $1.03 = (1 + 0.03)$ means $r = 0.03$, i.e., $3\\%$ annual interest. Each year the balance MULTIPLIES by $1.03$ — that's the meaning of the base.\n\n**Why the wrong answers are tempting:**\n* A: reports $1.03\\%$ — confuses the multiplier with the percent rate.\n* C: treats $1.03$ as an ADDITIVE constant in dollars, not a multiplier.\n* D: nothing to do with the $5{,}000$ principal.\n\n**Test Day Takeaway:** In $A = P(1 + r)^t$, the base is $1 + r$. To extract the percent rate: $r = $ base $- 1$, then multiply by $100$.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'compound-interest', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-am-276', domain: 'advanced-math', skills: ['exponential-functions'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'An investment of $\\$1{,}500$ doubles after $10$ years at a constant annual compound interest rate. Which of the following is closest to the annual interest rate?',
+    choices: [{ id: 'A', text: '$5\\%$' }, { id: 'B', text: '$7.2\\%$' }, { id: 'C', text: '$10\\%$' }, { id: 'D', text: '$20\\%$' }],
+    correctAnswer: 'B',
+    explanation: "**SAT Pattern: Compound Interest**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** $1500 \\cdot (1 + r)^{10} = 3000 \\Rightarrow (1 + r)^{10} = 2 \\Rightarrow 1 + r = 2^{1/10} \\approx 1.0718$. So $r \\approx 7.18\\%$, closest to $7.2\\%$.\n\n**The Full Solution:**\nSet up the equation: $1500(1 + r)^{10} = 3000$, simplify: $(1 + r)^{10} = 2$. Take the 10th root: $1 + r = 2^{0.1} \\approx 1.07177$. So $r \\approx 0.072 = 7.2\\%$.\n\nVerification: $1500 \\cdot (1.072)^{10} \\approx 1500 \\cdot 2.004 \\approx 3006 \\approx 3000$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* A ($5\\%$): pull-out from intuition ('around 5%') without computing.\n* C ($10\\%$): uses simple-interest doubling logic: $r \\cdot 10 = 100\\%$.\n* D ($20\\%$): too high.\n\n**Test Day Takeaway:** Rule of 72: time to double $\\approx 72/r$ (with $r$ as percent). $72/10 \\approx 7.2\\%$ matches doubling in $10$ years.",
+    calculatorAllowed: true, tags: [], sourceStyleRef: 'compound-interest', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-am-277', domain: 'advanced-math', skills: ['exponential-functions'], difficulty: 'hard', type: 'multiple-choice',
+    question: 'An investment grows by $5\\%$ per year, compounded annually. Approximately how many years does it take for the investment to double in value?',
+    choices: [{ id: 'A', text: '$5$ years' }, { id: 'B', text: '$10$ years' }, { id: 'C', text: '$14.2$ years' }, { id: 'D', text: '$20$ years' }],
+    correctAnswer: 'C',
+    explanation: "**SAT Pattern: Compound Interest**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Rule of 72: time to double $\\approx 72/r = 72/5 = 14.4$ years, closest to $14.2$.\n\n**The Full Solution:**\nSet $1.05^t = 2$. Take logs: $t \\cdot \\ln(1.05) = \\ln 2 \\Rightarrow t = \\ln 2 / \\ln 1.05 \\approx 0.6931 / 0.04879 \\approx 14.21$ years.\n\n**Why the wrong answers are tempting:**\n* A: simple-interest doubling: $r \\cdot t = 100\\% \\Rightarrow t = 100/5 = 20$. But that's even longer than the simple version's wrong answer.\n* B ($10$): half of $20$, no derivation.\n* D ($20$): simple-interest doubling. Compound is always faster than simple.\n\n**Test Day Takeaway:** Rule of 72: $t_{\\text{double}} \\approx 72/r$ (with $r$ as percent). Gives a quick estimate without logs.",
+    calculatorAllowed: true, tags: [], sourceStyleRef: 'compound-interest', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-am-278', domain: 'advanced-math', skills: ['exponential-functions'], difficulty: 'hard', type: 'fill-in',
+    question: 'An investment of $\\$2{,}000$ grows to $\\$2{,}205$ after $2$ years at a constant compound interest rate $r$, expressed as a percent. What is the value of $r$?',
+    correctAnswer: '5',
+    explanation: "**SAT Pattern: Compound Interest**\n\n**The correct answer is $5$.**\n\n**The Fast Way (~15s):** $2205/2000 = 1.1025 = (1 + r/100)^2 \\Rightarrow 1 + r/100 = 1.05 \\Rightarrow r = 5$.\n\n**The Full Solution:**\nSet up: $2000(1 + r/100)^2 = 2205$.\n$(1 + r/100)^2 = 2205/2000 = 1.1025$.\nTake square root: $1 + r/100 = \\sqrt{1.1025} = 1.05$.\n$r/100 = 0.05 \\Rightarrow r = 5$.\n\nVerification: $2000 \\cdot 1.05^2 = 2000 \\cdot 1.1025 = 2205$ \\checkmark.\n\n**Common Mistakes:**\n* Reporting $10$: uses $(1 + r/100)^2 = 1.1$ instead of $1.1025$ — drops the squared term.\n* Reporting $0.05$: forgets to multiply by $100$ to express as percent.\n* Reporting $5.13$: doesn't simplify $\\sqrt{1.1025}$ to exactly $1.05$.\n\n**Test Day Takeaway:** When the time period is $2$ years, take a SQUARE ROOT, not a log. Look for clean perfect squares like $1.1025 = 1.05^2$.",
+    calculatorAllowed: true, tags: [], sourceStyleRef: 'compound-interest', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  // ─── RATIONAL EQUATION WITH EXTRANEOUS SOLUTION (bank-am-279..286) ───────
+  // Solving a rational equation can produce candidates that fail the original
+  // (denominator-zero). The pattern: solve, check, identify extraneous roots.
+  { id: 'bank-am-279', domain: 'advanced-math', skills: ['rational-expressions'], difficulty: 'easy', type: 'multiple-choice',
+    question: 'What is the solution to the equation $\\dfrac{x^2 - 9}{x - 3} = 6$?',
+    choices: [{ id: 'A', text: '$x = -3$' }, { id: 'B', text: '$x = 3$' }, { id: 'C', text: '$x = 6$' }, { id: 'D', text: 'No solution' }],
+    correctAnswer: 'D',
+    explanation: "**SAT Pattern: Rational Equation with Extraneous Solution**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** Factor: $(x + 3)(x - 3)/(x - 3) = 6$. For $x \\ne 3$: $x + 3 = 6 \\Rightarrow x = 3$. But $x = 3$ is EXCLUDED (makes denominator $0$). No solution.\n\n**The Full Solution:**\nThe rational expression $\\dfrac{x^2 - 9}{x - 3}$ has a domain restriction: $x \\ne 3$. Factor numerator: $\\dfrac{(x + 3)(x - 3)}{x - 3} = x + 3$ for $x \\ne 3$. Set $x + 3 = 6$: $x = 3$. But $x = 3$ is the excluded value. Therefore no valid solution exists.\n\nVerification: at $x = 3$, the original expression is $\\dfrac{0}{0}$ — undefined.\n\n**Why the wrong answers are tempting:**\n* A ($-3$): makes the numerator zero, but the original is $0/(-6) = 0 \\ne 6$.\n* B ($3$): the EXTRANEOUS solution — algebra suggests this but the domain excludes it.\n* C ($6$): plugs in unrelated value.\n\n**Test Day Takeaway:** Always check that the solution doesn't make any denominator zero in the ORIGINAL equation. The simplified form may hide the restriction.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'rational-equation-with-extraneous-solution', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-am-280', domain: 'advanced-math', skills: ['rational-expressions'], difficulty: 'easy', type: 'multiple-choice',
+    question: 'How many solutions does the equation $\\dfrac{x + 5}{x - 2} = \\dfrac{7}{x - 2}$ have?',
+    choices: [{ id: 'A', text: '$0$' }, { id: 'B', text: '$1$' }, { id: 'C', text: '$2$' }, { id: 'D', text: 'infinitely many' }],
+    correctAnswer: 'A',
+    explanation: "**SAT Pattern: Rational Equation with Extraneous Solution**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Multiply both sides by $(x - 2)$: $x + 5 = 7 \\Rightarrow x = 2$. But $x = 2$ makes the denominator $0$ — EXTRANEOUS. Zero valid solutions.\n\n**The Full Solution:**\nDomain restriction: $x \\ne 2$. Multiplying both sides by $(x - 2)$: $x + 5 = 7$, so $x = 2$. This is the excluded value, so no valid solution.\n\n**Why the wrong answers are tempting:**\n* B ($1$): forgets to check the domain restriction.\n* C ($2$): confuses 'solutions' with 'the value $2$'.\n* D: not how this works — both sides simplified to a linear, not an identity.\n\n**Test Day Takeaway:** When the only algebraic root coincides with a domain restriction, the equation has zero solutions.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'rational-equation-with-extraneous-solution', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-am-281', domain: 'advanced-math', skills: ['rational-expressions'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'What is the solution set of the equation $\\dfrac{1}{x - 3} + \\dfrac{2}{x + 3} = \\dfrac{6}{x^2 - 9}$?',
+    choices: [{ id: 'A', text: '$\\{3\\}$' }, { id: 'B', text: '$\\{-3\\}$' }, { id: 'C', text: '$\\{3, -3\\}$' }, { id: 'D', text: 'No solution' }],
+    correctAnswer: 'D',
+    explanation: "**SAT Pattern: Rational Equation with Extraneous Solution**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** Multiply by $x^2 - 9 = (x - 3)(x + 3)$: $(x + 3) + 2(x - 3) = 6 \\Rightarrow 3x - 3 = 6 \\Rightarrow x = 3$. But $x = 3$ makes $x - 3 = 0$ — EXTRANEOUS. No solution.\n\n**The Full Solution:**\nDomain restrictions: $x \\ne 3$ and $x \\ne -3$. Multiply through by $(x - 3)(x + 3) = x^2 - 9$:\n$\\quad (x + 3) + 2(x - 3) = 6$\n$\\quad x + 3 + 2x - 6 = 6$\n$\\quad 3x - 3 = 6$\n$\\quad 3x = 9$\n$\\quad x = 3$\nBut $x = 3$ is one of the excluded values. So no valid solution exists.\n\n**Why the wrong answers are tempting:**\n* A: reports the extraneous root.\n* B: makes one denominator zero but doesn't satisfy.\n* C: includes both excluded values.\n\n**Test Day Takeaway:** Always identify domain restrictions BEFORE solving. When the algebraic solution lands in the excluded set, the answer is 'no solution.'",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'rational-equation-with-extraneous-solution', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-am-282', domain: 'advanced-math', skills: ['rational-expressions'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'Solve for $x$: $\\dfrac{x + 4}{x - 1} = \\dfrac{5}{x - 1}$',
+    choices: [{ id: 'A', text: '$x = -1$' }, { id: 'B', text: '$x = 1$' }, { id: 'C', text: '$x = 5$' }, { id: 'D', text: 'No solution' }],
+    correctAnswer: 'D',
+    explanation: "**SAT Pattern: Rational Equation with Extraneous Solution**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** Multiply by $(x - 1)$: $x + 4 = 5 \\Rightarrow x = 1$. But $x = 1$ makes denominator $0$ — extraneous. No solution.\n\n**The Full Solution:**\nDomain: $x \\ne 1$. From $x + 4 = 5$: $x = 1$. This is the excluded value, so no valid solution.\n\n**Why the wrong answers are tempting:**\n* A: sign mistake on $4$.\n* B: the extraneous algebraic solution.\n* C: copies the right-hand-side numerator.\n\n**Test Day Takeaway:** When both sides have the same denominator, you can equate the numerators — but the domain restriction still applies.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'rational-equation-with-extraneous-solution', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-am-283', domain: 'advanced-math', skills: ['rational-expressions'], difficulty: 'medium', type: 'fill-in',
+    question: 'What is the value of $x$ that satisfies the equation $\\dfrac{x}{x - 4} + \\dfrac{4}{x - 4} = 3$, provided that $x$ is in the domain of the original expression?',
+    correctAnswer: '8',
+    explanation: "**SAT Pattern: Rational Equation with Extraneous Solution**\n\n**The correct answer is $8$.**\n\n**The Fast Way (~10s):** Combine: $\\dfrac{x + 4}{x - 4} = 3 \\Rightarrow x + 4 = 3(x - 4) \\Rightarrow x + 4 = 3x - 12 \\Rightarrow 16 = 2x \\Rightarrow x = 8$.\n\n**The Full Solution:**\nDomain: $x \\ne 4$. Combine the fractions: $\\dfrac{x + 4}{x - 4} = 3$. Cross-multiply: $x + 4 = 3(x - 4)$, expand: $x + 4 = 3x - 12$, solve: $16 = 2x \\Rightarrow x = 8$. Since $8 \\ne 4$, this is a VALID solution.\n\nVerification: $\\dfrac{8 + 4}{8 - 4} = \\dfrac{12}{4} = 3$ \\checkmark.\n\n**Common Mistakes:**\n* Reporting $4$: extraneous — makes the denominator zero.\n* Reporting $-8$: sign error in cross-multiplication.\n\n**Test Day Takeaway:** Not every rational equation has an extraneous solution — but ALWAYS check the answer against the domain. Here $8 \\ne 4$, so the solution is valid.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'rational-equation-with-extraneous-solution', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-am-284', domain: 'advanced-math', skills: ['rational-expressions'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'For which value of $x$ is the equation $\\dfrac{2x}{x - 5} = \\dfrac{10}{x - 5}$ undefined?',
+    choices: [{ id: 'A', text: '$x = 0$' }, { id: 'B', text: '$x = 2$' }, { id: 'C', text: '$x = 5$' }, { id: 'D', text: '$x = 10$' }],
+    correctAnswer: 'C',
+    explanation: "**SAT Pattern: Rational Equation with Extraneous Solution**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** The denominator $(x - 5)$ is zero at $x = 5$.\n\n**The Full Solution:**\nA rational expression is undefined where the denominator equals zero. $x - 5 = 0 \\Rightarrow x = 5$. At $x = 5$, both fractions are undefined.\n\nNote: algebraically, $\\dfrac{2x}{x-5} = \\dfrac{10}{x-5}$ implies $2x = 10$, i.e., $x = 5$. So the only candidate algebraic solution is exactly the excluded value — meaning the equation has NO valid solution. The question asks specifically about where it's undefined.\n\n**Why the wrong answers are tempting:**\n* A ($0$): a value that makes the numerator zero (LHS), not the denominator.\n* B ($2$): unrelated value.\n* D ($10$): unrelated.\n\n**Test Day Takeaway:** 'Undefined' for a rational expression = denominator-zero values. The numerator can be zero without making the expression undefined.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'rational-equation-with-extraneous-solution', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-am-285', domain: 'advanced-math', skills: ['rational-expressions'], difficulty: 'hard', type: 'multiple-choice',
+    question: 'What is the solution to the equation $\\dfrac{3}{x - 2} - \\dfrac{2}{x + 2} = \\dfrac{20}{x^2 - 4}$?',
+    choices: [{ id: 'A', text: '$x = -2$' }, { id: 'B', text: '$x = 2$' }, { id: 'C', text: '$x = 10$' }, { id: 'D', text: 'No solution' }],
+    correctAnswer: 'C',
+    explanation: "**SAT Pattern: Rational Equation with Extraneous Solution**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Multiply by $(x - 2)(x + 2) = x^2 - 4$: $3(x + 2) - 2(x - 2) = 20 \\Rightarrow 3x + 6 - 2x + 4 = 20 \\Rightarrow x + 10 = 20 \\Rightarrow x = 10$. Check: $10 \\ne \\pm 2$, so valid.\n\n**The Full Solution:**\nDomain restrictions: $x \\ne 2$ and $x \\ne -2$ (both denominators must be nonzero, and $x^2 - 4 = (x-2)(x+2)$).\n\nMultiply both sides by $(x-2)(x+2)$:\n$\\quad 3(x + 2) - 2(x - 2) = 20$\n$\\quad 3x + 6 - 2x + 4 = 20$\n$\\quad x + 10 = 20$\n$\\quad x = 10$.\n\nSince $x = 10$ is not in the excluded set, it's a valid solution.\n\nVerification at $x = 10$: $\\dfrac{3}{8} - \\dfrac{2}{12} = \\dfrac{9}{24} - \\dfrac{4}{24} = \\dfrac{5}{24}$. And $\\dfrac{20}{100 - 4} = \\dfrac{20}{96} = \\dfrac{5}{24}$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* A ($-2$): one of the EXCLUDED values — would make a denominator zero.\n* B ($2$): the OTHER excluded value.\n* D ('No solution'): tempting because two domain restrictions appear in the stem, but the algebraic root $x = 10$ avoids both.\n\n**Test Day Takeaway:** After solving, ALWAYS check whether the candidate root is in the domain. Domain restrictions don't always invalidate the solution — only when the root coincides with an excluded value.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'rational-equation-with-extraneous-solution', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-am-286', domain: 'advanced-math', skills: ['rational-expressions'], difficulty: 'hard', type: 'fill-in',
+    question: "Which value of $x$, if any, is an EXTRANEOUS solution to the equation $\\dfrac{x^2 - 25}{x - 5} = 10$? (Report the value of $x$; if none, report $0$.)",
+    correctAnswer: '5',
+    explanation: "**SAT Pattern: Rational Equation with Extraneous Solution**\n\n**The correct answer is $5$.**\n\n**The Fast Way (~10s):** Factor: $\\dfrac{(x + 5)(x - 5)}{x - 5} = 10 \\Rightarrow x + 5 = 10 \\Rightarrow x = 5$. But $x = 5$ is excluded — EXTRANEOUS.\n\n**The Full Solution:**\nDomain: $x \\ne 5$. Algebra gives $x = 5$, which is excluded from the domain. So $x = 5$ is the extraneous solution — the only candidate generated by the algebra, but invalid.\n\n**Test Day Takeaway:** Extraneous solutions are EXACTLY the values produced by algebra that violate the original domain restriction. Always factor and cancel BEFORE forgetting the restriction.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'rational-equation-with-extraneous-solution', authoredBy: 'performsat-engine', createdAt: '2026-05-16' }
 ];

@@ -233,6 +233,25 @@ const PATTERN_ALIASES = Object.freeze({
 
   // Percent decrease variant — same method
   'percent-change-decrease': 'percent-decrease',
+
+  // Percent "X greater than" / "X less than" verbal framing — SAME pattern,
+  // different surface forms. Test bundles use either kebab slug; both route
+  // to the canonical `percent-greater-than-less-than` pool (8 hand-authored
+  // items, see bank/problemSolving.js §B3 batch).
+  'percent-greater-than':  'percent-greater-than-less-than',
+  'percent-less-than':     'percent-greater-than-less-than',
+  'percent-increase':      'percent-greater-than-less-than',
+
+  // Two-way table conditional probability — naming variant (with article "a").
+  // Identical method to the canonical slug.
+  'conditional-probability-from-a-two-way-table': 'conditional-probability-from-two-way-table',
+
+  // Right triangle trigonometry — long-form vs the canonical short slug.
+  'right-triangle-trigonometry': 'right-triangle-trig-ratios',
+
+  // Complete-the-square for circle center — same as recognizing a circle in
+  // general form (you complete the square to extract (h, k, r)).
+  'complete-the-square-circle-center': 'circle-in-general-form',
 });
 
 export const extractSatPattern = (text) => {

@@ -2672,5 +2672,119 @@ export const geometryBank = [
     question: 'A cube has side length $s$. A second cube has side length $2s$. The volume of the second cube is how many times the volume of the first cube?',
     correctAnswer: '8',
     explanation: "**SAT Pattern: Symbolic Area or Volume**\n\n**The correct answer is $8$.**\n\n**The Fast Way (~5s):** Ratio of volumes $= (2s)^3 / s^3 = 2^3 = 8$.\n\n**The Full Solution:**\nVolume of a cube $= (\\text{side})^3$.\nFirst cube: $V_1 = s^3$.\nSecond cube: $V_2 = (2s)^3 = 8s^3$.\nRatio: $V_2 / V_1 = 8s^3 / s^3 = 8$.\n\nVerification (with $s = 1$): $V_1 = 1, V_2 = 2^3 = 8$. Ratio $= 8$ \\checkmark.\n\n**Common Mistakes:**\n* Reporting $2$ — reports the LINEAR scale factor, not the volume ratio.\n* Reporting $4$ — confuses with the AREA scaling (which would be $2^2$).\n* Reporting $6$ — adds in some other arithmetic ($2 + 4$?) — no clean derivation.\n\n**Test Day Takeaway:** Volume scaling rule: if linear dimensions scale by a factor $k$, then volume scales by $k^3$. (Area scales by $k^2$; perimeter scales by $k$.) The exponent matches the dimension.",
-    calculatorAllowed: false, tags: [], sourceStyleRef: 'symbolic-area-or-volume', authoredBy: 'performsat-engine', createdAt: '2026-05-16' }
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'symbolic-area-or-volume', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  // ─── SIMILAR FIGURES AREA RATIO (bank-geo-195..202) ──────────────────────
+  // When linear dimensions scale by factor k, area scales by k^2, volume by k^3.
+  // Distinct from generic Pythagorean / area formulas — focuses on the scaling rule.
+  { id: 'bank-geo-195', domain: 'geometry', skills: ['similar-triangles'], difficulty: 'easy', type: 'multiple-choice',
+    question: 'Two squares have side lengths in the ratio $2:5$. What is the ratio of their areas?',
+    choices: [{ id: 'A', text: '$2:5$' }, { id: 'B', text: '$4:10$' }, { id: 'C', text: '$4:25$' }, { id: 'D', text: '$8:125$' }],
+    correctAnswer: 'C',
+    explanation: "**SAT Pattern: Similar Figures Area Ratio**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** Area scales as the SQUARE of the linear ratio: $(2/5)^2 = 4/25$.\n\n**The Full Solution:**\nFor similar 2-D figures, if linear dimensions are in ratio $a:b$, areas are in ratio $a^2:b^2$.\nHere $a:b = 2:5$, so areas are in ratio $2^2:5^2 = 4:25$.\n\nVerification: side $2$ has area $4$; side $5$ has area $25$. Ratio $4:25$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* A: reports the LINEAR ratio.\n* B: doubles the numerator only.\n* D: uses VOLUME scaling ($k^3$) instead of area ($k^2$).\n\n**Test Day Takeaway:** Linear ratio $k$: perimeter scales by $k$, AREA scales by $k^2$, volume scales by $k^3$. The exponent equals the dimension.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'similar-figures-area-ratio', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-geo-196', domain: 'geometry', skills: ['similar-triangles'], difficulty: 'easy', type: 'multiple-choice',
+    question: 'Two circles have radii in the ratio $3:7$. What is the ratio of their areas?',
+    choices: [{ id: 'A', text: '$3:7$' }, { id: 'B', text: '$6:14$' }, { id: 'C', text: '$9:49$' }, { id: 'D', text: '$27:343$' }],
+    correctAnswer: 'C',
+    explanation: "**SAT Pattern: Similar Figures Area Ratio**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** $(3/7)^2 = 9/49$.\n\n**The Full Solution:**\nArea of a circle: $A = \\pi r^2$. So area ratio $= (r_1/r_2)^2 = (3/7)^2 = 9/49$.\n\n**Why the wrong answers are tempting:**\n* A: linear ratio (radii).\n* B: doubles the linear ratio.\n* D: cubes (volume scaling) — but circles are 2-D.\n\n**Test Day Takeaway:** Two circles are always similar. Areas scale with $r^2$.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'similar-figures-area-ratio', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-geo-197', domain: 'geometry', skills: ['similar-triangles'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'Two similar triangles have corresponding sides in the ratio $4:9$. What is the ratio of their areas?',
+    choices: [{ id: 'A', text: '$4:9$' }, { id: 'B', text: '$2:3$' }, { id: 'C', text: '$16:81$' }, { id: 'D', text: '$64:729$' }],
+    correctAnswer: 'C',
+    explanation: "**SAT Pattern: Similar Figures Area Ratio**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** Area ratio $= (4/9)^2 = 16/81$.\n\n**The Full Solution:**\nFor similar triangles with linear ratio $4:9$, areas are in ratio $4^2:9^2 = 16:81$.\n\n**Why the wrong answers are tempting:**\n* A: linear ratio.\n* B: square root of the linear ratio — backwards.\n* D: cubes (volume scaling).\n\n**Test Day Takeaway:** This rule holds for ALL similar shapes — triangles, polygons, irregular figures.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'similar-figures-area-ratio', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-geo-198', domain: 'geometry', skills: ['similar-triangles'], difficulty: 'medium', type: 'fill-in',
+    question: 'A triangle is scaled up so that each side length is tripled. By what factor does the area of the triangle increase?',
+    correctAnswer: '9',
+    explanation: "**SAT Pattern: Similar Figures Area Ratio**\n\n**The correct answer is $9$.**\n\n**The Fast Way (~5s):** Linear scale by $3 \\Rightarrow$ area scales by $3^2 = 9$.\n\n**The Full Solution:**\nIf each side triples, then base and height each triple. Area $= (1/2)(3b)(3h) = 9 \\cdot (1/2)(bh)$ — nine times the original area.\n\n**Common Mistakes:**\n* Reporting $3$: linear factor instead of area factor.\n* Reporting $6$: doubles the linear factor.\n* Reporting $27$: uses volume factor $3^3$ — but this is a 2-D figure.\n\n**Test Day Takeaway:** Tripling each linear dimension multiplies the area by $9 = 3^2$.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'similar-figures-area-ratio', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-geo-199', domain: 'geometry', skills: ['similar-triangles'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'A photograph is enlarged so that its linear dimensions are scaled by a factor of $2.5$. The area of the enlarged photo is how many times the area of the original?',
+    choices: [{ id: 'A', text: '$2.5$' }, { id: 'B', text: '$5$' }, { id: 'C', text: '$6.25$' }, { id: 'D', text: '$15.625$' }],
+    correctAnswer: 'C',
+    explanation: "**SAT Pattern: Similar Figures Area Ratio**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** $2.5^2 = 6.25$.\n\n**The Full Solution:**\nLinear scale factor $2.5 \\Rightarrow$ area scale factor $2.5^2 = 6.25$.\n\n**Why the wrong answers are tempting:**\n* A: linear factor.\n* B: doubles the linear factor.\n* D: $2.5^3 = 15.625$ (volume).\n\n**Test Day Takeaway:** Area scaling is the square of the linear factor — regardless of whether the figure is regular, irregular, a photo, or a map.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'similar-figures-area-ratio', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-geo-200', domain: 'geometry', skills: ['similar-triangles'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'Two similar rectangles have areas $48$ and $108$ square units. What is the ratio of their corresponding sides (smaller to larger)?',
+    choices: [{ id: 'A', text: '$2:3$' }, { id: 'B', text: '$4:9$' }, { id: 'C', text: '$24:54$' }, { id: 'D', text: '$1:2$' }],
+    correctAnswer: 'A',
+    explanation: "**SAT Pattern: Similar Figures Area Ratio**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Area ratio $48:108 = 4:9$. Take square root: linear ratio $= 2:3$.\n\n**The Full Solution:**\nArea ratio: $\\dfrac{48}{108} = \\dfrac{4}{9}$.\nLinear ratio = $\\sqrt{\\text{area ratio}}$ = $\\sqrt{4/9} = 2/3$.\n\nVerification: $(2/3)^2 = 4/9 = 48/108$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* B: reports the AREA ratio as if it were the linear ratio.\n* C: reports the original numbers, not their simplified ratio.\n* D: rough estimate, not exact.\n\n**Test Day Takeaway:** Going BACKWARD from area to linear: take the SQUARE ROOT of the area ratio.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'similar-figures-area-ratio', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-geo-201', domain: 'geometry', skills: ['similar-triangles'], difficulty: 'hard', type: 'multiple-choice',
+    question: 'Two similar triangles have corresponding sides in the ratio $5:8$. The smaller triangle has an area of $50$ square units. What is the area of the larger triangle?',
+    choices: [{ id: 'A', text: '$80$' }, { id: 'B', text: '$96$' }, { id: 'C', text: '$128$' }, { id: 'D', text: '$200$' }],
+    correctAnswer: 'C',
+    explanation: "**SAT Pattern: Similar Figures Area Ratio**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Area ratio $= (5/8)^2 = 25/64$. So larger area $= 50 \\cdot (64/25) = 50 \\cdot 2.56 = 128$.\n\n**The Full Solution:**\n$\\dfrac{\\text{small area}}{\\text{large area}} = \\left(\\dfrac{5}{8}\\right)^2 = \\dfrac{25}{64}$.\n$\\dfrac{50}{\\text{large}} = \\dfrac{25}{64} \\Rightarrow \\text{large} = 50 \\cdot \\dfrac{64}{25} = 2 \\cdot 64 = 128$.\n\nVerification: $128 / 50 = 2.56 = 64/25 = (8/5)^2$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* A ($80$): scales by the LINEAR factor: $50 \\cdot (8/5) = 80$. Forgets to square.\n* B ($96$): close to A but with different arithmetic.\n* D ($200$): multiplies by $4$ (some other scaling).\n\n**Test Day Takeaway:** Linear ratio $a:b$ gives area ratio $a^2:b^2$. Apply that ratio to the known area, then scale to the unknown.",
+    calculatorAllowed: true, tags: [], sourceStyleRef: 'similar-figures-area-ratio', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-geo-202', domain: 'geometry', skills: ['similar-triangles'], difficulty: 'hard', type: 'fill-in',
+    question: 'Two similar circles have areas in the ratio $9:25$. The smaller circle has a radius of $6$. What is the radius of the larger circle?',
+    correctAnswer: '10',
+    explanation: "**SAT Pattern: Similar Figures Area Ratio**\n\n**The correct answer is $10$.**\n\n**The Fast Way (~10s):** Area ratio $9:25 \\Rightarrow$ linear (radius) ratio $\\sqrt{9}:\\sqrt{25} = 3:5$. Scale factor: $5/3$. Larger radius $= 6 \\cdot (5/3) = 10$.\n\n**The Full Solution:**\nArea ratio $= 9:25$. Radii are in ratio $\\sqrt{9/25} = 3/5$.\nSmaller radius corresponds to $3$, so the scale factor is $6/3 = 2$. Larger radius $= 2 \\cdot 5 = 10$.\n\nVerification: smaller area $= \\pi(6)^2 = 36\\pi$; larger area $= \\pi(10)^2 = 100\\pi$. Ratio $= 36:100 = 9:25$ \\checkmark.\n\n**Common Mistakes:**\n* Reporting $16.67$: multiplies $6$ by $25/9$ — uses area ratio directly instead of square root.\n* Reporting $30$: multiplies by $5$ — wrong scaling.\n\n**Test Day Takeaway:** Backward direction (area $\\to$ linear): take square root first, then apply to the known dimension.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'similar-figures-area-ratio', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  // ─── AREA OF TRIANGLE FROM COORDINATES (bank-geo-203..210) ────────────────
+  // Two methods: (1) base-height when sides align with axes; (2) shoelace
+  // formula for arbitrary triangles. SAT staple.
+  { id: 'bank-geo-203', domain: 'geometry', skills: ['triangle-area'], difficulty: 'easy', type: 'multiple-choice',
+    question: 'What is the area of the triangle in the $xy$-plane with vertices at $(0, 0)$, $(6, 0)$, and $(0, 4)$?',
+    choices: [{ id: 'A', text: '$5$' }, { id: 'B', text: '$10$' }, { id: 'C', text: '$12$' }, { id: 'D', text: '$24$' }],
+    correctAnswer: 'C',
+    explanation: "**SAT Pattern: Area of Triangle from Coordinates**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** Right triangle on the axes: legs $6$ and $4$. Area $= (1/2)(6)(4) = 12$.\n\n**The Full Solution:**\nThe vertices $(0, 0)$, $(6, 0)$, $(0, 4)$ form a right triangle with legs along the axes. Base (on $x$-axis) $= 6$; height (on $y$-axis) $= 4$. Area $= (1/2)(6)(4) = 12$.\n\n**Why the wrong answers are tempting:**\n* A ($5$): adds half-legs ($3 + 2 = 5$).\n* B ($10$): some other arithmetic confusion.\n* D ($24$): forgets the $1/2$ factor.\n\n**Test Day Takeaway:** When two sides of a triangle lie on the axes (or are parallel to them), the area is $(1/2)(\\text{base})(\\text{height})$ directly.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'area-of-triangle-from-coordinates', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-geo-204', domain: 'geometry', skills: ['triangle-area'], difficulty: 'easy', type: 'multiple-choice',
+    question: 'What is the area of the triangle with vertices at $(0, 0)$, $(5, 0)$, and $(3, 7)$?',
+    choices: [{ id: 'A', text: '$12$' }, { id: 'B', text: '$17.5$' }, { id: 'C', text: '$21$' }, { id: 'D', text: '$35$' }],
+    correctAnswer: 'B',
+    explanation: "**SAT Pattern: Area of Triangle from Coordinates**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** Base on $x$-axis = $5$; height = $y$-coordinate of third vertex = $7$. Area $= (1/2)(5)(7) = 17.5$.\n\n**The Full Solution:**\nTwo vertices are on the $x$-axis $(0, 0)$ and $(5, 0)$, so the base is $5$ units long. The third vertex $(3, 7)$ has $y$-coordinate $7$, which is the height (perpendicular distance to the base).\nArea $= (1/2)(5)(7) = 17.5$.\n\n**Why the wrong answers are tempting:**\n* A ($12$): uses $3$ as the base for some reason.\n* C ($21$): forgets $1/2$ on a different calculation.\n* D ($35$): full $5 \\cdot 7$, no $1/2$.\n\n**Test Day Takeaway:** When the base of a triangle lies on the $x$-axis, the height is the $y$-coordinate of the third vertex.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'area-of-triangle-from-coordinates', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-geo-205', domain: 'geometry', skills: ['triangle-area'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'A triangle has vertices $A(1, 2)$, $B(5, 2)$, and $C(3, 8)$. What is its area, in square units?',
+    choices: [{ id: 'A', text: '$6$' }, { id: 'B', text: '$8$' }, { id: 'C', text: '$12$' }, { id: 'D', text: '$24$' }],
+    correctAnswer: 'C',
+    explanation: "**SAT Pattern: Area of Triangle from Coordinates**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** $A$ and $B$ have the same $y$-coordinate, so $AB$ is horizontal: $|AB| = 5 - 1 = 4$. Height from $C$ to $AB$ = $|8 - 2| = 6$. Area $= (1/2)(4)(6) = 12$.\n\n**The Full Solution:**\n$A(1, 2)$ and $B(5, 2)$ share $y = 2$, so line $AB$ is horizontal at $y = 2$. Base $|AB| = |5 - 1| = 4$.\nThird vertex $C(3, 8)$: height (perpendicular distance to line $y = 2$) = $|8 - 2| = 6$.\nArea $= (1/2)(4)(6) = 12$.\n\nVerification: another method (shoelace): $(1/2)|1(2 - 8) + 5(8 - 2) + 3(2 - 2)| = (1/2)|{-6} + 30 + 0| = (1/2)(24) = 12$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* A ($6$): forgets to multiply by base, just $(1/2)(12)$.\n* B ($8$): uses wrong base or height.\n* D ($24$): forgets $1/2$.\n\n**Test Day Takeaway:** When two vertices share an $x$- or $y$-coordinate, use that as the base. Height is perpendicular distance from the third vertex.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'area-of-triangle-from-coordinates', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-geo-206', domain: 'geometry', skills: ['triangle-area'], difficulty: 'medium', type: 'fill-in',
+    question: 'A triangle has vertices $(2, 3)$, $(8, 3)$, and $(5, 9)$. What is its area, in square units?',
+    correctAnswer: '18',
+    explanation: "**SAT Pattern: Area of Triangle from Coordinates**\n\n**The correct answer is $18$.**\n\n**The Fast Way (~10s):** Base $= 8 - 2 = 6$. Height $= 9 - 3 = 6$. Area $= (1/2)(6)(6) = 18$.\n\n**The Full Solution:**\nThe first two vertices have $y = 3$, so line $AB$ is horizontal with length $|8 - 2| = 6$. Third vertex at $y = 9$, so height $= |9 - 3| = 6$.\nArea $= (1/2)(6)(6) = 18$.\n\n**Common Mistakes:**\n* Reporting $36$: forgets $1/2$.\n* Reporting $9$: uses just one dimension.\n\n**Test Day Takeaway:** Coordinates that share $x$ or $y$ give you a 'free' horizontal or vertical base — much faster than the shoelace formula.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'area-of-triangle-from-coordinates', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-geo-207', domain: 'geometry', skills: ['triangle-area'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'What is the area, in square units, of the triangle with vertices $(-1, 1)$, $(3, 1)$, and $(2, 4)$?',
+    choices: [{ id: 'A', text: '$4$' }, { id: 'B', text: '$6$' }, { id: 'C', text: '$8$' }, { id: 'D', text: '$12$' }],
+    correctAnswer: 'B',
+    explanation: "**SAT Pattern: Area of Triangle from Coordinates**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Base $= 3 - (-1) = 4$. Height $= 4 - 1 = 3$. Area $= (1/2)(4)(3) = 6$.\n\n**The Full Solution:**\nFirst two vertices share $y = 1$, so base is horizontal with length $|3 - (-1)| = 4$. Third vertex at $y = 4$, so height $= |4 - 1| = 3$.\nArea $= (1/2)(4)(3) = 6$.\n\n**Why the wrong answers are tempting:**\n* A ($4$): reports the base.\n* C ($8$): forgets $1/2$ on $4 \\cdot 3$? No, that's $12$. Different arithmetic.\n* D ($12$): forgets $1/2$.\n\n**Test Day Takeaway:** Base $\\cdot$ height $\\cdot (1/2)$ — track all three factors. Don't drop the $1/2$.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'area-of-triangle-from-coordinates', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-geo-208', domain: 'geometry', skills: ['triangle-area'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'What is the area of the triangle with vertices $(0, 0)$, $(4, 3)$, and $(8, 0)$?',
+    choices: [{ id: 'A', text: '$6$' }, { id: 'B', text: '$10$' }, { id: 'C', text: '$12$' }, { id: 'D', text: '$24$' }],
+    correctAnswer: 'C',
+    explanation: "**SAT Pattern: Area of Triangle from Coordinates**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Base on $x$-axis: $|8 - 0| = 8$. Height from $(4, 3)$ to $x$-axis: $3$. Area $= (1/2)(8)(3) = 12$.\n\n**The Full Solution:**\nVertices $(0, 0)$ and $(8, 0)$ both lie on the $x$-axis, so the base is along the $x$-axis with length $8$. The third vertex has $y$-coordinate $3$, so the height is $3$.\nArea $= (1/2)(8)(3) = 12$.\n\n**Why the wrong answers are tempting:**\n* A ($6$): forgets to multiply by base.\n* B ($10$): arithmetic slip.\n* D ($24$): forgets $1/2$.\n\n**Test Day Takeaway:** When two vertices share a coordinate (here $y = 0$), use that line as the base.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'area-of-triangle-from-coordinates', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-geo-209', domain: 'geometry', skills: ['triangle-area'], difficulty: 'hard', type: 'multiple-choice',
+    question: 'A triangle in the $xy$-plane has vertices at $(1, 1)$, $(4, 6)$, and $(7, 2)$. What is its area, in square units?',
+    choices: [{ id: 'A', text: '$11$' }, { id: 'B', text: '$13.5$' }, { id: 'C', text: '$18$' }, { id: 'D', text: '$27$' }],
+    correctAnswer: 'B',
+    explanation: "**SAT Pattern: Area of Triangle from Coordinates**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Shoelace formula: $\\text{Area} = \\dfrac{1}{2} |x_1(y_2 - y_3) + x_2(y_3 - y_1) + x_3(y_1 - y_2)| = \\dfrac{1}{2}|1(6 - 2) + 4(2 - 1) + 7(1 - 6)| = \\dfrac{1}{2}|4 + 4 - 35| = \\dfrac{1}{2}(27) = 13.5$.\n\n**The Full Solution:**\nUse the shoelace formula for a triangle with vertices $(x_1, y_1), (x_2, y_2), (x_3, y_3)$:\n$\\quad \\text{Area} = \\dfrac{1}{2}|x_1(y_2 - y_3) + x_2(y_3 - y_1) + x_3(y_1 - y_2)|$\nPlug in $(1, 1), (4, 6), (7, 2)$:\n$\\quad = \\dfrac{1}{2}|1(6 - 2) + 4(2 - 1) + 7(1 - 6)|$\n$\\quad = \\dfrac{1}{2}|4 + 4 - 35|$\n$\\quad = \\dfrac{1}{2} \\cdot 27 = 13.5$.\n\n**Why the wrong answers are tempting:**\n* A ($11$): close but with arithmetic error.\n* C ($18$): forgets $1/2$? No: $27 \\cdot 2/3 = 18$. Some other error.\n* D ($27$): forgets $1/2$.\n\n**Test Day Takeaway:** When no sides are axis-aligned, use the SHOELACE formula. The $1/2 \\cdot |{\\ldots}|$ wrapping is essential — the absolute value handles orientation, the $1/2$ handles the triangle factor.",
+    calculatorAllowed: true, tags: [], sourceStyleRef: 'area-of-triangle-from-coordinates', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-geo-210', domain: 'geometry', skills: ['triangle-area'], difficulty: 'hard', type: 'fill-in',
+    question: 'A triangle has vertices $(0, 0)$, $(a, 0)$, and $(0, 12)$, where $a > 0$. If the area of the triangle is $30$ square units, what is the value of $a$?',
+    correctAnswer: '5',
+    explanation: "**SAT Pattern: Area of Triangle from Coordinates**\n\n**The correct answer is $5$.**\n\n**The Fast Way (~10s):** Right triangle on axes: $\\dfrac{1}{2} \\cdot a \\cdot 12 = 30 \\Rightarrow 6a = 30 \\Rightarrow a = 5$.\n\n**The Full Solution:**\nThe triangle has legs along the axes: horizontal leg of length $a$ and vertical leg of length $12$.\nArea $= (1/2) \\cdot a \\cdot 12 = 6a$. Set $6a = 30$: $a = 5$.\n\nVerification: $(1/2)(5)(12) = 30$ \\checkmark.\n\n**Common Mistakes:**\n* Reporting $30$: reports the area, not $a$.\n* Reporting $2.5$: arithmetic error ($30/12$).\n* Reporting $60$: uses $a \\cdot 12 = 60$, forgets $1/2$.\n\n**Test Day Takeaway:** Triangles with sides on the axes: solve $(1/2) \\cdot \\text{leg}_1 \\cdot \\text{leg}_2 = \\text{area}$ for the unknown.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'area-of-triangle-from-coordinates', authoredBy: 'performsat-engine', createdAt: '2026-05-16' }
 ];

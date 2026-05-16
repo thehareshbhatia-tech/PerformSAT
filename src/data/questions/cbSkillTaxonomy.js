@@ -159,6 +159,7 @@ export const PATTERN_TO_CB_SKILL = {
   'discriminant-with-integer-bound':         'nonlinear-equations',
   'vieta-sum-product-of-roots':              'nonlinear-equations',
   'tangent-line-and-discriminant':           'nonlinear-equations',
+  'rational-equation-with-extraneous-solution': 'nonlinear-equations', // solve, then check domain
 
   // ── P.C. Nonlinear functions ──────────────────────────────────────────────
   'classify-physical-motion-model':          'nonlinear-functions',
@@ -169,10 +170,15 @@ export const PATTERN_TO_CB_SKILL = {
   'exponential-growth-model':                'nonlinear-functions',
   'build-exponential-model':                 'nonlinear-functions',
   'reverse-exponential-back-in-time':        'nonlinear-functions', // past-value: divide by b^n
+  'compound-interest':                       'nonlinear-functions', // A = P(1+r)^t — exponential model
   'function-composition':                    'nonlinear-functions',
   'function-evaluation-with-negative-input': 'nonlinear-functions',
   'function-transformation':                 'nonlinear-functions',
   'function-from-shifted-graph':             'nonlinear-functions', // reverse of function-transformation
+  'vertical-shift':                          'nonlinear-functions', // f(x) + k
+  'horizontal-shift':                        'nonlinear-functions', // f(x ± h)
+  'reflection-of-graph':                     'nonlinear-functions', // -f(x) or f(-x)
+  'vertical-stretch':                        'nonlinear-functions', // a·f(x)
   'vertex-form-from-two-conditions':         'nonlinear-functions',
   'vertex-form-maximum':                     'nonlinear-functions',
 
@@ -206,6 +212,7 @@ export const PATTERN_TO_CB_SKILL = {
   'conditional-probability-from-two-way-table': 'probability',
   'two-way-table-conditional-probability':   'probability',
   'conditional-probability-with-percent':    'probability',
+  'probability-without-replacement':         'probability', // sequential draws, shrinking denominator
 
   // ── Q.F. Inference / margin of error ──────────────────────────────────────
   'margin-of-error':                         'inference-margin-of-error',
@@ -221,6 +228,8 @@ export const PATTERN_TO_CB_SKILL = {
   'volume-of-a-rectangular-prism':           'area-and-volume',
   'area-of-a-circle':                        'area-and-volume',
   'symbolic-area-or-volume':                 'area-and-volume', // area/volume expressed in terms of a variable
+  'similar-figures-area-ratio':              'area-and-volume', // linear ratio² = area ratio
+  'area-of-triangle-from-coordinates':       'area-and-volume', // base-height or shoelace
 
   // ── S.B. Lines, angles, and triangles ─────────────────────────────────────
   'triangle-angle-sum':                      'lines-angles-triangles',
