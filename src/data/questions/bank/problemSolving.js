@@ -3807,5 +3807,370 @@ export const problemSolvingBank = [
     question: 'A factory inspects $400$ items and rejects $7.5\\%$ of them due to defects. How many items pass inspection?',
     correctAnswer: '370',
     explanation: "**SAT Pattern: Percent Complement**\n\n**The correct answer is $370$.**\n\n**The Fast Way (~10s):** Complement: $100\\% - 7.5\\% = 92.5\\%$ pass. $0.925 \\cdot 400 = 370$.\n\n**The Full Solution:**\nComplement: $92.5\\%$ pass. Count: $0.925 \\times 400 = 370$.\n\nVerification: rejected = $0.075 \\times 400 = 30$. $30 + 370 = 400$ \\checkmark.\n\n**Common Mistakes:** Reporting $30$ (the rejected count); reporting $92.5$ (the percent); reporting $7.5$ (the rejected percent).\n\n**Test Day Takeaway:** Whenever a question describes a process with a \"reject/fail/discard rate,\" the complement is the \"pass/accept/keep\" count. Always verify pass + fail = total.",
-    calculatorAllowed: true, tags: [], sourceStyleRef: 'percent-complement', authoredBy: 'performsat-engine', createdAt: '2026-05-12' }
+    calculatorAllowed: true, tags: [], sourceStyleRef: 'percent-complement', authoredBy: 'performsat-engine', createdAt: '2026-05-12' },
+
+  // ─── CHAINED PERCENT RELATIONSHIP (bank-ps-225..232) ──────────────────────
+  // Pure-algebraic chained percent: "a is X% of b, b is Y% of c, find a/c."
+  // Distinct method from `compound-percent-of` (count-anchored) — students
+  // freeze without a concrete count to anchor on. See
+  // docs/CB_QUESTION_TYPE_AUDIT_2026-05-16.md §B1. CB precedent: PT11-M2-Q21.
+  { id: 'bank-ps-225', domain: 'problem-solving', skills: ['percent-of-value', 'percent-word-problems'], difficulty: 'easy', type: 'multiple-choice',
+    question: 'If $a$ is $20\\%$ of $b$, and $b$ is $50\\%$ of $c$, then $a$ is what percent of $c$?',
+    choices: [{ id: 'A', text: '$10\\%$' }, { id: 'B', text: '$30\\%$' }, { id: 'C', text: '$40\\%$' }, { id: 'D', text: '$70\\%$' }],
+    correctAnswer: 'A',
+    explanation: "**SAT Pattern: Chained Percent Relationship**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Multiply the two percents (as decimals): $0.20 \\cdot 0.50 = 0.10 = 10\\%$.\n\n**The Full Solution:**\nFrom the two given relationships:\n$\\quad a = 0.20 \\cdot b$\n$\\quad b = 0.50 \\cdot c$\nSubstitute the second into the first:\n$\\quad a = 0.20 \\cdot (0.50 \\cdot c) = 0.10 \\cdot c$\nSo $a$ is $10\\%$ of $c$.\n\nVerification: pick $c = 100$. Then $b = 50$ and $a = 20\\%$ of $50 = 10$. Check: $a/c = 10/100 = 10\\%$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B ($30\\%$): SUBTRACTS the two percents ($50 - 20 = 30$). The relationship between $a$ and $c$ is multiplicative, not subtractive.\n* Choice C ($40\\%$): divides the two percents ($20/50 = 0.40$). This finds $a/b$, not $a/c$.\n* Choice D ($70\\%$): ADDS the two percents ($20 + 50 = 70$). Tempting because addition feels like 'combining.' But chained percents multiply.\n\n**Test Day Takeaway:** When two percent relationships chain through a middle variable, MULTIPLY the percents (as decimals). The middle variable cancels in the substitution.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'chained-percent-relationship', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-ps-226', domain: 'problem-solving', skills: ['percent-of-value', 'percent-word-problems'], difficulty: 'easy', type: 'multiple-choice',
+    question: '$x$ is $40\\%$ of $y$, and $y$ is $25\\%$ of $z$. What is $x$ as a percent of $z$?',
+    choices: [{ id: 'A', text: '$10\\%$' }, { id: 'B', text: '$15\\%$' }, { id: 'C', text: '$65\\%$' }, { id: 'D', text: '$160\\%$' }],
+    correctAnswer: 'A',
+    explanation: "**SAT Pattern: Chained Percent Relationship**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** $0.40 \\cdot 0.25 = 0.10 = 10\\%$.\n\n**The Full Solution:**\n$x = 0.40 \\cdot y$ and $y = 0.25 \\cdot z$, so $x = 0.40 \\cdot 0.25 \\cdot z = 0.10 \\cdot z$.\n\nVerification: $z = 200 \\Rightarrow y = 50 \\Rightarrow x = 20$. Check: $20/200 = 10\\%$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B ($15\\%$): SUBTRACTS ($40 - 25 = 15$) — wrong operation.\n* Choice C ($65\\%$): ADDS ($40 + 25 = 65$) — also wrong operation; chained percents are NOT additive.\n* Choice D ($160\\%$): reverses the ratio ($40/25 = 1.60$). This would describe $z$ in terms of $y$, not $x$ in terms of $z$.\n\n**Test Day Takeaway:** Chained percents multiply. The middle variable cancels by substitution.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'chained-percent-relationship', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-ps-227', domain: 'problem-solving', skills: ['percent-of-value', 'percent-word-problems'], difficulty: 'medium', type: 'fill-in',
+    question: 'If $a$ is $45\\%$ of $b$, and $b$ is $15\\%$ of $c$, what is $a$ as a percent of $c$? (Report only the number, without the % sign.)',
+    correctAnswer: '6.75',
+    explanation: "**SAT Pattern: Chained Percent Relationship**\n\n**The correct answer is $6.75$.**\n\n**The Fast Way (~10s):** $0.45 \\cdot 0.15 = 0.0675 = 6.75\\%$.\n\n**The Full Solution:**\nFrom $a = 0.45 b$ and $b = 0.15 c$:\n$\\quad a = 0.45 \\cdot (0.15 c) = 0.0675 \\cdot c$\nSo $a$ is $6.75\\%$ of $c$.\n\nVerification: $c = 1000 \\Rightarrow b = 150 \\Rightarrow a = 45\\%$ of $150 = 67.5$. Check: $67.5/1000 = 6.75\\%$ \\checkmark.\n\n**Common Mistakes:**\n* Reporting $60$ ($45 + 15$ — sum trap).\n* Reporting $30$ ($45 - 15$ — subtraction trap).\n* Reporting $3$ ($45 / 15 = 3$ — wrong operation).\n* Reporting $67.5$ — confuses $a$ as percent of $c$ with $a$ as a NUMBER when $c = 1000$. Re-read the question stem.\n\n**Test Day Takeaway:** Chained percents always multiply. Convert each percent to a decimal first, multiply, then convert back to a percent.",
+    calculatorAllowed: true, tags: [], sourceStyleRef: 'chained-percent-relationship', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-ps-228', domain: 'problem-solving', skills: ['percent-of-value', 'percent-word-problems'], difficulty: 'medium', type: 'multiple-choice',
+    question: '$p$ is $80\\%$ of $q$, and $q$ is $25\\%$ less than $r$. What is $p$ as a percent of $r$?',
+    choices: [{ id: 'A', text: '$55\\%$' }, { id: 'B', text: '$60\\%$' }, { id: 'C', text: '$100\\%$' }, { id: 'D', text: '$105\\%$' }],
+    correctAnswer: 'B',
+    explanation: "**SAT Pattern: Chained Percent Relationship**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $25\\%$ less than $r$ means $q = 0.75 r$. So $p = 0.80 \\cdot 0.75 \\cdot r = 0.60 r = 60\\%$ of $r$.\n\n**The Full Solution:**\nStep 1: Translate '$q$ is $25\\%$ less than $r$' into a percent OF $r$:\n$\\quad q = r - 0.25 r = 0.75 r$ (i.e., $q$ is $75\\%$ of $r$).\nStep 2: Substitute into $p = 0.80 q$:\n$\\quad p = 0.80 \\cdot 0.75 \\cdot r = 0.60 r$.\nSo $p$ is $60\\%$ of $r$.\n\nVerification: pick $r = 100$. Then $q = 75$ and $p = 80\\%$ of $75 = 60$. Check: $p/r = 60/100 = 60\\%$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A ($55\\%$): SUBTRACTS the percents ($80 - 25 = 55$). The two percents are not in the same direction — one is a multiplier, the other is a 'less than'.\n* Choice C ($100\\%$): treats '$25\\%$ less than' as '$25\\%$ greater than' — computes $0.80 \\cdot 1.25 = 1.00 = 100\\%$. The word 'less' was misread as 'more'.\n* Choice D ($105\\%$): ADDS the percents ($80 + 25 = 105$) — wrong operation.\n\n**Test Day Takeaway:** '$X\\%$ less than' $\\Rightarrow$ multiplier is $(1 - X/100)$. '$X\\%$ greater than' $\\Rightarrow$ multiplier is $(1 + X/100)$. The sign of the comparison flips the multiplier.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'chained-percent-relationship', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-ps-229', domain: 'problem-solving', skills: ['percent-of-value', 'percent-word-problems'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'At an outdoor concert, $65\\%$ of attendees are students. Of those students, $30\\%$ are music majors. What percent of all attendees are student music majors?',
+    choices: [{ id: 'A', text: '$19.5\\%$' }, { id: 'B', text: '$30\\%$' }, { id: 'C', text: '$35\\%$' }, { id: 'D', text: '$95\\%$' }],
+    correctAnswer: 'A',
+    explanation: "**SAT Pattern: Chained Percent Relationship**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** $0.65 \\cdot 0.30 = 0.195 = 19.5\\%$.\n\n**The Full Solution:**\nLet the total attendance be $T$.\n* Students: $0.65 T$.\n* Of those, music majors: $0.30 \\cdot (0.65 T) = 0.195 T$.\nSo $19.5\\%$ of all attendees are student music majors.\n\nVerification: $T = 1000 \\Rightarrow$ students $= 650 \\Rightarrow$ student music majors $= 0.30 \\cdot 650 = 195$. Check: $195/1000 = 19.5\\%$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B ($30\\%$): reports the inner CONDITIONAL alone — forgets to multiply by the $65\\%$ student rate.\n* Choice C ($35\\%$): SUBTRACTS ($65 - 30 = 35$) — wrong operation.\n* Choice D ($95\\%$): ADDS ($65 + 30 = 95$) — wrong operation; this would only make sense if the question asked for students OR music majors.\n\n**Test Day Takeaway:** When a percent is applied 'of those' (or 'among those'), the second percent is conditional on the first. Multiply the percents as decimals — never add or subtract.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'chained-percent-relationship', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-ps-230', domain: 'problem-solving', skills: ['percent-of-value', 'percent-word-problems'], difficulty: 'medium', type: 'fill-in',
+    question: 'If $m$ is $50\\%$ of $n$, and $n$ is $20\\%$ greater than $p$, then $m$ is what percent of $p$? (Report only the number, without the % sign.)',
+    correctAnswer: '60',
+    explanation: "**SAT Pattern: Chained Percent Relationship**\n\n**The correct answer is $60$.**\n\n**The Fast Way (~10s):** $20\\%$ greater than $p$ means $n = 1.20 p$. So $m = 0.50 \\cdot 1.20 \\cdot p = 0.60 p = 60\\%$.\n\n**The Full Solution:**\nStep 1: $m = 0.50 n$.\nStep 2: '$n$ is $20\\%$ greater than $p$' $\\Rightarrow n = p + 0.20 p = 1.20 p$.\nStep 3: Substitute: $m = 0.50 \\cdot 1.20 \\cdot p = 0.60 p$.\n\nVerification: $p = 100 \\Rightarrow n = 120 \\Rightarrow m = 50\\%$ of $120 = 60$. Check: $60/100 = 60\\%$ \\checkmark.\n\n**Common Mistakes:**\n* Reporting $40$ — treats '$20\\%$ greater than' as '$80\\%$ of' (i.e., $0.50 \\cdot 0.80 = 0.40$). The 'greater' direction flips this.\n* Reporting $70$ — adds the percents ($50 + 20$).\n* Reporting $30$ — subtracts ($50 - 20$).\n\n**Test Day Takeaway:** '$X\\%$ greater than' means multiplier is $(1 + X/100)$. Don't drop the leading 1.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'chained-percent-relationship', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-ps-231', domain: 'problem-solving', skills: ['percent-of-value', 'percent-word-problems'], difficulty: 'hard', type: 'multiple-choice',
+    question: 'Suppose $x = 0.18 z$ and $x$ is $60\\%$ of $y$. What percent of $z$ is $y$?',
+    choices: [{ id: 'A', text: '$10.8\\%$' }, { id: 'B', text: '$30\\%$' }, { id: 'C', text: '$42\\%$' }, { id: 'D', text: '$78\\%$' }],
+    correctAnswer: 'B',
+    explanation: "**SAT Pattern: Chained Percent Relationship**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $x = 0.60 y \\Rightarrow y = x / 0.60$. Substitute $x = 0.18 z$: $y = 0.18 z / 0.60 = 0.30 z = 30\\%$ of $z$.\n\n**The Full Solution:**\nReverse-direction chain: we know $x$ in terms of $z$ AND $x$ in terms of $y$. Solve for $y$ in terms of $z$.\nStep 1: From $x = 0.60 y$, solve: $y = x / 0.60$.\nStep 2: Substitute $x = 0.18 z$: $y = (0.18 / 0.60) \\cdot z = 0.30 z$.\nSo $y$ is $30\\%$ of $z$.\n\nVerification: $z = 100 \\Rightarrow x = 18$. Then $y = 18/0.60 = 30$. Check: $30/100 = 30\\%$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A ($10.8\\%$): treats this as a FORWARD chain and computes $0.18 \\cdot 0.60 = 0.108$. But $y$ is the BIGGER quantity, not the smaller — $x$ is $60\\%$ of $y$, so $y > x$.\n* Choice C ($42\\%$): SUBTRACTS ($60 - 18 = 42$) — wrong operation.\n* Choice D ($78\\%$): ADDS ($60 + 18 = 78$) — wrong operation.\n\n**Test Day Takeaway:** When chains run in opposite directions (forward + reverse), DIVIDE rather than multiply. Sanity check: $x$ is $60\\%$ of $y \\Rightarrow y$ is larger than $x$, so $y$'s percent of $z$ is larger than $x$'s percent of $z$.",
+    calculatorAllowed: true, tags: [], sourceStyleRef: 'chained-percent-relationship', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-ps-232', domain: 'problem-solving', skills: ['percent-of-value', 'percent-word-problems'], difficulty: 'hard', type: 'fill-in',
+    question: 'In a state population, Region A makes up $24\\%$ of all residents. Region B is $40\\%$ of Region A, and Region C is $75\\%$ of Region B. Region C is what percent of the state population? (Report only the number, without the % sign.)',
+    correctAnswer: '7.2',
+    explanation: "**SAT Pattern: Chained Percent Relationship**\n\n**The correct answer is $7.2$.**\n\n**The Fast Way (~15s):** Multiply all three percents (as decimals): $0.24 \\cdot 0.40 \\cdot 0.75 = 0.072 = 7.2\\%$.\n\n**The Full Solution:**\nLet $S$ be the state population.\n* Region A: $0.24 S$.\n* Region B: $0.40 \\cdot (0.24 S) = 0.096 S$.\n* Region C: $0.75 \\cdot (0.096 S) = 0.072 S$.\nSo Region C is $7.2\\%$ of the state.\n\nVerification: $S = 10{,}000 \\Rightarrow$ A $= 2400 \\Rightarrow$ B $= 960 \\Rightarrow$ C $= 720$. Check: $720/10{,}000 = 7.2\\%$ \\checkmark.\n\n**Common Mistakes:**\n* Reporting $9.6$ — stops one step early (B as percent of state, forgetting C).\n* Reporting $139$ — adds the three percents (treats chain as additive).\n* Reporting $72$ — drops a decimal place.\n\n**Test Day Takeaway:** Multi-step chains: multiply all percents as decimals, then convert back to percent. Pick a concrete population (like $10{,}000$) to sanity-check.",
+    calculatorAllowed: true, tags: [], sourceStyleRef: 'chained-percent-relationship', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  // ─── STATISTICAL CLAIMS: OBSERVATIONAL VS EXPERIMENTAL (bank-ps-233..240) ─
+  // First CB skill Q.G. ('statistical-claims') pool. Tests whether students
+  // distinguish: random ASSIGNMENT supports causal claims; absence of
+  // random assignment supports only ASSOCIATION. See audit §B2.
+  { id: 'bank-ps-233', domain: 'problem-solving', skills: ['observational-vs-experimental', 'causation-vs-association'], difficulty: 'easy', type: 'multiple-choice',
+    question: 'A researcher surveys $500$ college students and finds that students who get $8$ or more hours of sleep per night have higher GPAs on average. Which conclusion is best supported by the study?',
+    choices: [
+      { id: 'A', text: 'Sleeping $8$ or more hours per night causes higher GPAs.' },
+      { id: 'B', text: 'There is an association between sleep and GPA, but causation cannot be established.' },
+      { id: 'C', text: 'Higher GPAs cause students to sleep more.' },
+      { id: 'D', text: 'Sleep and GPA are independent.' },
+    ],
+    correctAnswer: 'B',
+    explanation: "**SAT Pattern: Observational vs Experimental Study**\n\n**Choice B is correct.**\n\n**The Key Distinction:** This is an OBSERVATIONAL study — the researcher did not assign students to sleep amounts. Without random assignment, lurking variables (e.g., students who are more organized may both sleep more AND study more) could explain the association.\n\n**Why the wrong answers are tempting:**\n* Choice A: jumps to CAUSATION from a correlational finding. The rule: observational studies show ASSOCIATION, not causation.\n* Choice C: also a causal claim, just in the reverse direction. Same rule applies — observational data cannot establish direction of causation.\n* Choice D: contradicts the data, which shows a clear positive association.\n\n**Test Day Takeaway:** Only RANDOMIZED EXPERIMENTS (random assignment to treatment groups) support causal conclusions. Surveys, polls, and longitudinal observational studies show association only.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'observational-vs-experimental', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-ps-234', domain: 'problem-solving', skills: ['observational-vs-experimental', 'causation-vs-association'], difficulty: 'easy', type: 'multiple-choice',
+    question: 'In a study of $200$ plants, the plants were randomly assigned to one of two fertilizers — Fertilizer A or Fertilizer B. After eight weeks, plants in the Fertilizer A group were on average taller than plants in the Fertilizer B group. Which conclusion is best supported by the study?',
+    choices: [
+      { id: 'A', text: 'Fertilizer A causes greater plant growth than Fertilizer B in plants like those studied.' },
+      { id: 'B', text: 'There is an association between fertilizer choice and plant height, but causation cannot be established.' },
+      { id: 'C', text: 'Plants in Fertilizer A would have grown taller even without any fertilizer.' },
+      { id: 'D', text: 'Fertilizer B prevents plants from growing.' },
+    ],
+    correctAnswer: 'A',
+    explanation: "**SAT Pattern: Observational vs Experimental Study**\n\n**Choice A is correct.**\n\n**The Key Distinction:** This IS an experimental study — plants were RANDOMLY ASSIGNED to fertilizers. Random assignment balances out lurking variables on average, so a difference in outcome supports a causal claim for the studied population (plants like those in this study).\n\n**Why the wrong answers are tempting:**\n* Choice B: applies the observational rule to an experiment. With random assignment, causal claims ARE supported (within the studied population).\n* Choice C: speculates beyond the data. The study does not include a no-fertilizer control group.\n* Choice D: overinterprets — the result shows A > B, not that B is harmful.\n\n**Test Day Takeaway:** RANDOM ASSIGNMENT $\\Rightarrow$ causal claim defensible. RANDOM SAMPLING (no assignment) $\\Rightarrow$ association only. Don't confuse these two 'random' words.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'observational-vs-experimental', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-ps-235', domain: 'problem-solving', skills: ['observational-vs-experimental', 'causation-vs-association'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'A nutritionist tracks $1{,}000$ adults over $5$ years using self-reported dietary surveys. Adults who reported eating more fish had lower rates of heart disease at the end of the study. The nutritionist concludes that fish consumption causes lower heart disease rates. What is the strongest critique of this conclusion?',
+    choices: [
+      { id: 'A', text: 'The study should have included children.' },
+      { id: 'B', text: 'This is an observational study without random assignment, so confounding variables (e.g., overall healthier lifestyles among fish eaters) could explain the association.' },
+      { id: 'C', text: 'Five years is too short to study heart disease.' },
+      { id: 'D', text: 'A sample of $1{,}000$ adults is too small to draw any conclusion.' },
+    ],
+    correctAnswer: 'B',
+    explanation: "**SAT Pattern: Observational vs Experimental Study**\n\n**Choice B is correct.**\n\n**The Key Distinction:** Self-reported tracking is OBSERVATIONAL — the researcher did not randomly assign adults to fish-eating or non-fish-eating groups. CONFOUNDING variables (people who eat more fish may also exercise more, eat more vegetables, etc.) can produce a spurious correlation that has nothing to do with the fish itself.\n\n**Why the wrong answers are tempting:**\n* Choice A: scope-of-inference critique (a different valid critique), but not the strongest one — the bigger issue is the causal leap.\n* Choice C: speculative; $5$ years is reasonable for tracking heart-disease incidence.\n* Choice D: $1{,}000$ is a large enough sample for many epidemiological conclusions. Sample size isn't the limiting factor here.\n\n**Test Day Takeaway:** The signature of a faulty observational $\\to$ causal jump is the word 'causes' (or 'leads to,' 'makes,' 'results in'). On the SAT, the safer conclusion is always: 'There is an ASSOCIATION between X and Y.'",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'observational-vs-experimental', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-ps-236', domain: 'problem-solving', skills: ['observational-vs-experimental', 'causation-vs-association'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'Researchers randomly divided $400$ patients with chronic pain into two groups. One group received a new drug; the other received a placebo. Patients did not know which group they were in. After eight weeks, the drug group reported significantly less pain than the placebo group. Which conclusion is best supported?',
+    choices: [
+      { id: 'A', text: 'There is an association between the drug and pain reduction, but causation cannot be inferred.' },
+      { id: 'B', text: 'The drug reduces pain in patients similar to those in this study.' },
+      { id: 'C', text: 'The drug eliminates pain entirely for everyone.' },
+      { id: 'D', text: 'The placebo caused increased pain.' },
+    ],
+    correctAnswer: 'B',
+    explanation: "**SAT Pattern: Observational vs Experimental Study**\n\n**Choice B is correct.**\n\n**The Key Distinction:** This is a RANDOMIZED CONTROLLED TRIAL (RCT) — random assignment to drug vs placebo, blinded. RCTs are the gold standard for causal inference. The conclusion that the drug causes pain reduction is supported, but the scope is limited to the studied population.\n\n**Why the wrong answers are tempting:**\n* Choice A: applies the observational-only rule. This is an experiment; causal claims ARE supported.\n* Choice C: overgeneralizes. 'Significantly less' is not the same as 'eliminates.' Also 'for everyone' goes beyond what was studied.\n* Choice D: reverses the framing. The drug group did BETTER, not the placebo group worse.\n\n**Test Day Takeaway:** RCT signal words: 'randomly assigned,' 'control group,' 'placebo,' 'treatment group,' 'blinded.' When these appear, causation is supported within the studied population.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'observational-vs-experimental', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-ps-237', domain: 'problem-solving', skills: ['observational-vs-experimental', 'causation-vs-association'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'A study compared two schools: School A and School B. Students at School A scored higher on a standardized math test than students at School B. The researchers did not randomly assign students to schools. Which conclusion is best supported?',
+    choices: [
+      { id: 'A', text: 'School A is more effective at teaching math than School B.' },
+      { id: 'B', text: 'There is an association between school attended and math score, but causation cannot be established.' },
+      { id: 'C', text: 'School A and School B are equally effective.' },
+      { id: 'D', text: 'Math ability causes students to attend School A.' },
+    ],
+    correctAnswer: 'B',
+    explanation: "**SAT Pattern: Observational vs Experimental Study**\n\n**Choice B is correct.**\n\n**The Key Distinction:** No random assignment — this is observational. Students who attend School A may differ from those at School B in many ways (family income, motivation, prior preparation) that could explain the test-score gap.\n\n**Why the wrong answers are tempting:**\n* Choice A: causal language ('more effective at teaching') is the trap. Observational data shows the GAP, not its cause.\n* Choice C: contradicts the observed gap.\n* Choice D: speculative reverse causation — not supported by the data.\n\n**Test Day Takeaway:** School / hospital / city comparisons are almost always OBSERVATIONAL. Without an intervention with random assignment, only association can be claimed.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'observational-vs-experimental', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-ps-238', domain: 'problem-solving', skills: ['observational-vs-experimental', 'causation-vs-association'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'Which of the following study designs would allow a researcher to most defensibly conclude that a new teaching method CAUSES higher student test scores?',
+    choices: [
+      { id: 'A', text: 'Surveying $1{,}000$ teachers and comparing average test scores from those who already use the new method against those who do not.' },
+      { id: 'B', text: 'Comparing average test scores in schools that adopted the new method against schools that did not adopt it.' },
+      { id: 'C', text: 'Randomly assigning teachers to either the new teaching method or the standard method, then comparing student test scores after one semester.' },
+      { id: 'D', text: 'Tracking test scores over five years in schools that adopted the method.' },
+    ],
+    correctAnswer: 'C',
+    explanation: "**SAT Pattern: Observational vs Experimental Study**\n\n**Choice C is correct.**\n\n**The Key Distinction:** Only RANDOM ASSIGNMENT supports causal claims. Choice C is the only design that randomly assigns teachers to a method — this balances out lurking variables (teacher experience, school context, student demographics) on average.\n\n**Why the wrong answers are tempting:**\n* Choice A: observational — teachers who already use the method may be self-selected (e.g., more motivated). Confounded.\n* Choice B: observational at the SCHOOL level. Schools that adopt new methods likely differ from those that don't in other ways.\n* Choice D: longitudinal but still observational — no control group, no random assignment.\n\n**Test Day Takeaway:** Watch the SAT closely: 'randomly assigned' is the signal phrase for an experiment. 'Compared,' 'tracked,' or 'surveyed' (without 'randomly assigned') is observational.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'observational-vs-experimental', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-ps-239', domain: 'problem-solving', skills: ['observational-vs-experimental', 'causation-vs-association'], difficulty: 'hard', type: 'multiple-choice',
+    question: 'A pharmaceutical study randomly assigned $600$ patients with high cholesterol to receive a low, medium, or high dose of a new drug, or a placebo. After three months, higher doses were associated with greater reductions in cholesterol, in a dose-response pattern. Which conclusion is best supported?',
+    choices: [
+      { id: 'A', text: 'Within the studied population, increasing the dose of this drug causes greater cholesterol reduction.' },
+      { id: 'B', text: 'Causation cannot be inferred because the study lacked a randomized control group.' },
+      { id: 'C', text: 'The drug reduces cholesterol equally at every dose.' },
+      { id: 'D', text: 'The placebo had no effect on cholesterol.' },
+    ],
+    correctAnswer: 'A',
+    explanation: "**SAT Pattern: Observational vs Experimental Study**\n\n**Choice A is correct.**\n\n**The Key Distinction:** Random assignment + a dose-response pattern is the strongest possible signal of a causal effect. Random assignment gives the causal claim; the dose-response (more drug $\\Rightarrow$ more effect) rules out coincidental confounding.\n\n**Why the wrong answers are tempting:**\n* Choice B: factually wrong — the study DOES have a randomized control (the placebo group) and random assignment among treatment groups.\n* Choice C: contradicts the dose-response finding (higher doses $\\Rightarrow$ more reduction).\n* Choice D: unsupported. The placebo group provides the baseline; the study didn't claim the placebo had zero effect, only that the drug exceeded it.\n\n**Test Day Takeaway:** When a study has BOTH random assignment AND a dose-response pattern, the causal claim is on its firmest possible footing.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'observational-vs-experimental', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-ps-240', domain: 'problem-solving', skills: ['observational-vs-experimental', 'causation-vs-association'], difficulty: 'hard', type: 'multiple-choice',
+    question: 'A researcher analyzes census data and finds that cities with more public parks per capita have lower obesity rates. Based on this analysis alone, which of the following is the most defensible conclusion?',
+    choices: [
+      { id: 'A', text: 'Building more parks would reduce obesity in any city.' },
+      { id: 'B', text: 'Parks cause people to be less obese.' },
+      { id: 'C', text: 'Cities with more parks per capita tend to have lower obesity rates, though causation cannot be established without an experimental study.' },
+      { id: 'D', text: 'There is no relationship between parks and obesity in the cities studied.' },
+    ],
+    correctAnswer: 'C',
+    explanation: "**SAT Pattern: Observational vs Experimental Study**\n\n**Choice C is correct.**\n\n**The Key Distinction:** Census-data analysis is OBSERVATIONAL. Cities with more parks per capita likely differ in many other ways (wealth, walkability, climate, demographics) that could independently affect obesity. The cleanest defensible claim is association, not causation.\n\n**Why the wrong answers are tempting:**\n* Choice A: policy claim ('building parks would reduce') leaps from association to intervention effect — a double jump.\n* Choice B: direct causal claim with no experimental support.\n* Choice D: contradicts the observed correlation.\n\n**Test Day Takeaway:** When a study uses ONLY existing records or census data, the conclusion is bounded to ASSOCIATION. Words like 'tend to,' 'is associated with,' and 'is related to' are safe; words like 'causes,' 'would reduce,' and 'leads to' overreach.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'observational-vs-experimental', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  // ─── STATISTICAL CLAIMS: SCOPE OF INFERENCE (bank-ps-241..248) ────────────
+  // Tests whether students identify the correct POPULATION the conclusion
+  // applies to. Random sampling lets the result generalize to the sampled
+  // population, not beyond it. Self-selection and non-response are the
+  // most common scope-of-inference threats.
+  { id: 'bank-ps-241', domain: 'problem-solving', skills: ['scope-of-inference', 'sampling-and-generalization'], difficulty: 'easy', type: 'multiple-choice',
+    question: 'A high school surveyed $300$ randomly selected ninth-grade students and found that $62\\%$ of those surveyed prefer online learning. To which population does this estimate most appropriately generalize?',
+    choices: [
+      { id: 'A', text: 'All students nationwide.' },
+      { id: 'B', text: 'All high schoolers in the school district.' },
+      { id: 'C', text: 'Ninth-grade students at the surveyed school.' },
+      { id: 'D', text: 'All college freshmen.' },
+    ],
+    correctAnswer: 'C',
+    explanation: "**SAT Pattern: Scope of Inference**\n\n**Choice C is correct.**\n\n**The Key Rule:** A random sample lets you generalize ONLY to the population that was sampled from. The sample was randomly drawn from ninth-graders at this school, so the inference applies to that population.\n\n**Why the wrong answers are tempting:**\n* Choice A: extrapolates far beyond the sampled population. No data on students outside this school.\n* Choice B: includes other grades and other schools — not sampled.\n* Choice D: completely different population.\n\n**Test Day Takeaway:** Track exactly WHO was sampled. The conclusion applies to that group, not a broader one.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'scope-of-inference', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-ps-242', domain: 'problem-solving', skills: ['scope-of-inference', 'sampling-and-generalization'], difficulty: 'easy', type: 'multiple-choice',
+    question: 'A pollster randomly sampled $500$ registered voters in the city of Springfield and found that $54\\%$ of those sampled support a new public-park proposal. Which group does this estimate most defensibly apply to?',
+    choices: [
+      { id: 'A', text: 'Registered voters in Springfield.' },
+      { id: 'B', text: 'All adults in Springfield.' },
+      { id: 'C', text: 'All registered voters in the state.' },
+      { id: 'D', text: 'All park users in Springfield.' },
+    ],
+    correctAnswer: 'A',
+    explanation: "**SAT Pattern: Scope of Inference**\n\n**Choice A is correct.**\n\n**The Key Rule:** Inference generalizes only to the SAMPLED population. The sample is registered voters in Springfield, so the conclusion applies to that exact group.\n\n**Why the wrong answers are tempting:**\n* Choice B: 'all adults' is broader than 'registered voters' — adults who are NOT registered weren't sampled and may differ in opinions.\n* Choice C: extrapolates to the state level — different population.\n* Choice D: park users are not voters and weren't sampled.\n\n**Test Day Takeaway:** 'Registered voters' is a NARROWER group than 'adults' or 'residents.' Don't expand the population beyond what was sampled.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'scope-of-inference', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-ps-243', domain: 'problem-solving', skills: ['scope-of-inference', 'sampling-and-generalization'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'A company asked its $50{,}000$ customers to fill out an online satisfaction survey. Of the $4{,}000$ customers who responded, $70\\%$ rated the service positively. Which is the most likely reason this result may not generalize to all $50{,}000$ customers?',
+    choices: [
+      { id: 'A', text: 'The sample size of $4{,}000$ is too small.' },
+      { id: 'B', text: 'The $46{,}000$ customers who did not respond may differ systematically from those who did — non-response bias.' },
+      { id: 'C', text: 'Satisfaction ratings are difficult to measure accurately.' },
+      { id: 'D', text: 'A $70\\%$ satisfaction rate is too high to be believable.' },
+    ],
+    correctAnswer: 'B',
+    explanation: "**SAT Pattern: Scope of Inference**\n\n**Choice B is correct.**\n\n**The Key Rule:** When response is VOLUNTARY (and the response rate is well below $100\\%$), the responders are SELF-SELECTED — they may differ systematically from non-responders. This is non-response bias, the dominant threat to generalization in self-reported surveys.\n\n**Why the wrong answers are tempting:**\n* Choice A: $4{,}000$ is a large sample by any standard for inference about a $50{,}000$-customer population. The issue isn't sample size; it's WHO responded.\n* Choice C: a generic skepticism that doesn't address the specific scope-of-inference issue.\n* Choice D: subjective judgment, not a methodological flaw.\n\n**Test Day Takeaway:** Voluntary response (online surveys, opt-in panels, reviews) almost always over-represents people with strong opinions — usually very positive OR very negative.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'scope-of-inference', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-ps-244', domain: 'problem-solving', skills: ['scope-of-inference', 'sampling-and-generalization'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'A medical research team conducted a study at a single urban hospital. They randomly sampled $400$ adult patients from this hospital and found that a new blood-pressure drug reduced systolic pressure in $80\\%$ of patients in the sample. To which population can the conclusion most defensibly apply?',
+    choices: [
+      { id: 'A', text: 'All adults with high blood pressure.' },
+      { id: 'B', text: 'Adult patients of this urban hospital.' },
+      { id: 'C', text: 'All urban-hospital patients nationwide.' },
+      { id: 'D', text: 'All adults nationwide.' },
+    ],
+    correctAnswer: 'B',
+    explanation: "**SAT Pattern: Scope of Inference**\n\n**Choice B is correct.**\n\n**The Key Rule:** Random sample from ONE hospital's patients $\\Rightarrow$ inference about that hospital's patient population. Patients at one urban hospital may differ from patients at other hospitals (demographics, severity, prior treatments).\n\n**Why the wrong answers are tempting:**\n* Choice A: 'all adults with high blood pressure' is far broader than the sampled hospital's patients.\n* Choice C: 'urban hospitals nationwide' is broader than the one studied; other urban hospitals may serve different populations.\n* Choice D: 'all adults nationwide' is the broadest population — the largest overreach.\n\n**Test Day Takeaway:** When a study is conducted at one site, the inference is limited to that site's population. Multi-site studies generalize more broadly.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'scope-of-inference', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-ps-245', domain: 'problem-solving', skills: ['scope-of-inference', 'sampling-and-generalization'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'A researcher emailed a satisfaction survey to a panel of $200$ PerformSAT users who had VOLUNTARILY signed up to receive product feedback requests. Of these, $75\\%$ rated the product highly. Which is the strongest reason this result may not generalize to all PerformSAT users?',
+    choices: [
+      { id: 'A', text: 'The sample of $200$ users is too small for any inference.' },
+      { id: 'B', text: 'Users who voluntarily signed up for a feedback panel likely have different opinions of the product than typical users — self-selection bias.' },
+      { id: 'C', text: 'A $75\\%$ approval rating is too high to be believable.' },
+      { id: 'D', text: 'Email is an unreliable mode of contact.' },
+    ],
+    correctAnswer: 'B',
+    explanation: "**SAT Pattern: Scope of Inference**\n\n**Choice B is correct.**\n\n**The Key Rule:** Voluntary signup panels are SELF-SELECTED. Volunteers are systematically different from non-volunteers (more engaged, often more positive). The sample is not representative of all users.\n\n**Why the wrong answers are tempting:**\n* Choice A: $200$ is a viable sample size in many contexts. Sample size isn't the dominant issue here.\n* Choice C: subjective complaint about the value, not a methodological critique.\n* Choice D: implausible — email reliability isn't a scope issue.\n\n**Test Day Takeaway:** 'Volunteered,' 'signed up,' or 'opted in' should immediately raise the self-selection flag. Random sampling is the corrective.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'scope-of-inference', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-ps-246', domain: 'problem-solving', skills: ['scope-of-inference', 'sampling-and-generalization'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'A researcher randomly sampled $600$ high school students from California and reported that $40\\%$ said they read for pleasure daily, with a margin of error of $\\pm 4\\%$ at $95\\%$ confidence. Which is the most appropriate conclusion?',
+    choices: [
+      { id: 'A', text: 'Approximately $40\\%$ of California high school students read for pleasure daily; the survey is $95\\%$ confident this is within $\\pm 4\\%$ of the true rate.' },
+      { id: 'B', text: 'Exactly $40\\%$ of all California high school students read daily.' },
+      { id: 'C', text: 'Approximately $40\\%$ of all U.S. high school students read for pleasure daily.' },
+      { id: 'D', text: 'Schools should encourage students to read more.' },
+    ],
+    correctAnswer: 'A',
+    explanation: "**SAT Pattern: Scope of Inference**\n\n**Choice A is correct.**\n\n**The Key Rule:** A random sample with a stated margin of error supports an inference WITH UNCERTAINTY: the true value lies in the interval around the sample estimate at the stated confidence level, for the population that was sampled.\n\n**Why the wrong answers are tempting:**\n* Choice B: treats the sample percentage as the EXACT population value — drops the margin of error.\n* Choice C: extrapolates beyond California to the entire U.S. — no data on other states.\n* Choice D: a policy recommendation, not a statistical conclusion.\n\n**Test Day Takeaway:** Two things to nail: (1) the SAMPLED population, and (2) the margin-of-error window. Never drop either.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'scope-of-inference', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-ps-247', domain: 'problem-solving', skills: ['scope-of-inference', 'sampling-and-generalization'], difficulty: 'hard', type: 'multiple-choice',
+    question: 'A polling firm randomly sampled $800$ adults across just two states, Iowa and Nebraska, and asked about a federal policy. $58\\%$ of those sampled supported the policy. Which conclusion is most appropriate?',
+    choices: [
+      { id: 'A', text: 'Approximately $58\\%$ of adults nationwide support the policy.' },
+      { id: 'B', text: 'Approximately $58\\%$ of adults in Iowa and Nebraska support the policy, within the margin of error.' },
+      { id: 'C', text: 'Approximately $58\\%$ of adults in any Midwestern state support the policy.' },
+      { id: 'D', text: 'Iowans and Nebraskans support different aspects of the policy.' },
+    ],
+    correctAnswer: 'B',
+    explanation: "**SAT Pattern: Scope of Inference**\n\n**Choice B is correct.**\n\n**The Key Rule:** Random sample from Iowa AND Nebraska supports inference about adults in those two states combined. Other states may differ.\n\n**Why the wrong answers are tempting:**\n* Choice A: 'nationwide' is far broader than the sampled population. Two states are not representative of the nation.\n* Choice C: 'any Midwestern state' is also broader — Iowa and Nebraska are not a random sample of Midwestern states.\n* Choice D: the data is aggregated across both states; no sub-group conclusions are supported.\n\n**Test Day Takeaway:** Identify the EXACT sampled population. 'Sampled from X and Y' generalizes only to X and Y combined, not to states 'similar to X and Y.'",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'scope-of-inference', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-ps-248', domain: 'problem-solving', skills: ['scope-of-inference', 'sampling-and-generalization'], difficulty: 'hard', type: 'multiple-choice',
+    question: 'A psychology professor recruited $100$ students from her introductory class to participate in a memory study. Within this group, she RANDOMLY ASSIGNED students to two memory techniques. Technique A produced higher recall scores. Which is the most defensible conclusion?',
+    choices: [
+      { id: 'A', text: 'Technique A produces higher recall than the other technique, in students similar to those in this introductory class. Generalization to other populations is not supported.' },
+      { id: 'B', text: 'Technique A produces higher recall than the other technique for everyone.' },
+      { id: 'C', text: 'There is an association between technique and recall, but causation cannot be inferred.' },
+      { id: 'D', text: 'Technique A would not work outside of laboratory settings.' },
+    ],
+    correctAnswer: 'A',
+    explanation: "**SAT Pattern: Scope of Inference**\n\n**Choice A is correct.**\n\n**The Key Rule:** This study mixes two design choices: (1) random ASSIGNMENT supports causal inference within the studied group, and (2) the sample was a CONVENIENCE sample (students recruited from one introductory class), so generalization is bounded to that population. Choice A correctly threads both.\n\n**Why the wrong answers are tempting:**\n* Choice B: causal claim is fine for the studied population, but 'for everyone' overgeneralizes from a convenience sample.\n* Choice C: applies the observational rule to an experiment. Random assignment DOES support causation.\n* Choice D: speculative claim with no data support.\n\n**Test Day Takeaway:** Random ASSIGNMENT and random SAMPLING are DIFFERENT decisions. Random assignment $\\Rightarrow$ causal claim WITHIN sampled group. Random sampling $\\Rightarrow$ generalization to the broader population. A study can have one without the other — and the conclusion must reflect which is present.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'scope-of-inference', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  // ─── PERCENT GREATER THAN / LESS THAN (bank-ps-249..256) ──────────────────
+  // Verbal framing translation: "y is X% greater than z" → y = (1 + X/100)·z;
+  // "y is X% less than z" → y = (1 − X/100)·z. Distinct from percent-decrease
+  // (compute change from two given numbers). See audit §B3.
+  { id: 'bank-ps-249', domain: 'problem-solving', skills: ['percent-of-value', 'percent-change'], difficulty: 'easy', type: 'multiple-choice',
+    question: 'If $a$ is $30\\%$ greater than $40$, what is the value of $a$?',
+    choices: [{ id: 'A', text: '$12$' }, { id: 'B', text: '$28$' }, { id: 'C', text: '$52$' }, { id: 'D', text: '$70$' }],
+    correctAnswer: 'C',
+    explanation: "**SAT Pattern: Percent Greater Than / Less Than**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** Multiplier for '$30\\%$ greater than' is $1 + 0.30 = 1.30$. So $a = 1.30 \\cdot 40 = 52$.\n\n**The Full Solution:**\n'$30\\%$ greater than $40$' means $a$ is $40$ plus $30\\%$ of $40$:\n$\\quad a = 40 + 0.30 \\cdot 40 = 40 + 12 = 52$.\nEquivalently, $a$ is $130\\%$ of $40$: $a = 1.30 \\cdot 40 = 52$.\n\nVerification: $52 - 40 = 12$, and $12/40 = 0.30 = 30\\%$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A ($12$): reports the INCREASE amount ($30\\%$ of $40 = 12$), not the new value.\n* Choice B ($28$): subtracts $30\\%$ of $40$ from $40$ — uses 'less than' direction instead of 'greater than'.\n* Choice D ($70$): treats $30\\%$ as the literal number $30$ and adds: $40 + 30 = 70$. The word 'percent' is required to convert.\n\n**Test Day Takeaway:** '$X\\%$ greater than $V$' $\\Rightarrow$ multiply $V$ by $(1 + X/100)$. Don't drop the leading $1$ (which represents the original value), and don't treat the percent as a raw number.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'percent-greater-than-less-than', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-ps-250', domain: 'problem-solving', skills: ['percent-of-value', 'percent-change'], difficulty: 'easy', type: 'multiple-choice',
+    question: 'The value of $y$ is $20\\%$ less than $80$. What is the value of $y$?',
+    choices: [{ id: 'A', text: '$16$' }, { id: 'B', text: '$60$' }, { id: 'C', text: '$64$' }, { id: 'D', text: '$96$' }],
+    correctAnswer: 'C',
+    explanation: "**SAT Pattern: Percent Greater Than / Less Than**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** Multiplier for '$20\\%$ less than' is $1 - 0.20 = 0.80$. So $y = 0.80 \\cdot 80 = 64$.\n\n**The Full Solution:**\n$y = 80 - 0.20 \\cdot 80 = 80 - 16 = 64$. Equivalently, $y$ is $80\\%$ of $80$: $0.80 \\cdot 80 = 64$.\n\nVerification: $80 - 64 = 16$, and $16/80 = 0.20 = 20\\%$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A ($16$): reports the DECREASE amount ($20\\%$ of $80 = 16$), not the resulting value.\n* Choice B ($60$): treats $20\\%$ as the literal number $20$ and subtracts: $80 - 20 = 60$.\n* Choice D ($96$): uses 'greater than' direction instead of 'less than': $80 \\cdot 1.20 = 96$.\n\n**Test Day Takeaway:** '$X\\%$ less than $V$' $\\Rightarrow$ multiply $V$ by $(1 - X/100)$. The result is $V$ minus a fraction of $V$ — always smaller than $V$.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'percent-greater-than-less-than', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-ps-251', domain: 'problem-solving', skills: ['percent-of-value', 'percent-change'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'If $p$ is $40\\%$ greater than $q$, which of the following expresses $p$ in terms of $q$?',
+    choices: [
+      { id: 'A', text: '$p = 0.40q$' },
+      { id: 'B', text: '$p = 1.40q$' },
+      { id: 'C', text: '$p = q + 40$' },
+      { id: 'D', text: '$p = 0.60q$' },
+    ],
+    correctAnswer: 'B',
+    explanation: "**SAT Pattern: Percent Greater Than / Less Than**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** '$40\\%$ greater than $q$' $\\Rightarrow$ multiplier $= 1.40$, so $p = 1.40q$.\n\n**The Full Solution:**\n$p$ is $q$ plus $40\\%$ of $q$:\n$\\quad p = q + 0.40q = 1.40q$\nEquivalently, $p$ is $140\\%$ of $q$.\n\nVerification: if $q = 10$, then $p$ should be $40\\%$ greater $= 14 = 1.40 \\cdot 10$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: drops the leading $1$ — gives $40\\%$ OF $q$, which would be smaller than $q$, not greater.\n* Choice C: treats the percent as a literal number — wrong unit.\n* Choice D: uses 'less than' direction (multiplier $0.60$).\n\n**Test Day Takeaway:** Always include the leading $1$ for '$X\\%$ greater than': $(1 + X/100)V$. The $1$ keeps the original; the $X/100$ adds the increase.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'percent-greater-than-less-than', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-ps-252', domain: 'problem-solving', skills: ['percent-of-value', 'percent-change'], difficulty: 'medium', type: 'fill-in',
+    question: 'If $m$ is $15\\%$ less than $n$, and $n = 200$, what is the value of $m$?',
+    correctAnswer: '170',
+    explanation: "**SAT Pattern: Percent Greater Than / Less Than**\n\n**The correct answer is $170$.**\n\n**The Fast Way (~5s):** Multiplier $= 1 - 0.15 = 0.85$. So $m = 0.85 \\cdot 200 = 170$.\n\n**The Full Solution:**\n$m = n - 0.15 n = 0.85 n = 0.85 \\cdot 200 = 170$.\n\nVerification: $200 - 170 = 30$, and $30/200 = 0.15 = 15\\%$ \\checkmark.\n\n**Common Mistakes:**\n* Reporting $30$ ($15\\%$ of $200$ — the decrease amount, not the resulting value).\n* Reporting $185$ ($200 - 15$ — treats percent as literal number).\n* Reporting $230$ ($200 \\cdot 1.15$ — wrong direction).\n\n**Test Day Takeaway:** '$X\\%$ less than $V$' $\\Rightarrow$ multiplier is $(1 - X/100)$. Always less than $1$, always shrinks the value.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'percent-greater-than-less-than', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-ps-253', domain: 'problem-solving', skills: ['percent-of-value', 'percent-change'], difficulty: 'medium', type: 'multiple-choice',
+    question: '$x$ is $25\\%$ greater than $y$. Then $y$ is what percent LESS than $x$?',
+    choices: [{ id: 'A', text: '$20\\%$' }, { id: 'B', text: '$25\\%$' }, { id: 'C', text: '$30\\%$' }, { id: 'D', text: '$75\\%$' }],
+    correctAnswer: 'A',
+    explanation: "**SAT Pattern: Percent Greater Than / Less Than**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** $x = 1.25 y \\Rightarrow y = x/1.25 = 0.80 x$. So $y$ is $80\\%$ of $x$, which is $100\\% - 80\\% = 20\\%$ less than $x$.\n\n**The Full Solution:**\nStep 1: Translate '$x$ is $25\\%$ greater than $y$': $x = 1.25 y$.\nStep 2: Solve for $y$ in terms of $x$: $y = x / 1.25 = 0.80 x = 80\\%$ of $x$.\nStep 3: '$y$ is what percent less than $x$?': $100\\% - 80\\% = 20\\%$.\n\nVerification: pick $y = 100 \\Rightarrow x = 125 \\Rightarrow$ difference is $25$, and $25/125 = 0.20 = 20\\%$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B ($25\\%$): the COMMON TRAP — assumes that '$25\\%$ greater' and '$25\\%$ less' are mirror operations. They are NOT, because the denominators differ ($y$ vs $x$).\n* Choice C ($30\\%$): close to the right answer but uses an incorrect arithmetic shortcut.\n* Choice D ($75\\%$): subtracts $25$ from $100$ — confuses 'less than' with the surviving fraction.\n\n**Test Day Takeaway:** '$X\\%$ greater than $y$' and '$X\\%$ less than $x$' are NOT symmetric because they have different reference points. To convert between them, set up both equations explicitly and solve.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'percent-greater-than-less-than', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-ps-254', domain: 'problem-solving', skills: ['percent-of-value', 'percent-change'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'If $z$ is $60\\%$ less than $w$, what fraction of $w$ is $z$?',
+    choices: [
+      { id: 'A', text: '$\\dfrac{2}{5}$' },
+      { id: 'B', text: '$\\dfrac{3}{5}$' },
+      { id: 'C', text: '$\\dfrac{8}{5}$' },
+      { id: 'D', text: '$\\dfrac{5}{2}$' },
+    ],
+    correctAnswer: 'A',
+    explanation: "**SAT Pattern: Percent Greater Than / Less Than**\n\n**Choice A is correct.**\n\n**The Fast Way (~5s):** $60\\%$ less than $w$ means $z = (1 - 0.60) w = 0.40 w = \\dfrac{2}{5} w$.\n\n**The Full Solution:**\nMultiplier: $1 - 0.60 = 0.40$. As a fraction: $0.40 = \\dfrac{40}{100} = \\dfrac{2}{5}$.\nSo $z = \\dfrac{2}{5} w$.\n\nVerification: pick $w = 5 \\Rightarrow z = 2$. Difference is $3$, and $3/5 = 0.60 = 60\\%$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B ($3/5$): reports $0.60$ as a fraction — but that's the AMOUNT decreased, not the surviving fraction.\n* Choice C ($8/5 = 1.60$): uses 'greater than' direction.\n* Choice D ($5/2$): reciprocal — would express $w$ in terms of $z$, not $z$ in terms of $w$.\n\n**Test Day Takeaway:** 'Fraction of $w$' = the multiplier itself, expressed as a fraction. $60\\%$ less leaves $40\\% = 2/5$.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'percent-greater-than-less-than', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-ps-255', domain: 'problem-solving', skills: ['percent-of-value', 'percent-change'], difficulty: 'hard', type: 'multiple-choice',
+    question: 'If $x$ is $150\\%$ greater than $40$, what is the value of $x$?',
+    choices: [{ id: 'A', text: '$60$' }, { id: 'B', text: '$100$' }, { id: 'C', text: '$140$' }, { id: 'D', text: '$190$' }],
+    correctAnswer: 'B',
+    explanation: "**SAT Pattern: Percent Greater Than / Less Than**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Multiplier for '$150\\%$ greater than' is $1 + 1.50 = 2.50$. So $x = 2.50 \\cdot 40 = 100$.\n\n**The Full Solution:**\n'$150\\%$ greater than $40$' means $x$ is $40$ plus $150\\%$ of $40$:\n$\\quad x = 40 + 1.50 \\cdot 40 = 40 + 60 = 100$.\nEquivalently, $x$ is $250\\%$ of $40$: $x = 2.50 \\cdot 40 = 100$.\n\nVerification: difference is $100 - 40 = 60$, and $60/40 = 1.50 = 150\\%$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A ($60$): reports the INCREASE amount ($150\\%$ of $40 = 60$), not the resulting value.\n* Choice C ($140$): treats $150\\%$ as the literal number $150 + 40 - 50 = 140$, or some other mis-step where the increase is mis-computed.\n* Choice D ($190$): adds the increase plus the original AND the percent: $40 + 60 + 90$ — multiple errors.\n\n**Test Day Takeaway:** When the percent is over $100\\%$, the result more than DOUBLES the original. '$150\\%$ greater' = multiplier $2.50$, not $1.50$. The trap: dropping the leading $1$ for percents $>100$.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'percent-greater-than-less-than', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-ps-256', domain: 'problem-solving', skills: ['percent-of-value', 'percent-change'], difficulty: 'hard', type: 'fill-in',
+    question: "A company's monthly revenue grew from $\\$80{,}000$ to $\\$140{,}000$ over five years. The new revenue is what percent greater than the original revenue? (Report only the number, without the % sign.)",
+    correctAnswer: '75',
+    explanation: "**SAT Pattern: Percent Greater Than / Less Than**\n\n**The correct answer is $75$.**\n\n**The Fast Way (~10s):** Increase $= 140 - 80 = 60$. Percent greater than original $= 60/80 = 0.75 = 75\\%$.\n\n**The Full Solution:**\n'Percent greater than' uses the ORIGINAL value as the denominator:\n$\\quad \\dfrac{\\text{new} - \\text{original}}{\\text{original}} \\cdot 100 = \\dfrac{140{,}000 - 80{,}000}{80{,}000} \\cdot 100 = \\dfrac{60{,}000}{80{,}000} \\cdot 100 = 75\\%$.\n\nVerification: $80{,}000 \\cdot 1.75 = 140{,}000$ \\checkmark.\n\n**Common Mistakes:**\n* Reporting $60$ (the raw dollar increase in thousands — not a percent).\n* Reporting $42.86$ — uses the NEW value as the denominator: $60/140 = 0.4286$. Wrong reference point.\n* Reporting $175$ — reports the new value as a percent of the original ($140/80 = 175\\%$), which is the multiplier but not the 'percent greater than'.\n\n**Test Day Takeaway:** '$X$ is what percent greater than $Y$?' $\\Rightarrow \\dfrac{X - Y}{Y} \\cdot 100$. The ORIGINAL value goes in the denominator. The 'multiplier' ($X/Y$) and the 'percent greater than' ($(X-Y)/Y$) differ by exactly $100\\%$.",
+    calculatorAllowed: true, tags: [], sourceStyleRef: 'percent-greater-than-less-than', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  // ─── COMPOUND PERCENT OF — TIER-1 PROMOTION (bank-ps-257..261) ────────────
+  // Existing 3 items + 5 new = 8 (Tier-1 threshold). Count-anchored flavor:
+  // 'N people, X% are A, of those Y% are also B → count of A AND B.' Distinct
+  // from chained-percent-relationship (no count anchor; pure algebraic).
+  { id: 'bank-ps-257', domain: 'problem-solving', skills: ['percent-of-value', 'percent-word-problems'], difficulty: 'easy', type: 'multiple-choice',
+    question: 'A school has $480$ students. $25\\%$ are ninth-graders. Of those ninth-graders, $40\\%$ play a sport. How many ninth-graders play a sport?',
+    choices: [{ id: 'A', text: '$48$' }, { id: 'B', text: '$72$' }, { id: 'C', text: '$120$' }, { id: 'D', text: '$192$' }],
+    correctAnswer: 'A',
+    explanation: "**SAT Pattern: Compound Percent Of**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** $0.25 \\cdot 480 \\cdot 0.40 = 120 \\cdot 0.40 = 48$.\n\n**The Full Solution:**\nStep 1: Ninth-graders $= 0.25 \\cdot 480 = 120$.\nStep 2: Of those, sport players $= 0.40 \\cdot 120 = 48$.\n\nVerification: net rate $= 0.25 \\cdot 0.40 = 0.10 = 10\\%$. $0.10 \\cdot 480 = 48$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B ($72$): incorrect arithmetic ($0.15 \\cdot 480$ — splits the percents the wrong way).\n* Choice C ($120$): stops at ninth-graders — forgets to apply the sport filter.\n* Choice D ($192$): $0.40 \\cdot 480$ — applies the sport rate to the whole school, ignoring the ninth-grade filter.\n\n**Test Day Takeaway:** 'Of those...': the second percent applies to the FILTERED subgroup, not the original total. Multiply both percents together against the total, OR apply them sequentially. Same result, fewer arithmetic mistakes the second way.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'compound-percent-of', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-ps-258', domain: 'problem-solving', skills: ['percent-of-value', 'percent-word-problems'], difficulty: 'easy', type: 'multiple-choice',
+    question: 'A factory inspects $800$ items. $5\\%$ fail inspection. Of the failed items, $30\\%$ can be repaired. How many of the inspected items can be repaired?',
+    choices: [{ id: 'A', text: '$12$' }, { id: 'B', text: '$24$' }, { id: 'C', text: '$40$' }, { id: 'D', text: '$240$' }],
+    correctAnswer: 'A',
+    explanation: "**SAT Pattern: Compound Percent Of**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** $0.05 \\cdot 800 \\cdot 0.30 = 40 \\cdot 0.30 = 12$.\n\n**The Full Solution:**\nStep 1: Failed $= 0.05 \\cdot 800 = 40$.\nStep 2: Repairable $= 0.30 \\cdot 40 = 12$.\n\nVerification: net rate $= 0.05 \\cdot 0.30 = 0.015 = 1.5\\%$. $0.015 \\cdot 800 = 12$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B ($24$): mis-arithmetic ($0.30 \\cdot 80$ — drops a digit).\n* Choice C ($40$): stops at failures — forgets to apply the repair rate.\n* Choice D ($240$): $0.30 \\cdot 800$ — applies the repair rate to ALL items, ignoring the failure filter.\n\n**Test Day Takeaway:** Track which subset each percent applies to. Compound percents always multiply the rates; the second rate operates on the surviving subset, not the original.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'compound-percent-of', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-ps-259', domain: 'problem-solving', skills: ['percent-of-value', 'percent-word-problems'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'A coffee shop has $1{,}200$ customers per day on average. $45\\%$ of them order a drink, and of those drink orders, $60\\%$ also order food. How many customers per day order BOTH a drink and food?',
+    choices: [{ id: 'A', text: '$126$' }, { id: 'B', text: '$324$' }, { id: 'C', text: '$540$' }, { id: 'D', text: '$720$' }],
+    correctAnswer: 'B',
+    explanation: "**SAT Pattern: Compound Percent Of**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** $0.45 \\cdot 1{,}200 \\cdot 0.60 = 540 \\cdot 0.60 = 324$.\n\n**The Full Solution:**\nStep 1: Drink orders $= 0.45 \\cdot 1{,}200 = 540$.\nStep 2: Of those, food orders $= 0.60 \\cdot 540 = 324$.\n\nVerification: net rate $= 0.45 \\cdot 0.60 = 0.27 = 27\\%$. $0.27 \\cdot 1{,}200 = 324$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A ($126$): subtracts the percents incorrectly or applies them in the wrong order.\n* Choice C ($540$): stops at drink orders.\n* Choice D ($720$): $0.60 \\cdot 1{,}200$ — applies the food rate to ALL customers, ignoring the drink filter.\n\n**Test Day Takeaway:** 'BOTH X AND Y' (where Y is conditional on X): multiply the percents — never add them. Adding would imply 'X OR Y' (and even then, with overlap subtraction).",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'compound-percent-of', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-ps-260', domain: 'problem-solving', skills: ['percent-of-value', 'percent-word-problems'], difficulty: 'medium', type: 'fill-in',
+    question: 'An online survey received $5{,}000$ responses. $30\\%$ of respondents were first-time users. Of those first-time users, $20\\%$ rated the product $5$ stars. How many first-time users rated the product $5$ stars?',
+    correctAnswer: '300',
+    explanation: "**SAT Pattern: Compound Percent Of**\n\n**The correct answer is $300$.**\n\n**The Fast Way (~10s):** $0.30 \\cdot 5{,}000 \\cdot 0.20 = 1{,}500 \\cdot 0.20 = 300$.\n\n**The Full Solution:**\nStep 1: First-time users $= 0.30 \\cdot 5{,}000 = 1{,}500$.\nStep 2: $5$-star ratings among first-time users $= 0.20 \\cdot 1{,}500 = 300$.\n\nVerification: net rate $= 0.30 \\cdot 0.20 = 0.06 = 6\\%$. $0.06 \\cdot 5{,}000 = 300$ \\checkmark.\n\n**Common Mistakes:**\n* Reporting $1{,}500$ — stops at first-time users.\n* Reporting $1{,}000$ — $0.20 \\cdot 5{,}000$ — applies $5$-star rate to all responders.\n* Reporting $30$ — drops a zero somewhere in the multiplication.\n\n**Test Day Takeaway:** When two percent filters chain, ALWAYS keep track of which population each applies to. The second rate's denominator is the result of the first filter, not the original count.",
+    calculatorAllowed: true, tags: [], sourceStyleRef: 'compound-percent-of', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-ps-261', domain: 'problem-solving', skills: ['percent-of-value', 'percent-word-problems'], difficulty: 'hard', type: 'multiple-choice',
+    question: 'A box contains $240$ candies. Two-thirds of the candies are chocolate, and $25\\%$ of the chocolate candies contain nuts. How many candies in the box are chocolate AND contain nuts?',
+    choices: [{ id: 'A', text: '$20$' }, { id: 'B', text: '$40$' }, { id: 'C', text: '$60$' }, { id: 'D', text: '$160$' }],
+    correctAnswer: 'B',
+    explanation: "**SAT Pattern: Compound Percent Of**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** $\\dfrac{2}{3} \\cdot 240 \\cdot 0.25 = 160 \\cdot 0.25 = 40$.\n\n**The Full Solution:**\nStep 1: Chocolate candies $= \\dfrac{2}{3} \\cdot 240 = 160$.\nStep 2: Of those, with nuts $= 0.25 \\cdot 160 = 40$.\n\nVerification: net rate $= \\dfrac{2}{3} \\cdot 0.25 = \\dfrac{1}{6}$. $240 / 6 = 40$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A ($20$): one arithmetic error — divides the chocolate count by $8$ instead of multiplying by $0.25$.\n* Choice C ($60$): $0.25 \\cdot 240$ — applies the nut rate to ALL candies, ignoring the chocolate filter.\n* Choice D ($160$): stops at chocolates.\n\n**Test Day Takeaway:** When one of the 'percents' is given as a FRACTION (like $2/3$), convert it consistently. Don't switch between fraction and decimal arithmetic — pick one and stay with it.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'compound-percent-of', authoredBy: 'performsat-engine', createdAt: '2026-05-16' }
 ];

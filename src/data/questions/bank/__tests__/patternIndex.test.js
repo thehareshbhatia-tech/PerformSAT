@@ -43,13 +43,17 @@ describe('bank drill-routing indexes', () => {
       });
     });
 
-    it('the byPattern counts sum to the hand-authored bank size', () => {
+    it('the byPattern counts sum to at least the hand-authored bank size', () => {
       const sum = Object.values(stats.byPattern).reduce((a, b) => a + b, 0);
-      // Some items may share a pattern, so distinctPatterns may be
-      // less than HAND_AUTHORED_COUNT, but the sum of all bucket sizes
-      // equals it. Topic-flattened items don't have SAT Patterns and
-      // are not in patternIndex, so they don't contribute to this sum.
-      expect(sum).toBe(HAND_AUTHORED_COUNT);
+      // Every hand-authored bank item has a `**SAT Pattern: …**` header in
+      // its explanation, so it must land in patternIndex. The sum is
+      // therefore AT LEAST HAND_AUTHORED_COUNT. It may be larger because
+      // topic-flattened items can also land in patternIndex when their
+      // (sourceModuleId, sourceSectionName) pair has an entry in
+      // TOPIC_SECTION_TO_PATTERN — see bank/index.js. Use a floor, not
+      // an equality, so adding new section→pattern mappings doesn't
+      // break this regression.
+      expect(sum).toBeGreaterThanOrEqual(HAND_AUTHORED_COUNT);
     });
   });
 

@@ -2599,5 +2599,78 @@ export const geometryBank = [
     choices: [{ id: 'A', text: '$4\\sqrt{2}$' }, { id: 'B', text: '$4$' }, { id: 'C', text: '$2\\sqrt{2}$' }, { id: 'D', text: '$8$' }],
     correctAnswer: 'A',
     explanation: "**SAT Pattern: Tangent Line to Circle (Discriminant = 0)**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Distance from $(h, 0)$ to line $x - y = 0$: $|h|/\\sqrt{2}$. Set equal to radius $4$: $|h| = 4\\sqrt{2}$. (Same for $y = -x$ by symmetry.)\n\n**The Full Solution:**\nThe two lines $y = \\pm x$ pass through the origin and are symmetric about both axes. A circle with center on the $x$-axis is tangent to both iff the distance from its center to either line equals the radius.\nLine $y = x$ rewrites as $x - y = 0$. Distance from $(h, 0)$: $|h - 0|/\\sqrt{1^2 + (-1)^2} = |h|/\\sqrt{2}$.\nTangency: $|h|/\\sqrt{2} = 4 \\Rightarrow |h| = 4\\sqrt{2}$.\n\nVerification: at $h = 4\\sqrt{2}$, the center is $(4\\sqrt{2}, 0)$. Distance to $y = x$: $4\\sqrt{2}/\\sqrt{2} = 4$ \\checkmark. Distance to $y = -x$: same by symmetry \\checkmark.\n\n**Why the wrong answers are tempting:**\n* B: forgets to scale by $\\sqrt{2}$.\n* C: divides by $\\sqrt{2}$ instead of multiplying.\n* D: arithmetic ($4 \\cdot 2 = 8$ without the $\\sqrt{}$).\n\n**Test Day Takeaway:** When tangent to TWO symmetric lines, the center lies on the axis of symmetry. The $\\sqrt{2}$ scale factor comes from the line's normal vector.",
-    calculatorAllowed: false, tags: [], sourceStyleRef: 'tangent-line-to-circle', authoredBy: 'performsat-engine', createdAt: '2026-05-12' }
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'tangent-line-to-circle', authoredBy: 'performsat-engine', createdAt: '2026-05-12' },
+
+  // ─── SYMBOLIC AREA OR VOLUME (bank-geo-187..194) ──────────────────────────
+  // Area/volume/surface area expressed in terms of a variable (in terms of t,
+  // x, etc.) — mixes Equivalent-Expressions skill into Geometry stems. CB
+  // precedent: PT11-M1-Q26. See audit §B6.
+  { id: 'bank-geo-187', domain: 'geometry', skills: ['volume-prism', 'algebraic-expressions'], difficulty: 'easy', type: 'multiple-choice',
+    question: 'A right rectangular prism has a square base of side length $2t$ cm and a height of $5t$ cm. What is the volume, in cubic cm, of the prism in terms of $t$?',
+    choices: [{ id: 'A', text: '$9t$' }, { id: 'B', text: '$10t^2$' }, { id: 'C', text: '$20t^2$' }, { id: 'D', text: '$20t^3$' }],
+    correctAnswer: 'D',
+    explanation: "**SAT Pattern: Symbolic Area or Volume**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** Volume of a rectangular prism with square base: $V = s^2 \\cdot h = (2t)^2 \\cdot 5t = 4t^2 \\cdot 5t = 20t^3$.\n\n**The Full Solution:**\nBase is a square of side $2t$, so base area $= (2t)^2 = 4t^2$. Height $= 5t$. Volume $= 4t^2 \\cdot 5t = 20t^3$.\n\nVerification (with $t = 1$): side $= 2$, height $= 5$, $V = 2 \\cdot 2 \\cdot 5 = 20 = 20 \\cdot 1^3$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A ($9t$): adds the dimensions ($2 + 2 + 5 = 9$) instead of multiplying.\n* Choice B ($10t^2$): forgets to square the base side — uses $2t \\cdot 5t = 10t^2$, the area of one rectangular face.\n* Choice C ($20t^2$): correct coefficient but wrong exponent — drops one factor of $t$.\n\n**Test Day Takeaway:** When dimensions are symbolic, track BOTH the coefficient AND the exponent. Three linear dimensions multiplied give a cubic in the variable.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'symbolic-area-or-volume', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-geo-188', domain: 'geometry', skills: ['triangle-area', 'algebraic-expressions'], difficulty: 'easy', type: 'multiple-choice',
+    question: 'A rectangle has length $(x + 5)$ inches and width $(x + 3)$ inches. Which of the following expresses the area, in square inches, in terms of $x$?',
+    choices: [
+      { id: 'A', text: '$x^2 + 8x$' },
+      { id: 'B', text: '$x^2 + 15$' },
+      { id: 'C', text: '$x^2 + 8x + 15$' },
+      { id: 'D', text: '$2x + 8$' },
+    ],
+    correctAnswer: 'C',
+    explanation: "**SAT Pattern: Symbolic Area or Volume**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Area $= l \\cdot w = (x + 5)(x + 3) = x^2 + 8x + 15$.\n\n**The Full Solution:**\nFOIL: $(x + 5)(x + 3) = x \\cdot x + x \\cdot 3 + 5 \\cdot x + 5 \\cdot 3 = x^2 + 3x + 5x + 15 = x^2 + 8x + 15$.\n\nVerification (with $x = 1$): length $= 6$, width $= 4$, area $= 24$. Plug into answer: $1 + 8 + 15 = 24$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A ($x^2 + 8x$): forgets the constant term ($5 \\cdot 3 = 15$).\n* Choice B ($x^2 + 15$): includes the constant term but drops the middle term ($8x$). Common error: forgets the cross-product terms in FOIL.\n* Choice D ($2x + 8$): computes the PERIMETER (sum of $2l + 2w$ simplified) instead of the area.\n\n**Test Day Takeaway:** Area of a rectangle = length × width. When dimensions are binomials, use FOIL fully — don't drop the middle term.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'symbolic-area-or-volume', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-geo-189', domain: 'geometry', skills: ['volume-prism', 'algebraic-expressions'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'A right circular cylinder has radius $3a$ cm and height $4a$ cm. What is the volume of the cylinder, in cubic cm, in terms of $a$?',
+    choices: [
+      { id: 'A', text: '$9\\pi a^2$' },
+      { id: 'B', text: '$12\\pi a^2$' },
+      { id: 'C', text: '$36\\pi a^2$' },
+      { id: 'D', text: '$36\\pi a^3$' },
+    ],
+    correctAnswer: 'D',
+    explanation: "**SAT Pattern: Symbolic Area or Volume**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** $V = \\pi r^2 h = \\pi (3a)^2 (4a) = \\pi \\cdot 9a^2 \\cdot 4a = 36 \\pi a^3$.\n\n**The Full Solution:**\nCylinder volume formula: $V = \\pi r^2 h$.\n$\\quad r^2 = (3a)^2 = 9a^2$\n$\\quad V = \\pi \\cdot 9a^2 \\cdot 4a = 36\\pi a^3$.\n\nVerification (with $a = 1$): $r = 3$, $h = 4$, $V = \\pi \\cdot 9 \\cdot 4 = 36\\pi$. Plug $a = 1$ into answer: $36\\pi \\cdot 1 = 36\\pi$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A ($9\\pi a^2$): stops at the base area; forgets to multiply by the height.\n* Choice B ($12\\pi a^2$): multiplies $3a \\cdot 4a$ without squaring (uses $\\pi r h$ instead of $\\pi r^2 h$). Common formula slip.\n* Choice C ($36\\pi a^2$): correct coefficient but wrong exponent on $a$ — drops one factor of $a$.\n\n**Test Day Takeaway:** $V = \\pi r^2 h$ — the radius is SQUARED. When $r$ is symbolic, square the variable too. The result is cubic in the variable when all dimensions scale linearly with it.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'symbolic-area-or-volume', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-geo-190', domain: 'geometry', skills: ['triangle-area', 'algebraic-expressions'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'A right triangle has legs of lengths $2t$ and $5t$. What is the area of the triangle in terms of $t$?',
+    choices: [{ id: 'A', text: '$3t$' }, { id: 'B', text: '$5t^2$' }, { id: 'C', text: '$10t^2$' }, { id: 'D', text: '$7t$' }],
+    correctAnswer: 'B',
+    explanation: "**SAT Pattern: Symbolic Area or Volume**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** Triangle area $= (1/2) \\cdot \\text{leg}_1 \\cdot \\text{leg}_2 = (1/2)(2t)(5t) = 5t^2$.\n\n**The Full Solution:**\nFor a right triangle, the two legs ARE the base and height. Area $= (1/2) \\cdot b \\cdot h = (1/2)(2t)(5t) = (1/2) \\cdot 10t^2 = 5t^2$.\n\nVerification (with $t = 1$): legs $= 2$ and $5$, area $= (1/2)(2)(5) = 5 = 5 \\cdot 1^2$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A ($3t$): adds the legs and divides by 2: $(2t + 5t)/2$ doesn't compute area — confuses with semi-perimeter.\n* Choice C ($10t^2$): forgets the $1/2$ factor — computes a parallelogram's area instead.\n* Choice D ($7t$): adds the legs ($2t + 5t = 7t$) — wrong operation.\n\n**Test Day Takeaway:** Triangle area = $(1/2) bh$. Don't forget the $1/2$. For a RIGHT triangle, the two legs are perpendicular, so they directly serve as base and height.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'symbolic-area-or-volume', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-geo-191', domain: 'geometry', skills: ['volume-prism', 'algebraic-expressions'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'A box in the shape of a rectangular prism has dimensions $a$, $a + 2$, and $a + 5$. Which of the following expresses the volume of the box in terms of $a$?',
+    choices: [
+      { id: 'A', text: '$3a + 7$' },
+      { id: 'B', text: '$a^3 + 6a$' },
+      { id: 'C', text: '$a^3 + 7a^2 + 10a$' },
+      { id: 'D', text: '$a^2 + 7a + 10$' },
+    ],
+    correctAnswer: 'C',
+    explanation: "**SAT Pattern: Symbolic Area or Volume**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** $V = a(a + 2)(a + 5)$. First $(a + 2)(a + 5) = a^2 + 7a + 10$. Then $a(a^2 + 7a + 10) = a^3 + 7a^2 + 10a$.\n\n**The Full Solution:**\nStep 1: Multiply two binomials first.\n$\\quad (a + 2)(a + 5) = a^2 + 5a + 2a + 10 = a^2 + 7a + 10$.\nStep 2: Multiply by the remaining factor $a$.\n$\\quad a \\cdot (a^2 + 7a + 10) = a^3 + 7a^2 + 10a$.\n\nVerification (with $a = 1$): dimensions $1 \\cdot 3 \\cdot 6 = 18$. Plug $a = 1$ into answer: $1 + 7 + 10 = 18$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A ($3a + 7$): adds the dimensions instead of multiplying — gives a perimeter-like quantity.\n* Choice B ($a^3 + 6a$): drops the middle term and uses $a \\cdot 2 \\cdot 5 \\cdot 3$ in a confused way.\n* Choice D ($a^2 + 7a + 10$): only multiplies two of the three dimensions — the product of just $(a + 2)$ and $(a + 5)$. Forgets the leading factor of $a$.\n\n**Test Day Takeaway:** Volume of a rectangular prism = product of THREE dimensions. Multiply two at a time, then multiply the result by the third. Three linear factors $\\Rightarrow$ a cubic in $a$.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'symbolic-area-or-volume', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-geo-192', domain: 'geometry', skills: ['volume-prism', 'algebraic-expressions'], difficulty: 'medium', type: 'fill-in',
+    question: 'A right rectangular prism has length $4t$, width $3t$, and height $2t$. The surface area of the prism is $St^2$ square units. What is the value of $S$?',
+    correctAnswer: '52',
+    explanation: "**SAT Pattern: Symbolic Area or Volume**\n\n**The correct answer is $52$.**\n\n**The Fast Way (~15s):** SA $= 2(lw + lh + wh) = 2(4t \\cdot 3t + 4t \\cdot 2t + 3t \\cdot 2t) = 2(12t^2 + 8t^2 + 6t^2) = 2 \\cdot 26 t^2 = 52 t^2$. So $S = 52$.\n\n**The Full Solution:**\nThree pairs of congruent faces:\n* Top and bottom: $l \\cdot w = 4t \\cdot 3t = 12t^2$, total $2 \\cdot 12t^2 = 24t^2$.\n* Front and back: $l \\cdot h = 4t \\cdot 2t = 8t^2$, total $2 \\cdot 8t^2 = 16t^2$.\n* Sides: $w \\cdot h = 3t \\cdot 2t = 6t^2$, total $2 \\cdot 6t^2 = 12t^2$.\nTotal SA: $24t^2 + 16t^2 + 12t^2 = 52t^2$. So $S = 52$.\n\nVerification (with $t = 1$): dimensions $4, 3, 2$. SA $= 2(12 + 8 + 6) = 52$ \\checkmark.\n\n**Common Mistakes:**\n* Reporting $24$ — only includes the top and bottom pair.\n* Reporting $26$ — forgets to double the three face areas.\n* Reporting $48$ — uses $4 \\cdot 3 \\cdot 2 \\cdot 2 = 48$ (some hybrid of volume and SA).\n\n**Test Day Takeaway:** SA of a rectangular prism: $2(lw + lh + wh)$. Three pairs of congruent faces, each pair contributes once to the sum (then doubled).",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'symbolic-area-or-volume', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-geo-193', domain: 'geometry', skills: ['volume-prism', 'algebraic-expressions'], difficulty: 'hard', type: 'multiple-choice',
+    question: 'A right circular cylinder has radius $r$ and height $h$. If the radius is doubled and the height is tripled, the new volume is what multiple of the original volume?',
+    choices: [{ id: 'A', text: '$5$' }, { id: 'B', text: '$6$' }, { id: 'C', text: '$12$' }, { id: 'D', text: '$36$' }],
+    correctAnswer: 'C',
+    explanation: "**SAT Pattern: Symbolic Area or Volume**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** $V_{\\text{new}} / V_{\\text{old}} = (2r)^2 \\cdot (3h) / (r^2 \\cdot h) = 4 \\cdot 3 = 12$.\n\n**The Full Solution:**\nOriginal: $V_1 = \\pi r^2 h$.\nNew: $V_2 = \\pi (2r)^2 (3h) = \\pi \\cdot 4r^2 \\cdot 3h = 12 \\pi r^2 h$.\nRatio: $V_2 / V_1 = 12$.\n\nVerification (with $r = h = 1$): original $V = \\pi$. New: $r = 2, h = 3$, $V = 4 \\cdot 3 \\pi = 12\\pi$. Ratio $= 12$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A ($5$): adds the scaling factors ($2 + 3 = 5$) — wrong operation.\n* Choice B ($6$): multiplies the linear factors ($2 \\cdot 3 = 6$) — forgets to SQUARE the radius factor.\n* Choice D ($36$): squares the height factor too ($4 \\cdot 9 = 36$) — treats both as squared, even though only the radius enters squared in the volume formula.\n\n**Test Day Takeaway:** Scaling effects in $V = \\pi r^2 h$: a factor on $r$ enters SQUARED (because $r$ is squared in the formula); a factor on $h$ enters to the FIRST power. Linear dimension scaling becomes squared/cubed in areas/volumes.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'symbolic-area-or-volume', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-geo-194', domain: 'geometry', skills: ['volume-prism', 'algebraic-expressions'], difficulty: 'hard', type: 'fill-in',
+    question: 'A cube has side length $s$. A second cube has side length $2s$. The volume of the second cube is how many times the volume of the first cube?',
+    correctAnswer: '8',
+    explanation: "**SAT Pattern: Symbolic Area or Volume**\n\n**The correct answer is $8$.**\n\n**The Fast Way (~5s):** Ratio of volumes $= (2s)^3 / s^3 = 2^3 = 8$.\n\n**The Full Solution:**\nVolume of a cube $= (\\text{side})^3$.\nFirst cube: $V_1 = s^3$.\nSecond cube: $V_2 = (2s)^3 = 8s^3$.\nRatio: $V_2 / V_1 = 8s^3 / s^3 = 8$.\n\nVerification (with $s = 1$): $V_1 = 1, V_2 = 2^3 = 8$. Ratio $= 8$ \\checkmark.\n\n**Common Mistakes:**\n* Reporting $2$ — reports the LINEAR scale factor, not the volume ratio.\n* Reporting $4$ — confuses with the AREA scaling (which would be $2^2$).\n* Reporting $6$ — adds in some other arithmetic ($2 + 4$?) — no clean derivation.\n\n**Test Day Takeaway:** Volume scaling rule: if linear dimensions scale by a factor $k$, then volume scales by $k^3$. (Area scales by $k^2$; perimeter scales by $k$.) The exponent matches the dimension.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'symbolic-area-or-volume', authoredBy: 'performsat-engine', createdAt: '2026-05-16' }
 ];

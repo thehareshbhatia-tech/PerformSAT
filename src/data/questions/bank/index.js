@@ -38,6 +38,70 @@ const TOPIC_DOMAIN = {
   'radians-degrees':        'geometry',
 };
 
+// ── Topic-file section → SAT Pattern mapping ─────────────────────────────────
+// Topic-file items predate the test-bundle format and lack `**SAT Pattern: …**`
+// headers in their explanations, so `extractSatPattern` returns null for them.
+// As a result they only flow through Tier-3 (skill) routing — never Tier-1
+// (exact SAT Pattern), even when the section name maps cleanly to a canonical
+// pattern with an existing bank pool.
+//
+// This map closes that gap for sections with UNAMBIGUOUS canonical patterns.
+// Keyed by `${moduleId}::${sectionName}` (kebab-cased). Maps to:
+//   - pattern: the canonical SAT Pattern slug (used to populate patternIndex)
+//   - style:   the sourceStyleRef value (used to populate styleIndex)
+//
+// Sections WITHOUT an unambiguous map stay as Tier-3-only (no entry here).
+// See docs/CB_QUESTION_TYPE_AUDIT_2026-05-16.md §C2 for rationale and the
+// list of sections that were deliberately omitted (too ambiguous to map
+// without per-item review).
+const TOPIC_SECTION_TO_PATTERN = {
+  // ── percents ──────────────────────────────────────────────────────────────
+  'percents::percent-of-questions':         { pattern: 'percent-of-a-number',         style: 'percent-of-a-number' },
+  // ── statistics ────────────────────────────────────────────────────────────
+  'statistics::mean':                       { pattern: 'mean-from-list',              style: 'mean-from-list' },
+  'statistics::margin-of-error':            { pattern: 'margin-of-error',             style: 'margin-of-error' },
+  // ── exponents ─────────────────────────────────────────────────────────────
+  'exponents::exponential-functions':       { pattern: 'exponential-growth-decay',    style: 'exponential-growth-decay' },
+  // ── linear-equations ──────────────────────────────────────────────────────
+  'linear-equations::parallel-lines':       { pattern: 'parallel-line-through-a-point',     style: 'parallel-line-through-a-point' },
+  'linear-equations::perpendicular-lines':  { pattern: 'perpendicular-line-through-point',  style: 'perpendicular-line-through-point' },
+  // ── systems ───────────────────────────────────────────────────────────────
+  'systems::substitution-method':           { pattern: 'system-of-equations-substitution',  style: 'system-of-equations-substitution' },
+  'systems::elimination-method':            { pattern: 'system-of-equations-elimination',   style: 'system-of-equations-elimination' },
+  'systems::infinite-solutions':            { pattern: 'same-line-infinitely-many-solutions', style: 'same-line-infinitely-many-solutions' },
+  'systems::setting-up-systems':            { pattern: 'two-equation-system-from-a-word-problem', style: 'two-equation-system-from-a-word-problem' },
+  // ── quadratics ────────────────────────────────────────────────────────────
+  'quadratics::discriminant':               { pattern: 'discriminant-analysis',       style: 'discriminant-analysis' },
+  'quadratics::deriving-standard-form':     { pattern: 'vertex-form-to-standard-form', style: 'vertex-form-to-standard-form' },
+  'quadratics::roots':                      { pattern: 'quadratic-via-factoring',     style: 'quadratic-via-factoring' },
+  // ── circles ───────────────────────────────────────────────────────────────
+  'circles::equation-of-a-circle':          { pattern: 'circle-in-standard-form',     style: 'circle-in-standard-form' },
+  'circles::converting-to-standard-form':   { pattern: 'circle-in-general-form',      style: 'circle-in-general-form' },
+  'circles::tangent-lines':                 { pattern: 'line-tangent-to-circle',      style: 'line-tangent-to-circle' },
+  // ── triangles ─────────────────────────────────────────────────────────────
+  'triangles::angles-of-a-triangle':                       { pattern: 'triangle-angle-sum',         style: 'triangle-angle-sum' },
+  'triangles::right-triangles-pythagorean-theorem':        { pattern: 'right-triangle-pythagorean', style: 'right-triangle-pythagorean' },
+  'triangles::trigonometric-ratios':                       { pattern: 'right-triangle-trig-ratios', style: 'right-triangle-trig-ratios' },
+  // ── volume ────────────────────────────────────────────────────────────────
+  'volume::cylinder':                       { pattern: 'cylinder-volume',                  style: 'cylinder-volume' },
+  'volume::rectangular-prism':              { pattern: 'volume-of-a-rectangular-prism',    style: 'volume-of-a-rectangular-prism' },
+  // ── transformations ───────────────────────────────────────────────────────
+  // All transformation sections map to the same canonical pattern — they
+  // differ in input format (graph / table / expression) but the method
+  // (apply a shift/scale to a function) is the same.
+  'transformations::fundamentals':                    { pattern: 'function-transformation', style: 'function-transformation' },
+  'transformations::transformations-from-graph':      { pattern: 'function-transformation', style: 'function-transformation' },
+  'transformations::transformations-from-table':      { pattern: 'function-transformation', style: 'function-transformation' },
+  'transformations::transformations-from-expression': { pattern: 'function-transformation', style: 'function-transformation' },
+  'transformations::difficult-transformations':       { pattern: 'function-transformation', style: 'function-transformation' },
+};
+
+function deriveTopicPattern(item) {
+  if (!item || !item.sourceModuleId || !item.sourceSectionName) return null;
+  const key = `${item.sourceModuleId}::${sectionSlug(item.sourceSectionName)}`;
+  return TOPIC_SECTION_TO_PATTERN[key] || null;
+}
+
 const sectionSlug = (s) => String(s).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
 function flattenTopicQuestions(byModule) {
@@ -113,12 +177,25 @@ questionBank.forEach(q => {
   // Drill-routing indexes — driven by lazy extraction from explanation
   // (so adding a new bank item with the standard `**SAT Pattern: ...**`
   // header automatically registers it for Tier 1 matching).
-  const satPattern = extractSatPattern(q.explanation);
+  let satPattern = extractSatPattern(q.explanation);
+  // Fallback for topic-file items (no SAT Pattern header in explanation):
+  // derive the pattern from the source section name when there's an
+  // unambiguous mapping. See `TOPIC_SECTION_TO_PATTERN` above.
+  let derivedStyle = null;
+  if (!satPattern) {
+    const derived = deriveTopicPattern(q);
+    if (derived) {
+      satPattern = derived.pattern;
+      derivedStyle = derived.style;
+    }
+  }
   if (satPattern) {
     if (!patternIndex.has(satPattern)) patternIndex.set(satPattern, []);
     patternIndex.get(satPattern).push(q);
     if (q.sourceStyleRef && !patternToStyle.has(satPattern)) {
       patternToStyle.set(satPattern, q.sourceStyleRef);
+    } else if (derivedStyle && !patternToStyle.has(satPattern)) {
+      patternToStyle.set(satPattern, derivedStyle);
     }
     const cbSkill = PATTERN_TO_CB_SKILL[satPattern];
     if (cbSkill) {
@@ -126,9 +203,10 @@ questionBank.forEach(q => {
       cbSkillIndex.get(cbSkill).push(q);
     }
   }
-  if (q.sourceStyleRef) {
-    if (!styleIndex.has(q.sourceStyleRef)) styleIndex.set(q.sourceStyleRef, []);
-    styleIndex.get(q.sourceStyleRef).push(q);
+  const styleForIndex = q.sourceStyleRef || derivedStyle;
+  if (styleForIndex) {
+    if (!styleIndex.has(styleForIndex)) styleIndex.set(styleForIndex, []);
+    styleIndex.get(styleForIndex).push(q);
   }
 });
 

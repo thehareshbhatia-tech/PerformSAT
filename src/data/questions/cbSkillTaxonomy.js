@@ -168,9 +168,11 @@ export const PATTERN_TO_CB_SKILL = {
   'exponential-growth-decay':                'nonlinear-functions',
   'exponential-growth-model':                'nonlinear-functions',
   'build-exponential-model':                 'nonlinear-functions',
+  'reverse-exponential-back-in-time':        'nonlinear-functions', // past-value: divide by b^n
   'function-composition':                    'nonlinear-functions',
   'function-evaluation-with-negative-input': 'nonlinear-functions',
   'function-transformation':                 'nonlinear-functions',
+  'function-from-shifted-graph':             'nonlinear-functions', // reverse of function-transformation
   'vertex-form-from-two-conditions':         'nonlinear-functions',
   'vertex-form-maximum':                     'nonlinear-functions',
 
@@ -184,6 +186,10 @@ export const PATTERN_TO_CB_SKILL = {
   'percent-decrease':                        'percentages',
   'reverse-percent':                         'percentages',
   'reverse-percent-multi-step':              'percentages',
+  'percent-complement':                      'percentages', // 100% − x%; not probability complement
+  'compound-percent-of':                     'percentages', // count-anchored chained percent (1200 × 18% × 25%)
+  'chained-percent-relationship':            'percentages', // pure-algebraic chained percent (a→b→c)
+  'percent-greater-than-less-than':          'percentages', // "X% greater than" / "X% less than" verbal framing
 
   // ── Q.C. One-variable data (distributions/center/spread) ─────────────────
   'mean-from-list':                          'one-variable-data',
@@ -204,7 +210,9 @@ export const PATTERN_TO_CB_SKILL = {
   // ── Q.F. Inference / margin of error ──────────────────────────────────────
   'margin-of-error':                         'inference-margin-of-error',
 
-  // ── Q.G. Statistical claims (no patterns yet — gap) ──────────────────────
+  // ── Q.G. Evaluating statistical claims ────────────────────────────────────
+  'observational-vs-experimental-study':     'statistical-claims', // random ASSIGNMENT supports causation
+  'scope-of-inference':                      'statistical-claims', // sampling validity & generalization
 
   // ── S.A. Area and volume ──────────────────────────────────────────────────
   'rectangle-area':                          'area-and-volume',
@@ -212,6 +220,7 @@ export const PATTERN_TO_CB_SKILL = {
   'cylinder-volume':                         'area-and-volume',
   'volume-of-a-rectangular-prism':           'area-and-volume',
   'area-of-a-circle':                        'area-and-volume',
+  'symbolic-area-or-volume':                 'area-and-volume', // area/volume expressed in terms of a variable
 
   // ── S.B. Lines, angles, and triangles ─────────────────────────────────────
   'triangle-angle-sum':                      'lines-angles-triangles',
