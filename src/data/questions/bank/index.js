@@ -4,6 +4,7 @@ import { advancedMathBank } from './advancedMath';
 import { geometryBank } from './geometry';
 import { allQuestions as topicQuestionsByModule } from '../index';
 import { extractSatPattern } from '../extractSatPattern';
+import { PATTERN_TO_CB_SKILL } from '../cbSkillTaxonomy';
 import { makeLogger } from '../../../utils/log';
 
 const log = makeLogger('drill-routing');
@@ -92,6 +93,11 @@ const difficultyIndex = new Map();
 const patternIndex = new Map();
 const styleIndex = new Map();
 const patternToStyle = new Map();
+// CB skill index — maps each of the 19 official CB math skill slugs to the
+// items whose SAT Pattern maps to that skill. Populated below via
+// `PATTERN_TO_CB_SKILL`. Drives the Practice Bank UI's CB-skill-level
+// "Mixed practice" drill.
+const cbSkillIndex = new Map();
 
 questionBank.forEach(q => {
   (q.skills || []).forEach(sid => {
@@ -113,6 +119,11 @@ questionBank.forEach(q => {
     patternIndex.get(satPattern).push(q);
     if (q.sourceStyleRef && !patternToStyle.has(satPattern)) {
       patternToStyle.set(satPattern, q.sourceStyleRef);
+    }
+    const cbSkill = PATTERN_TO_CB_SKILL[satPattern];
+    if (cbSkill) {
+      if (!cbSkillIndex.has(cbSkill)) cbSkillIndex.set(cbSkill, []);
+      cbSkillIndex.get(cbSkill).push(q);
     }
   }
   if (q.sourceStyleRef) {
@@ -454,6 +465,22 @@ export const getQuestionsBySkillIds = (skillIds, opts = {}) => {
 
 export const getQuestionsByDomain = (domain, opts = {}) => {
   return applyFilters([...(domainIndex.get(domain) || [])], opts);
+};
+
+/**
+ * Look up bank items by official College Board math skill slug (one of the
+ * 19 slugs in `cbSkillTaxonomy.js`, e.g., `linear-equations-one-variable`).
+ *
+ * Powers the Practice Bank UI's CB-skill-level "Mixed practice" button —
+ * students get a shuffled drill of every item under that skill regardless
+ * of the underlying pattern granularity.
+ *
+ * @param {string} cbSkillSlug — CB skill slug (post-taxonomy)
+ * @param {object} [opts] — { difficulty, excludeIds, limit }
+ * @returns {Question[]} items whose SAT Pattern maps to this CB skill.
+ */
+export const getQuestionsByCBSkill = (cbSkillSlug, opts = {}) => {
+  return applyFilters([...(cbSkillIndex.get(cbSkillSlug) || [])], opts);
 };
 
 /**

@@ -135,8 +135,11 @@ const PATTERN_ALIASES = Object.freeze({
   'solving-for-input-from-output': 'solve-for-input-from-output',
   'solving-for-the-input-given-the-output': 'solve-for-input-from-output',
 
-  // Two-way table — percentage and probability are surface units, same method
-  'two-way-table-conditional-percentage': 'two-way-table-conditional-probability',
+  // Two-way table conditional probability — canonical slug is
+  // `conditional-probability-from-two-way-table` (matches the explicit
+  // SAT pattern phrasing in PT explanations). Two synonym slugs alias here.
+  'two-way-table-conditional-probability': 'conditional-probability-from-two-way-table',
+  'two-way-table-conditional-percentage': 'conditional-probability-from-two-way-table',
 
   // Tangent line to PARABOLA (set line=quadratic, get one quadratic in x,
   // Δ=0). Same method between alias and canonical.

@@ -3,6 +3,7 @@ import {
   questionBank as mathQuestionBank,
   getQuestionsBySatPatterns,
   getQuestionsByDomain as getMathQuestionsByDomain,
+  getQuestionsByCBSkill,
 } from '../data/questions/bank';
 import {
   rwQuestionBank,
@@ -11,73 +12,40 @@ import {
   getQuestionsByDomain as getRWQuestionsByDomain,
 } from '../data/questions/rwBank';
 import { extractSatPattern } from '../data/questions/extractSatPattern';
+import {
+  CB_MATH_SKILLS,
+  CB_MATH_DOMAIN_LABELS,
+  CB_RW_DOMAIN_LABELS,
+  CB_RW_SKILLS,
+  PATTERN_TO_CB_SKILL,
+} from '../data/questions/cbSkillTaxonomy';
 import { formatPatternLabel } from '../services/selectors/missedPatternLabel';
 import { colors, typography, spacing, radius, shadows, transitions } from '../design/tokens';
 
-// Display labels for canonical domain slugs.
-const MATH_DOMAIN_LABEL = {
-  'algebra': 'Algebra',
-  'advanced-math': 'Advanced Math',
-  'problem-solving': 'Problem-Solving and Data Analysis',
-  'geometry': 'Geometry and Trigonometry',
-};
-
-const RW_DOMAIN_LABEL = {
-  'information-and-ideas': 'Information and Ideas',
-  'craft-and-structure': 'Craft and Structure',
-  'standard-english-conventions': 'Standard English Conventions',
-  'expression-of-ideas': 'Expression of Ideas',
-};
-
-const RW_SKILL_LABEL = {
-  'central-ideas-and-details': 'Central Ideas and Details',
-  'inferences': 'Inferences',
-  'command-of-evidence-textual': 'Command of Evidence (Textual)',
-  'command-of-evidence-quantitative': 'Command of Evidence (Quantitative)',
-  'words-in-context': 'Words in Context',
-  'text-structure-and-purpose': 'Text Structure and Purpose',
-  'cross-text-connections': 'Cross-Text Connections',
-  'boundaries': 'Boundaries',
-  'form-structure-and-sense': 'Form, Structure, and Sense',
-  'transitions': 'Transitions',
-  'rhetorical-synthesis': 'Rhetorical Synthesis',
-};
-
-const RW_SKILL_TO_DOMAIN = {
-  'central-ideas-and-details': 'information-and-ideas',
-  'inferences': 'information-and-ideas',
-  'command-of-evidence-textual': 'information-and-ideas',
-  'command-of-evidence-quantitative': 'information-and-ideas',
-  'words-in-context': 'craft-and-structure',
-  'text-structure-and-purpose': 'craft-and-structure',
-  'cross-text-connections': 'craft-and-structure',
-  'boundaries': 'standard-english-conventions',
-  'form-structure-and-sense': 'standard-english-conventions',
-  'transitions': 'expression-of-ideas',
-  'rhetorical-synthesis': 'expression-of-ideas',
-};
-
-// Patterns with fewer items than this are hidden from the browse list — too
-// thin a pool for a satisfying drill. Patterns with 4-7 still surface (with
-// their real count) so students can see what's authored even when it falls
-// short of a full round.
+// Patterns with fewer items than this are hidden — too thin a pool for a
+// satisfying drill. The 4-7 range still surfaces (with real count) so
+// students see what's authored even when it falls short of a full round.
 const MIN_PATTERN_POOL = 4;
 
 const DRILL_COUNT_PER_TYPE = 10;
-const DRILL_COUNT_PER_DOMAIN = 15;
+const DRILL_COUNT_PER_SKILL = 15;
+const DRILL_COUNT_PER_DOMAIN = 20;
 
 // AssignedPracticeShell only supports multiple-choice — fill-in items can't
-// be answered there. Count only drillable items so the displayed pool size
-// matches what students actually get when they launch.
+// be answered there. Count only drillable items so displayed pool sizes
+// match what students actually get on launch.
 const isDrillable = (q) => Array.isArray(q.choices) && q.choices.length >= 2;
 
 /**
- * Builds the math categorization once at module load.
- * For each domain → { patterns: [{slug, label, count}], total }.
- * Patterns are derived from each bank item's explanation header.
+ * Build the math categorization: domain → CB skill → pattern.
+ * Runs once at module load. Each domain card surfaces its CB skills (one
+ * card section per skill); each skill section lists the patterns with
+ * ≥MIN_PATTERN_POOL items in a responsive grid.
  */
 function buildMathCategories() {
-  const byDomainPattern = new Map(); // domain → Map(pattern → count)
+  // patternCounts: pattern → count of drillable items
+  const patternCounts = new Map();
+  const cbSkillItemCount = new Map();
   const domainTotals = new Map();
 
   for (const q of mathQuestionBank) {
@@ -87,32 +55,50 @@ function buildMathCategories() {
 
     const pattern = extractSatPattern(q.explanation);
     if (!pattern) continue;
-
-    if (!byDomainPattern.has(domain)) byDomainPattern.set(domain, new Map());
-    const patternCounts = byDomainPattern.get(domain);
     patternCounts.set(pattern, (patternCounts.get(pattern) || 0) + 1);
+
+    const cbSkill = PATTERN_TO_CB_SKILL[pattern];
+    if (cbSkill) {
+      cbSkillItemCount.set(cbSkill, (cbSkillItemCount.get(cbSkill) || 0) + 1);
+    }
   }
 
+  // Group CB skills by domain in the canonical order, with the patterns
+  // surfaced under each.
   const domainOrder = ['algebra', 'advanced-math', 'problem-solving', 'geometry'];
   return domainOrder
     .filter(d => domainTotals.has(d))
-    .map(domain => {
-      const patternCounts = byDomainPattern.get(domain) || new Map();
-      const patterns = [...patternCounts.entries()]
-        .filter(([, count]) => count >= MIN_PATTERN_POOL)
-        .map(([slug, count]) => ({ slug, label: formatPatternLabel(slug), count }))
-        .sort((a, b) => b.count - a.count || a.label.localeCompare(b.label));
+    .map(domainSlug => {
+      const skillsInDomain = CB_MATH_SKILLS.filter(s => s.domain === domainSlug);
+      const cbSkills = skillsInDomain
+        .map(skill => {
+          const total = cbSkillItemCount.get(skill.slug) || 0;
+          const patterns = Object.entries(PATTERN_TO_CB_SKILL)
+            .filter(([, sSlug]) => sSlug === skill.slug)
+            .map(([patternSlug]) => ({
+              slug: patternSlug,
+              label: formatPatternLabel(patternSlug),
+              count: patternCounts.get(patternSlug) || 0,
+            }))
+            .filter(p => p.count >= MIN_PATTERN_POOL)
+            .sort((a, b) => b.count - a.count || a.label.localeCompare(b.label));
+          return { ...skill, total, patterns };
+        })
+        // Hide empty CB skills (e.g., Q.G. before backfill) from the UI.
+        // They're tracked in the CB-coverage audit, not surfaced to students.
+        .filter(skill => skill.total > 0);
       return {
-        domain,
-        label: MATH_DOMAIN_LABEL[domain] || domain,
-        total: domainTotals.get(domain) || 0,
-        patterns,
+        domain: domainSlug,
+        label: CB_MATH_DOMAIN_LABELS[domainSlug] || domainSlug,
+        total: domainTotals.get(domainSlug) || 0,
+        cbSkills,
       };
     });
 }
 
 /**
- * Builds R&W categorization. Each canonical skill maps to one domain.
+ * R&W categorization. R&W is simpler: each canonical College Board skill
+ * already maps 1:1 to a domain. No pattern layer below.
  */
 function buildRWCategories() {
   const skillCounts = new Map();
@@ -127,18 +113,17 @@ function buildRWCategories() {
   }
 
   return RW_DOMAINS.map(domain => {
-    const skills = Object.entries(RW_SKILL_TO_DOMAIN)
-      .filter(([, d]) => d === domain)
-      .map(([slug]) => ({
-        slug,
-        label: RW_SKILL_LABEL[slug] || slug,
-        count: skillCounts.get(slug) || 0,
+    const skills = CB_RW_SKILLS
+      .filter(s => s.domain === domain)
+      .map(skill => ({
+        ...skill,
+        count: skillCounts.get(skill.slug) || 0,
       }))
       .filter(s => s.count > 0)
       .sort((a, b) => b.count - a.count || a.label.localeCompare(b.label));
     return {
       domain,
-      label: RW_DOMAIN_LABEL[domain] || domain,
+      label: CB_RW_DOMAIN_LABELS[domain] || domain,
       total: domainTotals.get(domain) || 0,
       skills,
     };
@@ -155,6 +140,15 @@ const SECTION_TABS = [
   { id: 'rw', label: 'Reading & Writing' },
 ];
 
+const shuffle = (arr) => {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+};
+
 const PracticeBank = ({ onStartPractice }) => {
   const [section, setSection] = useState('math');
 
@@ -167,8 +161,7 @@ const PracticeBank = ({ onStartPractice }) => {
   );
 
   const launchPatternDrill = (slug, label) => {
-    const pool = getQuestionsBySatPatterns([slug])
-      .filter(isDrillable);
+    const pool = getQuestionsBySatPatterns([slug]).filter(isDrillable);
     if (pool.length === 0) return;
     const shuffled = shuffle(pool).slice(0, DRILL_COUNT_PER_TYPE);
     onStartPractice(shuffled.map(q => q.id), {
@@ -178,11 +171,21 @@ const PracticeBank = ({ onStartPractice }) => {
     });
   };
 
-  const launchRWSkillDrill = (slug, label) => {
-    const pool = getRWQuestionsBySkillIds([slug])
-      .filter(isDrillable);
+  const launchCBSkillDrill = (skillSlug, skillLabel) => {
+    const pool = getQuestionsByCBSkill(skillSlug).filter(isDrillable);
     if (pool.length === 0) return;
-    const shuffled = shuffle(pool).slice(0, DRILL_COUNT_PER_TYPE);
+    const shuffled = shuffle(pool).slice(0, DRILL_COUNT_PER_SKILL);
+    onStartPractice(shuffled.map(q => q.id), {
+      label: `Practice — ${skillLabel} (mixed)`,
+      source: 'practice-bank-skill',
+      section: 'math',
+    });
+  };
+
+  const launchRWSkillDrill = (slug, label) => {
+    const pool = getRWQuestionsBySkillIds([slug]).filter(isDrillable);
+    if (pool.length === 0) return;
+    const shuffled = shuffle(pool).slice(0, DRILL_COUNT_PER_SKILL);
     onStartPractice(shuffled.map(q => q.id), {
       label: `Practice — ${label}`,
       source: 'practice-bank',
@@ -222,8 +225,8 @@ const PracticeBank = ({ onStartPractice }) => {
           color: colors.text.secondary,
           margin: `${spacing.xs} 0 0`,
         }}>
-          Pick a question type to start a {DRILL_COUNT_PER_TYPE}-question drill, or run a {DRILL_COUNT_PER_DOMAIN}-question
-          mixed set across a whole domain. All items are hand-authored.
+          Browse by official College Board skill, then pick a specific question
+          type to drill. All items are hand-authored to mirror the digital SAT.
         </p>
       </div>
 
@@ -276,25 +279,31 @@ const PracticeBank = ({ onStartPractice }) => {
       {/* Domain cards */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: spacing.lg }}>
         {categories.map(cat => (
-          <DomainCard
-            key={cat.domain}
-            cat={cat}
-            section={section}
-            onPatternClick={launchPatternDrill}
-            onSkillClick={launchRWSkillDrill}
-            onMixedClick={launchDomainMixed}
-          />
+          section === 'math'
+            ? <MathDomainCard
+                key={cat.domain}
+                cat={cat}
+                onPatternClick={launchPatternDrill}
+                onSkillClick={launchCBSkillDrill}
+                onDomainMixedClick={launchDomainMixed}
+              />
+            : <RWDomainCard
+                key={cat.domain}
+                cat={cat}
+                onSkillClick={launchRWSkillDrill}
+                onDomainMixedClick={launchDomainMixed}
+              />
         ))}
       </div>
     </div>
   );
 };
 
-// ── Subcomponents ────────────────────────────────────────────────────────────
+// ── Math: Domain card with CB-skill subsections ─────────────────────────────
 
-const DomainCard = ({ cat, section, onPatternClick, onSkillClick, onMixedClick }) => {
-  const items = section === 'math' ? cat.patterns : cat.skills;
-  const hasItems = items.length > 0;
+const MathDomainCard = ({ cat, onPatternClick, onSkillClick, onDomainMixedClick }) => {
+  const visibleSkills = cat.cbSkills.filter(s => s.total > 0);
+  const hasContent = visibleSkills.length > 0;
 
   return (
     <section style={{
@@ -304,7 +313,7 @@ const DomainCard = ({ cat, section, onPatternClick, onSkillClick, onMixedClick }
       padding: spacing.lg,
       boxShadow: shadows.sm,
     }}>
-      {/* Card header */}
+      {/* Domain header */}
       <div style={{
         display: 'flex',
         alignItems: 'flex-start',
@@ -330,59 +339,25 @@ const DomainCard = ({ cat, section, onPatternClick, onSkillClick, onMixedClick }
             color: colors.text.tertiary,
             marginTop: '2px',
           }}>
-            {cat.total.toLocaleString()} questions · {items.length} question type{items.length === 1 ? '' : 's'}
+            {cat.total.toLocaleString()} questions · {visibleSkills.length} College Board skill{visibleSkills.length === 1 ? '' : 's'}
           </div>
         </div>
-        {hasItems && (
-          <button
-            onClick={() => onMixedClick(cat.domain, cat.label)}
-            style={{
-              fontFamily: typography.fontFamily,
-              fontSize: typography.sizes.sm,
-              fontWeight: typography.weights.semibold,
-              color: colors.accent.orange,
-              backgroundColor: colors.accent.orangeLight,
-              border: 'none',
-              borderRadius: radius.md,
-              padding: `${spacing.xs} ${spacing.md}`,
-              cursor: 'pointer',
-              transition: `all ${transitions.fast}`,
-              whiteSpace: 'nowrap',
-            }}
-            onMouseEnter={e => { e.currentTarget.style.backgroundColor = colors.accent.orangeMuted; }}
-            onMouseLeave={e => { e.currentTarget.style.backgroundColor = colors.accent.orangeLight; }}
-          >
-            Mixed practice ({DRILL_COUNT_PER_DOMAIN})
-          </button>
+        {hasContent && (
+          <DomainMixedButton onClick={() => onDomainMixedClick(cat.domain, cat.label)} />
         )}
       </div>
 
-      {/* Item rows */}
-      {!hasItems ? (
-        <div style={{
-          fontFamily: typography.fontFamily,
-          fontSize: typography.sizes.sm,
-          color: colors.text.tertiary,
-          fontStyle: 'italic',
-          padding: spacing.md,
-          textAlign: 'center',
-        }}>
-          No question types yet. Authoring is ongoing.
-        </div>
+      {/* CB Skill sections */}
+      {!hasContent ? (
+        <EmptyMessage />
       ) : (
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
-          gap: spacing.xs,
-        }}>
-          {items.map(item => (
-            <QuestionTypeRow
-              key={item.slug}
-              item={item}
-              onClick={section === 'math'
-                ? () => onPatternClick(item.slug, item.label)
-                : () => onSkillClick(item.slug, item.label)
-              }
+        <div style={{ display: 'flex', flexDirection: 'column', gap: spacing.lg }}>
+          {visibleSkills.map(skill => (
+            <CBSkillSection
+              key={skill.slug}
+              skill={skill}
+              onPatternClick={onPatternClick}
+              onSkillClick={onSkillClick}
             />
           ))}
         </div>
@@ -390,6 +365,180 @@ const DomainCard = ({ cat, section, onPatternClick, onSkillClick, onMixedClick }
     </section>
   );
 };
+
+const CBSkillSection = ({ skill, onPatternClick, onSkillClick }) => {
+  const hasPatterns = skill.patterns.length > 0;
+
+  return (
+    <div style={{
+      borderLeft: `3px solid ${colors.accent.orangeLight}`,
+      paddingLeft: spacing.md,
+    }}>
+      {/* Skill header row */}
+      <div style={{
+        display: 'flex',
+        alignItems: 'baseline',
+        justifyContent: 'space-between',
+        gap: spacing.sm,
+        flexWrap: 'wrap',
+        marginBottom: spacing.sm,
+      }}>
+        <div style={{ minWidth: 0, flex: 1 }}>
+          <h3 style={{
+            fontFamily: typography.narrative,
+            fontSize: typography.sizes.base,
+            fontWeight: typography.weights.semibold,
+            color: colors.text.primary,
+            margin: 0,
+          }}>
+            {skill.label}
+          </h3>
+          <div style={{
+            fontFamily: typography.fontFamily,
+            fontSize: typography.sizes.xs,
+            color: colors.text.tertiary,
+            marginTop: '2px',
+          }}>
+            {skill.total} question{skill.total === 1 ? '' : 's'}
+            {hasPatterns && ` · ${skill.patterns.length} specific question type${skill.patterns.length === 1 ? '' : 's'}`}
+          </div>
+        </div>
+        <button
+          onClick={() => onSkillClick(skill.slug, skill.label)}
+          style={pillButtonStyle}
+          onMouseEnter={e => { e.currentTarget.style.backgroundColor = colors.accent.orangeMuted; }}
+          onMouseLeave={e => { e.currentTarget.style.backgroundColor = colors.accent.orangeLight; }}
+        >
+          Practice ({Math.min(skill.total, DRILL_COUNT_PER_SKILL)} mixed)
+        </button>
+      </div>
+
+      {/* Pattern grid (specific question types) */}
+      {hasPatterns ? (
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))',
+          gap: spacing.xs,
+        }}>
+          {skill.patterns.map(pat => (
+            <QuestionTypeRow
+              key={pat.slug}
+              item={pat}
+              onClick={() => onPatternClick(pat.slug, pat.label)}
+            />
+          ))}
+        </div>
+      ) : (
+        <div style={{
+          fontFamily: typography.fontFamily,
+          fontSize: typography.sizes.xs,
+          color: colors.text.tertiary,
+          fontStyle: 'italic',
+          padding: `${spacing.xs} 0`,
+        }}>
+          Mixed practice only — specific question types coming soon.
+        </div>
+      )}
+    </div>
+  );
+};
+
+// ── R&W: Domain card with CB skill rows (no pattern layer) ──────────────────
+
+const RWDomainCard = ({ cat, onSkillClick, onDomainMixedClick }) => {
+  const hasItems = cat.skills.length > 0;
+
+  return (
+    <section style={{
+      backgroundColor: colors.surface.white,
+      border: `1px solid ${colors.surface.grayDark}`,
+      borderRadius: radius.lg,
+      padding: spacing.lg,
+      boxShadow: shadows.sm,
+    }}>
+      <div style={{
+        display: 'flex',
+        alignItems: 'flex-start',
+        justifyContent: 'space-between',
+        gap: spacing.md,
+        marginBottom: spacing.md,
+        flexWrap: 'wrap',
+      }}>
+        <div>
+          <h2 style={{
+            fontFamily: typography.narrative,
+            fontSize: typography.sizes.lg,
+            fontWeight: typography.weights.semibold,
+            color: colors.text.primary,
+            margin: 0,
+            letterSpacing: typography.letterSpacing.tight,
+          }}>
+            {cat.label}
+          </h2>
+          <div style={{
+            fontFamily: typography.fontFamily,
+            fontSize: typography.sizes.xs,
+            color: colors.text.tertiary,
+            marginTop: '2px',
+          }}>
+            {cat.total.toLocaleString()} questions · {cat.skills.length} College Board skill{cat.skills.length === 1 ? '' : 's'}
+          </div>
+        </div>
+        {hasItems && (
+          <DomainMixedButton onClick={() => onDomainMixedClick(cat.domain, cat.label)} />
+        )}
+      </div>
+
+      {!hasItems ? (
+        <EmptyMessage />
+      ) : (
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
+          gap: spacing.xs,
+        }}>
+          {cat.skills.map(item => (
+            <QuestionTypeRow
+              key={item.slug}
+              item={{ label: item.label, count: item.count }}
+              onClick={() => onSkillClick(item.slug, item.label)}
+            />
+          ))}
+        </div>
+      )}
+    </section>
+  );
+};
+
+// ── Shared subcomponents ────────────────────────────────────────────────────
+
+const DomainMixedButton = ({ onClick }) => (
+  <button
+    onClick={onClick}
+    style={{
+      ...pillButtonStyle,
+      fontSize: typography.sizes.sm,
+      padding: `${spacing.xs} ${spacing.md}`,
+    }}
+    onMouseEnter={e => { e.currentTarget.style.backgroundColor = colors.accent.orangeMuted; }}
+    onMouseLeave={e => { e.currentTarget.style.backgroundColor = colors.accent.orangeLight; }}
+  >
+    Mixed practice ({DRILL_COUNT_PER_DOMAIN})
+  </button>
+);
+
+const EmptyMessage = () => (
+  <div style={{
+    fontFamily: typography.fontFamily,
+    fontSize: typography.sizes.sm,
+    color: colors.text.tertiary,
+    fontStyle: 'italic',
+    padding: spacing.md,
+    textAlign: 'center',
+  }}>
+    No question types yet. Authoring is ongoing.
+  </div>
+);
 
 const QuestionTypeRow = ({ item, onClick }) => {
   const disabled = item.count === 0;
@@ -451,14 +600,18 @@ const QuestionTypeRow = ({ item, onClick }) => {
   );
 };
 
-// Local shuffle — small enough to inline.
-function shuffle(arr) {
-  const a = [...arr];
-  for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]];
-  }
-  return a;
-}
+const pillButtonStyle = {
+  fontFamily: typography.fontFamily,
+  fontSize: typography.sizes.xs,
+  fontWeight: typography.weights.semibold,
+  color: colors.accent.orange,
+  backgroundColor: colors.accent.orangeLight,
+  border: 'none',
+  borderRadius: radius.md,
+  padding: `${spacing.xs} ${spacing.sm}`,
+  cursor: 'pointer',
+  transition: `all ${transitions.fast}`,
+  whiteSpace: 'nowrap',
+};
 
 export default PracticeBank;
