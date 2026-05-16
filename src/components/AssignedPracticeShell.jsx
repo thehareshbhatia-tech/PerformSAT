@@ -536,6 +536,83 @@ const AssignedPracticeShell = ({
             )}
           </div>
 
+          {/* R&W passage — basic plain-serif rendering (no Bluebook
+              highlighting; that lives in PracticeTest for the timed flow).
+              Covers all three R&W content shapes: single `passage`, paired
+              `passages` array (cross-text-connections), and `studentNotes`
+              object (rhetorical-synthesis). Without this, R&W drills show
+              only the stem ("Which choice most logically completes the
+              text?") with no passage to read. */}
+          {currentQuestion.passage && (
+            <div style={{
+              fontFamily: "'Georgia', 'Cambria', 'Times New Roman', serif",
+              fontSize: '17px',
+              lineHeight: '1.65',
+              color: C.text,
+              marginBottom: '20px',
+              whiteSpace: 'pre-wrap',
+            }}>
+              <MathText>{currentQuestion.passage}</MathText>
+            </div>
+          )}
+
+          {Array.isArray(currentQuestion.passages) && (
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', marginBottom: '20px' }}>
+              {currentQuestion.passages.map((p, i) => (
+                <div key={i}>
+                  <div style={{
+                    fontFamily: 'var(--font-ui)',
+                    fontSize: '13px',
+                    fontWeight: 700,
+                    letterSpacing: '0.04em',
+                    color: C.textSec,
+                    textTransform: 'uppercase',
+                    marginBottom: '6px',
+                  }}>
+                    {p.label || `Text ${i + 1}`}
+                  </div>
+                  <div style={{
+                    fontFamily: "'Georgia', 'Cambria', 'Times New Roman', serif",
+                    fontSize: '17px',
+                    lineHeight: '1.65',
+                    color: C.text,
+                    whiteSpace: 'pre-wrap',
+                  }}>
+                    <MathText>{p.text}</MathText>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {currentQuestion.studentNotes && (
+            <div style={{
+              fontFamily: "'Georgia', 'Cambria', 'Times New Roman', serif",
+              fontSize: '17px',
+              lineHeight: '1.65',
+              color: C.text,
+              marginBottom: '20px',
+            }}>
+              {currentQuestion.studentNotes.intro && (
+                <div style={{ marginBottom: '8px' }}>{currentQuestion.studentNotes.intro}</div>
+              )}
+              {Array.isArray(currentQuestion.studentNotes.bullets) && (
+                <ul style={{ paddingLeft: '1.25rem', margin: '8px 0' }}>
+                  {currentQuestion.studentNotes.bullets.map((b, i) => (
+                    <li key={i} style={{ marginBottom: '4px' }}>
+                      <MathText>{b}</MathText>
+                    </li>
+                  ))}
+                </ul>
+              )}
+              {currentQuestion.studentNotes.goal && (
+                <div style={{ marginTop: '8px', fontStyle: 'italic' }}>
+                  <MathText>{currentQuestion.studentNotes.goal}</MathText>
+                </div>
+              )}
+            </div>
+          )}
+
           {/* Diagram */}
           {currentQuestion.diagram && (
             <div style={{ marginBottom: '20px', display: 'flex', justifyContent: 'center' }}>
