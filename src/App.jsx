@@ -22,6 +22,7 @@ import Profile from './components/Profile';
 import StudyPlanDashboard from './components/StudyPlanDashboard';
 import AdaptivePracticeShell from './components/AdaptivePracticeShell';
 import AssignedPracticeShell from './components/AssignedPracticeShell';
+import PracticeBank from './components/PracticeBank';
 import DiagnosticReport from './components/DiagnosticReport';
 import LearnWorkspace from './components/learn/LearnWorkspace';
 import LessonBrowser from './components/LessonBrowser';
@@ -405,7 +406,7 @@ const PerformSAT = () => {
       assignmentMeta: {
         label: meta.label || 'Assigned Practice',
         weekNumber: meta.weekNumber ?? null,
-        source: 'study-plan-assigned',
+        source: meta.source || 'study-plan-assigned',
         weakness: meta.weakness || null,
       },
     });
@@ -1142,6 +1143,7 @@ const PerformSAT = () => {
           else if (navId === 'studyPlan') { setView('studyPlan'); }
           else if (navId === 'tutor') { setView('tutor'); setShowAiTutor(true); }
           else if (navId === 'profile') { setView('profile'); }
+          else if (navId === 'practiceBank') { setView('practiceBank'); }
           else { setView(navId); }
         }}
         user={user}
@@ -1150,9 +1152,9 @@ const PerformSAT = () => {
       >
       {/* Main Content */}
       <div id="main-content" style={{
-        maxWidth: view === 'takingTest' || view === 'reviewingPastResults' || view === 'practice' || view === 'dashboard' || view === 'learn' || view === 'modules' ? '100%' : (view === 'practiceTests' || view === 'studyPlan') ? '960px' : '800px',
+        maxWidth: view === 'takingTest' || view === 'reviewingPastResults' || view === 'practice' || view === 'dashboard' || view === 'learn' || view === 'modules' || view === 'practiceBank' ? '100%' : (view === 'practiceTests' || view === 'studyPlan') ? '960px' : '800px',
         margin: '0 auto',
-        padding: (view === 'dashboard' || view === 'reviewingPastResults' || view === 'practice' || view === 'takingTest' || view === 'learn') ? '0' : '32px 32px 100px',
+        padding: (view === 'dashboard' || view === 'reviewingPastResults' || view === 'practice' || view === 'takingTest' || view === 'learn' || view === 'practiceBank') ? '0' : '32px 32px 100px',
         ...(view === 'takingTest' ? { overflow: 'hidden', height: '100vh' } : {})
       }}>
         {/* Standalone AI Tutor View */}
@@ -1189,6 +1191,11 @@ const PerformSAT = () => {
             practiceTestResults={practiceTestResults}
             skillProgress={skillProgress}
           />
+        )}
+
+        {/* Practice Bank — browse question types and drill at will */}
+        {view === 'practiceBank' && (
+          <PracticeBank onStartPractice={startAssignedPractice} />
         )}
 
         {/* Learn — Module Catalog View */}
@@ -1831,13 +1838,22 @@ const PerformSAT = () => {
             setShowCalculator(false);
             setView('pastTestReviewDetail');
           };
+          const practiceBankBackHandler = () => {
+            setActiveSection(null);
+            setActiveModule(null);
+            setShowCalculator(false);
+            setView('practiceBank');
+          };
           // The legacy moduleBackHandler returned to view='learn' (the
           // deleted LearnWorkspace). Practice is now reachable via the
-          // study plan or, for review-mode drills, the past-test-review
-          // detail page.
+          // study plan, the Practice tab (browse by question type), or,
+          // for review-mode drills, the past-test-review detail page.
+          const source = practiceState.assignmentMeta?.source;
           const backHandler = practiceState.reviewMode
             ? pastTestReviewBackHandler
-            : studyPlanBackHandler;
+            : (source === 'practice-bank' || source === 'practice-bank-domain')
+              ? practiceBankBackHandler
+              : studyPlanBackHandler;
           const headerTitle = isAdaptive
             ? (practiceState.adaptiveDomainLabel ? `Adaptive Practice — ${practiceState.adaptiveDomainLabel}` : 'Adaptive Practice')
             : isAssigned

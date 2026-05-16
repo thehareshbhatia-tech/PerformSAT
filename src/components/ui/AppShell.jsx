@@ -10,6 +10,7 @@ const VIEW_ROUTES = {
   list: '/app/learn/module',
   lesson: '/app/learn/lesson',
   practice: '/app/practice',
+  practiceBank: '/app/practice-bank',
   practiceTests: '/app/tests',
   takingTest: '/app/tests/active',
   diagnosticReport: '/app/diagnostic',
@@ -25,6 +26,7 @@ const NAV_ITEMS = [
   { id: 'dashboard', label: 'Home', route: '/app', icon: HomeIcon },
   { id: 'modules', label: 'Videos', route: '/app/learn', icon: BookIcon },
   { id: 'practiceTests', label: 'Tests', route: '/app/tests', icon: ClockIcon },
+  { id: 'practiceBank', label: 'Practice', route: '/app/practice-bank', icon: TargetIcon },
   { id: 'studyPlan', label: 'Study Plan', route: '/app/study-plan', icon: StudyPlanIcon },
   { id: 'tutor', label: 'AI Tutor', route: '/app/tutor', icon: SparklesIcon },
   { id: 'profile', label: 'Profile', route: '/app/profile', icon: PersonIcon },
@@ -61,6 +63,16 @@ function SparklesIcon({ color }) {
   return (
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z" />
+    </svg>
+  );
+}
+
+function TargetIcon({ color }) {
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="12" r="10" />
+      <circle cx="12" cy="12" r="6" />
+      <circle cx="12" cy="12" r="2" />
     </svg>
   );
 }
