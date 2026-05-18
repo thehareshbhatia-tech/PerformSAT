@@ -571,6 +571,25 @@ const MathDomainCard = ({ cat, accent, onPatternClick, onSkillClick, onDomainMix
   const weight = DOMAIN_WEIGHTS[cat.domain];
   const accentStyle = ACCENT_STYLES[accent];
   const totalPatterns = visibleSkills.reduce((s, k) => s + k.patterns.length, 0);
+  const skillsWithPatterns = visibleSkills.filter(s => s.patterns.length > 0);
+
+  const [expandedSlugs, setExpandedSlugs] = useState(() => new Set());
+  const allExpanded = skillsWithPatterns.length > 0
+    && skillsWithPatterns.every(s => expandedSlugs.has(s.slug));
+
+  const toggleSkill = (slug) => {
+    setExpandedSlugs(prev => {
+      const next = new Set(prev);
+      if (next.has(slug)) next.delete(slug);
+      else next.add(slug);
+      return next;
+    });
+  };
+
+  const toggleAll = () => {
+    if (allExpanded) setExpandedSlugs(new Set());
+    else setExpandedSlugs(new Set(skillsWithPatterns.map(s => s.slug)));
+  };
 
   return (
     <section style={cardShellStyle}>
@@ -604,7 +623,12 @@ const MathDomainCard = ({ cat, accent, onPatternClick, onSkillClick, onDomainMix
         )}
       </div>
 
-      <SectionLabel>Practice a Subdomain</SectionLabel>
+      <SubdomainHeader
+        accent={accentStyle}
+        canToggle={skillsWithPatterns.length > 0}
+        allExpanded={allExpanded}
+        onToggleAll={toggleAll}
+      />
 
       <div style={{ padding: `0 ${spacing.lg} ${spacing.lg}` }}>
         {!hasContent ? (
@@ -616,6 +640,8 @@ const MathDomainCard = ({ cat, accent, onPatternClick, onSkillClick, onDomainMix
               skill={skill}
               isLast={i === visibleSkills.length - 1}
               accent={accentStyle}
+              expanded={expandedSlugs.has(skill.slug)}
+              onToggleExpand={() => toggleSkill(skill.slug)}
               onSkillClick={() => onSkillClick(skill.slug, skill.label)}
               onPatternClick={onPatternClick}
             />
@@ -695,25 +721,34 @@ const RWDomainCard = ({ cat, accent, onSkillClick, onDomainMixedClick }) => {
 };
 
 // ────────────────────────────────────────────────────────────────────────────
-// SkillBlock — Math subdomain with inline question-type pills
+// SkillBlock — Math subdomain. Pattern pills are collapsed behind a
+// "X types ▾" toggle so the card doesn't drown the user in chips.
 // ────────────────────────────────────────────────────────────────────────────
-const SkillBlock = ({ skill, isLast, accent, onSkillClick, onPatternClick }) => {
+const SkillBlock = ({
+  skill,
+  isLast,
+  accent,
+  expanded,
+  onToggleExpand,
+  onSkillClick,
+  onPatternClick,
+}) => {
   const hasPatterns = skill.patterns.length > 0;
   const label = skill.short || skill.label;
+  const isOpen = hasPatterns && expanded;
 
   return (
     <div style={{
-      paddingTop: '12px',
-      paddingBottom: '12px',
+      paddingTop: '10px',
+      paddingBottom: isOpen ? '14px' : '10px',
       borderBottom: isLast ? 'none' : `1px solid ${PALETTE.hairline}`,
     }}>
-      {/* Subdomain row: name link · count chip */}
+      {/* Subdomain row: name link · count chip · types toggle */}
       <div style={{
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'space-between',
         gap: spacing.sm,
-        marginBottom: hasPatterns ? '8px' : 0,
+        minHeight: '28px',
       }}>
         <button
           onClick={onSkillClick}
@@ -723,16 +758,27 @@ const SkillBlock = ({ skill, isLast, accent, onSkillClick, onPatternClick }) => 
         >
           {label}
         </button>
-        <span style={countPillStyle(accent)}>{skill.total}</span>
+
+        <div style={{ display: 'flex', alignItems: 'center', gap: '6px', flexShrink: 0 }}>
+          <span style={countPillStyle(accent)}>{skill.total}</span>
+          {hasPatterns && (
+            <TypesToggle
+              accent={accent}
+              expanded={isOpen}
+              count={skill.patterns.length}
+              onClick={onToggleExpand}
+            />
+          )}
+        </div>
       </div>
 
-      {/* Question-type pills (always visible — solves "less types" concern) */}
-      {hasPatterns && (
+      {/* Question-type pills — visible only when expanded */}
+      {isOpen && (
         <div style={{
           display: 'flex',
           flexWrap: 'wrap',
           gap: '6px',
-          marginTop: '6px',
+          marginTop: '10px',
         }}>
           {skill.patterns.map(p => (
             <PatternPill
@@ -866,6 +912,98 @@ const SectionLabel = ({ children }) => (
     {children}
   </div>
 );
+
+// Header row for the subdomain list. Pairs the section label with a
+// master "Show all types" / "Collapse all" toggle on the right.
+const SubdomainHeader = ({ accent, canToggle, allExpanded, onToggleAll }) => (
+  <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: spacing.sm,
+    padding: `${spacing.md} ${spacing.lg} 0`,
+    borderTop: `1px solid ${PALETTE.hairline}`,
+    marginTop: spacing.md,
+  }}>
+    <div style={{
+      fontSize: '10px',
+      fontWeight: 700,
+      color: PALETTE.inkTertiary,
+      textTransform: 'uppercase',
+      letterSpacing: '0.08em',
+    }}>
+      Practice a Subdomain
+    </div>
+    {canToggle && (
+      <button
+        onClick={onToggleAll}
+        style={{
+          fontFamily: typography.fontFamily,
+          fontSize: '11px',
+          fontWeight: 600,
+          color: accent.linkText,
+          background: 'none',
+          border: 'none',
+          padding: '2px 0',
+          cursor: 'pointer',
+          letterSpacing: '0.02em',
+          transition: `color ${transitions.fast}`,
+        }}
+        onMouseEnter={(e) => { e.currentTarget.style.color = accent.linkHover; }}
+        onMouseLeave={(e) => { e.currentTarget.style.color = accent.linkText; }}
+      >
+        {allExpanded ? 'Collapse all' : 'Show all types'}
+      </button>
+    )}
+  </div>
+);
+
+// Per-subdomain accordion toggle. Shows "{N} types ▾" and rotates the
+// chevron when open.
+const TypesToggle = ({ accent, expanded, count, onClick }) => {
+  const [hover, setHover] = useState(false);
+  return (
+    <button
+      onClick={onClick}
+      aria-expanded={expanded}
+      aria-label={`${expanded ? 'Hide' : 'Show'} ${count} question type${count === 1 ? '' : 's'}`}
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+      style={{
+        fontFamily: typography.fontFamily,
+        fontSize: '11px',
+        fontWeight: 600,
+        color: accent.pillText,
+        backgroundColor: hover || expanded ? accent.pillBgHover : 'transparent',
+        border: `1px solid ${accent.pillBorder}`,
+        borderRadius: '999px',
+        padding: '3px 8px 3px 10px',
+        cursor: 'pointer',
+        display: 'inline-flex',
+        alignItems: 'center',
+        gap: '4px',
+        lineHeight: 1.4,
+        transition: `background-color ${transitions.fast}`,
+        whiteSpace: 'nowrap',
+      }}
+    >
+      <span>{count} type{count === 1 ? '' : 's'}</span>
+      <svg
+        width="10"
+        height="10"
+        viewBox="0 0 10 10"
+        fill="none"
+        style={{
+          transform: expanded ? 'rotate(180deg)' : 'rotate(0deg)',
+          transition: `transform ${transitions.fast}`,
+        }}
+        aria-hidden
+      >
+        <path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    </button>
+  );
+};
 
 const chipStyle = (accent) => ({
   fontFamily: typography.fontFamily,
