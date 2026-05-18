@@ -2875,6 +2875,7 @@ export const geometryBank = [
 
   { id: 'bank-geo-223', domain: 'geometry', skills: ['similar-triangles'], difficulty: 'medium', type: 'multiple-choice',
     question: 'In the figure, $DE \\parallel BC$ in triangle $ABC$, creating triangle $ADE$ similar to triangle $ABC$. If $AD = 4$, $DB = 6$, and $BC = 15$, what is the length of $DE$?',
+    diagram: { type: 'similarTriangles', params: { triangle1: { vertices: [[0,0],[100,0],[50,140]], labels: ['B', 'C', 'A'], sideLabels: ['BC = 15', '', ''] }, triangle2: { vertices: [[0,0],[60,0],[30,84]], labels: ['D', 'E', 'A'], sideLabels: ['DE = ?', '', ''] } } },
     choices: [{ id: 'A', text: '$4$' }, { id: 'B', text: '$6$' }, { id: 'C', text: '$10$' }, { id: 'D', text: '$22.5$' }],
     correctAnswer: 'B',
     explanation: "**SAT Pattern: Similar Triangles Proportion**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $AB = 4 + 6 = 10$. Similar ratio $AD/AB = 4/10$. $DE = BC \\cdot 4/10 = 15 \\cdot 0.4 = 6$.\n\n**Test Day Takeaway:** When a line PARALLEL to one side cuts the triangle, it creates a smaller similar triangle. Scale by the ratio of the corresponding side from a shared vertex.",
@@ -2941,7 +2942,8 @@ export const geometryBank = [
     calculatorAllowed: false, tags: [], sourceStyleRef: 'triangle-area', authoredBy: 'performsat-engine', createdAt: '2026-05-18' },
 
   { id: 'bank-geo-232', domain: 'geometry', skills: ['triangle-area'], difficulty: 'easy', type: 'fill-in',
-    question: 'A right triangle has legs of length $9$ and $12$. What is the area of the triangle?',
+    question: 'The right triangle below has legs of length $9$ and $12$. What is the area of the triangle?',
+    diagram: { type: 'rightTriangle', params: { sideLabels: ['9', '12', ''], showRightAngle: true } },
     correctAnswer: '54',
     explanation: "**SAT Pattern: Triangle Area**\n\n**The correct answer is $54$.**\n\n**The Fast Way (~5s):** In a right triangle, the legs serve as base and height. Area $= \\dfrac{1}{2} \\cdot 9 \\cdot 12 = 54$.\n\n**Test Day Takeaway:** Right triangle: legs ARE the base and height. No need to find the height separately.",
     calculatorAllowed: false, tags: [], sourceStyleRef: 'triangle-area', authoredBy: 'performsat-engine', createdAt: '2026-05-18' },
@@ -3017,20 +3019,23 @@ export const geometryBank = [
 
   // ─── S.D. SECTOR AREA (bank-geo-243..245) — top-up to ≥8 ──────────────────
   { id: 'bank-geo-243', domain: 'geometry', skills: ['sector-area'], difficulty: 'easy', type: 'multiple-choice',
-    question: 'A circle has radius $10$. What is the area of a sector with central angle $90°$?',
+    question: 'A circle has radius $10$ and contains a sector with central angle $90°$ (shown below). What is the area of the sector?',
+    diagram: { type: 'circleWithSector', params: { centralAngle: 90, angleLabel: '90°', radius: 10, labelCenter: 'O', showRadiusLabel: true } },
     choices: [{ id: 'A', text: '$10\\pi$' }, { id: 'B', text: '$25\\pi$' }, { id: 'C', text: '$50\\pi$' }, { id: 'D', text: '$100\\pi$' }],
     correctAnswer: 'B',
     explanation: "**SAT Pattern: Sector Area**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Sector area $= (\\theta/360°) \\cdot \\pi r^2 = (90/360)(100\\pi) = 25\\pi$.\n\n**Why the wrong answers are tempting:**\n* A: arc length instead of area.\n* C: half-circle.\n* D: full-circle area.\n\n**Test Day Takeaway:** Sector area = (fraction of circle) × full area. $90°$ = $1/4$ of the circle.",
     calculatorAllowed: false, tags: [], sourceStyleRef: 'sector-area', authoredBy: 'performsat-engine', createdAt: '2026-05-18' },
 
   { id: 'bank-geo-244', domain: 'geometry', skills: ['sector-area'], difficulty: 'medium', type: 'fill-in',
-    question: 'A circle has radius $6$ and a sector has central angle $60°$. What is the area of the sector? (Express your answer in terms of $\\pi$.)',
+    question: 'A circle has radius $6$ and contains a sector with central angle $60°$ (shown below). What is the area of the sector? (Express your answer in terms of $\\pi$.)',
+    diagram: { type: 'circleWithSector', params: { centralAngle: 60, angleLabel: '60°', radius: 6, labelCenter: 'O', showRadiusLabel: true } },
     correctAnswer: '6pi',
     explanation: "**SAT Pattern: Sector Area**\n\n**The correct answer is $6\\pi$.**\n\n**The Fast Way (~10s):** Fraction $= 60/360 = 1/6$. Area $= (1/6)(36\\pi) = 6\\pi$.\n\n**Test Day Takeaway:** Sector area $= (\\theta/360°) \\cdot \\pi r^2$.",
     calculatorAllowed: false, tags: [], sourceStyleRef: 'sector-area', authoredBy: 'performsat-engine', createdAt: '2026-05-18' },
 
   { id: 'bank-geo-245', domain: 'geometry', skills: ['sector-area'], difficulty: 'hard', type: 'multiple-choice',
-    question: 'A circle has area $144\\pi$. A sector of this circle has area $24\\pi$. What is the central angle of the sector, in degrees?',
+    question: 'The circle below has area $144\\pi$. The shaded sector has area $24\\pi$. What is the central angle of the sector, in degrees?',
+    diagram: { type: 'circleWithSector', params: { centralAngle: 60, angleLabel: 'θ°', radius: 12, labelCenter: 'O', showRadiusLabel: false } },
     choices: [{ id: 'A', text: '$30°$' }, { id: 'B', text: '$45°$' }, { id: 'C', text: '$60°$' }, { id: 'D', text: '$72°$' }],
     correctAnswer: 'C',
     explanation: "**SAT Pattern: Sector Area**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Fraction of circle $= 24\\pi/144\\pi = 1/6$. Angle $= (1/6)(360°) = 60°$.\n\n**Test Day Takeaway:** sector / full = fraction → multiply by $360°$ for the angle.",
@@ -3086,7 +3091,8 @@ export const geometryBank = [
     calculatorAllowed: false, tags: [], sourceStyleRef: '30-60-90-triangle', authoredBy: 'performsat-engine', createdAt: '2026-05-18' },
 
   { id: 'bank-geo-253', domain: 'geometry', skills: ['right-triangles'], difficulty: 'medium', type: 'fill-in',
-    question: 'In right triangle $ABC$, angle $A = 30°$, angle $B = 90°$, and side $BC = 9$. What is the length of side $AC$?',
+    question: 'In right triangle $ABC$ shown below, $\\angle A = 30°$, $\\angle B = 90°$, and $BC = 9$. What is the length of side $AC$?',
+    diagram: { type: 'rightTriangle', params: { labels: ['B', 'A', 'C'], sideLabels: ['', 'AC = ?', 'BC = 9'], rightAngleVertex: 0, showRightAngle: true } },
     correctAnswer: '18',
     explanation: "**SAT Pattern: 30-60-90 Triangle**\n\n**The correct answer is $18$.**\n\n**The Fast Way (~10s):** $BC$ is opposite $\\angle A = 30°$, so it's the SHORT leg. $AC$ (the hypotenuse, opposite the right angle) $= 2 \\cdot 9 = 18$.\n\n**Test Day Takeaway:** Identify which side is opposite which angle. Shortest side $\\leftrightarrow$ $30°$ angle; hypotenuse $\\leftrightarrow$ $90°$.",
     calculatorAllowed: false, tags: [], sourceStyleRef: '30-60-90-triangle', authoredBy: 'performsat-engine', createdAt: '2026-05-18' },
@@ -3099,7 +3105,8 @@ export const geometryBank = [
     calculatorAllowed: false, tags: [], sourceStyleRef: '30-60-90-triangle', authoredBy: 'performsat-engine', createdAt: '2026-05-18' },
 
   { id: 'bank-geo-255', domain: 'geometry', skills: ['right-triangles'], difficulty: 'medium', type: 'multiple-choice',
-    question: 'A right triangle has a $30°$ angle and a hypotenuse of length $12$. What is the area of the triangle?',
+    question: 'The right triangle below has a $30°$ angle and a hypotenuse of length $12$. What is the area of the triangle?',
+    diagram: { type: 'triangleWithAngles', params: { angleLabels: ['', '30°', '60°'], sideLabels: ['', '12', ''] } },
     choices: [{ id: 'A', text: '$12\\sqrt{3}$' }, { id: 'B', text: '$18\\sqrt{3}$' }, { id: 'C', text: '$36$' }, { id: 'D', text: '$36\\sqrt{3}$' }],
     correctAnswer: 'B',
     explanation: "**SAT Pattern: 30-60-90 Triangle**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Short leg $= 12/2 = 6$. Long leg $= 6\\sqrt{3}$. Area $= (1/2)(6)(6\\sqrt{3}) = 18\\sqrt{3}$.\n\n**Test Day Takeaway:** Hypotenuse → short leg → long leg → area.",
@@ -3133,7 +3140,8 @@ export const geometryBank = [
     calculatorAllowed: false, tags: [], sourceStyleRef: '45-45-90-triangle', authoredBy: 'performsat-engine', createdAt: '2026-05-18' },
 
   { id: 'bank-geo-260', domain: 'geometry', skills: ['right-triangles'], difficulty: 'medium', type: 'multiple-choice',
-    question: 'An isosceles right triangle has area $32$. What is the length of each leg?',
+    question: 'The isosceles right triangle below has area $32$. What is the length of each leg?',
+    diagram: { type: 'triangleWithAngles', params: { angleLabels: ['45°', '45°', '90°'], sideLabels: ['s', 's', 's√2'] } },
     choices: [{ id: 'A', text: '$4$' }, { id: 'B', text: '$8$' }, { id: 'C', text: '$8\\sqrt{2}$' }, { id: 'D', text: '$16$' }],
     correctAnswer: 'B',
     explanation: "**SAT Pattern: 45-45-90 Triangle**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Let leg $= s$. Area $= (1/2)s^2 = 32 \\Rightarrow s^2 = 64 \\Rightarrow s = 8$.\n\n**Test Day Takeaway:** Isosceles right triangle: area $= s^2/2$, so $s = \\sqrt{2A}$.",
@@ -3147,7 +3155,8 @@ export const geometryBank = [
     calculatorAllowed: false, tags: [], sourceStyleRef: '45-45-90-triangle', authoredBy: 'performsat-engine', createdAt: '2026-05-18' },
 
   { id: 'bank-geo-262', domain: 'geometry', skills: ['right-triangles'], difficulty: 'medium', type: 'multiple-choice',
-    question: 'In a right triangle, one acute angle measures $45°$ and the side opposite that angle has length $5$. What is the length of the hypotenuse?',
+    question: 'In the right triangle below, one acute angle measures $45°$ and the side opposite that angle has length $5$. What is the length of the hypotenuse?',
+    diagram: { type: 'triangleWithAngles', params: { angleLabels: ['45°', '45°', '90°'], sideLabels: ['5', '5', '?'] } },
     choices: [{ id: 'A', text: '$5$' }, { id: 'B', text: '$5\\sqrt{2}$' }, { id: 'C', text: '$5\\sqrt{3}$' }, { id: 'D', text: '$10$' }],
     correctAnswer: 'B',
     explanation: "**SAT Pattern: 45-45-90 Triangle**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** A right triangle with one $45°$ angle is automatically $45$-$45$-$90$ (acute angles sum to $90°$). Both legs are $5$. Hyp $= 5\\sqrt{2}$.\n\n**Test Day Takeaway:** A right triangle with a $45°$ acute angle is ALWAYS isosceles.",
@@ -3202,7 +3211,8 @@ export const geometryBank = [
     calculatorAllowed: false, tags: [], sourceStyleRef: 'vertical-angles', authoredBy: 'performsat-engine', createdAt: '2026-05-18' },
 
   { id: 'bank-geo-270', domain: 'geometry', skills: ['angles'], difficulty: 'easy', type: 'multiple-choice',
-    question: 'In the figure, lines $\\ell$ and $m$ intersect at point $P$. The angle in the upper-right region measures $128°$. What is the measure of the angle in the LOWER-LEFT region?',
+    question: 'In the figure, lines $\\ell$ and $m$ intersect at point $P$. The angle in the upper-right region measures $128°$. What is the measure of the angle in the LOWER-LEFT region (marked $x°$)?',
+    diagram: { type: 'intersectingLines', params: { angles: ['128°', '', 'x°', ''], lineLabels: ['ℓ', 'm'] } },
     choices: [{ id: 'A', text: '$52°$' }, { id: 'B', text: '$90°$' }, { id: 'C', text: '$128°$' }, { id: 'D', text: '$232°$' }],
     correctAnswer: 'C',
     explanation: "**SAT Pattern: Vertical Angles**\n\n**Choice C is correct.**\n\n**The Fast Way (~3s):** Upper-right and lower-left are OPPOSITE — vertical angles. $128°$.\n\n**Why the wrong answers are tempting:**\n* A: supplement.\n* B: right angle.\n* D: reflex.\n\n**Test Day Takeaway:** \"Opposite\" at an intersection always means \"equal.\"",

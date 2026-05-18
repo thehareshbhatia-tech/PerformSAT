@@ -3677,7 +3677,8 @@ export const problemSolvingBank = [
     explanation: '**SAT Pattern: Marginal Probability**\n\n**The correct answer is $0.6$.**\n\n**The Fast Way:** $24/40 = 0.6$.',
     calculatorAllowed: false, tags: [], sourceStyleRef: 'marginal-probability', authoredBy: 'performsat-engine', createdAt: '2026-05-11' },
   { id: 'bank-ps-203', domain: 'problem-solving', skills: ['probability-basics'], difficulty: 'medium', type: 'multiple-choice',
-    question: 'A two-way table shows $200$ students by grade and gender. $80$ are seniors. What is the marginal probability of being a senior?',
+    question: 'The two-way table below shows $200$ students by class year and gender. What is the marginal probability of selecting a senior?',
+    diagram: { type: 'twoWayTable', params: { headers: ['', 'Male', 'Female', 'Total'], rows: [['Seniors', '42', '38', '80'], ['Juniors', '60', '60', '120'], ['Total', '102', '98', '200']] } },
     choices: [{ id: 'A', text: '$0.4$' }, { id: 'B', text: '$0.6$' }, { id: 'C', text: '$80$' }, { id: 'D', text: '$0.25$' }],
     correctAnswer: 'A',
     explanation: '**SAT Pattern: Marginal Probability**\n\n**Choice A is correct.**\n\n**The Fast Way:** $80/200 = 0.4$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($0.6$): reports the COMPLEMENT (not-seniors).\n* Choice C ($80$): reports the COUNT as the probability.\n* Choice D ($0.25$): divides $80/...$ by the wrong base — uses a fraction unrelated to the marginal total.\n\n**Test Day Takeaway:** Marginal: use the row/column TOTAL, not a single cell.',
@@ -3688,7 +3689,8 @@ export const problemSolvingBank = [
     explanation: '**SAT Pattern: Marginal Probability**\n\n**The correct answer is $0.7$.**\n\n**The Fast Way:** $1 - 90/300 = 1 - 0.3 = 0.7$. Or: $(300 - 90)/300 = 0.7$.',
     calculatorAllowed: false, tags: [], sourceStyleRef: 'marginal-probability', authoredBy: 'performsat-engine', createdAt: '2026-05-11' },
   { id: 'bank-ps-205', domain: 'problem-solving', skills: ['probability-basics'], difficulty: 'medium', type: 'multiple-choice',
-    question: 'A two-way table: $50$ men preferred tea, $30$ women preferred tea. Of $200$ total, what is the marginal probability of preferring tea?',
+    question: 'The two-way table below shows preferences of $200$ adults. What is the marginal probability of preferring tea?',
+    diagram: { type: 'twoWayTable', params: { headers: ['', 'Tea', 'Coffee', 'Total'], rows: [['Men', '50', '60', '110'], ['Women', '30', '60', '90'], ['Total', '80', '120', '200']] } },
     choices: [{ id: 'A', text: '$0.4$' }, { id: 'B', text: '$0.6$' }, { id: 'C', text: '$0.5$' }, { id: 'D', text: '$80$' }],
     correctAnswer: 'A',
     explanation: '**SAT Pattern: Marginal Probability**\n\n**Choice A is correct.**\n\n**The Fast Way:** Total tea: $50 + 30 = 80$. $80/200 = 0.4$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($0.6$): reports the COMPLEMENT (non-tea preference).\n* Choice C ($0.5$): averages $50$ and $30$ percents wrongly — $(50 + 30)/200$? No, $(0.5 + 0.3)/2$? Likely from $50/100$ guess.\n* Choice D ($80$): reports the marginal COUNT as the probability.\n\n**Test Day Takeaway:** Sum across the row to get the marginal total.',
@@ -4534,21 +4536,24 @@ export const problemSolvingBank = [
   // ─── Q.C. BOX PLOT INTERPRETATION (bank-ps-306..313) ─────────────────────
   // Reading min/max/quartiles from a box plot. SAT staple for descriptive stats.
   { id: 'bank-ps-306', domain: 'problem-solving', skills: ['find-median'], difficulty: 'easy', type: 'multiple-choice',
-    question: 'A box plot displays test scores from a class. The five-number summary is: minimum $48$, first quartile $66$, median $72$, third quartile $84$, maximum $96$. What is the interquartile range (IQR)?',
+    question: 'The box plot below displays test scores from a class. What is the interquartile range (IQR)?',
+    diagram: { type: 'boxPlot', params: { min: 48, q1: 66, median: 72, q3: 84, max: 96, xLabel: 'Test score', xGridStep: 5, xLabelStep: 10 } },
     choices: [{ id: 'A', text: '$12$' }, { id: 'B', text: '$18$' }, { id: 'C', text: '$24$' }, { id: 'D', text: '$48$' }],
     correctAnswer: 'B',
     explanation: "**SAT Pattern: Box Plot Interpretation**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** IQR = $Q_3 - Q_1 = 84 - 66 = 18$.\n\n**Why the wrong answers are tempting:**\n* A ($12$): $84 - 72$ — Q3 minus median.\n* C ($24$): $72 - 48$ — median minus min.\n* D ($48$): max minus min (RANGE, not IQR).\n\n**Test Day Takeaway:** IQR = Q3 − Q1. NOT the same as 'range' (max − min) or any other pair.",
     calculatorAllowed: false, tags: [], sourceStyleRef: 'box-plot-interpretation', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
 
   { id: 'bank-ps-307', domain: 'problem-solving', skills: ['find-median'], difficulty: 'easy', type: 'multiple-choice',
-    question: 'A box plot of monthly rainfall in a city shows median $4.2$ inches, Q1 $3.1$ inches, Q3 $5.8$ inches, min $1.5$ inches, max $7.9$ inches. What is the median monthly rainfall, in inches?',
+    question: 'The box plot below shows the monthly rainfall (in inches) in a city. What is the median monthly rainfall, in inches?',
+    diagram: { type: 'boxPlot', params: { min: 1.5, q1: 3.1, median: 4.2, q3: 5.8, max: 7.9, xLabel: 'Rainfall (in)', xMin: 1, xMax: 8, xGridStep: 0.5, xLabelStep: 1 } },
     choices: [{ id: 'A', text: '$3.1$' }, { id: 'B', text: '$4.2$' }, { id: 'C', text: '$4.7$' }, { id: 'D', text: '$5.8$' }],
     correctAnswer: 'B',
     explanation: "**SAT Pattern: Box Plot Interpretation**\n\n**Choice B is correct.**\n\n**The Fast Way (~3s):** Median is given directly as $4.2$.\n\n**Why the wrong answers are tempting:**\n* A: Q1.\n* C: average of Q1 and Q3 ($\\ne$ median in general).\n* D: Q3.\n\n**Test Day Takeaway:** Box plot summary: min, Q1, median, Q3, max. Each is a distinct point in the data.",
     calculatorAllowed: false, tags: [], sourceStyleRef: 'box-plot-interpretation', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
 
   { id: 'bank-ps-308', domain: 'problem-solving', skills: ['find-median'], difficulty: 'medium', type: 'multiple-choice',
-    question: 'A box plot summary of student scores: min $50$, Q1 $65$, median $73$, Q3 $82$, max $95$. Which statement must be true based on the box plot?',
+    question: 'The box plot below summarizes student scores. Which statement must be true based on the box plot?',
+    diagram: { type: 'boxPlot', params: { min: 50, q1: 65, median: 73, q3: 82, max: 95, xLabel: 'Score', xGridStep: 5, xLabelStep: 10 } },
     choices: [
       { id: 'A', text: 'The mean score is $73$.' },
       { id: 'B', text: 'Exactly $25\\%$ of students scored above $82$.' },
@@ -4560,7 +4565,8 @@ export const problemSolvingBank = [
     calculatorAllowed: false, tags: [], sourceStyleRef: 'box-plot-interpretation', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
 
   { id: 'bank-ps-309', domain: 'problem-solving', skills: ['find-median'], difficulty: 'medium', type: 'fill-in',
-    question: 'A box plot shows the following five-number summary for daily customer counts at a café: min $32$, Q1 $48$, median $60$, Q3 $74$, max $90$. What is the range of customer counts?',
+    question: 'The box plot below shows the daily customer counts at a café. What is the range of customer counts?',
+    diagram: { type: 'boxPlot', params: { min: 32, q1: 48, median: 60, q3: 74, max: 90, xLabel: 'Daily customers', xGridStep: 10, xLabelStep: 10 } },
     correctAnswer: '58',
     explanation: "**SAT Pattern: Box Plot Interpretation**\n\n**The correct answer is $58$.**\n\n**The Fast Way (~3s):** Range = max − min = $90 - 32 = 58$.\n\n**Common Mistakes:**\n* Reporting $26$: IQR (Q3 − Q1).\n* Reporting $60$: median.\n* Reporting $90$ or $32$: a bound.\n\n**Test Day Takeaway:** RANGE = max − min. IQR = Q3 − Q1. These are different measures of spread.",
     calculatorAllowed: false, tags: [], sourceStyleRef: 'box-plot-interpretation', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
@@ -4578,14 +4584,16 @@ export const problemSolvingBank = [
     calculatorAllowed: false, tags: [], sourceStyleRef: 'box-plot-interpretation', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
 
   { id: 'bank-ps-311', domain: 'problem-solving', skills: ['find-median'], difficulty: 'medium', type: 'multiple-choice',
-    question: 'A box plot of $50$ data points has median $40$, Q1 $30$, Q3 $55$. Approximately how many data points are between $30$ and $55$?',
+    question: 'The box plot below summarizes $50$ data points. Approximately how many data points are between $30$ and $55$?',
+    diagram: { type: 'boxPlot', params: { min: 18, q1: 30, median: 40, q3: 55, max: 75, xLabel: 'Value', xGridStep: 5, xLabelStep: 10 } },
     choices: [{ id: 'A', text: '$12$' }, { id: 'B', text: '$25$' }, { id: 'C', text: '$30$' }, { id: 'D', text: '$50$' }],
     correctAnswer: 'B',
     explanation: "**SAT Pattern: Box Plot Interpretation**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** The box (Q1 to Q3) contains the middle $50\\%$ of data: $0.50 \\cdot 50 = 25$ data points.\n\n**Why the wrong answers are tempting:**\n* A ($12$): one quartile's worth ($25\\%$).\n* C ($30$): off-by-arithmetic estimate.\n* D ($50$): all data.\n\n**Test Day Takeaway:** Q1 to Q3 spans the middle $50\\%$ of data, regardless of total count.",
     calculatorAllowed: false, tags: [], sourceStyleRef: 'box-plot-interpretation', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
 
   { id: 'bank-ps-312', domain: 'problem-solving', skills: ['find-median'], difficulty: 'hard', type: 'multiple-choice',
-    question: 'A box plot shows a SKEWED-RIGHT distribution where the median is to the LEFT of center within the box, and the upper whisker is longer than the lower whisker. Which statement is best supported?',
+    question: 'The box plot below shows a distribution where the upper whisker is longer than the lower whisker and the median sits closer to Q1 than to Q3. Which statement is best supported by the box plot?',
+    diagram: { type: 'boxPlot', params: { min: 20, q1: 30, median: 36, q3: 55, max: 95, xLabel: 'Value', xGridStep: 5, xLabelStep: 10 } },
     choices: [
       { id: 'A', text: 'The mean is less than the median.' },
       { id: 'B', text: 'The mean is approximately equal to the median.' },
@@ -4597,7 +4605,8 @@ export const problemSolvingBank = [
     calculatorAllowed: false, tags: [], sourceStyleRef: 'box-plot-interpretation', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
 
   { id: 'bank-ps-313', domain: 'problem-solving', skills: ['find-median'], difficulty: 'hard', type: 'fill-in',
-    question: 'A box plot of $20$ data values shows: min $5$, Q1 $12$, median $18$, Q3 $25$, max $34$. Using the standard rule that an outlier is any value MORE than $1.5 \\cdot \\text{IQR}$ above Q3 or below Q1, what is the upper threshold above which a value would be considered an outlier?',
+    question: 'The box plot below summarizes $20$ data values. Using the standard rule that an outlier is any value MORE than $1.5 \\cdot \\text{IQR}$ above Q3 or below Q1, what is the upper threshold above which a value would be considered an outlier?',
+    diagram: { type: 'boxPlot', params: { min: 5, q1: 12, median: 18, q3: 25, max: 34, xLabel: 'Value', xGridStep: 5, xLabelStep: 5 } },
     correctAnswer: '44.5',
     explanation: "**SAT Pattern: Box Plot Interpretation**\n\n**The correct answer is $44.5$.**\n\n**The Fast Way (~10s):** IQR = $25 - 12 = 13$. Upper threshold = Q3 + $1.5 \\cdot$ IQR $= 25 + 19.5 = 44.5$.\n\n**Common Mistakes:**\n* Reporting $34$: reports the max (NOT the outlier threshold).\n* Reporting $38$: uses $1 \\cdot$ IQR.\n* Reporting $25$: reports Q3.\n\n**Test Day Takeaway:** Outlier thresholds: Q3 + $1.5 \\cdot$ IQR (upper), Q1 − $1.5 \\cdot$ IQR (lower). Any value beyond these is considered a statistical outlier.",
     calculatorAllowed: false, tags: [], sourceStyleRef: 'box-plot-interpretation', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
@@ -4691,7 +4700,8 @@ export const problemSolvingBank = [
   // ─── Q.D. INTERPRET SLOPE OF BEST FIT LINE (bank-ps-322..329) ─────────────
   // Slope of best-fit line in CONTEXT: predicted change in y per unit x.
   { id: 'bank-ps-322', domain: 'problem-solving', skills: ['slope-from-points', 'scatterplots'], difficulty: 'easy', type: 'multiple-choice',
-    question: 'A scatterplot shows the cost (in dollars) of a taxi ride versus distance (in miles). The line of best fit is $\\hat{y} = 2.50 x + 3$. What does the slope of $2.50$ represent in this context?',
+    question: 'The scatterplot shows the cost (in dollars) of a taxi ride versus distance (in miles), along with the line of best fit $\\hat{y} = 2.50 x + 3$. What does the slope of $2.50$ represent in this context?',
+    diagram: { type: 'scatterplot', params: { points: [[1,6],[2,7],[3,11],[4,12],[5,16],[6,17],[7,20],[8,24],[9,25],[10,27]], xMin: 0, xMax: 10, yMin: 0, yMax: 30, xGridStep: 1, yGridStep: 5, xLabelStep: 2, yLabelStep: 5, xLabel: 'Distance (miles)', yLabel: 'Cost (dollars)', bestFitLine: { slope: 2.5, intercept: 3 } } },
     choices: [
       { id: 'A', text: 'The flat fee for any taxi ride.' },
       { id: 'B', text: 'The predicted increase in cost (in dollars) per additional mile.' },
@@ -4703,7 +4713,8 @@ export const problemSolvingBank = [
     calculatorAllowed: false, tags: [], sourceStyleRef: 'interpret-slope-of-best-fit', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
 
   { id: 'bank-ps-323', domain: 'problem-solving', skills: ['slope-from-points', 'scatterplots'], difficulty: 'easy', type: 'multiple-choice',
-    question: 'A line of best fit modeling plant height (cm) versus days of growth is $\\hat{y} = 1.8 x + 5$. What does the slope mean?',
+    question: 'The scatterplot models plant height (cm) versus days of growth. The line of best fit is $\\hat{y} = 1.8 x + 5$. What does the slope mean in this context?',
+    diagram: { type: 'scatterplot', params: { points: [[1,7],[2,9],[3,11],[4,11],[5,13],[6,16],[7,17],[8,20],[9,21],[10,23]], xMin: 0, xMax: 10, yMin: 0, yMax: 25, xGridStep: 1, yGridStep: 5, xLabelStep: 2, yLabelStep: 5, xLabel: 'Days of growth', yLabel: 'Plant height (cm)', bestFitLine: { slope: 1.8, intercept: 5 } } },
     choices: [
       { id: 'A', text: 'The plant grows $1.8$ cm per day on average.' },
       { id: 'B', text: 'The plant starts at $1.8$ cm.' },
@@ -4715,7 +4726,8 @@ export const problemSolvingBank = [
     calculatorAllowed: false, tags: [], sourceStyleRef: 'interpret-slope-of-best-fit', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
 
   { id: 'bank-ps-324', domain: 'problem-solving', skills: ['slope-from-points', 'scatterplots'], difficulty: 'medium', type: 'multiple-choice',
-    question: 'A scatterplot tracks the time (minutes) a student spends studying vs. their test score. The line of best fit is $\\hat{y} = 0.6 x + 50$. According to this model, for every additional hour of study, the predicted score increases by approximately how many points?',
+    question: 'The scatterplot tracks the time (in minutes) a student spends studying versus their test score. The line of best fit is $\\hat{y} = 0.6 x + 50$. According to this model, for every additional hour of study, the predicted score increases by approximately how many points?',
+    diagram: { type: 'scatterplot', params: { points: [[10,55],[20,63],[30,67],[40,75],[50,78],[60,87],[70,91],[80,99],[90,103],[100,111]], xMin: 0, xMax: 110, yMin: 40, yMax: 115, xGridStep: 10, yGridStep: 10, xLabelStep: 20, yLabelStep: 20, xLabel: 'Time studied (minutes)', yLabel: 'Test score', bestFitLine: { slope: 0.6, intercept: 50 } } },
     choices: [{ id: 'A', text: '$0.6$' }, { id: 'B', text: '$6$' }, { id: 'C', text: '$36$' }, { id: 'D', text: '$60$' }],
     correctAnswer: 'C',
     explanation: "**SAT Pattern: Interpret Slope of Best Fit**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Slope $= 0.6$ points per minute. Per hour (60 minutes): $0.6 \\cdot 60 = 36$ points.\n\n**Why the wrong answers are tempting:**\n* A: per MINUTE, not per hour.\n* B: arbitrary multiple.\n* D: confuses with $60$ minutes.\n\n**Test Day Takeaway:** Watch unit changes. If the question asks 'per hour' but the model uses minutes, multiply the slope by $60$.",
@@ -4728,7 +4740,8 @@ export const problemSolvingBank = [
     calculatorAllowed: false, tags: [], sourceStyleRef: 'interpret-slope-of-best-fit', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
 
   { id: 'bank-ps-326', domain: 'problem-solving', skills: ['slope-from-points', 'scatterplots'], difficulty: 'medium', type: 'multiple-choice',
-    question: "A scatterplot tracks a city's population (in thousands) versus year. The best-fit line is $\\hat{y} = 4.2 x + 150$, where $x$ is years since $2000$. Which statement best interprets the slope?",
+    question: "The scatterplot tracks a city's population (in thousands) versus year. The best-fit line is $\\hat{y} = 4.2 x + 150$, where $x$ is years since $2000$. Which statement best interprets the slope?",
+    diagram: { type: 'scatterplot', params: { points: [[2,158],[4,166],[6,178],[8,180],[10,193],[12,199],[14,210],[16,215],[18,224],[20,235]], xMin: 0, xMax: 22, yMin: 140, yMax: 245, xGridStep: 2, yGridStep: 10, xLabelStep: 4, yLabelStep: 20, xLabel: 'Years since 2000', yLabel: 'Population (thousands)', bestFitLine: { slope: 4.2, intercept: 150 } } },
     choices: [
       { id: 'A', text: 'The population was $4.2$ thousand in $2000$.' },
       { id: 'B', text: 'The predicted population increases by $4.2$ thousand per year.' },
@@ -4759,7 +4772,8 @@ export const problemSolvingBank = [
     calculatorAllowed: false, tags: [], sourceStyleRef: 'interpret-slope-of-best-fit', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
 
   { id: 'bank-ps-329', domain: 'problem-solving', skills: ['slope-from-points', 'scatterplots'], difficulty: 'hard', type: 'fill-in',
-    question: 'A scatterplot of plant height (in cm) versus age (in days) has a best-fit line that passes through the points $(10, 8)$ and $(40, 32)$. What is the slope of the line of best fit, in cm per day?',
+    question: 'The scatterplot of plant height (in cm) versus age (in days) has a best-fit line passing through the points $(10, 8)$ and $(40, 32)$. What is the slope of the line of best fit, in cm per day?',
+    diagram: { type: 'scatterplot', params: { points: [[5,5],[12,11],[18,15],[22,19],[28,22],[33,27],[37,30],[42,33],[46,38],[50,41]], xMin: 0, xMax: 55, yMin: 0, yMax: 45, xGridStep: 5, yGridStep: 5, xLabelStep: 10, yLabelStep: 10, xLabel: 'Age (days)', yLabel: 'Plant height (cm)', bestFitLine: { slope: 0.8, intercept: 0 } } },
     correctAnswer: '0.8',
     explanation: "**SAT Pattern: Interpret Slope of Best Fit**\n\n**The correct answer is $0.8$.**\n\n**The Fast Way (~5s):** $m = (32 - 8)/(40 - 10) = 24/30 = 0.8$ cm per day.\n\n**Common Mistakes:**\n* Reporting $1.25$: reciprocal (days per cm).\n* Reporting $24$ or $30$: a single $\\Delta$.\n\n**Test Day Takeaway:** Slope = (change in $y$) / (change in $x$). The unit is '[y-unit] per [x-unit].'",
     calculatorAllowed: false, tags: [], sourceStyleRef: 'interpret-slope-of-best-fit', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
@@ -4828,7 +4842,8 @@ export const problemSolvingBank = [
     calculatorAllowed: false, tags: [], sourceStyleRef: 'interpret-intercept-of-best-fit', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
 
   { id: 'bank-ps-336', domain: 'problem-solving', skills: ['slope-from-points', 'scatterplots'], difficulty: 'hard', type: 'multiple-choice',
-    question: 'A scatterplot of car value (in thousands) versus year of purchase has a best-fit line that passes through $(0, 24)$ and $(8, 0)$. Which of the following best describes the y-intercept?',
+    question: 'The scatterplot of car value (in thousands of dollars) versus years since purchase has a best-fit line passing through $(0, 24)$ and $(8, 0)$. Which of the following best describes the $y$-intercept?',
+    diagram: { type: 'scatterplot', params: { points: [[0,23],[1,22],[2,18],[3,15],[4,13],[5,9],[6,7],[7,4],[8,1]], xMin: 0, xMax: 10, yMin: 0, yMax: 27, xGridStep: 1, yGridStep: 3, xLabelStep: 2, yLabelStep: 6, xLabel: 'Years since purchase', yLabel: 'Car value ($1000s)', bestFitLine: { slope: -3, intercept: 24 } } },
     choices: [
       { id: 'A', text: 'The car was worth $24$ thousand dollars at year $0$ (the year of purchase).' },
       { id: 'B', text: 'The car loses $3$ thousand dollars per year.' },
@@ -4869,14 +4884,16 @@ export const problemSolvingBank = [
 
   // ─── Q.D. healthy-push tail (bank-ps-341..342) ────────────────────────────
   { id: 'bank-ps-341', domain: 'problem-solving', skills: ['slope-from-points', 'scatterplots'], difficulty: 'medium', type: 'multiple-choice',
-    question: 'A line of best fit for a scatterplot has equation $\\hat{y} = -1.5 x + 60$, where $x$ is the day number and $y$ is the count of widgets remaining. Approximately when does the model predict the count will reach $0$?',
+    question: 'The scatterplot has a line of best fit with equation $\\hat{y} = -1.5 x + 60$, where $x$ is the day number and $y$ is the count of widgets remaining. Approximately when does the model predict the count will reach $0$?',
+    diagram: { type: 'scatterplot', params: { points: [[2,56],[5,53],[8,49],[12,42],[16,35],[20,29],[24,24],[28,18],[32,11],[36,5]], xMin: 0, xMax: 42, yMin: 0, yMax: 65, xGridStep: 4, yGridStep: 10, xLabelStep: 8, yLabelStep: 20, xLabel: 'Day', yLabel: 'Widgets remaining', bestFitLine: { slope: -1.5, intercept: 60 } } },
     choices: [{ id: 'A', text: '$\\text{day } 0$' }, { id: 'B', text: '$\\text{day } 40$' }, { id: 'C', text: '$\\text{day } 60$' }, { id: 'D', text: '$\\text{day } 90$' }],
     correctAnswer: 'B',
     explanation: "**SAT Pattern: Interpret Slope of Best Fit**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Set $\\hat{y} = 0$: $-1.5x + 60 = 0 \\Rightarrow x = 40$.\n\n**Test Day Takeaway:** To find when a quantity reaches zero in a linear model: set $\\hat{y} = 0$ and solve for $x$.",
     calculatorAllowed: false, tags: [], sourceStyleRef: 'interpret-slope-of-best-fit', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
 
   { id: 'bank-ps-342', domain: 'problem-solving', skills: ['slope-from-points', 'scatterplots'], difficulty: 'hard', type: 'multiple-choice',
-    question: 'A scatterplot shows weight vs. age for a sample of dogs. The line of best fit has a positive slope of $1.2$ pounds per year. A specific dog on the scatterplot at age $5$ years and weight $24$ pounds has a residual of $+2$. What is the predicted weight from the line?',
+    question: 'The scatterplot shows weight (in pounds) versus age (in years) for a sample of dogs. The line of best fit has a positive slope of $1.2$ pounds per year. A specific dog on the scatterplot at age $5$ years and weight $24$ pounds has a residual of $+2$. What is the predicted weight from the line, in pounds?',
+    diagram: { type: 'scatterplot', params: { points: [[1,18],[2,18],[3,19],[4,21],[5,24],[6,23],[7,25],[8,27],[9,28],[10,29]], xMin: 0, xMax: 11, yMin: 14, yMax: 32, xGridStep: 1, yGridStep: 2, xLabelStep: 2, yLabelStep: 4, xLabel: 'Age (years)', yLabel: 'Weight (lb)', bestFitLine: { slope: 1.2, intercept: 16 }, highlightPoint: [5, 24], highlightLabel: '(5, 24)', showResidual: true } },
     choices: [{ id: 'A', text: '$20$' }, { id: 'B', text: '$22$' }, { id: 'C', text: '$24$' }, { id: 'D', text: '$26$' }],
     correctAnswer: 'B',
     explanation: "**SAT Pattern: Residual**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Residual $=$ observed $-$ predicted. $+2 = 24 - \\text{predicted} \\Rightarrow \\text{predicted} = 22$.\n\n**Test Day Takeaway:** Residual = actual $y$ $-$ predicted $y$. Positive residual = observed value is ABOVE the line of best fit.",
@@ -4886,7 +4903,8 @@ export const problemSolvingBank = [
   // Already have 2 (Mode Identification, Mode of Shoe Sizes); aliases land
   // them under `mode-from-list`. Adding 6 more for the Tier-1 threshold.
   { id: 'bank-ps-343', domain: 'problem-solving', skills: ['find-mode'], difficulty: 'easy', type: 'multiple-choice',
-    question: 'The data set below shows the number of pages read each day for one week: $12, 9, 12, 7, 9, 12, 14$. What is the mode?',
+    question: 'The dot plot below shows the number of pages read each day for one week. What is the mode?',
+    diagram: { type: 'dotPlot', params: { data: [{ value: 7, count: 1 }, { value: 9, count: 2 }, { value: 12, count: 3 }, { value: 14, count: 1 }], xMin: 5, xMax: 16, xLabel: 'Pages read' } },
     choices: [{ id: 'A', text: '$7$' }, { id: 'B', text: '$9$' }, { id: 'C', text: '$12$' }, { id: 'D', text: '$14$' }],
     correctAnswer: 'C',
     explanation: "**SAT Pattern: Mode from List**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** Count occurrences: $12$ appears $3$ times; everything else $\\leq 2$. Mode $= 12$.\n\n**Why the wrong answers are tempting:**\n* A: smallest value (confuses mode with minimum).\n* B: second-most-frequent ($9$ appears twice).\n* D: largest value (confuses mode with maximum).\n\n**Test Day Takeaway:** Mode = the value that appears MOST OFTEN. Just tally.",
@@ -4899,7 +4917,8 @@ export const problemSolvingBank = [
     calculatorAllowed: false, tags: [], sourceStyleRef: 'mode-from-list', authoredBy: 'performsat-engine', createdAt: '2026-05-18' },
 
   { id: 'bank-ps-345', domain: 'problem-solving', skills: ['find-mode'], difficulty: 'medium', type: 'multiple-choice',
-    question: 'The frequency table below shows the number of siblings reported by students in a class.\n\n| Siblings | Frequency |\n|---|---|\n| $0$ | $4$ |\n| $1$ | $9$ |\n| $2$ | $11$ |\n| $3$ | $5$ |\n| $4$ | $2$ |\n\nWhat is the mode of the number of siblings?',
+    question: 'The frequency table below shows the number of siblings reported by students in a class. What is the mode of the number of siblings?',
+    diagram: { type: 'dataTable', params: { headers: ['Siblings', 'Frequency'], rows: [['0', '4'], ['1', '9'], ['2', '11'], ['3', '5'], ['4', '2']] } },
     choices: [{ id: 'A', text: '$1$' }, { id: 'B', text: '$2$' }, { id: 'C', text: '$11$' }, { id: 'D', text: '$5$' }],
     correctAnswer: 'B',
     explanation: "**SAT Pattern: Mode from List**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Pick the row with the largest frequency: $11$. The corresponding sibling count is $2$.\n\n**Why the wrong answers are tempting:**\n* A: second-highest frequency row ($9$, for $1$ sibling).\n* C: reports the frequency itself instead of the value with that frequency.\n* D: random other value.\n\n**Test Day Takeaway:** In a frequency table, mode = value (left column) with the highest frequency (right column). Don't confuse the value with its count.",
@@ -4913,14 +4932,16 @@ export const problemSolvingBank = [
     calculatorAllowed: false, tags: [], sourceStyleRef: 'mode-from-list', authoredBy: 'performsat-engine', createdAt: '2026-05-18' },
 
   { id: 'bank-ps-347', domain: 'problem-solving', skills: ['find-mode'], difficulty: 'medium', type: 'multiple-choice',
-    question: 'A dot plot displays the number of hours $10$ students spent on homework on one night. The dots above each value are: $1$ hr $\\rightarrow 1$, $2$ hr $\\rightarrow 3$, $3$ hr $\\rightarrow 4$, $4$ hr $\\rightarrow 2$. What is the mode?',
+    question: 'The dot plot below displays the number of hours $10$ students spent on homework on one night. What is the mode?',
+    diagram: { type: 'dotPlot', params: { data: [{ value: 1, count: 1 }, { value: 2, count: 3 }, { value: 3, count: 4 }, { value: 4, count: 2 }], xMin: 0, xMax: 5, xLabel: 'Hours of homework' } },
     choices: [{ id: 'A', text: '$2$ hours' }, { id: 'B', text: '$3$ hours' }, { id: 'C', text: '$4$ hours' }, { id: 'D', text: '$10$ hours' }],
     correctAnswer: 'B',
     explanation: "**SAT Pattern: Mode from List**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** Tallest stack of dots = mode. $3$ hr has $4$ dots, the most.\n\n**Why the wrong answers are tempting:**\n* A: second-tallest stack ($3$ dots).\n* C: reports the count instead of the value.\n* D: total number of students.\n\n**Test Day Takeaway:** In a dot plot, mode = value above which the column of dots is TALLEST.",
     calculatorAllowed: false, tags: [], sourceStyleRef: 'mode-from-list', authoredBy: 'performsat-engine', createdAt: '2026-05-18' },
 
   { id: 'bank-ps-348', domain: 'problem-solving', skills: ['find-mode'], difficulty: 'hard', type: 'fill-in',
-    question: 'A data set has values $\\{3, 7, 7, 10, 10, 10, 12, 12, 12, 12, 15\\}$. After one occurrence of the mode is removed, what is the new mode?',
+    question: 'The dot plot below shows the values of a data set. After one occurrence of the mode is removed, what is the new mode?',
+    diagram: { type: 'dotPlot', params: { data: [{ value: 3, count: 1 }, { value: 7, count: 2 }, { value: 10, count: 3 }, { value: 12, count: 4 }, { value: 15, count: 1 }], xMin: 2, xMax: 16, xLabel: 'Value' } },
     correctAnswer: '10',
     explanation: "**SAT Pattern: Mode from List**\n\n**The correct answer is $10$.**\n\n**The Fast Way (~15s):** Original mode is $12$ (count $4$). Remove one $12$: counts become $3:1, 7:2, 10:3, 12:3, 15:1$. New modes are $10$ and $12$ tied at $3$. If a single answer is required, $10$ (lower) is conventional. The intended answer is $10$.\n\n**Test Day Takeaway:** When a value is removed, all counts adjust. Re-tally to find the new mode. Watch for ties.",
     calculatorAllowed: false, tags: [], sourceStyleRef: 'mode-from-list', authoredBy: 'performsat-engine', createdAt: '2026-05-18' },

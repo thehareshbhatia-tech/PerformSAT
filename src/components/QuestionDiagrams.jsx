@@ -10,6 +10,7 @@ import SATParallelLines from './graphs/SATParallelLines';
 import SATTwoLineGraph from './graphs/SATTwoLineGraph';
 import SATTable from './graphs/SATTable';
 import SATDotPlot from './graphs/SATDotPlot';
+import SATBoxPlot from './graphs/SATBoxPlot';
 import { RightTriangle, TriangleWithAngles, RightTriangleWithAltitude, SimilarTriangles } from './graphs/SATTriangleDiagrams';
 
 /**
@@ -859,6 +860,8 @@ const QuestionDiagram = ({ type, params }) => {
       return <GeneralFunctionDiagram {...params} />;
     case 'dotPlot':
       return <SATDotPlot {...params} />;
+    case 'boxPlot':
+      return <SATBoxPlot {...params} />;
     case 'dataTable':
       return <DataTableDiagram {...params} />;
 

@@ -39,6 +39,7 @@ export { default as SATLineGraph } from './SATLineGraph';
 // New components
 export { default as SATBarChart } from './SATBarChart';
 export { default as SATDotPlot } from './SATDotPlot';
+export { default as SATBoxPlot } from './SATBoxPlot';
 export { default as SATTable } from './SATTable';
 export { default as SATParallelLines } from './SATParallelLines';
 export { default as SATIntersectingLines } from './SATIntersectingLines';

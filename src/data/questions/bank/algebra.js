@@ -4827,7 +4827,8 @@ export const algebraBank = [
     calculatorAllowed: true, tags: [], sourceStyleRef: 'solve-for-input-from-output', authoredBy: 'performsat-engine', createdAt: '2026-05-12' },
 
   { id: 'bank-alg-324', domain: 'algebra', skills: ['function-notation'], difficulty: 'medium', type: 'multiple-choice',
-    question: 'The table shows three values of a linear function $f$.\n\n| $x$ | $f(x)$ |\n|---|---|\n| $-2$ | $-7$ |\n| $1$ | $5$ |\n| $4$ | $17$ |\n\nFor what value of $x$ does $f(x) = 29$?',
+    question: 'The table below shows three values of a linear function $f$. For what value of $x$ does $f(x) = 29$?',
+    diagram: { type: 'dataTable', params: { headers: ['x', 'f(x)'], rows: [['-2', '-7'], ['1', '5'], ['4', '17']] } },
     choices: [{ id: 'A', text: '$7$' }, { id: 'B', text: '$8$' }, { id: 'C', text: '$29$' }, { id: 'D', text: '$12$' }],
     correctAnswer: 'A',
     explanation: "**SAT Pattern: Solve for Input from Output**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Slope $= (5 - (-7))/(1 - (-2)) = 12/3 = 4$. With point $(1, 5)$: $f(x) = 4x + 1$. Set $4x + 1 = 29 \\Rightarrow x = 7$.\n\n**The Full Solution:**\nStep 1: Recover the function. Slope $= \\frac{5 - (-7)}{1 - (-2)} = 4$. Using $(1, 5)$: $5 = 4(1) + b \\Rightarrow b = 1$. So $f(x) = 4x + 1$.\nStep 2: Solve $4x + 1 = 29 \\Rightarrow x = 7$.\n\nVerification: $f(7) = 4(7) + 1 = 29$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* B ($8$): rounds $29/4 = 7.25$ up to $8$ — divides the target output by the slope but forgets to subtract the intercept first.\n* C ($29$): returns the target output value itself — confuses input with output.\n* D ($12$): reports the change in output between the last table row and the target ($29 - 17 = 12$) — confuses the change with the input value.\n\n**Test Day Takeaway:** From a table of a linear function: slope first, intercept second, then solve for the requested input.",
