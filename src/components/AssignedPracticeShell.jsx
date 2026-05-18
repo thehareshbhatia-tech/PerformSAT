@@ -32,37 +32,105 @@ const C = {
   dark: '#1e293b',
 };
 
-function QuestionNav({ questions, currentIndex, answers, onNavigate }) {
+// ── Sidebar: persistent question list (Acely-style left pane) ──────────
+// One row per question. Status icon + 2-line stem preview. Current row
+// gets an orange highlight; answered rows get green ✓ or red ✗.
+function QuestionSidebar({ questions, currentIndex, answers, onNavigate, onBack, headerTitle, drillPatternLabel }) {
   return (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
-      {questions.map((q, idx) => {
-        const ans = answers[q.id];
-        const isCurrent = idx === currentIndex;
-        let bg = C.white;
-        let border = C.border;
-        let color = C.textSec;
-        if (ans) {
-          bg = ans.correct ? C.successBg : C.errorBg;
-          border = ans.correct ? C.success : C.error;
-          color = ans.correct ? C.success : C.error;
-        }
-        if (isCurrent) {
-          border = C.brand;
-          if (!ans) bg = C.brandLight;
-        }
+    <aside className="aps-sidebar">
+      <button onClick={onBack} className="aps-sidebar-back" type="button">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+          <path d="M15 18l-6-6 6-6"/>
+        </svg>
+        Back to Study Plan
+      </button>
+
+      <div className="aps-sidebar-title">{drillPatternLabel || headerTitle}</div>
+
+      <div className="aps-sidebar-divider" />
+
+      <div className="aps-sidebar-list">
+        {questions.map((q, idx) => {
+          const ans = answers[q.id];
+          const isCurrent = idx === currentIndex;
+          const stem = stemPreview(q);
+          let rowClass = 'aps-sidebar-row';
+          if (isCurrent) rowClass += ' is-current';
+          else if (ans?.correct) rowClass += ' is-correct';
+          else if (ans && !ans.correct) rowClass += ' is-wrong';
+          else if (idx > currentIndex && !ans) rowClass += ' is-locked';
+
+          return (
+            <button
+              key={idx}
+              onClick={() => onNavigate(idx)}
+              className={rowClass}
+              type="button"
+              title={stem}
+            >
+              <span className="aps-sidebar-status" aria-hidden="true">
+                {ans?.correct
+                  ? <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  : ans
+                    ? <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                    : isCurrent
+                      ? <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="6"/></svg>
+                      : <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="9"/></svg>
+                }
+              </span>
+              <span className="aps-sidebar-stem">{stem}</span>
+            </button>
+          );
+        })}
+      </div>
+    </aside>
+  );
+}
+
+// Extracts a clean text preview from a question. Handles the various
+// question shapes: plain string, segments array, object form, fill-in
+// stems with passages, etc. Always returns a single-line string.
+function stemPreview(q) {
+  // Prefer the passage's first sentence for R&W; otherwise the question.
+  let raw = '';
+  if (typeof q?.passage === 'string') raw = q.passage;
+  else if (Array.isArray(q?.passages) && q.passages.length > 0 && q.passages[0]?.text) raw = q.passages[0].text;
+  else if (typeof q?.question === 'string') raw = q.question;
+  else if (Array.isArray(q?.question)) raw = q.question.map(s => s.text || s.math || '').join(' ');
+  else if (q?.question?.segments) raw = q.question.segments.map(s => s.text || s.math || '').join(' ');
+  else if (q?.question && typeof q.question === 'object') raw = q.question.text || '';
+  if (!raw) return q?.id || 'Question';
+  // Strip LaTeX delimiters and collapse whitespace
+  return raw
+    .replace(/\$([^$]*)\$/g, '$1')
+    .replace(/\\[a-zA-Z]+/g, '')
+    .replace(/[{}]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .slice(0, 80);
+}
+
+// Top progress strip — segmented dots like Acely's question-bar chips.
+function ProgressDots({ total, currentIndex, answers, questions, onNavigate }) {
+  return (
+    <div className="aps-progress-dots" role="progressbar" aria-valuemin={1} aria-valuemax={total} aria-valuenow={currentIndex + 1}>
+      {Array.from({ length: total }).map((_, i) => {
+        const q = questions[i];
+        const ans = q ? answers[q.id] : null;
+        const isCurrent = i === currentIndex;
+        let cls = 'aps-progress-dot';
+        if (isCurrent) cls += ' is-current';
+        else if (ans?.correct) cls += ' is-correct';
+        else if (ans) cls += ' is-wrong';
         return (
           <button
-            key={idx}
-            onClick={() => onNavigate(idx)}
-            style={{
-              width: '36px', height: '36px', borderRadius: '8px',
-              border: `2px solid ${border}`, background: bg, color,
-              fontSize: '13px', fontWeight: '700', cursor: 'pointer',
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              transition: 'all 0.15s',
-            }}
+            key={i}
+            type="button"
+            onClick={() => onNavigate(i)}
+            aria-label={`Go to question ${i + 1}${ans ? (ans.correct ? ' (correct)' : ' (incorrect)') : ''}`}
+            className={cls}
           >
-            {idx + 1}
+            {isCurrent && <span className="aps-progress-dot-num">{i + 1}</span>}
           </button>
         );
       })}
@@ -93,7 +161,6 @@ const AssignedPracticeShell = ({
   practiceTestResults,
 }) => {
   const [eliminatedChoices, setEliminatedChoices] = useState({});
-  const [showNav, setShowNav] = useState(false);
   // Debounce trap so a rapid double-click doesn't insert two questions.
   const trySimilarLockRef = useRef(0);
 
@@ -377,164 +444,94 @@ const AssignedPracticeShell = ({
     );
   }
 
-  // ── ACTIVE PRACTICE ──
-  const progressPct = total > 0 ? Math.round((answeredCount / total) * 100) : 0;
+  // ── ACTIVE PRACTICE — Acely-style 3-pane ──────────────────────────────
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', height: '100vh', padding: '16px', boxSizing: 'border-box' }}>
+    <div className="aps-shell">
 
-      {/* ── HEADER ── */}
-      <div style={{
-        background: C.white, padding: '14px 24px',
-        display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-        borderRadius: '14px', marginBottom: '12px',
-        border: `1px solid ${C.border}`,
-        boxShadow: '0 1px 3px rgba(0,0,0,0.04)',
-      }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
-          <button onClick={onBack} style={{
-            background: 'none', border: 'none', color: C.brand,
-            fontSize: '14px', fontWeight: '600', cursor: 'pointer',
-            display: 'flex', alignItems: 'center', gap: '4px',
-          }}>
-            ← Exit
-          </button>
-          <div style={{ width: '1px', height: '20px', background: C.border }} />
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
-            <span style={{ fontSize: '15px', fontWeight: '600', color: C.text }}>{headerTitle}</span>
-            {drillPatternLabel && (
-              <span
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '4px',
-                  fontSize: '11.5px',
-                  fontWeight: '600',
-                  color: C.brand,
-                  letterSpacing: '0.02em',
-                  textTransform: 'uppercase',
-                }}
-                title={`Drilling questions of the same SAT Pattern as the items you missed`}
-              >
-                <span aria-hidden="true">🎯</span>
-                Practicing: {drillPatternLabel}
-              </span>
-            )}
-          </div>
-        </div>
+      {/* ── LEFT: Persistent question sidebar ── */}
+      <QuestionSidebar
+        questions={questions}
+        currentIndex={idx}
+        answers={practiceState.answers}
+        onNavigate={handleNavigate}
+        onBack={onBack}
+        headerTitle={headerTitle}
+        drillPatternLabel={drillPatternLabel}
+      />
 
-        <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
-          <span style={{ fontSize: '13px', fontWeight: '600', color: C.textSec }}>
-            Question {idx + 1} of {total}
-          </span>
-          <span style={{
-            fontSize: '12px', fontWeight: '600', padding: '4px 10px', borderRadius: '10px',
-            background: correctCount > 0 ? C.successBg : C.bg,
-            color: correctCount > 0 ? C.success : C.textMuted,
-          }}>
-            {correctCount} correct
-          </span>
-          <button onClick={() => setShowNav(n => !n)} style={{
-            background: showNav ? C.brandLight : C.bg,
-            border: `1px solid ${showNav ? C.brand : C.border}`, borderRadius: '8px',
-            padding: '6px 12px', cursor: 'pointer', color: showNav ? C.brand : C.textSec,
-            fontSize: '12px', fontWeight: '600',
-          }}>
-            {showNav ? 'Hide' : 'Navigate'}
-          </button>
-          <button onClick={onToggleCalculator} style={{
-            background: showCalculator ? C.brand : C.bg,
-            border: `1px solid ${showCalculator ? C.brand : C.border}`, borderRadius: '8px',
-            padding: '6px 12px', cursor: 'pointer',
-            color: showCalculator ? C.white : C.textSec,
-            fontSize: '12px', fontWeight: '600',
-          }}>
-            Calculator
-          </button>
-        </div>
-      </div>
+      {/* ── CENTER: Question card ── */}
+      <main className="aps-center">
 
-      {/* ── REVIEW-MODE BANNER (Phase 5 of PAST_TEST_REVIEW_PLAN.md) ── */}
-      {practiceState.reviewMode && (
-        <div
-          role="status"
-          aria-live="polite"
-          style={{
-            background: '#fef3c7', border: `1px solid ${C.warning}`, borderRadius: '10px',
-            padding: '8px 14px', marginBottom: '10px',
-            display: 'flex', alignItems: 'center', gap: '10px',
-            fontSize: '12.5px', color: '#92400e',
-          }}
-        >
-          <span aria-hidden="true">👁</span>
-          <span>
-            <strong>Review session.</strong>{' '}
-            This won't affect your study plan or skill mastery.
-          </span>
-        </div>
-      )}
-
-      {/* ── PROGRESS BAR ── */}
-      <div style={{ marginBottom: '10px', padding: '0 4px' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '12px', color: C.textSec, fontWeight: '600' }}>
-          <div style={{ flex: 1, height: '5px', background: 'rgba(0,0,0,0.06)', borderRadius: '3px', overflow: 'hidden' }}>
-            <div style={{
-              height: '100%', width: `${progressPct}%`, borderRadius: '3px',
-              background: C.brand, transition: 'width 0.3s',
-            }} />
-          </div>
-          <span>{answeredCount}/{total} answered</span>
-        </div>
-      </div>
-
-      {/* ── QUESTION NAV (collapsible) ── */}
-      {showNav && (
-        <div style={{
-          background: C.bg, borderRadius: '12px', padding: '14px',
-          marginBottom: '12px', border: `1px solid ${C.border}`,
-        }}>
-          <QuestionNav
-            questions={questions}
+        {/* Progress dots strip */}
+        <div className="aps-progress-strip">
+          <ProgressDots
+            total={total}
             currentIndex={idx}
             answers={practiceState.answers}
+            questions={questions}
             onNavigate={handleNavigate}
           />
         </div>
-      )}
 
-      {/* ── MAIN CONTENT ── */}
-      <div className="aps-main" style={{ flex: 1, display: 'flex', gap: '16px', minHeight: 0 }}>
-
-        {/* Left: Question + Answers */}
-        <div className="aps-left" style={{
-          flex: '3 1 0%', background: C.white, borderRadius: '16px',
-          border: `1px solid ${C.border}`, padding: '32px',
-          overflow: 'auto', display: 'flex', flexDirection: 'column',
-        }}>
-          {/* Question header. In review mode the rounds-of-8 framing is
-              just noise — the session is "items you got wrong on this
-              test," not a skill drill. Instead show the original
-              moduleIndex·questionIndex (e.g., "M1·Q3") so the user can
-              place which item from the original test they're retrying. */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '20px' }}>
-            <HandAuthoredStamp />
-            <span style={{ fontSize: '14px', fontWeight: '700', color: C.textSec }}>
-              {practiceState.reviewMode && typeof currentQuestion?.moduleIndex === 'number'
-                ? `M${currentQuestion.moduleIndex + 1}·Q${(currentQuestion.questionIndex ?? 0) + 1} (originally missed)`
-                : currentRound
-                  ? `${currentRound.label} · Q ${positionInRound} of ${currentRound.questionIds.length}`
-                  : `Question ${idx + 1}`}
-            </span>
-            {diffBadge && (
-              <span style={{
-                fontSize: '11px', fontWeight: '700', padding: '3px 10px', borderRadius: '10px',
-                background: diffBadge.color === '#10b981' ? C.successBg : diffBadge.color === '#f59e0b' ? C.warningBg : C.errorBg,
-                color: diffBadge.color,
-              }}>
-                {diffBadge.label}
-              </span>
-            )}
+        {/* Review-mode banner */}
+        {practiceState.reviewMode && (
+          <div className="aps-review-banner" role="status" aria-live="polite">
+            <span aria-hidden="true">👁</span>
+            <span><strong>Review session.</strong> This won't affect your study plan or skill mastery.</span>
           </div>
+        )}
+
+        <div className="aps-card">
+          {/* Card eyebrow header (round label + tools) */}
+          <header className="aps-card-header">
+            <div className="aps-card-eyebrow">
+              <div className="aps-card-round">
+                {practiceState.reviewMode && typeof currentQuestion?.moduleIndex === 'number'
+                  ? 'REVIEW SESSION'
+                  : currentRound
+                    ? currentRound.label.toUpperCase()
+                    : `QUESTION ${idx + 1}`}
+              </div>
+              <div className="aps-card-subtitle">
+                {practiceState.reviewMode && typeof currentQuestion?.moduleIndex === 'number'
+                  ? `M${currentQuestion.moduleIndex + 1}·Q${(currentQuestion.questionIndex ?? 0) + 1} (originally missed)`
+                  : currentRound
+                    ? `${drillPatternLabel || headerTitle} — ${currentRound.questionIds.length} questions`
+                    : `Question ${idx + 1} of ${total}`}
+              </div>
+            </div>
+
+            <div className="aps-card-tools">
+              {diffBadge && (
+                <span className={`aps-diff-badge aps-diff-${diffBadge.label.toLowerCase()}`}>
+                  {diffBadge.label}
+                </span>
+              )}
+              <HandAuthoredStamp />
+              <button
+                onClick={onToggleCalculator}
+                className={`aps-tool-btn ${showCalculator ? 'is-active' : ''}`}
+                type="button"
+                title="Toggle calculator"
+              >
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="4" y="3" width="16" height="18" rx="2"/>
+                  <line x1="8" y1="7" x2="16" y2="7"/>
+                  <line x1="8" y1="12" x2="8.01" y2="12"/>
+                  <line x1="12" y1="12" x2="12.01" y2="12"/>
+                  <line x1="16" y1="12" x2="16.01" y2="12"/>
+                  <line x1="8" y1="16" x2="8.01" y2="16"/>
+                  <line x1="12" y1="16" x2="12.01" y2="16"/>
+                  <line x1="16" y1="16" x2="16.01" y2="16"/>
+                </svg>
+                Calculator
+              </button>
+            </div>
+          </header>
+
+          {/* Scrollable card body */}
+          <div className="aps-card-body">
 
           {/* R&W passage — basic plain-serif rendering (no Bluebook
               highlighting; that lives in PracticeTest for the timed flow).
@@ -707,7 +704,7 @@ const AssignedPracticeShell = ({
 
           {/* ── Answer choices (shared component — same look as the
                 full mock test, driven by AnswerChoiceList.css) ── */}
-          <div style={{ borderTop: `1px solid ${C.border}`, paddingTop: '20px' }}>
+          <div className="aps-answers" style={{ borderTop: `1px solid ${C.border}`, paddingTop: '20px' }}>
             <AnswerChoiceList
               choices={currentQuestion.choices || []}
               selectedId={practiceState.selectedAnswer}
@@ -717,6 +714,7 @@ const AssignedPracticeShell = ({
               onSelect={onSelectAnswer}
               onToggleEliminate={handleToggleEliminate}
             />
+          </div>
 
           {/* Hint */}
           {currentQuestion.hint && !practiceState.showFeedback && (
@@ -803,118 +801,86 @@ const AssignedPracticeShell = ({
             </div>
           )}
 
-          {/* Action button */}
-          {!practiceState.showFeedback ? (
+          </div>{/* /aps-card-body */}
+
+          {/* Footer: Previous · counter · Continue (or Check Answer) */}
+          <footer className="aps-card-footer">
             <button
-              onClick={() => onCheckAnswer(currentQuestion)}
-              disabled={!practiceState.selectedAnswer}
-              style={{
-                width: '100%', padding: '14px', borderRadius: '10px', border: 'none',
-                background: practiceState.selectedAnswer ? C.brand : '#e5e5e5',
-                color: C.white, fontSize: '15px', fontWeight: '600',
-                cursor: practiceState.selectedAnswer ? 'pointer' : 'default',
-              }}
+              type="button"
+              onClick={() => handleNavigate(idx - 1)}
+              disabled={idx === 0}
+              className="aps-footer-prev"
+              aria-label="Previous question"
             >
-              Check Answer
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+                <path d="M15 18l-6-6 6-6"/>
+              </svg>
+              Previous
             </button>
-          ) : (
-            <button
-              onClick={() => onNextQuestion(questions)}
-              style={{
-                width: '100%', padding: '14px', borderRadius: '10px', border: 'none',
-                background: C.brand, color: C.white, fontSize: '15px', fontWeight: '600', cursor: 'pointer',
-              }}
-            >
-              {idx < total - 1 ? 'Next Question →' : 'See Results'}
-            </button>
-          )}
-          </div>
-        </div>
 
-        {/* Right: AI Tutor */}
-        <div className="aps-right" style={{
-          flex: '2 1 0%', display: 'flex', flexDirection: 'column',
-          borderRadius: '16px', overflow: 'hidden', minWidth: 0,
-          border: `1px solid ${C.border}`,
-          boxShadow: '0 1px 3px rgba(0,0,0,0.04)',
-        }}>
-          <AiTutorChat
-            key={`assigned-${idx}`}
-            isOpen={true}
-            onClose={() => {}}
-            moduleId="assigned-practice"
-            lessonId={`assigned-${currentQuestion?.id || idx}`}
-            lessonTitle={headerTitle}
-            isVideoLesson={false}
-            isPracticeQuestion={true}
-            practiceContext={{
-              question: currentQuestion?.question || '',
-              choices: currentQuestion?.choices || [],
-              hint: currentQuestion?.hint || '',
-              answerRevealed: practiceState.showFeedback,
-              correctAnswer: practiceState.showFeedback
-                ? (currentQuestion?.type === 'fill-in'
-                    ? currentQuestion?.correctAnswer
-                    : currentQuestion?.choices?.find(c => c.id === currentQuestion?.correctAnswer)?.text || currentQuestion?.correctAnswer)
-                : undefined,
-              explanation: practiceState.showFeedback ? (currentQuestion?.explanation || '') : '',
-              skills: currentQuestion?.skills || [],
-            }}
-            embedded={true}
-            headerCompact={true}
-            standalone={false}
-            reviewMode={!!practiceState.reviewMode}
-            skillProgress={skillProgress}
-            testDate={user?.testDate}
-            user={user}
-            practiceTestResults={practiceTestResults}
-          />
-        </div>
-      </div>
+            <span className="aps-footer-counter">
+              {answeredCount} of {total} answered
+              {correctCount > 0 && <span className="aps-footer-correct"> · {correctCount} correct</span>}
+            </span>
 
-      {/* ── BOTTOM NAV ── */}
-      <div style={{
-        display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-        padding: '12px 0', marginTop: '12px',
-        borderTop: `1px solid ${C.border}`,
-      }}>
-        <button
-          onClick={() => handleNavigate(idx - 1)}
-          disabled={idx === 0}
-          style={{
-            padding: '8px 18px', borderRadius: '8px',
-            border: `1px solid ${C.border}`,
-            background: idx === 0 ? C.bg : C.white,
-            color: idx === 0 ? C.textMuted : C.textSec,
-            fontSize: '13px', fontWeight: '600', cursor: idx === 0 ? 'not-allowed' : 'pointer',
+            {!practiceState.showFeedback ? (
+              <button
+                type="button"
+                onClick={() => onCheckAnswer(currentQuestion)}
+                disabled={!practiceState.selectedAnswer}
+                className="aps-footer-cta"
+              >
+                Check Answer
+              </button>
+            ) : (
+              <button
+                type="button"
+                onClick={() => onNextQuestion(questions)}
+                className="aps-footer-cta"
+              >
+                {idx < total - 1 ? 'Continue' : 'See Results'}
+              </button>
+            )}
+          </footer>
+
+        </div>{/* /aps-card */}
+      </main>{/* /aps-center */}
+
+      {/* ── RIGHT: AI Tutor ── */}
+      <aside className="aps-right">
+        <AiTutorChat
+          key={`assigned-${idx}`}
+          isOpen={true}
+          onClose={() => {}}
+          moduleId="assigned-practice"
+          lessonId={`assigned-${currentQuestion?.id || idx}`}
+          lessonTitle={headerTitle}
+          isVideoLesson={false}
+          isPracticeQuestion={true}
+          practiceContext={{
+            question: currentQuestion?.question || '',
+            choices: currentQuestion?.choices || [],
+            hint: currentQuestion?.hint || '',
+            answerRevealed: practiceState.showFeedback,
+            correctAnswer: practiceState.showFeedback
+              ? (currentQuestion?.type === 'fill-in'
+                  ? currentQuestion?.correctAnswer
+                  : currentQuestion?.choices?.find(c => c.id === currentQuestion?.correctAnswer)?.text || currentQuestion?.correctAnswer)
+              : undefined,
+            explanation: practiceState.showFeedback ? (currentQuestion?.explanation || '') : '',
+            skills: currentQuestion?.skills || [],
           }}
-        >
-          ← Previous
-        </button>
+          embedded={true}
+          headerCompact={true}
+          standalone={false}
+          reviewMode={!!practiceState.reviewMode}
+          skillProgress={skillProgress}
+          testDate={user?.testDate}
+          user={user}
+          practiceTestResults={practiceTestResults}
+        />
+      </aside>
 
-        <span style={{ fontSize: '13px', color: C.textSec, fontWeight: '500' }}>
-          {answeredCount} of {total} answered
-        </span>
-
-        <button
-          onClick={() => {
-            if (practiceState.showFeedback) {
-              onNextQuestion(questions);
-            } else if (idx < total - 1) {
-              handleNavigate(idx + 1);
-            }
-          }}
-          disabled={!practiceState.showFeedback && idx >= total - 1}
-          style={{
-            padding: '8px 18px', borderRadius: '8px', border: 'none',
-            background: practiceState.showFeedback ? C.brand : (idx < total - 1 ? '#3b82f6' : '#e5e5e5'),
-            color: C.white, fontSize: '13px', fontWeight: '600',
-            cursor: (!practiceState.showFeedback && idx >= total - 1) ? 'not-allowed' : 'pointer',
-          }}
-        >
-          {practiceState.showFeedback ? 'Next Question →' : 'Next →'}
-        </button>
-      </div>
     </div>
   );
 };
