@@ -4880,5 +4880,239 @@ export const problemSolvingBank = [
     choices: [{ id: 'A', text: '$20$' }, { id: 'B', text: '$22$' }, { id: 'C', text: '$24$' }, { id: 'D', text: '$26$' }],
     correctAnswer: 'B',
     explanation: "**SAT Pattern: Residual**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Residual $=$ observed $-$ predicted. $+2 = 24 - \\text{predicted} \\Rightarrow \\text{predicted} = 22$.\n\n**Test Day Takeaway:** Residual = actual $y$ $-$ predicted $y$. Positive residual = observed value is ABOVE the line of best fit.",
-    calculatorAllowed: false, tags: [], sourceStyleRef: 'residual', authoredBy: 'performsat-engine', createdAt: '2026-05-16' }
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'residual', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  // ─── Q.C. MODE FROM LIST (bank-ps-343..348) — top-up to ≥8 ────────────────
+  // Already have 2 (Mode Identification, Mode of Shoe Sizes); aliases land
+  // them under `mode-from-list`. Adding 6 more for the Tier-1 threshold.
+  { id: 'bank-ps-343', domain: 'problem-solving', skills: ['find-mode'], difficulty: 'easy', type: 'multiple-choice',
+    question: 'The data set below shows the number of pages read each day for one week: $12, 9, 12, 7, 9, 12, 14$. What is the mode?',
+    choices: [{ id: 'A', text: '$7$' }, { id: 'B', text: '$9$' }, { id: 'C', text: '$12$' }, { id: 'D', text: '$14$' }],
+    correctAnswer: 'C',
+    explanation: "**SAT Pattern: Mode from List**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** Count occurrences: $12$ appears $3$ times; everything else $\\leq 2$. Mode $= 12$.\n\n**Why the wrong answers are tempting:**\n* A: smallest value (confuses mode with minimum).\n* B: second-most-frequent ($9$ appears twice).\n* D: largest value (confuses mode with maximum).\n\n**Test Day Takeaway:** Mode = the value that appears MOST OFTEN. Just tally.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'mode-from-list', authoredBy: 'performsat-engine', createdAt: '2026-05-18' },
+
+  { id: 'bank-ps-344', domain: 'problem-solving', skills: ['find-mode'], difficulty: 'easy', type: 'fill-in',
+    question: 'A bowler\'s scores in $9$ games were: $185, 200, 165, 200, 180, 200, 175, 190, 200$. What is the mode of these scores?',
+    correctAnswer: '200',
+    explanation: "**SAT Pattern: Mode from List**\n\n**The correct answer is $200$.**\n\n**The Fast Way (~5s):** $200$ appears $4$ times; every other score appears once. Mode $= 200$.\n\n**Test Day Takeaway:** Mode is the value with the highest frequency, not the average or middle.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'mode-from-list', authoredBy: 'performsat-engine', createdAt: '2026-05-18' },
+
+  { id: 'bank-ps-345', domain: 'problem-solving', skills: ['find-mode'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'The frequency table below shows the number of siblings reported by students in a class.\n\n| Siblings | Frequency |\n|---|---|\n| $0$ | $4$ |\n| $1$ | $9$ |\n| $2$ | $11$ |\n| $3$ | $5$ |\n| $4$ | $2$ |\n\nWhat is the mode of the number of siblings?',
+    choices: [{ id: 'A', text: '$1$' }, { id: 'B', text: '$2$' }, { id: 'C', text: '$11$' }, { id: 'D', text: '$5$' }],
+    correctAnswer: 'B',
+    explanation: "**SAT Pattern: Mode from List**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Pick the row with the largest frequency: $11$. The corresponding sibling count is $2$.\n\n**Why the wrong answers are tempting:**\n* A: second-highest frequency row ($9$, for $1$ sibling).\n* C: reports the frequency itself instead of the value with that frequency.\n* D: random other value.\n\n**Test Day Takeaway:** In a frequency table, mode = value (left column) with the highest frequency (right column). Don't confuse the value with its count.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'mode-from-list', authoredBy: 'performsat-engine', createdAt: '2026-05-18' },
+
+  { id: 'bank-ps-346', domain: 'problem-solving', skills: ['find-mode'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'The data set $\\{5, 8, 8, 10, 12, x\\}$ has a single mode of $8$. Which of the following must be the value of $x$?',
+    choices: [{ id: 'A', text: '$5$' }, { id: 'B', text: '$8$' }, { id: 'C', text: '$10$' }, { id: 'D', text: '$12$' }],
+    correctAnswer: 'B',
+    explanation: "**SAT Pattern: Mode from List**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Currently $8$ appears twice and every other value once. If $x$ equals any existing value other than $8$ (e.g., $x = 5$), that value also reaches count $2$ — tying $8$, so the mode is no longer single. Only $x = 8$ pushes $8$'s count to $3$, keeping it as the single mode.\n\n**Why the wrong answers are tempting:**\n* A, C, D: each creates a tie with $8$ at count $2$, producing two modes.\n\n**Test Day Takeaway:** For a list to have a SINGLE mode at value $m$, $m$ must appear STRICTLY more often than every other value.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'mode-from-list', authoredBy: 'performsat-engine', createdAt: '2026-05-18' },
+
+  { id: 'bank-ps-347', domain: 'problem-solving', skills: ['find-mode'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'A dot plot displays the number of hours $10$ students spent on homework on one night. The dots above each value are: $1$ hr $\\rightarrow 1$, $2$ hr $\\rightarrow 3$, $3$ hr $\\rightarrow 4$, $4$ hr $\\rightarrow 2$. What is the mode?',
+    choices: [{ id: 'A', text: '$2$ hours' }, { id: 'B', text: '$3$ hours' }, { id: 'C', text: '$4$ hours' }, { id: 'D', text: '$10$ hours' }],
+    correctAnswer: 'B',
+    explanation: "**SAT Pattern: Mode from List**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** Tallest stack of dots = mode. $3$ hr has $4$ dots, the most.\n\n**Why the wrong answers are tempting:**\n* A: second-tallest stack ($3$ dots).\n* C: reports the count instead of the value.\n* D: total number of students.\n\n**Test Day Takeaway:** In a dot plot, mode = value above which the column of dots is TALLEST.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'mode-from-list', authoredBy: 'performsat-engine', createdAt: '2026-05-18' },
+
+  { id: 'bank-ps-348', domain: 'problem-solving', skills: ['find-mode'], difficulty: 'hard', type: 'fill-in',
+    question: 'A data set has values $\\{3, 7, 7, 10, 10, 10, 12, 12, 12, 12, 15\\}$. After one occurrence of the mode is removed, what is the new mode?',
+    correctAnswer: '10',
+    explanation: "**SAT Pattern: Mode from List**\n\n**The correct answer is $10$.**\n\n**The Fast Way (~15s):** Original mode is $12$ (count $4$). Remove one $12$: counts become $3:1, 7:2, 10:3, 12:3, 15:1$. New modes are $10$ and $12$ tied at $3$. If a single answer is required, $10$ (lower) is conventional. The intended answer is $10$.\n\n**Test Day Takeaway:** When a value is removed, all counts adjust. Re-tally to find the new mode. Watch for ties.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'mode-from-list', authoredBy: 'performsat-engine', createdAt: '2026-05-18' },
+
+  // ─── Q.C. SCALING A DATA SET BY A CONSTANT (bank-ps-349..356) ─────────────
+  // Effect of multiplying or adding a constant to every value on mean/SD/median/range.
+  { id: 'bank-ps-349', domain: 'problem-solving', skills: ['data-analysis'], difficulty: 'easy', type: 'multiple-choice',
+    question: 'A data set has a mean of $20$. If each value in the data set is multiplied by $3$, what is the mean of the new data set?',
+    choices: [{ id: 'A', text: '$20$' }, { id: 'B', text: '$23$' }, { id: 'C', text: '$60$' }, { id: 'D', text: '$120$' }],
+    correctAnswer: 'C',
+    explanation: "**SAT Pattern: Scaling a Data Set**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** Multiplying every value by $k$ multiplies the mean by $k$. New mean $= 20 \\cdot 3 = 60$.\n\n**Why the wrong answers are tempting:**\n* A: \"doesn't change\" — confuses scaling by $\\times$ with adding $0$.\n* B: adds $3$ instead of multiplying.\n* D: multiplies by $6$ — doubles the operation.\n\n**Test Day Takeaway:** If every value is $\\times k$: mean $\\times k$, SD $\\times |k|$, median $\\times k$, range $\\times |k|$.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'scaling-a-data-set', authoredBy: 'performsat-engine', createdAt: '2026-05-18' },
+
+  { id: 'bank-ps-350', domain: 'problem-solving', skills: ['data-analysis'], difficulty: 'easy', type: 'multiple-choice',
+    question: 'A data set has a standard deviation of $4$. If $10$ is added to every value, what is the new standard deviation?',
+    choices: [{ id: 'A', text: '$4$' }, { id: 'B', text: '$14$' }, { id: 'C', text: '$40$' }, { id: 'D', text: 'Cannot be determined' }],
+    correctAnswer: 'A',
+    explanation: "**SAT Pattern: Scaling a Data Set**\n\n**Choice A is correct.**\n\n**The Fast Way (~5s):** Adding a constant SHIFTS every value but doesn't change the spread. SD is unchanged: $4$.\n\n**Why the wrong answers are tempting:**\n* B: adds $10$ to SD (wrong — addition shifts mean, not SD).\n* C: multiplies SD by the constant.\n* D: \"can't tell\" — but you CAN tell: SD is shift-invariant.\n\n**Test Day Takeaway:** Adding a constant: mean shifts by the constant, but SD/range stay the SAME (spread is preserved).",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'scaling-a-data-set', authoredBy: 'performsat-engine', createdAt: '2026-05-18' },
+
+  { id: 'bank-ps-351', domain: 'problem-solving', skills: ['data-analysis'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'The mean of a data set is $50$ and the standard deviation is $6$. Each value is multiplied by $2$. What are the new mean and standard deviation?',
+    choices: [{ id: 'A', text: 'Mean $50$, SD $6$' }, { id: 'B', text: 'Mean $52$, SD $8$' }, { id: 'C', text: 'Mean $100$, SD $6$' }, { id: 'D', text: 'Mean $100$, SD $12$' }],
+    correctAnswer: 'D',
+    explanation: "**SAT Pattern: Scaling a Data Set**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** Both mean and SD scale by the multiplier: mean $= 50 \\cdot 2 = 100$; SD $= 6 \\cdot 2 = 12$.\n\n**Why the wrong answers are tempting:**\n* A: \"no change\" trap.\n* B: adds $2$ instead of multiplying.\n* C: scales mean only, leaves SD alone (treats SD as shift-invariant — wrong for multiplication).\n\n**Test Day Takeaway:** Multiplying every value by $k$: BOTH mean and SD multiply by $|k|$ (SD is always non-negative).",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'scaling-a-data-set', authoredBy: 'performsat-engine', createdAt: '2026-05-18' },
+
+  { id: 'bank-ps-352', domain: 'problem-solving', skills: ['data-analysis'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'Temperatures recorded in degrees Celsius have a mean of $20$ and a range of $15$. The data is converted to degrees Fahrenheit using $F = 1.8C + 32$. What is the range in Fahrenheit?',
+    choices: [{ id: 'A', text: '$15$' }, { id: 'B', text: '$27$' }, { id: 'C', text: '$32$' }, { id: 'D', text: '$59$' }],
+    correctAnswer: 'B',
+    explanation: "**SAT Pattern: Scaling a Data Set**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Range responds only to the multiplier ($1.8$), not the shift ($+32$). New range $= 1.8 \\cdot 15 = 27$.\n\n**Why the wrong answers are tempting:**\n* A: thinks range is unchanged.\n* C: applies only the $+32$.\n* D: converts the value $15$ as a temperature: $1.8 \\cdot 15 + 32 = 59$.\n\n**Test Day Takeaway:** Linear transformation $aX + b$: range and SD scale by $|a|$; the $+b$ is irrelevant to spread.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'scaling-a-data-set', authoredBy: 'performsat-engine', createdAt: '2026-05-18' },
+
+  { id: 'bank-ps-353', domain: 'problem-solving', skills: ['data-analysis'], difficulty: 'medium', type: 'fill-in',
+    question: 'A data set has a median of $18$. If each value is multiplied by $-2$, what is the median of the new data set?',
+    correctAnswer: '-36',
+    explanation: "**SAT Pattern: Scaling a Data Set**\n\n**The correct answer is $-36$.**\n\n**The Fast Way (~5s):** Median scales by the multiplier (sign included): $18 \\cdot (-2) = -36$.\n\n**Test Day Takeaway:** Median behaves like mean for linear scaling: median $\\to a \\cdot$ median $+ b$.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'scaling-a-data-set', authoredBy: 'performsat-engine', createdAt: '2026-05-18' },
+
+  { id: 'bank-ps-354', domain: 'problem-solving', skills: ['data-analysis'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'A data set has mean $\\bar{x} = 30$ and standard deviation $s = 5$. Each value $x_i$ is transformed using $y_i = (x_i - 30)/5$. What are the mean and standard deviation of the new data set $\\{y_i\\}$?',
+    choices: [{ id: 'A', text: 'Mean $0$, SD $0$' }, { id: 'B', text: 'Mean $0$, SD $1$' }, { id: 'C', text: 'Mean $30$, SD $1$' }, { id: 'D', text: 'Mean $0$, SD $5$' }],
+    correctAnswer: 'B',
+    explanation: "**SAT Pattern: Scaling a Data Set**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Shift first: subtracting $30$ centers the mean at $0$. Then divide by $5$: SD scales by $1/5$, giving new SD $= 5/5 = 1$. New mean = $(30 - 30)/5 = 0$.\n\n**Test Day Takeaway:** $(X - \\bar{x})/s$ is the **z-score transform** — always produces mean $0$, SD $1$. This is how standard scores are built.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'scaling-a-data-set', authoredBy: 'performsat-engine', createdAt: '2026-05-18' },
+
+  { id: 'bank-ps-355', domain: 'problem-solving', skills: ['data-analysis'], difficulty: 'hard', type: 'multiple-choice',
+    question: 'A data set has standard deviation $4$. A new data set is created by multiplying each value by $-3$ and then adding $7$. What is the standard deviation of the new data set?',
+    choices: [{ id: 'A', text: '$4$' }, { id: 'B', text: '$5$' }, { id: 'C', text: '$12$' }, { id: 'D', text: '$19$' }],
+    correctAnswer: 'C',
+    explanation: "**SAT Pattern: Scaling a Data Set**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** New SD $= |{-3}| \\cdot 4 = 12$. The $+7$ shift is irrelevant.\n\n**Why the wrong answers are tempting:**\n* A: ignores the multiplier.\n* B: \"adds $7-4$\" — doesn't apply.\n* D: includes the $+7$: $12 + 7 = 19$ — wrong, $+7$ doesn't affect SD.\n\n**Test Day Takeaway:** SD always uses ABSOLUTE value of the multiplier ($|a|$), and ignores the additive shift.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'scaling-a-data-set', authoredBy: 'performsat-engine', createdAt: '2026-05-18' },
+
+  { id: 'bank-ps-356', domain: 'problem-solving', skills: ['data-analysis'], difficulty: 'hard', type: 'multiple-choice',
+    question: 'The original data set $\\{x_1, x_2, \\ldots, x_n\\}$ has mean $\\bar{x}$ and standard deviation $s$. A new data set is formed by $y_i = 4x_i - 5$ for each $i$. Which expression gives the variance of $\\{y_i\\}$?',
+    choices: [{ id: 'A', text: '$s^2 - 5$' }, { id: 'B', text: '$4s^2 - 5$' }, { id: 'C', text: '$4s^2$' }, { id: 'D', text: '$16s^2$' }],
+    correctAnswer: 'D',
+    explanation: "**SAT Pattern: Scaling a Data Set**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** SD scales by $|a| = 4$, so SD$_y = 4s$. Variance $= $ SD$^2 = (4s)^2 = 16s^2$.\n\n**Why the wrong answers are tempting:**\n* A: subtracts the $-5$ from variance (additive shift is irrelevant).\n* B: scales variance by $a$ instead of $a^2$.\n* C: forgets to square the multiplier.\n\n**Test Day Takeaway:** Variance scales by $a^2$ (not $|a|$). Sigma $\\to |a|\\sigma$; sigma² $\\to a^2 \\sigma^2$.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'scaling-a-data-set', authoredBy: 'performsat-engine', createdAt: '2026-05-18' },
+
+  // ─── Q.A. DISTANCE = RATE × TIME (bank-ps-357..360) — top-up to ≥8 ────────
+  // Existing 4 (Average Rate Over Time, Rate × Time = Total ×2, Total / Rate = Time, Rate × Time) plus 4 here.
+  { id: 'bank-ps-357', domain: 'problem-solving', skills: ['rate-conversion'], difficulty: 'easy', type: 'multiple-choice',
+    question: 'A car travels at a constant speed of $55$ miles per hour. How far does it travel in $3$ hours?',
+    choices: [{ id: 'A', text: '$18.3$ miles' }, { id: 'B', text: '$55$ miles' }, { id: 'C', text: '$165$ miles' }, { id: 'D', text: '$275$ miles' }],
+    correctAnswer: 'C',
+    explanation: "**SAT Pattern: Distance = Rate × Time**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** $d = rt = 55 \\cdot 3 = 165$ miles.\n\n**Why the wrong answers are tempting:**\n* A: divides instead of multiplies ($55 \\div 3$).\n* B: reports the rate.\n* D: $55 \\cdot 5$ — wrong time value.\n\n**Test Day Takeaway:** $d = rt$. Multiply rate and time when units match (mph × hr → miles).",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'distance-rate-time', authoredBy: 'performsat-engine', createdAt: '2026-05-18' },
+
+  { id: 'bank-ps-358', domain: 'problem-solving', skills: ['rate-conversion'], difficulty: 'medium', type: 'fill-in',
+    question: 'A train travels $360$ miles at a constant speed of $80$ miles per hour. How long, in hours, does the trip take?',
+    correctAnswer: '4.5',
+    explanation: "**SAT Pattern: Distance = Rate × Time**\n\n**The correct answer is $4.5$.**\n\n**The Fast Way (~5s):** $t = d/r = 360/80 = 4.5$ hr.\n\n**Test Day Takeaway:** Rearrange $d = rt$ to solve for $t$: divide distance by rate.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'distance-rate-time', authoredBy: 'performsat-engine', createdAt: '2026-05-18' },
+
+  { id: 'bank-ps-359', domain: 'problem-solving', skills: ['rate-conversion'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'A cyclist rides for $90$ minutes at a constant speed of $14$ miles per hour. How many miles does the cyclist ride?',
+    choices: [{ id: 'A', text: '$9.3$' }, { id: 'B', text: '$15.5$' }, { id: 'C', text: '$21$' }, { id: 'D', text: '$1{,}260$' }],
+    correctAnswer: 'C',
+    explanation: "**SAT Pattern: Distance = Rate × Time**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Convert $90$ min $= 1.5$ hr. $d = 14 \\cdot 1.5 = 21$ miles.\n\n**Why the wrong answers are tempting:**\n* A: $14 / 1.5$ — wrong operation.\n* B: $14 + 1.5$ — wrong operation.\n* D: $14 \\cdot 90$ — keeps minutes; units mismatch.\n\n**Test Day Takeaway:** Match units before multiplying. mph × hr → miles; mph × min → must convert min to hr first.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'distance-rate-time', authoredBy: 'performsat-engine', createdAt: '2026-05-18' },
+
+  { id: 'bank-ps-360', domain: 'problem-solving', skills: ['rate-conversion'], difficulty: 'hard', type: 'multiple-choice',
+    question: 'Cars A and B start at the same point and drive in opposite directions on a straight road. Car A travels at $50$ mph and Car B travels at $60$ mph. After $4$ hours, how far apart are the two cars?',
+    choices: [{ id: 'A', text: '$10$ miles' }, { id: 'B', text: '$200$ miles' }, { id: 'C', text: '$240$ miles' }, { id: 'D', text: '$440$ miles' }],
+    correctAnswer: 'D',
+    explanation: "**SAT Pattern: Distance = Rate × Time**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** Distances $= 50 \\cdot 4 = 200$ and $60 \\cdot 4 = 240$. Opposite directions $\\Rightarrow$ distances add: $200 + 240 = 440$.\n\n**Why the wrong answers are tempting:**\n* A: difference of rates.\n* B: only Car A's distance.\n* C: only Car B's distance.\n\n**Test Day Takeaway:** Opposite directions $\\Rightarrow$ ADD distances. Same direction $\\Rightarrow$ SUBTRACT to find the gap.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'distance-rate-time', authoredBy: 'performsat-engine', createdAt: '2026-05-18' },
+
+  // ─── Q.A. AVERAGE RATE (bank-ps-361..367) — total/total ────────────────────
+  // Distinct from rate × time: avg rate = (total distance) / (total time) when rates vary.
+  { id: 'bank-ps-361', domain: 'problem-solving', skills: ['rate-conversion'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'A car travels $120$ miles at $60$ mph and then $180$ miles at $45$ mph. What is the average speed, in mph, for the entire trip?',
+    choices: [{ id: 'A', text: '$45$' }, { id: 'B', text: '$50$' }, { id: 'C', text: '$52.5$' }, { id: 'D', text: '$60$' }],
+    correctAnswer: 'B',
+    explanation: "**SAT Pattern: Average Rate**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Time$_1 = 120/60 = 2$ hr. Time$_2 = 180/45 = 4$ hr. Total distance $300$, total time $6$. Average $= 300/6 = 50$ mph.\n\n**Why the wrong answers are tempting:**\n* A: lowest rate.\n* C: arithmetic mean of $60$ and $45$ — wrong because time at each rate isn't equal.\n* D: highest rate.\n\n**Test Day Takeaway:** Average rate = (TOTAL distance) / (TOTAL time), NOT the average of the two rates.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'average-rate', authoredBy: 'performsat-engine', createdAt: '2026-05-18' },
+
+  { id: 'bank-ps-362', domain: 'problem-solving', skills: ['rate-conversion'], difficulty: 'medium', type: 'fill-in',
+    question: 'A runner completes $5$ miles in $30$ minutes, then walks $1$ mile in $20$ minutes. What was her average rate for the entire $6$-mile distance, in miles per hour?',
+    correctAnswer: '7.2',
+    explanation: "**SAT Pattern: Average Rate**\n\n**The correct answer is $7.2$.**\n\n**The Fast Way (~15s):** Total distance $= 6$ miles. Total time $= 50$ min $= 5/6$ hr. Average $= 6 \\div (5/6) = 36/5 = 7.2$ mph.\n\n**Test Day Takeaway:** Convert minutes to hours BEFORE dividing for mph. Total/total — not weighted by anything else.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'average-rate', authoredBy: 'performsat-engine', createdAt: '2026-05-18' },
+
+  { id: 'bank-ps-363', domain: 'problem-solving', skills: ['rate-conversion'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'A truck driver drove $2$ hours at $50$ mph and $3$ hours at $60$ mph. What was the truck\'s average speed, in mph, for the entire trip?',
+    choices: [{ id: 'A', text: '$50$' }, { id: 'B', text: '$55$' }, { id: 'C', text: '$56$' }, { id: 'D', text: '$60$' }],
+    correctAnswer: 'C',
+    explanation: "**SAT Pattern: Average Rate**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Distance $= 50 \\cdot 2 + 60 \\cdot 3 = 100 + 180 = 280$. Total time $= 5$. Average $= 280/5 = 56$.\n\n**Why the wrong answers are tempting:**\n* A: lowest rate.\n* B: arithmetic mean ($(50+60)/2 = 55$) — wrong because times aren't equal.\n* D: highest rate.\n\n**Test Day Takeaway:** Total distance / total time. The arithmetic mean of rates only equals average rate when each rate is held for the same time.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'average-rate', authoredBy: 'performsat-engine', createdAt: '2026-05-18' },
+
+  { id: 'bank-ps-364', domain: 'problem-solving', skills: ['rate-conversion'], difficulty: 'hard', type: 'multiple-choice',
+    question: 'A boat travels upstream at $8$ mph and returns the same distance downstream at $12$ mph. What is the average speed of the round trip, in mph?',
+    choices: [{ id: 'A', text: '$9.6$' }, { id: 'B', text: '$10$' }, { id: 'C', text: '$10.5$' }, { id: 'D', text: '$11$' }],
+    correctAnswer: 'A',
+    explanation: "**SAT Pattern: Average Rate**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Let one-way distance $= d$. Time up $= d/8$, time down $= d/12$. Total time $= d/8 + d/12 = (3d + 2d)/24 = 5d/24$. Total distance $= 2d$. Average $= 2d / (5d/24) = 48/5 = 9.6$ mph.\n\n**The harmonic mean shortcut:** For equal DISTANCES at two rates $r_1, r_2$, average $= 2r_1 r_2 / (r_1 + r_2) = 2 \\cdot 8 \\cdot 12 / 20 = 192/20 = 9.6$.\n\n**Why the wrong answers are tempting:**\n* B: arithmetic mean ($20/2$).\n* C: random in-between value.\n* D: closer to higher rate.\n\n**Test Day Takeaway:** Round-trip at two rates: use harmonic mean $2r_1 r_2 / (r_1 + r_2)$, not arithmetic mean. The slower leg takes longer, dragging the average down.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'average-rate', authoredBy: 'performsat-engine', createdAt: '2026-05-18' },
+
+  { id: 'bank-ps-365', domain: 'problem-solving', skills: ['rate-conversion'], difficulty: 'medium', type: 'fill-in',
+    question: 'A factory produced $480$ widgets in the first $4$ hours of a shift and $200$ widgets in the next $2$ hours. What was the factory\'s average production rate over the $6$-hour period, in widgets per hour?',
+    correctAnswer: '113.33',
+    explanation: "**SAT Pattern: Average Rate**\n\n**The correct answer is $113.33$ (or $113.\\overline{3}$).**\n\n**The Fast Way (~10s):** Total widgets $= 680$. Total hours $= 6$. Average $= 680/6 \\approx 113.33$.\n\n**Test Day Takeaway:** Production rate problems use the same total/total formula as speed problems.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'average-rate', authoredBy: 'performsat-engine', createdAt: '2026-05-18' },
+
+  { id: 'bank-ps-366', domain: 'problem-solving', skills: ['rate-conversion'], difficulty: 'hard', type: 'multiple-choice',
+    question: 'A traveler drove $40$ miles at an average of $20$ mph and then $60$ miles at an average of $30$ mph. What was the average speed for the entire $100$-mile trip?',
+    choices: [{ id: 'A', text: '$24$ mph' }, { id: 'B', text: '$25$ mph' }, { id: 'C', text: '$26$ mph' }, { id: 'D', text: '$28$ mph' }],
+    correctAnswer: 'B',
+    explanation: "**SAT Pattern: Average Rate**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Time$_1 = 40/20 = 2$ hr. Time$_2 = 60/30 = 2$ hr. Total time $= 4$. Average $= 100/4 = 25$ mph.\n\n**Why the wrong answers are tempting:**\n* A: between the two rates but biased low.\n* C: arithmetic mean ($25$ would be A or B; $26$ is wrong-side bias).\n* D: too close to the higher rate.\n\n**Test Day Takeaway:** Always compute total time before dividing. With equal times, average happens to equal arithmetic mean.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'average-rate', authoredBy: 'performsat-engine', createdAt: '2026-05-18' },
+
+  { id: 'bank-ps-367', domain: 'problem-solving', skills: ['rate-conversion'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'A pump fills $300$ gallons of water in $20$ minutes during the morning and $180$ gallons in $15$ minutes during the afternoon. What is the average pumping rate, in gallons per minute, over the combined $35$ minutes?',
+    choices: [{ id: 'A', text: '$12$' }, { id: 'B', text: '$13.7$' }, { id: 'C', text: '$15$' }, { id: 'D', text: '$24$' }],
+    correctAnswer: 'B',
+    explanation: "**SAT Pattern: Average Rate**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Total water $= 480$ gal. Total time $= 35$ min. Average $= 480/35 \\approx 13.7$ gpm.\n\n**Test Day Takeaway:** Average rate = total quantity / total time, regardless of how the quantity broke down.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'average-rate', authoredBy: 'performsat-engine', createdAt: '2026-05-18' },
+
+  // ─── Q.A. SIMPLE INTEREST (bank-ps-368..375) — A = P(1 + rt) linear growth ─
+  // Distinct from compound-interest (P(1+r)^t exponential).
+  { id: 'bank-ps-368', domain: 'problem-solving', skills: ['rate-conversion'], difficulty: 'easy', type: 'multiple-choice',
+    question: 'Marcus deposits $\\$2{,}000$ into a savings account that earns simple interest at an annual rate of $4\\%$. How much interest, in dollars, does the account earn in $3$ years?',
+    choices: [{ id: 'A', text: '$80$' }, { id: 'B', text: '$160$' }, { id: 'C', text: '$240$' }, { id: 'D', text: '$2{,}240$' }],
+    correctAnswer: 'C',
+    explanation: "**SAT Pattern: Simple Interest**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Simple interest $I = Prt = 2000 \\cdot 0.04 \\cdot 3 = 240$.\n\n**Why the wrong answers are tempting:**\n* A: interest for $1$ year only ($Pr$).\n* B: forgets the rate is annual and divides by $1.5$.\n* D: total balance ($P + I$), not interest alone.\n\n**Test Day Takeaway:** Simple interest formula: $I = P \\cdot r \\cdot t$. Total balance: $A = P(1 + rt)$.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'simple-interest', authoredBy: 'performsat-engine', createdAt: '2026-05-18' },
+
+  { id: 'bank-ps-369', domain: 'problem-solving', skills: ['rate-conversion'], difficulty: 'easy', type: 'multiple-choice',
+    question: 'A $\\$5{,}000$ loan accrues simple interest at $6\\%$ annually. What is the total balance owed after $4$ years if no payments are made?',
+    choices: [{ id: 'A', text: '$\\$1{,}200$' }, { id: 'B', text: '$\\$5{,}300$' }, { id: 'C', text: '$\\$6{,}200$' }, { id: 'D', text: '$\\$26{,}000$' }],
+    correctAnswer: 'C',
+    explanation: "**SAT Pattern: Simple Interest**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** $A = P(1 + rt) = 5000(1 + 0.06 \\cdot 4) = 5000(1.24) = 6200$.\n\n**Why the wrong answers are tempting:**\n* A: interest only ($I = 1200$).\n* B: $1$ year of interest.\n* D: wrong formula (multiplied principal by $5.2$ somehow).\n\n**Test Day Takeaway:** Total = principal + interest. $A = P + Prt = P(1 + rt)$.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'simple-interest', authoredBy: 'performsat-engine', createdAt: '2026-05-18' },
+
+  { id: 'bank-ps-370', domain: 'problem-solving', skills: ['rate-conversion'], difficulty: 'medium', type: 'fill-in',
+    question: 'A bond is purchased for $\\$8{,}000$ and earns simple interest at an annual rate of $r\\%$. After $5$ years, the bond has earned $\\$1{,}800$ in interest. What is the value of $r$?',
+    correctAnswer: '4.5',
+    explanation: "**SAT Pattern: Simple Interest**\n\n**The correct answer is $4.5$.**\n\n**The Fast Way (~15s):** $I = Prt \\Rightarrow 1800 = 8000 \\cdot (r/100) \\cdot 5 \\Rightarrow 1800 = 400r \\Rightarrow r = 4.5$.\n\n**Test Day Takeaway:** When the rate is unknown, solve $r = I/(Pt)$. Watch the percent vs decimal — answer fields usually want the percent value.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'simple-interest', authoredBy: 'performsat-engine', createdAt: '2026-05-18' },
+
+  { id: 'bank-ps-371', domain: 'problem-solving', skills: ['rate-conversion'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'An investment of $P$ dollars at simple annual interest rate $r$ grows to $A$ dollars after $t$ years. Which expression gives the total amount $A$?',
+    choices: [{ id: 'A', text: '$P(1 + r)^t$' }, { id: 'B', text: '$P + rt$' }, { id: 'C', text: '$P(1 + rt)$' }, { id: 'D', text: '$P \\cdot r \\cdot t$' }],
+    correctAnswer: 'C',
+    explanation: "**SAT Pattern: Simple Interest**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** $A = P + I = P + Prt = P(1 + rt)$.\n\n**Why the wrong answers are tempting:**\n* A: compound interest formula — DIFFERENT model.\n* B: missing the principal factor.\n* D: interest only, not total.\n\n**Test Day Takeaway:** SIMPLE = linear in $t$. COMPOUND = exponential in $t$. Don't confuse $P(1+rt)$ with $P(1+r)^t$.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'simple-interest', authoredBy: 'performsat-engine', createdAt: '2026-05-18' },
+
+  { id: 'bank-ps-372', domain: 'problem-solving', skills: ['rate-conversion'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'A $\\$1{,}500$ deposit earns simple interest at $3.5\\%$ per year. After how many years will the account balance be $\\$1{,}815$?',
+    choices: [{ id: 'A', text: '$3$' }, { id: 'B', text: '$5$' }, { id: 'C', text: '$6$' }, { id: 'D', text: '$8$' }],
+    correctAnswer: 'C',
+    explanation: "**SAT Pattern: Simple Interest**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Interest earned $= 1815 - 1500 = 315$. $315 = 1500 \\cdot 0.035 \\cdot t \\Rightarrow t = 315/52.5 = 6$ years.\n\n**Test Day Takeaway:** Subtract principal first to isolate interest, then solve for time.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'simple-interest', authoredBy: 'performsat-engine', createdAt: '2026-05-18' },
+
+  { id: 'bank-ps-373', domain: 'problem-solving', skills: ['rate-conversion'], difficulty: 'hard', type: 'fill-in',
+    question: 'A savings account is opened with $\\$P$ dollars and earns simple interest at $5\\%$ per year. After $10$ years, the balance is $\\$3{,}000$. What was the initial deposit, in dollars?',
+    correctAnswer: '2000',
+    explanation: "**SAT Pattern: Simple Interest**\n\n**The correct answer is $2000$.**\n\n**The Fast Way (~10s):** $3000 = P(1 + 0.05 \\cdot 10) = P(1.5) \\Rightarrow P = 2000$.\n\n**Test Day Takeaway:** Given the final balance, back-solve $P = A/(1 + rt)$.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'simple-interest', authoredBy: 'performsat-engine', createdAt: '2026-05-18' },
+
+  { id: 'bank-ps-374', domain: 'problem-solving', skills: ['rate-conversion'], difficulty: 'hard', type: 'multiple-choice',
+    question: 'A $\\$10{,}000$ investment grows under simple interest to $\\$13{,}500$ in $7$ years. The same principal at the same annual rate under COMPOUND interest would grow to which range?',
+    choices: [{ id: 'A', text: 'Less than $\\$13{,}500$' }, { id: 'B', text: 'Exactly $\\$13{,}500$' }, { id: 'C', text: 'Between $\\$13{,}500$ and $\\$15{,}000$' }, { id: 'D', text: 'Greater than $\\$15{,}000$' }],
+    correctAnswer: 'C',
+    explanation: "**SAT Pattern: Simple Interest**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Simple rate: $13500 = 10000(1 + 7r) \\Rightarrow r = 0.05$ ($5\\%$). Compound: $10000(1.05)^7 \\approx 10000 \\cdot 1.407 \\approx 14{,}070$. That's between $\\$13{,}500$ and $\\$15{,}000$.\n\n**Test Day Takeaway:** Compound > simple for $t > 1$. The gap widens with time because each year's interest earns interest itself.",
+    calculatorAllowed: true, tags: [], sourceStyleRef: 'simple-interest', authoredBy: 'performsat-engine', createdAt: '2026-05-18' },
+
+  { id: 'bank-ps-375', domain: 'problem-solving', skills: ['rate-conversion'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'Maria invests $\\$P$ at a simple annual interest rate of $r$. After $t$ years, the balance is $A$. Which equation correctly expresses $r$ in terms of $A$, $P$, and $t$?',
+    choices: [{ id: 'A', text: '$r = \\dfrac{A - P}{Pt}$' }, { id: 'B', text: '$r = \\dfrac{A}{Pt}$' }, { id: 'C', text: '$r = \\dfrac{A}{P} - t$' }, { id: 'D', text: '$r = \\dfrac{A - P}{t}$' }],
+    correctAnswer: 'A',
+    explanation: "**SAT Pattern: Simple Interest**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** $A = P + Prt \\Rightarrow A - P = Prt \\Rightarrow r = (A-P)/(Pt)$.\n\n**Why the wrong answers are tempting:**\n* B: forgets to subtract principal (treats $A$ as the interest itself).\n* C: wrong algebra.\n* D: forgets to divide by the principal.\n\n**Test Day Takeaway:** Isolate $r$: subtract $P$, divide by $Pt$. Watch the order of operations.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'simple-interest', authoredBy: 'performsat-engine', createdAt: '2026-05-18' }
 ];

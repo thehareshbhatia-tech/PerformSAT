@@ -252,6 +252,207 @@ const PATTERN_ALIASES = Object.freeze({
   // Complete-the-square for circle center — same as recognizing a circle in
   // general form (you complete the square to extract (h, k, r)).
   'complete-the-square-circle-center': 'circle-in-general-form',
+  'complete-the-square-non-square-radius': 'circle-in-general-form',
+
+  // ── 2026-05-18 batch: Bucket A consolidation (micro-pattern fragments) ───
+  // Median (Q.C.) — 9 micro-variants in bank, all same skill (find median of
+  // a list). Collapse to canonical `median-from-list`.
+  'median-of-sorted-set':              'median-from-list',
+  'median-of-sorted-odd-count-set':    'median-from-list',
+  'median-of-even-count-set':          'median-from-list',
+  'median-of-even-decimal-set':        'median-from-list',
+  'median-after-removal-reasoning':    'median-from-list',
+  'median-from-frequency-table':       'median-from-list',
+  'median-shift-from-insertion':       'median-from-list',
+  'mean-median-comparison':            'median-from-list',
+  'mode-vs-median-comparison':         'median-from-list',
+  'median-calculation':                'median-from-list',
+  'median-for-even-count-data-set':    'median-from-list',
+  'median-from-a-bar-graph':           'median-from-list',
+  'median-of-a-sorted-list':           'median-from-list',
+  'median-of-an-odd-sized-data-set':   'median-from-list',
+  'median-of-an-ordered-list':         'median-from-list',
+
+  // Mode (Q.C.) — same method (most frequent value)
+  'mode-identification':               'mode-from-list',
+  'mode-of-shoe-sizes':                'mode-from-list',
+  'mode-of-a-data-set':                'mode-from-list',
+
+  // Triangle area (S.A.) — 1/2 base × height; surface variants of the same skill
+  'isosceles-triangle-area':           'triangle-area',
+  'triangle-area-with-a-line-constraint': 'triangle-area',
+  'right-triangle-area':               'triangle-area',
+  'right-triangle-area-with-surds':    'triangle-area',
+
+  // Sector area (S.D.) — fraction × π r²; multiple input forms, same method
+  'sector-area-from-central-angle':    'sector-area',
+  'sector-area-from-arc-length':       'sector-area',
+  'sector-area-in-radians':            'sector-area',
+  'circumference-radius-sector':       'sector-area',
+
+  // Circumference (S.A.) — C = 2π r or π d; same skill
+  'circumference-from-diameter':       'circumference-of-a-circle',
+
+  // Radians ↔ degrees conversion (S.C.) — 5 micro-variants all about the
+  // conversion factor π/180 or 180/π. Same method.
+  'degrees-to-radians':                'radians-degrees-conversion',
+  'radians-to-degrees':                'radians-degrees-conversion',
+  'radian-measure-of-a-full-circle':   'radians-degrees-conversion',
+  'degrees-to-radians-with-reduction': 'radians-degrees-conversion',
+  'radian-degree-conversion-factor':   'radians-degrees-conversion',
+
+  // D = R × T word problems (Q.A.) — multiple surface forms of the same skill
+  'rate-time-total':                   'distance-rate-time',
+  'rate-time-total-mixed-units':       'distance-rate-time',
+  'total-rate-time':                   'distance-rate-time',
+  'rate-time':                         'distance-rate-time',
+  'rate-time-with-mixed-units':        'distance-rate-time',
+
+  // Average rate (Q.A.) — total/total
+  'average-rate-over-time':            'average-rate',
+
+  // ── 2026-05-18 batch: Bucket C PT-title naming variants ──────────────────
+  // (PT bundles used variant titles for concepts already covered as canonicals.
+  // Adding aliases so these route to the existing bank pool.)
+  //
+  // Absolute value
+  'absolute-value-equation-splits':    'absolute-value-equation',
+  'absolute-value-of-a-difference':    'absolute-value-equation',
+  // Average
+  'average-of-a-small-data-set':       'mean-from-list',
+  // Percent
+  'basic-percent-of-a-number':         'percent-of-a-number',
+  'percent-change-markup':             'percent-greater-than-less-than',
+  'percent-discount':                  'percent-decrease',
+  'percent-from-counts':               'percent-of-a-whole',
+  'fraction-of-a-whole':               'percent-of-a-whole',
+  'multi-step-percent':                'chained-percent-relationship',
+  'percent-of-a-whole-multi-step':     'chained-percent-relationship',
+  // Geometry — parallel/transversal & similar triangles
+  'corresponding-angles-parallel-lines': 'angles-with-parallel-lines-and-transversals',
+  'similar-triangles-and-area-ratio':  'similar-figures-area-ratio',
+  'similar-triangles-side-ratios':     'similar-triangles-proportion',
+  'similar-triangles-side-splitter-theorem': 'similar-triangles-proportion',
+  // Linear equation — distribution and combining
+  'distributing-the-negative-sign':    'linear-equation-with-distribution',
+  'distributive-property':             'linear-equation-with-distribution',
+  // Line construction — same skill cluster (different setup, same answer form)
+  'equation-of-a-line-from-two-points': 'line-from-two-points',
+  'equation-of-a-line-from-slope-and-point': 'line-from-two-points',
+  'linear-function-from-two-points':   'line-from-two-points',
+  'line-from-slope-and-point':         'line-from-two-points',
+  'points-on-a-line':                  'line-from-two-points',
+  // Function evaluation — direct or via simple manipulation
+  'function-at-a-root':                'function-evaluation',
+  'function-evaluation-with-rational-function': 'function-evaluation',
+  'function-difference':               'function-evaluation',
+  'equation-of-a-line-evaluate':       'function-evaluation',
+  // Solve for input given output
+  'finding-the-x-intercept':           'solve-for-input-from-output',
+  'finding-x-given-y-on-a-line':       'solve-for-input-from-output',
+  'function-equation-solve-for-input': 'solve-for-input-from-output',
+  // Exponent rules — surface variants of the same method
+  'exponent-laws-product-and-quotient': 'common-base-exponent-simplification',
+  'exponent-rules-same-base-multiplication': 'common-base-exponent-simplification',
+  'exponent-rules-with-multiple-variables': 'common-base-exponent-simplification',
+  // Exponential growth/decay — surface variants
+  'exponential-decay':                 'exponential-growth-decay',
+  'exponential-decay-with-half-life':  'exponential-growth-decay',
+  'exponential-growth-model-with-period': 'exponential-growth-decay',
+  // FOIL / matching coefficients — concept fusion under one canonical
+  'foil-multiplying-two-binomials':    'matching-coefficients',
+  'parameterized-quadratic-from-a-functional-identity': 'matching-coefficients',
+  'polynomial-from-zeros-coefficient-match': 'matching-coefficients',
+  'polynomial-from-zeros-value':       'matching-coefficients',
+  'solving-for-a-coefficient-given-a-root': 'matching-coefficients',
+  'sum-product-cubic-identity':        'matching-coefficients',
+  // Probability — counts/joint/independent are all "count favorable / count total"
+  'counting-favorable-outcomes':       'basic-probability',
+  'independent-probability-with-replacement': 'basic-probability',
+  'geometric-probability':             'basic-probability',
+  'simple-probability':                'basic-probability',
+  'joint-probability-from-two-way-table': 'basic-probability',
+  'two-way-table-joint-probability':   'basic-probability',
+  'basic-probability-with-constraint': 'basic-probability',
+  // Identity / contradiction
+  'identifying-contradiction-equations': 'identifying-identity-contradiction-equations',
+  'identifying-identity-equations':    'identifying-identity-contradiction-equations',
+  // Inequality variants
+  'inequality-boundary':               'one-variable-linear-inequality',
+  'smallest-integer-in-an-inequality': 'one-variable-linear-inequality',
+  // Initial value (interpret)
+  'initial-value-in-exponential-function': 'interpret-initial-value-in-context',
+  // Scatterplot — interpret/predict are the same skill
+  'interpreting-scatterplot-association': 'scatterplot-line-of-best-fit',
+  'predicting-from-a-line-of-best-fit': 'scatterplot-line-of-best-fit',
+  // Two-step linear — fraction coefficient is a surface variant
+  'linear-equation-with-fractional-coefficient': 'two-step-linear-equation',
+  // Linear extrapolation — interpret slope to predict future value
+  'linear-function-extrapolation':     'interpret-slope-in-context',
+  // Classify model — recognize linear/exp/quadratic
+  'linear-vs-exponential':             'classify-physical-motion-model',
+  'classify-model-by-expanding':       'classify-physical-motion-model',
+  // Parallel/perpendicular line construction
+  'parallel-lines-and-standard-form':  'parallel-line-through-a-point',
+  'perpendicular-line-through-a-point': 'perpendicular-line-through-point',
+  // Vertex form construction — multiple input formats, same method
+  'parameterized-quadratic-from-zeros-vertex': 'vertex-form-from-two-conditions',
+  'quadratic-from-roots-and-vertex-constraint': 'vertex-form-from-two-conditions',
+  // Vertex form interpretation
+  'quadratic-vertex-form-application': 'interpret-vertex-form',
+  // Square perimeter
+  'perimeter-of-a-square':             'square-perimeter',
+  // Proportion / ratio variants
+  'proportion-solving':                'proportion-ratio',
+  'algebraic-manipulation-of-ratios':  'proportion-ratio',
+  // Distance from center
+  'radius-via-distance-formula':       'distance-from-center-as-radius',
+  // Rational equation — no solution is a sub-case of extraneous (domain check)
+  'rational-equation-with-no-solution': 'rational-equation-with-extraneous-solution',
+  // Rectangle area — perimeter+ratio and radical sides are surface variants
+  'rectangle-from-perimeter-and-side-ratio': 'rectangle-area',
+  'area-with-radical-side-lengths':    'rectangle-area',
+  // Reverse area of circle
+  'reverse-area-of-a-circle':          'area-of-a-circle',
+  // Simplifying radicals
+  'simplifying-and-adding-radicals':   'exponent-rules-with-radicals',
+  // Slope variants
+  'slope-as-rate-of-change':           'slope-as-rate-of-change-in-context',
+  'slope-from-two-points-with-negatives': 'slope-from-two-points',
+  // System — 2×2 single-variable solve = solve-for-a-combination
+  'solve-a-2-times-2-system-for-one-variable': 'solve-for-a-combination',
+  // Function composition variants
+  'solve-for-inner-function-in-a-composition': 'function-composition',
+  // Circle standard form
+  'standard-form-circle-centered-at-origin': 'circle-in-standard-form',
+  // Perfect square trinomial = standard form of (x+a)² (P.A. equivalent expressions)
+  'perfect-square-trinomial':          'vertex-form-to-standard-form',
+  // Word-to-expression translation
+  'word-to-expression-translation':    'word-problem-to-multi-step-linear',
+  // Cube reverse = special rectangular prism
+  'volume-of-a-cube-reverse':          'volume-of-a-rectangular-prism',
+  // Multi-item cost = linear cost model with two-item terms
+  'multi-item-total-cost':             'linear-cost-model',
+  // Solving exponential equation with common base — new canonical (Batch B)
+  'solving-exponential-equation':      'exponential-equation-with-common-base',
+  'exponential-equations-with-common-base': 'exponential-equation-with-common-base',
+  // Exponential function from two conditions = build the model
+  'exponential-function-with-two-conditions': 'build-exponential-model',
+  // Radical equation — multiple surface variants, all about isolating then squaring
+  'square-root-equation':              'radical-equation',
+  'square-root-solutions':             'radical-equation',
+  'square-root-with-sign-restriction': 'radical-equation',
+  'square-root-equation-with-both-roots': 'radical-equation',
+  'radical-equation-with-potential-extraneous-solution': 'radical-equation',
+  // Simple interest variants (Batch B)
+  'simple-interest-linear-growth':     'simple-interest',
+  'simple-interest-model':             'simple-interest',
+  // Completing the square — forward direction (P.A.)
+  'quadratic-completing-the-square':   'completing-the-square',
+  // Scaling a data set
+  'scaling-a-data-set-by-a-constant':  'scaling-a-data-set',
+  // Sector arc & central angle = arc length given central angle
+  'sector-arc-central-angle':          'arc-length',
 });
 
 export const extractSatPattern = (text) => {

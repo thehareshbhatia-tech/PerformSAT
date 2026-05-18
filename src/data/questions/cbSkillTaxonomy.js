@@ -157,6 +157,7 @@ export const PATTERN_TO_CB_SKILL = {
   'common-base-exponent-simplification':     'equivalent-expressions',
   'exponent-rules-with-radicals':            'equivalent-expressions',
   'factor-by-grouping':                      'equivalent-expressions',
+  'completing-the-square':                   'equivalent-expressions', // standard form → vertex form
 
   // ── P.B. Nonlinear equations & systems ────────────────────────────────────
   'quadratic-via-factoring':                 'nonlinear-equations',
@@ -165,6 +166,11 @@ export const PATTERN_TO_CB_SKILL = {
   'vieta-sum-product-of-roots':              'nonlinear-equations',
   'tangent-line-and-discriminant':           'nonlinear-equations',
   'rational-equation-with-extraneous-solution': 'nonlinear-equations', // solve, then check domain
+  'polynomial-remainder-theorem':            'nonlinear-equations', // p(a)=remainder when divided by (x−a)
+  'quadratic-inequality-from-context':       'nonlinear-equations', // ax²+bx+c ≷ 0 from a real-world setup
+  'radical-equation':                        'nonlinear-equations', // √(...) = x — isolate then square
+  'exponential-equation-with-common-base':   'nonlinear-equations', // 2^(3x)=8 — set exponents equal
+  'distance-between-x-intercepts':           'nonlinear-equations', // |root_a − root_b|
 
   // ── P.C. Nonlinear functions ──────────────────────────────────────────────
   'classify-physical-motion-model':          'nonlinear-functions',
@@ -192,6 +198,9 @@ export const PATTERN_TO_CB_SKILL = {
   'sum-of-parts-ratio':                      'ratios-rates-proportions',
   'unit-conversion':                         'ratios-rates-proportions',
   'mixture-problems':                        'ratios-rates-proportions',
+  'distance-rate-time':                      'ratios-rates-proportions', // d = rt word problems
+  'average-rate':                            'ratios-rates-proportions', // total/total
+  'simple-interest':                         'ratios-rates-proportions', // A = P(1 + rt); linear growth
 
   // ── Q.B. Percentages ──────────────────────────────────────────────────────
   'percent-of-a-number':                     'percentages',
@@ -210,6 +219,9 @@ export const PATTERN_TO_CB_SKILL = {
   'outlier-effect':                          'one-variable-data',
   'box-plot-interpretation':                 'one-variable-data',
   'standard-deviation-comparison':           'one-variable-data',
+  'median-from-list':                        'one-variable-data',
+  'mode-from-list':                          'one-variable-data',
+  'scaling-a-data-set':                      'one-variable-data', // effect of × constant on mean/SD
 
   // ── Q.D. Two-variable data (models, scatterplots) ────────────────────────
   'residual':                                'two-variable-data',
@@ -243,12 +255,15 @@ export const PATTERN_TO_CB_SKILL = {
   'symbolic-area-or-volume':                 'area-and-volume', // area/volume expressed in terms of a variable
   'similar-figures-area-ratio':              'area-and-volume', // linear ratio² = area ratio
   'area-of-triangle-from-coordinates':       'area-and-volume', // base-height or shoelace
+  'triangle-area':                           'area-and-volume', // generic 1/2 base × height
+  'circumference-of-a-circle':               'area-and-volume', // C = 2π r or π d
 
   // ── S.B. Lines, angles, and triangles ─────────────────────────────────────
   'triangle-angle-sum':                      'lines-angles-triangles',
   'angles-with-parallel-lines-and-transversals': 'lines-angles-triangles',
   'exterior-angle-theorem':                  'lines-angles-triangles',
   'similar-triangles-proportion':            'lines-angles-triangles',
+  'vertical-angles':                         'lines-angles-triangles', // ∠ = its vertical pair
 
   // ── S.C. Right triangles and trigonometry ─────────────────────────────────
   'right-triangle-pythagorean':              'right-triangles-trig',
@@ -258,6 +273,9 @@ export const PATTERN_TO_CB_SKILL = {
   'soh-cah-toa-in-a-3-4-5-triangle':         'right-triangles-trig',
   'trig-ratio-from-perimeter':               'right-triangles-trig',
   'trig-ratio-with-known-triple':            'right-triangles-trig',
+  'radians-degrees-conversion':              'right-triangles-trig', // π/180 or 180/π
+  '30-60-90-triangle':                       'right-triangles-trig', // sides 1 : √3 : 2
+  '45-45-90-triangle':                       'right-triangles-trig', // sides 1 : 1 : √2
 
   // ── S.D. Circles ──────────────────────────────────────────────────────────
   'circle-in-standard-form':                 'circles',
@@ -265,6 +283,7 @@ export const PATTERN_TO_CB_SKILL = {
   'distance-from-center-as-radius':          'circles',
   'line-tangent-to-circle':                  'circles',
   'arc-length':                              'circles',
+  'sector-area':                             'circles', // (θ/360) · π r²
 };
 
 // ── Lookup helpers ───────────────────────────────────────────────────────────

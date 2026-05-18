@@ -2,6 +2,53 @@
 
 All notable changes to PerformSAT are documented here. Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project follows [Semantic Versioning](https://semver.org/).
 
+## [3.4.0] - 2026-05-18
+
+### Added — PT-coverage gap-closure batch (math bank: 1252 → 1373)
+
+Cross-referenced PT 1-12 math sections (M1 + M2-Easy + M2-Hard, 36 files) against the bank to find every CB question type students could encounter on test day. Found 133 distinct PT pattern titles that fell outside the canonical map: ~60 were pure naming variants of existing patterns, ~9 were micro-fragmented topics with items already in the bank but no canonical slug, and 10 were genuinely missing CB types (no bank coverage at all). This batch closes all three buckets.
+
+**Bucket A — consolidation (existing items + top-up authoring):** added aliases routing micro-variants to new canonicals, then topped up each to ≥8 items.
+- `median-from-list` (Q.C.): 9 micro-variants (`Median of Sorted Set`, `Median After Removal Reasoning`, etc.) consolidated.
+- `mode-from-list` (Q.C.): 3 existing + 6 new = 8.
+- `triangle-area` (S.A.): 3 existing + 5 new = 8 (includes isosceles, right-triangle-area).
+- `sector-area` (S.D.): 5 existing + 3 new = 8.
+- `circumference-of-a-circle` (S.A.): 1 existing + 7 new = 8.
+- `radians-degrees-conversion` (S.C.): 5 existing + 3 new = 8.
+- `30-60-90-triangle` / `45-45-90-triangle` (S.C.): 1 existing each + 7 new each = 8 each.
+- `distance-rate-time` (Q.A.): 4 existing + 4 new = 8 (D=RT word problems).
+- `average-rate` (Q.A.): 1 existing + 7 new = 8 (total/total, distinct from D=RT).
+
+**Bucket B — new patterns (10 genuinely missing CB types, 8 items each):**
+- `vertical-angles` (S.B.).
+- `polynomial-remainder-theorem` (P.B.) — Bluebook + Educator Bank classic.
+- `quadratic-inequality-from-context` (P.B.).
+- `radical-equation` (P.B.) — √(...) = x with extraneous-solution checks.
+- `exponential-equation-with-common-base` (P.B.) — 2^(3x) = 8 family.
+- `simple-interest` (Q.A.) — A = P(1+rt); distinct from compound-interest.
+- `completing-the-square` (P.A.) — forward direction (standard → vertex).
+- `distance-between-x-intercepts` (P.B.) — |root_a − root_b| via Vieta's.
+- `scaling-a-data-set` (Q.C.) — effect of aX + b on mean/SD/median/variance.
+
+**Bucket C — naming-variant aliases (~60 PT title variants):** `equation-of-a-line-from-two-points` → `line-from-two-points`, `corresponding-angles-parallel-lines` → `angles-with-parallel-lines-and-transversals`, `percent-discount` → `percent-decrease`, `foil-multiplying-two-binomials` → `matching-coefficients`, `simple-probability` → `basic-probability`, etc. No new authoring; cleans up the data so every PT pattern resolves cleanly.
+
+### CB skill coverage state
+
+| | 2026-05-16 ([3.3.0]) | 2026-05-18 ([3.4.0]) |
+|---|---:|---:|
+| Healthy CB skills (≥20 items) | 19 | **19** |
+| Thin | 0 | 0 |
+| Empty | 0 | 0 |
+| Hand-authored bank size | 1252 | **1373** |
+| Surfaced patterns (≥4 items) | 102 | **121** |
+
+### Validation receipts
+
+- `npm run bank:validate`: 1373 items, all checks pass.
+- `node scripts/auditCBCoverage.mjs`: 121 surfaced patterns, 0 unmapped, 0 empty CB skills, all 19 CB skills healthy.
+- `CI=true npx react-scripts test --watchAll=false`: 986/986 pass.
+- `CI=true npm run build`: compiled successfully.
+
 ## [3.3.0] - 2026-05-16
 
 ### Added — All 19 CB skills now healthy (math bank: 1125 → 1252)
