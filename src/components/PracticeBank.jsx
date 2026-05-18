@@ -20,30 +20,54 @@ import {
   PATTERN_TO_CB_SKILL,
 } from '../data/questions/cbSkillTaxonomy';
 import { formatPatternLabel } from '../services/selectors/missedPatternLabel';
-import { colors, typography, spacing, radius, shadows, transitions } from '../design/tokens';
+import { typography, spacing, radius, shadows, transitions } from '../design/tokens';
 
-// Patterns with fewer items than this are hidden — too thin a pool for a
-// satisfying drill. The 4-7 range still surfaces (with real count) so
-// students see what's authored even when it falls short of a full round.
+// CB-published domain weights (digital SAT blueprint). Used in the
+// per-domain subtitle ("This domain is X% of Math") for SAT-test parity.
+const DOMAIN_WEIGHTS = {
+  // Math (CB-published spread: Algebra 35%, Advanced Math 35%, PSDA 15%, Geom & Trig 15%)
+  'algebra':         35,
+  'advanced-math':   35,
+  'problem-solving': 15,
+  'geometry':        15,
+  // R&W (CB-published: Info & Ideas 26%, Craft & Structure 28%, SE Conventions 26%, Expression 20%)
+  'information-and-ideas':         26,
+  'craft-and-structure':           28,
+  'standard-english-conventions':  26,
+  'expression-of-ideas':           20,
+};
+
+// Three-color palette pulled from src/design-tokens.css. These are the
+// SAT-test-day color cues the user wants the Practice tab to lean on.
+const PALETTE = {
+  orange:        '#ea580c',
+  orangeHover:   '#c2410c',
+  orangeLight:   'rgba(234, 88, 12, 0.10)',
+  orangeBorder:  'rgba(234, 88, 12, 0.25)',
+  green:         '#C6F432', // neon — chip backgrounds, hero accent strip
+  greenDark:     '#2E4E2C', // neon-on-dark text, chip text
+  greenSoft:     '#EEF8C8', // very pale neon
+  purple:        '#B092DD',
+  purpleSoft:    '#EDE5F8',
+  purpleDark:    '#553775',
+  ink:           '#1D1D1F',
+  inkSecondary:  '#48484A',
+  inkTertiary:   '#636366',
+  surface:       '#FFFFFF',
+  surfaceMuted:  '#FBFBFD',
+  border:        '#E5E5EA',
+  borderSoft:    '#F0F0F2',
+};
+
 const MIN_PATTERN_POOL = 4;
-
 const DRILL_COUNT_PER_TYPE = 10;
 const DRILL_COUNT_PER_SKILL = 15;
 const DRILL_COUNT_PER_DOMAIN = 20;
+const DRILL_COUNT_HERO = 25; // full-section "Launch Practice" round size
 
-// AssignedPracticeShell only supports multiple-choice — fill-in items can't
-// be answered there. Count only drillable items so displayed pool sizes
-// match what students actually get on launch.
 const isDrillable = (q) => Array.isArray(q.choices) && q.choices.length >= 2;
 
-/**
- * Build the math categorization: domain → CB skill → pattern.
- * Runs once at module load. Each domain card surfaces its CB skills (one
- * card section per skill); each skill section lists the patterns with
- * ≥MIN_PATTERN_POOL items in a responsive grid.
- */
 function buildMathCategories() {
-  // patternCounts: pattern → count of drillable items
   const patternCounts = new Map();
   const cbSkillItemCount = new Map();
   const domainTotals = new Map();
@@ -63,8 +87,6 @@ function buildMathCategories() {
     }
   }
 
-  // Group CB skills by domain in the canonical order, with the patterns
-  // surfaced under each.
   const domainOrder = ['algebra', 'advanced-math', 'problem-solving', 'geometry'];
   return domainOrder
     .filter(d => domainTotals.has(d))
@@ -84,8 +106,6 @@ function buildMathCategories() {
             .sort((a, b) => b.count - a.count || a.label.localeCompare(b.label));
           return { ...skill, total, patterns };
         })
-        // Hide empty CB skills (e.g., Q.G. before backfill) from the UI.
-        // They're tracked in the CB-coverage audit, not surfaced to students.
         .filter(skill => skill.total > 0);
       return {
         domain: domainSlug,
@@ -96,10 +116,6 @@ function buildMathCategories() {
     });
 }
 
-/**
- * R&W categorization. R&W is simpler: each canonical College Board skill
- * already maps 1:1 to a domain. No pattern layer below.
- */
 function buildRWCategories() {
   const skillCounts = new Map();
   const domainTotals = new Map();
@@ -133,11 +149,9 @@ function buildRWCategories() {
 const MATH_CATEGORIES = buildMathCategories();
 const RW_CATEGORIES = buildRWCategories();
 
-// ── UI ──────────────────────────────────────────────────────────────────────
-
 const SECTION_TABS = [
+  { id: 'rw',   label: 'Reading and Writing' },
   { id: 'math', label: 'Math' },
-  { id: 'rw', label: 'Reading & Writing' },
 ];
 
 const shuffle = (arr) => {
@@ -153,7 +167,10 @@ const PracticeBank = ({ onStartPractice }) => {
   const [section, setSection] = useState('math');
 
   const categories = section === 'math' ? MATH_CATEGORIES : RW_CATEGORIES;
-  const sectionLabel = section === 'math' ? 'Math' : 'Reading & Writing';
+  const sectionLabel = section === 'math' ? 'Math' : 'Reading and Writing';
+  const sectionDescription = section === 'math'
+    ? 'Algebra · Advanced Math · Problem-Solving and Data Analysis · Geometry and Trigonometry'
+    : 'Information and Ideas · Craft and Structure · Standard English Conventions · Expression of Ideas';
 
   const totalAvailable = useMemo(
     () => categories.reduce((acc, c) => acc + c.total, 0),
@@ -205,84 +222,113 @@ const PracticeBank = ({ onStartPractice }) => {
     });
   };
 
+  const launchFullSection = () => {
+    const all = section === 'math' ? mathQuestionBank : rwQuestionBank;
+    const pool = all.filter(isDrillable);
+    if (pool.length === 0) return;
+    const shuffled = shuffle(pool).slice(0, DRILL_COUNT_HERO);
+    onStartPractice(shuffled.map(q => q.id), {
+      label: `Practice — ${sectionLabel} (full section)`,
+      source: 'practice-bank-full',
+      section,
+    });
+  };
+
   return (
-    <div style={{ maxWidth: '960px', margin: '0 auto', padding: `${spacing.xl} ${spacing.xl} ${spacing['3xl']}` }}>
-      {/* Header */}
-      <div style={{ marginBottom: spacing.xl }}>
-        <h1 style={{
-          fontFamily: typography.narrative,
-          fontSize: typography.sizes['2xl'],
-          fontWeight: typography.weights.semibold,
-          color: colors.text.primary,
-          margin: 0,
-          letterSpacing: typography.letterSpacing.tight,
-        }}>
-          Practice by Question Type
-        </h1>
-        <p style={{
-          fontFamily: typography.narrative,
-          fontSize: typography.sizes.base,
-          color: colors.text.secondary,
-          margin: `${spacing.xs} 0 0`,
-        }}>
-          Browse by official College Board skill, then pick a specific question
-          type to drill. All items are hand-authored to mirror the digital SAT.
-        </p>
-      </div>
-
-      {/* Section pills */}
-      <div role="tablist" aria-label="Section" style={{
-        display: 'inline-flex',
-        gap: spacing.xs,
-        backgroundColor: colors.surface.gray,
-        padding: '4px',
-        borderRadius: radius.full,
-        marginBottom: spacing.xl,
-      }}>
-        {SECTION_TABS.map(tab => {
-          const active = tab.id === section;
-          return (
-            <button
-              key={tab.id}
-              role="tab"
-              aria-selected={active}
-              onClick={() => setSection(tab.id)}
-              style={{
-                fontFamily: typography.fontFamily,
-                fontSize: typography.sizes.sm,
-                fontWeight: active ? typography.weights.semibold : typography.weights.medium,
-                color: active ? colors.text.inverse : colors.text.secondary,
-                backgroundColor: active ? colors.accent.orange : 'transparent',
-                border: 'none',
-                borderRadius: radius.full,
-                padding: `${spacing.xs} ${spacing.lg}`,
-                cursor: 'pointer',
-                transition: `all ${transitions.fast}`,
-              }}
-            >
-              {tab.label}
-            </button>
-          );
-        })}
-      </div>
-
-      {/* Summary line */}
+    <div style={{
+      maxWidth: '1080px',
+      margin: '0 auto',
+      padding: `${spacing.xl} ${spacing.xl} ${spacing['3xl']}`,
+    }}>
+      {/* ───── Header ──────────────────────────────────────────────────────── */}
       <div style={{
-        fontFamily: typography.fontFamily,
-        fontSize: typography.sizes.sm,
-        color: colors.text.tertiary,
-        marginBottom: spacing.lg,
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'flex-start',
+        gap: spacing.lg,
+        marginBottom: spacing['2xl'],
+        flexWrap: 'wrap',
       }}>
-        {totalAvailable.toLocaleString()} {sectionLabel.toLowerCase()} questions in the bank
+        <div style={{ flex: '1 1 480px', minWidth: 0 }}>
+          <h1 style={{
+            fontFamily: typography.narrative,
+            fontSize: '32px',
+            lineHeight: 1.15,
+            fontWeight: typography.weights.bold,
+            color: PALETTE.ink,
+            margin: 0,
+            letterSpacing: '-0.02em',
+          }}>
+            SAT Question Bank
+          </h1>
+          <p style={{
+            fontFamily: typography.narrative,
+            fontSize: typography.sizes.base,
+            color: PALETTE.inkSecondary,
+            margin: `${spacing.sm} 0 0`,
+            maxWidth: '640px',
+            lineHeight: 1.5,
+          }}>
+            Hand-authored practice that mirrors the digital SAT — every question type
+            from College Board's published Bluebook tests and Educator Question Bank,
+            with diagrams that render the way they will on test day.
+          </p>
+        </div>
+
+        {/* Section toggle (top-right, like Acely) */}
+        <SectionToggle section={section} onChange={setSection} />
       </div>
 
-      {/* Domain cards */}
-      <div style={{ display: 'flex', flexDirection: 'column', gap: spacing.lg }}>
-        {categories.map(cat => (
+      {/* ───── Hero "Practice the full section" card ───────────────────────── */}
+      <HeroSectionCard
+        sectionId={section}
+        sectionLabel={sectionLabel}
+        sectionDescription={sectionDescription}
+        totalAvailable={totalAvailable}
+        onLaunch={launchFullSection}
+      />
+
+      {/* ───── Targeted Practice header ────────────────────────────────────── */}
+      <div style={{
+        marginTop: spacing['2xl'],
+        marginBottom: spacing.lg,
+        display: 'flex',
+        alignItems: 'baseline',
+        justifyContent: 'space-between',
+        gap: spacing.md,
+        flexWrap: 'wrap',
+      }}>
+        <h2 style={{
+          fontFamily: typography.narrative,
+          fontSize: '22px',
+          fontWeight: typography.weights.semibold,
+          color: PALETTE.ink,
+          margin: 0,
+          letterSpacing: '-0.01em',
+        }}>
+          Targeted Practice by Domain &amp; Subdomain
+        </h2>
+        <div style={{
+          fontFamily: typography.fontFamily,
+          fontSize: typography.sizes.sm,
+          color: PALETTE.inkTertiary,
+        }}>
+          {categories.length} domain{categories.length === 1 ? '' : 's'} · {totalAvailable.toLocaleString()} questions
+        </div>
+      </div>
+
+      {/* ───── Domain grid (2-up) ──────────────────────────────────────────── */}
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(420px, 1fr))',
+        gap: spacing.lg,
+      }}>
+        {categories.map((cat, idx) => (
           section === 'math'
             ? <MathDomainCard
                 key={cat.domain}
                 cat={cat}
+                accent={pickAccent(idx)}
                 onPatternClick={launchPatternDrill}
                 onSkillClick={launchCBSkillDrill}
                 onDomainMixedClick={launchDomainMixed}
@@ -290,6 +336,7 @@ const PracticeBank = ({ onStartPractice }) => {
             : <RWDomainCard
                 key={cat.domain}
                 cat={cat}
+                accent={pickAccent(idx)}
                 onSkillClick={launchRWSkillDrill}
                 onDomainMixedClick={launchDomainMixed}
               />
@@ -299,239 +346,585 @@ const PracticeBank = ({ onStartPractice }) => {
   );
 };
 
-// ── Math: Domain card with CB-skill subsections ─────────────────────────────
+// Rotate the orange/green/purple accent across the domain cards so the grid
+// has visual rhythm rather than four identical orange-tinted cards.
+const ACCENTS = ['orange', 'green', 'purple', 'orange'];
+const pickAccent = (idx) => ACCENTS[idx % ACCENTS.length];
 
-const MathDomainCard = ({ cat, onPatternClick, onSkillClick, onDomainMixedClick }) => {
-  const visibleSkills = cat.cbSkills.filter(s => s.total > 0);
-  const hasContent = visibleSkills.length > 0;
+const ACCENT_STYLES = {
+  orange: {
+    rail:     PALETTE.orange,
+    chipBg:   PALETTE.orangeLight,
+    chipText: PALETTE.orange,
+    linkText: PALETTE.orange,
+    linkHover: PALETTE.orangeHover,
+  },
+  green: {
+    rail:     PALETTE.greenDark,
+    chipBg:   PALETTE.green,
+    chipText: PALETTE.greenDark,
+    linkText: PALETTE.greenDark,
+    linkHover: '#1F3D1F',
+  },
+  purple: {
+    rail:     PALETTE.purpleDark,
+    chipBg:   PALETTE.purpleSoft,
+    chipText: PALETTE.purpleDark,
+    linkText: PALETTE.purpleDark,
+    linkHover: '#3D2052',
+  },
+};
 
+// ────────────────────────────────────────────────────────────────────────────
+// SectionToggle
+// ────────────────────────────────────────────────────────────────────────────
+const SectionToggle = ({ section, onChange }) => (
+  <div role="tablist" aria-label="Section" style={{
+    display: 'inline-flex',
+    backgroundColor: PALETTE.surface,
+    border: `1px solid ${PALETTE.border}`,
+    borderRadius: radius.full,
+    padding: '4px',
+    boxShadow: shadows.sm,
+  }}>
+    {SECTION_TABS.map(tab => {
+      const active = tab.id === section;
+      return (
+        <button
+          key={tab.id}
+          role="tab"
+          aria-selected={active}
+          onClick={() => onChange(tab.id)}
+          style={{
+            fontFamily: typography.fontFamily,
+            fontSize: typography.sizes.sm,
+            fontWeight: active ? typography.weights.semibold : typography.weights.medium,
+            color: active ? PALETTE.ink : PALETTE.inkTertiary,
+            backgroundColor: active ? PALETTE.green : 'transparent',
+            border: 'none',
+            borderRadius: radius.full,
+            padding: `8px 16px`,
+            cursor: 'pointer',
+            transition: `all ${transitions.fast}`,
+          }}
+        >
+          {tab.label}
+        </button>
+      );
+    })}
+  </div>
+);
+
+// ────────────────────────────────────────────────────────────────────────────
+// HeroSectionCard
+// ────────────────────────────────────────────────────────────────────────────
+const HeroSectionCard = ({ sectionId, sectionLabel, sectionDescription, totalAvailable, onLaunch }) => {
+  const isMath = sectionId === 'math';
   return (
     <section style={{
-      backgroundColor: colors.surface.white,
-      border: `1px solid ${colors.surface.grayDark}`,
+      backgroundColor: PALETTE.surface,
+      border: `1px solid ${PALETTE.border}`,
       borderRadius: radius.lg,
-      padding: spacing.lg,
-      boxShadow: shadows.sm,
+      padding: spacing.xl,
+      boxShadow: shadows.md,
+      display: 'flex',
+      alignItems: 'center',
+      gap: spacing.lg,
+      flexWrap: 'wrap',
+      position: 'relative',
+      overflow: 'hidden',
     }}>
-      {/* Domain header */}
+      {/* Ambient gradient strip on the left edge — orange for both sections */}
       <div style={{
+        position: 'absolute',
+        left: 0,
+        top: 0,
+        bottom: 0,
+        width: '4px',
+        background: 'linear-gradient(180deg, #ea580c 0%, #C6F432 100%)',
+      }} />
+
+      {/* Icon */}
+      <div style={{
+        width: '64px',
+        height: '64px',
+        borderRadius: radius.md,
+        backgroundColor: PALETTE.orangeLight,
         display: 'flex',
-        alignItems: 'flex-start',
-        justifyContent: 'space-between',
-        gap: spacing.md,
-        marginBottom: spacing.md,
-        flexWrap: 'wrap',
-      }}>
-        <div>
-          <h2 style={{
-            fontFamily: typography.narrative,
-            fontSize: typography.sizes.lg,
-            fontWeight: typography.weights.semibold,
-            color: colors.text.primary,
-            margin: 0,
-            letterSpacing: typography.letterSpacing.tight,
-          }}>
-            {cat.label}
-          </h2>
-          <div style={{
-            fontFamily: typography.fontFamily,
-            fontSize: typography.sizes.xs,
-            color: colors.text.tertiary,
-            marginTop: '2px',
-          }}>
-            {cat.total.toLocaleString()} questions · {visibleSkills.length} College Board skill{visibleSkills.length === 1 ? '' : 's'}
-          </div>
-        </div>
-        {hasContent && (
-          <DomainMixedButton onClick={() => onDomainMixedClick(cat.domain, cat.label)} />
+        alignItems: 'center',
+        justifyContent: 'center',
+        flexShrink: 0,
+      }} aria-hidden>
+        {isMath ? (
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+            <path d="M3 6h18M3 12h18M3 18h18" stroke="#ea580c" strokeWidth="2" strokeLinecap="round"/>
+            <circle cx="8" cy="6"  r="1.4" fill="#ea580c" />
+            <circle cx="14" cy="12" r="1.4" fill="#ea580c" />
+            <circle cx="11" cy="18" r="1.4" fill="#ea580c" />
+          </svg>
+        ) : (
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+            <path d="M4 4h7v16H4V4zm9 0h7v16h-7V4z" stroke="#ea580c" strokeWidth="2" strokeLinejoin="round"/>
+            <path d="M6 8h3M6 11h3M15 8h3M15 11h3M15 14h3" stroke="#ea580c" strokeWidth="1.5" strokeLinecap="round"/>
+          </svg>
         )}
       </div>
 
-      {/* CB Skill sections */}
-      {!hasContent ? (
-        <EmptyMessage />
-      ) : (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: spacing.lg }}>
-          {visibleSkills.map(skill => (
-            <CBSkillSection
-              key={skill.slug}
-              skill={skill}
-              onPatternClick={onPatternClick}
-              onSkillClick={onSkillClick}
-            />
-          ))}
+      {/* Title + description */}
+      <div style={{ flex: '1 1 320px', minWidth: 0 }}>
+        <div style={{
+          fontFamily: typography.narrative,
+          fontSize: '22px',
+          fontWeight: typography.weights.semibold,
+          color: PALETTE.ink,
+          margin: 0,
+          letterSpacing: '-0.01em',
+        }}>
+          Practice the {sectionLabel} Section
         </div>
-      )}
+        <div style={{
+          fontFamily: typography.fontFamily,
+          fontSize: typography.sizes.sm,
+          color: PALETTE.inkTertiary,
+          marginTop: '6px',
+        }}>
+          {sectionDescription}
+        </div>
+      </div>
+
+      {/* Counter chip (neon green, like Acely's accuracy chip but showing pool size) */}
+      <div style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'flex-end',
+        gap: '4px',
+      }}>
+        <div style={{
+          fontFamily: typography.fontFamily,
+          fontSize: typography.sizes.xs,
+          fontWeight: typography.weights.semibold,
+          color: PALETTE.inkTertiary,
+          textTransform: 'uppercase',
+          letterSpacing: '0.06em',
+        }}>
+          Available
+        </div>
+        <div style={{
+          fontFamily: typography.fontFamily,
+          fontSize: typography.sizes.base,
+          fontWeight: typography.weights.bold,
+          color: PALETTE.greenDark,
+          backgroundColor: PALETTE.green,
+          padding: '4px 14px',
+          borderRadius: radius.full,
+          lineHeight: 1.2,
+        }}>
+          {totalAvailable.toLocaleString()} questions
+        </div>
+      </div>
+
+      {/* CTA */}
+      <button
+        onClick={onLaunch}
+        style={{
+          fontFamily: typography.fontFamily,
+          fontSize: typography.sizes.base,
+          fontWeight: typography.weights.semibold,
+          color: '#FFFFFF',
+          backgroundColor: PALETTE.orange,
+          border: 'none',
+          borderRadius: radius.md,
+          padding: '12px 24px',
+          cursor: 'pointer',
+          transition: `all ${transitions.fast}`,
+          boxShadow: '0 4px 12px rgba(234, 88, 12, 0.25)',
+          whiteSpace: 'nowrap',
+        }}
+        onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = PALETTE.orangeHover; }}
+        onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = PALETTE.orange; }}
+      >
+        Launch Practice →
+      </button>
     </section>
   );
 };
 
-const CBSkillSection = ({ skill, onPatternClick, onSkillClick }) => {
-  const hasPatterns = skill.patterns.length > 0;
+// ────────────────────────────────────────────────────────────────────────────
+// MathDomainCard
+// ────────────────────────────────────────────────────────────────────────────
+const MathDomainCard = ({ cat, accent, onPatternClick, onSkillClick, onDomainMixedClick }) => {
+  const visibleSkills = cat.cbSkills.filter(s => s.total > 0);
+  const hasContent = visibleSkills.length > 0;
+  const weight = DOMAIN_WEIGHTS[cat.domain];
+  const accentStyle = ACCENT_STYLES[accent];
 
   return (
-    <div style={{
-      borderLeft: `3px solid ${colors.accent.orangeLight}`,
-      paddingLeft: spacing.md,
+    <section style={{
+      backgroundColor: PALETTE.surface,
+      border: `1px solid ${PALETTE.border}`,
+      borderRadius: radius.lg,
+      boxShadow: shadows.sm,
+      overflow: 'hidden',
+      display: 'flex',
+      flexDirection: 'column',
     }}>
-      {/* Skill header row */}
+      {/* Top rail */}
+      <div style={{ height: '4px', backgroundColor: accentStyle.rail }} />
+
+      {/* Header */}
       <div style={{
-        display: 'flex',
-        alignItems: 'baseline',
-        justifyContent: 'space-between',
-        gap: spacing.sm,
-        flexWrap: 'wrap',
-        marginBottom: spacing.sm,
+        padding: `${spacing.lg} ${spacing.lg} 0`,
       }}>
-        <div style={{ minWidth: 0, flex: 1 }}>
-          <h3 style={{
-            fontFamily: typography.narrative,
-            fontSize: typography.sizes.base,
-            fontWeight: typography.weights.semibold,
-            color: colors.text.primary,
-            margin: 0,
-          }}>
-            {skill.label}
-          </h3>
-          <div style={{
-            fontFamily: typography.fontFamily,
-            fontSize: typography.sizes.xs,
-            color: colors.text.tertiary,
-            marginTop: '2px',
-          }}>
-            {skill.total} question{skill.total === 1 ? '' : 's'}
-            {hasPatterns && ` · ${skill.patterns.length} specific question type${skill.patterns.length === 1 ? '' : 's'}`}
+        <div style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'flex-start',
+          gap: spacing.md,
+        }}>
+          <div style={{ flex: 1, minWidth: 0 }}>
+            <h3 style={{
+              fontFamily: typography.narrative,
+              fontSize: '20px',
+              fontWeight: typography.weights.semibold,
+              color: PALETTE.ink,
+              margin: 0,
+              letterSpacing: '-0.01em',
+            }}>
+              {cat.label}
+            </h3>
+            <div style={{
+              fontFamily: typography.fontFamily,
+              fontSize: typography.sizes.sm,
+              color: PALETTE.inkTertiary,
+              marginTop: '4px',
+            }}>
+              This domain is {weight}% of Math.
+            </div>
           </div>
+          <span style={chipStyle(accentStyle)}>{cat.total} items</span>
         </div>
-        <button
-          onClick={() => onSkillClick(skill.slug, skill.label)}
-          style={pillButtonStyle}
-          onMouseEnter={e => { e.currentTarget.style.backgroundColor = colors.accent.orangeMuted; }}
-          onMouseLeave={e => { e.currentTarget.style.backgroundColor = colors.accent.orangeLight; }}
-        >
-          Practice ({Math.min(skill.total, DRILL_COUNT_PER_SKILL)} mixed)
-        </button>
+
+        {hasContent && (
+          <button
+            onClick={() => onDomainMixedClick(cat.domain, cat.label)}
+            style={domainLinkStyle(accentStyle)}
+            onMouseEnter={(e) => { e.currentTarget.style.color = accentStyle.linkHover; }}
+            onMouseLeave={(e) => { e.currentTarget.style.color = accentStyle.linkText; }}
+          >
+            Practice this Domain →
+          </button>
+        )}
       </div>
 
-      {/* Pattern grid (specific question types) */}
-      {hasPatterns ? (
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))',
-          gap: spacing.xs,
-        }}>
-          {skill.patterns.map(pat => (
-            <QuestionTypeRow
-              key={pat.slug}
-              item={pat}
-              onClick={() => onPatternClick(pat.slug, pat.label)}
-            />
-          ))}
-        </div>
-      ) : (
+      {/* Divider */}
+      <div style={{ height: '1px', backgroundColor: PALETTE.borderSoft, margin: `${spacing.md} ${spacing.lg} 0` }} />
+
+      {/* Subdomain list */}
+      <div style={{
+        padding: `${spacing.md} ${spacing.lg} ${spacing.lg}`,
+        flex: 1,
+        display: 'flex',
+        flexDirection: 'column',
+        gap: spacing.xs,
+      }}>
         <div style={{
           fontFamily: typography.fontFamily,
           fontSize: typography.sizes.xs,
-          color: colors.text.tertiary,
-          fontStyle: 'italic',
-          padding: `${spacing.xs} 0`,
+          fontWeight: typography.weights.semibold,
+          color: PALETTE.inkTertiary,
+          textTransform: 'uppercase',
+          letterSpacing: '0.06em',
+          marginBottom: '4px',
         }}>
-          Mixed practice only — specific question types coming soon.
+          Practice a subdomain
+        </div>
+        {!hasContent ? (
+          <EmptyMessage />
+        ) : (
+          visibleSkills.map(skill => (
+            <SubdomainRow
+              key={skill.slug}
+              label={skill.short || skill.label}
+              count={skill.total}
+              hasPatterns={skill.patterns.length > 0}
+              patterns={skill.patterns}
+              accent={accentStyle}
+              onClick={() => onSkillClick(skill.slug, skill.label)}
+              onPatternClick={onPatternClick}
+            />
+          ))
+        )}
+      </div>
+    </section>
+  );
+};
+
+// ────────────────────────────────────────────────────────────────────────────
+// RWDomainCard
+// ────────────────────────────────────────────────────────────────────────────
+const RWDomainCard = ({ cat, accent, onSkillClick, onDomainMixedClick }) => {
+  const hasItems = cat.skills.length > 0;
+  const weight = DOMAIN_WEIGHTS[cat.domain];
+  const accentStyle = ACCENT_STYLES[accent];
+
+  return (
+    <section style={{
+      backgroundColor: PALETTE.surface,
+      border: `1px solid ${PALETTE.border}`,
+      borderRadius: radius.lg,
+      boxShadow: shadows.sm,
+      overflow: 'hidden',
+      display: 'flex',
+      flexDirection: 'column',
+    }}>
+      <div style={{ height: '4px', backgroundColor: accentStyle.rail }} />
+      <div style={{ padding: `${spacing.lg} ${spacing.lg} 0` }}>
+        <div style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'flex-start',
+          gap: spacing.md,
+        }}>
+          <div style={{ flex: 1, minWidth: 0 }}>
+            <h3 style={{
+              fontFamily: typography.narrative,
+              fontSize: '20px',
+              fontWeight: typography.weights.semibold,
+              color: PALETTE.ink,
+              margin: 0,
+              letterSpacing: '-0.01em',
+            }}>
+              {cat.label}
+            </h3>
+            <div style={{
+              fontFamily: typography.fontFamily,
+              fontSize: typography.sizes.sm,
+              color: PALETTE.inkTertiary,
+              marginTop: '4px',
+            }}>
+              This domain is {weight}% of the R&amp;W section.
+            </div>
+          </div>
+          <span style={chipStyle(accentStyle)}>{cat.total} items</span>
+        </div>
+
+        {hasItems && (
+          <button
+            onClick={() => onDomainMixedClick(cat.domain, cat.label)}
+            style={domainLinkStyle(accentStyle)}
+            onMouseEnter={(e) => { e.currentTarget.style.color = accentStyle.linkHover; }}
+            onMouseLeave={(e) => { e.currentTarget.style.color = accentStyle.linkText; }}
+          >
+            Practice this Domain →
+          </button>
+        )}
+      </div>
+
+      <div style={{ height: '1px', backgroundColor: PALETTE.borderSoft, margin: `${spacing.md} ${spacing.lg} 0` }} />
+
+      <div style={{
+        padding: `${spacing.md} ${spacing.lg} ${spacing.lg}`,
+        flex: 1,
+        display: 'flex',
+        flexDirection: 'column',
+        gap: spacing.xs,
+      }}>
+        <div style={{
+          fontFamily: typography.fontFamily,
+          fontSize: typography.sizes.xs,
+          fontWeight: typography.weights.semibold,
+          color: PALETTE.inkTertiary,
+          textTransform: 'uppercase',
+          letterSpacing: '0.06em',
+          marginBottom: '4px',
+        }}>
+          Practice a subdomain
+        </div>
+        {!hasItems ? (
+          <EmptyMessage />
+        ) : (
+          cat.skills.map(item => (
+            <SubdomainRow
+              key={item.slug}
+              label={item.label}
+              count={item.count}
+              hasPatterns={false}
+              patterns={[]}
+              accent={accentStyle}
+              onClick={() => onSkillClick(item.slug, item.label)}
+            />
+          ))
+        )}
+      </div>
+    </section>
+  );
+};
+
+// ────────────────────────────────────────────────────────────────────────────
+// SubdomainRow + ChevronRow (expandable for math sub-patterns)
+// ────────────────────────────────────────────────────────────────────────────
+const SubdomainRow = ({ label, count, hasPatterns, patterns, accent, onClick, onPatternClick }) => {
+  const [expanded, setExpanded] = useState(false);
+
+  return (
+    <div style={{
+      borderRadius: radius.md,
+      backgroundColor: expanded ? PALETTE.surfaceMuted : 'transparent',
+      transition: `background-color ${transitions.fast}`,
+    }}>
+      <div style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        gap: spacing.sm,
+        padding: `10px 12px`,
+        borderRadius: radius.md,
+        cursor: 'pointer',
+      }}
+        onMouseEnter={(e) => { if (!expanded) e.currentTarget.parentElement.style.backgroundColor = PALETTE.surfaceMuted; }}
+        onMouseLeave={(e) => { if (!expanded) e.currentTarget.parentElement.style.backgroundColor = 'transparent'; }}
+      >
+        <button
+          onClick={onClick}
+          style={{
+            fontFamily: typography.fontFamily,
+            fontSize: typography.sizes.sm,
+            fontWeight: typography.weights.semibold,
+            color: accent.linkText,
+            background: 'none',
+            border: 'none',
+            cursor: 'pointer',
+            padding: 0,
+            textAlign: 'left',
+            flex: 1,
+            minWidth: 0,
+            lineHeight: 1.35,
+            wordBreak: 'normal',
+            overflowWrap: 'break-word',
+          }}
+          onMouseEnter={(e) => { e.currentTarget.style.color = accent.linkHover; }}
+          onMouseLeave={(e) => { e.currentTarget.style.color = accent.linkText; }}
+        >
+          {label}
+        </button>
+        <div style={{ display: 'flex', alignItems: 'center', gap: spacing.xs }}>
+          <span style={chipStyle(accent)}>{count}</span>
+          {hasPatterns && (
+            <button
+              onClick={() => setExpanded(v => !v)}
+              aria-label={expanded ? 'Hide question types' : 'Show question types'}
+              style={{
+                background: 'none',
+                border: 'none',
+                cursor: 'pointer',
+                padding: '4px',
+                color: PALETTE.inkTertiary,
+                lineHeight: 0,
+              }}
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style={{
+                transform: expanded ? 'rotate(180deg)' : 'rotate(0deg)',
+                transition: `transform ${transitions.fast}`,
+              }}>
+                <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
+          )}
+        </div>
+      </div>
+
+      {/* Expanded pattern list (math only) */}
+      {hasPatterns && expanded && (
+        <div style={{
+          padding: `0 12px 12px`,
+          display: 'grid',
+          gridTemplateColumns: '1fr',
+          gap: '4px',
+        }}>
+          {patterns.map(p => (
+            <button
+              key={p.slug}
+              onClick={() => onPatternClick(p.slug, p.label)}
+              style={{
+                fontFamily: typography.fontFamily,
+                fontSize: typography.sizes.xs,
+                color: PALETTE.inkSecondary,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                gap: spacing.xs,
+                padding: '6px 10px',
+                borderRadius: radius.sm,
+                border: 'none',
+                backgroundColor: PALETTE.surface,
+                cursor: 'pointer',
+                transition: `all ${transitions.fast}`,
+                textAlign: 'left',
+                width: '100%',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = PALETTE.orangeLight;
+                e.currentTarget.style.color = PALETTE.orange;
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = PALETTE.surface;
+                e.currentTarget.style.color = PALETTE.inkSecondary;
+              }}
+            >
+              <span style={{
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
+                whiteSpace: 'nowrap',
+                flex: 1,
+                minWidth: 0,
+              }}>{p.label}</span>
+              <span style={{
+                fontSize: '10px',
+                fontWeight: typography.weights.semibold,
+                color: PALETTE.inkTertiary,
+                flexShrink: 0,
+              }}>{p.count}</span>
+            </button>
+          ))}
         </div>
       )}
     </div>
   );
 };
 
-// ── R&W: Domain card with CB skill rows (no pattern layer) ──────────────────
+// ────────────────────────────────────────────────────────────────────────────
+// Shared helpers
+// ────────────────────────────────────────────────────────────────────────────
+const chipStyle = (accent) => ({
+  fontFamily: typography.fontFamily,
+  fontSize: typography.sizes.xs,
+  fontWeight: typography.weights.bold,
+  color: accent.chipText,
+  backgroundColor: accent.chipBg,
+  padding: '4px 10px',
+  borderRadius: radius.full,
+  whiteSpace: 'nowrap',
+  lineHeight: 1.4,
+});
 
-const RWDomainCard = ({ cat, onSkillClick, onDomainMixedClick }) => {
-  const hasItems = cat.skills.length > 0;
-
-  return (
-    <section style={{
-      backgroundColor: colors.surface.white,
-      border: `1px solid ${colors.surface.grayDark}`,
-      borderRadius: radius.lg,
-      padding: spacing.lg,
-      boxShadow: shadows.sm,
-    }}>
-      <div style={{
-        display: 'flex',
-        alignItems: 'flex-start',
-        justifyContent: 'space-between',
-        gap: spacing.md,
-        marginBottom: spacing.md,
-        flexWrap: 'wrap',
-      }}>
-        <div>
-          <h2 style={{
-            fontFamily: typography.narrative,
-            fontSize: typography.sizes.lg,
-            fontWeight: typography.weights.semibold,
-            color: colors.text.primary,
-            margin: 0,
-            letterSpacing: typography.letterSpacing.tight,
-          }}>
-            {cat.label}
-          </h2>
-          <div style={{
-            fontFamily: typography.fontFamily,
-            fontSize: typography.sizes.xs,
-            color: colors.text.tertiary,
-            marginTop: '2px',
-          }}>
-            {cat.total.toLocaleString()} questions · {cat.skills.length} College Board skill{cat.skills.length === 1 ? '' : 's'}
-          </div>
-        </div>
-        {hasItems && (
-          <DomainMixedButton onClick={() => onDomainMixedClick(cat.domain, cat.label)} />
-        )}
-      </div>
-
-      {!hasItems ? (
-        <EmptyMessage />
-      ) : (
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
-          gap: spacing.xs,
-        }}>
-          {cat.skills.map(item => (
-            <QuestionTypeRow
-              key={item.slug}
-              item={{ label: item.label, count: item.count }}
-              onClick={() => onSkillClick(item.slug, item.label)}
-            />
-          ))}
-        </div>
-      )}
-    </section>
-  );
-};
-
-// ── Shared subcomponents ────────────────────────────────────────────────────
-
-const DomainMixedButton = ({ onClick }) => (
-  <button
-    onClick={onClick}
-    style={{
-      ...pillButtonStyle,
-      fontSize: typography.sizes.sm,
-      padding: `${spacing.xs} ${spacing.md}`,
-    }}
-    onMouseEnter={e => { e.currentTarget.style.backgroundColor = colors.accent.orangeMuted; }}
-    onMouseLeave={e => { e.currentTarget.style.backgroundColor = colors.accent.orangeLight; }}
-  >
-    Mixed practice ({DRILL_COUNT_PER_DOMAIN})
-  </button>
-);
+const domainLinkStyle = (accent) => ({
+  fontFamily: typography.fontFamily,
+  fontSize: typography.sizes.sm,
+  fontWeight: typography.weights.semibold,
+  color: accent.linkText,
+  background: 'none',
+  border: 'none',
+  padding: 0,
+  cursor: 'pointer',
+  marginTop: spacing.sm,
+  transition: `color ${transitions.fast}`,
+});
 
 const EmptyMessage = () => (
   <div style={{
     fontFamily: typography.fontFamily,
     fontSize: typography.sizes.sm,
-    color: colors.text.tertiary,
+    color: PALETTE.inkTertiary,
     fontStyle: 'italic',
     padding: spacing.md,
     textAlign: 'center',
@@ -539,79 +932,5 @@ const EmptyMessage = () => (
     No question types yet. Authoring is ongoing.
   </div>
 );
-
-const QuestionTypeRow = ({ item, onClick }) => {
-  const disabled = item.count === 0;
-  return (
-    <button
-      onClick={onClick}
-      disabled={disabled}
-      style={{
-        fontFamily: typography.fontFamily,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        gap: spacing.sm,
-        textAlign: 'left',
-        padding: `${spacing.sm} ${spacing.md}`,
-        borderRadius: radius.md,
-        border: `1px solid ${colors.surface.grayDark}`,
-        backgroundColor: colors.surface.white,
-        cursor: disabled ? 'not-allowed' : 'pointer',
-        opacity: disabled ? 0.5 : 1,
-        transition: `all ${transitions.fast}`,
-        width: '100%',
-      }}
-      onMouseEnter={e => {
-        if (disabled) return;
-        e.currentTarget.style.borderColor = colors.accent.orange;
-        e.currentTarget.style.backgroundColor = colors.accent.orangeLight;
-      }}
-      onMouseLeave={e => {
-        if (disabled) return;
-        e.currentTarget.style.borderColor = colors.surface.grayDark;
-        e.currentTarget.style.backgroundColor = colors.surface.white;
-      }}
-    >
-      <span style={{
-        fontSize: typography.sizes.sm,
-        fontWeight: typography.weights.medium,
-        color: colors.text.primary,
-        flex: 1,
-        minWidth: 0,
-        overflow: 'hidden',
-        textOverflow: 'ellipsis',
-        whiteSpace: 'nowrap',
-      }}>
-        {item.label}
-      </span>
-      <span style={{
-        fontSize: typography.sizes.xs,
-        fontWeight: typography.weights.semibold,
-        color: colors.text.tertiary,
-        backgroundColor: colors.surface.gray,
-        borderRadius: radius.full,
-        padding: `2px 10px`,
-        flexShrink: 0,
-      }}>
-        {item.count}
-      </span>
-    </button>
-  );
-};
-
-const pillButtonStyle = {
-  fontFamily: typography.fontFamily,
-  fontSize: typography.sizes.xs,
-  fontWeight: typography.weights.semibold,
-  color: colors.accent.orange,
-  backgroundColor: colors.accent.orangeLight,
-  border: 'none',
-  borderRadius: radius.md,
-  padding: `${spacing.xs} ${spacing.sm}`,
-  cursor: 'pointer',
-  transition: `all ${transitions.fast}`,
-  whiteSpace: 'nowrap',
-};
 
 export default PracticeBank;
