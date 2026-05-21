@@ -209,6 +209,38 @@ Unit tests live next to source as `__tests__/X.test.js`. Use `CI=true npx react-
 | `node scripts/validateRWBank.mjs --all` | Validate R&W test-bundle authenticity / passage uniqueness |
 | `npm run tabs:validate` | Validate lesson content tabs |
 | `npm run test:e2e` | Playwright smoke E2E (skips without `PERFORMSAT_TEST_EMAIL` / `_PASSWORD` env vars). Tests in `e2e/`, config at `playwright.config.js`. Requires the dev server running. |
+| `node scripts/auditPracticeBank.mjs` | Inventory math + R&W bank by pattern; flag patterns under the 4-item drillability threshold. Outputs `scripts/audit-output/practice-bank-inventory.{json,md}`. |
+| `node scripts/runTier1.mjs` | AI-author pipeline for bank growth (see "Tier 1 pipeline" below). Needs `ANTHROPIC_API_KEY`. |
+
+### Tier 1 pipeline (AI-authored bank growth)
+
+Four scripts that grow thin patterns from 4 items to 10+ with a Claude-graded quality gate. Each script is single-purpose and composable:
+
+| Script | Purpose |
+|---|---|
+| `scripts/authorMathItem.mjs --slug=X --count=10` | Generates N candidate items for a target pattern using Claude. Anchors on existing items in that pattern. Post-hoc validates: canonical `**SAT Pattern: ...**` header (no parenthetical qualifiers), no visual-cue stems without a `diagram` field, required fields present. Writes `scripts/generated/candidate-items-{slug}.jsonl`. |
+| `scripts/gradeCandidates.mjs --in=...candidate-items-X.jsonl` | Scores each candidate on the 5-dim CB authenticity rubric (stem clarity, distractor quality, notation, difficulty calibration, overall). Accepts items with all dims ≥ 4/5. Writes `accepted-items-{slug}.jsonl` and `rejected-items-{slug}.jsonl`. |
+| `scripts/appendCandidates.mjs --in=...accepted-items-X.jsonl` | Appends accepted items to the correct bank shard as JS object literals. Idempotent (skips IDs already present). |
+| `scripts/runTier1.mjs [--patterns=a,b] [--count=10] [--target-depth=10] [--skip-grade]` | Orchestrator: iterates `scripts/audit-output/tier1-target-patterns.json` and runs author → grade → append → re-audit per pattern. Idempotent via cached candidate JSONL. |
+
+Run example (full batch, ~50 patterns, ~500 candidates):
+
+```
+ANTHROPIC_API_KEY=sk-ant-... node scripts/runTier1.mjs --count=10 --target-depth=10
+```
+
+Run example (pilot one pattern):
+
+```
+ANTHROPIC_API_KEY=sk-ant-... node scripts/runTier1.mjs --patterns=slope-from-two-points
+```
+
+Two guardrails baked into the prompt + post-hoc validator (learned the hard way during Tier 0):
+
+1. **No parenthetical qualifiers in the SAT Pattern header.** The extractor in `extractSatPattern.js` kebab-cases everything between `**SAT Pattern:` and `**`. `"Mean from List (back-solve)"` slugifies to `mean-from-list-back-solve` — a new long-tail variant — instead of contributing to `mean-from-list`.
+2. **No visual-cue phrases in stems unless a `diagram` field is provided.** `scripts/auditMissingDiagrams.mjs --strict` flags "scatterplot", "line of best fit", "the figure", "the table above/below/shown", "histogram", "residual", "box plot", "dot plot". For interpretation items about a regression line that don't need a chart, reword to "linear model" / "using $\hat{y} = ...$".
+
+For higher-rigor cross-model validation, you can also run `bun scripts/gradeBankAuthenticity.mjs --ids=...` (codex/OpenAI) after merging — that's the existing post-merge audit.
 
 ## Ship history (recent batches)
 
