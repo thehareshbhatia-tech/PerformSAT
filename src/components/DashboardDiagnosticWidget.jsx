@@ -256,7 +256,7 @@ const DashboardDiagnosticWidget = ({
         </div>
 
         <div style={{ background: 'white', borderRadius: '16px', padding: '1.5rem', border: '1px solid var(--color-slate-200)' }}>
-          <div style={{ fontSize: '1rem', fontWeight: '600', color: 'var(--color-brand-navy)', marginBottom: '0.25rem' }}>Your Score & PerformSAT</div>
+          <div style={{ fontSize: '1rem', fontWeight: '600', color: 'var(--color-brand-navy)', marginBottom: '0.25rem' }}>Your Score & SEVA</div>
           <div style={{ fontSize: '0.875rem', color: 'var(--color-slate-500)', marginBottom: '1.5rem' }}>You scored higher than {percentile?.percentile || 90}% of users.</div>
           
           {/* Simple Bell Curve SVG */}

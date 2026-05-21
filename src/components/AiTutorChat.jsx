@@ -929,7 +929,7 @@ Your goal is to build their problem-solving instincts. Every question they solve
               color: design.colors.text.primary,
               letterSpacing: '-0.02em'
             }}>
-              Perform
+              SEVA
             </span>
             {isVideoLesson && videoTranscript && (
               <span style={{
@@ -1644,7 +1644,7 @@ export const AiTutorButton = ({ onClick, isOpen }) => {
         letterSpacing: '-0.02em',
         whiteSpace: 'nowrap'
       }}>
-        {isOpen ? 'Close' : 'Ask Perform'}
+        {isOpen ? 'Close' : 'Ask SEVA'}
       </span>
     </button>
   );

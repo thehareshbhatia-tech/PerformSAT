@@ -79,7 +79,7 @@ const Onboarding = ({ user, onUpdateTargetScore, onUpdateTestDate, onUpdateCurre
           marginBottom: spacing.sm,
           letterSpacing: typography.letterSpacing.tight,
         }}>
-          Welcome to Perform, {user?.firstName || 'Student'}!
+          Welcome to SEVA, {user?.firstName || 'Student'}!
         </h1>
 
         <p style={{

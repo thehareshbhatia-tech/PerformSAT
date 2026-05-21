@@ -1,8 +1,10 @@
-# CLAUDE.md — PerformSAT orientation for Claude Code (and humans)
+# CLAUDE.md — SEVA orientation for Claude Code (and humans)
 
-PerformSAT is a digital-SAT prep web app: students take adaptive practice tests, get a diagnostic-driven study plan, drill weak skills, and track score trajectory toward a target. Built on Create React App + Firebase. ~256 JS/JSX files in `src/` (~9.7MB).
+SEVA (formerly PerformSAT) is a digital-SAT prep web app: students take adaptive practice tests, get a diagnostic-driven study plan, drill weak skills, and track score trajectory toward a target. Built on Create React App + Firebase. ~256 JS/JSX files in `src/` (~9.7MB).
 
-The codebase is mid-scale, mostly mature, with one large orchestrating file (`src/App.jsx`, ~2.9k lines) that owns view state and practice-session state. The recent direction is closing UX gaps vs Acely AI, surfacing PerformSAT's deeper diagnostic engine, and tightening drill routing to exact-question-type precision (see `docs/DRILL_ROUTING_PLAN.md`).
+The product was renamed PerformSAT → SEVA on 2026-05-21 (briefly via Sura → Seva). The user-visible brand is **SEVA**, always typed in all caps, rendered as a Fraunces italic wordmark with the SOFT variable axis cranked for swashy editorial terminals. Internal identifiers (the `performsat:` log-scope prefix, `localStorage['performsat:logVerbose']`, the `PERFORMSAT_TEST_EMAIL`/`PERFORMSAT_TEST_PASSWORD` env vars, the `PerformSAT` React component name in `src/App.jsx`, the repo directory `~/PerformSAT/`) deliberately retain the old name to avoid coordinated-rename risk. New code may use either name in identifiers — be consistent within a module.
+
+The codebase is mid-scale, mostly mature, with one large orchestrating file (`src/App.jsx`, ~2.9k lines) that owns view state and practice-session state. The recent direction is closing UX gaps vs Acely AI, surfacing the deeper diagnostic engine, and tightening drill routing to exact-question-type precision (see `docs/DRILL_ROUTING_PLAN.md`).
 
 This file is the orientation document for new contributors and LLM agents. Keep it up to date when architecture moves.
 

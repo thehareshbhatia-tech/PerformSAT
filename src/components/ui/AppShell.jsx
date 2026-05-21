@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { colors, typography, spacing, radius, shadows, transitions, breakpoints, zIndex } from '../../design/tokens';
 import { injectAnimations } from '../../design/animations';
+import Wordmark from './Wordmark';
 
 // Route ↔ view state mapping
 const VIEW_ROUTES = {
@@ -174,24 +175,7 @@ const AppShell = ({ children, currentView, onNavigate, user, onLogout, hideNav =
           }}
             onClick={() => onNavigate('dashboard')}
           >
-            <div style={{
-              width: '32px',
-              height: '32px',
-              background: 'var(--color-brand-neon)',
-              borderRadius: '8px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              color: 'var(--color-brand-navy)',
-              fontSize: '14px',
-              fontWeight: '700',
-            }}>P</div>
-            <span style={{ fontSize: '18px', fontWeight: '600', color: 'var(--color-white)', letterSpacing: '-0.3px' }}>
-              Perform
-            </span>
-            <span style={{ fontSize: '18px', fontWeight: '700', color: 'var(--color-brand-primary)', letterSpacing: '-0.3px' }}>
-              SAT
-            </span>
+            <Wordmark size="lg" tone="light" />
           </div>
 
           {/* Nav Items */}
@@ -315,25 +299,18 @@ const AppShell = ({ children, currentView, onNavigate, user, onLogout, hideNav =
           }}
             onClick={() => onNavigate('dashboard')}
           >
-            <div style={{
-              width: '32px',
-              height: '32px',
-              background: 'var(--color-brand-neon)',
-              borderRadius: '8px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              color: 'var(--color-brand-navy)',
-              fontSize: '14px',
-              fontWeight: '700',
-              flexShrink: 0,
-            }}>P</div>
-            {sidebarExpanded && (
-              <>
-                <span style={{ fontSize: '18px', fontWeight: '600', color: 'var(--color-white)' }}>Perform</span>
-                <span style={{ fontSize: '18px', fontWeight: '700', color: 'var(--color-brand-primary)' }}>SAT</span>
-              </>
-            )}
+            {sidebarExpanded
+              ? <Wordmark size="lg" tone="light" />
+              : <span style={{
+                  fontFamily: '"Fraunces", "Lora", "Merriweather", "New York", Georgia, serif',
+                  fontStyle: 'italic',
+                  fontWeight: 700,
+                  fontVariationSettings: '"opsz" 144, "SOFT" 100',
+                  fontSize: '28px',
+                  lineHeight: 1,
+                  color: '#FFFFFF',
+                  userSelect: 'none',
+                }}>S</span>}
           </div>
 
           {/* Nav Items */}
@@ -409,7 +386,7 @@ const AppShell = ({ children, currentView, onNavigate, user, onLogout, hideNav =
               color: colors.text.primary,
               margin: 0,
             }}>
-              {NAV_ITEMS.find(item => item.id === activeNavId)?.label || 'PerformSAT'}
+              {NAV_ITEMS.find(item => item.id === activeNavId)?.label || 'SEVA'}
             </h1>
           </header>
         )}
@@ -431,22 +408,7 @@ const AppShell = ({ children, currentView, onNavigate, user, onLogout, hideNav =
             justifyContent: 'center',
             zIndex: zIndex.sticky,
           }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-              <div style={{
-                width: '24px',
-                height: '24px',
-                background: 'var(--color-brand-neon)',
-                borderRadius: '6px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                color: 'var(--color-brand-navy)',
-                fontSize: '11px',
-                fontWeight: '700',
-              }}>P</div>
-              <span style={{ fontSize: '16px', fontWeight: '600', color: 'var(--color-brand-navy)' }}>Perform</span>
-              <span style={{ fontSize: '16px', fontWeight: '700', color: 'var(--color-brand-primary)' }}>SAT</span>
-            </div>
+            <Wordmark size="md" tone="dark" />
           </header>
         )}
 

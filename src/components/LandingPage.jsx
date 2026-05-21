@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useAuth } from '../hooks/useAuth';
 import { Modal } from './ui/Modal';
+import Wordmark from './ui/Wordmark';
 import './LandingPage.css';
 
 const LandingPage = () => {
@@ -51,9 +52,8 @@ const LandingPage = () => {
       {/* Header */}
       <header className="landing-header">
         <div className="landing-header-content">
-          <a href="/" className="brand-logo">
-            <div className="brand-icon">P</div>
-            Perform
+          <a href="/" className="brand-logo" aria-label="SEVA">
+            <Wordmark size="lg" tone="dark" />
           </a>
           <nav className="header-nav">
             <a href="#features" className="header-nav-link">Features</a>
@@ -72,7 +72,7 @@ const LandingPage = () => {
           <div className="section-inner hero-grid">
             <div className="hero-content">
               <h1 className="hero-title">
-                Perform the SAT,<br />
+                Master the SAT,<br />
                 <span className="hero-title-accent">Outperform</span> the Competition
               </h1>
               <p className="hero-description">
@@ -133,7 +133,7 @@ const LandingPage = () => {
         <section id="how-it-works" className="how-it-works-section section-container">
           <div className="section-inner">
             <div className="section-header">
-              <h2 className="section-title">How Perform Works</h2>
+              <h2 className="section-title">How SEVA Works</h2>
               <p className="section-subtitle">
                 A simple, effective process to maximize your score in the shortest amount of time.
               </p>
@@ -184,7 +184,7 @@ const LandingPage = () => {
           <div className="conversion-section">
             <h2 className="conversion-title">Ready to reach your target score?</h2>
             <p className="conversion-subtitle">
-              Join thousands of students who have already transformed their SAT scores with Perform.
+              Join thousands of students who have already transformed their SAT scores with SEVA.
             </p>
             <div className="conversion-actions">
               <button className="btn-primary" onClick={() => openAuth(false)} style={{ fontSize: '1.125rem', padding: '1rem 2rem' }}>
@@ -200,8 +200,7 @@ const LandingPage = () => {
         <div className="footer-grid">
           <div className="footer-brand">
             <div className="footer-logo">
-              <div className="brand-icon" style={{ width: 24, height: 24, fontSize: '0.875rem' }}>P</div>
-              Perform
+              <Wordmark size="md" tone="dark" />
             </div>
             <p className="footer-description">
               The premier platform for Digital SAT preparation. Learn from experts and practice with realistic questions.
@@ -226,7 +225,7 @@ const LandingPage = () => {
           </div>
         </div>
         <div className="footer-bottom">
-          <span>&copy; {new Date().getFullYear()} Perform. All rights reserved.</span>
+          <span>&copy; {new Date().getFullYear()} SEVA. All rights reserved.</span>
           <span>SAT&reg; is a trademark registered by the College Board.</span>
         </div>
       </footer>
