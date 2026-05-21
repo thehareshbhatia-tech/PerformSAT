@@ -591,6 +591,14 @@ export const practiceTest5 = {
   difficulty: "medium",
   band: 5,
   question: "A researcher models the relationship between hours spent practicing ($x$) and test score ($y$) for a group of students using the equation $y = 6.4x + 38$. A particular student practiced for $7$ hours and scored $89$. What is the residual for this student?",
+  diagram: { type: "scatterplot", params: {
+    points: [[1,47],[2,49],[3,58],[4,61],[5,73],[6,80],[8,87],[9,94],[10,105]],
+    xMin: 0, xMax: 11, yMin: 30, yMax: 110,
+    xGridStep: 1, xLabelStep: 2, yGridStep: 10, yLabelStep: 20,
+    bestFitLine: { slope: 6.4, intercept: 38 },
+    highlightPoint: [7, 89], highlightLabel: "(7, 89)", showResidual: true,
+    xLabel: "Hours practiced", yLabel: "Test score",
+  } },
   choices: [
     // distractor: predicted - actual (sign reversed)
     { id: "A", text: "$-6.2$" },

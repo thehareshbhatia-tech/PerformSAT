@@ -185,6 +185,14 @@ export const practiceTest9 = {
   difficulty: "medium",
   band: 5,
   question: "A study of $14$ students produces the line of best fit $y = 0.6x + 22$, where $x$ is hours of study and $y$ is the test score. A student studies $25$ hours and scores $33$. Is this student's actual score above or below the predicted score, and by how much?",
+  diagram: { type: "scatterplot", params: {
+    points: [[3,22],[6,27],[10,26],[12,28],[15,31],[18,35],[20,32],[24,38],[28,37],[30,42]],
+    xMin: 0, xMax: 32, yMin: 10, yMax: 50,
+    xGridStep: 2, xLabelStep: 5, yGridStep: 5, yLabelStep: 10,
+    bestFitLine: { slope: 0.6, intercept: 22 },
+    highlightPoint: [25, 33], highlightLabel: "(25, 33)", showResidual: true,
+    xLabel: "Hours of study", yLabel: "Test score",
+  } },
   choices: [
     { id: "A", text: "Below by $4$" },
     // distractor: reverses subtraction order

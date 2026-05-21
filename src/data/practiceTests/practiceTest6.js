@@ -563,6 +563,14 @@ export const practiceTest6 = {
   difficulty: "medium",
   band: 5,
   question: "A linear model $y = -1.6x + 27$ predicts the value $y$, in thousands of dollars, of a piece of equipment $x$ years after purchase. A specific piece of equipment that is $5$ years old has an actual value of $\\$22{,}500$. What is the residual, in thousands of dollars?",
+  diagram: { type: "scatterplot", params: {
+    points: [[0,26],[1,27],[2,25],[3,20],[4,23],[6,16],[7,17],[8,12],[9,14],[10,10],[11,9]],
+    xMin: 0, xMax: 12, yMin: 0, yMax: 30,
+    xGridStep: 1, xLabelStep: 2, yGridStep: 5, yLabelStep: 5,
+    bestFitLine: { slope: -1.6, intercept: 27 },
+    highlightPoint: [5, 22.5], highlightLabel: "(5, 22.5)", showResidual: true,
+    xLabel: "Age (years)", yLabel: "Value (thousands of dollars)",
+  } },
   choices: [
     // distractor: stops one step early — uses 22.5 only
     { id: "A", text: "$22.5$" },

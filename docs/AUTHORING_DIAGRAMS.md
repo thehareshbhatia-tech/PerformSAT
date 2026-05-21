@@ -164,3 +164,31 @@ the drill flow and renders just the question + diagram + choices. Supports:
 
 The preview component is at `src/components/__DiagramPreview.jsx` — gated on
 URL hash so it never reaches production users.
+
+## Missing-diagram lint
+
+`npm run bank:validate` runs `scripts/auditMissingDiagrams.mjs --strict`
+after the regular bank checks. The script scans every math/RW bank item
+and every practice-test item, looks for stems that reference a visual
+artifact (`scatterplot`, `box plot`, `histogram`, `the figure`, `the
+table`, etc.), and exits non-zero on any item without a `diagram` (or, for
+R&W table cues, a `questionTable`).
+
+Run `npm run bank:audit:diagrams` for the non-strict human-readable report.
+
+## Box plot — single vs comparison
+
+`SATBoxPlot` accepts either a single five-number summary as top-level
+fields OR a `distributions: [...]` array for side-by-side comparison plots
+sharing the same axis. Use comparison form when the stem compares two or
+more distributions ("Class A vs Class B", "before vs after"):
+
+```js
+diagram: { type: 'boxPlot', params: {
+  distributions: [
+    { label: 'Class A', min: 50, q1: 60, median: 75, q3: 90, max: 95 },
+    { label: 'Class B', min: 50, q1: 68, median: 75, q3: 82, max: 95 },
+  ],
+  xMin: 45, xMax: 100, xGridStep: 5, xLabelStep: 10, xLabel: 'Test score',
+} },
+```

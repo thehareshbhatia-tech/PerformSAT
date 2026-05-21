@@ -3230,7 +3230,7 @@ export const problemSolvingBank = [
     skills: ['conditional-probability', 'two-way-table'],
     difficulty: 'hard',
     type: 'multiple-choice',
-    question: 'A two-way table shows that, out of $500$ patients, $200$ were diagnosed with Condition $X$, and $80\\%$ of those with Condition $X$ tested positive on a screening test. Of the $300$ patients WITHOUT Condition $X$, $90$ tested positive. If a patient who tested positive is selected at random, what is the probability that the patient has Condition $X$?',
+    question: 'Out of $500$ patients, $200$ were diagnosed with Condition $X$, and $80\\%$ of those with Condition $X$ tested positive on a screening test. Of the $300$ patients WITHOUT Condition $X$, $90$ tested positive. If a patient who tested positive is selected at random, what is the probability that the patient has Condition $X$?',
     choices: [
       // distractor: P(positive | X) — original given
       { id: 'A', text: '$\\dfrac{160}{200}$' },
@@ -4572,7 +4572,14 @@ export const problemSolvingBank = [
     calculatorAllowed: false, tags: [], sourceStyleRef: 'box-plot-interpretation', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
 
   { id: 'bank-ps-310', domain: 'problem-solving', skills: ['find-median'], difficulty: 'medium', type: 'multiple-choice',
-    question: 'Two box plots of test scores from Class A and Class B share the same minimum, maximum, and median. However, Class A has a wider box (Q3 − Q1 is larger). Which statement is best supported?',
+    question: 'The box plots below summarize test scores from Class A and Class B. Which statement is best supported by the plots?',
+    diagram: { type: 'boxPlot', params: {
+      distributions: [
+        { label: 'Class A', min: 50, q1: 60, median: 75, q3: 90, max: 95 },
+        { label: 'Class B', min: 50, q1: 68, median: 75, q3: 82, max: 95 },
+      ],
+      xMin: 45, xMax: 100, xGridStep: 5, xLabelStep: 10, xLabel: 'Test score',
+    } },
     choices: [
       { id: 'A', text: 'Class A has higher overall scores.' },
       { id: 'B', text: 'Class A has more spread in the middle $50\\%$ of scores.' },

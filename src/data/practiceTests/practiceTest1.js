@@ -488,6 +488,14 @@ export const practiceTest1 = {
   difficulty: "medium",
   band: 5,
   question: "A researcher models the relationship between the age $x$ of a car, in years, and its value $y$, in thousands of dollars, using the equation $y = -2.8x + 32$. A particular car that is $5$ years old has an actual value of $\\$19{,}500$. What is the residual, in thousands of dollars?",
+  diagram: { type: "scatterplot", params: {
+    points: [[1,32],[2,25],[3,25],[4,18],[6,17],[7,13],[8,8],[9,9],[10,6],[11,2]],
+    xMin: 0, xMax: 12, yMin: 0, yMax: 36,
+    xGridStep: 1, xLabelStep: 2, yGridStep: 4, yLabelStep: 8,
+    bestFitLine: { slope: -2.8, intercept: 32 },
+    highlightPoint: [5, 19.5], highlightLabel: "(5, 19.5)", showResidual: true,
+    xLabel: "Age (years)", yLabel: "Value (thousands of dollars)",
+  } },
   choices: [
     // distractor: predicted - actual (reversed sign)
     { id: "A", text: "$-1.5$" },

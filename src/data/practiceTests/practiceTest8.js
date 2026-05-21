@@ -497,6 +497,13 @@ export const practiceTest8 = {
   difficulty: "medium",
   band: 5,
   question: "A study collected data on study hours $x$ and exam score $y$ for $20$ students. The line of best fit has equation $\\hat{y} = 4.5x + 38$. Which of the following best describes the meaning of the slope $4.5$ in this context?",
+  diagram: { type: "scatterplot", params: {
+    points: [[1,40],[2,48],[3,50],[4,58],[5,58],[6,62],[7,67],[8,78],[9,78],[10,82]],
+    xMin: 0, xMax: 11, yMin: 30, yMax: 100,
+    xGridStep: 1, xLabelStep: 2, yGridStep: 10, yLabelStep: 20,
+    bestFitLine: { slope: 4.5, intercept: 38 },
+    xLabel: "Study hours", yLabel: "Exam score",
+  } },
   choices: [
     // distractor: confuses slope with intercept
     { id: "A", text: "The predicted exam score for a student who studies $0$ hours." },

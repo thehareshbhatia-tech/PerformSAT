@@ -218,6 +218,14 @@ export const practiceTest12 = {
   difficulty: "medium",
   band: 5,
   question: "A study of $12$ cities comparing population density ($x$, in thousands per square mile) and average commute time ($y$, in minutes) produces the line of best fit $y = 4.2x + 15$. One city has a population density of $5$ thousand per square mile and an actual average commute time of $32$ minutes. What is the residual for this city?",
+  diagram: { type: "scatterplot", params: {
+    points: [[1,22],[2,20],[3,30],[4,28],[6,42],[7,48],[8,44],[9,56],[10,52],[11,65]],
+    xMin: 0, xMax: 12, yMin: 10, yMax: 70,
+    xGridStep: 1, xLabelStep: 2, yGridStep: 10, yLabelStep: 10,
+    bestFitLine: { slope: 4.2, intercept: 15 },
+    highlightPoint: [5, 32], highlightLabel: "(5, 32)", showResidual: true,
+    xLabel: "Population density (thousands per sq mi)", yLabel: "Commute time (minutes)",
+  } },
   correctAnswer: "-4",
   explanation: "**SAT Pattern: Residual**\n\n**The correct answer is $-4$.**\n\n**The Fast Way (~15s):** Predicted: $y = 4.2(5) + 15 = 21 + 15 = 36$. Residual $=$ actual $-$ predicted $= 32 - 36 = -4$.\n\n**The Full Solution:**\nPredicted value at $x = 5$: $y = 4.2(5) + 15 = 21 + 15 = 36$.\nResidual $=$ actual $-$ predicted $= 32 - 36 = -4$.\nA negative residual means the actual value lies BELOW the prediction.\n\nVerification: $36 + (-4) = 32$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Computing predicted $-$ actual ($36 - 32 = 4$) and reporting a positive value.\n* Using the wrong $x$ value when evaluating the prediction.\n\n**Test Day Takeaway:** Residual $=$ actual $-$ predicted. The sign tells you whether the data point is above or below the line of best fit.",
   skills: ["scatterplots", "statistics"]
@@ -736,6 +744,14 @@ export const practiceTest12 = {
   difficulty: "hard",
   band: 7,
   question: "A study of $200$ households measured weekly grocery spending ($x$, in dollars) and weekly grocery delivery cost ($y$, in dollars). The line of best fit is $y = 0.18x + 3.5$. A particular household spent $\\$220$ on groceries and paid $\\$48$ for delivery. What is the residual for this household, in dollars?",
+  diagram: { type: "scatterplot", params: {
+    points: [[60,13],[80,20],[120,26],[150,28],[180,36],[200,38],[250,50],[280,50],[320,60],[380,75]],
+    xMin: 0, xMax: 400, yMin: 0, yMax: 80,
+    xGridStep: 25, xLabelStep: 50, yGridStep: 10, yLabelStep: 20,
+    bestFitLine: { slope: 0.18, intercept: 3.5 },
+    highlightPoint: [220, 48], highlightLabel: "(220, 48)", showResidual: true,
+    xLabel: "Grocery spending ($)", yLabel: "Delivery cost ($)",
+  } },
   choices: [
     // distractor: applies the inverse operation — predicted minus actual
     { id: "A", text: "$-5.1$" },

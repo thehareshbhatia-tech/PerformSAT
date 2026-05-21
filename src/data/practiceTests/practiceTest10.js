@@ -243,6 +243,14 @@ export const practiceTest10 = {
   difficulty: "medium",
   band: 5,
   question: "A researcher collected data on hours studied and exam scores for $20$ students. The line of best fit is $y = 5.8x + 42$, where $x$ is hours studied and $y$ is the predicted exam score. One student studied for $6$ hours and scored $82$. What is the residual for this student?",
+  diagram: { type: "scatterplot", params: {
+    points: [[1,50],[2,52],[3,64],[4,60],[5,72],[7,88],[8,86],[9,92],[10,96],[11,110]],
+    xMin: 0, xMax: 12, yMin: 30, yMax: 120,
+    xGridStep: 1, xLabelStep: 2, yGridStep: 10, yLabelStep: 20,
+    bestFitLine: { slope: 5.8, intercept: 42 },
+    highlightPoint: [6, 82], highlightLabel: "(6, 82)", showResidual: true,
+    xLabel: "Hours studied", yLabel: "Exam score",
+  } },
   choices: [
     // distractor: wrong sign — computes predicted - actual instead of actual - predicted
     { id: "A", text: "$-5.2$" },

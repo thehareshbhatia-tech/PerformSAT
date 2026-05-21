@@ -223,6 +223,14 @@ export const practiceTest7 = {
   difficulty: "medium",
   band: 5,
   question: "A researcher models the relationship between the number of hours studied, $x$, and test scores, $y$, for $15$ students using the equation $y = 12.4x + 38.5$. One student studied for $5$ hours and scored $94$. What is the residual for this student?",
+  diagram: { type: "scatterplot", params: {
+    points: [[1,50],[2,66],[3,70],[4,88],[6,116],[7,125],[8,130],[9,150],[10,162]],
+    xMin: 0, xMax: 11, yMin: 30, yMax: 170,
+    xGridStep: 1, xLabelStep: 2, yGridStep: 10, yLabelStep: 20,
+    bestFitLine: { slope: 12.4, intercept: 38.5 },
+    highlightPoint: [5, 94], highlightLabel: "(5, 94)", showResidual: true,
+    xLabel: "Hours studied", yLabel: "Test score",
+  } },
   choices: [
     { id: "A", text: "$-6.5$" },
     // distractor: applies the inverse operation — predicted minus actual instead of actual minus predicted

@@ -478,6 +478,14 @@ export const practiceTest3 = {
   difficulty: "medium",
   band: 5,
   question: "A researcher models the relationship between the age $x$ of a truck, in years, and its value $y$, in thousands of dollars, using the equation $y = -3.5x + 28$. A particular truck that is $4$ years old has an actual value of $\\$16{,}400$. What is the residual, in thousands of dollars?",
+  diagram: { type: "scatterplot", params: {
+    points: [[0,29],[1,23],[2,22],[3,19],[5,12],[5,9],[6,8],[7,3]],
+    xMin: 0, xMax: 8, yMin: 0, yMax: 32,
+    xGridStep: 1, xLabelStep: 1, yGridStep: 4, yLabelStep: 8,
+    bestFitLine: { slope: -3.5, intercept: 28 },
+    highlightPoint: [4, 16.4], highlightLabel: "(4, 16.4)", showResidual: true,
+    xLabel: "Age (years)", yLabel: "Value (thousands of dollars)",
+  } },
   choices: [
     // distractor: predicted - actual (reversed sign)
     { id: "A", text: "$-2.4$" },
