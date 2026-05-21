@@ -4389,5 +4389,21 @@ export const advancedMathBank = [
     choices: [{ id: 'A', text: '$x = -1$' }, { id: 'B', text: '$x = 3$' }, { id: 'C', text: '$x = 5$' }, { id: 'D', text: '$x = 7$' }],
     correctAnswer: 'D',
     explanation: "**SAT Pattern: Distance Between x-Intercepts**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** Distance from root to axis: $|4 - 1| = 3$. Other root is $3$ units past the axis on the other side: $4 + 3 = 7$.\n\n**Test Day Takeaway:** Roots are reflections of each other across the axis of symmetry. Equidistant.",
-    calculatorAllowed: false, tags: [], sourceStyleRef: 'distance-between-x-intercepts', authoredBy: 'performsat-engine', createdAt: '2026-05-18' }
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'distance-between-x-intercepts', authoredBy: 'performsat-engine', createdAt: '2026-05-18' },
+
+  // === TIER 0 BANK GROWTH (2026-05-21): common-base-exponent-simplification 3 → 5 items ===
+
+  { id: 'bank-am-339', domain: 'advanced-math', skills: ['exponent-laws'], difficulty: 'easy', type: 'multiple-choice',
+    question: 'Which expression is equivalent to $\\dfrac{12 x^6 y^4}{3 x^2 y}$ for $x \\neq 0$ and $y \\neq 0$?',
+    choices: [{ id: 'A', text: '$4 x^4 y^3$' }, { id: 'B', text: '$4 x^3 y^4$' }, { id: 'C', text: '$9 x^4 y^3$' }, { id: 'D', text: '$4 x^8 y^5$' }],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Common-Base Exponent Simplification**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** $12/3 = 4$; $x^6/x^2 = x^{6-2} = x^4$; $y^4/y^1 = y^{4-1} = y^3$. Combined: $4 x^4 y^3$.\n\n**The Full Solution:**\nDivide the coefficients: $12/3 = 4$.\nApply the quotient rule to each variable: $x^{6-2} = x^4$, $y^{4-1} = y^3$.\nResult: $4 x^4 y^3$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* B ($4 x^3 y^4$): swaps the exponents — incorrectly assigns $x^3$ and $y^4$.\n* C ($9 x^4 y^3$): subtracts coefficients ($12 - 3$) instead of dividing.\n* D ($4 x^8 y^5$): ADDS exponents instead of subtracting (mixing up product/quotient rules).\n\n**Test Day Takeaway:** When DIVIDING same-base powers, SUBTRACT exponents. When multiplying, ADD. Coefficients are divided/multiplied normally (not exponentiated).',
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'common-base-exponent-simplification', authoredBy: 'performsat-engine', createdAt: '2026-05-21' },
+
+  { id: 'bank-am-340', domain: 'advanced-math', skills: ['exponent-laws'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'Which expression is equivalent to $\\dfrac{(2 x^3)^2 \\cdot 5 x^4}{4 x^5}$ for $x \\neq 0$?',
+    choices: [{ id: 'A', text: '$5 x^5$' }, { id: 'B', text: '$\\dfrac{5 x^5}{2}$' }, { id: 'C', text: '$5 x^7$' }, { id: 'D', text: '$10 x^5$' }],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Common-Base Exponent Simplification**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Expand $(2 x^3)^2 = 4 x^6$. Numerator: $4 x^6 \\cdot 5 x^4 = 20 x^{10}$. Divide: $20 x^{10} / (4 x^5) = 5 x^5$.\n\n**The Full Solution:**\nStep 1: distribute the power. $(2 x^3)^2 = 2^2 \\cdot x^{3 \\cdot 2} = 4 x^6$.\nStep 2: multiply in the numerator. $4 x^6 \\cdot 5 x^4 = 20 x^{6+4} = 20 x^{10}$.\nStep 3: divide. $20/4 = 5$ and $x^{10}/x^5 = x^5$. Result: $5 x^5$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* B ($5x^5/2$): keeps the original $4$ in the denominator without canceling against the $20$.\n* C ($5x^7$): adds exponents when dividing (should subtract).\n* D ($10x^5$): drops the squaring on the coefficient — uses $2$ instead of $4$ for $(2x^3)^2$.\n\n**Test Day Takeaway:** Distribute the exponent over EVERY factor inside parentheses (coefficient AND variable). Then apply product rule (add exponents) for multiplication and quotient rule (subtract exponents) for division.',
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'common-base-exponent-simplification', authoredBy: 'performsat-engine', createdAt: '2026-05-21' }
 ];

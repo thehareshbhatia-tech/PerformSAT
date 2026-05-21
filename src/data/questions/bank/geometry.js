@@ -3216,5 +3216,35 @@ export const geometryBank = [
     choices: [{ id: 'A', text: '$52°$' }, { id: 'B', text: '$90°$' }, { id: 'C', text: '$128°$' }, { id: 'D', text: '$232°$' }],
     correctAnswer: 'C',
     explanation: "**SAT Pattern: Vertical Angles**\n\n**Choice C is correct.**\n\n**The Fast Way (~3s):** Upper-right and lower-left are OPPOSITE — vertical angles. $128°$.\n\n**Why the wrong answers are tempting:**\n* A: supplement.\n* B: right angle.\n* D: reflex.\n\n**Test Day Takeaway:** \"Opposite\" at an intersection always means \"equal.\"",
-    calculatorAllowed: false, tags: [], sourceStyleRef: 'vertical-angles', authoredBy: 'performsat-engine', createdAt: '2026-05-18' }
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'vertical-angles', authoredBy: 'performsat-engine', createdAt: '2026-05-18' },
+
+  // === TIER 0 BANK GROWTH (2026-05-21): 2 geometry patterns @ 3 items → @ 5 items ===
+
+  { id: 'bank-geo-271', domain: 'geometry', skills: ['circle-equation'], difficulty: 'easy', type: 'multiple-choice',
+    question: 'A circle in the $xy$-plane has a radius of $7$. What is the area of the circle, in terms of $\\pi$?',
+    choices: [{ id: 'A', text: '$49\\pi$' }, { id: 'B', text: '$14\\pi$' }, { id: 'C', text: '$7\\pi$' }, { id: 'D', text: '$98\\pi$' }],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Area of a Circle**\n\n**Choice A is correct.**\n\n**The Fast Way (~5s):** $A = \\pi r^2 = \\pi \\cdot 49 = 49\\pi$.\n\n**The Full Solution:**\nArea of a circle: $A = \\pi r^2$.\nSubstitute $r = 7$: $A = \\pi \\cdot 7^2 = 49\\pi$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* B ($14\\pi$): uses the circumference formula $2\\pi r$ instead of $\\pi r^2$.\n* C ($7\\pi$): drops the square — uses $\\pi r$ instead of $\\pi r^2$.\n* D ($98\\pi$): doubles the area — perhaps computes $2 \\cdot 49\\pi$ via a slip.\n\n**Test Day Takeaway:** Area of a circle SQUARES the radius (area is two-dimensional). Circumference does NOT (it is one-dimensional).',
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'area-of-a-circle', authoredBy: 'performsat-engine', createdAt: '2026-05-21' },
+
+  { id: 'bank-geo-272', domain: 'geometry', skills: ['circle-equation'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'A circle has a circumference of $20\\pi$. What is the area of the circle, in terms of $\\pi$?',
+    choices: [{ id: 'A', text: '$100\\pi$' }, { id: 'B', text: '$400\\pi$' }, { id: 'C', text: '$20\\pi$' }, { id: 'D', text: '$40\\pi$' }],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Area of a Circle (from circumference)**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** $C = 2\\pi r = 20\\pi \\Rightarrow r = 10$. $A = \\pi r^2 = 100\\pi$.\n\n**The Full Solution:**\nStep 1: solve for the radius. $C = 2\\pi r \\Rightarrow 20\\pi = 2\\pi r \\Rightarrow r = 10$.\nStep 2: apply the area formula. $A = \\pi r^2 = \\pi (10)^2 = 100\\pi$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* B ($400\\pi$): squares the circumference value ($20$) instead of the radius ($10$).\n* C ($20\\pi$): returns the circumference (forgets to compute the area).\n* D ($40\\pi$): doubles the circumference — perhaps confuses with $2 \\cdot C$.\n\n**Test Day Takeaway:** When given a circumference, FIRST extract the radius via $C = 2\\pi r$, THEN apply $A = \\pi r^2$. Don\'t shortcut by squaring the circumference.',
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'area-of-a-circle', authoredBy: 'performsat-engine', createdAt: '2026-05-21' },
+
+  { id: 'bank-geo-273', domain: 'geometry', skills: ['triangle-area'], difficulty: 'easy', type: 'multiple-choice',
+    question: 'A square has a side length of $12$. What is the perimeter of the square?',
+    choices: [{ id: 'A', text: '$48$' }, { id: 'B', text: '$24$' }, { id: 'C', text: '$144$' }, { id: 'D', text: '$36$' }],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Square Perimeter**\n\n**Choice A is correct.**\n\n**The Fast Way (~3s):** $P = 4s = 4 \\cdot 12 = 48$.\n\n**The Full Solution:**\nA square has $4$ congruent sides. Perimeter $= 4s = 4 \\cdot 12 = 48$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* B ($24$): doubles the side length instead of multiplying by $4$ (counts only $2$ sides).\n* C ($144$): computes the AREA ($s^2 = 144$) instead of the perimeter.\n* D ($36$): multiplies by $3$ instead of $4$ (perhaps confuses with a triangle).\n\n**Test Day Takeaway:** Perimeter sums ALL sides. A square has $4$ congruent sides $\\Rightarrow P = 4s$. Area uses $s^2$ — different formula.',
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'square-perimeter', authoredBy: 'performsat-engine', createdAt: '2026-05-21' },
+
+  { id: 'bank-geo-274', domain: 'geometry', skills: ['triangle-area'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'A square has an area of $144$ square units. What is the perimeter of the square, in units?',
+    choices: [{ id: 'A', text: '$48$' }, { id: 'B', text: '$36$' }, { id: 'C', text: '$144$' }, { id: 'D', text: '$576$' }],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Square Perimeter (from area)**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** $s = \\sqrt{144} = 12$. $P = 4s = 48$.\n\n**The Full Solution:**\nStep 1: recover the side from the area. $s^2 = 144 \\Rightarrow s = 12$.\nStep 2: apply the perimeter formula. $P = 4s = 4 \\cdot 12 = 48$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* B ($36$): uses $3s$ instead of $4s$ (off by one side).\n* C ($144$): returns the area as the perimeter.\n* D ($576$): multiplies the area by $4$ instead of taking the square root first.\n\n**Test Day Takeaway:** When given AREA of a square, take the square root to recover the side, THEN multiply by $4$ for perimeter. Don\'t multiply the area itself.',
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'square-perimeter', authoredBy: 'performsat-engine', createdAt: '2026-05-21' }
 ];
