@@ -220,7 +220,9 @@ const matchesQuery = (text, q) =>
 const PracticeBank = ({ onStartPractice }) => {
   const [section, setSection] = useState('math');
   const [search, setSearch] = useState('');
-  const [filterDomain, setFilterDomain] = useState('all');
+  const [openTopics, setOpenTopics] = useState(() => new Set());
+  const domainRefs = useRef({});
+  const topLevelRef = useRef(null);
 
   const categories = section === 'math' ? MATH_CATEGORIES : RW_CATEGORIES;
   const allItems = section === 'math' ? mathQuestionBank : rwQuestionBank;
@@ -244,10 +246,12 @@ const PracticeBank = ({ onStartPractice }) => {
     [categories],
   );
 
-  const visibleCategories = useMemo(() => {
+  // Search filter: narrows visible topics by name OR by matching question-type label.
+  // Also tracks which topics matched ON A PATTERN so we can auto-expand them.
+  const { visibleCategories, autoOpenSlugs } = useMemo(() => {
     const q = search.trim().toLowerCase();
-    return categories
-      .filter(c => filterDomain === 'all' || filterDomain === c.domain)
+    const autoOpen = new Set();
+    const visible = categories
       .map(cat => {
         if (!q) return cat;
         const filteredSkills = cat.cbSkills
@@ -257,17 +261,21 @@ const PracticeBank = ({ onStartPractice }) => {
             const matchingPatterns = (skill.patterns || []).filter(p =>
               matchesQuery(p.label, q),
             );
+            if (matchingPatterns.length > 0) {
+              autoOpen.add(skill.slug);
+              return { ...skill, patterns: matchingPatterns };
+            }
             if (skillMatches) return skill;
-            if (matchingPatterns.length > 0) return { ...skill, patterns: matchingPatterns };
             return null;
           })
           .filter(Boolean);
         return { ...cat, cbSkills: filteredSkills };
       })
       .filter(cat => cat.cbSkills.length > 0);
-  }, [categories, search, filterDomain]);
+    return { visibleCategories: visible, autoOpenSlugs: autoOpen };
+  }, [categories, search]);
 
-  const isFiltering = search.trim().length > 0 || filterDomain !== 'all';
+  const isFiltering = search.trim().length > 0;
 
   // ── Drill launchers ──────────────────────────────────────────────────────
   const launchFromPool = (pool, count, label, source) => {
@@ -306,16 +314,42 @@ const PracticeBank = ({ onStartPractice }) => {
   const handlePickSection = (next) => {
     setSection(next);
     setSearch('');
-    setFilterDomain('all');
+    setOpenTopics(new Set());
   };
 
   const handleClearFilters = () => {
     setSearch('');
-    setFilterDomain('all');
+  };
+
+  const handleToggleTopic = (slug) => {
+    setOpenTopics(prev => {
+      const next = new Set(prev);
+      if (next.has(slug)) next.delete(slug); else next.add(slug);
+      return next;
+    });
+  };
+
+  const handleJumpToDomain = (domainSlug) => {
+    const STICKY_OFFSET = 128; // topbar (64px) + filter bar (~52px) + breathing room
+    if (domainSlug === 'all') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+    const el = domainRefs.current[domainSlug];
+    if (!el) return;
+    // Use offsetTop chain to compute absolute document position — robust against
+    // smooth-scroll interruptions and avoids the scroll-margin gotcha.
+    let absoluteTop = 0;
+    let node = el;
+    while (node) {
+      absoluteTop += node.offsetTop || 0;
+      node = node.offsetParent;
+    }
+    window.scrollTo({ top: Math.max(0, absoluteTop - STICKY_OFFSET), behavior: 'smooth' });
   };
 
   return (
-    <div style={pageStyle}>
+    <div style={pageStyle} ref={topLevelRef}>
       <TopBar section={section} onChangeSection={handlePickSection} />
 
       <EditorialHero
@@ -337,8 +371,7 @@ const PracticeBank = ({ onStartPractice }) => {
         categories={categories}
         search={search}
         onSearchChange={setSearch}
-        filterDomain={filterDomain}
-        onFilterChange={setFilterDomain}
+        onJumpToDomain={handleJumpToDomain}
         section={section}
       />
 
@@ -360,6 +393,10 @@ const PracticeBank = ({ onStartPractice }) => {
                 onSkillDrill={launchSkillDrill}
                 onPatternDrill={launchPatternDrill}
                 onDomainMixed={() => launchDomainMixed(cat.domain, cat.label)}
+                openTopics={openTopics}
+                autoOpenSlugs={autoOpenSlugs}
+                onToggleTopic={handleToggleTopic}
+                sectionRef={(el) => { domainRefs.current[cat.domain] = el; }}
               />
             );
           })}
@@ -380,9 +417,11 @@ const PracticeBank = ({ onStartPractice }) => {
                 marginTop: spacing.md,
               }}
             >
-              Show all topics
+              Clear search
             </button>
           )}
+          {/* Scroll buffer so jumping to the last domain still lands its header at the top. */}
+          <div aria-hidden style={{ minHeight: '60vh' }} />
         </div>
       )}
     </div>
@@ -398,7 +437,6 @@ const pageStyle = {
   padding: `${spacing.xl} clamp(16px, 4vw, ${spacing.xl}) ${spacing['3xl']}`,
   fontFamily: typography.fontFamily,
   color: INK.primary,
-  overflowX: 'hidden',
 };
 
 const TopBar = ({ section, onChangeSection }) => (
@@ -491,7 +529,7 @@ const EditorialHero = ({ sectionLabel, totalAvailable, totalTopics, totalDomains
       maxWidth: '680px',
       lineHeight: 1.55,
     }}>
-      {totalAvailable.toLocaleString()} hand-authored {sectionLabel} questions, sorted into {totalDomains} domain{totalDomains === 1 ? '' : 's'}, {totalTopics} topic{totalTopics === 1 ? '' : 's'}{totalQuestionTypes > 0 ? `, and ${totalQuestionTypes} specific question types` : ''}. Browse it all on one page — search or jump to a domain to drill exactly what you want.
+      {totalAvailable.toLocaleString()} hand-authored {sectionLabel} questions across {totalDomains} domain{totalDomains === 1 ? '' : 's'} and {totalTopics} topic{totalTopics === 1 ? '' : 's'}. Search for a topic, jump to a domain, or expand any topic to drill a specific question type.
     </p>
   </section>
 );
@@ -610,7 +648,7 @@ const QuickStartTile = ({ eyebrow, title, sub, onClick, accent, featured }) => {
 // domain card, navigate to a separate page" pattern. Everything stays on one
 // page; chips filter and the search narrows by topic + question-type name.
 // ────────────────────────────────────────────────────────────────────────────
-const FilterBar = ({ categories, search, onSearchChange, filterDomain, onFilterChange, section }) => {
+const FilterBar = ({ categories, search, onSearchChange, onJumpToDomain, section }) => {
   const inputRef = useRef(null);
 
   // Keyboard shortcut: "/" focuses the search input
@@ -626,7 +664,7 @@ const FilterBar = ({ categories, search, onSearchChange, filterDomain, onFilterC
   }, []);
 
   const chips = [
-    { id: 'all', label: 'All domains', count: categories.reduce((s, c) => s + c.cbSkills.length, 0) },
+    { id: 'all', label: 'Top', count: null },
     ...categories.map(c => ({ id: c.domain, label: c.label, count: c.cbSkills.length })),
   ];
 
@@ -634,13 +672,13 @@ const FilterBar = ({ categories, search, onSearchChange, filterDomain, onFilterC
     <section
       style={{
         position: 'sticky',
-        top: 0,
+        top: '64px',
         zIndex: 5,
         backgroundColor: 'rgba(251, 251, 253, 0.92)',
         backdropFilter: 'saturate(180%) blur(10px)',
         WebkitBackdropFilter: 'saturate(180%) blur(10px)',
-        margin: `0 calc(-1 * clamp(16px, 4vw, ${spacing.xl})) ${spacing.xl}`,
-        padding: `${spacing.md} clamp(16px, 4vw, ${spacing.xl})`,
+        marginBottom: spacing.xl,
+        padding: `${spacing.md} 0`,
         borderBottom: `1px solid ${SURFACE.hairline}`,
       }}
     >
@@ -739,42 +777,48 @@ const FilterBar = ({ categories, search, onSearchChange, filterDomain, onFilterC
           flex: '1 1 auto',
           justifyContent: 'flex-start',
         }}>
-          {chips.map(chip => {
-            const active = chip.id === filterDomain;
-            return (
-              <button
-                key={chip.id}
-                onClick={() => onFilterChange(chip.id)}
-                aria-pressed={active}
-                style={{
-                  fontFamily: typography.fontFamily,
-                  fontSize: '12px',
-                  fontWeight: active ? 700 : 600,
-                  color: active ? '#FFFFFF' : INK.secondary,
-                  backgroundColor: active ? '#1D1D1F' : SURFACE.white,
-                  border: `1px solid ${active ? '#1D1D1F' : SURFACE.border}`,
-                  borderRadius: radius.full,
-                  padding: '7px 14px',
-                  cursor: 'pointer',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '6px',
-                  transition: `all ${transitions.fast}`,
-                  whiteSpace: 'nowrap',
-                  minHeight: '32px',
-                }}
-              >
-                {chip.label}
+          {chips.map(chip => (
+            <button
+              key={chip.id}
+              onClick={() => onJumpToDomain(chip.id)}
+              style={{
+                fontFamily: typography.fontFamily,
+                fontSize: '12px',
+                fontWeight: 600,
+                color: INK.secondary,
+                backgroundColor: SURFACE.white,
+                border: `1px solid ${SURFACE.border}`,
+                borderRadius: radius.full,
+                padding: '7px 14px',
+                cursor: 'pointer',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '6px',
+                transition: `all ${transitions.fast}`,
+                whiteSpace: 'nowrap',
+                minHeight: '32px',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = INK.tertiary;
+                e.currentTarget.style.color = INK.primary;
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = SURFACE.border;
+                e.currentTarget.style.color = INK.secondary;
+              }}
+            >
+              {chip.label}
+              {chip.count !== null && (
                 <span style={{
                   fontSize: '10px',
                   fontWeight: 700,
-                  color: active ? 'rgba(255,255,255,0.7)' : INK.muted,
+                  color: INK.muted,
                 }}>
                   {chip.count}
                 </span>
-              </button>
-            );
-          })}
+              )}
+            </button>
+          ))}
         </div>
       </div>
     </section>
@@ -811,14 +855,17 @@ const ClearIcon = () => (
 // ────────────────────────────────────────────────────────────────────────────
 // DomainSection — a domain header + every topic in it, all expanded
 // ────────────────────────────────────────────────────────────────────────────
-const DomainSection = ({ cat, domainNumber, accent, section, searchQuery, onSkillDrill, onPatternDrill, onDomainMixed }) => {
+const DomainSection = ({ cat, domainNumber, accent, section, searchQuery, onSkillDrill, onPatternDrill, onDomainMixed, openTopics, autoOpenSlugs, onToggleTopic, sectionRef }) => {
   const sectionWord = section === 'math' ? 'Math' : 'R&W';
   const weight = DOMAIN_WEIGHTS[cat.domain];
   const blurb = DOMAIN_BLURBS[cat.domain] || '';
   const totalPatterns = cat.cbSkills.reduce((s, k) => s + (k.patterns?.length || 0), 0);
 
   return (
-    <section aria-labelledby={`domain-${cat.domain}`}>
+    <section
+      aria-labelledby={`domain-${cat.domain}`}
+      ref={sectionRef}
+    >
       <header
         style={{
           display: 'flex',
@@ -831,7 +878,7 @@ const DomainSection = ({ cat, domainNumber, accent, section, searchQuery, onSkil
         }}
       >
         <NumberTile number={domainNumber} accent={accent} />
-        <div style={{ flex: 1, minWidth: 0 }}>
+        <div style={{ flex: '1 1 240px', minWidth: '200px' }}>
           <div style={{
             fontSize: '11px',
             fontWeight: 700,
@@ -852,7 +899,6 @@ const DomainSection = ({ cat, domainNumber, accent, section, searchQuery, onSkil
               margin: 0,
               lineHeight: 1.1,
               letterSpacing: '-0.02em',
-              overflowWrap: 'break-word',
             }}
           >
             {cat.label}
@@ -923,66 +969,105 @@ const DomainSection = ({ cat, domainNumber, accent, section, searchQuery, onSkil
         flexDirection: 'column',
         gap: spacing.sm,
       }}>
-        {cat.cbSkills.map((skill) => (
-          <TopicCard
-            key={skill.slug}
-            skill={skill}
-            accent={accent}
-            searchQuery={searchQuery}
-            onSkillDrill={() => onSkillDrill(skill)}
-            onPatternDrill={onPatternDrill}
-          />
-        ))}
+        {cat.cbSkills.map((skill) => {
+          const isOpen = openTopics?.has(skill.slug) || autoOpenSlugs?.has(skill.slug);
+          return (
+            <TopicCard
+              key={skill.slug}
+              skill={skill}
+              accent={accent}
+              searchQuery={searchQuery}
+              isOpen={isOpen}
+              onToggle={() => onToggleTopic(skill.slug)}
+              onSkillDrill={() => onSkillDrill(skill)}
+              onPatternDrill={onPatternDrill}
+            />
+          );
+        })}
       </div>
     </section>
   );
 };
 
 // ────────────────────────────────────────────────────────────────────────────
-// TopicCard — the topic with its question types ALWAYS visible inline.
-// No expand/collapse; everything's surfaced.
+// TopicCard — collapsed by default; the topic name + counts + primary drill
+// are always visible. Click anywhere on the header (or the chevron / question-
+// type count) to expand the chip grid. Search auto-opens any topic that
+// matched on a pattern label.
 // ────────────────────────────────────────────────────────────────────────────
-const TopicCard = ({ skill, accent, searchQuery, onSkillDrill, onPatternDrill }) => {
+const TopicCard = ({ skill, accent, searchQuery, isOpen, onToggle, onSkillDrill, onPatternDrill }) => {
   const total = skill.total ?? skill.count ?? 0;
   const patterns = skill.patterns || [];
   const label = skill.label || skill.short;
+  const hasPatterns = patterns.length > 0;
 
   return (
     <article
       style={{
         backgroundColor: SURFACE.white,
         border: `1px solid ${SURFACE.border}`,
-        borderRadius: '16px',
-        padding: '18px 22px',
+        borderRadius: '14px',
+        overflow: 'hidden',
       }}
     >
       <div style={{
         display: 'flex',
-        alignItems: 'flex-start',
-        gap: '16px',
+        alignItems: 'center',
+        gap: '12px',
+        padding: '14px 18px',
         flexWrap: 'wrap',
       }}>
-        <div style={{ flex: '1 1 260px', minWidth: 0 }}>
-          <h3 style={{
-            fontFamily: SERIF,
-            fontSize: '20px',
-            fontWeight: 700,
-            color: INK.primary,
-            margin: 0,
-            lineHeight: 1.25,
-            letterSpacing: '-0.01em',
-          }}>
-            <Highlight text={label} query={searchQuery} />
-          </h3>
-          <div style={{
-            fontSize: '13px',
-            color: INK.tertiary,
-            marginTop: '4px',
-          }}>
-            {total} question{total === 1 ? '' : 's'}
-            {patterns.length > 0 && ` · ${patterns.length} question type${patterns.length === 1 ? '' : 's'}`}
+        <button
+          type="button"
+          onClick={hasPatterns ? onToggle : undefined}
+          aria-expanded={hasPatterns ? isOpen : undefined}
+          aria-controls={hasPatterns ? `topic-types-${skill.slug}` : undefined}
+          disabled={!hasPatterns}
+          style={{
+            flex: '1 1 260px',
+            minWidth: 0,
+            background: 'transparent',
+            border: 'none',
+            textAlign: 'left',
+            padding: 0,
+            cursor: hasPatterns ? 'pointer' : 'default',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '12px',
+          }}
+        >
+          {hasPatterns && (
+            <Chevron open={isOpen} />
+          )}
+          <div style={{ flex: 1, minWidth: 0 }}>
+            <h3 style={{
+              fontFamily: SERIF,
+              fontSize: '19px',
+              fontWeight: 700,
+              color: INK.primary,
+              margin: 0,
+              lineHeight: 1.25,
+              letterSpacing: '-0.01em',
+            }}>
+              <Highlight text={label} query={searchQuery} />
+            </h3>
+            <div style={{
+              fontSize: '12.5px',
+              color: INK.tertiary,
+              marginTop: '3px',
+            }}>
+              {total} question{total === 1 ? '' : 's'}
+              {hasPatterns && (
+                <>
+                  {' · '}
+                  <span style={{ color: isOpen ? INK.secondary : accent.text, fontWeight: 600 }}>
+                    {patterns.length} question type{patterns.length === 1 ? '' : 's'}
+                  </span>
+                </>
+              )}
+            </div>
           </div>
-        </div>
+        </button>
 
         <button
           onClick={onSkillDrill}
@@ -991,46 +1076,46 @@ const TopicCard = ({ skill, accent, searchQuery, onSkillDrill, onPatternDrill })
             fontFamily: typography.fontFamily,
             fontSize: '13px',
             fontWeight: 700,
-            color: '#FFFFFF',
-            backgroundColor: '#ea580c',
-            border: 'none',
+            color: '#ea580c',
+            backgroundColor: 'transparent',
+            border: `1.5px solid #ea580c`,
             borderRadius: '10px',
-            padding: '10px 16px',
+            padding: '8px 14px',
             cursor: 'pointer',
-            transition: `background-color ${transitions.fast}`,
-            minHeight: '40px',
+            transition: `all ${transitions.fast}`,
+            minHeight: '38px',
             display: 'inline-flex',
             alignItems: 'center',
             gap: '6px',
           }}
-          onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#c2410c'; }}
-          onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = '#ea580c'; }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.backgroundColor = '#ea580c';
+            e.currentTarget.style.color = '#FFFFFF';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.backgroundColor = 'transparent';
+            e.currentTarget.style.color = '#ea580c';
+          }}
         >
           Drill {DRILL_COUNT_PER_SKILL}
-          <Arrow tone="#FFFFFF" />
+          <Arrow tone="currentColor" />
         </button>
       </div>
 
-      {patterns.length > 0 && (
-        <div style={{
-          marginTop: '14px',
-          paddingTop: '14px',
-          borderTop: `1px solid ${SURFACE.hairline}`,
-        }}>
-          <div style={{
-            fontSize: '10px',
-            fontWeight: 700,
-            color: INK.muted,
-            textTransform: 'uppercase',
-            letterSpacing: '0.12em',
-            marginBottom: '10px',
-          }}>
-            Drill a specific question type
-          </div>
+      {hasPatterns && isOpen && (
+        <div
+          id={`topic-types-${skill.slug}`}
+          style={{
+            padding: '4px 18px 16px',
+            borderTop: `1px solid ${SURFACE.hairline}`,
+            backgroundColor: SURFACE.paper,
+          }}
+        >
           <div style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))',
             gap: '8px',
+            marginTop: '12px',
           }}>
             {patterns.map(p => (
               <PatternChip
@@ -1048,6 +1133,24 @@ const TopicCard = ({ skill, accent, searchQuery, onSkillDrill, onPatternDrill })
   );
 };
 
+const Chevron = ({ open }) => (
+  <svg
+    width="14"
+    height="14"
+    viewBox="0 0 14 14"
+    fill="none"
+    aria-hidden
+    style={{
+      flexShrink: 0,
+      color: INK.muted,
+      transition: 'transform 180ms ease',
+      transform: open ? 'rotate(90deg)' : 'rotate(0deg)',
+    }}
+  >
+    <path d="M5 3L9 7L5 11" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
 const PatternChip = ({ pattern, accent, searchQuery, onClick }) => {
   const [hover, setHover] = useState(false);
   return (
@@ -1058,20 +1161,21 @@ const PatternChip = ({ pattern, accent, searchQuery, onClick }) => {
       style={{
         fontFamily: typography.fontFamily,
         textAlign: 'left',
-        backgroundColor: hover ? accent.soft : SURFACE.paper,
+        backgroundColor: SURFACE.white,
         border: `1px solid ${hover ? accent.softBorder : SURFACE.border}`,
         borderRadius: '10px',
         padding: '10px 12px',
         cursor: 'pointer',
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'space-between',
         gap: '8px',
         transition: `all ${transitions.fast}`,
-        minHeight: '42px',
+        minHeight: '40px',
+        boxShadow: hover ? '0 2px 6px -2px rgba(0, 0, 0, 0.08)' : 'none',
       }}
     >
       <span style={{
+        flex: 1,
         fontSize: '13px',
         fontWeight: 600,
         color: INK.primary,
@@ -1081,13 +1185,11 @@ const PatternChip = ({ pattern, accent, searchQuery, onClick }) => {
         <Highlight text={pattern.label} query={searchQuery} />
       </span>
       <span style={{
-        fontSize: '11px',
-        fontWeight: 700,
-        color: accent.text,
-        backgroundColor: hover ? SURFACE.white : accent.soft,
-        padding: '2px 8px',
-        borderRadius: '999px',
+        fontSize: '12px',
+        fontWeight: 600,
+        color: INK.muted,
         flexShrink: 0,
+        fontVariantNumeric: 'tabular-nums',
       }}>
         {pattern.count}
       </span>
