@@ -77,8 +77,10 @@ async function main() {
   const force = !!args.force;
   const model = args.model;
 
-  if (!process.env.ANTHROPIC_API_KEY) {
-    console.error('ERROR: ANTHROPIC_API_KEY env var required');
+  // Auth: by default, uses `claude` CLI (Max OAuth). To use the SDK, set USE_ANTHROPIC_SDK=1.
+  const useSdk = process.env.USE_ANTHROPIC_SDK === '1';
+  if (useSdk && !process.env.ANTHROPIC_API_KEY) {
+    console.error('ERROR: USE_ANTHROPIC_SDK=1 set but ANTHROPIC_API_KEY missing');
     process.exit(2);
   }
   if (!(await exists(TARGETS_PATH))) {

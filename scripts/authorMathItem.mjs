@@ -3,14 +3,18 @@
  * authorMathItem.mjs — AI-author candidate math bank items for a target pattern.
  *
  * Usage:
- *   ANTHROPIC_API_KEY=... node scripts/authorMathItem.mjs --slug=slope-from-two-points --count=10
+ *   node scripts/authorMathItem.mjs --slug=slope-from-two-points --count=10
  *
  * Output: scripts/generated/candidate-items-{slug}.jsonl
  *
+ * Auth: uses the `claude` CLI (Claude Code), which uses the user's Claude
+ * Max OAuth session — no ANTHROPIC_API_KEY required. To override and use
+ * the Anthropic SDK directly, set USE_ANTHROPIC_SDK=1 and ANTHROPIC_API_KEY.
+ *
  * Pipeline position: this is the AUTHORING step. Items are then graded by
- * gradeBankAuthenticity.mjs (5-dim rubric); only items scoring 4+/5 across
- * all dims should be appended to the bank shard. See scripts/runTier1.mjs
- * for the full author → grade → accept pipeline.
+ * gradeCandidates.mjs (5-dim rubric); only items scoring 4+/5 across all
+ * dims are appended to the bank shard. See scripts/runTier1.mjs for the
+ * full author → grade → accept pipeline.
  *
  * Guardrails enforced in the prompt AND post-hoc validator:
  *   1. Pattern header slugifies to exactly the target slug (no parens in the
@@ -27,7 +31,7 @@
 import { promises as fs } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import Anthropic from '@anthropic-ai/sdk';
+import { spawn } from 'node:child_process';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..');
@@ -74,18 +78,55 @@ function titleCase(slug) {
   return slug.split('-').map(w => w[0]?.toUpperCase() + w.slice(1)).join(' ');
 }
 
+/**
+ * Call Claude via the `claude` CLI in non-interactive mode. Uses the user's
+ * Claude Max OAuth session — no API key needed.
+ *
+ * @param {string} prompt - user message text
+ * @param {object} opts - { model: 'opus'|'sonnet'|'haiku' or full ID }
+ * @returns {Promise<string>} the assistant's text reply
+ */
+function callClaudeCLI(prompt, opts = {}) {
+  return new Promise((resolve, reject) => {
+    const args = [
+      '-p',
+      '--output-format', 'json',
+      '--model', opts.model || 'opus',
+      '--no-session-persistence',
+      '--exclude-dynamic-system-prompt-sections',
+    ];
+    const proc = spawn('claude', args, { stdio: ['pipe', 'pipe', 'inherit'] });
+    let stdout = '';
+    proc.stdout.on('data', c => { stdout += c.toString(); });
+    proc.on('error', reject);
+    proc.on('exit', code => {
+      if (code !== 0) return reject(new Error(`claude exited ${code}`));
+      try {
+        const env = JSON.parse(stdout);
+        if (env.is_error) return reject(new Error(`claude error: ${env.result || 'unknown'}`));
+        resolve(env.result || '');
+      } catch (e) {
+        reject(new Error(`couldn't parse claude output envelope: ${e.message}; raw: ${stdout.slice(0, 200)}`));
+      }
+    });
+    proc.stdin.write(prompt);
+    proc.stdin.end();
+  });
+}
+
 async function main() {
   const args = parseArgs();
   const slug = args.slug;
   const count = parseInt(args.count || '10', 10);
-  const model = args.model || 'claude-opus-4-7';
+  const model = args.model || 'opus';
+  const useSdk = process.env.USE_ANTHROPIC_SDK === '1';
 
   if (!slug) {
-    console.error('Usage: node scripts/authorMathItem.mjs --slug=<pattern-slug> [--count=10] [--model=claude-opus-4-7]');
+    console.error('Usage: node scripts/authorMathItem.mjs --slug=<pattern-slug> [--count=10] [--model=opus]');
     process.exit(2);
   }
-  if (!process.env.ANTHROPIC_API_KEY) {
-    console.error('ERROR: ANTHROPIC_API_KEY env var required');
+  if (useSdk && !process.env.ANTHROPIC_API_KEY) {
+    console.error('ERROR: USE_ANTHROPIC_SDK=1 set but ANTHROPIC_API_KEY missing');
     process.exit(2);
   }
 
@@ -223,20 +264,24 @@ ${anchors.map((a, i) => `--- Anchor ${i + 1} ---\n${a}`).join('\n\n')}
 
 Return a single JSON array of ${count} items. No prose before or after. No markdown fences. No comments. Just \`[ {...}, {...}, ... ]\`.`;
 
-  // 5. Call Claude
-  const client = new Anthropic();
-  console.log(`  Calling ${model} (max_tokens=16000)...`);
+  // 5. Call Claude (via CLI by default, SDK if USE_ANTHROPIC_SDK=1)
+  console.log(`  Calling ${useSdk ? 'Anthropic SDK' : 'claude CLI'} model=${model}...`);
   const t0 = Date.now();
-  const response = await client.messages.create({
-    model,
-    max_tokens: 16000,
-    messages: [{ role: 'user', content: userPrompt }],
-  });
+  let text;
+  if (useSdk) {
+    const { default: Anthropic } = await import('@anthropic-ai/sdk');
+    const client = new Anthropic();
+    const response = await client.messages.create({
+      model: model.startsWith('claude-') ? model : `claude-${model}-4-7`,
+      max_tokens: 16000,
+      messages: [{ role: 'user', content: userPrompt }],
+    });
+    text = response.content.map(c => c.type === 'text' ? c.text : '').join('');
+  } else {
+    text = await callClaudeCLI(userPrompt, { model });
+  }
   const elapsed = ((Date.now() - t0) / 1000).toFixed(1);
-
-  const text = response.content.map(c => c.type === 'text' ? c.text : '').join('');
-  console.log(`  Response: ${text.length} chars, ${elapsed}s, stop_reason=${response.stop_reason}`);
-  console.log(`  Tokens — input: ${response.usage?.input_tokens}, output: ${response.usage?.output_tokens}`);
+  console.log(`  Response: ${text.length} chars, ${elapsed}s`);
 
   // 6. Parse JSON
   let candidates;

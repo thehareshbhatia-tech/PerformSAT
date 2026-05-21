@@ -4,7 +4,11 @@
  * rubric using Claude. Accept items with all dimensions ≥ 4.
  *
  * Usage:
- *   ANTHROPIC_API_KEY=... node scripts/gradeCandidates.mjs --in=scripts/generated/candidate-items-{slug}.jsonl
+ *   node scripts/gradeCandidates.mjs --in=scripts/generated/candidate-items-{slug}.jsonl
+ *
+ * Auth: uses the `claude` CLI (Claude Code), which uses the user's Claude
+ * Max OAuth session — no ANTHROPIC_API_KEY required. To override and use
+ * the Anthropic SDK directly, set USE_ANTHROPIC_SDK=1 and ANTHROPIC_API_KEY.
  *
  * Outputs:
  *   scripts/generated/accepted-items-{slug}.jsonl   — items passing the 4/5 floor on every dim
@@ -21,7 +25,7 @@
 import { promises as fs } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import Anthropic from '@anthropic-ai/sdk';
+import { spawn } from 'node:child_process';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..');
@@ -63,22 +67,57 @@ Return ONLY a JSON object (no prose, no fences):
 ITEM:
 `;
 
-async function gradeItem(client, item, model) {
-  const prompt = RUBRIC + '\n\n' + JSON.stringify(item, null, 2);
-  const response = await client.messages.create({
-    model,
-    max_tokens: 600,
-    messages: [{ role: 'user', content: prompt }],
+function callClaudeCLI(prompt, opts = {}) {
+  return new Promise((resolve, reject) => {
+    const args = [
+      '-p',
+      '--output-format', 'json',
+      '--model', opts.model || 'opus',
+      '--no-session-persistence',
+      '--exclude-dynamic-system-prompt-sections',
+    ];
+    const proc = spawn('claude', args, { stdio: ['pipe', 'pipe', 'inherit'] });
+    let stdout = '';
+    proc.stdout.on('data', c => { stdout += c.toString(); });
+    proc.on('error', reject);
+    proc.on('exit', code => {
+      if (code !== 0) return reject(new Error(`claude exited ${code}`));
+      try {
+        const env = JSON.parse(stdout);
+        if (env.is_error) return reject(new Error(`claude error: ${env.result || 'unknown'}`));
+        resolve(env.result || '');
+      } catch (e) {
+        reject(new Error(`couldn't parse claude output envelope: ${e.message}; raw: ${stdout.slice(0, 200)}`));
+      }
+    });
+    proc.stdin.write(prompt);
+    proc.stdin.end();
   });
-  const text = response.content.map(c => c.type === 'text' ? c.text : '').join('');
-  const cleaned = text.replace(/^```(?:json)?\s*/, '').replace(/```\s*$/, '').trim();
-  let scores;
+}
+
+async function gradeItem(item, model, useSdk, sdkClient) {
+  const prompt = RUBRIC + '\n\n' + JSON.stringify(item, null, 2);
+  let text;
   try {
-    scores = JSON.parse(cleaned);
+    if (useSdk) {
+      const response = await sdkClient.messages.create({
+        model: model.startsWith('claude-') ? model : `claude-${model}-4-7`,
+        max_tokens: 600,
+        messages: [{ role: 'user', content: prompt }],
+      });
+      text = response.content.map(c => c.type === 'text' ? c.text : '').join('');
+    } else {
+      text = await callClaudeCLI(prompt, { model });
+    }
+  } catch (e) {
+    return { error: 'call_failed', detail: e.message };
+  }
+  const cleaned = text.replace(/^```(?:json)?\s*/, '').replace(/```\s*$/, '').trim();
+  try {
+    return JSON.parse(cleaned);
   } catch (e) {
     return { error: 'parse_failed', raw: text.slice(0, 300) };
   }
-  return scores;
 }
 
 function isAccepted(scores) {
@@ -95,14 +134,15 @@ function isAccepted(scores) {
 async function main() {
   const args = parseArgs();
   const inPath = args.in;
-  const model = args.model || 'claude-opus-4-7';
+  const model = args.model || 'opus';
+  const useSdk = process.env.USE_ANTHROPIC_SDK === '1';
 
   if (!inPath) {
-    console.error('Usage: node scripts/gradeCandidates.mjs --in=<candidates.jsonl> [--model=claude-opus-4-7]');
+    console.error('Usage: node scripts/gradeCandidates.mjs --in=<candidates.jsonl> [--model=opus]');
     process.exit(2);
   }
-  if (!process.env.ANTHROPIC_API_KEY) {
-    console.error('ERROR: ANTHROPIC_API_KEY env var required');
+  if (useSdk && !process.env.ANTHROPIC_API_KEY) {
+    console.error('ERROR: USE_ANTHROPIC_SDK=1 set but ANTHROPIC_API_KEY missing');
     process.exit(2);
   }
 
@@ -115,16 +155,20 @@ async function main() {
   }).filter(Boolean);
 
   console.log(`Grading ${items.length} candidates from ${inPath}`);
-  console.log(`Model: ${model}, accept floor: all dims ≥ ${ACCEPT_FLOOR}/5\n`);
+  console.log(`Model: ${model} via ${useSdk ? 'Anthropic SDK' : 'claude CLI'}, accept floor: all dims ≥ ${ACCEPT_FLOOR}/5\n`);
 
-  const client = new Anthropic();
+  let sdkClient = null;
+  if (useSdk) {
+    const { default: Anthropic } = await import('@anthropic-ai/sdk');
+    sdkClient = new Anthropic();
+  }
   const accepted = [];
   const rejected = [];
 
   for (let i = 0; i < items.length; i++) {
     const item = items[i];
     process.stdout.write(`  [${i + 1}/${items.length}] ${item.id}... `);
-    const scores = await gradeItem(client, item, model);
+    const scores = await gradeItem(item, model, useSdk, sdkClient);
     if (scores.error) {
       console.log(`PARSE ERROR — counted as rejected`);
       rejected.push({ ...item, _scores: scores, _reason: 'grader parse failed' });
