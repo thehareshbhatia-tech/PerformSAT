@@ -3721,5 +3721,101 @@ export const geometryBank = [
     choices: [{ id: 'A', text: '$\\dfrac{4}{5}$' }, { id: 'B', text: '$\\dfrac{3}{5}$' }, { id: 'C', text: '$\\dfrac{6}{8}$' }, { id: 'D', text: '$\\dfrac{8}{6}$' }],
     correctAnswer: 'A',
     explanation: '**SAT Pattern: Trig Ratio with Known Triple**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Hypotenuse $= 10$ ($6$-$8$-$10$ triple). $\\cos \\theta = $ adj/hyp $= 8/10 = 4/5$.\n\n**Why the wrong answers are tempting:**\n* B: $\\sin \\theta = 6/10$.\n* C: ratio of legs (not the trig ratio).\n* D: inverts the ratio of legs.\n\n**Test Day Takeaway:** When only legs given, compute the hypotenuse first via Pythagorean (or recognize the triple).',
-    calculatorAllowed: false, tags: [], sourceStyleRef: 'trig-ratio-with-known-triple', authoredBy: 'performsat-engine', createdAt: '2026-05-21' }
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'trig-ratio-with-known-triple', authoredBy: 'performsat-engine', createdAt: '2026-05-21' },
+
+  // === DIFFICULT-QUESTIONS PDF BATCH (2026-05-22) — 14 geometry items reskinned ===
+
+  { id: 'bank-geo-341', domain: 'geometry', skills: ['circle-area', 'volume-scaling'], difficulty: 'hard', type: 'multiple-choice',
+    question: 'Circle $A$ has a radius of $4n$ and circle $B$ has a radius of $92n$, where $n$ is a positive constant. The area of circle $B$ is how many times the area of circle $A$?',
+    choices: [{ id: 'A', text: '$23$' }, { id: 'B', text: '$46$' }, { id: 'C', text: '$92$' }, { id: 'D', text: '$529$' }],
+    correctAnswer: 'D',
+    explanation: '**SAT Pattern: Similar-Figures Area Ratio**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** Area scales as the square of the linear scale factor. Ratio of radii $=\\dfrac{92n}{4n}=23$. Ratio of areas $=23^2=529$.\n\n**Why the wrong answers are tempting:**\n* A: returns the linear ratio.\n* B: doubles the linear ratio.\n* C: copies the larger radius coefficient.\n\n**Test Day Takeaway:** Area ratio of similar figures $=$ (linear ratio)$^2$.',
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'similar-figures-area-ratio', authoredBy: 'performsat-engine', createdAt: '2026-05-22' },
+
+  { id: 'bank-geo-342', domain: 'geometry', skills: ['radians-to-degrees', 'radian-measure-understanding'], difficulty: 'hard', type: 'multiple-choice',
+    question: 'The measure of angle $M$ is $\\dfrac{3\\pi}{4}$ radians. The measure of angle $N$ is $\\dfrac{7\\pi}{12}$ radians greater than the measure of angle $M$. What is the measure of angle $N$, in degrees?',
+    choices: [{ id: 'A', text: '$135$' }, { id: 'B', text: '$180$' }, { id: 'C', text: '$240$' }, { id: 'D', text: '$420$' }],
+    correctAnswer: 'C',
+    explanation: '**SAT Pattern: Radian Sum to Degrees**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** $M+\\dfrac{7\\pi}{12}=\\dfrac{9\\pi}{12}+\\dfrac{7\\pi}{12}=\\dfrac{16\\pi}{12}=\\dfrac{4\\pi}{3}$. Convert: $\\dfrac{4\\pi}{3}\\cdot\\dfrac{180}{\\pi}=\\dfrac{720}{3}=240^\\circ$.\n\n**Why the wrong answers are tempting:**\n* A: converts $M$ only.\n* B: stops at $\\pi$ radians.\n* D: forgets the denominator $3$ in conversion.\n\n**Test Day Takeaway:** Add radian measures with a common denominator, then multiply by $180/\\pi$ to convert.',
+    calculatorAllowed: true, tags: [], sourceStyleRef: 'radians-degrees-conversion', authoredBy: 'performsat-engine', createdAt: '2026-05-22' },
+
+  { id: 'bank-geo-343', domain: 'geometry', skills: ['volume-sphere', 'volume-prism'], difficulty: 'hard', type: 'multiple-choice',
+    question: 'A cube has an edge length of $80$ inches. A solid sphere with a radius of $40$ inches is inside the cube, such that the sphere touches the center of each face of the cube. To the nearest cubic inch, what is the volume of the space in the cube not taken up by the sphere?',
+    choices: [{ id: 'A', text: '$243{,}917$' }, { id: 'B', text: '$268{,}083$' }, { id: 'C', text: '$304{,}600$' }, { id: 'D', text: '$512{,}000$' }],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Composite Solid — Cube Minus Inscribed Sphere**\n\n**Choice A is correct.**\n\n**The Fast Way (~40s):** $V_{\\text{cube}}=80^3=512{,}000$. $V_{\\text{sphere}}=\\dfrac{4}{3}\\pi(40)^3=\\dfrac{256{,}000\\pi}{3}\\approx 268{,}083$. Difference $\\approx 243{,}917$.\n\n**Why the wrong answers are tempting:**\n* B: returns just the sphere volume.\n* C: uses the wrong volume formula.\n* D: returns the cube volume only.\n\n**Test Day Takeaway:** Inscribed sphere $\\Rightarrow$ sphere diameter $=$ cube edge $\\Rightarrow$ $r=\\dfrac{\\text{edge}}{2}$.',
+    calculatorAllowed: true, tags: [], sourceStyleRef: 'composite-solid', authoredBy: 'performsat-engine', createdAt: '2026-05-22' },
+
+  { id: 'bank-geo-344', domain: 'geometry', skills: ['function-transformations'], difficulty: 'hard', type: 'multiple-choice',
+    question: 'The rational function $f$ is defined by an equation in the form $f(x)=\\dfrac{a}{x+b}$, where $a$ and $b$ are constants. The partial graph of $y=f(x)$ has a vertical asymptote at $x=0$ and passes through the point $(-5,\\,-1)$. If $g(x)=f(x+3)$, which equation could define function $g$?',
+    choices: [{ id: 'A', text: '$g(x) = \\dfrac{5}{x}$' }, { id: 'B', text: '$g(x) = \\dfrac{5}{x+3}$' }, { id: 'C', text: '$g(x) = \\dfrac{5}{x+8}$' }, { id: 'D', text: '$g(x) = \\dfrac{5(x+3)}{x+3}$' }],
+    correctAnswer: 'B',
+    explanation: '**SAT Pattern: Horizontal Shift of a Rational Function**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Vertical asymptote at $x=0$ means $b=0$, so $f(x)=\\dfrac{a}{x}$. Passing through $(-5,-1)$: $\\dfrac{a}{-5}=-1\\Rightarrow a=5$. Then $g(x)=f(x+3)=\\dfrac{5}{x+3}$.\n\n**Why the wrong answers are tempting:**\n* A: forgets the shift.\n* C: stacks the shift instead of replacing.\n* D: simplifies to a constant, losing the asymptote.\n\n**Test Day Takeaway:** $f(x+h)$ shifts the graph LEFT by $h$, which adds $h$ to the denominator of $a/x$.',
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'function-from-shifted-graph', authoredBy: 'performsat-engine', createdAt: '2026-05-22' },
+
+  { id: 'bank-geo-345', domain: 'geometry', skills: ['special-right-triangles', 'pythagorean-theorem'], difficulty: 'hard', type: 'multiple-choice',
+    question: 'An isosceles right triangle has a perimeter of $78+78\\sqrt{2}$ inches. What is the length, in inches, of one leg of this triangle?',
+    choices: [{ id: 'A', text: '$39$' }, { id: 'B', text: '$39\\sqrt{2}$' }, { id: 'C', text: '$78$' }, { id: 'D', text: '$78\\sqrt{2}$' }],
+    correctAnswer: 'B',
+    explanation: '**SAT Pattern: 45-45-90 Triangle — Perimeter to Leg**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Leg $L$, hypotenuse $L\\sqrt{2}$. Perimeter: $L(2+\\sqrt{2})=78(1+\\sqrt{2})$. Solve: $L=\\dfrac{78(1+\\sqrt{2})}{2+\\sqrt{2}}=\\dfrac{78(1+\\sqrt{2})(2-\\sqrt{2})}{2}=\\dfrac{78\\sqrt{2}}{2}=39\\sqrt{2}$.\n\n**Why the wrong answers are tempting:**\n* A: confuses leg with half the perimeter coefficient.\n* C/D: copies the perimeter coefficient.\n\n**Test Day Takeaway:** Rationalize the denominator before declaring the leg length; $1+\\sqrt{2}$ over $2+\\sqrt{2}$ simplifies to $\\sqrt{2}/2$.',
+    calculatorAllowed: false, tags: [], sourceStyleRef: '45-45-90-triangle', authoredBy: 'performsat-engine', createdAt: '2026-05-22' },
+
+  { id: 'bank-geo-346', domain: 'geometry', skills: ['volume-prism'], difficulty: 'hard', type: 'multiple-choice',
+    question: 'Two identical rectangular prisms each have a height of $100$ centimeters (cm). The base of each prism is a square, and the surface area of each prism is $K$ cm$^2$. If the prisms are glued together along a square base, the resulting prism has a surface area of $\\dfrac{41}{21}K$ cm$^2$. What is the side length, in cm, of each square base?',
+    choices: [{ id: 'A', text: '$5$' }, { id: 'B', text: '$10$' }, { id: 'C', text: '$15$' }, { id: 'D', text: '$20$' }],
+    correctAnswer: 'B',
+    explanation: '**SAT Pattern: Surface Area of Glued Prisms**\n\n**Choice B is correct.**\n\n**The Fast Way (~50s):** $K=2s^2+4s(100)=2s^2+400s$. Glued prism: $2s^2+4s(200)=2s^2+800s$. Equation: $2s^2+800s=\\dfrac{41}{21}(2s^2+400s)$. Multiply by $21$: $42s^2+16800s=82s^2+16400s\\Rightarrow 400s=40s^2\\Rightarrow s=10$.\n\n**Why the wrong answers are tempting:**\n* A: divides by $2$ at the wrong step.\n* C: misapplies the ratio.\n* D: doubles the correct answer.\n\n**Test Day Takeaway:** Gluing two prisms along a face hides $2\\cdot s^2$ of surface area; the remaining lateral area becomes one tall prism.',
+    calculatorAllowed: true, tags: [], sourceStyleRef: 'composite-solid', authoredBy: 'performsat-engine', createdAt: '2026-05-22' },
+
+  { id: 'bank-geo-347', domain: 'geometry', skills: ['radian-measure-understanding', 'soh-cah-toa'], difficulty: 'hard', type: 'multiple-choice',
+    question: 'What is the value of $\\tan\\dfrac{85\\pi}{3}$?',
+    choices: [{ id: 'A', text: '$-\\sqrt{3}$' }, { id: 'B', text: '$-\\dfrac{\\sqrt{3}}{3}$' }, { id: 'C', text: '$\\dfrac{\\sqrt{3}}{3}$' }, { id: 'D', text: '$\\sqrt{3}$' }],
+    correctAnswer: 'D',
+    explanation: '**SAT Pattern: Coterminal-Angle Reduction for Tangent**\n\n**Choice D is correct.**\n\n**The Fast Way (~40s):** $\\dfrac{85\\pi}{3}=28\\pi+\\dfrac{\\pi}{3}$. $\\tan$ has period $\\pi$, so $\\tan\\dfrac{85\\pi}{3}=\\tan\\dfrac{\\pi}{3}=\\sqrt{3}$.\n\n**Why the wrong answers are tempting:**\n* A: forgets the period reduction sign.\n* B/C: confuses $\\tan(\\pi/3)$ with $\\cot(\\pi/3)$.\n\n**Test Day Takeaway:** $\\tan$ has period $\\pi$ (not $2\\pi$). Reduce by the largest multiple of $\\pi$.',
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'radians-degrees-conversion', authoredBy: 'performsat-engine', createdAt: '2026-05-22' },
+
+  { id: 'bank-geo-348', domain: 'geometry', skills: ['soh-cah-toa', 'triangle-types'], difficulty: 'hard', type: 'fill-in',
+    question: 'In a right triangle, the hypotenuse has length $32$ and the leg adjacent to angle $x$ has length $13$. What is the value of $\\cos x^\\circ$?',
+    correctAnswer: '13/32',
+    explanation: '**SAT Pattern: Direct Trig Ratio**\n\n**The correct answer is $\\dfrac{13}{32}$ (or $0.4062$).**\n\n**The Fast Way (~10s):** $\\cos x=\\dfrac{\\text{adjacent}}{\\text{hypotenuse}}=\\dfrac{13}{32}$.\n\n**Common Mistakes to Avoid:**\n* Confusing adjacent and opposite.\n* Computing the missing leg unnecessarily.\n\n**Test Day Takeaway:** SOH-CAH-TOA: $\\cos=$ adjacent / hypotenuse.',
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'direct-trig-ratio', authoredBy: 'performsat-engine', createdAt: '2026-05-22' },
+
+  { id: 'bank-geo-349', domain: 'geometry', skills: ['circle-equation'], difficulty: 'hard', type: 'multiple-choice',
+    question: '$$(x+5)^2 + (y-22)^2 = 144$$\n\nThe graph of the given equation is a circle in the $xy$-plane. The point $(a,\\,b)$ lies on the circle. Which of the following is a possible value for $a$?',
+    choices: [{ id: 'A', text: '$-18$' }, { id: 'B', text: '$-16$' }, { id: 'C', text: '$10$' }, { id: 'D', text: '$22$' }],
+    correctAnswer: 'B',
+    explanation: '**SAT Pattern: Circle in Standard Form — $x$-range**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Center $(-5,22)$, radius $12$. So $a\\in[-17,7]$. Only $-16$ falls in that interval.\n\n**Why the wrong answers are tempting:**\n* A: $-18$ is just outside the lower bound.\n* C: $10$ exceeds the upper bound.\n* D: $22$ is the $y$-coordinate of the center.\n\n**Test Day Takeaway:** A point on a circle has $|x-h|\\le r$ and $|y-k|\\le r$.',
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'circle-in-standard-form', authoredBy: 'performsat-engine', createdAt: '2026-05-22' },
+
+  { id: 'bank-geo-350', domain: 'geometry', skills: ['function-evaluation', 'roots-from-factors'], difficulty: 'hard', type: 'fill-in',
+    question: 'The function $g$ is defined by $g(x)=(x+10)(t-x)$, where $t$ is a constant. In the $xy$-plane, the graph of $y=g(x)$ passes through the point $(30,\\,0)$. What is the value of $g(0)$?',
+    correctAnswer: '300',
+    explanation: '**SAT Pattern: Recover Parameter from Known Root, then Evaluate**\n\n**The correct answer is $300$.**\n\n**The Fast Way (~25s):** $g(30)=0\\Rightarrow (40)(t-30)=0\\Rightarrow t=30$. Then $g(0)=(10)(30)=300$.\n\n**Common Mistakes to Avoid:**\n* Setting $x+10=0$ at $x=30$ (wrong factor zeros).\n* Forgetting that $t=30$ before computing $g(0)$.\n\n**Test Day Takeaway:** Use the given root to pin down the unknown constant, then evaluate at the requested input.',
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'function-from-conditions', authoredBy: 'performsat-engine', createdAt: '2026-05-22' },
+
+  { id: 'bank-geo-351', domain: 'geometry', skills: ['special-right-triangles', 'circle-area', 'rectangle-area'], difficulty: 'hard', type: 'fill-in',
+    question: 'A rectangle is inscribed in a circle, such that each vertex of the rectangle lies on the circumference of the circle. The diagonal of the rectangle is twice the length of the shortest side of the rectangle. The area of the rectangle is $729\\sqrt{3}$ square units. What is the length, in units, of the diameter of the circle?',
+    correctAnswer: '54',
+    explanation: '**SAT Pattern: 30-60-90 from Diagonal-to-Side Ratio**\n\n**The correct answer is $54$.**\n\n**The Fast Way (~50s):** Diagonal $=2\\cdot$ short side $\\Rightarrow$ short:long:diagonal $=1:\\sqrt{3}:2$ (a $30$-$60$-$90$ triangle). Let short $=x$; area $=x\\cdot x\\sqrt{3}=x^2\\sqrt{3}=729\\sqrt{3}\\Rightarrow x=27$. Diameter $=$ diagonal $=2x=54$.\n\n**Common Mistakes to Avoid:**\n* Forgetting that the diagonal of a rectangle inscribed in a circle equals the diameter.\n* Solving $x^2=729$ as $x=27$ but then forgetting to double for diameter.\n\n**Test Day Takeaway:** Diagonal $=2\\cdot$ short side means a $30$-$60$-$90$ scaffold. The diameter equals the rectangle\'s diagonal.',
+    calculatorAllowed: false, tags: [], sourceStyleRef: '30-60-90-triangle', authoredBy: 'performsat-engine', createdAt: '2026-05-22' },
+
+  { id: 'bank-geo-352', domain: 'geometry', skills: ['tangent-lines', 'circle-equation'], difficulty: 'hard', type: 'multiple-choice',
+    question: 'A circle in the $xy$-plane has its center at $(-2,\\,3)$. Line $t$ is tangent to this circle at the point $(7,\\,-2)$. Which of the following points also lies on line $t$?',
+    choices: [{ id: 'A', text: '$\\left(0,\\,\\dfrac{14}{5}\\right)$' }, { id: 'B', text: '$(2,\\,11)$' }, { id: 'C', text: '$(12,\\,7)$' }, { id: 'D', text: '$(11,\\,3)$' }],
+    correctAnswer: 'C',
+    explanation: '**SAT Pattern: Tangent Line to a Circle**\n\n**Choice C is correct.**\n\n**The Fast Way (~50s):** Radius slope from $(-2,3)$ to $(7,-2)$: $\\dfrac{-2-3}{7-(-2)}=-\\dfrac{5}{9}$. Tangent slope $=\\dfrac{9}{5}$. Line: $y+2=\\dfrac{9}{5}(x-7)\\Rightarrow y=\\dfrac{9}{5}x-\\dfrac{73}{5}$. Test $(12,7)$: $\\dfrac{9}{5}(12)-\\dfrac{73}{5}=\\dfrac{108-73}{5}=7$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* A: confuses $y$-intercept with a coordinate.\n* B: small-number guess.\n* D: tests center row.\n\n**Test Day Takeaway:** Tangent slope = $-1/$(radius slope). Use point-slope from the tangent point.',
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'tangent-line-to-circle', authoredBy: 'performsat-engine', createdAt: '2026-05-22' },
+
+  { id: 'bank-geo-353', domain: 'geometry', skills: ['special-right-triangles', 'circle-equation'], difficulty: 'hard', type: 'multiple-choice',
+    question: 'In the $xy$-plane, a circle has center $C$ with coordinates $(h,\\,k)$. Points $A$ and $B$ lie on the circle. Point $A$ has coordinates $(h+1,\\,k+\\sqrt{66})$, and $\\angle ACB$ is a right angle. What is the length of $\\overline{AB}$?',
+    choices: [{ id: 'A', text: '$\\sqrt{134}$' }, { id: 'B', text: '$2\\sqrt{67}$' }, { id: 'C', text: '$67\\sqrt{2}$' }, { id: 'D', text: '$67\\sqrt{3}$' }],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Right Triangle at Center — Chord Length**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** $CA=\\sqrt{1^2+(\\sqrt{66})^2}=\\sqrt{67}=r$. Triangle $ACB$ is right with legs $CA=CB=r$, so $AB=r\\sqrt{2}=\\sqrt{67}\\cdot\\sqrt{2}=\\sqrt{134}$.\n\n**Why the wrong answers are tempting:**\n* B: doubles instead of $\\sqrt{2}$.\n* C: skips the radius computation.\n* D: confuses with equilateral case.\n\n**Test Day Takeaway:** A right angle at the center makes the chord a hypotenuse of an isosceles right triangle with legs $=$ radius.',
+    calculatorAllowed: false, tags: [], sourceStyleRef: '45-45-90-triangle', authoredBy: 'performsat-engine', createdAt: '2026-05-22' },
+
+  { id: 'bank-geo-354', domain: 'geometry', skills: ['special-right-triangles', 'circle-equation'], difficulty: 'hard', type: 'fill-in',
+    question: 'The perimeter of an equilateral triangle is $426$ centimeters. The three vertices of the triangle lie on a circle. The radius of the circle is $w\\sqrt{3}$ centimeters. What is the value of $w$?',
+    correctAnswer: '142/3',
+    explanation: '**SAT Pattern: Equilateral Triangle — Circumradius**\n\n**The correct answer is $\\dfrac{142}{3}$ (or $47.33$).**\n\n**The Fast Way (~40s):** Side $=\\dfrac{426}{3}=142$. Circumradius of equilateral triangle: $R=\\dfrac{a}{\\sqrt{3}}=\\dfrac{a\\sqrt{3}}{3}=\\dfrac{142\\sqrt{3}}{3}$. So $w=\\dfrac{142}{3}$.\n\n**Common Mistakes to Avoid:**\n* Using $a/2$ as the circumradius (that\'s the apothem, not the circumradius).\n* Forgetting to rationalize $1/\\sqrt{3}$ to $\\sqrt{3}/3$.\n\n**Test Day Takeaway:** Equilateral circumradius $R=a/\\sqrt{3}=a\\sqrt{3}/3$.',
+    calculatorAllowed: true, tags: [], sourceStyleRef: '30-60-90-triangle', authoredBy: 'performsat-engine', createdAt: '2026-05-22' }
 ];

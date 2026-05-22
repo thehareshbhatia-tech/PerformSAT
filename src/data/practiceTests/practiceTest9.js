@@ -787,6 +787,22 @@ export const practiceTest9 = {
   correctAnswer: "2",
   explanation: "**SAT Pattern: Parameterized Quadratic from a Functional Identity**\n\n**The correct answer is $2$.**\n\n**The Fast Way (~45s):** Compute $f(2x - 1) - f(2x + 1)$ symbolically and match the coefficient of $x$ to $-16$.\n* $f(2x - 1) = a(2x - 1)^2 + b = a(4x^2 - 4x + 1) + b$.\n* $f(2x + 1) = a(2x + 1)^2 + b = a(4x^2 + 4x + 1) + b$.\n* Difference: $a[(4x^2 - 4x + 1) - (4x^2 + 4x + 1)] = a(-8x) = -8ax$.\n* Set $-8ax = -16x$, so $a = 2$.\n\n**The Full Solution:**\nExpand each composition:\n$f(2x - 1) = a(2x - 1)^2 + b = a(4x^2 - 4x + 1) + b = 4ax^2 - 4ax + a + b$\n$f(2x + 1) = a(2x + 1)^2 + b = a(4x^2 + 4x + 1) + b = 4ax^2 + 4ax + a + b$\n\nSubtract:\n$f(2x - 1) - f(2x + 1) = (4ax^2 - 4ax + a + b) - (4ax^2 + 4ax + a + b) = -8ax$\n\nSet equal to $-16x$ (must hold for all $x$):\n$-8ax = -16x$\n$-8a = -16$\n$a = 2$.\n\nNote: $b$ does not appear in the difference, so it is unconstrained.\n\n**Verification:** with $a = 2$: $f(2x - 1) - f(2x + 1) = -8(2)x = -16x$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Trying to solve by plugging in specific values of $x$ — works, but the algebraic shortcut is faster.\n* Forgetting to distribute the $a$ when expanding $a(2x \\pm 1)^2$.\n* Confusing the sign on the difference: $(2x - 1)^2 - (2x + 1)^2 = -8x$, NOT $+8x$ (the larger square is $(2x+1)^2$).\n\n**Test Day Takeaway:** Difference of squares pattern: $(P)^2 - (Q)^2 = (P - Q)(P + Q)$. Here $(2x - 1)^2 - (2x + 1)^2 = ((2x-1) - (2x+1))((2x-1) + (2x+1)) = (-2)(4x) = -8x$.",
   skills: ["function-interpretation", "polynomial-operations", "factoring"]
+},
+{
+  id: 23,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "$$\\dfrac{x^2}{\\sqrt{x^2 - c^2}} = \\dfrac{c^2}{\\sqrt{x^2 - c^2}} + 42$$\n\nIn the given equation, $c$ is a positive constant. Which of the following is one of the solutions to the given equation?",
+  choices: [
+    { id: "A", text: "$-c$" },
+    { id: "B", text: "$-c^2 - 42^2$" },
+    { id: "C", text: "$-\\sqrt{42^2 - c^2}$" },
+    { id: "D", text: "$-\\sqrt{c^2 + 42^2}$" }
+  ],
+  correctAnswer: "D",
+  explanation: "**SAT Pattern: Radical Equation — Extraneous Filter**\n\n**Choice D is correct.**\n\n**The Fast Way (~50s):** Multiply both sides by $\\sqrt{x^2 - c^2}$: $x^2 - c^2 = 42\\sqrt{x^2 - c^2}$. Let $u = \\sqrt{x^2 - c^2} \\ge 0$: $u^2 = 42u \\Rightarrow u = 42$ (discard $u = 0$, which makes the denominator zero). Then $x^2 - c^2 = 42^2 \\Rightarrow x = \\pm\\sqrt{c^2 + 42^2}$.\n\n**Why the wrong answers are tempting:**\n* A: forces $x^2 - c^2 = 0$, breaking the domain.\n* B: confuses $x^2$ with $x$.\n* C: sign error.\n\n**Test Day Takeaway:** Substitute $u = \\sqrt{\\cdot}$ to linearize, then filter by $u \\ge 0$ and the denominator constraint.",
+  skills: ["radical-equations", "rational-equations"]
 }
       ]
     }

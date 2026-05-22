@@ -763,6 +763,16 @@ export const practiceTest6 = {
   correctAnswer: "42",
   explanation: "**SAT Pattern: Sum/Product of Roots (Vieta's)**\n\n**The correct answer is $42$.**\n\n**The Fast Way (~30s):** By Vieta's, $r + s = -\\dfrac{-8}{1} = 8$ and $rs = \\dfrac{11}{1} = 11$. Use the identity $(r + s)^2 = r^2 + 2rs + s^2$: $r^2 + s^2 = (r + s)^2 - 2rs = 64 - 22 = 42$.\n\n**The Full Solution:**\nFor a quadratic $ax^2 + bx + c = 0$ with real roots $r$ and $s$, Vieta's formulas give:\n* Sum: $r + s = -\\dfrac{b}{a}$.\n* Product: $rs = \\dfrac{c}{a}$.\n\nHere $a = 1$, $b = -8$, $c = 11$, so $r + s = 8$ and $rs = 11$.\n\nUse the algebraic identity:\n$(r + s)^2 = r^2 + 2rs + s^2$\n$\\Rightarrow r^2 + s^2 = (r + s)^2 - 2rs = 8^2 - 2(11) = 64 - 22 = 42$.\n\n**Verification (direct):** $x^2 - 8x + 11 = 0 \\Rightarrow x = \\dfrac{8 \\pm \\sqrt{64 - 44}}{2} = \\dfrac{8 \\pm 2\\sqrt{5}}{2} = 4 \\pm \\sqrt{5}$. Then $r^2 + s^2 = (4 + \\sqrt{5})^2 + (4 - \\sqrt{5})^2 = (16 + 8\\sqrt{5} + 5) + (16 - 8\\sqrt{5} + 5) = 42$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Solving for $r$ and $s$ directly via the quadratic formula — slow and error-prone.\n* Using $r^2 + s^2 = (r + s)^2$ — forgetting to subtract the cross-term $2rs$.\n* Sign error on $r + s$: the formula is $-\\frac{b}{a}$, so a negative $b$ flips to positive.\n\n**Test Day Takeaway:** Vieta's plus algebraic identities (like $r^2 + s^2 = (r+s)^2 - 2rs$ or $r^3 + s^3 = (r+s)^3 - 3rs(r+s)$) lets you answer questions ABOUT the roots without ever finding them.",
   skills: ["quadratic-equations", "vieta-formulas", "polynomial-operations"]
+},
+{
+  id: 23,
+  type: "fill-in",
+  difficulty: "hard",
+  band: 7,
+  question: "For an electric field passing through a flat surface perpendicular to it, the electric flux of the electric field through the surface is the product of the electric field's strength and the area of the surface. A certain flat surface consists of two adjacent squares, where the side length, in meters, of the larger square is $4$ times the side length, in meters, of the smaller square. An electric field with strength $23.00$ volts per meter passes uniformly through this surface, which is perpendicular to the electric field. If the total electric flux of the electric field through this surface is $6{,}256$ volts $\\cdot$ meters, what is the electric flux, in volts $\\cdot$ meters, of the electric field through the larger square?",
+  correctAnswer: "5888",
+  explanation: "**SAT Pattern: Proportional Area — Recover Side, Then Apply**\n\n**The correct answer is $5888$.**\n\n**The Fast Way (~50s):** Total area $= 16s^2 + s^2 = 17s^2$. Total flux $= 23 \\cdot 17s^2 = 391s^2 = 6256 \\Rightarrow s^2 = 16$. Larger area $= 16(16) = 256$. Larger flux $= 23 \\cdot 256 = 5888$.\n\n**Common Mistakes to Avoid:**\n* Reporting total flux ($6256$) instead of just the larger square's share.\n* Mistaking the side ratio ($4{:}1$) for an area ratio.\n\n**Test Day Takeaway:** Side ratio squared $=$ area ratio. Distribute total flux proportionally to each piece's area.",
+  skills: ["proportion", "unit-conversion"]
 }
       ]
     }

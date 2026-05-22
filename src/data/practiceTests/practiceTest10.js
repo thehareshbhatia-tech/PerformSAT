@@ -806,6 +806,16 @@ export const practiceTest10 = {
   correctAnswer: "120",
   explanation: "**SAT Pattern: Sector Arc & Central Angle**\n\n**The correct answer is $120$.**\n\n**The Fast Way (~30s):** From area $36\\pi$, $r = 6$, so circumference $= 12\\pi$. Arc fraction $= \\dfrac{4\\pi}{12\\pi} = \\dfrac{1}{3}$. Central angle $= \\dfrac{1}{3} \\cdot 360^{\\circ} = 120^{\\circ}$.\n\n**The Full Solution:**\nFirst find the radius from the area:\n$\\pi r^2 = 36\\pi \\Rightarrow r^2 = 36 \\Rightarrow r = 6$.\n\nThe full circumference is:\n$C = 2\\pi r = 12\\pi$.\n\nThe arc length of a sector is proportional to its central angle (out of $360^{\\circ}$):\n$\\dfrac{\\text{arc length}}{\\text{circumference}} = \\dfrac{\\theta}{360^{\\circ}}$\n$\\dfrac{4\\pi}{12\\pi} = \\dfrac{\\theta}{360^{\\circ}}$\n$\\dfrac{1}{3} = \\dfrac{\\theta}{360^{\\circ}}$\n$\\theta = 120^{\\circ}$.\n\n**Verification:** A central angle of $120^{\\circ}$ subtends $\\dfrac{1}{3}$ of the circumference; $\\dfrac{1}{3}$ of $12\\pi = 4\\pi$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Reporting $r = 6$ as the central angle.\n* Using $\\dfrac{4\\pi}{36\\pi}$ (mixing arc length with area).\n* Reporting the answer in radians ($\\dfrac{2\\pi}{3}$ rad) when degrees are requested.\n\n**Test Day Takeaway:** For a sector, BOTH arc length and area scale linearly with the central angle (out of $360^{\\circ}$ or $2\\pi$ radians). To find the angle, set up the proportion using whichever is given (arc length / circumference, or sector area / circle area).",
   skills: ["circles", "geometry", "ratios"]
+},
+{
+  id: 23,
+  type: "fill-in",
+  difficulty: "hard",
+  band: 7,
+  question: "The function $f$ is defined by $f(x) = -a^x + b$, where $a$ and $b$ are constants. In the $xy$-plane, the graph of $y = f(x) - 10$ has a $y$-intercept at $\\left(0,\\,-\\dfrac{59}{6}\\right)$. The product of $a$ and $b$ is $7$. What is the value of $a$?",
+  correctAnswer: "6",
+  explanation: "**SAT Pattern: Exponential Shifted Form — Recover Base**\n\n**The correct answer is $6$.**\n\n**The Fast Way (~50s):** $f(0) - 10 = -59/6 \\Rightarrow f(0) = -59/6 + 60/6 = 1/6$. Since $f(0) = -1 + b$, we have $b = 7/6$. With $ab = 7$: $a = 7 \\div (7/6) = 6$.\n\n**Common Mistakes to Avoid:**\n* Forgetting that $a^0 = 1$ inside $-a^x + b$.\n* Sign error when adding $10$ to the $y$-intercept.\n\n**Test Day Takeaway:** Plug $x = 0$ to recover one constant, then use the product relation to recover the other.",
+  skills: ["exponential-functions", "function-interpretation"]
 }
       ]
     }

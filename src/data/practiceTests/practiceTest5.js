@@ -792,6 +792,22 @@ export const practiceTest5 = {
   correctAnswer: "C",
   explanation: "**SAT Pattern: Vertex Form from Two Conditions**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Vertex $(h, k) = (2, 12)$. Verify the parabola passes through $(4, 0)$: $y = -3(4 - 2)^2 + 12 = -3(4) + 12 = 0$ \\checkmark. So $h - k = 2 - 12 = -10$.\n\n**The Full Solution:**\nIn vertex form $y = a(x - h)^2 + k$, the vertex is $(h, k)$.\nGiven vertex $(2, 12)$: $h = 2$ and $k = 12$.\nVerify with the second point $(4, 0)$ and $a = -3$:\n$y = -3(4 - 2)^2 + 12 = -3(4) + 12 = 0$ \\checkmark.\n\nSo $h - k = 2 - 12 = -10$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — reports just $h = 2$ without subtracting $k$.\n* Choice B: \"applies the inverse operation\" — computes $h + k = 14$.\n* Choice D: \"wrong base\" — computes $k - h = 10$ (sign reversed).\n\n**Test Day Takeaway:** In $y = a(x - h)^2 + k$, the vertex is exactly $(h, k)$. The other point only verifies $a$.",
   skills: ["vertex-form", "function-interpretation"]
+},
+{
+  id: 23,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "In the $xy$-plane, a parabola has vertex $(8, -20)$ and intersects the $x$-axis at two points. If the equation of the parabola is written in the form $y = ax^2 + bx + c$, where $a$, $b$, and $c$ are constants, which of the following could be the value of $a + b + c$?",
+  choices: [
+    { id: "A", text: "$-25$" },
+    { id: "B", text: "$-22$" },
+    { id: "C", text: "$-20$" },
+    { id: "D", text: "$-18$" }
+  ],
+  correctAnswer: "D",
+  explanation: "**SAT Pattern: Vertex + Sign-of-Coefficient Reasoning**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** Vertex below the $x$-axis with two $x$-intercepts means parabola opens upward, so $a > 0$. Then $a + b + c = y(1) = a(1 - 8)^2 - 20 = 49a - 20 > -20$. Only $-18$ exceeds $-20$.\n\n**Why the wrong answers are tempting:**\n* A: forgets the inequality direction.\n* B: treats the bound as soft.\n* C: copies the vertex $y$-value.\n\n**Test Day Takeaway:** Vertex form + sign of $a$ + a single evaluation $y(1)$ gives $a + b + c$. The two-intercept constraint fixes the sign of $a$.",
+  skills: ["quadratic-equations", "vertex-form"]
 }
       ]
     }

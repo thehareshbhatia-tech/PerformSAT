@@ -798,6 +798,16 @@ export const practiceTest4 = {
   correctAnswer: "B",
   explanation: "**SAT Pattern: Discriminant Analysis**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** One real solution means discriminant $= 0$: $k^2 - 4(9)(4) = 0 \\Rightarrow k^2 = 144 \\Rightarrow k = 12$ (positive).\n\n**The Full Solution:**\nFor $9x^2 + kx + 4 = 0$: $a = 9$, $b = k$, $c = 4$.\nDiscriminant $= k^2 - 4(9)(4) = k^2 - 144$.\nExactly one solution: $k^2 - 144 = 0$, so $k^2 = 144$, giving $k = \\pm 12$. The positive value is $12$.\nVerification: $9x^2 + 12x + 4 = (3x + 2)^2 = 0 \\Rightarrow x = -\\dfrac{2}{3}$ (one repeated root) \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — takes $\\sqrt{36} = 6$ from a wrong intermediate.\n* Choice C: \"stops one step early\" — uses $4 \\cdot 9 = 36$ without multiplying by $c$.\n* Choice D: \"applies the inverse operation\" — gives $k^2 = 144$ without taking the square root.\n\n**Test Day Takeaway:** One solution $\\Leftrightarrow$ discriminant $= 0$. Solve $b^2 - 4ac = 0$ for the unknown.",
   skills: ["discriminant", "quadratic-equations"]
+},
+{
+  id: 23,
+  type: "fill-in",
+  difficulty: "hard",
+  band: 7,
+  question: "The function $g$ is defined by $g(x) = x(x - 3)(x + 5)^2$. The value of $g(9 - w)$ is $0$, where $w$ is a constant. What is the sum of all possible values of $w$?",
+  correctAnswer: "29",
+  explanation: "**SAT Pattern: Sum of Roots via Input Shift**\n\n**The correct answer is $29$.**\n\n**The Fast Way (~30s):** $g$ has roots $0$, $3$, $-5$. Set $9 - w \\in \\{0, 3, -5\\} \\Rightarrow w \\in \\{9, 6, 14\\}$. Sum $= 29$.\n\n**Common Mistakes to Avoid:**\n* Forgetting the $-5$ root from the squared factor (it still counts once as a distinct $w$).\n* Sign errors when solving $9 - w =$ each root.\n\n**Test Day Takeaway:** Find the roots of $g$ and back-solve for $w$. Multiplicity does NOT create new $w$-values.",
+  skills: ["polynomial-zeros", "quadratic-equations"]
 }
       ]
     }

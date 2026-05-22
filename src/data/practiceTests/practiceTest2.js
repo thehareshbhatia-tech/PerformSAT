@@ -788,6 +788,22 @@ export const practiceTest2 = {
   correctAnswer: "3",
   explanation: "**SAT Pattern: Tangent Line to Circle (Discriminant = 0)**\n\n**The correct answer is $3$.**\n\n**The Fast Way (~45s):** A tangent line meets a circle at exactly one point, so substituting the line into the circle equation gives a quadratic with discriminant zero. Substitute $y = mx + 4$ into $x^2 + y^2 = 4$:\n$x^2 + (mx + 4)^2 = 4$\n$(1 + m^2)x^2 + 8mx + 12 = 0$\nDiscriminant $= 0$: $(8m)^2 - 4(1 + m^2)(12) = 0 \\Rightarrow 64m^2 - 48 - 48m^2 = 0 \\Rightarrow 16m^2 = 48 \\Rightarrow m^2 = 3$.\n\n**The Full Solution:**\nSubstitute the line into the circle:\n$x^2 + (mx + 4)^2 = 4$\n$x^2 + m^2x^2 + 8mx + 16 = 4$\n$(1 + m^2)x^2 + 8mx + 12 = 0$\n\nFor tangency, this quadratic in $x$ has exactly one solution, so the discriminant equals zero:\n$\\Delta = (8m)^2 - 4(1 + m^2)(12) = 64m^2 - 48 - 48m^2 = 16m^2 - 48 = 0$\n$m^2 = 3$.\n\n**Geometric verification:** Circle has center $(0, 0)$ and radius $2$. The line $y = mx + 4$ in standard form: $mx - y + 4 = 0$. Distance from origin: $\\dfrac{|4|}{\\sqrt{m^2 + 1}} = 2 \\Rightarrow \\sqrt{m^2 + 1} = 2 \\Rightarrow m^2 = 3$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Trying to solve for $m$ directly without using the tangency condition.\n* Setting the discriminant *negative* (no intersection) or *positive* (two intersections) instead of zero.\n* Reporting $m = \\sqrt{3}$ instead of $m^2 = 3$.\n\n**Test Day Takeaway:** A line is tangent to a curve when substituting gives a quadratic with discriminant exactly zero. Equivalent geometric shortcut for circles: distance from center to line equals the radius.",
   skills: ["circle-equations", "discriminant", "coordinate-geometry", "tangent-lines"]
+},
+{
+  id: 23,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "The function $P$ is defined by $P(t) = 380(1.05)^{(8/6)t}$ and models the population, in thousands, of a certain city $t$ years after $2005$. According to the model, the population is predicted to increase by $5\\%$ every $n$ months. What is the value of $n$?",
+  choices: [
+    { id: "A", text: "$9$" },
+    { id: "B", text: "$12$" },
+    { id: "C", text: "$16$" },
+    { id: "D", text: "$72$" }
+  ],
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Period of Exponential Growth**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** The exponent $\\dfrac{8t}{6}$ increases by $1$ when $t$ increases by $\\dfrac{6}{8} = \\dfrac{3}{4}$ year $= 9$ months.\n\n**Why the wrong answers are tempting:**\n* B: uses $1$ year $= 12$ months without the fractional exponent.\n* C/D: misreads $6/8$ as $8/6$.\n\n**Test Day Takeaway:** In $(1+r)^{kt}$, one multiplication by $(1+r)$ happens when $kt$ advances by $1$, i.e., $t$ advances by $1/k$.",
+  skills: ["exponential-functions", "function-interpretation"]
 }
       ]
     }

@@ -768,6 +768,22 @@ export const practiceTest7 = {
   correctAnswer: "B",
   explanation: "**SAT Pattern: Function Composition**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** $P = \\dfrac{5}{15} \\cdot \\dfrac{4}{14} = \\dfrac{20}{210} = \\dfrac{2}{21}$.\n\n**The Full Solution:**\nTotal balls $= 6 + 4 + 5 = 15$.\n$P(\\text{1st green}) = \\dfrac{5}{15} = \\dfrac{1}{3}$.\nAfter drawing one green: $4$ green left out of $14$ balls.\n$P(\\text{2nd green} \\mid \\text{1st green}) = \\dfrac{4}{14} = \\dfrac{2}{7}$.\n$P(\\text{both green}) = \\dfrac{1}{3} \\cdot \\dfrac{2}{7} = \\dfrac{2}{21}$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — keeps $15$ in the second denominator, then simplifies wrongly.\n* Choice C: \"wrong base\" — $\\left(\\dfrac{5}{15}\\right)^2 = \\dfrac{25}{225}$ assumes replacement.\n* Choice D: \"stops one step early\" — simplifies $\\dfrac{25}{225}$ to $\\dfrac{1}{9}$ (still the with-replacement answer).\n\n**Test Day Takeaway:** Without replacement: after the first draw, reduce both the favorable count and the total by $1$.",
   skills: ["probability"]
+},
+{
+  id: 23,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "Two identical rectangular prisms each have a height of $100$ centimeters (cm). The base of each prism is a square, and the surface area of each prism is $K$ cm$^2$. If the prisms are glued together along a square base, the resulting prism has a surface area of $\\dfrac{41}{21}K$ cm$^2$. What is the side length, in cm, of each square base?",
+  choices: [
+    { id: "A", text: "$5$" },
+    { id: "B", text: "$10$" },
+    { id: "C", text: "$15$" },
+    { id: "D", text: "$20$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Surface Area of Glued Prisms**\n\n**Choice B is correct.**\n\n**The Fast Way (~50s):** $K = 2s^2 + 400s$. Glued prism: $2s^2 + 800s$. Equation: $2s^2 + 800s = (41/21)(2s^2 + 400s)$. Multiply by $21$: $42s^2 + 16800s = 82s^2 + 16400s \\Rightarrow 400s = 40s^2 \\Rightarrow s = 10$.\n\n**Why the wrong answers are tempting:**\n* A: divides by $2$ at the wrong step.\n* C: misapplies the ratio.\n* D: doubles the correct answer.\n\n**Test Day Takeaway:** Gluing hides $2 \\cdot s^2$ of base area; lateral area becomes one tall prism.",
+  skills: ["volume-prism", "geometry"]
 }
       ]
     }

@@ -785,6 +785,22 @@ export const practiceTest3 = {
   correctAnswer: "80",
   explanation: "**SAT Pattern: Inequality Word Problem (Floor)**\n\n**The correct answer is $80$.**\n\n**The Fast Way (~40s):** Let $s$ = simple, $e$ = elegant. To max $e$, set $s + e = 100$ exactly, $s = 100 - e$. Budget: $4(100 - e) + 8e \\leq 720 \\Rightarrow 400 + 4e \\leq 720 \\Rightarrow e \\leq 80$.\n\n**The Full Solution:**\nLet $s$ = simple centerpieces, $e$ = elegant centerpieces.\nConstraints:\n* Discount floor: $s + e \\geq 100$.\n* Budget: $4s + 8e \\leq 720$.\n* Both non-negative integers.\n\nTo MAXIMIZE $e$, fill the rest with the cheaper simple centerpieces at EXACTLY the floor (any extras waste budget). Set $s = 100 - e$:\n\n$4(100 - e) + 8e \\leq 720$\n$400 - 4e + 8e \\leq 720$\n$4e \\leq 320$\n$e \\leq 80$.\n\nMax integer: $e = 80$.\n\n**Verification:** With $e = 80$, $s = 20$. Total: $20 + 80 = 100 \\geq 100$ ✓. Cost: $4(20) + 8(80) = 80 + 640 = 720 \\leq 720$ ✓ (exactly at budget). Try $e = 81$, $s = 19$: $4(19) + 8(81) = 76 + 648 = 724 > 720$ ✗ — exceeds budget \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Answering $90$ (treats $720/8 = 90$ as the max, ignoring the floor — also $s = 0, e = 90$ violates the floor: $0 + 90 = 90 < 100$).\n* Answering $100$ (treats the floor itself as the answer).\n* Answering $81$ (forgets to round DOWN).\n* Answering $20$ (reports simple centerpieces instead of elegant).\n\n**Test Day Takeaway:** Two-constraint optimization (budget + minimum total): To maximize one quantity, fill the remainder with the cheaper option AT EXACTLY the minimum total. Solve the resulting single-variable inequality and take the FLOOR.",
   skills: ["inequalities", "word-problems", "systems-of-equations"]
+},
+{
+  id: 23,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "What is the value of $\\tan\\dfrac{85\\pi}{3}$?",
+  choices: [
+    { id: "A", text: "$-\\sqrt{3}$" },
+    { id: "B", text: "$-\\dfrac{\\sqrt{3}}{3}$" },
+    { id: "C", text: "$\\dfrac{\\sqrt{3}}{3}$" },
+    { id: "D", text: "$\\sqrt{3}$" }
+  ],
+  correctAnswer: "D",
+  explanation: "**SAT Pattern: Coterminal Angle Reduction (Tangent)**\n\n**Choice D is correct.**\n\n**The Fast Way (~40s):** $\\dfrac{85\\pi}{3} = 28\\pi + \\dfrac{\\pi}{3}$. Tangent has period $\\pi$, so $\\tan\\dfrac{85\\pi}{3} = \\tan\\dfrac{\\pi}{3} = \\sqrt{3}$.\n\n**Why the wrong answers are tempting:**\n* A: forgets the period reduction sign.\n* B/C: gives $\\cot(\\pi/3)$.\n\n**Test Day Takeaway:** Tangent has period $\\pi$ (not $2\\pi$). Reduce by the largest multiple of $\\pi$ first.",
+  skills: ["trigonometry", "radians"]
 }
       ]
     }

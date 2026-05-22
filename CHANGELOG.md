@@ -2,6 +2,21 @@
 
 All notable changes to PerformSAT are documented here. Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project follows [Semantic Versioning](https://semver.org/).
 
+## [3.5.0] - 2026-05-22
+
+### Added — Difficult-Questions PDF integration (math bank: 1701 → 1752; PT 1-12 Module 2 each gains a Q23)
+
+Reskinned every item in the 43-page "Difficult Questions" PDF (49 ultra-Bluebook hard questions, numbered 15-27, mostly Module 2 hard ceiling). Changed all numbers, names, and contexts to avoid copyright. Authored 51 new bank items across 4 shards. Inserted one ultra-hard Q23 into Module 2 of every practice test PT 1-12. Every item carries a parseable `**SAT Pattern: <Title>**` header so drill routing Tier 1 picks up new items automatically. Bank validation green; full Jest suite: 992/992 green.
+
+**Bank shards:**
+- `algebra.js`: +10 (bank-alg-503..512). Translated line $x$-intercept; parametric points on dependent system; perpendicular slopes in standard form; no-solution parameter (both system and single-equation); rational with linear numerator; square-root sign reasoning; linear function parameter recovery; parabola–line tangent intersection; chained percent.
+- `advancedMath.js`: +18 (bank-am-407..424). Horizontal tangent to parabola; "$p\%$ more" growth ($>100\%$ trap); discriminant-zero with shifted equation; polynomial vertical shift; exponential decay standard form; fractional-exponent radicals; vertex + sign-of-$a$ reasoning; shifted exponential $-a^x+b$; sum of $w$ for $g(c-w)=0$; period of exponential growth in months; vertex-form coefficient recovery; equivalent percent rate; quadratic-formula discriminant recovery; radical equation with extraneous filter; factor with integer-parameter constraint; quadratic model from vertex + zero.
+- `geometry.js`: +14 (bank-geo-341..354). Similar-figures area ratio; radian sum to degrees; cube minus inscribed sphere; horizontal shift of rational function with vertical asymptote; isosceles right perimeter to leg; glued prisms surface area; coterminal tangent reduction; direct trig ratio; circle $x$-range constraint; function from known root; $30$-$60$-$90$ inscribed rectangle to diameter; tangent line to circle through a tangent point; right angle at center chord length; equilateral circumradius.
+- `problemSolving.js`: +9 (bank-ps-454..462). Grouped histogram smallest-mean-difference; markup-discount chain; poll-scaling margin of victory; mean comparison after appending a value; electric flux through proportional areas; successive percent two-year growth; squared-unit chained conversion (m/s² → mi/min²); $120\%$-greater chained percent.
+
+**Practice tests Module 2 (each gains a Q23 hard ceiling):**
+- PT1: parabola horizontal tangent ($-271/4$). PT2: exponential growth period in months ($9$). PT3: $\tan(85\pi/3)$ ($\sqrt{3}$). PT4: sum of $w$ for $g(9-w)=0$ ($29$). PT5: parabola vertex + sign-of-$a$ ($-18$). PT6: electric flux ($5{,}888$). PT7: glued prisms ($s=10$). PT8: parametric system point. PT9: radical equation with extraneous filter. PT10: shifted exponential $-a^x+b$ ($a=6$). PT11: right-angle-at-center chord ($\sqrt{134}$). PT12: seal-depth quadratic ($288$ m).
+
 ## [3.4.0] - 2026-05-18
 
 ### Added — PT-coverage gap-closure batch (math bank: 1252 → 1373)

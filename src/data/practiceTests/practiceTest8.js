@@ -800,6 +800,22 @@ export const practiceTest8 = {
   correctAnswer: "C",
   explanation: "**SAT Pattern: Vertex Form to Standard Form**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** $a + b + c = f(1)$. Vertex form $f(x) = a(x-4)^2 - 7$ with $f(2) = 5$ gives $4a - 7 = 5$, so $a = 3$. Then $f(1) = 3(1-4)^2 - 7 = 27 - 7 = 20$.\n\n**The Full Solution:**\nVertex form: $f(x) = a(x - 4)^2 - 7$.\nUse $(2, 5)$: $5 = a(2 - 4)^2 - 7 = 4a - 7$, so $4a = 12$ and $a = 3$.\nThus $f(x) = 3(x - 4)^2 - 7$.\n\nExpand to standard form: $f(x) = 3(x^2 - 8x + 16) - 7 = 3x^2 - 24x + 48 - 7 = 3x^2 - 24x + 41$.\nSo $a = 3$, $b = -24$, $c = 41$. $a + b + c = 3 - 24 + 41 = 20$.\n\nShortcut: $a + b + c = f(1) = 3(1-4)^2 - 7 = 27 - 7 = 20$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives the constant term $c = 41$ alone.\n* Choice B: \"wrong base\" — uses the leading coefficient $a = 3$ alone.\n* Choice D: \"applies the inverse operation\" — confuses $h + k = 4 + (-7) = -3$ from vertex form with $a + b + c$ from standard form.\n\n**Test Day Takeaway:** $a + b + c = f(1)$. To find $f$, use vertex form first, then plug in a second point to solve for $a$.",
   skills: ["vertex-form", "function-interpretation", "quadratic-equations"]
+},
+{
+  id: 23,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "$$4x + 5y = 9$$\n$$12x + 15y = 27$$\n\nFor each real number $r$, which of the following points lies on the graph of each equation in the $xy$-plane for the given system?",
+  choices: [
+    { id: "A", text: "$\\left(\\dfrac{r}{5} + 9,\\,-\\dfrac{r}{5} + 27\\right)$" },
+    { id: "B", text: "$\\left(-\\dfrac{5r}{4} + \\dfrac{9}{4},\\,r\\right)$" },
+    { id: "C", text: "$\\left(r,\\,\\dfrac{4r}{5} + \\dfrac{9}{5}\\right)$" },
+    { id: "D", text: "$\\left(r,\\,-\\dfrac{4r}{5} + \\dfrac{9}{5}\\right)$" }
+  ],
+  correctAnswer: "D",
+  explanation: "**SAT Pattern: Same Line — Infinitely Many Solutions (Parametric)**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** The second equation is $3 \\times$ the first, so both describe the same line. Solve $4x + 5y = 9$ for $y$: $y = -\\dfrac{4x}{5} + \\dfrac{9}{5}$. Set $x = r$: $\\left(r,\\,-\\dfrac{4r}{5} + \\dfrac{9}{5}\\right)$.\n\n**Why the wrong answers are tempting:**\n* A: misapplies the multiplier.\n* B: uses the wrong solved form.\n* C: drops the negative sign.\n\n**Test Day Takeaway:** When a system collapses to one line, every point on that line solves it. Parameterize one variable.",
+  skills: ["systems-of-equations", "linear-functions"]
 }
       ]
     }

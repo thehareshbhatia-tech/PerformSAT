@@ -5704,5 +5704,67 @@ export const problemSolvingBank = [
     choices: [{ id: 'A', text: '$\\$36{,}000$' }, { id: 'B', text: '$\\$27{,}000$' }, { id: 'C', text: '$\\$45{,}000$' }, { id: 'D', text: '$\\$24{,}000$' }],
     correctAnswer: 'A',
     explanation: '**SAT Pattern: Sum-of-Parts Ratio**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Youngest = $3$ parts = $\\$9{,}000$, so per-part = $\\$3{,}000$. Total parts: $3 + 4 + 5 = 12$. Total $= 12 \\times 3000 = 36{,}000$.\n\n**Why the wrong answers are tempting:**\n* B: $9000 \\times 3$.\n* C: $9000 \\times 5$.\n* D: $9000 \\times 8/3$.\n\n**Test Day Takeaway:** Given ONE share, derive per-part, then multiply by total parts.',
-    calculatorAllowed: true, tags: [], sourceStyleRef: 'sum-of-parts-ratio', authoredBy: 'performsat-engine', createdAt: '2026-05-21' }
+    calculatorAllowed: true, tags: [], sourceStyleRef: 'sum-of-parts-ratio', authoredBy: 'performsat-engine', createdAt: '2026-05-21' },
+
+  // === DIFFICULT-QUESTIONS PDF BATCH (2026-05-22) — 9 problem-solving items reskinned ===
+
+  { id: 'bank-ps-454', domain: 'problem-solving', skills: ['percent-change', 'successive-percent-change'], difficulty: 'hard', type: 'multiple-choice',
+    question: 'Two data sets of $30$ integers each are summarized in the histograms shown. For each of the histograms, the first interval represents the frequency of integers greater than or equal to $10$, but less than $20$. The second interval represents the frequency of integers greater than or equal to $20$, but less than $30$, and so on. If the histograms are identical, what is the smallest possible difference between the mean of data set A and the mean of data set B?',
+    choices: [{ id: 'A', text: '$0$' }, { id: 'B', text: '$1$' }, { id: 'C', text: '$5$' }, { id: 'D', text: '$10$' }],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Grouped Data — Smallest Possible Mean Difference**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Histograms give frequencies per interval, not exact values. With identical histograms, the actual integers within each interval can be chosen to match exactly, producing equal means: minimum difference $=0$.\n\n**Why the wrong answers are tempting:**\n* B: assumes at least one integer must differ.\n* C/D: confuses "smallest" with "largest" possible difference.\n\n**Test Day Takeaway:** Grouped frequencies set RANGES of possible means; identical histograms allow identical underlying data.',
+    calculatorAllowed: true, tags: [], sourceStyleRef: 'mean-from-list', authoredBy: 'performsat-engine', createdAt: '2026-05-22' },
+
+  { id: 'bank-ps-455', domain: 'problem-solving', skills: ['percent-change', 'percent-word-problems'], difficulty: 'hard', type: 'fill-in',
+    question: 'The regular price of a shirt at a store is $\\$14.40$. The sale price of the shirt is $75\\%$ less than the regular price, and the sale price is $20\\%$ greater than the store\'s cost for the shirt. What was the store\'s cost, in dollars, for the shirt?',
+    correctAnswer: '3',
+    explanation: '**SAT Pattern: Markup–Discount Chain**\n\n**The correct answer is $3$.**\n\n**The Fast Way (~30s):** Sale price $=14.40\\times 0.25=3.60$. Sale $=$ cost $\\times 1.20\\Rightarrow$ cost $=3.60/1.20=3.00$.\n\n**Common Mistakes to Avoid:**\n* Multiplying instead of dividing in the second step.\n* Using $0.75$ as the discount factor (that\'s the wrong direction).\n\n**Test Day Takeaway:** Chain percent changes: each step is a separate multiplication or division. "$p\\%$ less" $=$ multiply by $1-p/100$. "$p\\%$ greater than cost" means cost $\\times (1+p/100)$.',
+    calculatorAllowed: true, tags: [], sourceStyleRef: 'markup-discount-chain', authoredBy: 'performsat-engine', createdAt: '2026-05-22' },
+
+  { id: 'bank-ps-456', domain: 'problem-solving', skills: ['proportion-setup'], difficulty: 'hard', type: 'multiple-choice',
+    question: 'A recent poll showed that $512$ people supported Maya and $298$ supported Jordan, out of $810$ voters polled at random. According to the poll, if $8{,}910$ people vote in the election, by how many votes would Maya be expected to win?',
+    choices: [{ id: 'A', text: '$214$' }, { id: 'B', text: '$1{,}605$' }, { id: 'C', text: '$2{,}354$' }, { id: 'D', text: '$5{,}632$' }],
+    correctAnswer: 'C',
+    explanation: '**SAT Pattern: Poll Scaling — Margin of Victory**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Scaling factor $=8910/810=11$. Margin in poll $=512-298=214$. Scaled margin $=11\\times 214=2354$.\n\n**Why the wrong answers are tempting:**\n* A: poll-level margin without scaling.\n* B: scales the wrong difference.\n* D: scales Maya\'s count instead of the margin.\n\n**Test Day Takeaway:** Scale the MARGIN (difference), not each candidate\'s count, when the totals match the same ratio.',
+    calculatorAllowed: true, tags: [], sourceStyleRef: 'proportion-setup', authoredBy: 'performsat-engine', createdAt: '2026-05-22' },
+
+  { id: 'bank-ps-457', domain: 'problem-solving', skills: ['calculate-mean'], difficulty: 'hard', type: 'multiple-choice',
+    question: 'The table shows an original data set of the number of eggs found in five nests of a type of sea turtle.\n\n| Nest | Number of eggs |\n|---|---|\n| A | $158$ |\n| B | $152$ |\n| C | $161$ |\n| D | $145$ |\n| E | $149$ |\n\nA sixth nest with $128$ eggs is added to create a new data set. Which of the following correctly compares the means of the two data sets?',
+    choices: [{ id: 'A', text: 'The mean of the original data set is greater than the mean of the new data set.' }, { id: 'B', text: 'The mean of the original data set is less than the mean of the new data set.' }, { id: 'C', text: 'The means of both data sets are equal.' }, { id: 'D', text: 'There is not enough information to compare the means.' }],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Mean Comparison after Adding a Value**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Original mean $=765/5=153$. New value $128<153$, so adding it pulls the mean DOWN. Hence original mean $>$ new mean.\n\n**Why the wrong answers are tempting:**\n* B: opposite direction.\n* C: ignores the difference between $128$ and $153$.\n* D: claims insufficient info — but the comparison is determined.\n\n**Test Day Takeaway:** Adding a value less than the current mean LOWERS the mean; adding one greater RAISES it.',
+    calculatorAllowed: true, tags: [], sourceStyleRef: 'combined-group-mean', authoredBy: 'performsat-engine', createdAt: '2026-05-22' },
+
+  { id: 'bank-ps-458', domain: 'problem-solving', skills: ['proportion-setup', 'rate-conversion'], difficulty: 'hard', type: 'fill-in',
+    question: 'For an electric field passing through a flat surface perpendicular to it, the electric flux of the electric field through the surface is the product of the electric field\'s strength and the area of the surface. A certain flat surface consists of two adjacent squares, where the side length, in meters, of the larger square is $4$ times the side length, in meters, of the smaller square. An electric field with strength $23.00$ volts per meter passes uniformly through this surface, which is perpendicular to the electric field. If the total electric flux of the electric field through this surface is $6{,}256$ volts $\\cdot$ meters, what is the electric flux, in volts $\\cdot$ meters, of the electric field through the larger square?',
+    correctAnswer: '5888',
+    explanation: '**SAT Pattern: Proportional Area — Recover Side, Then Apply**\n\n**The correct answer is $5888$.**\n\n**The Fast Way (~50s):** Total area $=16s^2+s^2=17s^2$. Total flux $=23\\cdot 17s^2=391s^2=6256\\Rightarrow s^2=16$. Larger area $=16(16)=256$. Larger flux $=23\\cdot 256=5888$.\n\n**Common Mistakes to Avoid:**\n* Reporting total flux ($6256$) instead of the larger-square share.\n* Mistaking the side ratio ($4{:}1$) for an area ratio.\n\n**Test Day Takeaway:** Side ratio squared $=$ area ratio. Total area distributes flux proportionally to each piece\'s area.',
+    calculatorAllowed: true, tags: [], sourceStyleRef: 'rate-conversion', authoredBy: 'performsat-engine', createdAt: '2026-05-22' },
+
+  { id: 'bank-ps-459', domain: 'problem-solving', skills: ['successive-percent-change'], difficulty: 'hard', type: 'multiple-choice',
+    question: 'In $2010$, Marisol earned $22\\%$ more than in $2009$, and in $2011$ Marisol earned $8\\%$ more than in $2010$. If Marisol earned $y$ times as much in $2011$ as in $2009$, what is the value of $y$?',
+    choices: [{ id: 'A', text: '$0.3000$' }, { id: 'B', text: '$1.0176$' }, { id: 'C', text: '$1.3000$' }, { id: 'D', text: '$1.3176$' }],
+    correctAnswer: 'D',
+    explanation: '**SAT Pattern: Successive Percent Change**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** Two-year factor $=1.22\\times 1.08=1.3176$.\n\n**Why the wrong answers are tempting:**\n* A: sums percents.\n* B: confuses multiplication order.\n* C: adds percents ($1.22+0.08$) instead of multiplying factors.\n\n**Test Day Takeaway:** Successive growth factors MULTIPLY; don\'t add percents.',
+    calculatorAllowed: true, tags: [], sourceStyleRef: 'successive-percent-application', authoredBy: 'performsat-engine', createdAt: '2026-05-22' },
+
+  { id: 'bank-ps-460', domain: 'problem-solving', skills: ['squared-cubed-units', 'unit-conversion'], difficulty: 'hard', type: 'multiple-choice',
+    question: 'The speed of a vehicle is increasing at a rate of $9.8$ meters per second squared. What is this rate, in **miles per minute squared**, rounded to the nearest tenth? (Use $1$ mile $=1{,}609$ meters.)',
+    choices: [{ id: 'A', text: '$0.4$' }, { id: 'B', text: '$21.9$' }, { id: 'C', text: '$263.1$' }, { id: 'D', text: '$295.7$' }],
+    correctAnswer: 'B',
+    explanation: '**SAT Pattern: Chained Unit Conversion — Squared Time**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** $9.8\\dfrac{\\text{m}}{\\text{s}^2}\\cdot\\dfrac{1\\,\\text{mi}}{1609\\,\\text{m}}\\cdot\\dfrac{60^2\\,\\text{s}^2}{1\\,\\text{min}^2}=\\dfrac{9.8\\times 3600}{1609}\\approx 21.92$. Round: $21.9$.\n\n**Why the wrong answers are tempting:**\n* A: forgets to square the time conversion.\n* C: divides by wrong factor.\n* D: multiplies instead of dividing by $1609$.\n\n**Test Day Takeaway:** Squared units (per second squared) need the time conversion factor SQUARED.',
+    calculatorAllowed: true, tags: [], sourceStyleRef: 'chained-unit-conversion', authoredBy: 'performsat-engine', createdAt: '2026-05-22' },
+
+  { id: 'bank-ps-461', domain: 'problem-solving', skills: ['percent-decimal-conversion', 'percent-change'], difficulty: 'hard', type: 'fill-in',
+    question: 'The number $a$ is $120\\%$ greater than the number $b$. The number $b$ is $80\\%$ less than $65$. What is the value of $a$?',
+    correctAnswer: '28.6',
+    explanation: '**SAT Pattern: Chained Percent Relationship**\n\n**The correct answer is $28.6$.**\n\n**The Fast Way (~30s):** $b=65(1-0.80)=13$. $a=b(1+1.20)=2.20\\times 13=28.6$.\n\n**Common Mistakes to Avoid:**\n* "$120\\%$ greater" $\\ne$ "$\\times 1.20$" — it\'s "$\\times 2.20$".\n* "$80\\%$ less" $=$ "$\\times 0.20$", not "$\\times 0.80$".\n\n**Test Day Takeaway:** Translate each percent phrase to its multiplicative factor, then compose.',
+    calculatorAllowed: true, tags: [], sourceStyleRef: 'chained-percent-relationship', authoredBy: 'performsat-engine', createdAt: '2026-05-22' },
+
+  { id: 'bank-ps-462', domain: 'problem-solving', skills: ['percent-change', 'system-solution-types'], difficulty: 'hard', type: 'multiple-choice',
+    question: 'In a survey conducted at a local university, the table shows the results of how $810$ randomly selected students would vote for candidates Maya or Jordan for student council president. If $8{,}910$ students at the university vote in the election, by how many votes would Maya be expected to win? Use Maya $=512$, Jordan $=298$.',
+    choices: [{ id: 'A', text: '$214$' }, { id: 'B', text: '$2{,}354$' }, { id: 'C', text: '$5{,}632$' }, { id: 'D', text: '$3{,}278$' }],
+    correctAnswer: 'B',
+    explanation: '**SAT Pattern: Poll Scaling — Margin of Victory (Variant)**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Scaling factor $=8910/810=11$. Margin $=512-298=214$. Scaled margin $=11(214)=2354$.\n\n**Why the wrong answers are tempting:**\n* A: poll-level margin without scaling.\n* C: scales Maya\'s count only.\n* D: scales Jordan\'s count only.\n\n**Test Day Takeaway:** When a poll is representative, scaling the difference (margin) by the population multiplier gives the projected vote difference.',
+    calculatorAllowed: true, tags: [], sourceStyleRef: 'proportion-setup', authoredBy: 'performsat-engine', createdAt: '2026-05-22' }
 ];

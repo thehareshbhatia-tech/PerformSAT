@@ -783,6 +783,16 @@ export const practiceTest12 = {
   correctAnswer: "B",
   explanation: "**SAT Pattern: Exponential Growth/Decay**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Monthly factor $= (0.5)^{\\frac{1}{18}} \\approx 0.9622$. Monthly decrease $= 1 - 0.9622 = 0.0378 = 3.78\\%$.\n\n**The Full Solution:**\nRewrite $A(t) = 5000(0.5)^{\\frac{t}{18}} = 5000 \\left[(0.5)^{\\frac{1}{18}}\\right]^t$.\n$(0.5)^{\\frac{1}{18}} = e^{\\frac{\\ln(0.5)}{18}} = e^{-\\frac{0.6931}{18}} \\approx e^{-0.03851} \\approx 0.9622$.\nMonthly decrease: $1 - 0.9622 = 0.0378 = 3.78\\%$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — divides $50\\%$ by $18$ (linear, ignores compounding).\n* Choice C: \"off-by-one\" — doubles the linear divide.\n* Choice D: \"wrong base\" — gives the decrease per $18$ months, not per month.\n\n**Test Day Takeaway:** Per-period rate from a half-life: $(0.5)^{\\frac{1}{n}}$ where $n$ is the number of periods in one half-life. Don't divide $50\\%$ by $n$ — exponential decay does NOT scale linearly.",
   skills: ["exponential-functions", "function-interpretation"]
+},
+{
+  id: 23,
+  type: "fill-in",
+  difficulty: "hard",
+  band: 7,
+  question: "The quadratic function $g$ models the depth, in meters, below the surface of the water of a seal $t$ minutes after the seal entered the water during a dive. The function estimates that the seal reached its maximum depth of $384$ meters $8$ minutes after it entered the water and then reached the surface of the water $16$ minutes after it entered the water. Based on the function, what was the estimated depth, to the nearest meter, of the seal $12$ minutes after it entered the water?",
+  correctAnswer: "288",
+  explanation: "**SAT Pattern: Quadratic Model from Vertex and Zero**\n\n**The correct answer is $288$.**\n\n**The Fast Way (~50s):** $g(t) = a(t - 8)^2 + 384$. Surface ($g = 0$) at $t = 16$: $a(64) + 384 = 0 \\Rightarrow a = -6$. So $g(12) = -6(4)^2 + 384 = -96 + 384 = 288$.\n\n**Common Mistakes to Avoid:**\n* Picking $a > 0$ (depth-below-surface model needs $a < 0$).\n* Mis-computing $(12 - 8)^2$ as $8$.\n\n**Test Day Takeaway:** Vertex form $a(t - h)^2 + k$; use the second condition (a known zero) to solve for $a$.",
+  skills: ["quadratic-equations", "function-interpretation"]
 }
       ]
     }

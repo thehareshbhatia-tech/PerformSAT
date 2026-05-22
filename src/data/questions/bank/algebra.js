@@ -6104,5 +6104,75 @@ export const algebraBank = [
     choices: [{ id: 'A', text: '$23$' }, { id: 'B', text: '$16$' }, { id: 'C', text: '$7$' }, { id: 'D', text: '$11$' }],
     correctAnswer: 'A',
     explanation: '**SAT Pattern: Vertex Form to Standard Form**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Match middle: $2a = 8 \\Rightarrow a = 4$. Then $a^2 + 7 = 16 + 7 = 23 = b$.\n\n**Why the wrong answers are tempting:**\n* B ($16$): forgets to add the $+7$.\n* C ($7$): copies the constant from the LHS.\n* D ($11$): adds wrong components.\n\n**Test Day Takeaway:** Match middle coefficients to find $a$, then match constants ($a^2 + c = b$) using the value you just found.',
-    calculatorAllowed: false, tags: [], sourceStyleRef: 'vertex-form-to-standard-form', authoredBy: 'performsat-engine', createdAt: '2026-05-21' }
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'vertex-form-to-standard-form', authoredBy: 'performsat-engine', createdAt: '2026-05-21' },
+
+  // === DIFFICULT-QUESTIONS PDF BATCH (2026-05-22) — 12 algebra items reskinned ===
+
+  { id: 'bank-alg-503', domain: 'algebra', skills: ['slope-from-points', 'function-transformations'], difficulty: 'hard', type: 'multiple-choice',
+    question: 'For line $h$, the table shows three values of $x$ and their corresponding values of $y$.\n\n| $x$ | $y$ |\n|---|---|\n| $12$ | $95$ |\n| $18$ | $125$ |\n| $24$ | $155$ |\n\nLine $k$ is the result of translating line $h$ down $8$ units in the $xy$-plane. What is the $x$-intercept of line $k$?',
+    choices: [{ id: 'A', text: '$\\left(-\\dfrac{27}{5},\\, 0\\right)$' }, { id: 'B', text: '$\\left(-\\dfrac{19}{5},\\, 0\\right)$' }, { id: 'C', text: '$\\left(-7,\\, 0\\right)$' }, { id: 'D', text: '$\\left(\\dfrac{27}{5},\\, 0\\right)$' }],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Vertical Shift of a Line — $x$-intercept**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Slope of $h$: $\\dfrac{125-95}{18-12}=5$. $y$-intercept of $h$: $95-5(12)=35$. Shift down $8$: $y$-intercept of $k=27$. Set $5x+27=0 \\Rightarrow x=-\\dfrac{27}{5}$.\n\n**Why the wrong answers are tempting:**\n* B: forgets the shift, uses $35$ minus a different constant.\n* C: divides slope into shifted intercept wrong.\n* D: drops the negative sign on the $x$-intercept.\n\n**Test Day Takeaway:** Vertical shifts move the $y$-intercept by $\\pm c$; slope is unchanged.',
+    calculatorAllowed: true, tags: [], sourceStyleRef: 'function-from-shifted-graph', authoredBy: 'performsat-engine', createdAt: '2026-05-22' },
+
+  { id: 'bank-alg-504', domain: 'algebra', skills: ['system-solution-types', 'substitution-method'], difficulty: 'hard', type: 'multiple-choice',
+    question: '$$4x + 5y = 9$$\n$$12x + 15y = 27$$\n\nFor each real number $r$, which of the following points lies on the graph of each equation in the $xy$-plane for the given system?',
+    choices: [{ id: 'A', text: '$\\left(\\dfrac{r}{5}+9,\\,-\\dfrac{r}{5}+27\\right)$' }, { id: 'B', text: '$\\left(-\\dfrac{5r}{4}+\\dfrac{9}{4},\\,r\\right)$' }, { id: 'C', text: '$\\left(r,\\,\\dfrac{4r}{5}+\\dfrac{9}{5}\\right)$' }, { id: 'D', text: '$\\left(r,\\,-\\dfrac{4r}{5}+\\dfrac{9}{5}\\right)$' }],
+    correctAnswer: 'D',
+    explanation: '**SAT Pattern: Same Line — Infinitely Many Solutions (Parametric)**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** The second equation is $3$ times the first, so both describe the same line. Solve $4x+5y=9$ for $y$: $y=\\dfrac{9-4x}{5}=-\\dfrac{4x}{5}+\\dfrac{9}{5}$. Replace $x$ with $r$: point $\\left(r,\\,-\\dfrac{4r}{5}+\\dfrac{9}{5}\\right)$.\n\n**Why the wrong answers are tempting:**\n* A: misapplies multiplier to both coordinates.\n* B: uses the wrong solved form (drops the negative).\n* C: drops the negative sign on the linear coefficient.\n\n**Test Day Takeaway:** When a system collapses to one line, every point on that line solves the system. Parameterize one variable, solve for the other.',
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'same-line-infinitely-many-solutions', authoredBy: 'performsat-engine', createdAt: '2026-05-22' },
+
+  { id: 'bank-alg-505', domain: 'algebra', skills: ['perpendicular-negative-reciprocal', 'system-solution-types'], difficulty: 'hard', type: 'multiple-choice',
+    question: '$$3x + 4y = 1$$\n$$ax + by = 1$$\n\nIn the given pair of equations, $a$ and $b$ are constants. The graph of this pair of equations in the $xy$-plane is a pair of perpendicular lines. Which of the following pairs of equations also represents a pair of perpendicular lines?',
+    choices: [{ id: 'A', text: '$6x + 4y = 1$\n\n$ax - 2by = 1$' }, { id: 'B', text: '$6x + 4y = 1$\n\n$ax + 2by = 1$' }, { id: 'C', text: '$6x + 4y = 1$\n\n$2ax + by = 1$' }, { id: 'D', text: '$3x - 4y = 1$\n\n$ax + by = 1$' }],
+    correctAnswer: 'B',
+    explanation: '**SAT Pattern: Perpendicular Slopes (Standard Form)**\n\n**Choice B is correct.**\n\n**The Fast Way (~45s):** Slope of $3x+4y=1$ is $-\\dfrac{3}{4}$; slope of $ax+by=1$ is $-\\dfrac{a}{b}$. Perpendicular condition: $\\left(-\\dfrac{3}{4}\\right)\\left(-\\dfrac{a}{b}\\right)=-1\\Rightarrow \\dfrac{a}{b}=-\\dfrac{4}{3}$. In choice B: slopes are $-\\dfrac{6}{4}=-\\dfrac{3}{2}$ and $-\\dfrac{a}{2b}=-\\dfrac{1}{2}\\cdot\\left(-\\dfrac{4}{3}\\right)=\\dfrac{2}{3}$. Product: $-\\dfrac{3}{2}\\cdot\\dfrac{2}{3}=-1$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* A: sign flip on $b$ ruins the perpendicular relation.\n* C: doubles $a$ instead of $b$ — slope product fails.\n* D: keeps the same $a,b$ but flips sign on $y$, changing the first slope.\n\n**Test Day Takeaway:** Standard-form slope is $-A/B$. Perpendicular = product of slopes equals $-1$.',
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'perpendicular-slope', authoredBy: 'performsat-engine', createdAt: '2026-05-22' },
+
+  { id: 'bank-alg-506', domain: 'algebra', skills: ['system-solution-types', 'infinite-solutions-condition'], difficulty: 'hard', type: 'fill-in',
+    question: '$$\\dfrac{3}{4}y - \\dfrac{1}{8}x = \\dfrac{1}{2} - \\dfrac{3}{4}y$$\n$$\\dfrac{1}{4}x + \\dfrac{5}{4} = py + \\dfrac{7}{4}$$\n\nIn the given system of equations, $p$ is a constant. If the system has no solution, what is the value of $p$?',
+    correctAnswer: '3',
+    explanation: '**SAT Pattern: No Solution Parameter (Two-Equation System)**\n\n**The correct answer is $3$.**\n\n**The Fast Way (~50s):** Rewrite equation 1: $\\dfrac{3}{2}y-\\dfrac{1}{8}x=\\dfrac{1}{2}\\Rightarrow x-12y=-4$. Rewrite equation 2: $\\dfrac{1}{4}x-py=\\dfrac{1}{2}\\Rightarrow x-4py=2$. For no solution, $x$ coefficients match and $y$ coefficients match but constants differ: $-12=-4p\\Rightarrow p=3$. Verify constants: $-4\\ne 2$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Forgetting to clear fractions before equating coefficients.\n* Solving for $y$ instead of matching coefficients (slower and error-prone).\n\n**Test Day Takeaway:** No solution = same slope, different intercept. Clear fractions first, then match coefficients on $x$ and $y$.',
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'system-no-solution-parameter', authoredBy: 'performsat-engine', createdAt: '2026-05-22' },
+
+  { id: 'bank-alg-507', domain: 'algebra', skills: ['system-solution-types', 'one-step-linear-equation'], difficulty: 'hard', type: 'multiple-choice',
+    question: '$$-5x + 35px = 91$$\n\nIn the given equation, $p$ is a constant. The equation has no solution. What is the value of $p$?',
+    choices: [{ id: 'A', text: '$0$' }, { id: 'B', text: '$\\dfrac{1}{7}$' }, { id: 'C', text: '$\\dfrac{5}{7}$' }, { id: 'D', text: '$5$' }],
+    correctAnswer: 'B',
+    explanation: '**SAT Pattern: No-Solution Condition (Single Linear Equation)**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Factor: $x(-5+35p)=91$. A linear equation $kx=c$ with $c\\ne 0$ has no solution exactly when $k=0$: $-5+35p=0\\Rightarrow p=\\dfrac{1}{7}$.\n\n**Why the wrong answers are tempting:**\n* A: solves $5+35p=0$ (sign error).\n* C: drops a factor of $5$ in the algebra.\n* D: solves for the wrong unknown.\n\n**Test Day Takeaway:** A single linear equation has no solution iff the $x$-coefficient is $0$ and the constant side is nonzero.',
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'no-solution-condition', authoredBy: 'performsat-engine', createdAt: '2026-05-22' },
+
+  { id: 'bank-alg-508', domain: 'algebra', skills: ['function-evaluation', 'function-notation'], difficulty: 'hard', type: 'multiple-choice',
+    question: 'The table shows three values of $x$ and their corresponding values of $g(x)$, where $g(x)=\\dfrac{f(x)}{x+4}$ and $f$ is a linear function.\n\n| $x$ | $g(x)$ |\n|---|---|\n| $-24$ | $4$ |\n| $-8$ | $0$ |\n| $16$ | $6$ |\n\nWhat is the $y$-intercept of the graph of $y=f(x)$ in the $xy$-plane?',
+    choices: [{ id: 'A', text: '$(0,\\, 40)$' }, { id: 'B', text: '$(0,\\, 32)$' }, { id: 'C', text: '$(0,\\, 5)$' }, { id: 'D', text: '$(0,\\, -8)$' }],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Recover Linear $f$ from $g(x)=f(x)/(x+c)$**\n\n**Choice A is correct.**\n\n**The Fast Way (~45s):** Use $f(x)=g(x)\\cdot(x+4)$: $f(-24)=4(-20)=-80$, $f(-8)=0(-4)=0$, $f(16)=6(20)=120$. Slope $=\\dfrac{0-(-80)}{-8-(-24)}=\\dfrac{80}{16}=5$. Check: $\\dfrac{120-0}{16-(-8)}=5$ \\checkmark. So $f(x)=5(x+8)=5x+40$. $f(0)=40$.\n\n**Why the wrong answers are tempting:**\n* B: drops the $+8$ shift in the final substitution.\n* C: returns the slope as the intercept.\n* D: returns the root of $f$ (where $g=0$).\n\n**Test Day Takeaway:** When $g(x)=f(x)/L(x)$ and $f$ is linear, recover three $f$-values, fit the line, then read the $y$-intercept.',
+    calculatorAllowed: true, tags: [], sourceStyleRef: 'function-from-points', authoredBy: 'performsat-engine', createdAt: '2026-05-22' },
+
+  { id: 'bank-alg-509', domain: 'algebra', skills: ['function-notation', 'domain-restrictions'], difficulty: 'hard', type: 'multiple-choice',
+    question: 'The function $f$ is defined by $f(x)=a\\sqrt{x+b}$, where $a$ and $b$ are constants. In the $xy$-plane, the graph of $y=f(x)$ passes through the point $(-18,\\,0)$, and $f(18) < 0$. Which of the following must be true?',
+    choices: [{ id: 'A', text: '$f(0) = 18$' }, { id: 'B', text: '$f(0) = -18$' }, { id: 'C', text: '$a > b$' }, { id: 'D', text: '$a < b$' }],
+    correctAnswer: 'D',
+    explanation: '**SAT Pattern: Square Root Function — Sign Reasoning**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** Passing through $(-18, 0)$ gives $a\\sqrt{-18+b}=0$, so $b=18$ (and $a\\ne 0$). Then $f(18)=a\\sqrt{36}=6a<0$, so $a<0$. Since $a<0<18=b$, $a<b$.\n\n**Why the wrong answers are tempting:**\n* A: assumes $f(0)$ equals the magnitude of the root.\n* B: sign error.\n* C: reverses the inequality.\n\n**Test Day Takeaway:** Use a known zero to pin $b$, then use a sign constraint to pin the sign of $a$.',
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'function-from-conditions', authoredBy: 'performsat-engine', createdAt: '2026-05-22' },
+
+  { id: 'bank-alg-510', domain: 'algebra', skills: ['function-evaluation', 'function-notation-application'], difficulty: 'hard', type: 'multiple-choice',
+    question: 'The linear function $g$ is defined by $g(x)=b-12x$, where $b$ is a constant. If $g(c+5)=\\dfrac{c}{3}$, where $c$ is a constant, which of the following expressions represents the value of $b$?',
+    choices: [{ id: 'A', text: '$\\dfrac{37c}{3} + 60$' }, { id: 'B', text: '$\\dfrac{c}{3} + 60$' }, { id: 'C', text: '$\\dfrac{13c}{3} + 5$' }, { id: 'D', text: '$12c + 60$' }],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Solve for a Linear Parameter from a Conditional Equation**\n\n**Choice A is correct.**\n\n**The Fast Way (~35s):** $g(c+5)=b-12(c+5)=b-12c-60=\\dfrac{c}{3}$. Solve: $b=\\dfrac{c}{3}+12c+60=\\dfrac{c+36c}{3}+60=\\dfrac{37c}{3}+60$.\n\n**Why the wrong answers are tempting:**\n* B: drops the $12c$ term.\n* C: combines the fractions wrongly.\n* D: forgets the $1/3$ factor on $c$.\n\n**Test Day Takeaway:** Substitute carefully, collect $c$-terms over a common denominator, and isolate the parameter.',
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'function-from-conditions', authoredBy: 'performsat-engine', createdAt: '2026-05-22' },
+
+  { id: 'bank-alg-511', domain: 'algebra', skills: ['identify-quadratic', 'discriminant-analysis'], difficulty: 'hard', type: 'multiple-choice',
+    question: '$$y = 2x^2 - 19x + 56$$\n$$y = 4x + a$$\n\nIn the given system of equations, $a$ is a constant. The graphs of the equations in the given system intersect at exactly one point, $(x,\\,y)$, in the $xy$-plane. What is the value of $x$?',
+    choices: [{ id: 'A', text: '$-\\dfrac{23}{4}$' }, { id: 'B', text: '$\\dfrac{19}{4}$' }, { id: 'C', text: '$\\dfrac{23}{4}$' }, { id: 'D', text: '$8$' }],
+    correctAnswer: 'C',
+    explanation: '**SAT Pattern: Tangent Line — Discriminant Equals Zero**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** Set $2x^2-19x+56=4x+a\\Rightarrow 2x^2-23x+(56-a)=0$. One solution requires the vertex $x=\\dfrac{-(-23)}{2(2)}=\\dfrac{23}{4}$. (Equivalently, the discriminant is zero, and the unique solution is $\\dfrac{-b}{2a}$.)\n\n**Why the wrong answers are tempting:**\n* A: sign error on the formula $-b/(2a)$.\n* B: uses $19$ instead of $23$ (forgets to combine $-19x-4x$).\n* D: drops the $2$ in the leading coefficient.\n\n**Test Day Takeaway:** Tangent intersection means discriminant $= 0$. The single $x$-value is $-b/(2a)$ of the merged quadratic.',
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'tangent-line-and-discriminant', authoredBy: 'performsat-engine', createdAt: '2026-05-22' },
+
+  { id: 'bank-alg-512', domain: 'algebra', skills: ['percent-decimal-conversion', 'percent-change'], difficulty: 'hard', type: 'fill-in',
+    question: 'The number $a$ is $120\\%$ greater than the number $b$. The number $b$ is $80\\%$ less than $65$. What is the value of $a$?',
+    correctAnswer: '28.6',
+    explanation: '**SAT Pattern: Chained Percent Relationship**\n\n**The correct answer is $28.6$.**\n\n**The Fast Way (~30s):** $b=65(1-0.80)=65(0.20)=13$. $a=b+1.20b=2.20b=2.20(13)=28.6$.\n\n**Common Mistakes to Avoid:**\n* Treating "$120\\%$ greater" as multiplying by $1.20$ instead of $2.20$.\n* Treating "$80\\%$ less" as multiplying by $0.80$ instead of $0.20$.\n\n**Test Day Takeaway:** "$p\\%$ greater" = multiply by $1+p/100$; "$p\\%$ less" = multiply by $1-p/100$.',
+    calculatorAllowed: true, tags: [], sourceStyleRef: 'chained-percent-relationship', authoredBy: 'performsat-engine', createdAt: '2026-05-22' }
 ];

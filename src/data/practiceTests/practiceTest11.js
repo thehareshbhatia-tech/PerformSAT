@@ -823,6 +823,22 @@ export const practiceTest11 = {
   correctAnswer: "C",
   explanation: "**SAT Pattern: Reverse-Percent Multi-Step**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** Let \"both\" $= 100$. Then bicycle (total bicycle owners) $= 250$, of which $100$ also own a scooter. Only-scooter $= 0.40 \\cdot 250 = 100$. Total surveyed = bicycle owners $+$ only-scooter $= 250 + 100 = 350$. Percent only-scooter $= \\dfrac{100}{350} = \\dfrac{2}{7} = \\dfrac{200}{7}\\% \\approx 28.57\\%$.\n\n**The Full Solution:**\nLet $b$ = number of households owning both a bicycle and a scooter. Then:\n* Bicycle owners (total): $B = 2.5b$.\n* Only-scooter: $S_o = 0.4 \\cdot B = 0.4 \\cdot 2.5 b = b$.\n\nTotal surveyed = bicycle owners $\\cup$ only-scooter = $B + S_o = 2.5b + b = 3.5b$.\nPercent of total who own only a scooter: $\\dfrac{S_o}{B + S_o} = \\dfrac{b}{3.5b} = \\dfrac{1}{3.5} = \\dfrac{2}{7} = \\dfrac{200}{7}\\%$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives the percent $40\\%$ directly without working through the totals.\n* Choice B: \"applies the inverse operation\" — divides $40$ by $250$ to get $16\\%$.\n* Choice D: \"wrong base\" — forgets to include the only-scooter count in the total.\n\n**Test Day Takeaway:** When percentages are stacked, pick a clean numerical anchor and compute through. Always identify what is in the denominator.",
   skills: ["percents"]
+},
+{
+  id: 23,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "In the $xy$-plane, a circle has center $C$ with coordinates $(h, k)$. Points $A$ and $B$ lie on the circle. Point $A$ has coordinates $(h + 1,\\,k + \\sqrt{66})$, and $\\angle ACB$ is a right angle. What is the length of $\\overline{AB}$?",
+  choices: [
+    { id: "A", text: "$\\sqrt{134}$" },
+    { id: "B", text: "$2\\sqrt{67}$" },
+    { id: "C", text: "$67\\sqrt{2}$" },
+    { id: "D", text: "$67\\sqrt{3}$" }
+  ],
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Right Triangle at Center — Chord Length**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** $CA = \\sqrt{1^2 + (\\sqrt{66})^2} = \\sqrt{67} = r$. With $\\angle ACB = 90^\\circ$, triangle $ACB$ is isosceles right, so $AB = r\\sqrt{2} = \\sqrt{134}$.\n\n**Why the wrong answers are tempting:**\n* B: doubles instead of multiplying by $\\sqrt{2}$.\n* C: skips the radius computation.\n* D: confuses with an equilateral case.\n\n**Test Day Takeaway:** A right angle at the center makes the chord the hypotenuse of an isosceles right triangle with legs equal to the radius.",
+  skills: ["circle-equations", "triangles"]
 }
       ]
     }

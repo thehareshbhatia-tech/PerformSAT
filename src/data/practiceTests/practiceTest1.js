@@ -785,6 +785,22 @@ export const practiceTest1 = {
   correctAnswer: "B",
   explanation: "**SAT Pattern: Function Transformation**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** $f$ has minimum value $-4$ (at $x = 3$). $g(x) = f(x + 5)$ shifts $f$ horizontally; horizontal shifts do NOT change the minimum value. So $g$ has minimum value $-4$.\n\n**The Full Solution:**\n$g(x) = f(x + 5) = ((x + 5) - 3)^2 - 4 = (x + 2)^2 - 4$\n\nThis is vertex form with vertex $(-2, -4)$. The minimum value is $-4$, attained at $x = -2$.\n\nVerification: $(x + 2)^2 \\geq 0$ for all real $x$, so $g(x) \\geq -4$ with equality at $x = -2$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives the $x$-coordinate of the minimum ($-2$) instead of $g(x) = -4$.\n* Choice C: \"off-by-one\" — forgets the constant $-4$ in the original function.\n* Choice D: \"applies the inverse operation\" — combines $-4$ and $-5$ into $-9$ via incorrect shift direction.\n\n**Test Day Takeaway:** Horizontal shifts (replacing $x$ with $x \\pm h$) do NOT change the minimum/maximum value of a function. Only vertical shifts ($+k$ outside) do.",
   skills: ["function-interpretation", "vertex-form", "quadratic-equations"]
+},
+{
+  id: 23,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "In the $xy$-plane, the graph of $y = -x^2 + 7x - 80$ intersects the line $y = c$ at exactly one point. What is the value of $c$?",
+  choices: [
+    { id: "A", text: "$-\\dfrac{271}{4}$" },
+    { id: "B", text: "$-80$" },
+    { id: "C", text: "$-\\dfrac{49}{4}$" },
+    { id: "D", text: "$-\\dfrac{7}{2}$" }
+  ],
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Horizontal Tangent to a Parabola**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** A horizontal line meets a parabola at one point only at the parabola's vertex $y$-value. Vertex $x = 7/2$; $y = -(7/2)^2 + 7(7/2) - 80 = -49/4 + 49/2 - 80 = -271/4$.\n\n**Why the wrong answers are tempting:**\n* B: copies the constant from the equation.\n* C: gives $b^2/(4a)$ without the constant term.\n* D: returns the $x$-coordinate of the vertex.\n\n**Test Day Takeaway:** \"Intersects at exactly one point\" with a horizontal line means $y = $ vertex value of the parabola.",
+  skills: ["quadratic-equations", "vertex-form"]
 }
       ]
     }
