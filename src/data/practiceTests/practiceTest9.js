@@ -705,30 +705,33 @@ export const practiceTest9 = {
   id: 17,
   type: "multiple-choice",
   difficulty: "hard",
-  band: 6,
-  question: "Two similar triangles have a ratio of corresponding sides of $3:5$. If the area of the smaller triangle is $27$ square centimeters, what is the area of the larger triangle, in square centimeters?",
+  band: 7,
+  question: "The function $f$ is defined by $f(x) = a\\sqrt{x + b}$, where $a$ and $b$ are constants. In the $xy$-plane, the graph of $y = f(x)$ passes through the point $(-18, 0)$, and $f(18) < 0$. Which of the following must be true?",
   choices: [
-    // distractor: uses the linear ratio (27 \times 5/3 = 45)
-    { id: "A", text: "$45$" },
-    { id: "B", text: "$75$" },
-    // distractor: 27 \times 5 = 135 (skips the squaring)
-    { id: "C", text: "$135$" },
-    // distractor: squares the entire ratio incorrectly
-    { id: "D", text: "$225$" }
+    { id: "A", text: "$f(0) = 18$" },
+    { id: "B", text: "$f(0) = -18$" },
+    { id: "C", text: "$a > b$" },
+    { id: "D", text: "$a < b$" }
   ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Similar Figures — Area Ratio**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Area ratio $=$ (side ratio)$^2 = \\left(\\dfrac{5}{3}\\right)^2 = \\dfrac{25}{9}$. Larger area $= 27 \\cdot \\dfrac{25}{9} = 75$.\n\n**The Full Solution:**\nFor similar figures, if the ratio of corresponding sides is $k$, the ratio of areas is $k^2$. The side ratio (larger to smaller) is $\\dfrac{5}{3}$, so the area ratio is $\\left(\\dfrac{5}{3}\\right)^2 = \\dfrac{25}{9}$.\nArea of larger triangle $= 27 \\cdot \\dfrac{25}{9} = 3 \\cdot 25 = 75$ square centimeters.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — uses the linear ratio ($27 \\cdot \\dfrac{5}{3} = 45$) instead of squaring it.\n* Choice C: \"wrong base\" — uses $27 \\cdot 5 = 135$ without the proper squaring.\n* Choice D: \"off-by-one\" — squares the entire ratio incorrectly.\n\n**Test Day Takeaway:** Side ratio $k$ gives area ratio $k^2$ and volume ratio $k^3$.",
-  skills: ["similar-triangles", "area"]
+  correctAnswer: "D",
+  explanation: "**SAT Pattern: Square Root Function — Sign Reasoning**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** Root at $(-18, 0)$: $b = 18$. $f(18) = 6a < 0 \\Rightarrow a < 0$. So $a < 0 < 18 = b$.\n\n**Test Day Takeaway:** Use known zero for one constant; sign constraint for the other.",
+  skills: ["radical-functions", "function-interpretation"]
 },
 {
   id: 18,
-  type: "fill-in",
+  type: "multiple-choice",
   difficulty: "hard",
-  band: 8,
-  question: "In the $xy$-plane, the endpoints of a diameter of a circle are $(1, 2)$ and $(7, 10)$. The area of the circle can be expressed as $k\\pi$, where $k$ is a positive integer. What is the value of $k$?",
-  correctAnswer: "25",
-  explanation: "**SAT Pattern: Distance + Circle Area**\n\n**The correct answer is $25$.**\n\n**The Fast Way (~30s):** Diameter $= \\sqrt{(7 - 1)^2 + (10 - 2)^2} = \\sqrt{36 + 64} = \\sqrt{100} = 10$. Radius $= 5$, so area $= \\pi r^2 = 25\\pi$. So $k = 25$.\n\n**The Full Solution:**\nThe diameter is the distance between the two endpoints. Using the distance formula:\n$d = \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2} = \\sqrt{(7 - 1)^2 + (10 - 2)^2} = \\sqrt{36 + 64} = \\sqrt{100} = 10$.\n\nSince diameter $= 10$, radius $= 5$.\nArea $= \\pi r^2 = \\pi (5)^2 = 25\\pi$.\nThus $k = 25$.\n\n**Verification:** The midpoint $\\left(\\dfrac{1+7}{2}, \\dfrac{2+10}{2}\\right) = (4, 6)$ is the center. Distance from center to either endpoint: $\\sqrt{(7-4)^2 + (10-6)^2} = \\sqrt{9 + 16} = 5$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Using diameter as radius: would give $\\pi(10)^2 = 100\\pi$, so $k = 100$.\n* Reporting $r = 5$ instead of $r^2 = 25$.\n* Forgetting to square one of the differences: $\\sqrt{6^2 + 8^2} \\neq 6 + 8$.\n\n**Test Day Takeaway:** Distance formula is just the Pythagorean theorem on coordinate differences. The diameter of a circle through two points is the distance between them; the radius is half. Always square the radius for area.",
-  skills: ["circles", "distance-formula", "coordinate-geometry"]
+  band: 7,
+  question: "At the time that an article was first featured on the home page of a news website, there were $60$ reviews on the article. An exponential model estimates that at the end of each hour, the number of reviews had increased by $220\\%$ of the number of reviews at the end of the previous hour. Which equation best represents this model, where $C$ is the number of reviews $t$ hours after the feature and $t \\le 4$?",
+  choices: [
+    { id: "A", text: "$C = 60(1.22)^t$" },
+    { id: "B", text: "$C = 60(2.2)^t$" },
+    { id: "C", text: "$C = 60(22)^t$" },
+    { id: "D", text: "$C = 60(3.2)^t$" }
+  ],
+  correctAnswer: "D",
+  explanation: "**SAT Pattern: \"$p\\%$ more\" Growth — Large-Percent Trap**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** \"$220\\%$ more\" $=$ factor $3.2$. With $C_0 = 60$: $C = 60(3.2)^t$.\n\n**Test Day Takeaway:** \"$p\\%$ more\" $= 1 + p/100$, even when $p > 100$.",
+  skills: ["exponential-functions", "exponential-growth"]
 },
 {
   id: 19,
@@ -761,35 +764,16 @@ export const practiceTest9 = {
 },
 {
   id: 21,
-  type: "multiple-choice",
-  difficulty: "medium",
-  band: 5,
-  question: "If $\\dfrac{x}{6} = \\dfrac{5}{12}$, what is the value of $4x - 1$?",
-  choices: [
-    // distractor: stops at x = 5/2 (forgets the 4x and -1)
-    { id: "A", text: "$\\dfrac{5}{2}$" },
-    { id: "B", text: "$9$" },
-    // distractor: forgets the -1
-    { id: "C", text: "$10$" },
-    // distractor: adds 1 instead of subtracting
-    { id: "D", text: "$11$" }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Shifted Output**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Cross-multiply: $12x = 30$, so $x = \\dfrac{5}{2}$. Then $4x - 1 = 10 - 1 = 9$.\n\n**The Full Solution:**\nFrom $\\dfrac{x}{6} = \\dfrac{5}{12}$, multiply both sides by $6$: $x = \\dfrac{30}{12} = \\dfrac{5}{2}$. Therefore $4x - 1 = 4 \\cdot \\dfrac{5}{2} - 1 = 10 - 1 = 9$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives $x$ instead of $4x - 1$.\n* Choice C: \"off-by-one\" — forgets the $-1$ and reports $4x = 10$.\n* Choice D: \"applies the inverse operation\" — adds $1$ instead of subtracting.\n\n**Test Day Takeaway:** Always check what the question asks for — here it is $4x - 1$, not $x$ alone.",
-  skills: ["solving-equations", "ratios"]
+  type: "fill-in",
+  difficulty: "hard",
+  band: 7,
+  question: "A rectangle is inscribed in a circle, such that each vertex of the rectangle lies on the circumference of the circle. The diagonal of the rectangle is twice the length of the shortest side of the rectangle. The area of the rectangle is $729\\sqrt{3}$ square units. What is the length, in units, of the diameter of the circle?",
+  correctAnswer: "54",
+  explanation: "**SAT Pattern: 30-60-90 from Diagonal-to-Side Ratio**\n\n**The correct answer is $54$.**\n\n**The Fast Way (~50s):** Diagonal $= 2 \\cdot$ short side $\\Rightarrow 30$-$60$-$90$ scaffold. Area: $x^2 \\sqrt{3} = 729\\sqrt{3} \\Rightarrow x = 27$. Diameter $= 2x = 54$.\n\n**Test Day Takeaway:** Diagonal $= 2 \\cdot$ short side means $30$-$60$-$90$; diameter $=$ diagonal.",
+  skills: ["special-right-triangles", "circle-equations"]
 },
 {
   id: 22,
-  type: "fill-in",
-  difficulty: "hard",
-  band: 8,
-  question: "The function $f$ is defined by $f(x) = ax^2 + b$, where $a$ and $b$ are constants. If $f(2x - 1) - f(2x + 1) = -16x$ for all real numbers $x$, what is the value of $a$?",
-  correctAnswer: "2",
-  explanation: "**SAT Pattern: Parameterized Quadratic from a Functional Identity**\n\n**The correct answer is $2$.**\n\n**The Fast Way (~45s):** Compute $f(2x - 1) - f(2x + 1)$ symbolically and match the coefficient of $x$ to $-16$.\n* $f(2x - 1) = a(2x - 1)^2 + b = a(4x^2 - 4x + 1) + b$.\n* $f(2x + 1) = a(2x + 1)^2 + b = a(4x^2 + 4x + 1) + b$.\n* Difference: $a[(4x^2 - 4x + 1) - (4x^2 + 4x + 1)] = a(-8x) = -8ax$.\n* Set $-8ax = -16x$, so $a = 2$.\n\n**The Full Solution:**\nExpand each composition:\n$f(2x - 1) = a(2x - 1)^2 + b = a(4x^2 - 4x + 1) + b = 4ax^2 - 4ax + a + b$\n$f(2x + 1) = a(2x + 1)^2 + b = a(4x^2 + 4x + 1) + b = 4ax^2 + 4ax + a + b$\n\nSubtract:\n$f(2x - 1) - f(2x + 1) = (4ax^2 - 4ax + a + b) - (4ax^2 + 4ax + a + b) = -8ax$\n\nSet equal to $-16x$ (must hold for all $x$):\n$-8ax = -16x$\n$-8a = -16$\n$a = 2$.\n\nNote: $b$ does not appear in the difference, so it is unconstrained.\n\n**Verification:** with $a = 2$: $f(2x - 1) - f(2x + 1) = -8(2)x = -16x$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Trying to solve by plugging in specific values of $x$ — works, but the algebraic shortcut is faster.\n* Forgetting to distribute the $a$ when expanding $a(2x \\pm 1)^2$.\n* Confusing the sign on the difference: $(2x - 1)^2 - (2x + 1)^2 = -8x$, NOT $+8x$ (the larger square is $(2x+1)^2$).\n\n**Test Day Takeaway:** Difference of squares pattern: $(P)^2 - (Q)^2 = (P - Q)(P + Q)$. Here $(2x - 1)^2 - (2x + 1)^2 = ((2x-1) - (2x+1))((2x-1) + (2x+1)) = (-2)(4x) = -8x$.",
-  skills: ["function-interpretation", "polynomial-operations", "factoring"]
-},
-{
-  id: 23,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -801,50 +785,8 @@ export const practiceTest9 = {
     { id: "D", text: "$-\\sqrt{c^2 + 42^2}$" }
   ],
   correctAnswer: "D",
-  explanation: "**SAT Pattern: Radical Equation — Extraneous Filter**\n\n**Choice D is correct.**\n\n**The Fast Way (~50s):** Multiply both sides by $\\sqrt{x^2 - c^2}$: $x^2 - c^2 = 42\\sqrt{x^2 - c^2}$. Let $u = \\sqrt{x^2 - c^2} \\ge 0$: $u^2 = 42u \\Rightarrow u = 42$ (discard $u = 0$, which makes the denominator zero). Then $x^2 - c^2 = 42^2 \\Rightarrow x = \\pm\\sqrt{c^2 + 42^2}$.\n\n**Why the wrong answers are tempting:**\n* A: forces $x^2 - c^2 = 0$, breaking the domain.\n* B: confuses $x^2$ with $x$.\n* C: sign error.\n\n**Test Day Takeaway:** Substitute $u = \\sqrt{\\cdot}$ to linearize, then filter by $u \\ge 0$ and the denominator constraint.",
+  explanation: "**SAT Pattern: Radical Equation — Extraneous Filter**\n\n**Choice D is correct.**\n\n**The Fast Way (~50s):** Let $u = \\sqrt{x^2 - c^2}$: $u^2 = 42u \\Rightarrow u = 42$ (discard $u = 0$). $x = \\pm\\sqrt{c^2 + 42^2}$.\n\n**Test Day Takeaway:** Substitute $u = \\sqrt{\\cdot}$ to linearize; filter by $u \\ge 0$.",
   skills: ["radical-equations", "rational-equations"]
-},
-{
-  id: 24,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "The function $f$ is defined by $f(x) = a\\sqrt{x + b}$, where $a$ and $b$ are constants. In the $xy$-plane, the graph of $y = f(x)$ passes through the point $(-18, 0)$, and $f(18) < 0$. Which of the following must be true?",
-  choices: [
-    { id: "A", text: "$f(0) = 18$" },
-    { id: "B", text: "$f(0) = -18$" },
-    { id: "C", text: "$a > b$" },
-    { id: "D", text: "$a < b$" }
-  ],
-  correctAnswer: "D",
-  explanation: "**SAT Pattern: Square Root Function — Sign Reasoning**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** Root at $(-18, 0)$: $b = 18$. $f(18) = 6a < 0 \\Rightarrow a < 0$. So $a < 0 < 18 = b$.\n\n**Why the wrong answers are tempting:**\n* A: assumes wrong $f(0)$.\n* B: sign error.\n* C: reverses inequality.\n\n**Test Day Takeaway:** Use known zero to pin one constant; use sign constraint to pin the other.",
-  skills: ["radical-functions", "function-interpretation"]
-},
-{
-  id: 25,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "At the time that an article was first featured on the home page of a news website, there were $60$ reviews on the article. An exponential model estimates that at the end of each hour, the number of reviews had increased by $220\\%$ of the number of reviews at the end of the previous hour. Which equation best represents this model, where $C$ is the number of reviews $t$ hours after the feature and $t \\le 4$?",
-  choices: [
-    { id: "A", text: "$C = 60(1.22)^t$" },
-    { id: "B", text: "$C = 60(2.2)^t$" },
-    { id: "C", text: "$C = 60(22)^t$" },
-    { id: "D", text: "$C = 60(3.2)^t$" }
-  ],
-  correctAnswer: "D",
-  explanation: "**SAT Pattern: \"$p\\%$ more\" Growth — Large-Percent Trap**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** \"$220\\%$ more\" $=$ factor $1 + 2.2 = 3.2$. With $C_0 = 60$: $C = 60(3.2)^t$.\n\n**Why the wrong answers are tempting:**\n* A: misreads as $22\\%$.\n* B: uses $2.2$ alone.\n* C: confuses percent with base.\n\n**Test Day Takeaway:** \"$p\\%$ more\" $=1 + p/100$, even when $p > 100$.",
-  skills: ["exponential-functions", "exponential-growth"]
-},
-{
-  id: 26,
-  type: "fill-in",
-  difficulty: "hard",
-  band: 7,
-  question: "A rectangle is inscribed in a circle, such that each vertex of the rectangle lies on the circumference of the circle. The diagonal of the rectangle is twice the length of the shortest side of the rectangle. The area of the rectangle is $729\\sqrt{3}$ square units. What is the length, in units, of the diameter of the circle?",
-  correctAnswer: "54",
-  explanation: "**SAT Pattern: 30-60-90 from Diagonal-to-Side Ratio**\n\n**The correct answer is $54$.**\n\n**The Fast Way (~50s):** Diagonal $= 2 \\cdot$ short side $\\Rightarrow$ $30$-$60$-$90$ scaffold (short:long:diagonal $= 1:\\sqrt{3}:2$). Area: $x \\cdot x\\sqrt{3} = 729\\sqrt{3} \\Rightarrow x = 27$. Diameter $=$ diagonal $= 2x = 54$.\n\n**Common Mistakes to Avoid:**\n* Forgetting diagonal $=$ diameter.\n\n**Test Day Takeaway:** Diagonal $= 2 \\cdot$ short side means $30$-$60$-$90$; diameter $=$ diagonal.",
-  skills: ["special-right-triangles", "circle-equations"]
 }
       ]
     }

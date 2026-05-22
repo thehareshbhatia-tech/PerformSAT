@@ -686,30 +686,21 @@ export const practiceTest3 = {
   id: 17,
   type: "fill-in",
   difficulty: "hard",
-  band: 8,
-  question: "For an acute angle $\\theta$, $\\sin\\theta - \\cos\\theta = \\dfrac{1}{5}$. What is the value of $\\sin\\theta \\cdot \\cos\\theta$?",
-  correctAnswer: "12/25",
-  explanation: "**SAT Pattern: Trig Identity (Square the Sum/Difference)**\n\n**The correct answer is $\\dfrac{12}{25}$.**\n\n**The Fast Way (~30s):** Square both sides of $\\sin\\theta - \\cos\\theta = \\dfrac{1}{5}$: $\\sin^2\\theta - 2\\sin\\theta\\cos\\theta + \\cos^2\\theta = \\dfrac{1}{25}$. Use $\\sin^2\\theta + \\cos^2\\theta = 1$: $1 - 2\\sin\\theta\\cos\\theta = \\dfrac{1}{25}$. So $2\\sin\\theta\\cos\\theta = \\dfrac{24}{25}$, giving $\\sin\\theta\\cos\\theta = \\dfrac{12}{25}$.\n\n**The Full Solution:**\nStart with: $\\sin\\theta - \\cos\\theta = \\dfrac{1}{5}$.\n\nSquare both sides:\n$(\\sin\\theta - \\cos\\theta)^2 = \\left(\\dfrac{1}{5}\\right)^2$\n$\\sin^2\\theta - 2\\sin\\theta\\cos\\theta + \\cos^2\\theta = \\dfrac{1}{25}$\n\nApply the Pythagorean identity $\\sin^2\\theta + \\cos^2\\theta = 1$:\n$1 - 2\\sin\\theta\\cos\\theta = \\dfrac{1}{25}$\n$2\\sin\\theta\\cos\\theta = 1 - \\dfrac{1}{25} = \\dfrac{24}{25}$\n$\\sin\\theta\\cos\\theta = \\dfrac{12}{25}$.\n\n**Verification:** Working backward, if $\\sin\\theta\\cos\\theta = \\dfrac{12}{25}$, then $(\\sin\\theta - \\cos\\theta)^2 = 1 - 2\\left(\\dfrac{12}{25}\\right) = \\dfrac{1}{25}$, so $|\\sin\\theta - \\cos\\theta| = \\dfrac{1}{5}$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Forgetting the cross-term $-2\\sin\\theta\\cos\\theta$ when squaring (it's a binomial, not separate squares).\n* Reporting $\\dfrac{24}{25}$ (the value of $2\\sin\\theta\\cos\\theta$, not $\\sin\\theta\\cos\\theta$).\n* Trying to find $\\theta$ explicitly — unnecessary.\n\n**Test Day Takeaway:** When given $\\sin\\theta \\pm \\cos\\theta$ and asked about $\\sin\\theta\\cos\\theta$ (or vice versa), SQUARE the expression and apply $\\sin^2 + \\cos^2 = 1$. Don't try to solve for the angle.",
-  skills: ["trigonometry", "trig-identities"]
+  band: 7,
+  question: "The regular price of a shirt at a store is $\\$14.40$. The sale price of the shirt is $75\\%$ less than the regular price, and the sale price is $20\\%$ greater than the store's cost for the shirt. What was the store's cost, in dollars, for the shirt?",
+  correctAnswer: "3",
+  explanation: "**SAT Pattern: Markup–Discount Chain**\n\n**The correct answer is $3$.**\n\n**The Fast Way (~30s):** Sale price = $14.40 \\times 0.25 = 3.60$. Sale = cost $\\times 1.20 \\Rightarrow$ cost = $3.60/1.20 = 3.00$.\n\n**Common Mistakes to Avoid:**\n* Multiplying instead of dividing in the second step.\n\n**Test Day Takeaway:** Chain percent changes: each step is a separate multiplication or division.",
+  skills: ["percent-change", "percent-word-problems"]
 },
 {
   id: 18,
-  type: "multiple-choice",
+  type: "fill-in",
   difficulty: "hard",
   band: 7,
-  question: "The equation $3x^2 + bx + 12 = 0$ has no real solutions. What is the greatest integer value of $b$?",
-  choices: [
-    { id: "A", text: "$11$" },
-    // distractor: uses ≤ instead of < (misses strict inequality boundary)
-    { id: "B", text: "$12$" },
-    // distractor: off-by-one beyond the boundary
-    { id: "C", text: "$13$" },
-    // distractor: gives b^2 = 144 instead of b
-    { id: "D", text: "$144$" }
-  ],
-  correctAnswer: "A",
-  explanation: "**SAT Pattern: Discriminant with Integer Bound**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** Discriminant $< 0$: $b^2 - 4(3)(12) < 0 \\Rightarrow b^2 - 144 < 0 \\Rightarrow b^2 < 144 \\Rightarrow |b| < 12$. Greatest integer: $b = 11$.\n\n**The Full Solution:**\nFor $3x^2 + bx + 12 = 0$: $a = 3$, $c = 12$.\nDiscriminant $= b^2 - 4(3)(12) = b^2 - 144$.\nNo real solutions: $b^2 < 144$, so $|b| < 12$.\nAt $b = 12$: discriminant $= 0$ (exactly one real solution — not \"no\" solutions).\nGreatest integer strictly less than $12$: $b = 11$.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"applies the inverse operation\" — uses $\\leq$ instead of $<$ (at $b = 12$ there IS a repeated root).\n* Choice C: \"off-by-one\" — over-shoots the boundary.\n* Choice D: \"wrong base\" — gives $b^2 = 144$ instead of $b$.\n\n**Test Day Takeaway:** No real solutions $=$ discriminant $< 0$. At discriminant $= 0$, there's one real solution (not zero).",
-  skills: ["discriminant", "quadratic-equations"]
+  question: "$$y = -2.5$$\n$$y = x^2 + 10x + a$$\n\nIn the given system of equations, $a$ is a positive constant. The system has exactly one distinct real solution. What is the value of $a$?",
+  correctAnswer: "22.5",
+  explanation: "**SAT Pattern: Discriminant Equals Zero**\n\n**The correct answer is $22.5$.**\n\n**The Fast Way (~30s):** $x^2 + 10x + (a + 2.5) = 0$. Discriminant $= 0$: $100 - 4(a + 2.5) = 0 \\Rightarrow a = 22.5$.\n\n**Test Day Takeaway:** Parabola meets horizontal line at one point iff discriminant $= 0$.",
+  skills: ["quadratic-equations", "discriminant"]
 },
 {
   id: 19,
@@ -735,62 +726,6 @@ export const practiceTest3 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "The graph of $x^2 + y^2 - 6x + 8y = 24$ in the $xy$-plane is a circle. What is the length of the circle's radius?",
-  choices: [
-    { id: "A", text: "$7$" },
-    // distractor: gives r^2 = 49 instead of r
-    { id: "B", text: "$49$" },
-    // distractor: subtracts completion terms instead of adding (sqrt(24 - 25))
-    { id: "C", text: "$\\sqrt{24}$" },
-    // distractor: takes the constant 24 directly without completing the square
-    { id: "D", text: "$\\sqrt{49 - 24}$" }
-  ],
-  correctAnswer: "A",
-  explanation: "**SAT Pattern: Complete the Square — Circle Center**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** Half of $-6$ is $-3$, squared is $9$. Half of $8$ is $4$, squared is $16$. Add to both sides: $(x - 3)^2 + (y + 4)^2 = 24 + 9 + 16 = 49$. Radius $= \\sqrt{49} = 7$.\n\n**The Full Solution:**\nGroup terms and complete the square for each variable:\n$(x^2 - 6x) + (y^2 + 8y) = 24$\n$(x^2 - 6x + 9) + (y^2 + 8y + 16) = 24 + 9 + 16$\n$(x - 3)^2 + (y + 4)^2 = 49$\n\nSo $r^2 = 49$ and $r = 7$.\n\nVerification: center $(3, -4)$, radius $7$. The point $(3, 3)$ on the circle satisfies $(3-3)^2 + (3+4)^2 = 49$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"stops one step early\" — gives $r^2 = 49$ instead of $r = 7$.\n* Choice C: \"wrong base\" — uses the constant $24$ directly without completing the square.\n* Choice D: \"applies the inverse operation\" — subtracts $24$ from the completion terms instead of adding.\n\n**Test Day Takeaway:** Complete the square SYMMETRICALLY for both variables. \"Half the coefficient, squared\" gets added to BOTH sides — once for $x$, once for $y$.",
-  skills: ["circle-equations", "solving-equations"]
-},
-{
-  id: 21,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "In right triangle $DEF$ shown, angle $F$ is the right angle, $DE = 41$, and $DF = 40$. What is the value of $\\sin(D)$?",
-  diagram: {
-    type: "rightTriangle",
-    params: {
-      labels: ["D", "F", "E"],
-      sideLabels: ["40", "", "41"],
-      rightAngleVertex: 1
-    }
-  },
-  choices: [
-    { id: "A", text: "$\\dfrac{9}{41}$" },
-    // distractor: uses DF (adjacent to D) — this is cos(D)
-    { id: "B", text: "$\\dfrac{40}{41}$" },
-    // distractor: uses EF/DF — this is tan(D)
-    { id: "C", text: "$\\dfrac{9}{40}$" },
-    // distractor: inverts the ratio
-    { id: "D", text: "$\\dfrac{41}{40}$" }
-  ],
-  correctAnswer: "A",
-  explanation: "**SAT Pattern: Right Triangle Trigonometry**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** Right angle at $F$, so $DE = 41$ is the hypotenuse. Find $EF$: $EF = \\sqrt{41^2 - 40^2} = \\sqrt{1681 - 1600} = \\sqrt{81} = 9$. For angle $D$: opposite $= EF = 9$, hypotenuse $= DE = 41$. $\\sin(D) = \\dfrac{9}{41}$.\n\n**The Full Solution:**\n$EF^2 = DE^2 - DF^2 = 1681 - 1600 = 81$.\n$EF = 9$.\nVerification: $9^2 + 40^2 = 81 + 1600 = 1681 = 41^2$ \\checkmark.\n$\\sin(D) = \\dfrac{\\text{opposite to } D}{\\text{hypotenuse}} = \\dfrac{EF}{DE} = \\dfrac{9}{41}$.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"wrong base\" — uses $DF = 40$ (adjacent to $D$); this is $\\cos(D)$.\n* Choice C: \"applies the inverse operation\" — uses $\\dfrac{EF}{DF} = \\dfrac{9}{40}$; this is $\\tan(D)$.\n* Choice D: \"off-by-one\" — inverts the cosine ratio.\n\n**Test Day Takeaway:** Draw the triangle, identify the hypotenuse (opposite the right angle), then use SOH-CAH-TOA for the specified angle.",
-  skills: ["trigonometry", "triangles"]
-},
-{
-  id: 22,
-  type: "fill-in",
-  difficulty: "hard",
-  band: 7,
-  question: "A school prom committee has a budget of $\\$720$ for centerpieces. To receive a vendor's quantity discount, the committee must order a minimum of $100$ centerpieces total. Simple centerpieces cost $\\$4$ each and elegant centerpieces cost $\\$8$ each. What is the maximum number of elegant centerpieces the committee can order while staying within the budget and qualifying for the discount?",
-  correctAnswer: "80",
-  explanation: "**SAT Pattern: Inequality Word Problem (Floor)**\n\n**The correct answer is $80$.**\n\n**The Fast Way (~40s):** Let $s$ = simple, $e$ = elegant. To max $e$, set $s + e = 100$ exactly, $s = 100 - e$. Budget: $4(100 - e) + 8e \\leq 720 \\Rightarrow 400 + 4e \\leq 720 \\Rightarrow e \\leq 80$.\n\n**The Full Solution:**\nLet $s$ = simple centerpieces, $e$ = elegant centerpieces.\nConstraints:\n* Discount floor: $s + e \\geq 100$.\n* Budget: $4s + 8e \\leq 720$.\n* Both non-negative integers.\n\nTo MAXIMIZE $e$, fill the rest with the cheaper simple centerpieces at EXACTLY the floor (any extras waste budget). Set $s = 100 - e$:\n\n$4(100 - e) + 8e \\leq 720$\n$400 - 4e + 8e \\leq 720$\n$4e \\leq 320$\n$e \\leq 80$.\n\nMax integer: $e = 80$.\n\n**Verification:** With $e = 80$, $s = 20$. Total: $20 + 80 = 100 \\geq 100$ ✓. Cost: $4(20) + 8(80) = 80 + 640 = 720 \\leq 720$ ✓ (exactly at budget). Try $e = 81$, $s = 19$: $4(19) + 8(81) = 76 + 648 = 724 > 720$ ✗ — exceeds budget \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Answering $90$ (treats $720/8 = 90$ as the max, ignoring the floor — also $s = 0, e = 90$ violates the floor: $0 + 90 = 90 < 100$).\n* Answering $100$ (treats the floor itself as the answer).\n* Answering $81$ (forgets to round DOWN).\n* Answering $20$ (reports simple centerpieces instead of elegant).\n\n**Test Day Takeaway:** Two-constraint optimization (budget + minimum total): To maximize one quantity, fill the remainder with the cheaper option AT EXACTLY the minimum total. Solve the resulting single-variable inequality and take the FLOOR.",
-  skills: ["inequalities", "word-problems", "systems-of-equations"]
-},
-{
-  id: 23,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
   question: "What is the value of $\\tan\\dfrac{85\\pi}{3}$?",
   choices: [
     { id: "A", text: "$-\\sqrt{3}$" },
@@ -799,31 +734,11 @@ export const practiceTest3 = {
     { id: "D", text: "$\\sqrt{3}$" }
   ],
   correctAnswer: "D",
-  explanation: "**SAT Pattern: Coterminal Angle Reduction (Tangent)**\n\n**Choice D is correct.**\n\n**The Fast Way (~40s):** $\\dfrac{85\\pi}{3} = 28\\pi + \\dfrac{\\pi}{3}$. Tangent has period $\\pi$, so $\\tan\\dfrac{85\\pi}{3} = \\tan\\dfrac{\\pi}{3} = \\sqrt{3}$.\n\n**Why the wrong answers are tempting:**\n* A: forgets the period reduction sign.\n* B/C: gives $\\cot(\\pi/3)$.\n\n**Test Day Takeaway:** Tangent has period $\\pi$ (not $2\\pi$). Reduce by the largest multiple of $\\pi$ first.",
+  explanation: "**SAT Pattern: Coterminal Angle Reduction (Tangent)**\n\n**Choice D is correct.**\n\n**The Fast Way (~40s):** $\\dfrac{85\\pi}{3} = 28\\pi + \\dfrac{\\pi}{3}$. Tangent has period $\\pi$: $\\tan\\dfrac{85\\pi}{3} = \\tan\\dfrac{\\pi}{3} = \\sqrt{3}$.\n\n**Why the wrong answers are tempting:**\n* A: forgets the period reduction sign.\n* B/C: gives $\\cot(\\pi/3)$.\n\n**Test Day Takeaway:** Tangent has period $\\pi$, not $2\\pi$.",
   skills: ["trigonometry", "radians"]
 },
 {
-  id: 24,
-  type: "fill-in",
-  difficulty: "hard",
-  band: 7,
-  question: "$$y = -2.5$$\n$$y = x^2 + 10x + a$$\n\nIn the given system of equations, $a$ is a positive constant. The system has exactly one distinct real solution. What is the value of $a$?",
-  correctAnswer: "22.5",
-  explanation: "**SAT Pattern: Discriminant Equals Zero**\n\n**The correct answer is $22.5$.**\n\n**The Fast Way (~30s):** $x^2 + 10x + (a+2.5) = 0$. Discriminant $=0$: $100 - 4(a+2.5) = 0 \\Rightarrow a = 22.5$.\n\n**Common Mistakes to Avoid:**\n* Forgetting to move the $-2.5$ to the left side first.\n\n**Test Day Takeaway:** Parabola meets horizontal line at one point iff discriminant $= 0$.",
-  skills: ["quadratic-equations", "discriminant"]
-},
-{
-  id: 25,
-  type: "fill-in",
-  difficulty: "hard",
-  band: 7,
-  question: "The regular price of a shirt at a store is $\\$14.40$. The sale price of the shirt is $75\\%$ less than the regular price, and the sale price is $20\\%$ greater than the store's cost for the shirt. What was the store's cost, in dollars, for the shirt?",
-  correctAnswer: "3",
-  explanation: "**SAT Pattern: Markup–Discount Chain**\n\n**The correct answer is $3$.**\n\n**The Fast Way (~30s):** Sale price $= 14.40 \\times 0.25 = 3.60$. Sale $=$ cost $\\times 1.20 \\Rightarrow$ cost $= 3.60/1.20 = 3.00$.\n\n**Common Mistakes to Avoid:**\n* Multiplying instead of dividing in the second step.\n\n**Test Day Takeaway:** Chain percent changes: each step is a separate multiplication or division.",
-  skills: ["percent-change", "percent-word-problems"]
-},
-{
-  id: 26,
+  id: 21,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -835,8 +750,18 @@ export const practiceTest3 = {
     { id: "D", text: "$g(x) = \\dfrac{5(x+3)}{x+3}$" }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Horizontal Shift of a Rational Function**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Asymptote at $x=0$ means $b=0$, so $f(x) = a/x$. Point $(-5, -1)$: $a/(-5) = -1 \\Rightarrow a = 5$. Then $g(x) = f(x+3) = 5/(x+3)$.\n\n**Why the wrong answers are tempting:**\n* A: forgets the shift.\n* C: stacks the shift.\n* D: simplifies to constant.\n\n**Test Day Takeaway:** $f(x+h)$ shifts the graph LEFT by $h$.",
+  explanation: "**SAT Pattern: Horizontal Shift of a Rational Function**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Asymptote at $x=0$ means $b=0$, so $f(x) = a/x$. Point $(-5, -1)$: $a = 5$. Then $g(x) = f(x+3) = 5/(x+3)$.\n\n**Why the wrong answers are tempting:**\n* A: forgets the shift.\n* C: stacks the shift.\n* D: simplifies to constant.\n\n**Test Day Takeaway:** $f(x+h)$ shifts LEFT by $h$.",
   skills: ["function-transformations", "rational-functions"]
+},
+{
+  id: 22,
+  type: "fill-in",
+  difficulty: "hard",
+  band: 7,
+  question: "A school prom committee has a budget of $\\$720$ for centerpieces. To receive a vendor's quantity discount, the committee must order a minimum of $100$ centerpieces total. Simple centerpieces cost $\\$4$ each and elegant centerpieces cost $\\$8$ each. What is the maximum number of elegant centerpieces the committee can order while staying within the budget and qualifying for the discount?",
+  correctAnswer: "80",
+  explanation: "**SAT Pattern: Inequality Word Problem (Floor)**\n\n**The correct answer is $80$.**\n\n**The Fast Way (~40s):** Let $s$ = simple, $e$ = elegant. To max $e$, set $s + e = 100$ exactly, $s = 100 - e$. Budget: $4(100 - e) + 8e \\leq 720 \\Rightarrow 400 + 4e \\leq 720 \\Rightarrow e \\leq 80$.\n\n**The Full Solution:**\nLet $s$ = simple centerpieces, $e$ = elegant centerpieces.\nConstraints:\n* Discount floor: $s + e \\geq 100$.\n* Budget: $4s + 8e \\leq 720$.\n* Both non-negative integers.\n\nTo MAXIMIZE $e$, fill the rest with the cheaper simple centerpieces at EXACTLY the floor (any extras waste budget). Set $s = 100 - e$:\n\n$4(100 - e) + 8e \\leq 720$\n$400 - 4e + 8e \\leq 720$\n$4e \\leq 320$\n$e \\leq 80$.\n\nMax integer: $e = 80$.\n\n**Verification:** With $e = 80$, $s = 20$. Total: $20 + 80 = 100 \\geq 100$ ✓. Cost: $4(20) + 8(80) = 80 + 640 = 720 \\leq 720$ ✓ (exactly at budget). Try $e = 81$, $s = 19$: $4(19) + 8(81) = 76 + 648 = 724 > 720$ ✗ — exceeds budget \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Answering $90$ (treats $720/8 = 90$ as the max, ignoring the floor — also $s = 0, e = 90$ violates the floor: $0 + 90 = 90 < 100$).\n* Answering $100$ (treats the floor itself as the answer).\n* Answering $81$ (forgets to round DOWN).\n* Answering $20$ (reports simple centerpieces instead of elegant).\n\n**Test Day Takeaway:** Two-constraint optimization (budget + minimum total): To maximize one quantity, fill the remainder with the cheaper option AT EXACTLY the minimum total. Solve the resulting single-variable inequality and take the FLOOR.",
+  skills: ["inequalities", "word-problems", "systems-of-equations"]
 }
       ]
     }

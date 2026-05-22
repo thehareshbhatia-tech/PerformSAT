@@ -703,13 +703,19 @@ export const practiceTest7 = {
 },
 {
   id: 18,
-  type: "fill-in",
+  type: "multiple-choice",
   difficulty: "hard",
-  band: 8,
-  question: "In the $xy$-plane, the line $y = 2x + k$ intersects the parabola $y = x^2$ at exactly one point, where $k$ is a constant. What is the value of $k$?",
-  correctAnswer: "-1",
-  explanation: "**SAT Pattern: Tangent Line via Discriminant = 0**\n\n**The correct answer is $-1$.**\n\n**The Fast Way (~30s):** Set the line equal to the parabola: $x^2 = 2x + k \\Rightarrow x^2 - 2x - k = 0$. \"Exactly one intersection\" means the discriminant is zero: $(-2)^2 - 4(1)(-k) = 0 \\Rightarrow 4 + 4k = 0 \\Rightarrow k = -1$.\n\n**The Full Solution:**\nA line and a parabola meet at exactly one point when substituting one into the other yields a quadratic with a unique solution — i.e., a tangent meeting.\n\nSubstitute the line into the parabola:\n$x^2 = 2x + k$\n$x^2 - 2x - k = 0$\n\nFor exactly one solution, the discriminant must equal $0$:\n$(-2)^2 - 4(1)(-k) = 0$\n$4 + 4k = 0$\n$k = -1$.\n\n**Verification:** With $k = -1$, the line is $y = 2x - 1$. Setting equal to $y = x^2$: $x^2 - 2x + 1 = 0 \\Rightarrow (x - 1)^2 = 0 \\Rightarrow x = 1$ (double root). Single intersection at $(1, 1)$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Setting discriminant $> 0$ (two intersections) or $< 0$ (no intersection) instead of $= 0$.\n* Sign error on $-4(1)(-k) = +4k$ (the constant term is $-k$, not $k$).\n* Reporting $k = 1$ (the $x$-coordinate of the tangency) instead of $-1$.\n\n**Test Day Takeaway:** Line tangent to a curve $\\Leftrightarrow$ substituting yields a quadratic with discriminant exactly zero. Same principle as tangent-to-circle: the algebraic interpretation of \"touches at exactly one point\" is a repeated root.",
-  skills: ["quadratic-equations", "discriminant", "coordinate-geometry", "tangent-lines"]
+  band: 7,
+  question: "The table shows three values of $x$ and their corresponding values of $g(x)$, where $g(x) = \\dfrac{f(x)}{x+4}$ and $f$ is a linear function: $g(-24) = 4$, $g(-8) = 0$, $g(16) = 6$. What is the $y$-intercept of the graph of $y = f(x)$?",
+  choices: [
+    { id: "A", text: "$(0,\\,40)$" },
+    { id: "B", text: "$(0,\\,32)$" },
+    { id: "C", text: "$(0,\\,5)$" },
+    { id: "D", text: "$(0,\\,-8)$" }
+  ],
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Recover Linear $f$ from $g(x) = f(x)/(x+c)$**\n\n**Choice A is correct.**\n\n**The Fast Way (~45s):** $f(x) = g(x)(x+4)$: $f(-24) = -80$, $f(-8) = 0$, $f(16) = 120$. Slope $= 5$. $f(x) = 5(x+8)$. $f(0) = 40$.\n\n**Test Day Takeaway:** Recover three $f$-values, fit the line, read intercept.",
+  skills: ["linear-functions", "rational-functions"]
 },
 {
   id: 19,
@@ -726,86 +732,6 @@ export const practiceTest7 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "The function $f$ is defined by $f(x) = (x - 4)^2 - 7$. If the function $g$ is defined by $g(x) = f(x + 6)$, what is the minimum value of $g$?",
-  choices: [
-    // distractor: stops one step early — gives the x at minimum (x = -2) instead of g(x)
-    { id: "A", text: "$-2$" },
-    { id: "B", text: "$-7$" },
-    // distractor: off-by-one — forgets to add the -7 vertical shift
-    { id: "C", text: "$0$" },
-    // distractor: applies inverse operation — combines -7 and -6 into -13
-    { id: "D", text: "$-13$" }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Function Transformation**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** $f$ has minimum value $-7$ (at $x = 4$). $g(x) = f(x + 6)$ shifts $f$ horizontally by $6$ units; horizontal shifts do NOT change the minimum value. So $g$ also has minimum value $-7$.\n\n**The Full Solution:**\n$g(x) = f(x + 6) = ((x + 6) - 4)^2 - 7 = (x + 2)^2 - 7$\n\nThis is vertex form with vertex $(-2, -7)$. The minimum value is $-7$, attained at $x = -2$.\n\nVerification: $(x + 2)^2 \\geq 0$ for all real $x$, so $g(x) \\geq -7$ with equality at $x = -2$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives the $x$-coordinate of the minimum instead of $g(x) = -7$.\n* Choice C: \"off-by-one\" — forgets the constant $-7$ in the original function.\n* Choice D: \"applies the inverse operation\" — combines $-7$ and $-6$ into $-13$ via incorrect shift direction.\n\n**Test Day Takeaway:** Horizontal shifts (replacing $x$ with $x \\pm h$) do NOT change the minimum/maximum value of a function. Only vertical shifts ($+k$ outside) do.",
-  skills: ["function-interpretation", "vertex-form", "quadratic-equations"]
-},
-{
-  id: 21,
-  type: "fill-in",
-  difficulty: "hard",
-  band: 8,
-  question: "In an arithmetic sequence, the $4$th term is $19$ and the $9$th term is $44$. What is the sum of the first $10$ terms of the sequence?",
-  correctAnswer: "265",
-  explanation: "**SAT Pattern: Arithmetic Sequence Sum**\n\n**The correct answer is $265$.**\n\n**The Fast Way (~45s):** Common difference $d = \\dfrac{44 - 19}{9 - 4} = \\dfrac{25}{5} = 5$. First term $a_1 = 19 - 3(5) = 4$. Sum of first $10$: $S_{10} = \\dfrac{10}{2}(2 a_1 + 9d) = 5(8 + 45) = 5(53) = 265$.\n\n**The Full Solution:**\nIn an arithmetic sequence, the $n$-th term is $a_n = a_1 + (n - 1) d$, where $d$ is the common difference.\n\nUse the two given terms to find $d$:\n$a_9 - a_4 = (9 - 4) d \\Rightarrow 44 - 19 = 5 d \\Rightarrow d = 5$.\n\nFind $a_1$:\n$a_4 = a_1 + 3 d \\Rightarrow 19 = a_1 + 15 \\Rightarrow a_1 = 4$.\n\nSum of the first $n$ terms: $S_n = \\dfrac{n}{2} \\bigl(2 a_1 + (n - 1) d\\bigr)$.\n\n$S_{10} = \\dfrac{10}{2} (2 \\cdot 4 + 9 \\cdot 5) = 5 (8 + 45) = 5 \\cdot 53 = 265$.\n\n**Verification:** Sequence: $4, 9, 14, 19, 24, 29, 34, 39, 44, 49$. Sum: $4 + 9 + 14 + 19 + 24 + 29 + 34 + 39 + 44 + 49 = 265$ \\checkmark. (Or: $S_{10} = \\dfrac{10}{2}(a_1 + a_{10}) = 5(4 + 49) = 265$.)\n\n**Common Mistakes to Avoid:**\n* Using $d = (44 - 19)/9 = 25/9$ — divide by the GAP between term indices ($9 - 4 = 5$), not the larger index alone.\n* Using $a_1 = 19$ (treating the $4$th term as the $1$st).\n* Reporting $a_{10} = 49$ instead of the sum.\n\n**Test Day Takeaway:** Arithmetic sequences: $d = \\dfrac{a_n - a_m}{n - m}$, then back out $a_1$. For sum, use $S_n = \\dfrac{n}{2}(a_1 + a_n)$ — the average of the first and last term times the count.",
-  skills: ["sequences", "arithmetic-sequences"]
-},
-{
-  id: 22,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "A box contains $6$ red balls, $4$ blue balls, and $5$ green balls. Two balls are drawn at random without replacement. What is the probability that both balls are green?",
-  choices: [
-    // distractor: applies inverse operation — uses (5/15)*(4/15) and simplifies wrongly
-    { id: "A", text: "$\\dfrac{1}{21}$" },
-    { id: "B", text: "$\\dfrac{2}{21}$" },
-    // distractor: wrong base — uses (5/15)^2 = 25/225 (with replacement)
-    { id: "C", text: "$\\dfrac{25}{225}$" },
-    // distractor: stops one step early — gives the with-replacement answer 1/9
-    { id: "D", text: "$\\dfrac{1}{9}$" }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Function Composition**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** $P = \\dfrac{5}{15} \\cdot \\dfrac{4}{14} = \\dfrac{20}{210} = \\dfrac{2}{21}$.\n\n**The Full Solution:**\nTotal balls $= 6 + 4 + 5 = 15$.\n$P(\\text{1st green}) = \\dfrac{5}{15} = \\dfrac{1}{3}$.\nAfter drawing one green: $4$ green left out of $14$ balls.\n$P(\\text{2nd green} \\mid \\text{1st green}) = \\dfrac{4}{14} = \\dfrac{2}{7}$.\n$P(\\text{both green}) = \\dfrac{1}{3} \\cdot \\dfrac{2}{7} = \\dfrac{2}{21}$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — keeps $15$ in the second denominator, then simplifies wrongly.\n* Choice C: \"wrong base\" — $\\left(\\dfrac{5}{15}\\right)^2 = \\dfrac{25}{225}$ assumes replacement.\n* Choice D: \"stops one step early\" — simplifies $\\dfrac{25}{225}$ to $\\dfrac{1}{9}$ (still the with-replacement answer).\n\n**Test Day Takeaway:** Without replacement: after the first draw, reduce both the favorable count and the total by $1$.",
-  skills: ["probability"]
-},
-{
-  id: 23,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "Two identical rectangular prisms each have a height of $100$ centimeters (cm). The base of each prism is a square, and the surface area of each prism is $K$ cm$^2$. If the prisms are glued together along a square base, the resulting prism has a surface area of $\\dfrac{41}{21}K$ cm$^2$. What is the side length, in cm, of each square base?",
-  choices: [
-    { id: "A", text: "$5$" },
-    { id: "B", text: "$10$" },
-    { id: "C", text: "$15$" },
-    { id: "D", text: "$20$" }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Surface Area of Glued Prisms**\n\n**Choice B is correct.**\n\n**The Fast Way (~50s):** $K = 2s^2 + 400s$. Glued prism: $2s^2 + 800s$. Equation: $2s^2 + 800s = (41/21)(2s^2 + 400s)$. Multiply by $21$: $42s^2 + 16800s = 82s^2 + 16400s \\Rightarrow 400s = 40s^2 \\Rightarrow s = 10$.\n\n**Why the wrong answers are tempting:**\n* A: divides by $2$ at the wrong step.\n* C: misapplies the ratio.\n* D: doubles the correct answer.\n\n**Test Day Takeaway:** Gluing hides $2 \\cdot s^2$ of base area; lateral area becomes one tall prism.",
-  skills: ["volume-prism", "geometry"]
-},
-{
-  id: 24,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "The table shows three values of $x$ and their corresponding values of $g(x)$, where $g(x) = \\dfrac{f(x)}{x+4}$ and $f$ is a linear function: $g(-24) = 4$, $g(-8) = 0$, $g(16) = 6$. What is the $y$-intercept of the graph of $y = f(x)$?",
-  choices: [
-    { id: "A", text: "$(0,\\,40)$" },
-    { id: "B", text: "$(0,\\,32)$" },
-    { id: "C", text: "$(0,\\,5)$" },
-    { id: "D", text: "$(0,\\,-8)$" }
-  ],
-  correctAnswer: "A",
-  explanation: "**SAT Pattern: Recover Linear $f$ from $g(x) = f(x)/(x+c)$**\n\n**Choice A is correct.**\n\n**The Fast Way (~45s):** $f(x) = g(x)(x+4)$: $f(-24) = -80$, $f(-8) = 0$, $f(16) = 120$. Slope $= 80/16 = 5$. $f(x) = 5(x+8) = 5x + 40$. $f(0) = 40$.\n\n**Why the wrong answers are tempting:**\n* B: drops the $+8$ shift.\n* C: returns slope as intercept.\n* D: returns the root of $f$.\n\n**Test Day Takeaway:** Recover three $f$-values, fit the line, read the intercept.",
-  skills: ["linear-functions", "rational-functions"]
-},
-{
-  id: 25,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
   question: "The result of increasing the quantity $x$ by $350\\%$ is $90$. What is the value of $x$?",
   choices: [
     { id: "A", text: "$20$" },
@@ -814,11 +740,11 @@ export const practiceTest7 = {
     { id: "D", text: "$405$" }
   ],
   correctAnswer: "A",
-  explanation: "**SAT Pattern: Reverse Percent Increase**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** $4.5x = 90 \\Rightarrow x = 20$.\n\n**Why the wrong answers are tempting:**\n* B: divides by $3.5$ (forgets $+1$).\n* C: $90 \\times 3.5$.\n* D: $90 \\times 4.5$.\n\n**Test Day Takeaway:** \"Increase by $p\\%$\" $=$ multiply by $1 + p/100$.",
+  explanation: "**SAT Pattern: Reverse Percent Increase**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** $4.5x = 90 \\Rightarrow x = 20$.\n\n**Test Day Takeaway:** \"Increase by $p\\%$\" $= \\times (1 + p/100)$.",
   skills: ["percent-change", "percent-word-problems"]
 },
 {
-  id: 26,
+  id: 21,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -830,8 +756,24 @@ export const practiceTest7 = {
     { id: "D", text: "$22$" }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Circle — $x$-range**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Center $(-5, 22)$, radius $12$. $a \\in [-17, 7]$. Only $-16$ fits.\n\n**Why the wrong answers are tempting:**\n* A: just outside lower bound.\n* C: exceeds upper bound.\n* D: $y$-coordinate of center.\n\n**Test Day Takeaway:** Point on circle: $|x - h| \\le r$ and $|y - k| \\le r$.",
+  explanation: "**SAT Pattern: Circle — $x$-range**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Center $(-5, 22)$, radius $12$. $a \\in [-17, 7]$. Only $-16$ fits.\n\n**Test Day Takeaway:** Point on circle: $|x - h| \\le r$.",
   skills: ["circle-equations", "geometry"]
+},
+{
+  id: 22,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "Two identical rectangular prisms each have a height of $100$ centimeters (cm). The base of each prism is a square, and the surface area of each prism is $K$ cm$^2$. If the prisms are glued together along a square base, the resulting prism has a surface area of $\\dfrac{41}{21}K$ cm$^2$. What is the side length, in cm, of each square base?",
+  choices: [
+    { id: "A", text: "$5$" },
+    { id: "B", text: "$10$" },
+    { id: "C", text: "$15$" },
+    { id: "D", text: "$20$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Surface Area of Glued Prisms**\n\n**Choice B is correct.**\n\n**The Fast Way (~50s):** $K = 2s^2 + 400s$; glued: $2s^2 + 800s$. $2s^2 + 800s = (41/21)(2s^2 + 400s) \\Rightarrow s = 10$.\n\n**Test Day Takeaway:** Gluing hides $2s^2$ of base area.",
+  skills: ["volume-prism", "geometry"]
 }
       ]
     }

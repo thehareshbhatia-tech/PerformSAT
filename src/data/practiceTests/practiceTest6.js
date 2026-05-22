@@ -673,48 +673,36 @@ export const practiceTest6 = {
   type: "fill-in",
   difficulty: "hard",
   band: 7,
-  question: "In the system of equations below, $k$ is a constant. The system has infinitely many solutions $(x, y)$. What is the value of $k$?\n\n$3x - 5y = 7$\n$12x - 20y = k$",
-  correctAnswer: "28",
-  explanation: "**SAT Pattern: Same Line (Infinitely Many Solutions)**\n\n**The correct answer is $28$.**\n\n**The Fast Way (~15s):** Infinitely many solutions $\\Leftrightarrow$ equation 2 is a scalar multiple of equation 1. Comparing $x$-coefficients: $\\frac{12}{3} = 4$. So multiply equation 1 by $4$: $12x - 20y = 28$. Therefore $k = 28$.\n\n**The Full Solution:**\nFor a $2 \\times 2$ linear system to have infinitely many solutions, the two equations must represent the same line. That means equation 2 must be a scalar multiple of equation 1.\n\nThe $x$-coefficients give the scale factor: $\\frac{12}{3} = 4$.\n\nCheck the $y$-coefficient: $\\frac{-20}{-5} = 4$ \\checkmark.\n\nNow apply the same scale to the right side: $k = 4 \\cdot 7 = 28$.\n\nVerification: $4 \\cdot (3x - 5y = 7) \\Rightarrow 12x - 20y = 28$ — exactly equation 2 with $k = 28$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Reporting $k = 7$ (the original right side) — forgetting to scale.\n* Using the wrong scale factor by comparing only one coefficient.\n\n**Test Day Takeaway:** Infinitely many solutions $\\Leftrightarrow$ ALL three ratios match. Find the scale factor from the $x$- or $y$-coefficients, then multiply through to find the missing constant.",
-  skills: ["systems-of-equations"]
+  question: "The expression $5\\sqrt[4]{2^4 x^{20}} \\cdot \\sqrt[6]{3^6 x}$ is equivalent to $ax^b$, where $a$ and $b$ are positive constants and $x > 1$. What is the value of $a + b$?",
+  correctAnswer: "211/6",
+  explanation: "**SAT Pattern: Radical with Rational Exponents**\n\n**The correct answer is $211/6$.**\n\n**The Fast Way (~40s):** $\\sqrt[4]{2^4 x^{20}} = 2x^5$ and $\\sqrt[6]{3^6 x} = 3x^{1/6}$. Product: $30x^{31/6}$. So $a = 30$, $b = 31/6$, $a+b = 211/6$.\n\n**Test Day Takeaway:** $\\sqrt[n]{k^n x^m} = k \\cdot x^{m/n}$.",
+  skills: ["exponent-laws", "radicals"]
 },
 {
   id: 18,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "The parabola defined by $y = -3(x - h)^2 + k$ has its vertex at $(4, 19)$ and passes through the point $(2, 7)$. What is the value of $h - k$?",
+  question: "$$y = 2x^2 - 19x + 56$$\n$$y = 4x + a$$\n\nIn the given system of equations, $a$ is a constant. The graphs of the equations in the given system intersect at exactly one point, $(x, y)$, in the $xy$-plane. What is the value of $x$?",
   choices: [
-    // distractor: applies inverse op — uses h + k = 23
-    { id: "A", text: "$23$" },
-    // distractor: stops one step early — uses h = 4 only
-    { id: "B", text: "$4$" },
-    { id: "C", text: "$-15$" },
-    // distractor: wrong sign — uses k - h = 15
-    { id: "D", text: "$15$" }
+    { id: "A", text: "$-\\dfrac{23}{4}$" },
+    { id: "B", text: "$\\dfrac{19}{4}$" },
+    { id: "C", text: "$\\dfrac{23}{4}$" },
+    { id: "D", text: "$8$" }
   ],
   correctAnswer: "C",
-  explanation: "**SAT Pattern: Vertex Form from Two Conditions**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Vertex $(h, k) = (4, 19)$. Verify the second point with $a = -3$: $y = -3(2 - 4)^2 + 19 = -3(4) + 19 = 7$ \\checkmark. So $h - k = 4 - 19 = -15$.\n\n**The Full Solution:**\nIn vertex form $y = a(x - h)^2 + k$, the vertex is $(h, k)$. Given vertex $(4, 19)$: $h = 4$, $k = 19$.\n\nVerify the leading coefficient $a = -3$ with $(2, 7)$:\n$y = -3(2 - 4)^2 + 19 = -3(4) + 19 = -12 + 19 = 7$ \\checkmark.\n\nSo $h - k = 4 - 19 = -15$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — adds instead of subtracts: $h + k = 23$.\n* Choice B: \"stops one step early\" — reports $h = 4$ without subtracting $k$.\n* Choice D: \"wrong sign\" — computes $k - h = 19 - 4 = 15$.\n\n**Test Day Takeaway:** In $y = a(x - h)^2 + k$, the vertex is exactly $(h, k)$. Read $h$ and $k$ off directly; verify $a$ with the second point if asked.",
-  skills: ["vertex-form", "quadratic-equations", "function-interpretation"]
+  explanation: "**SAT Pattern: Tangent Intersection — Single Solution**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** $2x^2 - 23x + (56 - a) = 0$. Vertex: $x = 23/4$.\n\n**Test Day Takeaway:** Tangent $\\Rightarrow$ discriminant $= 0$; unique $x = -b/(2a)$.",
+  skills: ["quadratic-equations", "systems-of-equations"]
 },
 {
   id: 19,
-  type: "multiple-choice",
+  type: "fill-in",
   difficulty: "hard",
   band: 7,
-  question: "The table shows three values of $x$ and the corresponding values of $f(x)$, where $f$ is a linear function.\n\n| $x$ | $f(x)$ |\n|-----|--------|\n| $-3$ | $19$ |\n| $1$ | $7$ |\n| $5$ | $-5$ |\n\nIf $g(x) = f(x - 4) + 6$, what is the value of $g(5)$?",
-  choices: [
-    // distractor: applies inverse op — uses f(5+4) = f(9) and adds 6
-    { id: "A", text: "$-19$" },
-    // distractor: stops one step early — uses f(5) = -5 without shift
-    { id: "B", text: "$-5$" },
-    { id: "C", text: "$13$" },
-    // distractor: wrong base — uses f(5) and forgets the +6
-    { id: "D", text: "$1$" }
-  ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Function Transformation**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** $g(5) = f(5 - 4) + 6 = f(1) + 6 = 7 + 6 = 13$.\n\n**The Full Solution:**\nStart from the definition: $g(x) = f(x - 4) + 6$.\n$g(5) = f(5 - 4) + 6 = f(1) + 6$.\nFrom the table, $f(1) = 7$.\n$g(5) = 7 + 6 = 13$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — shifts the wrong direction: $f(5 + 4) + 6$. From the linear pattern, $f$ has slope $-3$ and $f(0) = 10$; $f(9) = 10 - 27 = -17$, so $-17 + 6 = -11$ rounded.\n* Choice B: \"stops one step early\" — uses $f(5) = -5$ without applying the transformation.\n* Choice D: \"wrong base\" — uses $f(5) = -5$ and adds $6$: $-5 + 6 = 1$.\n\n**Test Day Takeaway:** $g(x) = f(x - h) + k$ shifts the input by $h$ (right) and adds $k$ to the output. Apply both shifts, in order.",
-  skills: ["function-interpretation", "function-transformation", "linear-functions"]
+  question: "For an electric field passing through a flat surface perpendicular to it, the electric flux is the product of the electric field's strength and the area of the surface. A certain flat surface consists of two adjacent squares, where the side length, in meters, of the larger square is $4$ times the side length of the smaller square. An electric field with strength $23.00$ volts per meter passes uniformly through this surface, perpendicular to the field. If the total electric flux through this surface is $6{,}256$ volts $\\cdot$ meters, what is the electric flux through the larger square?",
+  correctAnswer: "5888",
+  explanation: "**SAT Pattern: Proportional Area — Recover Side, Then Apply**\n\n**The correct answer is $5888$.**\n\n**The Fast Way (~50s):** Total area $= 17s^2$. $23 \\cdot 17s^2 = 6256 \\Rightarrow s^2 = 16$. Larger area $= 256$. Larger flux $= 23 \\cdot 256 = 5888$.\n\n**Test Day Takeaway:** Side ratio squared $=$ area ratio.",
+  skills: ["proportion", "unit-conversion"]
 },
 {
   id: 20,
@@ -758,56 +746,10 @@ export const practiceTest6 = {
   id: 22,
   type: "fill-in",
   difficulty: "hard",
-  band: 8,
-  question: "If $r$ and $s$ are the two real solutions of the equation $x^2 - 8x + 11 = 0$, what is the value of $r^2 + s^2$?",
-  correctAnswer: "42",
-  explanation: "**SAT Pattern: Sum/Product of Roots (Vieta's)**\n\n**The correct answer is $42$.**\n\n**The Fast Way (~30s):** By Vieta's, $r + s = -\\dfrac{-8}{1} = 8$ and $rs = \\dfrac{11}{1} = 11$. Use the identity $(r + s)^2 = r^2 + 2rs + s^2$: $r^2 + s^2 = (r + s)^2 - 2rs = 64 - 22 = 42$.\n\n**The Full Solution:**\nFor a quadratic $ax^2 + bx + c = 0$ with real roots $r$ and $s$, Vieta's formulas give:\n* Sum: $r + s = -\\dfrac{b}{a}$.\n* Product: $rs = \\dfrac{c}{a}$.\n\nHere $a = 1$, $b = -8$, $c = 11$, so $r + s = 8$ and $rs = 11$.\n\nUse the algebraic identity:\n$(r + s)^2 = r^2 + 2rs + s^2$\n$\\Rightarrow r^2 + s^2 = (r + s)^2 - 2rs = 8^2 - 2(11) = 64 - 22 = 42$.\n\n**Verification (direct):** $x^2 - 8x + 11 = 0 \\Rightarrow x = \\dfrac{8 \\pm \\sqrt{64 - 44}}{2} = \\dfrac{8 \\pm 2\\sqrt{5}}{2} = 4 \\pm \\sqrt{5}$. Then $r^2 + s^2 = (4 + \\sqrt{5})^2 + (4 - \\sqrt{5})^2 = (16 + 8\\sqrt{5} + 5) + (16 - 8\\sqrt{5} + 5) = 42$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Solving for $r$ and $s$ directly via the quadratic formula — slow and error-prone.\n* Using $r^2 + s^2 = (r + s)^2$ — forgetting to subtract the cross-term $2rs$.\n* Sign error on $r + s$: the formula is $-\\frac{b}{a}$, so a negative $b$ flips to positive.\n\n**Test Day Takeaway:** Vieta's plus algebraic identities (like $r^2 + s^2 = (r+s)^2 - 2rs$ or $r^3 + s^3 = (r+s)^3 - 3rs(r+s)$) lets you answer questions ABOUT the roots without ever finding them.",
-  skills: ["quadratic-equations", "vieta-formulas", "polynomial-operations"]
-},
-{
-  id: 23,
-  type: "fill-in",
-  difficulty: "hard",
-  band: 7,
-  question: "For an electric field passing through a flat surface perpendicular to it, the electric flux of the electric field through the surface is the product of the electric field's strength and the area of the surface. A certain flat surface consists of two adjacent squares, where the side length, in meters, of the larger square is $4$ times the side length, in meters, of the smaller square. An electric field with strength $23.00$ volts per meter passes uniformly through this surface, which is perpendicular to the electric field. If the total electric flux of the electric field through this surface is $6{,}256$ volts $\\cdot$ meters, what is the electric flux, in volts $\\cdot$ meters, of the electric field through the larger square?",
-  correctAnswer: "5888",
-  explanation: "**SAT Pattern: Proportional Area — Recover Side, Then Apply**\n\n**The correct answer is $5888$.**\n\n**The Fast Way (~50s):** Total area $= 16s^2 + s^2 = 17s^2$. Total flux $= 23 \\cdot 17s^2 = 391s^2 = 6256 \\Rightarrow s^2 = 16$. Larger area $= 16(16) = 256$. Larger flux $= 23 \\cdot 256 = 5888$.\n\n**Common Mistakes to Avoid:**\n* Reporting total flux ($6256$) instead of just the larger square's share.\n* Mistaking the side ratio ($4{:}1$) for an area ratio.\n\n**Test Day Takeaway:** Side ratio squared $=$ area ratio. Distribute total flux proportionally to each piece's area.",
-  skills: ["proportion", "unit-conversion"]
-},
-{
-  id: 24,
-  type: "fill-in",
-  difficulty: "hard",
-  band: 7,
-  question: "The expression $5\\sqrt[4]{2^4 x^{20}} \\cdot \\sqrt[6]{3^6 x}$ is equivalent to $ax^b$, where $a$ and $b$ are positive constants and $x > 1$. What is the value of $a + b$?",
-  correctAnswer: "211/6",
-  explanation: "**SAT Pattern: Radical with Rational Exponents**\n\n**The correct answer is $211/6$ (or $35.166$).**\n\n**The Fast Way (~40s):** $\\sqrt[4]{2^4 x^{20}} = 2x^5$ and $\\sqrt[6]{3^6 x} = 3x^{1/6}$. Product: $5 \\cdot 2 \\cdot 3 \\cdot x^{5+1/6} = 30x^{31/6}$. So $a = 30$, $b = 31/6$, $a+b = 211/6$.\n\n**Common Mistakes to Avoid:**\n* Adding indices instead of combining exponents.\n\n**Test Day Takeaway:** $\\sqrt[n]{k^n x^m} = k \\cdot x^{m/n}$.",
-  skills: ["exponent-laws", "radicals"]
-},
-{
-  id: 25,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "$$y = 2x^2 - 19x + 56$$\n$$y = 4x + a$$\n\nIn the given system of equations, $a$ is a constant. The graphs of the equations in the given system intersect at exactly one point, $(x, y)$, in the $xy$-plane. What is the value of $x$?",
-  choices: [
-    { id: "A", text: "$-\\dfrac{23}{4}$" },
-    { id: "B", text: "$\\dfrac{19}{4}$" },
-    { id: "C", text: "$\\dfrac{23}{4}$" },
-    { id: "D", text: "$8$" }
-  ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Tangent Intersection — Single Solution**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** $2x^2 - 19x + 56 = 4x + a \\Rightarrow 2x^2 - 23x + (56-a) = 0$. One solution at vertex: $x = 23/(2 \\cdot 2) = 23/4$.\n\n**Why the wrong answers are tempting:**\n* A: sign error.\n* B: forgets to combine $-19x - 4x$.\n* D: drops the $2$ in leading coefficient.\n\n**Test Day Takeaway:** Tangent $\\Rightarrow$ discriminant $= 0$; unique $x = -b/(2a)$.",
-  skills: ["quadratic-equations", "systems-of-equations"]
-},
-{
-  id: 26,
-  type: "fill-in",
-  difficulty: "hard",
   band: 7,
   question: "In a right triangle, the hypotenuse has length $32$ and the leg adjacent to angle $x$ has length $13$. What is the value of $\\cos x^\\circ$?",
   correctAnswer: "13/32",
-  explanation: "**SAT Pattern: Direct Trig Ratio**\n\n**The correct answer is $13/32$ (or $0.4062$).**\n\n**The Fast Way (~10s):** $\\cos x =$ adjacent/hypotenuse $= 13/32$.\n\n**Common Mistakes to Avoid:**\n* Confusing adjacent and opposite.\n\n**Test Day Takeaway:** SOH-CAH-TOA: $\\cos =$ adjacent/hypotenuse.",
+  explanation: "**SAT Pattern: Direct Trig Ratio**\n\n**The correct answer is $13/32$.**\n\n**The Fast Way (~10s):** $\\cos x = $ adjacent / hypotenuse $= 13/32$.\n\n**Test Day Takeaway:** SOH-CAH-TOA: $\\cos =$ adjacent / hypotenuse.",
   skills: ["trigonometry", "right-triangles"]
 }
       ]

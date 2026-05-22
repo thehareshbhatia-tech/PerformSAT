@@ -692,32 +692,29 @@ export const practiceTest12 = {
 },
 {
   id: 18,
-  type: "fill-in",
-  difficulty: "hard",
-  band: 8,
-  question: "If $r$ and $s$ are the real solutions of the equation $x^2 + 8x + c = 0$ and $rs = 2(r + s)$, what is the value of $c$?",
-  correctAnswer: "-16",
-  explanation: "**SAT Pattern: Vieta's with Product-Sum Relation**\n\n**The correct answer is $-16$.**\n\n**The Fast Way (~30s):** Vieta's: $r + s = -8$ and $rs = c$. Given $rs = 2(r + s)$: $c = 2 \\cdot (-8) = -16$.\n\n**The Full Solution:**\nFor a quadratic $ax^2 + bx + c = 0$ with real roots $r$ and $s$, Vieta's formulas give:\n* $r + s = -\\dfrac{b}{a}$\n* $rs = \\dfrac{c}{a}$\n\nHere $a = 1$, $b = 8$, $c = c$, so $r + s = -8$ and $rs = c$.\n\nApply the given condition $rs = 2(r + s)$:\n$c = 2 \\cdot (-8) = -16$.\n\n**Verify roots are real:** With $c = -16$, the equation is $x^2 + 8x - 16 = 0$. Discriminant $= 64 - 4(1)(-16) = 64 + 64 = 128 > 0$, so two distinct real roots exist \\checkmark.\n\n**Direct check:** $r, s = \\dfrac{-8 \\pm \\sqrt{128}}{2} = -4 \\pm 4\\sqrt{2}$. Then $r + s = -8$ \\checkmark and $rs = (-4)^2 - (4\\sqrt{2})^2 = 16 - 32 = -16$ \\checkmark. Also, $rs = -16 = 2 \\cdot (-8) = 2(r+s)$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Confusing Vieta's: writing $r + s = b/a = 8$ instead of $-b/a = -8$ (sign error on sum).\n* Solving for $r$ and $s$ explicitly via the quadratic formula — wastes time.\n* Reporting $c = 16$ (forgetting the negative sign).\n\n**Test Day Takeaway:** Vieta's formulas let you answer questions about roots without computing them. When the question gives a relationship between sum and product, plug in directly: sum $= -b/a$, product $= c/a$.",
-  skills: ["quadratic-equations", "vieta-formulas", "polynomial-operations"]
-},
-{
-  id: 19,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "A polling organization surveyed $400$ voters and reported a margin of error of $\\pm 5\\%$ at a $95\\%$ confidence level. The pollster wants to redo the survey at the same confidence level but cut the margin of error to $\\pm 1\\%$. Approximately how many voters must they survey?",
+  question: "Which of the following expressions has a factor of $x + 3b$, where $b$ is a positive integer constant?",
   choices: [
-    // distractor: doubles sample size — uses $400 \cdot 5 = 2000$ (linear thinking)
-    { id: "A", text: "$2{,}000$" },
-    // distractor: stops one step early — uses $400 \cdot 5 = 2000$ then half
-    { id: "B", text: "$8{,}000$" },
-    { id: "C", text: "$10{,}000$" },
-    // distractor: divides margin by 5 instead of squaring
-    { id: "D", text: "$80$" }
+    { id: "A", text: "$4x^2 + 14x + 12b$" },
+    { id: "B", text: "$4x^2 + 22x + 12b$" },
+    { id: "C", text: "$4x^2 + 30x + 12b$" },
+    { id: "D", text: "$4x^2 + 40x + 12b$" }
   ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Margin of Error**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Margin of error $\\propto \\dfrac{1}{\\sqrt{n}}$. To cut margin from $5\\%$ to $1\\%$ (factor of $5$), multiply $n$ by $5^2 = 25$: $400 \\cdot 25 = 10{,}000$.\n\n**The Full Solution:**\nThe margin of error is inversely proportional to $\\sqrt{n}$. If we want a new margin $E_2 = \\dfrac{E_1}{5}$, we need $\\sqrt{n_2} = 5\\sqrt{n_1}$, so $n_2 = 25 n_1 = 25 \\cdot 400 = 10{,}000$.\n\nVerification: at $n = 10{,}000$, margin $\\propto \\dfrac{1}{\\sqrt{10{,}000}} = \\dfrac{1}{100}$, vs. original $\\dfrac{1}{\\sqrt{400}} = \\dfrac{1}{20}$. Ratio $\\dfrac{\\frac{1}{100}}{\\frac{1}{20}} = \\dfrac{1}{5}$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — multiplies sample size by $5$ (linear) instead of $25$ (quadratic).\n* Choice B: \"off-by-one\" — uses factor of $20$ ($400 \\cdot 20 = 8{,}000$) instead of $25$.\n* Choice D: \"wrong base\" — divides by $5$ instead of squaring.\n\n**Test Day Takeaway:** Margin of error scales with $\\dfrac{1}{\\sqrt{n}}$. To cut margin by a factor of $k$, MULTIPLY sample size by $k^2$.",
-  skills: ["margin-of-error", "statistics"]
+  correctAnswer: "D",
+  explanation: "**SAT Pattern: Factor with Parameter — Integer Constraint**\n\n**Choice D is correct.**\n\n**The Fast Way (~45s):** $(x+3b)(4x+4) = 4x^2 + (4+12b)x + 12b$. $4+12b = M \\Rightarrow b = (M-4)/12$. Only $M = 40$ gives integer $b = 3$.\n\n**Test Day Takeaway:** $(x + 3b)(\\text{linear})$; enforce integer constraint.",
+  skills: ["polynomial-functions", "factoring"]
+},
+{
+  id: 19,
+  type: "fill-in",
+  difficulty: "hard",
+  band: 7,
+  question: "The perimeter of an equilateral triangle is $426$ centimeters. The three vertices of the triangle lie on a circle. The radius of the circle is $w\\sqrt{3}$ centimeters. What is the value of $w$?",
+  correctAnswer: "142/3",
+  explanation: "**SAT Pattern: Equilateral Triangle — Circumradius**\n\n**The correct answer is $142/3$ (or $47.33$).**\n\n**The Fast Way (~40s):** Side $= 142$. $R = a\\sqrt{3}/3 = 142\\sqrt{3}/3$. $w = 142/3$.\n\n**Test Day Takeaway:** Equilateral $R = a\\sqrt{3}/3$.",
+  skills: ["special-right-triangles", "circle-equations"]
 },
 {
   id: 20,
@@ -740,95 +737,23 @@ export const practiceTest12 = {
 },
 {
   id: 21,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 6,
-  question: "A study of $200$ households measured weekly grocery spending ($x$, in dollars) and weekly grocery delivery cost ($y$, in dollars). The line of best fit is $y = 0.18x + 3.5$. A particular household spent $\\$220$ on groceries and paid $\\$48$ for delivery. What is the residual for this household, in dollars?",
-  diagram: { type: "scatterplot", params: {
-    points: [[60,13],[80,20],[120,26],[150,28],[180,36],[200,38],[250,50],[280,50],[320,60],[380,75]],
-    xMin: 0, xMax: 400, yMin: 0, yMax: 80,
-    xGridStep: 25, xLabelStep: 50, yGridStep: 10, yLabelStep: 20,
-    bestFitLine: { slope: 0.18, intercept: 3.5 },
-    highlightPoint: [220, 48], highlightLabel: "(220, 48)", showResidual: true,
-    xLabel: "Grocery spending ($)", yLabel: "Delivery cost ($)",
-  } },
-  choices: [
-    // distractor: applies the inverse operation — predicted minus actual
-    { id: "A", text: "$-5.1$" },
-    // distractor: stops one step early — gives only the predicted value $43.1$
-    { id: "B", text: "$43.1$" },
-    { id: "C", text: "$4.9$" },
-    // distractor: drops the intercept — uses $0.18(220) = 39.6$ as predicted
-    { id: "D", text: "$8.4$" }
-  ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Residual**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Predicted: $0.18(220) + 3.5 = 39.6 + 3.5 = 43.1$. Residual $=$ actual $-$ predicted $= 48 - 43.1 = 4.9$.\n\n**The Full Solution:**\nPredicted at $x = 220$: $y = 0.18(220) + 3.5 = 39.6 + 3.5 = 43.1$ dollars.\nActual: $48$ dollars.\nResidual $=$ actual $-$ predicted $= 48 - 43.1 = 4.9$ dollars.\n\nA positive residual means the actual value lies ABOVE the line of best fit.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — predicted $-$ actual ($43.1 - 48 = -4.9$, then sign-flipped to $-5.1$ via arithmetic slip).\n* Choice B: \"stops one step early\" — gives only the predicted value $43.1$.\n* Choice D: \"wrong base\" — drops the intercept and uses $0.18(220) = 39.6$ as predicted.\n\n**Test Day Takeaway:** Residual $=$ actual $-$ predicted. Always include the intercept when computing the predicted value from $y = mx + b$.",
-  skills: ["scatterplots", "statistics"]
-},
-{
-  id: 22,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 6,
-  question: "A radioactive substance has a half-life of $18$ months. The amount remaining is modeled by $A(t) = 5000(0.5)^{\\frac{t}{18}}$, where $t$ is in months. To the nearest hundredth of a percent, what is the percent decrease per month?",
-  choices: [
-    // distractor: divides $50\%$ by $18$ — linear thinking on an exponential
-    { id: "A", text: "$2.78\\%$" },
-    { id: "B", text: "$3.78\\%$" },
-    // distractor: doubles the linear divide
-    { id: "C", text: "$5.56\\%$" },
-    // distractor: this is the decrease per $18$ months, not per month
-    { id: "D", text: "$50.00\\%$" }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Exponential Growth/Decay**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Monthly factor $= (0.5)^{\\frac{1}{18}} \\approx 0.9622$. Monthly decrease $= 1 - 0.9622 = 0.0378 = 3.78\\%$.\n\n**The Full Solution:**\nRewrite $A(t) = 5000(0.5)^{\\frac{t}{18}} = 5000 \\left[(0.5)^{\\frac{1}{18}}\\right]^t$.\n$(0.5)^{\\frac{1}{18}} = e^{\\frac{\\ln(0.5)}{18}} = e^{-\\frac{0.6931}{18}} \\approx e^{-0.03851} \\approx 0.9622$.\nMonthly decrease: $1 - 0.9622 = 0.0378 = 3.78\\%$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — divides $50\\%$ by $18$ (linear, ignores compounding).\n* Choice C: \"off-by-one\" — doubles the linear divide.\n* Choice D: \"wrong base\" — gives the decrease per $18$ months, not per month.\n\n**Test Day Takeaway:** Per-period rate from a half-life: $(0.5)^{\\frac{1}{n}}$ where $n$ is the number of periods in one half-life. Don't divide $50\\%$ by $n$ — exponential decay does NOT scale linearly.",
-  skills: ["exponential-functions", "function-interpretation"]
-},
-{
-  id: 23,
-  type: "fill-in",
-  difficulty: "hard",
-  band: 7,
-  question: "The quadratic function $g$ models the depth, in meters, below the surface of the water of a seal $t$ minutes after the seal entered the water during a dive. The function estimates that the seal reached its maximum depth of $384$ meters $8$ minutes after it entered the water and then reached the surface of the water $16$ minutes after it entered the water. Based on the function, what was the estimated depth, to the nearest meter, of the seal $12$ minutes after it entered the water?",
-  correctAnswer: "288",
-  explanation: "**SAT Pattern: Quadratic Model from Vertex and Zero**\n\n**The correct answer is $288$.**\n\n**The Fast Way (~50s):** $g(t) = a(t - 8)^2 + 384$. Surface ($g = 0$) at $t = 16$: $a(64) + 384 = 0 \\Rightarrow a = -6$. So $g(12) = -6(4)^2 + 384 = -96 + 384 = 288$.\n\n**Common Mistakes to Avoid:**\n* Picking $a > 0$ (depth-below-surface model needs $a < 0$).\n* Mis-computing $(12 - 8)^2$ as $8$.\n\n**Test Day Takeaway:** Vertex form $a(t - h)^2 + k$; use the second condition (a known zero) to solve for $a$.",
-  skills: ["quadratic-equations", "function-interpretation"]
-},
-{
-  id: 24,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "Which of the following expressions has a factor of $x + 3b$, where $b$ is a positive integer constant?",
-  choices: [
-    { id: "A", text: "$4x^2 + 14x + 12b$" },
-    { id: "B", text: "$4x^2 + 22x + 12b$" },
-    { id: "C", text: "$4x^2 + 30x + 12b$" },
-    { id: "D", text: "$4x^2 + 40x + 12b$" }
-  ],
-  correctAnswer: "D",
-  explanation: "**SAT Pattern: Factor with Parameter — Integer Constraint**\n\n**Choice D is correct.**\n\n**The Fast Way (~45s):** $(x+3b)(4x+4) = 4x^2 + (4+12b)x + 12b$. Match middle: $4 + 12b = M \\Rightarrow b = (M-4)/12$. Only $M = 40$ gives integer $b = 3$.\n\n**Why the wrong answers are tempting:**\n* A/B/C: $b$ not integer for those middles.\n\n**Test Day Takeaway:** Use $(x + 3b)(\\text{linear})$ structure; enforce integer constraint.",
-  skills: ["polynomial-functions", "factoring"]
-},
-{
-  id: 25,
-  type: "fill-in",
-  difficulty: "hard",
-  band: 7,
-  question: "The perimeter of an equilateral triangle is $426$ centimeters. The three vertices of the triangle lie on a circle. The radius of the circle is $w\\sqrt{3}$ centimeters. What is the value of $w$?",
-  correctAnswer: "142/3",
-  explanation: "**SAT Pattern: Equilateral Triangle — Circumradius**\n\n**The correct answer is $142/3$ (or $47.33$).**\n\n**The Fast Way (~40s):** Side $= 426/3 = 142$. Circumradius: $R = a/\\sqrt{3} = a\\sqrt{3}/3 = 142\\sqrt{3}/3$. So $w = 142/3$.\n\n**Common Mistakes to Avoid:**\n* Using $a/2$ as circumradius (that's the apothem).\n\n**Test Day Takeaway:** Equilateral $R = a\\sqrt{3}/3$.",
-  skills: ["special-right-triangles", "circle-equations"]
-},
-{
-  id: 26,
   type: "fill-in",
   difficulty: "hard",
   band: 7,
   question: "The number $a$ is $120\\%$ greater than the number $b$. The number $b$ is $80\\%$ less than $65$. What is the value of $a$?",
   correctAnswer: "28.6",
-  explanation: "**SAT Pattern: Chained Percent Relationship**\n\n**The correct answer is $28.6$.**\n\n**The Fast Way (~30s):** $b = 65(0.20) = 13$. $a = 2.20(13) = 28.6$.\n\n**Common Mistakes to Avoid:**\n* \"$120\\%$ greater\" means $\\times 2.20$, not $\\times 1.20$.\n* \"$80\\%$ less\" means $\\times 0.20$, not $\\times 0.80$.\n\n**Test Day Takeaway:** Translate each percent phrase to a factor.",
+  explanation: "**SAT Pattern: Chained Percent Relationship**\n\n**The correct answer is $28.6$.**\n\n**The Fast Way (~30s):** $b = 65(0.20) = 13$. $a = 2.20(13) = 28.6$.\n\n**Test Day Takeaway:** \"$p\\%$ greater\" $= \\times (1 + p/100)$.",
   skills: ["percent-change", "percent-word-problems"]
+},
+{
+  id: 22,
+  type: "fill-in",
+  difficulty: "hard",
+  band: 7,
+  question: "The quadratic function $g$ models the depth, in meters, below the surface of the water of a seal $t$ minutes after the seal entered the water during a dive. The function estimates that the seal reached its maximum depth of $384$ meters $8$ minutes after entering the water and reached the surface of the water $16$ minutes after entering the water. Based on the function, what was the estimated depth, to the nearest meter, of the seal $12$ minutes after it entered the water?",
+  correctAnswer: "288",
+  explanation: "**SAT Pattern: Quadratic Model from Vertex and Zero**\n\n**The correct answer is $288$.**\n\n**The Fast Way (~50s):** $g(t) = a(t-8)^2 + 384$. $g(16) = 0 \\Rightarrow a = -6$. $g(12) = -96 + 384 = 288$.\n\n**Test Day Takeaway:** Use vertex + zero to recover quadratic.",
+  skills: ["quadratic-equations", "function-interpretation"]
 }
       ]
     }

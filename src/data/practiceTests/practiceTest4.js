@@ -724,41 +724,29 @@ export const practiceTest4 = {
 },
 {
   id: 18,
-  type: "multiple-choice",
+  type: "fill-in",
   difficulty: "hard",
   band: 7,
-  question: "The equation $\\dfrac{c}{4}x - 3 = 3x + 5$ has no solution. What is the value of $c$?",
-  choices: [
-    // distractor: divides 12 by 4 = 3
-    { id: "A", text: "$3$" },
-    // distractor: confuses denominator with the answer
-    { id: "B", text: "$4$" },
-    { id: "C", text: "$12$" },
-    // distractor: computes 4 \cdot 4 = 16
-    { id: "D", text: "$16$" }
-  ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: No-Solution Condition**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Rearrange: $\\left(\\dfrac{c}{4} - 3\\right)x = 8$. For no solution, the coefficient of $x$ is $0$ but the right side is nonzero. So $\\dfrac{c}{4} = 3$, giving $c = 12$.\n\n**The Full Solution:**\n$\\dfrac{c}{4}x - 3 = 3x + 5$.\n$\\dfrac{c}{4}x - 3x = 8$.\n$\\left(\\dfrac{c - 12}{4}\\right)x = 8$.\nFor no solution: $\\dfrac{c-12}{4} = 0$ and $8 \\neq 0$.\n$c = 12$.\nWith $c = 12$: $3x - 3 = 3x + 5$ $\\to$ $-3 = 5$. Contradiction. No solution \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — divides $12$ by $4$.\n* Choice B: \"wrong base\" — confuses the denominator with the answer.\n* Choice D: \"off-by-one\" — computes $4 \\cdot 4 = 16$ via a wrong path.\n\n**Test Day Takeaway:** No solution means the variable terms cancel but the constants don't match. Set the $x$ coefficient to zero and verify the constants differ.",
-  skills: ["solving-equations", "linear-functions"]
+  question: "$$\\dfrac{3}{4}y - \\dfrac{1}{8}x = \\dfrac{1}{2} - \\dfrac{3}{4}y$$\n$$\\dfrac{1}{4}x + \\dfrac{5}{4} = py + \\dfrac{7}{4}$$\n\nIn the given system of equations, $p$ is a constant. If the system has no solution, what is the value of $p$?",
+  correctAnswer: "3",
+  explanation: "**SAT Pattern: No-Solution Parameter (System)**\n\n**The correct answer is $3$.**\n\n**The Fast Way (~50s):** Clear fractions: eq 1 becomes $x - 12y = -4$; eq 2 becomes $x - 4py = 2$. For no solution: $-12 = -4p \\Rightarrow p = 3$.\n\n**Test Day Takeaway:** No solution = same slope, different intercept.",
+  skills: ["systems-of-equations", "infinite-solutions-condition"]
 },
 {
   id: 19,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "A data set of $12$ values is listed in order:\n\n$5, 7, 7, 9, 10, 12, 14, 15, 15, 18, 20, 24$\n\nEvery value is multiplied by $3$. How does the new data set compare to the original?",
+  question: "The function $f$ is defined by $f(x) = (x + 8)(x + 3)(x - 5)$. Which of the following must be true about the values of $y = f(x) - 4$ at $x = -8, -3, 5$?",
   choices: [
-    { id: "A", text: "The mean is tripled and the range is tripled." },
-    // distractor: confuses scaling with shifting (range stays under shift only)
-    { id: "B", text: "The mean is tripled and the range is unchanged." },
-    // distractor: thinks mean doesn't change under scaling
-    { id: "C", text: "The mean is unchanged and the range is tripled." },
-    // distractor: confuses multiplying with adding 3
-    { id: "D", text: "The mean increases by $3$ and the range increases by $3$." }
+    { id: "A", text: "All three $y$-values equal $-12$." },
+    { id: "B", text: "All three $y$-values equal $-4$." },
+    { id: "C", text: "All three $y$-values equal $4$." },
+    { id: "D", text: "The three $y$-values equal $-4$, $-3$, $5$ respectively." }
   ],
-  correctAnswer: "A",
-  explanation: "**SAT Pattern: Scaling a Data Set by a Constant**\n\n**Choice A is correct.**\n\n**The Full Solution:**\nOriginal: Sum $= 5+7+7+9+10+12+14+15+15+18+20+24 = 156$. Mean $= \\dfrac{156}{12} = 13$. Range $= 24 - 5 = 19$.\n\nAfter multiplying every value by $3$: Mean $= 3 \\times 13 = 39$. Range $= 3(24) - 3(5) = 72 - 15 = 57 = 3 \\times 19$.\n\nBoth the mean and the range are tripled.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"wrong base\" — confuses scaling with shifting (adding a constant doesn't change the range, but multiplying does).\n* Choice C: \"stops one step early\" — thinks the mean doesn't change when every value is multiplied.\n* Choice D: \"applies the inverse operation\" — confuses multiplying by $3$ with adding $3$.\n\n**Test Day Takeaway:** Multiplying every value by $k$: mean is multiplied by $k$, standard deviation and range are also multiplied by $|k|$. This is different from adding a constant, which only shifts the mean.",
-  skills: ["statistics"]
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Vertical Shift of a Polynomial**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** At each root, $f(x) = 0$, so $y = -4$. All three equal $-4$.\n\n**Test Day Takeaway:** $y = f(x) + k$ shifts every output by $k$.",
+  skills: ["polynomial-functions", "function-transformations"]
 },
 {
   id: 20,
@@ -772,71 +760,6 @@ export const practiceTest4 = {
 },
 {
   id: 21,
-  type: "fill-in",
-  difficulty: "hard",
-  band: 7,
-  question: "A bookstore owner budgets $\\$1{,}800$ to purchase journals for an upcoming festival. To qualify for a wholesale discount, the owner must purchase a minimum of $200$ journals total. If plain journals cost $\\$5.40$ each and hardcover journals cost $\\$13.20$ each, what is the maximum number of hardcover journals the owner can purchase while staying within the budget and qualifying for the discount?",
-  correctAnswer: "92",
-  explanation: "**SAT Pattern: Inequality Word Problem (Floor)**\n\n**The correct answer is $92$.**\n\n**The Fast Way (~45s):** Let $h$ = hardcover, $p$ = plain. To max $h$, set $p + h = 200$ exactly, $p = 200 - h$. Budget: $5.40(200 - h) + 13.20h \\leq 1800 \\Rightarrow 1080 + 7.80h \\leq 1800 \\Rightarrow h \\leq 92.30$. Floor: $h = 92$.\n\n**The Full Solution:**\nLet $p$ = plain journals and $h$ = hardcover journals.\nConstraints:\n* Discount floor: $p + h \\geq 200$.\n* Budget: $5.40p + 13.20h \\leq 1{,}800$.\n* Both non-negative integers.\n\nTo MAXIMIZE $h$, fill the rest with the cheaper plain journals at EXACTLY the floor (any extra plain journals waste budget). Set $p = 200 - h$:\n\n$5.40(200 - h) + 13.20h \\leq 1{,}800$\n$1{,}080 - 5.40h + 13.20h \\leq 1{,}800$\n$7.80h \\leq 720$\n$h \\leq 92.307...$.\n\nMax integer: $h = 92$.\n\n**Verification:** With $h = 92$, $p = 108$. Total: $92 + 108 = 200 \\geq 200$ ✓. Cost: $5.40(108) + 13.20(92) = 583.20 + 1{,}214.40 = 1{,}797.60 \\leq 1{,}800$ ✓. Try $h = 93$, $p = 107$: $5.40(107) + 13.20(93) = 577.80 + 1{,}227.60 = 1{,}805.40 > 1{,}800$ ✗ — exceeds budget \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Answering $136$ (treats $1{,}800/13.20 \\approx 136$ as the max, ignoring the discount floor — but ALSO $p = 0, h = 136$ violates the floor: $0 + 136 = 136 < 200$).\n* Answering $200$ (treats the floor itself as the answer).\n* Answering $93$ (forgets to round DOWN — $93$ exceeds the budget by about $\\$5.40$).\n* Answering $108$ (reports plain journals instead of hardcover).\n\n**Test Day Takeaway:** Two-constraint optimization (budget + minimum total): To maximize one quantity, fill the remainder with the cheaper option AT EXACTLY the minimum total. Solve the resulting single-variable inequality and take the FLOOR. Always verify the next integer up to confirm it fails.",
-  skills: ["inequalities", "word-problems", "systems-of-equations"]
-},
-{
-  id: 22,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "For what positive value of $k$ does the equation $9x^2 + kx + 4 = 0$ have exactly one real solution?",
-  choices: [
-    // distractor: takes sqrt of 36 = 6 (wrong intermediate)
-    { id: "A", text: "$6$" },
-    { id: "B", text: "$12$" },
-    // distractor: stops at 4ac = 4 \cdot 9 = 36 (forgets c)
-    { id: "C", text: "$36$" },
-    // distractor: gives k^2 = 144 instead of k = 12
-    { id: "D", text: "$144$" }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Discriminant Analysis**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** One real solution means discriminant $= 0$: $k^2 - 4(9)(4) = 0 \\Rightarrow k^2 = 144 \\Rightarrow k = 12$ (positive).\n\n**The Full Solution:**\nFor $9x^2 + kx + 4 = 0$: $a = 9$, $b = k$, $c = 4$.\nDiscriminant $= k^2 - 4(9)(4) = k^2 - 144$.\nExactly one solution: $k^2 - 144 = 0$, so $k^2 = 144$, giving $k = \\pm 12$. The positive value is $12$.\nVerification: $9x^2 + 12x + 4 = (3x + 2)^2 = 0 \\Rightarrow x = -\\dfrac{2}{3}$ (one repeated root) \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — takes $\\sqrt{36} = 6$ from a wrong intermediate.\n* Choice C: \"stops one step early\" — uses $4 \\cdot 9 = 36$ without multiplying by $c$.\n* Choice D: \"applies the inverse operation\" — gives $k^2 = 144$ without taking the square root.\n\n**Test Day Takeaway:** One solution $\\Leftrightarrow$ discriminant $= 0$. Solve $b^2 - 4ac = 0$ for the unknown.",
-  skills: ["discriminant", "quadratic-equations"]
-},
-{
-  id: 23,
-  type: "fill-in",
-  difficulty: "hard",
-  band: 7,
-  question: "The function $g$ is defined by $g(x) = x(x - 3)(x + 5)^2$. The value of $g(9 - w)$ is $0$, where $w$ is a constant. What is the sum of all possible values of $w$?",
-  correctAnswer: "29",
-  explanation: "**SAT Pattern: Sum of Roots via Input Shift**\n\n**The correct answer is $29$.**\n\n**The Fast Way (~30s):** $g$ has roots $0$, $3$, $-5$. Set $9 - w \\in \\{0, 3, -5\\} \\Rightarrow w \\in \\{9, 6, 14\\}$. Sum $= 29$.\n\n**Common Mistakes to Avoid:**\n* Forgetting the $-5$ root from the squared factor (it still counts once as a distinct $w$).\n* Sign errors when solving $9 - w =$ each root.\n\n**Test Day Takeaway:** Find the roots of $g$ and back-solve for $w$. Multiplicity does NOT create new $w$-values.",
-  skills: ["polynomial-zeros", "quadratic-equations"]
-},
-{
-  id: 24,
-  type: "fill-in",
-  difficulty: "hard",
-  band: 7,
-  question: "$$\\dfrac{3}{4}y - \\dfrac{1}{8}x = \\dfrac{1}{2} - \\dfrac{3}{4}y$$\n$$\\dfrac{1}{4}x + \\dfrac{5}{4} = py + \\dfrac{7}{4}$$\n\nIn the given system of equations, $p$ is a constant. If the system has no solution, what is the value of $p$?",
-  correctAnswer: "3",
-  explanation: "**SAT Pattern: No-Solution Parameter (System)**\n\n**The correct answer is $3$.**\n\n**The Fast Way (~50s):** Clear fractions: equation 1 becomes $x - 12y = -4$; equation 2 becomes $x - 4py = 2$. For no solution: $-12 = -4p \\Rightarrow p = 3$. Constants differ ($-4 \\ne 2$) \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Solving for $y$ instead of matching coefficients.\n\n**Test Day Takeaway:** No solution = same slope, different intercept. Clear fractions first, then match.",
-  skills: ["systems-of-equations", "infinite-solutions-condition"]
-},
-{
-  id: 25,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "The function $f$ is defined by $f(x) = (x + 8)(x + 3)(x - 5)$. Which of the following must be true about the values of $y = f(x) - 4$ at $x = -8, -3, 5$?",
-  choices: [
-    { id: "A", text: "All three $y$-values equal $-12$." },
-    { id: "B", text: "All three $y$-values equal $-4$." },
-    { id: "C", text: "All three $y$-values equal $4$." },
-    { id: "D", text: "The three $y$-values equal $-4$, $-3$, $5$ respectively." }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Vertical Shift of a Polynomial**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** At each root, $f(x) = 0$, so $y = f(x) - 4 = -4$. All three equal $-4$.\n\n**Why the wrong answers are tempting:**\n* A/C: wrong shift direction or value.\n* D: reads roots as $y$-values.\n\n**Test Day Takeaway:** $y = f(x) + k$ shifts every output by $k$.",
-  skills: ["polynomial-functions", "function-transformations"]
-},
-{
-  id: 26,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -848,8 +771,18 @@ export const practiceTest4 = {
     { id: "D", text: "$78\\sqrt{2}$" }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: 45-45-90 Triangle from Perimeter**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Leg $L$, hypotenuse $L\\sqrt{2}$. Perimeter: $L(2+\\sqrt{2}) = 78(1+\\sqrt{2})$. Solve: $L = 78(1+\\sqrt{2})/(2+\\sqrt{2}) = 39\\sqrt{2}$.\n\n**Why the wrong answers are tempting:**\n* A: confuses leg with half-perimeter.\n* C/D: copies perimeter coefficient.\n\n**Test Day Takeaway:** Rationalize the denominator: $1+\\sqrt{2}$ over $2+\\sqrt{2}$ simplifies to $\\sqrt{2}/2$.",
+  explanation: "**SAT Pattern: 45-45-90 from Perimeter**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Leg $L$, hypotenuse $L\\sqrt{2}$. Perimeter: $L(2 + \\sqrt{2}) = 78(1 + \\sqrt{2})$. $L = 39\\sqrt{2}$.\n\n**Test Day Takeaway:** Rationalize: $1+\\sqrt{2}$ over $2+\\sqrt{2}$ simplifies to $\\sqrt{2}/2$.",
   skills: ["special-right-triangles", "triangles"]
+},
+{
+  id: 22,
+  type: "fill-in",
+  difficulty: "hard",
+  band: 7,
+  question: "The function $g$ is defined by $g(x) = x(x - 3)(x + 5)^2$. The value of $g(9 - w)$ is $0$, where $w$ is a constant. What is the sum of all possible values of $w$?",
+  correctAnswer: "29",
+  explanation: "**SAT Pattern: Sum of Roots via Input Shift**\n\n**The correct answer is $29$.**\n\n**The Fast Way (~30s):** Roots of $g$: $0, 3, -5$. Set $9 - w \\in \\{0, 3, -5\\} \\Rightarrow w \\in \\{9, 6, 14\\}$. Sum $= 29$.\n\n**Test Day Takeaway:** Find roots; back-solve. Multiplicity doesn't create new $w$-values.",
+  skills: ["polynomial-zeros", "quadratic-equations"]
 }
       ]
     }

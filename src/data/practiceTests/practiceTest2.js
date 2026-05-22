@@ -698,19 +698,16 @@ export const practiceTest2 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "The function $f(x) = (x - 6)(x + 14)$ models the profit, in dollars, of selling $x$ items. What is the minimum value of $f(x)$?",
+  question: "A model estimates that at the end of each year from $2017$ to $2022$, the number of deer in a population was $150\\%$ more than the number of deer at the end of the previous year. The model estimates that at the end of $2018$, there were $200$ deer. Which equation represents this model, where $n$ is the number of deer $t$ years after the end of $2017$ and $t \\le 5$?",
   choices: [
-    { id: "A", text: "$-100$" },
-    // distractor: gives the y-intercept f(0) = -84, not the minimum
-    { id: "B", text: "$-84$" },
-    // distractor: gives the x-coordinate of the vertex (-4)
-    { id: "C", text: "$-4$" },
-    // distractor: gives one of the zeros (x = 6)
-    { id: "D", text: "$6$" }
+    { id: "A", text: "$n = 80(1.5)^t$" },
+    { id: "B", text: "$n = 80(2.5)^t$" },
+    { id: "C", text: "$n = 200(1.5)^t$" },
+    { id: "D", text: "$n = 200(2.5)^t$" }
   ],
-  correctAnswer: "A",
-  explanation: "**SAT Pattern: Vertex Form Maximum**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Zeros at $x = 6$ and $x = -14$. Vertex $x$-coordinate $= \\dfrac{6 + (-14)}{2} = -4$. Minimum $= f(-4) = (-4-6)(-4+14) = (-10)(10) = -100$.\n\n**The Full Solution:**\nThe parabola opens upward (positive leading coefficient when expanded), so the vertex is a minimum.\nVertex $x = $ midpoint of zeros $= \\dfrac{6 + (-14)}{2} = -4$.\n$f(-4) = (-4 - 6)(-4 + 14) = (-10)(10) = -100$.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"wrong base\" — computes $6 \\times (-14) = -84$ (the $y$-intercept $f(0)$, not the minimum).\n* Choice C: \"stops one step early\" — gives the $x$-coordinate of the vertex, not the minimum $y$-value.\n* Choice D: \"applies the inverse operation\" — gives one of the zeros.\n\n**Test Day Takeaway:** For a factored quadratic, the vertex $x$ is the midpoint of the roots. Plug back in to find the min/max value.",
-  skills: ["quadratic-equations", "vertex-form", "function-interpretation"]
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Build Exponential Growth Model**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** \"$150\\%$ more\" $=$ factor $2.5$. At $t = 0$ (end of $2017$): $n_0 = 200/2.5 = 80$. So $n = 80(2.5)^t$.\n\n**Why the wrong answers are tempting:**\n* A: uses $1.5$ (not \"more\").\n* C/D: uses $200$ as initial without back-calculating.\n\n**Test Day Takeaway:** \"$p\\%$ more\" $= 1 + p/100$. Anchor initial value at $t = 0$.",
+  skills: ["exponential-functions", "exponential-growth"]
 },
 {
   id: 18,
@@ -735,30 +732,33 @@ export const practiceTest2 = {
   id: 19,
   type: "multiple-choice",
   difficulty: "hard",
-  band: 8,
-  question: "The function $f(x) = ax^2 + bx + c$, where $a$, $b$, and $c$ are constants, has zeros at $x = -2$ and $x = 5$, and the maximum value of $f$ is $\\dfrac{49}{4}$. What is the value of $c$?",
+  band: 7,
+  question: "$$3x + 4y = 1$$\n$$ax + by = 1$$\n\nIn the given pair of equations, $a$ and $b$ are constants. The graph is a pair of perpendicular lines. Which of the following pairs of equations also represents a pair of perpendicular lines?",
   choices: [
-    // distractor: takes c = -10 (correct sign of product of roots if a = 1, ignores a = -1)
-    { id: "A", text: "$-10$" },
-    // distractor: uses the max value directly as c
-    { id: "B", text: "$\\dfrac{49}{4}$" },
-    { id: "C", text: "$10$" },
-    // distractor: gives the vertex x-coordinate squared or off-by-factor
-    { id: "D", text: "$\\dfrac{9}{4}$" }
+    { id: "A", text: "$6x + 4y = 1$;\\ $ax - 2by = 1$" },
+    { id: "B", text: "$6x + 4y = 1$;\\ $ax + 2by = 1$" },
+    { id: "C", text: "$6x + 4y = 1$;\\ $2ax + by = 1$" },
+    { id: "D", text: "$3x - 4y = 1$;\\ $ax + by = 1$" }
   ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Parameterized Quadratic from Zeros + Vertex**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** Factor with leading coefficient $a$: $f(x) = a(x+2)(x-5)$. Vertex at midpoint of zeros: $x = \\dfrac{3}{2}$. Plug in: $f\\left(\\dfrac{3}{2}\\right) = a\\left(\\dfrac{7}{2}\\right)\\left(-\\dfrac{7}{2}\\right) = -\\dfrac{49a}{4}$. Set equal to max $\\dfrac{49}{4}$: $a = -1$. Then $c = f(0) = -1 \\cdot (2)(-5) = 10$.\n\n**The Full Solution:**\nSince the zeros are $-2$ and $5$, write $f(x) = a(x + 2)(x - 5)$ for some constant $a$.\n\nThe parabola has a *maximum* (not minimum), so $a < 0$.\n\nThe vertex $x$-coordinate is the midpoint of the zeros: $x_v = \\dfrac{-2 + 5}{2} = \\dfrac{3}{2}$.\n\nMaximum value:\n$f\\left(\\dfrac{3}{2}\\right) = a\\left(\\dfrac{3}{2} + 2\\right)\\left(\\dfrac{3}{2} - 5\\right) = a \\cdot \\dfrac{7}{2} \\cdot \\left(-\\dfrac{7}{2}\\right) = -\\dfrac{49a}{4}$.\n\nSet equal to $\\dfrac{49}{4}$: $-\\dfrac{49a}{4} = \\dfrac{49}{4} \\Rightarrow a = -1$.\n\nNow $f(x) = -(x + 2)(x - 5) = -(x^2 - 3x - 10) = -x^2 + 3x + 10$. So $c = 10$.\n\n**Verification:** $f(-2) = -4 - 6 + 10 = 0$ \\checkmark. $f(5) = -25 + 15 + 10 = 0$ \\checkmark. $f(3/2) = -9/4 + 9/2 + 10 = 49/4$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong sign\" — assumes $a = 1$ and gets $c = (2)(-5) = -10$, ignoring that the parabola opens DOWN for a maximum.\n* Choice B: \"reuses the given value\" — copies the max value $\\dfrac{49}{4}$ as $c$.\n* Choice D: \"vertex confusion\" — squares the vertex shift $\\dfrac{3}{2}$ instead of evaluating $f(0)$.\n\n**Test Day Takeaway:** When zeros and a vertex value are given, write $f(x) = a(x - r_1)(x - r_2)$, evaluate at the vertex midpoint, solve for $a$, then evaluate at $x = 0$ for $c$. Sign of $a$ tells you max vs min.",
-  skills: ["quadratic-equations", "vertex-form", "function-interpretation"]
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Perpendicular Slopes (Standard Form)**\n\n**Choice B is correct.**\n\n**The Fast Way (~45s):** From $3x+4y=1$ and $ax+by=1$ perpendicular: $a/b = -4/3$. In B: slopes $-3/2$ and $2/3$, product $= -1$.\n\n**Why the wrong answers are tempting:**\n* A: sign flip on $b$.\n* C: doubles $a$ instead of $b$.\n* D: sign on $y$ flips first slope.\n\n**Test Day Takeaway:** Standard-form slope $= -A/B$. Perpendicular = slope product $-1$.",
+  skills: ["linear-functions", "perpendicular-lines"]
 },
 {
   id: 20,
-  type: "fill-in",
+  type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "A research lab has a budget of $\\$1{,}400$ to purchase glass beakers. To qualify for a wholesale discount, the lab must order a minimum of $160$ beakers total. Standard beakers cost $\\$5$ each and graduated beakers cost $\\$9$ each. What is the maximum number of graduated beakers the lab can order while staying within the budget and qualifying for the discount?",
-  correctAnswer: "150",
-  explanation: "**SAT Pattern: Inequality Word Problem (Floor)**\n\n**The correct answer is $150$.**\n\n**The Fast Way (~40s):** Let $s$ = standard, $g$ = graduated. To max $g$, set $s + g = 160$ exactly, $s = 160 - g$. Budget: $5(160 - g) + 9g \\leq 1400 \\Rightarrow 800 + 4g \\leq 1400 \\Rightarrow g \\leq 150$.\n\n**The Full Solution:**\nLet $s$ = standard beakers, $g$ = graduated beakers.\nConstraints:\n* Discount floor: $s + g \\geq 160$.\n* Budget: $5s + 9g \\leq 1{,}400$.\n* Both non-negative integers.\n\nTo MAXIMIZE $g$, fill the rest with the cheaper standard beakers at EXACTLY the floor (any extras waste budget). Set $s = 160 - g$:\n\n$5(160 - g) + 9g \\leq 1{,}400$\n$800 - 5g + 9g \\leq 1{,}400$\n$4g \\leq 600$\n$g \\leq 150$.\n\nMax integer: $g = 150$.\n\n**Verification:** With $g = 150$, $s = 10$. Total: $10 + 150 = 160 \\geq 160$ ✓. Cost: $5(10) + 9(150) = 50 + 1{,}350 = 1{,}400 \\leq 1{,}400$ ✓ (exactly at budget). Try $g = 151$, $s = 9$: $5(9) + 9(151) = 45 + 1{,}359 = 1{,}404 > 1{,}400$ ✗ — exceeds budget \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Answering $155$ (treats $1{,}400/9 \\approx 155$ as the max, ignoring the discount floor; also $s = 0, g = 155$ violates the floor since $0 + 155 = 155 < 160$).\n* Answering $160$ (treats the floor itself as the answer).\n* Answering $151$ (forgets to round DOWN — $151$ exceeds budget).\n* Answering $10$ (reports standard beakers instead of graduated).\n\n**Test Day Takeaway:** Two-constraint optimization (budget + minimum total): To maximize one quantity, fill the remainder with the cheaper option AT EXACTLY the minimum total. Solve the resulting single-variable inequality and take the FLOOR. Always verify the next integer up.",
-  skills: ["inequalities", "word-problems", "systems-of-equations"]
+  question: "A cube has an edge length of $80$ inches. A solid sphere with a radius of $40$ inches is inside the cube, such that the sphere touches the center of each face of the cube. To the nearest cubic inch, what is the volume of the space in the cube not taken up by the sphere?",
+  choices: [
+    { id: "A", text: "$243{,}917$" },
+    { id: "B", text: "$268{,}083$" },
+    { id: "C", text: "$304{,}600$" },
+    { id: "D", text: "$512{,}000$" }
+  ],
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Composite Solid — Cube Minus Inscribed Sphere**\n\n**Choice A is correct.**\n\n**The Fast Way (~40s):** $V_{\\text{cube}} = 512{,}000$. $V_{\\text{sphere}} = (4/3)\\pi(40)^3 \\approx 268{,}083$. Difference $\\approx 243{,}917$.\n\n**Why the wrong answers are tempting:**\n* B: sphere only.\n* C: wrong formula.\n* D: cube only.\n\n**Test Day Takeaway:** Inscribed sphere $\\Rightarrow$ sphere diameter equals cube edge.",
+  skills: ["volume-sphere", "volume-prism"]
 },
 {
   id: 21,
@@ -781,20 +781,10 @@ export const practiceTest2 = {
 },
 {
   id: 22,
-  type: "fill-in",
-  difficulty: "hard",
-  band: 8,
-  question: "In the $xy$-plane, the line $y = mx + 4$ is tangent to the circle $x^2 + y^2 = 4$, where $m$ is a positive constant. What is the value of $m^2$?",
-  correctAnswer: "3",
-  explanation: "**SAT Pattern: Tangent Line to Circle (Discriminant = 0)**\n\n**The correct answer is $3$.**\n\n**The Fast Way (~45s):** A tangent line meets a circle at exactly one point, so substituting the line into the circle equation gives a quadratic with discriminant zero. Substitute $y = mx + 4$ into $x^2 + y^2 = 4$:\n$x^2 + (mx + 4)^2 = 4$\n$(1 + m^2)x^2 + 8mx + 12 = 0$\nDiscriminant $= 0$: $(8m)^2 - 4(1 + m^2)(12) = 0 \\Rightarrow 64m^2 - 48 - 48m^2 = 0 \\Rightarrow 16m^2 = 48 \\Rightarrow m^2 = 3$.\n\n**The Full Solution:**\nSubstitute the line into the circle:\n$x^2 + (mx + 4)^2 = 4$\n$x^2 + m^2x^2 + 8mx + 16 = 4$\n$(1 + m^2)x^2 + 8mx + 12 = 0$\n\nFor tangency, this quadratic in $x$ has exactly one solution, so the discriminant equals zero:\n$\\Delta = (8m)^2 - 4(1 + m^2)(12) = 64m^2 - 48 - 48m^2 = 16m^2 - 48 = 0$\n$m^2 = 3$.\n\n**Geometric verification:** Circle has center $(0, 0)$ and radius $2$. The line $y = mx + 4$ in standard form: $mx - y + 4 = 0$. Distance from origin: $\\dfrac{|4|}{\\sqrt{m^2 + 1}} = 2 \\Rightarrow \\sqrt{m^2 + 1} = 2 \\Rightarrow m^2 = 3$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Trying to solve for $m$ directly without using the tangency condition.\n* Setting the discriminant *negative* (no intersection) or *positive* (two intersections) instead of zero.\n* Reporting $m = \\sqrt{3}$ instead of $m^2 = 3$.\n\n**Test Day Takeaway:** A line is tangent to a curve when substituting gives a quadratic with discriminant exactly zero. Equivalent geometric shortcut for circles: distance from center to line equals the radius.",
-  skills: ["circle-equations", "discriminant", "coordinate-geometry", "tangent-lines"]
-},
-{
-  id: 23,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "The function $P$ is defined by $P(t) = 380(1.05)^{(8/6)t}$ and models the population, in thousands, of a certain city $t$ years after $2005$. According to the model, the population is predicted to increase by $5\\%$ every $n$ months. What is the value of $n$?",
+  question: "The function $P$ is defined by $P(t) = 380(1.05)^{(8/6)t}$ and models the population of a certain city $t$ years after $2005$. According to the model, the population is predicted to increase by $5\\%$ every $n$ months. What is the value of $n$?",
   choices: [
     { id: "A", text: "$9$" },
     { id: "B", text: "$12$" },
@@ -802,56 +792,8 @@ export const practiceTest2 = {
     { id: "D", text: "$72$" }
   ],
   correctAnswer: "A",
-  explanation: "**SAT Pattern: Period of Exponential Growth**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** The exponent $\\dfrac{8t}{6}$ increases by $1$ when $t$ increases by $\\dfrac{6}{8} = \\dfrac{3}{4}$ year $= 9$ months.\n\n**Why the wrong answers are tempting:**\n* B: uses $1$ year $= 12$ months without the fractional exponent.\n* C/D: misreads $6/8$ as $8/6$.\n\n**Test Day Takeaway:** In $(1+r)^{kt}$, one multiplication by $(1+r)$ happens when $kt$ advances by $1$, i.e., $t$ advances by $1/k$.",
+  explanation: "**SAT Pattern: Period of Exponential Growth**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** $\\dfrac{8t}{6}$ increases by $1$ when $t$ increases by $\\dfrac{6}{8} = \\dfrac{3}{4}$ year $= 9$ months.\n\n**Why the wrong answers are tempting:**\n* B: forgets fractional exponent.\n* C/D: misreads $6/8$ as $8/6$.\n\n**Test Day Takeaway:** $(1+r)^{kt}$ advances once per $1/k$ in $t$.",
   skills: ["exponential-functions", "function-interpretation"]
-},
-{
-  id: 24,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "$$3x + 4y = 1$$\n$$ax + by = 1$$\n\nIn the given pair of equations, $a$ and $b$ are constants. The graph of this pair of equations in the $xy$-plane is a pair of perpendicular lines. Which of the following pairs of equations also represents a pair of perpendicular lines?",
-  choices: [
-    { id: "A", text: "$6x + 4y = 1$;\\ $ax - 2by = 1$" },
-    { id: "B", text: "$6x + 4y = 1$;\\ $ax + 2by = 1$" },
-    { id: "C", text: "$6x + 4y = 1$;\\ $2ax + by = 1$" },
-    { id: "D", text: "$3x - 4y = 1$;\\ $ax + by = 1$" }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Perpendicular Slopes (Standard Form)**\n\n**Choice B is correct.**\n\n**The Fast Way (~45s):** From $3x+4y=1$ and $ax+by=1$ perpendicular: $(-3/4)(-a/b)=-1 \\Rightarrow a/b=-4/3$. In B: slopes $-6/4=-3/2$ and $-a/(2b)=-(1/2)(-4/3)=2/3$. Product: $(-3/2)(2/3)=-1$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* A: sign flip on $b$ ruins perpendicularity.\n* C: doubles $a$ instead of $b$.\n* D: sign on $y$ flips first slope.\n\n**Test Day Takeaway:** Standard-form slope is $-A/B$. Perpendicular = slope product $-1$.",
-  skills: ["linear-functions", "perpendicular-lines"]
-},
-{
-  id: 25,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "A cube has an edge length of $80$ inches. A solid sphere with a radius of $40$ inches is inside the cube, such that the sphere touches the center of each face of the cube. To the nearest cubic inch, what is the volume of the space in the cube not taken up by the sphere?",
-  choices: [
-    { id: "A", text: "$243{,}917$" },
-    { id: "B", text: "$268{,}083$" },
-    { id: "C", text: "$304{,}600$" },
-    { id: "D", text: "$512{,}000$" }
-  ],
-  correctAnswer: "A",
-  explanation: "**SAT Pattern: Composite Solid — Cube Minus Inscribed Sphere**\n\n**Choice A is correct.**\n\n**The Fast Way (~40s):** $V_{\\text{cube}}=80^3=512{,}000$. $V_{\\text{sphere}}=(4/3)\\pi(40)^3 \\approx 268{,}083$. Difference $\\approx 243{,}917$.\n\n**Why the wrong answers are tempting:**\n* B: sphere volume only.\n* C: wrong formula.\n* D: cube only.\n\n**Test Day Takeaway:** Inscribed sphere $\\Rightarrow$ sphere diameter equals cube edge.",
-  skills: ["volume-sphere", "volume-prism"]
-},
-{
-  id: 26,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "A model estimates that at the end of each year from $2017$ to $2022$, the number of deer in a population was $150\\%$ more than the number of deer in the population at the end of the previous year. The model estimates that at the end of $2018$, there were $200$ deer. Which of the following equations represents this model, where $n$ is the estimated number of deer $t$ years after the end of $2017$ and $t \\le 5$?",
-  choices: [
-    { id: "A", text: "$n = 80(1.5)^t$" },
-    { id: "B", text: "$n = 80(2.5)^t$" },
-    { id: "C", text: "$n = 200(1.5)^t$" },
-    { id: "D", text: "$n = 200(2.5)^t$" }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Build Exponential Growth Model**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** \"$150\\%$ more\" $=$ factor $2.5$. At $t=0$ (end of $2017$): $n_0 = 200/2.5 = 80$. So $n=80(2.5)^t$.\n\n**Why the wrong answers are tempting:**\n* A: uses $1.5$ (not \"more\").\n* C/D: uses $200$ as initial without back-calculating to $t=0$.\n\n**Test Day Takeaway:** \"$p\\%$ more\" $=1+p/100$. Anchor initial value at $t=0$.",
-  skills: ["exponential-functions", "exponential-growth"]
 }
       ]
     }

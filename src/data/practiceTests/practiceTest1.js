@@ -694,13 +694,19 @@ export const practiceTest1 = {
 },
 {
   id: 18,
-  type: "fill-in",
-  difficulty: "medium",
-  band: 5,
-  question: "Consider the system of equations:\n\n$2x + 3y = 17$\n$x + 4y = 11$\n\nWhat is the value of $x + y$?",
-  correctAnswer: "8",
-  explanation: "**SAT Pattern: Solve for a Combination**\n\n**The correct answer is $8$.**\n\n**The Fast Way (~25s):** Subtract twice the second equation from the first to eliminate $x$: $(2x + 3y) - 2(x + 4y) = 17 - 22 \\Rightarrow -5y = -5 \\Rightarrow y = 1$. From equation 2: $x = 11 - 4 = 7$. So $x + y = 7 + 1 = 8$.\n\n**The Full Solution:**\nMultiply equation 2 by $2$: $2x + 8y = 22$.\nSubtract from equation 1: $(2x + 3y) - (2x + 8y) = 17 - 22 \\Rightarrow -5y = -5 \\Rightarrow y = 1$.\n\nSubstitute $y = 1$ into equation 2: $x + 4(1) = 11 \\Rightarrow x = 7$.\n\nVerification: equation 1: $2(7) + 3(1) = 14 + 3 = 17$ \\checkmark; equation 2: $7 + 4 = 11$ \\checkmark.\n\nSo $x + y = 7 + 1 = 8$.\n\n**Common Mistakes to Avoid:**\n* Adding equations directly without scaling — that gives $3x + 7y = 28$, no progress.\n* Solving for one variable correctly but reporting only $x$ ($= 7$) or only $y$ ($= 1$) instead of $x + y$.\n\n**Test Day Takeaway:** When the question asks for $x + y$ (or $x - y$, etc.), eliminate one variable using a single multiplication, then back-substitute. Don't always solve for $x$ and $y$ separately — sometimes a clever combination is faster.",
-  skills: ["systems-of-equations", "linear-functions"]
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "For line $h$, the table shows three values of $x$ and their corresponding values of $y$: $(12, 95)$, $(18, 125)$, $(24, 155)$. Line $k$ is the result of translating line $h$ down $8$ units in the $xy$-plane. What is the $x$-intercept of line $k$?",
+  choices: [
+    { id: "A", text: "$\\left(-\\dfrac{27}{5},\\,0\\right)$" },
+    { id: "B", text: "$\\left(-\\dfrac{19}{5},\\,0\\right)$" },
+    { id: "C", text: "$(-7,\\,0)$" },
+    { id: "D", text: "$\\left(\\dfrac{27}{5},\\,0\\right)$" }
+  ],
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Vertical Shift of a Line — $x$-intercept**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Slope of $h$: $(125-95)/(18-12)=5$. $y$-intercept of $h$: $95-5(12)=35$. Shift down $8$: new $y$-intercept $=27$. $5x+27=0 \\Rightarrow x=-27/5$.\n\n**Why the wrong answers are tempting:**\n* B: uses a different shift constant.\n* C: divides slope into shifted intercept wrong.\n* D: drops the negative sign.\n\n**Test Day Takeaway:** Vertical shifts move the $y$-intercept by the shift constant; slope is unchanged.",
+  skills: ["linear-functions", "function-transformations"]
 },
 {
   id: 19,
@@ -734,63 +740,6 @@ export const practiceTest1 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "The graph of $x^2 + x + y^2 + y = \\dfrac{199}{2}$ in the $xy$-plane is a circle. What is the length of the circle's radius?",
-  choices: [
-    { id: "A", text: "$10$" },
-    // distractor: gives r^2 = 100 instead of r
-    { id: "B", text: "$100$" },
-    // distractor: takes the constant 199/2 directly without completing the square
-    { id: "C", text: "$\\sqrt{\\dfrac{199}{2}}$" },
-    // distractor: forgets to add the 1/4 + 1/4 = 1/2 to the right side
-    { id: "D", text: "$\\sqrt{\\dfrac{199}{2} - \\dfrac{1}{2}}$" }
-  ],
-  correctAnswer: "A",
-  explanation: "**SAT Pattern: Complete the Square — Non-Square Radius**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Half of $1$ is $\\tfrac{1}{2}$; squared, that's $\\tfrac{1}{4}$. Add $\\tfrac{1}{4}$ for $x$ and $\\tfrac{1}{4}$ for $y$ to both sides: $\\left(x + \\tfrac{1}{2}\\right)^2 + \\left(y + \\tfrac{1}{2}\\right)^2 = \\tfrac{199}{2} + \\tfrac{1}{2} = 100$. Radius $= \\sqrt{100} = 10$.\n\n**The Full Solution:**\nGroup terms and complete the square for each variable:\n$x^2 + x + y^2 + y = \\dfrac{199}{2}$\n$\\left(x^2 + x + \\dfrac{1}{4}\\right) + \\left(y^2 + y + \\dfrac{1}{4}\\right) = \\dfrac{199}{2} + \\dfrac{1}{4} + \\dfrac{1}{4}$\n$\\left(x + \\dfrac{1}{2}\\right)^2 + \\left(y + \\dfrac{1}{2}\\right)^2 = \\dfrac{199}{2} + \\dfrac{1}{2} = \\dfrac{200}{2} = 100$\n\nSo $r^2 = 100$ and $r = 10$.\n\nVerification: $r^2 = 100$, and the circle has center $\\left(-\\tfrac{1}{2}, -\\tfrac{1}{2}\\right)$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"stops one step early\" — gives $r^2 = 100$ instead of $r$.\n* Choice C: \"wrong base\" — uses $\\tfrac{199}{2}$ directly without completing the square.\n* Choice D: \"applies the inverse operation\" — subtracts $\\tfrac{1}{2}$ from $\\tfrac{199}{2}$ instead of adding.\n\n**Test Day Takeaway:** Complete the square SYMMETRICALLY for both variables. \"Half the coefficient, squared\" gets added to BOTH sides — once for $x$, once for $y$.",
-  skills: ["circle-equations", "solving-equations"]
-},
-{
-  id: 21,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "A landscape architect designs a decorative water fountain in which water shoots from a nozzle and arcs through the air before landing in a pool. The height of the water stream, in feet, is modeled by $y = -0.25(x - 12)^2 + 9$, where $x$ is the horizontal distance, in feet, from the nozzle. Which of the following is the best interpretation of the vertex of the graph of $y$ in the $xy$-plane in this context?",
-  choices: [
-    // distractor: swaps coordinates of the vertex
-    { id: "A", text: "The water stream reaches an estimated maximum height of $12$ feet at a horizontal distance of $9$ feet from the nozzle." },
-    { id: "B", text: "The water stream reaches an estimated maximum height of $9$ feet at a horizontal distance of $12$ feet from the nozzle." },
-    // distractor: wrong direction — calls the max a min
-    { id: "C", text: "The water stream reaches an estimated minimum height of $9$ feet at a horizontal distance of $12$ feet from the nozzle." },
-    // distractor: wrong base — uses the leading coefficient's magnitude
-    { id: "D", text: "The water stream reaches an estimated maximum height of $9$ feet at a horizontal distance of $0.25$ feet from the nozzle." }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Interpret Vertex Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Vertex of $y = -0.25(x - 12)^2 + 9$ is $(12, 9)$. $a = -0.25 < 0$, so vertex is a MAX. Max height $= 9$ ft at horizontal distance $x = 12$ ft.\n\n**The Full Solution:**\nVertex form $y = a(x - h)^2 + k$ has vertex $(h, k) = (12, 9)$. Because $a = -0.25 < 0$, the parabola opens DOWNWARD and the vertex is the MAXIMUM of $y$. So the maximum height is $9$ feet, achieved at a horizontal distance of $12$ feet from the nozzle.\n\nVerification: $y(12) = 0 + 9 = 9$. $y(0)$ (at the nozzle): $y = -0.25(144) + 9 = -36 + 9 = -27$ — below ground, indicating the nozzle is below the modeled peak (or that the model only applies in the airborne range). $y(24)$: $y = -0.25(144) + 9 = -27$ (symmetric, water has landed) \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"swaps coordinates\" — swaps the $x$ (horizontal distance) and $y$ (height) values of the vertex.\n* Choice C: \"wrong direction\" — since $a < 0$, the vertex is a MAX, not a min. The water arcs UP to a peak and falls.\n* Choice D: \"wrong base\" — uses the leading coefficient's magnitude $0.25$ as the horizontal distance.\n\n**Test Day Takeaway:** Vertex form $a(x - h)^2 + k$: vertex is $(h, k)$ where $h$ is the input value (horizontal distance, time, price, etc.) and $k$ is the output value (height, profit, etc.). Sign of $a$ tells you max ($a < 0$) vs min ($a > 0$).",
-  skills: ["function-interpretation", "quadratic-equations"]
-},
-{
-  id: 22,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "The function $f$ is defined by $f(x) = (x - 3)^2 - 4$. If the function $g$ is defined by $g(x) = f(x + 5)$, what is the minimum value of $g$?",
-  choices: [
-    // distractor: gives the x at minimum (x = -2) instead of g(x)
-    { id: "A", text: "$-2$" },
-    { id: "B", text: "$-4$" },
-    // distractor: forgets to add the -4 vertical shift
-    { id: "C", text: "$0$" },
-    // distractor: applies the +5 shift in the wrong direction (gets -9)
-    { id: "D", text: "$-9$" }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Function Transformation**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** $f$ has minimum value $-4$ (at $x = 3$). $g(x) = f(x + 5)$ shifts $f$ horizontally; horizontal shifts do NOT change the minimum value. So $g$ has minimum value $-4$.\n\n**The Full Solution:**\n$g(x) = f(x + 5) = ((x + 5) - 3)^2 - 4 = (x + 2)^2 - 4$\n\nThis is vertex form with vertex $(-2, -4)$. The minimum value is $-4$, attained at $x = -2$.\n\nVerification: $(x + 2)^2 \\geq 0$ for all real $x$, so $g(x) \\geq -4$ with equality at $x = -2$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives the $x$-coordinate of the minimum ($-2$) instead of $g(x) = -4$.\n* Choice C: \"off-by-one\" — forgets the constant $-4$ in the original function.\n* Choice D: \"applies the inverse operation\" — combines $-4$ and $-5$ into $-9$ via incorrect shift direction.\n\n**Test Day Takeaway:** Horizontal shifts (replacing $x$ with $x \\pm h$) do NOT change the minimum/maximum value of a function. Only vertical shifts ($+k$ outside) do.",
-  skills: ["function-interpretation", "vertex-form", "quadratic-equations"]
-},
-{
-  id: 23,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
   question: "In the $xy$-plane, the graph of $y = -x^2 + 7x - 80$ intersects the line $y = c$ at exactly one point. What is the value of $c$?",
   choices: [
     { id: "A", text: "$-\\dfrac{271}{4}$" },
@@ -799,27 +748,11 @@ export const practiceTest1 = {
     { id: "D", text: "$-\\dfrac{7}{2}$" }
   ],
   correctAnswer: "A",
-  explanation: "**SAT Pattern: Horizontal Tangent to a Parabola**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** A horizontal line meets a parabola at one point only at the parabola's vertex $y$-value. Vertex $x = 7/2$; $y = -(7/2)^2 + 7(7/2) - 80 = -49/4 + 49/2 - 80 = -271/4$.\n\n**Why the wrong answers are tempting:**\n* B: copies the constant from the equation.\n* C: gives $b^2/(4a)$ without the constant term.\n* D: returns the $x$-coordinate of the vertex.\n\n**Test Day Takeaway:** \"Intersects at exactly one point\" with a horizontal line means $y = $ vertex value of the parabola.",
+  explanation: "**SAT Pattern: Horizontal Tangent to a Parabola**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** A horizontal line meets a parabola at one point only at the vertex $y$-value. Vertex $x = 7/2$; $y = -(7/2)^2 + 7(7/2) - 80 = -49/4 + 49/2 - 80 = -271/4$.\n\n**Why the wrong answers are tempting:**\n* B: copies the constant.\n* C: gives $b^2/(4a)$ alone.\n* D: returns the $x$-coordinate of the vertex.\n\n**Test Day Takeaway:** \"Intersects at exactly one point\" with a horizontal line means $y = $ vertex value.",
   skills: ["quadratic-equations", "vertex-form"]
 },
 {
-  id: 24,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "For line $h$, the table shows three values of $x$ and their corresponding values of $y$: $(12, 95)$, $(18, 125)$, $(24, 155)$. Line $k$ is the result of translating line $h$ down $8$ units in the $xy$-plane. What is the $x$-intercept of line $k$?",
-  choices: [
-    { id: "A", text: "$\\left(-\\dfrac{27}{5},\\,0\\right)$" },
-    { id: "B", text: "$\\left(-\\dfrac{19}{5},\\,0\\right)$" },
-    { id: "C", text: "$(-7,\\,0)$" },
-    { id: "D", text: "$\\left(\\dfrac{27}{5},\\,0\\right)$" }
-  ],
-  correctAnswer: "A",
-  explanation: "**SAT Pattern: Vertical Shift of a Line — $x$-intercept**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Slope of $h$: $(125-95)/(18-12)=5$. $y$-intercept of $h$: $95-5(12)=35$. Shift down $8$: $y$-intercept of $k=27$. $5x+27=0 \\Rightarrow x=-27/5$.\n\n**Why the wrong answers are tempting:**\n* B: uses a different shift constant.\n* C: divides slope into shifted intercept wrong.\n* D: drops the negative sign.\n\n**Test Day Takeaway:** Vertical shifts move the $y$-intercept by the shift constant; slope is unchanged.",
-  skills: ["linear-functions", "function-transformations"]
-},
-{
-  id: 25,
+  id: 21,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -831,15 +764,15 @@ export const practiceTest1 = {
     { id: "D", text: "$529$" }
   ],
   correctAnswer: "D",
-  explanation: "**SAT Pattern: Similar-Figures Area Ratio**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** Area scales as the square of the linear ratio. $92n/4n = 23$, squared = $529$.\n\n**Why the wrong answers are tempting:**\n* A: returns the linear ratio.\n* B: doubles the linear ratio.\n* C: copies the larger radius coefficient.\n\n**Test Day Takeaway:** Area ratio $=$ (linear ratio)$^2$.",
+  explanation: "**SAT Pattern: Similar-Figures Area Ratio**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** Area scales as the square of the linear ratio. $92n/4n = 23$, squared = $529$.\n\n**Why the wrong answers are tempting:**\n* A: linear ratio.\n* B: double linear ratio.\n* C: larger radius coefficient.\n\n**Test Day Takeaway:** Area ratio = (linear ratio)$^2$.",
   skills: ["circle-area", "geometry"]
 },
 {
-  id: 26,
+  id: 22,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "Two data sets of $30$ integers each are summarized in identical histograms. The first interval represents the frequency of integers greater than or equal to $10$ but less than $20$. The second represents integers $\\ge 20$ but $< 30$, and so on. What is the smallest possible difference between the mean of data set A and the mean of data set B?",
+  question: "Two data sets of $30$ integers each are summarized in identical histograms. The first interval represents the frequency of integers $\\ge 10$ but $< 20$, the second $\\ge 20$ but $< 30$, and so on. What is the smallest possible difference between the mean of data set A and the mean of data set B?",
   choices: [
     { id: "A", text: "$0$" },
     { id: "B", text: "$1$" },
@@ -847,7 +780,7 @@ export const practiceTest1 = {
     { id: "D", text: "$10$" }
   ],
   correctAnswer: "A",
-  explanation: "**SAT Pattern: Grouped Data — Smallest Possible Mean Difference**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Histograms give frequencies per interval, not exact values. With identical histograms, the actual integers within each interval can be chosen to match exactly, producing equal means: minimum difference $=0$.\n\n**Why the wrong answers are tempting:**\n* B: assumes at least one integer must differ.\n* C/D: confuses \"smallest\" with \"largest\".\n\n**Test Day Takeaway:** Grouped frequencies set RANGES of means; identical histograms allow identical underlying data.",
+  explanation: "**SAT Pattern: Grouped Data — Smallest Possible Mean Difference**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Histograms give frequencies per interval, not exact values. With identical histograms, the actual integers within each interval can be chosen to match exactly, so equal means: minimum difference = $0$.\n\n**Why the wrong answers are tempting:**\n* B: assumes at least one integer must differ.\n* C/D: confuses \"smallest\" with \"largest\".\n\n**Test Day Takeaway:** Grouped frequencies set RANGES of means; identical histograms allow identical underlying data.",
   skills: ["statistics", "data-analysis"]
 }
       ]

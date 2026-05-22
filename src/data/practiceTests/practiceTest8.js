@@ -707,22 +707,13 @@ export const practiceTest8 = {
 },
 {
   id: 17,
-  type: "multiple-choice",
+  type: "fill-in",
   difficulty: "hard",
   band: 7,
-  question: "The equation $\\dfrac{3}{x - 2} + \\dfrac{5}{x + 2} = \\dfrac{8x}{x^2 - 4}$ has how many real solutions?",
-  choices: [
-    { id: "A", text: "$0$" },
-    // distractor: students expect clearing denominators to give a solvable equation
-    { id: "B", text: "$1$" },
-    // distractor: misidentifies restricted values x = 2, x = -2 as solutions
-    { id: "C", text: "$2$" },
-    // distractor: confuses contradiction with identity
-    { id: "D", text: "Infinitely many" }
-  ],
-  correctAnswer: "A",
-  explanation: "**SAT Pattern: Rational Expression Simplification**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** Multiply both sides by $(x-2)(x+2)$ (noting $x \\neq \\pm 2$): $3(x+2) + 5(x-2) = 8x \\Rightarrow 8x - 4 = 8x \\Rightarrow -4 = 0$. Contradiction $\\Rightarrow$ no solutions.\n\n**The Full Solution:**\nSince $x^2 - 4 = (x-2)(x+2)$, multiply both sides by $(x-2)(x+2)$ (with $x \\neq 2$ and $x \\neq -2$):\n$3(x + 2) + 5(x - 2) = 8x$\n$3x + 6 + 5x - 10 = 8x$\n$8x - 4 = 8x$\n$-4 = 0$\n\nThis is a contradiction, so the equation has NO solutions.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"stops one step early\" — students expect clearing denominators to produce a solvable equation.\n* Choice C: \"wrong base\" — misidentifies the restricted values $x = 2$ and $x = -2$ as solutions.\n* Choice D: \"applies the inverse operation\" — confuses a contradiction ($-4 = 0$) with an identity.\n\n**Test Day Takeaway:** When clearing denominators leads to a contradiction (like $-4 = 0$), the equation has NO solutions.",
-  skills: ["polynomial-operations", "solving-equations"]
+  question: "The graph of $y = 3x^2 + bx + c$ has a vertex at $(-2, -10)$, where $b$ and $c$ are constants. What is the value of $bc$?",
+  correctAnswer: "24",
+  explanation: "**SAT Pattern: Vertex Form to Standard Form**\n\n**The correct answer is $24$.**\n\n**The Fast Way (~40s):** $y = 3(x+2)^2 - 10 = 3x^2 + 12x + 2$. $bc = 12 \\times 2 = 24$.\n\n**Test Day Takeaway:** Expand, distribute, add $k$.",
+  skills: ["quadratic-equations", "vertex-form"]
 },
 {
   id: 18,
@@ -745,42 +736,45 @@ export const practiceTest8 = {
 },
 {
   id: 19,
-  type: "multiple-choice",
+  type: "fill-in",
   difficulty: "hard",
   band: 7,
-  question: "In the system of equations below, $c$ is a constant. If the system has no solution, what is the value of $c$?\n\n$2x + 3y = 5$\n$cx + 9y = 12$",
-  choices: [
-    // distractor: stops one step early — gives the y-coefficient ratio (9/3 = 3)
-    { id: "A", text: "$3$" },
-    { id: "B", text: "$6$" },
-    // distractor: wrong base — repeats the y-coefficient of equation 2
-    { id: "C", text: "$9$" },
-    // distractor: applies the inverse operation — repeats the right-side of equation 2
-    { id: "D", text: "$12$" }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Parallel Lines (No Solution)**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** No solution $\\Leftrightarrow$ left-side coefficient ratios match but right-side ratio differs. $\\frac{2}{c} = \\frac{3}{9} = \\frac{1}{3} \\Rightarrow c = 6$. Verify: $\\frac{5}{12} \\neq \\frac{1}{3}$ \\checkmark, so the lines are parallel and distinct.\n\n**The Full Solution:**\nFor a $2 \\times 2$ linear system to have no solution, the two equations must represent parallel, distinct lines:\n* Coefficient ratios match: $\\frac{a_1}{a_2} = \\frac{b_1}{b_2}$.\n* Constant ratio differs: $\\frac{c_1}{c_2} \\neq$ that common value.\n\nThe $y$-coefficient ratio is $\\frac{3}{9} = \\frac{1}{3}$. So we need $\\frac{2}{c} = \\frac{1}{3}$, giving $c = 6$.\n\nCheck the constants: $\\frac{5}{12}$. Is this $\\frac{1}{3}$? $\\frac{1}{3} = \\frac{4}{12}$. Since $\\frac{5}{12} \\neq \\frac{4}{12}$, the lines are distinct $\\Rightarrow$ no solution.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — reports the ratio $\\frac{9}{3} = 3$ instead of solving for $c$.\n* Choice C: \"wrong base\" — uses the $y$-coefficient of equation 2.\n* Choice D: \"applies the inverse operation\" — uses the right-side value of equation 2.\n\n**Test Day Takeaway:** No solution $\\Leftrightarrow$ same slope, different intercept. Set up the proportion of $x$- and $y$-coefficients, solve, then verify the constants don't also match.",
-  skills: ["systems-of-equations"]
+  question: "The function $g$ is defined by $g(x) = (x + 10)(t - x)$, where $t$ is a constant. In the $xy$-plane, the graph of $y = g(x)$ passes through the point $(30, 0)$. What is the value of $g(0)$?",
+  correctAnswer: "300",
+  explanation: "**SAT Pattern: Recover Parameter, Then Evaluate**\n\n**The correct answer is $300$.**\n\n**The Fast Way (~25s):** $g(30) = 0 \\Rightarrow t = 30$. $g(0) = 10 \\cdot 30 = 300$.\n\n**Test Day Takeaway:** Use the known root to pin the constant.",
+  skills: ["function-evaluation", "polynomial-functions"]
 },
 {
   id: 20,
-  type: "fill-in",
+  type: "multiple-choice",
   difficulty: "hard",
-  band: 8,
-  question: "What is the sum of all real values of $x$ that satisfy the equation $|3x + 2| = x + 6$?",
-  correctAnswer: "0",
-  explanation: "**SAT Pattern: Absolute-Value Equation Splits**\n\n**The correct answer is $0$.**\n\n**The Fast Way (~40s):** Split into two cases:\nCase 1: $3x + 2 = x + 6 \\Rightarrow x = 2$ (valid: $x + 6 = 8 \\geq 0$).\nCase 2: $3x + 2 = -(x + 6) \\Rightarrow 4x = -8 \\Rightarrow x = -2$ (valid: $x + 6 = 4 \\geq 0$).\nBoth solutions valid. Sum: $2 + (-2) = 0$.\n\n**The Full Solution:**\nAn absolute-value equation $|A| = B$ has solutions when $B \\geq 0$ and either $A = B$ or $A = -B$.\n\nWe need $x + 6 \\geq 0 \\Rightarrow x \\geq -6$ (a wide enough domain to permit both cases).\n\nCase 1 ($3x + 2 \\geq 0$, i.e., $x \\geq -\\frac{2}{3}$):\n$3x + 2 = x + 6 \\Rightarrow 2x = 4 \\Rightarrow x = 2$.\nCheck $x = 2 \\geq -\\frac{2}{3}$ \\checkmark and $|3(2) + 2| = 8 = 2 + 6$ \\checkmark.\n\nCase 2 ($3x + 2 < 0$, i.e., $x < -\\frac{2}{3}$):\n$-(3x + 2) = x + 6 \\Rightarrow -3x - 2 = x + 6 \\Rightarrow -4x = 8 \\Rightarrow x = -2$.\nCheck $x = -2 < -\\frac{2}{3}$ \\checkmark and $|3(-2) + 2| = |-4| = 4 = -2 + 6$ \\checkmark.\n\nSum of solutions: $2 + (-2) = 0$.\n\n**Common Mistakes to Avoid:**\n* Forgetting to check that the right-hand side $x + 6$ is non-negative — extraneous solutions can occur otherwise.\n* Sign error in Case 2: $-(x + 6)$ distributes the negative to BOTH terms.\n* Reporting only one solution (e.g., $x = 2$) instead of the sum.\n\n**Test Day Takeaway:** $|A| = B$ splits into $A = B$ or $A = -B$, valid when $B \\geq 0$. Always verify each candidate against the original equation to catch extraneous solutions.",
-  skills: ["absolute-value", "solving-equations"]
+  band: 7,
+  question: "Five turtle nests contain $158$, $152$, $161$, $145$, and $149$ eggs. A sixth nest with $128$ eggs is added to create a new data set. Which of the following correctly compares the means of the two data sets?",
+  choices: [
+    { id: "A", text: "The mean of the original data set is greater than the mean of the new data set." },
+    { id: "B", text: "The mean of the original data set is less than the mean of the new data set." },
+    { id: "C", text: "The means of both data sets are equal." },
+    { id: "D", text: "There is not enough information to compare the means." }
+  ],
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Mean After Appending a Value**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Original mean $= 765/5 = 153$. New value $128 < 153$, so adding lowers the mean.\n\n**Test Day Takeaway:** Adding below mean lowers; above raises.",
+  skills: ["statistics", "mean"]
 },
 {
   id: 21,
-  type: "fill-in",
+  type: "multiple-choice",
   difficulty: "hard",
-  band: 8,
-  question: "In a circle with center $O$, a chord $AB$ has length $16$. The perpendicular distance from $O$ to chord $AB$ is $6$. What is the area of the circle? (Give the answer as $\\pi$ times an integer; provide only the integer.)",
-  correctAnswer: "100",
-  explanation: "**SAT Pattern: Chord, Radius, Distance from Center**\n\n**The correct answer is $100$ (so the area is $100\\pi$).**\n\n**The Fast Way (~30s):** The perpendicular from the center to a chord BISECTS the chord. So half-chord $= 8$. Form a right triangle with legs $8$ (half-chord) and $6$ (distance), hypotenuse $=$ radius $r$. By Pythagoras: $r^2 = 8^2 + 6^2 = 100$, so $r = 10$. Area $= \\pi r^2 = 100\\pi$.\n\n**The Full Solution:**\nKey theorem: the perpendicular from the center of a circle to a chord BISECTS the chord. Drop a perpendicular from $O$ to $AB$, hitting at the midpoint $M$ of $AB$. Then:\n* $AM = MB = \\dfrac{16}{2} = 8$.\n* $OM = 6$ (given perpendicular distance).\n* $OA = r$ (radius, because $A$ is on the circle).\n\nTriangle $OMA$ is a right triangle (right angle at $M$). By the Pythagorean theorem:\n$r^2 = OM^2 + AM^2 = 6^2 + 8^2 = 36 + 64 = 100$\n$r = 10$.\n\nArea of the circle: $\\pi r^2 = 100\\pi$. The integer requested is $100$.\n\n**Verification:** $6$-$8$-$10$ is a familiar Pythagorean triple ($2 \\times$ the $3$-$4$-$5$ triple) \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Using the FULL chord length $16$ as a leg of the triangle instead of the HALF-chord ($8$).\n* Reporting $r = 10$ instead of the area coefficient $100$.\n* Computing $\\pi \\cdot 10 = 10\\pi$ (treating $r$ as $r^2$).\n\n**Test Day Takeaway:** Drop a perpendicular from the center to any chord — it bisects the chord, forming a right triangle with legs (half-chord, distance) and hypotenuse $=$ radius. This three-piece relationship comes up constantly in circle problems.",
-  skills: ["circles", "pythagorean-theorem", "geometry"]
+  band: 7,
+  question: "$$4x + 5y = 9$$\n$$12x + 15y = 27$$\n\nFor each real number $r$, which of the following points lies on the graph of each equation in the $xy$-plane for the given system?",
+  choices: [
+    { id: "A", text: "$\\left(\\dfrac{r}{5} + 9,\\,-\\dfrac{r}{5} + 27\\right)$" },
+    { id: "B", text: "$\\left(-\\dfrac{5r}{4} + \\dfrac{9}{4},\\,r\\right)$" },
+    { id: "C", text: "$\\left(r,\\,\\dfrac{4r}{5} + \\dfrac{9}{5}\\right)$" },
+    { id: "D", text: "$\\left(r,\\,-\\dfrac{4r}{5} + \\dfrac{9}{5}\\right)$" }
+  ],
+  correctAnswer: "D",
+  explanation: "**SAT Pattern: Same Line — Infinitely Many Solutions (Parametric)**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** Second equation is $3 \\times$ the first; same line. Solve for $y$: $y = -4x/5 + 9/5$. Set $x = r$: $(r, -4r/5 + 9/5)$.\n\n**Test Day Takeaway:** Collapsed system $\\Rightarrow$ every point on the line solves it.",
+  skills: ["systems-of-equations", "linear-functions"]
 },
 {
   id: 22,
@@ -800,58 +794,6 @@ export const practiceTest8 = {
   correctAnswer: "C",
   explanation: "**SAT Pattern: Vertex Form to Standard Form**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** $a + b + c = f(1)$. Vertex form $f(x) = a(x-4)^2 - 7$ with $f(2) = 5$ gives $4a - 7 = 5$, so $a = 3$. Then $f(1) = 3(1-4)^2 - 7 = 27 - 7 = 20$.\n\n**The Full Solution:**\nVertex form: $f(x) = a(x - 4)^2 - 7$.\nUse $(2, 5)$: $5 = a(2 - 4)^2 - 7 = 4a - 7$, so $4a = 12$ and $a = 3$.\nThus $f(x) = 3(x - 4)^2 - 7$.\n\nExpand to standard form: $f(x) = 3(x^2 - 8x + 16) - 7 = 3x^2 - 24x + 48 - 7 = 3x^2 - 24x + 41$.\nSo $a = 3$, $b = -24$, $c = 41$. $a + b + c = 3 - 24 + 41 = 20$.\n\nShortcut: $a + b + c = f(1) = 3(1-4)^2 - 7 = 27 - 7 = 20$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives the constant term $c = 41$ alone.\n* Choice B: \"wrong base\" — uses the leading coefficient $a = 3$ alone.\n* Choice D: \"applies the inverse operation\" — confuses $h + k = 4 + (-7) = -3$ from vertex form with $a + b + c$ from standard form.\n\n**Test Day Takeaway:** $a + b + c = f(1)$. To find $f$, use vertex form first, then plug in a second point to solve for $a$.",
   skills: ["vertex-form", "function-interpretation", "quadratic-equations"]
-},
-{
-  id: 23,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "$$4x + 5y = 9$$\n$$12x + 15y = 27$$\n\nFor each real number $r$, which of the following points lies on the graph of each equation in the $xy$-plane for the given system?",
-  choices: [
-    { id: "A", text: "$\\left(\\dfrac{r}{5} + 9,\\,-\\dfrac{r}{5} + 27\\right)$" },
-    { id: "B", text: "$\\left(-\\dfrac{5r}{4} + \\dfrac{9}{4},\\,r\\right)$" },
-    { id: "C", text: "$\\left(r,\\,\\dfrac{4r}{5} + \\dfrac{9}{5}\\right)$" },
-    { id: "D", text: "$\\left(r,\\,-\\dfrac{4r}{5} + \\dfrac{9}{5}\\right)$" }
-  ],
-  correctAnswer: "D",
-  explanation: "**SAT Pattern: Same Line — Infinitely Many Solutions (Parametric)**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** The second equation is $3 \\times$ the first, so both describe the same line. Solve $4x + 5y = 9$ for $y$: $y = -\\dfrac{4x}{5} + \\dfrac{9}{5}$. Set $x = r$: $\\left(r,\\,-\\dfrac{4r}{5} + \\dfrac{9}{5}\\right)$.\n\n**Why the wrong answers are tempting:**\n* A: misapplies the multiplier.\n* B: uses the wrong solved form.\n* C: drops the negative sign.\n\n**Test Day Takeaway:** When a system collapses to one line, every point on that line solves it. Parameterize one variable.",
-  skills: ["systems-of-equations", "linear-functions"]
-},
-{
-  id: 24,
-  type: "fill-in",
-  difficulty: "hard",
-  band: 7,
-  question: "The graph of $y = 3x^2 + bx + c$ has a vertex at $(-2, -10)$, where $b$ and $c$ are constants. What is the value of $bc$?",
-  correctAnswer: "24",
-  explanation: "**SAT Pattern: Vertex Form to Standard Form**\n\n**The correct answer is $24$.**\n\n**The Fast Way (~40s):** $y = 3(x+2)^2 - 10 = 3x^2 + 12x + 2$. So $b = 12$, $c = 2$, $bc = 24$.\n\n**Common Mistakes to Avoid:**\n* Forgetting to multiply expansion by $3$.\n\n**Test Day Takeaway:** Expand $(x-h)^2$, distribute $a$, add $k$.",
-  skills: ["quadratic-equations", "vertex-form"]
-},
-{
-  id: 25,
-  type: "fill-in",
-  difficulty: "hard",
-  band: 7,
-  question: "The function $g$ is defined by $g(x) = (x + 10)(t - x)$, where $t$ is a constant. In the $xy$-plane, the graph of $y = g(x)$ passes through the point $(30, 0)$. What is the value of $g(0)$?",
-  correctAnswer: "300",
-  explanation: "**SAT Pattern: Recover Parameter, Then Evaluate**\n\n**The correct answer is $300$.**\n\n**The Fast Way (~25s):** $g(30) = 0 \\Rightarrow (40)(t - 30) = 0 \\Rightarrow t = 30$. Then $g(0) = (10)(30) = 300$.\n\n**Common Mistakes to Avoid:**\n* Setting $x + 10 = 0$ at $x = 30$.\n\n**Test Day Takeaway:** Use the known root to pin the constant.",
-  skills: ["function-evaluation", "polynomial-functions"]
-},
-{
-  id: 26,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "Five turtle nests contain $158$, $152$, $161$, $145$, and $149$ eggs. A sixth nest with $128$ eggs is added to create a new data set. Which of the following correctly compares the means of the two data sets?",
-  choices: [
-    { id: "A", text: "The mean of the original data set is greater than the mean of the new data set." },
-    { id: "B", text: "The mean of the original data set is less than the mean of the new data set." },
-    { id: "C", text: "The means of both data sets are equal." },
-    { id: "D", text: "There is not enough information to compare the means." }
-  ],
-  correctAnswer: "A",
-  explanation: "**SAT Pattern: Mean After Appending a Value**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Original mean $= 765/5 = 153$. New value $128 < 153$, so adding it lowers the mean.\n\n**Why the wrong answers are tempting:**\n* B: opposite direction.\n* C: ignores the gap.\n* D: claims insufficient info.\n\n**Test Day Takeaway:** Adding below the mean LOWERS; above RAISES.",
-  skills: ["statistics", "mean"]
 }
       ]
     }

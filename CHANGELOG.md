@@ -4,30 +4,35 @@ All notable changes to PerformSAT are documented here. Format follows [Keep a Ch
 
 ## [3.5.1] - 2026-05-22
 
-### Expanded — Difficult-Questions PDF coverage in practice tests (Module 2: 22 → 26 items per PT)
+### Changed — Difficult-Questions PDF integrated via REPLACEMENT (preserving 22 q/module)
 
-Brought practice-test coverage of the difficult-questions set from ~24% (1 per PT) up to ~98% (4 per PT). Each of PT 1-12 Module 2 now has Q23, Q24, Q25, and Q26 — four ultra-Bluebook hard ceiling items drawn from the PDF batch, balanced across algebra / advanced math / geometry / problem-solving. Module 2 grew from 22 to 26 items; PT total from 44 to 48.
+Reverted the append-style additions and instead REPLACED 4 existing band-7 hard items per PT with difficult-PDF items. Each Module is back to 22 questions (Module 1: 22, Module 2: 22, total 44 per test — matches the official SAT). 48 of the 49 PDF questions made it into the 12 practice tests; 1 (radian sum to degrees, geo-342) stays in the bank only.
 
-Distribution per PT (4 items each, 48 unique items total across the 12 PTs, covering 48 of the 49 PDF questions):
+**Variety design (the rules):**
+1. Each of the 48 PDF patterns appears in exactly ONE practice test (no cross-PT repeat).
+2. The set of REPLACED positions differs across PTs — Q17/18/19/20/21/22 are all candidate slots; each PT replaces a unique combination. Most PTs replace some subset of 4 from {Q17, Q18, Q19, Q20, Q21, Q22}, never the same 4 in the same order.
+3. Each PT's 4 replacements span at least 3 of the 4 SAT math domains (algebra / advanced math / geometry / problem-solving) so no test feels lopsided.
 
-| PT | Q23 | Q24 | Q25 | Q26 |
-|----|-----|-----|-----|-----|
-| 1 | parabola horizontal tangent | translated line $x$-int | circle area ratio | histogram min mean diff |
-| 2 | exp growth period (months) | perp slopes std form | cube minus sphere | exp $150\%$ more |
-| 3 | $\tan(85\pi/3)$ | parabola = const (one sol) | sale price chain | rational $f(x+4)$ shift |
-| 4 | sum of $w$ for $g(9-w)=0$ | no-sol param system | cubic translated down | iso right triangle perim |
-| 5 | parabola vertex + sign-$a$ | single-eq no-sol with $px$ | exp decay form | poll scaling margin |
-| 6 | electric flux | radical exponents | parabola–line tangent | $\cos x$ from right tri |
-| 7 | glued prisms surface | rational/linear numerator | $400\%$ increase reverse | circle $x$-range |
-| 8 | parametric system point | reading parabola $bc$ | $g(x)=(x+10)(t-x)$ | sea turtle mean compare |
-| 9 | radical equation extraneous | $\sqrt{}$ must-be-true | $220\%$ more model | inscribed rect $30$-$60$-$90$ |
-| 10 | shifted exp $-a^x+b$ | $(1.62)^{x/3}$ equivalent | compound $2$-yr percent | tangent line at point |
-| 11 | right-angle-at-center chord | linear func param recover | quad formula $k$ | m/s² $\to$ mi/min² |
-| 12 | seal-depth quadratic | factor with parameter $b$ | equilateral circumradius | chained $120\%$ greater |
+**Per-PT replacement matrix (position $\to$ new pattern):**
 
-Runtime uses `questions.length` dynamically; UI and timer adapt cleanly. `timeLimit: 35` per module is unchanged (~80s/item average, closer to real Bluebook pacing for a hard-ceilinged Module 2).
+| PT | Q17 | Q18 | Q19 | Q20 | Q21 | Q22 |
+|----|---|---|---|---|---|---|
+| 1 | — | translated line $x$-int | — | parabola horizontal tangent | circle area ratio | histogram min mean diff |
+| 2 | exp $150\%$ more | — | perp slopes std form | cube minus sphere | — | exp growth period (months) |
+| 3 | sale price markup chain | parabola = const (one sol) | — | $\tan(85\pi/3)$ | rational $f(x+4)$ shift | — |
+| 4 | — | no-sol param system | cubic vertical shift | — | iso right triangle perim | sum of $w$ for $g(9-w)=0$ |
+| 5 | exp decay form | — | single-eq no-sol with $px$ | — | poll scaling margin | parabola vertex + sign-$a$ |
+| 6 | radical exponents | parabola–line tangent | electric flux | — | — | $\cos x$ from right triangle |
+| 7 | — | rational/linear numerator | — | $400\%$ increase reverse | circle $x$-range | glued prisms surface |
+| 8 | reading parabola $bc$ | — | $g(x)=(x+10)(t-x)$ | sea turtle mean compare | parametric system point | — |
+| 9 | $\sqrt{}$ must-be-true | $220\%$ more model | — | — | inscribed rect $30$-$60$-$90$ | radical equation extraneous |
+| 10 | — | $(1.62)^{x/3}$ equivalent | compound $2$-yr percent | tangent line at point | — | shifted exp $-a^x+b$ |
+| 11 | linear func param recover | — | quad formula $k$ | m/s² $\to$ mi/min² | — | right-angle-at-center chord |
+| 12 | — | factor with parameter $b$ | equilateral circumradius | — | chained $120\%$ greater | seal-depth quadratic |
 
-Tests: 992/992 green. `testBundleIntegrity` confirms all 48 items per PT have parseable `**SAT Pattern: <Title>**` headers; drill routing Tier 1 picks up every new item.
+(— means that position was NOT replaced and keeps its original calibrated item.)
+
+Tests: 992/992 green. `testBundleIntegrity` confirms every item carries a parseable `**SAT Pattern: <Title>**` header; drill routing Tier 1 picks up every new item.
 
 ## [3.5.0] - 2026-05-22
 

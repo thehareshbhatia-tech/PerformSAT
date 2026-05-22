@@ -730,13 +730,19 @@ export const practiceTest11 = {
 },
 {
   id: 17,
-  type: "fill-in",
+  type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "A high-school sports coach has a budget of $\\$3{,}000$ to purchase uniforms for the upcoming season. To qualify for a team-supplier discount, the coach must order a minimum of $230$ uniforms total. Standard uniforms cost $\\$9$ each and pro uniforms cost $\\$15$ each. What is the maximum number of pro uniforms the coach can order while staying within the budget and qualifying for the discount?",
-  correctAnswer: "155",
-  explanation: "**SAT Pattern: Inequality Word Problem (Floor)**\n\n**The correct answer is $155$.**\n\n**The Fast Way (~40s):** Let $s$ = standard, $p$ = pro. To max $p$, set $s + p = 230$ exactly, $s = 230 - p$. Budget: $9(230 - p) + 15p \\leq 3000 \\Rightarrow 2070 + 6p \\leq 3000 \\Rightarrow p \\leq 155$.\n\n**The Full Solution:**\nLet $s$ = standard uniforms, $p$ = pro uniforms.\nConstraints:\n* Discount floor: $s + p \\geq 230$.\n* Budget: $9s + 15p \\leq 3{,}000$.\n* Both non-negative integers.\n\nTo MAXIMIZE $p$, fill the rest with the cheaper standard uniforms at EXACTLY the floor (any extras waste budget). Set $s = 230 - p$:\n\n$9(230 - p) + 15p \\leq 3{,}000$\n$2{,}070 - 9p + 15p \\leq 3{,}000$\n$6p \\leq 930$\n$p \\leq 155$.\n\nMax integer: $p = 155$.\n\n**Verification:** With $p = 155$, $s = 75$. Total: $75 + 155 = 230 \\geq 230$ ✓. Cost: $9(75) + 15(155) = 675 + 2{,}325 = 3{,}000 \\leq 3{,}000$ ✓ (exactly at budget). Try $p = 156$, $s = 74$: $9(74) + 15(156) = 666 + 2{,}340 = 3{,}006 > 3{,}000$ ✗ — exceeds budget by $\\$6$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Reporting $200$ (treats $3{,}000/15 = 200$ as the max, ignoring the discount floor — but also $s = 0, p = 200$ satisfies the floor since $200 \\geq 230$ is FALSE, so this candidate fails on floor anyway).\n* Reporting $230$ (treats the floor as the answer).\n* Reporting $156$ (forgets to round DOWN — $156$ exceeds budget).\n* Reporting $75$ (reports standard uniforms instead of pro).\n\n**Test Day Takeaway:** Two-constraint optimization (budget + minimum total): To maximize one quantity, fill the remainder with the cheaper option AT EXACTLY the minimum total. Solve the resulting single-variable inequality and take the FLOOR.",
-  skills: ["inequalities", "word-problems", "systems-of-equations"]
+  question: "The linear function $g$ is defined by $g(x) = b - 12x$, where $b$ is a constant. If $g(c + 5) = \\dfrac{c}{3}$, where $c$ is a constant, which of the following expressions represents the value of $b$?",
+  choices: [
+    { id: "A", text: "$\\dfrac{37c}{3} + 60$" },
+    { id: "B", text: "$\\dfrac{c}{3} + 60$" },
+    { id: "C", text: "$\\dfrac{13c}{3} + 5$" },
+    { id: "D", text: "$12c + 60$" }
+  ],
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Solve for a Linear Parameter**\n\n**Choice A is correct.**\n\n**The Fast Way (~35s):** $b - 12(c+5) = c/3 \\Rightarrow b = 37c/3 + 60$.\n\n**Test Day Takeaway:** Substitute, collect, isolate.",
+  skills: ["linear-functions", "function-evaluation"]
 },
 {
   id: 18,
@@ -762,29 +768,26 @@ export const practiceTest11 = {
   type: "fill-in",
   difficulty: "hard",
   band: 7,
-  question: "If $9^{x+2} = 27^{x-1}$, what is the value of $x$?",
-  correctAnswer: "7",
-  explanation: "**SAT Pattern: Common-Base Exponent Simplification**\n\n**The correct answer is $7$.**\n\n**The Fast Way (~20s):** Rewrite with base $3$: $9 = 3^2$, $27 = 3^3$. So $(3^2)^{x+2} = (3^3)^{x-1}$, i.e., $3^{2x+4} = 3^{3x-3}$. Match exponents: $2x + 4 = 3x - 3 \\Rightarrow x = 7$.\n\n**The Full Solution:**\nConvert both bases to base $3$:\n$9 = 3^2$ and $27 = 3^3$.\nThe equation becomes:\n$(3^2)^{x+2} = (3^3)^{x-1}$\n$3^{2(x+2)} = 3^{3(x-1)}$\n$3^{2x+4} = 3^{3x-3}$\n\nSince the bases are equal, the exponents must match:\n$2x + 4 = 3x - 3 \\Rightarrow 4 + 3 = 3x - 2x \\Rightarrow x = 7$.\n\nVerification: $9^9 = 3^{18}$ and $27^6 = 3^{18}$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Writing $9 = 3^3$ instead of $3^2$.\n* Distributing wrongly: $2(x + 2) = 2x + 2$ instead of $2x + 4$.\n\n**Test Day Takeaway:** Convert all bases to a common prime, then match exponents.",
-  skills: ["exponent-rules", "solving-equations"]
+  question: "$$3x^2 - 10x - 6 = 0$$\n\nOne solution to the given equation can be written as $\\dfrac{10 - \\sqrt{k}}{6}$, where $k$ is a constant. What is the value of $k$?",
+  correctAnswer: "172",
+  explanation: "**SAT Pattern: Quadratic Formula — Discriminant Recovery**\n\n**The correct answer is $172$.**\n\n**The Fast Way (~25s):** $x = (10 \\pm \\sqrt{172})/6$. $k = 172$.\n\n**Test Day Takeaway:** Radicand $= b^2 - 4ac$.",
+  skills: ["quadratic-equations", "discriminant"]
 },
 {
   id: 20,
   type: "multiple-choice",
   difficulty: "hard",
-  band: 6,
-  question: "The system of linear equations\n\n$3x + ky = 12$\n$6x + 4y = 30$\n\nhas no solution. What is the value of $k$?",
+  band: 7,
+  question: "The speed of a vehicle is increasing at a rate of $9.8$ meters per second squared. What is this rate, in miles per minute squared, rounded to the nearest tenth? (Use $1$ mile $= 1{,}609$ meters.)",
   choices: [
-    // distractor: reads from the LHS only (uses 4 directly)
-    { id: "A", text: "$4$" },
-    { id: "B", text: "$2$" },
-    // distractor: takes 6/3 ratio inverted to 1/2
-    { id: "C", text: "$\\dfrac{1}{2}$" },
-    // distractor: takes 4/3 ratio
-    { id: "D", text: "$\\dfrac{4}{3}$" }
+    { id: "A", text: "$0.4$" },
+    { id: "B", text: "$21.9$" },
+    { id: "C", text: "$263.1$" },
+    { id: "D", text: "$295.7$" }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Parallel Lines (No Solution)**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** No solution means parallel lines: matching slope, different intercepts. Compare slopes via the coefficient ratios: $\\dfrac{3}{6} = \\dfrac{k}{4}$, so $k = 2$. Verify constants: $\\dfrac{12}{30} = \\dfrac{2}{5} \\neq \\dfrac{1}{2}$, so the lines are distinct \\checkmark. So $k = 2$ produces parallel non-coincident lines $\\Rightarrow$ no solution.\n\n**The Full Solution:**\nFor a $2 \\times 2$ linear system to have NO solution, the lines must be parallel and distinct: matching slopes (so left-side coefficient ratios are equal) but different right-side ratio (so the constants don't match).\n\nLeft-side ratio of $x$-coefficients: $\\dfrac{3}{6} = \\dfrac{1}{2}$. So we need $\\dfrac{k}{4} = \\dfrac{1}{2}$, giving $k = 2$.\n\nCheck constants: $\\dfrac{12}{30} = \\dfrac{2}{5}$. Since $\\dfrac{2}{5} \\neq \\dfrac{1}{2}$, the constants disagree — so the lines are distinct. With $k = 2$ the lines are parallel and distinct $\\Rightarrow$ no solution \\checkmark.\n\n(If the right-hand side of equation 2 were $24$ instead of $30$, then $\\dfrac{12}{24} = \\dfrac{1}{2}$ would match all three ratios, giving infinitely many solutions instead of no solution.)\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — reads the coefficient $4$ from equation 2 directly.\n* Choice C: \"applies the inverse operation\" — uses $\\dfrac{1}{2}$ instead of $2$ (inverts the coefficient ratio).\n* Choice D: \"wrong base\" — uses $\\dfrac{4}{3}$.\n\n**Test Day Takeaway:** No solution $\\iff \\dfrac{a_1}{a_2} = \\dfrac{b_1}{b_2} \\neq \\dfrac{c_1}{c_2}$. ALWAYS verify the constant ratio fails — if it matches too, the system has infinitely many solutions, not no solution.",
-  skills: ["systems-of-equations", "linear-functions"]
+  explanation: "**SAT Pattern: Chained Unit Conversion — Squared Time**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** $9.8 \\cdot (1/1609) \\cdot 3600 \\approx 21.92$.\n\n**Test Day Takeaway:** Squared units need the conversion factor SQUARED.",
+  skills: ["unit-conversion", "rate-conversion"]
 },
 {
   id: 21,
@@ -809,25 +812,6 @@ export const practiceTest11 = {
   id: 22,
   type: "multiple-choice",
   difficulty: "hard",
-  band: 6,
-  question: "A community survey reports that the number of households that own a bicycle is $250\\%$ of the number of households that own both a bicycle and a scooter. The number of households that own only a scooter (and no bicycle) is $40\\%$ of the number of households that own a bicycle. What percent of the total number of households surveyed (those that own a bicycle, only a scooter, or both) is the number that own only a scooter?",
-  choices: [
-    // distractor: uses 40% directly as the answer
-    { id: "A", text: "$40\\%$" },
-    // distractor: uses (40 / 250) = 16%
-    { id: "B", text: "$16\\%$" },
-    { id: "C", text: "$\\dfrac{200}{7}\\%$" },
-    // distractor: forgets to add the only-scooter group when computing total
-    { id: "D", text: "$50\\%$" }
-  ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Reverse-Percent Multi-Step**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** Let \"both\" $= 100$. Then bicycle (total bicycle owners) $= 250$, of which $100$ also own a scooter. Only-scooter $= 0.40 \\cdot 250 = 100$. Total surveyed = bicycle owners $+$ only-scooter $= 250 + 100 = 350$. Percent only-scooter $= \\dfrac{100}{350} = \\dfrac{2}{7} = \\dfrac{200}{7}\\% \\approx 28.57\\%$.\n\n**The Full Solution:**\nLet $b$ = number of households owning both a bicycle and a scooter. Then:\n* Bicycle owners (total): $B = 2.5b$.\n* Only-scooter: $S_o = 0.4 \\cdot B = 0.4 \\cdot 2.5 b = b$.\n\nTotal surveyed = bicycle owners $\\cup$ only-scooter = $B + S_o = 2.5b + b = 3.5b$.\nPercent of total who own only a scooter: $\\dfrac{S_o}{B + S_o} = \\dfrac{b}{3.5b} = \\dfrac{1}{3.5} = \\dfrac{2}{7} = \\dfrac{200}{7}\\%$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives the percent $40\\%$ directly without working through the totals.\n* Choice B: \"applies the inverse operation\" — divides $40$ by $250$ to get $16\\%$.\n* Choice D: \"wrong base\" — forgets to include the only-scooter count in the total.\n\n**Test Day Takeaway:** When percentages are stacked, pick a clean numerical anchor and compute through. Always identify what is in the denominator.",
-  skills: ["percents"]
-},
-{
-  id: 23,
-  type: "multiple-choice",
-  difficulty: "hard",
   band: 7,
   question: "In the $xy$-plane, a circle has center $C$ with coordinates $(h, k)$. Points $A$ and $B$ lie on the circle. Point $A$ has coordinates $(h + 1,\\,k + \\sqrt{66})$, and $\\angle ACB$ is a right angle. What is the length of $\\overline{AB}$?",
   choices: [
@@ -837,50 +821,8 @@ export const practiceTest11 = {
     { id: "D", text: "$67\\sqrt{3}$" }
   ],
   correctAnswer: "A",
-  explanation: "**SAT Pattern: Right Triangle at Center — Chord Length**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** $CA = \\sqrt{1^2 + (\\sqrt{66})^2} = \\sqrt{67} = r$. With $\\angle ACB = 90^\\circ$, triangle $ACB$ is isosceles right, so $AB = r\\sqrt{2} = \\sqrt{134}$.\n\n**Why the wrong answers are tempting:**\n* B: doubles instead of multiplying by $\\sqrt{2}$.\n* C: skips the radius computation.\n* D: confuses with an equilateral case.\n\n**Test Day Takeaway:** A right angle at the center makes the chord the hypotenuse of an isosceles right triangle with legs equal to the radius.",
+  explanation: "**SAT Pattern: Right Triangle at Center — Chord Length**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** $CA = \\sqrt{67} = r$. $AB = r\\sqrt{2} = \\sqrt{134}$.\n\n**Test Day Takeaway:** Right angle at center $\\Rightarrow$ isosceles right triangle with legs $= r$.",
   skills: ["circle-equations", "triangles"]
-},
-{
-  id: 24,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "The linear function $g$ is defined by $g(x) = b - 12x$, where $b$ is a constant. If $g(c + 5) = \\dfrac{c}{3}$, where $c$ is a constant, which of the following expressions represents the value of $b$?",
-  choices: [
-    { id: "A", text: "$\\dfrac{37c}{3} + 60$" },
-    { id: "B", text: "$\\dfrac{c}{3} + 60$" },
-    { id: "C", text: "$\\dfrac{13c}{3} + 5$" },
-    { id: "D", text: "$12c + 60$" }
-  ],
-  correctAnswer: "A",
-  explanation: "**SAT Pattern: Solve for a Linear Parameter**\n\n**Choice A is correct.**\n\n**The Fast Way (~35s):** $b - 12(c+5) = c/3 \\Rightarrow b = c/3 + 12c + 60 = 37c/3 + 60$.\n\n**Why the wrong answers are tempting:**\n* B: drops $12c$.\n* C: combines fractions wrong.\n* D: forgets the $1/3$.\n\n**Test Day Takeaway:** Substitute, collect, isolate.",
-  skills: ["linear-functions", "function-evaluation"]
-},
-{
-  id: 25,
-  type: "fill-in",
-  difficulty: "hard",
-  band: 7,
-  question: "$$3x^2 - 10x - 6 = 0$$\n\nOne solution to the given equation can be written as $\\dfrac{10 - \\sqrt{k}}{6}$, where $k$ is a constant. What is the value of $k$?",
-  correctAnswer: "172",
-  explanation: "**SAT Pattern: Quadratic Formula — Discriminant Recovery**\n\n**The correct answer is $172$.**\n\n**The Fast Way (~25s):** $x = (10 \\pm \\sqrt{100 + 72})/6 = (10 \\pm \\sqrt{172})/6$. $k = 172$.\n\n**Common Mistakes to Avoid:**\n* Sign error in $-4ac$ when $c < 0$.\n* Using $2a = 3$ instead of $6$.\n\n**Test Day Takeaway:** Radicand $= b^2 - 4ac$.",
-  skills: ["quadratic-equations", "discriminant"]
-},
-{
-  id: 26,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "The speed of a vehicle is increasing at a rate of $9.8$ meters per second squared. What is this rate, in miles per minute squared, rounded to the nearest tenth? (Use $1$ mile $= 1{,}609$ meters.)",
-  choices: [
-    { id: "A", text: "$0.4$" },
-    { id: "B", text: "$21.9$" },
-    { id: "C", text: "$263.1$" },
-    { id: "D", text: "$295.7$" }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Chained Unit Conversion — Squared Time**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** $9.8 \\cdot (1/1609) \\cdot 60^2 = 9.8 \\times 3600 / 1609 \\approx 21.92$. Round: $21.9$.\n\n**Why the wrong answers are tempting:**\n* A: forgets to square time.\n* C: divides by wrong factor.\n* D: multiplies instead of divides by $1609$.\n\n**Test Day Takeaway:** Squared units need the conversion factor SQUARED.",
-  skills: ["unit-conversion", "rate-conversion"]
 }
       ]
     }

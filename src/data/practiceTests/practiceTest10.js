@@ -718,65 +718,48 @@ export const practiceTest10 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "In the right triangle shown, the side adjacent to angle $\\theta$ has length $5$ and the hypotenuse has length $13$. What is the value of $\\sin \\theta$?",
-  diagram: {
-    type: "rightTriangle",
-    params: {
-      labels: ["θ", "", ""],
-      sideLabels: ["5", "", "13"],
-      rightAngleVertex: 1
-    }
-  },
+  question: "The function $f$ is defined by $f(x) = (1.62)^{x/3}$. The equation can be rewritten as $f(x) = \\left(1 + \\dfrac{p}{100}\\right)^x$, where $p$ is a constant. Which of the following is closest to the value of $p$?",
   choices: [
-    { id: "A", text: "$\\dfrac{12}{13}$" },
-    // distractor: wrong base — gives cos θ instead of sin θ
-    { id: "B", text: "$\\dfrac{5}{13}$" },
-    // distractor: applies inverse op — gives tan θ
-    { id: "C", text: "$\\dfrac{12}{5}$" },
-    // distractor: off-by-one — uses 13² - 5² = 144 but reports 144/13
-    { id: "D", text: "$\\dfrac{144}{13}$" }
+    { id: "A", text: "$17$" },
+    { id: "B", text: "$21$" },
+    { id: "C", text: "$54$" },
+    { id: "D", text: "$62$" }
   ],
   correctAnswer: "A",
-  explanation: "**SAT Pattern: Right Triangle — Trig Ratios**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** Use Pythagorean: opposite $= \\sqrt{13^2 - 5^2} = \\sqrt{144} = 12$. Then $\\sin \\theta = \\dfrac{\\text{opp}}{\\text{hyp}} = \\dfrac{12}{13}$.\n\n**The Full Solution:**\nIn a right triangle with adjacent $= 5$ and hypotenuse $= 13$:\nFind the opposite leg using the Pythagorean theorem: $\\text{opposite}^2 = 13^2 - 5^2 = 169 - 25 = 144$, so opposite $= 12$.\n\n$\\sin \\theta = \\dfrac{\\text{opposite}}{\\text{hypotenuse}} = \\dfrac{12}{13}$.\n\nThis is the well-known $5$-$12$-$13$ Pythagorean triple.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"wrong base\" — gives $\\cos \\theta = \\dfrac{5}{13}$ instead of $\\sin \\theta$.\n* Choice C: \"applies the inverse operation\" — gives $\\tan \\theta = \\dfrac{12}{5}$.\n* Choice D: \"off-by-one\" — uses $13^2 - 5^2 = 144$ but doesn't take the square root.\n\n**Test Day Takeaway:** SOH-CAH-TOA: Sine is opposite over hypotenuse. Memorize the $3$-$4$-$5$ and $5$-$12$-$13$ Pythagorean triples.",
-  skills: ["trigonometry", "triangles", "right-triangles"]
+  explanation: "**SAT Pattern: Equivalent Exponential Rate**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** $(1.62)^{x/3} = ((1.62)^{1/3})^x$. $(1.62)^{1/3} \\approx 1.174$. $p \\approx 17$.\n\n**Test Day Takeaway:** $a^{x/k} = (a^{1/k})^x$.",
+  skills: ["exponential-functions", "exponent-laws"]
 },
 {
   id: 19,
   type: "multiple-choice",
   difficulty: "hard",
-  band: 6,
-  question: "A quantity $a$ is $p\\%$ of the sum of two values, $b + c$. If $a = 90$, $b = 200$, and $c = 100$, what is the value of $p$?",
+  band: 7,
+  question: "In $2010$, Marisol earned $22\\%$ more than in $2009$, and in $2011$ Marisol earned $8\\%$ more than in $2010$. If Marisol earned $y$ times as much in $2011$ as in $2009$, what is the value of $y$?",
   choices: [
-    // distractor: applies inverse op — divides by a instead of (b+c)
-    { id: "A", text: "$33.3$" },
-    // distractor: wrong base — uses b alone instead of b + c
-    { id: "B", text: "$45$" },
-    { id: "C", text: "$30$" },
-    // distractor: off-by-one — uses b + c + a in the denominator
-    { id: "D", text: "$23.1$" }
+    { id: "A", text: "$0.3000$" },
+    { id: "B", text: "$1.0176$" },
+    { id: "C", text: "$1.3000$" },
+    { id: "D", text: "$1.3176$" }
   ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Reverse-Percent Multi-Step**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** $a = \\dfrac{p}{100}(b + c) \\Rightarrow 90 = \\dfrac{p}{100}(300) \\Rightarrow p = 30$.\n\n**The Full Solution:**\n\"$a$ is $p\\%$ of $(b + c)$\" translates to: $a = \\dfrac{p}{100}(b + c)$.\nSubstitute: $90 = \\dfrac{p}{100}(200 + 100) = 3p$.\nSolve: $p = 30$.\n\nVerification: $30\\%$ of $300 = 0.30 \\cdot 300 = 90$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — divides $b$ by $a$ ($\\dfrac{300}{90} \\cdot 100$ wrongly).\n* Choice B: \"wrong base\" — uses $b = 200$ alone instead of $b + c = 300$ as denominator: $\\dfrac{90}{200} = 45\\%$.\n* Choice D: \"off-by-one\" — uses $b + c + a = 390$ in the denominator: $\\dfrac{90}{390} \\approx 23.1\\%$.\n\n**Test Day Takeaway:** \"$a$ is $p\\%$ of $X$\" means $a = \\dfrac{p}{100} \\cdot X$. The denominator is whatever follows \"of.\"",
-  skills: ["percents"]
+  correctAnswer: "D",
+  explanation: "**SAT Pattern: Successive Percent Change**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** Factor $= 1.22 \\times 1.08 = 1.3176$.\n\n**Test Day Takeaway:** Successive factors MULTIPLY.",
+  skills: ["percent-change", "successive-percent"]
 },
 {
   id: 20,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "A sample of $1{,}200$ registered voters was surveyed about a ballot measure. $45\\%$ said they supported the measure. The margin of error is $3$ percentage points. Which of the following is the best interpretation of these results?",
+  question: "A circle in the $xy$-plane has its center at $(-2, 3)$. Line $t$ is tangent to this circle at the point $(7, -2)$. Which of the following points also lies on line $t$?",
   choices: [
-    // distractor: stops one step early — interprets the sample count as population
-    { id: "A", text: "Exactly $540$ voters in the population support the measure." },
-    // distractor: applies inverse op — uses sample percent to predict result
-    { id: "B", text: "The measure will fail because support is below $50\\%$." },
-    { id: "C", text: "The true population proportion is plausibly between $42\\%$ and $48\\%$." },
-    // distractor: wrong base — claims sample size adjustment increases margin
-    { id: "D", text: "If $300$ more people were surveyed, the margin of error would increase." }
+    { id: "A", text: "$\\left(0,\\,\\dfrac{14}{5}\\right)$" },
+    { id: "B", text: "$(2,\\,11)$" },
+    { id: "C", text: "$(12,\\,7)$" },
+    { id: "D", text: "$(11,\\,3)$" }
   ],
   correctAnswer: "C",
-  explanation: "**SAT Pattern: Margin of Error**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** $45\\% \\pm 3\\% = [42\\%, 48\\%]$ is the confidence interval for the true population proportion.\n\n**The Full Solution:**\nThe margin of error of $3$ percentage points means the confidence interval is $45\\% - 3\\% = 42\\%$ to $45\\% + 3\\% = 48\\%$. This interval estimates the true population proportion, not the sample proportion.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — $540$ is the sample count ($1200 \\times 0.45$), not the population value.\n* Choice B: \"applies the inverse operation\" — the confidence interval includes values below and above; we cannot conclude the measure will fail.\n* Choice D: \"wrong base\" — increasing sample size DECREASES margin of error, not increases.\n\n**Test Day Takeaway:** Larger samples give smaller margins of error. The confidence interval applies to the population, not the sample.",
-  skills: ["margin-of-error", "statistics"]
+  explanation: "**SAT Pattern: Tangent Line to a Circle**\n\n**Choice C is correct.**\n\n**The Fast Way (~50s):** Radius slope $= -5/9$. Tangent slope $= 9/5$. Line: $y = (9/5)x - 73/5$. Test $(12, 7)$: $7$ \\checkmark.\n\n**Test Day Takeaway:** Tangent slope $= -1/$(radius slope).",
+  skills: ["tangent-lines", "circle-equations"]
 },
 {
   id: 21,
@@ -801,69 +784,11 @@ export const practiceTest10 = {
   id: 22,
   type: "fill-in",
   difficulty: "hard",
-  band: 8,
-  question: "A circle has area $36\\pi$. A sector of the circle has arc length $4\\pi$. What is the central angle of the sector, in degrees?",
-  correctAnswer: "120",
-  explanation: "**SAT Pattern: Sector Arc & Central Angle**\n\n**The correct answer is $120$.**\n\n**The Fast Way (~30s):** From area $36\\pi$, $r = 6$, so circumference $= 12\\pi$. Arc fraction $= \\dfrac{4\\pi}{12\\pi} = \\dfrac{1}{3}$. Central angle $= \\dfrac{1}{3} \\cdot 360^{\\circ} = 120^{\\circ}$.\n\n**The Full Solution:**\nFirst find the radius from the area:\n$\\pi r^2 = 36\\pi \\Rightarrow r^2 = 36 \\Rightarrow r = 6$.\n\nThe full circumference is:\n$C = 2\\pi r = 12\\pi$.\n\nThe arc length of a sector is proportional to its central angle (out of $360^{\\circ}$):\n$\\dfrac{\\text{arc length}}{\\text{circumference}} = \\dfrac{\\theta}{360^{\\circ}}$\n$\\dfrac{4\\pi}{12\\pi} = \\dfrac{\\theta}{360^{\\circ}}$\n$\\dfrac{1}{3} = \\dfrac{\\theta}{360^{\\circ}}$\n$\\theta = 120^{\\circ}$.\n\n**Verification:** A central angle of $120^{\\circ}$ subtends $\\dfrac{1}{3}$ of the circumference; $\\dfrac{1}{3}$ of $12\\pi = 4\\pi$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Reporting $r = 6$ as the central angle.\n* Using $\\dfrac{4\\pi}{36\\pi}$ (mixing arc length with area).\n* Reporting the answer in radians ($\\dfrac{2\\pi}{3}$ rad) when degrees are requested.\n\n**Test Day Takeaway:** For a sector, BOTH arc length and area scale linearly with the central angle (out of $360^{\\circ}$ or $2\\pi$ radians). To find the angle, set up the proportion using whichever is given (arc length / circumference, or sector area / circle area).",
-  skills: ["circles", "geometry", "ratios"]
-},
-{
-  id: 23,
-  type: "fill-in",
-  difficulty: "hard",
   band: 7,
   question: "The function $f$ is defined by $f(x) = -a^x + b$, where $a$ and $b$ are constants. In the $xy$-plane, the graph of $y = f(x) - 10$ has a $y$-intercept at $\\left(0,\\,-\\dfrac{59}{6}\\right)$. The product of $a$ and $b$ is $7$. What is the value of $a$?",
   correctAnswer: "6",
-  explanation: "**SAT Pattern: Exponential Shifted Form — Recover Base**\n\n**The correct answer is $6$.**\n\n**The Fast Way (~50s):** $f(0) - 10 = -59/6 \\Rightarrow f(0) = -59/6 + 60/6 = 1/6$. Since $f(0) = -1 + b$, we have $b = 7/6$. With $ab = 7$: $a = 7 \\div (7/6) = 6$.\n\n**Common Mistakes to Avoid:**\n* Forgetting that $a^0 = 1$ inside $-a^x + b$.\n* Sign error when adding $10$ to the $y$-intercept.\n\n**Test Day Takeaway:** Plug $x = 0$ to recover one constant, then use the product relation to recover the other.",
+  explanation: "**SAT Pattern: Exponential Shifted Form — Recover Base**\n\n**The correct answer is $6$.**\n\n**The Fast Way (~50s):** $f(0) - 10 = -59/6 \\Rightarrow f(0) = 1/6 \\Rightarrow b = 7/6$. $ab = 7 \\Rightarrow a = 6$.\n\n**Test Day Takeaway:** Plug $x = 0$ for one constant; use the product for the other.",
   skills: ["exponential-functions", "function-interpretation"]
-},
-{
-  id: 24,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "The function $f$ is defined by $f(x) = (1.62)^{x/3}$. The equation can be rewritten as $f(x) = \\left(1 + \\dfrac{p}{100}\\right)^x$, where $p$ is a constant. Which of the following is closest to the value of $p$?",
-  choices: [
-    { id: "A", text: "$17$" },
-    { id: "B", text: "$21$" },
-    { id: "C", text: "$54$" },
-    { id: "D", text: "$62$" }
-  ],
-  correctAnswer: "A",
-  explanation: "**SAT Pattern: Equivalent Exponential Rate**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** $(1.62)^{x/3} = ((1.62)^{1/3})^x$. $(1.62)^{1/3} \\approx 1.174$, so $p \\approx 17$.\n\n**Why the wrong answers are tempting:**\n* B: overshoots cube root.\n* C: divides by wrong factor.\n* D: forgets the $/3$.\n\n**Test Day Takeaway:** $a^{x/k} = (a^{1/k})^x$.",
-  skills: ["exponential-functions", "exponent-laws"]
-},
-{
-  id: 25,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "In $2010$, Marisol earned $22\\%$ more than in $2009$, and in $2011$ Marisol earned $8\\%$ more than in $2010$. If Marisol earned $y$ times as much in $2011$ as in $2009$, what is the value of $y$?",
-  choices: [
-    { id: "A", text: "$0.3000$" },
-    { id: "B", text: "$1.0176$" },
-    { id: "C", text: "$1.3000$" },
-    { id: "D", text: "$1.3176$" }
-  ],
-  correctAnswer: "D",
-  explanation: "**SAT Pattern: Successive Percent Change**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** Two-year factor $= 1.22 \\times 1.08 = 1.3176$.\n\n**Why the wrong answers are tempting:**\n* A: subtracts.\n* B: wrong multiplication.\n* C: adds percents ($1.22 + 0.08$).\n\n**Test Day Takeaway:** Successive factors MULTIPLY.",
-  skills: ["percent-change", "successive-percent"]
-},
-{
-  id: 26,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "A circle in the $xy$-plane has its center at $(-2, 3)$. Line $t$ is tangent to this circle at the point $(7, -2)$. Which of the following points also lies on line $t$?",
-  choices: [
-    { id: "A", text: "$\\left(0,\\,\\dfrac{14}{5}\\right)$" },
-    { id: "B", text: "$(2,\\,11)$" },
-    { id: "C", text: "$(12,\\,7)$" },
-    { id: "D", text: "$(11,\\,3)$" }
-  ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Tangent Line to a Circle**\n\n**Choice C is correct.**\n\n**The Fast Way (~50s):** Radius slope $= (-2-3)/(7+2) = -5/9$. Tangent slope $= 9/5$. Line: $y + 2 = (9/5)(x - 7) \\Rightarrow y = (9/5)x - 73/5$. Test $(12, 7)$: $(108-73)/5 = 7$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* A/B/D: random points not on line.\n\n**Test Day Takeaway:** Tangent slope $= -1/$(radius slope).",
-  skills: ["tangent-lines", "circle-equations"]
 }
       ]
     }

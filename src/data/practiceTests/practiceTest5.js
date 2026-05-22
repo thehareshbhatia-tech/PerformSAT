@@ -711,19 +711,16 @@ export const practiceTest5 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "If $x > 0$, the expression $\\sqrt[4]{x^3} \\cdot \\sqrt{x^7}$ is equivalent to $x^{\\frac{p}{q}}$ where $\\dfrac{p}{q}$ is in lowest terms. What is the value of $p + q$?",
+  question: "For the function $q$, the value of $q(x)$ decreases by $35\\%$ for every increase in the value of $x$ by $1$. If $q(0) = 22$, which equation defines $q$?",
   choices: [
-    // distractor: gives p alone (= 17) instead of p + q
-    { id: "A", text: "$17$" },
-    // distractor: sums numerator + index (3 + 4 + 7 + 2 = 16)
-    { id: "B", text: "$16$" },
-    { id: "C", text: "$21$" },
-    // distractor: stops at p/q = 17/4 but reports 4 only
-    { id: "D", text: "$4$" }
+    { id: "A", text: "$q(x) = 0.65(22)^x$" },
+    { id: "B", text: "$q(x) = 1.35(22)^x$" },
+    { id: "C", text: "$q(x) = 22(0.65)^x$" },
+    { id: "D", text: "$q(x) = 22(1.35)^x$" }
   ],
   correctAnswer: "C",
-  explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** $\\sqrt[4]{x^3} = x^{\\frac{3}{4}}$. $\\sqrt{x^7} = x^{\\frac{7}{2}}$. Add: $\\dfrac{3}{4} + \\dfrac{7}{2} = \\dfrac{3}{4} + \\dfrac{14}{4} = \\dfrac{17}{4}$. So $p + q = 17 + 4 = 21$.\n\n**The Full Solution:**\nConvert each radical to a fractional exponent:\n$\\sqrt[4]{x^3} = x^{\\frac{3}{4}}, \\quad \\sqrt{x^7} = x^{\\frac{7}{2}}$.\n\nWhen multiplying same bases, add exponents:\n$x^{\\frac{3}{4}} \\cdot x^{\\frac{7}{2}} = x^{\\frac{3}{4} + \\frac{14}{4}} = x^{\\frac{17}{4}}$.\n\n$\\gcd(17, 4) = 1$, so $\\dfrac{17}{4}$ is already in lowest terms. Then $p = 17$, $q = 4$, and $p + q = 21$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives just the numerator $p = 17$ without adding $q$.\n* Choice B: \"applies the inverse operation\" — sums all the integers in the expression ($3 + 4 + 7 + 2 = 16$).\n* Choice D: \"wrong base\" — gives just the denominator $q = 4$.\n\n**Test Day Takeaway:** $\\sqrt[n]{x^m} = x^{\\frac{m}{n}}$ — power on top, root on bottom. Add fractional exponents when multiplying same bases.",
-  skills: ["polynomial-operations", "exponent-rules", "radical-expressions"]
+  explanation: "**SAT Pattern: Exponential Decay**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Decay factor $= 0.65$. With $q(0) = 22$: $q(x) = 22(0.65)^x$.\n\n**Test Day Takeaway:** Decay factor $= 1 - p/100$. Standard form: $a(b)^x$.",
+  skills: ["exponential-functions", "exponential-decay"]
 },
 {
   id: 18,
@@ -740,19 +737,16 @@ export const practiceTest5 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "The function $f$ is defined by $f(x) = (x + 4)^2 - 9$. If the function $g$ is defined by $g(x) = f(x - 6)$, what is the minimum value of $g$?",
+  question: "$$-5x + 35px = 91$$\n\nIn the given equation, $p$ is a constant. The equation has no solution. What is the value of $p$?",
   choices: [
-    // distractor: gives the x at minimum (x = 2) instead of g(x)
-    { id: "A", text: "$2$" },
-    { id: "B", text: "$-9$" },
-    // distractor: forgets the constant -9
-    { id: "C", text: "$0$" },
-    // distractor: combines -9 + 6 = -3 (wrong shift)
-    { id: "D", text: "$-3$" }
+    { id: "A", text: "$0$" },
+    { id: "B", text: "$\\dfrac{1}{7}$" },
+    { id: "C", text: "$\\dfrac{5}{7}$" },
+    { id: "D", text: "$5$" }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Function Transformation**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** $f$ has minimum value $-9$ (at $x = -4$). $g(x) = f(x - 6)$ shifts $f$ horizontally; horizontal shifts do NOT change the minimum value. So $g$ has minimum value $-9$.\n\n**The Full Solution:**\n$g(x) = f(x - 6) = ((x - 6) + 4)^2 - 9 = (x - 2)^2 - 9$.\n\nThis is vertex form with vertex $(2, -9)$. The minimum value is $-9$, attained at $x = 2$.\n\nVerification: $(x - 2)^2 \\geq 0$ for all real $x$, so $g(x) \\geq -9$ with equality at $x = 2$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives the $x$-coordinate of the minimum ($2$) instead of $g(x) = -9$.\n* Choice C: \"off-by-one\" — forgets the constant $-9$ in the original function.\n* Choice D: \"applies the inverse operation\" — combines $-9$ and $+6$ via incorrect shift.\n\n**Test Day Takeaway:** Horizontal shifts (replacing $x$ with $x \\pm h$) do NOT change the min/max value. Only vertical shifts ($+k$ outside) do.",
-  skills: ["function-interpretation", "vertex-form", "quadratic-equations"]
+  explanation: "**SAT Pattern: No-Solution Single Linear Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Factor: $x(-5 + 35p) = 91$. No solution when coefficient $= 0$: $-5 + 35p = 0 \\Rightarrow p = 1/7$.\n\n**Test Day Takeaway:** $kx = c$ has no solution iff $k = 0$ and $c \\ne 0$.",
+  skills: ["linear-equations", "no-solution-condition"]
 },
 {
   id: 20,
@@ -766,35 +760,22 @@ export const practiceTest5 = {
 },
 {
   id: 21,
-  type: "fill-in",
-  difficulty: "hard",
-  band: 7,
-  question: "A school store has a budget of $\\$2{,}100$ to purchase notebooks for the upcoming term. To qualify for a teacher-supply discount, the store must order a minimum of $220$ notebooks total. Standard notebooks cost $\\$7$ each and lab notebooks cost $\\$11$ each. What is the maximum number of lab notebooks the store can order while staying within the budget and qualifying for the discount?",
-  correctAnswer: "140",
-  explanation: "**SAT Pattern: Inequality Word Problem (Floor)**\n\n**The correct answer is $140$.**\n\n**The Fast Way (~40s):** Let $s$ = standard, $\\ell$ = lab. To max $\\ell$, set $s + \\ell = 220$ exactly, $s = 220 - \\ell$. Budget: $7(220 - \\ell) + 11\\ell \\leq 2100 \\Rightarrow 1540 + 4\\ell \\leq 2100 \\Rightarrow \\ell \\leq 140$.\n\n**The Full Solution:**\nLet $s$ = standard notebooks, $\\ell$ = lab notebooks.\nConstraints:\n* Discount floor: $s + \\ell \\geq 220$.\n* Budget: $7s + 11\\ell \\leq 2{,}100$.\n* Both non-negative integers.\n\nTo MAXIMIZE $\\ell$, fill the rest with the cheaper standard notebooks at EXACTLY the floor (any extras waste budget). Set $s = 220 - \\ell$:\n\n$7(220 - \\ell) + 11\\ell \\leq 2{,}100$\n$1{,}540 - 7\\ell + 11\\ell \\leq 2{,}100$\n$4\\ell \\leq 560$\n$\\ell \\leq 140$.\n\nMax integer: $\\ell = 140$.\n\n**Verification:** With $\\ell = 140$, $s = 80$. Total: $80 + 140 = 220 \\geq 220$ ✓. Cost: $7(80) + 11(140) = 560 + 1{,}540 = 2{,}100 \\leq 2{,}100$ ✓ (exactly at budget). Try $\\ell = 141$, $s = 79$: $7(79) + 11(141) = 553 + 1{,}551 = 2{,}104 > 2{,}100$ ✗ — exceeds budget \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Reporting $190$ (treats $2{,}100/11 \\approx 190$ as the max, ignoring the discount floor — also $s = 0, \\ell = 190$ violates the floor since $0 + 190 = 190 < 220$).\n* Reporting $220$ (treats the floor itself as the answer).\n* Reporting $141$ (forgets to round DOWN — $141$ exceeds budget).\n* Reporting $80$ (reports standard notebooks instead of lab).\n\n**Test Day Takeaway:** Two-constraint optimization (budget + minimum total): To maximize one quantity, fill the remainder with the cheaper option AT EXACTLY the minimum total. Solve the resulting single-variable inequality and take the FLOOR.",
-  skills: ["inequalities", "word-problems", "systems-of-equations"]
-},
-{
-  id: 22,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "The parabola defined by $y = -3(x - h)^2 + k$ has its vertex at the point $(2, 12)$ and passes through the point $(4, 0)$. What is the value of $h - k$?",
+  question: "A recent poll showed that $512$ people supported Maya and $298$ supported Jordan, out of $810$ voters polled at random. If $8{,}910$ people vote in the election, by how many votes would Maya be expected to win?",
   choices: [
-    // distractor: stops one step early — gives just h = 2
-    { id: "A", text: "$2$" },
-    // distractor: applies inverse — gives h + k = 14
-    { id: "B", text: "$14$" },
-    { id: "C", text: "$-10$" },
-    // distractor: wrong base — gives k - h = 10
-    { id: "D", text: "$10$" }
+    { id: "A", text: "$214$" },
+    { id: "B", text: "$1{,}605$" },
+    { id: "C", text: "$2{,}354$" },
+    { id: "D", text: "$5{,}632$" }
   ],
   correctAnswer: "C",
-  explanation: "**SAT Pattern: Vertex Form from Two Conditions**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Vertex $(h, k) = (2, 12)$. Verify the parabola passes through $(4, 0)$: $y = -3(4 - 2)^2 + 12 = -3(4) + 12 = 0$ \\checkmark. So $h - k = 2 - 12 = -10$.\n\n**The Full Solution:**\nIn vertex form $y = a(x - h)^2 + k$, the vertex is $(h, k)$.\nGiven vertex $(2, 12)$: $h = 2$ and $k = 12$.\nVerify with the second point $(4, 0)$ and $a = -3$:\n$y = -3(4 - 2)^2 + 12 = -3(4) + 12 = 0$ \\checkmark.\n\nSo $h - k = 2 - 12 = -10$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — reports just $h = 2$ without subtracting $k$.\n* Choice B: \"applies the inverse operation\" — computes $h + k = 14$.\n* Choice D: \"wrong base\" — computes $k - h = 10$ (sign reversed).\n\n**Test Day Takeaway:** In $y = a(x - h)^2 + k$, the vertex is exactly $(h, k)$. The other point only verifies $a$.",
-  skills: ["vertex-form", "function-interpretation"]
+  explanation: "**SAT Pattern: Poll Scaling — Margin of Victory**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Scaling factor $= 11$. Margin $= 214$. Scaled $= 11 \\times 214 = 2354$.\n\n**Test Day Takeaway:** Scale the MARGIN, not each count.",
+  skills: ["proportion", "statistics"]
 },
 {
-  id: 23,
+  id: 22,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -806,56 +787,8 @@ export const practiceTest5 = {
     { id: "D", text: "$-18$" }
   ],
   correctAnswer: "D",
-  explanation: "**SAT Pattern: Vertex + Sign-of-Coefficient Reasoning**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** Vertex below the $x$-axis with two $x$-intercepts means parabola opens upward, so $a > 0$. Then $a + b + c = y(1) = a(1 - 8)^2 - 20 = 49a - 20 > -20$. Only $-18$ exceeds $-20$.\n\n**Why the wrong answers are tempting:**\n* A: forgets the inequality direction.\n* B: treats the bound as soft.\n* C: copies the vertex $y$-value.\n\n**Test Day Takeaway:** Vertex form + sign of $a$ + a single evaluation $y(1)$ gives $a + b + c$. The two-intercept constraint fixes the sign of $a$.",
+  explanation: "**SAT Pattern: Vertex + Sign-of-Coefficient Reasoning**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** Vertex below $x$-axis with two intercepts $\\Rightarrow a > 0$. $a+b+c = 49a - 20 > -20$. Only $-18$ qualifies.\n\n**Test Day Takeaway:** Vertex form + sign of $a$ + $y(1)$ evaluation gives $a+b+c$.",
   skills: ["quadratic-equations", "vertex-form"]
-},
-{
-  id: 24,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "$$-5x + 35px = 91$$\n\nIn the given equation, $p$ is a constant. The equation has no solution. What is the value of $p$?",
-  choices: [
-    { id: "A", text: "$0$" },
-    { id: "B", text: "$\\dfrac{1}{7}$" },
-    { id: "C", text: "$\\dfrac{5}{7}$" },
-    { id: "D", text: "$5$" }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: No-Solution Single Linear Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Factor: $x(-5 + 35p) = 91$. No solution when coefficient is $0$ (and constant $\\ne 0$): $-5 + 35p = 0 \\Rightarrow p = 1/7$.\n\n**Why the wrong answers are tempting:**\n* A: solves $5 + 35p = 0$.\n* C: wrong factor.\n* D: solves for wrong unknown.\n\n**Test Day Takeaway:** A linear equation $kx = c$ has no solution iff $k = 0$ and $c \\ne 0$.",
-  skills: ["linear-equations", "no-solution-condition"]
-},
-{
-  id: 25,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "For the function $q$, the value of $q(x)$ decreases by $35\\%$ for every increase in the value of $x$ by $1$. If $q(0) = 22$, which equation defines $q$?",
-  choices: [
-    { id: "A", text: "$q(x) = 0.65(22)^x$" },
-    { id: "B", text: "$q(x) = 1.35(22)^x$" },
-    { id: "C", text: "$q(x) = 22(0.65)^x$" },
-    { id: "D", text: "$q(x) = 22(1.35)^x$" }
-  ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Exponential Decay — Standard Form**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Decay factor $= 1 - 0.35 = 0.65$. With $q(0) = 22$: $q(x) = 22(0.65)^x$.\n\n**Why the wrong answers are tempting:**\n* A: swaps base and initial.\n* B/D: uses growth factor for decay.\n\n**Test Day Takeaway:** Decay factor $= 1 - p/100$. Standard form: $a(b)^x$.",
-  skills: ["exponential-functions", "exponential-decay"]
-},
-{
-  id: 26,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "A recent poll showed that $512$ people supported Maya and $298$ supported Jordan, out of $810$ voters polled at random. According to the poll, if $8{,}910$ people vote in the election, by how many votes would Maya be expected to win?",
-  choices: [
-    { id: "A", text: "$214$" },
-    { id: "B", text: "$1{,}605$" },
-    { id: "C", text: "$2{,}354$" },
-    { id: "D", text: "$5{,}632$" }
-  ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Poll Scaling — Margin of Victory**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Scaling factor $= 8910/810 = 11$. Margin $= 512 - 298 = 214$. Scaled margin $= 11 \\times 214 = 2354$.\n\n**Why the wrong answers are tempting:**\n* A: poll-level margin.\n* B: wrong scaling.\n* D: scales Maya's count only.\n\n**Test Day Takeaway:** Scale the MARGIN, not each count.",
-  skills: ["proportion", "statistics"]
 }
       ]
     }
