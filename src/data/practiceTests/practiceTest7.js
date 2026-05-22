@@ -784,6 +784,54 @@ export const practiceTest7 = {
   correctAnswer: "B",
   explanation: "**SAT Pattern: Surface Area of Glued Prisms**\n\n**Choice B is correct.**\n\n**The Fast Way (~50s):** $K = 2s^2 + 400s$. Glued prism: $2s^2 + 800s$. Equation: $2s^2 + 800s = (41/21)(2s^2 + 400s)$. Multiply by $21$: $42s^2 + 16800s = 82s^2 + 16400s \\Rightarrow 400s = 40s^2 \\Rightarrow s = 10$.\n\n**Why the wrong answers are tempting:**\n* A: divides by $2$ at the wrong step.\n* C: misapplies the ratio.\n* D: doubles the correct answer.\n\n**Test Day Takeaway:** Gluing hides $2 \\cdot s^2$ of base area; lateral area becomes one tall prism.",
   skills: ["volume-prism", "geometry"]
+},
+{
+  id: 24,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "The table shows three values of $x$ and their corresponding values of $g(x)$, where $g(x) = \\dfrac{f(x)}{x+4}$ and $f$ is a linear function: $g(-24) = 4$, $g(-8) = 0$, $g(16) = 6$. What is the $y$-intercept of the graph of $y = f(x)$?",
+  choices: [
+    { id: "A", text: "$(0,\\,40)$" },
+    { id: "B", text: "$(0,\\,32)$" },
+    { id: "C", text: "$(0,\\,5)$" },
+    { id: "D", text: "$(0,\\,-8)$" }
+  ],
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Recover Linear $f$ from $g(x) = f(x)/(x+c)$**\n\n**Choice A is correct.**\n\n**The Fast Way (~45s):** $f(x) = g(x)(x+4)$: $f(-24) = -80$, $f(-8) = 0$, $f(16) = 120$. Slope $= 80/16 = 5$. $f(x) = 5(x+8) = 5x + 40$. $f(0) = 40$.\n\n**Why the wrong answers are tempting:**\n* B: drops the $+8$ shift.\n* C: returns slope as intercept.\n* D: returns the root of $f$.\n\n**Test Day Takeaway:** Recover three $f$-values, fit the line, read the intercept.",
+  skills: ["linear-functions", "rational-functions"]
+},
+{
+  id: 25,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "The result of increasing the quantity $x$ by $350\\%$ is $90$. What is the value of $x$?",
+  choices: [
+    { id: "A", text: "$20$" },
+    { id: "B", text: "$25.7$" },
+    { id: "C", text: "$315$" },
+    { id: "D", text: "$405$" }
+  ],
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Reverse Percent Increase**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** $4.5x = 90 \\Rightarrow x = 20$.\n\n**Why the wrong answers are tempting:**\n* B: divides by $3.5$ (forgets $+1$).\n* C: $90 \\times 3.5$.\n* D: $90 \\times 4.5$.\n\n**Test Day Takeaway:** \"Increase by $p\\%$\" $=$ multiply by $1 + p/100$.",
+  skills: ["percent-change", "percent-word-problems"]
+},
+{
+  id: 26,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "$$(x + 5)^2 + (y - 22)^2 = 144$$\n\nThe graph of the given equation is a circle in the $xy$-plane. The point $(a, b)$ lies on the circle. Which of the following is a possible value for $a$?",
+  choices: [
+    { id: "A", text: "$-18$" },
+    { id: "B", text: "$-16$" },
+    { id: "C", text: "$10$" },
+    { id: "D", text: "$22$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Circle — $x$-range**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Center $(-5, 22)$, radius $12$. $a \\in [-17, 7]$. Only $-16$ fits.\n\n**Why the wrong answers are tempting:**\n* A: just outside lower bound.\n* C: exceeds upper bound.\n* D: $y$-coordinate of center.\n\n**Test Day Takeaway:** Point on circle: $|x - h| \\le r$ and $|y - k| \\le r$.",
+  skills: ["circle-equations", "geometry"]
 }
       ]
     }

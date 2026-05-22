@@ -804,6 +804,54 @@ export const practiceTest2 = {
   correctAnswer: "A",
   explanation: "**SAT Pattern: Period of Exponential Growth**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** The exponent $\\dfrac{8t}{6}$ increases by $1$ when $t$ increases by $\\dfrac{6}{8} = \\dfrac{3}{4}$ year $= 9$ months.\n\n**Why the wrong answers are tempting:**\n* B: uses $1$ year $= 12$ months without the fractional exponent.\n* C/D: misreads $6/8$ as $8/6$.\n\n**Test Day Takeaway:** In $(1+r)^{kt}$, one multiplication by $(1+r)$ happens when $kt$ advances by $1$, i.e., $t$ advances by $1/k$.",
   skills: ["exponential-functions", "function-interpretation"]
+},
+{
+  id: 24,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "$$3x + 4y = 1$$\n$$ax + by = 1$$\n\nIn the given pair of equations, $a$ and $b$ are constants. The graph of this pair of equations in the $xy$-plane is a pair of perpendicular lines. Which of the following pairs of equations also represents a pair of perpendicular lines?",
+  choices: [
+    { id: "A", text: "$6x + 4y = 1$;\\ $ax - 2by = 1$" },
+    { id: "B", text: "$6x + 4y = 1$;\\ $ax + 2by = 1$" },
+    { id: "C", text: "$6x + 4y = 1$;\\ $2ax + by = 1$" },
+    { id: "D", text: "$3x - 4y = 1$;\\ $ax + by = 1$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Perpendicular Slopes (Standard Form)**\n\n**Choice B is correct.**\n\n**The Fast Way (~45s):** From $3x+4y=1$ and $ax+by=1$ perpendicular: $(-3/4)(-a/b)=-1 \\Rightarrow a/b=-4/3$. In B: slopes $-6/4=-3/2$ and $-a/(2b)=-(1/2)(-4/3)=2/3$. Product: $(-3/2)(2/3)=-1$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* A: sign flip on $b$ ruins perpendicularity.\n* C: doubles $a$ instead of $b$.\n* D: sign on $y$ flips first slope.\n\n**Test Day Takeaway:** Standard-form slope is $-A/B$. Perpendicular = slope product $-1$.",
+  skills: ["linear-functions", "perpendicular-lines"]
+},
+{
+  id: 25,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "A cube has an edge length of $80$ inches. A solid sphere with a radius of $40$ inches is inside the cube, such that the sphere touches the center of each face of the cube. To the nearest cubic inch, what is the volume of the space in the cube not taken up by the sphere?",
+  choices: [
+    { id: "A", text: "$243{,}917$" },
+    { id: "B", text: "$268{,}083$" },
+    { id: "C", text: "$304{,}600$" },
+    { id: "D", text: "$512{,}000$" }
+  ],
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Composite Solid — Cube Minus Inscribed Sphere**\n\n**Choice A is correct.**\n\n**The Fast Way (~40s):** $V_{\\text{cube}}=80^3=512{,}000$. $V_{\\text{sphere}}=(4/3)\\pi(40)^3 \\approx 268{,}083$. Difference $\\approx 243{,}917$.\n\n**Why the wrong answers are tempting:**\n* B: sphere volume only.\n* C: wrong formula.\n* D: cube only.\n\n**Test Day Takeaway:** Inscribed sphere $\\Rightarrow$ sphere diameter equals cube edge.",
+  skills: ["volume-sphere", "volume-prism"]
+},
+{
+  id: 26,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "A model estimates that at the end of each year from $2017$ to $2022$, the number of deer in a population was $150\\%$ more than the number of deer in the population at the end of the previous year. The model estimates that at the end of $2018$, there were $200$ deer. Which of the following equations represents this model, where $n$ is the estimated number of deer $t$ years after the end of $2017$ and $t \\le 5$?",
+  choices: [
+    { id: "A", text: "$n = 80(1.5)^t$" },
+    { id: "B", text: "$n = 80(2.5)^t$" },
+    { id: "C", text: "$n = 200(1.5)^t$" },
+    { id: "D", text: "$n = 200(2.5)^t$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Build Exponential Growth Model**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** \"$150\\%$ more\" $=$ factor $2.5$. At $t=0$ (end of $2017$): $n_0 = 200/2.5 = 80$. So $n=80(2.5)^t$.\n\n**Why the wrong answers are tempting:**\n* A: uses $1.5$ (not \"more\").\n* C/D: uses $200$ as initial without back-calculating to $t=0$.\n\n**Test Day Takeaway:** \"$p\\%$ more\" $=1+p/100$. Anchor initial value at $t=0$.",
+  skills: ["exponential-functions", "exponential-growth"]
 }
       ]
     }

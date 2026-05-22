@@ -2,6 +2,33 @@
 
 All notable changes to PerformSAT are documented here. Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project follows [Semantic Versioning](https://semver.org/).
 
+## [3.5.1] - 2026-05-22
+
+### Expanded — Difficult-Questions PDF coverage in practice tests (Module 2: 22 → 26 items per PT)
+
+Brought practice-test coverage of the difficult-questions set from ~24% (1 per PT) up to ~98% (4 per PT). Each of PT 1-12 Module 2 now has Q23, Q24, Q25, and Q26 — four ultra-Bluebook hard ceiling items drawn from the PDF batch, balanced across algebra / advanced math / geometry / problem-solving. Module 2 grew from 22 to 26 items; PT total from 44 to 48.
+
+Distribution per PT (4 items each, 48 unique items total across the 12 PTs, covering 48 of the 49 PDF questions):
+
+| PT | Q23 | Q24 | Q25 | Q26 |
+|----|-----|-----|-----|-----|
+| 1 | parabola horizontal tangent | translated line $x$-int | circle area ratio | histogram min mean diff |
+| 2 | exp growth period (months) | perp slopes std form | cube minus sphere | exp $150\%$ more |
+| 3 | $\tan(85\pi/3)$ | parabola = const (one sol) | sale price chain | rational $f(x+4)$ shift |
+| 4 | sum of $w$ for $g(9-w)=0$ | no-sol param system | cubic translated down | iso right triangle perim |
+| 5 | parabola vertex + sign-$a$ | single-eq no-sol with $px$ | exp decay form | poll scaling margin |
+| 6 | electric flux | radical exponents | parabola–line tangent | $\cos x$ from right tri |
+| 7 | glued prisms surface | rational/linear numerator | $400\%$ increase reverse | circle $x$-range |
+| 8 | parametric system point | reading parabola $bc$ | $g(x)=(x+10)(t-x)$ | sea turtle mean compare |
+| 9 | radical equation extraneous | $\sqrt{}$ must-be-true | $220\%$ more model | inscribed rect $30$-$60$-$90$ |
+| 10 | shifted exp $-a^x+b$ | $(1.62)^{x/3}$ equivalent | compound $2$-yr percent | tangent line at point |
+| 11 | right-angle-at-center chord | linear func param recover | quad formula $k$ | m/s² $\to$ mi/min² |
+| 12 | seal-depth quadratic | factor with parameter $b$ | equilateral circumradius | chained $120\%$ greater |
+
+Runtime uses `questions.length` dynamically; UI and timer adapt cleanly. `timeLimit: 35` per module is unchanged (~80s/item average, closer to real Bluebook pacing for a hard-ceilinged Module 2).
+
+Tests: 992/992 green. `testBundleIntegrity` confirms all 48 items per PT have parseable `**SAT Pattern: <Title>**` headers; drill routing Tier 1 picks up every new item.
+
 ## [3.5.0] - 2026-05-22
 
 ### Added — Difficult-Questions PDF integration (math bank: 1701 → 1752; PT 1-12 Module 2 each gains a Q23)

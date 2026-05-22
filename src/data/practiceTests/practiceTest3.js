@@ -801,6 +801,42 @@ export const practiceTest3 = {
   correctAnswer: "D",
   explanation: "**SAT Pattern: Coterminal Angle Reduction (Tangent)**\n\n**Choice D is correct.**\n\n**The Fast Way (~40s):** $\\dfrac{85\\pi}{3} = 28\\pi + \\dfrac{\\pi}{3}$. Tangent has period $\\pi$, so $\\tan\\dfrac{85\\pi}{3} = \\tan\\dfrac{\\pi}{3} = \\sqrt{3}$.\n\n**Why the wrong answers are tempting:**\n* A: forgets the period reduction sign.\n* B/C: gives $\\cot(\\pi/3)$.\n\n**Test Day Takeaway:** Tangent has period $\\pi$ (not $2\\pi$). Reduce by the largest multiple of $\\pi$ first.",
   skills: ["trigonometry", "radians"]
+},
+{
+  id: 24,
+  type: "fill-in",
+  difficulty: "hard",
+  band: 7,
+  question: "$$y = -2.5$$\n$$y = x^2 + 10x + a$$\n\nIn the given system of equations, $a$ is a positive constant. The system has exactly one distinct real solution. What is the value of $a$?",
+  correctAnswer: "22.5",
+  explanation: "**SAT Pattern: Discriminant Equals Zero**\n\n**The correct answer is $22.5$.**\n\n**The Fast Way (~30s):** $x^2 + 10x + (a+2.5) = 0$. Discriminant $=0$: $100 - 4(a+2.5) = 0 \\Rightarrow a = 22.5$.\n\n**Common Mistakes to Avoid:**\n* Forgetting to move the $-2.5$ to the left side first.\n\n**Test Day Takeaway:** Parabola meets horizontal line at one point iff discriminant $= 0$.",
+  skills: ["quadratic-equations", "discriminant"]
+},
+{
+  id: 25,
+  type: "fill-in",
+  difficulty: "hard",
+  band: 7,
+  question: "The regular price of a shirt at a store is $\\$14.40$. The sale price of the shirt is $75\\%$ less than the regular price, and the sale price is $20\\%$ greater than the store's cost for the shirt. What was the store's cost, in dollars, for the shirt?",
+  correctAnswer: "3",
+  explanation: "**SAT Pattern: Markup–Discount Chain**\n\n**The correct answer is $3$.**\n\n**The Fast Way (~30s):** Sale price $= 14.40 \\times 0.25 = 3.60$. Sale $=$ cost $\\times 1.20 \\Rightarrow$ cost $= 3.60/1.20 = 3.00$.\n\n**Common Mistakes to Avoid:**\n* Multiplying instead of dividing in the second step.\n\n**Test Day Takeaway:** Chain percent changes: each step is a separate multiplication or division.",
+  skills: ["percent-change", "percent-word-problems"]
+},
+{
+  id: 26,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "The rational function $f$ is defined by $f(x) = \\dfrac{a}{x+b}$, where $a$ and $b$ are constants. The partial graph of $y = f(x)$ has a vertical asymptote at $x = 0$ and passes through the point $(-5, -1)$. If $g(x) = f(x + 3)$, which equation could define function $g$?",
+  choices: [
+    { id: "A", text: "$g(x) = \\dfrac{5}{x}$" },
+    { id: "B", text: "$g(x) = \\dfrac{5}{x+3}$" },
+    { id: "C", text: "$g(x) = \\dfrac{5}{x+8}$" },
+    { id: "D", text: "$g(x) = \\dfrac{5(x+3)}{x+3}$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Horizontal Shift of a Rational Function**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Asymptote at $x=0$ means $b=0$, so $f(x) = a/x$. Point $(-5, -1)$: $a/(-5) = -1 \\Rightarrow a = 5$. Then $g(x) = f(x+3) = 5/(x+3)$.\n\n**Why the wrong answers are tempting:**\n* A: forgets the shift.\n* C: stacks the shift.\n* D: simplifies to constant.\n\n**Test Day Takeaway:** $f(x+h)$ shifts the graph LEFT by $h$.",
+  skills: ["function-transformations", "rational-functions"]
 }
       ]
     }

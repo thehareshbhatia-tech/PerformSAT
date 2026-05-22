@@ -816,6 +816,54 @@ export const practiceTest10 = {
   correctAnswer: "6",
   explanation: "**SAT Pattern: Exponential Shifted Form — Recover Base**\n\n**The correct answer is $6$.**\n\n**The Fast Way (~50s):** $f(0) - 10 = -59/6 \\Rightarrow f(0) = -59/6 + 60/6 = 1/6$. Since $f(0) = -1 + b$, we have $b = 7/6$. With $ab = 7$: $a = 7 \\div (7/6) = 6$.\n\n**Common Mistakes to Avoid:**\n* Forgetting that $a^0 = 1$ inside $-a^x + b$.\n* Sign error when adding $10$ to the $y$-intercept.\n\n**Test Day Takeaway:** Plug $x = 0$ to recover one constant, then use the product relation to recover the other.",
   skills: ["exponential-functions", "function-interpretation"]
+},
+{
+  id: 24,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "The function $f$ is defined by $f(x) = (1.62)^{x/3}$. The equation can be rewritten as $f(x) = \\left(1 + \\dfrac{p}{100}\\right)^x$, where $p$ is a constant. Which of the following is closest to the value of $p$?",
+  choices: [
+    { id: "A", text: "$17$" },
+    { id: "B", text: "$21$" },
+    { id: "C", text: "$54$" },
+    { id: "D", text: "$62$" }
+  ],
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Equivalent Exponential Rate**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** $(1.62)^{x/3} = ((1.62)^{1/3})^x$. $(1.62)^{1/3} \\approx 1.174$, so $p \\approx 17$.\n\n**Why the wrong answers are tempting:**\n* B: overshoots cube root.\n* C: divides by wrong factor.\n* D: forgets the $/3$.\n\n**Test Day Takeaway:** $a^{x/k} = (a^{1/k})^x$.",
+  skills: ["exponential-functions", "exponent-laws"]
+},
+{
+  id: 25,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "In $2010$, Marisol earned $22\\%$ more than in $2009$, and in $2011$ Marisol earned $8\\%$ more than in $2010$. If Marisol earned $y$ times as much in $2011$ as in $2009$, what is the value of $y$?",
+  choices: [
+    { id: "A", text: "$0.3000$" },
+    { id: "B", text: "$1.0176$" },
+    { id: "C", text: "$1.3000$" },
+    { id: "D", text: "$1.3176$" }
+  ],
+  correctAnswer: "D",
+  explanation: "**SAT Pattern: Successive Percent Change**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** Two-year factor $= 1.22 \\times 1.08 = 1.3176$.\n\n**Why the wrong answers are tempting:**\n* A: subtracts.\n* B: wrong multiplication.\n* C: adds percents ($1.22 + 0.08$).\n\n**Test Day Takeaway:** Successive factors MULTIPLY.",
+  skills: ["percent-change", "successive-percent"]
+},
+{
+  id: 26,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "A circle in the $xy$-plane has its center at $(-2, 3)$. Line $t$ is tangent to this circle at the point $(7, -2)$. Which of the following points also lies on line $t$?",
+  choices: [
+    { id: "A", text: "$\\left(0,\\,\\dfrac{14}{5}\\right)$" },
+    { id: "B", text: "$(2,\\,11)$" },
+    { id: "C", text: "$(12,\\,7)$" },
+    { id: "D", text: "$(11,\\,3)$" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Tangent Line to a Circle**\n\n**Choice C is correct.**\n\n**The Fast Way (~50s):** Radius slope $= (-2-3)/(7+2) = -5/9$. Tangent slope $= 9/5$. Line: $y + 2 = (9/5)(x - 7) \\Rightarrow y = (9/5)x - 73/5$. Test $(12, 7)$: $(108-73)/5 = 7$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* A/B/D: random points not on line.\n\n**Test Day Takeaway:** Tangent slope $= -1/$(radius slope).",
+  skills: ["tangent-lines", "circle-equations"]
 }
       ]
     }

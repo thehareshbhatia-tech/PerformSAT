@@ -803,6 +803,48 @@ export const practiceTest9 = {
   correctAnswer: "D",
   explanation: "**SAT Pattern: Radical Equation — Extraneous Filter**\n\n**Choice D is correct.**\n\n**The Fast Way (~50s):** Multiply both sides by $\\sqrt{x^2 - c^2}$: $x^2 - c^2 = 42\\sqrt{x^2 - c^2}$. Let $u = \\sqrt{x^2 - c^2} \\ge 0$: $u^2 = 42u \\Rightarrow u = 42$ (discard $u = 0$, which makes the denominator zero). Then $x^2 - c^2 = 42^2 \\Rightarrow x = \\pm\\sqrt{c^2 + 42^2}$.\n\n**Why the wrong answers are tempting:**\n* A: forces $x^2 - c^2 = 0$, breaking the domain.\n* B: confuses $x^2$ with $x$.\n* C: sign error.\n\n**Test Day Takeaway:** Substitute $u = \\sqrt{\\cdot}$ to linearize, then filter by $u \\ge 0$ and the denominator constraint.",
   skills: ["radical-equations", "rational-equations"]
+},
+{
+  id: 24,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "The function $f$ is defined by $f(x) = a\\sqrt{x + b}$, where $a$ and $b$ are constants. In the $xy$-plane, the graph of $y = f(x)$ passes through the point $(-18, 0)$, and $f(18) < 0$. Which of the following must be true?",
+  choices: [
+    { id: "A", text: "$f(0) = 18$" },
+    { id: "B", text: "$f(0) = -18$" },
+    { id: "C", text: "$a > b$" },
+    { id: "D", text: "$a < b$" }
+  ],
+  correctAnswer: "D",
+  explanation: "**SAT Pattern: Square Root Function — Sign Reasoning**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** Root at $(-18, 0)$: $b = 18$. $f(18) = 6a < 0 \\Rightarrow a < 0$. So $a < 0 < 18 = b$.\n\n**Why the wrong answers are tempting:**\n* A: assumes wrong $f(0)$.\n* B: sign error.\n* C: reverses inequality.\n\n**Test Day Takeaway:** Use known zero to pin one constant; use sign constraint to pin the other.",
+  skills: ["radical-functions", "function-interpretation"]
+},
+{
+  id: 25,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "At the time that an article was first featured on the home page of a news website, there were $60$ reviews on the article. An exponential model estimates that at the end of each hour, the number of reviews had increased by $220\\%$ of the number of reviews at the end of the previous hour. Which equation best represents this model, where $C$ is the number of reviews $t$ hours after the feature and $t \\le 4$?",
+  choices: [
+    { id: "A", text: "$C = 60(1.22)^t$" },
+    { id: "B", text: "$C = 60(2.2)^t$" },
+    { id: "C", text: "$C = 60(22)^t$" },
+    { id: "D", text: "$C = 60(3.2)^t$" }
+  ],
+  correctAnswer: "D",
+  explanation: "**SAT Pattern: \"$p\\%$ more\" Growth — Large-Percent Trap**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** \"$220\\%$ more\" $=$ factor $1 + 2.2 = 3.2$. With $C_0 = 60$: $C = 60(3.2)^t$.\n\n**Why the wrong answers are tempting:**\n* A: misreads as $22\\%$.\n* B: uses $2.2$ alone.\n* C: confuses percent with base.\n\n**Test Day Takeaway:** \"$p\\%$ more\" $=1 + p/100$, even when $p > 100$.",
+  skills: ["exponential-functions", "exponential-growth"]
+},
+{
+  id: 26,
+  type: "fill-in",
+  difficulty: "hard",
+  band: 7,
+  question: "A rectangle is inscribed in a circle, such that each vertex of the rectangle lies on the circumference of the circle. The diagonal of the rectangle is twice the length of the shortest side of the rectangle. The area of the rectangle is $729\\sqrt{3}$ square units. What is the length, in units, of the diameter of the circle?",
+  correctAnswer: "54",
+  explanation: "**SAT Pattern: 30-60-90 from Diagonal-to-Side Ratio**\n\n**The correct answer is $54$.**\n\n**The Fast Way (~50s):** Diagonal $= 2 \\cdot$ short side $\\Rightarrow$ $30$-$60$-$90$ scaffold (short:long:diagonal $= 1:\\sqrt{3}:2$). Area: $x \\cdot x\\sqrt{3} = 729\\sqrt{3} \\Rightarrow x = 27$. Diameter $=$ diagonal $= 2x = 54$.\n\n**Common Mistakes to Avoid:**\n* Forgetting diagonal $=$ diameter.\n\n**Test Day Takeaway:** Diagonal $= 2 \\cdot$ short side means $30$-$60$-$90$; diameter $=$ diagonal.",
+  skills: ["special-right-triangles", "circle-equations"]
 }
       ]
     }

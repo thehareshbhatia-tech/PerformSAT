@@ -808,6 +808,54 @@ export const practiceTest5 = {
   correctAnswer: "D",
   explanation: "**SAT Pattern: Vertex + Sign-of-Coefficient Reasoning**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** Vertex below the $x$-axis with two $x$-intercepts means parabola opens upward, so $a > 0$. Then $a + b + c = y(1) = a(1 - 8)^2 - 20 = 49a - 20 > -20$. Only $-18$ exceeds $-20$.\n\n**Why the wrong answers are tempting:**\n* A: forgets the inequality direction.\n* B: treats the bound as soft.\n* C: copies the vertex $y$-value.\n\n**Test Day Takeaway:** Vertex form + sign of $a$ + a single evaluation $y(1)$ gives $a + b + c$. The two-intercept constraint fixes the sign of $a$.",
   skills: ["quadratic-equations", "vertex-form"]
+},
+{
+  id: 24,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "$$-5x + 35px = 91$$\n\nIn the given equation, $p$ is a constant. The equation has no solution. What is the value of $p$?",
+  choices: [
+    { id: "A", text: "$0$" },
+    { id: "B", text: "$\\dfrac{1}{7}$" },
+    { id: "C", text: "$\\dfrac{5}{7}$" },
+    { id: "D", text: "$5$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: No-Solution Single Linear Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Factor: $x(-5 + 35p) = 91$. No solution when coefficient is $0$ (and constant $\\ne 0$): $-5 + 35p = 0 \\Rightarrow p = 1/7$.\n\n**Why the wrong answers are tempting:**\n* A: solves $5 + 35p = 0$.\n* C: wrong factor.\n* D: solves for wrong unknown.\n\n**Test Day Takeaway:** A linear equation $kx = c$ has no solution iff $k = 0$ and $c \\ne 0$.",
+  skills: ["linear-equations", "no-solution-condition"]
+},
+{
+  id: 25,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "For the function $q$, the value of $q(x)$ decreases by $35\\%$ for every increase in the value of $x$ by $1$. If $q(0) = 22$, which equation defines $q$?",
+  choices: [
+    { id: "A", text: "$q(x) = 0.65(22)^x$" },
+    { id: "B", text: "$q(x) = 1.35(22)^x$" },
+    { id: "C", text: "$q(x) = 22(0.65)^x$" },
+    { id: "D", text: "$q(x) = 22(1.35)^x$" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Exponential Decay — Standard Form**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Decay factor $= 1 - 0.35 = 0.65$. With $q(0) = 22$: $q(x) = 22(0.65)^x$.\n\n**Why the wrong answers are tempting:**\n* A: swaps base and initial.\n* B/D: uses growth factor for decay.\n\n**Test Day Takeaway:** Decay factor $= 1 - p/100$. Standard form: $a(b)^x$.",
+  skills: ["exponential-functions", "exponential-decay"]
+},
+{
+  id: 26,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "A recent poll showed that $512$ people supported Maya and $298$ supported Jordan, out of $810$ voters polled at random. According to the poll, if $8{,}910$ people vote in the election, by how many votes would Maya be expected to win?",
+  choices: [
+    { id: "A", text: "$214$" },
+    { id: "B", text: "$1{,}605$" },
+    { id: "C", text: "$2{,}354$" },
+    { id: "D", text: "$5{,}632$" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Poll Scaling — Margin of Victory**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Scaling factor $= 8910/810 = 11$. Margin $= 512 - 298 = 214$. Scaled margin $= 11 \\times 214 = 2354$.\n\n**Why the wrong answers are tempting:**\n* A: poll-level margin.\n* B: wrong scaling.\n* D: scales Maya's count only.\n\n**Test Day Takeaway:** Scale the MARGIN, not each count.",
+  skills: ["proportion", "statistics"]
 }
       ]
     }

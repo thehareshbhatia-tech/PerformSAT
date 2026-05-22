@@ -808,6 +808,48 @@ export const practiceTest4 = {
   correctAnswer: "29",
   explanation: "**SAT Pattern: Sum of Roots via Input Shift**\n\n**The correct answer is $29$.**\n\n**The Fast Way (~30s):** $g$ has roots $0$, $3$, $-5$. Set $9 - w \\in \\{0, 3, -5\\} \\Rightarrow w \\in \\{9, 6, 14\\}$. Sum $= 29$.\n\n**Common Mistakes to Avoid:**\n* Forgetting the $-5$ root from the squared factor (it still counts once as a distinct $w$).\n* Sign errors when solving $9 - w =$ each root.\n\n**Test Day Takeaway:** Find the roots of $g$ and back-solve for $w$. Multiplicity does NOT create new $w$-values.",
   skills: ["polynomial-zeros", "quadratic-equations"]
+},
+{
+  id: 24,
+  type: "fill-in",
+  difficulty: "hard",
+  band: 7,
+  question: "$$\\dfrac{3}{4}y - \\dfrac{1}{8}x = \\dfrac{1}{2} - \\dfrac{3}{4}y$$\n$$\\dfrac{1}{4}x + \\dfrac{5}{4} = py + \\dfrac{7}{4}$$\n\nIn the given system of equations, $p$ is a constant. If the system has no solution, what is the value of $p$?",
+  correctAnswer: "3",
+  explanation: "**SAT Pattern: No-Solution Parameter (System)**\n\n**The correct answer is $3$.**\n\n**The Fast Way (~50s):** Clear fractions: equation 1 becomes $x - 12y = -4$; equation 2 becomes $x - 4py = 2$. For no solution: $-12 = -4p \\Rightarrow p = 3$. Constants differ ($-4 \\ne 2$) \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Solving for $y$ instead of matching coefficients.\n\n**Test Day Takeaway:** No solution = same slope, different intercept. Clear fractions first, then match.",
+  skills: ["systems-of-equations", "infinite-solutions-condition"]
+},
+{
+  id: 25,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "The function $f$ is defined by $f(x) = (x + 8)(x + 3)(x - 5)$. Which of the following must be true about the values of $y = f(x) - 4$ at $x = -8, -3, 5$?",
+  choices: [
+    { id: "A", text: "All three $y$-values equal $-12$." },
+    { id: "B", text: "All three $y$-values equal $-4$." },
+    { id: "C", text: "All three $y$-values equal $4$." },
+    { id: "D", text: "The three $y$-values equal $-4$, $-3$, $5$ respectively." }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Vertical Shift of a Polynomial**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** At each root, $f(x) = 0$, so $y = f(x) - 4 = -4$. All three equal $-4$.\n\n**Why the wrong answers are tempting:**\n* A/C: wrong shift direction or value.\n* D: reads roots as $y$-values.\n\n**Test Day Takeaway:** $y = f(x) + k$ shifts every output by $k$.",
+  skills: ["polynomial-functions", "function-transformations"]
+},
+{
+  id: 26,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "An isosceles right triangle has a perimeter of $78 + 78\\sqrt{2}$ inches. What is the length, in inches, of one leg of this triangle?",
+  choices: [
+    { id: "A", text: "$39$" },
+    { id: "B", text: "$39\\sqrt{2}$" },
+    { id: "C", text: "$78$" },
+    { id: "D", text: "$78\\sqrt{2}$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: 45-45-90 Triangle from Perimeter**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Leg $L$, hypotenuse $L\\sqrt{2}$. Perimeter: $L(2+\\sqrt{2}) = 78(1+\\sqrt{2})$. Solve: $L = 78(1+\\sqrt{2})/(2+\\sqrt{2}) = 39\\sqrt{2}$.\n\n**Why the wrong answers are tempting:**\n* A: confuses leg with half-perimeter.\n* C/D: copies perimeter coefficient.\n\n**Test Day Takeaway:** Rationalize the denominator: $1+\\sqrt{2}$ over $2+\\sqrt{2}$ simplifies to $\\sqrt{2}/2$.",
+  skills: ["special-right-triangles", "triangles"]
 }
       ]
     }

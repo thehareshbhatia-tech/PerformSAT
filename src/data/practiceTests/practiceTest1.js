@@ -801,6 +801,54 @@ export const practiceTest1 = {
   correctAnswer: "A",
   explanation: "**SAT Pattern: Horizontal Tangent to a Parabola**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** A horizontal line meets a parabola at one point only at the parabola's vertex $y$-value. Vertex $x = 7/2$; $y = -(7/2)^2 + 7(7/2) - 80 = -49/4 + 49/2 - 80 = -271/4$.\n\n**Why the wrong answers are tempting:**\n* B: copies the constant from the equation.\n* C: gives $b^2/(4a)$ without the constant term.\n* D: returns the $x$-coordinate of the vertex.\n\n**Test Day Takeaway:** \"Intersects at exactly one point\" with a horizontal line means $y = $ vertex value of the parabola.",
   skills: ["quadratic-equations", "vertex-form"]
+},
+{
+  id: 24,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "For line $h$, the table shows three values of $x$ and their corresponding values of $y$: $(12, 95)$, $(18, 125)$, $(24, 155)$. Line $k$ is the result of translating line $h$ down $8$ units in the $xy$-plane. What is the $x$-intercept of line $k$?",
+  choices: [
+    { id: "A", text: "$\\left(-\\dfrac{27}{5},\\,0\\right)$" },
+    { id: "B", text: "$\\left(-\\dfrac{19}{5},\\,0\\right)$" },
+    { id: "C", text: "$(-7,\\,0)$" },
+    { id: "D", text: "$\\left(\\dfrac{27}{5},\\,0\\right)$" }
+  ],
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Vertical Shift of a Line — $x$-intercept**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Slope of $h$: $(125-95)/(18-12)=5$. $y$-intercept of $h$: $95-5(12)=35$. Shift down $8$: $y$-intercept of $k=27$. $5x+27=0 \\Rightarrow x=-27/5$.\n\n**Why the wrong answers are tempting:**\n* B: uses a different shift constant.\n* C: divides slope into shifted intercept wrong.\n* D: drops the negative sign.\n\n**Test Day Takeaway:** Vertical shifts move the $y$-intercept by the shift constant; slope is unchanged.",
+  skills: ["linear-functions", "function-transformations"]
+},
+{
+  id: 25,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "Circle $A$ has a radius of $4n$ and circle $B$ has a radius of $92n$, where $n$ is a positive constant. The area of circle $B$ is how many times the area of circle $A$?",
+  choices: [
+    { id: "A", text: "$23$" },
+    { id: "B", text: "$46$" },
+    { id: "C", text: "$92$" },
+    { id: "D", text: "$529$" }
+  ],
+  correctAnswer: "D",
+  explanation: "**SAT Pattern: Similar-Figures Area Ratio**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** Area scales as the square of the linear ratio. $92n/4n = 23$, squared = $529$.\n\n**Why the wrong answers are tempting:**\n* A: returns the linear ratio.\n* B: doubles the linear ratio.\n* C: copies the larger radius coefficient.\n\n**Test Day Takeaway:** Area ratio $=$ (linear ratio)$^2$.",
+  skills: ["circle-area", "geometry"]
+},
+{
+  id: 26,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "Two data sets of $30$ integers each are summarized in identical histograms. The first interval represents the frequency of integers greater than or equal to $10$ but less than $20$. The second represents integers $\\ge 20$ but $< 30$, and so on. What is the smallest possible difference between the mean of data set A and the mean of data set B?",
+  choices: [
+    { id: "A", text: "$0$" },
+    { id: "B", text: "$1$" },
+    { id: "C", text: "$5$" },
+    { id: "D", text: "$10$" }
+  ],
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Grouped Data — Smallest Possible Mean Difference**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Histograms give frequencies per interval, not exact values. With identical histograms, the actual integers within each interval can be chosen to match exactly, producing equal means: minimum difference $=0$.\n\n**Why the wrong answers are tempting:**\n* B: assumes at least one integer must differ.\n* C/D: confuses \"smallest\" with \"largest\".\n\n**Test Day Takeaway:** Grouped frequencies set RANGES of means; identical histograms allow identical underlying data.",
+  skills: ["statistics", "data-analysis"]
 }
       ]
     }

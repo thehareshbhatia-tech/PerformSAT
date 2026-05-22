@@ -773,6 +773,42 @@ export const practiceTest6 = {
   correctAnswer: "5888",
   explanation: "**SAT Pattern: Proportional Area — Recover Side, Then Apply**\n\n**The correct answer is $5888$.**\n\n**The Fast Way (~50s):** Total area $= 16s^2 + s^2 = 17s^2$. Total flux $= 23 \\cdot 17s^2 = 391s^2 = 6256 \\Rightarrow s^2 = 16$. Larger area $= 16(16) = 256$. Larger flux $= 23 \\cdot 256 = 5888$.\n\n**Common Mistakes to Avoid:**\n* Reporting total flux ($6256$) instead of just the larger square's share.\n* Mistaking the side ratio ($4{:}1$) for an area ratio.\n\n**Test Day Takeaway:** Side ratio squared $=$ area ratio. Distribute total flux proportionally to each piece's area.",
   skills: ["proportion", "unit-conversion"]
+},
+{
+  id: 24,
+  type: "fill-in",
+  difficulty: "hard",
+  band: 7,
+  question: "The expression $5\\sqrt[4]{2^4 x^{20}} \\cdot \\sqrt[6]{3^6 x}$ is equivalent to $ax^b$, where $a$ and $b$ are positive constants and $x > 1$. What is the value of $a + b$?",
+  correctAnswer: "211/6",
+  explanation: "**SAT Pattern: Radical with Rational Exponents**\n\n**The correct answer is $211/6$ (or $35.166$).**\n\n**The Fast Way (~40s):** $\\sqrt[4]{2^4 x^{20}} = 2x^5$ and $\\sqrt[6]{3^6 x} = 3x^{1/6}$. Product: $5 \\cdot 2 \\cdot 3 \\cdot x^{5+1/6} = 30x^{31/6}$. So $a = 30$, $b = 31/6$, $a+b = 211/6$.\n\n**Common Mistakes to Avoid:**\n* Adding indices instead of combining exponents.\n\n**Test Day Takeaway:** $\\sqrt[n]{k^n x^m} = k \\cdot x^{m/n}$.",
+  skills: ["exponent-laws", "radicals"]
+},
+{
+  id: 25,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "$$y = 2x^2 - 19x + 56$$\n$$y = 4x + a$$\n\nIn the given system of equations, $a$ is a constant. The graphs of the equations in the given system intersect at exactly one point, $(x, y)$, in the $xy$-plane. What is the value of $x$?",
+  choices: [
+    { id: "A", text: "$-\\dfrac{23}{4}$" },
+    { id: "B", text: "$\\dfrac{19}{4}$" },
+    { id: "C", text: "$\\dfrac{23}{4}$" },
+    { id: "D", text: "$8$" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Tangent Intersection — Single Solution**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** $2x^2 - 19x + 56 = 4x + a \\Rightarrow 2x^2 - 23x + (56-a) = 0$. One solution at vertex: $x = 23/(2 \\cdot 2) = 23/4$.\n\n**Why the wrong answers are tempting:**\n* A: sign error.\n* B: forgets to combine $-19x - 4x$.\n* D: drops the $2$ in leading coefficient.\n\n**Test Day Takeaway:** Tangent $\\Rightarrow$ discriminant $= 0$; unique $x = -b/(2a)$.",
+  skills: ["quadratic-equations", "systems-of-equations"]
+},
+{
+  id: 26,
+  type: "fill-in",
+  difficulty: "hard",
+  band: 7,
+  question: "In a right triangle, the hypotenuse has length $32$ and the leg adjacent to angle $x$ has length $13$. What is the value of $\\cos x^\\circ$?",
+  correctAnswer: "13/32",
+  explanation: "**SAT Pattern: Direct Trig Ratio**\n\n**The correct answer is $13/32$ (or $0.4062$).**\n\n**The Fast Way (~10s):** $\\cos x =$ adjacent/hypotenuse $= 13/32$.\n\n**Common Mistakes to Avoid:**\n* Confusing adjacent and opposite.\n\n**Test Day Takeaway:** SOH-CAH-TOA: $\\cos =$ adjacent/hypotenuse.",
+  skills: ["trigonometry", "right-triangles"]
 }
       ]
     }

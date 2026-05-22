@@ -839,6 +839,48 @@ export const practiceTest11 = {
   correctAnswer: "A",
   explanation: "**SAT Pattern: Right Triangle at Center — Chord Length**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** $CA = \\sqrt{1^2 + (\\sqrt{66})^2} = \\sqrt{67} = r$. With $\\angle ACB = 90^\\circ$, triangle $ACB$ is isosceles right, so $AB = r\\sqrt{2} = \\sqrt{134}$.\n\n**Why the wrong answers are tempting:**\n* B: doubles instead of multiplying by $\\sqrt{2}$.\n* C: skips the radius computation.\n* D: confuses with an equilateral case.\n\n**Test Day Takeaway:** A right angle at the center makes the chord the hypotenuse of an isosceles right triangle with legs equal to the radius.",
   skills: ["circle-equations", "triangles"]
+},
+{
+  id: 24,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "The linear function $g$ is defined by $g(x) = b - 12x$, where $b$ is a constant. If $g(c + 5) = \\dfrac{c}{3}$, where $c$ is a constant, which of the following expressions represents the value of $b$?",
+  choices: [
+    { id: "A", text: "$\\dfrac{37c}{3} + 60$" },
+    { id: "B", text: "$\\dfrac{c}{3} + 60$" },
+    { id: "C", text: "$\\dfrac{13c}{3} + 5$" },
+    { id: "D", text: "$12c + 60$" }
+  ],
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Solve for a Linear Parameter**\n\n**Choice A is correct.**\n\n**The Fast Way (~35s):** $b - 12(c+5) = c/3 \\Rightarrow b = c/3 + 12c + 60 = 37c/3 + 60$.\n\n**Why the wrong answers are tempting:**\n* B: drops $12c$.\n* C: combines fractions wrong.\n* D: forgets the $1/3$.\n\n**Test Day Takeaway:** Substitute, collect, isolate.",
+  skills: ["linear-functions", "function-evaluation"]
+},
+{
+  id: 25,
+  type: "fill-in",
+  difficulty: "hard",
+  band: 7,
+  question: "$$3x^2 - 10x - 6 = 0$$\n\nOne solution to the given equation can be written as $\\dfrac{10 - \\sqrt{k}}{6}$, where $k$ is a constant. What is the value of $k$?",
+  correctAnswer: "172",
+  explanation: "**SAT Pattern: Quadratic Formula — Discriminant Recovery**\n\n**The correct answer is $172$.**\n\n**The Fast Way (~25s):** $x = (10 \\pm \\sqrt{100 + 72})/6 = (10 \\pm \\sqrt{172})/6$. $k = 172$.\n\n**Common Mistakes to Avoid:**\n* Sign error in $-4ac$ when $c < 0$.\n* Using $2a = 3$ instead of $6$.\n\n**Test Day Takeaway:** Radicand $= b^2 - 4ac$.",
+  skills: ["quadratic-equations", "discriminant"]
+},
+{
+  id: 26,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "The speed of a vehicle is increasing at a rate of $9.8$ meters per second squared. What is this rate, in miles per minute squared, rounded to the nearest tenth? (Use $1$ mile $= 1{,}609$ meters.)",
+  choices: [
+    { id: "A", text: "$0.4$" },
+    { id: "B", text: "$21.9$" },
+    { id: "C", text: "$263.1$" },
+    { id: "D", text: "$295.7$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Chained Unit Conversion — Squared Time**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** $9.8 \\cdot (1/1609) \\cdot 60^2 = 9.8 \\times 3600 / 1609 \\approx 21.92$. Round: $21.9$.\n\n**Why the wrong answers are tempting:**\n* A: forgets to square time.\n* C: divides by wrong factor.\n* D: multiplies instead of divides by $1609$.\n\n**Test Day Takeaway:** Squared units need the conversion factor SQUARED.",
+  skills: ["unit-conversion", "rate-conversion"]
 }
       ]
     }

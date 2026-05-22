@@ -793,6 +793,42 @@ export const practiceTest12 = {
   correctAnswer: "288",
   explanation: "**SAT Pattern: Quadratic Model from Vertex and Zero**\n\n**The correct answer is $288$.**\n\n**The Fast Way (~50s):** $g(t) = a(t - 8)^2 + 384$. Surface ($g = 0$) at $t = 16$: $a(64) + 384 = 0 \\Rightarrow a = -6$. So $g(12) = -6(4)^2 + 384 = -96 + 384 = 288$.\n\n**Common Mistakes to Avoid:**\n* Picking $a > 0$ (depth-below-surface model needs $a < 0$).\n* Mis-computing $(12 - 8)^2$ as $8$.\n\n**Test Day Takeaway:** Vertex form $a(t - h)^2 + k$; use the second condition (a known zero) to solve for $a$.",
   skills: ["quadratic-equations", "function-interpretation"]
+},
+{
+  id: 24,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "Which of the following expressions has a factor of $x + 3b$, where $b$ is a positive integer constant?",
+  choices: [
+    { id: "A", text: "$4x^2 + 14x + 12b$" },
+    { id: "B", text: "$4x^2 + 22x + 12b$" },
+    { id: "C", text: "$4x^2 + 30x + 12b$" },
+    { id: "D", text: "$4x^2 + 40x + 12b$" }
+  ],
+  correctAnswer: "D",
+  explanation: "**SAT Pattern: Factor with Parameter — Integer Constraint**\n\n**Choice D is correct.**\n\n**The Fast Way (~45s):** $(x+3b)(4x+4) = 4x^2 + (4+12b)x + 12b$. Match middle: $4 + 12b = M \\Rightarrow b = (M-4)/12$. Only $M = 40$ gives integer $b = 3$.\n\n**Why the wrong answers are tempting:**\n* A/B/C: $b$ not integer for those middles.\n\n**Test Day Takeaway:** Use $(x + 3b)(\\text{linear})$ structure; enforce integer constraint.",
+  skills: ["polynomial-functions", "factoring"]
+},
+{
+  id: 25,
+  type: "fill-in",
+  difficulty: "hard",
+  band: 7,
+  question: "The perimeter of an equilateral triangle is $426$ centimeters. The three vertices of the triangle lie on a circle. The radius of the circle is $w\\sqrt{3}$ centimeters. What is the value of $w$?",
+  correctAnswer: "142/3",
+  explanation: "**SAT Pattern: Equilateral Triangle — Circumradius**\n\n**The correct answer is $142/3$ (or $47.33$).**\n\n**The Fast Way (~40s):** Side $= 426/3 = 142$. Circumradius: $R = a/\\sqrt{3} = a\\sqrt{3}/3 = 142\\sqrt{3}/3$. So $w = 142/3$.\n\n**Common Mistakes to Avoid:**\n* Using $a/2$ as circumradius (that's the apothem).\n\n**Test Day Takeaway:** Equilateral $R = a\\sqrt{3}/3$.",
+  skills: ["special-right-triangles", "circle-equations"]
+},
+{
+  id: 26,
+  type: "fill-in",
+  difficulty: "hard",
+  band: 7,
+  question: "The number $a$ is $120\\%$ greater than the number $b$. The number $b$ is $80\\%$ less than $65$. What is the value of $a$?",
+  correctAnswer: "28.6",
+  explanation: "**SAT Pattern: Chained Percent Relationship**\n\n**The correct answer is $28.6$.**\n\n**The Fast Way (~30s):** $b = 65(0.20) = 13$. $a = 2.20(13) = 28.6$.\n\n**Common Mistakes to Avoid:**\n* \"$120\\%$ greater\" means $\\times 2.20$, not $\\times 1.20$.\n* \"$80\\%$ less\" means $\\times 0.20$, not $\\times 0.80$.\n\n**Test Day Takeaway:** Translate each percent phrase to a factor.",
+  skills: ["percent-change", "percent-word-problems"]
 }
       ]
     }

@@ -816,6 +816,42 @@ export const practiceTest8 = {
   correctAnswer: "D",
   explanation: "**SAT Pattern: Same Line — Infinitely Many Solutions (Parametric)**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** The second equation is $3 \\times$ the first, so both describe the same line. Solve $4x + 5y = 9$ for $y$: $y = -\\dfrac{4x}{5} + \\dfrac{9}{5}$. Set $x = r$: $\\left(r,\\,-\\dfrac{4r}{5} + \\dfrac{9}{5}\\right)$.\n\n**Why the wrong answers are tempting:**\n* A: misapplies the multiplier.\n* B: uses the wrong solved form.\n* C: drops the negative sign.\n\n**Test Day Takeaway:** When a system collapses to one line, every point on that line solves it. Parameterize one variable.",
   skills: ["systems-of-equations", "linear-functions"]
+},
+{
+  id: 24,
+  type: "fill-in",
+  difficulty: "hard",
+  band: 7,
+  question: "The graph of $y = 3x^2 + bx + c$ has a vertex at $(-2, -10)$, where $b$ and $c$ are constants. What is the value of $bc$?",
+  correctAnswer: "24",
+  explanation: "**SAT Pattern: Vertex Form to Standard Form**\n\n**The correct answer is $24$.**\n\n**The Fast Way (~40s):** $y = 3(x+2)^2 - 10 = 3x^2 + 12x + 2$. So $b = 12$, $c = 2$, $bc = 24$.\n\n**Common Mistakes to Avoid:**\n* Forgetting to multiply expansion by $3$.\n\n**Test Day Takeaway:** Expand $(x-h)^2$, distribute $a$, add $k$.",
+  skills: ["quadratic-equations", "vertex-form"]
+},
+{
+  id: 25,
+  type: "fill-in",
+  difficulty: "hard",
+  band: 7,
+  question: "The function $g$ is defined by $g(x) = (x + 10)(t - x)$, where $t$ is a constant. In the $xy$-plane, the graph of $y = g(x)$ passes through the point $(30, 0)$. What is the value of $g(0)$?",
+  correctAnswer: "300",
+  explanation: "**SAT Pattern: Recover Parameter, Then Evaluate**\n\n**The correct answer is $300$.**\n\n**The Fast Way (~25s):** $g(30) = 0 \\Rightarrow (40)(t - 30) = 0 \\Rightarrow t = 30$. Then $g(0) = (10)(30) = 300$.\n\n**Common Mistakes to Avoid:**\n* Setting $x + 10 = 0$ at $x = 30$.\n\n**Test Day Takeaway:** Use the known root to pin the constant.",
+  skills: ["function-evaluation", "polynomial-functions"]
+},
+{
+  id: 26,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "Five turtle nests contain $158$, $152$, $161$, $145$, and $149$ eggs. A sixth nest with $128$ eggs is added to create a new data set. Which of the following correctly compares the means of the two data sets?",
+  choices: [
+    { id: "A", text: "The mean of the original data set is greater than the mean of the new data set." },
+    { id: "B", text: "The mean of the original data set is less than the mean of the new data set." },
+    { id: "C", text: "The means of both data sets are equal." },
+    { id: "D", text: "There is not enough information to compare the means." }
+  ],
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Mean After Appending a Value**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Original mean $= 765/5 = 153$. New value $128 < 153$, so adding it lowers the mean.\n\n**Why the wrong answers are tempting:**\n* B: opposite direction.\n* C: ignores the gap.\n* D: claims insufficient info.\n\n**Test Day Takeaway:** Adding below the mean LOWERS; above RAISES.",
+  skills: ["statistics", "mean"]
 }
       ]
     }
