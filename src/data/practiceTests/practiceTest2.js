@@ -556,7 +556,7 @@ export const practiceTest2 = {
   id: 9,
   type: "multiple-choice",
   difficulty: "hard",
-  band: 7,
+  band: 6,
   question: "A nonprofit's monthly donations grew by $25\\%$ from January to February, then by an additional $20\\%$ from February to March. The March total was $\\$18{,}000$. What were the January donations, in dollars?",
   choices: [
     // distractor: subtracts 45% (sum of percents) from $18,000
@@ -649,7 +649,7 @@ export const practiceTest2 = {
   id: 14,
   type: "fill-in",
   difficulty: "hard",
-  band: 7,
+  band: 6,
   question: "The value of an investment account is modeled by $V(t) = 20{,}000(1.005)^{12t}$, where $t$ is the number of years since the account was opened. What is the annual percent increase in the value of the account, to the nearest tenth of a percent?",
   correctAnswer: "6.2",
   explanation: "**SAT Pattern: Exponential Growth Interpretation**\n\n**The correct answer is $6.2$.**\n\n**The Fast Way (~25s):** Annual factor $= (1.005)^{12}$. Compute: $(1.005)^{12} \\approx 1.0617$. Subtract $1$: $\\approx 0.0617 = 6.2\\%$.\n\n**The Full Solution:**\nThe model $V(t) = 20{,}000(1.005)^{12t}$ compounds monthly at $0.5\\%$ per month. To find the annual rate, evaluate the growth factor over one year ($t = 1$):\nAnnual factor $= (1.005)^{12} \\approx 1.06168$.\nAnnual percent increase $\\approx 6.168\\% \\approx 6.2\\%$.\n\n**Verification:** Using $(1+r)^n \\approx 1 + nr + \\dfrac{n(n-1)}{2}r^2$ for small $r$: $1 + 12(0.005) + 66(0.000025) = 1.06165$. Confirms $\\approx 6.2\\%$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Reporting $0.5$ (the monthly rate, not annual).\n* Reporting $6$ (multiplying $0.5\\% \\times 12$, ignoring compounding).\n\n**Test Day Takeaway:** Effective annual rate is the growth factor over one full year minus $1$, expressed as a percent. Compounding adds slightly more than the simple multiple.",
@@ -764,7 +764,7 @@ export const practiceTest2 = {
   id: 21,
   type: "multiple-choice",
   difficulty: "hard",
-  band: 7,
+  band: 6,
   question: "The equation $5x^2 - bx + 45 = 0$ has no real solutions, where $b$ is a positive integer. What is the greatest possible value of $b$?",
   choices: [
     // distractor: misses strict inequality, gives b = 30 (when discriminant = 0)

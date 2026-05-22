@@ -657,7 +657,7 @@ export const practiceTest9 = {
   id: 14,
   type: "multiple-choice",
   difficulty: "hard",
-  band: 7,
+  band: 6,
   question: "A biologist models a bacteria population with $P(t) = 800 \\cdot 2^{\\frac{t}{3}}$, where $t$ is measured in hours. By what percent does the population increase every $9$ hours?",
   choices: [
     // distractor: 100% (one doubling, ignores 9h)
@@ -705,7 +705,7 @@ export const practiceTest9 = {
   id: 17,
   type: "multiple-choice",
   difficulty: "hard",
-  band: 7,
+  band: 6,
   question: "Two similar triangles have a ratio of corresponding sides of $3:5$. If the area of the smaller triangle is $27$ square centimeters, what is the area of the larger triangle, in square centimeters?",
   choices: [
     // distractor: uses the linear ratio (27 \times 5/3 = 45)
@@ -734,7 +734,7 @@ export const practiceTest9 = {
   id: 19,
   type: "multiple-choice",
   difficulty: "hard",
-  band: 7,
+  band: 6,
   question: "The positive number $a$ is $180\\%$ of the sum of the positive numbers $b$ and $c$, and $b$ is $30\\%$ of $c$. What percent of $b$ is $a$?",
   choices: [
     // distractor: adds the percents: 180 + 30 = 210
@@ -761,19 +761,9 @@ export const practiceTest9 = {
 },
 {
   id: 21,
-  type: "fill-in",
-  difficulty: "hard",
-  band: 8,
-  question: "The function $f$ is defined by $f(x) = ax^2 + b$, where $a$ and $b$ are constants. If $f(2x - 1) - f(2x + 1) = -16x$ for all real numbers $x$, what is the value of $a$?",
-  correctAnswer: "2",
-  explanation: "**SAT Pattern: Parameterized Quadratic from a Functional Identity**\n\n**The correct answer is $2$.**\n\n**The Fast Way (~45s):** Compute $f(2x - 1) - f(2x + 1)$ symbolically and match the coefficient of $x$ to $-16$.\n* $f(2x - 1) = a(2x - 1)^2 + b = a(4x^2 - 4x + 1) + b$.\n* $f(2x + 1) = a(2x + 1)^2 + b = a(4x^2 + 4x + 1) + b$.\n* Difference: $a[(4x^2 - 4x + 1) - (4x^2 + 4x + 1)] = a(-8x) = -8ax$.\n* Set $-8ax = -16x$, so $a = 2$.\n\n**The Full Solution:**\nExpand each composition:\n$f(2x - 1) = a(2x - 1)^2 + b = a(4x^2 - 4x + 1) + b = 4ax^2 - 4ax + a + b$\n$f(2x + 1) = a(2x + 1)^2 + b = a(4x^2 + 4x + 1) + b = 4ax^2 + 4ax + a + b$\n\nSubtract:\n$f(2x - 1) - f(2x + 1) = (4ax^2 - 4ax + a + b) - (4ax^2 + 4ax + a + b) = -8ax$\n\nSet equal to $-16x$ (must hold for all $x$):\n$-8ax = -16x$\n$-8a = -16$\n$a = 2$.\n\nNote: $b$ does not appear in the difference, so it is unconstrained.\n\n**Verification:** with $a = 2$: $f(2x - 1) - f(2x + 1) = -8(2)x = -16x$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Trying to solve by plugging in specific values of $x$ — works, but the algebraic shortcut is faster.\n* Forgetting to distribute the $a$ when expanding $a(2x \\pm 1)^2$.\n* Confusing the sign on the difference: $(2x - 1)^2 - (2x + 1)^2 = -8x$, NOT $+8x$ (the larger square is $(2x+1)^2$).\n\n**Test Day Takeaway:** Difference of squares pattern: $(P)^2 - (Q)^2 = (P - Q)(P + Q)$. Here $(2x - 1)^2 - (2x + 1)^2 = ((2x-1) - (2x+1))((2x-1) + (2x+1)) = (-2)(4x) = -8x$.",
-  skills: ["function-interpretation", "polynomial-operations", "factoring"]
-},
-{
-  id: 22,
   type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
+  difficulty: "medium",
+  band: 5,
   question: "If $\\dfrac{x}{6} = \\dfrac{5}{12}$, what is the value of $4x - 1$?",
   choices: [
     // distractor: stops at x = 5/2 (forgets the 4x and -1)
@@ -787,6 +777,16 @@ export const practiceTest9 = {
   correctAnswer: "B",
   explanation: "**SAT Pattern: Shifted Output**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Cross-multiply: $12x = 30$, so $x = \\dfrac{5}{2}$. Then $4x - 1 = 10 - 1 = 9$.\n\n**The Full Solution:**\nFrom $\\dfrac{x}{6} = \\dfrac{5}{12}$, multiply both sides by $6$: $x = \\dfrac{30}{12} = \\dfrac{5}{2}$. Therefore $4x - 1 = 4 \\cdot \\dfrac{5}{2} - 1 = 10 - 1 = 9$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives $x$ instead of $4x - 1$.\n* Choice C: \"off-by-one\" — forgets the $-1$ and reports $4x = 10$.\n* Choice D: \"applies the inverse operation\" — adds $1$ instead of subtracting.\n\n**Test Day Takeaway:** Always check what the question asks for — here it is $4x - 1$, not $x$ alone.",
   skills: ["solving-equations", "ratios"]
+},
+{
+  id: 22,
+  type: "fill-in",
+  difficulty: "hard",
+  band: 8,
+  question: "The function $f$ is defined by $f(x) = ax^2 + b$, where $a$ and $b$ are constants. If $f(2x - 1) - f(2x + 1) = -16x$ for all real numbers $x$, what is the value of $a$?",
+  correctAnswer: "2",
+  explanation: "**SAT Pattern: Parameterized Quadratic from a Functional Identity**\n\n**The correct answer is $2$.**\n\n**The Fast Way (~45s):** Compute $f(2x - 1) - f(2x + 1)$ symbolically and match the coefficient of $x$ to $-16$.\n* $f(2x - 1) = a(2x - 1)^2 + b = a(4x^2 - 4x + 1) + b$.\n* $f(2x + 1) = a(2x + 1)^2 + b = a(4x^2 + 4x + 1) + b$.\n* Difference: $a[(4x^2 - 4x + 1) - (4x^2 + 4x + 1)] = a(-8x) = -8ax$.\n* Set $-8ax = -16x$, so $a = 2$.\n\n**The Full Solution:**\nExpand each composition:\n$f(2x - 1) = a(2x - 1)^2 + b = a(4x^2 - 4x + 1) + b = 4ax^2 - 4ax + a + b$\n$f(2x + 1) = a(2x + 1)^2 + b = a(4x^2 + 4x + 1) + b = 4ax^2 + 4ax + a + b$\n\nSubtract:\n$f(2x - 1) - f(2x + 1) = (4ax^2 - 4ax + a + b) - (4ax^2 + 4ax + a + b) = -8ax$\n\nSet equal to $-16x$ (must hold for all $x$):\n$-8ax = -16x$\n$-8a = -16$\n$a = 2$.\n\nNote: $b$ does not appear in the difference, so it is unconstrained.\n\n**Verification:** with $a = 2$: $f(2x - 1) - f(2x + 1) = -8(2)x = -16x$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Trying to solve by plugging in specific values of $x$ — works, but the algebraic shortcut is faster.\n* Forgetting to distribute the $a$ when expanding $a(2x \\pm 1)^2$.\n* Confusing the sign on the difference: $(2x - 1)^2 - (2x + 1)^2 = -8x$, NOT $+8x$ (the larger square is $(2x+1)^2$).\n\n**Test Day Takeaway:** Difference of squares pattern: $(P)^2 - (Q)^2 = (P - Q)(P + Q)$. Here $(2x - 1)^2 - (2x + 1)^2 = ((2x-1) - (2x+1))((2x-1) + (2x+1)) = (-2)(4x) = -8x$.",
+  skills: ["function-interpretation", "polynomial-operations", "factoring"]
 }
       ]
     }

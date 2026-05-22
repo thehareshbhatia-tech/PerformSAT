@@ -581,7 +581,7 @@ export const practiceTest7 = {
   id: 11,
   type: "multiple-choice",
   difficulty: "hard",
-  band: 7,
+  band: 6,
   question: "The function $f(x) = a \\cdot b^x$ passes through the points $(0, 5)$ and $(3, 320)$. What is the value of $f(2)$?",
   choices: [
     // distractor: stops one step early — uses b alone (= 4) without raising to the second power
@@ -600,7 +600,7 @@ export const practiceTest7 = {
   id: 12,
   type: "multiple-choice",
   difficulty: "hard",
-  band: 7,
+  band: 6,
   question: "If $x > 0$, the expression $\\sqrt[3]{x^4} \\cdot \\sqrt{x^7}$ is equivalent to $x^{\\frac{p}{q}}$ where $\\dfrac{p}{q}$ is in lowest terms. What is the value of $p + q$?",
   choices: [
     // distractor: stops one step early — gives p alone (= 29) instead of p + q
@@ -648,7 +648,7 @@ export const practiceTest7 = {
   id: 15,
   type: "multiple-choice",
   difficulty: "hard",
-  band: 7,
+  band: 6,
   question: "The function $f(x) = 250(0.85)^x$ models the amount of a medication, in mg, in a patient's bloodstream $x$ hours after administration. After how many complete hours will the amount first drop below $100$ mg?\n\n(Use: $\\log(0.4) \\approx -0.3979$ and $\\log(0.85) \\approx -0.0706$.)",
   choices: [
     // distractor: off-by-one — rounds 5.64 down to 5, but at x = 5 the amount is still above 100

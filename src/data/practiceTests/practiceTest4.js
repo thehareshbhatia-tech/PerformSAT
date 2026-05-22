@@ -622,7 +622,7 @@ export const practiceTest4 = {
   id: 12,
   type: "multiple-choice",
   difficulty: "hard",
-  band: 7,
+  band: 6,
   question: "A rental company charges $\\$45$ per day plus $\\$0.30$ per mile driven. A customer's bill for a one-day rental was $\\$117$. If the same customer instead drove $30$ fewer miles on a two-day rental at the same daily and per-mile rates, what would the total bill be?",
   choices: [
     // distractor: ignores the extra day fee (45) — adds only mile cost change
@@ -641,7 +641,7 @@ export const practiceTest4 = {
   id: 13,
   type: "fill-in",
   difficulty: "hard",
-  band: 7,
+  band: 6,
   question: "The number of bacteria in a culture is modeled by $N(t) = 500(1.06)^{\\frac{t}{2}}$, where $t$ is the number of days. By what percent does the number of bacteria increase every $2$ days?",
   correctAnswer: "6",
   explanation: "**SAT Pattern: Exponential Growth Interpretation**\n\n**The correct answer is $6$.**\n\n**The Fast Way (~15s):** Every $2$ days, the exponent increases by $1$, so $N$ multiplies by $1.06$. That is a $6\\%$ increase.\n\n**The Full Solution:**\nWhen $t$ increases by $2$:\n$N(t+2) = 500(1.06)^{\\frac{t+2}{2}} = 500(1.06)^{\\frac{t}{2}} \\cdot 1.06 = 1.06 \\cdot N(t)$.\nEvery $2$ days, the population is multiplied by $1.06$.\nPercent increase $= 1.06 - 1 = 0.06 = 6\\%$.\n\n**Verification:** At $t = 0$: $N = 500$. At $t = 2$: $N = 500(1.06) = 530$.\nIncrease: $\\dfrac{530 - 500}{500} = \\dfrac{30}{500} = 0.06 = 6\\%$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Answering $106$ or $1.06$ (the growth factor, not the percent increase).\n* Finding the daily rate instead of the $2$-day rate.\n\n**Test Day Takeaway:** In $a \\cdot b^{\\frac{t}{d}}$, every $d$ time units the value multiplies by $b$. Subtract $1$ to get the percent increase.",
@@ -651,7 +651,7 @@ export const practiceTest4 = {
   id: 14,
   type: "multiple-choice",
   difficulty: "hard",
-  band: 7,
+  band: 6,
   question: "A statistician finds that the mean of a list of $9$ numbers is $24$. When a tenth number is added to the list, the mean of the new list of $10$ numbers becomes $25$. What is the tenth number?",
   choices: [
     // distractor: just gives the new mean as the answer

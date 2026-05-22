@@ -582,7 +582,7 @@ export const practiceTest10 = {
   id: 9,
   type: "multiple-choice",
   difficulty: "hard",
-  band: 7,
+  band: 6,
   question: "A chemical engineer is studying the yield of a reaction as a function of the temperature, in degrees Celsius, of the reaction vessel. The yield, in grams of product, is modeled by $Y(t) = -0.5(t - 65)^2 + 80$, where $t$ is the temperature in degrees Celsius. Which of the following is the best interpretation of the vertex of the graph of $Y(t)$ in the $tY$-plane in this context?",
   choices: [
     // distractor: swaps coordinates
@@ -744,7 +744,7 @@ export const practiceTest10 = {
   id: 19,
   type: "multiple-choice",
   difficulty: "hard",
-  band: 7,
+  band: 6,
   question: "A quantity $a$ is $p\\%$ of the sum of two values, $b + c$. If $a = 90$, $b = 200$, and $c = 100$, what is the value of $p$?",
   choices: [
     // distractor: applies inverse op — divides by a instead of (b+c)
@@ -781,8 +781,8 @@ export const practiceTest10 = {
 {
   id: 21,
   type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
+  difficulty: "medium",
+  band: 5,
   question: "$350$ is what percent greater than $50$?",
   choices: [
     // distractor: applies inverse op — divides by 350 instead of 50

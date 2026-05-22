@@ -637,8 +637,8 @@ export const practiceTest11 = {
 {
   id: 12,
   type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
+  difficulty: "medium",
+  band: 5,
   question: "If $4(2y - 5) + 7 = 6y + k$ has infinitely many solutions for $y$, what is the value of $k$?",
   choices: [
     // distractor: sign error on -13: gets +13
@@ -771,7 +771,7 @@ export const practiceTest11 = {
   id: 20,
   type: "multiple-choice",
   difficulty: "hard",
-  band: 7,
+  band: 6,
   question: "The system of linear equations\n\n$3x + ky = 12$\n$6x + 4y = 30$\n\nhas no solution. What is the value of $k$?",
   choices: [
     // distractor: reads from the LHS only (uses 4 directly)
@@ -809,7 +809,7 @@ export const practiceTest11 = {
   id: 22,
   type: "multiple-choice",
   difficulty: "hard",
-  band: 7,
+  band: 6,
   question: "A community survey reports that the number of households that own a bicycle is $250\\%$ of the number of households that own both a bicycle and a scooter. The number of households that own only a scooter (and no bicycle) is $40\\%$ of the number of households that own a bicycle. What percent of the total number of households surveyed (those that own a bicycle, only a scooter, or both) is the number that own only a scooter?",
   choices: [
     // distractor: uses 40% directly as the answer

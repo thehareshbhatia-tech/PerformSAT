@@ -608,7 +608,7 @@ export const practiceTest3 = {
   id: 11,
   type: "multiple-choice",
   difficulty: "hard",
-  band: 7,
+  band: 6,
   question: "A data set of $9$ values is listed in order:\n\n$4, 6, 6, 8, 9, 11, 11, 13, 22$\n\nIf the value $22$ is removed from the data set, which statement correctly describes the change?",
   choices: [
     { id: "A", text: "The mean decreases and the median decreases." },
@@ -637,7 +637,7 @@ export const practiceTest3 = {
   id: 13,
   type: "fill-in",
   difficulty: "hard",
-  band: 7,
+  band: 6,
   question: "A radioactive substance decays according to $A(t) = 200(0.84)^{\\frac{t}{3}}$, where $A(t)$ is the amount in grams and $t$ is the time in years. By what percent does the substance decay every $3$ years?",
   correctAnswer: "16",
   explanation: "**SAT Pattern: Exponential Growth Interpretation**\n\n**The correct answer is $16$.**\n\n**The Fast Way (~15s):** Every $3$ years, the multiplier is $0.84$. Percent decay $= 1 - 0.84 = 0.16 = 16\\%$.\n\n**The Full Solution:**\nWhen $t$ increases by $3$:\n$A(t+3) = 200(0.84)^{\\frac{t+3}{3}} = 200(0.84)^{\\frac{t}{3}} \\cdot 0.84 = 0.84 \\cdot A(t)$.\nEvery $3$ years, the amount is multiplied by $0.84$.\nPercent decay $= 1 - 0.84 = 0.16 = 16\\%$.\n\n**Verification:** At $t = 0$: $A = 200$. At $t = 3$: $A = 200(0.84) = 168$.\nDecrease: $\\dfrac{200 - 168}{200} = \\dfrac{32}{200} = 0.16 = 16\\%$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Answering $84$ (the retention factor, not the decay rate).\n* Finding the annual rate instead of the $3$-year rate.\n\n**Test Day Takeaway:** A decay multiplier $b < 1$ over period $d$ means the percent decrease per period is $(1 - b) \\times 100\\%$.",
@@ -647,7 +647,7 @@ export const practiceTest3 = {
   id: 14,
   type: "multiple-choice",
   difficulty: "hard",
-  band: 7,
+  band: 6,
   question: "The positive number $x$ is $180\\%$ of the sum of the positive numbers $y$ and $z$, and $y$ is $25\\%$ of $z$. What percent of $y$ is $x$?",
   choices: [
     // distractor: adds the percents directly: 180 + 25 = 205
@@ -715,7 +715,7 @@ export const practiceTest3 = {
   id: 19,
   type: "multiple-choice",
   difficulty: "hard",
-  band: 7,
+  band: 6,
   question: "If $x > 0$, the expression $\\sqrt[4]{x^3} \\cdot \\sqrt[3]{x^5}$ is equivalent to $x^{\\frac{p}{q}}$ where $\\dfrac{p}{q}$ is in lowest terms. What is the value of $p + q$?",
   choices: [
     // distractor: gives p alone (29) without adding q

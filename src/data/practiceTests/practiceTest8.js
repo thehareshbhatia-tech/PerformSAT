@@ -569,7 +569,7 @@ export const practiceTest8 = {
   id: 9,
   type: "multiple-choice",
   difficulty: "hard",
-  band: 7,
+  band: 6,
   question: "Line $j$ passes through the points $(2, 9)$ and $(6, 1)$. Line $k$ is perpendicular to line $j$ and passes through the point $(2, 9)$. Which of the following is an equation of line $k$?",
   choices: [
     // distractor: gives slope of j (parallel, not perpendicular)
@@ -689,7 +689,7 @@ export const practiceTest8 = {
   id: 15,
   type: "fill-in",
   difficulty: "hard",
-  band: 7,
+  band: 6,
   question: "A researcher surveyed $625$ randomly selected adults and found that $375$ support a new policy. The researcher uses the quick estimate margin of error $\\approx \\dfrac{1}{\\sqrt{n}}$ for a $95\\%$ confidence interval. What is the approximate margin of error, expressed as a percentage? Round to the nearest whole number.",
   correctAnswer: "4",
   explanation: "**SAT Pattern: Margin of Error**\n\n**The correct answer is $4$.**\n\n**The Fast Way (~10s):** $\\dfrac{1}{\\sqrt{625}} = \\dfrac{1}{25} = 0.04 = 4\\%$.\n\n**The Full Solution:**\nThe quick-estimate $95\\%$ margin of error formula is $\\dfrac{1}{\\sqrt{n}}$, where $n$ is the SAMPLE SIZE (not the count of favorable outcomes).\n\n$\\dfrac{1}{\\sqrt{625}} = \\dfrac{1}{25} = 0.04 = 4\\%$.\n\nThe sample proportion is $\\dfrac{375}{625} = 60\\%$, so the $95\\%$ confidence interval is approximately $[56\\%, 64\\%]$.\n\n**Common Mistakes to Avoid:**\n* Using $n = 375$ (the favorable count) instead of $n = 625$ (sample size): gives $\\dfrac{1}{\\sqrt{375}} \\approx 5.16\\%$.\n* Forgetting to convert to a percentage.\n\n**Test Day Takeaway:** The margin of error formula uses the total sample size $n$, not the count of favorable responses.",

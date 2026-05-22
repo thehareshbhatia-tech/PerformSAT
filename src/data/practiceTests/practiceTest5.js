@@ -635,7 +635,7 @@ export const practiceTest5 = {
   id: 13,
   type: "multiple-choice",
   difficulty: "hard",
-  band: 7,
+  band: 6,
   question: "If $432$ is $p\\%$ greater than $48$, what is the value of $p$?",
   choices: [
     // distractor: divides 432 by 48 to get 9, then converts wrong (gives 900)
@@ -654,7 +654,7 @@ export const practiceTest5 = {
   id: 14,
   type: "multiple-choice",
   difficulty: "hard",
-  band: 7,
+  band: 6,
   question: "A polling organization surveyed a random sample of $400$ likely voters and reported a margin of error of $\\pm 4$ percentage points at $95\\%$ confidence. The pollsters want to reduce the margin of error to approximately $\\pm 2$ percentage points using the same confidence level. Approximately what total sample size is needed?",
   choices: [
     // distractor: doubles to 800 (would only reduce MOE by sqrt(2))
@@ -673,7 +673,7 @@ export const practiceTest5 = {
   id: 15,
   type: "fill-in",
   difficulty: "hard",
-  band: 8,
+  band: 7,
   question: "If $4^{x + 1} = 8^{x - 1}$, what is the value of $x$?",
   correctAnswer: "5",
   explanation: "**SAT Pattern: Exponential Equation with Common Base**\n\n**The correct answer is $5$.**\n\n**The Fast Way (~30s):** Rewrite both sides as powers of $2$: $4 = 2^2$ and $8 = 2^3$. So $2^{2(x+1)} = 2^{3(x-1)}$. Equate exponents: $2x + 2 = 3x - 3$, giving $x = 5$.\n\n**The Full Solution:**\nFor an equation of the form $b^M = b^N$ (same positive base $b \\neq 1$), we must have $M = N$. So convert both sides to a common base.\n\n$4 = 2^2$ and $8 = 2^3$, so:\n$4^{x + 1} = (2^2)^{x + 1} = 2^{2(x + 1)} = 2^{2x + 2}$\n$8^{x - 1} = (2^3)^{x - 1} = 2^{3(x - 1)} = 2^{3x - 3}$\n\nSet exponents equal:\n$2x + 2 = 3x - 3$\n$5 = x$\n\n**Verification:** $4^{5 + 1} = 4^6 = 4096$. $8^{5 - 1} = 8^4 = 4096$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Setting $4 = 8$ in some way (e.g., trying to equate the bases without rewriting them as common powers).\n* Forgetting to distribute: writing $2(x+1)$ as $2x + 1$ instead of $2x + 2$.\n* Sign error: $-(-3) = +3$, leading to wrong constant.\n\n**Test Day Takeaway:** When two exponential expressions are equal and the bases are powers of a common base, rewrite both sides in that common base, then equate exponents. Use $(b^m)^n = b^{mn}$ — multiply, don't add.",
@@ -729,7 +729,7 @@ export const practiceTest5 = {
   id: 18,
   type: "fill-in",
   difficulty: "hard",
-  band: 7,
+  band: 6,
   question: "A radioactive sample is modeled by $M(t) = 240(0.84)^{\\frac{t}{3}}$, where $M$ is the mass in grams and $t$ is the time in days since the initial measurement. By what percent does the mass decrease every $3$ days?",
   correctAnswer: "16",
   explanation: "**SAT Pattern: Exponential Growth Interpretation**\n\n**The correct answer is $16$.**\n\n**The Fast Way (~15s):** Every $3$ days, the multiplier is $0.84$. Percent decrease $= 1 - 0.84 = 0.16 = 16\\%$.\n\n**The Full Solution:**\nWhen $t$ increases by $3$:\n$M(t + 3) = 240(0.84)^{\\frac{t+3}{3}} = 240(0.84)^{\\frac{t}{3}} \\cdot 0.84 = 0.84 \\cdot M(t)$.\n\nThe mass is multiplied by $0.84$ every $3$ days, so the percent decrease per $3$-day period is $1 - 0.84 = 0.16 = 16\\%$.\n\nVerification: at $t = 0$, $M = 240$. At $t = 3$, $M = 201.6$. Decrease: $\\dfrac{240 - 201.6}{240} = \\dfrac{38.4}{240} = 0.16 = 16\\%$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Answering $84$ (the multiplier itself, not the percent decrease).\n* Computing the daily rate instead of the $3$-day rate.\n\n**Test Day Takeaway:** A decay multiplier $b < 1$ over period $d$ means the percent decrease per period is $(1 - b) \\times 100\\%$.",

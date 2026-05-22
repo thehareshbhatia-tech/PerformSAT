@@ -617,7 +617,7 @@ export const practiceTest6 = {
   id: 14,
   type: "multiple-choice",
   difficulty: "hard",
-  band: 7,
+  band: 6,
   question: "A radioactive substance decays according to $A(t) = 320(0.78)^{\\frac{t}{4}}$, where $A(t)$ is the amount in grams and $t$ is the time in years. By approximately what percent does the substance decay every $4$ years?",
   choices: [
     // distractor: applies inverse op — gives 78%
@@ -739,7 +739,7 @@ export const practiceTest6 = {
   id: 21,
   type: "multiple-choice",
   difficulty: "hard",
-  band: 7,
+  band: 6,
   question: "If $x > 0$, the expression $\\sqrt[5]{x^7} \\cdot \\sqrt[3]{x^4}$ is equivalent to $x^{\\frac{p}{q}}$ where $\\dfrac{p}{q}$ is in lowest terms. What is the value of $p + q$?",
   choices: [
     // distractor: stops one step early — adds 7 + 4 = 11

@@ -645,8 +645,8 @@ export const practiceTest12 = {
 {
   id: 15,
   type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
+  difficulty: "easy",
+  band: 4,
   question: "If $7x + 4 = 39$, what is the value of $14x - 8$?",
   choices: [
     // distractor: stops one step early — gives $7x = 35$
@@ -742,7 +742,7 @@ export const practiceTest12 = {
   id: 21,
   type: "multiple-choice",
   difficulty: "hard",
-  band: 7,
+  band: 6,
   question: "A study of $200$ households measured weekly grocery spending ($x$, in dollars) and weekly grocery delivery cost ($y$, in dollars). The line of best fit is $y = 0.18x + 3.5$. A particular household spent $\\$220$ on groceries and paid $\\$48$ for delivery. What is the residual for this household, in dollars?",
   diagram: { type: "scatterplot", params: {
     points: [[60,13],[80,20],[120,26],[150,28],[180,36],[200,38],[250,50],[280,50],[320,60],[380,75]],
@@ -769,7 +769,7 @@ export const practiceTest12 = {
   id: 22,
   type: "multiple-choice",
   difficulty: "hard",
-  band: 7,
+  band: 6,
   question: "A radioactive substance has a half-life of $18$ months. The amount remaining is modeled by $A(t) = 5000(0.5)^{\\frac{t}{18}}$, where $t$ is in months. To the nearest hundredth of a percent, what is the percent decrease per month?",
   choices: [
     // distractor: divides $50\%$ by $18$ — linear thinking on an exponential

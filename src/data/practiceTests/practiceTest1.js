@@ -404,7 +404,9 @@ export const practiceTest1 = {
       timeLimit: 35,
       questions: [
 // Practice Test 1 — Math Module 2 (22 questions)
-// Distribution: 3E / 6M / 13H. Q1-3 are easy openers (CB-authentic ramp).
+// Distribution: 4E / 8M / 10H with band-6 mid-hard tier (Q9, Q14).
+// Calibrated to CB Bluebook M2 progression — smooth ramp, hard SPRs in
+// hard slots (Q13, Q14, Q16), hardest items at the tail (Q19-Q22).
 
 {
   id: 1,
@@ -531,8 +533,8 @@ export const practiceTest1 = {
 {
   id: 7,
   type: "fill-in",
-  difficulty: "hard",
-  band: 7,
+  difficulty: "easy",
+  band: 4,
   question: "A data set consists of $10$ positive integers. The list shown gives $9$ of these integers.\n\n$43, 45, 44, 43, 38, 39, 40, 46, 40$\n\nThe mean of the $9$ listed integers is $42$. If the mean of all $10$ integers is also $42$, what is the value of the tenth integer?",
   correctAnswer: "42",
   explanation: "**SAT Pattern: Mean from List**\n\n**The correct answer is $42$.**\n\n**The Fast Way (~25s):** If the mean does not change when one new value is added, the new value MUST equal the mean. So the tenth integer is $42$.\n\n**The Full Solution:**\nSum of $9$ listed integers: $9 \\cdot 42 = 378$.\nSum of all $10$ integers: $10 \\cdot 42 = 420$.\nTenth integer $= 420 - 378 = 42$.\n\nVerification by direct computation: $43 + 45 + 44 + 43 + 38 + 39 + 40 + 46 + 40 = 378$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Computing $\\dfrac{378}{9}$ and reporting that as the answer (it equals $42$, but for the wrong reason).\n* Forgetting that adding a value equal to the mean leaves the mean unchanged.\n\n**Test Day Takeaway:** Adding a value equal to the current mean leaves the mean unchanged. Always check whether your reasoning matches that invariant.",
@@ -559,7 +561,7 @@ export const practiceTest1 = {
   id: 9,
   type: "multiple-choice",
   difficulty: "hard",
-  band: 7,
+  band: 6,
   question: "A study assigned $90$ participants to one of three groups: A, B, or C. The table summarizes the distribution by age range and group.\n\n| | $0$–$9$ years | $10$–$19$ years | $20+$ years | Total |\n|---|---|---|---|---|\n| Group A | $7$ | $14$ | $9$ | $30$ |\n| Group B | $6$ | $4$ | $20$ | $30$ |\n| Group C | $17$ | $9$ | $4$ | $30$ |\n| Total | $30$ | $27$ | $33$ | $90$ |\n\nIf one participant is selected at random from those in the $10$–$19$ age range, what is the probability that the participant is in Group A or Group B?",
   choices: [
     // distractor: uses 18/90 = 1/5 (uses grand total as denominator)
@@ -615,12 +617,12 @@ export const practiceTest1 = {
 {
   id: 12,
   type: "fill-in",
-  difficulty: "hard",
-  band: 7,
-  question: "A student club is purchasing t-shirts for a fundraiser. The club has a budget of $\\$1{,}260$. To qualify for bulk-discount pricing, the club must order a minimum of $140$ shirts total. Cotton shirts cost $\\$5.80$ each and tri-blend shirts cost $\\$10.40$ each. What is the maximum number of tri-blend shirts the club can order while staying within the budget and qualifying for the discount?",
-  correctAnswer: "97",
-  explanation: "**SAT Pattern: Inequality Word Problem (Floor)**\n\n**The correct answer is $97$.**\n\n**The Fast Way (~45s):** Let $c$ = cotton, $t$ = tri-blend. To max $t$, set $c + t = 140$ exactly, $c = 140 - t$. Budget: $5.80(140 - t) + 10.40t \\leq 1260 \\Rightarrow 812 + 4.60t \\leq 1260 \\Rightarrow t \\leq 97.39$. Floor: $t = 97$.\n\n**The Full Solution:**\nLet $c$ = cotton shirts, $t$ = tri-blend shirts.\nConstraints:\n* Discount floor: $c + t \\geq 140$.\n* Budget: $5.80c + 10.40t \\leq 1{,}260$.\n* Both non-negative integers.\n\nTo MAXIMIZE $t$, fill the rest with the cheaper cotton shirts at EXACTLY the floor (any extra cotton shirts waste budget). Set $c = 140 - t$:\n\n$5.80(140 - t) + 10.40t \\leq 1{,}260$\n$812 - 5.80t + 10.40t \\leq 1{,}260$\n$4.60t \\leq 448$\n$t \\leq 97.391...$.\n\nMax integer: $t = 97$.\n\n**Verification:** With $t = 97$, $c = 43$. Total: $97 + 43 = 140 \\geq 140$ ✓. Cost: $5.80(43) + 10.40(97) = 249.40 + 1{,}008.80 = 1{,}258.20 \\leq 1{,}260$ ✓. Try $t = 98$, $c = 42$: $5.80(42) + 10.40(98) = 243.60 + 1{,}019.20 = 1{,}262.80 > 1{,}260$ ✗ — exceeds budget \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Answering $121$ (treats $1{,}260/10.40 \\approx 121$ as the max, ignoring the discount floor — also $c = 0, t = 121$ violates the floor since $0 + 121 = 121 < 140$).\n* Answering $140$ (treats the floor itself as the answer).\n* Answering $98$ (forgets to round DOWN — $98$ exceeds the budget).\n* Answering $43$ (reports cotton shirts instead of tri-blend).\n\n**Test Day Takeaway:** Two-constraint optimization (budget + minimum total): To maximize one quantity, fill the remainder with the cheaper option AT EXACTLY the minimum total. Solve the resulting single-variable inequality and take the FLOOR. Always verify the next integer up.",
-  skills: ["inequalities", "word-problems", "systems-of-equations"]
+  difficulty: "medium",
+  band: 5,
+  question: "The equation $4(2x - 3) + 10 = 8x + k$ has infinitely many solutions. What is the value of $k$?",
+  correctAnswer: "-2",
+  explanation: "**SAT Pattern: System Equivalence Check**\n\n**The correct answer is $-2$.**\n\n**The Fast Way (~15s):** Expand: $8x - 12 + 10 = 8x - 2$. For infinitely many solutions, this must equal $8x + k$ for ALL $x$, so $k = -2$.\n\n**The Full Solution:**\nLeft side: $4(2x - 3) + 10 = 8x - 12 + 10 = 8x - 2$.\nFor the equation $8x - 2 = 8x + k$ to hold for ALL $x$, the constants must match: $k = -2$.\n\nVerification: with $k = -2$, both sides become $8x - 2$, true for any $x$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Writing $k = 2$ (sign error).\n* Computing $-12 - 10 = -22$ instead of $-12 + 10 = -2$.\n\n**Test Day Takeaway:** Infinitely many solutions $\\iff$ both sides identical after simplification. Match constant terms, AND coefficients on each variable.",
+  skills: ["solving-equations", "linear-functions"]
 },
 {
   id: 13,
@@ -636,7 +638,7 @@ export const practiceTest1 = {
   id: 14,
   type: "fill-in",
   difficulty: "hard",
-  band: 7,
+  band: 6,
   question: "A population of bacteria is modeled by $P(t) = 8{,}000(0.73)^{\\frac{t}{4}}$, where $t$ is the number of hours since the initial measurement. By what percent does the population decrease every $4$ hours?",
   correctAnswer: "27",
   explanation: "**SAT Pattern: Exponential Growth Interpretation**\n\n**The correct answer is $27$.**\n\n**The Fast Way (~15s):** Every $4$ hours, the multiplier is $0.73$. Percent decrease $= 1 - 0.73 = 0.27 = 27\\%$.\n\n**The Full Solution:**\nWhen $t$ increases by $4$:\n$P(t + 4) = 8{,}000(0.73)^{\\frac{t+4}{4}} = 8{,}000(0.73)^{\\frac{t}{4}} \\cdot 0.73 = 0.73 \\cdot P(t)$.\n\nThe population is multiplied by $0.73$ every $4$ hours, so the percent decrease per $4$-hour period is $1 - 0.73 = 0.27 = 27\\%$.\n\nVerification: at $t = 0$, $P = 8{,}000$. At $t = 4$, $P = 5{,}840$. Decrease: $\\dfrac{8{,}000 - 5{,}840}{8{,}000} = \\dfrac{2{,}160}{8{,}000} = 0.27 = 27\\%$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Answering $73$ (the multiplier itself, not the percent decrease).\n* Computing the hourly rate instead of the $4$-hour rate.\n\n**Test Day Takeaway:** A decay multiplier $b < 1$ over period $d$ means the percent decrease per period is $(1 - b) \\times 100\\%$.",
@@ -664,12 +666,12 @@ export const practiceTest1 = {
 {
   id: 16,
   type: "fill-in",
-  difficulty: "medium",
-  band: 5,
-  question: "The equation $4(2x - 3) + 10 = 8x + k$ has infinitely many solutions. What is the value of $k$?",
-  correctAnswer: "-2",
-  explanation: "**SAT Pattern: System Equivalence Check**\n\n**The correct answer is $-2$.**\n\n**The Fast Way (~15s):** Expand: $8x - 12 + 10 = 8x - 2$. For infinitely many solutions, this must equal $8x + k$ for ALL $x$, so $k = -2$.\n\n**The Full Solution:**\nLeft side: $4(2x - 3) + 10 = 8x - 12 + 10 = 8x - 2$.\nFor the equation $8x - 2 = 8x + k$ to hold for ALL $x$, the constants must match: $k = -2$.\n\nVerification: with $k = -2$, both sides become $8x - 2$, true for any $x$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Writing $k = 2$ (sign error).\n* Computing $-12 - 10 = -22$ instead of $-12 + 10 = -2$.\n\n**Test Day Takeaway:** Infinitely many solutions $\\iff$ both sides identical after simplification. Match constant terms, AND coefficients on each variable.",
-  skills: ["solving-equations", "linear-functions"]
+  difficulty: "hard",
+  band: 7,
+  question: "A student club is purchasing t-shirts for a fundraiser. The club has a budget of $\\$1{,}260$. To qualify for bulk-discount pricing, the club must order a minimum of $140$ shirts total. Cotton shirts cost $\\$5.80$ each and tri-blend shirts cost $\\$10.40$ each. What is the maximum number of tri-blend shirts the club can order while staying within the budget and qualifying for the discount?",
+  correctAnswer: "97",
+  explanation: "**SAT Pattern: Inequality Word Problem (Floor)**\n\n**The correct answer is $97$.**\n\n**The Fast Way (~45s):** Let $c$ = cotton, $t$ = tri-blend. To max $t$, set $c + t = 140$ exactly, $c = 140 - t$. Budget: $5.80(140 - t) + 10.40t \\leq 1260 \\Rightarrow 812 + 4.60t \\leq 1260 \\Rightarrow t \\leq 97.39$. Floor: $t = 97$.\n\n**The Full Solution:**\nLet $c$ = cotton shirts, $t$ = tri-blend shirts.\nConstraints:\n* Discount floor: $c + t \\geq 140$.\n* Budget: $5.80c + 10.40t \\leq 1{,}260$.\n* Both non-negative integers.\n\nTo MAXIMIZE $t$, fill the rest with the cheaper cotton shirts at EXACTLY the floor (any extra cotton shirts waste budget). Set $c = 140 - t$:\n\n$5.80(140 - t) + 10.40t \\leq 1{,}260$\n$812 - 5.80t + 10.40t \\leq 1{,}260$\n$4.60t \\leq 448$\n$t \\leq 97.391...$.\n\nMax integer: $t = 97$.\n\n**Verification:** With $t = 97$, $c = 43$. Total: $97 + 43 = 140 \\geq 140$ ✓. Cost: $5.80(43) + 10.40(97) = 249.40 + 1{,}008.80 = 1{,}258.20 \\leq 1{,}260$ ✓. Try $t = 98$, $c = 42$: $5.80(42) + 10.40(98) = 243.60 + 1{,}019.20 = 1{,}262.80 > 1{,}260$ ✗ — exceeds budget \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Answering $121$ (treats $1{,}260/10.40 \\approx 121$ as the max, ignoring the discount floor — also $c = 0, t = 121$ violates the floor since $0 + 121 = 121 < 140$).\n* Answering $140$ (treats the floor itself as the answer).\n* Answering $98$ (forgets to round DOWN — $98$ exceeds the budget).\n* Answering $43$ (reports cotton shirts instead of tri-blend).\n\n**Test Day Takeaway:** Two-constraint optimization (budget + minimum total): To maximize one quantity, fill the remainder with the cheaper option AT EXACTLY the minimum total. Solve the resulting single-variable inequality and take the FLOOR. Always verify the next integer up.",
+  skills: ["inequalities", "word-problems", "systems-of-equations"]
 },
 {
   id: 17,
@@ -693,8 +695,8 @@ export const practiceTest1 = {
 {
   id: 18,
   type: "fill-in",
-  difficulty: "hard",
-  band: 7,
+  difficulty: "medium",
+  band: 5,
   question: "Consider the system of equations:\n\n$2x + 3y = 17$\n$x + 4y = 11$\n\nWhat is the value of $x + y$?",
   correctAnswer: "8",
   explanation: "**SAT Pattern: Solve for a Combination**\n\n**The correct answer is $8$.**\n\n**The Fast Way (~25s):** Subtract twice the second equation from the first to eliminate $x$: $(2x + 3y) - 2(x + 4y) = 17 - 22 \\Rightarrow -5y = -5 \\Rightarrow y = 1$. From equation 2: $x = 11 - 4 = 7$. So $x + y = 7 + 1 = 8$.\n\n**The Full Solution:**\nMultiply equation 2 by $2$: $2x + 8y = 22$.\nSubtract from equation 1: $(2x + 3y) - (2x + 8y) = 17 - 22 \\Rightarrow -5y = -5 \\Rightarrow y = 1$.\n\nSubstitute $y = 1$ into equation 2: $x + 4(1) = 11 \\Rightarrow x = 7$.\n\nVerification: equation 1: $2(7) + 3(1) = 14 + 3 = 17$ \\checkmark; equation 2: $7 + 4 = 11$ \\checkmark.\n\nSo $x + y = 7 + 1 = 8$.\n\n**Common Mistakes to Avoid:**\n* Adding equations directly without scaling — that gives $3x + 7y = 28$, no progress.\n* Solving for one variable correctly but reporting only $x$ ($= 7$) or only $y$ ($= 1$) instead of $x + y$.\n\n**Test Day Takeaway:** When the question asks for $x + y$ (or $x - y$, etc.), eliminate one variable using a single multiplication, then back-substitute. Don't always solve for $x$ and $y$ separately — sometimes a clever combination is faster.",
