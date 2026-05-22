@@ -168,10 +168,10 @@ const TestCard = ({
   const totalQuestions = test.modules.reduce((sum, m) => sum + m.questions.length, 0);
   const answeredCount = inProgress ? Object.keys(inProgress.answers || {}).length : 0;
 
-  const launch = (timed) => {
+  const launch = (timed, section) => {
     setOpenDropdown(null);
     if (onSelectTestWithMode) {
-      onSelectTestWithMode(test, timed);
+      onSelectTestWithMode(test, timed, section);
     } else if (onSelectTest) {
       onSelectTest(test);
     }
@@ -280,6 +280,7 @@ const TestCard = ({
           <SectionRow
             time={rwTime}
             title="Reading and Writing"
+            section="reading-writing"
             inProgress={inProgress}
             attempts={attempts}
             onResume={() => onResumeTest && onResumeTest(test, inProgress?.isTimed)}
@@ -296,6 +297,7 @@ const TestCard = ({
           <SectionRow
             time={mathTime}
             title="Math"
+            section="math"
             inProgress={inProgress}
             attempts={attempts}
             onResume={() => onResumeTest && onResumeTest(test, inProgress?.isTimed)}
@@ -315,6 +317,7 @@ const TestCard = ({
 const SectionRow = ({
   time,
   title,
+  section,
   inProgress,
   attempts,
   onResume,
@@ -327,6 +330,10 @@ const SectionRow = ({
 }) => {
   const isOpen = openDropdown === dropdownKey;
   const action = inProgress ? 'Resume' : (attempts > 0 ? 'Retake' : 'Start');
+  // The Math row is the last row in the expanded card; its dropdown would
+  // overflow the card's bottom edge, so it opens upward. R&W (first row)
+  // opens downward as usual.
+  const opensUpward = section === 'math';
 
   return (
     <div style={{
@@ -393,9 +400,10 @@ const SectionRow = ({
         {isOpen && (
           <div style={{
             position: 'absolute',
-            top: '100%',
+            ...(opensUpward
+              ? { bottom: '100%', marginBottom: '6px' }
+              : { top: '100%', marginTop: '6px' }),
             right: 0,
-            marginTop: '6px',
             background: 'var(--color-white)',
             border: `1px solid var(--color-slate-300)`,
             borderRadius: radius.md,
@@ -407,7 +415,7 @@ const SectionRow = ({
           }}>
             <style>{`
               @keyframes ptDropdownIn {
-                from { opacity: 0; transform: translateY(-4px); }
+                from { opacity: 0; transform: translateY(${opensUpward ? '4px' : '-4px'}); }
                 to { opacity: 1; transform: translateY(0); }
               }
             `}</style>
@@ -415,14 +423,14 @@ const SectionRow = ({
               icon={<TimerIcon size={16} color="var(--color-slate-600)" />}
               label="Timed"
               hint={`~${totalTime}m`}
-              onClick={() => onLaunch(true)}
+              onClick={() => onLaunch(true, section)}
               divider
             />
             <DropdownButton
               icon={<CircleDotIcon size={16} color="var(--color-slate-600)" />}
               label="Untimed"
               hint="No limit"
-              onClick={() => onLaunch(false)}
+              onClick={() => onLaunch(false, section)}
             />
           </div>
         )}

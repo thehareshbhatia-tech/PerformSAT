@@ -187,6 +187,9 @@ const PerformSAT = () => {
   const [showOnboarding, setShowOnboarding] = useState(false);
   const [selectedPracticeTest, setSelectedPracticeTest] = useState(null);
   const [isTestTimed, setIsTestTimed] = useState(true);
+  // 'reading-writing' | 'math' | null. When set, PracticeTest jumps to that
+  // section's first module on fresh start (instead of always starting at M1).
+  const [initialTestSection, setInitialTestSection] = useState(null);
   const [viewingResultsData, setViewingResultsData] = useState(null); // { test, answers, diagnosticData, diagnosticReport }
   const [showAiTutor, setShowAiTutor] = useState(false);
 
@@ -1378,19 +1381,23 @@ const PerformSAT = () => {
               setIsTestTimed(true);
               setView('takingTest');
             }}
-            onSelectTestWithMode={(test, timed) => {
+            onSelectTestWithMode={(test, timed, section) => {
               // Clear any existing progress when starting fresh
               if (hasTestProgress(test.id)) {
                 clearTestProgress(test.id);
               }
               setSelectedPracticeTest(test);
               setIsTestTimed(timed);
+              setInitialTestSection(section || null);
               setView('takingTest');
             }}
             onResumeTest={(test, timed) => {
-              // Resume with existing progress
+              // Resume with existing progress. Clear initialTestSection so a
+              // stale value from a previous fresh-launch can't override the
+              // savedProgress.currentModule on resume.
               setSelectedPracticeTest(test);
               setIsTestTimed(timed);
+              setInitialTestSection(null);
               setView('takingTest');
             }}
             onBack={() => setView('dashboard')}
@@ -1629,6 +1636,7 @@ const PerformSAT = () => {
           <PracticeTest
             test={selectedPracticeTest}
             isTimed={isTestTimed}
+            initialSection={initialTestSection}
             savedProgress={getTestProgress(selectedPracticeTest.id)}
             skillProgress={skillProgress}
             user={user}

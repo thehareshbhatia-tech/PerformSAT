@@ -8,6 +8,7 @@ import QuestionRenderer from './QuestionRenderer';
 import SATReferenceSheet from './SATReferenceSheet';
 import AnswerChoiceList from './shared/AnswerChoiceList';
 import { recordSkillAttempts } from '../services/skillService';
+import { pickInitialModuleIndex } from '../services/selectors/initialModule';
 import { generateDiagnosticNarrative } from '../services/diagnosticNarrativeService';
 import {
   createAiDiagnosticArtifact,
@@ -1071,9 +1072,10 @@ const HighlightablePassage = memo(function HighlightablePassage({ text, highligh
   );
 });
 
-const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, onClearProgress, onSaveStudyPlan, onGoToStudyPlan, savedProgress, isTimed = true, skillProgress = null, user = null, practiceTestResults = null, completedLessons = {}, practiceProgress = {}, onStartPractice, answeredQuestionIds = [], initialReviewModule = null, reviewSnapshotMissing = false, reviewAttemptId = null }) => {
-  // Initialize state from saved progress if available
-  const [currentModule, setCurrentModule] = useState(savedProgress?.currentModule || 0);
+const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, onClearProgress, onSaveStudyPlan, onGoToStudyPlan, savedProgress, isTimed = true, skillProgress = null, user = null, practiceTestResults = null, completedLessons = {}, practiceProgress = {}, onStartPractice, answeredQuestionIds = [], initialReviewModule = null, reviewSnapshotMissing = false, reviewAttemptId = null, initialSection = null }) => {
+  const [currentModule, setCurrentModule] = useState(
+    pickInitialModuleIndex(test, savedProgress, initialSection)
+  );
   const [currentQuestion, setCurrentQuestion] = useState(savedProgress?.currentQuestion || 0);
   const [answers, setAnswers] = useState(savedProgress?.answers || {});
   const [markedForReview, setMarkedForReview] = useState(savedProgress?.markedForReview || []);
