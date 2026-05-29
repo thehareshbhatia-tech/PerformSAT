@@ -1995,17 +1995,15 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
             autoAnswers[key] = wrong[Math.floor(Math.random() * wrong.length)];
           }
         }
+        // Dev auto-submit generates ANSWERS to exercise scoring + the skill
+        // diagnostic, but must NOT fabricate behavioral telemetry: random
+        // usedCalculator / markedForReview / answerChanges would feed the
+        // calculator-dependency, elimination, and rushing diagnostics pure
+        // noise. Use neutral, deterministic values so only the right/wrong
+        // signal drives the dev diagnosis. (1.9 — dev-only, localhost-gated)
         const telem = getOrCreateTelemetry(modIdx, qIdx);
-        telem.timeSpent = 15 + Math.random() * 90;
-        telem.visits = 1 + Math.floor(Math.random() * 3);
-        telem.usedCalculator = Math.random() < 0.35;
-        if (Math.random() < 0.2) {
-          telem.markedForReview = true;
-        }
-        if (Math.random() < 0.15) {
-          const oldAns = choices[Math.floor(Math.random() * choices.length)];
-          telem.answerChanges.push({ from: oldAns, to: autoAnswers[key], timestamp: Date.now() });
-        }
+        telem.timeSpent = 45; // neutral: above "rushed", below "slow"
+        telem.visits = 1;
       });
     });
     setAnswers(autoAnswers);
