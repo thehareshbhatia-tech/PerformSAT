@@ -18,8 +18,13 @@ const anthropicApiKey = defineSecret("ANTHROPIC_API_KEY");
 
 setGlobalOptions({maxInstances: 10});
 
-// Allowed CORS origins — restrict to your production domains
+// Allowed CORS origins — restrict to your production domains.
+// NOTE: SEVA is served from Vercel (perform-sat.vercel.app); the prod origin
+// MUST be listed here or the authenticated tutor will be CORS-blocked after
+// the hardened function deploys. Confirm/extend with your canonical domain
+// (and any custom domain) before deploying.
 const ALLOWED_ORIGINS = [
+  "https://perform-sat.vercel.app",
   "https://performsat-production.web.app",
   "https://performsat-production.firebaseapp.com",
   "https://performsat.com",
@@ -259,7 +264,7 @@ export const aiTutor = onRequest(
             "anthropic-version": "2023-06-01",
           },
           body: JSON.stringify({
-            model: "claude-sonnet-4-6-20250514",
+            model: "claude-sonnet-4-6",
             max_tokens: 16000,
             thinking: {
               type: "enabled",
@@ -362,7 +367,7 @@ export const generateStudyPlan = onRequest(
             "anthropic-version": "2023-06-01",
           },
           body: JSON.stringify({
-            model: "claude-sonnet-4-6-20250514",
+            model: "claude-sonnet-4-6",
             max_tokens: 6000,
             thinking: {
               type: "enabled",
@@ -405,7 +410,7 @@ export const generateStudyPlan = onRequest(
       response.json({
         plan,
         generatedAt: new Date().toISOString(),
-        model: "claude-sonnet-4-6-20250514",
+        model: "claude-sonnet-4-6",
       });
     } catch (error) {
       logger.error("Study plan generation error:", error);
@@ -460,7 +465,7 @@ export const generateDiagnosticNarrative = onRequest(
       const userPrompt = buildDiagnosticNarrativeUserPrompt(evidence, userProfile || {});
 
       // ─── PASS 1: Generate diagnosis with Sonnet for maximum quality ───
-      const generateModel = "claude-opus-4-6";
+      const generateModel = "claude-opus-4-8";
       const anthropicResponse = await fetch(
         "https://api.anthropic.com/v1/messages",
         {
@@ -853,7 +858,7 @@ Return ONLY the corrected JSON.`;
           "anthropic-version": "2023-06-01",
         },
         body: JSON.stringify({
-          model: "claude-sonnet-4-6-20250514",
+          model: "claude-sonnet-4-6",
           max_tokens: 6000,
           system: "You are a quality assurance editor for diagnostic narratives. You enforce clinical precision, causal depth, evidence rigor, and cross-test awareness. Fix the issues and return valid JSON only.",
           messages: [{role: "user", content: repairPrompt}],
