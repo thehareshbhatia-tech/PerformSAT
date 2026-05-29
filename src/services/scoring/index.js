@@ -6,7 +6,7 @@
  */
 
 // Core scoring
-export { scoreTest, convertToSATScore, isAnswerCorrect, estimatePercentile } from './irtEngine';
+export { scoreTest, scaleResponseVector, convertToSATScore, isAnswerCorrect, estimatePercentile } from './irtEngine';
 
 // Schema / constants
 export { SCORING_VERSION, SECTIONS, DIFFICULTY, MODULE_ROUTE, createScoredResult } from './scoringSchema';

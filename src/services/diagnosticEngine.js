@@ -89,7 +89,7 @@ const humanizeSkillId = (id) => {
   // Last resort: humanize the kebab-case ID
   return id.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
 };
-import { convertToSATScore, isAnswerCorrect, estimatePercentile as _estimatePercentile, inferDomain } from './scoring';
+import { convertToSATScore, scaleResponseVector, getItemParams, isAnswerCorrect, estimatePercentile as _estimatePercentile, inferDomain } from './scoring';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // CONSTANTS
@@ -110,9 +110,6 @@ const DOMAIN_QUESTION_COUNTS = {
   'advanced-math': 11,
   'geometry': 7,
 };
-
-// Helper: convert a raw score count to a scaled SAT score via the IRT engine
-const rawToScaled = (raw, total) => convertToSATScore(raw, total);
 
 // Time thresholds (seconds) for classifying time-related issues
 const TIME_THRESHOLDS = {
@@ -615,6 +612,10 @@ export const runDiagnostic = (test, answers, diagnosticData, skillProgress = {},
 
   // ═══ PHASE 1: Analyze every question ═══
   const questionAnalysis = [];
+  // Real per-item response vector (params + 0/1) for IRT-based scoring and
+  // projections — shares scoreTest's IRT path so the diagnosis never disagrees
+  // with the headline score. (1.3)
+  const scoredItems = [];
   let totalCorrect = 0;
   let totalQuestions = 0;
 
@@ -694,11 +695,24 @@ export const runDiagnostic = (test, answers, diagnosticData, skillProgress = {},
           ...errorClassification,
         });
       }
+
+      // Real per-item entry for IRT scoring + projections (1.3). errorType is
+      // read back from the questionAnalysis entry just pushed (null if correct).
+      scoredItems.push({
+        params: getItemParams(q),
+        response: isCorrect ? 1 : 0,
+        domain,
+        difficulty: q.difficulty,
+        errorType: isCorrect ? null : questionAnalysis[questionAnalysis.length - 1].errorType,
+        isCorrect,
+      });
     });
   });
 
   // ═══ PHASE 2: Calculate scores ═══
-  const scaledScore = rawToScaled(totalCorrect, totalQuestions);
+  // Real-response IRT score (matches scoreTest's section score), not a
+  // synthetic raw-count estimate. (1.3)
+  const scaledScore = scaleResponseVector(scoredItems, test.id);
   const targetScore = userProfile.targetScore || 700;
   const scoreGap = Math.max(0, targetScore - scaledScore);
 
@@ -713,9 +727,7 @@ export const runDiagnostic = (test, answers, diagnosticData, skillProgress = {},
   const skillAnalysis = analyzeSkills(questionAnalysis, skillProgress);
 
   // ═══ PHASE 6: Score projection ═══
-  const scoreProjection = projectScoreImprovements(
-    questionAnalysis, totalCorrect, totalQuestions, targetScore
-  );
+  const scoreProjection = projectScoreImprovements(scoredItems, targetScore, test.id);
 
   // ═══ PHASE 7: Difficulty analysis ═══
   const difficultyAnalysis = analyzeDifficulty(questionAnalysis);
@@ -976,32 +988,40 @@ const analyzeSkills = (questionAnalysis, skillProgress = {}) => {
 /**
  * Project how much score improvement is possible by fixing specific areas.
  */
-const projectScoreImprovements = (questionAnalysis, currentCorrect, totalQuestions, targetScore) => {
-  const currentScaled = rawToScaled(currentCorrect, totalQuestions);
-  const wrongQuestions = questionAnalysis.filter(q => !q.isCorrect);
+const projectScoreImprovements = (scoredItems, targetScore, formId) => {
+  // Everything is computed off the REAL response vector via the shared IRT
+  // path, so the projection baseline equals the headline score and every
+  // "+X points" gain reflects re-estimated ability, not a synthetic raw-count
+  // delta. (1.3)
+  const baseVector = scoredItems.map(i => ({ params: i.params, response: i.response }));
+  const currentScaled = scaleResponseVector(baseVector, formId);
 
-  // Group ALL questions by domain so we have correct + wrong totals
-  const domainAll = {};
-  questionAnalysis.forEach(q => {
-    const domain = q.domain || 'unknown';
-    if (!domainAll[domain]) domainAll[domain] = { correct: 0, wrong: [], total: 0 };
-    domainAll[domain].total++;
-    if (q.isCorrect) domainAll[domain].correct++;
-    else domainAll[domain].wrong.push(q);
+  // Re-score with every currently-wrong item matching `pred` flipped to correct.
+  const scaledIfFixed = (pred) => scaleResponseVector(
+    scoredItems.map(i => ({
+      params: i.params,
+      response: (i.response === 0 && pred(i)) ? 1 : i.response,
+    })),
+    formId,
+  );
+
+  // Domain projections — fix all wrong items in a domain.
+  const domainAgg = {};
+  scoredItems.forEach(i => {
+    const domain = i.domain || 'unknown';
+    if (!domainAgg[domain]) domainAgg[domain] = { correct: 0, wrong: 0, total: 0 };
+    domainAgg[domain].total++;
+    if (i.isCorrect) domainAgg[domain].correct++; else domainAgg[domain].wrong++;
   });
-
-  const projections = Object.entries(domainAll)
-    .filter(([domain, d]) => domain !== 'unknown' && d.wrong.length > 0)
+  const projections = Object.entries(domainAgg)
+    .filter(([domain, d]) => domain !== 'unknown' && d.wrong > 0)
     .map(([domain, d]) => {
-      const additionalCorrect = d.wrong.length;
-      const newTotal = currentCorrect + additionalCorrect;
-      const newScaled = rawToScaled(newTotal, totalQuestions);
-
+      const newScaled = scaledIfFixed(i => (i.domain || 'unknown') === domain);
       return {
         domain,
         domainName: skillTaxonomy.domains[domain]?.name || domain,
         color: skillTaxonomy.domains[domain]?.color || '#888',
-        questionsToFix: additionalCorrect,
+        questionsToFix: d.wrong,
         currentAccuracy: d.total > 0 ? Math.round((d.correct / d.total) * 100) : 0,
         projectedPointGain: newScaled - currentScaled,
         projectedScore: newScaled,
@@ -1009,18 +1029,16 @@ const projectScoreImprovements = (questionAnalysis, currentCorrect, totalQuestio
     })
     .sort((a, b) => b.projectedPointGain - a.projectedPointGain);
 
-  // Calculate gains by error type (fix all traps, fix all careless, etc.)
-  const errorTypeGains = {};
-  wrongQuestions.forEach(q => {
-    const type = q.errorType || ERROR_TYPES.CONCEPTUAL_GAP;
-    if (!errorTypeGains[type]) errorTypeGains[type] = 0;
-    errorTypeGains[type]++;
+  // Error-type projections — fix all wrong items of one error type.
+  const errorTypeCounts = {};
+  scoredItems.forEach(i => {
+    if (i.isCorrect) return;
+    const type = i.errorType || ERROR_TYPES.CONCEPTUAL_GAP;
+    errorTypeCounts[type] = (errorTypeCounts[type] || 0) + 1;
   });
-
-  const errorTypeProjections = Object.entries(errorTypeGains)
+  const errorTypeProjections = Object.entries(errorTypeCounts)
     .map(([type, count]) => {
-      const newTotal = currentCorrect + count;
-      const newScaled = rawToScaled(newTotal, totalQuestions);
+      const newScaled = scaledIfFixed(i => (i.errorType || ERROR_TYPES.CONCEPTUAL_GAP) === type);
       return {
         errorType: type,
         label: ERROR_TYPE_LABELS[type],
@@ -1033,31 +1051,28 @@ const projectScoreImprovements = (questionAnalysis, currentCorrect, totalQuestio
     })
     .sort((a, b) => b.projectedPointGain - a.projectedPointGain);
 
-  // Calculate "quick wins" — easy/medium questions missed
-  const quickWins = wrongQuestions.filter(q => q.difficulty === 'easy' || q.difficulty === 'medium');
-  const quickWinGain = (() => {
-    const newTotal = currentCorrect + quickWins.length;
-    return rawToScaled(newTotal, totalQuestions) - currentScaled;
-  })();
+  // Quick wins (easy + medium missed) and easy-only.
+  const isQuickWin = (i) => i.difficulty === 'easy' || i.difficulty === 'medium';
+  const quickWinCount = scoredItems.filter(i => !i.isCorrect && isQuickWin(i)).length;
+  const quickWinGain = scaledIfFixed(isQuickWin) - currentScaled;
+  const easyWinCount = scoredItems.filter(i => !i.isCorrect && i.difficulty === 'easy').length;
+  const easyWinGain = scaledIfFixed(i => i.difficulty === 'easy') - currentScaled;
 
-  // Calculate "just the easy ones" — absolute minimum effort path
-  const easyWins = wrongQuestions.filter(q => q.difficulty === 'easy');
-  const easyWinGain = (() => {
-    const newTotal = currentCorrect + easyWins.length;
-    return rawToScaled(newTotal, totalQuestions) - currentScaled;
-  })();
-
-  // Path to target: how many more correct answers needed?
+  // Path to target: flip wrong items easiest-first (lowest b) until the
+  // re-estimated score reaches the target.
   let questionsNeeded = 0;
-  for (let i = currentCorrect + 1; i <= totalQuestions; i++) {
-    const score = rawToScaled(i, totalQuestions);
-    if (score >= targetScore) {
-      questionsNeeded = i - currentCorrect;
-      break;
+  if (currentScaled < targetScore) {
+    const wrongIdx = scoredItems
+      .map((i, idx) => ({ i, idx }))
+      .filter(x => !x.i.isCorrect)
+      .sort((a, b) => (a.i.params?.b ?? 0) - (b.i.params?.b ?? 0))
+      .map(x => x.idx);
+    const v = scoredItems.map(i => ({ params: i.params, response: i.response }));
+    for (let k = 0; k < wrongIdx.length; k++) {
+      v[wrongIdx[k]] = { params: v[wrongIdx[k]].params, response: 1 };
+      if (scaleResponseVector(v, formId) >= targetScore) { questionsNeeded = k + 1; break; }
     }
-  }
-  if (questionsNeeded === 0 && currentScaled < targetScore) {
-    questionsNeeded = totalQuestions - currentCorrect; // Need perfect score or can't reach
+    if (questionsNeeded === 0) questionsNeeded = wrongIdx.length; // unreachable even at 100%
   }
 
   return {
@@ -1068,15 +1083,15 @@ const projectScoreImprovements = (questionAnalysis, currentCorrect, totalQuestio
     domainProjections: projections,
     errorTypeProjections,
     quickWins: {
-      count: quickWins.length,
+      count: quickWinCount,
       projectedGain: quickWinGain,
       potentialGain: quickWinGain,
       description: `Getting all missed easy & medium questions right would add +${quickWinGain} points`,
     },
     easyWins: {
-      count: easyWins.length,
+      count: easyWinCount,
       projectedGain: easyWinGain,
-      description: `Just fixing the ${easyWins.length} missed easy questions would add +${easyWinGain} points`,
+      description: `Just fixing the ${easyWinCount} missed easy questions would add +${easyWinGain} points`,
     },
   };
 };

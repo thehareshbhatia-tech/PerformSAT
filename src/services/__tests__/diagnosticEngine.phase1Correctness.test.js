@@ -1,4 +1,5 @@
 import { runDiagnostic } from '../diagnosticEngine';
+import { scoreTest } from '../scoring';
 
 // Regression tests for the Phase-1 correctness batch (autoplan, 2026-05-29):
 //   1.1 — grading follows the modules actually passed (effectiveModules),
@@ -114,5 +115,32 @@ describe('1.7 — isWeak requires >= 2 attempts', () => {
     const result = runDiagnostic(test, { '0-0': 'A', '0-1': 'A' }, { questionDetails: {} });
     const weak = result.skillAnalysis.weakSkills.find((w) => w.skillId === 'ratios');
     expect(weak).toBeDefined();
+  });
+});
+
+describe('1.3 — diagnostic score + projections use the real response vector', () => {
+  const test = mkTest([
+    mkQ({ id: 1, skills: ['ratios'], correctAnswer: 'B', difficulty: 'easy' }),
+    mkQ({ id: 2, skills: ['ratios'], correctAnswer: 'B', difficulty: 'medium' }),
+    mkQ({ id: 3, skills: ['ratios'], correctAnswer: 'B', difficulty: 'hard' }),
+    mkQ({ id: 4, skills: ['ratios'], correctAnswer: 'B', difficulty: 'medium' }),
+  ]);
+  // 2 right (easy + a medium), 2 wrong (hard + a medium)
+  const answers = { '0-0': 'B', '0-1': 'A', '0-2': 'A', '0-3': 'B' };
+
+  it('diagnostic score.scaled equals the headline scoreTest score (no two-path disagreement)', () => {
+    const diag = runDiagnostic(test, answers, { questionDetails: {} });
+    const scored = scoreTest(test, answers, {});
+    expect(diag.score.scaled).toBe(scored.sectionScore);
+  });
+
+  it('the projection baseline equals the diagnostic score (one baseline)', () => {
+    const diag = runDiagnostic(test, answers, { questionDetails: {} });
+    expect(diag.scoreProjection.currentScore).toBe(diag.score.scaled);
+  });
+
+  it('fixing missed items projects a non-negative point gain', () => {
+    const diag = runDiagnostic(test, answers, { questionDetails: {} });
+    expect(diag.scoreProjection.quickWins.projectedGain).toBeGreaterThanOrEqual(0);
   });
 });

@@ -251,6 +251,24 @@ export function scoreTest(test, answers, opts = {}) {
 }
 
 /**
+ * Scale a prepared response vector (already-evaluated { params, response }
+ * items) to a 200-800 score using the SAME IRT path as scoreTest's
+ * per-section scoring (estimateTheta -> thetaToScaledScore). The diagnostic
+ * engine uses this so the diagnosis score and its "+X point" projections are
+ * computed off the student's REAL responses, not a synthetic raw-count vector
+ * — which is what let them disagree with the headline score. (1.3)
+ *
+ * @param {Array<{params: object, response: 0|1}>} items
+ * @param {string} [formId]
+ * @returns {number} 200-800 scaled score
+ */
+export function scaleResponseVector(items, formId) {
+  if (!items || items.length === 0) return 200;
+  const { theta } = estimateTheta(items);
+  return thetaToScaledScore(theta, formId);
+}
+
+/**
  * Lightweight re-export for places that only need raw → scaled.
  * Acts as a drop-in replacement for the old convertToSATScore(),
  * but now backed by IRT under the hood.
