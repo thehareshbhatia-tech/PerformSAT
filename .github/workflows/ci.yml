@@ -1,0 +1,29 @@
+name: CI
+
+# Minimum gate added 2026-05-29 (autoplan eng review): the repo had no CI, so
+# the ~990 unit tests were enforced only by developer discipline while
+# scoring-engine fixes ship through a 3k-line App.jsx. This runs Jest + the
+# content-bank validators on every push/PR to main.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: Unit tests
+        run: CI=true npx react-scripts test --watchAll=false
+      - name: Validate math bank
+        run: npm run bank:validate
+      - name: Validate R&W bank
+        run: node scripts/validateRWBank.mjs --all
