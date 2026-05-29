@@ -11,61 +11,29 @@ service cloud.firestore {
       return request.auth.uid == userId;
     }
 
-    function getUserData() {
-      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data;
-    }
-
-    function isPrincipal() {
-      return isAuthenticated() && getUserData().role == 'principal';
-    }
-
-    function isSameSchool(schoolId) {
-      return getUserData().schoolId == schoolId;
-    }
-
-    // Schools collection - read-only for school code validation during signup
-    // NOTE: Intentionally unauthenticated — students validate school codes before login.
-    // Only stores school name, code, and isActive. No sensitive data.
-    match /schools/{schoolId} {
-      allow read: if true;
-      allow write: if false;
-    }
-
-    // Users collection
+    // Users collection — OWNER-ONLY.
+    //
+    // The school/principal (B2B2C) model was removed 2026-05-29 to focus on
+    // direct-to-consumer. There is no longer any cross-account read path, which
+    // also structurally closes the prior privilege-escalation hole (a student
+    // self-setting role:'principal' to read same-school students' PII).
+    //
+    // If schools/principals return: do NOT grant cross-account reads off a
+    // client-writable field like `role`. Gate on a custom auth claim
+    // (request.auth.token.role) set server-side, never on users/{uid}.role.
     match /users/{userId} {
-      allow read: if isAuthenticated() &&
-        (isOwner(userId) || (isPrincipal() && isSameSchool(resource.data.schoolId)));
-      // Self-serve signup may ONLY create a 'student'. Principal/admin
-      // elevation must happen server-side (Admin SDK / custom claims),
-      // never via a client write — otherwise a student could self-elevate
-      // to 'principal' and read every same-school student's PII (a FERPA
-      // exposure on minors). isPrincipal() trusts this field, so it must
-      // never be client-writable to a privileged value.
-      allow create: if isAuthenticated() && isOwner(userId)
-        && request.resource.data.role == 'student';
-      // role and schoolId are immutable on self-update for the same reason.
-      // Use .get(key, default) so the check is null-safe: self-serve students
-      // have no schoolId, and a bare `resource.data.schoolId` on a missing
-      // field errors and would wrongly deny every profile update (test date,
-      // target score, etc. — all merge-writes that omit these fields).
-      allow update: if isAuthenticated() && isOwner(userId)
-        && request.resource.data.get('role', 'student') == resource.data.get('role', 'student')
-        && request.resource.data.get('schoolId', '') == resource.data.get('schoolId', '');
+      allow read, create, update: if isAuthenticated() && isOwner(userId);
       allow delete: if false; // No self-deletion
     }
 
-    // Progress collection
+    // Progress collection — owner-only.
     match /progress/{userId} {
-      allow read: if isAuthenticated() &&
-        (isOwner(userId) || (isPrincipal() &&
-          isSameSchool(get(/databases/$(database)/documents/users/$(userId)).data.schoolId)));
-      allow create, update: if isAuthenticated() && isOwner(userId);
+      allow read, create, update: if isAuthenticated() && isOwner(userId);
       allow delete: if false;
 
       // Versioned study plan artifacts
       match /studyPlanArtifacts/{artifactId} {
-        allow read, create: if isAuthenticated() && isOwner(userId);
-        allow update: if isAuthenticated() && isOwner(userId);
+        allow read, create, update: if isAuthenticated() && isOwner(userId);
         allow delete: if false;
       }
 
@@ -73,23 +41,19 @@ service cloud.firestore {
       // recordPracticeTestResult so Review Answers can render the exact
       // questions the student saw even after content drift.
       match /attempts/{attemptId} {
-        allow read, create: if isAuthenticated() && isOwner(userId);
-        allow update: if isAuthenticated() && isOwner(userId);
+        allow read, create, update: if isAuthenticated() && isOwner(userId);
         allow delete: if false;
       }
 
       // AI diagnostic artifacts
       match /aiDiagnostics/{artifactId} {
-        allow read, create: if isAuthenticated() && isOwner(userId);
-        allow update: if isAuthenticated() && isOwner(userId);
+        allow read, create, update: if isAuthenticated() && isOwner(userId);
         allow delete: if false;
       }
 
       // AI chat session history
       match /aiChatSessions/{sessionId} {
-        allow read: if isAuthenticated() && isOwner(userId);
-        allow create: if isAuthenticated() && isOwner(userId);
-        allow update: if isAuthenticated() && isOwner(userId);
+        allow read, create, update: if isAuthenticated() && isOwner(userId);
         allow delete: if false;
       }
     }

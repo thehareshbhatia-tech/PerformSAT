@@ -4,7 +4,6 @@
  *
  * Seed the local Firebase emulators with the minimum data a contributor
  * needs to dogfood PerformSAT end-to-end:
- *   - 1 school
  *   - 1 student (auth user + users/{uid} profile + progress/{uid} doc)
  *   - 1 completed practice test attempt
  *   - 1 generated study plan
@@ -50,25 +49,14 @@ const auth = getAuth();
 // Demo data shapes
 // ───────────────────────────────────────────────────────────────────────
 
-const SCHOOL_ID = 'demo-school';
 const STUDENT_EMAIL = 'demo-student@performsat.local';
 const STUDENT_UID = 'demo-student-uid';
 const STUDENT_NAME = 'Demo Student';
-
-const school = {
-  id: SCHOOL_ID,
-  name: 'Demo High School',
-  schoolCode: 'DEMO',
-  createdAt: FieldValue.serverTimestamp(),
-  studentCount: 1,
-};
 
 const studentProfile = {
   uid: STUDENT_UID,
   email: STUDENT_EMAIL,
   displayName: STUDENT_NAME,
-  schoolId: SCHOOL_ID,
-  schoolCode: 'DEMO',
   testDate: '2026-08-15',
   targetScore: 700,
   currentScore: 540,
@@ -181,12 +169,10 @@ async function seed() {
   });
 
   // Firestore docs.
-  await db.collection('schools').doc(SCHOOL_ID).set(school);
   await db.collection('users').doc(STUDENT_UID).set(studentProfile);
   await db.collection('progress').doc(STUDENT_UID).set(progress);
 
   console.info('✅ Seeded demo data:');
-  console.info(`   school:  ${SCHOOL_ID} (code: DEMO)`);
   console.info(`   student: ${STUDENT_EMAIL} (uid: ${STUDENT_UID})`);
   console.info('   1 completed test, 1 study plan, 1 weakness on the current weekday.');
   console.info('');

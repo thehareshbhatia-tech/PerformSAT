@@ -17,7 +17,7 @@ npm test           # Jest watcher
 CI=true npx react-scripts test --watchAll=false   # run all tests once
 ```
 
-Firebase config lives in `src/firebase/config.js`. To run against a real project you need a `.env.local` with the Firebase keys (template at `.env.local.template`). To dogfood the study plan or drill flow you currently need a real Firebase project + a seeded `schools` doc — a Firebase emulator + seed script is on the Day-6 DX checklist of the current plan and not yet shipped.
+Firebase config lives in `src/firebase/config.js`. To run against a real project you need a `.env.local` with the Firebase keys (template at `.env.local.template`). To dogfood the study plan or drill flow locally, run `npm run dev:emulator` then `npm run dev:seed` (seeds one student + a completed test + a study plan). No `schools` doc is needed: the school/principal (B2B2C) model was removed 2026-05-29 in favor of direct-to-consumer; the app is now owner-only.
 
 ## The big picture
 
@@ -153,7 +153,7 @@ The diagnostic adapter in `services/scoring/diagnosticAdapter.js` builds a **sep
 | Hand-Authored Stamp | `components/HandAuthoredStamp.jsx` | Built. 28×28 SVG monogram on every drill question card. |
 | DiagnosticReport from dashboard | `services/diagnosticReportLoader.js` + `selectors/recentTest.js` | Built. Wired through `onViewFullDiagnosis` → loads snapshot async → mounts `<DiagnosticReport>` at view='diagnosticReport'. |
 | Scoped logging | `src/utils/log.js` | Built. `logError/logWarn/logInfo/logDebug` + `makeLogger(scope)`. `[performsat:scope]` prefix. Test-silent, prod-quiet for info/debug unless `localStorage['performsat:logVerbose']='1'`. |
-| Firebase emulator + demo seed | `firebase.json` emulator block + `scripts/seedDemoData.mjs` | Built. `npm run dev:emulator` + `npm run dev:seed`. Seeds 1 school, 1 student, 1 completed test, 1 plan with focus area weakness on TODAY's weekday. |
+| Firebase emulator + demo seed | `firebase.json` emulator block + `scripts/seedDemoData.mjs` | Built. `npm run dev:emulator` + `npm run dev:seed`. Seeds 1 student, 1 completed test, 1 plan with focus area weakness on TODAY's weekday. |
 | Past-Test-Review tier | `src/components/PastTestReview/{PastTestReviewIndex,TestReviewDetail,ReviewItemCard}.jsx` + `src/services/selectors/completedTests.js` | Built. Lets students review every item from a past practice test and retry the wrong ones. Reuses `services/diagnosticReportLoader.js` for the snapshot fetch. Retry-drill mounts in `AssignedPracticeShell` with `practiceState.reviewMode=true` so a "review session — won't affect your study plan" banner renders + the back-button label changes. Behind `useFeatureFlag('pastTestReview')`. Telemetry events under `[performsat:pastTestReview]` scope. Plan: `docs/PAST_TEST_REVIEW_PLAN.md`. |
 
 ## Canonical files (do not duplicate)

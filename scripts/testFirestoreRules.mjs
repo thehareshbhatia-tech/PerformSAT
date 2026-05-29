@@ -1,11 +1,11 @@
 /**
- * Firestore security-rules tests (autoplan eng review, 2026-05-29).
+ * Firestore security-rules tests.
  *
- * Pins the fix for the privilege-escalation hole: a self-serve student must
- * not be able to set role:'principal' (which isPrincipal() trusts) and read
- * every same-school student's PII. Also a regression guard that ordinary
- * profile updates (which omit role/schoolId) still succeed under the
- * null-safe `.get()` immutability check.
+ * The app is owner-only (the school/principal B2B2C model was removed
+ * 2026-05-29). These pin the core invariant: an authenticated user can read
+ * and write ONLY their own users/{uid} and progress/{uid} docs, and there is
+ * no cross-account read path (which is also what structurally closes the old
+ * self-elevation-to-principal hole).
  *
  * Run against the emulator:
  *   firebase emulators:exec --only firestore "node scripts/testFirestoreRules.mjs"
@@ -40,44 +40,39 @@ const env = await initializeTestEnvironment({
   firestore: { rules: readFileSync('firestore.rules', 'utf8') },
 });
 
-// Seed two student docs + one principal via the admin (rules-bypassing) context.
+// Seed two users + their progress via the admin (rules-bypassing) context.
 await env.withSecurityRulesDisabled(async (ctx) => {
   const db = ctx.firestore();
-  await setDoc(doc(db, 'users', 'studentA'), { role: 'student', email: 'a@x.com' });
-  await setDoc(doc(db, 'users', 'studentB'), { role: 'student', email: 'b@x.com', schoolId: 'school1' });
-  await setDoc(doc(db, 'users', 'principal1'), { role: 'principal', schoolId: 'school1' });
+  await setDoc(doc(db, 'users', 'studentA'), { email: 'a@x.com' });
+  await setDoc(doc(db, 'users', 'studentB'), { email: 'b@x.com' });
   await setDoc(doc(db, 'progress', 'studentB'), { userId: 'studentB' });
 });
 
 const studentA = env.authenticatedContext('studentA').firestore();
-const principal = env.authenticatedContext('principal1').firestore();
+const anon = env.unauthenticatedContext().firestore();
 
-await it('student CANNOT create self as principal', () =>
-  assertFails(setDoc(doc(studentA, 'users', 'studentA'), { role: 'principal', schoolId: 'school1' })));
-
-await it('student CAN create self as student', async () => {
-  // fresh uid so create (not update) path is exercised
+await it('user CAN create own doc', async () => {
   const fresh = env.authenticatedContext('studentNew').firestore();
-  await assertSucceeds(setDoc(doc(fresh, 'users', 'studentNew'), { role: 'student', email: 'n@x.com' }));
+  await assertSucceeds(setDoc(doc(fresh, 'users', 'studentNew'), { email: 'n@x.com' }));
 });
 
-await it('student CANNOT escalate own role to principal', () =>
-  assertFails(setDoc(doc(studentA, 'users', 'studentA'), { role: 'principal' }, { merge: true })));
-
-await it('student CANNOT change own schoolId', () =>
-  assertFails(setDoc(doc(studentA, 'users', 'studentA'), { schoolId: 'school1' }, { merge: true })));
-
-await it('student CAN update own targetScore (regression: null-safe immutability)', () =>
+await it('user CAN update own profile', () =>
   assertSucceeds(setDoc(doc(studentA, 'users', 'studentA'), { targetScore: 700 }, { merge: true })));
 
-await it('student CANNOT read another student doc', () =>
+await it('user CAN read own doc', () =>
+  assertSucceeds(getDoc(doc(studentA, 'users', 'studentA'))));
+
+await it('user CANNOT read another user doc (no cross-account path)', () =>
   assertFails(getDoc(doc(studentA, 'users', 'studentB'))));
 
-await it('principal CAN read same-school student doc', () =>
-  assertSucceeds(getDoc(doc(principal, 'users', 'studentB'))));
+await it('user CANNOT read another user progress', () =>
+  assertFails(getDoc(doc(studentA, 'progress', 'studentB'))));
 
-await it('principal CAN read same-school student progress', () =>
-  assertSucceeds(getDoc(doc(principal, 'progress', 'studentB'))));
+await it('user CANNOT write another user doc', () =>
+  assertFails(setDoc(doc(studentA, 'users', 'studentB'), { targetScore: 800 }, { merge: true })));
+
+await it('anonymous CANNOT read any user doc', () =>
+  assertFails(getDoc(doc(anon, 'users', 'studentA'))));
 
 await env.cleanup();
 console.log(`\n${passed} passed, ${failed} failed`);
