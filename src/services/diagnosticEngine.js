@@ -586,6 +586,33 @@ const calculateAvgSkillMastery = (skillIds, skillProgress) => {
 export const runDiagnostic = (test, answers, diagnosticData, skillProgress = {}, userProfile = {}, previousTests = {}) => {
   const questionDetails = diagnosticData?.questionDetails || {};
 
+  // Seed the error classifier with THIS test's per-skill accuracy. On the
+  // first diagnostic, historical skillProgress is empty, so
+  // calculateAvgSkillMastery defaults every skill to 50 — which makes
+  // classifyError treat every miss as "some mastery" and silently collapses
+  // the 6-class taxonomy (CARELESS needs >=75, CONCEPTUAL_GAP needs <40).
+  // Seeding in-test accuracy lets the taxonomy work on the first test; real
+  // historical mastery still wins where it exists. (1.2)
+  const inTestSkillTotals = {};
+  test.modules.forEach((mod, modIdx) => {
+    mod.questions.forEach((q, qIdx) => {
+      const correct = isAnswerCorrect(q, answers[`${modIdx}-${qIdx}`]);
+      getQuestionSkills(q).forEach((skillId) => {
+        if (!inTestSkillTotals[skillId]) inTestSkillTotals[skillId] = { correct: 0, total: 0 };
+        inTestSkillTotals[skillId].total++;
+        if (correct) inTestSkillTotals[skillId].correct++;
+      });
+    });
+  });
+  const inTestSkillSeed = {};
+  Object.entries(inTestSkillTotals).forEach(([skillId, s]) => {
+    inTestSkillSeed[skillId] = {
+      mastery: Math.round((s.correct / s.total) * 100),
+      attempts: s.total,
+    };
+  });
+  const classifySkillProgress = { ...inTestSkillSeed, ...skillProgress };
+
   // ═══ PHASE 1: Analyze every question ═══
   const questionAnalysis = [];
   let totalCorrect = 0;
@@ -646,7 +673,7 @@ export const runDiagnostic = (test, answers, diagnosticData, skillProgress = {},
           ...behaviorEvidence,
         });
       } else {
-        const errorClassification = classifyError(q, userAnswer, telemetry, skillProgress);
+        const errorClassification = classifyError(q, userAnswer, telemetry, classifySkillProgress);
 
         questionAnalysis.push({
           key,
@@ -931,7 +958,9 @@ const analyzeSkills = (questionAnalysis, skillProgress = {}) => {
       ...rest,
       missedPatterns: [...missedPatternsSet],
       testAccuracy: s.total > 0 ? Math.round((s.correct / s.total) * 100) : 0,
-      isWeak: s.total > 0 && (s.correct / s.total) < 0.5,
+      // Require >=2 attempts so a single 0/1 miss doesn't flag a skill weak
+      // and poison the whole study plan with first-diagnostic noise. (1.7)
+      isWeak: s.total >= 2 && (s.correct / s.total) < 0.5,
       isStrong: s.total > 0 && (s.correct / s.total) >= 0.8,
       primaryErrorType: getMostCommonErrorType(s.errorTypes),
     };

@@ -1469,15 +1469,23 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
 
       diagnosticDataRef.current = diagnosticData;
 
+      // Grade against the modules the student actually answered. When the
+      // student routes to the Easy Module 2, effectiveModules swaps in the
+      // Easy variant; test.modules is still the original (Hard) key. Scoring
+      // or diagnosing against test.modules would grade Easy answers against
+      // Hard keys and silently corrupt the score, diagnosis, and every
+      // downstream drill route — for exactly the lowest scorers. (1.1)
+      const effectiveTest = { ...test, modules: effectiveModules };
+
       diagnosticReportRef.current = runDiagnostic(
-        test, answers, diagnosticData,
+        effectiveTest, answers, diagnosticData,
         skillProgress || {},
         { targetScore: user?.targetScore, currentScore: user?.currentScore, testDate: user?.testDate },
         practiceTestResults || {}
       );
 
       // IRT-based scoring via central engine
-      const scored = scoreTest(test, answers, { timedMode: isTimed, diagnosticData });
+      const scored = scoreTest(effectiveTest, answers, { timedMode: isTimed, diagnosticData });
       const newAttemptId = generateAttemptId();
       attemptIdRef.current = newAttemptId;
 
