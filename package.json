@@ -38,6 +38,7 @@
     "bank:lint:rubric:all": "node scripts/calibrateModule.mjs --lint --all",
     "rw-bank:validate": "node scripts/validateRWBank.mjs --all",
     "rw-drill:validate": "node scripts/validateRWDrillSample.mjs",
+    "rules:test": "firebase emulators:exec --only firestore \"node scripts/testFirestoreRules.mjs\"",
     "dev:emulator": "REACT_APP_USE_FIREBASE_EMULATOR=1 firebase emulators:start --only auth,firestore",
     "dev:seed": "FIRESTORE_EMULATOR_HOST=localhost:8080 FIREBASE_AUTH_EMULATOR_HOST=localhost:9099 GCLOUD_PROJECT=performsat-demo node scripts/seedDemoData.mjs",
     "eject": "react-scripts eject"
@@ -56,6 +57,7 @@
   },
   "devDependencies": {
     "@anthropic-ai/sdk": "^0.95.0",
+    "@firebase/rules-unit-testing": "^3.0.4",
     "@playwright/test": "^1.59.1"
   }
 }
