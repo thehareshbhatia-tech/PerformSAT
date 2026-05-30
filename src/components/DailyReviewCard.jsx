@@ -27,6 +27,12 @@ const DailyReviewCard = ({ reviewQueue, onStartReview }) => {
         </div>
       </div>
 
+      {streak.current > 0 && (
+        <div className="review-streak" style={{ fontSize: '0.8125rem', color: '#6b7280', marginBottom: '0.5rem' }}>
+          <strong style={{ color: '#3f6212' }}>{streak.current}-day</strong> review streak{streak.best > streak.current ? ` · best ${streak.best}` : ''}
+        </div>
+      )}
+
       <div className="action-card-desc">
         {session.sessionSize > 0
           ? `${session.hasMore ? session.totalDue : session.sessionSize} questions waiting for spaced repetition review.`

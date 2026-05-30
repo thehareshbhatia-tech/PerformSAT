@@ -14,6 +14,7 @@
 jest.mock('../analyticsService', () => ({
   trackTestCompleted: jest.fn(),
   trackDrillCompleted: jest.fn(),
+  trackReviewSessionDone: jest.fn(),
   flushEvents: jest.fn().mockResolvedValue(undefined),
 }));
 
@@ -27,14 +28,29 @@ jest.mock('../predictionEngine', () => ({
   validateAndUpdatePredictions: jest.fn().mockResolvedValue(undefined),
 }));
 
+jest.mock('../reviewService', () => ({
+  updateReviewItem: jest.fn().mockResolvedValue(undefined),
+}));
+
+jest.mock('../dailyReviewEngine', () => ({
+  buildSessionSummary: jest.fn().mockReturnValue({
+    correct: 2, total: 3, accuracy: 67,
+    streak: { current: 4, best: 9, lastDate: '2026-05-30' },
+    message: 'Solid session.',
+  }),
+}));
+
 import {
   buildFullTestSession,
   buildDrillSession,
+  buildReviewSession,
   dispatchSessionComplete,
 } from '../sessionComplete';
-import { trackTestCompleted, trackDrillCompleted, flushEvents } from '../analyticsService';
+import { trackTestCompleted, trackDrillCompleted, trackReviewSessionDone, flushEvents } from '../analyticsService';
 import { updateFingerprint } from '../studentFingerprintService';
 import { generatePredictions, savePrediction, validateAndUpdatePredictions } from '../predictionEngine';
+import { updateReviewItem } from '../reviewService';
+import { buildSessionSummary } from '../dailyReviewEngine';
 
 const DIAG = { score: { scaled: 640 }, skillAnalysis: { weakSkills: [] }, errorPatterns: { counts: {} } };
 
@@ -62,6 +78,12 @@ beforeEach(() => {
   generatePredictions.mockReturnValue({ id: 'pred_test', predictions: {} });
   savePrediction.mockResolvedValue(undefined);
   validateAndUpdatePredictions.mockResolvedValue(undefined);
+  updateReviewItem.mockResolvedValue(undefined);
+  buildSessionSummary.mockReturnValue({
+    correct: 2, total: 3, accuracy: 67,
+    streak: { current: 4, best: 9, lastDate: '2026-05-30' },
+    message: 'Solid session.',
+  });
 });
 
 describe('builders', () => {
@@ -80,6 +102,70 @@ describe('builders', () => {
     expect(buildDrillSession({ drillMode: 'standard' }).sessionType).toBe('drill-standard');
     // reviewMode wins over mode — a review-retry runs through the assigned path
     expect(buildDrillSession({ drillMode: 'assigned', reviewMode: true }).sessionType).toBe('review-retry');
+  });
+
+  test('buildReviewSession carries items + count', () => {
+    const s = buildReviewSession({ reviewItems: [{ key: 'm-s-1', wasCorrect: true }, { key: 'm-s-2', wasCorrect: false }], userId: 'u1' });
+    expect(s.sessionType).toBe('review');
+    expect(s.itemCount).toBe(2);
+    expect(s.reviewItems).toHaveLength(2);
+  });
+});
+
+describe('dispatchSessionComplete — daily review', () => {
+  const reviewSession = (items) => buildReviewSession({
+    reviewItems: items ?? [
+      { key: 'm1-math-3', wasCorrect: true },
+      { key: 'm1-math-7', wasCorrect: false },
+      { key: 'm1-math-9', wasCorrect: true },
+    ],
+    userId: 'u1',
+  });
+
+  test('reschedules each item (SM-2), bumps streak, fires review analytics, returns summary', async () => {
+    const out = await dispatchSessionComplete(reviewSession(), {});
+
+    expect(out.review).toBe(true);
+    expect(out.analytics).toBe(true);
+    expect(out.summary).toEqual(expect.objectContaining({ correct: 2, total: 3, accuracy: 67 }));
+
+    // one reschedule per answered item, with the right key + correctness
+    expect(updateReviewItem).toHaveBeenCalledTimes(3);
+    expect(updateReviewItem).toHaveBeenCalledWith('u1', 'm1-math-3', true);
+    expect(updateReviewItem).toHaveBeenCalledWith('u1', 'm1-math-7', false);
+
+    expect(buildSessionSummary).toHaveBeenCalledWith([
+      { wasCorrect: true }, { wasCorrect: false }, { wasCorrect: true },
+    ]);
+    expect(trackReviewSessionDone).toHaveBeenCalledWith('u1', 3, 67, 4);
+
+    // review never runs the prediction pipeline
+    expect(updateFingerprint).not.toHaveBeenCalled();
+    expect(savePrediction).not.toHaveBeenCalled();
+    expect(trackTestCompleted).not.toHaveBeenCalled();
+  });
+
+  test('reschedules run sequentially before the summary (avoids RMW clobber)', async () => {
+    await dispatchSessionComplete(reviewSession(), {});
+    const lastReschedule = Math.max(...updateReviewItem.mock.invocationCallOrder);
+    expect(lastReschedule).toBeLessThan(buildSessionSummary.mock.invocationCallOrder[0]);
+  });
+
+  test('empty item set skips reschedule but still records the session', async () => {
+    const out = await dispatchSessionComplete(reviewSession([]), {});
+    expect(out.review).toBe(false);
+    expect(out.skippedReason).toBe('no-items');
+    expect(updateReviewItem).not.toHaveBeenCalled();
+    expect(buildSessionSummary).toHaveBeenCalledWith([]); // still bumps streak (review attempted)
+    expect(trackReviewSessionDone).toHaveBeenCalled();
+  });
+
+  test('a reschedule failure does not block streak/analytics', async () => {
+    updateReviewItem.mockRejectedValueOnce(new Error('firestore boom'));
+    const out = await dispatchSessionComplete(reviewSession(), {});
+    expect(out.review).toBe(false);          // reschedule loop threw
+    expect(out.summary).not.toBeNull();      // summary still built
+    expect(out.analytics).toBe(true);        // analytics still fired
   });
 });
 

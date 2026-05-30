@@ -7,6 +7,7 @@ import {
   dispatchSessionComplete,
   buildFullTestSession,
   buildDrillSession,
+  buildReviewSession,
 } from './services/sessionComplete';
 import LandingPage from './components/LandingPage';
 import StudentDashboard from './components/StudentDashboard';
@@ -795,6 +796,31 @@ const PerformSAT = () => {
       const total = Object.keys(answersMap).length || (Array.isArray(questions) ? questions.length : 0);
       const correct = Object.values(answersMap).filter(a => a && a.correct).length;
       const accuracy = total > 0 ? Math.round((correct / total) * 100) : null;
+
+      // Daily-review session: close the SM-2 reschedule + streak loop. Maps each
+      // answered question back to its reviewQueue key, then the orchestrator
+      // advances the schedule, bumps the streak, and returns a summary to toast.
+      if (practiceState.assignmentMeta?.source === 'review-queue') {
+        const keyByQ = practiceState.reviewKeyByQuestionId || {};
+        const reviewItems = Object.entries(answersMap)
+          .map(([qid, a]) => ({ key: keyByQ[qid], wasCorrect: !!(a && a.correct) }))
+          .filter(it => it.key);
+        const reviewSession = buildReviewSession({ reviewItems, userId: user?.uid ?? null });
+        dispatchSessionComplete(reviewSession, { userId: user?.uid ?? null })
+          .then(out => {
+            const s = out?.summary;
+            if (s) {
+              showToast({
+                type: s.accuracy >= 70 ? 'success' : 'info',
+                message: `Review complete · ${s.correct}/${s.total} correct${s.streak?.current ? ` · ${s.streak.current}-day streak` : ''}.`,
+                duration: 4000,
+              });
+            }
+          })
+          .catch(err => console.error('[App] review sessionComplete dispatch error:', err));
+        return;
+      }
+
       const session = buildDrillSession({
         drillMode: practiceState.practiceMode || 'standard',
         section: activeSection || null,
@@ -1338,14 +1364,21 @@ const PerformSAT = () => {
             }}
             onStartReview={(items) => {
               const reviewItems = items || [];
-              // Resolve review queue items to actual questions from the question bank
+              // Resolve review queue items to actual questions from the question bank.
+              // Map each resolved question id -> its reviewQueue key so the
+              // SM-2 reschedule can advance the right items on completion.
               const questions = [];
+              const reviewKeyByQuestionId = {};
               reviewItems.forEach(item => {
                 if (!item.moduleId || !item.sectionName) return;
                 const sectionQuestions = getQuestionsForSection(item.moduleId, item.sectionName);
                 const qIndex = typeof item.questionId === 'number' ? item.questionId : parseInt(item.questionId, 10);
-                if (sectionQuestions[qIndex]) {
-                  questions.push(sectionQuestions[qIndex]);
+                const q = sectionQuestions[qIndex];
+                if (q) {
+                  questions.push(q);
+                  if (item.key != null && q.id != null) {
+                    reviewKeyByQuestionId[q.id] = item.key;
+                  }
                 }
               });
               if (questions.length > 0) {
@@ -1359,6 +1392,7 @@ const PerformSAT = () => {
                   shuffledQuestions: questions.slice(0, 15),
                   practiceMode: 'assigned',
                   assignmentMeta: { label: 'Review Session', source: 'review-queue' },
+                  reviewKeyByQuestionId,
                 });
                 setActiveModule(null);
                 setActiveSection('__assigned__');

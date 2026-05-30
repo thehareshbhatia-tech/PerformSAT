@@ -22,13 +22,20 @@
  *    the dashboard shows (composite 400-1600 vs section 200-800).
  */
 
-import { trackTestCompleted, trackDrillCompleted, flushEvents } from './analyticsService';
+import {
+  trackTestCompleted,
+  trackDrillCompleted,
+  trackReviewSessionDone,
+  flushEvents,
+} from './analyticsService';
 import { updateFingerprint } from './studentFingerprintService';
 import {
   generatePredictions,
   savePrediction,
   validateAndUpdatePredictions,
 } from './predictionEngine';
+import { updateReviewItem } from './reviewService';
+import { buildSessionSummary } from './dailyReviewEngine';
 import { makeLogger } from '../utils/log';
 
 const log = makeLogger('sessionComplete');
@@ -125,6 +132,24 @@ export const buildDrillSession = ({
 });
 
 /**
+ * Build a daily-review session object. The reviewItems carry the reviewQueue
+ * key + per-item correctness so the SM-2 reschedule can advance each item.
+ * Pure — no side effects.
+ *
+ * @param {Object} fields
+ * @param {Array<{key: string, wasCorrect: boolean}>} fields.reviewItems
+ * @param {string|null} [fields.userId]
+ * @returns {Object} session
+ */
+export const buildReviewSession = ({ reviewItems = [], userId = null, completedAt = null }) => ({
+  sessionType: 'review',
+  reviewItems: Array.isArray(reviewItems) ? reviewItems : [],
+  itemCount: Array.isArray(reviewItems) ? reviewItems.length : 0,
+  userId,
+  completedAt: completedAt || new Date().toISOString(),
+});
+
+/**
  * Fan a completed session out to all subscribers.
  *
  * Analytics fires for every session type. The intelligence pipeline
@@ -148,6 +173,13 @@ export const dispatchSessionComplete = async (session, deps = {}) => {
   }
 
   const userId = session.userId || deps.userId || null;
+
+  // Daily-review sessions take a separate path: SM-2 reschedule + streak +
+  // review analytics, and return a session summary the UI surfaces. They never
+  // run the prediction pipeline.
+  if (session.sessionType === 'review') {
+    return dispatchReviewComplete(session, userId);
+  }
 
   // ── Subscriber 1: analytics (always, best-effort) ──
   try {
@@ -230,3 +262,59 @@ export const dispatchSessionComplete = async (session, deps = {}) => {
 
   return outcome;
 };
+
+/**
+ * Close the daily-review loop: advance each answered item's SM-2 schedule,
+ * increment the streak, fire review analytics, and return the session summary
+ * for the UI to surface. Each subscriber is best-effort.
+ *
+ * @param {Object} session — review session from buildReviewSession
+ * @param {string|null} userId
+ * @returns {Promise<{review: boolean, analytics: boolean, summary: object|null, skippedReason: string|null}>}
+ */
+async function dispatchReviewComplete(session, userId) {
+  const outcome = { review: false, analytics: false, summary: null, skippedReason: null };
+  const items = Array.isArray(session.reviewItems) ? session.reviewItems.filter(it => it && it.key) : [];
+
+  // 1. SM-2 reschedule per answered item. Sequential, not parallel: each call
+  //    is a read-modify-write on the SAME progress doc, so concurrent writes
+  //    would clobber each other (last-write-wins drops earlier reschedules).
+  if (userId && items.length) {
+    try {
+      for (const it of items) {
+        await updateReviewItem(userId, it.key, !!it.wasCorrect);
+      }
+      outcome.review = true;
+    } catch (err) {
+      log.error('review reschedule failed:', err);
+    }
+  } else {
+    outcome.skippedReason = !userId ? 'no-user' : 'no-items';
+  }
+
+  // 2. Streak + summary (recordReviewSessionComplete increments the localStorage
+  //    streak; same-day repeat is a no-op inside it).
+  let summary = null;
+  try {
+    summary = buildSessionSummary(items.map(it => ({ wasCorrect: !!it.wasCorrect })));
+    outcome.summary = summary;
+  } catch (err) {
+    log.error('review summary failed:', err);
+  }
+
+  // 3. Review analytics.
+  try {
+    trackReviewSessionDone(
+      userId,
+      items.length,
+      summary ? summary.accuracy : null,
+      summary?.streak?.current ?? null,
+    );
+    if (userId) await flushEvents(userId);
+    outcome.analytics = true;
+  } catch (err) {
+    log.error('review analytics failed:', err);
+  }
+
+  return outcome;
+}
