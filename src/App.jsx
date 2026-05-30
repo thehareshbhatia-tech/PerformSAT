@@ -29,6 +29,7 @@ import Profile from './components/Profile';
 import StudyPlanDashboard from './components/StudyPlanDashboard';
 import AdaptivePracticeShell from './components/AdaptivePracticeShell';
 import AssignedPracticeShell from './components/AssignedPracticeShell';
+import PacingDrill from './components/PacingDrill';
 import PracticeBank from './components/PracticeBank';
 import DiagnosticReport from './components/DiagnosticReport';
 import LearnWorkspace from './components/learn/LearnWorkspace';
@@ -68,6 +69,9 @@ import {
   reviewDisplaySection,
   BANK_REVIEW_MODULE,
 } from './services/reviewQueueResolve';
+import { selectPacingQuestions } from './services/pacingService';
+import { trackPacingDrillDone } from './services/analyticsService';
+import { getQuestionsByDomain } from './data/questions/bank';
 import { patchAdaptivePracticeState } from './services/hybridStudyPlanService';
 import { getReadyAiDiagnostic, loadAttemptSnapshot } from './services/practiceTestService';
 import { reprioritizePlan } from './services/adaptivePlanService';
@@ -196,8 +200,10 @@ const PerformSAT = () => {
   const [activeModule, setActiveModule] = useState(null);
   const [activeLesson, setActiveLesson] = useState(null);
   const [activeSection, setActiveSection] = useState(null); // For section-based practice
-  const [view, setView] = useState('dashboard'); // 'dashboard' | 'practice' | 'practiceTests' | 'takingTest' | 'profile' | 'studyPlan' | 'tutor' | 'viewingResults' | 'diagnosticReport' | 'reviewingPastResults' | 'pastTestReviewIndex' | 'pastTestReviewDetail' | 'pastTestReviewItem'
+  const [view, setView] = useState('dashboard'); // 'dashboard' | 'practice' | 'practiceTests' | 'takingTest' | 'profile' | 'studyPlan' | 'tutor' | 'viewingResults' | 'diagnosticReport' | 'reviewingPastResults' | 'pastTestReviewIndex' | 'pastTestReviewDetail' | 'pastTestReviewItem' | 'pacingDrill'
   const [showOnboarding, setShowOnboarding] = useState(false);
+  // Active pacing drill: { config, questions }. Set by onStartPacing, rendered at view==='pacingDrill'.
+  const [pacingSession, setPacingSession] = useState(null);
   const [selectedPracticeTest, setSelectedPracticeTest] = useState(null);
   const [isTestTimed, setIsTestTimed] = useState(true);
   // 'reading-writing' | 'math' | null. When set, PracticeTest jumps to that
@@ -400,6 +406,30 @@ const PerformSAT = () => {
     setActiveSection(sectionName);
     setShowCalculator(false);
     setView('practice');
+  };
+
+  // Launch a timed pacing drill (Phase 2 — pacingService runner). The card
+  // passes the chosen mode config; we source MCQ bank questions matching its
+  // difficulty filter, then hand off to the self-contained PacingDrill runner.
+  const startPacingDrill = (config) => {
+    if (!config) return;
+    const pool = [];
+    ['algebra', 'problem-solving', 'advanced-math', 'geometry'].forEach((domain) => {
+      try { pool.push(...(getQuestionsByDomain(domain) || [])); } catch { /* domain absent */ }
+    });
+    // Fisher-Yates shuffle so each drill draws a fresh, representative set.
+    for (let i = pool.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [pool[i], pool[j]] = [pool[j], pool[i]];
+    }
+    const questions = selectPacingQuestions(pool, config);
+    if (questions.length === 0) {
+      showToast({ type: 'info', message: 'No pacing questions available right now. Try a practice test first.' });
+      return;
+    }
+    setPacingSession({ config, questions });
+    setShowAiTutor(false);
+    setView('pacingDrill');
   };
 
   const startAssignedPractice = (questionIds, meta = {}) => {
@@ -1414,6 +1444,7 @@ const PerformSAT = () => {
               }
             }}
             onStartPracticeTest={() => setView('practiceTests')}
+            onStartPacing={startPacingDrill}
             onViewFullDiagnosis={async () => {
               // Closes CEO C1: surface DiagnosticReport from the dashboard.
               const { testId, lastAttempt } = pickMostRecentTest(practiceTestResults);
@@ -1795,6 +1826,23 @@ const PerformSAT = () => {
               }).catch(err => console.error('[App] full-test sessionComplete dispatch error:', err));
             }}
           />
+          </ErrorBoundary>
+        )}
+
+        {/* Timed Pacing Drill */}
+        {view === 'pacingDrill' && pacingSession && (
+          <ErrorBoundary message="The pacing drill hit a snag. Your progress is safe — head back to the dashboard.">
+            <PacingDrill
+              config={pacingSession.config}
+              questions={pacingSession.questions}
+              user={user}
+              onComplete={(summary) => {
+                if (user?.uid && summary) {
+                  trackPacingDrillDone(user.uid, pacingSession.config.id, summary.accuracy, summary.avgTimePerQuestion);
+                }
+              }}
+              onExit={() => { setPacingSession(null); setView('dashboard'); }}
+            />
           </ErrorBoundary>
         )}
 

@@ -69,6 +69,7 @@ const StudentDashboard = ({
   onStartPractice,
   onStartReview,
   onStartPracticeTest,
+  onStartPacing,
   onViewFullDiagnosis,
   allLessons,
   skillDiagnosticSummary,
@@ -561,7 +562,7 @@ const StudentDashboard = ({
                   (a.diagnosticData?.questionTelemetry || []).map((q, i) => ({ ...q, questionIndex: i }))
                 );
               })()}
-              onStartPacing={onStartPracticeTest}
+              onStartPacing={onStartPacing || onStartPracticeTest}
             />
           </div>
 

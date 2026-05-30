@@ -33,7 +33,7 @@ const PacingDrillCard = ({ questionTelemetry = [], onStartPacing }) => {
           : 'Take a practice test to unlock personalized pacing drills based on your timing data.'}
       </div>
 
-      <button className="btn-ghost-blue" onClick={() => onStartPacing && onStartPacing()} style={{ textAlign: 'left', marginBottom: '1.25rem' }}>
+      <button className="btn-ghost-blue" onClick={() => onStartPacing && onStartPacing(session.config)} style={{ textAlign: 'left', marginBottom: '1.25rem' }}>
         Start Timed Practice
       </button>
 

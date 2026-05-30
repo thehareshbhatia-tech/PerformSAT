@@ -142,6 +142,31 @@ export const buildPacingSession = (questionTelemetry = []) => {
 };
 
 /**
+ * Select the questions for a pacing drill from a candidate pool. Pure: the
+ * caller supplies (and pre-shuffles) the pool so this stays testable and the
+ * randomness lives at the call site.
+ *
+ * Pacing trains TIMING, not a specific skill, so questions are chosen by
+ * difficulty only (per the mode's difficultyFilter), MCQ only (fill-ins don't
+ * suit a fast timed rhythm), capped at the mode's questionCount.
+ *
+ * @param {Array} pool — candidate questions (already shuffled by the caller)
+ * @param {Object} config — a PACING_MODES entry
+ * @returns {Array} the selected questions
+ */
+export const selectPacingQuestions = (pool = [], config = {}) => {
+  const isMCQ = (q) => Array.isArray(q?.choices) && q.choices.length >= 2;
+  let filtered = (pool || []).filter(isMCQ);
+
+  const df = config.difficultyFilter;
+  if (Array.isArray(df) && df.length > 0) {
+    filtered = filtered.filter((q) => df.includes(q.difficulty));
+  }
+
+  return filtered.slice(0, config.questionCount || 10);
+};
+
+/**
  * Evaluate a completed pacing drill session.
  *
  * @param {Object} modeConfig — the PACING_MODES entry used
