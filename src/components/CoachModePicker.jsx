@@ -47,7 +47,7 @@ const CoachModePicker = ({ activeMode, onSelectMode }) => {
               transition: 'all 0.15s ease',
             }}
           >
-            {mode.icon} {mode.label}
+            {mode.label}
           </button>
         );
       })}

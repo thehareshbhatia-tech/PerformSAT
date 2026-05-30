@@ -18,7 +18,6 @@ export const COACH_MODES = {
     id: 'hint_ladder',
     label: 'Hint Ladder',
     description: 'Get progressive hints — from broad to specific — without having the answer revealed.',
-    icon: '💡',
     contextContract: {
       required: ['question', 'userAnswer'],
       optional: ['skills', 'difficulty', 'errorType'],
@@ -43,7 +42,6 @@ You have at most 5 rungs on the ladder before you walk through the setup.
     id: 'mistake_replay',
     label: 'Mistake Replay',
     description: 'Walk through exactly where your reasoning went wrong and learn the correct path.',
-    icon: '🔄',
     contextContract: {
       required: ['question', 'userAnswer', 'correctAnswer'],
       optional: ['skills', 'errorType', 'timeSpent', 'trapType'],
@@ -69,7 +67,6 @@ RULES:
     id: 'teach_back',
     label: 'Teach-Back',
     description: 'Explain the concept in your own words. The AI corrects misconceptions and fills gaps.',
-    icon: '🎓',
     contextContract: {
       required: ['skillId', 'skillName'],
       optional: ['question', 'studentExplanation'],
@@ -98,7 +95,6 @@ RULES:
     id: 'exam_strategy',
     label: 'Exam Strategy Coach',
     description: 'Test-day pacing, section strategy, triage decisions, and mindset coaching.',
-    icon: '🏆',
     contextContract: {
       required: [],
       optional: ['pacingProfile', 'currentScore', 'targetScore', 'daysUntilTest', 'weakDomains'],
@@ -190,6 +186,5 @@ export const getAvailableCoachModes = () => {
     id: m.id,
     label: m.label,
     description: m.description,
-    icon: m.icon,
   }));
 };

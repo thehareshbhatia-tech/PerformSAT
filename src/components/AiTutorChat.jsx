@@ -1,6 +1,8 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import katex from 'katex';
 import { chatWithTutor } from '../services/aiTutorService';
+import CoachModePicker from './CoachModePicker';
+import { trackCoachModeUsed } from '../services/analyticsService';
 import ProactiveHint from './ProactiveHint';
 import {
   generateProactiveRecommendation,
@@ -213,6 +215,9 @@ const AiTutorChat = ({
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  // Active coach mode (null = default tutor). Activates a structured system
+  // overlay in chatWithTutor — the modes existed but were never wired.
+  const [coachMode, setCoachMode] = useState(null);
   const [lastSendTime, setLastSendTime] = useState(0);
   const [proactiveRec, setProactiveRec] = useState(null);
   const [hintDismissed, setHintDismissed] = useState(false);
@@ -838,6 +843,28 @@ Your goal is to build their problem-solving instincts. Every question they solve
         );
       }
 
+      // Coach mode: when a structured mode is active, pass its id + a context
+      // object matching the mode's contract. buildCoachContext guards each
+      // field, so a superset is safe (missing fields are simply omitted).
+      const coachModePayload = coachMode ? {
+        modeId: coachMode,
+        context: {
+          question: practiceContext?.question ?? practiceContext?.questionText ?? null,
+          userAnswer: practiceContext?.userAnswer,
+          correctAnswer: practiceContext?.correctAnswer,
+          skills: practiceContext?.skills,
+          skillId: practiceContext?.skills?.[0],
+          skillName: practiceContext?.skillName,
+          errorType: practiceContext?.errorType,
+          difficulty: practiceContext?.difficulty,
+          currentScore: user?.currentScore,
+          targetScore: user?.targetScore,
+        },
+      } : null;
+      if (coachModePayload && user?.uid) {
+        trackCoachModeUsed(user.uid, coachMode, newMessages.filter(m => m.role === 'user').length);
+      }
+
       const response = await chatWithTutor(
         newMessages,
         moduleId,
@@ -846,7 +873,7 @@ Your goal is to build their problem-solving instincts. Every question they solve
         videoContext,
         practiceContextStr,
         studentProfileStr,
-        null, // coachMode
+        coachModePayload,
         learningMemoryCtx,
         strategyCtx,
         intelligenceCtx
@@ -1450,6 +1477,7 @@ Your goal is to build their problem-solving instincts. Every question they solve
           borderTop: `1px solid ${design.colors.border.light}`,
         }}
       >
+        <CoachModePicker activeMode={coachMode} onSelectMode={setCoachMode} />
         <div style={{
           display: 'flex',
           gap: '12px',
