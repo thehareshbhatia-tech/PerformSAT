@@ -159,6 +159,9 @@ const AssignedPracticeShell = ({
   user,
   skillProgress,
   practiceTestResults,
+  studentFingerprint = null,
+  interventionLog = null,
+  predictionLog = null,
 }) => {
   const [eliminatedChoices, setEliminatedChoices] = useState({});
   // Debounce trap so a rapid double-click doesn't insert two questions.
@@ -878,6 +881,9 @@ const AssignedPracticeShell = ({
           testDate={user?.testDate}
           user={user}
           practiceTestResults={practiceTestResults}
+          studentFingerprint={studentFingerprint}
+          interventionLog={interventionLog}
+          predictionLog={predictionLog}
         />
       </aside>
 
