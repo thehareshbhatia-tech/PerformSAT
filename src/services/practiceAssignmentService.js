@@ -36,6 +36,11 @@ function getQuestionById(id) {
   return getMathQuestionById(id) || null;
 }
 
+// Exposed for the review queue's bank-item resolution (Phase 2 review feeding).
+// Same math+R&W dispatch the assigned-drill resolver uses, so a missed drill
+// item resolves back to the exact question regardless of bank.
+export { getQuestionById as resolveQuestionById };
+
 // ─── Defaults ────────────────────────────────────────────────────────────────
 
 const DEFAULT_QUESTIONS_PER_WEEK = 10;

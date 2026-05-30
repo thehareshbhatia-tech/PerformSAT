@@ -53,6 +53,7 @@ import {
 import { getAllPracticeTests } from './data/practiceTests';
 import {
   resolveAssignedQuestions,
+  resolveQuestionById,
   normalizeDomain,
   buildDomainAdaptiveQueueSeed,
   createAdaptiveSessionState,
@@ -62,6 +63,11 @@ import {
   serializeAdaptiveState,
   deserializeAdaptiveState,
 } from './services/practiceAssignmentService';
+import {
+  resolveReviewItemToQuestion,
+  reviewDisplaySection,
+  BANK_REVIEW_MODULE,
+} from './services/reviewQueueResolve';
 import { patchAdaptivePracticeState } from './services/hybridStudyPlanService';
 import { getReadyAiDiagnostic, loadAttemptSnapshot } from './services/practiceTestService';
 import { reprioritizePlan } from './services/adaptivePlanService';
@@ -780,8 +786,16 @@ const PerformSAT = () => {
     }));
 
     const isAdaptiveOrAssigned = practiceState.practiceMode === 'assigned' || practiceState.practiceMode === 'adaptive';
+    const isReviewSession = practiceState.assignmentMeta?.source === 'review-queue';
     if (user?.uid && activeModule && activeSection && !isAdaptiveOrAssigned) {
+      // Legacy free-practice path: enqueue every answer (index-resolvable).
       addToReviewQueue(user.uid, activeModule, activeSection, question.id, isCorrect);
+    } else if (user?.uid && isAdaptiveOrAssigned && !isReviewSession && !isCorrect && question?.id != null) {
+      // Phase 2: feed production-drill MISSES into the review queue. Stored
+      // bank-resolvable (moduleId='bank' + real question id) so spaced repetition
+      // can re-serve the exact item. Skip review sessions (the review-complete
+      // path already reschedules those) and correct answers (nothing to review).
+      addToReviewQueue(user.uid, BANK_REVIEW_MODULE, reviewDisplaySection(question), question.id, false);
     }
   };
 
@@ -1370,10 +1384,9 @@ const PerformSAT = () => {
               const questions = [];
               const reviewKeyByQuestionId = {};
               reviewItems.forEach(item => {
-                if (!item.moduleId || !item.sectionName) return;
-                const sectionQuestions = getQuestionsForSection(item.moduleId, item.sectionName);
-                const qIndex = typeof item.questionId === 'number' ? item.questionId : parseInt(item.questionId, 10);
-                const q = sectionQuestions[qIndex];
+                // Resolves both shapes: bank-fed drill misses (by id) and legacy
+                // free-practice items (by section index). See reviewQueueResolve.
+                const q = resolveReviewItemToQuestion(item, { resolveQuestionById, getQuestionsForSection });
                 if (q) {
                   questions.push(q);
                   if (item.key != null && q.id != null) {
