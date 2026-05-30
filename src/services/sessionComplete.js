@@ -36,6 +36,7 @@ import {
 } from './predictionEngine';
 import { updateReviewItem } from './reviewService';
 import { buildSessionSummary } from './dailyReviewEngine';
+import { getUnresolvedInterventions, resolveIntervention } from './interventionTracker';
 import { makeLogger } from '../utils/log';
 
 const log = makeLogger('sessionComplete');
@@ -260,8 +261,56 @@ export const dispatchSessionComplete = async (session, deps = {}) => {
     log.error('prediction pipeline failed:', err);
   }
 
+  // ── Subscriber 3: close out interventions this test measured ──
+  // Interventions start when the drill tutor engages on a skill (captures the
+  // pre-mastery baseline) but nothing ever resolved them, so postMetrics.delta
+  // never existed. Resolve here using this test's per-skill accuracy as the
+  // "after" measure; predictStruggleSkills reads the delta to down-weight skills
+  // where the teaching action didn't stick. Independent try/catch so a failure
+  // never blocks the prediction step above (or vice versa).
+  try {
+    outcome.interventionsResolved = await resolveInterventionsForTest(userId, session.diagnosticReport);
+  } catch (err) {
+    log.error('intervention resolution failed:', err);
+  }
+
   return outcome;
 };
+
+/**
+ * Resolve every unresolved intervention whose targeted skill this test measured.
+ * postMetrics.skillMastery is the test's per-skill accuracy (the "after"),
+ * compared against the intervention's captured pre-mastery to produce a delta.
+ *
+ * @param {string} userId
+ * @param {Object} diagnosticReport — runDiagnostic() output
+ * @returns {Promise<number>} count of interventions resolved
+ */
+async function resolveInterventionsForTest(userId, diagnosticReport) {
+  const unresolved = await getUnresolvedInterventions(userId);
+  if (!unresolved.length) return 0;
+
+  const sa = diagnosticReport?.skillAnalysis || {};
+  const skillMastery = {};
+  [...(sa.weakSkills || []), ...(sa.strongSkills || [])].forEach((s) => {
+    if (s && s.skillId != null && typeof s.testAccuracy === 'number') {
+      skillMastery[s.skillId] = s.testAccuracy;
+    }
+  });
+  const errorTypes = diagnosticReport?.errorPatterns?.counts || {};
+
+  let resolved = 0;
+  for (const iv of unresolved) {
+    // Only resolve if this test actually measured one of the intervened skills;
+    // otherwise leave it open for a later test that does.
+    const measured = (iv.skillIds || []).some((sid) => sid in skillMastery);
+    if (!measured) continue;
+    // Sequential: each resolve is a read-modify-write on the one progress doc.
+    await resolveIntervention(userId, iv.id, { skillMastery, errorTypes });
+    resolved += 1;
+  }
+  return resolved;
+}
 
 /**
  * Close the daily-review loop: advance each answered item's SM-2 schedule,

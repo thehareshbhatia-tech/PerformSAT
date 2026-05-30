@@ -40,6 +40,11 @@ jest.mock('../dailyReviewEngine', () => ({
   }),
 }));
 
+jest.mock('../interventionTracker', () => ({
+  getUnresolvedInterventions: jest.fn().mockResolvedValue([]),
+  resolveIntervention: jest.fn().mockResolvedValue(undefined),
+}));
+
 import {
   buildFullTestSession,
   buildDrillSession,
@@ -51,6 +56,7 @@ import { updateFingerprint } from '../studentFingerprintService';
 import { generatePredictions, savePrediction, validateAndUpdatePredictions } from '../predictionEngine';
 import { updateReviewItem } from '../reviewService';
 import { buildSessionSummary } from '../dailyReviewEngine';
+import { getUnresolvedInterventions, resolveIntervention } from '../interventionTracker';
 
 const DIAG = { score: { scaled: 640 }, skillAnalysis: { weakSkills: [] }, errorPatterns: { counts: {} } };
 
@@ -78,6 +84,8 @@ beforeEach(() => {
   generatePredictions.mockReturnValue({ id: 'pred_test', predictions: {} });
   savePrediction.mockResolvedValue(undefined);
   validateAndUpdatePredictions.mockResolvedValue(undefined);
+  getUnresolvedInterventions.mockResolvedValue([]);
+  resolveIntervention.mockResolvedValue(undefined);
   updateReviewItem.mockResolvedValue(undefined);
   buildSessionSummary.mockReturnValue({
     correct: 2, total: 3, accuracy: 67,
@@ -177,7 +185,7 @@ describe('dispatchSessionComplete — full test', () => {
       interventionLog: [],
     });
 
-    expect(out).toEqual({ analytics: true, prediction: true, skippedReason: null });
+    expect(out).toEqual({ analytics: true, prediction: true, interventionsResolved: 0, skippedReason: null });
 
     expect(trackTestCompleted).toHaveBeenCalledWith('u1', 1240, 70, true);
     expect(trackDrillCompleted).not.toHaveBeenCalled();
@@ -224,6 +232,35 @@ describe('dispatchSessionComplete — full test', () => {
     const out = await dispatchSessionComplete(buildFullTestSession(fullTestRaw({ userId: null })), {});
     expect(out.skippedReason).toBe('missing-user-or-diagnostic');
     expect(savePrediction).not.toHaveBeenCalled();
+  });
+
+  test('resolves only the interventions whose skills this test measured', async () => {
+    getUnresolvedInterventions.mockResolvedValueOnce([
+      { id: 'int_a', skillIds: ['slope-intercept-form'] },   // measured below -> resolve
+      { id: 'int_b', skillIds: ['circle-equations'] },        // NOT measured -> leave open
+    ]);
+    const diag = {
+      score: { scaled: 1240 },
+      skillAnalysis: {
+        weakSkills: [{ skillId: 'slope-intercept-form', testAccuracy: 55 }],
+        strongSkills: [{ skillId: 'linear-functions', testAccuracy: 90 }],
+      },
+      errorPatterns: { counts: { CONCEPTUAL_GAP: 2 } },
+    };
+    const out = await dispatchSessionComplete(buildFullTestSession(fullTestRaw({ diagnosticReport: diag })), {});
+
+    expect(out.interventionsResolved).toBe(1);
+    expect(resolveIntervention).toHaveBeenCalledTimes(1);
+    expect(resolveIntervention).toHaveBeenCalledWith('u1', 'int_a', {
+      skillMastery: { 'slope-intercept-form': 55, 'linear-functions': 90 },
+      errorTypes: { CONCEPTUAL_GAP: 2 },
+    });
+  });
+
+  test('review-mode full test does NOT resolve interventions', async () => {
+    getUnresolvedInterventions.mockResolvedValueOnce([{ id: 'int_a', skillIds: ['x'] }]);
+    await dispatchSessionComplete(buildFullTestSession(fullTestRaw({ reviewMode: true })), {});
+    expect(resolveIntervention).not.toHaveBeenCalled();
   });
 });
 
