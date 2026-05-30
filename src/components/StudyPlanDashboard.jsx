@@ -16,6 +16,7 @@ import { getSessionAdherence } from '../services/selectors/sessionAdherence';
 import { formatDailyIntro } from '../services/selectors/dailyIntro';
 import { getPracticedDayKeys } from '../services/selectors/practicedDays';
 import { getCompletedTests } from '../services/selectors/completedTests';
+import { isGoalAchieved, goalDelta } from '../services/selectors/goalProgress';
 import { useFeatureFlag } from '../hooks/useFeatureFlag';
 import CalendarMonth from './CalendarMonth';
 import TodaysTasksCard from './TodaysTasksCard';
@@ -195,7 +196,8 @@ const StudyPlanDashboard = ({
         return at - bt;
       });
   }, [practiceTestResults]);
-  const latestScore = sortedTests.length > 0 ? sortedTests[sortedTests.length - 1].bestScaledScore : null;
+  const latestTest = sortedTests.length > 0 ? sortedTests[sortedTests.length - 1] : null;
+  const latestScore = latestTest ? latestTest.bestScaledScore : null;
   const scoreDelta = sortedTests.length >= 2
     ? sortedTests[sortedTests.length - 1].bestScaledScore - sortedTests[0].bestScaledScore
     : null;
@@ -209,10 +211,11 @@ const StudyPlanDashboard = ({
   })();
   const testDateIsPast = daysUntilTest !== null && daysUntilTest < 0;
   // Goal already achieved? Common in mid-test cycles where a recent score
-  // already exceeds onboarding-time target. Show a celebration tile rather
-  // than "Goal Score 710" sitting below "Current Score 900".
-  const goalAchieved = user?.targetScore != null && latestScore != null
-    && latestScore >= user.targetScore;
+  // already exceeds onboarding-time target. Compared scale-safely (1.4): a
+  // 400-1600 composite must never "achieve" a 200-800 section target.
+  const goalArgs = { latestScore, targetScore: user?.targetScore, isMultiSection: latestTest?.isMultiSection };
+  const goalAchieved = isGoalAchieved(goalArgs);
+  const goalAboveDelta = goalDelta(goalArgs);
 
   // Day-1 of Acely-polish v2: extract just the FIRST sentence of the
   // adaptive-plan delta paragraph so the banner reads like a tight summary
@@ -1068,7 +1071,7 @@ const StudyPlanDashboard = ({
                 <div className="dashboard-tile-num">{user.targetScore}</div>
                 <div className="dashboard-tile-sub">
                   {goalAchieved
-                    ? `+${latestScore - user.targetScore} pts above target`
+                    ? `+${goalAboveDelta} pts above target`
                     : 'From onboarding'}
                 </div>
               </div>

@@ -143,6 +143,9 @@ export const recordPracticeTestResult = async (userId, testId, testTitle, result
           attempts: [attemptData],
           bestScaledScore: results.scaledScore ?? 0,
           bestRawScore: results.rawScore ?? 0,
+          // Scale of the latest attempt, surfaced at row level so the goal
+          // comparison can distinguish a section score from a composite (1.4).
+          isMultiSection: results.isMultiSection ?? false,
           totalAttempts: 1,
           lastAttemptAt: serverTimestamp()
         },
@@ -212,6 +215,7 @@ export const recordPracticeTestResult = async (userId, testId, testTitle, result
           [`practiceTestResults.${testId}.attempts`]: updatedAttempts,
           [`practiceTestResults.${testId}.bestScaledScore`]: Math.max(existingTest.bestScaledScore ?? 0, results.scaledScore ?? 0),
           [`practiceTestResults.${testId}.bestRawScore`]: Math.max(existingTest.bestRawScore ?? 0, results.rawScore ?? 0),
+          [`practiceTestResults.${testId}.isMultiSection`]: results.isMultiSection ?? false, // scale signal for goal comparison (1.4)
           [`practiceTestResults.${testId}.totalAttempts`]: (existingTest.totalAttempts ?? 0) + 1,
           [`practiceTestResults.${testId}.lastAttemptAt`]: serverTimestamp(),
           lastUpdated: serverTimestamp()
@@ -226,6 +230,7 @@ export const recordPracticeTestResult = async (userId, testId, testTitle, result
             attempts: [attemptData],
             bestScaledScore: results.scaledScore ?? 0,
             bestRawScore: results.rawScore ?? 0,
+            isMultiSection: results.isMultiSection ?? false, // scale signal for goal comparison (1.4)
             totalAttempts: 1,
             lastAttemptAt: serverTimestamp()
           },

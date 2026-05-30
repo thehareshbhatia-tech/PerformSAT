@@ -9,6 +9,7 @@ import React, { useState, useMemo, useRef, useEffect } from 'react';
 import { colors, radius, shadows } from '../design/tokens';
 import { cardStyles, buttonStyles } from '../design/components';
 import { MathText } from './MathText';
+import { isGoalAchieved } from '../services/selectors/goalProgress';
 import './TestResults.css';
 import { ChartBarIcon, ArrowRightIcon } from '../design/icons';
 import QuestionInsightCard from './QuestionInsightCard';
@@ -630,8 +631,14 @@ const TestResults = ({
     const mod1 = calculateModuleScore(0);
     const mod2 = test.modules.length > 1 ? calculateModuleScore(1) : null;
     const targetScore = user?.targetScore || 700;
-    const gap = Math.max(0, targetScore - satScore);
-    const isAtTarget = gap <= 0;
+    // The onboarding target is section-scale (200-800). A full-length result is a
+    // 400-1600 composite, so the section target is not comparable to it without a
+    // per-section target we don't capture yet (1.4). Only compare — and only claim
+    // "at target" — when the score is section-scale; never falsely celebrate a
+    // composite that numerically clears a section target.
+    const targetComparable = !isMultiSection;
+    const gap = targetComparable ? Math.max(0, targetScore - satScore) : 0;
+    const isAtTarget = isGoalAchieved({ latestScore: satScore, targetScore, isMultiSection });
     const accuracyPct = totalQuestions > 0 ? Math.round((totalCorrect / totalQuestions) * 100) : 0;
 
     const percentile = estimatePercentile(satScore);
@@ -789,8 +796,8 @@ const TestResults = ({
                   {satScore}
                 </div>
               </div>
-              {/* Target label (only if not overlapping score) */}
-              {!isAtTarget && Math.abs(scorePct - targetPct) > 8 && (
+              {/* Target label (only if comparable + not overlapping score) */}
+              {targetComparable && !isAtTarget && Math.abs(scorePct - targetPct) > 8 && (
                 <div style={{
                   position: 'absolute',
                   left: `${targetPct}%`, transform: 'translateX(-50%)',
@@ -830,7 +837,7 @@ const TestResults = ({
               }} />
 
               {/* Target marker line */}
-              {!isAtTarget && (
+              {targetComparable && !isAtTarget && (
                 <div style={{
                   position: 'absolute', top: '-6px', bottom: '-6px',
                   left: `${targetPct}%`, transform: 'translateX(-50%)',
@@ -1879,8 +1886,12 @@ const TestResults = ({
 
     // Compute our 4 custom metrics
     const targetScore = user?.targetScore || 700;
-    const gapToTarget = Math.max(0, targetScore - satScore);
-    
+    // Scale-aware: composite full-length results render against /1600, and the
+    // section-scale target only compares when the score is itself section-scale (1.4).
+    const scaleMax = isMultiSection ? 1600 : 800;
+    const targetComparable = !isMultiSection;
+    const gapToTarget = targetComparable ? Math.max(0, targetScore - satScore) : 0;
+
     const qDetails = diagnosticData?.questionDetails || {};
     const qEntries = Object.entries(qDetails);
     const easyMissed = qEntries.filter(([, q]) => q.difficulty === 'easy' && !q.isCorrect).length;
@@ -1902,19 +1913,23 @@ const TestResults = ({
             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', width: '200px' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <span style={{ fontFamily: 'var(--font-ui)', fontSize: '11px', fontWeight: '700', color: 'var(--color-brand-primary)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Performance</span>
-                <span style={{ fontFamily: 'var(--font-ui)', fontSize: '11px', fontWeight: '700', color: 'var(--color-slate-500)', fontVariantNumeric: 'tabular-nums' }}>{satScore} / 800</span>
+                <span style={{ fontFamily: 'var(--font-ui)', fontSize: '11px', fontWeight: '700', color: 'var(--color-slate-500)', fontVariantNumeric: 'tabular-nums' }}>{satScore} / {scaleMax}</span>
               </div>
               <div style={{ height: '8px', background: 'rgba(59, 82, 217, 0.1)', borderRadius: '9999px', overflow: 'hidden' }}>
-                <div style={{ width: `${(satScore/800)*100}%`, height: '100%', background: 'var(--color-brand-primary)', borderRadius: '9999px', transition: 'width 1s cubic-bezier(0.16, 1, 0.3, 1)' }} />
+                <div style={{ width: `${Math.min(100, (satScore/scaleMax)*100)}%`, height: '100%', background: 'var(--color-brand-primary)', borderRadius: '9999px', transition: 'width 1s cubic-bezier(0.16, 1, 0.3, 1)' }} />
               </div>
-              
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '4px' }}>
-                <span style={{ fontFamily: 'var(--font-ui)', fontSize: '11px', fontWeight: '700', color: 'var(--color-slate-500)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Target</span>
-                <span style={{ fontFamily: 'var(--font-ui)', fontSize: '11px', fontWeight: '700', color: 'var(--color-slate-500)', fontVariantNumeric: 'tabular-nums' }}>{satScore + gapToTarget} / 800</span>
-              </div>
-              <div style={{ height: '8px', background: 'rgba(59, 82, 217, 0.1)', borderRadius: '9999px', overflow: 'hidden' }}>
-                <div style={{ width: `${((satScore + gapToTarget)/800)*100}%`, height: '100%', background: 'var(--color-slate-400)', borderRadius: '9999px' }} />
-              </div>
+
+              {targetComparable && (
+                <>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '4px' }}>
+                    <span style={{ fontFamily: 'var(--font-ui)', fontSize: '11px', fontWeight: '700', color: 'var(--color-slate-500)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Target</span>
+                    <span style={{ fontFamily: 'var(--font-ui)', fontSize: '11px', fontWeight: '700', color: 'var(--color-slate-500)', fontVariantNumeric: 'tabular-nums' }}>{satScore + gapToTarget} / {scaleMax}</span>
+                  </div>
+                  <div style={{ height: '8px', background: 'rgba(59, 82, 217, 0.1)', borderRadius: '9999px', overflow: 'hidden' }}>
+                    <div style={{ width: `${Math.min(100, ((satScore + gapToTarget)/scaleMax)*100)}%`, height: '100%', background: 'var(--color-slate-400)', borderRadius: '9999px' }} />
+                  </div>
+                </>
+              )}
             </div>
           </div>
           <div className="acely-projected-info">
@@ -1935,7 +1950,7 @@ const TestResults = ({
         <div className="acely-performance-grid">
           <div className="acely-metric-card acely-accuracy-card">
             <div className="acely-metric-label">Points to Target</div>
-            <div className="acely-metric-value">{gapToTarget}</div>
+            <div className="acely-metric-value">{targetComparable ? gapToTarget : '—'}</div>
             <div className="acely-metric-lines">
               <div className="line"></div>
               <div className="line short"></div>

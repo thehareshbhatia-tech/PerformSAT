@@ -16,6 +16,7 @@ import { summarizePredictions } from '../services/selectors/predictionSummary';
 import { getPracticedDayKeys } from '../services/selectors/practicedDays';
 import { formatDailyIntro } from '../services/selectors/dailyIntro';
 import { getMathWeaknesses, getRWWeaknesses } from '../services/selectors/weaknesses';
+import { isGoalAchieved, goalDelta } from '../services/selectors/goalProgress';
 import { PlayIcon, ChartBarIcon, TrendingUpIcon } from '../design/icons';
 import { injectAnimations, useCountUp } from '../design/animations';
 import { DataCard } from './ui/DataCard';
@@ -119,9 +120,9 @@ const StudentDashboard = ({
   const totalQuestions = practiceEntries.reduce((sum, [_, p]) => sum + (p.totalQuestions || 5), 0);
   const practicePercent = totalQuestions > 0 ? Math.round((totalCorrect / totalQuestions) * 100) : 0;
 
-  const { projectedScore, projectedTestsCount, scoreHistory } = useMemo(() => {
+  const { projectedScore, projectedTestsCount, scoreHistory, latestIsMultiSection } = useMemo(() => {
     if (!practiceTestResults || Object.keys(practiceTestResults).length === 0) {
-      return { projectedScore: null, projectedTestsCount: 0, scoreHistory: [] };
+      return { projectedScore: null, projectedTestsCount: 0, scoreHistory: [], latestIsMultiSection: undefined };
     }
     const tests = Object.values(practiceTestResults)
       .filter(t => t.bestScaledScore)
@@ -130,7 +131,7 @@ const StudentDashboard = ({
         const dateB = b.lastAttemptAt?.toDate?.() || new Date(b.lastAttemptAt);
         return dateA - dateB;
       });
-    if (tests.length === 0) return { projectedScore: null, projectedTestsCount: 0, scoreHistory: [] };
+    if (tests.length === 0) return { projectedScore: null, projectedTestsCount: 0, scoreHistory: [], latestIsMultiSection: undefined };
     const history = tests.map(t => t.bestScaledScore);
     const recentTests = tests.slice(-3).reverse();
     const weights = [0.5, 0.3, 0.2];
@@ -144,7 +145,9 @@ const StudentDashboard = ({
     return {
       projectedScore: Math.round(weightedSum / totalWeight),
       projectedTestsCount: tests.length,
-      scoreHistory: history
+      scoreHistory: history,
+      // Scale of the most recent test, so the goal tile compares like-for-like (1.4).
+      latestIsMultiSection: tests[tests.length - 1]?.isMultiSection,
     };
   }, [practiceTestResults]);
 
@@ -611,8 +614,11 @@ const StudentDashboard = ({
 
           {(user?.targetScore || user?.testDate) && (() => {
             const testDateIsPast = daysUntilTest !== null && daysUntilTest < 0;
-            const goalAchieved = user?.targetScore != null && latestScore != null
-              && latestScore >= user.targetScore;
+            // Scale-safe goal comparison (1.4): a 400-1600 composite must never
+            // "achieve" a 200-800 section target.
+            const goalArgs = { latestScore, targetScore: user?.targetScore, isMultiSection: latestIsMultiSection };
+            const goalAchieved = isGoalAchieved(goalArgs);
+            const goalAboveDelta = goalDelta(goalArgs);
             return (
               <div className="dashboard-tile-pair">
                 {user?.targetScore && (
@@ -623,7 +629,7 @@ const StudentDashboard = ({
                     <div className="dashboard-tile-num">{user.targetScore}</div>
                     <div className="dashboard-tile-sub">
                       {goalAchieved
-                        ? `+${latestScore - user.targetScore} pts above target`
+                        ? `+${goalAboveDelta} pts above target`
                         : 'From onboarding'}
                     </div>
                   </div>

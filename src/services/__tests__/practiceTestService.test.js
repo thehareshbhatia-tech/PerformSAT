@@ -284,6 +284,22 @@ describe('recordPracticeTestResult — update attempt', () => {
     expect(testRow.bestScaledScore).toBe(700);
     expect(testRow.bestRawScore).toBe(20);
   });
+
+  test('persists the scale signal (isMultiSection) at the test-row level for goal comparison (1.4)', async () => {
+    // Single-section (math-only) attempt → row marked section-scale (create branch).
+    await recordPracticeTestResult('user-1', 'practice-test-1', 'Practice Test 1',
+      buildResults({ attemptId: 'a-1', scaledScore: 620 }));
+    let testRow = getTestRow(getStore().get('progress/user-1'), 'practice-test-1');
+    expect(testRow.isMultiSection).toBe(false);
+
+    // A later full-length (composite) attempt flips the row flag (update branch),
+    // so the dashboard won't compare a 400-1600 composite against a section target.
+    await new Promise(r => setTimeout(r, 5));
+    await recordPracticeTestResult('user-1', 'practice-test-1', 'Practice Test 1',
+      buildResults({ attemptId: 'a-2', scaledScore: 1280, isMultiSection: true }));
+    testRow = getTestRow(getStore().get('progress/user-1'), 'practice-test-1');
+    expect(testRow.isMultiSection).toBe(true);
+  });
 });
 
 describe('recordPracticeTestResult — trimAttempts', () => {

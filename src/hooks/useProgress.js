@@ -457,6 +457,9 @@ export const useProgress = (userId) => {
             attempts: [...(existing.attempts || []), attemptData],
             bestScaledScore: Math.max(existing.bestScaledScore, results.scaledScore),
             bestRawScore: Math.max(existing.bestRawScore, results.rawScore),
+            // Scale of the latest attempt, surfaced at row level so the goal
+            // comparison can tell a section score from a 400-1600 composite (1.4).
+            isMultiSection: results.isMultiSection || false,
             totalAttempts: existing.totalAttempts + 1,
             lastAttemptAt: new Date()
           }
@@ -470,6 +473,7 @@ export const useProgress = (userId) => {
             attempts: [attemptData],
             bestScaledScore: results.scaledScore,
             bestRawScore: results.rawScore,
+            isMultiSection: results.isMultiSection || false, // scale signal for goal comparison (1.4)
             totalAttempts: 1,
             lastAttemptAt: new Date()
           }
