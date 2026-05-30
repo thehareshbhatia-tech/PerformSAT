@@ -21,11 +21,24 @@ const MAX_PREDICTION_LOG = 10;
  * @param {Object} skillProgress - { skillId: { mastery, attempts, ... } }
  * @param {Object[]} interventionLog - Array of interventions
  * @param {string} afterTestId - The test that triggered this prediction
+ * @param {Object} [options]
+ * @param {boolean} [options.isMultiSection=false] - true when the triggering test is a
+ *   full SAT (composite 400-1600); false for a single-section test (200-800). Determines
+ *   the scale the expected-score band is clamped to so it stays comparable to the
+ *   headline score the dashboard shows.
+ * @param {number|null} [options.currentScore=null] - the triggering test's headline
+ *   scaled score. Seeded into the recent-scores window because the in-memory
+ *   practiceTestResults may not include the just-completed attempt yet (and so the
+ *   band is sensible even on the student's very first test).
  * @returns {Object} prediction object
  */
-export const generatePredictions = (fingerprint, practiceTestResults, skillProgress, interventionLog, afterTestId) => {
-  const recentScores = getRecentScores(practiceTestResults, 3);
-  const expectedScoreRange = predictScoreRange(recentScores, fingerprint);
+export const generatePredictions = (fingerprint, practiceTestResults, skillProgress, interventionLog, afterTestId, options = {}) => {
+  const { isMultiSection = false, currentScore = null } = options;
+  const historyScores = getRecentScores(practiceTestResults, 3);
+  const recentScores = (currentScore != null)
+    ? [currentScore, ...historyScores].slice(0, 3)
+    : historyScores;
+  const expectedScoreRange = predictScoreRange(recentScores, fingerprint, { isMultiSection });
   const likelyStruggleSkills = predictStruggleSkills(skillProgress, interventionLog, fingerprint);
   const trapVulnerabilities = predictTrapVulnerabilities(practiceTestResults, fingerprint);
   const expectedArchetype = predictArchetype(fingerprint);
@@ -52,18 +65,39 @@ export const generatePredictions = (fingerprint, practiceTestResults, skillProgr
  * @param {Object} prediction - The prediction to validate
  * @param {Object} diagnosticData - New test's diagnostic output
  * @param {string} testId - The new test's ID
+ * @param {Object} [options]
+ * @param {number|null} [options.actualScore=null] - the HEADLINE scaled score of the
+ *   validating test (composite 400-1600 or section 200-800). Preferred over the
+ *   diagnostic's single-curve `score.scaled`, which is always section-scale and would
+ *   read "outside range" for every composite. Falls back to `score.scaled` for legacy callers.
+ * @param {boolean|null} [options.isMultiSection=null] - scale of the validating test.
+ *   When it differs from the band's scale the score verdict is left null (incomparable)
+ *   rather than a misleading false.
  * @returns {Object} prediction with accuracy fields filled in
  */
-export const validatePrediction = (prediction, diagnosticData, testId) => {
+export const validatePrediction = (prediction, diagnosticData, testId, options = {}) => {
   if (!prediction || !diagnosticData) return prediction;
 
   const preds = prediction.predictions;
-  const actualScore = diagnosticData.score?.scaled;
+  const range = preds.expectedScoreRange || {};
+  const { actualScore = null, isMultiSection = null } = options;
 
-  // Score in range?
-  const scoreInRange = actualScore != null &&
-    actualScore >= preds.expectedScoreRange.low &&
-    actualScore <= preds.expectedScoreRange.high;
+  // Prefer the headline composite/section score; fall back to the diagnostic's
+  // single-curve scaled score for legacy callers that don't pass it.
+  const headline = (actualScore != null) ? actualScore : diagnosticData.score?.scaled;
+  const actualScale = (isMultiSection == null)
+    ? (range.scale || null)
+    : (isMultiSection ? 'composite' : 'section');
+
+  // Score in range? null = couldn't compare (missing data or cross-scale).
+  let scoreInRange = null;
+  if (headline != null && range.low != null && range.high != null) {
+    if (range.scale && actualScale && range.scale !== actualScale) {
+      scoreInRange = null; // composite band vs section actual (or vice versa) — don't fabricate
+    } else {
+      scoreInRange = headline >= range.low && headline <= range.high;
+    }
+  }
 
   // How many predicted struggle skills were actually weak?
   const actualWeak = new Set(
@@ -133,9 +167,10 @@ export const savePrediction = async (userId, prediction) => {
  * @param {string} userId
  * @param {Object} diagnosticData
  * @param {string} testId
+ * @param {Object} [options] - forwarded to validatePrediction ({ actualScore, isMultiSection }).
  * @returns {Promise<void>}
  */
-export const validateAndUpdatePredictions = async (userId, diagnosticData, testId) => {
+export const validateAndUpdatePredictions = async (userId, diagnosticData, testId, options = {}) => {
   try {
     const progressRef = doc(db, 'progress', userId);
     const progressSnap = await getDoc(progressRef);
@@ -147,7 +182,7 @@ export const validateAndUpdatePredictions = async (userId, diagnosticData, testI
 
     for (let i = 0; i < log.length; i++) {
       if (!log[i].resolved) {
-        log[i] = validatePrediction(log[i], diagnosticData, testId);
+        log[i] = validatePrediction(log[i], diagnosticData, testId, options);
         updated = true;
       }
     }
@@ -200,27 +235,47 @@ export const getPredictionContext = (predictions) => {
 
 /**
  * Predicts score range based on recent scores and learning velocity.
+ *
+ * Scale-aware: a full SAT is a 400-1600 composite, a single section is 200-800.
+ * Clamping a composite-scale band to 800 (the old behavior) collapsed the band
+ * for every full test — which is the live case in real data — so the verdict was
+ * always "outside range". The band is clamped to, and tagged with, the scale of
+ * the scores it was built from.
+ *
+ * @param {number[]} recentScores
+ * @param {Object} fingerprint
+ * @param {Object} [options]
+ * @param {boolean} [options.isMultiSection=false]
+ * @returns {{ low: number, high: number, scale: 'composite'|'section' }}
  */
-function predictScoreRange(recentScores, fingerprint) {
+function predictScoreRange(recentScores, fingerprint, options = {}) {
+  const { isMultiSection = false } = options;
+  const scale = isMultiSection ? 'composite' : 'section';
+  const minScore = isMultiSection ? 400 : 200;
+  const maxScore = isMultiSection ? 1600 : 800;
+
   if (recentScores.length === 0) {
-    return { low: 400, high: 800 };
+    return { low: minScore, high: maxScore, scale };
   }
 
   const avg = recentScores.reduce((a, b) => a + b, 0) / recentScores.length;
   const velocityFactor = fingerprint?.learningVelocity ?? 50;
 
-  // Trend adjustment: positive velocity = slight upward shift
-  const trendShift = (velocityFactor - 50) * 0.5;
+  // Trend adjustment: positive velocity = slight upward shift. Composite spans
+  // 2x the section range, so the shift and band widen proportionally.
+  const scaleFactor = isMultiSection ? 2 : 1;
+  const trendShift = (velocityFactor - 50) * 0.5 * scaleFactor;
 
   // Widen band if velocity is unstable (far from 50 in either direction)
   const instability = Math.abs(velocityFactor - 50);
-  const bandWidth = 30 + (instability > 25 ? 15 : 0);
+  const bandWidth = (30 * scaleFactor) + (instability > 25 ? 15 * scaleFactor : 0);
 
   const center = avg + trendShift;
 
   return {
-    low: Math.max(200, Math.round(center - bandWidth)),
-    high: Math.min(800, Math.round(center + bandWidth)),
+    low: Math.max(minScore, Math.round(center - bandWidth)),
+    high: Math.min(maxScore, Math.round(center + bandWidth)),
+    scale,
   };
 }
 

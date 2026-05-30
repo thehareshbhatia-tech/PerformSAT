@@ -2,6 +2,12 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { useAuth } from './hooks/useAuth';
 import { useProgress } from './hooks/useProgress';
+import { useAnalytics } from './hooks/useAnalytics';
+import {
+  dispatchSessionComplete,
+  buildFullTestSession,
+  buildDrillSession,
+} from './services/sessionComplete';
 import LandingPage from './components/LandingPage';
 import StudentDashboard from './components/StudentDashboard';
 import AiTutorChat, { AiTutorButton } from './components/AiTutorChat';
@@ -262,7 +268,13 @@ const PerformSAT = () => {
   }, [showCalculator]);
 
   const { user, loading, logout, updateTestDate, updateTargetScore, updateCurrentScore, updateTargetSchools } = useAuth();
-  const { completedLessons, practiceProgress, reviewQueue, skillProgress, answeredQuestionIds, practiceTestResults, inProgressTests, studyPlan, studyPlanMeta, studyPlanArtifact, predictionLog, recordPracticeAttempt, hasPracticed, getBestScore, getDueCount, getReviewStatistics, getSkillDiagnosticSummary, getSkillBreakdown, recordPracticeTestAttempt, getTestBestScore, getTestAttempts, saveTestProgress, clearTestProgress, getTestProgress, hasTestProgress, saveStudyPlan, markStudyActivityComplete, unmarkStudyActivityComplete, markLessonComplete, isLessonCompleted, getModuleProgress } = useProgress(user?.uid);
+  const { completedLessons, practiceProgress, reviewQueue, skillProgress, answeredQuestionIds, practiceTestResults, inProgressTests, studyPlan, studyPlanMeta, studyPlanArtifact, predictionLog, interventionLog, recordPracticeAttempt, hasPracticed, getBestScore, getDueCount, getReviewStatistics, getSkillDiagnosticSummary, getSkillBreakdown, recordPracticeTestAttempt, getTestBestScore, getTestAttempts, saveTestProgress, clearTestProgress, getTestProgress, hasTestProgress, saveStudyPlan, markStudyActivityComplete, unmarkStudyActivityComplete, markLessonComplete, isLessonCompleted, getModuleProgress } = useProgress(user?.uid);
+
+  // Mount the analytics session lifecycle (session_start / session_end +
+  // beforeunload flush). Previously orphaned — the hook existed but was never
+  // mounted, so no engagement events ever fired. Completion events are fired
+  // separately by the onSessionComplete seam (see dispatchSessionComplete).
+  useAnalytics(user?.uid);
 
   // Adaptive study plan pipeline: fast path (deterministic) + slow path (AI)
   const handleSaveStudyPlan = async (deterministicPlan, diagnosticReport) => {
@@ -772,6 +784,35 @@ const PerformSAT = () => {
     }
   };
 
+  // onSessionComplete seam for drills (Phase 2). Called from handleNextQuestion's
+  // completion branches (adaptive + assigned/standard/review-retry). Fires the
+  // drill_completed analytics event; the orchestrator skips the prediction
+  // pipeline for all non-full-test sessions, so drills never pollute skill
+  // mastery or the prediction loop (review-retry is doubly gated by reviewMode).
+  const fireDrillSessionComplete = (questions) => {
+    try {
+      const answersMap = practiceState.answers || {};
+      const total = Object.keys(answersMap).length || (Array.isArray(questions) ? questions.length : 0);
+      const correct = Object.values(answersMap).filter(a => a && a.correct).length;
+      const accuracy = total > 0 ? Math.round((correct / total) * 100) : null;
+      const session = buildDrillSession({
+        drillMode: practiceState.practiceMode || 'standard',
+        section: activeSection || null,
+        accuracy,
+        itemCount: total,
+        source: practiceState.reviewMode
+          ? 'review-retry'
+          : (practiceState.assignmentMeta?.source || practiceState.practiceMode || null),
+        reviewMode: !!practiceState.reviewMode,
+        userId: user?.uid ?? null,
+      });
+      dispatchSessionComplete(session, { userId: user?.uid ?? null })
+        .catch(err => console.error('[App] drill sessionComplete dispatch error:', err));
+    } catch (e) {
+      console.error('[App] fireDrillSessionComplete error:', e);
+    }
+  };
+
   const handleNextQuestion = (questions) => {
     setShowAiTutor(false);
     const isAdaptiveOrAssigned = practiceState.practiceMode === 'assigned' || practiceState.practiceMode === 'adaptive';
@@ -834,6 +875,7 @@ const PerformSAT = () => {
           adaptiveSessionState: finalState,
           adaptiveCompletion: completion,
         }));
+        fireDrillSessionComplete(questions);
       } else {
         setPracticeState(prev => ({
           ...prev,
@@ -913,6 +955,7 @@ const PerformSAT = () => {
         });
       }
       setPracticeState(prev => ({ ...prev, isComplete: true }));
+      fireDrillSessionComplete(questions);
     }
   };
 
@@ -1690,6 +1733,19 @@ const PerformSAT = () => {
               } else {
                 console.error('[App.jsx] No user - cannot save results!');
               }
+            }}
+            onSessionComplete={(raw) => {
+              // Full-test seam: analytics (test_completed) + the intelligence
+              // pipeline (validate prior prediction -> update fingerprint ->
+              // generate next prediction -> save). Fire-and-forget; the
+              // orchestrator is fully guarded internally.
+              const session = buildFullTestSession({ ...raw, userId: user?.uid ?? null });
+              dispatchSessionComplete(session, {
+                userId: user?.uid ?? null,
+                skillProgress,
+                practiceTestResults,
+                interventionLog,
+              }).catch(err => console.error('[App] full-test sessionComplete dispatch error:', err));
             }}
           />
           </ErrorBoundary>

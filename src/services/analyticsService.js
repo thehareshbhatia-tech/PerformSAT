@@ -20,6 +20,7 @@
  *   review            review_session_done     { itemCount, accuracy, streakDay }
  *   drill             drill_started           { tier, pattern, section, source, questionCount }
  *   drill             drill_chip_shown        { pattern, section, source }
+ *   drill             drill_completed         { mode, section, accuracy, itemCount, source, reviewMode }
  *   drill             recovery_drill_done     { errorType, accuracy, minutes }
  *   drill             pacing_drill_done       { modeId, accuracy, avgTime }
  *   study_plan        plan_generated          { weekCount, intensity, scoreGap }
@@ -227,6 +228,25 @@ export const trackReviewSessionDone = (userId, itemCount, accuracy, streakDay) =
 
 export const trackRecoveryDrillDone = (userId, errorType, accuracy, minutes) =>
   trackEvent(userId, 'drill', 'recovery_drill_done', { errorType, accuracy, minutes });
+
+/**
+ * Generic drill-completion event — the counterpart to `drill_started` (which
+ * fires at drill-shell mount). Pairs with it to measure completion-rate by
+ * mode/section/source. Fires for assigned, adaptive, standard, and review-retry
+ * drills; `reviewMode` distinguishes past-test-review retries (which never feed
+ * skill mastery or predictions).
+ *
+ * @param {string} userId
+ * @param {object} properties
+ * @param {'assigned'|'adaptive'|'standard'|string} [properties.mode]
+ * @param {'math'|'rw'|null} [properties.section]
+ * @param {number|null} [properties.accuracy] — 0-100
+ * @param {number|null} [properties.itemCount]
+ * @param {string|null} [properties.source]
+ * @param {boolean} [properties.reviewMode]
+ */
+export const trackDrillCompleted = (userId, properties = {}) =>
+  trackEvent(userId, 'drill', 'drill_completed', properties);
 
 export const trackPacingDrillDone = (userId, modeId, accuracy, avgTime) =>
   trackEvent(userId, 'drill', 'pacing_drill_done', { modeId, accuracy, avgTime });

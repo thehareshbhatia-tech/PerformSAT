@@ -1125,7 +1125,7 @@ const HighlightablePassage = memo(function HighlightablePassage({ text, highligh
   );
 });
 
-const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, onClearProgress, onSaveStudyPlan, onGoToStudyPlan, savedProgress, isTimed = true, skillProgress = null, user = null, practiceTestResults = null, completedLessons = {}, practiceProgress = {}, onStartPractice, answeredQuestionIds = [], initialReviewModule = null, reviewSnapshotMissing = false, reviewAttemptId = null, initialSection = null }) => {
+const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplete, onSaveProgress, onClearProgress, onSaveStudyPlan, onGoToStudyPlan, savedProgress, isTimed = true, skillProgress = null, user = null, practiceTestResults = null, completedLessons = {}, practiceProgress = {}, onStartPractice, answeredQuestionIds = [], initialReviewModule = null, reviewSnapshotMissing = false, reviewAttemptId = null, initialSection = null }) => {
   const [currentModule, setCurrentModule] = useState(
     pickInitialModuleIndex(test, savedProgress, initialSection)
   );
@@ -1588,6 +1588,33 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
       setResultSaved(true);
       console.log('[PracticeTest] Results saved, resultSaved set to true');
 
+      // onSessionComplete seam (Phase 2). Fires exactly once per completed full
+      // test: we're inside the resultSaved + completionInFlight guard, so it
+      // inherits the existing dedup. Carries the runDiagnostic() report (the
+      // rich object the fingerprint + prediction loop consume) and the HEADLINE
+      // scaledScore + isMultiSection so predictions stay on the dashboard's scale.
+      if (onSessionComplete) {
+        try {
+          onSessionComplete({
+            attemptId: newAttemptId,
+            testId: test?.id ?? null,
+            testTitle: test?.title ?? null,
+            userId: user?.uid ?? null,
+            scaledScore: scored.sectionScore,
+            rawScore: scored.rawScore,
+            totalQuestions: scored.totalQuestions,
+            sectionScores: scored.sectionScores,
+            isMultiSection: scored.isMultiSection,
+            timedMode: isTimed,
+            diagnosticReport: diagnosticReportRef.current || null,
+            reviewMode,
+            completedAt: attemptTimestampRef.current,
+          });
+        } catch (e) {
+          console.error('[PracticeTest] onSessionComplete handler error:', e);
+        }
+      }
+
       // Record skill attempts — aggregate first, then record sequentially to avoid race conditions
       if (user?.uid) {
         console.log('[PracticeTest] Starting skill recording for user:', user.uid);
@@ -1713,7 +1740,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
       clearTimeout(completionTimer);
       completionInFlight.current = false;
     };
-  }, [testCompleted, onSaveResult, onClearProgress, resultSaved, test, answers, isTimed, user, completedLessons, practiceProgress, practiceTestResults, onSaveStudyPlan]);
+  }, [testCompleted, onSaveResult, onSessionComplete, onClearProgress, resultSaved, test, answers, isTimed, user, completedLessons, practiceProgress, practiceTestResults, onSaveStudyPlan]);
 
   // Post-test: generate AI diagnostic narrative automatically
   const diagnosticNarrativeAttempted = useRef(false);
