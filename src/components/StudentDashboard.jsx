@@ -17,6 +17,7 @@ import { getPracticedDayKeys } from '../services/selectors/practicedDays';
 import { formatDailyIntro } from '../services/selectors/dailyIntro';
 import { getMathWeaknesses, getRWWeaknesses } from '../services/selectors/weaknesses';
 import { isGoalAchieved, goalDelta } from '../services/selectors/goalProgress';
+import { buildPacingTelemetry } from '../services/selectors/pacingTelemetry';
 import { PlayIcon, ChartBarIcon, TrendingUpIcon } from '../design/icons';
 import { injectAnimations, useCountUp } from '../design/animations';
 import { DataCard } from './ui/DataCard';
@@ -556,12 +557,7 @@ const StudentDashboard = ({
 
             {/* PACING TRAINING */}
             <PacingDrillCard
-              questionTelemetry={(() => {
-                const allAttempts = Object.values(practiceTestResults || {}).flatMap(t => t.attempts || []);
-                return allAttempts.flatMap(a =>
-                  (a.diagnosticData?.questionTelemetry || []).map((q, i) => ({ ...q, questionIndex: i }))
-                );
-              })()}
+              questionTelemetry={buildPacingTelemetry(practiceTestResults)}
               onStartPacing={onStartPacing || onStartPracticeTest}
             />
           </div>
