@@ -24,6 +24,7 @@ import { generateStudyPlan as generateDeterministicPlan } from '../services/stud
 import { runDiagnostic } from '../services/diagnosticEngine';
 import { getTargetedWeaknessSet } from '../data/questions/bank';
 import { scoreTest, isAnswerCorrect, convertToSATScore } from '../services/scoring';
+import { computeRemaining, deriveDeadline, shiftDeadlineForPause } from '../services/timerClock';
 import { colors, typography, spacing, radius, shadows, transitions } from '../design/tokens';
 import { cardStyles } from '../design/components';
 import { Modal } from './ui/Modal';
@@ -503,31 +504,83 @@ const DesmosCalculator = ({ isOpen, onClose }) => {
 };
 
 // Timer component
+// Timestamp-delta countdown (1.8). Remaining time is derived from an absolute
+// deadline against the wall clock — NOT by counting setInterval ticks, which
+// browsers throttle in background tabs (the old model gifted free time). The
+// interval is now just a render cadence; visibilitychange/focus snap the clock
+// to true remaining time on refocus. Mount once per module via key={currentModule}.
 const Timer = ({ initialMinutes, onTimeUp, isPaused, timeRef, initialSeconds: savedSeconds }) => {
-  const [seconds, setSeconds] = useState(() => savedSeconds != null ? savedSeconds : initialMinutes * 60);
+  const initialRemaining = savedSeconds != null ? savedSeconds : initialMinutes * 60;
+
+  const deadlineRef = useRef(null);
+  const pauseStartedRef = useRef(null);
+  const firedRef = useRef(false); // onTimeUp must fire exactly once
+  // Lazy-anchor the deadline on first render (and on remount via key change).
+  if (deadlineRef.current === null) {
+    deadlineRef.current = deriveDeadline(initialRemaining, Date.now());
+  }
+
+  const [displaySeconds, setDisplaySeconds] = useState(initialRemaining);
 
   const onTimeUpRef = useRef(onTimeUp);
   useEffect(() => { onTimeUpRef.current = onTimeUp; }, [onTimeUp]);
 
-  useEffect(() => {
-    if (isPaused) return;
-
-    const interval = setInterval(() => {
-      setSeconds(s => {
-        if (s <= 0) return 0;
-        const next = s - 1;
-        if (timeRef) timeRef.current = next;
-        if (next === 0) onTimeUpRef.current?.();
-        return next;
-      });
-    }, 1000);
-
-    return () => clearInterval(interval);
+  const tick = useCallback(() => {
+    const { remainingSeconds, isUp } = computeRemaining({
+      deadlineTs: deadlineRef.current,
+      nowTs: Date.now(),
+      isPaused,
+      pauseStartedTs: pauseStartedRef.current,
+    });
+    setDisplaySeconds(remainingSeconds);
+    if (timeRef) timeRef.current = remainingSeconds;
+    if (isUp && !firedRef.current) {
+      firedRef.current = true;
+      onTimeUpRef.current?.();
+    }
   }, [isPaused, timeRef]);
 
-  const mins = Math.floor(seconds / 60);
-  const secs = seconds % 60;
-  const isLow = seconds < 300; // Less than 5 minutes
+  // Pause freezes the clock; resume shifts the deadline forward by the paused
+  // duration so frozen time is never consumed. ORDER MATTERS: this effect is
+  // declared BEFORE the interval effect so that on resume the deadline shift
+  // lands before the interval's first tick reads it. Don't reorder.
+  useEffect(() => {
+    if (isPaused) {
+      pauseStartedRef.current = Date.now();
+      tick();
+    } else if (pauseStartedRef.current != null) {
+      deadlineRef.current = shiftDeadlineForPause(
+        deadlineRef.current, pauseStartedRef.current, Date.now()
+      );
+      pauseStartedRef.current = null;
+      tick();
+    }
+  }, [isPaused, tick]);
+
+  // Render-cadence interval (running only); immediate tick keeps first paint and
+  // the resume frame accurate.
+  useEffect(() => {
+    if (isPaused) return;
+    tick();
+    const interval = setInterval(tick, 1000);
+    return () => clearInterval(interval);
+  }, [isPaused, tick]);
+
+  // Snap to true remaining time the instant the tab regains visibility/focus —
+  // this is what defeats background-tab interval throttling.
+  useEffect(() => {
+    const onVisible = () => { if (!document.hidden) tick(); };
+    document.addEventListener('visibilitychange', onVisible);
+    window.addEventListener('focus', onVisible);
+    return () => {
+      document.removeEventListener('visibilitychange', onVisible);
+      window.removeEventListener('focus', onVisible);
+    };
+  }, [tick]);
+
+  const mins = Math.floor(displaySeconds / 60);
+  const secs = displaySeconds % 60;
+  const isLow = displaySeconds < 300; // Less than 5 minutes
 
   return (
     <div style={{
@@ -2956,6 +3009,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
               </button>
               <div style={{ display: showTimer ? undefined : 'none' }}>
                 <Timer
+                  key={currentModule}
                   initialMinutes={module.timeLimit || 35}
                   onTimeUp={handleTimeUp}
                   isPaused={isPaused}
