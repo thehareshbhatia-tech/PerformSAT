@@ -11,6 +11,7 @@ import {
 } from './services/sessionComplete';
 import LandingPage from './components/LandingPage';
 import StudentDashboard from './components/StudentDashboard';
+import PushOptInCard from './components/PushOptInCard';
 import AiTutorChat, { AiTutorButton } from './components/AiTutorChat';
 import QuestionDiagram from './components/QuestionDiagrams';
 import PracticeTest from './components/PracticeTest';
@@ -70,7 +71,8 @@ import {
   BANK_REVIEW_MODULE,
 } from './services/reviewQueueResolve';
 import { selectPacingQuestions } from './services/pacingService';
-import { trackPacingDrillDone } from './services/analyticsService';
+import { trackPacingDrillDone, trackReengagementOpened } from './services/analyticsService';
+import { buildDailySession } from './services/dailyReviewEngine';
 import { getQuestionsByDomain } from './data/questions/bank';
 import { patchAdaptivePracticeState } from './services/hybridStudyPlanService';
 import { getReadyAiDiagnostic, loadAttemptSnapshot } from './services/practiceTestService';
@@ -281,13 +283,107 @@ const PerformSAT = () => {
   }, [showCalculator]);
 
   const { user, loading, logout, updateTestDate, updateTargetScore, updateCurrentScore, updateTargetSchools } = useAuth();
-  const { completedLessons, practiceProgress, reviewQueue, skillProgress, answeredQuestionIds, practiceTestResults, inProgressTests, studyPlan, studyPlanMeta, studyPlanArtifact, predictionLog, interventionLog, studentFingerprint, recordPracticeAttempt, hasPracticed, getBestScore, getDueCount, getReviewStatistics, getSkillDiagnosticSummary, getSkillBreakdown, recordPracticeTestAttempt, getTestBestScore, getTestAttempts, saveTestProgress, clearTestProgress, getTestProgress, hasTestProgress, saveStudyPlan, markStudyActivityComplete, unmarkStudyActivityComplete, markLessonComplete, isLessonCompleted, getModuleProgress } = useProgress(user?.uid);
+  const { completedLessons, practiceProgress, reviewQueue, reviewStreak, skillProgress, answeredQuestionIds, practiceTestResults, inProgressTests, studyPlan, studyPlanMeta, studyPlanArtifact, predictionLog, interventionLog, studentFingerprint, recordPracticeAttempt, hasPracticed, getBestScore, getDueCount, getReviewStatistics, getSkillDiagnosticSummary, getSkillBreakdown, recordPracticeTestAttempt, getTestBestScore, getTestAttempts, saveTestProgress, clearTestProgress, getTestProgress, hasTestProgress, saveStudyPlan, markStudyActivityComplete, unmarkStudyActivityComplete, markLessonComplete, isLessonCompleted, getModuleProgress } = useProgress(user?.uid);
 
   // Mount the analytics session lifecycle (session_start / session_end +
   // beforeunload flush). Previously orphaned — the hook existed but was never
   // mounted, so no engagement events ever fired. Completion events are fired
   // separately by the onSessionComplete seam (see dispatchSessionComplete).
   useAnalytics(user?.uid);
+
+  // Start a daily-review session from a list of due review items. Extracted from
+  // the dashboard's onStartReview so the re-engagement deep-link (?next=review)
+  // can launch the exact same flow. Defined BEFORE the deep-link effects below
+  // because they list it in their dependency array (a const referenced before
+  // its declaration in the same scope is a temporal-dead-zone ReferenceError).
+  const startDailyReview = useCallback((items) => {
+    const reviewItems = items || [];
+    const questions = [];
+    const reviewKeyByQuestionId = {};
+    reviewItems.forEach(item => {
+      const q = resolveReviewItemToQuestion(item, { resolveQuestionById, getQuestionsForSection });
+      if (q) {
+        questions.push(q);
+        if (item.key != null && q.id != null) {
+          reviewKeyByQuestionId[q.id] = item.key;
+        }
+      }
+    });
+    if (questions.length > 0) {
+      setPracticeState({
+        currentQuestionIndex: 0,
+        selectedAnswer: null,
+        showFeedback: false,
+        showHint: false,
+        answers: {},
+        isComplete: false,
+        shuffledQuestions: questions.slice(0, 15),
+        practiceMode: 'assigned',
+        assignmentMeta: { label: 'Review Session', source: 'review-queue' },
+        reviewKeyByQuestionId,
+      });
+      setActiveModule(null);
+      setActiveSection('__assigned__');
+      setShowCalculator(false);
+      setView('practice');
+    }
+  }, []);
+
+  // ── Re-engagement nudge deep-link (?next=review|tasks) ──────────────────
+  // A push nudge's click action lands the student on /course?next=review. Read
+  // the param once on mount, strip it (so a refresh/share doesn't re-fire), and
+  // record the pending target + a short routing deadline. Navigation in this app
+  // is view-state (not URL routes), so we route by setView below once data loads.
+  const pendingNudgeRef = useRef(null);
+  const nudgeDeadlineRef = useRef(0);
+  const nudgeRoutedRef = useRef(false);
+  const nudgeOpenLoggedRef = useRef(false);
+  useEffect(() => {
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const next = params.get('next');
+      if (next) {
+        pendingNudgeRef.current = next;
+        nudgeDeadlineRef.current = Date.now() + 10000; // only auto-route within 10s of arrival
+        params.delete('next');
+        const qs = params.toString();
+        window.history.replaceState({}, '', window.location.pathname + (qs ? `?${qs}` : ''));
+      }
+    } catch { /* noop */ }
+  }, []);
+
+  // Attribution: fire reengagement.opened once the user is known. This is the
+  // only place push open/click rate can be measured (the cron can't write
+  // analytics). Independent of whether routing ultimately finds due items.
+  useEffect(() => {
+    if (user?.uid && pendingNudgeRef.current && !nudgeOpenLoggedRef.current) {
+      nudgeOpenLoggedRef.current = true;
+      trackReengagementOpened(user.uid, { next: pendingNudgeRef.current });
+    }
+  }, [user?.uid]);
+
+  // Route the pending nudge once the data it needs has hydrated. next=review
+  // launches the daily-review session as soon as due items exist; next=tasks
+  // just lands on the dashboard. Bounded by a 10s deadline so a late reviewQueue
+  // update can never yank a student who has since navigated elsewhere.
+  useEffect(() => {
+    const next = pendingNudgeRef.current;
+    if (!next || nudgeRoutedRef.current || !user?.uid) return;
+    if (Date.now() > nudgeDeadlineRef.current) { nudgeRoutedRef.current = true; return; }
+    if (next === 'tasks') {
+      nudgeRoutedRef.current = true;
+      setView('dashboard');
+    } else if (next === 'review') {
+      const session = buildDailySession(reviewQueue);
+      if (session.items.length > 0) {
+        nudgeRoutedRef.current = true;
+        startDailyReview(session.items);
+      }
+      // else: no due items yet — wait for reviewQueue to hydrate (effect re-runs).
+    } else {
+      nudgeRoutedRef.current = true; // unknown target — land on default dashboard.
+    }
+  }, [reviewQueue, user?.uid, startDailyReview]);
 
   // Adaptive study plan pipeline: fast path (deterministic) + slow path (AI)
   const handleSaveStudyPlan = async (deterministicPlan, diagnosticReport) => {
@@ -1379,12 +1475,15 @@ const PerformSAT = () => {
 
         {/* Student Dashboard View */}
         {view === 'dashboard' && (
+          <>
+          <PushOptInCard userId={user?.uid} />
           <StudentDashboard
             user={user}
             completedLessons={completedLessons}
             practiceProgress={practiceProgress}
             practiceTestResults={practiceTestResults}
             reviewQueue={reviewQueue}
+            reviewStreak={reviewStreak}
             dueReviewCount={getDueCount()}
             skillDiagnosticSummary={getSkillDiagnosticSummary()}
             skillBreakdown={getSkillBreakdown()}
@@ -1409,43 +1508,7 @@ const PerformSAT = () => {
               }
               startPrescriptivePractice(moduleId, sectionName);
             }}
-            onStartReview={(items) => {
-              const reviewItems = items || [];
-              // Resolve review queue items to actual questions from the question bank.
-              // Map each resolved question id -> its reviewQueue key so the
-              // SM-2 reschedule can advance the right items on completion.
-              const questions = [];
-              const reviewKeyByQuestionId = {};
-              reviewItems.forEach(item => {
-                // Resolves both shapes: bank-fed drill misses (by id) and legacy
-                // free-practice items (by section index). See reviewQueueResolve.
-                const q = resolveReviewItemToQuestion(item, { resolveQuestionById, getQuestionsForSection });
-                if (q) {
-                  questions.push(q);
-                  if (item.key != null && q.id != null) {
-                    reviewKeyByQuestionId[q.id] = item.key;
-                  }
-                }
-              });
-              if (questions.length > 0) {
-                setPracticeState({
-                  currentQuestionIndex: 0,
-                  selectedAnswer: null,
-                  showFeedback: false,
-                  showHint: false,
-                  answers: {},
-                  isComplete: false,
-                  shuffledQuestions: questions.slice(0, 15),
-                  practiceMode: 'assigned',
-                  assignmentMeta: { label: 'Review Session', source: 'review-queue' },
-                  reviewKeyByQuestionId,
-                });
-                setActiveModule(null);
-                setActiveSection('__assigned__');
-                setShowCalculator(false);
-                setView('practice');
-              }
-            }}
+            onStartReview={startDailyReview}
             onStartPracticeTest={() => setView('practiceTests')}
             onStartPacing={startPacingDrill}
             onViewFullDiagnosis={async () => {
@@ -1491,6 +1554,7 @@ const PerformSAT = () => {
             onUncompleteActivity={unmarkStudyActivityComplete}
             onReviewPastTests={handleOpenPastTestReview}
           />
+          </>
         )}
 
         {/* Practice Tests List View */}

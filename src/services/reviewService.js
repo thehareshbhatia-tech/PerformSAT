@@ -200,6 +200,35 @@ export const updateReviewItem = async (userId, key, wasCorrect) => {
 };
 
 /**
+ * Persist the daily-review streak to Firestore so server-side jobs (the
+ * re-engagement cron) can read it. The streak is computed client-side by
+ * dailyReviewEngine.recordReviewSessionComplete (localStorage cache); this
+ * mirrors that value to progress/{uid}.reviewStreak. Best-effort: never throws,
+ * so a failed write can't block the review-completion flow.
+ *
+ * @param {string} userId - User ID
+ * @param {{ current: number, best: number, lastDate: string|null }} streak
+ * @returns {Promise<void>}
+ */
+export const persistReviewStreak = async (userId, streak) => {
+  if (!userId || !streak) return;
+
+  try {
+    const progressRef = doc(db, 'progress', userId);
+    await setDoc(progressRef, {
+      reviewStreak: {
+        current: streak.current ?? 0,
+        best: streak.best ?? 0,
+        lastDate: streak.lastDate ?? null,
+      },
+      lastUpdated: serverTimestamp(),
+    }, { merge: true });
+  } catch (err) {
+    console.error('Error persisting review streak:', err);
+  }
+};
+
+/**
  * Get review statistics for dashboard
  * @param {Object} reviewQueue - Review queue object
  * @returns {{ dueCount: number, totalCount: number, masteredRecently: number }}

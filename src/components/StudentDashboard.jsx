@@ -62,6 +62,7 @@ const StudentDashboard = ({
   practiceProgress,
   practiceTestResults,
   reviewQueue,
+  reviewStreak,
   dueReviewCount = 0,
   onUpdateTestDate,
   onUpdateTargetScore,
@@ -552,6 +553,7 @@ const StudentDashboard = ({
             {/* DAILY REVIEW LOOP */}
             <DailyReviewCard
               reviewQueue={reviewQueue}
+              reviewStreak={reviewStreak}
               onStartReview={onStartReview}
             />
 

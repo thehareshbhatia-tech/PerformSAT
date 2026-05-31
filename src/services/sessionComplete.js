@@ -34,7 +34,7 @@ import {
   savePrediction,
   validateAndUpdatePredictions,
 } from './predictionEngine';
-import { updateReviewItem } from './reviewService';
+import { updateReviewItem, persistReviewStreak } from './reviewService';
 import { buildSessionSummary } from './dailyReviewEngine';
 import { getUnresolvedInterventions, resolveIntervention } from './interventionTracker';
 import { makeLogger } from '../utils/log';
@@ -342,11 +342,16 @@ async function dispatchReviewComplete(session, userId) {
   }
 
   // 2. Streak + summary (recordReviewSessionComplete increments the localStorage
-  //    streak; same-day repeat is a no-op inside it).
+  //    streak; same-day repeat is a no-op inside it). Mirror the freshly-computed
+  //    streak to Firestore so the re-engagement cron can read it server-side
+  //    (localStorage can't be read by a Cloud Function). Best-effort.
   let summary = null;
   try {
     summary = buildSessionSummary(items.map(it => ({ wasCorrect: !!it.wasCorrect })));
     outcome.summary = summary;
+    if (userId && summary?.streak) {
+      await persistReviewStreak(userId, summary.streak);
+    }
   } catch (err) {
     log.error('review summary failed:', err);
   }

@@ -1,9 +1,12 @@
 import React, { useMemo } from 'react';
 import { buildDailySession, getReviewStreak } from '../services/dailyReviewEngine';
 
-const DailyReviewCard = ({ reviewQueue, onStartReview }) => {
+const DailyReviewCard = ({ reviewQueue, reviewStreak, onStartReview }) => {
   const session = useMemo(() => buildDailySession(reviewQueue), [reviewQueue]);
-  const streak = useMemo(() => getReviewStreak(), []);
+  // Prefer the Firestore-persisted streak (set via the onSessionComplete seam,
+  // readable across devices and by the re-engagement cron); fall back to the
+  // localStorage cache for users who predate the write-through.
+  const streak = useMemo(() => reviewStreak || getReviewStreak(), [reviewStreak]);
 
   // Group items by sectionName for subdomain display
   const sectionGroups = useMemo(() => {

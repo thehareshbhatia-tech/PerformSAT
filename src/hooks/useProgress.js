@@ -17,6 +17,7 @@ export const useProgress = (userId) => {
   const [completedLessons, setCompletedLessons] = useState({});
   const [practiceProgress, setPracticeProgress] = useState({});
   const [reviewQueue, setReviewQueue] = useState({});
+  const [reviewStreak, setReviewStreak] = useState(null);
   const [skillProgress, setSkillProgress] = useState({});
   const [practiceTestResults, setPracticeTestResults] = useState({});
   const [inProgressTests, setInProgressTests] = useState({});
@@ -71,6 +72,7 @@ export const useProgress = (userId) => {
 
           // Get review queue
           setReviewQueue(data.reviewQueue || {});
+          setReviewStreak(data.reviewStreak || null);
 
           // Get skill progress
           setSkillProgress(data.skillProgress || {});
@@ -169,6 +171,7 @@ export const useProgress = (userId) => {
           setCompletedLessons({});
           setPracticeProgress({});
           setReviewQueue({});
+          setReviewStreak(null);
           setSkillProgress({});
           setPracticeTestResults({});
           setInProgressTests({});
@@ -716,6 +719,7 @@ export const useProgress = (userId) => {
     completedLessons,
     practiceProgress,
     reviewQueue,
+    reviewStreak,
     skillProgress,
     answeredQuestionIds,
     practiceTestResults,

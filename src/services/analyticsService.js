@@ -28,6 +28,7 @@
  *   ai_tutor          coach_mode_used         { modeId, messageCount }
  *   engagement        session_start           {}
  *   engagement        session_end             { durationMinutes }
+ *   reengagement      opened                  { next, reason }
  *
  * Drill routing instrumentation (added Phase 2, May 2026):
  *   - `drill_started` fires once per drill-shell mount. `tier` is one of
@@ -262,6 +263,22 @@ export const trackSessionStart = (userId) =>
 
 export const trackSessionEnd = (userId, durationMinutes) =>
   trackEvent(userId, 'engagement', 'session_end', { durationMinutes });
+
+/**
+ * Re-engagement attribution — fires once on app boot when the URL carries a
+ * re-engagement nudge deep-link (?next=...). This is the ONLY way to measure
+ * push open/click rate: the nudge is sent by a Cloud Function, which cannot
+ * write analytics, so the open is captured here on the client when the link
+ * lands. Pairs with the server-side reEngagementLog (what was sent) to compute
+ * an open rate.
+ *
+ * @param {string} userId
+ * @param {object} properties
+ * @param {string} properties.next — the ?next target ('review' | 'tasks' | ...)
+ * @param {string} [properties.reason] — nudge reason if the link carried one
+ */
+export const trackReengagementOpened = (userId, properties = {}) =>
+  trackEvent(userId, 'reengagement', 'opened', properties);
 
 /**
  * Drill-launch instrumentation — fires once per drill-shell mount.
