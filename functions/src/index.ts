@@ -10,6 +10,13 @@ import {onSchedule} from "firebase-functions/v2/scheduler";
 import {onDocumentUpdated} from "firebase-functions/v2/firestore";
 import * as logger from "firebase-functions/logger";
 import * as admin from "firebase-admin";
+import {
+  classifyNudge,
+  buildNudgeContent,
+  countDueReviews,
+  daysUntilTest,
+  toMillis,
+} from "./reengagementPolicy";
 
 admin.initializeApp();
 const db = admin.firestore();
@@ -1554,4 +1561,137 @@ export const cleanupRateLimits = onSchedule("every day 03:00", async () => {
   snapshot.docs.forEach((doc) => batch.delete(doc.ref));
   await batch.commit();
   logger.info(`[cleanupRateLimits] Deleted ${snapshot.size} stale rate limit docs`);
+});
+
+// ─── Re-engagement nudges (Phase 3) ──────────────────────────────────────────
+//
+// A daily scheduled job that pulls lapsed / at-risk students back via web push.
+// It only contacts students who opted in (the browser permission prompt is the
+// consent), so the candidate set is bounded by opt-in count and we can read each
+// one's progress doc directly instead of scanning the whole collection. Sends
+// DATA-ONLY messages (the service worker renders them) deep-linked to the daily-
+// review loop, dedupes on lastReengagementAt, prunes dead FCM tokens, and logs
+// every send to reEngagementLog for client-side open-rate attribution.
+
+const REENGAGE_DEDUP_HOURS = 20;
+const REENGAGE_LINK = "https://perform-sat.vercel.app/course?next=review";
+
+/**
+ * Process one opted-in user: dedup, read engagement signals, classify, send,
+ * prune dead tokens, log. Returns true if at least one push was delivered.
+ */
+async function processReengagementUser(
+  userDoc: admin.firestore.QueryDocumentSnapshot,
+  now: number,
+  messaging: admin.messaging.Messaging,
+): Promise<boolean> {
+  const user = userDoc.data() || {};
+  const uid = userDoc.id;
+
+  const tokens: string[] = Array.isArray(user.fcmTokens) ?
+    user.fcmTokens.filter((t: unknown): t is string => typeof t === "string") : [];
+  if (!tokens.length) return false;
+
+  // Dedup: don't nudge again within the window (guards retries / double-runs).
+  const lastReengage = toMillis(user.lastReengagementAt);
+  if (lastReengage != null && (now - lastReengage) < REENGAGE_DEDUP_HOURS * 60 * 60 * 1000) {
+    return false;
+  }
+
+  const progSnap = await db.collection("progress").doc(uid).get();
+  const prog = progSnap.exists ? (progSnap.data() || {}) : {};
+  const dueReviewCount = countDueReviews(prog.reviewQueue, now);
+  const reviewStreak = prog.reviewStreak || null;
+  const lastEventMs = toMillis(prog.lastEventAt);
+  const lastLoginMs = toMillis(user.lastLoginAt);
+  const lastActiveMs = Math.max(lastEventMs || 0, lastLoginMs || 0) || null;
+
+  const reason = classifyNudge({now, reviewStreak, dueReviewCount, lastActiveMs});
+  if (!reason) return false;
+
+  const content = buildNudgeContent(reason, {
+    firstName: typeof user.firstName === "string" ? user.firstName : undefined,
+    streakCurrent: (reviewStreak && reviewStreak.current) || 0,
+    dueReviewCount,
+    daysToTest: daysUntilTest(user.testDate, now),
+  });
+
+  const resp = await messaging.sendEachForMulticast({
+    tokens,
+    data: {
+      title: content.title,
+      body: content.body,
+      url: REENGAGE_LINK,
+      reason,
+      tag: "seva-reengagement",
+    },
+    webpush: {fcmOptions: {link: REENGAGE_LINK}},
+  });
+
+  // Prune tokens FCM reports as permanently invalid.
+  const dead: string[] = [];
+  resp.responses.forEach((r, i) => {
+    if (!r.success) {
+      const code = (r.error && r.error.code) || "";
+      if (
+        code === "messaging/registration-token-not-registered" ||
+        code === "messaging/invalid-registration-token" ||
+        code === "messaging/invalid-argument"
+      ) {
+        dead.push(tokens[i]);
+      }
+    }
+  });
+
+  const update: Record<string, unknown> = {
+    lastReengagementAt: admin.firestore.FieldValue.serverTimestamp(),
+  };
+  if (dead.length) {
+    update.fcmTokens = admin.firestore.FieldValue.arrayRemove(...dead);
+  }
+  await userDoc.ref.set(update, {merge: true});
+
+  await db.collection("reEngagementLog").add({
+    userId: uid,
+    reason,
+    dueReviewCount,
+    tokenCount: tokens.length,
+    successCount: resp.successCount,
+    deadCount: dead.length,
+    sentAt: admin.firestore.FieldValue.serverTimestamp(),
+  });
+
+  return resp.successCount > 0;
+}
+
+/**
+ * Scheduled re-engagement nudges. Runs daily at 23:00 UTC (revisit per-timezone
+ * delivery later). Only contacts students who opted in to push.
+ */
+export const sendReEngagementNudges = onSchedule("every day 23:00", async () => {
+  const now = Date.now();
+  const messaging = admin.messaging();
+
+  const snap = await db.collection("users")
+    .where("notificationPrefs.reengagementOptIn", "==", true)
+    .limit(500)
+    .get();
+
+  if (snap.empty) {
+    logger.info("[sendReEngagementNudges] no opted-in users");
+    return;
+  }
+  if (snap.size === 500) {
+    logger.warn("[sendReEngagementNudges] hit 500-user cap — add pagination as opt-in grows");
+  }
+
+  let sent = 0;
+  for (const userDoc of snap.docs) {
+    try {
+      if (await processReengagementUser(userDoc, now, messaging)) sent += 1;
+    } catch (err) {
+      logger.error(`[sendReEngagementNudges] user ${userDoc.id} failed:`, err);
+    }
+  }
+  logger.info(`[sendReEngagementNudges] opted-in=${snap.size} nudged=${sent}`);
 });
