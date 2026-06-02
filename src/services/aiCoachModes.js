@@ -44,7 +44,7 @@ You have at most 5 rungs on the ladder before you walk through the setup.
     description: 'Walk through exactly where your reasoning went wrong and learn the correct path.',
     contextContract: {
       required: ['question', 'userAnswer', 'correctAnswer'],
-      optional: ['skills', 'errorType', 'timeSpent', 'trapType'],
+      optional: ['skills', 'errorType', 'timeSpent', 'trapType', 'section', 'passage', 'passages', 'studentNotes', 'questionTable', 'domain'],
     },
     systemOverlay: `
 You are now in MISTAKE REPLAY mode.
@@ -61,6 +61,20 @@ RULES:
 4. Be empathetic but direct. This mistake cost them points and you want to make sure it never happens again.
 5. If error type data is provided, use it to frame the explanation (e.g., "This was a careless error — you know this concept but…").
 `,
+    systemOverlayRW: `
+You are now in MISTAKE REPLAY mode (Reading & Writing).
+
+RULES:
+1. The student got a Reading and Writing question WRONG and the answer has been revealed.
+2. Reconstruct their likely reasoning from their wrong choice, name the exact trap, and teach the correct read. There is NO Desmos and NO backsolving — the evidence is always in the passage.
+3. Structure your response in exactly this order:
+   a) "What you probably did:" — trace the reasoning that leads to their specific wrong choice (matched a word from the passage, missed a negative, chose a transition by feel, added a comma by ear).
+   b) "The trap:" — name the specific trap class: surface match, inverse/opposite, scope shift, too extreme, half right, or out of scope. For conventions items, name the specific error (comma splice, run-on, subject-verb agreement, modifier, pronoun).
+   c) "The correct approach:" — quote the exact words in the passage that decide the answer, or state the grammar rule in one line.
+   d) "The move:" — the one habit that prevents this miss next time (go back to the text, predict before matching, name the relationship first, run the complete-sentence test).
+   e) "Test-day rule:" — one sentence the student can memorize.
+4. Be empathetic but direct. This miss cost points and you want it to never happen again.
+`,
   },
 
   teach_back: {
@@ -69,7 +83,7 @@ RULES:
     description: 'Explain the concept in your own words. The AI corrects misconceptions and fills gaps.',
     contextContract: {
       required: ['skillId', 'skillName'],
-      optional: ['question', 'studentExplanation'],
+      optional: ['question', 'studentExplanation', 'section', 'skills', 'passage', 'domain'],
     },
     systemOverlay: `
 You are now in TEACH-BACK mode.
@@ -89,6 +103,21 @@ RULES:
 5. If their explanation is excellent, challenge them: "Great — now what's the fastest way to solve this type of question on the SAT?"
 6. Never lecture. Use their own language back at them. Make it feel like a conversation, not a test.
 `,
+    systemOverlayRW: `
+You are now in TEACH-BACK mode (Reading & Writing).
+
+RULES:
+1. The student will explain a Reading and Writing concept or grammar rule in their own words. Listen, evaluate, and refine.
+2. Start by asking them to explain it: "In your own words, explain [skill name] — pretend you're teaching it to a friend who hasn't seen it before."
+3. When they respond, score internally (don't show a number): Completeness (did they cover the key idea?), Accuracy (is it correct?), Test-readiness (would this survive SAT traps?).
+4. Respond with:
+   a) What they got RIGHT (specific and affirming).
+   b) What's MISSING or imprecise (correct it with a concrete sentence or passage example, not abstract rules).
+   c) The SAT TRAP that exploits the gap (surface match, too extreme, comma splice, etc.).
+   d) A "try again" prompt if their explanation was significantly incomplete.
+5. If excellent, challenge them: "Great — now what's the fastest way to spot this question type on the test?"
+6. Never lecture. Use their own language back at them. Make it a conversation.
+`,
   },
 
   exam_strategy: {
@@ -97,7 +126,7 @@ RULES:
     description: 'Test-day pacing, section strategy, triage decisions, and mindset coaching.',
     contextContract: {
       required: [],
-      optional: ['pacingProfile', 'currentScore', 'targetScore', 'daysUntilTest', 'weakDomains'],
+      optional: ['pacingProfile', 'currentScore', 'targetScore', 'daysUntilTest', 'weakDomains', 'section'],
     },
     systemOverlay: `
 You are now in EXAM STRATEGY COACH mode.
@@ -122,6 +151,26 @@ RULES:
    - 14-30 days: Focus on section strategy and weakness triage
    - <14 days: Focus on test-day logistics, mental preparation, and locking in what they know
 `,
+    systemOverlayRW: `
+You are now in EXAM STRATEGY COACH mode (Reading & Writing).
+
+RULES:
+1. You coach HOW to take the Reading and Writing section, not content. There is no calculator and no Desmos here.
+2. Topics you cover:
+   - Pacing: 27 questions in 32 minutes is about 1 minute 10 seconds per question. Conventions (grammar) items should take under 40 seconds, leaving more time for inference and synthesis.
+   - When to flag and move on versus when to grind.
+   - Reading the question stem BEFORE the passage on command-of-evidence and rhetorical-synthesis (notes) items.
+   - The strategic importance of Module 1 accuracy (it unlocks the high-ceiling Module 2).
+   - Never leaving a blank; eliminating first.
+   - Holding focus across 54 separate short passages.
+3. If pacing data is provided, personalize: "You averaged X seconds per question — get the grammar items under 40 seconds so you have time to go back to the text on the reading items."
+4. Concrete advice only. Not "just stay calm" but "if a choice repeats a word from the passage, slow down — that is the most common trap."
+5. If they ask about specific content, redirect: "Great question — switch to regular tutor mode for that. In strategy mode, let me help you decide WHEN to spend time and when to move on."
+6. If days-until-test data is provided:
+   - >30 days: build reading-and-grammar accuracy habits.
+   - 14-30 days: drill the weakest question types and the trap checklist.
+   - <14 days: lock in pacing, the complete-sentence test, and the trap checklist.
+`,
   },
 };
 
@@ -131,14 +180,20 @@ RULES:
  *
  * @param {string} modeId — one of the COACH_MODES keys
  * @param {Object} context — data matching the mode's contextContract
+ * @param {('math'|'rw')} [section='math'] — selects the subject overlay + renders R&W stimulus
  * @returns {string} context block to inject
  */
-export const buildCoachContext = (modeId, context = {}) => {
+export const buildCoachContext = (modeId, context = {}, section = 'math') => {
   const mode = COACH_MODES[modeId];
   if (!mode) return '';
 
+  // R&W items use the verbal overlay when the mode defines one; math (the
+  // default) keeps the original overlay. Subject-neutral modes (e.g.
+  // hint_ladder) have no RW variant and reuse the base overlay safely.
+  const overlay = (section === 'rw' && mode.systemOverlayRW) ? mode.systemOverlayRW : mode.systemOverlay;
+
   let block = `\n\n═══ COACH MODE: ${mode.label.toUpperCase()} ═══`;
-  block += mode.systemOverlay;
+  block += overlay;
   block += '\n\n--- SESSION CONTEXT ---\n';
 
   if (context.question) {
@@ -173,6 +228,39 @@ export const buildCoachContext = (modeId, context = {}) => {
   }
   if (context.weakDomains?.length) {
     block += `Weak domains: ${context.weakDomains.join(', ')}\n`;
+  }
+
+  // R&W stimulus + classification. Guarded so math items (which carry none of
+  // these fields) render exactly as before; only R&W items add these blocks.
+  if (context.section) {
+    block += `Section: ${context.section === 'rw' ? 'Reading & Writing' : 'Math'}\n`;
+  }
+  if (context.domain) {
+    block += `Domain: ${context.domain}\n`;
+  }
+  if (context.questionType) {
+    block += `Question type: ${context.questionType}\n`;
+  }
+  if (context.passage) {
+    block += `\nPASSAGE:\n${context.passage}\n`;
+  }
+  if (Array.isArray(context.passages) && context.passages.length > 0) {
+    block += '\n' + context.passages
+      .map(p => `${p.label || 'Text'}:\n${p.text}`)
+      .join('\n\n') + '\n';
+  }
+  if (context.studentNotes) {
+    const notes = context.studentNotes;
+    block += `\nSTUDENT NOTES:\n`;
+    if (notes.intro) block += `${notes.intro}\n`;
+    if (Array.isArray(notes.bullets)) block += notes.bullets.map(b => `- ${b}`).join('\n') + '\n';
+    if (notes.goal) block += `Goal: ${notes.goal}\n`;
+  }
+  if (context.questionTable) {
+    const table = context.questionTable;
+    block += `\nTABLE${table.caption ? ': ' + table.caption : ''}\n`;
+    if (Array.isArray(table.headers)) block += table.headers.join(' | ') + '\n';
+    if (Array.isArray(table.rows)) block += table.rows.map(r => r.join(' | ')).join('\n') + '\n';
   }
 
   return block;

@@ -871,7 +871,14 @@ const AssignedPracticeShell = ({
                   : currentQuestion?.choices?.find(c => c.id === currentQuestion?.correctAnswer)?.text || currentQuestion?.correctAnswer)
               : undefined,
             explanation: practiceState.showFeedback ? (currentQuestion?.explanation || '') : '',
-            skills: currentQuestion?.skills || [],
+            skills: currentQuestion?.skills || (currentQuestion?.skill ? [currentQuestion.skill] : []),
+            // R&W stimulus + classification (undefined for math items → tutor stays math)
+            section: currentQuestion?.section || 'math',
+            domain: currentQuestion?.domain,
+            passage: currentQuestion?.passage,
+            passages: currentQuestion?.passages,
+            studentNotes: currentQuestion?.studentNotes,
+            questionTable: currentQuestion?.questionTable,
           }}
           embedded={true}
           headerCompact={true}

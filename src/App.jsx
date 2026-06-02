@@ -2712,7 +2712,15 @@ const PerformSAT = () => {
                           hint: currentQuestion.hint,
                           answerRevealed: practiceState.showFeedback,
                           correctAnswer: practiceState.showFeedback ? currentQuestion.correctAnswer : null,
-                          explanation: practiceState.showFeedback ? currentQuestion.explanation : null
+                          explanation: practiceState.showFeedback ? currentQuestion.explanation : null,
+                          skills: currentQuestion.skills || (currentQuestion.skill ? [currentQuestion.skill] : []),
+                          // R&W stimulus + classification (undefined for math items → tutor stays math)
+                          section: currentQuestion.section || 'math',
+                          domain: currentQuestion.domain,
+                          passage: currentQuestion.passage,
+                          passages: currentQuestion.passages,
+                          studentNotes: currentQuestion.studentNotes,
+                          questionTable: currentQuestion.questionTable
                         }}
                       />
                     </div>
@@ -3140,7 +3148,15 @@ const PerformSAT = () => {
                       hint: currentQuestion.hint,
                       answerRevealed: practiceState.showFeedback,
                       correctAnswer: practiceState.showFeedback ? currentQuestion.correctAnswer : null,
-                      explanation: practiceState.showFeedback ? currentQuestion.explanation : null
+                      explanation: practiceState.showFeedback ? currentQuestion.explanation : null,
+                      skills: currentQuestion.skills || (currentQuestion.skill ? [currentQuestion.skill] : []),
+                      // R&W stimulus + classification (undefined for math items → tutor stays math)
+                      section: currentQuestion.section || 'math',
+                      domain: currentQuestion.domain,
+                      passage: currentQuestion.passage,
+                      passages: currentQuestion.passages,
+                      studentNotes: currentQuestion.studentNotes,
+                      questionTable: currentQuestion.questionTable
                     }}
                   />
                 </div>

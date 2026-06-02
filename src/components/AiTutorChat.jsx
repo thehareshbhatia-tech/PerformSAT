@@ -237,6 +237,7 @@ const AiTutorChat = ({
   // Build student profile snapshot for AI personalization
   const buildStudentProfile = () => {
     const parts = [];
+    const profileSection = practiceContext?.section === 'rw' ? 'rw' : 'math';
 
     parts.push('═══════════════════════════════════');
     parts.push('STUDENT PROFILE — PERSONALIZE YOUR RESPONSES USING THIS');
@@ -249,7 +250,7 @@ const AiTutorChat = ({
 
     // Score context
     const scores = [];
-    if (user?.currentScore) scores.push(`Current SAT Math score: ${user.currentScore}`);
+    if (user?.currentScore) scores.push(`${profileSection === 'rw' ? 'Current SAT score' : 'Current SAT Math score'}: ${user.currentScore}`);
     if (user?.targetScore) scores.push(`Target score: ${user.targetScore}`);
     if (user?.currentScore && user?.targetScore) {
       const gap = user.targetScore - user.currentScore;
@@ -348,11 +349,11 @@ const AiTutorChat = ({
     if (user?.currentScore && user?.targetScore) {
       const gap = user.targetScore - user.currentScore;
       if (gap >= 100) {
-        parts.push(`COACHING STRATEGY: ${gap}-point gap requires systematic improvement. Focus on the highest-frequency domains first — Algebra alone is 35% of the test. Every easy question they currently miss is the fastest possible point gain. Do NOT waste time on the hardest 5% of questions until they are nailing everything else.`);
+        parts.push(`COACHING STRATEGY: ${gap}-point gap requires systematic improvement. Focus on the highest-frequency domains first — ${profileSection === 'rw' ? 'Information & Ideas and Standard English Conventions are together about half the section' : 'Algebra alone is 35% of the test'}. Every easy question they currently miss is the fastest possible point gain. Do NOT waste time on the hardest 5% of questions until they are nailing everything else.`);
       } else if (gap >= 40) {
         parts.push(`COACHING STRATEGY: ${gap}-point gap is very achievable. At this level, points come from two places: (1) eliminating careless errors on questions they know how to solve, and (2) shoring up 2-3 specific weak skills. Time management is also key — are they running out of time and guessing on the last few questions?`);
       } else if (gap > 0) {
-        parts.push(`COACHING STRATEGY: Close to target — only ${gap} points to go. At this level, gains come from precision: catching trap answers they currently fall for, using Desmos to verify instead of guessing, and optimizing time on hard questions so they can double-check medium ones.`);
+        parts.push(`COACHING STRATEGY: Close to target — only ${gap} points to go. At this level, gains come from precision: catching trap answers they currently fall for, ${profileSection === 'rw' ? 'going back to the text to prove the answer instead of guessing' : 'using Desmos to verify instead of guessing'}, and optimizing time on hard questions so they can double-check medium ones.`);
       }
     }
 
@@ -366,11 +367,134 @@ const AiTutorChat = ({
     return parts.join('\n');
   };
 
+  // Build the R&W practice-question context block. Parallels the math path but
+  // renders the passage / paired texts / student notes / table stimulus and
+  // frames coaching around textual evidence and grammar rules instead of
+  // Desmos and backsolving. Without this an R&W item reaches the model as a
+  // bare stem ("Which choice best states the main idea?") with no text to read.
+  // R&W items are always multiple choice.
+  const buildRWPracticeContextBlock = ({
+    question, choices, hint, answerRevealed, correctAnswer, explanation,
+    difficulty, skills, isCorrect, selectedAnswer,
+    passage, passages, studentNotes, questionTable, domain, emotionalState,
+  }) => {
+    // Serialize the stimulus the student is actually looking at.
+    let stimulus = '';
+    if (passage) {
+      stimulus += `\nPASSAGE:\n${passage}\n`;
+    }
+    if (Array.isArray(passages) && passages.length > 0) {
+      stimulus += '\n' + passages.map(p => `${p.label || 'Text'}:\n${p.text}`).join('\n\n') + '\n';
+    }
+    if (studentNotes) {
+      stimulus += `\nSTUDENT NOTES:\n`;
+      if (studentNotes.intro) stimulus += `${studentNotes.intro}\n`;
+      if (Array.isArray(studentNotes.bullets)) stimulus += studentNotes.bullets.map(b => `- ${b}`).join('\n') + '\n';
+      if (studentNotes.goal) stimulus += `Goal: ${studentNotes.goal}\n`;
+    }
+    if (questionTable) {
+      stimulus += `\nTABLE${questionTable.caption ? ': ' + questionTable.caption : ''}\n`;
+      if (Array.isArray(questionTable.headers)) stimulus += questionTable.headers.join(' | ') + '\n';
+      if (Array.isArray(questionTable.rows)) stimulus += questionTable.rows.map(r => r.join(' | ')).join('\n') + '\n';
+    }
+
+    let context = `
+>>> PRACTICE QUESTION CONTEXT <<<
+The student is working on this SAT Reading and Writing practice question:
+${difficulty ? `DIFFICULTY: ${difficulty.toUpperCase()}` : ''}
+${domain ? `DOMAIN: ${domain}` : ''}
+${skills?.length ? `SKILL TESTED: ${skills.join(', ')}` : ''}
+TYPE: Multiple choice (the answer is always provable from the text above)
+
+STUDENT EMOTIONAL STATE: ${emotionalState}
+${emotionalState === 'frustrated' ? 'ADAPT: Be warm and direct. Give a quick win — go back to the text and find the one sentence that decides this. Do not lecture.' : ''}
+${emotionalState === 'confused' ? 'ADAPT: Simplify. Strip the question to its core: "Ignore the extra words — this is really asking: [core question]." Point to the deciding sentence.' : ''}
+${emotionalState === 'impatient' ? 'ADAPT: Acknowledge the impulse but redirect. "I get it — but finding the proof yourself is worth 10x. Which sentence answers this?"' : ''}
+${emotionalState === 'seeking-validation' ? 'ADAPT: Do not confirm or deny. Redirect to the text: "Before I weigh in, point to the exact words that support your choice. Do they?"' : ''}
+${emotionalState === 'persistent' ? 'ADAPT: They are working hard — acknowledge it and give a more direct nudge toward the deciding evidence.' : ''}
+${stimulus}
+QUESTION: ${question}
+
+${choices?.length ? `ANSWER CHOICES:\n${choices.map(c => `${c.id}) ${c.text}`).join('\n')}` : ''}
+
+${hint ? `HINT PROVIDED TO STUDENT: ${hint}` : ''}
+`;
+
+    if (answerRevealed) {
+      let trapAnalysis = '';
+      if (choices && correctAnswer) {
+        const wrongChoices = choices.filter(c => c.id !== correctAnswer);
+        trapAnalysis = `\nWRONG ANSWER ANALYSIS (name the trap class for each):`;
+        wrongChoices.forEach(c => {
+          trapAnalysis += `\n- Choice ${c.id} (${c.text}): which trap is this — surface match, inverse/opposite, scope shift, too extreme, half right, or out of scope? For a grammar item, name the error (comma splice, run-on, agreement, modifier, pronoun).`;
+        });
+      }
+
+      context += `
+>>> ANSWER HAS BEEN REVEALED — EXPERT BREAKDOWN MODE <<<
+${selectedAnswer ? `STUDENT CHOSE: ${selectedAnswer}` : ''}
+${isCorrect !== undefined ? `RESULT: ${isCorrect ? 'CORRECT' : 'WRONG'}` : ''}
+CORRECT ANSWER: ${correctAnswer}
+FULL EXPLANATION: ${explanation}
+${trapAnalysis}
+
+Your response should hit these beats:
+
+1. NAME THE TYPE: "This is a [question type]. You will see this [X times per test]."
+
+2. FIND THE EVIDENCE: Quote the EXACT words in the passage that make the correct answer correct. For a conventions question, state the grammar rule in one line.
+
+3. TRAP ANALYSIS: ${!isCorrect && selectedAnswer ?
+  `The student chose ${selectedAnswer} instead of ${correctAnswer}. This is the most important teaching moment. Explain EXACTLY what pulled them to ${selectedAnswer} — did they match a word from the passage, miss a negative, choose a transition by feel, or add a comma by ear? Name the trap class. Be empathetic ("this trap catches a lot of students") but precise, then give a recognition cue for next time.` :
+  'For each wrong choice, name the trap class and the specific mistake that picks it.'}
+
+4. THE MOVE: State the one habit that decides this question type — go back to the text, predict before matching, name the logical relationship first, or run the complete-sentence test.
+
+5. ONE-SENTENCE TAKEAWAY: End with a single rule for test day — concrete, memorable.
+
+${isCorrect ? 'The student got this right. Push on precision: "Correct — now can you say in one line why each other choice is wrong?"' : 'The student got this wrong. Be encouraging but direct. Make sure they NEVER fall for this trap again — name it and give a recognition cue for test day.'}
+
+Use the provided explanation as a foundation but add your own expert analysis — trap names, the exact textual evidence, and the "why" behind each wrong choice.
+`;
+    } else {
+      context += `
+>>> ANSWER NOT YET REVEALED — SOCRATIC COACHING MODE <<<
+
+ABSOLUTE RULES (violating these harms the student's learning):
+1. NEVER reveal the correct answer — not directly, not indirectly, not through elimination
+2. NEVER name the choice — stop before the final pick
+3. NEVER confirm or deny a specific choice
+
+USE YOUR JUDGMENT to pick the right Socratic technique for this student's state:
+
+${emotionalState === 'frustrated' ?
+  'THE STUDENT IS FRUSTRATED. Drop pure Socratic — point them to the deciding part of the text. "Let us just look at this one sentence together..."' :
+  emotionalState === 'confused' ?
+  'THE STUDENT IS CONFUSED. Simplify the question first. "Ignore the extra words. This question is really asking: [core question]."' :
+  emotionalState === 'impatient' ?
+  'THE STUDENT WANTS THE ANSWER. Acknowledge it, then redirect. "I know — but finding the proof yourself is worth 10x. Which sentence decides this?"' :
+  `Available techniques:
+- REFRAME: "What is this question actually asking you to find?"
+- EVIDENCE HUNT: "Which sentence in the passage decides this? Point to it."
+- PREDICT: "Before you look at the choices, what word or idea do you expect here?"
+- RELATIONSHIP (transitions): "What is the logical link between these two sentences — cause, contrast, addition, example?"
+- GRAMMAR CHECK (boundaries): "Is each side of this punctuation a complete sentence? What does that tell you?"
+- TRAP SCAN: "Which choices just repeat a word from the passage without answering the question?"
+- WALKTHROUGH: If truly stuck, narrow to the deciding sentence but stop before naming the choice.`}
+
+Your goal is to build their reading and reasoning instincts. Every question they crack themselves is worth ten they are told.
+`;
+    }
+
+    return context;
+  };
+
   // Build practice question context with smart restrictions
   const buildPracticeContext = () => {
     if (!isPracticeQuestion || !practiceContext) return '';
 
-    const { question, choices, hint, answerRevealed, correctAnswer, explanation, difficulty, skills, isCorrect, selectedAnswer } = practiceContext;
+    const section = practiceContext.section === 'rw' ? 'rw' : 'math';
+    const { question, choices, hint, answerRevealed, correctAnswer, explanation, difficulty, skills, isCorrect, selectedAnswer, passage, passages, studentNotes, questionTable, domain } = practiceContext;
 
     const isFillin = !choices || choices.length === 0;
 
@@ -389,6 +513,16 @@ const AiTutorChat = ({
     };
 
     const emotionalState = detectEmotionalState();
+
+    // R&W items carry passage/notes/table stimulus the math path never reads.
+    // Route them to the verbal builder so the model actually sees the text.
+    if (section === 'rw') {
+      return buildRWPracticeContextBlock({
+        question, choices, hint, answerRevealed, correctAnswer, explanation,
+        difficulty, skills, isCorrect, selectedAnswer,
+        passage, passages, studentNotes, questionTable, domain, emotionalState,
+      });
+    }
 
     let context = `
 >>> PRACTICE QUESTION CONTEXT <<<
@@ -778,11 +912,15 @@ Your goal is to build their problem-solving instincts. Every question they solve
         currentTime: videoTimestamp
       } : null;
 
+      // Subject of the active item — selects the system prompt + gates math-only context.
+      const section = practiceContext?.section === 'rw' ? 'rw' : 'math';
+
       // Build practice context string with restrictions
       let practiceContextStr = buildPracticeContext();
 
-      // Add skill context if available
-      if (skillProgress && practiceContext?.skills) {
+      // Add skill context if available (math-only — the corpus is math-flavored,
+      // referencing sign errors, formulas, and Desmos that do not apply to R&W).
+      if (section === 'math' && skillProgress && practiceContext?.skills) {
         const skillContext = buildSkillContextForAI(skillProgress, practiceContext.skills);
         practiceContextStr = skillContext + '\n' + practiceContextStr;
       }
@@ -859,6 +997,13 @@ Your goal is to build their problem-solving instincts. Every question they solve
           difficulty: practiceContext?.difficulty,
           currentScore: user?.currentScore,
           targetScore: user?.targetScore,
+          // R&W stimulus + classification (rendered guarded in buildCoachContext)
+          section,
+          domain: practiceContext?.domain,
+          passage: practiceContext?.passage,
+          passages: practiceContext?.passages,
+          studentNotes: practiceContext?.studentNotes,
+          questionTable: practiceContext?.questionTable,
         },
       } : null;
       if (coachModePayload && user?.uid) {
@@ -876,7 +1021,8 @@ Your goal is to build their problem-solving instincts. Every question they solve
         coachModePayload,
         learningMemoryCtx,
         strategyCtx,
-        intelligenceCtx
+        intelligenceCtx,
+        section
       );
       setMessages([...newMessages, { role: 'assistant', content: response }]);
     } catch (error) {

@@ -6,7 +6,7 @@ export const AiTutorChatBubble = ({ message, isUser, timestamp }) => {
     <div className={`chat-bubble-wrapper ${isUser ? 'user' : 'ai'}`}>
       {!isUser && (
         <div className="chat-avatar">
-          <span role="img" aria-label="Tutor">🤖</span>
+          <span aria-label="Tutor">AI</span>
         </div>
       )}
       
@@ -17,7 +17,7 @@ export const AiTutorChatBubble = ({ message, isUser, timestamp }) => {
 
       {isUser && (
         <div className="chat-avatar">
-          <span role="img" aria-label="User">👤</span>
+          <span aria-label="You">You</span>
         </div>
       )}
     </div>

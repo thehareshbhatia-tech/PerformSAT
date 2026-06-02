@@ -2815,7 +2815,14 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
                             ? reviewQ?.correctAnswer
                             : reviewQ?.choices?.find(c => c.id === reviewQ?.correctAnswer)?.text || reviewQ?.correctAnswer,
                           explanation: reviewQ?.explanation || '',
-                          skills: reviewQ?.skills || []
+                          skills: reviewQ?.skills || (reviewQ?.skill ? [reviewQ.skill] : []),
+                          // R&W stimulus + classification (undefined for math items → tutor stays math)
+                          section: reviewQ?.section || 'math',
+                          domain: reviewQ?.domain,
+                          passage: reviewQ?.passage,
+                          passages: reviewQ?.passages,
+                          studentNotes: reviewQ?.studentNotes,
+                          questionTable: reviewQ?.questionTable
                         }}
                         embedded={true}
                         headerCompact={true}
