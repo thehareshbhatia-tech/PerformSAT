@@ -219,6 +219,17 @@ function flattenRWBank() {
   return out;
 }
 
+/**
+ * Canonical section deriver for a skill id. Keyed off the single source of
+ * truth (RW_CANONICAL_SKILLS) so prediction, diagnostic, and tutor code all
+ * agree on what counts as R&W — no drift between separately-maintained lists.
+ * Unknown / math skill ids return 'math'.
+ *
+ * @param {string} skillId - canonical skill id
+ * @returns {('rw'|'math')}
+ */
+export const getSkillSection = (skillId) => (RW_CANONICAL_SKILLS.includes(skillId) ? 'rw' : 'math');
+
 export const rwQuestionBank = flattenRWBank();
 
 // ─── Indices ────────────────────────────────────────────────────────────────

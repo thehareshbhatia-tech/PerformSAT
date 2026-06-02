@@ -10,6 +10,7 @@
 
 import { db } from '../firebase/config';
 import { doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
+import { getSkillSection } from '../data/questions/rwBank';
 
 const MAX_PREDICTION_LOG = 10;
 
@@ -207,10 +208,11 @@ export const getPredictionContext = (predictions) => {
   const p = predictions.predictions;
   const parts = ['=== PREDICTIONS FOR THIS STUDENT ==='];
 
-  // Struggle skills
+  // Struggle skills — labeled by subject so the tutor coaches in the right
+  // register (legacy predictions without a section tag default to Math).
   if (p.likelyStruggleSkills?.length > 0) {
     const skills = p.likelyStruggleSkills
-      .map(s => `"${s.skillId}" (${s.confidence})`)
+      .map(s => `"${s.skillId}" [${s.section === 'rw' ? 'R&W' : 'Math'}] (${s.confidence})`)
       .join(', ');
     parts.push(`Next test risk areas: ${skills}`);
   }
@@ -313,6 +315,9 @@ function predictStruggleSkills(skillProgress, interventionLog, fingerprint) {
 
     candidates.push({
       skillId,
+      // Subject of the skill, so the tutor coaches an R&W risk area in the
+      // verbal register instead of the math one (skillProgress is section-blind).
+      section: getSkillSection(skillId),
       reason,
       confidence,
       // Sort weight: lower mastery + negative delta = higher priority

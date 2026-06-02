@@ -19,7 +19,7 @@ import { getPredictionContext } from './predictionEngine';
  * @param {Object|null} approachGuidance - { approach, reason, confidence, history }
  * @returns {string} Intelligence context block for system prompt
  */
-export const buildIntelligenceContext = (fingerprint, predictions, interventionLog, approachGuidance) => {
+export const buildIntelligenceContext = (fingerprint, predictions, interventionLog, approachGuidance, section = 'math') => {
   const parts = [];
 
   // 1. Fingerprint summary (~100 tokens)
@@ -35,7 +35,7 @@ export const buildIntelligenceContext = (fingerprint, predictions, interventionL
   }
 
   // 3. Approach guidance (~150 tokens)
-  const approachBlock = buildApproachBlock(approachGuidance);
+  const approachBlock = buildApproachBlock(approachGuidance, section);
   if (approachBlock) {
     parts.push(approachBlock);
   }
@@ -57,7 +57,7 @@ export const buildIntelligenceContext = (fingerprint, predictions, interventionL
  * @param {Object|null} guidance
  * @returns {string}
  */
-function buildApproachBlock(guidance) {
+function buildApproachBlock(guidance, section = 'math') {
   if (!guidance?.approach) return '';
 
   const approachNames = {
@@ -67,9 +67,16 @@ function buildApproachBlock(guidance) {
     'step_by_step': 'STEP-BY-STEP WALKTHROUGH',
     'analogy': 'ANALOGY AND CONNECTIONS',
     'pattern_recognition': 'PATTERN RECOGNITION',
+    'close_reading': 'CLOSE READING AND EVIDENCE MAPPING',
   };
 
-  const name = approachNames[guidance.approach] || guidance.approach.toUpperCase();
+  // desmos_visual is a math-only graphing approach — never recommend it on an
+  // R&W skill. Substitute a reading-appropriate approach for the verbal section.
+  const approach = (section === 'rw' && guidance.approach === 'desmos_visual')
+    ? 'close_reading'
+    : guidance.approach;
+
+  const name = approachNames[approach] || approach.toUpperCase();
   const parts = [`=== DATA-DRIVEN TEACHING GUIDANCE ===`];
   parts.push(`Recommended approach for this student: ${name}`);
 

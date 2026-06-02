@@ -977,7 +977,8 @@ Your goal is to build their problem-solving instincts. Every question they solve
           studentFingerprint,
           latestPrediction,
           interventionLog,
-          approachGuidance
+          approachGuidance,
+          section
         );
       }
 
