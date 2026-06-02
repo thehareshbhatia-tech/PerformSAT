@@ -29,6 +29,7 @@ import { practiceTest9RW } from '../../practiceTests/practiceTest9RW';
 import { practiceTest10RW } from '../../practiceTests/practiceTest10RW';
 import { practiceTest11RW } from '../../practiceTests/practiceTest11RW';
 import { practiceTest12RW } from '../../practiceTests/practiceTest12RW';
+import { deriveRWPattern } from './deriveRWPattern';
 
 const RW_TEST_SOURCES = [
   { num: 1,  bundle: practiceTest1RW  },
@@ -202,6 +203,10 @@ function flattenRWBank() {
           skills: [q.skill],
           domain: q.domain || RW_SKILL_TO_DOMAIN[q.skill] || 'craft-and-structure',
           section: 'rw',
+          // Tier-1 pattern slug (deterministic, from deriveRWPattern) or null.
+          // Same function the diagnostic engine uses, so the tag an item is
+          // indexed under matches the missedPattern a wrong answer emits.
+          rwPattern: deriveRWPattern(q),
           difficulty: q.difficulty || 'medium',
           type: q.type || 'multiple-choice',
           authoredBy: q.authoredBy || 'performsat-rw-pipeline',
@@ -248,6 +253,17 @@ rwQuestionBank.forEach(q => {
   domainIndex.get(q.domain).push(q);
   if (!difficultyIndex.has(q.difficulty)) difficultyIndex.set(q.difficulty, []);
   difficultyIndex.get(q.difficulty).push(q);
+});
+
+// Pattern index (Phase 4 P3): the R&W analog of the math bank's patternIndex.
+// Only items with a non-null rwPattern are indexed; everything else routes
+// Tier-3 by skill.
+const patternIndex = new Map();
+rwQuestionBank.forEach(q => {
+  if (q.rwPattern) {
+    if (!patternIndex.has(q.rwPattern)) patternIndex.set(q.rwPattern, []);
+    patternIndex.get(q.rwPattern).push(q);
+  }
 });
 
 // ─── Skill resolution ───────────────────────────────────────────────────────
@@ -318,6 +334,36 @@ export const getQuestionsByDomain = (domain, opts = {}) => {
   return results;
 };
 
+// Tier-1 firing threshold — mirrors the math bank's TIER1_PATTERN (=8). Defined
+// locally to avoid coupling the R&W bank to the math bank module.
+export const RW_TIER1_PATTERN_THRESHOLD = 8;
+
+/**
+ * Tier-1 selector: questions carrying any of the given R&W pattern slugs
+ * (from deriveRWPattern). Mirrors the math bank's getQuestionsBySatPatterns.
+ *
+ * @param {string[]|string} patterns  pattern slug(s)
+ * @param {object} [opts]
+ * @param {string[]} [opts.excludeIds]
+ * @returns {object[]}
+ */
+export const getQuestionsByPattern = (patterns, opts = {}) => {
+  const { excludeIds = [] } = opts;
+  const slugs = Array.isArray(patterns) ? patterns : [patterns];
+  const seen = new Set();
+  const exc = new Set(excludeIds);
+  const results = [];
+  slugs.forEach(slug => {
+    (patternIndex.get(slug) || []).forEach(q => {
+      if (!seen.has(q.id) && !exc.has(q.id)) {
+        seen.add(q.id);
+        results.push(q);
+      }
+    });
+  });
+  return results;
+};
+
 function shuffle(arr) {
   const a = [...arr];
   for (let i = a.length - 1; i > 0; i--) {
@@ -380,11 +426,24 @@ export const getTargetedWeaknessSet = ({
   count = 10,
   excludeIds = [],
 } = {}) => {
-  // Phase 2 audit: `missedPatterns` is currently always empty for R&W
-  // weaknesses (no SAT Pattern headers in the R&W bank). Accept the field
-  // for API symmetry but skip Tier-1/Tier-2 cascade entirely.
+  // Tier-1 head (Phase 4 P3): when the weaknesses carry R&W pattern slugs
+  // (emitted by diagnosticEngine via deriveRWPattern for boundaries /
+  // transitions / text-structure items) and the matched pool clears the
+  // threshold, serve from the exact-pattern pool. Otherwise fall through to the
+  // skill-level pool below — byte-identical to the pre-P3 behavior for any
+  // weakness without missedPatterns. There is no Tier-2 style layer for R&W,
+  // so the cascade is Tier-1 pattern -> Tier-3 skill.
+  const missedPatterns = [...new Set(
+    weakSkills.flatMap(w => (Array.isArray(w.missedPatterns) ? w.missedPatterns : [])),
+  )].filter(Boolean);
+  const patternPool = missedPatterns.length > 0
+    ? getQuestionsByPattern(missedPatterns, { excludeIds })
+    : [];
+
   const skillIds = weakSkills.map(w => w.skillId || w.skill || w);
-  let pool = getQuestionsBySkillIds(skillIds, { excludeIds });
+  let pool = patternPool.length >= RW_TIER1_PATTERN_THRESHOLD
+    ? patternPool
+    : getQuestionsBySkillIds(skillIds, { excludeIds });
 
   if (pool.length === 0 && weakSkills.length > 0) {
     // Domain fallback — if no skill matched, pull from the weak skill's domain.

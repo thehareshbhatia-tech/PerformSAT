@@ -23,6 +23,7 @@
 import { getSkillById, skillTaxonomy, getSkillsForDomain } from '../data/skillTaxonomy';
 import { SKILL_ALIAS_MAP } from '../data/questions/bank';
 import { RW_CANONICAL_SKILLS, RW_DOMAINS } from '../data/questions/rwBank';
+import { deriveRWPattern } from '../data/questions/rwBank/deriveRWPattern';
 import { extractSatPattern } from '../data/questions/extractSatPattern';
 
 // R&W canonical skills as a Set for O(1) membership checks. Used to tag
@@ -655,7 +656,14 @@ export const runDiagnostic = (test, answers, diagnosticData, skillProgress = {},
       // question. Returns null when the explanation is missing or doesn't
       // carry the standard `**SAT Pattern: <Title>**` header (graceful
       // fallback: weakness.missedPatterns just omits this item).
-      const satPattern = extractSatPattern(q.explanation);
+      //
+      // R&W items carry no header, so for them extractSatPattern returns null
+      // and deriveRWPattern supplies the pattern (boundaries / transitions /
+      // text-structure). Same function the R&W bank indexes items under, so the
+      // missedPattern a wrong R&W item emits matches its drill pool. Math items
+      // short-circuit on the header above; deriveRWPattern returns null for
+      // non-R&W skills, so there is no cross-section misfire.
+      const satPattern = extractSatPattern(q.explanation) || deriveRWPattern(q) || null;
 
       if (isCorrect) {
         totalCorrect++;

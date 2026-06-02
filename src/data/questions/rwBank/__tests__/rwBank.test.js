@@ -261,35 +261,49 @@ describe('rwBank getTargetedWeaknessSet', () => {
   });
 });
 
-// ─── Phase 2 / Drill Routing API parity audit ──────────────────────────────
+// ─── Phase 4 P3 / R&W Tier-1 cascade ─────────────────────────────────────────
 //
-// These tests document the decision from the TODO #1 audit (R&W exact-match
-// parity). The math bank has a three-tier cascade keyed on SAT Patterns;
-// R&W has zero patterns in its 648 items, so the cascade short-circuits to
-// skill-based routing. The R&W getTargetedWeaknessSet still accepts the
-// `missedPatterns` field on weaknesses for API symmetry — these tests pin
-// that behavior so a future PR adding R&W patterns won't break the signature.
+// RESOLVED (Phase 4 P3): the TODO #1 audit deferred R&W exact-match routing
+// because <1% of items carry **SAT Pattern: <Title>** explanation headers (the
+// math signal). P3 instead derives a pattern from always-present fields
+// (correct-choice punctuation, leading transition word, question stem) via
+// deriveRWPattern, giving boundaries / transitions / text-structure a Tier-1
+// pattern -> Tier-3 skill cascade. deriveRWPattern's own test pins the exact
+// per-pattern counts; these pin the cascade behavior + the Tier-3 iron-rule.
 
-describe('rwBank API parity audit (Phase 2 / Drill Routing TODO #1)', () => {
-  it('confirms the audit: R&W pattern coverage is too sparse for Tier-1 routing', () => {
-    // Sept-2026 audit (TODO #1): only ~6 of 648 R&W items carry
-    // **SAT Pattern: <Title>** headers (all in practiceTest9RW.js with
-    // vocab-specific patterns like 'Verb Connotation in Context',
-    // 'Tier-2 Vocabulary in Context'). At <1% coverage, no R&W pattern
-    // bucket meets the math Tier-1 threshold of 8 items per pattern.
-    //
-    // If this assertion ever fails because the count grows >= 80 (~12% of
-    // the bank), it's worth revisiting Tier-1 R&W cascade: a few patterns
-    // would have crossed the threshold and routing precision would deliver
-    // real value.
-    const withPattern = rwQuestionBank.filter(
+describe('rwBank Tier-1 cascade (Phase 4 P3)', () => {
+  it('still has near-zero explanation-header patterns (why P3 derives instead)', () => {
+    // Documents the original blocker: explanation headers remain too sparse to
+    // route on. P3 does NOT add headers; it derives rwPattern from item fields.
+    const withHeader = rwQuestionBank.filter(
       (q) => typeof q.explanation === 'string' && /\*\*SAT Pattern:/.test(q.explanation),
     );
-    expect(withPattern.length).toBeLessThan(80);
-    // Pin the current count too — if it changes substantially (more than
-    // doubles in either direction), force a re-audit.
-    expect(withPattern.length).toBeGreaterThanOrEqual(0);
-    expect(withPattern.length).toBeLessThan(20);
+    expect(withHeader.length).toBeLessThan(20);
+  });
+
+  it('fires Tier-1 for a real pattern slug above threshold', () => {
+    const items = getTargetedWeaknessSet({
+      weakSkills: [{ skillId: 'boundaries', domain: 'standard-english-conventions', missedPatterns: ['boundaries-semicolon'] }],
+      count: 10,
+    });
+    expect(items.length).toBeGreaterThan(0);
+    // Tier-1 pool is exactly the pattern's items, not the whole skill.
+    expect(items.every((q) => q.rwPattern === 'boundaries-semicolon')).toBe(true);
+  });
+
+  it('★IRON RULE★ — a weakness with no missedPatterns routes Tier-3 (skill pool), unchanged', () => {
+    const noPattern = getTargetedWeaknessSet({
+      weakSkills: [{ skillId: 'boundaries', domain: 'standard-english-conventions' }],
+      count: 10,
+    });
+    const fakePattern = getTargetedWeaknessSet({
+      weakSkills: [{ skillId: 'boundaries', domain: 'standard-english-conventions', missedPatterns: ['does-not-exist'] }],
+      count: 10,
+    });
+    // A non-matching pattern pool (< threshold) falls through to the same
+    // Tier-3 skill pool as omitting missedPatterns entirely.
+    expect(noPattern.length).toBe(fakePattern.length);
+    expect(noPattern.every((q) => q.skills.includes('boundaries'))).toBe(true);
   });
 
   it('accepts a weakness with missedPatterns (no-op, API symmetry with math bank)', () => {

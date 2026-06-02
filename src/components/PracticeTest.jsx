@@ -166,6 +166,9 @@ function enrichPlanWithGroundTruth(plan, groundTruth) {
       skillId: w.skillId || null,
       domain: w.domain,
       section: w.section === 'rw' ? 'rw' : 'math',
+      // Carry missedPatterns so both banks' Tier-1 cascade can fire (math SAT
+      // patterns, R&W deriveRWPattern slugs); falls through to skill otherwise.
+      missedPatterns: Array.isArray(w.missedPatterns) ? w.missedPatterns : undefined,
     })).filter(w => w.skillId);
     if (weakSkillPayload.length > 0) {
       // Route each weakness to its bank by section, then merge. Before this,
