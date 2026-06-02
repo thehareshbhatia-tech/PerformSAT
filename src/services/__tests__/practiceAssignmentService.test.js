@@ -1009,3 +1009,77 @@ describe('buildStrengthFocusAssignments', () => {
     }
   });
 });
+
+// ═══════════════════════════════════════════════════════════════════════════
+// R&W section-aware drill routing (Phase 4 P2)
+// ═══════════════════════════════════════════════════════════════════════════
+
+describe('R&W section-aware drill routing', () => {
+  const rwDiag = makeDiagnostic([
+    { skillId: 'words-in-context', domain: 'craft-and-structure', accuracy: 25 },
+    { skillId: 'transitions', domain: 'expression-of-ideas', accuracy: 30 },
+  ]);
+  const mixedDiag = makeDiagnostic([
+    { skillId: 'slope-intercept-form', domain: 'algebra', accuracy: 20 },
+    { skillId: 'words-in-context', domain: 'craft-and-structure', accuracy: 25 },
+  ]);
+
+  test('buildWeakSkillPayload tags R&W skills with section rw', () => {
+    const payload = buildWeakSkillPayload(rwDiag);
+    expect(payload.length).toBeGreaterThan(0);
+    expect(payload.every(w => w.section === 'rw')).toBe(true);
+  });
+
+  test('buildWeakSkillPayload tags math skills with section math', () => {
+    const payload = buildWeakSkillPayload(makeDiagnostic([
+      { skillId: 'slope-intercept-form', domain: 'algebra', accuracy: 20 },
+    ]));
+    expect(payload.every(w => w.section === 'math')).toBe(true);
+  });
+
+  test('generatePracticeAssignments routes R&W weaknesses to R&W items only', () => {
+    const result = generatePracticeAssignments({ diagnostic: rwDiag, seed: 'rw-only' });
+    expect(result.targetedQuestionIds.length).toBeGreaterThan(0);
+    expect(result.targetedQuestionIds.every(id => id.startsWith('rw-'))).toBe(true);
+  });
+
+  test('generatePracticeAssignments serves BOTH sections for a mixed plan', () => {
+    const result = generatePracticeAssignments({ diagnostic: mixedDiag, seed: 'mixed' });
+    const rw = result.targetedQuestionIds.filter(id => id.startsWith('rw-'));
+    const math = result.targetedQuestionIds.filter(id => !id.startsWith('rw-'));
+    expect(rw.length).toBeGreaterThan(0);
+    expect(math.length).toBeGreaterThan(0);
+  });
+
+  test('math-only plan stays 100% math (no R&W leakage)', () => {
+    const result = generatePracticeAssignments({
+      diagnostic: makeDiagnostic([{ skillId: 'slope-intercept-form', domain: 'algebra', accuracy: 20 }]),
+      seed: 'math-only',
+    });
+    expect(result.targetedQuestionIds.length).toBeGreaterThan(0);
+    expect(result.targetedQuestionIds.every(id => !id.startsWith('rw-'))).toBe(true);
+  });
+
+  test('buildStrengthFocusAssignments adds R&W domains without disturbing math', () => {
+    const result = buildStrengthFocusAssignments({ diagnostic: rwDiag, seed: 'rw-focus' });
+    // R&W domains present + R&W-sourced
+    expect(result['craft-and-structure']).toBeTruthy();
+    expect(result['craft-and-structure'].questionIds.length).toBeGreaterThan(0);
+    expect(result['craft-and-structure'].questionIds.every(id => id.startsWith('rw-'))).toBe(true);
+    // Math domains still present + math-sourced
+    expect(result.algebra.questionIds.every(id => !id.startsWith('rw-'))).toBe(true);
+  });
+
+  test('buildDomainAdaptiveQueueSeed serves R&W items for an R&W domain', () => {
+    const seed = buildDomainAdaptiveQueueSeed({ enforcedDomain: 'craft-and-structure', seed: 'rw-domain' });
+    expect(seed).toBeTruthy();
+    expect(seed.poolIds.length).toBeGreaterThan(0);
+    expect(seed.poolIds.every(id => id.startsWith('rw-'))).toBe(true);
+  });
+
+  test('buildAdaptiveQueueSeed includes R&W items for an R&W diagnostic', () => {
+    const seed = buildAdaptiveQueueSeed({ diagnostic: rwDiag, seed: 'rw-adaptive' });
+    expect(seed.poolIds.length).toBeGreaterThan(0);
+    expect(seed.poolIds.some(id => id.startsWith('rw-'))).toBe(true);
+  });
+});

@@ -18,7 +18,12 @@ import {
   getQuestionById as getMathQuestionById,
   DRILL_ROUTING_THRESHOLDS,
 } from '../data/questions/bank';
-import { getQuestionById as getRWQuestionById } from '../data/questions/rwBank';
+import {
+  getQuestionById as getRWQuestionById,
+  getQuestionsBySkillIds as getRWQuestionsBySkillIds,
+  getQuestionsByDomain as getRWQuestionsByDomain,
+  getSkillSection,
+} from '../data/questions/rwBank';
 
 /**
  * Section-aware question resolver. R&W IDs are namespaced as
@@ -75,6 +80,21 @@ export { RW_DOMAIN_ORDER };
 export function getCanonicalDomains(section) {
   return section === 'rw' ? [...RW_DOMAIN_ORDER] : [...DOMAIN_ORDER];
 }
+
+// ─── Section-aware bank resolver ──────────────────────────────────────────────
+// The math and R&W banks expose the same selection surface, so a builder can
+// stay section-agnostic by routing skill/domain lookups through bankFor(section).
+// Math is the default; an unknown section falls back to math.
+const SECTION_BANK = {
+  math: { getQuestionsBySkillIds, getQuestionsByDomain, domainOrder: DOMAIN_ORDER },
+  rw: {
+    getQuestionsBySkillIds: getRWQuestionsBySkillIds,
+    getQuestionsByDomain: getRWQuestionsByDomain,
+    domainOrder: RW_DOMAIN_ORDER,
+  },
+};
+const bankFor = (section) => SECTION_BANK[section === 'rw' ? 'rw' : 'math'];
+const sectionForDomain = (domain) => (RW_DOMAIN_ORDER.includes(domain) ? 'rw' : 'math');
 
 const DOMAIN_ALIAS_MAP = {
   // Math
@@ -157,6 +177,9 @@ export function buildWeakSkillPayload(diagnostic) {
     .map(s => ({
       skillId: s.skillId,
       domain: s.domain || null,
+      // Test subject, so the builders route each weakness to the right bank.
+      // Prefer the diagnostic's own tag; derive from the skill id otherwise.
+      section: s.section || getSkillSection(s.skillId),
       priority: 100 - (s.testAccuracy || 0),
       errorType: s.primaryErrorType || 'unknown',
     }))
@@ -191,51 +214,42 @@ export function generatePracticeAssignments({
   const totalNeeded = Math.max(MIN_TOTAL_QUESTIONS, weekCount * questionsPerWeek);
   const usedIds = new Set(excludeIds);
 
-  const isMCQ = q => Array.isArray(q.choices) && q.choices.length >= 2;
+  // Sections present in the weaknesses, math first. A math-only plan runs a
+  // single math pass at seed offset 0 — byte-identical to the pre-R&W behavior;
+  // a mixed plan also draws R&W items from the R&W bank.
+  const sectionsWithWeakness = ['math', 'rw'].filter(sec => weakPayload.some(w => w.section === sec));
+  const activeSections = sectionsWithWeakness.length > 0 ? sectionsWithWeakness : ['math'];
+  // Split the budget across sections so a mixed plan can't let math starve R&W.
+  // For a single (math) section this equals totalNeeded — byte-identical.
+  const perSectionTarget = Math.ceil(totalNeeded / activeSections.length);
 
-  // Phase 1 — skill-targeted selection (deterministic — no Math.random)
+  // Phase 1 + 2 — skill-targeted + weak-domain fallback, per section, per bank.
   let pool = [];
-  if (weakPayload.length > 0) {
-    const skillIds = weakPayload.map(w => w.skillId);
-    const candidates = getQuestionsBySkillIds(skillIds, { excludeIds: [...usedIds] }).filter(isMCQ);
-    const shuffled = seededShuffle(candidates, numericSeed);
-
-    if (difficultyMix) {
-      const easy = shuffled.filter(q => q.difficulty === 'easy')
-        .slice(0, Math.ceil(totalNeeded * (difficultyMix.easy || 0.3)));
-      const medium = shuffled.filter(q => q.difficulty === 'medium')
-        .slice(0, Math.ceil(totalNeeded * (difficultyMix.medium || 0.45)));
-      const hard = shuffled.filter(q => q.difficulty === 'hard')
-        .slice(0, Math.ceil(totalNeeded * (difficultyMix.hard || 0.25)));
-      pool = seededShuffle([...easy, ...medium, ...hard], numericSeed + 1);
-    } else {
-      pool = shuffled.slice(0, totalNeeded);
-    }
+  for (const sec of activeSections) {
+    if (pool.length >= totalNeeded) break;
+    const secPool = selectSectionPool({
+      section: sec,
+      payload: weakPayload.filter(w => w.section === sec),
+      targetCount: perSectionTarget,
+      numericSeed,
+      usedIds,
+      difficultyMix,
+    });
+    pool.push(...secPool);
   }
 
-  pool.forEach(q => usedIds.add(q.id));
-
-  // Phase 2 — domain fallback: fill gaps from weak domains
-  if (pool.length < totalNeeded) {
-    const weakDomains = [...new Set(weakPayload.map(w => w.domain).filter(Boolean))];
-    for (const domain of weakDomains) {
-      if (pool.length >= totalNeeded) break;
-      const extras = getQuestionsByDomain(domain, { excludeIds: [...usedIds] }).filter(isMCQ);
-      const shuffled = seededShuffle(extras, numericSeed + domain.length);
-      const needed = totalNeeded - pool.length;
-      const batch = shuffled.slice(0, needed);
-      batch.forEach(q => { pool.push(q); usedIds.add(q.id); });
-    }
-  }
-
-  // Phase 3 — global fill: round-robin across all domains
+  // Phase 3 — global fill: round-robin across the present sections' domains.
   if (pool.length < MIN_TOTAL_QUESTIONS) {
-    for (const domain of DOMAIN_ORDER) {
-      if (pool.length >= MIN_TOTAL_QUESTIONS) break;
-      const extras = getQuestionsByDomain(domain, { excludeIds: [...usedIds] }).filter(isMCQ);
-      const shuffled = seededShuffle(extras, numericSeed + 999);
-      const batch = shuffled.slice(0, Math.max(3, MIN_TOTAL_QUESTIONS - pool.length));
-      batch.forEach(q => { pool.push(q); usedIds.add(q.id); });
+    for (const sec of activeSections) {
+      const bank = bankFor(sec);
+      const fillSeed = numericSeed + 999 + (sec === 'rw' ? 500 : 0);
+      for (const domain of bank.domainOrder) {
+        if (pool.length >= MIN_TOTAL_QUESTIONS) break;
+        const extras = bank.getQuestionsByDomain(domain, { excludeIds: [...usedIds] }).filter(isMCQGlobal);
+        const shuffled = seededShuffle(extras, fillSeed);
+        const batch = shuffled.slice(0, Math.max(3, MIN_TOTAL_QUESTIONS - pool.length));
+        batch.forEach(q => { pool.push(q); usedIds.add(q.id); });
+      }
     }
   }
 
@@ -325,6 +339,63 @@ const RETRY_GAP = 4;
 const isMCQGlobal = q => Array.isArray(q.choices) && q.choices.length >= 2;
 
 /**
+ * Select a deterministic MCQ pool for ONE section's weaknesses, using that
+ * section's bank + domain order so math and R&W never cross-contaminate.
+ * Runs the same two-phase cascade the builders used before R&W existed:
+ * skill-targeted (Phase 1) then weak-domain fallback (Phase 2). Math uses seed
+ * offset 0, so a math-only plan is byte-identical to the pre-R&W behavior;
+ * R&W uses a fixed offset to stay deterministic yet distinct from math.
+ *
+ * @param {Object} opts
+ * @param {('math'|'rw')} opts.section
+ * @param {Array} opts.payload - weak-skill payload entries for THIS section
+ * @param {number} opts.targetCount - pool size target
+ * @param {number} opts.numericSeed
+ * @param {Set<string>} opts.usedIds - shared dedup set, mutated in place
+ * @param {Object|null} opts.difficultyMix - { easy, medium, hard } or null for a flat slice
+ * @returns {object[]} selected question objects
+ */
+function selectSectionPool({ section, payload, targetCount, numericSeed, usedIds, difficultyMix }) {
+  const bank = bankFor(section);
+  const offset = section === 'rw' ? 500 : 0;
+  let pool = [];
+
+  // Phase 1 — skill-targeted
+  if (payload.length > 0) {
+    const skillIds = payload.map(w => w.skillId);
+    const candidates = bank.getQuestionsBySkillIds(skillIds, { excludeIds: [...usedIds] }).filter(isMCQGlobal);
+    const shuffled = seededShuffle(candidates, numericSeed + offset);
+
+    if (difficultyMix) {
+      const easy = shuffled.filter(q => q.difficulty === 'easy')
+        .slice(0, Math.ceil(targetCount * (difficultyMix.easy || 0.3)));
+      const medium = shuffled.filter(q => q.difficulty === 'medium')
+        .slice(0, Math.ceil(targetCount * (difficultyMix.medium || 0.45)));
+      const hard = shuffled.filter(q => q.difficulty === 'hard')
+        .slice(0, Math.ceil(targetCount * (difficultyMix.hard || 0.25)));
+      pool = seededShuffle([...easy, ...medium, ...hard], numericSeed + offset + 1);
+    } else {
+      pool = shuffled.slice(0, targetCount);
+    }
+  }
+  pool.forEach(q => usedIds.add(q.id));
+
+  // Phase 2 — weak-domain fallback
+  if (pool.length < targetCount) {
+    const weakDomains = [...new Set(payload.map(w => w.domain).filter(Boolean))];
+    for (const domain of weakDomains) {
+      if (pool.length >= targetCount) break;
+      const extras = bank.getQuestionsByDomain(domain, { excludeIds: [...usedIds] }).filter(isMCQGlobal);
+      const shuffled = seededShuffle(extras, numericSeed + offset + domain.length);
+      const batch = shuffled.slice(0, targetCount - pool.length);
+      batch.forEach(q => { pool.push(q); usedIds.add(q.id); });
+    }
+  }
+
+  return pool;
+}
+
+/**
  * Build the initial adaptive queue seed from diagnostic weak-skill signals.
  * Stored in the plan artifact so sessions can be bootstrapped deterministically.
  */
@@ -339,32 +410,39 @@ export function buildAdaptiveQueueSeed({
   const usedIds = new Set(excludeIds);
   let pool = [];
 
-  // Phase 1 — skill-targeted
-  if (weakPayload.length > 0) {
-    const skillIds = weakPayload.map(w => w.skillId);
-    const candidates = getQuestionsBySkillIds(skillIds, { excludeIds: [...usedIds] }).filter(isMCQGlobal);
-    pool = seededShuffle(candidates, numericSeed).slice(0, poolSize);
-  }
-  pool.forEach(q => usedIds.add(q.id));
+  // Math-first section order; math-only plans run a single math pass at seed
+  // offset 0 (byte-identical to the pre-R&W behavior).
+  const sectionsWithWeakness = ['math', 'rw'].filter(sec => weakPayload.some(w => w.section === sec));
+  const activeSections = sectionsWithWeakness.length > 0 ? sectionsWithWeakness : ['math'];
+  // Split the pool across sections so a mixed plan represents both. For a single
+  // (math) section this equals poolSize — byte-identical to the pre-R&W seed.
+  const perSectionTarget = Math.ceil(poolSize / activeSections.length);
 
-  // Phase 2 — domain fallback
-  if (pool.length < poolSize) {
-    const weakDomains = [...new Set(weakPayload.map(w => w.domain).filter(Boolean))];
-    for (const domain of weakDomains) {
-      if (pool.length >= poolSize) break;
-      const extras = getQuestionsByDomain(domain, { excludeIds: [...usedIds] }).filter(isMCQGlobal);
-      const batch = seededShuffle(extras, numericSeed + domain.length).slice(0, poolSize - pool.length);
-      batch.forEach(q => { pool.push(q); usedIds.add(q.id); });
-    }
+  // Phase 1 + 2 — skill-targeted + weak-domain fallback, per section, per bank.
+  for (const sec of activeSections) {
+    if (pool.length >= poolSize) break;
+    const secPool = selectSectionPool({
+      section: sec,
+      payload: weakPayload.filter(w => w.section === sec),
+      targetCount: perSectionTarget,
+      numericSeed,
+      usedIds,
+      difficultyMix: null,
+    });
+    pool.push(...secPool);
   }
 
-  // Phase 3 — global fill
+  // Phase 3 — global fill across the present sections' domains
   if (pool.length < 20) {
-    for (const domain of DOMAIN_ORDER) {
-      if (pool.length >= poolSize) break;
-      const extras = getQuestionsByDomain(domain, { excludeIds: [...usedIds] }).filter(isMCQGlobal);
-      const batch = seededShuffle(extras, numericSeed + 999).slice(0, Math.max(5, poolSize - pool.length));
-      batch.forEach(q => { pool.push(q); usedIds.add(q.id); });
+    for (const sec of activeSections) {
+      const bank = bankFor(sec);
+      const fillSeed = numericSeed + 999 + (sec === 'rw' ? 500 : 0);
+      for (const domain of bank.domainOrder) {
+        if (pool.length >= poolSize) break;
+        const extras = bank.getQuestionsByDomain(domain, { excludeIds: [...usedIds] }).filter(isMCQGlobal);
+        const batch = seededShuffle(extras, fillSeed).slice(0, Math.max(5, poolSize - pool.length));
+        batch.forEach(q => { pool.push(q); usedIds.add(q.id); });
+      }
     }
   }
 
@@ -420,6 +498,10 @@ export function buildDomainAdaptiveQueueSeed({
   if (!enforcedDomain) return null;
 
   const numericSeed = hashString(seed || enforcedDomain);
+  // Route to the right bank by the enforced domain's section. R&W has no SAT
+  // Pattern signal, so the Tier-1 pattern bias below is gated to math.
+  const section = sectionForDomain(enforcedDomain);
+  const bank = bankFor(section);
   const usedIds = new Set();
   let pool = [];
 
@@ -436,7 +518,7 @@ export function buildDomainAdaptiveQueueSeed({
       )]
     : [];
 
-  if (missedPatterns.length > 0) {
+  if (section === 'math' && missedPatterns.length > 0) {
     const patternPool = getQuestionsBySatPatterns(missedPatterns, {
       excludeIds: [],
     }).filter(isMCQGlobal).filter(q => q.domain === enforcedDomain);
@@ -455,7 +537,7 @@ export function buildDomainAdaptiveQueueSeed({
   }
 
   // ── Plain domain fill ──
-  const domainCandidates = getQuestionsByDomain(enforcedDomain, {
+  const domainCandidates = bank.getQuestionsByDomain(enforcedDomain, {
     excludeIds: [...usedIds],
   }).filter(isMCQGlobal);
   const shuffled = seededShuffle(domainCandidates, numericSeed);
@@ -468,9 +550,9 @@ export function buildDomainAdaptiveQueueSeed({
 
   // ── Cross-domain fallback only when pool is still thin ──
   if (pool.length < 20) {
-    for (const domain of DOMAIN_ORDER) {
+    for (const domain of bank.domainOrder) {
       if (domain === enforcedDomain || pool.length >= poolSize) continue;
-      const extras = getQuestionsByDomain(domain, { excludeIds: [...usedIds] }).filter(isMCQGlobal);
+      const extras = bank.getQuestionsByDomain(domain, { excludeIds: [...usedIds] }).filter(isMCQGlobal);
       const batch = seededShuffle(extras, numericSeed + domain.length).slice(0, poolSize - pool.length);
       batch.forEach(q => { pool.push(q); usedIds.add(q.id); });
     }
@@ -532,11 +614,15 @@ export function buildStrengthFocusAssignments({
   const result = {};
   const globalUsed = new Set(excludeIds);
 
-  for (const domain of DOMAIN_ORDER) {
+  // Math domains first (DOMAIN_ORDER), then R&W. Math output is byte-identical
+  // to the pre-R&W behavior (same order, same globalUsed progression — R&W
+  // items are disjoint and selected after); R&W domains add their own bundles.
+  for (const domain of ALL_CANONICAL_DOMAINS) {
     const isWeak = weakDomains.has(domain);
     const source = isWeak ? 'focus' : 'strength';
 
-    const candidates = getQuestionsByDomain(domain, { excludeIds: [...globalUsed] }).filter(isMCQGlobal);
+    const bank = bankFor(sectionForDomain(domain));
+    const candidates = bank.getQuestionsByDomain(domain, { excludeIds: [...globalUsed] }).filter(isMCQGlobal);
     const shuffled = seededShuffle(candidates, numericSeed + hashString(domain));
     const picked = shuffled.slice(0, countPerDomain);
     picked.forEach(q => globalUsed.add(q.id));

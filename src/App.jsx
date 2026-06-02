@@ -58,6 +58,7 @@ import {
   resolveQuestionById,
   normalizeDomain,
   buildDomainAdaptiveQueueSeed,
+  RW_DOMAIN_ORDER,
   createAdaptiveSessionState,
   getNextAdaptiveQuestion,
   applyAdaptiveResult,
@@ -579,8 +580,12 @@ const PerformSAT = () => {
       // already gets via getTargetedWeaknessSet). When the plan has no
       // weaknesses or none have missedPatterns, the seed falls back to the
       // plain domain shuffle — same behavior as before.
+      // Filter weaknesses to the section the enforced domain belongs to. Math
+      // keeps its Tier-1 SAT-pattern bias; an R&W domain scopes to R&W
+      // weaknesses (no pattern bias — the seed builder gates that to math).
+      const domainSection = RW_DOMAIN_ORDER.includes(resolvedDomain) ? 'rw' : 'math';
       const planWeaknesses = Array.isArray(studyPlan?.weaknesses)
-        ? studyPlan.weaknesses.filter(w => w && (w.section ? w.section === 'math' : true))
+        ? studyPlan.weaknesses.filter(w => w && ((w.section === 'rw' ? 'rw' : 'math') === domainSection))
         : [];
       queueSeed = buildDomainAdaptiveQueueSeed({
         enforcedDomain: resolvedDomain,

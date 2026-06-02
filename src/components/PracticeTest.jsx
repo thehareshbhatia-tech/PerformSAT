@@ -23,6 +23,7 @@ import { buildLongitudinalEvidence, computePlanDelta } from '../services/studyPl
 import { generateStudyPlan as generateDeterministicPlan } from '../services/studyPlanGenerator';
 import { runDiagnostic } from '../services/diagnosticEngine';
 import { getTargetedWeaknessSet } from '../data/questions/bank';
+import { getTargetedWeaknessSet as getRWTargetedWeaknessSet } from '../data/questions/rwBank';
 import { scoreTest, isAnswerCorrect, convertToSATScore } from '../services/scoring';
 import { computeRemaining, deriveDeadline, shiftDeadlineForPause } from '../services/timerClock';
 import { colors, typography, spacing, radius, shadows, transitions } from '../design/tokens';
@@ -164,13 +165,20 @@ function enrichPlanWithGroundTruth(plan, groundTruth) {
     const weakSkillPayload = (groundTruth.weaknesses || []).map(w => ({
       skillId: w.skillId || null,
       domain: w.domain,
+      section: w.section === 'rw' ? 'rw' : 'math',
     })).filter(w => w.skillId);
     if (weakSkillPayload.length > 0) {
-      const targeted = getTargetedWeaknessSet({
-        weakSkills: weakSkillPayload,
-        count: 15,
-        difficultyMix: { easy: 0.3, medium: 0.45, hard: 0.25 },
-      });
+      // Route each weakness to its bank by section, then merge. Before this,
+      // the math bank was the only source, so R&W focus areas contributed zero
+      // questions to the flat assignment (their skill ids resolve to nothing
+      // in the math bank).
+      const mathWeak = weakSkillPayload.filter(w => w.section === 'math');
+      const rwWeak = weakSkillPayload.filter(w => w.section === 'rw');
+      const difficultyMix = { easy: 0.3, medium: 0.45, hard: 0.25 };
+      const targeted = [
+        ...(mathWeak.length > 0 ? getTargetedWeaknessSet({ weakSkills: mathWeak, count: 15, difficultyMix }) : []),
+        ...(rwWeak.length > 0 ? getRWTargetedWeaknessSet({ weakSkills: rwWeak, count: 15, difficultyMix }) : []),
+      ];
       plan.targetedQuestionIds = targeted.map(q => q.id);
       plan.targetedQuestionMeta = targeted.map(q => ({
         id: q.id,
