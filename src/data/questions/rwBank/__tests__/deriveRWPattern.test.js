@@ -18,6 +18,16 @@ describe('deriveRWPattern', () => {
     'tsp-overall-structure': 14,
     'tsp-function-of-underlined': 13,
     'coe-textual-illustrate-claim': 43,
+    // form-structure-and-sense grammar sub-patterns (P3b). First 4 are >=8 and
+    // labeled; pronoun/possessive/comparison are emitted for diagnostic-signal
+    // completeness but route Tier-3 (sub-threshold) and carry no chip label.
+    'fss-subject-verb-agreement': 20,
+    'fss-verb-tense': 15,
+    'fss-modifier-placement': 13,
+    'fss-parallelism': 9,
+    'fss-pronoun': 6,
+    'fss-possessive': 5,
+    'fss-comparison': 2,
   };
 
   const counts = {};
@@ -30,9 +40,9 @@ describe('deriveRWPattern', () => {
     expect(counts).toEqual(EXPECTED_COUNTS);
   });
 
-  it('tags exactly 204 of 648 items deterministically', () => {
+  it('tags exactly 274 of 648 items deterministically', () => {
     const tagged = Object.values(counts).reduce((a, b) => a + b, 0);
-    expect(tagged).toBe(204);
+    expect(tagged).toBe(274);
     expect(rwQuestionBank.length).toBe(648);
   });
 
@@ -42,9 +52,24 @@ describe('deriveRWPattern', () => {
     }
   });
 
-  it('label map covers the 11 routing patterns and omits the tag-only coe-textual', () => {
-    expect(Object.keys(RW_PATTERN_LABELS)).toHaveLength(11);
+  it('label map covers the 15 routing patterns and omits the tag-only / sub-threshold slugs', () => {
+    expect(Object.keys(RW_PATTERN_LABELS)).toHaveLength(15);
     expect(RW_PATTERN_LABELS['coe-textual-illustrate-claim']).toBeUndefined();
+    expect(RW_PATTERN_LABELS['fss-pronoun']).toBeUndefined();
+    expect(RW_PATTERN_LABELS['fss-possessive']).toBeUndefined();
+    expect(RW_PATTERN_LABELS['fss-comparison']).toBeUndefined();
+  });
+
+  it('form-structure-and-sense: scopes to the first paragraph + verb-tense is the fallback', () => {
+    const mk = (explanation) => ({ skill: 'form-structure-and-sense', explanation, correctAnswer: 'A', choices: [{ id: 'A', text: 'x' }] });
+    // Parallelism wins even though the distractor prose later mentions verb forms.
+    expect(deriveRWPattern(mk('The items in a coordinated list must be parallel. Why the wrong answers are tempting: they use a different verb tense.'))).toBe('fss-parallelism');
+    // Subject-verb agreement is detected before the generic verb-tense fallback.
+    expect(deriveRWPattern(mk('The singular subject requires subject-verb agreement with a singular verb.'))).toBe('fss-subject-verb-agreement');
+    // Plain tense item falls to the verb-tense bucket.
+    expect(deriveRWPattern(mk('A completed historical event requires the simple past tense.'))).toBe('fss-verb-tense');
+    // Subjunctive has no bucket → null → Tier-3.
+    expect(deriveRWPattern(mk('Standard English uses the subjunctive mood in a that-clause governed by a verb of recommendation.'))).toBeNull();
   });
 
   it('returns null for math skills (no misfire on the diagnostic seam)', () => {

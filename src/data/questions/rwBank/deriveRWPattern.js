@@ -100,6 +100,34 @@ function coeTextualPattern(item) {
   return null;
 }
 
+// form-structure-and-sense grammar sub-patterns (Phase 4 P3b). The tested rule
+// is stated in the FIRST paragraph of the explanation, before the distractor
+// discussion, so we scope there. Precedence runs most-distinctive-structural
+// first and the generic verb-tense LAST — without both, verb-form mentions in
+// the distractor prose swamp the classifier (46/71 false verb-tense). Validated
+// 27/27 against the items that carry a _meta.rule oracle. Of the 7 buckets,
+// only the 4 that clear the Tier-1 threshold are labeled (RW_PATTERN_LABELS);
+// the rest are emitted for diagnostic-signal completeness but route Tier-3
+// (sub-threshold pool) and show no chip — same handling as coe-textual.
+const FSS_RULES = [
+  ['fss-parallelism', /parallel|coordinated (?:series|list)|(?:three|two|four)-item (?:list|series)|gerund-gerund/],
+  ['fss-modifier-placement', /dangling|introductory (?:participial|modifier)|participial (?:introductory|opener|phrase|modifier)|modifier (?:attaches|must|should)|fronted modifier|opening (?:phrase|participial)/],
+  ['fss-possessive', /possessive|apostrophe/],
+  ['fss-comparison', /\bfewer\b|comparative|superlative|count nouns?|non-?count/],
+  ['fss-subject-verb-agreement', /subject[- ]verb agreement|agree (?:in number|with (?:its|the) (?:head|singular|plural))|verb (?:must|to) agree|singular verb|plural verb/],
+  ['fss-pronoun', /\bpronoun|\bantecedent|\bwhom\b|relative pronoun|objective form|pronoun case/],
+  ['fss-verb-tense', /simple past|present perfect|past perfect|simple present|verb tense|verb form|past tense|present tense|\btense\b|\baspect\b/],
+];
+
+function fssPattern(item) {
+  const firstPara = (item.explanation || '').split(/Why the wrong answers/i)[0].toLowerCase();
+  if (!firstPara) return null;
+  for (const [slug, re] of FSS_RULES) {
+    if (re.test(firstPara)) return slug;
+  }
+  return null;
+}
+
 export function deriveRWPattern(item) {
   if (!item) return null;
   const skill = item.skill || (Array.isArray(item.skills) ? item.skills[0] : null);
@@ -108,6 +136,7 @@ export function deriveRWPattern(item) {
     case 'transitions': return transitionsPattern(item);
     case 'text-structure-and-purpose': return tspPattern(item);
     case 'command-of-evidence-textual': return coeTextualPattern(item);
+    case 'form-structure-and-sense': return fssPattern(item);
     default: return null;
   }
 }
@@ -130,4 +159,10 @@ export const RW_PATTERN_LABELS = {
   'tsp-main-purpose': 'Main purpose',
   'tsp-overall-structure': 'Overall text structure',
   'tsp-function-of-underlined': 'Function of a sentence',
+  // form-structure-and-sense grammar sub-patterns (only the >=8 buckets are
+  // labeled; pronoun/possessive/comparison stay sub-threshold + chip-less).
+  'fss-subject-verb-agreement': 'Subject-verb agreement',
+  'fss-verb-tense': 'Verb tense & form',
+  'fss-modifier-placement': 'Modifier placement',
+  'fss-parallelism': 'Parallel structure',
 };
