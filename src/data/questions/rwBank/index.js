@@ -483,3 +483,16 @@ export const getBankStats = () => {
   });
   return stats;
 };
+
+/**
+ * Pattern-pool sizes for the drill chip's threshold gate — the R&W analog of
+ * the math bank's getBankRoutingStats. chip-shown ≡ pool >= threshold ≡ Tier-1
+ * was viable, so the "Practicing: <pattern>" chip never overpromises.
+ *
+ * @returns {{ byPattern: Object<string, number> }}
+ */
+export const getRWBankRoutingStats = () => {
+  const byPattern = {};
+  patternIndex.forEach((qs, slug) => { byPattern[slug] = qs.length; });
+  return { byPattern };
+};

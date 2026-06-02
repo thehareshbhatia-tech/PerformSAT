@@ -344,11 +344,12 @@ const StudyPlanDashboard = ({
       // problems because skillId 'Scatterplots' aliases to 'calculate-mean'
       // in Tier 3 (see SKILL_ALIAS_MAP). R&W goes without chip restriction
       // for now — its drill chip wiring lands in a separate batch.
+      // Restrict the drill to the chip's single pattern (both sections now that
+      // the chip is section-aware) so the content matches the "Practicing: X"
+      // claim. R&W chips resolve against the R&W pattern pool + labels.
       let missedPatterns = Array.isArray(w.missedPatterns) ? w.missedPatterns : undefined;
-      if (section !== 'rw') {
-        const chip = getDrillChipForWeakness(w);
-        if (chip) missedPatterns = [chip.slug];
-      }
+      const chip = getDrillChipForWeakness({ ...w, section });
+      if (chip) missedPatterns = [chip.slug];
 
       const questions = targetedQuery({
         weakSkills: [{ skillId: w.skillId, domain: w.domain, missedPatterns }],

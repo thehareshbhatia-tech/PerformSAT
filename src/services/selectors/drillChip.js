@@ -16,15 +16,31 @@
  */
 
 import { getBankRoutingStats, DRILL_ROUTING_THRESHOLDS } from '../../data/questions/bank';
+import { getRWBankRoutingStats, RW_TIER1_PATTERN_THRESHOLD } from '../../data/questions/rwBank';
+import { RW_PATTERN_LABELS } from '../../data/questions/rwBank/deriveRWPattern';
 import { formatPatternLabel, pickPrimaryMissedPattern } from './missedPatternLabel';
 
 /**
  * @param {object|null|undefined} weakness — weakness with optional `missedPatterns`
+ *   and `section` ('math' | 'rw'). Section selects which bank's pattern pool +
+ *   threshold + label source the chip is computed from.
  * @returns {{label: string, slug: string} | null} — null when chip should NOT render
  */
 export function getDrillChipForWeakness(weakness) {
   const slug = pickPrimaryMissedPattern(weakness);
   if (!slug) return null;
+
+  // R&W chip: curated human label + R&W pattern pool + R&W threshold. A
+  // tag-only or unknown slug (no entry in RW_PATTERN_LABELS) shows no chip.
+  if (weakness && weakness.section === 'rw') {
+    const label = RW_PATTERN_LABELS[slug];
+    if (!label) return null;
+    const poolSize = getRWBankRoutingStats().byPattern[slug] || 0;
+    if (poolSize < RW_TIER1_PATTERN_THRESHOLD) return null;
+    return { label, slug };
+  }
+
+  // Math chip (unchanged).
   const stats = getBankRoutingStats();
   const poolSize = stats.byPattern[slug] || 0;
   if (poolSize < DRILL_ROUTING_THRESHOLDS.TIER1_PATTERN) return null;

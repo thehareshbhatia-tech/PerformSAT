@@ -19,9 +19,15 @@
 
 import { getDrillChipForWeakness } from '../drillChip';
 import { getBankRoutingStats, DRILL_ROUTING_THRESHOLDS } from '../../../data/questions/bank';
+import { getRWBankRoutingStats, RW_TIER1_PATTERN_THRESHOLD } from '../../../data/questions/rwBank';
+import { RW_PATTERN_LABELS } from '../../../data/questions/rwBank/deriveRWPattern';
 
 const stats = getBankRoutingStats();
 const threshold = DRILL_ROUTING_THRESHOLDS.TIER1_PATTERN;
+
+const rwStats = getRWBankRoutingStats();
+const rwViable = Object.keys(RW_PATTERN_LABELS)
+  .find(slug => (rwStats.byPattern[slug] || 0) >= RW_TIER1_PATTERN_THRESHOLD);
 
 // Runtime-discover at least one viable pattern (≥ threshold items) and one
 // non-viable pattern (≥1 item, < threshold). If either is missing the bank
@@ -109,5 +115,31 @@ describe('getDrillChipForWeakness — composition with formatPatternLabel', () =
     expect(result.label[0]).toBe(result.label[0].toUpperCase());
     // Slug should NOT equal label (kebab → Title Case transform happened)
     expect(result.label).not.toBe(viablePattern);
+  });
+});
+
+describe('getDrillChipForWeakness — R&W section (Phase 4 P3)', () => {
+  it('the R&W bank has a viable routing pattern', () => {
+    expect(rwViable).toBeTruthy();
+  });
+
+  it('returns the curated R&W label for a viable R&W pattern', () => {
+    const result = getDrillChipForWeakness({ section: 'rw', missedPatterns: [rwViable] });
+    expect(result).not.toBeNull();
+    expect(result.slug).toBe(rwViable);
+    // R&W uses the curated label map, not the kebab→Title-Case formatter.
+    expect(result.label).toBe(RW_PATTERN_LABELS[rwViable]);
+  });
+
+  it('returns null for the tag-only coe-textual pattern (not routing-useful)', () => {
+    expect(getDrillChipForWeakness({
+      section: 'rw',
+      missedPatterns: ['coe-textual-illustrate-claim'],
+    })).toBeNull();
+  });
+
+  it('does NOT match an R&W slug under the math branch (cross-section guard)', () => {
+    // Same slug, section 'math' → math bank has no such pattern → no chip.
+    expect(getDrillChipForWeakness({ section: 'math', missedPatterns: [rwViable] })).toBeNull();
   });
 });
