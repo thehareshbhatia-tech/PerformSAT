@@ -10,7 +10,9 @@ import {
   RW_DOMAINS,
   getQuestionsBySkillIds as getRWQuestionsBySkillIds,
   getQuestionsByDomain as getRWQuestionsByDomain,
+  getQuestionsByPattern as getRWQuestionsByPattern,
 } from '../data/questions/rwBank';
+import { deriveRWPattern, RW_PATTERN_LABELS } from '../data/questions/rwBank/deriveRWPattern';
 import { extractSatPattern } from '../data/questions/extractSatPattern';
 import {
   CB_MATH_SKILLS,
@@ -175,9 +177,26 @@ function buildMathCategories() {
     });
 }
 
+// Display labels for R&W "question types" in the practice bank. Extends the
+// routing taxonomy's RW_PATTERN_LABELS with the grammar sub-types it leaves
+// unlabeled: those sit below the Tier-1 routing threshold (so they show no
+// drill chip — see drillChip.js), but they are still legitimate, drillable
+// question types worth surfacing here. A pattern absent from this map (e.g.
+// the tag-only coe-textual-illustrate-claim, whose pool == the whole skill)
+// is intentionally NOT shown as a type.
+const RW_TYPE_LABELS = {
+  ...RW_PATTERN_LABELS,
+  'fss-pronoun': 'Pronouns & antecedents',
+  'fss-possessive': 'Possessives & apostrophes',
+  'fss-comparison': 'Comparisons',
+};
+
 function buildRWCategories() {
   const skillCounts = new Map();
   const domainTotals = new Map();
+  const patternCounts = new Map();          // patternSlug → item count
+  const skillToPatterns = new Map();        // skillSlug → Set<patternSlug>
+
   for (const q of rwQuestionBank) {
     if (!isDrillable(q)) continue;
     const domain = q.domain;
@@ -185,16 +204,42 @@ function buildRWCategories() {
     (q.skills || []).forEach(sid => {
       skillCounts.set(sid, (skillCounts.get(sid) || 0) + 1);
     });
+
+    // Derive the R&W sub-pattern (Phase 4) and bucket it under the item's
+    // primary skill — the SAME skill deriveRWPattern keys off — so the type
+    // lands under the right topic (grammar types under Form/Structure/Sense,
+    // punctuation types under Boundaries, etc.).
+    const pattern = deriveRWPattern(q);
+    if (pattern) {
+      patternCounts.set(pattern, (patternCounts.get(pattern) || 0) + 1);
+      const sid = q.skill || (Array.isArray(q.skills) ? q.skills[0] : null);
+      if (sid) {
+        if (!skillToPatterns.has(sid)) skillToPatterns.set(sid, new Set());
+        skillToPatterns.get(sid).add(pattern);
+      }
+    }
   }
 
   return RW_DOMAINS.map(domain => {
     const skills = CB_RW_SKILLS
       .filter(s => s.domain === domain)
-      .map(skill => ({
-        ...skill,
-        count: skillCounts.get(skill.slug) || 0,
-        patterns: [],
-      }))
+      .map(skill => {
+        const patternSlugs = skillToPatterns.get(skill.slug) || new Set();
+        const patterns = [...patternSlugs]
+          .filter(slug => RW_TYPE_LABELS[slug])   // only meaningful, named types
+          .map(slug => ({
+            slug,
+            label: RW_TYPE_LABELS[slug],
+            count: patternCounts.get(slug) || 0,
+          }))
+          .filter(p => p.count >= MIN_PATTERN_POOL)
+          .sort((a, b) => b.count - a.count || a.label.localeCompare(b.label));
+        return {
+          ...skill,
+          count: skillCounts.get(skill.slug) || 0,
+          patterns,
+        };
+      })
       .filter(s => s.count > 0)
       .sort((a, b) => b.count - a.count || a.label.localeCompare(b.label));
     return {
@@ -307,7 +352,9 @@ const PracticeBank = ({ onStartPractice }) => {
   };
 
   const launchPatternDrill = (slug, label) => {
-    const pool = getQuestionsBySatPatterns([slug]);
+    const pool = section === 'math'
+      ? getQuestionsBySatPatterns([slug])
+      : getRWQuestionsByPattern([slug]);
     launchFromPool(pool, DRILL_COUNT_PER_TYPE, label, 'practice-bank-pattern');
   };
 
@@ -700,7 +747,7 @@ const FilterBar = ({ categories, search, onSearchChange, onJumpToDomain, section
             type="text"
             value={search}
             onChange={(e) => onSearchChange(e.target.value)}
-            placeholder={`Search ${section === 'math' ? 'topics & question types' : 'topics'}…`}
+            placeholder={'Search topics & question types…'}
             aria-label="Search practice bank"
             style={{
               width: '100%',
