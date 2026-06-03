@@ -8,6 +8,25 @@ import { getWeakSkills, getSkillTrend } from './skillService';
 import { getSkillById, getSkillsForModule, skillTaxonomy } from '../data/skillTaxonomy';
 
 /**
+ * A stored "persistent confusion" is only worth surfacing if it actually
+ * describes a confusion. The tutor pipeline sometimes records a NEGATIVE
+ * finding ("No active confusion demonstrated in this exchange") as a string,
+ * and that sentinel must never be replayed to the student as something they
+ * "mentioned confusion with."
+ *
+ * @param {string} c - a candidate confusion string from learningMemory
+ * @returns {boolean} true when c reads like a real confusion, not a no-op sentinel
+ */
+const isRealConfusion = (c) => {
+  if (typeof c !== 'string') return false;
+  const s = c.trim().toLowerCase();
+  if (s.length < 3) return false;
+  // Reject AI no-confusion sentinels (e.g. "no active confusion demonstrated",
+  // "no confusion", "none detected", "no specific misconception").
+  return !/\bno\b.*\b(confusion|misconception)\b|\bnone\b\s*(detected|demonstrated|identified)?|not\s+confus/.test(s);
+};
+
+/**
  * Calculate days until test date
  */
 const getDaysUntilTest = (testDate) => {
@@ -379,9 +398,15 @@ export const generateCrossSessionRecommendation = (
   if (learningMemory?.persistentConfusions) {
     for (const skillId of currentSkillIds) {
       const skill = getSkillById(skillId);
+      // Only the skill's name / id are valid match needles. An empty needle
+      // makes String.includes('') match EVERY stored confusion — which it did
+      // for R&W skills (getSkillById returns null → name undefined → ''),
+      // surfacing a no-confusion sentinel as the student's confusion. Filter
+      // empty needles AND reject sentinel strings via isRealConfusion.
+      const needles = [skill?.name?.toLowerCase(), skillId?.toLowerCase()]
+        .filter((n) => n && n.length > 0);
       const confusion = learningMemory.persistentConfusions.find(c =>
-        c.toLowerCase().includes(skill?.name?.toLowerCase() || '') ||
-        c.toLowerCase().includes(skillId.toLowerCase())
+        isRealConfusion(c) && needles.some((n) => c.toLowerCase().includes(n))
       );
       if (confusion) {
         return {
