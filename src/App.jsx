@@ -2403,8 +2403,11 @@ const PerformSAT = () => {
                 </div>
               )}
 
-              {/* Full Screen Calculator Modal */}
-              {showCalculator && (
+              {/* Full Screen Calculator Modal — Math only; the calculator is
+                  not a Reading & Writing affordance on the digital SAT. Gated
+                  here too (not just the toggle button) so a calculator left
+                  open during a math drill doesn't carry into an R&W item. */}
+              {showCalculator && currentQuestion?.section !== 'rw' && (
                 <div style={{
                   position: 'fixed',
                   top: 0,

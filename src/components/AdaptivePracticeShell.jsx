@@ -383,14 +383,17 @@ const AdaptivePracticeShell = ({
           }}>
             {showGrid ? 'Hide Grid' : 'Grid'}
           </button>
-          <button onClick={onToggleCalculator} style={{
-            background: showCalculator ? C.brand : 'rgba(255,255,255,0.06)',
-            border: '1px solid rgba(255,255,255,0.1)', borderRadius: '6px',
-            padding: '6px 10px', cursor: 'pointer', color: C.white,
-            fontSize: '12px', fontWeight: '600',
-          }}>
-            Calculator
-          </button>
+          {/* Calculator is Math-only — not offered on R&W in the digital SAT. */}
+          {currentQuestion?.section !== 'rw' && (
+            <button onClick={onToggleCalculator} style={{
+              background: showCalculator ? C.brand : 'rgba(255,255,255,0.06)',
+              border: '1px solid rgba(255,255,255,0.1)', borderRadius: '6px',
+              padding: '6px 10px', cursor: 'pointer', color: C.white,
+              fontSize: '12px', fontWeight: '600',
+            }}>
+              Calculator
+            </button>
+          )}
         </div>
       </div>
 
