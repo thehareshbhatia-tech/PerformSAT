@@ -393,6 +393,7 @@ const StudentDashboard = ({
               practiceProgress={practiceProgress}
               skillProgress={skillProgress}
               reviewQueue={reviewQueue}
+              predictionLog={predictionLog}
               user={user}
               onStartPractice={onStartPractice}
               onStartPracticeTest={onStartPracticeTest}

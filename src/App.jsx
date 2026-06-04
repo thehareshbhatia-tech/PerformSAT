@@ -1941,6 +1941,7 @@ const PerformSAT = () => {
             skillProgress={skillProgress}
             reviewQueue={reviewQueue}
             answeredQuestionIds={answeredQuestionIds}
+            predictionLog={predictionLog}
             user={user}
             onStartPractice={(moduleId, sectionName, opts) => {
               if (opts?.adaptive) { startAdaptivePractice({ enforcedDomain: opts.enforcedDomain, label: opts.label }); return; }

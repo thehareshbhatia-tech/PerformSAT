@@ -9,6 +9,7 @@ import {
   getTargetedWeaknessSet as getRWTargetedWeaknessSet,
 } from '../data/questions/rwBank';
 import { getWeaknessSection, getMathWeaknesses, getRWWeaknesses } from '../services/selectors/weaknesses';
+import { applyPredictionBoost } from '../services/selectors/predictionBoost';
 import { getDrillChipForWeakness } from '../services/selectors/drillChip';
 import { formatDiagnosticSentence } from '../services/diagnosticEngine';
 import { getTodaySlice } from '../services/studyPlanGenerator';
@@ -94,6 +95,7 @@ const StudyPlanDashboard = ({
   onSelectPlanVersion,
   onReviewPastTests,
   answeredQuestionIds = [],
+  predictionLog = null,
 }) => {
   // ── Empty state — return BEFORE any hooks ─────────────────────────────
   // Rules of Hooks: hooks must be called in the same order every render.
@@ -155,7 +157,16 @@ const StudyPlanDashboard = ({
 
   const delta = studyPlanArtifact?.delta || studyPlan._diff || null;
   const longitudinal = studyPlanArtifact?.longitudinal || null;
-  const { weeks, summary, weaknesses } = studyPlan;
+  const { weeks, summary } = studyPlan;
+  // Prediction-aware Focus Areas ordering (2026-06 audit gap 2): weaknesses
+  // the engine flags as likely struggle areas on the NEXT test move to the
+  // front, annotated so the card can say why. Render-time re-rank — the
+  // persisted plan order is untouched, and the selector returns the original
+  // array reference when there is no active prediction.
+  const weaknesses = useMemo(
+    () => applyPredictionBoost(studyPlan.weaknesses, predictionLog),
+    [studyPlan.weaknesses, predictionLog],
+  );
   const totalActivities = weeks.reduce((s, w) => s + visibleActivities(w).length, 0);
   const completedActivities = weeks.reduce((s, w) => s + visibleActivities(w).filter(a => a.completed).length, 0);
   const progressPercent = totalActivities > 0 ? Math.round((completedActivities / totalActivities) * 100) : 0;
@@ -926,6 +937,22 @@ const StudyPlanDashboard = ({
                       </button>
                     </div>
                   </div>
+                  {/* Prediction flag (audit gap 2) — the visible "your plan
+                      updated because..." moment. Renders only on weaknesses
+                      the engine flagged for the student's next test. */}
+                  {w.predictedStruggle && (
+                    <p
+                      className="sp-prediction-flag"
+                      style={{
+                        margin: '8px 4px 0',
+                        fontSize: '0.8125rem',
+                        fontWeight: 600,
+                        color: 'var(--color-brand-primary)',
+                      }}
+                    >
+                      Prioritized in your plan — flagged as a likely struggle area on your next test{w.predictedStruggle.reason ? ` (${w.predictedStruggle.reason.toLowerCase()})` : ''}.
+                    </p>
+                  )}
                   {/* Day 5 D3 — italic editorial sentence translating the
                       6-class error taxonomy into prose. Serif by design. */}
                   {diagnosticSentence && (
