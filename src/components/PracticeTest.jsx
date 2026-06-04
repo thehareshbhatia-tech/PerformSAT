@@ -8,6 +8,7 @@ import QuestionRenderer from './QuestionRenderer';
 import SATReferenceSheet from './SATReferenceSheet';
 import AnswerChoiceList from './shared/AnswerChoiceList';
 import { recordSkillAttempts } from '../services/skillService';
+import { buildTestReviewEntry } from '../services/reviewQueueResolve';
 import { pickInitialModuleIndex } from '../services/selectors/initialModule';
 import { generateDiagnosticNarrative } from '../services/diagnosticNarrativeService';
 import {
@@ -1575,6 +1576,37 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
         });
       });
 
+      // Feed this test's misses into the SM-2 review queue (2026-06 audit
+      // gap 4: full-test wrong answers — the richest evidence source — never
+      // reached spaced repetition; only drill misses did). Entries are
+      // position-addressed (test catalog + module/question index + M2
+      // variant) because raw test ids restart at 1 in every module. Attempted
+      // misses outrank blanks, and the feed is capped so one rough test can't
+      // flood the daily review queue. Review-retakes are excluded here AND
+      // re-gated by the orchestrator.
+      const MAX_REVIEW_FEED = 20;
+      const reviewFeed = [];
+      if (!reviewMode && test?.id) {
+        const missed = [];
+        effectiveModules.forEach((mod, modIdx) => {
+          mod.questions.forEach((q, qIdx) => {
+            const key = `${modIdx}-${qIdx}`;
+            if (questionDetails[key]?.isCorrect) return;
+            missed.push({
+              entry: buildTestReviewEntry(test.id, {
+                modIdx,
+                qIdx,
+                question: q,
+                servedEasyVariant: module2Variant === 'easy' && modIdx === mathM2Index,
+              }),
+              wasAttempted: answers[key] != null,
+            });
+          });
+        });
+        missed.sort((a, b) => Number(b.wasAttempted) - Number(a.wasAttempted));
+        reviewFeed.push(...missed.slice(0, MAX_REVIEW_FEED).map(m => m.entry));
+      }
+
       const resultsToSave = {
         attemptId: newAttemptId,
         rawScore: scored.rawScore,
@@ -1620,6 +1652,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
             diagnosticReport: diagnosticReportRef.current || null,
             reviewMode,
             completedAt: attemptTimestampRef.current,
+            reviewFeed,
           });
         } catch (e) {
           console.error('[PracticeTest] onSessionComplete handler error:', e);

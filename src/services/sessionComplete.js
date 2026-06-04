@@ -34,7 +34,7 @@ import {
   savePrediction,
   validateAndUpdatePredictions,
 } from './predictionEngine';
-import { updateReviewItem, persistReviewStreak } from './reviewService';
+import { updateReviewItem, persistReviewStreak, addManyToReviewQueue } from './reviewService';
 import { buildSessionSummary } from './dailyReviewEngine';
 import { getUnresolvedInterventions, resolveIntervention } from './interventionTracker';
 import { makeLogger } from '../utils/log';
@@ -58,6 +58,7 @@ const log = makeLogger('sessionComplete');
  * @param {boolean} fields.timedMode
  * @param {Object|null} fields.diagnosticReport — runDiagnostic() output (fingerprint + prediction input)
  * @param {boolean} [fields.reviewMode=false]
+ * @param {Array} [fields.reviewFeed=[]] — position-addressed review-queue entries for this test's misses
  * @returns {Object} session
  */
 export const buildFullTestSession = ({
@@ -74,6 +75,7 @@ export const buildFullTestSession = ({
   diagnosticReport = null,
   reviewMode = false,
   completedAt = null,
+  reviewFeed = [],
 }) => ({
   sessionType: 'full-test',
   sessionId: attemptId || null,
@@ -89,6 +91,7 @@ export const buildFullTestSession = ({
   timedMode: !!timedMode,
   diagnosticReport: diagnosticReport || null,
   reviewMode: !!reviewMode,
+  reviewFeed: Array.isArray(reviewFeed) ? reviewFeed : [],
 });
 
 /**
@@ -272,6 +275,22 @@ export const dispatchSessionComplete = async (session, deps = {}) => {
     outcome.interventionsResolved = await resolveInterventionsForTest(userId, session.diagnosticReport);
   } catch (err) {
     log.error('intervention resolution failed:', err);
+  }
+
+  // ── Subscriber 4: feed this test's misses into the SM-2 review queue ──
+  // Drill misses already feed the queue at answer time; full-test misses (the
+  // richest evidence source) previously never reached spaced repetition.
+  // Entries are position-addressed against the test catalog, built by
+  // PracticeTest's completion effect. Sits behind the same full-test +
+  // !reviewMode gates as the pipeline above; independent try/catch so a queue
+  // write failure never blocks anything else.
+  try {
+    if (Array.isArray(session.reviewFeed) && session.reviewFeed.length > 0) {
+      await addManyToReviewQueue(userId, session.reviewFeed);
+      outcome.reviewFeedCount = session.reviewFeed.length;
+    }
+  } catch (err) {
+    log.error('review-queue feed failed:', err);
   }
 
   return outcome;

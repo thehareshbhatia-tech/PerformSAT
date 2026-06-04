@@ -78,6 +78,52 @@ export const addToReviewQueue = async (userId, moduleId, sectionName, questionId
 };
 
 /**
+ * Batch-add a set of MISSED questions to the review queue with one read and
+ * one write (a full test can feed 20 entries at once; the per-item variant
+ * would do a read-modify-write round trip per miss). Every entry is treated
+ * as a wrong answer: streak resets, wrongCount increments, and the next
+ * review lands on the shortest interval. Best-effort: never throws.
+ *
+ * @param {string} userId - User ID
+ * @param {Array<{moduleId: string, sectionName: string, questionId: string|number}>} entries
+ */
+export const addManyToReviewQueue = async (userId, entries) => {
+  const valid = (entries || []).filter(e => e && e.moduleId && e.questionId != null);
+  if (!userId || valid.length === 0) return;
+
+  try {
+    const progressRef = doc(db, 'progress', userId);
+    const progressDoc = await getDoc(progressRef);
+    const data = progressDoc.exists() ? progressDoc.data() : {};
+
+    const reviewQueue = data.reviewQueue || {};
+    const now = new Date().toISOString();
+    valid.forEach(({ moduleId, sectionName, questionId }) => {
+      const key = `${moduleId}-${sectionName}-${questionId}`;
+      const existing = reviewQueue[key] || { correctStreak: 0, wrongCount: 0 };
+      reviewQueue[key] = {
+        moduleId,
+        sectionName,
+        questionId,
+        correctStreak: 0,
+        wrongCount: existing.wrongCount + 1,
+        lastAttempt: now,
+        nextReviewDate: calculateNextReviewDate(0, false).toISOString(),
+        lastWasCorrect: false
+      };
+    });
+
+    await setDoc(progressRef, {
+      reviewQueue,
+      lastUpdated: serverTimestamp()
+    }, { merge: true });
+
+  } catch (err) {
+    console.error('Error batch-adding to review queue:', err);
+  }
+};
+
+/**
  * Get all questions due for review
  * @param {string} userId - User ID
  * @returns {Promise<Array>} Questions due for review

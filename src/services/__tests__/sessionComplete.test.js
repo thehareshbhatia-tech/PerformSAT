@@ -30,6 +30,8 @@ jest.mock('../predictionEngine', () => ({
 
 jest.mock('../reviewService', () => ({
   updateReviewItem: jest.fn().mockResolvedValue(undefined),
+  persistReviewStreak: jest.fn().mockResolvedValue(undefined),
+  addManyToReviewQueue: jest.fn().mockResolvedValue(undefined),
 }));
 
 jest.mock('../dailyReviewEngine', () => ({
@@ -54,7 +56,7 @@ import {
 import { trackTestCompleted, trackDrillCompleted, trackReviewSessionDone, flushEvents } from '../analyticsService';
 import { updateFingerprint } from '../studentFingerprintService';
 import { generatePredictions, savePrediction, validateAndUpdatePredictions } from '../predictionEngine';
-import { updateReviewItem } from '../reviewService';
+import { updateReviewItem, persistReviewStreak, addManyToReviewQueue } from '../reviewService';
 import { buildSessionSummary } from '../dailyReviewEngine';
 import { getUnresolvedInterventions, resolveIntervention } from '../interventionTracker';
 
@@ -87,6 +89,8 @@ beforeEach(() => {
   getUnresolvedInterventions.mockResolvedValue([]);
   resolveIntervention.mockResolvedValue(undefined);
   updateReviewItem.mockResolvedValue(undefined);
+  persistReviewStreak.mockResolvedValue(undefined);
+  addManyToReviewQueue.mockResolvedValue(undefined);
   buildSessionSummary.mockReturnValue({
     correct: 2, total: 3, accuracy: 67,
     streak: { current: 4, best: 9, lastDate: '2026-05-30' },
@@ -261,6 +265,42 @@ describe('dispatchSessionComplete — full test', () => {
     getUnresolvedInterventions.mockResolvedValueOnce([{ id: 'int_a', skillIds: ['x'] }]);
     await dispatchSessionComplete(buildFullTestSession(fullTestRaw({ reviewMode: true })), {});
     expect(resolveIntervention).not.toHaveBeenCalled();
+  });
+});
+
+describe('dispatchSessionComplete — review-queue feed (subscriber 4)', () => {
+  const FEED = [
+    { moduleId: 'test::practice-test-1::std', sectionName: 'algebra', questionId: '2-5' },
+    { moduleId: 'test::practice-test-1::std', sectionName: 'geometry', questionId: '3-1' },
+  ];
+
+  test('full-test misses are batch-fed into the review queue', async () => {
+    const out = await dispatchSessionComplete(buildFullTestSession(fullTestRaw({ reviewFeed: FEED })), {});
+    expect(addManyToReviewQueue).toHaveBeenCalledTimes(1);
+    expect(addManyToReviewQueue).toHaveBeenCalledWith('u1', FEED);
+    expect(out.reviewFeedCount).toBe(2);
+  });
+
+  test('review-mode tests never feed the queue (early return upstream)', async () => {
+    await dispatchSessionComplete(buildFullTestSession(fullTestRaw({ reviewMode: true, reviewFeed: FEED })), {});
+    expect(addManyToReviewQueue).not.toHaveBeenCalled();
+  });
+
+  test('an empty feed is a no-op', async () => {
+    await dispatchSessionComplete(buildFullTestSession(fullTestRaw()), {});
+    expect(addManyToReviewQueue).not.toHaveBeenCalled();
+  });
+
+  test('drill sessions never feed the queue', async () => {
+    await dispatchSessionComplete(buildDrillSession({ drillMode: 'assigned', userId: 'u1' }), {});
+    expect(addManyToReviewQueue).not.toHaveBeenCalled();
+  });
+
+  test('a queue write failure never blocks the rest of the dispatch', async () => {
+    addManyToReviewQueue.mockRejectedValue(new Error('firestore down'));
+    const out = await dispatchSessionComplete(buildFullTestSession(fullTestRaw({ reviewFeed: FEED })), {});
+    expect(out.prediction).toBe(true);
+    expect(out.reviewFeedCount).toBeUndefined();
   });
 });
 

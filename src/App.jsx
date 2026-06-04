@@ -52,7 +52,7 @@ import {
   findErrorClassForItem,
   extractItemsFromAttempt,
 } from './services/selectors/completedTests';
-import { getAllPracticeTests } from './data/practiceTests';
+import { getAllPracticeTests, getPracticeTestById } from './data/practiceTests';
 import {
   resolveAssignedQuestions,
   resolveQuestionById,
@@ -302,7 +302,7 @@ const PerformSAT = () => {
     const questions = [];
     const reviewKeyByQuestionId = {};
     reviewItems.forEach(item => {
-      const q = resolveReviewItemToQuestion(item, { resolveQuestionById, getQuestionsForSection });
+      const q = resolveReviewItemToQuestion(item, { resolveQuestionById, getQuestionsForSection, getTestById: getPracticeTestById });
       if (q) {
         questions.push(q);
         if (item.key != null && q.id != null) {
