@@ -284,7 +284,7 @@ const PerformSAT = () => {
   }, [showCalculator]);
 
   const { user, loading, logout, updateTestDate, updateTargetScore, updateCurrentScore, updateTargetSchools } = useAuth();
-  const { completedLessons, practiceProgress, reviewQueue, reviewStreak, skillProgress, answeredQuestionIds, practiceTestResults, inProgressTests, studyPlan, studyPlanMeta, studyPlanArtifact, predictionLog, interventionLog, studentFingerprint, recordPracticeAttempt, hasPracticed, getBestScore, getDueCount, getReviewStatistics, getSkillDiagnosticSummary, getSkillBreakdown, recordPracticeTestAttempt, getTestBestScore, getTestAttempts, saveTestProgress, clearTestProgress, getTestProgress, hasTestProgress, saveStudyPlan, markStudyActivityComplete, unmarkStudyActivityComplete, markLessonComplete, isLessonCompleted, getModuleProgress } = useProgress(user?.uid);
+  const { completedLessons, practiceProgress, reviewQueue, reviewStreak, skillProgress, answeredQuestionIds, practiceTestResults, inProgressTests, studyPlan, studyPlanMeta, studyPlanArtifact, predictionLog, interventionLog, studentFingerprint, recordPracticeAttempt, recordDrillSkillAttempts, hasPracticed, getBestScore, getDueCount, getReviewStatistics, getSkillDiagnosticSummary, getSkillBreakdown, recordPracticeTestAttempt, getTestBestScore, getTestAttempts, saveTestProgress, clearTestProgress, getTestProgress, hasTestProgress, saveStudyPlan, markStudyActivityComplete, unmarkStudyActivityComplete, markLessonComplete, isLessonCompleted, getModuleProgress } = useProgress(user?.uid);
 
   // Mount the analytics session lifecycle (session_start / session_end +
   // beforeunload flush). Previously orphaned — the hook existed but was never
@@ -932,9 +932,11 @@ const PerformSAT = () => {
 
   // onSessionComplete seam for drills (Phase 2). Called from handleNextQuestion's
   // completion branches (adaptive + assigned/standard/review-retry). Fires the
-  // drill_completed analytics event; the orchestrator skips the prediction
-  // pipeline for all non-full-test sessions, so drills never pollute skill
-  // mastery or the prediction loop (review-retry is doubly gated by reviewMode).
+  // drill_completed analytics event and folds assigned/adaptive answers into
+  // skillProgress (the drill→mastery loop, 2026-06 audit gap 1). The
+  // orchestrator still skips the prediction pipeline for all non-full-test
+  // sessions, so drills never pollute the prediction loop (review-retry is
+  // doubly gated by reviewMode).
   const fireDrillSessionComplete = (questions) => {
     try {
       const answersMap = practiceState.answers || {};
@@ -964,6 +966,18 @@ const PerformSAT = () => {
           })
           .catch(err => console.error('[App] review sessionComplete dispatch error:', err));
         return;
+      }
+
+      // Close the drill→mastery loop: assigned/adaptive drill answers update
+      // skillProgress just like free practice and full tests already do, so a
+      // week of drilling moves mastery and the weakness lists between tests.
+      // Excluded: standard free practice (recordPracticeAttempt already records
+      // skills on that path), daily-review sessions (early-returned above; SM-2
+      // owns that evidence), and review-retry sessions (the "won't affect your
+      // study plan" banner is a promise we keep).
+      const isAdaptiveOrAssigned = practiceState.practiceMode === 'assigned' || practiceState.practiceMode === 'adaptive';
+      if (user?.uid && isAdaptiveOrAssigned && !practiceState.reviewMode) {
+        recordDrillSkillAttempts(answersMap);
       }
 
       const session = buildDrillSession({

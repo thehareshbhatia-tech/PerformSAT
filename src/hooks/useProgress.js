@@ -4,7 +4,7 @@ import { doc, onSnapshot, updateDoc, setDoc, getDoc, serverTimestamp, arrayUnion
 import { markLessonComplete as markComplete, markLessonIncomplete } from '../services/progressService';
 import { recordPracticeAttempt as recordAttempt } from '../services/practiceService';
 import { getDueReviewCount, getReviewStats } from '../services/reviewService';
-import { recordSkillAttempts, getSkillDiagnosticSummary as getDiagnostic, getSkillBreakdown as getBreakdown } from '../services/skillService';
+import { recordSkillAttempts, recordSkillAttemptsBatch, getSkillDiagnosticSummary as getDiagnostic, getSkillBreakdown as getBreakdown } from '../services/skillService';
 import { recordPracticeTestResult as recordTestResult, getPracticeTestBestScore, getPracticeTestAttempts, saveTestProgress as saveProgress, clearTestProgress as clearProgress, getInProgressTest } from '../services/practiceTestService';
 import { getStudyPlanArtifact, getLatestStudyPlanArtifact } from '../services/hybridStudyPlanService';
 
@@ -349,6 +349,28 @@ export const useProgress = (userId) => {
     } catch (err) {
       console.error('Failed to record practice attempt:', err);
       setError(err.message);
+    }
+  };
+
+  /**
+   * Records skill attempts for a completed assigned/adaptive drill session.
+   * Unlike recordPracticeAttempt this never touches practiceProgress (drills
+   * have no module/section best-score row) — it only folds the session's
+   * answers into skillProgress, so drilling moves mastery and the weakness
+   * lists between full tests. One batched Firestore write per session.
+   * Best-effort: errors are logged, never thrown.
+   * @param {Object} answers - { questionId: { selected, correct, skills } }
+   */
+  const recordDrillSkillAttempts = async (answers) => {
+    if (!userId || !answers) return;
+    try {
+      const attempts = Object.values(answers)
+        .filter(a => a && Array.isArray(a.skills) && a.skills.length > 0)
+        .map(a => ({ skills: a.skills, correct: !!a.correct }));
+      if (attempts.length === 0) return;
+      await recordSkillAttemptsBatch(userId, attempts);
+    } catch (err) {
+      console.error('[useProgress] Failed to record drill skill attempts:', err);
     }
   };
 
@@ -738,6 +760,7 @@ export const useProgress = (userId) => {
     getModuleProgress,
     // Practice functions (section-based)
     recordPracticeAttempt,
+    recordDrillSkillAttempts,
     hasPracticed,
     getBestScore,
     getSectionPracticeProgress,

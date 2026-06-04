@@ -2,6 +2,52 @@ import { db } from '../firebase/config';
 import { doc, updateDoc, getDoc, serverTimestamp } from 'firebase/firestore';
 import { skillTaxonomy, getSkillById, getSkillsForDomain } from '../data/skillTaxonomy';
 
+const EMPTY_SKILL = {
+  attempts: 0,
+  correct: 0,
+  mastery: 0,
+  confidenceLevel: 'low',
+  history: []
+};
+
+/**
+ * Fold one answered question into a skill's progress record. Pure — the
+ * single source of truth for the mastery/confidence/history math, shared by
+ * recordSkillAttempts (per-question) and recordSkillAttemptsBatch (per-session).
+ * @param {Object|null} existingSkill - Current skillProgress[skillId] record (or null/undefined)
+ * @param {boolean} wasCorrect - Whether the answer was correct
+ * @returns {Object} Updated record (without lastAttemptAt — callers stamp that)
+ */
+export const foldSkillAttempt = (existingSkill, wasCorrect) => {
+  const existing = existingSkill || EMPTY_SKILL;
+
+  const newAttempts = existing.attempts + 1;
+  const newCorrect = existing.correct + (wasCorrect ? 1 : 0);
+  const newMastery = Math.round((newCorrect / newAttempts) * 100);
+
+  // Determine confidence level based on attempt count
+  let confidenceLevel = 'low';
+  if (newAttempts >= 10) {
+    confidenceLevel = 'high';
+  } else if (newAttempts >= 5) {
+    confidenceLevel = 'medium';
+  }
+
+  // Update history (keep last 10 attempts for trend analysis)
+  const newHistory = [
+    ...(existing.history || []).slice(-9),
+    { correct: wasCorrect, timestamp: Date.now() }
+  ];
+
+  return {
+    attempts: newAttempts,
+    correct: newCorrect,
+    mastery: newMastery,
+    confidenceLevel,
+    history: newHistory
+  };
+};
+
 /**
  * Records skill attempts when a student answers questions
  * @param {string} userId - User ID
@@ -27,38 +73,8 @@ export const recordSkillAttempts = async (userId, skillIds, wasCorrect) => {
     // Update each skill
     const updates = {};
     for (const skillId of skillIds) {
-      const existingSkill = skillProgress[skillId] || {
-        attempts: 0,
-        correct: 0,
-        mastery: 0,
-        confidenceLevel: 'low',
-        history: []
-      };
-
-      const newAttempts = existingSkill.attempts + 1;
-      const newCorrect = existingSkill.correct + (wasCorrect ? 1 : 0);
-      const newMastery = Math.round((newCorrect / newAttempts) * 100);
-
-      // Determine confidence level based on attempt count
-      let confidenceLevel = 'low';
-      if (newAttempts >= 10) {
-        confidenceLevel = 'high';
-      } else if (newAttempts >= 5) {
-        confidenceLevel = 'medium';
-      }
-
-      // Update history (keep last 10 attempts for trend analysis)
-      const newHistory = [
-        ...existingSkill.history.slice(-9),
-        { correct: wasCorrect, timestamp: Date.now() }
-      ];
-
       updates[`skillProgress.${skillId}`] = {
-        attempts: newAttempts,
-        correct: newCorrect,
-        mastery: newMastery,
-        confidenceLevel,
-        history: newHistory,
+        ...foldSkillAttempt(skillProgress[skillId], wasCorrect),
         lastAttemptAt: serverTimestamp()
       };
     }
@@ -69,6 +85,60 @@ export const recordSkillAttempts = async (userId, skillIds, wasCorrect) => {
     });
   } catch (error) {
     console.error('Error recording skill attempts:', error);
+    throw error;
+  }
+};
+
+/**
+ * Batched variant of recordSkillAttempts: folds a whole session's answers
+ * into skillProgress with ONE read and ONE write. The per-question variant
+ * does a read-modify-write round trip per call, which costs N round trips
+ * for a 24-question drill and races against itself. Use this from session
+ * completion paths.
+ * @param {string} userId - User ID
+ * @param {Array<{skills: string[], correct: boolean}>} attempts - One entry per answered question
+ * @returns {Promise<void>}
+ */
+export const recordSkillAttemptsBatch = async (userId, attempts) => {
+  const valid = (attempts || []).filter(a => a && Array.isArray(a.skills) && a.skills.length > 0);
+  if (!userId || valid.length === 0) return;
+
+  try {
+    const progressRef = doc(db, 'progress', userId);
+    const progressSnap = await getDoc(progressRef);
+
+    if (!progressSnap.exists()) {
+      console.error('User progress document not found');
+      return;
+    }
+
+    const skillProgress = progressSnap.data().skillProgress || {};
+
+    // Fold every answer in session order; later answers see earlier folds.
+    const working = {};
+    for (const attempt of valid) {
+      for (const skillId of attempt.skills) {
+        working[skillId] = foldSkillAttempt(
+          working[skillId] || skillProgress[skillId],
+          !!attempt.correct
+        );
+      }
+    }
+
+    const updates = {};
+    Object.entries(working).forEach(([skillId, record]) => {
+      updates[`skillProgress.${skillId}`] = {
+        ...record,
+        lastAttemptAt: serverTimestamp()
+      };
+    });
+
+    await updateDoc(progressRef, {
+      ...updates,
+      lastUpdated: serverTimestamp()
+    });
+  } catch (error) {
+    console.error('Error recording batched skill attempts:', error);
     throw error;
   }
 };
