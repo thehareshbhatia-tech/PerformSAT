@@ -50,16 +50,22 @@ export const buildLongitudinalEvidence = (practiceTestResults = {}) => {
   allAttempts.forEach(attempt => {
     const questions = normalizeQuestionDetails(attempt.diagnosticData?.questionDetails);
     questions.forEach(q => {
+      // The producer (PracticeTest's questionDetails) writes `isCorrect`.
+      // `correct` is a legacy fallback for any old persisted attempts. Reading
+      // the wrong field here silently zeroed every skill's accuracy, flagging
+      // ALL repeated skills as persistent weaknesses — keep the field name in
+      // sync with PracticeTest.jsx's questionDetails builder.
+      const wasCorrect = q.isCorrect ?? q.correct ?? false;
       (q.skills || []).forEach(skillId => {
         if (!skillHistory[skillId]) {
           skillHistory[skillId] = { attempts: 0, correct: 0, appearances: [] };
         }
         skillHistory[skillId].attempts++;
-        if (q.correct) skillHistory[skillId].correct++;
+        if (wasCorrect) skillHistory[skillId].correct++;
         skillHistory[skillId].appearances.push({
           testId: attempt.testId,
           date: attempt.completedAt,
-          correct: q.correct,
+          correct: wasCorrect,
         });
       });
     });

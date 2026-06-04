@@ -69,9 +69,9 @@ describe('buildLongitudinalEvidence', () => {
           scaledScore: 600,
           diagnosticData: {
             questionDetails: [
-              { skills: ['slope-intercept-form'], correct: false },
-              { skills: ['slope-intercept-form'], correct: false },
-              { skills: ['quadratic-formula'], correct: true },
+              { skills: ['slope-intercept-form'], isCorrect: false },
+              { skills: ['slope-intercept-form'], isCorrect: false },
+              { skills: ['quadratic-formula'], isCorrect: true },
             ],
           },
         }],
@@ -84,9 +84,9 @@ describe('buildLongitudinalEvidence', () => {
           scaledScore: 620,
           diagnosticData: {
             questionDetails: [
-              { skills: ['slope-intercept-form'], correct: false },
-              { skills: ['slope-intercept-form'], correct: true },
-              { skills: ['quadratic-formula'], correct: true },
+              { skills: ['slope-intercept-form'], isCorrect: false },
+              { skills: ['slope-intercept-form'], isCorrect: true },
+              { skills: ['quadratic-formula'], isCorrect: true },
             ],
           },
         }],
@@ -111,9 +111,9 @@ describe('buildLongitudinalEvidence', () => {
           scaledScore: 580,
           diagnosticData: {
             questionDetails: {
-              '0-0': { skills: ['factoring'], correct: false },
-              '0-1': { skills: ['factoring'], correct: false },
-              '0-2': { skills: ['slope-intercept-form'], correct: true },
+              '0-0': { skills: ['factoring'], isCorrect: false },
+              '0-1': { skills: ['factoring'], isCorrect: false },
+              '0-2': { skills: ['slope-intercept-form'], isCorrect: true },
             },
           },
         }],
@@ -126,8 +126,8 @@ describe('buildLongitudinalEvidence', () => {
           scaledScore: 600,
           diagnosticData: {
             questionDetails: {
-              '0-0': { skills: ['factoring'], correct: false },
-              '0-1': { skills: ['factoring'], correct: true },
+              '0-0': { skills: ['factoring'], isCorrect: false },
+              '0-1': { skills: ['factoring'], isCorrect: true },
             },
           },
         }],
@@ -139,6 +139,65 @@ describe('buildLongitudinalEvidence', () => {
     expect(factoringWeak).toBeTruthy();
     expect(factoringWeak.accuracy).toBe(25);
     expect(factoringWeak.testCount).toBe(2);
+  });
+
+  test('correct answers are counted (a mastered skill is NOT flagged persistent)', () => {
+    // Regression: buildLongitudinalEvidence used to read q.correct while the
+    // producer writes q.isCorrect, so every answer counted as wrong and every
+    // repeated skill was flagged a persistent weakness.
+    const results = {
+      'test-1': {
+        testId: 'test-1',
+        attempts: [{
+          completedAt: '2026-01-01T00:00:00Z',
+          scaledScore: 600,
+          diagnosticData: {
+            questionDetails: [
+              { skills: ['circle-equations'], isCorrect: true },
+              { skills: ['circle-equations'], isCorrect: true },
+            ],
+          },
+        }],
+      },
+      'test-2': {
+        testId: 'test-2',
+        attempts: [{
+          completedAt: '2026-02-01T00:00:00Z',
+          scaledScore: 620,
+          diagnosticData: {
+            questionDetails: [
+              { skills: ['circle-equations'], isCorrect: true },
+            ],
+          },
+        }],
+      },
+    };
+
+    const evidence = buildLongitudinalEvidence(results);
+    expect(evidence.skillHistory['circle-equations'].correct).toBe(3);
+    expect(evidence.persistentWeaknesses.find(w => w.skillId === 'circle-equations')).toBeUndefined();
+  });
+
+  test('falls back to legacy `correct` field on old persisted attempts', () => {
+    const results = {
+      'test-1': {
+        testId: 'test-1',
+        attempts: [{
+          completedAt: '2026-01-01T00:00:00Z',
+          scaledScore: 600,
+          diagnosticData: {
+            questionDetails: [
+              { skills: ['exponent-rules'], correct: true },   // legacy shape
+              { skills: ['exponent-rules'], isCorrect: false }, // current shape
+            ],
+          },
+        }],
+      },
+    };
+
+    const evidence = buildLongitudinalEvidence(results);
+    expect(evidence.skillHistory['exponent-rules'].attempts).toBe(2);
+    expect(evidence.skillHistory['exponent-rules'].correct).toBe(1);
   });
 });
 
