@@ -42,6 +42,80 @@
   .sp-rail { position: static; }
 }
 
+/* ── Personal hero — the plan is addressed to someone ─────────────── */
+.sp-hero {
+  padding: 4px 2px 0;
+}
+
+.sp-hero-title {
+  margin: 0;
+  font-family: var(--font-reading);
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  color: var(--color-brand-navy);
+}
+
+.sp-hero-meta {
+  margin: 6px 0 0;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--color-slate-600);
+}
+
+.sp-hero-meta strong {
+  color: var(--color-slate-900);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Interpunct separators between meta spans, skipping the first. */
+.sp-hero-meta span + span::before {
+  content: '·';
+  margin: 0 8px;
+  color: var(--color-slate-400);
+}
+
+/* ── "How you test" identity insights ─────────────────────────────── */
+.sp-identity-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+}
+
+.sp-identity-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-slate-200);
+  border-radius: 12px;
+  padding: 14px 16px;
+}
+
+.sp-identity-stat {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--color-brand-primary);
+  letter-spacing: -0.01em;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+}
+
+.sp-identity-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-slate-600);
+  margin-top: 2px;
+}
+
+.sp-identity-text {
+  margin: 8px 0 0;
+  font-family: var(--font-reading);
+  font-style: italic;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--color-slate-600);
+}
+
 /* ── Compact progress strip (replaces the heavy 3-card hero) ──────── */
 .sp-strip {
   display: flex;

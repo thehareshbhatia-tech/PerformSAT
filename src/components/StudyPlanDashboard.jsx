@@ -14,6 +14,8 @@ import { getDrillChipForWeakness } from '../services/selectors/drillChip';
 import { formatDiagnosticSentence } from '../services/diagnosticEngine';
 import { getTodaySlice } from '../services/studyPlanGenerator';
 import { getSessionAdherence } from '../services/selectors/sessionAdherence';
+import { getIdentityInsights, getPredictionTrust } from '../services/selectors/identityInsights';
+import { getReviewStreak } from '../services/dailyReviewEngine';
 import { formatDailyIntro } from '../services/selectors/dailyIntro';
 import { getPracticedDayKeys } from '../services/selectors/practicedDays';
 import { getCompletedTests } from '../services/selectors/completedTests';
@@ -227,6 +229,32 @@ const StudyPlanDashboard = ({
   const goalArgs = { latestScore, targetScore: user?.targetScore, isMultiSection: latestTest?.isMultiSection };
   const goalAchieved = isGoalAchieved(goalArgs);
   const goalAboveDelta = goalDelta(goalArgs);
+
+  // ── Personalization overhaul (2026-06): the dark signals ────────────
+  // The plan artifact has carried eliminationEffectiveness, staminaInsight,
+  // and calculatorDependency since the groundTruth graft — rendered nowhere.
+  // These three memos surface them: identity insights ("How you test"),
+  // the prediction-trust record, and the target-school anchor.
+  const identityInsights = useMemo(() => getIdentityInsights(studyPlan), [studyPlan]);
+  const predictionTrust = useMemo(() => getPredictionTrust(predictionLog), [predictionLog]);
+  const targetSchool = useMemo(() => {
+    const schools = Array.isArray(user?.targetSchools)
+      ? user.targetSchools.filter(s => s && typeof s.satMath === 'number')
+      : [];
+    if (schools.length === 0) return null;
+    // Anchor to the stretch school — the highest mid-50% Math among picks.
+    return schools.reduce((a, b) => (b.satMath > a.satMath ? b : a));
+  }, [user?.targetSchools]);
+  // Review streak — localStorage-backed; only show a LIVE streak (touched
+  // today or yesterday, at least 2 days). A stale or 1-day "streak" is noise.
+  const reviewStreak = useMemo(() => {
+    const streak = getReviewStreak();
+    if (!streak || streak.current < 2 || !streak.lastDate) return null;
+    const today = new Date().toISOString().slice(0, 10);
+    const y = new Date(); y.setDate(y.getDate() - 1);
+    const yesterday = y.toISOString().slice(0, 10);
+    return (streak.lastDate === today || streak.lastDate === yesterday) ? streak : null;
+  }, []);
 
   // Day-1 of Acely-polish v2: extract just the FIRST sentence of the
   // adaptive-plan delta paragraph so the banner reads like a tight summary
@@ -529,6 +557,40 @@ const StudyPlanDashboard = ({
   return (
     <div className="study-plan-dashboard sp-with-rail">
       <div className="sp-main">
+
+      {/* ────────────────────────────────────────────────────────────────
+          PERSONAL HERO — the plan is addressed to someone, anchored to
+          their target, their test date, and their stretch school. Falls
+          back gracefully field-by-field; hidden only when we know nothing.
+      ──────────────────────────────────────────────────────────────── */}
+      {(user?.firstName || user?.targetScore || latestScore !== null) && (
+        <header className="sp-hero">
+          <h2 className="sp-hero-title">
+            {(() => {
+              const name = user?.firstName;
+              const body = goalAchieved && user?.targetScore
+                ? `you're past ${user.targetScore} — the job now is holding it`
+                : user?.targetScore
+                  ? `here's your path to ${user.targetScore}`
+                  : 'here\'s your plan';
+              return name
+                ? `${name}, ${body}`
+                : body.charAt(0).toUpperCase() + body.slice(1);
+            })()}
+          </h2>
+          <p className="sp-hero-meta">
+            {latestScore !== null && (
+              <span><strong>{latestScore}</strong> now</span>
+            )}
+            {user?.testDate && !testDateIsPast && daysUntilTest !== null && (
+              <span>test in <strong>{daysUntilTest} day{daysUntilTest === 1 ? '' : 's'}</strong></span>
+            )}
+            {targetSchool && (
+              <span>{targetSchool.name} mid-50% Math: <strong>{targetSchool.satMath}</strong></span>
+            )}
+          </p>
+        </header>
+      )}
 
       {/* ────────────────────────────────────────────────────────────────
           PROGRESS STRIP (Weekly View only — Today's Tasks gets its own
@@ -891,6 +953,27 @@ const StudyPlanDashboard = ({
       )}
 
       {/* ────────────────────────────────────────────────────────────────
+          1b. HOW YOU TEST — identity insights mined from signals the plan
+          already persisted but never rendered (answer-change behavior,
+          stamina fade, calculator dependency). Significance-gated: the
+          whole section hides rather than render filler.
+      ──────────────────────────────────────────────────────────────── */}
+      {identityInsights.length > 0 && (
+        <div className="sp-section sp-identity">
+          <h3 className="sp-section-header">How you test</h3>
+          <div className="sp-identity-grid">
+            {identityInsights.map((insight) => (
+              <div key={insight.key} className="sp-identity-card">
+                <div className="sp-identity-stat">{insight.stat}</div>
+                <div className="sp-identity-label">{insight.label}</div>
+                <p className="sp-identity-text">{insight.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* ────────────────────────────────────────────────────────────────
           2. SKILLS TO IMPROVE — weakness list with Practice buttons
       ──────────────────────────────────────────────────────────────── */}
       {skillPracticeRows.length > 0 && (
@@ -1095,6 +1178,31 @@ const StudyPlanDashboard = ({
                 Across {sortedTests.length} test{sortedTests.length !== 1 ? 's' : ''}
               </div>
             )}
+          </div>
+        )}
+
+        {/* Prediction record — "trust this plan" evidence. Only renders
+            when the engine has called at least one struggle area right. */}
+        {predictionTrust && (
+          <div className="dashboard-tile">
+            <div className="dashboard-tile-eyebrow">Prediction Record</div>
+            <div className="dashboard-tile-num">{predictionTrust.hits}/{predictionTrust.total}</div>
+            <div className="dashboard-tile-sub">
+              {predictionTrust.total === 1
+                ? 'We called your struggle area before your last test'
+                : 'tests where we called your struggle areas early'}
+            </div>
+          </div>
+        )}
+
+        {/* Live review streak — hidden unless touched today/yesterday. */}
+        {reviewStreak && (
+          <div className="dashboard-tile">
+            <div className="dashboard-tile-eyebrow">Review Streak</div>
+            <div className="dashboard-tile-num">{reviewStreak.current}</div>
+            <div className="dashboard-tile-sub">
+              days in a row{reviewStreak.best > reviewStreak.current ? ` · best ${reviewStreak.best}` : ' · personal best'}
+            </div>
           </div>
         )}
 
