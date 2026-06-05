@@ -1,9 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { colors, typography, spacing, radius, transitions, breakpoints, shadows } from '../design/tokens';
 import { MathText } from './MathText';
-import { DataCard } from './ui/DataCard';
-import { PrimaryButton } from './ui/Button';
-import { getQuestionById, getQuestionsBySkillIds, getTargetedWeaknessSet } from '../data/questions/bank';
+import { getQuestionsBySkillIds, getTargetedWeaknessSet } from '../data/questions/bank';
 import {
   getQuestionsBySkillIds as getRWQuestionsBySkillIds,
   getTargetedWeaknessSet as getRWTargetedWeaknessSet,
