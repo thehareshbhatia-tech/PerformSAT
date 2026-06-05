@@ -989,28 +989,86 @@ const StudyPlanDashboard = ({
       )}
 
       {/* ────────────────────────────────────────────────────────────────
-          1b. HOW YOU TEST — identity insights mined from signals the plan
-          already persisted but never rendered (answer-change behavior,
-          stamina fade, calculator dependency). Significance-gated: the
-          whole section hides rather than render filler.
+          2. WEEKLY PLAN — the protagonist. Design-review FINDING-003: the
+          actual task list was the LAST section, below ~1800px of
+          diagnostics. Acely leads with tasks; so do we now.
       ──────────────────────────────────────────────────────────────── */}
-      {identityInsights.length > 0 && (
-        <div className="sp-section sp-identity">
-          <h3 className="sp-section-header">How you test</h3>
-          <div className="sp-identity-grid">
-            {identityInsights.map((insight) => (
-              <div key={insight.key} className="sp-identity-card">
-                <div className="sp-identity-stat">{insight.stat}</div>
-                <div className="sp-identity-label">{insight.label}</div>
-                <p className="sp-identity-text">{insight.text}</p>
+      <div className="sp-section">
+        <h3 className="sp-section-header">Weekly Schedule</h3>
+
+        <div className="sp-timeline">
+          {/* Current week */}
+          <div className="sp-week-card is-current">
+            <div className="sp-week-indicator" />
+            <div className="sp-week-header" style={{ cursor: 'default' }}>
+              <div className="sp-week-title-area">
+                <div>
+                  <div className="sp-week-label">This Week</div>
+                  <div className="sp-week-title">
+                    Week {displayCurrentWeek + 1}{currentWeek?.title ? ` — ${currentWeek.title}` : ''}
+                  </div>
+                </div>
               </div>
-            ))}
+              <div className="sp-week-meta">
+                <div className="sp-week-progress">
+                  {currentDone} / {currentTotal}
+                </div>
+              </div>
+            </div>
+            <div className="sp-week-body">
+              {renderWeekActivities(currentWeek, displayCurrentWeek)}
+            </div>
           </div>
+
+          {/* Other weeks — collapsed sleek cards */}
+          {otherWeeks.length > 0 && (
+            <div className="sp-timeline" style={{ gap: '0.75rem' }}>
+              {otherWeeks.map(week => {
+                const realIdx = weeks.indexOf(week);
+                const isOpen = expandedWeek === realIdx;
+                const done = (week.activities || []).filter(a => a.completed).length;
+                const total = (week.activities || []).length;
+                const pct = total > 0 ? Math.round((done / total) * 100) : 0;
+                const isComplete = pct === 100;
+
+                return (
+                  <div key={realIdx} className={`sp-week-card ${isComplete ? 'is-complete' : ''}`}>
+                    <div
+                      className="sp-week-header"
+                      onClick={() => setExpandedWeek(isOpen ? null : realIdx)}
+                    >
+                      <div className="sp-week-title-area">
+                        <div className="sp-week-icon">
+                          {isComplete ? <CheckIcon size={16} color="currentColor" /> : realIdx + 1}
+                        </div>
+                        <div className="sp-week-title" style={{ fontSize: '1rem' }}>
+                          Week {week.weekNumber}{week.title ? ` — ${week.title}` : ''}
+                        </div>
+                      </div>
+                      <div className="sp-week-meta">
+                        <span style={{ fontSize: '0.875rem', fontWeight: 600, color: 'var(--color-slate-500)' }}>
+                          {done} / {total}
+                        </span>
+                        <div className={`sp-week-toggle ${isOpen ? 'is-open' : ''}`}>
+                          <ChevronDownIcon size={16} color="currentColor" />
+                        </div>
+                      </div>
+                    </div>
+                    {isOpen && (
+                      <div className="sp-week-body" style={{ borderTop: '1px solid var(--color-slate-100)' }}>
+                        {renderWeekActivities(week, realIdx)}
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          )}
         </div>
-      )}
+      </div>
 
       {/* ────────────────────────────────────────────────────────────────
-          2. SKILLS TO IMPROVE — weakness list with Practice buttons
+          3. SKILLS TO IMPROVE — weakness list with Practice buttons
       ──────────────────────────────────────────────────────────────── */}
       {skillPracticeRows.length > 0 && (
         <div className="sp-section">
@@ -1106,81 +1164,25 @@ const StudyPlanDashboard = ({
       )}
 
       {/* ────────────────────────────────────────────────────────────────
-          3. WEEKLY PLAN — visually distinct cards
+          4. HOW YOU TEST — identity insights mined from signals the plan
+          already persisted but never rendered (answer-change behavior,
+          stamina fade, calculator dependency). Significance-gated: the
+          whole section hides rather than render filler.
       ──────────────────────────────────────────────────────────────── */}
-      <div className="sp-section">
-        <h3 className="sp-section-header">Weekly Schedule</h3>
-
-        <div className="sp-timeline">
-          {/* Current week */}
-          <div className="sp-week-card is-current">
-            <div className="sp-week-indicator" />
-            <div className="sp-week-header" style={{ cursor: 'default' }}>
-              <div className="sp-week-title-area">
-                <div>
-                  <div className="sp-week-label">This Week</div>
-                  <div className="sp-week-title">
-                    Week {displayCurrentWeek + 1}{currentWeek?.title ? ` — ${currentWeek.title}` : ''}
-                  </div>
-                </div>
+      {identityInsights.length > 0 && (
+        <div className="sp-section sp-identity">
+          <h3 className="sp-section-header">How you test</h3>
+          <div className="sp-identity-grid">
+            {identityInsights.map((insight) => (
+              <div key={insight.key} className="sp-identity-card">
+                <div className="sp-identity-stat">{insight.stat}</div>
+                <div className="sp-identity-label">{insight.label}</div>
+                <p className="sp-identity-text">{insight.text}</p>
               </div>
-              <div className="sp-week-meta">
-                <div className="sp-week-progress">
-                  {currentDone} / {currentTotal}
-                </div>
-              </div>
-            </div>
-            <div className="sp-week-body">
-              {renderWeekActivities(currentWeek, displayCurrentWeek)}
-            </div>
+            ))}
           </div>
-
-          {/* Other weeks — collapsed sleek cards */}
-          {otherWeeks.length > 0 && (
-            <div className="sp-timeline" style={{ gap: '0.75rem' }}>
-              {otherWeeks.map(week => {
-                const realIdx = weeks.indexOf(week);
-                const isOpen = expandedWeek === realIdx;
-                const done = (week.activities || []).filter(a => a.completed).length;
-                const total = (week.activities || []).length;
-                const pct = total > 0 ? Math.round((done / total) * 100) : 0;
-                const isComplete = pct === 100;
-
-                return (
-                  <div key={realIdx} className={`sp-week-card ${isComplete ? 'is-complete' : ''}`}>
-                    <div
-                      className="sp-week-header"
-                      onClick={() => setExpandedWeek(isOpen ? null : realIdx)}
-                    >
-                      <div className="sp-week-title-area">
-                        <div className="sp-week-icon">
-                          {isComplete ? <CheckIcon size={16} color="currentColor" /> : realIdx + 1}
-                        </div>
-                        <div className="sp-week-title" style={{ fontSize: '1rem' }}>
-                          Week {week.weekNumber}{week.title ? ` — ${week.title}` : ''}
-                        </div>
-                      </div>
-                      <div className="sp-week-meta">
-                        <span style={{ fontSize: '0.875rem', fontWeight: 600, color: 'var(--color-slate-500)' }}>
-                          {done} / {total}
-                        </span>
-                        <div className={`sp-week-toggle ${isOpen ? 'is-open' : ''}`}>
-                          <ChevronDownIcon size={16} color="currentColor" />
-                        </div>
-                      </div>
-                    </div>
-                    {isOpen && (
-                      <div className="sp-week-body" style={{ borderTop: '1px solid var(--color-slate-100)' }}>
-                        {renderWeekActivities(week, realIdx)}
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-          )}
         </div>
-      </div>
+      )}
 
       {/* Score Trajectory */}
       <ScoreTrajectory artifact={studyPlanArtifact} />
