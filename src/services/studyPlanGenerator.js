@@ -527,13 +527,20 @@ const generateStrategyActivities = (diagnostic) => {
     });
   }
 
-  // Time management drills
-  if ((errorCounts[ERROR_TYPES.TIME_PRESSURE] || 0) >= 3 || diagnostic.timeAnalysis.fadeEffect > 15) {
+  // Time management drills. The gate is an OR: the fade branch can fire
+  // with timeRelatedErrors at 0-2, so the subtitle must cite whichever
+  // evidence actually triggered it ("clock cost you 0 questions" was a
+  // live contradiction caught in review).
+  const timePressureCount = errorCounts[ERROR_TYPES.TIME_PRESSURE] || 0;
+  const fadeEffect = diagnostic.timeAnalysis.fadeEffect || 0;
+  if (timePressureCount >= 3 || fadeEffect > 15) {
     activities.push({
       type: 'strategy',
       activityType: 'strategyDrill',
       title: 'Pacing Reset',
-      subtitle: `The clock cost you ${diagnostic.timeAnalysis.timeRelatedErrors} questions last test`,
+      subtitle: timePressureCount >= 3
+        ? `The clock cost you ${timePressureCount} question${timePressureCount === 1 ? '' : 's'} last test`
+        : `Your accuracy dropped ${fadeEffect}% in the second half — pacing faded`,
       duration: ACTIVITY_DURATIONS.strategyDrill,
       priority: 85,
       icon: null,
@@ -895,9 +902,11 @@ const generatePlanSummary = (diagnostic, weeklyPlan, intensity, totalWeeks, days
     const topGap = skillGaps[0];
     keyInsight = {
       title: `Critical gap: ${topGap?.skillName || 'foundational concepts'}`,
-      message: topGap
-        ? `Most of your misses trace to concepts that never landed — ${topGap.skillName} is at ${topGap.testAccuracy ?? 0}%. The plan rebuilds it from the definition before any timed work.`
-        : `Most of your misses trace to concepts that never landed. The plan rebuilds them from the definition before any timed work.`,
+      message: topGap && typeof topGap.testAccuracy === 'number'
+        ? `Most of your misses trace to concepts that never landed — ${topGap.skillName} is at ${topGap.testAccuracy}%. The plan rebuilds it from the definition before any timed work.`
+        : topGap
+          ? `Most of your misses trace to concepts that never landed — starting with ${topGap.skillName}. The plan rebuilds it from the definition before any timed work.`
+          : `Most of your misses trace to concepts that never landed. The plan rebuilds them from the definition before any timed work.`,
       type: 'conceptual',
     };
   } else if (dominantError && dominantError.type === ERROR_TYPES.TIME_PRESSURE) {

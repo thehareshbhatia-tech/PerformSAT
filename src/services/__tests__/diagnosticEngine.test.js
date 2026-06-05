@@ -295,6 +295,42 @@ describe('formatDiagnosticSentence', () => {
   });
 
   describe('voice rules', () => {
+    it('never chains two em-dashes in one sentence (any error type × any history)', () => {
+      const ERROR_TYPES_ALL = ['conceptual_gap', 'procedural_error', 'trap_susceptibility', 'time_pressure', 'careless_error', 'unanswered'];
+      const HISTORIES = [
+        '', // no history facts
+        ', first time tested',
+        ', historical mastery 38%',
+        ', historical mastery 38% (declining)',
+        ', historical mastery 38% (improving)',
+        ' (declining)',
+      ];
+      // Several skillIds so every rotating frame is exercised.
+      const SKILLS = [['Algebra', 'algebra'], ['Ratios', 'ratios'], ['Percents', 'percents'], ['Geometry', 'geometry'], ['Word Problems', 'word-problems']];
+      ERROR_TYPES_ALL.forEach(t => HISTORIES.forEach(h => SKILLS.forEach(([skill, skillId]) => {
+        const out = formatDiagnosticSentence({
+          skill, skillId, errorType: t,
+          evidence: `1/6 correct, primary error: X${h}`,
+        });
+        const dashes = (out.match(/—/g) || []).length;
+        expect({ t, h, skillId, out, dashes }.dashes).toBeLessThanOrEqual(1);
+      })));
+    });
+
+    it('never says "keeps/leaks" alongside "first time we\'ve tested it"', () => {
+      ['procedural_error', 'trap_susceptibility'].forEach(t => {
+        ['algebra', 'ratios', 'percents', 'geometry'].forEach(skillId => {
+          const out = formatDiagnosticSentence({
+            skill: skillId, skillId, errorType: t,
+            evidence: '1/6 correct, primary error: X, first time tested',
+          });
+          if (/first time/.test(out)) {
+            expect(out).not.toMatch(/keeps|leaks/);
+          }
+        });
+      });
+    });
+
     it('never emits emojis', () => {
       const out = formatDiagnosticSentence({
         skill: 'Geometry',

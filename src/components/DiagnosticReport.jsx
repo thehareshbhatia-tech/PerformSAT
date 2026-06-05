@@ -286,7 +286,7 @@ const QuestionBreakdown = ({ questionAnalysis }) => {
                     background: (ERROR_TYPE_COLORS[q.errorType] || colors.text.tertiary) + '18',
                     color: ERROR_TYPE_COLORS[q.errorType] || colors.text.tertiary,
                   }}>
-                    {ERROR_TYPE_ICONS[q.errorType]} {ERROR_TYPE_LABELS[q.errorType]}
+                    {`${ERROR_TYPE_ICONS[q.errorType] || ''} ${ERROR_TYPE_LABELS[q.errorType] || ''}`.trim()}
                   </span>
                   {q.confidence && (
                     <span style={{

@@ -2201,14 +2201,16 @@ function missPhrase(facts, accuracy) {
   return null;
 }
 
-/** History clause — only when the data earns it. */
+/** History clause — only when the data earns it. Always comma-led: most
+ *  frames already carry one internal em-dash, and a dash-led clause chained
+ *  a second one into routine two-dash run-ons (caught in review). */
 function historyClause(facts) {
   if (facts.trend === 'declining' && facts.historicalMastery !== null) {
-    return ` — and it's been sliding, down from ${facts.historicalMastery}% across your earlier tests`;
+    return `, and it's been sliding, down from ${facts.historicalMastery}% across your earlier tests`;
   }
-  if (facts.trend === 'declining') return ` — and it's been sliding across your last tests`;
-  if (facts.trend === 'improving') return ` — though it's already trending back up`;
-  if (facts.firstTime) return ` — first time we've tested it`;
+  if (facts.trend === 'declining') return `, and it's been sliding across your last tests`;
+  if (facts.trend === 'improving') return `, though it's already trending back up`;
+  if (facts.firstTime) return `, first time we've tested it`;
   if (facts.historicalMastery !== null) {
     return `, in line with your ${facts.historicalMastery}% across earlier tests`;
   }
@@ -2226,8 +2228,11 @@ const FRAMES_BY_ERROR_TYPE = {
       `You're not slipping on ${skill} — the concept never landed (${miss}${hist}). Start from the definition, then drill.`,
   ],
   [ERROR_TYPES.PROCEDURAL_ERROR]: [
+    // Verbs stay occasion-neutral ("slipped", "baited") — a repetition-
+    // implying opener ("keeps", "leaks") contradicts the first-time-tested
+    // history clause in the same sentence (caught in review).
     ({ skill, miss, hist }) =>
-      `You know what ${skill} is asking — the execution leaks mid-solve (${miss}${hist}). Write every step this week; speed comes back on its own.`,
+      `You know what ${skill} is asking — the execution slipped mid-solve (${miss}${hist}). Write every step this week; speed comes back on its own.`,
     ({ skill, miss, hist }) =>
       `${skill}: right idea, wrong arithmetic — ${miss}${hist}. Slow the algebra until it stops costing points.`,
   ],
@@ -2235,7 +2240,7 @@ const FRAMES_BY_ERROR_TYPE = {
     ({ skill, miss, hist }) =>
       `Your ${skill} misses were the designed-to-tempt answers (${miss}${hist}). Predict the trap before you look at the choices.`,
     ({ skill, miss, hist }) =>
-      `${skill} keeps baiting you into the first-glance answer — ${miss}${hist}. Eliminate before you choose.`,
+      `${skill} baited you into the first-glance answer — ${miss}${hist}. Eliminate before you choose.`,
   ],
   [ERROR_TYPES.TIME_PRESSURE]: [
     ({ skill, miss, hist }) =>
@@ -2247,7 +2252,7 @@ const FRAMES_BY_ERROR_TYPE = {
     ({ skill, miss, hist }) =>
       `${skill} is yours on a careful day — these were slips, not gaps (${miss}${hist}). Re-read the question before you commit.`,
     ({ skill, miss, hist }) =>
-      `Nothing about ${skill} is beyond you — ${miss} were avoidable${hist}. Check what the question actually asks before answering.`,
+      `Nothing about ${skill} is beyond you (${miss}${hist}) — these were avoidable. Check what the question actually asks before answering.`,
   ],
   [ERROR_TYPES.UNANSWERED]: [
     ({ skill, miss, hist }) =>

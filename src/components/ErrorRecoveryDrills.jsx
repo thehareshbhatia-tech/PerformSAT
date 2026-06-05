@@ -30,7 +30,7 @@ const ErrorRecoveryDrills = ({ diagnostic, onStartDrill }) => {
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '1rem' }}>
             <div style={{ flex: 1 }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.375rem' }}>
-                <span style={{ fontSize: '1.125rem' }}>{drill.icon}</span>
+                {drill.icon ? <span style={{ fontSize: '1.125rem' }}>{drill.icon}</span> : null}
                 <span style={{ fontWeight: '700', fontSize: '1rem', color: 'var(--color-slate-900)' }}>
                   {drill.label}
                 </span>

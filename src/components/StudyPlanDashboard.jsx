@@ -1196,7 +1196,7 @@ const StudyPlanDashboard = ({
             <div className="dashboard-tile-num">{predictionTrust.hits}/{predictionTrust.total}</div>
             <div className="dashboard-tile-sub">
               {predictionTrust.total === 1
-                ? 'We called your struggle area before your last test'
+                ? 'test where we called your struggle areas early'
                 : 'tests where we called your struggle areas early'}
             </div>
           </div>

@@ -1177,7 +1177,7 @@ Output MUST be valid JSON (no markdown fences) matching this schema:
   },
   "nextAction": {
     "title": "string — max 10 words. The single most important thing to do first.",
-    "reason": "string — max 25 words. Why this is the highest-leverage action, citing the specific evidence (e.g. '3/4 wrong in linear equations — conceptual gap needs reteaching before practice').",
+    "reason": "string — max 25 words. Why this action pays the most points, citing the specific evidence (e.g. '3/4 wrong in linear equations — the concept needs rebuilding before practice').",
     "type": "lesson|practice|strategy|review|test",
     "duration": number,
     "moduleId": "string|null",
@@ -1212,7 +1212,7 @@ PERSONALIZATION RULES (these differentiate plans between students):
 P1. summary.diagnosis MUST cite this student's actual data: dominant error type + count, weakest skill + accuracy %, and if available, stamina/timing evidence.
 P2. Each week's rationale MUST explain why that week targets what it does, referencing the student's specific gap data.
 P3. nextAction.reason MUST cite the specific evidence that makes this the highest-ROI activity for THIS student.
-P4. When persistent weaknesses exist (weak across multiple tests), the plan must escalate: reteach from scratch rather than just more practice. Name the specific skills.
+P4. When persistent weaknesses exist (weak across multiple tests), the plan must change approach: reteach from scratch rather than just more practice. Name the specific skills.
 P5. When stamina/timing data shows accuracy drop-off, week 1 must include a pacing strategy activity.
 
 GENERAL RULES:
@@ -1371,7 +1371,7 @@ Note what changed and why in your deltaFromPrevious field.`);
       sections.push(`\nNew regressions — add to plan immediately: ${newWeaknesses.join(", ")}`);
     }
 
-    sections.push(`\nCRITICAL: The plan deltaFromPrevious field must explicitly name what changed and why. Example: "Removed 3 quadratic lessons (improved 30→65%); added statistics as week 1 priority (new weakness at 40%); escalated slope-intercept to reteach mode (weak across all 3 tests)".`);
+    sections.push(`\nCRITICAL: The plan deltaFromPrevious field must explicitly name what changed and why. Example: "Quadratics improved 30% to 65%, so those lessons are gone. Statistics is the new week-1 priority (40% this test). Slope-intercept gets retaught from scratch — it's been weak across all 3 tests."`);
   }
 
   sections.push(`\nGenerate the JSON study plan now.`);
