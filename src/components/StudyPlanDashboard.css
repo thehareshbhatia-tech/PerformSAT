@@ -11,7 +11,10 @@
 /* Acely-polish v2: 2-col layout (main + right rail) at >=1024px. */
 .study-plan-dashboard.sp-with-rail {
   display: grid;
-  grid-template-columns: 1fr;
+  /* FINDING-004: bare 1fr is minmax(auto,1fr) — long unbreakable content
+     set min-content wider than the viewport and forced horizontal scroll
+     on mobile (550px of content in a 375px viewport). */
+  grid-template-columns: minmax(0, 1fr);
   gap: 1.5rem;
   align-items: start;
 }
@@ -820,7 +823,8 @@
  * Force 1-col when nested inside .sp-weekly-tight (always — narrow column
  * benefits from full-width focus-area cards anyway). */
 .sp-weekly-tight .dashboard-actions-grid {
-  grid-template-columns: 1fr !important;
+  /* minmax(0,1fr), not bare 1fr — see FINDING-004 note on .sp-with-rail. */
+  grid-template-columns: minmax(0, 1fr) !important;
 }
 
 /* (2) Focus-area cards: small accuracy chip, white card, no split band.
