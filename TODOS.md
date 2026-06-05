@@ -1,5 +1,33 @@
 # TODOS
 
+## Study Plan design review — deferred findings (2026-06-05)
+
+From the /design-review fix loop (6 commits, FINDING-001..010 fixed; full report:
+`~/.gstack/projects/thehareshbhatia-tech-PerformSAT/designs/design-audit-20260605/`).
+
+- **[medium] Token adoption refactor.** `spacing.` / `radius.` / `typography.` from
+  `src/design/tokens.js` are imported but used 0 times in StudyPlanDashboard — every
+  dimension is a hand-typed literal. Adopting the tokens would also let the
+  165-line `.sp-weekly-tight` `!important` override block die: give the study-plan
+  cards their own un-shared classes so the calm look is the base style, not a
+  forced override of Dashboard-tab shared classes.
+- **[medium] CONTENT TRUST: module-vs-composite copy collision.** The generated
+  delta narrative says "Score dropped 400 to 200 (-200 pts)" (module scale) while
+  the rail says "920 composite, up 520 pts". Both can be true; side-by-side they
+  read as a bug. The generator should name the scale ("Math module score") or
+  convert to composite-consistent framing.
+- **[low] Generated-copy dedupe at the source.** FINDING-002 hoists the shared
+  closing advice sentence at render time; the real fix is variety in
+  `formatDiagnosticSentence` so 7 weaknesses don't get the same boilerplate.
+- **[low] `--color-brand-amber-400` resolves to blue** (`#3b82f6`) in
+  design-tokens.css — misnamed token; `colors.badge.bronze` maps to it. No longer
+  consumed by the study plan (FINDING-007) but still a trap.
+- **[low] Rail cards pop in late** (Firestore profile hydration) — the rail renders
+  calendar-only for a beat, then score/goal/exam cards appear. Skeleton tiles
+  would stop the layout jump.
+- **[polish] Bottom background seam** (FINDING-011): short pages show a white band
+  under the `#f8fafc` body background.
+
 ## Past-Test-Review
 
 ### AbortController for in-flight test fetches — DECISION: DEFERRED (2026-05-11)
