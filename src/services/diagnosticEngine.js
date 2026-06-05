@@ -2144,53 +2144,131 @@ function normalizeErrorTypeId(raw) {
   return null;
 }
 
-// Editorial sentence templates per error class. Two-typeface intent: render
-// the result in --font-reading at the call site, italicized.
-const SENTENCE_BY_ERROR_TYPE = {
-  [ERROR_TYPES.CONCEPTUAL_GAP]: ({ skill, evidence }) =>
-    `${withSkill(skill)}, you missed the underlying concept${withEvidence(evidence, ' on')}. Re-watch the lesson before drilling.`,
-  [ERROR_TYPES.PROCEDURAL_ERROR]: ({ skill, evidence }) =>
-    `${withSkill(skill)}, the concept clicks but the execution slips${withEvidence(evidence, ' —')}. Slow the algebra down.`,
-  [ERROR_TYPES.TRAP_SUSCEPTIBILITY]: ({ skill, evidence }) =>
-    `${withSkill(skill)} traps got you${withEvidence(evidence, ' on')}. Most are first-glance answers — read past the obvious choice.`,
-  [ERROR_TYPES.TIME_PRESSURE]: ({ skill, evidence }) =>
-    `Time crunched you${withSkill(skill, ' on ')}${withEvidence(evidence, ' (')}${evidence ? ')' : ''}. Practice untimed first to rebuild confidence.`,
-  [ERROR_TYPES.CARELESS_ERROR]: ({ skill, evidence }) =>
-    `${withSkill(skill)} is in your wheelhouse — these were slip-ups${withEvidence(evidence, ' (')}${evidence ? ')' : ''}. Slow your final check.`,
-  [ERROR_TYPES.UNANSWERED]: ({ skill, evidence }) =>
-    `You skipped ${skill || 'these'} questions${withEvidence(evidence, ' (')}${evidence ? ')' : ''}. When in doubt, eliminate two and guess.`,
+// ── Editorial diagnostic sentences ──────────────────────────────────────────
+//
+// Each weakness gets ONE coach sentence under its Focus Area card, rendered
+// serif-italic at the call site. Design rules (2026-06 personalization
+// overhaul):
+//
+//   1. Never dump the raw `evidence` blob into the sentence — it repeats the
+//      error type the sentence already states and reads like a log line
+//      ("( 0/8 correct, primary error: Time Pressure, avg 3s/q...)").
+//      Parse the structured facts out and weave them into prose instead.
+//   2. Vary the frame. Six weaknesses sharing an error type used to render
+//      the identical sentence six times — the single loudest "this is a
+//      template" tell on the page. Frames rotate deterministically by
+//      skillId so a given skill keeps its sentence across renders, but
+//      neighboring cards read differently.
+//   3. Cite history when we have it. "It's been sliding across your last
+//      tests" is the difference between a coach and a label-maker.
+
+/** Parse the structured facts PracticeTest embeds in the evidence string. */
+function parseEvidenceFacts(evidence) {
+  const facts = { correct: null, total: null, historicalMastery: null, trend: null, firstTime: false };
+  if (!evidence || typeof evidence !== 'string') return facts;
+  const frac = evidence.match(/(\d+)\s*\/\s*(\d+)\s*correct/);
+  if (frac) {
+    facts.correct = parseInt(frac[1], 10);
+    facts.total = parseInt(frac[2], 10);
+  }
+  const hist = evidence.match(/historical mastery\s+(\d+)%/);
+  if (hist) facts.historicalMastery = parseInt(hist[1], 10);
+  if (/\(declining\)/.test(evidence)) facts.trend = 'declining';
+  else if (/\(improving\)/.test(evidence)) facts.trend = 'improving';
+  if (/first time tested/.test(evidence)) facts.firstTime = true;
+  return facts;
+}
+
+/** Stable per-skill frame index so variation doesn't reshuffle every render. */
+function frameIndexFor(key, frameCount) {
+  if (!key || frameCount <= 1) return 0;
+  let h = 0;
+  for (let i = 0; i < key.length; i++) h = (h * 31 + key.charCodeAt(i)) % 997;
+  return h % frameCount;
+}
+
+/** "0 of 8 this test" / "scored 32% here" — whichever facts we actually have. */
+function missPhrase(facts, accuracy) {
+  if (facts.correct !== null && facts.total !== null) {
+    return `${facts.correct} of ${facts.total} this test`;
+  }
+  if (typeof accuracy === 'number') return `${Math.round(accuracy)}% on this test`;
+  return null;
+}
+
+/** History clause — only when the data earns it. */
+function historyClause(facts) {
+  if (facts.trend === 'declining' && facts.historicalMastery !== null) {
+    return ` — and it's been sliding, down from ${facts.historicalMastery}% across your earlier tests`;
+  }
+  if (facts.trend === 'declining') return ` — and it's been sliding across your last tests`;
+  if (facts.trend === 'improving') return ` — though it's already trending back up`;
+  if (facts.firstTime) return ` — first time we've tested it`;
+  if (facts.historicalMastery !== null) {
+    return `, in line with your ${facts.historicalMastery}% across earlier tests`;
+  }
+  return '';
+}
+
+// Frame sets per error class. Every frame must cite at least one number the
+// student can verify, and end with one concrete instruction (tips belong in
+// the plan — that's the contract; the diagnostic REPORT stays pure narrative).
+const FRAMES_BY_ERROR_TYPE = {
+  [ERROR_TYPES.CONCEPTUAL_GAP]: [
+    ({ skill, miss, hist }) =>
+      `${skill} isn't rusty — it's missing: ${miss}${hist}. Rebuild it from the concept up, not with more timed reps.`,
+    ({ skill, miss, hist }) =>
+      `You're not slipping on ${skill} — the concept never landed (${miss}${hist}). Start from the definition, then drill.`,
+  ],
+  [ERROR_TYPES.PROCEDURAL_ERROR]: [
+    ({ skill, miss, hist }) =>
+      `You know what ${skill} is asking — the execution leaks mid-solve (${miss}${hist}). Write every step this week; speed comes back on its own.`,
+    ({ skill, miss, hist }) =>
+      `${skill}: right idea, wrong arithmetic — ${miss}${hist}. Slow the algebra until it stops costing points.`,
+  ],
+  [ERROR_TYPES.TRAP_SUSCEPTIBILITY]: [
+    ({ skill, miss, hist }) =>
+      `Your ${skill} misses were the designed-to-tempt answers (${miss}${hist}). Predict the trap before you look at the choices.`,
+    ({ skill, miss, hist }) =>
+      `${skill} keeps baiting you into the first-glance answer — ${miss}${hist}. Eliminate before you choose.`,
+  ],
+  [ERROR_TYPES.TIME_PRESSURE]: [
+    ({ skill, miss, hist }) =>
+      `${skill} broke under the clock, not on the math — ${miss}${hist}. Drill it untimed until it's automatic, then add the timer back.`,
+    ({ skill, miss, hist }) =>
+      `The clock beat you on ${skill}, not the content (${miss}${hist}). Untimed first; bring time pressure back once accuracy holds.`,
+  ],
+  [ERROR_TYPES.CARELESS_ERROR]: [
+    ({ skill, miss, hist }) =>
+      `${skill} is yours on a careful day — these were slips, not gaps (${miss}${hist}). Re-read the question before you commit.`,
+    ({ skill, miss, hist }) =>
+      `Nothing about ${skill} is beyond you — ${miss} were avoidable${hist}. Check what the question actually asks before answering.`,
+  ],
+  [ERROR_TYPES.UNANSWERED]: [
+    ({ skill, miss, hist }) =>
+      `You left ${skill} questions blank (${miss}${hist}). After eliminating two choices, a guess beats a blank every time.`,
+  ],
 };
-
-function withSkill(skill, prefix = 'On ') {
-  if (!skill) return prefix.trim() === 'On' ? 'Here' : '';
-  return `${prefix}${skill}`;
-}
-
-function withEvidence(evidence, prefix = ' on') {
-  if (!evidence || typeof evidence !== 'string') return '';
-  return `${prefix} ${evidence.trim()}`;
-}
 
 /**
  * formatDiagnosticSentence — turn a weakness into an italic editorial line.
  *
- * The /autoplan Phase-2 review (D3 finding) flagged that the 6-class error
- * taxonomy was rendered as a small badge or chart cell — easy to miss.
- * Surfacing it as one sentence of editorial prose makes the diagnostic
- * actually readable to a 16-year-old.
+ * Parses the structured facts out of `weakness.evidence` (counts, history,
+ * trend) and renders one of several rotating coach-voice frames per error
+ * class, so adjacent Focus Area cards never repeat the same sentence shape.
+ * Frame choice is deterministic per skillId.
  *
  * Input weakness shape (from `studyPlan.weaknesses` / `groundTruthDiagnosis`):
  *   {
  *     skill?: string,                  display name ("Slope-intercept form")
  *     skillId?: string,                fallback when skill is missing
  *     errorType?: string,              canonical id OR label OR snake/Title case
- *     evidence?: string,               e.g. "4 of 6 misses"
+ *     evidence?: string,               e.g. "0/8 correct, primary error: ..."
  *     accuracy?: number,               percentage 0-100
  *   }
  *
- * Output:
- *   A single 1-2 sentence string. Always non-empty (we fall back to a
- *   generic accuracy-based sentence when errorType is missing).
+ * Output: a single 1-2 sentence string. Always non-empty when a skill or
+ * accuracy exists (generic fallback covers missing errorType).
  *
  * @param {object} weakness
  * @returns {string}
@@ -2201,20 +2279,23 @@ export function formatDiagnosticSentence(weakness) {
   const skill = weakness.skill || (weakness.skillId
     ? weakness.skillId.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')
     : null);
-  const evidence = weakness.evidence || null;
   const errorTypeId = normalizeErrorTypeId(weakness.errorType);
+  const facts = parseEvidenceFacts(weakness.evidence);
+  const miss = missPhrase(facts, weakness.accuracy);
 
-  if (errorTypeId && SENTENCE_BY_ERROR_TYPE[errorTypeId]) {
-    return SENTENCE_BY_ERROR_TYPE[errorTypeId]({ skill, evidence });
+  if (errorTypeId && FRAMES_BY_ERROR_TYPE[errorTypeId] && skill && miss) {
+    const frames = FRAMES_BY_ERROR_TYPE[errorTypeId];
+    const frame = frames[frameIndexFor(weakness.skillId || skill, frames.length)];
+    return frame({ skill, miss, hist: historyClause(facts) });
   }
 
   // Fallback — generic prose that still reads like editorial.
   if (typeof weakness.accuracy === 'number') {
     const acc = Math.round(weakness.accuracy);
     if (skill) {
-      return `${skill}: ${acc}% accurate. The pattern is worth a closer look.`;
+      return `${skill}: ${acc}% this test${historyClause(facts)}. Worth a closer look before it costs more points.`;
     }
-    return `${acc}% accurate here. The pattern is worth a closer look.`;
+    return `${acc}% here. Worth a closer look before it costs more points.`;
   }
   if (skill) {
     return `${skill} is the next focus area.`;

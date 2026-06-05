@@ -212,7 +212,10 @@ const StudentDashboard = ({
   const DAY_NAMES = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   const todayDayName = DAY_NAMES[new Date().getDay()];
   const todaySlice = useMemo(() => getTodaySlice(studyPlan, todayDayName), [studyPlan, todayDayName]);
-  const sessionAdherence = useMemo(() => getSessionAdherence(practiceProgress), [practiceProgress]);
+  const sessionAdherence = useMemo(
+    () => getSessionAdherence({ practiceProgress, practiceTestResults }),
+    [practiceProgress, practiceTestResults],
+  );
   const hasStudyPlan = !!(studyPlan && Array.isArray(studyPlan.weeks) && studyPlan.weeks.length > 0);
   // Predicted vs Actual (Day 5 ADD B). summarizePredictions returns null when
   // no validated prediction exists yet, so the card hides itself pre-2nd-test.

@@ -136,3 +136,54 @@ describe('getSessionAdherence — timestamp shapes', () => {
     expect(getSessionAdherence(progress, { now: NOW_FIXED }).uniqueDays).toBe(1);
   });
 });
+
+// ── Bundle form — test days count too (calendar/adherence unification) ──────
+//
+// Regression: the CalendarMonth widget counts practice-TEST days via
+// getPracticedDayKeys, but adherence used to read only practiceProgress.
+// A student who took two mock tests saw "2 days practiced" on the calendar
+// next to "You've practiced 0 of last 7 days" — the app contradicting itself.
+
+describe('getSessionAdherence — bundle form with practiceTestResults', () => {
+  it('counts a test-only day as practiced', () => {
+    const r = getSessionAdherence({
+      practiceProgress: {},
+      practiceTestResults: {
+        t1: { attempts: [{ completedAt: ts(1) }] },
+      },
+    }, { now: NOW_FIXED });
+    expect(r.uniqueDays).toBe(1);
+  });
+
+  it('dedupes a drill day and a test day on the same date', () => {
+    const r = getSessionAdherence({
+      practiceProgress: { a: { lastAttemptAt: ts(2) } },
+      practiceTestResults: { t1: { attempts: [{ completedAt: ts(2) }] } },
+    }, { now: NOW_FIXED });
+    expect(r.uniqueDays).toBe(1);
+  });
+
+  it('merges drill days and test days across dates', () => {
+    const r = getSessionAdherence({
+      practiceProgress: { a: { lastAttemptAt: ts(1) } },
+      practiceTestResults: { t1: { attempts: [{ completedAt: ts(3) }] } },
+    }, { now: NOW_FIXED });
+    expect(r.uniqueDays).toBe(2);
+  });
+
+  it('ignores test attempts outside the window', () => {
+    const r = getSessionAdherence({
+      practiceProgress: {},
+      practiceTestResults: { t1: { attempts: [{ completedAt: ts(10) }] } },
+    }, { now: NOW_FIXED });
+    expect(r.uniqueDays).toBe(0);
+  });
+
+  it('falls back to the test lastAttemptAt when attempts are missing', () => {
+    const r = getSessionAdherence({
+      practiceProgress: {},
+      practiceTestResults: { t1: { lastAttemptAt: ts(1) } },
+    }, { now: NOW_FIXED });
+    expect(r.uniqueDays).toBe(1);
+  });
+});

@@ -245,7 +245,10 @@ const StudyPlanDashboard = ({
   const DAY_NAMES = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   const todayDayName = DAY_NAMES[new Date().getDay()];
   const todaySlice = useMemo(() => getTodaySlice(studyPlan, todayDayName), [studyPlan, todayDayName]);
-  const sessionAdherence = useMemo(() => getSessionAdherence(practiceProgress), [practiceProgress]);
+  const sessionAdherence = useMemo(
+    () => getSessionAdherence({ practiceProgress, practiceTestResults }),
+    [practiceProgress, practiceTestResults],
+  );
   const topWeakness = useMemo(() => {
     if (!studyPlan) return null;
     const math = getMathWeaknesses(studyPlan);

@@ -50,6 +50,9 @@ function buildGroundTruthDiagnosis(diagReport, rawTelemetry) {
   const weakSkills = (skillAnalysis?.weakSkills || []).slice(0, 8).map(s => {
     const errLabel = ERROR_TYPE_LABELS[s.primaryErrorType] || s.primaryErrorType || 'mixed';
     const avgTime = computeAvgTimeForSkill(s.skillId, questionAnalysis);
+    // Guard degenerate timing: avg under 5s/q means missing or rapid-click
+    // telemetry — "avg 0s/q" in a student-facing sentence reads as broken.
+    const timeNote = avgTime >= 5 ? `, avg ${avgTime}s/q` : '';
     const historyNote = s.historicalMastery !== null
       ? `, historical mastery ${s.historicalMastery}%`
       : ', first time tested';
@@ -57,7 +60,7 @@ function buildGroundTruthDiagnosis(diagReport, rawTelemetry) {
     return {
       skillId: s.skillId,
       skill: s.name,
-      evidence: `${s.correct}/${s.total} correct, primary error: ${errLabel}, avg ${avgTime}s/q${historyNote}${trendNote}`,
+      evidence: `${s.correct}/${s.total} correct, primary error: ${errLabel}${timeNote}${historyNote}${trendNote}`,
       accuracy: s.testAccuracy,
       errorType: errLabel,
       domain: s.domain,
@@ -79,10 +82,11 @@ function buildGroundTruthDiagnosis(diagReport, rawTelemetry) {
 
   const strongSkills = (skillAnalysis?.strongSkills || []).slice(0, 5).map(s => {
     const avgTime = computeAvgTimeForSkill(s.skillId, questionAnalysis);
+    const timeNote = avgTime >= 5 ? `, avg ${avgTime}s/q` : '';
     const trendNote = s.trend === 'improving' ? ' and still improving' : '';
     return {
       skill: s.name,
-      evidence: `${s.correct}/${s.total} correct, avg ${avgTime}s/q${trendNote}`,
+      evidence: `${s.correct}/${s.total} correct${timeNote}${trendNote}`,
       accuracy: s.testAccuracy,
       domain: s.domain,
     };
