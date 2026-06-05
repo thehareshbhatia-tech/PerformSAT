@@ -513,7 +513,7 @@ const generateStrategyActivities = (diagnostic) => {
       type: 'strategy',
       activityType: 'strategyDrill',
       title: 'Trap Answer Recognition Drill',
-      subtitle: 'Learn to spot the 6 most common College Board traps',
+      subtitle: `You picked ${errorCounts[ERROR_TYPES.TRAP_SUSCEPTIBILITY]} designed-to-tempt answers last test`,
       duration: ACTIVITY_DURATIONS.strategyDrill,
       priority: 90,
       icon: null,
@@ -531,8 +531,8 @@ const generateStrategyActivities = (diagnostic) => {
     activities.push({
       type: 'strategy',
       activityType: 'strategyDrill',
-      title: 'Time Management Practice',
-      subtitle: `${diagnostic.timeAnalysis.timeRelatedErrors} questions affected by time`,
+      title: 'Pacing Reset',
+      subtitle: `The clock cost you ${diagnostic.timeAnalysis.timeRelatedErrors} questions last test`,
       duration: ACTIVITY_DURATIONS.strategyDrill,
       priority: 85,
       icon: null,
@@ -550,8 +550,8 @@ const generateStrategyActivities = (diagnostic) => {
     activities.push({
       type: 'strategy',
       activityType: 'strategyDrill',
-      title: 'Careless Error Prevention',
-      subtitle: `${errorCounts[ERROR_TYPES.CARELESS_ERROR]} avoidable mistakes last test`,
+      title: 'Stop the Avoidable Misses',
+      subtitle: `${errorCounts[ERROR_TYPES.CARELESS_ERROR]} questions you knew how to solve went wrong last test`,
       duration: ACTIVITY_DURATIONS.strategyDrill,
       priority: 95,
       icon: null,
@@ -757,7 +757,7 @@ const distributeAcrossWeeks = (activities, strategyActivities, totalWeeks, minut
 
     weeks.push({
       weekNumber: weekNum,
-      title: generateWeekTitle(weekNum, totalWeeks, isTestWeek, weekDomains),
+      title: generateWeekTitle(weekNum, totalWeeks, isTestWeek, weekDomains, weekSkills),
       activities: weekActivities,
       totalMinutes: weekMinutesUsed,
       lessonCount: weekLessonCount,
@@ -850,18 +850,25 @@ const generatePlanSummary = (diagnostic, weeklyPlan, intensity, totalWeeks, days
   const totalWrong = diagnostic.errorPatterns.totalWrong;
   const dominantError = diagnostic.errorPatterns.dominantPattern;
 
-  // Build the "headline diagnosis"
+  // Build the "headline diagnosis" — coach voice: short, numeric, names the
+  // student's actual top gap where one exists. This is the deterministic
+  // fallback; the AI headline (when present) overrides it in mergeHybridPlan.
+  const topGapName = skillGaps[0]?.skillName || null;
   let headline;
   if (scoreGap <= 0) {
-    headline = `You're already at your target! Focus on maintaining your ${currentScore} and pushing higher.`;
+    headline = `You're past your target. Hold ${currentScore} and stretch higher.`;
   } else if (scoreGap <= 30) {
-    headline = `You're ${scoreGap} points away from your target. A few targeted fixes will get you there.`;
+    headline = topGapName
+      ? `${scoreGap} points to go — most of it sitting in ${topGapName}.`
+      : `${scoreGap} points to go. A handful of fixes covers it.`;
   } else if (scoreGap <= 80) {
-    headline = `You need ${scoreGap} more points. This is very achievable with focused practice.`;
+    headline = topGapName
+      ? `${scoreGap} points to go, starting with ${topGapName}.`
+      : `${scoreGap} points to go, concentrated in a few fixable skills.`;
   } else if (scoreGap <= 150) {
-    headline = `${scoreGap} points to your target. This will take consistent work, but you can do it.`;
+    headline = `${scoreGap} points to go. The plan front-loads your costliest gaps.`;
   } else {
-    headline = `${scoreGap} points to go. This is ambitious — consider adjusting your target or test date.`;
+    headline = `${scoreGap} points is a long climb — the plan starts where the points are cheapest. More runway helps if your test date can move.`;
   }
 
   // Build the "key insight" — the single most important thing the student should know
@@ -887,19 +894,21 @@ const generatePlanSummary = (diagnostic, weeklyPlan, intensity, totalWeeks, days
     const topGap = skillGaps[0];
     keyInsight = {
       title: `Critical gap: ${topGap?.skillName || 'foundational concepts'}`,
-      message: `Most of your errors come from concept gaps. Your plan starts with the lessons you need to learn these concepts.`,
+      message: topGap
+        ? `Most of your misses trace to concepts that never landed — ${topGap.skillName} is at ${topGap.testAccuracy ?? 0}%. The plan rebuilds it from the definition before any timed work.`
+        : `Most of your misses trace to concepts that never landed. The plan rebuilds them from the definition before any timed work.`,
       type: 'conceptual',
     };
   } else if (dominantError && dominantError.type === ERROR_TYPES.TIME_PRESSURE) {
     keyInsight = {
-      title: 'Time management is costing you points',
-      message: `${dominantError.count} questions were affected by time pressure. Learning to pace yourself could add 30-50 points.`,
+      title: 'The clock is costing you points',
+      message: `${dominantError.count} of your misses came under time pressure, not from the math. Pacing work comes first — it's worth 30-50 points on its own.`,
       type: 'time',
     };
   } else {
     keyInsight = {
-      title: 'Targeted practice is your path forward',
-      message: `Your errors are spread across different types. The study plan below attacks each area systematically.`,
+      title: 'No single leak — several small ones',
+      message: `Your ${totalWrong} misses spread across error types instead of one big cause. The plan works each leak in priority order, costliest first.`,
       type: 'general',
     };
   }
@@ -979,11 +988,11 @@ const deriveSignalAwareNextAction = (weeklyPlan, diagnostic) => {
   const best = scored[0].activity;
 
   const reason = best.skillId && persistentIds.has(best.skillId)
-    ? `Persistent weakness across multiple tests — highest leverage fix`
+    ? `${best.skillName || 'This skill'} has stayed weak across multiple tests — fixing it pays the most`
     : best.type === 'review'
       ? `${diagnostic.errorPatterns?.totalWrong || 0} wrong answers to learn from before new material`
       : best.type === 'strategy' && carelessCount + trapCount >= 4
-        ? `${carelessCount + trapCount} avoidable errors — fastest path to points`
+        ? `${carelessCount + trapCount} of your misses were avoidable — the fastest points on the board`
         : best.subtitle || 'Highest-priority activity in your plan';
 
   return {
@@ -1120,21 +1129,34 @@ const fuzzyMatchModule = (skillId) => {
   return null;
 };
 
-const generateWeekTitle = (weekNum, totalWeeks, isTestWeek, domains) => {
-  if (weekNum === 1) return 'Quick Wins & Foundations';
-  if (weekNum === totalWeeks) return 'Final Review & Test Ready';
-  if (isTestWeek) return `Progress Check (Week ${weekNum})`;
-  if (domains.length === 1) return `${domains[0]} Deep Dive`;
-  if (domains.length > 0) return `${domains.slice(0, 2).join(' & ')} Focus`;
-  return `Week ${weekNum}: Targeted Practice`;
+// Week titles carry the student's actual content, not phase labels.
+// "Quick Wins & Foundations" reads identical in every student's plan;
+// "Slope-intercept + the avoidable misses" reads like it was written
+// after watching their test — because it was.
+const generateWeekTitle = (weekNum, totalWeeks, isTestWeek, domains, skills = []) => {
+  if (weekNum === 1) {
+    return skills.length > 0
+      ? `${skills[0]} + the avoidable misses`
+      : 'The avoidable misses first';
+  }
+  if (weekNum === totalWeeks) return 'Lock it in before test day';
+  if (isTestWeek) return 'Practice test — measure what moved';
+  if (domains.length === 1) return `${domains[0]} rebuild`;
+  if (domains.length > 0) return `${domains.slice(0, 2).join(' & ')}`;
+  if (skills.length > 0) return `${skills.slice(0, 2).join(' & ')}`;
+  return `Week ${weekNum}: targeted practice`;
 };
 
 const generateWeekGoal = (weekNum, totalWeeks, skills, isTestWeek) => {
-  if (weekNum === 1) return 'Review your test mistakes and build momentum with quick wins';
-  if (weekNum === totalWeeks) return 'Final polish — you should be hitting your target score';
-  if (isTestWeek) return 'Take a practice test to measure your progress';
-  if (skills.length > 0) return `Master ${skills.slice(0, 2).join(' and ')}`;
-  return 'Continue building skills and practicing';
+  if (weekNum === 1) {
+    return skills.length > 0
+      ? `Clear your missed questions, then rebuild ${skills[0]}`
+      : 'Clear your missed questions — the avoidable ones first';
+  }
+  if (weekNum === totalWeeks) return 'Full-speed practice — accuracy under real timing';
+  if (isTestWeek) return 'Take a timed practice test to measure what moved';
+  if (skills.length > 0) return `Get ${skills.slice(0, 2).join(' and ')} above 70%`;
+  return 'Keep the reps going on your weakest areas';
 };
 
 // ═══════════════════════════════════════════════════════════════════════════
@@ -1197,10 +1219,10 @@ export const compareDiagnostics = (previousDiag, currentDiag) => {
 
 const generateComparisonMessage = (scoreChange, improved, worsened) => {
   if (scoreChange > 30) {
-    return `Incredible progress! +${scoreChange} points. ${improved.length > 0 ? `You really improved in ${improved[0].name}.` : 'Your hard work is paying off.'}`;
+    return `+${scoreChange} points. ${improved.length > 0 ? `${improved[0].name} drove most of it.` : 'The work is showing up in the score.'}`;
   }
   if (scoreChange > 10) {
-    return `Nice improvement! +${scoreChange} points. ${improved.length > 0 ? `${improved[0].name} is clearly getting stronger.` : 'Keep it going.'}`;
+    return `+${scoreChange} points. ${improved.length > 0 ? `${improved[0].name} is clearly getting stronger.` : 'Steady gains — the plan holds course.'}`;
   }
   if (scoreChange >= 0) {
     if (worsened.length > 0) {
@@ -1209,9 +1231,9 @@ const generateComparisonMessage = (scoreChange, improved, worsened) => {
     return 'Score is stable. Let\'s push harder on your remaining weak areas.';
   }
   if (worsened.length > 0) {
-    return `Score dipped ${Math.abs(scoreChange)} points. ${worsened[0].name} needs more attention. Let\'s adjust the plan.`;
+    return `Score dipped ${Math.abs(scoreChange)} points — ${worsened[0].name} drove the slide. The plan adds reps there.`;
   }
-  return `Score dropped ${Math.abs(scoreChange)} points. Don\'t worry — let\'s analyze what happened and refocus.`;
+  return `Score dropped ${Math.abs(scoreChange)} points. One test is noise, not a verdict — the plan refocuses on what this one revealed.`;
 };
 
 // ═══════════════════════════════════════════════════════════════════════════

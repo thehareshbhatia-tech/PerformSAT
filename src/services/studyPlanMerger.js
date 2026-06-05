@@ -195,18 +195,20 @@ export const computePlanDelta = (previousPlan, currentPlan) => {
   const newSkills = skillChanges.filter(s => s.direction === 'new');
   const resolved = skillChanges.filter(s => s.direction === 'resolved');
 
+  // Coach voice: cite the numbers, skip the cheerleading. Every line should
+  // read like someone who watched the test, not a notification template.
   if (improved.length > 0 && worsened.length > 0) {
-    headline = `${improved[0].skill} improved! Shifting focus to ${worsened[0].skill} where you need more practice.`;
+    headline = `${improved[0].skill} climbed ${improved[0].oldAccuracy}% to ${improved[0].newAccuracy}%. Focus shifts to ${worsened[0].skill}, which slipped to ${worsened[0].newAccuracy}%.`;
   } else if (improved.length > 0) {
-    headline = `Great progress on ${improved[0].skill}${improved.length > 1 ? ` and ${improved.length - 1} more` : ''}! Your plan has been adjusted.`;
+    headline = `${improved[0].skill} climbed ${improved[0].oldAccuracy}% to ${improved[0].newAccuracy}%${improved.length > 1 ? `, with ${improved.length - 1} more skill${improved.length > 2 ? 's' : ''} up` : ''}. Your practice moves to what's still costing points.`;
   } else if (worsened.length > 0) {
-    headline = `${worsened[0].skill} needs more attention. Added extra practice sessions.`;
+    headline = `${worsened[0].skill} slipped ${worsened[0].oldAccuracy}% to ${worsened[0].newAccuracy}%. This plan adds focused reps there.`;
   } else if (newSkills.length > 0) {
-    headline = `${newSkills.length} new skill gap${newSkills.length > 1 ? 's' : ''} detected. Your plan has been updated.`;
+    headline = `This test exposed ${newSkills.length} new gap${newSkills.length > 1 ? 's' : ''}, starting with ${newSkills[0].skill}. ${newSkills.length > 1 ? "They're" : "It's"} now a week-1 priority.`;
   } else if (resolved.length > 0) {
-    headline = `${resolved.length} skill gap${resolved.length > 1 ? 's' : ''} resolved! Keep it up.`;
+    headline = `${resolved[0].skill} is off the worry list${resolved.length > 1 ? `, along with ${resolved.length - 1} more` : ''} — no longer testing as a weakness.`;
   } else if (currScore > prevScore) {
-    headline = `Score improved from ${prevScore} to ${currScore}. Your plan has been recalibrated.`;
+    headline = `Score moved ${prevScore} to ${currScore}. The plan recalibrated to the new baseline.`;
   }
 
   return {

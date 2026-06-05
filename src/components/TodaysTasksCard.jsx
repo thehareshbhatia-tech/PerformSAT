@@ -62,7 +62,7 @@ function renderBody(slice, onStartActivity, onTakeTest) {
           <div className="ttc-eyebrow">Get started</div>
           <h2 className="ttc-title">Take your first diagnostic test</h2>
           <p className="ttc-sub">
-            We'll build a personalized study plan from your test results.
+            One test builds your whole plan — which skills cost you points, where you rush, and what to fix first.
           </p>
           <button
             type="button"
@@ -194,7 +194,7 @@ function ActivityRow({ activity, isComplete, onStart }) {
 
         <div className="ttc-activity-meta">
           {isComplete ? (
-            <span className="ttc-badge ttc-badge-success">PRACTICE COMPLETE!</span>
+            <span className="ttc-badge ttc-badge-success">Done</span>
           ) : minutes !== null ? (
             <span className="ttc-chip">{minutes} MIN</span>
           ) : null}

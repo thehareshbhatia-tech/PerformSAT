@@ -115,7 +115,7 @@ const StudyPlanDashboard = ({
             No Study Plan Yet
           </div>
           <div className="sp-empty-desc">
-            Complete a practice test and our AI will generate a highly personalized study plan tailored to your exact weaknesses.
+            Take one practice test. Your plan gets built from every answer — which skills cost you points, where you rush, and what to fix first.
           </div>
           {onStartPracticeTest && (
             <button onClick={onStartPracticeTest} className="sp-empty-btn">

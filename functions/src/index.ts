@@ -1171,7 +1171,7 @@ Output MUST be valid JSON (no markdown fences) matching this schema:
 
 {
   "summary": {
-    "headline": "string — max 12 words. State the core strategy, not the score. Must reference this student's specific dominant error pattern or weakest skill by name.",
+    "headline": "string — max 12 words. State the core strategy, not the score. Must reference this student's specific dominant error pattern or weakest skill by name. Write it as a coach speaking to the student, not a strategy memo: 'Fix pacing first — the clock cost you 12 questions' is right; '12 time-pressure errors demand pacing overhaul' is wrong.",
     "diagnosis": "string — 2-3 sentences. Synthesize the root cause of the score gap using the exact data provided. Reference at least: (1) the dominant error type with count, (2) the weakest skill by name with accuracy %. No motivational filler. Example: 'You missed 6/8 algebra questions, mostly from conceptual gaps in slope-intercept form (25% accuracy). Careless errors on easy questions cost 3 more — fixing those alone adds ~30 points.'",
     "stats": { "weeksInPlan": number, "totalLessons": number, "totalPractice": number, "minutesPerDay": number }
   },
@@ -1204,8 +1204,8 @@ Output MUST be valid JSON (no markdown fences) matching this schema:
       ]
     }
   ],
-  "deltaFromPrevious": "string|null — 1 sentence: what changed since the last plan and why, citing score or skill accuracy changes",
-  "persistentWeaknessStrategy": "string|null — 1 sentence: remediation approach for multi-test weaknesses, naming the specific skills and why a different approach is needed"
+  "deltaFromPrevious": "string|null — 2-3 SHORT sentences (max 20 words each): what changed since the last plan and why, citing score or skill accuracy changes. Never one long run-on sentence.",
+  "persistentWeaknessStrategy": "string|null — 1-2 short sentences: the new approach for multi-test weaknesses, naming the specific skills and why more practice alone won't fix them"
 }
 
 PERSONALIZATION RULES (these differentiate plans between students):
@@ -1226,7 +1226,8 @@ GENERAL RULES:
 8. Every activity subtitle must answer "why this helps your score" in concrete terms (e.g. "You missed 3/4 of these — fixing them adds ~20 points").
 9. nextAction must be the single highest-ROI activity from week 1.
 10. When longitudinal context is provided, persistent weaknesses that span multiple tests get top priority — they need reteaching, not just more practice.
-11. Keep all text concise. Prefer short declarative sentences. No padding.`;
+11. Keep all text concise. Prefer short declarative sentences. No padding.
+12. VOICE: You are a coach talking to a 16-year-old who just took this test. Second person. Max ~20 words per sentence — split long thoughts into two sentences. Plain words only: never "remediation", "execution collapse", "pivot", "escalate", "overhaul", "demand", "leverage", or any consulting/engineering jargon. Every sentence should sound like a person who watched the test, not a report about it.`;
 }
 
 function buildStudyPlanUserPrompt(
