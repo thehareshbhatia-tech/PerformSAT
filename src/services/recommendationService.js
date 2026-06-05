@@ -5,6 +5,7 @@
  */
 
 import { getDueReviewCount } from './reviewService';
+import { parseLocalDate } from '../utils/localDate';
 
 // Module metadata for context
 const MODULE_INFO = {
