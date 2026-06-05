@@ -288,6 +288,10 @@ const StudyPlanDashboard = ({
   const strategyText = studyPlan.persistentWeaknessStrategy || '';
   const strategyFirstSentence = clampToSentence(strategyText);
   const strategyHasMore = strategyText.length > strategyFirstSentence.length + 4;
+  // FINDING-002: Focus Areas disclosure state — the section diagnosis clamps
+  // like the coach notes, and only the top 5 skills render until expanded.
+  const [diagExpanded, setDiagExpanded] = useState(false);
+  const [showAllFocus, setShowAllFocus] = useState(false);
 
   // Today's-Tasks tab derived state.
   const DAY_NAMES = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -431,6 +435,37 @@ const StudyPlanDashboard = ({
       return { ...w, section, qCount: questions.length, qIds: questions.map(q => q.id) };
     }).filter(Boolean);
   }, [weaknesses, onStartPractice, answeredQuestionIds, studyPlan?.difficultyAnalysis]);
+
+  // FINDING-002: the per-skill diagnostic sentences close with the same
+  // boilerplate advice ("Untimed first; bring time pressure back once
+  // accuracy holds."), repeated verbatim under every card — the single
+  // loudest "generated, not written" signal on the page. When 3+ rows share
+  // a closing sentence, hoist it to ONE section-level coach line and strip
+  // it from each card. Pure render-time presentation; plan data untouched.
+  const focusDiagnostics = useMemo(() => {
+    const rows = skillPracticeRows.map(w => formatDiagnosticSentence(w) || '');
+    const lastSentence = (t) => {
+      const m = t.trim().match(/[^.!?]+[.!?]$/);
+      return m ? m[0].trim() : '';
+    };
+    const counts = new Map();
+    rows.forEach(t => {
+      const s = lastSentence(t);
+      if (s) counts.set(s, (counts.get(s) || 0) + 1);
+    });
+    let shared = '';
+    counts.forEach((n, s) => {
+      if (n >= 3 && n > (counts.get(shared) || 0)) shared = s;
+    });
+    const perRow = rows.map(t => {
+      const trimmed = t.trim();
+      if (shared && trimmed.endsWith(shared)) {
+        return trimmed.slice(0, trimmed.length - shared.length).trim();
+      }
+      return trimmed;
+    });
+    return { shared, perRow };
+  }, [skillPracticeRows]);
 
   // ── Activity row ─────────────────────────────────────────────────────
   const ActivityRow = ({ act, weekIdx, actIdx }) => {
@@ -1070,15 +1105,30 @@ const StudyPlanDashboard = ({
       {skillPracticeRows.length > 0 && (
         <div className="sp-section">
           <h3 className="sp-section-header">Focus Areas</h3>
-          
-          {/* AI diagnosis narrative — explains WHY these are the focus areas */}
+
+          {/* AI diagnosis narrative — explains WHY these are the focus areas.
+              FINDING-002: clamped like the coach notes; the full paragraph
+              sits behind Read more. */}
           {summary?.diagnosis && (
             <div className="sp-section-desc">
-              {summary.diagnosis}
+              {diagExpanded ? summary.diagnosis : clampToSentence(summary.diagnosis, 200)}
+              {summary.diagnosis.length > clampToSentence(summary.diagnosis, 200).length + 4 && (
+                <button
+                  type="button"
+                  className="sp-note-toggle"
+                  onClick={() => setDiagExpanded(v => !v)}
+                >
+                  {diagExpanded ? 'Show less' : 'Read more'}
+                </button>
+              )}
             </div>
           )}
+          {/* Shared coach advice hoisted from the per-card sentences. */}
+          {focusDiagnostics.shared && (
+            <p className="sp-focus-shared-advice">{focusDiagnostics.shared}</p>
+          )}
           <div className="dashboard-actions-grid">
-            {skillPracticeRows.map((w, i) => {
+            {(showAllFocus ? skillPracticeRows : skillPracticeRows.slice(0, 5)).map((w, i) => {
               // v3.1: classify into low/mid/high bands so CSS picks the
               // soft-tint color. JSX no longer paints the heavy red/green
               // panel; the chip color reads from a data attribute.
@@ -1086,7 +1136,10 @@ const StudyPlanDashboard = ({
                 : w.accuracy < 40 ? 'low'
                 : 'mid';
 
-              const diagnosticSentence = formatDiagnosticSentence(w);
+              // FINDING-002: the editorial sentence moved INSIDE the card
+              // (2-line clamp) — it used to float below as a full paragraph,
+              // ~7 near-identical paragraphs in a row.
+              const diagnosticSentence = focusDiagnostics.perRow[i] || '';
               return (
                 <div key={w.skillId || i} style={{ display: 'flex', flexDirection: 'column' }}>
                   <div
@@ -1100,14 +1153,16 @@ const StudyPlanDashboard = ({
                       <div style={{ flex: 1, minWidth: 0, paddingRight: '1rem' }}>
                         <div className="acely-metric-label">{w.domain || 'Skill'}</div>
                         <div className="acely-section-name" style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{w.skill}</div>
-                        {w.errorType && (
+                        {diagnosticSentence ? (
+                          <p className="sp-card-diagnostic">{diagnosticSentence}</p>
+                        ) : w.errorType ? (
                           <div style={{ fontSize: '0.8125rem', marginTop: '0.25rem', color: 'var(--color-slate-500)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                             {w.errorType}
                           </div>
-                        )}
+                        ) : null}
                       </div>
                       <button
-                        className="btn-launch"
+                        className={`btn-launch${i === 0 ? ' is-primary' : ''}`}
                         style={{ flexShrink: 0 }}
                         onClick={() => onStartPractice(null, null, {
                           questionIds: w.qIds,
@@ -1136,27 +1191,21 @@ const StudyPlanDashboard = ({
                       Prioritized in your plan — flagged as a likely struggle area on your next test{w.predictedStruggle.reason ? ` (${w.predictedStruggle.reason.toLowerCase()})` : ''}.
                     </p>
                   )}
-                  {/* Day 5 D3 — italic editorial sentence translating the
-                      6-class error taxonomy into prose. Serif by design. */}
-                  {diagnosticSentence && (
-                    <p
-                      className="sp-diagnostic-sentence"
-                      style={{
-                        margin: '8px 4px 0',
-                        fontFamily: 'var(--font-reading)',
-                        fontStyle: 'italic',
-                        fontSize: '0.9375rem',
-                        lineHeight: 1.5,
-                        color: 'var(--color-slate-700)',
-                      }}
-                    >
-                      {diagnosticSentence}
-                    </p>
-                  )}
                 </div>
               );
             })}
           </div>
+          {skillPracticeRows.length > 5 && (
+            <button
+              type="button"
+              className="sp-focus-show-all"
+              onClick={() => setShowAllFocus(v => !v)}
+            >
+              {showAllFocus
+                ? 'Show fewer'
+                : `Show all ${skillPracticeRows.length} skills`}
+            </button>
+          )}
         </div>
       )}
 

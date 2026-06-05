@@ -435,6 +435,54 @@
   max-width: 800px;
 }
 
+/* FINDING-002: Focus Areas de-dupe — section-level shared coach advice,
+   in-card 2-line diagnostic, show-all disclosure. */
+.sp-focus-shared-advice {
+  margin: -8px 0 14px;
+  font-family: var(--font-reading);
+  font-style: italic;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--color-slate-700);
+  max-width: 800px;
+}
+
+.sp-card-diagnostic {
+  margin: 4px 0 0;
+  font-family: var(--font-reading);
+  font-style: italic;
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--color-slate-600);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  white-space: normal;
+}
+
+.sp-focus-show-all {
+  margin-top: 10px;
+  background: transparent;
+  border: 1px solid var(--color-slate-200);
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-slate-700);
+  cursor: pointer;
+  transition: background 120ms ease, border-color 120ms ease;
+}
+.sp-focus-show-all:hover {
+  background: var(--color-slate-50);
+  border-color: var(--color-slate-300);
+}
+.sp-focus-show-all:focus-visible {
+  outline: 2px solid var(--color-brand-primary);
+  outline-offset: 2px;
+}
+
 /* Action Plan / Weekly View */
 .sp-timeline {
   display: flex;
@@ -836,15 +884,28 @@
   letter-spacing: -0.01em;
 }
 .sp-weekly-tight .acely-split-right .btn-launch {
-  padding: 6px 12px !important;
-  font-size: 12.5px !important;
+  padding: 8px 14px !important;
+  font-size: 13px !important;
   font-weight: 600 !important;
   border-radius: 8px !important;
   box-shadow: none !important;
+  min-height: 36px;
 }
 .sp-weekly-tight .acely-split-right .btn-launch:hover {
   transform: none !important;
   box-shadow: none !important;
+}
+/* FINDING-002: seven solid-orange CTAs shouted equally. Only the top
+   weakness keeps the filled button; the rest go quiet outline. */
+.sp-weekly-tight .acely-split-right .btn-launch:not(.is-primary) {
+  background: transparent !important;
+  color: var(--color-slate-700) !important;
+  border: 1px solid var(--color-slate-300) !important;
+}
+.sp-weekly-tight .acely-split-right .btn-launch:not(.is-primary):hover {
+  border-color: var(--color-brand-primary) !important;
+  color: var(--color-brand-primary) !important;
+  background: var(--color-brand-primary-light) !important;
 }
 
 /* Italic editorial sentence: lighter color, smaller. */
