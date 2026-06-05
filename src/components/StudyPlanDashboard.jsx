@@ -259,14 +259,32 @@ const StudyPlanDashboard = ({
   // adaptive-plan delta paragraph so the banner reads like a tight summary
   // rather than a wall of strategy text. The full paragraph is available
   // behind a "Show more" disclosure.
+  //
+  // Design-review FINDING-001: the generated paragraphs are often ONE long
+  // semicolon-chained sentence, so the first-sentence regex matched the whole
+  // wall of text and the clamp never fired. Hard-cap at a word boundary so
+  // the collapsed note is always 1-2 lines, never a paragraph.
+  const clampToSentence = (text, max = 170) => {
+    if (!text) return '';
+    const m = text.match(/^[^.!?]+[.!?]/);
+    let first = m ? m[0] : text;
+    if (first.length > max) {
+      const cut = first.slice(0, max);
+      const lastSpace = cut.lastIndexOf(' ');
+      first = cut.slice(0, lastSpace > 80 ? lastSpace : max).replace(/[,;:\s]+$/, '') + '…';
+    }
+    return first;
+  };
   const [deltaExpanded, setDeltaExpanded] = useState(false);
   const deltaText = studyPlan.deltaFromPrevious || '';
-  const deltaFirstSentence = (() => {
-    if (!deltaText) return '';
-    const m = deltaText.match(/^[^.!?]+[.!?]/);
-    return m ? m[0] : deltaText.slice(0, 140);
-  })();
+  const deltaFirstSentence = clampToSentence(deltaText);
   const deltaHasMore = deltaText.length > deltaFirstSentence.length + 4;
+  // FINDING-001: the "stuck skill" strategy note rendered its full paragraph
+  // with no disclosure at all — same treatment as the delta note.
+  const [strategyExpanded, setStrategyExpanded] = useState(false);
+  const strategyText = studyPlan.persistentWeaknessStrategy || '';
+  const strategyFirstSentence = clampToSentence(strategyText);
+  const strategyHasMore = strategyText.length > strategyFirstSentence.length + 4;
 
   // Today's-Tasks tab derived state.
   const DAY_NAMES = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -953,7 +971,18 @@ const StudyPlanDashboard = ({
           {studyPlan.persistentWeaknessStrategy && (
             <div className="sp-note">
               <span className="sp-note-eyebrow">Stuck skill — different approach needed</span>
-              <p className="sp-note-text">{studyPlan.persistentWeaknessStrategy}</p>
+              <p className="sp-note-text">
+                {strategyExpanded ? strategyText : strategyFirstSentence}
+                {strategyHasMore && (
+                  <button
+                    type="button"
+                    className="sp-note-toggle"
+                    onClick={() => setStrategyExpanded(v => !v)}
+                  >
+                    {strategyExpanded ? 'Show less' : 'Read more'}
+                  </button>
+                )}
+              </p>
             </div>
           )}
         </div>
