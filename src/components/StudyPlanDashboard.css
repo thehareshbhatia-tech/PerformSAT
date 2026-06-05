@@ -62,7 +62,7 @@
 
 .sp-hero-meta {
   margin: 6px 0 0;
-  font-size: 13.5px;
+  font-size: 14px;
   line-height: 1.5;
   color: var(--color-slate-600);
 }
@@ -588,6 +588,22 @@
   font-variant-numeric: tabular-nums;
 }
 
+/* FINDING-009: collapsed week headers are real <button>s now — reset
+   UA button chrome so they keep the header layout, add a focus ring. */
+.sp-week-header-btn {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--color-slate-100);
+  font-family: inherit;
+  text-align: left;
+}
+.sp-week-header-btn:focus-visible {
+  outline: 2px solid var(--color-brand-primary);
+  outline-offset: -2px;
+  border-radius: 14px;
+}
+
 .sp-week-toggle {
   width: 36px;
   height: 36px;
@@ -811,6 +827,8 @@
   font-weight: 600 !important;
   border-radius: 8px !important;
   box-shadow: none !important;
+  /* FINDING-009: keep a comfortable touch target in the tight rows. */
+  min-height: 36px;
 }
 .sp-weekly-tight .ai-banner-controls .btn-launch:hover {
   transform: none !important;
@@ -977,7 +995,7 @@
 }
 .sp-weekly-tight .sp-banner.sp-banner-info .sp-banner-content {
   color: var(--color-slate-700) !important;
-  font-size: 13.5px !important;
+  font-size: 14px !important;
   font-weight: 500 !important;
 }
 
@@ -1000,7 +1018,7 @@
 .sp-weekly-tight .sp-activity-status-tag {
   top: -6px !important;
   right: 56px !important;
-  font-size: 9.5px !important;
+  font-size: 10px !important;
   padding: 2px 6px !important;
 }
 
@@ -1108,7 +1126,7 @@
   color: var(--color-slate-700);
   padding: 6px 12px;
   border-radius: 8px;
-  font-size: 12.5px;
+  font-size: 13px;
   font-weight: 600;
   cursor: pointer;
   font-family: var(--font-ui);
@@ -1166,7 +1184,7 @@
   color: #1d1d1f;
 }
 .sp-past-test-review-sub {
-  font-size: 12.5px;
+  font-size: 13px;
   color: #6b7280;
 }
 .sp-past-test-review-chev {

@@ -1065,8 +1065,12 @@ const StudyPlanDashboard = ({
 
                 return (
                   <div key={realIdx} className={`sp-week-card ${isComplete ? 'is-complete' : ''}`}>
-                    <div
-                      className="sp-week-header"
+                    {/* FINDING-009: was a div with onClick — no keyboard
+                        access, no aria-expanded. Real button now. */}
+                    <button
+                      type="button"
+                      className="sp-week-header sp-week-header-btn"
+                      aria-expanded={isOpen}
                       onClick={() => setExpandedWeek(isOpen ? null : realIdx)}
                     >
                       <div className="sp-week-title-area">
@@ -1085,7 +1089,7 @@ const StudyPlanDashboard = ({
                           <ChevronDownIcon size={16} color="currentColor" />
                         </div>
                       </div>
-                    </div>
+                    </button>
                     {isOpen && (
                       <div className="sp-week-body" style={{ borderTop: '1px solid var(--color-slate-100)' }}>
                         {renderWeekActivities(week, realIdx)}
