@@ -17,7 +17,7 @@ import { getReviewStreak } from '../services/dailyReviewEngine';
 import { formatDailyIntro } from '../services/selectors/dailyIntro';
 import { getPracticedDayKeys } from '../services/selectors/practicedDays';
 import { getCompletedTests } from '../services/selectors/completedTests';
-import { isGoalAchieved, goalDelta } from '../services/selectors/goalProgress';
+import { isGoalAchieved, goalDelta, isSectionScaleScore } from '../services/selectors/goalProgress';
 import { useFeatureFlag } from '../hooks/useFeatureFlag';
 import CalendarMonth from './CalendarMonth';
 import TodaysTasksCard from './TodaysTasksCard';
@@ -566,10 +566,13 @@ const StudyPlanDashboard = ({
           <h2 className="sp-hero-title">
             {(() => {
               const name = user?.firstName;
+              // targetScore is always a 200-800 MATH-section target; name the
+              // section so the title stays accurate when the latest headline
+              // score is a composite (scale-safety per goalProgress.js).
               const body = goalAchieved && user?.targetScore
-                ? `you're past ${user.targetScore} — the job now is holding it`
+                ? `you're past ${user.targetScore} Math — the job now is holding it`
                 : user?.targetScore
-                  ? `here's your path to ${user.targetScore}`
+                  ? `here's your path to ${user.targetScore} Math`
                   : 'here\'s your plan';
               return name
                 ? `${name}, ${body}`
@@ -578,7 +581,12 @@ const StudyPlanDashboard = ({
           </h2>
           <p className="sp-hero-meta">
             {latestScore !== null && (
-              <span><strong>{latestScore}</strong> now</span>
+              <span>
+                <strong>{latestScore}</strong>
+                {isSectionScaleScore(latestScore, { isMultiSection: latestTest?.isMultiSection })
+                  ? ' now'
+                  : ' composite now'}
+              </span>
             )}
             {user?.testDate && !testDateIsPast && daysUntilTest !== null && (
               <span>test in <strong>{daysUntilTest} day{daysUntilTest === 1 ? '' : 's'}</strong></span>
