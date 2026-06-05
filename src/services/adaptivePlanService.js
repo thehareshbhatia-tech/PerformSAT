@@ -19,10 +19,12 @@
 
 import { getDueReviewCount } from './reviewService';
 import { buildLongitudinalEvidence } from './studyPlanMerger';
+import { parseLocalDate } from '../utils/localDate';
 
 const daysUntil = (dateStr) => {
   if (!dateStr) return null;
-  const t = new Date(dateStr);
+  const t = parseLocalDate(dateStr);
+  if (!t) return null;
   const now = new Date();
   t.setHours(0, 0, 0, 0);
   now.setHours(0, 0, 0, 0);

@@ -29,7 +29,8 @@ const MODULE_INFO = {
  */
 const getDaysUntil = (dateStr) => {
   if (!dateStr) return null;
-  const targetDate = new Date(dateStr);
+  const targetDate = parseLocalDate(dateStr);
+  if (!targetDate) return null;
   const today = new Date();
   today.setHours(0, 0, 0, 0);
   targetDate.setHours(0, 0, 0, 0);

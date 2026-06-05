@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { colors, typography, spacing, radius, shadows, transitions } from '../design/tokens';
 import { cardStyles, inputStyles } from '../design/components';
 import { Button } from './ui/Button';
+import { parseLocalDate } from '../utils/localDate';
 
 const StatCard = ({ label, value, total }) => (
   <div
@@ -113,7 +114,10 @@ const Profile = ({
   const formatDate = (dateStr) => {
     if (!dateStr) return 'Not set';
     try {
-      return new Date(dateStr).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+      // parseLocalDate: 'YYYY-MM-DD' must parse as LOCAL midnight — UTC
+      // parse displayed the previous day in negative-offset timezones.
+      const d = parseLocalDate(dateStr);
+      return d ? d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) : dateStr;
     } catch {
       return dateStr;
     }

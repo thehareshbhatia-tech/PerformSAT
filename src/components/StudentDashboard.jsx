@@ -293,8 +293,10 @@ const StudentDashboard = ({
 
   const formatTestDate = (dateStr) => {
     if (!dateStr) return '';
-    const date = new Date(dateStr);
-    return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+    // parseLocalDate: date-only strings must parse as LOCAL midnight (UTC
+    // parse shows the previous day in negative-offset timezones).
+    const date = parseLocalDate(dateStr);
+    return date ? date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : '';
   };
 
   const handleSelectDate = (dateValue) => {
