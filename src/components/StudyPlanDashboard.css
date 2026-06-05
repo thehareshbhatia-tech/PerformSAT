@@ -1280,7 +1280,9 @@
   transform: translateY(1px);
 }
 .sp-past-test-review-icon {
-  font-size: 22px;
+  display: inline-flex;
+  align-items: center;
+  color: var(--color-brand-primary, #ea580c);
   line-height: 1;
   flex-shrink: 0;
 }

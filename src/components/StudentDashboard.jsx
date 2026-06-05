@@ -18,7 +18,7 @@ import { formatDailyIntro } from '../services/selectors/dailyIntro';
 import { getMathWeaknesses, getRWWeaknesses } from '../services/selectors/weaknesses';
 import { isGoalAchieved, goalDelta } from '../services/selectors/goalProgress';
 import { buildPacingTelemetry } from '../services/selectors/pacingTelemetry';
-import { PlayIcon, ChartBarIcon, TrendingUpIcon } from '../design/icons';
+import { PlayIcon, ChartBarIcon, TrendingUpIcon, ClipboardIcon } from '../design/icons';
 import { injectAnimations, useCountUp } from '../design/animations';
 import { DataCard } from './ui/DataCard';
 import { PrimaryButton, SecondaryButton } from './ui/Button';
@@ -406,9 +406,9 @@ const StudentDashboard = ({
             />
           ) : (
             <div className="studyplan-empty-state">
-              <div className="empty-state-icon">📋</div>
+              <div className="empty-state-icon"><ClipboardIcon size={36} /></div>
               <h3>No Study Plan Yet</h3>
-              <p>Take a practice test to generate your personalized study plan. Our AI will analyze your strengths and weaknesses to create a targeted plan.</p>
+              <p>Take one practice test. Your plan gets built from every answer — which skills cost you points, where you rush, and what to fix first.</p>
               <button className="btn-primary" onClick={onStartPracticeTest}>Start Practice Test</button>
             </div>
           )}
@@ -572,7 +572,7 @@ const StudentDashboard = ({
           {studyPlan?.weeks?.length ? (
             <div className="studyplan-teaser-card" onClick={() => setActiveTab('studyPlan')} role="button" tabIndex={0} onKeyDown={(e) => e.key === 'Enter' && setActiveTab('studyPlan')}>
               <div className="teaser-header">
-                <span className="teaser-icon">📋</span>
+                <span className="teaser-icon"><ClipboardIcon size={18} /></span>
                 <h3>Your Study Plan</h3>
                 {studyPlanArtifact?.delta?.skillChanges?.length > 0 && (
                   <span className="teaser-badge">Updated</span>

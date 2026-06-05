@@ -657,7 +657,9 @@
 }
 
 .studyplan-empty-state .empty-state-icon {
-  font-size: 3rem;
+  display: flex;
+  justify-content: center;
+  color: var(--color-brand-primary, #ea580c);
   margin-bottom: 1rem;
 }
 
@@ -722,7 +724,9 @@
 }
 
 .teaser-icon {
-  font-size: 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  color: var(--color-brand-primary, #ea580c);
 }
 
 .teaser-badge {

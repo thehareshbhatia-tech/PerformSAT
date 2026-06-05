@@ -566,7 +566,7 @@ const StudyPlanDashboard = ({
             className="sp-past-test-review-btn"
             onClick={onReviewPastTests}
           >
-            <span className="sp-past-test-review-icon" aria-hidden="true">📋</span>
+            <span className="sp-past-test-review-icon" aria-hidden="true"><ClipboardIcon size={18} /></span>
             <span className="sp-past-test-review-text">
               <span className="sp-past-test-review-title">Review your tests</span>
               <span className="sp-past-test-review-sub">
@@ -792,17 +792,23 @@ const StudyPlanDashboard = ({
           {delta.skillChanges?.length > 0 && (
             <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', marginTop: '6px' }}>
               {(showAllSkillChanges ? delta.skillChanges : delta.skillChanges.slice(0, 2)).map((sc, i) => {
-                const icon = sc.direction === 'improved' ? '✅' : sc.direction === 'worsened' ? '⚠️' : sc.direction === 'new' ? '🆕' : '✨';
+                // No-emoji rule: a colored dot (same convention as
+                // ttc-adherence-dot) carries the direction; the label
+                // carries the evidence.
+                const dotColor = sc.direction === 'improved' ? 'var(--color-success-500)'
+                  : sc.direction === 'worsened' ? 'var(--color-error-500)'
+                  : sc.direction === 'new' ? 'var(--color-brand-primary)'
+                  : 'var(--color-slate-400)';
                 const label = sc.direction === 'improved'
                   ? `${sc.skill}: ${sc.oldAccuracy}% → ${sc.newAccuracy}%`
                   : sc.direction === 'worsened'
                   ? `${sc.skill}: ${sc.oldAccuracy}% → ${sc.newAccuracy}%`
                   : sc.direction === 'new'
-                  ? `${sc.skill}: new weakness detected`
-                  : `${sc.skill}: resolved!`;
+                  ? `${sc.skill}: new gap found on this test`
+                  : `${sc.skill}: was ${sc.oldAccuracy}%, no longer a weakness`;
                 return (
                   <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px', color: '#334155' }}>
-                    <span>{icon}</span>
+                    <span aria-hidden="true" style={{ width: '7px', height: '7px', borderRadius: '50%', background: dotColor, flexShrink: 0 }} />
                     <span>{label}</span>
                   </div>
                 );

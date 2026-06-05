@@ -216,7 +216,7 @@ const QuestionBreakdown = ({ questionAnalysis }) => {
             { key: 'all', label: `All (${questionAnalysis.length})` },
             ...Object.entries(errorCounts).map(([type, count]) => ({
               key: type,
-              label: `${ERROR_TYPE_ICONS[type] || ''} ${ERROR_TYPE_LABELS[type] || type} (${count})`,
+              label: `${ERROR_TYPE_ICONS[type] || ''} ${ERROR_TYPE_LABELS[type] || type} (${count})`.trim(),
             })),
           ].map(chip => (
             <button

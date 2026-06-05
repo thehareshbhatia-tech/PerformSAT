@@ -152,13 +152,18 @@ const ERROR_TYPE_DESCRIPTIONS = {
   [ERROR_TYPES.UNANSWERED]: "You didn't answer this question",
 };
 
+// No-emoji rule (project-wide hard rule): these were emoji glyphs leaking
+// into DiagnosticReport, PastTestReview, and errorRecoveryService labels.
+// Values are intentionally empty strings — string interpolations drop the
+// icon cleanly and `|| '•'` fallbacks render a typographic bullet. Per-
+// surface SVG icons are the eventual replacement (deferred sweep).
 const ERROR_TYPE_ICONS = {
-  [ERROR_TYPES.CONCEPTUAL_GAP]: '🧠',
-  [ERROR_TYPES.PROCEDURAL_ERROR]: '📝',
-  [ERROR_TYPES.TRAP_SUSCEPTIBILITY]: '🪤',
-  [ERROR_TYPES.TIME_PRESSURE]: '⏱️',
-  [ERROR_TYPES.CARELESS_ERROR]: '⚡',
-  [ERROR_TYPES.UNANSWERED]: '⬜',
+  [ERROR_TYPES.CONCEPTUAL_GAP]: '',
+  [ERROR_TYPES.PROCEDURAL_ERROR]: '',
+  [ERROR_TYPES.TRAP_SUSCEPTIBILITY]: '',
+  [ERROR_TYPES.TIME_PRESSURE]: '',
+  [ERROR_TYPES.CARELESS_ERROR]: '',
+  [ERROR_TYPES.UNANSWERED]: '',
 };
 
 const ERROR_TYPE_COLORS = {

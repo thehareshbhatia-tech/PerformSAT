@@ -11,7 +11,7 @@ import { cardStyles, buttonStyles } from '../design/components';
 import { MathText } from './MathText';
 import { isGoalAchieved } from '../services/selectors/goalProgress';
 import './TestResults.css';
-import { ChartBarIcon, ArrowRightIcon } from '../design/icons';
+import { ChartBarIcon, ArrowRightIcon, BookOpenIcon, PencilIcon, BrainIcon, SearchIcon, PinIcon } from '../design/icons';
 import QuestionInsightCard from './QuestionInsightCard';
 import {
   scoreTest, convertToSATScore, isAnswerCorrect, estimatePercentile,
@@ -1723,7 +1723,13 @@ const TestResults = ({
               {savedStudyPlan && savedStudyPlan.weeks && savedStudyPlan.weeks.length > 0 && (() => {
                 const week1 = savedStudyPlan.weeks[0];
                 const activities = (week1.activities || []).slice(0, 3);
-                const typeIcons = { lesson: '📖', practice: '✏️', strategy: '🎯', review: '🔄' };
+                // No-emoji rule: SVG icons matching StudyPlanDashboard's activityIcon map.
+                const typeIcons = {
+                  lesson: <BookOpenIcon size={18} />,
+                  practice: <PencilIcon size={18} />,
+                  strategy: <BrainIcon size={18} />,
+                  review: <SearchIcon size={18} />,
+                };
                 return (
                   <div style={{
                     marginTop: '16px', padding: '24px', borderRadius: 'var(--radius-lg)',
@@ -1742,7 +1748,7 @@ const TestResults = ({
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                       {activities.map((act, ai) => (
                         <div key={ai} style={{ display: 'flex', alignItems: 'center', gap: '16px', padding: '12px', background: '#fff', borderRadius: '8px', border: '1px solid rgba(0,0,0,0.05)', boxShadow: 'var(--shadow-sm)' }}>
-                          <span style={{ fontSize: '18px', flexShrink: 0 }}>{typeIcons[act.type] || '📋'}</span>
+                          <span style={{ display: 'inline-flex', alignItems: 'center', color: 'var(--color-slate-500)', flexShrink: 0 }}>{typeIcons[act.type] || <PinIcon size={18} />}</span>
                           <div style={{ flex: 1, minWidth: 0 }}>
                             <div style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', fontWeight: '600', color: 'var(--color-slate-800)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{act.title}</div>
                           </div>
