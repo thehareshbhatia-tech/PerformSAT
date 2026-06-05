@@ -22,6 +22,7 @@ import { getSkillById, skillTaxonomy } from '../data/skillTaxonomy';
 import { ERROR_TYPES, ERROR_TYPE_LABELS, ERROR_TYPE_ICONS } from './diagnosticEngine';
 import { generatePracticeAssignments, buildAdaptiveQueueSeed, buildStrengthFocusAssignments, serializeAdaptiveState, createAdaptiveSessionState } from './practiceAssignmentService';
 import { SKILL_ALIAS_MAP, getQuestionById } from '../data/questions/bank';
+import { parseLocalDate } from '../utils/localDate';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // CONSTANTS
@@ -1041,7 +1042,10 @@ const buildDeterministicDiagnosis = (diagnostic, skillGaps) => {
 
 const getDaysUntil = (dateStr) => {
   if (!dateStr) return null;
-  const target = new Date(dateStr);
+  // parseLocalDate: date-only strings must parse as LOCAL midnight, or the
+  // UTC shift makes every plan one day shorter in negative-offset timezones.
+  const target = parseLocalDate(dateStr);
+  if (!target) return null;
   const today = new Date();
   today.setHours(0, 0, 0, 0);
   target.setHours(0, 0, 0, 0);

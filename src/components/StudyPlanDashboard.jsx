@@ -18,6 +18,7 @@ import { formatDailyIntro } from '../services/selectors/dailyIntro';
 import { getPracticedDayKeys } from '../services/selectors/practicedDays';
 import { getCompletedTests } from '../services/selectors/completedTests';
 import { isGoalAchieved, goalDelta, isSectionScaleScore } from '../services/selectors/goalProgress';
+import { parseLocalDate } from '../utils/localDate';
 import { useFeatureFlag } from '../hooks/useFeatureFlag';
 import CalendarMonth from './CalendarMonth';
 import TodaysTasksCard from './TodaysTasksCard';
@@ -217,7 +218,7 @@ const StudyPlanDashboard = ({
   const daysUntilTest = (() => {
     if (!user?.testDate) return null;
     const today = new Date(); today.setHours(0, 0, 0, 0);
-    const test = new Date(user.testDate); test.setHours(0, 0, 0, 0);
+    const test = parseLocalDate(user.testDate); if (!test) return null; test.setHours(0, 0, 0, 0);
     return Math.ceil((test - today) / (1000 * 60 * 60 * 24));
   })();
   const testDateIsPast = daysUntilTest !== null && daysUntilTest < 0;
@@ -1238,7 +1239,7 @@ const StudyPlanDashboard = ({
                 <div className="dashboard-tile-sub">
                   {testDateIsPast
                     ? `Was ${Math.abs(daysUntilTest)} days ago — update in settings`
-                    : new Date(user.testDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+                    : parseLocalDate(user.testDate)?.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
                 </div>
               </div>
             )}

@@ -19,6 +19,7 @@ import { getMathWeaknesses, getRWWeaknesses } from '../services/selectors/weakne
 import { isGoalAchieved, goalDelta } from '../services/selectors/goalProgress';
 import { buildPacingTelemetry } from '../services/selectors/pacingTelemetry';
 import { PlayIcon, ChartBarIcon, TrendingUpIcon, ClipboardIcon } from '../design/icons';
+import { parseLocalDate } from '../utils/localDate';
 import { injectAnimations, useCountUp } from '../design/animations';
 import { DataCard } from './ui/DataCard';
 import { PrimaryButton, SecondaryButton } from './ui/Button';
@@ -187,7 +188,10 @@ const StudentDashboard = ({
 
   const getDaysUntilTest = () => {
     if (!user?.testDate) return null;
-    const testDate = new Date(user.testDate);
+    // parseLocalDate: 'YYYY-MM-DD' must parse as LOCAL midnight — UTC parse
+    // shifted the date a day earlier in negative-offset timezones.
+    const testDate = parseLocalDate(user.testDate);
+    if (!testDate) return null;
     const today = new Date();
     today.setHours(0, 0, 0, 0);
     testDate.setHours(0, 0, 0, 0);
@@ -648,7 +652,7 @@ const StudentDashboard = ({
                     <div className="dashboard-tile-sub">
                       {testDateIsPast
                         ? `Was ${Math.abs(daysUntilTest)} days ago — update in settings`
-                        : new Date(user.testDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+                        : parseLocalDate(user.testDate)?.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
                     </div>
                   </div>
                 )}
