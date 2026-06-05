@@ -41,20 +41,23 @@ import './StudentDashboard.css';
 // Helpers
 // ---------------------------------------------------------------------------
 
+// Design-review FINDING-007: activity accents were semantic.info (blue) and
+// badge.bronze (a token that actually resolves to blue) — off-brand in an
+// orange app. One accent (brand) for actionable rows, quiet slate for tips.
 const TYPE_META = {
-  lesson:   { label: 'Lesson',   fg: colors.semantic.info },
-  practice: { label: 'Practice', fg: colors.semantic.success },
-  strategy: { label: 'Tip',      fg: colors.semantic.info },
-  review:   { label: 'Tip',      fg: colors.badge.bronze },
-  test:     { label: 'Test',     fg: colors.semantic.info },
+  lesson:   { label: 'Lesson',   fg: colors.text.tertiary },
+  practice: { label: 'Practice', fg: colors.focus },
+  strategy: { label: 'Tip',      fg: colors.text.tertiary },
+  review:   { label: 'Tip',      fg: colors.text.tertiary },
+  test:     { label: 'Test',     fg: colors.focus },
 };
 
 function activityIcon(type) {
-  if (type === 'lesson')   return <BookOpenIcon size={16} color={colors.semantic.info} />;
-  if (type === 'practice') return <PencilIcon size={16} color={colors.semantic.success} />;
-  if (type === 'strategy') return <BrainIcon size={16} color={colors.semantic.info} />;
-  if (type === 'review')   return <SearchIcon size={16} color={colors.badge.bronze} />;
-  if (type === 'test')     return <DocumentIcon size={16} color={colors.semantic.info} />;
+  if (type === 'lesson')   return <BookOpenIcon size={16} color={colors.text.tertiary} />;
+  if (type === 'practice') return <PencilIcon size={16} color={colors.focus} />;
+  if (type === 'strategy') return <BrainIcon size={16} color={colors.text.tertiary} />;
+  if (type === 'review')   return <SearchIcon size={16} color={colors.text.tertiary} />;
+  if (type === 'test')     return <DocumentIcon size={16} color={colors.focus} />;
   return <PinIcon size={16} color={colors.text.secondary} />;
 }
 
@@ -437,29 +440,27 @@ const StudyPlanDashboard = ({
     const tips = act.tips || [];
     const meta = TYPE_META[act.type] || TYPE_META.lesson;
 
+    // FINDING-007: the completion toggle was absolutely positioned at the
+    // card's top-right corner (-10px outside it), floating detached over the
+    // border; tips wore colored left-border bars (AI-slop pattern, in blue).
+    // The toggle now leads the row like a checklist; tips are a quiet
+    // dot-list in slate.
     return (
       <div className="ai-practice-banner" style={{ marginBottom: '16px', opacity: done ? 0.6 : 1, filter: done ? 'grayscale(1)' : 'none', position: 'relative' }}>
-        {/* Toggle checkmark */}
         <button
+          type="button"
+          className={`sp-act-toggle${done ? ' is-done' : ''}`}
+          aria-label={done ? `Mark "${act.title}" incomplete` : `Mark "${act.title}" complete`}
           onClick={(e) => handleToggle(e, weekIdx, actIdx, done)}
-          style={{
-            position: 'absolute', top: '-10px', right: '-10px',
-            width: '28px', height: '28px', borderRadius: '50%',
-            border: done ? 'none' : `2px solid var(--color-slate-300)`,
-            background: done ? 'var(--color-success-500)' : '#fff',
-            color: '#fff', cursor: 'pointer', display: 'flex', alignItems: 'center',
-            justifyContent: 'center', padding: 0, transition: 'all 0.2s',
-            zIndex: 10, boxShadow: 'var(--shadow-sm)'
-          }}
         >
-          {done && <CheckIcon size={16} color="#fff" />}
+          {done && <CheckIcon size={14} color="#fff" />}
         </button>
 
         <div className="ai-banner-content" style={{ flex: 1 }}>
-          <div className="ai-banner-icon" style={{ 
-            background: done ? 'var(--color-slate-100)' : `${meta.fg}15`, 
+          <div className="ai-banner-icon" style={{
+            background: done ? 'var(--color-slate-100)' : 'var(--color-slate-50)',
             color: done ? 'var(--color-slate-400)' : meta.fg,
-            borderColor: done ? 'var(--color-slate-200)' : `${meta.fg}40`
+            borderColor: 'var(--color-slate-200)'
           }}>
             {activityIcon(act.type)}
           </div>
@@ -471,17 +472,13 @@ const StudyPlanDashboard = ({
               {meta.label} {act.type === 'test' ? '· High Priority' : ''}
             </div>
             {isTip && tips.length > 0 && !done && (
-              <div style={{ marginTop: '0.5rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+              <ul className="sp-act-tips">
                 {tips.map((tip, i) => (
-                  <div key={i} style={{
-                    fontSize: '0.875rem', color: 'var(--color-slate-700)', lineHeight: '1.5',
-                    paddingLeft: '12px', borderLeft: `3px solid ${meta.fg}`,
-                    background: `${meta.fg}10`, padding: '8px 12px', borderRadius: '0 8px 8px 0'
-                  }}>
+                  <li key={i} className="sp-act-tip">
                     <MathText>{tip}</MathText>
-                  </div>
+                  </li>
                 ))}
-              </div>
+              </ul>
             )}
           </div>
         </div>
