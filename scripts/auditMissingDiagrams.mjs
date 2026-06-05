@@ -78,9 +78,15 @@ async function loadItems(file) {
   try {
     const mod = await import(url);
     const items = [];
-    // Practice tests: { practiceTestN: { sections: [...] | modules: [...] } } and named exports
+    // Practice tests: { practiceTestN: { sections: [...] | modules: [...] } } and named exports.
+    // The files export the same object as BOTH a named export and `default`;
+    // dedupe by reference or every item is scanned twice and the per-file
+    // summary double-counts (it used to report 4 missing where there were 2).
+    const seenVals = new Set();
     for (const [name, val] of Object.entries(mod)) {
       if (!val || typeof val !== 'object') continue;
+      if (seenVals.has(val)) continue;
+      seenVals.add(val);
 
       // Direct array of items? (rare)
       if (Array.isArray(val) && val[0]?.id && val[0]?.question) {
@@ -98,6 +104,16 @@ async function loadItems(file) {
         }
       };
       collect(val);
+
+      // Single-module shape (the practiceTestNM2Easy files): the export IS
+      // one module — { id: 'module-2-easy', questions: [...] } — with no
+      // modules/sections wrapper. Without this branch all 12 M2Easy files
+      // scanned 0 items and were never audited.
+      if (!val.modules && !val.sections && Array.isArray(val.questions)) {
+        for (const q of val.questions) {
+          items.push({ ...q, _source: name, _module: val.id || name });
+        }
+      }
 
       // Bank shards export named arrays of items
       if (Array.isArray(val) && val.length && val[0]?.question) {
