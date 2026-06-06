@@ -9,6 +9,7 @@ import AnswerChoiceList from './shared/AnswerChoiceList';
 import { formatDiagnosticSentence } from '../services/diagnosticEngine';
 import { findRoundIndexForQuestion, computeRoundProgress } from '../services/buildRounds';
 import { getDrillChipForWeakness } from '../services/selectors/drillChip';
+import { getDesmosTip } from '../services/selectors/desmosTip';
 import { decideTier } from '../data/questions/bank';
 import { trackDrillStarted, trackDrillChipShown } from '../services/analyticsService';
 import './AssignedPracticeShell.css';
@@ -779,6 +780,20 @@ const AssignedPracticeShell = ({
                     </p>
                   );
                 })()}
+
+              {/* Desmos route — the calculator play for this question family (math only) */}
+              {(() => {
+                const tip = getDesmosTip(currentQuestion);
+                if (!tip) return null;
+                return (
+                  <div style={{ marginTop: '12px', background: 'rgba(71,85,105,0.07)', borderRadius: '10px', padding: '12px 16px', borderLeft: '3px solid #475569' }}>
+                    <div style={{ fontSize: '12px', fontWeight: '600', color: '#475569', marginBottom: '4px' }}>
+                      Desmos route — {tip.name} ({tip.timeEstimate})
+                    </div>
+                    <p style={{ fontSize: '14px', color: C.text, lineHeight: 1.5, margin: 0 }}>{tip.technique}</p>
+                  </div>
+                );
+              })()}
 
               {/* Try-similar — only when wrong (E4) and skill pool isn't exhausted (GAP-3) */}
               {!practiceState.answers[currentQuestion.id]?.correct && typeof onTrySimilar === 'function' && (

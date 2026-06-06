@@ -4,6 +4,7 @@ import QuestionDiagram from './QuestionDiagrams';
 import QuestionRenderer from './QuestionRenderer';
 import SolutionExplanation from './SolutionExplanation';
 import { formatPatternLabel } from '../services/selectors/missedPatternLabel';
+import { getDesmosTip } from '../services/selectors/desmosTip';
 import { decideTier } from '../data/questions/bank';
 import { trackDrillStarted, trackDrillChipShown } from '../services/analyticsService';
 
@@ -690,6 +691,20 @@ const AdaptivePracticeShell = ({
                 {practiceState.answers[currentQuestion.id]?.correct ? 'Correct!' : 'Incorrect'}
               </div>
               <SolutionExplanation explanation={currentQuestion.explanation} />
+
+              {/* Desmos route — the calculator play for this question family (math only) */}
+              {(() => {
+                const tip = getDesmosTip(currentQuestion);
+                if (!tip) return null;
+                return (
+                  <div style={{ marginTop: '12px', background: 'rgba(71,85,105,0.07)', borderRadius: '10px', padding: '12px 16px', borderLeft: '3px solid #475569' }}>
+                    <div style={{ fontSize: '12px', fontWeight: '600', color: '#475569', marginBottom: '4px' }}>
+                      Desmos route — {tip.name} ({tip.timeEstimate})
+                    </div>
+                    <p style={{ fontSize: '14px', color: C.text, lineHeight: 1.5, margin: 0 }}>{tip.technique}</p>
+                  </div>
+                );
+              })()}
             </div>
           )}
 

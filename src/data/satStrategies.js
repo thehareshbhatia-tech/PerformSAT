@@ -165,46 +165,156 @@ export const misconceptionGuides = {
 export const desmosTechniques = {
   systems: {
     name: 'Systems of Equations',
-    technique: 'Type equation 1 as y = ... on line 1, equation 2 as y = ... on line 2. Tap the intersection point. That is your answer.',
-    when: 'Any system of two equations asking for the solution.',
+    technique: 'Enter equation 1 on line 1 and equation 2 on line 2, exactly as written — no rearranging needed. Click the intersection point; its (x, y) coordinates are the solution. No intersection means no solution; identical overlapping graphs mean infinitely many.',
+    when: 'Any system of two equations asking for the solution or one coordinate of it.',
+    timeEstimate: '15 seconds',
+  },
+  'single-variable': {
+    name: 'Solve Any One-Variable Equation',
+    technique: 'Type the equation exactly as written (2x + 3 = 11) and Desmos draws a vertical line at the solution. If the variable is not x (3p + 10 = 25), rewrite it with x first — otherwise Desmos offers a slider instead of solving. Backup: graph y = [left side] and y = [right side] on separate lines and click the intersection; its x-coordinate is the solution.',
+    when: 'Linear, absolute value, radical, rational, or exponential — any single-variable equation.',
     timeEstimate: '15 seconds',
   },
   'solution-count': {
     name: 'Number of Solutions',
-    technique: 'Type left side as y = [left], right side as y = [right]. Count the number of intersection points.',
-    when: '"How many solutions does this equation have?"',
+    technique: 'Graph y = [left side] and y = [right side] on separate lines and count intersection points. Zero intersections means no real solutions; identical graphs mean infinitely many. Zoom out before concluding zero — a crossing may sit outside the window.',
+    when: '"How many solutions does this equation (or system) have?"',
     timeEstimate: '10 seconds',
   },
   quadratic: {
     name: 'Quadratic Analysis',
-    technique: 'Type y = [quadratic]. The vertex gives min/max. The x-intercepts are the solutions. Read them directly from the graph.',
-    when: 'Any question about vertex, minimum, maximum, roots, or x-intercepts.',
+    technique: 'Type y = [quadratic] and click the curve — Desmos marks the vertex and intercepts with gray dots. Click a dot to read its exact coordinates. Vertex answers max/min questions; x-intercepts answer roots/zeros/solutions questions.',
+    when: 'Any question about a vertex, minimum, maximum, roots, zeros, or intercepts.',
     timeEstimate: '15 seconds',
   },
   'parameter-slider': {
-    name: 'Finding Unknown Parameters',
-    technique: 'Type the equation but replace the unknown constant with a slider variable (e.g., k). Adjust the slider until the graph matches the condition (one solution = tangent, no solution = no intersection).',
-    when: '"What value of k gives exactly one solution?"',
+    name: 'Unknown Constant via Slider',
+    technique: 'Enter the equation keeping the unknown constant as a letter other than x or y, then click "add slider." Drag until the graph meets the stated condition — tangent for exactly one solution, no crossing for no solution, or passing through a required point. The slider value at that moment is the answer. Click the slider endpoints to widen its range if needed.',
+    when: '"For what value of the constant does the equation have exactly one solution / no solution / pass through (a, b)?"',
     timeEstimate: '20 seconds',
   },
   'verify-answer': {
     name: 'Answer Verification',
-    technique: 'Type your equation and your solved answer as a point. If the point falls on the curve, your answer is correct.',
-    when: 'After solving any equation — takes 5 seconds to verify.',
+    technique: 'After solving by hand, type the original equation and your answer as a point, or substitute it on a new line. If the point lands on the graph (or both sides evaluate equal), move on with confidence.',
+    when: 'After any hand-solved equation — cheap insurance against arithmetic slips.',
     timeEstimate: '5 seconds',
+  },
+  'function-evaluation': {
+    name: 'Define and Evaluate Functions',
+    technique: 'Define the function on one line (f(x) = 3x^2 - 4x), then type f(3) on the next line to evaluate. Combinations work too: f(2) - g(1). For "for what value of x does f(x) = 10," graph the function plus the horizontal line y = 10 and click the intersection.',
+    when: 'Any f(x) evaluation, combined-function arithmetic, or find-the-input question.',
+    timeEstimate: '10 seconds',
   },
   'table-lookup': {
     name: 'Function Value Lookup',
-    technique: 'Type the function, switch to table view, and read f(x) values directly. For f(3) + f(-1), just look up both values.',
-    when: 'Any f(x) evaluation question or "find f(a) + f(b)" question.',
+    technique: 'Type the function, open a table for it, and read the outputs directly. For f(3) + f(-1), look up both rows and add.',
+    when: 'Repeated evaluations of the same function at several inputs.',
     timeEstimate: '10 seconds',
+  },
+  'equivalent-expressions': {
+    name: 'Equivalent-Expression Overlap Test',
+    technique: 'Graph the given expression as y = [expression] on line 1, then each answer choice on the lines below. The choice whose graph lies exactly on top of the original is the equivalent one. Click a colored circle to flash that curve off and on — if the original never peeks out from under it, the overlap is perfect.',
+    when: '"Which expression is equivalent to ...?" — skips the algebra entirely.',
+    timeEstimate: '20 seconds',
   },
   'inequality-region': {
     name: 'Inequality Graphing',
-    technique: 'Type the inequality directly (e.g., y > 2x + 1). Desmos shades the solution region. Check which point(s) fall in the shaded area.',
-    when: '"Which point satisfies the inequality?" or "Which region represents the solutions?"',
+    technique: 'Type the inequality directly (y > 2x + 1) and Desmos shades the solution region. For a system of inequalities, enter both — the answer lives where the shaded regions overlap. Type <= and >= for the closed versions.',
+    when: '"Which point satisfies the inequality (or system)?" or any shaded-region question.',
     timeEstimate: '10 seconds',
   },
+  'store-values': {
+    name: 'Store Values as Variables',
+    technique: 'Assign letters on their own lines (a = 19, b = -37), then compute with them on the next line ((a^2 + 2b)/(a - b)). Desmos keeps exact values, so nothing is lost to mid-problem rounding.',
+    when: 'Multi-step numeric evaluation where retyping or rounding invites errors.',
+    timeEstimate: '20 seconds',
+  },
+  'fraction-toggle': {
+    name: 'Decimal-to-Fraction Toggle',
+    technique: 'When a result displays as a decimal, click the fraction button beside it to convert to the exact fraction (5.125 becomes 41/8).',
+    when: 'Your result is a decimal but the answer choices are fractions, or vice versa.',
+    timeEstimate: '3 seconds',
+  },
+  'percent-shortcut': {
+    name: 'Percent Operator',
+    technique: 'Type a number with the % sign (35%) and Desmos prompts "of" — complete it (35% of 80) to get the value directly, no decimal conversion needed.',
+    when: 'Quick percent-of computations inside a longer problem.',
+    timeEstimate: '5 seconds',
+  },
+  regression: {
+    name: 'Table + Regression',
+    technique: 'Type "table" and enter the points (x-values under x_1, y-values under y_1). On a new line type y_1 ~ mx_1 + b — the tilde (not =) tells Desmos to fit, and the subscript-1 names tie the model to your table. Desmos reports m and b. For curved data swap the model: y_1 ~ ax_1^2 + bx_1 + c (quadratic) or y_1 ~ ab^(x_1) (exponential).',
+    when: 'Given data points and asked for a line/curve of best fit, a trend slope, or a model constant.',
+    timeEstimate: '40 seconds',
+  },
+  statistics: {
+    name: 'Statistics Commands',
+    technique: 'Type mean(85, 90, 78), median(...), stdev(...) for sample standard deviation, or stdevp(...) for population. Better: store the list once as L = [85, 90, 78] and run mean(L) or median(L) without retyping the numbers.',
+    when: 'Any mean, median, or standard-deviation computation — especially when comparing two data sets.',
+    timeEstimate: '15 seconds',
+  },
+  'number-theory': {
+    name: 'LCM, GCF, and Remainders',
+    technique: 'Type lcm(10, 20) for the least common multiple and gcd(10, 20) for the greatest common factor (gcf also works; both accept more than two inputs). For remainders, mod(155, 7) gives the remainder when 155 is divided by 7.',
+    when: 'Factor/multiple questions and "what is the remainder" questions.',
+    timeEstimate: '5 seconds',
+  },
+  'distance-midpoint': {
+    name: 'Distance and Midpoint Commands',
+    technique: 'Type distance((1, 2), (4, 6)) or midpoint((1, 2), (4, 6)) directly. Cleaner: store the points first (A = (1, 2), B = (4, 6)) and run distance(A, B) — Desmos also plots the stored points so you can see the setup.',
+    when: 'Distance or midpoint between coordinates — no formula recall needed.',
+    timeEstimate: '10 seconds',
+  },
+  'circle-geometry': {
+    name: 'Graph the Circle',
+    technique: 'Type the circle equation exactly as given — Desmos draws it, and you can read the center and radius off the graph. Add any points or lines from the problem on the lines below to see tangency, intersections, or inside/outside relationships instead of sketching by hand.',
+    when: 'Circle equations and any coordinate-geometry setup described without a figure.',
+    timeEstimate: '20 seconds',
+  },
+  'domain-restriction': {
+    name: 'Domain Restriction Braces',
+    technique: 'Append curly braces to limit a graph to an interval: f(x) = x^2 {x > 0} draws only the right half. Compound conditions work too: {0 <= x <= 5}.',
+    when: 'Piecewise functions or any "for x greater than ..." condition.',
+    timeEstimate: '10 seconds',
+  },
+  'angle-mode': {
+    name: 'Radian/Degree Check',
+    technique: 'Before any trig computation, open the wrench (settings) icon and confirm the angle mode matches the question. The test version defaults to DEGREES while desktop Desmos defaults to radians, so students who practice on the desktop site get burned both directions. The wrong mode returns a wrong answer with no warning — the most expensive silent Desmos mistake.',
+    when: 'Every trigonometry question, before typing anything else.',
+    timeEstimate: '3 seconds',
+  },
+  'zoom-window': {
+    name: 'Fix the Viewing Window',
+    technique: 'If you graph something and see nothing, the graph is outside the default window — zoom out with the minus button or press the home icon to reset. For models with large numbers (populations, prices), set the axis ranges in settings instead of scrolling.',
+    when: 'Any time a graph appears blank or an expected intersection seems missing.',
+    timeEstimate: '5 seconds',
+  },
+  'when-to-skip': {
+    name: 'When NOT to Use Desmos',
+    technique: 'One-step arithmetic and simple algebra are faster in your head or on paper — typing costs more than it saves. Desmos pays off on systems, tangency and solution-count conditions, regressions, statistics, and equations with messy numbers. When in doubt: solve by hand, then spend 5 seconds verifying in Desmos.',
+    when: 'Deciding whether to open the calculator at all.',
+    timeEstimate: '0 seconds',
+  },
+};
+
+// Weak-skill id → the Desmos play that attacks that skill. Keys align with
+// the canonical skill ids carried on studyPlan.weaknesses and question.skills.
+export const DESMOS_SKILL_MAP = {
+  'systems-of-equations': 'systems',
+  'linear-equations': 'single-variable',
+  'linear-functions': 'single-variable',
+  'quadratic-equations': 'quadratic',
+  'polynomial-functions': 'function-evaluation',
+  'function-interpretation': 'function-evaluation',
+  'circle-equations': 'circle-geometry',
+  inequalities: 'inequality-region',
+  'exponential-functions': 'regression',
+  statistics: 'statistics',
+  'data-analysis': 'statistics',
+  percents: 'percent-shortcut',
+  'percent-change': 'percent-shortcut',
+  trigonometry: 'angle-mode',
+  'coordinate-geometry': 'distance-midpoint',
 };
 
 /**
@@ -253,6 +363,21 @@ export const getRelevantStrategies = (errorPatterns, weakSkillIds) => {
     });
   }
 
+  // Match Desmos plays to weak skills (at most one — the most relevant play,
+  // so Desmos coaching never crowds out trap/misconception guidance)
+  if (weakSkillIds && Array.isArray(weakSkillIds)) {
+    const desmosKey = weakSkillIds
+      .map(skillId => DESMOS_SKILL_MAP[skillId])
+      .find(key => key && desmosTechniques[key]);
+    if (desmosKey) {
+      strategies.push({
+        type: 'desmos',
+        relevance: 1,
+        content: { key: desmosKey, ...desmosTechniques[desmosKey] },
+      });
+    }
+  }
+
   // Sort by relevance and take top 3
   strategies.sort((a, b) => b.relevance - a.relevance);
   const topStrategies = strategies.slice(0, 3);
@@ -268,6 +393,10 @@ export const getRelevantStrategies = (errorPatterns, weakSkillIds) => {
       result += `Recognition: ${s.content.recognition}\n`;
       result += `Fix: ${s.content.fix}\n`;
       result += `Example: ${s.content.example}\n\n`;
+    } else if (s.type === 'desmos') {
+      result += `DESMOS PLAY: ${s.content.name}\n`;
+      result += `How: ${s.content.technique}\n`;
+      result += `When: ${s.content.when} (about ${s.content.timeEstimate})\n\n`;
     } else {
       result += `MISCONCEPTION: ${s.content.skillId}\n`;
       result += `Common errors: ${s.content.commonErrors.join('; ')}\n`;
@@ -282,5 +411,6 @@ export default {
   trapGuides,
   misconceptionGuides,
   desmosTechniques,
+  DESMOS_SKILL_MAP,
   getRelevantStrategies,
 };

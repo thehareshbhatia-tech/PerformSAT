@@ -12,6 +12,7 @@ import {
   generateCrossSessionRecommendation
 } from '../services/proactiveRecommendationService';
 import { getSkillById } from '../data/skillTaxonomy';
+import { getDesmosTip } from '../services/selectors/desmosTip';
 import { colors as designColors, typography as designTypo, shadows as designShadows } from '../design/tokens';
 import normalizeFractions from '../utils/normalizeFractions';
 import {
@@ -543,6 +544,14 @@ QUESTION: ${question}
 ${!isFillin ? `ANSWER CHOICES:\n${choices.map(c => `${c.id}) ${c.text}`).join('\n')}` : ''}
 
 ${hint ? `HINT PROVIDED TO STUDENT: ${hint}` : ''}
+${(() => {
+  // Per-question Desmos route from the curated playbook — gives the model
+  // the specific calculator play instead of a generic "try graphing it".
+  const desmosTip = getDesmosTip({ question, skills });
+  return desmosTip
+    ? `RECOMMENDED DESMOS ROUTE FOR THIS QUESTION (teach it with exact keystrokes when relevant): ${desmosTip.name} — ${desmosTip.technique}`
+    : '';
+})()}
 `;
 
     if (answerRevealed) {
