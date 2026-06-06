@@ -73,8 +73,11 @@ function parseExplanation(raw) {
       continue;
     }
 
-    // "The Full Solution" header — treat subsequent Steps as the main body
-    if (/^\*\*The Full Solution:?\*\*/.test(t)) { flush(); continue; }
+    // "The Full Solution" header — collect its body as the walkthrough.
+    // (Previously this just flushed, so every body line leaked into
+    // `answerDetail` and rendered as one dense paragraph wall — the exact
+    // readability complaint this section type fixes.)
+    if (/^\*\*The Full Solution:?\*\*/.test(t)) { make('solution'); continue; }
 
     // Steps
     if ((m = t.match(/^\*\*Step (\d+)[:.]\*\*\s*(.*)$/))) { stepN = +m[1]; make('step', { number: stepN, title: m[2] }); continue; }
@@ -123,8 +126,9 @@ function parseExplanation(raw) {
       stepN++; make('step', { number: stepN, title: h, content: m[2] }); continue;
     }
 
-    // Bullet lines
-    if ((m = t.match(/^[•\-–]\s*(.+)$/)) && cur) { cur.bullets.push(m[1]); continue; }
+    // Bullet lines — •, -, –, or markdown "* " (the house format's bullet;
+    // the (?!\*) guard keeps **bold** headers from matching)
+    if ((m = t.match(/^(?:[•\-–]|\*(?!\*))\s*(.+)$/)) && cur) { cur.bullets.push(m[1]); continue; }
 
     // Continuation text
     if (cur) { cur.content += (cur.content ? '\n' : '') + t; }
@@ -254,8 +258,8 @@ const FastWayCard = ({ content, bullets }) => {
   );
 };
 
-const WhyWrongCard = ({ content, bullets }) => {
-  const [open, setOpen] = useState(true);
+const WhyWrongCard = ({ content, bullets, defaultOpen = false }) => {
+  const [open, setOpen] = useState(defaultOpen);
   const items = bullets?.length ? bullets : content ? content.split('\n').filter(l => l.trim()) : [];
   if (!items.length) return null;
 
@@ -293,6 +297,26 @@ const WhyWrongCard = ({ content, bullets }) => {
         <div style={{ padding: '0 24px 20px' }}>
           {items.map((item, idx) => {
             const cm = item.match(/^(?:Choice\s+)?([A-D])[\s:(]+(.+?)\)?$/);
+            // Internal trap-classification tags ([TRAP: reversed_operation])
+            // ship inside some bank-item bullets — humanize them into a small
+            // label instead of leaking raw snake_case at students.
+            let body = cm ? cm[2] : item;
+            let trapLabel = null;
+            const tm = body.match(/^\[TRAP:\s*([a-z_ -]+)\]\s*(.*)$/i);
+            if (tm) {
+              trapLabel = tm[1].replace(/[_-]+/g, ' ').trim();
+              trapLabel = trapLabel.charAt(0).toUpperCase() + trapLabel.slice(1);
+              body = tm[2];
+            }
+            const trapTag = trapLabel ? (
+              <span style={{
+                display: 'inline-block', padding: '1px 8px', marginRight: '8px',
+                borderRadius: radius.full, background: colors.semantic.errorLight,
+                color: colors.semantic.error, fontSize: typography.sizes.xs,
+                fontWeight: typography.weights.semibold, whiteSpace: 'nowrap',
+                verticalAlign: '1px',
+              }}>{trapLabel}</span>
+            ) : null;
             return (
               <div key={idx} style={{
                 display: 'flex', gap: '12px', padding: '12px 0',
@@ -308,12 +332,12 @@ const WhyWrongCard = ({ content, bullets }) => {
                     color: colors.semantic.error, flexShrink: 0, marginTop: '2px'
                   }}>{cm[1]}</div>
                   <span style={{ fontSize: '15px', lineHeight: '1.75', color: colors.text.secondary, flex: 1, minWidth: 0 }}>
-                    <MathText text={strip(cm[2])} />
+                    {trapTag}<MathText text={strip(body)} />
                   </span>
                 </> : <>
                   <span style={{ color: colors.text.muted, flexShrink: 0, marginTop: '7px', fontSize: '8px' }}>●</span>
                   <span style={{ fontSize: '15px', lineHeight: '1.55', color: colors.text.secondary, flex: 1, minWidth: 0 }}>
-                    <MathText text={strip(item)} />
+                    {trapTag}<MathText text={strip(body)} />
                   </span>
                 </>}
               </div>
@@ -375,11 +399,54 @@ const TakeawayCard = ({ content, bullets }) => {
 };
 
 const CALLOUT_CONFIG = {
-  'key-concept': { label: 'KEY CONCEPT', icon: '📐', color: colors.semantic.info },
-  'calculator-tip': { label: 'CALCULATOR TIP', icon: '🖩', color: colors.semantic.info },
-  'note': { label: 'NOTE', icon: '📝', color: colors.text.muted },
-  'formula': { label: 'FORMULA', icon: '∑', color: colors.semantic.info },
-  'alternative': { label: 'ALTERNATIVE', icon: '↔', color: colors.text.muted },
+  'key-concept': { label: 'KEY CONCEPT', color: colors.semantic.info },
+  'calculator-tip': { label: 'CALCULATOR TIP', color: colors.semantic.info },
+  'note': { label: 'NOTE', color: colors.text.muted },
+  'formula': { label: 'FORMULA', color: colors.semantic.info },
+  'alternative': { label: 'ALTERNATIVE', color: colors.text.muted },
+};
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// DISCLOSURE — collapsible wrapper for the depth layers (walkthrough etc.)
+// ═══════════════════════════════════════════════════════════════════════════════
+
+const Disclosure = ({ label, sublabel, defaultOpen = false, children }) => {
+  const [open, setOpen] = useState(defaultOpen);
+  return (
+    <div style={{
+      background: colors.surface.white, borderRadius: '16px',
+      border: `1px solid rgba(0,0,0,0.06)`, overflow: 'hidden',
+      boxShadow: '0 2px 8px rgba(0,0,0,0.02)'
+    }}>
+      <button
+        onClick={() => setOpen(v => !v)}
+        aria-expanded={open}
+        style={{
+          width: '100%', padding: '16px 24px', background: 'none', border: 'none', cursor: 'pointer',
+          display: 'flex', alignItems: 'center', justifyContent: 'space-between', textAlign: 'left',
+        }}
+      >
+        <div style={{ display: 'flex', alignItems: 'baseline', gap: '10px', minWidth: 0 }}>
+          <span style={{ fontSize: '15px', fontWeight: typography.weights.semibold, color: colors.text.primary }}>
+            {label}
+          </span>
+          {sublabel && (
+            <span style={{ fontSize: typography.sizes.xs, color: colors.text.muted, whiteSpace: 'nowrap' }}>
+              {sublabel}
+            </span>
+          )}
+        </div>
+        <svg width="14" height="14" viewBox="0 0 12 12" fill="none" style={{
+          flexShrink: 0,
+          transform: open ? 'rotate(180deg)' : 'rotate(0)',
+          transition: `transform ${transitions.normal}`
+        }}>
+          <path d="M3 4.5l3 3 3-3" stroke={colors.text.muted} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      </button>
+      {open && <div style={{ padding: '0 24px 20px' }}>{children}</div>}
+    </div>
+  );
 };
 
 const CalloutCard = ({ type, content, bullets }) => {
@@ -434,12 +501,14 @@ const SolutionExplanation = ({ explanation, isCorrect }) => {
   }
 
   const { satPattern, answer, answerDetail, equation, fastWay, sections, whyWrong, verification, takeaway } = parsed;
+  const solution = sections.find(s => s.type === 'solution');
   const steps = sections.filter(s => s.type === 'step');
   const methods = sections.filter(s => s.type === 'method');
   const cases = sections.filter(s => s.type === 'case');
   const calloutTypes = ['key-concept', 'calculator-tip', 'note', 'formula', 'alternative'];
   const callouts = sections.filter(s => calloutTypes.includes(s.type));
-  const hasBody = steps.length || methods.length || cases.length || whyWrong || callouts.length || fastWay || verification || takeaway;
+  const hasWalkthrough = !!(solution || steps.length || methods.length || cases.length || callouts.length || verification || equation);
+  const hasBody = hasWalkthrough || whyWrong || fastWay || takeaway;
 
   let animDelay = 0;
   const nextDelay = () => { animDelay += 60; return animDelay; };
@@ -486,102 +555,94 @@ const SolutionExplanation = ({ explanation, isCorrect }) => {
         </SectionFade>
       )}
 
-      {/* ── Equation Used ─────────────────────────────────────────── */}
-      {/* ── Equation Used ─────────────────────────────────────────── */}
-      {equation && (
-        <SectionFade delay={nextDelay()}>
-          <div style={{
-            background: colors.surface.white, borderRadius: '20px',
-            padding: '20px 24px', textAlign: 'center', marginBottom: '20px',
-            border: `1px solid rgba(0,0,0,0.06)`, boxShadow: '0 4px 16px rgba(0,0,0,0.03)'
-          }}>
-            <div style={{
-              fontSize: typography.sizes.xs, fontWeight: typography.weights.bold,
-              color: colors.text.muted, letterSpacing: typography.letterSpacing.wider, marginBottom: '12px'
-            }}>EQUATION USED</div>
-            <div style={{ fontSize: '18px', color: colors.text.primary, lineHeight: '2' }}>
-              <MathText text={strip(equation)} />
-            </div>
-          </div>
-        </SectionFade>
-      )}
-
-      {/* ── Fast Way ──────────────────────────────────────────────── */}
+      {/* ── Fast Way — the 10-second read, always visible ─────────── */}
       {fastWay && (
         <SectionFade delay={nextDelay()}>
-          <div style={{ marginBottom: '20px' }}>
+          <div style={{ marginBottom: '12px' }}>
             <FastWayCard content={fastWay.content} bullets={fastWay.bullets} />
           </div>
         </SectionFade>
       )}
 
-      {/* ── Steps ─────────────────────────────────────────────────── */}
-      {steps.length > 0 && (
+      {/* ── Full walkthrough — one tap away (auto-open when there is
+             no Fast Way, so legacy content is never hidden) ────────── */}
+      {hasWalkthrough && (
         <SectionFade delay={nextDelay()}>
-          <div style={{
-            background: colors.surface.white, borderRadius: '20px',
-            padding: '24px 28px', marginBottom: '24px',
-            border: `1px solid rgba(0,0,0,0.06)`, boxShadow: '0 4px 16px rgba(0,0,0,0.03)'
-          }}>
-            <div style={{
-              fontSize: typography.sizes.xs, fontWeight: typography.weights.bold,
-              color: colors.text.muted, letterSpacing: typography.letterSpacing.wider, marginBottom: '20px'
-            }}>SOLUTION STEPS</div>
-            {steps.map((s, i) => <StepCard key={i} {...s} isLast={i === steps.length - 1} />)}
-          </div>
-        </SectionFade>
-      )}
-
-      {/* ── Methods / Cases ───────────────────────────────────────── */}
-      {methods.length > 0 && (
-        <SectionFade delay={nextDelay()}>
-          <div style={{
-            display: 'grid', gridTemplateColumns: methods.length === 2 ? '1fr 1fr' : '1fr',
-            gap: '12px', marginBottom: '20px'
-          }}>
-            {methods.map((m, i) => <MethodCard key={i} {...m} />)}
-          </div>
-        </SectionFade>
-      )}
-      {cases.length > 0 && (
-        <SectionFade delay={nextDelay()}>
-          <div style={{
-            display: 'grid', gridTemplateColumns: cases.length === 2 ? '1fr 1fr' : '1fr',
-            gap: '12px', marginBottom: '20px'
-          }}>
-            {cases.map((c, i) => <MethodCard key={i} {...c} label={'CASE ' + c.number} />)}
-          </div>
-        </SectionFade>
-      )}
-
-      {/* ── Callouts ──────────────────────────────────────────────── */}
-      {callouts.map((c, i) => (
-        <SectionFade key={i} delay={nextDelay()}>
           <div style={{ marginBottom: '12px' }}>
-            <CalloutCard type={c.type} content={c.content} bullets={c.bullets} />
+            <Disclosure label="Full walkthrough" sublabel="every step, written out" defaultOpen={!fastWay}>
+
+              {equation && (
+                <div style={{
+                  background: colors.surface.subtle || 'rgba(0,0,0,0.02)', borderRadius: '12px',
+                  padding: '14px 18px', textAlign: 'center', marginBottom: '14px',
+                }}>
+                  <div style={{
+                    fontSize: typography.sizes.xs, fontWeight: typography.weights.bold,
+                    color: colors.text.muted, letterSpacing: typography.letterSpacing.wider, marginBottom: '8px'
+                  }}>EQUATION USED</div>
+                  <div style={{ fontSize: '17px', color: colors.text.primary, lineHeight: '1.9' }}>
+                    <MathText text={strip(equation)} />
+                  </div>
+                </div>
+              )}
+
+              {solution && (
+                <div style={{ paddingTop: '4px' }}>
+                  <RichText text={solution.content} />
+                  <BulletList items={solution.bullets} />
+                </div>
+              )}
+
+              {steps.length > 0 && (
+                <div style={{ paddingTop: '8px' }}>
+                  {steps.map((s, i) => <StepCard key={i} {...s} isLast={i === steps.length - 1} />)}
+                </div>
+              )}
+
+              {methods.length > 0 && (
+                <div style={{
+                  display: 'grid', gridTemplateColumns: methods.length === 2 ? '1fr 1fr' : '1fr',
+                  gap: '12px', marginTop: '12px'
+                }}>
+                  {methods.map((m, i) => <MethodCard key={i} {...m} />)}
+                </div>
+              )}
+              {cases.length > 0 && (
+                <div style={{
+                  display: 'grid', gridTemplateColumns: cases.length === 2 ? '1fr 1fr' : '1fr',
+                  gap: '12px', marginTop: '12px'
+                }}>
+                  {cases.map((c, i) => <MethodCard key={i} {...c} label={'CASE ' + c.number} />)}
+                </div>
+              )}
+
+              {callouts.map((c, i) => (
+                <div key={i} style={{ marginTop: '12px' }}>
+                  <CalloutCard type={c.type} content={c.content} bullets={c.bullets} />
+                </div>
+              ))}
+
+              {verification && (
+                <div style={{ marginTop: '12px' }}>
+                  <VerificationCard content={verification.content} bullets={verification.bullets} />
+                </div>
+              )}
+
+            </Disclosure>
           </div>
         </SectionFade>
-      ))}
+      )}
 
-      {/* ── Why Wrong ─────────────────────────────────────────────── */}
+      {/* ── Why Wrong — one tap away ──────────────────────────────── */}
       {whyWrong && (
         <SectionFade delay={nextDelay()}>
           <div style={{ marginBottom: '12px' }}>
-            <WhyWrongCard bullets={whyWrong.bullets} content={whyWrong.content} />
+            <WhyWrongCard bullets={whyWrong.bullets} content={whyWrong.content} defaultOpen={false} />
           </div>
         </SectionFade>
       )}
 
-      {/* ── Verification ──────────────────────────────────────────── */}
-      {verification && (
-        <SectionFade delay={nextDelay()}>
-          <div style={{ marginBottom: '12px' }}>
-            <VerificationCard content={verification.content} bullets={verification.bullets} />
-          </div>
-        </SectionFade>
-      )}
-
-      {/* ── Takeaway ──────────────────────────────────────────────── */}
+      {/* ── Takeaway — one sentence, always visible ───────────────── */}
       {takeaway && (
         <SectionFade delay={nextDelay()}>
           <TakeawayCard content={takeaway.content} bullets={takeaway.bullets} />
@@ -607,5 +668,9 @@ const SolutionExplanation = ({ explanation, isCorrect }) => {
     </div>
   );
 };
+
+// Exported for unit tests — the parser is the contract between the authored
+// explanation format and the layered presentation.
+export { parseExplanation };
 
 export default SolutionExplanation;
