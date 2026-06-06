@@ -404,30 +404,34 @@ export const practiceTest5 = {
       questions: [
 // Practice Test 5 — Math Module 2 (22 questions)
 // Wavy flow: E M M E M H H M H H M H E H H M H H H M H H
-// Easies at Q1/Q4/Q13 (Q13 breather: range). Mediums at Q2/Q3/Q5/Q8/Q11/Q16/Q20.
-// Hards elsewhere, band-7 ceiling. Pool infusions: Q6 parametric dependent
-// system, Q9 circle-domain x-value, Q10 quadratic-formula discriminant form,
-// Q14 exponential period years-to-months, Q3 rearranged-linear-model constant,
-// Q17 scatterplot best-fit-line scaling.
+// Distribution: 3 E (Q1/Q4/Q13), 7 M (Q2/Q3/Q5/Q8/Q11/Q16/Q20), 12 H (rest), band-7 ceiling.
+// Easies: Q1 Pythagorean surd hypotenuse (opener, 2-step + simplify trap), Q4 rate
+// per km, Q13 breather = pure range (max - min), distinct from the Q5 outlier/median item.
+// Pool infusions: Q6 parametric dependent system (D-p4#26), Q9 circle-domain x-value
+// (D-p24#22), Q10 quadratic-formula discriminant form (D-p38#20 skeleton; nudged off
+// source constants), Q14 exponential period years-to-months (D-p28#25), Q3 rearranged-
+// linear-model constant (E#12), Q17 scatterplot best-fit-line scaling (E#22), Q21 poll
+// scale-up margin (D-p14#26), Q22 vertex/two-intercept a+b+c bound (D-p18#26 skeleton;
+// reskinned to vertex (3,12) opening down).
 
 {
   id: 1,
   type: "multiple-choice",
   difficulty: "easy",
   band: 3,
-  question: "The function $f$ is defined by $f(x) = 5x - 7$. What is the value of $f(8)$?",
+  question: "A right triangle has legs of length $4$ and $8$. What is the length of its hypotenuse?",
   choices: [
-    // distractor: adds 5 + 8 instead of multiplying
-    { id: "A", text: "$13$" },
-    { id: "B", text: "$33$" },
-    // distractor: stops one step early — computes 5*8 = 40 but forgets the -7
-    { id: "C", text: "$40$" },
-    // distractor: applies the inverse operation — adds 7 instead of subtracting
-    { id: "D", text: "$47$" }
+    // distractor: adds the two legs (4 + 8) instead of using the Pythagorean theorem
+    { id: "A", text: "$12$" },
+    { id: "B", text: "$4\\sqrt{5}$" },
+    // distractor: subtracts under the radical, sqrt(8^2 - 4^2) = sqrt(48) = 4 sqrt 3
+    { id: "C", text: "$4\\sqrt{3}$" },
+    // distractor: squares only one leg, sqrt(4^2 + 8) = sqrt(24) = 2 sqrt 6
+    { id: "D", text: "$2\\sqrt{6}$" }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Function Evaluation**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** $f(8) = 5(8) - 7 = 40 - 7 = 33$.\n\n**The Full Solution:**\nSubstitute $x = 8$ into $f(x) = 5x - 7$:\n$f(8) = 5(8) - 7 = 40 - 7 = 33$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — adds $5 + 8$ instead of multiplying $5 \\cdot 8$.\n* Choice C: \"stops one step early\" — computes $5 \\cdot 8 = 40$ but forgets to subtract $7$.\n* Choice D: \"applies the inverse operation\" — adds $7$ instead of subtracting.\n\n**Test Day Takeaway:** Always carry out every operation in the function. Substitute, multiply, then add or subtract.",
-  skills: ["function-evaluation", "linear-functions"]
+  explanation: "**SAT Pattern: Right Triangle — Pythagorean**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** $c = \\sqrt{4^2 + 8^2} = \\sqrt{16 + 64} = \\sqrt{80} = \\sqrt{16 \\cdot 5} = 4\\sqrt{5}$.\n\n**The Full Solution:**\nBy the Pythagorean theorem, the hypotenuse $c$ satisfies $c^2 = a^2 + b^2$ where $a$ and $b$ are the legs:\n$c^2 = 4^2 + 8^2 = 16 + 64 = 80$.\n$c = \\sqrt{80}$. Pull out the largest perfect-square factor: $80 = 16 \\cdot 5$, so $c = \\sqrt{16}\\,\\sqrt{5} = 4\\sqrt{5}$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — adds the legs ($4 + 8 = 12$) instead of squaring, summing, and taking the root.\n* Choice C: \"applies the inverse operation\" — subtracts under the radical, $\\sqrt{8^2 - 4^2} = \\sqrt{48} = 4\\sqrt{3}$, as if solving for a leg instead of the hypotenuse.\n* Choice D: \"stops one step early\" — squares only the first leg, computing $\\sqrt{4^2 + 8} = \\sqrt{24} = 2\\sqrt{6}$ and forgetting to square the $8$.\n\n**Test Day Takeaway:** For a right triangle, the hypotenuse is $\\sqrt{a^2 + b^2}$ — square BOTH legs, add, then simplify the radical by pulling out perfect-square factors.",
+  skills: ["pythagorean-theorem", "right-triangles"]
 },
 {
   id: 2,
@@ -577,9 +581,9 @@ export const practiceTest5 = {
   type: "fill-in",
   difficulty: "hard",
   band: 7,
-  question: "$$3x^2 - 12x - 5 = 0$$\n\nOne solution to the given equation can be written as $\\dfrac{12 - \\sqrt{k}}{6}$, where $k$ is a constant. What is the value of $k$?",
-  correctAnswer: "204",
-  explanation: "**SAT Pattern: Quadratic Formula — Discriminant Form**\n\n**The correct answer is $204$.**\n\n**The Fast Way (~30s):** With $a = 3$, $b = -12$, $c = -5$, the quadratic formula gives $x = \\dfrac{12 \\pm \\sqrt{(-12)^2 - 4(3)(-5)}}{2(3)} = \\dfrac{12 \\pm \\sqrt{204}}{6}$. Matching $\\dfrac{12 - \\sqrt{k}}{6}$, the value under the root is $k = 204$.\n\n**The Full Solution:**\nThe quadratic formula for $ax^2 + bx + c = 0$ is $x = \\dfrac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$.\n\nHere $a = 3$, $b = -12$, $c = -5$:\n$-b = 12$, $\\quad 2a = 6$.\nDiscriminant: $b^2 - 4ac = (-12)^2 - 4(3)(-5) = 144 + 60 = 204$.\n\nSo $x = \\dfrac{12 \\pm \\sqrt{204}}{6}$. The given form $\\dfrac{12 - \\sqrt{k}}{6}$ matches with $k = 204$.\n\n**Common Mistakes to Avoid:**\n* Dropping a sign: writing $b^2 - 4ac = 144 - 60 = 84$ by treating $c = -5$ as $+5$.\n* Confusing the numerator $12$ (which is $-b$) with the denominator $6$ (which is $2a$).\n\n**Test Day Takeaway:** When a root is given in the form $\\dfrac{-b \\pm \\sqrt{k}}{2a}$, the constant $k$ is just the discriminant $b^2 - 4ac$. Identify $a$, $b$, $c$ carefully — sign errors on $c$ are the most common trap.",
+  question: "$$2x^2 - 10x - 3 = 0$$\n\nOne solution to the given equation can be written as $\\dfrac{10 - \\sqrt{k}}{4}$, where $k$ is a constant. What is the value of $k$?",
+  correctAnswer: "124",
+  explanation: "**SAT Pattern: Quadratic Formula — Discriminant Form**\n\n**The correct answer is $124$.**\n\n**The Fast Way (~30s):** With $a = 2$, $b = -10$, $c = -3$, the quadratic formula gives $x = \\dfrac{10 \\pm \\sqrt{(-10)^2 - 4(2)(-3)}}{2(2)} = \\dfrac{10 \\pm \\sqrt{124}}{4}$. Matching $\\dfrac{10 - \\sqrt{k}}{4}$, the value under the root is $k = 124$.\n\n**The Full Solution:**\nThe quadratic formula for $ax^2 + bx + c = 0$ is $x = \\dfrac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$.\n\nHere $a = 2$, $b = -10$, $c = -3$:\n$-b = 10$, $\\quad 2a = 4$.\nDiscriminant: $b^2 - 4ac = (-10)^2 - 4(2)(-3) = 100 + 24 = 124$.\n\nSo $x = \\dfrac{10 \\pm \\sqrt{124}}{4}$. The given form $\\dfrac{10 - \\sqrt{k}}{4}$ matches with $k = 124$.\n\n**Common Mistakes to Avoid:**\n* Dropping a sign: writing $b^2 - 4ac = 100 - 24 = 76$ by treating $c = -3$ as $+3$.\n* Confusing the numerator $10$ (which is $-b$) with the denominator $4$ (which is $2a$).\n\n**Test Day Takeaway:** When a root is given in the form $\\dfrac{-b \\pm \\sqrt{k}}{2a}$, the constant $k$ is just the discriminant $b^2 - 4ac$. Identify $a$, $b$, $c$ carefully — sign errors on $c$ are the most common trap.",
   skills: ["quadratic-formula", "discriminant"]
 },
 {
@@ -785,18 +789,18 @@ export const practiceTest5 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "In the $xy$-plane, a parabola has vertex $(8, -20)$ and intersects the $x$-axis at two points. If the equation of the parabola is written in the form $y = ax^2 + bx + c$, where $a$, $b$, and $c$ are constants, which of the following could be the value of $a + b + c$?",
+  question: "In the $xy$-plane, a parabola has vertex $(3, 12)$ and intersects the $x$-axis at two points. If the equation of the parabola is written in the form $y = ax^2 + bx + c$, where $a$, $b$, and $c$ are constants, which of the following could be the value of $a + b + c$?",
   choices: [
-    // distractor: assumes a < 0 (downward), giving values below −20
-    { id: "A", text: "$-25$" },
-    // distractor: also below −20; treats the vertex y-value as a ceiling
-    { id: "B", text: "$-22$" },
-    // distractor: uses a = 0, which is not a parabola (boundary value −20)
-    { id: "C", text: "$-20$" },
-    { id: "D", text: "$-18$" }
+    { id: "A", text: "$8$" },
+    // distractor: boundary value, corresponds to a = 0 (a line, not a parabola)
+    { id: "B", text: "$12$" },
+    // distractor: assumes a > 0 (opens upward), giving values above 12
+    { id: "C", text: "$14$" },
+    // distractor: also assumes a > 0; treats the vertex y-value as a floor
+    { id: "D", text: "$16$" }
   ],
-  correctAnswer: "D",
-  explanation: "**SAT Pattern: Quadratic Coefficients from Graph**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** The vertex $(8, -20)$ is below the $x$-axis and the parabola crosses the $x$-axis twice, so it opens upward: $a > 0$. In vertex form $y = a(x - 8)^2 - 20$, the value $a + b + c$ equals $y(1) = a(1 - 8)^2 - 20 = 49a - 20$. Since $a > 0$, $49a - 20 > -20$. Only $-18$ exceeds $-20$.\n\n**The Full Solution:**\nA parabola with a minimum vertex below the $x$-axis that meets the $x$-axis at two points must open upward, so $a > 0$.\n\nWrite it in vertex form: $y = a(x - 8)^2 - 20$.\n\nNote that $a + b + c$ is the value of $y$ when $x = 1$ (since $y(1) = a(1)^2 + b(1) + c = a + b + c$):\n$y(1) = a(1 - 8)^2 - 20 = a(49) - 20 = 49a - 20$.\n\nBecause $a > 0$, we have $49a > 0$, so $49a - 20 > -20$. The value of $a + b + c$ must be strictly greater than $-20$.\n\nAmong the choices, only $-18 > -20$. (For instance, $a = \\tfrac{2}{49}$ gives exactly $-18$, and that parabola still crosses the $x$-axis twice.)\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong sign of $a$\" — assumes the parabola opens downward, which would put $a + b + c$ below $-20$ but then it could not have a minimum vertex below the axis with two real roots.\n* Choice B: \"wrong sign of $a$\" — also below $-20$; treats the vertex $y$-value as an upper bound.\n* Choice C: \"boundary value\" — corresponds to $a = 0$, which is a line, not a parabola; $a + b + c$ must be strictly greater than $-20$.\n\n**Test Day Takeaway:** To find $a + b + c$, evaluate the function at $x = 1$. Combine that with the sign of $a$ (read from how the parabola opens) to bound the answer.",
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Quadratic Coefficients from Graph**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** The vertex $(3, 12)$ is above the $x$-axis and the parabola crosses the $x$-axis twice, so it opens downward: $a < 0$. In vertex form $y = a(x - 3)^2 + 12$, the value $a + b + c$ equals $y(1) = a(1 - 3)^2 + 12 = 4a + 12$. Since $a < 0$, $4a + 12 < 12$. Only $8$ is below $12$.\n\n**The Full Solution:**\nA parabola with a maximum vertex above the $x$-axis that meets the $x$-axis at two points must open downward, so $a < 0$.\n\nWrite it in vertex form: $y = a(x - 3)^2 + 12$.\n\nNote that $a + b + c$ is the value of $y$ when $x = 1$ (since $y(1) = a(1)^2 + b(1) + c = a + b + c$):\n$y(1) = a(1 - 3)^2 + 12 = a(4) + 12 = 4a + 12$.\n\nBecause $a < 0$, we have $4a < 0$, so $4a + 12 < 12$. The value of $a + b + c$ must be strictly less than $12$.\n\nAmong the choices, only $8 < 12$. (For instance, $a = -1$ gives $y = -(x - 3)^2 + 12 = -x^2 + 6x + 3$, so $a + b + c = -1 + 6 + 3 = 8$, and that parabola still crosses the $x$-axis twice.)\n\n**Why the wrong answers are tempting:**\n* Choice B: \"boundary value\" — corresponds to $a = 0$, which is a line, not a parabola; $a + b + c$ must be strictly less than $12$.\n* Choice C: \"wrong sign of $a$\" — assumes the parabola opens upward, which would push $4a + 12$ above $12$, but then it could not have a maximum vertex above the axis with two real roots.\n* Choice D: \"wrong sign of $a$\" — also above $12$; treats the vertex $y$-value as a lower bound.\n\n**Test Day Takeaway:** To find $a + b + c$, evaluate the function at $x = 1$. Combine that with the sign of $a$ (read from how the parabola opens) to bound the answer.",
   skills: ["quadratic-equations", "vertex-form"]
 }
       ]

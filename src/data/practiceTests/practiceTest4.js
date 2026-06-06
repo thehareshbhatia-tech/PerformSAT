@@ -404,8 +404,19 @@ export const practiceTest4 = {
       timeLimit: 35,
       questions: [
 // Practice Test 4 — Math Module 2 (22 questions)
-// Distribution: 3E / 6M / 13H with band-8 ceiling on Q7, Q20.
-// Calibrated to Bluebook Module 2 Hard (Q7 composite-function inverse, Q20 rational w/ extraneous).
+// Distribution: 3E / 6M / 13H. Calibrated to Bluebook Module 2 Hard with a gradual ramp.
+//   Easy (band 3):   Q2 (margin-of-error plausible range), Q6 (percent of a total), Q15 (range).
+//   Medium (band 4-5): Q1, Q3, Q4, Q8, Q9, Q13.
+//   Hard (band 6-7): Q5, Q7, Q10, Q11, Q12, Q14, Q16, Q17, Q18, Q19, Q20, Q21, Q22.
+// Hard anchors: Q10 composite-function solve-for-inner, Q20 rational w/ extraneous root.
+// Pool infusion: Q1 reskins E#2 (line from two points); Q5 reskins D-p3#25 (parabola tangent);
+//   Q11 reskins D-p12#21 (reverse-percent retail chain); Q12 reskins D-p22#21 (coterminal tan);
+//   Q18 reskins D-p15#27 (fraction-coeff no-solution); Q21 reskins D-p15#25 (45-45-90 perimeter).
+// Authoring pass (T4): Q2 replaced median-bar opener with margin-of-error (opener-bar fix);
+//   Q16 replaced verbatim ticket-system duplicate of Q13 with a HARD grouped-data smallest-mean
+//   (Grouped Data — Mean Bounds, barChart); Q18 expanded to full house format + skills fixed
+//   (infinite-solutions-condition -> no-solution-condition); Q22 reskinned away from D-p25#27
+//   (new zeros 0/4/-6, shift 10, answer 32 vs source 25/31).
 
 {
   id: 1,
@@ -430,36 +441,20 @@ export const practiceTest4 = {
   id: 2,
   type: "multiple-choice",
   difficulty: "easy",
-  band: 2,
-  question: "The bar graph shows the number of pages each of $5$ students read for a book club assignment. What is the median number of pages read?",
-  diagram: {
-    type: "barChart",
-    params: {
-      data: [
-        { label: "1", value: 28 },
-        { label: "2", value: 35 },
-        { label: "3", value: 41 },
-        { label: "4", value: 32 },
-        { label: "5", value: 48 }
-      ],
-      xLabel: "Student",
-      yLabel: "Pages read",
-      yMax: 50,
-      yStep: 10
-    }
-  },
+  band: 3,
+  question: "A researcher surveyed a random sample of students at a large university and estimated that $42\\%$ of all students bike to campus, with an associated margin of error of $3$ percentage points. Based on this estimate and margin of error, which of the following is the most appropriate conclusion?",
   choices: [
-    // distractor: returns the minimum value instead of finding the median
-    { id: "A", text: "$28$" },
-    // distractor: picks one of the data values without ordering
-    { id: "B", text: "$32$" },
-    { id: "C", text: "$35$" },
-    // distractor: computes the mean (184/5 = 36.8) instead of the median
-    { id: "D", text: "$36.8$" }
+    // distractor: reports the margin of error itself (3%) as if it were the proportion
+    { id: "A", text: "About $3\\%$ of all students at the university bike to campus." },
+    { id: "B", text: "It is plausible that between $39\\%$ and $45\\%$ of all students at the university bike to campus." },
+    // distractor: stops one step early — treats the sample estimate as an exact population value
+    { id: "C", text: "Exactly $42\\%$ of all students at the university bike to campus." },
+    // distractor: keeps only the upper endpoint, discarding the lower half of the interval
+    { id: "D", text: "At most $45\\%$ of all students at the university bike to campus." }
   ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Median from a Bar Graph**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Read the values: $28, 35, 41, 32, 48$. Sort: $28, 32, 35, 41, 48$. The middle value is $35$.\n\n**The Full Solution:**\nThe median of $5$ values is the third value when sorted in ascending order.\n\nFrom the graph: $\\{28, 35, 41, 32, 48\\}$.\nSorted: $\\{28, 32, \\mathbf{35}, 41, 48\\}$.\nMedian $= 35$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — gives the minimum instead of the median.\n* Choice B: \"stops one step early\" — picks a data value without ordering first.\n* Choice D: \"applies the inverse operation\" — computes the mean ($\\dfrac{184}{5} = 36.8$) instead of the median.\n\n**Test Day Takeaway:** For median, ALWAYS sort first. Pick the middle value (or average the two middles for even counts).",
-  skills: ["statistics", "median"]
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Margin of Error**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** A margin of error gives a plausible interval for the true population value: $42\\% \\pm 3\\% = [39\\%, 45\\%]$.\n\n**The Full Solution:**\nThe margin of error says the true proportion for the whole population is plausibly within $3$ percentage points of the sample estimate.\nLower endpoint: $42\\% - 3\\% = 39\\%$.\nUpper endpoint: $42\\% + 3\\% = 45\\%$.\nSo it is plausible that between $39\\%$ and $45\\%$ of all students bike to campus.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — reports the margin of error ($3\\%$) as if it were the proportion who bike.\n* Choice C: \"stops one step early\" — treats the sample estimate $42\\%$ as an exact population value, ignoring the margin of error entirely.\n* Choice D: \"off-by-one\" — keeps only the upper endpoint $45\\%$ and discards the lower half of the interval.\n\n**Test Day Takeaway:** Margin of error gives a two-sided plausible interval (estimate $\\pm$ MoE) for the POPULATION value, not an exact figure and not a one-sided bound.",
+  skills: ["statistics", "margin-of-error"]
 },
 {
   id: 3,
@@ -693,12 +688,27 @@ export const practiceTest4 = {
 {
   id: 16,
   type: "fill-in",
-  difficulty: "medium",
-  band: 5,
-  question: "A movie theater sold adult tickets for $\\$12$ each and child tickets for $\\$7$ each. A total of $200$ tickets were sold, and the total revenue was $\\$2{,}100$. How many adult tickets were sold?",
-  correctAnswer: "140",
-  explanation: "**SAT Pattern: System of Equations — Substitution**\n\n**The correct answer is $140$.**\n\n**The Fast Way (~30s):** Let $a$ = adult tickets and $c$ = child tickets. From $a + c = 200$, $c = 200 - a$. Substitute into $12a + 7c = 2100$: $12a + 7(200 - a) = 2100 \\Rightarrow 5a + 1400 = 2100 \\Rightarrow a = 140$.\n\n**The Full Solution:**\nLet $a$ = adult tickets, $c$ = child tickets.\n$a + c = 200$ ... (1)\n$12a + 7c = 2100$ ... (2)\nFrom (1): $c = 200 - a$.\nSubstitute into (2): $12a + 7(200 - a) = 2100$.\n$12a + 1400 - 7a = 2100$.\n$5a = 700$.\n$a = 140$.\n\n**Verification:** $c = 60$. Revenue: $12(140) + 7(60) = 1680 + 420 = 2100$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Answering $60$ (the number of child tickets).\n* Setting up $12a + 7c = 200$ (confusing quantity and revenue equations).\n\n**Test Day Takeaway:** Two equations: one for the count, one for the revenue. Substitute and solve.",
-  skills: ["systems-of-equations", "word-problems"]
+  difficulty: "hard",
+  band: 7,
+  question: "A naturalist recorded the number of berries eaten by each of $20$ thrushes during one hour. The histogram shows how many thrushes ate a number of berries in each interval, but the exact count for each individual bird is not given. What is the smallest possible value of the mean number of berries eaten per thrush?",
+  diagram: {
+    type: "barChart",
+    params: {
+      data: [
+        { label: "10–14", value: 8 },
+        { label: "15–19", value: 6 },
+        { label: "20–24", value: 4 },
+        { label: "25–29", value: 2 }
+      ],
+      xAxisLabel: "Berries eaten",
+      yAxisLabel: "Number of thrushes",
+      yMax: 10,
+      yStep: 2
+    }
+  },
+  correctAnswer: "15",
+  explanation: "**SAT Pattern: Grouped Data — Mean Bounds**\n\n**The correct answer is $15$.**\n\n**The Fast Way (~50s):** The mean is smallest when every bird ate the fewest berries its interval allows — the lower endpoint of each interval. Use $10, 15, 20, 25$ with frequencies $8, 6, 4, 2$: total $= 80 + 90 + 80 + 50 = 300$, mean $= \\dfrac{300}{20} = 15$.\n\n**The Full Solution:**\nThe histogram fixes how many birds fall in each interval but not the exact counts, so the actual mean can range between two extremes. To make the mean as small as possible, assume every bird in an interval ate the smallest number that interval allows — its lower endpoint.\nLower endpoints: $10, 15, 20, 25$ with frequencies $8, 6, 4, 2$ (total $20$ birds).\nMinimum total $= 10(8) + 15(6) + 20(4) + 25(2) = 80 + 90 + 80 + 50 = 300$.\nSmallest possible mean $= \\dfrac{300}{20} = 15$.\n\n**Verification:** the count of birds is $8 + 6 + 4 + 2 = 20$ \\checkmark, and the largest possible mean (using the upper endpoints $14, 19, 24, 29$) would be $\\dfrac{380}{20} = 19$, so $15$ is the lower bound of the plausible range.\n\n**Common Mistakes to Avoid:**\n* Using the interval midpoints ($12, 17, 22, 27$) — that gives the estimated mean $17$, not the smallest possible mean.\n* Using the upper endpoints — that gives the largest possible mean ($19$), the opposite extreme.\n* Dividing by the number of intervals ($4$) instead of the number of birds ($20$).\n\n**Test Day Takeaway:** With grouped (interval) data, the mean is bounded: it is smallest when every value sits at its interval's lower endpoint and largest at the upper endpoints.",
+  skills: ["statistics", "grouped-data", "mean"]
 },
 {
   id: 17,
@@ -734,8 +744,8 @@ export const practiceTest4 = {
   band: 7,
   question: "$$\\dfrac{3}{4}y - \\dfrac{1}{8}x = \\dfrac{1}{2} - \\dfrac{3}{4}y$$\n$$\\dfrac{1}{4}x + \\dfrac{5}{4} = py + \\dfrac{7}{4}$$\n\nIn the given system of equations, $p$ is a constant. If the system has no solution, what is the value of $p$?",
   correctAnswer: "3",
-  explanation: "**SAT Pattern: No-Solution Condition**\n\n**The correct answer is $3$.**\n\n**The Fast Way (~50s):** Clear fractions: eq 1 becomes $x - 12y = -4$; eq 2 becomes $x - 4py = 2$. For no solution: $-12 = -4p \\Rightarrow p = 3$.\n\n**Test Day Takeaway:** No solution = same slope, different intercept.",
-  skills: ["systems-of-equations", "infinite-solutions-condition"]
+  explanation: "**SAT Pattern: No-Solution Condition**\n\n**The correct answer is $3$.**\n\n**The Fast Way (~50s):** Clear fractions in both equations to get $x - 12y = -4$ and $x - 4py = 2$. The $x$-coefficients already match ($1 = 1$); for no solution the $y$-coefficients must match too, so $-12 = -4p \\Rightarrow p = 3$ (the constants $-4$ and $2$ differ, confirming the lines are parallel and never meet).\n\n**The Full Solution:**\nEquation 1: $\\dfrac{3}{4}y - \\dfrac{1}{8}x = \\dfrac{1}{2} - \\dfrac{3}{4}y$. Add $\\dfrac{3}{4}y$ to both sides: $\\dfrac{3}{2}y - \\dfrac{1}{8}x = \\dfrac{1}{2}$. Multiply through by $8$: $12y - x = 4$, i.e. $x - 12y = -4$.\nEquation 2: $\\dfrac{1}{4}x + \\dfrac{5}{4} = py + \\dfrac{7}{4}$. Subtract $\\dfrac{5}{4}$: $\\dfrac{1}{4}x = py + \\dfrac{1}{2}$. Multiply through by $4$: $x = 4py + 2$, i.e. $x - 4py = 2$.\nWrite both in the form $x + (\\text{coeff})y = \\text{const}$:\n$x - 12y = -4$ and $x - 4py = 2$.\nA linear system has no solution exactly when the two lines are parallel but distinct — the coefficients of $x$ and $y$ are proportional while the constants are not. Here both $x$-coefficients are $1$, so the $y$-coefficients must be equal: $-12 = -4p$, giving $p = 3$.\nThe constants are $-4$ and $2$, which are different, so the lines are genuinely parallel (not the same line) and the system has no solution.\n\n**Verification:** with $p = 3$ the equations are $x - 12y = -4$ and $x - 12y = 2$. The same expression $x - 12y$ cannot equal both $-4$ and $2$, so there is no solution \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Solving for the value that makes the system have infinitely many solutions instead — that would also require the constants to match ($-4 = 2$), which is impossible here, so $p = 3$ produces NO solution, not infinitely many.\n* Forgetting to clear the fractions first and mismatching the $x$- and $y$-coefficients.\n* Comparing the original (unsimplified) coefficients $\\dfrac{3}{4}$ and $p$ directly without first putting both equations in the same standard form.\n\n**Test Day Takeaway:** No solution means parallel-but-distinct lines: matching $x$- and $y$-coefficient ratios with mismatched constants. Always rewrite both equations in the same standard form before comparing.",
+  skills: ["systems-of-equations", "no-solution-condition"]
 },
 {
   id: 19,
@@ -790,9 +800,9 @@ export const practiceTest4 = {
   type: "fill-in",
   difficulty: "hard",
   band: 7,
-  question: "The function $g$ is defined by $g(x) = x(x - 3)(x + 5)^2$. The value of $g(9 - w)$ is $0$, where $w$ is a constant. What is the sum of all possible values of $w$?",
-  correctAnswer: "29",
-  explanation: "**SAT Pattern: Polynomial Zeros via Factoring**\n\n**The correct answer is $29$.**\n\n**The Fast Way (~30s):** Roots of $g$: $0, 3, -5$. Set $9 - w \\in \\{0, 3, -5\\} \\Rightarrow w \\in \\{9, 6, 14\\}$. Sum $= 29$.\n\n**Test Day Takeaway:** Find roots; back-solve. Multiplicity doesn't create new $w$-values.",
+  question: "For the polynomial $g$ with $g(x) = x(x - 4)(x + 6)^2$, suppose $g(10 - w)$ equals $0$ for some constant $w$. Find the total of every value of $w$ for which this holds.",
+  correctAnswer: "32",
+  explanation: "**SAT Pattern: Polynomial Zeros via Factoring**\n\n**The correct answer is $32$.**\n\n**The Fast Way (~30s):** $g$ is zero at its roots $x = 0, 4, -6$. Set the input equal to each root: $10 - w = 0, 4, -6 \\Rightarrow w = 10, 6, 16$. Sum $= 10 + 6 + 16 = 32$.\n\n**The Full Solution:**\nA product equals $0$ exactly when one of its factors is $0$, so $g(x) = x(x - 4)(x + 6)^2 = 0$ at $x = 0$, $x = 4$, and $x = -6$.\nThe squared factor $(x + 6)^2$ has $x = -6$ as a repeated root, but $-6$ is still a single distinct value of $x$ — it does not create a second, different root.\nNow $g(10 - w) = 0$ requires the input $10 - w$ to be one of those roots:\n$10 - w = 0 \\Rightarrow w = 10$.\n$10 - w = 4 \\Rightarrow w = 6$.\n$10 - w = -6 \\Rightarrow w = 16$.\nThe possible values of $w$ are $10, 6, 16$, and their sum is $10 + 6 + 16 = 32$.\n\n**Verification:** $g(10 - 10) = g(0) = 0$ \\checkmark; $g(10 - 6) = g(4) = 0$ \\checkmark; $g(10 - 16) = g(-6) = (-6)(-10)(0)^2 = 0$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Treating the squared factor as two separate roots and adding an extra $w$-value — multiplicity does not produce a new value of $w$.\n* Forgetting the root $x = 0$ from the bare factor $x$, which would drop $w = 10$ from the sum.\n* Solving $10 - w$ as $w - 10$ (sign flip), which sends every root to the wrong $w$.\n\n**Test Day Takeaway:** Find every distinct root of the polynomial, set the shifted input equal to each, and sum the resulting values — a squared (repeated) factor still contributes only one root value.",
   skills: ["polynomial-zeros", "quadratic-equations"]
 }
       ]

@@ -421,29 +421,38 @@ export const practiceTest10 = {
       questions: [
 // Practice Test 10 — Math Module 2 (22 questions)
 // Distribution: 3E / 7M / 12H. Wavy flow: easy at 1,4,20; medium at 2,3,6,7,12,15,16;
-// hard at 5,8,9,10,11,13,14,17,18,19,21,22. Pool infusions: parabola a+b+c (Q5),
-// system elimination (Q6), g(0) from a zero (Q8), rational-function shift (Q9),
-// parabola bc from graph (Q13). Palette: hydroponic towers, archery, bottle depots,
-// orchestra seating, kite festivals, water-treatment tanks.
+// hard at 5,8,9,10,11,13,14,17,18,19,21,22.
+// Q14 is a log-product item solved by the common-base/exponent route (pattern
+// "Common-Base Exponent Simplification"); it is NOT a pool infusion.
+// Pool infusions (re-skinned away from source): a+b+c bound D-p18#26 (Q5),
+// price system by elimination E#7 (Q6), g(0) from a stated zero D-p24#21 (Q8),
+// rational-function shift D-p13#24 (Q9), parabola bc from graph D-p32#21 (Q13),
+// tangent-line discriminant D-p29#26 (Q11), successive percent D-p31#22 (Q18),
+// exponential two-condition D-p19#27 (Q19), line-meets-parabola-once D-p8#21 (Q21).
+// Q1 (Pythagorean surd) and Q4 (reverse-percent two-step) are fresh openers;
+// Q21 was reworked from the over-cloned sloped-line tangency into the unused
+// D-p8#21 horizontal-line skeleton (find the parabola constant via discriminant = 0).
+// Palette: bare-math triangle, archery, bottle depots, orchestra seating,
+// robotics-meet drones, kite-festival supplies, water-treatment tanks.
 
 {
   id: 1,
   type: "multiple-choice",
   difficulty: "easy",
   band: 3,
-  question: "A hydroponic grow box is shaped like a rectangular prism with a length of $8$ feet, a width of $3$ feet, and a height of $2$ feet. What is the volume, in cubic feet, of the grow box?",
+  question: "In a right triangle, the two legs have lengths $6$ and $9$. What is the length of the hypotenuse?",
   choices: [
-    // distractor: stops one step early — sums the three dimensions instead of multiplying
-    { id: "A", text: "$13$" },
-    // distractor: wrong base — multiplies only two of the three dimensions
-    { id: "B", text: "$24$" },
-    { id: "C", text: "$48$" },
-    // distractor: applies inverse op — reports the surface area instead of the volume
-    { id: "D", text: "$92$" }
+    // distractor: subtracts the squared legs instead of adding them — $\\sqrt{81 - 36} = \\sqrt{45} = 3\\sqrt{5}$
+    { id: "A", text: "$3\\sqrt{5}$" },
+    { id: "B", text: "$3\\sqrt{13}$" },
+    // distractor: adds the legs and square-roots — treats $6 + 9 = 15$ as the value of $h^2$
+    { id: "C", text: "$\\sqrt{15}$" },
+    // distractor: adds the legs and forgets to take the square root entirely — $6 + 9 = 15$
+    { id: "D", text: "$15$" }
   ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Volume of a Rectangular Box**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** $V = l \\cdot w \\cdot h = 8 \\cdot 3 \\cdot 2 = 48$.\n\n**The Full Solution:**\nVolume of a rectangular prism: $V = lwh = 8 \\cdot 3 \\cdot 2 = 48$ ft$^3$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — adds $l + w + h = 13$ instead of multiplying.\n* Choice B: \"wrong base\" — multiplies only $l \\cdot w = 24$, forgetting the height.\n* Choice D: \"applies the inverse operation\" — reports the surface area $2(lw + lh + wh) = 2(24 + 16 + 6) = 92$ instead of the volume.\n\n**Test Day Takeaway:** Volume of a rectangular box $= lwh$ (multiply all three dimensions). Surface area sums the areas of all $6$ faces.",
-  skills: ["geometry", "volume"]
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Right Triangle — Pythagorean**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** $h^2 = 6^2 + 9^2 = 36 + 81 = 117$, and $\\sqrt{117} = \\sqrt{9 \\cdot 13} = 3\\sqrt{13}$.\n\n**The Full Solution:**\nBy the Pythagorean theorem, $h^2 = a^2 + b^2 = 6^2 + 9^2 = 36 + 81 = 117$.\nFactor out the perfect square: $\\sqrt{117} = \\sqrt{9 \\cdot 13} = 3\\sqrt{13}$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — subtracts the squares, $\\sqrt{81 - 36} = \\sqrt{45} = 3\\sqrt{5}$, as if solving for a leg.\n* Choice C: \"stops one step early\" — adds the legs, $6 + 9 = 15$, then takes the root, treating $15$ as $h^2$.\n* Choice D: \"wrong base\" — adds the legs to $15$ and never takes the square root at all.\n\n**Test Day Takeaway:** The hypotenuse is $\\sqrt{a^2 + b^2}$ — square the legs, add, then root; pull out any perfect-square factor to simplify the surd.",
+  skills: ["geometry", "right-triangles"]
 },
 {
   id: 2,
@@ -495,19 +504,19 @@ export const practiceTest10 = {
   type: "multiple-choice",
   difficulty: "easy",
   band: 3,
-  question: "Of the $250$ kites registered for a kite festival, $40\\%$ are box kites. How many of the registered kites are box kites?",
+  question: "Of the drones registered for a robotics meet, $30\\%$ are racing drones. The meet recorded $210$ non-racing drones. How many racing drones were registered?",
   choices: [
-    { id: "A", text: "$100$" },
-    // distractor: wrong base — finds 60% (the complement) instead of 40%
-    { id: "B", text: "$150$" },
-    // distractor: off-by-one — uses 4% instead of 40% (decimal slip)
-    { id: "C", text: "$10$" },
-    // distractor: applies inverse op — divides 250 by 0.40 instead of multiplying
-    { id: "D", text: "$625$" }
+    { id: "A", text: "$90$" },
+    // distractor: stops one step early — finds the total registered (300) and reports it instead of the racing count
+    { id: "B", text: "$300$" },
+    // distractor: wrong base — takes 70% of the given 210 non-racing drones (0.70 \\cdot 210)
+    { id: "C", text: "$147$" },
+    // distractor: wrong base — takes 30% of the given 210 non-racing drones (0.30 \\cdot 210)
+    { id: "D", text: "$63$" }
   ],
   correctAnswer: "A",
-  explanation: "**SAT Pattern: Forward Percent**\n\n**Choice A is correct.**\n\n**The Fast Way (~5s):** $40\\%$ of $250 = 0.40 \\cdot 250 = 100$.\n\n**The Full Solution:**\n\"$40\\%$ of $250$\" means $0.40 \\cdot 250 = 100$ box kites.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"wrong base\" — finds $60\\%$ (the complement), $0.60 \\cdot 250 = 150$.\n* Choice C: \"off-by-one\" — uses $4\\%$ instead of $40\\%$, a decimal-place slip.\n* Choice D: \"applies the inverse operation\" — divides $250 \\div 0.40 = 625$ instead of multiplying.\n\n**Test Day Takeaway:** \"$P\\%$ of $N$\" means multiply: $\\dfrac{P}{100} \\cdot N$. Convert the percent to a decimal first.",
-  skills: ["percents"]
+  explanation: "**SAT Pattern: Reverse-Percent Multi-Step**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** If $30\\%$ are racing, then $70\\%$ are non-racing, so $0.70 \\cdot T = 210 \\Rightarrow T = 300$. Racing $= 300 - 210 = 90$.\n\n**The Full Solution:**\nRacing drones are $30\\%$ of the total, so non-racing drones are the complementary $70\\%$.\n$0.70 \\cdot T = 210 \\Rightarrow T = \\dfrac{210}{0.70} = 300$ total drones.\nRacing drones $= T - 210 = 300 - 210 = 90$. (Check: $0.30 \\cdot 300 = 90$ \\checkmark.)\n\n**Why the wrong answers are tempting:**\n* Choice B: \"stops one step early\" — finds the total $300$ and reports it instead of the racing count.\n* Choice C: \"wrong base\" — applies $70\\%$ to the given $210$, $0.70 \\cdot 210 = 147$, instead of recovering the total first.\n* Choice D: \"wrong base\" — applies $30\\%$ to the given $210$, $0.30 \\cdot 210 = 63$, treating $210$ as the whole.\n\n**Test Day Takeaway:** When a part is given as a percent of an unknown whole, first divide to recover the whole, then answer exactly what is asked.",
+  skills: ["percents", "word-problems"]
 },
 {
   id: 5,
@@ -571,9 +580,9 @@ export const practiceTest10 = {
   type: "fill-in",
   difficulty: "hard",
   band: 7,
-  question: "For some constant $t$, the function $g$ satisfies $g(x) = (x + 20)(t - x)$. The point $(30, 0)$ lies on the graph of $y = g(x)$ in the $xy$-plane. Determine $g(0)$.",
-  correctAnswer: "600",
-  explanation: "**SAT Pattern: Function Evaluation to Find Parameter**\n\n**The correct answer is $600$.**\n\n**The Fast Way (~30s):** $(30, 0)$ is a zero of $g$. Since $30 + 20 = 50 \\neq 0$, the other factor must vanish: $t - 30 = 0 \\Rightarrow t = 30$. Then $g(0) = (20)(30) = 600$.\n\n**The Full Solution:**\nThe graph passes through $(30, 0)$, so $g(30) = 0$:\n$g(30) = (30 + 20)(t - 30) = 50(t - 30) = 0$.\nBecause $50 \\neq 0$, we need $t - 30 = 0$, giving $t = 30$.\n\nNow evaluate at $x = 0$:\n$g(0) = (0 + 20)(t - 0) = 20 \\cdot t = 20 \\cdot 30 = 600$.\n\n**Common Mistakes to Avoid:**\n* Setting $x + 20 = 0$ at the given point (that factor isn't zero there).\n* Forgetting to find $t$ before evaluating $g(0)$.\n* Reporting $t = 30$ as the final answer instead of $g(0)$.\n\n**Test Day Takeaway:** A point with $y = 0$ is a zero. Set the non-trivial factor equal to zero to solve for the unknown constant, then evaluate.",
+  question: "For some constant $t$, the function $g$ satisfies $g(x) = (x + 18)(t - x)$. The point $(26, 0)$ lies on the graph of $y = g(x)$ in the $xy$-plane. Determine $g(0)$.",
+  correctAnswer: "468",
+  explanation: "**SAT Pattern: Function Evaluation to Find Parameter**\n\n**The correct answer is $468$.**\n\n**The Fast Way (~30s):** $(26, 0)$ is a zero of $g$. Since $26 + 18 = 44 \\neq 0$, the other factor must vanish: $t - 26 = 0 \\Rightarrow t = 26$. Then $g(0) = (18)(26) = 468$.\n\n**The Full Solution:**\nThe graph passes through $(26, 0)$, so $g(26) = 0$:\n$g(26) = (26 + 18)(t - 26) = 44(t - 26) = 0$.\nBecause $44 \\neq 0$, we need $t - 26 = 0$, giving $t = 26$.\n\nNow evaluate at $x = 0$:\n$g(0) = (0 + 18)(t - 0) = 18 \\cdot t = 18 \\cdot 26 = 468$.\n\n**Common Mistakes to Avoid:**\n* Setting $x + 18 = 0$ at the given point (that factor isn't zero there).\n* Forgetting to find $t$ before evaluating $g(0)$.\n* Reporting $t = 26$ as the final answer instead of $g(0)$.\n\n**Test Day Takeaway:** A point with $y = 0$ is a zero. Set the non-trivial factor equal to zero to solve for the unknown constant, then evaluate.",
   skills: ["quadratic-equations", "function-interpretation"]
 },
 {
@@ -785,22 +794,13 @@ export const practiceTest10 = {
 },
 {
   id: 21,
-  type: "multiple-choice",
+  type: "fill-in",
   difficulty: "hard",
   band: 7,
-  question: "In the $xy$-plane, the line $y = 6x + k$ intersects the parabola $y = x^2 + 2x + 10$ at exactly one point, where $k$ is a constant. What is the value of $k$?",
-  choices: [
-    { id: "A", text: "$6$" },
-    // distractor: wrong sign — solves the discriminant equation with a sign error
-    { id: "B", text: "$-6$" },
-    // distractor: stops one step early — uses the parabola's constant term 10
-    { id: "C", text: "$10$" },
-    // distractor: off-by-one — mis-expands (x - 2)^2 and lands on 14
-    { id: "D", text: "$14$" }
-  ],
-  correctAnswer: "A",
-  explanation: "**SAT Pattern: Quadratic-Linear System with One Intersection**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Set equal: $x^2 + 2x + 10 = 6x + k \\Rightarrow x^2 - 4x + (10 - k) = 0$. One intersection means discriminant $= 0$: $16 - 4(10 - k) = 0 \\Rightarrow 4k = 24 \\Rightarrow k = 6$.\n\n**The Full Solution:**\nA line and a parabola meet where their $y$-values are equal:\n$x^2 + 2x + 10 = 6x + k$\n$x^2 - 4x + (10 - k) = 0$.\nExactly one intersection means this quadratic has exactly one real root, so its discriminant is $0$:\n$(-4)^2 - 4(1)(10 - k) = 0$\n$16 - 40 + 4k = 0$\n$4k = 24$\n$k = 6$.\n\nVerification: with $k = 6$, $x^2 - 4x + 4 = 0 \\Rightarrow (x - 2)^2 = 0$, a single solution at $x = 2$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"wrong sign\" — a sign error in $16 - 4(10 - k) = 0$ flips $k$ to $-6$.\n* Choice C: \"stops one step early\" — borrows the parabola's constant term $10$.\n* Choice D: \"off-by-one\" — mis-expands $(x - 2)^2$ and lands on $14$.\n\n**Test Day Takeaway:** For a line tangent to (meeting once) a parabola, set the two equal, collect into a quadratic, and set the discriminant to $0$.",
-  skills: ["quadratic-equations", "systems-of-equations"]
+  question: "In the $xy$-plane, the horizontal line $y = 2$ intersects the parabola $y = x^2 + 5x + a$ at exactly one point, where $a$ is a constant. What is the value of $a$?",
+  correctAnswer: "8.25",
+  explanation: "**SAT Pattern: Quadratic — Discriminant Test**\n\n**The correct answer is $8.25$.**\n\n**The Fast Way (~30s):** Set $x^2 + 5x + a = 2 \\Rightarrow x^2 + 5x + (a - 2) = 0$. One intersection means discriminant $= 0$: $5^2 - 4(a - 2) = 0 \\Rightarrow 25 = 4(a - 2) \\Rightarrow a = 2 + \\tfrac{25}{4} = 8.25$.\n\n**The Full Solution:**\nThe line and parabola meet where their $y$-values are equal:\n$x^2 + 5x + a = 2$\n$x^2 + 5x + (a - 2) = 0$.\nExactly one intersection means this quadratic has a single (repeated) real root, so its discriminant is $0$:\n$5^2 - 4(1)(a - 2) = 0$\n$25 - 4a + 8 = 0$\n$4a = 33$\n$a = 8.25$.\n\nVerification: with $a = 8.25$, $x^2 + 5x + 6.25 = 0 \\Rightarrow (x + 2.5)^2 = 0$, a single solution at $x = -2.5$, where $y = 2$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Forgetting to move the $2$ over, leaving the constant term as $a$ instead of $a - 2$.\n* Setting the discriminant greater than $0$ (two points) or omitting the factor of $4$ in $4ac$.\n* Reporting the repeated root $-2.5$ instead of the requested constant $a$.\n\n**Test Day Takeaway:** A line meets a parabola exactly once when, after setting them equal and collecting into a quadratic, the discriminant equals $0$.",
+  skills: ["quadratic-equations", "discriminant"]
 },
 {
   id: 22,

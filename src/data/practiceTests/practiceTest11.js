@@ -424,11 +424,22 @@ export const practiceTest11 = {
 // Practice Test 11 — Math Module 2 (22 questions)
 // Flow (wavy, T11-unique): easy at [2,5,10]; medium at [1,3,4,7,9,13,18];
 // hard at [6,8,11,12,14,15,16,17,19,20,21,22].
-// Pool infusions: E#1 Pythagorean (Q2), D-p34#25 percent-growth model (Q7),
-// D-p17#24 quadratic-linear tangency (Q8), D-p19#27 exp find-a (Q11),
-// D-p25#27 polynomial zeros (Q12), E#20 circle isosceles-right (Q20).
+// Distribution: 3 easy / 7 medium / 12 hard = 22.
+// Pool infusions (E#=exact, D-pX#Y=derived-then-IP-distanced):
+//   E#1 Pythagorean surd (Q2); D-p34#25 percent-growth model (Q7);
+//   D-p17#24 quadratic-linear tangency (Q8, nudged: coeff 3, x=5);
+//   D-p19#27 exp find-a (Q11, nudged: shift 9, a=6);
+//   D-p25#27 polynomial zeros (Q12, nudged: sum=28);
+//   D-p38#20 quadratic-formula discriminant form (Q15);
+//   D-p39#23 linear g(c+5) find-parameter (Q16);
+//   D-p40#26 squared-unit rate conversion (Q19); E#20 circle isosceles-right (Q20).
+// Note: Q21 (Vieta sum/product k) carries NO pool match — prior flow comment
+//   implied a Q21 infusion that does not exist; corrected here.
+// Q5 reauthored opener: Line from Two Points (was |6-17| recall, below opener bar).
+// Q9 re-angled: exponential DECAY exponent-substitution (was build-the-model,
+//   near-dup of Q7's build deliverable).
 // Palette: tide gauges, skatepark ramps, letterpress printing, satellite orbits,
-// sourdough starters, ziplines; names Anya, Desmond, Lucia.
+// sourdough starters, ziplines, burning candles; names Anya, Desmond, Lucia.
 
 {
   id: 1,
@@ -510,20 +521,20 @@ export const practiceTest11 = {
   id: 5,
   type: "multiple-choice",
   difficulty: "easy",
-  band: 2,
-  question: "What is the value of $|6 - 17|$?",
+  band: 3,
+  question: "A lit candle burns at a constant rate. After $2$ hours its height is $18$ centimeters, and after $5$ hours its height is $9$ centimeters. Which equation gives the height $h$, in centimeters, of the candle $t$ hours after it is lit?",
   choices: [
-    // distractor: forgets the absolute value - keeps the negative
-    { id: "A", text: "$-11$" },
-    { id: "B", text: "$11$" },
-    // distractor: applies inverse op - adds instead of subtracting
-    { id: "C", text: "$23$" },
-    // distractor: wrong base - multiplies the values
-    { id: "D", text: "$102$" }
+    // distractor: correct slope magnitude but wrong sign (treats the candle as growing)
+    { id: "A", text: "$h = 3t + 24$" },
+    { id: "B", text: "$h = -3t + 24$" },
+    // distractor: reads the first point's height as the y-intercept without back-solving
+    { id: "C", text: "$h = -3t + 18$" },
+    // distractor: flips rise and run, using the reciprocal of the slope
+    { id: "D", text: "$h = -\\dfrac{1}{3}t + 24$" }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Absolute Value of a Difference**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** $|6 - 17| = |-11| = 11$.\n\n**The Full Solution:**\n$6 - 17 = -11$.\n$|-11| = 11$ (absolute value gives the magnitude).\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — computes $6 - 17 = -11$ but forgets the absolute value.\n* Choice C: \"applies the inverse operation\" — adds $6 + 17 = 23$ instead of subtracting.\n* Choice D: \"wrong base\" — multiplies $6 \\cdot 17 = 102$.\n\n**Test Day Takeaway:** Absolute value $|x|$ is always $\\geq 0$. It strips the sign while preserving the magnitude.",
-  skills: ["absolute-value", "solving-equations"]
+  explanation: "**SAT Pattern: Line from Two Points**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Slope $= \\dfrac{9 - 18}{5 - 2} = \\dfrac{-9}{3} = -3$ (the candle shrinks). Back-solve the intercept with $(2, 18)$: $18 = -3(2) + b \\Rightarrow b = 24$. So $h = -3t + 24$.\n\n**The Full Solution:**\nThe two data points are $(t, h) = (2, 18)$ and $(5, 9)$.\nSlope $= \\dfrac{\\Delta h}{\\Delta t} = \\dfrac{9 - 18}{5 - 2} = \\dfrac{-9}{3} = -3$ centimeters per hour.\nUse point-slope (or substitute a point) to find the intercept $b$:\n$18 = -3(2) + b \\Rightarrow 18 = -6 + b \\Rightarrow b = 24$.\nSo $h = -3t + 24$.\n\n**Verification:** at $t = 5$, $h = -3(5) + 24 = -15 + 24 = 9$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — uses slope $+3$ instead of $-3$, treating the shrinking candle as growing.\n* Choice C: \"stops one step early\" — reads the first point's height $18$ as the intercept instead of back-solving to $24$.\n* Choice D: \"wrong base\" — flips rise over run, using $\\dfrac{\\Delta t}{\\Delta h} = -\\dfrac{1}{3}$ as the slope.\n\n**Test Day Takeaway:** Find the slope from $\\dfrac{\\Delta y}{\\Delta x}$ first (mind the sign), then substitute a point to solve for the intercept — don't read a point's value as the intercept.",
+  skills: ["linear-functions", "slope", "solving-equations"]
 },
 {
   id: 6,
@@ -568,18 +579,18 @@ export const practiceTest11 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "The graphs of $y = 2x^2 - 19x + 40$ and $y = 5x + a$, where $a$ is a constant, intersect at exactly one point $(x, y)$ in the $xy$-plane. What is the value of $x$?",
+  question: "The graphs of $y = 3x^2 - 22x + 17$ and $y = 8x + a$, where $a$ is a constant, intersect at exactly one point $(x, y)$ in the $xy$-plane. What is the value of $x$?",
   choices: [
-    // distractor: sign error on the vertex x-coordinate
-    { id: "A", text: "$-6$" },
-    { id: "B", text: "$6$" },
-    // distractor: divides 24 by the wrong leading coefficient term
-    { id: "C", text: "$3$" },
-    // distractor: drops the factor of 2 from the leading coefficient
-    { id: "D", text: "$12$" }
+    // distractor: sign error on the vertex x-coordinate (drops the negative in -B/2A)
+    { id: "A", text: "$-5$" },
+    { id: "B", text: "$5$" },
+    // distractor: divides 30 by A = 3 instead of 2A = 6 (drops the factor of 2)
+    { id: "C", text: "$10$" },
+    // distractor: divides 30 by 2 alone, ignoring the leading coefficient
+    { id: "D", text: "$15$" }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Quadratic-Linear System with One Intersection**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Setting the equations equal gives $2x^2 - 19x + 40 = 5x + a$, i.e. $2x^2 - 24x + (40 - a) = 0$. A single intersection means this quadratic has one repeated root, which sits at the vertex: $x = \\dfrac{24}{2 \\cdot 2} = 6$. No need to find $a$.\n\n**The Full Solution:**\nSet the two expressions equal:\n$2x^2 - 19x + 40 = 5x + a$\n$2x^2 - 24x + (40 - a) = 0$.\nExactly one intersection means the discriminant is $0$, so the quadratic has a double root. A double root of $Ax^2 + Bx + C$ lies at $x = -\\dfrac{B}{2A}$:\n$x = -\\dfrac{-24}{2(2)} = \\dfrac{24}{4} = 6$.\n\nThe value of $a$ would just make the discriminant zero; it is not needed to find $x$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — drops the negative when applying $-\\frac{B}{2A}$, getting $-6$.\n* Choice C: \"wrong base\" — divides $24$ by $2A = 8$ incorrectly, or by $8$ instead of $4$.\n* Choice D: \"stops one step early\" — divides $24$ by $A = 2$ instead of $2A = 4$.\n\n**Test Day Takeaway:** When a line meets a parabola at exactly one point, move everything to one side and use $x = -\\dfrac{B}{2A}$ for the double root — you rarely need the constant.",
+  explanation: "**SAT Pattern: Quadratic-Linear System with One Intersection**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Setting the equations equal gives $3x^2 - 22x + 17 = 8x + a$, i.e. $3x^2 - 30x + (17 - a) = 0$. A single intersection means this quadratic has one repeated root, which sits at the vertex: $x = \\dfrac{30}{2 \\cdot 3} = 5$. No need to find $a$.\n\n**The Full Solution:**\nSet the two expressions equal:\n$3x^2 - 22x + 17 = 8x + a$\n$3x^2 - 30x + (17 - a) = 0$.\nExactly one intersection means the discriminant is $0$, so the quadratic has a double root. A double root of $Ax^2 + Bx + C$ lies at $x = -\\dfrac{B}{2A}$:\n$x = -\\dfrac{-30}{2(3)} = \\dfrac{30}{6} = 5$.\n\nThe value of $a$ would just make the discriminant zero; it is not needed to find $x$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — drops the negative when applying $-\\frac{B}{2A}$, getting $-5$.\n* Choice C: \"stops one step early\" — divides $30$ by $A = 3$ instead of $2A = 6$, getting $10$.\n* Choice D: \"wrong base\" — divides $30$ by $2$ alone, ignoring the leading coefficient, getting $15$.\n\n**Test Day Takeaway:** When a line meets a parabola at exactly one point, move everything to one side and use $x = -\\dfrac{B}{2A}$ for the double root — you rarely need the constant.",
   skills: ["systems-of-equations", "discriminant", "quadratic-equations"]
 },
 {
@@ -587,18 +598,18 @@ export const practiceTest11 = {
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
-  question: "The number of active satellites in a constellation increases by $8\\%$ every $6$ months. If the constellation currently has $50{,}000$ active satellites, which expression gives the number of active satellites after $y$ years?",
+  question: "A satellite's battery charge decreases by $12\\%$ every $3$ months. The percent of charge remaining can be modeled by $100(0.88)^n$, where $n$ is the number of $3$-month periods after launch. Which expression gives the percent of charge remaining $t$ years after launch?",
   choices: [
-    { id: "A", text: "$50{,}000(1.08)^{2y}$" },
-    // distractor: divides by 2 instead of multiplying
-    { id: "B", text: "$50{,}000(1.08)^{\\frac{y}{2}}$" },
-    // distractor: doubles the rate (16%) once per year
-    { id: "C", text: "$50{,}000(1.16)^y$" },
-    // distractor: applies 8% once per year instead of twice
-    { id: "D", text: "$50{,}000(1.08)^y$" }
+    { id: "A", text: "$100(0.88)^{4t}$" },
+    // distractor: divides by the period length instead of multiplying (inverse of the period count)
+    { id: "B", text: "$100(0.88)^{\\frac{t}{4}}$" },
+    // distractor: uses the number 3 from "3 months" directly as the per-year multiplier
+    { id: "C", text: "$100(0.88)^{3t}$" },
+    // distractor: uses months-per-year (12) as the exponent multiplier, forgetting the period length
+    { id: "D", text: "$100(0.88)^{12t}$" }
   ],
   correctAnswer: "A",
-  explanation: "**SAT Pattern: Exponential Growth Model**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** $8\\%$ growth every $6$ months = factor of $1.08$ per half-year. In $y$ years there are $2y$ half-year periods: $50{,}000(1.08)^{2y}$.\n\n**The Full Solution:**\nGrowth factor per $6$-month period: $1.08$.\nIn $y$ years there are $2y$ periods of $6$ months.\nActive satellites after $y$ years: $50{,}000(1.08)^{2y}$.\n\nVerification: at $y = 1$: $50{,}000(1.08)^2 = 50{,}000(1.1664) = 58{,}320$. This matches two consecutive $8\\%$ increases: $50{,}000 \\cdot 1.08 \\cdot 1.08 = 58{,}320$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"applies the inverse operation\" — uses $\\frac{y}{2}$ instead of $2y$.\n* Choice C: \"wrong base\" — doubles the rate to $16\\%$ per year, but compounding doesn't work that way.\n* Choice D: \"stops one step early\" — applies $8\\%$ only once per year instead of twice.\n\n**Test Day Takeaway:** Count the number of growth periods carefully. If growth occurs every $6$ months and time is in years, there are $2y$ periods.",
+  explanation: "**SAT Pattern: Exponential Growth/Decay**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** The base $0.88$ is already given, so only the exponent changes. One year holds four $3$-month periods, so $n = 4t$: the expression is $100(0.88)^{4t}$.\n\n**The Full Solution:**\nThe decay factor $0.88$ is fixed (each $3$-month period keeps $88\\%$ of the charge). The only thing to convert is the count of periods.\nThere are $12$ months in a year and each period is $3$ months long, so one year contains $\\dfrac{12}{3} = 4$ periods.\nIn $t$ years there are $n = 4t$ periods, giving $100(0.88)^{4t}$.\n\n**Verification:** at $t = 1$ year, $n = 4$, so $100(0.88)^4 \\approx 59.97\\%$ — the same as four consecutive $12\\%$ drops \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"applies the inverse operation\" — divides by the period length, using $\\dfrac{t}{4}$ instead of multiplying.\n* Choice C: \"wrong base\" — grabs the $3$ from \"$3$ months\" and uses $3t$ periods.\n* Choice D: \"stops one step early\" — multiplies by months-per-year ($12$) without dividing by the $3$-month period length.\n\n**Test Day Takeaway:** When the decay factor is already supplied, only the exponent needs work: divide the total time by the length of one period to count how many periods occur.",
   skills: ["exponential-functions", "word-problems"]
 },
 {
@@ -625,9 +636,9 @@ export const practiceTest11 = {
   type: "fill-in",
   difficulty: "hard",
   band: 7,
-  question: "The function $f$ is defined by $f(x) = -a^x + b$, where $a$ and $b$ are positive constants. In the $xy$-plane, the graph of $y = f(x) - 12$ has a $y$-intercept at $\\left(0, -\\dfrac{28}{3}\\right)$, and the product of $a$ and $b$ is $\\dfrac{44}{3}$. What is the value of $a$?",
-  correctAnswer: "4",
-  explanation: "**SAT Pattern: Exponential Function — Solving for Parameter**\n\n**The correct answer is $4$.**\n\n**The Fast Way (~40s):** At $x = 0$: $f(0) - 12 = -a^0 + b - 12 = -1 + b - 12 = b - 13$. Set $b - 13 = -\\dfrac{28}{3} \\Rightarrow b = \\dfrac{11}{3}$. Then $a = \\dfrac{ab}{b} = \\dfrac{44/3}{11/3} = 4$.\n\n**The Full Solution:**\nThe $y$-intercept of $y = f(x) - 12$ is its value at $x = 0$:\n$f(0) - 12 = -a^0 + b - 12$.\nSince $a^0 = 1$ for any positive $a$, this is $-1 + b - 12 = b - 13$.\nSet equal to the given $y$-intercept:\n$b - 13 = -\\dfrac{28}{3} \\Rightarrow b = 13 - \\dfrac{28}{3} = \\dfrac{39 - 28}{3} = \\dfrac{11}{3}$.\nNow use $ab = \\dfrac{44}{3}$:\n$a = \\dfrac{44/3}{11/3} = \\dfrac{44}{11} = 4$.\n\n**Verification:** $a = 4$, $b = \\dfrac{11}{3}$, product $= \\dfrac{44}{3}$ \\checkmark. And $f(0) - 12 = -1 + \\dfrac{11}{3} - 12 = -13 + \\dfrac{11}{3} = -\\dfrac{28}{3}$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Forgetting that $a^0 = 1$ (treating $-a^0$ as $-a$ or as $0$).\n* Dropping the $-12$ vertical shift when reading the $y$-intercept.\n* Solving for $b$ and reporting it instead of $a$.\n\n**Test Day Takeaway:** Evaluate transformed graphs at $x = 0$ for the $y$-intercept, and remember any nonzero base raised to the $0$ power equals $1$.",
+  question: "The function $f$ is defined by $f(x) = -a^x + b$, where $a$ and $b$ are positive constants. In the $xy$-plane, the graph of $y = f(x) - 9$ has a $y$-intercept at $\\left(0, -\\dfrac{27}{4}\\right)$, and the product of $a$ and $b$ is $\\dfrac{39}{2}$. What is the value of $a$?",
+  correctAnswer: "6",
+  explanation: "**SAT Pattern: Exponential Function — Solving for Parameter**\n\n**The correct answer is $6$.**\n\n**The Fast Way (~40s):** At $x = 0$: $f(0) - 9 = -a^0 + b - 9 = -1 + b - 9 = b - 10$. Set $b - 10 = -\\dfrac{27}{4} \\Rightarrow b = \\dfrac{13}{4}$. Then $a = \\dfrac{ab}{b} = \\dfrac{39/2}{13/4} = 6$.\n\n**The Full Solution:**\nThe $y$-intercept of $y = f(x) - 9$ is its value at $x = 0$:\n$f(0) - 9 = -a^0 + b - 9$.\nSince $a^0 = 1$ for any positive $a$, this is $-1 + b - 9 = b - 10$.\nSet equal to the given $y$-intercept:\n$b - 10 = -\\dfrac{27}{4} \\Rightarrow b = 10 - \\dfrac{27}{4} = \\dfrac{40 - 27}{4} = \\dfrac{13}{4}$.\nNow use $ab = \\dfrac{39}{2}$:\n$a = \\dfrac{39/2}{13/4} = \\dfrac{39}{2} \\cdot \\dfrac{4}{13} = \\dfrac{156}{26} = 6$.\n\n**Verification:** $a = 6$, $b = \\dfrac{13}{4}$, product $= \\dfrac{78}{4} = \\dfrac{39}{2}$ \\checkmark. And $f(0) - 9 = -1 + \\dfrac{13}{4} - 9 = -10 + \\dfrac{13}{4} = -\\dfrac{27}{4}$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Forgetting that $a^0 = 1$ (treating $-a^0$ as $-a$ or as $0$).\n* Dropping the $-9$ vertical shift when reading the $y$-intercept.\n* Solving for $b$ and reporting it instead of $a$.\n\n**Test Day Takeaway:** Evaluate transformed graphs at $x = 0$ for the $y$-intercept, and remember any nonzero base raised to the $0$ power equals $1$.",
   skills: ["exponential-functions", "y-intercept", "systems-of-equations"]
 },
 {
@@ -635,9 +646,9 @@ export const practiceTest11 = {
   type: "fill-in",
   difficulty: "hard",
   band: 7,
-  question: "The function $g$ is defined by $g(x) = x(x - 4)(x + 2)^2$. The value of $g(11 - w)$ is $0$, where $w$ is a constant. What is the sum of all distinct possible values of $w$?",
-  correctAnswer: "31",
-  explanation: "**SAT Pattern: Polynomial Zeros via Factoring**\n\n**The correct answer is $31$.**\n\n**The Fast Way (~35s):** Zeros of $g$ are $x = 0,\\ 4,\\ -2$ (the factor $(x+2)^2$ gives a repeated zero at $-2$, but it is one distinct value). Set $11 - w$ equal to each: $w = 11,\\ 7,\\ 13$. Sum $= 31$.\n\n**The Full Solution:**\n$g(11 - w) = 0$ exactly when $11 - w$ is a zero of $g$.\nThe zeros of $g(x) = x(x - 4)(x + 2)^2$ are the values that make a factor zero: $x = 0$, $x = 4$, and $x = -2$ (from $(x + 2)^2$, a double root but a single distinct value).\nSet $11 - w$ equal to each distinct zero:\n* $11 - w = 0 \\Rightarrow w = 11$\n* $11 - w = 4 \\Rightarrow w = 7$\n* $11 - w = -2 \\Rightarrow w = 13$\nSum of distinct $w$: $11 + 7 + 13 = 31$.\n\n**Verification:** $g(11 - 11) = g(0) = 0$ \\checkmark; $g(11 - 7) = g(4) = 0$ \\checkmark; $g(11 - 13) = g(-2) = 0$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Counting the double root $-2$ twice — it yields only ONE value of $w$.\n* Forgetting $x = 0$ is a zero (the bare factor $x$).\n* Solving $11 - w = \\text{zero}$ with a sign slip.\n\n**Test Day Takeaway:** A factored polynomial is zero exactly at its factors' roots. A squared factor is still one distinct root. Translate each root through the inner expression to recover the variable.",
+  question: "The function $g$ is defined by $g(x) = (x - 3)(x + 5)(x - 1)^2$. The value of $g(9 - w)$ is $0$, where $w$ is a constant. What is the sum of all distinct possible values of $w$?",
+  correctAnswer: "28",
+  explanation: "**SAT Pattern: Polynomial Zeros via Factoring**\n\n**The correct answer is $28$.**\n\n**The Fast Way (~35s):** Zeros of $g$ are $x = 3,\\ -5,\\ 1$ (the factor $(x-1)^2$ gives a repeated zero at $1$, but it is one distinct value). Set $9 - w$ equal to each: $w = 6,\\ 14,\\ 8$. Sum $= 28$.\n\n**The Full Solution:**\n$g(9 - w) = 0$ exactly when $9 - w$ is a zero of $g$.\nThe zeros of $g(x) = (x - 3)(x + 5)(x - 1)^2$ are the values that make a factor zero: $x = 3$, $x = -5$, and $x = 1$ (from $(x - 1)^2$, a double root but a single distinct value).\nSet $9 - w$ equal to each distinct zero:\n* $9 - w = 3 \\Rightarrow w = 6$\n* $9 - w = -5 \\Rightarrow w = 14$\n* $9 - w = 1 \\Rightarrow w = 8$\nSum of distinct $w$: $6 + 14 + 8 = 28$.\n\n**Verification:** $g(9 - 6) = g(3) = 0$ \\checkmark; $g(9 - 14) = g(-5) = 0$ \\checkmark; $g(9 - 8) = g(1) = 0$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Counting the double root $1$ twice — it yields only ONE value of $w$.\n* Misreading the factor $(x + 5)$ as a zero of $5$ instead of $-5$.\n* Solving $9 - w = \\text{zero}$ with a sign slip.\n\n**Test Day Takeaway:** A factored polynomial is zero exactly at its factors' roots. A squared factor is still one distinct root. Translate each root through the inner expression to recover the variable.",
   skills: ["polynomial-zeros", "factoring", "substitution"]
 },
 {

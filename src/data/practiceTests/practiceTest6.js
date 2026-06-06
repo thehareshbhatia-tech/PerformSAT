@@ -411,9 +411,16 @@ export const practiceTest6 = {
       timeLimit: 35,
       questions: [
 // Practice Test 6 — Math Module 2 (22 questions)
-// Flow: easy[1,6,16] / medium[2,3,5,9,12,14,17] / hard[4,7,8,10,11,13,15,18,19,20,21,22].
-// Q16 is the mid-module range breather; Q18-Q22 are figure/concept hard closers.
-// Bands ramp from a band-3 opener to band-7 closers (mean Q1-5 < mean Q18-22).
+// Distribution: easy 3 [1,6,16] / medium 7 [2,3,5,9,12,14,17] / hard 12 [4,7,8,10,11,13,15,18,19,20,21,22].
+// Bands: easy opener band 3 (Q1); band-2 breathers Q6 (vertical angles) and Q16 (range);
+//        medium band 5-6; hard band 7 closers, with Q9 and Q11 sitting at band 6 inside the hard run.
+// Band ramp holds: mean(Q1-5)=5.0 < mean(Q18-22)=7.0.
+// Pool infusions (skeleton reused from CB corpora, IP-distanced): Q2 D-p20#17 (no-solution),
+//   Q4 E#9 (quadratic-linear greatest x), Q8 D-p5#22 (inscribed sphere), Q9 D-p35#23=E#14 (per-x rate),
+//   Q10 D-p17#24 (tangent vertex), Q13 D-p11#26 (grouped-data mean bounds), Q14 E#3 (margin of error),
+//   Q17 E#2 (line from two points). Q18-Q22 are figure/concept hard closers.
+// Q15 reauthored to a 30-60-90 inscribed-rectangle item to break the Quadratic-in-Disguise
+//   duplicate it formed with Q22; Q22 keeps that pattern (count-distinct-roots deliverable).
 
 {
   id: 1,
@@ -668,10 +675,10 @@ export const practiceTest6 = {
   type: "fill-in",
   difficulty: "hard",
   band: 7,
-  question: "What is the sum of all real solutions to the equation $4^x - 5 \\cdot 2^x + 4 = 0$?",
-  correctAnswer: "2",
-  explanation: "**SAT Pattern: Quadratic in Disguise**\n\n**The correct answer is $2$.**\n\n**The Fast Way (~45s):** Recognize $4^x = (2^x)^2$. Let $u = 2^x$: $u^2 - 5u + 4 = 0 \\Rightarrow (u - 1)(u - 4) = 0$, so $u = 1$ or $u = 4$. Back-substitute: $2^x = 1 \\Rightarrow x = 0$; $2^x = 4 \\Rightarrow x = 2$. Sum: $0 + 2 = 2$.\n\n**The Full Solution:**\nThe equation $4^x - 5 \\cdot 2^x + 4 = 0$ is a hidden quadratic in $2^x$. Note that $4^x = (2^2)^x = 2^{2x} = (2^x)^2$.\nLet $u = 2^x$ (so $u > 0$). The equation becomes:\n$u^2 - 5u + 4 = 0$\n$(u - 1)(u - 4) = 0$\n$u = 1$ or $u = 4$.\nBack-substitute:\n* $2^x = 1 \\Rightarrow x = 0$.\n* $2^x = 4 \\Rightarrow x = 2$.\nBoth $u$-values are positive, so both are valid. Sum of solutions: $0 + 2 = 2$.\n\n**Verification:** At $x = 0$: $4^0 - 5 \\cdot 2^0 + 4 = 1 - 5 + 4 = 0$ \\checkmark. At $x = 2$: $4^2 - 5 \\cdot 2^2 + 4 = 16 - 20 + 4 = 0$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Failing to recognize $4^x = (2^x)^2$ — the equation does not factor in $x$ directly.\n* Substituting $u = 2^x$ but forgetting to back-substitute to find $x$.\n* Reporting $1 + 4 = 5$ (the sum of $u$-values, not $x$-values).\n\n**Test Day Takeaway:** When an exponential equation has $a^{2x}$, $a^x$, and a constant, substitute $u = a^x$ to convert it to a quadratic. Solve for $u$, then back-substitute for $x$, rejecting any non-positive $u$.",
-  skills: ["exponent-rules", "exponential-functions", "quadratic-equations", "factoring"]
+  question: "A rectangle is inscribed in a circle so that all four of its vertices lie on the circle. The length of the rectangle's diagonal is twice the length of its shorter side, and the area of the rectangle is $49\\sqrt{3}$ square centimeters. What is the diameter of the circle, in centimeters?",
+  correctAnswer: "14",
+  explanation: "**SAT Pattern: Special Right Triangle — 30-60-90**\n\n**The correct answer is $14$.**\n\n**The Fast Way (~50s):** A diagonal of an inscribed rectangle IS a diameter. With diagonal $= 2 \\times$ shorter side, the diagonal and shorter side form a $30$-$60$-$90$ triangle, so the longer side is $\\sqrt{3}$ times the shorter side $s$. Area $= s \\cdot s\\sqrt{3} = s^2\\sqrt{3} = 49\\sqrt{3}$, so $s = 7$ and the diameter is $2s = 14$.\n\n**The Full Solution:**\nBecause all four vertices lie on the circle, the rectangle's diagonal is a diameter of the circle.\nLet the shorter side be $s$. The diagonal is given as $2s$, so the diagonal-to-shorter-side ratio is $2:1$ — the hypotenuse is twice the short leg, which is the signature of a $30$-$60$-$90$ right triangle.\nIn a $30$-$60$-$90$ triangle the sides are in ratio $1 : \\sqrt{3} : 2$ (short leg : long leg : hypotenuse), so the longer side of the rectangle is $s\\sqrt{3}$.\nArea of the rectangle $= s \\cdot s\\sqrt{3} = s^2\\sqrt{3}$. Set equal to the given area:\n$s^2\\sqrt{3} = 49\\sqrt{3} \\Rightarrow s^2 = 49 \\Rightarrow s = 7$.\nDiameter $= $ diagonal $= 2s = 2(7) = 14$ centimeters.\n\n**Verification:** Shorter side $7$, longer side $7\\sqrt{3} \\approx 12.12$; diagonal $= \\sqrt{7^2 + (7\\sqrt{3})^2} = \\sqrt{49 + 147} = \\sqrt{196} = 14$ \\checkmark, and $14 = 2 \\times 7$ \\checkmark. Area $= 7 \\cdot 7\\sqrt{3} = 49\\sqrt{3}$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Reporting $7$ — that is the shorter side (and also the radius), not the diameter; the question asks for the diameter $2s = 14$.\n* Treating the rectangle as a square and using diagonal $= s\\sqrt{2}$, which gives $7\\sqrt{2} \\approx 9.9$ instead of the $30$-$60$-$90$ relationship.\n* Reporting $7\\sqrt{3} \\approx 12.12$ — the longer side — by mistaking it for the diagonal.\n\n**Test Day Takeaway:** When a rectangle is inscribed in a circle, its diagonal is a diameter; a hypotenuse-to-leg ratio of $2:1$ signals a $30$-$60$-$90$ triangle with sides $1 : \\sqrt{3} : 2$.",
+  skills: ["special-right-triangles", "geometry", "circles"]
 },
 {
   id: 16,
@@ -738,7 +745,7 @@ export const practiceTest6 = {
   band: 7,
   question: "Sage manages a drone-delivery hub. In one shift the numbers of short-range flights $x$, mid-range flights $y$, and long-range flights $z$ satisfy the system:\n\n$$x + y + z = 30$$\n$$2x + 3y + z = 54$$\n$$x + 2y + 4z = 88$$\n\nWhat is the value of $z$?",
   correctAnswer: "16",
-  explanation: "**SAT Pattern: System of Three Equations**\n\n**The correct answer is $16$.**\n\n**The Fast Way (~60s):** Subtract equation 1 from equation 2 to get $x + 2y = 24$. Subtract equation 1 (times appropriate form) to eliminate, then solve: $x = 4$, $y = 10$, $z = 30 - 4 - 10 = 16$.\n\n**The Full Solution:**\nLabel the equations:\n(1) $x + y + z = 30$\n(2) $2x + 3y + z = 54$\n(3) $x + 2y + 4z = 88$\nFrom (2) $-$ (1): $x + 2y = 24$. ... (4)\nFrom (1), $z = 30 - x - y$. Substitute into (3):\n$x + 2y + 4(30 - x - y) = 88$\n$x + 2y + 120 - 4x - 4y = 88$\n$-3x - 2y = -32 \\Rightarrow 3x + 2y = 32$. ... (5)\nSubtract (4) from (5): $2x = 8 \\Rightarrow x = 4$.\nFrom (4): $2y = 24 - 4 = 20 \\Rightarrow y = 10$.\nThen $z = 30 - 4 - 10 = 16$.\n\n**Verification:** (2): $2(4) + 3(10) + 16 = 8 + 30 + 16 = 54$ \\checkmark; (3): $4 + 20 + 64 = 88$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Stopping at $x$ or $y$ instead of solving for the requested $z$.\n* Arithmetic slips when distributing the $4$ across $(30 - x - y)$.\n\n**Test Day Takeaway:** For a $3 \\times 3$ system, eliminate one variable by subtracting equation pairs, reduce to a $2 \\times 2$ system, then back-substitute. Track which variable the question asks for.",
+  explanation: "**SAT Pattern: System of Three Equations**\n\n**The correct answer is $16$.**\n\n**The Fast Way (~50s):** Kill $x$ to isolate $z$ directly. Equation 3 $-$ equation 1: $y + 3z = 58$. Equation 2 $-$ $2\\times$ equation 1: $y - z = -6$. Subtract these: $4z = 64$, so $z = 16$.\n\n**The Full Solution:**\nLabel the equations:\n(1) $x + y + z = 30$\n(2) $2x + 3y + z = 54$\n(3) $x + 2y + 4z = 88$\nFrom (2) $-$ (1): $x + 2y = 24$. ... (4)\nFrom (1), $z = 30 - x - y$. Substitute into (3):\n$x + 2y + 4(30 - x - y) = 88$\n$x + 2y + 120 - 4x - 4y = 88$\n$-3x - 2y = -32 \\Rightarrow 3x + 2y = 32$. ... (5)\nSubtract (4) from (5): $2x = 8 \\Rightarrow x = 4$.\nFrom (4): $2y = 24 - 4 = 20 \\Rightarrow y = 10$.\nThen $z = 30 - 4 - 10 = 16$.\n\n**Verification:** (2): $2(4) + 3(10) + 16 = 8 + 30 + 16 = 54$ \\checkmark; (3): $4 + 20 + 64 = 88$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Stopping at $x$ or $y$ instead of solving for the requested $z$.\n* Arithmetic slips when distributing the $4$ across $(30 - x - y)$.\n\n**Test Day Takeaway:** For a $3 \\times 3$ system, eliminate one variable by subtracting equation pairs, reduce to a $2 \\times 2$ system, then back-substitute. Track which variable the question asks for.",
   skills: ["systems-of-equations", "three-variable-systems"]
 },
 {

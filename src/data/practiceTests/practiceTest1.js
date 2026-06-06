@@ -406,27 +406,31 @@ export const practiceTest1 = {
 // Practice Test 1 — Math Module 2 (22 questions)
 // Flow (diversified 2026-06): E at 1,5,17 · M at 2,3,4,6,9,11,13,19 ·
 // H at 7,8,10,12,14,15,16,18,20,21,22. Breather easy at Q17 (range).
-// Pool infusions: Q7 (linear-from-rational-table), Q9 (rail inequality),
-// Q11 (cheese-decay model), Q14 (similar-triangle area), Q21 (kiln circles).
+// Openers (quick-but-real): Q1 bare Pythagorean hypotenuse (surd answer),
+// Q5 margin-of-error plausible-range conclusion.
+// Pool infusions: Q7 (D-p33#26 linear-from-rational-table), Q9 (E#4 rail inequality),
+// Q11 (D-p10#23 cheese-decay model), Q14 (E#18 similar-triangle area).
+// Re-angles: Q16 (D-p3#25) now asks an intersection COUNT at a given c (not vertex-y);
+// Q21 (was D-p1#19 kiln-circle area-ratio) reskinned to stamping disks, new ratio 13 -> 169.
 
 {
   id: 1,
   type: "multiple-choice",
   difficulty: "easy",
   band: 3,
-  question: "Two interior angles of a triangle measure $52^{\\circ}$ and $73^{\\circ}$. What is the measure, in degrees, of the third interior angle?",
+  question: "A right triangle has legs of length $5$ and $8$. What is the length of the hypotenuse?",
   choices: [
-    // distractor: subtracts the two given angles instead of summing them
-    { id: "A", text: "$21^{\\circ}$" },
-    { id: "B", text: "$55^{\\circ}$" },
-    // distractor: reports the sum of the two given angles
-    { id: "C", text: "$125^{\\circ}$" },
-    // distractor: uses a full turn of 360 instead of 180
-    { id: "D", text: "$235^{\\circ}$" }
+    // distractor: adds the two legs instead of combining their squares (5 + 8)
+    { id: "A", text: "$13$" },
+    // distractor: subtracts the squares of the legs ($8^2 - 5^2 = 39$) instead of adding them
+    { id: "B", text: "$\\sqrt{39}$" },
+    { id: "C", text: "$\\sqrt{89}$" },
+    // distractor: computes the sum of the squares but forgets to take the square root
+    { id: "D", text: "$89$" }
   ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Triangle Angle Sum**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** Interior angles of a triangle sum to $180^{\\circ}$. Third angle $= 180 - 52 - 73 = 55^{\\circ}$.\n\n**The Full Solution:**\n$52^{\\circ} + 73^{\\circ} + x = 180^{\\circ}$\n$125^{\\circ} + x = 180^{\\circ}$\n$x = 55^{\\circ}$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — subtracts the two given angles ($73 - 52 = 21$).\n* Choice C: \"stops one step early\" — reports the sum of the given angles ($52 + 73 = 125$).\n* Choice D: \"wrong base\" — uses $360^{\\circ}$ instead of $180^{\\circ}$.\n\n**Test Day Takeaway:** Interior angles of any triangle ALWAYS sum to $180^{\\circ}$ — subtract the two known angles from $180$.",
-  skills: ["triangles", "angles", "geometry"]
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Right Triangle — Pythagorean**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Hypotenuse $= \\sqrt{5^2 + 8^2} = \\sqrt{25 + 64} = \\sqrt{89}$. Since $89$ is prime, $\\sqrt{89}$ does not simplify.\n\n**The Full Solution:**\nFor a right triangle, the Pythagorean theorem gives $c^2 = a^2 + b^2$ where $c$ is the hypotenuse.\n$c^2 = 5^2 + 8^2 = 25 + 64 = 89$.\n$c = \\sqrt{89}$.\n$89$ has no perfect-square factor other than $1$, so $\\sqrt{89}$ is already in simplest form ($\\sqrt{89} \\approx 9.43$).\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong operation\" — adds the legs directly ($5 + 8 = 13$) instead of combining their squares.\n* Choice B: \"applies the inverse operation\" — subtracts the squares ($8^2 - 5^2 = 39$) as if solving for a missing leg rather than the hypotenuse.\n* Choice D: \"stops one step early\" — finds $a^2 + b^2 = 89$ but reports it without taking the square root.\n\n**Test Day Takeaway:** The hypotenuse is $\\sqrt{a^2 + b^2}$ — square each leg, add, then take the root. A radicand with no perfect-square factor is already simplified.",
+  skills: ["triangles", "pythagorean", "geometry"]
 },
 {
   id: 2,
@@ -488,19 +492,19 @@ export const practiceTest1 = {
   type: "multiple-choice",
   difficulty: "easy",
   band: 3,
-  question: "A trail-maintenance crew tracks distance cleared with the function $D(h) = 9 + 4h$, where $D$ is the total kilometers of trail cleared after $h$ hours of work. How many kilometers will the crew have cleared after $6$ hours?",
+  question: "A plant nursery measured a random sample of its seedlings and estimated the mean height to be $38$ centimeters, with an associated margin of error of $2.5$ centimeters. Based on this estimate and margin of error, which of the following is the most appropriate conclusion about the mean height of all the nursery's seedlings?",
   choices: [
-    // distractor: multiplies rate by hours but forgets the 9 km already cleared
-    { id: "A", text: "$24$" },
-    // distractor: adds the rate and hours instead of multiplying (9 + 4 + 6)
-    { id: "B", text: "$19$" },
-    { id: "C", text: "$33$" },
-    // distractor: adds the starting value to the hours, ignoring the rate (9 + 6 ... mis-scaled)
-    { id: "D", text: "$54$" }
+    // distractor: applies the margin of error on only one side (38 to 40.5)
+    { id: "A", text: "It is plausible that the mean height of all the seedlings is between $38$ and $40.5$ centimeters." },
+    { id: "B", text: "It is plausible that the mean height of all the seedlings is between $35.5$ and $40.5$ centimeters." },
+    // distractor: doubles the margin of error before adding/subtracting (38 +/- 5)
+    { id: "C", text: "It is plausible that the mean height of all the seedlings is between $33$ and $43$ centimeters." },
+    // distractor: treats the margin of error as the full plausible value (mean is exactly 2.5)
+    { id: "D", text: "The mean height of all the seedlings is exactly $2.5$ centimeters." }
   ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Function Evaluation in Context**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** $D(6) = 9 + 4(6) = 9 + 24 = 33$ km.\n\n**The Full Solution:**\nSubstitute $h = 6$ into $D(h) = 9 + 4h$:\n$D(6) = 9 + 4 \\cdot 6 = 9 + 24 = 33$ kilometers.\nThe $9$ is trail cleared before the count began; the $4h$ is the new trail cleared during the $6$ hours.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — computes $4 \\cdot 6 = 24$ but forgets the starting $9$ km.\n* Choice B: \"wrong operation\" — adds the rate and the hours ($9 + 4 + 6 = 19$) instead of multiplying.\n* Choice D: \"wrong base\" — multiplies the starting value $9$ by $6$ instead of adding $4 \\cdot 6$.\n\n**Test Day Takeaway:** To evaluate a linear model, multiply the rate by the input FIRST, then add the constant.",
-  skills: ["function-interpretation", "linear-functions"]
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Margin of Error**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The plausible interval is estimate $\\pm$ margin of error: $38 - 2.5 = 35.5$ to $38 + 2.5 = 40.5$.\n\n**The Full Solution:**\nA margin of error defines a symmetric interval around the sample estimate within which the true population mean plausibly lies.\nLower bound: $38 - 2.5 = 35.5$ centimeters.\nUpper bound: $38 + 2.5 = 40.5$ centimeters.\nSo it is plausible that the mean height of all the seedlings is between $35.5$ and $40.5$ centimeters.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — applies the margin of error only on the upper side ($38$ to $40.5$) instead of both sides.\n* Choice C: \"wrong base\" — doubles the margin of error to $5$ before forming the interval ($38 \\pm 5 = 33$ to $43$).\n* Choice D: \"wrong base\" — reports the margin of error $2.5$ itself as the mean, which is not what a margin of error describes.\n\n**Test Day Takeaway:** A margin of error gives a two-sided interval: subtract it from AND add it to the estimate. The true mean is plausibly anywhere in that band, never a single exact value.",
+  skills: ["statistics", "margin-of-error", "data-analysis"]
 },
 {
   id: 6,
@@ -701,19 +705,19 @@ export const practiceTest1 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "In the $xy$-plane, the graph of $y = -x^2 + 7x - 80$ intersects the line $y = c$ at exactly one point. What is the value of $c$?",
+  question: "In the $xy$-plane, the graph of $y = -x^2 + 6x - 5$ and the line $y = -2$ are drawn. At how many points do the two graphs intersect?",
   choices: [
-    { id: "A", text: "$-\\dfrac{271}{4}$" },
-    // distractor: copies the constant term of the quadratic
-    { id: "B", text: "$-80$" },
-    // distractor: gives -b^2/(4a) magnitude only, dropping the constant
-    { id: "C", text: "$-\\dfrac{49}{4}$" },
-    // distractor: returns the x-coordinate of the vertex
-    { id: "D", text: "$-\\dfrac{7}{2}$" }
+    // distractor: thinks the line lies above the parabola's maximum, so no intersection
+    { id: "A", text: "$0$" },
+    // distractor: assumes a horizontal line is always tangent to a parabola (one point)
+    { id: "B", text: "$1$" },
+    { id: "C", text: "$2$" },
+    // distractor: confuses a parabola with a cubic and expects three crossings
+    { id: "D", text: "$3$" }
   ],
-  correctAnswer: "A",
-  explanation: "**SAT Pattern: Line-Parabola Intersection Count**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** A horizontal line meets a parabola at exactly one point only at the vertex's $y$-value. Vertex $x = \\dfrac{7}{2}$; $y = -\\left(\\dfrac{7}{2}\\right)^2 + 7\\left(\\dfrac{7}{2}\\right) - 80 = -\\dfrac{49}{4} + \\dfrac{49}{2} - 80 = -\\dfrac{271}{4}$.\n\n**The Full Solution:**\nSetting $-x^2 + 7x - 80 = c$ gives $x^2 - 7x + (80 + c) = 0$. Exactly one solution means the discriminant is $0$:\n$(-7)^2 - 4(1)(80 + c) = 0 \\Rightarrow 49 - 320 - 4c = 0 \\Rightarrow -271 = 4c \\Rightarrow c = -\\dfrac{271}{4}$.\n\nEquivalently, $c$ is the vertex $y$-value: $x = \\dfrac{7}{2}$, and $y = -\\dfrac{49}{4} + \\dfrac{98}{4} - \\dfrac{320}{4} = -\\dfrac{271}{4}$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"wrong base\" — copies the constant term $-80$ of the quadratic.\n* Choice C: \"stops one step early\" — gives $-\\dfrac{49}{4}$ (the $-x^2$ vertex piece) without adding $\\dfrac{49}{2} - 80$.\n* Choice D: \"wrong base\" — returns the $x$-coordinate of the vertex, $\\dfrac{7}{2}$, with a sign flip.\n\n**Test Day Takeaway:** \"Intersects at exactly one point\" with a horizontal line means $c$ equals the parabola's vertex $y$-value — or set the discriminant to zero.",
-  skills: ["quadratic-equations", "vertex-form"]
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Line-Parabola Intersection Count**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Set the graphs equal and check the discriminant. $-x^2 + 6x - 5 = -2 \\Rightarrow x^2 - 6x + 3 = 0$, discriminant $= 36 - 12 = 24 > 0$, so there are $2$ intersection points.\n\n**The Full Solution:**\nIntersections satisfy $-x^2 + 6x - 5 = -2$.\nMove everything to one side: $-x^2 + 6x - 3 = 0$, or equivalently $x^2 - 6x + 3 = 0$.\nThe number of real solutions equals the number of intersection points, governed by the discriminant $b^2 - 4ac$:\n$(-6)^2 - 4(1)(3) = 36 - 12 = 24$.\nSince $24 > 0$, the quadratic has two distinct real roots, so the line crosses the parabola at $2$ points.\nSanity check: the parabola opens downward with maximum value $y = -(3)^2 + 6(3) - 5 = 4$ at $x = 3$. The line $y = -2$ sits below that maximum, so it must cut through the parabola twice.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong direction\" — assumes $y = -2$ lies above the parabola's peak (it does not; the peak is $4$), so the student concludes no intersection.\n* Choice B: \"stops one step early\" — treats every horizontal line as tangent to the parabola, giving a single point.\n* Choice D: \"wrong base\" — expects three crossings as if the curve were a cubic; a line meets a parabola in at most two points.\n\n**Test Day Takeaway:** To count line-parabola intersections, set them equal and read the discriminant sign: positive $\\Rightarrow 2$ points, zero $\\Rightarrow 1$ (tangent), negative $\\Rightarrow 0$.",
+  skills: ["quadratic-equations", "discriminant"]
 },
 {
   id: 17,
@@ -725,13 +729,13 @@ export const practiceTest1 = {
     // distractor: gives the maximum value instead of the range
     { id: "A", text: "$20$" },
     { id: "B", text: "$16$" },
-    // distractor: computes the median (7.5) region / mis-orders
+    // distractor: computes the median (8) instead of the range
     { id: "C", text: "$8$" },
     // distractor: gives the minimum value instead of the range
     { id: "D", text: "$4$" }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Range of a Data Set**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Range $=$ max $-$ min $= 20 - 4 = 16$.\n\n**The Full Solution:**\nThe range of a data set is the largest value minus the smallest value.\nLargest: $20$. Smallest: $4$.\nRange $= 20 - 4 = 16$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — reports the maximum value $20$ without subtracting the minimum.\n* Choice C: \"wrong base\" — reports a middle value rather than the spread.\n* Choice D: \"wrong base\" — reports the minimum value $4$ instead of the difference.\n\n**Test Day Takeaway:** Range is a single subtraction: biggest minus smallest. Scan for the extremes — you do not need to sort the whole list.",
+  explanation: "**SAT Pattern: Range of a Data Set**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Range $=$ max $-$ min $= 20 - 4 = 16$.\n\n**The Full Solution:**\nThe range of a data set measures its spread: it is the largest value minus the smallest value.\nScan the six recorded counts $4, 11, 7, 20, 9, 6$ for the extremes.\nLargest value: $20$ (the fourth entry).\nSmallest value: $4$ (the first entry).\nRange $= 20 - 4 = 16$ branches.\nNote that the range depends only on the two extreme values; the four middle values do not affect it.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — reports the maximum value $20$ without subtracting the minimum.\n* Choice C: \"wrong base\" — gives a middle-of-the-list value (around the median) rather than the spread between the extremes.\n* Choice D: \"wrong base\" — reports the minimum value $4$ instead of the difference between the largest and smallest.\n\n**Test Day Takeaway:** Range is a single subtraction: biggest minus smallest. Scan for the two extremes — you do not need to sort the whole list or compute an average.",
   skills: ["statistics", "data-analysis"]
 },
 {
@@ -796,18 +800,18 @@ export const practiceTest1 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "In a kiln, a glaze-test plate is a disk of radius $7n$ and a shelf liner is a disk of radius $119n$, where $n$ is a positive constant. The area of the shelf liner is how many times the area of the glaze-test plate?",
+  question: "A stamping press cuts two circular metal disks: a small washer of radius $6n$ and a large flange of radius $78n$, where $n$ is a positive constant. The area of the flange is how many times the area of the washer?",
   choices: [
-    // distractor: gives the linear radius ratio
-    { id: "A", text: "$17$" },
-    // distractor: doubles the linear ratio
-    { id: "B", text: "$34$" },
-    // distractor: uses the larger radius coefficient 119
-    { id: "C", text: "$119$" },
-    { id: "D", text: "$289$" }
+    // distractor: gives the linear radius ratio without squaring
+    { id: "A", text: "$13$" },
+    // distractor: doubles the linear ratio instead of squaring
+    { id: "B", text: "$26$" },
+    // distractor: uses the larger radius coefficient 78 directly
+    { id: "C", text: "$78$" },
+    { id: "D", text: "$169$" }
   ],
   correctAnswer: "D",
-  explanation: "**SAT Pattern: Similar Figures — Area Ratio**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** Area scales as the square of the radius ratio. $\\dfrac{119n}{7n} = 17$, and $17^2 = 289$.\n\n**The Full Solution:**\nThe area of a disk is $\\pi r^2$, so the ratio of two disk areas is $\\left(\\dfrac{r_2}{r_1}\\right)^2$.\nLinear ratio: $\\dfrac{119n}{7n} = 17$ (the $n$ cancels).\nArea ratio: $17^2 = 289$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives the linear ratio $17$ instead of squaring it.\n* Choice B: \"off-by-one\" — doubles the linear ratio ($2 \\cdot 17$) instead of squaring.\n* Choice C: \"wrong base\" — copies the larger radius coefficient $119$.\n\n**Test Day Takeaway:** When only radii (or any linear dimension) are scaled, area scales by the SQUARE of that ratio. Reach for $(\\text{ratio})^2$, not the ratio itself.",
+  explanation: "**SAT Pattern: Similar Figures — Area Ratio**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** Area scales as the square of the radius ratio. $\\dfrac{78n}{6n} = 13$, and $13^2 = 169$.\n\n**The Full Solution:**\nThe area of a disk is $\\pi r^2$, so the ratio of two disk areas is $\\left(\\dfrac{r_2}{r_1}\\right)^2$.\nLinear ratio: $\\dfrac{78n}{6n} = 13$ (the $n$ cancels).\nArea ratio: $13^2 = 169$.\nSo the flange's area is $169$ times the washer's area.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives the linear radius ratio $13$ instead of squaring it.\n* Choice B: \"off-by-one\" — doubles the linear ratio ($2 \\cdot 13 = 26$) instead of squaring.\n* Choice C: \"wrong base\" — copies the larger radius coefficient $78$.\n\n**Test Day Takeaway:** When only radii (or any linear dimension) are scaled, area scales by the SQUARE of that ratio. Reach for $(\\text{ratio})^2$, not the ratio itself.",
   skills: ["circle-area", "geometry", "ratios"]
 },
 {
@@ -815,18 +819,18 @@ export const practiceTest1 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "A cheese-aging room logs the mass, in grams, of $20$ wheels in a frequency table. Each interval is half-open: $[400, 450)$ means at least $400$ but less than $450$ grams. Two different rooms, A and B, recorded the exact same frequency in every interval. What is the smallest possible value of $|\\,\\overline{x}_A - \\overline{x}_B\\,|$, the absolute difference between the mean masses of the two rooms?",
+  question: "Two cheese-aging rooms, A and B, each log the mass, in grams, of $20$ wheels in a frequency table that uses the same set of half-open intervals of width $50$ (for example, $[400, 450)$ means at least $400$ but less than $450$ grams). The two rooms recorded the identical frequency count in every one of these identical intervals. What is the smallest possible value of $|\\,\\overline{x}_A - \\overline{x}_B\\,|$, the absolute difference between the mean masses of the two rooms?",
   choices: [
     { id: "A", text: "$0$" },
     // distractor: assumes at least one wheel must differ by a gram
     { id: "B", text: "$1$" },
-    // distractor: uses half the interval width (25) as the gap
+    // distractor: uses half the interval width (25) as a forced gap
     { id: "C", text: "$25$" },
-    // distractor: uses the full interval width
+    // distractor: uses the full interval width (50) as the difference
     { id: "D", text: "$50$" }
   ],
   correctAnswer: "A",
-  explanation: "**SAT Pattern: Grouped Data — Mean Bounds**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** A frequency table fixes only how many values land in each interval, not the values themselves. Identical frequencies allow Room A and Room B to use identical underlying masses, so the means can be exactly equal: smallest difference $= 0$.\n\n**The Full Solution:**\nWithin any interval, the actual masses can be anything in that range, so the mean of a grouped data set is NOT determined — it lies in a range.\nBecause Rooms A and B have the SAME frequency in every interval, one valid choice is for both rooms to have the exact same list of masses. Then $\\overline{x}_A = \\overline{x}_B$, and $|\\overline{x}_A - \\overline{x}_B| = 0$.\nNo rule forces the rooms to differ, so $0$ is achievable and is therefore the smallest possible difference.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"off-by-one\" — assumes at least one wheel must differ by a gram.\n* Choice C: \"wrong base\" — uses half the interval width $50$ as a forced gap.\n* Choice D: \"wrong base\" — uses the full interval width $50$ as the difference.\n\n**Test Day Takeaway:** Grouped frequencies pin down only ranges of possible means. Identical frequency tables can come from identical raw data, so the minimum mean difference is $0$.",
+  explanation: "**SAT Pattern: Grouped Data — Mean Bounds**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** A frequency table fixes only how many values land in each interval, not the values themselves. Identical frequencies let Room A and Room B use identical underlying masses, so the means can be exactly equal: smallest difference $= 0$.\n\n**The Full Solution:**\nWithin any interval, the actual masses can be anything in that range, so the mean of a grouped data set is NOT pinned down — it lies in a range of possible values.\nBecause Rooms A and B have the SAME frequency in every interval, one valid scenario is for both rooms to hold the exact same list of $20$ masses (each wheel placed at the same actual gram value in both rooms). Then $\\overline{x}_A = \\overline{x}_B$, so $|\\overline{x}_A - \\overline{x}_B| = 0$.\nAn absolute value is never negative, so the difference cannot drop below $0$, and we have just shown $0$ is attainable. Therefore $0$ is the smallest possible difference.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"off-by-one\" — assumes at least one wheel must differ by a single gram, so the means cannot match exactly.\n* Choice C: \"wrong base\" — uses half the interval width, $\\dfrac{50}{2} = 25$, as a forced gap between the means.\n* Choice D: \"wrong base\" — uses the full interval width $50$ as the difference, as if every wheel in A sat a full bin away from its counterpart in B.\n\n**Test Day Takeaway:** Grouped frequencies pin down only ranges of possible means. Identical frequency tables can arise from identical raw data, so the minimum possible difference of means is $0$.",
   skills: ["statistics", "data-analysis"]
 }
       ]

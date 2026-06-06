@@ -412,29 +412,33 @@ export const practiceTest12 = {
 // Practice Test 12 — Math Module 2 (22 questions)
 // Distribution: 3E / 7M / 12H. Wavy flow: easies at Q1/Q2/Q8 (Q8 breather),
 // mediums at Q3/Q4/Q5/Q10/Q11/Q14/Q19, hards at Q6/Q7/Q9/Q12/Q13/Q15/Q16/Q17/Q18/Q20/Q21/Q22.
-// Pool infusions (transformed): successive percent (Q5), no-solution system (Q6),
-// radical-function parameter (Q9), composite prism surface area (Q15), equilateral
-// circumradius (Q17), discriminant no-real-solutions (Q18). Palette: apiary scales,
-// canoe rentals, neon-sign fabrication, library archives, telescope mirrors, sled-dog training.
+// Pool infusions (transformed): successive percent (D-p31#22 -> Q5), no-solution system
+// (D-p15#27 -> Q6), radical-function parameter (D-p37#24 -> Q9), composite prism surface
+// area (D-p21#26 -> Q15), matching-coefficient factor (D-p42#25 -> Q16), equilateral
+// circumradius (D-p40#27 -> Q17), discriminant no-real-solutions (E#13 -> Q18), line-parabola
+// substitution greatest-x (E#9 -> Q19), radical-product exponent simplification (D-p16#21 -> Q21),
+// inscribed-rectangle 30-60-90 diameter (D-p27#21 -> Q22). Q1 is a fresh Pythagorean-hypotenuse
+// opener (non-simplifying surd). Palette: apiary scales, canoe rentals, neon-sign fabrication,
+// library archives, telescope mirrors, sled-dog training, bare-math algebra/geometry.
 
 {
   id: 1,
   type: "multiple-choice",
   difficulty: "easy",
-  band: 2,
-  question: "A right triangle has legs of length $6$ and $8$. What is the area of the triangle?",
+  band: 3,
+  question: "A right triangle has legs of length $5$ and $9$. What is the length of the hypotenuse?",
   choices: [
-    // distractor: stops one step early — sums the legs instead of using the area formula
-    { id: "A", text: "$14$" },
-    { id: "B", text: "$24$" },
-    // distractor: forgets the 1/2 factor in the area formula
-    { id: "C", text: "$48$" },
-    // distractor: gives the hypotenuse squared (applied the Pythagorean theorem instead)
-    { id: "D", text: "$100$" }
+    // distractor: subtracts the squared legs instead of adding them
+    { id: "A", text: "$\\sqrt{56}$" },
+    { id: "B", text: "$\\sqrt{106}$" },
+    // distractor: sums the legs directly, ignoring the Pythagorean relationship
+    { id: "C", text: "$14$" },
+    // distractor: computes the sum of the squares but forgets to take the square root
+    { id: "D", text: "$106$" }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Right Triangle Area**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** Area $= \\dfrac{1}{2}(6)(8) = 24$.\n\n**The Full Solution:**\nFor a right triangle, the two legs are the base and height, so:\nArea $= \\dfrac{1}{2} \\cdot \\text{leg}_1 \\cdot \\text{leg}_2 = \\dfrac{1}{2}(6)(8) = 24$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — sums the legs ($6 + 8 = 14$).\n* Choice C: \"applies the inverse operation\" — multiplies the legs but forgets the $\\dfrac{1}{2}$ factor.\n* Choice D: \"wrong base\" — gives the hypotenuse squared ($6^2 + 8^2 = 100$).\n\n**Test Day Takeaway:** Right triangle area $= \\dfrac{1}{2} \\cdot \\text{leg}_1 \\cdot \\text{leg}_2$. The two legs serve as base and height because they meet at a right angle.",
-  skills: ["geometry", "area", "triangles"]
+  explanation: "**SAT Pattern: Right Triangle — Pythagorean**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** $c = \\sqrt{5^2 + 9^2} = \\sqrt{25 + 81} = \\sqrt{106}$. Since $106 = 2 \\cdot 53$ has no perfect-square factor, $\\sqrt{106}$ does not simplify.\n\n**The Full Solution:**\nFor a right triangle, the hypotenuse $c$ satisfies $c^2 = a^2 + b^2$ where $a$ and $b$ are the legs:\n$c^2 = 5^2 + 9^2 = 25 + 81 = 106$.\nSo $c = \\sqrt{106}$.\nCheck for simplification: $106 = 2 \\cdot 53$, and neither factor is a perfect square, so $\\sqrt{106}$ is already in simplest form ($\\approx 10.3$).\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong operation\" — subtracts the squared legs ($81 - 25 = 56$) instead of adding them, giving $\\sqrt{56}$.\n* Choice C: \"skips the theorem\" — adds the legs directly ($5 + 9 = 14$) without using $a^2 + b^2$.\n* Choice D: \"stops one step early\" — finds $a^2 + b^2 = 106$ but forgets to take the square root.\n\n**Test Day Takeaway:** The hypotenuse is $\\sqrt{a^2 + b^2}$ — add the SQUARES of the legs, then take the square root. Always check whether the radicand has a perfect-square factor before assuming the answer simplifies.",
+  skills: ["geometry", "right-triangles", "pythagorean-theorem"]
 },
 {
   id: 2,
@@ -505,11 +509,11 @@ export const practiceTest12 = {
     // distractor: adds the percents (12% + 5% = 17%) instead of multiplying the factors
     { id: "B", text: "$1.1700$" },
     { id: "C", text: "$1.1760$" },
-    // distractor: applies both increases to the same base additively, double-counting winter
-    { id: "D", text: "$1.1840$" }
+    // distractor: multiplies the first growth factor by the second RATE (1.12 * 0.05) instead of the second growth factor, then adds 1
+    { id: "D", text: "$1.0560$" }
   ],
   correctAnswer: "C",
-  explanation: "**SAT Pattern: Successive Percent Changes**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Two successive increases multiply: $y = (1.12)(1.05) = 1.176$.\n\n**The Full Solution:**\nLet the winter harvest be $W$.\nSpring $= W(1 + 0.12) = 1.12W$.\nSummer $= (\\text{spring})(1 + 0.05) = 1.12W \\cdot 1.05 = 1.176W$.\nSo summer $= 1.176 \\cdot W$, meaning $y = 1.176$.\n\nVerification: a $12\\%$ then $5\\%$ rise is slightly MORE than a flat $17\\%$, because the second increase also acts on the first increase. $1.176 > 1.17$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong operation\" — averages the two rates ($\\tfrac{12 + 5}{2} = 8.5\\%$).\n* Choice B: \"stops one step early\" — adds the percents ($12\\% + 5\\% = 17\\%$) instead of compounding the growth factors.\n* Choice D: \"off-by-one base\" — applies $5\\%$ to the winter base as well, double-counting ($0.12 + 0.05 + 0.12\\cdot0.05$ mis-grouped).\n\n**Test Day Takeaway:** Successive percent changes COMPOUND — multiply the growth factors $(1 + r_1)(1 + r_2)$. Adding the percents undercounts because the second change also applies to the first change.",
+  explanation: "**SAT Pattern: Successive Percent Changes**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Two successive increases multiply: $y = (1.12)(1.05) = 1.176$.\n\n**The Full Solution:**\nLet the winter harvest be $W$.\nSpring $= W(1 + 0.12) = 1.12W$.\nSummer $= (\\text{spring})(1 + 0.05) = 1.12W \\cdot 1.05 = 1.176W$.\nSo summer $= 1.176 \\cdot W$, meaning $y = 1.176$.\n\nVerification: a $12\\%$ then $5\\%$ rise is slightly MORE than a flat $17\\%$, because the second increase also acts on the first increase. $1.176 > 1.17$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong operation\" — averages the two rates ($\\tfrac{12 + 5}{2} = 8.5\\%$).\n* Choice B: \"stops one step early\" — adds the percents ($12\\% + 5\\% = 17\\%$) instead of compounding the growth factors.\n* Choice D: \"factor times rate\" — multiplies the spring growth factor by the second RATE rather than the second growth factor ($1.12 \\times 0.05 = 0.056$) and tacks on $1$, getting $1.056$.\n\n**Test Day Takeaway:** Successive percent changes COMPOUND — multiply the growth factors $(1 + r_1)(1 + r_2)$. Adding the percents undercounts because the second change also applies to the first change.",
   skills: ["percent-change", "percent-word-problems"]
 },
 {
@@ -708,27 +712,39 @@ export const practiceTest12 = {
   id: 18,
   type: "multiple-choice",
   difficulty: "hard",
-  band: 7,
-  question: "Which of the following expressions has a factor of $x + 3b$, where $b$ is a positive integer constant?",
+  band: 6,
+  question: "In the equation $x^2 - 10x + c = 0$, $c$ is a constant. If the equation has no real solutions, which of the following could be the value of $c$?",
   choices: [
-    { id: "A", text: "$4x^2 + 14x + 12b$" },
-    { id: "B", text: "$4x^2 + 22x + 12b$" },
-    { id: "C", text: "$4x^2 + 30x + 12b$" },
-    { id: "D", text: "$4x^2 + 40x + 12b$" }
+    // distractor: discriminant 16 > 0, so the equation has two distinct real solutions ($x = 3$ and $x = 7$)
+    { id: "A", text: "$21$" },
+    // distractor: discriminant 4 > 0, so it has two distinct real solutions ($x = 4$ and $x = 6$)
+    { id: "B", text: "$24$" },
+    // distractor: a perfect-square trinomial; discriminant is 0, which still yields one (repeated) real solution
+    { id: "C", text: "$25$" },
+    { id: "D", text: "$26$" }
   ],
   correctAnswer: "D",
-  explanation: "**SAT Pattern: Factor with Parameter — Integer Constraint**\n\n**Choice D is correct.**\n\n**The Fast Way (~45s):** $(x+3b)(4x+4) = 4x^2 + (4+12b)x + 12b$. $4+12b = M \\Rightarrow b = (M-4)/12$. Only $M = 40$ gives integer $b = 3$.\n\n**Test Day Takeaway:** $(x + 3b)(\\text{linear})$; enforce integer constraint.",
-  skills: ["polynomial-functions", "factoring"]
+  explanation: "**SAT Pattern: Discriminant Analysis**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** No real solutions means the discriminant $b^2 - 4ac$ is negative: $(-10)^2 - 4(1)c < 0$, so $100 < 4c$, which gives $c > 25$. Only $26$ qualifies.\n\n**The Full Solution:**\nThe number of real solutions of $ax^2 + bx + c = 0$ is governed by the discriminant $D = b^2 - 4ac$: $D > 0$ gives two real roots, $D = 0$ gives one (repeated) real root, and $D < 0$ gives none.\nHere $a = 1$ and $b = -10$, so $D = 100 - 4c$.\nRequire $D < 0$: $100 - 4c < 0 \\Rightarrow c > 25$.\nCheck each choice:\n* $c = 21$: $D = 100 - 84 = 16 > 0$ — two real roots ($x = 3, 7$).\n* $c = 24$: $D = 100 - 96 = 4 > 0$ — two real roots ($x = 4, 6$).\n* $c = 25$: $D = 100 - 100 = 0$ — one repeated real root ($x = 5$).\n* $c = 26$: $D = 100 - 104 = -4 < 0$ — NO real solutions.\nOnly choice D makes the discriminant negative.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"positive discriminant\" — $c = 21$ factors as $(x - 3)(x - 7)$, so two real solutions exist.\n* Choice B: \"positive discriminant\" — $c = 24$ factors as $(x - 4)(x - 6)$, so two real solutions exist.\n* Choice C: \"discriminant zero\" — $c = 25$ gives the perfect square $(x - 5)^2$; this still has the real solution $x = 5$, not zero solutions. The boundary case is the trap.\n\n**Test Day Takeaway:** \"No real solutions\" means the discriminant $b^2 - 4ac$ is strictly negative. A discriminant of exactly $0$ still counts as one real (repeated) solution — don't lump it in with the no-solution case.",
+  skills: ["quadratic-equations", "discriminant"]
 },
 {
   id: 19,
-  type: "fill-in",
-  difficulty: "hard",
-  band: 7,
-  question: "The perimeter of an equilateral triangle is $426$ centimeters. The three vertices of the triangle lie on a circle. The radius of the circle is $w\\sqrt{3}$ centimeters. What is the value of $w$?",
-  correctAnswer: "142/3",
-  explanation: "**SAT Pattern: Equilateral Triangle — Circumradius**\n\n**The correct answer is $142/3$ (or $47.33$).**\n\n**The Fast Way (~40s):** Side $= 142$. $R = a\\sqrt{3}/3 = 142\\sqrt{3}/3$. $w = 142/3$.\n\n**Test Day Takeaway:** Equilateral $R = a\\sqrt{3}/3$.",
-  skills: ["special-right-triangles", "circle-equations"]
+  type: "multiple-choice",
+  difficulty: "medium",
+  band: 5,
+  question: "In the $xy$-plane, the graphs of $y = x + 7$ and $y = x^2 + 12x + 31$ intersect at two points. If $(x, y)$ is a solution to this system, what is the greatest possible value of $x$?",
+  choices: [
+    // distractor: gives the lesser root instead of the greatest x
+    { id: "A", text: "$-8$" },
+    { id: "B", text: "$-3$" },
+    // distractor: reports the y-coordinate at the greatest-x solution, not the x-value
+    { id: "C", text: "$4$" },
+    // distractor: sign-flips the correct root
+    { id: "D", text: "$3$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: System of Equations — Substitution**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Set the expressions equal: $x + 7 = x^2 + 12x + 31$, so $x^2 + 11x + 24 = 0 \\Rightarrow (x + 3)(x + 8) = 0$. The solutions are $x = -3$ and $x = -8$; the greatest is $x = -3$.\n\n**The Full Solution:**\nBecause both equations equal $y$, substitute one into the other:\n$x + 7 = x^2 + 12x + 31$.\nMove everything to one side:\n$0 = x^2 + 12x + 31 - x - 7 = x^2 + 11x + 24$.\nFactor: $x^2 + 11x + 24 = (x + 3)(x + 8) = 0$, so $x = -3$ or $x = -8$.\nThe question asks for the greatest possible value of $x$, which is $-3$.\nVerify: at $x = -3$, the line gives $y = -3 + 7 = 4$ and the parabola gives $(-3)^2 + 12(-3) + 31 = 9 - 36 + 31 = 4$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong root chosen\" — picks the smaller solution $x = -8$ instead of the greatest.\n* Choice C: \"reports the wrong coordinate\" — gives the $y$-value $4$ at the $x = -3$ intersection rather than the $x$-value the question asks for.\n* Choice D: \"sign slip\" — flips the sign of the correct root, reading the factor $(x + 3)$ as giving $x = 3$.\n\n**Test Day Takeaway:** When two curves both equal $y$, set the right-hand sides equal and collect to a single quadratic. Solve, then re-read the question to grab the correct quantity (greatest $x$, not a root you happened to find first or its $y$-value).",
+  skills: ["systems-of-equations", "quadratic-equations"]
 },
 {
   id: 20,
@@ -754,20 +770,20 @@ export const practiceTest12 = {
   type: "fill-in",
   difficulty: "hard",
   band: 7,
-  question: "The number $a$ is $120\\%$ greater than the number $b$. The number $b$ is $80\\%$ less than $65$. What is the value of $a$?",
-  correctAnswer: "28.6",
-  explanation: "**SAT Pattern: Chained Percent Relationship**\n\n**The correct answer is $28.6$.**\n\n**The Fast Way (~30s):** $b = 65(0.20) = 13$. $a = 2.20(13) = 28.6$.\n\n**Test Day Takeaway:** \"$p\\%$ greater\" $= \\times (1 + p/100)$.",
-  skills: ["percent-change", "percent-word-problems"]
+  question: "For $x > 0$, the expression $4 \\sqrt[3]{2^3 x^{12}} \\cdot \\sqrt[4]{5^4 x}$ is equivalent to $a x^{b}$, where $a$ and $b$ are constants. What is the value of $a + b$?",
+  correctAnswer: "44.25",
+  explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**The correct answer is $44.25$ (or $177/4$).**\n\n**The Fast Way (~50s):** $\\sqrt[3]{2^3 x^{12}} = 2x^4$ and $\\sqrt[4]{5^4 x} = 5x^{1/4}$. Multiply: $4 \\cdot 2x^4 \\cdot 5x^{1/4} = 40x^{17/4}$, so $a = 40$, $b = \\dfrac{17}{4}$, and $a + b = 40 + 4.25 = 44.25$.\n\n**The Full Solution:**\nSimplify each radical by writing it with fractional exponents.\nFirst radical: $\\sqrt[3]{2^3 x^{12}} = (2^3 x^{12})^{1/3} = 2^{3/3} x^{12/3} = 2x^4$.\nSecond radical: $\\sqrt[4]{5^4 x} = (5^4 x)^{1/4} = 5^{4/4} x^{1/4} = 5x^{1/4}$.\nNow multiply, collecting the constant and adding the $x$-exponents:\n$$4 \\cdot 2x^4 \\cdot 5x^{1/4} = (4 \\cdot 2 \\cdot 5)\\, x^{4 + 1/4} = 40\\, x^{17/4}.$$\nMatching $a x^{b}$ gives $a = 40$ and $b = \\dfrac{17}{4}$.\nTherefore $a + b = 40 + \\dfrac{17}{4} = \\dfrac{160 + 17}{4} = \\dfrac{177}{4} = 44.25$.\n\n**Common Mistakes to Avoid:**\n* Forgetting that the leading $4$ multiplies the two radical coefficients: $4 \\cdot 2 \\cdot 5 = 40$, not just $2 \\cdot 5 = 10$.\n* Adding the radical indices ($3 + 4$) instead of converting each radical to a fractional exponent.\n* Writing $b = 4 + 1 = 5$ by treating $\\sqrt[4]{x}$ as $x$ rather than $x^{1/4}$.\n\n**Test Day Takeaway:** Convert every radical to a fractional exponent ($\\sqrt[n]{x^m} = x^{m/n}$), multiply the constants separately, and ADD the exponents on the shared base.",
+  skills: ["exponents", "radicals"]
 },
 {
   id: 22,
   type: "fill-in",
   difficulty: "hard",
   band: 7,
-  question: "The quadratic function $g$ models the depth, in meters, below the surface of the water of a seal $t$ minutes after the seal entered the water during a dive. The function estimates that the seal reached its maximum depth of $384$ meters $8$ minutes after entering the water and reached the surface of the water $16$ minutes after entering the water. Based on the function, what was the estimated depth, to the nearest meter, of the seal $12$ minutes after it entered the water?",
-  correctAnswer: "288",
-  explanation: "**SAT Pattern: Quadratic Model from Vertex and Zero**\n\n**The correct answer is $288$.**\n\n**The Fast Way (~50s):** $g(t) = a(t-8)^2 + 384$. $g(16) = 0 \\Rightarrow a = -6$. $g(12) = -96 + 384 = 288$.\n\n**Test Day Takeaway:** Use vertex + zero to recover quadratic.",
-  skills: ["quadratic-equations", "function-interpretation"]
+  question: "A rectangle is inscribed in a circle so that all four of its vertices lie on the circle. The length of the rectangle's diagonal is twice the length of its shorter side, and the area of the rectangle is $441\\sqrt{3}$ square units. What is the diameter of the circle?",
+  correctAnswer: "42",
+  explanation: "**SAT Pattern: Special Right Triangle — 30-60-90**\n\n**The correct answer is $42$.**\n\n**The Fast Way (~60s):** A diagonal that is twice the shorter side makes a 30-60-90 triangle: shorter side $s$, longer side $s\\sqrt{3}$, diagonal $2s$. Area $= s \\cdot s\\sqrt{3} = s^2\\sqrt{3} = 441\\sqrt{3} \\Rightarrow s = 21$. The diagonal is the diameter: $2s = 42$.\n\n**The Full Solution:**\nThe diagonal of a rectangle inscribed in a circle passes through the center, so the diagonal equals the diameter.\nLet the shorter side be $s$. The diagonal is given as $2s$, and the diagonal, shorter side, and longer side form a right triangle (the rectangle's corner is a right angle). With hypotenuse $2s$ and one leg $s$:\n* The side of length $s$ is half the hypotenuse, so it is opposite the $30^\\circ$ angle.\n* This is a 30-60-90 triangle, where the sides are in ratio $1 : \\sqrt{3} : 2$.\n* Therefore the longer side (opposite $60^\\circ$) is $s\\sqrt{3}$.\nThe rectangle's area is shorter side $\\times$ longer side:\n$$s \\cdot s\\sqrt{3} = s^2\\sqrt{3} = 441\\sqrt{3}.$$\nSo $s^2 = 441 \\Rightarrow s = 21$.\nThe diameter equals the diagonal $= 2s = 2(21) = 42$.\nVerify: longer side $= 21\\sqrt{3}$; check $s^2 + (s\\sqrt{3})^2 = 441 + 1{,}323 = 1{,}764 = 42^2$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Forgetting that the inscribed rectangle's diagonal IS the diameter of the circle.\n* Solving for $s$ and reporting it ($21$) instead of the diameter $2s$ ($42$).\n* Setting the area equal to $s^2$ alone and dropping the $\\sqrt{3}$ factor from the longer side.\n\n**Test Day Takeaway:** When a hypotenuse is exactly twice one leg, you have a 30-60-90 triangle ($1 : \\sqrt{3} : 2$). For a rectangle inscribed in a circle, the diagonal equals the diameter.",
+  skills: ["special-right-triangles", "geometry", "circle-equations"]
 }
       ]
     }

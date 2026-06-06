@@ -424,9 +424,13 @@ export const practiceTest8 = {
 // mediums at Q3, Q5, Q6, Q9, Q12, Q13, Q16; hards at Q4, Q7, Q8, Q10, Q11,
 // Q14, Q15, Q17, Q19, Q20, Q21, Q22. 3E / 7M / 12H with a band ramp from a
 // warm-up opener up to figure/parameter-heavy hard closers.
-// Pool infusions: Q4 fractional-substitution system, Q14 squared-unit rate
-// conversion, Q17 isosceles-right-triangle perimeter, Q19 cubic table after a
-// vertical shift, Q21 electric-flux area-ratio (science-defined quantity).
+// Pool infusions: Q4 fractional-substitution system (~E#5), Q19 cubic table
+// after a vertical shift (~D-p9#22).
+// IP-distance reskins (2026-06, audit T8): Q14 squared-unit rate now cm/s^2 ->
+// m/min^2 (conveyor; was m/s^2 -> mi/min^2, off D-p40#26); Q17 45-45-90 now
+// area-given -> hypotenuse 6*sqrt10 (breaks the P+P*sqrt2 perimeter signature
+// off D-p15#25); Q21 area-ratio reskinned to paint-through-two-stencils with a
+// 5:1 side ratio -> 25/26 share (was electric-flux 4:1 off E#21==D-p30#27).
 
 {
   id: 1,
@@ -684,18 +688,18 @@ export const practiceTest8 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "During a launch, a weather balloon's ascent rate is increasing at $8.6$ meters per second squared. Expressed in \\textbf{miles per minute squared} and rounded to the nearest tenth, what is this rate? (Use $1$ mile $= 1{,}609$ meters.)",
+  question: "A conveyor belt is accelerating at $12.7$ centimeters per second squared. Expressed in meters per minute squared and rounded to the nearest tenth, what is this acceleration? (Use $1$ meter $= 100$ centimeters.)",
   choices: [
     // distractor: applies the seconds-to-minutes factor only once (× 60) instead of squaring it
-    { id: "A", text: "$0.3$" },
-    { id: "B", text: "$19.2$" },
-    // distractor: inverts both conversions (× 1609 and ÷ 3600)
-    { id: "C", text: "$3.8$" },
-    // distractor: multiplies by 1609 and divides by 60 (both directions wrong, time once)
-    { id: "D", text: "$230.6$" }
+    { id: "A", text: "$7.6$" },
+    { id: "B", text: "$457.2$" },
+    // distractor: inverts both conversions (× 100 and ÷ 3600)
+    { id: "C", text: "$0.4$" },
+    // distractor: multiplies by 100 and divides by 60 (length wrong direction, time once)
+    { id: "D", text: "$21.2$" }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Unit Conversion — Squared Units**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Distance: $\\div 1{,}609$ (meters $\\to$ miles). Time: the seconds-to-minutes factor of $60$ is applied TWICE because the time unit is squared: $\\times 60^2 = \\times 3{,}600$. So $\\dfrac{8.6 \\times 3{,}600}{1{,}609} \\approx 19.2$.\n\n**The Full Solution:**\nStart with $8.6 \\dfrac{\\text{m}}{\\text{s}^2}$.\nConvert meters to miles (divide by $1{,}609$):\n$8.6 \\dfrac{\\text{m}}{\\text{s}^2} \\times \\dfrac{1 \\text{ mi}}{1{,}609 \\text{ m}}$.\nConvert per second-squared to per minute-squared. Since $1 \\text{ min} = 60 \\text{ s}$, we have $1 \\text{ s} = \\dfrac{1}{60} \\text{ min}$, so $\\dfrac{1}{\\text{s}^2} = \\dfrac{1}{(1/60\\ \\text{min})^2} = 60^2 \\dfrac{1}{\\text{min}^2} = 3{,}600 \\dfrac{1}{\\text{min}^2}$.\n\n$\\dfrac{8.6 \\times 3{,}600}{1{,}609} = \\dfrac{30{,}960}{1{,}609} \\approx 19.24 \\approx 19.2 \\dfrac{\\text{mi}}{\\text{min}^2}$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — multiplies by $60$ only once ($\\approx 0.3$), forgetting that the squared time unit needs $60^2$.\n* Choice C: \"applies the inverse operation\" — inverts both conversions ($\\times 1609$, $\\div 3600$).\n* Choice D: \"wrong base\" — multiplies by $1609$ and applies the time factor only once.\n\n**Test Day Takeaway:** When a unit is SQUARED, every conversion factor for that unit must be applied TWICE. The length factor here is applied once; the time factor twice.",
+  explanation: "**SAT Pattern: Unit Conversion — Squared Units**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Length: $\\div 100$ (centimeters $\\to$ meters). Time: the seconds-to-minutes factor of $60$ is applied TWICE because the time unit is squared: $\\times 60^2 = \\times 3{,}600$. So $\\dfrac{12.7 \\times 3{,}600}{100} = 457.2$.\n\n**The Full Solution:**\nStart with $12.7 \\dfrac{\\text{cm}}{\\text{s}^2}$.\nConvert centimeters to meters (divide by $100$):\n$12.7 \\dfrac{\\text{cm}}{\\text{s}^2} \\times \\dfrac{1 \\text{ m}}{100 \\text{ cm}}$.\nConvert per second-squared to per minute-squared. Since $1 \\text{ min} = 60 \\text{ s}$, we have $1 \\text{ s} = \\dfrac{1}{60} \\text{ min}$, so $\\dfrac{1}{\\text{s}^2} = \\dfrac{1}{(1/60\\ \\text{min})^2} = 60^2 \\dfrac{1}{\\text{min}^2} = 3{,}600 \\dfrac{1}{\\text{min}^2}$.\n\n$\\dfrac{12.7 \\times 3{,}600}{100} = \\dfrac{45{,}720}{100} = 457.2 \\dfrac{\\text{m}}{\\text{min}^2}$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — applies the time factor of $60$ only once ($\\tfrac{12.7 \\times 60}{100} \\approx 7.6$), forgetting that the squared time unit needs $60^2$.\n* Choice C: \"applies the inverse operation\" — inverts both conversions ($\\times 100$, $\\div 3{,}600$), giving $\\approx 0.4$.\n* Choice D: \"wrong base\" — multiplies by $100$ (length the wrong way) and applies the time factor only once ($\\tfrac{12.7 \\times 100}{60} \\approx 21.2$).\n\n**Test Day Takeaway:** When a unit is SQUARED, every conversion factor for that unit must be applied TWICE. The length factor here is applied once; the time factor twice.",
   skills: ["unit-conversion", "rates"]
 },
 {
@@ -732,18 +736,18 @@ export const practiceTest8 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "A right-angle bracing gusset is cut as an isosceles right triangle whose perimeter measures $58 + 58\\sqrt{2}$ centimeters. What is the length, in centimeters, of one of the two equal legs?",
+  question: "A right-angle bracing gusset is cut as an isosceles right triangle with an area of $90$ square centimeters. What is the length, in centimeters, of the hypotenuse?",
   choices: [
-    // distractor: halves the rational part of the perimeter, dropping the radical
-    { id: "A", text: "$29$" },
-    { id: "B", text: "$29\\sqrt{2}$" },
-    // distractor: takes the full rational coefficient as the leg
-    { id: "C", text: "$58$" },
-    // distractor: takes the full perimeter coefficient with the radical
-    { id: "D", text: "$58\\sqrt{2}$" }
+    // distractor: forgets the 1/2 in the area formula (uses Area = L^2), so L = sqrt(90) = 3*sqrt(10)
+    { id: "A", text: "$3\\sqrt{10}$" },
+    // distractor: solves for the leg correctly but reports it instead of the hypotenuse
+    { id: "B", text: "$6\\sqrt{5}$" },
+    { id: "C", text: "$6\\sqrt{10}$" },
+    // distractor: multiplies the leg by 2 instead of by sqrt(2) to get the hypotenuse
+    { id: "D", text: "$12\\sqrt{5}$" }
   ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Special Right Triangle — 45-45-90**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** For an isosceles right triangle with leg $L$, the hypotenuse is $L\\sqrt{2}$, so the perimeter is $2L + L\\sqrt{2} = L(2 + \\sqrt{2})$. Set $L(2 + \\sqrt{2}) = 58 + 58\\sqrt{2}$ and solve: $L = 29\\sqrt{2}$.\n\n**The Full Solution:**\nA 45-45-90 triangle with leg $L$ has hypotenuse $L\\sqrt{2}$. The perimeter is:\n$P = L + L + L\\sqrt{2} = L(2 + \\sqrt{2})$.\nSet equal to the given perimeter:\n$L(2 + \\sqrt{2}) = 58 + 58\\sqrt{2} = 58(1 + \\sqrt{2})$.\n$L = \\dfrac{58(1 + \\sqrt{2})}{2 + \\sqrt{2}}$.\nRationalize by multiplying by $\\dfrac{2 - \\sqrt{2}}{2 - \\sqrt{2}}$ (denominator becomes $4 - 2 = 2$):\n$L = \\dfrac{58(1 + \\sqrt{2})(2 - \\sqrt{2})}{2} = \\dfrac{58\\sqrt{2}}{2} = 29\\sqrt{2}$.\n\nVerification: with $L = 29\\sqrt{2}$, the perimeter is $29\\sqrt{2}(2 + \\sqrt{2}) = 58\\sqrt{2} + 29 \\cdot 2 = 58 + 58\\sqrt{2}$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — halves the rational coefficient ($58/2 = 29$) but drops the radical.\n* Choice C: \"stops one step early\" — reads the rational coefficient $58$ directly as the leg.\n* Choice D: \"applies the inverse operation\" — reads the radical coefficient $58$ directly with the $\\sqrt{2}$.\n\n**Test Day Takeaway:** Express the perimeter of a 45-45-90 triangle as $L(2 + \\sqrt{2})$, then divide and rationalize. The leg is rarely a plain integer.",
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Special Right Triangle — 45-45-90**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** In an isosceles right triangle the two legs are equal, so area $= \\tfrac{1}{2}L^2 = 90 \\Rightarrow L^2 = 180 \\Rightarrow L = 6\\sqrt{5}$. The hypotenuse is $L\\sqrt{2} = 6\\sqrt{5}\\cdot\\sqrt{2} = 6\\sqrt{10}$.\n\n**The Full Solution:**\nA 45-45-90 triangle has two equal legs $L$ meeting at the right angle, so they serve as base and height:\n$\\text{Area} = \\tfrac{1}{2}L \\cdot L = \\tfrac{1}{2}L^2$.\nSet equal to $90$: $\\tfrac{1}{2}L^2 = 90 \\Rightarrow L^2 = 180 \\Rightarrow L = \\sqrt{180} = 6\\sqrt{5}$.\nThe hypotenuse of a 45-45-90 triangle is $L\\sqrt{2}$:\n$H = 6\\sqrt{5}\\cdot\\sqrt{2} = 6\\sqrt{10}$.\n\nVerification: $H^2 = (6\\sqrt{10})^2 = 360$, and $L^2 + L^2 = 180 + 180 = 360$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — drops the $\\tfrac{1}{2}$ and solves $L^2 = 90$, giving $L = 3\\sqrt{10}$, then reports it.\n* Choice B: \"stops one step early\" — finds the leg $6\\sqrt{5}$ correctly but never multiplies by $\\sqrt{2}$ for the hypotenuse.\n* Choice D: \"applies the inverse operation\" — multiplies the leg by $2$ instead of $\\sqrt{2}$: $2\\cdot 6\\sqrt{5} = 12\\sqrt{5}$.\n\n**Test Day Takeaway:** For a 45-45-90 triangle the legs are the base and height, so area $= \\tfrac{1}{2}L^2$; solve for the leg first, then scale by $\\sqrt{2}$ for the hypotenuse.",
   skills: ["triangles", "right-triangles", "special-right-triangles"]
 },
 {
@@ -799,9 +803,9 @@ export const practiceTest8 = {
   type: "fill-in",
   difficulty: "hard",
   band: 7,
-  question: "For an electric field passing straight through a flat surface, the electric flux through that surface equals the field strength multiplied by the surface's area. A flat panel is built from two side-by-side squares: the side length of the larger square is $4$ times the side length of the smaller square. A uniform electric field of strength $32.00$ volts per meter passes perpendicularly through the panel, producing a total electric flux of $6{,}800$ volt-meters across the whole panel. What is the electric flux, in volt-meters, through just the larger square?",
-  correctAnswer: "6400",
-  explanation: "**SAT Pattern: Area Ratio to Side Ratio in Similar Figures**\n\n**The correct answer is $6400$.**\n\n**The Fast Way (~40s):** Flux is proportional to area. If the larger side is $4\\times$ the smaller, its area is $4^2 = 16\\times$ as large, so the two squares split the total flux in a $16 : 1$ ratio. The larger square gets $\\dfrac{16}{17}$ of $6{,}800 = 6{,}400$ volt-meters. (The strength $32.00$ is not needed.)\n\n**The Full Solution:**\nLet the smaller square have side $s$ and the larger have side $4s$.\nAreas: smaller $= s^2$, larger $= (4s)^2 = 16s^2$.\nBecause the same uniform field passes through both, flux is proportional to area, so the fluxes are in the ratio $16 : 1$.\nTotal parts $= 16 + 1 = 17$.\nFlux through the larger square $= \\dfrac{16}{17} \\times 6{,}800 = \\dfrac{108{,}800}{17} = 6{,}400$ volt-meters.\n\nVerification: smaller square flux $= \\dfrac{1}{17} \\times 6{,}800 = 400$, and $6{,}400 + 400 = 6{,}800$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Splitting the flux in the SIDE ratio $4 : 1$ (giving $5{,}440$) instead of the AREA ratio $16 : 1$.\n* Trying to use the field strength $32.00$ — it cancels out and is a distractor.\n\n**Test Day Takeaway:** When a quantity scales with area, the side-length ratio must be SQUARED before splitting a total. A given \"strength\" or \"rate\" factor that applies equally to both parts is often an unneeded distractor.",
+  question: "A spray painter coats a wall through a stencil cut as two side-by-side square openings, where the amount of paint deposited on an opening equals the coverage rate multiplied by that opening's area. The side length of the larger square opening is $5$ times the side length of the smaller one. Applying paint at a uniform coverage rate of $0.85$ milliliters per square centimeter deposits a total of $5{,}200$ milliliters across both openings. How many milliliters of paint are deposited through just the larger opening?",
+  correctAnswer: "5000",
+  explanation: "**SAT Pattern: Area Ratio to Side Ratio in Similar Figures**\n\n**The correct answer is $5000$.**\n\n**The Fast Way (~40s):** Paint deposited is proportional to area. If the larger side is $5\\times$ the smaller, its area is $5^2 = 25\\times$ as large, so the two openings split the total paint in a $25 : 1$ ratio. The larger opening gets $\\dfrac{25}{26}$ of $5{,}200 = 5{,}000$ milliliters. (The coverage rate $0.85$ is not needed.)\n\n**The Full Solution:**\nLet the smaller square have side $s$ and the larger have side $5s$.\nAreas: smaller $= s^2$, larger $= (5s)^2 = 25s^2$.\nBecause the same coverage rate applies to both, the paint deposited is proportional to area, so the amounts are in the ratio $25 : 1$.\nTotal parts $= 25 + 1 = 26$.\nPaint through the larger opening $= \\dfrac{25}{26} \\times 5{,}200 = \\dfrac{130{,}000}{26} = 5{,}000$ milliliters.\n\nVerification: smaller opening paint $= \\dfrac{1}{26} \\times 5{,}200 = 200$, and $5{,}000 + 200 = 5{,}200$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Splitting the paint in the SIDE ratio $5 : 1$ (giving about $4{,}333$) instead of the AREA ratio $25 : 1$.\n* Trying to use the coverage rate $0.85$ — it applies equally to both openings and cancels out, so it is a distractor.\n\n**Test Day Takeaway:** When a quantity scales with area, the side-length ratio must be SQUARED before splitting a total. A given \"rate\" or \"strength\" factor that applies equally to both parts is often an unneeded distractor.",
   skills: ["geometry", "ratios", "area"]
 },
 {

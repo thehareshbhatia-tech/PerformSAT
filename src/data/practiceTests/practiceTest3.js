@@ -418,37 +418,59 @@ export const practiceTest3 = {
       timeLimit: 35,
       questions: [
 // Practice Test 3 — Math Module 2 (22 questions)
-// 2026-06 flow diversification. Wavy shape unique to this test:
+// 2026-06 flow diversification + de-clone pass. Wavy shape unique to this test:
 //   easy at Q1, Q3, Q19 (Q19 = mid/late breather);
 //   medium at Q2, Q4, Q5, Q7, Q10, Q11, Q12;
 //   hard everywhere else (Q6, Q8, Q9, Q13-Q18, Q20-Q22), Q21/Q22 hard closers.
-// Six transformed pool items infused: E#3 margin-of-error (Q7), D-p7#25 exponential
-// back-solve (Q8), D-p2#24 line-translation x-intercept (Q13), D-p41#26 radical
-// substitution (Q18), E#19 reverse-percent "increase by p%" breather (Q19),
-// D-p23#20 right-triangle cosine ratio (Q20). Retired archetypes: classify-function-
-// type, two-way-table conditional probability, margin-of-error (replaced by pool),
-// outlier effect, exponential percent interpretation, reverse-percent chain,
-// exponent-radical (p+q), coterminal tangent, no-solution find-k, infinitely-many
-// find-k, budget-floor inequality, residual.
+//   E count = 3 (Q1, Q3, Q19); M count = 7 (Q2, Q4, Q5, Q7, Q10, Q11, Q12);
+//   H count = 12 (Q6, Q8, Q9, Q13-Q18, Q20-Q22). Total 22.
+// 2026-06 de-clone edits (this pass):
+//   Q1 REPLACED: was Function-Evaluation P(7)=18d+60 (below opener bar + near-dup of
+//     the Q11 18d-model surface) -> now a bare Pythagorean surd-hypotenuse opener
+//     (legs 6, 9 -> 3sqrt13); two-step (theorem + surd simplification), distinct from
+//     Q20's trig-ratio skeleton.
+//   Q5 UPGRADED IN PLACE: was equal-denominator (2x+5)/3=(x+14)/3 (collapsed to one
+//     step) -> now unequal denominators (3x-1)/4=(x+7)/2 -> x=15 (cross-multiply,
+//     distribute, collect: two real steps). Still easy/band 3 opener.
+//   Q11 RE-ANGLED: retired the 18d+240 surface (the old Q1 near-dup twin) -> new
+//     kayak-rental linear model 12h+48=180 -> h=11, same solve-for-input deliverable,
+//     all visible numbers changed.
+//   Q18 NUDGED (ip-risk): radical-substitution skeleton kept; constant moved to the
+//     LHS via subtraction and K changed 24 -> 40; answer -sqrt(c^2+40^2); all four
+//     choice forms re-derived.
+//   Q19 RE-ANGLED (near-dup / cross-test clone in T7): reverse-percent breather ROLE
+//     kept; "increase by 300% -> 84 -> 21" changed to "increase by 150% -> 120 -> 48"
+//     (factor 2.5, distinct from source E#19's 400%->60->12 and from Q11's final form).
+//   Q20 POLISHED: diagram bottom-right vertex 18 -> 17.86 (= sqrt(319)) so the drawn
+//     horizontal leg matches the 9-20 right triangle; explanation unchanged (already
+//     full-format and correct, cos x = 9/20 = 0.45).
+// Five transformed pool items remain infused: E#3 margin-of-error (Q7), D-p7#25
+// exponential back-solve (Q8), D-p2#24 line-translation x-intercept (Q13), D-p41#26
+// radical substitution (Q18, now nudged off-source), D-p23#20 right-triangle cosine
+// ratio (Q20). Retired archetypes: classify-function-type, two-way-table conditional
+// probability, outlier effect, exponential percent interpretation, reverse-percent
+// chain, exponent-radical (p+q), coterminal tangent, no-solution find-k,
+// infinitely-many find-k, budget-floor inequality, residual, direct function
+// evaluation (old Q1).
 
 {
   id: 1,
   type: "multiple-choice",
   difficulty: "easy",
   band: 3,
-  question: "A wind turbine's cumulative energy output, in kilowatt-hours, is modeled by $P(d) = 18d + 60$, where $d$ is the number of days the turbine has been running. What is the value of $P(7)$?",
+  question: "A right triangle has legs of length $6$ centimeters and $9$ centimeters. What is the length, in centimeters, of the hypotenuse?",
   choices: [
-    // distractor: adds 18 + 60 without multiplying by d = 7
-    { id: "A", text: "$78$" },
-    // distractor: computes 18 * 7 = 126 but drops the + 60 constant
-    { id: "B", text: "$126$" },
-    { id: "C", text: "$186$" },
-    // distractor: multiplies the whole expression by 7 — (18 + 60) * 7
-    { id: "D", text: "$546$" }
+    // distractor: adds the two leg lengths directly instead of using the Pythagorean theorem
+    { id: "A", text: "$15$" },
+    // distractor: subtracts the squares (81 - 36 = 45) instead of adding them
+    { id: "B", text: "$3\\sqrt{5}$" },
+    { id: "C", text: "$3\\sqrt{13}$" },
+    // distractor: forgets to take the square root and reports the radicand 36 + 81 = 117
+    { id: "D", text: "$117$" }
   ],
   correctAnswer: "C",
-  explanation: "**SAT Pattern: Function Evaluation**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Substitute $d = 7$: $P(7) = 18(7) + 60 = 126 + 60 = 186$.\n\n**The Full Solution:**\nReplace $d$ with $7$ in $P(d) = 18d + 60$:\n$P(7) = 18 \\cdot 7 + 60$.\nMultiply first: $18 \\cdot 7 = 126$.\nThen add the constant: $126 + 60 = 186$ kilowatt-hours.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — adds $18 + 60$ without multiplying the coefficient by $d = 7$.\n* Choice B: \"stops one step early\" — computes $18 \\cdot 7 = 126$ but forgets to add the constant $60$.\n* Choice D: \"wrong base\" — multiplies the whole expression by $7$: $(18 + 60) \\cdot 7 = 546$, applying $d$ to the constant too.\n\n**Test Day Takeaway:** To evaluate $f(\\text{input})$, substitute the input for the variable, then follow order of operations — multiply before adding the constant term.",
-  skills: ["function-interpretation", "linear-functions"]
+  explanation: "**SAT Pattern: Right Triangle — Pythagorean**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** $h^2 = 6^2 + 9^2 = 36 + 81 = 117$, so $h = \\sqrt{117} = \\sqrt{9 \\cdot 13} = 3\\sqrt{13}$.\n\n**The Full Solution:**\nBy the Pythagorean theorem, the hypotenuse $h$ satisfies $h^2 = 6^2 + 9^2$.\n$h^2 = 36 + 81 = 117$.\nTake the square root and simplify the surd: $h = \\sqrt{117}$. Since $117 = 9 \\cdot 13$ and $9$ is a perfect square, $\\sqrt{117} = \\sqrt{9}\\,\\sqrt{13} = 3\\sqrt{13}$ centimeters.\n\nVerification: $(3\\sqrt{13})^2 = 9 \\cdot 13 = 117 = 6^2 + 9^2$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong formula\" — adds the legs ($6 + 9 = 15$) instead of combining their squares under a square root.\n* Choice B: \"applies the inverse operation\" — subtracts the squares ($81 - 36 = 45$), giving $\\sqrt{45} = 3\\sqrt{5}$, as if solving for a leg rather than the hypotenuse.\n* Choice D: \"stops one step early\" — reports the radicand $117$ without taking the square root.\n\n**Test Day Takeaway:** The hypotenuse is $\\sqrt{a^2 + b^2}$ — add the squared legs, then simplify the radical by pulling out perfect-square factors.",
+  skills: ["triangles", "pythagorean", "radical-expressions"]
 },
 {
   id: 2,
@@ -512,9 +534,9 @@ export const practiceTest3 = {
   type: "fill-in",
   difficulty: "medium",
   band: 5,
-  question: "If $\\dfrac{2x + 5}{3} = \\dfrac{x + 14}{3}$, what value of $x$ satisfies this equation?",
-  correctAnswer: "9",
-  explanation: "**SAT Pattern: Multi-Step Linear Equation**\n\n**The correct answer is $9$.**\n\n**The Fast Way (~10s):** Same denominator $\\Rightarrow$ set numerators equal: $2x + 5 = x + 14 \\Rightarrow x = 9$.\n\n**The Full Solution:**\nSince both sides have the same denominator $3$, set the numerators equal:\n$2x + 5 = x + 14$\n$2x - x = 14 - 5$\n$x = 9$.\n\n**Verification:** Left: $\\dfrac{2(9) + 5}{3} = \\dfrac{23}{3}$. Right: $\\dfrac{9 + 14}{3} = \\dfrac{23}{3}$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Cross-multiplying unnecessarily (both denominators are already $3$).\n* Sign error: $14 + 5 = 19$ instead of $14 - 5 = 9$.\n\n**Test Day Takeaway:** When two fractions with equal denominators are set equal, the numerators must also be equal — no cross-multiplication needed.",
+  question: "If $\\dfrac{3x - 1}{4} = \\dfrac{x + 7}{2}$, what value of $x$ satisfies this equation?",
+  correctAnswer: "15",
+  explanation: "**SAT Pattern: Multi-Step Linear Equation**\n\n**The correct answer is $15$.**\n\n**The Fast Way (~25s):** Cross-multiply: $2(3x - 1) = 4(x + 7) \\Rightarrow 6x - 2 = 4x + 28 \\Rightarrow 2x = 30 \\Rightarrow x = 15$.\n\n**The Full Solution:**\nThe denominators differ ($4$ and $2$), so clear them by cross-multiplying:\n$2(3x - 1) = 4(x + 7)$.\nDistribute on both sides: $6x - 2 = 4x + 28$.\nCollect the variable terms: $6x - 4x = 28 + 2 \\Rightarrow 2x = 30$.\nDivide: $x = 15$.\n\n**Verification:** Left: $\\dfrac{3(15) - 1}{4} = \\dfrac{44}{4} = 11$. Right: $\\dfrac{15 + 7}{2} = \\dfrac{22}{2} = 11$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Setting the numerators equal directly ($3x - 1 = x + 7$) — that only works when the denominators are the SAME, which they are not here.\n* Forgetting to distribute: $2(3x - 1) = 6x - 2$, not $6x - 1$.\n\n**Test Day Takeaway:** When two fractions with DIFFERENT denominators are set equal, cross-multiply first, then distribute and collect like terms before isolating the variable.",
   skills: ["solving-equations"]
 },
 {
@@ -608,18 +630,18 @@ export const practiceTest3 = {
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
-  question: "During a promotion, a city bike-share program models the number of daily rides by $r(d) = 18d + 240$, where $d$ is the number of days since the promotion began. After how many days does the model predict $600$ daily rides?",
+  question: "A guide service charges a flat $\\$48$ outfitting fee plus $\\$12$ for each hour a kayak is rented, so the total charge in dollars for $h$ hours is modeled by $C(h) = 12h + 48$. For how many hours was a kayak rented if the total charge was $\\$180$?",
   choices: [
-    // distractor: forgets to subtract the initial 240, solving 18d = 600
-    { id: "A", text: "$33$" },
-    { id: "B", text: "$20$" },
-    // distractor: divides 600 by the sum 18 + 240 (wrong base)
-    { id: "C", text: "$2$" },
-    // distractor: subtracts but then multiplies instead of dividing (360 × 18 magnitude error → reports 360)
-    { id: "D", text: "$360$" }
+    // distractor: forgets to subtract the 48 fee, solving 12h = 180
+    { id: "A", text: "$15$" },
+    { id: "B", text: "$11$" },
+    // distractor: divides 180 by the sum 12 + 48 = 60 (wrong base)
+    { id: "C", text: "$3$" },
+    // distractor: reports the intermediate value 180 - 48 = 132 instead of dividing by 12
+    { id: "D", text: "$132$" }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Multi-Step Linear Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Set $18d + 240 = 600$. Subtract: $18d = 360$. Divide: $d = 20$.\n\n**The Full Solution:**\n$18d + 240 = 600$\n$18d = 600 - 240 = 360$\n$d = \\dfrac{360}{18} = 20$.\n\nVerification: $r(20) = 18(20) + 240 = 360 + 240 = 600$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — divides $600$ by $18$ without subtracting the initial $240$.\n* Choice C: \"wrong base\" — divides $600$ by the sum $18 + 240$.\n* Choice D: \"stops one step early\" — reports the intermediate value $360$ instead of dividing by $18$.\n\n**Test Day Takeaway:** To find the input for a target output of a linear model, undo the constant first (subtract), then undo the coefficient (divide).",
+  explanation: "**SAT Pattern: Multi-Step Linear Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Set $12h + 48 = 180$. Subtract the fee: $12h = 132$. Divide: $h = 11$.\n\n**The Full Solution:**\n$12h + 48 = 180$\n$12h = 180 - 48 = 132$\n$h = \\dfrac{132}{12} = 11$.\n\nVerification: $C(11) = 12(11) + 48 = 132 + 48 = 180$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — divides $180$ by $12$ without first subtracting the $\\$48$ fee, getting $15$.\n* Choice C: \"wrong base\" — divides $180$ by the sum $12 + 48 = 60$.\n* Choice D: \"stops one step early\" — reports the intermediate value $180 - 48 = 132$ instead of dividing by $12$.\n\n**Test Day Takeaway:** To find the input for a target output of a linear model, undo the constant first (subtract the fixed fee), then undo the coefficient (divide by the per-unit rate).",
   skills: ["solving-equations", "linear-functions", "word-problems"]
 },
 {
@@ -709,18 +731,18 @@ export const practiceTest3 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "In the equation below, $c$ is a positive constant.\n\n$$\\dfrac{x^2}{\\sqrt{x^2 - c^2}} = \\dfrac{c^2}{\\sqrt{x^2 - c^2}} + 24$$\n\nWhich expression is one of the solutions for $x$?",
+  question: "In the equation below, $c$ is a positive constant.\n\n$$\\dfrac{x^2}{\\sqrt{x^2 - c^2}} - 40 = \\dfrac{c^2}{\\sqrt{x^2 - c^2}}$$\n\nWhich expression is one of the solutions for $x$?",
   choices: [
     // distractor: uses the excluded boundary x^2 = c^2 (where the denominator is 0)
     { id: "A", text: "$-c$" },
-    // distractor: forgets to take the square root of x^2
-    { id: "B", text: "$-c^2 - 24^2$" },
+    // distractor: forgets to take the square root, reports the radicand negated
+    { id: "B", text: "$-c^2 - 40^2$" },
     // distractor: subtracts under the radical instead of adding (sign slip on c^2)
-    { id: "C", text: "$-\\sqrt{24^2 - c^2}$" },
-    { id: "D", text: "$-\\sqrt{c^2 + 24^2}$" }
+    { id: "C", text: "$-\\sqrt{40^2 - c^2}$" },
+    { id: "D", text: "$-\\sqrt{c^2 + 40^2}$" }
   ],
   correctAnswer: "D",
-  explanation: "**SAT Pattern: Radical Equation — Substitution**\n\n**Choice D is correct.**\n\n**The Fast Way (~45s):** Both fractions share the denominator $\\sqrt{x^2 - c^2}$. Multiply through by it: $x^2 = c^2 + 24\\sqrt{x^2 - c^2}$, so $x^2 - c^2 = 24\\sqrt{x^2 - c^2}$. Let $u = \\sqrt{x^2 - c^2}$: then $u^2 = 24u \\Rightarrow u = 24$, so $x^2 - c^2 = 576$ and $x = \\pm\\sqrt{c^2 + 24^2}$.\n\n**The Full Solution:**\nMultiply both sides by $\\sqrt{x^2 - c^2}$:\n$x^2 = c^2 + 24\\sqrt{x^2 - c^2}$\n$x^2 - c^2 = 24\\sqrt{x^2 - c^2}$.\nSubstitute $u = \\sqrt{x^2 - c^2}$ (so $u^2 = x^2 - c^2$):\n$u^2 = 24u \\Rightarrow u^2 - 24u = 0 \\Rightarrow u(u - 24) = 0$.\nThe radical $u = \\sqrt{x^2 - c^2}$ cannot be $0$ (the denominator would vanish), so $u = 24$.\nThen $x^2 - c^2 = 576 = 24^2 \\Rightarrow x^2 = c^2 + 24^2 \\Rightarrow x = \\pm\\sqrt{c^2 + 24^2}$.\nOne solution is $-\\sqrt{c^2 + 24^2}$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — uses the boundary $x^2 = c^2$ (where the radical is $0$), which is excluded.\n* Choice B: \"wrong base\" — reports $x^2 = c^2 + 24^2$ without taking the square root.\n* Choice C: \"applies the inverse operation\" — flips the sign under the radical to $24^2 - c^2$.\n\n**Test Day Takeaway:** When the same radical appears on both sides, clear the denominator and substitute $u = \\sqrt{\\cdots}$ to turn the equation into a simple quadratic in $u$.",
+  explanation: "**SAT Pattern: Radical Equation — Substitution**\n\n**Choice D is correct.**\n\n**The Fast Way (~45s):** Move the two fractions to one side: $\\dfrac{x^2 - c^2}{\\sqrt{x^2 - c^2}} = 40$, which is $\\sqrt{x^2 - c^2} = 40$. Square: $x^2 - c^2 = 40^2$, so $x = \\pm\\sqrt{c^2 + 40^2}$.\n\n**The Full Solution:**\nBoth fractions share the denominator $\\sqrt{x^2 - c^2}$. Add $40$ to both sides and then collect the fractions over the common denominator:\n$\\dfrac{x^2}{\\sqrt{x^2 - c^2}} - \\dfrac{c^2}{\\sqrt{x^2 - c^2}} = 40$\n$\\dfrac{x^2 - c^2}{\\sqrt{x^2 - c^2}} = 40$.\nLet $u = \\sqrt{x^2 - c^2}$ (so $u^2 = x^2 - c^2$); the left side is $\\dfrac{u^2}{u} = u$:\n$u = 40$.\nThe radical $u = \\sqrt{x^2 - c^2}$ is nonzero anyway (the denominator must not vanish), so $x^2 - c^2 = 40^2 = 1600 \\Rightarrow x^2 = c^2 + 40^2 \\Rightarrow x = \\pm\\sqrt{c^2 + 40^2}$.\nOne solution is $-\\sqrt{c^2 + 40^2}$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — uses the boundary $x^2 = c^2$ (where the radical is $0$), which is excluded.\n* Choice B: \"wrong base\" — reports $x^2 = c^2 + 40^2$ without taking the square root.\n* Choice C: \"applies the inverse operation\" — flips the sign under the radical to $40^2 - c^2$.\n\n**Test Day Takeaway:** When the same radical appears in every term, combine the fractions over the common denominator; $\\dfrac{u^2}{u}$ collapses to $u$, turning the equation into a one-step solve.",
   skills: ["radical-equations", "rational-equations", "solving-equations"]
 },
 {
@@ -728,18 +750,18 @@ export const practiceTest3 = {
   type: "multiple-choice",
   difficulty: "easy",
   band: 3,
-  question: "The result of increasing a quantity $q$ by $300\\%$ is $84$. What is the value of $q$?",
+  question: "The result of increasing a quantity $q$ by $150\\%$ is $120$. What is the value of $q$?",
   choices: [
-    { id: "A", text: "$21$" },
-    // distractor: treats \"increase by 300%\" as multiplying by 3, so q = 84/3
-    { id: "B", text: "$28$" },
-    // distractor: multiplies 84 by 3 instead of dividing
-    { id: "C", text: "$252$" },
-    // distractor: multiplies 84 by 4 (the correct factor, but wrong direction)
-    { id: "D", text: "$336$" }
+    { id: "A", text: "$48$" },
+    // distractor: treats \"increase by 150%\" as multiplying by 1.5, so q = 120/1.5
+    { id: "B", text: "$80$" },
+    // distractor: multiplies 120 by the correct factor 2.5 instead of dividing
+    { id: "C", text: "$300$" },
+    // distractor: multiplies 120 by 1.5 instead of dividing
+    { id: "D", text: "$180$" }
   ],
   correctAnswer: "A",
-  explanation: "**SAT Pattern: Percent Increase**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Increasing by $300\\%$ multiplies by $1 + 3 = 4$. So $4q = 84 \\Rightarrow q = 21$.\n\n**The Full Solution:**\nIncreasing $q$ by $300\\%$ adds $3q$ to $q$, giving $q + 3q = 4q$.\nSo $4q = 84 \\Rightarrow q = \\dfrac{84}{4} = 21$.\n\nVerification: $21 + 300\\% \\text{ of } 21 = 21 + 63 = 84$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"wrong base off-by-one\" — treats \"increase by $300\\%$\" as multiplying by $3$, giving $84 / 3 = 28$.\n* Choice C: \"applies the inverse operation\" — multiplies $84 \\times 3$ instead of dividing.\n* Choice D: \"applies the inverse operation\" — multiplies $84 \\times 4$ instead of dividing.\n\n**Test Day Takeaway:** \"Increase by $p\\%$\" multiplies the original by $1 + \\tfrac{p}{100}$. A $300\\%$ increase is a factor of $4$, not $3$.",
+  explanation: "**SAT Pattern: Percent Increase**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Increasing by $150\\%$ multiplies by $1 + 1.5 = 2.5$. So $2.5q = 120 \\Rightarrow q = 48$.\n\n**The Full Solution:**\nIncreasing $q$ by $150\\%$ adds $1.5q$ to $q$, giving $q + 1.5q = 2.5q$.\nSo $2.5q = 120 \\Rightarrow q = \\dfrac{120}{2.5} = 48$.\n\nVerification: $48 + 150\\% \\text{ of } 48 = 48 + 72 = 120$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"wrong base off-by-one\" — treats \"increase by $150\\%$\" as multiplying by $1.5$, giving $120 / 1.5 = 80$.\n* Choice C: \"applies the inverse operation\" — multiplies $120 \\times 2.5$ instead of dividing.\n* Choice D: \"applies the inverse operation\" — multiplies $120 \\times 1.5$ instead of dividing.\n\n**Test Day Takeaway:** \"Increase by $p\\%$\" multiplies the original by $1 + \\tfrac{p}{100}$. A $150\\%$ increase is a factor of $2.5$, not $1.5$.",
   skills: ["percents", "percent-change"]
 },
 {
@@ -751,7 +773,7 @@ export const practiceTest3 = {
   diagram: {
     type: "rightTriangle",
     params: {
-      vertices: [[0, 9], [0, 0], [18, 0]],
+      vertices: [[0, 9], [0, 0], [17.86, 0]],
       sideLabels: ["9", "", "20"],
       labels: ["", "", ""],
       rightAngleVertex: 1

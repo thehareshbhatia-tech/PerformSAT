@@ -410,12 +410,16 @@ export const practiceTest2 = {
 //   Q1 E, Q2 E, Q3 M, Q4 M, Q5 H, Q6 M, Q7 M, Q8 H, Q9 H, Q10 M, Q11 H,
 //   Q12 E (mid-module breather), Q13 H, Q14 M, Q15 H, Q16 M, Q17 H, Q18 H,
 //   Q19 H, Q20 H, Q21 H, Q22 H.
-// Hard closers Q17-22 (exponential-growth model, no-solution system, perpendicular
-// slope, cube-minus-cylinder volume, discriminant integer-bound, exponential period).
+// Hard closers Q17-22 (exponential-growth back-solve model, no-solution system,
+// perpendicular slope, cube-minus-cylinder volume, discriminant integer-bound,
+// exponential fractional-exponent period).
 // Pool items infused: D-p1#22 (Q5 radian-degree), D-p26#15 (Q3 mean comparison),
-// E#8 (Q8 line-parabola intersection count), D-p39#23 (Q9 linear solve-for-b).
+// E#8 (Q8 line-parabola intersection count), D-p39#23 (Q9 linear solve-for-b),
+// D-p7#25 (Q17 "150% more" exponential back-solve, distractor comments hardened
+// E#22), D-p28#25 (Q22 fractional-exponent period, reskinned coral-reef coverage
+// off the source city-population skeleton for IP distance — answer n=16).
 // Carriers use the observatory/snowpack/bookbinding/esports/harbor-ferry/
-// butterfly-garden palette.
+// butterfly-garden/coral-reef palette.
 
 {
   id: 1,
@@ -717,7 +721,7 @@ export const practiceTest2 = {
   band: 7,
   question: "A model estimates that at the end of each year from $2017$ to $2022$, the number of deer in a population was $150\\%$ more than the number of deer at the end of the previous year. The model estimates that at the end of $2018$, there were $200$ deer. Which equation represents this model, where $n$ is the number of deer $t$ years after the end of $2017$ and $t \\le 5$?",
   choices: [
-    // distractor: reads "150% more" as growth factor 1.5 instead of 2.5
+    // distractor: reads "150% more" as growth factor 1.5 instead of 2.5, but does back-solve the initial to 80
     { id: "A", text: "$n = 80(1.5)^t$" },
     { id: "B", text: "$n = 80(2.5)^t$" },
     // distractor: uses the 2018 count 200 as the t=0 initial value without back-calculating, AND misreads the factor as 1.5
@@ -726,7 +730,7 @@ export const practiceTest2 = {
     { id: "D", text: "$n = 200(2.5)^t$" }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Exponential Growth/Decay**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** \"$150\\%$ more\" $=$ factor $2.5$. At $t = 0$ (end of $2017$): $n_0 = 200/2.5 = 80$. So $n = 80(2.5)^t$.\n\n**Why the wrong answers are tempting:**\n* A: uses $1.5$ (not \"more\").\n* C/D: uses $200$ as initial without back-calculating.\n\n**Test Day Takeaway:** \"$p\\%$ more\" $= 1 + p/100$. Anchor initial value at $t = 0$.",
+  explanation: "**SAT Pattern: Exponential Growth/Decay**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** \"$150\\%$ more\" means a growth factor of $1 + 1.50 = 2.5$. The end of $2018$ is $t = 1$, where $n = 200$, so the initial value at $t = 0$ is $n_0 = \\dfrac{200}{2.5} = 80$. The model is $n = 80(2.5)^t$.\n\n**The Full Solution:**\nEach year the deer count is \"$150\\%$ more than\" the previous year. \"$p\\%$ more than\" a value means $100\\% + p\\%$ of it, so the new count is $100\\% + 150\\% = 250\\%$ of the previous count — a multiplicative factor of $2.5$ per year. That makes the model exponential of the form $n = n_0(2.5)^t$.\n\nThe variable $t$ counts years after the end of $2017$, so the end of $2018$ is $t = 1$. The model says there were $200$ deer then:\n$200 = n_0(2.5)^1 = 2.5\\,n_0$.\n\nSolve for the initial value: $n_0 = \\dfrac{200}{2.5} = 80$.\n\nTherefore $n = 80(2.5)^t$.\n\nVerification: at $t = 1$, $n = 80(2.5) = 200$ \\checkmark (the given $2018$ count), and at $t = 0$, $n = 80$ (end of $2017$).\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong factor\" — reads \"$150\\%$ more\" as a factor of $1.5$ instead of $2.5$. With factor $1.5$, back-solving gives $n_0 = 200/1.5 \\approx 133$, not $80$, so even the coefficient is inconsistent with this base; it pairs the correct $80$ with the wrong base $1.5$.\n* Choice C: \"wrong factor AND wrong anchor\" — both misreads the factor as $1.5$ and uses the $2018$ count $200$ as the $t = 0$ initial value instead of back-calculating to $80$.\n* Choice D: \"wrong anchor\" — uses the correct factor $2.5$ but plugs the $2018$ count $200$ in as the $t = 0$ initial value, ignoring that $t = 1$ (not $t = 0$) at the end of $2018$.\n\n**Test Day Takeaway:** \"$p\\%$ more\" is a factor of $1 + \\dfrac{p}{100}$ (so $150\\%$ more $= 2.5\\times$). Then anchor the initial value at $t = 0$: if the given data point is at $t = 1$, divide it by the factor to recover $n_0$.",
   skills: ["exponential-functions", "exponential-growth"]
 },
 {
@@ -736,16 +740,16 @@ export const practiceTest2 = {
   band: 7,
   question: "In the system of equations below, $a$ is a constant.\n\n$\\dfrac{2}{3}x - \\dfrac{1}{2}y = 5$\n$ax - 3y = 24$\n\nIf the system has no solution, what is the value of $a$?",
   choices: [
-    // distractor: matches y-coefficient ratio incorrectly: a/(2/3) = 3/(1/2) gives a = 4
+    // distractor: uses the bare y-coefficient 3 instead of 3 ÷ (1/2): a/(2/3) = 3 gives a = (2/3)(3) = 2
     { id: "A", text: "$2$" },
-    // distractor: arithmetic slip giving a = 3
+    // distractor: finds the correct ratio 6 but scales it by 1/2 instead of 2/3: a = 6(1/2) = 3
     { id: "B", text: "$3$" },
     { id: "C", text: "$4$" },
-    // distractor: keeps the y-coefficient ratio but doesn't multiply: a = 6
+    // distractor: keeps the coefficient ratio 6 as the answer, forgetting to multiply by 2/3
     { id: "D", text: "$6$" }
   ],
   correctAnswer: "C",
-  explanation: "**SAT Pattern: No-Solution Condition**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** A system has no solution when the lines are parallel: equal slope ratios but different constants. Match $\\dfrac{a}{\\frac{2}{3}} = \\dfrac{-3}{-\\frac{1}{2}}$ (the $x$ and $y$ coefficient ratios). $\\dfrac{a}{\\frac{2}{3}} = 6$, so $a = 4$.\n\n**The Full Solution:**\nNo solution requires the same slope (proportional coefficients of $x$ and $y$) but different constants.\nFor proportionality: $\\dfrac{a}{\\frac{2}{3}} = \\dfrac{-3}{-\\frac{1}{2}} = 6$.\nSo $a = 6 \\cdot \\dfrac{2}{3} = 4$.\n\nCheck constant ratio: $\\dfrac{24}{5}$ should NOT equal $6$. Since $\\dfrac{24}{5} = 4.8 \\neq 6$, the constants are different — the system has no solution. \\checkmark\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — matches incorrectly: divides $\\dfrac{2}{3}$ by something off, getting $a = 2$.\n* Choice B: \"off-by-one\" — arithmetic slip giving $a = 3$ instead of $4$.\n* Choice D: \"applies the inverse operation\" — keeps the ratio $6$ as $a$ directly without multiplying by $\\dfrac{2}{3}$.\n\n**Test Day Takeaway:** No solution = same coefficient ratios on $x$ and $y$ (parallel lines), but the constant breaks the proportion.",
+  explanation: "**SAT Pattern: No-Solution Condition**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** A system has no solution when the lines are parallel — equal coefficient ratios on $x$ and $y$ but different constants. So $\\dfrac{a}{\\frac{2}{3}} = \\dfrac{-3}{-\\frac{1}{2}} = 6$, giving $a = 6 \\cdot \\dfrac{2}{3} = 4$.\n\n**The Full Solution:**\nTwo linear equations have no solution exactly when their lines are parallel: the coefficients of $x$ and $y$ are in the same ratio, but the constant terms break that ratio.\n\nLine up the coefficients of the two equations:\n* $x$-coefficients: $\\dfrac{2}{3}$ and $a$\n* $y$-coefficients: $-\\dfrac{1}{2}$ and $-3$\n\nFor parallel lines the $y$-to-$y$ ratio must equal the $x$-to-$x$ ratio. Compute the $y$-ratio:\n$\\dfrac{-3}{-\\frac{1}{2}} = (-3) \\cdot (-2) = 6$.\n\nSet the $x$-ratio equal to it:\n$\\dfrac{a}{\\frac{2}{3}} = 6 \\;\\Rightarrow\\; a = 6 \\cdot \\dfrac{2}{3} = 4$.\n\nNow confirm it is genuinely \"no solution\" (parallel) and not \"infinitely many\" (the same line). With $a = 4$ the second equation is $4x - 3y = 24$, i.e. $6$ times $\\left(\\dfrac{2}{3}x - \\dfrac{1}{2}y\\right) = 6 \\cdot 4 = 24$. But $6$ times the first equation's constant is $6 \\cdot 5 = 30 \\neq 24$. The constants disagree, so the lines are parallel and distinct: no solution. \\checkmark\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): \"wrong base\" — uses the bare $y$-coefficient $3$ as the ratio (forgetting to divide by $\\dfrac{1}{2}$), so $\\dfrac{a}{\\frac{2}{3}} = 3$ gives $a = \\dfrac{2}{3} \\cdot 3 = 2$.\n* Choice B ($3$): \"off-by-one scale\" — finds the correct ratio $6$ but multiplies it by $\\dfrac{1}{2}$ (the raw $y$-coefficient) instead of $\\dfrac{2}{3}$, getting $a = 6 \\cdot \\dfrac{1}{2} = 3$.\n* Choice D ($6$): \"stops one step early\" — keeps the coefficient ratio $6$ as the answer without multiplying back by $\\dfrac{2}{3}$.\n\n**Test Day Takeaway:** No solution $=$ same coefficient ratios on $x$ and $y$ (parallel lines), but the constant breaks the proportion. Solve the ratio equation fully — the last multiply by $\\dfrac{2}{3}$ is where points are lost.",
   skills: ["systems-of-equations", "linear-functions"]
 },
 {
@@ -810,18 +814,18 @@ export const practiceTest2 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "The function $P$ is defined by $P(t) = 380(1.05)^{(8/6)t}$ and models the population of a certain city $t$ years after $2005$. According to the model, the population is predicted to increase by $5\\%$ every $n$ months. What is the value of $n$?",
+  question: "A marine biologist models the live coral cover of a reef colony with the function $C(t) = 95(1.07)^{(3/4)t}$, where $C(t)$ is the percent of the original cover present $t$ years after monitoring began. According to the model, the coral cover is predicted to increase by $7\\%$ every $n$ months. What is the value of $n$?",
   choices: [
+    // distractor: inverts the exponent fraction, treating 3/4 of a year (9 months) as the growth period
     { id: "A", text: "$9$" },
-    // distractor: ignores the (8/6) exponent factor and assumes the 5% applies once per 12-month year
+    // distractor: ignores the (3/4) exponent factor and assumes the 7% applies once per 12-month year
     { id: "B", text: "$12$" },
-    // distractor: inverts the exponent factor, using 6/8 of 12 months reciprocally to get 16
     { id: "C", text: "$16$" },
-    // distractor: multiplies the 9-month period by the unrelated base years instead of stopping
-    { id: "D", text: "$72$" }
+    // distractor: uses the denominator 4 as a number of years and converts to months: 4 × 12 = 48
+    { id: "D", text: "$48$" }
   ],
-  correctAnswer: "A",
-  explanation: "**SAT Pattern: Exponential Growth/Decay**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** $\\dfrac{8t}{6}$ increases by $1$ when $t$ increases by $\\dfrac{6}{8} = \\dfrac{3}{4}$ year $= 9$ months.\n\n**Why the wrong answers are tempting:**\n* B: forgets fractional exponent.\n* C/D: misreads $6/8$ as $8/6$.\n\n**Test Day Takeaway:** $(1+r)^{kt}$ advances once per $1/k$ in $t$.",
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Exponential Growth/Decay**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** The base $1.07$ is applied once each time the exponent $\\dfrac{3}{4}t$ increases by $1$. That happens when $t$ increases by $\\dfrac{4}{3}$ year $= \\dfrac{4}{3} \\cdot 12 = 16$ months. So $n = 16$.\n\n**The Full Solution:**\nEvery factor of $1.07$ multiplies the cover by $1 + 0.07$, i.e. a $7\\%$ increase. The model picks up exactly one such factor each time the exponent $\\dfrac{3}{4}t$ rises by $1$ whole unit:\n$\\dfrac{3}{4}(t + \\Delta t) = \\dfrac{3}{4}t + 1 \\;\\Rightarrow\\; \\dfrac{3}{4}\\,\\Delta t = 1 \\;\\Rightarrow\\; \\Delta t = \\dfrac{4}{3}\\text{ year}$.\n\nConvert that interval to months:\n$\\Delta t = \\dfrac{4}{3} \\cdot 12 = 16$ months.\n\nSo the cover grows by $7\\%$ every $16$ months, and $n = 16$.\n\nVerification: over $16$ months $\\left(\\dfrac{4}{3}\\text{ yr}\\right)$ the exponent rises by $\\dfrac{3}{4} \\cdot \\dfrac{4}{3} = 1$, multiplying the cover by $1.07^1 = 1.07$ — exactly one $7\\%$ step \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A ($9$): \"inverts the fraction\" — treats $\\dfrac{3}{4}$ of a year as the growth period, computing $\\dfrac{3}{4} \\cdot 12 = 9$ months instead of taking the reciprocal of the exponent coefficient first.\n* Choice B ($12$): \"ignores the exponent factor\" — assumes the $7\\%$ applies once per $12$-month calendar year, as if the exponent were just $t$.\n* Choice D ($48$): \"wrong base\" — reads the denominator $4$ as a number of years and converts that to months ($4 \\cdot 12 = 48$), instead of using $\\dfrac{4}{3}$ year.\n\n**Test Day Takeaway:** For $(1 + r)^{kt}$ the quantity grows by one factor of $(1 + r)$ each time $t$ increases by $\\dfrac{1}{k}$. Take the reciprocal of the exponent's coefficient first, then convert that time to the units the question asks for.",
   skills: ["exponential-functions", "function-interpretation"]
 }
       ]

@@ -424,11 +424,18 @@ export const practiceTest9 = {
       timeLimit: 35,
       questions: [
 // Practice Test 9 — Math Module 2 (22 questions)
-// Distribution: 3E / 7M / 12H. Flow pattern: easy {1,3,14}, medium {2,5,6,8,10,17,19},
-// hard {4,7,9,11,12,13,15,16,18,20,21,22}. Mid/late breather at Q14.
-// Six transformed pool items infused (E#10→Q2, E#6→Q3, D-p29#26→Q4, D-p10#27→Q6,
-// D-p43#27→Q9, D-p16#21→Q15). Retired-family M2 items replaced; carriers from the
-// lighthouse/fabric/ski-lift/podcast/greenhouse/go-kart palette.
+// Distribution: 3E / 7M / 12H. Flow pattern: easy {1(b2),3(b3),14(b3)},
+// medium {2,5,6,8,10,17,19}, hard {4,7,9,11,12,13,15,16,18,20,21,22}.
+// Designated mid/late breather at Q14 (Percent of a Whole).
+// Pool-item infusion: E#10→Q2 NUDGED (slope 2/9, x-int (-27,0) -> y-int 6; new
+// numbers + new answer to clear IP margin vs source -5/3,(-6,0),-10),
+// D-p29#26→Q4, D-p10#27→Q6, D-p43#27→Q9, D-p16#21→Q15. Former E#6→Q3 range
+// breather REPLACED by a fresh non-pool No-Solution Condition opener (find p, b3)
+// — the Q3 slot's range item fell below the opener bar and Q14 already serves as
+// the module's easy breather. Near-dup cluster Q2/Q6/Q11/Q16: distinct skeletons
+// (slope+pt / percent-chain / perpendicular-line / exp-model); Q11 re-angled to
+// solve for the x-intercept (was y-coord at x=0) so its deliverable no longer
+// mirrors Q2. Carriers from the lighthouse/fabric/ski-lift/podcast/greenhouse/go-kart palette.
 
 {
   id: 1,
@@ -454,20 +461,20 @@ export const practiceTest9 = {
   type: "fill-in",
   difficulty: "medium",
   band: 5,
-  question: "In the $xy$-plane, line $\\ell$ has a slope of $-\\dfrac{5}{3}$ and passes through the point $(-6, 0)$. What is the $y$-coordinate of the point where line $\\ell$ crosses the $y$-axis?",
-  correctAnswer: "-10",
-  explanation: "**SAT Pattern: Slope-Intercept Form**\n\n**The correct answer is $-10$.**\n\n**The Fast Way (~20s):** Point-slope from $(-6, 0)$: $y - 0 = -\\dfrac{5}{3}(x + 6)$. At $x = 0$: $y = -\\dfrac{5}{3}(6) = -10$.\n\n**The Full Solution:**\nThe point $(-6, 0)$ is where line $\\ell$ crosses the $x$-axis. Write the line in point-slope form using slope $-\\dfrac{5}{3}$:\n$y - 0 = -\\dfrac{5}{3}\\big(x - (-6)\\big) = -\\dfrac{5}{3}(x + 6)$.\nThe $y$-intercept is the value when $x = 0$:\n$y = -\\dfrac{5}{3}(0 + 6) = -\\dfrac{5}{3} \\cdot 6 = -10$.\n\nVerification: in $y = -\\dfrac{5}{3}x - 10$, setting $y = 0$ gives $\\dfrac{5}{3}x = -10$, so $x = -6$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Dropping the negative sign on the slope and reporting $+10$.\n* Plugging the $x$-intercept's $x$-value back in instead of $x = 0$.\n\n**Test Day Takeaway:** An $x$-intercept gives you a point on the line; combine it with the slope in point-slope form, then evaluate at $x = 0$ for the $y$-intercept.",
+  question: "In the $xy$-plane, line $\\ell$ has a slope of $\\dfrac{2}{9}$ and passes through the point $(-27, 0)$. What is the $y$-coordinate of the point where line $\\ell$ crosses the $y$-axis?",
+  correctAnswer: "6",
+  explanation: "**SAT Pattern: Slope-Intercept Form**\n\n**The correct answer is $6$.**\n\n**The Fast Way (~20s):** Point-slope from $(-27, 0)$: $y - 0 = \\dfrac{2}{9}(x + 27)$. At $x = 0$: $y = \\dfrac{2}{9}(27) = 6$.\n\n**The Full Solution:**\nThe point $(-27, 0)$ is where line $\\ell$ crosses the $x$-axis. Write the line in point-slope form using slope $\\dfrac{2}{9}$:\n$y - 0 = \\dfrac{2}{9}\\big(x - (-27)\\big) = \\dfrac{2}{9}(x + 27)$.\nThe $y$-intercept is the value when $x = 0$:\n$y = \\dfrac{2}{9}(0 + 27) = \\dfrac{2}{9} \\cdot 27 = 6$.\n\nVerification: in $y = \\dfrac{2}{9}x + 6$, setting $y = 0$ gives $\\dfrac{2}{9}x = -6$, so $x = -27$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Dropping the sign of the $x$-intercept and computing $\\dfrac{2}{9}(-27) = -6$ instead of $+6$.\n* Plugging the $x$-intercept's $x$-value back in instead of $x = 0$.\n\n**Test Day Takeaway:** An $x$-intercept gives you a point on the line; combine it with the slope in point-slope form, then evaluate at $x = 0$ for the $y$-intercept.",
   skills: ["linear-functions", "slope", "coordinate-geometry"]
 },
 {
   id: 3,
   type: "fill-in",
   difficulty: "easy",
-  band: 2,
-  question: "A lighthouse keeper logs the number of ships passing on each of $7$ nights: $19, 24, 24, 28, 31, 33, 47$. What is the range of these $7$ values?",
-  correctAnswer: "28",
-  explanation: "**SAT Pattern: Range of a Data Set**\n\n**The correct answer is $28$.**\n\n**The Fast Way (~10s):** Range $=$ maximum $-$ minimum $= 47 - 19 = 28$.\n\n**The Full Solution:**\nThe range of a data set is the largest value minus the smallest value. The values are already in increasing order, so the maximum is $47$ and the minimum is $19$:\nrange $= 47 - 19 = 28$.\n\n**Common Mistakes to Avoid:**\n* Confusing range with the median ($28$ is the middle value here only by coincidence of the spread; range is always max minus min).\n* Subtracting in the wrong order and reporting a negative value.\n\n**Test Day Takeaway:** Range is a single subtraction — max minus min — and is not the same as mean, median, or mode.",
-  skills: ["statistics", "data-spread"]
+  band: 3,
+  question: "In the equation $px + 9 = \\dfrac{3}{8}x + 2$, $p$ is a constant. If the equation has no solution, what is the value of $p$?",
+  correctAnswer: "3/8",
+  explanation: "**SAT Pattern: No-Solution Condition**\n\n**The correct answer is $\\dfrac{3}{8}$.**\n\n**The Fast Way (~25s):** A linear equation has no solution when the two sides have equal $x$-coefficients but unequal constants. Match coefficients: $p = \\dfrac{3}{8}$ (and $9 \\ne 2$, so there is truly no solution).\n\n**The Full Solution:**\nCollect the $x$-terms on one side:\n$px + 9 = \\dfrac{3}{8}x + 2 \\Rightarrow \\left(p - \\dfrac{3}{8}\\right)x = 2 - 9 = -7$.\nFor this to have NO solution, the $x$-coefficient must be $0$ while the right side is nonzero (so the statement becomes $0 = -7$, which is never true):\n$p - \\dfrac{3}{8} = 0 \\Rightarrow p = \\dfrac{3}{8}$.\nWith $p = \\dfrac{3}{8}$ the equation reduces to $0 = -7$ — impossible — so there is no solution.\n\nVerification: any other $p$ leaves a nonzero coefficient on $x$, giving exactly one solution $x = \\dfrac{-7}{p - 3/8}$, not zero solutions \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Confusing \"no solution\" with \"infinitely many solutions\" — infinitely many would also require the constants to match ($9 = 2$), which they do not.\n* Trying to solve for $x$ as if a value exists; the question is about the coefficient that removes all solutions.\n\n**Test Day Takeaway:** A linear equation has no solution exactly when the variable cancels out and the leftover constants disagree — set the $x$-coefficients equal.",
+  skills: ["solving-equations", "linear-equations"]
 },
 {
   id: 4,
@@ -495,7 +502,7 @@ export const practiceTest9 = {
   band: 5,
   question: "At a fabric-dyeing workshop, the bolts of cloth are prepared in a ratio of $7$ indigo bolts to $4$ crimson bolts. If a batch contains $88$ bolts in total and every bolt is either indigo or crimson, how many indigo bolts are in the batch?",
   correctAnswer: "56",
-  explanation: "**SAT Pattern: Sum of Parts Ratio**\n\n**The correct answer is $56$.**\n\n**The Fast Way (~10s):** Total parts $= 7 + 4 = 11$. Each part $= 88 \\div 11 = 8$. Indigo $= 7 \\cdot 8 = 56$.\n\n**The Full Solution:**\nLet indigo $= 7k$ and crimson $= 4k$, so the ratio is $7 : 4$.\nTotal: $7k + 4k = 11k = 88$, so $k = 8$.\nIndigo bolts $= 7k = 7 \\cdot 8 = 56$.\n\nVerification: crimson $= 4 \\cdot 8 = 32$, and $56 + 32 = 88$ \\checkmark, with $\\dfrac{56}{32} = \\dfrac{7}{4}$ \\checkmark.\n\n**Test Day Takeaway:** When a ratio's parts together make up the whole, divide the total by the SUM of the ratio parts to get the value of one part, then scale up.",
+  explanation: "**SAT Pattern: Sum of Parts Ratio**\n\n**The correct answer is $56$.**\n\n**The Fast Way (~15s):** Total parts $= 7 + 4 = 11$. Each part $= 88 \\div 11 = 8$ bolts. Indigo $= 7 \\cdot 8 = 56$.\n\n**The Full Solution:**\nThe ratio $7 : 4$ splits the batch into $7 + 4 = 11$ equal parts. Let each part be $k$ bolts, so indigo $= 7k$ and crimson $= 4k$.\nThe parts together make up the whole batch:\n$7k + 4k = 11k = 88 \\Rightarrow k = \\dfrac{88}{11} = 8$.\nIndigo bolts $= 7k = 7 \\cdot 8 = 56$.\n\nVerification: crimson $= 4 \\cdot 8 = 32$, and $56 + 32 = 88$ \\checkmark, with $\\dfrac{56}{32} = \\dfrac{7}{4}$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Dividing $88$ by $7$ or by $4$ instead of by the SUM $11$ (that ignores the crimson parts and gives a non-integer).\n* Reporting the number of crimson bolts ($32$) or the part value ($8$) instead of the indigo total ($56$).\n* Multiplying $88$ by $\\dfrac{7}{4}$ as if $7:4$ compared indigo to the whole rather than to crimson.\n\n**Test Day Takeaway:** When a ratio's parts together make up the whole, divide the total by the SUM of the ratio parts to get the value of one part, then scale up.",
   skills: ["solving-equations", "ratios"]
 },
 {
@@ -580,9 +587,9 @@ export const practiceTest9 = {
   type: "fill-in",
   difficulty: "hard",
   band: 7,
-  question: "Line $r$ passes through the points $(1, 4)$ and $(5, 16)$. Line $s$ is perpendicular to line $r$ and passes through the point $(12, 5)$. What is the $y$-coordinate of the point on line $s$ where $x = 0$?",
-  correctAnswer: "9",
-  explanation: "**SAT Pattern: Perpendicular Line Through Point**\n\n**The correct answer is $9$.**\n\n**The Fast Way (~25s):** Slope of $r$: $\\dfrac{16 - 4}{5 - 1} = 3$. Perpendicular slope: $-\\dfrac{1}{3}$. Line $s$ through $(12,5)$: at $x = 0$, $y = 5 - \\dfrac{1}{3}(0 - 12) = 5 + 4 = 9$.\n\n**The Full Solution:**\nSlope of line $r$: $m_r = \\dfrac{16 - 4}{5 - 1} = \\dfrac{12}{4} = 3$.\nLine $s$ is perpendicular, so $m_s = -\\dfrac{1}{3}$.\nThrough $(12, 5)$: $y - 5 = -\\dfrac{1}{3}(x - 12)$, so $y = 5 - \\dfrac{1}{3}(x - 12)$.\nAt $x = 0$: $y = 5 - \\dfrac{1}{3}(0 - 12) = 5 - \\dfrac{1}{3}(-12) = 5 + 4 = 9$.\n\n**Common Mistakes to Avoid:**\n* Using the parallel slope $3$ instead of the perpendicular slope $-\\tfrac{1}{3}$.\n* A sign slip in $-\\tfrac{1}{3}(0 - 12)$.\n\n**Test Day Takeaway:** Flip and negate the slope for a perpendicular line, anchor it at the given point, then evaluate at $x = 0$.",
+  question: "Line $r$ passes through the points $(1, 4)$ and $(5, 16)$. Line $s$ is perpendicular to line $r$ and passes through the point $(12, 5)$. At what $x$-coordinate does line $s$ cross the $x$-axis?",
+  correctAnswer: "27",
+  explanation: "**SAT Pattern: Perpendicular Line Through Point**\n\n**The correct answer is $27$.**\n\n**The Fast Way (~30s):** Slope of $r$: $\\dfrac{16 - 4}{5 - 1} = 3$. Perpendicular slope: $-\\dfrac{1}{3}$. Line $s$: $y = -\\dfrac{1}{3}x + 9$. Set $y = 0$: $\\dfrac{1}{3}x = 9 \\Rightarrow x = 27$.\n\n**The Full Solution:**\nSlope of line $r$: $m_r = \\dfrac{16 - 4}{5 - 1} = \\dfrac{12}{4} = 3$.\nLine $s$ is perpendicular, so $m_s = -\\dfrac{1}{3}$.\nThrough $(12, 5)$: $y - 5 = -\\dfrac{1}{3}(x - 12)$, so $y = -\\dfrac{1}{3}x + 4 + 5 = -\\dfrac{1}{3}x + 9$.\nThe $x$-intercept is where $y = 0$:\n$0 = -\\dfrac{1}{3}x + 9 \\Rightarrow \\dfrac{1}{3}x = 9 \\Rightarrow x = 27$.\n\nVerification: at $x = 27$, $y = -\\dfrac{1}{3}(27) + 9 = -9 + 9 = 0$ \\checkmark; and the line does pass through $(12, 5)$: $-\\dfrac{1}{3}(12) + 9 = -4 + 9 = 5$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Using the parallel slope $3$ instead of the perpendicular slope $-\\tfrac{1}{3}$.\n* Finding the $y$-intercept ($9$) and reporting it instead of the $x$-intercept ($27$).\n* A sign slip when solving $-\\tfrac{1}{3}x + 9 = 0$.\n\n**Test Day Takeaway:** Flip and negate the slope for a perpendicular line, anchor it at the given point, then set $y = 0$ to find where it crosses the $x$-axis.",
   skills: ["slope", "linear-functions", "coordinate-geometry"]
 },
 {

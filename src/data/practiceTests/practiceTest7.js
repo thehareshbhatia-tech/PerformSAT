@@ -422,7 +422,9 @@ export const practiceTest7 = {
       questions: [
 // Practice Test 7 — Math Module 2 (22 questions)
 // 2026-06 M2 flow diversification. Wavy flow: M[1] E[2,3] M[4,5] H[6,7] M[8] H[9] M[10] E[11] H[12,13,14] M[15] H[16,17,18] M[19] H[20,21,22].
-// 6 transformed pool items infused (D-p14, E#11, D-p42, D-p6, E#17, D-p27). Retired clones replaced; lint pattern names + distractor comments cleared.
+// Distribution: E=3 (q2,q3,q11) / M=7 (q1,q4,q5,q8,q10,q15,q19) / H=12 (q6,q7,q9,q12,q13,q14,q16,q17,q18,q20,q21,q22).
+// 7 transformed pool items infused: D-p14#26 (q1), E#11 (q3), D-p42#25 (q6), D-p6#26 (q12), E#17 (q13), D-p27#21 (q14), E#19/D-p25#25 (q19 — reskinned as a decrease inversion). Retired clones replaced; lint pattern names + distractor comments cleared.
+// 2026-06 de-clone: q10 re-angled from "max-height TIME (=-b/2a)" to "max-height VALUE (substitute back)" so it no longer collides with q8's vertex/min-value archetype (both formerly resolved to vertex x=2). q19 reskinned off the increase-by-p% source skeleton (was cloned in T3) to a decrease-by-25% reverse-percent.
 
 {
   id: 1,
@@ -573,9 +575,9 @@ export const practiceTest7 = {
   type: "fill-in",
   difficulty: "medium",
   band: 5,
-  question: "The function $h(t) = -16t^2 + 64t + 5$ models the height in feet of a ball $t$ seconds after being thrown upward. At what time, in seconds, does the ball reach its maximum height?",
-  correctAnswer: "2",
-  explanation: "**SAT Pattern: Vertex Form Maximum**\n\n**The correct answer is $2$.**\n\n**The Fast Way (~10s):** $t = -\\dfrac{b}{2a} = -\\dfrac{64}{-32} = 2$.\n\n**The Full Solution:**\nThe height function $h(t) = -16t^2 + 64t + 5$ has $a = -16 < 0$, so the parabola opens downward and the maximum occurs at the vertex.\n\n$t = -\\dfrac{b}{2a} = -\\dfrac{64}{2(-16)} = -\\dfrac{64}{-32} = 2$ seconds.\n\nAt that time, the maximum height is $h(2) = -16(4) + 128 + 5 = -64 + 128 + 5 = 69$ feet.\n\n**Common Mistakes to Avoid:**\n* Solving $h(t) = 0$ instead of finding the vertex.\n* Computing $-\\dfrac{64}{32} = -2$ (wrong sign).\n\n**Test Day Takeaway:** For projectile-motion stems, the time at maximum height is $t = -\\dfrac{b}{2a}$, not where $h = 0$.",
+  question: "The function $h(t) = -16t^2 + 48t + 6$ models the height, in feet, of a drone $t$ seconds after it launches straight up. What is the maximum height, in feet, that the drone reaches?",
+  correctAnswer: "42",
+  explanation: "**SAT Pattern: Vertex Form Maximum**\n\n**The correct answer is $42$.**\n\n**The Fast Way (~20s):** Max occurs at $t = -\\dfrac{b}{2a} = -\\dfrac{48}{-32} = 1.5$. Then $h(1.5) = -16(2.25) + 48(1.5) + 6 = -36 + 72 + 6 = 42$ feet.\n\n**The Full Solution:**\nThe height function $h(t) = -16t^2 + 48t + 6$ has $a = -16 < 0$, so the parabola opens downward and the maximum height is the $y$-value of the vertex.\n\nStep 1 — find the time of the vertex: $t = -\\dfrac{b}{2a} = -\\dfrac{48}{2(-16)} = -\\dfrac{48}{-32} = 1.5$ seconds.\nStep 2 — substitute back to get the height: $h(1.5) = -16(1.5)^2 + 48(1.5) + 6 = -16(2.25) + 72 + 6 = -36 + 72 + 6 = 42$ feet.\n\n**Common Mistakes to Avoid:**\n* Reporting $1.5$ (the TIME of the maximum) instead of the maximum height.\n* Reporting $6$ (the launch height at $t = 0$) instead of the peak.\n* Forgetting to substitute the vertex time back into $h(t)$ after finding it.\n\n**Verification:** $h(0) = 6$, $h(1.5) = 42$, $h(3) = -144 + 144 + 6 = 6$ — the parabola peaks at $42$ then returns to $6$ \\checkmark.\n\n**Test Day Takeaway:** \"Maximum height\" asks for the OUTPUT at the vertex: first find $t = -\\dfrac{b}{2a}$, then substitute back to get the height.",
   skills: ["quadratic-equations", "vertex-form", "function-interpretation"]
 },
 {
@@ -714,18 +716,18 @@ export const practiceTest7 = {
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
-  question: "The result of increasing the quantity $x$ by $350\\%$ is $90$. What is the value of $x$?",
+  question: "After the quantity $x$ is decreased by $25\\%$, the result is $180$. What is the value of $x$?",
   choices: [
-    { id: "A", text: "$20$" },
-    // distractor: wrong base — divides 90 by 3.5 (uses the percent without the +1 base)
-    { id: "B", text: "$25.7$" },
-    // distractor: applies inverse operation — takes 350% of 90 instead of reversing
-    { id: "C", text: "$315$" },
-    // distractor: off-by-one — multiplies by 4.5 instead of dividing
-    { id: "D", text: "$405$" }
+    { id: "A", text: "$240$" },
+    // distractor: wrong base — divides 180 by the decrease 0.25 instead of by the retained 0.75
+    { id: "B", text: "$720$" },
+    // distractor: applies inverse operation — decreases 180 by 25% instead of reversing the decrease
+    { id: "C", text: "$135$" },
+    // distractor: off-by-one — treats it as an increase and multiplies 180 by 1.25
+    { id: "D", text: "$225$" }
   ],
   correctAnswer: "A",
-  explanation: "**SAT Pattern: Reverse-Percent**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** \"Increase by $350\\%$\" multiplies by $1 + 3.5 = 4.5$. So $4.5x = 90 \\Rightarrow x = 20$.\n\n**The Full Solution:**\nIncreasing $x$ by $350\\%$ gives $x + 3.5x = 4.5x$.\nSet equal to the result: $4.5x = 90 \\Rightarrow x = \\dfrac{90}{4.5} = 20$.\n\nVerification: $20$ increased by $350\\%$ is $20 + 3.5(20) = 20 + 70 = 90$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"wrong base\" — divides $90$ by $3.5$, forgetting to add the original $1$ to the growth factor.\n* Choice C: \"applies the inverse operation\" — computes $350\\%$ of $90$ instead of reversing the increase.\n* Choice D: \"off-by-one\" — multiplies $90$ by $4.5$ instead of dividing.\n\n**Test Day Takeaway:** \"Increase by $p\\%$\" means multiply by $1 + \\dfrac{p}{100}$. To reverse, divide the result by that factor.",
+  explanation: "**SAT Pattern: Reverse-Percent**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** \"Decrease by $25\\%$\" multiplies by $1 - 0.25 = 0.75$. So $0.75x = 180 \\Rightarrow x = \\dfrac{180}{0.75} = 240$.\n\n**The Full Solution:**\nDecreasing $x$ by $25\\%$ leaves $75\\%$ of it: $x - 0.25x = 0.75x$.\nSet equal to the result: $0.75x = 180 \\Rightarrow x = \\dfrac{180}{0.75} = 240$.\n\nVerification: $240$ decreased by $25\\%$ is $240 - 0.25(240) = 240 - 60 = 180$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"wrong base\" — divides $180$ by the decrease $0.25$ ($\\frac{180}{0.25} = 720$) instead of by the retained fraction $0.75$.\n* Choice C: \"applies the inverse operation\" — decreases $180$ by $25\\%$ ($180 - 45 = 135$) instead of reversing the decrease.\n* Choice D: \"off-by-one\" — treats it as an increase and computes $180 \\times 1.25 = 225$.\n\n**Test Day Takeaway:** \"Decrease by $p\\%$\" means multiply by $1 - \\dfrac{p}{100}$. To reverse, divide the result by that retained factor — not by the percent removed.",
   skills: ["percent-change", "percent-word-problems"]
 },
 {
