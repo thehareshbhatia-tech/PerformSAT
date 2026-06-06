@@ -688,14 +688,13 @@ console.log('\n[13] lint without pdfCorpus skips the pdf rules');
 // 14. lint: m2-difficulty-order rule fires when mediums aren't at priority positions.
 // ---------------------------------------------------------------------------
 
-console.log('\n[14] lint m2-difficulty-order rule');
+console.log('\n[14] lint m2-difficulty-order rule (wavy flow contract)');
 {
   const dir = makeTempDir('lint-m2order-');
 
-  // Build a valid M1 (5E/9M/8H ramp) and an INVALID M2 — wrong easy/medium positions.
-  // Easy-ramp expects easies at [1,2,3], required mediums at [4,5,6], allowed mediums
-  // also at [8,9,10,11,16]. This bad fixture omits easies entirely and puts mediums
-  // outside the allowed positions to force violations.
+  // Build a valid M1 (5E/9M/8H ramp) and an INVALID M2 that breaks the wavy
+  // flow contract on several axes at once: hard opener at Q1, zero easies
+  // (violates easy-count and early-easy minimums), and a medium closer at Q22.
   const m1 = [];
   for (let i = 1; i <= 22; i++) {
     const diff = i <= 5 ? 'easy' : (i <= 14 ? 'medium' : 'hard');
@@ -703,10 +702,8 @@ console.log('\n[14] lint m2-difficulty-order rule');
     m1.push(wellFormedMc(i, diff, band, { stem: `For the m1 entry $${i}$, what is the integer $${i + 1}$ minus $${i - 1}$?` }));
   }
   const wrongM2 = [];
-  // No easies at [1,2,3] (forces 3 violations) AND mediums outside allowed
-  // positions (more violations). Q1-3 medium triggers easy-position rule,
-  // Q12, Q13, Q14 medium triggers allowed-positions rule.
-  const WRONG_MED_POS = new Set([1, 2, 3, 12, 13, 14]);
+  // No easies anywhere, hard at Q1, medium at Q22 (closer must be hard).
+  const WRONG_MED_POS = new Set([12, 13, 14, 22]);
   for (let i = 1; i <= 22; i++) {
     const diff = WRONG_MED_POS.has(i) ? 'medium' : 'hard';
     const band = WRONG_MED_POS.has(i) ? 5 : 7;
@@ -718,17 +715,18 @@ console.log('\n[14] lint m2-difficulty-order rule');
   const r = spawnSync('node', [SCRIPT, '--lint', '--test=6'], { env });
   assert(r.status === 1, `m2-order lint exits 1 (got ${r.status})`);
   const stdout = (r.stdout || '').toString();
-  // The rule name only appears in the byCategory summary — count violation
-  // lines by their message shape ("module 2 Q\d+ ... easy-ramp expects ..." or "...allowed only at...").
-  const orderLines = stdout.split('\n').filter(l => /module 2 Q\d+ difficulty=.* (easy-ramp expects|allowed only at)/.test(l));
+  // Expected firings: hard opener, easy count (0 < 2), early-easy minimum,
+  // and the Q22 medium closer — at least 4 distinct flow violations.
+  const orderLines = stdout.split('\n').filter(l =>
+    /module 2 (Q1 must be easy or medium|has \d+ easy items|Q22 must be hard)/.test(l));
   assert(orderLines.length >= 4, `multiple m2-difficulty-order violations on bad fixture (got ${orderLines.length})`);
   assert(/m2-difficulty-order:\s*\d+/.test(stdout), 'byCategory summary lists m2-difficulty-order count');
 
-  // Now build a CORRECT M2 and confirm the rule does not fire.
-  // Easy-ramp: easies at [1,2,3], mediums at [4,5,6,8,10,16], hards everywhere else.
+  // A wavy flow in the exemplar shape passes: easies at {1, 6, 19} (one
+  // mid-module breather), mediums spread mid-module, hard closers.
   const okM2 = [];
-  const OK_EASY = new Set([1, 2, 3]);
-  const OK_MED = new Set([4, 5, 6, 8, 10, 16]);
+  const OK_EASY = new Set([1, 6, 19]);
+  const OK_MED = new Set([2, 3, 4, 5, 7, 10, 11, 12]);
   for (let i = 1; i <= 22; i++) {
     let diff, band;
     if (OK_EASY.has(i)) { diff = 'easy'; band = 3; }
@@ -740,10 +738,31 @@ console.log('\n[14] lint m2-difficulty-order rule');
   writeFixtureTest(dir2, 7, m1, okM2);
 
   const env2 = { ...process.env, CALIBRATE_TESTS_DIR: dir2, SKIP_PDF_LINT: '1' };
-  const r2 = spawnSync('node', [SCRIPT, '--lint', '--test=7'], { env2 });
+  const r2 = spawnSync('node', [SCRIPT, '--lint', '--test=7'], { env: env2 });
   const stdout2 = (r2.stdout || '').toString();
   const orderLines2 = stdout2.split('\n').filter(l => /m2-difficulty-order/.test(l));
-  assert(orderLines2.length === 0, `correctly-ordered M2 has zero m2-difficulty-order violations (got ${orderLines2.length})`);
+  assert(orderLines2.length === 0, `wavy-flow M2 has zero m2-difficulty-order violations (got ${orderLines2.length})`);
+
+  // The legacy easy-ramp shape (easies 1-3, mediums {4,5,6,8,10,16}) must
+  // also still pass — the new contract is an envelope, not a new lock.
+  const legacyM2 = [];
+  const LEGACY_EASY = new Set([1, 2, 3]);
+  const LEGACY_MED = new Set([4, 5, 6, 8, 10, 16]);
+  for (let i = 1; i <= 22; i++) {
+    let diff, band;
+    if (LEGACY_EASY.has(i)) { diff = 'easy'; band = 3; }
+    else if (LEGACY_MED.has(i)) { diff = 'medium'; band = 5; }
+    else { diff = 'hard'; band = 7; }
+    legacyM2.push(wellFormedMc(i, diff, band, { stem: `For the legacy m2 entry $${i}$, find $${i * 4}$ minus $${i + 2}$.` }));
+  }
+  const dir3 = makeTempDir('lint-m2order-legacy-');
+  writeFixtureTest(dir3, 8, m1, legacyM2);
+
+  const env3 = { ...process.env, CALIBRATE_TESTS_DIR: dir3, SKIP_PDF_LINT: '1' };
+  const r3 = spawnSync('node', [SCRIPT, '--lint', '--test=8'], { env: env3 });
+  const stdout3 = (r3.stdout || '').toString();
+  const orderLines3 = stdout3.split('\n').filter(l => /m2-difficulty-order/.test(l));
+  assert(orderLines3.length === 0, `legacy easy-ramp M2 has zero m2-difficulty-order violations (got ${orderLines3.length})`);
 }
 
 // ---------------------------------------------------------------------------

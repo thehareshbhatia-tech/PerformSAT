@@ -22,41 +22,79 @@ export const practiceTest8 = {
   type: "multiple-choice",
   difficulty: "easy",
   band: 3,
-  question: "If $5n - 12 = 18$, what is the value of $5n + 12$?",
+  question: "During a launch, the function $A(t) = 320 + 45t$ models the altitude, in meters, of a weather balloon $t$ seconds after it is released. What does the number $45$ represent in this context?",
   choices: [
-    { id: "A", text: "$42$" },
-    // distractor: stops at solving for n: 5n = 30, so n = 6
-    { id: "B", text: "$6$" },
-    // distractor: returns 5n itself (= 30) instead of 5n + 12
-    { id: "C", text: "$30$" },
-    // distractor: subtracts 12 instead of adding (back to original 18)
-    { id: "D", text: "$18$" }
+    // distractor: confuses 45 with the initial value (which is 320)
+    { id: "A", text: "The altitude of the balloon, in meters, at the moment it is released" },
+    { id: "B", text: "The increase in altitude, in meters, each second" },
+    // distractor: treats 45 as an input value rather than a rate of change
+    { id: "C", text: "The altitude of the balloon, in meters, after $45$ seconds" },
+    // distractor: inverts the rate (would be 1/45 second per meter)
+    { id: "D", text: "The number of seconds needed for the balloon to rise $1$ meter" }
   ],
-  correctAnswer: "A",
-  explanation: "**SAT Pattern: Shifted Output**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** $5n - 12 = 18$ means $5n + 12 = 18 + 24 = 42$. Or: $5n = 30$, so $5n + 12 = 30 + 12 = 42$.\n\n**The Full Solution:**\nFrom $5n - 12 = 18$, add $12$ to both sides: $5n = 30$.\nThe question asks for $5n + 12$, not $n$: $30 + 12 = 42$.\n\nVerification: $n = 6$, so $5(6) - 12 = 30 - 12 = 18$ \\checkmark, and $5(6) + 12 = 30 + 12 = 42$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"stops one step early\" — reports the value of $n = 6$ instead of $5n + 12$.\n* Choice C: \"wrong base\" — returns $5n = 30$ but forgets the $+12$ tail.\n* Choice D: \"applies the inverse operation\" — subtracts $12$ from $5n$ (returning to the original $18$).\n\n**Test Day Takeaway:** Always re-read the last sentence before answering. The question often asks for a related expression, not the variable itself.",
-  skills: ["solving-equations", "word-problems"]
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Interpret Slope in Context**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** In $A(t) = 320 + 45t$, the coefficient of $t$ is the rate of change: $45$ meters per second.\n\n**The Full Solution:**\nThe function is in the form $A(t) = b + mt$, where $m = 45$ is the slope and $b = 320$ is the initial value. The slope tells us the rate of change: for each additional second, the altitude increases by $45$ meters.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — confuses the slope $45$ with the initial value, which is $320$.\n* Choice C: \"applies the inverse operation\" — treats $45$ as an input value $t = 45$ instead of a rate.\n* Choice D: \"applies the inverse operation\" — inverts the rate (one meter per $\\tfrac{1}{45}$ second).\n\n**Test Day Takeaway:** In $y = b + mx$, the coefficient of the variable is always the rate of change per unit of that variable.",
+  skills: ["function-interpretation", "linear-functions", "slope"]
 },
 {
   id: 2,
   type: "multiple-choice",
   difficulty: "easy",
   band: 3,
-  question: "The function $C(t) = 65 + 18t$ models the temperature, in degrees Fahrenheit, of a chemical solution $t$ minutes after a heating element is turned on. What does the number $18$ represent in this context?",
+  question: "A salmon ladder is stocked with chinook and coho fingerlings in a ratio of $5$ chinook to $3$ coho. If the ladder holds $40$ fingerlings in total, how many of them are coho?",
   choices: [
-    // distractor: confuses 18 with the initial value (which is 65)
-    { id: "A", text: "The temperature of the solution before heating begins" },
-    // distractor: treats 18 as an input value rather than a rate of change
-    { id: "B", text: "The temperature of the solution after $18$ minutes" },
-    { id: "C", text: "The increase in temperature, in degrees Fahrenheit, each minute" },
-    // distractor: inverts the rate (would be 1/18 minutes per degree)
-    { id: "D", text: "The number of minutes needed for the temperature to increase by $1$ degree" }
+    // distractor: stops one step early — picks the coho ratio number directly
+    { id: "A", text: "$3$" },
+    // distractor: uses 3/5 of total instead of 3/8 ($24$)
+    { id: "B", text: "$24$" },
+    { id: "C", text: "$15$" },
+    // distractor: solves for chinook amount instead of coho (5/8 of 40 = 25)
+    { id: "D", text: "$25$" }
   ],
   correctAnswer: "C",
-  explanation: "**SAT Pattern: Interpret Slope in Context**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** In $C(t) = 65 + 18t$, the coefficient of $t$ is the rate of change: $18$ degrees per minute.\n\n**The Full Solution:**\nThe function is in the form $C(t) = b + mt$, where $m = 18$ is the slope and $b = 65$ is the $y$-intercept. The slope tells us the rate of change: for each additional minute, the temperature increases by $18$ degrees Fahrenheit.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — confuses the slope $18$ with the initial value, which is $65$.\n* Choice B: \"applies the inverse operation\" — treats $18$ as an input value $t = 18$ instead of a rate.\n* Choice D: \"applies the inverse operation\" — inverts the rate (one degree per $\\tfrac{1}{18}$ minute).\n\n**Test Day Takeaway:** In $y = b + mx$, the coefficient of the variable is always the rate of change per unit of that variable.",
-  skills: ["function-interpretation", "linear-functions", "slope"]
+  explanation: "**SAT Pattern: Sum of Parts Ratio**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Coho make up $\\dfrac{3}{5 + 3} = \\dfrac{3}{8}$ of the total. So coho $= \\dfrac{3}{8} \\cdot 40 = 15$.\n\n**The Full Solution:**\nLet chinook $= 5k$ and coho $= 3k$ (so the ratio is $5 : 3$).\nTotal: $5k + 3k = 8k = 40$, so $k = 5$.\nCoho $= 3k = 3 \\cdot 5 = 15$.\n\nVerification: chinook $= 5 \\cdot 5 = 25$, total $= 25 + 15 = 40$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — reports $3$ (the coho part of the ratio) instead of solving the proportion.\n* Choice B: \"wrong base\" — uses $\\dfrac{3}{5}$ of the total instead of $\\dfrac{3}{8}$.\n* Choice D: \"applies the inverse operation\" — solves for chinook ($\\dfrac{5}{8} \\cdot 40 = 25$) instead of coho.\n\n**Test Day Takeaway:** When two parts are given as a ratio and the total of both parts is known, the denominator of each fraction is the SUM of the ratio parts, not just one part.",
+  skills: ["ratios", "word-problems"]
 },
 {
   id: 3,
+  type: "multiple-choice",
+  difficulty: "easy",
+  band: 3,
+  question: "If $7w - 20 = 15$, what is the value of $7w + 20$?",
+  choices: [
+    { id: "A", text: "$55$" },
+    // distractor: stops at solving for w: 7w = 35, so w = 5
+    { id: "B", text: "$5$" },
+    // distractor: returns 7w itself (= 35) instead of 7w + 20
+    { id: "C", text: "$35$" },
+    // distractor: subtracts 20 instead of adding (back to original 15)
+    { id: "D", text: "$15$" }
+  ],
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Shifted Output**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** $7w - 20 = 15$ means $7w + 20 = 15 + 40 = 55$. Or: $7w = 35$, so $7w + 20 = 35 + 20 = 55$.\n\n**The Full Solution:**\nFrom $7w - 20 = 15$, add $20$ to both sides: $7w = 35$.\nThe question asks for $7w + 20$, not $w$: $35 + 20 = 55$.\n\nVerification: $w = 5$, so $7(5) - 20 = 35 - 20 = 15$ \\checkmark, and $7(5) + 20 = 35 + 20 = 55$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"stops one step early\" — reports the value of $w = 5$ instead of $7w + 20$.\n* Choice C: \"wrong base\" — returns $7w = 35$ but forgets the $+20$ tail.\n* Choice D: \"applies the inverse operation\" — subtracts $20$ from $7w$ (returning to the original $15$).\n\n**Test Day Takeaway:** Always re-read the last sentence before answering. The question often asks for a related expression, not the variable itself.",
+  skills: ["solving-equations", "word-problems"]
+},
+{
+  id: 4,
+  type: "multiple-choice",
+  difficulty: "easy",
+  band: 3,
+  question: "At a regional chess tournament, $1{,}820$ of the entrants are rated players, and the rated players make up $35\\%$ of all entrants. How many entrants are there in all?",
+  choices: [
+    // distractor: applies the percent forward — $1820 \times 0.35 = 637$
+    { id: "A", text: "$637$" },
+    // distractor: divides by the complement: $\\frac{1820}{0.65} \approx 2{,}800$
+    { id: "B", text: "$2{,}800$" },
+    { id: "C", text: "$5{,}200$" },
+    // distractor: divides by $0.035$ instead of $0.35$ (decimal-place slip)
+    { id: "D", text: "$52{,}000$" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Reverse-Percent**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Total $\\times 0.35 = 1{,}820$, so total $= \\frac{1{,}820}{0.35} = 5{,}200$.\n\n**The Full Solution:**\nLet $T$ be the total number of entrants. Then ${}0.35 \\cdot T = 1{,}820$.\nDivide both sides by $0.35$: $T = \\dfrac{1{,}820}{0.35} = 5{,}200$.\n\nVerification: $35\\%$ of $5{,}200 = 0.35 \\cdot 5{,}200 = 1{,}820$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — multiplies $1{,}820 \\cdot 0.35 = 637$ instead of dividing.\n* Choice B: \"wrong base\" — divides by the complement $0.65$ (treats $1{,}820$ as the unrated count).\n* Choice D: \"off-by-one / decimal slip\" — divides by $0.035$ instead of $0.35$.\n\n**Test Day Takeaway:** When a percent of an unknown total is given, divide the part by the percent (as a decimal) to recover the whole.",
+  skills: ["percents"]
+},
+{
+  id: 5,
   type: "multiple-choice",
   difficulty: "easy",
   band: 3,
@@ -73,44 +111,6 @@ export const practiceTest8 = {
   correctAnswer: "B",
   explanation: "**SAT Pattern: Outlier Effect**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Mean $> $ Median means high values pull the mean up, creating a right-skewed distribution.\n\n**The Full Solution:**\nMedian $= 54$, Mean $= 60$. The mean exceeds the median by $6$.\nWhen the mean is greater than the median, some high values pull the mean above the middle value. This creates a right skew (long tail to the right).\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — by definition, half the values are above the MEDIAN ($54$), not the mean.\n* Choice C: \"applies the inverse operation\" — invents a \"range\" from the gap between mean and median; range is max $-$ min, which we don't know.\n* Choice D: \"stops one step early\" — confuses mode (most frequent value) with median.\n\n**Test Day Takeaway:** Mean $>$ median $\\Rightarrow$ right skew. Mean $<$ median $\\Rightarrow$ left skew. Mean $=$ median suggests symmetry.",
   skills: ["statistics"]
-},
-{
-  id: 4,
-  type: "multiple-choice",
-  difficulty: "easy",
-  band: 3,
-  question: "A bookstore has $1{,}820$ paperback books, and the number of paperback books is $35\\%$ of the total number of books in the store. How many books, in total, are in the store?",
-  choices: [
-    // distractor: applies the percent forward — $1820 \times 0.35 = 637$
-    { id: "A", text: "$637$" },
-    // distractor: divides by the complement: $\\frac{1820}{0.65} \approx 2{,}800$
-    { id: "B", text: "$2{,}800$" },
-    { id: "C", text: "$5{,}200$" },
-    // distractor: divides by $0.035$ instead of $0.35$ (decimal-place slip)
-    { id: "D", text: "$52{,}000$" }
-  ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Reverse-Percent**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Total $\\times 0.35 = 1{,}820$, so total $= \\frac{1{,}820}{0.35} = 5{,}200$.\n\n**The Full Solution:**\nLet $T$ be the total number of books. Then ${}0.35 \\cdot T = 1{,}820$.\nDivide both sides by $0.35$: $T = \\dfrac{1{,}820}{0.35} = 5{,}200$.\n\nVerification: $35\\%$ of $5{,}200 = 0.35 \\cdot 5{,}200 = 1{,}820$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — multiplies $1{,}820 \\cdot 0.35 = 637$ instead of dividing.\n* Choice B: \"wrong base\" — divides by the complement $0.65$ (treats $1{,}820$ as the non-paperback count).\n* Choice D: \"off-by-one / decimal slip\" — divides by $0.035$ instead of $0.35$.\n\n**Test Day Takeaway:** When a percent of an unknown total is given, divide the part by the percent (as a decimal) to recover the whole.",
-  skills: ["percents"]
-},
-{
-  id: 5,
-  type: "multiple-choice",
-  difficulty: "easy",
-  band: 3,
-  question: "A trail mix is made with cashews and raisins in a ratio of $5$ cups of cashews to $3$ cups of raisins. If the total amount of trail mix is $40$ cups, how many cups of raisins are in the mix?",
-  choices: [
-    // distractor: stops one step early — picks the raisin ratio number directly
-    { id: "A", text: "$3$" },
-    // distractor: uses 3/5 of total instead of 3/8 ($24$)
-    { id: "B", text: "$24$" },
-    { id: "C", text: "$15$" },
-    // distractor: solves for cashew amount instead of raisin (5/8 of 40 = 25)
-    { id: "D", text: "$25$" }
-  ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Sum of Parts Ratio**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Raisins make up $\\dfrac{3}{5 + 3} = \\dfrac{3}{8}$ of the total. So raisins $= \\dfrac{3}{8} \\cdot 40 = 15$ cups.\n\n**The Full Solution:**\nLet cashews $= 5k$ and raisins $= 3k$ (so the ratio is $5 : 3$).\nTotal: $5k + 3k = 8k = 40$, so $k = 5$.\nRaisins $= 3k = 3 \\cdot 5 = 15$ cups.\n\nVerification: cashews $= 5 \\cdot 5 = 25$, total $= 25 + 15 = 40$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — reports $3$ (the raisin part of the ratio) instead of solving the proportion.\n* Choice B: \"wrong base\" — uses $\\dfrac{3}{5}$ of the total instead of $\\dfrac{3}{8}$.\n* Choice D: \"applies the inverse operation\" — solves for cashews ($\\dfrac{5}{8} \\cdot 40 = 25$) instead of raisins.\n\n**Test Day Takeaway:** When two parts are given as a ratio and the total of both parts is known, the denominator of each fraction is the SUM of the ratio parts, not just one part.",
-  skills: ["ratios", "word-problems"]
 },
 {
   id: 6,
@@ -220,9 +220,9 @@ export const practiceTest8 = {
   type: "fill-in",
   difficulty: "medium",
   band: 5,
-  question: "If $\\dfrac{x+3}{4} - \\dfrac{x-1}{6} = 2$, what is the value of $x$?",
-  correctAnswer: "13",
-  explanation: "**SAT Pattern: Multi-Step Linear Equation**\n\n**The correct answer is $13$.**\n\n**The Fast Way (~20s):** Multiply through by $12$ (LCM of $4$ and $6$): $3(x+3) - 2(x-1) = 24$. Distribute: $3x + 9 - 2x + 2 = 24$, so $x + 11 = 24$ and $x = 13$.\n\n**The Full Solution:**\nMultiply every term by $12$:\n$3(x + 3) - 2(x - 1) = 24$\n$3x + 9 - 2x + 2 = 24$\n$x + 11 = 24$\n$x = 13$\n\nVerification: $\\dfrac{13+3}{4} - \\dfrac{13-1}{6} = \\dfrac{16}{4} - \\dfrac{12}{6} = 4 - 2 = 2$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Forgetting to distribute the negative: $-2(x-1) = -2x + 2$, not $-2x - 2$.\n* Using the wrong LCM (e.g., $24$ instead of $12$).\n\n**Test Day Takeaway:** Clear fractions FIRST by multiplying every term by the LCM of the denominators. Distribute carefully to avoid sign slips.",
+  question: "If $\\dfrac{x-2}{3} + \\dfrac{x+4}{5} = 6$, what is the value of $x$?",
+  correctAnswer: "11",
+  explanation: "**SAT Pattern: Multi-Step Linear Equation**\n\n**The correct answer is $11$.**\n\n**The Fast Way (~20s):** Multiply through by $15$ (LCM of $3$ and $5$): $5(x-2) + 3(x+4) = 90$. Distribute: $5x - 10 + 3x + 12 = 90$, so $8x + 2 = 90$ and $x = 11$.\n\n**The Full Solution:**\nMultiply every term by $15$:\n$5(x - 2) + 3(x + 4) = 90$\n$5x - 10 + 3x + 12 = 90$\n$8x + 2 = 90$\n$8x = 88$\n$x = 11$\n\nVerification: $\\dfrac{11-2}{3} + \\dfrac{11+4}{5} = \\dfrac{9}{3} + \\dfrac{15}{5} = 3 + 3 = 6$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Forgetting to multiply the right side $6$ by $15$ (should become $90$).\n* Using the wrong LCM (e.g., $8$ instead of $15$).\n\n**Test Day Takeaway:** Clear fractions FIRST by multiplying every term by the LCM of the denominators. Distribute carefully to avoid sign slips.",
   skills: ["solving-equations"]
 },
 {
@@ -351,17 +351,17 @@ export const practiceTest8 = {
   type: "fill-in",
   difficulty: "hard",
   band: 7,
-  question: "In right triangle $XYZ$ shown, the right angle is at vertex $Y$. The leg $XY$ has length $a$, and the leg $YZ$ has length $a + 17$. The hypotenuse $XZ$ has length $25$. What is the perimeter of triangle $XYZ$?",
+  question: "A bracing strut for a suspension-bridge tower forms right triangle $PQR$ shown, with the right angle at vertex $Q$. The vertical leg $PQ$ has length $a$ meters, the horizontal leg $QR$ has length $a + 31$ meters, and the diagonal $PR$ has length $41$ meters. What is the perimeter, in meters, of triangle $PQR$?",
   diagram: {
     type: "rightTriangle",
     params: {
-      labels: ["X", "Y", "Z"],
-      sideLabels: ["a", "a + 17", "25"],
+      labels: ["P", "Q", "R"],
+      sideLabels: ["a", "a + 31", "41"],
       rightAngleVertex: 1
     }
   },
-  correctAnswer: "56",
-  explanation: "**SAT Pattern: Right Triangle Trigonometry with Perimeter**\n\n**The correct answer is $56$.**\n\n**The Fast Way (~30s):** Recognize the $7$-$24$-$25$ Pythagorean triple. So $a = 7$, $a + 17 = 24$. Perimeter $= 7 + 24 + 25 = 56$.\n\n**The Full Solution:**\nApply the Pythagorean theorem: $a^2 + (a + 17)^2 = 25^2$.\n$a^2 + a^2 + 34a + 289 = 625$\n$2a^2 + 34a - 336 = 0$\n$a^2 + 17a - 168 = 0$\n$(a + 24)(a - 7) = 0$\n\nSo $a = 7$ (rejecting the negative root). Then $a + 17 = 24$.\nPerimeter $= 7 + 24 + 25 = 56$.\n\nVerification: $7^2 + 24^2 = 49 + 576 = 625 = 25^2$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Reporting only the legs ($7 + 24 = 31$) and forgetting the hypotenuse.\n* Sign error in the quadratic and using the negative root.\n\n**Test Day Takeaway:** Memorize Pythagorean triples ($3$-$4$-$5$, $5$-$12$-$13$, $7$-$24$-$25$, $8$-$15$-$17$). When the hypotenuse is $25$, the legs are usually $7$ and $24$.",
+  correctAnswer: "90",
+  explanation: "**SAT Pattern: Right Triangle Trigonometry with Perimeter**\n\n**The correct answer is $90$.**\n\n**The Fast Way (~30s):** Recognize the $9$-$40$-$41$ Pythagorean triple. So $a = 9$, $a + 31 = 40$. Perimeter $= 9 + 40 + 41 = 90$.\n\n**The Full Solution:**\nApply the Pythagorean theorem: $a^2 + (a + 31)^2 = 41^2$.\n$a^2 + a^2 + 62a + 961 = 1681$\n$2a^2 + 62a - 720 = 0$\n$a^2 + 31a - 360 = 0$\n$(a + 40)(a - 9) = 0$\n\nSo $a = 9$ (rejecting the negative root). Then $a + 31 = 40$.\nPerimeter $= 9 + 40 + 41 = 90$.\n\nVerification: $9^2 + 40^2 = 81 + 1600 = 1681 = 41^2$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Reporting only the legs ($9 + 40 = 49$) and forgetting the diagonal.\n* Sign error in the quadratic and using the negative root.\n\n**Test Day Takeaway:** Memorize Pythagorean triples ($3$-$4$-$5$, $5$-$12$-$13$, $8$-$15$-$17$, $9$-$40$-$41$). When the hypotenuse is $41$, the legs are usually $9$ and $40$.",
   skills: ["triangles", "right-triangles", "area"]
 },
 {
@@ -420,112 +420,125 @@ export const practiceTest8 = {
       timeLimit: 35,
       questions: [
 // Practice Test 8 — Math Module 2 (22 questions)
-// Distribution: 3E / 6M / 13H with band-8 ceiling on Q20, Q21.
-// Calibrated to Bluebook Module 2 Hard (Q20 absolute-value-equation sum, Q21 chord-distance circle).
-// Note: removed Q21 duplicate of Q19 (both were system no-solution).
+// Flow (2026-06 diversification): easies at Q1, Q2, Q18 (breather);
+// mediums at Q3, Q5, Q6, Q9, Q12, Q13, Q16; hards at Q4, Q7, Q8, Q10, Q11,
+// Q14, Q15, Q17, Q19, Q20, Q21, Q22. 3E / 7M / 12H with a band ramp from a
+// warm-up opener up to figure/parameter-heavy hard closers.
+// Pool infusions: Q4 fractional-substitution system, Q14 squared-unit rate
+// conversion, Q17 isosceles-right-triangle perimeter, Q19 cubic table after a
+// vertical shift, Q21 electric-flux area-ratio (science-defined quantity).
 
 {
   id: 1,
   type: "multiple-choice",
   difficulty: "easy",
-  band: 2,
-  question: "A college club tracks attendance at its weekly meetings. Each week, the number of attendees is approximately $5\\%$ higher than the previous week's attendance, as word-of-mouth spreads. Which type of function best models the number of attendees as a function of the number of weeks since the club began?",
+  band: 3,
+  question: "A maple-syrup producer boils sap in an open pan. The function $V(m) = 180 - 7m$ models the volume, in liters, of sap remaining in the pan $m$ minutes after boiling begins. What does the number $7$ represent in this context?",
   choices: [
-    // distractor: linear — same NUMBER more each week (wrong; \"5%\" is multiplicative)
-    { id: "A", text: "Increasing linear" },
-    { id: "B", text: "Increasing exponential" },
-    // distractor: wrong direction — \"higher\" is growth, not decay
-    { id: "C", text: "Decreasing exponential" },
-    // distractor: wrong type — quadratic has constant second difference
-    { id: "D", text: "Quadratic" }
+    // distractor: confuses the rate 7 with the initial volume (which is 180)
+    { id: "A", text: "The volume of sap, in liters, in the pan when boiling begins" },
+    { id: "B", text: "The number of liters of sap that boils away each minute" },
+    // distractor: treats 7 as an input value rather than a rate of change
+    { id: "C", text: "The volume of sap, in liters, remaining after $7$ minutes" },
+    // distractor: inverts the rate (would be 1/7 minute per liter)
+    { id: "D", text: "The number of minutes needed for the volume to drop by $1$ liter" }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Classify Physical Motion Model**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** \"$5\\%$ higher than the previous week\" = multiplied by $1.05$ each week (a fixed factor) $\\Rightarrow$ exponential growth.\n\n**The Full Solution:**\n\"$5\\%$ higher than the previous week's attendance\" describes a percent of the CURRENT week's attendees, not a fixed number. Each week's attendance is $1.05$ times the previous week's — a multiplicative factor applied at fixed intervals. That's the definition of exponential growth.\n\nA model would be $A(w) = A_0 \\cdot (1.05)^w$ where $w$ is weeks.\n\nVerification: at $w = 0$, $A = A_0$; at $w = 1$, $A = 1.05 A_0$; at $w = 2$, $A = 1.1025 A_0$. The NUMBER added each week (in attendees) grows over time, the signature of exponential growth vs the constant number added in linear growth \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong formula\" — linear would mean the same NUMBER of new attendees each week (e.g., $+10$). \"$5\\%$\" is a percent of the current value, which is multiplicative.\n* Choice C: \"wrong direction\" — \"higher\" means growth, not decay.\n* Choice D: \"wrong formula\" — quadratic relationships have constant SECOND differences, not constant multiplicative factors.\n\n**Test Day Takeaway:** \"Higher / grows / increases by X percent each [period]\" $\\Rightarrow$ EXPONENTIAL growth. \"Higher by X each [period]\" $\\Rightarrow$ LINEAR.",
-  skills: ["function-interpretation", "exponential-growth-decay"]
+  explanation: "**SAT Pattern: Interpret Slope in Context**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** In $V(m) = 180 - 7m$, the coefficient of $m$ is the rate of change: the volume drops by $7$ liters each minute.\n\n**The Full Solution:**\nThe function has the form $V(m) = b + km$, where $b = 180$ is the initial volume and $k = -7$ is the rate of change. The magnitude $7$ tells us that for each additional minute of boiling, the sap volume decreases by $7$ liters.\n\nVerification: at $m = 0$, $V = 180$; at $m = 1$, $V = 173$ — exactly $7$ liters less \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — confuses the rate $7$ with the initial volume, which is $180$.\n* Choice C: \"applies the inverse operation\" — treats $7$ as an input value $m = 7$ instead of a rate.\n* Choice D: \"applies the inverse operation\" — inverts the rate (one liter per $\\tfrac{1}{7}$ minute).\n\n**Test Day Takeaway:** In $y = b + kx$, the coefficient of the variable is always the rate of change per unit of that variable.",
+  skills: ["function-interpretation", "linear-functions", "slope"]
 },
 {
   id: 2,
   type: "multiple-choice",
   difficulty: "easy",
-  band: 2,
-  question: "A high-school marching band uses a particular brand of candle for a fundraiser. The function $C(h) = -16h + 240$ approximates the height of a candle, in millimeters, after $h$ hours of continuous burning. Which statement is the best interpretation of the $y$-intercept of the graph of $y = C(h)$ in the $hy$-plane in this context?",
+  band: 3,
+  question: "In a textile mill, $$108$$ of the looms are configured for wide fabric, and these wide-fabric looms make up $$45\\%$$ of all the looms in the mill. How many looms does the mill have in total?",
   choices: [
-    // distractor: confuses slope with intercept
-    { id: "A", text: "The candle burns down at approximately $240$ millimeters per hour." },
-    // distractor: swaps coefficients
-    { id: "B", text: "The candle was approximately $16$ millimeters tall before it was lit." },
-    { id: "C", text: "The candle was approximately $240$ millimeters tall before it was lit." },
-    // distractor: combines both confusions
-    { id: "D", text: "The candle burns down at approximately $16$ millimeters per hour." }
+    // distractor: applies the percent forward — 108 * 0.45 = 48.6 rounded
+    { id: "A", text: "$$49$$" },
+    // distractor: divides by the complement 0.55 instead of 0.45
+    { id: "B", text: "$$196$$" },
+    { id: "C", text: "$$240$$" },
+    // distractor: divides by 0.045 instead of 0.45 (decimal slip)
+    { id: "D", text: "$$2{,}400$$" }
   ],
   correctAnswer: "C",
-  explanation: "**SAT Pattern: Interpret Initial Value in Context**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** $y$-intercept of $C(h) = -16h + 240$ is $C(0) = 240$. At $h = 0$ (before burning), height $\\approx 240$ mm.\n\n**The Full Solution:**\nThe $y$-intercept of a linear function $C(h) = mh + b$ is $b$, the value at $h = 0$. Here $b = 240$, and $h$ counts hours of burning, so $h = 0$ is BEFORE the candle was lit. The candle was about $240$ millimeters tall to start.\n\nVerification: at $h = 0$, $C = 240$ ✓. At $h = 1$, $C = 224$ — about $16$ mm burned in one hour, confirming the slope. The slope is the burn rate; the $y$-intercept is the initial height \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base AND wrong unit\" — treats the initial height as a per-hour burn rate. At $240$ mm/hour the candle would vanish in the first hour.\n* Choice B: \"swaps coefficients\" — uses the slope's magnitude as the starting height.\n* Choice D: \"correct interpretation of slope, wrong question\" — accurately describes the slope, but the question asks about the $y$-intercept.\n\n**Test Day Takeaway:** $y$-intercept = value at input $0$ = the starting amount. Slope = rate of change per unit. The question's wording tells you which to report.",
-  skills: ["function-interpretation", "linear-functions"]
+  explanation: "**SAT Pattern: Reverse-Percent**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Total $\\times 0.45 = 108$, so total $= \\dfrac{108}{0.45} = 240$.\n\n**The Full Solution:**\nLet $T$ be the total number of looms. Then $0.45 \\cdot T = 108$.\nDivide both sides by $0.45$: $T = \\dfrac{108}{0.45} = 240$.\n\nVerification: $45\\%$ of $240 = 0.45 \\cdot 240 = 108$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — multiplies $108 \\cdot 0.45 \\approx 49$ instead of dividing.\n* Choice B: \"wrong base\" — divides by the complement $0.55$ (treats $108$ as the narrow-fabric count).\n* Choice D: \"off-by-one / decimal slip\" — divides by $0.045$ instead of $0.45$.\n\n**Test Day Takeaway:** When a percent of an unknown total is given, divide the part by the percent (as a decimal) to recover the whole.",
+  skills: ["percents"]
 },
 {
   id: 3,
   type: "multiple-choice",
-  difficulty: "easy",
-  band: 3,
-  question: "The table shows three values of $x$ and the corresponding values of a linear function $f(x)$.\n\n| $x$ | $f(x)$ |\n|-----|--------|\n| $1$ | $3$ |\n| $3$ | $11$ |\n| $5$ | $?$ |\n\nWhat value goes in the table for $f(5)$?",
-  choices: [
-    // distractor: stops one step early - adds slope only once
-    { id: "A", text: "$15$" },
-    { id: "B", text: "$19$" },
-    // distractor: wrong base - doubles f(3)
-    { id: "C", text: "$22$" },
-    // distractor: applies inverse op - returns f(1)
-    { id: "D", text: "$3$" }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Linear Function Extrapolation**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Slope $= \\dfrac{11 - 3}{3 - 1} = 4$. From $x = 3$ to $x = 5$, $x$ increases by $2$, so $f$ increases by $2 \\cdot 4 = 8$. $f(5) = 11 + 8 = 19$.\n\n**The Full Solution:**\nFor a linear function, the rate of change (slope) is constant.\nSlope $= \\dfrac{f(3) - f(1)}{3 - 1} = \\dfrac{11 - 3}{2} = 4$.\n\nFrom $x = 3$ to $x = 5$ ($\\Delta x = 2$): $\\Delta f = 4 \\cdot 2 = 8$.\n$f(5) = f(3) + 8 = 11 + 8 = 19$.\n\nVerification: $f(x) = 4x - 1$. $f(5) = 4(5) - 1 = 19$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — adds slope only once: $11 + 4 = 15$.\n* Choice C: \"wrong base\" — doubles $f(3)$ instead of adding $\\Delta x \\cdot$ slope.\n* Choice D: \"applies the inverse operation\" — gives $f(1)$ instead of $f(5)$.\n\n**Test Day Takeaway:** For a linear function, $\\Delta f = \\text{slope} \\cdot \\Delta x$. Compute the slope from any two points, then extrapolate.",
-  skills: ["linear-functions", "function-interpretation", "slope"]
-},
-{
-  id: 4,
-  type: "fill-in",
   difficulty: "medium",
-  band: 5,
-  question: "A taxi company charges a $\\$3.50$ base fare plus $\\$2.25$ per mile. A particular ride costs a total of $\\$21.50$. How many miles long was the ride?",
-  correctAnswer: "8",
-  explanation: "**SAT Pattern: Linear Cost Equation Setup**\n\n**The correct answer is $8$.**\n\n**The Fast Way (~15s):** ${}3.50 + 2.25m = 21.50 \\Rightarrow 2.25m = 18 \\Rightarrow m = 8$.\n\n**The Full Solution:**\nTotal cost $=$ base fare $+$ rate $\\times$ miles.\n${}21.50 = 3.50 + 2.25m$\n${}21.50 - 3.50 = 2.25m$\n$18 = 2.25m$\n$m = \\dfrac{18}{2.25} = 8$ miles.\n\nVerification: ${}3.50 + 2.25(8) = 3.50 + 18 = 21.50$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Dividing $21.50$ by $2.25$ without first subtracting the base fare ($\\approx 9.56$).\n* Forgetting the base fare entirely.\n\n**Test Day Takeaway:** In rate problems with a fixed startup cost, subtract the fixed cost FIRST, then divide by the per-unit rate.",
-  skills: ["linear-functions", "word-problems"]
-},
-{
-  id: 5,
-  type: "multiple-choice",
-  difficulty: "medium",
-  band: 5,
-  question: "A study collected data on study hours $x$ and exam score $y$ for $20$ students. The line of best fit has equation $\\hat{y} = 4.5x + 38$. Which of the following best describes the meaning of the slope $4.5$ in this context?",
+  band: 4,
+  question: "A meteorologist released $20$ weather balloons and recorded, for each, the surface temperature $x$ (in degrees Celsius) at launch and the burst altitude $y$ (in kilometers). The line of best fit for the data is $\\hat{y} = 0.6x + 29$. Which of the following best describes the meaning of the slope $0.6$ in this context?",
   diagram: { type: "scatterplot", params: {
-    points: [[1,40],[2,48],[3,50],[4,58],[5,58],[6,62],[7,67],[8,78],[9,78],[10,82]],
-    xMin: 0, xMax: 11, yMin: 30, yMax: 100,
-    xGridStep: 1, xLabelStep: 2, yGridStep: 10, yLabelStep: 20,
-    bestFitLine: { slope: 4.5, intercept: 38 },
-    xLabel: "Study hours", yLabel: "Exam score",
+    points: [[1,29.5],[2,30.4],[3,31.2],[5,31.8],[6,32.9],[8,33.5],[10,35.1],[12,36.4],[14,37.2],[16,38.9]],
+    xMin: 0, xMax: 18, yMin: 28, yMax: 42,
+    xGridStep: 2, xLabelStep: 4, yGridStep: 2, yLabelStep: 4,
+    bestFitLine: { slope: 0.6, intercept: 29 },
+    xLabel: "Surface temp (°C)", yLabel: "Burst altitude (km)",
   } },
   choices: [
-    // distractor: confuses slope with intercept
-    { id: "A", text: "The predicted exam score for a student who studies $0$ hours." },
-    { id: "B", text: "The predicted increase in exam score for each additional hour of studying." },
-    // distractor: treats slope as a probability
-    { id: "C", text: "The percent of students whose score increases when they study more." },
-    // distractor: confuses slope (rate) with average
-    { id: "D", text: "The average exam score across all $20$ students." }
+    // distractor: confuses slope with intercept (29 is the value at x = 0)
+    { id: "A", text: "The predicted burst altitude, in kilometers, when the surface temperature is $0$ degrees Celsius." },
+    { id: "B", text: "The predicted increase in burst altitude, in kilometers, for each additional degree Celsius of surface temperature." },
+    // distractor: treats slope as a proportion/percentage
+    { id: "C", text: "The fraction of balloons whose burst altitude rises as temperature rises." },
+    // distractor: confuses slope (a rate) with an average
+    { id: "D", text: "The average burst altitude, in kilometers, across all $20$ balloons." }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Interpret Slope in Context**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** In $\\hat{y} = mx + b$, the slope $m$ is the predicted change in $y$ for each one-unit increase in $x$.\n\n**The Full Solution:**\nThe line of best fit $\\hat{y} = 4.5x + 38$ has slope $4.5$.\nFor each additional hour of studying ($\\Delta x = 1$), the predicted exam score increases by $4.5$ points ($\\Delta \\hat{y} = 4.5$).\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — confuses slope with intercept; $38$ is the score at $x = 0$.\n* Choice C: \"applies the inverse operation\" — treats slope as a probability or proportion.\n* Choice D: \"stops one step early\" — confuses slope (a rate) with the average.\n\n**Test Day Takeaway:** In $\\hat{y} = mx + b$, slope $m$ is the predicted change in $y$ per unit increase in $x$. Intercept $b$ is the predicted $y$ when $x = 0$.",
+  explanation: "**SAT Pattern: Interpret Slope in Context**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** In $\\hat{y} = mx + b$, the slope $m$ is the predicted change in $y$ for each one-unit increase in $x$.\n\n**The Full Solution:**\nThe line of best fit $\\hat{y} = 0.6x + 29$ has slope $0.6$.\nFor each additional degree Celsius of surface temperature ($\\Delta x = 1$), the predicted burst altitude increases by $0.6$ kilometers ($\\Delta \\hat{y} = 0.6$).\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — confuses slope with intercept; $29$ is the predicted altitude at $x = 0$.\n* Choice C: \"applies the inverse operation\" — treats the slope as a proportion of the data points.\n* Choice D: \"stops one step early\" — confuses the slope (a rate) with an overall average.\n\n**Test Day Takeaway:** In $\\hat{y} = mx + b$, slope $m$ is the predicted change in $y$ per unit increase in $x$. Intercept $b$ is the predicted $y$ when $x = 0$.",
   skills: ["scatterplots", "statistics", "linear-functions"]
 },
 {
-  id: 6,
+  id: 4,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "$$y - 4x = 5$$\n$$7x = 3y$$\n\nWhat is the solution $(x, y)$ to the given system of equations?",
+  choices: [
+    // distractor: swaps the coordinate order of the correct point
+    { id: "A", text: "$(-7, -3)$" },
+    // distractor: uses the positive roots (sign error in the substitution)
+    { id: "B", text: "$(3, 7)$" },
+    { id: "C", text: "$(-3, -7)$" },
+    // distractor: scales 7x = 3y to (15, 35) but ignores the first equation
+    { id: "D", text: "$(15, 35)$" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: System of Equations — Substitution**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** From $7x = 3y$, $y = \\dfrac{7x}{3}$. Substitute into $y - 4x = 5$: $\\dfrac{7x}{3} - 4x = 5 \\Rightarrow \\dfrac{7x - 12x}{3} = 5 \\Rightarrow -5x = 15 \\Rightarrow x = -3$, $y = -7$.\n\n**The Full Solution:**\nSolve the second equation for $y$: $7x = 3y \\Rightarrow y = \\dfrac{7x}{3}$.\nSubstitute into the first equation:\n$\\dfrac{7x}{3} - 4x = 5$\nMultiply through by $3$: $7x - 12x = 15$, so $-5x = 15$ and $x = -3$.\nThen $y = \\dfrac{7(-3)}{3} = -7$.\n\nVerification: $y - 4x = -7 - 4(-3) = -7 + 12 = 5$ \\checkmark and $7(-3) = -21 = 3(-7)$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — swaps the coordinate order, listing $(y, x)$ instead of $(x, y)$.\n* Choice B: \"wrong base\" — uses the positive values $(3, 7)$ from a sign slip on $-5x = 15$.\n* Choice D: \"applies the inverse operation\" — scales $7x = 3y$ to $(15, 35)$ but never checks the first equation.\n\n**Test Day Takeaway:** When one equation gives a clean $y = \\tfrac{ax}{b}$, substitute it in and clear the denominator immediately — and always confirm the final point satisfies BOTH equations.",
+  skills: ["systems-of-equations", "substitution"]
+},
+{
+  id: 5,
   type: "fill-in",
   difficulty: "medium",
   band: 5,
-  question: "A factory produces widgets. On Monday, $2\\%$ of widgets were defective. On Tuesday, $3\\%$ of widgets were defective. Monday's production was $500$ widgets and Tuesday's production was $300$ widgets. What percentage of the total two-day production was defective? Round to the nearest tenth.",
-  correctAnswer: "2.4",
-  explanation: "**SAT Pattern: Percent of a Whole**\n\n**The correct answer is $2.4$.**\n\n**The Fast Way (~20s):** Total defective $= 0.02(500) + 0.03(300) = 10 + 9 = 19$. Total produced $= 800$. Percent $= \\dfrac{19}{800} \\times 100 \\approx 2.375 \\approx 2.4\\%$.\n\n**The Full Solution:**\nMonday defective: $2\\%$ of $500 = 10$ widgets.\nTuesday defective: $3\\%$ of $300 = 9$ widgets.\nTotal defective $= 10 + 9 = 19$.\nTotal production $= 500 + 300 = 800$.\n\nDefective rate $= \\dfrac{19}{800} = 0.02375 = 2.375\\% \\approx 2.4\\%$.\n\n**Common Mistakes to Avoid:**\n* Averaging the percentages directly: $\\dfrac{2 + 3}{2} = 2.5\\%$ (ignores different production volumes).\n* Using only one day's data.\n\n**Test Day Takeaway:** Never average percentages directly when groups have different sizes. Always compute total favorable $/$ total count.",
+  question: "A loom shop ran two batches of fabric. In the morning batch, $4\\%$ of the bolts had a flaw; in the afternoon batch, $6\\%$ of the bolts had a flaw. The morning batch contained $450$ bolts and the afternoon batch contained $300$ bolts. What percent of all the bolts produced that day had a flaw? Round to the nearest tenth.",
+  correctAnswer: "4.8",
+  explanation: "**SAT Pattern: Percent of a Whole**\n\n**The correct answer is $4.8$.**\n\n**The Fast Way (~20s):** Flawed $= 0.04(450) + 0.06(300) = 18 + 18 = 36$. Total $= 750$. Percent $= \\dfrac{36}{750} \\times 100 = 4.8\\%$.\n\n**The Full Solution:**\nMorning flawed: $4\\%$ of $450 = 18$ bolts.\nAfternoon flawed: $6\\%$ of $300 = 18$ bolts.\nTotal flawed $= 18 + 18 = 36$.\nTotal bolts $= 450 + 300 = 750$.\n\nFlaw rate $= \\dfrac{36}{750} = 0.048 = 4.8\\%$.\n\n**Common Mistakes to Avoid:**\n* Averaging the percentages directly: $\\dfrac{4 + 6}{2} = 5\\%$ (ignores the different batch sizes).\n* Using only one batch's data.\n\n**Test Day Takeaway:** Never average percentages directly when groups have different sizes. Always compute total favorable $/$ total count.",
   skills: ["percents", "statistics"]
+},
+{
+  id: 6,
+  type: "multiple-choice",
+  difficulty: "medium",
+  band: 5,
+  question: "A circle in the $xy$-plane has equation $x^2 + y^2 - 10x + 24y = 0$. What is the radius of the circle?",
+  choices: [
+    // distractor: stops at r^2 = 169 instead of r
+    { id: "A", text: "$169$" },
+    { id: "B", text: "$13$" },
+    // distractor: only completes the square on x: r^2 = 25
+    { id: "C", text: "$5$" },
+    // distractor: combines -10 + 24 = 14 without completing the square
+    { id: "D", text: "$\\sqrt{14}$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Circle in General Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Complete the square: $(x - 5)^2 + (y + 12)^2 = 25 + 144 = 169$. Radius $= \\sqrt{169} = 13$.\n\n**The Full Solution:**\n$x^2 - 10x + y^2 + 24y = 0$.\nComplete the square for $x$: half of $-10$ is $-5$, squared is $25$.\nComplete the square for $y$: half of $24$ is $12$, squared is $144$.\nAdd $25$ and $144$ to BOTH sides:\n$(x - 5)^2 + (y + 12)^2 = 169$.\n\nThis is a circle with center $(5, -12)$ and radius $r = \\sqrt{169} = 13$.\n\nVerification: expand $(x - 5)^2 + (y + 12)^2 = x^2 - 10x + 25 + y^2 + 24y + 144 = 169$, so $x^2 + y^2 - 10x + 24y = 0$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives $r^2 = 169$ instead of $r$.\n* Choice C: \"wrong base\" — only completes the square on $x$ and reports $\\sqrt{25} = 5$.\n* Choice D: \"applies the inverse operation\" — adds $-10 + 24 = 14$ blindly.\n\n**Test Day Takeaway:** Complete the square SYMMETRICALLY for both variables. Add the squared half-coefficients to BOTH sides.",
+  skills: ["circle-equations", "solving-equations"]
 },
 {
   id: 7,
@@ -549,43 +562,24 @@ export const practiceTest8 = {
 {
   id: 8,
   type: "multiple-choice",
-  difficulty: "medium",
-  band: 5,
-  question: "A circle in the $xy$-plane has equation $x^2 + y^2 - 6x + 8y = 0$. What is the radius of the circle?",
+  difficulty: "hard",
+  band: 7,
+  question: "Two rectangular crates are stacked and bolted together along one shared face to form a single shipping unit. Crate A measures $4 \\text{ ft} \\times 7 \\text{ ft} \\times 9 \\text{ ft}$, and Crate B measures $4 \\text{ ft} \\times 7 \\text{ ft} \\times 6 \\text{ ft}$. The shared face measures $4 \\text{ ft} \\times 7 \\text{ ft}$. What is the total surface area of the combined unit, in square feet?",
   choices: [
-    // distractor: stops at r^2 = 25 instead of r
-    { id: "A", text: "$25$" },
-    { id: "B", text: "$5$" },
-    // distractor: only completes the square on x: r^2 = 9
-    { id: "C", text: "$3$" },
-    // distractor: takes -6 + 8 = 2 as a clue without completing the square
-    { id: "D", text: "$\\sqrt{2}$" }
+    // distractor: subtracts only one face (442 - 28 = 414)
+    { id: "A", text: "$414$" },
+    { id: "B", text: "$386$" },
+    // distractor: subtracts wrong face area (4 * 9 = 36 instead of 4 * 7 = 28)
+    { id: "C", text: "$370$" },
+    // distractor: doesn't subtract shared faces at all
+    { id: "D", text: "$442$" }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Circle in General Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Complete the square: $(x - 3)^2 + (y + 4)^2 = 9 + 16 = 25$. Radius $= \\sqrt{25} = 5$.\n\n**The Full Solution:**\n$x^2 - 6x + y^2 + 8y = 0$.\nComplete the square for $x$: half of $-6$ is $-3$, squared is $9$.\nComplete the square for $y$: half of $8$ is $4$, squared is $16$.\nAdd $9$ and $16$ to BOTH sides:\n$(x - 3)^2 + (y + 4)^2 = 25$.\n\nThis is a circle with center $(3, -4)$ and radius $r = \\sqrt{25} = 5$.\n\nVerification: expand $(x - 3)^2 + (y + 4)^2 = x^2 - 6x + 9 + y^2 + 8y + 16 = 25$, so $x^2 + y^2 - 6x + 8y = 0$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives $r^2 = 25$ instead of $r$.\n* Choice C: \"wrong base\" — only completes the square on $x$ and reports $\\sqrt{9} = 3$.\n* Choice D: \"applies the inverse operation\" — adds $-6 + 8 = 2$ blindly.\n\n**Test Day Takeaway:** Complete the square SYMMETRICALLY for both variables. Add the squared half-coefficients to BOTH sides.",
-  skills: ["circle-equations", "solving-equations"]
+  explanation: "**SAT Pattern: Composite Solid Surface Area**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Surface area of A: $2(28 + 36 + 63) = 254$. Surface area of B: $2(28 + 24 + 42) = 188$. Sum: $442$. Subtract the shared face from BOTH solids: $442 - 2 \\cdot 28 = 386$.\n\n**The Full Solution:**\nSurface area of Crate A ($4 \\times 7 \\times 9$): $2(4 \\cdot 7 + 4 \\cdot 9 + 7 \\cdot 9) = 2(28 + 36 + 63) = 2(127) = 254 \\text{ ft}^2$.\n\nSurface area of Crate B ($4 \\times 7 \\times 6$): $2(4 \\cdot 7 + 4 \\cdot 6 + 7 \\cdot 6) = 2(28 + 24 + 42) = 2(94) = 188 \\text{ ft}^2$.\n\nTotal before bolting: $254 + 188 = 442 \\text{ ft}^2$.\nThe shared face ($4 \\times 7 = 28 \\text{ ft}^2$) is hidden on BOTH crates; subtract $2 \\times 28 = 56 \\text{ ft}^2$.\nTotal surface area: $442 - 56 = 386 \\text{ ft}^2$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — subtracts only one of the two shared faces.\n* Choice C: \"wrong base\" — uses the wrong face area ($4 \\times 9 = 36$ instead of $4 \\times 7 = 28$).\n* Choice D: \"applies the inverse operation\" — does not subtract the shared face at all.\n\n**Test Day Takeaway:** When two solids are joined along a face, that face is hidden on BOTH solids. Subtract twice the contact area from the simple sum.",
+  skills: ["surface-area", "volume"]
 },
 {
   id: 9,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 6,
-  question: "Line $j$ passes through the points $(2, 9)$ and $(6, 1)$. Line $k$ is perpendicular to line $j$ and passes through the point $(2, 9)$. Which of the following is an equation of line $k$?",
-  choices: [
-    // distractor: gives slope of j (parallel, not perpendicular)
-    { id: "A", text: "$y = -2x + 13$" },
-    { id: "B", text: "$y = \\dfrac{1}{2}x + 8$" },
-    // distractor: takes reciprocal but keeps the negative sign
-    { id: "C", text: "$y = -\\dfrac{1}{2}x + 10$" },
-    // distractor: uses absolute value of slope without reciprocating
-    { id: "D", text: "$y = 2x + 5$" }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Perpendicular Line Through Point**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Slope of $j$: $\\dfrac{1 - 9}{6 - 2} = \\dfrac{-8}{4} = -2$. Perpendicular slope: $\\dfrac{1}{2}$. Line $k$: $y - 9 = \\dfrac{1}{2}(x - 2) \\Rightarrow y = \\dfrac{1}{2}x + 8$.\n\n**The Full Solution:**\nSlope of $j$: $m_j = \\dfrac{1 - 9}{6 - 2} = \\dfrac{-8}{4} = -2$.\nPerpendicular slopes are negative reciprocals: $m_k = \\dfrac{1}{2}$.\nLine $k$ through $(2, 9)$: $y - 9 = \\dfrac{1}{2}(x - 2)$, so $y = \\dfrac{1}{2}x - 1 + 9 = \\dfrac{1}{2}x + 8$.\n\nVerification: $m_j \\cdot m_k = -2 \\cdot \\dfrac{1}{2} = -1$ \\checkmark; line $k$ passes through $(2, 9)$: $\\dfrac{1}{2}(2) + 8 = 9$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives slope of $j$ itself (parallel, not perpendicular).\n* Choice C: \"applies the inverse operation\" — takes reciprocal but keeps the negative sign.\n* Choice D: \"wrong base\" — uses absolute value of $m_j = 2$ without reciprocating.\n\n**Test Day Takeaway:** Perpendicular slopes: flip the fraction AND change the sign. The product of perpendicular slopes is $-1$.",
-  skills: ["slope", "linear-functions", "coordinate-geometry"]
-},
-{
-  id: 10,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -603,34 +597,15 @@ export const practiceTest8 = {
     { id: "B", text: "$15$" },
     // distractor: sets the angles supplementary instead of equal
     { id: "C", text: "$14$" },
-    // distractor: applies inverse op — adds the two expressions and divides
+    // distractor: sign slip — subtracts 10 from the right side instead of adding it (4y = 40)
     { id: "D", text: "$10$" }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Angles with Parallel Lines and Transversals**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Alternate interior angles are equal: $7y - 10 = 3y + 50 \\Rightarrow 4y = 60 \\Rightarrow y = 15$.\n\n**The Full Solution:**\nWhen a transversal cuts two parallel lines, alternate interior angles are EQUAL:\n$7y - 10 = 3y + 50$\n$4y = 60$\n$y = 15$\n\nVerification: at $y = 15$, both angles measure $7(15) - 10 = 95^{\\circ}$ and $3(15) + 50 = 95^{\\circ}$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — solves $7y = 60$ ignoring the $-10$.\n* Choice C: \"applies the inverse operation\" — sets the angles supplementary: $7y - 10 + 3y + 50 = 180 \\Rightarrow 10y = 140 \\Rightarrow y = 14$.\n* Choice D: \"wrong base\" — averages the constants somehow.\n\n**Test Day Takeaway:** Alternate interior angles, corresponding angles, and alternate exterior angles are EQUAL when lines are parallel. Same-side interior (co-interior) angles are SUPPLEMENTARY.",
+  explanation: "**SAT Pattern: Angles with Parallel Lines and Transversals**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Alternate interior angles are equal: $7y - 10 = 3y + 50 \\Rightarrow 4y = 60 \\Rightarrow y = 15$.\n\n**The Full Solution:**\nWhen a transversal cuts two parallel lines, alternate interior angles are EQUAL:\n$7y - 10 = 3y + 50$\n$4y = 60$\n$y = 15$\n\nVerification: at $y = 15$, both angles measure $7(15) - 10 = 95^{\\circ}$ and $3(15) + 50 = 95^{\\circ}$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — solves $7y = 60$ ignoring the $-10$.\n* Choice C: \"applies the inverse operation\" — sets the angles supplementary: $7y - 10 + 3y + 50 = 180 \\Rightarrow 10y = 140 \\Rightarrow y = 14$.\n* Choice D: \"sign slip\" — moves the $-10$ across as a subtraction instead of an addition, solving $7y = 3y + 50 - 10 \\Rightarrow 4y = 40 \\Rightarrow y = 10$.\n\n**Test Day Takeaway:** Alternate interior angles, corresponding angles, and alternate exterior angles are EQUAL when lines are parallel. Same-side interior (co-interior) angles are SUPPLEMENTARY.",
   skills: ["triangles", "angles"]
 },
 {
-  id: 11,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "Two rectangular prisms are glued together along one face to form a single solid. Prism A has dimensions $4 \\text{ cm} \\times 7 \\text{ cm} \\times 9 \\text{ cm}$, and Prism B has dimensions $4 \\text{ cm} \\times 7 \\text{ cm} \\times 6 \\text{ cm}$. The glued face has dimensions $4 \\text{ cm} \\times 7 \\text{ cm}$. What is the total surface area of the resulting solid, in square centimeters?",
-  choices: [
-    // distractor: subtracts only one face (442 - 28 = 414)
-    { id: "A", text: "$414$" },
-    { id: "B", text: "$386$" },
-    // distractor: subtracts wrong face area (4 * 9 = 36 instead of 4 * 7 = 28)
-    { id: "C", text: "$370$" },
-    // distractor: doesn't subtract glued faces at all
-    { id: "D", text: "$442$" }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Composite Solid Surface Area**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Surface area of A: $2(28 + 36 + 63) = 254$. Surface area of B: $2(28 + 24 + 42) = 188$. Sum: $442$. Subtract the glued face from BOTH solids: $442 - 2 \\cdot 28 = 386$.\n\n**The Full Solution:**\nSurface area of Prism A ($4 \\times 7 \\times 9$): $2(4 \\cdot 7 + 4 \\cdot 9 + 7 \\cdot 9) = 2(28 + 36 + 63) = 2(127) = 254 \\text{ cm}^2$.\n\nSurface area of Prism B ($4 \\times 7 \\times 6$): $2(4 \\cdot 7 + 4 \\cdot 6 + 7 \\cdot 6) = 2(28 + 24 + 42) = 2(94) = 188 \\text{ cm}^2$.\n\nTotal before gluing: $254 + 188 = 442 \\text{ cm}^2$.\nThe glued face ($4 \\times 7 = 28 \\text{ cm}^2$) is hidden on BOTH prisms; subtract $2 \\times 28 = 56 \\text{ cm}^2$.\nTotal surface area: $442 - 56 = 386 \\text{ cm}^2$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — subtracts only one of the two glued faces.\n* Choice C: \"wrong base\" — uses the wrong face area ($4 \\times 9 = 36$ instead of $4 \\times 7 = 28$).\n* Choice D: \"applies the inverse operation\" — does not subtract the glued face at all.\n\n**Test Day Takeaway:** When two solids are glued along a face, that face is hidden on BOTH solids. Subtract twice the contact area from the simple sum.",
-  skills: ["surface-area", "volume"]
-},
-{
-  id: 12,
+  id: 10,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -657,124 +632,177 @@ export const practiceTest8 = {
   skills: ["trigonometry", "right-triangles", "triangles"]
 },
 {
-  id: 13,
-  type: "fill-in",
+  id: 11,
+  type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "The table below shows the results of a survey of $250$ employees about their commute method and department.\n\n| | Car | Public Transit | Bike | Total |\n|---|---|---|---|---|\n| Marketing | $40$ | $25$ | $10$ | $75$ |\n| Engineering | $30$ | $45$ | $25$ | $100$ |\n| Sales | $50$ | $15$ | $10$ | $75$ |\n| Total | $120$ | $85$ | $45$ | $250$ |\n\nIf one employee who uses public transit OR bikes is selected at random, what is the probability that the employee works in Engineering? Round to the nearest hundredth.",
-  correctAnswer: "0.54",
-  explanation: "**SAT Pattern: Conditional Probability from Two-Way Table**\n\n**The correct answer is $0.54$.**\n\n**The Fast Way (~25s):** Public transit OR bike total $= 85 + 45 = 130$. Engineering employees in those columns $= 45 + 25 = 70$. Probability $= \\dfrac{70}{130} \\approx 0.538 \\approx 0.54$.\n\n**The Full Solution:**\nGiven: an employee uses public transit OR bikes. Restrict the sample space to those columns.\nTotal in restricted set: $85 + 45 = 130$.\nFavorable (Engineering AND in restricted set): $45 + 25 = 70$.\nProbability $= \\dfrac{70}{130} = \\dfrac{7}{13} \\approx 0.5385 \\approx 0.54$.\n\n**Common Mistakes to Avoid:**\n* Using $250$ as the denominator: gives $\\frac{70}{250} = 0.28$.\n* Using only one column (e.g., only public transit): gives $\\frac{45}{85} \\approx 0.53$, very close numerically.\n\n**Test Day Takeaway:** \"Given X OR Y\" means restrict the denominator to the union of those subsets. The numerator is the favorable count within that union.",
-  skills: ["two-way-tables", "probability"]
+  question: "The expression $\\dfrac{x^2 - 16}{x^2 + 7x + 12} \\cdot \\dfrac{x^2 + 6x + 9}{x^2 - x - 12}$ is equivalent to which of the following for all values of $x$ where it is defined?",
+  choices: [
+    // distractor: partial cancellation leaving (x+3)/(x+3)
+    { id: "A", text: "$\\dfrac{x + 3}{x + 3}$" },
+    // distractor: incomplete cancellation leaves stray factors
+    { id: "B", text: "$\\dfrac{(x-4)(x+3)}{(x+4)(x-4)}$" },
+    { id: "C", text: "$1$" },
+    // distractor: cancels incorrectly leaving extra factors
+    { id: "D", text: "$\\dfrac{x+3}{x-4}$" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Rational Expression Simplification**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Factor everything, then cancel.\n\n**The Full Solution:**\nFactor each piece:\n* $x^2 - 16 = (x-4)(x+4)$\n* $x^2 + 7x + 12 = (x+3)(x+4)$\n* $x^2 + 6x + 9 = (x+3)^2$\n* $x^2 - x - 12 = (x-4)(x+3)$\n\nSubstitute:\n$\\dfrac{(x-4)(x+4)}{(x+3)(x+4)} \\cdot \\dfrac{(x+3)^2}{(x-4)(x+3)} = \\dfrac{(x-4)(x+4)(x+3)^2}{(x+3)(x+4)(x-4)(x+3)} = 1$\n\n(for $x \\neq 4, -4, -3$)\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — partial cancellation leaves $\\dfrac{x+3}{x+3}$, which equals $1$ but isn't fully simplified.\n* Choice B: \"applies the inverse operation\" — incomplete cancellation leaves stray factors.\n* Choice D: \"wrong base\" — cancels incorrectly, leaving extra factors.\n\n**Test Day Takeaway:** Factor every quadratic FIRST. Then cancel common factors across the entire expression.",
+  skills: ["factoring", "polynomial-operations"]
+},
+{
+  id: 12,
+  type: "multiple-choice",
+  difficulty: "medium",
+  band: 5,
+  question: "A weather-balloon festival sells two kinds of entry passes: full-day passes at $\\$12$ each and afternoon passes at $\\$8$ each. On Saturday, $250$ passes were sold for a total of $\\$2{,}680$. How many full-day passes were sold?",
+  choices: [
+    // distractor: stops one step early — number of afternoon passes
+    { id: "A", text: "$80$" },
+    // distractor: wrong base — uses average price ($10.72) ignoring system constraints
+    { id: "B", text: "$120$" },
+    { id: "C", text: "$170$" },
+    // distractor: applies the inverse operation — reports total passes instead of full-day passes
+    { id: "D", text: "$250$" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: System of Equations — Substitution**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Let $f$ = full-day passes, $a$ = afternoon passes. Then $f + a = 250$ and $12f + 8a = 2680$. Substitute $a = 250 - f$: $12f + 8(250 - f) = 2680 \\Rightarrow 4f = 680 \\Rightarrow f = 170$.\n\n**The Full Solution:**\nLet $f$ be the number of full-day passes and $a$ be the number of afternoon passes.\n\nTotal passes: $f + a = 250$.\nTotal revenue: $12f + 8a = 2680$.\n\nSolve by substitution. From the first equation: $a = 250 - f$. Substitute into the second:\n$12f + 8(250 - f) = 2680$\n$12f + 2000 - 8f = 2680$\n$4f = 680$\n$f = 170$.\n\nThen $a = 250 - 170 = 80$.\n\nVerification: $170 + 80 = 250$ passes \\checkmark; $12(170) + 8(80) = 2040 + 640 = 2680$ dollars \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives the number of afternoon passes ($80$) instead of full-day passes ($170$).\n* Choice B: \"wrong base\" — comes from dividing $2680$ by an average price guess.\n* Choice D: \"applies the inverse operation\" — reports total passes sold ($250$) rather than just full-day passes.\n\n**Test Day Takeaway:** SAT word-problem systems usually have one count equation and one value (revenue/total dollars) equation. Define each variable explicitly, write both equations, and solve.",
+  skills: ["systems-of-equations", "word-problems"]
+},
+{
+  id: 13,
+  type: "fill-in",
+  difficulty: "medium",
+  band: 5,
+  question: "The equation $2x^2 - 14x + 20 = 0$ has two solutions, $r$ and $s$. What is the value of $r + s$?",
+  correctAnswer: "7",
+  explanation: "**SAT Pattern: Quadratic — Vieta's Sum/Product**\n\n**The correct answer is $7$.**\n\n**The Fast Way (~15s):** For $ax^2 + bx + c = 0$, the sum of the roots is $-\\dfrac{b}{a} = -\\dfrac{-14}{2} = 7$.\n\n**The Full Solution:**\nVieta's formulas give the sum of the roots of $ax^2 + bx + c = 0$ as $r + s = -\\dfrac{b}{a}$.\nHere $a = 2$, $b = -14$, so $r + s = -\\dfrac{-14}{2} = 7$.\n\nVerification: $2x^2 - 14x + 20 = 2(x^2 - 7x + 10) = 2(x - 2)(x - 5)$, so the roots are $2$ and $5$, and $2 + 5 = 7$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Forgetting the leading coefficient: using $-b = 14$ without dividing by $a = 2$.\n* Reporting the product $\\dfrac{c}{a} = 10$ instead of the sum.\n\n**Test Day Takeaway:** The sum of the roots is $-\\dfrac{b}{a}$ and the product is $\\dfrac{c}{a}$ — you never have to actually factor to find either.",
+  skills: ["quadratic-equations", "factoring"]
 },
 {
   id: 14,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "A theater sells two types of tickets to a show: adult tickets at $\\$12$ each and child tickets at $\\$8$ each. On a particular evening, $250$ tickets were sold for a total of $\\$2{,}680$. How many adult tickets were sold?",
+  question: "During a launch, a weather balloon's ascent rate is increasing at $8.6$ meters per second squared. Expressed in \\textbf{miles per minute squared} and rounded to the nearest tenth, what is this rate? (Use $1$ mile $= 1{,}609$ meters.)",
   choices: [
-    // distractor: stops one step early — number of child tickets
-    { id: "A", text: "$80$" },
-    // distractor: wrong base — uses average price (\\$10.72) ignoring system constraints
-    { id: "B", text: "$120$" },
-    { id: "C", text: "$170$" },
-    // distractor: applies the inverse operation — reports total tickets instead of adult tickets
-    { id: "D", text: "$250$" }
+    // distractor: applies the seconds-to-minutes factor only once (× 60) instead of squaring it
+    { id: "A", text: "$0.3$" },
+    { id: "B", text: "$19.2$" },
+    // distractor: inverts both conversions (× 1609 and ÷ 3600)
+    { id: "C", text: "$3.8$" },
+    // distractor: multiplies by 1609 and divides by 60 (both directions wrong, time once)
+    { id: "D", text: "$230.6$" }
   ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Two-Equation System from a Word Problem**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Let $a$ = adult tickets, $c$ = child tickets. Then $a + c = 250$ and $12a + 8c = 2680$. Substitute $c = 250 - a$: $12a + 8(250 - a) = 2680 \\Rightarrow 4a = 680 \\Rightarrow a = 170$.\n\n**The Full Solution:**\nLet $a$ be the number of adult tickets and $c$ be the number of child tickets.\n\nTotal tickets: $a + c = 250$.\nTotal revenue: $12a + 8c = 2680$.\n\nSolve by substitution. From the first equation: $c = 250 - a$. Substitute into the second:\n$12a + 8(250 - a) = 2680$\n$12a + 2000 - 8a = 2680$\n$4a = 680$\n$a = 170$.\n\nThen $c = 250 - 170 = 80$.\n\nVerification: $170 + 80 = 250$ tickets \\checkmark; $12(170) + 8(80) = 2040 + 640 = 2680$ dollars \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives the number of child tickets ($80$) instead of adult tickets ($170$).\n* Choice B: \"wrong base\" — comes from dividing $2680$ by an average price guess.\n* Choice D: \"applies the inverse operation\" — reports total tickets sold ($250$) rather than just adult tickets.\n\n**Test Day Takeaway:** SAT word-problem systems usually have one count equation and one value (revenue/total dollars) equation. Define each variable explicitly, write both equations, and solve.",
-  skills: ["systems-of-equations", "word-problems"]
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Unit Conversion — Squared Units**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Distance: $\\div 1{,}609$ (meters $\\to$ miles). Time: the seconds-to-minutes factor of $60$ is applied TWICE because the time unit is squared: $\\times 60^2 = \\times 3{,}600$. So $\\dfrac{8.6 \\times 3{,}600}{1{,}609} \\approx 19.2$.\n\n**The Full Solution:**\nStart with $8.6 \\dfrac{\\text{m}}{\\text{s}^2}$.\nConvert meters to miles (divide by $1{,}609$):\n$8.6 \\dfrac{\\text{m}}{\\text{s}^2} \\times \\dfrac{1 \\text{ mi}}{1{,}609 \\text{ m}}$.\nConvert per second-squared to per minute-squared. Since $1 \\text{ min} = 60 \\text{ s}$, we have $1 \\text{ s} = \\dfrac{1}{60} \\text{ min}$, so $\\dfrac{1}{\\text{s}^2} = \\dfrac{1}{(1/60\\ \\text{min})^2} = 60^2 \\dfrac{1}{\\text{min}^2} = 3{,}600 \\dfrac{1}{\\text{min}^2}$.\n\n$\\dfrac{8.6 \\times 3{,}600}{1{,}609} = \\dfrac{30{,}960}{1{,}609} \\approx 19.24 \\approx 19.2 \\dfrac{\\text{mi}}{\\text{min}^2}$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — multiplies by $60$ only once ($\\approx 0.3$), forgetting that the squared time unit needs $60^2$.\n* Choice C: \"applies the inverse operation\" — inverts both conversions ($\\times 1609$, $\\div 3600$).\n* Choice D: \"wrong base\" — multiplies by $1609$ and applies the time factor only once.\n\n**Test Day Takeaway:** When a unit is SQUARED, every conversion factor for that unit must be applied TWICE. The length factor here is applied once; the time factor twice.",
+  skills: ["unit-conversion", "rates"]
 },
 {
   id: 15,
   type: "fill-in",
   difficulty: "hard",
-  band: 6,
-  question: "A researcher surveyed $625$ randomly selected adults and found that $375$ support a new policy. The researcher uses the quick estimate margin of error $\\approx \\dfrac{1}{\\sqrt{n}}$ for a $95\\%$ confidence interval. What is the approximate margin of error, expressed as a percentage? Round to the nearest whole number.",
-  correctAnswer: "4",
-  explanation: "**SAT Pattern: Margin of Error**\n\n**The correct answer is $4$.**\n\n**The Fast Way (~10s):** $\\dfrac{1}{\\sqrt{625}} = \\dfrac{1}{25} = 0.04 = 4\\%$.\n\n**The Full Solution:**\nThe quick-estimate $95\\%$ margin of error formula is $\\dfrac{1}{\\sqrt{n}}$, where $n$ is the SAMPLE SIZE (not the count of favorable outcomes).\n\n$\\dfrac{1}{\\sqrt{625}} = \\dfrac{1}{25} = 0.04 = 4\\%$.\n\nThe sample proportion is $\\dfrac{375}{625} = 60\\%$, so the $95\\%$ confidence interval is approximately $[56\\%, 64\\%]$.\n\n**Common Mistakes to Avoid:**\n* Using $n = 375$ (the favorable count) instead of $n = 625$ (sample size): gives $\\dfrac{1}{\\sqrt{375}} \\approx 5.16\\%$.\n* Forgetting to convert to a percentage.\n\n**Test Day Takeaway:** The margin of error formula uses the total sample size $n$, not the count of favorable responses.",
-  skills: ["margin-of-error", "statistics"]
-},
-{
-  id: 16,
-  type: "fill-in",
-  difficulty: "hard",
   band: 7,
-  question: "A hospital food-service manager has a budget of $\\$880$ to purchase reusable meal trays. To qualify for a hospital-supply discount, the manager must order a minimum of $120$ trays total. Standard trays cost $\\$5.50$ each and insulated trays cost $\\$9.20$ each. What is the maximum number of insulated trays the manager can order while staying within the budget and qualifying for the discount?",
-  correctAnswer: "59",
-  explanation: "**SAT Pattern: Inequality Word Problem (Floor)**\n\n**The correct answer is $59$.**\n\n**The Fast Way (~45s):** Let $s$ = standard, $i$ = insulated. To max $i$, set $s + i = 120$ exactly, $s = 120 - i$. Budget: $5.50(120 - i) + 9.20i \\leq 880 \\Rightarrow 660 + 3.70i \\leq 880 \\Rightarrow i \\leq 59.46$. Floor: $i = 59$.\n\n**The Full Solution:**\nLet $s$ = standard trays, $i$ = insulated trays.\nConstraints:\n* Discount floor: $s + i \\geq 120$.\n* Budget: $5.50s + 9.20i \\leq 880$.\n* Both non-negative integers.\n\nTo MAXIMIZE $i$, fill the rest with the cheaper standard trays at EXACTLY the floor (any extras waste budget). Set $s = 120 - i$:\n\n$5.50(120 - i) + 9.20i \\leq 880$\n$660 - 5.50i + 9.20i \\leq 880$\n$3.70i \\leq 220$\n$i \\leq 59.459...$.\n\nMax integer: $i = 59$.\n\n**Verification:** With $i = 59$, $s = 61$. Total: $61 + 59 = 120 \\geq 120$ ✓. Cost: $5.50(61) + 9.20(59) = 335.50 + 542.80 = 878.30 \\leq 880$ ✓. Try $i = 60$, $s = 60$: $5.50(60) + 9.20(60) = 330 + 552 = 882 > 880$ ✗ — exceeds budget \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Reporting $95$ (treats $880/9.20 \\approx 95$ as the max, ignoring the discount floor — also $s = 0, i = 95$ violates the floor since $0 + 95 = 95 < 120$).\n* Reporting $120$ (treats the floor as the answer).\n* Reporting $60$ (forgets to round DOWN — $60$ exceeds budget).\n* Reporting $61$ (reports standard trays instead of insulated).\n\n**Test Day Takeaway:** Two-constraint optimization (budget + minimum total): To maximize one quantity, fill the remainder with the cheaper option AT EXACTLY the minimum total. Solve the resulting single-variable inequality and take the FLOOR.",
-  skills: ["inequalities", "word-problems", "systems-of-equations"]
-},
-{
-  id: 17,
-  type: "fill-in",
-  difficulty: "hard",
-  band: 7,
-  question: "The graph of $y = 3x^2 + bx + c$ has a vertex at $(-2, -10)$, where $b$ and $c$ are constants. What is the value of $bc$?",
+  question: "The graph of $y = 3x^2 + bx + c$ in the $xy$-plane has its vertex at $(-2, -10)$, where $b$ and $c$ are constants. What is the value of $bc$?",
   correctAnswer: "24",
-  explanation: "**SAT Pattern: Vertex Form to Standard Form**\n\n**The correct answer is $24$.**\n\n**The Fast Way (~40s):** $y = 3(x+2)^2 - 10 = 3x^2 + 12x + 2$. $bc = 12 \\times 2 = 24$.\n\n**Test Day Takeaway:** Expand, distribute, add $k$.",
+  explanation: "**SAT Pattern: Vertex Form to Standard Form**\n\n**The correct answer is $24$.**\n\n**The Fast Way (~30s):** Vertex form: $y = 3(x + 2)^2 - 10$. Expand: $3(x^2 + 4x + 4) - 10 = 3x^2 + 12x + 2$. So $b = 12$, $c = 2$, and $bc = 12 \\times 2 = 24$.\n\n**The Full Solution:**\nWith a vertex at $(-2, -10)$ and leading coefficient $3$, the vertex form is:\n$y = 3(x - (-2))^2 + (-10) = 3(x + 2)^2 - 10$.\nExpand to standard form:\n$y = 3(x^2 + 4x + 4) - 10 = 3x^2 + 12x + 12 - 10 = 3x^2 + 12x + 2$.\nMatching $y = 3x^2 + bx + c$: $b = 12$ and $c = 2$.\nTherefore $bc = 12 \\times 2 = 24$.\n\nVerification: the vertex of $y = 3x^2 + 12x + 2$ is at $x = -\\dfrac{12}{2 \\cdot 3} = -2$, and $y(-2) = 3(4) + 12(-2) + 2 = 12 - 24 + 2 = -10$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Forgetting to distribute the leading $3$ across the squared binomial.\n* Reporting $b + c = 14$ instead of the product $bc = 24$.\n\n**Test Day Takeaway:** Start from vertex form $a(x - h)^2 + k$, expand carefully, then read off the standard-form coefficients.",
   skills: ["quadratic-equations", "vertex-form"]
 },
 {
-  id: 18,
+  id: 16,
+  type: "multiple-choice",
+  difficulty: "medium",
+  band: 5,
+  question: "The function $f$ is defined by $f(x) = x^2$. The function $g$ is defined by $g(x) = f(x + 4) - 5$. What is the value of $g(-4)$?",
+  choices: [
+    // distractor: applies the inside shift the wrong way: f(-8) - 5 = 59
+    { id: "A", text: "$59$" },
+    // distractor: ignores the inside shift entirely: f(-4) - 5 = 11
+    { id: "B", text: "$11$" },
+    { id: "C", text: "$-5$" },
+    // distractor: flips the sign of the outside shift: f(0) + 5 = 5
+    { id: "D", text: "$5$" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Function Transformation**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** $g(-4) = f(-4 + 4) - 5 = f(0) - 5 = 0 - 5 = -5$.\n\n**The Full Solution:**\nSubstitute $x = -4$ into $g(x) = f(x + 4) - 5$:\n$g(-4) = f(-4 + 4) - 5 = f(0) - 5$.\nSince $f(x) = x^2$, $f(0) = 0^2 = 0$.\nTherefore $g(-4) = 0 - 5 = -5$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — shifts the input the wrong way, evaluating $f(-8) - 5 = 64 - 5 = 59$.\n* Choice B: \"stops one step early\" — ignores the inside shift and computes $f(-4) - 5 = 16 - 5 = 11$.\n* Choice D: \"applies the inverse operation\" — flips the sign of the outside shift to $f(0) + 5 = 5$.\n\n**Test Day Takeaway:** Evaluate composed transformations from the inside out: handle the input shift FIRST, then apply the outside shift.",
+  skills: ["function-transformation", "function-evaluation"]
+},
+{
+  id: 17,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "The expression $\\dfrac{x^2 - 9}{x^2 + 5x + 6} \\cdot \\dfrac{x^2 + 4x + 4}{x^2 - x - 6}$ simplifies to which of the following?",
+  question: "A right-angle bracing gusset is cut as an isosceles right triangle whose perimeter measures $58 + 58\\sqrt{2}$ centimeters. What is the length, in centimeters, of one of the two equal legs?",
   choices: [
-    // distractor: partial cancellation leaving (x+2)/(x+2)
-    { id: "A", text: "$\\dfrac{x + 2}{x + 2}$" },
-    // distractor: incomplete cancellation
-    { id: "B", text: "$\\dfrac{(x-3)(x+2)}{(x+3)(x-3)}$" },
-    { id: "C", text: "$1$" },
-    // distractor: cancels incorrectly leaving extra factors
-    { id: "D", text: "$\\dfrac{x+2}{x-3}$" }
+    // distractor: halves the rational part of the perimeter, dropping the radical
+    { id: "A", text: "$29$" },
+    { id: "B", text: "$29\\sqrt{2}$" },
+    // distractor: takes the full rational coefficient as the leg
+    { id: "C", text: "$58$" },
+    // distractor: takes the full perimeter coefficient with the radical
+    { id: "D", text: "$58\\sqrt{2}$" }
   ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Rational Expression Simplification**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Factor everything, then cancel.\n\n**The Full Solution:**\nFactor each piece:\n* $x^2 - 9 = (x-3)(x+3)$\n* $x^2 + 5x + 6 = (x+2)(x+3)$\n* $x^2 + 4x + 4 = (x+2)^2$\n* $x^2 - x - 6 = (x-3)(x+2)$\n\nSubstitute:\n$\\dfrac{(x-3)(x+3)}{(x+2)(x+3)} \\cdot \\dfrac{(x+2)^2}{(x-3)(x+2)} = \\dfrac{(x-3)(x+3)(x+2)^2}{(x+2)(x+3)(x-3)(x+2)} = 1$\n\n(for $x \\neq 3, -3, -2$)\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — partial cancellation leaves $\\dfrac{x+2}{x+2}$, which equals $1$ but isn't fully simplified.\n* Choice B: \"applies the inverse operation\" — incomplete cancellation.\n* Choice D: \"wrong base\" — cancels incorrectly, leaving extra factors.\n\n**Test Day Takeaway:** Factor every quadratic FIRST. Then cancel common factors across the entire expression.",
-  skills: ["factoring", "polynomial-operations"]
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Special Right Triangle — 45-45-90**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** For an isosceles right triangle with leg $L$, the hypotenuse is $L\\sqrt{2}$, so the perimeter is $2L + L\\sqrt{2} = L(2 + \\sqrt{2})$. Set $L(2 + \\sqrt{2}) = 58 + 58\\sqrt{2}$ and solve: $L = 29\\sqrt{2}$.\n\n**The Full Solution:**\nA 45-45-90 triangle with leg $L$ has hypotenuse $L\\sqrt{2}$. The perimeter is:\n$P = L + L + L\\sqrt{2} = L(2 + \\sqrt{2})$.\nSet equal to the given perimeter:\n$L(2 + \\sqrt{2}) = 58 + 58\\sqrt{2} = 58(1 + \\sqrt{2})$.\n$L = \\dfrac{58(1 + \\sqrt{2})}{2 + \\sqrt{2}}$.\nRationalize by multiplying by $\\dfrac{2 - \\sqrt{2}}{2 - \\sqrt{2}}$ (denominator becomes $4 - 2 = 2$):\n$L = \\dfrac{58(1 + \\sqrt{2})(2 - \\sqrt{2})}{2} = \\dfrac{58\\sqrt{2}}{2} = 29\\sqrt{2}$.\n\nVerification: with $L = 29\\sqrt{2}$, the perimeter is $29\\sqrt{2}(2 + \\sqrt{2}) = 58\\sqrt{2} + 29 \\cdot 2 = 58 + 58\\sqrt{2}$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — halves the rational coefficient ($58/2 = 29$) but drops the radical.\n* Choice C: \"stops one step early\" — reads the rational coefficient $58$ directly as the leg.\n* Choice D: \"applies the inverse operation\" — reads the radical coefficient $58$ directly with the $\\sqrt{2}$.\n\n**Test Day Takeaway:** Express the perimeter of a 45-45-90 triangle as $L(2 + \\sqrt{2})$, then divide and rationalize. The leg is rarely a plain integer.",
+  skills: ["triangles", "right-triangles", "special-right-triangles"]
+},
+{
+  id: 18,
+  type: "fill-in",
+  difficulty: "easy",
+  band: 3,
+  question: "For the function $f$, $f(x) = 6x - 5$. What is the value of $f(4)$?",
+  correctAnswer: "19",
+  explanation: "**SAT Pattern: Function Evaluation**\n\n**The correct answer is $19$.**\n\n**The Fast Way (~10s):** Substitute $x = 4$: $f(4) = 6(4) - 5 = 24 - 5 = 19$.\n\n**The Full Solution:**\nReplace every $x$ in $f(x) = 6x - 5$ with $4$:\n$f(4) = 6(4) - 5 = 24 - 5 = 19$.\n\n**Common Mistakes to Avoid:**\n* Subtracting before multiplying: $6(4 - 5) = -6$ ignores order of operations.\n* Forgetting the $-5$ and reporting $24$.\n\n**Test Day Takeaway:** To evaluate a function, substitute the input for every occurrence of the variable and follow the order of operations.",
+  skills: ["function-evaluation", "linear-functions"]
 },
 {
   id: 19,
-  type: "fill-in",
+  type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "The function $g$ is defined by $g(x) = (x + 10)(t - x)$, where $t$ is a constant. In the $xy$-plane, the graph of $y = g(x)$ passes through the point $(30, 0)$. What is the value of $g(0)$?",
-  correctAnswer: "300",
-  explanation: "**SAT Pattern: Recover Parameter, Then Evaluate**\n\n**The correct answer is $300$.**\n\n**The Fast Way (~25s):** $g(30) = 0 \\Rightarrow t = 30$. $g(0) = 10 \\cdot 30 = 300$.\n\n**Test Day Takeaway:** Use the known root to pin the constant.",
-  skills: ["function-evaluation", "polynomial-functions"]
+  question: "$$f(x) = (x + 8)(x + 3)(x - 7)$$\nConsider the function $g(x) = f(x) - 4$. Which table gives the value of $g(x)$ at $x = -8$, $x = -3$, and $x = 7$?",
+  choices: [
+    { id: "A", text: "$g(-8) = -4,\\ g(-3) = -4,\\ g(7) = -4$" },
+    // distractor: evaluates f at its own zeros but forgets the -4 shift
+    { id: "B", text: "$g(-8) = 0,\\ g(-3) = 0,\\ g(7) = 0$" },
+    // distractor: adds 4 instead of subtracting
+    { id: "C", text: "$g(-8) = 4,\\ g(-3) = 4,\\ g(7) = 4$" },
+    // distractor: copies the input x-values as the outputs
+    { id: "D", text: "$g(-8) = -8,\\ g(-3) = -3,\\ g(7) = 7$" }
+  ],
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Function Transformation**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** The inputs $-8$, $-3$, and $7$ are exactly the zeros of $f$, so $f = 0$ at each. Then $g = f - 4 = 0 - 4 = -4$ at all three.\n\n**The Full Solution:**\n$f(x) = (x + 8)(x + 3)(x - 7)$ has zeros where each factor is $0$: $x = -8$, $x = -3$, and $x = 7$. At each of those inputs, $f(x) = 0$.\n\nThe transformed function $g(x) = f(x) - 4$ shifts every output down by $4$:\n$g(-8) = 0 - 4 = -4$, $g(-3) = 0 - 4 = -4$, $g(7) = 0 - 4 = -4$.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"stops one step early\" — finds $f = 0$ at the zeros but forgets to apply the $-4$ vertical shift.\n* Choice C: \"applies the inverse operation\" — shifts up by $4$ instead of down.\n* Choice D: \"wrong base\" — copies the input $x$-values as if they were the outputs.\n\n**Test Day Takeaway:** Recognize when given inputs are the zeros of a factored polynomial — the function is $0$ there, so a vertical shift $f(x) + k$ makes every one of those outputs equal $k$.",
+  skills: ["polynomial-functions", "function-transformation", "factoring"]
 },
 {
   id: 20,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "Five turtle nests contain $158$, $152$, $161$, $145$, and $149$ eggs. A sixth nest with $128$ eggs is added to create a new data set. Which of the following correctly compares the means of the two data sets?",
+  question: "In the $xy$-plane, the line $y = 6x + k$, where $k$ is a constant, is tangent to the graph of the parabola $y = x^2 + 2x + 11$. What is the value of $k$?",
   choices: [
-    { id: "A", text: "The mean of the original data set is greater than the mean of the new data set." },
-    { id: "B", text: "The mean of the original data set is less than the mean of the new data set." },
-    { id: "C", text: "The means of both data sets are equal." },
-    { id: "D", text: "There is not enough information to compare the means." }
+    // distractor: sign error when isolating k from 4k = 28
+    { id: "A", text: "$-7$" },
+    // distractor: stops at the discriminant's linear coefficient (-4)
+    { id: "B", text: "$4$" },
+    { id: "C", text: "$7$" },
+    // distractor: reports the parabola's constant term
+    { id: "D", text: "$11$" }
   ],
-  correctAnswer: "A",
-  explanation: "**SAT Pattern: Mean After Appending a Value**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Original mean $= 765/5 = 153$. New value $128 < 153$, so adding lowers the mean.\n\n**Test Day Takeaway:** Adding below mean lowers; above raises.",
-  skills: ["statistics", "mean"]
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Tangent Line and Discriminant**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** Set the curves equal: $x^2 + 2x + 11 = 6x + k \\Rightarrow x^2 - 4x + (11 - k) = 0$. Tangency means one solution, so discriminant $= 0$: $(-4)^2 - 4(11 - k) = 0 \\Rightarrow 16 - 44 + 4k = 0 \\Rightarrow k = 7$.\n\n**The Full Solution:**\nA line is tangent to a parabola when they meet at exactly one point. Set them equal:\n$x^2 + 2x + 11 = 6x + k$\n$x^2 - 4x + (11 - k) = 0$.\nFor a single solution, the discriminant must be zero:\n$b^2 - 4ac = (-4)^2 - 4(1)(11 - k) = 16 - 44 + 4k = 0$.\nSolve: $4k = 28$, so $k = 7$.\n\nVerification: with $k = 7$, $x^2 - 4x + 4 = 0 \\Rightarrow (x - 2)^2 = 0$, a single root at $x = 2$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — sign slip when solving $4k = 28$.\n* Choice B: \"stops one step early\" — reports the linear coefficient $-4$'s magnitude from the merged equation.\n* Choice D: \"wrong base\" — reports the parabola's constant term $11$.\n\n**Test Day Takeaway:** Tangent $\\Rightarrow$ exactly one intersection $\\Rightarrow$ set the discriminant of the combined equation to zero.",
+  skills: ["quadratic-equations", "discriminant", "tangent-lines"]
 },
 {
   id: 21,
-  type: "multiple-choice",
+  type: "fill-in",
   difficulty: "hard",
   band: 7,
-  question: "$$4x + 5y = 9$$\n$$12x + 15y = 27$$\n\nFor each real number $r$, which of the following points lies on the graph of each equation in the $xy$-plane for the given system?",
-  choices: [
-    { id: "A", text: "$\\left(\\dfrac{r}{5} + 9,\\,-\\dfrac{r}{5} + 27\\right)$" },
-    { id: "B", text: "$\\left(-\\dfrac{5r}{4} + \\dfrac{9}{4},\\,r\\right)$" },
-    { id: "C", text: "$\\left(r,\\,\\dfrac{4r}{5} + \\dfrac{9}{5}\\right)$" },
-    { id: "D", text: "$\\left(r,\\,-\\dfrac{4r}{5} + \\dfrac{9}{5}\\right)$" }
-  ],
-  correctAnswer: "D",
-  explanation: "**SAT Pattern: Same Line — Infinitely Many Solutions (Parametric)**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** Second equation is $3 \\times$ the first; same line. Solve for $y$: $y = -4x/5 + 9/5$. Set $x = r$: $(r, -4r/5 + 9/5)$.\n\n**Test Day Takeaway:** Collapsed system $\\Rightarrow$ every point on the line solves it.",
-  skills: ["systems-of-equations", "linear-functions"]
+  question: "For an electric field passing straight through a flat surface, the electric flux through that surface equals the field strength multiplied by the surface's area. A flat panel is built from two side-by-side squares: the side length of the larger square is $4$ times the side length of the smaller square. A uniform electric field of strength $32.00$ volts per meter passes perpendicularly through the panel, producing a total electric flux of $6{,}800$ volt-meters across the whole panel. What is the electric flux, in volt-meters, through just the larger square?",
+  correctAnswer: "6400",
+  explanation: "**SAT Pattern: Area Ratio to Side Ratio in Similar Figures**\n\n**The correct answer is $6400$.**\n\n**The Fast Way (~40s):** Flux is proportional to area. If the larger side is $4\\times$ the smaller, its area is $4^2 = 16\\times$ as large, so the two squares split the total flux in a $16 : 1$ ratio. The larger square gets $\\dfrac{16}{17}$ of $6{,}800 = 6{,}400$ volt-meters. (The strength $32.00$ is not needed.)\n\n**The Full Solution:**\nLet the smaller square have side $s$ and the larger have side $4s$.\nAreas: smaller $= s^2$, larger $= (4s)^2 = 16s^2$.\nBecause the same uniform field passes through both, flux is proportional to area, so the fluxes are in the ratio $16 : 1$.\nTotal parts $= 16 + 1 = 17$.\nFlux through the larger square $= \\dfrac{16}{17} \\times 6{,}800 = \\dfrac{108{,}800}{17} = 6{,}400$ volt-meters.\n\nVerification: smaller square flux $= \\dfrac{1}{17} \\times 6{,}800 = 400$, and $6{,}400 + 400 = 6{,}800$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Splitting the flux in the SIDE ratio $4 : 1$ (giving $5{,}440$) instead of the AREA ratio $16 : 1$.\n* Trying to use the field strength $32.00$ — it cancels out and is a distractor.\n\n**Test Day Takeaway:** When a quantity scales with area, the side-length ratio must be SQUARED before splitting a total. A given \"strength\" or \"rate\" factor that applies equally to both parts is often an unneeded distractor.",
+  skills: ["geometry", "ratios", "area"]
 },
 {
   id: 22,

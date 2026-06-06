@@ -23,41 +23,22 @@ export const practiceTest2 = {
   type: "multiple-choice",
   difficulty: "easy",
   band: 3,
-  question: "The function $g(x) = 250 - 18x$ models the amount of water, in gallons, remaining in a tank $x$ hours after a drain is opened. According to this model, what is the amount of water, in gallons, that remains in the tank after $4$ hours?",
+  question: "A survey found that $1{,}540$ students at a university take a foreign language. If this represents $44\\%$ of all students at the university, how many students attend the university in total?",
   choices: [
-    // distractor: stops at 18 \cdot 4 = 72 — reports the amount drained, not the amount remaining
-    { id: "A", text: "$72$" },
-    { id: "B", text: "$178$" },
-    // distractor: adds instead of subtracts: 250 + 18 \cdot 4 = 322 then off-by-one
-    { id: "C", text: "$232$" },
-    // distractor: sign flip — subtracts only one drain hour: 250 - 18 = 232 then mis-states
-    { id: "D", text: "$268$" }
+    // distractor: applies the percent forward: 1540 \cdot 0.44 = 677.6
+    { id: "A", text: "$678$" },
+    // distractor: divides by the complement 0.56 instead of 0.44
+    { id: "B", text: "$2{,}750$" },
+    { id: "C", text: "$3{,}500$" },
+    // distractor: divides by 0.044 instead of 0.44 (decimal-place slip)
+    { id: "D", text: "$35{,}000$" }
   ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Function Evaluation in Context**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** $g(4) = 250 - 18(4) = 250 - 72 = 178$.\n\n**The Full Solution:**\nIn $g(x) = 250 - 18x$, the constant $250$ is the initial amount and $-18$ is the drain rate (gallons per hour). After $4$ hours:\n$g(4) = 250 - 18(4) = 250 - 72 = 178$ gallons.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — computes the amount drained ($72$ gal) and reports it instead of the amount remaining.\n* Choice C: \"applies the inverse operation\" — adds instead of subtracts: $250 + 18(4) - 100 = 232$.\n* Choice D: \"off-by-one\" — subtracts only one drain hour ($250 - 18 = 232$) or mis-counts the hours.\n\n**Test Day Takeaway:** When a function models a quantity over time, the constant is the starting value and the coefficient of the variable is the rate of change. \"Remaining\" $\\neq$ \"drained.\"",
-  skills: ["function-interpretation", "linear-functions"]
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Reverse-Percent**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Total $\\times 0.44 = 1{,}540$, so total $= \\dfrac{1{,}540}{0.44} = 3{,}500$.\n\n**The Full Solution:**\nLet $T$ be the total student count. Then ${}0.44 \\cdot T = 1{,}540$.\nDivide both sides by $0.44$: $T = \\dfrac{1{,}540}{0.44} = 3{,}500$.\n\nVerification: $44\\%$ of $3{,}500 = 0.44 \\cdot 3{,}500 = 1{,}540$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — multiplies $1{,}540 \\cdot 0.44 \\approx 678$ instead of dividing.\n* Choice B: \"wrong base\" — divides by the complement $0.56$ (treats $1{,}540$ as the count of students NOT taking a language).\n* Choice D: \"off-by-one / decimal slip\" — divides by $0.044$ instead of $0.44$.\n\n**Test Day Takeaway:** When a percent of an unknown total is given, divide the part by the percent (as a decimal) to recover the whole.",
+  skills: ["percents"]
 },
 {
   id: 2,
-  type: "multiple-choice",
-  difficulty: "easy",
-  band: 3,
-  question: "If $\\dfrac{3y}{8} = \\dfrac{27}{4}$, what is the value of $y - 6$?",
-  choices: [
-    { id: "A", text: "$12$" },
-    // distractor: stops at y = 18 (forgets the "minus 6" final step)
-    { id: "B", text: "$18$" },
-    // distractor: adds 6 instead of subtracting
-    { id: "C", text: "$24$" },
-    // distractor: leaves the answer at 3y = 54 instead of y
-    { id: "D", text: "$54$" }
-  ],
-  correctAnswer: "A",
-  explanation: "**SAT Pattern: Shifted Output**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Cross-multiply: $3y \\cdot 4 = 8 \\cdot 27$, so $12y = 216$ and $y = 18$. Then $y - 6 = 12$.\n\n**The Full Solution:**\n$\\dfrac{3y}{8} = \\dfrac{27}{4}$\n\nCross-multiply: $4 \\cdot 3y = 8 \\cdot 27 \\Rightarrow 12y = 216 \\Rightarrow y = 18$.\n\nThe question asks for $y - 6$, not $y$: $18 - 6 = 12$.\n\nVerification: $\\dfrac{3(18)}{8} = \\dfrac{54}{8} = \\dfrac{27}{4}$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"stops one step early\" — solves for $y$ correctly but forgets to subtract $6$.\n* Choice C: \"applies the inverse operation\" — adds $6$ to $y$ instead of subtracting.\n* Choice D: \"wrong base\" — keeps $3y$ instead of solving for $y$.\n\n**Test Day Takeaway:** Always re-read the last sentence before answering. The question often asks for a related quantity, not the variable itself.",
-  skills: ["solving-equations", "ratios"]
-},
-{
-  id: 3,
   type: "multiple-choice",
   difficulty: "easy",
   band: 3,
@@ -76,7 +57,45 @@ export const practiceTest2 = {
   skills: ["ratios", "word-problems"]
 },
 {
+  id: 3,
+  type: "multiple-choice",
+  difficulty: "easy",
+  band: 3,
+  question: "If $\\dfrac{3y}{8} = \\dfrac{27}{4}$, what is the value of $y - 6$?",
+  choices: [
+    { id: "A", text: "$12$" },
+    // distractor: stops at y = 18 (forgets the "minus 6" final step)
+    { id: "B", text: "$18$" },
+    // distractor: adds 6 instead of subtracting
+    { id: "C", text: "$24$" },
+    // distractor: leaves the answer at 3y = 54 instead of y
+    { id: "D", text: "$54$" }
+  ],
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Shifted Output**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Cross-multiply: $3y \\cdot 4 = 8 \\cdot 27$, so $12y = 216$ and $y = 18$. Then $y - 6 = 12$.\n\n**The Full Solution:**\n$\\dfrac{3y}{8} = \\dfrac{27}{4}$\n\nCross-multiply: $4 \\cdot 3y = 8 \\cdot 27 \\Rightarrow 12y = 216 \\Rightarrow y = 18$.\n\nThe question asks for $y - 6$, not $y$: $18 - 6 = 12$.\n\nVerification: $\\dfrac{3(18)}{8} = \\dfrac{54}{8} = \\dfrac{27}{4}$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"stops one step early\" — solves for $y$ correctly but forgets to subtract $6$.\n* Choice C: \"applies the inverse operation\" — adds $6$ to $y$ instead of subtracting.\n* Choice D: \"wrong base\" — keeps $3y$ instead of solving for $y$.\n\n**Test Day Takeaway:** Always re-read the last sentence before answering. The question often asks for a related quantity, not the variable itself.",
+  skills: ["solving-equations", "ratios"]
+},
+{
   id: 4,
+  type: "multiple-choice",
+  difficulty: "easy",
+  band: 3,
+  question: "The function $g(x) = 250 - 18x$ models the amount of water, in gallons, remaining in a tank $x$ hours after a drain is opened. According to this model, what is the amount of water, in gallons, that remains in the tank after $4$ hours?",
+  choices: [
+    // distractor: stops at 18 \cdot 4 = 72 — reports the amount drained, not the amount remaining
+    { id: "A", text: "$72$" },
+    { id: "B", text: "$178$" },
+    // distractor: adds instead of subtracts: 250 + 18 \cdot 4 = 322 then off-by-one
+    { id: "C", text: "$232$" },
+    // distractor: sign flip — subtracts only one drain hour: 250 - 18 = 232 then mis-states
+    { id: "D", text: "$268$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Function Evaluation in Context**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** $g(4) = 250 - 18(4) = 250 - 72 = 178$.\n\n**The Full Solution:**\nIn $g(x) = 250 - 18x$, the constant $250$ is the initial amount and $-18$ is the drain rate (gallons per hour). After $4$ hours:\n$g(4) = 250 - 18(4) = 250 - 72 = 178$ gallons.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — computes the amount drained ($72$ gal) and reports it instead of the amount remaining.\n* Choice C: \"applies the inverse operation\" — adds instead of subtracts: $250 + 18(4) - 100 = 232$.\n* Choice D: \"off-by-one\" — subtracts only one drain hour ($250 - 18 = 232$) or mis-counts the hours.\n\n**Test Day Takeaway:** When a function models a quantity over time, the constant is the starting value and the coefficient of the variable is the rate of change. \"Remaining\" $\\neq$ \"drained.\"",
+  skills: ["function-interpretation", "linear-functions"]
+},
+{
+  id: 5,
   type: "multiple-choice",
   difficulty: "easy",
   band: 3,
@@ -93,25 +112,6 @@ export const practiceTest2 = {
   correctAnswer: "C",
   explanation: "**SAT Pattern: Shifted Output**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Each extra pound adds $\\$5$ in shipping. $4$ extra pounds add $4 \\cdot \\$5 = \\$20$. New total: $\\$48 + \\$20 = \\$68$. The flat fee does not change.\n\n**The Full Solution:**\nLet the original equation be $5w + 3 = 48$, so $5w = 45$ and $w = 9$.\nFor $w + 4 = 13$ pounds: total $= 5(13) + 3 = 65 + 3 = \\$68$.\n\nShortcut: you do not need to find $w$. Adding $4$ pounds adds $4 \\cdot \\$5 = \\$20$ in weight charge. The flat fee is unchanged, so total is $\\$48 + \\$20 = \\$68$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — adds the count $4$ as dollars instead of $4 \\cdot \\$5 = \\$20$.\n* Choice B: \"off-by-one\" — doubles the per-pound rate, getting $\\$48 + 4 \\cdot \\$10 = \\$88$ then mis-rounds.\n* Choice D: \"wrong base\" — uses the fee ($\\$3$) as the per-pound rate, giving $\\$48 + 4 \\cdot \\$3 = \\$60$.\n\n**Test Day Takeaway:** Linear cost = (rate $\\times$ quantity) + fixed fee. Adding more units changes only the rate-times-quantity piece — the fixed fee stays the same.",
   skills: ["word-problems", "solving-equations"]
-},
-{
-  id: 5,
-  type: "multiple-choice",
-  difficulty: "easy",
-  band: 3,
-  question: "A survey found that $1{,}540$ students at a university take a foreign language. If this represents $44\\%$ of all students at the university, how many students attend the university in total?",
-  choices: [
-    // distractor: applies the percent forward: 1540 \cdot 0.44 = 677.6
-    { id: "A", text: "$678$" },
-    // distractor: divides by the complement 0.56 instead of 0.44
-    { id: "B", text: "$2{,}750$" },
-    { id: "C", text: "$3{,}500$" },
-    // distractor: divides by 0.044 instead of 0.44 (decimal-place slip)
-    { id: "D", text: "$35{,}000$" }
-  ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Reverse-Percent**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Total $\\times 0.44 = 1{,}540$, so total $= \\dfrac{1{,}540}{0.44} = 3{,}500$.\n\n**The Full Solution:**\nLet $T$ be the total student count. Then ${}0.44 \\cdot T = 1{,}540$.\nDivide both sides by $0.44$: $T = \\dfrac{1{,}540}{0.44} = 3{,}500$.\n\nVerification: $44\\%$ of $3{,}500 = 0.44 \\cdot 3{,}500 = 1{,}540$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — multiplies $1{,}540 \\cdot 0.44 \\approx 678$ instead of dividing.\n* Choice B: \"wrong base\" — divides by the complement $0.56$ (treats $1{,}540$ as the count of students NOT taking a language).\n* Choice D: \"off-by-one / decimal slip\" — divides by $0.044$ instead of $0.44$.\n\n**Test Day Takeaway:** When a percent of an unknown total is given, divide the part by the percent (as a decimal) to recover the whole.",
-  skills: ["percents"]
 },
 {
   id: 6,
@@ -193,9 +193,9 @@ export const practiceTest2 = {
   type: "fill-in",
   difficulty: "medium",
   band: 5,
-  question: "A solid right circular cylinder has a radius of $4$ inches and a height of $9$ inches. The volume of the cylinder, in cubic inches, can be expressed as $k\\pi$. What is the value of $k$?",
-  correctAnswer: "144",
-  explanation: "**SAT Pattern: Cylinder Volume**\n\n**The correct answer is $144$.**\n\n**The Fast Way (~10s):** $V = \\pi r^2 h = \\pi (4)^2 (9) = 16 \\cdot 9 \\pi = 144\\pi$. So $k = 144$.\n\n**The Full Solution:**\nThe volume formula for a right circular cylinder is $V = \\pi r^2 h$.\nWith $r = 4$ in and $h = 9$ in:\n$V = \\pi (4)^2 (9) = \\pi (16)(9) = 144\\pi$ cubic inches.\nSo $k = 144$.\n\n**Common Mistakes to Avoid:**\n* Forgetting to square the radius — using $\\pi r h$ would give $36\\pi$, so $k = 36$.\n* Confusing the cylinder formula with the cone formula $V = \\dfrac{1}{3}\\pi r^2 h$, which gives $k = 48$.\n\n**Verification:** $\\pi (16)(9) = 144\\pi$ \\checkmark.\n\n**Test Day Takeaway:** For a cylinder, square the radius first, then multiply by the height. $V = \\pi r^2 h$ is on the SAT Reference Sheet.",
+  question: "A solid right circular cylinder has a radius of $5$ inches and a height of $7$ inches. The volume of the cylinder, in cubic inches, can be expressed as $k\\pi$. What is the value of $k$?",
+  correctAnswer: "175",
+  explanation: "**SAT Pattern: Cylinder Volume**\n\n**The correct answer is $175$.**\n\n**The Fast Way (~10s):** $V = \\pi r^2 h = \\pi (5)^2 (7) = 25 \\cdot 7 \\pi = 175\\pi$. So $k = 175$.\n\n**The Full Solution:**\nThe volume formula for a right circular cylinder is $V = \\pi r^2 h$.\nWith $r = 5$ in and $h = 7$ in:\n$V = \\pi (5)^2 (7) = \\pi (25)(7) = 175\\pi$ cubic inches.\nSo $k = 175$.\n\n**Common Mistakes to Avoid:**\n* Forgetting to square the radius — using $\\pi r h$ would give $35\\pi$, so $k = 35$.\n* Confusing the cylinder formula with the cone formula $V = \\dfrac{1}{3}\\pi r^2 h$, which gives a value one-third as large.\n\n**Verification:** $\\pi (25)(7) = 175\\pi$ \\checkmark.\n\n**Test Day Takeaway:** For a cylinder, square the radius first, then multiply by the height. $V = \\pi r^2 h$ is on the SAT Reference Sheet.",
   skills: ["volume", "geometry"]
 },
 {
@@ -289,16 +289,16 @@ export const practiceTest2 = {
   type: "fill-in",
   difficulty: "hard",
   band: 7,
-  question: "The right triangle shown has legs of length $3\\sqrt{5}$ and $6\\sqrt{5}$. What is the area of the triangle?",
+  question: "The two legs of a right triangle measure $3\\sqrt{5}$ centimeters and $4\\sqrt{5}$ centimeters, as shown in the figure. What is the area of the triangle, in square centimeters?",
   diagram: {
     type: "rightTriangle",
     params: {
-      sideLabels: ["3√5", "6√5", ""],
+      sideLabels: ["3√5", "4√5", ""],
       rightAngleVertex: 1
     }
   },
-  correctAnswer: "45",
-  explanation: "**SAT Pattern: Area with Radical Side Lengths**\n\n**The correct answer is $45$.**\n\n**The Fast Way (~15s):** Area $= \\dfrac{1}{2} \\cdot 3\\sqrt{5} \\cdot 6\\sqrt{5} = \\dfrac{1}{2} \\cdot 18 \\cdot 5 = \\dfrac{90}{2} = 45$.\n\n**The Full Solution:**\nArea of a right triangle $= \\dfrac{1}{2} \\times \\text{leg}_1 \\times \\text{leg}_2$.\n\n$= \\dfrac{1}{2} \\times 3\\sqrt{5} \\times 6\\sqrt{5}$\n\n$= \\dfrac{1}{2} \\times (3 \\times 6) \\times (\\sqrt{5} \\times \\sqrt{5})$\n\n$= \\dfrac{1}{2} \\times 18 \\times 5$\n\n$= \\dfrac{90}{2} = 45$\n\n**Common Mistakes to Avoid:**\n* Forgetting that $\\sqrt{5} \\times \\sqrt{5} = 5$, not $\\sqrt{10}$.\n* Forgetting the $\\dfrac{1}{2}$ factor, giving $90$ instead of $45$.\n\n**Verification:** $3\\sqrt{5} \\approx 6.71$ and $6\\sqrt{5} \\approx 13.42$. Area $\\approx \\dfrac{1}{2}(6.71)(13.42) \\approx 45$ \\checkmark.\n\n**Test Day Takeaway:** When multiplying radicals, $\\sqrt{a} \\times \\sqrt{a} = a$. Separate coefficients from radicals to simplify.",
+  correctAnswer: "30",
+  explanation: "**SAT Pattern: Area with Radical Side Lengths**\n\n**The correct answer is $30$.**\n\n**The Fast Way (~15s):** Area $= \\dfrac{1}{2} \\cdot 3\\sqrt{5} \\cdot 4\\sqrt{5} = \\dfrac{1}{2} \\cdot 12 \\cdot 5 = \\dfrac{60}{2} = 30$.\n\n**The Full Solution:**\nArea of a right triangle $= \\dfrac{1}{2} \\times \\text{leg}_1 \\times \\text{leg}_2$.\n\n$= \\dfrac{1}{2} \\times 3\\sqrt{5} \\times 4\\sqrt{5}$\n\n$= \\dfrac{1}{2} \\times (3 \\times 4) \\times (\\sqrt{5} \\times \\sqrt{5})$\n\n$= \\dfrac{1}{2} \\times 12 \\times 5$\n\n$= \\dfrac{60}{2} = 30$\n\n**Common Mistakes to Avoid:**\n* Forgetting that $\\sqrt{5} \\times \\sqrt{5} = 5$, not $\\sqrt{10}$.\n* Forgetting the $\\dfrac{1}{2}$ factor, giving $60$ instead of $30$.\n\n**Verification:** $3\\sqrt{5} \\approx 6.71$ and $4\\sqrt{5} \\approx 8.94$. Area $\\approx \\dfrac{1}{2}(6.71)(8.94) \\approx 30$ \\checkmark.\n\n**Test Day Takeaway:** When multiplying radicals, $\\sqrt{a} \\times \\sqrt{a} = a$. Separate coefficients from radicals to simplify.",
   skills: ["triangles", "area", "radical-expressions"]
 },
 {
@@ -392,9 +392,9 @@ export const practiceTest2 = {
   type: "fill-in",
   difficulty: "hard",
   band: 7,
-  question: "If $\\dfrac{\\sqrt{x} \\cdot x^2}{x^{\\frac{1}{3}}} = x^k$ for $x > 0$, what is the value of $k$? Express your answer as a fraction.",
-  correctAnswer: "13/6",
-  explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**The correct answer is $\\dfrac{13}{6}$.**\n\n**The Fast Way (~20s):** $\\sqrt{x} = x^{\\frac{1}{2}}$. Numerator: $x^{\\frac{1}{2}} \\cdot x^2 = x^{\\frac{5}{2}}$. Divide: $x^{\\frac{5}{2} - \\frac{1}{3}} = x^{\\frac{15}{6} - \\frac{2}{6}} = x^{\\frac{13}{6}}$.\n\n**The Full Solution:**\n$\\dfrac{\\sqrt{x} \\cdot x^2}{x^{\\frac{1}{3}}} = \\dfrac{x^{\\frac{1}{2}} \\cdot x^2}{x^{\\frac{1}{3}}}$\n\nCombine the numerator (add exponents):\n$x^{\\frac{1}{2} + 2} = x^{\\frac{1}{2} + \\frac{4}{2}} = x^{\\frac{5}{2}}$\n\nDivide (subtract exponents):\n$x^{\\frac{5}{2} - \\frac{1}{3}}$\n\nCommon denominator $6$:\n$\\dfrac{5}{2} = \\dfrac{15}{6}, \\quad \\dfrac{1}{3} = \\dfrac{2}{6}, \\quad \\dfrac{15}{6} - \\dfrac{2}{6} = \\dfrac{13}{6}$.\n\nSo $k = \\dfrac{13}{6}$.\n\n**Common Mistakes to Avoid:**\n* Writing $\\sqrt{x} = x^2$ instead of $x^{\\frac{1}{2}}$.\n* Adding the denominator's exponent instead of subtracting it.\n\n**Verification:** $\\dfrac{1}{2} + 2 - \\dfrac{1}{3} = 0.5 + 2 - 0.333 = 2.167 = \\dfrac{13}{6}$ \\checkmark.\n\n**Test Day Takeaway:** Convert all radicals to fractional exponents. Multiply $=$ add exponents; divide $=$ subtract exponents.",
+  question: "For $x > 0$, the expression $\\dfrac{\\sqrt[4]{x} \\cdot x^2}{\\sqrt[3]{x}}$ is equal to $x^k$. What is the value of $k$? Express your answer as a fraction.",
+  correctAnswer: "23/12",
+  explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**The correct answer is $\\dfrac{23}{12}$.**\n\n**The Fast Way (~20s):** $\\sqrt[4]{x} = x^{\\frac{1}{4}}$, $\\sqrt[3]{x} = x^{\\frac{1}{3}}$. Numerator: $x^{\\frac{1}{4}} \\cdot x^2 = x^{\\frac{9}{4}}$. Divide: $x^{\\frac{9}{4} - \\frac{1}{3}} = x^{\\frac{27}{12} - \\frac{4}{12}} = x^{\\frac{23}{12}}$.\n\n**The Full Solution:**\n$\\dfrac{\\sqrt[4]{x} \\cdot x^2}{\\sqrt[3]{x}} = \\dfrac{x^{\\frac{1}{4}} \\cdot x^2}{x^{\\frac{1}{3}}}$\n\nCombine the numerator (add exponents):\n$x^{\\frac{1}{4} + 2} = x^{\\frac{1}{4} + \\frac{8}{4}} = x^{\\frac{9}{4}}$\n\nDivide (subtract exponents):\n$x^{\\frac{9}{4} - \\frac{1}{3}}$\n\nCommon denominator $12$:\n$\\dfrac{9}{4} = \\dfrac{27}{12}, \\quad \\dfrac{1}{3} = \\dfrac{4}{12}, \\quad \\dfrac{27}{12} - \\dfrac{4}{12} = \\dfrac{23}{12}$.\n\nSo $k = \\dfrac{23}{12}$.\n\n**Common Mistakes to Avoid:**\n* Writing $\\sqrt[4]{x} = x^4$ instead of $x^{\\frac{1}{4}}$.\n* Adding the denominator's exponent instead of subtracting it.\n\n**Verification:** $\\dfrac{1}{4} + 2 - \\dfrac{1}{3} = 0.25 + 2 - 0.333 = 1.9167 = \\dfrac{23}{12}$ \\checkmark.\n\n**Test Day Takeaway:** Convert all radicals to fractional exponents. Multiply $=$ add exponents; divide $=$ subtract exponents.",
   skills: ["exponent-rules", "radical-expressions"]
 }
       ]
@@ -405,27 +405,35 @@ export const practiceTest2 = {
       timeLimit: 35,
       questions: [
 // Practice Test 2 — Math Module 2 (22 questions)
-// Distribution: 3E / 6M / 13H with band-8 ceiling on Q19, Q22.
-// Calibrated to Bluebook Module 2 Hard. Q1-3 are easy openers (CB-authentic ramp);
-// Q19, Q22 are Module-2-Hard-ceiling (parameterized vertex, tangent-to-circle).
+// 2026-06 flow diversification. Distribution: 3E / 7M / 12H.
+// Wavy flow by position (E=easy, M=medium, H=hard):
+//   Q1 E, Q2 E, Q3 M, Q4 M, Q5 H, Q6 M, Q7 M, Q8 H, Q9 H, Q10 M, Q11 H,
+//   Q12 E (mid-module breather), Q13 H, Q14 M, Q15 H, Q16 M, Q17 H, Q18 H,
+//   Q19 H, Q20 H, Q21 H, Q22 H.
+// Hard closers Q17-22 (exponential-growth model, no-solution system, perpendicular
+// slope, cube-minus-cylinder volume, discriminant integer-bound, exponential period).
+// Pool items infused: D-p1#22 (Q5 radian-degree), D-p26#15 (Q3 mean comparison),
+// E#8 (Q8 line-parabola intersection count), D-p39#23 (Q9 linear solve-for-b).
+// Carriers use the observatory/snowpack/bookbinding/esports/harbor-ferry/
+// butterfly-garden palette.
 
 {
   id: 1,
   type: "multiple-choice",
   difficulty: "easy",
   band: 2,
-  question: "A warehouse receives a steady stream of shipping boxes from a delivery truck. Workers move the boxes onto a storage rack at a constant rate of $8$ boxes per hour. There were $25$ boxes already on the rack when the truck arrived. Which type of function best models the relationship between the number of boxes on the rack and the time since the truck arrived?",
+  question: "Mateo manages boarding for a harbor ferry. Passengers walk up a ramp and onto the ferry at a steady rate of $14$ passengers per minute. When boarding began, $30$ passengers were already aboard. Which type of function best models the number of passengers aboard the ferry as a function of the number of minutes since boarding began?",
   choices: [
     // distractor: confuses constant rate with multiplicative growth
     { id: "A", text: "Increasing exponential" },
     { id: "B", text: "Increasing linear" },
-    // distractor: sign error — boxes are being ADDED
+    // distractor: sign error — passengers are being ADDED
     { id: "C", text: "Decreasing linear" },
     // distractor: combines wrong type with wrong direction
     { id: "D", text: "Decreasing exponential" }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Classify Physical Motion Model**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** \"Constant rate\" + \"moving onto the rack\" $\\Rightarrow$ increasing linear. Each hour adds the same $8$ boxes, so the change per unit time is constant.\n\n**The Full Solution:**\nThe defining feature of a LINEAR function is constant rate of change. \"$8$ boxes per hour\" describes exactly that — same number added each hour. Because boxes are being ADDED (count growing), the slope is positive.\n\nA model would be $B(t) = 25 + 8t$.\n\nVerification: at $t = 0$, $B = 25$; at $t = 1$, $B = 33$; at $t = 2$, $B = 41$. Differences: $+8, +8$ — constant \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong formula\" — exponential growth requires a multiplicative factor each hour (e.g., \"doubles each hour\"), not a constant additive rate.\n* Choice C: \"sign error\" — boxes are being placed ONTO the rack (count increases), so the slope is positive.\n* Choice D: \"wrong direction AND wrong type\" — combines both errors.\n\n**Test Day Takeaway:** \"Constant rate of X per unit\" $\\Rightarrow$ LINEAR. The verb (\"added/moved onto\" vs \"removed\") tells you the sign. Reserve EXPONENTIAL for \"multiplied by\" or \"percent\" language.",
+  explanation: "**SAT Pattern: Linear vs Exponential**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** \"Steady rate\" + \"boarding the ferry\" $\\Rightarrow$ increasing linear. Each minute adds the same $14$ passengers, so the change per unit time is constant.\n\n**The Full Solution:**\nThe defining feature of a LINEAR function is a constant rate of change. \"$14$ passengers per minute\" describes exactly that — the same number added each minute. Because passengers are being ADDED (count growing), the slope is positive.\n\nA model would be $P(t) = 30 + 14t$.\n\nVerification: at $t = 0$, $P = 30$; at $t = 1$, $P = 44$; at $t = 2$, $P = 58$. Differences: $+14, +14$ — constant \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong formula\" — exponential growth requires a multiplicative factor each minute (e.g., \"the count doubles each minute\"), not a constant additive rate.\n* Choice C: \"sign error\" — passengers are walking ONTO the ferry (count increases), so the slope is positive.\n* Choice D: \"wrong direction AND wrong type\" — combines both errors.\n\n**Test Day Takeaway:** \"Steady rate of X per unit\" $\\Rightarrow$ LINEAR. The verb (\"boarding/added\" vs \"leaving/removed\") tells you the sign. Reserve EXPONENTIAL for \"multiplied by\" or \"percent\" language.",
   skills: ["function-interpretation", "linear-functions"]
 },
 {
@@ -433,38 +441,38 @@ export const practiceTest2 = {
   type: "multiple-choice",
   difficulty: "easy",
   band: 2,
-  question: "A taxi service charges a flat fee of $\\$3$ plus $\\$2$ per mile. Which equation represents the total cost $C$, in dollars, for a ride of $m$ miles?",
+  question: "A bookbinding studio charges a one-time setup fee of $\\$7$ for an order plus $\\$4$ for each book bound. Which equation represents the total cost $C$, in dollars, of an order in which $b$ books are bound?",
   choices: [
-    // distractor: swaps the roles of base fee and per-mile rate
-    { id: "A", text: "$C = 3m + 2$" },
-    { id: "B", text: "$C = 2m + 3$" },
-    // distractor: wrong base - treats per-mile rate as flat addition
-    { id: "C", text: "$C = 5 + m$" },
-    // distractor: applies inverse op - combines flat and rate as multiplication
-    { id: "D", text: "$C = 6m$" }
+    // distractor: swaps the roles of setup fee and per-book rate
+    { id: "A", text: "$C = 7b + 4$" },
+    { id: "B", text: "$C = 4b + 7$" },
+    // distractor: stops one step early - adds the two values without applying the rate to b
+    { id: "C", text: "$C = 11 + b$" },
+    // distractor: applies inverse op - combines setup and rate into one coefficient
+    { id: "D", text: "$C = 11b$" }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Linear Cost Setup**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Cost $=$ (per-mile rate) $\\times$ (miles) $+$ (flat fee) $= 2m + 3$.\n\n**The Full Solution:**\n\"Per mile\" means a rate that scales with miles: $2 \\cdot m = 2m$.\n\"Flat fee\" is a one-time charge: $3$.\nTotal: $C = 2m + 3$.\n\nVerification: a $5$-mile ride costs $C = 2(5) + 3 = 13$ dollars \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — swaps the roles, putting the flat fee on $m$.\n* Choice C: \"stops one step early\" — adds the two values ($3 + 2 = 5$) without applying the rate to $m$.\n* Choice D: \"applies the inverse operation\" — combines the values into a single coefficient.\n\n**Test Day Takeaway:** Linear cost $=$ rate $\\times$ quantity $+$ fixed fee. Identify which value scales (rate) and which is constant (flat fee).",
+  explanation: "**SAT Pattern: Linear Cost Setup**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Cost $=$ (per-book rate) $\\times$ (books) $+$ (setup fee) $= 4b + 7$.\n\n**The Full Solution:**\n\"For each book bound\" is a rate that scales with the number of books: $4 \\cdot b = 4b$.\n\"One-time setup fee\" is a single charge that does not depend on $b$: $7$.\nTotal: $C = 4b + 7$.\n\nVerification: an order of $5$ books costs $C = 4(5) + 7 = 27$ dollars \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — swaps the roles, putting the setup fee on $b$ and the rate as the constant.\n* Choice C: \"stops one step early\" — adds the two numbers ($7 + 4 = 11$) without keeping the rate attached to $b$.\n* Choice D: \"applies the inverse operation\" — collapses the setup fee and rate into a single coefficient.\n\n**Test Day Takeaway:** Linear cost $=$ rate $\\times$ quantity $+$ fixed fee. Identify which value scales (rate) and which is constant (one-time fee).",
   skills: ["linear-functions", "word-problems"]
 },
 {
   id: 3,
   type: "multiple-choice",
-  difficulty: "easy",
-  band: 3,
-  question: "A small bakery tracks its flour inventory through a baking day. The function $F(b) = -1.4b + 60$ approximates the amount of flour remaining, in pounds, after baking $b$ batches of bread. Which statement is the best interpretation of the $y$-intercept of the graph of $y = F(b)$ in the $by$-plane in this context?",
+  difficulty: "medium",
+  band: 5,
+  question: "Astrid records the number of monarch butterflies tagged at each of five butterfly gardens during one afternoon. The counts are shown in the table.\n\n| Garden | Butterflies tagged |\n|---|---|\n| Meadowlark | $38$ |\n| Cedar Hollow | $44$ |\n| Riverbend | $41$ |\n| Sunfield | $47$ |\n| Highgate | $40$ |\n\nA sixth garden, Birchwood, is added to the record with $30$ butterflies tagged. Which of the following correctly compares the mean of the original five-garden data set with the mean of the new six-garden data set?",
   choices: [
-    // distractor: confuses slope (rate) with y-intercept (initial value)
-    { id: "A", text: "The bakery used approximately $60$ pounds of flour for each batch." },
-    // distractor: confuses slope's magnitude with starting amount
-    { id: "B", text: "The bakery started with approximately $1.4$ pounds of flour." },
-    { id: "C", text: "The bakery started with approximately $60$ pounds of flour." },
-    // distractor: combines both confusions
-    { id: "D", text: "The bakery used approximately $1.4$ pounds of flour for each batch." }
+    { id: "A", text: "The mean of the original data set is greater than the mean of the new data set." },
+    // distractor: assumes any added value raises the mean
+    { id: "B", text: "The mean of the original data set is less than the mean of the new data set." },
+    // distractor: assumes adding a value never changes the mean
+    { id: "C", text: "The means of the two data sets are equal." },
+    // distractor: claims the table is insufficient even though all values are given
+    { id: "D", text: "There is not enough information to compare the means." }
   ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Interpret Initial Value in Context**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** $y$-intercept of $F(b) = -1.4b + 60$ is $F(0) = 60$. At $b = 0$ (no batches yet), flour $\\approx 60$ lb.\n\n**The Full Solution:**\nThe $y$-intercept of a linear function $F(b) = mb + b_0$ is the value at $b = 0$. Here that value is $60$, and $b$ counts batches baked, so $b = 0$ corresponds to BEFORE any baking. The bakery started the day with about $60$ pounds of flour.\n\nVerification: at $b = 0$, $F = 60$ ✓. At $b = 10$, $F = 60 - 14 = 46$ — about $14$ pounds used over $10$ batches, confirming the $1.4$-pound-per-batch slope. The slope is the rate; the $y$-intercept is the initial value \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base AND wrong unit\" — treats the initial total as a per-batch rate. At $60$ pounds per batch the bakery would run out in a single batch.\n* Choice B: \"swaps coefficients\" — uses the slope's magnitude as the starting amount.\n* Choice D: \"correct interpretation of slope, wrong question\" — accurately describes the slope, but the question asks about the $y$-intercept (initial value, not rate).\n\n**Test Day Takeaway:** In $F(b) = mb + b_0$ contextual problems: the constant is the INITIAL value at $b = 0$. The coefficient on $b$ is the per-unit RATE. The question's wording (\"$y$-intercept\" vs \"slope/rate\") tells you which to report.",
-  skills: ["function-interpretation", "linear-functions"]
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: New mean after adding a value**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Compare the added value to the original mean. Original mean $= \\dfrac{38+44+41+47+40}{5} = \\dfrac{210}{5} = 42$. The added value $30$ is below $42$, so the new mean must DROP. Therefore the original mean is greater.\n\n**The Full Solution:**\nOriginal mean $= \\dfrac{210}{5} = 42$.\nNew set adds $30$: new sum $= 210 + 30 = 240$ over $6$ values, so new mean $= \\dfrac{240}{6} = 40$.\nSince $42 > 40$, the original mean is greater than the new mean.\n\nKey insight: a value below the current mean pulls the mean down; a value above it pulls the mean up. You can answer just by comparing $30$ to $42$ — no need to recompute fully.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"wrong direction\" — assumes adding any value raises the mean; here $30 < 42$, so it lowers it.\n* Choice C: \"stops one step early\" — assumes adding a value never moves the mean. It only stays equal if the added value equals the mean ($42$).\n* Choice D: \"overcautious\" — every value is given, so the comparison is fully determined.\n\n**Test Day Takeaway:** To compare means after adding one value, just compare the new value to the OLD mean: below it lowers the mean, above it raises it, equal keeps it the same.",
+  skills: ["statistics", "mean"]
 },
 {
   id: 4,
@@ -479,21 +487,21 @@ export const practiceTest2 = {
 {
   id: 5,
   type: "multiple-choice",
-  difficulty: "medium",
-  band: 5,
-  question: "A data set has $10$ values listed in order:\n\n$3, 5, 5, 7, 8, 10, 10, 12, 14, 16$\n\nEach value in the data set is increased by $6$. Which of the following is true about the new data set compared to the original?",
+  difficulty: "hard",
+  band: 7,
+  question: "In a star chart, the angular separation labeled $M$ measures $\\dfrac{3\\pi}{4}$ radians. A second separation, labeled $N$, is $\\dfrac{7\\pi}{12}$ radians greater than $M$. What is the measure of separation $N$, in \\underline{degrees}?",
   choices: [
-    // distractor: claims SD changes (but adding a constant doesn't change spread)
-    { id: "A", text: "The mean increases by $6$ and the standard deviation increases by $6$." },
-    { id: "B", text: "The mean increases by $6$ and the standard deviation stays the same." },
-    // distractor: claims mean stays same (it definitely changes)
-    { id: "C", text: "The mean stays the same and the standard deviation increases by $6$." },
-    // distractor: both wrong claims
-    { id: "D", text: "The mean stays the same and the standard deviation stays the same." }
+    // distractor: converts only the increment 7pi/12 = 105 (forgets to add M)
+    { id: "A", text: "$105$" },
+    // distractor: converts only M = 3pi/4 = 135 (forgets to add the increment)
+    { id: "B", text: "$135$" },
+    { id: "C", text: "$240$" },
+    // distractor: reduces 16pi/12 to 8pi/3 (drops a factor) before converting -> 480
+    { id: "D", text: "$480$" }
   ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Outlier Effect**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Adding a constant shifts every value uniformly. The mean shifts by that constant; the spread (standard deviation, range) is unchanged because relative distances are preserved.\n\n**The Full Solution:**\nOriginal mean: $\\dfrac{3+5+5+7+8+10+10+12+14+16}{10} = \\dfrac{90}{10} = 9$.\nNew mean: $9 + 6 = 15$.\nStandard deviation measures spread (deviations from the mean). Adding a constant shifts the mean by the same amount, so each deviation $(x - \\bar{x})$ stays the same. Therefore the standard deviation does not change.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — claims SD changes, but adding a constant does NOT change spread.\n* Choice C: \"wrong base\" — claims the mean stays the same, but it definitely shifts.\n* Choice D: \"off-by-one\" — both claims are wrong.\n\n**Test Day Takeaway:** Adding a constant: mean shifts, SD unchanged. Multiplying by a constant: BOTH change (both scale by the constant for SD; by the constant for mean).",
-  skills: ["statistics"]
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Radian-Degree Conversion**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** $N = \\dfrac{3\\pi}{4} + \\dfrac{7\\pi}{12} = \\dfrac{9\\pi}{12} + \\dfrac{7\\pi}{12} = \\dfrac{16\\pi}{12} = \\dfrac{4\\pi}{3}$. Convert: $\\dfrac{4\\pi}{3} \\cdot \\dfrac{180}{\\pi} = 240^{\\circ}$.\n\n**The Full Solution:**\nFirst add the two radian measures using a common denominator of $12$:\n$\\dfrac{3\\pi}{4} = \\dfrac{9\\pi}{12}$, so $N = \\dfrac{9\\pi}{12} + \\dfrac{7\\pi}{12} = \\dfrac{16\\pi}{12} = \\dfrac{4\\pi}{3}$ radians.\n\nConvert to degrees by multiplying by $\\dfrac{180^{\\circ}}{\\pi}$:\n$\\dfrac{4\\pi}{3} \\cdot \\dfrac{180^{\\circ}}{\\pi} = \\dfrac{4 \\cdot 180^{\\circ}}{3} = \\dfrac{720^{\\circ}}{3} = 240^{\\circ}$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — converts only the increment $\\dfrac{7\\pi}{12} = 105^{\\circ}$ and forgets to add $M$.\n* Choice B: \"stops one step early\" — converts only $M = \\dfrac{3\\pi}{4} = 135^{\\circ}$ and forgets the increment.\n* Choice D: \"off-by-one\" — reduces $\\dfrac{16\\pi}{12}$ to $\\dfrac{8\\pi}{3}$ (drops a factor of $2$ in the numerator only), then converts to $480^{\\circ}$.\n\n**Test Day Takeaway:** Add the radian fractions FIRST (common denominator), then convert the single result with $\\times \\dfrac{180}{\\pi}$. Converting before adding multiplies the chance of an error.",
+  skills: ["radians", "angle-arithmetic", "geometry"]
 },
 {
   id: 6,
@@ -516,70 +524,70 @@ export const practiceTest2 = {
 },
 {
   id: 7,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "The table shows the preferences of $400$ customers at a coffee shop.\n\n| | Hot | Iced | Total |\n|---|---|---|---|\n| Coffee | $120$ | $100$ | $220$ |\n| Tea | $60$ | $120$ | $180$ |\n| Total | $180$ | $220$ | $400$ |\n\nGiven that a randomly selected customer chose an iced drink, what percentage chose iced tea? (Round to the nearest whole percent.)",
-  choices: [
-    // distractor: divides 120/400 (uses grand total instead of column total)
-    { id: "A", text: "$30\\%$" },
-    // distractor: uses tea row total: 120/180
-    { id: "B", text: "$67\\%$" },
-    { id: "C", text: "$55\\%$" },
-    // distractor: gives P(iced coffee | iced) = 100/220 ≈ 45%
-    { id: "D", text: "$45\\%$" }
-  ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Conditional Probability with Percent**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** \"Given iced\" → restrict to the Iced column: total = $220$. Iced tea = $120$. Percentage $= \\dfrac{120}{220} \\approx 0.5455 \\approx 55\\%$.\n\n**The Full Solution:**\n$P(\\text{tea} \\mid \\text{iced}) = \\dfrac{\\text{iced tea}}{\\text{total iced}} = \\dfrac{120}{220} = \\dfrac{6}{11} \\approx 0.5455$.\nAs a percent: $\\approx 55\\%$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — uses grand total $400$: $\\dfrac{120}{400} = 30\\%$.\n* Choice B: \"applies the inverse operation\" — uses tea row total: $\\dfrac{120}{180} \\approx 67\\%$.\n* Choice D: \"off-by-one\" — gives $P(\\text{iced coffee} \\mid \\text{iced}) = \\dfrac{100}{220} \\approx 45\\%$, the complement.\n\n**Test Day Takeaway:** \"Given\" = restrict to that row or column. The restricted total becomes your denominator. Convert to percent at the end.",
-  skills: ["probability", "two-way-tables", "percents"]
+  type: "fill-in",
+  difficulty: "medium",
+  band: 5,
+  question: "A rectangular display panel has a perimeter of $58$ inches. Its length is $5$ inches more than twice its width. What is the width of the panel, in inches?",
+  correctAnswer: "8",
+  explanation: "**SAT Pattern: System of Equations — Substitution**\n\n**The correct answer is $8$.**\n\n**The Fast Way (~20s):** Let $w$ = width, length $= 2w + 5$. Perimeter $= 2(\\ell + w) = 58$, so $\\ell + w = 29$. Substitute: $(2w + 5) + w = 29 \\Rightarrow 3w = 24 \\Rightarrow w = 8$.\n\n**The Full Solution:**\nLet $w$ = width and $\\ell = 2w + 5$ = length.\nPerimeter: $2\\ell + 2w = 58$, so $\\ell + w = 29$.\nSubstitute: $(2w + 5) + w = 29$.\n$3w + 5 = 29$.\n$3w = 24$.\n$w = 8$.\n\n**Verification:** Width $= 8$, length $= 2(8) + 5 = 21$. Perimeter $= 2(21) + 2(8) = 42 + 16 = 58$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Reporting $21$ (the length) instead of $8$ (the width).\n* Setting up $2w + 5 = 58$ (forgetting the perimeter formula).\n\n**Test Day Takeaway:** Define variables explicitly, write the perimeter formula, substitute, solve. Re-read what's asked at the end.",
+  skills: ["word-problems", "solving-equations"]
 },
 {
   id: 8,
   type: "multiple-choice",
-  difficulty: "medium",
-  band: 5,
-  question: "A track-and-field coach analyzes a javelin throw. The height of the javelin above the ground, in meters, is modeled by $h(t) = -4.9(t - 1.5)^2 + 12$, where $t$ is the time, in seconds, after the javelin leaves the athlete's hand. Which of the following is the best interpretation of the vertex of the graph of $h(t)$ in the $th$-plane?",
+  difficulty: "hard",
+  band: 7,
+  question: "Consider the two equations $y = 24$ and $y = -2(x - 9)^2 + 19$. If these equations are graphed in the $xy$-plane, at how many points do the two graphs intersect?",
   choices: [
-    // distractor: swaps coordinates of the vertex
-    { id: "A", text: "The javelin reaches a maximum height of $1.5$ meters, $12$ seconds after release." },
-    { id: "B", text: "The javelin reaches a maximum height of $12$ meters, $1.5$ seconds after release." },
-    // distractor: wrong direction — calls the max a min
-    { id: "C", text: "The javelin reaches a minimum height of $12$ meters, $1.5$ seconds after release." },
-    // distractor: wrong base — uses the leading coefficient's magnitude as the time
-    { id: "D", text: "The javelin reaches a maximum height of $12$ meters, $4.9$ seconds after release." }
+    // distractor: assumes a line and a parabola always meet once
+    { id: "A", text: "Exactly one" },
+    // distractor: assumes a horizontal line through a parabola always meets it twice
+    { id: "B", text: "Exactly two" },
+    // distractor: confuses identical-graph wording with intersection
+    { id: "C", text: "Infinitely many" },
+    { id: "D", text: "Zero" }
   ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Interpret Vertex Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Vertex of $h(t) = -4.9(t - 1.5)^2 + 12$ is $(1.5, 12)$. $a = -4.9 < 0$, so vertex is a MAX. Max height $= 12$ m at $t = 1.5$ s.\n\n**The Full Solution:**\nVertex form $h(t) = a(t - h_0)^2 + k$ has vertex $(h_0, k) = (1.5, 12)$. Because $a = -4.9 < 0$, the parabola opens DOWN and the vertex is the maximum value. The max height of $12$ m is reached at $t = 1.5$ s after release.\n\nVerification: $h(1.5) = 0 + 12 = 12$. $h(0)$ (at release): $h = -4.9(2.25) + 12 \\approx 0.975$ m, so the javelin starts near hand height. $h(3) = -4.9(2.25) + 12 \\approx 0.975$ (symmetric, near ground again) \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"swaps coordinates\" — swaps the $t$ (time) and $h$ (height) values of the vertex.\n* Choice C: \"wrong direction\" — since $a < 0$, the vertex is a MAX, not a min. The javelin arcs up then falls.\n* Choice D: \"wrong base\" — uses the leading coefficient's magnitude $4.9$ as the time (it's actually the gravity-related coefficient).\n\n**Test Day Takeaway:** Vertex form $a(t - h_0)^2 + k$: vertex is $(h_0, k)$ — input first, output second. Sign of $a$ tells you max vs min. The $-4.9$ in projectile problems is $-g/2$ (gravity), NOT the time of max.",
-  skills: ["function-interpretation", "quadratic-equations"]
+  correctAnswer: "D",
+  explanation: "**SAT Pattern: Line-Parabola Intersection Count**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** The parabola $y = -2(x - 9)^2 + 19$ opens downward, so its greatest value is the vertex output $19$. The horizontal line $y = 24$ sits above $19$, so the curve never reaches it: zero intersections.\n\n**The Full Solution:**\nThe parabola is in vertex form with $a = -2 < 0$, so it opens downward and its MAXIMUM value is the vertex $y$-coordinate, $19$. Every output of the parabola satisfies $y \\le 19$.\n\nThe line $y = 24$ requires $y = 24 > 19$, which the parabola can never produce. So the graphs share no points.\n\nAlgebraic check: set $-2(x - 9)^2 + 19 = 24 \\Rightarrow -2(x - 9)^2 = 5 \\Rightarrow (x - 9)^2 = -2.5$. A squared real quantity cannot be negative, so there is no real solution \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong model\" — assumes any line meets a parabola exactly once (true only for some non-horizontal cases).\n* Choice B: \"wrong model\" — assumes a horizontal line always cuts a parabola twice; that holds only when the line is below the maximum.\n* Choice C: \"misreads the prompt\" — infinitely many points would require identical graphs, not a line and a parabola.\n\n**Test Day Takeaway:** For a horizontal line vs a vertex-form parabola, compare the line's height to the vertex value. Above the max of a downward parabola $\\Rightarrow$ zero intersections.",
+  skills: ["nonlinear-functions", "quadratic-equations"]
 },
 {
   id: 9,
   type: "multiple-choice",
   difficulty: "hard",
-  band: 6,
-  question: "A nonprofit's monthly donations grew by $25\\%$ from January to February, then by an additional $20\\%$ from February to March. The March total was $\\$18{,}000$. What were the January donations, in dollars?",
+  band: 7,
+  question: "The linear function $g$ is defined by $g(x) = b - 12x$, where $b$ is a constant. If $g(c + 9) = \\dfrac{c}{5}$, where $c$ is a constant, which of the following expressions is equal to $b$?",
   choices: [
-    // distractor: subtracts 45% (sum of percents) from $18,000
-    { id: "A", text: "$\\$9{,}900$" },
-    // distractor: applies one decrease of 45% (1 - 0.45) instead of inverting both
-    { id: "B", text: "$\\$10{,}800$" },
-    { id: "C", text: "$\\$12{,}000$" },
-    // distractor: divides by only one growth factor (1.25)
-    { id: "D", text: "$\\$14{,}400$" }
+    // distractor: uses the literal 9 (from c+9) as the constant instead of 12*9 = 108
+    { id: "A", text: "$\\dfrac{61c}{5} + 9$" },
+    // distractor: drops the c/5 term entirely (treats g(c+9) = 0)
+    { id: "B", text: "$12c + 108$" },
+    { id: "C", text: "$\\dfrac{61c}{5} + 108$" },
+    // distractor: distributes -12 only to the 9, omitting the 12c term
+    { id: "D", text: "$\\dfrac{c}{5} + 108$" }
   ],
   correctAnswer: "C",
-  explanation: "**SAT Pattern: Reverse-Percent Multi-Step**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Two compound increases: March $= $ Jan $\\cdot 1.25 \\cdot 1.20 = $ Jan $\\cdot 1.5$. So Jan $= \\frac{18{,}000}{1.5} = 12{,}000$.\n\n**The Full Solution:**\nLet $J$ = January total. February $= 1.25J$. March $= 1.20 \\cdot 1.25J = 1.5J$.\nSet $1.5J = 18{,}000$: $J = \\dfrac{18{,}000}{1.5} = 12{,}000$.\n\nVerification: Feb $= 1.25 \\cdot 12{,}000 = 15{,}000$. March $= 1.20 \\cdot 15{,}000 = 18{,}000$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — adds the percents ($25 + 20 = 45$) and subtracts: $18{,}000 \\cdot 0.55 = 9{,}900$.\n* Choice B: \"applies the inverse operation\" — uses a single decrease of $45\\%$ on the wrong direction.\n* Choice D: \"stops one step early\" — divides by $1.25$ only, forgetting the second growth: $\\frac{18{,}000}{1.25} = 14{,}400$.\n\n**Test Day Takeaway:** Compound percent changes MULTIPLY their factors. To reverse, divide by the product of all factors — not by their sum.",
-  skills: ["percents", "word-problems"]
+  explanation: "**SAT Pattern: Linear Function Interpretation**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** $g(c+9) = b - 12(c+9) = b - 12c - 108$. Set equal to $\\dfrac{c}{5}$ and solve for $b$: $b = \\dfrac{c}{5} + 12c + 108 = \\dfrac{61c}{5} + 108$.\n\n**The Full Solution:**\nSubstitute $x = c + 9$ into $g(x) = b - 12x$:\n$g(c + 9) = b - 12(c + 9) = b - 12c - 108$.\n\nSet this equal to the given value $\\dfrac{c}{5}$:\n$b - 12c - 108 = \\dfrac{c}{5}$.\n\nIsolate $b$:\n$b = \\dfrac{c}{5} + 12c + 108$.\n\nCombine the $c$-terms over a common denominator of $5$:\n$12c = \\dfrac{60c}{5}$, so $\\dfrac{c}{5} + \\dfrac{60c}{5} = \\dfrac{61c}{5}$.\n\nThus $b = \\dfrac{61c}{5} + 108$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — uses the literal $9$ from $c + 9$ as the added constant instead of $12 \\cdot 9 = 108$.\n* Choice B: \"stops one step early\" — drops the $\\dfrac{c}{5}$ term, as if $g(c+9) = 0$.\n* Choice D: \"applies the inverse operation\" — distributes $-12$ only to the $9$ and forgets the $12c$ term, leaving $\\dfrac{c}{5} + 108$.\n\n**Test Day Takeaway:** Substitute the full input, distribute carefully (every term inside the parentheses), then combine like terms over a common denominator before matching to the answer form.",
+  skills: ["linear-functions", "function-interpretation", "algebraic-manipulation"]
 },
 {
   id: 10,
-  type: "fill-in",
+  type: "multiple-choice",
   difficulty: "medium",
   band: 5,
-  question: "A rectangle has a perimeter of $58$ inches. The length of the rectangle is $5$ inches more than twice the width. What is the width, in inches?",
-  correctAnswer: "8",
-  explanation: "**SAT Pattern: System of Equations — Substitution**\n\n**The correct answer is $8$.**\n\n**The Fast Way (~20s):** Let $w$ = width, length $= 2w + 5$. Perimeter $= 2(l + w) = 58$, so $l + w = 29$. Substitute: $(2w + 5) + w = 29 \\Rightarrow 3w = 24 \\Rightarrow w = 8$.\n\n**The Full Solution:**\nLet $w$ = width and $\\ell = 2w + 5$ = length.\nPerimeter: $2\\ell + 2w = 58$, so $\\ell + w = 29$.\nSubstitute: $(2w + 5) + w = 29$.\n$3w + 5 = 29$.\n$3w = 24$.\n$w = 8$.\n\n**Verification:** Width $= 8$, length $= 2(8) + 5 = 21$. Perimeter $= 2(21) + 2(8) = 42 + 16 = 58$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Reporting $21$ (the length) instead of $8$ (the width).\n* Setting up $2w + 5 = 58$ (forgetting the perimeter formula).\n\n**Test Day Takeaway:** Define variables explicitly, write the perimeter formula, substitute, solve. Re-read what's asked at the end.",
-  skills: ["word-problems", "solving-equations"]
+  question: "An archer's arrow follows an arc whose height above the ground, in meters, is modeled by $h(t) = -4.9(t - 1.6)^2 + 14$, where $t$ is the time, in seconds, after the arrow is released. Which of the following is the best interpretation of the vertex of the graph of $h(t)$ in the $th$-plane?",
+  choices: [
+    // distractor: swaps the coordinates of the vertex
+    { id: "A", text: "The arrow reaches a maximum height of $1.6$ meters, $14$ seconds after release." },
+    { id: "B", text: "The arrow reaches a maximum height of $14$ meters, $1.6$ seconds after release." },
+    // distractor: wrong direction — calls the max a min
+    { id: "C", text: "The arrow reaches a minimum height of $14$ meters, $1.6$ seconds after release." },
+    // distractor: wrong base — uses the leading coefficient's magnitude as the time
+    { id: "D", text: "The arrow reaches a maximum height of $14$ meters, $4.9$ seconds after release." }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Vertex Form of a Quadratic**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Vertex of $h(t) = -4.9(t - 1.6)^2 + 14$ is $(1.6, 14)$. Since $a = -4.9 < 0$, the vertex is a MAX: max height $= 14$ m at $t = 1.6$ s.\n\n**The Full Solution:**\nVertex form $h(t) = a(t - h_0)^2 + k$ has vertex $(h_0, k) = (1.6, 14)$. Because $a = -4.9 < 0$, the parabola opens DOWN and the vertex is the maximum. The arrow reaches its greatest height, $14$ m, at $t = 1.6$ s after release.\n\nVerification: $h(1.6) = 0 + 14 = 14$. $h(0)$ (at release) $= -4.9(1.6)^2 + 14 \\approx 1.5$ m, near the archer's hand height \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"swaps coordinates\" — interchanges the time ($1.6$) and height ($14$) values of the vertex.\n* Choice C: \"wrong direction\" — since $a < 0$, the vertex is a MAX, not a min.\n* Choice D: \"wrong base\" — uses the leading coefficient's magnitude $4.9$ as the time of the maximum.\n\n**Test Day Takeaway:** Vertex form $a(t - h_0)^2 + k$ has vertex $(h_0, k)$ — input first, output second. The sign of $a$ tells you max vs min; the $-4.9$ is the gravity coefficient, not a time.",
+  skills: ["function-interpretation", "quadratic-equations"]
 },
 {
   id: 11,
@@ -610,50 +618,59 @@ export const practiceTest2 = {
 {
   id: 12,
   type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "The equation $\\dfrac{a}{3}x + 5 = 2x + b$ has no solution. Which of the following must be true?",
+  difficulty: "easy",
+  band: 3,
+  question: "On a winter morning, the snow depths, in centimeters, recorded at six alpine monitoring stations were $84$, $96$, $72$, $110$, $88$, and $102$. What is the range of these six depths, in centimeters?",
   choices: [
-    // distractor: a = 6 and b = 5 gives infinitely many solutions (not no solution)
-    { id: "A", text: "$a = 6$ and $b = 5$" },
-    { id: "B", text: "$a = 6$ and $b \\neq 5$" },
-    // distractor: a ≠ 6 means there IS a solution
-    { id: "C", text: "$a \\neq 6$ and $b = 5$" },
-    // distractor: a = 3 doesn't make the x-coefficients match
-    { id: "D", text: "$a = 3$ and $b \\neq 5$" }
+    // distractor: subtracts the wrong endpoints (110 - 84) instead of max - min
+    { id: "A", text: "$26$" },
+    { id: "B", text: "$38$" },
+    // distractor: reports a middle value, treating range like a central measure
+    { id: "C", text: "$88$" },
+    // distractor: reports the maximum value only, forgetting to subtract the minimum
+    { id: "D", text: "$110$" }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: No-Solution Condition**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** No solution means coefficient of $x$ matches but constants differ. Match: $\\dfrac{a}{3} = 2 \\Rightarrow a = 6$. Constants differ: $b \\neq 5$.\n\n**The Full Solution:**\nRearrange: $\\dfrac{a}{3}x - 2x = b - 5$, so $\\left(\\dfrac{a-6}{3}\\right)x = b - 5$.\n\nFor NO solution: coefficient of $x$ must be $0$ AND right side must be nonzero.\n* $\\dfrac{a-6}{3} = 0 \\Rightarrow a = 6$.\n* $b - 5 \\neq 0 \\Rightarrow b \\neq 5$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — $a = 6, b = 5$ gives $0 = 0$ (infinitely many solutions, not no solution).\n* Choice C: \"wrong base\" — $a \\neq 6$ means coefficient of $x$ is nonzero, so the equation HAS one solution.\n* Choice D: \"off-by-one\" — $a = 3$ makes $\\dfrac{a-6}{3} = -1 \\neq 0$, so there IS a solution.\n\n**Test Day Takeaway:** No solution $=$ matching $x$-coefficients but DIFFERENT constants. Infinitely many solutions $=$ both match.",
-  skills: ["solving-equations", "linear-functions"]
+  explanation: "**SAT Pattern: Range of a Data Set**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Range $=$ max $-$ min $= 110 - 72 = 38$.\n\n**The Full Solution:**\nThe range of a data set is the greatest value minus the least value.\nGreatest depth $= 110$ cm. Least depth $= 72$ cm.\nRange $= 110 - 72 = 38$ cm.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — subtracts $110 - 84 = 26$, using the second-smallest value instead of the true minimum $72$.\n* Choice C: \"wrong measure\" — reports $88$, a middle value, confusing range with a center.\n* Choice D: \"stops one step early\" — reports the maximum $110$ without subtracting the minimum.\n\n**Test Day Takeaway:** Range $=$ maximum $-$ minimum. Scan the whole list for the true largest and smallest values before subtracting.",
+  skills: ["statistics", "range"]
 },
 {
   id: 13,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "A polling organization surveyed a random sample of $1{,}200$ likely voters and found that ${}0.52 \\pm 0.03$ supported a candidate, at a $95\\%$ confidence level. Based on this interval, is it reasonable to conclude that the candidate has majority support (more than $50\\%$)?",
+  question: "The two solutions of the equation $x^2 - px + 40 = 0$ are positive integers that differ by $3$. What is the value of the constant $p$?",
   choices: [
-    // distractor: misreads — claims interval is entirely above 50%
-    { id: "A", text: "Yes, because the entire interval is above $50\\%$." },
-    // distractor: ignores margin of error, focuses on point estimate
-    { id: "B", text: "Yes, because $52\\%$ is above $50\\%$." },
-    { id: "C", text: "No, because the interval includes values below $50\\%$." },
-    // distractor: blames sample size instead of the interval crossing 50%
-    { id: "D", text: "No, because the margin of error is only $3\\%$." }
+    // distractor: reports the given difference (3) instead of the sum of the roots
+    { id: "A", text: "$3$" },
+    // distractor: uses the factor pair (2, 20) that multiplies to 40 but ignores the "differ by 3" condition
+    { id: "B", text: "$22$" },
+    { id: "C", text: "$13$" },
+    // distractor: reports the constant 40 (the product of the roots) as p
+    { id: "D", text: "$40$" }
   ],
   correctAnswer: "C",
-  explanation: "**SAT Pattern: Margin of Error**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** The interval is ${}0.52 \\pm 0.03 = (0.49, 0.55)$. Since ${}0.49 < 0.50$, the interval includes values below majority. We cannot conclude majority support.\n\n**The Full Solution:**\nLower bound: ${}0.52 - 0.03 = 0.49 = 49\\%$.\nUpper bound: ${}0.52 + 0.03 = 0.55 = 55\\%$.\nSince the interval $(49\\%, 55\\%)$ INCLUDES values below $50\\%$, it is plausible that fewer than half support the candidate.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — claims the interval is entirely above $50\\%$, but $49\\% < 50\\%$.\n* Choice B: \"stops one step early\" — uses only the point estimate ($52\\%$) and ignores the margin.\n* Choice D: \"applies the inverse operation\" — blames the size of the margin rather than the interval crossing $50\\%$.\n\n**Test Day Takeaway:** To make a definitive conclusion, the entire confidence interval must support it. If the interval straddles the threshold, you cannot conclude.",
-  skills: ["margin-of-error", "statistics"]
+  explanation: "**SAT Pattern: Quadratic — Vieta's Sum/Product**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** By Vieta's formulas, the two roots multiply to $40$ and add to $p$. The integer factor pair of $40$ that differs by $3$ is $5$ and $8$, so $p = 5 + 8 = 13$.\n\n**The Full Solution:**\nFor $x^2 - px + 40 = 0$ with roots $r$ and $s$:\n* Sum: $r + s = p$ (the negative of the $x$-coefficient over the leading coefficient).\n* Product: $rs = 40$.\n\nList positive integer factor pairs of $40$: $(1, 40), (2, 20), (4, 10), (5, 8)$. The pair differing by $3$ is $(5, 8)$.\n\nSo $p = r + s = 5 + 8 = 13$.\n\nVerification: $x^2 - 13x + 40 = (x - 5)(x - 8) = 0$, roots $5$ and $8$, which differ by $3$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — reports the given difference $3$ instead of the sum.\n* Choice B: \"wrong base\" — uses the pair $(2, 20)$, which multiplies to $40$ but differs by $18$, giving a sum of $22$.\n* Choice D: \"wrong base\" — reports the constant $40$ (the product of the roots) as $p$.\n\n**Test Day Takeaway:** For $x^2 - px + q = 0$, the roots add to $p$ and multiply to $q$. Use the product to find the candidate pairs, then the extra condition to pick the right one.",
+  skills: ["quadratic-equations", "factoring"]
 },
 {
   id: 14,
-  type: "fill-in",
-  difficulty: "hard",
-  band: 6,
-  question: "The value of an investment account is modeled by $V(t) = 20{,}000(1.005)^{12t}$, where $t$ is the number of years since the account was opened. What is the annual percent increase in the value of the account, to the nearest tenth of a percent?",
-  correctAnswer: "6.2",
-  explanation: "**SAT Pattern: Exponential Growth Interpretation**\n\n**The correct answer is $6.2$.**\n\n**The Fast Way (~25s):** Annual factor $= (1.005)^{12}$. Compute: $(1.005)^{12} \\approx 1.0617$. Subtract $1$: $\\approx 0.0617 = 6.2\\%$.\n\n**The Full Solution:**\nThe model $V(t) = 20{,}000(1.005)^{12t}$ compounds monthly at $0.5\\%$ per month. To find the annual rate, evaluate the growth factor over one year ($t = 1$):\nAnnual factor $= (1.005)^{12} \\approx 1.06168$.\nAnnual percent increase $\\approx 6.168\\% \\approx 6.2\\%$.\n\n**Verification:** Using $(1+r)^n \\approx 1 + nr + \\dfrac{n(n-1)}{2}r^2$ for small $r$: $1 + 12(0.005) + 66(0.000025) = 1.06165$. Confirms $\\approx 6.2\\%$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Reporting $0.5$ (the monthly rate, not annual).\n* Reporting $6$ (multiplying $0.5\\% \\times 12$, ignoring compounding).\n\n**Test Day Takeaway:** Effective annual rate is the growth factor over one full year minus $1$, expressed as a percent. Compounding adds slightly more than the simple multiple.",
-  skills: ["exponential-functions", "percents"]
+  type: "multiple-choice",
+  difficulty: "medium",
+  band: 5,
+  question: "During the group stage of an esports tournament, the livestream peaked at $240{,}000$ concurrent viewers. During the finals, the peak number of concurrent viewers was $35\\%$ greater than during the group stage. What was the peak number of concurrent viewers during the finals?",
+  choices: [
+    // distractor: reports only the increase amount (0.35 * 240,000), stops one step early
+    { id: "A", text: "$84{,}000$" },
+    // distractor: subtracts the percent instead of adding (treats "greater" as "less"): 240,000 * 0.65
+    { id: "B", text: "$156{,}000$" },
+    // distractor: reads 35% as 3.5% (decimal slip): 240,000 * 1.035
+    { id: "C", text: "$248{,}400$" },
+    { id: "D", text: "$324{,}000$" }
+  ],
+  correctAnswer: "D",
+  explanation: "**SAT Pattern: Percent Increase**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** \"$35\\%$ greater\" means multiply by $1.35$: $240{,}000 \\times 1.35 = 324{,}000$.\n\n**The Full Solution:**\nA quantity that is $35\\%$ greater than the original equals $100\\% + 35\\% = 135\\%$ of the original:\n$240{,}000 \\times 1.35 = 324{,}000$ concurrent viewers.\n\nEquivalently, the increase is $0.35 \\times 240{,}000 = 84{,}000$, added to the original: $240{,}000 + 84{,}000 = 324{,}000$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — reports only the increase $0.35 \\times 240{,}000 = 84{,}000$ without adding it to the original.\n* Choice B: \"wrong direction\" — treats \"greater\" as \"less,\" computing $240{,}000 \\times 0.65 = 156{,}000$.\n* Choice C: \"decimal slip\" — reads $35\\%$ as $3.5\\%$, computing $240{,}000 \\times 1.035 = 248{,}400$.\n\n**Test Day Takeaway:** \"$p\\%$ greater than\" means multiply by $1 + \\dfrac{p}{100}$. The bare percent times the base is only the increase, not the new total.",
+  skills: ["percents", "word-problems"]
 },
 {
   id: 15,
@@ -677,21 +694,21 @@ export const practiceTest2 = {
 {
   id: 16,
   type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "If $\\sqrt[3]{x^4} \\cdot \\sqrt{x^5} = x^k$ for $x > 0$, what is the value of $k$?",
+  difficulty: "medium",
+  band: 5,
+  question: "A robotic telescope at an observatory captures $45$ images during each $18$-minute exposure cycle, at a constant rate. At this same rate, how many images does the telescope capture during a continuous $2$-hour observation session?",
   choices: [
-    // distractor: adds the radicands' indices: 3 + 2 = 5 then divides total
-    { id: "A", text: "$\\dfrac{9}{5}$" },
-    // distractor: writes \sqrt[3]{x^4} = x^{3/4} (inverts power and index)
-    { id: "B", text: "$\\dfrac{17}{6}$" },
-    { id: "C", text: "$\\dfrac{23}{6}$" },
-    // distractor: multiplies exponents 4/3 \cdot 5/2 instead of adding
-    { id: "D", text: "$\\dfrac{10}{3}$" }
+    // distractor: uses 2 (hours) directly without converting to minutes: 45*2/18 = 5
+    { id: "A", text: "$5$" },
+    { id: "B", text: "$300$" },
+    // distractor: reports the session length in minutes (120) instead of the image count
+    { id: "C", text: "$120$" },
+    // distractor: inverts the rate ratio: 18/45 * 120 = 48
+    { id: "D", text: "$48$" }
   ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** $\\sqrt[3]{x^4} = x^{\\frac{4}{3}}$, $\\sqrt{x^5} = x^{\\frac{5}{2}}$. Add exponents: $\\dfrac{4}{3} + \\dfrac{5}{2} = \\dfrac{8}{6} + \\dfrac{15}{6} = \\dfrac{23}{6}$.\n\n**The Full Solution:**\n$\\sqrt[3]{x^4} = x^{\\frac{4}{3}}$\n$\\sqrt{x^5} = x^{\\frac{5}{2}}$\n\nWhen multiplying powers with the same base, add exponents:\n$x^{\\frac{4}{3} + \\frac{5}{2}}$\n\nCommon denominator $6$:\n$\\dfrac{4}{3} = \\dfrac{8}{6}, \\quad \\dfrac{5}{2} = \\dfrac{15}{6}, \\quad \\dfrac{8}{6} + \\dfrac{15}{6} = \\dfrac{23}{6}$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — adds the radical indices ($3 + 2 = 5$) and total degrees, giving $\\dfrac{9}{5}$.\n* Choice B: \"applies the inverse operation\" — writes $\\sqrt[3]{x^4} = x^{\\frac{3}{4}}$ (inverts exponent and index), giving $\\dfrac{3}{4} + \\dfrac{5}{2} = \\dfrac{13}{4} \\to \\dfrac{17}{6}$ approximation.\n* Choice D: \"off-by-one\" — multiplies exponents instead of adding: $\\dfrac{4}{3} \\cdot \\dfrac{5}{2} = \\dfrac{10}{3}$.\n\n**Test Day Takeaway:** $\\sqrt[n]{x^m} = x^{\\frac{m}{n}}$. When multiplying same-base powers, ADD the exponents.",
-  skills: ["exponent-rules", "radical-expressions"]
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Proportion Solving**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Rate $= \\dfrac{45 \\text{ images}}{18 \\text{ min}} = 2.5$ images per minute. A $2$-hour session is $120$ minutes, so $120 \\times 2.5 = 300$ images.\n\n**The Full Solution:**\nConvert the session length to minutes: $2$ hours $= 120$ minutes.\nSet up a proportion with images over minutes:\n$\\dfrac{45}{18} = \\dfrac{x}{120}$\n\nCross-multiply: $18x = 45 \\times 120 = 5400$, so $x = \\dfrac{5400}{18} = 300$ images.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"missing unit conversion\" — uses $2$ (hours) directly: $\\dfrac{45 \\times 2}{18} = 5$, forgetting to convert hours to minutes.\n* Choice C: \"stops one step early\" — reports the session length $120$ minutes instead of the image count.\n* Choice D: \"inverse operation\" — inverts the rate ratio: $\\dfrac{18}{45} \\times 120 = 48$.\n\n**Test Day Takeaway:** Match units before setting up a proportion. Convert hours to minutes first, then scale the rate.",
+  skills: ["ratios", "proportions", "unit-conversion"]
 },
 {
   id: 17,
@@ -700,13 +717,16 @@ export const practiceTest2 = {
   band: 7,
   question: "A model estimates that at the end of each year from $2017$ to $2022$, the number of deer in a population was $150\\%$ more than the number of deer at the end of the previous year. The model estimates that at the end of $2018$, there were $200$ deer. Which equation represents this model, where $n$ is the number of deer $t$ years after the end of $2017$ and $t \\le 5$?",
   choices: [
+    // distractor: reads "150% more" as growth factor 1.5 instead of 2.5
     { id: "A", text: "$n = 80(1.5)^t$" },
     { id: "B", text: "$n = 80(2.5)^t$" },
+    // distractor: uses the 2018 count 200 as the t=0 initial value without back-calculating, AND misreads the factor as 1.5
     { id: "C", text: "$n = 200(1.5)^t$" },
+    // distractor: uses the 2018 count 200 as the t=0 initial value instead of back-calculating to 80
     { id: "D", text: "$n = 200(2.5)^t$" }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Build Exponential Growth Model**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** \"$150\\%$ more\" $=$ factor $2.5$. At $t = 0$ (end of $2017$): $n_0 = 200/2.5 = 80$. So $n = 80(2.5)^t$.\n\n**Why the wrong answers are tempting:**\n* A: uses $1.5$ (not \"more\").\n* C/D: uses $200$ as initial without back-calculating.\n\n**Test Day Takeaway:** \"$p\\%$ more\" $= 1 + p/100$. Anchor initial value at $t = 0$.",
+  explanation: "**SAT Pattern: Exponential Growth/Decay**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** \"$150\\%$ more\" $=$ factor $2.5$. At $t = 0$ (end of $2017$): $n_0 = 200/2.5 = 80$. So $n = 80(2.5)^t$.\n\n**Why the wrong answers are tempting:**\n* A: uses $1.5$ (not \"more\").\n* C/D: uses $200$ as initial without back-calculating.\n\n**Test Day Takeaway:** \"$p\\%$ more\" $= 1 + p/100$. Anchor initial value at $t = 0$.",
   skills: ["exponential-functions", "exponential-growth"]
 },
 {
@@ -733,15 +753,18 @@ export const practiceTest2 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "$$3x + 4y = 1$$\n$$ax + by = 1$$\n\nIn the given pair of equations, $a$ and $b$ are constants. The graph is a pair of perpendicular lines. Which of the following pairs of equations also represents a pair of perpendicular lines?",
+  question: "Line $\\ell$ passes through the points $(-2, 7)$ and $(4, 1)$. Line $m$ is perpendicular to line $\\ell$ and can be written in the form $kx - 5y = 12$, where $k$ is a constant. What is the value of $k$?",
   choices: [
-    { id: "A", text: "$6x + 4y = 1$;\\ $ax - 2by = 1$" },
-    { id: "B", text: "$6x + 4y = 1$;\\ $ax + 2by = 1$" },
-    { id: "C", text: "$6x + 4y = 1$;\\ $2ax + by = 1$" },
-    { id: "D", text: "$3x - 4y = 1$;\\ $ax + by = 1$" }
+    { id: "A", text: "$5$" },
+    // distractor: uses the slope of line l itself (-1) as the target instead of its negative reciprocal, giving k = -5
+    { id: "B", text: "$-5$" },
+    // distractor: multiplies the slopes' denominators instead of taking the reciprocal
+    { id: "C", text: "$-25$" },
+    // distractor: scales k by 5 a second time after solving k/5 = 1
+    { id: "D", text: "$25$" }
   ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Perpendicular Slopes (Standard Form)**\n\n**Choice B is correct.**\n\n**The Fast Way (~45s):** From $3x+4y=1$ and $ax+by=1$ perpendicular: $a/b = -4/3$. In B: slopes $-3/2$ and $2/3$, product $= -1$.\n\n**Why the wrong answers are tempting:**\n* A: sign flip on $b$.\n* C: doubles $a$ instead of $b$.\n* D: sign on $y$ flips first slope.\n\n**Test Day Takeaway:** Standard-form slope $= -A/B$. Perpendicular = slope product $-1$.",
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Perpendicular Slope**\n\n**Choice A is correct.**\n\n**The Fast Way (~40s):** Slope of $\\ell = \\dfrac{1 - 7}{4 - (-2)} = \\dfrac{-6}{6} = -1$. Perpendicular slope $= +1$. For $kx - 5y = 12$, slope $= -\\dfrac{k}{-5} = \\dfrac{k}{5}$. Set $\\dfrac{k}{5} = 1 \\Rightarrow k = 5$.\n\n**The Full Solution:**\nSlope of $\\ell$: $m_\\ell = \\dfrac{1 - 7}{4 - (-2)} = \\dfrac{-6}{6} = -1$.\nA line perpendicular to $\\ell$ has slope $m = -\\dfrac{1}{m_\\ell} = -\\dfrac{1}{-1} = 1$.\nFor a line in standard form $Ax + By = C$, the slope is $-\\dfrac{A}{B}$. Here $A = k$ and $B = -5$, so the slope of $m$ is $-\\dfrac{k}{-5} = \\dfrac{k}{5}$.\nSet this equal to the required perpendicular slope: $\\dfrac{k}{5} = 1$, so $k = 5$.\nCheck: $5x - 5y = 12 \\Rightarrow y = x - \\dfrac{12}{5}$, slope $+1$, which is perpendicular to slope $-1$. \\checkmark\n\n**Why the wrong answers are tempting:**\n* Choice B: uses the slope of $\\ell$ itself ($-1$) as the target instead of its negative reciprocal, giving $k = -5$.\n* Choice C: multiplies through by an extra factor of $5$ instead of taking the reciprocal.\n* Choice D: scales $k$ by $5$ a second time after already solving $\\dfrac{k}{5} = 1$.\n\n**Test Day Takeaway:** Standard-form slope $= -\\dfrac{A}{B}$. Perpendicular slopes are negative reciprocals — their product is $-1$.",
   skills: ["linear-functions", "perpendicular-lines"]
 },
 {
@@ -749,16 +772,19 @@ export const practiceTest2 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "A cube has an edge length of $80$ inches. A solid sphere with a radius of $40$ inches is inside the cube, such that the sphere touches the center of each face of the cube. To the nearest cubic inch, what is the volume of the space in the cube not taken up by the sphere?",
+  question: "A storage block is a cube with edge length $12$ centimeters. The largest possible right circular cylinder is carved out of the block so that the cylinder's circular bases lie on two opposite faces of the cube and its curved surface just touches the other four faces. To the nearest cubic centimeter, what volume of the original cube remains after the cylinder is removed?",
   choices: [
-    { id: "A", text: "$243{,}917$" },
-    { id: "B", text: "$268{,}083$" },
-    { id: "C", text: "$304{,}600$" },
-    { id: "D", text: "$512{,}000$" }
+    { id: "A", text: "$371$" },
+    // distractor: reports the carved cylinder's volume instead of the remaining solid
+    { id: "B", text: "$1{,}357$" },
+    // distractor: uses the full cube volume without subtracting the cylinder
+    { id: "C", text: "$1{,}728$" },
+    // distractor: uses the cube edge 12 as the cylinder radius instead of 6
+    { id: "D", text: "$5{,}429$" }
   ],
   correctAnswer: "A",
-  explanation: "**SAT Pattern: Composite Solid — Cube Minus Inscribed Sphere**\n\n**Choice A is correct.**\n\n**The Fast Way (~40s):** $V_{\\text{cube}} = 512{,}000$. $V_{\\text{sphere}} = (4/3)\\pi(40)^3 \\approx 268{,}083$. Difference $\\approx 243{,}917$.\n\n**Why the wrong answers are tempting:**\n* B: sphere only.\n* C: wrong formula.\n* D: cube only.\n\n**Test Day Takeaway:** Inscribed sphere $\\Rightarrow$ sphere diameter equals cube edge.",
-  skills: ["volume-sphere", "volume-prism"]
+  explanation: "**SAT Pattern: Inscribed Solid Volume**\n\n**Choice A is correct.**\n\n**The Fast Way (~40s):** The largest inscribed cylinder has radius $= \\dfrac{12}{2} = 6$ and height $= 12$. $V_{\\text{cyl}} = \\pi(6)^2(12) = 432\\pi \\approx 1{,}357$. Remaining $= 1{,}728 - 1{,}357 = 371$.\n\n**The Full Solution:**\nThe cube has edge $12$, so $V_{\\text{cube}} = 12^3 = 1{,}728$ cubic centimeters.\nThe largest cylinder that fits with its bases on opposite faces has height equal to the edge, $h = 12$, and its curved surface touches the four side faces, so its diameter equals the edge: radius $r = 6$.\n$V_{\\text{cyl}} = \\pi r^2 h = \\pi (6)^2 (12) = 432\\pi \\approx 1{,}357.17$.\nRemaining volume $= 1{,}728 - 1{,}357.17 \\approx 370.83$, which rounds to $371$ cubic centimeters.\n\n**Why the wrong answers are tempting:**\n* Choice B: reports the carved-out cylinder's volume ($\\approx 1{,}357$) instead of what remains.\n* Choice C: gives the full cube volume ($1{,}728$) without subtracting the cylinder.\n* Choice D: uses the cube edge $12$ as the radius instead of $6$, inflating the cylinder.\n\n**Test Day Takeaway:** For the largest cylinder inside a cube, radius $=$ half the edge and height $=$ the edge. Subtract the carved solid from the whole to get the remainder.",
+  skills: ["volume-cylinder", "volume-prism"]
 },
 {
   id: 21,
@@ -787,12 +813,15 @@ export const practiceTest2 = {
   question: "The function $P$ is defined by $P(t) = 380(1.05)^{(8/6)t}$ and models the population of a certain city $t$ years after $2005$. According to the model, the population is predicted to increase by $5\\%$ every $n$ months. What is the value of $n$?",
   choices: [
     { id: "A", text: "$9$" },
+    // distractor: ignores the (8/6) exponent factor and assumes the 5% applies once per 12-month year
     { id: "B", text: "$12$" },
+    // distractor: inverts the exponent factor, using 6/8 of 12 months reciprocally to get 16
     { id: "C", text: "$16$" },
+    // distractor: multiplies the 9-month period by the unrelated base years instead of stopping
     { id: "D", text: "$72$" }
   ],
   correctAnswer: "A",
-  explanation: "**SAT Pattern: Period of Exponential Growth**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** $\\dfrac{8t}{6}$ increases by $1$ when $t$ increases by $\\dfrac{6}{8} = \\dfrac{3}{4}$ year $= 9$ months.\n\n**Why the wrong answers are tempting:**\n* B: forgets fractional exponent.\n* C/D: misreads $6/8$ as $8/6$.\n\n**Test Day Takeaway:** $(1+r)^{kt}$ advances once per $1/k$ in $t$.",
+  explanation: "**SAT Pattern: Exponential Growth/Decay**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** $\\dfrac{8t}{6}$ increases by $1$ when $t$ increases by $\\dfrac{6}{8} = \\dfrac{3}{4}$ year $= 9$ months.\n\n**Why the wrong answers are tempting:**\n* B: forgets fractional exponent.\n* C/D: misreads $6/8$ as $8/6$.\n\n**Test Day Takeaway:** $(1+r)^{kt}$ advances once per $1/k$ in $t$.",
   skills: ["exponential-functions", "function-interpretation"]
 }
       ]

@@ -600,17 +600,34 @@ export function loadPdfCorpus({ requireCache = true, dir = PDF_TEXT_DIR } = {}) 
 const LINT_BAND_MIN = 1;
 const LINT_BAND_MAX = 7;
 
-// Module 2 difficulty ordering for the easy-ramp structure:
-//   * Positions 1-3: 3 easy openers (band 1-3) — matches CB practice tests 4-11.
-//   * Positions 4-6: 3 medium ramp-up (band 4-5).
-//   * Position 7+: hards interleaved with the remaining mediums.
-// Mediums beyond position 6 are placed at positions in M2_MEDIUM_ALLOWED_POSITIONS.
-// The standard pattern (10 of 12 tests) uses [8, 10, 16]; the smoothed pattern
-// (T5, T6) uses [8, 9, 11] for a less steep ramp. Both are accepted.
+// Module 2 difficulty flow — Bluebook-hard "wavy" contract (2026-06 revision).
+// Derived from an official-style hard-M2 exemplar: a gentle warm-up, an optional
+// mid-module breather, hard closers, and a coarse upward band ramp — but NO fixed
+// archetype-to-slot mapping, so forms can vary their flow shape test-to-test.
+//   * Q1 must be easy or medium (warm-up opener; never hard).
+//   * 2-4 easy items total: at least 2 within Q1-7, at most 1 within Q8-20
+//     (the breather), none at Q21-22.
+//   * 5-9 medium items.
+//   * >= 10 hard items; Q21 and Q22 must be hard; at least 4 of Q17-22 hard.
+//   * Coarse ramp: mean band of Q1-5 must be below mean band of Q18-22.
+export const M2_FLOW = {
+  easyMin: 2,
+  easyMax: 4,
+  earlyEasyZoneEnd: 7,   // easies counted toward earlyEasyMin live in Q1..7
+  earlyEasyMin: 2,
+  breatherZone: [8, 20], // at most one easy allowed here
+  closerZone: [21, 22],  // must be hard
+  mediumMin: 5,
+  mediumMax: 9,
+  hardMin: 10,
+  lateHardZone: [17, 22],
+  lateHardMin: 4,
+};
+// Legacy positional exports kept for consumers of the pre-2026-06 easy-ramp
+// (reorderModule2.mjs). The lint no longer enforces these positions.
 export const M2_EASY_POSITIONS = [1, 2, 3];
 export const M2_MEDIUM_REQUIRED_POSITIONS = [4, 5, 6];
 export const M2_MEDIUM_ALLOWED_POSITIONS = new Set([4, 5, 6, 8, 9, 10, 11, 16]);
-// Kept for back-compat with consumers that import the legacy name.
 export const M2_MEDIUM_PRIORITY_POSITIONS = [4, 5, 6, 8, 10, 16];
 
 const APPROVED_PATTERN_NAMES = new Set([
@@ -683,6 +700,25 @@ const APPROVED_PATTERN_NAMES = new Set([
   'Composite Solid Surface Area',
   'Percent Greater Than',
   'Function Composition Inverse',
+  // Added for the 2026-06 M2 flow diversification (difficult-question infusion).
+  'Radian-Degree Conversion',
+  'Inscribed Solid Volume',
+  'Grouped Data — Mean Bounds',
+  'Rational Function Transformation',
+  'Special Right Triangle — 45-45-90',
+  'Special Right Triangle — 30-60-90',
+  'Coterminal Angles — Unit Circle',
+  'Successive Percent Changes',
+  'Radical Function Parameter Analysis',
+  'Quadratic Formula — Discriminant Form',
+  'Unit Conversion — Squared Units',
+  'Equilateral Triangle — Circumradius',
+  'Radical Equation — Substitution',
+  'Linear Inequality from Context',
+  'Line-Parabola Intersection Count',
+  'Linear Equation Solution Count',
+  'Quadratic Coefficients from Graph',
+  'Circle Radius and Isosceles Right Triangle',
   // Bulk-added for Tests 2-12 recalibration propagation
   "3D Composite Solid Surface Area",
   "3D Scaling — Volume Ratio",
@@ -1417,37 +1453,71 @@ export function lintPracticeTest({ testN, qbankItems, pdfCorpus }) {
       }
     });
 
-    // Rule 9 — M2 difficulty ramp ordering (only Module 2 / mi === 1).
-    // Easy-ramp structure: 3 easies (positions 1-3), 3 mediums (positions 4-6),
-    // then hards interleaved with the remaining mediums in the allowed positions.
+    // Rule 9 — M2 difficulty flow (Bluebook-hard wavy contract; only mi === 1).
+    // Count-based, not position-locked: forms vary their flow shape, the lint
+    // checks the envelope (warm-up opener, early easies, one breather max,
+    // hard closers, medium/hard totals, coarse band ramp).
     if (mi === 1 && qs.length > 0) {
-      const easySet = new Set(M2_EASY_POSITIONS);
-      const requiredMedSet = new Set(M2_MEDIUM_REQUIRED_POSITIONS);
-      for (let i = 0; i < qs.length; i++) {
-        const q = qs[i];
-        if (!q) continue;
-        const pos = i + 1;
+      const F = M2_FLOW;
+      const lineFor = (pos) => {
         const lineEntry = lineIndex.find(e => e.moduleIndex === 1 && e.modulePosition === pos);
-        const startLine = lineEntry ? lineEntry.startLine : 1;
-        if (easySet.has(pos)) {
-          if (q.difficulty !== 'easy') {
-            push(startLine, 'm2-difficulty-order',
-              `module 2 Q${pos} difficulty=${q.difficulty} but easy-ramp expects easy at positions [${M2_EASY_POSITIONS.join(', ')}]`);
-          }
-        } else if (requiredMedSet.has(pos)) {
-          if (q.difficulty !== 'medium') {
-            push(startLine, 'm2-difficulty-order',
-              `module 2 Q${pos} difficulty=${q.difficulty} but easy-ramp expects medium at positions [${M2_MEDIUM_REQUIRED_POSITIONS.join(', ')}]`);
-          }
-        } else {
-          // Past position 6: must be medium (in allowed positions) or hard.
-          if (q.difficulty === 'easy') {
-            push(startLine, 'm2-difficulty-order',
-              `module 2 Q${pos} difficulty=easy but only allowed at positions [${M2_EASY_POSITIONS.join(', ')}]`);
-          } else if (q.difficulty === 'medium' && !M2_MEDIUM_ALLOWED_POSITIONS.has(pos)) {
-            push(startLine, 'm2-difficulty-order',
-              `module 2 Q${pos} difficulty=medium but allowed only at positions [${[...M2_MEDIUM_ALLOWED_POSITIONS].join(', ')}]`);
-          }
+        return lineEntry ? lineEntry.startLine : 1;
+      };
+      const diffs = qs.map(q => (q ? q.difficulty : null));
+      const easyPositions = [];
+      diffs.forEach((d, i) => { if (d === 'easy') easyPositions.push(i + 1); });
+      const mediumCount = diffs.filter(d => d === 'medium').length;
+      const hardCount = diffs.filter(d => d === 'hard').length;
+
+      if (diffs[0] === 'hard') {
+        push(lineFor(1), 'm2-difficulty-order',
+          'module 2 Q1 must be easy or medium (warm-up opener), got hard');
+      }
+      if (easyPositions.length < F.easyMin || easyPositions.length > F.easyMax) {
+        push(lineFor(easyPositions[0] || 1), 'm2-difficulty-order',
+          `module 2 has ${easyPositions.length} easy items; flow contract expects ${F.easyMin}-${F.easyMax}`);
+      }
+      const earlyEasy = easyPositions.filter(p => p <= F.earlyEasyZoneEnd).length;
+      if (earlyEasy < F.earlyEasyMin) {
+        push(lineFor(1), 'm2-difficulty-order',
+          `module 2 has ${earlyEasy} easy items in Q1-${F.earlyEasyZoneEnd}; flow contract expects at least ${F.earlyEasyMin}`);
+      }
+      const breatherEasies = easyPositions.filter(
+        p => p >= F.breatherZone[0] && p <= F.breatherZone[1]);
+      if (breatherEasies.length > 1) {
+        push(lineFor(breatherEasies[1]), 'm2-difficulty-order',
+          `module 2 has ${breatherEasies.length} easy items in Q${F.breatherZone[0]}-${F.breatherZone[1]}; at most 1 breather allowed`);
+      }
+      for (const pos of [F.closerZone[0], F.closerZone[1]]) {
+        if (qs[pos - 1] && diffs[pos - 1] !== 'hard') {
+          push(lineFor(pos), 'm2-difficulty-order',
+            `module 2 Q${pos} must be hard (closer), got ${diffs[pos - 1]}`);
+        }
+      }
+      if (mediumCount < F.mediumMin || mediumCount > F.mediumMax) {
+        push(lineFor(1), 'm2-difficulty-order',
+          `module 2 has ${mediumCount} medium items; flow contract expects ${F.mediumMin}-${F.mediumMax}`);
+      }
+      if (hardCount < F.hardMin) {
+        push(lineFor(1), 'm2-difficulty-order',
+          `module 2 has ${hardCount} hard items; flow contract expects at least ${F.hardMin}`);
+      }
+      const lateHard = diffs
+        .slice(F.lateHardZone[0] - 1, F.lateHardZone[1])
+        .filter(d => d === 'hard').length;
+      if (qs.length >= F.lateHardZone[1] && lateHard < F.lateHardMin) {
+        push(lineFor(F.lateHardZone[0]), 'm2-difficulty-order',
+          `module 2 has ${lateHard} hard items in Q${F.lateHardZone[0]}-${F.lateHardZone[1]}; flow contract expects at least ${F.lateHardMin}`);
+      }
+      // Coarse band ramp: head must sit below tail. Skip when bands are
+      // missing/malformed — the band-missing/band-range rules already fire.
+      if (qs.length >= 22 && qs.every(q => q && Number.isInteger(q.band))) {
+        const mean = (arr) => arr.reduce((a, b) => a + b, 0) / arr.length;
+        const head = mean(qs.slice(0, 5).map(q => q.band));
+        const tail = mean(qs.slice(17, 22).map(q => q.band));
+        if (head >= tail) {
+          push(lineFor(1), 'm2-difficulty-order',
+            `module 2 band ramp inverted: mean band Q1-5 (${head.toFixed(1)}) must be below mean band Q18-22 (${tail.toFixed(1)})`);
         }
       }
     }

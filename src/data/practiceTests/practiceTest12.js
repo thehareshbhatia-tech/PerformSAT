@@ -26,19 +26,19 @@ export const practiceTest12 = {
   type: "multiple-choice",
   difficulty: "easy",
   band: 3,
-  question: "A function $h$ is defined by $h(x) = -2x + 9$. What is the value of $h(3) + 5$?",
+  question: "A jar contains $60$ marbles. If $40\\%$ of the marbles are blue, how many marbles are NOT blue?",
   choices: [
-    // distractor: stops one step early — gives $h(3) = 3$ without adding $5$
-    { id: "A", text: "$3$" },
-    { id: "B", text: "$8$" },
-    // distractor: drops the negative sign — computes $2(3) + 9 + 5 = 20$
-    { id: "C", text: "$20$" },
-    // distractor: applies the inverse operation — subtracts $5$ instead of adding
-    { id: "D", text: "$-2$" }
+    // distractor: stops one step early — gives the count of blue marbles ($24$) instead of NOT blue
+    { id: "A", text: "$24$" },
+    // distractor: applies the inverse operation — uses 40% of 60 minus 40 (treats percent as count)
+    { id: "B", text: "$20$" },
+    { id: "C", text: "$36$" },
+    // distractor: wrong base — reads 40% as 40 marbles directly
+    { id: "D", text: "$40$" }
   ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Function Evaluation**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** $h(3) = -2(3) + 9 = -6 + 9 = 3$. Then $h(3) + 5 = 3 + 5 = 8$.\n\n**The Full Solution:**\nSubstitute $x = 3$: $h(3) = -2(3) + 9 = -6 + 9 = 3$.\nAdd $5$: $h(3) + 5 = 3 + 5 = 8$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives $h(3) = 3$ but forgets to add $5$.\n* Choice C: \"applies the inverse operation\" — drops the negative sign on the slope ($2(3) + 9 + 5 = 20$).\n* Choice D: \"applies the inverse operation\" — subtracts $5$ instead of adding ($3 - 5 = -2$).\n\n**Test Day Takeaway:** Always re-read the LAST step. After evaluating a function, check whether the question wants the function value or some shifted version of it.",
-  skills: ["function-interpretation"]
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Percent Complement**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** If $40\\%$ are blue, then $60\\%$ are not blue. ${}0.60 \\times 60 = 36$.\n\n**The Full Solution:**\nBlue marbles: ${}0.40 \\times 60 = 24$. Not blue: $60 - 24 = 36$.\n\nVerification: $24 + 36 = 60$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — computes the number of blue marbles ($24$) instead of the not-blue count.\n* Choice B: \"applies the inverse operation\" — confuses $40\\%$ with $\\dfrac{40}{60}$ or treats the percent as the count.\n* Choice D: \"wrong base\" — reads $40\\%$ as $40$ marbles directly.\n\n**Test Day Takeaway:** For the complement, use $100\\% - \\text{given}\\%$, or subtract the count from the total.",
+  skills: ["percents"]
 },
 {
   id: 2,
@@ -83,18 +83,18 @@ export const practiceTest12 = {
   type: "multiple-choice",
   difficulty: "easy",
   band: 3,
-  question: "If $5x + 12 = 47$, what is the value of $5x - 12$?",
+  question: "If $8x + 5 = 53$, what is the value of $8x - 5$?",
   choices: [
     // distractor: stops one step early — reports the value of $x$
-    { id: "A", text: "$7$" },
-    // distractor: gives $5x = 35$ but forgets to subtract 12
-    { id: "B", text: "$35$" },
-    { id: "C", text: "$23$" },
-    // distractor: applies the inverse operation — adds 12 instead of subtracting
-    { id: "D", text: "$47$" }
+    { id: "A", text: "$6$" },
+    // distractor: gives $8x = 48$ but forgets to subtract 5
+    { id: "B", text: "$48$" },
+    { id: "C", text: "$43$" },
+    // distractor: applies the inverse operation — re-uses the given total
+    { id: "D", text: "$53$" }
   ],
   correctAnswer: "C",
-  explanation: "**SAT Pattern: Shifted Output**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** From $5x + 12 = 47$, $5x = 35$. So $5x - 12 = 35 - 12 = 23$.\n\n**The Full Solution:**\n$5x + 12 = 47$\n$5x = 35$\n$5x - 12 = 35 - 12 = 23$.\n\nNote: you do not need to find $x$ explicitly — the requested expression differs from the given one by exactly $-24$, so $47 - 24 = 23$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — solves for $x$ ($x = 7$) and reports it instead of $5x - 12$.\n* Choice B: \"stops one step early\" — gives $5x = 35$ and forgets to subtract $12$.\n* Choice D: \"applies the inverse operation\" — re-uses the given total $47$.\n\n**Test Day Takeaway:** Read the LAST sentence carefully. The question often asks for a related expression (like $5x - 12$), not the variable itself.",
+  explanation: "**SAT Pattern: Shifted Output**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** From $8x + 5 = 53$, $8x = 48$. So $8x - 5 = 48 - 5 = 43$.\n\n**The Full Solution:**\n$8x + 5 = 53$\n$8x = 48$\n$8x - 5 = 48 - 5 = 43$.\n\nNote: you do not need to find $x$ explicitly — the requested expression differs from the given one by exactly $-10$, so $53 - 10 = 43$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — solves for $x$ ($x = 6$) and reports it instead of $8x - 5$.\n* Choice B: \"stops one step early\" — gives $8x = 48$ and forgets to subtract $5$.\n* Choice D: \"applies the inverse operation\" — re-uses the given total $53$.\n\n**Test Day Takeaway:** Read the LAST sentence carefully. The question often asks for a related expression (like $8x - 5$), not the variable itself.",
   skills: ["solving-equations"]
 },
 {
@@ -102,19 +102,19 @@ export const practiceTest12 = {
   type: "multiple-choice",
   difficulty: "easy",
   band: 3,
-  question: "A jar contains $60$ marbles. If $40\\%$ of the marbles are blue, how many marbles are NOT blue?",
+  question: "A function $h$ is defined by $h(x) = -2x + 9$. What is the value of $h(3) + 5$?",
   choices: [
-    // distractor: stops one step early — gives the count of blue marbles ($24$) instead of NOT blue
-    { id: "A", text: "$24$" },
-    // distractor: applies the inverse operation — uses 40% of 60 minus 40 (treats percent as count)
-    { id: "B", text: "$20$" },
-    { id: "C", text: "$36$" },
-    // distractor: wrong base — reads 40% as 40 marbles directly
-    { id: "D", text: "$40$" }
+    // distractor: stops one step early — gives $h(3) = 3$ without adding $5$
+    { id: "A", text: "$3$" },
+    { id: "B", text: "$8$" },
+    // distractor: drops the negative sign — computes $2(3) + 9 + 5 = 20$
+    { id: "C", text: "$20$" },
+    // distractor: applies the inverse operation — subtracts $5$ instead of adding
+    { id: "D", text: "$-2$" }
   ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Percent Complement**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** If $40\\%$ are blue, then $60\\%$ are not blue. ${}0.60 \\times 60 = 36$.\n\n**The Full Solution:**\nBlue marbles: ${}0.40 \\times 60 = 24$. Not blue: $60 - 24 = 36$.\n\nVerification: $24 + 36 = 60$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — computes the number of blue marbles ($24$) instead of the not-blue count.\n* Choice B: \"applies the inverse operation\" — confuses $40\\%$ with $\\dfrac{40}{60}$ or treats the percent as the count.\n* Choice D: \"wrong base\" — reads $40\\%$ as $40$ marbles directly.\n\n**Test Day Takeaway:** For the complement, use $100\\% - \\text{given}\\%$, or subtract the count from the total.",
-  skills: ["percents"]
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Function Evaluation**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** $h(3) = -2(3) + 9 = -6 + 9 = 3$. Then $h(3) + 5 = 3 + 5 = 8$.\n\n**The Full Solution:**\nSubstitute $x = 3$: $h(3) = -2(3) + 9 = -6 + 9 = 3$.\nAdd $5$: $h(3) + 5 = 3 + 5 = 8$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives $h(3) = 3$ but forgets to add $5$.\n* Choice C: \"applies the inverse operation\" — drops the negative sign on the slope ($2(3) + 9 + 5 = 20$).\n* Choice D: \"applies the inverse operation\" — subtracts $5$ instead of adding ($3 - 5 = -2$).\n\n**Test Day Takeaway:** Always re-read the LAST step. After evaluating a function, check whether the question wants the function value or some shifted version of it.",
+  skills: ["function-interpretation"]
 },
 {
   id: 6,
@@ -254,18 +254,18 @@ export const practiceTest12 = {
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
-  question: "A right circular cylinder has a radius of $4$ centimeters and a height of $9$ centimeters. The volume of the cylinder, in cubic centimeters, can be expressed as $k\\pi$. What is the value of $k$?",
+  question: "A right circular cylinder has a radius of $6$ centimeters and a height of $7$ centimeters. The volume of the cylinder, in cubic centimeters, can be expressed as $k\\pi$. What is the value of $k$?",
   choices: [
-    // distractor: forgets to square the radius — uses $\pi r h = 36\pi$
-    { id: "A", text: "$36$" },
+    // distractor: forgets to square the radius — uses $\pi r h = 42\pi$
+    { id: "A", text: "$42$" },
     // distractor: uses cone formula $\\frac{1}{3} \pi r^2 h$ instead of cylinder
-    { id: "B", text: "$48$" },
-    // distractor: doubles the radius before squaring (uses $r = 8$)
-    { id: "C", text: "$72$" },
-    { id: "D", text: "$144$" }
+    { id: "B", text: "$84$" },
+    // distractor: doubles the radius before squaring (uses $r = 12$)
+    { id: "C", text: "$1008$" },
+    { id: "D", text: "$252$" }
   ],
   correctAnswer: "D",
-  explanation: "**SAT Pattern: Cylinder Volume**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** $V = \\pi r^2 h = \\pi (4)^2 (9) = 16 \\cdot 9 \\pi = 144\\pi$. So $k = 144$.\n\n**The Full Solution:**\nThe volume formula for a right circular cylinder is $V = \\pi r^2 h$.\nWith $r = 4$ cm and $h = 9$ cm:\n$V = \\pi (4)^2 (9) = \\pi (16)(9) = 144\\pi$ cubic centimeters.\nSo $k = 144$.\n\nVerification: $16 \\cdot 9 = 144$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — uses $\\pi r h$ ($r$ to the first power) and gets $36$.\n* Choice B: \"wrong base\" — uses cone formula $\\dfrac{1}{3}\\pi r^2 h$, giving $48$.\n* Choice C: \"applies the inverse operation\" — doubles the radius before squaring (uses $r = 8$, gets $r^2 = 64 \\cdot \\dots$ then mis-arithmetic to $72$).\n\n**Test Day Takeaway:** For a cylinder, square the radius FIRST, then multiply by the height. $V = \\pi r^2 h$ is on the SAT Reference Sheet.",
+  explanation: "**SAT Pattern: Cylinder Volume**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** $V = \\pi r^2 h = \\pi (6)^2 (7) = 36 \\cdot 7 \\pi = 252\\pi$. So $k = 252$.\n\n**The Full Solution:**\nThe volume formula for a right circular cylinder is $V = \\pi r^2 h$.\nWith $r = 6$ cm and $h = 7$ cm:\n$V = \\pi (6)^2 (7) = \\pi (36)(7) = 252\\pi$ cubic centimeters.\nSo $k = 252$.\n\nVerification: $36 \\cdot 7 = 252$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — uses $\\pi r h$ ($r$ to the first power) and gets $42$.\n* Choice B: \"wrong base\" — uses cone formula $\\dfrac{1}{3}\\pi r^2 h$, giving $84$.\n* Choice C: \"applies the inverse operation\" — doubles the radius before squaring (uses $r = 12$, so $r^2 = 144$ and $144 \\cdot 7 = 1008$).\n\n**Test Day Takeaway:** For a cylinder, square the radius FIRST, then multiply by the height. $V = \\pi r^2 h$ is on the SAT Reference Sheet.",
   skills: ["volume", "geometry"]
 },
 {
@@ -410,41 +410,26 @@ export const practiceTest12 = {
       timeLimit: 35,
       questions: [
 // Practice Test 12 — Math Module 2 (22 questions)
-// Distribution: 3E / 6M / 13H with band-8 ceiling on Q11, Q18.
-// Calibrated to Bluebook Module 2 Hard (Q11 polynomial w/ 4 zeros find coefficient, Q18 Vieta's product-sum).
+// Distribution: 3E / 7M / 12H. Wavy flow: easies at Q1/Q2/Q8 (Q8 breather),
+// mediums at Q3/Q4/Q5/Q10/Q11/Q14/Q19, hards at Q6/Q7/Q9/Q12/Q13/Q15/Q16/Q17/Q18/Q20/Q21/Q22.
+// Pool infusions (transformed): successive percent (Q5), no-solution system (Q6),
+// radical-function parameter (Q9), composite prism surface area (Q15), equilateral
+// circumradius (Q17), discriminant no-real-solutions (Q18). Palette: apiary scales,
+// canoe rentals, neon-sign fabrication, library archives, telescope mirrors, sled-dog training.
 
 {
   id: 1,
   type: "multiple-choice",
   difficulty: "easy",
   band: 2,
-  question: "A pizza oven is turned off after a long bake and begins to cool. The oven's interior temperature drops at a constant rate of $4$ degrees Fahrenheit per minute as it loses heat to the surrounding room. Which type of function best models the relationship between the oven's interior temperature and the time elapsed since it was turned off?",
-  choices: [
-    // distractor: confuses constant rate with multiplicative decay
-    { id: "A", text: "Decreasing exponential" },
-    { id: "B", text: "Decreasing linear" },
-    // distractor: sign error — \"cooling\" is decreasing
-    { id: "C", text: "Increasing linear" },
-    // distractor: combines wrong type with wrong direction
-    { id: "D", text: "Increasing exponential" }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Classify Physical Motion Model**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** \"Constant rate\" + \"drops\" $\\Rightarrow$ decreasing linear. Each minute removes the same $4$ degrees, so the change per unit time is constant.\n\n**The Full Solution:**\nThe defining feature of a LINEAR function is constant rate of change. \"$4$ degrees per minute\" describes exactly that — same amount lost each minute. Because the oven is COOLING (temperature decreasing), the slope is negative.\n\nA model would be $T(t) = T_0 - 4t$, where $T_0$ is the oven's starting temperature.\n\nVerification: at $t = 0$, $T = T_0$; at $t = 1$, $T = T_0 - 4$; at $t = 2$, $T = T_0 - 8$. Differences: $-4, -4$ — constant \\checkmark.\n\n(Note: real cooling toward room temperature is exponential, with the rate decreasing as the temperature approaches the ambient. The problem specifies CONSTANT rate, so linear is the intended model.)\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong formula\" — exponential decay loses a PERCENT of the current temperature each minute, so the absolute amount lost each minute would shrink as $T$ shrinks. But the problem fixes the rate at $4$ degrees per minute, so it's linear.\n* Choice C: \"sign error\" — \"cooling\" means temperature DECREASES, so the slope is negative.\n* Choice D: \"wrong direction AND wrong type\" — combines both errors.\n\n**Test Day Takeaway:** \"Constant rate of X per unit\" $\\Rightarrow$ LINEAR (regardless of physical plausibility). \"Constant fraction/percent per unit\" $\\Rightarrow$ EXPONENTIAL. Read the rate language carefully.",
-  skills: ["function-interpretation", "linear-functions"]
-},
-{
-  id: 2,
-  type: "multiple-choice",
-  difficulty: "easy",
-  band: 2,
   question: "A right triangle has legs of length $6$ and $8$. What is the area of the triangle?",
   choices: [
-    // distractor: stops one step early - sums the legs
+    // distractor: stops one step early — sums the legs instead of using the area formula
     { id: "A", text: "$14$" },
     { id: "B", text: "$24$" },
-    // distractor: forgets the 1/2 factor in area formula
+    // distractor: forgets the 1/2 factor in the area formula
     { id: "C", text: "$48$" },
-    // distractor: gives the hypotenuse squared (used Pythagorean instead)
+    // distractor: gives the hypotenuse squared (applied the Pythagorean theorem instead)
     { id: "D", text: "$100$" }
   ],
   correctAnswer: "B",
@@ -452,26 +437,26 @@ export const practiceTest12 = {
   skills: ["geometry", "area", "triangles"]
 },
 {
-  id: 3,
+  id: 2,
   type: "multiple-choice",
   difficulty: "easy",
-  band: 2,
-  question: "An office printer is being used continuously throughout the workday. The function $T(p) = -0.3p + 50$ approximates the volume, in milliliters, of toner remaining in the printer's cartridge after printing $p$ pages. Which statement is the best interpretation of the $y$-intercept of the graph of $y = T(p)$ in the $py$-plane in this context?",
+  band: 3,
+  question: "A technician polishes a telescope mirror, removing a thin film of coating with each pass of the polishing arm. The function $M(n) = -0.4n + 120$ gives the thickness, in micrometers, of coating remaining on the mirror after $n$ polishing passes. Which statement is the best interpretation of the $y$-intercept of the graph of $y = M(n)$ in the $ny$-plane in this context?",
   choices: [
-    // distractor: confuses slope (rate) with y-intercept (initial)
-    { id: "A", text: "The cartridge used approximately $50$ milliliters of toner for each page printed." },
-    // distractor: swaps slope and intercept
-    { id: "B", text: "The cartridge held approximately $0.3$ milliliters of toner before printing began." },
-    { id: "C", text: "The cartridge held approximately $50$ milliliters of toner before printing began." },
-    // distractor: combines both confusions
-    { id: "D", text: "The cartridge used approximately $0.3$ milliliters of toner for each page printed." }
+    // distractor: wrong base and wrong unit — treats the initial total as a per-pass rate
+    { id: "A", text: "The mirror lost about $120$ micrometers of coating with each polishing pass." },
+    // distractor: swaps slope and intercept — uses the rate's magnitude as the starting amount
+    { id: "B", text: "The mirror had about $0.4$ micrometers of coating before polishing began." },
+    { id: "C", text: "The mirror had about $120$ micrometers of coating before polishing began." },
+    // distractor: correct description of the slope, but the question asks about the intercept
+    { id: "D", text: "The mirror lost about $0.4$ micrometers of coating with each polishing pass." }
   ],
   correctAnswer: "C",
-  explanation: "**SAT Pattern: Interpret Initial Value in Context**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** $y$-intercept of $T(p) = -0.3p + 50$ is $T(0) = 50$. At $p = 0$ (no pages printed yet), toner $\\approx 50$ mL.\n\n**The Full Solution:**\nThe $y$-intercept of a linear function $T(p) = mp + b$ is $b$, the value at $p = 0$. Here $b = 50$, and $p$ counts pages printed, so $p = 0$ corresponds to BEFORE any printing began. The cartridge started with about $50$ mL of toner.\n\nVerification: at $p = 0$, $T = 50$ ✓. At $p = 100$, $T = 50 - 30 = 20$ — about $30$ mL used over $100$ pages, confirming the slope of $0.3$ mL per page \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base AND wrong unit\" — treats the initial total as a per-page rate. At $50$ mL per page the cartridge would empty in a single print job.\n* Choice B: \"swaps coefficients\" — uses the slope's magnitude as the starting amount.\n* Choice D: \"correct interpretation of slope, wrong question\" — accurately describes the slope, but the question asks about the $y$-intercept (initial value, not rate).\n\n**Test Day Takeaway:** In $f(p) = mp + b$ contextual problems: $b$ (the $y$-intercept) is the INITIAL value at $p = 0$. $m$ (the slope) is the per-unit RATE. The question's wording (\"$y$-intercept\" vs \"slope/rate\") tells you which to report.",
+  explanation: "**SAT Pattern: Interpret Intercept in Context**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** The $y$-intercept of $M(n) = -0.4n + 120$ is $M(0) = 120$. At $n = 0$ (no passes yet), the coating $\\approx 120$ micrometers.\n\n**The Full Solution:**\nThe $y$-intercept of a linear function $M(n) = mn + b$ is $b$, its value at $n = 0$. Here $b = 120$, and $n$ counts polishing passes, so $n = 0$ corresponds to BEFORE any polishing began. The mirror started with about $120$ micrometers of coating.\n\nVerification: at $n = 0$, $M = 120$ \\checkmark. At $n = 100$, $M = 120 - 40 = 80$ — about $40$ micrometers removed over $100$ passes, confirming the rate of $0.4$ micrometers per pass \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base AND wrong unit\" — treats the starting total as a per-pass rate. At $120$ micrometers per pass the coating would vanish in a single pass.\n* Choice B: \"swaps coefficients\" — uses the slope's magnitude as the starting amount.\n* Choice D: \"correct interpretation of the slope, wrong question\" — accurately describes the rate, but the question asks for the $y$-intercept (the initial value, not the rate).\n\n**Test Day Takeaway:** In $f(n) = mn + b$ contextual problems, $b$ (the $y$-intercept) is the INITIAL value at $n = 0$ and $m$ (the slope) is the per-unit RATE. Let the wording (\"$y$-intercept\" vs \"slope/rate\") tell you which to report.",
   skills: ["function-interpretation", "linear-functions"]
 },
 {
-  id: 4,
+  id: 3,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -480,28 +465,28 @@ export const practiceTest12 = {
     { id: "A", text: "$6$" },
     // distractor: computes $3(2) + 5 = 11$, substituting into the wrong expression
     { id: "B", text: "$11$" },
-    // distractor: computes $a + 10 = 16$ but forgets to subtract $10$
+    // distractor: uses $a + 10 = 16$ but forgets to subtract $10$
     { id: "C", text: "$16$" },
-    // distractor: sign error
+    // distractor: sign error on the final step
     { id: "D", text: "$-4$" }
   ],
   correctAnswer: "A",
-  explanation: "**SAT Pattern: Rational Equation with No Solution**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Multiply both sides by $(x - 2)$: $a = 3x + 5(x - 2) = 8x - 10$. The unique algebraic solution is $x = \\dfrac{a + 10}{8}$. For NO solution, this must equal the excluded value $x = 2$: $a = 8(2) - 10 = 6$.\n\n**The Full Solution:**\nExcluded value: $x = 2$ (denominator zero).\nMultiply both sides by $(x - 2)$: $a = 3x + 5(x - 2) = 8x - 10$, so $x = \\dfrac{a + 10}{8}$.\n\nFor no solution, the algebraic root must equal the excluded value:\n$\\dfrac{a + 10}{8} = 2 \\Rightarrow a + 10 = 16 \\Rightarrow a = 6$.\n\nVerify: with $a = 6$, equation reduces to $x = 2$, but $x = 2$ is excluded — no solution \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"wrong base\" — computes $3(2) + 5 = 11$.\n* Choice C: \"stops one step early\" — uses $a + 10 = 16$ but forgets to subtract $10$.\n* Choice D: \"applies the inverse operation\" — sign error.\n\n**Test Day Takeaway:** A rational equation has NO solution when the only algebraic root is an excluded value. Find that excluded value, plug it in, then solve for the parameter.",
+  explanation: "**SAT Pattern: Rational Equation with No Solution**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Multiply both sides by $(x - 2)$: $a = 3x + 5(x - 2) = 8x - 10$. The unique algebraic solution is $x = \\dfrac{a + 10}{8}$. For NO solution, this must equal the excluded value $x = 2$: $a = 8(2) - 10 = 6$.\n\n**The Full Solution:**\nExcluded value: $x = 2$ (denominator zero).\nMultiply both sides by $(x - 2)$: $a = 3x + 5(x - 2) = 8x - 10$, so $x = \\dfrac{a + 10}{8}$.\n\nFor no solution, the algebraic root must equal the excluded value:\n$\\dfrac{a + 10}{8} = 2 \\Rightarrow a + 10 = 16 \\Rightarrow a = 6$.\n\nVerify: with $a = 6$, the equation reduces to $x = 2$, but $x = 2$ is excluded — no solution \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"wrong base\" — computes $3(2) + 5 = 11$.\n* Choice C: \"stops one step early\" — uses $a + 10 = 16$ but forgets to subtract $10$.\n* Choice D: \"applies the inverse operation\" — sign error on the final step.\n\n**Test Day Takeaway:** A rational equation has NO solution when its only algebraic root is an excluded value. Find that excluded value, plug it in, then solve for the parameter.",
   skills: ["solving-equations"]
 },
 {
-  id: 5,
+  id: 4,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
   question: "A line in the $xy$-plane passes through the point $(2, -1)$ and is perpendicular to the line $4x - 3y = 12$. What is the $y$-intercept of this line?",
   choices: [
     { id: "A", text: "$\\dfrac{1}{2}$" },
-    // distractor: sign error in the calculation
+    // distractor: sign error in the final arithmetic
     { id: "B", text: "$-\\dfrac{1}{2}$" },
     // distractor: uses the original slope instead of the perpendicular one
     { id: "C", text: "$\\dfrac{7}{4}$" },
-    // distractor: multiple sign and arithmetic errors
+    // distractor: multiple sign and arithmetic slips
     { id: "D", text: "$-\\dfrac{7}{4}$" }
   ],
   correctAnswer: "A",
@@ -509,23 +494,33 @@ export const practiceTest12 = {
   skills: ["slope", "coordinate-geometry"]
 },
 {
-  id: 6,
+  id: 5,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
-  question: "The table shows the distribution of students by grade and club membership.\n\n| | In a Club | Not in a Club | Total |\n|---|---|---|---|\n| 9th Grade | $45$ | $30$ | $75$ |\n| 10th Grade | $60$ | $40$ | $100$ |\n| 11th Grade | $55$ | $20$ | $75$ |\n| Total | $160$ | $90$ | $250$ |\n\nA student is randomly selected from those NOT in a club. What is the probability that the student is in 11th grade?",
+  question: "At Idris's apiary, the spring honey harvest was $12\\%$ larger than the winter harvest, and the summer harvest was $5\\%$ larger than the spring harvest. If the summer harvest was $y$ times the winter harvest, what is the value of $y$?",
   choices: [
-    // distractor: divides by total 11th graders (75) instead of total not-in-club (90)
-    { id: "A", text: "$\\dfrac{20}{75}$" },
-    { id: "B", text: "$\\dfrac{20}{90}$" },
-    // distractor: divides by all students (250)
-    { id: "C", text: "$\\dfrac{20}{250}$" },
-    // distractor: uses club members instead of non-club members
-    { id: "D", text: "$\\dfrac{55}{160}$" }
+    // distractor: averages the two percents instead of compounding them
+    { id: "A", text: "$1.0850$" },
+    // distractor: adds the percents (12% + 5% = 17%) instead of multiplying the factors
+    { id: "B", text: "$1.1700$" },
+    { id: "C", text: "$1.1760$" },
+    // distractor: applies both increases to the same base additively, double-counting winter
+    { id: "D", text: "$1.1840$" }
   ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Conditional Probability from Two-Way Table**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Given: not in club (total $90$). 11th graders not in club: $20$. Probability $= \\dfrac{20}{90}$.\n\n**The Full Solution:**\n$P(\\text{11th grade} \\mid \\text{not in club}) = \\dfrac{\\text{11th AND not in club}}{\\text{total not in club}} = \\dfrac{20}{90} = \\dfrac{2}{9}$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — uses total 11th graders ($75$) as denominator.\n* Choice C: \"wrong base\" — uses grand total ($250$).\n* Choice D: \"applies the inverse operation\" — uses club members instead of non-club.\n\n**Test Day Takeaway:** \"Given X\" $\\Rightarrow$ restrict the sample space to X. Numerator counts favorable cases inside X; denominator is X's total.",
-  skills: ["two-way-tables", "probability"]
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Successive Percent Changes**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Two successive increases multiply: $y = (1.12)(1.05) = 1.176$.\n\n**The Full Solution:**\nLet the winter harvest be $W$.\nSpring $= W(1 + 0.12) = 1.12W$.\nSummer $= (\\text{spring})(1 + 0.05) = 1.12W \\cdot 1.05 = 1.176W$.\nSo summer $= 1.176 \\cdot W$, meaning $y = 1.176$.\n\nVerification: a $12\\%$ then $5\\%$ rise is slightly MORE than a flat $17\\%$, because the second increase also acts on the first increase. $1.176 > 1.17$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong operation\" — averages the two rates ($\\tfrac{12 + 5}{2} = 8.5\\%$).\n* Choice B: \"stops one step early\" — adds the percents ($12\\% + 5\\% = 17\\%$) instead of compounding the growth factors.\n* Choice D: \"off-by-one base\" — applies $5\\%$ to the winter base as well, double-counting ($0.12 + 0.05 + 0.12\\cdot0.05$ mis-grouped).\n\n**Test Day Takeaway:** Successive percent changes COMPOUND — multiply the growth factors $(1 + r_1)(1 + r_2)$. Adding the percents undercounts because the second change also applies to the first change.",
+  skills: ["percent-change", "percent-word-problems"]
+},
+{
+  id: 6,
+  type: "fill-in",
+  difficulty: "hard",
+  band: 7,
+  question: "In the system below, $p$ is a constant and the system has no solution.\n\n$\\dfrac{3}{4}y - \\dfrac{1}{2}x = \\dfrac{1}{5} - \\dfrac{3}{4}y$\n$\\dfrac{1}{2}x + 3 = py + 8$\n\nWhat is the value of $p$?",
+  correctAnswer: "3/2",
+  explanation: "**SAT Pattern: No-Solution Condition**\n\n**The correct answer is $3/2$ (or $1.5$).**\n\n**The Fast Way (~50s):** Reduce each line to slope form. First: $\\dfrac{3}{2}y = \\dfrac{1}{2}x + \\dfrac{1}{5}$, slope $\\dfrac{1}{3}$. Second: $py = \\dfrac{1}{2}x - 5$, slope $\\dfrac{1}{2p}$. No solution $\\Rightarrow$ equal slopes: $\\dfrac{1}{3} = \\dfrac{1}{2p} \\Rightarrow 2p = 3 \\Rightarrow p = \\dfrac{3}{2}$.\n\n**The Full Solution:**\nEquation 1: gather the two $\\dfrac{3}{4}y$ terms on the left — $\\dfrac{3}{4}y + \\dfrac{3}{4}y = \\dfrac{3}{2}y$. So $\\dfrac{3}{2}y = \\dfrac{1}{2}x + \\dfrac{1}{5}$, giving $y = \\dfrac{1}{3}x + \\dfrac{2}{15}$. Slope $= \\dfrac{1}{3}$.\n\nEquation 2: $\\dfrac{1}{2}x + 3 = py + 8 \\Rightarrow py = \\dfrac{1}{2}x - 5$, so $y = \\dfrac{1}{2p}x - \\dfrac{5}{p}$. Slope $= \\dfrac{1}{2p}$.\n\nA linear system has NO solution when the lines are parallel but not identical — equal slopes, different intercepts:\n$\\dfrac{1}{3} = \\dfrac{1}{2p} \\Rightarrow 2p = 3 \\Rightarrow p = \\dfrac{3}{2}$.\n\nVerification: with $p = \\dfrac{3}{2}$, line 2 has intercept $-\\dfrac{5}{3/2} = -\\dfrac{10}{3}$, while line 1 has intercept $\\dfrac{2}{15}$ — different intercepts, so the lines are parallel and never intersect \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Leaving the first equation as $\\dfrac{3}{4}y$ instead of combining both $\\dfrac{3}{4}y$ terms into $\\dfrac{3}{2}y$.\n* Equating the reciprocals of the slopes rather than the slopes themselves, which yields $p = \\dfrac{2}{3}$.\n\n**Test Day Takeaway:** A linear system has no solution exactly when the two lines are parallel and distinct. Put each equation in slope-intercept form, set the slopes equal, and solve for the parameter — then confirm the intercepts actually differ.",
+  skills: ["systems-of-equations", "linear-functions"]
 },
 {
   id: 7,
@@ -540,68 +535,78 @@ export const practiceTest12 = {
 {
   id: 8,
   type: "multiple-choice",
-  difficulty: "medium",
-  band: 5,
-  question: "The graph of $y = a(x - h)^2 + k$ has vertex $(3, -2)$ and passes through $(0, 7)$. What is the value of $a$?",
+  difficulty: "easy",
+  band: 3,
+  question: "At an apiary, Wren records the number of bees leaving a hive each morning over six days: $18$, $25$, $22$, $31$, $19$, $27$. What is the range of these six values?",
   choices: [
-    { id: "A", text: "$1$" },
-    // distractor: $a = -1$ would give $y = -(9) - 2 = -11 \neq 7$
-    { id: "B", text: "$-1$" },
-    // distractor: divides $9$ by $3$ instead of $9$
-    { id: "C", text: "$3$" },
-    // distractor: inverts the calculation
-    { id: "D", text: "$\\dfrac{1}{3}$" }
+    // distractor: reports the maximum value instead of the range
+    { id: "A", text: "$31$" },
+    { id: "B", text: "$13$" },
+    // distractor: gives the median of the data set instead of the range
+    { id: "C", text: "$23.5$" },
+    // distractor: rounds the mean of the data set
+    { id: "D", text: "$24$" }
   ],
-  correctAnswer: "A",
-  explanation: "**SAT Pattern: Vertex Form from Two Conditions**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Vertex form: $y = a(x-3)^2 - 2$. Plug in $(0, 7)$: $7 = 9a - 2 \\Rightarrow a = 1$.\n\n**The Full Solution:**\nWith vertex $(3, -2)$: $y = a(x - 3)^2 - 2$.\nSubstitute $(0, 7)$:\n$7 = a(0 - 3)^2 - 2$\n$7 = 9a - 2$\n$9a = 9 \\Rightarrow a = 1$.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"applies the inverse operation\" — sign error gives $a = -1$.\n* Choice C: \"off-by-one\" — divides $9$ by $3$ instead of $9$.\n* Choice D: \"applies the inverse operation\" — inverts the calculation.\n\n**Test Day Takeaway:** Plug the vertex directly into vertex form first ($h$, $k$ visible), then use any other point to solve for $a$.",
-  skills: ["vertex-form", "quadratic-equations"]
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Range of a Data Set**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Range $=$ maximum $-$ minimum $= 31 - 18 = 13$.\n\n**The Full Solution:**\nThe range of a data set is the largest value minus the smallest value.\nLargest: $31$. Smallest: $18$.\nRange $= 31 - 18 = 13$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — reports the maximum ($31$) without subtracting the minimum.\n* Choice C: \"wrong measure\" — gives the median (average of the two middle values, $22$ and $25$, is $23.5$).\n* Choice D: \"wrong measure\" — rounds the mean ($142 \\div 6 \\approx 23.67$) instead of finding the range.\n\n**Test Day Takeaway:** Range is a single subtraction: max $-$ min. Don't confuse it with the mean or median.",
+  skills: ["statistics"]
 },
 {
   id: 9,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "In a right triangle, one acute angle is $\\theta$. If $\\sin \\theta = \\dfrac{a}{c}$ and $\\cos \\theta = \\dfrac{b}{c}$, which of the following must equal $\\dfrac{1}{c^2}$?",
+  question: "Constants $a$ and $b$ define the function $g(x) = a\\sqrt{x + b}$. Its graph in the $xy$-plane has an $x$-intercept at $(-21, 0)$, and $g(21)$ is negative. Which statement must be true?",
   choices: [
-    // distractor: sin^2 + cos^2 = 1, not 1/c^2
-    { id: "A", text: "$\\sin^2 \\theta + \\cos^2 \\theta$" },
-    // distractor: each term is 1/c^2, so sum is 2/c^2
-    { id: "B", text: "$\\dfrac{\\sin^2 \\theta}{a^2} + \\dfrac{\\cos^2 \\theta}{b^2}$" },
-    // distractor: 1/a^2 + 1/b^2 = c^2/(a^2 b^2), not 1/c^2
-    { id: "C", text: "$\\dfrac{1}{a^2} + \\dfrac{1}{b^2}$" },
-    { id: "D", text: "$\\dfrac{\\sin^2 \\theta + \\cos^2 \\theta}{a^2 + b^2}$" }
+    // distractor: reads the x-intercept's magnitude as an output value of g
+    { id: "A", text: "$g(0) = 21$" },
+    // distractor: pins g(0) to a value that depends on the undetermined magnitude of a
+    { id: "B", text: "$g(0) = -21$" },
+    { id: "C", text: "$a < b$" },
+    // distractor: reverses the inequality after correctly finding a is negative
+    { id: "D", text: "$a > b$" }
   ],
-  correctAnswer: "D",
-  explanation: "**SAT Pattern: Right Triangle — Trig Ratios**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** Pythagorean identity: $\\sin^2 + \\cos^2 = 1$. Pythagorean theorem: $a^2 + b^2 = c^2$. Combine: $\\dfrac{\\sin^2 + \\cos^2}{a^2 + b^2} = \\dfrac{1}{c^2}$.\n\n**The Full Solution:**\nKey identities:\n1. $\\sin^2\\theta + \\cos^2\\theta = 1$.\n2. $a^2 + b^2 = c^2$ (legs and hypotenuse).\n\nCheck D: $\\dfrac{\\sin^2\\theta + \\cos^2\\theta}{a^2 + b^2} = \\dfrac{1}{c^2}$ \\checkmark.\n\nCheck others:\n* A: $= 1 \\neq \\dfrac{1}{c^2}$ unless $c = 1$.\n* B: $\\dfrac{\\frac{a^2}{c^2}}{a^2} + \\dfrac{\\frac{b^2}{c^2}}{b^2} = \\dfrac{1}{c^2} + \\dfrac{1}{c^2} = \\dfrac{2}{c^2}$.\n* C: $\\dfrac{1}{a^2} + \\dfrac{1}{b^2} = \\dfrac{c^2}{a^2 b^2}$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — Pythagorean identity equals $1$, which is $\\dfrac{c^2}{c^2}$, not $\\dfrac{1}{c^2}$.\n* Choice B: \"off-by-one\" — sum of two $\\dfrac{1}{c^2}$ terms gives $\\dfrac{2}{c^2}$.\n* Choice C: \"wrong base\" — algebra gives $\\dfrac{c^2}{a^2 b^2}$, not $\\dfrac{1}{c^2}$.\n\n**Test Day Takeaway:** Pythagorean identity ($\\sin^2 + \\cos^2 = 1$) and Pythagorean theorem ($a^2 + b^2 = c^2$) are partners — combine them for clean simplifications.",
-  skills: ["trigonometry"]
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Radical Function Parameter Analysis**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** The $x$-intercept at $x = -21$ forces $b = 21$. Then $g(21) = a\\sqrt{42} < 0$ forces $a < 0$. A negative $a$ is below the positive $b = 21$, so $a < b$.\n\n**The Full Solution:**\nAn $x$-intercept at $(-21, 0)$ means $g(-21) = a\\sqrt{-21 + b} = 0$. Since $a \\neq 0$ (if $a = 0$ then $g$ would be the constant $0$ and $g(21)$ could not be negative), the radicand must vanish: $-21 + b = 0 \\Rightarrow b = 21$.\n\nNext, $g(21) = a\\sqrt{21 + 21} = a\\sqrt{42}$. Because $\\sqrt{42} > 0$ and $g(21) < 0$, we conclude $a < 0$.\n\nWith $a < 0$ and $b = 21 > 0$, it must be that $a < b$.\n\nThe other options fail: $g(0) = a\\sqrt{21}$ depends on the unknown magnitude of $a$, so it cannot be pinned to $21$ or $-21$; and $a < 0 < 21 = b$ directly contradicts $a > b$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — treats the intercept's magnitude as a function output; $g(0)$ depends on $a$, which is not fully determined.\n* Choice B: \"stops one step early\" — fixes a specific output without noticing $a$'s magnitude is unknown.\n* Choice D: \"applies the inverse operation\" — flips the inequality after correctly deducing $a < 0$.\n\n**Test Day Takeaway:** A zero of $a\\sqrt{x + b}$ comes from the radicand, fixing $b$. A sign condition on another output then fixes the sign of $a$. Compare the two determined facts to test each statement.",
+  skills: ["radical-functions", "function-interpretation"]
 },
 {
   id: 10,
-  type: "fill-in",
+  type: "multiple-choice",
   difficulty: "medium",
   band: 5,
-  question: "In the right triangle shown, one acute angle measures $\\theta$ such that $\\cos \\theta = \\dfrac{8}{17}$, and the side adjacent to $\\theta$ has length $24$. What is the length of the hypotenuse?",
-  diagram: {
-    type: "rightTriangle",
-    params: {
-      labels: ["θ", "", ""],
-      sideLabels: ["24", "", ""],
-      rightAngleVertex: 1
-    }
-  },
-  correctAnswer: "51",
-  explanation: "**SAT Pattern: Right Triangle — Trig Ratios**\n\n**The correct answer is $51$.**\n\n**The Fast Way (~20s):** $\\cos \\theta = \\dfrac{\\text{adjacent}}{\\text{hypotenuse}} = \\dfrac{8}{17} = \\dfrac{24}{h}$. Cross-multiply: $8h = 24 \\cdot 17 = 408$, so $h = 51$.\n\n**The Full Solution:**\n$\\cos \\theta = \\dfrac{\\text{adjacent}}{\\text{hypotenuse}}$.\nGiven $\\cos \\theta = \\dfrac{8}{17}$ and adjacent $= 24$: $\\dfrac{24}{h} = \\dfrac{8}{17}$.\nCross-multiply: $24 \\cdot 17 = 8h \\Rightarrow 408 = 8h \\Rightarrow h = 51$.\n\nAlternatively: scale factor between $\\dfrac{8}{17}$ and the actual triangle is $\\dfrac{24}{8} = 3$, so hypotenuse $= 17 \\cdot 3 = 51$.\n\nVerification: $\\dfrac{24}{51} = \\dfrac{8}{17}$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Confusing adjacent and opposite sides relative to angle $\\theta$.\n* Computing hypotenuse from $\\sin$ instead of $\\cos$.\n\n**Test Day Takeaway:** SOH-CAH-TOA: $\\cos = \\dfrac{\\text{Adjacent}}{\\text{Hypotenuse}}$. Set up the proportion and cross-multiply.",
-  skills: ["trigonometry", "triangles"]
+  question: "The arc of a neon sign is modeled by $y = a(x - h)^2 + k$. Its highest point is the vertex $(2, 5)$, and the curve passes through the point $(4, -3)$. What is the value of $a$?",
+  choices: [
+    // distractor: drops the negative sign on the leading coefficient
+    { id: "A", text: "$2$" },
+    { id: "B", text: "$-2$" },
+    // distractor: divides $-8$ by $2$ instead of by $4$
+    { id: "C", text: "$-4$" },
+    // distractor: inverts the final division
+    { id: "D", text: "$-\\dfrac{1}{2}$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Vertex Form from Two Conditions**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** With vertex $(2, 5)$: $y = a(x - 2)^2 + 5$. Plug in $(4, -3)$: $-3 = 4a + 5 \\Rightarrow a = -2$.\n\n**The Full Solution:**\nThe vertex $(2, 5)$ gives $h = 2$, $k = 5$, so $y = a(x - 2)^2 + 5$.\nSubstitute $(4, -3)$:\n$-3 = a(4 - 2)^2 + 5$\n$-3 = 4a + 5$\n$4a = -8 \\Rightarrow a = -2$.\n\nA negative $a$ matches the picture: the vertex is the HIGHEST point, so the parabola opens downward.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"drops a sign\" — solves $|4a| = 8$ but keeps $a$ positive, contradicting the downward arc.\n* Choice C: \"off-by-one base\" — divides $-8$ by $2$ instead of $4$.\n* Choice D: \"applies the inverse operation\" — inverts the final division.\n\n**Test Day Takeaway:** Plug the vertex straight into $a(x-h)^2 + k$ ($h$, $k$ are read off the vertex), then use the second point to solve for $a$. A maximum vertex means $a < 0$.",
+  skills: ["vertex-form", "quadratic-equations"]
 },
 {
   id: 11,
-  type: "fill-in",
-  difficulty: "hard",
-  band: 8,
-  question: "The polynomial $p(x) = x^4 + ax^3 + bx^2 + cx + d$ has zeros at $x = 1$, $x = 2$, $x = -1$, and $x = -2$, where $a$, $b$, $c$, and $d$ are constants. What is the value of $b$?",
-  correctAnswer: "-5",
-  explanation: "**SAT Pattern: Polynomial from Zeros + Coefficient Match**\n\n**The correct answer is $-5$.**\n\n**The Fast Way (~30s):** $p(x) = (x-1)(x+1)(x-2)(x+2) = (x^2-1)(x^2-4) = x^4 - 5x^2 + 4$. Match coefficients: $b = -5$.\n\n**The Full Solution:**\nWith four given zeros and a leading coefficient of $1$ (visible in $x^4$), we can write:\n$p(x) = (x - 1)(x - 2)(x + 1)(x + 2)$.\n\nGroup pairs that form differences of squares for fast expansion:\n$(x - 1)(x + 1) = x^2 - 1$\n$(x - 2)(x + 2) = x^2 - 4$\n\nMultiply:\n$p(x) = (x^2 - 1)(x^2 - 4) = x^4 - 4x^2 - x^2 + 4 = x^4 - 5x^2 + 4$\n\nMatch with $p(x) = x^4 + ax^3 + bx^2 + cx + d$:\n* $a = 0$ (no $x^3$ term).\n* $b = -5$.\n* $c = 0$ (no $x^1$ term).\n* $d = 4$.\n\nSo $b = -5$.\n\n**Verification:** $p(1) = 1 + 0 - 5 + 0 + 4 = 0$ \\checkmark. $p(2) = 16 - 20 + 4 = 0$ \\checkmark. $p(-1) = 0$ and $p(-2) = 0$ by symmetry \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Forgetting to multiply through — leaving the answer as $-1 - 4 = -5$ by lucky shortcut without verification.\n* Sign error: $(x^2 - 1)(x^2 - 4) \\neq x^4 + 5x^2 + 4$ (the cross terms are NEGATIVE).\n* Treating the polynomial as a product of linear factors without grouping for difference-of-squares.\n\n**Test Day Takeaway:** When a polynomial has zeros that come in $\\pm$ pairs, group them into differences of squares: $(x - r)(x + r) = x^2 - r^2$. This shortcut avoids fully expanding linear factors one at a time.",
-  skills: ["polynomial-operations", "factoring", "function-interpretation"]
+  type: "multiple-choice",
+  difficulty: "medium",
+  band: 5,
+  question: "For the function $f(x) = 3x^2 - kx + 5$, it is given that $f(2) = -3$. What is the value of $k$?",
+  choices: [
+    // distractor: divides 20 by 5 (the constant term) instead of by 2
+    { id: "A", text: "$4$" },
+    // distractor: forgets the constant 5, solving 12 - 2k = -3
+    { id: "B", text: "$7.5$" },
+    { id: "C", text: "$10$" },
+    // distractor: stops one step early — reports 2k instead of k
+    { id: "D", text: "$20$" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Solving via Function Notation**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** $f(2) = 12 - 2k + 5 = 17 - 2k = -3$. So $2k = 20$, giving $k = 10$.\n\n**The Full Solution:**\n$f(2) = 3(2)^2 - k(2) + 5 = 12 - 2k + 5 = 17 - 2k$.\nSet equal to $-3$: $17 - 2k = -3 \\Rightarrow 2k = 20 \\Rightarrow k = 10$.\n\nVerification: $f(2) = 12 - 10(2) + 5 = 12 - 20 + 5 = -3$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — divides $20$ by $5$ instead of $2$.\n* Choice B: \"off-by-one\" — drops the constant $5$, solving $12 - 2k = -3$.\n* Choice D: \"stops one step early\" — reports $2k$ instead of $k$.\n\n**Test Day Takeaway:** Substitute the given input/output pair, combine the constants carefully, and solve for the unknown parameter.",
+  skills: ["function-interpretation", "solving-equations"]
 },
 {
   id: 12,
@@ -634,61 +639,70 @@ export const practiceTest12 = {
 },
 {
   id: 14,
-  type: "fill-in",
-  difficulty: "hard",
-  band: 7,
-  question: "An event planner has a budget of $\\$2{,}000$ to purchase favors for a charity gala. To honor a venue contract, the planner must distribute a minimum of $180$ favors total. Basic favors cost $\\$8$ each and premium favors cost $\\$15$ each. What is the maximum number of premium favors the planner can purchase while staying within the budget and meeting the contract minimum?",
-  correctAnswer: "80",
-  explanation: "**SAT Pattern: Inequality Word Problem (Floor)**\n\n**The correct answer is $80$.**\n\n**The Fast Way (~45s):** Let $b$ = basic, $p$ = premium. To max $p$, set $b + p = 180$ exactly, $b = 180 - p$. Budget: $8(180 - p) + 15p \\leq 2000 \\Rightarrow 1440 + 7p \\leq 2000 \\Rightarrow p \\leq 80$.\n\n**The Full Solution:**\nLet $b$ = basic favors, $p$ = premium favors.\nConstraints:\n* Contract floor: $b + p \\geq 180$.\n* Budget: $8b + 15p \\leq 2{,}000$.\n* Both non-negative integers.\n\nTo MAXIMIZE $p$, fill the rest with the cheaper basic favors at EXACTLY the floor (any extras waste budget). Set $b = 180 - p$:\n\n$8(180 - p) + 15p \\leq 2{,}000$\n$1{,}440 - 8p + 15p \\leq 2{,}000$\n$7p \\leq 560$\n$p \\leq 80$.\n\nMax integer: $p = 80$.\n\n**Verification:** With $p = 80$, $b = 100$. Total: $80 + 100 = 180 \\geq 180$ ✓. Cost: $8(100) + 15(80) = 800 + 1{,}200 = 2{,}000 \\leq 2{,}000$ ✓ (exactly at budget). Try $p = 81$, $b = 99$: $8(99) + 15(81) = 792 + 1{,}215 = 2{,}007 > 2{,}000$ ✗ — exceeds budget \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Answering $133$ (treats $2{,}000/15 \\approx 133$ as the max, ignoring the contract floor — also $b = 0, p = 133$ violates the floor since $0 + 133 = 133 < 180$).\n* Answering $180$ (treats the floor itself as the answer).\n* Answering $81$ (forgets to round DOWN — $81$ exceeds budget).\n* Answering $100$ (reports basic favors instead of premium).\n\n**Test Day Takeaway:** Two-constraint optimization (budget + minimum total): To maximize one quantity, fill the remainder with the cheaper option AT EXACTLY the minimum total. Solve the resulting single-variable inequality and take the FLOOR. Always verify the next integer up.",
-  skills: ["inequalities", "word-problems", "systems-of-equations"]
+  type: "multiple-choice",
+  difficulty: "medium",
+  band: 5,
+  question: "If $5x + 3 = 28$, what is the value of $15x - 6$?",
+  choices: [
+    // distractor: gives 5x = 25 and stops
+    { id: "A", text: "$25$" },
+    // distractor: triples 28 to 84 but forgets to subtract 15
+    { id: "B", text: "$84$" },
+    { id: "C", text: "$69$" },
+    // distractor: solves x = 5 and reports it
+    { id: "D", text: "$5$" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Shifted Output**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** $15x - 6 = 3(5x + 3) - 15 = 3(28) - 15 = 84 - 15 = 69$. No need to solve for $x$.\n\n**The Full Solution:**\nNotice $15x - 6 = 3(5x + 3) - 15$. Since $5x + 3 = 28$, substitute directly: $15x - 6 = 3 \\cdot 28 - 15 = 84 - 15 = 69$.\n\nAlternatively: $5x = 25 \\Rightarrow x = 5$, so $15(5) - 6 = 75 - 6 = 69$.\n\nVerification: $15(5) - 6 = 69$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives $5x = 25$ without tripling or subtracting.\n* Choice B: \"applies the inverse operation\" — triples $28$ but forgets the $-15$ adjustment.\n* Choice D: \"stops one step early\" — solves for $x$ and reports it.\n\n**Test Day Takeaway:** Before solving for $x$, check whether the target expression is a SCALAR MULTIPLE of the given equation, possibly shifted. Often you can skip finding $x$ entirely.",
+  skills: ["solving-equations"]
 },
 {
   id: 15,
   type: "multiple-choice",
-  difficulty: "easy",
-  band: 4,
-  question: "If $7x + 4 = 39$, what is the value of $14x - 8$?",
+  difficulty: "hard",
+  band: 7,
+  question: "Two identical rectangular prisms are fabricated for a neon-sign mount. Each has a height of $75$ centimeters, a square base, and a total surface area of $K$ square centimeters. When the two prisms are joined face-to-face along a full square base, the resulting single prism has a total surface area of $\\dfrac{7}{4}K$ square centimeters. What is the side length, in centimeters, of each square base?",
   choices: [
-    // distractor: stops one step early — gives $7x = 35$
-    { id: "A", text: "$35$" },
-    // distractor: doubles $39$ to get $78$ but forgets to subtract $16$
-    { id: "B", text: "$78$" },
-    { id: "C", text: "$62$" },
-    // distractor: gives just $x = 5$ and stops
-    { id: "D", text: "$5$" }
+    // distractor: arithmetic slip — divides 300 by 12 when factoring 6s^2 - 300s = 0
+    { id: "A", text: "$25$" },
+    { id: "B", text: "$50$" },
+    // distractor: reports the prism's height instead of the base side length
+    { id: "C", text: "$75$" },
+    // distractor: doubles the solved side, confusing it with a combined dimension
+    { id: "D", text: "$100$" }
   ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Shifted Output**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** $14x - 8 = 2(7x + 4) - 16 = 2(39) - 16 = 78 - 16 = 62$. No need to solve for $x$.\n\n**The Full Solution:**\nNotice $14x - 8 = 2(7x + 4) - 16$. Since $7x + 4 = 39$, we have $14x - 8 = 2 \\cdot 39 - 16 = 78 - 16 = 62$.\n\nAlternatively: $7x = 35 \\Rightarrow x = 5$, so $14(5) - 8 = 70 - 8 = 62$.\n\nVerification: $14(5) - 8 = 62$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives $7x = 35$ without doubling or subtracting.\n* Choice B: \"applies the inverse operation\" — doubles $39$ but forgets the $-16$ adjustment.\n* Choice D: \"stops one step early\" — solves for $x$ and stops.\n\n**Test Day Takeaway:** Before solving for $x$, check whether the target expression is a SCALAR MULTIPLE of the given equation, possibly shifted. Often you can avoid finding $x$ entirely.",
-  skills: ["solving-equations"]
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Composite Solid Surface Area**\n\n**Choice B is correct.**\n\n**The Fast Way (~70s):** One prism: $K = 2s^2 + 4s(75) = 2s^2 + 300s$. Joined prism (height doubles to $150$, the two glued square faces vanish): $2s^2 + 4s(150) = 2s^2 + 600s = \\dfrac{7}{4}K$. Set $2s^2 + 600s = \\dfrac{7}{4}(2s^2 + 300s)$; this reduces to $6s^2 - 300s = 0$, so $s = 50$.\n\n**The Full Solution:**\nLet $s$ be the base side length. A single prism has two square bases ($2s^2$) and four lateral rectangles ($4 \\cdot s \\cdot 75 = 300s$):\n$$K = 2s^2 + 300s.$$\nJoining the two prisms along a full square base hides those two square faces and makes one taller prism of height $150$: its surface area is two square bases plus four lateral rectangles of height $150$:\n$$2s^2 + 4 \\cdot s \\cdot 150 = 2s^2 + 600s = \\frac{7}{4}K.$$\nSubstitute $K$:\n$$2s^2 + 600s = \\frac{7}{4}(2s^2 + 300s).$$\nMultiply both sides by $4$:\n$$8s^2 + 2400s = 14s^2 + 2100s \\Rightarrow 6s^2 - 300s = 0 \\Rightarrow 6s(s - 50) = 0.$$\nSince $s > 0$, $s = 50$.\n\nVerification: $K = 2(2500) + 300(50) = 5000 + 15000 = 20000$; joined $= 5000 + 600(50) = 35000 = \\frac{7}{4}(20000)$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"arithmetic slip\" — factors $6s^2 - 300s = 0$ but divides $300$ by $12$ instead of $6$.\n* Choice C: \"wrong quantity\" — reports the given height ($75$) instead of the base side.\n* Choice D: \"applies the inverse operation\" — doubles the solved side, treating it as a combined dimension.\n\n**Test Day Takeaway:** Gluing two solids along a face REMOVES the two shared faces from the total surface area and merges the dimension along that axis. Write each surface area as a function of the unknown side, then solve the resulting equation.",
+  skills: ["surface-area", "geometry", "quadratic-equations"]
 },
 {
   id: 16,
   type: "multiple-choice",
-  difficulty: "medium",
-  band: 5,
-  question: "If $f(x) = 2x^2 - kx + 8$ and $f(3) = 5$, what is the value of $k$?",
+  difficulty: "hard",
+  band: 7,
+  question: "In the expressions below, $b$ is a positive integer constant. Which expression has $x + 3b$ as a factor?",
   choices: [
-    // distractor: divides 21 by 7 instead of 3
-    { id: "A", text: "$3$" },
-    { id: "B", text: "$7$" },
-    // distractor: forgets the constant 8 in the function
-    { id: "C", text: "$13$" },
-    // distractor: this is $3k$, not $k$
-    { id: "D", text: "$21$" }
+    // distractor: gives b = 10/12, not an integer — middle coefficient too small
+    { id: "A", text: "$4x^2 + 14x + 12b$" },
+    // distractor: gives b = 1.5, not an integer
+    { id: "B", text: "$4x^2 + 22x + 12b$" },
+    // distractor: gives b = 26/12, not an integer
+    { id: "C", text: "$4x^2 + 30x + 12b$" },
+    { id: "D", text: "$4x^2 + 40x + 12b$" }
   ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Solving via Function Notation**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $f(3) = 18 - 3k + 8 = 26 - 3k = 5$. So $3k = 21$, giving $k = 7$.\n\n**The Full Solution:**\n$f(3) = 2(3)^2 - k(3) + 8 = 18 - 3k + 8 = 26 - 3k$.\nSet equal to $5$: $26 - 3k = 5 \\Rightarrow 3k = 21 \\Rightarrow k = 7$.\n\nVerification: $f(3) = 18 - 7(3) + 8 = 18 - 21 + 8 = 5$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — divides $21$ by $7$ instead of $3$.\n* Choice C: \"off-by-one\" — forgets the constant $8$ in the function.\n* Choice D: \"stops one step early\" — gives $3k$ instead of $k$.\n\n**Test Day Takeaway:** Substitute the given input/output pair, simplify, and solve for the unknown parameter.",
-  skills: ["function-interpretation", "solving-equations"]
+  correctAnswer: "D",
+  explanation: "**SAT Pattern: Matching Coefficients in Factored Form**\n\n**Choice D is correct.**\n\n**The Fast Way (~45s):** Each expression has the form $4x^2 + Mx + 12b$. If $x + 3b$ is a factor, the other factor must be $4x + 4$ (so the leading term is $4x^2$ and the constant is $3b \\cdot 4 = 12b$). Expanding: $(x + 3b)(4x + 4) = 4x^2 + (4 + 12b)x + 12b$. So $M = 4 + 12b \\Rightarrow b = \\dfrac{M - 4}{12}$. Only $M = 40$ gives an integer: $b = 3$.\n\n**The Full Solution:**\nFor $x + 3b$ to divide $4x^2 + Mx + 12b$, write the second factor as $4x + c$. Then\n$(x + 3b)(4x + c) = 4x^2 + cx + 12bx + 3bc = 4x^2 + (c + 12b)x + 3bc$.\nMatching the constant term: $3bc = 12b \\Rightarrow c = 4$.\nMatching the middle term: $M = c + 12b = 4 + 12b$, so $b = \\dfrac{M - 4}{12}$.\nTest each $M$: $14 \\to \\tfrac{10}{12}$, $22 \\to \\tfrac{18}{12} = 1.5$, $30 \\to \\tfrac{26}{12}$, $40 \\to \\tfrac{36}{12} = 3$. Only $M = 40$ yields a positive integer $b = 3$.\n\nVerification: with $b = 3$, $x + 9$ divides $4x^2 + 40x + 36 = (x + 9)(4x + 4)$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"non-integer parameter\" — $M = 14$ gives $b = \\tfrac{10}{12}$, not a positive integer.\n* Choice B: \"non-integer parameter\" — $M = 22$ gives $b = 1.5$, not an integer.\n* Choice C: \"non-integer parameter\" — $M = 30$ gives $b = \\tfrac{26}{12}$, not an integer.\n\n**Test Day Takeaway:** When a binomial $x + k$ must divide a quadratic, the second factor is forced by the leading and constant terms. Match coefficients to get an equation in the unknown, then apply the integer constraint to pick the answer.",
+  skills: ["polynomial-functions", "factoring"]
 },
 {
   id: 17,
   type: "fill-in",
   difficulty: "hard",
   band: 7,
-  question: "A data set consists of $11$ positive integers. The list shown gives $10$ of these integers.\n\n$28, 35, 31, 27, 38, 32, 30, 33, 29, 37$\n\nThe mean of the $10$ listed integers is $32$. If the mean of all $11$ integers is also $32$, what is the value of the eleventh integer?",
-  correctAnswer: "32",
-  explanation: "**SAT Pattern: Mean from List**\n\n**The correct answer is $32$.**\n\n**The Fast Way (~25s):** If adding a value does NOT change the mean, that value MUST equal the mean. Eleventh integer $= 32$.\n\n**The Full Solution:**\nSum of $10$ integers: $10 \\cdot 32 = 320$.\nSum of $11$ integers: $11 \\cdot 32 = 352$.\nEleventh integer: $352 - 320 = 32$.\n\nVerification: $28 + 35 + 31 + 27 + 38 + 32 + 30 + 33 + 29 + 37 = 320$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Computing $\\dfrac{320}{10}$ and reporting that as the answer — it equals $32$, but for the wrong reason.\n* Forgetting that adding a value EQUAL to the current mean leaves the mean unchanged.\n\n**Test Day Takeaway:** Adding a value equal to the current mean leaves the mean unchanged. Verify your reasoning matches that invariant.",
-  skills: ["statistics"]
+  question: "A triangular archival seal is an equilateral triangle whose perimeter is $792$ millimeters. All three of its vertices lie on a circle. The radius of that circle is $w\\sqrt{3}$ millimeters. What is the value of $w$?",
+  correctAnswer: "88",
+  explanation: "**SAT Pattern: Equilateral Triangle — Circumradius**\n\n**The correct answer is $88$.**\n\n**The Fast Way (~40s):** Side $= \\dfrac{792}{3} = 264$. The circumradius of an equilateral triangle is $R = \\dfrac{s}{\\sqrt{3}} = \\dfrac{s\\sqrt{3}}{3} = \\dfrac{264\\sqrt{3}}{3} = 88\\sqrt{3}$. Matching $R = w\\sqrt{3}$ gives $w = 88$.\n\n**The Full Solution:**\nAn equilateral triangle with perimeter $792$ has side $s = \\dfrac{792}{3} = 264$ mm.\nFor an equilateral triangle, the circumradius (distance from center to each vertex) is\n$$R = \\frac{s}{\\sqrt{3}} = \\frac{s\\sqrt{3}}{3}.$$\nSubstitute $s = 264$:\n$$R = \\frac{264\\sqrt{3}}{3} = 88\\sqrt{3} \\text{ mm}.$$\nThe problem states $R = w\\sqrt{3}$, so $w = 88$.\n\n**Common Mistakes to Avoid:**\n* Using the side $264$ directly as $R$ (forgetting to divide by $\\sqrt{3}$).\n* Leaving $w$ as $\\dfrac{264}{\\sqrt{3}}$ without rationalizing to recognize the $\\sqrt{3}$ factor.\n* Dividing the perimeter by $2$ instead of $3$ to find the side.\n\n**Test Day Takeaway:** For an equilateral triangle, the circumradius is $R = \\dfrac{s}{\\sqrt{3}} = \\dfrac{s\\sqrt{3}}{3}$. Rationalize so the $\\sqrt{3}$ matches the form the problem gives.",
+  skills: ["special-right-triangles", "circle-equations"]
 },
 {
   id: 18,
