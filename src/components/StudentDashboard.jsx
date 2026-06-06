@@ -599,7 +599,7 @@ const StudentDashboard = ({
               score (delta) → goal/countdown two-up. The legacy
               DashboardDiagnosticWidget stays below the new tiles. */}
           {hasStudyPlan && (
-            <CalendarMonth practicedDays={practicedDayKeys} />
+            <CalendarMonth practicedDays={practicedDayKeys} testDate={user?.testDate} />
           )}
 
           {latestScore !== null && (

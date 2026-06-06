@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { colors, typography, spacing, radius, shadows, transitions } from '../design/tokens';
 import { cardStyles, inputStyles } from '../design/components';
 import { Button } from './ui/Button';
+import Avatar from './ui/Avatar';
 import { parseLocalDate } from '../utils/localDate';
+import { fileToAvatarDataUrl } from '../utils/avatarImage';
 
 const StatCard = ({ label, value, total }) => (
   <div
@@ -99,12 +101,46 @@ const Profile = ({
   onUpdateTestDate,
   onUpdateCurrentScore,
   onUpdateTargetSchools,
+  onUpdateProfilePhoto,
+  onUpdateFirstName,
   completedLessons = {},
   practiceTestResults = {},
   skillProgress = {},
   allLessonsCount = 205,
 }) => {
   const [showLogoutConfirm, setShowLogoutConfirm] = useState(false);
+  const [photoBusy, setPhotoBusy] = useState(false);
+  const [photoError, setPhotoError] = useState('');
+  const fileInputRef = useRef(null);
+
+  const handlePhotoPick = async (e) => {
+    const file = e.target.files?.[0];
+    e.target.value = ''; // allow re-picking the same file
+    if (!file || !onUpdateProfilePhoto) return;
+    setPhotoBusy(true);
+    setPhotoError('');
+    try {
+      const dataUrl = await fileToAvatarDataUrl(file);
+      await onUpdateProfilePhoto(dataUrl);
+    } catch (err) {
+      setPhotoError(err?.message || 'Could not update photo.');
+    } finally {
+      setPhotoBusy(false);
+    }
+  };
+
+  const handlePhotoRemove = async () => {
+    if (!onUpdateProfilePhoto) return;
+    setPhotoBusy(true);
+    setPhotoError('');
+    try {
+      await onUpdateProfilePhoto(null);
+    } catch (err) {
+      setPhotoError(err?.message || 'Could not remove photo.');
+    } finally {
+      setPhotoBusy(false);
+    }
+  };
 
   const testsCompleted = Object.keys(practiceTestResults).length;
   const lessonsCompleted = Object.keys(completedLessons).length;
@@ -132,26 +168,42 @@ const Profile = ({
     }}>
       {/* Avatar & Name */}
       <div style={{ textAlign: 'center', marginBottom: spacing['2xl'] }}>
-        <div
-          role="img"
-          aria-label={`Avatar for ${user?.firstName || user?.email || 'Student'}`}
-          style={{
-            width: '72px',
-            height: '72px',
-            borderRadius: radius.full,
-            background: `linear-gradient(135deg, ${colors.accent.orange}, ${colors.accent.orangeHover})`,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            color: 'white',
-            fontSize: '28px',
-            fontWeight: typography.weights.bold,
-            margin: '0 auto',
-            marginBottom: spacing.md,
-          }}
-        >
-          {(user?.firstName || user?.email || '?')[0].toUpperCase()}
+        <div style={{ display: 'inline-block', margin: '0 auto', marginBottom: spacing.md }}>
+          <Avatar
+            user={user}
+            size={88}
+            background={`linear-gradient(135deg, ${colors.accent.orange}, ${colors.accent.orangeHover})`}
+            fontSize={32}
+          />
         </div>
+        <input
+          ref={fileInputRef}
+          type="file"
+          accept="image/*"
+          onChange={handlePhotoPick}
+          style={{ display: 'none' }}
+          aria-label="Choose a profile photo"
+        />
+        <div style={{ display: 'flex', justifyContent: 'center', gap: spacing.xs, marginBottom: spacing.sm }}>
+          <Button
+            onClick={() => fileInputRef.current?.click()}
+            variant="tertiary"
+            size="sm"
+            disabled={photoBusy}
+          >
+            {photoBusy ? 'Saving...' : user?.photoDataUrl ? 'Change photo' : 'Add a photo'}
+          </Button>
+          {user?.photoDataUrl && !photoBusy && (
+            <Button onClick={handlePhotoRemove} variant="ghost" size="sm">
+              Remove
+            </Button>
+          )}
+        </div>
+        {photoError && (
+          <p role="alert" style={{ fontSize: typography.sizes.xs, color: colors.semantic.error, marginBottom: spacing.sm }}>
+            {photoError}
+          </p>
+        )}
         <h1 style={{
           fontSize: typography.sizes.xl,
           fontWeight: typography.weights.bold,
@@ -166,6 +218,27 @@ const Profile = ({
         }}>
           {user?.email}
         </p>
+      </div>
+
+      {/* About You */}
+      <div style={{ marginBottom: spacing.xl }}>
+        <h2 style={{
+          fontSize: typography.sizes.sm,
+          fontWeight: typography.weights.semibold,
+          color: colors.text.tertiary,
+          textTransform: 'uppercase',
+          letterSpacing: typography.letterSpacing.wider,
+          marginBottom: spacing.md,
+        }}>
+          About You
+        </h2>
+        <div style={{ ...cardStyles.base }}>
+          <EditableField
+            label="What should we call you?"
+            value={user?.firstName}
+            onSave={onUpdateFirstName}
+          />
+        </div>
       </div>
 
       {/* SAT Goals */}

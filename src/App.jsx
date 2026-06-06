@@ -283,7 +283,7 @@ const PerformSAT = () => {
     return () => window.removeEventListener('keydown', handleEsc);
   }, [showCalculator]);
 
-  const { user, loading, logout, updateTestDate, updateTargetScore, updateCurrentScore, updateTargetSchools } = useAuth();
+  const { user, loading, logout, updateTestDate, updateTargetScore, updateCurrentScore, updateTargetSchools, updateProfilePhoto, updateFirstName } = useAuth();
   const { completedLessons, practiceProgress, reviewQueue, reviewStreak, skillProgress, answeredQuestionIds, practiceTestResults, inProgressTests, studyPlan, studyPlanMeta, studyPlanArtifact, predictionLog, interventionLog, studentFingerprint, recordPracticeAttempt, recordDrillSkillAttempts, hasPracticed, getBestScore, getDueCount, getReviewStatistics, getSkillDiagnosticSummary, getSkillBreakdown, recordPracticeTestAttempt, getTestBestScore, getTestAttempts, saveTestProgress, clearTestProgress, getTestProgress, hasTestProgress, saveStudyPlan, markStudyActivityComplete, unmarkStudyActivityComplete, markLessonComplete, isLessonCompleted, getModuleProgress } = useProgress(user?.uid);
 
   // Mount the analytics session lifecycle (session_start / session_end +
@@ -1421,6 +1421,8 @@ const PerformSAT = () => {
             onUpdateTestDate={updateTestDate}
             onUpdateCurrentScore={updateCurrentScore}
             onUpdateTargetSchools={updateTargetSchools}
+            onUpdateProfilePhoto={updateProfilePhoto}
+            onUpdateFirstName={updateFirstName}
             completedLessons={completedLessons}
             practiceTestResults={practiceTestResults}
             skillProgress={skillProgress}

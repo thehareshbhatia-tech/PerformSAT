@@ -184,6 +184,49 @@ export const useAuth = () => {
   };
 
   /**
+   * Update the user's profile photo.
+   * @param {string|null} photoDataUrl - small data-URL JPEG (client-resized,
+   *   ~10-60KB) stored inline on the user doc; pass null to remove the photo.
+   *   Kept well under Firestore's 1MB doc limit by the caller's size guard.
+   */
+  const updateProfilePhoto = async (photoDataUrl) => {
+    if (!user?.uid) return;
+
+    try {
+      await setDoc(doc(db, 'users', user.uid), {
+        photoDataUrl: photoDataUrl || null
+      }, { merge: true });
+
+      setUser(prev => ({ ...prev, photoDataUrl: photoDataUrl || null }));
+    } catch (err) {
+      console.error('Error updating profile photo:', err);
+      throw err;
+    }
+  };
+
+  /**
+   * Update the user's display name (what the app calls them everywhere:
+   * greeting, plan hero, sidebar).
+   * @param {string} firstName
+   */
+  const updateFirstName = async (firstName) => {
+    if (!user?.uid) return;
+    const clean = (firstName || '').trim().slice(0, 40);
+    if (!clean) return;
+
+    try {
+      await setDoc(doc(db, 'users', user.uid), {
+        firstName: clean
+      }, { merge: true });
+
+      setUser(prev => ({ ...prev, firstName: clean }));
+    } catch (err) {
+      console.error('Error updating name:', err);
+      throw err;
+    }
+  };
+
+  /**
    * Update user's target SAT Math score
    * @param {number} targetScore - Target score (200-800)
    */
@@ -260,6 +303,8 @@ export const useAuth = () => {
     updateTargetScore,
     updateCurrentScore,
     updateTargetSchools,
+    updateProfilePhoto,
+    updateFirstName,
     isAuthenticated: !!user
   };
 };

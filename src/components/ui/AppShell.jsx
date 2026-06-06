@@ -3,6 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { colors, typography, spacing, radius, shadows, transitions, breakpoints, zIndex } from '../../design/tokens';
 import { injectAnimations } from '../../design/animations';
 import Wordmark from './Wordmark';
+import Avatar from './Avatar';
 
 // Route ↔ view state mapping
 const VIEW_ROUTES = {
@@ -225,21 +226,7 @@ const AppShell = ({ children, currentView, onNavigate, user, onLogout, hideNav =
               alignItems: 'center',
               gap: spacing.sm,
             }}>
-              <div style={{
-                width: '36px',
-                height: '36px',
-                borderRadius: radius.full,
-                background: 'var(--color-brand-primary)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                color: 'white',
-                fontSize: '14px',
-                fontWeight: '600',
-                flexShrink: 0,
-              }}>
-                {(user.firstName || user.email || '?')[0].toUpperCase()}
-              </div>
+              <Avatar user={user} size={36} fontSize={14} />
               <div style={{ flex: 1, minWidth: 0 }}>
                 <div style={{
                   fontSize: typography.sizes.sm,

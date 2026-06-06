@@ -7,18 +7,20 @@ import './CalendarMonth.css';
  * Replaces the 91-tick CalendarStrip from the previous batch (Day 5). The
  * month-grid is denser at the same data: practiced days as filled dots,
  * today as a strong ring, the standard 7-column / 6-row layout everyone
- * already knows how to read. Test-date stays out of this widget — it
- * belongs in its own "Days until exam" tile to keep concerns separate.
+ * already knows how to read. The student's SAT date renders as a marked
+ * cell (`testDate` prop) — originally kept out of this widget, but
+ * students asked to see test day in calendar context (2026-06-06).
  *
  * @param {object} props
  * @param {Set<string> | string[]} [props.practicedDays]
  *   YYYY-MM-DD keys (local-time) of days the student practiced. Use
  *   `getPracticedDayKeys(practiceProgress)` from selectors/practicedDays.js
  *   (added alongside).
+ * @param {string} [props.testDate]           YYYY-MM-DD SAT date from the user doc
  * @param {Date} [props.today]               default = new Date()
  * @param {string} [props.ariaLabel]
  */
-function CalendarMonth({ practicedDays, today, ariaLabel }) {
+function CalendarMonth({ practicedDays, testDate, today, ariaLabel }) {
   const todayDate = today instanceof Date ? today : new Date();
   const [viewYear, setViewYear] = useState(todayDate.getFullYear());
   const [viewMonth, setViewMonth] = useState(todayDate.getMonth()); // 0-11
@@ -38,6 +40,16 @@ function CalendarMonth({ practicedDays, today, ariaLabel }) {
     .filter(c => c.inMonth && practicedSet.has(c.key))
     .length;
 
+  // Valid YYYY-MM-DD only; anything else is ignored so a malformed user doc
+  // can't break the grid.
+  const testKey = typeof testDate === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(testDate)
+    ? testDate
+    : null;
+  const testInView = !!testKey && cells.some(c => c.inMonth && c.key === testKey);
+  const daysToTest = testKey
+    ? Math.round((parseKeyAsLocalDate(testKey) - parseKeyAsLocalDate(todayKey)) / 86400000)
+    : null;
+
   const goPrev = () => {
     if (viewMonth === 0) { setViewMonth(11); setViewYear(viewYear - 1); }
     else setViewMonth(viewMonth - 1);
@@ -53,7 +65,11 @@ function CalendarMonth({ practicedDays, today, ariaLabel }) {
       aria-label={ariaLabel || `Practice calendar for ${monthLabel}`}
     >
       <div className="cm-eyebrow">
-        <span className="cm-eyebrow-stat">{practicedThisMonth} days practiced</span>
+        <span className="cm-eyebrow-stat">
+          {testInView && daysToTest !== null && daysToTest >= 0
+            ? (daysToTest === 0 ? 'Test day is TODAY' : `Test day in ${daysToTest} day${daysToTest === 1 ? '' : 's'}`)
+            : `${practicedThisMonth} days practiced`}
+        </span>
         <span className="cm-eyebrow-today" aria-hidden="true">
           {todayDate.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' })}
         </span>
@@ -89,18 +105,21 @@ function CalendarMonth({ practicedDays, today, ariaLabel }) {
         {cells.map(cell => {
           const isToday = cell.inMonth && cell.key === todayKey;
           const isPracticed = cell.inMonth && practicedSet.has(cell.key);
+          const isTestDay = cell.inMonth && cell.key === testKey;
           const cls = [
             'cm-cell',
             !cell.inMonth && 'cm-cell-out',
             isToday && 'cm-cell-today',
             isPracticed && 'cm-cell-practiced',
+            isTestDay && 'cm-cell-test',
           ].filter(Boolean).join(' ');
           return (
             <span
               key={cell.key}
               role="gridcell"
-              aria-label={cell.aria}
+              aria-label={isTestDay ? `${cell.aria} — SAT test day` : cell.aria}
               aria-current={isToday ? 'date' : undefined}
+              title={isTestDay ? 'SAT test day' : undefined}
               className={cls}
             >
               {cell.day}
@@ -108,8 +127,21 @@ function CalendarMonth({ practicedDays, today, ariaLabel }) {
           );
         })}
       </div>
+
+      {testInView && (
+        <div className="cm-legend" aria-hidden="true">
+          <span className="cm-legend-swatch cm-legend-test" />
+          <span className="cm-legend-label">SAT test day</span>
+        </div>
+      )}
     </section>
   );
+}
+
+/** Parse a YYYY-MM-DD key as LOCAL midnight (UTC parse shifts the day). */
+function parseKeyAsLocalDate(key) {
+  const [y, m, d] = key.split('-').map(Number);
+  return new Date(y, m - 1, d);
 }
 
 /**

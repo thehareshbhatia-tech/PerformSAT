@@ -133,6 +133,42 @@
   border-color: var(--color-brand-primary);
 }
 
+/* The SAT date — solid brand fill so the target day reads from across the
+ * room. Outranks practiced/today fills (a test day IS the headline). */
+.cm-cell-test,
+.cm-cell-test.cm-cell-practiced,
+.cm-cell-test.cm-cell-today {
+  background: var(--color-brand-primary);
+  color: var(--color-white);
+  border-color: var(--color-brand-primary);
+  font-weight: 700;
+  box-shadow: 0 0 0 2px var(--color-white), 0 0 0 3.5px var(--color-brand-primary);
+}
+
+/* Legend (only rendered when the test date is in the visible month) */
+.cm-legend {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-slate-500);
+}
+
+.cm-legend-swatch {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.cm-legend-test {
+  background: var(--color-brand-primary);
+  box-shadow: 0 0 0 1.5px var(--color-white), 0 0 0 2.5px var(--color-brand-primary);
+}
+
 @media (max-width: 640px) {
   .cm-card {
     padding: 14px 12px 12px;
