@@ -265,6 +265,14 @@ export const trackSessionEnd = (userId, durationMinutes) =>
   trackEvent(userId, 'engagement', 'session_end', { durationMinutes });
 
 /**
+ * Hero "Add a photo" click — measures photo-adoption rate, the metric that
+ * tells us whether the face-forward identity vision is real or initials-only.
+ * userId is REQUIRED (trackEvent silently no-ops without it).
+ */
+export const trackAddPhotoClicked = (userId) =>
+  trackEvent(userId, 'profile', 'add_photo_clicked', {});
+
+/**
  * Re-engagement attribution — fires once on app boot when the URL carries a
  * re-engagement nudge deep-link (?next=...). This is the ONLY way to measure
  * push open/click rate: the nudge is sent by a Cloud Function, which cannot

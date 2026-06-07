@@ -1,4 +1,5 @@
 import React, { useMemo, useState } from 'react';
+import { getDaysUntilTest } from '../services/selectors/daysUntilTest';
 import './CalendarMonth.css';
 
 /**
@@ -46,9 +47,9 @@ function CalendarMonth({ practicedDays, testDate, today, ariaLabel }) {
     ? testDate
     : null;
   const testInView = !!testKey && cells.some(c => c.inMonth && c.key === testKey);
-  const daysToTest = testKey
-    ? Math.round((parseKeyAsLocalDate(testKey) - parseKeyAsLocalDate(todayKey)) / 86400000)
-    : null;
+  // Shared selector — same signed day-count the hero subtitle and goal tile
+  // render, so the three surfaces can never disagree at the <24h boundary.
+  const daysToTest = getDaysUntilTest(testKey, todayDate);
 
   const goPrev = () => {
     if (viewMonth === 0) { setViewMonth(11); setViewYear(viewYear - 1); }
@@ -136,12 +137,6 @@ function CalendarMonth({ practicedDays, testDate, today, ariaLabel }) {
       )}
     </section>
   );
-}
-
-/** Parse a YYYY-MM-DD key as LOCAL midnight (UTC parse shifts the day). */
-function parseKeyAsLocalDate(key) {
-  const [y, m, d] = key.split('-').map(Number);
-  return new Date(y, m - 1, d);
 }
 
 /**

@@ -17,6 +17,7 @@ import { getPracticedDayKeys } from '../services/selectors/practicedDays';
 import { formatDailyIntro } from '../services/selectors/dailyIntro';
 import { getMathWeaknesses, getRWWeaknesses } from '../services/selectors/weaknesses';
 import { isGoalAchieved, goalDelta } from '../services/selectors/goalProgress';
+import { getDaysUntilTest } from '../services/selectors/daysUntilTest';
 import { buildPacingTelemetry } from '../services/selectors/pacingTelemetry';
 import { PlayIcon, ChartBarIcon, TrendingUpIcon, ClipboardIcon } from '../design/icons';
 import { parseLocalDate } from '../utils/localDate';
@@ -186,19 +187,9 @@ const StudentDashboard = ({
     ? practicedModules.reduce((a, b) => a.accuracy < b.accuracy ? a : b)
     : null;
 
-  const getDaysUntilTest = () => {
-    if (!user?.testDate) return null;
-    // parseLocalDate: 'YYYY-MM-DD' must parse as LOCAL midnight — UTC parse
-    // shifted the date a day earlier in negative-offset timezones.
-    const testDate = parseLocalDate(user.testDate);
-    if (!testDate) return null;
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
-    testDate.setHours(0, 0, 0, 0);
-    const diffTime = testDate - today;
-    return Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-  };
-  const daysUntilTest = getDaysUntilTest();
+  // Shared selector — one day-count for the SAT date everywhere (CalendarMonth,
+  // study-plan hero, and this rail all consume the same signed integer).
+  const daysUntilTest = getDaysUntilTest(user?.testDate);
 
   const recommendations = useMemo(() => {
     return generateRecommendations({

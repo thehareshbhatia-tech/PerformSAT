@@ -18,6 +18,7 @@ import { formatDailyIntro } from '../services/selectors/dailyIntro';
 import { getPracticedDayKeys } from '../services/selectors/practicedDays';
 import { getCompletedTests } from '../services/selectors/completedTests';
 import { isGoalAchieved, goalDelta, isSectionScaleScore } from '../services/selectors/goalProgress';
+import { getDaysUntilTest } from '../services/selectors/daysUntilTest';
 import { parseLocalDate } from '../utils/localDate';
 import { useFeatureFlag } from '../hooks/useFeatureFlag';
 import CalendarMonth from './CalendarMonth';
@@ -216,14 +217,10 @@ const StudyPlanDashboard = ({
   const scoreDelta = sortedTests.length >= 2
     ? sortedTests[sortedTests.length - 1].bestScaledScore - sortedTests[0].bestScaledScore
     : null;
-  // Compute days until test. Negative values (test date in the past) are
-  // common in dogfood/seed data and look terrible as "-57"; clamp + flag.
-  const daysUntilTest = (() => {
-    if (!user?.testDate) return null;
-    const today = new Date(); today.setHours(0, 0, 0, 0);
-    const test = parseLocalDate(user.testDate); if (!test) return null; test.setHours(0, 0, 0, 0);
-    return Math.ceil((test - today) / (1000 * 60 * 60 * 24));
-  })();
+  // Shared selector — one day-count for the SAT date everywhere. Negative
+  // values (test date in the past) are common in dogfood/seed data and look
+  // terrible as "-57"; flag + remap below.
+  const daysUntilTest = getDaysUntilTest(user?.testDate);
   const testDateIsPast = daysUntilTest !== null && daysUntilTest < 0;
   // Goal already achieved? Common in mid-test cycles where a recent score
   // already exceeds onboarding-time target. Compared scale-safely (1.4): a
