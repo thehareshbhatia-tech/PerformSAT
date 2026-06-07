@@ -243,8 +243,8 @@ const StudentDashboard = ({
     return merged[0] || null;
   }, [studyPlan]);
   const dailyIntro = useMemo(
-    () => formatDailyIntro({ todaySlice, latestScore, topWeakness }),
-    [todaySlice, latestScore, topWeakness],
+    () => formatDailyIntro({ todaySlice, latestScore, topWeakness, firstName: user?.firstName }),
+    [todaySlice, latestScore, topWeakness, user?.firstName],
   );
   // Hero subtitle — exactly ONE editorial fact (supersedes the D-IH-2 pitch
   // line). New users get a FIXED string, never composer output; returning
@@ -257,12 +257,12 @@ const StudentDashboard = ({
       isMultiSection: latestIsMultiSection,
       daysUntilTest,
     });
-    if (composed) return composed;
-    if (!hasStudyPlan && projectedTestsCount === 0) {
-      return 'Your first practice test unlocks your plan.';
-    }
-    return null;
-  }, [todaySlice, latestScore, user?.targetScore, latestIsMultiSection, daysUntilTest, hasStudyPlan, projectedTestsCount]);
+    // No fixed new-user fallback here: when there's no plan, the AI Practice
+    // Banner below carries the one "first test unlocks your plan" promise
+    // (with its CTA). Repeating it 200px apart is exactly the slop the
+    // register rule bans — the hero degrades to identity-only instead.
+    return composed;
+  }, [todaySlice, latestScore, user?.targetScore, latestIsMultiSection, daysUntilTest]);
   // Tab count badges (Day 1 Acely-polish):
   //   dashboardCount = activities scheduled today that aren't completed
   //   studyPlanCount = total incomplete activities across all weeks
@@ -461,7 +461,11 @@ const StudentDashboard = ({
             <div className="studyplan-empty-state">
               <div className="empty-state-icon"><ClipboardIcon size={36} /></div>
               <h3>No Study Plan Yet</h3>
-              <p>Take one practice test. Your plan gets built from every answer — which skills cost you points, where you rush, and what to fix first.</p>
+              <p>
+                {user?.firstName
+                  ? `${user.firstName}, here's where your plan will live. One practice test builds it — which skills cost you points, where you rush, and what to fix first.`
+                  : 'Take one practice test. Your plan gets built from every answer — which skills cost you points, where you rush, and what to fix first.'}
+              </p>
               <button className="btn-primary" onClick={onStartPracticeTest}>Start Practice Test</button>
             </div>
           )}
@@ -493,6 +497,7 @@ const StudentDashboard = ({
                 slice={todaySlice}
                 adherence={sessionAdherence}
                 dailyIntro={dailyIntro}
+                firstName={user?.firstName}
                 onStartActivity={(activity) => {
                   if (activity?.moduleId) {
                     onStartPractice(activity.moduleId, activity.sectionName);
@@ -514,11 +519,16 @@ const StudentDashboard = ({
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
                   </div>
                   <div className="ai-banner-text-group">
+                    {/* Name-aware new-user promise (item 13) — this banner owns
+                        the ONE "first test unlocks your plan" line; the hero
+                        stays identity-only so the promise never repeats. */}
                     <div className="ai-banner-title">
-                      {recommendations[0].title}
+                      {user?.firstName
+                        ? `Hi ${user.firstName} — take your first practice test to unlock your plan.`
+                        : 'Take your first practice test to unlock your plan.'}
                     </div>
                     <div className="ai-banner-desc">
-                      Practice all Math domains and subdomains
+                      Or warm up first: {recommendations[0].title.toLowerCase()}
                     </div>
                   </div>
                 </div>
@@ -665,7 +675,17 @@ const StudentDashboard = ({
                     <div className="dashboard-tile-sub">
                       {goalAchieved
                         ? `+${goalAboveDelta} pts above target`
-                        : 'From onboarding'}
+                        : (user?.targetSchools?.[0]
+                          // School anchor (item 14) — WHY the target matters.
+                          // Single median, not a range: collegeData.satMath is
+                          // the 50th percentile only.
+                          ? (
+                            <span className="dashboard-tile-school">
+                              <span className="tile-school-name">{user.targetSchools[0].name}</span>
+                              <span className="tile-school-median">Median Math: {user.targetSchools[0].satMath}</span>
+                            </span>
+                          )
+                          : 'From onboarding')}
                     </div>
                   </div>
                 )}

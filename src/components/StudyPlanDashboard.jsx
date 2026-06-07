@@ -121,7 +121,9 @@ const StudyPlanDashboard = ({
             No Study Plan Yet
           </div>
           <div className="sp-empty-desc">
-            Take one practice test. Your plan gets built from every answer — which skills cost you points, where you rush, and what to fix first.
+            {user?.firstName
+              ? `${user.firstName}, here's where your plan will live. One practice test builds it — which skills cost you points, where you rush, and what to fix first.`
+              : 'Take one practice test. Your plan gets built from every answer — which skills cost you points, where you rush, and what to fix first.'}
           </div>
           {onStartPracticeTest && (
             <button onClick={onStartPracticeTest} className="sp-empty-btn">
@@ -307,8 +309,8 @@ const StudyPlanDashboard = ({
     return merged[0] || null;
   }, [studyPlan]);
   const dailyIntro = useMemo(
-    () => formatDailyIntro({ todaySlice, latestScore, topWeakness }),
-    [todaySlice, latestScore, topWeakness],
+    () => formatDailyIntro({ todaySlice, latestScore, topWeakness, firstName: user?.firstName }),
+    [todaySlice, latestScore, topWeakness, user?.firstName],
   );
 
   // Tab count badges — 'Today's Tasks (N) / Weekly View (N)' matches the
@@ -746,6 +748,7 @@ const StudyPlanDashboard = ({
             slice={todaySlice}
             adherence={sessionAdherence}
             dailyIntro={dailyIntro}
+            firstName={user?.firstName}
             onStartActivity={(activity) => {
               if (!activity || !onStartPractice) return;
 

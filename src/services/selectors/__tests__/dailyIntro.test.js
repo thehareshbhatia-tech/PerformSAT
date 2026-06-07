@@ -118,6 +118,40 @@ describe('formatDailyIntro — both score and weakness (richest)', () => {
   });
 });
 
+describe('formatDailyIntro — firstName echo (at most once, designated frames only)', () => {
+  it('score-only frame lands the name mid-sentence, once', () => {
+    const out = formatDailyIntro({ todaySlice: slice(), latestScore: 540, firstName: 'Haresh' });
+    expect(out).toMatch(/Last test you scored 540, Haresh\./);
+    expect(out.match(/Haresh/g)).toHaveLength(1);
+  });
+
+  it('weakness-only frame leads with the name, once', () => {
+    const out = formatDailyIntro({
+      todaySlice: slice(),
+      topWeakness: { skill: 'Slope-intercept form', accuracy: 42 },
+      firstName: 'Haresh',
+    });
+    expect(out).toMatch(/^Haresh, your weakest area/);
+    expect(out.match(/Haresh/g)).toHaveLength(1);
+  });
+
+  it('the richest (both) frame stays nameless — it already carries the most signal', () => {
+    const out = formatDailyIntro({
+      todaySlice: slice(),
+      latestScore: 540,
+      topWeakness: { skill: 'Algebra', accuracy: 50 },
+      firstName: 'Haresh',
+    });
+    expect(out).not.toMatch(/Haresh/);
+  });
+
+  it('drops cleanly when firstName is absent — byte-identical to the pre-name copy', () => {
+    const withOut = formatDailyIntro({ todaySlice: slice(), latestScore: 540 });
+    expect(withOut).toBe("Last test you scored 540. Today's 2 practice sets build on what's working (~35 min).");
+    expect(withOut).not.toMatch(/, \./);
+  });
+});
+
 describe('formatDailyIntro — defensive against bad inputs', () => {
   it('treats missing activities array as empty', () => {
     const out = formatDailyIntro({

@@ -33,9 +33,12 @@ function totalMinutes(activities) {
  * @param {{ kind: string, activities?: Array, day: string }} args.todaySlice
  * @param {number|null} [args.latestScore]      Most recent test scaledScore
  * @param {{skill?: string, errorType?: string, accuracy?: number}|null} [args.topWeakness]
+ * @param {string|null} [args.firstName]        Used at most ONCE, only in
+ *   designated frames — a note to the student, not a mail-merge. Dropped
+ *   cleanly when absent.
  * @returns {string}  The paragraph (empty string when nothing useful to say)
  */
-export function formatDailyIntro({ todaySlice, latestScore = null, topWeakness = null } = {}) {
+export function formatDailyIntro({ todaySlice, latestScore = null, topWeakness = null, firstName = null } = {}) {
   if (!todaySlice || typeof todaySlice !== 'object') return '';
   // Don't try to write a coach paragraph when there's no plan or it's
   // refreshing — the card's body already handles those states.
@@ -67,15 +70,18 @@ export function formatDailyIntro({ todaySlice, latestScore = null, topWeakness =
     );
   }
 
-  // Score only — first-time-with-results path.
+  // Score only — first-time-with-results path. Name lands once, mid-sentence,
+  // so the line reads like a note to the student rather than a template.
   if (latestScore !== null) {
-    return `Last test you scored ${latestScore}. Today's ${taskWord} build on what's working${minutesText}.`;
+    const nameClause = firstName ? `, ${firstName}` : '';
+    return `Last test you scored ${latestScore}${nameClause}. Today's ${taskWord} build on what's working${minutesText}.`;
   }
 
   // Weakness only — pre-scoring or score not yet validated.
   if (skill) {
+    const lead = firstName ? `${firstName}, your` : 'Your';
     return (
-      `Your weakest area right now is ${skill}${accuracyText}. ` +
+      `${lead} weakest area right now is ${skill}${accuracyText}. ` +
       `Today's ${taskWord} target conceptual gaps you can close${minutesText}.`
     );
   }

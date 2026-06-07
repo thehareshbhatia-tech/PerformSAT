@@ -33,8 +33,9 @@ import './TodaysTasksCard.css';
  * @param {string} [props.dailyIntro]   Per-day editorial paragraph
  * @param {(activity: object) => void} [props.onStartActivity]
  * @param {() => void} [props.onTakeTest]
+ * @param {string} [props.firstName]  Name-aware no-plan copy (made-for-me item 13)
  */
-function TodaysTasksCard({ slice, adherence, dailyIntro, onStartActivity, onTakeTest }) {
+function TodaysTasksCard({ slice, adherence, dailyIntro, onStartActivity, onTakeTest, firstName }) {
   const safeSlice = slice || { kind: 'no-plan', activities: [], day: '', weekNumber: null };
   const showAdherence = adherence
     && safeSlice.kind !== 'no-plan'
@@ -43,7 +44,7 @@ function TodaysTasksCard({ slice, adherence, dailyIntro, onStartActivity, onTake
   return (
     <section className="ttc-card" aria-label="Today's tasks">
       {dailyIntro && <p className="ttc-daily-intro">{dailyIntro}</p>}
-      {renderBody(safeSlice, onStartActivity, onTakeTest)}
+      {renderBody(safeSlice, onStartActivity, onTakeTest, firstName)}
       {showAdherence && (
         <div className="ttc-adherence" data-testid="ttc-adherence">
           <span className="ttc-adherence-dot" aria-hidden="true" />
@@ -54,13 +55,17 @@ function TodaysTasksCard({ slice, adherence, dailyIntro, onStartActivity, onTake
   );
 }
 
-function renderBody(slice, onStartActivity, onTakeTest) {
+function renderBody(slice, onStartActivity, onTakeTest, firstName) {
   switch (slice.kind) {
     case 'no-plan':
       return (
         <div className="ttc-state ttc-state-empty">
           <div className="ttc-eyebrow">Get started</div>
-          <h2 className="ttc-title">Take your first diagnostic test</h2>
+          <h2 className="ttc-title">
+            {firstName
+              ? `${firstName}, your study plan starts with one diagnostic test`
+              : 'Take your first diagnostic test'}
+          </h2>
           <p className="ttc-sub">
             One test builds your whole plan — which skills cost you points, where you rush, and what to fix first.
           </p>
