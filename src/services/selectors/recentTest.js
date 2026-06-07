@@ -43,12 +43,31 @@ export function pickMostRecentTest(practiceTestResults) {
   for (const [testId, results] of Object.entries(practiceTestResults)) {
     const attempts = (results && Array.isArray(results.attempts)) ? results.attempts : [];
     if (attempts.length === 0) continue;
-    const last = attempts[attempts.length - 1];
-    const ms = toMillis(last.completedAt) ?? toMillis(results.lastAttemptAt);
-    if (ms !== null && ms > bestMs) {
-      bestMs = ms;
+    // Pick the newest attempt by completedAt, ORDER-INDEPENDENT. The array
+    // orientation is not a stable contract: legacy rows appended oldest-first,
+    // but practiceTestService's trimAttempts re-sorts newest-first (and keeps
+    // diagnosticData only on that newest entry) — the old `attempts[len - 1]`
+    // read returned the OLDEST kept attempt on trimmed rows, with its
+    // diagnosticData stripped.
+    let candidate = null;
+    let candidateMs = -Infinity;
+    for (const a of attempts) {
+      const ms = toMillis(a?.completedAt);
+      if (ms !== null && ms > candidateMs) {
+        candidate = a;
+        candidateMs = ms;
+      }
+    }
+    if (!candidate) {
+      // No attempt carries a usable completedAt — fall back to the last
+      // element + the row-level lastAttemptAt (legacy shape).
+      candidate = attempts[attempts.length - 1];
+      candidateMs = toMillis(results.lastAttemptAt) ?? -Infinity;
+    }
+    if (candidateMs !== -Infinity && candidateMs > bestMs) {
+      bestMs = candidateMs;
       bestTestId = testId;
-      bestLastAttempt = last;
+      bestLastAttempt = candidate;
     }
   }
 

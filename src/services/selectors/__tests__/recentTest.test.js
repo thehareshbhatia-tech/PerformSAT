@@ -80,6 +80,33 @@ describe('pickMostRecentTest', () => {
     expect(r.lastAttempt).toBe(recent);
   });
 
+  it('★REGRESSION★ picks the newest attempt in NEWEST-FIRST arrays (trimAttempts orientation)', () => {
+    // practiceTestService.trimAttempts re-sorts attempts newest-first and
+    // keeps diagnosticData only on index 0. The old attempts[len-1] read
+    // returned the oldest kept attempt with diagnosticData stripped.
+    const newest = { completedAt: dt('2026-06-05T15:00:00Z'), diagnosticData: { questionDetails: {} } };
+    const older = { completedAt: dt('2026-05-01T10:00:00Z') };
+    const oldest = { completedAt: dt('2026-04-01T10:00:00Z') };
+    const data = {
+      't': { attempts: [newest, older, oldest] },
+    };
+    const r = pickMostRecentTest(data);
+    expect(r.lastAttempt).toBe(newest);
+    expect(r.lastAttempt.diagnosticData).toBeTruthy();
+  });
+
+  it('order-independence: mixed orientations across tests still pick the global newest', () => {
+    const a = { completedAt: dt('2026-06-01T10:00:00Z') };
+    const b = { completedAt: dt('2026-06-04T10:00:00Z') };
+    const data = {
+      'oldest-first': { attempts: [{ completedAt: dt('2026-03-01T10:00:00Z') }, a] },
+      'newest-first': { attempts: [b, { completedAt: dt('2026-02-01T10:00:00Z') }] },
+    };
+    const r = pickMostRecentTest(data);
+    expect(r.testId).toBe('newest-first');
+    expect(r.lastAttempt).toBe(b);
+  });
+
   it('breaks ties: keeps the first-seen test when timestamps tie', () => {
     const sameTs = dt('2026-05-09T15:00:00Z');
     const data = {
