@@ -19,11 +19,14 @@ import { getMathWeaknesses, getRWWeaknesses } from '../services/selectors/weakne
 import { isGoalAchieved, goalDelta } from '../services/selectors/goalProgress';
 import { getDaysUntilTest } from '../services/selectors/daysUntilTest';
 import { buildPacingTelemetry } from '../services/selectors/pacingTelemetry';
-import { PlayIcon, ChartBarIcon, TrendingUpIcon, ClipboardIcon } from '../design/icons';
+import { formatHeroSubtitle } from '../services/selectors/heroSubtitle';
+import { trackAddPhotoClicked } from '../services/analyticsService';
+import { PlayIcon, ChartBarIcon, TrendingUpIcon, ClipboardIcon, CameraIcon } from '../design/icons';
 import { parseLocalDate } from '../utils/localDate';
 import { injectAnimations, useCountUp } from '../design/animations';
 import { DataCard } from './ui/DataCard';
 import { PrimaryButton, SecondaryButton } from './ui/Button';
+import Avatar, { AVATAR_SIZES } from './ui/Avatar';
 import './StudentDashboard.css';
 
 // Official SAT Test Dates (from College Board)
@@ -74,6 +77,7 @@ const StudentDashboard = ({
   onStartReview,
   onStartPracticeTest,
   onStartPacing,
+  onOpenProfile,
   onViewFullDiagnosis,
   allLessons,
   skillDiagnosticSummary,
@@ -242,6 +246,23 @@ const StudentDashboard = ({
     () => formatDailyIntro({ todaySlice, latestScore, topWeakness }),
     [todaySlice, latestScore, topWeakness],
   );
+  // Hero subtitle — exactly ONE editorial fact (supersedes the D-IH-2 pitch
+  // line). New users get a FIXED string, never composer output; returning
+  // users with nothing fresh to say get an identity-only hero (null).
+  const heroLine = useMemo(() => {
+    const composed = formatHeroSubtitle({
+      todaySlice,
+      latestScore,
+      targetScore: user?.targetScore,
+      isMultiSection: latestIsMultiSection,
+      daysUntilTest,
+    });
+    if (composed) return composed;
+    if (!hasStudyPlan && projectedTestsCount === 0) {
+      return 'Your first practice test unlocks your plan.';
+    }
+    return null;
+  }, [todaySlice, latestScore, user?.targetScore, latestIsMultiSection, daysUntilTest, hasStudyPlan, projectedTestsCount]);
   // Tab count badges (Day 1 Acely-polish):
   //   dashboardCount = activities scheduled today that aren't completed
   //   studyPlanCount = total incomplete activities across all weeks
@@ -337,25 +358,56 @@ const StudentDashboard = ({
     return path;
   };
 
+  const handleAddPhoto = () => {
+    trackAddPhotoClicked(user?.uid);
+    if (onOpenProfile) onOpenProfile();
+  };
+
   return (
     <div className="student-dashboard-container">
-      {/* Greeting */}
+      {/* IDENTITY HERO — the page's sole anchor (made-for-me batch).
+          Left-aligned lockup: avatar lg 56 / eyebrow / h1 name / ONE
+          editorial subtitle. firstName, not displayName (the user doc never
+          carries displayName); when firstName is absent the greeting itself
+          becomes the h1 — no email-localpart in a heading. The subtitle
+          renders on the dashboard tab only (the plan tab's sp-hero owns its
+          own copy — one identity, not two competing heroes). */}
       <div className="dashboard-header-row">
-        {/* firstName, not displayName: the user doc never carries displayName
-            (useAuth only persists firstName), so the old read rendered a
-            nameless greeting for every user. Name clause drops cleanly when
-            firstName is absent (legacy docs) — no email-localpart in an h1. */}
-        <h1 className="dashboard-greeting">
-          {getGreeting()}{user?.firstName ? `, ${user.firstName}` : ''}
-        </h1>
-        {/* D-IH-2: hide the 60px subtitle when TodaysTasksCard already
-            anchors the user — it has its own copy. Brand-new users
-            (no plan) still see the longer pitch. */}
-        {!(activeTab === 'dashboard' && hasStudyPlan) && (
-          <p className="dashboard-subtitle">
-            Study with your personalized AI learning plan and get instant hints, explanations, and more with our AI Tutor.
-          </p>
-        )}
+        <header className="dashboard-hero">
+          <div className="dashboard-hero-avatar-col">
+            <div className="dashboard-hero-avatar-wrap">
+              <Avatar user={user} size={AVATAR_SIZES.lg} />
+              {!user?.photoDataUrl && (
+                <span className="dashboard-hero-camera-badge" aria-hidden="true">
+                  <CameraIcon size={12} />
+                </span>
+              )}
+            </div>
+            {!user?.photoDataUrl && (
+              <button
+                type="button"
+                className="dashboard-hero-addphoto"
+                aria-label="Add a profile photo"
+                onClick={handleAddPhoto}
+              >
+                Add a photo
+              </button>
+            )}
+          </div>
+          <div className="dashboard-hero-text">
+            {user?.firstName ? (
+              <>
+                <div className="dashboard-hero-eyebrow">{getGreeting()}</div>
+                <h1 className="dashboard-hero-name">{user.firstName}</h1>
+              </>
+            ) : (
+              <h1 className="dashboard-hero-name">{getGreeting()}</h1>
+            )}
+            {activeTab === 'dashboard' && heroLine && (
+              <p className="dashboard-hero-subtitle">{heroLine}</p>
+            )}
+          </div>
+        </header>
         <div className="dashboard-top-tabs">
           <button
             className={`dashboard-top-tab${activeTab === 'dashboard' ? ' active' : ''}`}
@@ -416,76 +468,6 @@ const StudentDashboard = ({
         </div>
       ) : (
       <>
-      {/* Performance Panel — D-IH-3: hide until the user has at least one
-          practice attempt. An empty 3-card grid is dead pixels above the fold. */}
-      {practiceEntries.length > 0 && (
-      <div className="acely-performance-grid">
-        <div className="acely-metric-card acely-accuracy-card">
-          <div className="acely-metric-label">Practice Accuracy</div>
-          <div className="acely-metric-value">{practicePercent || 0}%</div>
-          <div className="acely-metric-detail">
-            {totalCorrect} of {totalQuestions} questions correct
-          </div>
-        </div>
-        <div className="acely-metric-stack">
-          <div className="acely-split-card acely-strongest-card">
-            {strongest ? (
-              <>
-                <div className="acely-split-left">{strongest.accuracy}%</div>
-                <div className="acely-split-right">
-                  <div className="acely-metric-label">Strongest Section</div>
-                  <div className="acely-section-name">{strongest.title}</div>
-                </div>
-              </>
-            ) : (
-              <div className="acely-split-empty">
-                <div className="acely-metric-label">Strongest Section</div>
-                <div className="acely-empty-hint">Practice a module to see your strongest area</div>
-              </div>
-            )}
-          </div>
-          <div className="acely-split-card acely-weakest-card">
-            {weakest ? (
-              <>
-                <div className="acely-split-left">{weakest.accuracy}%</div>
-                <div className="acely-split-right">
-                  <div className="acely-metric-label">Biggest Opportunity</div>
-                  <div className="acely-section-name">{weakest.title}</div>
-                </div>
-              </>
-            ) : (
-              <div className="acely-split-empty">
-                <div className="acely-metric-label">Biggest Opportunity</div>
-                <div className="acely-empty-hint">Practice two modules to compare strengths</div>
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
-      )}
-      {/* D-IH-4: hide the projected score chart until the user has at
-          least 2 tests on file. With 0 or 1 tests the trend line is
-          decorative noise. */}
-      {scoreHistory.length >= 2 && (
-      <div className="acely-projected-card">
-        <div className="acely-projected-graph">
-          <svg width="100%" height="100%" viewBox="0 0 400 120" preserveAspectRatio="none">
-            {[60, 120, 180, 240].map(x => (
-              <line key={x} x1={x} y1="0" x2={x} y2="120" stroke="rgba(0,0,0,0.06)" strokeWidth="1" />
-            ))}
-            <path d={buildScorePath()} fill="none" stroke="var(--color-brand-primary)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </div>
-        <div className="acely-projected-info">
-          <div className="acely-metric-value">{animatedScore || '--'}</div>
-          <div className="acely-metric-label">Projected Score</div>
-          {projectedTestsCount > 0 && (
-            <div className="acely-metric-detail">Based on {projectedTestsCount} test{projectedTestsCount !== 1 ? 's' : ''}</div>
-          )}
-        </div>
-      </div>
-      )}
-
       {/* Dashboard Content Grid */}
       <div className="dashboard-grid">
         <div className="dashboard-main-col">
@@ -551,6 +533,55 @@ const StudentDashboard = ({
                 </div>
               </div>
             )
+          )}
+
+          {/* QUIET METRIC STRIP (item 18 / FINDING-003) — the old saturated
+              3-card grid demoted to label-value pairs below Today's Tasks so
+              the identity hero stays the page's only anchor. Empty-hint
+              variants are gone (subtraction): only real data renders. */}
+          {practiceEntries.length > 0 && (
+            <div className="dashboard-metric-strip">
+              <div className="metric-strip-item">
+                <span className="metric-strip-label">Practice Accuracy</span>
+                <span className="metric-strip-value">{practicePercent || 0}%</span>
+                <span className="metric-strip-detail">{totalCorrect} of {totalQuestions} correct</span>
+              </div>
+              {strongest && (
+                <div className="metric-strip-item">
+                  <span className="metric-strip-label">Strongest Section</span>
+                  <span className="metric-strip-value">{strongest.accuracy}%</span>
+                  <span className="metric-strip-detail">{strongest.title}</span>
+                </div>
+              )}
+              {weakest && (
+                <div className="metric-strip-item">
+                  <span className="metric-strip-label">Biggest Opportunity</span>
+                  <span className="metric-strip-value">{weakest.accuracy}%</span>
+                  <span className="metric-strip-detail">{weakest.title}</span>
+                </div>
+              )}
+            </div>
+          )}
+          {/* Projected score moves with the strip's section (D-IH-4 gate kept:
+              the trend line is decorative noise under 2 tests). */}
+          {scoreHistory.length >= 2 && (
+          <div className="acely-projected-card">
+            <div className="acely-projected-graph">
+              <svg width="100%" height="100%" viewBox="0 0 400 120" preserveAspectRatio="none">
+                {[60, 120, 180, 240].map(x => (
+                  <line key={x} x1={x} y1="0" x2={x} y2="120" stroke="rgba(0,0,0,0.06)" strokeWidth="1" />
+                ))}
+                <path d={buildScorePath()} fill="none" stroke="var(--color-brand-primary)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </div>
+            <div className="acely-projected-info">
+              <div className="acely-metric-value">{animatedScore || '--'}</div>
+              <div className="acely-metric-label">Projected Score</div>
+              {projectedTestsCount > 0 && (
+                <div className="acely-metric-detail">Based on {projectedTestsCount} test{projectedTestsCount !== 1 ? 's' : ''}</div>
+              )}
+            </div>
+          </div>
           )}
 
           <h2 className="section-heading">Review & Pacing</h2>
