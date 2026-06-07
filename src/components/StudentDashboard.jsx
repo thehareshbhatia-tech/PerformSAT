@@ -20,6 +20,11 @@ import { isGoalAchieved, goalDelta } from '../services/selectors/goalProgress';
 import { getDaysUntilTest } from '../services/selectors/daysUntilTest';
 import { buildPacingTelemetry } from '../services/selectors/pacingTelemetry';
 import { formatHeroSubtitle } from '../services/selectors/heroSubtitle';
+import { getRecentMisses } from '../services/selectors/recentMisses';
+import { getIdentityInsights } from '../services/selectors/identityInsights';
+import { formatPatternLabel } from '../services/selectors/missedPatternLabel';
+import { getPracticeTestById } from '../data/practiceTests';
+import { MathText } from './MathText';
 import { trackAddPhotoClicked } from '../services/analyticsService';
 import { PlayIcon, ChartBarIcon, TrendingUpIcon, ClipboardIcon, CameraIcon } from '../design/icons';
 import { parseLocalDate } from '../utils/localDate';
@@ -78,6 +83,7 @@ const StudentDashboard = ({
   onStartPracticeTest,
   onStartPacing,
   onOpenProfile,
+  onRetrySimilar,
   onViewFullDiagnosis,
   allLessons,
   skillDiagnosticSummary,
@@ -263,6 +269,15 @@ const StudentDashboard = ({
     // register rule bans — the hero degrades to identity-only instead.
     return composed;
   }, [todaySlice, latestScore, user?.targetScore, latestIsMultiSection, daysUntilTest]);
+  // "Questions you struggled with" (item 16) — wrong answers from the last
+  // test, hardest first, each with a retry-similar path into the bank.
+  const recentMisses = useMemo(
+    () => getRecentMisses(practiceTestResults, { resolveTest: getPracticeTestById }),
+    [practiceTestResults],
+  );
+  // One significance-gated "How you test" fact (item 17) — the FACT only
+  // (stat + label); the prescriptive text stays on the study-plan tab.
+  const homeInsight = useMemo(() => getIdentityInsights(studyPlan)[0] || null, [studyPlan]);
   // Tab count badges (Day 1 Acely-polish):
   //   dashboardCount = activities scheduled today that aren't completed
   //   studyPlanCount = total incomplete activities across all weeks
@@ -545,6 +560,42 @@ const StudentDashboard = ({
             )
           )}
 
+          {/* QUESTIONS YOU STRUGGLED WITH (item 16) — the page's strongest
+              proof it knows this student: their actual missed questions,
+              actionable in one tap. Hidden entirely without misses. */}
+          {recentMisses.length > 0 && (
+            <div className="recent-misses-card">
+              <div className="rm-header">
+                <h3 className="rm-title">Questions you struggled with</h3>
+                <span className="rm-sub">From your last test</span>
+              </div>
+              {recentMisses.map((m) => (
+                <div className="rm-row" key={m.key}>
+                  <div className="rm-row-main">
+                    <div className="rm-skill">
+                      {m.skills.length > 0 ? formatPatternLabel(m.skills[0]) : 'Mixed skills'}
+                      {m.difficulty ? <span className="rm-difficulty"> · {m.difficulty}</span> : null}
+                    </div>
+                    {/* Full stem rendered, CSS line-clamped — never string-cut
+                        (a JS clamp mid-LaTeX breaks MathText rendering). */}
+                    {m.stem && (
+                      <div className="rm-stem"><MathText text={m.stem} /></div>
+                    )}
+                  </div>
+                  {onRetrySimilar && m.question?.skills?.length > 0 && (
+                    <button
+                      type="button"
+                      className="rm-retry"
+                      onClick={() => onRetrySimilar(m.question)}
+                    >
+                      Retry similar
+                    </button>
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
+
           {/* QUIET METRIC STRIP (item 18 / FINDING-003) — the old saturated
               3-card grid demoted to label-value pairs below Today's Tasks so
               the identity hero stays the page's only anchor. Empty-hint
@@ -595,6 +646,14 @@ const StudentDashboard = ({
           )}
 
           <h2 className="section-heading">Review & Pacing</h2>
+          {/* "How you test" (item 17) — one significance-gated identity FACT
+              in the diagnostic-sentence editorial register. Pure narrative;
+              the prescriptive coaching for it lives on the study-plan tab. */}
+          {homeInsight && (
+            <p className="home-insight-line">
+              How you test: {homeInsight.stat} {homeInsight.label}.
+            </p>
+          )}
           <div className="dashboard-actions-grid">
             {/* DAILY REVIEW LOOP */}
             <DailyReviewCard

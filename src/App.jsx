@@ -1533,6 +1533,7 @@ const PerformSAT = () => {
             onStartPracticeTest={() => setView('practiceTests')}
             onStartPacing={startPacingDrill}
             onOpenProfile={() => setView('profile')}
+            onRetrySimilar={handleTrySimilarFromReview}
             onViewFullDiagnosis={async () => {
               // Closes CEO C1: surface DiagnosticReport from the dashboard.
               const { testId, lastAttempt } = pickMostRecentTest(practiceTestResults);
