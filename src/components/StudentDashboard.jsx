@@ -19,7 +19,6 @@ import { getMathWeaknesses, getRWWeaknesses } from '../services/selectors/weakne
 import { isGoalAchieved, goalDelta } from '../services/selectors/goalProgress';
 import { getDaysUntilTest } from '../services/selectors/daysUntilTest';
 import { buildPacingTelemetry } from '../services/selectors/pacingTelemetry';
-import { formatHeroSubtitle } from '../services/selectors/heroSubtitle';
 import { getRecentMisses } from '../services/selectors/recentMisses';
 import { getIdentityInsights } from '../services/selectors/identityInsights';
 import { formatPatternLabel } from '../services/selectors/missedPatternLabel';
@@ -252,23 +251,6 @@ const StudentDashboard = ({
     () => formatDailyIntro({ todaySlice, latestScore, topWeakness, firstName: user?.firstName }),
     [todaySlice, latestScore, topWeakness, user?.firstName],
   );
-  // Hero subtitle — exactly ONE editorial fact (supersedes the D-IH-2 pitch
-  // line). New users get a FIXED string, never composer output; returning
-  // users with nothing fresh to say get an identity-only hero (null).
-  const heroLine = useMemo(() => {
-    const composed = formatHeroSubtitle({
-      todaySlice,
-      latestScore,
-      targetScore: user?.targetScore,
-      isMultiSection: latestIsMultiSection,
-      daysUntilTest,
-    });
-    // No fixed new-user fallback here: when there's no plan, the AI Practice
-    // Banner below carries the one "first test unlocks your plan" promise
-    // (with its CTA). Repeating it 200px apart is exactly the slop the
-    // register rule bans — the hero degrades to identity-only instead.
-    return composed;
-  }, [todaySlice, latestScore, user?.targetScore, latestIsMultiSection, daysUntilTest]);
   // "Questions you struggled with" (item 16) — wrong answers from the last
   // test, hardest first, each with a retry-similar path into the bank.
   const recentMisses = useMemo(
@@ -373,56 +355,46 @@ const StudentDashboard = ({
     return path;
   };
 
-  const handleAddPhoto = () => {
+  const handleAvatarClick = () => {
     trackAddPhotoClicked(user?.uid);
     if (onOpenProfile) onOpenProfile();
   };
 
   return (
     <div className="student-dashboard-container">
-      {/* IDENTITY HERO — the page's sole anchor (made-for-me batch).
-          Left-aligned lockup: avatar lg 56 / eyebrow / h1 name / ONE
-          editorial subtitle. firstName, not displayName (the user doc never
-          carries displayName); when firstName is absent the greeting itself
-          becomes the h1 — no email-localpart in a heading. The subtitle
-          renders on the dashboard tab only (the plan tab's sp-hero owns its
-          own copy — one identity, not two competing heroes). */}
+      {/* Greeting — original layout, plus the profile pic (user call
+          2026-06-06: the hero-card redesign was reverted; identity is a
+          small avatar beside the greeting, nothing more). Avatar click
+          opens Profile; camera badge signals add-a-photo when none set.
+          firstName, not displayName — the user doc never carries
+          displayName, so the old read rendered a nameless greeting. */}
       <div className="dashboard-header-row">
-        <header className="dashboard-hero">
-          <div className="dashboard-hero-avatar-col">
-            <div className="dashboard-hero-avatar-wrap">
-              <Avatar user={user} size={AVATAR_SIZES.lg} />
-              {!user?.photoDataUrl && (
-                <span className="dashboard-hero-camera-badge" aria-hidden="true">
-                  <CameraIcon size={12} />
-                </span>
-              )}
-            </div>
+        <div className="dashboard-greeting-row">
+          <button
+            type="button"
+            className="dashboard-avatar-btn"
+            aria-label={user?.photoDataUrl ? 'Open your profile' : 'Add a profile photo'}
+            onClick={handleAvatarClick}
+          >
+            <Avatar user={user} size={AVATAR_SIZES.md} />
             {!user?.photoDataUrl && (
-              <button
-                type="button"
-                className="dashboard-hero-addphoto"
-                aria-label="Add a profile photo"
-                onClick={handleAddPhoto}
-              >
-                Add a photo
-              </button>
+              <span className="dashboard-avatar-camera" aria-hidden="true">
+                <CameraIcon size={11} />
+              </span>
             )}
-          </div>
-          <div className="dashboard-hero-text">
-            {user?.firstName ? (
-              <>
-                <div className="dashboard-hero-eyebrow">{getGreeting()}</div>
-                <h1 className="dashboard-hero-name">{user.firstName}</h1>
-              </>
-            ) : (
-              <h1 className="dashboard-hero-name">{getGreeting()}</h1>
-            )}
-            {activeTab === 'dashboard' && heroLine && (
-              <p className="dashboard-hero-subtitle">{heroLine}</p>
-            )}
-          </div>
-        </header>
+          </button>
+          <h1 className="dashboard-greeting">
+            {getGreeting()}{user?.firstName ? `, ${user.firstName}` : ''}
+          </h1>
+        </div>
+        {/* D-IH-2: hide the subtitle when TodaysTasksCard already anchors
+            the user — it has its own copy. Brand-new users still see the
+            longer pitch. */}
+        {!(activeTab === 'dashboard' && hasStudyPlan) && (
+          <p className="dashboard-subtitle">
+            Study with your personalized AI learning plan and get instant hints, explanations, and more with our AI Tutor.
+          </p>
+        )}
         <div className="dashboard-top-tabs">
           <button
             className={`dashboard-top-tab${activeTab === 'dashboard' ? ' active' : ''}`}
@@ -487,6 +459,77 @@ const StudentDashboard = ({
         </div>
       ) : (
       <>
+      {/* Performance Panel — D-IH-3: hide until the user has at least one
+          practice attempt. An empty 3-card grid is dead pixels above the fold.
+          (Restored 2026-06-06 by user call — the colorful tiles ARE the look.) */}
+      {practiceEntries.length > 0 && (
+      <div className="acely-performance-grid">
+        <div className="acely-metric-card acely-accuracy-card">
+          <div className="acely-metric-label">Practice Accuracy</div>
+          <div className="acely-metric-value">{practicePercent || 0}%</div>
+          <div className="acely-metric-detail">
+            {totalCorrect} of {totalQuestions} questions correct
+          </div>
+        </div>
+        <div className="acely-metric-stack">
+          <div className="acely-split-card acely-strongest-card">
+            {strongest ? (
+              <>
+                <div className="acely-split-left">{strongest.accuracy}%</div>
+                <div className="acely-split-right">
+                  <div className="acely-metric-label">Strongest Section</div>
+                  <div className="acely-section-name">{strongest.title}</div>
+                </div>
+              </>
+            ) : (
+              <div className="acely-split-empty">
+                <div className="acely-metric-label">Strongest Section</div>
+                <div className="acely-empty-hint">Practice a module to see your strongest area</div>
+              </div>
+            )}
+          </div>
+          <div className="acely-split-card acely-weakest-card">
+            {weakest ? (
+              <>
+                <div className="acely-split-left">{weakest.accuracy}%</div>
+                <div className="acely-split-right">
+                  <div className="acely-metric-label">Biggest Opportunity</div>
+                  <div className="acely-section-name">{weakest.title}</div>
+                </div>
+              </>
+            ) : (
+              <div className="acely-split-empty">
+                <div className="acely-metric-label">Biggest Opportunity</div>
+                <div className="acely-empty-hint">Practice two modules to compare strengths</div>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+      )}
+      {/* D-IH-4: hide the projected score chart until the user has at
+          least 2 tests on file. With 0 or 1 tests the trend line is
+          decorative noise. */}
+      {scoreHistory.length >= 2 && (
+      <div className="acely-projected-card">
+        <div className="acely-projected-graph">
+          <svg width="100%" height="100%" viewBox="0 0 400 120" preserveAspectRatio="none">
+            {[60, 120, 180, 240].map(x => (
+              <line key={x} x1={x} y1="0" x2={x} y2="120" stroke="rgba(0,0,0,0.06)" strokeWidth="1" />
+            ))}
+            <path d={buildScorePath()} fill="none" stroke="var(--color-brand-primary)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </div>
+        <div className="acely-projected-info">
+          <div className="acely-metric-value">{animatedScore || '--'}</div>
+          <div className="acely-metric-label">Projected Score</div>
+          {projectedTestsCount > 0 && (
+            <div className="acely-metric-detail">Based on {projectedTestsCount} test{projectedTestsCount !== 1 ? 's' : ''}</div>
+          )}
+        </div>
+      </div>
+      )}
+
       {/* Dashboard Content Grid */}
       <div className="dashboard-grid">
         <div className="dashboard-main-col">
@@ -594,55 +637,6 @@ const StudentDashboard = ({
                 </div>
               ))}
             </div>
-          )}
-
-          {/* QUIET METRIC STRIP (item 18 / FINDING-003) — the old saturated
-              3-card grid demoted to label-value pairs below Today's Tasks so
-              the identity hero stays the page's only anchor. Empty-hint
-              variants are gone (subtraction): only real data renders. */}
-          {practiceEntries.length > 0 && (
-            <div className="dashboard-metric-strip">
-              <div className="metric-strip-item">
-                <span className="metric-strip-label">Practice Accuracy</span>
-                <span className="metric-strip-value">{practicePercent || 0}%</span>
-                <span className="metric-strip-detail">{totalCorrect} of {totalQuestions} correct</span>
-              </div>
-              {strongest && (
-                <div className="metric-strip-item">
-                  <span className="metric-strip-label">Strongest Section</span>
-                  <span className="metric-strip-value">{strongest.accuracy}%</span>
-                  <span className="metric-strip-detail">{strongest.title}</span>
-                </div>
-              )}
-              {weakest && (
-                <div className="metric-strip-item">
-                  <span className="metric-strip-label">Biggest Opportunity</span>
-                  <span className="metric-strip-value">{weakest.accuracy}%</span>
-                  <span className="metric-strip-detail">{weakest.title}</span>
-                </div>
-              )}
-            </div>
-          )}
-          {/* Projected score moves with the strip's section (D-IH-4 gate kept:
-              the trend line is decorative noise under 2 tests). */}
-          {scoreHistory.length >= 2 && (
-          <div className="acely-projected-card">
-            <div className="acely-projected-graph">
-              <svg width="100%" height="100%" viewBox="0 0 400 120" preserveAspectRatio="none">
-                {[60, 120, 180, 240].map(x => (
-                  <line key={x} x1={x} y1="0" x2={x} y2="120" stroke="rgba(0,0,0,0.06)" strokeWidth="1" />
-                ))}
-                <path d={buildScorePath()} fill="none" stroke="var(--color-brand-primary)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </div>
-            <div className="acely-projected-info">
-              <div className="acely-metric-value">{animatedScore || '--'}</div>
-              <div className="acely-metric-label">Projected Score</div>
-              {projectedTestsCount > 0 && (
-                <div className="acely-metric-detail">Based on {projectedTestsCount} test{projectedTestsCount !== 1 ? 's' : ''}</div>
-              )}
-            </div>
-          </div>
           )}
 
           <h2 className="section-heading">Review & Pacing</h2>
