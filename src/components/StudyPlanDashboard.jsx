@@ -22,6 +22,7 @@ import { getDaysUntilTest } from '../services/selectors/daysUntilTest';
 import { parseLocalDate } from '../utils/localDate';
 import { useFeatureFlag } from '../hooks/useFeatureFlag';
 import CalendarMonth from './CalendarMonth';
+import Avatar, { AVATAR_SIZES } from './ui/Avatar';
 import TodaysTasksCard from './TodaysTasksCard';
 import {
   ClipboardIcon,
@@ -610,7 +611,15 @@ const StudyPlanDashboard = ({
           back gracefully field-by-field; hidden only when we know nothing.
       ──────────────────────────────────────────────────────────────── */}
       {(user?.firstName || user?.targetScore || latestScore !== null) && (
-        <header className="sp-hero">
+        <header
+          className="sp-hero"
+          // Standalone view only: in the inline (dashboard-tab) mount the
+          // identity hero above the tab bar already carries the face — a
+          // second avatar 100px below would read as repetition (H-3).
+          style={variant !== 'inline' ? { display: 'flex', alignItems: 'center', gap: '12px' } : undefined}
+        >
+          {variant !== 'inline' && <Avatar user={user} size={AVATAR_SIZES.md} />}
+          <div style={variant !== 'inline' ? { minWidth: 0 } : undefined}>
           <h2 className="sp-hero-title">
             {(() => {
               const name = user?.firstName;
@@ -640,9 +649,10 @@ const StudyPlanDashboard = ({
               <span>test in <strong>{daysUntilTest} day{daysUntilTest === 1 ? '' : 's'}</strong></span>
             )}
             {targetSchool && (
-              <span>{targetSchool.name} mid-50% Math: <strong>{targetSchool.satMath}</strong></span>
+              <span>{targetSchool.name} Median Math: <strong>{targetSchool.satMath}</strong></span>
             )}
           </p>
+          </div>
         </header>
       )}
 

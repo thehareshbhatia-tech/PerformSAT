@@ -21,6 +21,7 @@ import { runDiagnostic, ERROR_TYPES, ERROR_TYPE_LABELS, ERROR_TYPE_ICONS, ERROR_
 import { generateStudyPlan, compareDiagnostics } from '../services/studyPlanGenerator';
 import ErrorRecoveryDrills from './ErrorRecoveryDrills';
 import { MathText } from './MathText';
+import Avatar, { AVATAR_SIZES } from './ui/Avatar';
 import { colors, typography, spacing, radius, shadows, transitions } from '../design/tokens';
 import { cardStyles, buttonStyles } from '../design/components';
 import {
@@ -811,8 +812,13 @@ const DiagnosticReport = ({
           </button>
         )}
 
-        <div style={{ fontSize: isMobile ? '28px' : '36px', fontWeight: '800', color: colors.text.primary, letterSpacing: '-0.04em' }}>
-          {diagnostic.testTitle}
+        {/* Identity stamp (made-for-me item 12) — merged into the existing
+            heading, never a second one. Live user doc fields, not snapshot. */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', minWidth: 0 }}>
+          <Avatar user={user} size={AVATAR_SIZES.md} />
+          <div style={{ fontSize: isMobile ? '28px' : '36px', fontWeight: '800', color: colors.text.primary, letterSpacing: '-0.04em', minWidth: 0 }}>
+            {user?.firstName ? `${user.firstName}'s diagnostic — ${diagnostic.testTitle}` : diagnostic.testTitle}
+          </div>
         </div>
       </div>
 

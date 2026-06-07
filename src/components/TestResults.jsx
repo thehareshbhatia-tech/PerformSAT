@@ -13,6 +13,7 @@ import { isGoalAchieved } from '../services/selectors/goalProgress';
 import './TestResults.css';
 import { ChartBarIcon, ArrowRightIcon, BookOpenIcon, PencilIcon, BrainIcon, SearchIcon, PinIcon } from '../design/icons';
 import QuestionInsightCard from './QuestionInsightCard';
+import Avatar, { AVATAR_SIZES } from './ui/Avatar';
 import {
   scoreTest, convertToSATScore, isAnswerCorrect, estimatePercentile,
   inferDomain, SAT_MATH_DOMAINS, DOMAIN_DISPLAY_NAMES,
@@ -2173,23 +2174,53 @@ const TestResults = ({
         </button>
       </div>
 
-      {/* Header Area */}
+      {/* Header Area — identity stamp MERGED into the page's single h1
+          (made-for-me item 11): the student's face + possessive on the
+          highest-emotion screen, emotion-NEUTRAL by design, always paired
+          with a visible forward action (the diagnostic tab) so a bad score
+          never dead-ends. */}
       <div style={{
         marginBottom: '24px',
-        paddingTop: '8px'
+        paddingTop: '8px',
+        display: 'flex',
+        alignItems: 'flex-start',
+        justifyContent: 'space-between',
+        gap: '16px',
+        flexWrap: 'wrap',
       }}>
-        <h1 style={{
-          fontSize: '32px',
-          fontWeight: '800',
-          color: colors.text.primary,
-          letterSpacing: '-0.04em',
-          marginBottom: '8px'
-        }}>
-          {test.title}
-        </h1>
-        <div style={{ fontSize: '15px', color: colors.text.secondary, fontWeight: '500' }}>
-          Completed on {new Date(test.completedAt || Date.now()).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', minWidth: 0 }}>
+          <Avatar user={user} size={AVATAR_SIZES.md} />
+          <div style={{ minWidth: 0 }}>
+            <h1 style={{
+              fontSize: '32px',
+              fontWeight: '800',
+              color: colors.text.primary,
+              letterSpacing: '-0.04em',
+              marginBottom: '4px'
+            }}>
+              {user?.firstName ? `${user.firstName}'s results — ${test.title}` : test.title}
+            </h1>
+            <div style={{ fontSize: '15px', color: colors.text.secondary, fontWeight: '500' }}>
+              Completed on {new Date(test.completedAt || Date.now()).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+            </div>
+          </div>
         </div>
+        {activeTab !== 'diagnostic' && (
+          <button
+            type="button"
+            onClick={() => setActiveTab('diagnostic')}
+            style={{
+              display: 'flex', alignItems: 'center', gap: '6px',
+              padding: '10px 16px', minHeight: '44px',
+              borderRadius: '10px', border: '1px solid var(--color-slate-200)',
+              background: '#ffffff', cursor: 'pointer',
+              fontSize: '14px', fontWeight: '600', color: colors.text.primary,
+              whiteSpace: 'nowrap', flexShrink: 0,
+            }}
+          >
+            See why <ArrowRightIcon size={15} />
+          </button>
+        )}
       </div>
 
       {/* Tab Navigation */}
