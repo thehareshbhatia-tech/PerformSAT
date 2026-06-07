@@ -1,5 +1,22 @@
 # TODOS
 
+## Made-For-Me personalization — deferred by /autoplan review (2026-06-06)
+
+Plan: `docs/MADE_FOR_ME_PERSONALIZATION_PLAN.md` (approved scope = Phases 0-4 therein).
+
+- **[P2/M] Score-journey timeline.** "Your Score Journey" chart: full scoreTrajectory (10+ nodes live in studyPlanArtifact.longitudinal; ScoreTrajectory component renders only 5) with prediction bands overlaid, click-through to that test's diagnostic. Why: visualizes progress + prediction accuracy together — the moat made visible. Deferred: deserves its own design pass (/design-shotgun for the chart treatment). Start: `StudyPlanDashboard.jsx` ScoreTrajectory + `predictionEngine.js` validated entries.
+- **[P2/M] Testing-personality card.** Surface the 6D studentFingerprint (speed, conceptualDepth, trapResistance, stamina, confidenceCalibration, learningVelocity + archetype) — stored at progress/{uid}.studentFingerprint, never rendered. Why: only-this-student content nobody can copy. Caution: diagnostic-content rule (pure narrative, no tips). Deferred: own batch + design pass.
+- **[P3/M] Prediction-history surface.** "How we've predicted your score" — all validated predictionLog entries vs outcomes (only the latest renders today via predictionSummary). Why: builds trust in the prediction loop. Start: `selectors/predictionSummary.js`.
+- **[P3/S] Streak milestone moments.** 7/14/21-day review-streak acknowledgments (subtle, no emoji). Deferred: new behavior pattern, outside the identity batch.
+- **[P2/S] analyticsEvents unbounded arrayUnion.** `analyticsService.js:96` appends to `progress/{uid}.analyticsEvents` forever — latent 1MB-doc failure + write-cost sink on a hot doc. Fix: cap (keep last N) or move to a subcollection. Pre-existing; flagged by both review voices.
+- **[P3/S] Install @testing-library/react.** Unlocks component render tests (hero variants, Avatar onError) that the personalization batch had to cover via dogfood. Also unblocks the long-deferred chip-mount render tests (CLAUDE.md).
+- **[P3/S] Consolidate design/gemini/* into root DESIGN.md.** plan-design-review expects one; today the system source is split across design-system-spec.md + style-guardrails.md.
+- **[P3/S] College data: source real 25th/75th percentiles.** collegeData.js stores a single median; a true mid-50% range would make the school anchor honest and richer. Until then both surfaces say "Median Math".
+- **[P3/S] TestResults score-valence treatment.** The identity stamp ships emotion-neutral by design; a goal-hit vs regression vs first-test treatment is a named gap, not an omission.
+- **[P3/S] Drill-shell React DOM-prop warnings (pre-existing, spotted in dogfood 2026-06-06).** Mounting AssignedPracticeShell ("Similar Practice") logs `React does not recognize the fontVariantNumeric/boxShadow prop on a DOM element` — somewhere in the drill render path a style object is spread as props (`{...styles}`) instead of `style={styles}`. Dev-only console noise, no user impact. Find with React DevTools or by bisecting the drill render tree.
+- **[P3/S] recentMisses stems currently label-only in practice.** The struggled-with card's self-validating stem guard (skills-equality vs the bundle) rejected stems for the dogfood account's latest attempt — rows render skill+difficulty only, which is the designed fallback. If stems matter, the robust source is the per-attempt snapshot subcollection (exact served question, PastTestReview already loads it) — an async upgrade, not a selector tweak.
+- **[P2/M] Growth measurement + acquisition gate (queued at /autoplan final gate 2026-06-06).** The independent CEO reviewer's challenge, accepted as backlog: (1) real aggregate analytics (PostHog-class, ~1h — `analyticsService` arrayUnion events are per-user and owner-locked, cannot answer retention/funnel questions); (2) landing-page SEO/OG basics (index.html has a bare meta description, no OG tags); (3) one acquisition experiment — strongest candidate: a SHAREABLE personalized diagnostic report (student's name/face + score story as a rendered image) which doubles as the next personalization artifact and a lead magnet. Context: this is the known Phase-0 GTM fork from the 2026-05-29 competitive assessment. Why now-ish: without it, feature bets (including this personalization batch) can't be measured against real users.
+
 ## Study Plan design review — deferred findings (2026-06-05)
 
 From the /design-review fix loop (6 commits, FINDING-001..010 fixed; full report:
