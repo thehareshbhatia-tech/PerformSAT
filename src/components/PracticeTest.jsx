@@ -3700,7 +3700,9 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
       {/* Bluebook-style bottom nav bar — R&W only */}
       {isReadingWriting && !isMobile && (
         <div className="test-session-bottom-bar">
-          <div className="bottom-bar-left">{user?.displayName || 'Student'}</div>
+          {/* firstName, not displayName — the user doc never carries displayName,
+              so this bar always fell back to "Student". */}
+          <div className="bottom-bar-left">{user?.firstName || 'Student'}</div>
           <div className="bottom-bar-center">
             {showQuestionGridPopover && (
               <div className="question-grid-popover">

@@ -350,8 +350,12 @@ const StudentDashboard = ({
     <div className="student-dashboard-container">
       {/* Greeting */}
       <div className="dashboard-header-row">
+        {/* firstName, not displayName: the user doc never carries displayName
+            (useAuth only persists firstName), so the old read rendered a
+            nameless greeting for every user. Name clause drops cleanly when
+            firstName is absent (legacy docs) — no email-localpart in an h1. */}
         <h1 className="dashboard-greeting">
-          {getGreeting()}{user?.displayName ? `, ${user.displayName.split(' ')[0]}` : ''}
+          {getGreeting()}{user?.firstName ? `, ${user.firstName}` : ''}
         </h1>
         {/* D-IH-2: hide the 60px subtitle when TodaysTasksCard already
             anchors the user — it has its own copy. Brand-new users
