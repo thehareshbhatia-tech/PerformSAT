@@ -29,6 +29,7 @@ import { PlayIcon, ChartBarIcon, TrendingUpIcon, ClipboardIcon, CameraIcon } fro
 import { parseLocalDate } from '../utils/localDate';
 import { injectAnimations, useCountUp } from '../design/animations';
 import { DataCard } from './ui/DataCard';
+import { DashboardSkeleton } from './ui/Skeleton';
 import { PrimaryButton, SecondaryButton } from './ui/Button';
 import Avatar, { AVATAR_SIZES } from './ui/Avatar';
 import './StudentDashboard.css';
@@ -67,6 +68,7 @@ const TOTAL_LESSONS = 199;
 
 const StudentDashboard = ({
   user,
+  dataLoading = false,
   completedLessons,
   practiceProgress,
   practiceTestResults,
@@ -327,6 +329,11 @@ const StudentDashboard = ({
 
   const animatedScore = useCountUp(projectedScore || user?.currentScore || 0, 800, 300);
 
+  // For the projected-score line draw-on (#15) — skip the reveal entirely for
+  // reduced-motion users so the chart just appears static (no delayed flash).
+  const prefersReducedMotion = typeof window !== 'undefined' && window.matchMedia
+    && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   const dismissedDelta = useMemo(() => {
     try { return studyPlanMeta?.artifactId ? localStorage.getItem(`dismissedDelta:${studyPlanMeta.artifactId}`) : null; }
     catch { return null; }
@@ -359,6 +366,14 @@ const StudentDashboard = ({
     trackAddPhotoClicked(user?.uid);
     if (onOpenProfile) onOpenProfile();
   };
+
+  // #9b — while a returning user's data hydrates, show a skeleton instead of
+  // flashing the empty/teaser state. Placed after all hooks; a genuinely new
+  // account (not loading, no data) falls through to the designed empty states.
+  const hasAnyData = !!studyPlan || practiceEntries.length > 0 || (practiceTestResults?.length > 0);
+  if (dataLoading && !hasAnyData) {
+    return <DashboardSkeleton />;
+  }
 
   return (
     <div className="student-dashboard-container">
@@ -517,7 +532,19 @@ const StudentDashboard = ({
             {[60, 120, 180, 240].map(x => (
               <line key={x} x1={x} y1="0" x2={x} y2="120" stroke="rgba(0,0,0,0.06)" strokeWidth="1" />
             ))}
-            <path d={buildScorePath()} fill="none" stroke="var(--color-brand-primary)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+            <path
+              d={buildScorePath()}
+              fill="none"
+              stroke="var(--color-brand-primary)"
+              strokeWidth="3"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              pathLength="100"
+              style={prefersReducedMotion ? undefined : {
+                strokeDasharray: 100,
+                animation: 'drawLine 800ms cubic-bezier(0.25, 0.1, 0.25, 1) 300ms both',
+              }}
+            />
           </svg>
         </div>
         <div className="acely-projected-info">

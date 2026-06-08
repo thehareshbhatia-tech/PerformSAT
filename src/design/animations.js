@@ -100,6 +100,13 @@ const keyframes = `
   to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
+/* Line draw-on for the projected-score trajectory (path needs pathLength="100"
+   + stroke-dasharray:100). Timed to land with the score count-up. */
+@keyframes drawLine {
+  from { stroke-dashoffset: 100; }
+  to { stroke-dashoffset: 0; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
