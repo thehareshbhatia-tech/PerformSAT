@@ -137,6 +137,17 @@
   color: var(--color-brand-orange-500);
 }
 
+/* Buttons don't inherit font-family from the UA stylesheet — without this they
+   fall back to Arial instead of the brand UI font (Inter). Covers every button
+   on the landing surface + auth modal. */
+.btn-primary,
+.btn-secondary,
+.btn-ghost,
+.auth-form-submit,
+.auth-form-toggle {
+  font-family: inherit;
+}
+
 /* Sections Base */
 .section-container {
   padding: 5rem 5%;
