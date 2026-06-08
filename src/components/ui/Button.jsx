@@ -1,22 +1,25 @@
 import React from 'react';
 import './Button.css';
 
-export const Button = ({ 
-  children, 
-  variant = 'primary', 
-  size = 'md', 
-  className = '', 
+export const Button = ({
+  children,
+  variant = 'primary',
+  size = 'md',
+  className = '',
   disabled,
+  loading = false,
   onClick,
-  ...props 
+  ...props
 }) => {
   return (
-    <button 
-      className={`btn btn-${variant} btn-${size} ${className}`}
+    <button
+      className={`btn btn-${variant} btn-${size}${loading ? ' btn-loading' : ''} ${className}`}
       onClick={onClick}
-      disabled={disabled}
+      disabled={disabled || loading}
+      aria-busy={loading || undefined}
       {...props}
     >
+      {loading && <span className="btn-spinner" aria-hidden="true" />}
       {children}
     </button>
   );

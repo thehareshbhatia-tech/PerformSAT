@@ -24,6 +24,20 @@
   transform: scale(0.97);
 }
 
+/* Loading state — inline spinner before the label (gap from .btn handles spacing).
+   reduced-motion handled globally. */
+.btn-spinner {
+  width: 1em;
+  height: 1em;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+  animation: btn-spin 0.7s linear infinite;
+}
+@keyframes btn-spin { to { transform: rotate(360deg); } }
+
 /* Sizes */
 .btn-sm {
   height: 32px;

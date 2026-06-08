@@ -40,6 +40,8 @@ import PastTestReviewIndex from './components/PastTestReview/PastTestReviewIndex
 import TestReviewDetail from './components/PastTestReview/TestReviewDetail';
 import ReviewItemCard from './components/PastTestReview/ReviewItemCard';
 import { Toaster, showToast } from './components/ui/Toaster';
+import CommandPalette from './components/ui/CommandPalette';
+import { ChartBarIcon, PlayIcon, ClipboardIcon, TargetIcon, CalendarIcon, BrainIcon } from './design/icons';
 import { pickSimilarQuestion } from './services/trySimilarService';
 import { buildRounds, classifyRoundBoundary } from './services/buildRounds';
 import {
@@ -1313,6 +1315,16 @@ const PerformSAT = () => {
     );
   }
 
+  const paletteCommands = [
+    { id: 'home', label: 'Go to Home', hint: 'Dashboard', icon: <ChartBarIcon size={16} />, run: () => { setView('dashboard'); setActiveModule(null); setActiveLesson(null); } },
+    { id: 'practice', label: 'Practice', hint: 'Practice bank', icon: <TargetIcon size={16} />, run: () => setView('practiceBank') },
+    { id: 'studyPlan', label: 'Open Study Plan', hint: 'Your plan', icon: <CalendarIcon size={16} />, run: () => setView('studyPlan') },
+    { id: 'tests', label: 'Practice Tests', hint: 'Full-length', icon: <ClipboardIcon size={16} />, run: () => { setView('practiceTests'); setSelectedPracticeTest(null); } },
+    { id: 'tutor', label: 'Open AI Tutor', hint: 'Ask anything', icon: <BrainIcon size={16} />, run: () => { setView('tutor'); setShowAiTutor(true); } },
+    { id: 'videos', label: 'Videos', hint: 'Lessons', icon: <PlayIcon size={16} />, run: () => { setView('modules'); setActiveModule(null); setActiveLesson(null); } },
+    { id: 'profile', label: 'Profile & settings', run: () => setView('profile') },
+  ];
+
   return (
     <ErrorBoundary>
     <BrowserRouter>
@@ -1378,6 +1390,9 @@ const PerformSAT = () => {
 
       {/* Accessibility: Skip to main content link */}
       <a href="#main-content" className="skip-link">Skip to main content</a>
+
+      {/* Cmd/Ctrl+K command palette (owns its own open state + global listener) */}
+      <CommandPalette commands={paletteCommands} />
 
       <AppShell
         currentView={view}

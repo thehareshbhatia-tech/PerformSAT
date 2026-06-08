@@ -103,6 +103,18 @@
   --radius-2xl: 32px;
   --radius-full: 9999px;
 
+  /* Spacing scale (8pt grid). New/edited surfaces should use these instead of
+     ad-hoc px (6/10/14/18/22 etc. still exist in legacy CSS — snap them to the
+     nearest step as you touch each file). 2026-06-08. */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+
   /* Diagnostic Insights Scoped Tokens */
   --diag-bg: var(--color-slate-50);
   --diag-card-bg: var(--color-white);
