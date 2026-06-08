@@ -241,9 +241,10 @@
 }
 
 .hero-title {
+  font-family: var(--font-reading); /* Merriweather — match the app's editorial heading voice (was Inter) */
   font-size: clamp(2.5rem, 6vw, 4rem);
-  font-weight: 900;
-  letter-spacing: -0.04em;
+  font-weight: 700; /* editorial bold; the app never uses a 900 serif */
+  letter-spacing: -0.01em; /* relaxed from -0.04em, which was tuned for the 900 sans */
   line-height: 1.1;
   margin-bottom: 1.5rem;
   color: var(--color-slate-900);
@@ -710,4 +711,16 @@
 
 .auth-form-toggle:hover {
   color: var(--color-brand-orange-500);
+}
+
+/* Section/step/conversion titles share the hero's editorial voice (Merriweather,
+   --font-reading) so the whole landing matches the app's heading voice instead of
+   generic Inter. 700 is the heaviest Merriweather face loaded; -0.005em relaxes the
+   sans-tuned tracking. Placed last so it overrides the per-rule font-weight: 800. */
+.section-title,
+.step-title,
+.conversion-title {
+  font-family: var(--font-reading);
+  font-weight: 700;
+  letter-spacing: -0.005em;
 }
