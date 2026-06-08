@@ -1,5 +1,27 @@
 # TODOS
 
+## Landing-page design review — deferred findings (2026-06-08)
+
+From the /design-review fix loop on both surfaces (6 commits `d2199cc`..`a4a75e3`,
+FINDING-001..006 fixed). Full report: `.gstack/design-audit-20260608/design-audit-localhost.md`.
+Fixed this run: landing+app buttons now inherit Inter (was Arial, 14/18 app buttons);
+landing reads tri-color; placeholders aria-hidden; dead auth-modal CSS removed; heading
+balance. Landing Design C+ → B-, AI-slop C → C+.
+
+- **[CRITICAL/content] Landing placeholder imagery.** Hero "Platform Preview" + 3 "How SEVA Works" boxes (Diagnostic/Learn/Practice) are empty gray voids (`LandingPage.jsx` `.hero-visual`/`.step-visual`). Same as FINDING-010 in the 2026-05-19 review — open 3 weeks. Needs real screenshots (from demo-seed, NOT the PII-bearing logged-in app) or illustrations. I can wire them in once provided.
+- **[HIGH/content] Unsubstantiated landing copy.** "thousands of students" (`LandingPage.jsx:188`, the false-claim blocker), "comprehensive video course / proven curriculum" (:80), "top instructors" (:119), "premier platform" (:207). User decision — won't rewrite blind.
+- **[HIGH/content] Dead footer links.** Pricing/About/Contact/**Privacy/Terms** all `href="#"` (`LandingPage.jsx:215-224`). Privacy/Terms are launch blockers (need pages + routes).
+- **[HIGH/typography] Cross-surface voice.** App uses editorial serif for big headings; landing hero is heavy Inter. Bring Fraunces/editorial into the hero — mockup-worthy (`/design-shotgun`).
+- **[MEDIUM/ai-slop] Landing section rhythm.** Centered-everything + 3-col icon-in-box grid + uniform cards + dark CTA band + cookie-cutter rhythm. Tri-color helped; full de-slop is a redesign.
+- **[MEDIUM/a11y] Signup radio group** uses bare `<label>` not `<fieldset>/<legend>` (`LandingPage.jsx:264`).
+- **[POLISH] Landing touch targets** < 44px (Log in 31px, nav/footer links 20px, CTAs 42px) — tight on mobile.
+- **[POLISH] `transition: all`** on `.btn-primary`/`.btn-secondary`/`.feature-card` — list properties explicitly.
+- **[HIGH/app, incremental] Spacing scale 0% adopted.** `--space-1..8` used 0 times in `src/`; snap ad-hoc px/rem as you touch files (project policy — not a mass refactor). Overlaps the 2026-06-05 "Token adoption refactor" note below.
+- **[HIGH/app, incremental] Dual gray systems.** Apple-warm slate tokens vs Tailwind cool-slate hardcodes (`#64748b`/`#6b7280`/`#111827`) coexist; tri-color hardcoded at call sites.
+- **[MEDIUM/app] Wordmark fallback dup.** `App.jsx:~1300` + `ui/AppShell.jsx:~292` re-implement the SEVA mark with divergent Fraunces fallbacks instead of `<Wordmark>`. Only visible if Fraunces fails to load.
+- **[MEDIUM/app] Breakpoint sprawl.** 768/1024 dominate; many one-offs (640/800/600/1200/480…); declared 375/1440 tokens unused in CSS.
+- **[FLAG/non-design] Prediction-card logic.** Dashboard shows "scored 530 — outside range" but the band is 490–610 (530 is inside). Investigate the prediction-vs-actual copy logic.
+
 ## Made-For-Me personalization — deferred by /autoplan review (2026-06-06)
 
 Plan: `docs/MADE_FOR_ME_PERSONALIZATION_PLAN.md` (approved scope = Phases 0-4 therein).
