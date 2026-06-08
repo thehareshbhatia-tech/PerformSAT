@@ -97,7 +97,7 @@
 .sp-identity-stat {
   font-size: 22px;
   font-weight: 700;
-  color: var(--color-brand-primary);
+  color: var(--color-brand-purple-deep);
   letter-spacing: -0.01em;
   font-variant-numeric: tabular-nums;
   line-height: 1.1;
@@ -157,7 +157,7 @@
 .sp-strip-num {
   font-size: 24px;
   font-weight: 700;
-  color: var(--color-brand-primary);
+  color: var(--color-brand-purple-deep);
   line-height: 1.05;
   letter-spacing: -0.01em;
 }
@@ -240,11 +240,11 @@
   font-family: var(--font-ui);
   font-size: 12px;
   font-weight: 700;
-  color: var(--color-brand-primary);
+  color: var(--color-brand-purple-deep);
   cursor: pointer;
   text-decoration: underline;
 }
-.sp-note-toggle:hover { color: var(--color-brand-primary-hover); }
+.sp-note-toggle:hover { color: var(--color-brand-purple-text); }
 
 /* ── Sub-tabs ('Today's Tasks (N) / Weekly View (N)') ─────────────── */
 .sp-subtabs {
@@ -276,8 +276,8 @@
 .sp-subtab:hover { color: var(--color-slate-900); }
 
 .sp-subtab.is-active {
-  color: var(--color-brand-primary);
-  border-bottom-color: var(--color-brand-primary);
+  color: var(--color-brand-purple-deep);
+  border-bottom-color: var(--color-brand-purple-deep);
 }
 
 .sp-subtab-count {
@@ -295,8 +295,8 @@
 }
 
 .sp-subtab.is-active .sp-subtab-count {
-  background: var(--color-brand-primary-light);
-  color: var(--color-brand-primary);
+  background: var(--color-brand-purple-soft);
+  color: var(--color-brand-purple-deep);
 }
 
 /* Empty State */
@@ -313,7 +313,7 @@
   height: 80px;
   border-radius: 50%;
   background: var(--color-accent-light-blue);
-  color: var(--color-brand-primary);
+  color: var(--color-brand-purple-deep);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -341,7 +341,7 @@
   font-size: 0.9375rem;
   font-weight: 700;
   color: var(--color-white);
-  background: var(--color-brand-primary);
+  background: var(--color-brand-purple-deep);
   border: none;
   border-radius: 9999px;
   cursor: pointer;
@@ -349,7 +349,7 @@
   box-shadow: var(--shadow-sm);
 }
 .sp-empty-btn:hover {
-  background: var(--color-brand-primary-hover);
+  background: var(--color-brand-purple-text);
 }
 
 /* Banner / Alerts — flat surfaces with a left accent; no gradients. */
@@ -364,7 +364,7 @@
 .sp-banner-info {
   background: var(--color-white);
   border: 1px solid var(--color-slate-200);
-  border-left: 3px solid var(--color-brand-primary);
+  border-left: 3px solid var(--color-brand-purple-deep);
 }
 .sp-banner-success {
   background: #f0fdf4;
@@ -388,7 +388,7 @@
   font-size: 14px;
 }
 
-.sp-banner-info .sp-banner-icon { background: var(--color-brand-primary); color: #fff; }
+.sp-banner-info .sp-banner-icon { background: var(--color-brand-purple-deep); color: #fff; }
 .sp-banner-success .sp-banner-icon { color: var(--color-success-600); }
 
 .sp-banner-title {
@@ -482,7 +482,7 @@
   border-color: var(--color-slate-300);
 }
 .sp-focus-show-all:focus-visible {
-  outline: 2px solid var(--color-brand-primary);
+  outline: 2px solid var(--color-brand-purple-deep);
   outline-offset: 2px;
 }
 
@@ -502,7 +502,7 @@
   transition: border-color 0.2s ease;
 }
 .sp-week-card.is-current {
-  border-color: var(--color-brand-primary-light);
+  border-color: var(--color-brand-purple-soft);
 }
 .sp-week-card.is-complete {
   background: var(--color-success-50);
@@ -515,7 +515,7 @@
   left: 0;
   width: 6px;
   height: 100%;
-  background: var(--color-brand-primary);
+  background: var(--color-brand-purple-deep);
 }
 
 .sp-week-header {
@@ -557,7 +557,7 @@
 .sp-week-label {
   font-size: 0.75rem;
   font-weight: 800;
-  color: var(--color-brand-primary);
+  color: var(--color-brand-purple-deep);
   text-transform: uppercase;
   letter-spacing: 0.06em;
   margin-bottom: 0.25rem;
@@ -583,7 +583,7 @@
   border-radius: 9999px;
   font-size: 0.875rem;
   font-weight: 700;
-  color: var(--color-brand-primary);
+  color: var(--color-brand-purple-deep);
   box-shadow: 0 2px 4px rgba(0,0,0,0.05);
   font-variant-numeric: tabular-nums;
 }
@@ -599,7 +599,7 @@
   text-align: left;
 }
 .sp-week-header-btn:focus-visible {
-  outline: 2px solid var(--color-brand-primary);
+  outline: 2px solid var(--color-brand-purple-deep);
   outline-offset: -2px;
   border-radius: 14px;
 }
@@ -658,9 +658,9 @@
   inset: -10px;
   border-radius: 50%;
 }
-.sp-act-toggle:hover { border-color: var(--color-brand-primary); }
+.sp-act-toggle:hover { border-color: var(--color-brand-purple-deep); }
 .sp-act-toggle:focus-visible {
-  outline: 2px solid var(--color-brand-primary);
+  outline: 2px solid var(--color-brand-purple-deep);
   outline-offset: 2px;
 }
 .sp-act-toggle.is-done {
@@ -748,9 +748,9 @@
   font-variant-numeric: tabular-nums;
 }
 .sp-trajectory-node.is-latest {
-  color: var(--color-brand-primary);
-  background: var(--color-brand-primary-light);
-  box-shadow: 0 0 0 1px var(--color-brand-primary);
+  color: var(--color-brand-purple-deep);
+  background: var(--color-brand-purple-soft);
+  box-shadow: 0 0 0 1px var(--color-brand-purple-deep);
 }
 
 /* ───────────────────────────────────────────────────────────────────────
@@ -925,9 +925,22 @@
   border: 1px solid var(--color-slate-300) !important;
 }
 .sp-weekly-tight .acely-split-right .btn-launch:not(.is-primary):hover {
-  border-color: var(--color-brand-primary) !important;
-  color: var(--color-brand-primary) !important;
-  background: var(--color-brand-primary-light) !important;
+  border-color: var(--color-brand-purple-deep) !important;
+  color: var(--color-brand-purple-deep) !important;
+  background: var(--color-brand-purple-soft) !important;
+}
+
+/* Tri-color: study-plan primary launch CTAs read PURPLE (focus/opportunity domain).
+   The base .btn-launch fill is orange and shared with the home dashboard CTAs —
+   those stay orange; only study-plan-scoped buttons are overridden here. */
+.sp-weekly-tight .btn-launch.is-primary,
+.sp-weekly-tight .ai-banner-controls .btn-launch {
+  background-color: var(--color-brand-purple-deep) !important;
+  color: #fff !important;
+}
+.sp-weekly-tight .btn-launch.is-primary:hover,
+.sp-weekly-tight .ai-banner-controls .btn-launch:hover {
+  background-color: var(--color-brand-purple-text) !important;
 }
 
 /* Italic editorial sentence: lighter color, smaller. */
@@ -944,7 +957,7 @@
   border: 1px solid var(--color-slate-200);
 }
 .sp-weekly-tight .sp-week-card.is-current {
-  border-color: var(--color-brand-primary-light);
+  border-color: var(--color-brand-purple-soft);
 }
 .sp-weekly-tight .sp-week-indicator { display: none !important; }
 .sp-weekly-tight .sp-week-header {
@@ -978,12 +991,12 @@
 .sp-weekly-tight .sp-banner.sp-banner-info {
   background: var(--color-white) !important;
   border: 1px solid var(--color-slate-200) !important;
-  border-left: 3px solid var(--color-brand-primary) !important;
+  border-left: 3px solid var(--color-brand-purple-deep) !important;
   border-radius: 12px !important;
   padding: 14px 18px !important;
 }
 .sp-weekly-tight .sp-banner.sp-banner-info .sp-banner-icon {
-  background: var(--color-brand-primary) !important;
+  background: var(--color-brand-purple-deep) !important;
   color: var(--color-white) !important;
   width: 22px !important;
   height: 22px !important;
@@ -1096,7 +1109,7 @@
 .sp-coming-up-soon {
   font-size: 10px;
   font-weight: 600;
-  color: var(--color-brand-primary);
+  color: var(--color-brand-purple-deep);
   text-transform: uppercase;
   letter-spacing: 0.04em;
 }
@@ -1159,7 +1172,7 @@
   transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease;
 }
 .sp-past-test-review-btn:hover {
-  border-color: var(--color-brand-primary, #ea580c);
+  border-color: var(--color-brand-purple-deep);
   background: #fff7ed;
 }
 .sp-past-test-review-btn:active {
@@ -1168,7 +1181,7 @@
 .sp-past-test-review-icon {
   display: inline-flex;
   align-items: center;
-  color: var(--color-brand-primary, #ea580c);
+  color: var(--color-brand-purple-deep);
   line-height: 1;
   flex-shrink: 0;
 }
@@ -1188,7 +1201,7 @@
   color: #6b7280;
 }
 .sp-past-test-review-chev {
-  color: var(--color-brand-primary, #ea580c);
+  color: var(--color-brand-purple-deep);
   font-size: 22px;
   font-weight: 600;
   line-height: 1;
