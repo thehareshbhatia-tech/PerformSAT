@@ -43,8 +43,8 @@
   font-weight: 700;
   white-space: nowrap;
 }
-.pva-actual.is-in-range  { color: var(--color-success-600); }
-.pva-actual.is-out       { color: var(--color-warning-600); }
+.pva-actual.is-in-range  { color: var(--color-success-text); }
+.pva-actual.is-out       { color: var(--color-warning-text); }
 
 .pva-stats {
   margin: 0;

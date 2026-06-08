@@ -14,7 +14,8 @@ export const buttonStyles = {
     justifyContent: 'center',
     gap: spacing.xs,
     transition: `all ${transitions.fast}`,
-    outline: 'none',
+    /* No outline:'none' — let the global *:focus-visible ring (design/global.css)
+       show on keyboard focus; mouse focus is suppressed there via :not(:focus-visible). */
     textDecoration: 'none',
     whiteSpace: 'nowrap',
   },
@@ -162,7 +163,8 @@ export const inputStyles = {
     borderRadius: radius.md,
     padding: `0 ${spacing.md}`,
     border: `1px solid ${colors.surface.grayDark}`,
-    outline: 'none',
+    /* No outline:'none' — keyboard focus shows the global *:focus-visible ring.
+       The focus/error/success variants below still apply richer treatment when wired. */
     transition: `all ${transitions.fast}`,
     backgroundColor: colors.surface.white,
     color: colors.text.primary,

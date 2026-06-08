@@ -36,7 +36,7 @@
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--color-success-600);
+  color: var(--color-success-text);
 }
 
 .aps-interstitial-title {
