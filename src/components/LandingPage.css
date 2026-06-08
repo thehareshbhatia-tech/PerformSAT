@@ -346,6 +346,24 @@
   font-size: 1.5rem;
 }
 
+/* Tri-color brand: the SEVA tile palette is the brand (orange/green/purple).
+   Card 1 stays orange (structure/brand); card 2 = purple (instruction/insight);
+   card 3 = green (mastery/practice). Keeps the landing from reading mono-orange. */
+.features-grid .feature-card:nth-child(2) .feature-icon-wrapper {
+  background: var(--color-brand-purple-soft);
+  color: var(--color-brand-purple-text);
+}
+.features-grid .feature-card:nth-child(2):hover {
+  border-color: var(--color-brand-purple-border);
+}
+.features-grid .feature-card:nth-child(3) .feature-icon-wrapper {
+  background: var(--color-brand-green-soft);
+  color: var(--color-brand-green-text);
+}
+.features-grid .feature-card:nth-child(3):hover {
+  border-color: var(--color-brand-green-border);
+}
+
 .feature-title {
   font-size: 1.25rem;
   font-weight: 700;
@@ -408,6 +426,11 @@
   margin-bottom: 0.5rem;
   display: block;
 }
+
+/* Tri-color: Step 01 Diagnostic = purple (focus/insight); Step 02 Master = orange
+   (default/brand); Step 03 Practice & Review = green (mastery/completion). */
+.steps-container .step-item:nth-child(1) .step-number { color: var(--color-brand-purple-text); }
+.steps-container .step-item:nth-child(3) .step-number { color: var(--color-brand-green-text); }
 
 .step-title {
   font-size: 1.75rem;
