@@ -592,59 +592,7 @@
   }
 }
 
-/* Modal Enhancements */
-.auth-modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(15, 23, 42, 0.6);
-  backdrop-filter: blur(4px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-  padding: 1rem;
-  opacity: 0;
-  animation: fadeIn 0.2s ease forwards;
-}
-
-.auth-modal-card {
-  background: var(--color-white);
-  border-radius: var(--radius-xl);
-  padding: 3rem;
-  max-width: 440px;
-  width: 100%;
-  box-shadow: var(--shadow-xl);
-  position: relative;
-  transform: translateY(20px);
-  animation: slideUp 0.3s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
-}
-
-.auth-modal-close {
-  position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
-  background: transparent;
-  border: none;
-  color: var(--color-slate-400);
-  font-size: 1.5rem;
-  cursor: pointer;
-  transition: color 0.2s ease;
-}
-
-.auth-modal-close:hover {
-  color: var(--color-slate-900);
-}
-
-.auth-form-title {
-  font-size: 1.75rem;
-  font-weight: 800;
-  margin-bottom: 0.5rem;
-  color: var(--color-slate-900);
-}
-
+/* Auth form (rendered inside the shared <Modal> component) */
 .auth-form-subtitle {
   color: var(--color-slate-500);
   margin-bottom: 2rem;
@@ -753,12 +701,4 @@
 
 .auth-form-toggle:hover {
   color: var(--color-brand-orange-500);
-}
-
-@keyframes fadeIn {
-  to { opacity: 1; }
-}
-
-@keyframes slideUp {
-  to { transform: translateY(0); }
 }
