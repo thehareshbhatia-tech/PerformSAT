@@ -32,7 +32,7 @@ import { cardStyles } from '../design/components';
 import { Modal } from './ui/Modal';
 import { Button } from './ui/Button';
 import './PracticeTest.css';
-import { CheckIcon, CrossIcon, LightBulbIcon, MicroscopeIcon } from '../design/icons';
+import { CheckIcon, CrossIcon, LightBulbIcon, MicroscopeIcon, WarningIcon, DocumentIcon } from '../design/icons';
 
 const ERROR_TYPE_LABELS = {
   conceptual_gap: 'Conceptual Gap',
@@ -3804,8 +3804,8 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
           width: '48px', height: '48px', borderRadius: '50%',
           background: 'var(--color-warning-100)', color: 'var(--color-warning-600)',
           display: 'flex', alignItems: 'center', justifyContent: 'center',
-          margin: '0 auto 1.25rem', fontSize: '22px',
-        }}>⚠</div>
+          margin: '0 auto 1.25rem',
+        }}><WarningIcon size={24} /></div>
         <p className="modal-text" style={{ textAlign: 'center' }}>
           {pendingM2Switch && (
             <>
@@ -3841,15 +3841,15 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
             width: '48px', height: '48px', borderRadius: '50%',
             background: 'var(--color-error-100)', color: 'var(--color-error-600)',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
-            margin: '0 auto 1.25rem', fontSize: '22px',
-          }}>⚠</div>
+            margin: '0 auto 1.25rem',
+          }}><WarningIcon size={24} /></div>
         ) : (
           <div style={{
             width: '48px', height: '48px', borderRadius: '50%',
             background: 'var(--color-info-100)', color: 'var(--color-info-600)',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
-            margin: '0 auto 1.25rem', fontSize: '22px',
-          }}>💾</div>
+            margin: '0 auto 1.25rem',
+          }}><DocumentIcon size={24} /></div>
         )}
         <p className="modal-text" style={{ textAlign: 'center' }}>
           {confirmAction === 'endTest' 

@@ -10,7 +10,7 @@
 
 import React from 'react';
 import { colors } from '../design/tokens';
-import { ArrowRightIcon } from '../design/icons';
+import { ArrowRightIcon, BookOpenIcon, PencilIcon } from '../design/icons';
 
 const SEVERITY_DOT = {
   critical: '#dc2626',
@@ -127,7 +127,7 @@ const RemediationPathBlock = ({ items, onNavigateToModule }) => {
                         whiteSpace: 'nowrap',
                       }}
                     >
-                      <span>{step.type === 'lesson' ? '📖' : '✏️'}</span>
+                      {step.type === 'lesson' ? <BookOpenIcon size={15} /> : <PencilIcon size={15} />}
                       <span>{step.label}</span>
                     </button>
                   </React.Fragment>

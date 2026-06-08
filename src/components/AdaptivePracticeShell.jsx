@@ -7,6 +7,7 @@ import { formatPatternLabel } from '../services/selectors/missedPatternLabel';
 import { getDesmosTip } from '../services/selectors/desmosTip';
 import { decideTier } from '../data/questions/bank';
 import { trackDrillStarted, trackDrillChipShown } from '../services/analyticsService';
+import { TargetIcon } from '../design/icons';
 
 const C = {
   brand: '#ea580c',
@@ -354,7 +355,7 @@ const AdaptivePracticeShell = ({
                 }}
                 title="The adaptive pool is biased toward this SAT Pattern based on your study plan."
               >
-                <span aria-hidden="true">🎯</span>
+                <TargetIcon size={13} aria-hidden="true" />
                 Practicing: {drillPatternLabel}
               </span>
             )}

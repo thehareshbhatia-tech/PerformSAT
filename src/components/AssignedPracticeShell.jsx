@@ -12,6 +12,7 @@ import { getDrillChipForWeakness } from '../services/selectors/drillChip';
 import { getDesmosTip } from '../services/selectors/desmosTip';
 import { decideTier } from '../data/questions/bank';
 import { trackDrillStarted, trackDrillChipShown } from '../services/analyticsService';
+import { InfoIcon } from '../design/icons';
 import './AssignedPracticeShell.css';
 
 const C = {
@@ -481,7 +482,7 @@ const AssignedPracticeShell = ({
         {/* Review-mode banner */}
         {practiceState.reviewMode && (
           <div className="aps-review-banner" role="status" aria-live="polite">
-            <span aria-hidden="true">👁</span>
+            <InfoIcon size={16} aria-hidden="true" />
             <span><strong>Review session.</strong> This won't affect your study plan or skill mastery.</span>
           </div>
         )}

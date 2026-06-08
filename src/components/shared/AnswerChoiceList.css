@@ -76,6 +76,8 @@
   background-color: var(--color-success-50);
   box-shadow: 0 0 0 1.5px var(--color-success-500);
   cursor: default;
+  /* dormant keyframe (design/animations.js), now wired; reduced-motion handled globally */
+  animation: correctFlash 500ms ease-out;
 }
 
 .answer-choice-card.is-wrong {
@@ -83,6 +85,7 @@
   background-color: var(--color-error-50);
   box-shadow: 0 0 0 1.5px var(--color-error-500);
   cursor: default;
+  animation: wrongShake 400ms ease;
 }
 
 /* No hover lift for post-submit cards (the question is locked). */
@@ -123,6 +126,7 @@
 .answer-choice-card.is-correct .answer-letter-bubble {
   background-color: var(--color-success-500);
   color: var(--color-white);
+  animation: checkmark 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .answer-choice-card.is-wrong .answer-letter-bubble {

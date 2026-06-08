@@ -151,6 +151,14 @@ export function useCountUp(target, duration = 800, delay = 0) {
   _useEffect(() => {
     if (target === 0 || target == null) { setValue(0); return; }
 
+    // Honor reduced-motion: the CSS reduce block can't stop JS number-stepping,
+    // so opted-out users would still see the value tick. Jump straight to target.
+    if (typeof window !== 'undefined' && window.matchMedia &&
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setValue(target);
+      return;
+    }
+
     const timeout = setTimeout(() => {
       const start = performance.now();
       const animate = (now) => {

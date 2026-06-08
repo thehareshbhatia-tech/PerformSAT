@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useAuth } from '../hooks/useAuth';
 import { Modal } from './ui/Modal';
 import Wordmark from './ui/Wordmark';
+import { BookOpenIcon, VideoCameraIcon, TargetIcon } from '../design/icons';
 import './LandingPage.css';
 
 const LandingPage = () => {
@@ -105,21 +106,21 @@ const LandingPage = () => {
             </div>
             <div className="features-grid">
               <div className="feature-card">
-                <div className="feature-icon-wrapper">📚</div>
+                <div className="feature-icon-wrapper"><BookOpenIcon size={24} /></div>
                 <h3 className="feature-title">Structured Curriculum</h3>
                 <p className="feature-description">
                   Follow a proven step-by-step path designed to cover every SAT topic without overwhelming you.
                 </p>
               </div>
               <div className="feature-card">
-                <div className="feature-icon-wrapper">🎥</div>
+                <div className="feature-icon-wrapper"><VideoCameraIcon size={24} /></div>
                 <h3 className="feature-title">Expert Video Lessons</h3>
                 <p className="feature-description">
                   Learn from top instructors who break down complex problems into simple, repeatable strategies.
                 </p>
               </div>
               <div className="feature-card">
-                <div className="feature-icon-wrapper">🎯</div>
+                <div className="feature-icon-wrapper"><TargetIcon size={24} /></div>
                 <h3 className="feature-title">Targeted Practice</h3>
                 <p className="feature-description">
                   Apply what you learn immediately with practice questions tailored to your skill level.

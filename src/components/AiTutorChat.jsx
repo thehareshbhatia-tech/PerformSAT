@@ -1537,13 +1537,13 @@ Your goal is to build their problem-solving instincts. Every question they solve
                     padding: msg.role === 'user' ? '12px 18px' : '16px 20px',
                     borderRadius: msg.role === 'user' ? '18px 18px 4px 18px' : '4px 18px 18px 18px',
                     background: msg.role === 'user'
-                      ? 'linear-gradient(135deg, #007AFF 0%, #0056D2 100%)'
+                      ? 'linear-gradient(135deg, #ea580c 0%, #c2410c 100%)'
                       : '#ffffff',
                     color: msg.role === 'user' ? 'white' : design.colors.text.primary,
                     fontSize: '15px',
                     lineHeight: '1.55',
                     boxShadow: msg.role === 'user'
-                      ? '0 4px 12px rgba(0, 122, 255, 0.2)'
+                      ? '0 4px 12px rgba(234, 88, 12, 0.2)'
                       : '0 2px 12px rgba(0, 0, 0, 0.03)',
                     border: msg.role === 'user' ? 'none' : '1px solid rgba(0, 0, 0, 0.06)',
                     letterSpacing: '0',
@@ -1687,8 +1687,8 @@ Your goal is to build their problem-solving instincts. Every question they solve
               }}
               onFocus={(e) => {
                 if (premiumLearnMode) {
-                  e.target.style.borderColor = 'rgba(0, 122, 255, 0.3)';
-                  e.target.style.boxShadow = `0 4px 24px rgba(0, 0, 0, 0.06), 0 0 0 3px rgba(0, 122, 255, 0.1), inset 0 2px 4px rgba(255, 255, 255, 0.5)`;
+                  e.target.style.borderColor = 'rgba(234, 88, 12, 0.35)';
+                  e.target.style.boxShadow = `0 4px 24px rgba(0, 0, 0, 0.06), 0 0 0 3px rgba(234, 88, 12, 0.12), inset 0 2px 4px rgba(255, 255, 255, 0.5)`;
                   e.target.style.background = '#ffffff';
                 } else {
                   e.target.style.borderColor = design.colors.accent.orange;

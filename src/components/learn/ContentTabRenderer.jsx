@@ -3,6 +3,7 @@ import { SECTION_ORDER, SECTION_LABELS } from '../../data/contentTabs/schema';
 import { MathText } from '../MathText';
 import { renderRichText } from '../RichMathText';
 import LessonVisualRenderer, { visualRegistry } from './LessonVisualRenderer';
+import { CrossIcon, CheckCircleIcon, LightBulbIcon } from '../../design/icons';
 import './ContentTabRenderer.css';
 
 const CheckpointBlock = ({ block, idx }) => {
@@ -121,13 +122,13 @@ const BlockRenderers = {
   trapCard: (block, idx) => (
     <div key={idx} className="tb-prose-section tb-trap-section">
       <div className="tb-badge tb-badge--error">
-        <span>❌</span> Incorrect
+        <CrossIcon size={14} /> Incorrect
       </div>
       <p className="tb-body tb-trap-wrong">{renderRichText(block.wrong)}</p>
       {block.correction && (
         <>
           <div className="tb-badge tb-badge--success" style={{ marginTop: '0.5rem' }}>
-            <span>✅</span> Correct
+            <CheckCircleIcon size={14} /> Correct
           </div>
           <p className="tb-body">{renderRichText(block.correction)}</p>
         </>
@@ -138,7 +139,7 @@ const BlockRenderers = {
   strategyCard: (block, idx) => (
     <div key={idx} className="tb-prose-section tb-strategy-section">
       <div className="tb-badge tb-badge--strategy">
-        <span>💡</span> {renderRichText(block.title)}
+        <LightBulbIcon size={14} /> {renderRichText(block.title)}
       </div>
       <p className="tb-body">{renderRichText(block.content)}</p>
     </div>
