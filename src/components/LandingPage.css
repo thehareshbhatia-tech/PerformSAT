@@ -645,6 +645,22 @@
   color: var(--color-slate-900);
 }
 
+/* Radio group uses <fieldset>/<legend> for a programmatically-associated group
+   label. Reset the UA fieldset border/margin/padding so it reads exactly like the
+   other .auth-form-group blocks, and normalize <legend> to match the label. */
+.auth-form-fieldset {
+  border: 0;
+  margin: 0 0 1.25rem;
+  padding: 0;
+  min-inline-size: 0;
+}
+legend.auth-form-label {
+  display: block;
+  width: 100%;
+  padding: 0;
+  float: none;
+}
+
 .auth-form-input {
   width: 100%;
   padding: 0.75rem 1rem;

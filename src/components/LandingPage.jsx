@@ -185,7 +185,7 @@ const LandingPage = () => {
           <div className="conversion-section">
             <h2 className="conversion-title">Ready to reach your target score?</h2>
             <p className="conversion-subtitle">
-              Join thousands of students who have already transformed their SAT scores with SEVA.
+              Start with a free diagnostic, then follow a study plan built around the skills holding your score back.
             </p>
             <div className="conversion-actions">
               <button className="btn-primary" onClick={() => openAuth(false)} style={{ fontSize: '1.125rem', padding: '1rem 2rem' }}>
@@ -260,10 +260,10 @@ const LandingPage = () => {
                     />
                   </div>
 
-                  <div className="auth-form-group">
-                    <label className="auth-form-label">
+                  <fieldset className="auth-form-group auth-form-fieldset">
+                    <legend className="auth-form-label">
                       Have you taken the SAT before?
-                    </label>
+                    </legend>
                     <div className="auth-form-radio-group">
                       <label className="auth-form-radio-label">
                         <input
@@ -305,7 +305,7 @@ const LandingPage = () => {
                         <span>Prefer not to say</span>
                       </label>
                     </div>
-                  </div>
+                  </fieldset>
 
                   {hasTakenSAT === 'yes' && (
                     <div className="auth-form-group">
