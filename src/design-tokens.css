@@ -1,3 +1,15 @@
+/*
+ * SEVA Design System — resolved identity (2026-06-08)
+ * ----------------------------------------------------
+ * ONE system, not two. Apple/editorial chassis + a single orange accent.
+ *   Type:    Inter (UI/chrome)  +  Merriweather (narrative serif)  +  Fraunces italic (wordmark only)
+ *   Surface: warm off-white (--color-slate-50 #FBFBFD) under a low-opacity orange ambient gradient
+ *   Depth:   restrained two-layer slate shadows (not pure black, not invisible)
+ *   Accent:  ONE orange (--color-brand-primary #ea580c). The protected orange/purple/green
+ *            performance tiles + projected-score chart are the deliberate accent zone — leave them.
+ * RULE: every font NAMED in a token MUST be loaded in public/index.html. No second "primary"
+ * orange, no indigo card family. This header owns the aesthetic; new surfaces inherit it.
+ */
 :root {
   /* Neutrals (Ultra-Premium Apple/Editorial) */
   --color-white: #FFFFFF;
@@ -28,29 +40,49 @@
   --color-brand-orange-400: #fb923c;
   --color-brand-orange-500: #ea580c; /* mapped to primary */
   --color-brand-orange-600: #c2410c; /* mapped to hover */
-  --color-brand-amber-400: #3b82f6;
+  --color-brand-amber-400: #f59e0b; /* true amber (fixed from #3b82f6 blue, 2026-06-08) */
   --color-brand-peach-100: rgba(234, 88, 12, 0.1);
 
-  /* Semantic */
+  /* Semantic — full ramps (50/100/200/500/600/700). The 50/200/500/700 steps were
+     referenced ~20x across the dashboards but never defined, so completion states
+     (done weeks, the green checkmark) rendered unstyled. Defined 2026-06-08. */
+  --color-success-50:  #F0FDF4;
   --color-success-100: #E3F8E5;
+  --color-success-200: #BBF7D0;
+  --color-success-500: #34C759;
   --color-success-600: #34C759;
+  --color-success-700: #15803D;
+  --color-warning-50:  #FFFBEB;
   --color-warning-100: #FFF8D6;
+  --color-warning-200: #FDE68A;
+  --color-warning-500: #F59E0B;
   --color-warning-600: #FFCC00;
+  --color-warning-700: #B45309;
+  --color-error-50:  #FEF2F2;
   --color-error-100: #FFEBEB;
+  --color-error-200: #FECACA;
+  --color-error-500: #EF4444;
   --color-error-600: #FF3B30;
+  --color-error-700: #B91C1C;
+  --color-info-50:  #EFF6FF;
   --color-info-100: #E5F0FF;
+  --color-info-200: #BFDBFE;
+  --color-info-500: #3B82F6;
   --color-info-600: #007AFF;
+  --color-info-700: #1D4ED8;
 
   /* Gradients (Smooth & Refined) */
   --gradient-brand-primary: linear-gradient(135deg, #ea580c 0%, #c2410c 100%);
   --gradient-brand-warm: linear-gradient(135deg, rgba(234, 88, 12, 0.1) 0%, rgba(234, 88, 12, 0.2) 100%);
   --gradient-ambient: radial-gradient(circle at 50% 0%, rgba(234, 88, 12, 0.15) 0%, rgba(194, 65, 12, 0.05) 50%, transparent 100%);
 
-  /* Shadows (Soft & Subtle) */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.02);
-  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.02);
-  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.04), 0 4px 6px rgba(0, 0, 0, 0.02);
-  --shadow-brand-glow: 0 8px 24px rgba(234, 88, 12, 0.15);
+  /* Shadows — perceptible two-layer elevation, tinted toward slate (not pure black).
+     Was 0.02-0.04 alpha (effectively invisible → cards read as flat outlined boxes). 2026-06-08. */
+  --shadow-sm: 0 1px 3px rgba(16, 24, 40, 0.06), 0 1px 2px rgba(16, 24, 40, 0.04);
+  --shadow-md: 0 4px 8px -2px rgba(16, 24, 40, 0.08), 0 2px 4px -2px rgba(16, 24, 40, 0.05);
+  --shadow-lg: 0 12px 24px -6px rgba(16, 24, 40, 0.10), 0 4px 8px -4px rgba(16, 24, 40, 0.06);
+  --shadow-brand-glow: 0 8px 24px rgba(234, 88, 12, 0.18);
+  --shadow-focus: 0 0 0 3px rgba(234, 88, 12, 0.35);
 
   /* Typography (San Francisco) */
   --font-ui: "Inter", -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", sans-serif;
@@ -87,10 +119,14 @@
 
 body {
   font-family: var(--font-ui);
-  background-color: #f8fafc;
-  background-image: none;
+  /* Warm Apple off-white under a low-opacity orange ambient glow (was a flat cold #f8fafc
+     with the defined gradient never applied). Warm neutral + orange is one coherent palette. */
+  background-color: var(--color-slate-50);
+  background-image: var(--gradient-ambient);
   background-attachment: fixed;
+  background-repeat: no-repeat;
   color: var(--color-slate-900);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }

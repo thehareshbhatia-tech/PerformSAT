@@ -1,7 +1,9 @@
-// PerformSAT Design System — Single Source of Truth
-// We map these legacy token names directly to our new CSS variables
-// defined in src/design-tokens.css so that old components automatically
-// inherit the new orange-gradient Acely-inspired design system.
+// SEVA Design System — Single Source of Truth
+// These legacy token names map directly onto the CSS variables defined in
+// src/design-tokens.css, whose header is the canonical owner of the aesthetic:
+// Apple/editorial chassis (warm off-white surface, restrained two-layer shadows,
+// generous space, Inter UI + Merriweather narrative serif + Fraunces italic wordmark)
+// + ONE orange accent (#ea580c). Old components inherit it automatically.
 
 export const colors = {
   text: {

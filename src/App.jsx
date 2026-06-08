@@ -1290,7 +1290,7 @@ const PerformSAT = () => {
           width: '48px',
           height: '48px',
           border: '4px solid #e5e7eb',
-          borderTop: '4px solid #667eea',
+          borderTop: '4px solid var(--color-brand-primary)',
           borderRadius: '50%',
           animation: 'spin 1s linear infinite'
         }} />

@@ -846,7 +846,7 @@
 }
 
 .studyplan-empty-state .btn-primary {
-  background: #4f46e5;
+  background: var(--color-brand-primary);
   color: white;
   border: none;
   padding: 0.625rem 1.5rem;
@@ -858,7 +858,7 @@
 }
 
 .studyplan-empty-state .btn-primary:hover {
-  background: #4338ca;
+  background: var(--color-brand-primary-hover);
 }
 
 /* Study Plan teaser card (on Dashboard tab) */
