@@ -1320,7 +1320,7 @@ const PerformSAT = () => {
     { id: 'practice', label: 'Practice', hint: 'Practice bank', icon: <TargetIcon size={16} />, run: () => setView('practiceBank') },
     { id: 'studyPlan', label: 'Open Study Plan', hint: 'Your plan', icon: <CalendarIcon size={16} />, run: () => setView('studyPlan') },
     { id: 'tests', label: 'Practice Tests', hint: 'Full-length', icon: <ClipboardIcon size={16} />, run: () => { setView('practiceTests'); setSelectedPracticeTest(null); } },
-    { id: 'tutor', label: 'Open AI Tutor', hint: 'Ask anything', icon: <BrainIcon size={16} />, run: () => { setView('tutor'); setShowAiTutor(true); } },
+    { id: 'tutor', label: 'Open AI Tutor', hint: 'Ask anything', icon: <BrainIcon size={16} />, run: () => { setView('tutor'); } },
     { id: 'videos', label: 'Videos', hint: 'Lessons', icon: <PlayIcon size={16} />, run: () => { setView('modules'); setActiveModule(null); setActiveLesson(null); } },
     { id: 'profile', label: 'Profile & settings', run: () => setView('profile') },
   ];
@@ -1401,7 +1401,7 @@ const PerformSAT = () => {
           else if (navId === 'modules') { setView('modules'); setActiveModule(null); setActiveLesson(null); }
           else if (navId === 'practiceTests') { setView('practiceTests'); setSelectedPracticeTest(null); }
           else if (navId === 'studyPlan') { setView('studyPlan'); }
-          else if (navId === 'tutor') { setView('tutor'); setShowAiTutor(true); }
+          else if (navId === 'tutor') { setView('tutor'); setShowAiTutor(false); }
           else if (navId === 'profile') { setView('profile'); }
           else if (navId === 'practiceBank') { setView('practiceBank'); }
           else { setView(navId); }
