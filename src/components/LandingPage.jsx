@@ -88,7 +88,7 @@ const LandingPage = () => {
                 </button>
               </div>
             </div>
-            <div className="hero-visual">
+            <div className="hero-visual" aria-hidden="true">
               {/* Optional: Insert hero image or video here */}
               <span className="hero-visual-placeholder">Platform Preview</span>
             </div>
@@ -141,7 +141,7 @@ const LandingPage = () => {
             </div>
             <div className="steps-container">
               <div className="step-item">
-                <div className="step-visual">
+                <div className="step-visual" aria-hidden="true">
                   <span className="hero-visual-placeholder">Diagnostic</span>
                 </div>
                 <div className="step-content">
@@ -153,7 +153,7 @@ const LandingPage = () => {
                 </div>
               </div>
               <div className="step-item">
-                <div className="step-visual">
+                <div className="step-visual" aria-hidden="true">
                   <span className="hero-visual-placeholder">Learn</span>
                 </div>
                 <div className="step-content">
@@ -165,7 +165,7 @@ const LandingPage = () => {
                 </div>
               </div>
               <div className="step-item">
-                <div className="step-visual">
+                <div className="step-visual" aria-hidden="true">
                   <span className="hero-visual-placeholder">Practice</span>
                 </div>
                 <div className="step-content">
