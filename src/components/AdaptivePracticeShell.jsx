@@ -10,9 +10,10 @@ import { trackDrillStarted, trackDrillChipShown } from '../services/analyticsSer
 import { TargetIcon } from '../design/icons';
 
 const C = {
-  brand: '#ea580c',
-  brandHover: '#c2410c',
-  brandLight: 'rgba(234,88,12,0.06)',
+  // Adaptive drilling = focus practice = the PURPLE domain (tri-color system).
+  brand: 'var(--color-brand-purple-deep)',
+  brandHover: 'var(--color-brand-purple-text)',
+  brandLight: 'rgba(176,146,221,0.12)',
   success: '#10b981',
   successBg: 'rgba(16,185,129,0.08)',
   error: '#ef4444',

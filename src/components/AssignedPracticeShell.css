@@ -76,14 +76,14 @@
 }
 
 .aps-circle-complete {
-  background: var(--color-brand-primary);
-  border-color: var(--color-brand-primary);
+  background: var(--color-brand-purple-deep);
+  border-color: var(--color-brand-purple-deep);
   color: var(--color-white);
 }
 
 .aps-circle-progress {
-  border-color: var(--color-brand-primary);
-  color: var(--color-brand-primary);
+  border-color: var(--color-brand-purple-deep);
+  color: var(--color-brand-purple-deep);
   border-style: dashed;
 }
 
@@ -93,14 +93,14 @@
   padding: 12px 24px;
   border-radius: 10px;
   border: none;
-  background: var(--color-brand-primary);
+  background: var(--color-brand-purple-deep);
   color: var(--color-white);
   font-size: 15px;
   font-weight: 700;
   cursor: pointer;
   font-family: var(--font-ui);
 }
-.aps-interstitial-cta:hover { background: var(--color-brand-primary-hover); }
+.aps-interstitial-cta:hover { background: var(--color-brand-purple-text); }
 
 .aps-interstitial-secondary {
   background: transparent;
@@ -212,12 +212,12 @@
   color: #FFFFFF;
 }
 .aps-sidebar-row.is-current {
-  background: rgba(234, 88, 12, 0.18);
+  background: rgba(176, 146, 221, 0.25);
   color: #FFFFFF;
   font-weight: 600;
 }
 .aps-sidebar-row.is-current .aps-sidebar-status {
-  color: #ea580c;
+  color: var(--color-brand-purple-deep);
 }
 .aps-sidebar-row.is-correct .aps-sidebar-status {
   color: #C6F432;
@@ -301,8 +301,8 @@
 }
 .aps-progress-dot.is-current {
   height: 22px;
-  background: #ea580c;
-  box-shadow: 0 2px 8px rgba(234, 88, 12, 0.3);
+  background: var(--color-brand-purple-deep);
+  box-shadow: 0 2px 8px rgba(107, 78, 158, 0.3);
 }
 .aps-progress-dot-num {
   color: #FFFFFF;
@@ -393,8 +393,8 @@
   color: #1D1D1F;
 }
 .aps-tool-btn.is-active {
-  background: #ea580c;
-  border-color: #ea580c;
+  background: var(--color-brand-purple-deep);
+  border-color: var(--color-brand-purple-deep);
   color: #FFFFFF;
 }
 
@@ -463,7 +463,7 @@
 }
 
 .aps-footer-cta {
-  background: #ea580c;
+  background: var(--color-brand-purple-deep);
   color: #FFFFFF;
   border: none;
   border-radius: 10px;
@@ -472,12 +472,12 @@
   font-weight: 600;
   cursor: pointer;
   font-family: inherit;
-  box-shadow: 0 2px 8px rgba(234, 88, 12, 0.25);
+  box-shadow: 0 2px 8px rgba(107, 78, 158, 0.25);
   transition: all 0.15s;
 }
 .aps-footer-cta:hover:not(:disabled) {
-  background: #c2410c;
-  box-shadow: 0 4px 12px rgba(234, 88, 12, 0.35);
+  background: var(--color-brand-purple-text);
+  box-shadow: 0 4px 12px rgba(107, 78, 158, 0.35);
 }
 .aps-footer-cta:disabled {
   background: #E5E5EA;

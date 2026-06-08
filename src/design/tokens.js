@@ -20,8 +20,12 @@ export const colors = {
     orangeMuted: 'var(--color-brand-primary-light)', // Using primary-light for muted
     teal: 'var(--color-info-600)', // Mapping legacy teal to semantic info
     tealLight: 'var(--color-info-100)',
-    purple: 'var(--color-brand-primary)', // Mapping legacy purple to brand primary
-    purpleLight: 'var(--color-brand-primary-light)',
+    // Tri-color brand: purple = focus/opportunity/study-plan, green = strengths/done.
+    // (purple was previously mis-mapped to brand-primary orange — fixed 2026-06-09.)
+    purple: 'var(--color-brand-purple-deep)',
+    purpleLight: 'var(--color-brand-purple-soft)',
+    green: 'var(--color-brand-green-deep)',
+    greenLight: 'var(--color-brand-green-soft)',
   },
   surface: {
     white: 'var(--color-white)',

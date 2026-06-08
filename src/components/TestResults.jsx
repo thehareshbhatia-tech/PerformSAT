@@ -1039,8 +1039,8 @@ const TestResults = ({
                           <span style={{ fontSize: '14px', fontWeight: '600', color: colors.text.primary }}>
                             {DOMAIN_DISPLAY_NAMES[domain] || domain}
                           </span>
-                          {isWeakest && <span style={{ fontSize: '10px', fontWeight: '700', color: '#ef4444', background: 'rgba(239,68,68,0.08)', padding: '2px 6px', borderRadius: '6px' }}>Weakest</span>}
-                          {isStrongest && domEntries.length > 1 && <span style={{ fontSize: '10px', fontWeight: '700', color: '#22c55e', background: 'rgba(34,197,94,0.08)', padding: '2px 6px', borderRadius: '6px' }}>Strongest</span>}
+                          {isWeakest && <span style={{ fontSize: '10px', fontWeight: '700', color: 'var(--color-brand-purple-text)', background: 'var(--color-brand-purple-soft)', padding: '2px 6px', borderRadius: '6px' }}>Weakest</span>}
+                          {isStrongest && domEntries.length > 1 && <span style={{ fontSize: '10px', fontWeight: '700', color: 'var(--color-brand-green-text)', background: 'var(--color-brand-green-soft)', padding: '2px 6px', borderRadius: '6px' }}>Strongest</span>}
                         </div>
                         <div style={{ display: 'flex', alignItems: 'baseline', gap: '6px', flexShrink: 0 }}>
                           <span style={{ fontSize: '16px', fontWeight: '800', color: barColor, fontVariantNumeric: 'tabular-nums' }}>{pct}%</span>

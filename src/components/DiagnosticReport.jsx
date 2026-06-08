@@ -598,7 +598,7 @@ const DiagnosticReport = ({
       {planNextAction && (
         <Card
           style={{
-            background: `linear-gradient(135deg, ${colors.accent.orange} 0%, ${colors.accent.orangeHover || '#c2410c'} 100%)`,
+            background: `linear-gradient(135deg, ${colors.accent.purple} 0%, var(--color-brand-purple-text) 100%)`,
             border: 'none', cursor: 'pointer', padding: '20px 24px',
           }}
           onClick={() => {
@@ -635,7 +635,7 @@ const DiagnosticReport = ({
       {/* Week-by-Week Plan */}
       <div>
         <div style={{ fontSize: '16px', fontWeight: '700', color: colors.text.primary, marginBottom: '10px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-          <CalendarIcon size={18} color={colors.accent.orange} /> Weekly Plan
+          <CalendarIcon size={18} color={colors.accent.purple} /> Weekly Plan
         </div>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
@@ -645,20 +645,20 @@ const DiagnosticReport = ({
             const isFirst = week.weekNumber === 1;
             return (
               <div key={week.weekNumber} style={{
-                border: isFirst ? `2px solid ${colors.accent.orange}` : `1px solid ${colors.surface.grayDark}`,
+                border: isFirst ? `2px solid ${colors.accent.purple}` : `1px solid ${colors.surface.grayDark}`,
                 borderRadius: radius.md, overflow: 'hidden', background: colors.surface.white,
               }}>
                 <button
                   onClick={() => setExpandedWeek(isExpanded ? null : week.weekNumber)}
                   style={{
-                    width: '100%', padding: '14px 16px', background: isExpanded ? colors.accent.orangeLight : colors.surface.white,
+                    width: '100%', padding: '14px 16px', background: isExpanded ? colors.accent.purpleLight : colors.surface.white,
                     border: 'none', cursor: 'pointer', display: 'flex', justifyContent: 'space-between', alignItems: 'center', textAlign: 'left',
                   }}
                 >
                   <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flex: 1 }}>
                     <div style={{
                       width: '28px', height: '28px', borderRadius: '50%',
-                      background: isFirst ? colors.accent.orange : colors.surface.grayMedium || colors.surface.gray,
+                      background: isFirst ? colors.accent.purple : colors.surface.grayMedium || colors.surface.gray,
                       color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center',
                       fontSize: '12px', fontWeight: '700', flexShrink: 0,
                     }}>
@@ -667,7 +667,7 @@ const DiagnosticReport = ({
                     <div style={{ flex: 1, minWidth: 0 }}>
                       <div style={{ fontSize: '14px', fontWeight: '600', color: colors.text.primary, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                         <MathText>{week.title}</MathText>
-                        {isFirst && <span style={{ marginLeft: '8px', fontSize: '11px', fontWeight: '500', color: colors.accent.orange, background: colors.accent.orangeLight, padding: '2px 6px', borderRadius: radius.sm }}>Current</span>}
+                        {isFirst && <span style={{ marginLeft: '8px', fontSize: '11px', fontWeight: '500', color: colors.accent.purple, background: colors.accent.purpleLight, padding: '2px 6px', borderRadius: radius.sm }}>Current</span>}
                       </div>
                       {(week.goalDescription || week.rationale) && (
                         <div style={{ fontSize: '12px', color: colors.text.tertiary, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>

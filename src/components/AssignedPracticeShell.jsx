@@ -16,9 +16,10 @@ import { InfoIcon } from '../design/icons';
 import './AssignedPracticeShell.css';
 
 const C = {
-  brand: 'var(--color-brand-primary)',
-  brandHover: 'var(--color-brand-primary-hover)',
-  brandLight: 'rgba(234,88,12,0.06)', // 0.06 alpha — softer than --color-brand-primary-light's 0.1
+  // Drilling = practicing a focus area = the PURPLE domain (tri-color system).
+  brand: 'var(--color-brand-purple-deep)',
+  brandHover: 'var(--color-brand-purple-text)',
+  brandLight: 'rgba(176,146,221,0.12)', // soft lavender (matches the purple tile)
   success: '#10b981',
   successBg: 'rgba(16,185,129,0.08)',
   error: '#ef4444',
