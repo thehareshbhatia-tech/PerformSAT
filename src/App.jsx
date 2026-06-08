@@ -1282,15 +1282,29 @@ const PerformSAT = () => {
       <div style={{
         minHeight: '100vh',
         display: 'flex',
+        flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        background: '#ffffff'
+        gap: '1.75rem',
+        background: 'var(--color-slate-50)',
       }}>
+        {/* Branded boot screen — warm canvas + Fraunces italic wordmark, not a bare
+            spinner on white. Wordmark presumes nothing about the post-auth route. */}
+        <span style={{
+          fontFamily: '"Fraunces", "New York", Georgia, serif',
+          fontStyle: 'italic',
+          fontWeight: 700,
+          fontVariationSettings: '"opsz" 144, "SOFT" 100',
+          fontSize: '2.75rem',
+          letterSpacing: '0.05em',
+          color: 'var(--color-brand-navy)',
+          userSelect: 'none',
+        }}>SEVA</span>
         <div style={{
-          width: '48px',
-          height: '48px',
-          border: '4px solid #e5e7eb',
-          borderTop: '4px solid var(--color-brand-primary)',
+          width: '32px',
+          height: '32px',
+          border: '3px solid var(--color-slate-200)',
+          borderTop: '3px solid var(--color-brand-primary)',
           borderRadius: '50%',
           animation: 'spin 1s linear infinite'
         }} />
@@ -1381,12 +1395,15 @@ const PerformSAT = () => {
         onLogout={logout}
         hideNav={view === 'takingTest' || view === 'reviewingPastResults' || view === 'practice' || view === 'learn'}
       >
-      {/* Main Content */}
-      <div id="main-content" style={{
+      {/* Main Content — key={view} re-mounts the region on navigation so it fades
+          in (fadeInUp keyframe in design/animations.js; reduced-motion handled
+          globally). takingTest is excluded so the test-runner scroll-lock and the
+          internal test->results flip (view stays 'takingTest') never animate. */}
+      <div id="main-content" key={view} style={{
         maxWidth: view === 'takingTest' || view === 'reviewingPastResults' || view === 'practice' || view === 'dashboard' || view === 'learn' || view === 'modules' || view === 'practiceBank' ? '100%' : (view === 'practiceTests' || view === 'studyPlan') ? '960px' : '800px',
         margin: '0 auto',
         padding: (view === 'dashboard' || view === 'reviewingPastResults' || view === 'practice' || view === 'takingTest' || view === 'learn' || view === 'practiceBank') ? '0' : '32px 32px 100px',
-        ...(view === 'takingTest' ? { overflow: 'hidden', height: '100vh' } : {})
+        ...(view === 'takingTest' ? { overflow: 'hidden', height: '100vh' } : { animation: 'fadeInUp 300ms cubic-bezier(0.25, 0.1, 0.25, 1)' })
       }}>
         {/* Standalone AI Tutor View */}
         {view === 'tutor' && (
