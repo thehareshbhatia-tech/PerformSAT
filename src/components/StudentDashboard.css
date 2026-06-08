@@ -861,11 +861,11 @@
   background: var(--color-brand-primary-hover);
 }
 
-/* Study Plan teaser card (on Dashboard tab) — rebranded from the legacy indigo
-   family to the resolved one-orange system (2026-06-08). */
+/* Study Plan teaser card (on Dashboard tab). Study plan = the PURPLE domain in the
+   tri-color system (matches the "Biggest Opportunity" tile). 2026-06-09. */
 .studyplan-teaser-card {
-  background: var(--color-brand-primary-light);
-  border: 1px solid var(--color-brand-primary-light);
+  background: var(--color-brand-purple-soft);
+  border: 1px solid var(--color-brand-purple-border);
   border-radius: 12px;
   padding: 1.25rem 1.5rem;
   cursor: pointer;
@@ -873,8 +873,8 @@
 }
 
 .studyplan-teaser-card:hover {
-  border-color: var(--color-brand-primary);
-  box-shadow: var(--shadow-brand-glow);
+  border-color: var(--color-brand-purple);
+  box-shadow: 0 8px 24px rgba(107, 78, 158, 0.18);
 }
 
 .teaser-header {
@@ -894,11 +894,11 @@
 .teaser-icon {
   display: inline-flex;
   align-items: center;
-  color: var(--color-brand-primary, #ea580c);
+  color: var(--color-brand-purple-deep);
 }
 
 .teaser-badge {
-  background: var(--color-brand-primary);
+  background: var(--color-brand-purple-deep);
   color: white;
   font-size: 0.6875rem;
   padding: 1px 6px;
@@ -917,5 +917,5 @@
 .teaser-cta {
   font-size: 0.8125rem;
   font-weight: 600;
-  color: var(--color-brand-primary);
+  color: var(--color-brand-purple-text);
 }

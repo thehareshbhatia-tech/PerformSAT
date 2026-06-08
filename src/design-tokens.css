@@ -1,14 +1,18 @@
 /*
- * SEVA Design System — resolved identity (2026-06-08)
- * ----------------------------------------------------
- * ONE system, not two. Apple/editorial chassis + a single orange accent.
+ * SEVA Design System — resolved identity (2026-06-08, palette revised 2026-06-09)
+ * --------------------------------------------------------------------------------
+ * Apple/editorial chassis + the home-tile TRI-COLOR palette (orange/green/purple IS
+ * the brand — the performance tiles define it). Each color carries meaning:
+ *   Orange  (--color-brand-primary #ea580c)   primary actions, brand, accuracy, nav-active
+ *   Green   (--color-brand-green   #C6F432 / deep #2E4E2C)  strengths, mastery, completion, positive
+ *   Purple  (--color-brand-purple  #B092DD / deep #6B4E9E)  focus, opportunity, STUDY PLAN, insights
  *   Type:    Inter (UI/chrome)  +  Merriweather (narrative serif)  +  Fraunces italic (wordmark only)
  *   Surface: warm off-white (--color-slate-50 #FBFBFD) under a low-opacity orange ambient gradient
  *   Depth:   restrained two-layer slate shadows (not pure black, not invisible)
- *   Accent:  ONE orange (--color-brand-primary #ea580c). The protected orange/purple/green
- *            performance tiles + projected-score chart are the deliberate accent zone — leave them.
- * RULE: every font NAMED in a token MUST be loaded in public/index.html. No second "primary"
- * orange, no indigo card family. This header owns the aesthetic; new surfaces inherit it.
+ * The app must read tri-color, not mono-orange. Use the green/purple families below for
+ * their semantic domains instead of defaulting everything to orange.
+ * RULE: every font NAMED in a token MUST be loaded in public/index.html. The protected
+ * performance tiles + projected-score chart are the canonical palette — leave them.
  */
 :root {
   /* Neutrals (Ultra-Premium Apple/Editorial) */
@@ -35,6 +39,21 @@
   --color-accent-dark-green: #2E4E2C;
   --color-accent-purple: #B092DD;
   --color-accent-light-blue: #D8F3FB;
+
+  /* Brand GREEN family — strengths, mastery, completion, positive (the lime tile).
+     Use -text/-deep for on-light text/icons, -soft for tint surfaces, lime for fills. */
+  --color-brand-green: #C6F432;        /* lime fill (tile right) */
+  --color-brand-green-deep: #2E4E2C;   /* deep green (tile left / dark fill) */
+  --color-brand-green-soft: #F0F8DC;   /* pale lime tint surface */
+  --color-brand-green-text: #3F5B1E;   /* AA green text on white */
+  --color-brand-green-border: #D6E9A8; /* soft green border */
+
+  /* Brand PURPLE family — focus, opportunity, STUDY PLAN, insights (the lavender tile). */
+  --color-brand-purple: #B092DD;       /* lavender fill (tile) */
+  --color-brand-purple-deep: #6B4E9E;  /* deeper purple */
+  --color-brand-purple-soft: #F2ECFB;  /* pale lavender tint surface */
+  --color-brand-purple-text: #5A3E8E;  /* AA purple text on white */
+  --color-brand-purple-border: #DCCDF1;/* soft lavender border */
 
   /* Brand alias scale (Tailwind orange-*; -500 = primary, -600 = hover) */
   --color-brand-orange-400: #fb923c;
