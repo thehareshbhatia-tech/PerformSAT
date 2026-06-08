@@ -1,5 +1,16 @@
 /* PerformSAT — Global Accessibility & UI Styles */
 
+/* Form controls don't inherit font-family from the UA stylesheet, so buttons,
+   inputs, selects and textareas fall back to Arial instead of the brand UI font
+   (Inter). This base reset makes every control use --font-ui app-wide. Only
+   font-family is reset — sizes/line-heights are left to component styles. */
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
 /* Skip Link (keyboard navigation) */
 .skip-link {
   position: absolute;
