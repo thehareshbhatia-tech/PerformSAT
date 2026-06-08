@@ -1293,7 +1293,7 @@ const PerformSAT = () => {
         {/* Branded boot screen — warm canvas + Fraunces italic wordmark, not a bare
             spinner on white. Wordmark presumes nothing about the post-auth route. */}
         <span style={{
-          fontFamily: '"Fraunces", "New York", Georgia, serif',
+          fontFamily: '"Fraunces", "Lora", "Merriweather", "New York", Georgia, serif',
           fontStyle: 'italic',
           fontWeight: 700,
           fontVariationSettings: '"opsz" 144, "SOFT" 100',
