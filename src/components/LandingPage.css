@@ -198,6 +198,15 @@
   line-height: 1.6;
 }
 
+/* Balanced wrapping so multi-line headings break evenly instead of orphaning a
+   trailing word (most visible on the hero + section titles at narrow widths). */
+.hero-title,
+.section-title,
+.step-title,
+.conversion-title {
+  text-wrap: balance;
+}
+
 /* Hero Section */
 .hero-section {
   padding-top: 120px; /* offset header */
