@@ -861,10 +861,11 @@
   background: var(--color-brand-primary-hover);
 }
 
-/* Study Plan teaser card (on Dashboard tab) */
+/* Study Plan teaser card (on Dashboard tab) — rebranded from the legacy indigo
+   family to the resolved one-orange system (2026-06-08). */
 .studyplan-teaser-card {
-  background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
-  border: 1px solid #c4b5fd;
+  background: var(--color-brand-primary-light);
+  border: 1px solid var(--color-brand-primary-light);
   border-radius: 12px;
   padding: 1.25rem 1.5rem;
   cursor: pointer;
@@ -872,8 +873,8 @@
 }
 
 .studyplan-teaser-card:hover {
-  border-color: #8b5cf6;
-  box-shadow: 0 2px 8px rgba(139, 92, 246, 0.15);
+  border-color: var(--color-brand-primary);
+  box-shadow: var(--shadow-brand-glow);
 }
 
 .teaser-header {
@@ -886,7 +887,7 @@
 .teaser-header h3 {
   font-size: 1rem;
   font-weight: 600;
-  color: #1e1b4b;
+  color: var(--color-slate-900);
   margin: 0;
 }
 
@@ -897,7 +898,7 @@
 }
 
 .teaser-badge {
-  background: #4f46e5;
+  background: var(--color-brand-primary);
   color: white;
   font-size: 0.6875rem;
   padding: 1px 6px;
@@ -908,7 +909,7 @@
 
 .teaser-summary {
   font-size: 0.875rem;
-  color: #4338ca;
+  color: var(--color-slate-600);
   margin: 0 0 0.5rem;
   line-height: 1.4;
 }
@@ -916,5 +917,5 @@
 .teaser-cta {
   font-size: 0.8125rem;
   font-weight: 600;
-  color: #6d28d9;
+  color: var(--color-brand-primary);
 }

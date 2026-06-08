@@ -161,6 +161,7 @@ function renderBody(slice, onStartActivity, onTakeTest, firstName) {
                 activity={activity}
                 isComplete={isComplete}
                 onStart={onStartActivity}
+                index={i}
               />
             ))}
           </div>
@@ -170,9 +171,17 @@ function renderBody(slice, onStartActivity, onTakeTest, firstName) {
   }
 }
 
-function ActivityRow({ activity, isComplete, onStart }) {
+function ActivityRow({ activity, isComplete, onStart, index = 0 }) {
   const [expanded, setExpanded] = useState(!isComplete);
   if (!activity) return null;
+
+  // Entrance stagger — each row fades up 40ms after the previous (fadeInUp keyframe
+  // in design/animations.js; reduced-motion is handled globally). Capped so a long
+  // list never feels slow to settle.
+  const entranceStyle = {
+    animation: 'fadeInUp 320ms cubic-bezier(0.25, 0.1, 0.25, 1) both',
+    animationDelay: `${Math.min(index, 6) * 40}ms`,
+  };
 
   const title = activity.title || 'Practice session';
   const subtitle = activity.subtitle || activity.skillName || '';
@@ -188,7 +197,7 @@ function ActivityRow({ activity, isComplete, onStart }) {
   const collapsed = isComplete && !expanded;
 
   return (
-    <div className={`ttc-activity ttc-activity-${status}${collapsed ? ' is-collapsed' : ''}`}>
+    <div className={`ttc-activity ttc-activity-${status}${collapsed ? ' is-collapsed' : ''}`} style={entranceStyle}>
       <div className="ttc-activity-row">
         <div className="ttc-activity-text">
           <div className="ttc-activity-title">{title}</div>
