@@ -3,6 +3,17 @@ import * as Sentry from '@sentry/react';
 import { colors, typography, spacing, radius, shadows } from '../../design/tokens';
 import { Button } from './Button';
 
+// A deploy rotates webpack chunk hashes, so a stale session's first lazy
+// navigation after a deploy can 404 its chunk (ChunkLoadError). One reload
+// picks up the fresh asset manifest and fixes it.
+const CHUNK_RELOAD_FLAG = 'performsat:chunkReloadAttempted';
+
+const isChunkLoadError = (error) =>
+  !!error && (
+    error.name === 'ChunkLoadError' ||
+    /Loading chunk .* failed/.test(error.message || '')
+  );
+
 class ErrorBoundary extends React.Component {
   constructor(props) {
     super(props);
@@ -19,6 +30,25 @@ class ErrorBoundary extends React.Component {
     Sentry.captureException(error, {
       contexts: { react: { componentStack: errorInfo?.componentStack } },
     });
+
+    if (isChunkLoadError(error)) {
+      try {
+        if (window.sessionStorage.getItem(CHUNK_RELOAD_FLAG) === '1') {
+          // A reload was already attempted this session and the chunk still
+          // failed — persistent outage, not a stale deploy. Clear the flag so
+          // a FUTURE deploy can auto-recover again, and fall through to the
+          // visible error UI (no reload loop).
+          window.sessionStorage.removeItem(CHUNK_RELOAD_FLAG);
+        } else {
+          window.sessionStorage.setItem(CHUNK_RELOAD_FLAG, '1');
+          window.location.reload();
+        }
+      } catch (storageError) {
+        // sessionStorage unavailable (private mode / disabled): without the
+        // guard we cannot rule out a reload loop, so don't auto-reload —
+        // the error UI below offers a manual retry instead.
+      }
+    }
   }
 
   handleRetry = () => {

@@ -12,13 +12,9 @@ import {
 import LandingPage from './components/LandingPage';
 import PrivacyPolicy from './components/legal/PrivacyPolicy';
 import TermsOfService from './components/legal/TermsOfService';
-import StudentDashboard from './components/StudentDashboard';
 import PushOptInCard from './components/PushOptInCard';
-import AiTutorChat, { AiTutorButton } from './components/AiTutorChat';
+import AiTutorButton from './components/AiTutorButton';
 import QuestionDiagram from './components/QuestionDiagrams';
-import PracticeTest from './components/PracticeTest';
-import PracticeTestList from './components/PracticeTestList';
-import TestResults from './components/TestResults';
 import { runDiagnostic } from './services/diagnosticEngine';
 import SolutionExplanation from './components/SolutionExplanation';
 import { getQuestionsForSection, hasQuestionsForSection, getRandomQuestions } from './data/questions';
@@ -27,19 +23,8 @@ import { addToReviewQueue, getDueReviewCount } from './services/reviewService';
 import { calculateOptimalDifficulty } from './services/recommendationService';
 import AppShell from './components/ui/AppShell';
 import ErrorBoundary from './components/ui/ErrorBoundary';
-import Onboarding from './components/Onboarding';
-import Profile from './components/Profile';
-import StudyPlanDashboard from './components/StudyPlanDashboard';
-import AdaptivePracticeShell from './components/AdaptivePracticeShell';
-import AssignedPracticeShell from './components/AssignedPracticeShell';
-import PacingDrill from './components/PacingDrill';
-import PracticeBank from './components/PracticeBank';
-import DiagnosticReport from './components/DiagnosticReport';
-import LearnWorkspace from './components/learn/LearnWorkspace';
-import LessonBrowser from './components/LessonBrowser';
+import Skeleton, { CardSkeleton } from './components/ui/Skeleton';
 import { allLessons } from './data/lessons';
-import PastTestReviewIndex from './components/PastTestReview/PastTestReviewIndex';
-import TestReviewDetail from './components/PastTestReview/TestReviewDetail';
 import ReviewItemCard from './components/PastTestReview/ReviewItemCard';
 import { Toaster, showToast } from './components/ui/Toaster';
 import CommandPalette from './components/ui/CommandPalette';
@@ -85,6 +70,49 @@ import { reprioritizePlan } from './services/adaptivePlanService';
 import { buildLongitudinalEvidence } from './services/studyPlanMerger';
 import { generateStudyPlan as generateAIPlan } from './services/studyPlanService';
 import { logInfo, logWarn } from './utils/log';
+
+// ── Code-split view components (Stage 1 of the bundle-split plan) ──────────
+// Each heavy view loads as its own webpack chunk on first render. The single
+// Suspense boundary inside #main-content (below) shows a skeleton while a
+// chunk fetches; key={view} on that div remounts the boundary per navigation.
+// KEEP EAGER: LandingPage, PrivacyPolicy/TermsOfService (render via early
+// return BEFORE the router), AppShell, ErrorBoundary, Toaster, CommandPalette,
+// PushOptInCard, QuestionDiagram, SolutionExplanation, ReviewItemCard, icons.
+const StudentDashboard = React.lazy(() => import('./components/StudentDashboard'));
+const AiTutorChat = React.lazy(() => import('./components/AiTutorChat'));
+const PracticeTest = React.lazy(() => import('./components/PracticeTest'));
+const PracticeTestList = React.lazy(() => import('./components/PracticeTestList'));
+const TestResults = React.lazy(() => import('./components/TestResults'));
+const Onboarding = React.lazy(() => import('./components/Onboarding')); // eslint-disable-line no-unused-vars
+const Profile = React.lazy(() => import('./components/Profile'));
+const StudyPlanDashboard = React.lazy(() => import('./components/StudyPlanDashboard'));
+const AdaptivePracticeShell = React.lazy(() => import('./components/AdaptivePracticeShell'));
+const AssignedPracticeShell = React.lazy(() => import('./components/AssignedPracticeShell'));
+const PacingDrill = React.lazy(() => import('./components/PacingDrill'));
+const PracticeBank = React.lazy(() => import('./components/PracticeBank'));
+const DiagnosticReport = React.lazy(() => import('./components/DiagnosticReport'));
+const LearnWorkspace = React.lazy(() => import('./components/learn/LearnWorkspace'));
+const LessonBrowser = React.lazy(() => import('./components/LessonBrowser'));
+const PastTestReviewIndex = React.lazy(() => import('./components/PastTestReview/PastTestReviewIndex'));
+const TestReviewDetail = React.lazy(() => import('./components/PastTestReview/TestReviewDetail'));
+
+// Text-free skeleton shown while a lazy view chunk loads. Composed from the
+// shared Skeleton primitives. Renders INSIDE #main-content, so the takingTest
+// scroll-lock (height/overflow on the wrapper div) still applies around it.
+const ViewChunkFallback = () => (
+  <div style={{
+    maxWidth: '960px',
+    margin: '0 auto',
+    padding: '32px',
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '16px',
+  }}>
+    <Skeleton width="38%" height="28px" />
+    <CardSkeleton lines={3} />
+    <CardSkeleton lines={2} />
+  </div>
+);
 
 // ── Past-Test-Review telemetry (Phase 7 of PAST_TEST_REVIEW_PLAN.md) ──
 // Events are scoped under [performsat:pastTestReview] so they're filterable
@@ -295,6 +323,27 @@ const PerformSAT = () => {
   // mounted, so no engagement events ever fired. Completion events are fired
   // separately by the onSessionComplete seam (see dispatchSessionComplete).
   useAnalytics(user?.uid);
+
+  // Pre-warm the heaviest view chunks once auth resolves so the first
+  // post-login navigation is a cache hit instead of a skeleton + fetch.
+  // requestIdleCallback keeps the fetches off the critical path; the
+  // setTimeout(1500) branch covers Safari (no rIC). Dynamic import() is
+  // idempotent — webpack caches the module record — so StrictMode's
+  // double-invoke and re-runs on uid change are free.
+  useEffect(() => {
+    if (!user) return undefined;
+    const warmViewChunks = () => {
+      import('./components/StudentDashboard');
+      import('./components/PracticeTest');
+      import('./components/StudyPlanDashboard');
+    };
+    if (typeof window.requestIdleCallback === 'function') {
+      const idleId = window.requestIdleCallback(warmViewChunks, { timeout: 3000 });
+      return () => window.cancelIdleCallback(idleId);
+    }
+    const timerId = setTimeout(warmViewChunks, 1500);
+    return () => clearTimeout(timerId);
+  }, [user]);
 
   // Start a daily-review session from a list of due review items. Extracted from
   // the dashboard's onStartReview so the re-engagement deep-link (?next=review)
@@ -1429,6 +1478,11 @@ const PerformSAT = () => {
         padding: (view === 'dashboard' || view === 'reviewingPastResults' || view === 'practice' || view === 'takingTest' || view === 'learn' || view === 'practiceBank') ? '0' : '32px 32px 100px',
         ...(view === 'takingTest' ? { overflow: 'hidden', height: '100vh' } : { animation: 'fadeInUp 300ms cubic-bezier(0.25, 0.1, 0.25, 1)' })
       }}>
+      {/* ONE Suspense boundary for the whole view-switch region: every lazy
+          view below suspends into the same skeleton fallback. It sits INSIDE
+          the #main-content wrapper so the takingTest scroll-lock (style on
+          the div above) stays applied while a chunk loads. */}
+      <React.Suspense fallback={<ViewChunkFallback />}>
         {/* Standalone AI Tutor View */}
         {view === 'tutor' && (
           <div style={{ maxWidth: '720px', margin: '0 auto' }}>
@@ -3298,6 +3352,7 @@ const PerformSAT = () => {
           );
         })()}
 
+      </React.Suspense>
       </div>
 
       </AppShell>

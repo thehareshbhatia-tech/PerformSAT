@@ -21,7 +21,11 @@ import { hasQuestionsForSection, getSectionsWithQuestions } from '../data/questi
 import { getSkillById, skillTaxonomy } from '../data/skillTaxonomy';
 import { ERROR_TYPES, ERROR_TYPE_LABELS, ERROR_TYPE_ICONS } from './diagnosticEngine';
 import { generatePracticeAssignments, buildAdaptiveQueueSeed, buildStrengthFocusAssignments, serializeAdaptiveState, createAdaptiveSessionState } from './practiceAssignmentService';
-import { SKILL_ALIAS_MAP, getQuestionById } from '../data/questions/bank';
+// SKILL_ALIAS_MAP from aliases.js (pure constants, Stage 2a bundle split);
+// getQuestionById stays on the bank index — this generator is genuinely
+// corpus-coupled (wrong-answer reinsertion resolves real bank items).
+import { SKILL_ALIAS_MAP } from '../data/questions/bank/aliases';
+import { getQuestionById } from '../data/questions/bank';
 import { parseLocalDate } from '../utils/localDate';
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -30,6 +30,19 @@ import { practiceTest10RW } from '../../practiceTests/practiceTest10RW';
 import { practiceTest11RW } from '../../practiceTests/practiceTest11RW';
 import { practiceTest12RW } from '../../practiceTests/practiceTest12RW';
 import { deriveRWPattern } from './deriveRWPattern';
+import { RW_SKILL_ALIAS_MAP, RW_TIER1_PATTERN_THRESHOLD } from './taxonomy';
+
+// Pure-constant re-exports (Stage 2a bundle split): the R&W taxonomy lives
+// in `./taxonomy.js` so corpus-free consumers (diagnosticEngine,
+// predictionEngine, drillChip) can import it without flattening the 12 R&W
+// test bundles. Re-exported here so existing importers are unaffected.
+export {
+  RW_CANONICAL_SKILLS,
+  RW_DOMAINS,
+  RW_SKILL_ALIAS_MAP,
+  getSkillSection,
+  RW_TIER1_PATTERN_THRESHOLD,
+} from './taxonomy';
 
 const RW_TEST_SOURCES = [
   { num: 1,  bundle: practiceTest1RW  },
@@ -47,27 +60,8 @@ const RW_TEST_SOURCES = [
 ];
 
 // ─── Canonical taxonomy ──────────────────────────────────────────────────────
-
-export const RW_CANONICAL_SKILLS = [
-  'central-ideas-and-details',
-  'inferences',
-  'command-of-evidence-textual',
-  'command-of-evidence-quantitative',
-  'words-in-context',
-  'text-structure-and-purpose',
-  'cross-text-connections',
-  'boundaries',
-  'form-structure-and-sense',
-  'transitions',
-  'rhetorical-synthesis',
-];
-
-export const RW_DOMAINS = [
-  'information-and-ideas',
-  'craft-and-structure',
-  'standard-english-conventions',
-  'expression-of-ideas',
-];
+// RW_CANONICAL_SKILLS, RW_DOMAINS, RW_SKILL_ALIAS_MAP, getSkillSection, and
+// RW_TIER1_PATTERN_THRESHOLD moved to `./taxonomy.js` (re-exported above).
 
 // Skill → domain — derived from the test data (each skill maps to exactly one
 // domain in the College Board taxonomy).
@@ -83,85 +77,6 @@ const RW_SKILL_TO_DOMAIN = {
   'form-structure-and-sense':          'standard-english-conventions',
   'transitions':                       'expression-of-ideas',
   'rhetorical-synthesis':              'expression-of-ideas',
-};
-
-/**
- * Alias map for R&W skill IDs. Mirrors `SKILL_ALIAS_MAP` in the math bank.
- * Variants surface from diagnostic engine, AI tutor outputs, and human-typed
- * weakness labels — they need to resolve to the canonical IDs above.
- */
-export const RW_SKILL_ALIAS_MAP = {
-  // Information and Ideas
-  'central-ideas-and-details':       ['central-ideas-and-details'],
-  'central ideas and details':       ['central-ideas-and-details'],
-  'central-ideas':                   ['central-ideas-and-details'],
-  'main-idea':                       ['central-ideas-and-details'],
-  'main idea':                       ['central-ideas-and-details'],
-  'Central Ideas and Details':       ['central-ideas-and-details'],
-
-  'inferences':                      ['inferences'],
-  'inference':                       ['inferences'],
-  'Inferences':                      ['inferences'],
-
-  'command-of-evidence-textual':     ['command-of-evidence-textual'],
-  'command-of-evidence':             ['command-of-evidence-textual', 'command-of-evidence-quantitative'],
-  'textual-evidence':                ['command-of-evidence-textual'],
-  'evidence-textual':                ['command-of-evidence-textual'],
-  'Command of Evidence (Textual)':   ['command-of-evidence-textual'],
-
-  'command-of-evidence-quantitative': ['command-of-evidence-quantitative'],
-  'quantitative-evidence':            ['command-of-evidence-quantitative'],
-  'evidence-quantitative':            ['command-of-evidence-quantitative'],
-  'Command of Evidence (Quantitative)': ['command-of-evidence-quantitative'],
-  'data-evidence':                    ['command-of-evidence-quantitative'],
-  'table-evidence':                   ['command-of-evidence-quantitative'],
-
-  // Craft and Structure
-  'words-in-context':                ['words-in-context'],
-  'words in context':                ['words-in-context'],
-  'vocabulary':                      ['words-in-context'],
-  'vocab':                           ['words-in-context'],
-  'Words in Context':                ['words-in-context'],
-  'word-meaning':                    ['words-in-context'],
-
-  'text-structure-and-purpose':      ['text-structure-and-purpose'],
-  'text-structure':                  ['text-structure-and-purpose'],
-  'purpose':                         ['text-structure-and-purpose'],
-  'Text Structure and Purpose':      ['text-structure-and-purpose'],
-  'function-of-sentence':            ['text-structure-and-purpose'],
-
-  'cross-text-connections':          ['cross-text-connections'],
-  'cross-text':                      ['cross-text-connections'],
-  'paired-passages':                 ['cross-text-connections'],
-  'Cross-Text Connections':          ['cross-text-connections'],
-  'Cross-text Connections':          ['cross-text-connections'],
-
-  // Standard English Conventions
-  'boundaries':                      ['boundaries'],
-  'punctuation':                     ['boundaries'],
-  'sentence-boundaries':             ['boundaries'],
-  'commas':                          ['boundaries'],
-  'semicolons':                      ['boundaries'],
-  'Boundaries':                      ['boundaries'],
-
-  'form-structure-and-sense':        ['form-structure-and-sense'],
-  'form-structure':                  ['form-structure-and-sense'],
-  'grammar':                         ['form-structure-and-sense'],
-  'subject-verb-agreement':          ['form-structure-and-sense'],
-  'pronoun-agreement':               ['form-structure-and-sense'],
-  'Form, Structure, and Sense':      ['form-structure-and-sense'],
-
-  // Expression of Ideas
-  'transitions':                     ['transitions'],
-  'transition-words':                ['transitions'],
-  'Transitions':                     ['transitions'],
-
-  'rhetorical-synthesis':            ['rhetorical-synthesis'],
-  'rhetorical synthesis':            ['rhetorical-synthesis'],
-  'notes':                           ['rhetorical-synthesis'],
-  'student-notes':                   ['rhetorical-synthesis'],
-  'synthesis':                       ['rhetorical-synthesis'],
-  'Rhetorical Synthesis':            ['rhetorical-synthesis'],
 };
 
 // ─── Flatten ─────────────────────────────────────────────────────────────────
@@ -223,17 +138,6 @@ function flattenRWBank() {
 
   return out;
 }
-
-/**
- * Canonical section deriver for a skill id. Keyed off the single source of
- * truth (RW_CANONICAL_SKILLS) so prediction, diagnostic, and tutor code all
- * agree on what counts as R&W — no drift between separately-maintained lists.
- * Unknown / math skill ids return 'math'.
- *
- * @param {string} skillId - canonical skill id
- * @returns {('rw'|'math')}
- */
-export const getSkillSection = (skillId) => (RW_CANONICAL_SKILLS.includes(skillId) ? 'rw' : 'math');
 
 export const rwQuestionBank = flattenRWBank();
 
@@ -333,10 +237,6 @@ export const getQuestionsByDomain = (domain, opts = {}) => {
   if (limit) results = results.slice(0, limit);
   return results;
 };
-
-// Tier-1 firing threshold — mirrors the math bank's TIER1_PATTERN (=8). Defined
-// locally to avoid coupling the R&W bank to the math bank module.
-export const RW_TIER1_PATTERN_THRESHOLD = 8;
 
 /**
  * Tier-1 selector: questions carrying any of the given R&W pattern slugs

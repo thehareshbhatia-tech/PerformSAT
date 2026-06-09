@@ -10,7 +10,9 @@
 
 import { db } from '../firebase/config';
 import { doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
-import { getSkillSection } from '../data/questions/rwBank';
+// taxonomy.js (not the rwBank index) keeps this engine corpus-free — the
+// rwBank index flattens all 12 R&W test bundles at import time (Stage 2a).
+import { getSkillSection } from '../data/questions/rwBank/taxonomy';
 
 const MAX_PREDICTION_LOG = 10;
 

@@ -21,8 +21,12 @@
  */
 
 import { getSkillById, skillTaxonomy, getSkillsForDomain } from '../data/skillTaxonomy';
-import { SKILL_ALIAS_MAP } from '../data/questions/bank';
-import { RW_CANONICAL_SKILLS, RW_DOMAINS } from '../data/questions/rwBank';
+// Pure-constant imports (Stage 2a bundle split): pulled from aliases.js /
+// taxonomy.js so this engine stays corpus-free — importing the bank/rwBank
+// indexes would weld both question corpora into every chunk that needs
+// diagnostics (App.jsx imports runDiagnostic eagerly).
+import { SKILL_ALIAS_MAP } from '../data/questions/bank/aliases';
+import { RW_CANONICAL_SKILLS, RW_DOMAINS } from '../data/questions/rwBank/taxonomy';
 import { deriveRWPattern } from '../data/questions/rwBank/deriveRWPattern';
 import { extractSatPattern } from '../data/questions/extractSatPattern';
 

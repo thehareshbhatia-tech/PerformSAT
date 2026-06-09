@@ -4,8 +4,11 @@ import 'katex/dist/katex.min.css';
 import './design-tokens.css';
 import './design/global.css';
 import App from './App';
-import DiagramPreview from './components/__DiagramPreview';
 import * as Sentry from '@sentry/react';
+
+// Dev-only diagram preview is code-split so the math bank it imports never
+// rides in the entry chunk. Loaded only when the #__diag= hash is present.
+const DiagramPreview = React.lazy(() => import('./components/__DiagramPreview'));
 
 // Error reporting: Sentry when a DSN is configured (CRA bakes REACT_APP_* at
 // build time), otherwise a console listener for unhandled rejections. Do NOT
@@ -53,6 +56,12 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 const isDiagramPreview = typeof window !== 'undefined' && window.location.hash.startsWith('#__diag=');
 root.render(
   <React.StrictMode>
-    {isDiagramPreview ? <DiagramPreview /> : <App />}
+    {isDiagramPreview ? (
+      <React.Suspense fallback={null}>
+        <DiagramPreview />
+      </React.Suspense>
+    ) : (
+      <App />
+    )}
   </React.StrictMode>
 );

@@ -16,7 +16,10 @@
  */
 
 import { getBankRoutingStats, DRILL_ROUTING_THRESHOLDS } from '../../data/questions/bank';
-import { getRWBankRoutingStats, RW_TIER1_PATTERN_THRESHOLD } from '../../data/questions/rwBank';
+import { getRWBankRoutingStats } from '../../data/questions/rwBank';
+// Threshold comes from taxonomy.js (pure constants) rather than the rwBank
+// index so constant-only importers of this selector stay corpus-free (2a).
+import { RW_TIER1_PATTERN_THRESHOLD } from '../../data/questions/rwBank/taxonomy';
 import { RW_PATTERN_LABELS } from '../../data/questions/rwBank/deriveRWPattern';
 import { formatPatternLabel, pickPrimaryMissedPattern } from './missedPatternLabel';
 
