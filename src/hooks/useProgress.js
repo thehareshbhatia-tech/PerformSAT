@@ -7,6 +7,32 @@ import { getDueReviewCount, getReviewStats } from '../services/reviewService';
 import { recordSkillAttempts, recordSkillAttemptsBatch, getSkillDiagnosticSummary as getDiagnostic, getSkillBreakdown as getBreakdown } from '../services/skillService';
 import { recordPracticeTestResult as recordTestResult, getPracticeTestBestScore, getPracticeTestAttempts, saveTestProgress as saveProgress, clearTestProgress as clearProgress, getInProgressTest } from '../services/practiceTestService';
 import { getStudyPlanArtifact, getLatestStudyPlanArtifact } from '../services/hybridStudyPlanService';
+import { enqueuePendingSave, removePendingSave, flushPendingSaves } from '../services/pendingTestSaveQueue';
+import { showToast } from '../components/ui/Toaster';
+
+/** How long a test-result save may run before we declare it failed. */
+const SAVE_TIMEOUT_MS = 15000;
+
+/**
+ * Races a promise against a rejection timer.
+ * REQUIRED for test-result saves: with the Firestore web SDK's default
+ * memory persistence, batch.commit() HANGS (stays pending forever) on
+ * network loss instead of rejecting — a bare catch never fires, so the
+ * failure banner would never show without this race.
+ *
+ * @param {Promise} promise - The save promise to race
+ * @param {number} [ms=SAVE_TIMEOUT_MS] - Timeout in milliseconds
+ * @returns {Promise} Rejects with Error('save-timeout') when the timer wins
+ */
+const withTimeout = (promise, ms = SAVE_TIMEOUT_MS) => {
+  let timer;
+  return Promise.race([
+    promise,
+    new Promise((_, reject) => {
+      timer = setTimeout(() => reject(new Error('save-timeout')), ms);
+    }),
+  ]).finally(() => clearTimeout(timer));
+};
 
 /**
  * Hook for managing user progress with real-time Firestore sync
@@ -33,6 +59,11 @@ export const useProgress = (userId) => {
   const artifactHydrationFailed = useRef(false); // prevent retry flood on permission errors
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  // Test-save-specific status — deliberately separate from the shared `error`
+  // string above, which every write path (lessons/practice/study-plan) reuses.
+  const [lastSaveStatus, setLastSaveStatus] = useState(null); // 'saving' | 'saved' | 'failed' | null
+  const lastFailedSaveRef = useRef(null);
+  const flushedForUid = useRef(null);
 
   useEffect(() => {
     if (!userId) {
@@ -191,6 +222,32 @@ export const useProgress = (userId) => {
     );
 
     return () => unsubscribe();
+  }, [userId]);
+
+  // Boot-time flush of test saves that failed in a previous session.
+  // The flushedForUid ref guard is mandatory: index.js wraps the app in
+  // React.StrictMode, which double-invokes effects in dev — without it the
+  // flush (and its toast) would fire twice per login. Firestore-side dupes
+  // are additionally blocked by the attemptId idempotency guard in
+  // practiceTestService.recordPracticeTestResult.
+  useEffect(() => {
+    if (!userId || flushedForUid.current === userId) return;
+    flushedForUid.current = userId;
+
+    flushPendingSaves(userId, (entry) =>
+      withTimeout(recordTestResult(userId, entry.testId, entry.testTitle, entry.results))
+    )
+      .then(({ flushed }) => {
+        if (flushed > 0) {
+          showToast({
+            type: 'success',
+            message: flushed === 1
+              ? 'A test result from a previous session has been saved to your account.'
+              : `${flushed} test results from a previous session have been saved to your account.`,
+          });
+        }
+      })
+      .catch((err) => console.error('[useProgress] Pending test-save flush failed:', err));
   }, [userId]);
 
   /**
@@ -506,13 +563,46 @@ export const useProgress = (userId) => {
       }
     });
 
+    // NOTE: the optimistic update above is intentionally NOT rolled back on
+    // failure — the student must keep seeing their score. The localStorage
+    // queue + retry path below makes the failure durable instead.
+    setLastSaveStatus('saving');
     try {
       console.log('[useProgress] Calling Firestore recordTestResult...');
-      await recordTestResult(userId, testId, testTitle, results);
+      // withTimeout is load-bearing: Firestore's batch.commit() hangs (never
+      // rejects) on network loss under default memory persistence.
+      await withTimeout(recordTestResult(userId, testId, testTitle, results));
       console.log('[useProgress] Firestore save successful!');
+      setLastSaveStatus('saved');
+      lastFailedSaveRef.current = null;
+      removePendingSave(userId, results.attemptId);
     } catch (err) {
       console.error('[useProgress] Failed to record practice test result:', err);
       setError(err.message);
+      lastFailedSaveRef.current = { testId, testTitle, results };
+      enqueuePendingSave(userId, lastFailedSaveRef.current);
+      setLastSaveStatus('failed');
+    }
+  };
+
+  /**
+   * Retries the most recent failed test-result save (Retry button on the
+   * TestResults save-status banner). Safe to call repeatedly: the attemptId
+   * idempotency guard in practiceTestService skips duplicate writes when a
+   * hung original commit eventually lands.
+   */
+  const retryLastSave = async () => {
+    const pending = lastFailedSaveRef.current;
+    if (!pending || !userId) return;
+    setLastSaveStatus('saving');
+    try {
+      await withTimeout(recordTestResult(userId, pending.testId, pending.testTitle, pending.results));
+      removePendingSave(userId, pending.results.attemptId);
+      lastFailedSaveRef.current = null;
+      setLastSaveStatus('saved');
+    } catch (err) {
+      console.error('[useProgress] Retry of test-result save failed:', err);
+      setLastSaveStatus('failed');
     }
   };
 
@@ -772,6 +862,8 @@ export const useProgress = (userId) => {
     getSkillBreakdown,
     // Practice test results functions
     recordPracticeTestAttempt,
+    lastSaveStatus,
+    retryLastSave,
     getTestBestScore,
     getTestAttempts,
     // In-progress test functions

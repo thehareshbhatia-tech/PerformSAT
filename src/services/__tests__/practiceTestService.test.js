@@ -389,6 +389,45 @@ describe('recordPracticeTestResult — atomicity', () => {
   });
 });
 
+describe('recordPracticeTestResult — attemptId idempotency', () => {
+  test('recording the SAME attemptId twice skips the duplicate write (attempts stay 1, totals not inflated)', async () => {
+    const logSpy = jest.spyOn(console, 'log').mockImplementation(() => {});
+
+    await recordPracticeTestResult('user-1', 'practice-test-1', 'Practice Test 1',
+      buildResults({ attemptId: 'dup-1', scaledScore: 620, rawScore: 18 }));
+
+    // Replay of the same attempt (retry button / boot flush / hung commit
+    // landing late) — even with a different score it must be a no-op.
+    await recordPracticeTestResult('user-1', 'practice-test-1', 'Practice Test 1',
+      buildResults({ attemptId: 'dup-1', scaledScore: 700, rawScore: 21 }));
+
+    const testRow = getTestRow(getStore().get('progress/user-1'), 'practice-test-1');
+    expect(testRow.attempts).toHaveLength(1);
+    expect(testRow.totalAttempts).toBe(1);
+    // First write's values stand — the duplicate never reached the batch.
+    expect(testRow.bestScaledScore).toBe(620);
+    expect(testRow.bestRawScore).toBe(18);
+    expect(testRow.attempts[0].scaledScore).toBe(620);
+
+    expect(logSpy).toHaveBeenCalledWith(
+      expect.stringContaining('already recorded — skipping duplicate write')
+    );
+    logSpy.mockRestore();
+  });
+
+  test('a DIFFERENT attemptId still appends normally (length 2)', async () => {
+    await recordPracticeTestResult('user-1', 'practice-test-1', 'Practice Test 1',
+      buildResults({ attemptId: 'idem-a', scaledScore: 540 }));
+    await new Promise(r => setTimeout(r, 5));
+    await recordPracticeTestResult('user-1', 'practice-test-1', 'Practice Test 1',
+      buildResults({ attemptId: 'idem-b', scaledScore: 660 }));
+
+    const testRow = getTestRow(getStore().get('progress/user-1'), 'practice-test-1');
+    expect(testRow.attempts).toHaveLength(2);
+    expect(testRow.totalAttempts).toBe(2);
+  });
+});
+
 describe('loadAttemptSnapshot', () => {
   test('returns the snapshot for an existing attemptId', async () => {
     await recordPracticeTestResult('user-1', 'practice-test-1', 'Practice Test 1',

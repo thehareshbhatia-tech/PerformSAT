@@ -155,6 +155,15 @@ export const recordPracticeTestResult = async (userId, testId, testTitle, result
       const currentData = progressSnap.data();
       const existingTest = currentData.practiceTestResults?.[testId];
 
+      // Idempotency guard: a hung offline batch.commit() can land AFTER the
+      // client already timed out, queued the payload, and replayed it (retry
+      // button or boot flush). Without this check a replay would append a
+      // duplicate attempt and inflate totalAttempts/best-score rows.
+      if (existingTest?.attempts?.some(a => a.attemptId === attemptId)) {
+        console.log('[practiceTestService] Attempt ' + attemptId + ' already recorded — skipping duplicate write');
+        return;
+      }
+
       // Diagnostic: dump per-test sizes when the doc is approaching the 1MB
       // Firestore limit so we can see what's bloating it. No-op for healthy
       // docs to keep logs clean in normal operation.

@@ -468,6 +468,8 @@ const TestResults = ({
   practiceTestResults,
   aiDiagnosticState,
   onRetryAiDiagnostic,
+  saveStatus = null,
+  onRetrySave = null,
   onBack,
   onRetake,
   onReview,
@@ -487,6 +489,13 @@ const TestResults = ({
   const [showQuestionInsights, setShowQuestionInsights] = useState(false);
   const [diagEntrance, setDiagEntrance] = useState(true);
   const diagEntranceTimer = useRef(null);
+  // Latches once the post-test save fails so the banner can keep narrating
+  // the retry (saving) and recovery (saved) states instead of vanishing.
+  const [hadSaveFailure, setHadSaveFailure] = useState(false);
+
+  useEffect(() => {
+    if (saveStatus === 'failed') setHadSaveFailure(true);
+  }, [saveStatus]);
 
   useEffect(() => {
     if (diagEntrance) {
@@ -2152,6 +2161,96 @@ const TestResults = ({
     );
   };
 
+  // Save-status banner (silent data-loss fix). Only the post-completion
+  // PracticeTest mount threads saveStatus/onRetrySave; the Firestore-sourced
+  // mounts (App viewingResults, past-test review) leave the props null so
+  // nothing ever renders there. Visual aesthetic mirrors the Toaster.css
+  // border-left variants.
+  const renderSaveStatusBanner = () => {
+    const visible =
+      saveStatus === 'failed' ||
+      (hadSaveFailure && (saveStatus === 'saving' || saveStatus === 'saved'));
+    if (!visible) return null;
+
+    const accent = saveStatus === 'failed'
+      ? { bg: colors.semantic.errorBg, border: colors.semantic.error }
+      : saveStatus === 'saving'
+        ? { bg: colors.semantic.warningBg, border: colors.semantic.warning }
+        : { bg: colors.semantic.successBg, border: colors.semantic.success };
+
+    const containerStyle = {
+      background: accent.bg,
+      borderLeft: `3px solid ${accent.border}`,
+      borderRadius: '12px',
+      padding: '14px 16px',
+      fontFamily: 'var(--font-ui)',
+      fontSize: '14px',
+      marginBottom: '16px',
+      display: 'flex',
+      alignItems: 'center',
+      gap: '12px',
+      justifyContent: 'space-between',
+    };
+
+    const retryButtonStyle = (disabled) => ({
+      padding: '10px 16px',
+      minHeight: '44px',
+      borderRadius: '10px',
+      border: '1px solid var(--color-slate-200)',
+      background: colors.surface.white,
+      fontFamily: 'var(--font-ui)',
+      fontSize: '14px',
+      fontWeight: '600',
+      color: colors.text.primary,
+      cursor: disabled ? 'default' : 'pointer',
+      opacity: disabled ? 0.6 : 1,
+      whiteSpace: 'nowrap',
+      flexShrink: 0,
+    });
+
+    if (saveStatus === 'failed') {
+      return (
+        <div role="alert" style={containerStyle}>
+          <div style={{ minWidth: 0 }}>
+            <div style={{ fontWeight: '700', color: colors.text.primary, marginBottom: '2px' }}>
+              Your results couldn't be saved to your account.
+            </div>
+            <div style={{ color: colors.text.secondary }}>
+              They're stored safely on this device — we'll retry automatically next time you open SEVA, or you can retry now.
+            </div>
+          </div>
+          {onRetrySave && (
+            <button type="button" onClick={onRetrySave} style={retryButtonStyle(false)}>
+              Retry save
+            </button>
+          )}
+        </div>
+      );
+    }
+
+    if (saveStatus === 'saving') {
+      return (
+        <div role="alert" style={containerStyle}>
+          <div style={{ fontWeight: '600', color: colors.text.primary }}>
+            Saving your results...
+          </div>
+          <button type="button" disabled style={retryButtonStyle(true)}>
+            Retry save
+          </button>
+        </div>
+      );
+    }
+
+    // saved after an earlier failure — recovery confirmation, no auto-dismiss.
+    return (
+      <div role="status" style={containerStyle}>
+        <div style={{ fontWeight: '600', color: colors.text.primary }}>
+          Your results are saved to your account.
+        </div>
+      </div>
+    );
+  };
+
   return (
     <div style={{ maxWidth: '100%', margin: '0 auto', padding: '0 0 40px', fontFamily: 'var(--font-ui)' }}>
       {/* Back navigation */}
@@ -2173,6 +2272,8 @@ const TestResults = ({
           Back to Tests
         </button>
       </div>
+
+      {renderSaveStatusBanner()}
 
       {/* Header Area — identity stamp MERGED into the page's single h1
           (made-for-me item 11): the student's face + possessive on the

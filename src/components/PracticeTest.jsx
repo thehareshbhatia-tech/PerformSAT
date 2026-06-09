@@ -1141,7 +1141,7 @@ const HighlightablePassage = memo(function HighlightablePassage({ text, highligh
   );
 });
 
-const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplete, onSaveProgress, onClearProgress, onSaveStudyPlan, onGoToStudyPlan, savedProgress, isTimed = true, skillProgress = null, user = null, practiceTestResults = null, completedLessons = {}, practiceProgress = {}, onStartPractice, answeredQuestionIds = [], initialReviewModule = null, reviewSnapshotMissing = false, reviewAttemptId = null, initialSection = null }) => {
+const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplete, onSaveProgress, onClearProgress, onSaveStudyPlan, onGoToStudyPlan, savedProgress, isTimed = true, skillProgress = null, user = null, practiceTestResults = null, completedLessons = {}, practiceProgress = {}, onStartPractice, answeredQuestionIds = [], initialReviewModule = null, reviewSnapshotMissing = false, reviewAttemptId = null, initialSection = null, resultSaveStatus = null, onRetrySave = null }) => {
   const [currentModule, setCurrentModule] = useState(
     pickInitialModuleIndex(test, savedProgress, initialSection)
   );
@@ -2980,6 +2980,8 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
             onGoToStudyPlan={onGoToStudyPlan}
             onBack={onBack}
             user={user}
+            saveStatus={resultSaveStatus}
+            onRetrySave={onRetrySave}
             onRetake={() => {
               setCurrentModule(0);
               setCurrentQuestion(0);
