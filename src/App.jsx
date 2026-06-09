@@ -10,6 +10,8 @@ import {
   buildReviewSession,
 } from './services/sessionComplete';
 import LandingPage from './components/LandingPage';
+import PrivacyPolicy from './components/legal/PrivacyPolicy';
+import TermsOfService from './components/legal/TermsOfService';
 import StudentDashboard from './components/StudentDashboard';
 import PushOptInCard from './components/PushOptInCard';
 import AiTutorChat, { AiTutorButton } from './components/AiTutorChat';
@@ -286,7 +288,7 @@ const PerformSAT = () => {
   }, [showCalculator]);
 
   const { user, loading, logout, updateTestDate, updateTargetScore, updateCurrentScore, updateTargetSchools, updateProfilePhoto, updateFirstName } = useAuth();
-  const { loading: progressLoading, completedLessons, practiceProgress, reviewQueue, reviewStreak, skillProgress, answeredQuestionIds, practiceTestResults, inProgressTests, studyPlan, studyPlanMeta, studyPlanArtifact, predictionLog, interventionLog, studentFingerprint, recordPracticeAttempt, recordDrillSkillAttempts, hasPracticed, getBestScore, getDueCount, getReviewStatistics, getSkillDiagnosticSummary, getSkillBreakdown, recordPracticeTestAttempt, getTestBestScore, getTestAttempts, saveTestProgress, clearTestProgress, getTestProgress, hasTestProgress, saveStudyPlan, markStudyActivityComplete, unmarkStudyActivityComplete, markLessonComplete, isLessonCompleted, getModuleProgress } = useProgress(user?.uid);
+  const { loading: progressLoading, completedLessons, practiceProgress, reviewQueue, reviewStreak, skillProgress, answeredQuestionIds, practiceTestResults, inProgressTests, studyPlan, studyPlanMeta, studyPlanArtifact, predictionLog, interventionLog, studentFingerprint, recordPracticeAttempt, recordDrillSkillAttempts, hasPracticed, getBestScore, getDueCount, getReviewStatistics, getSkillDiagnosticSummary, getSkillBreakdown, recordPracticeTestAttempt, getTestBestScore, getTestAttempts, saveTestProgress, clearTestProgress, getTestProgress, hasTestProgress, saveStudyPlan, markStudyActivityComplete, unmarkStudyActivityComplete, markLessonComplete, isLessonCompleted, getModuleProgress, lastSaveStatus, retryLastSave } = useProgress(user?.uid);
 
   // Mount the analytics session lifecycle (session_start / session_end +
   // beforeunload flush). Previously orphaned — the hook existed but was never
@@ -1279,6 +1281,13 @@ const PerformSAT = () => {
   }, [startAssignedPractice]);
 
 
+  // Legal pages are real URLs that must render for logged-out AND logged-in
+  // users without waiting on Firebase auth init. They are full-page navs
+  // (plain <a> links), so pathname is immutable for this component's lifetime.
+  const legalPath = (typeof window !== 'undefined' ? window.location.pathname : '/').replace(/\/+$/, '') || '/';
+  if (legalPath === '/privacy') return <ErrorBoundary><PrivacyPolicy /></ErrorBoundary>;
+  if (legalPath === '/terms') return <ErrorBoundary><TermsOfService /></ErrorBoundary>;
+
   if (loading) {
     return (
       <div style={{
@@ -1935,6 +1944,8 @@ const PerformSAT = () => {
                 console.error('[App.jsx] No user - cannot save results!');
               }
             }}
+            resultSaveStatus={lastSaveStatus}
+            onRetrySave={retryLastSave}
             onSessionComplete={(raw) => {
               // Full-test seam: analytics (test_completed) + the intelligence
               // pipeline (validate prior prediction -> update fingerprint ->
