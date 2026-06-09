@@ -132,4 +132,76 @@ describe('reprioritizePlan', () => {
     expect(overlay.reprioritisationSummary).toBeTruthy();
     expect(typeof overlay.reprioritisationSummary).toBe('string');
   });
+
+  // Adaptivity audit (2026-06): the latest-test snapshot used to win over
+  // everything for any skill it sampled twice, freezing the classification
+  // until the NEXT test. Recent drill history (post-test, past the
+  // test-write grace window) must now take precedence so drilling between
+  // tests moves the improved/declined read.
+  test('recent drill history outranks the latest-test snapshot', () => {
+    const plan = makePlan();
+    const testMs = Date.parse('2026-01-05T10:00:00');
+    const testResults = {
+      'test-1': {
+        testId: 'test-1', testTitle: 'T1',
+        attempts: [{
+          completedAt: '2026-01-05T10:00:00', scaledScore: 600,
+          diagnosticData: { questionDetails: [
+            // 1/3 on slope on the latest test — would classify 'stagnant'
+            // vs the 30% plan baseline if the snapshot won.
+            { skills: ['slope-intercept-form'], correct: true },
+            { skills: ['slope-intercept-form'], correct: false },
+            { skills: ['slope-intercept-form'], correct: false },
+          ] },
+        }],
+      },
+    };
+    // 10 drill attempts well after the test, 9 correct = 90%.
+    const drillStart = testMs + 24 * 60 * 60 * 1000;
+    const skillProgress = {
+      'slope-intercept-form': {
+        correct: 12, attempts: 23, // cumulative — NOT what should win
+        history: Array.from({ length: 10 }, (_, i) => ({
+          correct: i < 9,
+          timestamp: drillStart + i * 60000,
+        })),
+      },
+    };
+    const result = reprioritizePlan(plan, skillProgress, testResults, {});
+    const slope = result.adaptiveOverlay.focusSkills.find(s => s.skillId === 'slope-intercept-form');
+    expect(slope.currentAccuracy).toBe(90);
+    expect(slope.delta).toBe('improved');
+  });
+
+  test('drill history inside the test-write grace window does NOT override', () => {
+    const plan = makePlan();
+    const testMs = Date.parse('2026-01-05T10:00:00');
+    const testResults = {
+      'test-1': {
+        testId: 'test-1', testTitle: 'T1',
+        attempts: [{
+          completedAt: '2026-01-05T10:00:00', scaledScore: 600,
+          diagnosticData: { questionDetails: [
+            { skills: ['slope-intercept-form'], correct: false },
+            { skills: ['slope-intercept-form'], correct: false },
+          ] },
+        }],
+      },
+    };
+    // History stamped seconds after completedAt — these are the test's own
+    // skill writes, not drills; the snapshot (0%) must stand.
+    const skillProgress = {
+      'slope-intercept-form': {
+        correct: 0, attempts: 2,
+        history: [
+          { correct: false, timestamp: testMs + 1000 },
+          { correct: false, timestamp: testMs + 2000 },
+        ],
+      },
+    };
+    const result = reprioritizePlan(plan, skillProgress, testResults, {});
+    const slope = result.adaptiveOverlay.focusSkills.find(s => s.skillId === 'slope-intercept-form');
+    expect(slope.currentAccuracy).toBe(0);
+    expect(slope.delta).toBe('declined');
+  });
 });

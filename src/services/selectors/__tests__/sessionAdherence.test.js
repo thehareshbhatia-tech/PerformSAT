@@ -187,3 +187,38 @@ describe('getSessionAdherence — bundle form with practiceTestResults', () => {
     expect(r.uniqueDays).toBe(1);
   });
 });
+
+// ── drillDays source (assigned/adaptive drill completions) ──────────────────
+
+describe('getSessionAdherence — drillDays source', () => {
+  const dayKey = (daysAgo) => {
+    const d = ts(daysAgo);
+    const m = String(d.getMonth() + 1).padStart(2, '0');
+    const day = String(d.getDate()).padStart(2, '0');
+    return `${d.getFullYear()}-${m}-${day}`;
+  };
+
+  it('counts a drill-completion day inside the window', () => {
+    const r = getSessionAdherence({ drillDays: [dayKey(1)] }, { now: NOW_FIXED });
+    expect(r.uniqueDays).toBe(1);
+  });
+
+  it('a drillDays-only bundle is treated as a bundle, not a legacy map', () => {
+    const r = getSessionAdherence({ drillDays: [dayKey(0), dayKey(2)] }, { now: NOW_FIXED });
+    expect(r.uniqueDays).toBe(2);
+    expect(r.label).toBe('2 of last 7 days');
+  });
+
+  it('ignores drill days outside the window', () => {
+    const r = getSessionAdherence({ drillDays: [dayKey(10)] }, { now: NOW_FIXED });
+    expect(r.uniqueDays).toBe(0);
+  });
+
+  it('dedupes a drill day against a practiceProgress day', () => {
+    const r = getSessionAdherence({
+      practiceProgress: { a: { lastAttemptAt: ts(1) } },
+      drillDays: [dayKey(1)],
+    }, { now: NOW_FIXED });
+    expect(r.uniqueDays).toBe(1);
+  });
+});

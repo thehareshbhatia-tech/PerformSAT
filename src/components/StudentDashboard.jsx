@@ -74,8 +74,10 @@ const StudentDashboard = ({
   dataLoading = false,
   completedLessons,
   practiceProgress,
+  drillDays = [],
   practiceTestResults,
   reviewQueue,
+  adaptiveOverlay = null,
   reviewStreak,
   dueReviewCount = 0,
   onUpdateTestDate,
@@ -237,8 +239,8 @@ const StudentDashboard = ({
   const todayDayName = DAY_NAMES[new Date().getDay()];
   const todaySlice = useMemo(() => getTodaySlice(studyPlan, todayDayName), [studyPlan, todayDayName]);
   const sessionAdherence = useMemo(
-    () => getSessionAdherence({ practiceProgress, practiceTestResults }),
-    [practiceProgress, practiceTestResults],
+    () => getSessionAdherence({ practiceProgress, practiceTestResults, drillDays }),
+    [practiceProgress, practiceTestResults, drillDays],
   );
   const hasStudyPlan = !!(studyPlan && Array.isArray(studyPlan.weeks) && studyPlan.weeks.length > 0);
   // Predicted vs Actual (Day 5 ADD B). summarizePredictions returns null when
@@ -249,8 +251,8 @@ const StudentDashboard = ({
   );
   // Acely-polish (Day 1): derived state for the right-rail composition.
   const practicedDayKeys = useMemo(
-    () => getPracticedDayKeys({ practiceProgress, practiceTestResults }),
-    [practiceProgress, practiceTestResults],
+    () => getPracticedDayKeys({ practiceProgress, practiceTestResults, drillDays }),
+    [practiceProgress, practiceTestResults, drillDays],
   );
   const latestScore = useMemo(() => {
     if (!Array.isArray(scoreHistory) || scoreHistory.length === 0) return null;
@@ -547,8 +549,10 @@ const StudentDashboard = ({
               studyPlanMeta={studyPlanMeta}
               practiceTestResults={practiceTestResults}
               practiceProgress={practiceProgress}
+              drillDays={drillDays}
               skillProgress={skillProgress}
               reviewQueue={reviewQueue}
+              adaptiveOverlay={adaptiveOverlay}
               predictionLog={predictionLog}
               answeredQuestionIds={answeredQuestionIds}
               user={user}

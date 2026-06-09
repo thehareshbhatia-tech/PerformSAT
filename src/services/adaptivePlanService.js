@@ -20,6 +20,11 @@
 import { getDueReviewCount } from './reviewService';
 import { buildLongitudinalEvidence } from './studyPlanMerger';
 import { parseLocalDate } from '../utils/localDate';
+import {
+  getLastTestMs,
+  getRecentDrillStats,
+  DRILL_SIGNAL_MIN_ATTEMPTS,
+} from './selectors/focusAreaProgress';
 
 const daysUntil = (dateStr) => {
   if (!dateStr) return null;
@@ -144,6 +149,26 @@ export const reprioritizePlan = (
   Object.entries(latestTestAccuracy).forEach(([skillId, data]) => {
     if (!mergedAccuracy[skillId] || data.sampleSize >= 2) {
       mergedAccuracy[skillId] = data;
+    }
+  });
+
+  // Recency-aware override (adaptivity audit, 2026-06): the latest-test
+  // snapshot above WINS over cumulative skillProgress for any skill the test
+  // sampled twice — which froze every classification until the next full
+  // test, no matter how much the student drilled. When a skill has fresh
+  // drill evidence recorded AFTER that test (per-skill history, with the
+  // test-write grace window), the recent drill accuracy is the truer
+  // "current" signal, so it takes precedence. This is what lets a week of
+  // drilling flip a gap to 'improved' (or expose a 'declined') between tests.
+  const lastTestMs = getLastTestMs(practiceTestResults);
+  Object.entries(skillProgress).forEach(([skillId, record]) => {
+    const recent = getRecentDrillStats(record, lastTestMs);
+    if (recent && recent.attempts >= DRILL_SIGNAL_MIN_ATTEMPTS) {
+      mergedAccuracy[skillId] = {
+        accuracy: recent.accuracy,
+        attempts: recent.attempts,
+        recentDrill: true,
+      };
     }
   });
 

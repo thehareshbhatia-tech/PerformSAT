@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { useAuth } from './hooks/useAuth';
 import { useProgress } from './hooks/useProgress';
@@ -61,6 +61,7 @@ import { trackPacingDrillDone, trackReengagementOpened } from './services/analyt
 import { buildDailySession } from './services/dailyReviewEngine';
 import { getReadyAiDiagnostic, loadAttemptSnapshot } from './services/practiceTestService';
 import { reprioritizePlan } from './services/adaptivePlanService';
+import { findMatchingPlanActivity } from './services/selectors/planActivityMatch';
 import { buildLongitudinalEvidence } from './services/studyPlanMerger';
 import { generateStudyPlan as generateAIPlan } from './services/studyPlanService';
 import { logInfo, logWarn } from './utils/log';
@@ -310,13 +311,34 @@ const PerformSAT = () => {
   }, [showCalculator]);
 
   const { user, loading, logout, updateTestDate, updateTargetScore, updateCurrentScore, updateTargetSchools, updateProfilePhoto, updateFirstName } = useAuth();
-  const { loading: progressLoading, completedLessons, practiceProgress, reviewQueue, reviewStreak, skillProgress, answeredQuestionIds, practiceTestResults, inProgressTests, studyPlan, studyPlanMeta, studyPlanArtifact, predictionLog, interventionLog, studentFingerprint, recordPracticeAttempt, recordDrillSkillAttempts, hasPracticed, getBestScore, getDueCount, getReviewStatistics, getSkillDiagnosticSummary, getSkillBreakdown, recordPracticeTestAttempt, getTestBestScore, getTestAttempts, saveTestProgress, clearTestProgress, getTestProgress, hasTestProgress, saveStudyPlan, markStudyActivityComplete, unmarkStudyActivityComplete, markLessonComplete, isLessonCompleted, getModuleProgress, lastSaveStatus, retryLastSave } = useProgress(user?.uid);
+  const { loading: progressLoading, completedLessons, practiceProgress, drillDays, reviewQueue, reviewStreak, skillProgress, answeredQuestionIds, practiceTestResults, inProgressTests, studyPlan, studyPlanMeta, studyPlanArtifact, predictionLog, interventionLog, studentFingerprint, recordPracticeAttempt, recordDrillSkillAttempts, recordPracticedDay, hasPracticed, getBestScore, getDueCount, getReviewStatistics, getSkillDiagnosticSummary, getSkillBreakdown, recordPracticeTestAttempt, getTestBestScore, getTestAttempts, saveTestProgress, clearTestProgress, getTestProgress, hasTestProgress, saveStudyPlan, markStudyActivityComplete, unmarkStudyActivityComplete, markLessonComplete, isLessonCompleted, getModuleProgress, lastSaveStatus, retryLastSave } = useProgress(user?.uid);
 
   // Mount the analytics session lifecycle (session_start / session_end +
   // beforeunload flush). Previously orphaned — the hook existed but was never
   // mounted, so no engagement events ever fired. Completion events are fired
   // separately by the onSessionComplete seam (see dispatchSessionComplete).
   useAnalytics(user?.uid);
+
+  // ── Live plan reprioritization (adaptivity audit item 3) ─────────────────
+  // reprioritizePlan used to run ONLY in the post-test save path, so its
+  // improved/declined/triage read never moved between tests. It is pure and
+  // cheap (a few O(n) passes over skillProgress / test attempts / the review
+  // queue — no Firestore, no corpus), so we recompute it render-side: the
+  // memo re-fires when the study-plan view loads with fresh data and after
+  // every drill completion (recordDrillSkillAttempts → Firestore snapshot →
+  // new skillProgress identity). Falls back to the persisted overlay (now
+  // grafted through artifact hydration — see useProgress) when live
+  // computation has nothing to say.
+  const adaptiveOverlay = useMemo(() => {
+    if (!studyPlan?.weeks?.length) return null;
+    try {
+      const live = reprioritizePlan(studyPlan, skillProgress, practiceTestResults, reviewQueue, user?.testDate);
+      return live?.adaptiveOverlay || studyPlan.adaptiveOverlay || null;
+    } catch (err) {
+      logWarn('adaptivePlan', 'live reprioritization failed', err?.message);
+      return studyPlan.adaptiveOverlay || null;
+    }
+  }, [studyPlan, skillProgress, practiceTestResults, reviewQueue, user?.testDate]);
 
   // Pre-warm the heaviest view chunks AND the corpus chunks (banks, practice
   // tests, routing services — see data/corpusLoader.js) once auth resolves so
@@ -1066,6 +1088,34 @@ const PerformSAT = () => {
       const isAdaptiveOrAssigned = practiceState.practiceMode === 'assigned' || practiceState.practiceMode === 'adaptive';
       if (user?.uid && isAdaptiveOrAssigned && !practiceState.reviewMode) {
         recordDrillSkillAttempts(answersMap);
+
+        // Effort registers (adaptivity audit item 4): a completed drill is
+        // real practice — log the day so CalendarMonth + adherence count it.
+        // Drill sessions never touch practiceProgress, so without this write
+        // both surfaces ignored drill work entirely. Review-retry sessions
+        // are excluded above ("won't affect your study plan" promise).
+        recordPracticedDay();
+
+        // …and auto-check the matching plan task. Same activity identity the
+        // manual checkbox uses ({weekIndex, activityIndex} →
+        // markStudyActivityComplete); matching lives in the pure selector
+        // findMatchingPlanActivity (exact skillId, then the missed-pattern
+        // granularity bridge). Assigned drills only — adaptive sessions have
+        // no single skill identity to match against.
+        if (practiceState.practiceMode === 'assigned') {
+          const weakness = practiceState.assignmentMeta?.weakness;
+          const todayDayName = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][new Date().getDay()];
+          const match = findMatchingPlanActivity(studyPlan, { weakness, todayDayName });
+          if (match) {
+            markStudyActivityComplete(match.weekIndex, match.activityIndex);
+            const skillLabel = weakness?.skill || weakness?.skillName || match.activity?.skillName || match.activity?.title || 'assigned';
+            showToast({
+              type: 'success',
+              message: `Today's ${skillLabel} practice checked off your plan.`,
+              duration: 4500,
+            });
+          }
+        }
       }
 
       const session = buildDrillSession({
@@ -1654,8 +1704,10 @@ const PerformSAT = () => {
             user={user}
             completedLessons={completedLessons}
             practiceProgress={practiceProgress}
+            drillDays={drillDays}
             practiceTestResults={practiceTestResults}
             reviewQueue={reviewQueue}
+            adaptiveOverlay={adaptiveOverlay}
             reviewStreak={reviewStreak}
             dueReviewCount={getDueCount()}
             skillDiagnosticSummary={getSkillDiagnosticSummary()}
@@ -2108,8 +2160,10 @@ const PerformSAT = () => {
             studyPlan={studyPlan}
             practiceTestResults={practiceTestResults}
             practiceProgress={practiceProgress}
+            drillDays={drillDays}
             skillProgress={skillProgress}
             reviewQueue={reviewQueue}
+            adaptiveOverlay={adaptiveOverlay}
             answeredQuestionIds={answeredQuestionIds}
             predictionLog={predictionLog}
             user={user}

@@ -34,10 +34,13 @@ function localDateKey(d) {
  * Counts drill sessions (`practiceProgress`) and full practice tests
  * (`practiceTestResults`) — the same definition CalendarMonth renders.
  *
- * Accepts either the new bundle form `{ practiceProgress, practiceTestResults }`
- * or (legacy) the bare practiceProgress map.
+ * Accepts either the new bundle form
+ * `{ practiceProgress, practiceTestResults, drillDays }` or (legacy) the
+ * bare practiceProgress map. `drillDays` is the per-day log written at
+ * assigned/adaptive drill completion (see practicedDays.js) so drill work
+ * counts toward adherence too.
  *
- * @param {{ practiceProgress?: object, practiceTestResults?: object }
+ * @param {{ practiceProgress?: object, practiceTestResults?: object, drillDays?: string[] }
  *         | Object<string, {lastAttemptAt: any}>
  *         | null | undefined} sources
  * @param {{ days?: number, now?: Date }} [options]
@@ -57,7 +60,7 @@ export function getSessionAdherence(sources, options = {}) {
 
   // Bundle vs legacy bare-map detection: the bundle form names its sources;
   // a practiceProgress map's values are progress entries, not source maps.
-  const isBundle = 'practiceProgress' in sources || 'practiceTestResults' in sources;
+  const isBundle = 'practiceProgress' in sources || 'practiceTestResults' in sources || 'drillDays' in sources;
   const bundle = isBundle ? sources : { practiceProgress: sources };
 
   const allDayKeys = getPracticedDayKeys(bundle);

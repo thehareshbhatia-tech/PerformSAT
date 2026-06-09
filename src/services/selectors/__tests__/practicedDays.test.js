@@ -142,3 +142,32 @@ describe('getPracticedDayKeys — timestamp shape support', () => {
     expect(r.has('2026-04-15')).toBe(true);
   });
 });
+
+describe('getPracticedDayKeys — drillDays source (drill-completion log)', () => {
+  it('includes valid YYYY-MM-DD keys from drillDays', () => {
+    const r = getPracticedDayKeys({ drillDays: ['2026-06-08', '2026-06-09'] });
+    expect(r.has('2026-06-08')).toBe(true);
+    expect(r.has('2026-06-09')).toBe(true);
+    expect(r.size).toBe(2);
+  });
+
+  it('ignores malformed drillDays entries', () => {
+    const r = getPracticedDayKeys({
+      drillDays: ['2026-06-08', 'not-a-day', null, 42, '2026-6-8', ''],
+    });
+    expect([...r]).toEqual(['2026-06-08']);
+  });
+
+  it('dedupes drillDays against the other sources', () => {
+    const r = getPracticedDayKeys({
+      practiceProgress: { a: { lastAttemptAt: new Date('2026-06-08T10:00:00') } },
+      drillDays: ['2026-06-08'],
+    });
+    expect(r.size).toBe(1);
+  });
+
+  it('tolerates a non-array drillDays', () => {
+    expect(getPracticedDayKeys({ drillDays: 'nope' }).size).toBe(0);
+    expect(getPracticedDayKeys({ drillDays: null }).size).toBe(0);
+  });
+});

@@ -32,19 +32,34 @@ function localDateKey(d) {
   return `${y}-${m}-${day}`;
 }
 
+// Day keys written by useProgress.recordPracticedDay (assigned/adaptive
+// drill completions). Anything that isn't a plain YYYY-MM-DD string is
+// ignored — this is persisted data and may contain legacy junk.
+const DAY_KEY_RE = /^\d{4}-\d{2}-\d{2}$/;
+
 /**
  * Return the Set of YYYY-MM-DD keys (local time) where the student practiced.
- * Pulls from `practiceProgress` (per-section drill attempts) and optionally
- * from `practiceTestResults` so completing a full mock test counts as a
- * practiced day too.
+ * Pulls from `practiceProgress` (per-section drill attempts), optionally from
+ * `practiceTestResults` so completing a full mock test counts as a practiced
+ * day too, and from `drillDays` — the per-day log written when an assigned/
+ * adaptive drill session completes (those sessions never touch
+ * practiceProgress, so without this source CalendarMonth + adherence were
+ * blind to drill work — adaptivity audit item 4).
  *
  * @param {object} args
  * @param {Object<string, {lastAttemptAt: any}>|null|undefined} [args.practiceProgress]
  * @param {Object<string, {attempts?: Array<{completedAt:any}>, lastAttemptAt?:any}>|null|undefined} [args.practiceTestResults]
+ * @param {string[]|null|undefined} [args.drillDays]  YYYY-MM-DD keys from drill completions
  * @returns {Set<string>}
  */
-export function getPracticedDayKeys({ practiceProgress, practiceTestResults } = {}) {
+export function getPracticedDayKeys({ practiceProgress, practiceTestResults, drillDays } = {}) {
   const out = new Set();
+
+  if (Array.isArray(drillDays)) {
+    for (const key of drillDays) {
+      if (typeof key === 'string' && DAY_KEY_RE.test(key)) out.add(key);
+    }
+  }
 
   if (practiceProgress && typeof practiceProgress === 'object') {
     for (const entry of Object.values(practiceProgress)) {

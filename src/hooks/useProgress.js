@@ -47,6 +47,7 @@ const withTimeout = (promise, ms = SAVE_TIMEOUT_MS) => {
 export const useProgress = (userId) => {
   const [completedLessons, setCompletedLessons] = useState({});
   const [practiceProgress, setPracticeProgress] = useState({});
+  const [drillDays, setDrillDays] = useState([]);
   const [reviewQueue, setReviewQueue] = useState({});
   const [reviewStreak, setReviewStreak] = useState(null);
   const [skillProgress, setSkillProgress] = useState({});
@@ -106,6 +107,10 @@ export const useProgress = (userId) => {
           // Also get practice progress
           setPracticeProgress(data.practiceProgress || {});
 
+          // Per-day drill log (assigned/adaptive drill completions) — feeds
+          // CalendarMonth + sessionAdherence via selectors/practicedDays.
+          setDrillDays(Array.isArray(data.drillDays) ? data.drillDays : []);
+
           // Get review queue
           setReviewQueue(data.reviewQueue || {});
           setReviewStreak(data.reviewStreak || null);
@@ -157,7 +162,18 @@ export const useProgress = (userId) => {
               .then(art => {
               if (art?.plan?.weeks?.length) {
                 console.log('[useProgress] Artifact hydrated OK via', source, '— weeks:', art.plan.weeks.length);
-                setStudyPlan(art.plan);
+                // Overlay graft (adaptivity audit item 3): reprioritizePlan's
+                // adaptiveOverlay is persisted on the ROOT studyPlan field
+                // (saveStudyPlan), but the artifact copy — which wins here by
+                // design — predates it, so a reload silently discarded the
+                // overlay. The artifact stays the source of truth for the
+                // PLAN itself (that contract is load-bearing: it carries
+                // practiceAssignments + full plan data the root field may
+                // lack); only the overlay rides across from the root copy.
+                const hydratedPlan = (!art.plan.adaptiveOverlay && incomingPlan?.adaptiveOverlay)
+                  ? { ...art.plan, adaptiveOverlay: incomingPlan.adaptiveOverlay }
+                  : art.plan;
+                setStudyPlan(hydratedPlan);
                 setStudyPlanArtifact({ plan: art.plan, delta: art.delta || null, longitudinal: art.longitudinal || null, version: art.version || null });
                 studyPlanWriteInFlight.current = false;
                 setStudyPlanMeta(prev => ({ ...prev, artifactId: art.id }));
@@ -190,7 +206,12 @@ export const useProgress = (userId) => {
               .then(art => {
               if (art?.plan?.weeks?.length) {
                 console.log('[useProgress] Artifact hydrated OK via latest-query — weeks:', art.plan.weeks.length);
-                setStudyPlan(art.plan);
+                // Same overlay graft as the pointer branch above — keep the
+                // artifact plan, carry the root field's adaptiveOverlay.
+                const hydratedPlan = (!art.plan.adaptiveOverlay && incomingPlan?.adaptiveOverlay)
+                  ? { ...art.plan, adaptiveOverlay: incomingPlan.adaptiveOverlay }
+                  : art.plan;
+                setStudyPlan(hydratedPlan);
                 setStudyPlanArtifact({ plan: art.plan, delta: art.delta || null, longitudinal: art.longitudinal || null, version: art.version || null });
                 studyPlanWriteInFlight.current = false;
                 setStudyPlanMeta(prev => ({ ...prev, artifactId: art.id }));
@@ -210,6 +231,7 @@ export const useProgress = (userId) => {
         } else {
           setCompletedLessons({});
           setPracticeProgress({});
+          setDrillDays([]);
           setReviewQueue({});
           setReviewStreak(null);
           setSkillProgress({});
@@ -437,6 +459,31 @@ export const useProgress = (userId) => {
       await recordSkillAttemptsBatch(userId, attempts);
     } catch (err) {
       console.error('[useProgress] Failed to record drill skill attempts:', err);
+    }
+  };
+
+  /**
+   * Records today as a practiced day in the `drillDays` log. Called when an
+   * assigned/adaptive drill session completes — those sessions never write
+   * practiceProgress (no module/section row), so without this CalendarMonth
+   * and sessionAdherence were blind to drill effort (adaptivity audit item 4).
+   * Idempotent: arrayUnion dedupes the YYYY-MM-DD key server-side and the
+   * optimistic update dedupes locally. Best-effort: errors logged, not thrown.
+   */
+  const recordPracticedDay = async () => {
+    if (!userId) return;
+    const d = new Date();
+    const key = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+    // Optimistic — the calendar dot fills the moment the drill completes.
+    setDrillDays(prev => (Array.isArray(prev) && prev.includes(key) ? prev : [...(prev || []), key]));
+    try {
+      const progressRef = doc(db, 'progress', userId);
+      await setDoc(progressRef, {
+        drillDays: arrayUnion(key),
+        lastUpdated: serverTimestamp(),
+      }, { merge: true });
+    } catch (err) {
+      console.error('[useProgress] Failed to record practiced day:', err);
     }
   };
 
@@ -839,6 +886,7 @@ export const useProgress = (userId) => {
   return {
     completedLessons,
     practiceProgress,
+    drillDays,
     reviewQueue,
     reviewStreak,
     skillProgress,
@@ -860,6 +908,7 @@ export const useProgress = (userId) => {
     // Practice functions (section-based)
     recordPracticeAttempt,
     recordDrillSkillAttempts,
+    recordPracticedDay,
     hasPracticed,
     getBestScore,
     getSectionPracticeProgress,

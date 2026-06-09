@@ -1206,3 +1206,75 @@
   font-weight: 600;
   line-height: 1;
 }
+
+/* ── Adaptivity (2026-06 audit): live drill evidence on Focus Area cards ──
+   Item 1: "40% on your last test → 78% in drills since" evidence line.
+   Item 2: mastered-in-practice green state + "Keep sharp" secondary CTA.
+   Item 3: improved/declined editorial line (diagnostic-sentence voice).
+   Item 5: triage-mode banner. */
+
+.sp-card-drill-delta {
+  margin: 4px 0 0;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-slate-600);
+  letter-spacing: 0.01em;
+}
+
+.sp-card-mastered-note {
+  margin: 4px 0 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-success-700);
+}
+
+/* Mastered card: quiet green tint, never louder than the active red cards
+   above it. */
+.sp-weekly-tight .acely-split-card[data-mastered="true"] {
+  border-color: var(--color-success-200) !important;
+  background: var(--color-success-50);
+}
+.sp-weekly-tight .acely-split-card[data-mastered="true"]:hover {
+  border-color: var(--color-success-200) !important;
+  background: var(--color-success-50);
+}
+.sp-weekly-tight .acely-split-card[data-mastered="true"] .acely-split-left {
+  background: var(--color-success-100) !important;
+  color: var(--color-success-700) !important;
+}
+.sp-weekly-tight .acely-split-card[data-mastered="true"] .acely-split-right {
+  background: transparent !important;
+}
+
+/* "Keep sharp" — the lighter secondary action on mastered cards. Wins over
+   the .btn-launch:not(.is-primary) outline override above (same specificity,
+   declared later). */
+.sp-weekly-tight .acely-split-right .btn-launch.is-keep-sharp {
+  background: transparent !important;
+  color: var(--color-success-700) !important;
+  border: 1px solid var(--color-success-200) !important;
+}
+.sp-weekly-tight .acely-split-right .btn-launch.is-keep-sharp:hover {
+  background: var(--color-success-100) !important;
+  border-color: var(--color-success-500) !important;
+  color: var(--color-success-700) !important;
+}
+
+/* Engine editorial line below an affected card — same italic diagnostic
+   voice as .sp-card-diagnostic, but it sits OUTSIDE the card like the
+   prediction flag, so it needs its own margins. */
+.sp-card-adaptive {
+  margin: 6px 4px 0;
+}
+
+/* Triage-mode banner — one quiet warning-tinted line, not a wall. */
+.sp-triage-banner {
+  margin: 0 0 16px;
+  padding: 10px 14px;
+  border: 1px solid var(--color-warning-200);
+  border-radius: 10px;
+  background: var(--color-warning-50);
+  color: var(--color-warning-700);
+  font-size: 13px;
+  font-weight: 600;
+}

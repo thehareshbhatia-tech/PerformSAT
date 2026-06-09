@@ -9,6 +9,7 @@ import {
 import { getWeaknessSection, getMathWeaknesses, getRWWeaknesses } from '../services/selectors/weaknesses';
 import { resolveActivityDrill } from '../services/activityDrillRouter';
 import { applyPredictionBoost } from '../services/selectors/predictionBoost';
+import { annotateFocusAreas } from '../services/selectors/focusAreaProgress';
 import { getDrillChipForWeakness } from '../services/selectors/drillChip';
 import { formatDiagnosticSentence } from '../services/diagnosticEngine';
 import { getTodaySlice } from '../services/selectors/todaySlice';
@@ -91,8 +92,10 @@ const StudyPlanDashboard = ({
   studyPlanMeta,
   practiceTestResults,
   practiceProgress,
+  drillDays = [],
   skillProgress,
   reviewQueue,
+  adaptiveOverlay = null,
   user,
   onStartPractice,
   onStartPracticeTest,
@@ -176,6 +179,15 @@ const StudyPlanDashboard = ({
     () => applyPredictionBoost(studyPlan.weaknesses, predictionLog),
     [studyPlan.weaknesses, predictionLog],
   );
+  // Live drill evidence + reprioritization annotations (adaptivity audit
+  // items 1-3): each weakness gains recent-drill stats from skillProgress,
+  // a mastered-in-practice flag, and the engine's improved/declined call —
+  // and the list re-orders so declined skills rise, improved sink, and
+  // mastered drop to the bottom. Pure selector; plan data untouched.
+  const annotatedWeaknesses = useMemo(
+    () => annotateFocusAreas({ weaknesses, skillProgress, practiceTestResults, overlay: adaptiveOverlay }),
+    [weaknesses, skillProgress, practiceTestResults, adaptiveOverlay],
+  );
   const totalActivities = weeks.reduce((s, w) => s + visibleActivities(w).length, 0);
   const completedActivities = weeks.reduce((s, w) => s + visibleActivities(w).filter(a => a.completed).length, 0);
   const progressPercent = totalActivities > 0 ? Math.round((completedActivities / totalActivities) * 100) : 0;
@@ -203,8 +215,8 @@ const StudyPlanDashboard = ({
 
   // Acely-polish v2: right-rail derived state.
   const practicedDayKeys = useMemo(
-    () => getPracticedDayKeys({ practiceProgress, practiceTestResults }),
-    [practiceProgress, practiceTestResults],
+    () => getPracticedDayKeys({ practiceProgress, practiceTestResults, drillDays }),
+    [practiceProgress, practiceTestResults, drillDays],
   );
   const sortedTests = useMemo(() => {
     if (!practiceTestResults) return [];
@@ -299,8 +311,8 @@ const StudyPlanDashboard = ({
   const todayDayName = DAY_NAMES[new Date().getDay()];
   const todaySlice = useMemo(() => getTodaySlice(studyPlan, todayDayName), [studyPlan, todayDayName]);
   const sessionAdherence = useMemo(
-    () => getSessionAdherence({ practiceProgress, practiceTestResults }),
-    [practiceProgress, practiceTestResults],
+    () => getSessionAdherence({ practiceProgress, practiceTestResults, drillDays }),
+    [practiceProgress, practiceTestResults, drillDays],
   );
   const topWeakness = useMemo(() => {
     if (!studyPlan) return null;
@@ -377,7 +389,7 @@ const StudyPlanDashboard = ({
   // as "drill coming soon" rows. Once the R&W bank ships, the rw branch will
   // route to its own getTargetedWeaknessSet from `data/questions/rwBank`.
   const skillPracticeRows = useMemo(() => {
-    if (!weaknesses?.length || !onStartPractice) return [];
+    if (!annotatedWeaknesses?.length || !onStartPractice) return [];
 
     // Build a difficulty mix from the student's accuracy profile
     // A student struggling at easy questions needs more easy practice
@@ -392,7 +404,7 @@ const StudyPlanDashboard = ({
       return undefined;
     })();
 
-    return weaknesses.slice(0, 6).map(w => {
+    return annotatedWeaknesses.slice(0, 6).map(w => {
       const section = getWeaknessSection(w);
 
       // Section-aware dispatcher. Pick the bank API matching the weakness's
@@ -435,7 +447,7 @@ const StudyPlanDashboard = ({
       }
       return { ...w, section, qCount: questions.length, qIds: questions.map(q => q.id) };
     }).filter(Boolean);
-  }, [weaknesses, onStartPractice, answeredQuestionIds, studyPlan?.difficultyAnalysis]);
+  }, [annotatedWeaknesses, onStartPractice, answeredQuestionIds, studyPlan?.difficultyAnalysis]);
 
   // FINDING-002: the per-skill diagnostic sentences close with the same
   // boilerplate advice ("Untimed first; bring time pressure back once
@@ -735,6 +747,15 @@ const StudyPlanDashboard = ({
             Weekly View
             {weeklyViewCount > 0 && <span className="sp-subtab-count">{weeklyViewCount}</span>}
           </button>
+        </div>
+      )}
+
+      {/* Triage mode (adaptivity audit item 5) — the reprioritization engine
+          flips isTriage when the SAT is < 7 days out and the plan narrows to
+          the top-3 highest-impact skills. One quiet line, both views. */}
+      {adaptiveOverlay?.isTriage && (
+        <div className="sp-triage-banner" role="status">
+          Triage mode: prioritizing your highest-impact skills before test day.
         </div>
       )}
 
@@ -1094,9 +1115,18 @@ const StudyPlanDashboard = ({
               // v3.1: classify into low/mid/high bands so CSS picks the
               // soft-tint color. JSX no longer paints the heavy red/green
               // panel; the chip color reads from a data attribute.
-              const accuracyBand = w.accuracy >= 70 ? 'high'
-                : w.accuracy < 40 ? 'low'
+              // Adaptivity item 1: the band reads from the LIVE signal —
+              // recent drill accuracy when the student has drilled this
+              // skill since the last test, else the test-time baseline.
+              const liveAccuracy = typeof w.displayAccuracy === 'number' ? w.displayAccuracy : w.accuracy;
+              const accuracyBand = w.isMastered ? 'high'
+                : liveAccuracy >= 70 ? 'high'
+                : liveAccuracy < 40 ? 'low'
                 : 'mid';
+              const showDrillDelta = w.hasDrillSignal
+                && typeof w.accuracy === 'number'
+                && w.drillStats
+                && w.drillStats.accuracy !== w.accuracy;
 
               // FINDING-002: the editorial sentence moved INSIDE the card
               // (2-line clamp) — it used to float below as a full paragraph,
@@ -1107,24 +1137,39 @@ const StudyPlanDashboard = ({
                   <div
                     className="acely-split-card"
                     data-accuracy-band={accuracyBand}
+                    data-mastered={w.isMastered ? 'true' : undefined}
                   >
                     <div className="acely-split-left">
-                      {w.accuracy}%
+                      {liveAccuracy}%
                     </div>
                     <div className="acely-split-right" style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
                       <div style={{ flex: 1, minWidth: 0, paddingRight: '1rem' }}>
                         <div className="acely-metric-label">{w.domain || 'Skill'}</div>
                         <div className="acely-section-name" style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{w.skill}</div>
-                        {diagnosticSentence ? (
+                        {/* Retirement (item 2): the green confirmation. The
+                            weakness stays in the plan — the next full test
+                            is the arbiter. */}
+                        {w.isMastered && (
+                          <p className="sp-card-mastered-note">
+                            Mastered in practice — we'll confirm on your next test
+                          </p>
+                        )}
+                        {/* Both signals, side by side (item 1). */}
+                        {showDrillDelta && (
+                          <p className="sp-card-drill-delta">
+                            {w.accuracy}% on your last test → {w.drillStats.accuracy}% in drills since
+                          </p>
+                        )}
+                        {!w.isMastered && (diagnosticSentence ? (
                           <p className="sp-card-diagnostic">{diagnosticSentence}</p>
                         ) : w.errorType ? (
                           <div style={{ fontSize: '0.8125rem', marginTop: '0.25rem', color: 'var(--color-slate-500)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                             {w.errorType}
                           </div>
-                        ) : null}
+                        ) : null)}
                       </div>
                       <button
-                        className={`btn-launch${i === 0 ? ' is-primary' : ''}`}
+                        className={`btn-launch${w.isMastered ? ' is-keep-sharp' : i === 0 ? ' is-primary' : ''}`}
                         style={{ flexShrink: 0 }}
                         onClick={() => onStartPractice(null, null, {
                           questionIds: w.qIds,
@@ -1133,10 +1178,21 @@ const StudyPlanDashboard = ({
                           weakness: w, // Day 5 D3: shell renders diagnostic sentence after wrong answers
                         })}
                       >
-                        <PencilIcon size={14} style={{ marginRight: '6px', verticalAlign: 'text-bottom' }} /> Practice
+                        {w.isMastered ? 'Keep sharp' : (
+                          <>
+                            <PencilIcon size={14} style={{ marginRight: '6px', verticalAlign: 'text-bottom' }} /> Practice
+                          </>
+                        )}
                       </button>
                     </div>
                   </div>
+                  {/* Reprioritization editorial (item 3) — the engine's
+                      improved/declined call, in the diagnostic-sentence
+                      voice. Suppressed on mastered cards (the green note
+                      already carries the story). */}
+                  {w.adaptiveLine && (
+                    <p className="sp-card-diagnostic sp-card-adaptive">{w.adaptiveLine}</p>
+                  )}
                   {/* Prediction flag (audit gap 2) — the visible "your plan
                       updated because..." moment. Renders only on weaknesses
                       the engine flagged for the student's next test. */}
