@@ -6,7 +6,12 @@ import { recordPracticeAttempt as recordAttempt } from '../services/practiceServ
 import { getDueReviewCount, getReviewStats } from '../services/reviewService';
 import { recordSkillAttempts, recordSkillAttemptsBatch, getSkillDiagnosticSummary as getDiagnostic, getSkillBreakdown as getBreakdown } from '../services/skillService';
 import { recordPracticeTestResult as recordTestResult, getPracticeTestBestScore, getPracticeTestAttempts, saveTestProgress as saveProgress, clearTestProgress as clearProgress, getInProgressTest } from '../services/practiceTestService';
-import { getStudyPlanArtifact, getLatestStudyPlanArtifact } from '../services/hybridStudyPlanService';
+// hybridStudyPlanService statically imports studyPlanGenerator, which pulls
+// the math bank + topic files + routing service (the whole question corpus)
+// into whatever chunk imports it. This hook lives in the MAIN chunk (App.jsx
+// imports it eagerly), so the two artifact fetchers below are loaded via
+// dynamic import() at their call sites instead (Stage 2b bundle split). Both
+// call sites are already promise-chained, so the extra hop is invisible.
 import { enqueuePendingSave, removePendingSave, flushPendingSaves } from '../services/pendingTestSaveQueue';
 import { showToast } from '../components/ui/Toaster';
 
@@ -147,7 +152,9 @@ export const useProgress = (userId) => {
             const source = `pointer:${artifactId}`;
             console.log('[useProgress] Hydrating study plan via', source);
 
-            getStudyPlanArtifact(userId, artifactId).then(art => {
+            import('../services/hybridStudyPlanService')
+              .then(({ getStudyPlanArtifact }) => getStudyPlanArtifact(userId, artifactId))
+              .then(art => {
               if (art?.plan?.weeks?.length) {
                 console.log('[useProgress] Artifact hydrated OK via', source, '— weeks:', art.plan.weeks.length);
                 setStudyPlan(art.plan);
@@ -178,7 +185,9 @@ export const useProgress = (userId) => {
             hydratingArtifact.current = true;
             console.log('[useProgress] Hydrating study plan via latest-query');
 
-            getLatestStudyPlanArtifact(userId).then(art => {
+            import('../services/hybridStudyPlanService')
+              .then(({ getLatestStudyPlanArtifact }) => getLatestStudyPlanArtifact(userId))
+              .then(art => {
               if (art?.plan?.weeks?.length) {
                 console.log('[useProgress] Artifact hydrated OK via latest-query — weeks:', art.plan.weeks.length);
                 setStudyPlan(art.plan);

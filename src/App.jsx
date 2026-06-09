@@ -17,7 +17,6 @@ import AiTutorButton from './components/AiTutorButton';
 import QuestionDiagram from './components/QuestionDiagrams';
 import { runDiagnostic } from './services/diagnosticEngine';
 import SolutionExplanation from './components/SolutionExplanation';
-import { getQuestionsForSection, hasQuestionsForSection, getRandomQuestions } from './data/questions';
 import { getDifficultyBadge, calculateWeightedScore } from './services/adaptiveService';
 import { addToReviewQueue, getDueReviewCount } from './services/reviewService';
 import { calculateOptimalDifficulty } from './services/recommendationService';
@@ -29,7 +28,6 @@ import ReviewItemCard from './components/PastTestReview/ReviewItemCard';
 import { Toaster, showToast } from './components/ui/Toaster';
 import CommandPalette from './components/ui/CommandPalette';
 import { ChartBarIcon, PlayIcon, ClipboardIcon, TargetIcon, CalendarIcon, BrainIcon } from './design/icons';
-import { pickSimilarQuestion } from './services/trySimilarService';
 import { buildRounds, classifyRoundBoundary } from './services/buildRounds';
 import {
   loadDiagnosticReportData,
@@ -41,20 +39,18 @@ import {
   findErrorClassForItem,
   extractItemsFromAttempt,
 } from './services/selectors/completedTests';
-import { getAllPracticeTests, getPracticeTestById } from './data/practiceTests';
+// Corpus access (Stage 2b of the bundle-split plan): the question banks,
+// practice-test bundles, and the two corpus-coupled services load as their
+// own chunks via these memoized dynamic-import loaders. Handlers `await`
+// them; the idle pre-warm effect below makes that await a cache hit.
 import {
-  resolveAssignedQuestions,
-  resolveQuestionById,
-  normalizeDomain,
-  buildDomainAdaptiveQueueSeed,
-  RW_DOMAIN_ORDER,
-  createAdaptiveSessionState,
-  getNextAdaptiveQuestion,
-  applyAdaptiveResult,
-  evaluateAdaptiveCompletion,
-  serializeAdaptiveState,
-  deserializeAdaptiveState,
-} from './services/practiceAssignmentService';
+  loadMathBank,
+  loadTopicQuestions,
+  loadPracticeTests,
+  loadPracticeRouting,
+  loadTrySimilar,
+  preloadCorpus,
+} from './data/corpusLoader';
 import {
   resolveReviewItemToQuestion,
   reviewDisplaySection,
@@ -63,8 +59,6 @@ import {
 import { selectPacingQuestions } from './services/pacingService';
 import { trackPacingDrillDone, trackReengagementOpened } from './services/analyticsService';
 import { buildDailySession } from './services/dailyReviewEngine';
-import { getQuestionsByDomain } from './data/questions/bank';
-import { patchAdaptivePracticeState } from './services/hybridStudyPlanService';
 import { getReadyAiDiagnostic, loadAttemptSnapshot } from './services/practiceTestService';
 import { reprioritizePlan } from './services/adaptivePlanService';
 import { buildLongitudinalEvidence } from './services/studyPlanMerger';
@@ -324,38 +318,60 @@ const PerformSAT = () => {
   // separately by the onSessionComplete seam (see dispatchSessionComplete).
   useAnalytics(user?.uid);
 
-  // Pre-warm the heaviest view chunks once auth resolves so the first
-  // post-login navigation is a cache hit instead of a skeleton + fetch.
-  // requestIdleCallback keeps the fetches off the critical path; the
-  // setTimeout(1500) branch covers Safari (no rIC). Dynamic import() is
-  // idempotent — webpack caches the module record — so StrictMode's
-  // double-invoke and re-runs on uid change are free.
+  // Pre-warm the heaviest view chunks AND the corpus chunks (banks, practice
+  // tests, routing services — see data/corpusLoader.js) once auth resolves so
+  // the first post-login navigation and the first drill/test launch are cache
+  // hits instead of a skeleton + fetch. requestIdleCallback keeps the fetches
+  // off the critical path; the setTimeout(1500) branch covers Safari (no rIC).
+  // Dynamic import() is idempotent — webpack caches the module record and
+  // corpusLoader caches its promises — so StrictMode's double-invoke and
+  // re-runs on uid change are free.
   useEffect(() => {
-    if (!user) return undefined;
-    const warmViewChunks = () => {
+    if (!user?.uid) return undefined;
+    const warmChunks = () => {
       import('./components/StudentDashboard');
       import('./components/PracticeTest');
       import('./components/StudyPlanDashboard');
+      preloadCorpus().catch(() => { /* handlers re-await with their own error paths */ });
     };
     if (typeof window.requestIdleCallback === 'function') {
-      const idleId = window.requestIdleCallback(warmViewChunks, { timeout: 3000 });
+      const idleId = window.requestIdleCallback(warmChunks, { timeout: 3000 });
       return () => window.cancelIdleCallback(idleId);
     }
-    const timerId = setTimeout(warmViewChunks, 1500);
+    const timerId = setTimeout(warmChunks, 1500);
     return () => clearTimeout(timerId);
   }, [user]);
+
+  // Adaptive-session routing module (practiceAssignmentService namespace).
+  // startAdaptivePractice resolves the loader and stashes the namespace HERE
+  // BEFORE creating any session state, so handleNextQuestion — which runs
+  // synchronously per answer mid-session — can read it without awaiting.
+  // An adaptive session cannot exist without this ref being set first.
+  const practiceRoutingRef = useRef(null);
 
   // Start a daily-review session from a list of due review items. Extracted from
   // the dashboard's onStartReview so the re-engagement deep-link (?next=review)
   // can launch the exact same flow. Defined BEFORE the deep-link effects below
   // because they list it in their dependency array (a const referenced before
   // its declaration in the same scope is a temporal-dead-zone ReferenceError).
-  const startDailyReview = useCallback((items) => {
+  const startDailyReview = useCallback(async (items) => {
     const reviewItems = items || [];
+    if (reviewItems.length === 0) return;
+    // Queue items resolve against the bank (routing service), the legacy
+    // topic files, and the test catalog — load all three corpus slices.
+    const [routingMod, topicsMod, testsMod] = await Promise.all([
+      loadPracticeRouting(),
+      loadTopicQuestions(),
+      loadPracticeTests(),
+    ]);
     const questions = [];
     const reviewKeyByQuestionId = {};
     reviewItems.forEach(item => {
-      const q = resolveReviewItemToQuestion(item, { resolveQuestionById, getQuestionsForSection, getTestById: getPracticeTestById });
+      const q = resolveReviewItemToQuestion(item, {
+        resolveQuestionById: routingMod.resolveQuestionById,
+        getQuestionsForSection: topicsMod.getQuestionsForSection,
+        getTestById: testsMod.getPracticeTestById,
+      });
       if (q) {
         questions.push(q);
         if (item.key != null && q.id != null) {
@@ -501,7 +517,9 @@ const PerformSAT = () => {
   };
 
   // Prescriptive practice - auto-selects difficulty based on performance
-  const startPrescriptivePractice = (moduleId, sectionName) => {
+  const startPrescriptivePractice = async (moduleId, sectionName) => {
+    const { getRandomQuestions } = await loadTopicQuestions();
+
     // Get student's performance for this section
     const practiceKey = `${moduleId}-${sectionName}`;
     const performance = practiceProgress[practiceKey];
@@ -538,8 +556,9 @@ const PerformSAT = () => {
     setView('practice');
   };
 
-  const startSectionPractice = (moduleId, sectionName, mode = 'standard') => {
+  const startSectionPractice = async (moduleId, sectionName, mode = 'standard') => {
     // Get shuffled questions for this practice session
+    const { getRandomQuestions } = await loadTopicQuestions();
     const shuffledQuestions = getRandomQuestions(moduleId, sectionName, null, { shuffle: true });
 
     setPracticeState({
@@ -561,8 +580,9 @@ const PerformSAT = () => {
   // Launch a timed pacing drill (Phase 2 — pacingService runner). The card
   // passes the chosen mode config; we source MCQ bank questions matching its
   // difficulty filter, then hand off to the self-contained PacingDrill runner.
-  const startPacingDrill = (config) => {
+  const startPacingDrill = async (config) => {
     if (!config) return;
+    const { getQuestionsByDomain } = await loadMathBank();
     const pool = [];
     ['algebra', 'problem-solving', 'advanced-math', 'geometry'].forEach((domain) => {
       try { pool.push(...(getQuestionsByDomain(domain) || [])); } catch { /* domain absent */ }
@@ -582,7 +602,8 @@ const PerformSAT = () => {
     setView('pacingDrill');
   };
 
-  const startAssignedPractice = (questionIds, meta = {}) => {
+  const startAssignedPractice = async (questionIds, meta = {}) => {
+    const { resolveAssignedQuestions } = await loadPracticeRouting();
     const { resolved } = resolveAssignedQuestions(questionIds);
     if (resolved.length === 0) return;
 
@@ -618,7 +639,20 @@ const PerformSAT = () => {
     setView('practice');
   };
 
-  const startAdaptivePractice = (opts = {}) => {
+  const startAdaptivePractice = async (opts = {}) => {
+    // Resolve + stash the routing namespace BEFORE any session state exists:
+    // handleNextQuestion reads practiceRoutingRef synchronously per answer.
+    const routing = await loadPracticeRouting();
+    practiceRoutingRef.current = routing;
+    const {
+      normalizeDomain,
+      RW_DOMAIN_ORDER,
+      buildDomainAdaptiveQueueSeed,
+      createAdaptiveSessionState,
+      deserializeAdaptiveState,
+      getNextAdaptiveQuestion,
+    } = routing;
+
     const rawDomain = opts.enforcedDomain;
     const resolvedDomain = rawDomain ? normalizeDomain(rawDomain) : null;
     const label = opts.label;
@@ -769,6 +803,7 @@ const PerformSAT = () => {
    * states (already handled by TestReviewDetail).
    */
   const handleSelectReviewTest = async (testId /*, _attemptId */) => {
+    const { getAllPracticeTests } = await loadPracticeTests();
     const test = getAllPracticeTests().find(t => t.id === testId);
     const lastAttempt = getLatestAttempt(practiceTestResults, testId);
     if (!test || !lastAttempt) {
@@ -1060,6 +1095,20 @@ const PerformSAT = () => {
 
     // Adaptive mode: ask the queue engine for the next question
     if (practiceState.practiceMode === 'adaptive') {
+      // Routing namespace was stashed by startAdaptivePractice before this
+      // session could exist. The guard covers the impossible-by-construction
+      // case (e.g. a future code path mounting adaptive state another way).
+      const routing = practiceRoutingRef.current;
+      if (!routing) {
+        logWarn('adaptive', 'routing module missing in handleNextQuestion — session cannot advance');
+        return;
+      }
+      const {
+        applyAdaptiveResult,
+        evaluateAdaptiveCompletion,
+        serializeAdaptiveState,
+        getNextAdaptiveQuestion,
+      } = routing;
       const currentQ = questions[practiceState.currentQuestionIndex];
       const lastAnswer = practiceState.answers[currentQ?.id];
       const isRetry = practiceState.adaptiveSessionState?.seenIds?.has(currentQ?.id) &&
@@ -1082,7 +1131,13 @@ const PerformSAT = () => {
           toSave.completedAt = new Date().toISOString();
           toSave.sessionsCompleted = (nextState.sessionsCompleted || 0) + 1;
         }
-        patchAdaptivePracticeState(user.uid, artId, toSave);
+        // hybridStudyPlanService statically imports studyPlanGenerator (which
+        // pulls bank getQuestionById), so a static import here would weld the
+        // math corpus back into the main chunk. Fire-and-forget persistence —
+        // the call was never awaited — so a dynamic import is a drop-in.
+        import('./services/hybridStudyPlanService')
+          .then(({ patchAdaptivePracticeState }) => patchAdaptivePracticeState(user.uid, artId, toSave))
+          .catch(err => console.warn('[App] Failed to persist adaptive state:', err?.message));
 
         // Also write answered question ID to progress doc for cross-plan dedup
         if (currentQ?.id) {
@@ -1243,8 +1298,9 @@ const PerformSAT = () => {
    *
    * @param {object} currentQuestion
    */
-  const handleTrySimilar = useCallback((currentQuestion) => {
+  const handleTrySimilar = useCallback(async (currentQuestion) => {
     const excludeIds = (practiceState.shuffledQuestions || []).map(q => q.id).filter(Boolean);
+    const { pickSimilarQuestion } = await loadTrySimilar();
     const result = pickSimilarQuestion({ currentQuestion, excludeIds });
 
     switch (result.kind) {
@@ -1298,8 +1354,9 @@ const PerformSAT = () => {
    *
    * @param {object} snapshotItem  — review snapshot of the wrong item
    */
-  const handleTrySimilarFromReview = useCallback((snapshotItem) => {
+  const handleTrySimilarFromReview = useCallback(async (snapshotItem) => {
     if (!snapshotItem) return;
+    const { pickSimilarQuestion } = await loadTrySimilar();
     const result = pickSimilarQuestion({
       currentQuestion: snapshotItem,
       excludeIds: [snapshotItem.id].filter(Boolean),
@@ -1640,6 +1697,7 @@ const PerformSAT = () => {
                 });
                 return;
               }
+              const { getAllPracticeTests } = await loadPracticeTests();
               const test = getAllPracticeTests().find(t => t.id === testId);
               if (!test) {
                 showToast({
@@ -1890,10 +1948,12 @@ const PerformSAT = () => {
                   practiceProgress={practiceProgress}
                   savedStudyPlan={studyPlan}
                   onStartPractice={(moduleId, sectionName) => {
+                    // Must go through startPrescriptivePractice — it populates
+                    // practiceState.shuffledQuestions (the practice view no
+                    // longer has a synchronous corpus fallback) and sets the
+                    // module/section/view itself once questions are in hand.
                     setViewingResultsData(null);
-                    setActiveModule(moduleId);
-                    setActiveSection(sectionName);
-                    setView('practice');
+                    startPrescriptivePractice(moduleId, sectionName);
                   }}
                   onStartPracticeTest={() => {
                     setViewingResultsData(null);
@@ -1963,11 +2023,11 @@ const PerformSAT = () => {
                 setSelectedPracticeTest(null);
                 return;
               }
-              setActiveModule(moduleId);
-              setActiveSection(sectionName);
+              // startPrescriptivePractice (async) sets module/section/view
+              // itself once questions load — no bare setView('practice')
+              // here, or the view would flash empty before state populates.
               startPrescriptivePractice(moduleId, sectionName);
               setSelectedPracticeTest(null);
-              setView('practice');
             }}
             onBack={() => {
               setSelectedPracticeTest(null);
@@ -2055,9 +2115,9 @@ const PerformSAT = () => {
                 });
                 return;
               }
-              setActiveModule(moduleId);
+              // startPrescriptivePractice (async) sets module/section/view
+              // itself once questions load.
               startPrescriptivePractice(moduleId, sectionName);
-              setView('practice');
             }}
             onStartPracticeTest={() => setView('practiceTests')}
             onCompleteActivity={markStudyActivityComplete}
@@ -2164,9 +2224,14 @@ const PerformSAT = () => {
           const isAssigned = practiceState.practiceMode === 'assigned';
           const isAdaptive = practiceState.practiceMode === 'adaptive';
           const isStudyPlanMode = isAssigned || isAdaptive;
+          // Every path into view==='practice' populates shuffledQuestions
+          // via an async start* handler (Stage 2b: the render path can no
+          // longer reach the topic-question corpus synchronously). The empty
+          // fallback + the length guard below render nothing for the brief
+          // window between a handler's setView and its state population.
           const questions = practiceState.shuffledQuestions.length > 0
             ? practiceState.shuffledQuestions
-            : getQuestionsForSection(activeModule, activeSection);
+            : [];
           if (questions.length === 0) return null;
           const currentQuestion = questions[practiceState.currentQuestionIndex];
           const difficultyBadge = currentQuestion?.difficulty ? getDifficultyBadge(currentQuestion.difficulty) : null;

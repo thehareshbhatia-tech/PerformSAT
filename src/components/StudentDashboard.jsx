@@ -10,7 +10,7 @@ import PacingDrillCard from './PacingDrillCard';
 import TodaysTasksCard from './TodaysTasksCard';
 import PredictedVsActualCard from './PredictedVsActualCard';
 import CalendarMonth from './CalendarMonth';
-import { getTodaySlice } from '../services/studyPlanGenerator';
+import { getTodaySlice } from '../services/selectors/todaySlice';
 import { getSessionAdherence } from '../services/selectors/sessionAdherence';
 import { summarizePredictions } from '../services/selectors/predictionSummary';
 import { getPracticedDayKeys } from '../services/selectors/practicedDays';
@@ -22,7 +22,7 @@ import { buildPacingTelemetry } from '../services/selectors/pacingTelemetry';
 import { getRecentMisses } from '../services/selectors/recentMisses';
 import { getIdentityInsights } from '../services/selectors/identityInsights';
 import { formatPatternLabel } from '../services/selectors/missedPatternLabel';
-import { getPracticeTestById } from '../data/practiceTests';
+import { loadPracticeTests } from '../data/corpusLoader';
 import { MathText } from './MathText';
 import { trackAddPhotoClicked } from '../services/analyticsService';
 import { PlayIcon, ChartBarIcon, TrendingUpIcon, ClipboardIcon, CameraIcon } from '../design/icons';
@@ -98,6 +98,19 @@ const StudentDashboard = ({
   onReviewPastTests,
 }) => {
   const [activeTab, setActiveTab] = useState('dashboard');
+  // Practice-test resolver for the recent-misses card (Stage 2c of the
+  // bundle-split plan). The test catalog is its own async chunk now, so we
+  // hold the resolver FUNCTION in state once the chunk arrives — note the
+  // updater form: setState(fn) would otherwise CALL the resolver as an
+  // updater. Until it lands, recentMisses below short-circuits to [].
+  const [resolveTest, setResolveTest] = useState(null);
+  useEffect(() => {
+    let cancelled = false;
+    loadPracticeTests()
+      .then((mod) => { if (!cancelled) setResolveTest(() => mod.getPracticeTestById); })
+      .catch(() => { /* card stays empty; non-fatal */ });
+    return () => { cancelled = true; };
+  }, []);
   const [showDatePicker, setShowDatePicker] = useState(false);
   const [showTargetPicker, setShowTargetPicker] = useState(false);
   const [showCurrentScorePicker, setShowCurrentScorePicker] = useState(false);
@@ -255,9 +268,13 @@ const StudentDashboard = ({
   );
   // "Questions you struggled with" (item 16) — wrong answers from the last
   // test, hardest first, each with a retry-similar path into the bank.
+  // Empty until the practice-tests chunk delivers the resolver (effect
+  // above) — getRecentMisses tolerates a null resolveTest, but rendering
+  // stem-less rows for one frame and then re-rendering is worse than
+  // rendering the card a beat later.
   const recentMisses = useMemo(
-    () => getRecentMisses(practiceTestResults, { resolveTest: getPracticeTestById }),
-    [practiceTestResults],
+    () => (resolveTest ? getRecentMisses(practiceTestResults, { resolveTest }) : []),
+    [practiceTestResults, resolveTest],
   );
   // One significance-gated "How you test" fact (item 17) — the FACT only
   // (stat + label); the prescriptive text stays on the study-plan tab.

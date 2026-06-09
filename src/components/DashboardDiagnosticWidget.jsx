@@ -11,7 +11,7 @@
  * dramatically more powerful than competitors.
  */
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import {
   runDiagnostic,
   ERROR_TYPES,
@@ -20,7 +20,6 @@ import {
   ERROR_TYPE_COLORS,
   estimatePercentile,
 } from '../services/diagnosticEngine';
-import { generateStudyPlan } from '../services/studyPlanGenerator';
 import { DataCard } from './ui/DataCard';
 import { PrimaryButton, SecondaryButton } from './ui/Button';
 import {
@@ -144,20 +143,38 @@ const DashboardDiagnosticWidget = ({
     }
   }, [latestTest, skillProgress, user, practiceTestResults]);
 
-  // Generate study plan from diagnostic
-  const studyPlan = useMemo(() => {
-    if (!diagnostic) return null;
-    try {
-      return generateStudyPlan(
-        diagnostic,
-        user || {},
-        completedLessons || {},
-        practiceProgress || {}
-      );
-    } catch (e) {
-      console.error('Study plan generation failed:', e);
-      return null;
+  // Generate study plan from diagnostic. studyPlanGenerator statically
+  // imports the math bank, so a static import here would drag the corpus
+  // into the dashboard chunk (Stage 2c of the bundle-split plan) — load it
+  // async instead. studyPlan is null until the chunk + generation resolve;
+  // every consumer already null-guards.
+  const [studyPlan, setStudyPlan] = useState(null); // eslint-disable-line no-unused-vars
+  useEffect(() => {
+    if (!diagnostic) {
+      setStudyPlan(null);
+      return undefined;
     }
+    let cancelled = false;
+    import('../services/studyPlanGenerator')
+      .then(({ generateStudyPlan }) => {
+        if (cancelled) return;
+        try {
+          setStudyPlan(generateStudyPlan(
+            diagnostic,
+            user || {},
+            completedLessons || {},
+            practiceProgress || {}
+          ));
+        } catch (e) {
+          console.error('Study plan generation failed:', e);
+          setStudyPlan(null);
+        }
+      })
+      .catch((e) => {
+        console.error('Study plan module load failed:', e);
+        if (!cancelled) setStudyPlan(null);
+      });
+    return () => { cancelled = true; };
   }, [diagnostic, user, completedLessons, practiceProgress]);
 
   // No tests taken yet — show CTA

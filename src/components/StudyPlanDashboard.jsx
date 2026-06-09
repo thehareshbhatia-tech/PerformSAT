@@ -10,7 +10,7 @@ import { getWeaknessSection, getMathWeaknesses, getRWWeaknesses } from '../servi
 import { applyPredictionBoost } from '../services/selectors/predictionBoost';
 import { getDrillChipForWeakness } from '../services/selectors/drillChip';
 import { formatDiagnosticSentence } from '../services/diagnosticEngine';
-import { getTodaySlice } from '../services/studyPlanGenerator';
+import { getTodaySlice } from '../services/selectors/todaySlice';
 import { getSessionAdherence } from '../services/selectors/sessionAdherence';
 import { getIdentityInsights, getPredictionTrust } from '../services/selectors/identityInsights';
 import { getReviewStreak } from '../services/dailyReviewEngine';
