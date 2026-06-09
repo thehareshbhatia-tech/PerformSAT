@@ -35,7 +35,7 @@ import './TodaysTasksCard.css';
  * @param {() => void} [props.onTakeTest]
  * @param {string} [props.firstName]  Name-aware no-plan copy (made-for-me item 13)
  */
-function TodaysTasksCard({ slice, adherence, dailyIntro, onStartActivity, onTakeTest, firstName }) {
+function TodaysTasksCard({ slice, adherence, dailyIntro, onStartActivity, onStartStrategy, onTakeTest, firstName }) {
   const safeSlice = slice || { kind: 'no-plan', activities: [], day: '', weekNumber: null };
   const showAdherence = adherence
     && safeSlice.kind !== 'no-plan'
@@ -44,7 +44,7 @@ function TodaysTasksCard({ slice, adherence, dailyIntro, onStartActivity, onTake
   return (
     <section className="ttc-card" aria-label="Today's tasks">
       {dailyIntro && <p className="ttc-daily-intro">{dailyIntro}</p>}
-      {renderBody(safeSlice, onStartActivity, onTakeTest, firstName)}
+      {renderBody(safeSlice, onStartActivity, onStartStrategy, onTakeTest, firstName)}
       {showAdherence && (
         <div className="ttc-adherence" data-testid="ttc-adherence">
           <span className="ttc-adherence-dot" aria-hidden="true" />
@@ -55,7 +55,7 @@ function TodaysTasksCard({ slice, adherence, dailyIntro, onStartActivity, onTake
   );
 }
 
-function renderBody(slice, onStartActivity, onTakeTest, firstName) {
+function renderBody(slice, onStartActivity, onStartStrategy, onTakeTest, firstName) {
   switch (slice.kind) {
     case 'no-plan':
       return (
@@ -161,6 +161,7 @@ function renderBody(slice, onStartActivity, onTakeTest, firstName) {
                 activity={activity}
                 isComplete={isComplete}
                 onStart={onStartActivity}
+                onStartStrategy={onStartStrategy}
                 index={i}
               />
             ))}
@@ -171,7 +172,7 @@ function renderBody(slice, onStartActivity, onTakeTest, firstName) {
   }
 }
 
-function ActivityRow({ activity, isComplete, onStart, index = 0 }) {
+function ActivityRow({ activity, isComplete, onStart, onStartStrategy, index = 0 }) {
   const [expanded, setExpanded] = useState(!isComplete);
   if (!activity) return null;
 
@@ -190,8 +191,25 @@ function ActivityRow({ activity, isComplete, onStart, index = 0 }) {
   // Status: completed > in-progress (future) > ready
   const status = isComplete ? 'complete' : 'ready';
 
+  // An activity is startable when it can route ANYWHERE: a moduleId routes
+  // to the legacy module path, a skillId routes through the shared 3-tier
+  // lookup (services/activityDrillRouter.js) into AssignedPracticeShell, and
+  // a strategy drill (e.g. Pacing Reset — no module/skill) routes to the
+  // timed pacing runner when the mount provides onStartStrategy.
+  const isStrategy = activity?.activityType === 'strategyDrill';
+  const isStartable = !!(
+    activity?.moduleId ||
+    activity?.skillId ||
+    (isStrategy && typeof onStartStrategy === 'function')
+  );
+
   const handleStart = () => {
-    if (typeof onStart === 'function' && activity?.moduleId) onStart(activity);
+    if (!isStartable) return;
+    if (isStrategy && typeof onStartStrategy === 'function') {
+      onStartStrategy(activity);
+      return;
+    }
+    if (typeof onStart === 'function') onStart(activity);
   };
 
   const collapsed = isComplete && !expanded;
@@ -223,7 +241,7 @@ function ActivityRow({ activity, isComplete, onStart, index = 0 }) {
                 type="button"
                 className="ttc-activity-cta ttc-activity-cta-secondary"
                 onClick={handleStart}
-                disabled={!activity?.moduleId}
+                disabled={!isStartable}
               >
                 Review Session →
               </button>
@@ -241,7 +259,7 @@ function ActivityRow({ activity, isComplete, onStart, index = 0 }) {
               type="button"
               className="ttc-activity-cta ttc-activity-cta-primary"
               onClick={handleStart}
-              disabled={!activity?.moduleId}
+              disabled={!isStartable}
             >
               Start →
             </button>

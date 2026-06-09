@@ -405,28 +405,35 @@ const AssignedPracticeShell = ({
           <h3 style={{ fontSize: '13px', fontWeight: '600', color: C.textSec, marginBottom: '14px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
             Question Review
           </h3>
+          {/* Status row, NOT buttons — these tiles used to render as
+              clickable <button>s wired to onNavigateToQuestion, which is a
+              no-op while isComplete is true (the parent never un-completes),
+              so they looked interactive but did nothing. Per-question review
+              from the summary has no cheap existing surface (drill items
+              aren't past-test snapshots), so the honest fix is to read as
+              status. Missed drill questions already feed the daily review
+              queue for spaced-repetition follow-up. */}
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
             {questions.map((q, i) => {
               const ans = practiceState.answers[q.id];
               const isCorrect = ans?.correct;
               return (
-                <button
+                <span
                   key={i}
-                  onClick={() => {
-                    onNavigateToQuestion(i);
-                    // The parent will need to un-complete to review — we just navigate
-                  }}
+                  role="img"
+                  aria-label={`Question ${i + 1}: ${isCorrect ? 'correct' : 'incorrect'}`}
+                  title={`Question ${i + 1}: ${isCorrect ? 'correct' : 'incorrect'}`}
                   style={{
                     width: '38px', height: '38px', borderRadius: '8px',
                     border: `2px solid ${isCorrect ? C.success : C.error}`,
                     background: isCorrect ? C.successBg : C.errorBg,
                     color: isCorrect ? C.success : C.error,
-                    fontSize: '13px', fontWeight: '700', cursor: 'pointer',
+                    fontSize: '13px', fontWeight: '700',
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                   }}
                 >
                   {isCorrect ? '✓' : '✗'}
-                </button>
+                </span>
               );
             })}
           </div>

@@ -128,3 +128,19 @@ export function getTodaySlice(plan, todayDayName) {
     weekNumber: week.weekNumber,
   };
 }
+
+/**
+ * countRemainingTodayTasks — how many of today's activities are still TO DO.
+ * Drives the Dashboard tab count badge. Only 'ready' and 'partial' slices
+ * carry incomplete activities in `slice.activities`; for 'all-done' the same
+ * field holds the COMPLETED list (see getTodaySlice's contract), so a naive
+ * `activities.length` badge keeps nagging after the day's work is finished.
+ *
+ * @param {{kind?: string, activities?: Array} | null | undefined} slice  result of getTodaySlice
+ * @returns {number} remaining-task count (0 for done/rest/empty states)
+ */
+export function countRemainingTodayTasks(slice) {
+  if (!slice || !Array.isArray(slice.activities)) return 0;
+  if (slice.kind !== 'ready' && slice.kind !== 'partial') return 0;
+  return slice.activities.length;
+}

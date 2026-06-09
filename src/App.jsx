@@ -1666,6 +1666,7 @@ const PerformSAT = () => {
             dataLoading={progressLoading}
             predictionLog={predictionLog}
             skillProgress={skillProgress}
+            answeredQuestionIds={answeredQuestionIds}
             onUpdateTestDate={updateTestDate}
             onUpdateTargetScore={updateTargetScore}
             onUpdateCurrentScore={updateCurrentScore}
@@ -1687,6 +1688,13 @@ const PerformSAT = () => {
             onStartPacing={startPacingDrill}
             onOpenProfile={() => setView('profile')}
             onRetrySimilar={handleTrySimilarFromReview}
+            onBrowseLessons={() => {
+              // "Or warm up first" link on the day-0 banner → the Videos/
+              // lessons view (same destination as the sidebar Videos item).
+              setActiveModule(null);
+              setActiveLesson(null);
+              setView('modules');
+            }}
             onViewFullDiagnosis={async () => {
               // Closes CEO C1: surface DiagnosticReport from the dashboard.
               const { testId, lastAttempt } = pickMostRecentTest(practiceTestResults);

@@ -490,7 +490,12 @@ const DiagnosticReport = ({
               boxShadow: '0 8px 32px rgba(0, 0, 0, 0.04), 0 2px 8px rgba(0, 0, 0, 0.02)',
             }}>
               <div style={{ fontSize: '40px', fontWeight: '800', color: tierColor, letterSpacing: '-0.03em', lineHeight: '1' }}>
-                {percentile}<span style={{ fontSize: '18px', fontWeight: '600', marginLeft: '2px' }}>th</span>
+                {percentile}<span style={{ fontSize: '18px', fontWeight: '600', marginLeft: '2px' }}>{(() => {
+                  // English ordinal suffix: 1st/2nd/3rd, but 11th/12th/13th
+                  const mod100 = percentile % 100;
+                  if (mod100 >= 11 && mod100 <= 13) return 'th';
+                  return { 1: 'st', 2: 'nd', 3: 'rd' }[percentile % 10] || 'th';
+                })()}</span>
               </div>
               <div style={{ fontSize: '12px', fontWeight: '700', color: colors.text.tertiary, marginTop: '8px', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
                 Percentile

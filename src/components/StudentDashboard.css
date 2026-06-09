@@ -360,6 +360,13 @@
   text-decoration: underline;
 }
 
+/* "Or warm up first" link inside the day-0 banner desc line */
+.ai-banner-warmup-link {
+  font-size: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
 /* Dashboard Grid */
 .dashboard-grid {
   display: grid;

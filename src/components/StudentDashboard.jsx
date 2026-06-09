@@ -1,4 +1,5 @@
 import React, { useState, useMemo, useEffect } from 'react';
+import { showToast } from './ui/Toaster';
 import { generateRecommendations } from '../services/recommendationService';
 import SkillDiagnosticSummary from './SkillDiagnosticSummary';
 import ScoreSlider from './ScoreSlider';
@@ -10,7 +11,8 @@ import PacingDrillCard from './PacingDrillCard';
 import TodaysTasksCard from './TodaysTasksCard';
 import PredictedVsActualCard from './PredictedVsActualCard';
 import CalendarMonth from './CalendarMonth';
-import { getTodaySlice } from '../services/selectors/todaySlice';
+import { getTodaySlice, countRemainingTodayTasks } from '../services/selectors/todaySlice';
+import { resolveActivityDrill } from '../services/activityDrillRouter';
 import { getSessionAdherence } from '../services/selectors/sessionAdherence';
 import { summarizePredictions } from '../services/selectors/predictionSummary';
 import { getPracticedDayKeys } from '../services/selectors/practicedDays';
@@ -19,10 +21,11 @@ import { getMathWeaknesses, getRWWeaknesses } from '../services/selectors/weakne
 import { isGoalAchieved, goalDelta } from '../services/selectors/goalProgress';
 import { getDaysUntilTest } from '../services/selectors/daysUntilTest';
 import { buildPacingTelemetry } from '../services/selectors/pacingTelemetry';
+import { buildPacingSession } from '../services/pacingService';
 import { getRecentMisses } from '../services/selectors/recentMisses';
 import { getIdentityInsights } from '../services/selectors/identityInsights';
 import { formatPatternLabel } from '../services/selectors/missedPatternLabel';
-import { loadPracticeTests } from '../data/corpusLoader';
+import { loadPracticeTests, loadMathBank, loadRWBank } from '../data/corpusLoader';
 import { MathText } from './MathText';
 import { trackAddPhotoClicked } from '../services/analyticsService';
 import { PlayIcon, ChartBarIcon, TrendingUpIcon, ClipboardIcon, CameraIcon } from '../design/icons';
@@ -86,6 +89,8 @@ const StudentDashboard = ({
   onOpenProfile,
   onRetrySimilar,
   onViewFullDiagnosis,
+  onBrowseLessons,
+  answeredQuestionIds = [],
   allLessons,
   skillDiagnosticSummary,
   studyPlan,
@@ -282,10 +287,10 @@ const StudentDashboard = ({
   // Tab count badges (Day 1 Acely-polish):
   //   dashboardCount = activities scheduled today that aren't completed
   //   studyPlanCount = total incomplete activities across all weeks
-  const dashboardCount = useMemo(() => {
-    if (!todaySlice || todaySlice.kind === 'no-plan' || todaySlice.kind === 'refreshing') return 0;
-    return Array.isArray(todaySlice.activities) ? todaySlice.activities.length : 0;
-  }, [todaySlice]);
+  // countRemainingTodayTasks re-derives from the slice KIND — for 'all-done',
+  // slice.activities holds the COMPLETED list, so the old `.length` read kept
+  // the badge nagging after the day's work was finished (stale-badge defect).
+  const dashboardCount = useMemo(() => countRemainingTodayTasks(todaySlice), [todaySlice]);
   const studyPlanCount = useMemo(() => {
     if (!studyPlan || !Array.isArray(studyPlan.weeks)) return 0;
     return studyPlan.weeks.reduce((sum, w) => {
@@ -317,6 +322,82 @@ const StudentDashboard = ({
     }
     // 'startLesson' and 'browseModules' branches removed — both routed
     // into the legacy LearnWorkspace flow which is gone.
+  };
+
+  // "Or warm up first" link in the day-0 banner. Actionable recommendations
+  // (drill / review) run directly; lesson-flavored ones ('startLesson',
+  // 'browseModules' — e.g. the day-0 fallback "Start Learning") route to the
+  // Videos/lessons view instead of silently no-opping.
+  const handleWarmUpClick = (rec) => {
+    const actionType = rec?.action?.type;
+    if (actionType === 'startPractice' || actionType === 'startReview') {
+      handleRecommendationClick(rec);
+      return;
+    }
+    if (onBrowseLessons) onBrowseLessons();
+  };
+
+  // Today's Tasks "Start" from the HOME dashboard mount. Routes through the
+  // SAME 3-tier lookup as the sidebar Study Plan view (commit 994933e) so
+  // both mounts land in AssignedPracticeShell with Tier-1 precision. The
+  // bank modules are corpus chunks (bundleGuard), so they're awaited via
+  // corpusLoader; the drillChip selector statically imports both banks, so
+  // it rides along as a dynamic import too. On any load failure we fall back
+  // to the legacy module/section path rather than a dead button.
+  const handleStartTodaysActivity = async (activity) => {
+    if (!activity || !onStartPractice) return;
+    try {
+      const [bank, rwBank, chipMod] = await Promise.all([
+        loadMathBank(),
+        loadRWBank(),
+        import('../services/selectors/drillChip'),
+      ]);
+      const route = resolveActivityDrill(
+        {
+          activity,
+          weaknesses: Array.isArray(studyPlan?.weaknesses) ? studyPlan.weaknesses : [],
+          cachedRows: [],
+          answeredQuestionIds,
+        },
+        {
+          getTargetedWeaknessSet: bank.getTargetedWeaknessSet,
+          getQuestionsBySkillIds: bank.getQuestionsBySkillIds,
+          getRWTargetedWeaknessSet: rwBank.getTargetedWeaknessSet,
+          getRWQuestionsBySkillIds: rwBank.getQuestionsBySkillIds,
+          getDrillChipForWeakness: chipMod.getDrillChipForWeakness,
+        },
+      );
+      if (route?.kind === 'assigned') {
+        onStartPractice(null, null, {
+          questionIds: route.questionIds,
+          source: 'home-todays-tasks',
+          label: route.label,
+          weakness: route.weakness,
+        });
+        return;
+      }
+      if (route?.kind === 'module') {
+        // Legacy prescriptive shell — reachable as a FALLBACK only.
+        onStartPractice(route.moduleId, route.sectionName);
+        return;
+      }
+      // Unroutable activity (no drill pool, no module) — never leave a dead
+      // button: send the student to the plan view where the activity's full
+      // context (and its Weekly View fallbacks) live.
+      showToast({ type: 'info', message: 'No drill set is available for this activity yet — opening your Study Plan.' });
+      setActiveTab('plan');
+    } catch {
+      if (activity?.moduleId) onStartPractice(activity.moduleId, activity.sectionName);
+    }
+  };
+
+  // Strategy activities (Pacing Reset etc.) carry no moduleId/skillId — they
+  // route to the timed pacing runner with the same personalized config the
+  // PacingDrillCard builds from real test telemetry.
+  const handleStartStrategyActivity = () => {
+    const session = buildPacingSession(buildPacingTelemetry(practiceTestResults));
+    const launch = onStartPacing || onStartPracticeTest;
+    if (typeof launch === 'function') launch(session.config);
   };
 
   const formatTestDate = (dateStr) => {
@@ -469,6 +550,7 @@ const StudentDashboard = ({
               skillProgress={skillProgress}
               reviewQueue={reviewQueue}
               predictionLog={predictionLog}
+              answeredQuestionIds={answeredQuestionIds}
               user={user}
               onStartPractice={onStartPractice}
               onStartPracticeTest={onStartPracticeTest}
@@ -600,11 +682,8 @@ const StudentDashboard = ({
                 adherence={sessionAdherence}
                 dailyIntro={dailyIntro}
                 firstName={user?.firstName}
-                onStartActivity={(activity) => {
-                  if (activity?.moduleId) {
-                    onStartPractice(activity.moduleId, activity.sectionName);
-                  }
-                }}
+                onStartActivity={handleStartTodaysActivity}
+                onStartStrategy={handleStartStrategyActivity}
                 onTakeTest={onStartPracticeTest}
               />
               {predictionSummary && (
@@ -630,7 +709,14 @@ const StudentDashboard = ({
                         : 'Take your first practice test to unlock your plan.'}
                     </div>
                     <div className="ai-banner-desc">
-                      Or warm up first: {recommendations[0].title.toLowerCase()}
+                      Or warm up first:{' '}
+                      <button
+                        type="button"
+                        className="btn-ghost-blue ai-banner-warmup-link"
+                        onClick={() => handleWarmUpClick(recommendations[0])}
+                      >
+                        {recommendations[0].title.toLowerCase()}
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -639,7 +725,14 @@ const StudentDashboard = ({
                     <span className="accuracy-label">Accuracy <span style={{fontSize: '0.75rem'}}>ⓘ</span></span>
                     <span className="accuracy-pill">{practicePercent || 0}%</span>
                   </div>
-                  <button className="btn-launch" onClick={() => handleRecommendationClick(recommendations[0])}>
+                  {/* The first practice test is the personalization on-ramp —
+                      this banner only renders when no study plan exists, and a
+                      plan is built FROM a test, so the practice-test list is
+                      the right destination here. (Once a plan exists this
+                      banner is replaced by TodaysTasksCard, which IS today's
+                      plan.) Previously this ran recommendations[0].action,
+                      which for day-0 users is 'browseModules' — a no-op. */}
+                  <button className="btn-launch" onClick={onStartPracticeTest}>
                     Launch Practice
                   </button>
                 </div>
