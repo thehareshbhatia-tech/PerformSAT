@@ -305,6 +305,15 @@
   }
 }
 
+/* Early-access framing under the hero CTAs — quiet, factual, no badge styling.
+   Mirrors .hero-actions alignment (centered, left-aligned at desktop). */
+.hero-note {
+  margin-top: 1rem;
+  margin-bottom: 0;
+  font-size: 0.9rem;
+  color: var(--color-slate-500);
+}
+
 .hero-visual {
   position: relative;
   width: 100%;

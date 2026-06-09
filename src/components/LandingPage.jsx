@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useAuth } from '../hooks/useAuth';
 import { Modal } from './ui/Modal';
 import Wordmark from './ui/Wordmark';
-import { BookOpenIcon, VideoCameraIcon, TargetIcon } from '../design/icons';
+import { PencilIcon, MicroscopeIcon, TargetIcon } from '../design/icons';
 import './LandingPage.css';
 
 const LandingPage = () => {
@@ -83,20 +83,21 @@ const LandingPage = () => {
           <div className="section-inner hero-grid">
             <div className="hero-content">
               <h1 className="hero-title">
-                Master the SAT,<br />
-                <span className="hero-title-accent">Outperform</span> the Competition
+                SAT prep that explains<br />
+                <span className="hero-title-accent">why</span> you missed it
               </h1>
               <p className="hero-description">
-                A comprehensive video course built on a proven curriculum. Master every concept, strategy, and technique you need to achieve your target score.
+                Every question on SEVA is crafted and quality-checked against the real digital SAT, item by item. Take a full-length test, get a diagnosis that explains why your score happened, and drill the exact question types you missed.
               </p>
               <div className="hero-actions">
                 <button className="btn-primary" onClick={() => openAuth(false)}>
-                  Enroll Now
+                  Get Started for Free
                 </button>
                 <button className="btn-secondary" onClick={() => document.getElementById('features').scrollIntoView({ behavior: 'smooth' })}>
-                  Explore Curriculum
+                  See What's Inside
                 </button>
               </div>
+              <p className="hero-note">Free during early access — full product, no credit card.</p>
             </div>
             <div className="hero-visual" aria-hidden="true">
               {/* Optional: Insert hero image or video here */}
@@ -109,31 +110,31 @@ const LandingPage = () => {
         <section id="features" className="section-container" style={{ background: 'var(--color-white)' }}>
           <div className="section-inner">
             <div className="section-header">
-              <h2 className="section-title">Everything you need to succeed</h2>
+              <h2 className="section-title">What makes SEVA different</h2>
               <p className="section-subtitle">
-                Stop jumping between resources. Our platform brings all the tools, practice, and instruction into one cohesive experience.
+                No AI-generated question dumps and no inflated promises — hand-authored practice plus a diagnostic engine that tells you the truth about your score.
               </p>
             </div>
             <div className="features-grid">
               <div className="feature-card">
-                <div className="feature-icon-wrapper"><BookOpenIcon size={24} /></div>
-                <h3 className="feature-title">Structured Curriculum</h3>
+                <div className="feature-icon-wrapper"><PencilIcon size={24} /></div>
+                <h3 className="feature-title">Every Question Hand-Authored</h3>
                 <p className="feature-description">
-                  Follow a proven step-by-step path designed to cover every SAT topic without overwhelming you.
+                  2,200+ practice questions — 1,600+ math and 600+ Reading and Writing — plus 12 full-length practice tests. Every item is written and reviewed by a person, with a full explanation for every answer.
                 </p>
               </div>
               <div className="feature-card">
-                <div className="feature-icon-wrapper"><VideoCameraIcon size={24} /></div>
-                <h3 className="feature-title">Expert Video Lessons</h3>
+                <div className="feature-icon-wrapper"><MicroscopeIcon size={24} /></div>
+                <h3 className="feature-title">A Diagnosis, Not Just a Score</h3>
                 <p className="feature-description">
-                  Learn from top instructors who break down complex problems into simple, repeatable strategies.
+                  After every test, a six-class error analysis explains why your score happened — which skills broke down, which question patterns you keep missing, and whether each miss was a concept gap, a trap, time pressure, or a careless slip.
                 </p>
               </div>
               <div className="feature-card">
                 <div className="feature-icon-wrapper"><TargetIcon size={24} /></div>
-                <h3 className="feature-title">Targeted Practice</h3>
+                <h3 className="feature-title">Practice That Targets Your Misses</h3>
                 <p className="feature-description">
-                  Apply what you learn immediately with practice questions tailored to your skill level.
+                  Your study plan routes you to drills for the exact question types you missed — 130+ distinct question patterns — so every session works on what is actually holding your score back.
                 </p>
               </div>
             </div>
@@ -146,7 +147,7 @@ const LandingPage = () => {
             <div className="section-header">
               <h2 className="section-title">How SEVA Works</h2>
               <p className="section-subtitle">
-                A simple, effective process to maximize your score in the shortest amount of time.
+                A simple loop — test, diagnose, drill — built around what you actually miss.
               </p>
             </div>
             <div className="steps-container">
@@ -156,33 +157,33 @@ const LandingPage = () => {
                 </div>
                 <div className="step-content">
                   <span className="step-number">Step 01</span>
-                  <h3 className="step-title">Take a Diagnostic Test</h3>
+                  <h3 className="step-title">Take a Full-Length Test</h3>
                   <p className="step-description">
-                    Start by identifying your baseline. We analyze your strengths and weaknesses to personalize your journey from day one.
+                    Start with a realistic, full-length adaptive test in the digital SAT format. Every answer you give becomes evidence for your diagnosis.
                   </p>
                 </div>
               </div>
               <div className="step-item">
                 <div className="step-visual" aria-hidden="true">
-                  <span className="hero-visual-placeholder">Learn</span>
+                  <span className="hero-visual-placeholder">Diagnosis</span>
                 </div>
                 <div className="step-content">
                   <span className="step-number">Step 02</span>
-                  <h3 className="step-title">Master the Concepts</h3>
+                  <h3 className="step-title">Read Your Diagnosis</h3>
                   <p className="step-description">
-                    Watch concise video lessons and learn the most effective strategies for every question type on the digital SAT.
+                    The diagnostic engine classifies every error — concept gap, trap, time pressure, careless slip — and pinpoints the question patterns behind your score.
                   </p>
                 </div>
               </div>
               <div className="step-item">
                 <div className="step-visual" aria-hidden="true">
-                  <span className="hero-visual-placeholder">Practice</span>
+                  <span className="hero-visual-placeholder">Targeted Practice</span>
                 </div>
                 <div className="step-content">
                   <span className="step-number">Step 03</span>
-                  <h3 className="step-title">Practice & Review</h3>
+                  <h3 className="step-title">Drill Your Exact Gaps</h3>
                   <p className="step-description">
-                    Take full-length practice tests under realistic conditions and review detailed explanations for every mistake.
+                    Your study plan turns the diagnosis into daily practice aimed at the question types you missed, with a full explanation to review for every mistake.
                   </p>
                 </div>
               </div>
@@ -190,12 +191,12 @@ const LandingPage = () => {
           </div>
         </section>
 
-        {/* Conversion Section */}
-        <section className="section-container" style={{ padding: '0 5%' }}>
+        {/* Conversion / Early Access Section */}
+        <section id="early-access" className="section-container" style={{ padding: '0 5%' }}>
           <div className="conversion-section">
             <h2 className="conversion-title">Ready to reach your target score?</h2>
             <p className="conversion-subtitle">
-              Start with a free diagnostic, then follow a study plan built around the skills holding your score back.
+              SEVA is free during early access — the full product, no credit card. Start with a diagnostic test, then follow a study plan built around the skills holding your score back.
             </p>
             <div className="conversion-actions">
               <button className="btn-primary" onClick={() => openAuth(false)} style={{ fontSize: '1.125rem', padding: '1rem 2rem' }}>
@@ -214,22 +215,20 @@ const LandingPage = () => {
               <Wordmark size="md" tone="dark" />
             </div>
             <p className="footer-description">
-              The premier platform for Digital SAT preparation. Learn from experts and practice with realistic questions.
+              Digital SAT prep with hand-authored questions, a diagnostic engine that explains why your score happened, and a study plan that targets your exact gaps.
             </p>
           </div>
           <div>
             <h4 className="footer-col-title">Product</h4>
             <ul className="footer-links">
               <li><a href="#features" className="footer-link">Features</a></li>
-              <li><a href="#how-it-works" className="footer-link">Curriculum</a></li>
-              <li><a href="#" className="footer-link">Pricing</a></li>
+              <li><a href="#how-it-works" className="footer-link">How it Works</a></li>
+              <li><a href="#early-access" className="footer-link">Early Access</a></li>
             </ul>
           </div>
           <div>
-            <h4 className="footer-col-title">Company</h4>
+            <h4 className="footer-col-title">Legal</h4>
             <ul className="footer-links">
-              <li><a href="#" className="footer-link">About Us</a></li>
-              <li><a href="#" className="footer-link">Contact</a></li>
               <li><a href="/privacy" className="footer-link">Privacy Policy</a></li>
               <li><a href="/terms" className="footer-link">Terms of Service</a></li>
             </ul>
