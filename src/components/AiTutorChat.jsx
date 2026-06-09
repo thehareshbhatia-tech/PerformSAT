@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
-import katex from 'katex';
 import { chatWithTutor } from '../services/aiTutorService';
 import CoachModePicker from './CoachModePicker';
 import { trackCoachModeUsed } from '../services/analyticsService';
@@ -14,7 +13,7 @@ import {
 import { getSkillById } from '../data/skillTaxonomy';
 import { getDesmosTip } from '../services/selectors/desmosTip';
 import { colors as designColors, typography as designTypo, shadows as designShadows } from '../design/tokens';
-import normalizeFractions from '../utils/normalizeFractions';
+import renderMarkdown from '../utils/renderChatMarkdown';
 import {
   saveSession,
   updateSessionMessages,
@@ -26,132 +25,6 @@ import {
 import { buildTrendContext } from '../services/trendContextBuilder';
 import { startIntervention, inferApproach, computeApproachEffectiveness } from '../services/interventionTracker';
 import { buildIntelligenceContext, getRecommendedApproach } from '../services/intelligenceContextBuilder';
-
-// Comprehensive markdown renderer for chat messages with full math/LaTeX support
-const renderMarkdown = (text) => {
-  if (!text) return null;
-
-  // Render math via KaTeX before markdown processing
-  const renderKatexInline = (str) => {
-    let result = str;
-    // Protect escaped dollars
-    const ESC = '\uFFFD';
-    result = result.replace(/\\\$/g, ESC);
-    // Display math: $$...$$ and \[...\]
-    result = result.replace(/\$\$([\s\S]*?)\$\$/g, (_, latex) => {
-      try { return katex.renderToString(latex.trim(), { displayMode: true, throwOnError: false }); }
-      catch { return _; }
-    });
-    result = result.replace(/\\\[([\s\S]*?)\\\]/g, (_, latex) => {
-      try { return katex.renderToString(latex.trim(), { displayMode: true, throwOnError: false }); }
-      catch { return _; }
-    });
-    // Inline math: $...$ and \(...\)
-    result = result.replace(/\$([^\$]+?)\$/g, (_, latex) => {
-      try { return katex.renderToString(latex.trim(), { displayMode: false, throwOnError: false }); }
-      catch { return _; }
-    });
-    result = result.replace(/\\\(([^)]+)\\\)/g, (_, latex) => {
-      try { return katex.renderToString(latex.trim(), { displayMode: false, throwOnError: false }); }
-      catch { return _; }
-    });
-    // Restore escaped dollars
-    result = result.replace(new RegExp(ESC, 'g'), '$');
-    return result;
-  };
-
-  let cleanedText = renderKatexInline(normalizeFractions(text));
-
-  const lines = cleanedText.split('\n');
-  const elements = [];
-  let currentList = [];
-  let listType = null;
-
-  const processInlineMarkdown = (line) => {
-    let processed = line.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
-    processed = processed.replace(/__(.+?)__/g, '<strong>$1</strong>');
-    processed = processed.replace(/(?<!\*)\*([^*\n]+)\*(?!\*)/g, '<em>$1</em>');
-    processed = processed.replace(/`([^`]+?)`/g, '<code style="background:rgba(0,0,0,0.04);padding:2px 6px;border-radius:4px;font-size:0.9em;font-family:\'SF Mono\',Menlo,monospace;">$1</code>');
-    return processed;
-  };
-
-  const flushList = () => {
-    if (currentList.length > 0) {
-      const Tag = listType === 'ol' ? 'ol' : 'ul';
-      elements.push(
-        <Tag key={`list-${elements.length}`} style={{ margin: '12px 0 16px 0', paddingLeft: '24px', lineHeight: '1.55' }}>
-          {currentList.map((item, i) => (
-            <li key={i} style={{ marginBottom: '8px' }} dangerouslySetInnerHTML={{ __html: processInlineMarkdown(item) }} />
-          ))}
-        </Tag>
-      );
-      currentList = [];
-      listType = null;
-    }
-  };
-
-  lines.forEach((line, idx) => {
-    const numberedMatch = line.match(/^(\d+)\.\s+(.+)$/);
-    if (numberedMatch) {
-      if (listType !== 'ol') flushList();
-      listType = 'ol';
-      currentList.push(numberedMatch[2]);
-      return;
-    }
-
-    const bulletMatch = line.match(/^[-*]\s+(.+)$/);
-    if (bulletMatch) {
-      if (listType !== 'ul') flushList();
-      listType = 'ul';
-      currentList.push(bulletMatch[1]);
-      return;
-    }
-
-    flushList();
-
-    if (line.trim() === '') {
-      elements.push(<div key={`br-${idx}`} style={{ height: '12px' }} />);
-      return;
-    }
-
-    const headerMatch = line.match(/^(#{1,4})\s+(.+)$/);
-    if (headerMatch) {
-      const level = headerMatch[1].length;
-      const text = headerMatch[2];
-      const sizes = { 1: '1.25em', 2: '1.15em', 3: '1.05em', 4: '1em' };
-      const weights = { 1: '600', 2: '600', 3: '600', 4: '600' };
-      elements.push(
-        <div
-          key={idx}
-          style={{
-            fontSize: sizes[level],
-            fontWeight: weights[level],
-            margin: '24px 0 12px 0',
-            color: designColors.text.primary,
-            letterSpacing: '-0.02em'
-          }}
-          dangerouslySetInnerHTML={{ __html: processInlineMarkdown(text) }}
-        />
-      );
-      return;
-    }
-
-    if (line.match(/^-{3,}$/)) {
-      elements.push(
-        <hr key={idx} style={{ border: 'none', borderTop: '1px solid rgba(0,0,0,0.08)', margin: '16px 0' }} />
-      );
-      return;
-    }
-
-    elements.push(
-      <p key={idx} style={{ margin: '0 0 12px 0', lineHeight: '1.55' }} dangerouslySetInnerHTML={{ __html: processInlineMarkdown(line) }} />
-    );
-  });
-
-  flushList();
-
-  return <>{elements}</>;
-};
 
 // Design system — sourced from shared tokens
 const design = {
