@@ -699,6 +699,35 @@ legend.auth-form-label {
   color: var(--color-slate-900);
 }
 
+/* Consent checkbox (signup only) — copies the radio-label pattern but
+   top-aligns the box because the label text wraps to two lines at the
+   480px modal width. */
+.auth-form-checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.auth-form-checkbox-label input {
+  cursor: pointer;
+  margin-top: 0.2rem; /* optical alignment with the first text line */
+  accent-color: var(--color-brand-orange-500);
+  flex-shrink: 0;
+}
+
+.auth-form-checkbox-label span {
+  font-size: 0.9rem;
+  color: var(--color-slate-900);
+  line-height: 1.45;
+}
+
+.auth-form-checkbox-label a {
+  color: var(--color-brand-orange-600);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
 .auth-form-hint {
   font-size: 0.8rem;
   color: var(--color-slate-400);

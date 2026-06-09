@@ -7,6 +7,30 @@ import {
   signOut
 } from 'firebase/auth';
 import { doc, getDoc, setDoc, serverTimestamp } from 'firebase/firestore';
+import { TERMS_VERSION } from '../constants/legal';
+
+/**
+ * Build the users/{uid} document written at signup.
+ * Pure helper extracted from signup so the doc shape (including the
+ * consent stamp: agreedToTermsAt + termsVersion) is unit-testable without
+ * a renderer. Field order/values mirror the original signup literal.
+ *
+ * @param {string} email - The new account's email
+ * @param {string} [firstName] - Display name; falls back to the email prefix
+ * @param {Object} [additionalInfo] - Signup extras (hasTakenSAT, satScore)
+ * @returns {Object} The Firestore user document payload
+ */
+export const buildSignupUserDoc = (email, firstName = '', additionalInfo = {}) => ({
+  email,
+  firstName: firstName || email.split('@')[0],
+  role: 'student',
+  hasTakenSAT: additionalInfo.hasTakenSAT || false,
+  satScore: additionalInfo.satScore || null,
+  agreedToTermsAt: serverTimestamp(),
+  termsVersion: TERMS_VERSION,
+  createdAt: serverTimestamp(),
+  lastLoginAt: serverTimestamp()
+});
 
 export const useAuth = () => {
   const [user, setUser] = useState(null);
@@ -49,26 +73,27 @@ export const useAuth = () => {
    * @param {string} email - User's email
    * @param {string} password - User's password
    * @param {string} firstName - User's first name
-   * @param {Object} additionalInfo - Additional user info (hasTakenSAT, satScore)
+   * @param {Object} additionalInfo - Additional user info (hasTakenSAT, satScore, agreedToTerms)
    * @returns {Promise<Object>} User object
    */
   const signup = async (email, password, firstName = '', additionalInfo = {}) => {
+    // Consent guard lives BEFORE the try block: the catch below rewrites
+    // unknown errors (no err.code) to a generic message, which would
+    // swallow this one.
+    if (!additionalInfo.agreedToTerms) {
+      const msg = 'Please confirm you are 13 or older and agree to the Terms of Service and Privacy Policy.';
+      setError(msg);
+      throw new Error(msg);
+    }
+
     try {
       setError(null);
 
       // 1. Create Firebase auth user
       const result = await createUserWithEmailAndPassword(auth, email, password);
 
-      // 2. Create user document in Firestore
-      const userData = {
-        email: result.user.email,
-        firstName: firstName || email.split('@')[0],
-        role: 'student',
-        hasTakenSAT: additionalInfo.hasTakenSAT || false,
-        satScore: additionalInfo.satScore || null,
-        createdAt: serverTimestamp(),
-        lastLoginAt: serverTimestamp()
-      };
+      // 2. Create user document in Firestore (includes the consent stamp)
+      const userData = buildSignupUserDoc(result.user.email, firstName, additionalInfo);
 
       await setDoc(doc(db, 'users', result.user.uid), userData);
 

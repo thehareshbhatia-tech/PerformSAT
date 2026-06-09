@@ -15,6 +15,7 @@ const LandingPage = () => {
   const [firstName, setFirstName] = useState('');
   const [hasTakenSAT, setHasTakenSAT] = useState('');
   const [satScore, setSatScore] = useState('');
+  const [agreedToTerms, setAgreedToTerms] = useState(false);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
@@ -23,6 +24,14 @@ const LandingPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
+
+    // Guard before setLoading(true) so the finally block's loading reset
+    // never has to undo anything for a blocked submit.
+    if (!isLogin && !agreedToTerms) {
+      setError('Please confirm you are 13 or older and agree to the Terms of Service and Privacy Policy.');
+      return;
+    }
+
     setLoading(true);
 
     try {
@@ -31,7 +40,8 @@ const LandingPage = () => {
       } else {
         const additionalInfo = {
           hasTakenSAT: hasTakenSAT === 'yes',
-          satScore: hasTakenSAT === 'yes' && satScore ? parseInt(satScore) : null
+          satScore: hasTakenSAT === 'yes' && satScore ? parseInt(satScore) : null,
+          agreedToTerms: true // provably true here because of the guard above
         };
         await signup(email, password, firstName, additionalInfo);
       }
@@ -220,8 +230,8 @@ const LandingPage = () => {
             <ul className="footer-links">
               <li><a href="#" className="footer-link">About Us</a></li>
               <li><a href="#" className="footer-link">Contact</a></li>
-              <li><a href="#" className="footer-link">Privacy Policy</a></li>
-              <li><a href="#" className="footer-link">Terms of Service</a></li>
+              <li><a href="/privacy" className="footer-link">Privacy Policy</a></li>
+              <li><a href="/terms" className="footer-link">Terms of Service</a></li>
             </ul>
           </div>
         </div>
@@ -363,6 +373,28 @@ const LandingPage = () => {
                   Minimum 6 characters
                 </p>
               </div>
+
+              {/* Own !isLogin wrapper: the password group above is shared
+                  with login mode, so the consent checkbox cannot live
+                  inside the signup-only block higher up. */}
+              {!isLogin && (
+                <div className="auth-form-group">
+                  <label className="auth-form-checkbox-label">
+                    <input
+                      type="checkbox"
+                      checked={agreedToTerms}
+                      onChange={(e) => setAgreedToTerms(e.target.checked)}
+                      required
+                    />
+                    <span>
+                      I am 13 or older and agree to the{' '}
+                      <a href="/terms" target="_blank" rel="noopener noreferrer">Terms of Service</a>
+                      {' '}and{' '}
+                      <a href="/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+                    </span>
+                  </label>
+                </div>
+              )}
 
               {error && (
                 <div className="auth-form-error">
