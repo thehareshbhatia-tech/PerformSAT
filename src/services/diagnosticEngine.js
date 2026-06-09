@@ -52,6 +52,16 @@ const RW_SKILL_TO_DOMAIN = {
   'rhetorical-synthesis':              'expression-of-ideas',
 };
 
+// Display names for R&W domains. skillTaxonomy.domains only covers the four
+// math domains, so without this the raw slug ('craft-and-structure') leaks
+// into domainAnalysis.displayName and scoreProjection.domainName.
+const RW_DOMAIN_DISPLAY_NAMES = {
+  'information-and-ideas':         'Information and Ideas',
+  'craft-and-structure':           'Craft and Structure',
+  'standard-english-conventions':  'Standard English Conventions',
+  'expression-of-ideas':           'Expression of Ideas',
+};
+
 /**
  * Read a question's skills as an array, regardless of source shape.
  *
@@ -59,6 +69,13 @@ const RW_SKILL_TO_DOMAIN = {
  * shape). R&W test bundles emit `q.skill: string` (singular). Both feed into
  * `analyzeSkills` and `analyzeDomains`; this helper normalizes them so a
  * single iteration handles both sources.
+ *
+ * Exported: PracticeTest.jsx uses the same normalizer when persisting
+ * questionDetails / questionsSnapshot and when recording skill attempts, so
+ * R&W items carry their skills everywhere a math item would.
+ *
+ * @param {Object} q - a test-bundle or bank question
+ * @returns {string[]} skill ids (empty array when the question carries none)
  */
 const getQuestionSkills = (q) => {
   if (Array.isArray(q?.skills)) return q.skills;
@@ -73,6 +90,26 @@ const getQuestionSkills = (q) => {
  * @returns {'math' | 'rw'}
  */
 const getSkillSection = (skillId) => RW_SKILL_SET.has(skillId) ? 'rw' : 'math';
+
+/**
+ * Infer a question's SAT domain from its (normalized) skill id array,
+ * section-aware. R&W skills resolve through RW_SKILL_TO_DOMAIN
+ * (craft-and-structure etc.); everything else goes through the shared math
+ * inferDomain (taxonomy lookup + label map + regex, 'algebra' fallback) —
+ * byte-identical to the pre-R&W behavior for math inputs.
+ *
+ * Use this anywhere a per-question domain is derived inside the engine so
+ * R&W items never pollute the four math domains.
+ *
+ * @param {string[]} skillIds - normalized skill ids (see getQuestionSkills)
+ * @returns {string} a math domain id or an R&W domain id
+ */
+const inferQuestionDomain = (skillIds) => {
+  for (const skillId of skillIds || []) {
+    if (RW_SKILL_SET.has(skillId)) return RW_SKILL_TO_DOMAIN[skillId];
+  }
+  return inferDomain(skillIds);
+};
 
 /**
  * Convert a raw skill ID (which may be an alias like "mean-median-mode")
@@ -196,7 +233,11 @@ const ERROR_TYPE_COLORS = {
  * Returns: { errorType, confidence, reasoning }
  */
 const classifyError = (question, userAnswer, telemetry, skillProgress) => {
-  const { difficulty, skills = [], correctAnswer, choices, type } = question;
+  const { difficulty, correctAnswer, choices, type } = question;
+  // Normalize math (skills: array) and R&W (skill: string) shapes so R&W
+  // misses classify against their real in-test mastery seed instead of the
+  // default-50 fallback that calculateAvgSkillMastery returns for [].
+  const skills = getQuestionSkills(question);
   const { timeSpent = 0, visits = 0, answerChanges = 0 } = telemetry || {};
 
   // ── UNANSWERED ──
@@ -639,9 +680,15 @@ export const runDiagnostic = (test, answers, diagnosticData, skillProgress = {},
 
       const isCorrect = isAnswerCorrect(q, userAnswer);
 
-      const rawSkillIds = q.skills || [];
+      // getQuestionSkills handles both math (q.skills: array) and R&W
+      // (q.skill: string) source shapes. Reading q.skills directly here was
+      // the root defect that made R&W invisible to full-test diagnosis:
+      // every R&W item entered analysis with zero skills, so analyzeSkills
+      // emitted no R&W weaknesses and inferDomain([]) dumped ~54 R&W items
+      // per full test into 'algebra'.
+      const rawSkillIds = getQuestionSkills(q);
       const skillNames = rawSkillIds.map(s => { const sk = getSkillById(s); return sk ? sk.name : s; });
-      const domain = inferDomain(rawSkillIds);
+      const domain = inferQuestionDomain(rawSkillIds);
       const tSpent = telemetry.timeSpent || 0;
 
       const rawChanges = telemetry.answerChanges;
@@ -912,7 +959,7 @@ const analyzeDomains = (questionAnalysis) => {
         // acceptable v1 behavior per /autoplan A2: R&W gets surfaced in the
         // weakness list but does not participate in math score projection.
         satWeight: DOMAIN_WEIGHTS[d.domain] || 0,
-        displayName: skillTaxonomy.domains[d.domain]?.name || d.domain,
+        displayName: skillTaxonomy.domains[d.domain]?.name || RW_DOMAIN_DISPLAY_NAMES[d.domain] || d.domain,
         color: skillTaxonomy.domains[d.domain]?.color || '#888',
         pointsAvailable: d.wrong * 10, // Rough: each question ≈ 10 scaled points
         section: isRW ? 'rw' : 'math',
@@ -1036,7 +1083,7 @@ const projectScoreImprovements = (scoredItems, targetScore, formId) => {
       const newScaled = scaledIfFixed(i => (i.domain || 'unknown') === domain);
       return {
         domain,
-        domainName: skillTaxonomy.domains[domain]?.name || domain,
+        domainName: skillTaxonomy.domains[domain]?.name || RW_DOMAIN_DISPLAY_NAMES[domain] || domain,
         color: skillTaxonomy.domains[domain]?.color || '#888',
         questionsToFix: d.wrong,
         currentAccuracy: d.total > 0 ? Math.round((d.correct / d.total) * 100) : 0,
@@ -1445,11 +1492,17 @@ const prioritizeActions = (errorPatterns, domainAnalysis, skillAnalysis, scorePr
   // ── Domain-based actions ──
   domainAnalysis.forEach(domain => {
     if (domain.accuracy < 60) {
+      // R&W domains carry satWeight 0 (DOMAIN_WEIGHTS only covers math), so
+      // the "% of the SAT" clause is math-only — for R&W it would read
+      // "0% of the SAT".
+      const weightClause = domain.satWeight > 0
+        ? `, which is ${Math.round(domain.satWeight * 100)}% of the SAT`
+        : '';
       actions.push({
         priority: domain.accuracy < 40 ? 3 : 5,
         type: 'domain',
         title: `Strengthen ${domain.displayName}`,
-        description: `You got ${domain.correct}/${domain.total} (${domain.accuracy}%) in this domain, which is ${Math.round(domain.satWeight * 100)}% of the SAT`,
+        description: `You got ${domain.correct}/${domain.total} (${domain.accuracy}%) in this domain${weightClause}`,
         estimatedGain: Math.round(domain.wrong * 10),
         effort: domain.accuracy < 30 ? 'high' : 'medium',
         category: 'content',
@@ -2329,6 +2382,7 @@ export {
   ERROR_TYPE_COLORS,
   DOMAIN_WEIGHTS,
   DOMAIN_QUESTION_COUNTS,
+  getQuestionSkills,
   calculateConfidenceInterval,
   calculateLearningVelocity,
   analyzeSkillClusters,

@@ -22,7 +22,7 @@ import {
 import { generateAndPersistHybridPlan, fetchCurrentStudyPlan, persistDeterministicArtifact } from '../services/hybridStudyPlanService';
 import { buildLongitudinalEvidence, computePlanDelta } from '../services/studyPlanMerger';
 import { generateStudyPlan as generateDeterministicPlan } from '../services/studyPlanGenerator';
-import { runDiagnostic } from '../services/diagnosticEngine';
+import { runDiagnostic, getQuestionSkills } from '../services/diagnosticEngine';
 import { getTargetedWeaknessSet } from '../data/questions/bank';
 import { getTargetedWeaknessSet as getRWTargetedWeaknessSet } from '../data/questions/rwBank';
 import { scoreTest, isAnswerCorrect, convertToSATScore } from '../services/scoring';
@@ -1501,7 +1501,10 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
             eliminatedChoices: eliminatedChoices[elimKey] || [],
             isCorrect: correct,
             difficulty: q.difficulty || null,
-            skills: q.skills || [],
+            // getQuestionSkills normalizes math (q.skills: array) and R&W
+            // (q.skill: string) shapes — reading q.skills directly persisted
+            // empty skills for every R&W item.
+            skills: getQuestionSkills(q),
           };
         });
       });
@@ -1573,7 +1576,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
             explanation: q.explanation ?? null,
             difficulty: q.difficulty || null,
             band: q.band ?? null,
-            skills: q.skills || [],
+            skills: getQuestionSkills(q),
             moduleIndex: modIdx,
             questionIndex: qIdx,
           });
@@ -1670,9 +1673,13 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
         const skillEntries = [];
         effectiveModules.forEach((mod, modIdx) => {
           mod.questions.forEach((q, qIdx) => {
-            if (q.skills && q.skills.length > 0) {
+            // getQuestionSkills handles the R&W singular q.skill shape too —
+            // before this, R&W items were skipped and skillProgress never got
+            // R&W mastery from full tests (only from drills).
+            const qSkills = getQuestionSkills(q);
+            if (qSkills.length > 0) {
               const key = `${modIdx}-${qIdx}`;
-              skillEntries.push({ skills: q.skills, isCorrect: isAnswerCorrect(q, answers[key]) });
+              skillEntries.push({ skills: qSkills, isCorrect: isAnswerCorrect(q, answers[key]) });
             }
           });
         });
