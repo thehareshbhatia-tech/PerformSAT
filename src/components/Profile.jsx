@@ -2,9 +2,11 @@ import React, { useState, useRef } from 'react';
 import { colors, typography, spacing, radius, shadows, transitions } from '../design/tokens';
 import { cardStyles, inputStyles } from '../design/components';
 import { Button } from './ui/Button';
+import { Modal } from './ui/Modal';
 import Avatar from './ui/Avatar';
 import { parseLocalDate } from '../utils/localDate';
 import { fileToAvatarDataUrl } from '../utils/avatarImage';
+import { deleteAccount } from '../services/accountService';
 
 const StatCard = ({ label, value, total }) => (
   <div
@@ -111,6 +113,10 @@ const Profile = ({
   const [showLogoutConfirm, setShowLogoutConfirm] = useState(false);
   const [photoBusy, setPhotoBusy] = useState(false);
   const [photoError, setPhotoError] = useState('');
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [deleteConfirmText, setDeleteConfirmText] = useState('');
+  const [deleting, setDeleting] = useState(false);
+  const [deleteError, setDeleteError] = useState('');
   const fileInputRef = useRef(null);
 
   const handlePhotoPick = async (e) => {
@@ -139,6 +145,27 @@ const Profile = ({
       setPhotoError(err?.message || 'Could not remove photo.');
     } finally {
       setPhotoBusy(false);
+    }
+  };
+
+  const closeDeleteModal = () => {
+    if (deleting) return; // block Escape/backdrop close while the request runs
+    setShowDeleteModal(false);
+    setDeleteConfirmText('');
+    setDeleteError('');
+  };
+
+  const handleDeleteAccount = async () => {
+    if (deleteConfirmText !== 'DELETE' || deleting) return;
+    setDeleting(true);
+    setDeleteError('');
+    try {
+      await deleteAccount();
+      // Server has removed the Auth record; sign out + route to landing.
+      onLogout();
+    } catch (err) {
+      setDeleteError(err?.message || 'Could not delete your account. Please try again.');
+      setDeleting(false);
     }
   };
 
@@ -343,6 +370,106 @@ const Profile = ({
           </Button>
         )}
       </div>
+
+      {/* Danger Zone */}
+      <div style={{ marginTop: spacing.xl }}>
+        <h2 style={{
+          fontSize: typography.sizes.sm,
+          fontWeight: typography.weights.semibold,
+          color: colors.text.tertiary,
+          textTransform: 'uppercase',
+          letterSpacing: typography.letterSpacing.wider,
+          marginBottom: spacing.md,
+        }}>
+          Danger Zone
+        </h2>
+        <div style={{ ...cardStyles.base }}>
+          <div style={{
+            fontSize: typography.sizes.base,
+            fontWeight: typography.weights.medium,
+            color: colors.text.primary,
+            marginBottom: '4px',
+          }}>
+            Delete account
+          </div>
+          <p style={{
+            fontSize: typography.sizes.sm,
+            color: colors.text.tertiary,
+            marginBottom: spacing.md,
+          }}>
+            Permanently deletes your account, including all test results, study plans, and practice history. This cannot be undone.
+          </p>
+          <Button
+            onClick={() => setShowDeleteModal(true)}
+            variant="destructive"
+            style={{ backgroundColor: 'transparent', color: colors.semantic.error, border: `1px solid ${colors.semantic.error}` }}
+          >
+            Delete account
+          </Button>
+        </div>
+      </div>
+
+      <Modal
+        isOpen={showDeleteModal}
+        onClose={closeDeleteModal}
+        title="Delete your account?"
+        maxWidth="440px"
+        footer={
+          <div style={{ display: 'flex', gap: spacing.sm, justifyContent: 'flex-end', width: '100%' }}>
+            <Button onClick={closeDeleteModal} variant="secondary" disabled={deleting}>
+              Cancel
+            </Button>
+            <Button
+              onClick={handleDeleteAccount}
+              variant="destructive"
+              disabled={deleteConfirmText !== 'DELETE'}
+              loading={deleting}
+            >
+              Delete account
+            </Button>
+          </div>
+        }
+      >
+        <p style={{
+          fontSize: typography.sizes.sm,
+          color: colors.text.primary,
+          marginBottom: spacing.md,
+          lineHeight: 1.5,
+        }}>
+          This permanently deletes your account and removes all of your test results and study data. There is no way to recover it.
+        </p>
+        <label
+          htmlFor="delete-account-confirm"
+          style={{
+            display: 'block',
+            fontSize: typography.sizes.xs,
+            color: colors.text.tertiary,
+            marginBottom: spacing.xs,
+          }}
+        >
+          Type DELETE to confirm
+        </label>
+        <input
+          id="delete-account-confirm"
+          type="text"
+          value={deleteConfirmText}
+          onChange={(e) => setDeleteConfirmText(e.target.value)}
+          disabled={deleting}
+          autoComplete="off"
+          style={{ ...inputStyles.base, height: '40px', fontSize: typography.sizes.sm }}
+          aria-label="Type DELETE to confirm account deletion"
+        />
+        {deleteError && (
+          <p role="alert" style={{
+            fontSize: typography.sizes.xs,
+            color: colors.semantic.error,
+            marginTop: spacing.sm,
+            marginBottom: 0,
+          }}>
+            {deleteError}
+          </p>
+        )}
+      </Modal>
     </div>
   );
 };

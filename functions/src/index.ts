@@ -9,7 +9,15 @@ import {onRequest} from "firebase-functions/v2/https";
 import {onSchedule} from "firebase-functions/v2/scheduler";
 import {onDocumentUpdated} from "firebase-functions/v2/firestore";
 import * as logger from "firebase-functions/logger";
-import * as admin from "firebase-admin";
+import {initializeApp} from "firebase-admin/app";
+import {getAuth, DecodedIdToken} from "firebase-admin/auth";
+import {
+  getFirestore,
+  FieldValue,
+  FieldPath,
+  QueryDocumentSnapshot,
+} from "firebase-admin/firestore";
+import {getMessaging, Messaging} from "firebase-admin/messaging";
 import {
   classifyNudge,
   buildNudgeContent,
@@ -18,8 +26,8 @@ import {
   toMillis,
 } from "./reengagementPolicy";
 
-admin.initializeApp();
-const db = admin.firestore();
+initializeApp();
+const db = getFirestore();
 
 const anthropicApiKey = defineSecret("ANTHROPIC_API_KEY");
 
@@ -41,11 +49,11 @@ const ALLOWED_ORIGINS = [
 ];
 
 // Auth helper — verifies Firebase ID token from Authorization header
-async function verifyAuth(request: {headers: {authorization?: string}}): Promise<admin.auth.DecodedIdToken | null> {
+async function verifyAuth(request: {headers: {authorization?: string}}): Promise<DecodedIdToken | null> {
   const authHeader = request.headers.authorization;
   if (!authHeader?.startsWith("Bearer ")) return null;
   try {
-    return await admin.auth().verifyIdToken(authHeader.substring(7));
+    return await getAuth().verifyIdToken(authHeader.substring(7));
   } catch {
     return null;
   }
@@ -67,7 +75,7 @@ async function checkRateLimit(userId: string, endpoint: string, maxPerHour = 60)
     if (timestamps.length >= maxPerHour) return false;
 
     timestamps.push(now);
-    await ref.set({timestamps, updatedAt: admin.firestore.FieldValue.serverTimestamp()});
+    await ref.set({timestamps, updatedAt: FieldValue.serverTimestamp()});
     return true;
   } catch {
     return true; // Allow on rate limit check failure
@@ -1526,7 +1534,7 @@ ${conversationText}`;
       await progressRef.set({
         learningMemory: {
           totalSessions: (currentMemory.totalSessions || 0) + 1,
-          lastSessionAt: admin.firestore.FieldValue.serverTimestamp(),
+          lastSessionAt: FieldValue.serverTimestamp(),
           recentSessionSummaries: recentSummaries.slice(0, 5),
           effectiveApproaches,
           persistentConfusions,
@@ -1582,9 +1590,9 @@ const REENGAGE_LINK = "https://perform-sat.vercel.app/course?next=review";
  * prune dead tokens, log. Returns true if at least one push was delivered.
  */
 async function processReengagementUser(
-  userDoc: admin.firestore.QueryDocumentSnapshot,
+  userDoc: QueryDocumentSnapshot,
   now: number,
-  messaging: admin.messaging.Messaging,
+  messaging: Messaging,
 ): Promise<boolean> {
   const user = userDoc.data() || {};
   const uid = userDoc.id;
@@ -1645,10 +1653,10 @@ async function processReengagementUser(
   });
 
   const update: Record<string, unknown> = {
-    lastReengagementAt: admin.firestore.FieldValue.serverTimestamp(),
+    lastReengagementAt: FieldValue.serverTimestamp(),
   };
   if (dead.length) {
-    update.fcmTokens = admin.firestore.FieldValue.arrayRemove(...dead);
+    update.fcmTokens = FieldValue.arrayRemove(...dead);
   }
   await userDoc.ref.set(update, {merge: true});
 
@@ -1659,7 +1667,7 @@ async function processReengagementUser(
     tokenCount: tokens.length,
     successCount: resp.successCount,
     deadCount: dead.length,
-    sentAt: admin.firestore.FieldValue.serverTimestamp(),
+    sentAt: FieldValue.serverTimestamp(),
   });
 
   return resp.successCount > 0;
@@ -1671,7 +1679,7 @@ async function processReengagementUser(
  */
 export const sendReEngagementNudges = onSchedule("every day 23:00", async () => {
   const now = Date.now();
-  const messaging = admin.messaging();
+  const messaging = getMessaging();
 
   const snap = await db.collection("users")
     .where("notificationPrefs.reengagementOptIn", "==", true)
@@ -1696,3 +1704,63 @@ export const sendReEngagementNudges = onSchedule("every day 23:00", async () => 
   }
   logger.info(`[sendReEngagementNudges] opted-in=${snap.size} nudged=${sent}`);
 });
+
+/**
+ * Account deletion — permanently removes all Firestore data tied to the
+ * caller's uid, then deletes the Auth user record. Order matters: Firestore
+ * first so a failed Auth delete can be retried while still authenticated.
+ */
+export const deleteAccount = onRequest(
+  {cors: ALLOWED_ORIGINS, timeoutSeconds: 300, memory: "512MiB"},
+  async (request, response) => {
+    if (request.method !== "POST") {
+      response.status(405).json({error: "Method not allowed"});
+      return;
+    }
+    const user = await verifyAuth(request);
+    if (!user) {
+      response.status(401).json({error: "Authentication required"});
+      return;
+    }
+    // Explicit confirmation guard — client must send {confirm: "DELETE"}
+    if (request.body?.confirm !== "DELETE") {
+      response.status(400).json({error: "Missing confirmation"});
+      return;
+    }
+    const uid = user.uid;
+    try {
+      // 1. progress/{uid} + ALL subcollections (studyPlanArtifacts, attempts,
+      //    aiDiagnostics, aiChatSessions, and any added later)
+      await db.recursiveDelete(db.collection("progress").doc(uid));
+      // 2. users/{uid} (flat today; recursiveDelete is future-proof)
+      await db.recursiveDelete(db.collection("users").doc(uid));
+      // 3. _rateLimits docs keyed `${uid}_${endpoint}` — prefix range on doc ID
+      const rlSnap = await db.collection(RATE_LIMIT_COLLECTION)
+        .where(FieldPath.documentId(), ">=", `${uid}_`)
+        .where(FieldPath.documentId(), "<=", `${uid}_\uf8ff`)
+        .get();
+      if (!rlSnap.empty) {
+        const batch = db.batch();
+        rlSnap.docs.forEach((d) => batch.delete(d.ref));
+        await batch.commit();
+      }
+      // 4. reEngagementLog rows for this user (paged; collection is small)
+      let logSnap = await db.collection("reEngagementLog")
+        .where("userId", "==", uid).limit(450).get();
+      while (!logSnap.empty) {
+        const batch = db.batch();
+        logSnap.docs.forEach((d) => batch.delete(d.ref));
+        await batch.commit();
+        logSnap = await db.collection("reEngagementLog")
+          .where("userId", "==", uid).limit(450).get();
+      }
+      // 5. Auth record LAST
+      await getAuth().deleteUser(uid);
+      logger.info(`[deleteAccount] deleted all data for ${uid}`);
+      response.json({ok: true});
+    } catch (error) {
+      logger.error(`[deleteAccount] failed for ${uid}:`, error);
+      response.status(500).json({error: "Account deletion failed. Try again."});
+    }
+  }
+);
