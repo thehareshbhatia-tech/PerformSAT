@@ -5,6 +5,24 @@ import './design-tokens.css';
 import './design/global.css';
 import App from './App';
 import DiagramPreview from './components/__DiagramPreview';
+import * as Sentry from '@sentry/react';
+
+// Error reporting: Sentry when a DSN is configured (CRA bakes REACT_APP_* at
+// build time), otherwise a console listener for unhandled rejections. Do NOT
+// add a manual unhandledrejection listener on the Sentry branch — Sentry's
+// default globalHandlersIntegration already hooks it, and a second listener
+// would double-report every rejection.
+if (process.env.REACT_APP_SENTRY_DSN) {
+  Sentry.init({
+    dsn: process.env.REACT_APP_SENTRY_DSN,
+    environment: process.env.NODE_ENV,
+    sendDefaultPii: false,
+  });
+} else {
+  window.addEventListener('unhandledrejection', (event) => {
+    console.error('[performsat:unhandledrejection]', event.reason);
+  });
+}
 
 // Global KaTeX style fixes
 const style = document.createElement('style');

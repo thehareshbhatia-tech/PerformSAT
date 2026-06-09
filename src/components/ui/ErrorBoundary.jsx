@@ -1,4 +1,5 @@
 import React from 'react';
+import * as Sentry from '@sentry/react';
 import { colors, typography, spacing, radius, shadows } from '../../design/tokens';
 import { Button } from './Button';
 
@@ -14,6 +15,10 @@ class ErrorBoundary extends React.Component {
 
   componentDidCatch(error, errorInfo) {
     console.error('ErrorBoundary caught:', error, errorInfo);
+    // Safe no-op when Sentry.init never ran (no DSN configured).
+    Sentry.captureException(error, {
+      contexts: { react: { componentStack: errorInfo?.componentStack } },
+    });
   }
 
   handleRetry = () => {

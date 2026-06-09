@@ -1,9 +1,12 @@
 name: CI
 
-# Minimum gate added 2026-05-29 (autoplan eng review): the repo had no CI, so
-# the ~990 unit tests were enforced only by developer discipline while
-# scoring-engine fixes ship through a 3k-line App.jsx. This runs Jest + the
-# content-bank validators on every push/PR to main.
+# CI gate (expanded 2026-06-09 for public-launch prep). Two parallel jobs on
+# every push/PR to main:
+#   test      — Jest unit tests + math/R&W content-bank validators + a
+#               production build (catches eslint warnings-as-errors and
+#               broken imports that tests alone miss).
+#   functions — Cloud Functions typecheck (tsc --noEmit) + unit tests on
+#               node 24 (matches functions/package.json engines).
 
 on:
   push:
@@ -27,3 +30,23 @@ jobs:
         run: npm run bank:validate
       - name: Validate R&W bank
         run: node scripts/validateRWBank.mjs --all
+      - name: Production build
+        run: npm run build
+
+  functions:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: functions
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: functions/package-lock.json
+      - run: npm ci
+      - name: Typecheck
+        run: npx tsc --noEmit
+      - name: Functions unit tests
+        run: npm test
