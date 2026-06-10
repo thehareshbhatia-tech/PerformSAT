@@ -42,7 +42,7 @@ export const practiceTest9RW = {
           "choices": [
             {
               "id": "A",
-              "text": "wipe out"
+              "text": "preserve"
             },
             {
               "id": "B",
@@ -50,15 +50,15 @@ export const practiceTest9RW = {
             },
             {
               "id": "C",
-              "text": "preserve"
+              "text": "wipe out"
             },
             {
               "id": "D",
               "text": "delay"
             }
           ],
-          "correctAnswer": "A",
-          "explanation": "The correct answer is A, \"wipe out.\"\n\n**SAT Pattern: Verb Connotation in Context**\n\nThe sentence sets up a contrast between uniform monocultures and diverse fields: in monocultures, a single pest or weather shock has a sweeping, destructive effect on the harvest, whereas in diverse fields, only some lines suffer and the others survive. The blank therefore needs a verb meaning to destroy completely or eliminate, paired naturally with \"entire harvests at once.\" \"Wipe out\" fits exactly: it captures the total, sweeping loss that Shiva says monocultures invite, and it stands in clear contrast with the \"only partial losses\" that diverse fields experience.\n\nWhy the wrong answers are tempting:\n- Choice B: surface match — \"examine\" sounds at home in a sentence about agricultural research, since scientists routinely examine pests, weather, and crops. But the subject of the verb is \"a single new pest or weather shock,\" not a researcher, and a pest cannot examine a harvest in any literal sense. The word fits the topic of the passage but not the action the sentence describes.\n- Choice C: inverse — \"preserve\" is the near-opposite of what Shiva is warning about. The whole point of her argument is that genetically narrow farms are vulnerable to large-scale loss, not that pests and droughts protect harvests. Choosing \"preserve\" reverses the cause-and-effect relationship the passage spells out.\n- Choice D: scope shift — \"delay\" has the right general direction (some kind of negative impact on a harvest), but its specificity is wrong. \"Delay\" implies a postponement that still allows the harvest to be brought in later, while the passage describes the outright loss of \"entire harvests at once.\" The word's effect is too mild for the sweeping disaster the sentence sets up.",
+          "correctAnswer": "C",
+          "explanation": "The correct answer is C, \"wipe out.\"\n\n**SAT Pattern: Verb Connotation in Context**\n\nThe sentence sets up a contrast between uniform monocultures and diverse fields: in monocultures, a single pest or weather shock has a sweeping, destructive effect on the harvest, whereas in diverse fields, only some lines suffer and the others survive. The blank therefore needs a verb meaning to destroy completely or eliminate, paired naturally with \"entire harvests at once.\" \"Wipe out\" fits exactly: it captures the total, sweeping loss that Shiva says monocultures invite, and it stands in clear contrast with the \"only partial losses\" that diverse fields experience.\n\nWhy the wrong answers are tempting:\n- Choice B: surface match — \"examine\" sounds at home in a sentence about agricultural research, since scientists routinely examine pests, weather, and crops. But the subject of the verb is \"a single new pest or weather shock,\" not a researcher, and a pest cannot examine a harvest in any literal sense. The word fits the topic of the passage but not the action the sentence describes.\n- Choice A: inverse — \"preserve\" is the near-opposite of what Shiva is warning about. The whole point of her argument is that genetically narrow farms are vulnerable to large-scale loss, not that pests and droughts protect harvests. Choosing \"preserve\" reverses the cause-and-effect relationship the passage spells out.\n- Choice D: scope shift — \"delay\" has the right general direction (some kind of negative impact on a harvest), but its specificity is wrong. \"Delay\" implies a postponement that still allows the harvest to be brought in later, while the passage describes the outright loss of \"entire harvests at once.\" The word's effect is too mild for the sweeping disaster the sentence sets up.",
           "_meta": {
             "anchor": "Vandana Shiva — physicist-trained ecologist; Navdanya seed-conservation network; argument that monocultures are more vulnerable than genetically diverse traditional cropping systems",
             "distractors": {
@@ -80,23 +80,23 @@ export const practiceTest9RW = {
           "choices": [
             {
               "id": "A",
-              "text": "recognize"
+              "text": "challenge"
             },
             {
               "id": "B",
-              "text": "ignore"
+              "text": "recognize"
             },
             {
               "id": "C",
-              "text": "challenge"
+              "text": "ignore"
             },
             {
               "id": "D",
               "text": "publicize"
             }
           ],
-          "correctAnswer": "A",
-          "explanation": "The correct answer is A, \"recognize.\"\n\n**SAT Pattern: Tier-2 Vocabulary in Context**\n\nThe sentence describes Taussig moving from raw evidence — patient records and interviews with German physicians — to a conclusion she draws from that evidence: that a strong association ties thalidomide to the malformations. The blank therefore needs a verb meaning to perceive or come to understand a pattern through investigation. \"Recognize\" fits exactly: it names the act of identifying a connection in data one has carefully reviewed, which is precisely what the passage credits Taussig with doing before her later reports alerted U.S. doctors.\n\nWhy the wrong answers are tempting:\n- Choice B: inverse — \"ignore\" reverses the action the sentence describes. The passage is about Taussig identifying the link between thalidomide and the malformations; if she had ignored that link, there would be no reports alerting U.S. regulators. The choice flips the central claim of the paragraph.\n- Choice C: scope shift — \"challenge\" has the right register for a researcher's response to evidence, but the wrong specificity. The sentence does not present an existing claim that Taussig is pushing back against; it presents her as the one drawing the inference from records and interviews. \"Challenge\" would only fit if some prior thalidomide-malformation hypothesis were already on the table for her to dispute.\n- Choice D: surface match — \"publicize\" collocates naturally with the second sentence (her reports did help alert U.S. doctors), so a hurried reader can grab it from the surrounding context. But the blank lands on what Taussig did during the German investigation itself — coming to understand the link — not on the later step of broadcasting it. \"Publicize\" picks up the right topic from the passage but the wrong moment in the sequence.",
+          "correctAnswer": "B",
+          "explanation": "The correct answer is B, \"recognize.\"\n\n**SAT Pattern: Tier-2 Vocabulary in Context**\n\nThe sentence describes Taussig moving from raw evidence — patient records and interviews with German physicians — to a conclusion she draws from that evidence: that a strong association ties thalidomide to the malformations. The blank therefore needs a verb meaning to perceive or come to understand a pattern through investigation. \"Recognize\" fits exactly: it names the act of identifying a connection in data one has carefully reviewed, which is precisely what the passage credits Taussig with doing before her later reports alerted U.S. doctors.\n\nWhy the wrong answers are tempting:\n- Choice C: inverse — \"ignore\" reverses the action the sentence describes. The passage is about Taussig identifying the link between thalidomide and the malformations; if she had ignored that link, there would be no reports alerting U.S. regulators. The choice flips the central claim of the paragraph.\n- Choice A: scope shift — \"challenge\" has the right register for a researcher's response to evidence, but the wrong specificity. The sentence does not present an existing claim that Taussig is pushing back against; it presents her as the one drawing the inference from records and interviews. \"Challenge\" would only fit if some prior thalidomide-malformation hypothesis were already on the table for her to dispute.\n- Choice D: surface match — \"publicize\" collocates naturally with the second sentence (her reports did help alert U.S. doctors), so a hurried reader can grab it from the surrounding context. But the blank lands on what Taussig did during the German investigation itself — coming to understand the link — not on the later step of broadcasting it. \"Publicize\" picks up the right topic from the passage but the wrong moment in the sequence.",
           "_meta": {
             "anchor": "Helen Brooke Taussig — pediatric cardiologist, Johns Hopkins; 1962 investigation of the European thalidomide-linked phocomelia outbreak; helped alert U.S. physicians and regulators",
             "distractors": {
@@ -118,7 +118,7 @@ export const practiceTest9RW = {
           "choices": [
             {
               "id": "A",
-              "text": "systematic"
+              "text": "tentative"
             },
             {
               "id": "B",
@@ -126,15 +126,15 @@ export const practiceTest9RW = {
             },
             {
               "id": "C",
-              "text": "tentative"
+              "text": "systematic"
             },
             {
               "id": "D",
               "text": "elaborate"
             }
           ],
-          "correctAnswer": "A",
-          "explanation": "The correct answer is A, \"systematic.\"\n\n**SAT Pattern: Adjective Register in Context**\n\nThe sentence frames a contrast: Nuttall denies that the figures, dates, and glyphs are \"arbitrary devices\" and insists that they are something else — records of genealogy and alliance that can be deciphered \"in their own right rather than reducible to ornament.\" The blank needs an adjective whose meaning is the principled opposite of \"arbitrary\": orderly, rule-governed, internally consistent. \"Systematic\" fits exactly: it names the kind of structured, decipherable pattern Nuttall claimed the codex follows, and it lines up with her stance that the manuscript is a coherent historical document rather than decorative imagery.\n\nWhy the wrong answers are tempting:\n- Choice B: inverse — \"decorative\" is essentially the position Nuttall is rejecting. The sentence already glosses the opposing view as treating the glyphs as \"ornament,\" so calling the records themselves \"decorative\" would push the sentence into self-contradiction. It picks up a real word from the passage but lands on the side Nuttall argues against.\n- Choice C: scope shift — \"tentative\" has the right scholarly register for a paragraph about an archaeologist's argument, and tentative claims are common in academic writing. But the sentence is about the records inside the manuscript, not about Nuttall's confidence in them; she is portrayed as confident, not hedging, and the records themselves are presented as something firm enough to be deciphered, not provisional.\n- Choice D: surface match — \"elaborate\" describes a real visual feature of pre-Columbian codices (the pages are richly illustrated), so it sounds at home in a sentence about Mixtec manuscripts. But \"elaborate\" describes how ornate something looks, not whether its content is rule-governed. It captures a surface impression of the codex while missing the precise claim about decipherable, structured records.",
+          "correctAnswer": "C",
+          "explanation": "The correct answer is C, \"systematic.\"\n\n**SAT Pattern: Adjective Register in Context**\n\nThe sentence frames a contrast: Nuttall denies that the figures, dates, and glyphs are \"arbitrary devices\" and insists that they are something else — records of genealogy and alliance that can be deciphered \"in their own right rather than reducible to ornament.\" The blank needs an adjective whose meaning is the principled opposite of \"arbitrary\": orderly, rule-governed, internally consistent. \"Systematic\" fits exactly: it names the kind of structured, decipherable pattern Nuttall claimed the codex follows, and it lines up with her stance that the manuscript is a coherent historical document rather than decorative imagery.\n\nWhy the wrong answers are tempting:\n- Choice B: inverse — \"decorative\" is essentially the position Nuttall is rejecting. The sentence already glosses the opposing view as treating the glyphs as \"ornament,\" so calling the records themselves \"decorative\" would push the sentence into self-contradiction. It picks up a real word from the passage but lands on the side Nuttall argues against.\n- Choice A: scope shift — \"tentative\" has the right scholarly register for a paragraph about an archaeologist's argument, and tentative claims are common in academic writing. But the sentence is about the records inside the manuscript, not about Nuttall's confidence in them; she is portrayed as confident, not hedging, and the records themselves are presented as something firm enough to be deciphered, not provisional.\n- Choice D: surface match — \"elaborate\" describes a real visual feature of pre-Columbian codices (the pages are richly illustrated), so it sounds at home in a sentence about Mixtec manuscripts. But \"elaborate\" describes how ornate something looks, not whether its content is rule-governed. It captures a surface impression of the codex while missing the precise claim about decipherable, structured records.",
           "_meta": {
             "anchor": "Zelia Nuttall — Mesoamerican archaeology and ethnohistory; *Codex Nuttall* (1902); argument that Mixtec pictorial manuscripts are systematic records of dynastic genealogy and political alliance, not arbitrary symbolism",
             "distractors": {
@@ -156,23 +156,23 @@ export const practiceTest9RW = {
           "choices": [
             {
               "id": "A",
-              "text": "The speaker concedes a dislike for poetry and then identifies the conditions under which she nonetheless finds it worth reading."
-            },
-            {
-              "id": "B",
               "text": "The speaker enumerates the kinds of poetry she most admires and then names a single critic whose taste she shares."
             },
             {
-              "id": "C",
+              "id": "B",
               "text": "The speaker praises poetry's high-sounding interpretations and then defends them against the objections of more practical readers."
+            },
+            {
+              "id": "C",
+              "text": "The speaker concedes a dislike for poetry and then identifies the conditions under which she nonetheless finds it worth reading."
             },
             {
               "id": "D",
               "text": "The speaker offers a series of natural images and then concludes that they are unsuitable as material for serious verse."
             }
           ],
-          "correctAnswer": "A",
-          "explanation": "The correct answer is A. The poem opens with a blunt concession — \"I, too, dislike it\" — placing the speaker on the side of the skeptic before she has said anything in poetry's favor. The structural pivot arrives in the next clause: \"Reading it, however, with a perfect contempt for it, one discovers in / it after all, a place for the genuine.\" The rest of the passage spells out what \"the genuine\" looks like in practice — hands that can grasp, eyes that can dilate, the bat holding on upside down, the elephant pushing, a wild horse taking a roll, even business documents and school-books — and it insists that these things matter because they are \"useful,\" not because a \"high-sounding interpretation can be put upon them.\" The structure is therefore a movement from a stated dislike to the conditions under which the speaker nonetheless finds poetry worth reading, with the catalog of images serving as evidence for that qualified defense.\n\nWhy the wrong answers are tempting:\n- Choice B: surface match — the poem does name the \"immovable critic twitching his skin like a horse that feels a flea\" and several other figures, so a hurried reader can mistake the catalog for an enumeration of admired kinds of poetry and a single shared-taste critic. But the critic in the poem is one item in a longer list of \"phenomena\" the speaker treats as fit material, and the kinds-of-poetry framing is not what the text is doing.\n- Choice C: inverse — this reverses the speaker's position. The poem says explicitly that the listed things are important \"not because a / high-sounding interpretation can be put upon them but because they are / useful.\" The speaker does not praise high-sounding interpretation; she sets it aside in favor of the genuine. C inverts the move the poem actually makes.\n- Choice D: scope shift — the natural images (bat, elephant, wild horse, wolf) are real features of the passage, but the speaker offers them as evidence that \"all these phenomena are important,\" not as material she finally rules unsuitable. D treats one strand of the catalog as the structure and reverses the verdict the poem reaches about it.",
+          "correctAnswer": "C",
+          "explanation": "The correct answer is C. The poem opens with a blunt concession — \"I, too, dislike it\" — placing the speaker on the side of the skeptic before she has said anything in poetry's favor. The structural pivot arrives in the next clause: \"Reading it, however, with a perfect contempt for it, one discovers in / it after all, a place for the genuine.\" The rest of the passage spells out what \"the genuine\" looks like in practice — hands that can grasp, eyes that can dilate, the bat holding on upside down, the elephant pushing, a wild horse taking a roll, even business documents and school-books — and it insists that these things matter because they are \"useful,\" not because a \"high-sounding interpretation can be put upon them.\" The structure is therefore a movement from a stated dislike to the conditions under which the speaker nonetheless finds poetry worth reading, with the catalog of images serving as evidence for that qualified defense.\n\nWhy the wrong answers are tempting:\n- Choice A: surface match — the poem does name the \"immovable critic twitching his skin like a horse that feels a flea\" and several other figures, so a hurried reader can mistake the catalog for an enumeration of admired kinds of poetry and a single shared-taste critic. But the critic in the poem is one item in a longer list of \"phenomena\" the speaker treats as fit material, and the kinds-of-poetry framing is not what the text is doing.\n- Choice B: inverse — this reverses the speaker's position. The poem says explicitly that the listed things are important \"not because a / high-sounding interpretation can be put upon them but because they are / useful.\" The speaker does not praise high-sounding interpretation; she sets it aside in favor of the genuine. C inverts the move the poem actually makes.\n- Choice D: scope shift — the natural images (bat, elephant, wild horse, wolf) are real features of the passage, but the speaker offers them as evidence that \"all these phenomena are important,\" not as material she finally rules unsuitable. D treats one strand of the catalog as the structure and reverses the verdict the poem reaches about it.",
           "_meta": {
             "anchor": "the structural pivot at \"Reading it, however, with a perfect contempt for it, one discovers in / it after all, a place for the genuine\" — dislike, then qualified defense via the catalog of \"genuine\" particulars",
             "distractors": {
@@ -195,23 +195,23 @@ export const practiceTest9RW = {
           "choices": [
             {
               "id": "A",
-              "text": "To list the daily disciplines a person must practice in order to lead a life free of fear and dead habit."
-            },
-            {
-              "id": "B",
               "text": "To express the speaker's prayer that his country awaken into the freedom of mind and open thought he has just described."
             },
             {
-              "id": "C",
+              "id": "B",
               "text": "To describe the social and educational reforms that have already begun to transform the speaker's country."
             },
             {
-              "id": "D",
+              "id": "C",
               "text": "To warn the divine listener that habit and division have made it impossible for the speaker's country to change."
+            },
+            {
+              "id": "D",
+              "text": "To list the daily disciplines a person must practice in order to lead a life free of fear and dead habit."
             }
           ],
-          "correctAnswer": "B",
-          "explanation": "The correct answer is B. The poem is a single sustained prayer, addressed to a divine \"Father.\" Its body is a chain of \"where\" clauses naming the conditions of a free mind — the head held high, knowledge unrestricted, the world undivided by narrow walls, words rising from the depth of truth, reason undeflected by dead habit, thought continually widened. The closing line gathers all of those conditions into one petition: \"into that heaven of freedom, my Father, let my country awake.\" The purpose of the text is therefore to ask, in a religious register, that the speaker's country awaken into precisely the freedom of mind the preceding clauses sketch. The catalog of conditions is in service of that single request.\n\nWhy the wrong answers are tempting:\n- Choice A: surface match — the poem does mention \"tireless striving,\" \"the clear stream of reason,\" and resistance to \"dead habit,\" so a hurried reader can mistake the catalog for personal-discipline advice. But the conditions are not addressed to an individual reader; they are pieces of a national vision the speaker prays for. A treats general descriptors of a free mind as if they were a how-to list.\n- Choice C: inverse — this reverses the poem's stance. The closing line — \"let my country awake\" — makes plain that the freedoms named are aspirations, not accomplishments. C asserts that these reforms are already underway, when the poem's purpose is to pray that they come about.\n- Choice D: scope shift — habit and division do appear in the poem (the \"dreary desert sand of dead habit,\" the \"narrow domestic walls\"), but they are listed as conditions to be undone, not as proofs of impossibility. D narrows the prayer's hopeful purpose into a warning about hopelessness, reversing the spirit of the closing petition.",
+          "correctAnswer": "A",
+          "explanation": "The correct answer is A. The poem is a single sustained prayer, addressed to a divine \"Father.\" Its body is a chain of \"where\" clauses naming the conditions of a free mind — the head held high, knowledge unrestricted, the world undivided by narrow walls, words rising from the depth of truth, reason undeflected by dead habit, thought continually widened. The closing line gathers all of those conditions into one petition: \"into that heaven of freedom, my Father, let my country awake.\" The purpose of the text is therefore to ask, in a religious register, that the speaker's country awaken into precisely the freedom of mind the preceding clauses sketch. The catalog of conditions is in service of that single request.\n\nWhy the wrong answers are tempting:\n- Choice D: surface match — the poem does mention \"tireless striving,\" \"the clear stream of reason,\" and resistance to \"dead habit,\" so a hurried reader can mistake the catalog for personal-discipline advice. But the conditions are not addressed to an individual reader; they are pieces of a national vision the speaker prays for. A treats general descriptors of a free mind as if they were a how-to list.\n- Choice B: inverse — this reverses the poem's stance. The closing line — \"let my country awake\" — makes plain that the freedoms named are aspirations, not accomplishments. C asserts that these reforms are already underway, when the poem's purpose is to pray that they come about.\n- Choice C: scope shift — habit and division do appear in the poem (the \"dreary desert sand of dead habit,\" the \"narrow domestic walls\"), but they are listed as conditions to be undone, not as proofs of impossibility. D narrows the prayer's hopeful purpose into a warning about hopelessness, reversing the spirit of the closing petition.",
           "_meta": {
             "anchor": "the closing petition \"into that heaven of freedom, my Father, let my country awake\" — the chain of \"where\" clauses describes the freedom prayed for, and the final line is the prayer itself",
             "distractors": {
@@ -243,11 +243,11 @@ export const practiceTest9RW = {
           "choices": [
             {
               "id": "A",
-              "text": "By rejecting Huxtable's diagnosis of postwar demolition as an aesthetic and civic loss, on the grounds that the commercial buildings that replaced earlier structures were in fact better suited to the economic life of the cities they served."
+              "text": "By accepting Huxtable's diagnosis that thoughtless demolition harms cities while contending that the preservation prescription she defends, taken as a general policy, ends up freezing urban form once it is extended broadly enough to fix a large share of any major city."
             },
             {
               "id": "B",
-              "text": "By accepting Huxtable's diagnosis that thoughtless demolition harms cities while contending that the preservation prescription she defends, taken as a general policy, ends up freezing urban form once it is extended broadly enough to fix a large share of any major city."
+              "text": "By rejecting Huxtable's diagnosis of postwar demolition as an aesthetic and civic loss, on the grounds that the commercial buildings that replaced earlier structures were in fact better suited to the economic life of the cities they served."
             },
             {
               "id": "C",
@@ -258,8 +258,8 @@ export const practiceTest9RW = {
               "text": "By concluding that the preservation movement Huxtable helped to inspire has, in retrospect, already collapsed under its own contradictions, so that arguments grounded in her early-1970s criticism should now be treated as historically obsolete."
             }
           ],
-          "correctAnswer": "B",
-          "explanation": "The correct answer is B. Text 2 makes Koolhaas's position explicit at both ends. He agrees with Huxtable's diagnosis: careless demolition impoverishes cities, and what often replaces a demolished building is not worth what was lost. Where he diverges is at the prescription. As preservation laws extend to ever-younger buildings and ever-larger districts, a growing share of any major city becomes legally fixed, and the form's capacity to absorb new uses, populations, and economic conditions correspondingly contracts. The closing sentence states the worry plainly: a tool meant to keep cities legible ends up freezing them. Choice B captures exactly that combination — diagnosis accepted, broad-policy prescription resisted on the ground that, scaled up, it freezes the very urban form it was meant to defend.\n\nWhy the wrong answers are tempting:\n- Choice A: inverse — A casts Koolhaas as rejecting Huxtable's diagnosis of postwar demolition and defending the commercial buildings that replaced earlier structures. Text 2 says the opposite: he agrees that careless demolition impoverishes cities and that what replaces a demolished building is often not worth what was lost. A flips Koolhaas's actual concession to Huxtable into a contradiction of it.\n- Choice C: scope shift — C reframes Koolhaas's objection as a methodological worry about whether examples like Penn Station can support general claims. Nothing in Text 2 raises a small-sample problem; Koolhaas's concern is with the cumulative effect of broad preservation policy, not with the evidentiary basis of Huxtable's individual cases.\n- Choice D: inverse — D escalates Koolhaas's qualified objection into a categorical claim that the preservation movement has already collapsed and that Huxtable's criticism is obsolete. Text 2 says the opposite: preservation is a tool whose value Koolhaas concedes; what he urges is that it be applied selectively rather than reflexively. D pushes a partial-disagreement into the inverse of his actual position.",
+          "correctAnswer": "A",
+          "explanation": "The correct answer is A. Text 2 makes Koolhaas's position explicit at both ends. He agrees with Huxtable's diagnosis: careless demolition impoverishes cities, and what often replaces a demolished building is not worth what was lost. Where he diverges is at the prescription. As preservation laws extend to ever-younger buildings and ever-larger districts, a growing share of any major city becomes legally fixed, and the form's capacity to absorb new uses, populations, and economic conditions correspondingly contracts. The closing sentence states the worry plainly: a tool meant to keep cities legible ends up freezing them. Choice A captures exactly that combination — diagnosis accepted, broad-policy prescription resisted on the ground that, scaled up, it freezes the very urban form it was meant to defend.\n\nWhy the wrong answers are tempting:\n- Choice B: inverse — A casts Koolhaas as rejecting Huxtable's diagnosis of postwar demolition and defending the commercial buildings that replaced earlier structures. Text 2 says the opposite: he agrees that careless demolition impoverishes cities and that what replaces a demolished building is often not worth what was lost. A flips Koolhaas's actual concession to Huxtable into a contradiction of it.\n- Choice C: scope shift — C reframes Koolhaas's objection as a methodological worry about whether examples like Penn Station can support general claims. Nothing in Text 2 raises a small-sample problem; Koolhaas's concern is with the cumulative effect of broad preservation policy, not with the evidentiary basis of Huxtable's individual cases.\n- Choice D: inverse — D escalates Koolhaas's qualified objection into a categorical claim that the preservation movement has already collapsed and that Huxtable's criticism is obsolete. Text 2 says the opposite: preservation is a tool whose value Koolhaas concedes; what he urges is that it be applied selectively rather than reflexively. D pushes a partial-disagreement into the inverse of his actual position.",
           "_meta": {
             "anchor": "Huxtable (NYT criticism, 1972) vs Koolhaas (preservation surveys) — ethics of preserving versus replacing aging urban architecture",
             "distractors": {
@@ -299,15 +299,15 @@ export const practiceTest9RW = {
             },
             {
               "id": "C",
-              "text": "By arguing that Morrison's reading project has already been fulfilled by subsequent canon-expansion programs that added diverse authors to course curricula, so that the rereading she called for need no longer occupy a central place in literary criticism."
+              "text": "By contending that Morrison's focus on white-canonical authors imports a contemporary political agenda into a literary history whose original participants would not have framed Black presence in the structural terms her readings impose."
             },
             {
               "id": "D",
-              "text": "By contending that Morrison's focus on white-canonical authors imports a contemporary political agenda into a literary history whose original participants would not have framed Black presence in the structural terms her readings impose."
+              "text": "By arguing that Morrison's reading project has already been fulfilled by subsequent canon-expansion programs that added diverse authors to course curricula, so that the rereading she called for need no longer occupy a central place in literary criticism."
             }
           ],
           "correctAnswer": "B",
-          "explanation": "The correct answer is B. Text 2 places Gates squarely inside Morrison's diagnostic frame: the dominant American canon \"cannot be read responsibly without registering the Black figures that organize its imagination.\" The point at which he extends her argument is what he names as the next critical labor. Tracing signifying practices from the slave narratives through Hurston, Ellison, and Reed, Gates argues that there is an African American literary tradition with its own internal genealogy, governed by tropes of revision and double-voicedness, that interprets itself rather than the white canon. The recovery and theorization of that self-interpreting tradition, on his account, is work that Morrison's critique opens room for but that her own focus on rereading the dominant canon does not itself perform. Choice B captures exactly that combination — diagnosis accepted, dominant-canon rereading preserved as legitimate but not exhaustive, and the recovery of an African American canon offered as the labor Morrison's argument calls for without itself executing.\n\nWhy the wrong answers are tempting:\n- Choice A: inverse — A casts Gates as rejecting Morrison's structuring claim about the Africanist presence in Poe, Cather, and Hemingway. Text 2 says the opposite: Gates shares the diagnosis that the dominant canon cannot be read responsibly without registering the Black figures organizing its imagination. A flips Gates's allied position into a refutation that Text 2 specifically excludes.\n- Choice C: scope shift — C reframes Gates's project as the claim that canon-expansion programs in curricula have already discharged Morrison's call. Nothing in Text 2 invokes course curricula or treats Morrison's rereading project as completed; Gates's argument is about the next critical labor for literary scholarship, not about institutional inclusion having settled the matter.\n- Choice D: inverse — D inverts Gates's actual stance by casting him as objecting to Morrison's readings on the ground that they import a present-day political frame onto authors who would not have recognized it. Text 2 says the opposite: Gates accepts the diagnostic frame and proposes a complementary tradition-recovery project, not a methodological complaint that Morrison anachronizes the white canon.",
+          "explanation": "The correct answer is B. Text 2 places Gates squarely inside Morrison's diagnostic frame: the dominant American canon \"cannot be read responsibly without registering the Black figures that organize its imagination.\" The point at which he extends her argument is what he names as the next critical labor. Tracing signifying practices from the slave narratives through Hurston, Ellison, and Reed, Gates argues that there is an African American literary tradition with its own internal genealogy, governed by tropes of revision and double-voicedness, that interprets itself rather than the white canon. The recovery and theorization of that self-interpreting tradition, on his account, is work that Morrison's critique opens room for but that her own focus on rereading the dominant canon does not itself perform. Choice B captures exactly that combination — diagnosis accepted, dominant-canon rereading preserved as legitimate but not exhaustive, and the recovery of an African American canon offered as the labor Morrison's argument calls for without itself executing.\n\nWhy the wrong answers are tempting:\n- Choice A: inverse — A casts Gates as rejecting Morrison's structuring claim about the Africanist presence in Poe, Cather, and Hemingway. Text 2 says the opposite: Gates shares the diagnosis that the dominant canon cannot be read responsibly without registering the Black figures organizing its imagination. A flips Gates's allied position into a refutation that Text 2 specifically excludes.\n- Choice D: scope shift — C reframes Gates's project as the claim that canon-expansion programs in curricula have already discharged Morrison's call. Nothing in Text 2 invokes course curricula or treats Morrison's rereading project as completed; Gates's argument is about the next critical labor for literary scholarship, not about institutional inclusion having settled the matter.\n- Choice C: inverse — D inverts Gates's actual stance by casting him as objecting to Morrison's readings on the ground that they import a present-day political frame onto authors who would not have recognized it. Text 2 says the opposite: Gates accepts the diagnostic frame and proposes a complementary tradition-recovery project, not a methodological complaint that Morrison anachronizes the white canon.",
           "_meta": {
             "anchor": "Morrison (Playing in the Dark, 1992) vs Gates (signifying / African American canon) — politics and aesthetics of canon formation",
             "distractors": {
@@ -330,7 +330,7 @@ export const practiceTest9RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Reitsema uses stable carbon and nitrogen isotope ratios in skeletal collagen from medieval European cemeteries to document how diet changed as rural communities shifted into urbanizing market towns."
+              "text": "Reitsema's isotope measurements show that meat and dairy consumption declined in medieval European populations as rural communities gave way to urbanizing market towns."
             },
             {
               "id": "B",
@@ -338,15 +338,15 @@ export const practiceTest9RW = {
             },
             {
               "id": "C",
-              "text": "Reitsema's isotope measurements show that meat and dairy consumption declined in medieval European populations as rural communities gave way to urbanizing market towns."
+              "text": "Animal-protein signals in skeletal collagen from medieval European cemeteries rose in urbanizing samples relative to comparable rural ones."
             },
             {
               "id": "D",
-              "text": "Animal-protein signals in skeletal collagen from medieval European cemeteries rose in urbanizing samples relative to comparable rural ones."
+              "text": "Reitsema uses stable carbon and nitrogen isotope ratios in skeletal collagen from medieval European cemeteries to document how diet changed as rural communities shifted into urbanizing market towns."
             }
           ],
-          "correctAnswer": "A",
-          "explanation": "The correct answer is A. The passage opens by introducing the general method—stable carbon and nitrogen isotopes in bone collagen as a chemical record of diet—and then names Reitsema's specific application: using those isotope ratios in medieval European cemetery samples to track diet change across the rural-to-urbanizing transition. The third sentence reports the load-bearing finding (broader plant-food signals, higher animal-protein signals in urbanizing samples), and the closing sentence states the broader payoff (the chemistry makes a population-scale transition legible). Choice A captures both the integrated method and the rural-to-urbanizing focus at the right level of generalization.\n\nWhy the wrong answers are tempting:\n- Choice B: surface match — it restates a single sentence from the passage about how isotope values reflect diet, but only describes the general principle behind the method. A method-description sentence is not the main idea the passage develops; the passage uses that principle as setup for Reitsema's specific application to medieval cemeteries.\n- Choice C: inverse — it reverses the passage's central finding. The text says animal-protein signals rose in the urbanizing samples, indicating greater access to meat and dairy; choice C flips that to a decline, contradicting the conclusion the chemistry is said to support.\n- Choice D: scope shift — the rise in animal-protein signals is one of the lines of evidence the passage describes, and the finding it reports is accurate, but treating that single result as the main idea narrows the scope. The passage is built around an argument that uses the isotope method to track a broader rural-to-urbanizing dietary transition, not around the animal-protein finding alone.",
+          "correctAnswer": "D",
+          "explanation": "The correct answer is D. The passage opens by introducing the general method—stable carbon and nitrogen isotopes in bone collagen as a chemical record of diet—and then names Reitsema's specific application: using those isotope ratios in medieval European cemetery samples to track diet change across the rural-to-urbanizing transition. The third sentence reports the load-bearing finding (broader plant-food signals, higher animal-protein signals in urbanizing samples), and the closing sentence states the broader payoff (the chemistry makes a population-scale transition legible). Choice D captures both the integrated method and the rural-to-urbanizing focus at the right level of generalization.\n\nWhy the wrong answers are tempting:\n- Choice B: surface match — it restates a single sentence from the passage about how isotope values reflect diet, but only describes the general principle behind the method. A method-description sentence is not the main idea the passage develops; the passage uses that principle as setup for Reitsema's specific application to medieval cemeteries.\n- Choice A: inverse — it reverses the passage's central finding. The text says animal-protein signals rose in the urbanizing samples, indicating greater access to meat and dairy; choice A flips that to a decline, contradicting the conclusion the chemistry is said to support.\n- Choice C: scope shift — the rise in animal-protein signals is one of the lines of evidence the passage describes, and the finding it reports is accurate, but treating that single result as the main idea narrows the scope. The passage is built around an argument that uses the isotope method to track a broader rural-to-urbanizing dietary transition, not around the animal-protein finding alone.",
           "_meta": {
             "anchor": "Laurie Reitsema — bioarchaeologist, University of Georgia; medieval European cemetery isotope analyses; rural-to-urbanizing dietary transition recovered from delta-13C and delta-15N values in bone collagen",
             "distractors": {
@@ -373,19 +373,19 @@ export const practiceTest9RW = {
             },
             {
               "id": "B",
-              "text": "Tuck argues that researchers should stop documenting harm in marginalized communities entirely, since accounts of poverty, illness, and dispossession are unreliable evidence about community life."
+              "text": "Tuck's 2009 open letter is addressed to tribal communities and is written from her position as an Indigenous researcher at the University of Toronto."
             },
             {
               "id": "C",
-              "text": "Tuck argues that the steady focus on community harm in research on marginalized groups produces a damage-centered archive whose costs outweigh its tactical gains and proposes that researchers suspend that default in favor of desire-based inquiry into community complexity and self-direction."
+              "text": "Tuck argues that researchers should stop documenting harm in marginalized communities entirely, since accounts of poverty, illness, and dispossession are unreliable evidence about community life."
             },
             {
               "id": "D",
-              "text": "Tuck's 2009 open letter is addressed to tribal communities and is written from her position as an Indigenous researcher at the University of Toronto."
+              "text": "Tuck argues that the steady focus on community harm in research on marginalized groups produces a damage-centered archive whose costs outweigh its tactical gains and proposes that researchers suspend that default in favor of desire-based inquiry into community complexity and self-direction."
             }
           ],
-          "correctAnswer": "C",
-          "explanation": "The correct answer is C. The passage builds its main idea across the full paragraph. Sentence 1 introduces Tuck's 2009 letter and her standpoint. Sentence 2 names the recurring pattern she is examining: a focus on damage that secures tactical recognition. Sentence 3 explicitly registers that Tuck does not deny the underlying harms. Sentence 4 states the load-bearing critique: the cumulative effect of the damage frame is to make a community most visible when it is most broken, lock outsiders into that frame, and crowd out other kinds of inquiry. Sentence 5 names the alternative she proposes — desire-based inquiry that takes complexity, knowledge, and self-direction as the primary object. Choice C synthesizes both sides of the argument (the cumulative cost of damage-centered research and the proposed alternative) at the right level of generalization.\n\nWhy the wrong answers are tempting:\n- Choice A: surface match — this restates the second sentence's setup (damage accounts are foregrounded because they are legible to funders and can help secure remedies) without naming the critique the passage develops. The passage uses that sentence as background for Tuck's argument, not as the argument itself.\n- Choice B: inverse — the passage explicitly says Tuck does not deny that the harms are real or that documenting them sometimes helps; her concern is the cumulative effect of the damage frame as a default, not its existence. Choice B flips a measured proposal (\"suspend ... as a default\") into a categorical prohibition (\"stop documenting harm ... entirely\"), and adds an unsupported claim that the accounts are unreliable evidence.\n- Choice D: scope shift — the addressee, the year, and Tuck's standpoint are accurate biographical framing from sentence 1, but they are setup, not the main argument. Treating the framing details as the main idea ignores the substantive critique and proposal that the rest of the passage develops.",
+          "correctAnswer": "D",
+          "explanation": "The correct answer is D. The passage builds its main idea across the full paragraph. Sentence 1 introduces Tuck's 2009 letter and her standpoint. Sentence 2 names the recurring pattern she is examining: a focus on damage that secures tactical recognition. Sentence 3 explicitly registers that Tuck does not deny the underlying harms. Sentence 4 states the load-bearing critique: the cumulative effect of the damage frame is to make a community most visible when it is most broken, lock outsiders into that frame, and crowd out other kinds of inquiry. Sentence 5 names the alternative she proposes — desire-based inquiry that takes complexity, knowledge, and self-direction as the primary object. Choice D synthesizes both sides of the argument (the cumulative cost of damage-centered research and the proposed alternative) at the right level of generalization.\n\nWhy the wrong answers are tempting:\n- Choice A: surface match — this restates the second sentence's setup (damage accounts are foregrounded because they are legible to funders and can help secure remedies) without naming the critique the passage develops. The passage uses that sentence as background for Tuck's argument, not as the argument itself.\n- Choice C: inverse — the passage explicitly says Tuck does not deny that the harms are real or that documenting them sometimes helps; her concern is the cumulative effect of the damage frame as a default, not its existence. Choice C flips a measured proposal (\"suspend ... as a default\") into a categorical prohibition (\"stop documenting harm ... entirely\"), and adds an unsupported claim that the accounts are unreliable evidence.\n- Choice B: scope shift — the addressee, the year, and Tuck's standpoint are accurate biographical framing from sentence 1, but they are setup, not the main argument. Treating the framing details as the main idea ignores the substantive critique and proposal that the rest of the passage develops.",
           "_meta": {
             "anchor": "Eve Tuck — education and Indigenous studies, University of Toronto; \"Suspending Damage: A Letter to Communities\" (2009); critique of the damage-centered research frame and the proposal of desire-based inquiry",
             "distractors": {
@@ -408,23 +408,23 @@ export const practiceTest9RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Steele's experiments showed that members of stereotyped groups have lower underlying ability than otherwise similar peers, accounting for the score gaps observed on diagnostic standardized tests."
-            },
-            {
-              "id": "B",
               "text": "Steele's Stanford studies showed that altering whether a difficult test was framed as diagnostic of ability changed how members of a stereotyped group performed on the same test, supporting his account of stereotype threat as a situational performance penalty distinct from differences in underlying ability."
             },
             {
-              "id": "C",
+              "id": "B",
               "text": "Participants who received instructions describing the test as a problem-solving exercise rather than as diagnostic of ability performed at parity with their otherwise similar peers."
             },
             {
-              "id": "D",
+              "id": "C",
               "text": "Steele's research used standardized tests administered to matched participant groups at Stanford University in the 1990s under two different sets of test instructions."
+            },
+            {
+              "id": "D",
+              "text": "Steele's experiments showed that members of stereotyped groups have lower underlying ability than otherwise similar peers, accounting for the score gaps observed on diagnostic standardized tests."
             }
           ],
-          "correctAnswer": "B",
-          "explanation": "The correct answer is B. The passage builds toward its main idea across multiple sentences. Sentence 1 names the question Steele set out to test (whether awareness of a negative group stereotype could depress performance in the stereotyped domain). Sentences 2 and 3 describe the experimental design (the same test under diagnostic-ability versus problem-solving framing) and report the load-bearing finding (scores fell under the diagnostic framing and held at parity under the neutral framing). Sentence 4 states the synthesizing claim: because the participants and the test were the same, what shifted scores was the framing itself, an effect Steele named stereotype threat — a situational performance penalty distinct from underlying ability. Choice B captures the design, the finding, and the synthesizing claim at the right level of generalization.\n\nWhy the wrong answers are tempting:\n- Choice A: inverse — this reverses the conclusion the passage actually draws. The point of holding the participants and the test constant is that the difference in scores cannot be explained by differences in underlying ability; choice A attributes the gap to ability anyway, contradicting the very inference the design was built to support.\n- Choice C: scope shift — the parity finding under neutral framing is one of the lines of evidence the passage describes, but treating that single result as the main idea narrows the scope. The passage uses parity in one condition and lower scores in the other together to support the broader stereotype-threat claim, which choice C never names.\n- Choice D: surface match — this restates surface details about the methods (Stanford, the 1990s, matched groups, two sets of instructions) without naming what the studies found or what Steele concluded from them. A description of the procedure is not the main idea the passage develops.",
+          "correctAnswer": "A",
+          "explanation": "The correct answer is A. The passage builds toward its main idea across multiple sentences. Sentence 1 names the question Steele set out to test (whether awareness of a negative group stereotype could depress performance in the stereotyped domain). Sentences 2 and 3 describe the experimental design (the same test under diagnostic-ability versus problem-solving framing) and report the load-bearing finding (scores fell under the diagnostic framing and held at parity under the neutral framing). Sentence 4 states the synthesizing claim: because the participants and the test were the same, what shifted scores was the framing itself, an effect Steele named stereotype threat — a situational performance penalty distinct from underlying ability. Choice A captures the design, the finding, and the synthesizing claim at the right level of generalization.\n\nWhy the wrong answers are tempting:\n- Choice D: inverse — this reverses the conclusion the passage actually draws. The point of holding the participants and the test constant is that the difference in scores cannot be explained by differences in underlying ability; choice D attributes the gap to ability anyway, contradicting the very inference the design was built to support.\n- Choice B: scope shift — the parity finding under neutral framing is one of the lines of evidence the passage describes, but treating that single result as the main idea narrows the scope. The passage uses parity in one condition and lower scores in the other together to support the broader stereotype-threat claim, which choice B never names.\n- Choice C: surface match — this restates surface details about the methods (Stanford, the 1990s, matched groups, two sets of instructions) without naming what the studies found or what Steele concluded from them. A description of the procedure is not the main idea the passage develops.",
           "_meta": {
             "anchor": "Claude M. Steele — social psychologist, Stanford University; 1990s diagnostic-versus-neutral test-instruction experiments; stereotype threat as a situational performance penalty distinct from underlying ability",
             "distractors": {
@@ -447,23 +447,23 @@ export const practiceTest9RW = {
           "choices": [
             {
               "id": "A",
-              "text": "the conditions of daily life and the composition of the daily diet had not been uniform across the community, even though the individuals lived together for only a few generations."
-            },
-            {
-              "id": "B",
               "text": "the difference between high-status and low-status individuals had been driven primarily by diet rather than by the burdens of physical labor each group experienced."
             },
             {
+              "id": "B",
+              "text": "the conditions of daily life and the composition of the daily diet had not been uniform across the community, even though the individuals lived together for only a few generations."
+            },
+            {
               "id": "C",
-              "text": "skeletal stress markers and stable isotope ratios had measured the same underlying biological signal and would therefore be expected to converge in any population."
+              "text": "high-status and low-status individuals had experienced essentially the same conditions of daily life and the same diet despite their differing burial treatment."
             },
             {
               "id": "D",
-              "text": "high-status and low-status individuals had experienced essentially the same conditions of daily life and the same diet despite their differing burial treatment."
+              "text": "skeletal stress markers and stable isotope ratios had measured the same underlying biological signal and would therefore be expected to converge in any population."
             }
           ],
-          "correctAnswer": "A",
-          "explanation": "The correct answer is A. The passage establishes two premises: (1) Vercellotti's team measured both skeletal stress markers (which track the burdens of physical labor and childhood biological stress) and stable isotope ratios (which track the composition of the diet) in the same individuals, and (2) in the cemetery dataset described, high-status and low-status burials differed sharply on both kinds of evidence even though the individuals were buried within a few generations of one another. The minimum inference these premises jointly force is that conditions of daily life and the composition of the daily diet were not uniform across that community: the two evidence streams point to differences along the same status divide. Choice A states exactly that hedged claim, holding to the population the passage actually describes (\"the population sampled,\" \"the community\") and to the two outcomes the two evidence streams actually track.\n\nWhy the wrong answers are tempting:\n- Choice B: scope shift — the passage reports that the two groups differed on both the stress markers and the isotope readings, but it does not rank one signal as the primary driver. Singling out diet as the principal source of the difference outruns what the premises license; the evidence licenses only the conjunction (both kinds of evidence differed), not a claim about which mattered more.\n- Choice C: surface match — this picks up the topical pairing of two methods on the same bones and turns it into a claim that the methods measure the same signal. The passage tells the opposite: stress markers and isotope ratios are introduced as complementary lines of evidence (labor versus diet), and they were used precisely because they capture different aspects of life.\n- Choice D: inverse — this directly reverses the second premise. The passage states that high-status and low-status individuals differed sharply on both evidence streams; choice D claims they experienced essentially the same life and diet, which contradicts the very finding the inference is supposed to follow from.",
+          "correctAnswer": "B",
+          "explanation": "The correct answer is B. The passage establishes two premises: (1) Vercellotti's team measured both skeletal stress markers (which track the burdens of physical labor and childhood biological stress) and stable isotope ratios (which track the composition of the diet) in the same individuals, and (2) in the cemetery dataset described, high-status and low-status burials differed sharply on both kinds of evidence even though the individuals were buried within a few generations of one another. The minimum inference these premises jointly force is that conditions of daily life and the composition of the daily diet were not uniform across that community: the two evidence streams point to differences along the same status divide. Choice B states exactly that hedged claim, holding to the population the passage actually describes (\"the population sampled,\" \"the community\") and to the two outcomes the two evidence streams actually track.\n\nWhy the wrong answers are tempting:\n- Choice A: scope shift — the passage reports that the two groups differed on both the stress markers and the isotope readings, but it does not rank one signal as the primary driver. Singling out diet as the principal source of the difference outruns what the premises license; the evidence licenses only the conjunction (both kinds of evidence differed), not a claim about which mattered more.\n- Choice D: surface match — this picks up the topical pairing of two methods on the same bones and turns it into a claim that the methods measure the same signal. The passage tells the opposite: stress markers and isotope ratios are introduced as complementary lines of evidence (labor versus diet), and they were used precisely because they capture different aspects of life.\n- Choice C: inverse — this directly reverses the second premise. The passage states that high-status and low-status individuals differed sharply on both evidence streams; choice C claims they experienced essentially the same life and diet, which contradicts the very finding the inference is supposed to follow from.",
           "_meta": {
             "anchor": "Giuseppe Vercellotti — bioarchaeologist, Ohio State University; pairs skeletal stress markers and stable isotope ratios in medieval European cemetery populations",
             "distractors": {
@@ -486,23 +486,23 @@ export const practiceTest9RW = {
           "choices": [
             {
               "id": "A",
-              "text": "a structure whose pulsing rate is determined by the chemical composition of the surrounding medium independently of any water exchange between the cell and that medium."
+              "text": "a structure whose cycling slows when the surrounding water is fresher, because the cell takes in less water under those conditions and has less fluid to expel."
             },
             {
               "id": "B",
-              "text": "a mechanism that helps the cell offset the inward flow of water from its surroundings, with its rate of cycling tracking the magnitude of that inward flow."
-            },
-            {
-              "id": "C",
               "text": "the principal mechanism that controls salt concentration in every freshwater single-celled organism that biologists have so far been able to culture in a laboratory."
             },
             {
+              "id": "C",
+              "text": "a structure whose pulsing rate is determined by the chemical composition of the surrounding medium independently of any water exchange between the cell and that medium."
+            },
+            {
               "id": "D",
-              "text": "a structure whose cycling slows when the surrounding water is fresher, because the cell takes in less water under those conditions and has less fluid to expel."
+              "text": "a mechanism that helps the cell offset the inward flow of water from its surroundings, with its rate of cycling tracking the magnitude of that inward flow."
             }
           ],
-          "correctAnswer": "B",
-          "explanation": "The correct answer is B. The passage establishes two premises: (1) Young observed that the contractile vacuole in Paramecium pulsed more frequently in dilute, fresher water than in saltier water, and (2) cells in fresher water tend to take in more water from their surroundings. The minimum inference these premises jointly force is that the vacuole's job is to expel that extra incoming water — when more water enters the cell, the vacuole cycles more often to push it back out. Choice B captures exactly that combined claim: the vacuole offsets the inward flow, and its cycling rate tracks the size of that flow. The hedge \"is best understood as\" matches the passage's own \"suggest.\"\n\nWhy the wrong answers are tempting:\n- Choice A: scope shift — this stays inside the topical frame (the surrounding medium influences pulsing) but cuts the inference loose from the second premise. The passage explicitly links the change in pulsing to the change in water uptake; treating the vacuole's response as independent of water exchange ignores the mechanism the second premise supplies.\n- Choice C: scope shift — pushes a Paramecium-specific result onto \"every freshwater single-celled organism that biologists have so far been able to culture,\" and reframes the vacuole as controlling salt concentration generally. The premises concern Young's Paramecium experiments and water uptake; the universal organism-and-salt claim outruns the evidence.\n- Choice D: inverse — directly reverses the first premise. The passage states that the vacuole pulses more frequently, not less, in fresher water, and that cells take in more water there, not less; choice D flips both directional claims at once.",
+          "correctAnswer": "D",
+          "explanation": "The correct answer is D. The passage establishes two premises: (1) Young observed that the contractile vacuole in Paramecium pulsed more frequently in dilute, fresher water than in saltier water, and (2) cells in fresher water tend to take in more water from their surroundings. The minimum inference these premises jointly force is that the vacuole's job is to expel that extra incoming water — when more water enters the cell, the vacuole cycles more often to push it back out. Choice D captures exactly that combined claim: the vacuole offsets the inward flow, and its cycling rate tracks the size of that flow. The hedge \"is best understood as\" matches the passage's own \"suggest.\"\n\nWhy the wrong answers are tempting:\n- Choice C: scope shift — this stays inside the topical frame (the surrounding medium influences pulsing) but cuts the inference loose from the second premise. The passage explicitly links the change in pulsing to the change in water uptake; treating the vacuole's response as independent of water exchange ignores the mechanism the second premise supplies.\n- Choice B: scope shift — pushes a Paramecium-specific result onto \"every freshwater single-celled organism that biologists have so far been able to culture,\" and reframes the vacuole as controlling salt concentration generally. The premises concern Young's Paramecium experiments and water uptake; the universal organism-and-salt claim outruns the evidence.\n- Choice A: inverse — directly reverses the first premise. The passage states that the vacuole pulses more frequently, not less, in fresher water, and that cells take in more water there, not less; choice A flips both directional claims at once.",
           "_meta": {
             "anchor": "Roger Arliner Young — marine biologist and zoologist, Howard University; Paramecium contractile vacuole and salt-concentration studies; paramecium physiology",
             "distractors": {
@@ -604,19 +604,19 @@ export const practiceTest9RW = {
             },
             {
               "id": "B",
-              "text": "grasslands lost approximately 717 million birds, a 53 percent decline that exceeds every other biome both in raw numbers and in percentage of the 1970 population."
+              "text": "coasts lost only 5 million birds and 13 percent of their 1970 population, the largest declines on either measure of any biome listed."
             },
             {
               "id": "C",
-              "text": "aridlands experienced a 29 percent decline since 1970, larger than the 17 percent decline recorded for eastern forests over the same period."
+              "text": "grasslands lost approximately 717 million birds, a 53 percent decline that exceeds every other biome both in raw numbers and in percentage of the 1970 population."
             },
             {
               "id": "D",
-              "text": "coasts lost only 5 million birds and 13 percent of their 1970 population, the largest declines on either measure of any biome listed."
+              "text": "aridlands experienced a 29 percent decline since 1970, larger than the 17 percent decline recorded for eastern forests over the same period."
             }
           ],
-          "correctAnswer": "B",
-          "explanation": "The correct answer is B. The claim has two specific parts: that one biome lost the most individual birds in absolute terms AND lost the largest share of its starting population. To support a two-part 'most on both measures' claim, the evidence must name the biome and cite both numbers. Choice B does exactly that: grasslands' 717 million is the largest figure in the 'Loss (millions)' column, and -53% is the steepest figure in the 'Percent change' column. The two figures together are the only way the table can vindicate the claim's 'both in raw numbers and in percentage' framing.\n\nWhy the wrong answers are tempting:\n- Choice A is a SCOPE SHIFT. It cites the boreal-forest row accurately, and 501 million is genuinely the second-largest absolute loss in the table, but the claim is about the biome that lost the most on both measures, not the runner-up on one. Even read correctly, A supports a different (narrower) claim.\n- Choice C is a SURFACE MATCH. The aridlands-vs.-eastern-forests comparison does appear in the table (29% > 17%), and the figures are reported correctly, but the claim is about a single standout biome on both axes; comparing two non-leading biomes on a single axis cannot establish that any biome leads on both.\n- Choice D is an INVERSE. The coasts row shows the smallest absolute loss (5 million) and the smallest percentage decline (-13%) in the table, not the largest. Asserting that those are 'the largest declines on either measure' reads the data in the wrong direction and would, if anything, undermine the claim.",
+          "correctAnswer": "C",
+          "explanation": "The correct answer is C. The claim has two specific parts: that one biome lost the most individual birds in absolute terms AND lost the largest share of its starting population. To support a two-part 'most on both measures' claim, the evidence must name the biome and cite both numbers. Choice C does exactly that: grasslands' 717 million is the largest figure in the 'Loss (millions)' column, and -53% is the steepest figure in the 'Percent change' column. The two figures together are the only way the table can vindicate the claim's 'both in raw numbers and in percentage' framing.\n\nWhy the wrong answers are tempting:\n- Choice A is a SCOPE SHIFT. It cites the boreal-forest row accurately, and 501 million is genuinely the second-largest absolute loss in the table, but the claim is about the biome that lost the most on both measures, not the runner-up on one. Even read correctly, A supports a different (narrower) claim.\n- Choice D is a SURFACE MATCH. The aridlands-vs.-eastern-forests comparison does appear in the table (29% > 17%), and the figures are reported correctly, but the claim is about a single standout biome on both axes; comparing two non-leading biomes on a single axis cannot establish that any biome leads on both.\n- Choice B is an INVERSE. The coasts row shows the smallest absolute loss (5 million) and the smallest percentage decline (-13%) in the table, not the largest. Asserting that those are 'the largest declines on either measure' reads the data in the wrong direction and would, if anything, undermine the claim.",
           "_meta": {
             "anchor": "Rosenberg et al. — ornithology / conservation biology; describing data on the decline of North American breeding-bird populations 1970-2017 by biome",
             "distractors": {
@@ -638,23 +638,23 @@ export const practiceTest9RW = {
           "choices": [
             {
               "id": "A",
-              "text": "\"Different communities cultivate different rhetorical styles, and the storyteller in one tradition will deploy formulaic openings and parallel cadences that the storyteller in another tradition would find foreign or even comical.\""
-            },
-            {
-              "id": "B",
               "text": "\"Each intonation unit, brief as it is, appears to introduce only as much new content as the speaker can attend to at the moment of its production, so the rhythm of speech tracks the narrow window of focal consciousness rather than the looser logic of the sentence on a page.\""
             },
             {
-              "id": "C",
+              "id": "B",
               "text": "\"The written sentence, polished by revision and free of the hesitations of live talk, has long supplied grammarians with the model against which spoken utterance is, often unfairly, measured.\""
             },
             {
-              "id": "D",
+              "id": "C",
               "text": "\"Once we accept that conversation is bound by attentional limits, we must also accept that those limits dissolve in writing, where the unhurried hand is free to assemble information at any density the writer cares to attempt.\""
+            },
+            {
+              "id": "D",
+              "text": "\"Different communities cultivate different rhetorical styles, and the storyteller in one tradition will deploy formulaic openings and parallel cadences that the storyteller in another tradition would find foreign or even comical.\""
             }
           ],
-          "correctAnswer": "B",
-          "explanation": "The correct answer is B. The claim has two specific parts: (1) speech is delivered in short intonation units, each ordinarily introducing only one new piece of information, and (2) this packaging reflects the limited number of items a speaker can hold in focal awareness at one moment. Choice B maps onto both: it says each intonation unit is brief and \"introduces only as much new content as the speaker can attend to at the moment of its production,\" and it explicitly grounds the rhythm of speech in \"the narrow window of focal consciousness.\" That is a direct, scoped match to the cognitive-constraint claim the passage attributes to Chafe.\n\nWhy the wrong answers are tempting:\n- Choice A: surface-match — the quotation lives in the same general territory of discourse and storytelling and uses the recognizable register of conversation analysis. But its content concerns rhetorical style varying across communities, not the cognitive packaging of new information into intonation units. It does not speak to focal awareness or the one-new-idea-per-unit pattern the claim names.\n- Choice C: scope-shift — the quotation engages with the relationship between written and spoken language, a topic adjacent to Chafe's project, but it makes a point about how grammarians use written models rather than about the rhythm of speech tracking attention. It addresses a different sub-claim of the book and does not illustrate the cognitive constraint the passage spotlights.\n- Choice D: inverse — the quotation contradicts the spirit of the claim. It treats the attentional limits as something that \"dissolve in writing,\" emphasizing the freedom of the written hand rather than identifying the speech-as-attention pattern that the underlined claim foregrounds; choosing it would have Chafe shifting focus to writing's escape from the constraint instead of illustrating the constraint itself.",
+          "correctAnswer": "A",
+          "explanation": "The correct answer is A. The claim has two specific parts: (1) speech is delivered in short intonation units, each ordinarily introducing only one new piece of information, and (2) this packaging reflects the limited number of items a speaker can hold in focal awareness at one moment. Choice A maps onto both: it says each intonation unit is brief and \"introduces only as much new content as the speaker can attend to at the moment of its production,\" and it explicitly grounds the rhythm of speech in \"the narrow window of focal consciousness.\" That is a direct, scoped match to the cognitive-constraint claim the passage attributes to Chafe.\n\nWhy the wrong answers are tempting:\n- Choice D: surface-match — the quotation lives in the same general territory of discourse and storytelling and uses the recognizable register of conversation analysis. But its content concerns rhetorical style varying across communities, not the cognitive packaging of new information into intonation units. It does not speak to focal awareness or the one-new-idea-per-unit pattern the claim names.\n- Choice B: scope-shift — the quotation engages with the relationship between written and spoken language, a topic adjacent to Chafe's project, but it makes a point about how grammarians use written models rather than about the rhythm of speech tracking attention. It addresses a different sub-claim of the book and does not illustrate the cognitive constraint the passage spotlights.\n- Choice C: inverse — the quotation contradicts the spirit of the claim. It treats the attentional limits as something that \"dissolve in writing,\" emphasizing the freedom of the written hand rather than identifying the speech-as-attention pattern that the underlined claim foregrounds; choosing it would have Chafe shifting focus to writing's escape from the constraint instead of illustrating the constraint itself.",
           "_meta": {
             "anchor": "Wallace Chafe — linguistics; Discourse, Consciousness, and Time (1994); intonation units track focal awareness",
             "distractors": {
@@ -708,7 +708,7 @@ export const practiceTest9RW = {
           "choices": [
             {
               "id": "A",
-              "text": "the decade ending in 2003 added 31 millimeters, the decade ending in 2013 added 34 millimeters, and the decade ending in 2023 added 40 millimeters, an upward step in the decadal increment each time."
+              "text": "global mean sea level rose by 40 millimeters between 2013 and 2023, a single-decade increase greater than the cumulative rise from 1993 to 2003."
             },
             {
               "id": "B",
@@ -716,15 +716,15 @@ export const practiceTest9RW = {
             },
             {
               "id": "C",
-              "text": "global mean sea level rose by 40 millimeters between 2013 and 2023, a single-decade increase greater than the cumulative rise from 1993 to 2003."
+              "text": "the decade ending in 2003 added 31 millimeters, the decade ending in 2013 added 34 millimeters, and the decade ending in 2023 added 40 millimeters, an upward step in the decadal increment each time."
             },
             {
               "id": "D",
               "text": "the decadal increases of 31, 34, and 40 millimeters are similar enough to indicate that the pace of sea-level rise has remained essentially steady since 1993."
             }
           ],
-          "correctAnswer": "A",
-          "explanation": "The correct answer is A. The claim is precise: each successive decade has added MORE millimeters than the one before, so the rise is quickening. Supporting evidence has to read the right column (decadal change, not cumulative level) and has to show the increment growing across all three intervals shown. Choice A does exactly this: 31 mm for the decade ending 2003, 34 mm for the decade ending 2013, and 40 mm for the decade ending 2023 — three increments in strictly ascending order. Only that monotone progression in the decadal-change column licenses the 'steadily quickened' claim.\n\nWhy the wrong answers are tempting:\n- Choice B is a SURFACE MATCH on the largest absolute value. The 105-millimeter cumulative figure for 2023 is the most prominent number in the 'Sea level (mm)' column and is reported accurately, but a single endpoint says nothing about whether the pace of rise has accelerated. The claim is about tempo, not total.\n- Choice C is a SCOPE SHIFT. The 40-mm increase for 2013-2023 is real, and it does exceed the 31-mm increase for 1993-2003, but a single pairwise comparison establishes only that one decade rose faster than another decade. The claim asserts a continuous acceleration across every decade shown, which a two-decade comparison cannot demonstrate.\n- Choice D is an INVERSE. The decadal increments 31, 34, and 40 millimeters are not 'essentially steady' — they form an ascending sequence, and the difference between the first and last (9 mm) is roughly a 29 percent jump in the decadal rate. Reading the sequence as flat reverses the very pattern the claim is built on.",
+          "correctAnswer": "C",
+          "explanation": "The correct answer is C. The claim is precise: each successive decade has added MORE millimeters than the one before, so the rise is quickening. Supporting evidence has to read the right column (decadal change, not cumulative level) and has to show the increment growing across all three intervals shown. Choice C does exactly this: 31 mm for the decade ending 2003, 34 mm for the decade ending 2013, and 40 mm for the decade ending 2023 — three increments in strictly ascending order. Only that monotone progression in the decadal-change column licenses the 'steadily quickened' claim.\n\nWhy the wrong answers are tempting:\n- Choice B is a SURFACE MATCH on the largest absolute value. The 105-millimeter cumulative figure for 2023 is the most prominent number in the 'Sea level (mm)' column and is reported accurately, but a single endpoint says nothing about whether the pace of rise has accelerated. The claim is about tempo, not total.\n- Choice A is a SCOPE SHIFT. The 40-mm increase for 2013-2023 is real, and it does exceed the 31-mm increase for 1993-2003, but a single pairwise comparison establishes only that one decade rose faster than another decade. The claim asserts a continuous acceleration across every decade shown, which a two-decade comparison cannot demonstrate.\n- Choice D is an INVERSE. The decadal increments 31, 34, and 40 millimeters are not 'essentially steady' — they form an ascending sequence, and the difference between the first and last (9 mm) is roughly a 29 percent jump in the decadal rate. Reading the sequence as flat reverses the very pattern the claim is built on.",
           "_meta": {
             "anchor": "NASA Goddard Space Flight Center — climate science; describing data on global mean sea level rise from satellite altimetry, 1993-2023",
             "distractors": {
@@ -746,23 +746,23 @@ export const practiceTest9RW = {
           "choices": [
             {
               "id": "A",
-              "text": "\"The river that runs past the village is the chief feature of the surrounding landscape, and a child learns to read its currents long before learning to count beyond the smallest numbers.\""
+              "text": "\"Whatever cultural pressures press on a language, the deepest grammatical patterns of any human tongue are fixed in advance by the species's inheritance, and field data can refine but not displace that inheritance.\""
             },
             {
               "id": "B",
-              "text": "\"Pirahã grammar is not impoverished by accident, nor by some lack at the level of the speakers' biology; what shapes it, rather, is a community-wide insistence that one speaks only of what one has lived through directly, and the structures that would carry talk beyond such experience — embedded clauses, abstract numerals, distant time reference — are the very structures that the language declines to develop.\""
-            },
-            {
-              "id": "C",
               "text": "\"Older Pirahã speakers I worked with were patient teachers, and the long afternoons we spent together along the riverbank were as much an education in their humor as in their phonology.\""
             },
             {
+              "id": "C",
+              "text": "\"The river that runs past the village is the chief feature of the surrounding landscape, and a child learns to read its currents long before learning to count beyond the smallest numbers.\""
+            },
+            {
               "id": "D",
-              "text": "\"Whatever cultural pressures press on a language, the deepest grammatical patterns of any human tongue are fixed in advance by the species's inheritance, and field data can refine but not displace that inheritance.\""
+              "text": "\"Pirahã grammar is not impoverished by accident, nor by some lack at the level of the speakers' biology; what shapes it, rather, is a community-wide insistence that one speaks only of what one has lived through directly, and the structures that would carry talk beyond such experience — embedded clauses, abstract numerals, distant time reference — are the very structures that the language declines to develop.\""
             }
           ],
-          "correctAnswer": "B",
-          "explanation": "The correct answer is B. The claim has two specific parts: (1) the absence of recursion and related features in Pirahã is not best explained by a deficit in any innate capacity, and (2) it is best explained by a strict cultural commitment to talking only about immediate, eyewitness experience. Choice B maps onto both: it explicitly denies that the grammar is impoverished by accident or by anything at the level of speakers' biology, and it grounds the missing structures — \"embedded clauses, abstract numerals, distant time reference\" — in a community-wide insistence on speaking only of direct experience. That is precisely the cultural-constraint explanation the passage attributes to Everett.\n\nWhy the wrong answers are tempting:\n- Choice A: surface-match — the quotation evokes the Amazonian setting and even mentions counting practices, which lives near Everett's observations about Pirahã numerals. But its actual content describes the river and a child's environment, not why the grammar of the language takes the shape it does. It does not speak to recursion, to the innateness debate, or to the cultural-experience principle.\n- Choice C: scope-shift — the quotation comes from inside the same fieldwork project but addresses a different sub-claim: the personal texture of working with elderly Pirahã speakers. It is on-topic for the book but off-scope for the specific claim, which is about the explanation of grammatical absences, not about the experience of fieldwork itself.\n- Choice D: inverse — the quotation contradicts the claim. It says the deepest grammatical patterns of any human language are \"fixed in advance by the species's inheritance\" and that fieldwork can refine but not displace that inheritance. That is the universal-grammar position the passage says Everett is arguing against; choosing D would have him endorsing the very view his Pirahã evidence is supposed to challenge.",
+          "correctAnswer": "D",
+          "explanation": "The correct answer is D. The claim has two specific parts: (1) the absence of recursion and related features in Pirahã is not best explained by a deficit in any innate capacity, and (2) it is best explained by a strict cultural commitment to talking only about immediate, eyewitness experience. Choice D maps onto both: it explicitly denies that the grammar is impoverished by accident or by anything at the level of speakers' biology, and it grounds the missing structures — \"embedded clauses, abstract numerals, distant time reference\" — in a community-wide insistence on speaking only of direct experience. That is precisely the cultural-constraint explanation the passage attributes to Everett.\n\nWhy the wrong answers are tempting:\n- Choice C: surface-match — the quotation evokes the Amazonian setting and even mentions counting practices, which lives near Everett's observations about Pirahã numerals. But its actual content describes the river and a child's environment, not why the grammar of the language takes the shape it does. It does not speak to recursion, to the innateness debate, or to the cultural-experience principle.\n- Choice B: scope-shift — the quotation comes from inside the same fieldwork project but addresses a different sub-claim: the personal texture of working with elderly Pirahã speakers. It is on-topic for the book but off-scope for the specific claim, which is about the explanation of grammatical absences, not about the experience of fieldwork itself.\n- Choice A: inverse — the quotation contradicts the claim. It says the deepest grammatical patterns of any human language are \"fixed in advance by the species's inheritance\" and that fieldwork can refine but not displace that inheritance. That is the universal-grammar position the passage says Everett is arguing against; choosing D would have him endorsing the very view his Pirahã evidence is supposed to challenge.",
           "_meta": {
             "anchor": "Daniel Everett — linguistics; Don't Sleep, There Are Snakes (2008); Pirahã grammar shaped by cultural commitment to immediate experience",
             "distractors": {
@@ -785,11 +785,11 @@ export const practiceTest9RW = {
           "choices": [
             {
               "id": "A",
-              "text": "restored,"
+              "text": "restored."
             },
             {
               "id": "B",
-              "text": "restored."
+              "text": "restored,"
             },
             {
               "id": "C",
@@ -800,8 +800,8 @@ export const practiceTest9RW = {
               "text": "restored, and,"
             }
           ],
-          "correctAnswer": "B",
-          "explanation": "The correct answer is B, \"restored.\". The blank sits between two complete independent clauses: \"Spillers argued that conventional categories of family had been deformed by the conditions of bondage and could not simply be restored\" and \"she proposed a new vocabulary of 'flesh' and 'ungendered' subjectivity to describe what the older terms could not name.\" Standard English requires a stronger boundary mark than a comma between two independent clauses; a period that ends the first clause and starts a new sentence is a fully grammatical solution.\n\nWhy the wrong answers are tempting:\n- Choice A: surface-match — a comma alone between two independent clauses is the textbook comma splice; it looks plausible because a comma is the default mid-sentence pause, but two independent clauses cannot be joined by a comma alone without a coordinating conjunction.\n- Choice C: scope-shift — supplying no punctuation creates a fused-sentence (run-on) error rather than the comma-splice error, and Standard English requires some boundary mark between the two clauses.\n- Choice D: inverse — adding \"and\" with paired commas tries to coordinate the two clauses but inserts a stray comma after \"and,\" producing an ungrammatical pause inside the conjunction itself.",
+          "correctAnswer": "A",
+          "explanation": "The correct answer is A, \"restored.\". The blank sits between two complete independent clauses: \"Spillers argued that conventional categories of family had been deformed by the conditions of bondage and could not simply be restored\" and \"she proposed a new vocabulary of 'flesh' and 'ungendered' subjectivity to describe what the older terms could not name.\" Standard English requires a stronger boundary mark than a comma between two independent clauses; a period that ends the first clause and starts a new sentence is a fully grammatical solution.\n\nWhy the wrong answers are tempting:\n- Choice B: surface-match — a comma alone between two independent clauses is the textbook comma splice; it looks plausible because a comma is the default mid-sentence pause, but two independent clauses cannot be joined by a comma alone without a coordinating conjunction.\n- Choice C: scope-shift — supplying no punctuation creates a fused-sentence (run-on) error rather than the comma-splice error, and Standard English requires some boundary mark between the two clauses.\n- Choice D: inverse — adding \"and\" with paired commas tries to coordinate the two clauses but inserts a stray comma after \"and,\" producing an ungrammatical pause inside the conjunction itself.",
           "_meta": {
             "anchor": "Hortense Spillers — literary theory and Black studies; 1987 essay 'Mama's Baby, Papa's Maybe' on the kinship vocabulary of slavery",
             "rule": "period (or semicolon) between two independent clauses; a comma alone is a comma splice",
@@ -826,23 +826,23 @@ export const practiceTest9RW = {
           "choices": [
             {
               "id": "A",
-              "text": "supports"
-            },
-            {
-              "id": "B",
-              "text": "support"
-            },
-            {
-              "id": "C",
               "text": "is supporting"
             },
             {
-              "id": "D",
+              "id": "B",
               "text": "has supported"
+            },
+            {
+              "id": "C",
+              "text": "support"
+            },
+            {
+              "id": "D",
+              "text": "supports"
             }
           ],
-          "correctAnswer": "B",
-          "explanation": "The correct answer is B. The grammatical subject of the verb is the plural noun 'networks,' not the singular noun 'fungi' or 'firs' that sits next to the verb in the intervening modifier 'of mycorrhizal fungi linking neighboring Douglas firs.' Standard English requires the verb to agree in number with its head noun, so the plural verb 'support' is required.\n\nWhy the wrong answers are tempting:\n- Choice A: surface-match — 'supports' is the singular verb form and matches the closest noun 'firs' in proximity, but 'firs' is the object of the participle 'linking,' not the subject of the main verb. The actual subject is 'networks' (plural), so the singular 'supports' creates an agreement error.\n- Choice C: scope-shift — 'is supporting' is also singular and commits the same agreement error in a different aspect (present progressive rather than simple present), so it tests the same rule from a different angle but still fails.\n- Choice D: inverse — 'has supported' is the singular present-perfect form, the inverse of the required plural simple present, and likewise mismatches the plural subject 'networks.'",
+          "correctAnswer": "C",
+          "explanation": "The correct answer is C. The grammatical subject of the verb is the plural noun 'networks,' not the singular noun 'fungi' or 'firs' that sits next to the verb in the intervening modifier 'of mycorrhizal fungi linking neighboring Douglas firs.' Standard English requires the verb to agree in number with its head noun, so the plural verb 'support' is required.\n\nWhy the wrong answers are tempting:\n- Choice D: surface-match — 'supports' is the singular verb form and matches the closest noun 'firs' in proximity, but 'firs' is the object of the participle 'linking,' not the subject of the main verb. The actual subject is 'networks' (plural), so the singular 'supports' creates an agreement error.\n- Choice A: scope-shift — 'is supporting' is also singular and commits the same agreement error in a different aspect (present progressive rather than simple present), so it tests the same rule from a different angle but still fails.\n- Choice B: inverse — 'has supported' is the singular present-perfect form, the inverse of the required plural simple present, and likewise mismatches the plural subject 'networks.'",
           "_meta": {
             "anchor": "Suzanne Simard — forest ecology, University of British Columbia; mycorrhizal networks linking Douglas firs in temperate forests; carbon and nutrient exchange among connected trees",
             "rule": "subject-verb agreement with a plural head noun separated from the verb by an intervening prepositional/participial modifier",
@@ -866,23 +866,23 @@ export const practiceTest9RW = {
           "choices": [
             {
               "id": "A",
-              "text": "curfews;"
-            },
-            {
-              "id": "B",
-              "text": "curfews,"
-            },
-            {
-              "id": "C",
               "text": "curfews:"
             },
             {
-              "id": "D",
+              "id": "B",
               "text": "curfews"
+            },
+            {
+              "id": "C",
+              "text": "curfews,"
+            },
+            {
+              "id": "D",
+              "text": "curfews;"
             }
           ],
-          "correctAnswer": "A",
-          "explanation": "The correct answer is A, \"curfews;\". The blank sits between two complete independent clauses: \"planters tried to fix enslaved people in place through passes, patrols, and curfews\" and \"enslaved women carved out what she called a 'rival geography' of unauthorized movement, secret gatherings, and stolen leisure inside the plantation landscape itself.\" Standard English allows two independent clauses to be joined directly by a semicolon when the relationship between them (here, contrast) is left for the reader to infer. A semicolon at this slot connects the two clauses without a coordinating conjunction.\n\nWhy the wrong answers are tempting:\n- Choice B: surface-match — a comma alone between two independent clauses is the classic comma splice. It looks correct because a comma is the most frequent mid-sentence mark, but joining two independent clauses requires a stronger boundary (semicolon, period, or comma + coordinating conjunction).\n- Choice C: scope-shift — a colon tests a different boundary rule (introducing a list, definition, or amplification of what came before). The second clause does not define or amplify \"curfews\"; it states a separate, contrasting fact about enslaved women, so a colon is the wrong relation.\n- Choice D: inverse — supplying no punctuation produces a fused (run-on) sentence, the opposite of the correct stronger-than-comma boundary the slot demands.",
+          "correctAnswer": "D",
+          "explanation": "The correct answer is D, \"curfews;\". The blank sits between two complete independent clauses: \"planters tried to fix enslaved people in place through passes, patrols, and curfews\" and \"enslaved women carved out what she called a 'rival geography' of unauthorized movement, secret gatherings, and stolen leisure inside the plantation landscape itself.\" Standard English allows two independent clauses to be joined directly by a semicolon when the relationship between them (here, contrast) is left for the reader to infer. A semicolon at this slot connects the two clauses without a coordinating conjunction.\n\nWhy the wrong answers are tempting:\n- Choice C: surface-match — a comma alone between two independent clauses is the classic comma splice. It looks correct because a comma is the most frequent mid-sentence mark, but joining two independent clauses requires a stronger boundary (semicolon, period, or comma + coordinating conjunction).\n- Choice A: scope-shift — a colon tests a different boundary rule (introducing a list, definition, or amplification of what came before). The second clause does not define or amplify \"curfews\"; it states a separate, contrasting fact about enslaved women, so a colon is the wrong relation.\n- Choice B: inverse — supplying no punctuation produces a fused (run-on) sentence, the opposite of the correct stronger-than-comma boundary the slot demands.",
           "_meta": {
             "anchor": "Stephanie M. H. Camp — U.S. history; 2004 'Closer to Freedom' on the rival geography of enslaved women",
             "rule": "semicolon between two independent clauses with no coordinating conjunction",
@@ -911,19 +911,19 @@ export const practiceTest9RW = {
             },
             {
               "id": "B",
-              "text": "has assembled"
+              "text": "assembles"
             },
             {
               "id": "C",
-              "text": "had assembled"
+              "text": "has assembled"
             },
             {
               "id": "D",
-              "text": "assembles"
+              "text": "had assembled"
             }
           ],
-          "correctAnswer": "C",
-          "explanation": "The correct answer is C. The sentence describes two past actions and uses the explicit sequence cue 'By the time she submitted... in 1967.' Standard English uses the past perfect ('had assembled') to mark the action that was completed BEFORE another past action: Margulis finished assembling her synthesis before the 1967 submission. The simple past 'submitted' anchors the later event, and the past perfect 'had assembled' marks the earlier one.\n\nWhy the wrong answers are tempting:\n- Choice A: surface-match — 'assembled' is the simple past, which matches the past-tense voice of the surrounding narrative but flattens the two past events into the same time, losing the prior-to-1967 sequence that 'By the time she submitted' explicitly demands.\n- Choice B: scope-shift — 'has assembled' is the present perfect, a different verb-tense error. Present perfect connects an action to the present moment, but the entire passage is anchored in the past ('spent the late 1960s,' '1967'), so present perfect breaks the time frame.\n- Choice D: inverse — 'assembles' is the simple present, the opposite of the required past form, and clashes directly with the past-anchored narrative and the explicit date '1967.'",
+          "correctAnswer": "D",
+          "explanation": "The correct answer is D. The sentence describes two past actions and uses the explicit sequence cue 'By the time she submitted... in 1967.' Standard English uses the past perfect ('had assembled') to mark the action that was completed BEFORE another past action: Margulis finished assembling her synthesis before the 1967 submission. The simple past 'submitted' anchors the later event, and the past perfect 'had assembled' marks the earlier one.\n\nWhy the wrong answers are tempting:\n- Choice A: surface-match — 'assembled' is the simple past, which matches the past-tense voice of the surrounding narrative but flattens the two past events into the same time, losing the prior-to-1967 sequence that 'By the time she submitted' explicitly demands.\n- Choice C: scope-shift — 'has assembled' is the present perfect, a different verb-tense error. Present perfect connects an action to the present moment, but the entire passage is anchored in the past ('spent the late 1960s,' '1967'), so present perfect breaks the time frame.\n- Choice B: inverse — 'assembles' is the simple present, the opposite of the required past form, and clashes directly with the past-anchored narrative and the explicit date '1967.'",
           "_meta": {
             "anchor": "Lynn Margulis — evolutionary biology, University of Massachusetts Amherst; 1967 paper 'On the Origin of Mitosing Cells'; endosymbiotic origin of mitochondria and chloroplasts",
             "rule": "verb tense / aspect: past perfect to mark a past action completed before another past action signaled by 'By the time...'",
@@ -947,7 +947,7 @@ export const practiceTest9RW = {
           "choices": [
             {
               "id": "A",
-              "text": "once,"
+              "text": "once:"
             },
             {
               "id": "B",
@@ -955,15 +955,15 @@ export const practiceTest9RW = {
             },
             {
               "id": "C",
-              "text": "once:"
+              "text": "once,"
             },
             {
               "id": "D",
               "text": "once"
             }
           ],
-          "correctAnswer": "C",
-          "explanation": "The correct answer is C, \"once:\". The material before the blank is a complete independent clause (\"Rich proposed that motherhood had to be understood as two things at once\"), and the material after the blank is an appositive noun-phrase amplification that names exactly what those \"two things\" are (\"the individual, embodied relation a woman has to her children and the patriarchal institution that has historically defined what mothering must look like…\"). Standard English uses a colon to introduce a defining or amplifying noun phrase after a complete independent clause, especially when the prior clause sets up a number, label, or category that the noun phrase then specifies (\"two things at once: X and Y\").\n\nWhy the wrong answers are tempting:\n- Choice A: surface-match — a comma can introduce an appositive in informal contexts, but here the appositive specifies a slot already announced by \"two things\" after a complete independent clause, which is the canonical environment for a colon, not a comma.\n- Choice B: scope-shift — a semicolon requires a complete independent clause on both sides. The material after the blank is a noun phrase, not an independent clause, so a semicolon is ungrammatical here.\n- Choice D: inverse — supplying no punctuation runs the noun phrase directly into the verb-frame \"as two things at once the individual, embodied relation…\", producing a fused string with no boundary between the announcement and the items announced.",
+          "correctAnswer": "A",
+          "explanation": "The correct answer is A, \"once:\". The material before the blank is a complete independent clause (\"Rich proposed that motherhood had to be understood as two things at once\"), and the material after the blank is an appositive noun-phrase amplification that names exactly what those \"two things\" are (\"the individual, embodied relation a woman has to her children and the patriarchal institution that has historically defined what mothering must look like…\"). Standard English uses a colon to introduce a defining or amplifying noun phrase after a complete independent clause, especially when the prior clause sets up a number, label, or category that the noun phrase then specifies (\"two things at once: X and Y\").\n\nWhy the wrong answers are tempting:\n- Choice C: surface-match — a comma can introduce an appositive in informal contexts, but here the appositive specifies a slot already announced by \"two things\" after a complete independent clause, which is the canonical environment for a colon, not a comma.\n- Choice B: scope-shift — a semicolon requires a complete independent clause on both sides. The material after the blank is a noun phrase, not an independent clause, so a semicolon is ungrammatical here.\n- Choice D: inverse — supplying no punctuation runs the noun phrase directly into the verb-frame \"as two things at once the individual, embodied relation…\", producing a fused string with no boundary between the announcement and the items announced.",
           "_meta": {
             "anchor": "Adrienne Rich — literary criticism and feminist theory; 1976 'Of Woman Born' distinguishing experience from institution of motherhood",
             "rule": "colon to introduce a defining noun-phrase amplification after a complete independent clause",
@@ -988,11 +988,11 @@ export const practiceTest9RW = {
           "choices": [
             {
               "id": "A",
-              "text": "they were"
+              "text": "they had been"
             },
             {
               "id": "B",
-              "text": "it was"
+              "text": "they were"
             },
             {
               "id": "C",
@@ -1000,11 +1000,11 @@ export const practiceTest9RW = {
             },
             {
               "id": "D",
-              "text": "they had been"
+              "text": "it was"
             }
           ],
-          "correctAnswer": "B",
-          "explanation": "The correct answer is B. The pronoun in the blank refers back to the antecedent 'Each of these compounds.' In Standard English, the subject 'each' is treated as grammatically singular (it picks out the compounds one at a time), so a singular pronoun-and-verb pair is required. 'It was' agrees with the singular antecedent 'each.'\n\nWhy the wrong answers are tempting:\n- Choice A: surface-match — 'they were' is plural and matches the nearby noun 'compounds' inside the prepositional phrase 'of these compounds.' But the pronoun must agree with the head of the subject ('each'), not with the object of the of-phrase. CB regularly tests this 'each of [plural noun]' configuration to lure students toward the visible plural.\n- Choice C: scope-shift — 'those were' is also plural and commits the same agreement error from a different angle (demonstrative rather than personal pronoun), so it shifts pronoun type without fixing the number mismatch.\n- Choice D: inverse — 'they had been' is the plural past-perfect form. It both fails number agreement with 'each' AND introduces a tense shift the sentence does not need, so it doubles up the error.",
+          "correctAnswer": "D",
+          "explanation": "The correct answer is D. The pronoun in the blank refers back to the antecedent 'Each of these compounds.' In Standard English, the subject 'each' is treated as grammatically singular (it picks out the compounds one at a time), so a singular pronoun-and-verb pair is required. 'It was' agrees with the singular antecedent 'each.'\n\nWhy the wrong answers are tempting:\n- Choice B: surface-match — 'they were' is plural and matches the nearby noun 'compounds' inside the prepositional phrase 'of these compounds.' But the pronoun must agree with the head of the subject ('each'), not with the object of the of-phrase. CB regularly tests this 'each of [plural noun]' configuration to lure students toward the visible plural.\n- Choice C: scope-shift — 'those were' is also plural and commits the same agreement error from a different angle (demonstrative rather than personal pronoun), so it shifts pronoun type without fixing the number mismatch.\n- Choice A: inverse — 'they had been' is the plural past-perfect form. It both fails number agreement with 'each' AND introduces a tense shift the sentence does not need, so it doubles up the error.",
           "_meta": {
             "anchor": "Rachel Carson — marine biology and environmental science; *Silent Spring* (1962); bioaccumulation of synthetic pesticides such as DDT in non-target wildlife",
             "rule": "pronoun-antecedent agreement with 'each of [plural noun]' — 'each' is grammatically singular, requires singular pronoun",
@@ -1032,19 +1032,19 @@ export const practiceTest9RW = {
             },
             {
               "id": "B",
-              "text": "However,"
+              "text": "Therefore,"
             },
             {
               "id": "C",
-              "text": "For example,"
+              "text": "However,"
             },
             {
               "id": "D",
-              "text": "Therefore,"
+              "text": "For example,"
             }
           ],
-          "correctAnswer": "B",
-          "explanation": "The correct answer is B. The first sentence describes Jemison's 1992 short-duration shuttle work on a near-term life-sciences experiment in microgravity. The second sentence describes a different, much later phase of her career — the 100 Year Starship initiative she founded in 2012 — which is explicitly characterized as 'redirected ... away from short-duration shuttle research and toward the long-horizon' questions of interstellar travel. The relation between the two sentences is contrast between an earlier short-mission focus and a later long-horizon focus, so 'However,' (a CB-lexicon contrast transition) is correct.\n\nThe cue that selects 'However,' is the verb phrase 'has redirected ... away from ... and toward,' which explicitly marks a contrast between the prior research focus (short-duration shuttle work) and the current focus (interstellar-travel questions).\n\nWhy the wrong answers are tempting:\n- Choice A: parallel addition — wrong because the second sentence does not name a parallel short-duration experiment continuing the first sentence's line of work; it names a deliberate redirection to a different scale of project.\n- Choice C: scope-shift (illustration) — the 100 Year Starship initiative is not an example of the bone-cell experiment or of short-duration shuttle research; it is presented as a distinct, contrasting commitment.\n- Choice D: surface-match (causal) — there is no causal claim that the 1992 experiment produced the 2012 initiative; the second sentence reports a separate later commitment, not a consequence of the first.",
+          "correctAnswer": "C",
+          "explanation": "The correct answer is C. The first sentence describes Jemison's 1992 short-duration shuttle work on a near-term life-sciences experiment in microgravity. The second sentence describes a different, much later phase of her career — the 100 Year Starship initiative she founded in 2012 — which is explicitly characterized as 'redirected ... away from short-duration shuttle research and toward the long-horizon' questions of interstellar travel. The relation between the two sentences is contrast between an earlier short-mission focus and a later long-horizon focus, so 'However,' (a CB-lexicon contrast transition) is correct.\n\nThe cue that selects 'However,' is the verb phrase 'has redirected ... away from ... and toward,' which explicitly marks a contrast between the prior research focus (short-duration shuttle work) and the current focus (interstellar-travel questions).\n\nWhy the wrong answers are tempting:\n- Choice A: parallel addition — wrong because the second sentence does not name a parallel short-duration experiment continuing the first sentence's line of work; it names a deliberate redirection to a different scale of project.\n- Choice D: scope-shift (illustration) — the 100 Year Starship initiative is not an example of the bone-cell experiment or of short-duration shuttle research; it is presented as a distinct, contrasting commitment.\n- Choice B: surface-match (causal) — there is no causal claim that the 1992 experiment produced the 2012 initiative; the second sentence reports a separate later commitment, not a consequence of the first.",
           "_meta": {
             "anchor": "Mae Jemison — astronaut and chemical engineer; STS-47 (1992) life-sciences experiments aboard Space Shuttle Endeavour; 100 Year Starship initiative (2012-) on long-horizon interstellar-travel questions",
             "cue": "the verb phrase 'has redirected ... away from ... and toward' marks an explicit contrast between an earlier short-duration shuttle focus and a later long-horizon interstellar focus",
@@ -1076,15 +1076,15 @@ export const practiceTest9RW = {
             },
             {
               "id": "C",
-              "text": "Meanwhile,"
+              "text": "For example,"
             },
             {
               "id": "D",
-              "text": "For example,"
+              "text": "Meanwhile,"
             }
           ],
           "correctAnswer": "A",
-          "explanation": "The correct answer is A. The first two sentences set up an evidence-and-finding pair: the prior consensus treated the inscriptions as primarily astronomical/ritual, and Proskouriakoff demonstrated that the recurring date clusters at Piedras Negras fall into life-span intervals tied to individual rulers. The third sentence describes how 'subsequent epigraphers have proceeded' — an inference about how the field's working assumption changed because of the demonstration. The relation between the demonstrated finding and the field's subsequent practice is causal/inferential, so 'Consequently,' (a CB-lexicon causal connector) is correct.\n\nThe cue that selects 'Consequently,' is the phrase 'subsequent epigraphers have proceeded on the assumption that ...': the post-blank sentence describes downstream methodological practice in the field, which is the consequence of the demonstration in the prior sentence.\n\nWhy the wrong answers are tempting:\n- Choice B: contrast (inverse relation) — 'By contrast,' would make sense if the post-blank sentence cut against Proskouriakoff's finding (e.g., 'By contrast, later epigraphers continued to read the inscriptions as primarily astronomical'). Instead, the post-blank sentence reports that later epigraphers adopted Proskouriakoff's dynastic-political reading, which extends rather than reverses her result.\n- Choice C: surface-match (temporal concurrence) — 'Meanwhile,' marks two events going on at the same time and is the strongest distractor because the post-blank sentence does describe a later phase of the field. But 'Meanwhile,' frames that phase as a separate, simultaneous development, whereas the passage frames it as a consequence of the 1960 demonstration.\n- Choice D: scope-shift (illustration) — 'For example,' would fit if the post-blank sentence named one specific later inscription study that exemplified Proskouriakoff's approach. Instead, it makes a general claim about how the whole next generation of epigraphers proceeded, which is downstream practice rather than an illustrating instance.",
+          "explanation": "The correct answer is A. The first two sentences set up an evidence-and-finding pair: the prior consensus treated the inscriptions as primarily astronomical/ritual, and Proskouriakoff demonstrated that the recurring date clusters at Piedras Negras fall into life-span intervals tied to individual rulers. The third sentence describes how 'subsequent epigraphers have proceeded' — an inference about how the field's working assumption changed because of the demonstration. The relation between the demonstrated finding and the field's subsequent practice is causal/inferential, so 'Consequently,' (a CB-lexicon causal connector) is correct.\n\nThe cue that selects 'Consequently,' is the phrase 'subsequent epigraphers have proceeded on the assumption that ...': the post-blank sentence describes downstream methodological practice in the field, which is the consequence of the demonstration in the prior sentence.\n\nWhy the wrong answers are tempting:\n- Choice B: contrast (inverse relation) — 'By contrast,' would make sense if the post-blank sentence cut against Proskouriakoff's finding (e.g., 'By contrast, later epigraphers continued to read the inscriptions as primarily astronomical'). Instead, the post-blank sentence reports that later epigraphers adopted Proskouriakoff's dynastic-political reading, which extends rather than reverses her result.\n- Choice D: surface-match (temporal concurrence) — 'Meanwhile,' marks two events going on at the same time and is the strongest distractor because the post-blank sentence does describe a later phase of the field. But 'Meanwhile,' frames that phase as a separate, simultaneous development, whereas the passage frames it as a consequence of the 1960 demonstration.\n- Choice C: scope-shift (illustration) — 'For example,' would fit if the post-blank sentence named one specific later inscription study that exemplified Proskouriakoff's approach. Instead, it makes a general claim about how the whole next generation of epigraphers proceeded, which is downstream practice rather than an illustrating instance.",
           "_meta": {
             "anchor": "Tatiana Proskouriakoff — Maya epigrapher, Peabody Museum; 'Historical Implications of a Pattern of Dates at Piedras Negras' (1960); demonstration that Classic Maya stelae record dynastic life-span intervals (birth, accession, death) for individual rulers, displacing the prior astronomical/ritual reading",
             "cue": "'subsequent epigraphers have proceeded on the assumption that ...' marks downstream methodological practice flowing from the prior demonstration — the evidence-to-consequence move",
@@ -1123,19 +1123,19 @@ export const practiceTest9RW = {
             },
             {
               "id": "B",
-              "text": "De Waal directed the Living Links Center at the Yerkes National Primate Research Center for many years before his death in 2024."
-            },
-            {
-              "id": "C",
               "text": "In a 2003 study with Sarah Brosnan, de Waal reported that capuchin monkeys reject unequal pay for equal work, a reaction he called \"inequity aversion.\""
             },
             {
-              "id": "D",
+              "id": "C",
               "text": "Although de Waal published widely on chimpanzees, his work focused primarily on the captive Arnhem Zoo colony rather than on broader claims about primate social behavior."
+            },
+            {
+              "id": "D",
+              "text": "De Waal directed the Living Links Center at the Yerkes National Primate Research Center for many years before his death in 2024."
             }
           ],
           "correctAnswer": "A",
-          "explanation": "The correct answer is A. The goal is to introduce de Waal's research to a reader who is unfamiliar with his work, so the synthesis must (1) name him, (2) place him in time and field, and (3) name the central books and the through-line of the research. Choice A does all three: it names de Waal with his dates, identifies him as a Dutch-American primatologist at Emory, names two book-length works (*Chimpanzee Politics* and *Good Natured*) with their publication years, and ties the two books to a single argument — that the building blocks of human social behavior and morality are visible in other primates. The synthesis uses 4 of the 6 notes and gives a first-time reader a coherent picture of who de Waal was and what his research argued.\n\nWhy the wrong answers are tempting:\n- Choice B: scope-shift — B uses two notes accurately (the Living Links Center directorship and de Waal's death), but it confines itself to a biographical-administrative fact and never names a single piece of research. A reader unfamiliar with de Waal's work would finish the sentence knowing where he worked but not what he argued.\n- Choice C: surface-match — C describes a specific 2003 experiment using two notes accurately. The sentence reads as a plausible synthesis, but it presents one narrow study (capuchin inequity aversion) as if it were the whole research program. A first-time reader would not learn that de Waal worked primarily on chimpanzees, that he wrote book-length arguments about morality, or that the research extends well beyond a single experiment.\n- Choice D: inverse — D actively misrepresents the research by suggesting de Waal's work was confined to one captive colony rather than advancing broader claims about primate social behavior. The notes show the opposite: his Arnhem fieldwork grounded a series of broader arguments (in *Chimpanzee Politics*, *Good Natured*, and the inequity-aversion line) about primate sociality and the roots of human morality.",
+          "explanation": "The correct answer is A. The goal is to introduce de Waal's research to a reader who is unfamiliar with his work, so the synthesis must (1) name him, (2) place him in time and field, and (3) name the central books and the through-line of the research. Choice A does all three: it names de Waal with his dates, identifies him as a Dutch-American primatologist at Emory, names two book-length works (*Chimpanzee Politics* and *Good Natured*) with their publication years, and ties the two books to a single argument — that the building blocks of human social behavior and morality are visible in other primates. The synthesis uses 4 of the 6 notes and gives a first-time reader a coherent picture of who de Waal was and what his research argued.\n\nWhy the wrong answers are tempting:\n- Choice D: scope-shift — B uses two notes accurately (the Living Links Center directorship and de Waal's death), but it confines itself to a biographical-administrative fact and never names a single piece of research. A reader unfamiliar with de Waal's work would finish the sentence knowing where he worked but not what he argued.\n- Choice B: surface-match — C describes a specific 2003 experiment using two notes accurately. The sentence reads as a plausible synthesis, but it presents one narrow study (capuchin inequity aversion) as if it were the whole research program. A first-time reader would not learn that de Waal worked primarily on chimpanzees, that he wrote book-length arguments about morality, or that the research extends well beyond a single experiment.\n- Choice C: inverse — D actively misrepresents the research by suggesting de Waal's work was confined to one captive colony rather than advancing broader claims about primate social behavior. The notes show the opposite: his Arnhem fieldwork grounded a series of broader arguments (in *Chimpanzee Politics*, *Good Natured*, and the inequity-aversion line) about primate sociality and the roots of human morality.",
           "_meta": {
             "anchor": "Frans de Waal — Dutch-American primatologist (Emory / Yerkes); *Chimpanzee Politics* (1982) and *Good Natured* (1996); 2003 capuchin inequity-aversion study with Sarah Brosnan",
             "distractors": {
@@ -1172,7 +1172,7 @@ export const practiceTest9RW = {
             },
             {
               "id": "B",
-              "text": "At Monte Verde, Dillehay's team recovered hearths, wood and bone tools, and preserved plant remains from waterlogged peat layers in southern Chile."
+              "text": "Because Monte Verde lies in southern Chile, far from the more familiar North American Clovis sites, Dillehay's findings have remained largely peripheral to debates about when humans first reached the Americas."
             },
             {
               "id": "C",
@@ -1180,11 +1180,11 @@ export const practiceTest9RW = {
             },
             {
               "id": "D",
-              "text": "Because Monte Verde lies in southern Chile, far from the more familiar North American Clovis sites, Dillehay's findings have remained largely peripheral to debates about when humans first reached the Americas."
+              "text": "At Monte Verde, Dillehay's team recovered hearths, wood and bone tools, and preserved plant remains from waterlogged peat layers in southern Chile."
             }
           ],
           "correctAnswer": "C",
-          "explanation": "The correct answer is C. The goal is to emphasize the historical significance of Monte Verde for the peopling-of-the-Americas debate, so the synthesis must (1) state the prior consensus the excavations challenged, (2) state what the excavations dated, and (3) state what the new dates did to the consensus. Choice C performs all three moves in a single balanced sentence: it names the Clovis-first consensus of the 1970s, gives the Monte Verde date (~14,500 years ago) that pushed the human presence back, references the 1997 confirmation visit, and explicitly closes by saying the result \"overturn[ed] the Clovis-first consensus.\" That last phrase is the rhetorical weight the goal asks for. The synthesis uses 4 of the 6 notes to do that work.\n\nWhy the wrong answers are tempting:\n- Choice A: scope-shift — A uses two notes accurately (Dillehay's affiliation and the 1977 start of excavations) but accomplishes the goal of introducing the researcher rather than emphasizing the historical significance of the site. A reader finishes the sentence knowing where the excavations are but not why they matter.\n- Choice B: surface-match — B describes the kinds of artifacts recovered from Monte Verde, drawing on two notes. The sentence reads as a plausible synthesis, but it presents the find without the comparative framing (Clovis-first consensus, the 1997 confirmation, the redating of human arrival) that gives Monte Verde its historical significance. A reader would learn what was found but not why the find reshaped the field.\n- Choice D: inverse — D uses geographic notes to argue the opposite of what the bullets establish. The notes show that the 1997 specialist visit confirmed the dates and that Monte Verde \"became widely accepted\" as evidence of pre-Clovis presence, but D claims the findings have remained peripheral. That directly contradicts the historical-significance claim the goal asks the synthesis to make.",
+          "explanation": "The correct answer is C. The goal is to emphasize the historical significance of Monte Verde for the peopling-of-the-Americas debate, so the synthesis must (1) state the prior consensus the excavations challenged, (2) state what the excavations dated, and (3) state what the new dates did to the consensus. Choice C performs all three moves in a single balanced sentence: it names the Clovis-first consensus of the 1970s, gives the Monte Verde date (~14,500 years ago) that pushed the human presence back, references the 1997 confirmation visit, and explicitly closes by saying the result \"overturn[ed] the Clovis-first consensus.\" That last phrase is the rhetorical weight the goal asks for. The synthesis uses 4 of the 6 notes to do that work.\n\nWhy the wrong answers are tempting:\n- Choice A: scope-shift — A uses two notes accurately (Dillehay's affiliation and the 1977 start of excavations) but accomplishes the goal of introducing the researcher rather than emphasizing the historical significance of the site. A reader finishes the sentence knowing where the excavations are but not why they matter.\n- Choice D: surface-match — B describes the kinds of artifacts recovered from Monte Verde, drawing on two notes. The sentence reads as a plausible synthesis, but it presents the find without the comparative framing (Clovis-first consensus, the 1997 confirmation, the redating of human arrival) that gives Monte Verde its historical significance. A reader would learn what was found but not why the find reshaped the field.\n- Choice B: inverse — D uses geographic notes to argue the opposite of what the bullets establish. The notes show that the 1997 specialist visit confirmed the dates and that Monte Verde \"became widely accepted\" as evidence of pre-Clovis presence, but D claims the findings have remained peripheral. That directly contradicts the historical-significance claim the goal asks the synthesis to make.",
           "_meta": {
             "anchor": "Tom Dillehay — archaeologist (Vanderbilt); Monte Verde excavations beginning 1977; pre-Clovis ~14,500-year-old occupation in southern Chile; 1997 confirmation visit and overturning of the Clovis-first consensus",
             "distractors": {
@@ -1213,23 +1213,23 @@ export const practiceTest9RW = {
           "choices": [
             {
               "id": "A",
-              "text": "integrated"
+              "text": "intricate"
             },
             {
               "id": "B",
-              "text": "fragmented"
+              "text": "integrated"
             },
             {
               "id": "C",
-              "text": "ornate"
+              "text": "fragmented"
             },
             {
               "id": "D",
-              "text": "intricate"
+              "text": "ornate"
             }
           ],
-          "correctAnswer": "A",
-          "explanation": "The correct answer is A, \"integrated.\"\n\n**SAT Pattern: Adjective Register in Context**\n\nThe sentence is built around a single claim: religion, kinship, and the agricultural calendar are not loosely coexisting practices but components of one tightly bound system, in which a policy reform aimed at any one element propagates through the whole. The blank therefore needs an adjective meaning that the parts are unified and interdependent. \"Integrated\" fits exactly: it captures the binding-together that the rest of the sentence then justifies — that touching one element disturbs the others — and it lines up with Parsons's argument against treating Pueblo religion as a loose collection of practices.\n\nWhy the wrong answers are tempting:\n- Choice B: inverse — \"fragmented\" is the near-opposite of what Parsons argues. The whole point of the sentence is that the components are bound together so tightly that disturbing one ripples through all; calling the system fragmented would contradict the very claim the rest of the sentence is illustrating.\n- Choice C: scope shift — \"ornate\" has the wrong specificity. It describes elaborate visual or stylistic detail, not the structural unity of a social system. A reader can hear \"ornate\" applied to ceremony and ritual in a general sense, but the sentence is making a structural claim about how parts relate to one another, not an aesthetic claim about how they look.\n- Choice D: surface match — \"intricate\" sounds plausible because Pueblo ceremonial life is, in fact, complex, and the word collocates loosely with \"system.\" But \"intricate\" describes complexity in detail rather than unification of parts. The sentence does not need a word for \"complicated\"; it needs one that explains why a reform of any single component disturbs the rest, and that is the binding-together captured by \"integrated,\" not the mere complexity captured by \"intricate.\"",
+          "correctAnswer": "B",
+          "explanation": "The correct answer is B, \"integrated.\"\n\n**SAT Pattern: Adjective Register in Context**\n\nThe sentence is built around a single claim: religion, kinship, and the agricultural calendar are not loosely coexisting practices but components of one tightly bound system, in which a policy reform aimed at any one element propagates through the whole. The blank therefore needs an adjective meaning that the parts are unified and interdependent. \"Integrated\" fits exactly: it captures the binding-together that the rest of the sentence then justifies — that touching one element disturbs the others — and it lines up with Parsons's argument against treating Pueblo religion as a loose collection of practices.\n\nWhy the wrong answers are tempting:\n- Choice C: inverse — \"fragmented\" is the near-opposite of what Parsons argues. The whole point of the sentence is that the components are bound together so tightly that disturbing one ripples through all; calling the system fragmented would contradict the very claim the rest of the sentence is illustrating.\n- Choice D: scope shift — \"ornate\" has the wrong specificity. It describes elaborate visual or stylistic detail, not the structural unity of a social system. A reader can hear \"ornate\" applied to ceremony and ritual in a general sense, but the sentence is making a structural claim about how parts relate to one another, not an aesthetic claim about how they look.\n- Choice A: surface match — \"intricate\" sounds plausible because Pueblo ceremonial life is, in fact, complex, and the word collocates loosely with \"system.\" But \"intricate\" describes complexity in detail rather than unification of parts. The sentence does not need a word for \"complicated\"; it needs one that explains why a reform of any single component disturbs the rest, and that is the binding-together captured by \"integrated,\" not the mere complexity captured by \"intricate.\"",
           "_meta": {
             "anchor": "Elsie Clews Parsons — anthropologist (Columbia, American Folklore Society); *Pueblo Indian Religion* (1939); argument that Pueblo religion, kinship, and agricultural calendar are tightly integrated and cannot be reformed piecemeal",
             "distractors": {
@@ -1251,23 +1251,23 @@ export const practiceTest9RW = {
           "choices": [
             {
               "id": "A",
-              "text": "reflects"
-            },
-            {
-              "id": "B",
               "text": "concedes"
             },
             {
+              "id": "B",
+              "text": "reflects"
+            },
+            {
               "id": "C",
-              "text": "exaggerates"
+              "text": "tolerates"
             },
             {
               "id": "D",
-              "text": "tolerates"
+              "text": "exaggerates"
             }
           ],
-          "correctAnswer": "A",
-          "explanation": "The correct answer is A, \"reflects.\"\n\n**SAT Pattern: Verb Connotation in Context**\n\nThe sentence draws a contrast between two possible explanations of the performance drop. Steele rules out one — underlying ability or motivation — and points to another, a situational pressure that alters attention and working memory. The blank needs a verb that links an observed effect (the performance drop) to the cause Steele actually credits (situational pressure). \"Reflects\" fits exactly: it names the relationship by which an observed pattern reveals or stems from an underlying cause, which is precisely what Steele claims the performance drop does in relation to the situational pressure he identifies.\n\nWhy the wrong answers are tempting:\n- Choice B: scope shift — \"concedes\" has a vaguely scientific feel (a concession in an argument), but its specificity is wrong. To concede something is to admit a point against one's own view, which presupposes a debate the sentence does not stage. Steele is making a positive claim about a mechanism, not yielding ground to an opponent, so the verb's argumentative scope is off.\n- Choice C: inverse — \"exaggerates\" reverses Steele's stance. The whole point of his argument is that stereotype threat is a real and measurable effect of situational pressure, not that the effect overstates that pressure. Choosing \"exaggerates\" turns the relationship into an inflated misreading of the cause, the opposite of what the paragraph asserts.\n- Choice D: surface match — \"tolerates\" can collocate with \"pressure\" in everyday English (people tolerate pressure at work), so the pairing sounds idiomatic. But that collocation belongs to a different meaning — enduring pressure — whereas the sentence needs a verb that connects an effect to its underlying cause. The word fits the noun next to it but not the explanatory move the sentence is making.",
+          "correctAnswer": "B",
+          "explanation": "The correct answer is B, \"reflects.\"\n\n**SAT Pattern: Verb Connotation in Context**\n\nThe sentence draws a contrast between two possible explanations of the performance drop. Steele rules out one — underlying ability or motivation — and points to another, a situational pressure that alters attention and working memory. The blank needs a verb that links an observed effect (the performance drop) to the cause Steele actually credits (situational pressure). \"Reflects\" fits exactly: it names the relationship by which an observed pattern reveals or stems from an underlying cause, which is precisely what Steele claims the performance drop does in relation to the situational pressure he identifies.\n\nWhy the wrong answers are tempting:\n- Choice A: scope shift — \"concedes\" has a vaguely scientific feel (a concession in an argument), but its specificity is wrong. To concede something is to admit a point against one's own view, which presupposes a debate the sentence does not stage. Steele is making a positive claim about a mechanism, not yielding ground to an opponent, so the verb's argumentative scope is off.\n- Choice D: inverse — \"exaggerates\" reverses Steele's stance. The whole point of his argument is that stereotype threat is a real and measurable effect of situational pressure, not that the effect overstates that pressure. Choosing \"exaggerates\" turns the relationship into an inflated misreading of the cause, the opposite of what the paragraph asserts.\n- Choice C: surface match — \"tolerates\" can collocate with \"pressure\" in everyday English (people tolerate pressure at work), so the pairing sounds idiomatic. But that collocation belongs to a different meaning — enduring pressure — whereas the sentence needs a verb that connects an effect to its underlying cause. The word fits the noun next to it but not the explanatory move the sentence is making.",
           "_meta": {
             "anchor": "Claude M. Steele — social psychologist (Stanford); stereotype threat; *Whistling Vivaldi* (2010); situational performance effect on members of stereotyped groups",
             "distractors": {
@@ -1289,23 +1289,23 @@ export const practiceTest9RW = {
           "choices": [
             {
               "id": "A",
-              "text": "lay the groundwork for"
-            },
-            {
-              "id": "B",
-              "text": "set out to refute"
-            },
-            {
-              "id": "C",
               "text": "draw attention to"
             },
             {
-              "id": "D",
+              "id": "B",
+              "text": "lay the groundwork for"
+            },
+            {
+              "id": "C",
               "text": "stand in the way of"
+            },
+            {
+              "id": "D",
+              "text": "set out to refute"
             }
           ],
-          "correctAnswer": "A",
-          "explanation": "The correct answer is A, \"lay the groundwork for.\"\n\n**SAT Pattern: Multi-word Collocation in Context**\n\nThe sentence positions the 2012 result as more than a finding about bacterial immunity: the dual-RNA architecture is presented as the basis from which a general-purpose gene-editing tool could be built, and the next clause describes exactly how — by changing a guide RNA, any target can be specified. The blank therefore needs a multi-word phrase meaning \"establish the foundation that something later rests on.\" \"Lay the groundwork for\" fits exactly: it captures the relationship between the bacterial-system finding and the broader tool that grew out of it, without overclaiming that the tool was already in hand.\n\nWhy the wrong answers are tempting:\n- Choice B: inverse — \"set out to refute\" reverses the relationship the sentence describes. The dual-RNA finding made a programmable editing tool possible; it did not aim to disprove one. Reading the sentence with \"refute\" would force the architecture into opposition with the very tool it inspired, which contradicts the paragraph's claim that the result was read as more than a bacterial-immunity finding precisely because it pointed toward such a tool.\n- Choice C: scope shift — \"draw attention to\" has the right register (a finding can certainly draw attention to a possibility), but the wrong specificity. The sentence is not just about visibility or interest; it is about structural foundation — the architecture made the tool buildable. \"Draw attention to\" treats the tool as an object the paper merely highlights, when the passage frames the architecture as what makes a programmable tool feasible in the first place.\n- Choice D: surface match — \"stand in the way of\" can sound technical and weighty, the kind of phrase a careful reader expects in an explanation of a scientific bottleneck. But its meaning is obstruction, not enablement, and the sentence is plainly about enablement: the architecture opens the path to a general-purpose tool, it does not block one. The phrase's gravity matches the register of the passage while contradicting its content.",
+          "correctAnswer": "B",
+          "explanation": "The correct answer is B, \"lay the groundwork for.\"\n\n**SAT Pattern: Multi-word Collocation in Context**\n\nThe sentence positions the 2012 result as more than a finding about bacterial immunity: the dual-RNA architecture is presented as the basis from which a general-purpose gene-editing tool could be built, and the next clause describes exactly how — by changing a guide RNA, any target can be specified. The blank therefore needs a multi-word phrase meaning \"establish the foundation that something later rests on.\" \"Lay the groundwork for\" fits exactly: it captures the relationship between the bacterial-system finding and the broader tool that grew out of it, without overclaiming that the tool was already in hand.\n\nWhy the wrong answers are tempting:\n- Choice D: inverse — \"set out to refute\" reverses the relationship the sentence describes. The dual-RNA finding made a programmable editing tool possible; it did not aim to disprove one. Reading the sentence with \"refute\" would force the architecture into opposition with the very tool it inspired, which contradicts the paragraph's claim that the result was read as more than a bacterial-immunity finding precisely because it pointed toward such a tool.\n- Choice A: scope shift — \"draw attention to\" has the right register (a finding can certainly draw attention to a possibility), but the wrong specificity. The sentence is not just about visibility or interest; it is about structural foundation — the architecture made the tool buildable. \"Draw attention to\" treats the tool as an object the paper merely highlights, when the passage frames the architecture as what makes a programmable tool feasible in the first place.\n- Choice C: surface match — \"stand in the way of\" can sound technical and weighty, the kind of phrase a careful reader expects in an explanation of a scientific bottleneck. But its meaning is obstruction, not enablement, and the sentence is plainly about enablement: the architecture opens the path to a general-purpose tool, it does not block one. The phrase's gravity matches the register of the passage while contradicting its content.",
           "_meta": {
             "anchor": "Emmanuelle Charpentier — microbiologist, Max Planck Unit for the Science of Pathogens; 2012 paper with Jennifer Doudna on dual-RNA-guided Cas9 cleavage as the basis for programmable gene editing; 2020 Nobel Prize in Chemistry",
             "distractors": {
@@ -1327,7 +1327,7 @@ export const practiceTest9RW = {
           "choices": [
             {
               "id": "A",
-              "text": "The author characterizes experience as a flux of brief impressions and then draws from that account a recommendation about how to live within it."
+              "text": "The author distinguishes physical sensation from intellectual reflection and then argues that only reflection can be a source of lasting value."
             },
             {
               "id": "B",
@@ -1339,11 +1339,11 @@ export const practiceTest9RW = {
             },
             {
               "id": "D",
-              "text": "The author distinguishes physical sensation from intellectual reflection and then argues that only reflection can be a source of lasting value."
+              "text": "The author characterizes experience as a flux of brief impressions and then draws from that account a recommendation about how to live within it."
             }
           ],
-          "correctAnswer": "A",
-          "explanation": "The correct answer is A. The first half of the passage characterizes ordinary experience as a flux: physical life is \"a perpetual motion of forces,\" each impression is the work of an instant, the moment in which a sound or colour seizes us is \"gone before we can fix it.\" The second half draws a practical lesson from that characterization. The structural pivot is the line \"But it is also to learn what may be done in the time we have,\" and the recommendation follows directly: \"not to lament what is fleeting, but to attend with utmost keenness to each present impression — to a piece of music, a cast of light, a face — for to live well is to gather as great a number of these vivid pulsations as the brief day permits.\" The text moves, in other words, from a description of how experience works to a prescription for how, given that, one should live within it.\n\nWhy the wrong answers are tempting:\n- Choice B: scope shift — the passage does propose a general view of experience that competes with other philosophical accounts, so a hurried reader can lift it into a survey-of-philosophers frame. But Pater does not name or evaluate any earlier thinkers here; the scope of the passage is a single picture of experience and the recommendation he draws from it. B inflates a one-author argument into a comparative survey.\n- Choice C: inverse — this reverses the second half. Pater explicitly concedes the melancholy of fleetingness — \"the moment of contact with whatever we have loved is brief\" — but then argues that the right response is not to lament it. The closing recommendation is precisely that close attention to art and to particular impressions is the form in which life can be \"lived well.\" C inverts the conclusion the passage actually reaches.\n- Choice D: surface match — the passage does mention \"physical life\" and refers to \"the senses\" and to recognition as a kind of learning, so a hurried reader can sketch a sensation-versus-reflection contrast. But Pater never separates the two; the recommendation is to attend keenly to each impression — sensory and contemplative at once. D imposes a dualism the text does not draw.",
+          "correctAnswer": "D",
+          "explanation": "The correct answer is D. The first half of the passage characterizes ordinary experience as a flux: physical life is \"a perpetual motion of forces,\" each impression is the work of an instant, the moment in which a sound or colour seizes us is \"gone before we can fix it.\" The second half draws a practical lesson from that characterization. The structural pivot is the line \"But it is also to learn what may be done in the time we have,\" and the recommendation follows directly: \"not to lament what is fleeting, but to attend with utmost keenness to each present impression — to a piece of music, a cast of light, a face — for to live well is to gather as great a number of these vivid pulsations as the brief day permits.\" The text moves, in other words, from a description of how experience works to a prescription for how, given that, one should live within it.\n\nWhy the wrong answers are tempting:\n- Choice B: scope shift — the passage does propose a general view of experience that competes with other philosophical accounts, so a hurried reader can lift it into a survey-of-philosophers frame. But Pater does not name or evaluate any earlier thinkers here; the scope of the passage is a single picture of experience and the recommendation he draws from it. B inflates a one-author argument into a comparative survey.\n- Choice C: inverse — this reverses the second half. Pater explicitly concedes the melancholy of fleetingness — \"the moment of contact with whatever we have loved is brief\" — but then argues that the right response is not to lament it. The closing recommendation is precisely that close attention to art and to particular impressions is the form in which life can be \"lived well.\" C inverts the conclusion the passage actually reaches.\n- Choice A: surface match — the passage does mention \"physical life\" and refers to \"the senses\" and to recognition as a kind of learning, so a hurried reader can sketch a sensation-versus-reflection contrast. But Pater never separates the two; the recommendation is to attend keenly to each impression — sensory and contemplative at once. D imposes a dualism the text does not draw.",
           "_meta": {
             "anchor": "the structural pivot at \"But it is also to learn what may be done in the time we have\" — flux first, then a recommendation drawn from the flux",
             "distractors": {
@@ -1366,23 +1366,23 @@ export const practiceTest9RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Adams describes the dynamo in mechanical terms and gradually shifts register, until his response has become indistinguishable from religious devotion."
-            },
-            {
-              "id": "B",
-              "text": "Adams catalogs the engineering principles by which the dynamo achieves its silent speed and concludes by ranking it against the other engines on display."
-            },
-            {
-              "id": "C",
               "text": "Adams compares his early enthusiasm for the dynamo with his later disillusionment and concludes that the machine is less impressive than it first seemed."
             },
             {
-              "id": "D",
+              "id": "B",
+              "text": "Adams describes the dynamo in mechanical terms and gradually shifts register, until his response has become indistinguishable from religious devotion."
+            },
+            {
+              "id": "C",
               "text": "Adams describes the dynamo's effect on the engineers nearby and contrasts their measured reaction with the more emotional response of casual visitors."
+            },
+            {
+              "id": "D",
+              "text": "Adams catalogs the engineering principles by which the dynamo achieves its silent speed and concludes by ranking it against the other engines on display."
             }
           ],
-          "correctAnswer": "A",
-          "explanation": "The correct answer is A. The passage moves through a clear shift in register. Adams begins with a description of the dynamo as a piece of machinery — a forty-foot wheel, revolving within arm's-length at vertiginous speed and barely murmuring. He then introduces a comparison (the dynamo as \"a moral force, much as the early Christians had felt the Cross\"), and from there the religious idiom takes over: \"one began to pray to it; inherited instinct taught the natural expression of man before silent and infinite force.\" The closing sentence completes the move — \"Adams stood before it as a pilgrim stands before the shrine of his faith.\" The structure of the passage is therefore the gradual displacement of mechanical description by the idiom of religious devotion, with the closing pilgrim image marking the point at which the two registers have effectively fused.\n\nWhy the wrong answers are tempting:\n- Choice B: surface match — the passage does describe the dynamo's speed and quietness, and it does name it the \"most expressive\" of the symbols of ultimate energy, so a hurried reader may take the structure as a technical catalog with a closing ranking. But Adams gives no engineering principles; the passage's interest is in the human response the machine evokes, and the closing image is religious rather than evaluative.\n- Choice C: inverse — this reverses the arc. The passage does not record disillusionment; it records the deepening of awe. The closing pilgrim image is a confirmation of devotion, not a deflation of it. C imports a swing from enthusiasm to letdown that the text does not contain.\n- Choice D: scope shift — engineers, casual visitors, and any other people in the gallery are absent from the text. The passage gives only Adams's response. D treats the structure as a comparison among observers when only a single observer is described.",
+          "correctAnswer": "B",
+          "explanation": "The correct answer is B. The passage moves through a clear shift in register. Adams begins with a description of the dynamo as a piece of machinery — a forty-foot wheel, revolving within arm's-length at vertiginous speed and barely murmuring. He then introduces a comparison (the dynamo as \"a moral force, much as the early Christians had felt the Cross\"), and from there the religious idiom takes over: \"one began to pray to it; inherited instinct taught the natural expression of man before silent and infinite force.\" The closing sentence completes the move — \"Adams stood before it as a pilgrim stands before the shrine of his faith.\" The structure of the passage is therefore the gradual displacement of mechanical description by the idiom of religious devotion, with the closing pilgrim image marking the point at which the two registers have effectively fused.\n\nWhy the wrong answers are tempting:\n- Choice D: surface match — the passage does describe the dynamo's speed and quietness, and it does name it the \"most expressive\" of the symbols of ultimate energy, so a hurried reader may take the structure as a technical catalog with a closing ranking. But Adams gives no engineering principles; the passage's interest is in the human response the machine evokes, and the closing image is religious rather than evaluative.\n- Choice A: inverse — this reverses the arc. The passage does not record disillusionment; it records the deepening of awe. The closing pilgrim image is a confirmation of devotion, not a deflation of it. C imports a swing from enthusiasm to letdown that the text does not contain.\n- Choice C: scope shift — engineers, casual visitors, and any other people in the gallery are absent from the text. The passage gives only Adams's response. D treats the structure as a comparison among observers when only a single observer is described.",
           "_meta": {
             "anchor": "the gradual register shift from mechanical description (\"forty-foot dynamos,\" speed, hum) through simile (\"as the early Christians had felt the Cross\") to outright religious idiom (\"prayed to it,\" \"a pilgrim stands before the shrine of his faith\")",
             "distractors": {
@@ -1414,23 +1414,23 @@ export const practiceTest9RW = {
           "choices": [
             {
               "id": "A",
-              "text": "By accepting that diet composition has long-term health consequences while contending that the specific quantitative recommendations Willett's work generates outrun what nutritional cohorts based on food-frequency questionnaires and multiple testing across nutrients can robustly support."
-            },
-            {
-              "id": "B",
               "text": "By rejecting Willett's underlying view that food choice influences cardiovascular and metabolic risk, on the grounds that the available evidence indicates total caloric intake, rather than diet composition, is the only factor reliably linked to long-term outcomes."
             },
             {
+              "id": "B",
+              "text": "By accepting that diet composition has long-term health consequences while contending that the specific quantitative recommendations Willett's work generates outrun what nutritional cohorts based on food-frequency questionnaires and multiple testing across nutrients can robustly support."
+            },
+            {
               "id": "C",
-              "text": "By arguing that subsequent randomized trials have already overturned the cohort-based associations Willett synthesizes, so that recommendations built on the Nurses' Health Study should be retracted from public guidance documents."
+              "text": "By contending that Willett's account is incomplete because it does not adequately incorporate exercise, sleep, and other behavioral factors whose effects on long-term cardiovascular and metabolic risk likely outweigh those of diet composition."
             },
             {
               "id": "D",
-              "text": "By contending that Willett's account is incomplete because it does not adequately incorporate exercise, sleep, and other behavioral factors whose effects on long-term cardiovascular and metabolic risk likely outweigh those of diet composition."
+              "text": "By arguing that subsequent randomized trials have already overturned the cohort-based associations Willett synthesizes, so that recommendations built on the Nurses' Health Study should be retracted from public guidance documents."
             }
           ],
-          "correctAnswer": "A",
-          "explanation": "The correct answer is A. Text 2 makes Ioannidis's position precise. He agrees, with Willett, that what people eat has consequences for long-term health and that some compositional features of diet matter. The point at which he diverges is the evidentiary basis for the specific quantitative recommendations the field has issued. Across thousands of published nutrient-disease associations, his methodological work has found that effect sizes routinely shift, attenuate, or reverse as analyses are revised — a pattern he attributes to the limitations of self-reported dietary intake captured by food-frequency questionnaires, the latitude of analytic choice in cohorts followed for decades, and pervasive multiple testing across nutrients and outcomes. The closing sentence states the conclusion plainly: most published associations are not robust at the precision the dietary recommendations built on top of them imply. Choice A captures exactly that combination — composition-matters concession preserved, specific quantitative recommendations targeted as outrunning what FFQ-based cohorts and multiple testing can robustly support.\n\nWhy the wrong answers are tempting:\n- Choice B: inverse — B casts Ioannidis as rejecting Willett's basic view that food choice influences cardiovascular and metabolic risk, and as crediting only total caloric intake. Text 2 says the opposite: he agrees that some compositional features of diet matter; what he disputes is the precision of the specific quantitative recommendations, not the general direction of the field. B flips a methodological critique into a categorical denial.\n- Choice C: scope shift — C reframes Ioannidis's objection as a claim that randomized trials have already overturned the Nurses' Health Study associations and that recommendations should now be retracted. Text 2 makes no appeal to overturning trials and proposes no retractions; the issue Ioannidis raises is robustness of effect sizes, not falsification by a different study type. The argumentative move is calibration of confidence, not retraction.\n- Choice D: scope shift — D reframes the disagreement as a content-completeness complaint about exercise, sleep, and other behavioral factors whose effects might dominate diet's. Nothing in Text 2 invokes non-dietary behaviors; Ioannidis's argument is internal to nutritional epidemiology and concerns FFQ-based measurement and analytic latitude, not the omission of other domains.",
+          "correctAnswer": "B",
+          "explanation": "The correct answer is B. Text 2 makes Ioannidis's position precise. He agrees, with Willett, that what people eat has consequences for long-term health and that some compositional features of diet matter. The point at which he diverges is the evidentiary basis for the specific quantitative recommendations the field has issued. Across thousands of published nutrient-disease associations, his methodological work has found that effect sizes routinely shift, attenuate, or reverse as analyses are revised — a pattern he attributes to the limitations of self-reported dietary intake captured by food-frequency questionnaires, the latitude of analytic choice in cohorts followed for decades, and pervasive multiple testing across nutrients and outcomes. The closing sentence states the conclusion plainly: most published associations are not robust at the precision the dietary recommendations built on top of them imply. Choice B captures exactly that combination — composition-matters concession preserved, specific quantitative recommendations targeted as outrunning what FFQ-based cohorts and multiple testing can robustly support.\n\nWhy the wrong answers are tempting:\n- Choice A: inverse — B casts Ioannidis as rejecting Willett's basic view that food choice influences cardiovascular and metabolic risk, and as crediting only total caloric intake. Text 2 says the opposite: he agrees that some compositional features of diet matter; what he disputes is the precision of the specific quantitative recommendations, not the general direction of the field. B flips a methodological critique into a categorical denial.\n- Choice D: scope shift — C reframes Ioannidis's objection as a claim that randomized trials have already overturned the Nurses' Health Study associations and that recommendations should now be retracted. Text 2 makes no appeal to overturning trials and proposes no retractions; the issue Ioannidis raises is robustness of effect sizes, not falsification by a different study type. The argumentative move is calibration of confidence, not retraction.\n- Choice C: scope shift — D reframes the disagreement as a content-completeness complaint about exercise, sleep, and other behavioral factors whose effects might dominate diet's. Nothing in Text 2 invokes non-dietary behaviors; Ioannidis's argument is internal to nutritional epidemiology and concerns FFQ-based measurement and analytic latitude, not the omission of other domains.",
           "_meta": {
             "anchor": "Willett (Nurses' Health Study cohort recommendations) vs Ioannidis (methodological critique of nutritional epidemiology) — diet composition vs caloric balance",
             "distractors": {
@@ -1470,15 +1470,15 @@ export const practiceTest9RW = {
             },
             {
               "id": "C",
-              "text": "By arguing that subsequent quantitative work on early American household economies has rendered the close-reading method Ulrich employs methodologically obsolete, since population-level reconstructions yield more reliable estimates of women's economic contribution than any single diary can sustain."
+              "text": "By contending that the recovery framework Ulrich models has, on Scott's reading, already exhausted its usefulness for women's history, so that the historiographical priority should now shift entirely from documentation toward theoretical critique of the disciplinary categories that govern the field."
             },
             {
               "id": "D",
-              "text": "By contending that the recovery framework Ulrich models has, on Scott's reading, already exhausted its usefulness for women's history, so that the historiographical priority should now shift entirely from documentation toward theoretical critique of the disciplinary categories that govern the field."
+              "text": "By arguing that subsequent quantitative work on early American household economies has rendered the close-reading method Ulrich employs methodologically obsolete, since population-level reconstructions yield more reliable estimates of women's economic contribution than any single diary can sustain."
             }
           ],
           "correctAnswer": "A",
-          "explanation": "The correct answer is A. Text 2 places Scott carefully in relation to Ulrich. The recovery work Ulrich exemplifies is, on Scott's account, both \"legitimate and necessary,\" and Scott credits it with widening the documentary base on which any future synthesis will draw. The reorientation Scott urges is at the level of analytic frame. Adding women to the historical record leaves untouched the prior question of how the category of gender was itself constituted — how it organized public and private, productive and reproductive, knowledge and labor across the period the recovered sources record. Without that step, Scott argues, even careful documentation risks being reabsorbed into the categories of public-life historiography that produced the original invisibility, since the categories themselves remain unexamined. Choice A captures exactly that combination — recovery work preserved as legitimate and necessary, an additional analytic step urged on top of it, and the specific worry about reabsorption into unexamined categories named as the reason the additional step is required.\n\nWhy the wrong answers are tempting:\n- Choice B: inverse — B casts Scott as rejecting Ulrich's recovery project on evidentiary grounds, treating the Ballard diary as too thin a base for the economic claims drawn from it. Text 2 is explicit on the opposite point: the recovery work is \"legitimate and necessary,\" and the documentary base it widens is welcomed. The disagreement Scott actually presses is analytic, not evidentiary.\n- Choice C: scope shift — C reframes Scott's objection as a methodological replacement claim, in which quantitative population-level work renders close reading of diaries obsolete. Nothing in Text 2 invokes such a contrast; the additional step Scott calls for is theoretical analysis of gender as a category, not a switch to a different empirical method. C substitutes a methods debate for the analytic-frame argument Scott actually makes.\n- Choice D: inverse — D escalates Scott's complementary call into a categorical replacement, in which recovery is said to have exhausted its usefulness and the field should turn entirely from documentation to theoretical critique. Text 2 says the opposite: recovery remains legitimate and necessary; theoretical critique is something Scott urges \"alongside\" it, not as its successor. D pushes a critical-extension into a wholesale displacement Scott explicitly avoids.",
+          "explanation": "The correct answer is A. Text 2 places Scott carefully in relation to Ulrich. The recovery work Ulrich exemplifies is, on Scott's account, both \"legitimate and necessary,\" and Scott credits it with widening the documentary base on which any future synthesis will draw. The reorientation Scott urges is at the level of analytic frame. Adding women to the historical record leaves untouched the prior question of how the category of gender was itself constituted — how it organized public and private, productive and reproductive, knowledge and labor across the period the recovered sources record. Without that step, Scott argues, even careful documentation risks being reabsorbed into the categories of public-life historiography that produced the original invisibility, since the categories themselves remain unexamined. Choice A captures exactly that combination — recovery work preserved as legitimate and necessary, an additional analytic step urged on top of it, and the specific worry about reabsorption into unexamined categories named as the reason the additional step is required.\n\nWhy the wrong answers are tempting:\n- Choice B: inverse — B casts Scott as rejecting Ulrich's recovery project on evidentiary grounds, treating the Ballard diary as too thin a base for the economic claims drawn from it. Text 2 is explicit on the opposite point: the recovery work is \"legitimate and necessary,\" and the documentary base it widens is welcomed. The disagreement Scott actually presses is analytic, not evidentiary.\n- Choice D: scope shift — C reframes Scott's objection as a methodological replacement claim, in which quantitative population-level work renders close reading of diaries obsolete. Nothing in Text 2 invokes such a contrast; the additional step Scott calls for is theoretical analysis of gender as a category, not a switch to a different empirical method. C substitutes a methods debate for the analytic-frame argument Scott actually makes.\n- Choice C: inverse — D escalates Scott's complementary call into a categorical replacement, in which recovery is said to have exhausted its usefulness and the field should turn entirely from documentation to theoretical critique. Text 2 says the opposite: recovery remains legitimate and necessary; theoretical critique is something Scott urges \"alongside\" it, not as its successor. D pushes a critical-extension into a wholesale displacement Scott explicitly avoids.",
           "_meta": {
             "anchor": "Ulrich (A Midwife's Tale, 1990) vs Scott (gender as category of analysis) — historiography of women in the early modern household",
             "distractors": {
@@ -1501,7 +1501,7 @@ export const practiceTest9RW = {
           "choices": [
             {
               "id": "A",
-              "text": "hooks's analysis of mainstream U.S. feminist texts found that Black women's labor histories appeared chiefly as omissions or special cases when work, leisure, and the home were thematized."
+              "text": "hooks argues in Ain't I a Woman that mid-twentieth-century U.S. feminism implicitly took middle-class white women's experience as the meaning of \"woman,\" so that its central demands did not address the conditions Black women actually faced."
             },
             {
               "id": "B",
@@ -1509,15 +1509,15 @@ export const practiceTest9RW = {
             },
             {
               "id": "C",
-              "text": "hooks argued that mid-twentieth-century U.S. feminism in its mainstream form succeeded in addressing the conditions of Black women because it grounded its demands in a shared category of \"woman.\""
+              "text": "hooks's analysis of mainstream U.S. feminist texts found that Black women's labor histories appeared chiefly as omissions or special cases when work, leisure, and the home were thematized."
             },
             {
               "id": "D",
-              "text": "hooks argues in Ain't I a Woman that mid-twentieth-century U.S. feminism implicitly took middle-class white women's experience as the meaning of \"woman,\" so that its central demands did not address the conditions Black women actually faced."
+              "text": "hooks argued that mid-twentieth-century U.S. feminism in its mainstream form succeeded in addressing the conditions of Black women because it grounded its demands in a shared category of \"woman.\""
             }
           ],
-          "correctAnswer": "D",
-          "explanation": "The correct answer is D. The passage develops its main idea across several sentences. Sentences 1 and 2 introduce the project (a study of how mainstream U.S. feminism defined its central category) and the source base (manifestos, platforms, and movement journalism). Sentence 2 also states the load-bearing claim: those texts took middle-class white women's experience as the implicit referent of \"woman.\" Sentence 3 supports that claim with a specific pattern — Black women's labor histories, family structures, and economic constraints appeared mainly as omissions or special cases. Sentence 4 states the synthesizing argument: the cumulative effect was not simply uneven attention but a politics whose central demands could not address Black women's actual conditions. Choice D captures both halves of the argument (the implicit referent and its consequence for the politics) at the right level of generalization.\n\nWhy the wrong answers are tempting:\n- Choice A: scope shift — the omissions-and-special-cases finding is one of the lines of evidence the passage describes, but treating that single observation as the main idea narrows the scope. The passage uses the omission pattern in service of a broader claim about the movement's central category and its political consequences, which choice A never names.\n- Choice B: surface match — it accurately restates the source base hooks consulted (manifestos, platforms, movement journalism) but only describes the procedure of the project, not its argument. A description of the materials read is not the main idea the passage develops.\n- Choice C: inverse — this reverses the central claim. The passage says the mainstream movement's demands did not address Black women's actual conditions; choice C asserts that the movement succeeded in addressing those conditions, contradicting the passage's conclusion.",
+          "correctAnswer": "A",
+          "explanation": "The correct answer is A. The passage develops its main idea across several sentences. Sentences 1 and 2 introduce the project (a study of how mainstream U.S. feminism defined its central category) and the source base (manifestos, platforms, and movement journalism). Sentence 2 also states the load-bearing claim: those texts took middle-class white women's experience as the implicit referent of \"woman.\" Sentence 3 supports that claim with a specific pattern — Black women's labor histories, family structures, and economic constraints appeared mainly as omissions or special cases. Sentence 4 states the synthesizing argument: the cumulative effect was not simply uneven attention but a politics whose central demands could not address Black women's actual conditions. Choice A captures both halves of the argument (the implicit referent and its consequence for the politics) at the right level of generalization.\n\nWhy the wrong answers are tempting:\n- Choice C: scope shift — the omissions-and-special-cases finding is one of the lines of evidence the passage describes, but treating that single observation as the main idea narrows the scope. The passage uses the omission pattern in service of a broader claim about the movement's central category and its political consequences, which choice C never names.\n- Choice B: surface match — it accurately restates the source base hooks consulted (manifestos, platforms, movement journalism) but only describes the procedure of the project, not its argument. A description of the materials read is not the main idea the passage develops.\n- Choice D: inverse — this reverses the central claim. The passage says the mainstream movement's demands did not address Black women's actual conditions; choice D asserts that the movement succeeded in addressing those conditions, contradicting the passage's conclusion.",
           "_meta": {
             "anchor": "bell hooks — cultural critic; *Ain't I a Woman: Black Women and Feminism* (1981); critique of mid-twentieth-century mainstream U.S. feminism for centering middle-class white women's experience as the implicit referent of \"woman\"",
             "distractors": {
@@ -1543,7 +1543,7 @@ export const practiceTest9RW = {
             },
             {
               "id": "B",
-              "text": "Scheper-Hughes's fieldwork in northeastern Brazil began in the 1960s and extended across more than two decades, focusing on the lives of women in a sugarcane shantytown."
+              "text": "Mothers in the shantytown spoke matter-of-factly about infants who had died and tended to delay strong attachment to fragile newborns until those babies seemed likely to survive."
             },
             {
               "id": "C",
@@ -1551,11 +1551,11 @@ export const practiceTest9RW = {
             },
             {
               "id": "D",
-              "text": "Mothers in the shantytown spoke matter-of-factly about infants who had died and tended to delay strong attachment to fragile newborns until those babies seemed likely to survive."
+              "text": "Scheper-Hughes's fieldwork in northeastern Brazil began in the 1960s and extended across more than two decades, focusing on the lives of women in a sugarcane shantytown."
             }
           ],
           "correctAnswer": "C",
-          "explanation": "The correct answer is C. The passage develops its main idea across the full paragraph. Sentence 1 sets up the prior framework — earlier theorists' description of maternal grief as a near-biological universal — and Scheper-Hughes's expectation built on it. Sentence 2 reports the observation that complicated that expectation: the matter-of-fact talk and the restraint of attachment to fragile newborns. Sentence 3 states the synthesizing claim from Death Without Weeping: the restraint was not the absence of love or a cultural curiosity but a culturally patterned adaptation to chronic structural deprivation. Sentence 4 closes by reframing what earlier writers had read as flatness as itself a learned response to economic violence. Choice C captures the full arc — the long fieldwork, the structural-deprivation account, and the relation to the universal-grief framework — at the right level of generalization.\n\nWhy the wrong answers are tempting:\n- Choice A: inverse — this reverses the central claim. The passage explicitly argues that the maternal restraint is a culturally patterned response to material conditions of chronic deprivation; choice A strips out the structural-deprivation account and asserts that the orientation has no relation to material conditions, contradicting Scheper-Hughes's conclusion.\n- Choice B: surface match — this restates the biographical and methodological framing from sentence 1 (the 1960s start, the duration, the shantytown setting) without naming the substantive argument the passage develops. A description of where and how long the fieldwork occurred is not the main idea.\n- Choice D: scope shift — the matter-of-fact talk and delayed attachment are real observations from the passage, but treating those single details as the main idea narrows the scope to the field-note evidence. The passage uses those observations in service of a broader argument about culturally patterned adaptation to structural deprivation, which choice D never states.",
+          "explanation": "The correct answer is C. The passage develops its main idea across the full paragraph. Sentence 1 sets up the prior framework — earlier theorists' description of maternal grief as a near-biological universal — and Scheper-Hughes's expectation built on it. Sentence 2 reports the observation that complicated that expectation: the matter-of-fact talk and the restraint of attachment to fragile newborns. Sentence 3 states the synthesizing claim from Death Without Weeping: the restraint was not the absence of love or a cultural curiosity but a culturally patterned adaptation to chronic structural deprivation. Sentence 4 closes by reframing what earlier writers had read as flatness as itself a learned response to economic violence. Choice C captures the full arc — the long fieldwork, the structural-deprivation account, and the relation to the universal-grief framework — at the right level of generalization.\n\nWhy the wrong answers are tempting:\n- Choice A: inverse — this reverses the central claim. The passage explicitly argues that the maternal restraint is a culturally patterned response to material conditions of chronic deprivation; choice A strips out the structural-deprivation account and asserts that the orientation has no relation to material conditions, contradicting Scheper-Hughes's conclusion.\n- Choice D: surface match — this restates the biographical and methodological framing from sentence 1 (the 1960s start, the duration, the shantytown setting) without naming the substantive argument the passage develops. A description of where and how long the fieldwork occurred is not the main idea.\n- Choice B: scope shift — the matter-of-fact talk and delayed attachment are real observations from the passage, but treating those single details as the main idea narrows the scope to the field-note evidence. The passage uses those observations in service of a broader argument about culturally patterned adaptation to structural deprivation, which choice B never states.",
           "_meta": {
             "anchor": "Nancy Scheper-Hughes — medical anthropologist, UC Berkeley; *Death Without Weeping: The Violence of Everyday Life in Brazil* (1992); maternal restraint in a Brazilian sugarcane shantytown as a culturally patterned response to chronic structural deprivation",
             "distractors": {
@@ -1578,23 +1578,23 @@ export const practiceTest9RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Spivak argues that subaltern women had nothing to say within colonial and postcolonial archives, so the documentary record of their lives is altogether absent and cannot be reconstructed by later scholars."
-            },
-            {
-              "id": "B",
               "text": "Spivak's central claim is not that the subaltern is literally silent or that scholarly recovery is impossible but that the channels of academic and political representation through which subaltern utterances become legible are themselves shaped by colonial conditions, so treating recovered voices as transparent repeats the structural problem the essay seeks to expose."
             },
             {
-              "id": "C",
+              "id": "B",
               "text": "Spivak's argument turns chiefly on her readings of British colonial-era accounts of widow self-immolation in India, supplemented by subsequent nationalist commentary on the same practice."
+            },
+            {
+              "id": "C",
+              "text": "Spivak argues that subaltern women had nothing to say within colonial and postcolonial archives, so the documentary record of their lives is altogether absent and cannot be reconstructed by later scholars."
             },
             {
               "id": "D",
               "text": "\"Can the Subaltern Speak?\" is an essay published in 1988 that is often cited for its blunt headline answer that the subaltern cannot speak."
             }
           ],
-          "correctAnswer": "B",
-          "explanation": "The correct answer is B. The passage uses a hard-band structure: a headline claim followed by an explicit refinement of that claim. Sentence 1 reports how the essay is often read — as the verdict that the subaltern is simply silent or that scholarly representation is straightforwardly impossible. Sentences 2 and 3 introduce the qualification: the argument is not that subaltern women had nothing to say or that evidence is altogether absent. Sentence 4 states the refined claim that the passage builds toward — what is shaped by colonial conditions is the channels of academic and political representation through which utterances become legible, not the existence of those utterances. Sentence 5 draws the consequence: to treat recovered voices as transparent is to repeat the structural problem. Choice B names the refined claim that the passage actually endorses, in the form the closing sentences specify.\n\nWhy the wrong answers are tempting:\n- Choice A: surface match — this is the headline reading the passage explicitly denies. Sentences 2 and 3 say in so many words that Spivak's argument is not that subaltern women had nothing to say or that the evidence is altogether absent. Choice A mistakes the position the passage rejects for the position it endorses.\n- Choice C: scope shift — Spivak's readings of British colonial-era accounts of widow self-immolation and subsequent nationalist commentary are accurately mentioned, but they are the case material through which the argument is made, not the argument itself. Treating that source base as the main idea narrows the scope to a methodological detail.\n- Choice D: surface match — the publication year and the headline framing are accurate from sentence 1, but they are the framing the passage immediately qualifies. A bibliographic note plus the headline reading is not the main idea the passage develops; the passage's whole point is the refinement that follows.",
+          "correctAnswer": "A",
+          "explanation": "The correct answer is A. The passage uses a hard-band structure: a headline claim followed by an explicit refinement of that claim. Sentence 1 reports how the essay is often read — as the verdict that the subaltern is simply silent or that scholarly representation is straightforwardly impossible. Sentences 2 and 3 introduce the qualification: the argument is not that subaltern women had nothing to say or that evidence is altogether absent. Sentence 4 states the refined claim that the passage builds toward — what is shaped by colonial conditions is the channels of academic and political representation through which utterances become legible, not the existence of those utterances. Sentence 5 draws the consequence: to treat recovered voices as transparent is to repeat the structural problem. Choice A names the refined claim that the passage actually endorses, in the form the closing sentences specify.\n\nWhy the wrong answers are tempting:\n- Choice C: surface match — this is the headline reading the passage explicitly denies. Sentences 2 and 3 say in so many words that Spivak's argument is not that subaltern women had nothing to say or that the evidence is altogether absent. Choice C mistakes the position the passage rejects for the position it endorses.\n- Choice B: scope shift — Spivak's readings of British colonial-era accounts of widow self-immolation and subsequent nationalist commentary are accurately mentioned, but they are the case material through which the argument is made, not the argument itself. Treating that source base as the main idea narrows the scope to a methodological detail.\n- Choice D: surface match — the publication year and the headline framing are accurate from sentence 1, but they are the framing the passage immediately qualifies. A bibliographic note plus the headline reading is not the main idea the passage develops; the passage's whole point is the refinement that follows.",
           "_meta": {
             "anchor": "Gayatri Chakravorty Spivak — comparative literature and postcolonial theory, Columbia University; \"Can the Subaltern Speak?\" (1988); refined claim that the channels of academic and political representation through which subaltern utterances would become legible are themselves shaped by colonial conditions",
             "distractors": {
@@ -1616,23 +1616,23 @@ export const practiceTest9RW = {
           "choices": [
             {
               "id": "A",
-              "text": "the two counties' identical means accurately summarize identical health conditions, because the population average is the only statistic the study has shown to be reliable."
-            },
-            {
-              "id": "B",
-              "text": "the bimodal county must have a worse overall health profile than the tightly clustered county, since any distribution containing respondents in the lowest category indicates worse population health than one without them."
-            },
-            {
-              "id": "C",
               "text": "the second county's bimodal distribution is itself a finding about its population health that the average score conceals, and a description that reports only the mean would miss it."
             },
             {
-              "id": "D",
+              "id": "B",
               "text": "the two counties' identical means show that the shape of the outcome distribution can never carry information beyond what the average already reports, because any equally bimodal county would show the same pattern."
+            },
+            {
+              "id": "C",
+              "text": "the two counties' identical means accurately summarize identical health conditions, because the population average is the only statistic the study has shown to be reliable."
+            },
+            {
+              "id": "D",
+              "text": "the bimodal county must have a worse overall health profile than the tightly clustered county, since any distribution containing respondents in the lowest category indicates worse population health than one without them."
             }
           ],
-          "correctAnswer": "C",
-          "explanation": "The correct answer is C. The passage establishes two premises: (1) Jones argues that population-health analyses should look at the shape of the outcome distribution and not only at the average, and (2) the two counties have nearly identical means but very different distributions — one tightly clustered, the other sharply bimodal with substantial numbers in both extreme categories. The minimum inference these premises jointly force is that the bimodal pattern is itself information about the second county's health that the mean does not carry, and a description that reports only the mean would miss it. Choice C states exactly this combined claim, staying within the two counties the passage describes and the perspective Jones is said to recommend.\n\nWhy the wrong answers are tempting:\n- Choice A: inverse — directly reverses Jones's perspective. The passage credits Jones with arguing that the shape of the distribution carries information the mean does not, and the second county's bimodal pattern is the very example of that. Saying the means accurately summarize identical conditions, and that the average is the only reliable statistic, denies the load-bearing premise of the passage.\n- Choice B: scope shift — picks up the bimodal county's substantial low-category share and pushes it into a comparative claim that the bimodal county \"must have a worse overall health profile.\" The passage gives equal substantial numbers in both the highest and the lowest categories; the licensed inference is that the bimodal county's distribution is informative, not that it ranks worse overall. The premises do not license a directional comparison of overall health between the two counties.\n- Choice D: surface match — uses the surface fact that the means are identical to draw the universal conclusion that distribution shape can \"never carry information beyond what the average reports.\" That conclusion contradicts the second premise (the bimodal pattern is precisely a feature the mean does not report) and the perspective the stem invokes. The means being identical is exactly why the passage uses this comparison to motivate looking at the distribution.",
+          "correctAnswer": "A",
+          "explanation": "The correct answer is A. The passage establishes two premises: (1) Jones argues that population-health analyses should look at the shape of the outcome distribution and not only at the average, and (2) the two counties have nearly identical means but very different distributions — one tightly clustered, the other sharply bimodal with substantial numbers in both extreme categories. The minimum inference these premises jointly force is that the bimodal pattern is itself information about the second county's health that the mean does not carry, and a description that reports only the mean would miss it. Choice A states exactly this combined claim, staying within the two counties the passage describes and the perspective Jones is said to recommend.\n\nWhy the wrong answers are tempting:\n- Choice C: inverse — directly reverses Jones's perspective. The passage credits Jones with arguing that the shape of the distribution carries information the mean does not, and the second county's bimodal pattern is the very example of that. Saying the means accurately summarize identical conditions, and that the average is the only reliable statistic, denies the load-bearing premise of the passage.\n- Choice D: scope shift — picks up the bimodal county's substantial low-category share and pushes it into a comparative claim that the bimodal county \"must have a worse overall health profile.\" The passage gives equal substantial numbers in both the highest and the lowest categories; the licensed inference is that the bimodal county's distribution is informative, not that it ranks worse overall. The premises do not license a directional comparison of overall health between the two counties.\n- Choice B: surface match — uses the surface fact that the means are identical to draw the universal conclusion that distribution shape can \"never carry information beyond what the average reports.\" That conclusion contradicts the second premise (the bimodal pattern is precisely a feature the mean does not report) and the perspective the stem invokes. The means being identical is exactly why the passage uses this comparison to motivate looking at the distribution.",
           "_meta": {
             "anchor": "Camara Phyllis Jones — social epidemiologist, Morehouse School of Medicine / Emory; argues for examining the shape of population-health outcome distributions rather than averages alone",
             "distractors": {
@@ -1655,23 +1655,23 @@ export const practiceTest9RW = {
           "choices": [
             {
               "id": "A",
-              "text": "had captured the correct overall behavior of the virus during that phase, but had simply used the term 'latency' to refer to the same dynamic state that Ho's team would later describe in quantitative terms."
-            },
-            {
-              "id": "B",
               "text": "had been correct that the virus was inactive during the asymptomatic phase, because viral particles whose average lifespan is measured in hours cannot accumulate in detectable amounts in the patient's body."
             },
             {
-              "id": "C",
+              "id": "B",
               "text": "had based their picture of the asymptomatic phase on direct daily measurements of viral production and clearance comparable to the ones Ho's team obtained in the mid-1990s."
             },
             {
-              "id": "D",
+              "id": "C",
               "text": "had been describing as latent a phase that was, on the contrary, characterized by intense ongoing viral production and clearance, even though no symptoms of disease were yet apparent in the patient."
+            },
+            {
+              "id": "D",
+              "text": "had captured the correct overall behavior of the virus during that phase, but had simply used the term 'latency' to refer to the same dynamic state that Ho's team would later describe in quantitative terms."
             }
           ],
-          "correctAnswer": "D",
-          "explanation": "The correct answer is D. The passage establishes two premises: (1) Ho's team measured roughly 10^9 to 10^10 new viral particles produced and cleared each day in untreated patients, with the average lifespan of a single particle on the order of hours, and (2) earlier accounts had described the long asymptomatic phase before AIDS as a period of viral latency in which the virus was largely inactive. The minimum inference these premises jointly force is that the earlier latency picture had been describing as inactive a phase that was, in Ho's measurements, marked by intense ongoing production and clearance: large numbers of particles being made and removed every day are precisely the opposite of an inactive virus, even when the patient remains asymptomatic. Choice D states exactly that combined claim and matches the passage's framing — the dynamic activity is reconciled with the absence of symptoms.\n\nThis item separates a sufficient inference (the licensed claim) from a consistent-sounding one. The premises license only the conclusion that the activity is inconsistent with the older inactive picture, not the stronger conclusion that the older account was useful for any purpose.\n\nWhy the wrong answers are tempting:\n- Choice A: scope shift — softens the disagreement into a relabeling. The premises distinguish a picture of viral inactivity from a picture of intense ongoing production and clearance; saying the older account already \"captured the correct overall behavior\" and merely used a different word for it ignores the substantive difference between active and inactive that the two pictures imply.\n- Choice B: inverse — directly contradicts premise (1). The passage reports billions of particles produced and removed each day; choice B uses the short particle lifespan to argue the virus must be inactive. In fact, the short lifespan combined with the high daily turnover is what shows production must be intense to sustain the steady state. Choice B reads premise (1) in the opposite direction it actually points.\n- Choice C: surface match — picks up the topic of \"daily measurements\" and attributes them backward to the older accounts. The passage tells us the daily-turnover measurements were Ho's contribution; the older accounts treated the phase as latent, which is described in qualitative terms. Choice C credits the older work with the very evidence it lacked.",
+          "correctAnswer": "C",
+          "explanation": "The correct answer is C. The passage establishes two premises: (1) Ho's team measured roughly 10^9 to 10^10 new viral particles produced and cleared each day in untreated patients, with the average lifespan of a single particle on the order of hours, and (2) earlier accounts had described the long asymptomatic phase before AIDS as a period of viral latency in which the virus was largely inactive. The minimum inference these premises jointly force is that the earlier latency picture had been describing as inactive a phase that was, in Ho's measurements, marked by intense ongoing production and clearance: large numbers of particles being made and removed every day are precisely the opposite of an inactive virus, even when the patient remains asymptomatic. Choice C states exactly that combined claim and matches the passage's framing — the dynamic activity is reconciled with the absence of symptoms.\n\nThis item separates a sufficient inference (the licensed claim) from a consistent-sounding one. The premises license only the conclusion that the activity is inconsistent with the older inactive picture, not the stronger conclusion that the older account was useful for any purpose.\n\nWhy the wrong answers are tempting:\n- Choice D: scope shift — softens the disagreement into a relabeling. The premises distinguish a picture of viral inactivity from a picture of intense ongoing production and clearance; saying the older account already \"captured the correct overall behavior\" and merely used a different word for it ignores the substantive difference between active and inactive that the two pictures imply.\n- Choice A: inverse — directly contradicts premise (1). The passage reports billions of particles produced and removed each day; choice A uses the short particle lifespan to argue the virus must be inactive. In fact, the short lifespan combined with the high daily turnover is what shows production must be intense to sustain the steady state. Choice A reads premise (1) in the opposite direction it actually points.\n- Choice B: surface match — picks up the topic of \"daily measurements\" and attributes them backward to the older accounts. The passage tells us the daily-turnover measurements were Ho's contribution; the older accounts treated the phase as latent, which is described in qualitative terms. Choice B credits the older work with the very evidence it lacked.",
           "_meta": {
             "anchor": "David Ho — virologist, Aaron Diamond AIDS Research Center / Rockefeller University; mid-1990s measurements of HIV production and clearance dynamics in untreated patients (10^9-10^10 particles/day, hours-long average lifespan)",
             "distractors": {
@@ -1694,23 +1694,23 @@ export const practiceTest9RW = {
           "choices": [
             {
               "id": "A",
-              "text": "requires the presence of Ac but not Ds, because Ac was identified as the active partner of the pair and is therefore the element that ultimately drives the pigment changes."
-            },
-            {
-              "id": "B",
-              "text": "requires both Ac and Ds to be present in that plant, since neither element alone was sufficient to produce the patches in the crosses she described."
-            },
-            {
-              "id": "C",
               "text": "is determined by Ds alone, because Ds is the element that physically moves and disrupts adjacent pigment genes, while Ac merely accompanies it without affecting the outcome."
             },
             {
-              "id": "D",
+              "id": "B",
+              "text": "requires the presence of Ac but not Ds, because Ac was identified as the active partner of the pair and is therefore the element that ultimately drives the pigment changes."
+            },
+            {
+              "id": "C",
               "text": "should be expected in any maize plant whose recent ancestors contained Ds at some earlier generation, regardless of whether the plant itself currently carries Ac."
+            },
+            {
+              "id": "D",
+              "text": "requires both Ac and Ds to be present in that plant, since neither element alone was sufficient to produce the patches in the crosses she described."
             }
           ],
-          "correctAnswer": "B",
-          "explanation": "The correct answer is B. The passage establishes a tightly paired set of observations and a conclusion. The crosses show that patches appeared only when both Ac and Ds were present, that Ac alone was not enough (no patches when Ds was absent from the plant, even if Ds had been in earlier generations), and that Ds alone was not enough (no patches when Ac was absent). McClintock's load-bearing conclusion is that Ds is the element that physically moves and disrupts adjacent pigment genes, but that Ds requires Ac to do so. The minimum inference these premises jointly force is that the appearance of the patches in any plant requires both elements to be present in that plant. Choice B states exactly that conjunction and grounds it in the right reason — neither element alone was sufficient.\n\nThis is the necessary-condition inference the premises license. Each individual cross rules out one of the single-element scenarios, and together they license the joint requirement.\n\nWhy the wrong answers are tempting:\n- Choice A: inverse — flips the roles of Ac and Ds. The passage names Ds as the element that moves and disrupts adjacent pigment genes; Ac is required for Ds to act. Choice A promotes Ac to the sole driver and drops Ds from the requirement, which contradicts the conclusion the premises support.\n- Choice C: surface match — picks up the passage's load-bearing line that \"Ds is the element that physically moves and disrupts adjacent pigment genes\" and turns that single sentence into the claim that Ds alone is sufficient. But the same passage also states that Ds requires Ac, and the cross in which Ds was present without Ac produced no patches; the surface-similar quotation cannot be used to override the joint-presence finding.\n- Choice D: scope shift — uses the lineage detail (Ds had previously been in the line) to relax the requirement to a historical one. But the passage gives the disconfirming case: a plant in which Ac was present and Ds had been in earlier generations but was not currently present produced no patches. The licensed claim is about which elements are present in the plant itself, not about what its ancestors carried.",
+          "correctAnswer": "D",
+          "explanation": "The correct answer is D. The passage establishes a tightly paired set of observations and a conclusion. The crosses show that patches appeared only when both Ac and Ds were present, that Ac alone was not enough (no patches when Ds was absent from the plant, even if Ds had been in earlier generations), and that Ds alone was not enough (no patches when Ac was absent). McClintock's load-bearing conclusion is that Ds is the element that physically moves and disrupts adjacent pigment genes, but that Ds requires Ac to do so. The minimum inference these premises jointly force is that the appearance of the patches in any plant requires both elements to be present in that plant. Choice D states exactly that conjunction and grounds it in the right reason — neither element alone was sufficient.\n\nThis is the necessary-condition inference the premises license. Each individual cross rules out one of the single-element scenarios, and together they license the joint requirement.\n\nWhy the wrong answers are tempting:\n- Choice B: inverse — flips the roles of Ac and Ds. The passage names Ds as the element that moves and disrupts adjacent pigment genes; Ac is required for Ds to act. Choice B promotes Ac to the sole driver and drops Ds from the requirement, which contradicts the conclusion the premises support.\n- Choice A: surface match — picks up the passage's load-bearing line that \"Ds is the element that physically moves and disrupts adjacent pigment genes\" and turns that single sentence into the claim that Ds alone is sufficient. But the same passage also states that Ds requires Ac, and the cross in which Ds was present without Ac produced no patches; the surface-similar quotation cannot be used to override the joint-presence finding.\n- Choice C: scope shift — uses the lineage detail (Ds had previously been in the line) to relax the requirement to a historical one. But the passage gives the disconfirming case: a plant in which Ac was present and Ds had been in earlier generations but was not currently present produced no patches. The licensed claim is about which elements are present in the plant itself, not about what its ancestors carried.",
           "_meta": {
             "anchor": "Barbara McClintock — geneticist, Cold Spring Harbor Laboratory; transposable elements in maize; Activator (Ac) / Dissociation (Ds) two-element system in which Ds moves and disrupts adjacent pigment genes only when Ac is also present",
             "distractors": {
@@ -1764,23 +1764,23 @@ export const practiceTest9RW = {
           "choices": [
             {
               "id": "A",
-              "text": "the lowest single year in the record was 2012, when the September minimum fell to 3.6 million square kilometers."
+              "text": "the lowest year in each decade fell from 6.9 million square kilometers in the 1980s to 3.6 million square kilometers in the 2010s, suggesting that single-year minimums have stayed roughly constant."
             },
             {
               "id": "B",
-              "text": "the mean September extent dropped from 5.8 million square kilometers in the 2000s to 4.6 million square kilometers in the 2010s, a clear decline between the two most recent decades."
-            },
-            {
-              "id": "C",
               "text": "the mean September extent fell from 7.2 million square kilometers in the 1980s to 6.6 in the 1990s to 5.8 in the 2000s to 4.6 in the 2010s, a step downward in every decade the record covers."
             },
             {
+              "id": "C",
+              "text": "the mean September extent dropped from 5.8 million square kilometers in the 2000s to 4.6 million square kilometers in the 2010s, a clear decline between the two most recent decades."
+            },
+            {
               "id": "D",
-              "text": "the lowest year in each decade fell from 6.9 million square kilometers in the 1980s to 3.6 million square kilometers in the 2010s, suggesting that single-year minimums have stayed roughly constant."
+              "text": "the lowest single year in the record was 2012, when the September minimum fell to 3.6 million square kilometers."
             }
           ],
-          "correctAnswer": "C",
-          "explanation": "The correct answer is C. The claim is specifically about TYPICAL ice extent — decadal means — falling in EVERY successive decade. Supporting evidence has to (i) be drawn from the 'Mean September extent' column rather than the single-year-low column, and (ii) span all four decades the table covers, since 'in every successive decade' is a four-decade quantifier. Choice C does both: 7.2 (1980s) → 6.6 (1990s) → 5.8 (2000s) → 4.6 (2010s) is a strictly decreasing sequence across the full record, which is exactly what 'a step downward in every decade' requires.\n\nWhy the wrong answers are tempting:\n- Choice A is a SURFACE MATCH on a single record-low year. 2012's 3.6 million square kilometers is the smallest figure in the entire table and is reported accurately, but the claim contrasts decadal means with isolated record years and says the decline is not merely about unusual years. Citing 2012 alone is exactly the kind of single-year evidence the passage is moving past.\n- Choice B is a SCOPE SHIFT. The 2000s-to-2010s drop in mean extent (5.8 → 4.6) is real, but a single inter-decade comparison establishes only that one decade was lower than the prior one. The claim quantifies over EVERY successive decade in the record, which a one-step comparison cannot demonstrate.\n- Choice D is an INVERSE. The decadal lows fell from 6.9 to 3.6 million square kilometers — a drop of roughly half — which is not 'roughly constant.' Reading that sequence as essentially unchanging reverses the direction of the data and would, if anything, undermine any claim about declining ice cover.",
+          "correctAnswer": "B",
+          "explanation": "The correct answer is B. The claim is specifically about TYPICAL ice extent — decadal means — falling in EVERY successive decade. Supporting evidence has to (i) be drawn from the 'Mean September extent' column rather than the single-year-low column, and (ii) span all four decades the table covers, since 'in every successive decade' is a four-decade quantifier. Choice B does both: 7.2 (1980s) → 6.6 (1990s) → 5.8 (2000s) → 4.6 (2010s) is a strictly decreasing sequence across the full record, which is exactly what 'a step downward in every decade' requires.\n\nWhy the wrong answers are tempting:\n- Choice D is a SURFACE MATCH on a single record-low year. 2012's 3.6 million square kilometers is the smallest figure in the entire table and is reported accurately, but the claim contrasts decadal means with isolated record years and says the decline is not merely about unusual years. Citing 2012 alone is exactly the kind of single-year evidence the passage is moving past.\n- Choice C is a SCOPE SHIFT. The 2000s-to-2010s drop in mean extent (5.8 → 4.6) is real, but a single inter-decade comparison establishes only that one decade was lower than the prior one. The claim quantifies over EVERY successive decade in the record, which a one-step comparison cannot demonstrate.\n- Choice A is an INVERSE. The decadal lows fell from 6.9 to 3.6 million square kilometers — a drop of roughly half — which is not 'roughly constant.' Reading that sequence as essentially unchanging reverses the direction of the data and would, if anything, undermine any claim about declining ice cover.",
           "_meta": {
             "anchor": "NSIDC — glaciology / climate science; describing data on Arctic sea ice extent at the September minimum, 1980-2020",
             "distractors": {
@@ -1802,11 +1802,11 @@ export const practiceTest9RW = {
           "choices": [
             {
               "id": "A",
-              "text": "\"The lexicon of a small language is, among other things, a record of empirical observation: it stores fine-grained distinctions among plants, animals, and ecological relationships that its speakers have arrived at through generations of attention to the local environment, and when a community shifts to a dominant language without that record being systematically documented, those distinctions are not preserved alongside the new tongue.\""
+              "text": "\"Language carries the affective bond between a community and its elders, and when speakers stop using the language of their grandparents, what is felt most acutely is the dimming of that emotional inheritance.\""
             },
             {
               "id": "B",
-              "text": "\"Language carries the affective bond between a community and its elders, and when speakers stop using the language of their grandparents, what is felt most acutely is the dimming of that emotional inheritance.\""
+              "text": "\"The taxonomic vocabulary of a small language, contrary to what fieldworkers sometimes assume, is largely portable: speakers who shift to a dominant language tend to carry their detailed knowledge of plants and animals across that shift, encoding it in the new language as readily as in the old.\""
             },
             {
               "id": "C",
@@ -1814,11 +1814,11 @@ export const practiceTest9RW = {
             },
             {
               "id": "D",
-              "text": "\"The taxonomic vocabulary of a small language, contrary to what fieldworkers sometimes assume, is largely portable: speakers who shift to a dominant language tend to carry their detailed knowledge of plants and animals across that shift, encoding it in the new language as readily as in the old.\""
+              "text": "\"The lexicon of a small language is, among other things, a record of empirical observation: it stores fine-grained distinctions among plants, animals, and ecological relationships that its speakers have arrived at through generations of attention to the local environment, and when a community shifts to a dominant language without that record being systematically documented, those distinctions are not preserved alongside the new tongue.\""
             }
           ],
-          "correctAnswer": "A",
-          "explanation": "The correct answer is A. The claim has two specific parts: (1) endangered-language vocabularies should be understood as a body of empirical observation about plants, animals, and ecological relationships, not as a matter of cultural sentiment, and (2) that observational knowledge is not preserved alongside the new language when speakers shift without systematic documentation. Choice A maps onto both: it names the lexicon \"a record of empirical observation,\" lists exactly the categories the claim names — \"plants, animals, and ecological relationships\" — and states that when a community shifts to a dominant language \"without that record being systematically documented,\" the distinctions \"are not preserved alongside the new tongue.\" That is a direct, scoped match.\n\nWhy the wrong answers are tempting:\n- Choice B: surface-match — the quotation is on-topic for a book about language loss and uses the elegiac register that often accompanies such writing. But its content reframes the loss as the \"dimming of emotional inheritance,\" precisely the affective framing the underlined claim says Harrison wants to set aside in favor of empirical observation.\n- Choice C: scope-shift — the quotation addresses a real adjacent issue, the political and institutional advocacy needed to preserve minority languages. It is consistent with concerns Harrison voices elsewhere, but it speaks to advocacy and policy rather than to the observational-knowledge claim the passage spotlights, so it illustrates a different sub-claim.\n- Choice D: inverse — the quotation contradicts the claim. It asserts that taxonomic vocabulary is \"largely portable\" and that speakers carry their plant and animal knowledge across language shifts \"as readily\" in the new language as in the old. That directly denies the loss-without-documentation claim the passage attributes to Harrison.",
+          "correctAnswer": "D",
+          "explanation": "The correct answer is D. The claim has two specific parts: (1) endangered-language vocabularies should be understood as a body of empirical observation about plants, animals, and ecological relationships, not as a matter of cultural sentiment, and (2) that observational knowledge is not preserved alongside the new language when speakers shift without systematic documentation. Choice D maps onto both: it names the lexicon \"a record of empirical observation,\" lists exactly the categories the claim names — \"plants, animals, and ecological relationships\" — and states that when a community shifts to a dominant language \"without that record being systematically documented,\" the distinctions \"are not preserved alongside the new tongue.\" That is a direct, scoped match.\n\nWhy the wrong answers are tempting:\n- Choice A: surface-match — the quotation is on-topic for a book about language loss and uses the elegiac register that often accompanies such writing. But its content reframes the loss as the \"dimming of emotional inheritance,\" precisely the affective framing the underlined claim says Harrison wants to set aside in favor of empirical observation.\n- Choice C: scope-shift — the quotation addresses a real adjacent issue, the political and institutional advocacy needed to preserve minority languages. It is consistent with concerns Harrison voices elsewhere, but it speaks to advocacy and policy rather than to the observational-knowledge claim the passage spotlights, so it illustrates a different sub-claim.\n- Choice B: inverse — the quotation contradicts the claim. It asserts that taxonomic vocabulary is \"largely portable\" and that speakers carry their plant and animal knowledge across language shifts \"as readily\" in the new language as in the old. That directly denies the loss-without-documentation claim the passage attributes to Harrison.",
           "_meta": {
             "anchor": "K. David Harrison — linguistics; When Languages Die (2007); endangered-language taxonomies as empirical observation lost without systematic documentation",
             "distractors": {
@@ -1882,23 +1882,23 @@ export const practiceTest9RW = {
           "choices": [
             {
               "id": "A",
-              "text": "the transit method produced 1,339 confirmed exoplanets in 2016, the largest single-year, single-method total recorded in the archive."
-            },
-            {
-              "id": "B",
               "text": "the transit method produced 1,339 confirmed exoplanets in 2016 but only 204 in 2020, a drop that illustrates the long-run reliability of the technique."
             },
             {
+              "id": "B",
+              "text": "the transit method produced 1,339 confirmed exoplanets in 2016, the largest single-year, single-method total recorded in the archive."
+            },
+            {
               "id": "C",
-              "text": "radial-velocity detections rose from 28 in 2009 to 48 in 2014 to 60 in 2016 to 73 in 2020, an increase in every reporting year shown."
+              "text": "microlensing detections grew from 2 in 2009 to 21 in 2020, the steepest proportional gain of any method recorded in the archive over that span."
             },
             {
               "id": "D",
-              "text": "microlensing detections grew from 2 in 2009 to 21 in 2020, the steepest proportional gain of any method recorded in the archive over that span."
+              "text": "radial-velocity detections rose from 28 in 2009 to 48 in 2014 to 60 in 2016 to 73 in 2020, an increase in every reporting year shown."
             }
           ],
-          "correctAnswer": "C",
-          "explanation": "The correct answer is C. The claim is precise: only ONE of the four methods produced a steadily rising annual yield, uninterrupted by mission lifecycles, across all reporting years. Supporting evidence must therefore (i) name the right method and (ii) show its counts increasing in every year-to-year step the table records. Choice C does exactly that: radial-velocity detections move 28 → 48 → 60 → 73 across 2009, 2014, 2016, and 2020, a strictly increasing sequence at every step. That uninterrupted ascent across all four years is the only pattern in the table that licenses 'only one has produced a steadily rising annual yield.'\n\nWhy the wrong answers are tempting:\n- Choice A is a SURFACE MATCH on the largest absolute value. The 1,339 transit detections in 2016 is the biggest number anywhere in the table, and the figure is reported accurately, but a single peak year for one method says nothing about whether ANY method's yield has risen steadily across all four years. The claim is about long-run uninterrupted growth, not a single record total.\n- Choice B is an INVERSE. The 1,339 → 204 drop from 2016 to 2020 is real, but the claim is that one method's record demonstrates LONG-RUN RELIABILITY through uninterrupted growth. A method that swung from 1,339 to 204 in four years is the textbook example of mission-lifecycle volatility — the very thing the claim is contrasting against. The choice reads a falling sequence as evidence of reliability.\n- Choice D is a SCOPE SHIFT. Microlensing did rise from 2 to 21 detections, and that proportional jump is genuinely large, but the claim singles out the method with steady, year-by-year growth, not the steepest proportional gain over the endpoints. Microlensing's intermediate values (2, 4, 9, 21) also rise monotonically, but emphasizing 'steepest proportional gain' supplies a different criterion than the one the claim names, and it ignores radial velocity's more directly relevant uninterrupted ascent.",
+          "correctAnswer": "D",
+          "explanation": "The correct answer is D. The claim is precise: only ONE of the four methods produced a steadily rising annual yield, uninterrupted by mission lifecycles, across all reporting years. Supporting evidence must therefore (i) name the right method and (ii) show its counts increasing in every year-to-year step the table records. Choice D does exactly that: radial-velocity detections move 28 → 48 → 60 → 73 across 2009, 2014, 2016, and 2020, a strictly increasing sequence at every step. That uninterrupted ascent across all four years is the only pattern in the table that licenses 'only one has produced a steadily rising annual yield.'\n\nWhy the wrong answers are tempting:\n- Choice B is a SURFACE MATCH on the largest absolute value. The 1,339 transit detections in 2016 is the biggest number anywhere in the table, and the figure is reported accurately, but a single peak year for one method says nothing about whether ANY method's yield has risen steadily across all four years. The claim is about long-run uninterrupted growth, not a single record total.\n- Choice A is an INVERSE. The 1,339 → 204 drop from 2016 to 2020 is real, but the claim is that one method's record demonstrates LONG-RUN RELIABILITY through uninterrupted growth. A method that swung from 1,339 to 204 in four years is the textbook example of mission-lifecycle volatility — the very thing the claim is contrasting against. The choice reads a falling sequence as evidence of reliability.\n- Choice C is a SCOPE SHIFT. Microlensing did rise from 2 to 21 detections, and that proportional jump is genuinely large, but the claim singles out the method with steady, year-by-year growth, not the steepest proportional gain over the endpoints. Microlensing's intermediate values (2, 4, 9, 21) also rise monotonically, but emphasizing 'steepest proportional gain' supplies a different criterion than the one the claim names, and it ignores radial velocity's more directly relevant uninterrupted ascent.",
           "_meta": {
             "anchor": "NASA Exoplanet Archive — astronomy; describing data on confirmed exoplanet discoveries per year by detection method, 2009-2020",
             "distractors": {
@@ -1920,23 +1920,23 @@ export const practiceTest9RW = {
           "choices": [
             {
               "id": "A",
-              "text": "\"To work with such an archive is to refuse the question its compilers wished it to answer; one reads the case file and the blotter against their own purposes, treating the gaps and the condescensions as evidence in their own right, and so recovers in that very inversion the experiments in intimacy and freedom the documents were never made to preserve.\""
-            },
-            {
-              "id": "B",
               "text": "\"The young women I write about lived within walking distance of one another, in rented rooms above storefronts and along narrow streets where the streetcars rattled past at all hours of the night.\""
             },
             {
+              "id": "B",
+              "text": "\"To work with such an archive is to refuse the question its compilers wished it to answer; one reads the case file and the blotter against their own purposes, treating the gaps and the condescensions as evidence in their own right, and so recovers in that very inversion the experiments in intimacy and freedom the documents were never made to preserve.\""
+            },
+            {
               "id": "C",
-              "text": "\"The most rigorous work proceeds from documents whose impartiality has already been established, and the historian's task is to read them straight, taking the record at its word and adding nothing to what the page itself supplies.\""
+              "text": "\"Generations of writers have set down the lives of Black women in fiction, and any history that refuses to attend to that imaginative literature will arrive at its subjects with one hand tied behind its back.\""
             },
             {
               "id": "D",
-              "text": "\"Generations of writers have set down the lives of Black women in fiction, and any history that refuses to attend to that imaginative literature will arrive at its subjects with one hand tied behind its back.\""
+              "text": "\"The most rigorous work proceeds from documents whose impartiality has already been established, and the historian's task is to read them straight, taking the record at its word and adding nothing to what the page itself supplies.\""
             }
           ],
-          "correctAnswer": "A",
-          "explanation": "The correct answer is A. The claim has two specific parts: (1) historians of these lives must read coercive institutional documents against the very purposes for which they were compiled, treating gaps and condescensions as evidence in their own right, and (2) it is in that inversion that the experiments in intimacy and freedom the records were never meant to preserve are recovered. Choice A maps onto both directly: it names the act of reading \"the case file and the blotter against their own purposes,\" treats \"the gaps and the condescensions as evidence in their own right,\" and locates in that \"very inversion\" the recovery of \"the experiments in intimacy and freedom the documents were never made to preserve.\" The vocabulary and the logical move are a scoped match to the underlined claim.\n\nWhy the wrong answers are tempting:\n- Choice A is correct; the temptations are below.\n- Choice B: surface-match — the quotation is in Hartman's recognizable register and provides texture about where her subjects lived. But its content is geographic and atmospheric description, not a methodological argument; it does not speak to reading coercive records against their compilers' purposes.\n- Choice C: scope-shift — the quotation addresses historical method, like the claim, but in a way that names a different sub-claim: that one should rely on documents already established as impartial and \"read them straight.\" That is on the same general topic of method without illustrating the specific against-the-grain inversion the passage spotlights.\n- Choice D: inverse — the quotation argues for relying on imaginative literature about Black women as a counterweight to history, which is a different methodological move than the one the claim names. It does not endorse reading coercive archives against themselves; it shifts the source of evidence away from those archives entirely, leaving the inversion-of-coercive-documents claim unillustrated.",
+          "correctAnswer": "B",
+          "explanation": "The correct answer is B. The claim has two specific parts: (1) historians of these lives must read coercive institutional documents against the very purposes for which they were compiled, treating gaps and condescensions as evidence in their own right, and (2) it is in that inversion that the experiments in intimacy and freedom the records were never meant to preserve are recovered. Choice B maps onto both directly: it names the act of reading \"the case file and the blotter against their own purposes,\" treats \"the gaps and the condescensions as evidence in their own right,\" and locates in that \"very inversion\" the recovery of \"the experiments in intimacy and freedom the documents were never made to preserve.\" The vocabulary and the logical move are a scoped match to the underlined claim.\n\nWhy the wrong answers are tempting:\n- Choice B is correct; the temptations are below.\n- Choice A: surface-match — the quotation is in Hartman's recognizable register and provides texture about where her subjects lived. But its content is geographic and atmospheric description, not a methodological argument; it does not speak to reading coercive records against their compilers' purposes.\n- Choice D: scope-shift — the quotation addresses historical method, like the claim, but in a way that names a different sub-claim: that one should rely on documents already established as impartial and \"read them straight.\" That is on the same general topic of method without illustrating the specific against-the-grain inversion the passage spotlights.\n- Choice C: inverse — the quotation argues for relying on imaginative literature about Black women as a counterweight to history, which is a different methodological move than the one the claim names. It does not endorse reading coercive archives against themselves; it shifts the source of evidence away from those archives entirely, leaving the inversion-of-coercive-documents claim unillustrated.",
           "_meta": {
             "anchor": "Saidiya Hartman — African American literature and history; Wayward Lives, Beautiful Experiments (2019); reading coercive archives against the grain",
             "distractors": {
@@ -1959,23 +1959,23 @@ export const practiceTest9RW = {
           "choices": [
             {
               "id": "A",
-              "text": "—race, class, gender, and sexuality—"
-            },
-            {
-              "id": "B",
               "text": ", race, class, gender, and sexuality,"
             },
             {
+              "id": "B",
+              "text": "—race, class, gender, and sexuality—"
+            },
+            {
               "id": "C",
-              "text": "—race, class, gender, and sexuality,"
+              "text": "race, class, gender, and sexuality"
             },
             {
               "id": "D",
-              "text": "race, class, gender, and sexuality"
+              "text": "—race, class, gender, and sexuality,"
             }
           ],
-          "correctAnswer": "A",
-          "explanation": "The correct answer is A, \"—race, class, gender, and sexuality—\". The blank holds a parenthetical list that names the intersecting systems of power Collins has just referred to, and that list itself contains internal commas (\"race, class, gender, and sexuality\"). When a parenthetical insertion contains its own commas, Standard English requires a stronger pair of bracketing marks — paired em-dashes (or paired parentheses) — so the reader can see where the inserted material starts and ends. Choice A supplies a matched pair of em-dashes, opens and closes the parenthetical cleanly, and lets the main clause resume with \"together produce a distinctive matrix of domination.\"\n\nWhy the wrong answers are tempting:\n- Choice B: surface-match — paired commas can bracket an appositive when the appositive contains no internal commas of its own. Because the inserted list here is itself comma-separated, paired commas would blur the boundary between the insertion and the items inside it, leaving the reader unable to tell where the parenthetical ends and the main clause resumes.\n- Choice C: scope-shift — a different SEC error: the bracketing marks are mismatched, opening with an em-dash and closing with a comma. CB conventions require bracketing punctuation to be paired in kind: dash-dash, comma-comma, or paren-paren. A dash on one end and a comma on the other is not an accepted bracketing pair.\n- Choice D: inverse — supplying no bracketing marks at all is the opposite of the correct treatment. With no boundary punctuation, the appositive list collides with the surrounding sentence: \"intersecting systems of power race, class, gender, and sexuality together produce…\" runs the head noun directly into its appositive list.",
+          "correctAnswer": "B",
+          "explanation": "The correct answer is B, \"—race, class, gender, and sexuality—\". The blank holds a parenthetical list that names the intersecting systems of power Collins has just referred to, and that list itself contains internal commas (\"race, class, gender, and sexuality\"). When a parenthetical insertion contains its own commas, Standard English requires a stronger pair of bracketing marks — paired em-dashes (or paired parentheses) — so the reader can see where the inserted material starts and ends. Choice B supplies a matched pair of em-dashes, opens and closes the parenthetical cleanly, and lets the main clause resume with \"together produce a distinctive matrix of domination.\"\n\nWhy the wrong answers are tempting:\n- Choice A: surface-match — paired commas can bracket an appositive when the appositive contains no internal commas of its own. Because the inserted list here is itself comma-separated, paired commas would blur the boundary between the insertion and the items inside it, leaving the reader unable to tell where the parenthetical ends and the main clause resumes.\n- Choice D: scope-shift — a different SEC error: the bracketing marks are mismatched, opening with an em-dash and closing with a comma. CB conventions require bracketing punctuation to be paired in kind: dash-dash, comma-comma, or paren-paren. A dash on one end and a comma on the other is not an accepted bracketing pair.\n- Choice C: inverse — supplying no bracketing marks at all is the opposite of the correct treatment. With no boundary punctuation, the appositive list collides with the surrounding sentence: \"intersecting systems of power race, class, gender, and sexuality together produce…\" runs the head noun directly into its appositive list.",
           "_meta": {
             "anchor": "Patricia Hill Collins — sociology; 'Black Feminist Thought' on the matrix of domination and intersecting systems of power",
             "rule": "paired em-dashes bracket a parenthetical / appositive insertion that contains its own internal commas",
@@ -2000,23 +2000,23 @@ export const practiceTest9RW = {
           "choices": [
             {
               "id": "A",
-              "text": "less"
+              "text": "fewer"
             },
             {
               "id": "B",
-              "text": "lesser"
+              "text": "less"
             },
             {
               "id": "C",
-              "text": "fewer"
+              "text": "lesser"
             },
             {
               "id": "D",
               "text": "least"
             }
           ],
-          "correctAnswer": "C",
-          "explanation": "The correct answer is C. The quantified noun is 'large fish,' a count noun (you can count individual fish: one fish, two fish, etc.). Standard English uses 'fewer' for count nouns and 'less' for non-count (mass) nouns. Because 'large fish' is countable, the comparative quantifier must be 'fewer.'\n\nWhy the wrong answers are tempting:\n- Choice A: surface-match — 'less' is the natural counterpart of 'fewer' and is widely used informally with count nouns ('less fish'), but Standard English reserves 'less' for mass nouns ('less water,' 'less time'). This is the most common form of the error this item tests.\n- Choice B: scope-shift — 'lesser' is a comparative adjective meaning 'of lower rank or importance' (as in 'a lesser known author'), not a comparative quantifier. It commits a different SEC error: wrong word class entirely, since the slot needs a quantifier of count items, not an adjective ranking importance.\n- Choice D: inverse — 'least' is the superlative quantifier ('least of all'), the inverse of the required comparative. The sentence is comparing the present count to her remembered count (two terms), which calls for a comparative form, not a superlative.",
+          "correctAnswer": "A",
+          "explanation": "The correct answer is A. The quantified noun is 'large fish,' a count noun (you can count individual fish: one fish, two fish, etc.). Standard English uses 'fewer' for count nouns and 'less' for non-count (mass) nouns. Because 'large fish' is countable, the comparative quantifier must be 'fewer.'\n\nWhy the wrong answers are tempting:\n- Choice B: surface-match — 'less' is the natural counterpart of 'fewer' and is widely used informally with count nouns ('less fish'), but Standard English reserves 'less' for mass nouns ('less water,' 'less time'). This is the most common form of the error this item tests.\n- Choice C: scope-shift — 'lesser' is a comparative adjective meaning 'of lower rank or importance' (as in 'a lesser known author'), not a comparative quantifier. It commits a different SEC error: wrong word class entirely, since the slot needs a quantifier of count items, not an adjective ranking importance.\n- Choice D: inverse — 'least' is the superlative quantifier ('least of all'), the inverse of the required comparative. The sentence is comparing the present count to her remembered count (two terms), which calls for a comparative form, not a superlative.",
           "_meta": {
             "anchor": "Sylvia Earle — marine biology and oceanography; founder of Mission Blue; submersible-based documentation of ocean change; *The World Is Blue* (2009) on industrial fishing and biodiversity decline",
             "rule": "comparison form: 'fewer' (count nouns) vs 'less' (non-count nouns)",
@@ -2040,7 +2040,7 @@ export const practiceTest9RW = {
           "choices": [
             {
               "id": "A",
-              "text": ", a legal scholar at UCLA and Columbia,"
+              "text": "; a legal scholar at UCLA and Columbia;"
             },
             {
               "id": "B",
@@ -2052,11 +2052,11 @@ export const practiceTest9RW = {
             },
             {
               "id": "D",
-              "text": "; a legal scholar at UCLA and Columbia;"
+              "text": ", a legal scholar at UCLA and Columbia,"
             }
           ],
-          "correctAnswer": "A",
-          "explanation": "The correct answer is A, \", a legal scholar at UCLA and Columbia,\". The phrase \"a legal scholar at UCLA and Columbia\" is a non-restrictive appositive: it adds descriptive information about Crenshaw but is not needed to identify her, since \"Kimberlé Crenshaw\" is already a fully specified proper noun. Standard English requires a non-restrictive appositive to be set off from the main clause by a matched pair of commas — one before the appositive and one after — so the appositive can be read as removable without changing the meaning of the surrounding clause.\n\nWhy the wrong answers are tempting:\n- Choice B: surface-match — opens the appositive with a comma but never closes it. Bracketing punctuation must be paired: half a bracketing pair (an opening comma with no closing comma) leaves the appositive running into the next clause and produces an ungrammatical hanging parenthetical.\n- Choice C: scope-shift — a different bracketing error: closes the appositive with a comma but supplies no opening comma, fusing \"Crenshaw a legal scholar at UCLA and Columbia\" into one undifferentiated noun phrase. The reader cannot tell where the appositive begins.\n- Choice D: inverse — paired semicolons are not a valid bracketing pair for a non-restrictive appositive. Semicolons require independent clauses on both sides; the appositive is a noun phrase, not an independent clause, and the surrounding material is not two coordinated independent clauses either.",
+          "correctAnswer": "D",
+          "explanation": "The correct answer is D, \", a legal scholar at UCLA and Columbia,\". The phrase \"a legal scholar at UCLA and Columbia\" is a non-restrictive appositive: it adds descriptive information about Crenshaw but is not needed to identify her, since \"Kimberlé Crenshaw\" is already a fully specified proper noun. Standard English requires a non-restrictive appositive to be set off from the main clause by a matched pair of commas — one before the appositive and one after — so the appositive can be read as removable without changing the meaning of the surrounding clause.\n\nWhy the wrong answers are tempting:\n- Choice B: surface-match — opens the appositive with a comma but never closes it. Bracketing punctuation must be paired: half a bracketing pair (an opening comma with no closing comma) leaves the appositive running into the next clause and produces an ungrammatical hanging parenthetical.\n- Choice C: scope-shift — a different bracketing error: closes the appositive with a comma but supplies no opening comma, fusing \"Crenshaw a legal scholar at UCLA and Columbia\" into one undifferentiated noun phrase. The reader cannot tell where the appositive begins.\n- Choice A: inverse — paired semicolons are not a valid bracketing pair for a non-restrictive appositive. Semicolons require independent clauses on both sides; the appositive is a noun phrase, not an independent clause, and the surrounding material is not two coordinated independent clauses either.",
           "_meta": {
             "anchor": "Kimberlé Crenshaw — law and critical race theory; 1989 article coining 'intersectionality' to describe the failures of single-axis antidiscrimination doctrine",
             "rule": "paired commas around a non-restrictive appositive that follows a fully specified proper-noun subject",
@@ -2081,23 +2081,23 @@ export const practiceTest9RW = {
           "choices": [
             {
               "id": "A",
-              "text": "she found"
-            },
-            {
-              "id": "B",
               "text": "her finding was"
             },
             {
-              "id": "C",
+              "id": "B",
               "text": "found"
+            },
+            {
+              "id": "C",
+              "text": "she found"
             },
             {
               "id": "D",
               "text": "finding"
             }
           ],
-          "correctAnswer": "C",
-          "explanation": "The correct answer is C. The sentence sets up a three-item parallel series of past-tense verbs sharing the subject 'she': 'she measured ... charted ... and ______.' Standard English requires items in a coordinated series to be grammatically parallel — same form, same role. The first two items are simple past-tense verbs ('measured,' 'charted'), so the third must also be a simple past-tense verb. 'Found' continues the parallel series cleanly.\n\nWhy the wrong answers are tempting:\n- Choice A: surface-match — 'she found' supplies the right verb form but inserts a redundant subject. The series is built on a single shared subject ('she') governing all three verbs; repeating 'she' breaks the parallel by giving the third item its own subject and turning the series into an awkward mix of bare verbs and a full clause.\n- Choice B: scope-shift — 'her finding was' is a noun phrase plus copula, not a verb in the past-tense series. It commits a different kind of parallelism error: switching grammatical category from verb to noun phrase, which derails the series entirely.\n- Choice D: inverse — 'finding' is a present-participle / gerund, the inverse of the required simple past. Substituting it produces 'measured ... charted ... and finding ...,' mixing finite past-tense verbs with a non-finite participle.",
+          "correctAnswer": "B",
+          "explanation": "The correct answer is B. The sentence sets up a three-item parallel series of past-tense verbs sharing the subject 'she': 'she measured ... charted ... and ______.' Standard English requires items in a coordinated series to be grammatically parallel — same form, same role. The first two items are simple past-tense verbs ('measured,' 'charted'), so the third must also be a simple past-tense verb. 'Found' continues the parallel series cleanly.\n\nWhy the wrong answers are tempting:\n- Choice C: surface-match — 'she found' supplies the right verb form but inserts a redundant subject. The series is built on a single shared subject ('she') governing all three verbs; repeating 'she' breaks the parallel by giving the third item its own subject and turning the series into an awkward mix of bare verbs and a full clause.\n- Choice A: scope-shift — 'her finding was' is a noun phrase plus copula, not a verb in the past-tense series. It commits a different kind of parallelism error: switching grammatical category from verb to noun phrase, which derails the series entirely.\n- Choice D: inverse — 'finding' is a present-participle / gerund, the inverse of the required simple past. Substituting it produces 'measured ... charted ... and finding ...,' mixing finite past-tense verbs with a non-finite participle.",
           "_meta": {
             "anchor": "Vera Rubin — astronomy, Carnegie Institution of Washington; 1970s spectroscopic measurements of galaxy rotation curves; flat rotation curves as evidence for unseen mass (dark matter)",
             "rule": "parallelism in a coordinated series: items sharing one subject must share the same verb form and grammatical category",
@@ -2121,11 +2121,11 @@ export const practiceTest9RW = {
           "choices": [
             {
               "id": "A",
-              "text": "matter; however,"
+              "text": "matter however"
             },
             {
               "id": "B",
-              "text": "matter, however,"
+              "text": "matter; however,"
             },
             {
               "id": "C",
@@ -2133,11 +2133,11 @@ export const practiceTest9RW = {
             },
             {
               "id": "D",
-              "text": "matter however"
+              "text": "matter, however,"
             }
           ],
-          "correctAnswer": "A",
-          "explanation": "The correct answer is A, \"matter; however,\". The blank sits at the boundary between two independent clauses: \"Noguera grants that classroom practices, teacher expectations, and curricular tracking matter\" and \"he insists that the conditions students bring with them … exert a continuous pressure on academic outcomes that no in-school reform can offset by itself.\" Between the two clauses sits the conjunctive adverb \"however,\" which signals contrast but is not itself a coordinating conjunction and cannot join two independent clauses on its own. Standard English handles this case with a fixed pattern: the first independent clause closes with a semicolon, the conjunctive adverb is followed by a comma, and the second independent clause then continues. Choice A supplies exactly that semicolon-before, comma-after pattern.\n\nWhy the wrong answers are tempting:\n- Choice B: surface-match — \"however\" is bracketed by paired commas, which is the correct treatment when \"however\" is an interrupter inside a single clause, but here \"however\" sits at the boundary between two independent clauses, so a comma alone before it produces a comma splice between the two clauses.\n- Choice C: scope-shift — this option inverts the punctuation order around \"however,\" placing a comma before and a semicolon after. A semicolon requires an independent clause on both sides; the material from \"however he insists…\" cannot stand alone as a clause without the conjunctive adverb being properly punctuated, so the semicolon ends up inside the second clause rather than between the two clauses.\n- Choice D: inverse — supplying no punctuation around \"however\" at all leaves the two independent clauses fused with a stray adverb between them, the opposite of the punctuated pattern Standard English requires.",
+          "correctAnswer": "B",
+          "explanation": "The correct answer is B, \"matter; however,\". The blank sits at the boundary between two independent clauses: \"Noguera grants that classroom practices, teacher expectations, and curricular tracking matter\" and \"he insists that the conditions students bring with them … exert a continuous pressure on academic outcomes that no in-school reform can offset by itself.\" Between the two clauses sits the conjunctive adverb \"however,\" which signals contrast but is not itself a coordinating conjunction and cannot join two independent clauses on its own. Standard English handles this case with a fixed pattern: the first independent clause closes with a semicolon, the conjunctive adverb is followed by a comma, and the second independent clause then continues. Choice B supplies exactly that semicolon-before, comma-after pattern.\n\nWhy the wrong answers are tempting:\n- Choice D: surface-match — \"however\" is bracketed by paired commas, which is the correct treatment when \"however\" is an interrupter inside a single clause, but here \"however\" sits at the boundary between two independent clauses, so a comma alone before it produces a comma splice between the two clauses.\n- Choice C: scope-shift — this option inverts the punctuation order around \"however,\" placing a comma before and a semicolon after. A semicolon requires an independent clause on both sides; the material from \"however he insists…\" cannot stand alone as a clause without the conjunctive adverb being properly punctuated, so the semicolon ends up inside the second clause rather than between the two clauses.\n- Choice A: inverse — supplying no punctuation around \"however\" at all leaves the two independent clauses fused with a stray adverb between them, the opposite of the punctuated pattern Standard English requires.",
           "_meta": {
             "anchor": "Pedro Noguera — education and sociology; argument that out-of-school conditions exert continuous pressure on academic outcomes alongside in-school factors",
             "rule": "conjunctive adverb (however / therefore / moreover) joining two independent clauses requires the semicolon-before, comma-after pattern (IC1; however, IC2)",
@@ -2162,7 +2162,7 @@ export const practiceTest9RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Doudna has urged"
+              "text": "the case has been made by Doudna"
             },
             {
               "id": "B",
@@ -2170,15 +2170,15 @@ export const practiceTest9RW = {
             },
             {
               "id": "C",
-              "text": "the case has been made by Doudna"
+              "text": "there is an urgent argument from Doudna"
             },
             {
               "id": "D",
-              "text": "there is an urgent argument from Doudna"
+              "text": "Doudna has urged"
             }
           ],
-          "correctAnswer": "A",
-          "explanation": "The correct answer is A. The sentence opens with the participial phrase 'Drawing on years of laboratory work on the bacterial Cas9 enzyme and on a 2012 collaboration that demonstrated programmable DNA cleavage.' Standard English requires a participial opener to attach to the grammatical subject of the main clause that follows, and that subject must be able to perform the action expressed by the participle. Only a person can do the 'drawing on years of laboratory work,' so the main-clause subject must name a person. 'Doudna has urged' supplies a human subject and resolves the dangling-modifier risk.\n\nWhy the wrong answers are tempting:\n- Choice B: surface-match — 'her 2017 book has urged' is topically relevant (Doudna did publish a 2017 book on CRISPR ethics) and the possessive 'her' even gestures at Doudna, but the grammatical subject is 'book,' and a book cannot draw on laboratory work — only the researcher can. The participial opener therefore dangles.\n- Choice C: scope-shift — 'the case has been made by Doudna' is a passive construction whose grammatical subject is 'the case,' an abstract noun that cannot perform the action 'drawing on years of laboratory work.' Although Doudna appears in the by-phrase, she is not the subject and so cannot anchor the opener; this commits a different version of the dangling-modifier error via passive demotion of the agent.\n- Choice D: inverse — 'there is an urgent argument from Doudna' uses the dummy subject 'there,' which is purely existential and refers to nothing capable of drawing on laboratory work. The participial opener has no human subject to attach to and dangles entirely.",
+          "correctAnswer": "D",
+          "explanation": "The correct answer is D. The sentence opens with the participial phrase 'Drawing on years of laboratory work on the bacterial Cas9 enzyme and on a 2012 collaboration that demonstrated programmable DNA cleavage.' Standard English requires a participial opener to attach to the grammatical subject of the main clause that follows, and that subject must be able to perform the action expressed by the participle. Only a person can do the 'drawing on years of laboratory work,' so the main-clause subject must name a person. 'Doudna has urged' supplies a human subject and resolves the dangling-modifier risk.\n\nWhy the wrong answers are tempting:\n- Choice B: surface-match — 'her 2017 book has urged' is topically relevant (Doudna did publish a 2017 book on CRISPR ethics) and the possessive 'her' even gestures at Doudna, but the grammatical subject is 'book,' and a book cannot draw on laboratory work — only the researcher can. The participial opener therefore dangles.\n- Choice A: scope-shift — 'the case has been made by Doudna' is a passive construction whose grammatical subject is 'the case,' an abstract noun that cannot perform the action 'drawing on years of laboratory work.' Although Doudna appears in the by-phrase, she is not the subject and so cannot anchor the opener; this commits a different version of the dangling-modifier error via passive demotion of the agent.\n- Choice C: inverse — 'there is an urgent argument from Doudna' uses the dummy subject 'there,' which is purely existential and refers to nothing capable of drawing on laboratory work. The participial opener has no human subject to attach to and dangles entirely.",
           "_meta": {
             "anchor": "Jennifer Doudna — molecular biology and biochemistry, UC Berkeley; 2012 paper on programmable Cas9 DNA cleavage; *A Crack in Creation* (2017) on CRISPR ethics and human germline editing",
             "rule": "modifier placement: a participial opener must modify the grammatical subject of the main clause; that subject must be able to perform the participle's action",
@@ -2206,19 +2206,19 @@ export const practiceTest9RW = {
             },
             {
               "id": "B",
-              "text": "Nevertheless,"
+              "text": "Likewise,"
             },
             {
               "id": "C",
-              "text": "Likewise,"
+              "text": "Nevertheless,"
             },
             {
               "id": "D",
               "text": "In addition,"
             }
           ],
-          "correctAnswer": "B",
-          "explanation": "The correct answer is B. The first sentence describes Hahn and Strassmann's hesitation: even though their chemistry pointed to barium, they refused in print to claim that the uranium nucleus had split, calling the products only 'radium isotopes with the chemical properties of barium.' The second sentence describes Meitner doing exactly what Hahn and Strassmann would not — supplying the physical interpretation (a splitting of the nucleus into two roughly equal fragments) and the energy calculation, and naming the process 'fission.' The relation between the two sentences is concession-to-counterclaim: despite the experimenters' reluctance, Meitner went ahead and made the interpretive move. 'Nevertheless,' (a CB-lexicon contrast/concession transition) is correct.\n\nThe cue that selects 'Nevertheless,' is the verb 'hesitated in print to claim' in sentence 1, paired with Meitner's 'recognized that the neutron-uranium reaction could only be a splitting of the nucleus' in sentence 2 — the two sentences directly stage what was withheld and what was supplied, the textbook setup for a concessive contrast.\n\nWhy the wrong answers are tempting:\n- Choice A: causal (wrong direction) — 'Therefore,' would make Meitner's interpretation a logical consequence of Hahn and Strassmann's hesitation, but their hesitation did not produce her interpretation; it stood in contrast to it. The chemistry produced the data; their reluctance to interpret it is precisely what Meitner overrode.\n- Choice C: surface-match (parallel/likewise) — 'Likewise,' would frame Meitner as doing the same thing as Hahn and Strassmann. But the whole point of the second sentence is that she did the opposite of what they did in print: she identified the reaction as nuclear fission and quantified the energy, which is what they refused to do.\n- Choice D: scope-shift (addition) — 'In addition,' would fit if Meitner's contribution were one further item on the same line as Hahn and Strassmann's — for example, an additional chemical assay. Instead, her contribution is of a different kind (physical interpretation and energy calculation) and stands against their refusal to interpret, not alongside another chemical result.",
+          "correctAnswer": "C",
+          "explanation": "The correct answer is C. The first sentence describes Hahn and Strassmann's hesitation: even though their chemistry pointed to barium, they refused in print to claim that the uranium nucleus had split, calling the products only 'radium isotopes with the chemical properties of barium.' The second sentence describes Meitner doing exactly what Hahn and Strassmann would not — supplying the physical interpretation (a splitting of the nucleus into two roughly equal fragments) and the energy calculation, and naming the process 'fission.' The relation between the two sentences is concession-to-counterclaim: despite the experimenters' reluctance, Meitner went ahead and made the interpretive move. 'Nevertheless,' (a CB-lexicon contrast/concession transition) is correct.\n\nThe cue that selects 'Nevertheless,' is the verb 'hesitated in print to claim' in sentence 1, paired with Meitner's 'recognized that the neutron-uranium reaction could only be a splitting of the nucleus' in sentence 2 — the two sentences directly stage what was withheld and what was supplied, the textbook setup for a concessive contrast.\n\nWhy the wrong answers are tempting:\n- Choice A: causal (wrong direction) — 'Therefore,' would make Meitner's interpretation a logical consequence of Hahn and Strassmann's hesitation, but their hesitation did not produce her interpretation; it stood in contrast to it. The chemistry produced the data; their reluctance to interpret it is precisely what Meitner overrode.\n- Choice B: surface-match (parallel/likewise) — 'Likewise,' would frame Meitner as doing the same thing as Hahn and Strassmann. But the whole point of the second sentence is that she did the opposite of what they did in print: she identified the reaction as nuclear fission and quantified the energy, which is what they refused to do.\n- Choice D: scope-shift (addition) — 'In addition,' would fit if Meitner's contribution were one further item on the same line as Hahn and Strassmann's — for example, an additional chemical assay. Instead, her contribution is of a different kind (physical interpretation and energy calculation) and stands against their refusal to interpret, not alongside another chemical result.",
           "_meta": {
             "anchor": "Lise Meitner — physicist; trained in Berlin, fled Nazi Germany 1938; with Otto Frisch, gave the physical interpretation and energy calculation of the Hahn-Strassmann uranium-bombardment results as nuclear fission (Dec 1938 / Jan 1939)",
             "cue": "the verb 'hesitated in print to claim' in sentence 1 paired with 'recognized that the neutron-uranium reaction could only be a splitting' in sentence 2 stages what was withheld vs what was supplied — a concessive contrast",
@@ -2242,23 +2242,23 @@ export const practiceTest9RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Moreover,"
+              "text": "Previously,"
             },
             {
               "id": "B",
-              "text": "By contrast,"
-            },
-            {
-              "id": "C",
               "text": "For instance,"
             },
             {
+              "id": "C",
+              "text": "By contrast,"
+            },
+            {
               "id": "D",
-              "text": "Previously,"
+              "text": "Moreover,"
             }
           ],
-          "correctAnswer": "C",
-          "explanation": "The correct answer is C. The first sentence makes a general methodological claim about Bath's career argument: that surgical innovation in cataract treatment should be evaluated not only by bench performance but also by deployability in lower-resource clinical settings. The second sentence names a specific instance — the 1988 laserphaco probe — and walks through how its specific design choices (pulsed laser source, lower delivered energy, shorter procedure) were 'explicitly defended as making the technique easier to teach and to deploy in lower-resource ophthalmology services.' That is a single concrete realization of the general principle in sentence 1. The relation is general-claim-to-illustrating-case, so 'For instance,' (a CB-lexicon illustration transition) is correct.\n\nThe cue that selects 'For instance,' is the shift in specificity: sentence 1 is a general evaluative claim about how innovation in the field should be judged; sentence 2 names a particular device (the 1988 laserphaco probe), particular design substitutions, and a particular justification — the textbook signature of an illustrating instance.\n\nWhy the wrong answers are tempting:\n- Choice A: scope-shift (addition) — 'Moreover,' would fit if sentence 2 were a second general claim placed alongside sentence 1 (e.g., 'Moreover, Bath argued for community-screening programs alongside surgical innovation'). Instead, it offers one specific device and its design rationale as evidence for the general claim, which is illustration, not addition.\n- Choice B: inverse (contrast) — 'By contrast,' would make the laserphaco probe cut against Bath's general principle. Instead, the device is described as a clean realization of that principle: its design choices are 'explicitly defended' on exactly the lower-resource deployability grounds sentence 1 lays out.\n- Choice D: surface-match (temporal/historical) — 'Previously,' frames sentence 2 as describing an earlier moment than sentence 1 does. But sentence 1 generalizes across Bath's whole career, and sentence 2 names a specific 1988 instance within that career; the relation is general-to-specific, not later-to-earlier.",
+          "correctAnswer": "B",
+          "explanation": "The correct answer is B. The first sentence makes a general methodological claim about Bath's career argument: that surgical innovation in cataract treatment should be evaluated not only by bench performance but also by deployability in lower-resource clinical settings. The second sentence names a specific instance — the 1988 laserphaco probe — and walks through how its specific design choices (pulsed laser source, lower delivered energy, shorter procedure) were 'explicitly defended as making the technique easier to teach and to deploy in lower-resource ophthalmology services.' That is a single concrete realization of the general principle in sentence 1. The relation is general-claim-to-illustrating-case, so 'For instance,' (a CB-lexicon illustration transition) is correct.\n\nThe cue that selects 'For instance,' is the shift in specificity: sentence 1 is a general evaluative claim about how innovation in the field should be judged; sentence 2 names a particular device (the 1988 laserphaco probe), particular design substitutions, and a particular justification — the textbook signature of an illustrating instance.\n\nWhy the wrong answers are tempting:\n- Choice D: scope-shift (addition) — 'Moreover,' would fit if sentence 2 were a second general claim placed alongside sentence 1 (e.g., 'Moreover, Bath argued for community-screening programs alongside surgical innovation'). Instead, it offers one specific device and its design rationale as evidence for the general claim, which is illustration, not addition.\n- Choice C: inverse (contrast) — 'By contrast,' would make the laserphaco probe cut against Bath's general principle. Instead, the device is described as a clean realization of that principle: its design choices are 'explicitly defended' on exactly the lower-resource deployability grounds sentence 1 lays out.\n- Choice A: surface-match (temporal/historical) — 'Previously,' frames sentence 2 as describing an earlier moment than sentence 1 does. But sentence 1 generalizes across Bath's whole career, and sentence 2 names a specific 1988 instance within that career; the relation is general-to-specific, not later-to-earlier.",
           "_meta": {
             "anchor": "Patricia Bath — ophthalmologist, UCLA Jules Stein Eye Institute; 1988 laserphaco probe (pulsed-laser cataract removal replacing the rotating mechanical phacoemulsifier tip); design rationale framed around deployability in lower-resource ophthalmology services",
             "cue": "the specificity shift from a general evaluative claim about the field to a single named device with explicit design substitutions and a stated rationale signals a general-to-specific illustrating-instance move",
@@ -2293,23 +2293,23 @@ export const practiceTest9RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Frances Densmore (1867-1957) was an American ethnomusicologist who, between 1907 and the 1950s, recorded songs in over thirty Native American communities for the Bureau of American Ethnology."
-            },
-            {
-              "id": "B",
               "text": "Whereas her contemporaries in comparative musicology often abstracted Native American songs from their ceremonial settings to compare them as melodic specimens, Densmore paired each transcription in monographs such as *Chippewa Music* (1910-1913) and *Teton Sioux Music* (1918) with the singer's commentary on when, by whom, and for what purpose the song was performed."
             },
             {
-              "id": "C",
+              "id": "B",
               "text": "Recent scholars credit Densmore with treating song meaning as inseparable from ceremonial context, an approach that became standard only decades later."
+            },
+            {
+              "id": "C",
+              "text": "Frances Densmore (1867-1957) was an American ethnomusicologist who, between 1907 and the 1950s, recorded songs in over thirty Native American communities for the Bureau of American Ethnology."
             },
             {
               "id": "D",
               "text": "Like her contemporaries in comparative musicology, Densmore transcribed Native American songs into Western staff notation in order to make them available for cross-cultural melodic comparison."
             }
           ],
-          "correctAnswer": "B",
-          "explanation": "The correct answer is B. The goal asks for a methodological difference between Densmore and her comparative-musicology contemporaries, so the synthesis must (1) state what the contemporaries did, (2) state what Densmore did differently, and (3) anchor the contrast in concrete material from the notes. Choice B does all three: it states the contemporaries' practice (abstracting songs from their ceremonial settings to compare them as melodic specimens), names two of Densmore's monographs as evidence of her alternative practice (*Chippewa Music* and *Teton Sioux Music*, with dates), and identifies the specific feature of her method that constitutes the difference (pairing each transcription with the singer's commentary on when, by whom, and for what purpose the song was performed). The \"Whereas\" construction places the two methods in direct opposition, which is the rhetorical move the goal demands.\n\nWhy the wrong answers are tempting:\n- Choice A: scope-shift — A is biographical: it names Densmore, gives her field, the date range, the institutional affiliation, and the scope of her recording. The sentence is accurate and uses three notes, but it accomplishes the goal of introducing Densmore rather than staging a methodological contrast with her contemporaries. A reader would learn who she was but not what made her method distinctive.\n- Choice C: surface-match — C describes Densmore's contextual approach and notes that it became standard only decades later, drawing on one note. The sentence is true to that note, but it makes a claim about how the field eventually changed rather than staging the contrast between Densmore and her contemporaries. The contemporaries are not named, and the specific feature that distinguishes the two methods is not described.\n- Choice D: inverse — D claims Densmore was like her contemporaries in transcribing songs for cross-cultural melodic comparison. The notes show the opposite: although Densmore did use staff notation, she paired each transcription with the singer's commentary on the song's function, and recent scholars credit her precisely with treating meaning as inseparable from context — the move comparative musicology did not make. D collapses the difference the goal asks the synthesis to emphasize.",
+          "correctAnswer": "A",
+          "explanation": "The correct answer is A. The goal asks for a methodological difference between Densmore and her comparative-musicology contemporaries, so the synthesis must (1) state what the contemporaries did, (2) state what Densmore did differently, and (3) anchor the contrast in concrete material from the notes. Choice A does all three: it states the contemporaries' practice (abstracting songs from their ceremonial settings to compare them as melodic specimens), names two of Densmore's monographs as evidence of her alternative practice (*Chippewa Music* and *Teton Sioux Music*, with dates), and identifies the specific feature of her method that constitutes the difference (pairing each transcription with the singer's commentary on when, by whom, and for what purpose the song was performed). The \"Whereas\" construction places the two methods in direct opposition, which is the rhetorical move the goal demands.\n\nWhy the wrong answers are tempting:\n- Choice C: scope-shift — A is biographical: it names Densmore, gives her field, the date range, the institutional affiliation, and the scope of her recording. The sentence is accurate and uses three notes, but it accomplishes the goal of introducing Densmore rather than staging a methodological contrast with her contemporaries. A reader would learn who she was but not what made her method distinctive.\n- Choice B: surface-match — C describes Densmore's contextual approach and notes that it became standard only decades later, drawing on one note. The sentence is true to that note, but it makes a claim about how the field eventually changed rather than staging the contrast between Densmore and her contemporaries. The contemporaries are not named, and the specific feature that distinguishes the two methods is not described.\n- Choice D: inverse — D claims Densmore was like her contemporaries in transcribing songs for cross-cultural melodic comparison. The notes show the opposite: although Densmore did use staff notation, she paired each transcription with the singer's commentary on the song's function, and recent scholars credit her precisely with treating meaning as inseparable from context — the move comparative musicology did not make. D collapses the difference the goal asks the synthesis to emphasize.",
           "_meta": {
             "anchor": "Frances Densmore — ethnomusicologist (Bureau of American Ethnology); 1907-1950s wax-cylinder field recordings in 30+ Native American communities; *Chippewa Music* (1910-1913) and *Teton Sioux Music* (1918); transcription paired with singer's commentary on context",
             "distractors": {
@@ -2350,15 +2350,15 @@ export const practiceTest9RW = {
             },
             {
               "id": "C",
-              "text": "Because khipus served Inka administration in the 15th and 16th centuries, Urton's research focuses on the imperial accounting practices of that period."
+              "text": "Although khipus were widely interpreted through the 20th century as purely numerical accounting devices, Gary Urton argues in *Signs of the Inka Khipu* (2003) that knot direction, cord ply, fiber color, and attachment style constitute a binary signaling system capable of carrying non-numerical, possibly narrative content — reopening the colonial-era reading of the cords."
             },
             {
               "id": "D",
-              "text": "Although khipus were widely interpreted through the 20th century as purely numerical accounting devices, Gary Urton argues in *Signs of the Inka Khipu* (2003) that knot direction, cord ply, fiber color, and attachment style constitute a binary signaling system capable of carrying non-numerical, possibly narrative content — reopening the colonial-era reading of the cords."
+              "text": "Because khipus served Inka administration in the 15th and 16th centuries, Urton's research focuses on the imperial accounting practices of that period."
             }
           ],
-          "correctAnswer": "D",
-          "explanation": "The correct answer is D. The goal asks the synthesis to emphasize how Urton's analysis revises a long-standing scholarly understanding of khipus, so it must (1) state that prior understanding, (2) state Urton's revision, and (3) make the revisionary relationship explicit. Choice D does all three. It opens with the 20th-century consensus (khipus interpreted as purely numerical accounting devices), then names Urton's book and date (*Signs of the Inka Khipu*, 2003), specifies the four signaling features his analysis identifies (knot direction, cord ply, fiber color, attachment style), and closes by stating what the revision does — \"reopening the colonial-era reading of the cords.\" The sentence draws on four notes and uses the \"Although... argues that...\" construction to stage the revision the goal asks for.\n\nWhy the wrong answers are tempting:\n- Choice A: scope-shift — A is biographical: it identifies Urton, his affiliation, and the duration of his work on khipus. The sentence is accurate and uses one note, but it accomplishes the goal of introducing the researcher rather than emphasizing the revision his analysis makes. A reader would not learn what the prior scholarly understanding was or what Urton revised.\n- Choice B: surface-match — B uses two notes about Spanish colonial accounts and base-ten knot positions. The sentence reads as a plausible synthesis, but it presents the colonial reading and the 20th-century numerical reading without naming Urton or his revision. The two prior understandings are described as if they were the topic of the sentence, while the revisionary work the goal asks the synthesis to emphasize is absent.\n- Choice C: inverse — C restricts Urton's research to imperial accounting practices, which is the very framework his analysis revises. The notes show that Urton's central argument is that the cords carry non-numerical, possibly narrative content beyond accounting; C suppresses that argument and re-enrolls Urton's work in the older framework, which is the opposite of the revision the goal asks for.",
+          "correctAnswer": "C",
+          "explanation": "The correct answer is C. The goal asks the synthesis to emphasize how Urton's analysis revises a long-standing scholarly understanding of khipus, so it must (1) state that prior understanding, (2) state Urton's revision, and (3) make the revisionary relationship explicit. Choice C does all three. It opens with the 20th-century consensus (khipus interpreted as purely numerical accounting devices), then names Urton's book and date (*Signs of the Inka Khipu*, 2003), specifies the four signaling features his analysis identifies (knot direction, cord ply, fiber color, attachment style), and closes by stating what the revision does — \"reopening the colonial-era reading of the cords.\" The sentence draws on four notes and uses the \"Although... argues that...\" construction to stage the revision the goal asks for.\n\nWhy the wrong answers are tempting:\n- Choice A: scope-shift — A is biographical: it identifies Urton, his affiliation, and the duration of his work on khipus. The sentence is accurate and uses one note, but it accomplishes the goal of introducing the researcher rather than emphasizing the revision his analysis makes. A reader would not learn what the prior scholarly understanding was or what Urton revised.\n- Choice B: surface-match — B uses two notes about Spanish colonial accounts and base-ten knot positions. The sentence reads as a plausible synthesis, but it presents the colonial reading and the 20th-century numerical reading without naming Urton or his revision. The two prior understandings are described as if they were the topic of the sentence, while the revisionary work the goal asks the synthesis to emphasize is absent.\n- Choice D: inverse — C restricts Urton's research to imperial accounting practices, which is the very framework his analysis revises. The notes show that Urton's central argument is that the cords carry non-numerical, possibly narrative content beyond accounting; C suppresses that argument and re-enrolls Urton's work in the older framework, which is the opposite of the revision the goal asks for.",
           "_meta": {
             "anchor": "Gary Urton — anthropologist (Harvard); Andean khipu research from the 1990s; *Signs of the Inka Khipu* (2003); binary signaling system across knot direction, cord ply, fiber color, and attachment style; non-numerical content beyond Inka accounting",
             "distractors": {
