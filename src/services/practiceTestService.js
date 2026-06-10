@@ -356,19 +356,21 @@ export const saveTestProgress = async (userId, testId, progressData) => {
     const progressRef = doc(db, 'progress', userId);
     const progressSnap = await getDoc(progressRef);
 
-    const inProgressData = {
+    // Pass the caller's payload through instead of rebuilding a fixed shape.
+    // The old fixed shape silently DROPPED unknown fields (module2Variant /
+    // m2VariantManuallySet never survived a resume) and wrote `undefined`
+    // for any field the caller omitted — which Firestore rejects outright
+    // (the mini-diagnostic's differently-shaped payload hit exactly that).
+    // questionTelemetry stays out of full-test Firestore saves (doc size;
+    // session-local). The JSON round-trip deep-strips undefined values.
+    const { questionTelemetry: _sessionLocal, ...passthrough } = progressData;
+    const inProgressData = JSON.parse(JSON.stringify({
+      ...passthrough,
       testId,
-      currentModule: progressData.currentModule,
-      currentQuestion: progressData.currentQuestion,
-      answers: progressData.answers,
       markedForReview: progressData.markedForReview || [],
       eliminatedChoices: progressData.eliminatedChoices || {},
-      isTimed: progressData.isTimed,
-      timeRemaining: progressData.timeRemaining,
-      // questionTelemetry omitted from Firestore saves to reduce document size.
-      // It's only needed during the active session and is kept in local state.
       lastSavedAt: new Date().toISOString()
-    };
+    }));
 
     if (!progressSnap.exists()) {
       await setDoc(progressRef, {

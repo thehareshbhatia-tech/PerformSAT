@@ -322,7 +322,7 @@ const PerformSAT = () => {
   }, [showCalculator]);
 
   const { user, loading, logout, updateTestDate, updateTargetScore, updateCurrentScore, updateTargetSchools, updateProfilePhoto, updateFirstName, markOnboardingComplete, markOnboardingSkipped } = useAuth();
-  const { loading: progressLoading, completedLessons, practiceProgress, drillDays, reviewQueue, reviewStreak, skillProgress, answeredQuestionIds, practiceTestResults, inProgressTests, studyPlan, studyPlanMeta, studyPlanArtifact, predictionLog, interventionLog, studentFingerprint, miniDiagnostic, recordPracticeAttempt, recordDrillSkillAttempts, recordPracticedDay, hasPracticed, getBestScore, getDueCount, getReviewStatistics, getSkillDiagnosticSummary, getSkillBreakdown, recordPracticeTestAttempt, getTestBestScore, getTestAttempts, saveTestProgress, clearTestProgress, getTestProgress, hasTestProgress, saveMiniDiagnostic, saveStudyPlan, markStudyActivityComplete, unmarkStudyActivityComplete, markLessonComplete, isLessonCompleted, getModuleProgress, lastSaveStatus, retryLastSave } = useProgress(user?.uid);
+  const { loading: progressLoading, hydrated: progressHydrated, completedLessons, practiceProgress, drillDays, reviewQueue, reviewStreak, skillProgress, answeredQuestionIds, practiceTestResults, inProgressTests, studyPlan, studyPlanMeta, studyPlanArtifact, predictionLog, interventionLog, studentFingerprint, miniDiagnostic, recordPracticeAttempt, recordDrillSkillAttempts, recordPracticedDay, hasPracticed, getBestScore, getDueCount, getReviewStatistics, getSkillDiagnosticSummary, getSkillBreakdown, recordPracticeTestAttempt, getTestBestScore, getTestAttempts, saveTestProgress, clearTestProgress, getTestProgress, hasTestProgress, saveMiniDiagnostic, saveStudyPlan, markStudyActivityComplete, unmarkStudyActivityComplete, markLessonComplete, isLessonCompleted, getModuleProgress, lastSaveStatus, retryLastSave } = useProgress(user?.uid);
 
   // Mount the analytics session lifecycle (session_start / session_end +
   // beforeunload flush). Previously orphaned — the hook existed but was never
@@ -494,7 +494,10 @@ const PerformSAT = () => {
   // flow directly at the runner, even past a skip stamp.
   useEffect(() => {
     if (onRampActive !== null) return; // decided already this session
-    if (!ffOnRamp || !user || progressLoading) return;
+    // `progressHydrated` (not !progressLoading): in the commit where the
+    // user first resolves, loading still reads false from the boot no-user
+    // state, and deciding there would miss an in-flight check-in resume.
+    if (!ffOnRamp || !user || !progressHydrated) return;
     const hasTests = Object.keys(practiceTestResults || {}).length > 0;
     const hasResume = !!(inProgressTests && inProgressTests['mini-diagnostic']);
     if (user.onboardingCompletedAt || hasTests) { setOnRampActive(false); return; }
@@ -506,7 +509,7 @@ const PerformSAT = () => {
     if (user.onboardingSkippedAt || studyPlan) { setOnRampActive(false); return; }
     setOnRampStage('wizard');
     setOnRampActive(true);
-  }, [onRampActive, ffOnRamp, user, progressLoading, practiceTestResults, inProgressTests, studyPlan]);
+  }, [onRampActive, ffOnRamp, user, progressHydrated, practiceTestResults, inProgressTests, studyPlan]);
 
   const handleOnRampSkip = () => {
     setOnRampActive(false);

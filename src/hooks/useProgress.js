@@ -74,12 +74,27 @@ export const useProgress = (userId) => {
   const [lastSaveStatus, setLastSaveStatus] = useState(null); // 'saving' | 'saved' | 'failed' | null
   const lastFailedSaveRef = useRef(null);
   const flushedForUid = useRef(null);
+  // True once THIS user's first progress snapshot has landed. Distinct from
+  // !loading: in the commit where userId first appears, `loading` still
+  // renders as false (boot set it false for the no-user state), so effects
+  // gating on !loading fire against empty data. Decision-making effects
+  // (e.g. the on-ramp gate) must require `hydrated` instead.
+  const [hydrated, setHydrated] = useState(false);
 
   useEffect(() => {
     if (!userId) {
       setLoading(false);
       return;
     }
+
+    // Re-arm the loading flag for this subscription. Boot renders with no
+    // userId (auth still resolving), which lands in the branch above and
+    // flips loading false — so when auth resolves, consumers would otherwise
+    // see loading=false with EMPTY data until the first snapshot arrives.
+    // The on-ramp gate decided "fresh user" inside exactly that window and
+    // missed an in-flight check-in resume.
+    setLoading(true);
+    setHydrated(false);
 
     const progressRef = doc(db, 'progress', userId);
 
@@ -249,6 +264,7 @@ export const useProgress = (userId) => {
           setPredictionLog([]);
         }
         setLoading(false);
+        setHydrated(true);
       },
       (err) => {
         console.error('Error listening to progress:', err);
@@ -938,6 +954,7 @@ export const useProgress = (userId) => {
     predictionLog,
     miniDiagnostic,
     loading,
+    hydrated,
     error,
     markLessonComplete,
     toggleLessonComplete,

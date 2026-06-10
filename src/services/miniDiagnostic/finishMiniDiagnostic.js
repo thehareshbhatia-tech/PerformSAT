@@ -142,8 +142,27 @@ export async function finishMiniDiagnostic({
 
   const groundTruth = buildGroundTruthDiagnosis(diagReport, telemetry);
 
+  // Honest coarse band (never a point estimate) for the results screen —
+  // computed before plan generation so the plan's score-gap framing ("N
+  // points to your goal") agrees with the band the student just saw. The
+  // engine's raw scaled score for a 24-item synthetic test undershoots the
+  // calibrated band, so the band midpoint becomes the plan's currentScore.
+  const answersById = {};
+  const collectAnswers = (qs, modIdx) => qs.forEach((q, qIdx) => {
+    const a = answers[`${modIdx}-${qIdx}`];
+    if (a !== undefined && a !== null && a !== '') answersById[q.id] = a;
+  });
+  collectAnswers(rwQuestions, 0);
+  collectAnswers(mathQuestions, 1);
+  const scoreBand = computeScoreBand({ rwItems: rwQuestions, mathItems: mathQuestions, answersById });
+  const bandMidpoint = Math.round((scoreBand.low + scoreBand.high) / 2 / 10) * 10;
+  const planDiagnostic = {
+    ...diagReport,
+    score: { ...(diagReport.score || {}), scaled: bandMidpoint },
+  };
+
   const detPlan = generateStudyPlan(
-    diagReport,
+    planDiagnostic,
     { targetScore: user.targetScore, testDate: user.testDate },
     completedLessons,
     practiceProgress,
@@ -161,16 +180,6 @@ export async function finishMiniDiagnostic({
   }
   plan.planSource = MINI_DIAGNOSTIC_PLAN_SOURCE;
   plan.basedOnTest = MINI_DIAGNOSTIC_TEST_ID;
-
-  // Honest coarse band (never a point estimate) for the results screen.
-  const answersById = {};
-  test.modules.forEach((mod, modIdx) => {
-    mod.questions.forEach((q, qIdx) => {
-      const a = answers[`${modIdx}-${qIdx}`];
-      if (a !== undefined && a !== null && a !== '') answersById[q.id] = a;
-    });
-  });
-  const scoreBand = computeScoreBand({ rwItems: rwQuestions, mathItems: mathQuestions, answersById });
 
   const miniDiagnosticRecord = {
     attemptId: attemptId || null,

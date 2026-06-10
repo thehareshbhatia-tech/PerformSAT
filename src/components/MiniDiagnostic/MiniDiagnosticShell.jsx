@@ -103,6 +103,11 @@ const MiniDiagnosticShell = ({
   // PracticeTest's answersRef.
   const latestRef = useRef({});
   latestRef.current = { answers, eliminatedChoices, rwServed, mathServed, currentIndex, phase, deadlineTs };
+  // useProgress recreates its save/clear functions on every App render; held
+  // as refs so scheduleSave stays referentially stable (a changing identity
+  // re-armed the save effect on each optimistic update → a 2s save loop).
+  const onSaveProgressRef = useRef(onSaveProgress);
+  onSaveProgressRef.current = onSaveProgress;
 
   useEffect(() => { injectAnimations(); }, []);
 
@@ -138,7 +143,12 @@ const MiniDiagnosticShell = ({
           setEliminatedChoices(saved.eliminatedChoices || {});
           setCurrentIndex(saved.currentIndex || 0);
           if (saved.phase === 'rw' || saved.phase === 'math') {
-            setDeadlineTs(deriveDeadline(saved.remainingSeconds ?? SECTION_CONFIG[saved.phase].seconds, Date.now()));
+            // Non-numeric/corrupt saved clock falls back to the full section
+            // budget rather than instantly expiring the section.
+            const savedRemaining = Number.isFinite(saved.remainingSeconds) && saved.remainingSeconds > 0
+              ? saved.remainingSeconds
+              : SECTION_CONFIG[saved.phase].seconds;
+            setDeadlineTs(deriveDeadline(savedRemaining, Date.now()));
           }
           setPhase(saved.phase);
           logInfo('miniDiagnostic', 'resumed in-flight check-in');
@@ -196,9 +206,9 @@ const MiniDiagnosticShell = ({
   useEffect(() => {
     if (!inSection || !deadlineTs) return;
     const tick = () => {
-      const left = computeRemaining({ deadlineTs, nowTs: Date.now() });
-      setRemaining(left);
-      if (left <= 0) handleSectionEnd();
+      const { remainingSeconds, isUp } = computeRemaining({ deadlineTs, nowTs: Date.now() });
+      setRemaining(remainingSeconds);
+      if (isUp) handleSectionEnd();
     };
     tick();
     const interval = setInterval(tick, 500);
@@ -214,7 +224,7 @@ const MiniDiagnosticShell = ({
 
   // ── Resume persistence (2s debounce, PracticeTest convention) ────────────
   const scheduleSave = useCallback((phaseOverride, indexOverride) => {
-    if (!onSaveProgress) return;
+    if (!onSaveProgressRef.current) return;
     clearTimeout(saveTimerRef.current);
     saveTimerRef.current = setTimeout(() => {
       // Read through latestRef: the debounce can fire after the closure that
@@ -222,7 +232,7 @@ const MiniDiagnosticShell = ({
       const live = latestRef.current;
       const activePhase = phaseOverride || live.phase;
       if (activePhase !== 'rw' && activePhase !== 'math' && activePhase !== 'interstitial') return;
-      onSaveProgress(MINI_DIAG_PROGRESS_KEY, {
+      onSaveProgressRef.current(MINI_DIAG_PROGRESS_KEY, {
         version: RESUME_VERSION,
         attemptId: attemptIdRef.current,
         excludeIdsSnapshot: excludeIdsRef.current,
@@ -233,10 +243,12 @@ const MiniDiagnosticShell = ({
         telemetry: telemetryRef.current,
         rwStage2: live.rwServed.length > STAGE1_COUNT,
         mathStage2: live.mathServed.length > STAGE1_COUNT,
-        remainingSeconds: live.deadlineTs ? computeRemaining({ deadlineTs: live.deadlineTs, nowTs: Date.now() }) : null,
+        remainingSeconds: live.deadlineTs
+          ? computeRemaining({ deadlineTs: live.deadlineTs, nowTs: Date.now() }).remainingSeconds
+          : null,
       });
     }, 2000);
-  }, [onSaveProgress]);
+  }, []);
 
   useEffect(() => {
     if (inSection) scheduleSave();

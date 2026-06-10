@@ -638,13 +638,18 @@ const StudyPlanDashboard = ({
           <h2 className="sp-hero-title">
             {(() => {
               const name = user?.firstName;
-              // targetScore is always a 200-800 MATH-section target; name the
-              // section so the title stays accurate when the latest headline
-              // score is a composite (scale-safety per goalProgress.js).
-              const body = goalAchieved && user?.targetScore
-                ? `you're past ${user.targetScore} Math — the job now is holding it`
-                : user?.targetScore
-                  ? `here's your path to ${user.targetScore} Math`
+              // Composite (400-1600, on-ramp era) targets read as plain SAT
+              // scores; legacy section-scale (200-800) targets keep the
+              // "Math" label so the title stays accurate when the latest
+              // headline score is a composite (scale-safety per
+              // goalProgress.js / isCompositeScaleTarget).
+              const targetLabel = user?.targetScore
+                ? `${user.targetScore}${user.targetScore <= 800 ? ' Math' : ''}`
+                : null;
+              const body = goalAchieved && targetLabel
+                ? `you're past ${targetLabel} — the job now is holding it`
+                : targetLabel
+                  ? `here's your path to ${targetLabel}`
                   : 'here\'s your plan';
               return name
                 ? `${name}, ${body}`
