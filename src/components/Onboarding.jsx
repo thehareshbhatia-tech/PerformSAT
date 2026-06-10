@@ -5,9 +5,9 @@ import { injectAnimations } from '../design/animations';
 import { CheckIcon, DocumentIcon } from '../design/icons';
 import { Button } from './ui/Button';
 
-const Onboarding = ({ user, onUpdateTargetScore, onUpdateTestDate, onUpdateCurrentScore, onComplete }) => {
+const Onboarding = ({ user, onUpdateTargetScore, onUpdateTestDate, onUpdateCurrentScore, onComplete, onSkip }) => {
   const [step, setStep] = useState(0);
-  const [targetScore, setTargetScore] = useState(700);
+  const [targetScore, setTargetScore] = useState(1300);
   const [testDateOption, setTestDateOption] = useState(null);
   const [customDate, setCustomDate] = useState('');
   const [hasScore, setHasScore] = useState(null);
@@ -30,7 +30,7 @@ const Onboarding = ({ user, onUpdateTargetScore, onUpdateTestDate, onUpdateCurre
 
       if (hasScore && currentScore) {
         const score = parseInt(currentScore);
-        if (score >= 200 && score <= 800) {
+        if (score >= 400 && score <= 1600) {
           await onUpdateCurrentScore(score);
         }
       }
@@ -70,7 +70,7 @@ const Onboarding = ({ user, onUpdateTargetScore, onUpdateTestDate, onUpdateCurre
           fontSize: '28px',
           fontWeight: '700',
           margin: '0 auto 2rem',
-        }}>P</div>
+        }}>S</div>
 
         <h1 style={{
           fontSize: typography.sizes['3xl'],
@@ -88,7 +88,7 @@ const Onboarding = ({ user, onUpdateTargetScore, onUpdateTestDate, onUpdateCurre
           marginBottom: spacing['2xl'],
           lineHeight: typography.lineHeights.relaxed,
         }}>
-          Let's set up your personalized SAT Math study plan.
+          Three quick questions, then a 15-minute check-in builds your starter study plan.
         </p>
 
         <Button
@@ -142,17 +142,17 @@ const Onboarding = ({ user, onUpdateTargetScore, onUpdateTestDate, onUpdateCurre
           <input
             type="range"
             min="400"
-            max="800"
+            max="1600"
             step="10"
             value={targetScore}
             onChange={(e) => setTargetScore(parseInt(e.target.value))}
-            aria-label="Target SAT Math score"
+            aria-label="Target SAT score"
             style={{
               width: '100%',
               height: '8px',
               borderRadius: '4px',
               appearance: 'none',
-              background: `linear-gradient(to right, ${colors.accent.orange} ${((targetScore - 400) / 400) * 100}%, ${colors.surface.grayDark} ${((targetScore - 400) / 400) * 100}%)`,
+              background: `linear-gradient(to right, ${colors.accent.orange} ${((targetScore - 400) / 1200) * 100}%, ${colors.surface.grayDark} ${((targetScore - 400) / 1200) * 100}%)`,
               outline: 'none',
               cursor: 'pointer',
             }}
@@ -165,8 +165,8 @@ const Onboarding = ({ user, onUpdateTargetScore, onUpdateTestDate, onUpdateCurre
             marginTop: spacing.xs,
           }}>
             <span>400</span>
-            <span>600</span>
-            <span>800</span>
+            <span>1000</span>
+            <span>1600</span>
           </div>
         </div>
 
@@ -177,10 +177,10 @@ const Onboarding = ({ user, onUpdateTargetScore, onUpdateTestDate, onUpdateCurre
           marginBottom: spacing.xl,
         }}>
           <span style={{ fontSize: typography.sizes.sm, color: colors.text.secondary }}>
-            {targetScore >= 750 ? 'Top-tier universities (MIT, Stanford, Ivy League)' :
-             targetScore >= 700 ? 'Highly competitive schools (UCLA, UMich, NYU)' :
-             targetScore >= 650 ? 'Strong competitive range (most state flagships)' :
-             targetScore >= 600 ? 'Solid foundation — great improvement target' :
+            {targetScore >= 1500 ? 'Top-tier universities (MIT, Stanford, Ivy League)' :
+             targetScore >= 1400 ? 'Highly competitive schools (UCLA, UMich, NYU)' :
+             targetScore >= 1300 ? 'Strong competitive range (most state flagships)' :
+             targetScore >= 1150 ? 'Solid foundation — great improvement target' :
              'Building fundamentals — every point counts!'}
           </span>
         </div>
@@ -305,7 +305,7 @@ const Onboarding = ({ user, onUpdateTargetScore, onUpdateTestDate, onUpdateCurre
           marginBottom: spacing.xs,
           textAlign: 'center',
         }}>
-          Have you taken a practice test?
+          Have you taken the SAT or PSAT?
         </h2>
         <p style={{
           fontSize: typography.sizes.base,
@@ -359,26 +359,26 @@ const Onboarding = ({ user, onUpdateTargetScore, onUpdateTestDate, onUpdateCurre
               color: colors.text.secondary,
               marginBottom: spacing.xs,
             }}>
-              Your SAT Math score (200-800)
+              Your most recent total score (400-1600)
             </label>
             <input
               type="number"
-              min="200"
-              max="800"
+              min="400"
+              max="1600"
               step="10"
               value={currentScore}
               onChange={(e) => setCurrentScore(e.target.value)}
-              placeholder="e.g. 580"
+              placeholder="e.g. 1150"
               style={inputStyles.base}
-              aria-label="Current SAT Math score"
+              aria-label="Current SAT score"
             />
-            {currentScore && (parseInt(currentScore) < 200 || parseInt(currentScore) > 800) && (
+            {currentScore && (parseInt(currentScore) < 400 || parseInt(currentScore) > 1600) && (
               <p style={{
                 fontSize: typography.sizes.sm,
                 color: colors.semantic.error,
                 marginTop: spacing.xs,
               }}>
-                Enter a score between 200 and 800
+                Enter a score between 400 and 1600
               </p>
             )}
           </div>
@@ -401,11 +401,11 @@ const Onboarding = ({ user, onUpdateTargetScore, onUpdateTestDate, onUpdateCurre
           </Button>
           <Button
             onClick={handleFinish}
-            disabled={hasScore === null || saving || (hasScore && (!currentScore || parseInt(currentScore) < 200 || parseInt(currentScore) > 800))}
+            disabled={hasScore === null || saving || (hasScore && (!currentScore || parseInt(currentScore) < 400 || parseInt(currentScore) > 1600))}
             variant="primary"
             style={{ flex: 2, opacity: (hasScore === null || saving) ? 0.5 : 1 }}
           >
-            {saving ? 'Saving...' : hasScore === false ? 'Take Practice Test' : 'Go to Dashboard'}
+            {saving ? 'Saving...' : 'Start my check-in'}
           </Button>
         </div>
       </div>
@@ -456,6 +456,25 @@ const Onboarding = ({ user, onUpdateTargetScore, onUpdateTestDate, onUpdateCurre
       }}>
         {steps[step]()}
       </div>
+
+      {onSkip && (
+        <button
+          onClick={onSkip}
+          style={{
+            marginTop: spacing['2xl'],
+            background: 'none',
+            border: 'none',
+            padding: spacing.xs,
+            fontSize: typography.sizes.sm,
+            color: colors.text.muted,
+            textDecoration: 'underline',
+            cursor: 'pointer',
+            fontFamily: 'inherit',
+          }}
+        >
+          Skip for now
+        </button>
+      )}
     </div>
   );
 };

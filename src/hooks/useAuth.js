@@ -252,8 +252,10 @@ export const useAuth = () => {
   };
 
   /**
-   * Update user's target SAT Math score
-   * @param {number} targetScore - Target score (200-800)
+   * Update user's target SAT score. The on-ramp wizard (2026-06) writes a
+   * composite 400-1600 goal; legacy accounts may still hold a section-scale
+   * 200-800 value. Scale-safe comparisons live in selectors/goalProgress.js.
+   * @param {number} targetScore - Target score (composite 400-1600, or legacy section 200-800)
    */
   const updateTargetScore = async (targetScore) => {
     if (!user?.uid) return;
@@ -271,8 +273,9 @@ export const useAuth = () => {
   };
 
   /**
-   * Update user's current SAT Math score
-   * @param {number} currentScore - Current score (200-800)
+   * Update user's self-reported current SAT score. The on-ramp wizard writes a
+   * composite 400-1600 value; legacy accounts may hold a section-scale one.
+   * @param {number} currentScore - Current score (composite 400-1600, or legacy section 200-800)
    */
   const updateCurrentScore = async (currentScore) => {
     if (!user?.uid) return;
@@ -285,6 +288,46 @@ export const useAuth = () => {
       setUser(prev => ({ ...prev, currentScore }));
     } catch (err) {
       console.error('Error updating current score:', err);
+      throw err;
+    }
+  };
+
+  /**
+   * Stamp the on-ramp as finished (wizard + mini-diagnostic complete). The
+   * /course gate stops mounting onboarding once this exists on users/{uid}.
+   */
+  const markOnboardingComplete = async () => {
+    if (!user?.uid) return;
+    const onboardingCompletedAt = new Date().toISOString();
+
+    try {
+      await setDoc(doc(db, 'users', user.uid), {
+        onboardingCompletedAt
+      }, { merge: true });
+
+      setUser(prev => ({ ...prev, onboardingCompletedAt }));
+    } catch (err) {
+      console.error('Error marking onboarding complete:', err);
+      throw err;
+    }
+  };
+
+  /**
+   * Stamp the on-ramp as skipped ("Skip for now"). The gate stops auto-mounting
+   * onboarding, and the dashboard offers a "finish your check-in" card instead.
+   */
+  const markOnboardingSkipped = async () => {
+    if (!user?.uid) return;
+    const onboardingSkippedAt = new Date().toISOString();
+
+    try {
+      await setDoc(doc(db, 'users', user.uid), {
+        onboardingSkippedAt
+      }, { merge: true });
+
+      setUser(prev => ({ ...prev, onboardingSkippedAt }));
+    } catch (err) {
+      console.error('Error marking onboarding skipped:', err);
       throw err;
     }
   };
@@ -330,6 +373,8 @@ export const useAuth = () => {
     updateTargetSchools,
     updateProfilePhoto,
     updateFirstName,
+    markOnboardingComplete,
+    markOnboardingSkipped,
     isAuthenticated: !!user
   };
 };

@@ -1,21 +1,57 @@
 /**
  * goalProgress — safe-by-default "did the student hit their goal?" comparison.
  *
- * `targetScore` (from onboarding) is always a SECTION-scale value (200-800).
- * A test's headline `scaledScore` is a 200-800 section score for single-section
- * tests but a 400-1600 COMPOSITE once a test carries more than one section
- * (irtEngine `isMultiSection`). The dashboards used to compare them raw, so the
- * day an R&W section ships a ~900 composite would trivially clear a 700 section
- * target and falsely celebrate "Goal Achieved" with a nonsense "+200 pts above
- * target" (1.4). These helpers compare ONLY when the latest score is provably on
- * the same (section) scale as the target, and default to "not achieved" /
- * "no delta" whenever the scale is composite or unknown — never a false positive.
+ * `targetScore` lives on one of two scales: legacy onboarding stored a SECTION
+ * (200-800) target; the on-ramp wizard (2026-06) stores a COMPOSITE (400-1600)
+ * target. A target above 800 is provably composite — no section goal exceeds
+ * 800. A test's headline `scaledScore` is a 200-800 section score for
+ * single-section tests but a 400-1600 COMPOSITE once a test carries more than
+ * one section (irtEngine `isMultiSection`). The dashboards used to compare them
+ * raw, so the day an R&W section ships a ~900 composite would trivially clear a
+ * 700 section target and falsely celebrate "Goal Achieved" with a nonsense
+ * "+200 pts above target" (1.4). These helpers compare ONLY when score and
+ * target are provably on the SAME scale (section-vs-section or
+ * composite-vs-composite), and default to "not achieved" / "no delta" whenever
+ * the scales are mixed or unknown — never a false positive.
  *
  * Use in any view that renders a goal-achieved state or a "points vs goal" delta.
  */
 
-/** Top of the SAT section scale; a target is always at or below this. */
+/** Top of the SAT section scale. */
 export const SECTION_SCALE_MAX = 800;
+
+/** Top of the SAT composite scale. */
+export const COMPOSITE_SCALE_MAX = 1600;
+
+/**
+ * Is `target` provably on the composite (400-1600) scale? A target above the
+ * section ceiling can only be a composite goal (set by onboarding's 400-1600
+ * slider); a target at or below 800 is treated as the legacy section scale.
+ *
+ * @param {number} target - the student's goal score
+ * @returns {boolean}
+ */
+export function isCompositeScaleTarget(target) {
+  if (typeof target !== 'number' || Number.isNaN(target)) return false;
+  return target > SECTION_SCALE_MAX && target <= COMPOSITE_SCALE_MAX;
+}
+
+/**
+ * Is `score` provably on the composite (400-1600) scale? True for a flagged
+ * multi-section result, or any score above the section ceiling (no section
+ * score exceeds 800). An unflagged score at or below 800 stays ambiguous —
+ * it could be a low composite, so it never matches a composite target.
+ *
+ * @param {number} score - the headline scaled score
+ * @param {object} [opts]
+ * @param {boolean} [opts.isMultiSection] - composite flag from the test result
+ * @returns {boolean}
+ */
+export function isCompositeScaleScore(score, { isMultiSection } = {}) {
+  if (typeof score !== 'number' || Number.isNaN(score)) return false;
+  if (isMultiSection === true) return true;
+  return score > SECTION_SCALE_MAX && score <= COMPOSITE_SCALE_MAX;
+}
 
 /**
  * Is `score` provably on the section (200-800) scale, i.e. directly comparable
@@ -47,6 +83,10 @@ export function isSectionScaleScore(score, { isMultiSection } = {}) {
  */
 export function isGoalAchieved({ latestScore, targetScore, isMultiSection } = {}) {
   if (targetScore == null || latestScore == null) return false;
+  if (isCompositeScaleTarget(targetScore)) {
+    if (!isCompositeScaleScore(latestScore, { isMultiSection })) return false;
+    return latestScore >= targetScore;
+  }
   if (!isSectionScaleScore(latestScore, { isMultiSection })) return false;
   return latestScore >= targetScore;
 }
@@ -64,6 +104,10 @@ export function isGoalAchieved({ latestScore, targetScore, isMultiSection } = {}
  */
 export function goalDelta({ latestScore, targetScore, isMultiSection } = {}) {
   if (targetScore == null || latestScore == null) return null;
+  if (isCompositeScaleTarget(targetScore)) {
+    if (!isCompositeScaleScore(latestScore, { isMultiSection })) return null;
+    return latestScore - targetScore;
+  }
   if (!isSectionScaleScore(latestScore, { isMultiSection })) return null;
   return latestScore - targetScore;
 }

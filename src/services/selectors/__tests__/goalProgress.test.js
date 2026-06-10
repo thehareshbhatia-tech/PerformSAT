@@ -1,4 +1,12 @@
-import { isGoalAchieved, goalDelta, isSectionScaleScore, SECTION_SCALE_MAX } from '../goalProgress';
+import {
+  isGoalAchieved,
+  goalDelta,
+  isSectionScaleScore,
+  isCompositeScaleScore,
+  isCompositeScaleTarget,
+  SECTION_SCALE_MAX,
+  COMPOSITE_SCALE_MAX,
+} from '../goalProgress';
 
 describe('goalProgress — isSectionScaleScore', () => {
   it('treats a section-flagged score within the ceiling as comparable', () => {
@@ -50,6 +58,71 @@ describe('goalProgress — isGoalAchieved', () => {
     expect(isGoalAchieved({ latestScore: 720, targetScore: null, isMultiSection: false })).toBe(false);
     expect(isGoalAchieved({ latestScore: null, targetScore: 700, isMultiSection: false })).toBe(false);
     expect(isGoalAchieved({})).toBe(false);
+  });
+});
+
+describe('goalProgress — composite scale detection', () => {
+  it('treats a target above the section ceiling as composite', () => {
+    expect(isCompositeScaleTarget(1300)).toBe(true);
+    expect(isCompositeScaleTarget(COMPOSITE_SCALE_MAX)).toBe(true);
+  });
+
+  it('treats a target at or below 800 as the legacy section scale', () => {
+    expect(isCompositeScaleTarget(700)).toBe(false);
+    expect(isCompositeScaleTarget(SECTION_SCALE_MAX)).toBe(false);
+  });
+
+  it('rejects out-of-range and non-numeric targets', () => {
+    expect(isCompositeScaleTarget(1700)).toBe(false);
+    expect(isCompositeScaleTarget(null)).toBe(false);
+    expect(isCompositeScaleTarget(NaN)).toBe(false);
+  });
+
+  it('treats a flagged multi-section score as composite even when numerically low', () => {
+    expect(isCompositeScaleScore(780, { isMultiSection: true })).toBe(true);
+  });
+
+  it('treats any score above 800 as provably composite without a flag', () => {
+    expect(isCompositeScaleScore(1100, {})).toBe(true);
+  });
+
+  it('keeps an unflagged score at or below 800 ambiguous (never composite)', () => {
+    expect(isCompositeScaleScore(780, {})).toBe(false);
+    expect(isCompositeScaleScore(780, { isMultiSection: false })).toBe(false);
+  });
+});
+
+describe('goalProgress — composite target comparisons (on-ramp 2026-06)', () => {
+  it('celebrates a composite score that meets a composite target', () => {
+    expect(isGoalAchieved({ latestScore: 1350, targetScore: 1300, isMultiSection: true })).toBe(true);
+    expect(goalDelta({ latestScore: 1350, targetScore: 1300, isMultiSection: true })).toBe(50);
+  });
+
+  it('does not celebrate a composite score below a composite target', () => {
+    expect(isGoalAchieved({ latestScore: 1250, targetScore: 1300, isMultiSection: true })).toBe(false);
+    expect(goalDelta({ latestScore: 1250, targetScore: 1300, isMultiSection: true })).toBe(-50);
+  });
+
+  it('NEVER compares a section score against a composite target', () => {
+    // 750 section vs 1300 composite goal: scales differ, suppress.
+    expect(isGoalAchieved({ latestScore: 750, targetScore: 1300, isMultiSection: false })).toBe(false);
+    expect(goalDelta({ latestScore: 750, targetScore: 1300, isMultiSection: false })).toBe(null);
+  });
+
+  it('keeps an ambiguous unflagged low score away from a composite target', () => {
+    // A legacy unflagged 780 could be a section score — never match it composite.
+    expect(isGoalAchieved({ latestScore: 780, targetScore: 1300 })).toBe(false);
+    expect(goalDelta({ latestScore: 780, targetScore: 1300 })).toBe(null);
+  });
+
+  it('compares an unflagged score above 800 against a composite target (provably composite)', () => {
+    expect(isGoalAchieved({ latestScore: 1310, targetScore: 1300 })).toBe(true);
+    expect(goalDelta({ latestScore: 1310, targetScore: 1300 })).toBe(10);
+  });
+
+  it('keeps the section path byte-identical when the target is section-scale', () => {
+    expect(isGoalAchieved({ latestScore: 720, targetScore: 700, isMultiSection: false })).toBe(true);
+    expect(isGoalAchieved({ latestScore: 900, targetScore: 700, isMultiSection: true })).toBe(false);
   });
 });
 
