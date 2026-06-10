@@ -9,6 +9,8 @@
  * because it pulls Firestore.
  */
 
+import { isBlankAttempt } from './latestTestStats';
+
 function toMillis(ts) {
   if (!ts) return null;
   if (typeof ts === 'number') return ts;
@@ -41,7 +43,12 @@ export function pickMostRecentTest(practiceTestResults) {
   let bestMs = -Infinity;
 
   for (const [testId, results] of Object.entries(practiceTestResults)) {
-    const attempts = (results && Array.isArray(results.attempts)) ? results.attempts : [];
+    // Blank/abandoned submissions (IRT floor: 200/section, composite 400)
+    // must never be "the most recent test" — View Full Diagnosis would
+    // diagnose an empty answer sheet. Attempts without a scaledScore are
+    // kept: legacy/minimal shapes are still valid picks here.
+    const attempts = ((results && Array.isArray(results.attempts)) ? results.attempts : [])
+      .filter(a => a && !isBlankAttempt(a));
     if (attempts.length === 0) continue;
     // Pick the newest attempt by completedAt, ORDER-INDEPENDENT. The array
     // orientation is not a stable contract: legacy rows appended oldest-first,

@@ -8,6 +8,7 @@ import QuestionRenderer from './QuestionRenderer';
 import SATReferenceSheet from './SATReferenceSheet';
 import AnswerChoiceList from './shared/AnswerChoiceList';
 import { recordSkillAttempts } from '../services/skillService';
+import { showToast } from './ui/Toaster';
 import { buildTestReviewEntry } from '../services/reviewQueueResolve';
 import { pickInitialModuleIndex } from '../services/selectors/initialModule';
 import { generateDiagnosticNarrative } from '../services/diagnosticNarrativeService';
@@ -1415,6 +1416,10 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
             difficulty: q.difficulty || null,
             band: q.band ?? null,
             skills: getQuestionSkills(q),
+            // Section axis ('reading-writing' | 'math') so snapshot-
+            // reconstructed tests stay multi-section-aware even if the live
+            // catalog changes (the report loader reads snap.section first).
+            section: mod.section ?? null,
             moduleIndex: modIdx,
             questionIndex: qIdx,
           });
@@ -1807,6 +1812,15 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
     };
   });
 
+  // answersRef only syncs in an effect, so an in-flight fill-in committed by
+  // fillInSubmitRef isn't visible to a synchronous read. Tracked separately so
+  // the End-Test blank-attempt guard can't discard a test whose only answer
+  // is the fill-in being committed at end time.
+  const fillInHasValueRef = useRef(false);
+  useEffect(() => {
+    fillInHasValueRef.current = question?.type === 'fill-in' && String(fillInValue ?? '').trim() !== '';
+  });
+
   const handleNavigate = useCallback((idx) => {
     if (navDebounceRef.current) return;
     navDebounceRef.current = true;
@@ -1999,6 +2013,20 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
     setConfirmAction(null);
     setIsPaused(false);
     fillInSubmitRef.current?.();
+
+    // A test ended with nothing answered is an abandon, not a result. Scoring
+    // it persists an IRT-floor attempt (200/section → composite 400, 0%
+    // accuracy) that becomes the dashboard's "latest result" and the next
+    // real test's delta baseline.
+    const answeredCount = Object.values(answersRef.current || {})
+      .filter(v => v !== null && v !== undefined && v !== '').length;
+    if (answeredCount === 0 && !fillInHasValueRef.current) {
+      onClearProgress?.();
+      showToast({ type: 'info', message: 'Test ended with no answers — this attempt was not scored.' });
+      onBack?.();
+      return;
+    }
+
     const mod = currentModuleRef.current;
     const q = currentQuestionRef.current;
     const now = Date.now();
@@ -2009,7 +2037,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
     }
     moduleTimeRemaining.current[mod] = timerSecondsRef.current;
     setTestCompleted(true);
-  }, []);
+  }, [onBack, onClearProgress]);
 
   const handleConfirmLeave = useCallback(() => {
     setConfirmAction(null);

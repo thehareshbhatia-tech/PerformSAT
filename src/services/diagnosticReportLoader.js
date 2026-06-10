@@ -78,6 +78,9 @@ export async function loadDiagnosticReportData({
         const liveMod = test.modules?.[modIdx];
         moduleMap.set(modIdx, {
           title: liveMod?.title || `Module ${modIdx + 1}`,
+          // Keep the section axis ('reading-writing' | 'math') — without it
+          // the reconstructed test reads as math-only downstream.
+          section: snap.section ?? liveMod?.section ?? null,
           questions: [],
         });
       }

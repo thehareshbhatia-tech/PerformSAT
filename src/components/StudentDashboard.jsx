@@ -19,6 +19,7 @@ import { getPracticedDayKeys } from '../services/selectors/practicedDays';
 import { formatDailyIntro } from '../services/selectors/dailyIntro';
 import { getMathWeaknesses, getRWWeaknesses } from '../services/selectors/weaknesses';
 import { isGoalAchieved, goalDelta } from '../services/selectors/goalProgress';
+import { isScoreableAttempt } from '../services/selectors/latestTestStats';
 import { getDaysUntilTest } from '../services/selectors/daysUntilTest';
 import { buildPacingTelemetry } from '../services/selectors/pacingTelemetry';
 import { buildPacingSession } from '../services/pacingService';
@@ -162,8 +163,21 @@ const StudentDashboard = ({
     if (!practiceTestResults || Object.keys(practiceTestResults).length === 0) {
       return { projectedScore: null, projectedTestsCount: 0, scoreHistory: [], latestIsMultiSection: undefined };
     }
+    // Recompute each row's best from its REAL attempts — the row-level
+    // bestScaledScore can be poisoned by a blank/abandoned submission (IRT
+    // floor: composite 400), which would feed the Current Score tile, the
+    // projection, and the score-trend chart.
     const tests = Object.values(practiceTestResults)
-      .filter(t => t.bestScaledScore)
+      .map(t => {
+        const scoreable = Array.isArray(t.attempts) ? t.attempts.filter(isScoreableAttempt) : [];
+        if (scoreable.length > 0) {
+          return { ...t, bestScaledScore: Math.max(...scoreable.map(a => a.scaledScore)) };
+        }
+        // No attempts array at all (legacy aggregate-only row): trust the
+        // stored best. Rows whose every attempt is junk are dropped.
+        return Array.isArray(t.attempts) ? null : t;
+      })
+      .filter(t => t && t.bestScaledScore)
       .sort((a, b) => {
         const dateA = a.lastAttemptAt?.toDate?.() || new Date(a.lastAttemptAt);
         const dateB = b.lastAttemptAt?.toDate?.() || new Date(b.lastAttemptAt);

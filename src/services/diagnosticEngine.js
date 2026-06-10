@@ -132,6 +132,7 @@ const humanizeSkillId = (id) => {
   return id.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
 };
 import { convertToSATScore, scaleResponseVector, getItemParams, isAnswerCorrect, estimatePercentile as _estimatePercentile, inferDomain } from './scoring';
+import { isCompositeScaleTarget } from './selectors/goalProgress';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // CONSTANTS
@@ -762,9 +763,16 @@ export const runDiagnostic = (test, answers, diagnosticData, skillProgress = {},
 
       // Real per-item entry for IRT scoring + projections (1.3). errorType is
       // read back from the questionAnalysis entry just pushed (null if correct).
+      // `section` drives the per-section score split for multi-section tests:
+      // the module's own section axis when present (buildFullTest sets it;
+      // the report loader now preserves it), skill-set membership as the
+      // fallback for legacy snapshots.
       scoredItems.push({
         params: getItemParams(q),
         response: isCorrect ? 1 : 0,
+        section: mod.section
+          ? (mod.section === 'reading-writing' ? 'rw' : 'math')
+          : (rawSkillIds.some(s => RW_SKILL_SET.has(s)) ? 'rw' : 'math'),
         domain,
         difficulty: q.difficulty,
         errorType: isCorrect ? null : questionAnalysis[questionAnalysis.length - 1].errorType,
@@ -776,9 +784,28 @@ export const runDiagnostic = (test, answers, diagnosticData, skillProgress = {},
   // ═══ PHASE 2: Calculate scores ═══
   // Real-response IRT score (matches scoreTest's section score), not a
   // synthetic raw-count estimate. (1.3)
-  const scaledScore = scaleResponseVector(scoredItems, test.id);
-  const targetScore = userProfile.targetScore || 700;
-  const scoreGap = Math.max(0, targetScore - scaledScore);
+  //
+  // Multi-section tests score each section independently and sum to the
+  // 400-1600 composite — exactly irtEngine scoreTest's convention. Scoring
+  // the merged R&W+Math vector as one 200-800 number produced a headline
+  // that was neither a math score nor a composite, and every comparison
+  // built from it (gap, trend delta) was cross-scale nonsense.
+  const rwScoredItems = scoredItems.filter(i => i.section === 'rw');
+  const mathScoredItems = scoredItems.filter(i => i.section === 'math');
+  const isMultiSection = rwScoredItems.length > 0 && mathScoredItems.length > 0;
+  const sectionScaled = {
+    math: mathScoredItems.length > 0 ? scaleResponseVector(mathScoredItems, test.id) : null,
+    rw: rwScoredItems.length > 0 ? scaleResponseVector(rwScoredItems, test.id) : null,
+  };
+  const scaledScore = isMultiSection
+    ? sectionScaled.math + sectionScaled.rw
+    : scaleResponseVector(scoredItems, test.id);
+  // Gap only when the target is provably on the same scale as the headline
+  // (onboarding now stores 400-1600 composite goals; legacy profiles carry
+  // 200-800 section targets).
+  const targetScore = userProfile.targetScore || (isMultiSection ? 1400 : 700);
+  const targetComparable = isCompositeScaleTarget(targetScore) === isMultiSection;
+  const scoreGap = targetComparable ? Math.max(0, targetScore - scaledScore) : 0;
 
   // ═══ PHASE 3: Error pattern analysis ═══
   const wrongQuestions = questionAnalysis.filter(q => !q.isCorrect);
@@ -800,7 +827,7 @@ export const runDiagnostic = (test, answers, diagnosticData, skillProgress = {},
   const timeAnalysis = analyzeTimeManagement(questionAnalysis, diagnosticData);
 
   // ═══ PHASE 9: Cross-test trend analysis ═══
-  const trendAnalysis = analyzeTrends(test.id, scaledScore, previousTests, skillProgress);
+  const trendAnalysis = analyzeTrends(test.id, scaledScore, previousTests, skillProgress, { isMultiSection });
 
   // ═══ PHASE 10: Priority ranking ═══
   const prioritizedActions = prioritizeActions(
@@ -818,7 +845,12 @@ export const runDiagnostic = (test, answers, diagnosticData, skillProgress = {},
       raw: totalCorrect,
       total: totalQuestions,
       scaled: scaledScore,
+      // Section axis for the report UI: composite headline (400-1600) with
+      // per-section 200-800 scores when both sections are present.
+      isMultiSection,
+      sections: sectionScaled,
       target: targetScore,
+      targetComparable,
       gap: scoreGap,
       percentCorrect: Math.round((totalCorrect / totalQuestions) * 100),
     },
@@ -833,12 +865,15 @@ export const runDiagnostic = (test, answers, diagnosticData, skillProgress = {},
     trendAnalysis,
     prioritizedActions,
 
-    confidenceInterval: calculateConfidenceInterval(totalCorrect, totalQuestions, scaledScore),
-    learningVelocity: calculateLearningVelocity(previousTests, scaledScore),
+    confidenceInterval: calculateConfidenceInterval(totalCorrect, totalQuestions, scaledScore, isMultiSection),
+    learningVelocity: calculateLearningVelocity(previousTests, scaledScore, isMultiSection),
     skillClusters,
     answerPatterns,
     stamina,
-    percentile: estimatePercentile(scaledScore),
+    // The calibration table is per-section (200-800); for composites the
+    // average section score is the honest stand-in until a composite table
+    // exists.
+    percentile: estimatePercentile(isMultiSection ? Math.round(scaledScore / 2) : scaledScore),
     mistakeFingerprint: generateMistakeFingerprint(
       { errorPatterns, domainAnalysis, difficultyAnalysis, timeAnalysis },
       previousTests
@@ -1057,16 +1092,27 @@ const projectScoreImprovements = (scoredItems, targetScore, formId) => {
   // path, so the projection baseline equals the headline score and every
   // "+X points" gain reflects re-estimated ability, not a synthetic raw-count
   // delta. (1.3)
-  const baseVector = scoredItems.map(i => ({ params: i.params, response: i.response }));
-  const currentScaled = scaleResponseVector(baseVector, formId);
+  //
+  // Multi-section vectors score per section and sum to the composite so the
+  // baseline and every projection live on the same axis as the headline
+  // score (scoring the merged vector as one 200-800 number would understate
+  // composite gains and disagree with the displayed score).
+  const scoreVector = (items) => {
+    const rw = items.filter(i => i.section === 'rw');
+    const math = items.filter(i => i.section === 'math');
+    if (rw.length > 0 && math.length > 0) {
+      return scaleResponseVector(rw, formId) + scaleResponseVector(math, formId);
+    }
+    return scaleResponseVector(items, formId);
+  };
+  const currentScaled = scoreVector(scoredItems);
 
   // Re-score with every currently-wrong item matching `pred` flipped to correct.
-  const scaledIfFixed = (pred) => scaleResponseVector(
+  const scaledIfFixed = (pred) => scoreVector(
     scoredItems.map(i => ({
-      params: i.params,
+      ...i,
       response: (i.response === 0 && pred(i)) ? 1 : i.response,
     })),
-    formId,
   );
 
   // Domain projections — fix all wrong items in a domain.
@@ -1131,10 +1177,10 @@ const projectScoreImprovements = (scoredItems, targetScore, formId) => {
       .filter(x => !x.i.isCorrect)
       .sort((a, b) => (a.i.params?.b ?? 0) - (b.i.params?.b ?? 0))
       .map(x => x.idx);
-    const v = scoredItems.map(i => ({ params: i.params, response: i.response }));
+    const v = scoredItems.map(i => ({ ...i }));
     for (let k = 0; k < wrongIdx.length; k++) {
-      v[wrongIdx[k]] = { params: v[wrongIdx[k]].params, response: 1 };
-      if (scaleResponseVector(v, formId) >= targetScore) { questionsNeeded = k + 1; break; }
+      v[wrongIdx[k]] = { ...v[wrongIdx[k]], response: 1 };
+      if (scoreVector(v) >= targetScore) { questionsNeeded = k + 1; break; }
     }
     if (questionsNeeded === 0) questionsNeeded = wrongIdx.length; // unreachable even at 100%
   }
@@ -1284,18 +1330,27 @@ const analyzeTimeManagement = (questionAnalysis, diagnosticData) => {
 /**
  * Analyze trends across multiple test attempts.
  */
-const analyzeTrends = (currentTestId, currentScore, previousTests = {}, skillProgress = {}) => {
+const analyzeTrends = (currentTestId, currentScore, previousTests = {}, skillProgress = {}, currentMeta = {}) => {
   // Collect all previous test scores
   const testHistory = [];
 
   Object.entries(previousTests).forEach(([testId, testData]) => {
     if (testData.attempts && Array.isArray(testData.attempts)) {
       testData.attempts.forEach((attempt, idx) => {
+        if (typeof attempt.scaledScore !== 'number') return;
+        // Blank/abandoned submissions score at the IRT floor (200/section,
+        // composite 400) and carry no trend signal — a run of identical
+        // floor bars only flattens the chart and corrupts deltas.
+        // answeredCount is the explicit participation signal; legacy rows
+        // fall back to the rawScore-0 signature.
+        if (attempt.answeredCount === 0) return;
+        if (attempt.answeredCount == null && attempt.rawScore === 0) return;
         testHistory.push({
           testId,
           testTitle: testData.testTitle || testId,
           attemptIndex: idx,
           scaledScore: attempt.scaledScore,
+          isMultiSection: !!attempt.isMultiSection,
           rawScore: attempt.rawScore,
           totalQuestions: attempt.totalQuestions,
           completedAt: attempt.completedAt,
@@ -1307,14 +1362,25 @@ const analyzeTrends = (currentTestId, currentScore, previousTests = {}, skillPro
   // Sort by date
   testHistory.sort((a, b) => new Date(a.completedAt) - new Date(b.completedAt));
 
-  // Add current test
-  testHistory.push({
-    testId: currentTestId,
-    testTitle: 'This Test',
-    scaledScore: currentScore,
-    completedAt: new Date().toISOString(),
-    isCurrent: true,
-  });
+  // The attempt being diagnosed may already be persisted in previousTests —
+  // the dashboard's View Full Diagnosis regenerates the report long after
+  // the attempt saved. Pushing a synthetic "This Test" entry would then
+  // double-count the attempt AND compare the engine's recomputed score
+  // against the same attempt's own persisted score ("-200 since last test").
+  const newest = testHistory[testHistory.length - 1];
+  if (newest && newest.testId === currentTestId) {
+    newest.isCurrent = true;
+    newest.testTitle = 'This Test';
+  } else {
+    testHistory.push({
+      testId: currentTestId,
+      testTitle: 'This Test',
+      scaledScore: currentScore,
+      isMultiSection: !!currentMeta.isMultiSection,
+      completedAt: new Date().toISOString(),
+      isCurrent: true,
+    });
+  }
 
   if (testHistory.length < 2) {
     return {
@@ -1326,12 +1392,19 @@ const analyzeTrends = (currentTestId, currentScore, previousTests = {}, skillPro
     };
   }
 
-  // Calculate trend
-  const prevScore = testHistory[testHistory.length - 2].scaledScore;
-  const scoreChange = currentScore - prevScore;
+  // Calculate trend — only across like scales. History mixes single-section
+  // 200-800 attempts with 400-1600 composites; a cross-scale delta reads as
+  // a catastrophic drop that never happened.
+  const currentEntry = testHistory[testHistory.length - 1];
+  const prevEntry = testHistory[testHistory.length - 2];
+  const scoreChange = (!!prevEntry.isMultiSection === !!currentEntry.isMultiSection)
+    ? currentEntry.scaledScore - prevEntry.scaledScore
+    : null;
 
-  // Overall trend (linear regression on last 5 tests)
-  const recent = testHistory.slice(-5);
+  // Overall trend (endpoint slope over the last 5 like-scale tests)
+  const recent = testHistory
+    .filter(t => !!t.isMultiSection === !!currentEntry.isMultiSection)
+    .slice(-5);
   let trend = 'stable';
   if (recent.length >= 2) {
     const firstScore = recent[0].scaledScore;
@@ -1736,6 +1809,11 @@ const generateSkillActionItems = (skill) => {
 };
 
 const generateTrendMessage = (scoreChange, trend) => {
+  // Null = the last two attempts are on different scales (section vs
+  // composite) — no honest delta exists.
+  if (scoreChange === null || scoreChange === undefined) {
+    return 'Your recent tests were scored on different scales — keep taking full tests to track your composite trend.';
+  }
   if (scoreChange > 30) return `Amazing improvement! You jumped +${scoreChange} points! Your study plan is working.`;
   if (scoreChange > 10) return `Good progress! +${scoreChange} points since your last test. Keep it up!`;
   if (scoreChange > 0) return `Slight improvement (+${scoreChange} points). Stay consistent with your study plan.`;
@@ -1754,7 +1832,7 @@ const generateTrendMessage = (scoreChange, trend) => {
  * A student who got 30/44 could truly be a 27-33/44 student.
  * This prevents over-indexing on a single test result.
  */
-const calculateConfidenceInterval = (correct, total, scaledScore) => {
+const calculateConfidenceInterval = (correct, total, scaledScore, isMultiSection = false) => {
   const p = correct / total;
   const z95 = 1.96;
   const z80 = 1.28;
@@ -1775,6 +1853,20 @@ const calculateConfidenceInterval = (correct, total, scaledScore) => {
 
   const rawToScaledCI = (raw) => convertToSATScore(raw, total);
 
+  // The raw→scaled conversion is single-section (200-800); a composite
+  // headline has no honest scaled CI on that curve, so multi-section reports
+  // keep the raw bounds and a raw-count message instead of a wrong range.
+  if (isMultiSection) {
+    return {
+      raw95: ci95,
+      raw80: ci80,
+      scaled95: null,
+      scaled80: null,
+      reliability: total >= 30 ? 'high' : total >= 20 ? 'moderate' : 'low',
+      message: `On a retake you'd likely answer between ${ci80.low} and ${ci80.high} of ${total} correctly (80% confidence)`,
+    };
+  }
+
   return {
     raw95: ci95,
     raw80: ci80,
@@ -1790,9 +1882,12 @@ const calculateConfidenceInterval = (correct, total, scaledScore) => {
  * Tracks how fast the student is improving per unit of effort.
  * Compares across tests to estimate points-per-week trajectory.
  */
-const calculateLearningVelocity = (previousTests, currentScore) => {
+const calculateLearningVelocity = (previousTests, currentScore, isMultiSection = false) => {
   const testHistory = Object.values(previousTests || {})
     .filter(t => t.bestScaledScore && t.completedAt)
+    // Velocity is only meaningful across like scales — a 200-800 section-era
+    // best next to a 400-1600 composite reads as a +600/week miracle.
+    .filter(t => !!t.isMultiSection === !!isMultiSection)
     .sort((a, b) => new Date(a.completedAt) - new Date(b.completedAt));
 
   if (testHistory.length < 1) {

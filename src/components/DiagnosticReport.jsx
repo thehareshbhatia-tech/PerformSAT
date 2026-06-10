@@ -46,15 +46,19 @@ import { useCountUp } from '../design/animations';
 // ═══════════════════════════════════════════════════════════════════════════
 
 // ── Score Ring with count-up animation ──
-const ScoreRing = ({ score, target, size = 160 }) => {
+// `max` is the scale ceiling: 800 for a section score, 1600 for a
+// multi-section composite. The target tick only renders when the target is
+// on the same scale (a 1300 composite goal on an 800 ring is meaningless).
+const ScoreRing = ({ score, target, size = 160, max = 800 }) => {
   const strokeWidth = 12;
   const r = (size - strokeWidth) / 2 - 4;
   const circumference = 2 * Math.PI * r;
-  const progress = Math.min(score / 800, 1);
-  const targetProgress = Math.min(target / 800, 1);
+  const progress = Math.min(score / max, 1);
+  const showTarget = typeof target === 'number' && target > 0 && target <= max;
+  const targetProgress = showTarget ? Math.min(target / max, 1) : 0;
   const offset = circumference - progress * circumference;
   const targetOffset = circumference - targetProgress * circumference;
-  const isAtTarget = score >= target;
+  const isAtTarget = showTarget && score >= target;
   const displayScore = useCountUp(score, 800, 200);
 
   return (
@@ -63,8 +67,10 @@ const ScoreRing = ({ score, target, size = 160 }) => {
         {/* Background track */}
         <circle cx={size/2} cy={size/2} r={r} fill="none" stroke="rgba(0,0,0,0.04)" strokeWidth={strokeWidth} />
         {/* Target marker */}
-        <circle cx={size/2} cy={size/2} r={r} fill="none" stroke="#f97316" strokeWidth={strokeWidth}
-          strokeDasharray={`2 ${circumference - 2}`} strokeDashoffset={targetOffset} opacity={0.6} />
+        {showTarget && (
+          <circle cx={size/2} cy={size/2} r={r} fill="none" stroke="#f97316" strokeWidth={strokeWidth}
+            strokeDasharray={`2 ${circumference - 2}`} strokeDashoffset={targetOffset} opacity={0.6} />
+        )}
         {/* Score progress */}
         <circle cx={size/2} cy={size/2} r={r} fill="none"
           stroke={isAtTarget ? '#22c55e' : '#06b6d4'} strokeWidth={strokeWidth}
@@ -76,7 +82,7 @@ const ScoreRing = ({ score, target, size = 160 }) => {
           {displayScore}
         </div>
         <div style={{ fontSize: '13px', color: colors.text.secondary, marginTop: '4px', fontWeight: '600', letterSpacing: '0.02em' }}>
-          out of 800
+          out of {max}
         </div>
       </div>
     </div>
@@ -456,7 +462,20 @@ const DiagnosticReport = ({
   const renderOverview = () => {
     const percentile = diagnostic.percentile?.percentile;
     const percentileTier = diagnostic.percentile?.tier;
-    const isAtTarget = score.gap <= 0;
+    // Section axis from the engine: composite headline + per-section scores
+    // for multi-section tests, single-section label derived from which
+    // section actually has items (survives section-stripped snapshots).
+    const isMultiSection = !!score.isMultiSection;
+    const sections = score.sections || {};
+    const ringMax = isMultiSection ? 1600 : 800;
+    const ringLabel = isMultiSection
+      ? 'Composite Score'
+      : (sections.rw != null && sections.math == null ? 'Reading & Writing Score' : 'Math Score');
+    // Gap/target tiles only when the stored target is provably on the same
+    // scale as the headline (engine sets targetComparable; default true for
+    // legacy reports that predate the field).
+    const targetComparable = score.targetComparable !== false;
+    const isAtTarget = targetComparable && score.gap <= 0;
 
     const tierColor = percentileTier === 'elite' || percentileTier === 'excellent'
       ? colors.semantic.success
@@ -467,13 +486,46 @@ const DiagnosticReport = ({
     return (
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '32px', padding: isMobile ? '20px 0' : '40px 0' }}>
 
-        {/* Math Score Ring */}
+        {/* Headline score ring (composite for multi-section tests) */}
         <div style={{ textAlign: 'center' }}>
-          <ScoreRing score={score.scaled} target={score.target} size={isMobile ? 180 : 200} />
+          <ScoreRing
+            score={score.scaled}
+            target={targetComparable ? score.target : null}
+            size={isMobile ? 180 : 200}
+            max={ringMax}
+          />
           <div style={{ marginTop: '16px', fontSize: '13px', fontWeight: '600', color: colors.text.tertiary, letterSpacing: '0.06em', textTransform: 'uppercase' }}>
-            Math Score
+            {ringLabel}
           </div>
         </div>
+
+        {/* Per-section scores — the diagnosis covers BOTH sections */}
+        {isMultiSection && (
+          <div style={{
+            display: 'flex', gap: '16px', width: '100%', maxWidth: '440px',
+            flexDirection: isMobile ? 'column' : 'row',
+          }}>
+            {[
+              { label: 'Reading & Writing', value: sections.rw },
+              { label: 'Math', value: sections.math },
+            ].map(s => (
+              <div key={s.label} style={{
+                flex: 1, textAlign: 'center', padding: '20px 16px',
+                background: 'rgba(255, 255, 255, 0.85)', backdropFilter: 'saturate(180%) blur(24px)', WebkitBackdropFilter: 'saturate(180%) blur(24px)',
+                borderRadius: '24px',
+                border: `1px solid rgba(255, 255, 255, 0.6)`,
+                boxShadow: '0 8px 32px rgba(0, 0, 0, 0.04), 0 2px 8px rgba(0, 0, 0, 0.02)',
+              }}>
+                <div style={{ fontSize: '32px', fontWeight: '800', color: colors.text.primary, letterSpacing: '-0.03em', lineHeight: '1' }}>
+                  {s.value ?? '--'}
+                </div>
+                <div style={{ fontSize: '12px', fontWeight: '700', color: colors.text.tertiary, marginTop: '8px', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+                  {s.label} <span style={{ fontWeight: '500', textTransform: 'none' }}>/ 800</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
 
         {/* Percentile + Target Gap */}
         <div style={{
@@ -503,7 +555,9 @@ const DiagnosticReport = ({
             </div>
           )}
 
-          {/* Target Gap */}
+          {/* Target Gap — hidden when the stored target is on a different
+              scale than the headline (no honest cross-scale delta exists) */}
+          {targetComparable && (
           <div style={{
             flex: 1, textAlign: 'center', padding: '24px 16px',
             background: 'rgba(255, 255, 255, 0.85)', backdropFilter: 'saturate(180%) blur(24px)', WebkitBackdropFilter: 'saturate(180%) blur(24px)',
@@ -531,6 +585,7 @@ const DiagnosticReport = ({
               </>
             )}
           </div>
+          )}
         </div>
 
       </div>
@@ -747,17 +802,28 @@ const DiagnosticReport = ({
   const renderTrends = () => {
     if (!trendAnalysis.hasHistory) return null;
 
+    // Window to the most recent attempts — one flex column per attempt with
+    // an unshrinkable score label means 30+ bars overflow the card and the
+    // viewport. Ten bars fit the 720px report column at every breakpoint.
+    const TREND_WINDOW = 10;
+    const fullHistory = trendAnalysis.testHistory;
+    const visibleHistory = fullHistory.slice(-TREND_WINDOW);
+    const windowOffset = fullHistory.length - visibleHistory.length;
+    // Scale bars to the window's own range — scores mix 200-800 section-era
+    // attempts with 400-1600 composites, so a hardcoded 800 cap both
+    // overflows composite bars and flattens section-score variation.
+    const maxScore = Math.max(...visibleHistory.map(t => t.scaledScore || 0), 1);
+
     return (
       <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
         {/* Score history */}
         <Card>
           <SectionTitle icon={<TrendingUpIcon size={18} color={colors.accent.orange} />} title="Score Trend" subtitle={trendAnalysis.message} />
           <div style={{ display: 'flex', alignItems: 'flex-end', gap: '8px', padding: '20px 0' }}>
-            {trendAnalysis.testHistory.map((test, i) => {
-              const maxScore = 800;
+            {visibleHistory.map((test, i) => {
               const height = Math.max(20, (test.scaledScore / maxScore) * 150);
               return (
-                <div key={i} style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '6px' }}>
+                <div key={i} style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '6px' }}>
                   <div style={{ fontSize: '13px', fontWeight: '700', color: test.isCurrent ? colors.accent.orange : colors.text.primary }}>
                     {test.scaledScore}
                   </div>
@@ -770,12 +836,17 @@ const DiagnosticReport = ({
                     border: test.isCurrent ? `2px solid ${colors.accent.orange}` : `1px solid ${colors.surface.grayDark}`,
                   }} />
                   <div style={{ fontSize: '10px', color: colors.text.tertiary, textAlign: 'center' }}>
-                    {test.isCurrent ? 'Now' : `Test ${i + 1}`}
+                    {test.isCurrent ? 'Now' : `Test ${windowOffset + i + 1}`}
                   </div>
                 </div>
               );
             })}
           </div>
+          {windowOffset > 0 && (
+            <div style={{ fontSize: '12px', color: colors.text.tertiary, textAlign: 'center', marginBottom: '12px' }}>
+              Showing your last {visibleHistory.length} tests of {fullHistory.length}
+            </div>
+          )}
           {trendAnalysis.scoreChange !== null && (
             <div style={{
               textAlign: 'center', padding: '12px', borderRadius: '10px',

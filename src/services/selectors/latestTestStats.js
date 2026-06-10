@@ -28,6 +28,36 @@ function toMillis(ts) {
   return null;
 }
 
+/**
+ * Is this attempt a provably blank/abandoned submission? Blank submissions
+ * still get an IRT floor score (200/section, composite 400) and must not
+ * surface as results anywhere. `answeredCount` is the explicit signal
+ * (written since 2026-06); legacy rows fall back to the rawScore-0
+ * signature, which on 4-choice MC is only producible by a blank submission.
+ *
+ * @param {object} a - an attempt row from practiceTestResults[testId].attempts
+ * @returns {boolean} true when the attempt is provably blank
+ */
+export function isBlankAttempt(a) {
+  if (!a) return false;
+  if (a.answeredCount === 0) return true;
+  if (a.answeredCount == null && a.rawScore === 0) return true;
+  return false;
+}
+
+/**
+ * Did the student actually participate AND does the attempt carry a usable
+ * score? Stricter than !isBlankAttempt — use this where the consumer needs
+ * a numeric scaledScore (score tiles, history charts, deltas).
+ *
+ * @param {object} a - an attempt row from practiceTestResults[testId].attempts
+ * @returns {boolean} true when the attempt is a real, scoreable result
+ */
+export function isScoreableAttempt(a) {
+  if (!a || typeof a.scaledScore !== 'number') return false;
+  return !isBlankAttempt(a);
+}
+
 /** Sum an attempt's moduleScores rows for one section. Returns
  * { correct, total } or null when no usable rows exist. */
 function sumSectionRaw(moduleScores, sectionName) {
@@ -72,7 +102,10 @@ export function getLatestTestStats(practiceTestResults) {
   for (const row of Object.values(practiceTestResults)) {
     const attempts = (row && Array.isArray(row.attempts)) ? row.attempts : [];
     for (const a of attempts) {
-      if (!a || typeof a.scaledScore !== 'number') continue;
+      // Skip non-participating attempts — a blank/abandoned submission would
+      // render as the student's "latest result" AND poison the next real
+      // test's delta baseline.
+      if (!isScoreableAttempt(a)) continue;
       all.push({
         attempt: a,
         testTitle: row.testTitle || null,

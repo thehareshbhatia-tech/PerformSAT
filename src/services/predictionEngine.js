@@ -71,11 +71,13 @@ export const generatePredictions = (fingerprint, practiceTestResults, skillProgr
  * @param {Object} [options]
  * @param {number|null} [options.actualScore=null] - the HEADLINE scaled score of the
  *   validating test (composite 400-1600 or section 200-800). Preferred over the
- *   diagnostic's single-curve `score.scaled`, which is always section-scale and would
- *   read "outside range" for every composite. Falls back to `score.scaled` for legacy callers.
+ *   diagnostic's `score.scaled` — which is composite for multi-section reports and
+ *   section-scale otherwise (the engine carries `score.isMultiSection`). Falls back
+ *   to `score.scaled` for legacy callers.
  * @param {boolean|null} [options.isMultiSection=null] - scale of the validating test.
  *   When it differs from the band's scale the score verdict is left null (incomparable)
- *   rather than a misleading false.
+ *   rather than a misleading false. Legacy callers inherit the diagnostic's own
+ *   `score.isMultiSection` flag when present.
  * @returns {Object} prediction with accuracy fields filled in
  */
 export const validatePrediction = (prediction, diagnosticData, testId, options = {}) => {
@@ -86,11 +88,17 @@ export const validatePrediction = (prediction, diagnosticData, testId, options =
   const { actualScore = null, isMultiSection = null } = options;
 
   // Prefer the headline composite/section score; fall back to the diagnostic's
-  // single-curve scaled score for legacy callers that don't pass it.
+  // scaled score for legacy callers. The diagnostic now reports its own scale
+  // (score.isMultiSection), so the fallback stays cross-scale-safe.
   const headline = (actualScore != null) ? actualScore : diagnosticData.score?.scaled;
-  const actualScale = (isMultiSection == null)
+  const effectiveMulti = (isMultiSection != null)
+    ? isMultiSection
+    : (actualScore == null && typeof diagnosticData.score?.isMultiSection === 'boolean'
+      ? diagnosticData.score.isMultiSection
+      : null);
+  const actualScale = (effectiveMulti == null)
     ? (range.scale || null)
-    : (isMultiSection ? 'composite' : 'section');
+    : (effectiveMulti ? 'composite' : 'section');
 
   // Score in range? null = couldn't compare (missing data or cross-scale).
   let scoreInRange = null;

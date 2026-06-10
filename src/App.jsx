@@ -656,20 +656,40 @@ const PerformSAT = () => {
       questions = getRandomQuestions(moduleId, sectionName, 5, { shuffle: true });
     }
 
-    // Start practice immediately - no modal
+    if (questions.length === 0) {
+      showToast({ type: 'info', message: 'No practice questions available for this topic right now.' });
+      return;
+    }
+
+    // Launch in the modern assigned shell — the legacy 'prescriptive' view
+    // diverged from the production drill experience (no rounds, no Assisted
+    // Help panel) and study-plan fallbacks kept landing students on it.
+    const rounds = buildRounds(questions.map(q => q.id), 8);
+    const roundsWithStart = rounds.map((r, i) =>
+      i === 0 ? { ...r, startedAt: new Date().toISOString() } : r,
+    );
+
     setPracticeState({
       currentQuestionIndex: 0,
       selectedAnswer: null,
       showFeedback: false,
       showHint: false,
+      showRoundComplete: false,
       answers: {},
       isComplete: false,
       shuffledQuestions: questions,
-      practiceMode: 'prescriptive',
-      recommendedDifficulty: difficulty
+      rounds: roundsWithStart,
+      currentRoundIndex: 0,
+      practiceMode: 'assigned',
+      assignmentMeta: {
+        label: `${sectionName} Practice`,
+        source: 'module-section',
+        recommendedDifficulty: difficulty,
+        weakness: null,
+      },
     });
-    setActiveModule(moduleId);
-    setActiveSection(sectionName);
+    setActiveModule(null);
+    setActiveSection('__assigned__');
     setShowCalculator(false);
     setView('practice');
   };

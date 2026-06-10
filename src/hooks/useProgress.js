@@ -592,9 +592,15 @@ export const useProgress = (userId) => {
     setPracticeTestResults(prev => {
       const existing = prev[testId];
       const attemptData = {
+        attemptId: results.attemptId ?? null,
         completedAt: new Date().toISOString(),
         rawScore: results.rawScore,
         totalQuestions: results.totalQuestions,
+        // Mirror practiceTestService's participation signal so the optimistic
+        // row matches what Firestore hydrates on the next load.
+        answeredCount: results.answers
+          ? Object.values(results.answers).filter(v => v !== null && v !== undefined && v !== '').length
+          : null,
         scaledScore: results.scaledScore,
         sectionScores: results.sectionScores || null,
         isMultiSection: results.isMultiSection || false,

@@ -366,10 +366,40 @@ const StudyPlanDashboard = ({
   const handleGo = (activity) => {
     // Lesson branch removed — generator no longer emits type='lesson'
     // and the legacy LearnWorkspace mount is gone.
-    if (activity.type === 'practice' && onStartPractice && activity.moduleId) {
-      onStartPractice(activity.moduleId, activity.sectionName);
-    } else if (activity.type === 'test' && onStartPracticeTest) {
+    if (activity.type === 'test' && onStartPracticeTest) {
       onStartPracticeTest();
+      return;
+    }
+    if (activity.type !== 'practice' || !onStartPractice) return;
+
+    // Same 3-tier routing as TodaysTasksCard's onStartActivity below — the
+    // Weekly View previously called the raw 2-arg module/section form, which
+    // App.jsx routed to the legacy 'prescriptive' screen instead of
+    // AssignedPracticeShell.
+    const route = resolveActivityDrill(
+      {
+        activity,
+        weaknesses,
+        cachedRows: skillPracticeRows,
+        answeredQuestionIds,
+      },
+      {
+        getTargetedWeaknessSet,
+        getQuestionsBySkillIds,
+        getRWTargetedWeaknessSet,
+        getRWQuestionsBySkillIds,
+        getDrillChipForWeakness,
+      },
+    );
+    if (route?.kind === 'assigned') {
+      onStartPractice(null, null, {
+        questionIds: route.questionIds,
+        source: 'study-plan-weekly',
+        label: route.label,
+        weakness: route.weakness,
+      });
+    } else if (route?.kind === 'module') {
+      onStartPractice(route.moduleId, route.sectionName);
     }
   };
 

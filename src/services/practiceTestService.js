@@ -66,6 +66,11 @@ export const recordPracticeTestResult = async (userId, testId, testTitle, result
       completedAt,
       rawScore: results.rawScore ?? null,
       totalQuestions: results.totalQuestions ?? null,
+      // Participation signal: lets downstream consumers (dashboard stats,
+      // trend analysis) tell a blank/abandoned submission from a real one.
+      answeredCount: results.answers
+        ? Object.values(results.answers).filter(v => v !== null && v !== undefined && v !== '').length
+        : null,
       scaledScore: results.scaledScore ?? null,
       timedMode: results.timedMode ?? false,
       moduleScores: results.moduleScores ?? [],

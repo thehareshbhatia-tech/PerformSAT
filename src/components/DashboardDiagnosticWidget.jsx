@@ -5,8 +5,8 @@
  *
  * Compact at-a-glance "Practice Test Results" card in the dashboard right
  * rail: latest scaled score, score delta vs the previous attempt, points to
- * goal, per-section breakdown, a floating accuracy card, and the entry
- * point into the full DiagnosticReport (onViewFullDiagnosis).
+ * goal, per-section breakdown, an accuracy tile, and the entry point into
+ * the full DiagnosticReport (onViewFullDiagnosis).
  *
  * Every number is derived from the student's own attempts via
  * `getLatestTestStats(practiceTestResults)` — lines whose value can't be
@@ -77,7 +77,7 @@ const DashboardDiagnosticWidget = ({
   });
 
   return (
-    <div style={{ position: 'relative', marginBottom: '2rem', paddingRight: '1.5rem' }}>
+    <div style={{ marginBottom: '2rem' }}>
       <DataCard style={{ padding: '2.5rem', background: '#F8F9F5', border: '1px solid var(--color-slate-200)', borderRadius: '24px', boxShadow: 'none' }}>
         <div style={{ fontSize: '1.125rem', fontWeight: '600', color: 'var(--color-brand-navy)', marginBottom: '1.5rem' }}>
           Practice Test Results
@@ -111,21 +111,34 @@ const DashboardDiagnosticWidget = ({
           </div>
         </div>
 
-        <div style={{ display: 'flex', gap: '1rem', marginBottom: '2rem' }}>
-          <div style={{ flex: 1, background: 'white', borderRadius: '16px', padding: '1.25rem', border: '1px solid var(--color-slate-200)' }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', marginBottom: '2rem' }}>
+          <div style={{ flex: 1, minWidth: '140px', background: 'white', borderRadius: '16px', padding: '1.25rem', border: '1px solid var(--color-slate-200)' }}>
             <div style={{ fontSize: '1rem', color: 'var(--color-slate-600)', marginBottom: '0.75rem', fontWeight: '500' }}>Math</div>
             <div style={{ fontSize: '1.75rem', fontWeight: '700', color: 'var(--color-brand-navy)', marginBottom: '0.25rem' }}>
               {stats.math?.scaled ?? '--'}
             </div>
             <div style={{ fontSize: '0.875rem', color: 'var(--color-slate-400)' }}>{sectionSubline(stats.math)}</div>
           </div>
-          <div style={{ flex: 1, background: 'white', borderRadius: '16px', padding: '1.25rem', border: '1px solid var(--color-slate-200)' }}>
+          <div style={{ flex: 1, minWidth: '140px', background: 'white', borderRadius: '16px', padding: '1.25rem', border: '1px solid var(--color-slate-200)' }}>
             <div style={{ fontSize: '1rem', color: 'var(--color-slate-600)', marginBottom: '0.75rem', fontWeight: '500' }}>Reading & Writing</div>
             <div style={{ fontSize: '1.75rem', fontWeight: '700', color: 'var(--color-brand-navy)', marginBottom: '0.25rem' }}>
               {stats.rw?.scaled ?? '--'}
             </div>
             <div style={{ fontSize: '0.875rem', color: 'var(--color-slate-400)' }}>{sectionSubline(stats.rw)}</div>
           </div>
+          {stats.accuracy !== null && (
+            <div style={{ flex: 1, minWidth: '140px', background: 'var(--color-accent-dark-green)', borderRadius: '16px', padding: '1.25rem', border: '1px solid var(--color-accent-dark-green)' }}>
+              <div style={{ fontSize: '1rem', color: 'white', marginBottom: '0.75rem', fontWeight: '500' }}>Accuracy</div>
+              <div style={{ fontSize: '1.75rem', fontWeight: '700', color: 'var(--color-brand-neon)', marginBottom: '0.25rem' }}>
+                {stats.accuracy}%
+              </div>
+              {stats.accuracyDelta !== null && stats.accuracyDelta !== 0 && (
+                <div style={{ fontSize: '0.875rem', color: 'var(--color-brand-neon)' }}>
+                  {stats.accuracyDelta > 0 ? '+' : ''}{stats.accuracyDelta}% vs last exam
+                </div>
+              )}
+            </div>
+          )}
         </div>
 
         {/* Entry point into the full DiagnosticReport — the deep "why your
@@ -137,32 +150,6 @@ const DashboardDiagnosticWidget = ({
           </SecondaryButton>
         )}
       </DataCard>
-
-      {/* Floating Accuracy Card */}
-      {stats.accuracy !== null && (
-        <div style={{
-          position: 'absolute',
-          top: '12rem',
-          right: '0',
-          background: 'var(--color-accent-dark-green)',
-          borderRadius: '24px',
-          padding: '2rem',
-          color: 'white',
-          boxShadow: '0 20px 40px rgba(0,0,0,0.15)',
-          width: '220px',
-          zIndex: 10
-        }}>
-          <div style={{ fontSize: '1rem', fontWeight: '500', marginBottom: '1.5rem', color: 'white' }}>Accuracy</div>
-          <div style={{ fontSize: '4rem', fontWeight: '500', lineHeight: 1, marginBottom: '0.75rem', color: 'var(--color-brand-neon)', letterSpacing: '-0.02em' }}>
-            {stats.accuracy}%
-          </div>
-          {stats.accuracyDelta !== null && stats.accuracyDelta !== 0 && (
-            <div style={{ fontSize: '0.875rem', color: 'var(--color-brand-neon)', fontWeight: '500' }}>
-              {stats.accuracyDelta > 0 ? '+' : ''}{stats.accuracyDelta}% vs last exam
-            </div>
-          )}
-        </div>
-      )}
     </div>
   );
 };
