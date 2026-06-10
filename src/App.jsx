@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { useAuth } from './hooks/useAuth';
 import { useProgress } from './hooks/useProgress';
 import { useAnalytics } from './hooks/useAnalytics';
+import { useFeatureFlag } from './hooks/useFeatureFlag';
 import {
   dispatchSessionComplete,
   buildFullTestSession,
@@ -78,7 +79,10 @@ const AiTutorChat = React.lazy(() => import('./components/AiTutorChat'));
 const PracticeTest = React.lazy(() => import('./components/PracticeTest'));
 const PracticeTestList = React.lazy(() => import('./components/PracticeTestList'));
 const TestResults = React.lazy(() => import('./components/TestResults'));
-const Onboarding = React.lazy(() => import('./components/Onboarding')); // eslint-disable-line no-unused-vars
+const Onboarding = React.lazy(() => import('./components/Onboarding'));
+// On-ramp check-in: lazy chunk carries the sampler + diagnosis pipeline
+// (banks, studyPlanGenerator) — never import it statically (bundle guard).
+const MiniDiagnosticShell = React.lazy(() => import('./components/MiniDiagnostic/MiniDiagnosticShell'));
 const Profile = React.lazy(() => import('./components/Profile'));
 const StudyPlanDashboard = React.lazy(() => import('./components/StudyPlanDashboard'));
 const AdaptivePracticeShell = React.lazy(() => import('./components/AdaptivePracticeShell'));
@@ -231,7 +235,14 @@ const PerformSAT = () => {
   const [activeLesson, setActiveLesson] = useState(null);
   const [activeSection, setActiveSection] = useState(null); // For section-based practice
   const [view, setView] = useState('dashboard'); // 'dashboard' | 'practice' | 'practiceTests' | 'takingTest' | 'profile' | 'studyPlan' | 'tutor' | 'viewingResults' | 'diagnosticReport' | 'reviewingPastResults' | 'pastTestReviewIndex' | 'pastTestReviewDetail' | 'pastTestReviewItem' | 'pacingDrill'
-  const [showOnboarding, setShowOnboarding] = useState(false);
+  // On-ramp (signup mini-diagnostic) state. `onRampActive` is tri-state:
+  // null = eligibility not yet decided, true = flow mounted instead of the
+  // app shell, false = dismissed for this session. The activation effect
+  // below decides ONCE per session so mid-flow profile stamps
+  // (onboardingCompletedAt) can't unmount the results screen.
+  const ffOnRamp = useFeatureFlag('onRamp');
+  const [onRampActive, setOnRampActive] = useState(null);
+  const [onRampStage, setOnRampStage] = useState('wizard'); // 'wizard' | 'check-in'
   // Active pacing drill: { config, questions }. Set by onStartPacing, rendered at view==='pacingDrill'.
   const [pacingSession, setPacingSession] = useState(null);
   const [selectedPracticeTest, setSelectedPracticeTest] = useState(null);
@@ -310,8 +321,8 @@ const PerformSAT = () => {
     return () => window.removeEventListener('keydown', handleEsc);
   }, [showCalculator]);
 
-  const { user, loading, logout, updateTestDate, updateTargetScore, updateCurrentScore, updateTargetSchools, updateProfilePhoto, updateFirstName } = useAuth();
-  const { loading: progressLoading, completedLessons, practiceProgress, drillDays, reviewQueue, reviewStreak, skillProgress, answeredQuestionIds, practiceTestResults, inProgressTests, studyPlan, studyPlanMeta, studyPlanArtifact, predictionLog, interventionLog, studentFingerprint, recordPracticeAttempt, recordDrillSkillAttempts, recordPracticedDay, hasPracticed, getBestScore, getDueCount, getReviewStatistics, getSkillDiagnosticSummary, getSkillBreakdown, recordPracticeTestAttempt, getTestBestScore, getTestAttempts, saveTestProgress, clearTestProgress, getTestProgress, hasTestProgress, saveStudyPlan, markStudyActivityComplete, unmarkStudyActivityComplete, markLessonComplete, isLessonCompleted, getModuleProgress, lastSaveStatus, retryLastSave } = useProgress(user?.uid);
+  const { user, loading, logout, updateTestDate, updateTargetScore, updateCurrentScore, updateTargetSchools, updateProfilePhoto, updateFirstName, markOnboardingComplete, markOnboardingSkipped } = useAuth();
+  const { loading: progressLoading, completedLessons, practiceProgress, drillDays, reviewQueue, reviewStreak, skillProgress, answeredQuestionIds, practiceTestResults, inProgressTests, studyPlan, studyPlanMeta, studyPlanArtifact, predictionLog, interventionLog, studentFingerprint, miniDiagnostic, recordPracticeAttempt, recordDrillSkillAttempts, recordPracticedDay, hasPracticed, getBestScore, getDueCount, getReviewStatistics, getSkillDiagnosticSummary, getSkillBreakdown, recordPracticeTestAttempt, getTestBestScore, getTestAttempts, saveTestProgress, clearTestProgress, getTestProgress, hasTestProgress, saveMiniDiagnostic, saveStudyPlan, markStudyActivityComplete, unmarkStudyActivityComplete, markLessonComplete, isLessonCompleted, getModuleProgress, lastSaveStatus, retryLastSave } = useProgress(user?.uid);
 
   // Mount the analytics session lifecycle (session_start / session_end +
   // beforeunload flush). Previously orphaned — the hook existed but was never
@@ -476,6 +487,88 @@ const PerformSAT = () => {
       nudgeRoutedRef.current = true; // unknown target — land on default dashboard.
     }
   }, [reviewQueue, user?.uid, startDailyReview]);
+
+  // On-ramp eligibility — decided once per session after progress hydrates.
+  // Eligible: flagged on, no completion stamp, zero test attempts, no plan.
+  // An in-flight check-in (inProgressTests['mini-diagnostic']) re-enters the
+  // flow directly at the runner, even past a skip stamp.
+  useEffect(() => {
+    if (onRampActive !== null) return; // decided already this session
+    if (!ffOnRamp || !user || progressLoading) return;
+    const hasTests = Object.keys(practiceTestResults || {}).length > 0;
+    const hasResume = !!(inProgressTests && inProgressTests['mini-diagnostic']);
+    if (user.onboardingCompletedAt || hasTests) { setOnRampActive(false); return; }
+    if (hasResume) {
+      setOnRampStage('check-in');
+      setOnRampActive(true);
+      return;
+    }
+    if (user.onboardingSkippedAt || studyPlan) { setOnRampActive(false); return; }
+    setOnRampStage('wizard');
+    setOnRampActive(true);
+  }, [onRampActive, ffOnRamp, user, progressLoading, practiceTestResults, inProgressTests, studyPlan]);
+
+  const handleOnRampSkip = () => {
+    setOnRampActive(false);
+    markOnboardingSkipped().catch((e) => console.error('[onramp] skip stamp failed:', e));
+  };
+
+  // Re-entry from the dashboard "finish your check-in" card. Students who
+  // already answered the wizard (targetScore set) jump straight to the runner.
+  const handleResumeOnRamp = () => {
+    setOnRampStage(user?.targetScore ? 'check-in' : 'wizard');
+    setOnRampActive(true);
+  };
+
+  const handleOnRampFinished = async ({ plan, diagReport, miniDiagnosticRecord }) => {
+    // Order matters for resilience: plan mirror first (the artifact is already
+    // persisted by the pipeline), then the lean record, then the stamp. Each
+    // step is independently recoverable; a failed stamp just re-offers the
+    // flow next session, which resumes into the existing plan gate.
+    try {
+      await handleSaveStudyPlan(plan, diagReport);
+    } catch (e) {
+      console.error('[onramp] plan mirror failed (artifact already persisted):', e);
+    }
+    try {
+      await saveMiniDiagnostic(miniDiagnosticRecord);
+    } catch (e) {
+      console.error('[onramp] mini-diagnostic record save failed:', e);
+    }
+    try {
+      await markOnboardingComplete();
+    } catch (e) {
+      console.error('[onramp] completion stamp failed:', e);
+    }
+  };
+
+  const renderOnRamp = () => (
+    <React.Suspense fallback={<div style={{ minHeight: '100vh', background: '#ffffff' }} />}>
+      {onRampStage === 'wizard' ? (
+        <Onboarding
+          user={user}
+          onUpdateTargetScore={updateTargetScore}
+          onUpdateTestDate={updateTestDate}
+          onUpdateCurrentScore={updateCurrentScore}
+          onComplete={() => setOnRampStage('check-in')}
+          onSkip={handleOnRampSkip}
+        />
+      ) : (
+        <MiniDiagnosticShell
+          user={user}
+          savedProgress={getTestProgress('mini-diagnostic')}
+          onSaveProgress={saveTestProgress}
+          onClearProgress={clearTestProgress}
+          answeredQuestionIds={answeredQuestionIds}
+          completedLessons={completedLessons}
+          practiceProgress={practiceProgress}
+          onFinished={handleOnRampFinished}
+          onViewPlan={() => { setOnRampActive(false); setView('studyPlan'); }}
+          onSkip={handleOnRampSkip}
+        />
+      )}
+    </React.Suspense>
+  );
 
   // Adaptive study plan pipeline: fast path (deterministic) + slow path (AI)
   const handleSaveStudyPlan = async (deterministicPlan, diagnosticReport) => {
@@ -749,8 +842,9 @@ const PerformSAT = () => {
    *   • recordPracticeAttempt at the completion handler is gated by
    *     !isAdaptiveOrAssigned, so review-mode attempts don't pollute skill
    *     mastery counters.
-   *   • buildGroundTruthDiagnosis lives in PracticeTest.jsx (not App.jsx),
-   *     so a review-mode drill completion can't inflate Predicted vs Actual.
+   *   • buildGroundTruthDiagnosis lives in services/groundTruth.js and is
+   *     only invoked from PracticeTest.jsx (not App.jsx), so a review-mode
+   *     drill completion can't inflate Predicted vs Actual.
    *
    * @param {object} opts
    * @param {string} opts.testId
@@ -1510,6 +1604,7 @@ const PerformSAT = () => {
         {/* Course Route */}
         <Route path="/course" element={
           user ? (
+            onRampActive === true ? renderOnRamp() : (
             <div style={{
               minHeight: '100vh',
               background: '#ffffff',
@@ -1719,6 +1814,11 @@ const PerformSAT = () => {
             predictionLog={predictionLog}
             skillProgress={skillProgress}
             answeredQuestionIds={answeredQuestionIds}
+            showCheckInCard={
+              ffOnRamp && !user?.onboardingCompletedAt && !studyPlan &&
+              Object.keys(practiceTestResults || {}).length === 0
+            }
+            onStartCheckIn={handleResumeOnRamp}
             onUpdateTestDate={updateTestDate}
             onUpdateTargetScore={updateTargetScore}
             onUpdateCurrentScore={updateCurrentScore}
@@ -3484,7 +3584,7 @@ const PerformSAT = () => {
 
       </AppShell>
     </div>
-          ) : (
+          )) : (
             <Navigate to="/" replace />
           )
         } />

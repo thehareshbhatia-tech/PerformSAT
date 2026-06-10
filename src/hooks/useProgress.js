@@ -60,6 +60,10 @@ export const useProgress = (userId) => {
   const [answeredQuestionIds, setAnsweredQuestionIds] = useState([]);
   const [interventionLog, setInterventionLog] = useState([]);
   const [predictionLog, setPredictionLog] = useState([]);
+  // Lean record of the onboarding mini-diagnostic (band + per-domain folds +
+  // item ids). Deliberately NOT a practiceTestResults entry — a 24-item
+  // check-in must never enter score history or projections.
+  const [miniDiagnostic, setMiniDiagnostic] = useState(null);
   const studyPlanWriteInFlight = useRef(false);
   const hydratingArtifact = useRef(false);
   const artifactHydrationFailed = useRef(false); // prevent retry flood on permission errors
@@ -137,6 +141,7 @@ export const useProgress = (userId) => {
           setAnsweredQuestionIds(data.answeredQuestionIds || []);
           setInterventionLog(data.interventionLog || []);
           setPredictionLog(data.predictionLog || []);
+          setMiniDiagnostic(data.miniDiagnostic || null);
 
           // Hydrate study plan: artifact-first, with legacy root field fallback.
           // Guard: never wipe an optimistic plan that saveStudyPlan() set while
@@ -708,6 +713,38 @@ export const useProgress = (userId) => {
   };
 
   /**
+   * Persist the completed onboarding mini-diagnostic record and fold its item
+   * ids into answeredQuestionIds so starter-plan drills exclude seen items.
+   * Root-field write (no new subcollection → no firestore.rules change).
+   * withTimeout is load-bearing here for the same reason as test saves:
+   * Firestore writes hang forever offline, and this fires at the worst
+   * possible moment — minute 15 of a brand-new user's first session.
+   *
+   * @param {Object} record - lean summary from finishMiniDiagnostic
+   * @returns {Promise<boolean>} true if persisted, false on timeout/failure
+   */
+  const saveMiniDiagnostic = async (record) => {
+    if (!userId || !record) return false;
+
+    // Optimistic update — onSnapshot will confirm.
+    setMiniDiagnostic(record);
+
+    try {
+      const progressRef = doc(db, 'progress', userId);
+      const itemIds = (record.itemIds || []).slice(0, 400); // arrayUnion limit guard
+      await withTimeout(setDoc(progressRef, {
+        miniDiagnostic: record,
+        ...(itemIds.length > 0 ? { answeredQuestionIds: arrayUnion(...itemIds) } : {}),
+        lastUpdated: serverTimestamp(),
+      }, { merge: true }));
+      return true;
+    } catch (err) {
+      console.error('Failed to save mini-diagnostic record:', err);
+      return false;
+    }
+  };
+
+  /**
    * Clears test progress (called when test is completed or abandoned)
    * @param {string} testId - Test ID
    */
@@ -899,6 +936,7 @@ export const useProgress = (userId) => {
     studentFingerprint,
     interventionLog,
     predictionLog,
+    miniDiagnostic,
     loading,
     error,
     markLessonComplete,
@@ -929,6 +967,8 @@ export const useProgress = (userId) => {
     clearTestProgress,
     getTestProgress,
     hasTestProgress,
+    // Onboarding mini-diagnostic
+    saveMiniDiagnostic,
     // Study plan functions
     saveStudyPlan,
     markStudyActivityComplete,

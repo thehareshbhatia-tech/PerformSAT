@@ -103,6 +103,8 @@ const StudentDashboard = ({
   onCompleteActivity,
   onUncompleteActivity,
   onReviewPastTests,
+  showCheckInCard = false,
+  onStartCheckIn,
 }) => {
   const [activeTab, setActiveTab] = useState('dashboard');
   // Practice-test resolver for the recent-misses card (Stage 2c of the
@@ -681,6 +683,21 @@ const StudentDashboard = ({
           <h2 className="section-heading">Targeted Practice</h2>
           {hasStudyPlan ? (
             <>
+              {/* Starter-plan framing: a plan built from the 15-minute
+                  check-in is honest about its resolution. The line retires
+                  itself the moment a full test supersedes the plan (the new
+                  plan no longer carries planSource: 'mini-diagnostic'). */}
+              {studyPlan?.planSource === 'mini-diagnostic' && (
+                <div className="starter-plan-banner">
+                  <span className="starter-plan-banner-text">
+                    Starter plan, built from your 15-minute check-in.
+                    A full practice test sharpens it into a complete diagnosis.
+                  </span>
+                  <button type="button" className="starter-plan-banner-cta" onClick={onStartPracticeTest}>
+                    Take a full test
+                  </button>
+                </div>
+              )}
               <TodaysTasksCard
                 slice={todaySlice}
                 adherence={sessionAdherence}
@@ -696,6 +713,39 @@ const StudentDashboard = ({
                 </div>
               )}
             </>
+          ) : showCheckInCard ? (
+            /* On-ramp re-entry for students who skipped the signup check-in.
+               Replaces (not joins) the "first test unlocks your plan" banner
+               so day 0 keeps exactly one primary CTA. */
+            <div className="ai-practice-banner">
+              <div className="ai-banner-content">
+                <div className="ai-banner-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <div className="ai-banner-text-group">
+                  <div className="ai-banner-title">
+                    {user?.firstName
+                      ? `${user.firstName}, a 15-minute check-in builds your starter plan.`
+                      : 'A 15-minute check-in builds your starter plan.'}
+                  </div>
+                  <div className="ai-banner-desc">
+                    24 quick questions, no prep needed. Prefer the real thing?{' '}
+                    <button
+                      type="button"
+                      className="btn-ghost-blue ai-banner-warmup-link"
+                      onClick={onStartPracticeTest}
+                    >
+                      take a full practice test
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div className="ai-banner-controls">
+                <button className="btn-launch" onClick={onStartCheckIn}>
+                  Start the check-in
+                </button>
+              </div>
+            </div>
           ) : (
             recommendations[0] && (
               <div className="ai-practice-banner">

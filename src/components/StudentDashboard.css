@@ -237,6 +237,45 @@
   letter-spacing: -0.01em;
 }
 
+/* Starter-plan framing banner (on-ramp check-in plans). Purple = the
+   study-plan/focus domain in the tri-color system. */
+.starter-plan-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  background: var(--color-brand-purple-soft);
+  border: 1px solid var(--color-brand-purple-deep);
+  border-radius: 14px;
+  padding: 0.875rem 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.starter-plan-banner-text {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--color-brand-purple-text, var(--color-brand-purple-deep));
+}
+
+.starter-plan-banner-cta {
+  flex-shrink: 0;
+  background: none;
+  border: 1px solid var(--color-brand-purple-deep);
+  border-radius: 10px;
+  padding: 0.45rem 0.9rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  font-family: inherit;
+  color: var(--color-brand-purple-deep);
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.starter-plan-banner-cta:hover {
+  background: rgba(255, 255, 255, 0.6);
+}
+
 /* AI Practice Banner */
 .ai-practice-banner {
   background: var(--color-white);
