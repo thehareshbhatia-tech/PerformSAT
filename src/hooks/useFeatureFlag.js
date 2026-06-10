@@ -41,9 +41,18 @@ function readLocalStorage(key) {
 }
 
 function readEnv(key) {
-  // process.env is a webpack-time substitution in CRA — only string values land here.
-  if (typeof process === 'undefined' || !process.env) return undefined;
-  return process.env[`REACT_APP_FF_${camelToScreamingSnake(key)}`];
+  // process.env is a webpack-time substitution in CRA: DefinePlugin inlines
+  // it as an object LITERAL, so `process.env[...]` is safe in the browser.
+  // Never guard with bare `typeof process` — DefinePlugin does not replace
+  // the bare identifier, the browser has no `process`, and the guard made
+  // this whole branch return undefined in every production build (env-set
+  // flags silently never activated; found when REACT_APP_FF_ON_RAMP=true
+  // had no effect on the live site, 2026-06-10).
+  try {
+    return process.env[`REACT_APP_FF_${camelToScreamingSnake(key)}`];
+  } catch {
+    return undefined;
+  }
 }
 
 export function useFeatureFlag(key) {

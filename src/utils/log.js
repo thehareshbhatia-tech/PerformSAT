@@ -25,8 +25,20 @@
  *   is set — keeps Jest output clean.
  */
 
-const PROD = typeof process !== 'undefined' && process.env && process.env.NODE_ENV === 'production';
-const TEST = typeof process !== 'undefined' && process.env && process.env.NODE_ENV === 'test';
+// CRA's DefinePlugin inlines `process.env.NODE_ENV` as a string literal, so
+// direct access works in the browser. A bare `typeof process` guard does NOT
+// (the identifier isn't replaced and browsers have no `process`), which made
+// PROD/TEST false in every production build — info/debug logs were never
+// suppressed on the live site. Same bug as useFeatureFlag's readEnv.
+const NODE_ENV = (() => {
+  try {
+    return process.env.NODE_ENV;
+  } catch {
+    return undefined;
+  }
+})();
+const PROD = NODE_ENV === 'production';
+const TEST = NODE_ENV === 'test';
 
 function isVerboseRuntime() {
   try {
