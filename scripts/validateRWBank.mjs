@@ -91,6 +91,9 @@ export const RW_STEM_REGISTRY = {
     variants: [
       'Which choice best describes the function of the [VAR] sentence in the overall structure of the text?',
       'Which choice best describes what is happening in the text?',
+      // Quoted-sentence form when the UI cannot underline ("the underlined
+      // sentence ("...")").
+      'Which choice best describes the function of the underlined sentence ([VAR]) in the text as a whole?',
     ],
   },
   'cross-text-connections': {
@@ -106,12 +109,18 @@ export const RW_STEM_REGISTRY = {
       'Based on the texts, how would [VAR] most likely characterize [VAR]?',
       // Observed in PT5/PT6: "respond to the 'conventional wisdom' discussed in Text 1?"
       'Based on the texts, how would [VAR] most likely respond to the [VAR] discussed in [VAR]?',
+      // 2026-06 rewrite: "(Text 2)" attribution + free-form object ("respond
+      // to Colalucci's defense of the cleaning", "to Loftus's position").
+      'Based on the texts, how would [VAR] most likely respond to [VAR]?',
     ],
   },
   'central-ideas-and-details': {
     canonical: 'Which choice best states the main idea of the text?',
     variants: [
       'According to the text, [VAR]?',
+      // Detail-comprehension form (2026-06 re-blueprint: >=1 per module, per
+      // official CB practice where detail items are ~half of CID).
+      'Based on the text, [VAR]?',
     ],
   },
   inferences: {
@@ -127,6 +136,10 @@ export const RW_STEM_REGISTRY = {
       'Which finding from [VAR], if true, would most directly weaken [VAR]?',
       'Which finding, if true, would most directly support the [VAR]?',
       'Which finding, if true, would most directly weaken [VAR]?',
+      // "most strongly support" variants (2026-06 rewrite; CB uses both
+      // strongly/directly across PT4-11).
+      'Which finding, if true, would most strongly support [VAR]?',
+      'Which finding from the study, if true, would most strongly support [VAR]?',
     ],
   },
   'command-of-evidence-quantitative': {
@@ -1232,8 +1245,11 @@ const DISTRACTOR_DENYLIST_TOKENS = new Set([
 const DISTRACTOR_DENYLIST_PATTERNS = [
   // double-apostrophe possessive: "Library's'"
   /\b[A-Za-z]+'s'\b/,
-  // wrong comparative/superlative on already-comparative words (-er-er, -est-er)
-  /\b(more|most)\s+\w+er\b/i,
+  // wrong comparative/superlative on already-comparative words (-er-er, -est-er).
+  // The lookahead excludes common -er words that are not comparatives ("save
+  // more over their lifetimes", "carried more water") — only flag when the
+  // following word plausibly double-marks a comparative.
+  /\b(more|most)\s+(?!(?:over|water|other|after|never|under|whether|together|either|neither|rather|former|latter|inner|outer|upper|proper|paper|summer|winter|member|number|order|layer|matter|manner|chapter|counter|filter|master|quarter|silver|theater|wonder|power|career|consumer|computer|farmer|worker|writer|reader|teacher|researcher|painter|printer)\b)\w+er\b/i,
   /\bcomprehensiv(?:er|est)\b/i,
   /\bdetaileder\b/i,
 ];
@@ -1593,6 +1609,39 @@ function runLint({ mode, testNumbers, checks }) {
     }
   }
 
+  // ---- Exploit-layer lints (2026-06-10 audit) ------------------------------
+  // Encode the audit's exploitable patterns as permanent gates: answer-key
+  // letter bias, longest-answer-is-correct giveaways, the cross-text
+  // By-gerund choice skeleton, recipe-label explanations, choice bloat, the
+  // frozen blueprint, and cross-test primary-anchor reuse. Each gate exists
+  // because the 2026-05 reauthoring shipped lint-clean while a student
+  // could still pattern-match their way through the catalog.
+  for (const testN of targetTests) {
+    const items = bankItems.filter(b => b.testN === testN);
+    if (items.length === 0) continue;
+    if (enabled('answer-key-balance')) {
+      for (const v of validateAnswerKeyBalance(items, testN)) violations.push(v);
+    }
+    if (enabled('longest-answer')) {
+      for (const v of validateLongestAnswerRate(items, testN)) violations.push(v);
+    }
+    if (enabled('xtx-skeleton')) {
+      for (const v of validateCrossTextChoiceForms(items, testN)) violations.push(v);
+    }
+    if (enabled('recipe-labels')) {
+      for (const v of validateExplanationHygiene(items, testN)) violations.push(v);
+    }
+    if (enabled('choice-caps')) {
+      for (const v of validateChoiceCaps(items, testN)) violations.push(v);
+    }
+    if (enabled('blueprint')) {
+      for (const v of validateModuleBlueprint(items, testN)) violations.push(v);
+    }
+  }
+  if (enabled('anchor-uniqueness') && targetTests.length === 12) {
+    for (const v of validatePrimaryAnchorUniqueness(bankItems)) violations.push(v);
+  }
+
   // ---- Emit ---------------------------------------------------------------
   // Sort by testN numerically (0 = bank-wide synthesized rows first), then
   // by line. Alphabetic sort would put PT10 before PT1, which is annoying
@@ -1607,6 +1656,219 @@ function runLint({ mode, testNumbers, checks }) {
   // Summary on stderr so stdout stays a clean stream of violations.
   console.error(`\n${violations.length} violation(s) across ${targetTests.length} test(s) — ${bankItems.length} items linted`);
   process.exit(violations.length > 0 ? 1 : 0);
+}
+
+// ---------------------------------------------------------------------------
+// Exploit-layer lints (2026-06-10 audit). All operate on the flat
+// { testN, file, line, item } rows that runLint builds.
+// ---------------------------------------------------------------------------
+
+const EXPLOIT_PROSE_SKILLS = new Set([
+  'cross-text-connections', 'rhetorical-synthesis', 'command-of-evidence-textual',
+  'central-ideas-and-details', 'inferences', 'text-structure-and-purpose',
+]);
+const EXPLOIT_CHOICE_CAPS = {
+  'cross-text-connections': 40, 'rhetorical-synthesis': 45,
+  'command-of-evidence-textual': 45, 'central-ideas-and-details': 40,
+  'inferences': 40, 'text-structure-and-purpose': 40,
+};
+// Per-module skill counts after the 2026-06-10 re-blueprint (official-range
+// midpoints: C&S 8, I&I 8, SEC 6, EoI 5 per 27-question module).
+const EXPLOIT_MODULE_COUNTS = {
+  'words-in-context': 4, 'text-structure-and-purpose': 3, 'cross-text-connections': 1,
+  'central-ideas-and-details': 3, 'command-of-evidence-textual': 1,
+  'command-of-evidence-quantitative': 2, 'inferences': 2,
+  boundaries: 3, 'form-structure-and-sense': 3, transitions: 3, 'rhetorical-synthesis': 2,
+};
+
+function exploitWordCount(s) {
+  return ((s || '').match(/[\w'-]+/g) || []).length;
+}
+
+/** Each answer letter must appear 10-17 times per 54-item test (random keys
+ *  land ~13.5; the audit found A keyed on 96% of one test's items). */
+function validateAnswerKeyBalance(items, testN) {
+  const out = [];
+  const counts = { A: 0, B: 0, C: 0, D: 0 };
+  for (const b of items) counts[b.item.correctAnswer] = (counts[b.item.correctAnswer] || 0) + 1;
+  for (const letter of ['A', 'B', 'C', 'D']) {
+    if (counts[letter] < 10 || counts[letter] > 17) {
+      out.push({
+        testN, file: `practiceTest${testN}RW.js`, line: 0,
+        message: `[answer-key-balance] letter ${letter} keyed ${counts[letter]}x (allowed 10-17 per test)`,
+      });
+    }
+  }
+  return out;
+}
+
+/** The uniquely-longest choice must not be the correct one in more than 45%
+ *  of a test's prose-choice items (audit: 81.5% product-wide, 100% in
+ *  rhetorical synthesis — a no-read scoring strategy). */
+function validateLongestAnswerRate(items, testN) {
+  const prose = items.filter(b => EXPLOIT_PROSE_SKILLS.has(b.item.skill)
+    && Array.isArray(b.item.choices) && b.item.choices.length === 4);
+  if (prose.length < 8) return [];
+  let longestCorrect = 0;
+  for (const b of prose) {
+    const lens = b.item.choices.map(c => exploitWordCount(c.text));
+    const maxLen = Math.max(...lens);
+    const winners = b.item.choices.filter((c, i) => lens[i] === maxLen);
+    if (winners.length === 1 && winners[0].id === b.item.correctAnswer) longestCorrect++;
+  }
+  const rate = longestCorrect / prose.length;
+  if (rate > 0.45) {
+    return [{
+      testN, file: `practiceTest${testN}RW.js`, line: 0,
+      message: `[longest-answer] uniquely-longest choice is correct in ${longestCorrect}/${prose.length} prose items (${Math.round(rate * 100)}%; cap 45%)`,
+    }];
+  }
+  return [];
+}
+
+/** Cross-text items must not present all four choices in the 'By <gerund>'
+ *  frame (the single most recognizable generator tell), and 'By concluding'
+ *  must not recur as a distractor opener (audit: 26 distractors, 0 correct). */
+function validateCrossTextChoiceForms(items, testN) {
+  const out = [];
+  let byConcluding = 0;
+  for (const b of items) {
+    if (b.item.skill !== 'cross-text-connections') continue;
+    const choices = b.item.choices || [];
+    if (choices.length === 4 && choices.every(c => /^By\s+\w+ing\b/.test((c.text || '').trim()))) {
+      out.push({
+        testN, file: b.file, line: b.line,
+        message: `[xtx-skeleton] all four cross-text choices use the By-gerund frame (id ${b.item.id})`,
+      });
+    }
+    for (const c of choices) {
+      if (/^By concluding\b/.test((c.text || '').trim()) && c.id !== b.item.correctAnswer) byConcluding++;
+    }
+  }
+  if (byConcluding > 1) {
+    out.push({
+      testN, file: `practiceTest${testN}RW.js`, line: 0,
+      message: `[xtx-skeleton] 'By concluding...' opens ${byConcluding} distractors in this test (product-wide elimination tell; allow at most 1)`,
+    });
+  }
+  return out;
+}
+
+/** Explanations must not carry the labeled-distractor recipe the generator
+ *  used ('Why the wrong answers are tempting:' + surface/inverse/scope
+ *  labels), and the stated correct letter must match the key. */
+function validateExplanationHygiene(items, testN) {
+  const out = [];
+  for (const b of items) {
+    const exp = b.item.explanation || '';
+    if (exp.includes('Why the wrong answers are tempting')) {
+      out.push({
+        testN, file: b.file, line: b.line,
+        message: `[recipe-labels] explanation still contains the recipe block (id ${b.item.id})`,
+      });
+    }
+    const m = exp.match(/answer is\s+([A-D])\b/);
+    if (m && m[1] !== b.item.correctAnswer) {
+      out.push({
+        testN, file: b.file, line: b.line,
+        message: `[recipe-labels] explanation names ${m[1]} but key is ${b.item.correctAnswer} (id ${b.item.id})`,
+      });
+    }
+  }
+  return out;
+}
+
+/** Prose choices are capped per skill (audit: 50-90-word cross-text choices
+ *  vs CB's 15-40) and must stay within ~2.4x of each other in length. */
+function validateChoiceCaps(items, testN) {
+  const out = [];
+  for (const b of items) {
+    const cap = EXPLOIT_CHOICE_CAPS[b.item.skill];
+    if (!cap || !Array.isArray(b.item.choices)) continue;
+    const lens = b.item.choices.map(c => exploitWordCount(c.text));
+    if (Math.max(...lens) > cap) {
+      out.push({
+        testN, file: b.file, line: b.line,
+        message: `[choice-caps] ${b.item.skill} choice runs ${Math.max(...lens)}w (cap ${cap}w) (id ${b.item.id})`,
+      });
+    }
+    if (Math.min(...lens) >= 4 && Math.max(...lens) / Math.min(...lens) > 2.4) {
+      out.push({
+        testN, file: b.file, line: b.line,
+        message: `[choice-caps] choice length spread ${Math.min(...lens)}-${Math.max(...lens)}w exceeds 2.4x parity (id ${b.item.id})`,
+      });
+    }
+  }
+  return out;
+}
+
+/** Each 27-question module must match the official-range blueprint counts.
+ *  (Order within the module is enforced by the authoring gate; counts are
+ *  the shippable invariant here.) */
+function validateModuleBlueprint(items, testN) {
+  const out = [];
+  const byModule = new Map();
+  if (items.length === 54 && items.some(b => b.item.module == null)) {
+    // Assembled tests carry module via position: first 27 = module 1.
+    byModule.set(1, items.slice(0, 27));
+    byModule.set(2, items.slice(27));
+  } else {
+    for (const b of items) {
+      const mod = b.item.module ?? 1;
+      if (!byModule.has(mod)) byModule.set(mod, []);
+      byModule.get(mod).push(b);
+    }
+  }
+  for (const [mod, rows] of byModule) {
+    const counts = {};
+    for (const b of rows) counts[b.item.skill] = (counts[b.item.skill] || 0) + 1;
+    for (const [skill, want] of Object.entries(EXPLOIT_MODULE_COUNTS)) {
+      if ((counts[skill] || 0) !== want) {
+        out.push({
+          testN, file: `practiceTest${testN}RW.js`, line: 0,
+          message: `[blueprint] module ${mod}: ${skill} x${counts[skill] || 0} (blueprint wants ${want})`,
+        });
+      }
+    }
+  }
+  return out;
+}
+
+/** The primary anchor (first person-shaped proper noun in the passage) must
+ *  not be the subject of items in more than one test — the audit found Vera
+ *  Rubin in 9 items across 7 tests, retelling the same discovery story. */
+function validatePrimaryAnchorUniqueness(bankItems) {
+  const namePat = /\b([A-Z][a-zé'-]+(?:\s+(?:de|van|von|al-|El-)?[A-Z][a-zA-Zé'-]+){1,2})\b/;
+  const skip = new Set(['The Following', 'Standard English', 'United States', 'New York', 'World War',
+    'Project Gutenberg', 'College Board', 'North America', 'South America', 'Civil War', 'Middle Ages',
+    // Institutional data sources CB itself cites across many forms, plus
+    // regional adjectives and phrase noise the first-noun heuristic catches.
+    'Pew Research Center', 'The Pew Research', 'Disease Control', 'Census Bureau',
+    'North American', 'South American', 'West African', 'East African', 'Each September',
+    'Ottoman Empire', 'United Nations', 'National Oceanic', 'European Space']);
+  const anchorTests = new Map(); // anchor -> Map(testN -> [ids])
+  for (const b of bankItems) {
+    let text = b.item.passage || '';
+    if (!text && Array.isArray(b.item.passages)) text = b.item.passages.map(p => p.text).join(' ');
+    const m = text.match(namePat);
+    if (!m || skip.has(m[1])) continue;
+    const anchor = m[1];
+    if (!anchorTests.has(anchor)) anchorTests.set(anchor, new Map());
+    const perTest = anchorTests.get(anchor);
+    if (!perTest.has(b.testN)) perTest.set(b.testN, []);
+    perTest.get(b.testN).push(b.item.id);
+  }
+  const out = [];
+  for (const [anchor, perTest] of anchorTests) {
+    if (perTest.size > 1) {
+      const where = Array.from(perTest.entries()).map(([t, ids]) => `T${t}:${ids.join(',')}`).join(' ');
+      out.push({
+        testN: 0, file: 'bank', line: 0,
+        message: `[anchor-uniqueness] "${anchor}" is the primary anchor in ${perTest.size} tests (${where}) — one owner per anchor`,
+      });
+    }
+  }
+  return out;
 }
 
 function main() {

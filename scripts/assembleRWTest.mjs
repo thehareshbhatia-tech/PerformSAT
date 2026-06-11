@@ -296,17 +296,19 @@ const HEADER_TEMPLATE = (testN) => `// Practice Test ${testN} — SAT Reading & 
 // re-run the assembler against the manifest to regenerate.
 //
 // 2 Modules, 27 questions each (54 total) in 32 minutes per module.
-// Distribution per module follows the official digital SAT R&W blueprint:
-//   * Information and Ideas: ~10 (Central Ideas/Details, Inferences,
-//     Command of Evidence — Textual, Command of Evidence — Quantitative)
-//   * Craft and Structure: ~7 (Words in Context, Text Structure & Purpose,
-//     Cross-Text Connections)
-//   * Standard English Conventions: ~6 (Boundaries, Form/Structure/Sense)
-//   * Expression of Ideas: ~4 (Transitions, Rhetorical Synthesis / Notes)
+// Distribution per module follows the official digital SAT R&W blueprint
+// (2026-06-10 re-blueprint to official-range midpoints):
+//   * Craft and Structure: 8 (4 Words in Context, 3 Text Structure & Purpose,
+//     1 Cross-Text Connections)
+//   * Information and Ideas: 8 (3 Central Ideas/Details, 1 Command of
+//     Evidence — Textual, 2 Command of Evidence — Quantitative, 2 Inferences)
+//   * Standard English Conventions: 6 (Boundaries, Form/Structure/Sense)
+//   * Expression of Ideas: 5 (3 Transitions, 2 Rhetorical Synthesis / Notes)
 //
-// All passages are ORIGINAL prose written for this practice test. No
-// passages are taken or paraphrased from College Board materials, prep
-// books, or other copyrighted sources.
+// Expository passages are ORIGINAL prose written for this practice test;
+// literary excerpts are genuine, verified public-domain text quoted with
+// attribution. Nothing is taken or paraphrased from College Board
+// materials, prep books, or other copyrighted sources.
 
 `;
 

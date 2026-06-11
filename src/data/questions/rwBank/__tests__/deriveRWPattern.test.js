@@ -6,28 +6,28 @@ describe('deriveRWPattern', () => {
   // these counts shift; update them intentionally and re-check that every
   // routing-useful pattern still clears the Tier-1 threshold (>=8).
   const EXPECTED_COUNTS = {
+    // Re-frozen 2026-06-11 after the R&W authenticity overhaul (re-blueprint
+    // to official counts + full rewrite; coe-textual-illustrate-claim
+    // collapsed because COE-textual moved to finding-if-true forms and 1 per
+    // module — it routes Tier-3 now, like the sub-threshold fss patterns).
     'boundaries-semicolon': 27,
-    'boundaries-comma': 21,
-    'boundaries-dash': 11,
-    'boundaries-colon': 9,
-    'transitions-contrast': 17,
-    'transitions-example-emphasis': 11,
-    'transitions-cause-effect': 10,
-    'transitions-sequence-time': 8,
-    'tsp-main-purpose': 20,
-    'tsp-overall-structure': 14,
-    'tsp-function-of-underlined': 13,
-    'coe-textual-illustrate-claim': 43,
-    // form-structure-and-sense grammar sub-patterns (P3b). First 4 are >=8 and
-    // labeled; pronoun/possessive/comparison are emitted for diagnostic-signal
-    // completeness but route Tier-3 (sub-threshold) and carry no chip label.
-    'fss-subject-verb-agreement': 20,
-    'fss-verb-tense': 15,
-    'fss-modifier-placement': 13,
-    'fss-parallelism': 9,
-    'fss-pronoun': 6,
-    'fss-possessive': 5,
-    'fss-comparison': 2,
+    'boundaries-comma': 22,
+    'boundaries-dash': 10,
+    'boundaries-colon': 10,
+    'transitions-contrast': 24,
+    'transitions-example-emphasis': 12,
+    'transitions-cause-effect': 18,
+    'transitions-sequence-time': 9,
+    'tsp-main-purpose': 23,
+    'tsp-overall-structure': 32,
+    'tsp-function-of-underlined': 16,
+    'coe-textual-illustrate-claim': 1,
+    'fss-subject-verb-agreement': 18,
+    'fss-verb-tense': 20,
+    'fss-modifier-placement': 11,
+    'fss-parallelism': 8,
+    'fss-pronoun': 2,
+    'fss-possessive': 6,
   };
 
   const counts = {};
@@ -40,9 +40,9 @@ describe('deriveRWPattern', () => {
     expect(counts).toEqual(EXPECTED_COUNTS);
   });
 
-  it('tags exactly 274 of 648 items deterministically', () => {
+  it('tags exactly 269 of 648 items deterministically', () => {
     const tagged = Object.values(counts).reduce((a, b) => a + b, 0);
-    expect(tagged).toBe(274);
+    expect(tagged).toBe(269);
     expect(rwQuestionBank.length).toBe(648);
   });
 
