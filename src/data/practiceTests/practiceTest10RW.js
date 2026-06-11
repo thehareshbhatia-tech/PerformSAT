@@ -159,31 +159,31 @@ export const practiceTest10RW = {
           "band": 3,
           "domain": "craft-and-structure",
           "skill": "text-structure-and-purpose",
-          "passage": "The following text is from Emily Dickinson's poem \"Hope is the thing with feathers,\" written around 1861.\n\nHope is the thing with feathers - / That perches in the soul - / And sings the tune without the words - / And never stops - at all -\n\nAnd sweetest - in the Gale - is heard - / And sore must be the storm - / That could abash the little Bird / That kept so many warm -\n\nI've heard it in the chillest land - / And on the strangest Sea - / Yet - never - in Extremity, / It asked a crumb - of me.",
+          "passage": "The following text is from Alfred, Lord Tennyson's poem \"The Kraken,\" published in 1830.\n\nBelow the thunders of the upper deep, / Far, far beneath in the abysmal sea, / His ancient, dreamless, uninvaded sleep / The Kraken sleepeth: faintest sunlights flee / About his shadowy sides; above him swell / Huge sponges of millennial growth and height; / And far away into the sickly light, / From many a wondrous grot and secret cell / Unnumber'd and enormous polypi / Winnow with giant arms the slumbering green. / There hath he lain for ages, and will lie / Battening upon huge sea-worms in his sleep, / Until the latter fire shall heat the deep; / Then once by man and angels to be seen, / In roaring he shall rise and on the surface die.",
           "question": "Which choice best describes the overall structure of the text?",
           "choices": [
             {
               "id": "A",
-              "text": "The speaker recounts watching an actual bird struggle against a storm, then draws from that single episode a broad and general lesson about the resilience of the natural world."
+              "text": "The speaker recounts a voyage during which sailors briefly glimpsed an enormous sea creature, then describes the crew's unsuccessful efforts to document the encounter for naturalists at home."
             },
             {
               "id": "B",
-              "text": "The speaker questions whether hope is real, then concludes that it is merely a comforting illusion."
+              "text": "The speaker questions whether the legendary creature ever existed, then concludes that such stories reveal more about human fear than about the sea."
             },
             {
               "id": "C",
-              "text": "The speaker compares two competing emotions, then explains why one ultimately overcomes the other."
+              "text": "The speaker contrasts the calm of the deep ocean with the violence of the waves above, then explains why the creature prefers to remain below."
             },
             {
               "id": "D",
-              "text": "The speaker defines an abstract feeling through a sustained image of a bird, then attests that it endures through hardship while asking nothing in return."
+              "text": "The speaker depicts a creature's centuries-long sleep on the seafloor amid the strange life surrounding it, then foretells the violent moment when that sleep will end."
             }
           ],
           "correctAnswer": "D",
-          "explanation": "Choice D is correct. The poem opens by defining hope through a single extended image—\"the thing with feathers\" that perches in the soul and sings without ceasing—and then attests to the constancy of that feeling: it is \"sweetest\" in the gale, is heard in the \"chillest land\" and on the \"strangest Sea,\" and yet \"never\" asks \"a crumb\" of the speaker. The structure is a definition by metaphor followed by testimony to hope's endurance and selflessness. Choice A misreads the bird as a literal one the speaker observed, when the bird is figurative throughout. Choice B has the speaker doubting hope, but the poem affirms rather than questions it. Choice C invents a contest between two emotions that the poem never stages.",
+          "explanation": "Choice D is correct. The poem first dwells on the Kraken's \"ancient, dreamless, uninvaded sleep\" far beneath the waves, filling out the scene with the life that surrounds him—huge sponges \"of millennial growth\" and enormous polypi winnowing \"the slumbering green.\" Only in the closing lines does the poem turn from this long stillness to prophecy: \"Until the latter fire shall heat the deep,\" the Kraken will rise \"in roaring\" and \"on the surface die.\" The structure is an extended portrait of an undisturbed sleep followed by a foretelling of its single, violent end. Choice A invents a voyage, sailors, and naturalists that appear nowhere in the text. Choice B has the speaker doubting the creature's existence, but the poem presents the Kraken's sleep as fact, not as a story to be weighed. Choice C stages a contrast between deep and surface waters that the poem never develops, and the Kraken's stillness is presented as agelong sleep rather than preference.",
           "_meta": {
             "quoteVerify": true,
-            "source": "Emily Dickinson, \"Hope is the thing with feathers\" (c. 1861), Poems (1891)"
+            "source": "Alfred, Lord Tennyson, \"The Kraken\" (1830), Poems, Chiefly Lyrical"
           }
         },
         {
@@ -1084,31 +1084,31 @@ export const practiceTest10RW = {
           "band": 3,
           "domain": "craft-and-structure",
           "skill": "text-structure-and-purpose",
-          "passage": "The following text is from Paul Laurence Dunbar's 1895 poem \"We Wear the Mask.\"\n\nWe wear the mask that grins and lies, / It hides our cheeks and shades our eyes,— / This debt we pay to human guile; / With torn and bleeding hearts we smile, / And mouth with myriad subtleties.\n\nWhy should the world be over-wise, / In counting all our tears and sighs? / Nay, let them only see us, while / We wear the mask.\n\nWe smile, but, O great Christ, our cries / To thee from tortured souls arise. / We sing, but oh the clay is vile / Beneath our feet, and long the mile; / But let the world dream otherwise, / We wear the mask!",
+          "passage": "The following text is from Christina Rossetti's poem \"Up-Hill,\" first published in 1861.\n\nDoes the road wind up-hill all the way? / Yes, to the very end. / Will the day's journey take the whole long day? / From morn to night, my friend.\n\nBut is there for the night a resting-place? / A roof for when the slow dark hours begin. / May not the darkness hide it from my face? / You cannot miss that inn.\n\nShall I meet other wayfarers at night? / Those who have gone before. / Then must I knock, or call when just in sight? / They will not keep you standing at that door.\n\nShall I find comfort, travel-sore and weak? / Of labour you shall find the sum. / Will there be beds for me and all who seek? / Yea, beds for all who come.",
           "question": "Which choice best describes the overall structure of the text?",
           "choices": [
             {
               "id": "A",
-              "text": "The speaker recalls a specific occasion on which he hid his feelings from others and then resolves never to conceal them again."
+              "text": "The speaker describes setting out on a steep road at dawn, then recounts the obstacles and discouragements endured before finally reaching a welcoming inn after nightfall."
             },
             {
               "id": "B",
-              "text": "The speaker contrasts his own private sorrow with the genuine happiness of the people around him and concludes that he alone is burdened."
+              "text": "The speaker debates whether to undertake a difficult journey, weighing its dangers against its rewards, and ultimately decides to remain at home."
             },
             {
               "id": "C",
-              "text": "The speaker poses a riddle about a mysterious mask and then invites the reader to guess what lies hidden behind it."
+              "text": "The speaker warns a fellow traveler that the road ahead is harder than it appears, then offers detailed directions for avoiding its worst stretches."
             },
             {
               "id": "D",
-              "text": "The speaker describes a mask of false cheerfulness worn before the world, asks why the suffering it hides should be put on display, and affirms that the mask will be kept in place."
+              "text": "The speaker asks a series of questions about an arduous journey and receives answers assuring that rest and welcome await all travelers at its end."
             }
           ],
           "correctAnswer": "D",
-          "explanation": "Choice D is correct. The poem opens by describing a mask \"that grins and lies,\" worn to hide \"torn and bleeding hearts\" behind a smile—a collective disguise of false cheer presented to the world. The middle stanza asks why the world should be allowed to count \"all our tears and sighs,\" and the poem closes by insisting, even amid cries to \"great Christ\" from \"tortured souls,\" that \"we wear the mask.\" The structure is thus a description of the mask, a question about exposing the suffering beneath it, and a final affirmation that the mask stays on. Choice A invents a single remembered occasion and a vow to stop hiding, neither of which the poem contains. Choice B turns the poem into a contrast between the speaker's sorrow and others' happiness, but the suffering here is shared (\"we\"), not the speaker's alone. Choice C treats the poem as a riddle for the reader to solve, when the speaker states plainly what the mask conceals.",
+          "explanation": "Choice D is correct. The poem unfolds as a dialogue: a traveler asks one question after another—whether the road winds \"up-hill all the way,\" whether there is \"for the night a resting-place,\" whether other wayfarers will be met, whether there will be beds—and a second voice answers each in turn with reassurance, ending \"Yea, beds for all who come.\" The structure is a sequence of anxious questions about a hard journey, each met by an answer promising shelter and welcome at its end. Choice A turns the poem into a narrated trip with obstacles overcome, but no journey is actually taken in the text; everything is asked and answered in advance. Choice B describes a deliberation that ends in staying home, yet the traveler never weighs rewards against dangers or decides anything. Choice C reverses the poem's roles—the speaker seeks reassurance rather than giving warnings—and no directions for the road are ever offered.",
           "_meta": {
             "quoteVerify": true,
-            "source": "Paul Laurence Dunbar, \"We Wear the Mask\" (1895)"
+            "source": "Christina Rossetti, \"Up-Hill\" (1861), Goblin Market and Other Poems (1862)"
           }
         },
         {

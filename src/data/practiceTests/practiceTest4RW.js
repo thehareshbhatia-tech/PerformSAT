@@ -274,35 +274,35 @@ export const practiceTest4RW = {
           "choices": [
             {
               "id": "A",
-              "text": "He would grant that accidental drift produced most Polynesian landfalls, adding only that a handful of deliberate voyages were needed to reach the very remotest islands."
+              "text": "He would grant that the Mercator projection exaggerates area more severely than most maps, adding only that a few regions near the equator happen to escape its worst distortions."
             },
             {
               "id": "B",
-              "text": "The orderly settlement pattern, he would respond, is an illusion created entirely by the loss of evidence for the countless canoes that drifted off course by chance and were never recorded by anyone."
+              "text": "Peters's projection, he would respond, at last removes the distortions of earlier maps, showing every continent at its true size and its true shape without the compromises other projections demand."
             },
             {
               "id": "C",
-              "text": "The feature Sharp cannot explain — settlement advancing steadily against the prevailing winds — is, Irwin would argue, the signature of deliberate exploration with a planned route home rather than of chance drift."
+              "text": "The distortion Peters condemns in the Mercator map, Robinson would argue, is the unavoidable price any flat map pays for flattening a sphere, and Peters's own map merely shifts it onto the continents' shapes."
             },
             {
               "id": "D",
-              "text": "He would accept Sharp's premise that long-distance navigation requires instruments and conclude that the islands must therefore have been settled far more slowly than the evidence suggests."
+              "text": "He would accept Peters's premise that a world map must above all preserve the true relative areas of regions, and conclude that the familiar shapes of the continents should therefore be discarded as hopelessly misleading."
             }
           ],
           "correctAnswer": "C",
-          "explanation": "The correct answer is C. Both authors agree that Polynesian navigators lacked instruments, but Irwin (Text 2) draws the opposite conclusion from the settlement pattern: he argues that islands were reached by pushing into the wind so that a canoe could run home if it found nothing, a strategy that points to deliberate exploration rather than chance. Choice A concedes too much to the drift account; choice B is the position Irwin opposes; and choice D accepts a premise about instruments that he uses to argue the reverse.",
+          "explanation": "The correct answer is C. Both writers agree that any map of the round Earth involves a trade-off, but they draw opposite lessons from it. Peters (Text 1) treats the Mercator map's exaggeration of area as a correctable bias and offers his equal-area map as the honest alternative. Robinson (Text 2) replies that distortion is unavoidable on every flat map: Peters's projection buys true areas only by badly distorting the shapes of the continents, so it trades one error for another rather than eliminating distortion. Choice A concedes Peters's premise that Mercator alone distorts area; choice B states the very claim Robinson rejects, that Peters's map removes distortion; and choice D accepts Peters's priority of area above all and runs it to a conclusion Robinson would not draw.",
           "passages": [
             {
               "label": "Text 1",
-              "text": "The geographer Andrew Sharp challenged the romantic picture of Polynesian seafarers deliberately steering across thousands of miles of open Pacific to settle islands they already knew were there. Without compasses, charts, or instruments for fixing longitude, he argued, no navigator could hold an accurate course over such distances or reliably find a small island far beyond the horizon. The vast spread of Polynesian settlement, on Sharp's account, is better explained by one-way voyages: canoes blown off course or carried by currents, now and then making landfall by chance. Deliberate two-way navigation, he held, was possible only over short, familiar runs between neighboring islands."
+              "text": "In the 1970s the historian Arno Peters attacked the familiar world map based on Gerardus Mercator's sixteenth-century projection. Because Mercator's map preserves compass bearings, it stretches regions near the poles: Greenland looms as large as Africa, though Africa is in truth some fourteen times larger. This systematic enlargement of the temperate north, Peters charged, flatters wealthy nations and shrinks the tropical countries near the equator. He offered instead an equal-area projection, on which each country covers space in true proportion to its size, and urged schools and agencies to adopt it as the only honest map of the world."
             },
             {
               "label": "Text 2",
-              "text": "The archaeologist Geoffrey Irwin agrees that Polynesian navigators lacked instruments but draws the opposite conclusion about how the Pacific was settled. Working from computer simulations of voyaging and from the geography of the settlement sequence itself, Irwin argues that the islands were colonized in a pattern too orderly to be accidental: settlers pushed first into the wind, against the prevailing easterlies, so that a canoe failing to find land could turn and run home downwind. Searching upwind, he contends, is exactly what one would expect of navigators deliberately exploring while keeping a safe return open. The drift hypothesis, on his reading, cannot explain why settlement advanced so consistently in the harder direction."
+              "text": "The cartographer Arthur Robinson accepted that Mercator's map distorts area badly and that it had been overused in classrooms. But he rejected Peters's claim to have produced an honest map. Every attempt to lay the curved surface of the globe flat, Robinson pointed out, must distort something — area, shape, distance, or direction — and no projection can preserve them all at once. Peters's map keeps areas true only by squeezing the continents into long, narrow forms that misrepresent their shapes, so that Africa and South America sag downward like wet laundry. Trading one distortion for another, Robinson argued, is not the same as removing distortion."
             }
           ],
           "_meta": {
-            "anchor": "cross-text — Andrew Sharp (drift hypothesis) vs. Geoffrey Irwin (systematic exploration); Polynesian navigation history"
+            "anchor": "cross-text — Arno Peters (equal-area projection) vs. Arthur Robinson (all flat maps distort); history of cartography"
           }
         },
         {
@@ -1219,28 +1219,28 @@ export const practiceTest4RW = {
           "choices": [
             {
               "id": "A",
-              "text": "The narrator recounts a detailed interview with a museum physician who confirmed that he was in fact suffering from several rare diseases at once."
+              "text": "The speaker recounts a conversation with a Venetian boatman who explains the history of each grand building they pass along the canal."
             },
             {
               "id": "B",
-              "text": "Reading idly through a medical reference, the narrator persuades himself, disease by disease, that he is suffering from each ailment he looks up."
+              "text": "Standing on a Venetian bridge, the speaker watches the city's structures rise from the water and dwells on the vanished glory of its former empire."
             },
             {
               "id": "C",
-              "text": "The narrator argues that the medical reference books kept in nineteenth-century libraries were dangerously inaccurate and should be read with caution."
+              "text": "The speaker argues that Venice's surviving monuments ought to be carefully restored before the last remaining traces of the city's former grandeur are lost forever to the encroaching sea."
             },
             {
               "id": "D",
-              "text": "The narrator explains why a slight case of hay fever cannot be diagnosed without consulting a comprehensive medical reference book."
+              "text": "The speaker explains how the palaces and bridges of Venice were gradually constructed across its hundred islands over the course of a thousand years."
             }
           ],
           "correctAnswer": "B",
-          "explanation": "The correct answer is B. The narrator goes to read up on one slight ailment, idly turns to other diseases, and convinces himself, entry by entry, that he is suffering from each one he reads about. Choice A invents a physician the scene does not include; choice C treats the passage as an argument about inaccurate reference books; and choice D narrows it to a claim about diagnosing hay fever.",
-          "passage": "The following text is from Jerome K. Jerome's 1889 comic novel *Three Men in a Boat*.\n\nI remember going to the British Museum one day to read up the treatment for some slight ailment of which I had a touch — hay fever, I fancy it was. I got down the book, and read all I came to read; and then, in an unthinking moment, I idly turned the leaves, and began to indolently study diseases, generally. I forget which was the first distemper I plunged into — some fearful, devastating scourge, I know — and, before I had glanced half down the list of \"premonitory symptoms,\" it was borne in upon me that I had fairly got it. I sat for a while frozen with horror; and then, in the listlessness of despair, I again turned over the pages. I came to typhoid fever — read the symptoms — discovered that I had typhoid fever, must have had it for months without knowing it.",
+          "explanation": "The correct answer is B. The speaker describes standing on a bridge in Venice, watching the city's buildings seem to rise out of the water, and reflecting that the empire whose glory once filled those structures has faded into the past. Choice A invents a boatman and a conversation the poem does not contain; choice C turns the speaker's reflection into an argument for restoring monuments; and choice D reduces the passage to a factual account of how Venice was built.",
+          "passage": "The following text is from Lord Byron's 1818 poem *Childe Harold's Pilgrimage*.\n\nI stood in Venice, on the Bridge of Sighs;\nA palace and a prison on each hand:\nI saw from out the wave her structures rise\nAs from the stroke of the enchanter's wand:\nA thousand years their cloudy wings expand\nAround me, and a dying Glory smiles\nO'er the far times, when many a subject land\nLook'd to the winged Lion's marble piles,\nWhere Venice sate in state, throned on her hundred isles!",
           "_meta": {
-            "anchor": "Jerome K. Jerome — Three Men in a Boat (1889); genuine public-domain excerpt",
+            "anchor": "Lord Byron — Childe Harold's Pilgrimage, Canto IV (1818); genuine public-domain excerpt",
             "quoteVerify": true,
-            "source": "Jerome K. Jerome, Three Men in a Boat (1889), opening of the medical-dictionary chapter (Chapter 1)"
+            "source": "Lord Byron, Childe Harold's Pilgrimage, Canto the Fourth, Stanza I (1818)"
           }
         },
         {
@@ -1287,35 +1287,35 @@ export const practiceTest4RW = {
           "choices": [
             {
               "id": "A",
-              "text": "They would deny that the roots of different trees are connected by fungi at all, arguing that Simard's isotope experiments must simply have been contaminated."
+              "text": "They would deny that cheese rinds host any genuine microbial community at all, arguing that whatever bacteria and fungi appear on them must come entirely from added starter cultures or from ordinary contamination."
             },
             {
               "id": "B",
-              "text": "Simard's account, they would say, is essentially correct, and the cooperative network she describes is almost certainly even more extensive and finely organized than her own experiments could show."
+              "text": "The terroir account, they would say, is essentially correct, and the influence of microbes unique to each place on a cheese's flavor is almost certainly even greater and more finely organized than the original claim suggests."
             },
             {
               "id": "C",
-              "text": "They would agree that mother trees deliberately direct sugars to their own seedlings but object that such generosity would be far too costly to persist across most forests."
+              "text": "They would agree that native microbes deliberately tune each cheese's flavor but object that maintaining such place-bound communities would be far too costly for most dairies to sustain."
             },
             {
               "id": "D",
-              "text": "Trees and fungi are indeed linked underground, they would grant, but Simard's strongest claims — that mature trees deliberately feed their seedlings through the network — reach well beyond what field experiments have shown."
+              "text": "Cheese rinds do host rich communities of bacteria and fungi, they would grant, but the strongest terroir claim — that a cheese's flavor depends on microbes unique to one place — reaches beyond what experiments show."
             }
           ],
           "correctAnswer": "D",
-          "explanation": "The correct answer is D. Karst and her colleagues do not deny that roots and fungi are connected underground; they argue that Simard's stronger claims — above all that mature trees deliberately feed seedlings through the network — outrun what field experiments have shown. Choice A denies the physical connection they actually accept; choice B has them endorsing Simard's account in full; and choice C attributes to them a cost-based objection the texts do not raise.",
+          "explanation": "The correct answer is D. Dutton and her colleagues do not deny that cheese rinds carry rich communities of bacteria and fungi; they have studied those communities closely. What they dispute is the strongest version of the terroir claim, that a cheese's flavor depends on a mixture of microbes unique to one place. Because they can rebuild the same communities in the laboratory from a known set of species, far from any traditional cave, they conclude that flavor cannot rest on an irreproducible, place-bound mixture. Choice A denies the microbial communities they actually accept; choice B has them endorsing the terroir account in full; and choice C attributes to them a cost objection the texts never raise.",
           "passages": [
             {
               "label": "Text 1",
-              "text": "The forest ecologist Suzanne Simard argues that trees in a forest are joined into a cooperative network by the fungi wrapped around their roots. In experiments using traceable isotopes of carbon, Simard found that sugars could move through these underground fungal threads from one tree to another, and that the largest, oldest trees — which she calls \"mother trees\" — tended to be the most connected. A forest, on her account, is less a crowd of individuals competing for light than a community in which resources are shared through the fungal network, with established trees helping to support shaded seedlings of their own and even of other species."
+              "text": "Traditional cheesemakers have long believed that a great cheese tastes of the place it comes from. On this view, the flavor of a classic raw-milk cheese is the work of a \"microbial terroir\" — a community of wild bacteria and fungi native to a particular farm, pasture, or aging cave. These local microbes settle on the curd and rind during the months a cheese matures, and the precise mixture, the argument runs, cannot be found anywhere else. Move the same recipe and the same animals to another region, advocates say, and the cheese will never taste quite the same, because the microbes that shaped it cannot be carried along."
             },
             {
               "label": "Text 2",
-              "text": "The ecologists Justine Karst, Melanie Jones, and Jason Hoeksema do not deny that roots and fungi are physically connected underground, but they question how much of the popular account the evidence will bear. Reviewing the studies most often cited for claims about resource-sharing networks, they report that the findings are frequently weaker, more ambiguous, or more narrowly applicable than later summaries suggest, and that striking claims tend to be cited far more often than the cautious results they rest on. The idea that mother trees deliberately nourish their seedlings through the network, they conclude, has outrun what field experiments have actually demonstrated, however appealing the picture has become."
+              "text": "The microbiologist Rachel Dutton and her colleagues do not doubt that cheese rinds host complex communities of bacteria and fungi; they have catalogued these communities in detail. But in their experiments the same communities reassemble in a predictable order when a defined set of species is grown on fresh curd in the laboratory, far from any traditional cave. If a rind's microbes can be reconstructed from a known list of species in a different place, they argue, then flavor cannot depend on an irreproducible mixture unique to one farm. The terroir picture, however appealing, claims more than the evidence has shown."
             }
           ],
           "_meta": {
-            "anchor": "cross-text — Suzanne Simard (mycorrhizal networks) vs. Karst, Jones & Hoeksema (overstatement critique); mycology/soil ecology"
+            "anchor": "cross-text — microbial-terroir hypothesis vs. Rachel Dutton et al. (reproducible cheese-rind communities); cheese/fermentation microbiology"
           }
         },
         {

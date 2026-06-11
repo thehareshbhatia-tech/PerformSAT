@@ -159,31 +159,31 @@ export const practiceTest8RW = {
           "band": 3,
           "domain": "craft-and-structure",
           "skill": "text-structure-and-purpose",
-          "passage": "The following text is from Emily Dickinson's poem \"Success is counted sweetest,\" first published in 1890. The speaker reflects on what makes the experience of triumph meaningful.\n\n__Success is counted sweetest / By those who ne'er succeed.__ / To comprehend a nectar / Requires sorest need. // Not one of all the purple Host / Who took the Flag today / Can tell the definition / So clear of Victory // As he defeated — dying — / On whose forbidden ear / The distant strains of triumph / Burst agonized and clear!",
+          "passage": "The following text is Sonnet 116 by William Shakespeare, first published in 1609. The speaker considers what sets enduring love apart from lesser attachments.\n\n__Let me not to the marriage of true minds / Admit impediments.__ Love is not love / Which alters when it alteration finds, / Or bends with the remover to remove: / O no! it is an ever-fixed mark / That looks on tempests and is never shaken; / It is the star to every wandering bark, / Whose worth's unknown, although his height be taken. / Love's not Time's fool, though rosy lips and cheeks / Within his bending sickle's compass come; / Love alters not with his brief hours and weeks, / But bears it out even to the edge of doom. / If this be error and upon me proved, / I never writ, nor no man ever loved.",
           "question": "Which choice best describes the function of the underlined sentence in the text as a whole?",
           "choices": [
             {
               "id": "A",
-              "text": "It introduces a general claim about success that the rest of the poem illustrates through a contrasting scene of victory and defeat."
+              "text": "It opens with the speaker's refusal to admit any obstacle to the marriage of true minds, a general claim that the rest of the poem develops through a series of images."
             },
             {
               "id": "B",
-              "text": "It poses a question that the speaker answers in the remaining stanzas by drawing on a specific battlefield memory."
+              "text": "It poses a question about whether love can survive the passage of time, a question that the speaker spends the remaining lines answering by recalling a single romance from his own past."
             },
             {
               "id": "C",
-              "text": "It records a disappointment that the speaker spends the later lines trying to console herself for."
+              "text": "It records a private disappointment in love that the speaker tries to talk himself out of over the course of the later lines."
             },
             {
               "id": "D",
-              "text": "It states the speaker’s first reaction to a battle she has just witnessed, a reaction the rest of the poem revises."
+              "text": "It states the speaker's first reaction to a lover's betrayal he has just witnessed, a reaction that the rest of the poem goes on to revise."
             }
           ],
           "correctAnswer": "A",
-          "explanation": "The correct answer is A. The underlined opening states a broad paradox—that success means most to those who never attain it—and the stanzas that follow dramatize it, setting the victorious \"purple Host\" against the dying soldier who hears the distant strains of triumph most clearly. The poem illustrates the opening claim rather than questioning, retracting, or narrating a single witnessed event, so B, C, and D each mistake the relationship between the first line and the rest.",
+          "explanation": "The correct answer is A. The underlined opening states a broad claim—that nothing should be allowed to disturb the union of faithful minds—and the lines that follow develop it through a sequence of images: love as an \"ever-fixed mark\" that weathers tempests, as the guiding star above a wandering ship, and as something that does not bend to time. The poem builds on the opening claim rather than questioning it, retracting it, or narrating a single witnessed event, so B, C, and D each misread how the opening relates to the rest.",
           "_meta": {
             "quoteVerify": true,
-            "source": "Emily Dickinson, \"Success is counted sweetest\" (1890), complete poem"
+            "source": "William Shakespeare, Sonnet 116 (1609)"
           }
         },
         {
@@ -292,28 +292,28 @@ export const practiceTest8RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "central-ideas-and-details",
-          "passage": "In the early 1970s, the pharmaceutical chemist Tu Youyou led a search for a malaria drug by combing classical Chinese medical texts for plants used against intermittent fevers. One sweet wormwood preparation, described in a fourth-century manual, gave inconsistent results until Tu noticed that the old recipe steeped the plant in cool water rather than boiling it. Reasoning that heat was destroying the active compound, she switched to a low-temperature solvent and isolated artemisinin, which proved highly effective against the malaria parasite. The episode is often cited as a case in which careful reading of a historical source supplied the clue that ordinary laboratory practice had missed.",
+          "passage": "In the 1790s, the German botanist Christian Konrad Sprengel studied why insects visit flowers and showed that many blossoms are shaped to steer a bee or moth toward their pollen and nectar. Examining several wild orchids, though, he found a contradiction: their long spurs looked as if they should hold nectar, yet none was inside. Sprengel concluded that these orchids draw insects by the mere appearance of a reward, prompting pollinators to carry pollen away without ever being fed. His description of such \"false nectar flowers\" is often cited as one of the earliest accounts of deception as a strategy for attracting pollinators.",
           "question": "Which choice best states the main idea of the text?",
           "choices": [
             {
               "id": "A",
-              "text": "Tu Youyou preferred classical Chinese medical texts to modern laboratory methods throughout her search for a malaria drug."
+              "text": "Sprengel believed that insects, rather than wind or chance, were responsible for fertilizing every kind of flowering plant he examined."
             },
             {
               "id": "B",
-              "text": "Most plant-based remedies recorded in early Chinese medical manuals have since been shown to be ineffective against malaria."
+              "text": "Most orchids that botanists have studied since Sprengel's time have turned out to produce no nectar of any kind."
             },
             {
               "id": "C",
-              "text": "Tu Youyou isolated the antimalarial compound artemisinin after a detail in an old text led her to extract the plant at low temperature instead of boiling it."
+              "text": "Sprengel found that certain orchids attract pollinating insects by appearing to offer a nectar reward they do not actually contain."
             },
             {
               "id": "D",
-              "text": "By the time Tu Youyou began her research in the 1970s, the malaria parasite had already grown resistant to the existing drugs that physicians had relied on for decades."
+              "text": "By the time Sprengel published his observations, the orchids he had studied were already growing scarce across much of Europe."
             }
           ],
           "correctAnswer": "C",
-          "explanation": "The correct answer is C. The passage builds to a single point: a clue in a fourth-century manual prompted Tu to extract the plant in cool rather than boiling water, and that change let her isolate artemisinin. A overstates her stance into a blanket preference for old texts over the lab, which the passage does not claim; B makes a sweeping judgment about Chinese remedies that the text never offers; and D introduces drug resistance, a topic the passage does not raise."
+          "explanation": "The correct answer is C. The passage builds to a single point: Sprengel discovered that some orchids lure insects with spurs that look as though they hold nectar but do not, drawing pollinators that carry away pollen without any reward. A overstates his view into a blanket claim that insects fertilize every flowering plant, which the text does not assert; B makes a sweeping generalization about orchids studied after his time that the passage never offers; and D introduces the scarcity of the orchids, a topic the passage does not raise."
         },
         {
           "id": 810,
@@ -803,7 +803,7 @@ export const practiceTest8RW = {
           "band": 4,
           "domain": "expression-of-ideas",
           "skill": "transitions",
-          "passage": "The astronomers who worked at the Maragha observatory in thirteenth-century Persia, among them Nasir al-Din al-Tusi, accepted much of the general framework of Ptolemy's astronomy, including its earth-centered arrangement of the heavens. ______ they objected to several of the specific devices Ptolemy had used to predict planetary motion, and al-Tusi worked out a new geometric construction, now called the Tusi couple, to replace one of the constructions they found least satisfactory.",
+          "passage": "For most of the nineteenth century, the architects who designed concert halls accepted the inherited craft of their profession, including its assumption that a room's sound could be judged only by ear once the hall was built. ______ the physicist Wallace Sabine objected to leaving acoustics to chance, and he worked out a measurable quantity, now called reverberation time, to replace the rules of thumb that builders had long found least reliable.",
           "question": "Which choice completes the text with the most logical transition?",
           "choices": [
             {
@@ -824,7 +824,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "The correct answer is A. The first sentence says the Maragha astronomers accepted Ptolemy's broad framework; the second says they nonetheless rejected particular devices within it, a contrast that calls for \"Nevertheless.\" \"Therefore\" would signal that the objection follows logically from their acceptance, which it does not; \"Likewise\" would mark agreement rather than the tension the passage sets up; and \"For instance\" would introduce an example of the prior sentence, but the criticism is a counterpoint, not an illustration."
+          "explanation": "The correct answer is A. The first sentence says that hall designers accepted the inherited craft, including the practice of judging a room's sound only after construction; the second says that Sabine nonetheless objected to leaving the result to chance and devised a measurable quantity instead, a contrast that calls for \"Nevertheless.\" \"Therefore\" would signal that his objection follows logically from that acceptance, which it does not; \"Likewise\" would mark agreement rather than the tension the passage sets up; and \"For instance\" would introduce an example of the inherited craft, but reverberation time is a break from it, not an illustration."
         },
         {
           "id": 825,
@@ -980,28 +980,28 @@ export const practiceTest8RW = {
           "band": 3,
           "domain": "craft-and-structure",
           "skill": "words-in-context",
-          "passage": "In a tone language such as Mandarin, the pitch on which a syllable is spoken is not decorative. A single string of consonants and vowels can ____ several unrelated meanings depending on whether the pitch rises, falls, dips, or holds level, so that what an outsider hears as one repeated word is, to a fluent speaker, a handful of different ones.",
+          "passage": "A vibrating violin string moves too little air on its own to be heard across a room. The instrument's hollow wooden body solves this problem: as the string vibrates, it sets the body trembling at the same frequencies, and the broad surfaces of the wood push on far more air than the thin string can. In this way the body ____ a sound that would otherwise be faint, turning a barely audible motion into a tone that fills the hall.",
           "question": "Which choice completes the text with the most logical and precise word or phrase?",
           "choices": [
             {
               "id": "A",
-              "text": "signal"
+              "text": "amplifies"
             },
             {
               "id": "B",
-              "text": "soften"
+              "text": "silences"
             },
             {
               "id": "C",
-              "text": "conceal"
+              "text": "records"
             },
             {
               "id": "D",
-              "text": "translate"
+              "text": "imitates"
             }
           ],
           "correctAnswer": "A",
-          "explanation": "The correct answer is A. The passage says one sound sequence corresponds to several meanings, which the pitch distinguishes, so the blank needs a verb for conveying or marking those meanings. \"Signal\" does that. \"Soften\" describes a change in manner, not the conveying of meaning; \"conceal\" would mean hiding the meanings, the reverse of what pitch does here; and \"translate\" implies moving between languages, which is not what is happening within a single one."
+          "explanation": "The correct answer is A. The passage says the body pushes on far more air than the string can, \"turning a barely audible motion into a tone that fills the hall,\" so the blank needs a word for making the faint sound louder. \"Amplifies\" does that. \"Silences\" is the opposite of what the body does; \"records\" would mean storing the sound for later, which the passage never describes; and \"imitates\" implies reproducing a separate sound, but the body is strengthening the string's own sound, not copying another."
         },
         {
           "id": 830,
@@ -1134,28 +1134,28 @@ export const practiceTest8RW = {
           "band": 3,
           "domain": "craft-and-structure",
           "skill": "text-structure-and-purpose",
-          "passage": "By the 1850s, doctors in European maternity wards knew that women were dying of childbed fever at alarming rates, but the cause was disputed. Working in a Vienna hospital, the physician Ignaz Semmelweis noticed that the ward staffed by medical students, who often came straight from dissecting corpses, had a far higher death rate than the ward staffed by midwives. __He ordered the students to scrub their hands in a chlorine solution before examining patients, and the death rate in their ward fell sharply.__ Semmelweis could not say what unseen agent the washing removed, and many colleagues, offended by the implication that their own hands carried disease, rejected his advice.",
+          "passage": "By the 1860s, sailors and fishermen along the British coast were still being caught by sudden gales they had no way to anticipate. As head of a new government weather department, Robert FitzRoy gathered daily reports of barometric pressure and wind, telegraphed to London from stations around the coast. __Using these reports, he issued storm warnings to ports by telegraph, and the number of vessels lost in unexpected gales began to fall.__ FitzRoy could not always say in advance which of his warnings would prove accurate, and many critics, scornful of predictions they considered little better than guesswork, pressed to have the service shut down.",
           "question": "Which choice best describes the function of the underlined sentence in the text as a whole?",
           "choices": [
             {
               "id": "A",
-              "text": "It introduces the competing theories of childbed fever that the rest of the passage evaluates in turn."
+              "text": "It lays out the competing explanations of coastal storms that scientists of the era debated, explanations the rest of the passage then weighs one against another."
             },
             {
               "id": "B",
-              "text": "It reports the intervention Semmelweis tried and the drop in deaths that followed, the result his colleagues nonetheless resisted."
+              "text": "It reports the warning system that FitzRoy introduced and the decline in shipping losses that followed, an outcome his critics nonetheless resisted."
             },
             {
               "id": "C",
-              "text": "It explains the biological mechanism by which handwashing prevents the spread of childbed fever."
+              "text": "It explains the physical process by which a falling barometer comes to signal the approach of a storm along the coast."
             },
             {
               "id": "D",
-              "text": "It describes the training that medical students in Vienna received before they were allowed to treat patients."
+              "text": "It describes the network of coastal stations that telegraphed daily pressure and wind readings to FitzRoy's weather department in London."
             }
           ],
           "correctAnswer": "B",
-          "explanation": "The correct answer is B. The underlined sentence states what Semmelweis did—ordering chlorine handwashing—and the sharp fall in deaths that resulted; the sentence that follows notes that colleagues resisted this very result. A is wrong because the passage does not survey competing theories one by one; C overstates the sentence, which reports the outcome without naming a mechanism the passage says Semmelweis could not identify; and D points to the students' training, a detail from earlier in the passage rather than the work of the underlined sentence."
+          "explanation": "The correct answer is B. The underlined sentence states what FitzRoy did—issuing storm warnings to ports by telegraph—and the fall in shipping losses that followed; the sentence after it notes that critics resisted this very result. A is wrong because the passage does not lay out and compare rival explanations of storms; C overstates the sentence, which reports the outcome without explaining the physics behind it; and D points to the network of reporting stations described earlier in the passage rather than the work the underlined sentence does."
         },
         {
           "id": 835,

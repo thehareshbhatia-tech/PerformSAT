@@ -105,7 +105,7 @@ export const practiceTest9RW = {
           "band": 3,
           "domain": "craft-and-structure",
           "skill": "words-in-context",
-          "passage": "For centuries, choreography survived only in dancers' memories and a teacher's spoken corrections, so most works vanished once their performers retired. The movement theorist Rudolf Laban set out to ______ this problem by devising Labanotation, a written system that records the direction, level, and timing of each movement on a vertical staff, letting a dance be reconstructed decades later by performers who never saw the original.",
+          "passage": "Roman aqueducts moved water across great distances using gravity alone, so the channel had to descend at a steady, almost imperceptible grade for mile after mile. Where a ridge rose across the route and threatened to interrupt that gentle slope, the engineers chose to ______ the obstacle by boring a tunnel straight through the hill, preserving the continuous downward grade on which the whole system depended.",
           "question": "Which choice completes the text with the most logical and precise word or phrase?",
           "choices": [
             {
@@ -114,11 +114,11 @@ export const practiceTest9RW = {
             },
             {
               "id": "B",
-              "text": "accept"
+              "text": "ignore"
             },
             {
               "id": "C",
-              "text": "remedy"
+              "text": "surmount"
             },
             {
               "id": "D",
@@ -126,9 +126,9 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "Laban faced a clear problem—dances vanished because they were never written down—and he built Labanotation to fix it. The blank needs a verb meaning to address or correct that difficulty, and \"remedy,\" choice C, does exactly that. \"Exaggerate\" and \"postpone\" would worsen or defer the problem, and \"accept\" would mean leaving it unsolved, which the rest of the sentence contradicts.",
+          "explanation": "Roman engineers faced a real difficulty: a ridge that broke the gentle, continuous slope their gravity-fed channel required. They responded by tunneling through the hill, so the blank needs a verb meaning to get past or overcome that obstacle. \"Surmount,\" choice C, fits. \"Ignore\" is wrong because they did not leave the ridge alone but worked through it, and \"exaggerate\" and \"postpone\" describe neither overcoming nor addressing the problem.",
           "_meta": {
-            "anchor": "Rudolf Laban and Labanotation"
+            "anchor": "Roman aqueduct engineering: the gravity gradient"
           }
         },
         {
@@ -347,30 +347,30 @@ export const practiceTest9RW = {
           "band": 2,
           "domain": "information-and-ideas",
           "skill": "central-ideas-and-details",
-          "passage": "In the isolated community of Gee's Bend, Alabama, generations of Black women pieced quilts from worn work clothes, feed sacks, and dress remnants. Lacking spare fabric for elaborate applique, the quilters worked improvisationally, building bold asymmetric blocks of color whose offset bars and irregular geometry depart sharply from the repeating grids of mainstream American quilting. For most of the twentieth century the quilts were made strictly for household warmth and passed within families. Only after a 2002 museum exhibition did the wider art world treat them as major abstract compositions, with critics comparing their improvised geometry to mid-century modern painting.",
-          "question": "According to the text, what initially motivated the making of the Gee's Bend quilts?",
+          "passage": "A gamelan is an Indonesian musical ensemble built largely from tuned percussion—rows of bronze metallophones, hanging gongs, and drums—whose interlocking parts combine into a single shimmering texture. The instruments of any one gamelan are forged and tuned together as a matched set, adjusted to one another rather than to a fixed, universal standard of pitch. As a result, two ensembles can sound noticeably different, and an instrument borrowed from one gamelan will usually clash with the instruments of another. By long tradition, a gamelan is treated as a single object with its own identity, its instruments kept and played together rather than swapped between groups.",
+          "question": "According to the text, why is an instrument from one gamelan usually unsuitable for use in another ensemble?",
           "choices": [
             {
               "id": "A",
-              "text": "A wish to imitate the repeating grids of mainstream American quilting."
+              "text": "Gamelan instruments are generally too fragile and too heavy to survive being carried back and forth from one ensemble to another."
             },
             {
               "id": "B",
-              "text": "The practical need to provide household warmth from available scraps of cloth."
+              "text": "Each gamelan is tuned to its own pitch rather than to a fixed, universal standard, so its instruments do not match those of other ensembles."
             },
             {
               "id": "C",
-              "text": "An intention to create works for sale in the wider art market."
+              "text": "Most gamelan instruments are carved from bamboo, a material that warps when moved between different climates."
             },
             {
               "id": "D",
-              "text": "Encouragement from critics who likened the quilts to modern painting."
+              "text": "Performers in each ensemble deliberately keep their own repertoire of traditional pieces secret from the rival groups they regularly compete against."
             }
           ],
           "correctAnswer": "B",
-          "explanation": "The passage says the quilters worked from worn clothing and scraps and that the quilts were \"made strictly for household warmth\" until a 2002 exhibition. The original motive the question asks for is that practical need, which choice B reports. Choice A reverses the text, which says the geometry departs from mainstream quilting, while C and D describe the later art-world reception rather than the initial reason the quilts were made.",
+          "explanation": "The passage explains that the instruments of any one gamelan are tuned to one another rather than to a fixed, universal standard, so a borrowed instrument \"will usually clash with the instruments of another\" ensemble. Choice B states that reason. Choice C contradicts the text, which says the instruments are bronze, not bamboo; and choices A and D describe fragility and secrecy that the passage never mentions.",
           "_meta": {
-            "anchor": "Gee's Bend quilters"
+            "anchor": "Indonesian gamelan music: matched-set tuning"
           }
         },
         {
@@ -380,30 +380,30 @@ export const practiceTest9RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "central-ideas-and-details",
-          "passage": "In the early 1930s, the engineer Karl Jansky was assigned by Bell Telephone Laboratories to find the sources of static that interfered with transatlantic radio calls. Using a large rotating antenna, he cataloged thunderstorms and other expected culprits but was left with a faint hiss that rose and fell once a day. Tracking it carefully, Jansky found that the signal kept time not with the sun but with the stars, peaking when the center of the Milky Way was overhead. He concluded that the hiss came from beyond the solar system. Though his employer saw no commercial use for the finding, it was the first detection of cosmic radio waves.",
+          "passage": "During the Second World War, radar operators were puzzled by faint, drifting echoes that appeared on their screens at dusk and faded by morning; with no better explanation, they called the blips \"angels.\" After the war, ornithologists recognized the echoes as flocks of birds, most of them migrating under cover of darkness. Trained on the night sky, radar could count the passing birds, measure the altitude and direction of their flight, and record the very hours they took wing—movements that observers watching only by day had never been able to see. The instrument built to track aircraft thus opened the first clear view of the scale and timing of nocturnal migration.",
           "question": "Which choice best states the main idea of the text?",
           "choices": [
             {
               "id": "A",
-              "text": "Jansky was assigned by Bell Telephone Laboratories to track down the sources of static that were interfering with the company's transatlantic radio telephone calls during the early 1930s."
+              "text": "During the Second World War, radar operators were repeatedly puzzled by faint, drifting echoes that appeared on their screens at dusk and vanished by morning, blips they nicknamed \"angels.\""
             },
             {
               "id": "B",
-              "text": "Jansky's large rotating antenna allowed him to catalog thunderstorms and other earthbound sources of radio interference."
+              "text": "Radar trained on the night sky could measure the altitude and direction at which migrating birds flew."
             },
             {
               "id": "C",
-              "text": "Jansky's employer declined to pursue the discovery because it offered no commercial application."
+              "text": "Most of the birds whose flights produced the radar echoes traveled at night rather than during the day."
             },
             {
               "id": "D",
-              "text": "While tracking radio static, Jansky traced a steady daily hiss to the Milky Way and identified it as cosmic radio waves, the first such detection."
+              "text": "Radar, first built to track aircraft, revealed that mysterious nighttime echoes were migrating birds and gave scientists their first clear view of nocturnal migration's scale and timing."
             }
           ],
           "correctAnswer": "D",
-          "explanation": "The passage traces Jansky from a practical assignment to a discovery: tracking a daily hiss, he found it kept time with the stars and concluded it came from the Milky Way—the first detection of cosmic radio waves. Choice D captures that arc. The others are supporting details: his assignment (A), his antenna's routine cataloging (B), and the company's lack of interest (C).",
+          "explanation": "The passage traces how a wartime mystery became a scientific tool: radar operators saw odd echoes they called \"angels,\" which proved to be flocks of birds migrating at night, and the instrument went on to reveal the scale and timing of that nocturnal travel for the first time. Choice D captures that arc. The other choices are true but partial—the operators' early puzzlement (A), one of radar's measurements (B), and the fact that the birds flew at night (C)—rather than the main idea.",
           "_meta": {
-            "anchor": "Karl Jansky, cosmic radio waves"
+            "anchor": "radar ornithology and nocturnal bird migration"
           }
         },
         {
@@ -446,40 +446,35 @@ export const practiceTest9RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "command-of-evidence-quantitative",
-          "passage": "A 2019 paper in the journal Science by Kenneth Rosenberg and colleagues estimated how the breeding-bird populations of North America had changed since 1970, breaking the totals down by the biome each species depends on. Although every biome the team examined showed a net loss of birds, the authors emphasize that one habitat stands apart, having lost both the most individual birds in absolute terms and the largest share of its starting population, with the result that _______",
+          "passage": "Engineers compare household light sources using two figures that matter to buyers: luminous efficacy, the amount of visible light produced for each watt of electricity, and rated lifetime, the number of hours a lamp is expected to last. Among the common types, the authors note that one technology stands apart, leading on both measures at once, with the result that _______",
           "questionTable": {
             "type": "table",
-            "caption": "Estimated population change (in millions of birds) by biome since 1970 (Rosenberg et al., 2019, Science)",
+            "caption": "Typical luminous efficacy and rated lifetime of common household lamp types",
             "headers": [
-              "Biome",
-              "Loss (millions)",
-              "Percent change"
+              "Lamp type",
+              "Luminous efficacy (lumens per watt)",
+              "Rated lifetime (hours)"
             ],
             "rows": [
               [
-                "Grasslands",
-                "717",
-                "-53%"
+                "Incandescent",
+                "15",
+                "1,000"
               ],
               [
-                "Forests (boreal)",
-                "501",
-                "-33%"
+                "Halogen",
+                "20",
+                "2,000"
               ],
               [
-                "Forests (eastern)",
-                "166",
-                "-17%"
+                "Compact fluorescent (CFL)",
+                "60",
+                "10,000"
               ],
               [
-                "Aridlands",
-                "35",
-                "-29%"
-              ],
-              [
-                "Coasts",
-                "5",
-                "-13%"
+                "LED",
+                "100",
+                "25,000"
               ]
             ]
           },
@@ -487,25 +482,25 @@ export const practiceTest9RW = {
           "choices": [
             {
               "id": "A",
-              "text": "boreal forests lost approximately 501 million birds since 1970, the second-largest absolute loss among the five biomes the researchers examined."
+              "text": "compact fluorescent lamps reach about 60 lumens per watt, the second-highest efficacy among the four lamp types in the table."
             },
             {
               "id": "B",
-              "text": "coasts lost only 5 million birds and 13 percent of their 1970 population, the largest declines on either measure of any biome listed."
+              "text": "halogen lamps last roughly 2,000 hours, the longest rated lifetime of any lamp type the table lists."
             },
             {
               "id": "C",
-              "text": "grasslands lost approximately 717 million birds, a 53 percent decline that exceeds every other biome both in raw numbers and in percentage of the 1970 population."
+              "text": "LEDs reach about 100 lumens per watt and last roughly 25,000 hours, surpassing every other lamp type in the table on both efficacy and lifetime."
             },
             {
               "id": "D",
-              "text": "aridlands experienced a 29 percent decline since 1970, larger than the 17 percent decline recorded for eastern forests over the same period."
+              "text": "incandescent bulbs reach about 15 lumens per watt, lower than the roughly 20 lumens per watt that halogen lamps achieve."
             }
           ],
           "correctAnswer": "C",
-          "explanation": "The statement needs the biome that lost both the most birds in absolute terms and the largest share of its 1970 population. According to the table, grasslands fit on both measures—about 717 million birds lost and a 53 percent decline—which is what choice C reports. Choice A names a smaller absolute loss, B misreads the coasts row, and D draws a true but irrelevant comparison that does not single out the standout biome.",
+          "explanation": "The statement asks for the technology that leads on both efficacy and lifetime. The table shows LEDs at about 100 lumens per watt and 25,000 hours—the highest figure in each column—so choice C is the one that singles out that standout. Choice A names only the second-best efficacy, B misreads the lifetime column (2,000 hours is among the shortest, not the longest), and D draws a true but minor comparison between the two weakest types without identifying the leader.",
           "_meta": {
-            "anchor": "Rosenberg et al. 2019, North American breeding-bird decline by biome"
+            "anchor": "household lamp types: luminous efficacy and rated lifetime"
           }
         },
         {
@@ -909,7 +904,7 @@ export const practiceTest9RW = {
           "band": 3,
           "domain": "expression-of-ideas",
           "skill": "transitions",
-          "passage": "In 1878, to settle a wager about whether a galloping horse ever lifts all four hooves at once, Eadweard Muybridge lined a track with cameras tripped in sequence as the horse ran past. The photographs froze the gait into separate instants and showed that all four hooves do leave the ground, but only when tucked beneath the body. ______ the stop-motion method proved useful far beyond the racetrack, giving scientists a way to dissect motion and supplying a direct ancestor of the motion picture.",
+          "passage": "Early photographers found that salts of silver darken when light strikes them, so an image could be captured on a treated plate. The trouble was that the unexposed salts kept reacting, and a finished picture would slowly blacken until it was lost. A \"fixing\" bath solved this by dissolving away the leftover silver salts, halting the reaction and making the image permanent. ______ the very compound used in that bath, sodium thiosulfate, found a second career in industry, where it is still used to strip excess chlorine from treated water and bleached paper.",
           "question": "Which choice completes the text with the most logical transition?",
           "choices": [
             {
@@ -930,9 +925,9 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "The passage first reports what the photographs proved about the horse's gait, then adds a further point: the method itself became useful far beyond the wager. \"Moreover,\" choice A, marks that addition. \"Therefore\" would treat the new uses as a logical consequence of the gait finding, \"Nevertheless\" signals contrast, and \"Meanwhile\" implies mere simultaneity.",
+          "explanation": "The passage first explains how a fixing bath made photographs permanent, then turns to a separate point: the same compound, sodium thiosulfate, is also used in industry to remove chlorine. That added fact calls for \"Moreover,\" choice A. \"Therefore\" would treat the industrial use as a consequence of fixing photographs, which it is not; \"Nevertheless\" signals a contrast that is not present; and \"Meanwhile\" implies the two uses happen at the same time, which the passage does not claim.",
           "_meta": {
-            "anchor": "Eadweard Muybridge, motion studies"
+            "anchor": "early photography chemistry: the fixing bath"
           }
         },
         {
@@ -1037,30 +1032,30 @@ export const practiceTest9RW = {
           "band": 3,
           "domain": "craft-and-structure",
           "skill": "words-in-context",
-          "passage": "The economists Richard Thaler and Shlomo Benartzi designed a program called Save More Tomorrow, which invites workers to commit in advance to raising their retirement contributions whenever they next receive a raise. Because the increases are tied to future raises rather than current paychecks, employees never watch their take-home pay fall, and the plan ______ the reluctance many people feel when asked to surrender income they already have.",
+          "passage": "Certain soil fungi in the genus Trichoderma grow alongside crop roots and attack the molds that cause seedlings to rot. Farmers can apply the fungi as a coating on seeds before planting, letting the helpful species establish itself in the root zone first. Because these fungi suppress the pathogens on their own, growers who use them can ______ their reliance on chemical fungicides without leaving the young plants defenseless.",
           "question": "Which choice completes the text with the most logical and precise word or phrase?",
           "choices": [
             {
               "id": "A",
-              "text": "intensifies"
+              "text": "magnify"
             },
             {
               "id": "B",
-              "text": "circumvents"
+              "text": "curtail"
             },
             {
               "id": "C",
-              "text": "explains"
+              "text": "justify"
             },
             {
               "id": "D",
-              "text": "rewards"
+              "text": "predict"
             }
           ],
           "correctAnswer": "B",
-          "explanation": "The plan works by tying contribution increases to future raises so workers never see their current pay drop. The blank needs a verb for what the plan does to people's reluctance to give up income they already have, and \"circumvents,\" choice B, captures how it gets around that reluctance. \"Intensifies\" reverses the effect, while \"explains\" and \"rewards\" do not describe what the design does to the reluctance.",
+          "explanation": "The passage explains that Trichoderma fungi fight off the molds that would otherwise harm the crop, which means growers need less chemical protection. The blank calls for a verb meaning to cut back, and \"curtail,\" choice B, captures that reduction. \"Magnify\" reverses the relationship, while \"justify\" and \"predict\" say nothing about lessening the use of fungicides.",
           "_meta": {
-            "anchor": "Thaler and Benartzi, Save More Tomorrow"
+            "anchor": "Trichoderma biocontrol fungi in agriculture"
           }
         },
         {
@@ -1236,30 +1231,30 @@ export const practiceTest9RW = {
           "band": 4,
           "domain": "craft-and-structure",
           "skill": "text-structure-and-purpose",
-          "passage": "In 1967, the graduate student Jocelyn Bell Burnell was scanning miles of chart paper from a newly built radio telescope when she noticed an odd bit of \"scruff\": a signal that recurred with extraordinary regularity, pulsing every 1.3 seconds. The precision suggested an artificial source, and the team half-jokingly labeled it LGM, for \"little green men.\" Bell Burnell then located a second pulsing source in a distant part of the sky, which made a coincidental alien origin implausible, since two unrelated civilizations would hardly be broadcasting on the same frequency. The pulses, the researchers concluded, came from a natural object: a rapidly spinning, intensely magnetized neutron star, soon named a pulsar. What had first looked like interference proved to mark an entirely new kind of star.",
+          "passage": "For centuries, sailors could fix their latitude from the height of the sun and stars but had no dependable way to find their longitude, and ships often ran aground far from where their captains believed they were. The favored solution was astronomical: by measuring the moon's position against the fixed stars, a navigator might in principle read longitude from the sky. John Harrison, a self-taught clockmaker, pursued a different route. Reasoning that longitude was really a matter of time—each hour of difference from a home port marking fifteen degrees—he set out to build a timekeeper that could stay accurate through a ship's pitching, swings in temperature, and damp salt air. His fourth design, a large watch finished in 1759, lost only seconds on a long ocean voyage, showing that a portable clock, not the heavens, offered the surer answer.",
           "question": "Which choice best describes the overall structure of the text?",
           "choices": [
             {
               "id": "A",
-              "text": "It describes how a new radio telescope was designed and built and then ranks, by strength, the various kinds of cosmic signals it was meant to detect."
+              "text": "It explains how mechanical clocks were manufactured and then ranks several types of timekeeper by the accuracy each could reach on dry land."
             },
             {
               "id": "B",
-              "text": "It argues that the pulsing signals were most likely produced by an artificial source after all."
+              "text": "It argues that the astronomical method was, in the end, the most dependable way to determine longitude at sea."
             },
             {
               "id": "C",
-              "text": "It contrasts Bell Burnell's reading of the signal with the reading her colleagues preferred."
+              "text": "It contrasts Harrison's view of the longitude problem with the rival interpretation his own crew preferred."
             },
             {
               "id": "D",
-              "text": "It presents an unexpected observation, recounts how a later finding ruled out one explanation, and reports the natural cause finally identified."
+              "text": "It lays out a longstanding problem, describes the solution most navigators favored, and then presents a different approach that proved more reliable."
             }
           ],
           "correctAnswer": "D",
-          "explanation": "The text moves from an unexpected, suspiciously regular signal, to a second source that ruled out an artificial origin, to the conclusion that the pulses came from a spinning neutron star. Choice D describes that observation-to-explanation structure. Choice A turns the passage into a description of the telescope and a ranking of signals, B endorses the artificial explanation the team rejected, and C invents a disagreement among colleagues.",
+          "explanation": "The passage opens with a problem that troubled sailors for centuries—no reliable way to find longitude—then describes the astronomical method most navigators favored, and finally turns to John Harrison's time-based approach and the sea trial that proved it more dependable. Choice D captures that problem-to-solution movement. Choice A recasts the text as an account of manufacturing and ranking, B endorses the astronomical method the passage treats as the lesser option, and C invents a dispute between Harrison and his crew that the text never mentions.",
           "_meta": {
-            "anchor": "Jocelyn Bell Burnell, discovery of pulsars"
+            "anchor": "John Harrison and the longitude problem"
           }
         },
         {
@@ -1272,36 +1267,36 @@ export const practiceTest9RW = {
           "passages": [
             {
               "label": "Text 1",
-              "text": "When conservators finished cleaning Michelangelo's Sistine Chapel frescoes in 1994, the chief restorer, Gianluigi Colalucci, defended the result against those startled by its brilliance. The murky tones long admired as Michelangelo's, he argued, were never the artist's: they were centuries of candle soot, glue varnishes applied by earlier restorers, and grime settled into the buon fresco surface. Removing this accretion with carefully tested solvents recovered the vivid palette Michelangelo had actually laid into the wet plaster. To leave the dark layer in place, on this view, would have been to preserve dirt rather than the painting itself."
+              "text": "Many historic wrecks lie in deep water that public archaeology can rarely afford to reach. Commercial salvage offers a way forward: by selling some of the coins and artifacts they bring up, salvage companies fund the costly search-and-recovery work that would otherwise never happen. Objects that would slowly corrode on the bottom, unseen, are instead raised, conserved, and put before the public. On this view, recovering a wreck's contents—by whatever means pays for the effort—is plainly better than leaving them to dissolve in the dark."
             },
             {
               "label": "Text 2",
-              "text": "The art historian James Beck, a vocal critic, accepted that genuine grime had accumulated on the ceiling but doubted that the cleaning had stopped there. Michelangelo, he held, routinely returned to a fresco after the plaster dried, adjusting shadows and deepening contours a secco, with pigment laid over the cured surface. Because such additions sit on top of the plaster rather than within it, the very solvents that lifted the soot risked carrying off the master's own final touches. The newly bright ceiling, Beck warned, might show not Michelangelo's recovered intentions but a painting stripped of the modeling he had added last."
+              "text": "No one denies that salvage has lifted objects that might never otherwise have surfaced. Yet an artifact's value to scholarship lies largely in its context: where it lay, beside what other finds, and at what depth. Hauling cargo up for sale, without first mapping and recording each piece in place, strips that information away for good. A gold coin sold to a collector survives as an object, but the questions it could have answered—about the ship, its route, and the people aboard—are answered no longer."
             }
           ],
-          "question": "Based on the texts, how would Beck (Text 2) most likely respond to Colalucci's defense of the cleaning in Text 1?",
+          "question": "Based on the texts, how would the author of Text 2 most likely respond to the argument for commercial salvage presented in Text 1?",
           "choices": [
             {
               "id": "A",
-              "text": "He would deny that any dirt had gathered on the ceiling, insisting that its dark tones were entirely Michelangelo's intended palette."
+              "text": "The author would deny that any object can be recovered from a deep-water wreck and dismiss Text 1's confidence in salvage as entirely unfounded."
             },
             {
               "id": "B",
-              "text": "He would agree that the cleaning fully succeeded and that the brightened colors match Michelangelo's plaster work exactly."
+              "text": "The author would agree that selling recovered artifacts is the surest way to study a wreck and that the practice costs scholarship nothing."
             },
             {
               "id": "C",
-              "text": "He would grant that real grime had accumulated but warn that the solvents may also have stripped Michelangelo's own a secco adjustments, which lay atop the plaster."
+              "text": "The author would grant that salvage has recovered objects that might otherwise have been lost but warn that selling them without recording their context destroys much of the knowledge a wreck could yield."
             },
             {
               "id": "D",
-              "text": "He would argue that the soot ought to have been left wholly untouched, on the grounds that no aged fresco can ever be cleaned by any method without destroying the original work entirely."
+              "text": "The author would insist that no wreck should ever be disturbed and that even careful scientific excavation harms a site more than leaving it wholly untouched."
             }
           ],
           "correctAnswer": "C",
-          "explanation": "Text 1 gives the restorer's defense: the dark layer was soot and old varnish, and removing it recovered Michelangelo's true colors. Beck grants that real grime existed but warns that the cleaning may also have lifted the a secco touches Michelangelo added over the dried plaster. Choice C states that concession-plus-warning. Choice A denies any grime, B has him endorse the cleaning, and D pushes him to claim no fresco can ever be cleaned, which overshoots his actual objection.",
+          "explanation": "Text 1 defends commercial salvage as the only practical way to recover wrecks from deep water. The author of Text 2 concedes that salvage has indeed brought up objects that might otherwise have been lost, but warns that selling them without first recording their context erases the historical knowledge a wreck could provide. Choice C states that concession-plus-warning. Choice A denies that anything can be recovered at all, B has the author endorse the practice outright, and D pushes the objection too far, rejecting even careful scientific excavation, which Text 2 never opposes.",
           "_meta": {
-            "anchor": "Sistine Chapel restoration: Colalucci vs Beck"
+            "anchor": "underwater archaeology: commercial salvage vs. archaeological context"
           }
         },
         {
@@ -1812,7 +1807,7 @@ export const practiceTest9RW = {
           "band": 4,
           "domain": "standard-english-conventions",
           "skill": "form-structure-and-sense",
-          "passage": "The Nazca lines, scored into the desert of southern Peru, range from simple geometric shapes to enormous outlines of animals and plants. The huge figures traced across the arid plateau ______ visible in full only from the surrounding hills or from the air, which is why their true extent went unrecognized for so long.",
+          "passage": "Desert varnish is the dark, glossy coating that slowly builds up on exposed rock across many arid landscapes. The thin layers deposited on each weathered boulder ______ rich in manganese and iron, metals that bacteria appear to help draw from windblown dust over thousands of years.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
@@ -1833,9 +1828,9 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "The subject is \"figures,\" which is plural, so the verb is \"are\"—choice C. The singular \"plateau\" belongs to the modifying phrase, not the subject. \"Is,\" \"was,\" and \"has been\" are all singular and fail to agree with \"figures.\"",
+          "explanation": "The subject of the verb is \"layers,\" which is plural, so the verb must be \"are\"—choice C. The singular noun \"boulder\" sits inside the modifying phrase \"deposited on each weathered boulder\" and is not the subject. \"Is,\" \"was,\" and \"has been\" are all singular and fail to agree with \"layers.\"",
           "_meta": {
-            "anchor": "the Nazca lines"
+            "anchor": "desert varnish geochemistry"
           }
         },
         {

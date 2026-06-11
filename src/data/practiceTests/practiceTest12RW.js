@@ -39,28 +39,28 @@ export const practiceTest12RW = {
           "band": 2,
           "domain": "craft-and-structure",
           "skill": "words-in-context",
-          "passage": "As a graduate student at Cambridge in 1967, the radio astronomer Jocelyn Bell Burnell detected a faint signal in her chart-recorder data that repeated with startling regularity, about once every 1.3 seconds. Because no known cosmic source was expected to flash so precisely, several senior colleagues were inclined to ____ the blips as electrical interference; Bell Burnell instead recorded the signal night after night until its steady period could no longer be explained as a fault in the equipment.",
+          "passage": "In a medieval scriptorium, a single illuminated page often passed through several pairs of hands. One scribe copied out the text, another painted the decorated initials, and a specialist laid down the gold leaf. Because each stage depended on the one before it, a mistake made early could ____ the careful work of everyone who came after, forcing the whole page to be scraped clean and begun again.",
           "question": "Which choice completes the text with the most logical and precise word or phrase?",
           "choices": [
             {
               "id": "A",
-              "text": "interpret"
+              "text": "shape"
             },
             {
               "id": "B",
-              "text": "dismiss"
+              "text": "undo"
             },
             {
               "id": "C",
-              "text": "amplify"
+              "text": "slow"
             },
             {
               "id": "D",
-              "text": "reproduce"
+              "text": "complicate"
             }
           ],
           "correctAnswer": "B",
-          "explanation": "The correct answer is B. The sentence sets up a contrast: where senior colleagues wanted to write the signal off, Bell Burnell kept recording it until it could no longer be explained away. The verb in the blank needs to mean to reject the blips as unimportant noise, and \"dismiss\" carries exactly that sense of brushing something aside. \"Interpret\" is close but imprecise, since interpreting a signal as interference is a reading rather than a refusal to take it seriously, and the contrast with her persistence calls for the stronger idea of rejection. \"Amplify\" fits the radio setting in flavor only; to amplify a signal is to strengthen it, the opposite of treating it as worthless. \"Reproduce\" describes repeating an experiment, which is not what the colleagues urged."
+          "explanation": "The correct answer is B. The passage describes a chain of steps in which each worker depends on the last, so an early mistake ruins everything that follows—the whole page must be scraped clean and started over. \"Undo\" captures that reversing or canceling of completed work. \"Shape\" suggests influencing later work rather than wrecking it. \"Slow\" and \"complicate\" both imply the work could still go forward with some delay or added difficulty, but the passage says the page had to be begun again, which calls for the stronger idea of work undone."
         },
         {
           "id": 1202,
@@ -129,28 +129,28 @@ export const practiceTest12RW = {
           "band": 3,
           "domain": "craft-and-structure",
           "skill": "words-in-context",
-          "passage": "The Mughal gardens laid out in sixteenth-century South Asia followed a quadripartite plan known as the chahar bagh, in which channels of water divided the enclosure into four quadrants. Garden historians caution that the design was not merely ornamental. Its strict geometry ____ a set of ideas about order and paradise drawn from Persian tradition, so that walking the crossing axes was meant to carry a visitor through a deliberately arranged image of an ordered world rather than through a random planting.",
+          "passage": "During an explosive volcanic eruption, the towering column of ash can crackle with lightning. Scientists studying these flashes have shown that the bolts do not descend from ordinary storm clouds passing overhead but ____ within the ash column itself, where countless particles collide, trade electric charge, and build the imbalance that a sudden discharge releases.",
           "question": "Which choice completes the text with the most logical and precise word or phrase?",
           "choices": [
             {
               "id": "A",
-              "text": "embodied"
+              "text": "originate"
             },
             {
               "id": "B",
-              "text": "borrowed"
+              "text": "gather"
             },
             {
               "id": "C",
-              "text": "recorded"
+              "text": "travel"
             },
             {
               "id": "D",
-              "text": "disguised"
+              "text": "spread"
             }
           ],
           "correctAnswer": "A",
-          "explanation": "The correct answer is A. The geometry gives concrete form to ideas about order and paradise, and \"embodied\" captures that giving of physical form to an abstract idea. \"Borrowed\" describes where the ideas came from rather than what the geometry does with them, and it is the designers, not the geometry, who would borrow. \"Recorded\" implies merely noting the ideas down, which understates the claim that the layout enacts them. \"Disguised\" contradicts the passage, which says the design was meant to make the ideas visible to anyone walking through it."
+          "explanation": "The correct answer is A. The sentence draws a contrast: the lightning does not come down from storm clouds overhead but comes into being inside the ash column, where colliding particles build up an electric charge. \"Originate\" names exactly that beginning of the bolts within the plume. \"Gather\" suggests bolts accumulating rather than forming, which the sentence does not claim. \"Travel\" and \"spread\" both describe the movement of lightning that already exists, missing the point that the discharge starts in the column itself."
         },
         {
           "id": 1205,
@@ -223,28 +223,28 @@ export const practiceTest12RW = {
           "band": 4,
           "domain": "craft-and-structure",
           "skill": "text-structure-and-purpose",
-          "passage": "Choreography long posed a preservation problem that musical scores did not. A composer could write a melody and trust that later musicians would reproduce it, but a dance existed only in performance and in the memories of the dancers who had learned it; once a company disbanded, a work could vanish within a generation. In the 1920s the movement theorist Rudolf Laban proposed a written notation that recorded not steps alone but the direction, level, and duration of each motion along a vertical staff read from the bottom up. Supporters argued that such a system could do for dance what notation had done for music: fix a work precisely enough that it could be revived decades later by people who had never seen it performed. The claim remains debated, but the notation is now used to reconstruct dances whose original casts are long gone.",
+          "passage": "For centuries bakers have kept sourdough cultures alive for years at a stretch, feeding a portion of flour and water each day and using the rest to leaven bread, often without knowing why the mixture stayed reliable. A sourdough starter, it turns out, is a small ecosystem: a stable community of wild yeasts and lactic-acid bacteria living together in the batter. The bacteria release acids that lower the mixture's pH, and that sourness does double duty—it gives the bread its tang and it makes the starter inhospitable to most spoilage microbes, which cannot tolerate the acidity. Because the resident yeasts and bacteria are themselves acid-tolerant, each feeding renews the same community rather than inviting a new one, which is why a well-tended starter can pass almost unchanged from one baker to the next.",
           "question": "Which choice best states the main purpose of the text?",
           "choices": [
             {
               "id": "A",
-              "text": "To argue that dance notation has at last made the live performance of a choreographic work entirely unnecessary for its survival."
+              "text": "To argue that a carefully maintained sourdough starter can never be spoiled or overtaken by any competing microorganism from the surrounding environment."
             },
             {
               "id": "B",
-              "text": "To explain why dance was historically hard to preserve and how a notation system was proposed to address that difficulty."
+              "text": "To explain what a sourdough starter is and how its community of yeast and bacteria keeps the culture stable over time."
             },
             {
               "id": "C",
-              "text": "To compare the working lives of the composers and the choreographers active in the early twentieth century."
+              "text": "To compare the baking results obtained from commercial yeast with those obtained from a wild sourdough culture."
             },
             {
               "id": "D",
-              "text": "To describe the particular symbols Laban devised for recording the direction and level of a dancer's movements."
+              "text": "To describe the specific acids that lactic-acid bacteria release as a sourdough starter ferments."
             }
           ],
           "correctAnswer": "B",
-          "explanation": "The correct answer is B. The passage sets up the preservation problem unique to dance and then introduces Laban's notation as a proposed solution, noting both its promise and the continuing debate. A overstates the case; the text says the claim \"remains debated\" and never declares live performance unnecessary. C touches on a comparison between music and dance but not between the careers of composers and choreographers, which is not the point. D fixes on a detail—the symbols—rather than the passage's overall purpose."
+          "explanation": "The correct answer is B. The passage first notes that bakers long kept starters going without understanding them, then explains what a starter actually is—a community of wild yeast and lactic-acid bacteria—and how the acids those bacteria produce keep the culture stable and self-renewing. B states that explanatory purpose. A overstates the text, which says the acidity keeps out most spoilage microbes, not that the starter can never be overtaken. C introduces a comparison with commercial yeast that the passage never makes. D fixes on one detail, the acids, rather than the overall point about how the starter stays stable."
         },
         {
           "id": 1208,
@@ -256,34 +256,34 @@ export const practiceTest12RW = {
           "passages": [
             {
               "label": "Text 1",
-              "text": "Film historian Tom Gunning has argued that the earliest cinema, roughly the period before 1906, is poorly understood when it is treated as a primitive stage on the way to storytelling. What characterized these very early films, on his account, was not narrative but display: a fascination with showing something startling directly to the viewer—a train rushing forward, a dancer, a demolition—often with performers acknowledging the camera. Gunning calls this mode a \"cinema of attractions,\" organized around the act of presenting a spectacle rather than around the unfolding of a plot. To read the period mainly as the slow discovery of how to tell stories on film, he contends, is to project the priorities of later cinema backward and to miss what these films were actually built to do."
+              "text": "When paper money first circulated in China during the Song dynasty, about a thousand years ago, it began as a convenience of trade. In the Sichuan region, coins were minted from heavy iron, and merchants found it impractical to carry enough metal for large purchases. They deposited their coins with trusted shops and accepted printed receipts in return; because these receipts could be redeemed for the deposited metal, they soon passed from hand to hand as though they were money. On this account, paper currency was an invention of private commerce, a practical solution that merchants worked out among themselves before any government took an interest."
             },
             {
               "label": "Text 2",
-              "text": "Film historian Charles Musser does not deny that display and direct address are prominent in early film, and he draws on Gunning's vocabulary in his own work. He resists, however, the sharp line the \"attractions\" model draws between an early period of spectacle and a later period of narrative. Examining catalogs, exhibition practices, and the films themselves, Musser argues that storytelling structures—sequencing, the management of time, the arrangement of shots to imply cause and consequence—are present earlier and more continuously than the model allows, partly because early filmmakers inherited narrative conventions from magic-lantern shows and illustrated lectures. The break the model describes, in his view, is less a divide between two kinds of cinema than a difference of emphasis within a practice that was telling stories from early on."
+              "text": "No one disputes that printed receipts circulated among Sichuan merchants. But to treat paper money as essentially a private invention understates how quickly, and how decisively, the state shaped it. Within a few decades the Song government restricted the right to issue notes and then claimed it outright, printing official currency backed by its own authority and using it to move tax revenue and pay troops across great distances. What made paper a true currency, on this view, was not the merchants' receipts but the government's decision to issue, regulate, and stand behind the notes, turning a local convenience into a national system."
             }
           ],
-          "question": "Based on the texts, how would Musser (Text 2) most likely respond to the argument presented in Text 1?",
+          "question": "Based on the texts, how would the author of Text 2 most likely respond to the argument presented in Text 1?",
           "choices": [
             {
               "id": "A",
-              "text": "He would accept \"cinema of attractions\" as a name for one prominent tendency while disputing the firm period boundary Gunning draws, since storytelling structures appear earlier than the model allows."
+              "text": "The author would agree that merchant receipts came first but insist that paper became a true currency only when the state took over issuing the notes."
             },
             {
               "id": "B",
-              "text": "He would reject Gunning's account on the ground that display and direct address play no significant part in the films made before 1906."
+              "text": "The author would deny that printed receipts played any real part in the origins of paper money, since only government-issued notes deserve the name."
             },
             {
               "id": "C",
-              "text": "He would agree that early cinema is best understood as a primitive stage whose chief interest lies in how it anticipated later narrative film."
+              "text": "The author would accept that paper money was a purely private invention and that the government's later involvement was incidental to its success."
             },
             {
               "id": "D",
-              "text": "He would conclude that, because early filmmakers borrowed narrative conventions from magic-lantern shows and illustrated lectures, the category of cinema as a distinct art form should be abandoned for the early period."
+              "text": "The author would conclude that, because the notes began as private merchant receipts rather than state issue, paper money should not really be considered a genuine currency at all."
             }
           ],
           "correctAnswer": "A",
-          "explanation": "The correct answer is A. Musser keeps Gunning's term and grants that spectacle was real in early film, but he objects to the firm divide between an attractions era and a narrative era, holding that storytelling was present earlier and more continuously. A captures both that agreement and that disagreement. B is wrong because Musser explicitly does not deny the prominence of display. C states Gunning's view, the very position Musser pushes against. D draws a conclusion—abandoning the category of cinema for the period—that Musser never reaches; he reframes the break, he does not dissolve the field."
+          "explanation": "The correct answer is A. The author of Text 2 grants that receipts circulated among the Sichuan merchants but argues that paper became a true currency only once the Song government took over issuing and regulating the notes, so A captures both that agreement and that key qualification. B is wrong because Text 2 openly accepts that the merchants' receipts circulated. C states the very position from Text 1 that the author of Text 2 pushes against. D goes further than Text 2 ever does; the author reframes how paper money became a currency rather than denying that it is one."
         },
         {
           "id": 1209,
@@ -322,28 +322,28 @@ export const practiceTest12RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "central-ideas-and-details",
-          "passage": "The quilts made by Black women in the rural community of Gee's Bend, Alabama, drew national attention when they were exhibited in major museums in the early 2000s. Critics often described them using the vocabulary of modernist abstract painting, praising their bold, irregular geometry as if the makers had set out to break the rules of traditional quilting. Historians of the community have pushed back on that framing. The quilts, they note, were made for use on cold nights in unheated houses, often from worn work clothes and feed sacks, and their improvised patterns reflected the materials at hand and a local aesthetic passed between generations of women, not a deliberate dialogue with gallery art. Reading the quilts only as abstract paintings, these historians argue, obscures the working lives and community traditions out of which the objects actually came.",
-          "question": "According to the text, why do some historians object to describing the Gee's Bend quilts in the vocabulary of modernist abstract painting?",
+          "passage": "The Global Positioning System works by precise timing: a receiver finds its location by comparing when signals leave several satellites and when they arrive. Because the satellites carry atomic clocks while users stand on the ground, the system's designers had to reckon with a prediction of Einstein's relativity. A clock in orbit, where gravity is weaker and the satellite moves quickly, does not tick at quite the same rate as a clock on the ground. The difference is tiny—microseconds a day—but in a system that turns timing into distance, an uncorrected error would pile up fast, throwing positions off by miles within hours. To keep the system accurate, engineers set the satellites' clock rates so that, once in orbit, they stay in step with clocks below.",
+          "question": "According to the text, why must the designers of the Global Positioning System adjust the rate of the satellites' onboard clocks?",
           "choices": [
             {
               "id": "A",
-              "text": "Because the quilts were first exhibited in museums that did not ordinarily put abstract paintings on display."
+              "text": "Because the satellites' onboard atomic clocks gradually drift out of accuracy as their delicate electronic components slowly age over the many years of an orbital mission."
             },
             {
               "id": "B",
-              "text": "Because the women who made the quilts had received formal training in modernist painting techniques."
+              "text": "Because the radio signals broadcast by the satellites travel too slowly to reach distant ground receivers on time."
             },
             {
               "id": "C",
-              "text": "Because that vocabulary obscures the practical uses, available materials, and community traditions out of which the quilts were actually made."
+              "text": "Because relativity makes the orbiting clocks tick at a different rate than clocks on the ground, and an uncorrected gap would spoil position fixes."
             },
             {
               "id": "D",
-              "text": "Because the irregular geometry of the quilts was, on closer inspection, far less innovative than the museum critics had claimed it to be."
+              "text": "Because the ground stations cannot keep time nearly as precisely as the atomic clocks the satellites carry aloft."
             }
           ],
           "correctAnswer": "C",
-          "explanation": "The correct answer is C. The historians' objection, as the passage states it, is that the painting vocabulary hides the real origins of the quilts: their use on cold nights, their reuse of work clothes and feed sacks, and the local tradition handed down among women. A misreads the point; the objection is about interpretation, not the museums' usual offerings. B contradicts the text, which says the patterns came from a local aesthetic, not formal art training. D inverts the passage, which never disputes the quilts' inventiveness, only the framework used to explain it."
+          "explanation": "The correct answer is C. The passage explains that an orbiting clock, subject to weaker gravity and high speed, ticks at a slightly different rate than a clock on the ground, and that in a system which converts timing into distance even a microsecond-scale error would accumulate into position errors of miles. C names exactly that relativistic rate difference and the harm of leaving it uncorrected. A blames aging electronics, which the passage never mentions. B claims the signals travel too slowly, contradicting the text's account of precise timing. D says ground clocks are less precise than the satellites', which the passage does not claim and which is not the reason it gives for the adjustment."
         },
         {
           "id": 1211,
@@ -382,31 +382,31 @@ export const practiceTest12RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "command-of-evidence-textual",
-          "passage": "Paul Laurence Dunbar's poem \"We Wear the Mask\" (1895) is often read as a statement about the public face an oppressed people present to the world. A reader might argue that the poem makes a sharper claim still: the group's smiling appearance is not a sign that suffering is absent but a deliberate cover over genuine anguish, an anguish the speaker carries even as he addresses it to God.",
-          "question": "Which quotation from \"We Wear the Mask\" most effectively illustrates the claim?",
+          "passage": "Percy Bysshe Shelley's sonnet \"Ozymandias\" (1818) describes a traveler's account of the ruins of a once-mighty king's monument, now broken and half-buried in the desert. A reader might argue that the poem makes a pointed claim about the impermanence of political power: the ruler's own boastful words, meant to overawe future ages, are made to sound hollow by the emptiness that now surrounds the wreck.",
+          "question": "Which quotation from \"Ozymandias\" most effectively illustrates the claim?",
           "choices": [
             {
               "id": "A",
-              "text": "\"We wear the mask that grins and lies, / It hides our cheeks and shades our eyes,—\""
+              "text": "\"Two vast and trunkless legs of stone / Stand in the desert.\""
             },
             {
               "id": "B",
-              "text": "\"We smile, but, O great Christ, our cries / To thee from tortured souls arise.\""
+              "text": "\"My name is Ozymandias, King of Kings; / Look on my Works, ye Mighty, and despair! / Nothing beside remains.\""
             },
             {
               "id": "C",
-              "text": "\"Why should the world be over-wise, / In counting all our tears and sighs?\""
+              "text": "\"And wrinkled lip, and sneer of cold command, / Tell that its sculptor well those passions read.\""
             },
             {
               "id": "D",
-              "text": "\"We sing, but oh the clay is vile / Beneath our feet, and long the mile;\""
+              "text": "\"Round the decay / Of that colossal Wreck, boundless and bare / The lone and level sands stretch far away.\""
             }
           ],
           "correctAnswer": "B",
-          "explanation": "The correct answer is B. The claim is that a cheerful surface conceals genuine anguish offered up to God, and these lines pair the outward \"We smile\" with the inward \"cries / To thee from tortured souls,\" naming both the mask and the suffering behind it. A describes the mask hiding the face but does not show the anguish underneath. C is about why the world should not scrutinize the group's tears, a related but different idea. D contrasts singing with a hard road, evoking hardship rather than the concealment of inner pain addressed to God.",
+          "explanation": "The correct answer is B. The claim is that the king's boast is hollowed out by the surrounding emptiness, and these lines do exactly that: the proud inscription—\"My name is Ozymandias, King of Kings; / Look on my Works, ye Mighty, and despair!\"—is immediately answered by \"Nothing beside remains,\" so the boast collapses against the void. A simply sets the scene of the broken statue. C praises the sculptor's skill at capturing the king's expression, a different idea. D describes the bare desert around the ruin and conveys emptiness, but without the boastful inscription it does not show the contrast the claim depends on.",
           "_meta": {
             "quoteVerify": true,
-            "source": "Paul Laurence Dunbar, \"We Wear the Mask\" (1895)"
+            "source": "Percy Bysshe Shelley, \"Ozymandias\" (1818)"
           }
         },
         {
@@ -620,7 +620,7 @@ export const practiceTest12RW = {
           "band": 2,
           "domain": "standard-english-conventions",
           "skill": "boundaries",
-          "passage": "When the physicist Mildred Dresselhaus began studying the electronic structure of graphite in the early 1960s, few researchers regarded carbon as a promising material for new physics. Although her early measurements looked at the time like a narrow specialty unlikely to reshape the ____ Dresselhaus's work on how carbon's layered structure governs its electrical behavior helped lay the groundwork for the later science of nanotubes and graphene.",
+          "passage": "When biologists first measured the temperatures inside a beehive in winter, the finding that a honeybee colony keeps its center warm by clustering together and shivering its flight muscles seemed a small curiosity. Although that result looked at the time like a narrow specialty unlikely to reshape the ____ research on how bees generate and conserve heat has since informed broader work on how social insects regulate their internal environment.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
@@ -641,7 +641,7 @@ export const practiceTest12RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "The correct answer is D. The sentence opens with a subordinate clause beginning \"Although,\" and a comma is needed where that introductory clause ends and the main clause (\"Dresselhaus's work ... helped\") begins. A run-on results without any punctuation (\"field Dresselhaus's\"). A semicolon and a colon both require what follows to be set off as its own statement or list, but here the comma simply closes the introductory clause, so neither fits."
+          "explanation": "The correct answer is D. The sentence opens with a subordinate clause beginning \"Although,\" and a comma is needed to mark where that introductory clause ends and the main clause (\"research ... has since informed\") begins. Without any punctuation, the words run together as \"the field research,\" blurring that boundary. A semicolon and a colon each require what follows to stand as its own complete statement or list, but here the comma simply closes the introductory clause, so neither fits."
         },
         {
           "id": 1218,
@@ -1099,31 +1099,31 @@ export const practiceTest12RW = {
           "band": 3,
           "domain": "craft-and-structure",
           "skill": "text-structure-and-purpose",
-          "passage": "The following text is from Emily Dickinson's poem \"Hope is the thing with feathers,\" written around 1861.\n\n\"Hope\" is the thing with feathers -\nThat perches in the soul -\nAnd sings the tune without the words -\nAnd never stops - at all -\n\nAnd sweetest - in the Gale - is heard -\nAnd sore must be the storm -\nThat could abash the little Bird\nThat kept so many warm -\n\nI've heard it in the chillest land -\nAnd on the strangest Sea -\nYet - never - in Extremity,\nIt asked a crumb - of me.",
+          "passage": "The following text is from Robert Frost's poem \"Stopping by Woods on a Snowy Evening,\" published in 1923.\n\nWhose woods these are I think I know.\nHis house is in the village though;\nHe will not see me stopping here\nTo watch his woods fill up with snow.\n\nMy little horse must think it queer\nTo stop without a farmhouse near\nBetween the woods and frozen lake\nThe darkest evening of the year.\n\nHe gives his harness bells a shake\nTo ask if there is some mistake.\nThe only other sound's the sweep\nOf easy wind and downy flake.\n\nThe woods are lovely, dark and deep,\nBut I have promises to keep,\nAnd miles to go before I sleep,\nAnd miles to go before I sleep.",
           "question": "Which choice best describes the overall structure of the text?",
           "choices": [
             {
               "id": "A",
-              "text": "The speaker defines an abstract feeling through a sustained comparison to a bird, then notes that this comforting presence has asked nothing of her even in the hardest places."
+              "text": "The speaker stops on a journey to watch snow fall in a quiet woods, dwells on the stillness, then turns back to his obligations and the long way still ahead."
             },
             {
               "id": "B",
-              "text": "The speaker describes a particular bird she once watched, then draws a general lesson about how songbirds manage to survive harsh winters far out at sea."
+              "text": "The speaker recounts buying a wooded property on the edge of a nearby village, then describes how he returns to it each winter to watch the falling snow collect among the bare trees."
             },
             {
               "id": "C",
-              "text": "The speaker poses a question about the nature of hope, then rejects in turn each answer she considers before finally arriving at a single definition."
+              "text": "The speaker raises a question about why the silent woods seem so inviting, weighs several possible answers, and rejects each one before deciding to ride on."
             },
             {
               "id": "D",
-              "text": "The speaker recalls a long season of personal despair, then explains in detail how a chance encounter with a small bird gradually restored her former optimism."
+              "text": "The speaker describes becoming lost in a blizzard, then explains how the sound of his horse's bells guided a farmer to lead him safely home."
             }
           ],
           "correctAnswer": "A",
-          "explanation": "The correct answer is A. The poem opens by defining hope as \"the thing with feathers\" and sustains that bird image—perching, singing, weathering the gale—before the closing lines observe that, even in the \"chillest land\" and \"strangest Sea,\" it \"never\" asked \"a crumb\" of her. A captures both the extended comparison and that final note. B takes the bird literally rather than as a figure for hope. C invents a question-and-rejection structure the poem does not have. D supplies a narrative of despair and recovery that the poem never tells.",
+          "explanation": "The correct answer is A. The poem opens with the speaker halting by a woods to watch it \"fill up with snow,\" lingers over the hushed scene—the horse's puzzlement, the \"easy wind and downy flake\"—and closes by turning away because he has \"promises to keep\" and \"miles to go before I sleep.\" A traces that movement from pausing to lingering to moving on. B takes the passing mention of the owner's house and invents a story of buying property. C imposes a question-and-rejection pattern the poem does not follow. D supplies a tale of getting lost and being rescued that the poem never tells.",
           "_meta": {
             "quoteVerify": true,
-            "source": "Emily Dickinson, \"Hope is the thing with feathers\" (c. 1861)"
+            "source": "Robert Frost, \"Stopping by Woods on a Snowy Evening\" (1923)"
           }
         },
         {

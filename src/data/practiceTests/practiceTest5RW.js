@@ -72,7 +72,7 @@ export const practiceTest5RW = {
           "band": 2,
           "domain": "craft-and-structure",
           "skill": "words-in-context",
-          "passage": "When the linguist William Stokoe began analyzing American Sign Language in the late 1950s, most scholars dismissed signing as pantomime—a loose collection of gestures rather than a true language. Stokoe argued the opposite: that signs are built from a small set of contrasting handshapes, locations, and movements, and that these elements combine according to rules as ______ as those that govern spoken grammar, an insight that reframed signing as a fully grammatical system.",
+          "passage": "When French scientists devised the metric system in the 1790s, they built it so that every unit related to the others by simple powers of ten—a hundred centimeters in a meter, a thousand grams in a kilogram—and labeled the units with consistent prefixes. The result was a scheme of measurement as ______ as the decimal arithmetic on which it rested, allowing conversions to be carried out by merely shifting a decimal point.",
           "question": "Which choice completes the text with the most logical and precise word or phrase?",
           "choices": [
             {
@@ -93,9 +93,9 @@ export const practiceTest5RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "The correct answer is A, \"systematic.\" The sentence argues that signs combine according to rules comparable to those of spoken grammar, and the closing clause makes the point explicit by calling signing \"a fully grammatical system.\" The blank needs a word meaning orderly and rule-governed, and \"systematic\" captures exactly that. \"Flexible\" points the wrong way, since the emphasis is on regular rules rather than freedom; \"delicate\" describes fineness or fragility, not regularity; and \"expansive\" concerns size or range rather than the principled structure the sentence is establishing.",
+          "explanation": "The correct answer is A, \"systematic.\" The passage stresses that the units were tied to one another by powers of ten and given consistent prefixes, so that conversions reduce to shifting a decimal point. The blank needs a word meaning orderly and rule-governed, which is exactly what \"systematic\" conveys, and the comparison to decimal arithmetic reinforces that sense. \"Flexible\" points the wrong way, since the emphasis is on fixed, regular relationships rather than adaptability; \"delicate\" suggests fineness or fragility, not order; and \"expansive\" concerns size or range rather than the principled regularity the sentence is describing.",
           "_meta": {
-            "anchor": "William Stokoe — linguist; structural analysis of American Sign Language"
+            "anchor": "metric system devised in 1790s France — decimal, rule-governed measurement"
           }
         },
         {
@@ -313,30 +313,30 @@ export const practiceTest5RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "central-ideas-and-details",
-          "passage": "Historians of science once treated the astronomy of the medieval Islamic world mainly as a conduit that preserved Greek learning until Europe was ready to receive it. Research over recent decades has revised that picture. At observatories such as the one founded at Maragha in the thirteenth century, astronomers including Nasir al-Din al-Tusi did not merely copy the models of the Greek astronomer Ptolemy; they identified internal inconsistencies in those models and devised new geometric constructions to repair them. Some of these constructions reappear, centuries later, in the work of Copernicus, leading several scholars to argue that the Maragha astronomers' criticisms were a substantive stage in the history of astronomy rather than a holding action.",
+          "passage": "For decades, engineers who studied tidal power treated it mainly as a question of barrages—dams stretched across an estuary that generate electricity as the tide flows in and out through built-in turbines, as at the Rance estuary in France, where such a station has operated since 1966. More recent work has broadened that picture. Rather than damming whole estuaries, engineers now design tidal-stream turbines, machines resembling underwater windmills that are anchored in fast coastal currents to draw energy from moving water directly. Because these turbines can be installed one at a time and disturb the seabed and migrating fish far less than a barrage does, several engineers argue that tidal-stream designs, not barrages, represent the more practical future of tidal power.",
           "question": "Which choice best states the main idea of the text?",
           "choices": [
             {
               "id": "A",
-              "text": "Medieval Islamic astronomers worked mainly to preserve Greek astronomical texts so that those texts could later be transmitted to Europe."
+              "text": "Tidal power is best understood as the practice of building barrages across estuaries to capture electricity from the water that flows in and out with the rising and falling tide."
             },
             {
               "id": "B",
-              "text": "Recent research presents the Maragha astronomers not as mere preservers of Greek astronomy but as critics who reworked Ptolemy's models in ways later echoed in Europe."
+              "text": "More recent engineering work reframes tidal power, presenting free-standing tidal-stream turbines rather than estuary barrages as the more practical way to generate electricity from the tides."
             },
             {
               "id": "C",
-              "text": "Nasir al-Din al-Tusi founded the observatory at Maragha in the thirteenth century specifically in order to test the planetary models of Ptolemy."
+              "text": "The tidal station at the Rance estuary was built mainly to test whether turbines could survive the fast coastal currents that newer tidal-stream designs depend on."
             },
             {
               "id": "D",
-              "text": "Copernicus is now thought to have drawn more heavily on the geometric constructions of the medieval Maragha astronomers than on any of the Greek astronomical sources available to him."
+              "text": "Tidal-stream turbines are now known to produce far more electricity than any barrage ever could, and they have made estuary barrages effectively obsolete."
             }
           ],
           "correctAnswer": "B",
-          "explanation": "The correct answer is B. The passage sets up an older view—that Islamic astronomy mainly preserved Greek learning—and then revises it: the Maragha astronomers found flaws in Ptolemy's models and built new constructions to fix them, constructions that reappear in Copernicus. The main idea is this reappraisal of their role from preservers to critics. Choice A restates the older view the passage is correcting. Choice C asserts a specific motive for founding the observatory that the passage does not claim. Choice D overstates the link to Copernicus, which the passage offers cautiously rather than as a measured dependence.",
+          "explanation": "The correct answer is B. The passage opens with an older outlook—that tidal power means building barrages across estuaries, as at the Rance—and then revises it: engineers now favor tidal-stream turbines, which can be added one at a time and disturb the environment less. The main idea is this shift from barrages to free-standing turbines as the more practical approach. Choice A restates only the older view the passage is moving beyond. Choice C invents a specific motive for the Rance station that the passage never states. Choice D overstates the case, claiming barrages are obsolete and outproduced, a comparison the passage does not make.",
           "_meta": {
-            "anchor": "Maragha observatory; al-Tusi's reworking of Ptolemy; influence echoed in Copernicus"
+            "anchor": "Rance tidal barrage vs. tidal-stream turbines — engineering reappraisal of tidal power"
           }
         },
         {
@@ -1852,7 +1852,7 @@ export const practiceTest5RW = {
           "band": 4,
           "domain": "expression-of-ideas",
           "skill": "transitions",
-          "passage": "When the physician Ignaz Semmelweis reported in the 1840s that deaths from childbed fever fell sharply when doctors washed their hands in a chlorine solution before examining patients, many of his colleagues dismissed the claim. Some were offended by the implication that physicians themselves carried disease, and others objected that he could offer no theory of why the washing worked. ______ later in the century, once the germ theory of disease supplied exactly that missing explanation, the practice he had advocated became standard, and his hospital statistics were recognized as having been right all along.",
+          "passage": "Engineers have long prized the dragline silk of orb-weaving spiders, a fiber that by weight rivals steel in tensile strength yet stretches and absorbs far more energy before it snaps. Producing the silk in quantity, however, proved stubbornly difficult: spiders are too territorial and cannibalistic to raise in colonies the way silkworms are, and the silk proteins manufactured in engineered bacteria tended to clump together rather than line up the way they do inside a spider's spinning ducts. ______ by carefully controlling the acidity and the flow of the protein solution as it was drawn into a fiber, researchers eventually spun synthetic threads whose toughness approached that of the natural silk.",
           "question": "Which choice completes the text with the most logical transition?",
           "choices": [
             {
@@ -1873,9 +1873,9 @@ export const practiceTest5RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "The correct answer is D, \"Even so,\". The first part of the passage describes how Semmelweis's colleagues dismissed his finding; the sentence after the blank reports that, despite that dismissal, his practice was later adopted and his statistics vindicated. The relation is concessive—what happened in spite of the resistance—and \"Even so,\" carries that sense. \"As a result,\" would make the acceptance a consequence of the dismissal, which it was not. \"For instance,\" would introduce an example, and \"Likewise,\" would signal a parallel point, neither of which fits.",
+          "explanation": "The correct answer is D, \"Even so,\". The passage first lays out why spider silk was hard to manufacture—spiders cannot be farmed, and bacterially made proteins clumped instead of aligning—and the sentence after the blank reports that, despite those obstacles, researchers eventually spun synthetic fibers nearly as tough as the natural silk. The relationship is concessive, marking what happened in spite of the difficulties, and \"Even so,\" captures it. \"As a result,\" would wrongly make the success a consequence of the obstacles. \"For instance,\" would introduce an example, and \"Likewise,\" would signal a parallel point, neither of which fits the contrast the sentence sets up.",
           "_meta": {
-            "anchor": "Ignaz Semmelweis — handwashing dismissed then vindicated; concessive transition"
+            "anchor": "spider dragline silk biomechanics — manufacturing obstacles then synthetic-spinning success; concessive transition"
           }
         },
         {

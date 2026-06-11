@@ -109,19 +109,24 @@ export const RW_STEM_REGISTRY = {
       'Based on the texts, how would [VAR] most likely characterize [VAR]?',
       // Observed in PT5/PT6: "respond to the 'conventional wisdom' discussed in Text 1?"
       'Based on the texts, how would [VAR] most likely respond to the [VAR] discussed in [VAR]?',
-      // 2026-06 rewrite: "(Text 2)" attribution + free-form object ("respond
-      // to Colalucci's defense of the cleaning", "to Loftus's position").
+    ],
+    // 2026-06 rewrite: "(Text 2)" attribution + free-form object ("respond
+    // to Colalucci's defense of the cleaning", "to Loftus's position") is
+    // CB's standard cross-text framing, so co-canonical.
+    canonicalEquivalents: [
       'Based on the texts, how would [VAR] most likely respond to [VAR]?',
     ],
   },
   'central-ideas-and-details': {
     canonical: 'Which choice best states the main idea of the text?',
-    variants: [
+    // Detail-comprehension stems are co-canonical on official forms (CB's
+    // CID items are ~half main-idea, ~half "According to/Based on the text"
+    // detail questions), so they count toward the >=80% canonical gate.
+    canonicalEquivalents: [
       'According to the text, [VAR]?',
-      // Detail-comprehension form (2026-06 re-blueprint: >=1 per module, per
-      // official CB practice where detail items are ~half of CID).
       'Based on the text, [VAR]?',
     ],
+    variants: [],
   },
   inferences: {
     canonical: 'Which choice most logically completes the text?',
@@ -129,17 +134,20 @@ export const RW_STEM_REGISTRY = {
   },
   'command-of-evidence-textual': {
     canonical: 'Which quotation from [VAR] most effectively illustrates the claim?',
-    variants: [
-      'Which quotation from [VAR] would most effectively support the [VAR]?',
-      'Which quotation from a hypothetical research paper would best support the [VAR]?',
+    // The "which finding, if true, would support/weaken" stems are the
+    // dominant COE-textual form on official forms and after the 2026-06
+    // rewrite, so they are co-canonical (count toward the >=80% gate).
+    canonicalEquivalents: [
       'Which finding from [VAR], if true, would most directly support the [VAR]?',
       'Which finding from [VAR], if true, would most directly weaken [VAR]?',
       'Which finding, if true, would most directly support the [VAR]?',
       'Which finding, if true, would most directly weaken [VAR]?',
-      // "most strongly support" variants (2026-06 rewrite; CB uses both
-      // strongly/directly across PT4-11).
       'Which finding, if true, would most strongly support [VAR]?',
       'Which finding from the study, if true, would most strongly support [VAR]?',
+    ],
+    variants: [
+      'Which quotation from [VAR] would most effectively support the [VAR]?',
+      'Which quotation from a hypothetical research paper would best support the [VAR]?',
     ],
   },
   'command-of-evidence-quantitative': {
@@ -1845,7 +1853,8 @@ function validatePrimaryAnchorUniqueness(bankItems) {
     // regional adjectives and phrase noise the first-noun heuristic catches.
     'Pew Research Center', 'The Pew Research', 'Disease Control', 'Census Bureau',
     'North American', 'South American', 'West African', 'East African', 'Each September',
-    'Ottoman Empire', 'United Nations', 'National Oceanic', 'European Space']);
+    'Ottoman Empire', 'United Nations', 'National Oceanic', 'European Space',
+    'Second World War', 'First World War', 'Cold War', 'Great Depression']);
   const anchorTests = new Map(); // anchor -> Map(testN -> [ids])
   for (const b of bankItems) {
     let text = b.item.passage || '';

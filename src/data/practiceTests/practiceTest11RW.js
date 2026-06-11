@@ -42,26 +42,26 @@ export const practiceTest11RW = {
           "choices": [
             {
               "id": "A",
-              "text": "refine"
+              "text": "nourish"
             },
             {
               "id": "B",
-              "text": "reproduce"
+              "text": "warm"
             },
             {
               "id": "C",
-              "text": "preserve"
+              "text": "reveal"
             },
             {
               "id": "D",
-              "text": "mar"
+              "text": "damage"
             }
           ],
           "correctAnswer": "D",
-          "explanation": "The correct answer is D, \"mar.\" The sentence turns on the word \"careless\": a clumsy cut threatens the fine lines, which is why publishers prized careful carvers. \"Mar,\" meaning to spoil or damage, names that threat exactly. \"Reproduce\" is the carver's ordinary job, but a careless stroke would not reproduce the lines so much as ruin them, so it does not fit a sentence about what could go wrong. \"Refine\" and \"preserve\" both describe good outcomes, the opposite of what a careless cut would produce.",
-          "passage": "A finished ukiyo-e print by the artist Katsushika Hokusai is usually credited to Hokusai alone, but the image passed through several workshops first. After Hokusai supplied a master drawing, a block carver cut the design into cherry wood, and a printer inked the blocks and pressed each color onto the paper by hand. Because one careless stroke of the carver's knife could ______ the delicate lines of the drawing, publishers competed for carvers known for their precision.",
+          "explanation": "The correct answer is D, \"damage.\" The passage states that ultraviolet radiation at high altitude \"can break down the molecules inside living cells,\" so the hairs are valuable because they soak up that radiation before it can harm the tissue beneath. \"Damage\" names exactly the threat the hairs guard against. \"Nourish\" describes a benefit, the opposite of what the sentence sets up as a danger. \"Warm\" might tempt a reader who knows alpine plants struggle with cold, but the sentence is about radiation's destructive effect, not temperature. \"Reveal\" treats the light as merely illuminating the tissue, which does not match the protective role the hairs are said to play.",
+          "passage": "High on alpine slopes, sunlight carries far more ultraviolet radiation than it does in the valleys below, and such radiation can break down the molecules inside living cells. The flowering plant edelweiss is covered in a dense coat of tiny white hairs. Studies of these hairs suggest that their microscopic structure absorbs ultraviolet wavelengths, soaking up the radiation before it can reach and ______ the delicate tissue underneath.",
           "_meta": {
-            "anchor": "Katsushika Hokusai / ukiyo-e workshop division of labor (carver, printer)"
+            "anchor": "edelweiss (Leontopodium alpinum): woolly hairs that absorb ultraviolet light at high altitude"
           },
           "id": 1101
         },
@@ -174,28 +174,28 @@ export const practiceTest11RW = {
           "choices": [
             {
               "id": "A",
-              "text": "The speaker defines a personal failing, then resolves to overcome it by confessing it openly to others."
+              "text": "The speaker describes a frightening creature in vivid detail, then gradually grows calmer as the description reveals the animal to be gentler than it first appeared."
             },
             {
               "id": "B",
-              "text": "The speaker introduces an image of concealment, then deepens it by disclosing the suffering the concealment hides while insisting that it continue."
+              "text": "The speaker opens by asking who could have made a fearsome creature, sustains that wonder through a chain of unanswered questions about its maker, then returns to the opening lines with a single word changed."
             },
             {
               "id": "C",
-              "text": "The speaker recalls a specific past injury in detail, then traces the slow communal process by which others gradually recovered from its lasting effects."
+              "text": "The speaker states a confident claim about the creature's origin at the outset, then spends the rest of the poem assembling evidence that steadily proves the claim correct."
             },
             {
               "id": "D",
-              "text": "The speaker praises a public performance, then explains at length why audiences have repeatedly failed to appreciate it."
+              "text": "The speaker recounts a sequence of events from the creature's life in chronological order, then concludes by predicting what will become of it in the years ahead."
             }
           ],
           "correctAnswer": "B",
-          "explanation": "The correct answer is B. The poem opens with the central image of a mask that \"grins and lies\" to hide pain, and the closing stanza pulls the mask aside just enough to show what lies beneath—\"our cries / To thee from tortured souls arise\"—before reaffirming, with the final \"We wear the mask!\", that the concealment goes on. The structure thus moves from presenting the disguise to revealing the hidden suffering while insisting the disguise be kept. Choice A misreads the mask as a \"personal failing\" the speaker confesses, but the poem never offers honest confession; it vows continued concealment. Choice C invents a single past injury and a story of recovery the poem does not contain, and Choice D treats the mask as an admired \"public performance,\" which mistakes a metaphor for suffering as a matter of applause.",
-          "passage": "The following is the complete poem \"We Wear the Mask\" (1896) by Paul Laurence Dunbar.\n\nWe wear the mask that grins and lies,\nIt hides our cheeks and shades our eyes,—\nThis debt we pay to human guile;\nWith torn and bleeding hearts we smile,\nAnd mouth with myriad subtleties.\n\nWhy should the world be over-wise,\nIn counting all our tears and sighs?\nNay, let them only see us, while\nWe wear the mask.\n\nWe smile, but, O great Christ, our cries\nTo thee from tortured souls arise.\nWe sing, but oh the clay is vile\nBeneath our feet, and long the mile;\nBut let the world dream otherwise,\nWe wear the mask!",
+          "explanation": "The correct answer is B. The poem opens by asking what \"immortal hand or eye\" could have framed the tiger's \"fearful symmetry,\" and the middle stanzas pile up further questions about the maker—\"What the hammer? what the chain? / In what furnace was thy brain?\"—none of which is ever answered. The final stanza repeats the opening almost word for word, changing only \"Could\" to \"Dare,\" so the structure runs from an opening question through sustained questioning back to the opening lines with one altered word. Choice A is wrong because the speaker never grows calmer and the tiger is never revealed as gentle; the awe only deepens. Choice C reverses the poem, which asks questions rather than proving a confident claim, and Choice D invents a chronological life story and a prediction the poem does not contain.",
+          "passage": "The following text is from William Blake's poem \"The Tyger\" (1794).\n\nTyger, tyger, burning bright\nIn the forests of the night,\nWhat immortal hand or eye\nCould frame thy fearful symmetry?\n\nIn what distant deeps or skies\nBurnt the fire of thine eyes?\nOn what wings dare he aspire?\nWhat the hand dare seize the fire?\n\nAnd what shoulder and what art\nCould twist the sinews of thy heart?\nAnd, when thy heart began to beat,\nWhat dread hand and what dread feet?\n\nWhat the hammer? what the chain?\nIn what furnace was thy brain?\nWhat the anvil? what dread grasp\nDare its deadly terrors clasp?\n\nWhen the stars threw down their spears,\nAnd watered heaven with their tears,\nDid he smile his work to see?\nDid he who made the lamb make thee?\n\nTyger, tyger, burning bright\nIn the forests of the night,\nWhat immortal hand or eye\nDare frame thy fearful symmetry?",
           "_meta": {
-            "anchor": "Paul Laurence Dunbar, 'We Wear the Mask' (1896)",
+            "anchor": "William Blake, 'The Tyger' (1794)",
             "quoteVerify": true,
-            "source": "Paul Laurence Dunbar, 'We Wear the Mask' (1896), Lyrics of Lowly Life — complete poem"
+            "source": "William Blake, 'The Tyger' (1794), Songs of Experience — Project Gutenberg ebook 574 (Poems of William Blake), https://www.gutenberg.org/cache/epub/574/pg574.txt — complete poem"
           },
           "id": 1105
         },
@@ -587,26 +587,26 @@ export const practiceTest11RW = {
           "choices": [
             {
               "id": "A",
-              "text": "depends in part on the language the listener has learned, since the same pitch differences carry word-level meaning in some languages but not in others."
+              "text": "the gecko's grip does not depend on any sticky substance applied to its toes."
             },
             {
               "id": "B",
-              "text": "is fixed at birth and varies hardly at all from one language community to the next, regardless of which particular language a person happens to grow up speaking."
+              "text": "a gecko cannot cling to any surface unless that surface has first been moistened."
             },
             {
               "id": "C",
-              "text": "is determined entirely by the loudness of a syllable rather than by its pitch in every language that researchers have studied so far."
+              "text": "the force from a single hair is, on its own, strong enough to hold the entire animal."
             },
             {
               "id": "D",
-              "text": "matters only in those languages that, like English, reserve pitch for marking emphasis and for distinguishing statements from questions."
+              "text": "geckos are the only animals whose feet make use of van der Waals attraction."
             }
           ],
           "correctAnswer": "A",
-          "explanation": "The correct answer is A. The passage contrasts tone-language speakers, who treat pitch as word-distinguishing, with English speakers, who do not, and asks what that contrast suggests about which features count as meaningful. The licensed inference is that this depends partly on the language one has learned. Choice B says the opposite, that it is fixed and language-independent. Choice C introduces loudness, which the passage never mentions, and Choice D restricts the point to English-like languages, ignoring the tone languages that anchor the contrast.",
-          "passage": "In a tone language such as Mandarin or Yoruba, the pitch contour on which a syllable is spoken can change its meaning entirely, so that the same sequence of consonants and vowels may name several unrelated things depending on whether the pitch rises, falls, or stays level. Speakers of such languages, researchers have found, attend closely to pitch when identifying words. Speakers of a language like English, by contrast, use pitch mainly to signal emphasis or to mark a sentence as a question, not to tell one word from another. This difference suggests that what a listener treats as a meaningful feature of speech ______",
+          "explanation": "The correct answer is A. The passage explains that a gecko's toes hold fast even to dry, spotless glass, that the clinging force comes from the van der Waals attraction generated by millions of microscopic hairs pressed into close contact, and that the foot releases the instant the toe is peeled back. Together these point to the modest inference that no sticky secretion is involved—the grip is a matter of physical contact, not glue. Choice B contradicts the passage, which says the foot works on dry surfaces. Choice C reverses the stated point that each hair contributes only a tiny force and that the grip comes from their combined number. Choice D claims geckos are unique in using van der Waals forces, a comparison the passage never makes.",
+          "passage": "A gecko can run up a pane of spotless, dry glass and hang from it by a single toe, yet its feet leave no residue and lift away the instant the toe is peeled back. The grip is not glue. Each toe is covered with millions of microscopic hairs, and every hair splits into hundreds of still finer tips that press flat against the surface. The pull from any one tip is vanishingly small, arising from the faint van der Waals attraction between molecules in close contact; but spread across so many points of contact, the combined force easily supports the animal's weight. Because the effect depends only on getting enough tips close enough to the surface, researchers infer that ______",
           "_meta": {
-            "anchor": "linguistics of tone languages: pitch as lexical vs. paralinguistic cue"
+            "anchor": "gecko foot adhesion: van der Waals forces from setae, not chemical glue"
           },
           "id": 1115
         },
@@ -669,10 +669,10 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "The correct answer is A. The blank falls between two complete sentences: \"Dorothy Hodgkin spent years working out the three-dimensional structures ... from X-ray photographs\" and \"the calculations ... were so laborious that a single structure could occupy her team for the better part of a decade.\" Standard English joins two independent clauses with a comma plus a coordinating conjunction, which is what \", and\" supplies. \"And\" alone, with no comma, leaves the clauses fused into a run-on. A comma alone produces a comma splice. And \"; and,\" piles a semicolon, a conjunction, and a stray comma at one junction, none of which belong together.",
-          "passage": "The chemist Dorothy Hodgkin spent years working out the three-dimensional structures of complex molecules from X-ray photographs ______ the calculations required to turn a pattern of scattered spots into a map of atoms were so laborious that a single structure could occupy her team for the better part of a decade.",
+          "explanation": "The correct answer is A. The blank falls between two complete sentences: \"In 1817 the German inventor Karl von Drais unveiled a two-wheeled running machine that a rider straddled and pushed along with the feet\" and \"the machine had no pedals of any kind, leaving a rider to scramble against the ground so vigorously that a long trip left the legs aching.\" Standard English joins two independent clauses with a comma plus a coordinating conjunction, which is exactly what \", and\" supplies. \"And\" alone, with no comma, fuses the clauses into a run-on. A comma by itself produces a comma splice. And \"; and,\" stacks a semicolon, a conjunction, and a stray comma at a single junction, none of which belong together.",
+          "passage": "In 1817 the German inventor Karl von Drais unveiled a two-wheeled running machine that a rider straddled and pushed along with the feet ______ the machine had no pedals of any kind, leaving a rider to scramble against the ground so vigorously that a long trip left the legs aching.",
           "_meta": {
-            "anchor": "Dorothy Hodgkin: X-ray crystallography of complex molecules",
+            "anchor": "Karl von Drais: 1817 running machine (Laufmaschine), the pedal-less ancestor of the bicycle",
             "rule": "comma + coordinating conjunction joining two independent clauses"
           },
           "id": 1117
@@ -1278,39 +1278,39 @@ export const practiceTest11RW = {
           "band": 4,
           "domain": "craft-and-structure",
           "skill": "cross-text-connections",
-          "question": "Based on the texts, how would Edwards and her colleagues (Text 2) most likely respond to the projection presented in Text 1?",
+          "question": "Based on the texts, how would Kao and Hockham (Text 2) most likely respond to the projection presented in Text 1?",
           "choices": [
             {
               "id": "A",
-              "text": "They would accept the marine ice-cliff mechanism as real but argue that it will raise global sea levels even faster than Text 1 projects, since the model in Text 1 substantially understates how quickly an exposed ice cliff collapses."
+              "text": "They would accept that the measured loss is an inherent property of glass and argue that fibers are even less promising than Text 1 suggests, since the loss makes them unusable over even the short distances Text 1 allows."
             },
             {
               "id": "B",
-              "text": "They would point out that the observations Text 1's projection relies on can be reproduced without the ice-cliff process, so its high-end figure reflects an assumption the evidence does not compel rather than a demonstrated outcome."
+              "text": "They would point out that the losses Text 1 relies on can be explained by removable impurities rather than by glass itself, so its projection rests on an assumption the evidence does not compel."
             },
             {
               "id": "C",
-              "text": "They would agree that Antarctica will add more than a meter to sea level by 2100 but attribute the rise to warmer ocean water rather than to collapsing ice cliffs."
+              "text": "They would agree that fibers cannot carry signals far enough to be useful but attribute the failure to light leaking out at bends in the fiber rather than to absorption within the glass."
             },
             {
               "id": "D",
-              "text": "They would conclude that, because the ice-cliff process cannot be entirely ruled out, every model that omits it should be discarded as unreliable."
+              "text": "They would conclude that, because the loss of glass can never be measured with certainty, every projection about the future of optical fibers should be set aside as guesswork."
             }
           ],
           "correctAnswer": "B",
-          "explanation": "The correct answer is B. Text 2 reports that models leaving the ice-cliff process out can already reproduce past sea levels and recent ice losses, and concludes that the high-end projection depending on that process is \"not required by the evidence.\" Edwards and her colleagues would therefore say Text 1's alarming figure rests on an assumption the data do not compel. Choice A has them embracing the mechanism and raising the projection, the reverse of their position; Choice C has them accepting the meter-plus rise they actually doubt; and Choice D turns their caution into a sweeping demand to discard every model that omits the process, which they do not make.",
+          "explanation": "The correct answer is B. Text 2 reports that Kao and Hockham traced the high losses in glass fibers to removable impurities, chiefly iron, rather than to the glass itself, and concluded that the claim that fibers were fundamentally unsuitable rested on an assumption the evidence did not require. They would therefore say that Text 1's pessimistic projection depends on treating the measured loss as a fixed property of glass when it need not be. Choice A has them embracing that very assumption and judging fibers even more hopeless, the reverse of their position; Choice C has them accepting the projection they actually reject; and Choice D inflates their measured point into a refusal to make any projection at all, which they never propose.",
           "passages": [
             {
               "label": "Text 1",
-              "text": "How much could Antarctica raise the seas this century? Robert DeConto and David Pollard built a model that, for the first time, included a process they call marine ice-cliff instability: where a thick glacier meets the sea, the loss of the floating ice shelf that braces it can leave an ice cliff so tall that it collapses under its own weight, exposing a new cliff behind it and triggering runaway retreat. With this process switched on, their model projected that Antarctica alone could add more than a meter to global sea level by 2100 under high emissions."
+              "text": "Could a thin thread of glass carry a telephone call across a city? Through the early 1960s many engineers doubted it. When light was sent into the best optical glass then available, most of it was absorbed within a few meters; measurements put the loss at roughly a thousand decibels per kilometer. Treating that loss as a fixed property of glass, these engineers projected that optical fibers could never rival copper wires for carrying signals across the distances a telephone network spans."
             },
             {
               "label": "Text 2",
-              "text": "Tamsin Edwards and her colleagues reexamined the evidence used to support such projections. They found that climate models which leave the ice-cliff process out can already reproduce both the sea levels of past warm periods and the ice losses measured in recent decades. If the data can be explained without invoking marine ice-cliff instability, they argue, then the dramatic high-end projections that depend on it are not required by the evidence. Their reanalysis yields a most-likely Antarctic contribution for 2100 well below a meter, with the alarming figures relegated to the low-probability tail."
+              "text": "In 1966 Charles Kao and George Hockham reexamined those measurements. The high losses, they argued, did not come from glass itself but from tiny traces of impurities — chiefly iron — dissolved in it. Light sent through a sample purified of such contaminants, they calculated, would travel far enough to carry signals over useful distances. If the observed losses could be explained by impurities that manufacturers could in principle remove, then the claim that fibers were fundamentally unsuitable rested on an assumption the evidence did not require."
             }
           ],
           "_meta": {
-            "anchor": "glaciology: marine ice-cliff instability projections (DeConto & Pollard) vs. exposure-normalized reanalysis (Edwards et al.)"
+            "anchor": "fiber-optic communication: the 1960s assumption that glass loss is intrinsic vs. Kao & Hockham (1966) impurity explanation"
           },
           "id": 1135
         },
@@ -1720,26 +1720,26 @@ export const practiceTest11RW = {
           "choices": [
             {
               "id": "A",
-              "text": ", a pioneer of research on false memory"
+              "text": ", a pioneer of research on cave-dwelling microbes"
             },
             {
               "id": "B",
-              "text": " a pioneer of research on false memory"
+              "text": " a pioneer of research on cave-dwelling microbes"
             },
             {
               "id": "C",
-              "text": ", a pioneer of research on false memory,"
+              "text": ", a pioneer of research on cave-dwelling microbes,"
             },
             {
               "id": "D",
-              "text": " a pioneer of research on false memory,"
+              "text": " a pioneer of research on cave-dwelling microbes,"
             }
           ],
           "correctAnswer": "C",
-          "explanation": "The correct answer is C. The phrase \"a pioneer of research on false memory\" is a nonrestrictive appositive: it adds information about Loftus, who is already fully identified by name, and could be lifted out without changing whom the sentence is about. Such an appositive set inside a sentence must be bracketed by a matched pair of commas, so the option with a comma before and after it is correct. An opening comma with no closing comma, or a closing comma with no opening one, leaves the insertion unclosed at one end, and using no commas at all wrongly treats the phrase as essential to identifying her.",
-          "passage": "Memory does not work like a video recording. The cognitive psychologist Elizabeth Loftus ______ has shown in a long series of experiments that the precise wording of a question asked after an event can reshape what eyewitnesses later report remembering about it.",
+          "explanation": "The correct answer is C. The phrase \"a pioneer of research on cave-dwelling microbes\" is a nonrestrictive appositive: it adds information about Barton, who is already fully identified by name, and could be lifted out without changing whom the sentence is about. An appositive set inside a sentence this way must be enclosed by a matched pair of commas, so the option with a comma both before and after it is correct. An opening comma with no closing one, or a closing comma with no opening one, leaves the insertion unclosed at one end, and using no commas at all wrongly treats the phrase as essential to identifying her.",
+          "passage": "Deep caves cut off from sunlight were long assumed to be nearly lifeless. The microbiologist Hazel Barton ______ has shown that the bare rock walls of such caves can support thriving communities of bacteria, which draw their energy from minerals in the stone rather than from the sun.",
           "_meta": {
-            "anchor": "Elizabeth Loftus: misinformation effect, false-memory research",
+            "anchor": "Hazel Barton: microbiology of cave-dwelling bacteria",
             "rule": "paired commas around a nonrestrictive appositive"
           },
           "id": 1146

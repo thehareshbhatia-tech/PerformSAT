@@ -159,31 +159,31 @@ export const practiceTest7RW = {
           "band": 3,
           "domain": "craft-and-structure",
           "skill": "text-structure-and-purpose",
-          "passage": "The following text is from Jane Austen's 1813 novel Pride and Prejudice.\n\nIt is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife. However little known the feelings or views of such a man may be on his first entering a neighbourhood, this truth is so well fixed in the minds of the surrounding families, that he is considered as the rightful property of some one or other of their daughters.",
+          "passage": "The following text is from Apsley Cherry-Garrard's 1922 memoir The Worst Journey in the World, an account of a British expedition to Antarctica.\n\nPolar exploration is at once the cleanest and most isolated way of having a bad time which has been devised. It is the only form of adventure in which you put on your clothes at Michaelmas and keep them on until Christmas, and, save for a layer of the natural grease of the body, find them as clean as though they were new. It is more lonely than London, more secluded than any monastery, and the post comes but once a year.",
           "question": "Which choice best describes the overall structure of the text?",
           "choices": [
             {
               "id": "A",
-              "text": "It poses a question about local marriage customs and then answers it by surveying the differing opinions held by several neighbouring families."
+              "text": "It recounts a single harrowing episode from the author's expedition and then reflects on the practical lessons that future explorers might draw from it."
             },
             {
               "id": "B",
-              "text": "It introduces a wealthy single newcomer and then describes in turn the particular daughters whom the families nearby hope he will eventually marry."
+              "text": "It lists the supplies an expedition must carry and then ranks them from the most essential to the least."
             },
             {
               "id": "C",
-              "text": "It advances a sweeping general claim and then notes how readily a community treats that claim as settled fact."
+              "text": "It opens with a sweeping, wry generalization about an activity and then elaborates that claim through a series of pointed comparisons."
             },
             {
               "id": "D",
-              "text": "It contrasts what a wealthy single man desires with what his new neighbours desire of him."
+              "text": "It presents two competing views of polar travel and then argues that the rewards of exploration ultimately outweigh its hardships."
             }
           ],
           "correctAnswer": "C",
-          "explanation": "The correct answer is C. The passage opens with a broad, ironic generalization — that a rich single man \"must be in want of a wife\" — and then observes that the surrounding families treat this proposition as established truth regardless of the man's own feelings. Choice A invents a question the text never asks; the opening is a declaration, not an inquiry. Choice B describes daughters the passage never names, and Choice D imposes a contrast of desires that the text does not set up.",
+          "explanation": "The correct answer is C. The text begins with a broad, dryly comic pronouncement — polar exploration is \"the cleanest and most isolated way of having a bad time which has been devised\" — and then builds out that claim with a string of comparisons: clothes worn from Michaelmas to Christmas somehow stay clean, the life is lonelier than London and more secluded than a monastery, and the post comes once a year. Choice A fails because no particular episode is narrated; Choice B fails because nothing is listed or ranked; and Choice D fails because the author never weighs rewards against hardships — the wry premise that the explorer is having \"a bad time\" is asserted from the first sentence, not argued against a rival view.",
           "_meta": {
             "quoteVerify": true,
-            "source": "Jane Austen, Pride and Prejudice (1813), opening lines"
+            "source": "Apsley Cherry-Garrard, The Worst Journey in the World (1922), opening of the Introduction"
           }
         },
         {
@@ -322,28 +322,28 @@ export const practiceTest7RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "central-ideas-and-details",
-          "passage": "In the 1820s, fossil skeletons recovered from the Jurassic cliffs of Lyme Regis on England's southern coast reshaped early ideas about the history of life. The specimens included a long-necked marine reptile, later named Plesiosaurus, and a winged reptile preserved in the same shales. Each belonged to a group with no living relatives and bore little resemblance to any animal then known from the seas or skies. Naturalists who described the finds recognized that whole categories of large vertebrates had once flourished and then disappeared entirely. Taken together, the Lyme Regis fossils offered some of the first concrete evidence that the animal life of the deep past differed dramatically from that of the present.",
+          "passage": "Before the electric spotlight, a theater had no way to throw a bright, steerable beam across its stage. That changed with limelight, developed in the 1820s by the engineer Thomas Drummond, who needed a light visible over great distances for land surveying. Heating a cylinder of lime in a flame of burning oxygen and hydrogen produced a brilliant white glow that, mounted in a reflector behind a lens, could be aimed wherever a production wanted the audience to look. Once theaters adopted the device in the 1830s, an operator could pick out a single performer from the soft, undirected wash of the gas footlights — a power so closely tied to prominence that favored actors were soon said to be \"in the limelight.\"",
           "question": "Which choice best states the main idea of the text?",
           "choices": [
             {
               "id": "A",
-              "text": "The fossils recovered at Lyme Regis belonged to marine and flying reptiles that closely resembled the animals living in the seas and skies of the 1820s."
+              "text": "Thomas Drummond invented limelight to brighten theatrical productions, and surveyors only later discovered that the device could also be useful for measuring long distances."
             },
             {
               "id": "B",
-              "text": "The naturalists who first described Plesiosaurus were chiefly interested in how the creature was related to modern marine mammals."
+              "text": "Because limelight depended on a flame of burning oxygen and hydrogen, most nineteenth-century theaters considered the device too hazardous to install."
             },
             {
               "id": "C",
-              "text": "Fossils recovered at Lyme Regis offered early evidence that large reptiles unlike any living animal once existed, showing that ancient life differed sharply from today’s."
+              "text": "Limelight, a surveying technology taken up by theaters, gave the nineteenth-century stage its first means of aiming an intense beam at chosen performers."
             },
             {
               "id": "D",
-              "text": "The Jurassic cliffs of Lyme Regis remain among the richest sources of marine reptile fossils on the southern English coast."
+              "text": "The expression \"in the limelight\" entered everyday speech because audiences came to associate the device's brilliant glow with the prominence of featured performers."
             }
           ],
           "correctAnswer": "C",
-          "explanation": "The correct answer is C. The passage builds toward the point that the Lyme Regis fossils revealed extinct creatures unlike any living animal, demonstrating that the deep past's fauna differed sharply from the present's. Choice A reverses the text, which stresses that the animals had no living counterparts. Choice B misstates the naturalists' interest, and Choice D notes the cliffs' richness as a fossil source but misses the passage's actual claim about what the fossils showed."
+          "explanation": "The correct answer is C. The passage traces limelight from Drummond's surveying lamp to the stage and stresses what the technology made newly possible: an intense, steerable beam that could single out one performer, something the even wash of the gas footlights could not do. Choice A reverses the actual sequence, since Drummond built the light for surveying and theaters adopted it afterward. Choice B contradicts the text, which says theaters took up the device in the 1830s. Choice D fixes on the origin of a familiar phrase, a closing detail rather than the point the passage as a whole develops."
         },
         {
           "id": 711,

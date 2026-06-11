@@ -292,28 +292,28 @@ export const practiceTest6RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "central-ideas-and-details",
-          "passage": "The quilts made by generations of Black women in Gee's Bend, an isolated bend of the Alabama River, were long known only within the community that produced them. When art museums began exhibiting the quilts in the early 2000s, critics often praised them for resembling modern abstract painting. Scholars of the community's textile tradition have pushed back on that comparison. The quilts, they argue, grew out of a working practice of reusing worn clothing and feed sacks and improvising patterns to fit whatever cloth was at hand; reading them mainly as forerunners of gallery abstraction imports a standard the makers were not working toward and obscures the practical tradition that actually shaped them.",
+          "passage": "Celadon ceramics produced in Korea during the Goryeo dynasty (918-1392) were admired even by Chinese connoisseurs of the era, one of whom ranked the wares' jade-green glaze first under heaven. Because celadon technology itself first reached Korea from Song China, later collectors and historians often treated Goryeo celadon as a refined provincial offshoot of Chinese ceramics. Scholars of Korean art have pushed back on that framing. Goryeo potters, they note, developed a technique with no counterpart in Chinese workshops: sanggam, in which designs incised into the clay are filled with white and black slip before glazing. To treat the wares as derivative, these scholars argue, is to make the borrowed glaze the whole story and to obscure the innovations that distinguished the tradition.",
           "question": "Which choice best states the main idea of the text?",
           "choices": [
             {
               "id": "A",
-              "text": "The quilts of Gee's Bend were unknown outside the community until art museums began exhibiting them in the early 2000s."
+              "text": "Goryeo celadon was admired by Chinese connoisseurs of its own era, one of whom ranked the wares' jade-green glaze first under heaven."
             },
             {
               "id": "B",
-              "text": "Critics have correctly recognized the Gee's Bend quilts as early examples of modern abstract painting."
+              "text": "Later collectors and historians correctly recognized Goryeo celadon as a refined provincial offshoot of the ceramic traditions of Song China."
             },
             {
               "id": "C",
-              "text": "Scholars argue that praising the Gee's Bend quilts for resembling abstract painting misreads a tradition rooted in the practical reuse of available cloth."
+              "text": "Scholars argue that treating Goryeo celadon as derivative of Chinese ceramics overlooks distinctly Korean innovations such as the inlaid decoration known as sanggam."
             },
             {
               "id": "D",
-              "text": "The women of Gee's Bend made their quilts from worn clothing and feed sacks because new fabric was hard to obtain in so isolated a community."
+              "text": "Goryeo potters developed the sanggam inlay technique because they wanted their celadon to be easily distinguishable from the Chinese wares that had inspired it."
             }
           ],
           "correctAnswer": "C",
-          "explanation": "The correct answer is C. The heart of the passage is the scholars' objection: comparing the quilts to abstract painting judges them by a standard their makers never adopted and hides the practical, improvisational tradition behind them. Choice C states that argument. Choice A reports only the background detail about when the quilts became widely known. Choice B endorses the very comparison the scholars dispute. Choice D fixes on one detail, the reused materials, and even adds a motive the passage does not supply, missing the larger point about how the quilts should be understood."
+          "explanation": "The correct answer is C. The passage builds to the scholars' objection: classifying Goryeo celadon as a provincial offshoot of Chinese ceramics lets the borrowed glaze stand for the whole tradition and hides the innovations, sanggam inlay above all, that Korean potters developed on their own. Choice C states that argument. Choice A repeats only the opening detail about the wares' early admirers. Choice B affirms the very framing the scholars reject. Choice D isolates a single detail, the sanggam technique, and supplies a motive for its invention that the passage never offers, missing the larger point about how the tradition should be understood."
         },
         {
           "id": 610,
