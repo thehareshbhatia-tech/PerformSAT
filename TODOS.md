@@ -1,5 +1,35 @@
 # TODOS
 
+## Loose-threads closeout — pre-existing gaps flagged by adversarial review (2026-06-12)
+
+The 16-agent review of the blank-attempt/prediction/excision commits confirmed these
+same-class gaps OUTSIDE the changed range (verified real but pre-existing; all are
+small, most are one-liners applying `isBlankAttempt` from `selectors/latestTestStats`):
+
+- **[P2/S] Timer-expiry still persists fresh blank attempts.** The zero-answers discard
+  guard lives only in `handleConfirmEndTest` (PracticeTest.jsx ~2017); the module-advance/
+  timer-expiry completion path (~1896) persists a fully-blank timed test (answeredCount 0,
+  floor score). Display surfaces now filter these, but stopping them at the source keeps
+  Firestore clean. Decide UX for silent-expiry discard (toast?) before changing.
+- **[P3/S] AiTutorChat reads the newest attempt unfiltered** (AiTutorChat.jsx ~731, ~825):
+  a blank newest attempt's empty-sheet errorPatterns become the tutor's "most recent test"
+  evidence. Also `trendContextBuilder.js` passes floor-400 scores (truthy check only).
+- **[P3/S] predictionEngine.getRecentAttempts (~443) feeds blank attempts into
+  trap-vulnerability predictions** (gated by trapResistance<50, so low blast radius; flows
+  into the AI tutor prompt via intelligenceContextBuilder).
+- **[P3/S] Dead-code/doc sweep:** `calculateWeightedScore` in adaptiveService.js is a
+  zero-importer orphan; `docs/PRACTICE_ASSIGNMENT_SCHEMA.md` + `docs/PAST_TEST_REVIEW_PLAN.md`
+  still document the deleted `recordPracticeAttempt` path; StudentDashboard.jsx ~398 comment
+  ("Legacy prescriptive shell — reachable as a FALLBACK") describes a removed shell.
+- **[P2/M] Mixed-scale score-history axis normalization** (long-deferred, now confirmed as
+  the real cause of the "Test 23 400 bar"): the diagnosis trend and dashboard history chart
+  March-era 200-800 section attempts beside 400-1600 composites. The low bar in the owner
+  account's trend is a GENUINE section attempt (400/800, 16 raw) — not a blank. Needs a
+  design decision: label scale per bar, segregate eras, or normalize.
+- **[P3/S] Review-shell toolbar shows a "Calculator" badge on R&W items** (seen in dogfood
+  on a cross-text item in the daily-review session; verify whether the badge is static
+  shell chrome or per-item metadata).
+
 ## Landing-page design review — deferred findings (2026-06-08)
 
 From the /design-review fix loop on both surfaces (6 commits `d2199cc`..`a4a75e3`,

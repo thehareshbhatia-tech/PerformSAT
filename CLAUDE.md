@@ -4,7 +4,7 @@ SEVA (formerly PerformSAT) is a digital-SAT prep web app: students take adaptive
 
 The product was renamed PerformSAT → SEVA on 2026-05-21 (briefly via Sura → Seva). The user-visible brand is **SEVA**, always typed in all caps, rendered as a Fraunces italic wordmark with the SOFT variable axis cranked for swashy editorial terminals. Internal identifiers (the `performsat:` log-scope prefix, `localStorage['performsat:logVerbose']`, the `PERFORMSAT_TEST_EMAIL`/`PERFORMSAT_TEST_PASSWORD` env vars, the `PerformSAT` React component name in `src/App.jsx`, the repo directory `~/PerformSAT/`) deliberately retain the old name to avoid coordinated-rename risk. New code may use either name in identifiers — be consistent within a module.
 
-The codebase is mid-scale, mostly mature, with one large orchestrating file (`src/App.jsx`, ~2.9k lines) that owns view state and practice-session state. The recent direction is closing UX gaps vs Acely AI, surfacing the deeper diagnostic engine, and tightening drill routing to exact-question-type precision (see `docs/DRILL_ROUTING_PLAN.md`).
+The codebase is mid-scale, mostly mature, with one large orchestrating file (`src/App.jsx`, ~2.5k lines) that owns view state and practice-session state. The recent direction is closing UX gaps vs Acely AI, surfacing the deeper diagnostic engine, and tightening drill routing to exact-question-type precision (see `docs/DRILL_ROUTING_PLAN.md`).
 
 This file is the orientation document for new contributors and LLM agents. Keep it up to date when architecture moves.
 
@@ -61,7 +61,7 @@ There are three components that look like "the drill UI." They serve different p
 
 | Shell | Purpose | Mount path | When to use |
 |-------|---------|------------|-------------|
-| `AssignedPracticeShell.jsx` | **Production drill path** for study-plan focus areas | `App.jsx` view='practice', `practiceMode='assigned'` (lines ~9902-9926) | Anything the student reaches via "Practice" button on Study Plan |
+| `AssignedPracticeShell.jsx` | **Production drill path** for study-plan focus areas | `App.jsx` view='practice', `practiceMode='assigned'` | Anything the student reaches via "Practice" button on Study Plan |
 | `AdaptivePracticeShell.jsx` | Alternate adaptive practice (difficulty adjusts) | `App.jsx` view='practice', `practiceMode='adaptive'` | The adaptive flow launched separately. Not study-plan-driven. |
 | `PracticeTest.jsx` | Full-length timed practice test | `App.jsx` view='takingTest' | Only for full mock tests, not drills |
 
@@ -158,9 +158,9 @@ The diagnostic adapter in `services/scoring/diagnosticAdapter.js` builds a **sep
 
 ## Canonical files (do not duplicate)
 
-- `src/App.jsx` — the entrypoint mount target. ~2.9k lines (down from ~11k after Acely-parity excisions). A `<DashboardShell>` extraction is on the deferred TODOS list — not in this batch.
+- `src/App.jsx` — the entrypoint mount target. ~2.5k lines (down from ~11k after the Acely-parity excisions and the 2026-06-12 legacy-practice excision: the inline standard/prescriptive practice UI, `startSectionPractice`, and `recordPracticeAttempt` are gone — every practice launcher lands on AssignedPracticeShell or AdaptivePracticeShell, and `practiceProgress` is frozen read-only data with no writer). A `<DashboardShell>` extraction is on the deferred TODOS list — not in this batch.
 - `src/index.js:6` — the React entrypoint imports `./App` (resolves to `src/App.jsx`).
-- `src/components/StudyPlanDashboard.jsx` — the active study plan view. Both `App.jsx:9539` and `StudentDashboard.jsx:305` mount it.
+- `src/components/StudyPlanDashboard.jsx` — the active study plan view. Both App.jsx (view='studyPlan') and StudentDashboard's Study Plan tab mount it.
 
 Recently removed (see git log for details — Day 0 of the Acely-parity batch):
 
