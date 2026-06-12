@@ -4,7 +4,7 @@ import { doc, onSnapshot, updateDoc, setDoc, getDoc, serverTimestamp, arrayUnion
 import { markLessonComplete as markComplete, markLessonIncomplete } from '../services/progressService';
 // Corpus-free (bundleGuard-safe): one-time upgrade of persisted format-1
 // plans whose weeks lack both-section drill activities.
-import { upgradeLegacyPlanWeeks, PLAN_FORMAT_VERSION } from '../services/planFormatUpgrade';
+import { upgradeLegacyPlanWeeks, planNeedsUpgrade, PLAN_FORMAT_VERSION } from '../services/planFormatUpgrade';
 import { getDueReviewCount, getReviewStats } from '../services/reviewService';
 import { recordSkillAttemptsBatch, getSkillDiagnosticSummary as getDiagnostic, getSkillBreakdown as getBreakdown } from '../services/skillService';
 import { recordPracticeTestResult as recordTestResult, getPracticeTestBestScore, getPracticeTestAttempts, saveTestProgress as saveProgress, clearTestProgress as clearProgress, getInProgressTest } from '../services/practiceTestService';
@@ -767,7 +767,7 @@ export const useProgress = (userId) => {
   const planUpgradeInFlight = useRef(false);
   useEffect(() => {
     if (!userId || !studyPlan || planUpgradeInFlight.current) return;
-    if ((studyPlan.planFormatVersion || 1) >= PLAN_FORMAT_VERSION) return;
+    if (!planNeedsUpgrade(studyPlan)) return;
     const upgraded = upgradeLegacyPlanWeeks(studyPlan);
     if (!upgraded) return;
     planUpgradeInFlight.current = true;

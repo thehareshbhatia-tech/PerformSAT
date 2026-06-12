@@ -17,13 +17,17 @@
  *       sections; upgradeLegacyPlanWeeks backfills them into persisted plans
  *       from plan.weaknesses. (Dev-only stamp, never shipped.)
  *   3 — also heals the cross-scale "past your target" headline on upgraded
- *       plans. The weeks backfill is idempotent, so re-running on a v2 plan
- *       only applies the heal.
+ *       plans. (Dev-only stamp, never shipped.)
+ *   4 — backfilled activities carry a `day` assignment (getTodaySlice
+ *       surfaces activities by day name; day-less additions existed only in
+ *       the Weekly View). Re-running on a v2/v3 plan assigns days to any
+ *       existing day-less augmented activities in place — positions never
+ *       move, so completion indexes stay valid.
  */
 
 import { CB_RW_SKILLS } from '../data/questions/cbSkillTaxonomy';
 
-export const PLAN_FORMAT_VERSION = 3;
+export const PLAN_FORMAT_VERSION = 4;
 
 // Official display labels for R&W activity titles — weakness.name comes from
 // humanizeSkillId kebab title-casing, which mangles official names
@@ -61,6 +65,24 @@ export const buildSkillDrillActivity = (gap) => {
 };
 
 /**
+ * Does this persisted plan need the format upgrade? True when the version
+ * stamp is stale OR when the plan carries day-less augmented activities — a
+ * partial-upgrade state (e.g. an interrupted write) that getTodaySlice can't
+ * surface in Today's Tasks. The structural check makes the trigger
+ * self-healing rather than trusting the stamp alone.
+ *
+ * @param {Object|null} plan
+ * @returns {boolean}
+ */
+export const planNeedsUpgrade = (plan) => {
+  if (!plan || !Array.isArray(plan.weeks) || plan.weeks.length === 0) return false;
+  if ((plan.planFormatVersion || 1) < PLAN_FORMAT_VERSION) return true;
+  return plan.weeks.some(w => w && !w.isTestWeek && (Array.isArray(w.activities) ? w.activities : []).some(
+    a => a && a.augmented && a.type === 'practice' && !a.day
+  ));
+};
+
+/**
  * One-time upgrade of a persisted format-1 plan: backfill drill-shaped
  * activities (both sections) into light weeks, derived from the plan's own
  * section-tagged weaknesses. APPEND-ONLY — completion marks are keyed by
@@ -74,8 +96,7 @@ export const buildSkillDrillActivity = (gap) => {
  * @returns {Object|null} upgraded plan or null when no upgrade applies
  */
 export const upgradeLegacyPlanWeeks = (plan) => {
-  if (!plan || !Array.isArray(plan.weeks) || plan.weeks.length === 0) return null;
-  if ((plan.planFormatVersion || 1) >= PLAN_FORMAT_VERSION) return null;
+  if (!planNeedsUpgrade(plan)) return null;
 
   const weaknesses = Array.isArray(plan.weaknesses) ? plan.weaknesses : [];
 
@@ -99,12 +120,32 @@ export const upgradeLegacyPlanWeeks = (plan) => {
 
   let cursor = 0;
   const weeks = plan.weeks.map(week => {
-    if (!week || week.isTestWeek || interleaved.length === 0) return week;
-    const activities = Array.isArray(week.activities) ? week.activities : [];
+    if (!week || week.isTestWeek) return week;
+    const rawActivities = Array.isArray(week.activities) ? week.activities : [];
+
+    // Day assignment: getTodaySlice surfaces activities by day NAME, so an
+    // addition without one would exist only in the Weekly View and never in
+    // Today's Tasks. Use the generator's mid-week scheme, skipping days the
+    // week already occupies. Earlier upgrade formats (v2/v3, dev-only) left
+    // augmented activities day-less — repair them IN PLACE (field addition
+    // only; positions never move, completion indexes stay valid).
+    const takenDays = new Set(rawActivities.map(a => a && a.day).filter(Boolean));
+    const freeDays = ['Wednesday', 'Thursday', 'Friday', 'Tuesday', 'Saturday', 'Monday']
+      .filter(d => !takenDays.has(d));
+    let dayCursor = 0;
+    const nextDay = () => {
+      const pool = freeDays.length > 0 ? freeDays : ['Wednesday', 'Thursday', 'Friday'];
+      const day = pool[dayCursor % pool.length];
+      dayCursor += 1;
+      return day;
+    };
+    const activities = rawActivities.map(a =>
+      (a && a.augmented && a.type === 'practice' && !a.day) ? { ...a, day: nextDay() } : a
+    );
+    const repaired = activities.some((a, i) => a !== rawActivities[i]);
+
     const practiceCount = activities.filter(a => a && a.type === 'practice').length;
     const wanted = Math.max(0, 2 - practiceCount);
-    if (wanted === 0) return week;
-
     const additions = [];
     for (let i = 0; i < wanted && i < interleaved.length; i++) {
       const candidate = interleaved[cursor % interleaved.length];
@@ -112,9 +153,9 @@ export const upgradeLegacyPlanWeeks = (plan) => {
       const dupe = activities.some(a => a && a.skillId === candidate.skillId)
         || additions.some(a => a.skillId === candidate.skillId);
       if (dupe) continue;
-      additions.push({ ...candidate, augmented: true });
+      additions.push({ ...candidate, day: nextDay(), weekPhase: 'mid', augmented: true });
     }
-    if (additions.length === 0) return week;
+    if (additions.length === 0 && !repaired) return week;
 
     const addedMinutes = additions.reduce((s, a) => s + (a.duration || 0), 0);
     return {

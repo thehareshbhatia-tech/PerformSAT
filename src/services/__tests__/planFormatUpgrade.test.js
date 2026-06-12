@@ -6,6 +6,7 @@
 import {
   buildSkillDrillActivity,
   upgradeLegacyPlanWeeks,
+  planNeedsUpgrade,
   PLAN_FORMAT_VERSION,
 } from '../planFormatUpgrade';
 
@@ -68,6 +69,52 @@ describe('upgradeLegacyPlanWeeks', () => {
     expect(sections).toContain('math');
     expect(week2.activities.every(a => a.type === 'practice' && a.skillId && !a.moduleId)).toBe(true);
     expect(week2.activities.every(a => a.augmented === true)).toBe(true);
+  });
+
+  test('additions carry a day assignment so getTodaySlice can surface them', () => {
+    const up = upgradeLegacyPlanWeeks(legacyPlan());
+    const added = up.weeks.flatMap(w => (w.activities || []).filter(a => a.augmented));
+    expect(added.length).toBeGreaterThan(0);
+    added.forEach(a => {
+      expect(typeof a.day).toBe('string');
+      expect(a.day.length).toBeGreaterThan(2);
+    });
+    // Two additions in one week land on distinct days.
+    const week2Days = up.weeks[1].activities.map(a => a.day);
+    expect(new Set(week2Days).size).toBe(week2Days.length);
+  });
+
+  test('STAMP-CURRENT plan with day-less augmented activities still upgrades (partial-write self-heal)', () => {
+    // A hot-reload race once stamped a plan current while its additions
+    // lacked days — the structural planNeedsUpgrade check catches that
+    // state regardless of the version stamp.
+    const plan = legacyPlan();
+    plan.planFormatVersion = PLAN_FORMAT_VERSION; // stamp says current...
+    plan.weeks[1].activities = [
+      { type: 'practice', activityType: 'skillDrill', title: 'Practice: Words in Context', skillId: 'words-in-context', skillName: 'Words in Context', section: 'rw', duration: 15, augmented: true }, // ...but no day
+    ];
+    plan.weeks[1].practiceCount = 1;
+    expect(planNeedsUpgrade(plan)).toBe(true);
+    const up = upgradeLegacyPlanWeeks(plan);
+    expect(up).not.toBeNull();
+    expect(typeof up.weeks[1].activities[0].day).toBe('string');
+    expect(planNeedsUpgrade(up)).toBe(false);
+  });
+
+  test('repairs day-less augmented activities from earlier dev formats IN PLACE', () => {
+    const plan = legacyPlan();
+    plan.planFormatVersion = 2; // dev-era stamp: backfilled but day-less
+    plan.weeks[1].activities = [
+      { type: 'practice', activityType: 'skillDrill', title: 'Practice: Words in Context', skillId: 'words-in-context', skillName: 'Words in Context', section: 'rw', duration: 15, augmented: true },
+      { type: 'practice', activityType: 'skillDrill', title: 'Practice: Geometry', skillId: 'geometry', skillName: 'Geometry', section: 'math', duration: 15, augmented: true },
+    ];
+    plan.weeks[1].practiceCount = 2;
+    const up = upgradeLegacyPlanWeeks(plan);
+    expect(up.planFormatVersion).toBe(PLAN_FORMAT_VERSION);
+    const week2 = up.weeks[1];
+    expect(week2.activities).toHaveLength(2); // no double-append
+    expect(week2.activities[0].skillId).toBe('words-in-context'); // position preserved
+    week2.activities.forEach(a => expect(typeof a.day).toBe('string'));
   });
 
   test('APPEND-ONLY: existing activity positions never shift (completion is index-keyed)', () => {
