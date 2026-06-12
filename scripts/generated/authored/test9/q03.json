@@ -1,0 +1,34 @@
+{
+  "id": 903,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "craft-and-structure",
+  "skill": "words-in-context",
+  "module": 1,
+  "passage": "Roman aqueducts moved water across great distances using gravity alone, so the channel had to descend at a steady, almost imperceptible grade for mile after mile. Where a ridge rose across the route and threatened to interrupt that gentle slope, the engineers chose to ______ the obstacle by boring a tunnel straight through the hill, preserving the continuous downward grade on which the whole system depended.",
+  "question": "Which choice completes the text with the most logical and precise word or phrase?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "exaggerate"
+    },
+    {
+      "id": "B",
+      "text": "ignore"
+    },
+    {
+      "id": "C",
+      "text": "surmount"
+    },
+    {
+      "id": "D",
+      "text": "postpone"
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "Roman engineers faced a real difficulty: a ridge that broke the gentle, continuous slope their gravity-fed channel required. They responded by tunneling through the hill, so the blank needs a verb meaning to get past or overcome that obstacle. \"Surmount,\" choice C, fits. \"Ignore\" is wrong because they did not leave the ridge alone but worked through it, and \"exaggerate\" and \"postpone\" describe neither overcoming nor addressing the problem.",
+  "_meta": {
+    "anchor": "Roman aqueduct engineering: the gravity gradient"
+  }
+}

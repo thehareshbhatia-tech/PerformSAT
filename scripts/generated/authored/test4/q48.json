@@ -1,0 +1,34 @@
+{
+  "id": 448,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "standard-english-conventions",
+  "skill": "boundaries",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "alone, however"
+    },
+    {
+      "id": "B",
+      "text": "alone; however,"
+    },
+    {
+      "id": "C",
+      "text": "alone, however,"
+    },
+    {
+      "id": "D",
+      "text": "alone however"
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B. \"The keeper did not keep the light burning alone\" and \"a crew of supply tenders, inspectors, and lamp makers kept the whole system running\" are independent clauses joined by the conjunctive adverb \"however,\" which Standard English punctuates with a semicolon before it and a comma after it, as in B. A comma before \"however\" (A, C) leaves a comma splice between the clauses, and omitting punctuation altogether (D) produces a run-on.",
+  "passage": "A single lighthouse keeper once had to trim the wicks, polish the lenses, and wind the clockwork that rotated the beam through the night. The keeper did not keep the light burning ______ a crew of supply tenders, inspectors, and lamp makers kept the whole system running.",
+  "_meta": {
+    "anchor": "lighthouse keeping; semicolon with conjunctive adverb"
+  },
+  "module": 2
+}

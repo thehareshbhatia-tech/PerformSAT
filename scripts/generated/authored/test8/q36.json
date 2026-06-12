@@ -1,0 +1,31 @@
+{
+  "id": 836,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "information-and-ideas",
+  "skill": "central-ideas-and-details",
+  "module": 2,
+  "passage": "The naturalist Alexander von Humboldt spent five years traveling through South America at the start of the nineteenth century, measuring temperature, altitude, soil, and the plants that grew at each elevation. Climbing the Andean volcano Chimborazo, he noticed that the bands of vegetation he passed through resembled the sequence one would meet traveling from the tropics toward the poles. From thousands of such observations he drew a larger conclusion: the natural world is not a collection of separate curiosities but a single connected system, in which climate, geography, and living things shape one another. This view, unusual in his day, helped lay the groundwork for the modern science of ecology.",
+  "question": "Which choice best states the main idea of the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Humboldt’s measurements on Chimborazo were more precise than those of any earlier traveler in South America."
+    },
+    {
+      "id": "B",
+      "text": "Humboldt believed that the study of plants should be kept separate from the study of climate and geography."
+    },
+    {
+      "id": "C",
+      "text": "Humboldt’s wide-ranging observations led him to view nature as a single connected system, an idea that helped found ecology."
+    },
+    {
+      "id": "D",
+      "text": "Humboldt spent five years traveling through South America measuring temperature, altitude, and soil at many elevations."
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C. The passage moves from Humboldt's many measurements to the broad conclusion he drew from them—that nature is one connected system—and notes that this idea helped found ecology, which is its central point. A makes a precision comparison the text does not support; B reverses his view, since he tied plants, climate, and geography together rather than keeping them apart; and D restates a supporting detail, the five years of travel and measurement, without the conclusion that gives the passage its point."
+}

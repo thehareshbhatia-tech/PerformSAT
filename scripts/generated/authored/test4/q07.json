@@ -1,0 +1,34 @@
+{
+  "id": 407,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "craft-and-structure",
+  "skill": "text-structure-and-purpose",
+  "question": "Which choice best describes the function of the underlined sentence in the text as a whole?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "It introduces the claim, developed throughout the rest of the passage, that the timing of volcanic eruptions can now be predicted to the exact day."
+    },
+    {
+      "id": "B",
+      "text": "It offers a specific case in which the general precursors described just before it guided a concrete decision that saved many lives."
+    },
+    {
+      "id": "C",
+      "text": "It concedes that the gas emissions and earthquake swarms described earlier are usually too unreliable for officials to act upon."
+    },
+    {
+      "id": "D",
+      "text": "It explains why residents near Mount Pinatubo were at first reluctant to leave the area despite the official evacuation order."
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B. The passage describes general precursors to eruptions and then, in the underlined sentence, offers Mount Pinatubo as a case in which those precursors guided a decision that saved many lives. Choice A contradicts the passage, which says exact timing remains out of reach; choice C misreads a successful warning as an admission that the measurements are unreliable; and choice D invents a reluctance to evacuate that the text does not mention.",
+  "passage": "Predicting exactly when a volcano will erupt remains out of reach, but the days and weeks beforehand are rarely silent. As magma rises, it fractures rock and releases dissolved gases, producing swarms of small earthquakes and measurable changes in the gases venting at the surface. __At Mount Pinatubo in 1991, a sharp rise in sulfur dioxide emissions, together with shallow earthquake swarms, persuaded scientists to order evacuations days before the volcano's largest explosion.__ Tens of thousands of people left the area in time, and although the eruption was among the century's most violent, the death toll was far lower than the surrounding population would have suggested. Forecasters caution, however, that no two volcanoes behave alike, and that a precursor that proved decisive at one may be absent or misleading at another.",
+  "_meta": {
+    "anchor": "volcanology — eruption precursors and the 1991 Pinatubo evacuation (NEW)"
+  },
+  "module": 1
+}

@@ -1,0 +1,31 @@
+{
+  "id": 1245,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "standard-english-conventions",
+  "skill": "form-structure-and-sense",
+  "module": 2,
+  "passage": "Before recommending that a new pesticide be approved for use, the agency's lead reviewer built her case for caution methodically—reviewing the manufacturer's own safety studies line by line, commissioning independent tests of the compound's persistence in soil, and ____ the field reports of unexplained bee die-offs near sites where the chemical had already been sprayed abroad.",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "she tracked"
+    },
+    {
+      "id": "B",
+      "text": "to track"
+    },
+    {
+      "id": "C",
+      "text": "the tracking of"
+    },
+    {
+      "id": "D",
+      "text": "tracking"
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "The correct answer is D. The sentence lists three things the reviewer did, and the first two are expressed with \"-ing\" forms (\"reviewing,\" \"commissioning\"), so the third must match: \"tracking.\" \"She tracked\" inserts a new subject and verb, breaking the parallel series. \"To track\" shifts to an infinitive, which does not match the gerunds. \"The tracking of\" turns the action into a noun phrase, again departing from the established pattern."
+}

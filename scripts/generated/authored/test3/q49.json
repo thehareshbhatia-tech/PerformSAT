@@ -1,0 +1,34 @@
+{
+ "id": 349,
+ "module": 2,
+ "difficulty": "hard",
+ "band": 4,
+ "domain": "standard-english-conventions",
+ "skill": "form-structure-and-sense",
+ "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "it was Lise Meitner's experimental notes that went on"
+  },
+  {
+   "id": "B",
+   "text": "Lise Meitner went on"
+  },
+  {
+   "id": "C",
+   "text": "Lise Meitner's experimental notes went on"
+  },
+  {
+   "id": "D",
+   "text": "the experimental notes belonging to Lise Meitner went on"
+  }
+ ],
+ "correctAnswer": "B",
+ "explanation": "The correct answer is B, \"Lise Meitner went on.\" The introductory phrase \"Trained as a physicist in Berlin and forced to leave Germany in 1938\" must modify the subject of the main clause, and only a person can be trained as a physicist and forced to leave Germany. \"Lise Meitner went on to use her experimental notes … to recognize … that the barium Hahn had detected … was a sign of nuclear fission\" places that person in the subject position, so the modifier attaches correctly. The other options make \"experimental notes\" the subject — directly in C and D, and through a cleft construction in A — leaving the introductory phrase dangling, since notes cannot be trained or forced to flee.",
+ "_meta": {
+  "anchor": "Lise Meitner — physicist; fled Nazi Germany 1938; nuclear fission (Dec. 1938); dangling modifier"
+ },
+ "passage": "Trained as a physicist in Berlin and forced to leave Germany in 1938, ______ to use her experimental notes — sent to Sweden ahead of her — to recognize, in correspondence with Otto Hahn that December, that the barium Hahn had detected after bombarding uranium with neutrons was a sign of nuclear fission.",
+ "type": "multiple-choice"
+}

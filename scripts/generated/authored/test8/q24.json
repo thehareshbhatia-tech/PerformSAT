@@ -1,0 +1,31 @@
+{
+  "id": 824,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "expression-of-ideas",
+  "skill": "transitions",
+  "module": 1,
+  "passage": "For most of the nineteenth century, the architects who designed concert halls accepted the inherited craft of their profession, including its assumption that a room's sound could be judged only by ear once the hall was built. ______ the physicist Wallace Sabine objected to leaving acoustics to chance, and he worked out a measurable quantity, now called reverberation time, to replace the rules of thumb that builders had long found least reliable.",
+  "question": "Which choice completes the text with the most logical transition?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Nevertheless,"
+    },
+    {
+      "id": "B",
+      "text": "Therefore,"
+    },
+    {
+      "id": "C",
+      "text": "Likewise,"
+    },
+    {
+      "id": "D",
+      "text": "For instance,"
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A. The first sentence says that hall designers accepted the inherited craft, including the practice of judging a room's sound only after construction; the second says that Sabine nonetheless objected to leaving the result to chance and devised a measurable quantity instead, a contrast that calls for \"Nevertheless.\" \"Therefore\" would signal that his objection follows logically from that acceptance, which it does not; \"Likewise\" would mark agreement rather than the tension the passage sets up; and \"For instance\" would introduce an example of the inherited craft, but reverberation time is a break from it, not an illustration."
+}

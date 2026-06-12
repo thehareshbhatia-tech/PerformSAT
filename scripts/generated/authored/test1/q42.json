@@ -1,0 +1,31 @@
+{
+ "id": 142,
+ "type": "multiple-choice",
+ "difficulty": "medium",
+ "band": 3,
+ "domain": "information-and-ideas",
+ "skill": "inferences",
+ "module": 2,
+ "passage": "Reviewing decades of urban school reform in the United States, the sociologist of education Pedro Noguera has emphasized two persistent features of the policy landscape. First, the public schools serving the country's poorest urban neighborhoods have been asked to compensate for housing instability, concentrated joblessness, and unequal access to health care — inequities that originate outside the schoolhouse and over which educators have no direct control. Second, the reform packages most often pursued in those districts — new curricula, new accountability systems, new school leaders — have repeatedly produced short-term gains that fade once the surrounding neighborhood conditions reassert themselves. Noguera's account therefore suggests that durable academic improvement in such districts is unlikely unless reform efforts ______",
+ "question": "Which choice most logically completes the text?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "concentrate even more intensively on curriculum, accountability, and school leadership inside the schoolhouse, since those are the levers educators directly control."
+  },
+  {
+   "id": "B",
+   "text": "are written so that every urban district in the country adopts an identical package of housing, employment, and instructional measures simultaneously."
+  },
+  {
+   "id": "C",
+   "text": "abandon any focus on curriculum and accountability and rely solely on changes to housing and employment policy in the surrounding neighborhoods."
+  },
+  {
+   "id": "D",
+   "text": "are paired with neighborhood-level economic and housing policies that address the surrounding conditions the schools have been asked to compensate for."
+  }
+ ],
+ "correctAnswer": "D",
+ "explanation": "The passage establishes two premises. First, urban schools serving the poorest neighborhoods have been asked to compensate for inequities — housing instability, joblessness, unequal health care — that originate outside the school and lie beyond educators' direct control. Second, reform packages aimed only at what happens inside the schoolhouse (new curricula, accountability systems, school leaders) have produced short-term gains that fade once the surrounding neighborhood conditions reassert themselves. The minimum inference these two premises jointly force is that durable improvement is unlikely unless the reform reaches the surrounding conditions the schools have been asked to compensate for. Choice D captures exactly that paired claim, linking instructional reform to neighborhood-level economic and housing policy without overreaching.\n\nThe stem requires the conclusion that the two premises together license. Premise (1) alone tells us only that schools face external inequities; it does not by itself prescribe a remedy. Premise (2) alone tells us that inside-the-schoolhouse reform fades; it does not by itself say what would not fade. Only the joint claim — that improvement requires reform paired with neighborhood-level policy — is licensed."
+}

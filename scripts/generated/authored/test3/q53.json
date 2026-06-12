@@ -1,0 +1,45 @@
+{
+ "id": 353,
+ "module": 2,
+ "difficulty": "hard",
+ "band": 4,
+ "domain": "expression-of-ideas",
+ "skill": "rhetorical-synthesis",
+ "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "Mae Jemison, the first African American woman to fly in space, in 1992, trained as both a chemical engineer and a physician before joining the U.S. astronaut program."
+  },
+  {
+   "id": "B",
+   "text": "Since 2012, Jemison has led the 100 Year Starship initiative, which studies the engineering and social challenges of human interstellar travel within the next century."
+  },
+  {
+   "id": "C",
+   "text": "Across her post-NASA work — a consulting firm, a science camp, and the 100 Year Starship initiative — Jemison argues that long-horizon science needs investment in education and institutions, and that interim advances like energy storage repay terrestrial problems even if the mission never flies."
+  },
+  {
+   "id": "D",
+   "text": "After leaving NASA in 1993, Jemison founded a technology consulting firm and a science camp for teenagers, and since 2012 she has led the 100 Year Starship initiative."
+  }
+ ],
+ "correctAnswer": "C",
+ "explanation": "The correct answer is C. The goal is to emphasize the argument that unifies Jemison's post-NASA work. C names her three projects and then states the through-line that runs across them: long-horizon science requires investment in education and institutions, and the interim advances such programs produce repay terrestrial problems whether or not the long mission succeeds. A introduces Jemison through her spaceflight and training but states no unifying argument. B describes only the 100 Year Starship initiative, one project rather than the whole. D lists the three projects in order but never articulates the argument they share.",
+ "_meta": {
+  "anchor": "Mae Jemison — astronaut (STS-47, 1992); chemical engineer and physician; 100 Year Starship initiative"
+ },
+ "studentNotes": {
+  "intro": "While researching a topic, a student has taken the following notes:",
+  "bullets": [
+   "Mae Jemison was the first African American woman to fly in space, aboard the STS-47 mission in September 1992.",
+   "She trained as a chemical engineer and as a physician before joining the U.S. astronaut program.",
+   "After leaving NASA in 1993, Jemison founded a technology consulting firm and an international science camp for teenagers.",
+   "Since 2012 she has led the 100 Year Starship initiative, which studies the engineering and social challenges of human interstellar travel within the next century.",
+   "Across these projects, Jemison has emphasized that long-horizon scientific programs require active investment in education and social institutions, not only in hardware.",
+   "She frames the initiative's interim advances — energy storage, closed-loop life support — as goods that repay terrestrial problems whether or not the long-term mission is realized."
+  ],
+  "goal": "The student wants to emphasize the unifying argument that runs across Jemison's post-NASA work."
+ },
+ "type": "multiple-choice"
+}

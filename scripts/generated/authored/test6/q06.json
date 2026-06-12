@@ -1,0 +1,31 @@
+{
+  "id": 606,
+  "module": 1,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "craft-and-structure",
+  "skill": "text-structure-and-purpose",
+  "passage": "A true fresco is painted onto plaster while the plaster is still damp, so that the pigments bind chemically as the wall dries; once the plaster has set, no further change can be made unless the artist switches to paint laid over the dry surface. A conservator examining a damaged wall can therefore tell the original fresco from later retouching by studying whether the pigment sits within the plaster or merely on top of it. The distinction matters in practice, because the two layers age differently and call for different treatments.",
+  "question": "Which choice best states the main purpose of the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "To explain a physical difference between fresco and later retouching that bears on how a damaged wall is conserved."
+    },
+    {
+      "id": "B",
+      "text": "To argue that frescoes are more durable than any painting made on a dry plaster surface and so need less conservation."
+    },
+    {
+      "id": "C",
+      "text": "To describe the full range of pigments available to painters who worked in fresco."
+    },
+    {
+      "id": "D",
+      "text": "To trace the history of fresco painting from its origins to the present day."
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A. The passage explains how pigment binds into damp plaster, then uses that fact to show how a conservator can distinguish original fresco from later retouching, closing with why the distinction matters for treatment. That arc is explanatory and practical, which choice A captures. The text never claims frescoes outlast other paintings, never surveys the available pigments, and offers no history of the technique, so the other choices describe purposes the passage does not pursue."
+}

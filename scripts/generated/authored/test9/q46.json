@@ -1,0 +1,34 @@
+{
+  "id": 946,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "standard-english-conventions",
+  "skill": "boundaries",
+  "module": 2,
+  "passage": "The nickelodeon, the storefront theater that spread through American cities after 1905, owed its very name to a simple formula ______ a nickel's admission to a continuous program of short films that ran from morning until late into the night.",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "formula,"
+    },
+    {
+      "id": "B",
+      "text": "formula;"
+    },
+    {
+      "id": "C",
+      "text": "formula:"
+    },
+    {
+      "id": "D",
+      "text": "formula"
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The clause announces \"a simple formula,\" and a colon properly introduces the noun phrase that states it—\"a nickel's admission to a continuous program...\" So choice C is correct. A comma (A) merely runs the phrase on, a semicolon (B) needs a full independent clause after it, and omitting punctuation (D) fuses the announcement to its content.",
+  "_meta": {
+    "anchor": "the nickelodeon"
+  }
+}

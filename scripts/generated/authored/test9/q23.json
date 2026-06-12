@@ -1,0 +1,34 @@
+{
+  "id": 923,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "expression-of-ideas",
+  "skill": "transitions",
+  "module": 1,
+  "passage": "For decades, scholars knew the Moche of northern Peru chiefly through their ceramics and through tombs that looters had emptied, scattering artifacts without any record of how they had been arranged. ______ in 1987 the archaeologist Walter Alva excavated an intact royal tomb at Sipan, recovering gold and turquoise regalia in their original positions and letting researchers reconstruct Moche burial practice for the first time.",
+  "question": "Which choice completes the text with the most logical transition?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Likewise,"
+    },
+    {
+      "id": "B",
+      "text": "However,"
+    },
+    {
+      "id": "C",
+      "text": "Therefore,"
+    },
+    {
+      "id": "D",
+      "text": "For example,"
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "Before the blank, the Moche were known only through scattered, looted finds; after it, an intact tomb let researchers reconstruct burial practice. That reversal calls for a contrast transition, so \"However,\" choice B, is correct. \"Likewise\" and \"For example\" would signal similarity or illustration, and \"Therefore\" would claim the breakthrough followed logically from the earlier ignorance.",
+  "_meta": {
+    "anchor": "Walter Alva, Sipan royal tomb"
+  }
+}

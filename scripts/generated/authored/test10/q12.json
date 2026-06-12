@@ -1,0 +1,31 @@
+{
+ "id": 1012,
+ "type": "multiple-choice",
+ "difficulty": "hard",
+ "band": 4,
+ "domain": "information-and-ideas",
+ "skill": "command-of-evidence-textual",
+ "module": 1,
+ "passage": "Paleobotanists have proposed that plants could not colonize dry land until they evolved stomata—small adjustable pores that admit carbon dioxide for photosynthesis while limiting the water a plant loses to the air. On this account, stomata were not an incidental feature of early land plants but the very innovation that made life away from permanently wet ground possible. A botanist wants to test this claim using the fossil and living record of early land plants.",
+ "question": "Which finding, if true, would most directly support the claim?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "The earliest land plants known to have grown in seasonally dry settings already possessed stomata, while contemporaneous plants restricted to waterlogged ground typically lacked them."
+  },
+  {
+   "id": "B",
+   "text": "Stomata in modern plants open and close in response to the intensity of light as well as to the dryness of the air immediately around the leaf."
+  },
+  {
+   "id": "C",
+   "text": "Some early land plants reproduced by releasing spores that could be carried considerable distances by the wind."
+  },
+  {
+   "id": "D",
+   "text": "The oldest known fossils of land plants are often preserved in fine-grained rock that formed in calm, shallow water."
+  }
+ ],
+ "correctAnswer": "A",
+ "explanation": "Choice A is correct. The claim is causal: stomata were the innovation that let plants live away from permanently wet ground. Evidence that the earliest plants in seasonally dry habitats had stomata while those confined to wet ground did not links the trait directly to survival in dryness, which is what the claim needs. Choice B describes how modern stomata respond to light, a mechanism that says nothing about colonizing dry land. Choice C concerns spore dispersal, a different function. Choice D is about how fossils were preserved, not about what allowed plants to live in dry settings."
+}

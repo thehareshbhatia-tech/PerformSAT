@@ -1,0 +1,35 @@
+{
+  "id": 232,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "craft-and-structure",
+  "skill": "text-structure-and-purpose",
+  "module": 2,
+  "passage": "The following text is from Willa Cather's 1913 novel O Pioneers! The novel opens on a small town on the Nebraska prairie.\n\nOne January day, thirty years ago, the little town of Hanover, anchored on a windy Nebraska tableland, was trying not to be blown away. A mist of fine snowflakes was curling and eddying about the cluster of low drab buildings huddled on the gray prairie, under a gray sky. The dwelling-houses were set about haphazard on the tough prairie sod; some of them looked as if they had been moved in overnight, and others as if they were straying off by themselves, headed straight for the open plain. None of them had any appearance of permanence, and the howling wind blew under them as well as over them.",
+  "question": "Which choice best states the main purpose of the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "To explain why early settlers chose to build the town of Hanover on an exposed Nebraska tableland."
+    },
+    {
+      "id": "B",
+      "text": "To contrast the appearance of Hanover's small dwelling-houses with the grander public buildings that stood at the center of town."
+    },
+    {
+      "id": "C",
+      "text": "To recount the measures Hanover's residents took to protect their houses from a winter storm."
+    },
+    {
+      "id": "D",
+      "text": "To convey the fragility and impermanence of a small prairie town by describing it in wind and winter weather."
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "The correct answer is D. Every detail of the description works toward one impression: the town is barely holding its ground against the prairie. Hanover is \"trying not to be blown away,\" its buildings huddle under a gray sky, the houses look as if they had been \"moved in overnight\" or were \"straying off by themselves,\" and none has \"any appearance of permanence.\" The text's purpose is to convey that fragile, provisional quality. Choice A fails because the text never explains why the town was built where it is; the tableland is simply where Hanover sits. Choice B invents a contrast the text does not draw—no public buildings are described at all. Choice C turns the scene into a narrative of action, but the residents never appear; the passage describes how the town looks in the wind, not what anyone does about it.",
+  "_meta": {
+    "quoteVerify": true,
+    "source": "Willa Cather, O Pioneers! (1913), Part I, Chapter 1, opening lines"
+  }
+}

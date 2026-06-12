@@ -1,0 +1,31 @@
+{
+  "id": 707,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "craft-and-structure",
+  "skill": "text-structure-and-purpose",
+  "module": 1,
+  "passage": "Many animals that look silent to us are in constant acoustic conversation. Using underwater microphones, researchers recording a coral reef at night captured a dense layer of clicks, grunts, and pops produced by fish and invertebrates. When they compared healthy reefs with degraded ones, the healthy reefs proved markedly louder and more varied in their sounds. The team proposes that this \"soundscape\" could serve as a quick, inexpensive gauge of reef health—and even that broadcasting the recorded sounds of a thriving reef might help lure young fish and corals to settle on reefs being restored.",
+  "question": "Which choice best describes the overall structure of the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "It defines a scientific term, traces the history of that term’s use in marine biology, and then questions whether the term should be retained at all."
+    },
+    {
+      "id": "B",
+      "text": "It describes a surprising observation about reef sounds, reports a comparison the observation made possible, and then notes potential uses of the finding."
+    },
+    {
+      "id": "C",
+      "text": "It presents two competing explanations for why reefs produce sound and argues that one of them is more convincing."
+    },
+    {
+      "id": "D",
+      "text": "It recounts a single recording session and then explains why those particular results could not later be replicated."
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B. The passage moves from an observation (reefs are full of sound), to a comparison that observation enabled (healthy reefs are louder and more varied than degraded ones), to possible applications (monitoring reef health and attracting settlers to restored reefs). Choice A describes a history and a debate over terminology that never appear. Choice C invents two rival explanations, and Choice D claims the results failed to replicate, which the text does not say."
+}

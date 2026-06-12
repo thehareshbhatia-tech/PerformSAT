@@ -1,0 +1,34 @@
+{
+ "id": 352,
+ "module": 2,
+ "difficulty": "hard",
+ "band": 4,
+ "domain": "expression-of-ideas",
+ "skill": "transitions",
+ "question": "Which choice completes the text with the most logical transition?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "For instance,"
+  },
+  {
+   "id": "B",
+   "text": "As a result,"
+  },
+  {
+   "id": "C",
+   "text": "Even so,"
+  },
+  {
+   "id": "D",
+   "text": "In other words,"
+  }
+ ],
+ "correctAnswer": "C",
+ "explanation": "The correct answer is C, \"Even so,\". The passage explains that several systems exist for writing dance down, the most widely used being Labanotation, which records the direction, level, and timing of each motion. The sentence after the blank then registers a limitation: these systems remain far less standardized than musical notation, so a dance written in one often cannot be read by someone trained in another. The relation is concessive — the systems exist, yet they fall short — which \"Even so,\" marks. \"As a result,\" would make the limitation a consequence of the systems' existence; \"For instance,\" would offer it as an example; and \"In other words,\" would present it as a restatement, when it adds a new, contrasting point.",
+ "_meta": {
+  "anchor": "Dance notation; Labanotation and its limits [theme: dance notation]"
+ },
+ "passage": "Choreography is notoriously hard to preserve: unlike a musical score, a dance lives mainly in the bodies of the performers who learn it. Several systems have been devised to write movement down, the most widely used being Labanotation, which records the direction, level, and timing of each motion on a vertical staff. ______ such systems remain far less standardized than musical notation, so a dance recorded in one system often cannot be read by someone trained in another.",
+ "type": "multiple-choice"
+}

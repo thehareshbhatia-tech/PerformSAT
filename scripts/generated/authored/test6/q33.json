@@ -1,0 +1,31 @@
+{
+  "id": 633,
+  "module": 2,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "craft-and-structure",
+  "skill": "text-structure-and-purpose",
+  "passage": "Economists who want to know whether a policy works increasingly run field experiments. A typical study begins by identifying a population, say, workers at a set of firms, and randomly sorting them into a group that receives the policy and a group that does not. The researchers then track an outcome, such as savings rates, over time. *Only after the two groups' results are compared can the team attribute any difference to the policy rather than to preexisting differences among the people involved.* The design's strength lies in that final comparison.",
+  "question": "Which choice best describes the overall structure of the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "It defines a key term, traces the history of that term, and then questions whether the term remains useful to researchers today."
+    },
+    {
+      "id": "B",
+      "text": "It presents a problem, rejects one proposed solution, and then defends a competing solution."
+    },
+    {
+      "id": "C",
+      "text": "It describes the steps of a research design in sequence and then identifies the feature that gives the design its value."
+    },
+    {
+      "id": "D",
+      "text": "It compares two rival research designs and argues that one is consistently superior to the other."
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C. The passage walks through a field experiment step by step, choosing a population, randomly splitting it, tracking an outcome, and then comparing the groups, and closes by naming the final comparison as the source of the design's strength. That sequence-then-significance shape is what choice C describes. Choice A wrongly casts the passage as a history of a term, choice B imposes a problem-and-rival-solutions frame the text never uses, and choice D claims a comparison of two designs, though only one design is discussed."
+}

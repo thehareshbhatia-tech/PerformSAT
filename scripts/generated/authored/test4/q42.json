@@ -1,0 +1,34 @@
+{
+  "id": 442,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "information-and-ideas",
+  "skill": "inferences",
+  "question": "Which choice most logically completes the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "each of those years followed a volcanic eruption large enough to cool the whole planet at the same time."
+    },
+    {
+      "id": "B",
+      "text": "the trees on the different continents all happened to be the same age when those narrow rings formed."
+    },
+    {
+      "id": "C",
+      "text": "narrow rings are, in general, a poor guide to the temperature of the year in which they formed."
+    },
+    {
+      "id": "D",
+      "text": "the forests on each separate continent were experiencing their own entirely unrelated spells of cold, dry weather."
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A. Narrow rings that appear in the same year on continents with otherwise unrelated climates cannot be the work of ordinary regional weather, so the most reasonable explanation is a planet-wide cooling — a large volcanic eruption that cooled the whole world at once. Choice B says nothing about why the cold year is global; choice C contradicts the passage's use of rings as temperature records; and choice D returns to the unrelated regional weather the passage rules out.",
+  "passage": "When a large volcano erupts, it can throw enough ash and gas into the upper atmosphere to cool the entire planet for a year or two. Trees record such cold years in their growth rings, which are unusually narrow when the growing season is short and cold. Researchers comparing ring records from forests on different continents have found certain narrow rings that appear in the same year everywhere they look, even in regions thousands of miles apart with otherwise unrelated climates. Because no ordinary regional weather could produce a cold year on every continent at once, the most reasonable explanation for these globally synchronized narrow rings is that ______",
+  "_meta": {
+    "anchor": "dendrochronology — globally synchronous narrow rings and volcanic cooling"
+  },
+  "module": 2
+}

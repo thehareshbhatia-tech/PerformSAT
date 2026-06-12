@@ -1,0 +1,31 @@
+{
+  "id": 1209,
+  "type": "multiple-choice",
+  "difficulty": "easy",
+  "band": 2,
+  "domain": "information-and-ideas",
+  "skill": "central-ideas-and-details",
+  "module": 1,
+  "passage": "For decades, planners responded to traffic congestion by widening highways, assuming that adding lanes would let a fixed number of trips flow more freely. Transportation economists studying metropolitan road networks have challenged that assumption. Drawing on data from many cities, they find that new road capacity tends to be filled almost as quickly as it is built: lower travel times encourage people to drive more, to drive farther, and to switch from other modes, until congestion returns to roughly its former level. This pattern, sometimes called induced demand, implies that a city cannot reliably build its way out of congestion. The same researchers argue that charging more to drive at peak times does more to manage demand than expanding the roadway ever has.",
+  "question": "Which choice best states the main idea of the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Studies of road networks find that added highway capacity induces driving that restores congestion, so researchers favor peak-time pricing over expansion."
+    },
+    {
+      "id": "B",
+      "text": "Transportation economists have gathered data on traffic patterns from many different metropolitan areas over a period of several decades."
+    },
+    {
+      "id": "C",
+      "text": "Widening highways lowers travel times, which over time encourages people to drive more often and over considerably longer distances than they did before."
+    },
+    {
+      "id": "D",
+      "text": "Charging drivers more to use roads at peak times remains politically difficult, even though planners once chose to widen highways instead."
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A. The passage's central claim is that extra capacity gets absorbed by induced demand, restoring congestion, which leads the economists to prefer peak-time pricing. A states exactly that. B reports only how the data were collected, a supporting detail. C describes one mechanism within the argument—why added lanes fill up—but not the conclusion the passage builds toward. D introduces the politics of pricing, which the text never discusses."
+}

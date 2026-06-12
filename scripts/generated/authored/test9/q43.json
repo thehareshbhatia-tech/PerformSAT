@@ -1,0 +1,34 @@
+{
+  "id": 943,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "information-and-ideas",
+  "skill": "inferences",
+  "module": 2,
+  "passage": "In the terraced Mughal gardens of Kashmir, water is carried from a single high spring down a central channel, dropping from one level to the next over carved stone ramps. The designers cut these ramps with ridged or faceted surfaces rather than leaving them smooth. Against a smooth chute, falling water slides down in a quiet sheet; against a ridged one, it breaks into turbulence that catches the light and can be heard across the garden. Because the gardens were built without pumps and the flow at any chute is fixed by the spring above, it can be inferred that ______",
+  "question": "Which choice most logically completes the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "the gardens must have relied on hidden pumps to produce the turbulence seen at the chutes, since gravity alone could not break the water into spray."
+    },
+    {
+      "id": "B",
+      "text": "the ridged surfaces were chosen at least partly for their visible and audible effect on the falling water, not only to move it downhill."
+    },
+    {
+      "id": "C",
+      "text": "smooth chutes would have carried more water per minute than ridged chutes of the same size."
+    },
+    {
+      "id": "D",
+      "text": "the sound and sparkle of the water depended on increasing the total flow released from the spring above."
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "Since the flow at each chute is fixed and no pumps are involved, the only thing the ridged surface changes is how the water behaves as it falls—breaking into light-catching, audible turbulence. The most supported inference is that the ridges were chosen partly for that sensory effect, not merely to move water downhill, which is choice B. Choice A invents pumps the passage rules out, C makes an unsupported claim about flow rate, and D wrongly ties the effect to increasing the spring's flow.",
+  "_meta": {
+    "anchor": "Mughal terraced garden hydraulics, Kashmir"
+  }
+}

@@ -1,0 +1,40 @@
+{
+ "id": 148,
+ "type": "multiple-choice",
+ "difficulty": "hard",
+ "band": 4,
+ "domain": "standard-english-conventions",
+ "skill": "boundaries",
+ "module": 2,
+ "passage": "In her landmark 1989 article \"Demarginalizing the Intersection of Race and Sex,\" Kimberlé Crenshaw, then a young law professor at UCLA, identified a single blind spot in antidiscrimination ______ the doctrine's treatment of race and sex as mutually exclusive axes, an analytical move that renders claims by Black women, whose grievances arise at the intersection of those categories, systematically invisible to the courts.",
+ "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "doctrine:"
+  },
+  {
+   "id": "B",
+   "text": "doctrine,"
+  },
+  {
+   "id": "C",
+   "text": "doctrine"
+  },
+  {
+   "id": "D",
+   "text": "doctrine;"
+  }
+ ],
+ "correctAnswer": "A",
+ "explanation": "The correct answer is A, \"doctrine:\". The material before the blank is a complete independent clause: \"Kimberlé Crenshaw, then a young law professor at UCLA, identified a single blind spot in antidiscrimination doctrine.\" The material after the blank is a noun-phrase amplification that defines what the blind spot actually is — \"the doctrine's treatment of race and sex as mutually exclusive axes, an analytical move that renders claims by Black women, whose grievances arise at the intersection of those categories, systematically invisible to the courts.\" The head noun \"treatment\" anchors a long appositive (the apposed phrase \"an analytical move that renders…\" sits inside, modified by the relative clause \"whose grievances arise…\"), and there is no main verb whose subject is \"the doctrine's treatment\"; the whole thing is a single noun phrase that names and elaborates the \"blind spot\" just announced. Standard English uses a colon at exactly this boundary — a complete clause that has just announced something, followed by an extended noun-phrase amplification that defines or specifies it. Choice A supplies that colon, allowing the post-colon material to land as a definitional amplification of \"blind spot.\"",
+ "_meta": {
+  "rule": "colon to introduce a defining noun-phrase amplification (with internal commas) after a complete independent clause",
+  "anchor": "Kimberlé Crenshaw — \"Demarginalizing the Intersection of Race and Sex\" (1989), UCLA School of Law; intersectionality, antidiscrimination doctrine, Black women's claims at race/sex intersection",
+  "distractors": {
+   "B": "scope-shift (semicolon as IC-IC marker — fails because RHS is a noun phrase, not an IC)",
+   "C": "surface-match (comma as appositive opener — fails when appositive has internal commas)",
+   "D": "inverse (no punctuation)"
+  }
+ }
+}

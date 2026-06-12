@@ -1,0 +1,44 @@
+{
+  "id": 454,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "expression-of-ideas",
+  "skill": "rhetorical-synthesis",
+  "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Maria Sibylla Merian, a naturalist and illustrator of the late seventeenth and early eighteenth centuries, produced two major works, each combining patient scientific observation with the detailed engraving for which she became known."
+    },
+    {
+      "id": "B",
+      "text": "Merian's 1679 study traced the life cycles of European caterpillars close to home, while her 1705 Suriname work grew out of two years of fieldwork in South America and showed tropical insects with the plants they fed on."
+    },
+    {
+      "id": "C",
+      "text": "In 1705, Merian published Metamorphosis insectorum Surinamensium, a work based on two years of fieldwork in the South American colony of Suriname."
+    },
+    {
+      "id": "D",
+      "text": "Both of Merian's major works combined careful scientific observation with the detailed, artistic engravings for which she became widely known."
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B. The goal is to emphasize a difference between Merian's 1679 European study and her 1705 Suriname work, and choice B contrasts them: caterpillars studied close to home versus tropical insects documented after fieldwork in South America. Choice A and choice D dwell on what the two works share, and choice C describes only the later work.",
+  "studentNotes": {
+    "intro": "While researching a topic, a student has taken the following notes:",
+    "bullets": [
+      "Maria Sibylla Merian was a naturalist and illustrator active in the late seventeenth and early eighteenth centuries.",
+      "In 1679 she published a study of European caterpillars, documenting how each species transformed from larva to adult.",
+      "In 1705 she published Metamorphosis insectorum Surinamensium, based on two years of fieldwork in the South American colony of Suriname.",
+      "The Suriname work depicted tropical insects together with the specific plants they fed on, in large, vivid illustrations.",
+      "Both works combined careful scientific observation with detailed, artistic engravings."
+    ],
+    "goal": "The student wants to emphasize a difference between Merian's 1679 European study and her 1705 Suriname work."
+  },
+  "_meta": {
+    "anchor": "Maria Sibylla Merian — European caterpillar study vs. Suriname insects"
+  },
+  "module": 2
+}

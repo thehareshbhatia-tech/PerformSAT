@@ -1,0 +1,35 @@
+{
+  "id": 832,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "craft-and-structure",
+  "skill": "text-structure-and-purpose",
+  "module": 2,
+  "passage": "The following text is from Paul Laurence Dunbar's poem \"We Wear the Mask,\" published in 1896.\n\nWe wear the mask that grins and lies, / It hides our cheeks and shades our eyes,— / This debt we pay to human guile; / With torn and bleeding hearts we smile, / And mouth with myriad subtleties. // Why should the world be over-wise, / In counting all our tears and sighs? / Nay, let them only see us, while / We wear the mask. // We smile, but, O great Christ, our cries / To thee from tortured souls arise. / We sing, but oh the clay is vile / Beneath our feet, and long the mile; / But let the world dream otherwise, / We wear the mask!",
+  "question": "Which choice best describes the overall structure of the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "The speaker names a concealing outward expression, then reveals the suffering it hides and insists the concealment continue."
+    },
+    {
+      "id": "B",
+      "text": "The speaker recalls a past sorrow, then explains how it was gradually overcome through the passage of time."
+    },
+    {
+      "id": "C",
+      "text": "The speaker poses a question about human nature, then answers it by describing a single remembered scene."
+    },
+    {
+      "id": "D",
+      "text": "The speaker praises an admired figure, then urges readers to imitate that figure’s composure."
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A. The poem opens by naming the mask, the grinning face that hides the speakers' true feelings; the middle and final stanzas then disclose the \"torn and bleeding hearts\" and \"tortured souls\" beneath it, and each stanza closes by insisting that the mask stay on (\"We wear the mask\"). B invents a sorrow overcome over time, but the poem ends with the concealment still in force; C treats the rhetorical question as the structuring move, though it is one moment within a larger pattern; and D describes praise of an admired figure that the poem does not contain.",
+  "_meta": {
+    "quoteVerify": true,
+    "source": "Paul Laurence Dunbar, \"We Wear the Mask\" (1896), complete poem"
+  }
+}

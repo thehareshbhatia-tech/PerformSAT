@@ -1,0 +1,73 @@
+{
+  "id": 1213,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "information-and-ideas",
+  "skill": "command-of-evidence-quantitative",
+  "module": 1,
+  "passage": "Astronomers measure the average iron abundance of a galaxy's stars — its mean stellar metallicity, written [Fe/H] — to gauge how much chemical enrichment the galaxy's stars have inherited from prior generations. In a 2013 paper in the Astrophysical Journal, Evan Kirby and colleagues compared mean [Fe/H] values across five dwarf spheroidal galaxies orbiting the Milky Way and reported that, despite the galaxies' shared classification, one galaxy stood out from the rest because _______",
+  "questionTable": {
+    "type": "table",
+    "caption": "Mean stellar metallicity [Fe/H] of selected dwarf galaxies (Kirby et al., 2013, Astrophysical Journal)",
+    "headers": [
+      "Galaxy",
+      "Type",
+      "Mean [Fe/H]",
+      "Number of stars analyzed"
+    ],
+    "rows": [
+      [
+        "Sculptor",
+        "dSph",
+        "-1.68",
+        "376"
+      ],
+      [
+        "Fornax",
+        "dSph",
+        "-1.04",
+        "675"
+      ],
+      [
+        "Sextans",
+        "dSph",
+        "-1.94",
+        "141"
+      ],
+      [
+        "Leo I",
+        "dSph",
+        "-1.43",
+        "827"
+      ],
+      [
+        "Draco",
+        "dSph",
+        "-1.93",
+        "298"
+      ]
+    ]
+  },
+  "question": "Which choice most effectively uses data from the table to complete the statement?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Fornax has a mean [Fe/H] of -1.04, the highest (least negative) value among the five galaxies and well above the next-highest value of -1.43 for Leo I."
+    },
+    {
+      "id": "B",
+      "text": "Sextans has a mean [Fe/H] of -1.94, the highest value of the five galaxies and a clear sign of advanced chemical enrichment."
+    },
+    {
+      "id": "C",
+      "text": "Leo I, with 827 stars analyzed, has the largest sample size of the five galaxies surveyed by Kirby and colleagues."
+    },
+    {
+      "id": "D",
+      "text": "Sculptor has a mean [Fe/H] of -1.68, more enriched than Fornax's -1.04 and slightly less enriched than Leo I's -1.43."
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A. The statement needs the galaxy that \"stood out from the rest,\" and the table shows Fornax at −1.04, the least negative—and therefore highest—value, far above the next-highest, Leo I at −1.43. A uses those figures correctly. B misreads the scale: −1.94 is the lowest, not the highest, value, so Sextans does not stand out for enrichment. C cites the sample size, which is not what makes a galaxy unusual in metallicity. D states the relationships among three galaxies accurately enough but does not identify the one outlier the statement calls for."
+}

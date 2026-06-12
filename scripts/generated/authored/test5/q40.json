@@ -1,0 +1,34 @@
+{
+  "id": 540,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "information-and-ideas",
+  "skill": "command-of-evidence-quantitative",
+  "module": 2,
+  "passage": "A planet's orbital period—the time it takes to complete one trip around the Sun—grows with its average distance from the Sun, but not in simple proportion. An astronomy student examining a table of orbital data for six planets argues that period increases faster than distance: a planet several times as far from the Sun as another takes disproportionately longer, not just proportionally longer, to complete an orbit. The student supports the claim with data from the table.\n\nAverage distance from the Sun (in astronomical units, AU) and orbital period for six planets\n| Planet  | Distance (AU) | Period (Earth years) |\n|---------|---------------|----------------------|\n| Mercury | 0.39          | 0.24                 |\n| Venus   | 0.72          | 0.62                 |\n| Earth   | 1.00          | 1.00                 |\n| Mars    | 1.52          | 1.88                 |\n| Jupiter | 5.20          | 11.9                 |\n| Saturn  | 9.58          | 29.4                 |",
+  "question": "Which choice most effectively uses data from the table to support the claim?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Saturn, about 9.6 times as far from the Sun as Earth, takes about 29 times as long to orbit, and Jupiter, at about 5.2 times Earth's distance, takes about 12 times as long."
+    },
+    {
+      "id": "B",
+      "text": "Mercury has both the smallest average distance shown, at 0.39 AU, and the shortest orbital period shown, at 0.24 Earth years, of the six planets listed in the table."
+    },
+    {
+      "id": "C",
+      "text": "Earth, by definition, lies at a distance of exactly 1.00 AU and completes one orbit in exactly 1.00 Earth years, providing the baseline for the table's other values."
+    },
+    {
+      "id": "D",
+      "text": "Jupiter's period of 11.9 years exceeds the combined orbital periods of Mercury, Venus, Earth, and Mars, which together total less than four Earth years."
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A. The student's claim is about pace: period must grow faster than distance does. Choice A makes that comparison directly, twice—Saturn is roughly 9.6 times as far from the Sun as Earth yet takes about 29 times as long to orbit, and Jupiter is about 5.2 times as far yet takes about 12 times as long—so in both cases the period ratio outruns the distance ratio. Choice B shows only that the nearest planet also has the shortest period, which is consistent with period merely keeping pace with distance. Choice C restates the table's baseline without comparing anything. Choice D adds up four periods to make a point about Jupiter that says nothing about how period scales with distance.",
+  "_meta": {
+    "anchor": "planetary period-distance scaling (standard orbital data); generic student framing"
+  }
+}

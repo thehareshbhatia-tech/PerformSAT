@@ -1,0 +1,34 @@
+{
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "craft-and-structure",
+  "skill": "words-in-context",
+  "question": "Which choice completes the text with the most logical and precise word or phrase?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "complicated"
+    },
+    {
+      "id": "B",
+      "text": "replaced"
+    },
+    {
+      "id": "C",
+      "text": "abandoned"
+    },
+    {
+      "id": "D",
+      "text": "accelerated"
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "The correct answer is D, \"accelerated.\" The sentence contrasts the old method, which \"consumed months\" of handwork, with robots that now run thousands of trials, so the robots have sped the process up. \"Accelerated\" captures that. \"Replaced\" is tempting, but the trial-and-error process still happens—just faster—so it is accelerated rather than replaced; \"abandoned\" wrongly suggests the search was given up; and \"complicated\" reverses the sense, since the robots streamline the work rather than make it harder.",
+  "passage": "Protein crystallographers face a paradox: to learn a molecule's shape, they must first coax it into a crystal, but the conditions that make a protein crystallize are notoriously unpredictable. For decades, finding those conditions was largely a matter of trial and error, with researchers mixing thousands of slightly different chemical cocktails in the hope that one would work. Robotic systems that prepare and monitor such trials by the thousand have since ______ a process that once consumed months of painstaking handwork.",
+  "_meta": {
+    "anchor": "crystallography: robotic high-throughput protein crystallization screening"
+  },
+  "id": 1129,
+  "module": 2
+}

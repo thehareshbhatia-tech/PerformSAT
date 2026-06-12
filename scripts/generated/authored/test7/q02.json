@@ -1,0 +1,31 @@
+{
+  "id": 702,
+  "type": "multiple-choice",
+  "difficulty": "easy",
+  "band": 2,
+  "domain": "craft-and-structure",
+  "skill": "words-in-context",
+  "module": 1,
+  "passage": "Genome-wide studies have established that human populations living in Africa carry more genetic variation than those of the rest of the world combined—a legacy of the continent's especially deep evolutionary history. Because so many distinct lineages trace back to ancestral African populations, these groups ______ a wealth of inherited variants found nowhere else, variants that researchers need in order to understand both human evolution and the genetic roots of disease.",
+  "question": "Which choice completes the text with the most logical and precise word or phrase?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "harbor"
+    },
+    {
+      "id": "B",
+      "text": "display"
+    },
+    {
+      "id": "C",
+      "text": "lack"
+    },
+    {
+      "id": "D",
+      "text": "express"
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A. The passage says African populations contain an unusually large store of genetic variants, so they \"harbor\" that variation — the word captures the sense of holding or containing within. \"Display\" suggests outward showing rather than possessing a reservoir, \"lack\" reverses the meaning, and \"express\" is a narrower biological term about activating genes that does not fit the idea of carrying many inherited variants."
+}

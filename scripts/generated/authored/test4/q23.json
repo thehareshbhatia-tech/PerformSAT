@@ -1,0 +1,34 @@
+{
+  "id": 423,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "expression-of-ideas",
+  "skill": "transitions",
+  "question": "Which choice completes the text with the most logical transition?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "In addition,"
+    },
+    {
+      "id": "B",
+      "text": "For instance,"
+    },
+    {
+      "id": "C",
+      "text": "However,"
+    },
+    {
+      "id": "D",
+      "text": "Therefore,"
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C. The third sentence pushes back against the popular reading reported in the second — that the essay was a wholesale dismissal of the literature — by saying the essay is more carefully calibrated than that, so a contrast transition fits. \"In addition\" (A) signals continuation; \"For instance\" (B) signals an example; and \"Therefore\" (D) signals a consequence, none of which captures the correction the sentence makes.",
+  "passage": "In a 2005 essay that has been cited tens of thousands of times, the meta-research scientist John Ioannidis argued that under common conditions — small samples, modest prior probabilities, and analytic flexibility — the proportion of published statistically significant findings that reflect real effects is often below one half. The argument was sometimes read as a wholesale dismissal of the published literature. ______ the essay is more carefully calibrated than that headline reading suggests: it specifies the structural conditions under which a high false-positive rate is expected and does not claim that most findings in well-designed studies are mistaken.",
+  "_meta": {
+    "anchor": "John Ioannidis — 'Why Most Published Research Findings Are False' (entity_keep); contrast"
+  },
+  "module": 1
+}

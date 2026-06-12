@@ -1,0 +1,31 @@
+{
+  "id": 604,
+  "module": 1,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "craft-and-structure",
+  "skill": "words-in-context",
+  "passage": "When the Lumiere brothers projected films for a paying audience in 1895, some viewers reportedly flinched at the image of an oncoming train. Early commentators treated such reactions as proof that audiences could not yet tell a moving picture from reality. Later historians find this explanation ______, noting that the same audiences calmly watched dozens of other scenes and returned for more, behavior that hardly suggests genuine confusion about what they were seeing.",
+  "question": "Which choice completes the text with the most logical and precise word or phrase?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "persuasive"
+    },
+    {
+      "id": "B",
+      "text": "inevitable"
+    },
+    {
+      "id": "C",
+      "text": "flattering"
+    },
+    {
+      "id": "D",
+      "text": "overstated"
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "The correct answer is D, \"overstated.\" The second half of the passage gives evidence against the early explanation: audiences watched many scenes calmly and came back, which does not look like real confusion. To say historians find the explanation \"overstated\" is to say they think it claims more than the evidence supports, which matches that contrast. \"Persuasive\" would mean the historians accept the explanation, the opposite of the point. \"Inevitable\" and \"flattering\" describe qualities the passage never raises; the issue is whether the claim is exaggerated, not whether it is unavoidable or complimentary."
+}

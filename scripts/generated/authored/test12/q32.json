@@ -1,0 +1,35 @@
+{
+  "id": 1232,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "craft-and-structure",
+  "skill": "text-structure-and-purpose",
+  "module": 2,
+  "passage": "The following text is from Robert Frost's poem \"Stopping by Woods on a Snowy Evening,\" published in 1923.\n\nWhose woods these are I think I know.\nHis house is in the village though;\nHe will not see me stopping here\nTo watch his woods fill up with snow.\n\nMy little horse must think it queer\nTo stop without a farmhouse near\nBetween the woods and frozen lake\nThe darkest evening of the year.\n\nHe gives his harness bells a shake\nTo ask if there is some mistake.\nThe only other sound's the sweep\nOf easy wind and downy flake.\n\nThe woods are lovely, dark and deep,\nBut I have promises to keep,\nAnd miles to go before I sleep,\nAnd miles to go before I sleep.",
+  "question": "Which choice best describes the overall structure of the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "The speaker stops on a journey to watch snow fall in a quiet woods, dwells on the stillness, then turns back to his obligations and the long way still ahead."
+    },
+    {
+      "id": "B",
+      "text": "The speaker recounts buying a wooded property on the edge of a nearby village, then describes how he returns to it each winter to watch the falling snow collect among the bare trees."
+    },
+    {
+      "id": "C",
+      "text": "The speaker raises a question about why the silent woods seem so inviting, weighs several possible answers, and rejects each one before deciding to ride on."
+    },
+    {
+      "id": "D",
+      "text": "The speaker describes becoming lost in a blizzard, then explains how the sound of his horse's bells guided a farmer to lead him safely home."
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A. The poem opens with the speaker halting by a woods to watch it \"fill up with snow,\" lingers over the hushed scene—the horse's puzzlement, the \"easy wind and downy flake\"—and closes by turning away because he has \"promises to keep\" and \"miles to go before I sleep.\" A traces that movement from pausing to lingering to moving on. B takes the passing mention of the owner's house and invents a story of buying property. C imposes a question-and-rejection pattern the poem does not follow. D supplies a tale of getting lost and being rescued that the poem never tells.",
+  "_meta": {
+    "quoteVerify": true,
+    "source": "Robert Frost, \"Stopping by Woods on a Snowy Evening\" (1923)"
+  }
+}

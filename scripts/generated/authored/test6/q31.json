@@ -1,0 +1,31 @@
+{
+  "id": 631,
+  "module": 2,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "craft-and-structure",
+  "skill": "words-in-context",
+  "passage": "Octopuses present neuroscientists with a puzzle. Roughly two-thirds of an octopus's neurons lie not in its central brain but in its arms, each of which can taste, grip, and respond to obstacles largely on its own. Some researchers therefore describe the animal's intelligence as ______ rather than centralized: cognition distributed across a body whose parts can act with a striking degree of local independence.",
+  "question": "Which choice completes the text with the most logical and precise word or phrase?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "inherited"
+    },
+    {
+      "id": "B",
+      "text": "effortless"
+    },
+    {
+      "id": "C",
+      "text": "deliberate"
+    },
+    {
+      "id": "D",
+      "text": "decentralized"
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "The correct answer is D, \"decentralized.\" The sentence contrasts the word in the blank with \"centralized\" and explains that an octopus's cognition is spread across arms that can act on their own; \"decentralized\" names exactly that distribution of control away from a single center. \"Inherited\" concerns where a trait comes from, not how it is organized. \"Effortless\" describes ease rather than structure, and \"deliberate\" speaks to intention, neither of which captures the spread-out arrangement the passage describes."
+}

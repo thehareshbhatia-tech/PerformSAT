@@ -1,0 +1,31 @@
+{
+ "id": 112,
+ "type": "multiple-choice",
+ "difficulty": "medium",
+ "band": 3,
+ "domain": "information-and-ideas",
+ "skill": "command-of-evidence-textual",
+ "module": 1,
+ "passage": "Forest ecologist Suzanne Simard has proposed that trees are linked below ground by networks of fungal threads, and that older \"hub\" trees can pass carbon through these connections to nearby seedlings growing in shade. A research team wants to test the more specific claim that this carbon moves preferentially toward shaded seedlings rather than being shared at random among a hub tree's neighbors.",
+ "question": "Which finding, if true, would most directly support the team's hypothesis?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "Shaded seedlings linked to a hub tree received measurably more of that tree's labeled carbon than equally linked seedlings growing in full sunlight did."
+  },
+  {
+   "id": "B",
+   "text": "Seedlings cut off from the fungal network grew more slowly than seedlings that remained connected to it."
+  },
+  {
+   "id": "C",
+   "text": "Hub trees were found to host a wider variety of fungal species on their roots than younger trees did."
+  },
+  {
+   "id": "D",
+   "text": "Carbon labeled in a hub tree's leaves appeared in the surrounding fungal threads within a few days."
+  }
+ ],
+ "correctAnswer": "A",
+ "explanation": "The correct answer is A. The hypothesis is specifically that carbon flows preferentially to shaded seedlings rather than spreading evenly, so the supporting evidence has to compare shaded and sunlit seedlings and show the shaded ones getting more. A makes exactly that comparison. B shows only that the network matters for growth, not that carbon favors shaded recipients; C concerns fungal diversity, which says nothing about where carbon goes; and D shows carbon entering the network but not that it is directed toward shaded seedlings in particular."
+}

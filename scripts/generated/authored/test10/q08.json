@@ -1,0 +1,40 @@
+{
+ "id": 1008,
+ "type": "multiple-choice",
+ "difficulty": "hard",
+ "band": 4,
+ "domain": "craft-and-structure",
+ "skill": "cross-text-connections",
+ "module": 1,
+ "passages": [
+  {
+   "label": "Text 1",
+   "text": "The coral biologists Madeleine van Oppen and Ruth Gates proposed that reef managers should no longer treat corals as fixed entities to be protected in place. As ocean temperatures rise faster than corals can adapt on their own, they argued, researchers can speed the process along—selectively breeding heat-tolerant colonies, conditioning corals to stress in the laboratory, and managing the algae and microbes that live inside coral tissue. They called this program \"assisted evolution.\" Its aim is not to replace conservation but to buy reefs time: to raise the heat tolerance of coral populations enough that they can survive the warming already locked into the coming decades."
+  },
+  {
+   "label": "Text 2",
+   "text": "The reef ecologist Terry Hughes does not dispute that corals are losing the race against warming or that heat-tolerant colonies exist. He questions, however, what intervention at the scale of nurseries and breeding programs can accomplish against a threat the size of the ocean. Mass bleaching, he points out, now strikes thousands of kilometers of reef within a single hot season, while assisted-evolution projects operate on hectares. To present such projects as a remedy, he warns, risks implying that reefs can be engineered around climate change, drawing attention and funding away from the one measure that operates at the right scale: rapid reductions in greenhouse-gas emissions."
+  }
+ ],
+ "question": "Based on the texts, how would Hughes (Text 2) most likely respond to the proposal presented in Text 1?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "He would embrace assisted evolution as a complete solution, confident that breeding and laboratory conditioning can raise coral heat tolerance quickly enough to keep pace with warming oceans on their own."
+  },
+  {
+   "id": "B",
+   "text": "He would accept that heat-tolerant corals exist but warn that programs working on hectares cannot answer a threat striking thousands of kilometers of reef, so emissions cuts remain essential."
+  },
+  {
+   "id": "C",
+   "text": "He would deny that corals are losing ground to rising temperatures, holding that reefs have always recovered from bleaching events without any human intervention at all."
+  },
+  {
+   "id": "D",
+   "text": "He would argue that protecting corals in place has failed completely and that breeding tolerant colonies should now replace any effort to cut greenhouse-gas emissions."
+  }
+ ],
+ "correctAnswer": "B",
+ "explanation": "Choice B is correct. Hughes grants the central facts of Text 1—corals are losing the race against warming, and heat-tolerant colonies exist—but presses a question of scale: assisted-evolution projects work on hectares while mass bleaching now strikes thousands of kilometers in a single season, so he treats rapid emissions cuts as the indispensable response. Choice B matches that accept-the-evidence-but-doubt-the-remedy position. Choice A has him endorsing assisted evolution as sufficient, which is the view he resists. Choice C denies the threat, but Hughes explicitly concedes it. Choice D has him rejecting emissions cuts, the reverse of his conclusion."
+}

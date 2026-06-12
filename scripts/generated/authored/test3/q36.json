@@ -1,0 +1,34 @@
+{
+ "id": 336,
+ "module": 2,
+ "difficulty": "medium",
+ "band": 3,
+ "domain": "information-and-ideas",
+ "skill": "central-ideas-and-details",
+ "question": "According to the text, what difference between the two wards did Semmelweis identify?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "The doctors' ward admitted noticeably more patients each week than the midwives' ward did."
+  },
+  {
+   "id": "B",
+   "text": "The doctors often came to deliveries directly from dissecting cadavers, whereas the midwives did not."
+  },
+  {
+   "id": "C",
+   "text": "The midwives had been trained in the new germ theory of disease, but the doctors had not."
+  },
+  {
+   "id": "D",
+   "text": "The chlorine solution used in the doctors' ward was more concentrated than the midwives' solution."
+  }
+ ],
+ "correctAnswer": "B",
+ "explanation": "The correct answer is B. The passage says Semmelweis compared the two wards and found \"one striking difference\": the doctors often arrived at deliveries straight from dissecting cadavers, while the midwives did not. B states that difference directly. C contradicts the passage, which notes that the germ theory of disease \"lay decades in the future,\" so no one had been trained in it. D misreads the chlorine detail — Semmelweis ordered the doctors to wash in chlorine as a remedy; the midwives are not said to have used any such solution. A introduces a difference in patient volume that the passage never mentions.",
+ "_meta": {
+  "anchor": "Ignaz Semmelweis — childbed fever; Vienna wards; chlorine handwashing (1840s)"
+ },
+ "passage": "In the 1840s, the physician Ignaz Semmelweis noticed that women who gave birth in a Vienna hospital ward staffed by doctors died of childbed fever far more often than those in a ward staffed by midwives. Comparing the wards, he found one striking difference: the doctors often came to deliveries directly from dissecting cadavers, while the midwives did not. Semmelweis ordered the doctors to wash their hands in a chlorine solution before examinations, and the death rate in their ward fell sharply. He could not explain why the chlorine worked — the germ theory of disease lay decades in the future — but the numbers were unambiguous.",
+ "type": "multiple-choice"
+}

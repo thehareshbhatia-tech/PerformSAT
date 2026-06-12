@@ -1,0 +1,34 @@
+{
+  "id": 528,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "craft-and-structure",
+  "skill": "words-in-context",
+  "module": 2,
+  "passage": "Public-health researchers who study shift work have found that the human circadian system adjusts only slowly, and often incompletely, to a reversed schedule. Night-shift nurses, for instance, rarely shift their internal clocks all the way to match their working hours; instead their bodies remain partly ______ to the daytime pattern their surroundings still signal, so that alertness dips in the small hours even after months on the schedule.",
+  "question": "Which choice completes the text with the most logical and precise word or phrase?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "opposed"
+    },
+    {
+      "id": "B",
+      "text": "attuned"
+    },
+    {
+      "id": "C",
+      "text": "indifferent"
+    },
+    {
+      "id": "D",
+      "text": "receptive"
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B, \"attuned.\" The sentence says the workers' bodies stay partly synchronized with the daytime pattern that their environment continues to signal, which is why alertness still drops at night. \"Attuned\" captures that lingering alignment. \"Opposed\" points the wrong way, suggesting the body works against the daytime pattern rather than remaining keyed to it. \"Indifferent\" would mean unaffected by it, the opposite of the point. \"Receptive\" suggests being open to something new, whereas the issue is a holdover alignment with the old daytime rhythm.",
+  "_meta": {
+    "anchor": "Shift work and circadian adjustment; bodies remain attuned to the daytime pattern"
+  }
+}

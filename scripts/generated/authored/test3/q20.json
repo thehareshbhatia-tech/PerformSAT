@@ -1,0 +1,34 @@
+{
+ "id": 320,
+ "module": 1,
+ "difficulty": "medium",
+ "band": 3,
+ "domain": "standard-english-conventions",
+ "skill": "form-structure-and-sense",
+ "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "depicts"
+  },
+  {
+   "id": "B",
+   "text": "depict"
+  },
+  {
+   "id": "C",
+   "text": "are depicting"
+  },
+  {
+   "id": "D",
+   "text": "have depicted"
+  }
+ ],
+ "correctAnswer": "A",
+ "explanation": "The correct answer is A, \"depicts.\" The subject of the verb is the singular noun phrase \"Faith Ringgold's painted story quilt Tar Beach.\" The phrase \"along with the children's picture book she later made from it\" adds information but does not join a second subject — phrases introduced by \"along with\" do not make a singular subject plural — so the verb stays singular. The present tense \"depicts\" describes what the work shows. \"Depict\" and \"are depicting\" both treat the subject as plural, and \"have depicted\" combines a plural form with a present-perfect shift the sentence does not need.",
+ "_meta": {
+  "anchor": "Faith Ringgold — painter and quilt-maker; Tar Beach; subject-verb agreement with an 'along with' phrase"
+ },
+ "passage": "The artist Faith Ringgold often worked across several media at once, returning to the same images in different forms. Her painted story quilt Tar Beach, along with the children's picture book she later made from it, ______ the rooftop dreams of a young girl growing up in 1930s Harlem.",
+ "type": "multiple-choice"
+}

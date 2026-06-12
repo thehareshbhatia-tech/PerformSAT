@@ -1,0 +1,35 @@
+{
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "standard-english-conventions",
+  "skill": "boundaries",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "habits;"
+    },
+    {
+      "id": "B",
+      "text": "habits,"
+    },
+    {
+      "id": "C",
+      "text": "habits"
+    },
+    {
+      "id": "D",
+      "text": "habits:"
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "The correct answer is D. Everything before the blank—\"Researchers now focus instead on a cluster of everyday habits\"—is a complete sentence, and what follows is a list that spells out which habits are meant. A colon is the mark that introduces such a list after a complete statement, so \"habits:\" is correct. A semicolon would wrongly signal a second independent clause, but the list is not a sentence. A comma cannot cleanly introduce a three-item list whose items already contain commas, leaving the boundary blurred. And no punctuation at all runs the clause straight into the list.",
+  "passage": "For much of the twentieth century, insomnia was treated as a single disorder with a single cause. Researchers now focus instead on a cluster of everyday habits ______ irregular bedtimes, late-evening screen use, and daytime napping that erodes the natural pressure to sleep at night.",
+  "_meta": {
+    "anchor": "epidemiology of sleep: behavioral cluster in insomnia",
+    "rule": "colon introducing a list after an independent clause"
+  },
+  "id": 1119,
+  "module": 1
+}

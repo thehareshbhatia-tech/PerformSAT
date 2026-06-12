@@ -1,0 +1,31 @@
+{
+ "id": 1029,
+ "type": "multiple-choice",
+ "difficulty": "hard",
+ "band": 4,
+ "domain": "craft-and-structure",
+ "skill": "words-in-context",
+ "module": 2,
+ "passage": "Pure silicon is a poor conductor of electricity, but its behavior changes dramatically when manufacturers add tiny, controlled amounts of other elements. Introducing a trace of phosphorus or boron—a process called doping—does not damage the crystal so much as ______ it, supplying either extra electrons or vacancies that let current flow in predictable ways. By adjusting which element is added and where, engineers turn a single wafer into the working regions of a transistor.",
+ "question": "Which choice completes the text with the most logical and precise word or phrase?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "tailor"
+  },
+  {
+   "id": "B",
+   "text": "abandon"
+  },
+  {
+   "id": "C",
+   "text": "flood"
+  },
+  {
+   "id": "D",
+   "text": "imitate"
+  }
+ ],
+ "correctAnswer": "A",
+ "explanation": "Choice A is correct. The passage says doping does not damage the silicon crystal so much as adjust its electrical behavior in a controlled, deliberate way—supplying extra electrons or vacancies so current flows predictably. \"Tailor\" captures that purposeful fine-tuning. \"Abandon\" makes no sense with \"the crystal\"; \"flood\" implies an uncontrolled excess that contradicts the \"tiny, controlled amounts\" of the passage; and \"imitate\" wrongly suggests copying rather than modifying the material."
+}

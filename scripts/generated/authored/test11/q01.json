@@ -1,0 +1,34 @@
+{
+  "type": "multiple-choice",
+  "difficulty": "easy",
+  "band": 2,
+  "domain": "craft-and-structure",
+  "skill": "words-in-context",
+  "question": "Which choice completes the text with the most logical and precise word or phrase?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "nourish"
+    },
+    {
+      "id": "B",
+      "text": "warm"
+    },
+    {
+      "id": "C",
+      "text": "reveal"
+    },
+    {
+      "id": "D",
+      "text": "damage"
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "The correct answer is D, \"damage.\" The passage states that ultraviolet radiation at high altitude \"can break down the molecules inside living cells,\" so the hairs are valuable because they soak up that radiation before it can harm the tissue beneath. \"Damage\" names exactly the threat the hairs guard against. \"Nourish\" describes a benefit, the opposite of what the sentence sets up as a danger. \"Warm\" might tempt a reader who knows alpine plants struggle with cold, but the sentence is about radiation's destructive effect, not temperature. \"Reveal\" treats the light as merely illuminating the tissue, which does not match the protective role the hairs are said to play.",
+  "passage": "High on alpine slopes, sunlight carries far more ultraviolet radiation than it does in the valleys below, and such radiation can break down the molecules inside living cells. The flowering plant edelweiss is covered in a dense coat of tiny white hairs. Studies of these hairs suggest that their microscopic structure absorbs ultraviolet wavelengths, soaking up the radiation before it can reach and ______ the delicate tissue underneath.",
+  "_meta": {
+    "anchor": "edelweiss (Leontopodium alpinum): woolly hairs that absorb ultraviolet light at high altitude"
+  },
+  "id": 1101,
+  "module": 1
+}

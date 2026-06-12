@@ -1,0 +1,65 @@
+{
+  "id": 940,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "information-and-ideas",
+  "skill": "command-of-evidence-quantitative",
+  "module": 2,
+  "passage": "The retreat of summer sea ice in the Arctic Ocean is sometimes told through individual record-low years — 2007 and 2012 are often cited — but the long-running monthly extent record kept by the National Snow and Ice Data Center suggests a more sustained pattern. Comparing decadal averages of the September minimum, glaciologists argue that the late-summer ice cover has not merely dipped in unusual years; rather, the typical ice extent has fallen in every successive decade on record because _______",
+  "questionTable": {
+    "type": "table",
+    "caption": "September Arctic sea ice extent (million km²) by decade (NSIDC, Sea Ice Index)",
+    "headers": [
+      "Decade",
+      "Mean September extent",
+      "Lowest year in decade"
+    ],
+    "rows": [
+      [
+        "1980s",
+        "7.2",
+        "6.9 (1985)"
+      ],
+      [
+        "1990s",
+        "6.6",
+        "6.1 (1995)"
+      ],
+      [
+        "2000s",
+        "5.8",
+        "4.3 (2007)"
+      ],
+      [
+        "2010s",
+        "4.6",
+        "3.6 (2012)"
+      ]
+    ]
+  },
+  "question": "Which choice most effectively uses data from the table to complete the statement?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "the lowest year in each decade fell from 6.9 million square kilometers in the 1980s to 3.6 million square kilometers in the 2010s, suggesting that single-year minimums have stayed roughly constant."
+    },
+    {
+      "id": "B",
+      "text": "the mean September extent fell from 7.2 million square kilometers in the 1980s to 6.6 in the 1990s to 5.8 in the 2000s to 4.6 in the 2010s, a step downward in every decade the record covers."
+    },
+    {
+      "id": "C",
+      "text": "the mean September extent dropped from 5.8 million square kilometers in the 2000s to 4.6 million square kilometers in the 2010s, a clear decline between the two most recent decades."
+    },
+    {
+      "id": "D",
+      "text": "the lowest single year in the record was 2012, when the September minimum fell to 3.6 million square kilometers."
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The claim is that the typical September extent has fallen in every successive decade. The data that show this are the decadal means—7.2, 6.6, 5.8, then 4.6 million square kilometers—dropping each decade, which is choice B. Choice A misreads the single-year lows as roughly constant, C reports only the last two decades, and D cites one record year rather than the decade-by-decade trend.",
+  "_meta": {
+    "anchor": "NSIDC, September Arctic sea ice extent by decade"
+  }
+}

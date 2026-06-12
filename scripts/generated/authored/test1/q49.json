@@ -1,0 +1,31 @@
+{
+ "id": 149,
+ "type": "multiple-choice",
+ "difficulty": "hard",
+ "band": 4,
+ "domain": "standard-english-conventions",
+ "skill": "form-structure-and-sense",
+ "module": 2,
+ "passage": "Glaciologist Richard Alley studies cores drilled from the Greenland ice sheet, whose buried layers preserve a record of past climate. The detailed chemical record that the sheet's many annual layers preserve ______ researchers to reconstruct temperatures reaching back tens of thousands of years.",
+ "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "allow"
+  },
+  {
+   "id": "B",
+   "text": "have allowed"
+  },
+  {
+   "id": "C",
+   "text": "are allowing"
+  },
+  {
+   "id": "D",
+   "text": "allows"
+  }
+ ],
+ "correctAnswer": "D",
+ "explanation": "The correct answer is D. The subject of the verb is the singular noun \"record,\" not the plural \"layers\" that sits next to the blank inside the clause \"that the sheet's many annual layers preserve.\" A singular subject takes the singular verb \"allows.\" \"Allow,\" \"have allowed,\" and \"are allowing\" are all plural forms that agree with the intervening \"layers\" rather than with the true head noun, the agreement trap the sentence sets."
+}

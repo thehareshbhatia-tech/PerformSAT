@@ -1,0 +1,31 @@
+{
+  "id": 204,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "craft-and-structure",
+  "skill": "words-in-context",
+  "module": 1,
+  "passage": "Working at the Maragha observatory in the thirteenth century, the astronomer Nasir al-Din al-Tusi confronted a stubborn feature of Ptolemaic astronomy: motions the theory treated as perfectly uniform did not match careful observation. Rather than discard the inherited framework, al-Tusi introduced a geometric device—now known as the Tusi couple—that ______ a pair of uniform circular motions into the straight-line oscillation the measurements seemed to require.",
+  "question": "Which choice completes the text with the most logical and precise word or phrase?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "concealed"
+    },
+    {
+      "id": "B",
+      "text": "compared"
+    },
+    {
+      "id": "C",
+      "text": "converted"
+    },
+    {
+      "id": "D",
+      "text": "inherited"
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C, \"converted.\" The sentence describes a geometric device that takes one kind of motion as input and yields another as output: it turns \"a pair of uniform circular motions\" into \"the straight-line oscillation the measurements seemed to require.\" \"Converted\" names exactly that transformation of one form into another. Choice A, \"concealed,\" makes no sense of a device whose purpose was to produce the linear motion, not to hide anything. Choice B, \"compared,\" would describe setting two motions side by side, but the device generates the linear motion rather than measuring it against the circular ones. Choice D, \"inherited,\" picks up the earlier phrase \"inherited framework,\" yet a geometric construction does not inherit motion from anything; the word borrows a term already in the passage without fitting the relationship the sentence describes."
+}

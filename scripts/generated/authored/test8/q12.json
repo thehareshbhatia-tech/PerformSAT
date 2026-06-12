@@ -1,0 +1,31 @@
+{
+  "id": 812,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "information-and-ideas",
+  "skill": "command-of-evidence-textual",
+  "module": 1,
+  "passage": "On many oceanic islands, plants that have ordinarily dispersed by floating or wind-blown seeds are found to produce unusually large, heavy seeds that fall straight to the ground. A team of botanists proposed an explanation: on an island with no large fruit-eating animals to carry seeds away, a plant gains little from investing in dispersal and may do better by packing each seed with more reserves, giving the seedling a stronger start where the parent already grows. *The researchers' hypothesis is that the loss of seed-dispersing animals favors the evolution of larger, less mobile seeds in island plant populations.*",
+  "question": "Which finding, if true, would most strongly support the researchers’ hypothesis?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "On remote islands that still retain their large fruit-eating birds, related plant species tend to keep producing the small, easily dispersed seeds typical of their mainland relatives rather than the heavy seeds found elsewhere."
+    },
+    {
+      "id": "B",
+      "text": "Across a set of islands, plant lineages produced progressively larger, less mobile seeds in the generations after their seed-dispersing animals disappeared, while lineages on islands that kept those animals did not."
+    },
+    {
+      "id": "C",
+      "text": "Seedlings grown from large island seeds survive at higher rates in greenhouse trials than seedlings grown from small seeds of the same species."
+    },
+    {
+      "id": "D",
+      "text": "Many island plants with large seeds are descended from mainland ancestors whose seeds were dispersed by wind."
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B. The hypothesis claims that losing seed-dispersing animals drives plants toward larger, less mobile seeds, so the strongest support is a finding that ties the seed change directly to the loss of those animals over time, with islands that kept their dispersers serving as a contrast. B supplies exactly that comparison. A is consistent with the idea but only describes islands where dispersers remain; C shows large seeds are advantageous but says nothing about the animals; and D notes the ancestors' dispersal mode without linking seed size to the loss of dispersers."
+}

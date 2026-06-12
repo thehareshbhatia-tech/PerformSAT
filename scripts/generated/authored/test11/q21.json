@@ -1,0 +1,35 @@
+{
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "standard-english-conventions",
+  "skill": "boundaries",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": ", the diffraction pattern records the intensity of each scattered beam, but not its phase, and both are needed to reconstruct the structure,"
+    },
+    {
+      "id": "B",
+      "text": "—the diffraction pattern records the intensity of each scattered beam, but not its phase, and both are needed to reconstruct the structure—"
+    },
+    {
+      "id": "C",
+      "text": " the diffraction pattern records the intensity of each scattered beam, but not its phase, and both are needed to reconstruct the structure"
+    },
+    {
+      "id": "D",
+      "text": "—the diffraction pattern records the intensity of each scattered beam, but not its phase, and both are needed to reconstruct the structure,"
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B. The blank holds a long parenthetical that explains the phase problem, and that insertion already contains several commas of its own. To bracket an inserted phrase that has internal commas, Standard English uses a matched pair of stronger marks—here, paired em-dashes—so the reader can see where the insertion opens and closes. Paired commas (the first option) would blur into the commas inside the insertion. Mixing a dash with a closing comma (the last option) fails to pair the marks. And omitting punctuation entirely runs the main sentence straight into the insertion.",
+  "passage": "In the early decades of X-ray crystallography, researchers were repeatedly held up by what they called the \"phase problem\" ______ before they could turn a photograph of scattered spots into a three-dimensional map of the atoms packed inside a single crystal.",
+  "_meta": {
+    "anchor": "crystallography: the phase problem",
+    "rule": "paired em-dashes around a parenthetical containing internal commas"
+  },
+  "id": 1121,
+  "module": 1
+}

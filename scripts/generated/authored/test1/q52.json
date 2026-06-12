@@ -1,0 +1,31 @@
+{
+ "id": 152,
+ "type": "multiple-choice",
+ "difficulty": "hard",
+ "band": 4,
+ "domain": "expression-of-ideas",
+ "skill": "transitions",
+ "module": 2,
+ "passage": "Sediment at the bottom of a lake accumulates in fine annual layers, and each layer traps pollen grains carried in from the surrounding landscape. Because the pollen of different plants has distinctive shapes, a core drawn from such a lakebed lets researchers read off which species grew nearby in a given year. ______ a sudden drop in tree pollen accompanied by a rise in grass pollen can mark the moment a forest gave way to open land, whether through a shift in climate or clearing by people.",
+ "question": "Which choice completes the text with the most logical transition?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "For instance,"
+  },
+  {
+   "id": "B",
+   "text": "Nevertheless,"
+  },
+  {
+   "id": "C",
+   "text": "In contrast,"
+  },
+  {
+   "id": "D",
+   "text": "Earlier,"
+  }
+ ],
+ "correctAnswer": "A",
+ "explanation": "The correct answer is A. The sentence before the blank states the general principle that a lakebed core lets researchers tell which plants grew nearby year by year; the sentence after it gives a concrete case of that principle—a drop in tree pollen and rise in grass pollen marking a forest's loss. That is a general-to-specific move, which \"For instance\" marks. \"Nevertheless\" and \"In contrast\" both signal opposition, but the example confirms rather than counters the principle, and \"Earlier\" would falsely imply a shift back in time."
+}

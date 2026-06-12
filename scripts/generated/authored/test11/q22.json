@@ -1,0 +1,35 @@
+{
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "standard-english-conventions",
+  "skill": "form-structure-and-sense",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "work"
+    },
+    {
+      "id": "B",
+      "text": "are working"
+    },
+    {
+      "id": "C",
+      "text": "had been working"
+    },
+    {
+      "id": "D",
+      "text": "have been working"
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C. The phrase \"By the time ... in the 1930s\" fixes a point in the past, and the founders' design work was already under way for decades before that point. The past perfect progressive \"had been working\" marks an action ongoing before a past reference point, so it is correct. \"Have been working\" is present perfect and ties the work to the present, clashing with the 1930s frame. \"Work\" and \"are working\" are present-tense forms that cannot express an action completed relative to an earlier past moment.",
+  "passage": "By the time the first cheap paperback editions began to reach the newsstands of British and American cities in the 1930s, the major type founders ______ for several decades to design typefaces that stayed legible even when printed quickly on rough, inexpensive paper.",
+  "_meta": {
+    "anchor": "typography history: legible faces for cheap paperbacks (generic)",
+    "rule": "past perfect (progressive) with a 'by the time' sequence cue"
+  },
+  "id": 1122,
+  "module": 1
+}

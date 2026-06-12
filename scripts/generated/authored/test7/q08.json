@@ -1,0 +1,40 @@
+{
+  "id": 708,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "craft-and-structure",
+  "skill": "cross-text-connections",
+  "module": 1,
+  "passages": [
+    {
+      "label": "Text 1",
+      "text": "In Ancient Voyagers in the Pacific (1956), the historian Andrew Sharp challenged the romantic image of Polynesian seafarers deliberately crossing thousands of miles of open ocean to settle distant islands. The navigational methods available to these voyagers, Sharp argued, were good enough for trips of a few hundred miles within sight of known landmarks but could not have kept a canoe on a fixed bearing across the vast empty stretches between island groups. Without instruments, he reasoned, small errors in course and distance would build up beyond any chance of correction. Sharp concluded that the more remote islands were reached not by planned two-way voyages but by accidental, one-way drift—canoes blown off course and carried by wind and current to land they had never sought."
+    },
+    {
+      "label": "Text 2",
+      "text": "The anthropologist Ben Finney took a different view, and tested it on the water. With the Polynesian Voyaging Society, Finney helped build Hōkūleʻa, a double-hulled canoe modeled on traditional craft, and in 1976 sailed it from Hawaiʻi to Tahiti guided only by a navigator reading the stars, the ocean swells, and the flight paths of birds—no compass, no charts. The voyage succeeded, and was repeated. For Finney, the achievement showed that traditional non-instrument navigation was precise and reliable enough to support deliberate, repeatable passages across exactly the open distances Sharp had judged impassable. The settlement of the remote Pacific, he argued, was the work of skilled navigators who could find their way out and back, not of drifting castaways."
+    }
+  ],
+  "question": "Based on the texts, how would Finney (Text 2) most likely respond to the conclusion presented in Text 1?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Finney would argue that Sharp underestimated traditional navigation: canoes could in fact hold a deliberate course across the distances Sharp judged impassable."
+    },
+    {
+      "id": "B",
+      "text": "Finney would accept that long-distance voyaging was impossible but suggest that drifting canoes reached their destinations more often than Sharp allowed."
+    },
+    {
+      "id": "C",
+      "text": "He would agree that the remote islands were settled by accident, adding only that later voyagers learned to retrace those chance routes on purpose."
+    },
+    {
+      "id": "D",
+      "text": "Finney would treat the question as unresolvable, since no record survives of how any particular island was first reached."
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A. Sharp's conclusion rests on the premise that non-instrument navigation could not keep a canoe on course across open ocean. Finney's Hōkūleʻa voyage was designed to test exactly that premise, and its success leads him to reject Sharp's factual assumption rather than merely soften his conclusion. Choice B has Finney conceding the very impossibility his voyage disproved. Choice C aligns him with the drift hypothesis he opposed, and Choice D makes him an agnostic, whereas Text 2 shows him drawing a confident conclusion from the voyage."
+}

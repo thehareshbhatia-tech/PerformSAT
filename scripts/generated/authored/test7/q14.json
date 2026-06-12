@@ -1,0 +1,67 @@
+{
+  "id": 714,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "information-and-ideas",
+  "skill": "command-of-evidence-quantitative",
+  "module": 1,
+  "passage": "Geologists rank explosive eruptions on the Volcanic Explosivity Index (VEI), a scale on which each whole-number step reflects a roughly tenfold increase in the volume of rock, ash, and gas an eruption ejects. Reviewing volume estimates compiled for several twentieth-century eruptions, a student claims that the figures bear out this tenfold rule even within the modern record because _______",
+  "questionTable": {
+    "type": "table",
+    "caption": "Assigned VEI and estimated erupted volume for selected twentieth-century eruptions",
+    "headers": [
+      "Eruption (year)",
+      "VEI",
+      "Estimated erupted volume (km³)"
+    ],
+    "rows": [
+      [
+        "Mount Pelée (1902)",
+        "4",
+        "0.3"
+      ],
+      [
+        "Mount St. Helens (1980)",
+        "5",
+        "1.1"
+      ],
+      [
+        "El Chichón (1982)",
+        "5",
+        "1.5"
+      ],
+      [
+        "Pinatubo (1991)",
+        "6",
+        "10"
+      ],
+      [
+        "Novarupta (1912)",
+        "6",
+        "13"
+      ]
+    ]
+  },
+  "question": "Which choice most effectively uses data from the table to complete the statement?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "the VEI-6 eruptions ejected an estimated 10 and 13 km³, roughly ten times the 1.1 and 1.5 km³ estimated for the VEI-5 eruptions."
+    },
+    {
+      "id": "B",
+      "text": "Novarupta in 1912 ejected an estimated 13 km³, the largest volume listed and more than forty times the volume estimated for Mount Pelée."
+    },
+    {
+      "id": "C",
+      "text": "the two VEI-5 eruptions differed somewhat from each other in volume, releasing an estimated 1.1 and 1.5 km³ in 1980 and 1982 respectively."
+    },
+    {
+      "id": "D",
+      "text": "Mount Pelée, rated VEI-4, ejected only an estimated 0.3 km³, the smallest erupted volume of any eruption included in the table."
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A. The student's claim is about the tenfold rule — that each step up the VEI scale corresponds to a roughly tenfold jump in erupted volume. Choice A makes the comparison the rule requires: the two VEI-6 eruptions ejected an estimated 10 and 13 km³, about ten times the 1.1 and 1.5 km³ estimated for the two VEI-5 eruptions. Choice B reports a single extreme value but spans two VEI steps at once, so it does not isolate the per-step jump the rule describes. Choice C compares two eruptions assigned the same VEI, where no step occurs, and Choice D cites one VEI-4 figure on its own, with nothing to compare it against."
+}

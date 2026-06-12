@@ -1,0 +1,34 @@
+{
+  "id": 916,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "information-and-ideas",
+  "skill": "inferences",
+  "module": 1,
+  "passage": "In buon fresco, a painter works on fresh, wet lime plaster: as the plaster dries, a chemical reaction binds the pigment into the wall itself, so the color becomes part of the surface. Details added after the plaster has dried—a technique called a secco—sit on top as a thin film held by a weak binder. Conservators examining a centuries-old wall painting often find that broad areas of color remain vivid while certain fine details, such as highlights and decorative borders, have flaked away or faded. From the difference between the two techniques, it can be inferred that ______",
+  "question": "Which choice most logically completes the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "the entire wall painting must have been executed a secco, since otherwise none of its color could have survived."
+    },
+    {
+      "id": "B",
+      "text": "the vivid surviving areas were most likely painted in buon fresco, while the lost details had probably been added a secco."
+    },
+    {
+      "id": "C",
+      "text": "details added a secco prove more durable than areas painted in buon fresco over the centuries, because the thin film they form protects the colored plaster beneath them."
+    },
+    {
+      "id": "D",
+      "text": "the chemical binding of pigment into wet plaster makes buon fresco the less permanent of the two techniques."
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "Buon fresco binds pigment into the wall as the plaster cures, while a secco details sit on top in a weak film. Given that broad colors survive but fine highlights and borders have flaked, the supported inference is that the durable areas were buon fresco and the lost details a secco—choice B. Choice A ignores the surviving color, and C and D reverse the durability of the two techniques.",
+  "_meta": {
+    "anchor": "buon fresco vs a secco technique"
+  }
+}

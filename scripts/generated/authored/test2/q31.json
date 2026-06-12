@@ -1,0 +1,31 @@
+{
+  "id": 231,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "craft-and-structure",
+  "skill": "words-in-context",
+  "module": 2,
+  "passage": "Before the development of X-ray crystallography, chemists could infer that a substance was crystalline from its regular external faces, but the internal arrangement of its atoms remained a matter of conjecture. When a beam of X-rays passes through a crystal, the orderly lattice scatters the rays into a pattern of spots whose geometry ______ the spacing and arrangement of the atoms within. By measuring those patterns, researchers could at last determine molecular structures that no microscope could reveal.",
+  "question": "Which choice completes the text with the most logical and precise word or phrase?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "conceals"
+    },
+    {
+      "id": "B",
+      "text": "imitates"
+    },
+    {
+      "id": "C",
+      "text": "reflects"
+    },
+    {
+      "id": "D",
+      "text": "exceeds"
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C, \"reflects.\" The passage says the geometry of the scattered pattern lets researchers determine the atoms' spacing and arrangement, so the pattern must correspond to, or mirror, that internal structure; \"reflects\" expresses that correspondence. Choice A, \"conceals,\" is the opposite—the pattern reveals the structure rather than hiding it. Choice B, \"imitates,\" wrongly suggests the pattern copies the atoms deliberately, when it simply results from how the lattice scatters the rays. Choice D, \"exceeds,\" makes no sense, since a pattern cannot be more than the arrangement it encodes."
+}

@@ -1,0 +1,34 @@
+{
+  "id": 431,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "craft-and-structure",
+  "skill": "words-in-context",
+  "question": "Which choice completes the text with the most logical and precise word or phrase?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "destabilize"
+    },
+    {
+      "id": "B",
+      "text": "reinforce"
+    },
+    {
+      "id": "C",
+      "text": "simplify"
+    },
+    {
+      "id": "D",
+      "text": "isolate"
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A. As the channels shrink, stray quantum effects let current leak across barriers that once blocked it, undermining the devices' operation — that is, they \"destabilize\" the devices. \"Reinforce\" says the opposite; \"simplify\" wrongly suggests an improvement; and \"isolate\" does not describe an effect that lets current leak through barriers.",
+  "passage": "The performance of a microchip depends on confining electric current to channels only a few atoms wide. As manufacturers have pushed these channels smaller, stray quantum effects that were once negligible have begun to ______ the devices, allowing current to leak across barriers that, at larger scales, would have blocked it completely. Designing around these effects, rather than ignoring them, has become one of the central problems of the field.",
+  "_meta": {
+    "anchor": "semiconductor materials science — quantum tunneling at small scales (NEW)"
+  },
+  "module": 2
+}

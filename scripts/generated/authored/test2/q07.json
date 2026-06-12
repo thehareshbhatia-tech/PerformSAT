@@ -1,0 +1,31 @@
+{
+  "id": 207,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "craft-and-structure",
+  "skill": "text-structure-and-purpose",
+  "module": 1,
+  "passage": "Roman harbor structures made of concrete have survived two thousand years of immersion in seawater, while modern marine concrete often crumbles within decades. For years the durability of the Roman material was attributed simply to the quality of the volcanic ash its builders used. Examining samples from ancient breakwaters with high-resolution imaging, a team of materials scientists found something more dynamic at work: seawater percolating through the concrete had reacted with the ash over centuries to grow rare interlocking crystals, so that the very exposure that destroys modern concrete had gradually strengthened the Roman material from within.",
+  "question": "Which choice best describes the overall structure of the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "It poses a question about modern construction, answers it with a historical anecdote, and then recommends a specific building material."
+    },
+    {
+      "id": "B",
+      "text": "It contrasts a durable ancient material with a less durable modern one, notes a common explanation for the contrast, and then reports a finding that revises that explanation."
+    },
+    {
+      "id": "C",
+      "text": "It presents two competing theories about Roman concrete and concludes that neither can currently be tested."
+    },
+    {
+      "id": "D",
+      "text": "It traces the stages by which Roman builders mixed concrete and explains why the recipe was later forgotten."
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B. The passage first contrasts long-lasting Roman marine concrete with modern concrete that crumbles, then gives the usual explanation (the quality of the volcanic ash), and finally reports a finding that revises that explanation: seawater reacting with the ash grew crystals that strengthened the material over time. Choice A does not fit, because the passage offers no recommendation about which material to build with. Choice C is wrong because only one explanation is in play, later revised by a finding—not two untestable theories. Choice D misdescribes the passage, which is not organized as a step-by-step account of mixing concrete or a story of a lost recipe."
+}

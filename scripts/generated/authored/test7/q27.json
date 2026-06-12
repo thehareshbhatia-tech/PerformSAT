@@ -1,0 +1,41 @@
+{
+  "id": 727,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "expression-of-ideas",
+  "skill": "rhetorical-synthesis",
+  "module": 1,
+  "studentNotes": {
+    "intro": "While researching a topic, a student has taken the following notes:",
+    "bullets": [
+      "The Antikythera mechanism is a corroded bronze device recovered in 1901 from an ancient Greek shipwreck.",
+      "For decades its purpose was unclear, and many scholars assumed it was a navigational instrument or a clock.",
+      "In the 1970s, and again in the 2000s, researchers used X-ray and then CT imaging to see inside the fused fragments.",
+      "The scans revealed dozens of interlocking bronze gears and finely inscribed scales.",
+      "Researchers concluded that the device was an astronomical calculator that modeled the motions of the Sun, Moon, and planets and predicted eclipses."
+    ],
+    "goal": "The student wants to emphasize how imaging technology changed scholars’ understanding of the device."
+  },
+  "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "The Antikythera mechanism, a heavily corroded bronze device, was recovered in 1901 from an ancient Greek shipwreck near the island of Antikythera."
+    },
+    {
+      "id": "B",
+      "text": "For decades after its discovery, the precise purpose of the Antikythera mechanism remained unclear, and many scholars assumed it had been a navigational instrument or a kind of clock."
+    },
+    {
+      "id": "C",
+      "text": "Using X-ray and later CT imaging to see inside the fused fragments, researchers revealed dozens of interlocking gears and concluded that the device was an astronomical calculator."
+    },
+    {
+      "id": "D",
+      "text": "The Antikythera mechanism contained dozens of interlocking bronze gears together with finely inscribed scales that marked out astronomical cycles."
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C. The goal emphasizes how imaging reshaped understanding, and C names the technology (X-ray and CT imaging) and the conclusion it made possible (the device was an astronomical calculator), tying method to result. Choice A gives only the recovery, and Choice B describes the earlier confusion without the breakthrough. Choice D reports what was found inside but omits the imaging that revealed it, so it does not foreground the technology's role."
+}

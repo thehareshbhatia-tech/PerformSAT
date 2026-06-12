@@ -1,0 +1,31 @@
+{
+  "id": 852,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "expression-of-ideas",
+  "skill": "transitions",
+  "module": 2,
+  "passage": "The earliest known mechanical clocks, built in medieval European monasteries, had no faces or hands; they simply rang a bell to call the monks to prayer at set hours. Their usefulness depended on dividing the day into equal, countable units. ______ they reshaped daily life well beyond the cloister, accustoming townspeople to ordering their work and meals by the striking of a public bell rather than by the sun.",
+  "question": "Which choice completes the text with the most logical transition?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Instead,"
+    },
+    {
+      "id": "B",
+      "text": "Nevertheless,"
+    },
+    {
+      "id": "C",
+      "text": "In time,"
+    },
+    {
+      "id": "D",
+      "text": "For example,"
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C. The passage moves from the clocks' first, narrow use inside monasteries to their later, broader effect on town life, a development over time that \"In time\" marks. \"Instead\" would set the second sentence against the first as an alternative, but it extends rather than replaces it; \"Nevertheless\" signals a contrast the passage does not draw; and \"For example\" would make the spread to townspeople an instance of the monastic use, when it is a later and wider consequence."
+}

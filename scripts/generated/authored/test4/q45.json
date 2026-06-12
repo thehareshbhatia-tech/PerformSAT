@@ -1,0 +1,34 @@
+{
+  "id": 445,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "standard-english-conventions",
+  "skill": "form-structure-and-sense",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "are"
+    },
+    {
+      "id": "B",
+      "text": "have been"
+    },
+    {
+      "id": "C",
+      "text": "is"
+    },
+    {
+      "id": "D",
+      "text": "were"
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C. The subject is the singular \"collection,\" and the plural nouns in the modifiers — \"tablets,\" \"libraries\" — do not change it, so the singular verb \"is\" agrees. \"Are\" (A) and \"were\" (D) are plural and disagree with \"collection,\" and \"have been\" (B) is likewise plural while also shifting the tense without reason.",
+  "passage": "The vast collection of clay tablets recovered from the ruined libraries of the ancient city of Nineveh ______ one of the richest written records of the ancient world, including myths, medical texts, and the administrative accounts of a sprawling empire.",
+  "_meta": {
+    "anchor": "Nineveh tablet collection; subject-verb agreement (singular collective)"
+  },
+  "module": 2
+}

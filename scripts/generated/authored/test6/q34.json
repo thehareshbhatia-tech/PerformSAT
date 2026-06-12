@@ -1,0 +1,31 @@
+{
+  "id": 634,
+  "module": 2,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "craft-and-structure",
+  "skill": "text-structure-and-purpose",
+  "passage": "For most of European musical history, keyboard instruments were tuned so that a few keys sounded perfectly in tune while others, more distant from them, sounded noticeably sour. A player who wandered into a remote key risked harsh, barely usable chords. Equal temperament offered a way out: by dividing the octave into twelve mathematically equal steps, it spread the unavoidable imperfection evenly, so that no interval except the octave was perfectly pure but none was badly out of tune either. The compromise cost something—purists complained that the old sweetness was gone—yet it let composers move through every key with equal ease, and music that ranged widely across keys became possible to write and to play.",
+  "question": "Which choice best states the main purpose of the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "To describe the mathematical procedure by which an octave is divided into twelve equal steps."
+    },
+    {
+      "id": "B",
+      "text": "To argue that the older tuning systems produced a sweeter sound than equal temperament ever could."
+    },
+    {
+      "id": "C",
+      "text": "To trace the spread of keyboard instruments through European concert halls over several centuries."
+    },
+    {
+      "id": "D",
+      "text": "To explain why musicians adopted a tuning compromise and what that compromise made possible."
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "The correct answer is D. The passage first sets up a problem—older tunings left remote keys sounding sour—then explains that equal temperament solved it by spreading the imperfection evenly across all twelve steps, and closes with what that compromise allowed: composers could move freely through every key. That problem-solution-consequence arc is the purpose choice D names. Choice A fixes on the dividing-the-octave detail the passage mentions only in passing; choice B treats a brief aside about purists' complaints as the text's argument, though the passage never claims the old sound was better; and choice C describes a history of instruments the text does not undertake."
+}

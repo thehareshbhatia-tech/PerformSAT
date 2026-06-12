@@ -1,0 +1,31 @@
+{
+ "id": 1004,
+ "type": "multiple-choice",
+ "difficulty": "medium",
+ "band": 3,
+ "domain": "craft-and-structure",
+ "skill": "words-in-context",
+ "module": 1,
+ "passage": "For most of the nineteenth century, naturalists classified lichens as a single kind of organism. In 1867 the botanist Simon Schwendener advanced a startling reinterpretation: a lichen, he proposed, is not one organism but two—a fungus and an alga living in such close partnership that the pair had long been ______ for a single species. Many botanists resisted the claim for decades before accepting that the lichen was a composite.",
+ "question": "Which choice completes the text with the most logical and precise word or phrase?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "mistaken"
+  },
+  {
+   "id": "B",
+   "text": "credited"
+  },
+  {
+   "id": "C",
+   "text": "substituted"
+  },
+  {
+   "id": "D",
+   "text": "prepared"
+  }
+ ],
+ "correctAnswer": "A",
+ "explanation": "Choice A is correct. Schwendener's claim is that what looked like one organism was really two living in close partnership, so naturalists had wrongly taken the pair for a single species. \"Mistaken for\" expresses exactly that error of identification. \"Credited\" and \"prepared\" do not fit the idiom or the sense, and \"substituted for a single species\" would imply the pair had replaced a species rather than been misread as one."
+}

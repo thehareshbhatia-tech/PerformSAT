@@ -1,0 +1,34 @@
+{
+ "id": 334,
+ "module": 2,
+ "difficulty": "hard",
+ "band": 4,
+ "domain": "craft-and-structure",
+ "skill": "text-structure-and-purpose",
+ "question": "Which choice best describes the overall structure of the text?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "It presents one widely held theory about the origins of Andean cities and then traces the long scholarly debate over who first proposed it."
+  },
+  {
+   "id": "B",
+   "text": "It compares the site of Caral with the cities of Mesopotamia in order to argue that the two arose for identical reasons."
+  },
+  {
+   "id": "C",
+   "text": "It states a standard assumption about how complex societies begin, describes findings that complicate it, and offers an alternative account."
+  },
+  {
+   "id": "D",
+   "text": "It describes the architecture of Caral and explains the techniques archaeologists used to date its mounds."
+  }
+ ],
+ "correctAnswer": "C",
+ "explanation": "The correct answer is C. The passage states the standard assumption — that complex Andean society must have begun with intensive grain agriculture, as elsewhere — then reports findings from Caral that complicate it, since the inhabitants grew cotton and squash and relied on traded fish rather than staple grains. It closes with an alternative account, that a fishing-and-cotton exchange supported the earliest monumental building. A invents a debate over who first proposed a theory, which the passage does not trace. B says Caral and Mesopotamia arose for identical reasons, the opposite of the passage's point. D reduces the passage to architecture and dating methods it mentions only in passing.",
+ "_meta": {
+  "anchor": "Caral / Norte Chico (Peru), ~2600 BCE; fishing-and-cotton economy [theme: Andean archaeology]"
+ },
+ "passage": "On the desert coast of Peru, the site of Caral preserves stone platform mounds and sunken circular plazas built around 2600 BCE — roughly when the first cities arose in Mesopotamia. For decades archaeologists assumed that complex society in the Andes must have begun with intensive grain agriculture, as it had elsewhere. Excavations at Caral complicated that assumption: the inhabitants grew cotton and squash and relied heavily on dried fish traded from the coast, with little evidence of staple grains. Researchers proposed that a fishing-and-cotton exchange, rather than cereal farming, supported the region's earliest monumental construction.",
+ "type": "multiple-choice"
+}

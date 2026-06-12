@@ -1,0 +1,61 @@
+{
+  "id": 241,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "information-and-ideas",
+  "skill": "command-of-evidence-quantitative",
+  "module": 2,
+  "passage": "The U.S. infant mortality rate fell throughout the twentieth century, but the pace of that decline was uneven when measured in proportional rather than absolute terms. Reviewing figures compiled by the Centers for Disease Control and Prevention, public-health historians have argued that the proportional rate at which infant mortality declined in the United States was actually faster in the third quarter of the century than at its outset — that is, the percentage decrease between 1950 and 1975 was greater than the percentage decrease between 1900 and 1925. The data support this characterization because _______",
+  "questionTable": {
+    "type": "table",
+    "caption": "U.S. infant mortality rate at 25-year intervals, 1900-2000 (Centers for Disease Control and Prevention, MMWR)",
+    "headers": [
+      "Year",
+      "Infant deaths per 1,000 live births"
+    ],
+    "rows": [
+      [
+        "1900",
+        "100"
+      ],
+      [
+        "1925",
+        "72"
+      ],
+      [
+        "1950",
+        "29"
+      ],
+      [
+        "1975",
+        "16"
+      ],
+      [
+        "2000",
+        "7"
+      ]
+    ]
+  },
+  "question": "Which choice most effectively uses data from the table to complete the statement?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "between 1900 and 1925 the rate fell from 100 to 72 deaths per 1,000, a reduction of about 45 percent, whereas between 1950 and 1975 it fell from 29 to 16, a reduction of about 28 percent."
+    },
+    {
+      "id": "B",
+      "text": "between 1900 and 1925 the rate dropped from 100 to 72 deaths per 1,000, a reduction of about 28 percent, whereas between 1950 and 1975 it dropped from 29 to 16, a reduction of about 45 percent."
+    },
+    {
+      "id": "C",
+      "text": "by 2000 the rate had fallen to 7 deaths per 1,000, less than a tenth of the 1900 figure of 100, indicating that infant mortality fell substantially across the century as a whole."
+    },
+    {
+      "id": "D",
+      "text": "between 1925 and 1950 the rate fell from 72 to 29 deaths per 1,000, a drop of 43 — the largest absolute reduction of any 25-year interval in the table."
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B. The historians' claim is narrow and specifically proportional: the *percentage* decrease in infant mortality was greater between 1950 and 1975 than between 1900 and 1925. Establishing that claim requires reporting both 25-year intervals named in the claim and converting each absolute drop into a percentage of its starting value, then showing that the second percentage exceeds the first. Choice B does exactly this: 100 to 72 is a drop of 28 on a base of 100, or about 28 percent; 29 to 16 is a drop of 13 on a base of 29, or about 45 percent; and 45 percent is the larger figure. Both intervals come from the table, both percentages are computed from values in the table, and the direction of the comparison matches the claim.\n\nChoice D is incorrect. It cites the LARGEST ABSOLUTE drop in the table — 43 deaths per 1,000 between 1925 and 1950 — which is the figure a reader scanning for the biggest number will naturally land on. But the claim is not about which interval saw the biggest absolute change; it is about which of two specific intervals (1900-1925 versus 1950-1975) had the larger PROPORTIONAL change. The 1925-1950 interval is not even one of the two intervals being compared, so its size in absolute terms cannot support a claim about proportional rates in two different intervals. Choice C is incorrect. The cumulative reduction from 1900 to 2000 — 100 down to 7, less than a tenth — is true and dramatic, but it concerns the century-long total decline, not the relative speed of decline within particular 25-year windows. The claim depends on a comparison BETWEEN two intervals; an aggregate over the whole period cannot show that one interval's percentage decline exceeded another's. Choice A is incorrect. It cites the right two intervals and reports the right pair of percentages (about 28 percent and about 45 percent), but it assigns them to the wrong intervals: it claims 1900-1925 was the 45 percent drop and 1950-1975 was the 28 percent drop. The arithmetic is reversed — 28/100 is 28 percent, not 45 percent, and 13/29 is about 45 percent, not 28 percent — and the resulting comparison runs in the opposite direction to the claim, which would imply the proportional rate of decline SLOWED rather than accelerated."
+}

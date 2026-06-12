@@ -1,0 +1,31 @@
+{
+  "id": 736,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "information-and-ideas",
+  "skill": "central-ideas-and-details",
+  "module": 2,
+  "passage": "Walls, roads, and foundations buried underground can be detected from space, long before any digging begins. Buried stone alters the soil directly above it—changing how water drains and how the plants rooted there grow—and these faint differences register in satellite images that record many narrow bands of reflected light, including bands beyond what the human eye can see. Where a buried wall lies, the vegetation above it may grow a little taller or a slightly different shade of green. By mapping such contrasts, archaeologists have located unexcavated structures at sites in Egypt and identified looters' pits in conflict zones, surveying vast landscapes without turning a single shovel of earth.",
+  "question": "Which choice best states the main idea of the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Satellite imagery can reveal buried structures by detecting subtle differences in the soil and vegetation above them, letting archaeologists map unexcavated features across large areas."
+    },
+    {
+      "id": "B",
+      "text": "Archaeologists have so far used multispectral satellite imagery mainly to identify the many pits left behind by looters at archaeological sites located within active conflict zones."
+    },
+    {
+      "id": "C",
+      "text": "Buried walls change the color of the vegetation directly above them far more reliably than they ever change the drainage of the surrounding soil."
+    },
+    {
+      "id": "D",
+      "text": "Satellite imagery becomes genuinely useful only after archaeologists have already excavated part of a site to confirm what lies beneath."
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A. The passage's central point is that satellites detect buried structures indirectly, through subtle soil and vegetation differences, allowing archaeologists to survey large areas without digging. Choice B narrows the technique to one application (looters' pits) that the passage lists only as an example. Choice C invents a comparison between vegetation color and soil drainage that the text does not make, and Choice D reverses the passage, which highlights detection before any excavation."
+}

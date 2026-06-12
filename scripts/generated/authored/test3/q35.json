@@ -1,0 +1,43 @@
+{
+ "id": 335,
+ "module": 2,
+ "difficulty": "hard",
+ "band": 4,
+ "domain": "craft-and-structure",
+ "skill": "cross-text-connections",
+ "question": "Based on the texts, how would the author of Text 2 most likely respond to the claim presented in Text 1?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "By agreeing that automatic enrollment raises saving, but arguing it works mainly because most savers are passive, so nudging active choosers adds little to the total."
+  },
+  {
+   "id": "B",
+   "text": "He would deny that defaults change saving behavior at all, insisting that only tax incentives directed at active savers can move the total amount households set aside."
+  },
+  {
+   "id": "C",
+   "text": "He would maintain that the Danish evidence shows automatic enrollment lowers total saving once the assets shifted out of taxable accounts are subtracted."
+  },
+  {
+   "id": "D",
+   "text": "Treating household saving as fixed almost entirely by income, he would hold that neither defaults nor incentives measurably change how much families save."
+  }
+ ],
+ "correctAnswer": "A",
+ "explanation": "The correct answer is A. Text 2 accepts the central fact of Text 1 — that automatic enrollment raises saving — but reinterprets why it works. Chetty finds that most savers are \"passive,\" never adjusting their accounts, so whatever the default sets, sticks; it is that large passive majority, not a behavioral response across the board, that makes automatic enrollment effective. He adds that incentives aimed at active decision-makers mostly shift money between accounts rather than creating new saving. A captures this agree-but-reinterpret stance. B denies defaults matter, which Text 2 affirms. C says automatic enrollment lowers saving, which Text 2 never claims. D treats saving as fixed by income, a position neither text holds.",
+ "_meta": {
+  "anchor": "Cross-text pair: Thaler & Benartzi (defaults/inertia) vs. Chetty (passive savers; Denmark) [theme: behavioral economics of savings]"
+ },
+ "passages": [
+  {
+   "label": "Text 1",
+   "text": "The economists Richard Thaler and Shlomo Benartzi have argued that the most powerful tool for raising household retirement saving is not financial education or larger tax breaks but the design of the default option. Most employees, they observe, simply stay with whatever their plan sets up for them. When a workplace plan automatically enrolls new hires and automatically raises their contribution rate over time — unless they actively opt out — participation and savings rates climb sharply and stay high. The lesson, on their account, is that inertia, usually treated as an obstacle to saving, can be enlisted on the saver's behalf. Policy should therefore concentrate on setting good defaults, because that is the lever to which ordinary savers actually respond."
+  },
+  {
+   "label": "Text 2",
+   "text": "The economist Raj Chetty, drawing on records for millions of savers in Denmark, accepts that automatic contributions raise the amount people save. But the data lead him to reinterpret why. Most savers, he finds, are \"passive\": they never actively adjust their accounts, so whatever the default does, sticks. It is this large passive majority, not a uniform behavioral response, that makes automatic enrollment so effective. The same data show that subsidies aimed at active decision-makers — tax breaks for contributing more — mostly shift money from one account to another rather than creating new saving. The policy that matters, on his reading, depends on how many savers are passive; incentives directed at active choosers do comparatively little for the total."
+  }
+ ],
+ "type": "multiple-choice"
+}

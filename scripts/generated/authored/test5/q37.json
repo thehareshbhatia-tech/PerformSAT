@@ -1,0 +1,34 @@
+{
+  "id": 537,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "information-and-ideas",
+  "skill": "central-ideas-and-details",
+  "module": 2,
+  "passage": "Modern tests on cores drilled from ancient Roman harbor structures have helped explain why some of that concrete has survived two thousand years of seawater. The Romans mixed volcanic ash with lime and seawater, and over time the seawater reacted with the ash to grow interlocking crystals of a rare mineral within the cement. Rather than being slowly broken down by the sea, as modern marine concrete usually is, the Roman material grew stronger as those crystals filled cracks and bound the matrix together. Researchers caution, though, that the recipe suited slow-curing harbor works and would not directly serve the fast construction schedules modern projects require.",
+  "question": "Based on the text, what happened when seawater reacted with the volcanic ash in Roman marine concrete?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "The concrete cured far more quickly than modern marine concrete typically does."
+    },
+    {
+      "id": "B",
+      "text": "The volcanic ash was gradually dissolved and washed out of the surrounding cement."
+    },
+    {
+      "id": "C",
+      "text": "Interlocking crystals of a rare mineral grew within the cement and strengthened it."
+    },
+    {
+      "id": "D",
+      "text": "The harbor structures became unsuitable for any further use in saltwater."
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C. The passage states that the seawater reacted with the ash \"to grow interlocking crystals of a rare mineral within the cement\" and that the material \"grew stronger\" as those crystals filled cracks. Choice A claims faster curing, which the passage does not say and which runs against its note that the recipe suited slow-curing works. Choice B has the ash dissolving away, the opposite of the strengthening reaction described. Choice D claims the structures became unusable, contradicting the point that the concrete endured.",
+  "_meta": {
+    "anchor": "Roman marine concrete; seawater-ash reaction grows strengthening crystals"
+  }
+}

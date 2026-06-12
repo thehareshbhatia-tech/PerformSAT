@@ -1,0 +1,31 @@
+{
+  "id": 804,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "craft-and-structure",
+  "skill": "words-in-context",
+  "module": 1,
+  "passage": "Using X-ray crystallography, the chemist Dorothy Hodgkin worked out the three-dimensional structures of molecules far too small to see, among them penicillin and, after years of effort, vitamin B12. The method was painstaking, since each structure had to be ____ from hundreds of diffraction spots—the pattern of dots a crystal scatters onto film—rather than observed directly.",
+  "question": "Which choice completes the text with the most logical and precise word or phrase?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "deduced"
+    },
+    {
+      "id": "B",
+      "text": "inherited"
+    },
+    {
+      "id": "C",
+      "text": "dismissed"
+    },
+    {
+      "id": "D",
+      "text": "memorized"
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A. The passage stresses that the molecule cannot be seen and that the structure has to be worked out indirectly from a pattern of scattered dots, so the blank needs a verb for reasoning to a conclusion from evidence. \"Deduced\" fits. \"Inherited\" would suggest the structure was passed down rather than figured out; \"dismissed\" reverses the sense, implying the structure was rejected; and \"memorized\" describes recalling something already known, not determining something unknown."
+}

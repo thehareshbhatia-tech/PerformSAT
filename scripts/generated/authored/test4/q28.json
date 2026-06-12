@@ -1,0 +1,34 @@
+{
+  "id": 428,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "craft-and-structure",
+  "skill": "words-in-context",
+  "question": "Which choice completes the text with the most logical and precise word or phrase?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "concealed"
+    },
+    {
+      "id": "B",
+      "text": "replaced"
+    },
+    {
+      "id": "C",
+      "text": "imitated"
+    },
+    {
+      "id": "D",
+      "text": "reflected"
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "The correct answer is D. Bath argued that the sharp variation in preventable blindness was a sign of how the health-care system worked rather than of individual choices, so the variation \"reflected\" that system. \"Concealed\" reverses the relationship; \"replaced\" and \"imitated\" do not describe how a pattern can point to an underlying cause.",
+  "passage": "Ophthalmologist Patricia Bath argued throughout her career that the sharp variation in rates of preventable blindness from one community to another ______ the workings of the health-care system — where clinics were located, who could reach them, who carried insurance — far more than it did the choices of individual patients.",
+  "_meta": {
+    "anchor": "Patricia Bath — community ophthalmology (entity_keep); distractors revised"
+  },
+  "module": 2
+}

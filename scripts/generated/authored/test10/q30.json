@@ -1,0 +1,31 @@
+{
+ "id": 1030,
+ "type": "multiple-choice",
+ "difficulty": "hard",
+ "band": 4,
+ "domain": "craft-and-structure",
+ "skill": "words-in-context",
+ "module": 2,
+ "passage": "A rocket bound for orbit cannot carry all of its fuel in one tank, because the dead weight of a single enormous casing would cripple its climb. Instead the vehicle is assembled in stages stacked one atop another. As the fuel in the lowest stage burns away, that spent section drops free, and the next stage, its own engines fueled and primed, is ______ to ignite and drive the now lighter craft higher.",
+ "question": "Which choice completes the text with the most logical and precise word or phrase?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "reluctant"
+  },
+  {
+   "id": "B",
+   "text": "forbidden"
+  },
+  {
+   "id": "C",
+   "text": "exhausted"
+  },
+  {
+   "id": "D",
+   "text": "ready"
+  }
+ ],
+ "correctAnswer": "D",
+ "explanation": "Choice D is correct. The passage describes a rocket built in stages used in turn, so that as the fuel in the lowest stage burns away and that section drops free, the next stage stands available to ignite and carry the climb forward. \"Ready\" conveys that the next stage is fueled and on hand to take over. \"Reluctant\" and \"forbidden\" make no sense applied to a rocket stage, and \"exhausted\" would describe the stage as spent, the opposite of being primed to fire."
+}

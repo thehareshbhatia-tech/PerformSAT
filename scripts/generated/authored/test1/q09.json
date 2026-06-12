@@ -1,0 +1,31 @@
+{
+ "id": 109,
+ "type": "multiple-choice",
+ "difficulty": "easy",
+ "band": 2,
+ "domain": "information-and-ideas",
+ "skill": "central-ideas-and-details",
+ "module": 1,
+ "passage": "In 1978, while working at the Laetoli site in northern Tanzania, paleoanthropologist Mary Leakey uncovered a trail of fossilized footprints that offered uncommonly direct evidence of upright walking in early hominins. The prints had been preserved in fine volcanic ash that hardened soon after a nearby eruption roughly 3.6 million years ago. In her 1979 report on the site, Leakey described the prints as showing a clearly modern stride, with weight transferring from heel to toe along an arched foot, rather than the shuffling gait that some researchers had attributed to hominins of that period. Because the footprints recorded behavior rather than anatomy, they provided a kind of evidence that fossilized bones alone could not supply, demonstrating that habitual bipedal locomotion was already established in hominins more than three million years ago.",
+ "question": "Which choice best states the main idea of the text?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "The Laetoli footprints were preserved in a layer of fine volcanic ash that hardened soon after a nearby eruption roughly 3.6 million years ago."
+  },
+  {
+   "id": "B",
+   "text": "Leakey argued that fossilized footprints generally provide less reliable evidence of early hominin behavior than fossilized bones do."
+  },
+  {
+   "id": "C",
+   "text": "Leakey's 1979 report concluded that the Laetoli footprints recorded a shuffling gait rather than a clearly modern walking stride."
+  },
+  {
+   "id": "D",
+   "text": "Leakey's 1978 discovery of fossilized footprints at Laetoli supplied uncommonly direct evidence that habitual bipedal locomotion was already established in early hominins more than three million years ago."
+  }
+ ],
+ "correctAnswer": "D",
+ "explanation": "The correct answer is D. The passage opens with a topic sentence stating the central claim: Leakey's footprint discovery at Laetoli offered uncommonly direct evidence of upright walking in early hominins. The remaining sentences support this claim by describing how the prints were preserved (volcanic ash, ~3.6 million years ago), what they showed (a modern heel-to-toe stride), and why this kind of evidence mattered (recorded behavior, not just anatomy). Choice D captures this argument at the right level of generalization, naming both the discovery and the broader conclusion it supported."
+}

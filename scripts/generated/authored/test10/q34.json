@@ -1,0 +1,31 @@
+{
+ "id": 1034,
+ "type": "multiple-choice",
+ "difficulty": "hard",
+ "band": 4,
+ "domain": "craft-and-structure",
+ "skill": "text-structure-and-purpose",
+ "module": 2,
+ "passage": "A Venus flytrap grows in bogs so poor in nitrogen that its roots cannot supply all the plant needs to grow, and it makes up the shortfall by catching animals. Each trap is a pair of hinged lobes fringed with stiff spines and dotted on the inside with tiny trigger hairs. A single touch to one hair does nothing; but a second touch within about twenty seconds, the kind of repeated contact an insect makes but a falling raindrop does not, snaps the lobes shut in a fraction of a second. The closed trap then seals and floods the captive with enzymes that dissolve its body, and the plant absorbs the nitrogen that is released. By requiring two touches in quick succession, the trap commits its energy only when a meal is actually present.",
+ "question": "Which choice best describes the overall structure of the text?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "It narrates the stages by which the Venus flytrap evolved from an ordinary bog plant into a carnivore over millions of years."
+  },
+  {
+   "id": "B",
+   "text": "It centers on the trap's trigger hairs and argues that they are more sensitive to touch than any other plant structure yet described."
+  },
+  {
+   "id": "C",
+   "text": "It explains why the plant needs an unusual food source, describes the mechanism by which it captures prey, and accounts for one feature of that mechanism in terms of conserving the plant's energy."
+  },
+  {
+   "id": "D",
+   "text": "It warns that the flytrap's dependence on insects has left it unable to survive in soils where nitrogen is already plentiful."
+  }
+ ],
+ "correctAnswer": "C",
+ "explanation": "Choice C is correct. The passage first explains why the flytrap catches animals at all—its boggy soil is too poor in nitrogen for its roots to supply what it needs—then describes how the trap works, from the trigger hairs and the two-touch rule to the snap, the digestive enzymes, and the absorption of nitrogen. It closes by accounting for the two-touch design: it lets the plant spend energy only when prey is actually present. That need-mechanism-and-rationale arc is what Choice C describes. Choice A treats the passage as a history of the plant's evolution, which it does not recount. Choice B fixes on a single detail and adds a superiority claim the passage never makes. Choice D introduces a warning about nitrogen-rich soils that the passage does not raise."
+}

@@ -1,0 +1,34 @@
+{
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "information-and-ideas",
+  "skill": "inferences",
+  "question": "Which choice most logically completes the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "can readily be understood by any sufficiently trained whistler, regardless of which particular spoken language that whistler happens to know beforehand."
+    },
+    {
+      "id": "B",
+      "text": "conveys a meaning that is entirely independent of the spoken language of the community that happens to produce it."
+    },
+    {
+      "id": "C",
+      "text": "carries information that a listener recovers by mapping it onto the spoken language he or she already knows, rather than through the whistling alone."
+    },
+    {
+      "id": "D",
+      "text": "can encode the words of a tonal spoken language but is fundamentally incapable of encoding the words of any non-tonal language whatsoever, in any community."
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C. The passage says whistled speech encodes a community's spoken language and is understood only by those who already speak it, so a listener must map the whistles onto the spoken language to recover the message. Choice C states that. Choice A contradicts the point that comprehension requires knowing the local language; Choice B denies the dependence on spoken language the passage stresses; and Choice D is too absolute, since the passage says non-tonal whistlers simply encode word features another way, not that they cannot encode them at all.",
+  "passage": "Whistled languages, found in a handful of communities around the world, let people converse across long distances by whistling. In a community whose spoken language is tonal, whistlers reproduce the pitch contours that distinguish words; in a community whose spoken language relies instead on vowels and consonants, whistlers must encode those features in some other way, since a whistle carries little besides pitch. Researchers note that whistled speech is generally understood only by people who already speak the local spoken language. It follows that a whistled message ______",
+  "_meta": {
+    "anchor": "linguistics of tone languages: whistled speech parasitic on the spoken language"
+  },
+  "id": 1143,
+  "module": 2
+}

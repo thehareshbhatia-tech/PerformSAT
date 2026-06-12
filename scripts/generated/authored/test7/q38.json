@@ -1,0 +1,31 @@
+{
+  "id": 738,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "information-and-ideas",
+  "skill": "central-ideas-and-details",
+  "module": 2,
+  "passage": "In late 1938, two German chemists reported a baffling result: bombarding uranium with neutrons produced barium, an element only about half as heavy as uranium. At the time, heavy nuclei were expected to absorb particles or shed small fragments, not to break roughly in half, so the finding seemed to defy known physics. The interpretation came from a physicist who had recently fled Germany for Sweden. Working through the problem with a younger colleague, she suggested that the uranium nucleus could behave like a liquid drop: the added neutron made it stretch and then split into two lighter nuclei, releasing a large amount of energy. The chemists' strange result, on this view, was the signature of a new kind of nuclear reaction, which the pair named fission.",
+  "question": "Based on the text, what did the physicist who interpreted the result propose about the uranium nucleus?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "That it simply absorbed the bombarding neutron without changing its total mass at all."
+    },
+    {
+      "id": "B",
+      "text": "That it could shed only small fragments, exactly as the known physics of the day predicted."
+    },
+    {
+      "id": "C",
+      "text": "That the nucleus was simply far too stable ever to be meaningfully altered by the impact of just a single neutron."
+    },
+    {
+      "id": "D",
+      "text": "That it could stretch like a liquid drop and then split into two lighter nuclei, releasing energy."
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "The correct answer is D. The passage states that the physicist pictured the uranium nucleus as a liquid drop that the added neutron made stretch and split into two lighter nuclei, releasing energy. Choice A describes simple absorption, which is what the result defied. Choice B repeats the old expectation (shedding only small fragments) that the new interpretation overturned, and Choice C describes a stability that her splitting model directly contradicts."
+}

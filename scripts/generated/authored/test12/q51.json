@@ -1,0 +1,31 @@
+{
+  "id": 1251,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "expression-of-ideas",
+  "skill": "transitions",
+  "module": 2,
+  "passage": "For years, researchers trying to reconstruct past ocean temperatures from the chemistry of fossil shells were limited by a stubborn ambiguity: the ratio they measured depended on both the temperature of the water and its isotopic composition, and the two effects could not be separated from a single measurement. A team developed a technique that reads a second, independent signal from the same shell—the way certain heavy isotopes bond together, which depends on temperature alone. Applying it to shells of known age let them pin down water temperature without having to assume the seawater's composition. ______ the team could extend reliable temperature reconstructions back across intervals where the older method had yielded only ranges too wide to be useful.",
+  "question": "Which choice completes the text with the most logical transition?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Nevertheless,"
+    },
+    {
+      "id": "B",
+      "text": "For instance,"
+    },
+    {
+      "id": "C",
+      "text": "As a result,"
+    },
+    {
+      "id": "D",
+      "text": "Meanwhile,"
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C. The new technique removed the ambiguity that had limited the old method, and the final sentence reports the payoff that followed—reliable reconstructions across intervals that had previously yielded only vague ranges—so \"As a result\" marks the consequence. \"Nevertheless\" would signal an outcome counter to expectation, which does not fit a straightforward payoff. \"For instance\" would introduce an example rather than a result. \"Meanwhile\" would mark something happening at the same time elsewhere, not a consequence of the technique."
+}

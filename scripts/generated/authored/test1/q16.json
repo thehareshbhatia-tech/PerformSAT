@@ -1,0 +1,31 @@
+{
+ "id": 116,
+ "type": "multiple-choice",
+ "difficulty": "hard",
+ "band": 4,
+ "domain": "information-and-ideas",
+ "skill": "inferences",
+ "module": 1,
+ "passage": "Working with maize at Cold Spring Harbor Laboratory in the 1940s, the geneticist Barbara McClintock noticed that the kernels on certain ears displayed irregular patches of pigment whose distribution did not fit established rules of inheritance. By tracking how these patterns reappeared across many generations of carefully bred plants, and by mapping the chromosomes of plants that produced them, she concluded that particular elements were physically changing location within the genome and, in doing so, switching adjacent pigment genes on or off in the cells where the elements landed. McClintock's 1950 paper proposing such mobile elements was largely set aside by other geneticists for several decades, but the central claim of her account implies that ______",
+ "question": "Which choice most logically completes the text?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "the activity of a pigment gene in maize is determined entirely by the gene's own sequence and is unaffected by the position it occupies on the chromosome."
+  },
+  {
+   "id": "B",
+   "text": "in every species of flowering plant, mobile chromosomal elements are the principal mechanism that regulates the expression of pigment genes."
+  },
+  {
+   "id": "C",
+   "text": "irregular patches of pigment cannot appear on a maize kernel unless a chromosomal element has relocated at some point during the plant's development."
+  },
+  {
+   "id": "D",
+   "text": "whether a particular pigment gene in maize is active can depend not only on the gene itself but also on what lies near it on the chromosome."
+  }
+ ],
+ "correctAnswer": "D",
+ "explanation": "The passage establishes two premises. First, McClintock observed pigment patches whose distribution did not fit established inheritance rules. Second, she concluded that chromosomal elements were changing position and, in doing so, switching adjacent pigment genes on or off. The minimum inference these premises force is that gene activity in maize is not fixed by the gene alone: what sits next to a gene on the chromosome can determine whether it is expressed. Choice D captures exactly this measured claim, using 'can depend' rather than 'must depend' and limiting the scope to maize pigment genes — the population the premises actually concern.\n\nThe stem requires the conclusion the premises license, not a consistent-sounding claim that exceeds them."
+}

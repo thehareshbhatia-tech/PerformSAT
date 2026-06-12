@@ -1,0 +1,67 @@
+{
+ "id": 1040,
+ "type": "multiple-choice",
+ "difficulty": "medium",
+ "band": 3,
+ "domain": "information-and-ideas",
+ "skill": "command-of-evidence-quantitative",
+ "module": 2,
+ "passage": "Climate scientists who synthesized observational records for the IPCC's Sixth Assessment Report (2021) tabulated annual precipitation changes between 1981 and 2020 across five latitudinal bands, expressed as percent change relative to a 1961-1990 baseline. A graduate student summarizing the table for a class presentation argued that, while it would be inaccurate to say that every band became wetter over the period, it is fair to say that the great majority of bands showed an increase in mean precipitation because _______",
+ "questionTable": {
+  "type": "table",
+  "caption": "Observed annual precipitation change (% relative to 1961-1990) by latitudinal band, 1981-2020 (IPCC AR6 WG1, Chapter 8)",
+  "headers": [
+   "Latitudinal band",
+   "Change (%)",
+   "Confidence"
+  ],
+  "rows": [
+   [
+    "60-90°N (high northern)",
+    "+8.2",
+    "high"
+   ],
+   [
+    "30-60°N (mid northern)",
+    "+1.7",
+    "medium"
+   ],
+   [
+    "0-30°N (tropical northern)",
+    "-0.4",
+    "low"
+   ],
+   [
+    "0-30°S (tropical southern)",
+    "+1.1",
+    "medium"
+   ],
+   [
+    "30-60°S (mid southern)",
+    "+2.6",
+    "medium"
+   ]
+  ]
+ },
+ "question": "Which choice most effectively uses data from the table to complete the statement?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "the tropical northern band recorded a -0.4% change between 1981 and 2020, with that decrease assigned 'low' confidence by the synthesis team."
+  },
+  {
+   "id": "B",
+   "text": "four of the five latitudinal bands shown — high northern (+8.2%), mid northern (+1.7%), tropical southern (+1.1%), and mid southern (+2.6%) — recorded positive precipitation changes, while only the tropical northern band registered a small decrease (-0.4%)."
+  },
+  {
+   "id": "C",
+   "text": "the high northern band recorded a +8.2% change between 1981 and 2020, the largest increase of any latitudinal band shown in the table."
+  },
+  {
+   "id": "D",
+   "text": "every latitudinal band shown in the table recorded a positive precipitation change, ranging from +1.1% in the tropical southern band to +8.2% in the high northern band."
+  }
+ ],
+ "correctAnswer": "B",
+ "explanation": "Choice B is correct. The student's claim is carefully scoped: not every band became wetter, but the great majority did. Supporting it requires showing both that most bands increased and that not all did. Choice B enumerates the four bands with positive changes and pairs them with the single negative band, displaying exactly that majority-with-one-exception pattern. Choice A foregrounds only the lone decreasing band, which would point toward a mixed picture rather than a majority increase. Choice C cites only the largest single value, a magnitude claim rather than a count of bands. Choice D overstates the pattern by saying every band rose, which the tropical northern band's -0.4% contradicts."
+}

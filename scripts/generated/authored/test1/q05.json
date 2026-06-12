@@ -1,0 +1,31 @@
+{
+ "id": 105,
+ "type": "multiple-choice",
+ "difficulty": "medium",
+ "band": 3,
+ "domain": "craft-and-structure",
+ "skill": "text-structure-and-purpose",
+ "module": 1,
+ "passage": "Paleobotanist Else Marie Friis studies fossilized flowers preserved as tiny three-dimensional fragments of charcoal. For most of the twentieth century, researchers assumed that the earliest flowering plants must have been large and showy, like many familiar blossoms today. Examining hundreds of millimeter-scale fossils from Cretaceous rock, Friis and her colleagues found instead that the oldest flowers were minute, simple, and structurally modest. They argue that the conspicuous flowers people picture as typical evolved much later, and that the group's earliest success owed nothing to size or display.",
+ "question": "Which choice best describes the overall structure of the text?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "It presents a long-standing assumption about early flowers and then surveys several competing explanations for how that assumption first arose."
+  },
+  {
+   "id": "B",
+   "text": "It describes a fossil-collecting technique and then explains why other researchers have found that technique difficult to reproduce."
+  },
+  {
+   "id": "C",
+   "text": "It introduces a widely held assumption about early flowering plants, presents fossil evidence that contradicts it, and states a conclusion drawn from that evidence."
+  },
+  {
+   "id": "D",
+   "text": "It traces the gradual acceptance of Friis's theory and then notes the objections that her critics have continued to raise."
+  }
+ ],
+ "correctAnswer": "C",
+ "explanation": "The correct answer is C. The passage opens with the assumption researchers long held—that the earliest flowers were large and showy. It then reports what Friis and her colleagues actually found in the Cretaceous fossils: the oldest flowers were minute and simple, the opposite of the expectation. It closes with the conclusion they draw, that showy flowers evolved later. Choice A misdescribes the second half, which contradicts the assumption rather than explaining its origin; B focuses on a technique and a reproducibility problem the passage never raises; and D invents a history of acceptance and critical objection that the text does not provide."
+}

@@ -1,0 +1,31 @@
+{
+  "id": 210,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "information-and-ideas",
+  "skill": "central-ideas-and-details",
+  "module": 1,
+  "passage": "In her 2021 book All That She Carried: The Journey of Ashley's Sack, historian Tiya Miles reconstructs the story of a single embroidered cloth sack that passed through three generations of an enslaved Black family in the American South. Working from the brief lines stitched onto the sack and from scattered archival fragments, Miles traces how an enslaved mother filled it with a few belongings for her young daughter on the eve of their forced separation at a slave sale. By following the sack across decades, Miles argues that humble objects of this kind functioned as deliberate vehicles of remembrance, allowing Black women under slavery to preserve memory and family ties even as auctions and removals scattered them.",
+  "question": "Which choice best states the main idea of the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Miles reconstructs the route by which a single embroidered sack passed through an auction house before being recovered by archivists."
+    },
+    {
+      "id": "B",
+      "text": "Miles maintains that everyday objects such as Ashley's sack played little part in how enslaved Black women preserved family memory."
+    },
+    {
+      "id": "C",
+      "text": "Miles uses Ashley's sack to argue that humble belongings kept by enslaved Black women served as deliberate vehicles for preserving memory and family ties across forced separations."
+    },
+    {
+      "id": "D",
+      "text": "Miles describes the few belongings an enslaved mother packed into a cloth sack for her daughter on the eve of their separation."
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C. The passage builds to Miles's central claim: that humble objects like Ashley's sack worked as deliberate vehicles of remembrance, letting enslaved Black women preserve memory and family ties through the separations slavery imposed. Choice A fixes on a detail the passage never states in that form and misses the argument. Choice B directly contradicts the passage, which says such objects did this memory-keeping work. Choice D restates one episode—the mother packing the sack—rather than the larger point the passage uses that episode to make."
+}

@@ -1,0 +1,31 @@
+{
+  "id": 1203,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "craft-and-structure",
+  "skill": "words-in-context",
+  "module": 1,
+  "passage": "Economists once assumed that workers offered a retirement savings plan would weigh the long-run benefits and enroll whenever doing so served their interests. Findings from large employer studies run ____ that assumption: when enrollment is automatic and employees must act to opt out, participation rises sharply and stays high, even though the financial incentives are identical to those of an opt-in plan. The default option itself, not a fresh cost-benefit calculation, seems to shape how many people end up saving.",
+  "question": "Which choice completes the text with the most logical and precise word or phrase?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "in line with"
+    },
+    {
+      "id": "B",
+      "text": "prior to"
+    },
+    {
+      "id": "C",
+      "text": "regardless of"
+    },
+    {
+      "id": "D",
+      "text": "counter to"
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "The correct answer is D. The findings contradict the economists' assumption that people enroll by rational calculation, so the studies run \"counter to\" it. \"In line with\" states the opposite relationship, agreement rather than conflict. \"Prior to\" is a time relation, but nothing here says the findings came before the assumption. \"Regardless of\" would suggest the findings are simply unrelated to the assumption, whereas the passage frames them as direct evidence against it."
+}

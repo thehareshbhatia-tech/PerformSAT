@@ -1,0 +1,31 @@
+{
+  "id": 809,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "information-and-ideas",
+  "skill": "central-ideas-and-details",
+  "module": 1,
+  "passage": "In the 1790s, the German botanist Christian Konrad Sprengel studied why insects visit flowers and showed that many blossoms are shaped to steer a bee or moth toward their pollen and nectar. Examining several wild orchids, though, he found a contradiction: their long spurs looked as if they should hold nectar, yet none was inside. Sprengel concluded that these orchids draw insects by the mere appearance of a reward, prompting pollinators to carry pollen away without ever being fed. His description of such \"false nectar flowers\" is often cited as one of the earliest accounts of deception as a strategy for attracting pollinators.",
+  "question": "Which choice best states the main idea of the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Sprengel believed that insects, rather than wind or chance, were responsible for fertilizing every kind of flowering plant he examined."
+    },
+    {
+      "id": "B",
+      "text": "Most orchids that botanists have studied since Sprengel's time have turned out to produce no nectar of any kind."
+    },
+    {
+      "id": "C",
+      "text": "Sprengel found that certain orchids attract pollinating insects by appearing to offer a nectar reward they do not actually contain."
+    },
+    {
+      "id": "D",
+      "text": "By the time Sprengel published his observations, the orchids he had studied were already growing scarce across much of Europe."
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C. The passage builds to a single point: Sprengel discovered that some orchids lure insects with spurs that look as though they hold nectar but do not, drawing pollinators that carry away pollen without any reward. A overstates his view into a blanket claim that insects fertilize every flowering plant, which the text does not assert; B makes a sweeping generalization about orchids studied after his time that the passage never offers; and D introduces the scarcity of the orchids, a topic the passage does not raise."
+}

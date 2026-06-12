@@ -1,0 +1,31 @@
+{
+  "id": 628,
+  "module": 2,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "craft-and-structure",
+  "skill": "words-in-context",
+  "passage": "As gene-editing tools have moved from the laboratory into agriculture and medicine, the hardest questions facing researchers are no longer technical. Whether a given edit can be made is, for many applications, no longer in doubt. What remains unsettled is how a scientific community spread across many countries, governed by different laws and different norms, can ______ a shared set of rules for using the technology responsibly.",
+  "question": "Which choice completes the text with the most logical and precise word or phrase?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "negotiate"
+    },
+    {
+      "id": "B",
+      "text": "ridicule"
+    },
+    {
+      "id": "C",
+      "text": "memorize"
+    },
+    {
+      "id": "D",
+      "text": "inherit"
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A, \"negotiate.\" The passage describes researchers in different countries, with different laws and norms, trying to arrive at common rules; that work of reaching agreement across differences is what \"negotiate\" names. \"Ridicule\" would have them mocking the rules rather than agreeing on them. \"Memorize\" treats rules that do not yet exist as something merely to be learned by heart, and \"inherit\" implies the rules are handed down ready-made, which contradicts the point that they still have to be worked out."
+}

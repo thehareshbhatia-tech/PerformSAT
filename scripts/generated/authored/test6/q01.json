@@ -1,0 +1,31 @@
+{
+  "id": 601,
+  "module": 1,
+  "type": "multiple-choice",
+  "difficulty": "easy",
+  "band": 2,
+  "domain": "craft-and-structure",
+  "skill": "words-in-context",
+  "passage": "Researchers studying the immune defenses of ordinary bacteria have described a system that lets a cell keep a record of past attacks. When a virus injects its DNA into the cell, the cell's CRISPR machinery can ______ a short fragment of that viral DNA into the cell's own genetic material, so that if the same virus returns later, the cell recognizes the threat and destroys it.",
+  "question": "Which choice completes the text with the most logical and precise word or phrase?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "describe"
+    },
+    {
+      "id": "B",
+      "text": "imitate"
+    },
+    {
+      "id": "C",
+      "text": "ignore"
+    },
+    {
+      "id": "D",
+      "text": "incorporate"
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "The correct answer is D, \"incorporate.\" The sentence describes the cell taking a fragment of viral DNA and building it into its own genetic material as a lasting record. \"Incorporate\" means exactly that: to take something in and make it part of a larger whole. \"Ignore\" is the opposite of what the cell does, since the whole point is to keep the fragment rather than disregard it. \"Describe\" would treat the cell as if it were commenting on the DNA, which it cannot do, and \"imitate\" suggests copying the virus's behavior rather than filing away a piece of its DNA."
+}

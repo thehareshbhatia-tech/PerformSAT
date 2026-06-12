@@ -1,0 +1,31 @@
+{
+  "id": 252,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "expression-of-ideas",
+  "skill": "transitions",
+  "module": 2,
+  "passage": "Consumer ancestry-test companies advertise their DNA kits as a way for customers to confirm Native American heritage and to support claims of tribal membership through saliva samples and probabilistic ancestry maps. ______ anthropologist Kim TallBear of the University of Alberta argues in Native American DNA: Tribal Belonging and the False Promise of Genetic Science (2013) that tribal belonging is constituted by political and kinship relations rather than by genetic markers, so a consumer DNA result cannot establish citizenship in any tribal nation.",
+  "question": "Which choice completes the text with the most logical transition?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "On the other hand,"
+    },
+    {
+      "id": "B",
+      "text": "Therefore,"
+    },
+    {
+      "id": "C",
+      "text": "Moreover,"
+    },
+    {
+      "id": "D",
+      "text": "Likewise,"
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A. Sentence 1 reports what consumer ancestry-test companies advertise: that their DNA kits let customers confirm Native American heritage and support claims of tribal membership through saliva samples and probabilistic ancestry maps. Sentence 2 reports what Kim TallBear, an anthropologist at the University of Alberta, argues in Native American DNA: Tribal Belonging and the False Promise of Genetic Science (2013): tribal belonging is constituted by political and kinship relations rather than by genetic markers, so a consumer DNA result cannot establish citizenship in any tribal nation. The relation between the two sentences is direct opposition between two competing accounts of what fixes tribal membership — a marketing claim that genetic markers can confirm membership, and a scholarly argument that political and kinship relations alone constitute it. 'On the other hand,' is the CB-lexicon transition for setting one side of an opposed pair against the other, and is correct (A).\n\nThe cue that selects 'On the other hand,' is the explicit 'rather than by genetic markers' in sentence 2, which points back to and rejects the genetics-confirms-membership premise of sentence 1."
+}

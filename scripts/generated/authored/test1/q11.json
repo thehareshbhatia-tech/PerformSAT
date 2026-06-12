@@ -1,0 +1,31 @@
+{
+ "id": 111,
+ "type": "multiple-choice",
+ "difficulty": "medium",
+ "band": 3,
+ "domain": "information-and-ideas",
+ "skill": "central-ideas-and-details",
+ "module": 1,
+ "passage": "Archaeologist Linda Manzanilla, of the Universidad Nacional Autónoma de México, has spent decades reconstructing daily life in Teotihuacan, the largest pre-Columbian city in the Americas. Rather than focus on the city's monumental pyramids, she has concentrated on its dense residential neighborhoods, where ordinary residents lived in stone-walled apartment compounds. By comparing the chemical signatures preserved in teeth and bones with the regional geology of central Mexico, Manzanilla and her collaborators have shown that the people buried within a single compound often grew up in different parts of Mesoamerica before settling at Teotihuacan.",
+ "question": "According to the text, what did the isotopic comparison conducted by Manzanilla and her collaborators reveal?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "That Teotihuacan's apartment compounds were built closer to the city's pyramids than earlier archaeologists had assumed."
+  },
+  {
+   "id": "B",
+   "text": "That the people buried in Teotihuacan's compounds had eaten a diet markedly different from that of other Mesoamerican cities."
+  },
+  {
+   "id": "C",
+   "text": "That people buried within a single Teotihuacan compound had often grown up in different parts of Mesoamerica."
+  },
+  {
+   "id": "D",
+   "text": "That Teotihuacan's total population was larger than the populations of other pre-Columbian cities in the Americas."
+  }
+ ],
+ "correctAnswer": "C",
+ "explanation": "The correct answer is C. The passage states directly that, by matching the chemical signatures in teeth and bones to the geology of central Mexico, Manzanilla and her collaborators showed that people buried in one compound had often grown up in different regions of Mesoamerica. C restates that finding. A concerns where compounds were built, which the comparison does not address; B introduces a dietary contrast the passage never makes; and D shifts to total population size, a claim the isotopic work was not used to support."
+}

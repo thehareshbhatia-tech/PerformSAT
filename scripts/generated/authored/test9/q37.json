@@ -1,0 +1,34 @@
+{
+  "id": 937,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "information-and-ideas",
+  "skill": "central-ideas-and-details",
+  "module": 2,
+  "passage": "The anthropologist Diamond Jenness spent two years, beginning in 1914, living among the Copper Inuit of the central Canadian Arctic as a member of the Canadian Arctic Expedition. Rather than simply collecting objects, he recorded the group's seasonal movements, kinship terms, songs, and the way tasks were divided through the year. His monograph on the Copper Inuit became a standard reference, valued less for any single discovery than for the breadth of daily life it documented at a moment when that life was beginning to change under outside contact.",
+  "question": "According to the text, what did Jenness's monograph on the Copper Inuit come to be valued for?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "The objects he collected during the expedition."
+    },
+    {
+      "id": "B",
+      "text": "A single major discovery about Arctic kinship."
+    },
+    {
+      "id": "C",
+      "text": "Its predictions about future contact with outsiders."
+    },
+    {
+      "id": "D",
+      "text": "The breadth of daily life that it documented."
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "The passage says Jenness's monograph was prized \"less for any single discovery than for the breadth of daily life it documented.\" The detail the question asks for is therefore that breadth of everyday life, choice D. Choice A names the object-collecting the text says he set aside, B names the single discovery the text downplays, and C invents predictions the passage does not mention.",
+  "_meta": {
+    "anchor": "Diamond Jenness, Copper Inuit"
+  }
+}

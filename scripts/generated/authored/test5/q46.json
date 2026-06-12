@@ -1,0 +1,34 @@
+{
+  "id": 546,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "standard-english-conventions",
+  "skill": "boundaries",
+  "module": 2,
+  "passage": "Among the long-running international comparative-education studies that have shaped policy discussions over the past two decades are the Programme for International Student Assessment, conducted every three years by the Organisation for Economic Co-operation and Development; the Trends in International Mathematics and Science Study, run by the International Association for the Evaluation of Educational ______ Progress in International Reading Literacy Study, operated by that same association on a five-year cycle.",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Achievement and the"
+    },
+    {
+      "id": "B",
+      "text": "Achievement, and the"
+    },
+    {
+      "id": "C",
+      "text": "Achievement: and the"
+    },
+    {
+      "id": "D",
+      "text": "Achievement; and the"
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "The correct answer is D, \"Achievement; and the\". The sentence lists three studies, and because the items contain internal commas, the items themselves are separated by semicolons; the semicolon already present after the first item confirms this is the right level. A comma plus \"and\" (choice B) drops to a lower level of punctuation than the rest of the list uses. A colon (choice C) would treat the third study as an explanation of the institution. No boundary at all (choice A) runs the third item straight into the second.",
+  "_meta": {
+    "anchor": "PISA / TIMSS / PIRLS — three comparative-education studies; list semicolons"
+  }
+}

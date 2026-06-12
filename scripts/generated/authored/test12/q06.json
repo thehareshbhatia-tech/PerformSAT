@@ -1,0 +1,31 @@
+{
+  "id": 1206,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "craft-and-structure",
+  "skill": "text-structure-and-purpose",
+  "module": 1,
+  "passage": "When conservators began cleaning the frescoes of the Sistine Chapel ceiling in the 1980s, they confronted a basic question about what they were removing. Centuries of candle smoke, varnish, and earlier restorers' glue had darkened the surface, and the cleaning revealed colors far brighter than the muted tones long associated with Michelangelo's work. Some critics argued that the restorers were stripping away a deliberate final layer the artist had applied to soften his palette, so that the vivid surface left behind misrepresented his intentions. The conservation team responded that chemical analysis of the removed material matched glue and soot, not pigment, and that the bright colors were continuous with passages the artist had never coated. The episode is now cited less as a verdict on one ceiling than as an example of how a technical cleaning can force a reconsideration of what a familiar work was assumed to look like.",
+  "question": "Which choice best describes the overall structure of the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "It defends one cleaning method against its critics, then concludes that the original appearance of the ceiling can never now be recovered with any certainty."
+    },
+    {
+      "id": "B",
+      "text": "It traces the long history of physical damage to a famous artwork, then ranks the various causes of that damage in order of their severity."
+    },
+    {
+      "id": "C",
+      "text": "It describes a problem raised by a cleaning project, presents the competing interpretations it provoked, and then frames the episode as a broader lesson."
+    },
+    {
+      "id": "D",
+      "text": "It introduces a disagreement between an artist and the restorers who cleaned his work, then explains in detail how that disagreement was finally resolved in the artist's favor."
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C. The text first lays out the problem the cleaning posed (what was being removed), then gives the two readings—critics' worry that an intended layer was being lost versus the team's chemical findings—and closes by treating the whole affair as a general lesson about reexamining familiar works. A is too narrow and gets the ending wrong: the passage does not claim the original look is unrecoverable. B invents a ranking of causes that never appears. D misstates the parties (the dispute is among modern critics and restorers, not the long-dead artist) and wrongly says it ends in the artist's favor."
+}

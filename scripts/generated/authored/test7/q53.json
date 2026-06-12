@@ -1,0 +1,41 @@
+{
+  "id": 753,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "expression-of-ideas",
+  "skill": "rhetorical-synthesis",
+  "module": 2,
+  "studentNotes": {
+    "intro": "While researching a topic, a student has taken the following notes:",
+    "bullets": [
+      "Hilma af Klint (1862–1944) was a Swedish painter who trained at the Royal Academy of Fine Arts in Stockholm.",
+      "Standard histories of European abstract art credit Wassily Kandinsky and Piet Mondrian, working in the 1910s, as its earliest practitioners.",
+      "Af Klint produced large, fully abstract paintings as early as 1906, several years before those artists.",
+      "She kept most of these works private and asked that they not be exhibited until decades after her death.",
+      "A major 2013 exhibition and catalogue presented her as a pioneer of abstraction, prompting historians to reconsider the standard timeline."
+    ],
+    "goal": "The student wants to emphasize how renewed attention to af Klint has revised the accepted chronology of European abstraction."
+  },
+  "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Hilma af Klint (1862–1944) trained at the Royal Academy of Fine Arts in Stockholm before she eventually turned her attention to abstract painting."
+    },
+    {
+      "id": "B",
+      "text": "Af Klint deliberately kept most of her many abstract works entirely private and asked that they not be publicly exhibited until several full decades had passed after her own death."
+    },
+    {
+      "id": "C",
+      "text": "Standard histories of European abstract art still credit Kandinsky and Mondrian, both working in the 1910s, as the movement’s very earliest practitioners."
+    },
+    {
+      "id": "D",
+      "text": "Because af Klint produced fully abstract paintings as early as 1906, renewed attention to her work has pushed the accepted starting point of European abstraction back by several years, ahead of Kandinsky and Mondrian."
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "The correct answer is D. The goal is to show how attention to af Klint revised the accepted chronology, and D links her 1906 abstractions to the result — the accepted starting point of European abstraction moves back several years, ahead of Kandinsky and Mondrian. Choice A gives only biographical background, and Choice B describes her decision to keep the works private without addressing the timeline. Choice C restates the standard chronology but omits the revision the goal calls for."
+}

@@ -1,0 +1,31 @@
+{
+  "id": 648,
+  "module": 2,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "standard-english-conventions",
+  "skill": "boundaries",
+  "passage": "Open-records laws give the public a broad right to inspect the documents that government agencies produce in the course of their work ______ they almost always exempt certain categories, such as personnel files and the records of active investigations, from any requirement to disclose them to a requester.",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": ", however,"
+    },
+    {
+      "id": "B",
+      "text": "; however,"
+    },
+    {
+      "id": "C",
+      "text": ", however;"
+    },
+    {
+      "id": "D",
+      "text": "however,"
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B, \"; however,\". Two independent clauses meet at the blank: \"Open-records laws give the public a broad right to inspect the documents that government agencies produce\" and \"they almost always exempt certain categories . . . from any requirement to disclose them.\" When a conjunctive adverb like \"however\" joins two independent clauses, a semicolon precedes it and a comma follows it. Choice A uses only commas, producing a comma splice. Choice C puts the semicolon after \"however,\" misplacing the boundary, and choice D, a comma plus \"however,\" again leaves two independent clauses joined by only a comma."
+}

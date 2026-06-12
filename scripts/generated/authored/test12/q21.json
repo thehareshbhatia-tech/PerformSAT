@@ -1,0 +1,31 @@
+{
+  "id": 1221,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "standard-english-conventions",
+  "skill": "boundaries",
+  "module": 1,
+  "passage": "The architectural historian Ebba Koch has organized her study of Mughal building around three kinds of evidence: the surviving structures at sites such as Fatehpur ____ the court chronicles, written by officials close to the emperor, that describe how the buildings were used; and the album paintings that show gardens and pavilions as their designers intended them to appear.",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Sikri;"
+    },
+    {
+      "id": "B",
+      "text": "Sikri:"
+    },
+    {
+      "id": "C",
+      "text": "Sikri,"
+    },
+    {
+      "id": "D",
+      "text": "Sikri"
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A. The sentence lists three kinds of evidence, and because two of the items contain internal commas, the items themselves are separated by semicolons; the first item therefore ends with a semicolon after \"Sikri.\" A colon would wrongly signal the start of a new list when one has already been introduced. A comma cannot do the separating work here, since commas are already operating inside the items, and omitting punctuation entirely fuses the first two items together."
+}

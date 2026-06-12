@@ -1,0 +1,34 @@
+{
+ "id": 351,
+ "module": 2,
+ "difficulty": "hard",
+ "band": 4,
+ "domain": "expression-of-ideas",
+ "skill": "transitions",
+ "question": "Which choice completes the text with the most logical transition?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "Indeed,"
+  },
+  {
+   "id": "B",
+   "text": "By contrast,"
+  },
+  {
+   "id": "C",
+   "text": "However,"
+  },
+  {
+   "id": "D",
+   "text": "Previously,"
+  }
+ ],
+ "correctAnswer": "A",
+ "explanation": "The correct answer is A, \"Indeed,\". The second sentence states the general claim that the keep-or-return framing of repatriation misses what many communities most want. The sentence after the blank supplies the supporting evidence: in case after case, repatriation requests come paired with proposals about caring for, studying, and sharing the returned objects — precisely the substance the binary framing dismisses. Because the third sentence confirms and amplifies the claim, \"Indeed,\" is the right connector. \"However,\" and \"By contrast,\" would signal that the evidence opposes the claim, which it does not; \"Previously,\" would wrongly recast current case-study material as an account of an earlier state of affairs.",
+ "_meta": {
+  "anchor": "Museum repatriation negotiations (unnamed anthropologists); requests paired with stewardship proposals"
+ },
+ "passage": "Most accounts of museum repatriation treat the return of cultural objects to source communities as a simple binary: either the museum keeps the object or it goes back. Anthropologists who have studied actual negotiations argue that this framing misses what many communities most want from the conversation. ______ in case after case, repatriation requests arrive paired with detailed proposals about how the receiving community will care for, study, and share the returned objects — proposals that the binary framing dismisses as secondary but that participants treat as the heart of the discussion.",
+ "type": "multiple-choice"
+}

@@ -1,0 +1,31 @@
+{
+  "id": 1243,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "information-and-ideas",
+  "skill": "inferences",
+  "module": 2,
+  "passage": "Art historians dating early European panel paintings increasingly rely on dendrochronology—matching the ring patterns in the oak panel to dated reference sequences from the same region. The method establishes when the tree was felled, but it does not date the painting directly. A panel could not have been painted before its tree was cut; yet oak was often stored and seasoned for years before use, and a workshop might keep a stock of prepared panels. Researchers therefore treat a dendrochronological date as a firm earliest-possible date for a painting rather than as the date of execution. It follows that a scholar who treats the felling date of the panel as the year the picture was painted ______",
+  "question": "Which choice most logically completes the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "will arrive at a date that is, if anything, slightly too late, since on this reasoning the paintings would usually have been executed well before their oak panels were ever cut."
+    },
+    {
+      "id": "B",
+      "text": "can be confident that the resulting estimate is exact, because oak panels were almost always painted within a few weeks of the tree being felled."
+    },
+    {
+      "id": "C",
+      "text": "has chosen the single most reliable method available for assigning a precise calendar year to an early European panel painting."
+    },
+    {
+      "id": "D",
+      "text": "risks dating the picture too early, since the wood may have been seasoned and stored for years between the felling of the tree and the painting."
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "The correct answer is D. Because seasoning and storage could put years between felling and painting, the felling date marks the earliest the picture could have been made; treating it as the painting date would place the work too early. D states that. A reverses the logic, claiming the estimate would be too late, which the seasoning gap rules out. B contradicts the passage's point that the panel was often stored well before use. C praises the method's precision, but the passage stresses that it gives only an earliest-possible date, not an exact one."
+}

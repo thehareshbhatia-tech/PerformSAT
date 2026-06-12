@@ -1,0 +1,31 @@
+{
+ "id": 1042,
+ "type": "multiple-choice",
+ "difficulty": "hard",
+ "band": 4,
+ "domain": "information-and-ideas",
+ "skill": "inferences",
+ "module": 2,
+ "passage": "Standard histories of modern art have long credited the painters Wassily Kandinsky and Piet Mondrian, both active in the early 1910s, with the first wholly abstract paintings in Europe. Yet the Swedish painter Hilma af Klint, who showed her work mainly within a small spiritual circle in Stockholm rather than in the avant-garde galleries of Paris or Munich, produced large abstract canvases as early as 1906. When a major retrospective brought her work to wide attention, scholars confirmed that the early dates were supported by inscriptions and notebooks made at the same time as the paintings. It follows that the standard chronology of European abstraction ______",
+ "question": "Which choice most logically completes the text?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "should be revised to acknowledge that abstract painting in Europe began earlier than the usual 1910s account allows, even though the artist responsible worked outside the avant-garde galleries."
+  },
+  {
+   "id": "B",
+   "text": "should treat any work made outside the major avant-garde galleries as the true origin of every early-twentieth-century movement."
+  },
+  {
+   "id": "C",
+   "text": "should reject inscriptions and contemporaneous notebooks as evidence for dating any abstract painting."
+  },
+  {
+   "id": "D",
+   "text": "remains accurate as currently written, since af Klint exhibited her work only within a small spiritual circle in Stockholm rather than in any of the recognized avant-garde galleries of the period."
+  }
+ ],
+ "correctAnswer": "A",
+ "explanation": "Choice A is correct. The passage establishes that af Klint produced large abstract canvases as early as 1906—well before the 1910s works usually credited as the first—and that the early dates are documented by contemporaneous inscriptions and notebooks. It follows that the standard chronology should be moved earlier, even though af Klint worked outside the famous galleries, which is what Choice A concludes. Choice B overgeneralizes into a rule about all movements. Choice C rejects the very evidence the passage relies on. Choice D leaves the chronology unchanged, contradicting the documented earlier dates."
+}

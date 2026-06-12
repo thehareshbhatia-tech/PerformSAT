@@ -1,0 +1,31 @@
+{
+  "id": 831,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "craft-and-structure",
+  "skill": "words-in-context",
+  "module": 2,
+  "passage": "Underwater archaeologists excavating a shipwreck confront a problem that dry-land sites rarely pose. Wooden timbers that have lain stable on the seabed for centuries, their cells swollen with water, can ____ within hours of being raised into the air, splitting and shrinking as they dry. Conservators therefore keep many finds submerged until they can be treated with chemicals that replace the water without collapsing the wood.",
+  "question": "Which choice completes the text with the most logical and precise word or phrase?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "stabilize"
+    },
+    {
+      "id": "B",
+      "text": "float"
+    },
+    {
+      "id": "C",
+      "text": "deteriorate"
+    },
+    {
+      "id": "D",
+      "text": "harden"
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C. The sentence describes timbers splitting and shrinking once they dry, a rapid decline, so the blank needs a verb for breaking down or falling apart. \"Deteriorate\" fits. \"Stabilize\" and \"harden\" suggest the wood becomes sound, the opposite of splitting and shrinking; \"float\" describes a movement in water and has nothing to do with the drying damage the passage warns about."
+}

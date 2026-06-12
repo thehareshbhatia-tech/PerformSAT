@@ -1,0 +1,35 @@
+{
+ "id": 1005,
+ "type": "multiple-choice",
+ "difficulty": "medium",
+ "band": 3,
+ "domain": "craft-and-structure",
+ "skill": "text-structure-and-purpose",
+ "module": 1,
+ "passage": "The following text is from Alfred, Lord Tennyson's poem \"The Kraken,\" published in 1830.\n\nBelow the thunders of the upper deep, / Far, far beneath in the abysmal sea, / His ancient, dreamless, uninvaded sleep / The Kraken sleepeth: faintest sunlights flee / About his shadowy sides; above him swell / Huge sponges of millennial growth and height; / And far away into the sickly light, / From many a wondrous grot and secret cell / Unnumber'd and enormous polypi / Winnow with giant arms the slumbering green. / There hath he lain for ages, and will lie / Battening upon huge sea-worms in his sleep, / Until the latter fire shall heat the deep; / Then once by man and angels to be seen, / In roaring he shall rise and on the surface die.",
+ "question": "Which choice best describes the overall structure of the text?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "The speaker recounts a voyage during which sailors briefly glimpsed an enormous sea creature, then describes the crew's unsuccessful efforts to document the encounter for naturalists at home."
+  },
+  {
+   "id": "B",
+   "text": "The speaker questions whether the legendary creature ever existed, then concludes that such stories reveal more about human fear than about the sea."
+  },
+  {
+   "id": "C",
+   "text": "The speaker contrasts the calm of the deep ocean with the violence of the waves above, then explains why the creature prefers to remain below."
+  },
+  {
+   "id": "D",
+   "text": "The speaker depicts a creature's centuries-long sleep on the seafloor amid the strange life surrounding it, then foretells the violent moment when that sleep will end."
+  }
+ ],
+ "correctAnswer": "D",
+ "explanation": "Choice D is correct. The poem first dwells on the Kraken's \"ancient, dreamless, uninvaded sleep\" far beneath the waves, filling out the scene with the life that surrounds him—huge sponges \"of millennial growth\" and enormous polypi winnowing \"the slumbering green.\" Only in the closing lines does the poem turn from this long stillness to prophecy: \"Until the latter fire shall heat the deep,\" the Kraken will rise \"in roaring\" and \"on the surface die.\" The structure is an extended portrait of an undisturbed sleep followed by a foretelling of its single, violent end. Choice A invents a voyage, sailors, and naturalists that appear nowhere in the text. Choice B has the speaker doubting the creature's existence, but the poem presents the Kraken's sleep as fact, not as a story to be weighed. Choice C stages a contrast between deep and surface waters that the poem never develops, and the Kraken's stillness is presented as agelong sleep rather than preference.",
+ "_meta": {
+  "quoteVerify": true,
+  "source": "Alfred, Lord Tennyson, \"The Kraken\" (1830), Poems, Chiefly Lyrical"
+ }
+}

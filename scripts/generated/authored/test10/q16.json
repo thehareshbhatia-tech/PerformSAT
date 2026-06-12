@@ -1,0 +1,31 @@
+{
+ "id": 1016,
+ "type": "multiple-choice",
+ "difficulty": "hard",
+ "band": 4,
+ "domain": "information-and-ideas",
+ "skill": "inferences",
+ "module": 1,
+ "passage": "Each year, snow that falls on a polar ice sheet is buried and compressed by the snow above it, eventually trapping small bubbles of air. Because deeper ice is older, a core drilled through an ice sheet preserves a layered archive of the atmosphere, and the trapped bubbles let researchers measure the concentration of gases such as carbon dioxide directly for hundreds of thousands of years into the past. The air in a bubble, however, is always somewhat younger than the ice enclosing it, because the snow does not seal completely until it has been buried for decades. It follows that a researcher comparing the age of the ice with the age of the gas it contains must ______",
+ "question": "Which choice most logically completes the text?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "assume that the trapped air and the surrounding ice formed during exactly the same year, despite the decades of burial that the passage describes."
+  },
+  {
+   "id": "B",
+   "text": "conclude that ice cores cannot preserve any reliable record of past atmospheric gases."
+  },
+  {
+   "id": "C",
+   "text": "account for the gap between the two ages rather than treating the gas as exactly as old as the ice around it."
+  },
+  {
+   "id": "D",
+   "text": "rely on the gas bubbles alone, since the surrounding ice carries no information about past climate."
+  }
+ ],
+ "correctAnswer": "C",
+ "explanation": "Choice C is correct. The passage states that the trapped air is always somewhat younger than the ice enclosing it, because snow does not seal completely until it has been buried for decades. A researcher comparing the age of the ice with the age of the gas must therefore allow for that offset rather than treat them as identical—exactly what Choice C says. Choice A assumes the very equality the passage rules out. Choice B overreacts, since the passage presents ice cores as a valuable archive despite the offset. Choice D discards the ice as uninformative, but the passage treats both ice and gas as carrying age information."
+}

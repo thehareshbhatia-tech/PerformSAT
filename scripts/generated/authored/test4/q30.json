@@ -1,0 +1,34 @@
+{
+  "id": 430,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "craft-and-structure",
+  "skill": "words-in-context",
+  "question": "Which choice completes the text with the most logical and precise word or phrase?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "obstructive"
+    },
+    {
+      "id": "B",
+      "text": "marginal"
+    },
+    {
+      "id": "C",
+      "text": "ornamental"
+    },
+    {
+      "id": "D",
+      "text": "discriminating"
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "The correct answer is D. Diaz Merced argues that the ear is well tuned to catching short patterns in noisy data and that faint features lost in a graph stand out when heard, so hearing the data can be more \"discriminating\" — better at telling fine differences apart — than seeing it. \"Obstructive\" runs the opposite way; \"marginal\" denies the very advantage she claims; and \"ornamental\" treats the method as decorative rather than as a tool for detection.",
+  "passage": "Astrophysicist Wanda Diaz Merced, who lost her sight as a graduate student, developed methods for studying time-series data from space-physics instruments by turning it into sound rather than visual displays. Sonification, as it is called, is often treated as a workaround for blind researchers. But Diaz Merced argues that for any analyst hunting faint signals, hearing the data can be more ______ than seeing it: the ear is well tuned to catching short patterns in noisy streams, and features that wash out in a graph can stand out clearly when they are played as sound.",
+  "_meta": {
+    "anchor": "Wanda Diaz Merced — sonification of astronomical data (entity_keep); trimmed"
+  },
+  "module": 2
+}

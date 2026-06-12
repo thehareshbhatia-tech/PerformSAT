@@ -1,0 +1,31 @@
+{
+  "id": 636,
+  "module": 2,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "information-and-ideas",
+  "skill": "central-ideas-and-details",
+  "passage": "Historians studying American housing have examined why neighborhoods that were predominantly Black received far less mortgage lending in the mid-twentieth century. A common explanation pointed to the prejudices of individual bankers. Drawing on government maps from the 1930s, one influential account argues that the pattern was more systematic than that: federal agencies graded neighborhoods for lending risk and shaded majority-Black areas in red, and that official grading, later called redlining, went on to shape private lending for decades, embedding the disparity in routine institutional practice rather than leaving it to individual bias.",
+  "question": "Which choice best states the main idea of the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Government maps drawn in the 1930s graded American neighborhoods according to their perceived risk for mortgage lending, shading some areas in red on the basis of who lived in them."
+    },
+    {
+      "id": "B",
+      "text": "Individual bankers' prejudices fully account for why majority-Black neighborhoods received less mortgage lending in the mid-twentieth century."
+    },
+    {
+      "id": "C",
+      "text": "Historians disagree about whether federal housing agencies kept accurate records of their lending decisions."
+    },
+    {
+      "id": "D",
+      "text": "One account argues that federal risk-grading maps embedded lending disparities in routine institutional practice, making the pattern more systematic than individual bias alone."
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "The correct answer is D. The passage sets the individual-prejudice explanation against a more systematic account in which federal risk-grading maps shaped lending for decades, and that systematic account is the point it develops. Choice D states it. Choice A reports a single supporting detail, the existence of the maps, without the argument built on it. Choice B restates the explanation the passage moves beyond, and choice C invents a dispute about record-keeping that the text never raises."
+}

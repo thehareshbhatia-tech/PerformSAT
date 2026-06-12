@@ -1,0 +1,34 @@
+{
+  "id": 452,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "expression-of-ideas",
+  "skill": "transitions",
+  "question": "Which choice completes the text with the most logical transition?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Nevertheless,"
+    },
+    {
+      "id": "B",
+      "text": "As a result,"
+    },
+    {
+      "id": "C",
+      "text": "For instance,"
+    },
+    {
+      "id": "D",
+      "text": "Likewise,"
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B. Falling exposure times are the cause, and the final sentence states the result — that photographers could finally capture motion and fleeting expressions — so a result transition fits. \"Nevertheless\" (A) marks contrast; \"For instance\" (C) would introduce an example; and \"Likewise\" (D) marks similarity, none of which fits the cause-and-effect relation.",
+  "passage": "The first photographs taken in the 1830s required exposure times of several minutes, so early portrait sitters had to hold perfectly still, often with their heads braced by hidden clamps. As lenses and chemicals improved, exposure times fell to a fraction of a second. ______ photographers could finally capture a city street full of moving people, a child in motion, or a passing expression that lasted only an instant.",
+  "_meta": {
+    "anchor": "history of photography — shrinking exposure times (NEW); result transition"
+  },
+  "module": 2
+}

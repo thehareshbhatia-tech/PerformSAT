@@ -1,0 +1,34 @@
+{
+  "id": 446,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "standard-english-conventions",
+  "skill": "boundaries",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "there, many"
+    },
+    {
+      "id": "B",
+      "text": "there; many"
+    },
+    {
+      "id": "C",
+      "text": "there many"
+    },
+    {
+      "id": "D",
+      "text": "there and, many"
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B. \"The deepest part of the ocean is not completely dark to the creatures that live there\" and \"many of them make their own light\" are both complete sentences, and a semicolon correctly joins two closely related independent clauses, as in B. A comma (A) creates a comma splice, no punctuation (C) creates a run-on, and \"and,\" with the comma after it (D) breaks the conjunction off from the clause it should join.",
+  "passage": "The deepest part of the ocean is not completely dark to the creatures that live ______ many of them make their own light, using chemical reactions in specialized organs to lure prey, find mates, and confuse predators in water the sun never reaches.",
+  "_meta": {
+    "anchor": "deep-sea bioluminescence; semicolon between independent clauses"
+  },
+  "module": 2
+}

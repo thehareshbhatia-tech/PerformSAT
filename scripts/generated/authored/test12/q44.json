@@ -1,0 +1,31 @@
+{
+  "id": 1244,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "standard-english-conventions",
+  "skill": "boundaries",
+  "module": 2,
+  "passage": "In reconstructing daily life in a Roman provincial town, the historian drew on three very different kinds of evidence ____ to argue that the settlement's prosperity rested less on any single industry than on its position at the meeting point of several trade routes.",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": ", wax tablets, painted inscriptions, and discarded household pottery,"
+    },
+    {
+      "id": "B",
+      "text": "wax tablets, painted inscriptions, and discarded household pottery"
+    },
+    {
+      "id": "C",
+      "text": "—wax tablets, painted inscriptions, and discarded household pottery,"
+    },
+    {
+      "id": "D",
+      "text": "—wax tablets, painted inscriptions, and discarded household pottery—"
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "The correct answer is D. The list of three kinds of evidence is a parenthetical that interrupts the main clause, and because the list contains its own internal commas, it must be set off by a matching pair of dashes—one before \"wax\" and one after \"pottery.\" Option A uses commas, which blur into the list's internal commas and leave the interruption unbounded. B omits the punctuation altogether, fusing the appositive into the sentence. C mismatches a dash with a closing comma, so the parenthetical is not properly paired."
+}

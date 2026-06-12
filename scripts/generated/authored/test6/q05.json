@@ -1,0 +1,31 @@
+{
+  "id": 605,
+  "module": 1,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "craft-and-structure",
+  "skill": "text-structure-and-purpose",
+  "passage": "In the early 1930s, Karl Jansky, an engineer at Bell Telephone Laboratories, was asked to track down the static that interfered with transatlantic radio calls. He identified two kinds of interference from nearby and distant thunderstorms, but a third, fainter hiss puzzled him. *After months of recording, he noticed that the hiss grew strongest about four minutes earlier each day, the signature not of any source on Earth but of something fixed against the distant stars.* The hiss, he concluded, came from the direction of the center of the Milky Way.",
+  "question": "Which choice best describes the function of the underlined sentence in the text as a whole?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "It presents the observation that let Jansky rule out an earthly origin for the third signal and trace it to a source beyond the Earth."
+    },
+    {
+      "id": "B",
+      "text": "It lists the several kinds of radio interference that Jansky had been hired by Bell Laboratories to investigate."
+    },
+    {
+      "id": "C",
+      "text": "It questions whether Jansky's recording equipment was sensitive enough to detect a signal as faint as the third hiss that had puzzled him over months of patient recording."
+    },
+    {
+      "id": "D",
+      "text": "It explains why transatlantic radio calls in the early 1930s were so often disrupted by static."
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A. The passage builds toward Jansky's conclusion that the mysterious hiss came from the center of the galaxy, and the underlined sentence supplies the key step: the daily four-minute shift matches the motion of the stars, not anything on Earth, which is what allows him to place the source beyond the planet. The sentence does not catalog the kinds of interference (that work is done in the sentence before it), nor does it raise any doubt about his equipment. And it concerns the origin of the faint hiss, not the general problem of static on phone calls."
+}

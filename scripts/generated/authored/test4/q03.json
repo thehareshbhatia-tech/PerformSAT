@@ -1,0 +1,34 @@
+{
+  "id": 403,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "craft-and-structure",
+  "skill": "words-in-context",
+  "question": "Which choice completes the text with the most logical and precise word or phrase?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "discernible"
+    },
+    {
+      "id": "B",
+      "text": "concealed"
+    },
+    {
+      "id": "C",
+      "text": "hereditary"
+    },
+    {
+      "id": "D",
+      "text": "decorative"
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A. The passage says the faint differences above buried walls are too subtle for the eye but show up in certain near-infrared bands, where outlines can be traced — so in those bands the differences become clearly \"discernible,\" or detectable. \"Concealed\" reverses the meaning; \"hereditary\" and \"decorative\" have no bearing on whether the differences can be seen in the imagery.",
+  "passage": "Archaeologists increasingly survey the ground from orbit. Buried stone walls and floors change the moisture and vegetation directly above them in ways too subtle for the eye, but in certain near-infrared bands of a satellite's sensor these faint differences become clearly ______, and the outlines of unexcavated settlements can be traced at sites long thought to hold nothing more to find.",
+  "_meta": {
+    "anchor": "satellite remote sensing in archaeology — near-infrared detection of buried structures"
+  },
+  "module": 1
+}

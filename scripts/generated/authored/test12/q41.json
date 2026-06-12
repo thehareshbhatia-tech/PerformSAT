@@ -1,0 +1,67 @@
+{
+  "id": 1241,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "information-and-ideas",
+  "skill": "command-of-evidence-quantitative",
+  "module": 2,
+  "passage": "When engineers report that a new coating protects a family of metals, they often distinguish between a uniform direction of effect and a uniform statistical strength of effect. In one materials-testing study, a laboratory measured how long five coated aluminum alloys resisted corrosion in a standardized salt-spray test and concluded that, although the coating lengthened the time to first visible rust for every alloy, the data do not support the stronger claim that the improvement was statistically significant for every alloy, since _______",
+  "questionTable": {
+    "type": "table",
+    "caption": "Increase in mean time to first visible rust after coating, five aluminum alloys (salt-spray test)",
+    "headers": [
+      "Alloy",
+      "Increase in time to rust (%)",
+      "Statistical significance"
+    ],
+    "rows": [
+      [
+        "Alloy 2024",
+        "17",
+        "p < 0.01"
+      ],
+      [
+        "Alloy 6061",
+        "9",
+        "p < 0.05"
+      ],
+      [
+        "Alloy 7075",
+        "3",
+        "p > 0.05 (n.s.)"
+      ],
+      [
+        "Alloy 5083",
+        "11",
+        "p < 0.05"
+      ],
+      [
+        "Alloy 2219",
+        "14",
+        "p < 0.01"
+      ]
+    ]
+  },
+  "question": "Which choice most effectively uses data from the table to complete the statement?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "alloy 7075 recorded the smallest improvement in the table, an increase of just 3 percent, and that small magnitude is itself enough to establish that the alloy's improvement was not statistically significant."
+    },
+    {
+      "id": "B",
+      "text": "alloy 2024 recorded the largest improvement in the table, a 17 percent increase in time to first rust that was statistically significant at p < 0.01."
+    },
+    {
+      "id": "C",
+      "text": "while four of the five alloys recorded improvements that reached statistical significance at p < 0.05 or better, alloy 7075's 3 percent increase was not statistically significant (p > 0.05)."
+    },
+    {
+      "id": "D",
+      "text": "all five alloys took longer to show rust after coating, with improvements ranging from 3 percent for alloy 7075 to 17 percent for alloy 2024."
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C. The statement distinguishes a uniform direction of effect from a uniform statistical strength, so it needs the case where the improvement failed to reach significance: alloy 7075, whose 3 percent increase carries p > 0.05, while the other four alloys reach p < 0.05 or better. C reports that contrast. A draws an illegitimate inference, treating the small size of 7075's improvement as itself proof of non-significance, which magnitude alone cannot establish. B and D describe the alloy that improved most or the overall direction of change, neither of which supports the point that significance was not uniform."
+}

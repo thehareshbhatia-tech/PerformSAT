@@ -1,0 +1,31 @@
+{
+ "id": 1009,
+ "type": "multiple-choice",
+ "difficulty": "medium",
+ "band": 3,
+ "domain": "information-and-ideas",
+ "skill": "central-ideas-and-details",
+ "module": 1,
+ "passage": "For decades, soil scientists explained the long-term storage of carbon in soil by the chemistry of the carbon itself: certain plant compounds, it was thought, were simply too tough for microbes to break down and so accumulated over centuries. More recent work has shifted the explanation from the molecules to their surroundings. Much of the carbon that persists in soil, these studies find, is not intrinsically indigestible; rather, it survives because it binds to mineral surfaces or sits trapped inside soil clumps where microbes cannot reach it. On this view, whether soil carbon endures depends less on what the carbon is than on where it ends up and what protects it.",
+ "question": "Which choice best states the main idea of the text?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "Soil scientists have determined that certain plant compounds are too chemically tough for soil microbes to break down."
+  },
+  {
+   "id": "B",
+   "text": "The carbon stored in soil accumulates mainly because soil microbes are generally unable to digest plant material of any kind, whatever its underlying chemistry happens to be."
+  },
+  {
+   "id": "C",
+   "text": "Recent work suggests that carbon persists in soil less because of its own chemistry than because minerals and soil structure shield it from microbes."
+  },
+  {
+   "id": "D",
+   "text": "Most of the carbon in soil is stored inside soil clumps rather than bound to the surfaces of minerals."
+  }
+ ],
+ "correctAnswer": "C",
+ "explanation": "Choice C is correct. The passage contrasts an older explanation (carbon survives because it is chemically indigestible) with a newer one (carbon survives because it binds to mineral surfaces or sits where microbes cannot reach it) and sums up the shift as a move from what the carbon is to where it ends up. Choice C states that reframing. Choice A reports only the older view the passage is revising. Choice B overstates the point into a claim that microbes cannot digest plant material at all. Choice D fixes on one protective mechanism and treats it as the main claim, when the passage gives both minerals and structure as examples of a broader idea."
+}

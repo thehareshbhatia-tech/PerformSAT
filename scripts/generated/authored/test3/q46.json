@@ -1,0 +1,34 @@
+{
+ "id": 346,
+ "module": 2,
+ "difficulty": "medium",
+ "band": 3,
+ "domain": "standard-english-conventions",
+ "skill": "boundaries",
+ "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "Berlin; Vienna; and Rome; the pact"
+  },
+  {
+   "id": "B",
+   "text": "Berlin, Vienna, and Rome; the pact"
+  },
+  {
+   "id": "C",
+   "text": "Berlin, Vienna, and Rome, the pact"
+  },
+  {
+   "id": "D",
+   "text": "Berlin, Vienna, and Rome the pact"
+  }
+ ],
+ "correctAnswer": "B",
+ "explanation": "The correct answer is B, \"Berlin, Vienna, and Rome; the pact\". The blank stands at the boundary between two independent clauses. The first — \"In 1882 a defensive treaty quietly bound together three European capitals — Berlin, Vienna, and Rome\" — can stand alone, and so can the second, \"the pact committed each signatory to come to the others' aid if one of them were attacked.\" Two independent clauses need a period, a semicolon, or a comma plus a coordinating conjunction; only the semicolon in B fits. A comma alone (C) makes a comma splice, and no punctuation (D) makes a run-on. Option A wrongly upgrades the simple three-item list to semicolons, even though those items contain no internal commas that would require them.",
+ "_meta": {
+  "anchor": "The Triple Alliance (1882): Germany, Austria-Hungary, Italy — Berlin, Vienna, Rome; independent-clause boundary after a three-item list"
+ },
+ "passage": "Historians of European diplomacy often trace the tangle of pre-1914 alliances back to a single agreement reached in the 1880s. In 1882 a defensive treaty quietly bound together three European capitals — ______ committed each signatory to come to the others' aid if one of them were attacked.",
+ "type": "multiple-choice"
+}

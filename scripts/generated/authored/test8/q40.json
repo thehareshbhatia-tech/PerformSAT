@@ -1,0 +1,31 @@
+{
+  "id": 840,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "information-and-ideas",
+  "skill": "command-of-evidence-quantitative",
+  "module": 2,
+  "passage": "The National Snow and Ice Data Center compiles satellite measurements of Arctic sea ice extent, the area of ocean covered by ice. The September minimum, recorded at the end of the summer melt, is the standard yearly indicator of long-run change. Examining the record at ten-year benchmarks, climatologists have argued that although the long-run trend points downward, the contraction has been uneven: the minimum did not fall continuously from one benchmark year to the next. The data support this characterization because _______\n\n| Benchmark year | September minimum Arctic sea ice extent (million km^2) |\n|---|---|\n| 1980 | 7.67 |\n| 1990 | 6.24 |\n| 2000 | 6.32 |\n| 2010 | 4.87 |\n| 2020 | 3.92 |",
+  "question": "Which choice most effectively uses data from the table to support the claim?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "across the five benchmark years, the September minimum fell from 7.67 million km^2 in 1980 to 3.92 million km^2 in 2020."
+    },
+    {
+      "id": "B",
+      "text": "the 2010 September minimum (4.87 million km^2) was lower than the 2000 minimum (6.32 million km^2)."
+    },
+    {
+      "id": "C",
+      "text": "the 2020 September minimum (3.92 million km^2) was the lowest of the five values shown, and the 1980 minimum (7.67 million km^2) was the highest."
+    },
+    {
+      "id": "D",
+      "text": "the September minimum stood at 6.24 million km^2 in 1990 but rose to 6.32 million km^2 in 2000, even though the overall trend across the table points downward."
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "The correct answer is D. The claim is that the decline was uneven, not continuous, so the data must show a benchmark where the minimum rose rather than fell. D points to the small rise from 1990 (6.24) to 2000 (6.32) against the longer downward trend, the one interruption the table contains. A and C describe the overall drop from highest to lowest, which shows decline but not unevenness; B reports a fall between two benchmarks, which supports continuity rather than the interruption the claim requires."
+}

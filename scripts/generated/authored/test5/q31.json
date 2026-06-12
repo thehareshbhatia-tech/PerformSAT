@@ -1,0 +1,34 @@
+{
+  "id": 531,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "craft-and-structure",
+  "skill": "words-in-context",
+  "module": 2,
+  "passage": "When Aldus Manutius issued his small, portable editions of the classics in Venice around 1500, he commissioned a new slanted typeface—the ancestor of what is now called italic—modeled on the cursive handwriting of humanist scribes. Its compact letters let more text fit on each line, which helped ______ the cost of the books: a reader could now own a pocket-sized edition of a Latin poet for a fraction of what a large folio had cost.",
+  "question": "Which choice completes the text with the most logical and precise word or phrase?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "lower"
+    },
+    {
+      "id": "B",
+      "text": "justify"
+    },
+    {
+      "id": "C",
+      "text": "publicize"
+    },
+    {
+      "id": "D",
+      "text": "double"
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A, \"lower.\" The colon shows the result the blank names: a pocket edition could be owned \"for a fraction of what a large folio had cost,\" so the compact letters helped bring the price down. \"Lower\" fits that fall in cost. \"Justify\" is tempting because in typography it names aligning text to the margins, and it can also mean to warrant a cost—but the sentence is about the price dropping, not about defending it. \"Publicize\" concerns advertising rather than cost, and \"double\" reverses the direction the sentence makes clear.",
+  "_meta": {
+    "anchor": "Aldus Manutius — italic type and affordable octavo editions; 'justify' as a typographic trap"
+  }
+}

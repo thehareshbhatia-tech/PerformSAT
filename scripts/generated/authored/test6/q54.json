@@ -1,0 +1,41 @@
+{
+  "id": 654,
+  "module": 2,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "expression-of-ideas",
+  "skill": "rhetorical-synthesis",
+  "studentNotes": {
+    "intro": "While researching a topic, a student has taken the following notes:",
+    "bullets": [
+      "Standard economic models long assumed that people weigh a potential gain and an equivalent potential loss about equally.",
+      "In experiments conducted in the 1970s and 1980s, two psychologists studying how people make choices under risk found a consistent asymmetry.",
+      "Their subjects disliked losing a given amount roughly twice as much as they liked gaining the same amount.",
+      "This pattern, called loss aversion, predicts choices that the standard symmetric model does not.",
+      "Loss aversion has since been used to explain behavior in markets, in insurance, and in household saving."
+    ],
+    "goal": "The student wants to emphasize how the experimental finding differed from the earlier standard assumption."
+  },
+  "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "In experiments conducted in the 1970s and 1980s, two psychologists studying choice under risk identified a pattern they called loss aversion."
+    },
+    {
+      "id": "B",
+      "text": "Loss aversion has since been used to explain behavior in markets, in insurance, and in household saving decisions."
+    },
+    {
+      "id": "C",
+      "text": "Whereas standard economic models had assumed that people weigh an equivalent gain and loss about equally, the experiments found that people dislike a loss roughly twice as much as they value a gain of the same size."
+    },
+    {
+      "id": "D",
+      "text": "Two psychologists found that people making choices under risk disliked losing an amount about twice as much as they liked gaining the same amount, a pattern they documented across a long series of experiments."
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C. The goal is to emphasize how the finding differed from the earlier assumption, and choice C sets the two directly against each other: the standard models assumed gains and losses were weighed equally, whereas the experiments found losses felt about twice as heavy as equivalent gains. Choice A names the finding but not the assumption it overturned, so no contrast appears. Choice B reports later applications of loss aversion. Choice D states the experimental result accurately but, without mentioning the standard assumption, leaves the difference the student wants to stress unexpressed."
+}

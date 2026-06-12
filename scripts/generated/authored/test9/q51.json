@@ -1,0 +1,34 @@
+{
+  "id": 951,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "expression-of-ideas",
+  "skill": "transitions",
+  "module": 2,
+  "passage": "Most public transit systems recover only part of their operating costs from fares, with the rest covered by public subsidy. Raising fares to close that gap can backfire, because higher prices drive away some riders, and the lost fares partly cancel the intended gain. ______ many agencies have looked elsewhere to balance their budgets, trimming service, seeking dedicated tax revenue, or redesigning routes to carry more riders per vehicle.",
+  "question": "Which choice completes the text with the most logical transition?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Nevertheless,"
+    },
+    {
+      "id": "B",
+      "text": "Consequently,"
+    },
+    {
+      "id": "C",
+      "text": "For example,"
+    },
+    {
+      "id": "D",
+      "text": "By contrast,"
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "Because raising fares drives away riders and cancels much of the intended gain, agencies turn to other ways of balancing their budgets. That makes the next sentence a consequence, so \"Consequently,\" choice B, fits. \"Nevertheless\" and \"By contrast\" signal opposition, and \"For example\" would wrongly present the budget measures as an instance of the fare problem.",
+  "_meta": {
+    "anchor": "transit farebox recovery and fare policy"
+  }
+}

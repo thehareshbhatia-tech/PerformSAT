@@ -1,0 +1,43 @@
+{
+  "id": 908,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "craft-and-structure",
+  "skill": "cross-text-connections",
+  "module": 1,
+  "passages": [
+    {
+      "label": "Text 1",
+      "text": "Melvil Dewey's decimal scheme, introduced in 1876, assigns every book a number drawn from a fixed map of knowledge: broad classes divide into divisions, divisions into sections, each branch settled in advance. A cataloger's task is to find the single place a work belongs and file it there. Dewey held that a stable, enumerated hierarchy was exactly what a growing library needed, because staff and readers could learn one predictable order and trust that any subject already had its assigned slot waiting for it."
+    },
+    {
+      "label": "Text 2",
+      "text": "The librarian S. R. Ranganathan accepted that libraries need a systematic order but doubted that any fixed list of subjects could keep pace with knowledge. New and hybrid topics, he observed, rarely fall into a slot someone reserved decades earlier. His colon classification therefore built call numbers from separate facets—the discipline, the thing studied, its properties, place, and time—combined as needed. A subject no one had anticipated could still be expressed by assembling facets, without waiting for the master list to be revised."
+    }
+  ],
+  "question": "Based on the texts, how would Ranganathan (Text 2) most likely respond to the view of classification described in Text 1?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "He would question the assumption that knowledge forms a fixed map with a slot for every subject, since new or hybrid topics can instead be expressed by combining facets."
+    },
+    {
+      "id": "B",
+      "text": "He would accept that books are best shelved in the order a library acquires them, abandoning any predetermined scheme."
+    },
+    {
+      "id": "C",
+      "text": "He would maintain that Dewey's fixed order is preferable because a single predictable sequence is easier for readers to memorize."
+    },
+    {
+      "id": "D",
+      "text": "He would conclude that because no fixed list can foresee every future subject, libraries ought to abandon systematic call numbers entirely and simply shelve each work in the order it happens to arrive."
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "Text 1 rests on Dewey's premise that knowledge can be laid out as a fixed map with a reserved place for every subject. Ranganathan accepts the need for order but doubts that premise, since new and hybrid topics rarely fit a slot fixed in advance, and his facets can be combined to express them. Choice A states exactly that challenge to the premise. Choice B has him abandon order, C has him side with Dewey, and D pushes him to an extreme his own faceted system contradicts.",
+  "_meta": {
+    "anchor": "Dewey enumerative vs Ranganathan faceted classification"
+  }
+}

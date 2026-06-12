@@ -1,0 +1,31 @@
+{
+  "id": 825,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "expression-of-ideas",
+  "skill": "transitions",
+  "module": 1,
+  "passage": "A keyboard player reading a Baroque score faces an unusual task: the composer often wrote out only a bass line marked with small numbers, leaving the chords above it to be supplied by the performer. The numbers indicate which intervals to sound but not how to space or voice them. ______ the figures say nothing about ornamentation, the trills and passing tones that period treatises treat as essential to a convincing performance.",
+  "question": "Which choice completes the text with the most logical transition?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Moreover,"
+    },
+    {
+      "id": "B",
+      "text": "In conclusion,"
+    },
+    {
+      "id": "C",
+      "text": "By contrast,"
+    },
+    {
+      "id": "D",
+      "text": "Until then,"
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A. The second sentence notes that the figures fix the intervals but not the spacing or voicing, and the last sentence adds a further thing they leave unspecified—ornamentation—so the transition has to signal addition; \"Moreover\" does that. \"In conclusion\" would mark a summing-up, but the sentence introduces a new gap rather than wrapping up the point; \"By contrast\" signals opposition, though the last sentence parallels the previous one rather than opposing it; and \"Until then\" marks a moment in time, but the passage describes no sequence of events."
+}

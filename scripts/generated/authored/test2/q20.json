@@ -1,0 +1,31 @@
+{
+  "id": 220,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "standard-english-conventions",
+  "skill": "form-structure-and-sense",
+  "module": 1,
+  "passage": "U.S. historian Stephanie M. H. Camp, working at the University of Washington, transformed scholarship on slavery by attending to small acts of refusal: illicit movement off the plantation, secret dances, ornaments worn beneath workclothes. By the time her book Closer to Freedom appeared in 2004, scholars ______ enslaved women's resistance largely through a narrow set of public, organized acts; Camp's reframing of everyday self-fashioning as itself a politics forced the field to widen its category.",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "defined"
+    },
+    {
+      "id": "B",
+      "text": "were defining"
+    },
+    {
+      "id": "C",
+      "text": "had defined"
+    },
+    {
+      "id": "D",
+      "text": "have defined"
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C. The sentence describes two past events in sequence: scholars defining enslaved women's resistance in a particular way, and then the 2004 appearance of Camp's book Closer to Freedom. The phrase 'By the time her book.. appeared in 2004' fixes the second event as a past reference point, and the action that occurred earlier — scholars defining resistance through a narrow set of public, organized acts — must be expressed in the past perfect ('had defined'). Standard English uses the past perfect to mark the earlier of two completed past actions when a sequence cue ('by the time.. had..') is present."
+}

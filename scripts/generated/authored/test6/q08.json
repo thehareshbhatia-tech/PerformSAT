@@ -1,0 +1,44 @@
+{
+  "id": 608,
+  "module": 1,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "craft-and-structure",
+  "skill": "cross-text-connections",
+  "passages": [
+    {
+      "label": "Text 1",
+      "text": "For decades after the Second World War, most American cities replaced their electric streetcars with diesel buses, and one explanation traces that change to corporate strategy. A holding company called National City Lines, backed by General Motors and several tire and oil firms, bought up dozens of local transit systems between the late 1930s and the 1950s. Once in control, the company tore out the rails and overhead wires and put buses on the routes. On this account, the streetcar did not lose a fair competition; it was dismantled by the very firms that stood to profit from the vehicles, fuel, and tires that buses required."
+    },
+    {
+      "label": "Text 2",
+      "text": "The conversion to buses is not in dispute, but its cause is. By the time National City Lines made most of its purchases, American streetcar companies were already in serious trouble. Ridership had been sliding since the 1920s as private automobiles spread; fares were often frozen by old franchise agreements even as costs rose, and the aging tracks were expensive to maintain. Buses were cheaper to operate and could be rerouted at will. Many systems with no connection to National City Lines abandoned their rails in the same years. The corporate purchases, on this view, sped along a collapse that economic pressures had already made likely."
+    }
+  ],
+  "question": "Based on the texts, how would the author of Text 2 most likely respond to the argument presented in Text 1?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "It would deny that the National City Lines purchases ever occurred, since no single firm controlled a meaningful share of the nation's streetcar mileage in any region the corporate account points to."
+    },
+    {
+      "id": "B",
+      "text": "Although the bus conversions did occur, streetcar ridership had been falling for economic reasons before them, so the corporate campaign sped along a decline already under way rather than causing it."
+    },
+    {
+      "id": "C",
+      "text": "Corporate strategy did destroy the streetcars, and the same firms later worked to weaken intercity passenger rail as well."
+    },
+    {
+      "id": "D",
+      "text": "The argument may hold for the largest cities but not for the many smaller systems that abandoned their rails on their own."
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B. Text 1 argues that the streetcars were deliberately dismantled by the companies that profited from buses; Text 2 does not dispute that the conversions happened but contends that ridership was already sliding for economic reasons, so the purchases hastened a collapse rather than caused it. That is exactly the response in choice B. Choice A has Text 2 deny the purchases, which it explicitly accepts. Choice C has Text 2 endorse Text 1's causal claim, the reverse of its position. Choice D narrows the dispute to city size, a distinction Text 2 never draws; its quarrel is about cause, not scale.",
+  "_meta": {
+    "source_pair": "transit-streetcar (corporate-conspiracy vs economic-decline)",
+    "crossTextRelationship": "alternative-causal-account"
+  }
+}

@@ -1,0 +1,31 @@
+{
+ "id": 1019,
+ "type": "multiple-choice",
+ "difficulty": "medium",
+ "band": 3,
+ "domain": "standard-english-conventions",
+ "skill": "boundaries",
+ "module": 1,
+ "passage": "A modern volcano observatory watches a restless peak through several instruments at once. Three are central to forecasting an eruption: the seismometer, which records the small earthquakes set off as magma forces its way ______ the tiltmeter, which detects the faint swelling of the ground as a magma chamber fills; and the gas spectrometer, which measures the sulfur dioxide released as magma nears the surface.",
+ "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "upward,"
+  },
+  {
+   "id": "B",
+   "text": "upward;"
+  },
+  {
+   "id": "C",
+   "text": "upward"
+  },
+  {
+   "id": "D",
+   "text": "upward, and"
+  }
+ ],
+ "correctAnswer": "B",
+ "explanation": "Choice B is correct. The sentence lists three instruments, and each item already contains internal commas (\"the seismometer, which records ...\"). When the items in a series are themselves long and comma-containing, they are separated by semicolons so the boundaries between items stay clear; the semicolon after \"upward\" provides the first such break. Choice A uses a comma, which blurs into the internal commas. Choice C supplies no punctuation, fusing the first two items. Choice D inserts \"and\" mid-series, where it does not belong."
+}

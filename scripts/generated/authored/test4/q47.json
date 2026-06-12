@@ -1,0 +1,34 @@
+{
+  "id": 447,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "standard-english-conventions",
+  "skill": "form-structure-and-sense",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "guides"
+    },
+    {
+      "id": "B",
+      "text": "is guiding"
+    },
+    {
+      "id": "C",
+      "text": "has guided"
+    },
+    {
+      "id": "D",
+      "text": "guided"
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "The correct answer is D. The opening clause fixes the action in the past — the 1870s — so the main verb must be the simple past \"guided.\" The present \"guides\" (A) and present progressive \"is guiding\" (B) clash with that past frame, and the present perfect \"has guided\" (C) is not used with a specific past time already named in the sentence.",
+  "passage": "When the engineer Emily Roebling took over the day-to-day supervision of the Brooklyn Bridge in the 1870s, after her husband fell ill, she ______ the project through more than a decade of construction, relaying instructions to the work crews and mastering the engineering details herself.",
+  "_meta": {
+    "anchor": "Emily Roebling — Brooklyn Bridge construction; simple past"
+  },
+  "module": 2
+}

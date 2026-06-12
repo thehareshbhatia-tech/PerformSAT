@@ -1,0 +1,31 @@
+{
+ "id": 124,
+ "type": "multiple-choice",
+ "difficulty": "hard",
+ "band": 4,
+ "domain": "expression-of-ideas",
+ "skill": "transitions",
+ "module": 1,
+ "passage": "Ecologists argue that year-to-year climate swings can shift the timing of recurring disease outbreaks — but only when long records and careful models can separate the climate's effect from a population's own immunity cycles. ______ Mercedes Pascual's analyses of decades of Bangladeshi cholera records show that outbreak peaks there track the El Niño–Southern Oscillation closely enough for the climate signal to be statistically distinguished from the immune-driven oscillations her models recover in the very same data.",
+ "question": "Which choice completes the text with the most logical transition?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "By contrast,"
+  },
+  {
+   "id": "B",
+   "text": "Likewise,"
+  },
+  {
+   "id": "C",
+   "text": "For instance,"
+  },
+  {
+   "id": "D",
+   "text": "Moreover,"
+  }
+ ],
+ "correctAnswer": "C",
+ "explanation": "The first sentence makes a general claim: ecologists hold that year-to-year climate swings can shift the timing of recurring disease outbreaks, but only when long records and careful models let researchers separate the climate's effect from a population's own immunity cycles. The second sentence then gives a specific case that fits — Mercedes Pascual's analyses of decades of Bangladeshi cholera records, in which outbreak peaks track the El Niño–Southern Oscillation closely enough to distinguish the climate signal from the immune-driven cycles in the same data. The move from a general principle to one concrete illustration is exactly what 'For instance,' signals, so C is correct.\n\nThe cue is the shift in specificity: sentence 1 talks abstractly about 'recurring disease outbreaks' and the conditions under which a climate signal can be detected, while sentence 2 names a particular country (Bangladesh), a particular disease (cholera), and a particular climate pattern (the El Niño–Southern Oscillation) — one concrete realization of the general claim. 'By contrast,' 'Likewise,' and 'Moreover,' all misread that relationship: the second sentence neither opposes the first nor merely adds a parallel point; it exemplifies it."
+}

@@ -1,0 +1,31 @@
+{
+  "id": 811,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "information-and-ideas",
+  "skill": "central-ideas-and-details",
+  "module": 1,
+  "passage": "In the early 1930s the naturalist William Beebe descended more than half a mile into the ocean off Bermuda in the bathysphere, a cramped steel ball lowered on a cable. Through its small quartz windows Beebe became one of the first people to watch deep-sea animals alive in their own surroundings rather than hauled up dead in a net. He could not collect what he saw, so he described the creatures aloud to an assistant on the surface, who took down his words by telephone. Some of the animals he reported were never matched to a specimen, and skeptics later questioned them; even so, his accounts drew wide public attention to a world few had imagined.",
+  "question": "According to the text, what was one limitation of Beebe’s method of studying deep-sea animals?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "The bathysphere could not descend deep enough to reach the animals he most wanted to observe."
+    },
+    {
+      "id": "B",
+      "text": "He had to rely on memory because no assistant was available to record his observations."
+    },
+    {
+      "id": "C",
+      "text": "The quartz windows distorted the colors of the animals he watched outside the bathysphere."
+    },
+    {
+      "id": "D",
+      "text": "He could not capture the animals he observed, and some of his reported sightings were never matched to a specimen."
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "The correct answer is D. The passage states that Beebe could not collect what he saw and that some creatures he described were never matched to a specimen, which is the limitation the question asks about. A contradicts the text, which says he descended more than half a mile; B reverses a detail, since an assistant did record his words by telephone; and C invents a problem with the windows that the passage never mentions."
+}

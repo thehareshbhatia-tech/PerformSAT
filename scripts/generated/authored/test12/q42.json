@@ -1,0 +1,31 @@
+{
+  "id": 1242,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "information-and-ideas",
+  "skill": "inferences",
+  "module": 2,
+  "passage": "Public-health researchers studying antibiotic resistance distinguish between two ways resistant bacteria can spread. One is direct: a person takes antibiotics, resistant strains in their body are favored, and those strains pass to others. The other is environmental: antibiotics used in large quantities in livestock farming enter soil and water, where they exert selective pressure on bacteria that never inhabited a human body but can later transfer resistance genes to bacteria that do. Surveys have found resistance genes in waterways far from any clinic, downstream of agricultural operations. Researchers who emphasize this second pathway argue that a strategy for slowing resistance that focuses only on how doctors prescribe antibiotics to patients ______",
+  "question": "Which choice most logically completes the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "will almost certainly succeed on its own, because the antibiotics used in livestock farming have no measurable effect on the bacteria that ultimately infect humans."
+    },
+    {
+      "id": "B",
+      "text": "risks leaving a major source of selective pressure unaddressed, since resistance can also build in the environment through agricultural antibiotic use."
+    },
+    {
+      "id": "C",
+      "text": "addresses the only pathway by which resistant bacteria are presently known to reach the human populations that public-health agencies monitor."
+    },
+    {
+      "id": "D",
+      "text": "should be abandoned outright, since the way doctors prescribe antibiotics plays no real role at all in the spread of resistance among patients."
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B. The researchers describe a second, environmental pathway in which agricultural antibiotic use breeds resistance outside any clinic, so a strategy aimed only at prescribing would miss that source of selective pressure. B draws exactly that inference. A and C deny the environmental pathway the passage documents, with A claiming farm antibiotics have no effect and C calling prescribing the only route. D overcorrects in the opposite direction, dismissing the prescribing pathway, which the passage treats as one of two real routes."
+}

@@ -1,0 +1,34 @@
+{
+ "id": 324,
+ "module": 1,
+ "difficulty": "medium",
+ "band": 3,
+ "domain": "expression-of-ideas",
+ "skill": "transitions",
+ "question": "Which choice completes the text with the most logical transition?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "Therefore,"
+  },
+  {
+   "id": "B",
+   "text": "For example,"
+  },
+  {
+   "id": "C",
+   "text": "More recently,"
+  },
+  {
+   "id": "D",
+   "text": "Similarly,"
+  }
+ ],
+ "correctAnswer": "C",
+ "explanation": "The correct answer is C, \"More recently,\". The first sentence describes a long-standing way of telling the history of Abstract Expressionism, centered on a few male painters in New York. The second sentence introduces a revised account in which women such as Lee Krasner and Elaine de Kooning are shown to have been central rather than peripheral. The relation between the older consensus and the newer argument is one of temporal succession, which \"More recently,\" captures. \"Therefore,\" would make the second claim a logical consequence of the first; \"Similarly,\" would treat it as agreeing with the older account; and \"For example,\" would offer it as an instance of that account, when it actually revises it.",
+ "_meta": {
+  "anchor": "Abstract Expressionism historiography; Lee Krasner and Elaine de Kooning; temporal revision"
+ },
+ "passage": "For much of the twentieth century, histories of Abstract Expressionism centered on a handful of male painters in New York and treated the movement as their achievement alone. ______ art historians have shown that women such as Lee Krasner and Elaine de Kooning were central to the movement's development and its critical debates, not figures added to the story afterward.",
+ "type": "multiple-choice"
+}

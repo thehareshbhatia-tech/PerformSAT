@@ -1,0 +1,31 @@
+{
+  "id": 839,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "information-and-ideas",
+  "skill": "command-of-evidence-textual",
+  "module": 2,
+  "passage": "Migratory songbirds can hold a heading on overcast nights when neither the stars nor the sun is visible, and biologists have long debated what cue they use. One team studying European robins proposed that the birds sense the direction of Earth's magnetic field and that this magnetic sense depends on light striking specialized molecules in the eye, so that it works only within a certain range of wavelengths. *The team's hypothesis is that the robins' magnetic compass is light-dependent, functioning under some colors of light but failing under others.*",
+  "question": "Which finding, if true, would most strongly support the team’s hypothesis?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Robins kept in a windowless room with no light of any kind grew restless at the season when they would normally migrate."
+    },
+    {
+      "id": "B",
+      "text": "Robins tested under dim red light scattered their headings at random, whereas the same birds under dim blue-green light oriented correctly toward their migratory direction."
+    },
+    {
+      "id": "C",
+      "text": "Robins migrate at night more often than closely related species that do not undertake long migrations."
+    },
+    {
+      "id": "D",
+      "text": "Robins released near a powerful electrical installation took longer to settle on a heading than robins released in open countryside."
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B. The hypothesis is that the magnetic compass depends on light and works under some colors but not others, so the strongest support compares the birds' orientation across different wavelengths. B does exactly that: correct orientation under blue-green light but random headings under red light shows the compass functioning at one part of the spectrum and failing at another. A involves no light at all and so cannot test a color dependence; C concerns how often robins migrate, not how they orient; and D points to interference near electrical equipment without isolating the color of light."
+}

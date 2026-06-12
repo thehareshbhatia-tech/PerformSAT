@@ -1,0 +1,31 @@
+{
+  "id": 1220,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "standard-english-conventions",
+  "skill": "form-structure-and-sense",
+  "module": 1,
+  "passage": "The economist William Vickrey spent much of his career arguing that prices could be used to manage demand for crowded public services. In a 1963 article on urban transportation, he ____ that charging drivers more to use roads at the busiest times would spread traffic across the day, a proposal that city officials largely ignored before congestion pricing was adopted in several cities decades later.",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "proposes"
+    },
+    {
+      "id": "B",
+      "text": "has proposed"
+    },
+    {
+      "id": "C",
+      "text": "had proposed"
+    },
+    {
+      "id": "D",
+      "text": "proposed"
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "The correct answer is D. The action is fixed to a completed moment in the past—\"In a 1963 article\"—so the simple past \"proposed\" is correct. The present-tense \"proposes\" clashes with that date. \"Has proposed\" describes an action continuing into or relevant to the present, which the dated, finished article does not call for. \"Had proposed\" would signal an event before some other past event, but no such earlier reference point is set up here."
+}

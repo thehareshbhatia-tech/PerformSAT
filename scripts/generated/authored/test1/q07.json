@@ -1,0 +1,31 @@
+{
+ "id": 107,
+ "type": "multiple-choice",
+ "difficulty": "medium",
+ "band": 3,
+ "domain": "craft-and-structure",
+ "skill": "text-structure-and-purpose",
+ "module": 1,
+ "passage": "Geodesist Anny Cazenave uses satellites to measure tiny changes in the distance between Earth's surface and orbiting instruments. For decades, the gradual sinking or rising of a coastline could be tracked only by tide gauges bolted to piers, which record sea level relative to the land beneath them—and so cannot tell whether the water is rising or the land is settling. Cazenave points out that satellite measurements, fixed instead to a reference frame centered on Earth itself, separate the two motions. A coastline a tide gauge records as stable may, against that fixed frame, be quietly subsiding.",
+ "question": "Which choice best describes the overall structure of the text?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "It defines a single measurement technique and then lists the coastlines where that technique has so far been applied."
+  },
+  {
+   "id": "B",
+   "text": "It contrasts two researchers' competing accounts of why coastlines appear to sink and then settles their disagreement."
+  },
+  {
+   "id": "C",
+   "text": "It identifies a limitation of an older measurement method and then explains how a newer method overcomes that limitation."
+  },
+  {
+   "id": "D",
+   "text": "It reports a surprising discovery about coastlines and then traces the history of the instruments that produced it."
+  }
+ ],
+ "correctAnswer": "C",
+ "explanation": "The correct answer is C. The passage first describes what tide gauges cannot do—because they measure sea level relative to the land, they cannot separate a rising ocean from sinking ground—and then explains how satellite measurements, tied to a frame centered on Earth, resolve exactly that ambiguity. A ignores the comparison entirely and invents a list of coastlines; B frames the passage as a dispute between two named researchers, though only Cazenave appears and no quarrel is described; and D treats the closing illustration as a discovery and adds an instrument history the text does not give."
+}

@@ -1,0 +1,31 @@
+{
+  "id": 1207,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "craft-and-structure",
+  "skill": "text-structure-and-purpose",
+  "module": 1,
+  "passage": "For centuries bakers have kept sourdough cultures alive for years at a stretch, feeding a portion of flour and water each day and using the rest to leaven bread, often without knowing why the mixture stayed reliable. A sourdough starter, it turns out, is a small ecosystem: a stable community of wild yeasts and lactic-acid bacteria living together in the batter. The bacteria release acids that lower the mixture's pH, and that sourness does double duty—it gives the bread its tang and it makes the starter inhospitable to most spoilage microbes, which cannot tolerate the acidity. Because the resident yeasts and bacteria are themselves acid-tolerant, each feeding renews the same community rather than inviting a new one, which is why a well-tended starter can pass almost unchanged from one baker to the next.",
+  "question": "Which choice best states the main purpose of the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "To argue that a carefully maintained sourdough starter can never be spoiled or overtaken by any competing microorganism from the surrounding environment."
+    },
+    {
+      "id": "B",
+      "text": "To explain what a sourdough starter is and how its community of yeast and bacteria keeps the culture stable over time."
+    },
+    {
+      "id": "C",
+      "text": "To compare the baking results obtained from commercial yeast with those obtained from a wild sourdough culture."
+    },
+    {
+      "id": "D",
+      "text": "To describe the specific acids that lactic-acid bacteria release as a sourdough starter ferments."
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B. The passage first notes that bakers long kept starters going without understanding them, then explains what a starter actually is—a community of wild yeast and lactic-acid bacteria—and how the acids those bacteria produce keep the culture stable and self-renewing. B states that explanatory purpose. A overstates the text, which says the acidity keeps out most spoilage microbes, not that the starter can never be overtaken. C introduces a comparison with commercial yeast that the passage never makes. D fixes on one detail, the acids, rather than the overall point about how the starter stays stable."
+}

@@ -1,0 +1,31 @@
+{
+  "id": 737,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "information-and-ideas",
+  "skill": "central-ideas-and-details",
+  "module": 2,
+  "passage": "In the early 1970s, a Chinese research program searching for a new malaria drug screened hundreds of plant extracts with disappointing results: promising compounds either lost their potency during processing or proved too weak in animal tests. A turning point came from an unexpected source. Reviewing centuries-old medical texts, one researcher noticed that an old recipe prepared the herb qinghao (sweet wormwood) by soaking it in cool water rather than boiling it. That hint led the team to try a low-temperature extraction, which preserved the herb's active ingredient where heat had been destroying it. The compound they isolated, later called artemisinin, proved highly effective against malaria and became the basis of frontline treatment.",
+  "question": "Which choice best states the main idea of the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "The Chinese research program first screened many hundreds of different plant extracts before it eventually turned for guidance to a large body of historical medical texts."
+    },
+    {
+      "id": "B",
+      "text": "Several promising malaria compounds tended either to lose their potency during processing or to perform quite poorly in the team’s animal tests."
+    },
+    {
+      "id": "C",
+      "text": "A clue in an old medical text led researchers to a low-temperature extraction method that finally yielded an effective antimalarial after standard screens had failed."
+    },
+    {
+      "id": "D",
+      "text": "Centuries-old Chinese medical texts ultimately confirmed that boiling was in fact the most reliable way to extract the active ingredient from the qinghao herb."
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C. The passage's arc is that standard screening failed until a clue in an old text pointed to a low-temperature extraction, which finally produced an effective antimalarial. Choice A reports one step (the early screening) as if it were the whole point. Choice B states a detail about why early compounds failed, and Choice D reverses the passage, which says the old recipe used cool water rather than boiling and that heat had been destroying the active ingredient."
+}

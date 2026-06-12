@@ -1,0 +1,31 @@
+{
+  "id": 624,
+  "module": 1,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "expression-of-ideas",
+  "skill": "transitions",
+  "passage": "Beekeepers once assumed that a foraging honeybee returning to the hive simply led its nestmates back to a food source by scent. ______ close observation of the hive showed that a returning forager performs a patterned \"waggle dance\" whose angle and duration encode the direction and distance of the food, information the other bees use to fly there directly.",
+  "question": "Which choice completes the text with the most logical transition?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "For example,"
+    },
+    {
+      "id": "B",
+      "text": "Likewise,"
+    },
+    {
+      "id": "C",
+      "text": "Instead,"
+    },
+    {
+      "id": "D",
+      "text": "In summary,"
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C, \"Instead.\" The passage replaces the old assumption, that bees lead others back by scent, with a different account, the waggle dance that communicates direction and distance. \"Instead\" marks that substitution of one explanation for another. \"For example\" would present the dance as an instance of leading by scent, which it is not; \"Likewise\" would treat the two as parallel; and \"In summary\" would signal a recap rather than a correction."
+}

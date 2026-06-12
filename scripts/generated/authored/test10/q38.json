@@ -1,0 +1,31 @@
+{
+ "id": 1038,
+ "type": "multiple-choice",
+ "difficulty": "medium",
+ "band": 3,
+ "domain": "information-and-ideas",
+ "skill": "central-ideas-and-details",
+ "module": 2,
+ "passage": "Early-twentieth-century astronomers could measure the apparent brightness of a star but had no general way to tell whether a faint star was dim or merely distant. Working at the Harvard College Observatory, Henrietta Swan Leavitt studied a class of pulsing stars called Cepheids and discovered a regular relationship: the longer a Cepheid takes to complete its cycle of brightening and dimming, the greater its true luminosity. Because a star's true and apparent brightness together reveal its distance, Leavitt's relationship gave astronomers their first reliable yardstick for measuring distances far beyond our own galaxy. Within little more than a decade, others used it to show that the universe extends well past the Milky Way.",
+ "question": "Which choice best states the main idea of the text?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "Henrietta Swan Leavitt spent years studying a class of pulsing stars called Cepheids while she was employed as a human computer at the Harvard College Observatory."
+  },
+  {
+   "id": "B",
+   "text": "Leavitt discovered that a Cepheid's pulsation period reveals its true luminosity, giving astronomers their first reliable means of measuring distances beyond the Milky Way."
+  },
+  {
+   "id": "C",
+   "text": "Astronomers in the early twentieth century could measure a star's apparent brightness but not its distance."
+  },
+  {
+   "id": "D",
+   "text": "Within little more than a decade, astronomers used Leavitt's work to show that the universe extends beyond our own galaxy."
+  }
+ ],
+ "correctAnswer": "B",
+ "explanation": "Choice B is correct. The passage sets up a problem—astronomers could not tell whether a faint star was dim or merely distant—and presents Leavitt's discovery as the solution: a Cepheid's period reveals its true luminosity, which, with apparent brightness, yields distance, giving the first reliable yardstick beyond the galaxy. Choice B states that central achievement. Choice A reports only what she studied; Choice C states only the problem; and Choice D notes a later consequence, each capturing a part rather than the main idea."
+}

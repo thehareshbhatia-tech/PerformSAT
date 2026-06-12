@@ -1,0 +1,31 @@
+{
+  "id": 711,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "information-and-ideas",
+  "skill": "central-ideas-and-details",
+  "module": 1,
+  "passage": "Political scientists studying social movements have noticed a puzzling pattern: groups that face discrimination sometimes respond slowly when a crisis strikes their own most vulnerable members. To explain this, some researchers use the idea of secondary marginalization. A group working to improve its standing in society may distance itself from members who carry an added stigma—a past criminal conviction, for example—so as not to put the group's fragile gains at risk. On this account, a slow response to a crisis is not simply an oversight. It is a predictable result of the way a marginalized group decides which of its own members to defend.",
+  "question": "Which choice best states the main idea of the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Groups that face discrimination always respond quickly to crises that threaten their most vulnerable members."
+    },
+    {
+      "id": "B",
+      "text": "Secondary marginalization can occur only after a group has already secured a fully stable and protected position in society."
+    },
+    {
+      "id": "C",
+      "text": "Researchers continue to disagree sharply about whether the stigmatized members of any marginalized group ought to be actively defended during a moment of public crisis."
+    },
+    {
+      "id": "D",
+      "text": "The idea of secondary marginalization explains how a marginalized group may sideline its own stigmatized members, accounting for a slow response to a crisis affecting them."
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "The correct answer is D. The passage introduces secondary marginalization to explain why a discriminated-against group might respond slowly to a crisis: the group distances itself from members who carry an added stigma. Choice A flatly contradicts the pattern the passage sets out to explain. Choice B adds a precondition (a stable position) the text never states, and Choice C describes a scholarly disagreement that the passage does not raise."
+}

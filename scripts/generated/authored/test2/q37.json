@@ -1,0 +1,31 @@
+{
+  "id": 237,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "information-and-ideas",
+  "skill": "central-ideas-and-details",
+  "module": 2,
+  "passage": "Most adult mammals lose the ability to digest lactose, the sugar in milk, after weaning, but in several human populations the lactase enzyme stays active throughout adulthood. Geneticist Sarah Tishkoff set out to ask whether this trait, known as lactase persistence, has a single evolutionary origin. In a 2007 study sequencing DNA from East African pastoralist communities, Tishkoff and colleagues identified three previously unknown variants near the lactase gene, none of which matched the European variant already documented in the dairying populations of northern Europe. Because each variant arose on its own genetic background and spread within communities that historically herded cattle, camels, or goats, Tishkoff argued that lactase persistence has evolved independently several times under the same dietary pressure.",
+  "question": "According to the text, what did Tishkoff and colleagues find in their 2007 study of East African pastoralists?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "A single ancestral mutation shared by East African pastoralists and the dairying populations of northern Europe."
+    },
+    {
+      "id": "B",
+      "text": "That the European lactase-persistence variant was also widespread among the East African pastoralist communities they sampled."
+    },
+    {
+      "id": "C",
+      "text": "Three previously unknown genetic variants near the lactase gene, none of which matched the European variant."
+    },
+    {
+      "id": "D",
+      "text": "That lactase persistence offered no measurable advantage to communities relying on milk from herded animals."
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C. The passage states that Tishkoff and colleagues identified three previously unknown variants near the lactase gene, none of which matched the European variant already documented in northern Europe. Choice A contradicts the text, which reports several distinct variants on separate genetic backgrounds rather than a single shared mutation. Choice B reverses a key detail: the East African variants did not match the European one. Choice D is unsupported, since the passage treats lactase persistence as an adaptation favored by reliance on milk, the opposite of offering no advantage."
+}

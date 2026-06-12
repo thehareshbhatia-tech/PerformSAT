@@ -1,0 +1,34 @@
+{
+  "id": 901,
+  "type": "multiple-choice",
+  "difficulty": "easy",
+  "band": 2,
+  "domain": "craft-and-structure",
+  "skill": "words-in-context",
+  "module": 1,
+  "passage": "When the emperor Babur laid out gardens across northern India in the early sixteenth century, he favored a plan called the charbagh, in which two intersecting water channels divide the enclosure into four level quarters. Later visitors sometimes dismissed the rigid symmetry as merely ______, a pleasing pattern imposed for display. Babur's own memoirs suggest otherwise: the raised walkways and graded channels distributed scarce water to every bed, so the layout performed a practical task even as it satisfied the eye.",
+  "question": "Which choice completes the text with the most logical and precise word or phrase?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "functional"
+    },
+    {
+      "id": "B",
+      "text": "deliberate"
+    },
+    {
+      "id": "C",
+      "text": "ancient"
+    },
+    {
+      "id": "D",
+      "text": "ornamental"
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "The contrast in the sentence is between dismissing the charbagh's symmetry as mere show and Babur's point that it did real work. Modified by \"merely\" and glossed as \"a pleasing pattern imposed for display,\" the blank needs a word meaning decorative for its own sake. \"Ornamental,\" choice D, fits and sets up the \"otherwise\" that follows, where the channels turn out to serve a purpose. \"Functional\" and \"deliberate\" would undercut that contrast, and \"ancient\" speaks to age rather than purpose.",
+  "_meta": {
+    "anchor": "Babur and the Mughal charbagh garden plan"
+  }
+}

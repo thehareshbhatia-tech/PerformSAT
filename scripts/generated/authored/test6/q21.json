@@ -1,0 +1,31 @@
+{
+  "id": 621,
+  "module": 1,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "standard-english-conventions",
+  "skill": "boundaries",
+  "passage": "Historians of South Asian landscape design have noted that the classic Mughal garden, or charbagh, was almost always organized around three recurring elements ______ that together turned a walled enclosure into a deliberate image of paradise on earth for the ruler and his court.",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "—flowing water, geometric pathways, and shaded pavilions,"
+    },
+    {
+      "id": "B",
+      "text": "—flowing water, geometric pathways, and shaded pavilions—"
+    },
+    {
+      "id": "C",
+      "text": ", flowing water, geometric pathways, and shaded pavilions,"
+    },
+    {
+      "id": "D",
+      "text": "flowing water, geometric pathways, and shaded pavilions"
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B. The list \"flowing water, geometric pathways, and shaded pavilions\" is an interrupting element that names the three elements just mentioned, and because the list itself contains commas, a matched pair of em dashes sets it off most cleanly. Choice A opens with a dash but closes with a comma, so the marks do not match. Choice C uses commas on both sides, which makes the list-internal commas and the boundary commas indistinguishable. Choice D supplies no punctuation at all, running the appositive directly into the clause that follows."
+}

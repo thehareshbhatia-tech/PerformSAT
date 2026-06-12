@@ -1,0 +1,31 @@
+{
+  "id": 1234,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "craft-and-structure",
+  "skill": "text-structure-and-purpose",
+  "module": 2,
+  "passage": "Before the 1880s, towns across North America kept their own local time, setting noon by the moment the sun stood highest overhead. The practice worked well enough when travel was slow, but it became a hazard once railroads linked distant places on tight schedules: a train running between cities whose clocks differed by several minutes invited collisions and missed connections, and printed timetables grew nearly unusable. In 1883 the major railroad companies, acting on their own rather than waiting for legislation, divided the continent into a small number of standard time zones and agreed to run their trains by them. Local resistance was real—some towns refused for years to abandon \"God's time\" for \"railroad time\"—but the convenience proved decisive, and the zones the railroads drew became the basis for the standard time later written into law. What began as a private fix for a scheduling problem had quietly reorganized how an entire continent kept time.",
+  "question": "Which choice best states the main purpose of the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "To argue that the railroad companies overstepped their proper authority by imposing standard time zones on the public without first obtaining the approval of any elected legislature."
+    },
+    {
+      "id": "B",
+      "text": "To describe the engineering advances that allowed nineteenth-century trains to keep far more precise schedules than earlier forms of transport had managed."
+    },
+    {
+      "id": "C",
+      "text": "To explain how a scheduling problem created by the railroads led them to adopt standard time zones that reshaped how the continent kept time."
+    },
+    {
+      "id": "D",
+      "text": "To contrast the timekeeping customs of small rural towns with those of the larger cities that the new railroad lines connected to one another."
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C. The passage explains how the railroads' scheduling crisis prompted them to impose time zones that eventually became the standard written into law, reorganizing timekeeping across the continent. A reads a verdict about overreach into a text that simply reports resistance and outcome. B points to engineering precision, which the passage does not discuss. D notes the town-versus-railroad friction, but contrasting rural and urban customs is not the purpose; the spread of standard time is."
+}

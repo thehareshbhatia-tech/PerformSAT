@@ -1,0 +1,34 @@
+{
+  "id": 930,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "craft-and-structure",
+  "skill": "words-in-context",
+  "module": 2,
+  "passage": "Among the Asante of Ghana, kente cloth is woven in narrow strips on a horizontal loom, each strip carrying bands of color and pattern that are later sewn edge to edge into one large cloth. Far from being ______, the combinations follow convention: particular patterns and color pairings are tied to proverbs, occasions, and rank, so a finished kente can be read as readily as it is worn.",
+  "question": "Which choice completes the text with the most logical and precise word or phrase?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "decorative"
+    },
+    {
+      "id": "B",
+      "text": "durable"
+    },
+    {
+      "id": "C",
+      "text": "traditional"
+    },
+    {
+      "id": "D",
+      "text": "arbitrary"
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "\"Far from being ______\" is answered by \"the combinations follow convention,\" tied to proverbs, occasions, and rank. The blank must name what the patterns are not—random or unprincipled—so \"arbitrary,\" choice D, is correct. \"Decorative\" and \"durable\" do not contrast with rule-governed meaning, and \"traditional\" would agree with convention rather than oppose it.",
+  "_meta": {
+    "anchor": "kente cloth, Asante"
+  }
+}

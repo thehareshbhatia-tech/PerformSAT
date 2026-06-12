@@ -1,0 +1,34 @@
+{
+ "id": 344,
+ "module": 2,
+ "difficulty": "medium",
+ "band": 3,
+ "domain": "standard-english-conventions",
+ "skill": "boundaries",
+ "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "cloth"
+  },
+  {
+   "id": "B",
+   "text": "cloth,"
+  },
+  {
+   "id": "C",
+   "text": "cloth;"
+  },
+  {
+   "id": "D",
+   "text": "cloth:"
+  }
+ ],
+ "correctAnswer": "B",
+ "explanation": "The correct answer is B, \"cloth,\". The sentence opens with a dependent introductory clause — \"When researchers examine a length of Asante kente cloth from Ghana\" — that cannot stand on its own, followed by the main clause, \"they can often identify the weaving workshop, the era, and even the proverb a pattern was meant to convey.\" Standard English sets off an introductory dependent clause from the main clause with a comma, which B supplies. No punctuation (A) runs the two together. A semicolon (C) must join two independent clauses, but the introductory clause is not independent. A colon (D) would wrongly announce a list or explanation rather than mark the end of an introductory clause.",
+ "_meta": {
+  "anchor": "Asante kente cloth, Ghana [theme: West African textile history]; introductory-clause comma"
+ },
+ "passage": "Among the Asante of Ghana, woven cloth has long carried meaning as well as color, and skilled readers treat its patterns almost as text. When researchers examine a length of Asante kente cloth ______ they can often identify the weaving workshop, the era, and even the proverb that a particular pattern was meant to convey.",
+ "type": "multiple-choice"
+}

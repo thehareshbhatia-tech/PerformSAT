@@ -1,0 +1,65 @@
+{
+  "id": 740,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "information-and-ideas",
+  "skill": "command-of-evidence-quantitative",
+  "module": 2,
+  "passage": "Atlantic cod once supported one of the most productive fisheries in the Northwest Atlantic, but stock assessments compiled at decade intervals from 1960 through 2010 show that biomass on Georges Bank fell sharply across this period. Although the long-term trajectory was unmistakably downward, researchers studying the assessments have argued that the magnitude of the loss between successive decades did not remain constant: the largest setback came at the very start of the series, after which the per-decade reductions, while still negative, were comparatively modest. The data support the researchers' claim that the rate at which biomass declined slowed after the 1960s because _______",
+  "questionTable": {
+    "type": "table",
+    "caption": "Estimated Atlantic cod spawning biomass on Georges Bank at decade intervals (thousands of metric tons, kt)",
+    "headers": [
+      "Year",
+      "Biomass (kt)"
+    ],
+    "rows": [
+      [
+        "1960",
+        "180"
+      ],
+      [
+        "1970",
+        "70"
+      ],
+      [
+        "1980",
+        "55"
+      ],
+      [
+        "1990",
+        "40"
+      ],
+      [
+        "2000",
+        "26"
+      ],
+      [
+        "2010",
+        "12"
+      ]
+    ]
+  },
+  "question": "Which choice most effectively uses data from the table to complete the statement?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "biomass fell from 180 kt in 1960 to 12 kt in 2010, a cumulative reduction of more than 90 percent over the period studied."
+    },
+    {
+      "id": "B",
+      "text": "the 1960-to-1970 interval saw biomass drop by 110 kt, the largest absolute decline of any decade in the series."
+    },
+    {
+      "id": "C",
+      "text": "biomass fell by 110 kt between 1960 and 1970, whereas each subsequent decadal interval through 2010 registered a decline of no more than 15 kt."
+    },
+    {
+      "id": "D",
+      "text": "the per-decade losses grew from 15 kt between 1970 and 1980 to a peak of 110 kt between 1960 and 1970, indicating an intensifying decline."
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C. The claim is specifically that the rate of decline slowed after the 1960s, which requires comparing the size of the 1960-to-1970 drop against every later decadal drop. Choice C makes exactly that comparison: a 110 kt loss between 1960 and 1970, followed by decadal declines of no more than 15 kt thereafter — one large drop, then uniformly smaller ones. Choice B names the largest single drop without the comparison the claim needs, and Choice A reports the total decline across the whole period rather than the per-decade rate. Choice D inverts the chronology, treating the 110 kt drop as the end of an intensifying trend when it is in fact the first and largest decline in the series."
+}

@@ -1,0 +1,31 @@
+{
+  "id": 819,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "standard-english-conventions",
+  "skill": "boundaries",
+  "module": 1,
+  "passage": "The great caravanserais built along the Ottoman trade routes—massive stone compounds that could shelter hundreds of travelers, their pack animals, and their goods within a single fortified courtyard ______ stood roughly a day's journey apart, so that no caravan need ever camp unprotected in open country.",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "courtyard,"
+    },
+    {
+      "id": "B",
+      "text": "courtyard"
+    },
+    {
+      "id": "C",
+      "text": "courtyard;"
+    },
+    {
+      "id": "D",
+      "text": "courtyard—"
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "The correct answer is D. The phrase \"massive stone compounds…within a single fortified courtyard\" is a supplement inserted into the main clause, and it is introduced by the em dash after \"routes.\" A paired dash has to close it, so the dash in D matches the opening mark and keeps the punctuation around the inserted phrase consistent. The comma in A pairs a dash with a comma, a mismatch that leaves the marks around the supplement uneven; B supplies no closing mark, so the inserted phrase runs straight into \"stood roughly a day's journey apart\"; and the semicolon in C cannot sit inside a single sentence this way, since a semicolon joins two independent clauses rather than closing a supplement."
+}

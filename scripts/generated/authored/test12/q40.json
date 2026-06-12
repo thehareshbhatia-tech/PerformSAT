@@ -1,0 +1,61 @@
+{
+  "id": 1240,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "information-and-ideas",
+  "skill": "command-of-evidence-quantitative",
+  "module": 2,
+  "passage": "Archaeologists studying the Neolithic settlement of Çatalhöyük in central Anatolia track changes in raw-material procurement by chemically sourcing obsidian artifacts to specific volcanic outcrops in the Cappadocian region. In a 2008 paper in the Journal of Archaeological Science, Tristan Carter and colleagues reported the percentage of obsidian assigned to each source across three occupation phases at the site and argued that the most striking shift in procurement networks occurred late in the sequence — between Phase B and Phase C — rather than at any earlier transition, because _______",
+  "questionTable": {
+    "type": "table",
+    "caption": "Percentage of obsidian artifacts from each source at Çatalhöyük by phase (Carter et al., 2008, Journal of Archaeological Science)",
+    "headers": [
+      "Source",
+      "Phase A (early)",
+      "Phase B (middle)",
+      "Phase C (late)"
+    ],
+    "rows": [
+      [
+        "Göllü Dağ East",
+        "62%",
+        "58%",
+        "39%"
+      ],
+      [
+        "Nenezi Dağ",
+        "33%",
+        "37%",
+        "55%"
+      ],
+      [
+        "Other Cappadocian",
+        "5%",
+        "5%",
+        "6%"
+      ]
+    ]
+  },
+  "question": "Which choice most effectively uses data from the table to complete the statement?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "the 'Other Cappadocian' share remained nearly constant across all three phases, moving only from 5 to 5 to 6 percent."
+    },
+    {
+      "id": "B",
+      "text": "between Phase A and Phase B, Göllü Dağ East fell from 62 to 58 percent and Nenezi Dağ rose from 33 to 37 percent, the largest reorganization of sources documented at the site."
+    },
+    {
+      "id": "C",
+      "text": "between Phase B and Phase C, Göllü Dağ East dropped from 58 to 39 percent and Nenezi Dağ rose from 37 to 55 percent, far larger shifts than either source recorded between Phase A and Phase B."
+    },
+    {
+      "id": "D",
+      "text": "Göllü Dağ East was the dominant source in Phase A at 62 percent, the highest single share recorded for any source in any phase shown."
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C. The claim is that the sharpest change in sourcing came late, between Phase B and Phase C, and the table bears that out: Göllü Dağ East drops from 58 to 39 percent and Nenezi Dağ rises from 37 to 55 percent, swings far larger than the few-point changes between Phase A and Phase B. C reports those figures. B points to the earlier transition, which shows only small movements and so does not support a \"late\" shift. A notes the nearly flat \"Other Cappadocian\" share, which has no bearing on the timing claim. D cites a single high value in Phase A without addressing where the largest change occurs."
+}

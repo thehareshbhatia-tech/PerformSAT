@@ -1,0 +1,31 @@
+{
+ "id": 1028,
+ "type": "multiple-choice",
+ "difficulty": "medium",
+ "band": 3,
+ "domain": "craft-and-structure",
+ "skill": "words-in-context",
+ "module": 2,
+ "passage": "In a Carboniferous peat swamp some 300 million years ago, mineral-rich water seeping through the buried plant matter encased it in carbonate before it could fully decay. Cut and polished today, these \"coal balls\" ______ the internal cellular structure of ancient ferns and seed plants in three dimensions, giving paleobotanists a view of anatomy that flattened impressions in shale cannot provide.",
+ "question": "Which choice completes the text with the most logical and precise word or phrase?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "conceal"
+  },
+  {
+   "id": "B",
+   "text": "exaggerate"
+  },
+  {
+   "id": "C",
+   "text": "preserve"
+  },
+  {
+   "id": "D",
+   "text": "imitate"
+  }
+ ],
+ "correctAnswer": "C",
+ "explanation": "Choice C is correct. The passage explains that carbonate encased the plant tissues before they could decay, so that the polished coal balls retain ancient cellular structure in three dimensions. \"Preserve\" names that retention of intact structure. \"Conceal\" runs opposite, since the coal balls reveal the anatomy rather than hide it; \"exaggerate\" wrongly implies distortion; and \"imitate\" suggests a copy rather than the genuine, original tissue the passage describes."
+}

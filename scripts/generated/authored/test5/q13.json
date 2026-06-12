@@ -1,0 +1,34 @@
+{
+  "id": 513,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "information-and-ideas",
+  "skill": "command-of-evidence-quantitative",
+  "module": 1,
+  "passage": "Surveys of U.S. adult social media use, conducted by the Pew Research Center across the 2010s, let researchers compare growth across the major platforms in roughly the same population over time. A media-studies student summarizing the published data argues that Facebook's trajectory is best described as a sharp expansion in the early 2010s followed by a near-plateau, distinct from the steadier growth seen at a smaller platform. The student supports the claim with data from the table.\n\nPercentage of U.S. adults who use selected social media platforms (Pew Research Center)\n| Platform   | 2012 | 2016 | 2021 |\n|------------|------|------|------|\n| Facebook   | 54%  | 68%  | 69%  |\n| Instagram  | 13%  | 28%  | 40%  |\n| LinkedIn   | 20%  | 25%  | 28%  |\n| Twitter    | 16%  | 21%  | 23%  |",
+  "question": "Which choice most effectively uses data from the table to support the claim?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Facebook use rose 14 points from 2012 to 2016 (54% to 68%) but only 1 point from 2016 to 2021 (68% to 69%), whereas Instagram rose 12 points (28% to 40%) over that later stretch."
+    },
+    {
+      "id": "B",
+      "text": "Facebook recorded the highest use of any platform in every year shown, beginning at 54% of U.S. adults in 2012 and reaching 69% of U.S. adults by the year 2021."
+    },
+    {
+      "id": "C",
+      "text": "Instagram use more than tripled across the period, rising from 13% of U.S. adults in 2012 to 28% in 2016 and then climbing to 40% of U.S. adults by 2021."
+    },
+    {
+      "id": "D",
+      "text": "LinkedIn and Twitter both grew slowly throughout the period, with LinkedIn moving from 20% to 28% and Twitter moving from 16% to 23% between 2012 and 2021."
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A. The student's claim has two parts: Facebook expanded sharply early and then nearly leveled off, and that pattern differs from steadier growth at a smaller platform. Choice A supplies both halves—the 14-point jump from 2012 to 2016 and the 1-point change from 2016 to 2021, set against Instagram's continued 12-point rise in that later interval. Choice B reports Facebook's rank, not the shape of its growth. Choice C describes Instagram's overall increase, which does not bear on Facebook's trajectory. Choice D compares endpoint levels for two platforms but leaves the early-expansion-then-plateau pattern invisible.",
+  "_meta": {
+    "anchor": "Pew Research Center, U.S. adult social-media use 2012-2021"
+  }
+}

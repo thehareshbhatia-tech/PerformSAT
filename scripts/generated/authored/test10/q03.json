@@ -1,0 +1,31 @@
+{
+ "id": 1003,
+ "type": "multiple-choice",
+ "difficulty": "medium",
+ "band": 3,
+ "domain": "craft-and-structure",
+ "skill": "words-in-context",
+ "module": 1,
+ "passage": "The Swiss designer Adolphe Appia argued that the painted backdrops of nineteenth-century opera, however detailed, flattened the living bodies of singers against them. In place of such scenery, he proposed three-dimensional platforms, steps, and shifting light that would ______ with the performers' movement rather than sit behind it as a static picture, so that the stage itself became an active element of the drama.",
+ "question": "Which choice completes the text with the most logical and precise word or phrase?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "compete"
+  },
+  {
+   "id": "B",
+   "text": "interfere"
+  },
+  {
+   "id": "C",
+   "text": "interact"
+  },
+  {
+   "id": "D",
+   "text": "coincide"
+  }
+ ],
+ "correctAnswer": "C",
+ "explanation": "Choice C is correct. Appia rejects flat painted scenery and proposes platforms, steps, and shifting light that move with the performers instead of sitting behind them, so the stage becomes an active partner in the drama. \"Interact\" captures that working-together relationship. \"Compete\" and \"interfere\" both imply the scenery would work against the performers, the opposite of his aim, and \"coincide\" merely means to occur at the same time, which misses the sense of responsive collaboration the passage describes."
+}

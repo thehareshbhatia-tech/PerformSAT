@@ -1,0 +1,43 @@
+{
+  "id": 935,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "craft-and-structure",
+  "skill": "cross-text-connections",
+  "module": 2,
+  "passages": [
+    {
+      "label": "Text 1",
+      "text": "Many historic wrecks lie in deep water that public archaeology can rarely afford to reach. Commercial salvage offers a way forward: by selling some of the coins and artifacts they bring up, salvage companies fund the costly search-and-recovery work that would otherwise never happen. Objects that would slowly corrode on the bottom, unseen, are instead raised, conserved, and put before the public. On this view, recovering a wreck's contents—by whatever means pays for the effort—is plainly better than leaving them to dissolve in the dark."
+    },
+    {
+      "label": "Text 2",
+      "text": "No one denies that salvage has lifted objects that might never otherwise have surfaced. Yet an artifact's value to scholarship lies largely in its context: where it lay, beside what other finds, and at what depth. Hauling cargo up for sale, without first mapping and recording each piece in place, strips that information away for good. A gold coin sold to a collector survives as an object, but the questions it could have answered—about the ship, its route, and the people aboard—are answered no longer."
+    }
+  ],
+  "question": "Based on the texts, how would the author of Text 2 most likely respond to the argument for commercial salvage presented in Text 1?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "The author would deny that any object can be recovered from a deep-water wreck and dismiss Text 1's confidence in salvage as entirely unfounded."
+    },
+    {
+      "id": "B",
+      "text": "The author would agree that selling recovered artifacts is the surest way to study a wreck and that the practice costs scholarship nothing."
+    },
+    {
+      "id": "C",
+      "text": "The author would grant that salvage has recovered objects that might otherwise have been lost but warn that selling them without recording their context destroys much of the knowledge a wreck could yield."
+    },
+    {
+      "id": "D",
+      "text": "The author would insist that no wreck should ever be disturbed and that even careful scientific excavation harms a site more than leaving it wholly untouched."
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "Text 1 defends commercial salvage as the only practical way to recover wrecks from deep water. The author of Text 2 concedes that salvage has indeed brought up objects that might otherwise have been lost, but warns that selling them without first recording their context erases the historical knowledge a wreck could provide. Choice C states that concession-plus-warning. Choice A denies that anything can be recovered at all, B has the author endorse the practice outright, and D pushes the objection too far, rejecting even careful scientific excavation, which Text 2 never opposes.",
+  "_meta": {
+    "anchor": "underwater archaeology: commercial salvage vs. archaeological context"
+  }
+}

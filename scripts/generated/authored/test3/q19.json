@@ -1,0 +1,34 @@
+{
+ "id": 319,
+ "module": 1,
+ "difficulty": "medium",
+ "band": 3,
+ "domain": "standard-english-conventions",
+ "skill": "boundaries",
+ "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "1940s"
+  },
+  {
+   "id": "B",
+   "text": "1940s,"
+  },
+  {
+   "id": "C",
+   "text": "1940s;"
+  },
+  {
+   "id": "D",
+   "text": "1940s:"
+  }
+ ],
+ "correctAnswer": "B",
+ "explanation": "The correct answer is B, \"1940s,\". The phrase \"an operation that Helen Brooke Taussig helped develop in the 1940s\" is a nonrestrictive appositive that interrupts the main sentence between its subject, \"shunt,\" and its verb, \"remains.\" Such an interrupter is set off by a pair of commas; the first comma appears after \"shunt,\" so the blank needs the matching second comma to close it. Without that comma (A), the interrupter runs straight into the verb. A semicolon (C) would have to separate two independent clauses, but \"remains a standard treatment …\" has no subject of its own and is not independent. A colon (D) would wrongly announce the rest of the sentence as a list or explanation.",
+ "_meta": {
+  "anchor": "Helen Brooke Taussig — pediatric cardiologist; Blalock-Thomas-Taussig shunt; paired-comma interrupter"
+ },
+ "passage": "Pediatric cardiology owes one of its foundational operations to a mid-century collaboration at Johns Hopkins. The Blalock-Thomas-Taussig shunt, an operation that the cardiologist Helen Brooke Taussig helped develop in the 1940s ______ remains a standard treatment for infants born with a serious cyanotic heart defect.",
+ "type": "multiple-choice"
+}

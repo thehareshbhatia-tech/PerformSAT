@@ -1,0 +1,35 @@
+{
+  "id": 533,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "craft-and-structure",
+  "skill": "text-structure-and-purpose",
+  "module": 2,
+  "passage": "The following text is from Jane Austen's 1813 novel Pride and Prejudice. The novel opens with a reflection on marriage and money.\n\nIt is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife. However little known the feelings or views of such a man may be on his first entering a neighbourhood, this truth is so well fixed in the minds of the surrounding families, that he is considered as the rightful property of some one or other of their daughters.",
+  "question": "Which choice best states the main purpose of the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "To state a widely held social assumption—that a wealthy unmarried man will be regarded as a prospective husband—as though it were a settled and universal truth."
+    },
+    {
+      "id": "B",
+      "text": "To describe the particular financial circumstances that allow a single man of good fortune to enter and settle into a new neighbourhood."
+    },
+    {
+      "id": "C",
+      "text": "To contrast the largely unknown private feelings of a newly arrived single man with the firm and confident public expectations held by all the various families living around him."
+    },
+    {
+      "id": "D",
+      "text": "To explain the reasons that lead families in a neighbourhood to keep their unmarried daughters away from any wealthy newcomer."
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A. The passage announces, in the grand voice of a universal truth, that a wealthy single man must want a wife, and then explains that the surrounding families take him to be the rightful property of one of their daughters. Its purpose is to present that social assumption as if it were a settled fact. Choice B fastens on the man's fortune as a topic the passage does not actually develop. Choice C describes a contrast between his feelings and others' expectations, but the passage treats his feelings as irrelevant rather than setting up a contrast. Choice D reverses the families' attitude, which is to claim the newcomer, not to keep their daughters away from him.",
+  "_meta": {
+    "quoteVerify": true,
+    "source": "Jane Austen, Pride and Prejudice (1813), Chapter 1, opening lines"
+  }
+}

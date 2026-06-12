@@ -1,0 +1,42 @@
+{
+ "id": 1027,
+ "type": "multiple-choice",
+ "difficulty": "medium",
+ "band": 3,
+ "domain": "expression-of-ideas",
+ "skill": "rhetorical-synthesis",
+ "module": 1,
+ "studentNotes": {
+  "intro": "While researching a topic, a student has taken the following notes:",
+  "bullets": [
+   "Ozone is a molecule made of three oxygen atoms.",
+   "In the upper atmosphere (the stratosphere), a layer of ozone absorbs much of the Sun's ultraviolet radiation.",
+   "This stratospheric ozone shields living things on the surface from radiation that can damage DNA.",
+   "Near the ground, ozone forms when sunlight reacts with pollutants from vehicles and industry.",
+   "At ground level, ozone is a component of smog and irritates the lungs, harming people with respiratory conditions.",
+   "Scientists therefore describe ozone as beneficial high in the atmosphere but harmful where people breathe."
+  ],
+  "goal": "The student wants to emphasize the contrast between ozone's effects in the upper atmosphere and at ground level."
+ },
+ "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "Ozone, a molecule of three oxygen atoms, plays different roles depending on where in the atmosphere it is found."
+  },
+  {
+   "id": "B",
+   "text": "Stratospheric ozone shields life by absorbing the Sun's ultraviolet radiation, whereas ozone formed from pollution near the ground is a component of smog that harms the lungs."
+  },
+  {
+   "id": "C",
+   "text": "High in the stratosphere, a layer of ozone absorbs ultraviolet radiation that would otherwise damage the DNA of living things on the surface."
+  },
+  {
+   "id": "D",
+   "text": "Near the ground, ozone forms when sunlight reacts with pollutants released by vehicles and industry, contributing to smog."
+  }
+ ],
+ "correctAnswer": "B",
+ "explanation": "Choice B is correct. The goal is to emphasize the contrast between ozone's effects high in the atmosphere and at ground level, so the best choice sets the two against each other in one statement. Choice B does this: stratospheric ozone shields life by absorbing ultraviolet radiation, whereas ground-level ozone is harmful smog. Choice A gestures at \"different roles\" but states neither side of the contrast. Choice C gives only the protective, high-altitude side, and Choice D gives only the harmful, ground-level side, so neither draws the comparison the goal calls for."
+}

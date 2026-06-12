@@ -1,0 +1,70 @@
+{
+  "id": 313,
+  "module": 1,
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "information-and-ideas",
+  "skill": "command-of-evidence-quantitative",
+  "question": "Which choice most effectively uses data from the table to complete the statement?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Boreal forests and grasslands, where grasslands had both a larger absolute loss (717 million versus 501 million) and a larger percentage decline (53% versus 33%)."
+    },
+    {
+      "id": "B",
+      "text": "Aridlands and coasts, where aridlands had both a larger percentage decline (29% versus 13%) and a larger absolute loss (35 million versus 5 million)."
+    },
+    {
+      "id": "C",
+      "text": "Grasslands and coasts, where grasslands had both the largest absolute loss (717 million) and the largest percentage decline (53%) of any biome surveyed."
+    },
+    {
+      "id": "D",
+      "text": "Aridlands and eastern forests, where eastern forests had the larger absolute loss (166 million versus 35 million) but aridlands had the larger percentage decline (29% versus 17%)."
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "The correct answer is D. The student's claim is about biomes whose absolute and percentage rankings disagree — one biome higher in total birds lost, the other higher in proportional decline. A supplies that contrast: eastern forests lost more birds outright (166 million to 35 million), while aridlands declined by a larger share (29% to 17%), so the two measures rank them in opposite orders. B, C, and D each name a pair in which one biome ranks higher on both measures at once, illustrating agreement between the rankings rather than the disagreement the claim requires.",
+  "_meta": {
+    "anchor": "North American breeding bird losses since 1970 (Rosenberg et al., 2019); absolute vs. proportional ranking"
+  },
+  "passage": "In a 2019 paper, a research team estimated population changes for North American breeding birds from 1970 to 2017, reporting both the absolute number of birds lost and the percentage change from the 1970 baseline. A student summarizing the work notes that the biomes with the largest absolute losses are not always those with the largest proportional declines, and argues that this pattern is clearest when comparing two biomes whose absolute and percentage rankings disagree, namely _______",
+  "questionTable": {
+    "type": "table",
+    "caption": "Estimated population change in North American breeding birds since 1970, by biome",
+    "headers": [
+      "Biome",
+      "Loss (millions of birds)",
+      "Percent change"
+    ],
+    "rows": [
+      [
+        "Grasslands",
+        "717",
+        "-53%"
+      ],
+      [
+        "Forests (boreal)",
+        "501",
+        "-33%"
+      ],
+      [
+        "Forests (eastern)",
+        "166",
+        "-17%"
+      ],
+      [
+        "Aridlands",
+        "35",
+        "-29%"
+      ],
+      [
+        "Coasts",
+        "5",
+        "-13%"
+      ]
+    ]
+  },
+  "type": "multiple-choice"
+}

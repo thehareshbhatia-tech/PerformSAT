@@ -1,0 +1,40 @@
+{
+ "id": 117,
+ "type": "multiple-choice",
+ "difficulty": "easy",
+ "band": 2,
+ "domain": "standard-english-conventions",
+ "skill": "boundaries",
+ "module": 1,
+ "passage": "When Maryam Mirzakhani received the Fields Medal in 2014, she became the first woman ever honored with mathematics' most prestigious prize. Mirzakhani, a professor at Stanford University, was recognized for her groundbreaking work on the dynamics and geometry of Riemann surfaces. Although her research drew on highly abstract ideas from hyperbolic ______ Mirzakhani had a gift for explaining the underlying questions in ways that nonspecialists could appreciate.",
+ "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "geometry,"
+  },
+  {
+   "id": "B",
+   "text": "geometry"
+  },
+  {
+   "id": "C",
+   "text": "geometry;"
+  },
+  {
+   "id": "D",
+   "text": "geometry:"
+  }
+ ],
+ "correctAnswer": "A",
+ "explanation": "The correct answer is A, \"geometry,\". The blank sits at the boundary between an introductory dependent clause and the main clause that follows it: \"Although her research drew on highly abstract ideas from hyperbolic geometry\" cannot stand alone as a sentence — the subordinator \"Although\" makes it a fragment — and it is followed by the independent clause \"Mirzakhani had a gift for explaining the underlying questions in ways that nonspecialists could appreciate.\" Standard English requires a comma at this junction to separate the introductory subordinate clause from the main clause.",
+ "_meta": {
+  "rule": "comma after introductory dependent clause",
+  "anchor": "Maryam Mirzakhani — Fields Medal 2014, Stanford, Riemann surfaces, hyperbolic geometry",
+  "distractors": {
+   "A": "surface-match (semicolon as IC-IC marker)",
+   "B": "scope-shift (colon as IC+amplification marker)",
+   "D": "inverse (no punctuation)"
+  }
+ }
+}

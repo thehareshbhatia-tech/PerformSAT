@@ -1,0 +1,34 @@
+{
+  "id": 440,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "information-and-ideas",
+  "skill": "command-of-evidence-quantitative",
+  "question": "Which choice most effectively uses data from the table to support the claim?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Agriculture fell from 38% of employed U.S. workers in 1900 to 2% in 2000, showing that not all sectors rose across the period."
+    },
+    {
+      "id": "B",
+      "text": "Manufacturing's share of employed U.S. workers was 26% in 1950, the highest value the manufacturing column reaches in any year shown."
+    },
+    {
+      "id": "C",
+      "text": "Manufacturing accounted for 22% of employed U.S. workers in 1900, rose to 26% in 1950, and then fell to 13% in 2000 — well below its 1900 share."
+    },
+    {
+      "id": "D",
+      "text": "Services rose from 31% of employed U.S. workers in 1900 to 75% in 2000, the largest absolute increase of any sector in the table."
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C. The claim is that manufacturing's share rose, peaked at mid-century, and then fell below its starting level, so the evidence must give the manufacturing values at all three dates. Choice C does this: 22% in 1900, 26% in 1950, and 13% in 2000, well below the 1900 figure. Choice B cites only the 1950 peak; choices A and D cite other sectors that do not establish what manufacturing did.",
+  "passage": "Looking back at the long arc of American occupational change, an economic essayist makes this claim: manufacturing's share of total employment first rose, peaking around mid-century, and then fell sharply, ending the period below its starting share. To document that pattern from the figures below, the essayist plans to cite the manufacturing values at the relevant points.\n\nPercent of employed U.S. workers by occupational sector (U.S. Census Bureau, Historical Statistics)\n| Sector        | 1900 | 1950 | 2000 |\n|---------------|------|------|------|\n| Agriculture   | 38%  | 12%  | 2%   |\n| Manufacturing | 22%  | 26%  | 13%  |\n| Services      | 31%  | 48%  | 75%  |\n| Other         | 9%   | 14%  | 10%  |",
+  "_meta": {
+    "anchor": "U.S. Census Bureau Historical Statistics — occupational distribution; dataset qd-009"
+  },
+  "module": 2
+}

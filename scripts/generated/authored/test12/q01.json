@@ -1,0 +1,31 @@
+{
+  "id": 1201,
+  "type": "multiple-choice",
+  "difficulty": "easy",
+  "band": 2,
+  "domain": "craft-and-structure",
+  "skill": "words-in-context",
+  "module": 1,
+  "passage": "In a medieval scriptorium, a single illuminated page often passed through several pairs of hands. One scribe copied out the text, another painted the decorated initials, and a specialist laid down the gold leaf. Because each stage depended on the one before it, a mistake made early could ____ the careful work of everyone who came after, forcing the whole page to be scraped clean and begun again.",
+  "question": "Which choice completes the text with the most logical and precise word or phrase?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "shape"
+    },
+    {
+      "id": "B",
+      "text": "undo"
+    },
+    {
+      "id": "C",
+      "text": "slow"
+    },
+    {
+      "id": "D",
+      "text": "complicate"
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B. The passage describes a chain of steps in which each worker depends on the last, so an early mistake ruins everything that follows—the whole page must be scraped clean and started over. \"Undo\" captures that reversing or canceling of completed work. \"Shape\" suggests influencing later work rather than wrecking it. \"Slow\" and \"complicate\" both imply the work could still go forward with some delay or added difficulty, but the passage says the page had to be begun again, which calls for the stronger idea of work undone."
+}

@@ -1,0 +1,34 @@
+{
+ "id": 312,
+ "module": 1,
+ "difficulty": "medium",
+ "band": 3,
+ "domain": "information-and-ideas",
+ "skill": "command-of-evidence-textual",
+ "question": "Which finding, if true, would most directly support the researchers' hypothesis?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "In neighborhoods where mature street trees were planted, residents reported lower anxiety than residents of comparable nearby blocks that received only new benches and lighting."
+  },
+  {
+   "id": "B",
+   "text": "Residents of neighborhoods with mature street trees reported spending considerably more time and money on home gardening than residents of otherwise similar blocks that had no such trees."
+  },
+  {
+   "id": "C",
+   "text": "Cities with large central parks tended to have higher average incomes than cities without them."
+  },
+  {
+   "id": "D",
+   "text": "People who exercised regularly reported lower anxiety regardless of how many trees grew on their block."
+  }
+ ],
+ "correctAnswer": "A",
+ "explanation": "The correct answer is A. The hypothesis is specifically that exposure to everyday neighborhood greenery, not green space in general, reduces residents' anxiety. A finding supports it most directly if it isolates the greenery itself, comparing blocks that gained mature trees with otherwise similar blocks that received non-green improvements, and shows lower anxiety where the trees were added. A does exactly that. B measures gardening spending rather than anxiety. C compares whole cities by income, which speaks to wealth, not to the effect of nearby greenery on anxiety. D ties lower anxiety to exercise and explicitly finds no role for trees, which would undercut the hypothesis rather than support it.",
+ "_meta": {
+  "anchor": "Neighborhood greenery and anxiety (unnamed public-health researchers); finding-selection evidence item"
+ },
+ "passage": "A team of public-health researchers proposed that regular exposure to everyday neighborhood greenery — street trees and small pocket parks rather than large destination parks — measurably reduces residents' anxiety. To test the claim, they planned to compare residents of city blocks that differ in their amount of nearby greenery while holding constant income, density, and access to other services, since each of those factors could otherwise explain away any difference in how anxious residents reported feeling.",
+ "type": "multiple-choice"
+}

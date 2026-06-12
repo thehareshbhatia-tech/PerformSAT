@@ -1,0 +1,42 @@
+{
+  "id": 226,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "expression-of-ideas",
+  "skill": "rhetorical-synthesis",
+  "module": 1,
+  "studentNotes": {
+    "intro": "While researching a topic, a student has taken the following notes:",
+    "bullets": [
+      "Kerry James Marshall is an American painter and a professor emeritus of art at the University of Illinois at Chicago.",
+      "History painting is a Western tradition in which artists depict scenes drawn from history, mythology, or scripture using the established techniques of academic figure painting.",
+      "The canon of history painting has almost entirely excluded Black figures from its subjects.",
+      "In *Kerry James Marshall: Mastry* (2016), Marshall argues that the tradition must be claimed and rebuilt around Black figures rendered with deliberate technical mastery.",
+      "On Marshall's view, the absence in the canon must be corrected at the level of craft as well as at the level of iconography.",
+      "Marshall holds that adding Black subjects to history painting without that technical mastery would address the canon's iconography but leave its craft untouched."
+    ],
+    "goal": "The student wants to present Marshall's central claim about the Western tradition of history painting."
+  },
+  "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Kerry James Marshall is an American painter and a professor emeritus of art at the University of Illinois at Chicago."
+    },
+    {
+      "id": "B",
+      "text": "Marshall argues that the Western tradition of history painting must be rebuilt around Black figures rendered with the technical mastery the tradition has always demanded."
+    },
+    {
+      "id": "C",
+      "text": "In history painting, artists depict scenes drawn from history, mythology, or scripture using the established techniques of academic figure painting."
+    },
+    {
+      "id": "D",
+      "text": "Marshall holds that adding Black subjects to history painting without that technical mastery would correct the tradition's iconography while leaving its craft untouched, a partial fix he considers insufficient on its own."
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B. The goal is to present Marshall's central claim about the tradition of history painting, and B states it directly: the tradition must be rebuilt around Black figures rendered with the same technical mastery the tradition demands. Choice A gives biographical facts about Marshall and never states his claim. Choice C defines history painting but says nothing about what Marshall argues. Choice D reports a real but secondary point from the notes—about a half-measure he rejects—rather than the central claim the goal calls for."
+}

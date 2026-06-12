@@ -1,0 +1,34 @@
+{
+  "id": 547,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "standard-english-conventions",
+  "skill": "form-structure-and-sense",
+  "module": 2,
+  "passage": "The collection of early printed books that a university library acquired last year—incunabula produced in the first decades after Gutenberg's press, including several volumes printed before 1480— ______ the centerpiece of the rare-books room, drawing visitors who want to see how the first European printers imitated the look of handwritten manuscripts.",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "anchor"
+    },
+    {
+      "id": "B",
+      "text": "anchors"
+    },
+    {
+      "id": "C",
+      "text": "are anchoring"
+    },
+    {
+      "id": "D",
+      "text": "have anchored"
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B, \"anchors.\" The subject is the singular noun \"collection,\" and the dash-set list of examples (\"incunabula…volumes…\") that comes between the subject and the verb does not change its number. A singular subject takes the singular present \"anchors.\" \"Anchor\" and \"are anchoring\" are plural forms that mistakenly agree with the nearby plural examples, and \"have anchored\" is likewise plural in form while also shifting the simple present state into the present perfect.",
+  "_meta": {
+    "anchor": "Incunabula collection; singular 'collection' subject with an intervening plural list"
+  }
+}

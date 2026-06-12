@@ -1,0 +1,34 @@
+{
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "information-and-ideas",
+  "skill": "inferences",
+  "question": "Which choice most logically completes the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "must have abandoned the handbook's tables altogether and relied instead on their own direct nightly observation of the positions of the stars and the planets."
+    },
+    {
+      "id": "B",
+      "text": "would have had to recalculate its tables for their own latitude before its predicted positions were reliable in the places where they actually worked."
+    },
+    {
+      "id": "C",
+      "text": "could use its figures without any change, since a planet's position at a given moment is the same for every observer anywhere on Earth."
+    },
+    {
+      "id": "D",
+      "text": "were unable to use the handbook for timekeeping of any kind, whatever adjustments to its tables they were willing to make."
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B. The passage says a zij's tables were accurate only near the latitude they were computed for and had to be recomputed for use elsewhere. So astronomers who adopted a zij prepared for another city would have had to recalculate its tables for their own latitude first. Choice A is too extreme, since recomputing the tables, not abandoning them, is what the passage describes; Choice C contradicts the stated latitude-dependence; and Choice D wrongly claims the handbook was useless, when the passage says it works once adjusted.",
+  "passage": "Astronomers in the medieval Islamic world compiled detailed handbooks, called zijes, that tabulated the predicted positions of the Sun, Moon, and planets for use in timekeeping and calendar work. A striking feature of these handbooks is that their tables were calculated for a specific city's latitude and were accurate only for an observer near that location. A user in a distant region could not simply copy the figures; the tables had to be recomputed for the new latitude before they would give correct results. It follows that when a zij prepared for one city circulated widely, the astronomers who adopted it elsewhere ______",
+  "_meta": {
+    "anchor": "medieval Islamic astronomy: latitude-specific zij (astronomical handbook) tables"
+  },
+  "id": 1116,
+  "module": 1
+}

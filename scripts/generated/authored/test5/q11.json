@@ -1,0 +1,34 @@
+{
+  "id": 511,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "information-and-ideas",
+  "skill": "central-ideas-and-details",
+  "module": 1,
+  "passage": "The common claim that everyone needs eight hours of sleep has been complicated by field studies of people who live without electric light. When researchers recorded sleep in several small-scale societies in Africa and South America, they found that adults there typically slept just under seven hours a night—less than many of their counterparts in industrialized countries—yet showed no obvious signs of chronic sleep deprivation. The researchers were careful about what this does and does not show. The finding does not prove that more sleep is useless; it suggests, more narrowly, that the figure often presented as a universal biological requirement may reflect a particular modern expectation rather than a fixed human need.",
+  "question": "Which choice best states the main idea of the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "People who live in the small-scale societies of Africa and South America sleep less than others largely because they have no access to electric light during the night."
+    },
+    {
+      "id": "B",
+      "text": "Researchers have now proven that adults need considerably less sleep than the commonly cited figure of eight hours a night."
+    },
+    {
+      "id": "C",
+      "text": "Field studies of societies without electric light suggest that the often-cited eight-hour requirement may reflect a modern expectation rather than a fixed biological need."
+    },
+    {
+      "id": "D",
+      "text": "Chronic sleep deprivation turns out to be less common in industrialized countries than in the small-scale societies without electric light."
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C. The passage reports that adults in several societies without electric light slept just under seven hours without obvious harm, and it then states the careful conclusion: the eight-hour figure may reflect a modern expectation rather than a fixed biological requirement. Choice A turns a passing detail about electric light into a causal claim the passage does not make. Choice B overstates the finding, which the researchers explicitly decline to read as proof that more sleep is useless. Choice D reverses the comparison and is not what the passage asserts.",
+  "_meta": {
+    "anchor": "Sleep epidemiology; pre-industrial societies sleep ~7 hours; the eight-hour norm questioned"
+  }
+}

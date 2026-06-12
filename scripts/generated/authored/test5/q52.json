@@ -1,0 +1,34 @@
+{
+  "id": 552,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "expression-of-ideas",
+  "skill": "transitions",
+  "module": 2,
+  "passage": "In the sixteenth century, raw silk reached the Ottoman market town of Bursa almost entirely by caravan from Iran, and the city's weavers and the imperial treasury both depended on a steady flow. When long wars with the empire's eastern neighbors repeatedly closed the caravan roads, that flow became unpredictable. ______ Bursa's authorities sought new sources, encouraging the cultivation of silk closer to home so that the city's looms would not stand idle whenever the eastern routes were cut.",
+  "question": "Which choice completes the text with the most logical transition?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Nevertheless,"
+    },
+    {
+      "id": "B",
+      "text": "For example,"
+    },
+    {
+      "id": "C",
+      "text": "As a result,"
+    },
+    {
+      "id": "D",
+      "text": "Meanwhile,"
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C, \"As a result,\". The sentence before the blank says the supply of silk became unpredictable when the caravan roads closed; the sentence after reports that Bursa's authorities responded by seeking new sources closer to home. The second is a consequence of the first, which \"As a result,\" marks. \"Nevertheless,\" would signal contrast, \"For example,\" would introduce an instance, and \"Meanwhile,\" would mark simultaneous unrelated events—none of which captures the cause-and-effect relation.",
+  "_meta": {
+    "anchor": "Ottoman Bursa silk trade; disrupted caravans prompt new local sources; causal transition"
+  }
+}

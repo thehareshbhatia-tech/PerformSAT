@@ -1,0 +1,34 @@
+{
+ "id": 328,
+ "module": 2,
+ "difficulty": "medium",
+ "band": 3,
+ "domain": "craft-and-structure",
+ "skill": "words-in-context",
+ "question": "Which choice completes the text with the most logical and precise word or phrase?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "permitted"
+  },
+  {
+   "id": "B",
+   "text": "warranted"
+  },
+  {
+   "id": "C",
+   "text": "challenged"
+  },
+  {
+   "id": "D",
+   "text": "advertised"
+  }
+ ],
+ "correctAnswer": "B",
+ "explanation": "The correct answer is B, \"warranted.\" The passage says the depth and stride of the footprints gave researchers the grounds for a fairly strong claim about how the hominins walked. The blank needs a verb meaning to provide adequate grounds for a conclusion, and \"warranted\" fits: physical evidence justifies the conclusion about upright walking without overstating it as proof. \"Permitted the conclusion\" would mean the conclusion was merely allowed rather than supported, but the sentence presents it as the researchers' argument. \"Challenged\" reverses the relation, treating the evidence as casting doubt on the conclusion it actually supports. \"Advertised\" is sometimes used loosely for \"made evident,\" but it is not how careful scientific writing describes evidence supporting a claim.",
+ "_meta": {
+  "anchor": "Laetoli footprints (unnamed researchers); ~3.6 million years; bipedal hominin gait inference"
+ },
+ "passage": "In a 1979 report on a 27-meter trail of fossilized footprints at Laetoli, in northern Tanzania, researchers described prints preserved in volcanic ash and dating to roughly 3.6 million years ago. The depth and stride of the prints, they argued, ______ the conclusion that the hominins who made them walked upright on two legs much as modern humans do, rather than only intermittently or with the swinging gait of primates that knuckle-walk.",
+ "type": "multiple-choice"
+}

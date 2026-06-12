@@ -1,0 +1,35 @@
+{
+ "id": 133,
+ "type": "multiple-choice",
+ "difficulty": "medium",
+ "band": 3,
+ "domain": "craft-and-structure",
+ "skill": "text-structure-and-purpose",
+ "module": 2,
+ "passage": "The following text is adapted from Jerome K. Jerome's 1889 humorous novel \"Three Men in a Boat (To Say Nothing of the Dog).\" The narrator, J., has just spent an afternoon at the British Museum reading a medical reference book.\n\nI sat for a while, frozen with horror; and then, in the listlessness of despair, I again turned over the pages. I came to typhoid fever — read the symptoms — discovered that I had typhoid fever, must have had it for months without knowing it — wondered what else I had got; turned up St. Vitus's Dance — found, as I expected, that I had that too — began to get interested in my case, and determined to sift it to the bottom, and so started alphabetically. Cholera I had, with severe complications; and diphtheria I seemed to have been born with. I plodded conscientiously through the twenty-six letters, and the only malady I could conclude I had not got was housemaid's knee.",
+ "question": "Which choice best describes the overall structure of the text?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "The narrator catalogues a series of illnesses he has actually suffered and then arranges them by the order in which they appeared."
+  },
+  {
+   "id": "B",
+   "text": "The narrator considers consulting a doctor and then decides to settle the matter himself by reading further in the book."
+  },
+  {
+   "id": "C",
+   "text": "The narrator describes his alarmed first response to a reference book and then methodically extends that response into an absurdly comprehensive self-diagnosis."
+  },
+  {
+   "id": "D",
+   "text": "The narrator records a sober medical self-examination and then notes the single condition that escaped his diagnosis."
+  }
+ ],
+ "correctAnswer": "C",
+ "explanation": "The correct answer is C. The passage opens with the narrator's alarmed first reaction to the medical book—\"frozen with horror,\" turning the pages \"in the listlessness of despair\"—as he discovers he has typhoid fever and then St. Vitus's Dance. The decisive turn is small: he resolves to \"sift it to the bottom\" and works through the volume \"alphabetically,\" diagnosing himself with cholera and diphtheria as he goes, until the only malady he can conclude he has not got is housemaid's knee. The structure thus moves from an alarmed first response into a methodical, absurdly thorough extension of it, and the comedy lies in the mismatch between the orderly method and the ridiculous result. The narrator has suffered none of these illnesses (A), never weighs and rejects a visit to a doctor (B), and the closing housemaid's-knee line is the joke's payoff rather than a sober counterweight (D).",
+ "_meta": {
+  "quoteVerify": true,
+  "source": "Jerome K. Jerome, Three Men in a Boat (1889), ch. 1 — 'housemaid's knee' passage"
+ }
+}

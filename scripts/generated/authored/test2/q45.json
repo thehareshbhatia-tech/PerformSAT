@@ -1,0 +1,31 @@
+{
+  "id": 245,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "standard-english-conventions",
+  "skill": "form-structure-and-sense",
+  "module": 2,
+  "passage": "Daniel Everett, a linguist at Bentley University, has spent decades among the Pirahã of the Amazon basin. In his book Don't Sleep, There Are Snakes (2008), he argues that the Pirahã language poses a challenge to universal grammar: it lacks recursion, omits abstract numerals, and ______ colors only through descriptive comparison. These features, he contends, are shaped by a cultural insistence on speaking only of immediate, eyewitness experience.",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "expressing"
+    },
+    {
+      "id": "B",
+      "text": "has expressed"
+    },
+    {
+      "id": "C",
+      "text": "expresses"
+    },
+    {
+      "id": "D",
+      "text": "to express"
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C. The blank holds the third item in a coordinated list of three predicates whose shared subject is the pronoun 'it' (referring to 'the Pirahã language'): 'it lacks recursion, omits abstract numerals, and ______ colors only through descriptive comparison.' Standard English requires the items in such a coordinated list to be parallel in grammatical form. The first two predicates ('lacks,' 'omits') are simple-present, third-person-singular finite verbs, so the third predicate must also be a simple-present, third-person-singular finite verb. Only choice C, 'expresses,' satisfies that constraint, producing the parallel sequence 'lacks.., omits.., and expresses..'"
+}

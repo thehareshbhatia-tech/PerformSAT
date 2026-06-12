@@ -1,0 +1,44 @@
+{
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "expression-of-ideas",
+  "skill": "rhetorical-synthesis",
+  "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Ulugh Beg's 1437 catalog, the Zij-i Sultani, was notable because its nearly 1,000 star positions were measured directly at his Samarkand observatory rather than copied from older catalogs and remained among the most accurate available until the telescope."
+    },
+    {
+      "id": "B",
+      "text": "Ulugh Beg, a fifteenth-century ruler and astronomer in Samarkand, in present-day Uzbekistan, built a large observatory equipped with a giant stone sextant set into the ground, and with a team of astronomers he compiled the Zij-i Sultani there in 1437."
+    },
+    {
+      "id": "C",
+      "text": "The Zij-i Sultani, compiled by Ulugh Beg together with a team of astronomers, listed the positions of nearly 1,000 stars and was consulted widely by later astronomers."
+    },
+    {
+      "id": "D",
+      "text": "Working with a team of astronomers at his observatory in Samarkand, Ulugh Beg compiled a star catalog that he completed and made public in the year 1437."
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A. The goal is to emphasize what made the catalog notable, and Choice A names the two features the notes mark as distinctive: its star positions were measured directly rather than copied, and they remained the most accurate available until the telescope. Choice B recounts the observatory, its instrument, and the circumstances of the catalog's compilation without saying what set the catalog apart; Choice C reports the number of stars and later use without saying what set the work apart; and Choice D records who compiled it and when, which is provenance rather than significance.",
+  "studentNotes": {
+    "intro": "While researching a topic, a student has taken the following notes:",
+    "bullets": [
+      "Ulugh Beg was a fifteenth-century ruler and astronomer in Samarkand, in present-day Uzbekistan.",
+      "He built a large observatory equipped with a giant stone sextant set into the ground.",
+      "With a team of astronomers, he compiled a star catalog, the Zij-i Sultani (1437), listing the positions of nearly 1,000 stars.",
+      "The catalog's star positions were measured directly rather than copied from older Greek catalogs.",
+      "Its measurements remained among the most accurate available until the telescope came into use."
+    ],
+    "goal": "The student wants to emphasize what made Ulugh Beg's star catalog notable."
+  },
+  "_meta": {
+    "anchor": "Ulugh Beg, Zij-i Sultani (1437), Samarkand observatory star catalog"
+  },
+  "id": 1126,
+  "module": 1
+}

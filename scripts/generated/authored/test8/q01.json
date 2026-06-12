@@ -1,0 +1,31 @@
+{
+  "id": 801,
+  "type": "multiple-choice",
+  "difficulty": "easy",
+  "band": 2,
+  "domain": "craft-and-structure",
+  "skill": "words-in-context",
+  "module": 1,
+  "passage": "Bioarchaeologist Laurie Reitsema of the University of Georgia studies what skeletal remains reveal about ordinary life. By measuring carbon and nitrogen isotope ratios in bone collagen from medieval European cemetery populations—ratios that track the plant and animal sources of a lifetime's diet—Reitsema is able to ____ shifts in what people actually ate as rural communities gave way to growing towns.",
+  "question": "Which choice completes the text with the most logical and precise word or phrase?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "imagine"
+    },
+    {
+      "id": "B",
+      "text": "reconstruct"
+    },
+    {
+      "id": "C",
+      "text": "predict"
+    },
+    {
+      "id": "D",
+      "text": "exaggerate"
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B. Reitsema works backward from chemical signals locked into ancient bone to recover dietary changes that took place centuries ago, so the blank needs a verb meaning to piece together a past state of affairs from physical evidence. \"Reconstruct\" fits that exactly. \"Predict\" points forward to events that have not yet happened, the wrong direction for a study of medieval diets; \"imagine\" implies forming a picture without firm evidence, when the passage stresses measurement; and \"exaggerate\" would have her overstating her data, which the passage never suggests."
+}

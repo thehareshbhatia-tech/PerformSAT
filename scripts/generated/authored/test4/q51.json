@@ -1,0 +1,34 @@
+{
+  "id": 451,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "expression-of-ideas",
+  "skill": "transitions",
+  "question": "Which choice completes the text with the most logical transition?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Nevertheless,"
+    },
+    {
+      "id": "B",
+      "text": "For example,"
+    },
+    {
+      "id": "C",
+      "text": "In addition,"
+    },
+    {
+      "id": "D",
+      "text": "By contrast,"
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C. The third sentence adds a second desert-plant adaptation — wide, shallow roots — to the first one already described, the waxy water-storing stems, so an addition transition fits. \"Nevertheless\" (A) marks contrast; \"For example\" (B) would treat the roots as an instance of the stems; and \"By contrast\" (D) wrongly sets the two adaptations against each other.",
+  "passage": "A desert receives less than ten inches of rain a year, so the plants that live there cannot rely on a steady water supply. Many desert plants have thick, waxy stems that store water and lose very little of it to the dry air. ______ their roots often spread out just below the surface over a wide area, ready to soak up as much as possible from the brief, infrequent rains.",
+  "_meta": {
+    "anchor": "desert plant adaptations; addition"
+  },
+  "module": 2
+}

@@ -1,0 +1,34 @@
+{
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "craft-and-structure",
+  "skill": "words-in-context",
+  "question": "Which choice completes the text with the most logical and precise word or phrase?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "obstacle"
+    },
+    {
+      "id": "B",
+      "text": "adaptation"
+    },
+    {
+      "id": "C",
+      "text": "illusion"
+    },
+    {
+      "id": "D",
+      "text": "inheritance"
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B, \"adaptation.\" The phrase \"not a mere holdover but an ______\" sets up a contrast, and the clause after the colon describes active adjustment—reorganizing, extending credit, rewriting contracts. \"Adaptation\" names that adjustment. \"Inheritance\" is too close to the \"holdover\" the sentence rejects; \"illusion\" denies the persistence the passage treats as real; and \"obstacle\" does not describe what the city's continued success was.",
+  "passage": "Long after sea routes around Africa drew European merchants away from the overland silk trade, the Ottoman commercial city of Aleppo remained a thriving market hub. Recent work in the city's court records suggests that its persistence was not a mere holdover but an ______: local merchants reorganized around new goods, extended credit to caravans coming from farther east, and rewrote their contracts to handle the longer settlement times the changing trade now required.",
+  "_meta": {
+    "anchor": "Ottoman trade history: Aleppo's commercial adaptation in the early modern period"
+  },
+  "id": 1131,
+  "module": 2
+}

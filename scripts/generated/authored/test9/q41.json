@@ -1,0 +1,75 @@
+{
+  "id": 941,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "information-and-ideas",
+  "skill": "command-of-evidence-quantitative",
+  "module": 2,
+  "passage": "Annual exoplanet discovery counts swing sharply with the launch and retirement of dedicated survey missions, so the headline yearly totals can mislead readers about the long-run reliability of any one technique. Drawing on the NASA Exoplanet Archive, astronomers note that of the four principal detection methods, only one produced a count that rose in every year the archive reports here, uninterrupted by mission lifecycles, and that this method's record indicates _______",
+  "questionTable": {
+    "type": "table",
+    "caption": "Confirmed exoplanets discovered per year by detection method (NASA Exoplanet Archive)",
+    "headers": [
+      "Year",
+      "Transit",
+      "Radial velocity",
+      "Microlensing",
+      "Imaging"
+    ],
+    "rows": [
+      [
+        "2009",
+        "65",
+        "28",
+        "9",
+        "6"
+      ],
+      [
+        "2014",
+        "747",
+        "48",
+        "4",
+        "3"
+      ],
+      [
+        "2016",
+        "1339",
+        "60",
+        "21",
+        "5"
+      ],
+      [
+        "2020",
+        "204",
+        "73",
+        "13",
+        "4"
+      ]
+    ]
+  },
+  "question": "Which choice most effectively uses data from the table to complete the statement?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "the transit method produced 1,339 confirmed exoplanets in 2016 but only 204 in 2020, a drop that illustrates the technique's steady growth."
+    },
+    {
+      "id": "B",
+      "text": "the transit method's 1,339 confirmed exoplanets in 2016 was the largest single-year, single-method total recorded in the table."
+    },
+    {
+      "id": "C",
+      "text": "microlensing detections rose in every reporting year, climbing from 9 in 2009 to 13 in 2020."
+    },
+    {
+      "id": "D",
+      "text": "radial-velocity detections rose from 28 in 2009 to 48 in 2014 to 60 in 2016 to 73 in 2020, an increase in every reporting year shown."
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "The statement singles out the one method whose count rose in every reporting year. In the table only radial velocity does so—28, 48, 60, 73—which is what choice D reports. Choices A and B describe the transit method, whose count fell after 2016, and C claims microlensing rose steadily, but its count drops from 9 in 2009 to 4 in 2014.",
+  "_meta": {
+    "anchor": "NASA Exoplanet Archive, detection methods"
+  }
+}

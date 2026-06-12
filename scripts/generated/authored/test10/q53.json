@@ -1,0 +1,42 @@
+{
+ "id": 1053,
+ "type": "multiple-choice",
+ "difficulty": "hard",
+ "band": 4,
+ "domain": "expression-of-ideas",
+ "skill": "rhetorical-synthesis",
+ "module": 2,
+ "studentNotes": {
+  "intro": "While researching a topic, a student has taken the following notes:",
+  "bullets": [
+   "Linda Deegan is an American ecologist whose research focuses on coastal salt marshes in New England.",
+   "Salt marshes filter pollutants, store carbon, and buffer coastlines from storm surges.",
+   "From 2004 to 2014, Deegan ran a long-term experiment at the Plum Island Estuary in Massachusetts.",
+   "Her team added small amounts of nitrogen, simulating runoff from coastal fertilizer use, to selected tidal creeks.",
+   "Marsh-edge plants in the enriched creeks grew taller but invested less in deep root systems.",
+   "Bank stability declined within several years, and the creeks Deegan's team had enriched showed accelerated edge collapse compared with unenriched control creeks."
+  ],
+  "goal": "The student wants to emphasize the principal causal finding of Deegan's Plum Island experiment for an audience already familiar with salt-marsh ecology."
+ },
+ "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "Deegan's decade-long experiment at Plum Island found that nitrogen additions simulating coastal fertilizer runoff caused marsh-edge plants to grow taller but invest less in deep roots, destabilizing creek banks and accelerating edge collapse relative to unenriched controls."
+  },
+  {
+   "id": "B",
+   "text": "In the enriched creeks at Plum Island, marsh-edge plants grew taller, a striking morphological response Deegan attributed to the additional nitrogen her team supplied."
+  },
+  {
+   "id": "C",
+   "text": "From 2004 to 2014, Deegan ran a long-term tidal-creek enrichment experiment at the Plum Island Estuary in Massachusetts, simulating runoff from coastal fertilizer use."
+  },
+  {
+   "id": "D",
+   "text": "Salt marshes filter pollutants, store carbon, and buffer coastlines from storm surges, ecological services that have made New England's marshes a long-standing focus of Deegan's research."
+  }
+ ],
+ "correctAnswer": "A",
+ "explanation": "Choice A is correct. The goal is to emphasize the principal causal finding for readers who already know salt-marsh ecology, so the best choice traces the whole causal chain. Choice A names the manipulated variable (nitrogen additions simulating runoff), the biological response (taller plants, fewer deep roots), and the downstream result (bank destabilization and accelerated edge collapse versus controls). Choice B stops at one intermediate response, plant height, and misses the collapse that is the headline. Choice C reports only the design and timeframe, which a familiar audience already assumes. Choice D frames why marshes matter in general rather than what this experiment found."
+}

@@ -1,0 +1,31 @@
+{
+  "id": 739,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "information-and-ideas",
+  "skill": "command-of-evidence-textual",
+  "module": 2,
+  "passage": "Microbes recovered from the deepest ocean trenches live under pressures hundreds of times greater than those at the surface. Researchers have proposed that some of these organisms are not merely tolerant of such pressure but actually depend on it—that their cell membranes and enzymes are tuned to work only within the narrow high-pressure range of their native habitat. To test the idea, a team has begun culturing trench-dwelling bacteria in sealed chambers in which the pressure can be raised or lowered while the bacteria's growth is measured.",
+  "question": "Which finding from the study, if true, would most strongly support the researchers' proposal?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "The bacteria continued to grow at roughly the same steady rate whether the chamber’s surrounding pressure was set to ordinary surface levels or instead to deep-trench levels."
+    },
+    {
+      "id": "B",
+      "text": "The bacteria multiplied steadily while the chamber was held at trench-level pressure but stopped dividing as the pressure was lowered toward that of the surface."
+    },
+    {
+      "id": "C",
+      "text": "Seawater samples drawn from the trench contained a noticeably greater variety of bacterial species than samples taken nearer the ocean surface."
+    },
+    {
+      "id": "D",
+      "text": "The bacteria survived for several days in cold storage before they were finally transferred into the high-pressure culture chambers for testing."
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B. The proposal is that these microbes depend on high pressure, so a finding that they grow at trench-level pressure but stop dividing when the pressure drops would directly support it. Choice A shows the bacteria indifferent to pressure, which would undercut the proposal rather than support it. Choice C concerns the diversity of species in the trench, not any single organism's pressure requirement, and Choice D reports survival in storage, which says nothing about whether high pressure is needed for growth."
+}

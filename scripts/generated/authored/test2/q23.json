@@ -1,0 +1,31 @@
+{
+  "id": 223,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "expression-of-ideas",
+  "skill": "transitions",
+  "module": 1,
+  "passage": "For much of the twentieth century, scholars assumed that Native Americans who moved from reservations to cities gradually lost their tribal identities, since belonging was thought to depend on remaining close to a home community. ______ ethnographic studies of urban Native families in the San Francisco Bay Area have found that city dwellers sustain strong tribal ties through regular visits, ceremonies, and family gatherings that keep them in close contact with reservation relatives.",
+  "question": "Which choice completes the text with the most logical transition?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "For example,"
+    },
+    {
+      "id": "B",
+      "text": "Therefore,"
+    },
+    {
+      "id": "C",
+      "text": "Likewise,"
+    },
+    {
+      "id": "D",
+      "text": "However,"
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "The correct answer is D. The first sentence reports the old assumption that moving to a city erodes tribal identity; the second reports findings that city dwellers in fact maintain strong tribal ties. Because the finding runs counter to the assumption, the contrast marker \"However,\" fits. \"For example,\" is wrong because the second sentence is not an instance of the assumption but a challenge to it. \"Therefore,\" signals a conclusion that follows from the first sentence, but the finding does not follow from the assumption—it contradicts it. \"Likewise,\" signals agreement between the two sentences, the opposite of their actual relationship."
+}

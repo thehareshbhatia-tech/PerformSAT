@@ -1,0 +1,34 @@
+{
+  "id": 405,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "craft-and-structure",
+  "skill": "text-structure-and-purpose",
+  "question": "Which choice best describes the function of the underlined sentence in the text as a whole?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "It provides the molecular confirmation that turned an initially rejected proposal into accepted biology, bridging the theory's hostile early reception and its current textbook status."
+    },
+    {
+      "id": "B",
+      "text": "It rejects the endosymbiotic theory by showing that mitochondria and chloroplasts share more features with free-living bacteria than with the cells that contain them."
+    },
+    {
+      "id": "C",
+      "text": "It defines the technical term endosymbiosis so that readers without a background in cell biology can follow the remainder of the passage."
+    },
+    {
+      "id": "D",
+      "text": "It introduces a second phase of Margulis's career, her broader argument about cooperation, which the rest of the passage goes on to develop in detail."
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A. The passage moves from a theory colleagues first refused to publish, through its later confirmation, to its present standing as textbook biology, and the underlined sentence supplies the molecular evidence that links the hostile early reception to that current status. Choice B misreads the same evidence as a rejection of the theory; choice C treats the sentence as a definition it does not give; and choice D points to Margulis's broader argument about cooperation, which the passage mentions only at the end rather than developing from this sentence.",
+  "passage": "Evolutionary biologist Lynn Margulis spent the late 1960s working out a theory most of her colleagues at first refused to publish: that the energy-producing structures inside complex cells — mitochondria and chloroplasts — were the descendants of free-living bacteria that had been engulfed by ancestral host cells. The idea ran against a dominant picture of evolution as competition between separate lineages. __In the decades that followed, molecular evidence vindicated her account: mitochondria and chloroplasts proved to have their own DNA, their own ribosomes, and a closer genetic relationship to certain bacterial groups than to the cells they live inside.__ Endosymbiosis, once a fringe proposal, is now standard textbook biology, and Margulis's broader argument that cooperation and merger are major evolutionary forces has reshaped how researchers think about the origin of complex life.",
+  "_meta": {
+    "anchor": "Lynn Margulis — endosymbiotic theory (entity_keep)"
+  },
+  "module": 1
+}

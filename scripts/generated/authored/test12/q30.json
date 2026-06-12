@@ -1,0 +1,31 @@
+{
+  "id": 1230,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "craft-and-structure",
+  "skill": "words-in-context",
+  "module": 2,
+  "passage": "Anthropologists who study how communities adapt to extreme environments have long admired the engineering knowledge embedded in the snow house, or igloo. The builder cuts blocks from a single drift of wind-packed snow and sets them in an inward-spiraling ring, each course leaning a little farther toward the center. Far from being ____, the structure is the product of careful judgment: a block cut too thick will not hold its angle, and one cut too thin will not bear the weight of the courses above it.",
+  "question": "Which choice completes the text with the most logical and precise word or phrase?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "durable"
+    },
+    {
+      "id": "B",
+      "text": "traditional"
+    },
+    {
+      "id": "C",
+      "text": "communal"
+    },
+    {
+      "id": "D",
+      "text": "haphazard"
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "The correct answer is D. The phrase \"Far from being ____, the structure is the product of careful judgment\" demands a word that means careless or unplanned, the opposite of careful judgment; \"haphazard\" fits. \"Durable\" and \"traditional\" may well describe an igloo, but they do not contrast with \"careful judgment,\" so neither completes the opposition the sentence sets up. \"Communal\" concerns who is involved, which is beside the point of precision being made here."
+}

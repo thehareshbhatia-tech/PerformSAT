@@ -1,0 +1,31 @@
+{
+  "id": 802,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "craft-and-structure",
+  "skill": "words-in-context",
+  "module": 1,
+  "passage": "Around 1500, the Venetian printer Aldus Manutius set out to publish small, affordable editions of the classics and commissioned the punchcutter Francesco Griffo to design a slanted, narrow typeface—the first italic. Griffo's letters did not simply shrink the text; they ____ it, packing a dense column of type onto a page small enough to slip into a coat pocket.",
+  "question": "Which choice completes the text with the most logical and precise word or phrase?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "scattered"
+    },
+    {
+      "id": "B",
+      "text": "decorated"
+    },
+    {
+      "id": "C",
+      "text": "condensed"
+    },
+    {
+      "id": "D",
+      "text": "translated"
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C. The passage explains that the new italic letters let a great deal of text fit onto a very small page, so the blank needs a word for compressing the same content into less space. \"Condensed\" captures that. \"Scattered\" would imply spreading the type out, the opposite of fitting more onto a small page; \"decorated\" points to ornament rather than to the space-saving the sentence describes; and \"translated\" concerns moving between languages, which is not at issue here."
+}

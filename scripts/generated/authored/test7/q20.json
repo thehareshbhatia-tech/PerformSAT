@@ -1,0 +1,31 @@
+{
+  "id": 720,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "standard-english-conventions",
+  "skill": "form-structure-and-sense",
+  "module": 1,
+  "passage": "By the time the results appeared in a landmark 1970 paper, years of spectroscopic measurements of stars in spiral galaxies ______ a startling pattern: stars far from a galaxy's center were moving nearly as fast as those near it, contradicting predictions based on the galaxies' visible mass.",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "are revealing"
+    },
+    {
+      "id": "B",
+      "text": "revealed"
+    },
+    {
+      "id": "C",
+      "text": "had revealed"
+    },
+    {
+      "id": "D",
+      "text": "have revealed"
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C. The phrase \"By the time the results appeared\" signals an action completed before another past event, which calls for the past perfect \"had revealed.\" Choice B's simple past is the tempting option but does not capture the sequence of one past action preceding another. Choice A's present progressive and Choice D's present perfect both clash with the clearly past time frame established by \"in a landmark 1970 paper.\""
+}

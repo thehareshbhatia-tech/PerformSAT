@@ -1,0 +1,34 @@
+{
+  "id": 432,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "craft-and-structure",
+  "skill": "text-structure-and-purpose",
+  "question": "Which choice best states the main purpose of the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "To argue that synthetic pesticides should never be used in agriculture under any circumstances and that Carson's book made exactly this case."
+    },
+    {
+      "id": "B",
+      "text": "To recount the chemical industry's counter-campaign against Silent Spring and to weigh which of its objections to Carson's evidence held up."
+    },
+    {
+      "id": "C",
+      "text": "To detail the chemical structure of DDT and to compare the rates at which it accumulates in different species of birds and predators."
+    },
+    {
+      "id": "D",
+      "text": "To explain how Carson's book turned existing scientific findings into a public argument about pesticides and to describe how that argument was received and acted on."
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "The correct answer is D. The passage explains how Carson turned a decade of scientific work into a public argument about pesticides and then describes how that argument was received and acted on. Choice A overstates her claim into a categorical ban she explicitly did not make; choice B narrows the passage to the industry's counter-campaign; and choice C treats DDT's chemistry, which the passage never details, as the subject.",
+  "passage": "When marine biologist Rachel Carson published *Silent Spring* in 1962, the book drew on a decade of scientific literature about synthetic pesticides — most prominently DDT — and translated that literature into a sustained argument for a general audience. Carson's claim was not that pesticides should never be used but that they had been deployed so widely, and with so little study of their effects on non-target species, that they were disrupting food webs in measurable ways: birds whose insect prey had been poisoned, predators carrying accumulated chemical loads up the food chain, and reproductive failures concentrated in species at the top. The book provoked an immediate counter-campaign from the chemical industry, but the studies it cited were already converging in the same direction, and the policies it called for — stricter pre-market testing, regional bans on persistent compounds, monitoring of non-target effects — were being implemented in some form within a decade.",
+  "_meta": {
+    "anchor": "Rachel Carson — Silent Spring (entity_keep)"
+  },
+  "module": 2
+}

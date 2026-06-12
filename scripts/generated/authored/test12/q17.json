@@ -1,0 +1,31 @@
+{
+  "id": 1217,
+  "type": "multiple-choice",
+  "difficulty": "easy",
+  "band": 2,
+  "domain": "standard-english-conventions",
+  "skill": "boundaries",
+  "module": 1,
+  "passage": "When biologists first measured the temperatures inside a beehive in winter, the finding that a honeybee colony keeps its center warm by clustering together and shivering its flight muscles seemed a small curiosity. Although that result looked at the time like a narrow specialty unlikely to reshape the ____ research on how bees generate and conserve heat has since informed broader work on how social insects regulate their internal environment.",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "field"
+    },
+    {
+      "id": "B",
+      "text": "field;"
+    },
+    {
+      "id": "C",
+      "text": "field:"
+    },
+    {
+      "id": "D",
+      "text": "field,"
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "The correct answer is D. The sentence opens with a subordinate clause beginning \"Although,\" and a comma is needed to mark where that introductory clause ends and the main clause (\"research ... has since informed\") begins. Without any punctuation, the words run together as \"the field research,\" blurring that boundary. A semicolon and a colon each require what follows to stand as its own complete statement or list, but here the comma simply closes the introductory clause, so neither fits."
+}

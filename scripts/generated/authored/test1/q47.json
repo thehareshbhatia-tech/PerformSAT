@@ -1,0 +1,31 @@
+{
+ "id": 147,
+ "type": "multiple-choice",
+ "difficulty": "medium",
+ "band": 3,
+ "domain": "standard-english-conventions",
+ "skill": "form-structure-and-sense",
+ "module": 2,
+ "passage": "In The Spirit Catches You and You Fall Down (1997), Yale-based writer Anne Fadiman traces the case of Lia Lee, a Hmong child in Merced, California, whose epilepsy was treated under two incompatible models of illness. Fadiman builds her cross-cultural account by interviewing Lee's family, reviewing the medical records kept by her American physicians, and ______ how Hmong and biomedical frameworks interpret seizures.",
+ "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "the comparison of"
+  },
+  {
+   "id": "B",
+   "text": "comparing"
+  },
+  {
+   "id": "C",
+   "text": "to compare"
+  },
+  {
+   "id": "D",
+   "text": "compares"
+  }
+ ],
+ "correctAnswer": "B",
+ "explanation": "The blank is the third item in a coordinated list governed by the preposition 'by': 'by interviewing Lee's family, reviewing the medical records ..., and ______.' Standard English requires the items in a coordinated list to share the same grammatical form, and the first two items are gerunds ('interviewing,' 'reviewing'). The third item must therefore also be a gerund. 'Comparing' supplies that gerund, producing a parallel three-part list and yielding 'by interviewing ..., reviewing ..., and comparing ...,' which is grammatically correct."
+}

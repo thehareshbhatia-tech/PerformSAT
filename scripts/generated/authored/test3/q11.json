@@ -1,0 +1,34 @@
+{
+ "id": 311,
+ "module": 1,
+ "difficulty": "medium",
+ "band": 3,
+ "domain": "information-and-ideas",
+ "skill": "central-ideas-and-details",
+ "question": "Which choice best states the main idea of the text?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "Nochlin's essay redirected the inquiry from listing overlooked women artists toward the institutional conditions that determined who could count as a great artist — its lasting influence rests on that reframing."
+  },
+  {
+   "id": "B",
+   "text": "Nochlin's essay is best understood as a careful survey that recovers the names of important women painters and sculptors whom earlier narrative histories of European art had long overlooked or dismissed."
+  },
+  {
+   "id": "C",
+   "text": "Nochlin argues that exclusion from anatomy classes was the single most important barrier to women's recognition as great artists."
+  },
+  {
+   "id": "D",
+   "text": "Later art historians have argued that Nochlin's essay had little influence beyond the moment of its 1971 publication."
+  }
+ ],
+ "correctAnswer": "A",
+ "explanation": "The correct answer is A. The passage corrects a common misreading — the essay is \"often misremembered\" as a survey — and explains what it actually does: it uses the title's question to redirect attention from listing artists toward the institutional conditions (academy training, anatomy classes, apprenticeships, commissions, critical infrastructure) that made it possible to count as a \"great\" artist, and its lasting influence rests on that reframing. A integrates both points. B states the very misreading the passage refuses. C promotes one item from the list of conditions to \"the single most important\" barrier. D claims the essay had little influence, which reverses the passage's account of its lasting reach.",
+ "_meta": {
+  "anchor": "Linda Nochlin — art historian; \"Why Have There Been No Great Women Artists?\" (1971); institutional reframing"
+ },
+ "passage": "Linda Nochlin's 1971 essay \"Why Have There Been No Great Women Artists?\" is often misremembered as a survey of overlooked women painters and sculptors. The essay does mention specific figures, but its central work is different. Nochlin used the question in her title as a polemical opening: rather than searching the record for women whose names belong on a list of \"great\" artists, she argued, scholars should examine the institutional conditions that made it possible to be classed as a great artist in the first place — access to academy training, to anatomy classes from which women were excluded, to studio apprenticeships, to public commissions, and to the critical infrastructure that confers reputation. The essay's lasting influence, later art historians have suggested, owes less to any artist it recovered than to the way it reframed the question itself.",
+ "type": "multiple-choice"
+}

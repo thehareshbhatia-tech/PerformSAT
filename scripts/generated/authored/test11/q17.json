@@ -1,0 +1,35 @@
+{
+  "type": "multiple-choice",
+  "difficulty": "easy",
+  "band": 2,
+  "domain": "standard-english-conventions",
+  "skill": "boundaries",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": ", and"
+    },
+    {
+      "id": "B",
+      "text": "; and,"
+    },
+    {
+      "id": "C",
+      "text": "and"
+    },
+    {
+      "id": "D",
+      "text": ","
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A. The blank falls between two complete sentences: \"In 1817 the German inventor Karl von Drais unveiled a two-wheeled running machine that a rider straddled and pushed along with the feet\" and \"the machine had no pedals of any kind, leaving a rider to scramble against the ground so vigorously that a long trip left the legs aching.\" Standard English joins two independent clauses with a comma plus a coordinating conjunction, which is exactly what \", and\" supplies. \"And\" alone, with no comma, fuses the clauses into a run-on. A comma by itself produces a comma splice. And \"; and,\" stacks a semicolon, a conjunction, and a stray comma at a single junction, none of which belong together.",
+  "passage": "In 1817 the German inventor Karl von Drais unveiled a two-wheeled running machine that a rider straddled and pushed along with the feet ______ the machine had no pedals of any kind, leaving a rider to scramble against the ground so vigorously that a long trip left the legs aching.",
+  "_meta": {
+    "anchor": "Karl von Drais: 1817 running machine (Laufmaschine), the pedal-less ancestor of the bicycle",
+    "rule": "comma + coordinating conjunction joining two independent clauses"
+  },
+  "id": 1117,
+  "module": 1
+}

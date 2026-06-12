@@ -1,0 +1,43 @@
+{
+ "id": 308,
+ "module": 1,
+ "difficulty": "hard",
+ "band": 4,
+ "domain": "craft-and-structure",
+ "skill": "cross-text-connections",
+ "question": "Based on the texts, how would the author of Text 2 most likely respond to the claim presented in Text 1?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "He would accept that the earliest films were exhibitionist displays and agree that narrative had no place in screen practice until after about 1906."
+  },
+  {
+   "id": "B",
+   "text": "He would question whether spectacle and storytelling were ever as separate as Text 1 implies, since exhibitors and editors shaped early programs into sequences audiences followed as stories."
+  },
+  {
+   "id": "C",
+   "text": "By objecting that too few early prints survive for any claim about the period's emphasis to rest on solid evidence."
+  },
+  {
+   "id": "D",
+   "text": "Granting that early film favored spectacle, he would still deny that the medium could achieve the emotional effects of later narrative cinema."
+  }
+ ],
+ "correctAnswer": "B",
+ "explanation": "The correct answer is B. Text 2 does not dispute that early films courted the spectator's attention; what Musser resists is the sharp split Gunning draws between a \"cinema of attractions\" and the narrative cinema that supposedly replaced it. He argues that exhibitors arranged shots and whole programs, and that editing linked images into sequences audiences read as stories, so storytelling was present from early on rather than arriving as a later rupture. B captures that challenge to the framing. A has Musser endorsing the very break he denies; C invents a missing-evidence objection he never raises; and D concedes Gunning's premise and adds a claim about emotional incapacity that Text 2 does not make.",
+ "_meta": {
+  "anchor": "Cross-text pair: Tom Gunning (cinema of attractions) vs. Charles Musser (continuity/narrative) [theme: early cinema history]"
+ },
+ "passages": [
+  {
+   "label": "Text 1",
+   "text": "Film historian Tom Gunning argues that the earliest cinema, from roughly 1895 to 1906, is best understood not as primitive storytelling but as a \"cinema of attractions.\" These short films, on his account, were exhibitionist: they solicited the viewer's attention directly, through spectacle, trick effects, and performers who looked straight into the camera, rather than drawing the audience into an absorbing fictional world. Narrative, where it appeared at all, was a loose thread on which to hang displays. What mattered was the act of showing. Only after about 1906, Gunning contends, did filmmakers subordinate display to story and develop the techniques of continuity that would define the narrative cinema audiences now take for granted."
+  },
+  {
+   "label": "Text 2",
+   "text": "Charles Musser, surveying the same early period, treats the break Gunning describes as overstated. Screen practice, he argues, was bound up with storytelling long before 1906, because the meaning of any early film depended on how it was presented. Exhibitors selected and ordered short films, added spoken narration, and combined views into programs that audiences followed as connected sequences; editing within films, too, linked images into cause-and-effect relations. To set a \"cinema of attractions\" against a later \"cinema of narrative,\" on Musser's reading, is to mistake a change of degree for a change of kind, and to overlook how much narrative work the period's exhibition and editing were already doing."
+  }
+ ],
+ "type": "multiple-choice"
+}

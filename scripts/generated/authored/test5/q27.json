@@ -1,0 +1,44 @@
+{
+  "id": 527,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "expression-of-ideas",
+  "skill": "rhetorical-synthesis",
+  "module": 1,
+  "studentNotes": {
+    "intro": "While researching a topic, a student has taken the following notes:",
+    "bullets": [
+      "Alfred Wegener (1880–1930) was a German meteorologist and geophysicist.",
+      "In 1912 he proposed that the continents had once formed a single landmass and had since drifted apart.",
+      "He supported the idea with matching coastlines, fossil distributions, and rock formations on opposite sides of oceans.",
+      "Most geologists rejected the proposal because Wegener could not identify a force capable of moving continents.",
+      "In the 1960s, evidence of seafloor spreading led to the acceptance of continental drift within the theory of plate tectonics."
+    ],
+    "goal": "The student wants to emphasize a difference between Wegener's 1912 proposal and its eventual reception."
+  },
+  "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Wegener supported his proposal with matching coastlines, fossil distributions, and rock formations on opposite sides of the oceans."
+    },
+    {
+      "id": "B",
+      "text": "Alfred Wegener (1880–1930), a German meteorologist and geophysicist, proposed in 1912 that the continents had once formed a single landmass."
+    },
+    {
+      "id": "C",
+      "text": "Although most geologists rejected Wegener's 1912 proposal because he could name no force that could move continents, evidence of seafloor spreading led to its acceptance in the 1960s."
+    },
+    {
+      "id": "D",
+      "text": "In the 1960s, evidence of seafloor spreading led geologists to accept continental drift within the broader theory of plate tectonics."
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C. The goal is to emphasize the difference between Wegener's proposal and how it was received, so the sentence must set the early rejection against the later acceptance. Choice C does exactly that with \"Although…,\" pairing the geologists' rejection with the eventual acceptance in the 1960s. Choices A and B describe only the proposal and its evidence, with no reception at all. Choice D reports only the later acceptance and omits the rejection, so it cannot convey the contrast the goal requires.",
+  "_meta": {
+    "anchor": "Alfred Wegener — continental drift; early rejection then 1960s acceptance"
+  }
+}

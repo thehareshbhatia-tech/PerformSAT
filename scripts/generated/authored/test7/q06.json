@@ -1,0 +1,31 @@
+{
+  "id": 706,
+  "type": "multiple-choice",
+  "difficulty": "easy",
+  "band": 2,
+  "domain": "craft-and-structure",
+  "skill": "text-structure-and-purpose",
+  "module": 1,
+  "passage": "Designing the scenery for a grand opera is rarely a matter of decoration alone. The scenographer must translate a director's dramatic concept into physical space, deciding how painted backdrops, lighting, and moving set pieces will guide the audience's eye across a stage that may be forty feet deep. These choices also shape practical matters: where singers can stand to be heard, how quickly a scene can change in darkness, and how a chorus of dozens can move without colliding. The designer's work sits at the meeting point of visual art, storytelling, and stagecraft.",
+  "question": "Which choice best states the main purpose of the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "To trace the long historical development of scenery design across the major opera houses of nineteenth-century Europe and beyond."
+    },
+    {
+      "id": "B",
+      "text": "To argue that stage lighting is the single most important of all the scenographer’s many responsibilities."
+    },
+    {
+      "id": "C",
+      "text": "To describe one memorable opera production and the unusually elaborate set that its staging required."
+    },
+    {
+      "id": "D",
+      "text": "To explain that operatic scenography combines artistic, narrative, and practical demands rather than serving as mere decoration."
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "The correct answer is D. The passage argues that designing opera scenery is not just decorative but joins artistic, storytelling, and practical concerns, which is exactly what D states. Choice A points to a history the text never provides; Choice B singles out lighting, which the passage lists as only one factor among several; and Choice C describes a specific production, whereas the text speaks generally about the designer's role."
+}

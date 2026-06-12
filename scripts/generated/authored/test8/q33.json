@@ -1,0 +1,31 @@
+{
+  "id": 833,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "craft-and-structure",
+  "skill": "text-structure-and-purpose",
+  "module": 2,
+  "passage": "For years, biologists puzzled over how the wood frog survives being frozen solid each winter, its heart stopped and two-thirds of its body water turned to ice. One proposal held that the frog simply tolerates the damage and repairs it on thawing. Researchers tracking the frogs through a freeze found instead that, as ice begins to form, the liver floods the blood and tissues with glucose, which acts as a natural antifreeze inside the cells and keeps them from rupturing even as ice fills the spaces around them. The finding shifted attention from how the frog repairs freezing damage to how it prevents the worst of it.",
+  "question": "Which choice best describes the overall structure of the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "It catalogues several species that survive freezing and ranks them by how much body water each can afford to lose."
+    },
+    {
+      "id": "B",
+      "text": "It describes a laboratory technique for freezing amphibians and then lists the equipment the technique requires."
+    },
+    {
+      "id": "C",
+      "text": "It presents a biological puzzle and one early explanation, then reports a finding that redirects the question toward prevention rather than repair."
+    },
+    {
+      "id": "D",
+      "text": "It argues that earlier scientists greatly exaggerated the wood frog’s freezing tolerance and proposes a far more cautious account of what the animal can actually survive in winter."
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C. The passage opens with a puzzle (how the frog survives freezing), notes an early \"tolerate and repair\" proposal, and then reports the glucose-antifreeze finding, which moves the question from repairing damage to preventing it. A introduces a ranking of species the text never makes; B recasts the passage as a methods-and-equipment list; and D claims the passage disputes the frog's abilities, when it instead explains how those abilities work."
+}

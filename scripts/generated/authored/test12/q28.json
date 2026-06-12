@@ -1,0 +1,31 @@
+{
+  "id": 1228,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "craft-and-structure",
+  "skill": "words-in-context",
+  "module": 2,
+  "passage": "The pigments that Renaissance painters bound into wet plaster behave very differently from those suspended in oil. Because the color becomes chemically part of the wall as the plaster cures, a true fresco cannot easily be ____: a passage the artist wished to alter had to be chipped out and replastered before the surface dried, since once set, the bonded pigment resisted the scraping and overpainting that an oil panel would have tolerated.",
+  "question": "Which choice completes the text with the most logical and precise word or phrase?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "revised"
+    },
+    {
+      "id": "B",
+      "text": "interpreted"
+    },
+    {
+      "id": "C",
+      "text": "cleaned"
+    },
+    {
+      "id": "D",
+      "text": "duplicated"
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A. The colon explains the blank: an unwanted passage \"had to be chipped out and replastered,\" because the bonded pigment \"resisted the scraping and overpainting\" that would let one change the image. The missing word therefore means altered or reworked, which is what \"revised\" names. \"Cleaned\" is tempting given the conservation flavor, but the sentence is about changing the picture, not removing dirt. \"Interpreted\" concerns a fresco's meaning, not its physical alteration. \"Duplicated\" would mean copied, which does not match the discussion of correcting a finished surface."
+}

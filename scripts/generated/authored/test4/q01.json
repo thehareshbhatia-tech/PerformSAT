@@ -1,0 +1,34 @@
+{
+  "id": 401,
+  "type": "multiple-choice",
+  "difficulty": "easy",
+  "band": 2,
+  "domain": "craft-and-structure",
+  "skill": "words-in-context",
+  "question": "Which choice completes the text with the most logical and precise word or phrase?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "regulate"
+    },
+    {
+      "id": "B",
+      "text": "inherit"
+    },
+    {
+      "id": "C",
+      "text": "reconstruct"
+    },
+    {
+      "id": "D",
+      "text": "exaggerate"
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C. The passage explains that stomata density in a fossil leaf tracks the carbon dioxide present when the leaf grew, so from well-preserved fossils researchers can rebuild a picture of the ancient air — that is, \"reconstruct\" the atmospheric conditions of the deep past. \"Regulate\" and \"inherit\" do not fit a researcher working out what conditions once were, and \"exaggerate\" wrongly suggests distortion rather than recovery of evidence.",
+  "passage": "Fossilized leaves preserve more than the outline of their original shape. The density of stomata — the microscopic pores through which a leaf takes in carbon dioxide — varies with the concentration of that gas in the air where the leaf grew. From well-preserved fossil leaves, then, paleobotanists can ______ the atmospheric conditions of periods millions of years before any direct measurement was possible.",
+  "_meta": {
+    "anchor": "paleobotany — stomatal density as a CO2 proxy in fossil leaves"
+  },
+  "module": 1
+}

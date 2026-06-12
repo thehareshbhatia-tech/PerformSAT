@@ -1,0 +1,31 @@
+{
+  "id": 1238,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "information-and-ideas",
+  "skill": "central-ideas-and-details",
+  "module": 2,
+  "passage": "When the entrepreneur Malcom McLean shipped the first load of standardized metal containers in 1956, the innovation that mattered was not the box itself but everything the box made possible. Before containerization, cargo was loaded piece by piece by large gangs of dockworkers, a slow process that kept ships idle in port for days. McLean's insight was that goods packed once into a standard container at the factory could pass from truck to ship to railcar without being unpacked along the way. Realizing the savings, however, required more than a container: it demanded standardized box sizes, redesigned ships, specialized cranes, and reorganized ports, all adopted widely enough to interlock. Economists who study trade argue that this whole system, once in place, did more to lower the cost of moving goods across oceans than decades of tariff reductions had.",
+  "question": "Which choice best states the main idea of the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Before containerization, ocean cargo had to be loaded piece by piece by large gangs of dockworkers, a slow and expensive process that kept ships sitting idle in port for days at a time."
+    },
+    {
+      "id": "B",
+      "text": "Malcom McLean began his working career in the trucking business before he eventually turned his attention to the problem of moving cargo by ship."
+    },
+    {
+      "id": "C",
+      "text": "The value of McLean's container lay in the standardized, interlocking system it required—box sizes, ships, cranes, and ports—which lowered shipping costs more than decades of tariff cuts had."
+    },
+    {
+      "id": "D",
+      "text": "Economists who study international trade have generally concluded that reducing tariffs does less to promote trade than improving transportation does."
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C. The passage argues that what mattered was not the box alone but the whole interlocking system—standard sizes, ships, cranes, ports—whose combined effect on shipping costs outweighed decades of tariff cuts. C states that. A describes the old method the system replaced, a supporting detail. B gives a biographical fact about McLean. D generalizes one comparison from the passage into a broad claim about trade policy that overshoots the main point."
+}

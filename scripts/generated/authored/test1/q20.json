@@ -1,0 +1,31 @@
+{
+ "id": 120,
+ "type": "multiple-choice",
+ "difficulty": "medium",
+ "band": 3,
+ "domain": "standard-english-conventions",
+ "skill": "form-structure-and-sense",
+ "module": 1,
+ "passage": "Soil ecologist Wei Cheng uses isotope-labeling experiments to show that living plant roots can prompt microbes to break down organic matter that would otherwise stay intact. The sharp acceleration of carbon and nitrogen cycling that these root-driven effects produce ______ often absent from models built only on bare-soil measurements.",
+ "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "are"
+  },
+  {
+   "id": "B",
+   "text": "have been"
+  },
+  {
+   "id": "C",
+   "text": "were"
+  },
+  {
+   "id": "D",
+   "text": "is"
+  }
+ ],
+ "correctAnswer": "D",
+ "explanation": "The correct answer is D. The subject of the verb is the singular noun \"acceleration,\" not the plural \"effects\" in the clause \"that these root-driven effects produce\" or the plural \"measurements\" later in the sentence. A singular subject takes the singular verb \"is.\" The other options—\"are,\" \"have been,\" and \"were\"—are all plural forms that agree with the nearby plural nouns rather than with the true head noun, the error the sentence is built to catch."
+}

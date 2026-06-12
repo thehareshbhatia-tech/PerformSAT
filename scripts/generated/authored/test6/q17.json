@@ -1,0 +1,31 @@
+{
+  "id": 617,
+  "module": 1,
+  "type": "multiple-choice",
+  "difficulty": "easy",
+  "band": 2,
+  "domain": "standard-english-conventions",
+  "skill": "boundaries",
+  "passage": "The practice of cleaning surgical instruments and wounds with carbolic acid, introduced in operating rooms in the 1860s, did not remain a disputed novelty for ______ surgeons who adopted it watched their patients' infection rates fall sharply, and within a generation antiseptic routines had become a standard part of surgery across Europe.",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "long"
+    },
+    {
+      "id": "B",
+      "text": "long, but"
+    },
+    {
+      "id": "C",
+      "text": "long,"
+    },
+    {
+      "id": "D",
+      "text": "long;"
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "The correct answer is D, \"long;\". Both halves of the sentence are complete independent clauses: \"The practice . . . did not remain a disputed novelty for long\" and \"surgeons who adopted it watched their patients' infection rates fall sharply . . . .\" A semicolon correctly joins two such clauses. Choice C, a comma alone, creates a comma splice, and choice A, with no punctuation, fuses the two clauses into a run-on. Choice B adds the coordinating conjunction \"but,\" which signals a contrast; here the second clause explains why the practice did not stay disputed rather than opposing the first, so \"but\" misrepresents the logic."
+}

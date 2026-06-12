@@ -1,0 +1,34 @@
+{
+  "id": 950,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "expression-of-ideas",
+  "skill": "transitions",
+  "module": 2,
+  "passage": "In 1964, the physicists Arno Penzias and Robert Wilson detected a faint background hiss in their radio antenna that they could not eliminate, no matter how they cleaned or adjusted the instrument. Suspecting a fault in the equipment, they even removed pigeons that had nested inside the antenna. ______ the persistent signal proved to be radiation left over from the early universe, a discovery that confirmed a central prediction of Big Bang cosmology.",
+  "question": "Which choice completes the text with the most logical transition?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Therefore,"
+    },
+    {
+      "id": "B",
+      "text": "Likewise,"
+    },
+    {
+      "id": "C",
+      "text": "Meanwhile,"
+    },
+    {
+      "id": "D",
+      "text": "In fact,"
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "The researchers first assumed the hiss was a fault and even cleared out nesting pigeons; the sentence then corrects that assumption, revealing the signal as relic radiation from the early universe. \"In fact,\" choice D, marks that correction. \"Therefore\" would make it a consequence, \"Likewise\" a similarity, and \"Meanwhile\" mere simultaneity.",
+  "_meta": {
+    "anchor": "Penzias and Wilson, cosmic microwave background"
+  }
+}

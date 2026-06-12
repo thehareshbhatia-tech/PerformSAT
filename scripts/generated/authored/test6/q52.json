@@ -1,0 +1,31 @@
+{
+  "id": 652,
+  "module": 2,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "expression-of-ideas",
+  "skill": "transitions",
+  "passage": "Some quilts made by Black women in the nineteenth-century American South carried information as well as warmth. The best-documented case is the work of Harriet Powers, whose surviving \"story quilts\" stitch together panels depicting biblical scenes and recorded local events. ______ one of her quilts sets the 1833 Leonid meteor storm beside scenes of drought and frost, preserving a community's memory of remarkable nights and seasons.",
+  "question": "Which choice completes the text with the most logical transition?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "For example,"
+    },
+    {
+      "id": "B",
+      "text": "However,"
+    },
+    {
+      "id": "C",
+      "text": "Instead,"
+    },
+    {
+      "id": "D",
+      "text": "Therefore,"
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A, \"For example.\" The sentence after the blank gives a specific instance, a particular Powers quilt depicting the 1833 meteor storm, of the general claim that her story quilts recorded events. \"For example\" introduces that instance. \"However\" and \"Instead\" would signal contrast or replacement, but the quilt illustrates rather than opposes the prior statement, and \"Therefore\" would make the example a consequence of the general claim instead of an illustration of it."
+}

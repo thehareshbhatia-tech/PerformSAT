@@ -1,0 +1,34 @@
+{
+  "id": 538,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "information-and-ideas",
+  "skill": "central-ideas-and-details",
+  "module": 2,
+  "passage": "Tone languages, in which pitch distinguishes word meanings, are sometimes assumed to be an exotic and stable feature that a language either has from the start or never develops at all. Historical linguists have complicated that picture. Studying languages of Southeast Asia, they have reconstructed cases in which tones arose gradually: when certain consonants at the edges of syllables were lost, the small pitch differences those consonants had incidentally produced were left behind as the only thing distinguishing one word from another, and speakers came to treat pitch itself as meaningful. On this account, tone is not a fixed inheritance but something a language can acquire over time as a byproduct of other sound changes—a process linguists call tonogenesis.",
+  "question": "Which choice best states the main idea of the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "In any tone language, the particular pitch on which a given syllable is spoken can by itself serve to distinguish one word from an otherwise identical one."
+    },
+    {
+      "id": "B",
+      "text": "Several languages of Southeast Asia have, over their histories, lost many of the consonants that once stood at the edges of their syllables."
+    },
+    {
+      "id": "C",
+      "text": "A language either possesses tone from the very moment of its origin or else never develops the feature over its entire history."
+    },
+    {
+      "id": "D",
+      "text": "Historical study shows that tone can develop gradually in a language as a byproduct of other sound changes, rather than being a fixed inheritance."
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "The correct answer is D. The passage sets up a common assumption—that a language either has tone or never gets it—and then overturns it by reconstructing how tones can arise gradually from the loss of consonants, a process called tonogenesis. The main idea is that tone can develop over time rather than being fixed from the start. Choice A gives a background definition of tone. Choice B reports one mechanism in the story as if it were the point. Choice C states the very assumption the passage is correcting.",
+  "_meta": {
+    "anchor": "Tonogenesis; tone can arise from lost consonants rather than being a fixed inheritance"
+  }
+}

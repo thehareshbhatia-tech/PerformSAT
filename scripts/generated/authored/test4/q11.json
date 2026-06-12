@@ -1,0 +1,34 @@
+{
+  "id": 411,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "information-and-ideas",
+  "skill": "central-ideas-and-details",
+  "question": "According to the text, what is one effect of earthworms' burrowing on the soil?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "It permanently keeps water and air from reaching the roots of most nearby plants."
+    },
+    {
+      "id": "B",
+      "text": "It opens channels through the soil that allow water and air to reach plant roots."
+    },
+    {
+      "id": "C",
+      "text": "It restores the thick litter layer that native wildflowers in northern forests depend on."
+    },
+    {
+      "id": "D",
+      "text": "It locks carbon in the ground for far longer than it would otherwise have remained."
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B. The passage states that as earthworms burrow they open channels that let water and air reach plant roots. Choice A reverses that effect; choice C describes the litter layer that earthworms strip away rather than restore; and choice D contradicts the passage, which says their activity speeds the release of carbon rather than locking it in the ground.",
+  "passage": "Earthworms are often credited with enriching soil, but their effects are more mixed than that reputation suggests. As they burrow, earthworms mix decaying leaf litter deep into the soil and open channels that let water and air reach plant roots. In doing so, however, they also speed the breakdown of organic matter, releasing carbon that might otherwise have stayed locked in the ground for decades. In some northern forests, where earthworms are not native, their recent spread has stripped away the thick layer of slowly decaying litter on which many native wildflowers and tree seedlings depend.",
+  "_meta": {
+    "anchor": "soil ecology — earthworm bioturbation; detail stem"
+  },
+  "module": 1
+}

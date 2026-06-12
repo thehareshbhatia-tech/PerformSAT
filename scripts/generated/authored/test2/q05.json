@@ -1,0 +1,35 @@
+{
+  "id": 205,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "craft-and-structure",
+  "skill": "text-structure-and-purpose",
+  "module": 1,
+  "passage": "The following text is from Charlotte Perkins Gilman's 1892 short story \"The Yellow Wall-Paper.\" The narrator and her husband, John, have rented an old country house for the summer.\n\nIt is very seldom that mere ordinary people like John and myself secure ancestral halls for the summer. A colonial mansion, a hereditary estate, I would say a haunted house, and reach the height of romantic felicity—but that would be asking too much of fate! Still I will proudly declare that there is something queer about it. Else, why should it be let so cheaply? And why have stood so long untenanted? John laughs at me, of course, but one expects that in marriage.",
+  "question": "Which choice best describes the overall structure of the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "The narrator traces the history of an old colonial mansion and then explains how her family came to inherit it from distant relations."
+    },
+    {
+      "id": "B",
+      "text": "The narrator describes a disagreement with her husband over whether the house they have rented for the summer is a suitable place to live."
+    },
+    {
+      "id": "C",
+      "text": "The narrator lists the practical advantages of renting an inexpensive house and then admits that she would have preferred to remain at home."
+    },
+    {
+      "id": "D",
+      "text": "The narrator presents her family's summer rental as surprising, suggests the house may hold some mystery, and notes her husband's amusement at such ideas."
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "The correct answer is D. The narrator opens by remarking how unusual it is for \"mere ordinary people\" like her family to secure an ancestral hall for the summer, then plays with the idea that the house might be something more romantic—even haunted—and insists that \"there is something queer about it,\" pointing to its low rent and long vacancy. She closes by reporting that John laughs at her, the response she has come to expect. Choice A fails because the family rents the house rather than inheriting it, and no history of the property is given. Choice B describes a disagreement that never occurs; John's laughter dismisses the narrator's musings, but the couple does not argue about whether to stay. Choice C is wrong on both points: the cheap rent is raised as a reason for suspicion, not listed as an advantage, and the narrator never says she would rather have stayed home.",
+  "_meta": {
+    "quoteVerify": true,
+    "source": "Charlotte Perkins Gilman, \"The Yellow Wall-Paper\" (1892), opening lines"
+  }
+}

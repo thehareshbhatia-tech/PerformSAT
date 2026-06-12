@@ -1,0 +1,31 @@
+{
+  "id": 243,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "information-and-ideas",
+  "skill": "inferences",
+  "module": 2,
+  "passage": "In a tone language, the pitch contour on which a syllable is pronounced can change a word's meaning as completely as a change in consonant or vowel: the same string of sounds, said with a rising rather than a falling pitch, may name an entirely different thing. Linguists have found that speakers of such languages, when they hum or whistle a familiar tune, often unconsciously preserve the pitch pattern that the words would carry if they were sung—so reliably that listeners who share the language can sometimes recover the intended words from the wordless melody alone. This suggests that, for speakers of a tone language, the pitch contour of a word ______",
+  "question": "Which choice most logically completes the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "is determined entirely by the melody of whatever tune the word happens to be set to when it is sung."
+    },
+    {
+      "id": "B",
+      "text": "carries less information about a word's meaning than the word's consonants and vowels do."
+    },
+    {
+      "id": "C",
+      "text": "is stored and processed as an integral part of the word's identity rather than as a separable, optional feature of its pronunciation."
+    },
+    {
+      "id": "D",
+      "text": "becomes difficult for ordinary listeners to recognize at all once the word has been separated from the sentence in which it was first spoken."
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C. If a word's pitch pattern persists even in wordless humming, and listeners can recover the words from the melody alone, then for these speakers the pitch contour belongs to the word's very identity rather than being an optional extra—exactly the inference in C. Choice A reverses the causal direction: the speakers carry the word's pitch into the tune, not the other way around. Choice B contradicts the premise that pitch can change meaning as fully as consonants and vowels do, so it cannot carry less information. Choice D introduces a claim about recognizing isolated words that the passage neither states nor implies."
+}

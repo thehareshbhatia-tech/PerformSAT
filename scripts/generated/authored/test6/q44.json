@@ -1,0 +1,31 @@
+{
+  "id": 644,
+  "module": 2,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "standard-english-conventions",
+  "skill": "boundaries",
+  "passage": "Recent surveys of precolonial West African urbanism have highlighted a feature that earlier scholarship had largely ______ many of the Yoruba towns now being mapped were once ringed by massive earthen walls, some running for tens of kilometers around a single community.",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "overlooked:"
+    },
+    {
+      "id": "B",
+      "text": "overlooked"
+    },
+    {
+      "id": "C",
+      "text": "overlooked,"
+    },
+    {
+      "id": "D",
+      "text": "overlooked;"
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A, \"overlooked:\". The first part of the sentence is a complete clause that announces an overlooked \"feature,\" and the part after the blank then specifies what that feature is. A colon is the mark that introduces such a specification after a complete statement. Choice B supplies no punctuation, fusing the two parts into a run-on. Choice C, a comma, is too weak to introduce the explanatory clause and creates a comma splice. Choice D, a semicolon, would simply link two independent statements as equals rather than presenting the second as the promised explanation of the first."
+}

@@ -1,0 +1,34 @@
+{
+  "type": "multiple-choice",
+  "difficulty": "easy",
+  "band": 2,
+  "domain": "information-and-ideas",
+  "skill": "central-ideas-and-details",
+  "question": "Which choice best states the main idea of the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Electron crystallography can determine atomic structures from crystals too small for X-ray crystallography, easing a long-standing limitation of the older method."
+    },
+    {
+      "id": "B",
+      "text": "X-ray crystallography works by recording the pattern of scattered spots that reveals how the atoms inside a large, well-ordered crystal are arranged in space."
+    },
+    {
+      "id": "C",
+      "text": "Many important proteins are difficult to study because they cannot be grown into the sizable, well-ordered crystals that the older method required."
+    },
+    {
+      "id": "D",
+      "text": "Electrons interact with matter much more strongly than X-rays do, which is why they scatter when they are directed at a crystal."
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A. The passage names a limitation of X-ray crystallography—it needs a large crystal many molecules cannot form—and then presents electron crystallography as a method that resolves structures from far smaller samples, easing that limitation. Choice A states both halves at the right level. Choice B describes only how the older method works, Choice C states only the limitation, and Choice D reports a single supporting detail about electrons; each is true but narrower than the passage's central point.",
+  "passage": "X-ray crystallography determines the arrangement of atoms in a solid by directing X-rays at a crystal and recording how the beam scatters into a pattern of spots. For decades the method's great limitation was that it required a sizable, well-ordered crystal, which many important molecules—among them many proteins—are difficult or impossible to grow. A newer technique called electron crystallography sidesteps the problem: because electrons interact with matter far more strongly than X-rays do, the method can resolve the atomic structure of crystals far too small for any X-ray beam to analyze, including powders made of countless microscopic grains.",
+  "_meta": {
+    "anchor": "crystallography: electron crystallography (e.g., MicroED) resolves structures from nanocrystals/powders"
+  },
+  "id": 1109,
+  "module": 1
+}

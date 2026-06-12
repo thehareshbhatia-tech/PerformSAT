@@ -1,0 +1,71 @@
+{
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "information-and-ideas",
+  "skill": "command-of-evidence-quantitative",
+  "question": "Which choice most effectively uses data from the table to complete the statement?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "the shift from -10.3 permil in the Middle Preclassic to -8.9 permil in the Late Preclassic is the largest single jump in the table, marking the decisive turn toward maize-centered diets."
+    },
+    {
+      "id": "B",
+      "text": "sample sizes increased from 9 individuals in the Late Archaic to 33 individuals in the Late Preclassic, providing the strongest single piece of evidence that maize consumption rose across the full sequence."
+    },
+    {
+      "id": "C",
+      "text": "the Late Preclassic mean of -8.9 permil is the highest (least negative) value in the table, consistent with maize having become a dietary staple by that period."
+    },
+    {
+      "id": "D",
+      "text": "the shift from -15.4 permil in the Late Archaic to -12.8 permil in the Early Preclassic is a 2.6-permil increase, larger than the 2.5-permil shift from the Early to the Middle Preclassic and the 1.4-permil shift from the Middle to the Late Preclassic."
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "The correct answer is D. The claim compares intervals: the biggest single step toward maize-centered diets came at the start of the transition rather than later, so the evidence must compare each period-to-period change in delta-13C. Choice D does this: the Late Archaic to Early Preclassic shift is +2.6 permil, larger than the +2.5 of the next interval and the +1.4 of the last. Choice A points to the highest (least negative) value at the end of the sequence, which shows maize was a staple by then but not where the largest jump fell. Choice B substitutes the rising sample-size column for the isotope column, and sample size does not track diet. Choice C calls the final 1.4-permil shift the largest jump when it is in fact the smallest of the three.",
+  "passage": "Stable carbon isotope ratios (delta-13C) in human bone collagen rise as a person's diet incorporates more maize, a tropical grass whose photosynthetic pathway leaves a distinctive carbon signature. Reporting on cemetery samples from four Maya periods, Kennett and colleagues (2020) argue that the biggest single step toward maize-centered diets in the Maya lowlands occurred at the very beginning of the recorded transition rather than later in the sequence, because _______",
+  "questionTable": {
+    "type": "table",
+    "caption": "Mean delta-13C values from human bone collagen at Maya sites by period (Kennett et al., 2020, Science Advances)",
+    "headers": [
+      "Period",
+      "Approximate dates",
+      "Mean delta-13C (permil)",
+      "n (individuals)"
+    ],
+    "rows": [
+      [
+        "Late Archaic",
+        "3000-1000 BCE",
+        "-15.4",
+        "9"
+      ],
+      [
+        "Early Preclassic",
+        "1000-700 BCE",
+        "-12.8",
+        "12"
+      ],
+      [
+        "Middle Preclassic",
+        "700-400 BCE",
+        "-10.3",
+        "21"
+      ],
+      [
+        "Late Preclassic",
+        "400 BCE-250 CE",
+        "-8.9",
+        "33"
+      ]
+    ]
+  },
+  "_meta": {
+    "anchor": "Kennett et al. (2020): delta-13C and the rise of maize in the Maya lowlands",
+    "dataset": "qd-017"
+  },
+  "id": 1140,
+  "module": 2
+}

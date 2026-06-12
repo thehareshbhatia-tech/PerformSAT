@@ -1,0 +1,31 @@
+{
+ "id": 129,
+ "type": "multiple-choice",
+ "difficulty": "medium",
+ "band": 3,
+ "domain": "craft-and-structure",
+ "skill": "words-in-context",
+ "module": 2,
+ "passage": "Biochemist Gertrude B. Elion, working at Burroughs Wellcome in the mid-twentieth century, designed drugs by exploiting biochemical differences between healthy host cells and the disease-causing cells that invade them. Synthesizing chemical analogs of the natural building blocks of DNA, she produced compounds that could ______ between the two — interfering with the metabolism of leukemia cells, herpes viruses, and parasites while leaving healthy tissue largely intact.",
+ "question": "Which choice completes the text with the most logical and precise word or phrase?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "discriminate"
+  },
+  {
+   "id": "B",
+   "text": "differentiate"
+  },
+  {
+   "id": "C",
+   "text": "interact"
+  },
+  {
+   "id": "D",
+   "text": "equate"
+  }
+ ],
+ "correctAnswer": "A",
+ "explanation": "The correct answer is A, \"discriminate.\" The passage tells us that Elion built her drugs by \"exploiting biochemical differences\" between host cells and disease-causing cells, and that the resulting compounds interfered with leukemia cells, herpes viruses, and parasites \"while leaving healthy tissue largely intact.\" The verb in the blank must therefore mean to act selectively on one type of cell rather than the other on the basis of those differences. \"Discriminate\" carries exactly that sense in pharmacology: a drug discriminates between target and non-target cells when it engages one and spares the other. The word matches both the technical register Elion used in describing rational drug design and the active, selectivity-based meaning the sentence requires."
+}

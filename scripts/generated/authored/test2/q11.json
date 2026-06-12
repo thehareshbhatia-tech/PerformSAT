@@ -1,0 +1,31 @@
+{
+  "id": 211,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "information-and-ideas",
+  "skill": "central-ideas-and-details",
+  "module": 1,
+  "passage": "In her 2016 book From the War on Poverty to the War on Crime, the historian Elizabeth Hinton challenges a familiar account of how the United States arrived at mass incarceration. On the standard telling, the federal anti-poverty programs of President Lyndon B. Johnson's mid-1960s Great Society were later derailed by a separate, conservative War on Crime. Drawing on underused records from federal crime, urban, and welfare agencies, Hinton instead traces a continuous line from the earliest Great Society legislation through the carceral expansions that followed. The same legislation that funded job training and community programs in low-income, predominantly Black urban neighborhoods, she shows, also routed federal money and personnel into local police departments. Mass incarceration, on her account, was the Great Society's continuation by other means.",
+  "question": "According to the text, what was true of the federal legislation that funded Great Society anti-poverty programs?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "It was opposed by the federal crime, urban, and welfare agencies whose records Hinton examined."
+    },
+    {
+      "id": "B",
+      "text": "It reduced urban poverty significantly in the mid-1960s before being dismantled by a later and entirely separate federal War on Crime."
+    },
+    {
+      "id": "C",
+      "text": "It channeled federal money and personnel into local police departments even as it funded job training and community programs."
+    },
+    {
+      "id": "D",
+      "text": "It applied only to predominantly Black urban neighborhoods during the mid-1960s."
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C. The passage states that the same legislation that funded job training and community programs also routed federal money and personnel into local police departments, which is exactly what C reports. Choice A misuses a detail: Hinton drew on those agencies' records; the text never says the agencies opposed the legislation. Choice B contradicts Hinton's thesis that mass incarceration continued, rather than reversed, Great Society policy. Choice D overreaches: the passage describes the programs' focus on low-income, predominantly Black neighborhoods but does not say the legislation applied only to them."
+}

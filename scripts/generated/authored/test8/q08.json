@@ -1,0 +1,40 @@
+{
+  "id": 808,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "craft-and-structure",
+  "skill": "cross-text-connections",
+  "module": 1,
+  "passages": [
+    {
+      "label": "Text 1",
+      "text": "Some Roman harbor structures have stood in seawater for two thousand years. Studying drill cores from these marine concretes, the geologist Marie Jackson has argued that their durability is not merely a matter of a good initial recipe but of a chemistry that keeps working. The Romans mixed volcanic ash with lime and seawater, and over centuries seawater percolating through the material kept reacting with the ash, growing interlocking crystals of rare minerals within the cement. Far from decaying, Jackson contends, the marine concrete slowly strengthened as these crystals filled its pores—an outcome modern Portland cement, which is not designed to react further once set, does not reproduce."
+    },
+    {
+      "label": "Text 2",
+      "text": "Engineer Admir Masic and his colleagues have studied the small white mineral lumps, called lime clasts, scattered through many Roman concretes, including those on dry land. Earlier researchers had read these lumps as evidence of careless mixing. Masic's team argues instead that the Romans mixed lime in a hot, reactive form, which left these clasts behind as built-in reservoirs of calcium. When a crack opens and water seeps in, the team showed in the laboratory, the calcium dissolves and recrystallizes across the gap, sealing the crack on its own. On this account the concrete's longevity owes much to a self-repair mechanism that needs no seawater at all."
+    }
+  ],
+  "question": "Based on the texts, how would Masic (Text 2) most likely respond to the explanation offered in Text 1?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "He would deny that the volcanic ash played any chemical role in the concrete, treating it as cheap filler added only to stretch the mixture further."
+    },
+    {
+      "id": "B",
+      "text": "He would dismiss Jackson’s drill-core findings as outdated, arguing that her marine evidence has been superseded by later work and should no longer figure in any explanation of why Roman concrete has lasted."
+    },
+    {
+      "id": "C",
+      "text": "Pointing to modern materials, he would claim that Portland cement already reproduces both mechanisms, so Roman concrete now offers engineers nothing further to learn."
+    },
+    {
+      "id": "D",
+      "text": "By granting that crystal growth strengthens marine concrete but noting that the seawater reaction cannot explain the durability of inland Roman structures, where his lime clasts let cracks reseal."
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "The correct answer is D. Jackson locates the durability of Roman concrete in a slow seawater-driven reaction that grows strengthening crystals, a process tied to marine settings. Masic studies concrete on dry land and identifies a different mechanism—lime clasts that release calcium to reseal cracks without any seawater. The natural response is to grant that Jackson's reaction works in the sea while pointing out that it cannot account for the durability of inland structures, which his self-repair mechanism can. A contradicts Text 1's premise about the ash in a way Masic never asserts; B adopts a \"superseded, set it aside\" move that neither text supports; and C denies any lesson for modern engineers, which runs against the thrust of both texts."
+}

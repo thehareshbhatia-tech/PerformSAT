@@ -1,0 +1,34 @@
+{
+ "id": 310,
+ "module": 1,
+ "difficulty": "medium",
+ "band": 3,
+ "domain": "information-and-ideas",
+ "skill": "central-ideas-and-details",
+ "question": "Which choice best states the main idea of the text?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "Buckland and De la Beche credited Anning's preparation methods more consistently and more generously than the other naturalists who studied and published on the marine reptile fossils she had recovered."
+  },
+  {
+   "id": "B",
+   "text": "Anning's discoveries settled the early-nineteenth-century debate about extinction within a few years of her first major finds."
+  },
+  {
+   "id": "C",
+   "text": "Because women were excluded from scientific institutions, Anning's extinction-shaping finds entered the record through male authors who credited her unevenly, a record historians have since worked to reconstruct."
+  },
+  {
+   "id": "D",
+   "text": "Modern historians have shown that Anning authored more papers on marine reptile anatomy than any of her contemporaries."
+  }
+ ],
+ "correctAnswer": "C",
+ "explanation": "The correct answer is C. The passage moves through three stages: it establishes Anning's contribution (articulated ichthyosaur and plesiosaur skeletons that reshaped debates about extinction), then the institutional barrier she faced (exclusion from the Geological Society and from formal authorship), and finally the consequence — that her finds reached print through male colleagues who named her unevenly — along with the later historical work to reconstruct her role. C integrates all three. A treats two named geologists as more reliable creditors, a claim the passage does not make. B says her finds \"settled\" the debate, but the text says they \"reshaped\" it. D has her authoring the most papers, the opposite of the exclusion the passage documents.",
+ "_meta": {
+  "anchor": "Mary Anning — paleontologist; Lyme Regis; ichthyosaur and plesiosaur specimens; institutional exclusion and uneven credit"
+ },
+ "passage": "Working along the cliffs of Lyme Regis in the early nineteenth century, Mary Anning extracted, prepared, and identified some of the first articulated ichthyosaur and plesiosaur skeletons known to science. Her finds reshaped debates about whether species could go extinct, and geologists such as William Buckland and Henry De la Beche relied heavily on her work. At the time, however, women were barred from the Geological Society of London and from formal authorship of scientific papers. Anning's specimens therefore entered the published record through male colleagues who named her unevenly — some explaining her methods, others calling her only a local collector. Later historians have reread their notebooks and letters to recover, fossil by fossil, the role she actually played.",
+ "type": "multiple-choice"
+}

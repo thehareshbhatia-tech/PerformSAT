@@ -1,0 +1,34 @@
+{
+  "id": 450,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "expression-of-ideas",
+  "skill": "transitions",
+  "question": "Which choice completes the text with the most logical transition?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Therefore,"
+    },
+    {
+      "id": "B",
+      "text": "Likewise,"
+    },
+    {
+      "id": "C",
+      "text": "Meanwhile,"
+    },
+    {
+      "id": "D",
+      "text": "In fact,"
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "The correct answer is D. The second sentence says recent study tells a different story, and the third corrects the old picture of the dodo, so an intensifying-corrective transition fits. \"Therefore\" (A) marks a consequence; \"Likewise\" (B) marks similarity; and \"Meanwhile\" (C) marks a parallel event in time, none of which captures the correction the third sentence makes.",
+  "passage": "For decades, textbooks described the dodo as a clumsy, stupid bird that waddled to its own extinction. Recent study of the few surviving skeletons and of historical accounts tells a different story. ______ the dodo was well adapted to its island home, quick on its feet, and driven to extinction less by any failing of its own than by the rats, pigs, and hunger of arriving sailors.",
+  "_meta": {
+    "anchor": "the dodo — reassessment of a maligned bird; corrective"
+  },
+  "module": 2
+}

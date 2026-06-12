@@ -1,0 +1,31 @@
+{
+ "id": 1051,
+ "type": "multiple-choice",
+ "difficulty": "medium",
+ "band": 3,
+ "domain": "expression-of-ideas",
+ "skill": "transitions",
+ "module": 2,
+ "passage": "The designer Patricia Moore argued that products meant \"for the average user\" often exclude the very people who could benefit from them most, and that designing for the edges of the population tends to improve a product for everyone. ______ curb cuts added to sidewalks for wheelchair users also ease the way for travelers with rolling luggage, parents pushing strollers, and workers moving carts, so that a feature introduced for a few turns out to serve nearly all.",
+ "question": "Which choice completes the text with the most logical transition?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "However,"
+  },
+  {
+   "id": "B",
+   "text": "By contrast,"
+  },
+  {
+   "id": "C",
+   "text": "For instance,"
+  },
+  {
+   "id": "D",
+   "text": "Instead,"
+  }
+ ],
+ "correctAnswer": "C",
+ "explanation": "Choice C is correct. The first sentence states a general claim—that designing for the edges of the population tends to improve a product for everyone—and the sentence with the blank gives a concrete case: curb cuts added for wheelchair users that also help travelers with luggage, parents with strollers, and workers with carts. \"For instance\" introduces that example. \"However\" and \"By contrast\" would signal opposition, and \"Instead\" a substitution, none of which fits an illustrating example."
+}

@@ -1,0 +1,31 @@
+{
+ "id": 1033,
+ "type": "multiple-choice",
+ "difficulty": "hard",
+ "band": 4,
+ "domain": "craft-and-structure",
+ "skill": "text-structure-and-purpose",
+ "module": 2,
+ "passage": "In the early 1970s, working at an Exxon laboratory during an oil crisis, the chemist Stanley Whittingham built a rechargeable battery around an unusual idea: rather than consuming its electrode materials in a chemical reaction, the battery would let lithium ions slip in and out of a layered electrode without destroying its structure—a process called intercalation. The cell he demonstrated could be recharged many times, but it relied on metallic lithium that was prone to catching fire, and falling oil prices soon ended Exxon's interest. Whittingham's intercalation principle, however, survived: later chemists kept the idea while replacing the dangerous components, and it became the foundation of the lithium-ion batteries in use today.",
+ "question": "Which choice best states the main purpose of the text?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "To describe how Whittingham's intercalation principle, though abandoned commercially in his own cell, became the foundation of modern lithium-ion batteries."
+  },
+  {
+   "id": "B",
+   "text": "To explain why the steep fall in oil prices during the 1970s ultimately led Exxon to abandon its support for rechargeable-battery research."
+  },
+  {
+   "id": "C",
+   "text": "To argue that Whittingham's original battery was safer than the lithium-ion batteries that later replaced it."
+  },
+  {
+   "id": "D",
+   "text": "To trace the chemistry by which lithium ions move in and out of a layered electrode during intercalation."
+  }
+ ],
+ "correctAnswer": "A",
+ "explanation": "Choice A is correct. The passage explains Whittingham's intercalation idea, notes that his particular cell was dropped for safety and commercial reasons, and then stresses that the principle survived and became the basis of today's lithium-ion batteries. That trajectory—idea, commercial dead end, enduring foundation—is the main purpose, which Choice A states. Choice B treats the oil-price detail as the focus. Choice C reverses the passage, which calls his cell's metallic lithium prone to fire. Choice D isolates the chemistry of intercalation, a supporting detail rather than the overall point."
+}

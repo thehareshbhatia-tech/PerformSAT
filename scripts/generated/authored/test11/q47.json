@@ -1,0 +1,35 @@
+{
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "standard-english-conventions",
+  "skill": "form-structure-and-sense",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "copyists'"
+    },
+    {
+      "id": "B",
+      "text": "copyist's"
+    },
+    {
+      "id": "C",
+      "text": "copyists"
+    },
+    {
+      "id": "D",
+      "text": "copyists's"
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A. The errors belong to the copyists, who are plural, so the possessive is formed by adding an apostrophe after the -s already present: \"the copyists' errors.\" \"Copyist's\" is the singular possessive, but the passage refers to more than one copyist; \"copyists\" with no apostrophe is the plain plural and marks no possession; and \"copyists's\" adds a second -s that the plural possessive does not require.",
+  "passage": "Before printing, the texts that circulated in Europe bore the marks of their copyists. Modern editors can sometimes reconstruct a lost original by comparing the surviving manuscripts and sorting out which readings reflect the ______ errors rather than the author's own words.",
+  "_meta": {
+    "anchor": "textual criticism / typography history: copyists' errors (generic)",
+    "rule": "plural possessive of a noun ending in -s"
+  },
+  "id": 1147,
+  "module": 2
+}

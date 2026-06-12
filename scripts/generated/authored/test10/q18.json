@@ -1,0 +1,31 @@
+{
+ "id": 1018,
+ "type": "multiple-choice",
+ "difficulty": "easy",
+ "band": 2,
+ "domain": "standard-english-conventions",
+ "skill": "form-structure-and-sense",
+ "module": 1,
+ "passage": "The geochemist Katsuko Saruhashi developed precise methods for measuring carbon dioxide dissolved in seawater and for tracking radioactive fallout across the Pacific. The body of evidence she assembled over her career ______ that the surface ocean exchanges carbon dioxide with the atmosphere far more actively than mid-century models had assumed.",
+ "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "indicates"
+  },
+  {
+   "id": "B",
+   "text": "indicate"
+  },
+  {
+   "id": "C",
+   "text": "have indicated"
+  },
+  {
+   "id": "D",
+   "text": "are indicating"
+  }
+ ],
+ "correctAnswer": "A",
+ "explanation": "Choice A is correct. The subject of the verb is the singular noun \"body\" (\"The body of evidence she assembled\"), so it takes the singular \"indicates.\" The intervening words \"of evidence she assembled over her career\" do not change the number of the subject. Choices B and D use plural verb forms that do not agree with \"body.\" Choice C, \"have indicated,\" is also plural and fails to agree with the singular subject \"body\" (which would require \"has\"); it additionally shifts into the present perfect without support from the sentence."
+}

@@ -1,0 +1,31 @@
+{
+  "id": 1252,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "expression-of-ideas",
+  "skill": "transitions",
+  "module": 2,
+  "passage": "For years, the town's flood defenses had consisted of a concrete wall built tight against the river's edge. After a series of damaging floods overtopped it, engineers were asked to strengthen the town's protection. They might have responded in the obvious way, by raising the existing wall higher. The engineers did not take that approach. ______ they moved the embankments well back from the channel and restored a band of low-lying meadow beside the river, giving high water room to spread out and lose its force before it reached the houses.",
+  "question": "Which choice completes the text with the most logical transition?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Therefore,"
+    },
+    {
+      "id": "B",
+      "text": "Instead,"
+    },
+    {
+      "id": "C",
+      "text": "Likewise,"
+    },
+    {
+      "id": "D",
+      "text": "Meanwhile,"
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B. The previous sentence says what the engineers did not do (raise the existing wall), and this sentence gives the alternative they chose (setting the embankments back and restoring a floodplain), so \"Instead\" correctly marks that substitution. \"Therefore\" would present the action as a logical consequence rather than a chosen alternative. \"Likewise\" would signal that the two actions are similar, but raising a wall and setting the banks back are being contrasted. \"Meanwhile\" would mark two things happening at the same time, which is not the relationship here."
+}

@@ -1,0 +1,31 @@
+{
+  "id": 709,
+  "type": "multiple-choice",
+  "difficulty": "easy",
+  "band": 2,
+  "domain": "information-and-ideas",
+  "skill": "central-ideas-and-details",
+  "module": 1,
+  "passage": "Archaeological work in the Yoruba region of West Africa has revealed a long tradition of urban life that took shape well before European traders reached the coast. Excavations have uncovered the remains of glass-bead workshops, ironworking sites, and large earthen walls that once enclosed planned communities, while oral histories and early written records describe organized markets and skilled craft guilds. Together, these sources point to dense settlements supported by specialized production and long-distance trade. The picture that emerges is of cities that grew on their own terms, according to local rhythms of commerce and craft, rather than in response to outside contact.",
+  "question": "According to the text, what does the archaeological evidence from the Yoruba region include?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "The remains of glass-bead workshops, ironworking sites, and large earthen walls that once enclosed planned communities."
+    },
+    {
+      "id": "B",
+      "text": "Charters issued by European traders that were used to regulate the markets operating throughout the region."
+    },
+    {
+      "id": "C",
+      "text": "Imported tools, manufactured outside West Africa, that were recovered from the very earliest settlement sites."
+    },
+    {
+      "id": "D",
+      "text": "Maps that the region’s craft guilds are said to have drawn in order to record trade routes between the cities."
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A. The text states directly that excavations uncovered glass-bead workshops, ironworking sites, and large earthen walls enclosing planned communities. Choice B refers to European charters the passage never mentions; the written records it cites are local. Choice C invents imported tools, but the passage emphasizes locally specialized production, and Choice D describes guild-drawn maps that appear nowhere in the text."
+}

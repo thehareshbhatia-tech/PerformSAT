@@ -1,0 +1,31 @@
+{
+  "id": 603,
+  "module": 1,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "craft-and-structure",
+  "skill": "words-in-context",
+  "passage": "Early visitors to Arctic Inuit communities often described hunting, storytelling, and the sharing of food as separate customs that could be examined one at a time. Anthropologists who have since lived in these communities argue that the practices are instead ______: a change in how a hunter's catch is divided immediately alters who is owed a story and how neighboring households are organized.",
+  "question": "Which choice completes the text with the most logical and precise word or phrase?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "interlocking"
+    },
+    {
+      "id": "B",
+      "text": "disposable"
+    },
+    {
+      "id": "C",
+      "text": "redundant"
+    },
+    {
+      "id": "D",
+      "text": "contradictory"
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A, \"interlocking.\" The example makes the point that altering one practice immediately changes the others, so the customs work as parts of a single connected whole. \"Interlocking\" names exactly that mutual dependence. \"Disposable\" would mean the customs could be discarded, and \"redundant\" would mean they merely repeat one another; neither fits a description of parts that depend on one another. \"Contradictory\" would imply the practices are at odds, but the passage describes them as linked, not conflicting."
+}

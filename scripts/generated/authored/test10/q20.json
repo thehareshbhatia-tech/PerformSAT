@@ -1,0 +1,31 @@
+{
+ "id": 1020,
+ "type": "multiple-choice",
+ "difficulty": "medium",
+ "band": 3,
+ "domain": "standard-english-conventions",
+ "skill": "form-structure-and-sense",
+ "module": 1,
+ "passage": "When the architect Michael Ventris announced in 1952 that the Bronze Age script known as Linear B recorded an early form of Greek, he overturned decades of assumptions about the language of the tablets. By the time his analysis was published, several rival proposals about the script's language ______ already, but none had accounted for the patterns of word endings that Ventris's grid made visible.",
+ "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "circulated"
+  },
+  {
+   "id": "B",
+   "text": "had circulated"
+  },
+  {
+   "id": "C",
+   "text": "are circulating"
+  },
+  {
+   "id": "D",
+   "text": "have circulated"
+  }
+ ],
+ "correctAnswer": "B",
+ "explanation": "Choice B is correct. The sentence describes one past event (the publication of Ventris's analysis) and an earlier past situation (rival proposals already in circulation before that publication). The past perfect \"had circulated\" correctly places the rival proposals before the later past moment marked by \"By the time his analysis was published.\" Choice A uses the simple past, which fails to mark the earlier action as prior. Choices C and D shift into present and present-perfect forms that clash with the clearly past time frame."
+}

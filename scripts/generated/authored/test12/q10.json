@@ -1,0 +1,31 @@
+{
+  "id": 1210,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "information-and-ideas",
+  "skill": "central-ideas-and-details",
+  "module": 1,
+  "passage": "The Global Positioning System works by precise timing: a receiver finds its location by comparing when signals leave several satellites and when they arrive. Because the satellites carry atomic clocks while users stand on the ground, the system's designers had to reckon with a prediction of Einstein's relativity. A clock in orbit, where gravity is weaker and the satellite moves quickly, does not tick at quite the same rate as a clock on the ground. The difference is tiny—microseconds a day—but in a system that turns timing into distance, an uncorrected error would pile up fast, throwing positions off by miles within hours. To keep the system accurate, engineers set the satellites' clock rates so that, once in orbit, they stay in step with clocks below.",
+  "question": "According to the text, why must the designers of the Global Positioning System adjust the rate of the satellites' onboard clocks?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Because the satellites' onboard atomic clocks gradually drift out of accuracy as their delicate electronic components slowly age over the many years of an orbital mission."
+    },
+    {
+      "id": "B",
+      "text": "Because the radio signals broadcast by the satellites travel too slowly to reach distant ground receivers on time."
+    },
+    {
+      "id": "C",
+      "text": "Because relativity makes the orbiting clocks tick at a different rate than clocks on the ground, and an uncorrected gap would spoil position fixes."
+    },
+    {
+      "id": "D",
+      "text": "Because the ground stations cannot keep time nearly as precisely as the atomic clocks the satellites carry aloft."
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C. The passage explains that an orbiting clock, subject to weaker gravity and high speed, ticks at a slightly different rate than a clock on the ground, and that in a system which converts timing into distance even a microsecond-scale error would accumulate into position errors of miles. C names exactly that relativistic rate difference and the harm of leaving it uncorrected. A blames aging electronics, which the passage never mentions. B claims the signals travel too slowly, contradicting the text's account of precise timing. D says ground clocks are less precise than the satellites', which the passage does not claim and which is not the reason it gives for the adjustment."
+}

@@ -1,0 +1,31 @@
+{
+  "id": 234,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "craft-and-structure",
+  "skill": "text-structure-and-purpose",
+  "module": 2,
+  "passage": "For much of the twentieth century, the signed communication of deaf communities was widely dismissed as a crude system of pantomime—a set of gestures standing in for the \"real\" language carried by speech and writing. Beginning in the 1960s, the linguist William Stokoe challenged that view by analyzing American Sign Language as spoken languages had been analyzed. He showed that its signs are built from a small set of contrasting formational units—handshape, location, and movement—combined according to regular rules, much as spoken words are built from contrasting sounds. On the strength of that analysis, ASL came to be recognized not as gesture but as a natural language with a grammar of its own.",
+  "question": "Which choice best describes the overall structure of the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "It defines a linguistic term, gives several examples of it, and explains why the term is difficult to apply to sign languages."
+    },
+    {
+      "id": "B",
+      "text": "It compares American Sign Language with several other sign languages used by deaf communities around the world."
+    },
+    {
+      "id": "C",
+      "text": "It presents a once-common view of signed communication, describes an analysis that challenged that view, and reports the reassessment that followed."
+    },
+    {
+      "id": "D",
+      "text": "It traces a scholar's career and argues that his later work proved more influential than his early studies of grammar."
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C. The passage opens with the once-common view that signing was mere pantomime, describes Stokoe's analysis treating ASL like a spoken language, and reports the resulting reassessment of ASL as a full natural language. Choice A does not fit, because the passage is organized around a change in view, not around defining a term and listing examples. Choice B is wrong: only American Sign Language is discussed, with no comparison to other sign languages. Choice D misreads the text, which centers on a single analysis and its consequences rather than ranking the phases of Stokoe's career."
+}

@@ -1,0 +1,44 @@
+{
+ "id": 326,
+ "module": 1,
+ "difficulty": "medium",
+ "band": 3,
+ "domain": "expression-of-ideas",
+ "skill": "rhetorical-synthesis",
+ "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "Iris Müller-Westermann, a Swedish art historian, has organized a number of major exhibitions at the Moderna Museet in Stockholm and has edited the scholarly catalogues that accompanied several of them."
+  },
+  {
+   "id": "B",
+   "text": "Müller-Westermann argues that af Klint painted large abstractions from 1906, before Kandinsky and Malevich, and that her absence from standard histories reflects the marginalization of women and esoteric subjects."
+  },
+  {
+   "id": "C",
+   "text": "Hilma af Klint, a Swedish painter who lived from 1862 to 1944, began producing her large nonrepresentational compositions in 1906 and continued developing them across the following two decades."
+  },
+  {
+   "id": "D",
+   "text": "Müller-Westermann curated a 2013 retrospective of af Klint's work at the Moderna Museet and edited the volume that accompanied that exhibition."
+  }
+ ],
+ "correctAnswer": "B",
+ "explanation": "The correct answer is B. The goal is to emphasize the historical significance of Müller-Westermann's argument. B states that argument in both its parts — that af Klint's abstractions of 1906 came before those of Kandinsky and Malevich, and that her absence from standard histories reflects the marginalization of women and of esoteric subject matter — which together explain why the argument matters. A and D report Müller-Westermann's exhibitions and editing but never state her argument, so they introduce her rather than convey its significance. C describes af Klint's own career without mentioning Müller-Westermann or her claim at all.",
+ "_meta": {
+  "anchor": "Iris Müller-Westermann — art historian; Moderna Museet; chronological priority of Hilma af Klint's abstraction"
+ },
+ "studentNotes": {
+  "intro": "While researching a topic, a student has taken the following notes:",
+  "bullets": [
+   "Iris Müller-Westermann is a Swedish art historian who has organized exhibitions at the Moderna Museet in Stockholm.",
+   "She curated a 2013 retrospective and edited the accompanying volume Hilma af Klint: A Pioneer of Abstraction.",
+   "Hilma af Klint (1862-1944) was a Swedish painter who produced large-scale nonrepresentational compositions beginning in 1906.",
+   "Müller-Westermann argues that af Klint produced these compositions years before painters such as Wassily Kandinsky and Kazimir Malevich did comparable work.",
+   "Müller-Westermann argues that af Klint's exclusion from standard histories of abstraction reflects the marginalization of women and of esoteric subject matter from mid-twentieth-century museum narratives."
+  ],
+  "goal": "The student wants to emphasize the historical significance of Müller-Westermann's argument about af Klint."
+ },
+ "type": "multiple-choice"
+}

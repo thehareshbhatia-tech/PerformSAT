@@ -1,0 +1,34 @@
+{
+  "id": 434,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "craft-and-structure",
+  "skill": "text-structure-and-purpose",
+  "question": "Which choice best describes the function of the underlined sentence in the text as a whole?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "It introduces a revised standard of success that the rest of the passage uses to reinterpret what coral-reef restoration should aim to achieve."
+    },
+    {
+      "id": "B",
+      "text": "It argues that simply counting how many coral transplants are still alive after a single year is the most reliable possible measure of a restoration project's success."
+    },
+    {
+      "id": "C",
+      "text": "It provides the chemical explanation for why corals transplanted onto degraded reefs so often fail to survive in warming seas."
+    },
+    {
+      "id": "D",
+      "text": "It describes the specific nursery techniques used to grow the coral fragments before they are transplanted onto a degraded reef."
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A. The passage contrasts an old standard of restoration success (counting surviving transplants) with a newer one, and the underlined sentence states that newer standard — whether the patch resumes the functions of a reef — which the rest of the passage then uses to reinterpret what restoration should aim for. Choice B endorses the old standard the sentence moves beyond; choice C invents a chemical explanation; and choice D describes nursery techniques the passage does not discuss.",
+  "passage": "Coral reefs damaged by warming seas do not always recover on their own, and restoration projects have begun transplanting nursery-grown coral fragments onto degraded reefs. Early projects measured success simply by counting how many transplants were still alive a year later. __More recent work, however, has shifted the standard of success from the survival of individual fragments to whether the restored patch resumes the ecological functions of a reef — sheltering fish, cementing new limestone, and producing enough larvae to seed reefs downstream.__ By that measure, a plot crowded with living coral may still be judged a failure if no fish return and no new larvae are produced. The change reflects a broader recognition that a reef is not merely a collection of corals but a working system whose value lies in what it does.",
+  "_meta": {
+    "anchor": "coral reef restoration — function-based success metrics (NEW)"
+  },
+  "module": 2
+}

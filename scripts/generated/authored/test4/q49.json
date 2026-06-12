@@ -1,0 +1,34 @@
+{
+  "id": 449,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "standard-english-conventions",
+  "skill": "form-structure-and-sense",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "While studying the pack's behavior"
+    },
+    {
+      "id": "B",
+      "text": "Having studied the pack's behavior,"
+    },
+    {
+      "id": "C",
+      "text": "Studying the pack's behavior,"
+    },
+    {
+      "id": "D",
+      "text": "Studying the pack's behavior"
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C. The introductory phrase modifies \"a biologist,\" and the studying she did was the same activity as the three winters of following the pack, so the present participle \"Studying …,\" with its closing comma, fits. The perfect participle \"Having studied\" (B) wrongly implies the studying was finished before the following began; \"While studying\" (A) is a subordinate fragment with no finite verb; and \"Studying\" without a comma (D) runs the phrase into the subject.",
+  "passage": "______ a biologist spent three winters following a single wolf pack across the high mountains of the northern Rockies, recording every hunt, every birth, and every territorial dispute that she and her two field assistants were able to observe from a distance.",
+  "_meta": {
+    "anchor": "wolf-pack field study; present-participial modifier; single defensible answer"
+  },
+  "module": 2
+}

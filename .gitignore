@@ -37,8 +37,13 @@ check-*.js
 # Firebase service account key (NEVER commit)
 scripts/serviceAccountKey.json
 
-# Pipeline intermediate artifacts (reproducible)
-scripts/generated/
+# Pipeline artifacts: CB-derived extracts (pdf-text/, cbEducatorQBank*, official*)
+# must NEVER be committed; reproducible intermediates stay ignored too.
+scripts/generated/*
+# Own-authored R&W source of truth + registries — NOT reproducible, committed on purpose
+!scripts/generated/authored/
+!scripts/generated/rwSources/
+!scripts/generated/manifests/
 scripts/.last-content-tab-generation-report.json
 .gstack/
 

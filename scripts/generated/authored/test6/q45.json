@@ -1,0 +1,31 @@
+{
+  "id": 645,
+  "module": 2,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "standard-english-conventions",
+  "skill": "form-structure-and-sense",
+  "passage": "Each of the three surviving panels from the workshop's restored fresco cycle ______ a separate episode in the saint's life, so that a visitor moving slowly along the wall reads the story in sequence from one end of the chapel to the other.",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "illustrates"
+    },
+    {
+      "id": "B",
+      "text": "are illustrating"
+    },
+    {
+      "id": "C",
+      "text": "have illustrated"
+    },
+    {
+      "id": "D",
+      "text": "illustrate"
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A, \"illustrates.\" The subject is \"Each,\" which is singular and takes a singular verb, even though the nearby plural \"panels\" can make a plural verb sound right. \"Illustrates\" agrees with \"Each.\" Choices B (\"are illustrating\") and D (\"illustrate\") are plural and so disagree with the singular subject, and choice C (\"have illustrated\") is also plural in form and shifts the action into the present perfect without fixing the agreement problem."
+}

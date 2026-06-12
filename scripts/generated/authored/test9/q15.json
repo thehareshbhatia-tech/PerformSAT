@@ -1,0 +1,34 @@
+{
+  "id": 915,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "information-and-ideas",
+  "skill": "inferences",
+  "module": 1,
+  "passage": "When a congested highway is widened, planners often expect travel times to fall as the same number of cars spread across more lanes. Transportation researchers have repeatedly found, however, that within a few years traffic on the widened road returns to near its former congestion. Drivers who had shifted their trips to other routes, other times, or other modes move back onto the faster road, and some who had not been making the trip at all now do. Because the added capacity itself attracts these trips, researchers call the new traffic \"induced demand.\" Where induced demand is strong, it follows that ______",
+  "question": "Which choice most logically completes the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "congestion on a widened road depends only on the number of lanes and not on drivers' choices about when or how to travel."
+    },
+    {
+      "id": "B",
+      "text": "drivers who shift to other routes when a road is widened never return to it once their travel habits have changed."
+    },
+    {
+      "id": "C",
+      "text": "the only way to cut travel times on any road is to add as many lanes as the available land will permit."
+    },
+    {
+      "id": "D",
+      "text": "widening a congested road may not relieve congestion for long, because the added capacity itself draws extra trips that fill the new lanes."
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "Induced demand means the new capacity itself attracts trips that had been shifted elsewhere or not made at all. It follows that widening a congested road may not relieve congestion for long, because those added trips refill the new lanes—choice D. Choice A denies the role of drivers' choices the passage stresses, B overstates by saying drivers never return, and C draws a sweeping prescription the passage does not support.",
+  "_meta": {
+    "anchor": "induced demand in road widening"
+  }
+}

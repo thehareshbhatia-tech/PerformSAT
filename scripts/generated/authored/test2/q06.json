@@ -1,0 +1,31 @@
+{
+  "id": 206,
+  "type": "multiple-choice",
+  "difficulty": "easy",
+  "band": 2,
+  "domain": "craft-and-structure",
+  "skill": "text-structure-and-purpose",
+  "module": 1,
+  "passage": "The vivid blues that saturate many nineteenth-century Japanese woodblock prints were not, as is sometimes assumed, a traditional Japanese pigment. They came from Prussian blue, a synthetic dye first compounded in early-eighteenth-century Europe and imported into Japan through limited trade channels decades later. Because the new pigment was colorfast and far cheaper than the fading plant-based blues printmakers had relied on, publishers took it up rapidly in the 1830s, and landscape series built around expansive blue skies and seas became newly possible. The celebrated wave prints of the period, in other words, owe their distinctive palette to a chemistry that originated an ocean away.",
+  "question": "Which choice best states the main purpose of the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "To argue that Japanese printmakers of the 1830s preferred plant-based blue pigments to the newly available Prussian blue."
+    },
+    {
+      "id": "B",
+      "text": "To describe the chemical process by which Prussian blue was first compounded in eighteenth-century Europe."
+    },
+    {
+      "id": "C",
+      "text": "To compare the landscape prints of the 1830s with the portrait prints that had preceded them in Japan."
+    },
+    {
+      "id": "D",
+      "text": "To trace how an imported synthetic pigment reshaped the palette and subject matter of nineteenth-century Japanese woodblock prints."
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "The correct answer is D. The passage explains that Prussian blue, a European synthetic dye, reached Japan and—because it was colorfast and cheap—was adopted rapidly in the 1830s, making new kinds of blue-dominated landscape prints possible. Its purpose is to trace that influence on the prints' color and subject matter. Choice A reverses the passage, which says publishers took up Prussian blue rather than preferring the older plant-based blues. Choice B is too narrow: the passage mentions where the pigment was first compounded but does not describe the chemical process. Choice C names a comparison the passage never makes; it does not set the landscape prints against earlier portrait prints."
+}

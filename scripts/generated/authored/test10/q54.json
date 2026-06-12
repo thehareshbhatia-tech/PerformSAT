@@ -1,0 +1,42 @@
+{
+ "id": 1054,
+ "type": "multiple-choice",
+ "difficulty": "hard",
+ "band": 4,
+ "domain": "expression-of-ideas",
+ "skill": "rhetorical-synthesis",
+ "module": 2,
+ "studentNotes": {
+  "intro": "While researching a topic, a student has taken the following notes:",
+  "bullets": [
+   "Environmental DNA, or eDNA, consists of genetic material that organisms shed into water, soil, or air—through skin cells, scales, waste, and mucus.",
+   "Researchers can collect a water sample, sequence the DNA it contains, and identify which species have recently been present without ever seeing or capturing them.",
+   "The method can detect rare or elusive species that traditional surveys frequently miss.",
+   "It can also reveal the early arrival of invasive species before they become established and visible.",
+   "In one river survey, a single set of water samples recorded dozens of fish species, including some not seen in decades.",
+   "Because it requires only a water sample, eDNA sampling is far less disruptive to habitats than netting or trapping."
+  ],
+  "goal": "The student wants to emphasize the two complementary uses eDNA sampling serves in monitoring freshwater ecosystems."
+ },
+ "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "Environmental DNA sampling, which identifies species from the genetic material they shed into water, serves two complementary purposes in freshwater monitoring: detecting rare or elusive species that traditional surveys miss, and flagging invasive species early, before they become established."
+  },
+  {
+   "id": "B",
+   "text": "Environmental DNA consists of genetic material that organisms shed into water, soil, or air through skin cells, scales, waste, and mucus."
+  },
+  {
+   "id": "C",
+   "text": "In one river survey, a single set of eDNA water samples recorded dozens of fish species, including some that had not been seen in the river in decades."
+  },
+  {
+   "id": "D",
+   "text": "Because it requires only a water sample, eDNA sampling disturbs habitats far less than traditional methods such as netting or trapping."
+  }
+ ],
+ "correctAnswer": "A",
+ "explanation": "Choice A is correct. The goal is to emphasize the two complementary uses eDNA sampling serves in freshwater monitoring, so the best choice names both. Choice A explains briefly what eDNA is and then pairs the two purposes: detecting rare or elusive species and flagging invasive species early. Choice B defines eDNA without naming any use. Choice C reports a single survey result, an instance of one use rather than the pair. Choice D highlights the method's low disturbance, a separate advantage that is not one of the two monitoring purposes the goal asks the student to contrast."
+}

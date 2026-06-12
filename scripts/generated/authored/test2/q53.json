@@ -1,0 +1,42 @@
+{
+  "id": 253,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "expression-of-ideas",
+  "skill": "rhetorical-synthesis",
+  "module": 2,
+  "studentNotes": {
+    "intro": "While researching a topic, a student has taken the following notes:",
+    "bullets": [
+      "The Antikythera mechanism is an ancient Greek device recovered from a Mediterranean shipwreck in 1901.",
+      "It is generally dated to roughly the second century BCE.",
+      "For decades, its heavily corroded bronze gears left its purpose unclear.",
+      "In the 2000s, researchers used X-ray and CT imaging to reconstruct its internal gearwork.",
+      "The imaging showed that the device could model the motions of the Sun, Moon, and planets and predict eclipses.",
+      "Researchers now describe it as the earliest known analog astronomical calculator."
+    ],
+    "goal": "The student wants to explain what recent imaging revealed about the Antikythera mechanism's purpose."
+  },
+  "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Recovered from a Mediterranean shipwreck in 1901, the Antikythera mechanism is an ancient Greek device generally dated to roughly the second century BCE."
+    },
+    {
+      "id": "B",
+      "text": "For decades after it was recovered from the shipwreck, the Antikythera mechanism's heavily corroded bronze gears left its original purpose unclear to researchers."
+    },
+    {
+      "id": "C",
+      "text": "Ancient Greek astronomers of the second century BCE were already able to predict eclipses and to model the motions of the Sun, the Moon, and the planets."
+    },
+    {
+      "id": "D",
+      "text": "Using X-ray and CT imaging, researchers reconstructed the Antikythera mechanism's gearwork and found that it could model the motions of the Sun, Moon, and planets and predict eclipses—identifying it as the earliest known analog astronomical calculator."
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "The correct answer is D. The goal is to explain what the imaging revealed about the device's purpose, and D does exactly that: it names the X-ray and CT imaging, reports what the reconstruction showed the mechanism could do, and states the resulting identification of its purpose. Choice A gives only background about where and when the device was found. Choice B describes the problem the imaging eventually solved, not what the imaging revealed. Choice C generalizes about ancient astronomers without mentioning the mechanism or the imaging, so it does not address the device's purpose at all."
+}

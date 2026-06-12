@@ -1,0 +1,34 @@
+{
+  "id": 929,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "craft-and-structure",
+  "skill": "words-in-context",
+  "module": 2,
+  "passage": "As mayor of Curitiba, Brazil, in the 1970s, the architect Jaime Lerner could not afford a subway, so he reengineered the bus instead. Dedicated lanes, boarding tubes where riders paid before the bus arrived, and long articulated vehicles let his system move subway-like volumes of passengers at a fraction of the cost. Cities short of capital have since ______ the model, building bus rapid transit lines that approach the speed of rail without the expense of tunneling.",
+  "question": "Which choice completes the text with the most logical and precise word or phrase?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "emulated"
+    },
+    {
+      "id": "B",
+      "text": "abandoned"
+    },
+    {
+      "id": "C",
+      "text": "questioned"
+    },
+    {
+      "id": "D",
+      "text": "postponed"
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The sentence says cities short of capital have followed Curitiba's bus model, building lines that imitate rail. The blank needs a verb meaning to copy or take up that model, and \"emulated,\" choice A, fits. \"Abandoned\" and \"postponed\" contradict the building that follows, and \"questioned\" does not match cities that adopt the approach.",
+  "_meta": {
+    "anchor": "Jaime Lerner, Curitiba bus rapid transit"
+  }
+}

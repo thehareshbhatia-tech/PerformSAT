@@ -1,0 +1,31 @@
+{
+  "id": 242,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "information-and-ideas",
+  "skill": "inferences",
+  "module": 2,
+  "passage": "Archaeologist Sarah Parcak of the University of Alabama at Birmingham works with multispectral satellite imagery, which records reflected light in many narrow bands, including bands beyond what the human eye can see. In her accounts of survey work in Egypt, she emphasizes two facts. First, buried walls and foundations alter the soil and plants above them, producing faint contrasts in moisture and vegetation that show up in those narrow bands but go unnoticed by an observer at the site. Second, when looters dig pits into a buried tomb, the disturbance leaves its own surface signature that registers in imagery taken after the digging but is absent from imagery of the same ground recorded before it. These observations together imply that, by comparing multispectral images of a site from different dates, an analyst working with Parcak's methods can ______",
+  "question": "Which choice most logically completes the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "pinpoint where buried remains have recently been looted, by noting which surface marks are new to the later image."
+    },
+    {
+      "id": "B",
+      "text": "estimate when the buried walls and foundations beneath a site were originally built, by reading the surface contrasts in the imagery."
+    },
+    {
+      "id": "C",
+      "text": "confirm that any recent surface changes were caused by natural erosion rather than digging, since the two leave identical signatures."
+    },
+    {
+      "id": "D",
+      "text": "determine from a single image taken on one date whether a site has ever been looted, without consulting any earlier imagery."
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A. The passage gives two facts. First, buried walls and foundations subtly change the soil and plants above them, so they register as faint contrasts in the narrow bands of multispectral imagery. Second, a looter's pit leaves a surface signature that appears in imagery taken after the digging but not before. Comparing images of the same ground from different dates therefore lets an analyst spot a mark that is new to the later image and tie it to a buried site—that is, identify where remains have recently been looted, as A says. Choice B fails because the premises say nothing about the age of the buried structures; detecting them is not the same as dating them. Choice C contradicts the passage, which treats the looting signature as detectable, not indistinguishable from erosion. Choice D ignores the core of the second premise: without an earlier image for comparison, a single later image cannot establish that a feature is new."
+}

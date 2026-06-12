@@ -1,0 +1,70 @@
+{
+ "id": 341,
+ "module": 2,
+ "difficulty": "hard",
+ "band": 4,
+ "domain": "information-and-ideas",
+ "skill": "command-of-evidence-quantitative",
+ "question": "Which choice most effectively uses data from the table to complete the statement?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "Proteobacteria reached the single largest share recorded in the table, 41% under short-term warming, which shows that warming steadily favors the most abundant groups."
+  },
+  {
+   "id": "B",
+   "text": "the 'Other / unclassified' category, whose share held at 14% under control and short-term warming before falling to 11% in the long-term plots."
+  },
+  {
+   "id": "C",
+   "text": "Acidobacteria's share stayed essentially flat across the three categories (21%, 20%, 20%), which shows that warming has no effect on community composition."
+  },
+  {
+   "id": "D",
+   "text": "Actinobacteria's share rose steadily with warming duration, from 26% in the control plots to 29% under short-term warming and 37% under long-term warming, while no other group shows so consistent a one-directional shift."
+  }
+ ],
+ "correctAnswer": "D",
+ "explanation": "The correct answer is D. The reader's claim is that warming reshapes the community most clearly when one follows a single group whose share moves steadily in one direction as warming continues. Supporting that means identifying a group with a consistent monotonic shift across the three duration columns, which D does: Actinobacteria rises 26% to 29% to 37%, and no other row moves so steadily in one direction. A cites the largest single cell (Proteobacteria at 41% under short-term warming), but a high share at one point — especially one that then falls back to 32% — says nothing about a steady one-directional shift. C correctly notes that Acidobacteria is flat but draws the unwarranted conclusion that warming has no effect, which the other rows contradict. B picks a real change in the 'Other' category, but that row (14, 14, 11) holds flat and then drops, not a steady one-directional shift.",
+ "_meta": {
+  "anchor": "Soil bacterial community under long-term experimental warming (unnamed research team); monotonic rise in Actinobacteria"
+ },
+ "passage": "At a long-term experiment, plots of forest soil have been warmed several degrees above normal using buried cables, some for as long as twenty years. Researchers tracked the relative abundance of four broad bacterial groups across plots warmed for different lengths of time. A reader argues that the data most clearly show warming reshaping the bacterial community when the comparison follows a single group whose share moves steadily in one direction as warming continues, namely _______",
+ "questionTable": {
+  "type": "table",
+  "caption": "Mean relative abundance (% of total bacterial sequences) of four bacterial groups, by warming duration",
+  "headers": [
+   "Bacterial group",
+   "Control (0 yr)",
+   "Short-term (5 yr)",
+   "Long-term (20 yr)"
+  ],
+  "rows": [
+   [
+    "Actinobacteria",
+    "26",
+    "29",
+    "37"
+   ],
+   [
+    "Proteobacteria",
+    "39",
+    "41",
+    "32"
+   ],
+   [
+    "Acidobacteria",
+    "21",
+    "20",
+    "20"
+   ],
+   [
+    "Other / unclassified",
+    "14",
+    "14",
+    "11"
+   ]
+  ]
+ },
+ "type": "multiple-choice"
+}

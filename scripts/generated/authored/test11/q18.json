@@ -1,0 +1,35 @@
+{
+  "type": "multiple-choice",
+  "difficulty": "easy",
+  "band": 2,
+  "domain": "standard-english-conventions",
+  "skill": "form-structure-and-sense",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "are drawing"
+    },
+    {
+      "id": "B",
+      "text": "have drawn"
+    },
+    {
+      "id": "C",
+      "text": "draws"
+    },
+    {
+      "id": "D",
+      "text": "draw"
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C. The subject of the verb is the singular noun \"account,\" not any of the plural nouns—\"routes,\" \"markets,\" \"tables,\" \"families\"—that sit between the subject and the blank. A singular subject takes a singular verb, so \"the ... account ... draws on customs ledgers\" is correct. \"Draw\" and \"are drawing\" are plural and agree with the nearer plural nouns rather than with the true subject, and \"have drawn\" likewise uses the plural \"have\" where the singular \"account\" requires \"draws.\"",
+  "passage": "The historian's detailed account of the caravan routes that once linked the Ottoman silk markets to the Iranian interior, with all of its tables of prices and its lists of merchant families, ______ on customs ledgers that happened to survive in provincial archives.",
+  "_meta": {
+    "anchor": "Ottoman silk-route history (generic)",
+    "rule": "subject-verb agreement across an intervening modifier"
+  },
+  "id": 1118,
+  "module": 1
+}

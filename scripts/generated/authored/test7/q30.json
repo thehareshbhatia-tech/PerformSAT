@@ -1,0 +1,31 @@
+{
+  "id": 730,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "craft-and-structure",
+  "skill": "words-in-context",
+  "module": 2,
+  "passage": "The endosymbiotic theory holds that the mitochondria and chloroplasts inside complex cells began as free-living bacteria that were engulfed by an ancestral host cell. When the idea was revived in the 1960s, many biologists found it hard to accept, because it implied that the entire lineage of complex life was ______ a series of ancient mergers between unrelated microbes rather than on gradual change within a single line of descent.",
+  "question": "Which choice completes the text with the most logical and precise word or phrase?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "at variance with"
+    },
+    {
+      "id": "B",
+      "text": "predicated on"
+    },
+    {
+      "id": "C",
+      "text": "borne out by"
+    },
+    {
+      "id": "D",
+      "text": "commensurate with"
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B. The theory implies that complex life is founded on ancient mergers, and \"predicated on\" means based on or resting upon, which fits. \"At variance with\" means in conflict with, the reverse of the intended sense. \"Borne out by\" means confirmed by evidence, which does not describe the logical foundation the sentence needs, and \"commensurate with\" means proportionate to, which is not the relationship between a lineage and its origin."
+}

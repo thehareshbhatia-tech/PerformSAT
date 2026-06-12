@@ -1,0 +1,34 @@
+{
+  "id": 504,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "craft-and-structure",
+  "skill": "words-in-context",
+  "module": 1,
+  "passage": "By drilling deep into the Antarctic and Greenland ice sheets, glaciologists recover cores in which bubbles of ancient air are trapped layer by layer. Because those bubbles preserve a direct sample of the atmosphere at the time the snow fell, researchers can ______ past carbon dioxide levels straight from the trapped gas, rather than inferring them from the indirect proxies they must rely on where no such air is preserved.",
+  "question": "Which choice completes the text with the most logical and precise word or phrase?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "dispute"
+    },
+    {
+      "id": "B",
+      "text": "measure"
+    },
+    {
+      "id": "C",
+      "text": "approximate"
+    },
+    {
+      "id": "D",
+      "text": "conceal"
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B, \"measure.\" The sentence contrasts reading carbon dioxide levels \"straight from the trapped gas\" with having to infer them \"from the indirect proxies\" used elsewhere. The blank needs a verb for obtaining the values directly, and \"measure\" fits: the trapped air can be sampled and quantified. \"Approximate\" is the tempting near-miss, but it describes what the indirect proxies do, which is exactly the alternative the sentence sets the trapped air against. \"Dispute\" and \"conceal\" do not fit a process meant to determine the values cleanly.",
+  "_meta": {
+    "anchor": "Glaciology — polar ice cores and trapped air as a direct record of past CO2"
+  }
+}

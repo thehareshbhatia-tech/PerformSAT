@@ -1,0 +1,34 @@
+{
+  "id": 939,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "information-and-ideas",
+  "skill": "command-of-evidence-textual",
+  "module": 2,
+  "passage": "Researchers have proposed that a particular repeating radio signal comes from a rapidly rotating neutron star rather than from a source within the solar system. A neutron star spins on a fixed period that changes only very slowly, so on this hypothesis the interval between pulses should hold nearly constant over long stretches of time, and the signal should arrive from a fixed point among the distant stars rather than tracking the Sun. A team set out to test the proposal by monitoring the signal across many months.",
+  "question": "Which finding, if true, would most directly support the researchers' hypothesis?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "The interval between successive pulses stayed nearly constant over many months, and the signal arrived from the same fixed point among the distant stars throughout."
+    },
+    {
+      "id": "B",
+      "text": "The interval between pulses varied widely from one week to the next, with no discernible regularity."
+    },
+    {
+      "id": "C",
+      "text": "The signal grew steadily stronger over the months the team observed it."
+    },
+    {
+      "id": "D",
+      "text": "The signal disappeared whenever the antenna was pointed away from the nearest planets."
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The hypothesis predicts a nearly constant pulse interval and a fixed celestial position. The finding in choice A matches both predictions directly, so it offers the strongest support. Choice B describes the irregularity the hypothesis rules out, C concerns brightness, which the prediction says nothing about, and D would tie the signal to the planets, pointing instead toward a solar-system source.",
+  "_meta": {
+    "anchor": "rotating neutron star hypothesis for a radio signal"
+  }
+}

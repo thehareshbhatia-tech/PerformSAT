@@ -1,0 +1,31 @@
+{
+  "id": 751,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "expression-of-ideas",
+  "skill": "transitions",
+  "module": 2,
+  "passage": "For decades, scientists tracked global sea level mainly with tide gauges fixed to coastlines, instruments that could be skewed by the slow rise or sinking of the land they stood on. Since the 1990s, satellites carrying radar altimeters have measured the height of the open ocean surface directly and continuously. ______ researchers can now separate genuine changes in sea level from local movements of the land, resolving disagreements that the older coastal records had left unsettled.",
+  "question": "Which choice completes the text with the most logical transition?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Nevertheless,"
+    },
+    {
+      "id": "B",
+      "text": "As a result,"
+    },
+    {
+      "id": "C",
+      "text": "For instance,"
+    },
+    {
+      "id": "D",
+      "text": "Meanwhile,"
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B. The satellite measurements described in the second sentence are what allow researchers to separate real sea-level change from land movement, so the third sentence states a consequence and \"As a result\" fits. \"Nevertheless\" would mark a contrast that is not present, \"For instance\" would introduce an example rather than an outcome, and \"Meanwhile\" would signal simultaneity, not the cause-and-effect link the passage draws."
+}

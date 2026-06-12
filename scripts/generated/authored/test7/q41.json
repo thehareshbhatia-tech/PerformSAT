@@ -1,0 +1,67 @@
+{
+  "id": 741,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "information-and-ideas",
+  "skill": "command-of-evidence-quantitative",
+  "module": 2,
+  "passage": "Engineers testing rechargeable batteries track capacity retention — the percentage of a cell's original storage capacity that remains after repeated charge-discharge cycles. Comparing four lithium-ion cathode chemistries cycled under identical conditions, a materials scientist argues that one of them stands out for holding its capacity far better than the others over long use because _______",
+  "questionTable": {
+    "type": "table",
+    "caption": "Capacity retention (percent of original capacity) of four lithium-ion cathode chemistries after selected numbers of charge-discharge cycles",
+    "headers": [
+      "Cathode chemistry",
+      "After 100 cycles",
+      "After 500 cycles",
+      "After 1,000 cycles"
+    ],
+    "rows": [
+      [
+        "NMC",
+        "97%",
+        "88%",
+        "74%"
+      ],
+      [
+        "LCO",
+        "95%",
+        "80%",
+        "61%"
+      ],
+      [
+        "LFP",
+        "99%",
+        "96%",
+        "92%"
+      ],
+      [
+        "NCA",
+        "96%",
+        "85%",
+        "70%"
+      ]
+    ]
+  },
+  "question": "Which choice most effectively uses data from the table to complete the statement?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "after 100 cycles every chemistry still retained at least 95 percent of its original capacity, leaving little to distinguish them early in testing."
+    },
+    {
+      "id": "B",
+      "text": "LCO retained only 61 percent of its capacity after 1,000 cycles, the lowest retention of any chemistry at that stage of testing."
+    },
+    {
+      "id": "C",
+      "text": "NMC's retention fell from 97 percent after 100 cycles to 74 percent after 1,000 cycles, a decline of 23 percentage points."
+    },
+    {
+      "id": "D",
+      "text": "LFP retained 92 percent of its capacity after 1,000 cycles, while the other three chemistries had each dropped to between 61 and 74 percent."
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "The correct answer is D. The scientist's claim is that one chemistry holds its capacity far better than the others over long use. Choice D supplies exactly that contrast at the longest interval tested: LFP retained 92 percent of its capacity after 1,000 cycles, while the other three chemistries had each fallen to between 61 and 74 percent. Choice A speaks only to the first 100 cycles, when every chemistry still performed well, so it cannot show a long-run standout. Choice B reports the worst performer rather than the best, and Choice C traces a single chemistry's decline without comparing it against the others."
+}

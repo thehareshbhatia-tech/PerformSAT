@@ -1,0 +1,31 @@
+{
+  "id": 847,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "standard-english-conventions",
+  "skill": "form-structure-and-sense",
+  "module": 2,
+  "passage": "A dictionary of a dying language is rarely the work of a single season. Compiled over more than twenty years from hundreds of recorded interviews with the community's last elderly speakers, ______, and today it stands as the fullest record of a language that has since fallen silent.",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "the last fluent generation was documented by the linguist’s dictionary"
+    },
+    {
+      "id": "B",
+      "text": "documenting the last fluent generation occupied the linguist for many years"
+    },
+    {
+      "id": "C",
+      "text": "the linguist’s dictionary preserved the words of the last fluent generation"
+    },
+    {
+      "id": "D",
+      "text": "there were finally enough recorded words to fill the linguist’s dictionary"
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C. The opening phrase, \"Compiled over more than twenty years from hundreds of recorded interviews…,\" must modify the thing that was compiled—the dictionary. Only C makes \"the linguist's dictionary\" the subject that follows the comma, so the modifier attaches correctly and the later pronoun \"it\" has a clear antecedent. In A the phrase wrongly describes \"the last fluent generation,\" who were not compiled; in B it points to \"documenting,\" an activity rather than the compiled object; and in D the dummy \"there were\" leaves the introductory phrase with nothing sensible to modify."
+}

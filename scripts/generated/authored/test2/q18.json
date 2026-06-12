@@ -1,0 +1,31 @@
+{
+  "id": 218,
+  "type": "multiple-choice",
+  "difficulty": "easy",
+  "band": 2,
+  "domain": "standard-english-conventions",
+  "skill": "form-structure-and-sense",
+  "module": 1,
+  "passage": "In her 1997 book A Taste for Pop: Pop Art, Gender, and Consumer Culture, the University of California, Irvine, art historian Cécile Whiting reexamines a body of postwar American painting that had long been read as detached commentary on the marketplace. Whiting's analyses of mid-century consumer culture ______ that Pop Art's celebrated images of supermarket goods and cosmetics were entangled with public debates about feminine consumption.",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "shows"
+    },
+    {
+      "id": "B",
+      "text": "has shown"
+    },
+    {
+      "id": "C",
+      "text": "showing"
+    },
+    {
+      "id": "D",
+      "text": "show"
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "The correct answer is D. The subject of the verb is the plural noun 'analyses,' which requires the plural verb 'show.' The intervening prepositional phrase 'of mid-century consumer culture' contains the singular noun 'culture,' but a prepositional phrase placed between a subject and its verb does not change the number of the subject. A plural subject takes a plural verb regardless of intervening singular modifiers, so 'Whiting's analyses.. show' is the correct construction."
+}

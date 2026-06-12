@@ -1,0 +1,34 @@
+{
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "information-and-ideas",
+  "skill": "central-ideas-and-details",
+  "question": "Which choice best states the main idea of the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Ottoman customs registers and merchant correspondence are the only surviving sources available for the study of early modern Mediterranean trade."
+    },
+    {
+      "id": "B",
+      "text": "European buyers generally preferred to purchase Ottoman goods at the water's edge rather than travel inland to the major commercial centers of the empire to negotiate directly."
+    },
+    {
+      "id": "C",
+      "text": "The early modern Ottoman economy collapsed once European merchants began to take control of the long-distance trade of the Mediterranean."
+    },
+    {
+      "id": "D",
+      "text": "Records of Ottoman commerce indicate that the empire was an active trading system whose own institutions shaped Mediterranean trade, not merely a passive supplier to Europe."
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "The correct answer is D. The passage sets the standard view—the Ottomans as a passive supplier—against historians who use Ottoman records to show that the empire ran its own networks, set its own prices, and dictated its own credit terms, making it an active commercial system. Choice D captures that conclusion. Choice A overstates the evidence as the \"only\" sources; Choice B states a detail the passage actually denies; and Choice C describes a collapse the passage never mentions.",
+  "passage": "The standard account of early modern Mediterranean commerce treats the Ottoman Empire mainly as a supplier of raw materials to a rising European economy. Drawing on Ottoman customs registers and merchant correspondence, some historians have challenged that framing. These records show that Ottoman merchants did not simply hand goods to European buyers at the water's edge; they ran their own long-distance networks, set prices through their own guilds and courts, and extended credit across imperial borders on terms they themselves dictated. On this reading, the empire was not a passive periphery feeding European growth but an active commercial system whose institutions shaped the terms on which Mediterranean trade was conducted.",
+  "_meta": {
+    "anchor": "Ottoman trade history: empire as active commercial system, not passive periphery"
+  },
+  "id": 1136,
+  "module": 2
+}

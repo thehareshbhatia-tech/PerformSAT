@@ -1,0 +1,35 @@
+{
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "standard-english-conventions",
+  "skill": "form-structure-and-sense",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "the structure of DNA was revealed by Rosalind Franklin, who"
+    },
+    {
+      "id": "B",
+      "text": "Rosalind Franklin"
+    },
+    {
+      "id": "C",
+      "text": "it was Rosalind Franklin who"
+    },
+    {
+      "id": "D",
+      "text": "Rosalind Franklin's images"
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B. The opening phrase \"Trained first as a physical chemist ...\" must modify the subject of the main clause, and only a person can have been trained as a chemist. \"Rosalind Franklin\" supplies that subject directly: she was trained, and she used X-ray diffraction. The other options make the subject \"the structure of DNA,\" the dummy \"it,\" or \"Rosalind Franklin's images,\" none of which can be the thing that was \"trained ... as a physical chemist,\" so each leaves the opening modifier dangling.",
+  "passage": "Trained first as a physical chemist before turning her attention to biological problems, ______ used X-ray diffraction to capture the remarkably sharp images of DNA fibers that later proved central to working out the three-dimensional structure of the molecule itself.",
+  "_meta": {
+    "anchor": "Rosalind Franklin: X-ray diffraction images of DNA",
+    "rule": "introductory participial phrase must attach to the subject of the main clause"
+  },
+  "id": 1149,
+  "module": 2
+}

@@ -1,0 +1,34 @@
+{
+ "id": 337,
+ "module": 2,
+ "difficulty": "hard",
+ "band": 4,
+ "domain": "information-and-ideas",
+ "skill": "central-ideas-and-details",
+ "question": "Which choice best states the main idea of the text?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "Reaction wheels and thrusters are the only hardware capable of correcting a space telescope's orientation during imaging."
+  },
+  {
+   "id": "B",
+   "text": "The engineers concluded that the control settings inherited from earlier missions already deliver the best pointing precision that any newer combination of sensors and algorithms could realistically achieve."
+  },
+  {
+   "id": "C",
+   "text": "Long-exposure imaging has become the single most important capability of every modern space telescope."
+  },
+  {
+   "id": "D",
+   "text": "The engineers' work centers on the trade-off between active pointing corrections and the vibrations they cause, seeking sensor-and-algorithm combinations that make that trade-off explicit and adjustable."
+  }
+ ],
+ "correctAnswer": "D",
+ "explanation": "The correct answer is D. The passage is built around one engineering tension: holding a telescope's aim steady requires frequent corrections, yet each correction adds a small vibration that can blur the very long exposures the precise pointing is meant to enable. The engineers examine combinations of sensors, control algorithms, and wheel timing to keep vibrations within budget while still meeting the pointing tolerance, and their stated aim is to make the trade-off explicit and adjustable rather than buried in inherited settings. D captures both the tension and that aim. A overstates a detail about hardware. B reverses the engineers' goal. C inflates a passing reference to long-exposure imaging into a claim about all telescopes.",
+ "_meta": {
+  "anchor": "Spacecraft pointing vs. vibration trade-off (unnamed engineers); attitude control for long-exposure imaging"
+ },
+ "passage": "Keeping a space telescope pointed precisely enough for long-exposure imaging is harder than it sounds. The reaction wheels and thrusters that correct a spacecraft's orientation must fire often to hold the aim steady, yet each correction introduces a tiny mechanical vibration — exactly the kind of disturbance that can blur the long exposures the precise pointing is meant to enable. A group of engineers studying this problem has examined how particular combinations of sensors, control algorithms, and wheel timing can hold vibrations within a budget while still meeting the pointing tolerance a given instrument requires. Their aim, they say, is to make the trade-off explicit and adjustable rather than leaving it buried in settings inherited from earlier missions.",
+ "type": "multiple-choice"
+}

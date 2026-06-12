@@ -1,0 +1,31 @@
+{
+  "id": 647,
+  "module": 2,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "standard-english-conventions",
+  "skill": "form-structure-and-sense",
+  "passage": "Historians of the period argue that the new transit authority reshaped the city by laying down subway lines, by setting fares low enough to draw daily riders, and ______ several competing private bus companies into a single public network that riders could cross with one fare.",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "they merged"
+    },
+    {
+      "id": "B",
+      "text": "by merging"
+    },
+    {
+      "id": "C",
+      "text": "the merger of"
+    },
+    {
+      "id": "D",
+      "text": "merging"
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B, \"by merging.\" The sentence lists three things the authority did, and the first two are phrased in parallel as \"by laying down . . .\" and \"by setting . . . .\" The third item must match that form, so \"by merging\" completes the parallel series. Choice A inserts a new clause with its own subject, breaking the pattern. Choice C turns the third item into a noun phrase, and choice D drops the \"by,\" so neither matches the \"by . . .-ing\" structure of the first two items."
+}

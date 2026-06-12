@@ -1,0 +1,31 @@
+{
+  "id": 1215,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "information-and-ideas",
+  "skill": "inferences",
+  "module": 1,
+  "passage": "Ethnographers working in the Arctic have noted that many Inuit communities maintained an unusually detailed oral knowledge of sea-ice conditions—where ice would thin first, how currents shifted beneath it, which routes stayed safe late into spring. This knowledge was not written down but passed along through hunting partnerships and storytelling, and it was tied closely to the particular stretch of coast a group used. As some communities have moved to centralized settlements and younger people have spent less time traveling on the ice, researchers who study this knowledge have observed that it can erode within a single generation, even where the language itself remains in daily use. Their observations suggest that preserving such environmental knowledge ______",
+  "question": "Which choice most logically completes the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "depends on sustaining the practices through which it is transmitted, since the knowledge can fade even while the community's language is still spoken."
+    },
+    {
+      "id": "B",
+      "text": "is mainly a matter of recording in writing the language and vocabulary in which it is expressed, after which the knowledge itself will remain secure."
+    },
+    {
+      "id": "C",
+      "text": "is unnecessary, because sea-ice conditions have stayed stable enough that detailed local knowledge no longer offers any practical advantage at all."
+    },
+    {
+      "id": "D",
+      "text": "can be accomplished only by returning every relocated community to the exact stretch of coast that it had formerly used for hunting."
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A. The researchers note that the knowledge erodes when the practices that carried it—hunting partnerships, travel on the ice—fall away, and that it can fade even where the language survives. The logical implication is that keeping the knowledge alive depends on keeping up those practices. B is exactly what the evidence rules out, since the knowledge declines even while the language is still spoken. C contradicts the passage, which treats the knowledge as practically valuable. D overreaches: the text never claims that returning to a specific coastline is the only possible remedy."
+}

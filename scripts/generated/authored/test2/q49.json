@@ -1,0 +1,31 @@
+{
+  "id": 249,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "standard-english-conventions",
+  "skill": "form-structure-and-sense",
+  "module": 2,
+  "passage": "Daphne Brooks, who teaches music and African American studies at Yale University, has extended Hortense Spillers's framework for thinking about Black women's writing by recentering, in her own scholarship, the categories of performance and sound. Where Spillers's essay was fixed on the printed text, Brooks attends to voice, gesture, and the responses of audiences as primary evidence. ______ Brooks's sonic archive — which charts Black women's musical and theatrical labor from nineteenth-century stage performers to contemporary singers — recasts singing and staging as an ongoing record of resistance and self-fashioning.",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "To draw on Spillers's account of dispossession,"
+    },
+    {
+      "id": "B",
+      "text": "Grounded in Spillers's account of dispossession,"
+    },
+    {
+      "id": "C",
+      "text": "Drawing on Spillers's account of dispossession,"
+    },
+    {
+      "id": "D",
+      "text": "Having drawn on Spillers's account of dispossession,"
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B. The blank is filled by a fronted modifier whose implicit subject must match the subject of the main clause that follows. The main-clause subject is the inanimate noun phrase 'Brooks's sonic archive.' Standard English requires that a fronted participial or infinitival modifier attach logically to that subject; otherwise, it dangles. Only choice B, the passive past-participle phrase 'Grounded in Spillers's account of dispossession,' attaches cleanly: an archive can be grounded in a prior account, so the modifier and the main-clause subject align. The result reads, 'Grounded in Spillers's account of dispossession, Brooks's sonic archive.. recasts singing and staging..'"
+}

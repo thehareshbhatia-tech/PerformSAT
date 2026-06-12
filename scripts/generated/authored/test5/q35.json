@@ -1,0 +1,43 @@
+{
+  "id": 535,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "craft-and-structure",
+  "skill": "cross-text-connections",
+  "module": 2,
+  "passages": [
+    {
+      "label": "Text 1",
+      "text": "For much of the twentieth century, histories of the Ottoman Empire told a story of decline. After the empire's territorial peak in the late sixteenth century, the account ran, its institutions stopped adapting: its armies fell behind those of European rivals, its craft guilds clung to old techniques, and its markets were gradually overrun by inexpensive European manufactured goods. On this reading, the empire's final three centuries form a single long unraveling, ending in its dissolution after the First World War."
+    },
+    {
+      "label": "Text 2",
+      "text": "The historian Donald Quataert, working from Ottoman court records, guild petitions, and regional studies of manufacturing, argued that decline is the wrong frame for those centuries. The empire certainly lost wars and territory, he acknowledged. But its producers did not simply collapse before European competition: many weavers survived by switching to cheaper imported yarn while keeping their workshops running, and new export industries—most famously carpet weaving for European and American buyers—grew in the nineteenth century to employ tens of thousands. Reading the period as one long unraveling, Quataert argued, projects the empire's eventual end backward onto generations of practical adjustment and obscures how differently particular regions and trades actually fared."
+    }
+  ],
+  "question": "Based on the texts, how would Quataert (Text 2) most likely respond to the account of the Ottoman Empire's final centuries presented in Text 1?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "He would grant the military and territorial losses while objecting that the account compresses centuries of varied regional adjustment into a single story of decay."
+    },
+    {
+      "id": "B",
+      "text": "He would respond that the account actually understates the decline, since Ottoman manufacturing had all but disappeared by the early decades of the nineteenth century."
+    },
+    {
+      "id": "C",
+      "text": "He would agree that the empire's institutions stopped adapting after the sixteenth century but locate the cause in the craft guilds rather than in European competition."
+    },
+    {
+      "id": "D",
+      "text": "He would argue that court records and guild petitions are too fragmentary to support any general conclusions about the direction of the Ottoman economy."
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A. Quataert concedes the battlefield and territorial losses the older account emphasizes, so he is not rejecting its every element. What he disputes is the frame: treating three centuries as one long unraveling, he argues, reads the empire's end backward onto a record that—examined region by region and trade by trade—shows repeated practical adaptation, from weavers switching to imported yarn to carpet workshops expanding for export. Choice A captures that combination of concession and objection. Choice B reverses him, since he argues manufacturing persisted rather than vanished. Choice C endorses the older account's central claim, that adaptation stopped, which is the very point he denies. And choice D faults the sources he himself relies on.",
+  "_meta": {
+    "anchor": "Donald Quataert — revision of the Ottoman decline thesis"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "id": 436,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "information-and-ideas",
+  "skill": "central-ideas-and-details",
+  "question": "Which choice best states the main idea of the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Elephants undergo vastly more cell divisions over their long lifetimes than much smaller animals such as mice do."
+    },
+    {
+      "id": "B",
+      "text": "Every cell division in any animal carries with it a small risk of producing a cancer-causing mutation in the dividing cell."
+    },
+    {
+      "id": "C",
+      "text": "Although their size should make cancer common, elephants rarely develop it, and researchers have tied this resistance to their many extra copies of a gene that helps destroy damaged cells."
+    },
+    {
+      "id": "D",
+      "text": "Biologists use the term Peto's paradox to describe a genuine puzzle: why very large, long-lived animals such as elephants do not develop cancer nearly as often as their many cell divisions would predict."
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C. The passage poses Peto's paradox — large animals should get cancer more often but elephants rarely do — and reports that researchers have linked the resistance to elephants' many extra copies of a gene that helps destroy damaged cells. Choice A and choice B restate single supporting details, and choice D defines the paradox without giving the explanation that is the passage's point.",
+  "passage": "Large, long-lived animals ought to develop cancer far more often than small ones: every cell division carries a small risk of a cancer-causing mutation, and an elephant undergoes vastly more cell divisions in its lifetime than a mouse. Yet elephants rarely die of cancer — a puzzle biologists call Peto's paradox. Studying elephant DNA, one research group found that the species carries roughly twenty copies of a gene that helps damaged cells destroy themselves before they can become tumors, where humans carry only one. The extra copies, the researchers argue, give elephant tissues a more aggressive system for eliminating cells whose DNA has been damaged, which may help explain the paradox.",
+  "_meta": {
+    "anchor": "cancer biology — Peto's paradox and elephant p53 copies"
+  },
+  "module": 2
+}

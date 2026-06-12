@@ -1,0 +1,34 @@
+{
+  "id": 501,
+  "type": "multiple-choice",
+  "difficulty": "easy",
+  "band": 2,
+  "domain": "craft-and-structure",
+  "skill": "words-in-context",
+  "module": 1,
+  "passage": "Marine biologist Sylvia Earle, who has logged thousands of hours observing the ocean from submersibles, argues that protecting underwater life depends on firsthand experience rather than secondhand records. Even the most detailed seafloor maps and sonar surveys, she points out, cannot ______ what a diver perceives directly inside a kelp forest: the shifting, living relationships among the organisms that shape such places from one hour to the next.",
+  "question": "Which choice completes the text with the most logical and precise word or phrase?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "classify"
+    },
+    {
+      "id": "B",
+      "text": "anticipate"
+    },
+    {
+      "id": "C",
+      "text": "convey"
+    },
+    {
+      "id": "D",
+      "text": "replace"
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C, \"convey.\" The sentence contrasts two ways of knowing the ocean: the static products of mapping and sonar on one hand, and what a diver perceives directly on the other. The blank needs a verb meaning to communicate or transmit that lived knowledge, and \"convey\" fits exactly—maps and surveys, however detailed, cannot transmit the living relationships a diver experiences. \"Classify\" means sort into categories, but the sentence is about communicating an experience, not organizing one; \"anticipate\" means foresee, but the relationships already exist and are being observed, not predicted; and \"replace\" would say a map cannot substitute for the relationships themselves, a different claim from the one the sentence builds about what direct observation makes evident.",
+  "_meta": {
+    "anchor": "Sylvia Earle — marine biologist; firsthand undersea observation vs. maps and sonar"
+  }
+}

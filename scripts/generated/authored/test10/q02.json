@@ -1,0 +1,31 @@
+{
+ "id": 1002,
+ "type": "multiple-choice",
+ "difficulty": "medium",
+ "band": 3,
+ "domain": "craft-and-structure",
+ "skill": "words-in-context",
+ "module": 1,
+ "passage": "When researchers first explored the hydrothermal vents of the Galápagos Rift in 1977, they were startled to find dense animal communities thriving in waters that never see sunlight. The base of these food webs, it turned out, was not plant matter drifting from above but bacteria that ______ energy directly from the hydrogen sulfide venting out of the seafloor, converting an inorganic chemical into the fuel that sustains an entire ecosystem.",
+ "question": "Which choice completes the text with the most logical and precise word or phrase?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "release"
+  },
+  {
+   "id": "B",
+   "text": "store"
+  },
+  {
+   "id": "C",
+   "text": "transmit"
+  },
+  {
+   "id": "D",
+   "text": "extract"
+  }
+ ],
+ "correctAnswer": "D",
+ "explanation": "Choice D is correct. The passage explains that the vent communities are sustained not by sunlight but by bacteria that draw usable energy out of the hydrogen sulfide in the vent water. \"Extract\" fits this idea of pulling energy from a chemical source. \"Release\" reverses the direction, since the bacteria take energy in rather than give it off; \"store\" describes holding energy rather than obtaining it; and \"transmit\" describes passing energy along rather than capturing it from the sulfide."
+}

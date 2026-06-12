@@ -1,0 +1,34 @@
+{
+  "id": 404,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "craft-and-structure",
+  "skill": "words-in-context",
+  "question": "Which choice completes the text with the most logical and precise word or phrase?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "deliberate"
+    },
+    {
+      "id": "B",
+      "text": "coincidental"
+    },
+    {
+      "id": "C",
+      "text": "audible"
+    },
+    {
+      "id": "D",
+      "text": "permanent"
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B. Because the whale populations never meet yet take up similar new phrases in the same seasons, the writer reasons that the parallel changes are unlikely to be \"coincidental\" — a matter of chance — and must instead be carried between groups. \"Deliberate\" is tempting but the passage attributes the parallels to transmission rather than to intent; \"audible\" and \"permanent\" describe the songs themselves, not the relationship between the two groups' changes.",
+  "passage": "The songs of humpback whales change gradually from year to year, and populations on opposite sides of an ocean basin sometimes take up strikingly similar new phrases within the same few seasons. Because these groups are separated by thousands of miles and never meet, biologists argue that the parallel changes are unlikely to be ______: some channel of cultural transmission, they reason, must be carrying the new material from one population to another.",
+  "_meta": {
+    "anchor": "bioacoustics — cultural transmission of humpback whale song"
+  },
+  "module": 1
+}

@@ -1,0 +1,31 @@
+{
+ "id": 1001,
+ "type": "multiple-choice",
+ "difficulty": "medium",
+ "band": 2,
+ "domain": "craft-and-structure",
+ "skill": "words-in-context",
+ "module": 1,
+ "passage": "In the late 1970s, the physicist John Goodenough set out to find a cathode material that could release and reabsorb lithium ions through hundreds of charging cycles without losing its structure. After working through a series of metal oxides, he ______ lithium cobalt oxide, a layered compound stable enough to survive repeated use, which soon became the standard cathode in the rechargeable batteries that power portable electronics.",
+ "question": "Which choice completes the text with the most logical and precise word or phrase?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "concealed"
+  },
+  {
+   "id": "B",
+   "text": "identified"
+  },
+  {
+   "id": "C",
+   "text": "imitated"
+  },
+  {
+   "id": "D",
+   "text": "discarded"
+  }
+ ],
+ "correctAnswer": "B",
+ "explanation": "Choice B is correct. The physicist is searching for a cathode material with a particular set of properties, and the sentence says that after working through a series of metal oxides he found the one that fit—lithium cobalt oxide. \"Identified\" captures the act of singling out the right compound from the candidates he tested. \"Concealed\" and \"discarded\" both run opposite to the sense of the passage, which credits him with bringing the material to attention rather than hiding or rejecting it, and \"imitated\" wrongly suggests he copied an existing material rather than settling on one."
+}

@@ -1,0 +1,41 @@
+{
+  "id": 826,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "expression-of-ideas",
+  "skill": "rhetorical-synthesis",
+  "module": 1,
+  "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "William Stokoe, a linguist who taught at Gallaudet University, published his study Sign Language Structure in 1960."
+    },
+    {
+      "id": "B",
+      "text": "Stokoe argued that American Sign Language is a full, independent language with its own grammar, built from contrasting parts such as handshape, location, and movement rather than borrowed from English."
+    },
+    {
+      "id": "C",
+      "text": "Before Stokoe published his analysis, many people had assumed that American Sign Language was nothing more than a loose system of improvised gestures, or at best a simple manual code for spoken English."
+    },
+    {
+      "id": "D",
+      "text": "Stokoe showed that the signs of American Sign Language are built from a small set of contrasting parts: handshape, location, and movement."
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B. The goal is to convey what Stokoe argued about ASL, and B states his central claim—that ASL is a full, independent language with its own grammar—while including the handshape-location-movement detail that shows how he supported it. A reports only where and when he published; C describes the assumption he argued against rather than his own claim; and D gives one supporting detail without the overall argument the student wants to convey.",
+  "studentNotes": {
+    "intro": "While researching a topic, a student has taken the following notes:",
+    "bullets": [
+      "William Stokoe was a linguist at Gallaudet University, a college for deaf students.",
+      "In the 1950s, many people assumed American Sign Language (ASL) was a loose system of gestures or a manual code for English.",
+      "In Sign Language Structure (1960), Stokoe argued that ASL is a full, independent language.",
+      "He showed that ASL signs are built from a small set of contrasting parts: handshape, location, and movement.",
+      "Stokoe's analysis demonstrated that ASL has its own grammar, not borrowed from English."
+    ],
+    "goal": "The student wants to explain to an audience unfamiliar with Stokoe's work what he argued about American Sign Language."
+  }
+}

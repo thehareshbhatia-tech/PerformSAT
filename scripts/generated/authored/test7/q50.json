@@ -1,0 +1,31 @@
+{
+  "id": 750,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "expression-of-ideas",
+  "skill": "transitions",
+  "module": 2,
+  "passage": "Through the first half of the twentieth century, most geologists held that the continents were permanently fixed in place and that the floors of the oceans were ancient, largely unchanging surfaces. ______ magnetic surveys carried out in the late 1950s and 1960s found that the rocks of the seafloor grow steadily younger toward the mid-ocean ridges, evidence that new crust forms continuously along those ridges and spreads outward, slowly carrying the continents along with it.",
+  "question": "Which choice completes the text with the most logical transition?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "However,"
+    },
+    {
+      "id": "B",
+      "text": "Therefore,"
+    },
+    {
+      "id": "C",
+      "text": "As a result,"
+    },
+    {
+      "id": "D",
+      "text": "For example,"
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A. The passage contrasts the long-held belief that continents and ocean floors were fixed and unchanging with survey results showing that the seafloor is continually created and spreading, so the contrast transition \"However\" fits. \"Therefore\" and \"As a result\" both signal that the second sentence follows as a consequence of the first, which reverses the logic, and \"For example\" would introduce an illustration of the prevailing view rather than evidence against it."
+}

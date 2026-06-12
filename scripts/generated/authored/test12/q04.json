@@ -1,0 +1,31 @@
+{
+  "id": 1204,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "craft-and-structure",
+  "skill": "words-in-context",
+  "module": 1,
+  "passage": "During an explosive volcanic eruption, the towering column of ash can crackle with lightning. Scientists studying these flashes have shown that the bolts do not descend from ordinary storm clouds passing overhead but ____ within the ash column itself, where countless particles collide, trade electric charge, and build the imbalance that a sudden discharge releases.",
+  "question": "Which choice completes the text with the most logical and precise word or phrase?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "originate"
+    },
+    {
+      "id": "B",
+      "text": "gather"
+    },
+    {
+      "id": "C",
+      "text": "travel"
+    },
+    {
+      "id": "D",
+      "text": "spread"
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A. The sentence draws a contrast: the lightning does not come down from storm clouds overhead but comes into being inside the ash column, where colliding particles build up an electric charge. \"Originate\" names exactly that beginning of the bolts within the plume. \"Gather\" suggests bolts accumulating rather than forming, which the sentence does not claim. \"Travel\" and \"spread\" both describe the movement of lightning that already exists, missing the point that the discharge starts in the column itself."
+}

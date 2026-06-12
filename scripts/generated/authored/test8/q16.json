@@ -1,0 +1,31 @@
+{
+  "id": 816,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "information-and-ideas",
+  "skill": "inferences",
+  "module": 1,
+  "passage": "In the early 1970s the biochemist Paul Berg developed methods for splicing DNA from different organisms into a single molecule, a foundational step toward genetic engineering. Recognizing that no one yet understood the risks of releasing such recombinant organisms, Berg helped organize the 1975 Asilomar conference, which called for a temporary, voluntary halt to the most uncertain experiments until safety guidelines could be drawn up. He did not abandon the research; once containment standards were agreed, work resumed, and Berg continued to advance the field. His conduct therefore suggests that a scientist who has opened a powerful new line of research may ____",
+  "question": "Which choice most logically completes the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "conclude that the new techniques are too hazardous to be pursued under any circumstances."
+    },
+    {
+      "id": "B",
+      "text": "leave all questions about the safety of the research to government regulators rather than fellow scientists."
+    },
+    {
+      "id": "C",
+      "text": "come to regard the very techniques as a mistake once their risks have been publicly debated."
+    },
+    {
+      "id": "D",
+      "text": "call for restraint on the most uncertain uses of the work while continuing to push the research forward in others."
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "The correct answer is D. Berg sought a pause on the riskiest experiments yet kept advancing the field once safeguards were set, so his example points to a scientist who urges restraint on the most uncertain applications while continuing the broader research. D captures that balance. A and C have him renouncing the work, which he plainly did not; B hands the judgment entirely to regulators, whereas Berg's example shows scientists themselves initiating the restraint."
+}

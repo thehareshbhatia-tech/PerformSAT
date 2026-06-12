@@ -1,0 +1,31 @@
+{
+ "id": 1052,
+ "type": "multiple-choice",
+ "difficulty": "medium",
+ "band": 3,
+ "domain": "expression-of-ideas",
+ "skill": "transitions",
+ "module": 2,
+ "passage": "When Richard Wagner opened his opera house at Bayreuth in 1876, he broke with a long theatrical custom by keeping the auditorium dark during the performance and hiding the orchestra in a sunken pit beneath the stage. Audiences accustomed to socializing in a half-lit hall could no longer see one another, and the players' lamps no longer competed with the painted scene. ______ nothing distracted the eye from the illuminated stage, and the spectacle Wagner had designed could hold an audience's attention as a single, unbroken world.",
+ "question": "Which choice completes the text with the most logical transition?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "Nevertheless,"
+  },
+  {
+   "id": "B",
+   "text": "For example,"
+  },
+  {
+   "id": "C",
+   "text": "As a result,"
+  },
+  {
+   "id": "D",
+   "text": "Meanwhile,"
+  }
+ ],
+ "correctAnswer": "C",
+ "explanation": "Choice C is correct. The passage describes Wagner's changes—darkening the hall and sinking the orchestra out of sight—and then states the effect: nothing distracted the eye from the lit stage, so the staged world could hold the audience's attention unbroken. \"As a result\" marks that cause-and-effect link. \"Nevertheless\" would signal a contrast, \"For example\" an illustration of a prior claim, and \"Meanwhile\" a simultaneous event, none of which expresses the consequence the sentence reports."
+}

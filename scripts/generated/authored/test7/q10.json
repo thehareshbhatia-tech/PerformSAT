@@ -1,0 +1,31 @@
+{
+  "id": 710,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "information-and-ideas",
+  "skill": "central-ideas-and-details",
+  "module": 1,
+  "passage": "Before the electric spotlight, a theater had no way to throw a bright, steerable beam across its stage. That changed with limelight, developed in the 1820s by the engineer Thomas Drummond, who needed a light visible over great distances for land surveying. Heating a cylinder of lime in a flame of burning oxygen and hydrogen produced a brilliant white glow that, mounted in a reflector behind a lens, could be aimed wherever a production wanted the audience to look. Once theaters adopted the device in the 1830s, an operator could pick out a single performer from the soft, undirected wash of the gas footlights — a power so closely tied to prominence that favored actors were soon said to be \"in the limelight.\"",
+  "question": "Which choice best states the main idea of the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Thomas Drummond invented limelight to brighten theatrical productions, and surveyors only later discovered that the device could also be useful for measuring long distances."
+    },
+    {
+      "id": "B",
+      "text": "Because limelight depended on a flame of burning oxygen and hydrogen, most nineteenth-century theaters considered the device too hazardous to install."
+    },
+    {
+      "id": "C",
+      "text": "Limelight, a surveying technology taken up by theaters, gave the nineteenth-century stage its first means of aiming an intense beam at chosen performers."
+    },
+    {
+      "id": "D",
+      "text": "The expression \"in the limelight\" entered everyday speech because audiences came to associate the device's brilliant glow with the prominence of featured performers."
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C. The passage traces limelight from Drummond's surveying lamp to the stage and stresses what the technology made newly possible: an intense, steerable beam that could single out one performer, something the even wash of the gas footlights could not do. Choice A reverses the actual sequence, since Drummond built the light for surveying and theaters adopted it afterward. Choice B contradicts the text, which says theaters took up the device in the 1830s. Choice D fixes on the origin of a familiar phrase, a closing detail rather than the point the passage as a whole develops."
+}

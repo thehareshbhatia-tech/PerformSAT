@@ -1,0 +1,34 @@
+{
+  "id": 523,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "expression-of-ideas",
+  "skill": "transitions",
+  "module": 1,
+  "passage": "Among the gases linked to the springtime thinning of the ozone layer over Antarctica, the chlorofluorocarbons once used in refrigerants and aerosol sprays received the most public attention in the second half of the twentieth century. ______ those compounds are tightly restricted: the 1987 Montreal Protocol and its amendments have phased out their production almost entirely, and the remaining atmospheric concentrations are monitored at stations around the world.",
+  "question": "Which choice completes the text with the most logical transition?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "For example,"
+    },
+    {
+      "id": "B",
+      "text": "Therefore,"
+    },
+    {
+      "id": "C",
+      "text": "Today,"
+    },
+    {
+      "id": "D",
+      "text": "However,"
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C, \"Today,\". The first sentence describes the historical situation—the attention CFCs received in the twentieth century—and the second describes the present state of affairs, in which the compounds are tightly restricted and monitored. The relation between the two is a then-versus-now contrast, and \"Today,\" marks that shift to the present. \"However,\" would signal that the second sentence reverses a claim, but it updates rather than contradicts the first. \"Therefore,\" would make the restrictions a consequence of public attention, which is not the relation. \"For example,\" would introduce an instance, which the second sentence is not.",
+  "_meta": {
+    "anchor": "CFCs and the 1987 Montreal Protocol; historical-then-present transition"
+  }
+}

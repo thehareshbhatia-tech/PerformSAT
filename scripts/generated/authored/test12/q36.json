@@ -1,0 +1,31 @@
+{
+  "id": 1236,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "information-and-ideas",
+  "skill": "central-ideas-and-details",
+  "module": 2,
+  "passage": "Until the late 1970s, biologists assumed that essentially all life ultimately depended on sunlight: plants and algae capture solar energy, and everything else eats them or eats their eaters. The discovery of dense animal communities clustered around hydrothermal vents on the deep ocean floor, far below the reach of any light, forced a revision of that picture. Researchers found that the foundation of these communities is a population of bacteria that draw energy not from sunlight but from chemical compounds, especially hydrogen sulfide, venting from the seafloor—a process now called chemosynthesis. Tube worms, clams, and other vent animals either host these bacteria in their tissues or graze on them. The finding established that a complete ecosystem can be built on a chemical rather than a solar energy source.",
+  "question": "Which choice best states the main idea of the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Tube worms, giant clams, and the various other animals living around deep-sea hydrothermal vents either host chemosynthetic bacteria within their own tissues or graze directly on them."
+    },
+    {
+      "id": "B",
+      "text": "The discovery of vent communities powered by chemosynthetic bacteria showed that a complete ecosystem can rest on a chemical rather than a solar energy source."
+    },
+    {
+      "id": "C",
+      "text": "Before the late 1970s, biologists assumed that nearly all of the life on Earth ultimately depended on energy that had been captured from sunlight."
+    },
+    {
+      "id": "D",
+      "text": "Hydrothermal vents release hydrogen sulfide along with other chemical compounds from the seafloor into the surrounding cold deep-ocean water."
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B. The passage builds to the claim that vent communities, fed by chemosynthetic bacteria, prove an entire ecosystem can run on chemical rather than solar energy, overturning the older assumption. B states that. A describes how the vent animals get their energy, a supporting detail. C gives the prior assumption the discovery revised, not the main point. D is a fact about the vents themselves but not the central idea the passage develops."
+}

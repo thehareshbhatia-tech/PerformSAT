@@ -1,0 +1,34 @@
+{
+ "id": 304,
+ "module": 1,
+ "difficulty": "hard",
+ "band": 4,
+ "domain": "craft-and-structure",
+ "skill": "words-in-context",
+ "question": "Which choice completes the text with the most logical and precise word or phrase?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "restore"
+  },
+  {
+   "id": "B",
+   "text": "inherit"
+  },
+  {
+   "id": "C",
+   "text": "exaggerate"
+  },
+  {
+   "id": "D",
+   "text": "defy"
+  }
+ ],
+ "correctAnswer": "D",
+ "explanation": "The correct answer is D, \"defy.\" The sentence contrasts the Gee's Bend quilts with conventional American quilting: critics expected humble craft but found \"bold, improvisational geometry,\" and the blank is set against \"rather than to imitate it.\" That contrast calls for a verb meaning to go against or break with the prized symmetry, and \"defy\" fits precisely. \"Imitate\" is named as the rejected option, so \"inherit\" (which points toward continuity) runs the wrong way; \"restore\" implies returning the symmetry to an earlier state; and \"exaggerate\" would mean amplifying the conventional symmetry rather than departing from it. Only \"defy\" captures the break the sentence draws.",
+ "_meta": {
+  "anchor": "Gee's Bend quilters (Alabama); improvisational geometry; major museum exhibition beginning 2002 [theme: American quilt history]"
+ },
+ "passage": "For generations, the quilters of Gee's Bend, an isolated Black community in a bend of the Alabama River, pieced bedcovers from worn work clothes and feed sacks because little else was available. When their quilts were exhibited in major museums beginning in 2002, critics who had expected humble craft were struck instead by the bold, improvisational geometry of the designs, which seemed to ______ the careful symmetry prized in conventional American quilting rather than to imitate it.",
+ "type": "multiple-choice"
+}

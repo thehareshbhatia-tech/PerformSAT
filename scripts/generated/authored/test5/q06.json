@@ -1,0 +1,35 @@
+{
+  "id": 506,
+  "type": "multiple-choice",
+  "difficulty": "easy",
+  "band": 2,
+  "domain": "craft-and-structure",
+  "skill": "text-structure-and-purpose",
+  "module": 1,
+  "passage": "The following text is from Herman Melville's 1851 novel Moby-Dick. The narrator, Ishmael, opens his account.\n\nCall me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world. It is a way I have of driving off the spleen and regulating the circulation.",
+  "question": "Which choice best states the main purpose of the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "To present the narrator's practice of going to sea as a personal remedy he turns to when he is restless and out of sorts on shore."
+    },
+    {
+      "id": "B",
+      "text": "To describe in detail the financial hardships that had left the narrator with very little money in his purse before the voyage began."
+    },
+    {
+      "id": "C",
+      "text": "To compare the narrator's life aboard a ship at sea with the daily routines of the people who choose to remain on shore."
+    },
+    {
+      "id": "D",
+      "text": "To explain the particular navigational techniques the narrator depends on while sailing across the watery part of the world."
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A. The narrator says that when he has little money and nothing to interest him on land, he goes to sea, and he names the reason directly: it is his way \"of driving off the spleen and regulating the circulation\"—that is, of relieving his low spirits and restlessness. The passage's purpose is to present sailing as that personal remedy. Choice B treats a passing detail (his empty purse) as the whole point. Choice C invents a comparison with people who stay ashore that the passage does not develop. Choice D supplies a topic—navigation—that the passage never takes up.",
+  "_meta": {
+    "quoteVerify": true,
+    "source": "Herman Melville, Moby-Dick (1851), Chapter 1 ('Loomings'), opening lines"
+  }
+}

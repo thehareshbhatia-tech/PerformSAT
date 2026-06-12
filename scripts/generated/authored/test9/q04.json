@@ -1,0 +1,34 @@
+{
+  "id": 904,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "craft-and-structure",
+  "skill": "words-in-context",
+  "module": 1,
+  "passage": "Excavations led by the archaeologist Ruth Shady at Caral, in Peru's Supe Valley, uncovered monumental platform mounds and sunken plazas that radiocarbon dating placed at roughly 2600 BCE. Because no fortifications, weapons, or other signs of warfare appeared anywhere at the site, Shady argued that Caral's scale had been ______ not by military conquest but by an economy of trade and shared ceremony that drew people into a common civic project.",
+  "question": "Which choice completes the text with the most logical and precise word or phrase?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "sustained"
+    },
+    {
+      "id": "B",
+      "text": "limited"
+    },
+    {
+      "id": "C",
+      "text": "recorded"
+    },
+    {
+      "id": "D",
+      "text": "disguised"
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The passage contrasts two possible sources of Caral's monumental scale: conquest, which the absence of weapons rules out, and an economy of trade and shared ceremony. The blank needs a verb describing how that scale was produced or kept up, and \"sustained,\" choice A, fits. \"Limited\" reverses the meaning, \"recorded\" describes documentation rather than cause, and \"disguised\" makes no sense of the contrast.",
+  "_meta": {
+    "anchor": "Ruth Shady and Caral, Supe Valley"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": 1211,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "information-and-ideas",
+  "skill": "central-ideas-and-details",
+  "module": 1,
+  "passage": "Most early library classification systems assigned each book a single fixed place on the shelf, sorting works into a tree of ever-narrower subjects. The Indian librarian S. R. Ranganathan argued in the 1930s that this approach broke down for works that belonged to several subjects at once. He proposed instead a faceted scheme, in which a book is described by combining separate aspects—its subject matter, the form it takes, the place and period it concerns—rather than by forcing it into one branch of a fixed hierarchy. The advantage, he held, was flexibility: new combinations could be expressed without rebuilding the whole system, and a work touching several fields could be represented as such. Faceted classification is now treated as a foundational idea in the organization of information, well beyond the shelving of physical books.",
+  "question": "Which choice best states the main idea of the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Most early library classification systems sorted every book into a single fixed place within an elaborate tree of progressively narrower and narrower subject categories."
+    },
+    {
+      "id": "B",
+      "text": "Ranganathan designed his faceted classification scheme specifically to handle books that concern particular places and historical periods."
+    },
+    {
+      "id": "C",
+      "text": "Ranganathan's faceted classification describes a work by combining separate aspects rather than fixing it in one hierarchy, an idea now foundational to organizing information."
+    },
+    {
+      "id": "D",
+      "text": "Faceted classification ultimately proved far less flexible in practice than the fixed subject hierarchies it had been designed to replace."
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C. The passage builds toward the claim that Ranganathan's combine-the-aspects approach replaced rigid single-place hierarchies and has become foundational. C states that. A describes only the older system the passage moves away from. B fixes on one example of the aspects (place and period) as if it were the whole purpose. D reverses the passage, which credits faceting with greater flexibility, not less."
+}

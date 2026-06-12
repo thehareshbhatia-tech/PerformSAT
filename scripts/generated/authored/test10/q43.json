@@ -1,0 +1,31 @@
+{
+ "id": 1043,
+ "type": "multiple-choice",
+ "difficulty": "hard",
+ "band": 4,
+ "domain": "information-and-ideas",
+ "skill": "inferences",
+ "module": 2,
+ "passage": "Living things constantly take in carbon from the atmosphere, including a small, steady proportion of the radioactive isotope carbon-14. When an organism dies, it stops taking in carbon, and the carbon-14 it already contains decays at a known rate. By measuring how much carbon-14 remains in a sample of bone, charcoal, or wood, a researcher can estimate how long ago the organism died. But carbon-14 decays quickly enough that, after about fifty thousand years, only a negligible amount is left to measure. A researcher hoping to date a fossil far older than that ______",
+ "question": "Which choice most logically completes the text?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "can still rely on its remaining carbon-14, since the isotope decays at a constant and therefore measurable rate."
+  },
+  {
+   "id": "B",
+   "text": "will find that the sample contains more carbon-14 than a younger one, because older material has had longer to accumulate it."
+  },
+  {
+   "id": "C",
+   "text": "must turn to a different dating method, since too little carbon-14 remains in such old material to be measured reliably."
+  },
+  {
+   "id": "D",
+   "text": "can determine its age precisely as long as the original organism took in carbon from the atmosphere while alive."
+  }
+ ],
+ "correctAnswer": "C",
+ "explanation": "Choice C is correct. The passage explains that carbon-14 decays quickly enough that after about fifty thousand years only a negligible amount remains. For a fossil far older than that, there is too little carbon-14 left to measure, so the researcher must use another method—exactly Choice C's conclusion. Choice A ignores that limit, assuming a measurable amount remains. Choice B reverses the chemistry: an organism stops taking in carbon at death and the isotope decays, so older material has less, not more. Choice D assumes precise dating is still possible, which the depletion of carbon-14 rules out for very old samples."
+}

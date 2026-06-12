@@ -1,0 +1,43 @@
+{
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "craft-and-structure",
+  "skill": "cross-text-connections",
+  "question": "Based on the texts, how would the authors of Text 2 most likely respond to the explanation offered in Text 1?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "They would note that the seawater reactions described in Text 1 cannot account for the durability of Roman structures built far inland, which their own lime-clast mechanism explains without any role for the sea."
+    },
+    {
+      "id": "B",
+      "text": "They would argue that the volcanic ash emphasized in Text 1 played no genuine part in the strength of any Roman concrete, since on their analysis the embedded lime clasts alone determine whether the hardened material endures over time."
+    },
+    {
+      "id": "C",
+      "text": "They would conclude that Roman concrete owes its longevity entirely to seawater, and that modern marine concrete fails only because it is not exposed to enough of it."
+    },
+    {
+      "id": "D",
+      "text": "They would accept that their lime-clast findings apply only to harbor concrete, leaving Text 1's account as the better explanation for structures built on land."
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A. Text 2 locates Roman durability in lime clasts that release calcium to seal cracks whenever water—any water—seeps in, and it stresses that this self-healing would protect inland structures the sea never touches. Its authors would therefore point out that Text 1's seawater mechanism, however valid for harbor concrete, cannot explain the survival of Roman buildings far from the coast, where their own mechanism still applies. Choice B overstates their view: they do not deny that volcanic ash matters, only that seawater is the whole story. Choice C attributes to them the seawater-only position they reject, and Choice D has them conceding that their findings are narrower than they actually claim.",
+  "passages": [
+    {
+      "label": "Text 1",
+      "text": "Why has Roman concrete in coastal harbors survived two thousand years of pounding waves when modern marine concrete crumbles in decades? The geologist Marie Jackson has argued that the answer lies in the Romans' volcanic ash. As seawater percolated through the ancient concrete, it slowly dissolved components of the ash and, over centuries, grew interlocking mineral crystals within the material's pores. On this account, the concrete did not merely resist the sea; it used seawater as an ingredient, becoming stronger and more cohesive with age rather than weaker."
+    },
+    {
+      "label": "Text 2",
+      "text": "Examining the white mineral lumps long dismissed as evidence of careless mixing, a team led by the engineer Admir Masic reached a different conclusion about Roman durability. The lumps, they argue, show that the Romans mixed their concrete hot, using quicklime. These lime-rich inclusions act as a built-in repair kit: when a crack forms and water seeps in, calcium dissolves out of a nearby lump and recrystallizes across the gap, sealing it. Because this self-healing depends only on the lime clasts and ordinary water, the team notes, it would protect inland structures that no seawater ever reaches."
+    }
+  ],
+  "_meta": {
+    "anchor": "Roman concrete durability: seawater/pozzolan mineral growth (Jackson) vs. hot-mixed lime-clast self-healing (Masic, Seymour)"
+  },
+  "id": 1108,
+  "module": 1
+}

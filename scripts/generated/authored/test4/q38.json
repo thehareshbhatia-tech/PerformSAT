@@ -1,0 +1,34 @@
+{
+  "id": 438,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "information-and-ideas",
+  "skill": "central-ideas-and-details",
+  "question": "Which choice best states the main idea of the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Before the 1880s, a traveler crossing the United States passed through dozens of towns that each set their clocks slightly differently according to the local position of the sun."
+    },
+    {
+      "id": "B",
+      "text": "Local time in a given town was set by the position of the sun directly overhead at that particular location."
+    },
+    {
+      "id": "C",
+      "text": "A small difference in time between two railroad stations could lead to a missed connection or even a collision between trains."
+    },
+    {
+      "id": "D",
+      "text": "The standard time zones the United States still uses arose when railroads, needing to coordinate schedules across long distances, replaced the old patchwork of local times in 1883."
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "The correct answer is D. The passage explains that the United States adopted standard time zones in 1883 because railroads needed to coordinate schedules across the old patchwork of local times. Choice A, choice B, and choice C each restate a single supporting detail — the variety of local times, how local time was set, and the danger of mismatched schedules — rather than the main point about why the zones were created.",
+  "passage": "Before the 1880s, towns in the United States kept their own local time, setting their clocks by the position of the sun overhead. A town a few miles to the east would be a minute or two ahead of its neighbor, and a traveler crossing the country passed through dozens of slightly different times. This caused little trouble until railroads began running on tight schedules across long distances, where a difference of minutes between stations could mean a missed connection or a collision. To coordinate their timetables, the railroad companies agreed in 1883 to divide the country into a handful of standard time zones — the system, later written into law, that the country still uses.",
+  "_meta": {
+    "anchor": "history of standard time zones"
+  },
+  "module": 2
+}

@@ -1,0 +1,34 @@
+{
+  "id": 548,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "standard-english-conventions",
+  "skill": "boundaries",
+  "module": 2,
+  "passage": "The technique can look forbidding from the outside, but its core apparatus is straightforward. Much of crystallography depends on three pieces of equipment ______ a source that produces a beam of X-rays, a stage that slowly rotates the crystal, and a detector that records where the scattered rays land as a pattern of spots.",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "equipment: a"
+    },
+    {
+      "id": "B",
+      "text": "equipment, a"
+    },
+    {
+      "id": "C",
+      "text": "equipment; a"
+    },
+    {
+      "id": "D",
+      "text": "equipment a"
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A, \"equipment: a\". The words before the blank form a complete independent clause (\"Much of crystallography depends on three pieces of equipment\"), and what follows is a list that spells out those three pieces, so a colon is the right mark to introduce the specification. A comma (choice B) is too weak to set up the list cleanly after a full clause. A semicolon (choice C) would require an independent clause after it, but a list of noun phrases follows. No punctuation (choice D) runs the clause into the list with no boundary.",
+  "_meta": {
+    "anchor": "Crystallography equipment; colon introducing a list after an independent clause"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": 820,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "standard-english-conventions",
+  "skill": "form-structure-and-sense",
+  "module": 1,
+  "passage": "Working from the trilingual inscription on the Rosetta Stone, Jean-François Champollion showed in the 1820s that the oval cartouches in Egyptian inscriptions enclosed royal names. Later scholars built on his method to read texts that recorded the names, titles, and ______ of a long line of pharaohs.",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "reigning"
+    },
+    {
+      "id": "B",
+      "text": "they reigned"
+    },
+    {
+      "id": "C",
+      "text": "reigns"
+    },
+    {
+      "id": "D",
+      "text": "to reign"
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C. The blank is the third item in a series with \"the names, titles, and ___,\" so it must be a noun parallel to \"names\" and \"titles.\" \"Reigns\" is that noun. The participle \"reigning\" in A, the clause \"they reigned\" in B, and the infinitive \"to reign\" in D each break the parallel structure by introducing a different grammatical form into a list of nouns."
+}

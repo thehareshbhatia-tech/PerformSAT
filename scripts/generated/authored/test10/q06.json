@@ -1,0 +1,31 @@
+{
+ "id": 1006,
+ "type": "multiple-choice",
+ "difficulty": "medium",
+ "band": 3,
+ "domain": "craft-and-structure",
+ "skill": "text-structure-and-purpose",
+ "module": 1,
+ "passage": "Before 1970, the long, patterned sounds that hydrophones picked up near humpback whales were generally dismissed as incidental noise. Analyzing recordings made off Bermuda, the biologist Roger Payne showed that these sounds were not random at all: each was a structured sequence of themes and phrases, repeated in a fixed order and revised over a season by all the males in a population together. Payne's analysis, later released as a widely heard recording, established that humpback song is an organized acoustic display rather than a byproduct of ordinary behavior, and it reframed the questions marine biologists asked about how the animals communicate.",
+ "question": "Which choice best states the main purpose of the text?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "To trace the development of the underwater recording technology that made the study of whale sounds possible."
+  },
+  {
+   "id": "B",
+   "text": "To describe how Payne's analysis of humpback recordings overturned the view that the animals' sounds were random noise and changed how biologists studied them."
+  },
+  {
+   "id": "C",
+   "text": "To explain why the males in a given humpback whale population revise their shared song over the course of a single breeding season, year after year."
+  },
+  {
+   "id": "D",
+   "text": "To argue that the patterned songs of humpback whales are more complex than the vocalizations of any other marine animal."
+  }
+ ],
+ "correctAnswer": "B",
+ "explanation": "Choice B is correct. The passage sets up an earlier assumption—that the long sounds near humpbacks were incidental noise—and then reports how Payne's analysis showed the sounds were ordered sequences of repeated themes, reframing the questions biologists asked. That arc from dismissed-as-noise to organized-display is the main purpose. Choice A treats the recording technology as the focus, but the passage mentions it only in passing. Choice C picks up a single detail (seasonal revision) and mistakes it for the whole point. Choice D makes a cross-species ranking the passage never asserts."
+}

@@ -1,0 +1,34 @@
+{
+  "id": 512,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "information-and-ideas",
+  "skill": "command-of-evidence-textual",
+  "module": 1,
+  "passage": "Nicaraguan Sign Language arose only after a school for deaf children, opened in Managua in the late 1970s, brought together students who had previously communicated with isolated home gestures. Linguists who studied the language as it developed argue that its grammar did not appear all at once but was built up by successive groups of children, with each new cohort regularizing and elaborating what the previous one had produced. A researcher claims that the youngest signers, rather than the original founders, were the principal source of the language's growing grammatical complexity.",
+  "question": "Which finding, if true, would most directly support the researcher's claim?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "The very first group of students to attend the new school produced a larger everyday vocabulary of individual signs than any of the later groups of children did."
+    },
+    {
+      "id": "B",
+      "text": "Children who entered the school as teenagers tended to sign more slowly than children who entered it at a younger age."
+    },
+    {
+      "id": "C",
+      "text": "Grammatical devices absent from the signing of the first students appeared and became systematic in the signing of the children who entered the school later."
+    },
+    {
+      "id": "D",
+      "text": "Deaf children in Nicaragua today often begin learning the language at home before they ever enroll in a school."
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C. The claim is that the youngest signers, not the founders, drove the growth of grammatical complexity. A finding that grammatical devices missing from the founders' signing later appeared and became systematic among the children who entered afterward speaks directly to that claim. Choice A concerns vocabulary size, not grammatical complexity, and points to the founders rather than the youngest signers. Choice B is about signing speed, which the claim does not address. Choice D describes how the language is transmitted now, which says nothing about which early cohort supplied its grammar.",
+  "_meta": {
+    "anchor": "Nicaraguan Sign Language; grammar built up across successive child cohorts"
+  }
+}

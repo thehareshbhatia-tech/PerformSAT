@@ -1,0 +1,34 @@
+{
+  "id": 947,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "standard-english-conventions",
+  "skill": "form-structure-and-sense",
+  "module": 2,
+  "passage": "In 1961, the astronomer Frank Drake wrote on a chalkboard an equation organizing the factors that bear on how many communicating civilizations might exist in our galaxy. In the decades since, researchers ______ the search Drake helped launch, scanning thousands of nearby stars for artificial radio signals without yet detecting one.",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "pursue"
+    },
+    {
+      "id": "B",
+      "text": "had pursued"
+    },
+    {
+      "id": "C",
+      "text": "will pursue"
+    },
+    {
+      "id": "D",
+      "text": "have pursued"
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "\"In the decades since\" describes action that began in the past and continues into the present, which calls for the present perfect \"have pursued\"—choice D. The simple present \"pursue\" (A) loses the span of time, the past perfect \"had pursued\" (B) needs a later past reference, and the future \"will pursue\" (C) contradicts work already done.",
+  "_meta": {
+    "anchor": "Frank Drake, the search for radio signals"
+  }
+}

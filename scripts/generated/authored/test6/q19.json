@@ -1,0 +1,31 @@
+{
+  "id": 619,
+  "module": 1,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "standard-english-conventions",
+  "skill": "boundaries",
+  "passage": "Among the institutions that hold extensive Pacific Islander material culture are three that emerged from very different museum histories: the Bishop Museum in Honolulu, founded in 1889 by Charles Reed Bishop; Te Papa Tongarewa in Wellington, opened in its current form in ______ and the Australian Museum in Sydney, established in 1827 and the oldest of the three.",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "1998, and"
+    },
+    {
+      "id": "B",
+      "text": "1998"
+    },
+    {
+      "id": "C",
+      "text": "1998;"
+    },
+    {
+      "id": "D",
+      "text": "1998,"
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C, \"1998;\". The sentence lists three institutions, and each item already contains internal commas from its appositive description (city, date, founder or rank). When the items in a series themselves contain commas, Standard English separates the items with semicolons so their boundaries stay clear. A semicolon already divides the first item from the second (after \"Charles Reed Bishop\"), so the divider between the second and third items must also be a semicolon. Choice D, a comma, blurs that boundary; choice B, no punctuation, fuses the second and third items; and choice A, a comma plus \"and,\" breaks the parallel semicolon series the sentence has begun."
+}

@@ -1,0 +1,31 @@
+{
+  "id": 1231,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "craft-and-structure",
+  "skill": "words-in-context",
+  "module": 2,
+  "passage": "Film archivists face a problem rooted in chemistry. The nitrate film stock used through the 1940s is not inert; left in warm storage, it slowly decomposes, and the process is ____: as the base breaks down it releases gases that hasten the decay of nearby reels, so a single deteriorating canister can speed the loss of an entire shelf. Archives therefore keep surviving nitrate in cold vaults and copy the most fragile titles onto stable modern stock before the originals are beyond rescue.",
+  "question": "Which choice completes the text with the most logical and precise word or phrase?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "reversible"
+    },
+    {
+      "id": "B",
+      "text": "gradual"
+    },
+    {
+      "id": "C",
+      "text": "self-accelerating"
+    },
+    {
+      "id": "D",
+      "text": "deliberate"
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C. The colon spells out the meaning: the decay \"releases gases that hasten the decay of nearby reels,\" so the process feeds on itself; \"self-accelerating\" names that compounding quality. \"Gradual\" is tempting because the text says the stock decomposes \"slowly,\" but the point of the blank is that the decay speeds up and spreads, not that it is slow. \"Reversible\" contradicts the passage, in which decayed film is lost. \"Deliberate\" wrongly implies intention in a chemical process."
+}

@@ -1,0 +1,43 @@
+{
+  "id": 435,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "craft-and-structure",
+  "skill": "cross-text-connections",
+  "question": "Based on the texts, how would the authors of Text 2 most likely respond to the argument presented in Text 1?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "They would deny that cheese rinds host any genuine microbial community at all, arguing that whatever bacteria and fungi appear on them must come entirely from added starter cultures or from ordinary contamination."
+    },
+    {
+      "id": "B",
+      "text": "The terroir account, they would say, is essentially correct, and the influence of microbes unique to each place on a cheese's flavor is almost certainly even greater and more finely organized than the original claim suggests."
+    },
+    {
+      "id": "C",
+      "text": "They would agree that native microbes deliberately tune each cheese's flavor but object that maintaining such place-bound communities would be far too costly for most dairies to sustain."
+    },
+    {
+      "id": "D",
+      "text": "Cheese rinds do host rich communities of bacteria and fungi, they would grant, but the strongest terroir claim — that a cheese's flavor depends on microbes unique to one place — reaches beyond what experiments show."
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "The correct answer is D. Dutton and her colleagues do not deny that cheese rinds carry rich communities of bacteria and fungi; they have studied those communities closely. What they dispute is the strongest version of the terroir claim, that a cheese's flavor depends on a mixture of microbes unique to one place. Because they can rebuild the same communities in the laboratory from a known set of species, far from any traditional cave, they conclude that flavor cannot rest on an irreproducible, place-bound mixture. Choice A denies the microbial communities they actually accept; choice B has them endorsing the terroir account in full; and choice C attributes to them a cost objection the texts never raise.",
+  "passages": [
+    {
+      "label": "Text 1",
+      "text": "Traditional cheesemakers have long believed that a great cheese tastes of the place it comes from. On this view, the flavor of a classic raw-milk cheese is the work of a \"microbial terroir\" — a community of wild bacteria and fungi native to a particular farm, pasture, or aging cave. These local microbes settle on the curd and rind during the months a cheese matures, and the precise mixture, the argument runs, cannot be found anywhere else. Move the same recipe and the same animals to another region, advocates say, and the cheese will never taste quite the same, because the microbes that shaped it cannot be carried along."
+    },
+    {
+      "label": "Text 2",
+      "text": "The microbiologist Rachel Dutton and her colleagues do not doubt that cheese rinds host complex communities of bacteria and fungi; they have catalogued these communities in detail. But in their experiments the same communities reassemble in a predictable order when a defined set of species is grown on fresh curd in the laboratory, far from any traditional cave. If a rind's microbes can be reconstructed from a known list of species in a different place, they argue, then flavor cannot depend on an irreproducible mixture unique to one farm. The terroir picture, however appealing, claims more than the evidence has shown."
+    }
+  ],
+  "_meta": {
+    "anchor": "cross-text — microbial-terroir hypothesis vs. Rachel Dutton et al. (reproducible cheese-rind communities); cheese/fermentation microbiology"
+  },
+  "module": 2
+}

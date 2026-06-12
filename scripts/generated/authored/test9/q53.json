@@ -1,0 +1,45 @@
+{
+  "id": 953,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "expression-of-ideas",
+  "skill": "rhetorical-synthesis",
+  "module": 2,
+  "studentNotes": {
+    "intro": "While researching a topic, a student has taken the following notes:",
+    "bullets": [
+      "Frances Densmore (1867-1957) was an American ethnomusicologist affiliated with the Bureau of American Ethnology.",
+      "Between 1907 and the 1950s, she made wax-cylinder field recordings of songs in over thirty Native American communities.",
+      "Densmore typically transcribed each recorded song into Western staff notation alongside the singer's own commentary on its function.",
+      "Her contemporaries in comparative musicology often abstracted songs from their ceremonial settings to compare them as melodic specimens.",
+      "Densmore's monographs — including *Chippewa Music* (1910-1913) and *Teton Sioux Music* (1918) — paired each transcription with notes on when, by whom, and for what purpose the song was performed.",
+      "Recent scholars credit Densmore with treating song meaning as inseparable from ceremonial context decades before that approach became standard."
+    ],
+    "goal": "The student wants to emphasize a methodological difference between Densmore's work and that of her comparative-musicology contemporaries."
+  },
+  "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Whereas her contemporaries often stripped songs from their ceremonial settings to compare them as melodies, Densmore paired each transcription with notes on when, by whom, and why the song was performed."
+    },
+    {
+      "id": "B",
+      "text": "Recent scholars credit Densmore with treating song meaning as inseparable from ceremonial context, an approach that became standard only decades later."
+    },
+    {
+      "id": "C",
+      "text": "Frances Densmore recorded songs in over thirty Native American communities between 1907 and the 1950s for the Bureau of American Ethnology."
+    },
+    {
+      "id": "D",
+      "text": "Like her contemporaries, Densmore transcribed Native American songs into Western staff notation to make them available for cross-cultural melodic comparison."
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The goal is to highlight how Densmore's method differed from her contemporaries'. Choice A draws the contrast directly: where others stripped songs from their settings to compare melodies, she recorded when, by whom, and why each song was performed. Choices B and C state her reputation or biography without the comparison, and D wrongly aligns her with the very contemporaries she differed from.",
+  "_meta": {
+    "anchor": "Frances Densmore, ethnomusicology"
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "id": 1214,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "information-and-ideas",
+  "skill": "command-of-evidence-quantitative",
+  "module": 1,
+  "passage": "Conservation biologists studying Pacific salmon often summarize climate-driven shifts in run timing as a uniform advance: warmer waters, earlier spawning, across the board. Drawing on long-term records from Alaskan rivers, Ryan Kovach and colleagues argue in a 2013 Conservation Biology paper that this summary obscures an important within-river complication, since at one Alaskan stream where three coexisting species were monitored over the same span of decades, the magnitude of the timing shift varied sharply by species rather than tracking a single shared advance, suggesting that _______",
+  "questionTable": {
+    "type": "table",
+    "caption": "Mean shift in median salmon run date (days earlier) across selected Alaskan rivers (Kovach et al., 2013, Conservation Biology)",
+    "headers": [
+      "Species",
+      "River",
+      "Shift (days earlier)",
+      "Time span"
+    ],
+    "rows": [
+      [
+        "Sockeye",
+        "Kvichak",
+        "5.7",
+        "1969-2010"
+      ],
+      [
+        "Sockeye",
+        "Egegik",
+        "1.2",
+        "1965-2009"
+      ],
+      [
+        "Pink",
+        "Auke Creek",
+        "6.1",
+        "1972-2009"
+      ],
+      [
+        "Chum",
+        "Auke Creek",
+        "1.8",
+        "1972-2009"
+      ],
+      [
+        "Coho",
+        "Auke Creek",
+        "0.4",
+        "1972-2009"
+      ]
+    ]
+  },
+  "question": "Which choice most effectively uses data from the table to complete the statement?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "across all five populations the table reports, every species shifted toward earlier median run dates over the period of record, with shifts ranging from 0.4 days for coho to 6.1 days for pink salmon."
+    },
+    {
+      "id": "B",
+      "text": "at Auke Creek, pink salmon shifted by 6.1 days earlier while chum and coho salmon at the same stream shifted by only 1.8 and 0.4 days, a more-than-tenfold spread among species sharing one river."
+    },
+    {
+      "id": "C",
+      "text": "Sockeye salmon in the Kvichak River shifted by 5.7 days earlier between 1969 and 2010, the second-largest shift in the table and clearly larger than the 1.2-day shift recorded for sockeye in the Egegik River."
+    },
+    {
+      "id": "D",
+      "text": "at Auke Creek, pink salmon shifted by 6.1 days while chum salmon shifted by only 1.8 days, a difference that suggests pink salmon at the stream have been less responsive to climate change than chum salmon."
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B. The claim is about a within-river spread in the size of the shift, so the strongest support comes from the three species sharing Auke Creek: pink at 6.1 days against chum at 1.8 and coho at 0.4, a more-than-tenfold range in one stream. A reports the overall direction across all populations but not the within-river contrast the sentence is about. C compares two sockeye populations in different rivers, which does not speak to the single-river point. D gives only two of the three Auke Creek species and then draws an unsupported conclusion about responsiveness rather than describing the spread."
+}

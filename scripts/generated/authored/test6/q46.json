@@ -1,0 +1,31 @@
+{
+  "id": 646,
+  "module": 2,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "standard-english-conventions",
+  "skill": "boundaries",
+  "passage": "More than a century later, physicists still cite the famous 1887 experiment ______ failed to detect any motion of the Earth through a supposed light-bearing medium, a surprising null result that would later help open the way to Einstein's theory of relativity.",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "that"
+    },
+    {
+      "id": "B",
+      "text": "that,"
+    },
+    {
+      "id": "C",
+      "text": ", that"
+    },
+    {
+      "id": "D",
+      "text": ", that,"
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A, \"that.\" The clause \"that failed to detect any motion of the Earth\" is essential: it identifies which 1887 experiment is meant, so it attaches to \"experiment\" with no separating comma. Choice C places a comma before the essential clause, wrongly treating it as nonessential. Choice B puts a comma after \"that,\" interrupting the clause it introduces, and choice D adds commas on both sides, compounding both errors."
+}

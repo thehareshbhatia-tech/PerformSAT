@@ -1,0 +1,34 @@
+{
+  "id": 931,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "craft-and-structure",
+  "skill": "words-in-context",
+  "module": 2,
+  "passage": "The Shalimar Bagh laid out for the Mughal court in Kashmir descends a hillside in a series of broad terraces, each lower than the one above. Water drawn from a mountain stream runs down the central axis, dropping over carved stone chutes between levels. The slope was not an obstacle the designers merely tolerated but a resource they ______: gravity alone carries the water through the entire garden, feeding its channels, fountains, and pools without a single pump.",
+  "question": "Which choice completes the text with the most logical and precise word or phrase?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "ignored"
+    },
+    {
+      "id": "B",
+      "text": "harnessed"
+    },
+    {
+      "id": "C",
+      "text": "concealed"
+    },
+    {
+      "id": "D",
+      "text": "feared"
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The passage frames the slope not as a problem the designers put up with but as something they put to use, since gravity alone drives the water through the garden. The blank needs a verb meaning to make productive use of, and \"harnessed,\" choice B, fits. \"Ignored,\" \"concealed,\" and \"feared\" all clash with a design that depends on the slope to function.",
+  "_meta": {
+    "anchor": "Shalimar Bagh, Mughal garden hydraulics"
+  }
+}

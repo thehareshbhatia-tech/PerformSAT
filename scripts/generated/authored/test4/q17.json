@@ -1,0 +1,34 @@
+{
+  "id": 417,
+  "type": "multiple-choice",
+  "difficulty": "easy",
+  "band": 2,
+  "domain": "standard-english-conventions",
+  "skill": "boundaries",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "compounds, recent"
+    },
+    {
+      "id": "B",
+      "text": "compounds. Recent"
+    },
+    {
+      "id": "C",
+      "text": "compounds recent"
+    },
+    {
+      "id": "D",
+      "text": "compounds and, recent"
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B. \"Archaeologists are still working out who lived in its sprawling apartment compounds\" and \"recent studies of the chemistry of skeletal remains suggest the city drew migrants from regions hundreds of kilometers away\" are each complete sentences, so they need a full stop between them; choice B uses a period and capitalizes \"Recent.\" A comma alone (A) creates a comma splice, no punctuation (C) creates a run-on, and \"and,\" with the comma misplaced (D) breaks the conjunction off from the clause it should introduce.",
+  "passage": "The ancient city of Teotihuacan, in central Mexico, was among the largest urban centers in the world during the first centuries of the common era. Archaeologists are still working out who lived in its sprawling apartment ______ recent studies of the chemistry of skeletal remains suggest that the city drew migrants from regions hundreds of kilometers away.",
+  "_meta": {
+    "anchor": "Teotihuacan migration; period between independent clauses"
+  },
+  "module": 1
+}

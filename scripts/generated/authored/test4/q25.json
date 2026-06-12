@@ -1,0 +1,34 @@
+{
+  "id": 425,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "expression-of-ideas",
+  "skill": "transitions",
+  "question": "Which choice completes the text with the most logical transition?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Nevertheless,"
+    },
+    {
+      "id": "B",
+      "text": "For instance,"
+    },
+    {
+      "id": "C",
+      "text": "As a result,"
+    },
+    {
+      "id": "D",
+      "text": "Earlier,"
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C. The unstable, flammable film stock and the studios' neglect explain why so many silent films were lost; the final sentence states the consequence, that archivists must now reconstruct films from scattered prints, so a result transition fits. \"Nevertheless\" (A) signals contrast; \"For instance\" (B) signals an example; and \"Earlier\" (D) marks time rather than consequence.",
+  "passage": "Most films made during the silent era have been lost. Early motion pictures were printed on a nitrate film stock that was both highly flammable and chemically unstable, and studios, seeing little commercial value in old titles, rarely paid to store them properly. ______ archivists today must often reconstruct a single film from incomplete prints scattered among collections on several continents.",
+  "_meta": {
+    "anchor": "early film preservation — nitrate stock losses (NEW); result transition"
+  },
+  "module": 1
+}

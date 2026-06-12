@@ -1,0 +1,31 @@
+{
+  "id": 248,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "standard-english-conventions",
+  "skill": "boundaries",
+  "module": 2,
+  "passage": "Early radio engineers assumed that the short wavelengths fading quickly near a transmitter were useless for long-distance work, so those frequencies were left to amateur operators. The amateurs' transmitters were feeble by professional ______ under the right conditions, their weak signals could travel around the planet by bouncing off the upper atmosphere.",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "standards however"
+    },
+    {
+      "id": "B",
+      "text": "standards, however,"
+    },
+    {
+      "id": "C",
+      "text": "standards; however,"
+    },
+    {
+      "id": "D",
+      "text": "standards, however;"
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C. Two independent clauses meet at the blank: \"The amateurs' transmitters were feeble by professional standards\" and \"under the right conditions, their weak signals could travel around the planet by bouncing off the upper atmosphere.\" The conjunctive adverb \"however\" links them by marking the contrast between the equipment's weakness and its surprising reach, and when \"however\" joins two independent clauses this way, Standard English requires a semicolon before it and a comma after it. Choice A runs the clauses together with no punctuation at all. Choice B sets \"however\" off with commas alone, producing a comma splice between the two clauses. Choice D reverses the required marks, placing the comma at the clause boundary and the semicolon after \"however,\" which strands the second clause without a grammatical connection to the first."
+}

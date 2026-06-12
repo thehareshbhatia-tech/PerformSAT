@@ -1,0 +1,45 @@
+{
+ "id": 354,
+ "module": 2,
+ "difficulty": "hard",
+ "band": 4,
+ "domain": "expression-of-ideas",
+ "skill": "rhetorical-synthesis",
+ "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "Young published her single-author 1924 paper on the excretory apparatus in Paramecium while working with Ernest Just at Howard University and at Woods Hole."
+  },
+  {
+   "id": "B",
+   "text": "After Ernest Just left Howard, Young took on much of the department's teaching load, and her own research time was substantially reduced."
+  },
+  {
+   "id": "C",
+   "text": "Roger Arliner Young, who lived from 1899 to 1964, studied the contractile vacuole system of Paramecium and the effects of radiation on marine egg cells."
+  },
+  {
+   "id": "D",
+   "text": "Recent historians argue that the standard narrative of Young's career, fixed on her later setbacks, has obscured her early Paramecium and radiation work — the first single-author zoology papers by an African American woman — recoverable only by reading the archival record alongside the published one."
+  }
+ ],
+ "correctAnswer": "D",
+ "explanation": "The correct answer is D. The goal is to emphasize the corrective contribution of recent historians' work on Young. D states that contribution: the standard narrative, fixed on her later setbacks, has obscured the importance of her early Paramecium and radiation work as the first single-author zoology papers by an African American woman, and recovering it requires reading the archival record alongside the published literature. A and C report Young's publications and research topics but say nothing about what recent historians have done. B foregrounds exactly the later-setbacks material that the corrective work argues has been overemphasized, illustrating the framing being corrected rather than the correction.",
+ "_meta": {
+  "anchor": "Roger Arliner Young — zoologist (Howard; Woods Hole); 1924 Paramecium paper; corrective historiography"
+ },
+ "studentNotes": {
+  "intro": "While researching a topic, a student has taken the following notes:",
+  "bullets": [
+   "Roger Arliner Young (1899-1964) was a zoologist who studied the contractile vacuole system of Paramecium and the effects of radiation on marine egg cells.",
+   "She published her single-author 1924 paper on the excretory apparatus in Paramecium while working with Ernest Just at Howard University and at the Marine Biological Laboratory at Woods Hole.",
+   "After Just left Howard, Young carried much of the department's teaching load and saw her own research time substantially reduced.",
+   "Recent historians of science argue that the standard narrative of Young's career — focused on her later setbacks — has obscured the importance of her early Paramecium and radiation work.",
+   "On this account, that work includes the first single-author research papers in zoology by an African American woman.",
+   "Recovering it requires reading the Howard and Woods Hole archival record alongside the published literature, since institutional pressures shaped what she could publish under her own name."
+  ],
+  "goal": "The student wants to emphasize the corrective contribution of recent historians' work on Young."
+ },
+ "type": "multiple-choice"
+}

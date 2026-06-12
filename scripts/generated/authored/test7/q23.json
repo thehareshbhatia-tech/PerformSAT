@@ -1,0 +1,31 @@
+{
+  "id": 723,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "expression-of-ideas",
+  "skill": "transitions",
+  "module": 1,
+  "passage": "Before 2012, changing a specific gene in a living cell was slow and costly: for each new target, researchers had to design and build a custom protein from scratch, a process that took months and often produced unreliable edits. ______ a reprogrammable system borrowed from bacteria, guided to its target by a short strand of RNA, allowed scientists to cut almost any chosen DNA sequence quickly and accurately.",
+  "question": "Which choice completes the text with the most logical transition?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "However,"
+    },
+    {
+      "id": "B",
+      "text": "Therefore,"
+    },
+    {
+      "id": "C",
+      "text": "Likewise,"
+    },
+    {
+      "id": "D",
+      "text": "For example,"
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A. The passage contrasts the old, slow, unreliable method of gene editing with a new system that is fast and accurate, so the contrast transition \"However\" fits. \"Therefore\" would signal that the new system results from the old method's difficulty, which is not the relationship. \"Likewise\" implies similarity between two ideas, and \"For example\" would introduce an illustration of the previous point, neither of which matches the sharp reversal the sentence sets up."
+}

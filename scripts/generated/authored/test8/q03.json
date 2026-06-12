@@ -1,0 +1,31 @@
+{
+  "id": 803,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "craft-and-structure",
+  "skill": "words-in-context",
+  "module": 1,
+  "passage": "Glaciologists can measure how an ice sheet moves in two very different ways: by planting stakes in the surface and returning season after season to see how far they have shifted, and by training satellite radar on the same ground from orbit. Researchers increasingly argue that the field record and the satellite record are best treated as ____ measurements of a single flow rather than as competing ones, since each captures detail the other misses.",
+  "question": "Which choice completes the text with the most logical and precise word or phrase?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "interchangeable"
+    },
+    {
+      "id": "B",
+      "text": "incompatible"
+    },
+    {
+      "id": "C",
+      "text": "provisional"
+    },
+    {
+      "id": "D",
+      "text": "complementary"
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "The correct answer is D. The sentence sets up two methods that each catch what the other cannot, joined against the idea that they compete, so the blank needs a word meaning that the two work together by supplying different parts of one picture. \"Complementary\" does that. \"Interchangeable\" would mean the two methods are equivalent and could simply replace each other, which contradicts the point that each captures detail the other misses; \"incompatible\" and \"provisional\" both run against the cooperative relationship the sentence builds."
+}

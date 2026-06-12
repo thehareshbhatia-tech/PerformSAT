@@ -1,0 +1,31 @@
+{
+  "id": 1239,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "information-and-ideas",
+  "skill": "command-of-evidence-textual",
+  "module": 2,
+  "passage": "Many songbirds sing most intensely in the hour around dawn, a phenomenon known as the dawn chorus. One long-standing explanation is acoustic: in the cool, still air of early morning, before the day's heat stirs up turbulence, sound carries farther and with less distortion, so a male's song reaches more listeners than the same song would at midday. A competing explanation is social: dawn is when territorial boundaries and overnight survival are reassessed, so singing then signals to rivals and mates that a male has held his ground through the night. The two accounts make different predictions, and a researcher who favored the acoustic explanation would want evidence tying the timing of song to conditions of sound transmission rather than to social circumstances alone.",
+  "question": "Which finding, if true, would most directly support the acoustic explanation of the dawn chorus?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "On unusually still, cool mornings a male's song was audible at substantially greater distances than on warm, breezy mornings, and males sang more on the stiller mornings."
+    },
+    {
+      "id": "B",
+      "text": "Males that had successfully defended their territory through the night went on to sing considerably more at dawn than males that had lost ground to their rivals overnight."
+    },
+    {
+      "id": "C",
+      "text": "Females were more likely to choose as mates the males that had sung earliest and most vigorously during the dawn hour."
+    },
+    {
+      "id": "D",
+      "text": "Removing a neighboring rival from an adjacent territory caused a male to noticeably increase the amount that he sang at dawn."
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A. The acoustic explanation ties singing to conditions of sound transmission, so the finding that best supports it links more singing to the very mornings when sound carries farthest—still, cool air. A makes exactly that link. B, C, and D all bear on the social explanation: defending territory, attracting mates, and responding to a rival are social circumstances, not features of how sound travels through the air. They would support the competing account, not the acoustic one."
+}

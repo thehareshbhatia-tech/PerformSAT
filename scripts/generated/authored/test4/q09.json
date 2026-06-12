@@ -1,0 +1,34 @@
+{
+  "id": 409,
+  "type": "multiple-choice",
+  "difficulty": "easy",
+  "band": 2,
+  "domain": "information-and-ideas",
+  "skill": "central-ideas-and-details",
+  "question": "Which choice best states the main idea of the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "The outer planets of our solar system orbit the Sun more slowly than the inner planets, a pattern Rubin showed also holds for stars in the disk of a typical spiral galaxy."
+    },
+    {
+      "id": "B",
+      "text": "Rubin's measurements of stellar orbits in spiral galaxies revealed flat rotation patterns inconsistent with the visible mass, leading her to conclude that the galaxies must contain a great deal of unseen mass."
+    },
+    {
+      "id": "C",
+      "text": "Rubin's first observations of Andromeda were less precise than she had expected, but later work with collaborators eventually confirmed the rotation pattern she had set out to measure."
+    },
+    {
+      "id": "D",
+      "text": "Spiral galaxies are difficult to study because the velocities of their stars cannot be measured directly with the spectrographs that were available to Rubin."
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B. The passage sets up the orbital pattern Rubin expected, reports the unexpected flat rotation she measured, and ends with her conclusion that the galaxies must hold a great deal of unseen mass. Choice A keeps only the planetary analogy she used as a contrast; choice C invents a story about imprecise early measurements; and choice D claims stellar velocities could not be measured, which the passage shows they could.",
+  "passage": "When the astronomer Vera Rubin began measuring how stars in the spiral galaxy Andromeda orbit its center, she expected a familiar pattern: stars near the visible edge moving more slowly than stars near the bright central bulge, just as the outer planets in our solar system move more slowly than the inner ones. Instead, the velocities she measured stayed roughly constant out to the limits of her observations, with stars near the edge of the disk circling at about the same speed as stars far closer in. Rubin and her collaborators found the same flat rotation pattern in many other spiral galaxies and concluded that the galaxies must contain large amounts of mass that is not visible in the disk itself.",
+  "_meta": {
+    "anchor": "Vera Rubin — galaxy rotation curves and dark matter (entity_keep)"
+  },
+  "module": 1
+}

@@ -1,0 +1,34 @@
+{
+  "id": 952,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "expression-of-ideas",
+  "skill": "transitions",
+  "module": 2,
+  "passage": "When Giotto frescoed the Arena Chapel in Padua around 1305, he broke with the flat, gold-ground convention of earlier medieval painting, giving his figures weight, cast shadow, and visible emotion. ______ the cycle came to be regarded as a turning point, and painters from Masaccio onward treated Giotto's naturalism as the foundation on which Renaissance picture-making was built.",
+  "question": "Which choice completes the text with the most logical transition?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "In time,"
+    },
+    {
+      "id": "B",
+      "text": "However,"
+    },
+    {
+      "id": "C",
+      "text": "For example,"
+    },
+    {
+      "id": "D",
+      "text": "Likewise,"
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The passage describes Giotto's break with medieval convention and then traces how, over the following generations, his naturalism came to be seen as the foundation of Renaissance painting. \"In time,\" choice A, marks that temporal development. \"However\" signals contrast, \"For example\" an instance, and \"Likewise\" a similarity, none of which fits the move from his innovation to its later influence.",
+  "_meta": {
+    "anchor": "Giotto, Arena Chapel frescoes"
+  }
+}

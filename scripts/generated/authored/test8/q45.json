@@ -1,0 +1,31 @@
+{
+  "id": 845,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "standard-english-conventions",
+  "skill": "form-structure-and-sense",
+  "module": 2,
+  "passage": "Pressed into clay in cuneiform script and then baked hard by the fires that ultimately destroyed the Hittite capital of Hattusa, the thousands of treaties, royal letters, and administrative records discovered there ______ the intervening centuries intact, giving modern historians one of the richest written archives to come down from the Bronze Age.",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "to survive"
+    },
+    {
+      "id": "B",
+      "text": "surviving"
+    },
+    {
+      "id": "C",
+      "text": "having survived"
+    },
+    {
+      "id": "D",
+      "text": "survived"
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "The correct answer is D. After the opening participial phrase, the rest of the sentence is a single main clause whose subject is \"the thousands of treaties, royal letters, and administrative records discovered there,\" and that clause needs a finite main verb. Only the past-tense \"survived\" can fill that role. The infinitive \"to survive\" in A, the present participle \"surviving\" in B, and the perfect participle \"having survived\" in C are all nonfinite forms, so each one leaves the sentence with no main verb and turns it into a fragment."
+}

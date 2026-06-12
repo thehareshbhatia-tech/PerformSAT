@@ -1,0 +1,31 @@
+{
+ "id": 103,
+ "type": "multiple-choice",
+ "difficulty": "medium",
+ "band": 3,
+ "domain": "craft-and-structure",
+ "skill": "words-in-context",
+ "module": 1,
+ "passage": "Astrophysicist Sara Seager of the Massachusetts Institute of Technology helped build the theoretical framework that astronomers now use to study the atmospheres of planets orbiting distant stars. When such a planet briefly passes in front of its host star, a portion of the starlight filters through the planet's thin envelope of gases. The narrow absorption features carved into that filtered light ______ which molecules are present, allowing researchers to test for chemical signatures of life on worlds far beyond our solar system.",
+ "question": "Which choice completes the text with the most logical and precise word or phrase?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "forecast"
+  },
+  {
+   "id": "B",
+   "text": "announce"
+  },
+  {
+   "id": "C",
+   "text": "mask"
+  },
+  {
+   "id": "D",
+   "text": "disclose"
+  }
+ ],
+ "correctAnswer": "D",
+ "explanation": "The correct answer is D, \"disclose.\" The passage describes a transit in which starlight filters through a planet's atmosphere and emerges carrying narrow absorption features whose pattern lets researchers determine which molecules are present. The verb in the blank must therefore mean to make a chemical identity known to an observer through that spectral evidence. \"Disclose\" matches: the absorption features quietly make known what is in the atmosphere, in the same scientific register Seager uses when she describes how transit spectra allow atmospheric constituents to be identified."
+}

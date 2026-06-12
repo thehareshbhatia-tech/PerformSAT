@@ -1,0 +1,34 @@
+{
+ "id": 329,
+ "module": 2,
+ "difficulty": "medium",
+ "band": 3,
+ "domain": "craft-and-structure",
+ "skill": "words-in-context",
+ "question": "Which choice completes the text with the most logical and precise word or phrase?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "accelerate"
+  },
+  {
+   "id": "B",
+   "text": "determine"
+  },
+  {
+   "id": "C",
+   "text": "modulate"
+  },
+  {
+   "id": "D",
+   "text": "interrupt"
+  }
+ ],
+ "correctAnswer": "C",
+ "explanation": "The correct answer is C, \"modulate.\" The sentence concerns how the chemical signals roots release affect the rate at which surrounding microbes decompose soil organic matter, and the next sentence stresses that the effect depends on the soil's nutrient status, the chemistry of the exudates, and which microbes are present — that is, it varies in size and direction. The blank needs a verb for adjusting or regulating the rate, and \"modulate\" captures exactly that graded action. \"Accelerate\" fixes a single direction, but the passage says the effect can go either way. \"Determine\" implies the exudates set the rate by themselves, which contradicts the list of other controls. \"Interrupt\" implies stopping the process rather than tuning it.",
+ "_meta": {
+  "anchor": "Rhizosphere priming (unnamed soil ecologists); root exudate effects on decomposition rate"
+ },
+ "passage": "Soil ecologists studying the rhizosphere — the thin layer of soil surrounding plant roots — have long known that microbial activity is unusually intense there. They have struggled, however, to predict how a given plant's root exudates will ______ the rate at which surrounding soil organic matter is decomposed by microbes. The answer, recent reviews suggest, depends on the soil's prior nutrient status, on the chemistry of the exudates themselves, and on which microbial groups happen to be locally abundant.",
+ "type": "multiple-choice"
+}

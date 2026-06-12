@@ -1,0 +1,34 @@
+{
+ "id": 302,
+ "module": 1,
+ "difficulty": "medium",
+ "band": 3,
+ "domain": "craft-and-structure",
+ "skill": "words-in-context",
+ "question": "Which choice completes the text with the most logical and precise word or phrase?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "reflect"
+  },
+  {
+   "id": "B",
+   "text": "absorb"
+  },
+  {
+   "id": "C",
+   "text": "ignore"
+  },
+  {
+   "id": "D",
+   "text": "manufacture"
+  }
+ ],
+ "correctAnswer": "B",
+ "explanation": "The correct answer is B, \"absorb.\" The sentence says gases in the planet's atmosphere act on starlight so as to leave \"small dips at characteristic wavelengths,\" and that those dips are later matched to laboratory measurements to identify specific molecules. A dip at a characteristic wavelength is what appears when a gas takes light at that wavelength out of the beam, which is absorption. \"Ignore\" is the wrong kind of relation, since gases interact with light physically rather than disregarding it, and ignored light would leave no dip. \"Manufacture\" describes the atmosphere producing light, but the dips are losses, not new emissions. \"Reflect\" sends light back toward the star rather than leaving a gap in the spectrum that reaches Earth.",
+ "_meta": {
+  "anchor": "Exoplanet transmission spectroscopy (unnamed astronomers); absorption dips in transmitted starlight"
+ },
+ "passage": "When a planet outside our solar system passes in front of its host star, the starlight travels through a thin band of the planet's upper atmosphere before reaching telescopes on Earth. Astronomers studying these events have shown that gases in that band ______ specific colors of starlight, leaving small dips at characteristic wavelengths in the spectrum that arrives at the detector. By matching the pattern of dips to laboratory measurements, researchers can identify which molecules are present in an atmosphere many light-years away.",
+ "type": "multiple-choice"
+}

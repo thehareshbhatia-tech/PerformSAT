@@ -1,0 +1,45 @@
+{
+  "id": 954,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "expression-of-ideas",
+  "skill": "rhetorical-synthesis",
+  "module": 2,
+  "studentNotes": {
+    "intro": "While researching a topic, a student has taken the following notes:",
+    "bullets": [
+      "Khipus are knotted cord assemblages used by Andean peoples and central to Inka administration in the 15th and 16th centuries.",
+      "Spanish colonial accounts described khipus as carrying both numerical accounts and narrative content.",
+      "Through the 20th century, khipus were widely interpreted only as numerical accounting devices, with knot positions encoding base-ten quantities.",
+      "Gary Urton is an American anthropologist at Harvard University who has studied khipus since the 1990s.",
+      "Urton has argued that knot direction, cord ply, fiber color, and attachment style constitute a binary signaling system capable of carrying non-numerical information.",
+      "In *Signs of the Inka Khipu* (2003), Urton proposed that some khipus may encode narrative content alongside their numerical contents."
+    ],
+    "goal": "The student wants to emphasize how Urton's analysis revises a long-standing scholarly understanding of khipus."
+  },
+  "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Gary Urton is an American anthropologist at Harvard University who has studied Andean khipus since the 1990s."
+    },
+    {
+      "id": "B",
+      "text": "Spanish colonial accounts described khipus as recording both numerical accounts and forms of narrative content, though their exact workings remained unclear."
+    },
+    {
+      "id": "C",
+      "text": "Although khipus were long read as purely numerical accounting devices, Urton argues that knot direction, cord ply, and fiber color form a binary code that could also carry narrative content."
+    },
+    {
+      "id": "D",
+      "text": "Because khipus served Inka administration in the fifteenth and sixteenth centuries, Urton's research centers on imperial accounting practices."
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The goal is to show how Urton revises a long-standing view of khipus. Choice C sets the older reading—khipus as purely numerical—against Urton's argument that features like knot direction, cord ply, and color form a code able to carry narrative as well. Choices A and B give biography or colonial testimony without the revision, and D narrows his work to imperial accounting, missing the point.",
+  "_meta": {
+    "anchor": "Gary Urton, Andean khipu research"
+  }
+}

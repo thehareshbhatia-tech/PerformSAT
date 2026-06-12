@@ -1,0 +1,34 @@
+{
+ "id": 333,
+ "module": 2,
+ "difficulty": "hard",
+ "band": 4,
+ "domain": "craft-and-structure",
+ "skill": "text-structure-and-purpose",
+ "question": "Which choice best describes the function of the underlined sentence in the text as a whole?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "It provides the dramatic experimental evidence the researcher gathered that finally persuaded the proposal's critics."
+  },
+  {
+   "id": "B",
+   "text": "It concedes that the bacterial explanation turned out, in the end, to be only partly correct."
+  },
+  {
+   "id": "C",
+   "text": "It explains the laboratory technique the researchers used to identify the bacterium under a microscope."
+  },
+  {
+   "id": "D",
+   "text": "It accounts for the resistance the proposal met by showing what was at stake."
+  }
+ ],
+ "correctAnswer": "D",
+ "explanation": "The correct answer is D. The underlined sentence explains why the bacterial theory of ulcers met such sharp resistance: accepting it implied that a condition long managed with antacids could be cured outright with antibiotics, a reversal that would overturn an established treatment industry. The sentence thus accounts for the opposition by naming the stakes. The dramatic evidence — the researcher swallowing a culture and curing himself — comes in the following sentence, so A misplaces it. B has the sentence conceding the theory was only partly right, but the passage treats the bacterial cause as confirmed. C describes a laboratory technique the passage never details.",
+ "_meta": {
+  "anchor": "Helicobacter pylori and peptic ulcers (Marshall and Warren, early 1980s); function of underlined sentence"
+ },
+ "passage": "For most of the twentieth century, physicians blamed stomach ulcers on stress and excess acid and treated them by neutralizing acid. In the early 1980s two Australian researchers proposed instead that a bacterium, Helicobacter pylori, caused most ulcers. *Their claim met sharp resistance, partly because it implied that a condition managed for decades with antacids might be cured outright by a short course of antibiotics — a reversal that would overturn an entire treatment industry.* To answer the doubters, one of the researchers swallowed a culture of the bacterium, developed the predicted inflammation, and cured himself with antibiotics.",
+ "type": "multiple-choice"
+}

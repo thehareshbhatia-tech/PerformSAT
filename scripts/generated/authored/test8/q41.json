@@ -1,0 +1,31 @@
+{
+  "id": 841,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "information-and-ideas",
+  "skill": "command-of-evidence-quantitative",
+  "module": 2,
+  "passage": "Studying variable stars called Cepheids in the early twentieth century, the astronomer Henrietta Swan Leavitt found that a Cepheid's brightness pulses on a regular cycle. Because the stars she examined all lay at roughly the same distance, differences in their apparent brightness reflected real differences in how much light they give off. Leavitt argued that a Cepheid's pulsation period is tied to its intrinsic brightness, a relationship later used to measure cosmic distances, because _______\n\nSelected Cepheids (apparent magnitude: smaller number = brighter)\n| Cepheid | Pulsation period (days) | Median apparent magnitude |\n|---|---|---|\n| A | 3.0 | 13.4 |\n| B | 5.5 | 12.9 |\n| C | 12.0 | 12.1 |\n| D | 33.0 | 11.2 |",
+  "question": "Which choice most effectively uses data from the table to support the claim?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Cepheid A has the shortest period in the table, at 3.0 days, and also the faintest median apparent magnitude, at 13.4."
+    },
+    {
+      "id": "B",
+      "text": "as period increases from 3.0 days (Cepheid A) to 33.0 days (Cepheid D), the median apparent magnitude falls from 13.4 to 11.2, meaning the longer-period Cepheids are brighter."
+    },
+    {
+      "id": "C",
+      "text": "Cepheid D has the longest period in the table, at 33.0 days, far longer than the 3.0-day period of Cepheid A."
+    },
+    {
+      "id": "D",
+      "text": "the four Cepheids in the table differ in both pulsation period and median apparent magnitude."
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B. The claim ties period to intrinsic brightness, and because these stars are about equally distant, apparent brightness stands in for intrinsic brightness. B traces the full pattern: as period rises from 3.0 to 33.0 days, apparent magnitude drops from 13.4 to 11.2, and since a smaller magnitude means a brighter star, longer-period Cepheids are brighter. A cites only one star and so shows no relationship; C compares periods alone, ignoring brightness; and D notes that the stars differ without describing how period and brightness move together."
+}

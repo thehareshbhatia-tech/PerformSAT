@@ -1,0 +1,34 @@
+{
+  "id": 925,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "expression-of-ideas",
+  "skill": "transitions",
+  "module": 1,
+  "passage": "Early photographers found that salts of silver darken when light strikes them, so an image could be captured on a treated plate. The trouble was that the unexposed salts kept reacting, and a finished picture would slowly blacken until it was lost. A \"fixing\" bath solved this by dissolving away the leftover silver salts, halting the reaction and making the image permanent. ______ the very compound used in that bath, sodium thiosulfate, found a second career in industry, where it is still used to strip excess chlorine from treated water and bleached paper.",
+  "question": "Which choice completes the text with the most logical transition?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Moreover,"
+    },
+    {
+      "id": "B",
+      "text": "Therefore,"
+    },
+    {
+      "id": "C",
+      "text": "Nevertheless,"
+    },
+    {
+      "id": "D",
+      "text": "Meanwhile,"
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The passage first explains how a fixing bath made photographs permanent, then turns to a separate point: the same compound, sodium thiosulfate, is also used in industry to remove chlorine. That added fact calls for \"Moreover,\" choice A. \"Therefore\" would treat the industrial use as a consequence of fixing photographs, which it is not; \"Nevertheless\" signals a contrast that is not present; and \"Meanwhile\" implies the two uses happen at the same time, which the passage does not claim.",
+  "_meta": {
+    "anchor": "early photography chemistry: the fixing bath"
+  }
+}

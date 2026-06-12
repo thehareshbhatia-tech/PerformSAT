@@ -1,0 +1,31 @@
+{
+ "id": 125,
+ "type": "multiple-choice",
+ "difficulty": "medium",
+ "band": 3,
+ "domain": "expression-of-ideas",
+ "skill": "transitions",
+ "module": 1,
+ "passage": "For years, the standard way to increase a lithium-ion battery's capacity was to pack more active material into each electrode. Doing so, engineers found, also made the electrodes thicker, which slowed the movement of ions and limited how fast the battery could be charged. ______ recent designs cut microscopic channels through the electrode, keeping the added capacity while giving ions a quicker path through the material.",
+ "question": "Which choice completes the text with the most logical transition?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "However,"
+  },
+  {
+   "id": "B",
+   "text": "Likewise,"
+  },
+  {
+   "id": "C",
+   "text": "For instance,"
+  },
+  {
+   "id": "D",
+   "text": "Therefore,"
+  }
+ ],
+ "correctAnswer": "A",
+ "explanation": "The correct answer is A. The sentence before the blank states a drawback—thicker electrodes slow the ions and limit charging speed—and the sentence after it describes designs that get around that drawback while keeping the benefit. That is a contrast, which \"However,\" marks. \"Likewise\" would signal a similarity rather than a reversal; \"For instance\" would introduce an example of the problem, not a solution to it; and \"Therefore\" would make the new designs a consequence of the slowdown rather than a response that overcomes it."
+}

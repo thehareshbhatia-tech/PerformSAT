@@ -1,0 +1,35 @@
+{
+  "id": 733,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "craft-and-structure",
+  "skill": "text-structure-and-purpose",
+  "module": 2,
+  "passage": "The following text is from Emily Dickinson's poem \"Because I could not stop for Death,\" written around 1863.\n\nBecause I could not stop for Death –\nHe kindly stopped for me –\nThe Carriage held but just Ourselves –\nAnd Immortality.\n\nWe slowly drove – He knew no haste\nAnd I had put away\nMy labor and my leisure too,\nFor His Civility –\n\nWe passed the School, where Children strove\nAt Recess – in the Ring –\nWe passed the Fields of Gazing Grain –\nWe passed the Setting Sun –",
+  "question": "Which choice best states the main purpose of the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "To portray death as an unhurried, courteous escort and dying as a calm passage past the ordinary scenes of life."
+    },
+    {
+      "id": "B",
+      "text": "To warn readers, by means of an extended example, that death always arrives entirely without warning and can never be postponed for very long."
+    },
+    {
+      "id": "C",
+      "text": "To describe in detail the speaker’s busy daily routine in the period before an unexpected and unwelcome interruption."
+    },
+    {
+      "id": "D",
+      "text": "To express the speaker’s deep fear of dying and her corresponding wish to remain among the living a while longer."
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A. The poem personifies Death as a polite driver who \"kindly stopped\" and \"knew no haste,\" and the speaker rides past schoolchildren, fields, and the setting sun, so its purpose is to present death as a calm, courteous journey past the scenes of life. Choice B turns the poem into a warning it does not deliver, Choice C dwells on a daily routine the poem only mentions in passing (\"my labor and my leisure\"), and Choice D attributes a fear and a wish to live that the poem's serene tone contradicts.",
+  "_meta": {
+    "quoteVerify": true,
+    "source": "Emily Dickinson, \"Because I could not stop for Death\" (c. 1863), stanzas 1–3"
+  }
+}

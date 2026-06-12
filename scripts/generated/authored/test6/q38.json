@@ -1,0 +1,31 @@
+{
+  "id": 638,
+  "module": 2,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "information-and-ideas",
+  "skill": "central-ideas-and-details",
+  "passage": "The 1927 feature The Jazz Singer is often credited with inventing sound film. The credit is not quite right. Synchronized-sound shorts had been screened for years, and the sound-on-disc system the film used, Vitaphone, was already in commercial release. What the film actually did was different: by building a popular feature-length story around synchronized song and a few lines of spoken dialogue, it convinced studios and audiences that talking features could succeed commercially, and within two years silent production had all but ended.",
+  "question": "Which choice best states the main idea of the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "The Jazz Singer was the first film of any kind to use a synchronized-sound system in commercial release, surpassing all the synchronized-sound experiments that had come before it."
+    },
+    {
+      "id": "B",
+      "text": "The Vitaphone sound-on-disc system was technically inferior to the methods that soon replaced it."
+    },
+    {
+      "id": "C",
+      "text": "Synchronized-sound shorts were more popular with 1920s audiences than feature-length films were."
+    },
+    {
+      "id": "D",
+      "text": "The Jazz Singer mattered not for introducing synchronized sound but for showing that feature-length sound films could succeed commercially, hastening the end of silent production."
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "The correct answer is D. The passage corrects the idea that the film invented sound, noting that sound shorts and the Vitaphone system already existed, and locates its real importance in proving that a feature-length sound film could draw audiences, which quickly ended silent production. Choice D captures that distinction. Choice A repeats the misconception the text rejects. Choice B raises a claim about Vitaphone's quality the passage never makes, and choice C asserts a popularity comparison the text does not support."
+}

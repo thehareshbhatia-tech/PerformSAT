@@ -1,0 +1,34 @@
+{
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "expression-of-ideas",
+  "skill": "transitions",
+  "question": "Which choice completes the text with the most logical transition?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Therefore,"
+    },
+    {
+      "id": "B",
+      "text": "Moreover,"
+    },
+    {
+      "id": "C",
+      "text": "Nevertheless,"
+    },
+    {
+      "id": "D",
+      "text": "Likewise,"
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C. The first sentence reports widespread skepticism that a new sign language could develop real grammar so fast; the second reports that, in spite of that skepticism, the evidence for exactly such grammar accumulated. \"Nevertheless\" is the connector for a development that holds despite an established expectation. \"Therefore\" would make the evidence a consequence of the skepticism, while \"Moreover\" and \"Likewise\" would treat the second sentence as adding to or agreeing with the first, when it instead works against it.",
+  "passage": "When researchers first proposed that a sign language emerging spontaneously among deaf children at a Nicaraguan school had developed its own grammar, many linguists were skeptical, reasoning that a language could not arise so quickly without a model to learn from. ______ as successive groups of younger children entered the school, observers documented that each cohort added grammatical regularities the previous one had lacked, until the system showed the kind of structure linguists had assumed required generations of established use.",
+  "_meta": {
+    "anchor": "sign-language linguistics: emergence of a new sign language (generic)"
+  },
+  "id": 1124,
+  "module": 1
+}

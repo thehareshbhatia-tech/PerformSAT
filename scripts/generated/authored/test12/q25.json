@@ -1,0 +1,31 @@
+{
+  "id": 1225,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "expression-of-ideas",
+  "skill": "transitions",
+  "module": 1,
+  "passage": "Engineers once assumed that the most effective way to reduce a tall building's sway in high winds was to make its frame as rigid as possible. Studies of how skyscrapers actually respond to gusts complicated that view. A perfectly stiff tower transmits a gust's energy directly to its occupants as a sharp jolt, whereas a structure allowed to flex slightly can absorb and dissipate that energy over time. ______ many modern towers are deliberately engineered with a controlled degree of flexibility, sometimes aided by a massive counterweight that shifts to oppose the building's motion.",
+  "question": "Which choice completes the text with the most logical transition?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "For example,"
+    },
+    {
+      "id": "B",
+      "text": "As a result,"
+    },
+    {
+      "id": "C",
+      "text": "Nevertheless,"
+    },
+    {
+      "id": "D",
+      "text": "In contrast,"
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B. The preceding sentences establish that a flexible structure dissipates a gust's energy better than a rigid one, and the final sentence reports the design practice that follows from that finding, so \"As a result\" marks the consequence. \"For example\" would introduce an illustration of a prior claim, but this is an outcome, not an instance. \"Nevertheless\" would signal a result that runs against expectation, which does not fit. \"In contrast\" would set up an opposition, yet the flexible-tower practice agrees with the finding rather than opposing it."
+}

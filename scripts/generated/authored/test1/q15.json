@@ -1,0 +1,31 @@
+{
+ "id": 115,
+ "type": "multiple-choice",
+ "difficulty": "medium",
+ "band": 3,
+ "domain": "information-and-ideas",
+ "skill": "inferences",
+ "module": 1,
+ "passage": "When Frances Oldham Kelsey, a medical officer at the U.S. Food and Drug Administration, declined to approve the sedative thalidomide for the American market in 1960, her objection was that the manufacturer's submitted studies described the drug's effects in adult patients but provided little direct evidence about how it would affect a developing fetus. Reports of severe birth defects in countries where the drug was already in use soon confirmed her caution. In response, Congress passed the Kefauver-Harris Amendments in 1962, which for the first time required manufacturers to supply rigorous safety data and to demonstrate a drug's effectiveness before approval. Kelsey's case therefore suggests that the federal drug-review framework in effect before the amendments ______",
+ "question": "Which choice most logically completes the text?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "had imposed stricter requirements on the testing of drugs in pregnant patients than the system that replaced it after 1962."
+  },
+  {
+   "id": "B",
+   "text": "had been written at a point when many of the medical concerns now associated with prenatal drug exposure were not yet recognized by working regulators."
+  },
+  {
+   "id": "C",
+   "text": "had not required pharmaceutical companies to conduct any premarket testing of new drugs before those drugs reached American patients."
+  },
+  {
+   "id": "D",
+   "text": "had treated evidence of a drug's safety in adult patients as though it sufficiently demonstrated the drug's safety for a developing fetus."
+  }
+ ],
+ "correctAnswer": "D",
+ "explanation": "The passage establishes two premises: (1) Kelsey withheld approval of thalidomide because the manufacturer's submission described effects in adult patients but supplied little direct evidence about effects on a developing fetus, and (2) Congress responded by passing the Kefauver-Harris Amendments, which for the first time required manufacturers to supply rigorous safety data before approval. The minimum inference these two premises jointly force is that the pre-1962 framework had been accepting adult-only evidence as adequate stand-in evidence for fetal safety — otherwise Kelsey would not have had to refuse approval on those grounds, and Congress would not have had to amend the framework to fix the gap. Choice D states exactly that hedged claim, using 'as though' to capture the framework's implicit substitution without overreaching.\n\nThe inference combines both premises. Premise (1) alone, about one manufacturer's submission, does not by itself tell us how the broader framework treated such evidence. Premise (2) alone, about a tightening of requirements, does not by itself specify what kind of evidence the old framework was substituting for what. Only the joint claim that the old framework treated adult-safety evidence as sufficient for fetal-safety conclusions is licensed."
+}

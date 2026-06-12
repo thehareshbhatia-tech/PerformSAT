@@ -1,0 +1,34 @@
+{
+  "id": 524,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "expression-of-ideas",
+  "skill": "transitions",
+  "module": 1,
+  "passage": "Type designers often say that a text face succeeds when readers do not notice it at all—when the letters carry the words without calling attention to themselves. ______ a typeface meant for long passages of print usually has modest, even proportions and restrained contrast between its thick and thin strokes, features that let the eye move along a line without being snagged by any single letter.",
+  "question": "Which choice completes the text with the most logical transition?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "For example,"
+    },
+    {
+      "id": "B",
+      "text": "Instead,"
+    },
+    {
+      "id": "C",
+      "text": "Nevertheless,"
+    },
+    {
+      "id": "D",
+      "text": "However,"
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A, \"For example,\". The first sentence states a general principle—a good text face goes unnoticed—and the second gives a concrete instance of how that principle shows up in design: even proportions and restrained stroke contrast. \"For example,\" is the connector for moving from a general claim to an illustration of it. \"Instead,\" and \"However,\" both signal contrast, but the second sentence supports rather than opposes the first. \"Nevertheless,\" signals a concession, which the relation does not call for.",
+  "_meta": {
+    "anchor": "Typography; a text face that goes unnoticed; general-to-instance transition"
+  }
+}

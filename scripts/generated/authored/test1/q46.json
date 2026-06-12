@@ -1,0 +1,40 @@
+{
+ "id": 146,
+ "type": "multiple-choice",
+ "difficulty": "medium",
+ "band": 3,
+ "domain": "standard-english-conventions",
+ "skill": "boundaries",
+ "module": 2,
+ "passage": "In Mohawk Interruptus: Political Life Across the Borders of Settler States (2014), the Columbia anthropologist Audra Simpson argues that the Mohawks of Kahnawake actively decline the citizenship that Canada and the United States offer ______ a refusal that, far from being a gesture of withdrawal, exposes settler sovereignty as an ongoing political negotiation rather than a finished accomplishment.",
+ "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "them;"
+  },
+  {
+   "id": "B",
+   "text": "them"
+  },
+  {
+   "id": "C",
+   "text": "them—"
+  },
+  {
+   "id": "D",
+   "text": "them,"
+  }
+ ],
+ "correctAnswer": "C",
+ "explanation": "The correct answer is C, \"them—\". The material before the blank is a complete independent clause: \"the Columbia anthropologist Audra Simpson argues that the Mohawks of Kahnawake actively decline the citizenship that Canada and the United States offer them.\" The material after the blank is a noun phrase in apposition to the preceding action — \"a refusal that, far from being a gesture of withdrawal, exposes settler sovereignty as an ongoing political negotiation rather than a finished accomplishment\" — which renames and amplifies what the Mohawks' decline of citizenship is. Standard English allows a single em-dash to mark this emphatic break at the end of an independent clause when what follows is a summative appositive that interprets the clause that just closed. Because the appositive itself contains an internal comma pair (\"that, far from being a gesture of withdrawal, exposes\"), the dash is preferable to a comma (which would blur into those internal commas) and to a colon (which would imply a list or formal definition rather than a renaming). Choice C supplies that single em-dash and lets the appositive land cleanly.",
+ "_meta": {
+  "rule": "single em-dash before summative appositive with internal commas",
+  "anchor": "Audra Simpson — Mohawk Interruptus (2014), Columbia, Mohawks of Kahnawake, refusal of state citizenship, settler sovereignty",
+  "distractors": {
+   "B": "surface-match (semicolon as IC-IC marker)",
+   "C": "scope-shift (comma as appositive opener, fails when appositive has internal commas)",
+   "D": "inverse (no punctuation)"
+  }
+ }
+}

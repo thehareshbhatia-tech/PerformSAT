@@ -1,0 +1,41 @@
+{
+ "id": 126,
+ "type": "multiple-choice",
+ "difficulty": "medium",
+ "band": 3,
+ "domain": "expression-of-ideas",
+ "skill": "rhetorical-synthesis",
+ "module": 1,
+ "studentNotes": {
+  "intro": "While researching a topic, a student has taken the following notes:",
+  "bullets": [
+   "Hetti Perkins is an Australian art historian and curator specializing in Aboriginal Australian art at the Australian National University.",
+   "In *Art + Soul: A Journey into the World of Aboriginal Art* (2010), Perkins argues that Aboriginal Australian painting is best understood as a continuing system of Country-based knowledge transmission.",
+   "Perkins frames this painting tradition as an active body of legal and cosmological knowledge tied to specific lands.",
+   "Perkins rejects the view that Aboriginal Australian painting is decorative regional ornament adapted to Western canvas.",
+   "On Perkins's account, the work conveys ongoing relationships between artists, ancestors, and Country rather than freestanding aesthetic objects."
+  ],
+  "goal": "The student wants to introduce Perkins's argument to a reader unfamiliar with Aboriginal Australian art."
+ },
+ "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "Perkins rejects the view that Aboriginal Australian painting is decorative regional ornament adapted to Western canvas."
+  },
+  {
+   "id": "B",
+   "text": "In *Art + Soul* (2010), Australian art historian Hetti Perkins argues that Aboriginal Australian painting is best understood not as decorative ornament but as a continuing system of Country-based knowledge tied to specific lands."
+  },
+  {
+   "id": "C",
+   "text": "Hetti Perkins is an Australian art historian and curator who specializes in Aboriginal Australian art at the Australian National University, where she published her 2010 book *Art + Soul: A Journey into the World of Aboriginal Art*."
+  },
+  {
+   "id": "D",
+   "text": "Aboriginal Australian painting, Perkins argues, conveys ongoing relationships between artists, ancestors, and Country rather than freestanding aesthetic objects, a view that displaces the long-standing decorative reading of the tradition."
+  }
+ ],
+ "correctAnswer": "B",
+ "explanation": "The correct answer is B. The goal is to introduce Perkins's argument to a reader unfamiliar with Aboriginal Australian art. Choice B names Perkins and her credentials, names the 2010 book in which she makes the argument, and states the argument itself in a form a newcomer can grasp—Aboriginal Australian painting understood not as decorative ornament but as a continuing system of Country-based knowledge transmission carrying legal and cosmological content tied to specific lands. The introduction is self-contained and pitched at an unfamiliar reader."
+}

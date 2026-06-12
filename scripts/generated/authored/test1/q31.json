@@ -1,0 +1,31 @@
+{
+ "id": 131,
+ "type": "multiple-choice",
+ "difficulty": "hard",
+ "band": 4,
+ "domain": "craft-and-structure",
+ "skill": "words-in-context",
+ "module": 2,
+ "passage": "Materials scientist Mildred Dresselhaus spent decades studying how electrons move through carbon. In bulk graphite, she observed, electrons behave much as they do in ordinary metals. But when carbon is rolled into a tube only a few atoms across, those same electrons are confined to so narrow a space that their behavior ______ from the familiar bulk pattern, shifting between metallic and semiconducting according to the exact geometry of the tube.",
+ "question": "Which choice completes the text with the most logical and precise word or phrase?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "departs"
+  },
+  {
+   "id": "B",
+   "text": "benefits"
+  },
+  {
+   "id": "C",
+   "text": "recovers"
+  },
+  {
+   "id": "D",
+   "text": "results"
+  }
+ ],
+ "correctAnswer": "A",
+ "explanation": "The correct answer is A. The sentence sets the behavior of electrons in a narrow carbon tube against their behavior in bulk graphite, and the rest of the clause—shifting between metallic and semiconducting—describes how the two differ. A verb meaning to diverge is needed, and \"departs\" (departs from) conveys exactly that break from the bulk pattern. \"Benefits\" and \"recovers\" do not describe a difference at all, and \"results\" would need a cause to follow it (results from something), which the construction \"results from the familiar bulk pattern\" does not sensibly supply."
+}

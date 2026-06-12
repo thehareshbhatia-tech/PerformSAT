@@ -1,0 +1,31 @@
+{
+ "id": 150,
+ "type": "multiple-choice",
+ "difficulty": "hard",
+ "band": 4,
+ "domain": "expression-of-ideas",
+ "skill": "transitions",
+ "module": 2,
+ "passage": "In Black Feminist Thought (1990), University of Maryland sociologist Patricia Hill Collins argued that Black women in the United States, by virtue of occupying a distinctive social location at the intersection of race, gender, and class, have produced a coherent intellectual tradition that cannot be derived from any single one of those categories considered on its own. ______ the simultaneous experience of being Black, female, and (for most) working class is not merely the backdrop against which Black women's ideas have been written but is itself the standpoint that gives those ideas their characteristic shape and shared core.",
+ "question": "Which choice completes the text with the most logical transition?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "Consequently,"
+  },
+  {
+   "id": "B",
+   "text": "In other words,"
+  },
+  {
+   "id": "C",
+   "text": "For example,"
+  },
+  {
+   "id": "D",
+   "text": "In addition,"
+  }
+ ],
+ "correctAnswer": "B",
+ "explanation": "The first sentence states Collins's central claim in fairly abstract terms: Black women's distinctive social location at the intersection of race, gender, and class has produced a coherent intellectual tradition that cannot be derived from any of those categories taken alone. The second sentence then renames the same idea in different vocabulary — recasting 'distinctive social location' as 'the simultaneous experience of being Black, female, and (for most) working class,' and recasting 'a coherent intellectual tradition' as 'the standpoint that gives those ideas their characteristic shape and shared core.' The relation between the two sentences is reformulation: sentence 2 restates sentence 1's argument so the reader sees the same claim from a different angle. 'In other words,' is the CB-lexicon transition for that restatement move and is correct (B).\n\nThe cue that selects 'In other words,' here is the parallel between 'is not merely … but is itself' in sentence 2 and the structure of sentence 1's claim about intersectional location producing a tradition: sentence 2 introduces no new entities, only a rephrasing of the relationship sentence 1 already named. That is the textbook signature of restatement rather than illustration, consequence, or addition."
+}

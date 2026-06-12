@@ -1,0 +1,31 @@
+{
+  "id": 821,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "standard-english-conventions",
+  "skill": "boundaries",
+  "module": 1,
+  "passage": "Assembled to mark a centenary, the traveling exhibition of Japanese woodblock prints drew on loans from three institutions on three continents: the Tokyo National Museum, in Ueno Park ______ the Honolulu Museum of Art, in Hawaii; and the British Museum, in London.",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Park"
+    },
+    {
+      "id": "B",
+      "text": "Park, and"
+    },
+    {
+      "id": "C",
+      "text": "Park;"
+    },
+    {
+      "id": "D",
+      "text": "Park,"
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C. Each item in this list already contains an internal comma (\"the Tokyo National Museum, in Ueno Park\"), so the items must be separated by semicolons to keep them from blurring together; the sentence already uses a semicolon before \"and the British Museum,\" and the blank needs to match. The bare phrase in A fuses the first two items, the comma-plus-\"and\" in B breaks the parallel semicolon pattern of the series, and the lone comma in D cannot do the work of dividing items that themselves contain commas."
+}

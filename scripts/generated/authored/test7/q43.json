@@ -1,0 +1,31 @@
+{
+  "id": 743,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "information-and-ideas",
+  "skill": "inferences",
+  "module": 2,
+  "passage": "A recent history of the household at Thomas Jefferson's Monticello reconstructs the lives of the enslaved Hemings family in unusual detail. It does so by taking seriously two bodies of evidence that earlier accounts had largely set aside: the testimony passed down by the family's enslaved descendants and a range of legal records that previous historians had treated as marginal. Read closely, these sources document the Hemingses' kinship ties, labor, and movements about as fully as the comparable record for the Jefferson family. Because the Hemingses appear central to the documented story only once these particular sources are consulted, the reconstruction supports the inference that earlier portrayals of the family as peripheral mainly reflected ______",
+  "question": "Which choice most logically completes the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "an oversight that, once it is corrected, makes any account of Monticello that leaves out the Hemings family unusable as serious documented history."
+    },
+    {
+      "id": "B",
+      "text": "a problem so severe that nearly every existing history of slavery in the early United States will now have to be substantially rewritten."
+    },
+    {
+      "id": "C",
+      "text": "gaps in the descendants’ testimony and the related legal records that kept earlier historians from documenting the family in comparable detail."
+    },
+    {
+      "id": "D",
+      "text": "the limited range of sources those earlier accounts relied on rather than any genuine scarcity in the surviving documentary record."
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "The correct answer is D. The Hemingses appear central only when the descendant testimony and legal records are consulted, which means earlier portrayals of the family as marginal reflected the narrow set of sources those accounts used, not a real lack of documentation. Choice A leaps to a sweeping methodological verdict the passage does not draw. Choice B generalizes far beyond Monticello to all histories of slavery, and Choice C blames gaps in the sources themselves, contradicting the point that the records are in fact rich once taken seriously."
+}

@@ -1,0 +1,34 @@
+{
+  "id": 921,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "standard-english-conventions",
+  "skill": "boundaries",
+  "module": 1,
+  "passage": "Franz Boas drew one overriding lesson from the winter of 1883 he spent among the Inuit of Baffin Island ______ the need to understand each culture on its own terms rather than rank it on a single ladder of progress.",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Island,"
+    },
+    {
+      "id": "B",
+      "text": "Island;"
+    },
+    {
+      "id": "C",
+      "text": "Island"
+    },
+    {
+      "id": "D",
+      "text": "Island:"
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "The first clause announces \"one overriding lesson,\" and what follows is that lesson stated as a noun phrase. A colon properly introduces such an announced explanation, so choice D is correct. A comma (A) or no punctuation (C) would run the announcement into its content, and a semicolon (B) requires a full independent clause after it, which \"the need to understand each culture...\" is not.",
+  "_meta": {
+    "anchor": "Franz Boas, Baffin Island"
+  }
+}

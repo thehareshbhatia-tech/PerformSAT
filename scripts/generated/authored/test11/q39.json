@@ -1,0 +1,34 @@
+{
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "information-and-ideas",
+  "skill": "command-of-evidence-textual",
+  "question": "Which finding, if true, would most directly support the specialist's argument?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Impressions taken from different blocks of the same design vary in color depending on which inks each workshop preferred to use."
+    },
+    {
+      "id": "B",
+      "text": "Documentary records of ukiyo-e print runs survive for only a small fraction of the many thousands of designs that were produced during the period."
+    },
+    {
+      "id": "C",
+      "text": "Among impressions whose printing order is documented, the later ones consistently show breaks and thinning in fine lines that are still crisp in the earlier ones."
+    },
+    {
+      "id": "D",
+      "text": "Some collectors prize late impressions of a famous design more highly than early ones simply because they are rarer."
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C. The specialist's claim is that line wear can date an impression, and the plan is to check it against impressions of known order. A finding that, among documented impressions, the later ones reliably show the predicted breaks and thinning while the earlier ones stay crisp directly supports the claim. Choice A concerns color across different blocks, a separate variable; Choice B is about how many records survive, which is neutral to the wear hypothesis; and Choice D reports collector preferences, which say nothing about whether wear marks track printing order.",
+  "passage": "Many ukiyo-e prints survive in multiple impressions that look, at a glance, identical. Yet art historians can often place these impressions in a sequence, identifying which were pulled early in a block's life and which came later. One specialist argues that the key evidence is physical wear: as a woodblock is used, its finest carved lines gradually break down, so impressions pulled later show subtle gaps and thinning in details that are crisp in early ones. To test whether wear can date an impression, the specialist plans to compare impressions whose order of printing is already known from documentary records.",
+  "_meta": {
+    "anchor": "Japanese printmaking: block wear used to sequence ukiyo-e impressions"
+  },
+  "id": 1139,
+  "module": 2
+}

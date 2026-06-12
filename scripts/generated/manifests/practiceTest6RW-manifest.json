@@ -1,0 +1,386 @@
+{
+  "test": 6,
+  "section": "reading-writing",
+  "total": 54,
+  "generatedBy": "scripts/generated/build6 rewrite (CB authenticity pass 2026-06-10)",
+  "items": [
+    {
+      "qIndex": 1,
+      "id": 601,
+      "module": 1,
+      "skill": "words-in-context",
+      "status": "done"
+    },
+    {
+      "qIndex": 2,
+      "id": 602,
+      "module": 1,
+      "skill": "words-in-context",
+      "status": "done"
+    },
+    {
+      "qIndex": 3,
+      "id": 603,
+      "module": 1,
+      "skill": "words-in-context",
+      "status": "done"
+    },
+    {
+      "qIndex": 4,
+      "id": 604,
+      "module": 1,
+      "skill": "words-in-context",
+      "status": "done"
+    },
+    {
+      "qIndex": 5,
+      "id": 605,
+      "module": 1,
+      "skill": "text-structure-and-purpose",
+      "status": "done"
+    },
+    {
+      "qIndex": 6,
+      "id": 606,
+      "module": 1,
+      "skill": "text-structure-and-purpose",
+      "status": "done"
+    },
+    {
+      "qIndex": 7,
+      "id": 607,
+      "module": 1,
+      "skill": "text-structure-and-purpose",
+      "status": "done"
+    },
+    {
+      "qIndex": 8,
+      "id": 608,
+      "module": 1,
+      "skill": "cross-text-connections",
+      "status": "done"
+    },
+    {
+      "qIndex": 9,
+      "id": 609,
+      "module": 1,
+      "skill": "central-ideas-and-details",
+      "status": "done"
+    },
+    {
+      "qIndex": 10,
+      "id": 610,
+      "module": 1,
+      "skill": "central-ideas-and-details",
+      "status": "done"
+    },
+    {
+      "qIndex": 11,
+      "id": 611,
+      "module": 1,
+      "skill": "central-ideas-and-details",
+      "status": "done"
+    },
+    {
+      "qIndex": 12,
+      "id": 612,
+      "module": 1,
+      "skill": "command-of-evidence-textual",
+      "status": "done"
+    },
+    {
+      "qIndex": 13,
+      "id": 613,
+      "module": 1,
+      "skill": "command-of-evidence-quantitative",
+      "status": "done"
+    },
+    {
+      "qIndex": 14,
+      "id": 614,
+      "module": 1,
+      "skill": "command-of-evidence-quantitative",
+      "status": "done"
+    },
+    {
+      "qIndex": 15,
+      "id": 615,
+      "module": 1,
+      "skill": "inferences",
+      "status": "done"
+    },
+    {
+      "qIndex": 16,
+      "id": 616,
+      "module": 1,
+      "skill": "inferences",
+      "status": "done"
+    },
+    {
+      "qIndex": 17,
+      "id": 617,
+      "module": 1,
+      "skill": "boundaries",
+      "status": "done"
+    },
+    {
+      "qIndex": 18,
+      "id": 618,
+      "module": 1,
+      "skill": "form-structure-and-sense",
+      "status": "done"
+    },
+    {
+      "qIndex": 19,
+      "id": 619,
+      "module": 1,
+      "skill": "boundaries",
+      "status": "done"
+    },
+    {
+      "qIndex": 20,
+      "id": 620,
+      "module": 1,
+      "skill": "form-structure-and-sense",
+      "status": "done"
+    },
+    {
+      "qIndex": 21,
+      "id": 621,
+      "module": 1,
+      "skill": "boundaries",
+      "status": "done"
+    },
+    {
+      "qIndex": 22,
+      "id": 622,
+      "module": 1,
+      "skill": "form-structure-and-sense",
+      "status": "done"
+    },
+    {
+      "qIndex": 23,
+      "id": 623,
+      "module": 1,
+      "skill": "transitions",
+      "status": "done"
+    },
+    {
+      "qIndex": 24,
+      "id": 624,
+      "module": 1,
+      "skill": "transitions",
+      "status": "done"
+    },
+    {
+      "qIndex": 25,
+      "id": 625,
+      "module": 1,
+      "skill": "transitions",
+      "status": "done"
+    },
+    {
+      "qIndex": 26,
+      "id": 626,
+      "module": 1,
+      "skill": "rhetorical-synthesis",
+      "status": "done"
+    },
+    {
+      "qIndex": 27,
+      "id": 627,
+      "module": 1,
+      "skill": "rhetorical-synthesis",
+      "status": "done"
+    },
+    {
+      "qIndex": 28,
+      "id": 628,
+      "module": 2,
+      "skill": "words-in-context",
+      "status": "done"
+    },
+    {
+      "qIndex": 29,
+      "id": 629,
+      "module": 2,
+      "skill": "words-in-context",
+      "status": "done"
+    },
+    {
+      "qIndex": 30,
+      "id": 630,
+      "module": 2,
+      "skill": "words-in-context",
+      "status": "done"
+    },
+    {
+      "qIndex": 31,
+      "id": 631,
+      "module": 2,
+      "skill": "words-in-context",
+      "status": "done"
+    },
+    {
+      "qIndex": 32,
+      "id": 632,
+      "module": 2,
+      "skill": "text-structure-and-purpose",
+      "status": "done"
+    },
+    {
+      "qIndex": 33,
+      "id": 633,
+      "module": 2,
+      "skill": "text-structure-and-purpose",
+      "status": "done"
+    },
+    {
+      "qIndex": 34,
+      "id": 634,
+      "module": 2,
+      "skill": "text-structure-and-purpose",
+      "status": "done"
+    },
+    {
+      "qIndex": 35,
+      "id": 635,
+      "module": 2,
+      "skill": "cross-text-connections",
+      "status": "done"
+    },
+    {
+      "qIndex": 36,
+      "id": 636,
+      "module": 2,
+      "skill": "central-ideas-and-details",
+      "status": "done"
+    },
+    {
+      "qIndex": 37,
+      "id": 637,
+      "module": 2,
+      "skill": "central-ideas-and-details",
+      "status": "done"
+    },
+    {
+      "qIndex": 38,
+      "id": 638,
+      "module": 2,
+      "skill": "central-ideas-and-details",
+      "status": "done"
+    },
+    {
+      "qIndex": 39,
+      "id": 639,
+      "module": 2,
+      "skill": "command-of-evidence-textual",
+      "status": "done"
+    },
+    {
+      "qIndex": 40,
+      "id": 640,
+      "module": 2,
+      "skill": "command-of-evidence-quantitative",
+      "status": "done"
+    },
+    {
+      "qIndex": 41,
+      "id": 641,
+      "module": 2,
+      "skill": "command-of-evidence-quantitative",
+      "status": "done"
+    },
+    {
+      "qIndex": 42,
+      "id": 642,
+      "module": 2,
+      "skill": "inferences",
+      "status": "done"
+    },
+    {
+      "qIndex": 43,
+      "id": 643,
+      "module": 2,
+      "skill": "inferences",
+      "status": "done"
+    },
+    {
+      "qIndex": 44,
+      "id": 644,
+      "module": 2,
+      "skill": "boundaries",
+      "status": "done"
+    },
+    {
+      "qIndex": 45,
+      "id": 645,
+      "module": 2,
+      "skill": "form-structure-and-sense",
+      "status": "done"
+    },
+    {
+      "qIndex": 46,
+      "id": 646,
+      "module": 2,
+      "skill": "boundaries",
+      "status": "done"
+    },
+    {
+      "qIndex": 47,
+      "id": 647,
+      "module": 2,
+      "skill": "form-structure-and-sense",
+      "status": "done"
+    },
+    {
+      "qIndex": 48,
+      "id": 648,
+      "module": 2,
+      "skill": "boundaries",
+      "status": "done"
+    },
+    {
+      "qIndex": 49,
+      "id": 649,
+      "module": 2,
+      "skill": "form-structure-and-sense",
+      "status": "done"
+    },
+    {
+      "qIndex": 50,
+      "id": 650,
+      "module": 2,
+      "skill": "transitions",
+      "status": "done"
+    },
+    {
+      "qIndex": 51,
+      "id": 651,
+      "module": 2,
+      "skill": "transitions",
+      "status": "done"
+    },
+    {
+      "qIndex": 52,
+      "id": 652,
+      "module": 2,
+      "skill": "transitions",
+      "status": "done"
+    },
+    {
+      "qIndex": 53,
+      "id": 653,
+      "module": 2,
+      "skill": "rhetorical-synthesis",
+      "status": "done"
+    },
+    {
+      "qIndex": 54,
+      "id": 654,
+      "module": 2,
+      "skill": "rhetorical-synthesis",
+      "status": "done"
+    }
+  ]
+}

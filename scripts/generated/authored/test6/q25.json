@@ -1,0 +1,31 @@
+{
+  "id": 625,
+  "module": 1,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "expression-of-ideas",
+  "skill": "transitions",
+  "passage": "The Nazca people of southern Peru are best known for the enormous lines and figures they scraped into the desert floor, designs so large that their full shapes are clear only from the air. ______ archaeologists have shown that the same culture built an extensive network of underground aqueducts, called puquios, that still carry water to the surface today.",
+  "question": "Which choice completes the text with the most logical transition?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "In addition,"
+    },
+    {
+      "id": "B",
+      "text": "For example,"
+    },
+    {
+      "id": "C",
+      "text": "Nevertheless,"
+    },
+    {
+      "id": "D",
+      "text": "As a result,"
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A, \"In addition.\" The passage describes the famous desert lines and then introduces a second, separate achievement of the same people, their underground aqueducts. \"In addition\" correctly signals that the aqueducts are a further accomplishment alongside the lines. \"For example\" would wrongly cast the aqueducts as an instance of the lines; \"Nevertheless\" would signal a contrast that the passage does not set up; and \"As a result\" would present the aqueducts as a consequence of the lines, which they are not."
+}

@@ -1,0 +1,31 @@
+{
+ "id": 1015,
+ "type": "multiple-choice",
+ "difficulty": "hard",
+ "band": 4,
+ "domain": "information-and-ideas",
+ "skill": "inferences",
+ "module": 1,
+ "passage": "Tree rings record more than a tree's age. In temperate climates, a tree typically adds one ring per year, and the width of each ring reflects that year's growing conditions: wide rings in warm, wet years, narrow rings in cold or dry ones. By matching ring patterns across many overlapping samples, researchers can build chronologies reaching back thousands of years and use them to reconstruct past climate. The method has a built-in limit, however. Because a ring's width responds to whatever most constrains growth in a given place, a chronology drawn from a single site can show ______",
+ "question": "Which choice most logically completes the text?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "the exact calendar year in which each individual ring was formed, even for trees growing in tropical regions where the seasons are only weakly marked."
+  },
+  {
+   "id": "B",
+   "text": "that tree rings are a less reliable record of a tree's age than of the conditions under which it grew."
+  },
+  {
+   "id": "C",
+   "text": "climate conditions for an entire hemisphere with the same accuracy as a network of many distant sites."
+  },
+  {
+   "id": "D",
+   "text": "a misleadingly local picture of past climate, since the factor that limits growth at one site may not be the factor that mattered elsewhere."
+  }
+ ],
+ "correctAnswer": "D",
+ "explanation": "Choice D is correct. The passage explains that a ring's width responds to whatever most constrains growth at a particular place, and it flags this as a built-in limit. It follows that a chronology drawn from a single site reflects that site's limiting factor and may not represent climate elsewhere—so it can give a misleadingly local picture, which is what Choice D states. Choice A ignores the limitation and overreaches to tropical trees, which the passage does not address. Choice B introduces a comparison of age-keeping versus condition-recording that the passage does not make. Choice C claims single-site accuracy equal to a wide network, the opposite of the limitation just described."
+}

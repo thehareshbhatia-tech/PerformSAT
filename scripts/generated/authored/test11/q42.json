@@ -1,0 +1,34 @@
+{
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "information-and-ideas",
+  "skill": "inferences",
+  "question": "Which choice most logically completes the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "proves beyond doubt that a person who deliberately reduces their nightly sleep below the long-sleeper range will, as a result, measurably extend their own lifespan."
+    },
+    {
+      "id": "B",
+      "text": "need not mean that long sleep causes harm, since an underlying illness could be responsible for both the extra sleep and the raised risk."
+    },
+    {
+      "id": "C",
+      "text": "shows that the amount of time a person sleeps has no relationship of any kind to that person's health."
+    },
+    {
+      "id": "D",
+      "text": "is best explained by the finding that short sleepers and long sleepers report identical rates of chronic illness."
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B. The passage notes that long sleep is often a marker of an illness that itself raises mortality, so the higher death rate among long sleepers need not mean long sleep is the cause. Choice B draws exactly that hedged conclusion. Choice A leaps to a causal prescription the passage does not license; Choice C overshoots into the claim that sleep has no relation to health at all; and Choice D asserts identical illness rates, which contradicts the passage's point that illness is more common among long sleepers.",
+  "passage": "Studies that follow large groups of people over many years often find that those who report sleeping unusually little and those who report sleeping unusually much both have higher mortality than those in the middle of the range. It is tempting to read this as evidence that too much sleep is itself harmful. But researchers caution that in such studies long sleep is frequently a marker of an existing illness—chronic pain, depression, or undiagnosed disease—that both lengthens sleep and raises mortality on its own. This caution suggests that the higher mortality observed among long sleepers ______",
+  "_meta": {
+    "anchor": "epidemiology of sleep: confounding / reverse causation in long-sleep mortality studies"
+  },
+  "id": 1142,
+  "module": 2
+}

@@ -1,0 +1,34 @@
+{
+ "id": 339,
+ "module": 2,
+ "difficulty": "hard",
+ "band": 4,
+ "domain": "information-and-ideas",
+ "skill": "command-of-evidence-textual",
+ "question": "Which finding, if true, would most directly support the historian's hypothesis?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "Diagrams in successive hand-copied manuscripts of one text drifted from each other, while the same diagrams in printed editions stayed identical across copies."
+  },
+  {
+   "id": "B",
+   "text": "Printed books in the fifteenth century were, on average, more expensive than the manuscripts they gradually replaced across Europe."
+  },
+  {
+   "id": "C",
+   "text": "Several fifteenth-century printers had trained as goldsmiths and engravers before they entered the new book trade."
+  },
+  {
+   "id": "D",
+   "text": "Readers in the fifteenth century often annotated the margins of both manuscripts and printed books, adding their own sketches, corrections, and cross-references by hand."
+  }
+ ],
+ "correctAnswer": "A",
+ "explanation": "The correct answer is A. The hypothesis is that printing accelerated the standardization of scientific diagrams, because a single engraving could be reproduced identically across many copies, whereas hand copying introduced errors with each new manuscript. A finding supports that most directly if it shows precisely this contrast: diagrams drifting across successive manuscripts but staying identical across printed copies. A reports exactly that. B concerns price, not the consistency of diagrams. C describes printers' backgrounds without bearing on whether printed diagrams were more uniform. D notes hand annotation in both formats, which speaks to readers' habits, not to the standardization the hypothesis is about.",
+ "_meta": {
+  "anchor": "Print and the standardization of scientific diagrams (unnamed historian); finding-selection evidence item"
+ },
+ "passage": "A historian of science argues that the spread of the printed book in fifteenth-century Europe accelerated the standardization of scientific diagrams. Printers, the argument runs, could reproduce a single carefully made engraving identically across thousands of copies, whereas hand-copied manuscripts had introduced small errors with each new copy. To test the claim, the historian plans to compare diagrams in early printed editions with those in the manuscript versions that preceded them.",
+ "type": "multiple-choice"
+}

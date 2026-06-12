@@ -1,0 +1,31 @@
+{
+  "id": 837,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "information-and-ideas",
+  "skill": "central-ideas-and-details",
+  "module": 2,
+  "passage": "When the printing press reached Europe in the mid-fifteenth century, scholars often described its effect as the simple, rapid spread of knowledge. The historian Elizabeth Eisenstein argued that this account misses what mattered most. Before print, she observed, every copy of a text was made by hand and differed slightly from every other; a reader could never be sure that the version in front of her matched the one a distant colleague held. Print did not merely multiply copies, Eisenstein contended; it made many readers, far apart, confident that they were examining exactly the same text, and that shared, stable reference point is what allowed scholars to compare findings, catch errors, and build steadily on one another's work.",
+  "question": "Which choice best states the main idea of the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "According to Eisenstein, printing mattered less because it spread texts quickly than because it gave distant readers identical, stable copies they could rely on and build upon."
+    },
+    {
+      "id": "B",
+      "text": "Eisenstein argued that hand-copied manuscripts were generally more accurate than the printed books that replaced them."
+    },
+    {
+      "id": "C",
+      "text": "Eisenstein showed that the printing press reached Europe earlier than most historians had previously believed."
+    },
+    {
+      "id": "D",
+      "text": "Eisenstein maintained that the spread of printing ultimately had very little effect on the way scholars across Europe compared their findings and checked one another’s results over the following centuries."
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A. Eisenstein's claim, as the passage presents it, is that print's deepest effect was not speed of distribution but the standardization of texts, which let scattered readers trust they were working from the same version and so build on each other's work. B reverses her point about hand copies, which she describes as varying from one another; C invents a claim about the date of print's arrival; and D contradicts the passage, which says the stable reference point is exactly what enabled scholars to compare findings."
+}

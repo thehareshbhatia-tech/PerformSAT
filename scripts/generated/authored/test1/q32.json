@@ -1,0 +1,31 @@
+{
+ "id": 132,
+ "type": "multiple-choice",
+ "difficulty": "medium",
+ "band": 3,
+ "domain": "craft-and-structure",
+ "skill": "text-structure-and-purpose",
+ "module": 2,
+ "passage": "Microbiologists once assumed that the microbes living in the deepest ocean trenches were simply ordinary seafloor bacteria that had drifted downward and managed to survive. Studying organisms recovered from depths where the pressure exceeds a thousand times that at the surface, microbiologist Douglas Bartlett and his colleagues expected to find familiar species pushed to the edge of tolerance. Instead, they found bacteria whose membranes, enzymes, and even genetic machinery were specifically structured for high pressure—features that would function poorly nearer the surface. Bartlett concluded that these organisms are not stray survivors but a distinct community adapted to conditions that would disable most surface life.",
+ "question": "Which choice best describes the overall structure of the text?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "It lays out two competing theories about deep-sea microbes and explains why neither has yet been confirmed."
+  },
+  {
+   "id": "B",
+   "text": "It describes a researcher's method in detail and then questions whether that method can be applied at extreme depths."
+  },
+  {
+   "id": "C",
+   "text": "It states a prior assumption, describes a study undertaken expecting to confirm it, and reports a finding that overturned it."
+  },
+  {
+   "id": "D",
+   "text": "It explains how deep-sea microbes drift down from the surface and gradually adapt to the increasing pressure."
+  }
+ ],
+ "correctAnswer": "C",
+ "explanation": "The correct answer is C. The passage begins with the old assumption that deep-trench microbes were drifters from above, notes that Bartlett's team set out expecting to confirm it, and then reports the finding that overturned it: the bacteria are built for high pressure and would do poorly near the surface. A turns the single overturned assumption into two unresolved theories; B treats the work as a methods critique, though no method is questioned; and D restates the very drift-and-adapt picture that the team's results contradict."
+}

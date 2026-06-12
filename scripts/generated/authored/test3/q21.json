@@ -1,0 +1,34 @@
+{
+ "id": 321,
+ "module": 1,
+ "difficulty": "medium",
+ "band": 3,
+ "domain": "standard-english-conventions",
+ "skill": "boundaries",
+ "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "songs, and"
+  },
+  {
+   "id": "B",
+   "text": "songs,"
+  },
+  {
+   "id": "C",
+   "text": "songs"
+  },
+  {
+   "id": "D",
+   "text": "songs; and"
+  }
+ ],
+ "correctAnswer": "A",
+ "explanation": "The correct answer is A, \"songs, and\". The blank joins two independent clauses: \"Roger Payne's 1970 recordings revealed that male humpback whales produce long, patterned songs\" and \"the discovery helped transform public attitudes toward whales.\" The standard way to join two independent clauses is a comma followed by a coordinating conjunction, which is what A supplies. A comma alone (B) makes a comma splice, and no punctuation (C) makes a run-on. A semicolon before a coordinating conjunction (D) is incorrect, because a semicolon already does the work the conjunction would do and the two should not be combined.",
+ "_meta": {
+  "anchor": "Roger Payne — marine biologist; 1970 humpback whale song recordings; comma plus coordinating conjunction"
+ },
+ "passage": "In the years before commercial whaling was widely restricted, a single set of recordings changed how the public imagined whales. Roger Payne's 1970 recordings revealed that male humpback whales produce long, patterned songs ______ the discovery helped transform public attitudes toward whales and energized the campaign against commercial whaling.",
+ "type": "multiple-choice"
+}

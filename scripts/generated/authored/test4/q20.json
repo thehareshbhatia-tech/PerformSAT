@@ -1,0 +1,34 @@
+{
+  "id": 420,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "standard-english-conventions",
+  "skill": "form-structure-and-sense",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "had"
+    },
+    {
+      "id": "B",
+      "text": "has"
+    },
+    {
+      "id": "C",
+      "text": "is"
+    },
+    {
+      "id": "D",
+      "text": "have"
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A. The opening phrase fixes a past reference point — the 1999 publication — and the main clause describes a condition already in place before it, so the past perfect \"had … pulled\" is required. Present perfect \"has\" (B) ties the action to the present moment rather than to 1999; \"have\" (D) is plural and disagrees with the singular \"crisis\"; and \"is\" (C) cannot combine with the past participle to form the needed past perfect.",
+  "passage": "By the time political scientist Cathy J. Cohen published *The Boundaries of Blackness* in 1999, the AIDS crisis ______ already pulled at the resources of mainstream Black political organizations for more than a decade, straining their budgets and dividing their leaders over how openly the epidemic should be addressed.",
+  "_meta": {
+    "anchor": "Cathy J. Cohen — The Boundaries of Blackness (entity_keep); past perfect"
+  },
+  "module": 1
+}

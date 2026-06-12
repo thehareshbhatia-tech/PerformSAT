@@ -1,0 +1,34 @@
+{
+ "id": 345,
+ "module": 2,
+ "difficulty": "hard",
+ "band": 4,
+ "domain": "standard-english-conventions",
+ "skill": "form-structure-and-sense",
+ "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "are already writing"
+  },
+  {
+   "id": "B",
+   "text": "already write"
+  },
+  {
+   "id": "C",
+   "text": "have already written"
+  },
+  {
+   "id": "D",
+   "text": "had already written"
+  }
+ ],
+ "correctAnswer": "D",
+ "explanation": "The correct answer is D, \"had already written.\" The sentence relates two past events in sequence: other historians produced shorter accounts, and then, in 1982, Caro published the first volume of his life of Johnson. The phrase \"By the time … Caro published … in 1982\" fixes the later event as a reference point, so the earlier event — the other historians' work — takes the past perfect to mark its precedence. \"Have already written\" is present perfect, which links the action to the present and clashes with the 1982 frame. \"Already write\" is simple present, which removes the past sequence entirely. \"Are already writing\" is present progressive, which both misplaces the action in the present and treats finished work as ongoing.",
+ "_meta": {
+  "anchor": "Robert Caro — multivolume life of Lyndon Johnson (1982-); past-perfect sequence"
+ },
+ "passage": "By the time the biographer Robert Caro published the first volume of his sprawling multivolume life of Lyndon Johnson in 1982, several other historians ______ shorter, single-volume accounts of Johnson, but none had attempted the exhaustive, document-by-document portrait that Caro's project would eventually become.",
+ "type": "multiple-choice"
+}

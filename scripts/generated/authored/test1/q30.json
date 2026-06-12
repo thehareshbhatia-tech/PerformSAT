@@ -1,0 +1,31 @@
+{
+ "id": 130,
+ "type": "multiple-choice",
+ "difficulty": "hard",
+ "band": 4,
+ "domain": "craft-and-structure",
+ "skill": "words-in-context",
+ "module": 2,
+ "passage": "Historian Saidiya Hartman reconstructs the lives of young Black women in early-twentieth-century New York from records their subjects never meant to leave behind: arrest reports, caseworkers' files, and the photographs of reformers who hoped to correct their behavior. Reading these hostile documents against the grain, she recovers glimpses of pleasure and self-invention their authors never intended to preserve. Her method, in other words, ______ evidence of freedom from the very archives designed to record its suppression.",
+ "question": "Which choice completes the text with the most logical and precise word or phrase?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "conceals"
+  },
+  {
+   "id": "B",
+   "text": "inherits"
+  },
+  {
+   "id": "C",
+   "text": "imitates"
+  },
+  {
+   "id": "D",
+   "text": "extracts"
+  }
+ ],
+ "correctAnswer": "D",
+ "explanation": "The correct answer is D. The passage says Hartman draws traces of pleasure and self-invention out of records made to surveil and discipline her subjects, so the verb must mean to pull such evidence from an unpromising source. \"Extracts\" captures that act of drawing something out. \"Conceals\" is the reverse of recovering evidence; \"inherits\" suggests passively receiving the archives rather than working against them; and \"imitates\" makes no sense of a relationship in which she mines the records for what their compilers did not intend to leave."
+}

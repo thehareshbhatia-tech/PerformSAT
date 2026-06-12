@@ -1,0 +1,31 @@
+{
+ "id": 139,
+ "type": "multiple-choice",
+ "difficulty": "medium",
+ "band": 3,
+ "domain": "information-and-ideas",
+ "skill": "command-of-evidence-textual",
+ "module": 2,
+ "passage": "Solid-state batteries replace the liquid electrolyte of a conventional lithium-ion cell with a solid material through which lithium ions must travel. Engineers hoped that solids would suppress the growth of dendrites—thin metallic spikes that form inside liquid cells and can pierce the barrier between electrodes, causing a short circuit. A research team has proposed that one promising ceramic electrolyte resists dendrites not merely because it is solid but because it is mechanically stiff enough to physically block the spikes from advancing.",
+ "question": "Which finding, if true, would most directly support the team's proposal?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "Solid-state cells stored more energy for a given weight than conventional lithium-ion cells of the same size did."
+  },
+  {
+   "id": "B",
+   "text": "Dendrites advanced freely through softer solid electrolytes but stalled against the stiffer ceramic, even though both materials were fully solid."
+  },
+  {
+   "id": "C",
+   "text": "The ceramic electrolyte conducted lithium ions more slowly at low temperatures than the liquid electrolyte did."
+  },
+  {
+   "id": "D",
+   "text": "Cells built with the ceramic electrolyte took longer to manufacture than cells built with a liquid electrolyte."
+  }
+ ],
+ "correctAnswer": "B",
+ "explanation": "The correct answer is B. The proposal is that stiffness, not mere solidity, is what stops the dendrites, so the supporting evidence has to separate those two properties—and B does, showing dendrites moving through a soft solid but halting at a stiff one. A concerns energy density, which is unrelated to dendrite blocking; C concerns ion conduction speed, again beside the point; and D concerns manufacturing time, which says nothing about why dendrites are stopped."
+}

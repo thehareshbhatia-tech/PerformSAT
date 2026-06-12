@@ -1,0 +1,31 @@
+{
+  "id": 822,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "standard-english-conventions",
+  "skill": "form-structure-and-sense",
+  "module": 1,
+  "passage": "When the astronomer Williamina Fleming and the other women employed as \"computers\" at the Harvard College Observatory finished examining the observatory's glass photographic plates, ______ had classified the spectra of tens of thousands of stars, work that underlies the catalogues astronomers still consult.",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "it"
+    },
+    {
+      "id": "B",
+      "text": "they"
+    },
+    {
+      "id": "C",
+      "text": "she"
+    },
+    {
+      "id": "D",
+      "text": "one"
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B. The pronoun stands in for the compound, plural subject \"Williamina Fleming and the other women… at the Harvard College Observatory,\" so it must be the plural \"they.\" The singular \"it\" in A cannot refer to people; \"she\" in C names only one person, leaving the other computers out of the work the sentence credits; and the indefinite \"one\" in D does not refer back to the specific group already named."
+}

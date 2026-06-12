@@ -1,0 +1,31 @@
+{
+  "id": 715,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "information-and-ideas",
+  "skill": "inferences",
+  "module": 1,
+  "passage": "Aboard a 1992 space shuttle mission, a series of biology experiments tested how the absence of normal gravity affects living things. Two results stood out. Frog embryos that developed in orbit followed unusual developmental paths rather than the trajectories familiar from laboratories on the ground. Separately, isolated bone cells changed their characteristic patterns of growth and chemical signaling once the pull of gravity was removed. Because both a whole developing organism and a single specialized cell type behaved differently when gravity was taken away, the combined results suggest that ______",
+  "question": "Which choice most logically completes the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "almost any biological process studied in orbit will end up producing results that directly contradict what is normally seen on the ground."
+    },
+    {
+      "id": "B",
+      "text": "gravity is among the environmental factors that shape how at least some living systems function on Earth."
+    },
+    {
+      "id": "C",
+      "text": "removing gravity leaves the behavior of isolated bone cells essentially identical to their behavior on Earth."
+    },
+    {
+      "id": "D",
+      "text": "frog embryos cannot develop normally unless Earth’s gravity acts on them at every single stage of growth."
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B. Two different living systems — a developing organism and an isolated cell type — behaved differently once gravity was removed, which supports the modest conclusion that gravity helps shape how at least some living systems work. Choice A overgeneralizes from two cases to \"almost any\" process and predicts direct contradiction rather than mere difference. Choice C denies the very change the bone-cell result describes, and Choice D draws an absolute claim about every stage of development that the single observation cannot support."
+}

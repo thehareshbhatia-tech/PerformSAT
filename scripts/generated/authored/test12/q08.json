@@ -1,0 +1,40 @@
+{
+  "id": 1208,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "craft-and-structure",
+  "skill": "cross-text-connections",
+  "module": 1,
+  "passages": [
+    {
+      "label": "Text 1",
+      "text": "When paper money first circulated in China during the Song dynasty, about a thousand years ago, it began as a convenience of trade. In the Sichuan region, coins were minted from heavy iron, and merchants found it impractical to carry enough metal for large purchases. They deposited their coins with trusted shops and accepted printed receipts in return; because these receipts could be redeemed for the deposited metal, they soon passed from hand to hand as though they were money. On this account, paper currency was an invention of private commerce, a practical solution that merchants worked out among themselves before any government took an interest."
+    },
+    {
+      "label": "Text 2",
+      "text": "No one disputes that printed receipts circulated among Sichuan merchants. But to treat paper money as essentially a private invention understates how quickly, and how decisively, the state shaped it. Within a few decades the Song government restricted the right to issue notes and then claimed it outright, printing official currency backed by its own authority and using it to move tax revenue and pay troops across great distances. What made paper a true currency, on this view, was not the merchants' receipts but the government's decision to issue, regulate, and stand behind the notes, turning a local convenience into a national system."
+    }
+  ],
+  "question": "Based on the texts, how would the author of Text 2 most likely respond to the argument presented in Text 1?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "The author would agree that merchant receipts came first but insist that paper became a true currency only when the state took over issuing the notes."
+    },
+    {
+      "id": "B",
+      "text": "The author would deny that printed receipts played any real part in the origins of paper money, since only government-issued notes deserve the name."
+    },
+    {
+      "id": "C",
+      "text": "The author would accept that paper money was a purely private invention and that the government's later involvement was incidental to its success."
+    },
+    {
+      "id": "D",
+      "text": "The author would conclude that, because the notes began as private merchant receipts rather than state issue, paper money should not really be considered a genuine currency at all."
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A. The author of Text 2 grants that receipts circulated among the Sichuan merchants but argues that paper became a true currency only once the Song government took over issuing and regulating the notes, so A captures both that agreement and that key qualification. B is wrong because Text 2 openly accepts that the merchants' receipts circulated. C states the very position from Text 1 that the author of Text 2 pushes against. D goes further than Text 2 ever does; the author reframes how paper money became a currency rather than denying that it is one."
+}

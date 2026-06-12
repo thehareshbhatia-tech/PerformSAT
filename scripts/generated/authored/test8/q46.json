@@ -1,0 +1,31 @@
+{
+  "id": 846,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "standard-english-conventions",
+  "skill": "boundaries",
+  "module": 2,
+  "passage": "By the end of the long restoration, the conservators had reached a conclusion that surprised them ______ the fresco's startling blues and greens were not the work of a later hand at all but the original colors, dimmed for centuries beneath layers of candle soot and old varnish.",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "them,"
+    },
+    {
+      "id": "B",
+      "text": "them"
+    },
+    {
+      "id": "C",
+      "text": "them, but"
+    },
+    {
+      "id": "D",
+      "text": "them:"
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "The correct answer is D. What follows the blank spells out the conclusion the conservators reached, so a colon is the right mark: it stands after a complete clause and introduces the explanation that follows. The comma in A joins two independent clauses without a conjunction, a splice; the bare phrase in B fuses them into a run-on; and \"them, but\" in C signals a contrast that the sentence does not intend, since the second part explains the conclusion rather than opposing it."
+}

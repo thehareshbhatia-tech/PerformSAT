@@ -1,0 +1,31 @@
+{
+  "id": 651,
+  "module": 2,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "expression-of-ideas",
+  "skill": "transitions",
+  "passage": "When a research team set out to learn why a long-planned memorial had stalled, they expected the dispute to be about money, who would pay for construction and upkeep. ______ they found that the parties agreed about funding and disagreed instead about wording: what the memorial's inscription should say had happened, and to whom.",
+  "question": "Which choice completes the text with the most logical transition?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Moreover,"
+    },
+    {
+      "id": "B",
+      "text": "Likewise,"
+    },
+    {
+      "id": "C",
+      "text": "Therefore,"
+    },
+    {
+      "id": "D",
+      "text": "Instead,"
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "The correct answer is D, \"Instead.\" The team expected a dispute about money but found a dispute about wording, so the transition must mark that the reality replaced the expectation. \"Instead\" does that. \"Moreover\" would add a further point, \"Likewise\" would signal similarity, and \"Therefore\" would make the finding a consequence of the expectation, none of which fits a result that overturned what the team anticipated."
+}

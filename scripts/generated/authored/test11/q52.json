@@ -1,0 +1,34 @@
+{
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "expression-of-ideas",
+  "skill": "transitions",
+  "question": "Which choice completes the text with the most logical transition?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "for instance,"
+    },
+    {
+      "id": "B",
+      "text": "therefore,"
+    },
+    {
+      "id": "C",
+      "text": "by contrast,"
+    },
+    {
+      "id": "D",
+      "text": "in addition,"
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C. The first sentence says raw silk was easy to price quickly; the second says finished cloth was hard to price on the spot. The two cases are set against each other, and \"by contrast\" marks that opposition. \"For instance\" would make finished cloth an example of easy pricing, \"therefore\" would make it a consequence, and \"in addition\" would make it a further point on the same side—none of which fits a sentence drawing a contrast.",
+  "passage": "In the textile trade of the early modern Ottoman cities, raw silk was typically sold by weight, and a buyer could judge the quality of a lot fairly quickly by inspecting and weighing a sample. Finished cloth, ______ was far harder to price on the spot: its value depended on the fineness of the weave, the fastness of the dyes, and the reputation of the workshop, none of which a quick inspection could fully reveal.",
+  "_meta": {
+    "anchor": "Ottoman trade history: pricing raw silk vs. finished cloth (generic)"
+  },
+  "id": 1152,
+  "module": 2
+}

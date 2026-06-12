@@ -1,0 +1,527 @@
+[
+  {
+    "id": "ctp-001",
+    "topic": "the relationship between green spaces and urban climate adaptation",
+    "text1": {
+      "author": "Jenny Roe",
+      "work": "Restorative Cities (paraphrased)",
+      "year": 2021,
+      "stance": "advocates green spaces as a primary public-health investment for cities",
+      "keyClaim": "Synthesizing controlled studies on attention restoration, stress recovery, and mental health, argues that investment in parks and pocket greenery pays a measurable population-health dividend.",
+      "real": true
+    },
+    "text2": {
+      "author": "Diana Ürge-Vorsatz",
+      "stance": "agrees that green spaces help, but warns that vegetation alone cannot offset rising urban heat without active cooling infrastructure",
+      "keyClaim": "IPCC-aligned analyses of building energy and urban form indicate that during peak heatwaves, parks reduce ambient temperatures meaningfully only when paired with reflective surfaces, district cooling, and envelope retrofits.",
+      "real": true
+    },
+    "engagement": "agreement-with-caveat",
+    "suitableForDifficulty": "medium",
+    "passagePromptHint": "Use this for a CTC question where Text 2 is sympathetic-but-qualifying. Frame the qualification as a question of sufficiency, not direction."
+  },
+  {
+    "id": "ctp-002",
+    "topic": "rewilding as a strategy for ecological restoration in Britain",
+    "text1": {
+      "author": "George Monbiot",
+      "work": "Feral (paraphrased)",
+      "year": 2013,
+      "stance": "argues rewilding upland Britain by reintroducing missing species and reducing sheep grazing would restore ecological function and reverse biodiversity loss",
+      "keyClaim": "Sheep-grazed uplands are ecologically impoverished 'sheepwrecked' landscapes; reintroducing predators, beavers, and native trees would let trophic cascades rebuild diverse ecosystems.",
+      "real": true
+    },
+    "text2": {
+      "author": "James Rebanks",
+      "stance": "challenges the rewilding framing as urban-romantic, arguing that long-standing pastoral farming itself sustains a distinct, valuable cultural and ecological landscape",
+      "keyClaim": "Lake District hill farms have shaped a meadow-and-pasture ecology over centuries; treating these landscapes as 'wrecked' erases the working knowledge of farming communities and the species they support.",
+      "real": true
+    },
+    "engagement": "direct-debate",
+    "suitableForDifficulty": "hard",
+    "passagePromptHint": "Use this for a CTC question contrasting two visions of ecological 'restoration' — one species-led, one practice-led. The disagreement is about what counts as a healthy landscape."
+  },
+  {
+    "id": "ctp-003",
+    "topic": "the implications of industrial monoculture for biodiversity and food security",
+    "text1": {
+      "author": "Vandana Shiva",
+      "work": "Stolen Harvest and related essays (paraphrased)",
+      "year": 2000,
+      "stance": "argues industrial monoculture and proprietary seed systems erode biodiversity, smallholder livelihoods, and food sovereignty in the Global South",
+      "keyClaim": "Replacing diverse traditional cropping systems with patented hybrids concentrates risk, depletes seed sovereignty, and deepens rural debt without raising real nutritional output per hectare.",
+      "real": true
+    },
+    "text2": {
+      "author": "Pamela Ronald",
+      "stance": "shares the concern about smallholder welfare but disputes the dichotomy, arguing that targeted genetic improvement can complement agroecology rather than oppose it",
+      "keyClaim": "Disease-resistant rice varieties developed with marker-assisted breeding raise yields for low-input farmers without displacing traditional practice, suggesting the real choice is not GM-vs-organic but careful trait-by-trait deployment.",
+      "real": true
+    },
+    "engagement": "direct-debate",
+    "suitableForDifficulty": "hard",
+    "passagePromptHint": "Use for CTC where Text 2 reframes the debate's terms. Both authors share concern for smallholders but disagree on whether biotechnology is opposed to agroecology."
+  },
+  {
+    "id": "ctp-004",
+    "topic": "environmental justice and the siting of polluting industries",
+    "text1": {
+      "author": "Robert Bullard",
+      "work": "Dumping in Dixie (paraphrased)",
+      "year": 1990,
+      "stance": "documents that hazardous facilities in the U.S. South are disproportionately sited in Black communities, framing this as structural environmental racism",
+      "keyClaim": "Across multiple Southern states, the location of landfills, incinerators, and chemical plants tracks the racial composition of host communities more strongly than income or geology, indicating systemic discrimination in siting decisions.",
+      "real": true
+    },
+    "text2": {
+      "author": "Dorceta Taylor",
+      "stance": "extends Bullard's analysis but argues the framework must explicitly include the underrepresentation of people of color in mainstream environmental organizations to explain why disparate siting persists",
+      "keyClaim": "Surveys of environmental NGO leadership show persistent racial homogeneity that shapes which problems get prioritized; without representation inside the movement, distributive injustices in siting cannot be effectively challenged.",
+      "real": true
+    },
+    "engagement": "critical-extension",
+    "suitableForDifficulty": "medium",
+    "passagePromptHint": "Use for CTC where Text 2 broadens the causal model. The disagreement is about scope, not direction."
+  },
+  {
+    "id": "ctp-005",
+    "topic": "whether protected wilderness areas should exclude human inhabitation",
+    "text1": {
+      "author": "William Cronon",
+      "work": "The Trouble with Wilderness (paraphrased)",
+      "year": 1995,
+      "stance": "argues the American 'wilderness' ideal is a cultural construction that erases Indigenous land use and distracts from environmental problems where most people actually live",
+      "keyClaim": "The notion of pristine, peopleless wilderness is historically recent and obscures the fact that Native peoples shaped these landscapes for millennia; treating wilderness as the only valuable nature devalues working and urban environments.",
+      "real": true
+    },
+    "text2": {
+      "author": "Robin Wall Kimmerer",
+      "stance": "agrees the peopleless-wilderness ideal is harmful but reframes the alternative around reciprocal Indigenous land relationships rather than around critique",
+      "keyClaim": "Drawing on Potawatomi traditions and ecological science, argues that humans can be a keystone species when bound by reciprocity — gift-based relationships with plants and lands generate ecological abundance rather than degradation.",
+      "real": true
+    },
+    "engagement": "critical-extension",
+    "suitableForDifficulty": "hard",
+    "passagePromptHint": "Use for CTC where Text 2 accepts Text 1's diagnosis but builds a positive program where Text 1 mostly critiques."
+  },
+  {
+    "id": "ctp-006",
+    "topic": "the role of large carnivore reintroduction in ecosystem regulation",
+    "text1": {
+      "author": "William Ripple",
+      "work": "Yellowstone wolf-trophic-cascade studies (paraphrased)",
+      "year": 2012,
+      "stance": "argues wolf reintroduction in Yellowstone triggered a top-down trophic cascade that reduced elk browsing pressure and allowed willow and aspen recovery",
+      "keyClaim": "Long-term transects show that after wolf reintroduction, willow heights and aspen recruitment increased in riparian zones, consistent with behaviorally mediated effects of predation risk on elk foraging.",
+      "real": true
+    },
+    "text2": {
+      "author": "Daniel MacNulty",
+      "stance": "questions the magnitude of the trophic cascade attributable to wolves, arguing climate, drought, and bison density confound the simple wolf-elk-aspen story",
+      "keyClaim": "Longitudinal data on elk populations and vegetation in Yellowstone indicate that climatic variation and other large-herbivore dynamics explain much of the variance previously attributed to wolves alone, complicating the cascade narrative.",
+      "real": true
+    },
+    "engagement": "alternative-explanation",
+    "suitableForDifficulty": "hard",
+    "passagePromptHint": "Use for CTC where Text 2 offers an alternative causal account of the same Yellowstone evidence. Both accept the data but disagree on attribution."
+  },
+  {
+    "id": "ctp-007",
+    "topic": "climate adaptation in coastal and island communities",
+    "text1": {
+      "author": "Saleemul Huq",
+      "work": "Loss-and-damage and adaptation essays (paraphrased)",
+      "year": 2017,
+      "stance": "argues that wealthy emitting nations owe structured loss-and-damage finance to vulnerable countries already absorbing climate impacts beyond adaptation",
+      "keyClaim": "For Bangladesh and small island states, even maximal local adaptation cannot prevent crop loss, salinization, and displacement from accelerating sea-level rise; international finance for unavoidable losses is therefore a matter of justice, not charity.",
+      "real": true
+    },
+    "text2": {
+      "author": "Roger Pielke Jr.",
+      "stance": "agrees adaptation finance is needed but disputes attributing specific present-day disaster losses to anthropogenic climate change, arguing exposure and development drive most loss trends",
+      "keyClaim": "Normalized economic damages from weather extremes have not shown a clear anthropogenic signal once adjusted for population and asset growth, implying adaptation policy should foreground vulnerability reduction rather than emissions-driven loss claims.",
+      "real": true
+    },
+    "engagement": "methodological-critique",
+    "suitableForDifficulty": "hard",
+    "passagePromptHint": "Use for CTC where Text 2 questions the causal accounting in Text 1. The substantive policy goals are not far apart, but the analytic basis is contested."
+  },
+  {
+    "id": "ctp-008",
+    "topic": "whether eating less meat is the most effective individual climate action",
+    "text1": {
+      "author": "Joseph Poore",
+      "work": "Reducing food's environmental impacts (paraphrased)",
+      "year": 2018,
+      "stance": "argues that across nearly forty thousand farms studied, shifting toward plant-based diets is the single most impactful change individuals can make to reduce land use and greenhouse-gas emissions",
+      "keyClaim": "Even the lowest-impact animal products generate higher land use and emissions per gram of protein than most plant alternatives, so the leverage of dietary change exceeds nearly all in-category efficiency gains.",
+      "real": true
+    },
+    "text2": {
+      "author": "Frank Mitloehner",
+      "stance": "accepts that intensive livestock has real footprints but argues that conflating biogenic methane with fossil CO2 overstates ruminants' marginal warming contribution and misdirects mitigation",
+      "keyClaim": "Because biogenic methane is a flow gas with about a decade of atmospheric residence, stable cattle herds add little new warming over time; treating beef like coal in carbon accounting misallocates effort relative to fossil-fuel cuts.",
+      "real": true
+    },
+    "engagement": "methodological-critique",
+    "suitableForDifficulty": "hard",
+    "passagePromptHint": "Use for CTC where Text 2 disputes the metric, not the data. Avoid framing as 'pro-meat' vs 'anti-meat'; the dispute is about how to count methane."
+  },
+  {
+    "id": "ctp-009",
+    "topic": "interpreting Black women's literary and cultural production",
+    "text1": {
+      "author": "Hortense Spillers",
+      "work": "Mama's Baby, Papa's Maybe (paraphrased)",
+      "year": 1987,
+      "stance": "argues that the dispossession imposed by transatlantic slavery created a distinctive grammar through which Black women's bodies and kinship are signified, requiring its own critical vocabulary",
+      "keyClaim": "Slavery's reduction of persons to 'flesh' rather than 'body' produces an ungendering that mainstream feminist categories cannot capture; reading Black women's texts demands attention to this specifically Black grammar of being.",
+      "real": true
+    },
+    "text2": {
+      "author": "Daphne Brooks",
+      "stance": "extends Spillers's framework but recenters performance and sound, arguing Black women's musical and theatrical labor enacts forms of knowledge that purely textual readings miss",
+      "keyClaim": "From nineteenth-century stage performers to contemporary singers, Black women's sonic performances generate an archive of resistance and self-fashioning that requires reading bodies, voices, and crowds — not only printed texts.",
+      "real": true
+    },
+    "engagement": "critical-extension",
+    "suitableForDifficulty": "hard",
+    "passagePromptHint": "Use for CTC where Text 2 builds on Text 1's framework but shifts the medium under analysis. Both belong to the same critical tradition."
+  },
+  {
+    "id": "ctp-010",
+    "topic": "translation philosophy: domestication versus foreignization",
+    "text1": {
+      "author": "Lawrence Venuti",
+      "work": "The Translator's Invisibility (paraphrased)",
+      "year": 1995,
+      "stance": "argues that fluent, transparent English translations make translators invisible and reinforce Anglocentric reading habits, advocating instead foreignizing strategies that preserve linguistic and cultural difference",
+      "keyClaim": "When a translation reads as if originally written in English, it erases the labor of translation and the otherness of the source culture; resistant, foreignizing prose ethically registers what is foreign.",
+      "real": true
+    },
+    "text2": {
+      "author": "Susan Bernofsky",
+      "stance": "agrees that fluency can flatten the source text but argues that Venuti's binary undersells the craft of producing readable English that still carries the source's particularity",
+      "keyClaim": "Drawing on translating Walser and Kafka, argues that good translation negotiates between strangeness and accessibility line by line; foreignization as a blanket prescription can produce unreadable prose that disserves both author and reader.",
+      "real": true
+    },
+    "engagement": "agreement-with-caveat",
+    "suitableForDifficulty": "medium",
+    "passagePromptHint": "Use for CTC where Text 2 shares Text 1's ethical commitments but resists its programmatic prescriptions. The disagreement is about practice, not principle."
+  },
+  {
+    "id": "ctp-011",
+    "topic": "the politics and aesthetics of canon formation",
+    "text1": {
+      "author": "Toni Morrison",
+      "work": "Playing in the Dark (paraphrased)",
+      "year": 1992,
+      "stance": "argues that classic American literature has been shaped by a hidden 'Africanist presence' against which white American identity is constructed, requiring rereading rather than mere expansion of the canon",
+      "keyClaim": "Close readings of Poe, Cather, and Hemingway reveal that imagined Black figures structure white American literary imagination; the canon cannot simply add diverse authors without rereading its central works.",
+      "real": true
+    },
+    "text2": {
+      "author": "Henry Louis Gates Jr.",
+      "stance": "shares Morrison's diagnosis but emphasizes recovering and theorizing a distinct African American literary tradition with its own internal genealogy, not only rereading the white canon",
+      "keyClaim": "Tracing signifying practices from slave narratives through Hurston and Reed, argues for an African American canon governed by tropes of revision and double-voicedness — a tradition that interprets itself, not just the dominant tradition.",
+      "real": true
+    },
+    "engagement": "critical-extension",
+    "suitableForDifficulty": "hard",
+    "passagePromptHint": "Use for CTC where Text 2 is allied but reorients the project. Avoid framing this as opposition; both are foundational."
+  },
+  {
+    "id": "ctp-012",
+    "topic": "what counts as a novel and the cultural politics of literary form",
+    "text1": {
+      "author": "Ian Watt",
+      "work": "The Rise of the Novel (paraphrased)",
+      "year": 1957,
+      "stance": "argues the novel emerged in eighteenth-century England as the literary form proper to a rising middle class, characterized by formal realism and individual interiority",
+      "keyClaim": "Defoe, Richardson, and Fielding inaugurated formal realism whose particularizing detail and individual psychology corresponded to bourgeois Protestant English experience.",
+      "real": true
+    },
+    "text2": {
+      "author": "Margaret Cohen",
+      "stance": "contests the Anglocentric origin story by recovering the sentimental and maritime French novel of the same period as a parallel and prior tradition",
+      "keyClaim": "Best-selling French sentimental novels and adventure narratives of the seventeenth and eighteenth centuries circulated transnationally and shaped what 'the novel' became; Watt's account omits this reservoir of forms.",
+      "real": true
+    },
+    "engagement": "direct-debate",
+    "suitableForDifficulty": "hard",
+    "passagePromptHint": "Use for CTC where Text 2 displaces Text 1's geography and chronology. The disagreement is about origins, not definitions."
+  },
+  {
+    "id": "ctp-013",
+    "topic": "Shakespeare and the politics of historical staging",
+    "text1": {
+      "author": "Stephen Greenblatt",
+      "work": "Shakespearean Negotiations (paraphrased)",
+      "year": 1988,
+      "stance": "argues Shakespeare's plays circulate the social energies of Elizabethan power, often containing subversive impulses they appear to release",
+      "keyClaim": "Through readings of the histories and Measure for Measure, contends that apparent challenges to authority on the early modern stage are absorbed and re-channeled by the very institutions they seem to threaten.",
+      "real": true
+    },
+    "text2": {
+      "author": "Catherine Belsey",
+      "stance": "shares the historicist orientation but argues against the totalizing 'containment' thesis, contending the plays leave real fissures in early modern subjectivity that cannot be closed",
+      "keyClaim": "Examining the construction of the speaking subject in tragedy, finds gaps and contradictions where female and dispossessed characters disrupt patriarchal closure; the texts do not seamlessly recontain what they unsettle.",
+      "real": true
+    },
+    "engagement": "direct-debate",
+    "suitableForDifficulty": "hard",
+    "passagePromptHint": "Use for CTC where Text 2 contests the closure logic of Text 1 from within shared methodological commitments."
+  },
+  {
+    "id": "ctp-014",
+    "topic": "the place of vernacular and oral traditions in the African novel",
+    "text1": {
+      "author": "Chinua Achebe",
+      "work": "essays on the African writer and the English language (paraphrased)",
+      "year": 1965,
+      "stance": "argues African novelists can legitimately use English while bending it to carry African experience, producing a usable global medium for the continent's literatures",
+      "keyClaim": "English remade by Igbo proverb, idiom, and rhythm becomes a tool capable of African storytelling; refusing the language outright would forfeit a wide audience and a flexible instrument.",
+      "real": true
+    },
+    "text2": {
+      "author": "Ngugi wa Thiong'o",
+      "stance": "argues the contrary: that African literatures should be written in African languages, since continuing to write in English consolidates colonial cultural dependency",
+      "keyClaim": "The choice of language is not neutral; writing in Gikuyu rather than English re-roots literary production in the speech of ordinary readers and breaks the colonial knowledge order.",
+      "real": true
+    },
+    "engagement": "direct-debate",
+    "suitableForDifficulty": "medium",
+    "passagePromptHint": "Use for CTC where the disagreement is on a single concrete question — language of composition — that signals deeper differences about decolonization."
+  },
+  {
+    "id": "ctp-015",
+    "topic": "the replication crisis in psychology and biomedical research",
+    "text1": {
+      "author": "John Ioannidis",
+      "work": "Why Most Published Research Findings Are False (paraphrased)",
+      "year": 2005,
+      "stance": "argues that statistical and incentive structures in biomedical and social-science research make a high proportion of published positive findings likely to be false",
+      "keyClaim": "Combining low prior probability of true effects, small samples, flexible analytic choices, and publication bias mathematically implies that most reported significant findings will not survive rigorous replication.",
+      "real": true
+    },
+    "text2": {
+      "author": "Brian Nosek",
+      "stance": "agrees the diagnosis is real but argues the response should be infrastructural — preregistration, registered reports, open data — rather than skepticism about science as such",
+      "keyClaim": "Coordinated multi-lab replication projects and shifts toward preregistered analysis reduce the false-positive rate substantially, suggesting the crisis is fixable through changes in research practice rather than through wholesale doubt.",
+      "real": true
+    },
+    "engagement": "agreement-with-caveat",
+    "suitableForDifficulty": "medium",
+    "passagePromptHint": "Use for CTC where Text 2 accepts Text 1's diagnosis but redirects from the polemical to the constructive."
+  },
+  {
+    "id": "ctp-016",
+    "topic": "causal claims about the gut microbiome and human health",
+    "text1": {
+      "author": "Liping Zhao",
+      "work": "research on gut microbiota and metabolic disease (paraphrased)",
+      "year": 2018,
+      "stance": "argues that specific 'foundation' gut bacteria respond to dietary fiber interventions and causally improve metabolic disease outcomes in humans",
+      "keyClaim": "Dietary-fiber interventions shift defined consortia of short-chain-fatty-acid producers and produce measurable improvements in glycemic control among type 2 diabetes patients, supporting a causal microbiome-metabolism link.",
+      "real": true
+    },
+    "text2": {
+      "author": "William Hanage",
+      "stance": "shares interest in microbiome science but cautions that most published microbiome-disease associations remain correlational and methodologically fragile",
+      "keyClaim": "Many microbiome studies confound diet, host genetics, and sampling artifacts, so claims of causation often outrun the design's ability to support them; rigor requires longitudinal sampling, controlled interventions, and replicable taxonomic resolution.",
+      "real": true
+    },
+    "engagement": "methodological-critique",
+    "suitableForDifficulty": "hard",
+    "passagePromptHint": "Use for CTC where Text 2 questions evidentiary standards. Both authors are inside the field; this is calibration, not opposition."
+  },
+  {
+    "id": "ctp-017",
+    "topic": "what controls long-term human health more — diet composition or caloric balance",
+    "text1": {
+      "author": "Walter Willett",
+      "work": "long-running nutritional epidemiology from the Nurses' Health Study (paraphrased)",
+      "year": 2013,
+      "stance": "argues that the type of fats and carbohydrates consumed materially affects long-term cardiovascular and metabolic risk, beyond mere caloric intake",
+      "keyClaim": "Decades of cohort data indicate that replacing saturated fat with unsaturated fats and refined carbohydrates with whole grains is associated with lower coronary disease risk, supporting dietary-quality recommendations.",
+      "real": true
+    },
+    "text2": {
+      "author": "John Ioannidis",
+      "stance": "agrees diet matters but argues nutritional epidemiology's reliance on food-frequency questionnaires produces unreliable effect sizes and overconfident specific recommendations",
+      "keyClaim": "Across thousands of published nutrient-disease associations, methodological limitations of self-reported dietary intake and pervasive multiple testing routinely yield inflated, non-replicating findings.",
+      "real": true
+    },
+    "engagement": "methodological-critique",
+    "suitableForDifficulty": "hard",
+    "passagePromptHint": "Use for CTC where the dispute is about evidentiary status, not policy. The two are not far apart on what people probably should eat."
+  },
+  {
+    "id": "ctp-018",
+    "topic": "the risks and governance of large-scale AI systems",
+    "text1": {
+      "author": "Timnit Gebru",
+      "work": "On the Dangers of Stochastic Parrots (paraphrased)",
+      "year": 2021,
+      "stance": "argues large language models trained on web-scale data encode and amplify social biases, environmental costs, and harms that disproportionately fall on already-marginalized communities",
+      "keyClaim": "Large language models' training data, energy use, and outputs reproduce documented biases and pose concrete present-day harms — bias amplification, misinformation, opaque labor — that warrant scrutiny independent of speculative future risks.",
+      "real": true
+    },
+    "text2": {
+      "author": "Yoshua Bengio",
+      "stance": "shares concern about present harms but argues the field must also prepare governance for plausible future systems whose capabilities could pose larger societal risks",
+      "keyClaim": "Recent capability gains warrant institutional safeguards — evaluation regimes, compute oversight, international coordination — addressing both near-term harms and longer-horizon possibilities of loss of human oversight.",
+      "real": true
+    },
+    "engagement": "critical-extension",
+    "suitableForDifficulty": "hard",
+    "passagePromptHint": "Use for CTC where both share an ethics-first orientation but emphasize different risk timescales. Avoid the 'present harms vs existential' caricature."
+  },
+  {
+    "id": "ctp-019",
+    "topic": "whether human-induced biodiversity decline justifies the term 'sixth mass extinction'",
+    "text1": {
+      "author": "Anthony Barnosky",
+      "work": "Has the Earth's sixth mass extinction already arrived? (paraphrased)",
+      "year": 2011,
+      "stance": "argues that current vertebrate extinction rates already exceed background rates by orders of magnitude, placing Earth on a trajectory consistent with mass extinction within a few centuries if unchecked",
+      "keyClaim": "Comparing fossil-record background rates with documented modern losses for mammals, birds, and amphibians shows current extinction is orders of magnitude faster, on track to qualify as the sixth mass extinction.",
+      "real": true
+    },
+    "text2": {
+      "author": "Doug Erwin",
+      "stance": "agrees biodiversity loss is severe but argues that paleontologically defined mass extinctions involve specific biogeographic and taxonomic signatures the present has not yet reached, making the label premature",
+      "keyClaim": "True 'big five' mass extinctions in the fossil record show ecosystem-level collapse and cross-clade pulses that today's ongoing losses, however severe, have not yet produced; rhetorical equivalence may obscure differences in mechanism and tractability.",
+      "real": true
+    },
+    "engagement": "methodological-critique",
+    "suitableForDifficulty": "hard",
+    "passagePromptHint": "Use for CTC where Text 2 questions the definitional fit, not the urgency. Both view current losses as serious."
+  },
+  {
+    "id": "ctp-020",
+    "topic": "historiography of slavery's place in American national origins",
+    "text1": {
+      "author": "Nikole Hannah-Jones",
+      "work": "1619 Project framing essay (paraphrased)",
+      "year": 2019,
+      "stance": "argues that placing 1619 — the arrival of the first enslaved Africans in Virginia — at the center of American history reveals slavery as constitutive of national institutions rather than incidental",
+      "keyClaim": "Reframing American origins around 1619 rather than 1776 makes visible how slavery shaped the economy, the Constitution, and major political crises, recasting Black Americans as central authors of democracy's expansion.",
+      "real": true
+    },
+    "text2": {
+      "author": "Sean Wilentz",
+      "stance": "agrees on the centrality of slavery in American history but contests specific framings — particularly claims about the Revolution's motivations — as overstating the protection-of-slavery thesis",
+      "keyClaim": "The historical record on the American Revolution shows abolitionist and antislavery currents already in tension with slaveholding interests; characterizing the Revolution as primarily defending slavery overstates evidence the discipline does not support.",
+      "real": true
+    },
+    "engagement": "methodological-critique",
+    "suitableForDifficulty": "hard",
+    "passagePromptHint": "Use for CTC where Text 2 disputes a specific empirical claim while sharing the larger framework. Avoid making this look like a left-vs-right political fight; it is an intra-historical disagreement."
+  },
+  {
+    "id": "ctp-021",
+    "topic": "how Reconstruction should be understood",
+    "text1": {
+      "author": "Eric Foner",
+      "work": "Reconstruction: America's Unfinished Revolution (paraphrased)",
+      "year": 1988,
+      "stance": "argues Reconstruction was a genuine democratic experiment in interracial governance whose collapse was due to violence and political abandonment, not the failures of Black political participation",
+      "keyClaim": "Detailed state-level evidence shows Reconstruction governments built schools, expanded suffrage, and operated competently; their overthrow came through paramilitary terror and Northern retreat, not through the inadequacy of Black officeholders.",
+      "real": true
+    },
+    "text2": {
+      "author": "W. E. B. Du Bois",
+      "stance": "anticipates Foner's argument decades earlier and frames Reconstruction additionally as a missed labor revolution in which freed Black workers' general strike against the plantation order was crushed by reconstituted capital",
+      "keyClaim": "Black Reconstruction in America argues that emancipation was won by enslaved people withdrawing their labor en masse, and that Reconstruction's defeat was a defeat of Black labor by an alliance of Northern industry and Southern planters.",
+      "real": true
+    },
+    "engagement": "critical-extension",
+    "suitableForDifficulty": "hard",
+    "passagePromptHint": "Use for CTC where Text 2 (chronologically earlier) anticipates and extends Text 1's argument by adding a class-and-labor dimension."
+  },
+  {
+    "id": "ctp-022",
+    "topic": "the causes of the Industrial Revolution in Britain",
+    "text1": {
+      "author": "Joel Mokyr",
+      "work": "The Enlightened Economy (paraphrased)",
+      "year": 2009,
+      "stance": "argues that the Industrial Revolution was driven by an Enlightenment culture of useful knowledge, in which formal science, artisanal know-how, and open exchange combined to produce sustained innovation",
+      "keyClaim": "Britain's eighteenth-century institutions for circulating useful knowledge — societies, journals, apprenticeships — converted scientific advances into practical machines, making industrialization a knowledge phenomenon as much as a capital one.",
+      "real": true
+    },
+    "text2": {
+      "author": "Kenneth Pomeranz",
+      "stance": "argues the takeoff is better explained by contingent ecological and geographic windfalls — accessible coal and New World resources — than by uniquely European intellectual culture",
+      "keyClaim": "Until the late eighteenth century, the most advanced regions of China and Europe were broadly comparable in living standards and technology; British divergence depended on conveniently located coal and the slave-cropped Americas, not a singular cultural advantage.",
+      "real": true
+    },
+    "engagement": "alternative-explanation",
+    "suitableForDifficulty": "hard",
+    "passagePromptHint": "Use for CTC where Text 2 offers a competing explanation for the same outcome. Both are mainstream economic historians; this is the canonical 'great divergence' debate."
+  },
+  {
+    "id": "ctp-023",
+    "topic": "the historiography of women in the early modern household",
+    "text1": {
+      "author": "Laurel Thatcher Ulrich",
+      "work": "A Midwife's Tale (paraphrased)",
+      "year": 1990,
+      "stance": "argues that the daily diary of an ordinary New England midwife reveals a sphere of women's economic and medical labor that conventional public-life historiography had rendered invisible",
+      "keyClaim": "Martha Ballard's diary documents a complex economy of female labor — midwifery, textile production, neighborly exchange — central to the New England rural economy, demanding a revision of who counts as an economic actor.",
+      "real": true
+    },
+    "text2": {
+      "author": "Joan Wallach Scott",
+      "stance": "shares the recovery project but argues that simply 'adding women' is insufficient; gender itself must be analyzed as a category that organizes power relations across all historical domains",
+      "keyClaim": "Recovering women's experience matters, but historians must also interrogate how the category of gender structured politics, work, and knowledge — not only describe what women did but theorize how gender produced the conditions of that doing.",
+      "real": true
+    },
+    "engagement": "critical-extension",
+    "suitableForDifficulty": "medium",
+    "passagePromptHint": "Use for CTC where Text 2 calls for an analytic move beyond Text 1's recovery work. Both are foundational to women's history."
+  },
+  {
+    "id": "ctp-024",
+    "topic": "the design and meaning of the Vietnam Veterans Memorial",
+    "text1": {
+      "author": "Maya Lin",
+      "work": "designer's statements on the Vietnam Veterans Memorial (paraphrased)",
+      "year": 1981,
+      "stance": "defends the minimalist black-granite, name-listed wall as an honest, contemplative form of mourning that lets visitors confront loss without political iconography",
+      "keyClaim": "Sinking the polished granite into the earth and inscribing only the names creates a private, reflective encounter with each death; representational figures or heroic statements would impose meaning rather than allow grief.",
+      "real": true
+    },
+    "text2": {
+      "author": "Tom Wolfe",
+      "stance": "objects that the unadorned wall withholds the heroic recognition the dead deserve, advocating instead for a representational addition with figurative sculpture and a flag",
+      "keyClaim": "A nation's monument to its war dead should affirm honor and sacrifice through familiar representational forms; an austere black wall, however dignified, can read as a wound rather than a tribute.",
+      "real": true
+    },
+    "engagement": "direct-debate",
+    "suitableForDifficulty": "medium",
+    "passagePromptHint": "Use for CTC on aesthetic philosophy of public memorials. Frame around minimalism vs. representation, not partisan politics."
+  },
+  {
+    "id": "ctp-025",
+    "topic": "the ethics of preserving versus replacing aging urban architecture",
+    "text1": {
+      "author": "Ada Louise Huxtable",
+      "work": "architectural criticism in the New York Times (paraphrased)",
+      "year": 1972,
+      "stance": "argues that the rapid demolition of distinctive older buildings in postwar American cities was an aesthetic and civic loss not justified by the often mediocre commercial architecture replacing them",
+      "keyClaim": "The destruction of buildings such as the original Penn Station and many irreplaceable streetscapes traded urban character and craftsmanship for generic commercial blocks; preservation is not nostalgia but a defense of public visual culture.",
+      "real": true
+    },
+    "text2": {
+      "author": "Rem Koolhaas",
+      "stance": "agrees that thoughtless demolition is harmful but argues against fetishizing preservation, since cities must keep absorbing change and overly broad protection ossifies them",
+      "keyClaim": "Surveying the global expansion of preservation regimes, contends that when too much of a city becomes protected, urban form loses its capacity to evolve; preservation should be deliberate and selective rather than reflexive.",
+      "real": true
+    },
+    "engagement": "agreement-with-caveat",
+    "suitableForDifficulty": "medium",
+    "passagePromptHint": "Use for CTC where Text 2 shares the diagnosis but resists the prescription. Both authors are central voices in twentieth/twenty-first-century urbanism."
+  }
+]

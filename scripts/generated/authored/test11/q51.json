@@ -1,0 +1,34 @@
+{
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "expression-of-ideas",
+  "skill": "transitions",
+  "question": "Which choice completes the text with the most logical transition?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "However,"
+    },
+    {
+      "id": "B",
+      "text": "As a result,"
+    },
+    {
+      "id": "C",
+      "text": "For example,"
+    },
+    {
+      "id": "D",
+      "text": "Instead,"
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B. The second sentence describes design changes—cleaner letters, wider spacing, standardized punctuation—and the third reports their consequence: a page from 1550 is easier to read than one from 1470. \"As a result\" marks that cause-and-effect link. \"However\" would signal a contrast, \"Instead\" a replacement, and \"For example\" an illustration, none of which captures the way the later page's readability follows directly from the changes described.",
+  "passage": "When printers first set books in movable type, they imitated the dense, abbreviation-filled handwriting of scribes, packing as many characters onto a line as possible. Over the following century, type designers cut cleaner letterforms, widened the spacing between words, and standardized punctuation. ______ a printed page from 1550 is markedly easier for a modern reader to scan than one from 1470, even though both use the same alphabet.",
+  "_meta": {
+    "anchor": "typography history: legibility gains from sixteenth-century type reform (generic)"
+  },
+  "id": 1151,
+  "module": 2
+}

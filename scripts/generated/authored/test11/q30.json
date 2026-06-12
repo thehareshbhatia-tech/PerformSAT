@@ -1,0 +1,34 @@
+{
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "craft-and-structure",
+  "skill": "words-in-context",
+  "question": "Which choice completes the text with the most logical and precise word or phrase?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "supplant"
+    },
+    {
+      "id": "B",
+      "text": "endorse"
+    },
+    {
+      "id": "C",
+      "text": "ignore"
+    },
+    {
+      "id": "D",
+      "text": "exaggerate"
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A, \"supplant.\" The astronomers judged Ptolemy's device incoherent and built new constructions to take its place while keeping his accurate predictions, so they sought to replace the device. \"Supplant,\" meaning to displace and take the place of, fits exactly. \"Endorse\" is the opposite of objecting to it; \"ignore\" contradicts the effort they put into replacing it; and \"exaggerate\" does not describe doing anything to the device at all.",
+  "passage": "The astronomers of the medieval Islamic world did not merely preserve Greek astronomy; they subjected it to sustained criticism. Confronted with Ptolemy's claim that a certain planetary motion was uniform about a point off-center from the orbit, several of them judged the device physically incoherent and worked to ______ it—not by rejecting Ptolemy's hard-won predictive accuracy, but by devising new geometric constructions that reproduced his results while honoring the principle of uniform circular motion he had compromised.",
+  "_meta": {
+    "anchor": "medieval Islamic astronomy: replacing Ptolemy's equant with new constructions"
+  },
+  "id": 1130,
+  "module": 2
+}

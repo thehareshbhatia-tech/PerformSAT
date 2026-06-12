@@ -1,0 +1,75 @@
+{
+ "id": 314,
+ "module": 1,
+ "difficulty": "hard",
+ "band": 4,
+ "domain": "information-and-ideas",
+ "skill": "command-of-evidence-quantitative",
+ "question": "Which choice most effectively uses data from the table to complete the statement?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "the largest single-interval decline was the 38-deaths-per-1,000 drop between 1920 and 1940, exceeding the 21-deaths drop between 1940 and 1960 and the 15-deaths drop between 1900 and 1920."
+  },
+  {
+   "id": "B",
+   "text": "the average decline across the five intervals was about 19 deaths per 1,000, and the individual interval values clustered closely around that average."
+  },
+  {
+   "id": "C",
+   "text": "the rate in 2000 (7 deaths per 1,000) was the lowest shown, so the most recent twenty-year period delivered the largest decrease of the century."
+  },
+  {
+   "id": "D",
+   "text": "the rate in 1900 (100 deaths per 1,000) was the highest shown, so the largest reduction in infant mortality occurred at the very start of the century."
+  }
+ ],
+ "correctAnswer": "A",
+ "explanation": "The correct answer is A. The historian's claim is that the period of fastest absolute decline is not the one popular histories emphasize, and that the evidence lies in the change between adjacent measurement points, not in the level at any single point. Supporting that means comparing the decade-on-decade decreases and naming the largest, which A does: the 38-per-1,000 drop from 1920 to 1940 exceeds every other interval. D cites the highest absolute level as if a high level implied the largest reduction there, but the 1900-1920 drop was only 15. C points to the lowest endpoint rate, which concerns the level in 2000, not the size of the most recent decline (the smallest in the table). B describes an average and wrongly claims tight clustering, when the interval values (15, 38, 21, 13, 6) vary widely.",
+ "_meta": {
+  "anchor": "U.S. twentieth-century infant mortality rate at twenty-year intervals; largest between-interval decline"
+ },
+ "passage": "U.S. infant mortality fell sharply across the twentieth century, but not evenly across decades. A historian of public health argues that the period of fastest decline, in absolute terms, is not the one popular histories tend to cite, and contends that the data support this most directly when readers focus on the change between adjacent measurement points rather than on the rate at any single point because _______",
+ "questionTable": {
+  "type": "table",
+  "caption": "U.S. infant mortality rate (deaths per 1,000 live births) at twenty-year intervals, 1900-2000",
+  "headers": [
+   "Year",
+   "Infant mortality rate",
+   "Decrease from prior interval"
+  ],
+  "rows": [
+   [
+    "1900",
+    "100",
+    "—"
+   ],
+   [
+    "1920",
+    "85",
+    "15"
+   ],
+   [
+    "1940",
+    "47",
+    "38"
+   ],
+   [
+    "1960",
+    "26",
+    "21"
+   ],
+   [
+    "1980",
+    "13",
+    "13"
+   ],
+   [
+    "2000",
+    "7",
+    "6"
+   ]
+  ]
+ },
+ "type": "multiple-choice"
+}

@@ -1,0 +1,31 @@
+{
+  "id": 244,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "standard-english-conventions",
+  "skill": "boundaries",
+  "module": 2,
+  "passage": "The Antarctic ice sheet holds enough frozen water to raise global sea levels by many meters. The portions of it that rest on bedrock lying below sea level — the sectors that comparatively warm ocean water can reach from ______ are the parts glaciologists watch most closely as they try to anticipate the coming century's changes.",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "beneath,"
+    },
+    {
+      "id": "B",
+      "text": "beneath"
+    },
+    {
+      "id": "C",
+      "text": "beneath;"
+    },
+    {
+      "id": "D",
+      "text": "beneath —"
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "The correct answer is D. The phrase \"the sectors that comparatively warm ocean water can reach from beneath\" is a nonessential appositive set off by an opening dash; to close it, the sentence needs a matching dash before the main verb \"are.\" Choice A uses a comma, which does not pair with the opening dash and leaves the punctuation mismatched. Choice B supplies no closing mark at all, so the dashed insertion is never closed and the sentence runs together. Choice C uses a semicolon, which would have to join two independent clauses, but \"are the parts glaciologists watch most closely...\" is not independent of the subject it belongs to."
+}

@@ -1,0 +1,36 @@
+{
+  "id": 433,
+  "type": "multiple-choice",
+  "difficulty": "easy",
+  "band": 2,
+  "domain": "craft-and-structure",
+  "skill": "text-structure-and-purpose",
+  "question": "Which choice best describes what is happening in the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "The speaker recounts a conversation with a Venetian boatman who explains the history of each grand building they pass along the canal."
+    },
+    {
+      "id": "B",
+      "text": "Standing on a Venetian bridge, the speaker watches the city's structures rise from the water and dwells on the vanished glory of its former empire."
+    },
+    {
+      "id": "C",
+      "text": "The speaker argues that Venice's surviving monuments ought to be carefully restored before the last remaining traces of the city's former grandeur are lost forever to the encroaching sea."
+    },
+    {
+      "id": "D",
+      "text": "The speaker explains how the palaces and bridges of Venice were gradually constructed across its hundred islands over the course of a thousand years."
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B. The speaker describes standing on a bridge in Venice, watching the city's buildings seem to rise out of the water, and reflecting that the empire whose glory once filled those structures has faded into the past. Choice A invents a boatman and a conversation the poem does not contain; choice C turns the speaker's reflection into an argument for restoring monuments; and choice D reduces the passage to a factual account of how Venice was built.",
+  "passage": "The following text is from Lord Byron's 1818 poem *Childe Harold's Pilgrimage*.\n\nI stood in Venice, on the Bridge of Sighs;\nA palace and a prison on each hand:\nI saw from out the wave her structures rise\nAs from the stroke of the enchanter's wand:\nA thousand years their cloudy wings expand\nAround me, and a dying Glory smiles\nO'er the far times, when many a subject land\nLook'd to the winged Lion's marble piles,\nWhere Venice sate in state, throned on her hundred isles!",
+  "_meta": {
+    "anchor": "Lord Byron — Childe Harold's Pilgrimage, Canto IV (1818); genuine public-domain excerpt",
+    "quoteVerify": true,
+    "source": "Lord Byron, Childe Harold's Pilgrimage, Canto the Fourth, Stanza I (1818)"
+  },
+  "module": 2
+}

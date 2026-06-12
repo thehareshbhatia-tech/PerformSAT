@@ -1,0 +1,31 @@
+{
+  "id": 1218,
+  "type": "multiple-choice",
+  "difficulty": "easy",
+  "band": 2,
+  "domain": "standard-english-conventions",
+  "skill": "form-structure-and-sense",
+  "module": 1,
+  "passage": "Botanists studying desert plants have long been interested in how mesquite trees endure long droughts. The deep taproots that a mature mesquite sends far below the surface ____ groundwater that shallow-rooted neighbors cannot reach, allowing the tree to keep its leaves through dry months when most surrounding plants have gone dormant.",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "draws"
+    },
+    {
+      "id": "B",
+      "text": "draw"
+    },
+    {
+      "id": "C",
+      "text": "is drawing"
+    },
+    {
+      "id": "D",
+      "text": "has drawn"
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B. The subject of the verb is the plural noun \"taproots,\" so the verb must be the plural \"draw.\" The singular \"mesquite\" sits closer to the blank inside the relative clause and tempts a singular verb, but it is not the subject. \"Draws\" and \"is drawing\" are both singular and so disagree with \"taproots,\" and \"has drawn\" is likewise singular as well as shifting the action into the past, which the surrounding present-tense description does not support."
+}

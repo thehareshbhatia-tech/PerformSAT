@@ -1,0 +1,31 @@
+{
+  "id": 729,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "craft-and-structure",
+  "skill": "words-in-context",
+  "module": 2,
+  "passage": "Judging the health of the oceans from the surface alone can ______ the true scale of biodiversity loss, because the steepest declines—on coral reefs, on seamount communities, and across the abyssal seafloor—occur at depths that satellites and trawl nets cannot meaningfully sample. Only sustained observation from submersibles brings these losses fully into view.",
+  "question": "Which choice completes the text with the most logical and precise word or phrase?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "distort"
+    },
+    {
+      "id": "B",
+      "text": "mitigate"
+    },
+    {
+      "id": "C",
+      "text": "mask"
+    },
+    {
+      "id": "D",
+      "text": "expose"
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C. The passage explains that the worst declines happen at depths a surface view cannot reach, so judging from the surface \"masks\" — hides — the true scale of loss. \"Distort\" suggests misshaping rather than concealing, and the text is about losses going unseen, not misrepresented. \"Mitigate\" means to lessen, which a vantage point cannot do to the loss itself, and \"expose\" is the opposite of what a surface-only view accomplishes."
+}

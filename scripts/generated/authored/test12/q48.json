@@ -1,0 +1,31 @@
+{
+  "id": 1248,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "standard-english-conventions",
+  "skill": "boundaries",
+  "module": 2,
+  "passage": "For generations, the European folktales collected in the nineteenth century were treated as products of a purely oral peasant tradition, untouched by the printed page ____ recent study of the collectors' notebooks has shown that many of their \"folk\" informants were literate townspeople retelling stories they had first encountered in printed collections.",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "page however"
+    },
+    {
+      "id": "B",
+      "text": "page; however,"
+    },
+    {
+      "id": "C",
+      "text": "page, however;"
+    },
+    {
+      "id": "D",
+      "text": "page, however,"
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B. Two independent clauses meet at the blank, and the conjunctive adverb \"however\" cannot join them with only a comma. A semicolon must come before \"however\" to separate the clauses, with a comma after it: \"page; however,\". \"Page however\" omits the needed punctuation. \"Page, however;\" reverses the marks, putting the weaker comma between the clauses and the semicolon inside the second clause. \"Page, however,\" sets \"however\" off as an interrupter but still leaves the two clauses joined by only a comma, a comma splice."
+}

@@ -1,0 +1,65 @@
+{
+  "id": 914,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "information-and-ideas",
+  "skill": "command-of-evidence-quantitative",
+  "module": 1,
+  "passage": "Public discussions of sea-level rise often invoke a single end-to-end figure — the total millimeters added since some baseline year — that conveys the scale of the change but not its tempo. Drawing on satellite-altimetry records compiled by NASA's Goddard Space Flight Center, climate scientists have argued that the more consequential pattern is not the cumulative rise itself but the way the rise has steadily quickened: each successive decade since 1993 has added more millimeters than the one before it, indicating that _______",
+  "questionTable": {
+    "type": "table",
+    "caption": "Global mean sea level change (mm) relative to 1993-2008 baseline (NASA Goddard Space Flight Center, Sea Level Change Portal)",
+    "headers": [
+      "Year",
+      "Sea level (mm)",
+      "Change from prior decade (mm)"
+    ],
+    "rows": [
+      [
+        "1993",
+        "0",
+        "—"
+      ],
+      [
+        "2003",
+        "31",
+        "+31"
+      ],
+      [
+        "2013",
+        "65",
+        "+34"
+      ],
+      [
+        "2023",
+        "105",
+        "+40"
+      ]
+    ]
+  },
+  "question": "Which choice most effectively uses data from the table to complete the statement?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "global mean sea level rose by 40 millimeters between 2013 and 2023, a single-decade increase greater than the cumulative rise from 1993 to 2003."
+    },
+    {
+      "id": "B",
+      "text": "global mean sea level reached 105 millimeters above the 1993 baseline by 2023, the largest cumulative figure recorded since satellite measurements began."
+    },
+    {
+      "id": "C",
+      "text": "the decade ending in 2003 added 31 millimeters, the decade ending in 2013 added 34 millimeters, and the decade ending in 2023 added 40 millimeters, an upward step in the decadal increment each time."
+    },
+    {
+      "id": "D",
+      "text": "the decadal increases of 31, 34, and 40 millimeters are similar enough to indicate that the pace of sea-level rise has remained essentially steady since 1993."
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The sentence claims the rise has steadily quickened, decade by decade. The data that show this are the decadal increments themselves—31 mm, then 34 mm, then 40 mm—each larger than the last, which is choice C. Choice A compares a single decade to the first cumulative rise without establishing the step-by-step acceleration, B cites the cumulative total rather than the tempo, and D draws the opposite conclusion, calling the pace steady.",
+  "_meta": {
+    "anchor": "NASA Goddard, global mean sea level 1993-2023"
+  }
+}

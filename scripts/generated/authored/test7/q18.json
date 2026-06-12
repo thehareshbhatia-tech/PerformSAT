@@ -1,0 +1,31 @@
+{
+  "id": 718,
+  "type": "multiple-choice",
+  "difficulty": "easy",
+  "band": 2,
+  "domain": "standard-english-conventions",
+  "skill": "form-structure-and-sense",
+  "module": 1,
+  "passage": "The earliest devices for removing cataracts with laser energy were patented in the 1980s. Their inventors' contributions to ophthalmic surgery ______ frequently highlighted in histories of medical technology, in part because the approach made the procedure faster and more precise than the manual methods it replaced.",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "is"
+    },
+    {
+      "id": "B",
+      "text": "was"
+    },
+    {
+      "id": "C",
+      "text": "has been"
+    },
+    {
+      "id": "D",
+      "text": "are"
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "The correct answer is D. The subject of the verb is the plural noun \"contributions,\" which requires the plural verb \"are.\" Choices A, B, and C are all singular forms (\"is,\" \"was,\" \"has been\") that fail to agree with the plural subject; the intervening phrase \"to ophthalmic surgery\" does not change the number of the subject."
+}

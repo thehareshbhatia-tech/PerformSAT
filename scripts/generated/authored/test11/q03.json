@@ -1,0 +1,34 @@
+{
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "craft-and-structure",
+  "skill": "words-in-context",
+  "question": "Which choice completes the text with the most logical and precise word or phrase?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "disguise"
+    },
+    {
+      "id": "B",
+      "text": "accommodate"
+    },
+    {
+      "id": "C",
+      "text": "magnify"
+    },
+    {
+      "id": "D",
+      "text": "abandon"
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B, \"accommodate.\" The sentence sets up a contrast: rather than fight the pixel grid, Carter worked with it, shaping letters to suit the grid's limits. \"Accommodate,\" meaning to adapt to or make room for, fits that cooperative move. \"Abandon\" would mean giving up the grid, which contradicts \"not to fight ... but to,\" and \"disguise\" implies hiding the grid rather than designing around it. \"Magnify\" points the wrong way, since Carter's problem was legibility at small sizes, not enlargement.",
+  "passage": "When the typeface designer Matthew Carter set out to draw fonts for low-resolution computer screens in the 1990s, he faced a constraint print designers had never confronted: at small sizes, a screen rendered each letter as a coarse grid of square pixels, and a graceful curve that looked elegant in print became a jagged stair-step on screen. Carter's solution was not to fight the grid but to ______ it, designing letterforms whose proportions were tuned to the pixel matrix itself.",
+  "_meta": {
+    "anchor": "Matthew Carter: screen typefaces (Verdana, Georgia) tuned to the pixel grid"
+  },
+  "id": 1103,
+  "module": 1
+}

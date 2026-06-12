@@ -1,0 +1,31 @@
+{
+ "id": 104,
+ "type": "multiple-choice",
+ "difficulty": "easy",
+ "band": 2,
+ "domain": "craft-and-structure",
+ "skill": "words-in-context",
+ "module": 1,
+ "passage": "Volcanologist Katharine Cashman studies how gas escapes from magma as it rises toward the surface. When magma ascends slowly, dissolved gases have time to seep out gradually, and eruptions tend to be gentle. When magma ascends quickly, the gases stay trapped until the last moment and then expand all at once, so that an eruption that might otherwise have been mild becomes violently ______.",
+ "question": "Which choice completes the text with the most logical and precise word or phrase?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "explosive"
+  },
+  {
+   "id": "B",
+   "text": "audible"
+  },
+  {
+   "id": "C",
+   "text": "frequent"
+  },
+  {
+   "id": "D",
+   "text": "predictable"
+  }
+ ],
+ "correctAnswer": "A",
+ "explanation": "The correct answer is A. The sentence contrasts slow ascent, which lets gas leak out and produces gentle eruptions, with fast ascent, in which trapped gas suddenly expands. A word for what such a rapid release makes an eruption is needed, and \"explosive\" captures the violent, all-at-once expansion the passage describes. \"Audible\" names a sound rather than the force of the eruption; \"frequent\" describes how often eruptions occur, not how forceful one is; and \"predictable\" runs against the passage, since a sudden release is exactly what makes an eruption hard to anticipate."
+}

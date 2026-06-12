@@ -1,0 +1,31 @@
+{
+  "id": 807,
+  "type": "multiple-choice",
+  "difficulty": "easy",
+  "band": 2,
+  "domain": "craft-and-structure",
+  "skill": "text-structure-and-purpose",
+  "module": 1,
+  "passage": "Early in the twentieth century, seismologists knew that the Earth had a liquid outer core, because certain earthquake waves bent around it and left a \"shadow zone\" where they were not detected. In 1936 the Danish seismologist Inge Lehmann noticed that faint waves were nonetheless arriving inside that shadow zone, where the liquid-core model predicted silence. She argued that the readings made sense only if a smaller, solid inner core sat at the planet's center, deflecting the waves inward. Decades of later observations confirmed the boundary she had inferred, and the solid inner core is now a standard feature of the Earth's interior.",
+  "question": "Which choice best states the main purpose of the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "To list the kinds of seismographic instruments available to researchers working in the 1930s."
+    },
+    {
+      "id": "B",
+      "text": "To argue that the liquid outer core has a greater influence on earthquake waves than the inner core does."
+    },
+    {
+      "id": "C",
+      "text": "To explain how Lehmann used an unexpected seismic observation to infer the existence of Earth’s solid inner core."
+    },
+    {
+      "id": "D",
+      "text": "To describe the damage that large earthquakes caused in the regions Lehmann studied."
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C. The passage traces a single line of reasoning: waves appeared where the existing model predicted none, and Lehmann inferred a solid inner core to account for them, a conclusion later observations confirmed. A turns to instruments the text never discusses; B invents a comparison of the two cores' influence; and D shifts to earthquake damage, which is not the passage's concern."
+}

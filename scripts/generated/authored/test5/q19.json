@@ -1,0 +1,34 @@
+{
+  "id": 519,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "standard-english-conventions",
+  "skill": "boundaries",
+  "module": 1,
+  "passage": "Three institutions have been central to the recent expansion of long-running monitoring programs for North American forests: the U.S. Forest Service's Forest Inventory and Analysis program, founded in 1928 to track timber resources but now adapted to ecological ______ Smithsonian Institution's ForestGEO network, which maintains dozens of large permanent plots across many countries; and the National Ecological Observatory Network, a continental-scale infrastructure operated for the National Science Foundation.",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "questions, the"
+    },
+    {
+      "id": "B",
+      "text": "questions: the"
+    },
+    {
+      "id": "C",
+      "text": "questions; the"
+    },
+    {
+      "id": "D",
+      "text": "questions. The"
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C, \"questions; the\". The sentence lists three institutions, and because the items themselves already contain internal commas, Standard English separates the items with semicolons rather than commas so the boundaries stay clear. The semicolon already present before the third item (\"in many countries; and\") confirms that semicolons are the right level here. A comma (choice A) would blur the boundary between the first and second items. A colon (choice B) would treat the second item as an explanation of the first. A period (choice D) would split a single list across two sentences.",
+  "_meta": {
+    "anchor": "Forest Inventory and Analysis / ForestGEO / NEON — three forest-monitoring programs"
+  }
+}

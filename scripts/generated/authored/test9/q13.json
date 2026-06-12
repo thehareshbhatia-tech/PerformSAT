@@ -1,0 +1,65 @@
+{
+  "id": 913,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "information-and-ideas",
+  "skill": "command-of-evidence-quantitative",
+  "module": 1,
+  "passage": "Engineers compare household light sources using two figures that matter to buyers: luminous efficacy, the amount of visible light produced for each watt of electricity, and rated lifetime, the number of hours a lamp is expected to last. Among the common types, the authors note that one technology stands apart, leading on both measures at once, with the result that _______",
+  "questionTable": {
+    "type": "table",
+    "caption": "Typical luminous efficacy and rated lifetime of common household lamp types",
+    "headers": [
+      "Lamp type",
+      "Luminous efficacy (lumens per watt)",
+      "Rated lifetime (hours)"
+    ],
+    "rows": [
+      [
+        "Incandescent",
+        "15",
+        "1,000"
+      ],
+      [
+        "Halogen",
+        "20",
+        "2,000"
+      ],
+      [
+        "Compact fluorescent (CFL)",
+        "60",
+        "10,000"
+      ],
+      [
+        "LED",
+        "100",
+        "25,000"
+      ]
+    ]
+  },
+  "question": "Which choice most effectively uses data from the table to complete the statement?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "compact fluorescent lamps reach about 60 lumens per watt, the second-highest efficacy among the four lamp types in the table."
+    },
+    {
+      "id": "B",
+      "text": "halogen lamps last roughly 2,000 hours, the longest rated lifetime of any lamp type the table lists."
+    },
+    {
+      "id": "C",
+      "text": "LEDs reach about 100 lumens per watt and last roughly 25,000 hours, surpassing every other lamp type in the table on both efficacy and lifetime."
+    },
+    {
+      "id": "D",
+      "text": "incandescent bulbs reach about 15 lumens per watt, lower than the roughly 20 lumens per watt that halogen lamps achieve."
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The statement asks for the technology that leads on both efficacy and lifetime. The table shows LEDs at about 100 lumens per watt and 25,000 hours—the highest figure in each column—so choice C is the one that singles out that standout. Choice A names only the second-best efficacy, B misreads the lifetime column (2,000 hours is among the shortest, not the longest), and D draws a true but minor comparison between the two weakest types without identifying the leader.",
+  "_meta": {
+    "anchor": "household lamp types: luminous efficacy and rated lifetime"
+  }
+}

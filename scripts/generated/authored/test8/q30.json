@@ -1,0 +1,31 @@
+{
+  "id": 830,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "craft-and-structure",
+  "skill": "words-in-context",
+  "module": 2,
+  "passage": "A conservator cleaning an old oil painting works under a constant tension. A solvent strong enough to lift the yellowed varnish that has darkened over centuries can, if left a moment too long, also begin to ____ the original paint layer beneath it. For this reason the safest cleaning proceeds in tiny stages, each small patch tested and timed before the conservator moves on.",
+  "question": "Which choice completes the text with the most logical and precise word or phrase?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "reveal"
+    },
+    {
+      "id": "B",
+      "text": "brighten"
+    },
+    {
+      "id": "C",
+      "text": "preserve"
+    },
+    {
+      "id": "D",
+      "text": "endanger"
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "The correct answer is D. The passage frames a risk: the same solvent that removes varnish can harm the original paint, which is why cleaning is done so cautiously. \"Endanger\" names that threat. \"Reveal\" and \"brighten\" describe desirable results and miss the warning the sentence is building; \"preserve\" is the opposite of the danger, since the worry is precisely that the paint will not be preserved."
+}

@@ -1,0 +1,31 @@
+{
+ "id": 1022,
+ "type": "multiple-choice",
+ "difficulty": "medium",
+ "band": 3,
+ "domain": "standard-english-conventions",
+ "skill": "form-structure-and-sense",
+ "module": 1,
+ "passage": "The waves from a distant earthquake travel through the entire planet before reaching a seismograph, and their paths bend wherever the material they pass through changes. Studying anomalies in how these waves arrived, ______ that Earth's core is not a single molten mass but contains a solid inner sphere.",
+ "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "it was concluded by Inge Lehmann"
+  },
+  {
+   "id": "B",
+   "text": "there was a conclusion reached"
+  },
+  {
+   "id": "C",
+   "text": "the conclusion of Inge Lehmann was"
+  },
+  {
+   "id": "D",
+   "text": "the seismologist Inge Lehmann concluded"
+  }
+ ],
+ "correctAnswer": "D",
+ "explanation": "Choice D is correct. The opening modifier \"Studying anomalies in how these waves arrived\" must attach to the person doing the studying, so the subject that follows the comma has to name that person. \"The seismologist Inge Lehmann concluded\" supplies a human subject who can perform the studying. Choices A, B, and C all begin with \"it,\" \"there,\" or \"the conclusion\" as the subject, none of which can logically have been studying the waves, so each leaves the modifier dangling."
+}

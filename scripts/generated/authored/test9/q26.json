@@ -1,0 +1,45 @@
+{
+  "id": 926,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "expression-of-ideas",
+  "skill": "rhetorical-synthesis",
+  "module": 1,
+  "studentNotes": {
+    "intro": "While researching a topic, a student has taken the following notes:",
+    "bullets": [
+      "Frans de Waal (1948-2024) was a Dutch-American primatologist at Emory University in Atlanta.",
+      "He directed the Living Links Center at the Yerkes National Primate Research Center for many years.",
+      "His 1982 book *Chimpanzee Politics* described coalition-building and reconciliation among captive chimpanzees at Arnhem Zoo.",
+      "His 1996 book *Good Natured* argued that the building blocks of human morality are visible in other primates.",
+      "De Waal's 2003 capuchin-monkey study with Sarah Brosnan reported that monkeys reject unequal pay for equal work.",
+      "He coined the term \"inequity aversion\" to describe the negative reaction primates show when a partner receives a better reward."
+    ],
+    "goal": "The student wants to introduce de Waal's research to a reader unfamiliar with his work."
+  },
+  "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Frans de Waal was a Dutch-American primatologist whose books argued that the building blocks of human morality and social behavior are visible in other primates."
+    },
+    {
+      "id": "B",
+      "text": "In a 2003 study with Sarah Brosnan, de Waal reported that capuchin monkeys reject unequal pay for equal work, a reaction he called \"inequity aversion.\""
+    },
+    {
+      "id": "C",
+      "text": "De Waal directed the Living Links Center at the Yerkes National Primate Research Center for many years before his death in 2024."
+    },
+    {
+      "id": "D",
+      "text": "Although de Waal published widely on primates, his work centered on the captive chimpanzee colony at Arnhem Zoo rather than on broad claims about behavior."
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The goal is to introduce de Waal's research to a reader who does not know it, so the best choice names who he was and the central argument running through his major books. Choice A does this, summarizing the claim that the roots of human morality and social behavior appear in other primates. Choices B and C give a single study or an administrative role, and D narrows his work to one zoo colony, which would mislead a newcomer about its scope.",
+  "_meta": {
+    "anchor": "Frans de Waal, primatology"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "standard-english-conventions",
+  "skill": "form-structure-and-sense",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "printer's"
+    },
+    {
+      "id": "B",
+      "text": "printers"
+    },
+    {
+      "id": "C",
+      "text": "printers'"
+    },
+    {
+      "id": "D",
+      "text": "printers's"
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C. The choices belong to the printers, who are plural, so the possessive of the plural noun \"printers\" is formed by adding an apostrophe after the existing -s: \"the printers' choices.\" \"Printer's\" is the singular possessive, but the sentence is about more than one printer; \"printers\" with no apostrophe is merely the plural and marks no possession; and \"printers's\" adds an extra -s that the plural possessive does not take.",
+  "passage": "In a traditional ukiyo-e printing workshop, the block carver worked faithfully from the artist's original drawing, and yet it was the printers ______ choices about ink density, color saturation, and registration that gave each individual impression much of its final character on the finished sheet.",
+  "_meta": {
+    "anchor": "ukiyo-e printmaking workshop (generic)",
+    "rule": "plural possessive of a noun already ending in -s"
+  },
+  "id": 1120,
+  "module": 1
+}

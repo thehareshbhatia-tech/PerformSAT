@@ -1,0 +1,31 @@
+{
+  "id": 1249,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "standard-english-conventions",
+  "skill": "form-structure-and-sense",
+  "module": 2,
+  "passage": "Trained as a geologist at a time when women were often barred from the research vessels that gathered ocean-floor soundings, ____ from data collected by her male colleagues at sea, revealing a continuous rift valley running down the middle of the Atlantic.",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "the hand-drawn maps of the ocean floor produced by Marie Tharp were assembled"
+    },
+    {
+      "id": "B",
+      "text": "Marie Tharp assembled her hand-drawn maps of the ocean floor"
+    },
+    {
+      "id": "C",
+      "text": "Marie Tharp's hand-drawn maps of the ocean floor were assembled"
+    },
+    {
+      "id": "D",
+      "text": "the ocean floor was mapped by Marie Tharp in hand-drawn form"
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B. The opening modifier, \"Trained as a geologist ... barred from the research vessels,\" describes a person, so the subject that follows must be the person it describes—Marie Tharp. Only B makes \"Marie Tharp\" that subject. A and C put \"maps\" in the subject position, so the sentence absurdly says the maps were trained as a geologist. D makes \"the ocean floor\" the subject, with the same dangling-modifier problem."
+}

@@ -1,0 +1,31 @@
+{
+ "id": 101,
+ "type": "multiple-choice",
+ "difficulty": "easy",
+ "band": 2,
+ "domain": "craft-and-structure",
+ "skill": "words-in-context",
+ "module": 1,
+ "passage": "In her 2003 account of the Green Belt Movement, Kenyan ecologist Wangari Maathai describes how community-led tree planting can address several rural problems at once. Across degraded hillsides in central Kenya, women's groups organized by the movement plant indigenous seedlings that, once mature, anchor topsoil, replenish local water sources, and yield fuelwood and fruit for sale. According to Maathai, the work therefore strengthens rural ______ even as it restores the surrounding ecosystem.",
+ "question": "Which choice completes the text with the most logical and precise word or phrase?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "livelihoods"
+  },
+  {
+   "id": "B",
+   "text": "hobbies"
+  },
+  {
+   "id": "C",
+   "text": "careers"
+  },
+  {
+   "id": "D",
+   "text": "hardships"
+  }
+ ],
+ "correctAnswer": "A",
+ "explanation": "The correct answer is A, \"livelihoods.\" The passage spells out exactly what the women's groups gain from the planted trees: fuelwood and fruit \"for sale,\" alongside the soil and water benefits that keep their land productive. The blank needs a noun meaning the means by which rural people support themselves economically, and \"livelihoods\" fits precisely: it covers subsistence income and material resources together, matching Maathai's claim that tree planting is simultaneously an economic and an ecological intervention."
+}

@@ -1,0 +1,34 @@
+{
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "information-and-ideas",
+  "skill": "central-ideas-and-details",
+  "question": "Which choice best states the main idea of the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Sign languages rely on a much larger inventory of basic units than spoken languages do, a difference that linguists believe makes them considerably harder for hearing adults to learn later in life."
+    },
+    {
+      "id": "B",
+      "text": "Research on sign languages shows that the combinatorial design once thought unique to speech also organizes signed languages, indicating that it is a feature of human language in either channel."
+    },
+    {
+      "id": "C",
+      "text": "Changing a single handshape in a sign usually leaves the meaning of the sign unchanged, as long as its location and its movement both remain the same as before."
+    },
+    {
+      "id": "D",
+      "text": "Linguists have by now catalogued the complete set of handshapes, locations, and movements that are used across every sign language currently in use."
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B. The passage shows that signs, like spoken words, are built from reusable parts, and concludes that the combinatorial design once thought unique to speech belongs to human language in either channel. Choice B states that point. Choice A invents a claim about larger inventories and learning difficulty the passage does not make; Choice C contradicts the example, in which changing a handshape yields a different word; and Choice D asserts a complete catalogue the passage never claims.",
+  "passage": "Spoken languages build words out of a small inventory of sounds; sign languages build them out of a small inventory of handshapes, locations, and movements. Linguists studying this parallel have shown that signs are not holistic pictures but are assembled from these reusable parts, so that changing a single component—the handshape while the location and movement stay the same—can yield a completely different word, just as changing a single sound can in speech. The finding matters because it indicates that the layered, combinatorial design once thought special to spoken language is in fact a property of human language in either channel, whether produced by the voice or by the hands.",
+  "_meta": {
+    "anchor": "sign-language linguistics: combinatorial (sublexical) structure of signs"
+  },
+  "id": 1137,
+  "module": 2
+}

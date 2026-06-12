@@ -1,0 +1,34 @@
+{
+  "id": 924,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "expression-of-ideas",
+  "skill": "transitions",
+  "module": 1,
+  "passage": "Through the 1960s, each library typed its own catalog cards, repeating description work that thousands of other libraries were doing for the very same books. At the Library of Congress, the programmer Henriette Avram designed MARC, a standard format that let one machine-readable catalog record be shared among institutions. ______ a library could simply download a record another library had already created instead of recataloging the book from scratch.",
+  "question": "Which choice completes the text with the most logical transition?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Nevertheless,"
+    },
+    {
+      "id": "B",
+      "text": "For example,"
+    },
+    {
+      "id": "C",
+      "text": "In contrast,"
+    },
+    {
+      "id": "D",
+      "text": "As a result,"
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "MARC let one catalog record be shared, and the sentence after the blank states the payoff: a library could download an existing record instead of starting over. That is a result, so \"As a result,\" choice D, fits. \"Nevertheless\" and \"In contrast\" signal opposition, and \"For example\" would wrongly cast the payoff as an instance of something already stated.",
+  "_meta": {
+    "anchor": "Henriette Avram, MARC"
+  }
+}

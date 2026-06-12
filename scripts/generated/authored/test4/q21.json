@@ -1,0 +1,34 @@
+{
+  "id": 421,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "standard-english-conventions",
+  "skill": "boundaries",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Territory:"
+    },
+    {
+      "id": "B",
+      "text": "Territory —"
+    },
+    {
+      "id": "C",
+      "text": "Territory,"
+    },
+    {
+      "id": "D",
+      "text": "Territory"
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B. The clause \"in which U.S. Cavalry forces attacked a peaceful Cheyenne and Arapaho encampment in the Colorado Territory\" is a parenthetical opened by an em-dash earlier in the sentence, so it must be closed by a matching em-dash, as in B. A comma (C) or a colon (A) does not pair with the opening dash, and leaving the mark out entirely (D) lets the parenthetical run into the main clause with no boundary.",
+  "passage": "Historian Ari Kelman has examined how the 1864 Sand Creek Massacre — in which U.S. Cavalry forces attacked a peaceful Cheyenne and Arapaho encampment in the Colorado ______ entered American public memory, tracing the long struggle over how the site would be described and who would be permitted to commemorate it.",
+  "_meta": {
+    "anchor": "Ari Kelman — A Misplaced Massacre (entity_keep); paired em-dashes"
+  },
+  "module": 1
+}

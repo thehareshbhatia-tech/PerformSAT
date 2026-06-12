@@ -1,0 +1,31 @@
+{
+ "id": 1031,
+ "type": "multiple-choice",
+ "difficulty": "hard",
+ "band": 4,
+ "domain": "craft-and-structure",
+ "skill": "words-in-context",
+ "module": 2,
+ "passage": "Reefs damaged by bleaching are sometimes replanted with fragments of coral grown in underwater nurseries. Early projects simply transplanted whatever colonies grew fastest, but managers came to see that this approach could ______ the very vulnerability they hoped to reduce: if the transplanted fragments all descended from a few heat-sensitive parents, an unusually warm summer might kill the entire restored patch at once.",
+ "question": "Which choice completes the text with the most logical and precise word or phrase?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "measure"
+  },
+  {
+   "id": "B",
+   "text": "entrench"
+  },
+  {
+   "id": "C",
+   "text": "advertise"
+  },
+  {
+   "id": "D",
+   "text": "postpone"
+  }
+ ],
+ "correctAnswer": "B",
+ "explanation": "Choice B is correct. The passage warns that transplanting only the fastest-growing fragments could deepen the same fragility managers hoped to reduce, because fragments descended from a few heat-sensitive parents might all die in one warm summer. \"Entrench\" conveys that hardening or deepening of an existing vulnerability. \"Measure\" describes assessing rather than worsening it; \"advertise\" makes no sense here; and \"postpone\" would mean delaying the vulnerability, not reinforcing it as the passage says."
+}

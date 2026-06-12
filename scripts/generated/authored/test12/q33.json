@@ -1,0 +1,31 @@
+{
+  "id": 1233,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "craft-and-structure",
+  "skill": "text-structure-and-purpose",
+  "module": 2,
+  "passage": "Managers responsible for fire-prone forests face a choice that is less straightforward than it first appears. The intuitive response to wildfire is to put every fire out as quickly as possible, sparing the forest from damage. Ecologists who study these landscapes argue that a policy of total suppression can backfire over time, because fire and fuel are linked. When every small blaze is extinguished, the dead wood, brush, and crowded young trees that a periodic fire would have cleared instead build up year after year; the next fire that escapes control then has far more fuel to burn and races hotter and faster than it otherwise would. From this observation the ecologists draw a counterintuitive conclusion: in such forests the surest way to prevent a catastrophic fire may not be to suppress every blaze but to reintroduce fire deliberately, through controlled burns that thin the accumulated fuel before it can feed a larger one.",
+  "question": "Which choice best describes the overall structure of the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "It presents one agency's fire-suppression policy as a clear and lasting success, then lists in sequence the specific firefighting techniques said to have produced that success."
+    },
+    {
+      "id": "B",
+      "text": "It describes an intuitive solution to a problem, explains a feedback effect that undermines that solution, and then reports the counterintuitive conclusion ecologists draw from it."
+    },
+    {
+      "id": "C",
+      "text": "It compares the forest-management practices of several different regions, then ranks those practices according to how much wildfire damage each one has prevented."
+    },
+    {
+      "id": "D",
+      "text": "It traces the historical development of controlled burning, then argues that the practice has been unfairly neglected by most land managers."
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B. The passage names the intuitive fix (put out every fire), explains the feedback that undermines it (suppressing fires lets fuel build up until the next fire burns far hotter), and ends with the ecologists' counterintuitive conclusion that fire must be reintroduced deliberately. A invents a successful policy that the text never describes. C claims a region-by-region comparison and ranking that the passage does not contain. D treats controlled burning as the topic, but it appears only as the closing recommendation, not as the subject of a history."
+}

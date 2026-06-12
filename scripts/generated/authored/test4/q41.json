@@ -1,0 +1,34 @@
+{
+  "id": 441,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "information-and-ideas",
+  "skill": "command-of-evidence-quantitative",
+  "question": "Which choice most effectively uses data from the table to support the claim?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "The 1980-1999 anomaly of 0.30 °C is higher than the 1960-1979 anomaly of -0.01 °C, supporting the claim that recent decades have been the warmest in the record."
+    },
+    {
+      "id": "B",
+      "text": "The 2000-2019 anomaly of 0.78 °C is the highest of the seven periods, and each period shown is warmer than the one immediately before it."
+    },
+    {
+      "id": "C",
+      "text": "The 1880-1899 anomaly of -0.21 °C is colder than the 1900-1919 anomaly of -0.24 °C, indicating that the earliest period was the coldest shown."
+    },
+    {
+      "id": "D",
+      "text": "The 2000-2019 anomaly of 0.78 °C is the highest of the seven periods, yet the 1960-1979 value of -0.01 °C is lower than the 1940-1959 value of 0.02 °C, so the warming did not rise steadily from one period to the next."
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "The correct answer is D. The claim has two parts — the two most recent decades are the warmest shown, and the warming did not rise steadily from one period to the next — and choice D supports both: 2000–2019 is the highest at 0.78 °C, while the 1960–1979 value (-0.01 °C) is lower than the 1940–1959 value (0.02 °C), a dip in the rise. Choice B asserts a steady rise that the table contradicts; choice A supports only the recent peak; and choice C misreads which early period was coldest and ignores the recent peak.",
+  "passage": "A climate writer studying a record of global temperatures wants to make a two-part point: the two most recent decades in the record are the warmest of the seven periods shown, but the warming did not increase steadily from each period to the next. To support the claim using the table below, the writer needs one value showing the recent peak and one pair of neighboring values where the temperature dipped rather than rose.\n\nGlobal land-ocean temperature anomaly (°C) relative to 1951-1980 baseline, 20-year averages (NASA GISTEMP v4)\n| Period      | Anomaly (°C) |\n|-------------|--------------|\n| 1880-1899   | -0.21        |\n| 1900-1919   | -0.24        |\n| 1920-1939   | -0.06        |\n| 1940-1959   | 0.02         |\n| 1960-1979   | -0.01        |\n| 1980-1999   | 0.30         |\n| 2000-2019   | 0.78         |",
+  "_meta": {
+    "anchor": "NASA GISTEMP v4 — 20-year temperature anomalies; dataset qd-006; jargon removed"
+  },
+  "module": 2
+}

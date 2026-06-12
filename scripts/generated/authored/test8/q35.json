@@ -1,0 +1,40 @@
+{
+  "id": 835,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "craft-and-structure",
+  "skill": "cross-text-connections",
+  "module": 2,
+  "passages": [
+    {
+      "label": "Text 1",
+      "text": "Most memories fade, but people often report that they can recall exactly where they were and what they were doing when they learned of a shocking public event. Studying such recollections, the psychologists Roger Brown and James Kulik proposed in 1977 that surprising, emotionally charged news triggers a special memory mechanism unlike ordinary remembering. This mechanism, they suggested, captures the circumstances of the moment—the place, the people present, what one was doing—in unusually vivid and durable detail, almost like a photograph. The strength of the conviction with which people recount these memories, and the richness of the detail they supply, were for Brown and Kulik signs that something more reliable than everyday memory was at work."
+    },
+    {
+      "label": "Text 2",
+      "text": "The psychologist Ulric Neisser set out to test such claims directly. The morning after the 1986 explosion of the space shuttle Challenger, he had students write down exactly how they had heard the news. Nearly three years later he asked the same students to recall the same moment. Many gave accounts that were vivid, confidently delivered, and detailed—and flatly contradicted what they had written down at the time. Some, shown their own earlier handwriting, still trusted the later memory. Neisser concluded that memories of dramatic news are not protected from the distortions that affect ordinary memory; what sets them apart is the confidence with which they are held, not their accuracy."
+    }
+  ],
+  "question": "Based on the texts, how would Neisser (Text 2) most likely respond to the claim made by Brown and Kulik in Text 1?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "He would argue that the vividness and confidence Brown and Kulik treat as marks of reliability do not guarantee accuracy, since his own subjects recalled the Challenger news confidently even after their accounts had demonstrably changed."
+    },
+    {
+      "id": "B",
+      "text": "He would accept that such memories are unusually accurate but trace that accuracy to frequent retelling rather than to any special mechanism of the kind Brown and Kulik propose."
+    },
+    {
+      "id": "C",
+      "text": "He would limit Brown and Kulik’s special mechanism to events a person witnesses firsthand, arguing that it cannot apply to news learned secondhand, and that this restriction explains the errors he documented in his own study."
+    },
+    {
+      "id": "D",
+      "text": "Pointing to his own findings, he would conclude that memory research can no longer say anything useful about how people recall dramatic public events."
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A. Brown and Kulik treat the vivid detail and strong conviction of these memories as evidence that a special, reliable mechanism is at work. Neisser's Challenger study found that confidently held, detailed memories of dramatic news frequently contradicted what the same people had recorded at the time, which leads him to deny that vividness and confidence indicate accuracy. B has Neisser conceding the memories are accurate, the opposite of his finding; C invents a witnessed-versus-secondhand distinction neither text raises; and D overreaches into a claim that the field can say nothing useful, which his own research contradicts."
+}

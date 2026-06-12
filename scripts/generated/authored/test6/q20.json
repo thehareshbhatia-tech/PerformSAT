@@ -1,0 +1,31 @@
+{
+  "id": 620,
+  "module": 1,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "standard-english-conventions",
+  "skill": "form-structure-and-sense",
+  "passage": "By the time most scholars came to accept that the Inca had kept detailed administrative records, a small number of researchers ______ that the knotted-cord devices known as quipus could encode numbers, an argument those scholars had at first dismissed.",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "argued"
+    },
+    {
+      "id": "B",
+      "text": "are arguing"
+    },
+    {
+      "id": "C",
+      "text": "had argued"
+    },
+    {
+      "id": "D",
+      "text": "have argued"
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C, \"had argued.\" The sentence sets one past event, scholars coming to accept the Inca records, as a reference point, and the researchers' arguing happened before it. The past perfect \"had argued\" marks that earlier-than-past relationship. Choice A, the simple past \"argued,\" loses the sequence that \"by the time\" sets up. Choice B, \"are arguing,\" is present and clashes with the past frame, and choice D, \"have argued,\" is present perfect, which ties the action to the present rather than to the earlier past moment the sentence describes."
+}

@@ -1,0 +1,31 @@
+{
+  "id": 615,
+  "module": 1,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "information-and-ideas",
+  "skill": "inferences",
+  "passage": "Working in lowland rain forests in the state of Veracruz, the tropical ecologist Rodolfo Dirzo has spent decades comparing forest plots that retain their full complement of large vertebrates with neighboring plots from which those animals have been hunted out. Two patterns recur across his sites. In plots without large mammals and birds, the seedlings of tree species with big seeds — which the missing animals would have carried away from the parent tree — fail at high rates and recruit poorly. Over the same intervals, the seedlings of tree species with smaller seeds, which can be moved by wind or by the small rodents and insects that remain, persist and reach maturity at rates indistinguishable from the unhunted plots. Because the patterns track seed size and the kinds of dispersers each size requires, Dirzo's combined findings suggest that ______",
+  "question": "Which choice most logically completes the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "tropical tree species with large seeds depend exclusively on a single species of large vertebrate for dispersal and cannot be moved by any other agent."
+    },
+    {
+      "id": "B",
+      "text": "any tropical forest from which large vertebrates have been removed will lose its small-seeded tree species at the same rate as its large-seeded ones, regardless of which dispersers remain."
+    },
+    {
+      "id": "C",
+      "text": "the loss of large vertebrates in tropical forests can gradually shift the composition of the canopy toward tree species whose seeds do not depend on them for dispersal."
+    },
+    {
+      "id": "D",
+      "text": "removing large vertebrates from a tropical forest leaves the recruitment patterns of tree seedlings essentially unchanged from those observed in the unhunted plots."
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C. Across Dirzo's plots, removing large animals causes big-seeded trees, whose seeds those animals once carried off, to fail and recruit poorly, while small-seeded trees keep recruiting. Over time, then, the trees that survive best are increasingly the small-seeded ones, so the makeup of the canopy gradually shifts toward them; that is what choice C states. Choice A overreaches by claiming big-seeded trees depend on a single disperser, which the passage never says. Choice B has the pattern backward, since it is the small-seeded trees that continue to do well. Choice D claims removal leaves recruitment unchanged, contradicting the central finding that big-seeded seedlings fail at high rates."
+}

@@ -1,0 +1,73 @@
+{
+  "id": 640,
+  "module": 2,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "information-and-ideas",
+  "skill": "command-of-evidence-quantitative",
+  "passage": "Surveys conducted by the Pew Research Center across the past decade have tracked U.S. adults' use of major social media platforms at multiple points in time. A research team analyzing those surveys has argued that not every platform's growth pattern across this period was the same: in particular, although several platforms recorded steady increases in adoption between 2012 and 2021, Facebook stands out for showing a sharp jump in the first half of the decade and only marginal change in the second half. The data shown in the table support the team's specific characterization of Facebook because _______",
+  "questionTable": {
+    "type": "table",
+    "caption": "Percentage of U.S. adults who use selected social media platforms (Pew Research Center)",
+    "headers": [
+      "Platform",
+      "2012",
+      "2016",
+      "2021"
+    ],
+    "rows": [
+      [
+        "Facebook",
+        "54%",
+        "68%",
+        "69%"
+      ],
+      [
+        "Instagram",
+        "13%",
+        "28%",
+        "40%"
+      ],
+      [
+        "LinkedIn",
+        "20%",
+        "25%",
+        "28%"
+      ],
+      [
+        "Twitter",
+        "16%",
+        "21%",
+        "23%"
+      ],
+      [
+        "YouTube",
+        "—",
+        "73%",
+        "81%"
+      ]
+    ]
+  },
+  "question": "Which choice most effectively uses data from the table to support the claim?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Instagram use among U.S. adults rose from 13% in 2012 to 40% in 2021, more than tripling across the period."
+    },
+    {
+      "id": "B",
+      "text": "Among the platforms shown, YouTube reached the highest 2021 adoption rate, with 81% of U.S. adults reporting use."
+    },
+    {
+      "id": "C",
+      "text": "Facebook use among U.S. adults rose from 54% in 2012 to 68% in 2016, a fourteen-percentage-point increase, but moved only one further percentage point, to 69%, between 2016 and 2021."
+    },
+    {
+      "id": "D",
+      "text": "Between 2012 and 2021, Facebook adoption among U.S. adults rose from 54% to 69%, an increase that was steady across the decade as a whole."
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The team's claim about Facebook has two parts that must both be matched: a sharp jump in the first half of the decade and only marginal change in the second. Choice C supplies both, citing the 54-to-68 percent rise from 2012 to 2016 and the move of just one point, to 69 percent, from 2016 to 2021. Choice A reports Instagram's growth, a different platform than the claim is about. Choice B cites YouTube's high 2021 figure, again a different platform and only a single number. Choice D has the right platform and overall range but calls the increase \"steady across the decade,\" which contradicts both the claim and the data, since the first-half gain dwarfs the second-half gain."
+}

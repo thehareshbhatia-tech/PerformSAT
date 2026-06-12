@@ -1,0 +1,31 @@
+{
+  "id": 703,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "craft-and-structure",
+  "skill": "words-in-context",
+  "module": 1,
+  "passage": "The contractile vacuole of a single-celled organism such as Paramecium works like a tiny pump, expelling the excess water that constantly seeps into the cell. Early researchers debated whether its structure could be worked out from microscope images alone. Careful drawings made from living specimens showed that the system's branching canals and central reservoir are distinct enough that an observer can ______ their arrangement directly, without relying on indirect chemical tests.",
+  "question": "Which choice completes the text with the most logical and precise word or phrase?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "obscure"
+    },
+    {
+      "id": "B",
+      "text": "infer"
+    },
+    {
+      "id": "C",
+      "text": "scrutinize"
+    },
+    {
+      "id": "D",
+      "text": "discern"
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "The correct answer is D. The passage stresses that the structure can be made out \"directly,\" without indirect tests, so the observer can \"discern\" — perceive or make out — the arrangement. \"Infer\" implies indirect reasoning, exactly what the sentence rules out. \"Obscure\" is the opposite of perceiving, and \"scrutinize\" means to examine something closely once it is already visible, not to perceive its arrangement in the first place."
+}

@@ -1,0 +1,34 @@
+{
+  "id": 917,
+  "type": "multiple-choice",
+  "difficulty": "easy",
+  "band": 2,
+  "domain": "standard-english-conventions",
+  "skill": "boundaries",
+  "module": 1,
+  "passage": "On 28 December 1895, Auguste and Louis Lumiere held what is often called the first commercial film screening, charging a Paris audience admission to a program of short actualities ______ within a year their camera operators were shooting and projecting scenes on several continents.",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "actualities,"
+    },
+    {
+      "id": "B",
+      "text": "actualities"
+    },
+    {
+      "id": "C",
+      "text": "actualities;"
+    },
+    {
+      "id": "D",
+      "text": "actualities:"
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "Two independent clauses meet at the blank: the screening of \"short actualities\" and \"within a year their camera operators were shooting... on several continents.\" A semicolon correctly joins them, so choice C is right. A comma alone (A) creates a splice, no punctuation (B) fuses the clauses, and a colon (D) wrongly signals that the second clause explains or itemizes the first.",
+  "_meta": {
+    "anchor": "Lumiere brothers, first commercial screening"
+  }
+}

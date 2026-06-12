@@ -1,0 +1,31 @@
+{
+ "id": 1045,
+ "type": "multiple-choice",
+ "difficulty": "medium",
+ "band": 3,
+ "domain": "standard-english-conventions",
+ "skill": "form-structure-and-sense",
+ "module": 2,
+ "passage": "A modern microprocessor packs billions of transistors onto a single sliver of silicon, and the performance of the whole chip depends on how reliably each of those switches behaves. Each transistor must hold ______ stored charge steadily between cycles, because even a small leakage current, multiplied across billions of devices, would drain the chip's power and corrupt the data it holds.",
+ "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "its"
+  },
+  {
+   "id": "B",
+   "text": "their"
+  },
+  {
+   "id": "C",
+   "text": "it's"
+  },
+  {
+   "id": "D",
+   "text": "they're"
+  }
+ ],
+ "correctAnswer": "A",
+ "explanation": "Choice A is correct. The pronoun refers back to the singular \"each transistor,\" so the singular possessive \"its\" is required. Choice B uses the plural \"their,\" which does not agree with the singular \"each transistor.\" Choice C, \"it's,\" is the contraction of \"it is,\" not a possessive, and Choice D, \"they're,\" is the contraction of \"they are,\" neither of which fits the possessive slot before \"stored charge.\""
+}

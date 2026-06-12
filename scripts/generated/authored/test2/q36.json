@@ -1,0 +1,31 @@
+{
+  "id": 236,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "information-and-ideas",
+  "skill": "central-ideas-and-details",
+  "module": 2,
+  "passage": "Geobiologist and paleobotanist Hope Jahren, who studies the chemistry of plants at the University of Oslo, has spent much of her career analyzing the wood of long-dead trees. Living trees draw water and dissolved minerals from soil and air, and the resulting ratios of stable isotopes locked into each new layer of wood reflect local conditions of temperature and rainfall during the year that layer formed. Jahren has shown that those isotope ratios remain measurable in the wood of fossil trees that grew tens of millions of years ago, long after most other biological signals have been lost. Reading them, she argues, lets researchers reconstruct, year by year, the climates of forests that no longer exist anywhere on Earth, turning a piece of petrified wood into a detailed environmental record of a vanished landscape.",
+  "question": "Which choice best states the main idea of the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Jahren's research uses fossil wood to map the global geographic distribution of ancient forests across the continents tens of millions of years ago."
+    },
+    {
+      "id": "B",
+      "text": "Jahren's research argues that stable isotope ratios preserved in fossil wood can be used to reconstruct, year by year, the local climates of ancient forests that no longer exist."
+    },
+    {
+      "id": "C",
+      "text": "Jahren's research suggests that the chemical signals once recorded in the wood of fossil trees have largely been erased over tens of millions of years and can no longer be read reliably."
+    },
+    {
+      "id": "D",
+      "text": "Jahren's research describes how living trees draw water and dissolved minerals from soil and air as they form each new annual layer of wood."
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B. The passage builds its central claim across multiple sentences. Sentence 1 introduces Jahren and her career-long focus on the chemistry of long-dead trees. Sentence 2 explains the mechanism: stable isotope ratios locked into each new layer of living wood reflect that year's local temperature and rainfall. Sentence 3 establishes that those ratios remain measurable in fossil wood tens of millions of years old, long after most other biological signals have been lost. Sentence 4 then states the synthesis Jahren argues for: reading those ratios lets researchers reconstruct, year by year, the climates of forests that no longer exist anywhere on Earth. Choice B captures that synthesis at the right level of generalization, naming both the evidence (stable isotope ratios in fossil wood) and the central claim (year-by-year reconstruction of vanished local climates).\n\nChoice D is incorrect. The passage does describe how living trees take up water and dissolved minerals as they form new layers of wood, but that mechanism is presented as a supporting premise that explains why isotope ratios encode climate information. Treating the mechanism sentence as the main idea mistakes the explanatory setup for the larger argument the passage attributes to Jahren's research. Choice A is incorrect. The passage talks about reconstructing the climates of ancient forests, not about mapping their geographic distribution across the continents. Recasting Jahren's argument as a project of global biogeographic mapping shifts the scope away from the year-by-year climate reconstruction the passage actually summarizes. Choice C is incorrect. This reverses the passage's central claim. The text says Jahren has shown that isotope ratios remain measurable in fossil wood tens of millions of years old, long after most other biological signals have been lost; Choice C claims the opposite, that those chemical signals have largely been erased and can no longer be read reliably, flipping the direction of the main idea."
+}

@@ -1,0 +1,31 @@
+{
+  "id": 246,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "standard-english-conventions",
+  "skill": "boundaries",
+  "module": 2,
+  "passage": "A conservator preparing a centuries-old painting for exhibition has to draw on three very different bodies of knowledge: chemistry, which identifies the original pigments, binders, and ______ art history, which establishes how the finished surface would once have looked; and traditional craft, which guides repairs subtle enough to be reversed later without harm to the work.",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "varnishes,"
+    },
+    {
+      "id": "B",
+      "text": "varnishes;"
+    },
+    {
+      "id": "C",
+      "text": "varnishes"
+    },
+    {
+      "id": "D",
+      "text": "varnishes:"
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B. The sentence lists three bodies of knowledge, and because each item already contains internal commas, the major items must be separated by semicolons; the blank ends the first item (\"chemistry, which identifies the original pigments, binders, and varnishes\") and so needs a semicolon before \"art history.\" Choice A uses a comma, which blends into the internal commas and blurs where one major item stops and the next begins. Choice C supplies no mark, fusing the first item into the second. Choice D uses a colon, but a colon introduces an explanation or list and cannot serve as a separator between parallel items in mid-series."
+}

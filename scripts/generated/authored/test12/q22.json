@@ -1,0 +1,31 @@
+{
+  "id": 1222,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "standard-english-conventions",
+  "skill": "form-structure-and-sense",
+  "module": 1,
+  "passage": "Many small museums now try to let visitors do more than look. At one printing museum, for example, a restored nineteenth-century press and a wooden case of metal type ____ visitors the rare chance to set a line of words by hand, ink the type, and pull a finished sheet of their own to carry home.",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "gives"
+    },
+    {
+      "id": "B",
+      "text": "is giving"
+    },
+    {
+      "id": "C",
+      "text": "give"
+    },
+    {
+      "id": "D",
+      "text": "has given"
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C. The subject is compound—\"a restored press and a wooden case of metal type\"—and two subjects joined by \"and\" take the plural verb \"give.\" The singular noun nearest the blank, \"type,\" along with each part of the subject taken on its own, tempts a singular verb, but the full subject is plural. \"Gives\" and \"is giving\" are singular and so disagree with the compound subject, and \"has given\" is singular as well, besides shifting the action into a completed past that the present-tense description of what the museum offers does not fit."
+}

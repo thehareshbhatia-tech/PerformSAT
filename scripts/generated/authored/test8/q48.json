@@ -1,0 +1,31 @@
+{
+  "id": 848,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "standard-english-conventions",
+  "skill": "boundaries",
+  "module": 2,
+  "passage": "Because the only manuscript of the epic poem had been copied and recopied entirely by hand for nearly a thousand years before the earliest version that survives today was finally made ______ modern editors treat even its oldest and most familiar readings with real caution.",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "made,"
+    },
+    {
+      "id": "B",
+      "text": "made"
+    },
+    {
+      "id": "C",
+      "text": "made;"
+    },
+    {
+      "id": "D",
+      "text": "made:"
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A. The sentence opens with a long introductory dependent clause beginning \"Because…,\" and a comma is needed to separate that clause from the main clause that follows, \"editors treat even its oldest readings with caution.\" Omitting the mark, as in B, runs the two together; the semicolon in C wrongly implies two independent clauses, but the \"Because\" clause cannot stand alone; and the colon in D would announce an explanation or list, which is not the relationship here."
+}

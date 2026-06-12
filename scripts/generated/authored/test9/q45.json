@@ -1,0 +1,34 @@
+{
+  "id": 945,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "standard-english-conventions",
+  "skill": "form-structure-and-sense",
+  "module": 2,
+  "passage": "The garden that fronts the Taj Mahal is laid out as a charbagh, quartered by raised walkways and water channels. The long reflecting pools set along the central axis ______ the white marble mausoleum on the still water, doubling the monument for anyone approaching from the great gateway.",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "reflects"
+    },
+    {
+      "id": "B",
+      "text": "reflect"
+    },
+    {
+      "id": "C",
+      "text": "has reflected"
+    },
+    {
+      "id": "D",
+      "text": "is reflecting"
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The subject of the verb is \"pools,\" which is plural, so the verb is \"reflect\"—choice B. The singular \"axis\" sits inside the modifying phrase and is not the subject. \"Reflects\" and \"has reflected\" are singular, and \"is reflecting\" is singular as well.",
+  "_meta": {
+    "anchor": "Taj Mahal charbagh garden"
+  }
+}

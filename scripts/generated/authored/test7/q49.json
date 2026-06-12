@@ -1,0 +1,31 @@
+{
+  "id": 749,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "standard-english-conventions",
+  "skill": "form-structure-and-sense",
+  "module": 2,
+  "passage": "______ that tribal membership is defined by political and kinship relations rather than by genetic markers, some anthropologists now argue that consumer DNA ancestry tests misrepresent tribal citizenship as a biological matter when it is in fact a political and legal one.",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Maintaining"
+    },
+    {
+      "id": "B",
+      "text": "Maintained"
+    },
+    {
+      "id": "C",
+      "text": "Having been maintained"
+    },
+    {
+      "id": "D",
+      "text": "Maintains"
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A. The opening needs a present participle that modifies the subject \"some anthropologists,\" describing what they hold as they make their argument, so \"Maintaining\" is correct. Choices B and C (\"Maintained,\" \"Having been maintained\") are passive forms that wrongly suggest the anthropologists are acted upon. Choice D's \"Maintains\" is a finite verb that leaves the sentence without a proper subject for the introductory phrase, creating a fragment."
+}

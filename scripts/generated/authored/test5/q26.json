@@ -1,0 +1,44 @@
+{
+  "id": 526,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "expression-of-ideas",
+  "skill": "rhetorical-synthesis",
+  "module": 1,
+  "studentNotes": {
+    "intro": "While researching a topic, a student has taken the following notes:",
+    "bullets": [
+      "Ulugh Beg (1394–1449) was a Timurid prince and astronomer who ruled from the city of Samarkand.",
+      "In the 1420s he built a large observatory at Samarkand, equipped with a giant arc for measuring the positions of the stars.",
+      "His team of astronomers compiled the Zij-i Sultani, a catalogue of more than a thousand stars.",
+      "The catalogue's star positions were among the most accurate produced anywhere before the invention of the telescope.",
+      "The observatory was destroyed after Ulugh Beg's death in 1449."
+    ],
+    "goal": "The student wants to introduce Ulugh Beg to an audience unfamiliar with his work."
+  },
+  "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "The star positions in the Zij-i Sultani were among the most accurate produced anywhere before the telescope was invented."
+    },
+    {
+      "id": "B",
+      "text": "Ulugh Beg's observatory at Samarkand, equipped with a giant measuring arc, was destroyed after his death in 1449."
+    },
+    {
+      "id": "C",
+      "text": "The Zij-i Sultani, compiled by a team of astronomers, was a catalogue of more than a thousand stars."
+    },
+    {
+      "id": "D",
+      "text": "Ulugh Beg (1394–1449), a Timurid prince who ruled from Samarkand, built a large observatory there in the 1420s whose astronomers compiled the Zij-i Sultani, a star catalogue remarkably accurate for its time."
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "The correct answer is D. The goal is to introduce Ulugh Beg to readers who do not know him, so the sentence should name him, place him in time and place, and say what he is known for. Choice D does all of this: it gives his dates, identifies him as a Timurid prince in Samarkand, names the observatory, and notes the catalogue and its accuracy. Choices A and C report individual facts about the catalogue without ever introducing the man. Choice B names him but leads with the observatory's destruction, an odd emphasis for a first introduction and one that omits what made his work notable.",
+  "_meta": {
+    "anchor": "Ulugh Beg — Timurid astronomer; Samarkand observatory; Zij-i Sultani star catalogue"
+  }
+}

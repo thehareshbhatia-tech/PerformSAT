@@ -1,0 +1,41 @@
+{
+  "id": 754,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "expression-of-ideas",
+  "skill": "rhetorical-synthesis",
+  "module": 2,
+  "studentNotes": {
+    "intro": "While researching a topic, a student has taken the following notes:",
+    "bullets": [
+      "On November 29, 1864, U.S. troops attacked a Cheyenne and Arapaho encampment in southeastern Colorado in what became known as the Sand Creek Massacre.",
+      "Efforts to commemorate the killings at a national historic site stretched across more than a century.",
+      "Federal agencies, the U.S. military, and Cheyenne and Arapaho descendant communities held incompatible understandings of what had happened and what the site should mean.",
+      "Because these parties could not agree on the events’ boundaries, causes, or significance, the official commemoration stalled for decades.",
+      "Historians studying the case conclude that what a nation remembers is determined not by the facts of an event alone but by a contested negotiation among the parties with a stake in it."
+    ],
+    "goal": "The student wants to emphasize the central insight historians draw from the Sand Creek commemoration."
+  },
+  "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "On November 29, 1864, U.S. troops attacked a Cheyenne and Arapaho encampment in southeastern Colorado, an event that later became known as the Sand Creek Massacre."
+    },
+    {
+      "id": "B",
+      "text": "Establishing a national historic site at Sand Creek ended up taking well over a century, in part because the various parties involved disagreed quite sharply about the meaning of the events."
+    },
+    {
+      "id": "C",
+      "text": "Historians studying Sand Creek conclude that national memory is shaped not by an event’s facts alone but by a contested negotiation among the parties with a stake in it, whose disagreement stalled the commemoration for decades."
+    },
+    {
+      "id": "D",
+      "text": "Federal agencies, the U.S. military, and the descendant communities each held flatly incompatible understandings of what had actually happened at Sand Creek in 1864."
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C. The goal is the central insight, and C states it directly — national memory is settled by a contested negotiation among interested parties, not by facts alone — while tying it to the stalled commemoration. Choice A recounts only the 1864 event, and Choice D reports the parties' disagreement without the broader conclusion. Choice B notes the century-long delay but stops short of the general insight about how national memory is made."
+}

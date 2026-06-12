@@ -1,0 +1,34 @@
+{
+  "id": 545,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "standard-english-conventions",
+  "skill": "form-structure-and-sense",
+  "module": 2,
+  "passage": "Working at Columbia University's Lamont Geological Observatory in the early 1950s, Marie Tharp ______ the bathymetric profiles she had drafted from sounding data and noticed a continuous V-shaped depression running down the center of the Mid-Atlantic Ridge—a feature whose interpretation as a tectonic rift would, within a decade, become a key piece of evidence for the theory of seafloor spreading.",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "are comparing"
+    },
+    {
+      "id": "B",
+      "text": "compared"
+    },
+    {
+      "id": "C",
+      "text": "compares"
+    },
+    {
+      "id": "D",
+      "text": "have compared"
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B, \"compared.\" The action is anchored in the early 1950s and sits among other past-tense verbs (\"had drafted,\" \"noticed\"), so the simple past \"compared\" is required for this completed historical event. \"Compares\" is present tense and clashes with the 1950s setting. \"Are comparing\" is present progressive and also disagrees in number with the singular subject \"Marie Tharp.\" \"Have compared\" is present perfect, which would extend the action toward the present rather than placing it in the closed past.",
+  "_meta": {
+    "anchor": "Marie Tharp — Mid-Atlantic Ridge rift valley; simple-past historical narration"
+  }
+}

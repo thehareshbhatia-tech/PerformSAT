@@ -1,0 +1,31 @@
+{
+  "id": 209,
+  "type": "multiple-choice",
+  "difficulty": "easy",
+  "band": 2,
+  "domain": "information-and-ideas",
+  "skill": "central-ideas-and-details",
+  "module": 1,
+  "passage": "In her 2005 book My Face Is Black Is True, historian Mary Frances Berry argues that the late-nineteenth-century pension movement led by Callie House was one of the earliest mass campaigns for reparations in the United States. Drawing on archival records, Berry traces how House and her allies built the National Ex-Slave Mutual Relief, Bounty, and Pension Association into a network that organized hundreds of thousands of formerly enslaved people across the South. The association petitioned Congress for federal pensions to ex-slaves, modeled partly on those granted to Union veterans. As the movement grew, Berry shows, officials at the U.S. Post Office Department prosecuted House for mail fraud, a charge that effectively suppressed the campaign. Berry presents the House pension drive as a forerunner of modern reparations politics.",
+  "question": "Which choice best states the main idea of the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Berry draws on archival evidence to argue that Callie House's late-nineteenth-century pension movement was one of the earliest mass campaigns for reparations in the United States."
+    },
+    {
+      "id": "B",
+      "text": "Berry contends that the federal mail-fraud prosecution of Callie House was legally justified given the evidence available to officials at the time."
+    },
+    {
+      "id": "C",
+      "text": "Berry argues that the National Ex-Slave Mutual Relief association drew most of its support from Union veterans rather than from formerly enslaved people."
+    },
+    {
+      "id": "D",
+      "text": "Berry shows that Callie House's pension campaign succeeded in securing federal pensions for formerly enslaved people across the South."
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A. The passage presents Berry's central argument: drawing on archival records, she casts Callie House's pension movement as one of the earliest mass campaigns for reparations in the United States. Choice B misreads the passage, which presents the mail-fraud prosecution as a means of suppressing the campaign, not as a justified action. Choice C contradicts the text, which says the association organized hundreds of thousands of formerly enslaved people; the Union-veteran pensions were only a model for what it sought. Choice D reverses the outcome: the passage states the prosecution effectively ended the drive, so it did not succeed in winning pensions."
+}

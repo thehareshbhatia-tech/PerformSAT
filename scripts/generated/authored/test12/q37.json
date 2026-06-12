@@ -1,0 +1,31 @@
+{
+  "id": 1237,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "information-and-ideas",
+  "skill": "central-ideas-and-details",
+  "module": 2,
+  "passage": "During a smallpox outbreak in Boston in 1721, the minister Cotton Mather urged the city's physicians to try a preventive practice he had learned of from an enslaved West African man named Onesimus and from reports out of Constantinople: introducing material from a smallpox sore into a healthy person, a procedure called variolation. The idea was fiercely resisted, since most physicians thought it reckless to give a healthy person the disease on purpose. Only one, Zabdiel Boylston, agreed to try it, and he kept careful records. When the epidemic subsided, the numbers told a striking story: among those he had variolated, the death rate was far lower than among those who caught smallpox in the ordinary way. The data did not end the controversy, but they were some of the earliest quantitative evidence that the procedure saved lives.",
+  "question": "Based on the text, what was notable about the records Boylston kept during the 1721 epidemic?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "They appeared at first to demonstrate that the procedure of variolation carried virtually no risk of any kind to the otherwise healthy people who agreed to undergo it."
+    },
+    {
+      "id": "B",
+      "text": "They persuaded the majority of Boston's physicians to take up the practice of variolation well before the epidemic had run its course."
+    },
+    {
+      "id": "C",
+      "text": "They showed that the practice of variolation had actually originated in Boston rather than in West Africa or in Constantinople."
+    },
+    {
+      "id": "D",
+      "text": "They offered early quantitative evidence that people who were variolated died of smallpox far less often than those who were infected in the ordinary way."
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "The correct answer is D. The passage states that Boylston's figures showed a far lower death rate among the variolated than among those who caught smallpox naturally, providing some of the earliest numerical evidence that the procedure saved lives. A overstates the case; the text speaks of a lower death rate, not the absence of all risk. B contradicts the passage, which says the data \"did not end the controversy.\" C misattributes the procedure's origin, which the text traces to West Africa and Constantinople, not Boston."
+}

@@ -1,0 +1,35 @@
+{
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "standard-english-conventions",
+  "skill": "form-structure-and-sense",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "refining"
+    },
+    {
+      "id": "B",
+      "text": "to refine"
+    },
+    {
+      "id": "C",
+      "text": "refined"
+    },
+    {
+      "id": "D",
+      "text": "the refinement of"
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A. The blank is the third item in a list governed by \"drew on three kinds of work,\" and the first two items are -ing phrases: \"observing the heavens\" and \"checking those observations.\" Parallel structure requires the third item to take the same form, so \"refining the trigonometric methods\" is correct. \"To refine\" is an infinitive that breaks the pattern; \"refined\" is a finite verb that cannot be coordinated with the two -ing phrases; and \"the refinement of\" switches to a noun phrase, again breaking the parallelism.",
+  "passage": "To compile a major astronomical handbook, a medieval astronomer typically drew on three kinds of work: observing the heavens with large instruments, checking those observations against earlier Greek and Indian tables, and ______ the trigonometric methods needed to convert raw sightings into predicted positions.",
+  "_meta": {
+    "anchor": "medieval Islamic astronomy: compiling a zij (generic)",
+    "rule": "parallel structure across a coordinated list"
+  },
+  "id": 1145,
+  "module": 2
+}

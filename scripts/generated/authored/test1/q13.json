@@ -1,0 +1,73 @@
+{
+ "id": 113,
+ "type": "multiple-choice",
+ "difficulty": "medium",
+ "band": 3,
+ "domain": "information-and-ideas",
+ "skill": "command-of-evidence-quantitative",
+ "module": 1,
+ "passage": "In the 1850s, the naturalist Henry David Thoreau kept careful notes on when wild plants near Concord, Massachusetts, first burst into bloom each spring. More than a century later, the ecologists Miller-Rushing and Primack revisited several of those species at the same locations, recording first-flowering dates from 2004 to 2006. The researchers conclude that warming temperatures have shifted the timing of spring blooming across the Concord plant community as a whole because _______",
+ "questionTable": {
+  "type": "table",
+  "caption": "First-flowering dates of selected Concord plants in Thoreau's records (1852-1858) and in modern observations (2004-2006), with the shift in days (Miller-Rushing and Primack, 2008)",
+  "headers": [
+   "Species",
+   "1852-1858 (Thoreau)",
+   "2004-2006",
+   "Shift (days)"
+  ],
+  "rows": [
+   [
+    "Highbush blueberry",
+    "May 11",
+    "May 1",
+    "-10"
+   ],
+   [
+    "Yellow wood sorrel",
+    "May 24",
+    "May 22",
+    "-2"
+   ],
+   [
+    "Common buttercup",
+    "May 16",
+    "May 9",
+    "-7"
+   ],
+   [
+    "Lady's slipper orchid",
+    "May 30",
+    "May 27",
+    "-3"
+   ],
+   [
+    "Marsh marigold",
+    "April 26",
+    "April 22",
+    "-4"
+   ]
+  ]
+ },
+ "question": "Which choice most effectively uses data from the table to complete the statement?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "highbush blueberry, which bloomed on May 11 in Thoreau's records and on May 1 in 2004-2006, shifted by 10 days, the largest change of any species in the table."
+  },
+  {
+   "id": "B",
+   "text": "each of the five species recorded by Thoreau bloomed earlier in 2004-2006 than in the 1850s, with shifts ranging from 2 days for yellow wood sorrel to 10 days for highbush blueberry."
+  },
+  {
+   "id": "C",
+   "text": "in the 2004-2006 records, marsh marigold bloomed on April 22, more than a month before lady's slipper orchid bloomed on May 27."
+  },
+  {
+   "id": "D",
+   "text": "lady's slipper orchid bloomed on May 30 in Thoreau's records but only on May 27 in 2004-2006, suggesting that flowering was delayed by 3 days."
+  }
+ ],
+ "correctAnswer": "B",
+ "explanation": "The claim is community-wide: warming has shifted the timing of spring blooming across the Concord plant community as a whole. To support that generalization, the evidence has to speak to every species in the table, not just one. Choice B does precisely that — it notes that each of the five species bloomed earlier in 2004-2006 than in the 1850s, and it bounds the magnitude of the shift (2 to 10 days) so the reader sees both that the pattern is uniform in direction and that it varies in size. Uniformly negative shifts across all five rows are exactly what licenses a community-level conclusion."
+}

@@ -1,0 +1,31 @@
+{
+  "id": 712,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "information-and-ideas",
+  "skill": "command-of-evidence-textual",
+  "module": 1,
+  "passage": "Some persistent synthetic pesticides do not stay where they are applied. According to a long-standing hypothesis in ecology, such chemicals grow more concentrated as they move up a food web: each predator takes in the accumulated residues stored in all the prey it eats, so that animals at the top of the chain carry the heaviest burdens. Although the best-known of these compounds have been restricted in many countries, related chemicals remain in agricultural use, and a team of ecologists has set out to test whether this \"biomagnification\" still occurs in present-day farmland food webs.",
+  "question": "Which finding from the team's study, if true, would most directly support the hypothesis?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Hawks at the top of a farmland food web carried pesticide concentrations several times higher than those found in the songbirds and small mammals they prey on."
+    },
+    {
+      "id": "B",
+      "text": "Predatory fish living downstream from treated fields contained markedly lower pesticide concentrations in their tissues than did the smaller fish and aquatic invertebrates that made up most of their diet."
+    },
+    {
+      "id": "C",
+      "text": "Pesticide residues were detected in soil and water samples collected from agricultural watersheds on three different continents."
+    },
+    {
+      "id": "D",
+      "text": "A single population of eagles nesting beside a heavily sprayed orchard showed elevated residues in its unhatched eggs over a five-year period."
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A. The hypothesis predicts that residues should increase from prey to predator, so the finding that top predators (hawks) carry several times the concentration of their prey is exactly the comparison that would support it. Choice B shows the opposite pattern — predators with less than their prey — which would undercut the hypothesis. Choice C documents that residues are present but says nothing about increasing up the chain, and Choice D shows residues in one top predator without the prey-to-predator comparison the claim turns on."
+}

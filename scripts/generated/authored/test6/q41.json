@@ -1,0 +1,67 @@
+{
+  "id": 641,
+  "module": 2,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "information-and-ideas",
+  "skill": "command-of-evidence-quantitative",
+  "passage": "Working Group I of the Intergovernmental Panel on Climate Change has summarized observed changes in annual precipitation across latitudinal bands, comparing the period 1981–2020 with the 1961–1990 baseline. A research team analyzing the IPCC's compiled estimates has argued that, although precipitation has risen across most of the latitudinal bands shown, the change has not been uniform: in particular, the tropical northern band runs against the broader pattern, registering a slight decrease while four of the five bands shown rose. The data shown in the table support this characterization because _______",
+  "questionTable": {
+    "type": "table",
+    "caption": "Observed annual precipitation change (% relative to 1961–1990) by latitudinal band, 1981–2020 (IPCC AR6 WG1, Chapter 8)",
+    "headers": [
+      "Latitudinal band",
+      "Change (%)",
+      "Confidence"
+    ],
+    "rows": [
+      [
+        "60–90°N (high northern)",
+        "+8.2",
+        "high"
+      ],
+      [
+        "30–60°N (mid northern)",
+        "+1.7",
+        "medium"
+      ],
+      [
+        "0–30°N (tropical northern)",
+        "-0.4",
+        "low"
+      ],
+      [
+        "0–30°S (tropical southern)",
+        "+1.1",
+        "medium"
+      ],
+      [
+        "30–60°S (mid southern)",
+        "+2.6",
+        "medium"
+      ]
+    ]
+  },
+  "question": "Which choice most effectively uses data from the table to support the team's claim?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "four of the five bands rose relative to baseline, while the tropical northern band, at −0.4%, was the only one to record a decrease."
+    },
+    {
+      "id": "B",
+      "text": "all five of the bands shown registered increases in precipitation relative to baseline, with the tropical northern band's +8.2% change running ahead of the others."
+    },
+    {
+      "id": "C",
+      "text": "the high northern band registered the largest percentage increase, +8.2% relative to baseline, more than three times the change recorded for any other band shown."
+    },
+    {
+      "id": "D",
+      "text": "across the five bands shown, the recorded change ran from a decrease of −0.4% in the tropical northern band to an increase of +8.2% in the high northern band, a total spread of about 8.6 percentage points between the two extremes."
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The team's claim has two parts: precipitation rose across most of the bands, and the tropical northern band ran against that pattern with a slight decrease. Only choice A joins both, noting that four of the five bands rose while the tropical northern band, at -0.4 percent, was the lone decrease. Choice C cites only the single largest increase, which cannot show how the bands split. Choice D reports the overall spread of values but not how many bands lie on each side of the baseline. Choice B claims all five bands rose and mistakenly assigns the +8.2 percent figure to the tropical northern band, inverting the very exception the claim depends on."
+}

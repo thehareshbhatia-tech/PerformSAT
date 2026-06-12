@@ -1,0 +1,31 @@
+{
+  "id": 829,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "craft-and-structure",
+  "skill": "words-in-context",
+  "module": 2,
+  "passage": "A vibrating violin string moves too little air on its own to be heard across a room. The instrument's hollow wooden body solves this problem: as the string vibrates, it sets the body trembling at the same frequencies, and the broad surfaces of the wood push on far more air than the thin string can. In this way the body ____ a sound that would otherwise be faint, turning a barely audible motion into a tone that fills the hall.",
+  "question": "Which choice completes the text with the most logical and precise word or phrase?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "amplifies"
+    },
+    {
+      "id": "B",
+      "text": "silences"
+    },
+    {
+      "id": "C",
+      "text": "records"
+    },
+    {
+      "id": "D",
+      "text": "imitates"
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A. The passage says the body pushes on far more air than the string can, \"turning a barely audible motion into a tone that fills the hall,\" so the blank needs a word for making the faint sound louder. \"Amplifies\" does that. \"Silences\" is the opposite of what the body does; \"records\" would mean storing the sound for later, which the passage never describes; and \"imitates\" implies reproducing a separate sound, but the body is strengthening the string's own sound, not copying another."
+}

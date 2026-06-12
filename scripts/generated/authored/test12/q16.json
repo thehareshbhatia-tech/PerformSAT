@@ -1,0 +1,31 @@
+{
+  "id": 1216,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "information-and-ideas",
+  "skill": "inferences",
+  "module": 1,
+  "passage": "Each species of fig tree is pollinated by its own species of tiny wasp, which can complete its life cycle only inside that fig's enclosed flowers; the wasp pollinates the fig as it lays its eggs, and neither partner reproduces without the other. Because adult wasps live only a day or two, a wasp emerging from a ripe fig must find another tree of the same species already in flower, and fig trees in a given forest tend to flower at staggered times rather than all at once. Ecologists who model this system note that a fig population too sparse or too synchronized in its flowering would leave emerging wasps with nowhere to go. Their analysis implies that the long-term survival of a fig species in a forest ______",
+  "question": "Which choice most logically completes the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "depends only on the total number of fig trees present, regardless of when those particular trees happen to come into flower."
+    },
+    {
+      "id": "B",
+      "text": "is unaffected by the short lifespan of the pollinating wasps, since the trees can be pollinated by the wind whenever no wasp arrives."
+    },
+    {
+      "id": "C",
+      "text": "would be substantially improved if all the fig trees in the forest happened to come into flower at exactly the same time rather than at staggered intervals."
+    },
+    {
+      "id": "D",
+      "text": "requires both a sufficient density of trees and a spread of flowering times that lets short-lived wasps always find a receptive tree."
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "The correct answer is D. The model says a population that is too sparse or too synchronized strands the short-lived wasps, so survival needs enough trees and a staggering of bloom times. D names both conditions. A drops the timing, which the passage shows is essential. B contradicts the premise that the fig depends entirely on its wasp, not on wind. C gets the timing backward: simultaneous flowering would leave wasps emerging from late figs with no receptive tree to reach."
+}

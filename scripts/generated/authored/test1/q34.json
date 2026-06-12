@@ -1,0 +1,31 @@
+{
+ "id": 134,
+ "type": "multiple-choice",
+ "difficulty": "hard",
+ "band": 4,
+ "domain": "craft-and-structure",
+ "skill": "text-structure-and-purpose",
+ "module": 2,
+ "passage": "For most of the nineteenth century, opera houses staged every scene with painted backdrops—flat canvas panels depicting forests, palaces, or storms in fixed perspective. The scenographer Adolphe Appia argued that such backdrops worked against the very drama they were meant to serve: a painted shadow could not move as a singer moved, and a flat panel flattened the living body standing before it. In place of painted scenery, Appia proposed three-dimensional structures—steps, platforms, and shifting light—that would respond to the performer in real time. His designs were rarely built in his lifetime, but the principle that stage space should be sculpted by light rather than painted onto canvas reshaped twentieth-century staging.",
+ "question": "Which choice best describes the overall structure of the text?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "It describes a staging technique and then explains why the opera composers of the period came to prefer it."
+  },
+  {
+   "id": "B",
+   "text": "It establishes a long-standing staging convention, presents one figure's critique of that convention, and notes the lasting influence of the alternative he proposed."
+  },
+  {
+   "id": "C",
+   "text": "It contrasts two scenographers' rival designs and then explains why neither was widely adopted during their lifetimes."
+  },
+  {
+   "id": "D",
+   "text": "It traces the steady technical improvement of painted backdrops across the course of the nineteenth century."
+  }
+ ],
+ "correctAnswer": "B",
+ "explanation": "The correct answer is B. The passage first describes the established convention of painted backdrops, then gives Appia's objection that such backdrops fight the live drama, then his alternative of sculpted space and light, and finally notes that the alternative, rarely built in his lifetime, reshaped later staging. A reverses the passage's stance by claiming composers preferred the old technique; C invents a second scenographer and a rivalry the text does not contain; and D describes a story of improving backdrops, whereas the passage is about replacing them."
+}

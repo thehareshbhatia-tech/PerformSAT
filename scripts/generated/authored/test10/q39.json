@@ -1,0 +1,31 @@
+{
+ "id": 1039,
+ "type": "multiple-choice",
+ "difficulty": "hard",
+ "band": 4,
+ "domain": "information-and-ideas",
+ "skill": "command-of-evidence-textual",
+ "module": 2,
+ "passage": "In the 1790s the physician Edward Jenner investigated a piece of rural folklore: that dairymaids who had caught cowpox, a mild disease of cattle, seemed never to catch the far deadlier smallpox. Jenner argued that exposure to cowpox somehow protected a person against smallpox and that this protection could be transferred deliberately from one person to another. A historian of medicine wants to support the claim that Jenner's case rested on more than the folklore he started from.",
+ "question": "Which finding, if true, would most directly support the historian's claim?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "Cowpox was widely known among rural dairy workers in eighteenth-century England as a mild illness caught from cattle."
+  },
+  {
+   "id": "B",
+   "text": "Folk beliefs about the protective power of cowpox had circulated among dairy farmers for generations before Jenner began his work."
+  },
+  {
+   "id": "C",
+   "text": "Smallpox was one of the most feared and lethal diseases in eighteenth-century Europe at the time Jenner was working."
+  },
+  {
+   "id": "D",
+   "text": "Jenner deliberately exposed a healthy boy to material from a cowpox sore and later found that the boy did not contract smallpox when exposed to it."
+  }
+ ],
+ "correctAnswer": "D",
+ "explanation": "Choice D is correct. The historian's claim is that Jenner's case rested on more than the folklore he started from. A deliberate test—exposing a person to cowpox and then finding that smallpox did not take hold—goes beyond the inherited belief and supplies evidence of the kind the claim says Jenner had. Choice D reports just such a test. Choices A and B restate the folklore and its currency, which is the very starting point the claim says Jenner moved past. Choice C establishes how dangerous smallpox was, important context but not evidence that Jenner's case went beyond folklore."
+}

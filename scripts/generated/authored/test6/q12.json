@@ -1,0 +1,31 @@
+{
+  "id": 612,
+  "module": 1,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "information-and-ideas",
+  "skill": "command-of-evidence-textual",
+  "passage": "The major energy-handling structures inside complex cells, the mitochondria that carry out respiration and, in plants and algae, the chloroplasts that carry out photosynthesis, were once thought to have formed gradually from the host cell's own internal membranes. An older, long-neglected hypothesis held instead that these structures began as free-living bacteria that an ancestral host cell engulfed and then kept on as permanent partners. *If that hypothesis is correct, the structures should still carry traces of an independent bacterial ancestry rather than looking like ordinary products of the host cell.*",
+  "question": "Which finding from a recent molecular biology study, if true, would most directly support the hypothesis?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Mitochondria and chloroplasts cannot survive on their own outside the host cells in which they are found."
+    },
+    {
+      "id": "B",
+      "text": "The number of mitochondria in a cell varies with how much energy that cell needs to produce."
+    },
+    {
+      "id": "C",
+      "text": "Within one organism, the chloroplasts of different kinds of cells contain closely matching genetic material."
+    },
+    {
+      "id": "D",
+      "text": "Mitochondria and chloroplasts each carry their own small loop of DNA and bacteria-like machinery for copying and reading it."
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "The correct answer is D. The hypothesis predicts that if these organelles descend from engulfed bacteria, they should retain traces of a separate bacterial ancestry. A finding that each carries its own DNA and its own bacteria-like machinery for using that DNA is just such a trace, since ordinary parts of the host cell would not need their own genetic apparatus. Choice A, that the organelles cannot live outside the cell, fits the rival picture of an integrated host part at least as well. Choice B concerns how organelle numbers scale with energy demand, which says nothing about ancestry, and choice C, matching genetic material across a single organism's cells, points to common descent within that organism rather than to a bacterial origin."
+}

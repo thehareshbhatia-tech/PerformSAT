@@ -1,0 +1,31 @@
+{
+ "id": 102,
+ "type": "multiple-choice",
+ "difficulty": "easy",
+ "band": 2,
+ "domain": "craft-and-structure",
+ "skill": "words-in-context",
+ "module": 1,
+ "passage": "Marine biologist Asha de Vos has documented an unusual blue whale population off the coast of Sri Lanka. Unlike most blue whales, which travel thousands of miles each year between feeding and breeding grounds, this group ______ in the warm waters of the northern Indian Ocean year-round. De Vos's tracking studies show that the whales feed, breed, and raise their young in the same region, making them especially vulnerable to ship strikes from heavy commercial traffic in the area.",
+ "question": "Which choice completes the text with the most logical and precise word or phrase?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "departs"
+  },
+  {
+   "id": "B",
+   "text": "lingers"
+  },
+  {
+   "id": "C",
+   "text": "remains"
+  },
+  {
+   "id": "D",
+   "text": "surfaces"
+  }
+ ],
+ "correctAnswer": "C",
+ "explanation": "The correct answer is C, \"remains.\" The sentence sets up an explicit contrast: most blue whales \"travel thousands of miles each year between feeding and breeding grounds,\" but \"this group ______ ... year-round.\" The follow-up sentence confirms it — the whales \"feed, breed, and raise their young in the same region.\" The blank needs a verb meaning \"stays in one place,\" and \"remains\" fits the contrast with \"travel\" cleanly while matching the year-round, single-region scope the passage describes."
+}

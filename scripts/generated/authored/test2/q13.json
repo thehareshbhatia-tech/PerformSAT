@@ -1,0 +1,67 @@
+{
+  "id": 213,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "information-and-ideas",
+  "skill": "command-of-evidence-quantitative",
+  "module": 1,
+  "passage": "A continental-scale assessment of North American avifauna by Rosenberg and colleagues (2019) tracked population changes across major biomes from 1970 to 2017. The researchers documented net losses of breeding birds in every biome they surveyed, but they emphasize that absolute counts can mask how severely a habitat's bird community has been affected. To support that distinction, a student writing about the study wants to argue that the share of a biome's birds lost can diverge sharply from the raw number lost because _______",
+  "questionTable": {
+    "type": "table",
+    "caption": "Estimated change in breeding bird populations across five North American biomes, 1970-2017 (Rosenberg et al., 2019)",
+    "headers": [
+      "Biome",
+      "Loss (millions of birds)",
+      "Percent change"
+    ],
+    "rows": [
+      [
+        "Grasslands",
+        "717",
+        "-53%"
+      ],
+      [
+        "Boreal forests",
+        "501",
+        "-33%"
+      ],
+      [
+        "Eastern forests",
+        "166",
+        "-17%"
+      ],
+      [
+        "Aridlands",
+        "35",
+        "-29%"
+      ],
+      [
+        "Coasts",
+        "5",
+        "-13%"
+      ]
+    ]
+  },
+  "question": "Which choice most effectively uses data from the table to complete the statement?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "grasslands lost an estimated 717 million birds, more than any other biome listed in the table."
+    },
+    {
+      "id": "B",
+      "text": "aridlands lost only 35 million birds, far fewer than the 166 million lost from eastern forests, yet aridlands declined by 29 percent while eastern forests declined by just 17 percent."
+    },
+    {
+      "id": "C",
+      "text": "coasts had the smallest losses in the table on both measures, with a drop of only 5 million birds and a percent change of just -13 percent."
+    },
+    {
+      "id": "D",
+      "text": "eastern forests lost 166 million birds compared with 35 million in aridlands, indicating that the percent decline in eastern forests was steeper than the percent decline in aridlands."
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B. The student's claim is specifically that the share of a biome's birds lost can diverge sharply from the raw number lost — that is, the two columns of the table can tell different stories. The supporting evidence therefore has to point to a row pairing where the absolute-loss ranking and the percent-change ranking come apart. Choice B does exactly that: aridlands rank low on absolute loss (35 million, far below eastern forests' 166 million) but high on proportional loss (-29 percent vs. -17 percent). One biome lost fewer birds in raw terms yet shed a larger fraction of its bird community — precisely the divergence the claim asserts.\n\nChoice A is incorrect. Grasslands' 717-million figure is the biggest number in the table, and the row is read accurately, but a single biome's headline loss does not show that share and raw count can diverge — it only shows that one biome lost the most birds. The claim is about the relationship between the two columns, not about which row tops one of them. Choice D is incorrect. It pairs the right two rows (eastern forests and aridlands), but it reads the percent-change column in the wrong direction: eastern forests declined by 17 percent and aridlands by 29 percent, so the proportional decline is steeper in aridlands, not in eastern forests. Flipping which biome has the larger percent loss erases exactly the divergence the claim depends on. Choice C is incorrect. It accurately reports the coasts row, but coasts have the smallest loss on both measures simultaneously, so the row demonstrates alignment between the two columns rather than divergence between them. Citing it would, if anything, undercut the claim that share and raw number can diverge sharply."
+}

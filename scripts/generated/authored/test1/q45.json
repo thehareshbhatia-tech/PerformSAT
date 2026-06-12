@@ -1,0 +1,31 @@
+{
+ "id": 145,
+ "type": "multiple-choice",
+ "difficulty": "medium",
+ "band": 3,
+ "domain": "standard-english-conventions",
+ "skill": "form-structure-and-sense",
+ "module": 2,
+ "passage": "In Team of Rivals: The Political Genius of Abraham Lincoln (2005), historian Doris Kearns Goodwin argues that Lincoln strengthened his administration by appointing his most prominent political opponents to top posts. On her account, the cabinet of rivals that he assembled in 1861 ______ as the new president's most reliable instrument of wartime governance, with internal disagreement treated as a feature of effective decision-making rather than a flaw.",
+ "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "are functioning"
+  },
+  {
+   "id": "B",
+   "text": "have functioned"
+  },
+  {
+   "id": "C",
+   "text": "functions"
+  },
+  {
+   "id": "D",
+   "text": "function"
+  }
+ ],
+ "correctAnswer": "C",
+ "explanation": "The grammatical subject of the blank is the singular collective noun 'cabinet,' not the plural noun 'rivals' inside the intervening prepositional phrase 'of rivals.' Standard English treats a singular collective noun as a unit and pairs it with a singular verb when, as here, the noun names the body acting as a whole. The phrase 'the cabinet ... functions as the new president's most reliable instrument' agrees in number, so 'functions' is the correct form."
+}

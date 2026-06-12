@@ -1,0 +1,31 @@
+{
+  "id": 225,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "expression-of-ideas",
+  "skill": "transitions",
+  "module": 1,
+  "passage": "When inexpensive paperback books first appeared in the 1930s, many publishers expected them to eat into sales of more expensive hardcover editions and resisted the new format. ______ the low-priced paperbacks reached readers who had rarely bought books at all, expanding the total market rather than merely dividing the existing one. Sales of hardcovers and paperbacks alike climbed over the following decade.",
+  "question": "Which choice completes the text with the most logical transition?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "For example,"
+    },
+    {
+      "id": "B",
+      "text": "Therefore,"
+    },
+    {
+      "id": "C",
+      "text": "Instead,"
+    },
+    {
+      "id": "D",
+      "text": "Moreover,"
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C. Publishers expected paperbacks to cannibalize hardcover sales; what actually happened was the opposite—the cheap editions drew in new readers and grew the whole market. \"Instead,\" marks that substitution of the actual outcome for the expected one. \"For example,\" is wrong because the second sentence is not an instance of the feared cannibalization. \"Therefore,\" signals a result that follows from the publishers' expectation, but the outcome defied that expectation. \"Moreover,\" merely adds information, missing the contrast between what was feared and what occurred."
+}

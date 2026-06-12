@@ -1,0 +1,31 @@
+{
+ "id": 106,
+ "type": "multiple-choice",
+ "difficulty": "easy",
+ "band": 2,
+ "domain": "craft-and-structure",
+ "skill": "text-structure-and-purpose",
+ "module": 1,
+ "passage": "Science writer Ed Yong describes how recording technology has reshaped the study of animal sound. Microphones left in forests and reefs for months capture noises beyond the range of human hearing and across spans of time no researcher could sit through in person. The archives they produce are so large, Yong notes, that biologists now depend on software to sift through them. Patterns buried in those recordings—regularities in the calls of bats and whales—have turned out to include signals that decades of direct listening had missed entirely.",
+ "question": "Which choice best states the main purpose of the text?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "To explain how long-term recording technology has expanded what researchers can detect about animal communication."
+  },
+  {
+   "id": "B",
+   "text": "To compare the hearing ranges of bats and whales with the hearing range of human beings."
+  },
+  {
+   "id": "C",
+   "text": "To argue that software analysis has made the direct observation of animals largely unnecessary."
+  },
+  {
+   "id": "D",
+   "text": "To describe the practical difficulties of leaving microphones in forests and reefs for months at a time."
+  }
+ ],
+ "correctAnswer": "A",
+ "explanation": "The correct answer is A. The passage explains that microphones left in place for long stretches capture sounds people cannot hear and cover time no observer could, and that the resulting recordings have revealed signals direct listening had missed—so the point is how the technology widens what researchers can detect. B fixes on the bats-and-whales detail, which is an example rather than the purpose; C overstates the passage, which describes software as a tool for handling large archives, not a replacement for observation; and D treats the passing mention of months-long deployment as if it were the focus."
+}

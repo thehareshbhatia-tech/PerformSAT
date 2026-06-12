@@ -1,0 +1,34 @@
+{
+ "id": 338,
+ "module": 2,
+ "difficulty": "medium",
+ "band": 3,
+ "domain": "information-and-ideas",
+ "skill": "central-ideas-and-details",
+ "question": "Which choice best states the main idea of the text?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "Beard contends that the lurid episodes traditionally attributed to Nero are essentially later inventions and that, once the surviving sources have been properly corrected, he emerges as a relatively mild and unobjectionable ruler."
+  },
+  {
+   "id": "B",
+   "text": "Beard accepts the sources' harsh portrait of Nero but argues that, written later and in moralizing genres, they leave the historian to separate Nero from later memory and genre."
+  },
+  {
+   "id": "C",
+   "text": "Beard argues that one of the three principal sources for Nero is far more reliable than the others and should be weighted accordingly."
+  },
+  {
+   "id": "D",
+   "text": "Beard's central claim is biographical: she holds that Nero's later years account for nearly all of the negative material the sources record."
+  }
+ ],
+ "correctAnswer": "B",
+ "explanation": "The correct answer is B. The passage frames Beard's argument as a refinement, not a denial: she grants that the sources portray Nero harshly and that some lurid episodes reflect real events, but she questions taking that portrait at face value as the record of a singular monster. She notes that the main sources were written decades or centuries later, in genres prizing vivid moral example and often under regimes happy to see the previous dynasty look catastrophic, and concludes that the cleaner question is which features belong to Nero, which to later memory, and which to genre. B integrates that stance. A reverses it into a claim that Nero was blameless. C invents a ranking of sources. D narrows the argument to a chronology of Nero's reign the passage never raises.",
+ "_meta": {
+  "anchor": "Mary Beard — classical historian; reading the sources on Nero (Tacitus, Suetonius, Cassius Dio)"
+ },
+ "passage": "Modern accounts often present the Roman emperor Nero as a uniquely cruel and theatrical figure: a man who burned Rome to clear ground for his palace, persecuted Christians as scapegoats, and died in operatic excess. The classical historian Mary Beard does not deny that the surviving sources support an unflattering portrait, or that some lurid episodes reflect real events. What she questions is the move that takes that portrait at face value as the record of a singular monster. The main sources for Nero wrote decades or centuries later, in genres that prized vivid moral example, and often under regimes that found it convenient for the previous dynasty to look catastrophic. The portrait is real, on her reading, but the cleaner question is which features belong to Nero, which to later memory, and which to the conventions of the genre.",
+ "type": "multiple-choice"
+}

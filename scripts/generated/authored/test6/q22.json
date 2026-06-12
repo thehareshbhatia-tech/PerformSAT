@@ -1,0 +1,31 @@
+{
+  "id": 622,
+  "module": 1,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "standard-english-conventions",
+  "skill": "form-structure-and-sense",
+  "passage": "One of the earliest computer models of the global atmosphere, written in the 1960s on machines now considered impossibly slow, simulated winds and heat exchange across the planet and required ______ output to be copied onto magnetic tape before any of it could be analyzed.",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "its"
+    },
+    {
+      "id": "B",
+      "text": "they're"
+    },
+    {
+      "id": "C",
+      "text": "their"
+    },
+    {
+      "id": "D",
+      "text": "it's"
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A, \"its.\" The blank needs a singular possessive modifying \"output\" and referring back to \"One . . . model,\" and \"its\" is the singular possessive pronoun. Choice C, \"their,\" is plural and does not agree with the singular model. Choices B (\"they're\") and D (\"it's\") are contractions of \"they are\" and \"it is,\" not possessives, so neither can show ownership of the output."
+}

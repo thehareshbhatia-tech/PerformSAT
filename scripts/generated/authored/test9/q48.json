@@ -1,0 +1,34 @@
+{
+  "id": 948,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "standard-english-conventions",
+  "skill": "boundaries",
+  "module": 2,
+  "passage": "The British Museum's great Round Reading Room, opened in 1857 beneath a vast iron dome, was the work of Antonio Panizzi ______ a librarian who believed that a national collection should be open to any serious reader rather than to a privileged few.",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Panizzi,"
+    },
+    {
+      "id": "B",
+      "text": "Panizzi;"
+    },
+    {
+      "id": "C",
+      "text": "Panizzi:"
+    },
+    {
+      "id": "D",
+      "text": "Panizzi"
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The phrase \"a librarian who believed...\" renames Antonio Panizzi and is nonessential, so a comma sets it off—choice A. A semicolon (B) or colon (C) would treat the appositive as an independent clause or a formal introduction, and no punctuation (D) runs it straight into the name.",
+  "_meta": {
+    "anchor": "Antonio Panizzi, British Museum reading room"
+  }
+}

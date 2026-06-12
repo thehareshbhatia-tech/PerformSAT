@@ -1,0 +1,34 @@
+{
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "craft-and-structure",
+  "skill": "words-in-context",
+  "question": "Which choice completes the text with the most logical and precise word or phrase?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "vanished"
+    },
+    {
+      "id": "B",
+      "text": "originated"
+    },
+    {
+      "id": "C",
+      "text": "rippled"
+    },
+    {
+      "id": "D",
+      "text": "lingered"
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C, \"rippled.\" The phrase \"through the whole network\" calls for a verb of spreading, and the point is that a problem at one end of the route spread its effects across the entire system. \"Rippled,\" with its image of a disturbance moving outward, fits precisely. \"Vanished\" reverses the sense, since the disruption spread rather than disappeared; \"lingered\" describes staying in place rather than moving through a network; and \"originated\" names where a disruption begins, not how it travels outward.",
+  "passage": "Historians once treated the caravan routes linking Ottoman Bursa to the silk markets of Iran as a simple conduit, valued only for the goods that moved along them. Newer studies of customs ledgers and merchants' letters complicate that picture. The same routes, these studies show, also carried credit arrangements, legal conventions, and price information, so a disruption at one end ______ through the whole network in ways a purely physical account of cargo cannot explain.",
+  "_meta": {
+    "anchor": "Ottoman overland trade: routes as carriers of credit, law, price information"
+  },
+  "id": 1104,
+  "module": 1
+}

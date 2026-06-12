@@ -1,0 +1,76 @@
+{
+ "id": 340,
+ "module": 2,
+ "difficulty": "medium",
+ "band": 3,
+ "domain": "information-and-ideas",
+ "skill": "command-of-evidence-quantitative",
+ "question": "Which choice most effectively uses data from the table to complete the statement?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "the five species in the sample shifted by markedly different amounts, with highbush blueberry advancing 10 days and yellow wood sorrel advancing only 2 days over the same period."
+  },
+  {
+   "id": "B",
+   "text": "all five species in the sample now flower earlier in the year than they did in the historical records, with no species shifting later."
+  },
+  {
+   "id": "C",
+   "text": "marsh marigold has the earliest mean flowering date in the modern record (April 22), which shows that warmer springs advance flowering across all species at the same rate."
+  },
+  {
+   "id": "D",
+   "text": "highbush blueberry shifted 10 days earlier between the two sampling periods, the largest single-species advance shown in the table."
+  }
+ ],
+ "correctAnswer": "A",
+ "explanation": "The correct answer is A. The reader's claim is about variation across species — that the species do not all respond to warming at the same rate — and the evidence must compare how many days earlier different species now flower. A does that, pairing the largest shift (highbush blueberry, 10 days) with the smallest (yellow wood sorrel, 2 days) over the same period, the clearest illustration that the responses differ. D cites only one species' shift, which cannot by itself show variation across species. B reports that all species shifted earlier, answering a question about direction rather than rate. C points to the earliest modern date and wrongly claims a uniform rate, which the shift column (2 to 10 days) directly contradicts.",
+ "_meta": {
+  "anchor": "Concord, MA first-flowering dates, historical vs. 2004-2006 (Miller-Rushing & Primack, 2008); cross-species variation"
+ },
+ "passage": "In a 2008 paper, two researchers compared first-flowering dates that a nineteenth-century naturalist had recorded in Concord, Massachusetts, with measurements taken at the same locations in 2004-2006. A reader summarizing the work argues that the data most clearly support the claim that the species in the sample do not all respond to a warming climate at the same rate, namely because _______",
+ "questionTable": {
+  "type": "table",
+  "caption": "Mean first-flowering date (day-of-year) for selected Concord species, historical records versus 2004-2006",
+  "headers": [
+   "Species",
+   "Historical record",
+   "2004-2006",
+   "Shift (days earlier)"
+  ],
+  "rows": [
+   [
+    "Highbush blueberry",
+    "May 11",
+    "May 1",
+    "10"
+   ],
+   [
+    "Yellow wood sorrel",
+    "May 24",
+    "May 22",
+    "2"
+   ],
+   [
+    "Common buttercup",
+    "May 16",
+    "May 9",
+    "7"
+   ],
+   [
+    "Lady's slipper orchid",
+    "May 30",
+    "May 27",
+    "3"
+   ],
+   [
+    "Marsh marigold",
+    "April 26",
+    "April 22",
+    "4"
+   ]
+  ]
+ },
+ "type": "multiple-choice"
+}

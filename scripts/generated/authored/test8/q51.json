@@ -1,0 +1,31 @@
+{
+  "id": 851,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "expression-of-ideas",
+  "skill": "transitions",
+  "module": 2,
+  "passage": "Gregor Mendel's experiments with pea plants are often retold as the lucky discovery of a gardening monk who stumbled onto the laws of heredity. ______ Mendel designed his crosses with deliberate care, choosing traits that appeared in clear either-or forms, raising thousands of plants so that his ratios would be statistically meaningful, and counting the offspring with a rigor that was unusual for biology in his day.",
+  "question": "Which choice completes the text with the most logical transition?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "In reality,"
+    },
+    {
+      "id": "B",
+      "text": "Likewise,"
+    },
+    {
+      "id": "C",
+      "text": "For example,"
+    },
+    {
+      "id": "D",
+      "text": "As a result,"
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A. The first sentence reports a popular image of Mendel as a lucky amateur; the second corrects it, describing the careful design behind his work, so the transition must signal that the truth differs from the impression. \"In reality\" does that. \"Likewise\" would mark agreement, but the second sentence contradicts the first; \"For example\" would offer an instance of the lucky-discovery story, which it does not; and \"As a result\" would mark a consequence, though no cause-and-effect link is drawn."
+}

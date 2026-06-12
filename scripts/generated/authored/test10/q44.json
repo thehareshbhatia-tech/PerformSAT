@@ -1,0 +1,31 @@
+{
+ "id": 1044,
+ "type": "multiple-choice",
+ "difficulty": "hard",
+ "band": 4,
+ "domain": "standard-english-conventions",
+ "skill": "boundaries",
+ "module": 2,
+ "passage": "The chemist Stephanie Kwolek, working at a DuPont laboratory in 1965, noticed that a batch of polymer solution she had prepared was unusually cloudy and thin. The fiber spun from that solution — which colleagues initially doubted was worth ______ proved to be stiffer and stronger for its weight than steel, and it became the basis of the material later marketed as Kevlar.",
+ "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "testing"
+  },
+  {
+   "id": "B",
+   "text": "testing,"
+  },
+  {
+   "id": "C",
+   "text": "testing;"
+  },
+  {
+   "id": "D",
+   "text": "testing —"
+  }
+ ],
+ "correctAnswer": "D",
+ "explanation": "Choice D is correct. The phrase \"which colleagues initially doubted was worth testing\" is a nonessential interruption, and because it already opens with a dash after \"solution,\" it has to close with a matching dash before \"proved.\" A comma (B) or a semicolon (C) cannot pair with that opening dash, and omitting punctuation altogether (A) would jam the interrupter into the main clause \"The fiber spun from that solution ... proved to be stiffer and stronger for its weight than steel.\""
+}

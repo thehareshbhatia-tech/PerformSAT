@@ -1,0 +1,34 @@
+{
+  "id": 437,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "information-and-ideas",
+  "skill": "central-ideas-and-details",
+  "question": "According to the text, what happens when the muscles surrounding a chromatophore contract?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "The pigment sac shrinks to a dot, and its color all but disappears from view."
+    },
+    {
+      "id": "B",
+      "text": "The animal becomes temporarily unable to detect the colors of its surroundings."
+    },
+    {
+      "id": "C",
+      "text": "The pigment sac stretches into a flat disc, and its color becomes visible."
+    },
+    {
+      "id": "D",
+      "text": "The octopus sends a single rippling pattern slowly across the whole length of its body."
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C. The passage states that when the muscles contract, the pigment sac stretches into a flat disc and its color becomes visible. Choice A describes what happens when the muscles relax instead; choice B refers to the animal's color blindness, not to muscle contraction; and choice D distorts the passage's point that the patterns move quickly across the body.",
+  "passage": "Octopuses change color using millions of tiny organs in their skin called chromatophores, each a sac of pigment surrounded by muscles. When the muscles contract, the sac stretches into a flat disc and its color becomes visible; when they relax, the sac shrinks to a dot and the color all but disappears. Because the animal can control these organs almost instantly and in small groups, it can send rippling patterns across its body in a fraction of a second. Octopuses are color-blind, however, so exactly how they match the colors of their surroundings remains unsettled.",
+  "_meta": {
+    "anchor": "octopus chromatophores; detail stem"
+  },
+  "module": 2
+}

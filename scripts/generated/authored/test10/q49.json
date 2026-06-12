@@ -1,0 +1,31 @@
+{
+ "id": 1049,
+ "type": "multiple-choice",
+ "difficulty": "medium",
+ "band": 3,
+ "domain": "standard-english-conventions",
+ "skill": "form-structure-and-sense",
+ "module": 2,
+ "passage": "In 1911, the meteorologist and geophysicist Alfred Wegener noticed that the coastlines of South America and Africa seemed to fit together like pieces of a puzzle. Over the next several years he gathered fossil and rock evidence from both continents and ______ that they had once been joined in a single landmass, a proposal most geologists rejected for decades before plate tectonics vindicated it.",
+ "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "argues"
+  },
+  {
+   "id": "B",
+   "text": "will argue"
+  },
+  {
+   "id": "C",
+   "text": "argued"
+  },
+  {
+   "id": "D",
+   "text": "has argued"
+  }
+ ],
+ "correctAnswer": "C",
+ "explanation": "Choice C is correct. The passage narrates a sequence of completed past events—Wegener \"noticed\" the fit of the coastlines and \"gathered\" evidence—so the verb in the blank should also be simple past: \"argued.\" Choice A uses the present \"argues,\" and Choice B the future \"will argue,\" both of which clash with the past-tense narration. Choice D's present perfect \"has argued\" implies a continuing relevance to the present that does not fit a sentence describing what Wegener did and how geologists of the time responded."
+}

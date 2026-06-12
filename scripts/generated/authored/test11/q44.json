@@ -1,0 +1,35 @@
+{
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "standard-english-conventions",
+  "skill": "boundaries",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "crystal,"
+    },
+    {
+      "id": "B",
+      "text": "crystal;"
+    },
+    {
+      "id": "C",
+      "text": "crystal"
+    },
+    {
+      "id": "D",
+      "text": "crystal:"
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B. The blank joins two complete sentences—\"The physicists ... worked out the law ...\" and \"the younger Bragg was just twenty-five ...\"—that are closely related but with no coordinating conjunction between them. A semicolon is the mark for joining two such independent clauses, so \"crystal;\" is correct. A comma alone makes a comma splice; no punctuation makes a run-on; and a colon would wrongly promise that the second clause explains or specifies the first, when it just adds a related fact.",
+  "passage": "The physicists William Henry Bragg and his son William Lawrence Bragg worked out the law that relates the angles of scattered X-rays to the spacing of atoms in a crystal ______ the younger Bragg was just twenty-five when the two shared the Nobel Prize for the achievement in 1915.",
+  "_meta": {
+    "anchor": "W. H. and W. L. Bragg: Bragg's law, 1915 Nobel Prize",
+    "rule": "semicolon joining two independent clauses without a coordinating conjunction"
+  },
+  "id": 1144,
+  "module": 2
+}

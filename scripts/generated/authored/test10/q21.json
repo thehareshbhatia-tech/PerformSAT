@@ -1,0 +1,31 @@
+{
+ "id": 1021,
+ "type": "multiple-choice",
+ "difficulty": "medium",
+ "band": 3,
+ "domain": "standard-english-conventions",
+ "skill": "boundaries",
+ "module": 1,
+ "passage": "The paleobotanist's search for early plant fossils reaches deliberately beyond the famous quarries that most collections rely ______ the eroding river cliffs of the Welsh borderland, the road cuts exposed during highway construction, and the spoil heaps left behind by abandoned coal mines.",
+ "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "on, including"
+  },
+  {
+   "id": "B",
+   "text": "on,"
+  },
+  {
+   "id": "C",
+   "text": "on:"
+  },
+  {
+   "id": "D",
+   "text": "on"
+  }
+ ],
+ "correctAnswer": "C",
+ "explanation": "Choice C is correct. The first part of the sentence is a complete independent clause (\"The paleobotanist's search ... reaches deliberately beyond the famous quarries that most collections rely on\"), and what follows is a list that specifies where the search reaches instead. A colon properly introduces that explanatory list after a complete clause. Choice A adds \"including\" after a comma, creating a redundant and awkward join; Choice B uses a comma alone, too weak to introduce the list; and Choice D supplies no punctuation, running the clause directly into the list."
+}

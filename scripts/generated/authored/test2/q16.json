@@ -1,0 +1,31 @@
+{
+  "id": 216,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "information-and-ideas",
+  "skill": "inferences",
+  "module": 1,
+  "passage": "Marine biologists studying cuttlefish have established two facts about the animals' camouflage. First, a cuttlefish's skin contains thousands of pigment-filled cells that tiny muscles can expand or contract within milliseconds, allowing the animal to alter its appearance almost instantly. Second, in laboratory trials cuttlefish reproduce the pattern of an artificial checkerboard placed beneath them—a background unlike anything the species encounters in the wild—adjusting their skin to match it within seconds. Taken together, these observations suggest that a cuttlefish's camouflage ______",
+  "question": "Which choice most logically completes the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "is generated in real time from what the animal currently perceives, not chosen from a fixed inherited repertoire."
+    },
+    {
+      "id": "B",
+      "text": "depends on the animal's having encountered a closely similar background somewhere in its natural habitat at some earlier point in its life."
+    },
+    {
+      "id": "C",
+      "text": "changes color more slowly when the surrounding pattern is artificial than when it is natural."
+    },
+    {
+      "id": "D",
+      "text": "relies on a small number of inherited patterns that the animal cycles through automatically."
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A. The passage gives two facts: a cuttlefish can change its skin pattern almost instantly, and it will match even an artificial checkerboard it could never have seen in the wild. Together these point to a single conclusion—the camouflage must be assembled from what the animal perceives at the moment, since no stored set of patterns could already contain a novel laboratory background. Choice A states exactly that. Choice B is contradicted by the second fact: the checkerboard is \"unlike anything the species encounters in the wild,\" so prior exposure cannot explain the match. Choice C introduces a comparison of speeds that the passage never draws; the text reports only that the change is fast, not that artificial patterns are matched more slowly. Choice D is ruled out by the same checkerboard result, since a small fixed repertoire of inherited patterns could not include a background the animal has never encountered."
+}

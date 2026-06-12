@@ -1,0 +1,31 @@
+{
+  "id": 850,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "expression-of-ideas",
+  "skill": "transitions",
+  "module": 2,
+  "passage": "Early in the primatologist Jane Goodall's career, her mentor, Louis Leakey, treated tool use as the trait that set humans apart from other animals. When Goodall observed wild chimpanzees in Tanzania stripping leaves from twigs to fish termites out of their mounds, that long-standing boundary blurred. ______ Goodall's later writing turned away from the search for a single dividing line and toward the many capacities humans share, in differing degrees, with other primates.",
+  "question": "Which choice completes the text with the most logical transition?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "For instance,"
+    },
+    {
+      "id": "B",
+      "text": "Accordingly,"
+    },
+    {
+      "id": "C",
+      "text": "Nevertheless,"
+    },
+    {
+      "id": "D",
+      "text": "Earlier,"
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B. The chimpanzees' tool use blurred the boundary Goodall had inherited from Leakey, and her later work shifted course as a consequence, so the transition must mark a result; \"Accordingly\" does that. \"For instance\" would introduce an example of the previous point rather than its effect; \"Nevertheless\" signals contrast, but the later writing follows from the observation rather than opposing it; and \"Earlier\" misorders the events, since the shift came after the discovery."
+}

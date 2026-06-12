@@ -1,0 +1,31 @@
+{
+  "id": 637,
+  "module": 2,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "information-and-ideas",
+  "skill": "central-ideas-and-details",
+  "passage": "Most life on Earth depends, directly or indirectly, on energy from sunlight. The giant tube worms that crowd around deep-sea hydrothermal vents are an exception. Living in total darkness, the worms have no mouth and no gut. Instead, a specialized organ packed with bacteria fills much of the body; the bacteria draw energy from chemicals dissolved in the vent fluid and, in return, supply the worm with the organic compounds it needs to grow. The partnership lets dense colonies flourish where no plant could survive.",
+  "question": "According to the text, how do giant tube worms obtain the organic compounds they need?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "They capture small organisms that drift down from the sunlit waters above the vents."
+    },
+    {
+      "id": "B",
+      "text": "They rely on bacteria housed in a specialized organ, which make organic compounds from chemicals in the vent fluid."
+    },
+    {
+      "id": "C",
+      "text": "They absorb dissolved organic compounds directly through the surface of the body."
+    },
+    {
+      "id": "D",
+      "text": "They migrate toward sunlight during part of their life cycle in order to feed."
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B. The passage states that a specialized organ packed with bacteria fills much of the worm's body and that those bacteria, drawing energy from vent chemicals, supply the worm with the organic compounds it needs. Choice B restates that arrangement. Choice A imagines the worms feeding on material falling from sunlit waters, which the text does not describe. Choice C has them absorb compounds directly through the skin, and choice D has them migrate toward sunlight, neither of which the passage supports; the worms live in darkness and depend on their bacteria."
+}

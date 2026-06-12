@@ -1,0 +1,34 @@
+{
+ "id": 317,
+ "module": 1,
+ "difficulty": "medium",
+ "band": 3,
+ "domain": "standard-english-conventions",
+ "skill": "boundaries",
+ "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "twenty-three,"
+  },
+  {
+   "id": "B",
+   "text": "twenty-three"
+  },
+  {
+   "id": "C",
+   "text": "twenty-three;"
+  },
+  {
+   "id": "D",
+   "text": "twenty-three:"
+  }
+ ],
+ "correctAnswer": "C",
+ "explanation": "The correct answer is C, \"twenty-three;\". The blank falls between two independent clauses: \"The painter Jacob Lawrence completed his sixty-panel Migration Series in 1941, when he was only twenty-three\" can stand alone, and so can \"the series traces … the movement of African Americans from the rural South to the cities of the North.\" Two independent clauses require a period, a semicolon, or a comma plus a coordinating conjunction; among these options only the semicolon does the job. The comma alone (A) produces a comma splice, and no punctuation at all (B) leaves a fused sentence. The colon (D) would signal that the second clause defines or explains the first, but the second clause simply continues the account rather than explaining how old Lawrence was.",
+ "_meta": {
+  "anchor": "Jacob Lawrence — painter; Migration Series (1941); independent-clause boundary"
+ },
+ "passage": "The painter Jacob Lawrence completed his sixty-panel Migration Series in 1941, when he was only twenty-three ______ the series traces, in spare and brightly colored scenes, the movement of African Americans from the rural South to the cities of the North.",
+ "type": "multiple-choice"
+}

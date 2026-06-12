@@ -1,0 +1,31 @@
+{
+  "id": 233,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "craft-and-structure",
+  "skill": "text-structure-and-purpose",
+  "module": 2,
+  "passage": "Historians once treated the long-distance spice trade of the early modern period as essentially a European story, told through the voyages of Portuguese and Dutch ships around Africa. Recent scholarship on Ottoman commercial records complicates that account. The overland and Red Sea routes through Ottoman territory, these records show, carried large volumes of pepper and other spices well into the seventeenth century, long after the sea route was supposed to have rendered them obsolete. Merchants in Cairo and Aleppo continued to supply markets across the eastern Mediterranean, and the surviving customs ledgers document a trade that European narratives had largely written out.",
+  "question": "Which choice best states the main purpose of the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "To argue that Ottoman overland and Red Sea spice routes remained active far longer than European-centered accounts have recognized."
+    },
+    {
+      "id": "B",
+      "text": "To describe the navigational challenges that Portuguese and Dutch ships faced on the trade route around Africa."
+    },
+    {
+      "id": "C",
+      "text": "To explain why pepper became less valuable in eastern Mediterranean markets during the seventeenth century."
+    },
+    {
+      "id": "D",
+      "text": "To compare the customs records that were kept in Cairo with those that were kept in Aleppo during the early modern period."
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A. The passage contrasts the old European-centered story of the spice trade with recent work on Ottoman records showing that overland and Red Sea routes stayed busy into the seventeenth century; its purpose is to argue that those routes lasted longer than the standard account allows. Choice B inverts the emphasis—the European ships are background, not the focus, and navigational challenges are never discussed. Choice C contradicts the passage, which describes a continuing, substantial trade rather than declining value. Choice D mistakes a passing detail (records from Cairo and Aleppo) for the main purpose; the passage does not compare the two cities' records."
+}

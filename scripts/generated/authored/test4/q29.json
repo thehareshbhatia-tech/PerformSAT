@@ -1,0 +1,34 @@
+{
+  "id": 429,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "craft-and-structure",
+  "skill": "words-in-context",
+  "question": "Which choice completes the text with the most logical and precise word or phrase?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "prescribe"
+    },
+    {
+      "id": "B",
+      "text": "approve"
+    },
+    {
+      "id": "C",
+      "text": "dispense"
+    },
+    {
+      "id": "D",
+      "text": "formulate"
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B. The passage describes a regulator deciding whether to grant a drug permission to be sold, so the reviewers can demand more evidence before they will \"approve\" it for the market. \"Prescribe\" and \"dispense\" describe what physicians and pharmacists do, not regulators; \"formulate\" describes the chemists who develop the drug. Each is plausible in a medical setting, but only \"approve\" names the regulator's licensing act.",
+  "passage": "When a pharmaceutical company applies to a national regulator for permission to sell a new drug, the agency's reviewers can require more evidence before they will ______ it for the market. In one well-documented case from the early 1960s, a reviewer's insistence on additional data about a sedative's effects on fetal development delayed its sale in the United States and spared the country a wave of severe birth defects seen elsewhere.",
+  "_meta": {
+    "anchor": "drug regulation — marketing approval"
+  },
+  "module": 2
+}

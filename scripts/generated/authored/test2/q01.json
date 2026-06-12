@@ -1,0 +1,31 @@
+{
+  "id": 201,
+  "type": "multiple-choice",
+  "difficulty": "easy",
+  "band": 2,
+  "domain": "craft-and-structure",
+  "skill": "words-in-context",
+  "module": 1,
+  "passage": "In 1902, archaeologist Zelia Nuttall, an honorary affiliate of the Peabody Museum at Harvard University, published a facsimile edition of a previously obscure Mixtec pictorial manuscript that she had located in a private European collection. According to her commentary, the document — now known as the Codex Nuttall — ______ the genealogies and political alliances of pre-Columbian noble lineages from the Oaxaca region of Mexico, providing one of the most detailed surviving accounts of dynastic succession in the years before Spanish contact.",
+  "question": "Which choice completes the text with the most logical and precise word or phrase?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "summarizes"
+    },
+    {
+      "id": "B",
+      "text": "conceals"
+    },
+    {
+      "id": "C",
+      "text": "publishes"
+    },
+    {
+      "id": "D",
+      "text": "records"
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "The correct answer is D, \"records.\" The passage describes the Codex Nuttall as a pictorial manuscript that captures the genealogies and political alliances of pre-Columbian noble lineages and offers \"one of the most detailed surviving accounts of dynastic succession\" before Spanish contact. The blank needs a verb meaning to preserve detailed information in a durable form, and \"records\" fits exactly: a manuscript records data — names, alliances, lines of succession — making it available to later readers. The verb matches both the scope (full detail, not summary) and the register (scholarly, descriptive of a primary source) that Nuttall's commentary establishes.\n\nChoice C is incorrect. \"publishes\" collocates strongly with the surrounding language. The passage explicitly says Nuttall \"published a facsimile edition,\" so the word feels topical and primed by the passage. But the subject of the verb is \"the document\" itself, and a manuscript does not publish anything; the scholar who edited it does. The word picks up a collocation already in the passage while missing what the manuscript itself actually does. Choice A is incorrect. \"summarizes\" lives in the same general family as \"records\" (both involve conveying information in writing), but its scope is wrong. To summarize is to condense or abridge, whereas the passage emphasizes that the codex provides \"one of the most detailed surviving accounts.\" A summary strips out detail; the codex preserves it. The denotation is in the right neighborhood but the specificity is the opposite of what the sentence describes. Choice B is incorrect. \"conceals\" reverses the relationship the passage establishes. The whole point of Nuttall's commentary is that the manuscript makes pre-Columbian dynastic information accessible to scholars; if the codex concealed those genealogies, it could not provide a detailed surviving account of dynastic succession. \"Conceals\" runs directly opposite to the function the passage attributes to the document."
+}

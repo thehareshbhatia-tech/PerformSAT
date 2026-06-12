@@ -1,0 +1,42 @@
+{
+  "id": 254,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "expression-of-ideas",
+  "skill": "rhetorical-synthesis",
+  "module": 2,
+  "studentNotes": {
+    "intro": "While researching a topic, a student has taken the following notes:",
+    "bullets": [
+      "Crystal N. Feimster is a historian of the United States at Yale University whose research addresses sexual violence and racial terror in the Civil War era and after.",
+      "Earlier histories of post-Reconstruction lynching had largely treated the violence as a story driven by men, casting women on either side as symbolic figures rather than political actors.",
+      "In *Southern Horrors: Women and the Politics of Rape and Lynching* (2009), Feimster recovers the testimonies and writings that Black and white women left behind, both as targets of sexual violence and as organizers who confronted the practice in print and from the lecture platform.",
+      "Feimster argues that white and Black women shaped the politics of lynching from opposing positions and that recovering both perspectives is necessary to explain the practice.",
+      "Drawing on the activism of Ida B. Wells and other Black women writers, Feimster shows how anti-lynching work took shape and endured specifically as a sustained Black women's movement.",
+      "Reviewers have credited *Southern Horrors* with reframing the field, treating women not as background figures in the history of lynching but as central political agents whose competing positions structured the practice itself."
+    ],
+    "goal": "The student wants to present Feimster's central argument in Southern Horrors."
+  },
+  "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Crystal N. Feimster is a historian at Yale University whose research addresses sexual violence and racial terror in the Civil War era and after."
+    },
+    {
+      "id": "B",
+      "text": "In Southern Horrors (2009), Feimster argues that Black and white women shaped the politics of lynching from opposing positions, so that recovering both groups' perspectives is necessary to explain the violence."
+    },
+    {
+      "id": "C",
+      "text": "Earlier histories of post-Reconstruction lynching largely treated the violence as a story driven by men, casting women on either side as symbolic figures rather than political actors."
+    },
+    {
+      "id": "D",
+      "text": "Recovering the testimonies and writings that Black and white women left behind—both as targets of sexual violence and as organizers who confronted lynching in print and from the lecture platform—Feimster's Southern Horrors (2009) reframes a field that had cast women as background figures."
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B. The goal is to state Feimster's central argument, and B does so directly: that Black and white women shaped the politics of lynching from opposing positions, so recovering both perspectives is necessary to explain the violence. Choice A offers biographical background and never states the argument. Choice C describes the earlier scholarship Feimster revised rather than her own claim. Choice D accurately describes her method of recovering women's testimonies but emphasizes how she reframed the field instead of stating the central argument the goal asks for."
+}

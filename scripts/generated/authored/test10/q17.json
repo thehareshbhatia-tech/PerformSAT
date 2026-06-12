@@ -1,0 +1,31 @@
+{
+ "id": 1017,
+ "type": "multiple-choice",
+ "difficulty": "easy",
+ "band": 2,
+ "domain": "standard-english-conventions",
+ "skill": "boundaries",
+ "module": 1,
+ "passage": "Before she became known for her children's books, Beatrix Potter spent years studying fungi and produced hundreds of meticulous watercolor drawings of mushrooms and their spores. These were not casual ______ recorded microscopic details of germination that few naturalists of the 1890s had documented.",
+ "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "sketches and, they"
+  },
+  {
+   "id": "B",
+   "text": "sketches, they"
+  },
+  {
+   "id": "C",
+   "text": "sketches. They"
+  },
+  {
+   "id": "D",
+   "text": "sketches them"
+  }
+ ],
+ "correctAnswer": "C",
+ "explanation": "Choice C is correct. \"These were not casual sketches\" and \"They recorded microscopic details of germination that few naturalists of the 1890s had documented\" are each complete sentences, so they must be separated by end punctuation; a period followed by the capitalized \"They\" does this cleanly. Choice B joins two independent clauses with only a comma, producing a comma splice. Choice A places \"and\" before the comma, which is ungrammatical. Choice D fuses the two clauses with no boundary at all."
+}

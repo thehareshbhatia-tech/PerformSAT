@@ -1,0 +1,31 @@
+{
+ "id": 1036,
+ "type": "multiple-choice",
+ "difficulty": "medium",
+ "band": 3,
+ "domain": "information-and-ideas",
+ "skill": "central-ideas-and-details",
+ "module": 2,
+ "passage": "Charles Darwin is remembered for his work on evolution, but the last book he published, in 1881, was about earthworms. Over decades of patient observation in his own garden, Darwin measured how much soil worms brought to the surface as castings and calculated that, across a field, they could bury a layer of stones or ash under several inches of fresh soil within a few decades. Far from being lowly and insignificant, he argued, earthworms were among the most important agents shaping the fertile upper layer of the land, slowly turning and aerating the soil on which agriculture depends. What looked like the trivial activity of a humble animal was, in his account, a geological force operating everywhere underfoot.",
+ "question": "Which choice best states the main idea of the text?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "Darwin's 1881 book on earthworms was the last work he published before his death."
+  },
+  {
+   "id": "B",
+   "text": "Over many years, Darwin carefully measured the amount of soil that earthworms bring up to the surface as castings in the beds of his own garden."
+  },
+  {
+   "id": "C",
+   "text": "Darwin is far better known for his work on evolution than for his late study of earthworms."
+  },
+  {
+   "id": "D",
+   "text": "Darwin argued that earthworms, often dismissed as insignificant, are in fact a major force continually building and renewing the fertile upper layer of soil."
+  }
+ ],
+ "correctAnswer": "D",
+ "explanation": "Choice D is correct. The passage moves from Darwin's patient measurements toward his central claim: that earthworms, far from being trivial, are among the most important agents shaping and renewing the fertile topsoil—a geological force operating everywhere underfoot. Choice D states that argument. Choice A reports a biographical fact about the book's timing. Choice B describes the method (measuring castings) rather than the conclusion. Choice C notes his relative fame, which the passage mentions only to set up the surprise of the earthworm work."
+}

@@ -1,0 +1,31 @@
+{
+ "id": 1050,
+ "type": "multiple-choice",
+ "difficulty": "medium",
+ "band": 3,
+ "domain": "expression-of-ideas",
+ "skill": "transitions",
+ "module": 2,
+ "passage": "In the first decades of powered flight, pilots navigated largely by looking out the window and following roads, rivers, and rail lines, and there was no central system to keep aircraft safely separated from one another. A pilot who entered a cloud could quickly lose track of which way was up. ______ a dense network of radar, radio beacons, and air-traffic controllers tracks virtually every airliner from takeoff to landing, and instrument procedures let pilots fly safely through weather that would once have grounded them.",
+ "question": "Which choice completes the text with the most logical transition?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "Therefore,"
+  },
+  {
+   "id": "B",
+   "text": "Likewise,"
+  },
+  {
+   "id": "C",
+   "text": "For instance,"
+  },
+  {
+   "id": "D",
+   "text": "Today,"
+  }
+ ],
+ "correctAnswer": "D",
+ "explanation": "Choice D is correct. The passage contrasts the early decades of flight—no central system, pilots navigating by landmarks—with the present, when radar, beacons, and controllers track nearly every airliner. \"Today\" marks that move from past practice to current practice. \"Therefore\" would signal a consequence, \"Likewise\" a parallel, and \"For instance\" an example, none of which captures the then-versus-now shift the sentence makes."
+}

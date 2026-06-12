@@ -1,0 +1,31 @@
+{
+ "id": 121,
+ "type": "multiple-choice",
+ "difficulty": "medium",
+ "band": 3,
+ "domain": "standard-english-conventions",
+ "skill": "boundaries",
+ "module": 1,
+ "passage": "Bioarchaeologist Kristina Killgrove analyzes strontium isotopes in Roman skeletons to trace ancient migration. Tooth enamel forms in childhood and locks in the chemical signature of where a person grew ______ bone remodels throughout life and records the signature of where that person lived as an adult.",
+ "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "up:"
+  },
+  {
+   "id": "B",
+   "text": "up,"
+  },
+  {
+   "id": "C",
+   "text": "up;"
+  },
+  {
+   "id": "D",
+   "text": "up"
+  }
+ ],
+ "correctAnswer": "C",
+ "explanation": "The correct answer is C. The material before the blank—\"Tooth enamel forms in childhood and locks in the chemical signature of where a person grew up\"—is a complete independent clause, and so is the material after it: \"bone remodels throughout life and records the signature of where that person lived as an adult.\" A semicolon is the right mark for joining two closely related independent clauses. A comma alone (B) produces a comma splice; no punctuation at all (D) fuses the two clauses into a run-on; and a colon (A) would signal that what follows explains or itemizes the first clause, which it does not—it states a parallel fact."
+}

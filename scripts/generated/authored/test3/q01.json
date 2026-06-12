@@ -1,0 +1,34 @@
+{
+ "id": 301,
+ "module": 1,
+ "difficulty": "easy",
+ "band": 2,
+ "domain": "craft-and-structure",
+ "skill": "words-in-context",
+ "question": "Which choice completes the text with the most logical and precise word or phrase?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "approve"
+  },
+  {
+   "id": "B",
+   "text": "imitate"
+  },
+  {
+   "id": "C",
+   "text": "describe"
+  },
+  {
+   "id": "D",
+   "text": "observe"
+  }
+ ],
+ "correctAnswer": "D",
+ "explanation": "The correct answer is D, \"observe.\" The passage says that before rope-and-walkway methods existed, scientists \"had no practical way\" to study what lives high in the canopy, so the organisms there \"remained almost completely unstudied.\" The blank needs a verb for the basic act of watching and recording living things firsthand, and \"observe\" captures exactly that. \"Describe\" presupposes that the looking has already happened, which is the very step the missing access made impossible; \"approve\" carries a faintly scientific ring but has no role in a sentence about studying organisms; and \"imitate\" points the wrong way, since the problem was studying canopy life, not copying it.",
+ "_meta": {
+  "anchor": "Margaret Lowman — canopy biologist; rope-and-walkway methods for tropical forest canopy access"
+ },
+ "passage": "In her work on tropical forest canopies, biologist Margaret Lowman pioneered rope-and-walkway methods that let researchers ascend safely into the upper layers of standing trees. Before such methods existed, scientists had no practical way to ______ life in this part of the forest, and so the insects, lichens, and small vertebrates that thrive thirty meters above the ground remained almost completely unstudied.",
+ "type": "multiple-choice"
+}

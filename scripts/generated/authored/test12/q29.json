@@ -1,0 +1,31 @@
+{
+  "id": 1229,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "craft-and-structure",
+  "skill": "words-in-context",
+  "module": 2,
+  "passage": "Tracing how a family of related languages spread across a continent is rarely a matter of drawing a single migration route. Trade contacts between distant groups, the borrowing of words and grammar from neighbors, and the slow drift of regional dialects all ____ the picture, leaving linguists to weigh several overlapping explanations for why related languages turn up where they do.",
+  "question": "Which choice completes the text with the most logical and precise word or phrase?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "confirm"
+    },
+    {
+      "id": "B",
+      "text": "complicate"
+    },
+    {
+      "id": "C",
+      "text": "simplify"
+    },
+    {
+      "id": "D",
+      "text": "complete"
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B. The sentence lists several forces—borrowing, dialect drift, trade contacts—that pull in different directions and leave linguists weighing overlapping explanations, so those forces \"complicate\" the picture. \"Simplify\" points the opposite way, as if the forces made the account cleaner, when they do the reverse. \"Complete\" is tempting because \"complete the picture\" is a familiar phrase, but these forces leave the picture unresolved rather than finished. \"Confirm\" would mean the forces verify a single established picture, but the passage describes competing explanations, not one being borne out."
+}

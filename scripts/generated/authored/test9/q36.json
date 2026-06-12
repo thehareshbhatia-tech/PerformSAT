@@ -1,0 +1,34 @@
+{
+  "id": 936,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "information-and-ideas",
+  "skill": "central-ideas-and-details",
+  "module": 2,
+  "passage": "Born into slavery in Georgia around 1837, Harriet Powers made pictorial quilts that survive as some of the most celebrated examples of nineteenth-century American textile art. Two of her quilts are extant; on each, appliqued figures arranged in a grid of panels depict biblical episodes alongside recorded local events, such as a meteor shower and a dark day caused by distant forest fires. Powers narrated the meaning of each panel to the women who acquired the quilts, and those notes were written down, so the works survive with their maker's own account of what the figures represent. Scholars now read the quilts as deliberate visual storytelling that fused scripture, memory, and astronomical event into a single sewn record.",
+  "question": "Which choice best states the main idea of the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Powers, born into slavery in Georgia around 1837, learned her applique technique as a young woman and worked entirely within her region's folk-craft tradition."
+    },
+    {
+      "id": "B",
+      "text": "Powers made pictorial quilts whose appliqued panels combine biblical episodes with recorded local events and which survive with her own narrated account of their meaning."
+    },
+    {
+      "id": "C",
+      "text": "Two of Harriet Powers's pictorial quilts are still in existence in museum collections today."
+    },
+    {
+      "id": "D",
+      "text": "Powers's quilts depict a meteor shower and a dark day caused by distant forest fires."
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The passage's central point is that Powers's surviving quilts combine biblical scenes with recorded local events and come down to us with her own explanations of the panels. Choice B states that idea. Choice A adds unsupported claims about how she learned her craft, while C and D isolate single details—how many quilts survive, which events appear—without capturing the main point.",
+  "_meta": {
+    "anchor": "Harriet Powers, story quilts"
+  }
+}

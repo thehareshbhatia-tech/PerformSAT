@@ -1,0 +1,31 @@
+{
+  "id": 639,
+  "module": 2,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "information-and-ideas",
+  "skill": "command-of-evidence-textual",
+  "passage": "Coaches once assumed that the fastest sprinters owe their speed mainly to taking more steps per second than their rivals. Some researchers now argue otherwise: what sets the quickest runners apart, on this view, is less how often their feet strike the track than how much force each foot delivers to the ground in the brief instant it is down. A runner who drives harder against the track, they reason, is propelled forward more powerfully with every stride. *If this account is correct, then among elite sprinters the runner who applies the greatest force to the ground per step should tend to be the fastest, even when that runner's steps come no more frequently than a competitor's.*",
+  "question": "Which finding from a recent study of elite sprinters, if true, would most directly support the claim?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "The fastest sprinters in a timed field applied much greater force to the track with each step, though their steps came no more often than slower runners' did."
+    },
+    {
+      "id": "B",
+      "text": "Sprinters who spent a training season working specifically to raise the number of steps they took per second went on to record faster competition times than sprinters who did not train that way at all."
+    },
+    {
+      "id": "C",
+      "text": "Most coaches today still design their training programs around increasing the number of steps a sprinter takes rather than the force applied."
+    },
+    {
+      "id": "D",
+      "text": "Audiences watching elite sprint races are usually unable to tell which runner is applying more force to the track during the race."
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A. The claim is that what makes elite sprinters fast is the force each foot delivers to the track, not how frequently the feet strike it. A study finding that the fastest runners applied much greater force per step while taking no more steps per second is direct evidence for exactly that: speed tracked force, not frequency. Choice B describes frequency-focused training improving times, which would support the rival idea the claim rejects rather than the claim itself. Choice C reports how coaches train rather than what actually produces speed, and choice D concerns what spectators can perceive, which says nothing about the source of a sprinter's speed."
+}

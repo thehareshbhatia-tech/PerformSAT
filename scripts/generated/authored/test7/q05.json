@@ -1,0 +1,35 @@
+{
+  "id": 705,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "craft-and-structure",
+  "skill": "text-structure-and-purpose",
+  "module": 1,
+  "passage": "The following text is from Apsley Cherry-Garrard's 1922 memoir The Worst Journey in the World, an account of a British expedition to Antarctica.\n\nPolar exploration is at once the cleanest and most isolated way of having a bad time which has been devised. It is the only form of adventure in which you put on your clothes at Michaelmas and keep them on until Christmas, and, save for a layer of the natural grease of the body, find them as clean as though they were new. It is more lonely than London, more secluded than any monastery, and the post comes but once a year.",
+  "question": "Which choice best describes the overall structure of the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "It recounts a single harrowing episode from the author's expedition and then reflects on the practical lessons that future explorers might draw from it."
+    },
+    {
+      "id": "B",
+      "text": "It lists the supplies an expedition must carry and then ranks them from the most essential to the least."
+    },
+    {
+      "id": "C",
+      "text": "It opens with a sweeping, wry generalization about an activity and then elaborates that claim through a series of pointed comparisons."
+    },
+    {
+      "id": "D",
+      "text": "It presents two competing views of polar travel and then argues that the rewards of exploration ultimately outweigh its hardships."
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C. The text begins with a broad, dryly comic pronouncement — polar exploration is \"the cleanest and most isolated way of having a bad time which has been devised\" — and then builds out that claim with a string of comparisons: clothes worn from Michaelmas to Christmas somehow stay clean, the life is lonelier than London and more secluded than a monastery, and the post comes once a year. Choice A fails because no particular episode is narrated; Choice B fails because nothing is listed or ranked; and Choice D fails because the author never weighs rewards against hardships — the wry premise that the explorer is having \"a bad time\" is asserted from the first sentence, not argued against a rival view.",
+  "_meta": {
+    "quoteVerify": true,
+    "source": "Apsley Cherry-Garrard, The Worst Journey in the World (1922), opening of the Introduction"
+  }
+}

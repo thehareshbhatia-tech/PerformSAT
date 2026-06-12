@@ -1,0 +1,34 @@
+{
+  "type": "multiple-choice",
+  "difficulty": "easy",
+  "band": 2,
+  "domain": "craft-and-structure",
+  "skill": "words-in-context",
+  "question": "Which choice completes the text with the most logical and precise word or phrase?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "overlooked"
+    },
+    {
+      "id": "B",
+      "text": "prevented"
+    },
+    {
+      "id": "C",
+      "text": "exaggerated"
+    },
+    {
+      "id": "D",
+      "text": "anticipated"
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A, \"overlooked.\" The passage contrasts the old method, which watched only the glacier's front, with newer surveys that reveal thinning hidden below the waterline. The older approach simply failed to register those losses, and \"overlooked\" captures that failure to notice. \"Exaggerated\" and \"anticipated\" would mean the old method saw the losses too vividly or saw them coming, the reverse of missing them, and \"prevented\" describes stopping the melt rather than detecting it.",
+  "passage": "For most of the twentieth century, glaciologists judged the health of a glacier mainly by measuring how far its front advanced or retreated each year. Recent radar and satellite surveys suggest that this surface view can mislead: a glacier may hold a steady front while thinning dramatically from below, where comparatively warm ocean water melts the ice from underneath. Such hidden losses, researchers note, were almost entirely ______ by the older method of tracking front position alone.",
+  "_meta": {
+    "anchor": "glaciology: front-position monitoring vs. basal thinning from warm ocean water"
+  },
+  "id": 1102,
+  "module": 1
+}

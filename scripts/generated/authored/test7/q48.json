@@ -1,0 +1,31 @@
+{
+  "id": 748,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "standard-english-conventions",
+  "skill": "boundaries",
+  "module": 2,
+  "passage": "Some linguists hold that recursion—the embedding of phrases within phrases—is a universal feature of every human language. One language documented in the Amazon, however, appears to lack it ______ its grammar, the researchers who studied it argue, is shaped less by innate rules than by a cultural emphasis on immediate experience.",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "entirely, instead;"
+    },
+    {
+      "id": "B",
+      "text": "entirely; instead,"
+    },
+    {
+      "id": "C",
+      "text": "entirely, instead,"
+    },
+    {
+      "id": "D",
+      "text": "entirely instead,"
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B. Two independent clauses appear here, and the second opens with the conjunctive adverb \"instead,\" so a semicolon belongs before \"instead\" and a comma after it. Choice A reverses the punctuation, placing the semicolon after \"instead.\" Choice C uses commas around \"instead,\" producing a comma splice between the two independent clauses, and Choice D omits the needed break before \"instead\" altogether."
+}

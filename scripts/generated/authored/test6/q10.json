@@ -1,0 +1,31 @@
+{
+  "id": 610,
+  "module": 1,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "information-and-ideas",
+  "skill": "central-ideas-and-details",
+  "passage": "Kente cloth, woven on narrow looms by Asante and Ewe weavers in present-day Ghana, is assembled from strips a few inches wide that are sewn edge to edge into large patterned cloths. Among the Asante, the bright colors are not chosen for visual effect alone. Each established color carries a recognized meaning that a knowledgeable wearer is expected to read: gold for status and wealth, green for growth and renewal, and so on. A finished cloth can therefore work as a kind of statement, its combination of colors and patterns signaling the occasion it was made for and something of the standing of the person who wears it.",
+  "question": "According to the text, what is true of the colors used in traditional Asante kente cloth?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Each established color carries a recognized meaning that a knowledgeable viewer is expected to interpret."
+    },
+    {
+      "id": "B",
+      "text": "They are chosen mainly for the contrast they create against the narrow woven strips."
+    },
+    {
+      "id": "C",
+      "text": "They indicate which of the narrow looms a particular weaver used to make the cloth."
+    },
+    {
+      "id": "D",
+      "text": "They have lost the meanings they once carried before cloth was woven in wide formats."
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A. The passage states directly that among the Asante the colors are not chosen for visual effect alone and that each established color carries a recognized meaning a knowledgeable wearer is expected to read. Choice A restates that point. Choice B contradicts the text, which explicitly sets aside visual effect as the main reason. Choices C and D introduce ideas the passage never mentions: nothing links the colors to a particular loom, and nothing suggests the meanings have been lost."
+}

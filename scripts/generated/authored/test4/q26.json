@@ -1,0 +1,44 @@
+{
+  "id": 426,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "expression-of-ideas",
+  "skill": "rhetorical-synthesis",
+  "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Eugenie Clark founded a marine research laboratory on the Gulf coast of Florida that remains active today."
+    },
+    {
+      "id": "B",
+      "text": "Sharks, animals that much of the public once imagined as little more than mindless killers, are now known to be capable of learning a range of simple tasks."
+    },
+    {
+      "id": "C",
+      "text": "Eugenie Clark was a marine biologist who spent much of her long career studying the behavior of sharks."
+    },
+    {
+      "id": "D",
+      "text": "Eugenie Clark, a marine biologist who made hundreds of dives to observe sharks in their habitat, was among the first to show that the animals can learn simple tasks, helping overturn their image as mindless killers."
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "The correct answer is D. The goal is to introduce Clark's work to readers who do not know it, and choice D names the researcher, what she studied, how she worked, and a finding that conveys why the work mattered. Choice A gives only a single biographical fact; choice B states a conclusion about sharks without mentioning Clark at all; and choice C identifies her field but stops short of saying what she found.",
+  "studentNotes": {
+    "intro": "While researching a topic, a student has taken the following notes:",
+    "bullets": [
+      "Eugenie Clark was a marine biologist who studied the behavior of sharks.",
+      "Clark was among the first scientists to show that sharks can learn simple tasks rather than acting purely on instinct.",
+      "She made hundreds of dives, often studying sharks directly in their habitat.",
+      "Her popular writing helped change a public image of sharks as mindless killers.",
+      "Clark founded a marine laboratory in Florida that is still active today."
+    ],
+    "goal": "The student wants to introduce Clark's work to readers unfamiliar with it."
+  },
+  "_meta": {
+    "anchor": "Eugenie Clark — shark behavior"
+  },
+  "module": 1
+}

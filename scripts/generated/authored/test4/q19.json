@@ -1,0 +1,34 @@
+{
+  "id": 419,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "standard-english-conventions",
+  "skill": "boundaries",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Africa, including"
+    },
+    {
+      "id": "B",
+      "text": "Africa. Including"
+    },
+    {
+      "id": "C",
+      "text": "Africa; including"
+    },
+    {
+      "id": "D",
+      "text": "Africa: including"
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A. The list introduced by \"including\" already uses semicolons to separate its three items, each of which carries its own internal comma, so the boundary before \"including\" must be a comma, as in choice A. A period (B) leaves \"Including …\" as a fragment; a semicolon (C) collides with the semicolons inside the list; and a colon paired with \"including\" (D) is not a construction Standard English licenses.",
+  "passage": "Archaeologist Akinwumi Ogundiran has documented urbanization and craft production at sites across the Yoruba region of West ______ Ile-Ife, the political and ritual center of the medieval Yoruba states; Ijebu-Ode, an important coastal trading polity; and Old Oyo, the capital of the Oyo Empire.",
+  "_meta": {
+    "anchor": "Akinwumi Ogundiran — medieval West African urbanism (entity_keep); comma before an including-phrase"
+  },
+  "module": 1
+}

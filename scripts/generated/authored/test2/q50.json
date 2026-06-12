@@ -1,0 +1,31 @@
+{
+  "id": 250,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "expression-of-ideas",
+  "skill": "transitions",
+  "module": 2,
+  "passage": "When a bridge is built, engineers cannot test the finished structure under every load it may eventually bear, so they rely on scale models and computer simulations to predict how it will behave. These methods are powerful, but they reproduce only the conditions the engineers have thought to include. ______ many major bridges are now fitted with networks of sensors after they open, so that the structure's real response to traffic, wind, and temperature can be monitored directly throughout its working life.",
+  "question": "Which choice completes the text with the most logical transition?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "For example,"
+    },
+    {
+      "id": "B",
+      "text": "Nevertheless,"
+    },
+    {
+      "id": "C",
+      "text": "Meanwhile,"
+    },
+    {
+      "id": "D",
+      "text": "Therefore,"
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "The correct answer is D. The passage says simulations capture only the conditions engineers anticipate; the response to that limitation is to add sensors that monitor a real bridge directly. Because installing sensors follows as a consequence of the limitation, the causal connector \"Therefore,\" fits. \"For example,\" is wrong because the sensors are not an instance of the simulations' limits. \"Nevertheless,\" signals a contrast, but the sensor networks address the limitation rather than working against it. \"Meanwhile,\" merely marks simultaneous events and misses the cause-and-effect link the passage draws."
+}

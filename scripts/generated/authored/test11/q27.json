@@ -1,0 +1,44 @@
+{
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "expression-of-ideas",
+  "skill": "rhetorical-synthesis",
+  "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Atmospheric rivers are long, narrow corridors of water vapor that flow from the tropics toward the U.S. West Coast, where F. Martin Ralph and his colleagues at Scripps study them closely."
+    },
+    {
+      "id": "B",
+      "text": "Ralph's group has found that the same few strong atmospheric rivers that supply much of California's precipitation each winter also cause most of its major floods, making one class of storm both the state's main water source and its main flood risk."
+    },
+    {
+      "id": "C",
+      "text": "A few strong atmospheric rivers each winter deliver between 30 and 50 percent of California's annual precipitation, according to F. Martin Ralph and his colleagues at Scripps."
+    },
+    {
+      "id": "D",
+      "text": "The strong atmospheric rivers that reach California each winter are responsible for most of the state's major floods and for ending most of the multi-year droughts that the state's winter rains break, according to research by Ralph's group at the Scripps Institution of Oceanography."
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B. The goal is to make a generalization about what Ralph's group's research shows, and Choice B states the higher-order point the notes build toward: the same handful of storms both supply much of California's water and cause most of its flooding, so one class of storm is at once the state's main water source and its main flood risk. Choice A only defines atmospheric rivers and identifies who studies them; Choice C gives the water-supply finding alone; and Choice D reports the flood and drought findings without connecting them to the storms' role as a water source. Only B joins the findings into a single generalization.",
+  "studentNotes": {
+    "intro": "While researching a topic, a student has taken the following notes:",
+    "bullets": [
+      "Atmospheric rivers are long, narrow corridors of concentrated water vapor that flow from the tropics toward the U.S. West Coast.",
+      "F. Martin Ralph directs a research center at the Scripps Institution of Oceanography that studies atmospheric rivers.",
+      "Ralph and colleagues have found that a few strong atmospheric rivers each winter deliver 30 to 50 percent of California's annual precipitation.",
+      "The same storms cause most of California's major floods.",
+      "They also end most of the multi-year droughts that the state's winter rains break."
+    ],
+    "goal": "The student wants to make a generalization about what Ralph's group's research shows about atmospheric rivers."
+  },
+  "_meta": {
+    "anchor": "F. Martin Ralph (Scripps CW3E): atmospheric rivers as California water supply and flood risk"
+  },
+  "id": 1127,
+  "module": 1
+}

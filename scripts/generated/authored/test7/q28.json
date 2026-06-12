@@ -1,0 +1,31 @@
+{
+  "id": 728,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "craft-and-structure",
+  "skill": "words-in-context",
+  "module": 2,
+  "passage": "In a forest, the fine threads of mycorrhizal fungi link the roots of many trees into a shared underground web. Experiments using labeled carbon have shown that sugars made by one tree can turn up in the roots of a neighbor, evidence that the fungal network does not simply store nutrients in one place but actively ______ them among the trees it connects, at times moving resources toward seedlings shaded on the forest floor.",
+  "question": "Which choice completes the text with the most logical and precise word or phrase?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "withholds"
+    },
+    {
+      "id": "B",
+      "text": "redistributes"
+    },
+    {
+      "id": "C",
+      "text": "produces"
+    },
+    {
+      "id": "D",
+      "text": "catalogs"
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B. The passage stresses that the network does not merely store nutrients but moves them \"among\" many trees and \"toward\" shaded seedlings, so \"redistributes\" — spreading resources from place to place — is precise. \"Withholds\" is the opposite of moving resources, \"produces\" wrongly makes the fungi the source of the carbon when the trees make it, and \"catalogs\" suggests recording rather than transferring."
+}

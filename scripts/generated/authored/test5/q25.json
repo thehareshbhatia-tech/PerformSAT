@@ -1,0 +1,34 @@
+{
+  "id": 525,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "expression-of-ideas",
+  "skill": "transitions",
+  "module": 1,
+  "passage": "Early studies of human memory, following Hermann Ebbinghaus, measured how quickly lists of nonsense syllables were forgotten and produced the famous forgetting curve. ______ later researchers found that meaningful material—a story, a route through a familiar city—is retained far better than nonsense syllables, and that how well something is remembered depends heavily on how it was learned in the first place.",
+  "question": "Which choice completes the text with the most logical transition?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "For example,"
+    },
+    {
+      "id": "B",
+      "text": "Therefore,"
+    },
+    {
+      "id": "C",
+      "text": "Likewise,"
+    },
+    {
+      "id": "D",
+      "text": "However,"
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "The correct answer is D, \"However,\". The first sentence reports the early finding that nonsense syllables are forgotten quickly; the second reports a later, qualifying finding that meaningful material is retained much better. The second sentence sets a limit against the first, so a contrast connector is needed, and \"However,\" supplies it. \"For example,\" would make the second sentence an instance of the first, which it is not. \"Therefore,\" would make it a consequence, and \"Likewise,\" would make it a parallel point—neither of which matches the qualifying relation.",
+  "_meta": {
+    "anchor": "Ebbinghaus forgetting curve vs. later findings on meaningful material"
+  }
+}

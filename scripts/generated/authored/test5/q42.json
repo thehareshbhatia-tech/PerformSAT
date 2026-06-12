@@ -1,0 +1,34 @@
+{
+  "id": 542,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "information-and-ideas",
+  "skill": "inferences",
+  "module": 2,
+  "passage": "A glacier gains mass each year from snowfall in its upper reaches and loses mass through melting and calving at its lower end. Glaciologists summarize a glacier's health with its annual mass balance—the net difference between what it gains and what it loses over a year. When the multiyear average of this balance is negative, the glacier is losing more than it gains and must, over time, retreat. A researcher notes that one studied glacier has shown a small but consistently negative average mass balance for several decades, even though its lower end has so far held roughly the same position. From this it follows that the glacier's apparent stability ______",
+  "question": "Which choice most logically completes the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "is unlikely to last, since a persistently negative mass balance implies continued net loss that the position of its lower end must eventually reflect."
+    },
+    {
+      "id": "B",
+      "text": "shows that the glacier's annual mass balance has in fact been positive over the period the researcher studied."
+    },
+    {
+      "id": "C",
+      "text": "proves that mass balance is, in general, a poor indicator of whether a glacier is gaining or losing ice."
+    },
+    {
+      "id": "D",
+      "text": "must mean that the glacier has somehow been gaining mass in its upper reaches faster than it loses mass through melting and calving at its lower end."
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A. The premises are that a sustained negative mass balance means continued net loss and eventual retreat, and that this glacier has had a negative average balance for decades despite a stationary terminus. The licensed conclusion is that the stability cannot last: continued loss must eventually show up in the terminus position. Choice B contradicts the stated negative balance. Choice C overgeneralizes into a claim that mass balance is a poor indicator, which the passage does not support. Choice D describes a positive balance, again contradicting the premise.",
+  "_meta": {
+    "anchor": "Glacier mass balance; sustained negative balance implies eventual retreat"
+  }
+}

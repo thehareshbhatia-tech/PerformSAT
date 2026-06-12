@@ -1,0 +1,31 @@
+{
+  "id": 849,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "standard-english-conventions",
+  "skill": "form-structure-and-sense",
+  "module": 2,
+  "passage": "In 1833, after years of campaigning by abolitionists, the British Parliament passed the Slavery Abolition Act. Over the following year, the law ______ slavery across most of the British Empire, though it phased in the change through a transitional system that drew sharp criticism.",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "abolishes"
+    },
+    {
+      "id": "B",
+      "text": "has abolished"
+    },
+    {
+      "id": "C",
+      "text": "abolished"
+    },
+    {
+      "id": "D",
+      "text": "will abolish"
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C. The sentence is set firmly in the past—\"In 1833\" and \"over the following year\"—and describes a completed historical action, so the simple past \"abolished\" is correct. The present \"abolishes\" in A and the future \"will abolish\" in D both clash with the past time frame, and the present perfect \"has abolished\" in B wrongly frames a clearly finished nineteenth-century event as continuing to bear on the present."
+}

@@ -1,0 +1,34 @@
+{
+  "id": 530,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "craft-and-structure",
+  "skill": "words-in-context",
+  "module": 2,
+  "passage": "In a tone language such as Cantonese, the pitch on which a syllable is spoken can change its meaning entirely, so that the same string of consonants and vowels may name several unrelated things depending on whether the pitch rises, falls, or stays level. For learners whose first language uses pitch only for emphasis or emotion, this feature is easy to ______: they hear the pitch differences but treat them as expressive coloring rather than as part of the word itself.",
+  "question": "Which choice completes the text with the most logical and precise word or phrase?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "exaggerate"
+    },
+    {
+      "id": "B",
+      "text": "appreciate"
+    },
+    {
+      "id": "C",
+      "text": "overlook"
+    },
+    {
+      "id": "D",
+      "text": "imitate"
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C, \"overlook.\" The colon spells out the learners' mistake: they hear the pitch differences but treat them as expressive coloring rather than as meaningful parts of the word, which is precisely what it means to overlook the tonal function. \"Exaggerate\" and \"appreciate\" both imply the learners give the pitch more weight, not less, which contradicts the explanation. \"Imitate\" concerns copying the sounds, not failing to register their grammatical role.",
+  "_meta": {
+    "anchor": "Tone languages; learners overlook pitch as meaning-bearing"
+  }
+}

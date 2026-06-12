@@ -1,0 +1,35 @@
+{
+  "id": 1212,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "information-and-ideas",
+  "skill": "command-of-evidence-textual",
+  "module": 1,
+  "passage": "Percy Bysshe Shelley's sonnet \"Ozymandias\" (1818) describes a traveler's account of the ruins of a once-mighty king's monument, now broken and half-buried in the desert. A reader might argue that the poem makes a pointed claim about the impermanence of political power: the ruler's own boastful words, meant to overawe future ages, are made to sound hollow by the emptiness that now surrounds the wreck.",
+  "question": "Which quotation from \"Ozymandias\" most effectively illustrates the claim?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "\"Two vast and trunkless legs of stone / Stand in the desert.\""
+    },
+    {
+      "id": "B",
+      "text": "\"My name is Ozymandias, King of Kings; / Look on my Works, ye Mighty, and despair! / Nothing beside remains.\""
+    },
+    {
+      "id": "C",
+      "text": "\"And wrinkled lip, and sneer of cold command, / Tell that its sculptor well those passions read.\""
+    },
+    {
+      "id": "D",
+      "text": "\"Round the decay / Of that colossal Wreck, boundless and bare / The lone and level sands stretch far away.\""
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B. The claim is that the king's boast is hollowed out by the surrounding emptiness, and these lines do exactly that: the proud inscription—\"My name is Ozymandias, King of Kings; / Look on my Works, ye Mighty, and despair!\"—is immediately answered by \"Nothing beside remains,\" so the boast collapses against the void. A simply sets the scene of the broken statue. C praises the sculptor's skill at capturing the king's expression, a different idea. D describes the bare desert around the ruin and conveys emptiness, but without the boastful inscription it does not show the contrast the claim depends on.",
+  "_meta": {
+    "quoteVerify": true,
+    "source": "Percy Bysshe Shelley, \"Ozymandias\" (1818)"
+  }
+}

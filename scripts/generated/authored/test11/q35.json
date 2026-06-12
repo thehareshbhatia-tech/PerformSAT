@@ -1,0 +1,43 @@
+{
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "craft-and-structure",
+  "skill": "cross-text-connections",
+  "question": "Based on the texts, how would Kao and Hockham (Text 2) most likely respond to the projection presented in Text 1?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "They would accept that the measured loss is an inherent property of glass and argue that fibers are even less promising than Text 1 suggests, since the loss makes them unusable over even the short distances Text 1 allows."
+    },
+    {
+      "id": "B",
+      "text": "They would point out that the losses Text 1 relies on can be explained by removable impurities rather than by glass itself, so its projection rests on an assumption the evidence does not compel."
+    },
+    {
+      "id": "C",
+      "text": "They would agree that fibers cannot carry signals far enough to be useful but attribute the failure to light leaking out at bends in the fiber rather than to absorption within the glass."
+    },
+    {
+      "id": "D",
+      "text": "They would conclude that, because the loss of glass can never be measured with certainty, every projection about the future of optical fibers should be set aside as guesswork."
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B. Text 2 reports that Kao and Hockham traced the high losses in glass fibers to removable impurities, chiefly iron, rather than to the glass itself, and concluded that the claim that fibers were fundamentally unsuitable rested on an assumption the evidence did not require. They would therefore say that Text 1's pessimistic projection depends on treating the measured loss as a fixed property of glass when it need not be. Choice A has them embracing that very assumption and judging fibers even more hopeless, the reverse of their position; Choice C has them accepting the projection they actually reject; and Choice D inflates their measured point into a refusal to make any projection at all, which they never propose.",
+  "passages": [
+    {
+      "label": "Text 1",
+      "text": "Could a thin thread of glass carry a telephone call across a city? Through the early 1960s many engineers doubted it. When light was sent into the best optical glass then available, most of it was absorbed within a few meters; measurements put the loss at roughly a thousand decibels per kilometer. Treating that loss as a fixed property of glass, these engineers projected that optical fibers could never rival copper wires for carrying signals across the distances a telephone network spans."
+    },
+    {
+      "label": "Text 2",
+      "text": "In 1966 Charles Kao and George Hockham reexamined those measurements. The high losses, they argued, did not come from glass itself but from tiny traces of impurities — chiefly iron — dissolved in it. Light sent through a sample purified of such contaminants, they calculated, would travel far enough to carry signals over useful distances. If the observed losses could be explained by impurities that manufacturers could in principle remove, then the claim that fibers were fundamentally unsuitable rested on an assumption the evidence did not require."
+    }
+  ],
+  "_meta": {
+    "anchor": "fiber-optic communication: the 1960s assumption that glass loss is intrinsic vs. Kao & Hockham (1966) impurity explanation"
+  },
+  "id": 1135,
+  "module": 2
+}

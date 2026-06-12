@@ -1,0 +1,31 @@
+{
+  "id": 810,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "information-and-ideas",
+  "skill": "central-ideas-and-details",
+  "module": 1,
+  "passage": "From 1936 to 1966, the postal worker Victor Hugo Green published an annual guide, widely known as the Green Book, that listed hotels, restaurants, service stations, and private homes where Black motorists could expect to be served safely. Travel by car promised freedom from the segregated railway car, but a driver who did not know which towns to avoid could be turned away or worse. Green compiled the listings from readers' letters and his own network, updating them yearly. The guide, his introductions made clear, was a practical response to a hazard its users already understood, not a description of the country as he wished it to be.",
+  "question": "Which choice best states the main idea of the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Green gathered most of the guide’s listings from letters that readers across the country mailed to him each year."
+    },
+    {
+      "id": "B",
+      "text": "Green’s guide gave Black motorists practical information about where they could travel and be served safely during the era of segregation."
+    },
+    {
+      "id": "C",
+      "text": "Travel by automobile freed Black travelers from the discrimination they had faced in segregated railway cars."
+    },
+    {
+      "id": "D",
+      "text": "Green hoped that publishing the guide annually would eventually persuade businesses to end their discriminatory practices."
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B. The passage's central point is that the guide served a practical purpose: telling Black drivers where they could travel and be served safely under segregation. A and C name true details—the reader letters, the comparison with rail travel—but each is a supporting point rather than the main idea. D attributes a reformist aim to Green that the passage explicitly sets aside when it calls the guide a practical response rather than a vision of the country as he wished it to be."
+}

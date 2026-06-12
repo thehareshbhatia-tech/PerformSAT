@@ -1,0 +1,31 @@
+{
+  "id": 1202,
+  "type": "multiple-choice",
+  "difficulty": "easy",
+  "band": 2,
+  "domain": "craft-and-structure",
+  "skill": "words-in-context",
+  "module": 1,
+  "passage": "Among the Asante of present-day Ghana, master weavers produce kente by joining many narrow strips of patterned cloth into a single large textile. Historians of West African dress emphasize that the choice of colors and motifs is not merely decorative: particular patterns ____ specific proverbs, clan affiliations, and historical events, so that a finished cloth can be read by those who know the visual vocabulary much as a written document can be read.",
+  "question": "Which choice completes the text with the most logical and precise word or phrase?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "display"
+    },
+    {
+      "id": "B",
+      "text": "mimic"
+    },
+    {
+      "id": "C",
+      "text": "encode"
+    },
+    {
+      "id": "D",
+      "text": "conceal"
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C. The passage says the cloth \"can be read by those who know the visual vocabulary,\" so the patterns must store meaning that a knowing viewer can decode; \"encode\" names precisely that storing of information in a form to be read out later. \"Display\" is tempting because cloth does show its patterns openly, but one displays a pattern, not a proverb, and the point is that the meanings are carried in a code rather than shown plainly. \"Conceal\" runs the wrong way, since the text stresses that the meanings can be read, not hidden. \"Mimic\" would mean the patterns imitate proverbs, which makes little sense."
+}

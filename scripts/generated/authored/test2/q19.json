@@ -1,0 +1,31 @@
+{
+  "id": 219,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "standard-english-conventions",
+  "skill": "boundaries",
+  "module": 1,
+  "passage": "Art historian Maura Reilly, an independent curator known for her feminist exhibition practice, argues in her 2018 book Curatorial Activism: Towards an Ethics of Curating that the holdings of major museum collections and the rosters of international ______ which feminist critics first scrutinized in the 1970s, remain demographically lopsided decades later.",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "biennials,"
+    },
+    {
+      "id": "B",
+      "text": "biennials;"
+    },
+    {
+      "id": "C",
+      "text": "biennials"
+    },
+    {
+      "id": "D",
+      "text": "biennials:"
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A, \"biennials,\". The blank sits at the front edge of a nonrestrictive relative clause — \"which feminist critics first scrutinized in the 1970s\" — that adds information about \"the holdings of major museum collections and the rosters of international biennials\" without restricting which biennials are meant. Standard English sets a nonrestrictive clause off from the noun it modifies with paired commas: one before the relative pronoun \"which\" and one after the clause closes. The closing comma is already in place after \"1970s,\" so the slot before \"which\" must hold the matching opening comma. Choice A supplies that comma, completing the paired-comma offset and letting the main clause resume cleanly with \"remain demographically lopsided decades later.\"\n\nChoice B is incorrect. (\"biennials;\"): — a semicolon is the conventional boundary mark between two independent clauses, and the underlined slot superficially looks like a clause boundary because a long modifying phrase follows. But a semicolon legally requires a complete independent clause on each side; \"which feminist critics first scrutinized in the 1970s, remain demographically lopsided decades later\" is not an independent clause — it begins with the relative pronoun \"which\" and contains no independent subject of its own — so a semicolon cannot stand here. Choice D is incorrect. (\"biennials:\"): — a different SEC error. A colon introduces an elaboration, list, or definition that follows a complete grammatical thought; it is not the mark used to set off a nonrestrictive relative clause. Like the semicolon, a colon also requires the material that precedes it to be an independent clause, and the relative \"which …\" that follows is a modifier of \"biennials,\" not an amplification of a complete idea. Choice C is incorrect. (\"biennials\"): inverse — the opposite of the correct treatment. Supplying no punctuation at all collapses the nonrestrictive clause into a restrictive one, so the sentence reads as if only those biennials \"which feminist critics first scrutinized in the 1970s\" remain lopsided — implying, falsely, that other biennials do not. Because the clause is meant to add background information rather than narrow the noun, Standard English requires the opening comma that choice A provides."
+}

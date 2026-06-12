@@ -1,0 +1,41 @@
+{
+  "id": 726,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "expression-of-ideas",
+  "skill": "rhetorical-synthesis",
+  "module": 1,
+  "studentNotes": {
+    "intro": "While researching a topic, a student has taken the following notes:",
+    "bullets": [
+      "Eunice Newton Foote (1819–1888) was an American scientist and an advocate for women’s rights.",
+      "In an 1856 experiment, she filled glass cylinders with different gases and placed them in sunlight.",
+      "She found that a cylinder of carbon dioxide warmed more and stayed warm longer than one of ordinary air.",
+      "From this result, she suggested that an atmosphere with more carbon dioxide would give the Earth a higher temperature.",
+      "Her paper was presented at a scientific meeting in 1856 but attracted little attention for more than a century."
+    ],
+    "goal": "The student wants to explain the significance of Foote’s 1856 finding."
+  },
+  "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Eunice Newton Foote, an American scientist and advocate for women’s rights, carried out an experiment using glass cylinders filled with different gases in 1856."
+    },
+    {
+      "id": "B",
+      "text": "Foote’s 1856 experiment showed that carbon dioxide traps heat from sunlight, leading her to propose that more of the gas would raise the Earth’s temperature."
+    },
+    {
+      "id": "C",
+      "text": "Foote filled several glass cylinders with different gases and set them out in direct sunlight to compare how much each of them warmed."
+    },
+    {
+      "id": "D",
+      "text": "Foote’s 1856 paper was presented at a scientific meeting that summer but then attracted remarkably little attention for well over a hundred years afterward."
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B. The goal is to explain why Foote's finding mattered, and B states both what she discovered (carbon dioxide traps heat) and the conclusion she drew (more of the gas would warm the Earth), which is the significance of the work. Choice A gives only biographical and procedural detail, Choice C describes the method without its result, and Choice D reports the paper's later neglect rather than the importance of the finding itself."
+}

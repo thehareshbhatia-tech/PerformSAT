@@ -1,0 +1,67 @@
+{
+ "id": 114,
+ "type": "multiple-choice",
+ "difficulty": "hard",
+ "band": 4,
+ "domain": "information-and-ideas",
+ "skill": "command-of-evidence-quantitative",
+ "module": 1,
+ "passage": "The reorganization of the U.S. labor force during the twentieth century is often summarized in textbooks as a steady migration out of farming and factories and into office and service work. Drawing on Census Bureau Historical Statistics, however, researchers have argued that this tidy narrative obscures the actual path traced by manufacturing employment, which did not decline uniformly across the century but instead rose between 1900 and 1950 before falling sharply by 2000 because _______",
+ "questionTable": {
+  "type": "table",
+  "caption": "Share of U.S. employment by sector, selected years (Census Bureau, Historical Statistics of the United States)",
+  "headers": [
+   "Sector",
+   "1900",
+   "1950",
+   "2000"
+  ],
+  "rows": [
+   [
+    "Agriculture",
+    "38%",
+    "12%",
+    "2%"
+   ],
+   [
+    "Manufacturing",
+    "22%",
+    "26%",
+    "13%"
+   ],
+   [
+    "Services",
+    "31%",
+    "48%",
+    "75%"
+   ],
+   [
+    "Other",
+    "9%",
+    "14%",
+    "10%"
+   ]
+  ]
+ },
+ "question": "Which choice most effectively uses data from the table to complete the statement?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "manufacturing's share grew from 22 percent in 1900 to 26 percent in 1950 and then dropped to 13 percent by 2000, a midcentury rise followed by a steep late-century decline."
+  },
+  {
+   "id": "B",
+   "text": "manufacturing's share dropped between 1900 and 1950 and again between 1950 and 2000, declining in every interval the table records."
+  },
+  {
+   "id": "C",
+   "text": "agriculture's share moved from 38 percent in 1900 to 12 percent in 1950 to 2 percent in 2000, illustrating the reshaping of work across the century."
+  },
+  {
+   "id": "D",
+   "text": "manufacturing's share fell from 22 percent in 1900 to 13 percent in 2000, confirming a continuous contraction of factory employment over the century."
+  }
+ ],
+ "correctAnswer": "A",
+ "explanation": "The claim is precise: manufacturing did not decline uniformly across the twentieth century — it rose between 1900 and 1950, then fell sharply by 2000. Supporting evidence must therefore (i) be about the manufacturing row, and (ii) capture both halves of that non-monotone trajectory: the early-to-mid-century rise AND the late-century fall. Choice A does exactly this: 22 percent (1900) to 26 percent (1950) is the rise, and 26 percent (1950) to 13 percent (2000) is the steep decline. The two figures together are the only way the table's data can vindicate the rise-then-fall claim."
+}

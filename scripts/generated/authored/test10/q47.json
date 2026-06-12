@@ -1,0 +1,31 @@
+{
+ "id": 1047,
+ "type": "multiple-choice",
+ "difficulty": "medium",
+ "band": 3,
+ "domain": "standard-english-conventions",
+ "skill": "form-structure-and-sense",
+ "module": 2,
+ "passage": "Before any object is lifted from a sunken wreck, the survey team documents the site as it lies on the seabed. Divers record the wreck by sketching the position of every timber and fitting on a measured grid, by photographing each section under floodlights, and by ______ the surrounding sediment for small artifacts that might otherwise be lost.",
+ "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "to sieve"
+  },
+  {
+   "id": "B",
+   "text": "had sieved"
+  },
+  {
+   "id": "C",
+   "text": "sieving"
+  },
+  {
+   "id": "D",
+   "text": "sieved"
+  }
+ ],
+ "correctAnswer": "C",
+ "explanation": "Choice C is correct. The sentence lists three ways the team documents the site, and the first two are expressed as gerunds (\"by sketching ...,\" \"by photographing ...\"). Parallel structure requires the third item to take the same form, so \"by sieving\" is correct. Choice A switches to an infinitive, Choice B to the past perfect, and Choice D to a simple past form, each breaking the by-plus-gerund pattern the series has established."
+}

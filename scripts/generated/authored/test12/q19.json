@@ -1,0 +1,31 @@
+{
+  "id": 1219,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "standard-english-conventions",
+  "skill": "boundaries",
+  "module": 1,
+  "passage": "For decades the street photographs of Vivian Maier existed only as undeveloped negatives stored in boxes, unknown to the public. The collection was at first valued mainly for what it documented about mid-century city ____ later critics came to study Maier's compositions in their own right, treating her framing and timing as the work of a deliberate artist rather than as an incidental record.",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "streets"
+    },
+    {
+      "id": "B",
+      "text": "streets,"
+    },
+    {
+      "id": "C",
+      "text": "streets;"
+    },
+    {
+      "id": "D",
+      "text": "streets, but"
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C. Two independent clauses meet at the blank—\"The collection was ... valued ...\" and \"later critics came to study ...\"—and a semicolon correctly joins them without a conjunction. With no punctuation the clauses run together, and a comma alone creates a comma splice. Adding \"but\" after a comma would be acceptable grammar, but the relationship here is one of sequence and development, not contrast, so the plain semicolon is the precise choice."
+}

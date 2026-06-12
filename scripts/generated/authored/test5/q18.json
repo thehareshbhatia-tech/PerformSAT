@@ -1,0 +1,34 @@
+{
+  "id": 518,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "standard-english-conventions",
+  "skill": "form-structure-and-sense",
+  "module": 1,
+  "passage": "Working in Edo-period print workshops, the carvers who prepared the blocks for a woodblock print ______ every line of the artist's drawing by hand, cutting away the surrounding wood so that only the inked lines would print onto the paper.",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "carve"
+    },
+    {
+      "id": "B",
+      "text": "carves"
+    },
+    {
+      "id": "C",
+      "text": "carved"
+    },
+    {
+      "id": "D",
+      "text": "have carved"
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C, \"carved.\" The sentence is set in the Edo period and describes a completed historical practice, signaled by the past-tense framing and the past modal \"would print,\" so the simple past \"carved\" is required. \"Carve\" and \"carves\" are present-tense forms that clash with the historical time frame, and \"carves\" is also singular while the subject \"the carvers\" is plural. \"Have carved\" is present perfect, which would extend the action toward the present rather than placing it firmly in the past the sentence describes.",
+  "_meta": {
+    "anchor": "Edo-period woodblock carvers; simple-past historical narration"
+  }
+}

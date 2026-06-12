@@ -1,0 +1,31 @@
+{
+ "id": 122,
+ "type": "multiple-choice",
+ "difficulty": "medium",
+ "band": 3,
+ "domain": "standard-english-conventions",
+ "skill": "form-structure-and-sense",
+ "module": 1,
+ "passage": "Deep-sea ecologist Lisa Levin, of Scripps Institution of Oceanography, has spent decades documenting how seafloor animals tolerate the naturally low-oxygen waters known as oxygen minimum zones. Studying these hypoxic habitats along the Pacific margin for more than three decades, ______ that they preview how deep-sea communities may respond to climate change-driven deoxygenation in coming decades.",
+ "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "the species compositions of these zones suggest"
+  },
+  {
+   "id": "B",
+   "text": "Levin has argued"
+  },
+  {
+   "id": "C",
+   "text": "her published research has argued"
+  },
+  {
+   "id": "D",
+   "text": "it has been argued by Levin"
+  }
+ ],
+ "correctAnswer": "B",
+ "explanation": "The opener 'Studying these hypoxic habitats along the Pacific margin for more than three decades' is a participial phrase, and Standard English requires it to modify the subject of the main clause that follows. Only a person can do the studying, so the subject of the main clause must name a person. (B) 'Levin has argued' supplies that subject and produces a grammatically correct sentence: Levin is the one who has been studying the habitats, and Levin is the one who argues. The other three choices all create dangling-modifier errors because their subjects cannot logically perform the action 'studying.'"
+}

@@ -1,0 +1,34 @@
+{
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "craft-and-structure",
+  "skill": "text-structure-and-purpose",
+  "question": "Which choice best states the main purpose of the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "To argue that handwritten manuscript books were on the whole considerably more accurate than the earliest printed books, because individual scribes routinely corrected the texts that they copied."
+    },
+    {
+      "id": "B",
+      "text": "To describe the specific mechanical steps by which metal type was cast and then assembled into a printed page in the fifteenth century."
+    },
+    {
+      "id": "C",
+      "text": "To trace the spread of the printing press from its place of invention to the other major cities of fifteenth-century Europe."
+    },
+    {
+      "id": "D",
+      "text": "To explain how the identical copies produced by printing, not merely its speed, changed the way written knowledge could be shared and referred to."
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "The correct answer is D. The passage contrasts hand-copied books, where no two copies matched, with printed editions, where every sheet is identical, and argues that this fixity—not just printing's speed—changed how knowledge could be shared and cited. Choice D states that purpose. Choice A pulls out a side detail (scribes' corrections) and inflates it into a claim about accuracy the passage does not defend; Choice B focuses on how type was cast, which the passage does not cover; and Choice C concerns the press's geographic spread, another topic the passage never takes up.",
+  "passage": "Before the mid-fifteenth century, every copy of a book in Europe was written out by hand, and no two copies were exactly alike: scribes abbreviated differently, made errors, and silently corrected the texts they copied. The printing press changed the nature of a \"copy.\" Once a page had been set in metal type, every sheet pulled from it was identical, and a mistake, once set, was reproduced in every copy of the edition. Scholars have argued that this new fixity, as much as the speed of printing, transformed European intellectual life: for the first time a writer in one city could refer a reader in another to a specific page and be confident they were looking at exactly the same words.",
+  "_meta": {
+    "anchor": "typography/print history: the 'fixity' of identical printed copies (generic)"
+  },
+  "id": 1134,
+  "module": 2
+}

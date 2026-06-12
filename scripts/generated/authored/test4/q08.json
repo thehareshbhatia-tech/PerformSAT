@@ -1,0 +1,43 @@
+{
+  "id": 408,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "craft-and-structure",
+  "skill": "cross-text-connections",
+  "question": "Based on the texts, how would the author of Text 2 most likely respond to the argument presented in Text 1?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "He would grant that the Mercator projection exaggerates area more severely than most maps, adding only that a few regions near the equator happen to escape its worst distortions."
+    },
+    {
+      "id": "B",
+      "text": "Peters's projection, he would respond, at last removes the distortions of earlier maps, showing every continent at its true size and its true shape without the compromises other projections demand."
+    },
+    {
+      "id": "C",
+      "text": "The distortion Peters condemns in the Mercator map, Robinson would argue, is the unavoidable price any flat map pays for flattening a sphere, and Peters's own map merely shifts it onto the continents' shapes."
+    },
+    {
+      "id": "D",
+      "text": "He would accept Peters's premise that a world map must above all preserve the true relative areas of regions, and conclude that the familiar shapes of the continents should therefore be discarded as hopelessly misleading."
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C. Both writers agree that any map of the round Earth involves a trade-off, but they draw opposite lessons from it. Peters (Text 1) treats the Mercator map's exaggeration of area as a correctable bias and offers his equal-area map as the honest alternative. Robinson (Text 2) replies that distortion is unavoidable on every flat map: Peters's projection buys true areas only by badly distorting the shapes of the continents, so it trades one error for another rather than eliminating distortion. Choice A concedes Peters's premise that Mercator alone distorts area; choice B states the very claim Robinson rejects, that Peters's map removes distortion; and choice D accepts Peters's priority of area above all and runs it to a conclusion Robinson would not draw.",
+  "passages": [
+    {
+      "label": "Text 1",
+      "text": "In the 1970s the historian Arno Peters attacked the familiar world map based on Gerardus Mercator's sixteenth-century projection. Because Mercator's map preserves compass bearings, it stretches regions near the poles: Greenland looms as large as Africa, though Africa is in truth some fourteen times larger. This systematic enlargement of the temperate north, Peters charged, flatters wealthy nations and shrinks the tropical countries near the equator. He offered instead an equal-area projection, on which each country covers space in true proportion to its size, and urged schools and agencies to adopt it as the only honest map of the world."
+    },
+    {
+      "label": "Text 2",
+      "text": "The cartographer Arthur Robinson accepted that Mercator's map distorts area badly and that it had been overused in classrooms. But he rejected Peters's claim to have produced an honest map. Every attempt to lay the curved surface of the globe flat, Robinson pointed out, must distort something — area, shape, distance, or direction — and no projection can preserve them all at once. Peters's map keeps areas true only by squeezing the continents into long, narrow forms that misrepresent their shapes, so that Africa and South America sag downward like wet laundry. Trading one distortion for another, Robinson argued, is not the same as removing distortion."
+    }
+  ],
+  "_meta": {
+    "anchor": "cross-text — Arno Peters (equal-area projection) vs. Arthur Robinson (all flat maps distort); history of cartography"
+  },
+  "module": 1
+}

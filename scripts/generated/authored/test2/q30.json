@@ -1,0 +1,31 @@
+{
+  "id": 230,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "craft-and-structure",
+  "skill": "words-in-context",
+  "module": 2,
+  "passage": "Typographers distinguish legibility, the ease with which individual letters can be told apart, from readability, the ease with which a block of text can be read at length. The two often pull in different directions: a typeface whose letters are maximally distinct in isolation can prove tiring across a full page, because comfortable reading turns out to be ______ rhythms of spacing and repetition that operate well above the level of the single character.",
+  "question": "Which choice completes the text with the most logical and precise word or phrase?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "indifferent to"
+    },
+    {
+      "id": "B",
+      "text": "predicated on"
+    },
+    {
+      "id": "C",
+      "text": "interrupted by"
+    },
+    {
+      "id": "D",
+      "text": "familiar to"
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B, \"predicated on.\" The sentence argues that comfortable reading depends on large-scale rhythms of spacing and repetition rather than on the distinctness of single letters; \"predicated on\" means founded or dependent on, which captures that relationship exactly. Choice A, \"indifferent to,\" reverses the point: the passage says those rhythms are what make reading comfortable, not something reading ignores. Choice C, \"interrupted by,\" wrongly casts the rhythms as a disruption, when the passage treats them as the basis of readability. Choice D, \"familiar to,\" does not fit grammatically or logically—reading is not \"familiar to\" rhythms—and misses the relationship of dependence the sentence sets up."
+}

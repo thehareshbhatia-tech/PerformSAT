@@ -1,0 +1,42 @@
+{
+  "id": 1254,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "expression-of-ideas",
+  "skill": "rhetorical-synthesis",
+  "module": 2,
+  "studentNotes": {
+    "intro": "While researching a topic, a student has taken the following notes:",
+    "bullets": [
+      "Lonnie G. Bunch III was founding director of the Smithsonian's National Museum of African American History and Culture (NMAAHC).",
+      "When Bunch began the project in 2005, the museum had no building, no staff, and no founding collection.",
+      "Rather than draw on existing institutional holdings, Bunch launched a public initiative called Save Our African American Treasures.",
+      "At regional sessions, families brought heirlooms—photographs, garments, documents—for evaluation by curators and conservators.",
+      "Many objects acquired through the initiative were later donated and became part of NMAAHC's founding collection.",
+      "Bunch argued that the museum had to be built from material ordinary families had preserved, not assembled top-down from existing collections."
+    ],
+    "goal": "The student wants to emphasize the central principle that guided Bunch's approach to assembling NMAAHC's founding collection."
+  },
+  "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Lonnie G. Bunch III, the founding director of the Smithsonian's National Museum of African American History and Culture, began the project in 2005 with no building, no permanent staff, and no founding collection."
+    },
+    {
+      "id": "B",
+      "text": "Bunch held that an African American history museum had to be built from objects ordinary families had preserved, not from existing institutional holdings, and he created the Save Our African American Treasures initiative to gather such heirlooms for the museum's founding collection."
+    },
+    {
+      "id": "C",
+      "text": "Faced with no building, staff, or collection in 2005, Bunch turned to existing institutional holdings to assemble the material from which the museum's founding collection would eventually be built."
+    },
+    {
+      "id": "D",
+      "text": "Through Save Our African American Treasures, Bunch's team held regional sessions where families brought photographs, garments, and documents for evaluation by curators, many of which were later donated to the museum."
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B. The goal is to emphasize the central principle behind Bunch's approach, and B names it—the museum had to be built from what ordinary families had preserved rather than from existing holdings—and connects that principle to the initiative he created to act on it. A reports the project's bare-bones start without the guiding idea. C contradicts the notes, which say Bunch deliberately avoided existing institutional holdings. D describes the mechanics of the initiative but leaves the underlying principle unstated."
+}

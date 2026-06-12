@@ -1,0 +1,42 @@
+{
+  "id": 227,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "expression-of-ideas",
+  "skill": "rhetorical-synthesis",
+  "module": 1,
+  "studentNotes": {
+    "intro": "While researching a topic, a student has taken the following notes:",
+    "bullets": [
+      "Zora Neale Hurston (1891-1960) trained as an anthropologist at Barnard College and worked as a field researcher for the historian Carter G. Woodson.",
+      "Hurston conducted ethnographic fieldwork on African American expressive culture in the rural U.S. South and the Caribbean.",
+      "In *Mules and Men* (1935), Hurston compiled folktales, songs, and accounts of conjure practices that she had collected during this fieldwork.",
+      "Hurston argued that these materials are coherent intellectual traditions rather than scattered survivals of an earlier folk culture.",
+      "*Mules and Men* preserves the speech, settings, and exchanges among tellers in which each item was performed.",
+      "Hurston held that the meaning of these materials is best preserved when reported with the conditions and rhetoric of their telling."
+    ],
+    "goal": "The student wants to describe one specific feature of Hurston's method in *Mules and Men*."
+  },
+  "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Hurston argued that folktales, songs, and conjure accounts are best understood when recorded together with the settings and speech in which they were performed."
+    },
+    {
+      "id": "B",
+      "text": "Zora Neale Hurston trained as an anthropologist at Barnard College and worked as a field researcher for the historian Carter G. Woodson."
+    },
+    {
+      "id": "C",
+      "text": "In Mules and Men (1935), Hurston compiled folktales, songs, and accounts of conjure practices collected during fieldwork in the rural U.S. South and the Caribbean."
+    },
+    {
+      "id": "D",
+      "text": "Hurston maintained that the meaning of folk material is destroyed whenever a collector strips away the performance and reports only the bare text, treating such material as scattered survivals rather than as a coherent tradition."
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A. The goal is to convey Hurston's central methodological claim—how folk material should be recorded—and A states it cleanly: such material is best understood when reported with the settings and speech of its performance. Choice B offers biography and omits the claim. Choice C describes what Mules and Men contains but not the principle behind it. Choice D moves past Hurston's stated view into a stronger, more sweeping assertion (that meaning is \"destroyed\") and folds in a separate point, so it overstates rather than accurately presents the claim."
+}

@@ -1,0 +1,34 @@
+{
+ "id": 316,
+ "module": 1,
+ "difficulty": "medium",
+ "band": 3,
+ "domain": "information-and-ideas",
+ "skill": "inferences",
+ "question": "Which choice most logically completes the text?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "underestimate the importance of forests in regions where intensifying droughts are reducing the land sink's capacity."
+  },
+  {
+   "id": "B",
+   "text": "misrepresent the future path of atmospheric CO2, because they freeze in place the very feedbacks that drive it."
+  },
+  {
+   "id": "C",
+   "text": "overstate soil nitrogen as the dominant control on how the land sink responds to higher CO2 concentrations."
+  },
+  {
+   "id": "D",
+   "text": "track the projections of more detailed models closely, since the land sink's response to warming is essentially linear."
+  }
+ ],
+ "correctAnswer": "B",
+ "explanation": "The correct answer is B. The passage establishes that the land sink's strength depends on water, soil nitrogen, and temperature, and that those very conditions shift with the warming the models project. A scenario that assumes a constant land-uptake fraction therefore holds fixed the feedbacks that actually change, and so will misrepresent the future path of atmospheric CO2 — exactly what B says. A points to a regional consequence the passage already states rather than to what a constant-fraction scenario gets wrong. C elevates nitrogen above the other two named controls without warrant. D claims the response is essentially linear, contradicting the passage's account of a condition-dependent, biome-varying response.",
+ "_meta": {
+  "anchor": "Inez Fung — atmospheric scientist; carbon-cycle feedbacks; constant-fraction scenarios and the land sink"
+ },
+ "passage": "Atmospheric scientist Inez Fung has emphasized that the land biosphere does not merely respond to rising carbon dioxide; it also feeds back on it. Plants take up more carbon when CO2 is higher, but the size of that uptake depends on water availability, soil nitrogen, and temperature, and varies widely from one biome to another. Forests in some regions keep absorbing carbon for decades; forests where droughts are intensifying lose that capacity earlier and may even release carbon during heat waves. Because the strength of the land sink depends on conditions that themselves shift with warming, scenarios that assume a constant land-uptake fraction will likely ______",
+ "type": "multiple-choice"
+}

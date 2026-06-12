@@ -1,0 +1,31 @@
+{
+  "id": 1247,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "standard-english-conventions",
+  "skill": "form-structure-and-sense",
+  "module": 2,
+  "passage": "Restorers who repair medieval stained glass practice the most delicate step—reattaching a cracked pane with a nearly invisible bead of resin—on discarded fragments many times before they attempt ____ on a window destined to return to a cathedral, since a single misplaced bead can leave a permanent shadow across glass that has survived for eight hundred years.",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "them"
+    },
+    {
+      "id": "B",
+      "text": "those"
+    },
+    {
+      "id": "C",
+      "text": "it"
+    },
+    {
+      "id": "D",
+      "text": "these"
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The correct answer is C. The pronoun stands in for \"the most delicate step,\" a singular noun phrase, so the singular \"it\" is correct. \"Them,\" \"those,\" and \"these\" are all plural and so cannot agree with the single step being practiced; there is no plural antecedent in the sentence for them to refer to."
+}

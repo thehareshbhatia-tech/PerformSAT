@@ -1,0 +1,34 @@
+{
+  "id": 919,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "standard-english-conventions",
+  "skill": "boundaries",
+  "module": 1,
+  "passage": "Working in the 1920s and 1930s, the archaeologist Julio C. Tello excavated the highland temple complex of Chavin de Huantar ______ one of the oldest ceremonial centers in the Andes, and argued that Peru's later coastal cultures had their roots in the highlands.",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Huantar,"
+    },
+    {
+      "id": "B",
+      "text": "Huantar;"
+    },
+    {
+      "id": "C",
+      "text": "Huantar:"
+    },
+    {
+      "id": "D",
+      "text": "Huantar"
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The phrase after the blank, \"one of the oldest ceremonial centers in the Andes,\" renames Chavin de Huantar and is nonessential, so it is set off with a comma—choice A. A semicolon (B) or colon (C) would wrongly treat the phrase as an independent clause or a formal introduction, and omitting punctuation (D) runs the appositive straight into the name.",
+  "_meta": {
+    "anchor": "Julio C. Tello, Chavin de Huantar"
+  }
+}

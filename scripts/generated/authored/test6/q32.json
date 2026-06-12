@@ -1,0 +1,31 @@
+{
+  "id": 632,
+  "module": 2,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "craft-and-structure",
+  "skill": "text-structure-and-purpose",
+  "passage": "In the 1870s, the photographer Eadweard Muybridge was hired to settle a wager about whether a galloping horse ever lifts all four hooves off the ground at once. Using a row of cameras triggered in sequence as a horse ran past, he produced a series of stop-motion images. *The photographs showed that the horse does leave the ground entirely, but only when its legs are gathered beneath its body, not when they are stretched out as painters had long assumed.* The sequence is often described as a step toward the motion picture.",
+  "question": "Which choice best describes the function of the underlined sentence in the text as a whole?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "It questions whether Muybridge's row of sequenced cameras could capture motion quickly enough to settle the original wager about the galloping horse's stride."
+    },
+    {
+      "id": "B",
+      "text": "It reports the specific result of Muybridge's experiment and corrects a longstanding assumption about how a galloping horse moves."
+    },
+    {
+      "id": "C",
+      "text": "It explains why Muybridge had been hired to photograph a galloping horse in the first place."
+    },
+    {
+      "id": "D",
+      "text": "It introduces the claim that Muybridge's photographs led directly to the invention of the motion picture."
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B. The underlined sentence delivers the experiment's finding, that the horse is airborne only when its legs are tucked beneath it, and in doing so overturns the painters' assumption that the legs were extended. That is both a report of the result and a correction, which choice B states. The sentence raises no doubt about the cameras (choice A) and does not give the reason Muybridge was hired (choice C), which the opening sentence supplies. Choice D points to the closing remark about the motion picture, a separate idea the underlined sentence does not address."
+}

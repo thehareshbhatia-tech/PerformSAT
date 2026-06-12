@@ -1,0 +1,31 @@
+{
+  "id": 224,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "expression-of-ideas",
+  "skill": "transitions",
+  "module": 1,
+  "passage": "Developmental psychologists once expected that the death of an infant would trigger the same intense grief in every mother, regardless of where she lived. Fieldwork in a Northeastern Brazilian shantytown, where infant mortality was extremely high, told a more complicated story. There, the anthropologist Nancy Scheper-Hughes found, mothers cultivated a practiced emotional restraint, holding back deep attachment from the frailest newborns. ______ scarce maternal care could be concentrated on the infants most likely to survive.",
+  "question": "Which choice completes the text with the most logical transition?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "As a result,"
+    },
+    {
+      "id": "B",
+      "text": "Nevertheless,"
+    },
+    {
+      "id": "C",
+      "text": "For instance,"
+    },
+    {
+      "id": "D",
+      "text": "By contrast,"
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A. The sentence before the blank describes mothers withholding attachment from the frailest newborns; the sentence after states the consequence—that limited care could then be focused on the infants most likely to live. \"As a result,\" marks that cause-and-effect link. \"Nevertheless,\" would signal a contrast, but the second statement is the outcome of the first, not a reversal of it. \"For instance,\" would introduce an example, yet concentrating care is a result of the restraint, not an illustration of it. \"By contrast,\" sets two things in opposition, which misreads a relationship that is plainly causal."
+}

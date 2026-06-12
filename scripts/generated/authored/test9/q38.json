@@ -1,0 +1,34 @@
+{
+  "id": 938,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "information-and-ideas",
+  "skill": "central-ideas-and-details",
+  "module": 2,
+  "passage": "Movement-notation systems are usually devised to record dance, and they tend to mark steps, jumps, and positions defined in relation to a stage and an audience. The system that Noa Eshkol developed with the architect Avraham Wachman took a different starting point: it describes the body as a set of limbs pivoting around joints, recording each movement as a change in angle relative to the body itself, with no reference to a front or a viewer. Because its notation does not assume a stage, the system has been used to record not only choreography but also the movement of animals and the gestures studied in physical therapy.",
+  "question": "Which choice best states the main idea of the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Eshkol developed her movement-notation system in collaboration with the architect Avraham Wachman during the 1950s."
+    },
+    {
+      "id": "B",
+      "text": "Most movement-notation systems were devised to record dance and mark steps, jumps, and positions defined in relation to a stage and its audience."
+    },
+    {
+      "id": "C",
+      "text": "Because Eshkol's system records movement as joint angles relative to the body rather than to a stage, it can document motion well beyond dance, including animals and physical-therapy gestures."
+    },
+    {
+      "id": "D",
+      "text": "The Eshkol-Wachman system has been used to record the movement of animals and the gestures studied in physical therapy."
+    }
+  ],
+  "correctAnswer": "C",
+  "explanation": "The passage contrasts ordinary dance notation, tied to a stage, with Eshkol's system, which describes movement as joint angles relative to the body and so can record motion far beyond dance. Choice C states that main idea. Choice A gives a biographical detail, B describes only the systems Eshkol departed from, and D names one application without the central point.",
+  "_meta": {
+    "anchor": "Eshkol-Wachman Movement Notation"
+  }
+}

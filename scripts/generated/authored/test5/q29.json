@@ -1,0 +1,34 @@
+{
+  "id": 529,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "craft-and-structure",
+  "skill": "words-in-context",
+  "module": 2,
+  "passage": "The gradations of color in a Japanese woodblock print—a sky that deepens from pale horizon to dark zenith—were not painted but printed, using a technique called bokashi in which the printer wiped a single block with a gradient of ink before each impression. Because the gradient had to be re-created by hand for every sheet, producing a long edition demanded considerable ______ from the printer, who had to reproduce the same wipe of ink dozens of times without letting the transition between colors grow harsh or uneven.",
+  "question": "Which choice completes the text with the most logical and precise word or phrase?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "expense"
+    },
+    {
+      "id": "B",
+      "text": "novelty"
+    },
+    {
+      "id": "C",
+      "text": "luck"
+    },
+    {
+      "id": "D",
+      "text": "consistency"
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "The correct answer is D, \"consistency.\" The clause after the blank explains what the printer's task required: reproducing the same wipe of ink dozens of times without letting the gradient grow uneven. Doing the same thing the same way repeatedly is consistency. \"Novelty\" points the wrong way, since the demand is for sameness, not invention. \"Expense\" names a cost rather than the skill the sentence describes, and \"luck\" mismatches a task that depends on deliberate control rather than chance.",
+  "_meta": {
+    "anchor": "Bokashi gradation printing; reproducing the same ink wipe demands consistency"
+  }
+}

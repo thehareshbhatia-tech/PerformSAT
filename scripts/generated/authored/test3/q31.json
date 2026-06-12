@@ -1,0 +1,34 @@
+{
+ "id": 331,
+ "module": 2,
+ "difficulty": "hard",
+ "band": 4,
+ "domain": "craft-and-structure",
+ "skill": "words-in-context",
+ "question": "Which choice completes the text with the most logical and precise word or phrase?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "eliminate"
+  },
+  {
+   "id": "B",
+   "text": "entertain"
+  },
+  {
+   "id": "C",
+   "text": "announce"
+  },
+  {
+   "id": "D",
+   "text": "exaggerate"
+  }
+ ],
+ "correctAnswer": "A",
+ "explanation": "The correct answer is A, \"eliminate.\" The sentence says that because no known star or instrument was expected to produce such a precise beat, Bell Burnell and her supervisor had to deal with the possibility of interference or equipment fault \"before concluding\" that the source was a real astronomical object. The blank needs a verb meaning to rule out that possibility, and \"eliminate\" fits the sequence exactly. \"Entertain\" means to consider a possibility, the opposite of ruling it out, even though it reads plausibly in scientific prose. \"Announce\" would mean publicizing the possibility rather than testing it, and \"exaggerate\" would mean overstating it — neither matches the careful elimination the sentence describes.",
+ "_meta": {
+  "anchor": "Jocelyn Bell Burnell — discovery of pulsars (1967), Cambridge [theme: radio astronomy]"
+ },
+ "passage": "In 1967, while analyzing miles of chart-recorder paper from a new radio telescope at Cambridge, the graduate student Jocelyn Bell Burnell noticed a faint signal that pulsed with astonishing regularity, about once every 1.3 seconds. Because no known star or instrument was expected to produce so precise a beat, she and her supervisor first had to ______ the possibility that the pulses came from terrestrial interference or a fault in the equipment before concluding that the source was a genuine astronomical object.",
+ "type": "multiple-choice"
+}

@@ -1,0 +1,34 @@
+{
+  "id": 920,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "standard-english-conventions",
+  "skill": "form-structure-and-sense",
+  "module": 1,
+  "passage": "Rudolf and Joan Benesh introduced their movement-notation system in 1955 to record ballet on a five-line stave. Within a decade, Britain's Royal Ballet ______ the system to preserve its repertory, and notators trained in the method now document new choreography as it is created.",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "is adopting"
+    },
+    {
+      "id": "B",
+      "text": "adopted"
+    },
+    {
+      "id": "C",
+      "text": "has adopted"
+    },
+    {
+      "id": "D",
+      "text": "will adopt"
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The sentence places the Royal Ballet's adoption \"within a decade\" of 1955—a completed action in the past—while the present-tense \"now document\" describes today. Simple past \"adopted\" fits that completed past event, so choice B is correct. The present \"is adopting\" (A) and future \"will adopt\" (D) clash with the timeframe, and the present perfect \"has adopted\" (C) is not needed once the time is specified.",
+  "_meta": {
+    "anchor": "Benesh Movement Notation"
+  }
+}

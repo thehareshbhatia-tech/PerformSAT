@@ -1,0 +1,31 @@
+{
+  "id": 212,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "information-and-ideas",
+  "skill": "command-of-evidence-textual",
+  "module": 1,
+  "passage": "Many students prepare for exams by rereading their notes and textbooks, on the assumption that repeated exposure is what fixes material in memory. A team of cognitive psychologists questioned that assumption. They proposed that the act of retrieving information from memory—deliberately recalling it without the text in front of you—does more to produce durable, long-term learning than additional rereading does, even though rereading tends to feel more productive in the moment. To test the idea, the researchers had students study short passages and then, after a delay of one week, measured how much each group could recall.",
+  "question": "Which finding from the study, if true, would most directly support the researchers' hypothesis?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "After one week, students who had practiced recalling the passages from memory remembered substantially more than students who had spent an equal amount of time rereading them."
+    },
+    {
+      "id": "B",
+      "text": "Students who repeatedly reread the passages reported feeling more confident about their learning than students who spent the same time testing themselves."
+    },
+    {
+      "id": "C",
+      "text": "Students who reread the passages and students who tested themselves recalled the material equally well when tested immediately, before the one-week delay."
+    },
+    {
+      "id": "D",
+      "text": "Students who tested themselves spent less total time studying than students who reread but reported enjoying the task less."
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A. The hypothesis is that retrieving information produces more durable, long-term learning than rereading does. A finding that, a week later, the retrieval group remembered substantially more than the rereading group directly supports that claim about durable learning. Choice B speaks to how the rereading group felt, which matches the passage's aside about rereading feeling productive but says nothing about which method produced better retention. Choice C reports no difference on an immediate test, which does not bear on the durability claim and if anything works against it. Choice D concerns study time and enjoyment, not how much was retained, so it cannot support a hypothesis about learning."
+}

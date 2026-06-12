@@ -1,0 +1,34 @@
+{
+  "id": 934,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "craft-and-structure",
+  "skill": "text-structure-and-purpose",
+  "module": 2,
+  "passage": "For centuries, sailors could fix their latitude from the height of the sun and stars but had no dependable way to find their longitude, and ships often ran aground far from where their captains believed they were. The favored solution was astronomical: by measuring the moon's position against the fixed stars, a navigator might in principle read longitude from the sky. John Harrison, a self-taught clockmaker, pursued a different route. Reasoning that longitude was really a matter of time—each hour of difference from a home port marking fifteen degrees—he set out to build a timekeeper that could stay accurate through a ship's pitching, swings in temperature, and damp salt air. His fourth design, a large watch finished in 1759, lost only seconds on a long ocean voyage, showing that a portable clock, not the heavens, offered the surer answer.",
+  "question": "Which choice best describes the overall structure of the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "It explains how mechanical clocks were manufactured and then ranks several types of timekeeper by the accuracy each could reach on dry land."
+    },
+    {
+      "id": "B",
+      "text": "It argues that the astronomical method was, in the end, the most dependable way to determine longitude at sea."
+    },
+    {
+      "id": "C",
+      "text": "It contrasts Harrison's view of the longitude problem with the rival interpretation his own crew preferred."
+    },
+    {
+      "id": "D",
+      "text": "It lays out a longstanding problem, describes the solution most navigators favored, and then presents a different approach that proved more reliable."
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "The passage opens with a problem that troubled sailors for centuries—no reliable way to find longitude—then describes the astronomical method most navigators favored, and finally turns to John Harrison's time-based approach and the sea trial that proved it more dependable. Choice D captures that problem-to-solution movement. Choice A recasts the text as an account of manufacturing and ranking, B endorses the astronomical method the passage treats as the lesser option, and C invents a dispute between Harrison and his crew that the text never mentions.",
+  "_meta": {
+    "anchor": "John Harrison and the longitude problem"
+  }
+}

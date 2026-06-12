@@ -1,0 +1,31 @@
+{
+  "id": 602,
+  "module": 1,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "craft-and-structure",
+  "skill": "words-in-context",
+  "passage": "Economists who study household saving have long puzzled over why workers who say they want to save more for retirement often fail to enroll in the plans available to them. According to one influential account, the obstacle is not weak motivation but ______: small frictions, such as the paperwork required to sign up, are enough to keep many people from ever acting on intentions they sincerely hold.",
+  "question": "Which choice completes the text with the most logical and precise word or phrase?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "ambition"
+    },
+    {
+      "id": "B",
+      "text": "inertia"
+    },
+    {
+      "id": "C",
+      "text": "nostalgia"
+    },
+    {
+      "id": "D",
+      "text": "urgency"
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B, \"inertia.\" The passage contrasts the workers' genuine desire to save with their failure to act, and it attributes that failure to small frictions like paperwork. \"Inertia\" — a tendency to stay at rest unless pushed — captures precisely that gap between intention and action. \"Ambition\" and \"urgency\" both point toward eagerness to act, the reverse of what the sentence describes, and \"nostalgia,\" a longing for the past, has nothing to do with the difficulty of getting started."
+}

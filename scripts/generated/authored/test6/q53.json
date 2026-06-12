@@ -1,0 +1,41 @@
+{
+  "id": 653,
+  "module": 2,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "expression-of-ideas",
+  "skill": "rhetorical-synthesis",
+  "studentNotes": {
+    "intro": "While researching a topic, a student has taken the following notes:",
+    "bullets": [
+      "Rachel Carson (1907-1964) was an American marine biologist and writer.",
+      "Her 1951 book The Sea Around Us explained ocean science for a general audience and became a best seller.",
+      "Her 1962 book Silent Spring argued that the widespread use of synthetic pesticides, especially DDT, was damaging wildlife and threatening human health.",
+      "Silent Spring contended that government and industry had promoted these chemicals without adequately testing their long-term effects.",
+      "The book is widely credited with helping to launch the modern environmental movement and with prompting new restrictions on pesticide use."
+    ],
+    "goal": "The student wants to introduce Carson's central argument in Silent Spring to an audience unfamiliar with the book."
+  },
+  "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Rachel Carson, an American marine biologist and writer, published two influential books, The Sea Around Us in 1951 and Silent Spring in 1962, both of which reached a wide general readership and helped shape public conversation about the natural world."
+    },
+    {
+      "id": "B",
+      "text": "In Silent Spring (1962), the biologist Rachel Carson argued that the widespread use of synthetic pesticides such as DDT was harming wildlife and human health and had been promoted without adequate testing of its long-term effects."
+    },
+    {
+      "id": "C",
+      "text": "Carson's 1951 book The Sea Around Us explained ocean science for a general audience and became a best seller."
+    },
+    {
+      "id": "D",
+      "text": "Silent Spring is widely credited with helping to launch the modern environmental movement and with prompting new restrictions on pesticide use."
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B. The goal is to introduce the central argument of Silent Spring to readers who do not know the book, and choice B states that argument: that the heavy use of pesticides like DDT was harming wildlife and human health and had been promoted without adequate testing. Choice A lists Carson's two books but gives neither one's argument. Choice C describes the earlier book, The Sea Around Us, not Silent Spring. Choice D reports the book's later influence rather than the argument it actually made."
+}

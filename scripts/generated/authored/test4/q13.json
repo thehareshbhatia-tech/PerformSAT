@@ -1,0 +1,34 @@
+{
+  "id": 413,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "information-and-ideas",
+  "skill": "command-of-evidence-quantitative",
+  "question": "Which choice most effectively uses data from the table to support the claim?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Instagram use rose from 13% in 2012 to 28% in 2016, an increase of 15 percentage points."
+    },
+    {
+      "id": "B",
+      "text": "Facebook use among U.S. adults rose from 68% in 2016 to 69% in 2021, while Instagram use rose from 28% to 40% over the same period."
+    },
+    {
+      "id": "C",
+      "text": "YouTube was used by 73% of U.S. adults in 2016 and by 81% in 2021, the highest share of any platform shown in either year."
+    },
+    {
+      "id": "D",
+      "text": "Facebook was used by 54% of U.S. adults in 2012, the same year that Instagram was used by 13%."
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B. The claim concerns the 2016–2021 window specifically: Facebook plateaus while Instagram keeps climbing. Choice B pairs the four values that show both halves — Facebook 68% to 69% (flat) and Instagram 28% to 40% (rising). Choice A uses an earlier Instagram window and never mentions Facebook; choice C cites YouTube, which the claim is not about; and choice D pairs 2012 values that say nothing about the later plateau.",
+  "passage": "The Pew Research Center has tracked the percentage of U.S. adults who use major social media platforms across several survey waves. A media-studies researcher writing about the spread of these platforms in the 2010s makes the following claim: while several platforms continued to add adult users between 2016 and 2021, Facebook reached the limits of its expansion among U.S. adults and effectively plateaued during this period, even as Instagram continued to climb. To support this claim with data from the table below, the writer wants to identify the values that show the contrast.\n\nPercentage of U.S. adults who use selected social media platforms (Pew Research Center)\n| Platform   | 2012 | 2016 | 2021 |\n|------------|------|------|------|\n| Facebook   | 54%  | 68%  | 69%  |\n| Instagram  | 13%  | 28%  | 40%  |\n| LinkedIn   | 20%  | 25%  | 28%  |\n| Twitter    | 16%  | 21%  | 23%  |\n| YouTube    | —    | 73%  | 81%  |",
+  "_meta": {
+    "anchor": "Pew Research Center — U.S. adult social media use; dataset qd-soc"
+  },
+  "module": 1
+}

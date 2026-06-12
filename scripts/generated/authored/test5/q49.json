@@ -1,0 +1,34 @@
+{
+  "id": 549,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "standard-english-conventions",
+  "skill": "form-structure-and-sense",
+  "module": 2,
+  "passage": "Few designs in the long history of European printing have been imitated as widely, or for as long, as a single roman typeface that first appeared in the middle of the sixteenth century. Cut by the French punchcutter Claude Garamond in the 1540s and prized for the evenness of its letters, ______",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "printers across Europe imitated the roman typeface for the next two centuries."
+    },
+    {
+      "id": "B",
+      "text": "the roman typeface became a model that printers across Europe imitated for the next two centuries."
+    },
+    {
+      "id": "C",
+      "text": "there was a roman typeface that printers across Europe went on to imitate for two centuries."
+    },
+    {
+      "id": "D",
+      "text": "the next two centuries saw printers across Europe imitate the roman typeface widely."
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B. The opening modifier—\"Cut by the French punchcutter Claude Garamond… and prized for the evenness of its letters\"—describes the typeface, so the main clause must make \"the roman typeface\" its subject, which choice B does. Choice A makes \"printers\" the subject, illogically implying the printers were cut by Garamond. Choice C buries the typeface in an \"there was\" construction so the modifier has nothing to attach to. Choice D makes \"the next two centuries\" the subject, implying the centuries were the thing Garamond cut.",
+  "_meta": {
+    "anchor": "Claude Garamond — roman type; dangling-modifier attachment"
+  }
+}

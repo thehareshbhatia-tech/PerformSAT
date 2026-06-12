@@ -1,0 +1,31 @@
+{
+  "id": 844,
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "standard-english-conventions",
+  "skill": "boundaries",
+  "module": 2,
+  "passage": "For decades, museum labels presented the Antikythera mechanism, a corroded lump of bronze gears recovered from a Roman-era shipwreck, as a simple navigational aid ______ modern imaging has shown that the device was an intricate astronomical calculator able to predict the positions of the sun and moon.",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "aid, however"
+    },
+    {
+      "id": "B",
+      "text": "aid; however,"
+    },
+    {
+      "id": "C",
+      "text": "aid however,"
+    },
+    {
+      "id": "D",
+      "text": "aid, however;"
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B. Two independent clauses meet at the blank, and the second begins with the conjunctive adverb \"however,\" which is not a conjunction and cannot splice the clauses with a comma. The clauses must be separated by a semicolon, and \"however\" then takes a comma after it: \"aid; however, modern imaging….\" A leaves only a comma between the clauses, a splice; C drops the punctuation before \"however\" entirely, fusing the clauses; and D puts the semicolon after \"however\" rather than before it, leaving the first clause spliced to the adverb."
+}

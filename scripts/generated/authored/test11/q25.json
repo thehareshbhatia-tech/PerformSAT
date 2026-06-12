@@ -1,0 +1,34 @@
+{
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "expression-of-ideas",
+  "skill": "transitions",
+  "question": "Which choice completes the text with the most logical transition?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "For example,"
+    },
+    {
+      "id": "B",
+      "text": "However,"
+    },
+    {
+      "id": "C",
+      "text": "Therefore,"
+    },
+    {
+      "id": "D",
+      "text": "Meanwhile,"
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A. The first sentence makes a general point—that performers must settle matters the composer left open—and the second gives a specific instance of such a matter, a tempo marking as vague as \"adagio.\" \"For example\" introduces that illustration. \"However\" would signal a contrast, \"Therefore\" a consequence, and \"Meanwhile\" a parallel event in another setting, none of which fits a sentence that simply exemplifies the general claim.",
+  "passage": "Performers in the early-music movement often have to make choices the composer left unspecified. ______ a Baroque score might mark a passage simply \"adagio,\" giving the tempo in only the vaguest terms, so the performer must decide how slow the music should actually go by weighing the character of the piece, the size of the hall, and the conventions of the period.",
+  "_meta": {
+    "anchor": "Baroque performance practice: unspecified tempo markings (generic)"
+  },
+  "id": 1125,
+  "module": 1
+}

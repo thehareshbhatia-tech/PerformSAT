@@ -1,0 +1,34 @@
+{
+ "id": 318,
+ "module": 1,
+ "difficulty": "easy",
+ "band": 2,
+ "domain": "standard-english-conventions",
+ "skill": "form-structure-and-sense",
+ "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "were"
+  },
+  {
+   "id": "B",
+   "text": "are"
+  },
+  {
+   "id": "C",
+   "text": "is"
+  },
+  {
+   "id": "D",
+   "text": "have been"
+  }
+ ],
+ "correctAnswer": "C",
+ "explanation": "The correct answer is C, \"is.\" The subject of the verb is the singular noun \"compound\" — \"The compound they ultimately isolated, artemisinin\" — and the appositive \"artemisinin\" names the compound without changing its number. A singular subject takes a singular verb, and the present tense matches the surrounding claim that artemisinin \"is now a component\" of current therapies. \"Are\" and \"have been\" treat the subject as plural, and \"were\" adds a past-tense error on top of the number error, shifting the sentence away from the present status the rest of the clause describes.",
+ "_meta": {
+  "anchor": "Tu Youyou — pharmacologist; artemisinin; subject-verb agreement across an appositive"
+ },
+ "passage": "Working with traditional Chinese medical texts during a national antimalarial program in the late 1960s, the pharmacologist Tu Youyou and her team identified the sweet wormwood plant as a source of an antimalarial compound. The compound they ultimately isolated, artemisinin, ______ now a component of the standard combination therapies used against drug-resistant malaria.",
+ "type": "multiple-choice"
+}

@@ -1,0 +1,36 @@
+{
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "craft-and-structure",
+  "skill": "text-structure-and-purpose",
+  "question": "Which choice best describes the overall structure of the text?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "The speaker describes a frightening creature in vivid detail, then gradually grows calmer as the description reveals the animal to be gentler than it first appeared."
+    },
+    {
+      "id": "B",
+      "text": "The speaker opens by asking who could have made a fearsome creature, sustains that wonder through a chain of unanswered questions about its maker, then returns to the opening lines with a single word changed."
+    },
+    {
+      "id": "C",
+      "text": "The speaker states a confident claim about the creature's origin at the outset, then spends the rest of the poem assembling evidence that steadily proves the claim correct."
+    },
+    {
+      "id": "D",
+      "text": "The speaker recounts a sequence of events from the creature's life in chronological order, then concludes by predicting what will become of it in the years ahead."
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B. The poem opens by asking what \"immortal hand or eye\" could have framed the tiger's \"fearful symmetry,\" and the middle stanzas pile up further questions about the maker—\"What the hammer? what the chain? / In what furnace was thy brain?\"—none of which is ever answered. The final stanza repeats the opening almost word for word, changing only \"Could\" to \"Dare,\" so the structure runs from an opening question through sustained questioning back to the opening lines with one altered word. Choice A is wrong because the speaker never grows calmer and the tiger is never revealed as gentle; the awe only deepens. Choice C reverses the poem, which asks questions rather than proving a confident claim, and Choice D invents a chronological life story and a prediction the poem does not contain.",
+  "passage": "The following text is from William Blake's poem \"The Tyger\" (1794).\n\nTyger, tyger, burning bright\nIn the forests of the night,\nWhat immortal hand or eye\nCould frame thy fearful symmetry?\n\nIn what distant deeps or skies\nBurnt the fire of thine eyes?\nOn what wings dare he aspire?\nWhat the hand dare seize the fire?\n\nAnd what shoulder and what art\nCould twist the sinews of thy heart?\nAnd, when thy heart began to beat,\nWhat dread hand and what dread feet?\n\nWhat the hammer? what the chain?\nIn what furnace was thy brain?\nWhat the anvil? what dread grasp\nDare its deadly terrors clasp?\n\nWhen the stars threw down their spears,\nAnd watered heaven with their tears,\nDid he smile his work to see?\nDid he who made the lamb make thee?\n\nTyger, tyger, burning bright\nIn the forests of the night,\nWhat immortal hand or eye\nDare frame thy fearful symmetry?",
+  "_meta": {
+    "anchor": "William Blake, 'The Tyger' (1794)",
+    "quoteVerify": true,
+    "source": "William Blake, 'The Tyger' (1794), Songs of Experience — Project Gutenberg ebook 574 (Poems of William Blake), https://www.gutenberg.org/cache/epub/574/pg574.txt — complete poem"
+  },
+  "id": 1105,
+  "module": 1
+}

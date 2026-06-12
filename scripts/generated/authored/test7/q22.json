@@ -1,0 +1,31 @@
+{
+  "id": 722,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "standard-english-conventions",
+  "skill": "form-structure-and-sense",
+  "module": 1,
+  "passage": "Combining satellite measurements of trace gases with atmospheric transport models can pinpoint where atmospheric carbon dioxide originates, identifying ______ sources and sinks across continents and oceans. The technique has become central to projections of how natural carbon reservoirs will respond to a warming climate.",
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "they're"
+    },
+    {
+      "id": "B",
+      "text": "its"
+    },
+    {
+      "id": "C",
+      "text": "their"
+    },
+    {
+      "id": "D",
+      "text": "it's"
+    }
+  ],
+  "correctAnswer": "B",
+  "explanation": "The correct answer is B. The pronoun refers to the singular noun \"carbon dioxide,\" and a possessive is needed before \"sources and sinks,\" so the singular possessive \"its\" is correct. Choice C's \"their\" is plural and does not agree with the singular antecedent. Choices A and D are contractions — \"they are\" and \"it is\" — not possessives, so neither fits the grammar of the sentence."
+}

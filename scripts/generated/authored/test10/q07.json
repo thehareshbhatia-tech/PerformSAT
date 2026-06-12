@@ -1,0 +1,31 @@
+{
+ "id": 1007,
+ "type": "multiple-choice",
+ "difficulty": "medium",
+ "band": 3,
+ "domain": "craft-and-structure",
+ "skill": "text-structure-and-purpose",
+ "module": 1,
+ "passage": "Hydrologists have long known that aquifers in heavily irrigated regions are being drawn down, but measuring the loss across an entire river basin is difficult from the ground, where wells sample only scattered points. Reasoning that a large enough change in the water stored underground should register as a tiny change in the planet's gravity field, a research team turned to the paired GRACE satellites, which track minute variations in Earth's gravity from orbit. Over the decade they examined, the satellite record showed a steady decline in total stored water across northern India far larger than rainfall shortfalls alone could explain, pointing to groundwater pumping as the dominant cause.",
+ "question": "Which choice best describes the overall structure of the text?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "It presents a widely accepted conclusion and then describes an experiment that called that conclusion into question."
+  },
+  {
+   "id": "B",
+   "text": "It describes a measurement technique in exhaustive detail and then lists, region by region, the places where that technique has not yet been applied."
+  },
+  {
+   "id": "C",
+   "text": "It compares two competing methods for measuring groundwater and argues that neither is reliable on its own."
+  },
+  {
+   "id": "D",
+   "text": "It identifies a difficulty in measuring a known phenomenon, explains the principle behind a satellite-based approach, and reports what that approach revealed."
+  }
+ ],
+ "correctAnswer": "D",
+ "explanation": "Choice D is correct. The passage first names a measurement difficulty—ground wells sample only scattered points, so basin-wide groundwater loss is hard to gauge—then explains the principle behind the satellite approach (a large change in stored water registers as a tiny change in gravity), and finally reports the finding (a steady decline across northern India pointing to pumping). That is a problem-principle-finding structure. Choice A is wrong because no accepted conclusion is overturned. Choice B misstates the ending, which gives a result rather than a list of untested regions. Choice C invents a head-to-head comparison the passage does not make."
+}

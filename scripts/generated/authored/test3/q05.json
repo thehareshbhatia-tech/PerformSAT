@@ -1,0 +1,34 @@
+{
+ "id": 305,
+ "module": 1,
+ "difficulty": "medium",
+ "band": 3,
+ "domain": "craft-and-structure",
+ "skill": "text-structure-and-purpose",
+ "question": "Which choice best describes the function of the underlined sentence in the text as a whole?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "It marks where the researchers turn from ruling out one explanation to proposing the alternative."
+  },
+  {
+   "id": "B",
+   "text": "It restates the puzzle from the opening sentence without moving the investigation forward in any way."
+  },
+  {
+   "id": "C",
+   "text": "It concedes that the team's entire initial approach to the camouflage problem had been mistaken."
+  },
+  {
+   "id": "D",
+   "text": "It reports the precise experimental result that finally confirmed how cuttlefish detect their surroundings."
+  }
+ ],
+ "correctAnswer": "A",
+ "explanation": "The correct answer is A. The opening sentences pose a puzzle — how an animal that cannot see color matches its background so precisely — and report that the team first ruled out detection through the eyes. The underlined sentence is the hinge: it turns from eliminating that possibility to proposing the alternative, that light-sensitive proteins in the skin let the animal register its surroundings, which the rest of the passage develops. It does more than restate the puzzle, so B understates it. It does not concede that the whole initial approach was mistaken, as C claims; ruling out one possibility is a normal investigative step. And it states a hypothesis to be tested, not a confirmed result, so D overreaches.",
+ "_meta": {
+  "anchor": "Cuttlefish dermal light sensing (unnamed marine biologists); opsins in skin; camouflage without color vision"
+ },
+ "passage": "Cuttlefish change the color and texture of their skin almost instantly, despite being colorblind. A team of marine biologists set out to explain how an animal that cannot perceive color can match its background so precisely. They first ruled out the obvious possibility that the animals were registering color through their eyes alone. *They then turned to the skin itself, testing whether light-sensitive proteins distributed across the body might let the animal sense the brightness and pattern of its surroundings.* On this view, camouflage is a problem the animal solves partly outside the brain.",
+ "type": "multiple-choice"
+}

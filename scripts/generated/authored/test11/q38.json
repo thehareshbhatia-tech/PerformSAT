@@ -1,0 +1,34 @@
+{
+  "type": "multiple-choice",
+  "difficulty": "hard",
+  "band": 4,
+  "domain": "information-and-ideas",
+  "skill": "central-ideas-and-details",
+  "question": "Based on the text, what is true of some patients with damage to the hippocampus?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "They can improve at a new motor skill even while being unable to remember having practiced it."
+    },
+    {
+      "id": "B",
+      "text": "They permanently lose all of their previously formed motor skills at the same time that they lose their memory for recent events and conversations."
+    },
+    {
+      "id": "C",
+      "text": "They form new memories of recent events more easily than people without any such damage do."
+    },
+    {
+      "id": "D",
+      "text": "They keep a conscious recollection of facts while losing the ability to learn any new motor skill."
+    }
+  ],
+  "correctAnswer": "A",
+  "explanation": "The correct answer is A. The passage states that such patients can keep improving at a mirror-tracing task day by day \"even as they deny ever having attempted it before,\" so they learn a motor skill without remembering the practice. Choice B reverses this, since the passage says motor learning is retained, not lost; Choice C contradicts the central detail that these patients cannot form new event memories; and Choice D swaps the two abilities, attributing to them a loss of motor learning the passage assigns to declarative memory instead.",
+  "passage": "Not all memory loss is loss of the same thing. Patients with damage to a brain structure called the hippocampus may be unable to form new memories of events they experience—where they went yesterday, whom they met an hour ago—and yet retain the ability to acquire new motor skills, improving at a mirror-tracing task day by day even as they deny ever having attempted it before. Findings of this kind led researchers to distinguish \"declarative\" memory, the conscious recollection of facts and events, from \"procedural\" memory, the largely unconscious learning of skills, and to conclude that the two depend on partly separate brain systems rather than on a single faculty of memory.",
+  "_meta": {
+    "anchor": "cognitive science of memory: declarative vs. procedural memory in amnesia"
+  },
+  "id": 1138,
+  "module": 2
+}

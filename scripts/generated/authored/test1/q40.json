@@ -1,0 +1,62 @@
+{
+ "id": 140,
+ "type": "multiple-choice",
+ "difficulty": "medium",
+ "band": 3,
+ "domain": "information-and-ideas",
+ "skill": "command-of-evidence-quantitative",
+ "module": 2,
+ "passage": "Since 1993, satellite altimeters operated through NASA's sea level monitoring program have measured the height of the global ocean to within a few millimeters, producing one of the longest continuous records of mean sea level available to climate scientists. Researchers analyzing the record at ten-year intervals have argued that the picture it gives is not simply one of ongoing rise but of a rise whose pace itself is changing: the rate at which the global ocean has been gaining height has accelerated over the satellite-altimetry era because _______",
+ "questionTable": {
+  "type": "table",
+  "caption": "Global mean sea level relative to 1993, with the increase recorded over each successive decade (NASA satellite altimetry)",
+  "headers": [
+   "Year",
+   "Sea level (mm above 1993)",
+   "Increase from prior decade (mm)"
+  ],
+  "rows": [
+   [
+    "1993",
+    "0",
+    "—"
+   ],
+   [
+    "2003",
+    "31",
+    "31"
+   ],
+   [
+    "2013",
+    "65",
+    "34"
+   ],
+   [
+    "2023",
+    "105",
+    "40"
+   ]
+  ]
+ },
+ "question": "Which choice most effectively uses data from the table to complete the statement?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "the decade-to-decade increase grew from 31 mm in the interval ending 2003 to 34 mm in the interval ending 2013 and 40 mm in the interval ending 2023, with each successive decade adding more than the one before."
+  },
+  {
+   "id": "B",
+   "text": "global mean sea level was 105 mm higher in 2023 than in 1993, a total rise of more than 100 mm across the satellite-altimetry record."
+  },
+  {
+   "id": "C",
+   "text": "the decade-to-decade increase held steady at roughly 30 mm across the record, indicating that the ocean has been rising at an essentially constant pace."
+  },
+  {
+   "id": "D",
+   "text": "between 1993 and 2003, global mean sea level rose by 31 mm, a substantial increase over a single decade."
+  }
+ ],
+ "correctAnswer": "A",
+ "explanation": "The claim is specifically about the rate of sea level rise accelerating — not merely that the ocean is rising and not how much it has risen overall. Supporting evidence has to track the size of the decadal increment from one decade to the next and show it growing. Choice A does exactly that: it lines up the three successive decadal increases (31 mm, then 34 mm, then 40 mm) and notes that each is larger than the one before. That ordered comparison across the rightmost column is what licenses the conclusion that the pace itself is increasing."
+}

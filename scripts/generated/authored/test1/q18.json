@@ -1,0 +1,31 @@
+{
+ "id": 118,
+ "type": "multiple-choice",
+ "difficulty": "easy",
+ "band": 2,
+ "domain": "standard-english-conventions",
+ "skill": "form-structure-and-sense",
+ "module": 1,
+ "passage": "Chien-Shiung Wu, an experimental physicist at Columbia University, designed a now-famous test of a long-held assumption in physics. In 1957, she ______ the beta decay of cobalt-60 nuclei that had been carefully polarized at extremely low temperatures. Her measurements showed that the angular distribution of the emitted electrons was asymmetric, demonstrating that parity is not conserved in the weak interaction and overturning a symmetry principle physicists had taken for granted.",
+ "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "has observed"
+  },
+  {
+   "id": "B",
+   "text": "observes"
+  },
+  {
+   "id": "C",
+   "text": "had observed"
+  },
+  {
+   "id": "D",
+   "text": "observed"
+  }
+ ],
+ "correctAnswer": "D",
+ "explanation": "The temporal anchor 'In 1957' fixes the action at a specific point in the past, and the surrounding sentences use simple past throughout ('designed,' 'showed,' 'was'). A completed historical event tied to a specific past date requires the simple past tense, so 'observed' is the correct verb form."
+}
