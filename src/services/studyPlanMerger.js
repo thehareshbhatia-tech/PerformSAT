@@ -6,6 +6,8 @@
  * and delta computation without any side effects.
  */
 
+import { isBlankAttempt } from './selectors/latestTestStats';
+
 export const MERGE_VERSION = '1.2';
 
 const EMOJI_REGEX = /[\u{1F300}-\u{1F9FF}\u{2600}-\u{27BF}\u{FE00}-\u{FE0F}\u{1FA00}-\u{1FAFF}\u{200D}\u{20E3}\u{E0020}-\u{E007F}]/gu;
@@ -30,6 +32,10 @@ export const buildLongitudinalEvidence = (practiceTestResults = {}) => {
   const allAttempts = [];
   Object.values(practiceTestResults).forEach(test => {
     (test.attempts || []).forEach(attempt => {
+      // Blank/abandoned submissions carry no longitudinal signal — their IRT
+      // floor score would chart in the Score History strip, contaminate the
+      // AI plan prompt, and could even become latestAttempt.
+      if (isBlankAttempt(attempt)) return;
       allAttempts.push({
         testId: test.testId,
         testTitle: test.testTitle,

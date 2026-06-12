@@ -10,6 +10,7 @@ import { colors, radius, shadows } from '../design/tokens';
 import { cardStyles, buttonStyles } from '../design/components';
 import { MathText } from './MathText';
 import { isGoalAchieved } from '../services/selectors/goalProgress';
+import { isBlankAttempt } from '../services/selectors/latestTestStats';
 import './TestResults.css';
 import { ChartBarIcon, ArrowRightIcon, BookOpenIcon, PencilIcon, BrainIcon, SearchIcon, PinIcon } from '../design/icons';
 import QuestionInsightCard from './QuestionInsightCard';
@@ -734,8 +735,10 @@ const TestResults = ({
     const mod2Pct = mod2 && mod2.total > 0 ? Math.round((mod2.correct / mod2.total) * 100) : null;
 
     // ── Historical attempt data ──
+    // Blank/abandoned submissions are excluded: a floor-400 first attempt
+    // would inflate "improvement from first" and chart on the trajectory.
     const testHistory = practiceTestResults?.[test.id];
-    const attempts = testHistory?.attempts || [];
+    const attempts = (testHistory?.attempts || []).filter(a => !isBlankAttempt(a));
     const pastAttempts = attempts.filter(a => a.scaledScore !== satScore || a.completedAt !== attempts[attempts.length - 1]?.completedAt);
     const hasHistory = attempts.length > 1;
     const bestScore = testHistory?.bestScaledScore || satScore;
@@ -1916,7 +1919,7 @@ const TestResults = ({
     const weakestDomName = sortedDomains.length > 0 ? sortedDomains[0].name : 'Algebra';
 
     const testHistory = practiceTestResults?.[test.id];
-    const attempts = testHistory?.attempts || [];
+    const attempts = (testHistory?.attempts || []).filter(a => !isBlankAttempt(a));
     const firstAttemptScore = attempts.length > 0 ? attempts[0].scaledScore : satScore;
     const recentTrend = satScore - firstAttemptScore;
 

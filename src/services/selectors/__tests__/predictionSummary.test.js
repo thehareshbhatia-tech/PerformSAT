@@ -74,11 +74,11 @@ describe('summarizePredictions — single validated prediction', () => {
     expect(r.latest.scoreInRange).toBeNull();
   });
 
-  it('counts hits/total/hitRate for one validated entry', () => {
+  it('legacy entries are excluded from hit history (their verdicts are untrusted)', () => {
     const r = summarizePredictions(log, results);
-    expect(r.hits).toBe(1);
-    expect(r.total).toBe(1);
-    expect(r.hitRate).toBe(1);
+    expect(r.hits).toBe(0);
+    expect(r.total).toBe(0);
+    expect(r.hitRate).toBe(0);
   });
 
   it('returns null actualScore when test result is missing', () => {
@@ -87,12 +87,12 @@ describe('summarizePredictions — single validated prediction', () => {
   });
 });
 
-describe('summarizePredictions — multi-entry history', () => {
+describe('summarizePredictions — multi-entry history (new-format records)', () => {
   const log = [
-    mkPrediction({ id: 'p1', createdAt: '2026-04-01T10:00:00Z', scoreInRange: true,  actualTestId: 't1' }),
-    mkPrediction({ id: 'p2', createdAt: '2026-04-15T10:00:00Z', scoreInRange: false, actualTestId: 't2' }),
-    mkPrediction({ id: 'p3', createdAt: '2026-05-01T10:00:00Z', scoreInRange: true,  actualTestId: 't3' }),
-    mkPrediction({ id: 'p4', createdAt: '2026-05-09T10:00:00Z', scoreInRange: true,  actualTestId: 't4', low: 1380, high: 1480 }),
+    mkPrediction({ id: 'p1', createdAt: '2026-04-01T10:00:00Z', scoreInRange: true,  actualTestId: 't1', validatedScore: 1300 }),
+    mkPrediction({ id: 'p2', createdAt: '2026-04-15T10:00:00Z', scoreInRange: false, actualTestId: 't2', validatedScore: 1500 }),
+    mkPrediction({ id: 'p3', createdAt: '2026-05-01T10:00:00Z', scoreInRange: true,  actualTestId: 't3', validatedScore: 1395 }),
+    mkPrediction({ id: 'p4', createdAt: '2026-05-09T10:00:00Z', scoreInRange: true,  actualTestId: 't4', low: 1380, high: 1480, validatedScore: 1410 }),
   ];
   const results = {
     ...mkResults('t1', 1300),
@@ -106,7 +106,7 @@ describe('summarizePredictions — multi-entry history', () => {
     expect(r.latest.low).toBe(1380);
     expect(r.latest.high).toBe(1480);
     expect(r.latest.actualScore).toBe(1410);
-    expect(r.latest.scoreInRange).toBeNull(); // legacy-shaped record — verdict suppressed
+    expect(r.latest.scoreInRange).toBe(true); // new-format record — verdict trusted
   });
 
   it('aggregates hits across all validated entries', () => {
@@ -129,8 +129,8 @@ describe('summarizePredictions — multi-entry history', () => {
 describe('summarizePredictions — degraded inputs', () => {
   it('handles unparseable createdAt by falling back to insertion order', () => {
     const log = [
-      mkPrediction({ id: 'a', createdAt: 'not-a-date', scoreInRange: true,  actualTestId: 'a' }),
-      mkPrediction({ id: 'b', createdAt: 'also-bad',   scoreInRange: false, actualTestId: 'b' }),
+      mkPrediction({ id: 'a', createdAt: 'not-a-date', scoreInRange: true,  actualTestId: 'a', validatedScore: 1200 }),
+      mkPrediction({ id: 'b', createdAt: 'also-bad',   scoreInRange: false, actualTestId: 'b', validatedScore: 900 }),
     ];
     const r = summarizePredictions(log, {});
     // Just shouldn't crash + still produces hits/total counts.
@@ -206,6 +206,19 @@ describe('summarizePredictions — validation-time score vs re-derived score', (
     expect(r.hits).toBe(1);
     expect(r.total).toBe(2); // the null-verdict entry is excluded
     expect(r.hitRate).toBe(0.5);
+  });
+
+  it('REGRESSION: legacy boolean verdicts never reach the stats line', () => {
+    // The owner-account self-contradiction: headline suppresses the legacy
+    // cross-scale-corrupt verdict, so the stats line must not count that
+    // same verdict as "0 of 1 correct (0%)" one row below.
+    const log = [mkPrediction({
+      low: 490, high: 610, scoreInRange: false, actualTestId: 't9',
+    })];
+    const r = summarizePredictions(log, mkResults('t9', 530));
+    expect(r.latest.scoreInRange).toBeNull();
+    expect(r.total).toBe(0); // card hides the stats line entirely
+    expect(r.hits).toBe(0);
   });
 
   it('display fallback skips blank attempts (never "You scored 400" off an abandoned submit)', () => {

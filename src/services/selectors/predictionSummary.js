@@ -104,9 +104,14 @@ export function summarizePredictions(predictionLog, practiceTestResults = {}) {
     ? persisted
     : pickActualScoreForTest(practiceTestResults, latest.actualTestId);
 
-  // Hit history counts only decided verdicts; couldn't-compare (null)
-  // records are neither hits nor misses.
-  const decided = validated.filter(p => typeof p.accuracy.scoreInRange === 'boolean');
+  // Hit history counts only decided verdicts on NEW-FORMAT records (the
+  // persisted-score gate mirrors the headline's): legacy boolean verdicts
+  // are the cross-scale-corrupt class this fix exists to suppress — counting
+  // them would print "0 of 1 correct (0%)" under a sentence whose verdict we
+  // just suppressed for the same reason. Couldn't-compare (null) records are
+  // neither hits nor misses.
+  const decided = validated.filter(p => typeof p.accuracy.scoreInRange === 'boolean'
+    && typeof p.accuracy.actualScore === 'number');
   const hits = decided.filter(p => p.accuracy.scoreInRange === true).length;
   const total = decided.length;
 

@@ -19,6 +19,7 @@
 
 import { getDueReviewCount } from './reviewService';
 import { buildLongitudinalEvidence } from './studyPlanMerger';
+import { isBlankAttempt } from './selectors/latestTestStats';
 import { parseLocalDate } from '../utils/localDate';
 import {
   getLastTestMs,
@@ -215,6 +216,7 @@ export const reprioritizePlan = (
 
   const latestTest = Object.values(practiceTestResults)
     .flatMap(t => t.attempts || [])
+    .filter(a => !isBlankAttempt(a)) // a blank newest attempt would set the overlay to the IRT floor
     .sort((a, b) => new Date(b.completedAt) - new Date(a.completedAt))[0];
 
   return {
