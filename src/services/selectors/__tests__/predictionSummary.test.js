@@ -208,6 +208,23 @@ describe('summarizePredictions — validation-time score vs re-derived score', (
     expect(r.hitRate).toBe(0.5);
   });
 
+  it('display fallback skips blank attempts (never "You scored 400" off an abandoned submit)', () => {
+    const log = [mkPrediction({ actualTestId: 't9', scoreInRange: false })]; // legacy record
+    const results = {
+      t9: {
+        attempts: [
+          { scaledScore: 1080, rawScore: 60, isMultiSection: true },
+          // newer blank submit at the IRT floor — must not become the display score
+          { scaledScore: 400, rawScore: null, isMultiSection: true },
+        ],
+        bestScaledScore: 1080,
+      },
+    };
+    const r = summarizePredictions(log, results);
+    expect(r.latest.actualScore).toBe(1080);
+    expect(r.latest.scoreInRange).toBeNull();
+  });
+
   it('all-null history yields total 0 (card hides the stats line)', () => {
     const log = [
       mkPrediction({ id: 'a', scoreInRange: null, validatedScore: 700, validatedScale: 'section' }),

@@ -11,6 +11,10 @@
  * depending on Firestore at render time).
  */
 
+// Zero-import sibling selector — blank/abandoned attempts must not be
+// presented as "You scored N" (their score is the IRT floor, not a result).
+import { isBlankAttempt } from './latestTestStats';
+
 /**
  * @typedef {Object} ValidatedPrediction
  * @property {{ low: number, high: number }} predictions.expectedScoreRange
@@ -29,11 +33,15 @@ function pickActualScoreForTest(practiceTestResults, testId) {
   if (!practiceTestResults || !testId) return null;
   const entry = practiceTestResults[testId];
   if (!entry) return null;
-  // Most recent attempt's scaledScore (best fits the prediction
-  // validation moment which captured a specific test attempt).
+  // Most recent NON-BLANK attempt's scaledScore (best fits the prediction
+  // validation moment which captured a specific test attempt). A blank
+  // submission's floor score was never the validated attempt — dogfood
+  // caught the card reading "You scored 400" off one.
   const attempts = Array.isArray(entry.attempts) ? entry.attempts : [];
-  const last = attempts[attempts.length - 1];
-  if (last && typeof last.scaledScore === 'number') return last.scaledScore;
+  for (let i = attempts.length - 1; i >= 0; i--) {
+    const a = attempts[i];
+    if (a && typeof a.scaledScore === 'number' && !isBlankAttempt(a)) return a.scaledScore;
+  }
   if (typeof entry.bestScaledScore === 'number') return entry.bestScaledScore;
   return null;
 }

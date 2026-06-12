@@ -19,6 +19,7 @@
 import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { runDiagnostic, ERROR_TYPES, ERROR_TYPE_LABELS, ERROR_TYPE_ICONS, ERROR_TYPE_COLORS } from '../services/diagnosticEngine';
 import { generateStudyPlan, compareDiagnostics } from '../services/studyPlanGenerator';
+import { isBlankAttempt } from '../services/selectors/latestTestStats';
 import ErrorRecoveryDrills from './ErrorRecoveryDrills';
 import { MathText } from './MathText';
 import Avatar, { AVATAR_SIZES } from './ui/Avatar';
@@ -806,7 +807,12 @@ const DiagnosticReport = ({
     // an unshrinkable score label means 30+ bars overflow the card and the
     // viewport. Ten bars fit the 720px report column at every breakpoint.
     const TREND_WINDOW = 10;
-    const fullHistory = trendAnalysis.testHistory;
+    // Re-apply the blank-attempt filter at render time: persisted diagnostic
+    // snapshots were computed before the widened heuristic existed, so their
+    // stored testHistory can still carry floor-score blank rows. The entries
+    // keep rawScore/scaledScore/isMultiSection — enough to re-judge them.
+    const fullHistory = trendAnalysis.testHistory.filter(t => !isBlankAttempt(t));
+    if (fullHistory.length === 0) return null;
     const visibleHistory = fullHistory.slice(-TREND_WINDOW);
     const windowOffset = fullHistory.length - visibleHistory.length;
     // Scale bars to the window's own range — scores mix 200-800 section-era
