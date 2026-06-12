@@ -59,6 +59,26 @@ describe('buildLongitudinalEvidence', () => {
     expect(evidence.latestAttempt.scaledScore).toBe(650);
   });
 
+  test('REGRESSION: blank attempts never enter trajectory, counts, or latestAttempt', () => {
+    const results = {
+      'test-1': {
+        testId: 'test-1',
+        testTitle: 'Test 1',
+        attempts: [
+          { completedAt: '2026-01-01T00:00:00Z', scaledScore: 600, rawScore: 30, diagnosticData: { questionDetails: [] } },
+          // newer blank submit at the composite IRT floor — the exact row that
+          // charted as a 400 node in the Study Plan Score History strip
+          { completedAt: '2026-02-01T00:00:00Z', scaledScore: 400, isMultiSection: true, rawScore: null },
+        ],
+      },
+    };
+    const evidence = buildLongitudinalEvidence(results);
+    expect(evidence.totalAttempts).toBe(1);
+    expect(evidence.scoreTrajectory).toHaveLength(1);
+    expect(evidence.scoreTrajectory[0].scaledScore).toBe(600);
+    expect(evidence.latestAttempt.scaledScore).toBe(600); // never the blank row
+  });
+
   test('identifies persistent weaknesses from array-shaped questionDetails', () => {
     const results = {
       'test-1': {

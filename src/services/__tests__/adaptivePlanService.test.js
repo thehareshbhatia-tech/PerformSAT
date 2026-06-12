@@ -78,6 +78,22 @@ describe('reprioritizePlan', () => {
     expect(slopeSkill.isPersistent).toBe(true);
   });
 
+  test('REGRESSION: a blank newest attempt never becomes latestScaledScore', () => {
+    const plan = makePlan();
+    const testResults = {
+      'test-1': {
+        testId: 'test-1', testTitle: 'T1',
+        attempts: [
+          { completedAt: '2026-01-01', scaledScore: 610, rawScore: 31 },
+          // newest attempt is an abandoned submit at the composite IRT floor
+          { completedAt: '2026-02-01', scaledScore: 400, isMultiSection: true, rawScore: null },
+        ],
+      },
+    };
+    const result = reprioritizePlan(plan, {}, testResults, {});
+    expect(result.adaptiveOverlay.latestScaledScore).toBe(610);
+  });
+
   test('activates triage mode when test is < 7 days away', () => {
     const plan = makePlan();
     const testDate = new Date();
