@@ -126,3 +126,74 @@ describe('validatePrediction — headline + cross-scale handling', () => {
     expect(out.accuracy.scoreInRange).toBe(true);
   });
 });
+
+describe('validatePrediction — persists the validation-time score', () => {
+  const compositePrediction = () => ({
+    id: 'p1',
+    resolved: false,
+    predictions: {
+      expectedScoreRange: { low: 1100, high: 1300, scale: 'composite' },
+      likelyStruggleSkills: [],
+      trapVulnerabilities: [],
+      expectedArchetype: 'balanced',
+    },
+  });
+
+  const diag = (scaled) => ({
+    score: { scaled },
+    skillAnalysis: { weakSkills: [] },
+    errorPatterns: { counts: {} },
+    mistakeFingerprint: { archetype: 'balanced' },
+  });
+
+  test('options path persists accuracy.actualScore + actualScale', () => {
+    const out = validatePrediction(compositePrediction(), diag(640), 'sat-3', {
+      actualScore: 1240,
+      isMultiSection: true,
+    });
+    expect(out.accuracy.actualScore).toBe(1240);
+    expect(out.accuracy.actualScale).toBe('composite');
+  });
+
+  test('legacy-caller path persists the diagnostic fallback score', () => {
+    const sectionPred = {
+      id: 'p2', resolved: false,
+      predictions: {
+        expectedScoreRange: { low: 600, high: 700, scale: 'section' },
+        likelyStruggleSkills: [], trapVulnerabilities: [], expectedArchetype: 'balanced',
+      },
+    };
+    const out = validatePrediction(sectionPred, diag(650), 'sat-3');
+    expect(out.accuracy.actualScore).toBe(650);
+    expect(out.accuracy.actualScale).toBe('section'); // inherited from range.scale
+  });
+
+  test('nothing available -> strictly null, never undefined (Firestore rejects undefined)', () => {
+    const noScoreDiag = {
+      skillAnalysis: { weakSkills: [] },
+      errorPatterns: { counts: {} },
+      mistakeFingerprint: { archetype: 'balanced' },
+    };
+    const pred = {
+      id: 'p3', resolved: false,
+      predictions: {
+        expectedScoreRange: {},
+        likelyStruggleSkills: [], trapVulnerabilities: [], expectedArchetype: 'balanced',
+      },
+    };
+    const out = validatePrediction(pred, noScoreDiag, 'sat-3');
+    expect(out.accuracy.actualScore).toBeNull();
+    expect(out.accuracy.actualScale).toBeNull();
+    expect(out.accuracy.scoreInRange).toBeNull();
+  });
+
+  test('cross-scale verdict null still persists the score it saw', () => {
+    const out = validatePrediction(compositePrediction(), diag(700), 'sat-3', {
+      actualScore: 700,
+      isMultiSection: false,
+    });
+    expect(out.accuracy.scoreInRange).toBeNull();
+    expect(out.accuracy.actualScore).toBe(700);
+    expect(out.accuracy.actualScale).toBe('section');
+  });
+});

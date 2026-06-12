@@ -18,7 +18,11 @@
  * @property {string} createdAfterTestId
  * @property {boolean} resolved
  * @property {string|null} actualTestId
- * @property {{ scoreInRange: boolean }|null} accuracy
+ * @property {{ scoreInRange: boolean|null, actualScore?: number|null,
+ *              actualScale?: string|null }|null} accuracy
+ *   `actualScore`/`actualScale` (2026-06+) record the validation-time score
+ *   the verdict was computed against. Legacy records lack them — their
+ *   verdict cannot be trusted next to a re-derived display score.
  */
 
 function pickActualScoreForTest(practiceTestResults, testId) {
@@ -49,12 +53,17 @@ function pickActualScoreForTest(practiceTestResults, testId) {
  *   latest: {
  *     low: number, high: number,
  *     actualScore: number|null,
- *     scoreInRange: boolean,
+ *     scoreInRange: boolean|null,
  *   } | null,
  *   hits: number,
  *   total: number,
  *   hitRate: number,
  * } | null}
+ *   latest.scoreInRange is null when no trustworthy verdict exists for the
+ *   displayed score — legacy records (no persisted validation-time score)
+ *   and couldn't-compare validations. The card renders no within/outside
+ *   clause for null. hits/total count only decided (boolean) verdicts, so
+ *   couldn't-compare records don't read as misses.
  */
 export function summarizePredictions(predictionLog, practiceTestResults = {}) {
   if (!Array.isArray(predictionLog) || predictionLog.length === 0) return null;
@@ -75,17 +84,32 @@ export function summarizePredictions(predictionLog, practiceTestResults = {}) {
 
   const latest = sorted[0];
   const range = latest.predictions.expectedScoreRange;
-  const actualScore = pickActualScoreForTest(practiceTestResults, latest.actualTestId);
 
-  const hits = validated.filter(p => p.accuracy && p.accuracy.scoreInRange === true).length;
-  const total = validated.length;
+  // The validation-time score persisted on the record (2026-06+) is THE
+  // number the verdict was computed against. The re-derived current-attempt
+  // score is only a display fallback for legacy records — and those never
+  // get a verdict, because the two numbers can disagree (even in scale).
+  const persisted = typeof latest.accuracy.actualScore === 'number'
+    ? latest.accuracy.actualScore
+    : null;
+  const actualScore = persisted !== null
+    ? persisted
+    : pickActualScoreForTest(practiceTestResults, latest.actualTestId);
+
+  // Hit history counts only decided verdicts; couldn't-compare (null)
+  // records are neither hits nor misses.
+  const decided = validated.filter(p => typeof p.accuracy.scoreInRange === 'boolean');
+  const hits = decided.filter(p => p.accuracy.scoreInRange === true).length;
+  const total = decided.length;
 
   return {
     latest: {
       low: range.low,
       high: range.high,
       actualScore,
-      scoreInRange: latest.accuracy.scoreInRange === true,
+      scoreInRange: persisted !== null && typeof latest.accuracy.scoreInRange === 'boolean'
+        ? latest.accuracy.scoreInRange
+        : null,
     },
     hits,
     total,

@@ -21,6 +21,11 @@ import './PredictedVsActualCard.css';
  * @param {object} props
  * @param {{ latest: { low, high, actualScore, scoreInRange },
  *           hits, total, hitRate }} props.summary
+ *   latest.scoreInRange is boolean|null: null means the selector couldn't
+ *   pair the displayed score with a trustworthy verdict (legacy record or
+ *   couldn't-compare validation), so the sentence ends after the score —
+ *   no within/outside clause, neutral styling. The stats line hides when
+ *   no decided verdicts exist (total === 0).
  */
 function PredictedVsActualCard({ summary }) {
   if (!summary || !summary.latest) return null;
@@ -39,19 +44,23 @@ function PredictedVsActualCard({ summary }) {
         {actualScore !== null && (
           <>
             {' '}You scored{' '}
-            <strong className={`pva-actual ${scoreInRange ? 'is-in-range' : 'is-out'}`}>
+            <strong className={`pva-actual${scoreInRange === true ? ' is-in-range' : scoreInRange === false ? ' is-out' : ''}`}>
               {actualScore}
             </strong>
-            {' '}— {scoreInRange ? 'within range' : 'outside range'}.
+            {scoreInRange === null
+              ? '.'
+              : <>{' '}— {scoreInRange ? 'within range' : 'outside range'}.</>}
           </>
         )}
       </p>
 
-      <p className="pva-stats">
-        <span className="pva-stat-num">{hits} of {total}</span>{' '}
-        historical predictions correct
-        {total > 0 && <span className="pva-rate"> ({hitRatePct}%)</span>}.
-      </p>
+      {total > 0 && (
+        <p className="pva-stats">
+          <span className="pva-stat-num">{hits} of {total}</span>{' '}
+          historical predictions correct
+          <span className="pva-rate"> ({hitRatePct}%)</span>.
+        </p>
+      )}
     </section>
   );
 }

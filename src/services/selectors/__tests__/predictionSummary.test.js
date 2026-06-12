@@ -8,6 +8,10 @@ const mkPrediction = ({
   resolved = true,
   actualTestId = 'test-3',
   scoreInRange = true,
+  // accuracy.actualScore/actualScale (2026-06+): the validation-time score
+  // the verdict was computed against. Omit for legacy-shaped records.
+  validatedScore,
+  validatedScale = 'composite',
 } = {}) => ({
   id,
   createdAt,
@@ -15,7 +19,14 @@ const mkPrediction = ({
   predictions: { expectedScoreRange: { low, high } },
   resolved,
   actualTestId,
-  accuracy: resolved ? { scoreInRange } : null,
+  accuracy: resolved
+    ? {
+        scoreInRange,
+        ...(validatedScore !== undefined
+          ? { actualScore: validatedScore, actualScale: validatedScale }
+          : {}),
+      }
+    : null,
 });
 
 const mkResults = (testId, scaledScore) => ({
@@ -52,13 +63,15 @@ describe('summarizePredictions — single validated prediction', () => {
   ];
   const results = mkResults('test-3', 1395);
 
-  it('returns the latest prediction with actualScore', () => {
+  it('returns the latest prediction with actualScore (legacy record: verdict suppressed)', () => {
     const r = summarizePredictions(log, results);
     expect(r).not.toBeNull();
     expect(r.latest.low).toBe(1340);
     expect(r.latest.high).toBe(1420);
     expect(r.latest.actualScore).toBe(1395);
-    expect(r.latest.scoreInRange).toBe(true);
+    // Legacy record (no persisted validation-time score): the re-derived
+    // display score may not be the one the verdict judged, so no verdict.
+    expect(r.latest.scoreInRange).toBeNull();
   });
 
   it('counts hits/total/hitRate for one validated entry', () => {
@@ -93,7 +106,7 @@ describe('summarizePredictions — multi-entry history', () => {
     expect(r.latest.low).toBe(1380);
     expect(r.latest.high).toBe(1480);
     expect(r.latest.actualScore).toBe(1410);
-    expect(r.latest.scoreInRange).toBe(true);
+    expect(r.latest.scoreInRange).toBeNull(); // legacy-shaped record — verdict suppressed
   });
 
   it('aggregates hits across all validated entries', () => {
@@ -135,5 +148,74 @@ describe('summarizePredictions — degraded inputs', () => {
     };
     const r = summarizePredictions(log, results);
     expect(r.latest.actualScore).toBe(1380);
+  });
+});
+
+describe('summarizePredictions — validation-time score vs re-derived score', () => {
+  it('REGRESSION: displays the validated score, not the re-derived current one', () => {
+    // The live bug: verdict computed against composite 1060 (outside band),
+    // but the card re-derived the current attempt's section-scale 530 and
+    // printed it next to that verdict. Number and verdict must describe the
+    // same value.
+    const log = [mkPrediction({
+      low: 490, high: 610, scoreInRange: false,
+      actualTestId: 't9', validatedScore: 1060,
+    })];
+    const results = mkResults('t9', 530);
+    const r = summarizePredictions(log, results);
+    expect(r.latest.actualScore).toBe(1060);
+    expect(r.latest.scoreInRange).toBe(false);
+  });
+
+  it('legacy record: falls back to re-derived score AND suppresses the verdict', () => {
+    // The owner-account case: legacy false verdict (cross-scale corrupt) +
+    // re-derived 530 inside the printed band. Verdict must not render.
+    const log = [mkPrediction({
+      low: 490, high: 610, scoreInRange: false, actualTestId: 't9',
+    })];
+    const results = mkResults('t9', 530);
+    const r = summarizePredictions(log, results);
+    expect(r.latest.actualScore).toBe(530);
+    expect(r.latest.scoreInRange).toBeNull();
+  });
+
+  it('new record with couldn\'t-compare verdict stays null, never false', () => {
+    const log = [mkPrediction({
+      scoreInRange: null, validatedScore: 700, validatedScale: 'section',
+      actualTestId: 't9',
+    })];
+    const r = summarizePredictions(log, mkResults('t9', 530));
+    expect(r.latest.actualScore).toBe(700);
+    expect(r.latest.scoreInRange).toBeNull();
+  });
+
+  it('persisted score wins even when the test result row is gone entirely', () => {
+    const log = [mkPrediction({ validatedScore: 1240, scoreInRange: true, actualTestId: 'gone' })];
+    const r = summarizePredictions(log, {});
+    expect(r.latest.actualScore).toBe(1240);
+    expect(r.latest.scoreInRange).toBe(true);
+  });
+
+  it('hit history counts only decided verdicts — nulls are not misses', () => {
+    const log = [
+      mkPrediction({ id: 'a', createdAt: '2026-05-01T10:00:00Z', scoreInRange: true,  validatedScore: 1200 }),
+      mkPrediction({ id: 'b', createdAt: '2026-05-02T10:00:00Z', scoreInRange: null,  validatedScore: 700, validatedScale: 'section' }),
+      mkPrediction({ id: 'c', createdAt: '2026-05-03T10:00:00Z', scoreInRange: false, validatedScore: 900 }),
+    ];
+    const r = summarizePredictions(log, {});
+    expect(r.hits).toBe(1);
+    expect(r.total).toBe(2); // the null-verdict entry is excluded
+    expect(r.hitRate).toBe(0.5);
+  });
+
+  it('all-null history yields total 0 (card hides the stats line)', () => {
+    const log = [
+      mkPrediction({ id: 'a', scoreInRange: null, validatedScore: 700, validatedScale: 'section' }),
+    ];
+    const r = summarizePredictions(log, {});
+    expect(r.total).toBe(0);
+    expect(r.hits).toBe(0);
+    expect(r.hitRate).toBe(0);
+    expect(r.latest).not.toBeNull();
   });
 });

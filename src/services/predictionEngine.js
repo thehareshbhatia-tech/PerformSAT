@@ -78,7 +78,12 @@ export const generatePredictions = (fingerprint, practiceTestResults, skillProgr
  *   When it differs from the band's scale the score verdict is left null (incomparable)
  *   rather than a misleading false. Legacy callers inherit the diagnostic's own
  *   `score.isMultiSection` flag when present.
- * @returns {Object} prediction with accuracy fields filled in
+ * @returns {Object} prediction with accuracy fields filled in. Besides the
+ *   verdicts, accuracy persists `actualScore` (the headline score the
+ *   scoreInRange verdict was computed against; null when unavailable) and
+ *   `actualScale` ('composite' | 'section' | null) so renderers can show the
+ *   exact number that was judged instead of re-deriving a possibly different
+ *   one later. Both are null-coalesced — never undefined (Firestore rejects it).
  */
 export const validatePrediction = (prediction, diagnosticData, testId, options = {}) => {
   if (!prediction || !diagnosticData) return prediction;
@@ -134,6 +139,8 @@ export const validatePrediction = (prediction, diagnosticData, testId, options =
     actualTestId: testId,
     accuracy: {
       scoreInRange,
+      actualScore: headline ?? null,
+      actualScale: actualScale ?? null,
       struggleSkillsHit,
       trapPredictionHit,
       archetypeMatch,
