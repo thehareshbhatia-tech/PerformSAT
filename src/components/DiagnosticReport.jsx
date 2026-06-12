@@ -20,6 +20,16 @@ import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { runDiagnostic, ERROR_TYPES, ERROR_TYPE_LABELS, ERROR_TYPE_ICONS, ERROR_TYPE_COLORS } from '../services/diagnosticEngine';
 import { generateStudyPlan, compareDiagnostics } from '../services/studyPlanGenerator';
 import { isBlankAttempt } from '../services/selectors/latestTestStats';
+// Drill routing for the Do-This-First CTA when the next action is a
+// drill-shaped (skillId, no moduleId) activity. This component already
+// imports the generator, so the bank imports add no new bundle weight.
+import { resolveActivityDrill } from '../services/activityDrillRouter';
+import { getTargetedWeaknessSet, getQuestionsBySkillIds } from '../data/questions/bank';
+import {
+  getTargetedWeaknessSet as getRWTargetedWeaknessSet,
+  getQuestionsBySkillIds as getRWQuestionsBySkillIds,
+} from '../data/questions/rwBank';
+import { getDrillChipForWeakness } from '../services/selectors/drillChip';
 import ErrorRecoveryDrills from './ErrorRecoveryDrills';
 import { MathText } from './MathText';
 import Avatar, { AVATAR_SIZES } from './ui/Avatar';
@@ -366,6 +376,7 @@ const DiagnosticReport = ({
   completedLessons = {},
   practiceProgress = {},
   savedStudyPlan = null,
+  answeredQuestionIds = [],
   onStartPractice,
   onStartPracticeTest,
   onSaveStudyPlan,
@@ -618,8 +629,40 @@ const DiagnosticReport = ({
 
   const planNextAction = studyPlan.nextAction || (() => {
     const first = studyPlan.weeks?.[0]?.activities?.find(a => !a.completed);
-    return first ? { title: first.title, reason: first.subtitle, type: first.type, duration: first.duration, moduleId: first.moduleId, lessonId: first.lessonId } : null;
+    return first ? {
+      title: first.title, reason: first.subtitle, type: first.type, duration: first.duration,
+      moduleId: first.moduleId, lessonId: first.lessonId,
+      skillId: first.skillId || null, skillName: first.skillName || null, section: first.section || null,
+    } : null;
   })();
+
+  // Drill-shaped next actions (skillId, no moduleId — format v2) launch via
+  // the shared router into the assigned shell, same as the plan's own
+  // launchers. This component is already corpus-coupled (it imports the
+  // generator), so the bank deps are static imports, not new bundle weight.
+  const launchNextAction = () => {
+    if (!planNextAction || planNextAction.type !== 'practice' || !onStartPractice) return;
+    if (planNextAction.moduleId) {
+      onStartPractice(planNextAction.moduleId);
+      return;
+    }
+    if (!planNextAction.skillId) return;
+    const route = resolveActivityDrill({
+      activity: planNextAction,
+      weaknesses: studyPlan.weaknesses || [],
+      cachedRows: [],
+      answeredQuestionIds: answeredQuestionIds || [],
+    }, {
+      getTargetedWeaknessSet,
+      getQuestionsBySkillIds,
+      getRWTargetedWeaknessSet,
+      getRWQuestionsBySkillIds,
+      getDrillChipForWeakness,
+    });
+    if (route?.kind === 'assigned') {
+      onStartPractice(null, null, { questionIds: route.questionIds, label: route.label });
+    }
+  };
 
   const renderStudyPlan = () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
@@ -662,12 +705,7 @@ const DiagnosticReport = ({
             background: `linear-gradient(135deg, ${colors.accent.purple} 0%, var(--color-brand-purple-text) 100%)`,
             border: 'none', cursor: 'pointer', padding: '20px 24px',
           }}
-          onClick={() => {
-            // Lesson branch removed — only practice activities surface now.
-            if (planNextAction.type === 'practice' && planNextAction.moduleId && onStartPractice) {
-              onStartPractice(planNextAction.moduleId);
-            }
-          }}
+          onClick={launchNextAction}
         >
           <div style={{ fontSize: '10px', fontWeight: '700', color: 'rgba(255,255,255,0.6)', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '6px' }}>
             Do This First

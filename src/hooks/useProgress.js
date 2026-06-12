@@ -2,6 +2,9 @@ import { useState, useEffect, useRef } from 'react';
 import { db } from '../firebase/config';
 import { doc, onSnapshot, updateDoc, setDoc, getDoc, serverTimestamp, arrayUnion } from 'firebase/firestore';
 import { markLessonComplete as markComplete, markLessonIncomplete } from '../services/progressService';
+// Corpus-free (bundleGuard-safe): one-time upgrade of persisted format-1
+// plans whose weeks lack both-section drill activities.
+import { upgradeLegacyPlanWeeks, PLAN_FORMAT_VERSION } from '../services/planFormatUpgrade';
 import { getDueReviewCount, getReviewStats } from '../services/reviewService';
 import { recordSkillAttemptsBatch, getSkillDiagnosticSummary as getDiagnostic, getSkillBreakdown as getBreakdown } from '../services/skillService';
 import { recordPracticeTestResult as recordTestResult, getPracticeTestBestScore, getPracticeTestAttempts, saveTestProgress as saveProgress, clearTestProgress as clearProgress, getInProgressTest } from '../services/practiceTestService';
@@ -752,6 +755,46 @@ export const useProgress = (userId) => {
       studyPlanWriteInFlight.current = false;
     }
   };
+
+  // ===== One-time plan format upgrade (v2: both-section weekly activities) =====
+  // Persisted format-1 plans have math-only (often EMPTY) targeted-practice
+  // weeks: the generator used to silently drop every R&W gap and any math gap
+  // missing the hand-authored module map. upgradeLegacyPlanWeeks backfills
+  // drill-shaped activities from plan.weaknesses, APPEND-ONLY (completion is
+  // keyed by week/activity index), and stamps planFormatVersion so this runs
+  // exactly once per plan. Persists to BOTH the root field and the artifact —
+  // completion writes read the artifact, so the two must agree on indexes.
+  const planUpgradeInFlight = useRef(false);
+  useEffect(() => {
+    if (!userId || !studyPlan || planUpgradeInFlight.current) return;
+    if ((studyPlan.planFormatVersion || 1) >= PLAN_FORMAT_VERSION) return;
+    const upgraded = upgradeLegacyPlanWeeks(studyPlan);
+    if (!upgraded) return;
+    planUpgradeInFlight.current = true;
+    studyPlanWriteInFlight.current = true;
+    setStudyPlan(upgraded);
+    (async () => {
+      try {
+        const sanitized = JSON.parse(JSON.stringify(upgraded));
+        const progressRef = doc(db, 'progress', userId);
+        await setDoc(progressRef, { studyPlan: sanitized, lastUpdated: serverTimestamp() }, { merge: true });
+        const artId = studyPlanMeta.artifactId;
+        if (artId) {
+          const artRef = doc(db, 'progress', userId, 'studyPlanArtifacts', artId);
+          const artSnap = await getDoc(artRef);
+          if (artSnap.exists()) {
+            await updateDoc(artRef, { plan: sanitized, lastUpdated: serverTimestamp() });
+          }
+        }
+        console.log('[useProgress] Study plan upgraded to format v' + PLAN_FORMAT_VERSION);
+      } catch (err) {
+        console.error('[useProgress] Plan format upgrade failed (will retry next load):', err);
+      } finally {
+        studyPlanWriteInFlight.current = false;
+        planUpgradeInFlight.current = false;
+      }
+    })();
+  }, [userId, studyPlan, studyPlanMeta.artifactId]);
 
   /**
    * Marks a study plan activity as complete

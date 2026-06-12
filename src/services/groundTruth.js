@@ -65,7 +65,34 @@ export function buildGroundTruthDiagnosis(diagReport, rawTelemetry) {
   const { skillAnalysis, trendAnalysis, answerPatterns, stamina } = diagReport;
   const questionAnalysis = diagReport.questionAnalysis || [];
 
-  const weakSkills = (skillAnalysis?.weakSkills || []).slice(0, 8).map(s => {
+  // Cap the drill-shape list at 8 with section balance: a math-heavy (or
+  // R&W-heavy) diagnosis must not crowd the other section out of Focus Areas
+  // entirely — each section keeps at most 6 of the 8 slots when both have
+  // weaknesses. Order within the cap preserves the engine's severity sort.
+  const allWeak = skillAnalysis?.weakSkills || [];
+  const cappedWeak = (() => {
+    if (allWeak.length <= 8) return allWeak;
+    const hasBoth = allWeak.some(s => (s.section || 'math') === 'rw')
+      && allWeak.some(s => (s.section || 'math') !== 'rw');
+    const perSectionCap = hasBoth ? 6 : 8;
+    const counts = { math: 0, rw: 0 };
+    const picked = [];
+    for (const s of allWeak) {
+      if (picked.length >= 8) break;
+      const sec = (s.section || 'math') === 'rw' ? 'rw' : 'math';
+      if (counts[sec] >= perSectionCap) continue;
+      counts[sec] += 1;
+      picked.push(s);
+    }
+    // Backfill if a section ran out before the cap filled.
+    for (const s of allWeak) {
+      if (picked.length >= 8) break;
+      if (!picked.includes(s)) picked.push(s);
+    }
+    return picked;
+  })();
+
+  const weakSkills = cappedWeak.map(s => {
     const errLabel = ERROR_TYPE_LABELS[s.primaryErrorType] || s.primaryErrorType || 'mixed';
     const avgTime = computeAvgTimeForSkill(s.skillId, questionAnalysis);
     // Guard degenerate timing: avg under 5s/q means missing or rapid-click

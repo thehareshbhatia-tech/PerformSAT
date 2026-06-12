@@ -348,12 +348,18 @@ export const useAuth = () => {
         ? Math.round((sorted[mid - 1] + sorted[mid]) / 2)
         : sorted[mid];
 
-      await setDoc(doc(db, 'users', user.uid), {
-        targetSchools: schools,
-        targetScore: medianScore
-      }, { merge: true });
+      // School medians are MATH-section scale (collegeData has only satMath).
+      // Never overwrite a composite (400-1600) on-ramp goal with one — that
+      // silently rebrands the whole plan as a Math plan. Only adopt the
+      // median when the existing goal is also section-scale or unset.
+      const keepExistingTarget = typeof user?.targetScore === 'number' && user.targetScore > 800;
+      const payload = keepExistingTarget
+        ? { targetSchools: schools }
+        : { targetSchools: schools, targetScore: medianScore };
 
-      setUser(prev => ({ ...prev, targetSchools: schools, targetScore: medianScore }));
+      await setDoc(doc(db, 'users', user.uid), payload, { merge: true });
+
+      setUser(prev => ({ ...prev, ...payload }));
     } catch (err) {
       console.error('Error updating target schools:', err);
       throw err;

@@ -78,15 +78,18 @@ export function resolveActivityDrill(
     : null;
   // Lookup (3): scan every weakness's missedPatterns for a slug that
   // prefix-matches the activity's skillId. The first hit gives us a
-  // Tier-1-routable pattern for this drill.
+  // Tier-1-routable pattern for this drill. Keep the matched weakness too —
+  // its section/domain tags must survive into the synthetic (dropping them
+  // used to send R&W patterns to the math bank).
   let prefixedPattern = null;
+  let prefixedWeakness = null;
   if (!cachedRow && !exactWeakness && Array.isArray(weaknesses)) {
     for (const w of weaknesses) {
       if (!w || !Array.isArray(w.missedPatterns)) continue;
       const hit = w.missedPatterns.find(p =>
         p === activity.skillId || (typeof p === 'string' && p.startsWith(activity.skillId + '-'))
       );
-      if (hit) { prefixedPattern = hit; break; }
+      if (hit) { prefixedPattern = hit; prefixedWeakness = w; break; }
     }
   }
 
@@ -94,11 +97,17 @@ export function resolveActivityDrill(
   let weaknessForShell = cachedRow;
 
   if (!qIds) {
+    // The synthetic fallback inherits the best section evidence available:
+    // the prefix-matched weakness's own tags first, then the activity's
+    // section (drill-shaped plan activities carry one since format v2),
+    // defaulting to math last — it used to hardcode math, which dead-ended
+    // any R&W activity that outlived its top-8 weakness slot.
+    const syntheticSection = prefixedWeakness?.section || activity.section || 'math';
     const baseW = exactWeakness || {
       skillId: activity.skillId,
       skill: activity.skillName || activity.skillId,
-      domain: 'math',
-      section: 'math',
+      domain: prefixedWeakness?.domain || (syntheticSection === 'rw' ? undefined : 'math'),
+      section: syntheticSection,
       missedPatterns: prefixedPattern ? [prefixedPattern] : undefined,
     };
     const section = getWeaknessSection(baseW);
@@ -108,7 +117,10 @@ export function resolveActivityDrill(
       return moduleRoute;
     }
     let mp = Array.isArray(baseW.missedPatterns) ? baseW.missedPatterns : undefined;
-    if (section !== 'rw' && typeof getDrillChipForWeakness === 'function') {
+    // Chip restriction applies to both sections — getDrillChipForWeakness is
+    // section-aware (R&W resolves against RW_PATTERN_LABELS + pool gating),
+    // matching the dashboard's own skillPracticeRows behavior.
+    if (typeof getDrillChipForWeakness === 'function') {
       const chip = getDrillChipForWeakness(baseW);
       if (chip) mp = [chip.slug];
     }

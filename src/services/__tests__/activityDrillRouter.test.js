@@ -136,7 +136,11 @@ describe('resolveActivityDrill — lookup tiers', () => {
     expect(arg.weakSkills[0].missedPatterns).toEqual(['reverse-percent']);
   });
 
-  test('rw weakness routes through the R&W queries WITHOUT chip restriction', () => {
+  test('rw weakness routes through the R&W queries; own patterns survive a null chip', () => {
+    // Since format v2 the chip gate is consulted for BOTH sections
+    // (getDrillChipForWeakness is section-aware, matching the dashboard's
+    // skillPracticeRows). When it yields nothing, the weakness's own
+    // missedPatterns must pass through untouched.
     const deps = mkDeps({
       getRWTargetedWeaknessSet: jest.fn(() => [mkQ('rw1')]),
     });
@@ -150,7 +154,6 @@ describe('resolveActivityDrill — lookup tiers', () => {
     expect(route.kind).toBe('assigned');
     expect(deps.getRWTargetedWeaknessSet).toHaveBeenCalled();
     expect(deps.getTargetedWeaknessSet).not.toHaveBeenCalled();
-    expect(deps.getDrillChipForWeakness).not.toHaveBeenCalled();
     const arg = deps.getRWTargetedWeaknessSet.mock.calls[0][0];
     expect(arg.weakSkills[0].missedPatterns).toEqual(['transition-contrast']);
   });
@@ -228,5 +231,86 @@ describe('resolveActivityDrill — pool exhaustion (answered-question dedupe)', 
     );
     expect(getTargetedWeaknessSet).toHaveBeenCalledTimes(1);
     expect(route).toBeNull(); // no moduleId — unroutable, caller shows the toast fallback
+  });
+});
+
+describe('resolveActivityDrill — section awareness (format v2 R&W activities)', () => {
+  test('activity.section rw routes to the R&W bank when NO weakness matches', () => {
+    // The old synthetic fallback hardcoded section:'math' — an R&W activity
+    // whose weakness aged out of the top-8 cap dead-ended on the math bank.
+    const getRWTargetedWeaknessSet = jest.fn(() => [mkQ('rw-1'), mkQ('rw-2')]);
+    const getTargetedWeaknessSet = jest.fn(() => []);
+    const route = resolveActivityDrill(
+      {
+        activity: { skillId: 'words-in-context', skillName: 'Words in Context', title: 'Practice: Words in Context', section: 'rw' },
+        weaknesses: [],
+        cachedRows: [],
+      },
+      mkDeps({ getRWTargetedWeaknessSet, getTargetedWeaknessSet }),
+    );
+    expect(getRWTargetedWeaknessSet).toHaveBeenCalled();
+    expect(getTargetedWeaknessSet).not.toHaveBeenCalled();
+    expect(route).toMatchObject({ kind: 'assigned', questionIds: ['rw-1', 'rw-2'] });
+    expect(route.weakness.section).toBe('rw');
+  });
+
+  test('prefix-pattern match inherits the matched weakness section (rw)', () => {
+    // A pattern-granular activity id ('transitions-contrast'-style lookup in
+    // reverse): the activity skillId prefixes a weakness missedPattern. The
+    // matched weakness is R&W — its section must survive into the synthetic.
+    const getRWTargetedWeaknessSet = jest.fn(() => [mkQ('rw-9')]);
+    const route = resolveActivityDrill(
+      {
+        activity: { skillId: 'transitions', skillName: 'Transitions', title: 'Practice: Transitions' },
+        weaknesses: [
+          { skillId: 'expression-of-ideas-umbrella', section: 'rw', domain: 'expression-of-ideas', missedPatterns: ['transitions-contrast'] },
+        ],
+        cachedRows: [],
+      },
+      mkDeps({ getRWTargetedWeaknessSet }),
+    );
+    expect(getRWTargetedWeaknessSet).toHaveBeenCalled();
+    expect(route).toMatchObject({ kind: 'assigned', questionIds: ['rw-9'] });
+  });
+
+  test('exact rw weakness match still dispatches to the R&W bank (pre-existing contract)', () => {
+    const getRWTargetedWeaknessSet = jest.fn(() => [mkQ('rw-5')]);
+    const route = resolveActivityDrill(
+      {
+        activity: { skillId: 'boundaries', title: 'Practice: Boundaries' },
+        weaknesses: [{ skillId: 'boundaries', section: 'rw', domain: 'standard-english-conventions', missedPatterns: ['boundaries-semicolon'] }],
+        cachedRows: [],
+      },
+      mkDeps({ getRWTargetedWeaknessSet }),
+    );
+    expect(getRWTargetedWeaknessSet).toHaveBeenCalled();
+    expect(route).toMatchObject({ kind: 'assigned', questionIds: ['rw-5'] });
+  });
+
+  test('chip restriction now applies to R&W too (matches dashboard rows)', () => {
+    const getRWTargetedWeaknessSet = jest.fn(() => [mkQ('rw-7')]);
+    const getDrillChipForWeakness = jest.fn(() => ({ slug: 'boundaries-semicolon', label: 'Semicolons' }));
+    resolveActivityDrill(
+      {
+        activity: { skillId: 'boundaries', title: 'Practice: Boundaries', section: 'rw' },
+        weaknesses: [],
+        cachedRows: [],
+      },
+      mkDeps({ getRWTargetedWeaknessSet, getDrillChipForWeakness }),
+    );
+    expect(getDrillChipForWeakness).toHaveBeenCalled();
+    expect(getRWTargetedWeaknessSet.mock.calls[0][0].weakSkills[0].missedPatterns).toEqual(['boundaries-semicolon']);
+  });
+
+  test('math activities without section still default to the math bank', () => {
+    const getTargetedWeaknessSet = jest.fn(() => [mkQ('m-1')]);
+    const getRWTargetedWeaknessSet = jest.fn(() => []);
+    const route = resolveActivityDrill(
+      { activity: { skillId: 'vertex-form', title: 'Practice: Vertex' }, weaknesses: [], cachedRows: [] },
+      mkDeps({ getTargetedWeaknessSet, getRWTargetedWeaknessSet }),
+    );
+    expect(getTargetedWeaknessSet).toHaveBeenCalled();
+    expect(getRWTargetedWeaknessSet).not.toHaveBeenCalled();
+    expect(route).toMatchObject({ kind: 'assigned', questionIds: ['m-1'] });
   });
 });

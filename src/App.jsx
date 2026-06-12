@@ -2091,12 +2091,19 @@ const PerformSAT = () => {
                   completedLessons={completedLessons}
                   practiceProgress={practiceProgress}
                   savedStudyPlan={studyPlan}
-                  onStartPractice={(moduleId, sectionName) => {
+                  answeredQuestionIds={answeredQuestionIds}
+                  onStartPractice={(moduleId, sectionName, opts) => {
+                    setViewingResultsData(null);
+                    // Drill-shaped next actions (format v2) arrive as resolved
+                    // question ids — same contract as the results-path mount.
+                    if (opts?.questionIds?.length) {
+                      startAssignedPractice(opts.questionIds, { label: opts.label });
+                      return;
+                    }
                     // Must go through startPrescriptivePractice — it populates
                     // practiceState.shuffledQuestions (the practice view no
                     // longer has a synchronous corpus fallback) and sets the
                     // module/section/view itself once questions are in hand.
-                    setViewingResultsData(null);
                     startPrescriptivePractice(moduleId, sectionName);
                   }}
                   onStartPracticeTest={() => {

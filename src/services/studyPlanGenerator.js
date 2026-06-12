@@ -22,11 +22,25 @@ import { getSkillById, skillTaxonomy } from '../data/skillTaxonomy';
 import { ERROR_TYPES, ERROR_TYPE_LABELS, ERROR_TYPE_ICONS } from './diagnosticEngine';
 import { generatePracticeAssignments, buildAdaptiveQueueSeed, buildStrengthFocusAssignments, serializeAdaptiveState, createAdaptiveSessionState } from './practiceAssignmentService';
 // SKILL_ALIAS_MAP from aliases.js (pure constants, Stage 2a bundle split);
-// getQuestionById stays on the bank index — this generator is genuinely
-// corpus-coupled (wrong-answer reinsertion resolves real bank items).
+// resolveQuestionById (practiceAssignmentService) dispatches by id namespace
+// to the right bank — wrong-answer reinsertion must resolve rw- ids too.
 import { SKILL_ALIAS_MAP } from '../data/questions/bank/aliases';
-import { getQuestionById } from '../data/questions/bank';
+import { resolveQuestionById } from './practiceAssignmentService';
+import { getSkillSection } from '../data/questions/rwBank/taxonomy';
+// Shared with the read-time legacy-plan upgrade (useProgress) so generated
+// and upgraded activities have one shape. planFormatUpgrade is corpus-free.
+import { buildSkillDrillActivity, PLAN_FORMAT_VERSION } from './planFormatUpgrade';
 import { parseLocalDate } from '../utils/localDate';
+
+// R&W domain weights for gap priority — the math side reads
+// skillTaxonomy.domains[..].satWeight; the R&W taxonomy has no weight field.
+// Approximate official R&W domain share of the section.
+const RW_DOMAIN_SAT_WEIGHT = {
+  'information-and-ideas': 0.26,
+  'craft-and-structure': 0.28,
+  'standard-english-conventions': 0.26,
+  'expression-of-ideas': 0.20,
+};
 
 // ═══════════════════════════════════════════════════════════════════════════
 // CONSTANTS
@@ -145,7 +159,24 @@ function extractWrongAnswerIds(previousPlan, currentExcludeIds) {
 export const generateStudyPlan = (diagnostic, userProfile = {}, completedLessons = {}, practiceProgress = {}, previousPlan = null, longitudinal = null, answeredQuestionIds = []) => {
   const { targetScore = 700, testDate } = userProfile;
   const currentScore = diagnostic.score.scaled;
-  const scoreGap = Math.max(0, targetScore - currentScore);
+
+  // ═══ Scale-guarded gap basis ═══
+  // currentScore is composite (400-1600) for multi-section tests but legacy
+  // targets (≤800) are section-scale math goals — raw subtraction produced
+  // "You're past your target" for a 920-composite student chasing 750 Math.
+  // Compare like with like: same scale directly; a section-scale target vs a
+  // composite current falls back to the diagnosis's own math section score
+  // (legacy section targets are math goals by provenance). When no honest
+  // comparison exists, scoreGap is null and copy/intensity use defaults.
+  const currentIsComposite = diagnostic.score?.isMultiSection === true || currentScore > 800;
+  const targetIsComposite = targetScore > 800;
+  let gapBasis = null; // { current, target, label } on ONE scale
+  if (currentIsComposite === targetIsComposite) {
+    gapBasis = { current: currentScore, target: targetScore, label: '' };
+  } else if (!targetIsComposite && typeof diagnostic.score?.sections?.math === 'number') {
+    gapBasis = { current: diagnostic.score.sections.math, target: targetScore, label: ' in Math' };
+  }
+  const scoreGap = gapBasis ? Math.max(0, gapBasis.target - gapBasis.current) : null;
 
   // ═══ Calculate time constraints ═══
   const daysUntilTest = getDaysUntil(testDate);
@@ -153,7 +184,8 @@ export const generateStudyPlan = (diagnostic, userProfile = {}, completedLessons
   const effectiveWeeks = Math.min(Math.max(1, weeksUntilTest), 12); // Cap at 12 weeks
 
   // ═══ Determine study intensity ═══
-  const intensity = calculateIntensity(scoreGap, daysUntilTest);
+  // Null gap (cross-scale, no per-section data) → a moderate default climb.
+  const intensity = calculateIntensity(scoreGap ?? 100, daysUntilTest);
   const intensityConfig = INTENSITY_LEVELS[intensity];
   const minutesPerWeek = intensityConfig.minutesPerDay * intensityConfig.daysPerWeek;
 
@@ -178,12 +210,16 @@ export const generateStudyPlan = (diagnostic, userProfile = {}, completedLessons
   );
 
   // ═══ Generate milestones ═══
-  const milestones = generateMilestones(weeklyPlan, currentScore, targetScore, effectiveWeeks);
+  // Milestones interpolate current→target, so they only make sense on the
+  // gap basis's single scale; without one, anchor on the headline score
+  // with a modest default climb.
+  const milestoneBasis = gapBasis || { current: currentScore, target: currentScore + 80, label: '' };
+  const milestones = generateMilestones(weeklyPlan, milestoneBasis.current, milestoneBasis.target, effectiveWeeks);
 
   // ═══ Generate the executive summary ═══
   const summary = generatePlanSummary(
     diagnostic, weeklyPlan, intensity, effectiveWeeks,
-    daysUntilTest, currentScore, targetScore, skillGaps
+    daysUntilTest, currentScore, targetScore, skillGaps, gapBasis
   );
 
   // Generate spaced repetition schedule for mastered-but-weak skills
@@ -192,9 +228,12 @@ export const generateStudyPlan = (diagnostic, userProfile = {}, completedLessons
   // Generate daily micro-goals for engagement
   const microGoals = generateMicroGoals(diagnostic, skillGaps, effectiveWeeks);
 
-  // Calculate plan adherence metrics (for returning students)
+  // Calculate plan adherence metrics (for returning students).
+  // Runs on the gap basis's single scale with a scale-correct ceiling — the
+  // old hardcoded 800 cap clamped every composite projection.
   const adherenceProjection = calculateAdherenceProjection(
-    weeklyPlan, currentScore, targetScore, effectiveWeeks
+    weeklyPlan, milestoneBasis.current, milestoneBasis.target, effectiveWeeks,
+    milestoneBasis.target > 800 || milestoneBasis.current > 800 ? 1600 : 800
   );
 
   const nextAction = deriveSignalAwareNextAction(weeklyPlan, diagnostic);
@@ -237,7 +276,7 @@ export const generateStudyPlan = (diagnostic, userProfile = {}, completedLessons
   const wrongQuestionIds = extractWrongAnswerIds(previousPlan, answeredQuestionIds);
   if (wrongQuestionIds.length > 0 && weeklyPlan.length > 0) {
     const wrongQuestions = wrongQuestionIds
-      .map(id => getQuestionById(id))
+      .map(id => resolveQuestionById(id)) // section-aware: rw- ids hit the R&W bank
       .filter(Boolean)
       .slice(0, 5);
     if (wrongQuestions.length > 0) {
@@ -280,7 +319,8 @@ export const generateStudyPlan = (diagnostic, userProfile = {}, completedLessons
     intensityConfig,
     currentScore,
     targetScore,
-    scoreGap,
+    scoreGap, // null when current/target scales can't be honestly compared
+    planFormatVersion: PLAN_FORMAT_VERSION,
     daysUntilTest,
     weeksUntilTest: effectiveWeeks,
     minutesPerWeek,
@@ -317,6 +357,11 @@ const gatherSkillGaps = (diagnostic) => {
       skillId: skill.skillId,
       skillName: skill.name,
       domain: skill.domain,
+      // Test-subject axis ('math' | 'rw') + pattern evidence — both needed
+      // downstream so R&W gaps can become drill-shaped activities instead
+      // of dying in the math module map.
+      section: skill.section || 'math',
+      missedPatterns: skill.missedPatterns || [],
       testAccuracy: skill.testAccuracy,
       historicalMastery: skill.historicalMastery,
       primaryErrorType: skill.primaryErrorType,
@@ -338,6 +383,8 @@ const gatherSkillGaps = (diagnostic) => {
       gaps.push({
         skillId: action.skillId,
         skillName: action.title.replace('Master: ', ''),
+        section: getSkillSection(action.skillId), // actions carry no tag; derive from the R&W taxonomy
+        missedPatterns: [],
         modules: action.modules?.map(m => ({ moduleId: m, lessons: [], sections: [] })) || [],
         sections: action.sections || [],
         priority: action.estimatedGain,
@@ -444,6 +491,14 @@ const mapGapsToActivities = (skillGaps, completedLessons, practiceProgress, diag
   const activities = [];
 
   skillGaps.forEach(gap => {
+    // R&W gaps and unmapped math gaps become drill-shaped activities —
+    // they used to be silently skipped here (gap.modules is empty), which
+    // left every "targeted practice" week with zero tasks for students
+    // whose weaknesses missed the hand-authored math module map.
+    if (gap.section === 'rw' || !gap.modules || gap.modules.length === 0) {
+      activities.push(buildSkillDrillActivity(gap));
+      return;
+    }
     // ACTIVITY TYPE 1: Watch/re-watch lessons
     //
     // ── REMOVED 2026-05-09 ───────────────────────────────────────────
@@ -488,12 +543,16 @@ const mapGapsToActivities = (skillGaps, completedLessons, practiceProgress, diag
     });
   });
 
-  // Deduplicate: same lesson/section shouldn't appear twice
+  // Deduplicate: same lesson/section/skill-drill shouldn't appear twice.
+  // Drill-shaped activities have no module coordinates — keying them on
+  // moduleId/sectionName would collapse them ALL to one entry.
   const seen = new Set();
   const deduped = activities.filter(a => {
     const key = a.type === 'lesson'
       ? `lesson-${a.moduleId}-${a.lessonId}`
-      : `practice-${a.moduleId}-${a.sectionName}`;
+      : a.moduleId
+        ? `practice-${a.moduleId}-${a.sectionName}`
+        : `drill-${a.skillId}`;
     if (seen.has(key)) return false;
     seen.add(key);
     return true;
@@ -511,8 +570,10 @@ const mapGapsToActivities = (skillGaps, completedLessons, practiceProgress, diag
 const generateStrategyActivities = (diagnostic) => {
   const activities = [];
   const errorCounts = diagnostic.errorPatterns.counts;
+  const hasRWGaps = (diagnostic.skillAnalysis?.weakSkills || []).some(s => s.section === 'rw');
 
-  // Trap avoidance drills
+  // Trap avoidance drills — tips match the sections the student actually
+  // struggled in (the all-math tip list read oddly under an R&W-heavy plan).
   if ((errorCounts[ERROR_TYPES.TRAP_SUSCEPTIBILITY] || 0) >= 2) {
     activities.push({
       type: 'strategy',
@@ -526,6 +587,10 @@ const generateStrategyActivities = (diagnostic) => {
         'Before choosing, predict what trap answers might look like',
         'In percent problems: "increased by X%" ≠ "X% of"',
         'In multi-step problems: check that you answered the FINAL question, not an intermediate step',
+        ...(hasRWGaps ? [
+          'In reading questions: the tempting wrong answer is usually TRUE — it just doesn\'t answer THIS question',
+          'Distrust extreme wording — "always", "never", "proves" usually overstate what the passage supports',
+        ] : []),
         'If your answer came too easily on a hard question, it\'s probably a trap',
       ],
     });
@@ -758,14 +823,17 @@ const distributeAcrossWeeks = (activities, strategyActivities, totalWeeks, minut
 
     // Determine the focus areas for this week
     const weekSkills = [...new Set(weekActivities.filter(a => a.skillName).map(a => a.skillName))];
-    const weekDomains = [...new Set(weekActivities.filter(a => a.moduleId).map(a => {
+    const weekDomains = [...new Set(weekActivities.map(a => {
+      // Drill-shaped activities carry section instead of module coordinates.
+      if (a.section === 'rw') return 'Reading & Writing';
+      if (!a.moduleId) return null;
       // Infer domain from module
       if (['linear-equations', 'functions', 'systems'].includes(a.moduleId)) return 'Algebra';
       if (['percents', 'statistics', 'dimensional-analysis'].includes(a.moduleId)) return 'Problem Solving';
       if (['quadratics', 'exponents', 'equivalent-expressions', 'transformations'].includes(a.moduleId)) return 'Advanced Math';
       if (['triangles', 'circles', 'volume', 'radians-degrees'].includes(a.moduleId)) return 'Geometry';
       return 'Other';
-    }))];
+    }).filter(Boolean))];
 
     weeks.push({
       weekNumber: weekNum,
@@ -857,8 +925,14 @@ const generateMilestones = (weeklyPlan, currentScore, targetScore, totalWeeks) =
 /**
  * Generate the executive summary of the study plan.
  */
-const generatePlanSummary = (diagnostic, weeklyPlan, intensity, totalWeeks, daysUntilTest, currentScore, targetScore, skillGaps) => {
-  const scoreGap = targetScore - currentScore;
+const generatePlanSummary = (diagnostic, weeklyPlan, intensity, totalWeeks, daysUntilTest, currentScore, targetScore, skillGaps, gapBasis = null) => {
+  // gapBasis is the scale-guarded {current, target, label} pair computed in
+  // generateStudyPlan; null means current and target sit on incomparable
+  // scales with no honest conversion — never fabricate a gap from raw
+  // subtraction (composite 920 minus a math-section 750 is not "past your
+  // target").
+  const scoreGap = gapBasis ? gapBasis.target - gapBasis.current : null;
+  const gapLabel = gapBasis?.label || '';
   const totalWrong = diagnostic.errorPatterns.totalWrong;
   const dominantError = diagnostic.errorPatterns.dominantPattern;
 
@@ -867,20 +941,24 @@ const generatePlanSummary = (diagnostic, weeklyPlan, intensity, totalWeeks, days
   // fallback; the AI headline (when present) overrides it in mergeHybridPlan.
   const topGapName = skillGaps[0]?.skillName || null;
   let headline;
-  if (scoreGap <= 0) {
-    headline = `You're past your target. Hold ${currentScore} and stretch higher.`;
+  if (scoreGap === null) {
+    headline = topGapName
+      ? `The plan front-loads your costliest gaps, starting with ${topGapName}.`
+      : 'The plan front-loads your costliest gaps.';
+  } else if (scoreGap <= 0) {
+    headline = `You're past your target${gapLabel}. Hold ${gapBasis.current} and stretch higher.`;
   } else if (scoreGap <= 30) {
     headline = topGapName
-      ? `${scoreGap} points to go — most of it sitting in ${topGapName}.`
-      : `${scoreGap} points to go. A handful of fixes covers it.`;
+      ? `${scoreGap} points to go${gapLabel} — most of it sitting in ${topGapName}.`
+      : `${scoreGap} points to go${gapLabel}. A handful of fixes covers it.`;
   } else if (scoreGap <= 80) {
     headline = topGapName
-      ? `${scoreGap} points to go, starting with ${topGapName}.`
-      : `${scoreGap} points to go, concentrated in a few fixable skills.`;
+      ? `${scoreGap} points to go${gapLabel}, starting with ${topGapName}.`
+      : `${scoreGap} points to go${gapLabel}, concentrated in a few fixable skills.`;
   } else if (scoreGap <= 150) {
-    headline = `${scoreGap} points to go. The plan front-loads your costliest gaps.`;
+    headline = `${scoreGap} points to go${gapLabel}. The plan front-loads your costliest gaps.`;
   } else {
-    headline = `${scoreGap} points is a long climb — the plan starts where the points are cheapest. More runway helps if your test date can move.`;
+    headline = `${scoreGap} points${gapLabel} is a long climb — the plan starts where the points are cheapest. More runway helps if your test date can move.`;
   }
 
   // Build the "key insight" — the single most important thing the student should know
@@ -1016,6 +1094,11 @@ const deriveSignalAwareNextAction = (weeklyPlan, diagnostic) => {
     duration: best.duration,
     moduleId: best.moduleId || null,
     lessonId: best.lessonId || null,
+    // Drill-shaped activities (format v2) route by skill instead of module —
+    // consumers need these to launch the Do-This-First CTA.
+    skillId: best.skillId || null,
+    skillName: best.skillName || null,
+    section: best.section || null,
   };
 };
 
@@ -1084,8 +1167,12 @@ const calculateGapPriority = (skill, diagnostic) => {
   // Base: inverse of accuracy (0% = 100 priority, 100% = 0)
   priority += (100 - (skill.testAccuracy || 0));
 
-  // Bonus for domain weight
-  const domainWeight = skillTaxonomy.domains[skill.domain]?.satWeight || 0.15;
+  // Bonus for domain weight — math domains from the taxonomy, R&W domains
+  // from the local share map (the generic 0.15 fallback systematically
+  // ranked every R&W gap below weighted math domains).
+  const domainWeight = skillTaxonomy.domains[skill.domain]?.satWeight
+    ?? RW_DOMAIN_SAT_WEIGHT[skill.domain]
+    ?? 0.15;
   priority += domainWeight * 50;
 
   // Bonus for conceptual gaps (harder to fix = start earlier)
@@ -1357,6 +1444,14 @@ const generateMicroGoals = (diagnostic, skillGaps, totalWeeks) => {
         { title: 'Formula Flash', description: 'Write down 5 key formulas from memory, then check if you got them right.', duration: 3, category: 'memory', icon: null },
       ]
     },
+    {
+      // R&W warm-ups join the rotation when the diagnosis has R&W gaps.
+      condition: () => skillGaps.some(g => g.section === 'rw'),
+      goals: [
+        { title: 'Words in Context Warm-Up', description: 'Read 3 sentences with a blank or hard word and predict the meaning from context before checking.', duration: 3, category: 'fundamentals', icon: null },
+        { title: 'Transition Check', description: 'Find 3 transition words in anything you read today and name the relationship each one signals.', duration: 3, category: 'fundamentals', icon: null },
+      ]
+    },
   ];
 
   // Collect applicable goals
@@ -1413,7 +1508,7 @@ const generateMicroGoals = (diagnostic, skillGaps, totalWeeks) => {
  * Shows students: "If you do 100% of the plan → X score,
  * if you do 75% → Y score, if you do 50% → Z score"
  */
-const calculateAdherenceProjection = (weeklyPlan, currentScore, targetScore, totalWeeks) => {
+const calculateAdherenceProjection = (weeklyPlan, currentScore, targetScore, totalWeeks, scoreCeiling = 800) => {
   const scoreGap = targetScore - currentScore;
   const totalActivities = weeklyPlan.reduce((s, w) =>
     s + w.activities.length, 0
@@ -1426,7 +1521,9 @@ const calculateAdherenceProjection = (weeklyPlan, currentScore, targetScore, tot
     // Diminishing returns: first 50% of activities give 65% of gains
     const effectiveFraction = Math.pow(fraction, 0.85);
     const projectedGain = Math.round(scoreGap * effectiveFraction);
-    return Math.min(800, currentScore + projectedGain);
+    // Ceiling matches the basis scale (1600 composite / 800 section) —
+    // the old hardcoded 800 clamped every composite projection.
+    return Math.min(scoreCeiling, currentScore + projectedGain);
   };
 
   return {
