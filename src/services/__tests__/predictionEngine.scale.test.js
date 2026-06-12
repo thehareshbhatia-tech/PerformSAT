@@ -65,6 +65,38 @@ describe('generatePredictions — expectedScoreRange scale', () => {
     const noSeed = generatePredictions(fp(), {}, {}, [], 'sat-2').predictions.expectedScoreRange;
     expect(noSeed).toEqual({ low: 200, high: 800, scale: 'section' });
   });
+
+  test('blank floor attempts never seed the baseline band', () => {
+    // A legacy blank row (rawScore null, composite floor) used to enter
+    // getRecentScores and drag the band toward 400. Filtered, the history is
+    // empty and the band falls back to the full default.
+    const blankOnly = {
+      t23: {
+        attempts: [{
+          scaledScore: 400, isMultiSection: true, rawScore: null,
+          completedAt: '2026-06-08T10:00:00.000Z',
+        }],
+      },
+    };
+    const r = generatePredictions(fp(), blankOnly, {}, [], 'sat-2', { isMultiSection: true })
+      .predictions.expectedScoreRange;
+    expect(r).toEqual({ low: 400, high: 1600, scale: 'composite' });
+  });
+
+  test('a participated floor attempt (rawScore > 0) still seeds the band', () => {
+    const participatedFloor = {
+      t7: {
+        attempts: [{
+          scaledScore: 400, isMultiSection: true, rawScore: 3, totalQuestions: 98,
+          completedAt: '2026-06-07T10:00:00.000Z',
+        }],
+      },
+    };
+    const r = generatePredictions(fp(), participatedFloor, {}, [], 'sat-2', { isMultiSection: true })
+      .predictions.expectedScoreRange;
+    expect(r.scale).toBe('composite');
+    expect(r.high).toBeLessThan(1600); // seeded near the floor, not the default band
+  });
 });
 
 describe('validatePrediction — headline + cross-scale handling', () => {

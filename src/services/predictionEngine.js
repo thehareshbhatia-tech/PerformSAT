@@ -13,6 +13,8 @@ import { doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
 // taxonomy.js (not the rwBank index) keeps this engine corpus-free — the
 // rwBank index flattens all 12 R&W test bundles at import time (Stage 2a).
 import { getSkillSection } from '../data/questions/rwBank/taxonomy';
+// Zero-import selector — single source of truth for blank/abandoned attempts.
+import { isBlankAttempt } from './selectors/latestTestStats';
 
 const MAX_PREDICTION_LOG = 10;
 
@@ -416,6 +418,9 @@ function getRecentScores(practiceTestResults, n) {
   for (const testData of Object.values(practiceTestResults)) {
     if (testData?.attempts) {
       for (const attempt of testData.attempts) {
+        // Blank/abandoned submissions score at the IRT floor — feeding them
+        // into baselines/velocity would drag every prediction toward 400.
+        if (isBlankAttempt(attempt)) continue;
         if (attempt.scaledScore) {
           allAttempts.push({
             score: attempt.scaledScore,
