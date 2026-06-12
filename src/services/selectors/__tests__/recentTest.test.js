@@ -107,6 +107,24 @@ describe('pickMostRecentTest', () => {
     expect(r.lastAttempt).toBe(b);
   });
 
+  it('skips a newer legacy blank row (rawScore null at the composite floor)', () => {
+    const real = { completedAt: dt('2026-06-01T10:00:00Z'), scaledScore: 1180, rawScore: 60 };
+    const data = {
+      'test-1': { attempts: [real] },
+      'test-23': {
+        attempts: [{
+          completedAt: dt('2026-06-08T10:00:00Z'),
+          scaledScore: 400,
+          isMultiSection: true,
+          rawScore: null,
+        }],
+      },
+    };
+    const r = pickMostRecentTest(data);
+    expect(r.testId).toBe('test-1');
+    expect(r.lastAttempt).toBe(real);
+  });
+
   it('breaks ties: keeps the first-seen test when timestamps tie', () => {
     const sameTs = dt('2026-05-09T15:00:00Z');
     const data = {

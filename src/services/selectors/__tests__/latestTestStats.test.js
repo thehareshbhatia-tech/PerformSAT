@@ -5,7 +5,7 @@
  * stat that can't be proven from the attempt data comes back null.
  */
 
-import { getLatestTestStats } from '../latestTestStats';
+import { getLatestTestStats, isBlankAttempt } from '../latestTestStats';
 
 const attempt = (over = {}) => ({
   completedAt: '2026-06-01T10:00:00.000Z',
@@ -16,6 +16,58 @@ const attempt = (over = {}) => ({
   sectionScores: null,
   moduleScores: null,
   ...over,
+});
+
+describe('isBlankAttempt', () => {
+  test('explicit answeredCount is authoritative both ways', () => {
+    expect(isBlankAttempt({ answeredCount: 0, scaledScore: 400 })).toBe(true);
+    // Participated but 0 raw — explicit signal wins, not the rawScore-0 signature
+    expect(isBlankAttempt({ answeredCount: 5, rawScore: 0, scaledScore: 400 })).toBe(false);
+  });
+
+  test('legacy rawScore 0 (no answeredCount) is the blank signature', () => {
+    expect(isBlankAttempt({ rawScore: 0, scaledScore: 400, isMultiSection: true })).toBe(true);
+  });
+
+  test('legacy numeric rawScore rescues even a floor score', () => {
+    // A participated attempt can land at the floor (IRT floors each section
+    // at 200) — raw evidence must always win.
+    expect(isBlankAttempt({ rawScore: 3, scaledScore: 400, isMultiSection: true })).toBe(false);
+  });
+
+  test('THE TEST-23 SHAPE: rawScore null + composite floor → blank', () => {
+    expect(isBlankAttempt({ rawScore: null, scaledScore: 400, isMultiSection: true })).toBe(true);
+  });
+
+  test('rawScore null + section floor → blank', () => {
+    expect(isBlankAttempt({ rawScore: null, scaledScore: 200, isMultiSection: false })).toBe(true);
+  });
+
+  test('rawScore null above the floor → not blank', () => {
+    expect(isBlankAttempt({ rawScore: null, scaledScore: 410, isMultiSection: true })).toBe(false);
+  });
+
+  test('moduleScores correct-count rescues a rawScore-null floor row', () => {
+    expect(isBlankAttempt({
+      rawScore: null,
+      scaledScore: 400,
+      isMultiSection: true,
+      moduleScores: [{ moduleSection: 'math', score: 2, total: 27 }],
+    })).toBe(false);
+  });
+
+  test('sectionScores pinned at 200 prove the floor without a scaledScore', () => {
+    expect(isBlankAttempt({
+      rawScore: null,
+      sectionScores: { math: 200, 'reading-writing': 200 },
+    })).toBe(true);
+  });
+
+  test('bare/minimal rows without a score are NOT blank (kept for pickMostRecentTest)', () => {
+    expect(isBlankAttempt({})).toBe(false);
+    expect(isBlankAttempt({ rawScore: null })).toBe(false);
+    expect(isBlankAttempt(null)).toBe(false);
+  });
 });
 
 describe('getLatestTestStats — guards', () => {
@@ -149,5 +201,29 @@ describe('getLatestTestStats — per-section breakdown', () => {
     });
     expect(stats.math).toBeNull();
     expect(stats.rw).toEqual({ scaled: 620, correct: 40, total: 54 });
+  });
+});
+
+describe('getLatestTestStats — legacy blank rows', () => {
+  const test23Shape = attempt({
+    completedAt: '2026-06-08T10:00:00.000Z',
+    rawScore: null,
+    totalQuestions: null,
+    scaledScore: 400,
+    isMultiSection: true,
+  });
+
+  test('a newer rawScore-null floor row never becomes the latest result', () => {
+    const stats = getLatestTestStats({
+      t1: { testTitle: 'Practice Test 1', attempts: [attempt()] },
+      t23: { testTitle: 'Practice Test 23', attempts: [test23Shape] },
+    });
+    expect(stats.scaledScore).toBe(680);
+    expect(stats.testTitle).toBe('Practice Test 1');
+    expect(stats.attemptCount).toBe(1);
+  });
+
+  test('only blank-class rows → null (take-a-test CTA, no fake 400)', () => {
+    expect(getLatestTestStats({ t23: { attempts: [test23Shape] } })).toBeNull();
   });
 });

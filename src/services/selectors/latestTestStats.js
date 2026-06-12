@@ -28,21 +28,57 @@ function toMillis(ts) {
   return null;
 }
 
+/** Sum every moduleScores row's correct count, section-agnostic. Returns the
+ * total or null when no usable rows exist (legacy rows may lack moduleScores). */
+function sumModuleCorrect(moduleScores) {
+  if (!Array.isArray(moduleScores)) return null;
+  let correct = 0;
+  let seen = false;
+  for (const m of moduleScores) {
+    if (m && typeof m.score === 'number' && typeof m.total === 'number') {
+      correct += m.score;
+      seen = true;
+    }
+  }
+  return seen ? correct : null;
+}
+
+/** Is the attempt's score pinned exactly at the IRT floor (200/section)?
+ * Prefers per-section evidence; falls back to the headline scale. */
+function isAtIrtFloor(a) {
+  const sec = (a.sectionScores && typeof a.sectionScores === 'object') ? a.sectionScores : null;
+  if (sec) {
+    const vals = Object.values(sec).filter(v => typeof v === 'number');
+    if (vals.length > 0) return vals.every(v => v === 200);
+  }
+  if (typeof a.scaledScore !== 'number') return false;
+  return a.scaledScore === (a.isMultiSection ? 400 : 200);
+}
+
 /**
- * Is this attempt a provably blank/abandoned submission? Blank submissions
- * still get an IRT floor score (200/section, composite 400) and must not
- * surface as results anywhere. `answeredCount` is the explicit signal
- * (written since 2026-06); legacy rows fall back to the rawScore-0
- * signature, which on 4-choice MC is only producible by a blank submission.
+ * Is this attempt a blank/abandoned submission? Blank submissions still get
+ * an IRT floor score (200/section, composite 400) and must not surface as
+ * results anywhere. Three signals, in priority order:
+ *   1. `answeredCount` (written since 2026-06) is authoritative both ways.
+ *   2. Legacy rows: a numeric rawScore decides — 0 is the blank signature;
+ *      any positive count proves participation (even at the floor).
+ *   3. Legacy rows with rawScore null (the 2026-04→06 writer coerced missing
+ *      counts to null): blank only when moduleScores show zero (or no)
+ *      correct answers AND the score sits exactly at the IRT floor. A floor
+ *      row with no participation evidence anywhere is indistinguishable from
+ *      a blank submit and carries zero trend signal either way.
  *
  * @param {object} a - an attempt row from practiceTestResults[testId].attempts
- * @returns {boolean} true when the attempt is provably blank
+ * @returns {boolean} true when the attempt is blank (or unprovably-participated at the floor)
  */
 export function isBlankAttempt(a) {
   if (!a) return false;
-  if (a.answeredCount === 0) return true;
-  if (a.answeredCount == null && a.rawScore === 0) return true;
-  return false;
+  if (typeof a.answeredCount === 'number') return a.answeredCount === 0;
+  if (a.rawScore === 0) return true;
+  if (a.rawScore != null) return false;
+  const correct = sumModuleCorrect(a.moduleScores);
+  if (correct !== null && correct > 0) return false;
+  return isAtIrtFloor(a);
 }
 
 /**

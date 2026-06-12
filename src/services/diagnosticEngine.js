@@ -29,6 +29,9 @@ import { SKILL_ALIAS_MAP } from '../data/questions/bank/aliases';
 import { RW_CANONICAL_SKILLS, RW_DOMAINS } from '../data/questions/rwBank/taxonomy';
 import { deriveRWPattern } from '../data/questions/rwBank/deriveRWPattern';
 import { extractSatPattern } from '../data/questions/extractSatPattern';
+// Zero-import selector (bundleGuard-safe) — the single source of truth for
+// what counts as a blank/abandoned attempt.
+import { isBlankAttempt } from './selectors/latestTestStats';
 
 // R&W canonical skills as a Set for O(1) membership checks. Used to tag
 // weakness entries with `section: 'rw'` and to infer domain when the math
@@ -1338,13 +1341,9 @@ const analyzeTrends = (currentTestId, currentScore, previousTests = {}, skillPro
     if (testData.attempts && Array.isArray(testData.attempts)) {
       testData.attempts.forEach((attempt, idx) => {
         if (typeof attempt.scaledScore !== 'number') return;
-        // Blank/abandoned submissions score at the IRT floor (200/section,
-        // composite 400) and carry no trend signal — a run of identical
-        // floor bars only flattens the chart and corrupts deltas.
-        // answeredCount is the explicit participation signal; legacy rows
-        // fall back to the rawScore-0 signature.
-        if (attempt.answeredCount === 0) return;
-        if (attempt.answeredCount == null && attempt.rawScore === 0) return;
+        // Blank/abandoned submissions carry no trend signal — the shared
+        // selector is the single source of truth for what counts as blank.
+        if (isBlankAttempt(attempt)) return;
         testHistory.push({
           testId,
           testTitle: testData.testTitle || testId,
