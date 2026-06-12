@@ -1,5 +1,29 @@
 # TODOS
 
+## Both-sections study plan — deferred goal-system work (2026-06-12)
+
+The plan now drills both sections (format v4, commits 4d12e36..c54fe33), but the GOAL
+system is still math-framed end-to-end. Deferred as a coherent future batch:
+
+- **[P2/M] collegeData has only satMath.** No satRW/satComposite columns, so the college
+  anchor ("Median Math: 710"), score tiers, and getCollegesByScoreRange are structurally
+  math-only. Real R&W/composite medians are a content task — don't double satMath.
+- **[P2/S] CollegePicker copy vs the new guard.** updateTargetSchools now refuses to
+  overwrite a composite (>800) goal with the math median, but CollegePicker still
+  ANNOUNCES the median as the target being set — copy now lies for composite accounts.
+  Reframe the picker (and its "{N} Math" badges) when collegeData grows R&W data.
+- **[P2/S] Profile goal editor clamps 200-800** (Profile.jsx ~284-300) — a composite-era
+  user cannot view/edit a 1300 goal there, and saving forces the account back to
+  section scale. StudentDashboard tempTargetScore defaults are section-scale too.
+- **[P3/S] Header "path to 750 Math"** stays for legacy section-goal accounts (honest —
+  the goal IS a math goal) until goals migrate to composite or per-section.
+- **[P3/S] mergeHybridPlan's AI nextAction** doesn't carry the new skillId/skillName/
+  section fields, so an AI-authored next action can't deep-route to a drill (falls back
+  to non-clickable). Carry the fields through the merge when AI output names a skill.
+- **[P3/S] R&W drill pools spoil future test items** — the R&W drill bank IS the 12
+  practice tests; plan-scheduled R&W volume raises exposure (24-item pools on
+  cross-text + COE-textual thin fastest). Future: dedicated R&W drill authoring.
+
 ## Loose-threads closeout — pre-existing gaps flagged by adversarial review (2026-06-12)
 
 The 16-agent review of the blank-attempt/prediction/excision commits confirmed these
