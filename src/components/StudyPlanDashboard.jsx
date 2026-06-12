@@ -6,6 +6,7 @@ import {
   getQuestionsBySkillIds as getRWQuestionsBySkillIds,
   getTargetedWeaknessSet as getRWTargetedWeaknessSet,
 } from '../data/questions/rwBank';
+import { showToast } from './ui/Toaster';
 import { getWeaknessSection, getMathWeaknesses, getRWWeaknesses } from '../services/selectors/weaknesses';
 import { resolveActivityDrill } from '../services/activityDrillRouter';
 import { applyPredictionBoost } from '../services/selectors/predictionBoost';
@@ -400,6 +401,9 @@ const StudyPlanDashboard = ({
       });
     } else if (route?.kind === 'module') {
       onStartPractice(route.moduleId, route.sectionName);
+    } else {
+      // Unroutable (no drill pool, no module) — say so instead of a dead click.
+      showToast({ type: 'info', message: 'No drill set is available for this activity yet.' });
     }
   };
 
@@ -842,6 +846,8 @@ const StudyPlanDashboard = ({
                 // Last-resort fallback — the legacy module/section path so
                 // the user at least lands SOMEWHERE rather than a dead button.
                 onStartPractice(route.moduleId, route.sectionName);
+              } else {
+                showToast({ type: 'info', message: 'No drill set is available for this activity yet.' });
               }
             }}
             onTakeTest={onStartPracticeTest}

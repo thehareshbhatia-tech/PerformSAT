@@ -18,6 +18,10 @@
  */
 
 import { hasQuestionsForSection, getSectionsWithQuestions } from '../data/questions';
+// Servability gate for drill-shaped math activities — mirrors the router's
+// cascade so an unmapped math gap whose skillId the bank can't serve emits
+// no activity (the pre-feature status quo) instead of a dead Launch button.
+import { getTargetedWeaknessSet as bankTargetedWeaknessSet, getQuestionsBySkillIds as bankQuestionsBySkillIds } from '../data/questions/bank';
 import { getSkillById, skillTaxonomy } from '../data/skillTaxonomy';
 import { ERROR_TYPES, ERROR_TYPE_LABELS, ERROR_TYPE_ICONS } from './diagnosticEngine';
 import { generatePracticeAssignments, buildAdaptiveQueueSeed, buildStrengthFocusAssignments, serializeAdaptiveState, createAdaptiveSessionState } from './practiceAssignmentService';
@@ -496,6 +500,18 @@ const mapGapsToActivities = (skillGaps, completedLessons, practiceProgress, diag
     // left every "targeted practice" week with zero tasks for students
     // whose weaknesses missed the hand-authored math module map.
     if (gap.section === 'rw' || !gap.modules || gap.modules.length === 0) {
+      if (gap.section !== 'rw') {
+        // Every R&W canonical skill has a drill pool; unmapped MATH skillIds
+        // may serve zero bank items (a dozen real test skillIds do). Mirror
+        // the router's cascade — no pool means no activity, not a dead button.
+        const servable =
+          bankTargetedWeaknessSet({
+            weakSkills: [{ skillId: gap.skillId, domain: gap.domain, missedPatterns: gap.missedPatterns }],
+            count: 1,
+          }).length > 0
+          || bankQuestionsBySkillIds([gap.skillId], { limit: 1 }).length > 0;
+        if (!servable) return;
+      }
       activities.push(buildSkillDrillActivity(gap));
       return;
     }
@@ -939,7 +955,13 @@ const generatePlanSummary = (diagnostic, weeklyPlan, intensity, totalWeeks, days
   // Build the "headline diagnosis" — coach voice: short, numeric, names the
   // student's actual top gap where one exists. This is the deterministic
   // fallback; the AI headline (when present) overrides it in mergeHybridPlan.
-  const topGapName = skillGaps[0]?.skillName || null;
+  // When the gap basis is the MATH section (' in Math'), the named gap must
+  // be a math gap — "270 points to go in Math, starting with Words in
+  // Context" would be incoherent.
+  const labelMatchedGaps = gapLabel === ' in Math'
+    ? skillGaps.filter(g => g.section !== 'rw')
+    : skillGaps;
+  const topGapName = labelMatchedGaps[0]?.skillName || null;
   let headline;
   if (scoreGap === null) {
     headline = topGapName
@@ -1020,8 +1042,12 @@ const generatePlanSummary = (diagnostic, weeklyPlan, intensity, totalWeeks, days
     diagnosis,
     keyInsight,
     stats: {
-      currentScore,
-      targetScore,
+      // Current/Target render side-by-side (DiagnosticReport StatBoxes) —
+      // they must share one scale. Use the gap basis pair; when no honest
+      // comparison exists, null the target so the consumer renders a dash
+      // instead of a cross-scale contradiction.
+      currentScore: gapBasis ? gapBasis.current : currentScore,
+      targetScore: gapBasis ? gapBasis.target : null,
       scoreGap,
       daysUntilTest,
       weeksInPlan: totalWeeks,

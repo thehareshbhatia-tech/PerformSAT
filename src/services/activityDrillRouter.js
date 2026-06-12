@@ -106,9 +106,17 @@ export function resolveActivityDrill(
     const baseW = exactWeakness || {
       skillId: activity.skillId,
       skill: activity.skillName || activity.skillId,
-      domain: prefixedWeakness?.domain || (syntheticSection === 'rw' ? undefined : 'math'),
+      // Real domain unlocks the math bank's Tier-3 domain fallback; the old
+      // literal 'math' matched no domain index and dead-ended unknown skills.
+      domain: prefixedWeakness?.domain || activity.domain || (syntheticSection === 'rw' ? undefined : 'math'),
       section: syntheticSection,
-      missedPatterns: prefixedPattern ? [prefixedPattern] : undefined,
+      // Pattern priority: a prefix-matched weakness pattern, else the
+      // activity's own persisted evidence (format v4 carries it).
+      missedPatterns: prefixedPattern
+        ? [prefixedPattern]
+        : (Array.isArray(activity.missedPatterns) && activity.missedPatterns.length > 0
+          ? activity.missedPatterns
+          : undefined),
     };
     const section = getWeaknessSection(baseW);
     const targetedQuery = section === 'rw' ? getRWTargetedWeaknessSet : getTargetedWeaknessSet;

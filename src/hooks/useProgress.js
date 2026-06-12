@@ -767,6 +767,14 @@ export const useProgress = (userId) => {
   const planUpgradeInFlight = useRef(false);
   useEffect(() => {
     if (!userId || !studyPlan || planUpgradeInFlight.current) return;
+    // CRITICAL guard (adversarial review): while artifact hydration is in
+    // flight, a second snapshot can set state to the stale ROOT-field plan
+    // copy (the listener's fallback branch). Upgrading THAT copy and writing
+    // it over the artifact doc would permanently replace the plan-of-record
+    // (which carries practiceAssignments and richer data) with an upgraded
+    // stale copy. Bail; the effect re-fires via the studyPlan dep when
+    // hydration resolves with the artifact plan.
+    if (hydratingArtifact.current || studyPlanWriteInFlight.current) return;
     if (!planNeedsUpgrade(studyPlan)) return;
     const upgraded = upgradeLegacyPlanWeeks(studyPlan);
     if (!upgraded) return;

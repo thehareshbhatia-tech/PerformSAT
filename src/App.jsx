@@ -2097,7 +2097,7 @@ const PerformSAT = () => {
                     // Drill-shaped next actions (format v2) arrive as resolved
                     // question ids — same contract as the results-path mount.
                     if (opts?.questionIds?.length) {
-                      startAssignedPractice(opts.questionIds, { label: opts.label });
+                      startAssignedPractice(opts.questionIds, { label: opts.label, weakness: opts.weakness });
                       return;
                     }
                     // Must go through startPrescriptivePractice — it populates
@@ -2170,6 +2170,7 @@ const PerformSAT = () => {
                 startAssignedPractice(opts.questionIds, {
                   label: opts.label,
                   weekNumber: opts.weekNumber,
+                  weakness: opts.weakness,
                 });
                 setSelectedPracticeTest(null);
                 return;

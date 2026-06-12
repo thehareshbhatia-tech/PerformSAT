@@ -57,6 +57,36 @@ describe('generateStudyPlan — R&W weekly activities (format v2)', () => {
     const drills = allActivities(plan).filter(a => a.activityType === 'skillDrill');
     expect(drills.every(a => a.skillId && a.skillName)).toBe(true);
   });
+
+  test('unmapped MATH gap with a real domain stays servable via the Tier-3 domain fallback', () => {
+    const diag = mkDiag();
+    diag.skillAnalysis.weakSkills.push({
+      skillId: 'center-radius-form-unknown', name: 'Center Radius Form', domain: 'geometry',
+      section: 'math', testAccuracy: 0, correct: 0, total: 2,
+      primaryErrorType: 'CONCEPTUAL_GAP', missedPatterns: [], modules: [], sections: [],
+    });
+    const p = generateStudyPlan(diag, { targetScore: 750 });
+    const act = allActivities(p).find(a => a.skillId === 'center-radius-form-unknown');
+    expect(act).toBeTruthy();
+    expect(act.domain).toBe('geometry'); // the router's synthetic needs it for the fallback
+  });
+
+  test('truly unservable MATH gaps (no skill items, no domain) emit no activity', () => {
+    const diag = mkDiag();
+    diag.skillAnalysis.weakSkills.push({
+      skillId: 'totally-unknown-skill', name: 'Unknown', domain: undefined,
+      section: 'math', testAccuracy: 0, correct: 0, total: 2,
+      primaryErrorType: 'CONCEPTUAL_GAP', missedPatterns: [], modules: [], sections: [],
+    });
+    const p = generateStudyPlan(diag, { targetScore: 750 });
+    expect(allActivities(p).some(a => a.skillId === 'totally-unknown-skill')).toBe(false);
+  });
+
+  test('drill activities carry their gap\'s missedPatterns for post-cap Tier-1 routing', () => {
+    const trans = allActivities(plan).find(a => a.skillId === 'transitions');
+    expect(trans).toBeTruthy();
+    expect(trans.missedPatterns).toEqual(['transitions-contrast']);
+  });
 });
 
 describe('generateStudyPlan — scale-guarded score gap', () => {

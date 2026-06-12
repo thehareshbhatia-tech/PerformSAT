@@ -61,6 +61,15 @@ export const buildSkillDrillActivity = (gap) => {
     duration: 15,
     priority: gap.priority ?? 50,
     icon: null,
+    // Routing evidence that must survive the weakness aging out of the
+    // top-8 list: missedPatterns keep Tier-1 alive, domain keeps the math
+    // bank's Tier-3 domain fallback reachable (the router's synthetic used
+    // to lose it — that was the dead-Launch-button class). Omit when absent,
+    // never undefined — Firestore rejects undefined.
+    ...(Array.isArray(gap.missedPatterns) && gap.missedPatterns.length > 0
+      ? { missedPatterns: gap.missedPatterns }
+      : {}),
+    ...(gap.domain ? { domain: gap.domain } : {}),
   };
 };
 
@@ -110,6 +119,8 @@ export const upgradeLegacyPlanWeeks = (plan) => {
       skillId: w.skillId,
       skillName: w.skill || w.name,
       section,
+      missedPatterns: w.missedPatterns,
+      domain: w.domain,
     }));
   });
   const interleaved = [];

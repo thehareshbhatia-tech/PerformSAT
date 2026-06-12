@@ -30,6 +30,7 @@ import {
   getQuestionsBySkillIds as getRWQuestionsBySkillIds,
 } from '../data/questions/rwBank';
 import { getDrillChipForWeakness } from '../services/selectors/drillChip';
+import { showToast } from './ui/Toaster';
 import ErrorRecoveryDrills from './ErrorRecoveryDrills';
 import { MathText } from './MathText';
 import Avatar, { AVATAR_SIZES } from './ui/Avatar';
@@ -660,7 +661,11 @@ const DiagnosticReport = ({
       getDrillChipForWeakness,
     });
     if (route?.kind === 'assigned') {
-      onStartPractice(null, null, { questionIds: route.questionIds, label: route.label });
+      // weakness rides along so drill completion auto-checks the plan task
+      // (App's completion handler matches on assignmentMeta.weakness).
+      onStartPractice(null, null, { questionIds: route.questionIds, label: route.label, weakness: route.weakness });
+    } else {
+      showToast({ type: 'info', message: 'No drill set is available for this activity yet.' });
     }
   };
 
@@ -692,7 +697,8 @@ const DiagnosticReport = ({
 
         <div style={{ display: 'flex', gap: '1px', background: 'rgba(255,255,255,0.08)', borderRadius: radius.sm, overflow: 'hidden' }}>
           <StatBox value={planSummary.stats.currentScore} label="Current" color="white" />
-          <StatBox value={planSummary.stats.targetScore} label="Target" color={colors.accent.orange} />
+          {/* null target = no honest same-scale comparison exists (cross-scale account) */}
+          <StatBox value={planSummary.stats.targetScore ?? '—'} label="Target" color={colors.accent.orange} />
           <StatBox value={`${planSummary.stats.minutesPerDay}m`} label="Per Day" color="white" />
           <StatBox value={planSummary.stats.weeksInPlan} label="Weeks" color="white" />
         </div>
