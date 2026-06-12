@@ -14,12 +14,9 @@ import LandingPage from './components/LandingPage';
 import PrivacyPolicy from './components/legal/PrivacyPolicy';
 import TermsOfService from './components/legal/TermsOfService';
 import PushOptInCard from './components/PushOptInCard';
-import AiTutorButton from './components/AiTutorButton';
-import QuestionDiagram from './components/QuestionDiagrams';
 import { runDiagnostic } from './services/diagnosticEngine';
-import SolutionExplanation from './components/SolutionExplanation';
-import { getDifficultyBadge, calculateWeightedScore } from './services/adaptiveService';
-import { addToReviewQueue, getDueReviewCount } from './services/reviewService';
+import { getDifficultyBadge } from './services/adaptiveService';
+import { addToReviewQueue } from './services/reviewService';
 import { calculateOptimalDifficulty } from './services/recommendationService';
 import AppShell from './components/ui/AppShell';
 import ErrorBoundary from './components/ui/ErrorBoundary';
@@ -73,7 +70,7 @@ import { logInfo, logWarn } from './utils/log';
 // chunk fetches; key={view} on that div remounts the boundary per navigation.
 // KEEP EAGER: LandingPage, PrivacyPolicy/TermsOfService (render via early
 // return BEFORE the router), AppShell, ErrorBoundary, Toaster, CommandPalette,
-// PushOptInCard, QuestionDiagram, SolutionExplanation, ReviewItemCard, icons.
+// PushOptInCard, ReviewItemCard, icons.
 const StudentDashboard = React.lazy(() => import('./components/StudentDashboard'));
 const AiTutorChat = React.lazy(() => import('./components/AiTutorChat'));
 const PracticeTest = React.lazy(() => import('./components/PracticeTest'));
@@ -251,7 +248,6 @@ const PerformSAT = () => {
   // section's first module on fresh start (instead of always starting at M1).
   const [initialTestSection, setInitialTestSection] = useState(null);
   const [viewingResultsData, setViewingResultsData] = useState(null); // { test, answers, diagnosticData, diagnosticReport }
-  const [showAiTutor, setShowAiTutor] = useState(false);
 
   // Practice state.
   //
@@ -280,7 +276,7 @@ const PerformSAT = () => {
     answers: {},
     isComplete: false,
     shuffledQuestions: [], // Store randomized questions
-    practiceMode: 'standard' // 'standard' | 'adaptive'
+    practiceMode: 'standard' // pre-launch default; every live launcher sets 'assigned' | 'adaptive'
   });
 
   // Past-Test-Review state (Phase 6 of PAST_TEST_REVIEW_PLAN.md).
@@ -322,7 +318,7 @@ const PerformSAT = () => {
   }, [showCalculator]);
 
   const { user, loading, logout, updateTestDate, updateTargetScore, updateCurrentScore, updateTargetSchools, updateProfilePhoto, updateFirstName, markOnboardingComplete, markOnboardingSkipped } = useAuth();
-  const { loading: progressLoading, hydrated: progressHydrated, completedLessons, practiceProgress, drillDays, reviewQueue, reviewStreak, skillProgress, answeredQuestionIds, practiceTestResults, inProgressTests, studyPlan, studyPlanMeta, studyPlanArtifact, predictionLog, interventionLog, studentFingerprint, miniDiagnostic, recordPracticeAttempt, recordDrillSkillAttempts, recordPracticedDay, hasPracticed, getBestScore, getDueCount, getReviewStatistics, getSkillDiagnosticSummary, getSkillBreakdown, recordPracticeTestAttempt, getTestBestScore, getTestAttempts, saveTestProgress, clearTestProgress, getTestProgress, hasTestProgress, saveMiniDiagnostic, saveStudyPlan, markStudyActivityComplete, unmarkStudyActivityComplete, markLessonComplete, isLessonCompleted, getModuleProgress, lastSaveStatus, retryLastSave } = useProgress(user?.uid);
+  const { loading: progressLoading, hydrated: progressHydrated, completedLessons, practiceProgress, drillDays, reviewQueue, reviewStreak, skillProgress, answeredQuestionIds, practiceTestResults, inProgressTests, studyPlan, studyPlanMeta, studyPlanArtifact, predictionLog, interventionLog, studentFingerprint, miniDiagnostic, recordDrillSkillAttempts, recordPracticedDay, getDueCount, getReviewStatistics, getSkillDiagnosticSummary, getSkillBreakdown, recordPracticeTestAttempt, getTestBestScore, getTestAttempts, saveTestProgress, clearTestProgress, getTestProgress, hasTestProgress, saveMiniDiagnostic, saveStudyPlan, markStudyActivityComplete, unmarkStudyActivityComplete, markLessonComplete, isLessonCompleted, getModuleProgress, lastSaveStatus, retryLastSave } = useProgress(user?.uid);
 
   // Mount the analytics session lifecycle (session_start / session_end +
   // beforeunload flush). Previously orphaned — the hook existed but was never
@@ -694,27 +690,6 @@ const PerformSAT = () => {
     setView('practice');
   };
 
-  const startSectionPractice = async (moduleId, sectionName, mode = 'standard') => {
-    // Get shuffled questions for this practice session
-    const { getRandomQuestions } = await loadTopicQuestions();
-    const shuffledQuestions = getRandomQuestions(moduleId, sectionName, null, { shuffle: true });
-
-    setPracticeState({
-      currentQuestionIndex: 0,
-      selectedAnswer: null,
-      showFeedback: false,
-      showHint: false,
-      answers: {},
-      isComplete: false,
-      shuffledQuestions,
-      practiceMode: mode
-    });
-    setActiveModule(moduleId);
-    setActiveSection(sectionName);
-    setShowCalculator(false);
-    setView('practice');
-  };
-
   // Launch a timed pacing drill (Phase 2 — pacingService runner). The card
   // passes the chosen mode config; we source MCQ bank questions matching its
   // difficulty filter, then hand off to the self-contained PacingDrill runner.
@@ -736,7 +711,6 @@ const PerformSAT = () => {
       return;
     }
     setPacingSession({ config, questions });
-    setShowAiTutor(false);
     setView('pacingDrill');
   };
 
@@ -862,8 +836,8 @@ const PerformSAT = () => {
    *
    * Sets `reviewMode: true` so the shell renders a "review session" banner.
    * Already-safe constraints (no extra guards needed):
-   *   • recordPracticeAttempt at the completion handler is gated by
-   *     !isAdaptiveOrAssigned, so review-mode attempts don't pollute skill
+   *   • legacy free-practice recording was removed with the standard/
+   *     prescriptive UI, so review-mode attempts can't pollute skill
    *     mastery counters.
    *   • buildGroundTruthDiagnosis lives in services/groundTruth.js and is
    *     only invoked from PracticeTest.jsx (not App.jsx), so a review-mode
@@ -1145,10 +1119,7 @@ const PerformSAT = () => {
 
     const isAdaptiveOrAssigned = practiceState.practiceMode === 'assigned' || practiceState.practiceMode === 'adaptive';
     const isReviewSession = practiceState.assignmentMeta?.source === 'review-queue';
-    if (user?.uid && activeModule && activeSection && !isAdaptiveOrAssigned) {
-      // Legacy free-practice path: enqueue every answer (index-resolvable).
-      addToReviewQueue(user.uid, activeModule, activeSection, question.id, isCorrect);
-    } else if (user?.uid && isAdaptiveOrAssigned && !isReviewSession && !isCorrect && question?.id != null) {
+    if (user?.uid && isAdaptiveOrAssigned && !isReviewSession && !isCorrect && question?.id != null) {
       // Phase 2: feed production-drill MISSES into the review queue. Stored
       // bank-resolvable (moduleId='bank' + real question id) so spaced repetition
       // can re-serve the exact item. Skip review sessions (the review-complete
@@ -1196,12 +1167,11 @@ const PerformSAT = () => {
       }
 
       // Close the drill→mastery loop: assigned/adaptive drill answers update
-      // skillProgress just like free practice and full tests already do, so a
-      // week of drilling moves mastery and the weakness lists between tests.
-      // Excluded: standard free practice (recordPracticeAttempt already records
-      // skills on that path), daily-review sessions (early-returned above; SM-2
-      // owns that evidence), and review-retry sessions (the "won't affect your
-      // study plan" banner is a promise we keep).
+      // skillProgress just like full tests already do, so a week of drilling
+      // moves mastery and the weakness lists between tests.
+      // Excluded: daily-review sessions (early-returned above; SM-2 owns that
+      // evidence) and review-retry sessions (the "won't affect your study
+      // plan" banner is a promise we keep).
       const isAdaptiveOrAssigned = practiceState.practiceMode === 'assigned' || practiceState.practiceMode === 'adaptive';
       if (user?.uid && isAdaptiveOrAssigned && !practiceState.reviewMode) {
         recordDrillSkillAttempts(answersMap);
@@ -1254,12 +1224,6 @@ const PerformSAT = () => {
   };
 
   const handleNextQuestion = (questions) => {
-    setShowAiTutor(false);
-    const isAdaptiveOrAssigned = practiceState.practiceMode === 'assigned' || practiceState.practiceMode === 'adaptive';
-    if (!isAdaptiveOrAssigned) {
-      sessionStorage.removeItem(`aiTutorChat_${activeModule}_practice-${activeSection}-q${practiceState.currentQuestionIndex}`);
-    }
-
     // Adaptive mode: ask the queue engine for the next question
     if (practiceState.practiceMode === 'adaptive') {
       // Routing namespace was stashed by startAdaptivePractice before this
@@ -1396,9 +1360,6 @@ const PerformSAT = () => {
       }));
     } else {
       const correctCount = Object.values(practiceState.answers).filter(a => a.correct).length;
-      if (user && activeModule && activeSection && !isAdaptiveOrAssigned) {
-        recordPracticeAttempt(activeModule, activeSection, practiceState.answers, correctCount, questions.length);
-      }
       // Past-Test-Review retry-drill completion telemetry (Phase 7).
       // `retryQuestionCount` is the number of items in this retry session
       // (may include Try-Similar additions); `originalWrongCount` is the
@@ -1684,7 +1645,7 @@ const PerformSAT = () => {
           else if (navId === 'modules') { setView('modules'); setActiveModule(null); setActiveLesson(null); }
           else if (navId === 'practiceTests') { setView('practiceTests'); setSelectedPracticeTest(null); }
           else if (navId === 'studyPlan') { setView('studyPlan'); }
-          else if (navId === 'tutor') { setView('tutor'); setShowAiTutor(false); }
+          else if (navId === 'tutor') { setView('tutor'); }
           else if (navId === 'profile') { setView('profile'); }
           else if (navId === 'practiceBank') { setView('practiceBank'); }
           else { setView(navId); }
@@ -1713,7 +1674,7 @@ const PerformSAT = () => {
           <div style={{ maxWidth: '720px', margin: '0 auto' }}>
             <AiTutorChat
               isOpen={true}
-              onClose={() => { setView('dashboard'); setShowAiTutor(false); }}
+              onClose={() => { setView('dashboard'); }}
               moduleId={activeModule}
               lessonId={activeLesson}
               currentQuestion={null}
@@ -2419,7 +2380,6 @@ const PerformSAT = () => {
             : [];
           if (questions.length === 0) return null;
           const currentQuestion = questions[practiceState.currentQuestionIndex];
-          const difficultyBadge = currentQuestion?.difficulty ? getDifficultyBadge(currentQuestion.difficulty) : null;
 
           const studyPlanBackHandler = () => {
             setActiveSection(null);
@@ -2457,10 +2417,6 @@ const PerformSAT = () => {
             : isAssigned
               ? (practiceState.assignmentMeta?.label || 'Assigned Practice')
               : activeSection;
-
-          const adaptiveProgress = isAdaptive && practiceState.adaptiveSessionState
-            ? `${practiceState.adaptiveSessionState.answered.length + (practiceState.showFeedback ? 0 : 0)}/${practiceState.adaptiveSessionState.sessionLength}`
-            : null;
 
           // Assigned practice uses its own dedicated shell
           if (isAssigned) {
@@ -2541,1065 +2497,9 @@ const PerformSAT = () => {
             );
           }
 
-          // Results screen
-          if (practiceState.isComplete) {
-            const answeredEntries = Object.values(practiceState.answers);
-            const totalQuestions = questions.length;
-            const correctCount = answeredEntries.filter(a => a.correct).length;
-            const percentage = totalQuestions > 0 ? Math.round((correctCount / totalQuestions) * 100) : 0;
-            const isGood = percentage >= 80;
-            const isOkay = percentage >= 40;
-
-            // Calculate scores by difficulty
-            const difficultyStats = { easy: { total: 0, correct: 0 }, medium: { total: 0, correct: 0 }, hard: { total: 0, correct: 0 } };
-            questions.forEach(q => {
-              const diff = q.difficulty || 'medium';
-              difficultyStats[diff].total++;
-              if (practiceState.answers[q.id]?.correct) {
-                difficultyStats[diff].correct++;
-              }
-            });
-
-            return (
-              <div style={{ maxWidth: '600px', margin: '0 auto', textAlign: 'center' }}>
-                <button
-                  onClick={backHandler}
-                  style={{
-                    background: 'none',
-                    border: 'none',
-                    padding: 0,
-                    fontSize: '14px',
-                    color: '#ea580c',
-                    cursor: 'pointer',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '6px',
-                    marginBottom: '48px',
-                    fontWeight: '500'
-                  }}
-                >
-                  ← Back to Study Plan
-                </button>
-
-                <div style={{
-                  width: '120px',
-                  height: '120px',
-                  borderRadius: '50%',
-                  background: isGood ? 'rgba(16, 185, 129, 0.1)' : isOkay ? 'rgba(234, 179, 8, 0.1)' : 'rgba(239, 68, 68, 0.1)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  margin: '0 auto 32px'
-                }}>
-                  <span style={{
-                    fontSize: '48px',
-                    fontWeight: '700',
-                    color: isGood ? '#10b981' : isOkay ? '#eab308' : '#ef4444'
-                  }}>
-                    {correctCount}
-                  </span>
-                  <span style={{ fontSize: '24px', color: '#6b7280' }}>/{totalQuestions}</span>
-                </div>
-
-                <h2 style={{ fontSize: '28px', fontWeight: '700', color: '#1d1d1f', marginBottom: '12px' }}>
-                  {isGood ? 'Excellent!' : isOkay ? 'Good effort!' : 'Keep practicing!'}
-                </h2>
-                <p style={{ fontSize: '16px', color: '#6b7280', marginBottom: '32px' }}>
-                  You got {correctCount} out of {totalQuestions} questions correct ({percentage}%)
-                </p>
-
-                {/* Difficulty Breakdown */}
-                <div style={{
-                  background: '#f9fafb',
-                  borderRadius: '16px',
-                  padding: '24px',
-                  marginBottom: '32px',
-                  textAlign: 'left'
-                }}>
-                  <h3 style={{ fontSize: '14px', fontWeight: '600', color: '#6b7280', marginBottom: '16px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
-                    By Difficulty
-                  </h3>
-                  {[
-                    { key: 'easy', label: 'Easy', color: '#10b981', bg: 'rgba(16, 185, 129, 0.12)' },
-                    { key: 'medium', label: 'Medium', color: '#f59e0b', bg: 'rgba(245, 158, 11, 0.12)' },
-                    { key: 'hard', label: 'Hard', color: '#ef4444', bg: 'rgba(239, 68, 68, 0.12)' }
-                  ].map(({ key, label, color, bg }) => {
-                    const stats = difficultyStats[key];
-                    if (stats.total === 0) return null;
-                    const pct = Math.round((stats.correct / stats.total) * 100);
-                    return (
-                      <div key={key} style={{ display: 'flex', alignItems: 'center', marginBottom: '12px' }}>
-                        <span style={{
-                          fontSize: '12px',
-                          fontWeight: '600',
-                          padding: '4px 10px',
-                          borderRadius: '10px',
-                          background: bg,
-                          color: color,
-                          width: '70px',
-                          textAlign: 'center'
-                        }}>
-                          {label}
-                        </span>
-                        <div style={{ flex: 1, marginLeft: '16px', marginRight: '12px' }}>
-                          <div style={{ height: '8px', background: '#e5e7eb', borderRadius: '4px', overflow: 'hidden' }}>
-                            <div style={{ height: '100%', width: `${pct}%`, background: color, borderRadius: '4px', transition: 'width 0.3s' }} />
-                          </div>
-                        </div>
-                        <span style={{ fontSize: '14px', fontWeight: '600', color: '#374151', minWidth: '80px', textAlign: 'right' }}>
-                          {stats.correct}/{stats.total} ({pct}%)
-                        </span>
-                      </div>
-                    );
-                  })}
-                </div>
-
-                <div style={{ display: 'flex', gap: '16px', justifyContent: 'center' }}>
-                  <button
-                    onClick={() => startSectionPractice(activeModule, activeSection)}
-                    style={{
-                      padding: '16px 32px',
-                      borderRadius: '12px',
-                      border: '2px solid #ea580c',
-                      background: '#fff',
-                      color: '#ea580c',
-                      fontSize: '16px',
-                      fontWeight: '600',
-                      cursor: 'pointer'
-                    }}
-                  >
-                    Try Again
-                  </button>
-                  <button
-                    onClick={backHandler}
-                    style={{
-                      padding: '16px 32px',
-                      borderRadius: '12px',
-                      border: 'none',
-                      background: '#ea580c',
-                      color: '#fff',
-                      fontSize: '16px',
-                      fontWeight: '600',
-                      cursor: 'pointer'
-                    }}
-                  >
-                    {isStudyPlanMode ? 'Back to Study Plan' : 'Done'}
-                  </button>
-                </div>
-              </div>
-            );
-          }
-
-          return (
-            <>
-              {/* Practice Header */}
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '32px' }}>
-                <button
-                  onClick={backHandler}
-                  style={{
-                    background: 'none',
-                    border: 'none',
-                    padding: 0,
-                    fontSize: '14px',
-                    color: '#ea580c',
-                    cursor: 'pointer',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '6px',
-                    fontWeight: '500'
-                  }}
-                >
-                  ← Back
-                </button>
-
-                <h1 style={{ fontSize: '20px', fontWeight: '600', color: '#1d1d1f' }}>
-                  {headerTitle}
-                  {adaptiveProgress && (
-                    <span style={{ fontSize: '13px', fontWeight: '500', color: '#6b7280', marginLeft: '8px' }}>
-                      {adaptiveProgress}
-                    </span>
-                  )}
-                </h1>
-
-                <button
-                  onClick={() => setShowCalculator(!showCalculator)}
-                  style={{
-                    background: showCalculator ? '#ea580c' : '#1d1d1f',
-                    border: 'none',
-                    borderRadius: '8px',
-                    padding: '10px 16px',
-                    fontSize: '14px',
-                    fontWeight: '600',
-                    color: '#fff',
-                    cursor: 'pointer',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '8px'
-                  }}
-                >
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <rect x="4" y="2" width="16" height="20" rx="2" />
-                    <line x1="8" y1="6" x2="16" y2="6" />
-                    <line x1="8" y1="10" x2="8" y2="10.01" />
-                    <line x1="12" y1="10" x2="12" y2="10.01" />
-                    <line x1="16" y1="10" x2="16" y2="10.01" />
-                  </svg>
-                  {showCalculator ? 'Hide Calculator' : 'DESMOS Calculator'}
-                </button>
-              </div>
-
-              {/* Recommended Difficulty Indicator - Prescriptive Mode */}
-              {practiceState.practiceMode === 'prescriptive' && practiceState.recommendedDifficulty && (
-                <div style={{
-                  background: 'linear-gradient(135deg, rgba(234, 88, 12, 0.08) 0%, rgba(234, 88, 12, 0.04) 100%)',
-                  padding: '14px 20px',
-                  borderRadius: '12px',
-                  marginBottom: '24px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '10px',
-                  border: '1px solid rgba(234, 88, 12, 0.15)'
-                }}>
-                  <span style={{ fontSize: '16px' }}>
-                    {practiceState.recommendedDifficulty === 'easy' ? '🌱' :
-                     practiceState.recommendedDifficulty === 'medium' ? '🎯' : '🔥'}
-                  </span>
-                  <span style={{ fontSize: '14px', color: '#ea580c', fontWeight: '500' }}>
-                    <strong style={{ textTransform: 'capitalize' }}>{practiceState.recommendedDifficulty}</strong> difficulty selected based on your performance
-                  </span>
-                </div>
-              )}
-
-              {/* Full Screen Calculator Modal — Math only; the calculator is
-                  not a Reading & Writing affordance on the digital SAT. Gated
-                  here too (not just the toggle button) so a calculator left
-                  open during a math drill doesn't carry into an R&W item. */}
-              {showCalculator && currentQuestion?.section !== 'rw' && (
-                <div style={{
-                  position: 'fixed',
-                  top: 0,
-                  left: 0,
-                  right: 0,
-                  bottom: 0,
-                  background: 'rgba(0,0,0,0.92)',
-                  zIndex: 9999,
-                  display: 'flex',
-                  padding: '24px',
-                  gap: '24px'
-                }}>
-                  {/* Left: Question Panel (50%) */}
-                  <div style={{
-                    flex: '1 1 50%',
-                    background: '#fff',
-                    borderRadius: '20px',
-                    padding: '40px',
-                    overflow: 'auto',
-                    display: 'flex',
-                    flexDirection: 'column'
-                  }}>
-                    {/* Modal Progress indicator */}
-                    <div style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '8px',
-                      marginBottom: '32px'
-                    }}>
-                      {questions.map((_, idx) => (
-                        <div
-                          key={idx}
-                          style={{
-                            flex: 1,
-                            height: '6px',
-                            borderRadius: '3px',
-                            background: practiceState.answers[questions[idx]?.id]
-                              ? (practiceState.answers[questions[idx].id].correct ? '#10b981' : '#ef4444')
-                              : idx === practiceState.currentQuestionIndex
-                                ? '#ea580c'
-                                : '#e5e5e5'
-                          }}
-                        />
-                      ))}
-                    </div>
-
-                    {/* Modal Question number and difficulty */}
-                    <div style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'space-between',
-                      marginBottom: '20px'
-                    }}>
-                      <span style={{
-                        fontSize: '15px',
-                        fontWeight: '600',
-                        color: '#6b7280'
-                      }}>
-                        Question {practiceState.currentQuestionIndex + 1} of {questions.length}
-                      </span>
-                      {difficultyBadge && (
-                        <span style={{
-                          fontSize: '13px',
-                          fontWeight: '600',
-                          padding: '5px 12px',
-                          borderRadius: '12px',
-                          background: difficultyBadge.color === '#10b981' ? 'rgba(16, 185, 129, 0.12)'
-                            : difficultyBadge.color === '#f59e0b' ? 'rgba(245, 158, 11, 0.12)'
-                            : 'rgba(239, 68, 68, 0.12)',
-                          color: difficultyBadge.color
-                        }}>
-                          {difficultyBadge.label}
-                        </span>
-                      )}
-                    </div>
-
-                    {/* Question Diagram (if present) */}
-                    {currentQuestion.diagram && (
-                      <div style={{
-                        marginBottom: '24px',
-                        display: 'flex',
-                        justifyContent: 'center'
-                      }}>
-                        <QuestionDiagram
-                          type={currentQuestion.diagram.type}
-                          params={currentQuestion.diagram.params}
-                        />
-                      </div>
-                    )}
-
-                    {/* Modal Question text */}
-                    <h2 style={{
-                      fontSize: '26px',
-                      fontWeight: '600',
-                      color: '#1d1d1f',
-                      lineHeight: 1.4,
-                      marginBottom: currentQuestion.questionFormula ? '16px' : '36px',
-                      whiteSpace: 'pre-line'
-                    }}>
-                      {currentQuestion.question}
-                    </h2>
-
-                    {/* Question Formula (if present) */}
-                    {currentQuestion.questionFormula && (
-                      <div style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        marginBottom: '36px',
-                        fontSize: '22px',
-                        fontFamily: 'Georgia, serif',
-                        fontStyle: 'italic',
-                        color: '#1d1d1f'
-                      }}>
-                        {currentQuestion.questionFormula.text}
-                        {currentQuestion.questionFormula.fraction && (
-                          <span style={{
-                            display: 'inline-flex',
-                            flexDirection: 'column',
-                            alignItems: 'center',
-                            marginLeft: currentQuestion.questionFormula.text ? '4px' : '0'
-                          }}>
-                            <span style={{ padding: '0 8px' }}>{currentQuestion.questionFormula.fraction.numerator}</span>
-                            <span style={{
-                              width: '100%',
-                              height: '2px',
-                              background: '#1d1d1f',
-                              margin: '3px 0'
-                            }} />
-                            <span style={{ padding: '0 8px' }}>{currentQuestion.questionFormula.fraction.denominator}</span>
-                          </span>
-                        )}
-                        {currentQuestion.questionFormula.textAfter && (
-                          <span style={{ marginLeft: '4px' }}>{currentQuestion.questionFormula.textAfter}</span>
-                        )}
-                      </div>
-                    )}
-
-                    {/* Modal Answer choices */}
-                    <div style={{ marginBottom: '28px', flex: 1 }}>
-                      {currentQuestion.choices.map((choice) => {
-                        const isSelected = practiceState.selectedAnswer === choice.id;
-                        const isCorrect = choice.id === currentQuestion.correctAnswer;
-                        const showResult = practiceState.showFeedback;
-
-                        let borderColor = 'rgba(0,0,0,0.1)';
-                        let bgColor = '#fff';
-
-                        if (showResult) {
-                          if (isCorrect) {
-                            borderColor = '#10b981';
-                            bgColor = 'rgba(16, 185, 129, 0.08)';
-                          } else if (isSelected && !isCorrect) {
-                            borderColor = '#ef4444';
-                            bgColor = 'rgba(239, 68, 68, 0.08)';
-                          }
-                        } else if (isSelected) {
-                          borderColor = '#ea580c';
-                          bgColor = 'rgba(234, 88, 12, 0.05)';
-                        }
-
-                        return (
-                          <div
-                            key={choice.id}
-                            onClick={() => handleSelectAnswer(choice.id)}
-                            style={{
-                              padding: '18px 24px',
-                              borderRadius: '14px',
-                              border: `2px solid ${borderColor}`,
-                              background: bgColor,
-                              cursor: practiceState.showFeedback ? 'default' : 'pointer',
-                              marginBottom: '14px',
-                              display: 'flex',
-                              alignItems: 'center',
-                              gap: '14px',
-                              transition: 'all 0.15s ease'
-                            }}
-                          >
-                            <span style={{
-                              width: '32px',
-                              height: '32px',
-                              borderRadius: '8px',
-                              background: showResult
-                                ? (isCorrect ? '#10b981' : isSelected ? '#ef4444' : '#f5f5f7')
-                                : (isSelected ? '#ea580c' : '#f5f5f7'),
-                              color: (showResult && (isCorrect || isSelected)) || isSelected ? '#fff' : '#6b7280',
-                              display: 'flex',
-                              alignItems: 'center',
-                              justifyContent: 'center',
-                              fontSize: '15px',
-                              fontWeight: '600'
-                            }}>
-                              {showResult && isCorrect ? '✓' : showResult && isSelected && !isCorrect ? '✗' : choice.id}
-                            </span>
-                            <span style={{
-                              fontSize: '18px',
-                              color: '#1d1d1f',
-                              display: 'flex',
-                              alignItems: 'center'
-                            }}>
-                              {choice.text}
-                              {choice.fraction && (
-                                <span style={{
-                                  display: 'inline-flex',
-                                  flexDirection: 'column',
-                                  alignItems: 'center',
-                                  marginLeft: choice.text ? '4px' : '0',
-                                  fontFamily: 'Georgia, serif',
-                                  fontStyle: 'italic'
-                                }}>
-                                  <span style={{ padding: '0 4px' }}>{choice.fraction.numerator}</span>
-                                  <span style={{
-                                    width: '100%',
-                                    height: '1px',
-                                    background: '#1d1d1f',
-                                    margin: '2px 0'
-                                  }} />
-                                  <span style={{ padding: '0 4px' }}>{choice.fraction.denominator}</span>
-                                </span>
-                              )}
-                              {choice.textAfter && (
-                                <span style={{ marginLeft: '4px' }}>{choice.textAfter}</span>
-                              )}
-                            </span>
-                          </div>
-                        );
-                      })}
-                    </div>
-
-                    {/* Modal Hint Section */}
-                    {currentQuestion.hint && !practiceState.showFeedback && (
-                      <div style={{ marginBottom: '16px' }}>
-                        {!practiceState.showHint ? (
-                          <button
-                            onClick={handleShowHint}
-                            style={{
-                              background: 'none',
-                              border: '1px solid #d1d5db',
-                              borderRadius: '8px',
-                              padding: '12px 18px',
-                              fontSize: '15px',
-                              fontWeight: '500',
-                              color: '#6b7280',
-                              cursor: 'pointer',
-                              display: 'flex',
-                              alignItems: 'center',
-                              gap: '8px'
-                            }}
-                          >
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                              <circle cx="12" cy="12" r="10" />
-                              <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
-                              <line x1="12" y1="17" x2="12.01" y2="17" />
-                            </svg>
-                            Need a hint?
-                          </button>
-                        ) : (
-                          <div style={{
-                            background: 'rgba(59, 130, 246, 0.08)',
-                            borderRadius: '14px',
-                            padding: '18px 22px',
-                            borderLeft: '4px solid #3b82f6'
-                          }}>
-                            <div style={{
-                              fontSize: '14px',
-                              fontWeight: '600',
-                              color: '#3b82f6',
-                              marginBottom: '10px',
-                              display: 'flex',
-                              alignItems: 'center',
-                              gap: '6px'
-                            }}>
-                              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                <circle cx="12" cy="12" r="10" />
-                                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
-                                <line x1="12" y1="17" x2="12.01" y2="17" />
-                              </svg>
-                              Hint
-                            </div>
-                            <p style={{
-                              fontSize: '16px',
-                              color: '#1d1d1f',
-                              lineHeight: 1.5,
-                              margin: 0
-                            }}>
-                              {currentQuestion.hint}
-                            </p>
-                          </div>
-                        )}
-                      </div>
-                    )}
-
-                    {/* Modal Ask Perform for Practice Questions */}
-                    <div style={{ marginBottom: '16px' }}>
-                      <AiTutorButton
-                        onClick={() => setShowAiTutor(!showAiTutor)}
-                        isOpen={showAiTutor}
-                      />
-                      <AiTutorChat
-                        isOpen={showAiTutor}
-                        onClose={() => setShowAiTutor(false)}
-                        moduleId={activeModule}
-                        lessonId={`practice-${activeSection}-q${practiceState.currentQuestionIndex}`}
-                        lessonTitle={`Practice: ${activeSection}`}
-                        isVideoLesson={false}
-                        isPracticeQuestion={true}
-                        practiceContext={{
-                          question: currentQuestion.question,
-                          choices: currentQuestion.choices,
-                          hint: currentQuestion.hint,
-                          answerRevealed: practiceState.showFeedback,
-                          correctAnswer: practiceState.showFeedback ? currentQuestion.correctAnswer : null,
-                          explanation: practiceState.showFeedback ? currentQuestion.explanation : null,
-                          skills: currentQuestion.skills || (currentQuestion.skill ? [currentQuestion.skill] : []),
-                          // R&W stimulus + classification (undefined for math items → tutor stays math)
-                          section: currentQuestion.section || 'math',
-                          domain: currentQuestion.domain,
-                          passage: currentQuestion.passage,
-                          passages: currentQuestion.passages,
-                          studentNotes: currentQuestion.studentNotes,
-                          questionTable: currentQuestion.questionTable
-                        }}
-                      />
-                    </div>
-
-                    {/* Modal Check Answer / Feedback */}
-                    {!practiceState.showFeedback ? (
-                      <button
-                        onClick={() => handleCheckAnswer(currentQuestion)}
-                        disabled={!practiceState.selectedAnswer}
-                        style={{
-                          width: '100%',
-                          padding: '18px',
-                          borderRadius: '14px',
-                          border: 'none',
-                          background: practiceState.selectedAnswer ? '#ea580c' : '#e5e5e5',
-                          color: '#fff',
-                          fontSize: '18px',
-                          fontWeight: '600',
-                          cursor: practiceState.selectedAnswer ? 'pointer' : 'default'
-                        }}
-                      >
-                        Check Answer
-                      </button>
-                    ) : (
-                      <>
-                        {/* Modal Feedback panel */}
-                        <div style={{
-                          background: practiceState.answers[currentQuestion.id]?.correct
-                            ? 'rgba(16, 185, 129, 0.08)'
-                            : 'rgba(239, 68, 68, 0.08)',
-                          borderRadius: '14px',
-                          padding: '24px',
-                          marginBottom: '20px',
-                          borderLeft: `4px solid ${practiceState.answers[currentQuestion.id]?.correct ? '#10b981' : '#ef4444'}`
-                        }}>
-                          <div style={{
-                            fontSize: '16px',
-                            fontWeight: '600',
-                            color: practiceState.answers[currentQuestion.id]?.correct ? '#10b981' : '#ef4444',
-                            marginBottom: '12px'
-                          }}>
-                            {practiceState.answers[currentQuestion.id]?.correct ? 'Correct!' : 'Incorrect'}
-                          </div>
-                          <SolutionExplanation explanation={currentQuestion.explanation} />
-                        </div>
-
-                        {/* Modal Next button */}
-                        <button
-                          onClick={() => handleNextQuestion(questions)}
-                          style={{
-                            width: '100%',
-                            padding: '18px',
-                            borderRadius: '14px',
-                            border: 'none',
-                            background: '#ea580c',
-                            color: '#fff',
-                            fontSize: '18px',
-                            fontWeight: '600',
-                            cursor: 'pointer'
-                          }}
-                        >
-                          {practiceState.currentQuestionIndex < questions.length - 1 ? 'Next Question' : 'See Results'}
-                        </button>
-                      </>
-                    )}
-                  </div>
-
-                  {/* Right: Calculator (50%) */}
-                  <div style={{
-                    flex: '1 1 50%',
-                    background: '#fff',
-                    borderRadius: '20px',
-                    overflow: 'hidden',
-                    display: 'flex',
-                    flexDirection: 'column'
-                  }}>
-                    {/* Calculator Header */}
-                    <div style={{
-                      padding: '16px 24px',
-                      borderBottom: '1px solid rgba(0,0,0,0.08)',
-                      display: 'flex',
-                      justifyContent: 'space-between',
-                      alignItems: 'center',
-                      background: '#1d1d1f'
-                    }}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2">
-                          <rect x="4" y="2" width="16" height="20" rx="2" />
-                          <line x1="8" y1="6" x2="16" y2="6" />
-                          <line x1="8" y1="10" x2="8" y2="10.01" />
-                          <line x1="12" y1="10" x2="12" y2="10.01" />
-                          <line x1="16" y1="10" x2="16" y2="10.01" />
-                          <line x1="8" y1="14" x2="8" y2="14.01" />
-                          <line x1="12" y1="14" x2="12" y2="14.01" />
-                          <line x1="16" y1="14" x2="16" y2="14.01" />
-                        </svg>
-                        <span style={{ fontWeight: '600', color: '#fff', fontSize: '16px' }}>
-                          DESMOS Calculator
-                        </span>
-                      </div>
-                      <button
-                        onClick={() => setShowCalculator(false)}
-                        style={{
-                          background: 'rgba(255,255,255,0.15)',
-                          border: 'none',
-                          borderRadius: '8px',
-                          padding: '10px 16px',
-                          fontSize: '14px',
-                          fontWeight: '600',
-                          color: '#fff',
-                          cursor: 'pointer',
-                          display: 'flex',
-                          alignItems: 'center',
-                          gap: '6px'
-                        }}
-                      >
-                        <span style={{ fontSize: '18px' }}>×</span>
-                        Close (ESC)
-                      </button>
-                    </div>
-
-                    {/* Calculator iframe */}
-                    <iframe
-                      src="https://www.desmos.com/calculator"
-                      title="DESMOS Calculator"
-                      style={{
-                        flex: 1,
-                        width: '100%',
-                        border: 'none'
-                      }}
-                    />
-                  </div>
-                </div>
-              )}
-
-              {/* Regular Question Panel (when calculator is closed) */}
-              <div style={{ display: showCalculator ? 'none' : 'block', maxWidth: '700px', margin: '0 auto' }}>
-                {/* Progress indicator */}
-                <div style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  marginBottom: '32px'
-                }}>
-                  {questions.map((_, idx) => (
-                    <div
-                      key={idx}
-                      style={{
-                        flex: 1,
-                        height: '4px',
-                        borderRadius: '2px',
-                        background: practiceState.answers[questions[idx]?.id]
-                          ? (practiceState.answers[questions[idx].id].correct ? '#10b981' : '#ef4444')
-                          : idx === practiceState.currentQuestionIndex
-                            ? '#ea580c'
-                            : '#e5e5e5'
-                      }}
-                    />
-                  ))}
-                </div>
-
-                {/* Question number and difficulty */}
-                <div style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
-                  marginBottom: '16px'
-                }}>
-                  <span style={{
-                    fontSize: '13px',
-                    fontWeight: '600',
-                    color: '#6b7280'
-                  }}>
-                    Question {practiceState.currentQuestionIndex + 1} of {questions.length}
-                  </span>
-                  {difficultyBadge && (
-                    <span style={{
-                      fontSize: '12px',
-                      fontWeight: '600',
-                      padding: '4px 10px',
-                      borderRadius: '12px',
-                      background: difficultyBadge.color === '#10b981' ? 'rgba(16, 185, 129, 0.12)'
-                        : difficultyBadge.color === '#f59e0b' ? 'rgba(245, 158, 11, 0.12)'
-                        : 'rgba(239, 68, 68, 0.12)',
-                      color: difficultyBadge.color
-                    }}>
-                      {difficultyBadge.label}
-                    </span>
-                  )}
-                </div>
-
-                {/* Question Diagram (if present) */}
-                {currentQuestion.diagram && (
-                  <div style={{
-                    marginBottom: '20px',
-                    display: 'flex',
-                    justifyContent: 'center'
-                  }}>
-                    <QuestionDiagram
-                      type={currentQuestion.diagram.type}
-                      params={currentQuestion.diagram.params}
-                    />
-                  </div>
-                )}
-
-                {/* Question text */}
-                <h2 style={{
-                  fontSize: '22px',
-                  fontWeight: '600',
-                  color: '#1d1d1f',
-                  lineHeight: 1.4,
-                  marginBottom: currentQuestion.questionFormula ? '14px' : '32px',
-                  whiteSpace: 'pre-line'
-                }}>
-                  {currentQuestion.question}
-                </h2>
-
-                {/* Question Formula (if present) */}
-                {currentQuestion.questionFormula && (
-                  <div style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    marginBottom: '32px',
-                    fontSize: '20px',
-                    fontFamily: 'Georgia, serif',
-                    fontStyle: 'italic',
-                    color: '#1d1d1f'
-                  }}>
-                    {currentQuestion.questionFormula.text}
-                    {currentQuestion.questionFormula.fraction && (
-                      <span style={{
-                        display: 'inline-flex',
-                        flexDirection: 'column',
-                        alignItems: 'center',
-                        marginLeft: currentQuestion.questionFormula.text ? '4px' : '0'
-                      }}>
-                        <span style={{ padding: '0 6px' }}>{currentQuestion.questionFormula.fraction.numerator}</span>
-                        <span style={{
-                          width: '100%',
-                          height: '2px',
-                          background: '#1d1d1f',
-                          margin: '2px 0'
-                        }} />
-                        <span style={{ padding: '0 6px' }}>{currentQuestion.questionFormula.fraction.denominator}</span>
-                      </span>
-                    )}
-                    {currentQuestion.questionFormula.textAfter && (
-                      <span style={{ marginLeft: '4px' }}>{currentQuestion.questionFormula.textAfter}</span>
-                    )}
-                  </div>
-                )}
-
-                {/* Answer choices */}
-                <div style={{ marginBottom: '24px' }}>
-                  {currentQuestion.choices.map((choice) => {
-                    const isSelected = practiceState.selectedAnswer === choice.id;
-                    const isCorrect = choice.id === currentQuestion.correctAnswer;
-                    const showResult = practiceState.showFeedback;
-
-                    let borderColor = 'rgba(0,0,0,0.08)';
-                    let bgColor = '#fff';
-
-                    if (showResult) {
-                      if (isCorrect) {
-                        borderColor = '#10b981';
-                        bgColor = 'rgba(16, 185, 129, 0.08)';
-                      } else if (isSelected && !isCorrect) {
-                        borderColor = '#ef4444';
-                        bgColor = 'rgba(239, 68, 68, 0.08)';
-                      }
-                    } else if (isSelected) {
-                      borderColor = '#ea580c';
-                      bgColor = 'rgba(234, 88, 12, 0.05)';
-                    }
-
-                    return (
-                      <div
-                        key={choice.id}
-                        onClick={() => handleSelectAnswer(choice.id)}
-                        style={{
-                          padding: '16px 20px',
-                          borderRadius: '12px',
-                          border: `2px solid ${borderColor}`,
-                          background: bgColor,
-                          cursor: practiceState.showFeedback ? 'default' : 'pointer',
-                          marginBottom: '12px',
-                          display: 'flex',
-                          alignItems: 'center',
-                          gap: '12px',
-                          transition: 'all 0.15s ease'
-                        }}
-                      >
-                        <span style={{
-                          width: '28px',
-                          height: '28px',
-                          borderRadius: '6px',
-                          background: showResult
-                            ? (isCorrect ? '#10b981' : isSelected ? '#ef4444' : '#f5f5f7')
-                            : (isSelected ? '#ea580c' : '#f5f5f7'),
-                          color: (showResult && (isCorrect || isSelected)) || isSelected ? '#fff' : '#6b7280',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          fontSize: '14px',
-                          fontWeight: '600'
-                        }}>
-                          {showResult && isCorrect ? '✓' : showResult && isSelected && !isCorrect ? '✗' : choice.id}
-                        </span>
-                        <span style={{
-                          fontSize: '16px',
-                          color: '#1d1d1f',
-                          display: 'flex',
-                          alignItems: 'center'
-                        }}>
-                          {choice.text}
-                          {choice.fraction && (
-                            <span style={{
-                              display: 'inline-flex',
-                              flexDirection: 'column',
-                              alignItems: 'center',
-                              marginLeft: choice.text ? '4px' : '0',
-                              fontFamily: 'Georgia, serif',
-                              fontStyle: 'italic'
-                            }}>
-                              <span style={{ padding: '0 4px' }}>{choice.fraction.numerator}</span>
-                              <span style={{
-                                width: '100%',
-                                height: '1px',
-                                background: '#1d1d1f',
-                                margin: '2px 0'
-                              }} />
-                              <span style={{ padding: '0 4px' }}>{choice.fraction.denominator}</span>
-                            </span>
-                          )}
-                          {choice.textAfter && (
-                            <span style={{ marginLeft: '4px' }}>{choice.textAfter}</span>
-                          )}
-                        </span>
-                      </div>
-                    );
-                  })}
-                </div>
-
-                {/* Hint Section */}
-                {currentQuestion.hint && !practiceState.showFeedback && (
-                  <div style={{ marginBottom: '16px' }}>
-                    {!practiceState.showHint ? (
-                      <button
-                        onClick={handleShowHint}
-                        style={{
-                          background: 'none',
-                          border: '1px solid #d1d5db',
-                          borderRadius: '8px',
-                          padding: '10px 16px',
-                          fontSize: '14px',
-                          fontWeight: '500',
-                          color: '#6b7280',
-                          cursor: 'pointer',
-                          display: 'flex',
-                          alignItems: 'center',
-                          gap: '8px'
-                        }}
-                      >
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                          <circle cx="12" cy="12" r="10" />
-                          <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
-                          <line x1="12" y1="17" x2="12.01" y2="17" />
-                        </svg>
-                        Need a hint?
-                      </button>
-                    ) : (
-                      <div style={{
-                        background: 'rgba(59, 130, 246, 0.08)',
-                        borderRadius: '12px',
-                        padding: '16px 20px',
-                        borderLeft: '4px solid #3b82f6'
-                      }}>
-                        <div style={{
-                          fontSize: '13px',
-                          fontWeight: '600',
-                          color: '#3b82f6',
-                          marginBottom: '8px',
-                          display: 'flex',
-                          alignItems: 'center',
-                          gap: '6px'
-                        }}>
-                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                            <circle cx="12" cy="12" r="10" />
-                            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
-                            <line x1="12" y1="17" x2="12.01" y2="17" />
-                          </svg>
-                          Hint
-                        </div>
-                        <p style={{
-                          fontSize: '14px',
-                          color: '#1d1d1f',
-                          lineHeight: 1.5,
-                          margin: 0
-                        }}>
-                          {currentQuestion.hint}
-                        </p>
-                      </div>
-                    )}
-                  </div>
-                )}
-
-                {/* Ask Perform for Practice Questions */}
-                <div style={{ marginBottom: '16px' }}>
-                  <AiTutorButton
-                    onClick={() => setShowAiTutor(!showAiTutor)}
-                    isOpen={showAiTutor}
-                  />
-                  <AiTutorChat
-                    isOpen={showAiTutor}
-                    onClose={() => setShowAiTutor(false)}
-                    moduleId={activeModule}
-                    lessonId={`practice-${activeSection}-q${practiceState.currentQuestionIndex}`}
-                    lessonTitle={`Practice: ${activeSection}`}
-                    isVideoLesson={false}
-                    isPracticeQuestion={true}
-                    practiceContext={{
-                      question: currentQuestion.question,
-                      choices: currentQuestion.choices,
-                      hint: currentQuestion.hint,
-                      answerRevealed: practiceState.showFeedback,
-                      correctAnswer: practiceState.showFeedback ? currentQuestion.correctAnswer : null,
-                      explanation: practiceState.showFeedback ? currentQuestion.explanation : null,
-                      skills: currentQuestion.skills || (currentQuestion.skill ? [currentQuestion.skill] : []),
-                      // R&W stimulus + classification (undefined for math items → tutor stays math)
-                      section: currentQuestion.section || 'math',
-                      domain: currentQuestion.domain,
-                      passage: currentQuestion.passage,
-                      passages: currentQuestion.passages,
-                      studentNotes: currentQuestion.studentNotes,
-                      questionTable: currentQuestion.questionTable
-                    }}
-                  />
-                </div>
-
-                {/* Check Answer / Feedback */}
-                {!practiceState.showFeedback ? (
-                  <button
-                    onClick={() => handleCheckAnswer(currentQuestion)}
-                    disabled={!practiceState.selectedAnswer}
-                    style={{
-                      width: '100%',
-                      padding: '16px',
-                      borderRadius: '12px',
-                      border: 'none',
-                      background: practiceState.selectedAnswer ? '#ea580c' : '#e5e5e5',
-                      color: '#fff',
-                      fontSize: '16px',
-                      fontWeight: '600',
-                      cursor: practiceState.selectedAnswer ? 'pointer' : 'default'
-                    }}
-                  >
-                    Check Answer
-                  </button>
-                ) : (
-                  <>
-                    {/* Feedback panel */}
-                    <div style={{
-                      background: practiceState.answers[currentQuestion.id]?.correct
-                        ? 'rgba(16, 185, 129, 0.08)'
-                        : 'rgba(239, 68, 68, 0.08)',
-                      borderRadius: '12px',
-                      padding: '24px',
-                      marginBottom: '24px',
-                      borderLeft: `4px solid ${practiceState.answers[currentQuestion.id]?.correct ? '#10b981' : '#ef4444'}`
-                    }}>
-                      <div style={{
-                        fontSize: '14px',
-                        fontWeight: '600',
-                        color: practiceState.answers[currentQuestion.id]?.correct ? '#10b981' : '#ef4444',
-                        marginBottom: '12px'
-                      }}>
-                        {practiceState.answers[currentQuestion.id]?.correct ? 'Correct!' : 'Incorrect'}
-                      </div>
-                      <SolutionExplanation explanation={currentQuestion.explanation} />
-                    </div>
-
-                    {/* Next button */}
-                    <button
-                      onClick={() => handleNextQuestion(questions)}
-                      style={{
-                        width: '100%',
-                        padding: '16px',
-                        borderRadius: '12px',
-                        border: 'none',
-                        background: '#ea580c',
-                        color: '#fff',
-                        fontSize: '16px',
-                        fontWeight: '600',
-                        cursor: 'pointer'
-                      }}
-                    >
-                      {practiceState.currentQuestionIndex < questions.length - 1 ? 'Next Question' : 'See Results'}
-                    </button>
-                  </>
-                )}
-              </div>
-            </>
-          );
+          // All live paths are assigned/adaptive (828dc0a unified routing);
+          // the legacy standard/prescriptive inline UI was removed.
+          return null;
         })()}
 
       </React.Suspense>

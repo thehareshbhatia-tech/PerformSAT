@@ -16,7 +16,7 @@
  *    can never block another subscriber or the completion UI.
  *  - No pollution: review-retry sessions (reviewMode) and drills never run the
  *    intelligence pipeline — only real, non-review full tests feed predictions
- *    (mirrors the existing recordPracticeAttempt / ground-truth gates).
+ *    (mirrors the ground-truth gates).
  *  - Scale-safe: the full-test session carries the HEADLINE scaledScore +
  *    isMultiSection so the prediction loop predicts/validates on the same scale
  *    the dashboard shows (composite 400-1600 vs section 200-800).

@@ -812,7 +812,7 @@ const StudyPlanDashboard = ({
               // Route this activity through AssignedPracticeShell (same UI as
               // the Weekly View "Practice" buttons) instead of falling through
               // to App.jsx's legacy `practiceMode: 'prescriptive'` inline
-              // render. The 3-tier granular-to-pattern lookup lives in
+              // render (since removed). The 3-tier granular-to-pattern lookup lives in
               // services/activityDrillRouter.js (shared with the HOME
               // dashboard mount of TodaysTasksCard — see commit 994933e for
               // the original handler this was extracted from).

@@ -5,7 +5,8 @@
  * Extracted from StudyPlanDashboard's TodaysTasksCard onStartActivity
  * handler (commit 994933e) so the HOME-dashboard mount of TodaysTasksCard
  * routes through the exact same cascade instead of falling into the legacy
- * `practiceMode: 'prescriptive'` 5-question shell.
+ * `practiceMode: 'prescriptive'` 5-question shell (since removed from
+ * App.jsx — every launcher now lands on a dedicated practice shell).
  *
  * The activity's skillId (set by studyPlanGenerator from `gap.skillId`) is
  * more granular than the weakness skillId from the diagnostic engine.

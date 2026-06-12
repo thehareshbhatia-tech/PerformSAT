@@ -2,9 +2,8 @@ import { useState, useEffect, useRef } from 'react';
 import { db } from '../firebase/config';
 import { doc, onSnapshot, updateDoc, setDoc, getDoc, serverTimestamp, arrayUnion } from 'firebase/firestore';
 import { markLessonComplete as markComplete, markLessonIncomplete } from '../services/progressService';
-import { recordPracticeAttempt as recordAttempt } from '../services/practiceService';
 import { getDueReviewCount, getReviewStats } from '../services/reviewService';
-import { recordSkillAttempts, recordSkillAttemptsBatch, getSkillDiagnosticSummary as getDiagnostic, getSkillBreakdown as getBreakdown } from '../services/skillService';
+import { recordSkillAttemptsBatch, getSkillDiagnosticSummary as getDiagnostic, getSkillBreakdown as getBreakdown } from '../services/skillService';
 import { recordPracticeTestResult as recordTestResult, getPracticeTestBestScore, getPracticeTestAttempts, saveTestProgress as saveProgress, clearTestProgress as clearProgress, getInProgressTest } from '../services/practiceTestService';
 // hybridStudyPlanService statically imports studyPlanGenerator, which pulls
 // the math bank + topic files + routing service (the whole question corpus)
@@ -405,68 +404,17 @@ export const useProgress = (userId) => {
   };
 
   // ===== Practice Progress Functions =====
-  // Note: These functions now work with section names (e.g., "Deriving Equations")
-  // instead of lesson IDs for section-based practice
-
-  /**
-   * Records a practice attempt with optimistic update
-   * Also records skill attempts for each question answered
-   * @param {string} moduleId - Module ID
-   * @param {string} sectionName - Section name (e.g., "Deriving Equations")
-   * @param {Object} answers - Answers object { questionId: { selected, correct, skills } }
-   * @param {number} score - Number correct
-   * @param {number} totalQuestions - Total questions
-   */
-  const recordPracticeAttempt = async (moduleId, sectionName, answers, score, totalQuestions) => {
-    const practiceKey = `${moduleId}-${sectionName}`;
-
-    // Optimistic update
-    setPracticeProgress(prev => ({
-      ...prev,
-      [practiceKey]: {
-        bestScore: prev[practiceKey] ? Math.max(prev[practiceKey].bestScore, score) : score,
-        totalAttempts: prev[practiceKey] ? prev[practiceKey].totalAttempts + 1 : 1,
-        lastAttemptAt: new Date(),
-        lastAnswers: answers
-      }
-    }));
-
-    try {
-      await recordAttempt(userId, moduleId, sectionName, answers, score, totalQuestions);
-
-      // Record skill attempts for each answered question
-      for (const [questionId, answerData] of Object.entries(answers)) {
-        if (answerData.skills && answerData.skills.length > 0) {
-          await recordSkillAttempts(userId, answerData.skills, answerData.correct);
-        }
-      }
-
-      // Save answered question IDs for cross-plan deduplication
-      const qIds = Object.keys(answers);
-      if (qIds.length > 0) {
-        try {
-          const progressRef = doc(db, 'progress', userId);
-          const batch = qIds.slice(0, 400); // arrayUnion limit guard
-          await updateDoc(progressRef, {
-            answeredQuestionIds: arrayUnion(...batch),
-            lastUpdated: serverTimestamp(),
-          });
-        } catch (err2) {
-          console.warn('[useProgress] Failed to save answered question IDs:', err2.message);
-        }
-      }
-    } catch (err) {
-      console.error('Failed to record practice attempt:', err);
-      setError(err.message);
-    }
-  };
+  // practiceProgress is FROZEN data: its only writer (recordPracticeAttempt,
+  // the legacy free-practice recorder) was removed with the standard/
+  // prescriptive practice UI. Existing Firestore data still hydrates into
+  // state above; every consumer defaults to {} when it's absent.
 
   /**
    * Records skill attempts for a completed assigned/adaptive drill session.
-   * Unlike recordPracticeAttempt this never touches practiceProgress (drills
-   * have no module/section best-score row) — it only folds the session's
-   * answers into skillProgress, so drilling moves mastery and the weakness
-   * lists between full tests. One batched Firestore write per session.
+   * Never touches practiceProgress (drills have no module/section best-score
+   * row) — it only folds the session's answers into skillProgress, so
+   * drilling moves mastery and the weakness lists between full tests.
+   * One batched Firestore write per session.
    * Best-effort: errors are logged, never thrown.
    * @param {Object} answers - { questionId: { selected, correct, skills } }
    */
@@ -506,39 +454,6 @@ export const useProgress = (userId) => {
     } catch (err) {
       console.error('[useProgress] Failed to record practiced day:', err);
     }
-  };
-
-  /**
-   * Checks if a section has been practiced
-   * @param {string} moduleId - Module ID
-   * @param {string} sectionName - Section name
-   * @returns {boolean}
-   */
-  const hasPracticed = (moduleId, sectionName) => {
-    const practiceKey = `${moduleId}-${sectionName}`;
-    return !!practiceProgress[practiceKey];
-  };
-
-  /**
-   * Gets best score for a section
-   * @param {string} moduleId - Module ID
-   * @param {string} sectionName - Section name
-   * @returns {number} Best score or 0
-   */
-  const getBestScore = (moduleId, sectionName) => {
-    const practiceKey = `${moduleId}-${sectionName}`;
-    return practiceProgress[practiceKey]?.bestScore || 0;
-  };
-
-  /**
-   * Gets practice progress for a specific section
-   * @param {string} moduleId - Module ID
-   * @param {string} sectionName - Section name
-   * @returns {Object|null}
-   */
-  const getSectionPracticeProgress = (moduleId, sectionName) => {
-    const practiceKey = `${moduleId}-${sectionName}`;
-    return practiceProgress[practiceKey] || null;
   };
 
   // ===== Review Queue Functions =====
@@ -966,13 +881,10 @@ export const useProgress = (userId) => {
     toggleLessonComplete,
     isLessonCompleted,
     getModuleProgress,
-    // Practice functions (section-based)
-    recordPracticeAttempt,
+    // Practice functions (drill-based; legacy section-based writers/readers
+    // were removed with the standard/prescriptive practice UI)
     recordDrillSkillAttempts,
     recordPracticedDay,
-    hasPracticed,
-    getBestScore,
-    getSectionPracticeProgress,
     // Review queue functions
     getDueCount,
     getReviewStatistics,
