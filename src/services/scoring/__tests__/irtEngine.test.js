@@ -191,47 +191,39 @@ describe('scoreTest', () => {
 });
 
 // ═══════════════════════════════════════════════════════════════════════════
-// IRT properties: difficulty matters
+// Reported score: raw-count + route based (band-independent by design)
 // ═══════════════════════════════════════════════════════════════════════════
 
-describe('IRT scoring properties', () => {
-  it('same raw score on harder items yields higher scaled score', () => {
-    const easyTest = {
-      id: 'easy-form',
-      title: 'Easy Form',
-      totalQuestions: 10,
-      timePerModule: 35,
-      modules: [{
-        id: 'mod-1', title: 'Module 1', timeLimit: 35,
-        questions: Array.from({ length: 10 }, (_, i) => ({
-          id: `eq-${i}`, type: 'multiple-choice', difficulty: 'easy',
-          correctAnswer: 'B', choices: [{ id: 'A', text: '1' }, { id: 'B', text: '2' }], skills: ['algebra'],
-        })),
-      }],
-    };
-    const hardTest = {
-      id: 'hard-form',
-      title: 'Hard Form',
-      totalQuestions: 10,
-      timePerModule: 35,
-      modules: [{
-        id: 'mod-1', title: 'Module 1', timeLimit: 35,
-        questions: Array.from({ length: 10 }, (_, i) => ({
-          id: `hq-${i}`, type: 'multiple-choice', difficulty: 'hard',
-          correctAnswer: 'B', choices: [{ id: 'A', text: '1' }, { id: 'B', text: '2' }], skills: ['algebra'],
-        })),
-      }],
-    };
+describe('reported score properties', () => {
+  const buildSingleModuleTest = (id, difficulty) => ({
+    id, title: id, totalQuestions: 10, timePerModule: 35,
+    modules: [{
+      id: 'mod-1', title: 'Module 1', timeLimit: 35,
+      questions: Array.from({ length: 10 }, (_, i) => ({
+        id: `${id}-${i}`, type: 'multiple-choice', difficulty,
+        correctAnswer: 'B', choices: [{ id: 'A', text: '1' }, { id: 'B', text: '2' }], skills: ['algebra'],
+      })),
+    }],
+  });
 
-    const answersCorrect7 = {};
-    for (let i = 0; i < 10; i++) {
-      answersCorrect7[`0-${i}`] = i < 7 ? 'B' : 'A';
-    }
+  const answersCorrect7 = {};
+  for (let i = 0; i < 10; i++) answersCorrect7[`0-${i}`] = i < 7 ? 'B' : 'A';
 
-    const easyResult = scoreTest(easyTest, answersCorrect7);
-    const hardResult = scoreTest(hardTest, answersCorrect7);
+  it('same raw score is band-independent: item difficulty does not change the reported score', () => {
+    // The raw→scaled table keys on (raw, total, route) ONLY — not per-item
+    // difficulty. Two students with the same raw count on the same route get
+    // the same reported score. That is what makes the score verifiable; it is
+    // the deliberate replacement for the old IRT band-sensitivity.
+    const easyResult = scoreTest(buildSingleModuleTest('easy-form', 'easy'), answersCorrect7);
+    const hardResult = scoreTest(buildSingleModuleTest('hard-form', 'hard'), answersCorrect7);
+    expect(hardResult.sectionScore).toBe(easyResult.sectionScore);
+  });
 
-    expect(hardResult.sectionScore).toBeGreaterThan(easyResult.sectionScore);
+  it('the easy Module-2 route caps the reported score at or below the hard route for the same raw', () => {
+    const test = buildSingleModuleTest('form', 'medium');
+    const hardRoute = scoreTest(test, answersCorrect7, { mathRoute: 'hard' });
+    const easyRoute = scoreTest(test, answersCorrect7, { mathRoute: 'easy' });
+    expect(easyRoute.sectionScore).toBeLessThanOrEqual(hardRoute.sectionScore);
   });
 
   it('convertToSATScore is monotonically non-decreasing', () => {

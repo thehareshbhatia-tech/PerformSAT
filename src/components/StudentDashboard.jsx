@@ -20,6 +20,7 @@ import { formatDailyIntro } from '../services/selectors/dailyIntro';
 import { getMathWeaknesses, getRWWeaknesses } from '../services/selectors/weaknesses';
 import { isGoalAchieved, goalDelta } from '../services/selectors/goalProgress';
 import { isScoreableAttempt } from '../services/selectors/latestTestStats';
+import { snapToScale } from '../services/scoring/scaleTables';
 import { getDaysUntilTest } from '../services/selectors/daysUntilTest';
 import { buildPacingTelemetry } from '../services/selectors/pacingTelemetry';
 import { buildPacingSession } from '../services/pacingService';
@@ -159,9 +160,9 @@ const StudentDashboard = ({
   const totalQuestions = practiceEntries.reduce((sum, [_, p]) => sum + (p.totalQuestions || 5), 0);
   const practicePercent = totalQuestions > 0 ? Math.round((totalCorrect / totalQuestions) * 100) : 0;
 
-  const { projectedScore, projectedTestsCount, scoreHistory, latestIsMultiSection } = useMemo(() => {
+  const { projectedScore, projectedRange, projectedTestsCount, scoreHistory, latestIsMultiSection } = useMemo(() => {
     if (!practiceTestResults || Object.keys(practiceTestResults).length === 0) {
-      return { projectedScore: null, projectedTestsCount: 0, scoreHistory: [], latestIsMultiSection: undefined };
+      return { projectedScore: null, projectedRange: null, projectedTestsCount: 0, scoreHistory: [], latestIsMultiSection: undefined };
     }
     // Recompute each row's best from its REAL attempts — the row-level
     // bestScaledScore can be poisoned by a blank/abandoned submission (IRT
@@ -183,23 +184,41 @@ const StudentDashboard = ({
         const dateB = b.lastAttemptAt?.toDate?.() || new Date(b.lastAttemptAt);
         return dateA - dateB;
       });
-    if (tests.length === 0) return { projectedScore: null, projectedTestsCount: 0, scoreHistory: [], latestIsMultiSection: undefined };
-    const history = tests.map(t => t.bestScaledScore);
-    const recentTests = tests.slice(-3).reverse();
+    if (tests.length === 0) return { projectedScore: null, projectedRange: null, projectedTestsCount: 0, scoreHistory: [], latestIsMultiSection: undefined };
+
+    // Project on ONE consistent scale: the latest test's. Averaging a 200-800
+    // section-only row together with a 400-1600 composite produced impossible
+    // numbers (e.g. 886, neither a valid section nor composite score). Restrict
+    // the basis to same-scale tests before averaging.
+    const latestIsMultiSection = !!tests[tests.length - 1]?.isMultiSection;
+    const sameScale = tests.filter(t => !!t.isMultiSection === latestIsMultiSection);
+    const basis = sameScale.length > 0 ? sameScale : tests;
+
+    const history = basis.map(t => t.bestScaledScore);
+    const recentTests = basis.slice(-3).reverse();
     const weights = [0.5, 0.3, 0.2];
     let totalWeight = 0;
     let weightedSum = 0;
-    recentTests.forEach((test, i) => {
+    recentTests.forEach((t, i) => {
       const weight = weights[i] || 0.2;
-      weightedSum += test.bestScaledScore * weight;
+      weightedSum += t.bestScaledScore * weight;
       totalWeight += weight;
     });
+
+    // Center + band, snapped to the 10-point SAT grid and clamped to the valid
+    // band for the scale — so the projection is always a real, possible score.
+    const center = snapToScale(weightedSum / totalWeight, latestIsMultiSection);
+    const halfWidth = latestIsMultiSection ? 40 : 30; // ±1-SE-equivalent (mirrors scoreBand)
+    const low = snapToScale(center - halfWidth, latestIsMultiSection);
+    const high = snapToScale(center + halfWidth, latestIsMultiSection);
+
     return {
-      projectedScore: Math.round(weightedSum / totalWeight),
-      projectedTestsCount: tests.length,
+      projectedScore: center,
+      projectedRange: { low, high },
+      projectedTestsCount: basis.length,
       scoreHistory: history,
       // Scale of the most recent test, so the goal tile compares like-for-like (1.4).
-      latestIsMultiSection: tests[tests.length - 1]?.isMultiSection,
+      latestIsMultiSection,
     };
   }, [practiceTestResults]);
 
@@ -669,6 +688,9 @@ const StudentDashboard = ({
         <div className="acely-projected-info">
           <div className="acely-metric-value">{animatedScore || '--'}</div>
           <div className="acely-metric-label">Projected Score</div>
+          {projectedRange && (
+            <div className="acely-metric-detail">Likely range {projectedRange.low}–{projectedRange.high}</div>
+          )}
           {projectedTestsCount > 0 && (
             <div className="acely-metric-detail">Based on {projectedTestsCount} test{projectedTestsCount !== 1 ? 's' : ''}</div>
           )}

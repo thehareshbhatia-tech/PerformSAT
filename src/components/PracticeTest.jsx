@@ -25,7 +25,7 @@ import { buildLongitudinalEvidence, computePlanDelta } from '../services/studyPl
 import { generateStudyPlan as generateDeterministicPlan } from '../services/studyPlanGenerator';
 import { runDiagnostic, getQuestionSkills } from '../services/diagnosticEngine';
 import { buildGroundTruthDiagnosis, enrichPlanWithGroundTruth } from '../services/groundTruth';
-import { scoreTest, isAnswerCorrect, convertToSATScore } from '../services/scoring';
+import { scoreTest, isAnswerCorrect } from '../services/scoring';
 import { computeRemaining, deriveDeadline, shiftDeadlineForPause } from '../services/timerClock';
 import { colors, typography, spacing, radius, shadows, transitions } from '../design/tokens';
 import { cardStyles } from '../design/components';
@@ -1376,6 +1376,10 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
         questionsVisitedMultipleTimes: telemetryValues.filter(t => t.visits > 1).length,
         calculatorUsageCount: telemetryValues.filter(t => t.usedCalculator).length,
         markedForReviewCount: telemetryValues.filter(t => t.markedForReview).length,
+        // The Math Module-2 variant actually served. Both runDiagnostic and
+        // scoreTest read this so the diagnosis score and the headline score use
+        // the identical raw→scaled table column (easy route caps at ~600).
+        mathRoute: module2Variant,
       };
 
       diagnosticDataRef.current = diagnosticData;
@@ -1395,8 +1399,9 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
         practiceTestResults || {}
       );
 
-      // IRT-based scoring via central engine
-      const scored = scoreTest(effectiveTest, answers, { timedMode: isTimed, diagnosticData });
+      // Central scoring engine — reported score from the route-aware raw→scaled
+      // table; mathRoute is the variant the student actually saw.
+      const scored = scoreTest(effectiveTest, answers, { timedMode: isTimed, diagnosticData, mathRoute: module2Variant });
       const newAttemptId = generateAttemptId();
       attemptIdRef.current = newAttemptId;
 

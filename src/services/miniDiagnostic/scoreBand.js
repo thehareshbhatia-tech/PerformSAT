@@ -3,14 +3,14 @@
  * mini-diagnostic (12 R&W + 12 Math).
  *
  * ── Scoring approach (and why) ──────────────────────────────────────────────
- * Each section's band CENTER comes from the existing IRT machinery via
- * `convertToSATScore(rawCorrect, total)` — the engine's raw -> scaled path
- * (synthetic difficulty-distributed response vector -> estimateTheta ->
- * thetaToScaledScore), which uses the SAME theta scale full tests are
- * scored on, so a mini-diagnostic band lands on the same ruler as a later
- * full-test `score.scaled`.
+ * Each section's band CENTER comes from the canonical raw -> scaled table via
+ * `convertToSATScore(rawCorrect, total, { section })` — the SAME lookup full
+ * tests are scored on (scaleTables.js), so a mini-diagnostic band lands on the
+ * same ruler as a later full-test `score.scaled`. (The mini-diagnostic is
+ * untimed/non-adaptive, so it always uses the hard-route column.)
  *
- * We deliberately do NOT run MLE over the actual sampled items' params:
+ * We deliberately map raw-count -> scaled rather than running MLE over the
+ * sampled items' params:
  *   1. With per-item params, WHICH items were right moves theta — a student
  *      with k+1 correct could band below one with k correct, violating the
  *      hard monotonicity guarantee. A raw-count mapping is monotone by
@@ -51,10 +51,10 @@ function countCorrect(items, answers) {
 }
 
 /** Section band center on 200-800 via the engine's raw -> scaled path. */
-function sectionCenter(items, answers) {
+function sectionCenter(items, answers, section) {
   if (items.length === 0) return SECTION_MIN;
   return clamp(
-    roundTo10(convertToSATScore(countCorrect(items, answers), items.length)),
+    roundTo10(convertToSATScore(countCorrect(items, answers), items.length, { section })),
     SECTION_MIN,
     SECTION_MAX,
   );
@@ -80,8 +80,8 @@ function sectionBand(center) {
  *   composite band on 400-1600; per-section bands on 200-800; all multiples of 10
  */
 export function computeScoreBand({ rwItems = [], mathItems = [], answersById = {} } = {}) {
-  const rwCenter = sectionCenter(rwItems.filter(Boolean), answersById);
-  const mathCenter = sectionCenter(mathItems.filter(Boolean), answersById);
+  const rwCenter = sectionCenter(rwItems.filter(Boolean), answersById, 'reading-writing');
+  const mathCenter = sectionCenter(mathItems.filter(Boolean), answersById, 'math');
 
   const composite = rwCenter + mathCenter;
   return {

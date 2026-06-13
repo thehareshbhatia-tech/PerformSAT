@@ -796,13 +796,25 @@ export const runDiagnostic = (test, answers, diagnosticData, skillProgress = {},
   const rwScoredItems = scoredItems.filter(i => i.section === 'rw');
   const mathScoredItems = scoredItems.filter(i => i.section === 'math');
   const isMultiSection = rwScoredItems.length > 0 && mathScoredItems.length > 0;
+  // The served Math Module-2 route, threaded on diagnosticData so the diagnosis
+  // score uses the SAME table column as scoreTest's headline. Without it the
+  // table defaults to the hard route. R&W never routes.
+  const mathRoute = diagnosticData?.mathRoute || 'hard';
+  const singleSection = mathScoredItems.length > 0 ? 'math' : 'reading-writing';
   const sectionScaled = {
-    math: mathScoredItems.length > 0 ? scaleResponseVector(mathScoredItems, test.id) : null,
-    rw: rwScoredItems.length > 0 ? scaleResponseVector(rwScoredItems, test.id) : null,
+    math: mathScoredItems.length > 0
+      ? scaleResponseVector(mathScoredItems, test.id, { section: 'math', route: mathRoute })
+      : null,
+    rw: rwScoredItems.length > 0
+      ? scaleResponseVector(rwScoredItems, test.id, { section: 'reading-writing' })
+      : null,
   };
   const scaledScore = isMultiSection
     ? sectionScaled.math + sectionScaled.rw
-    : scaleResponseVector(scoredItems, test.id);
+    : scaleResponseVector(scoredItems, test.id, {
+        section: singleSection,
+        route: singleSection === 'math' ? mathRoute : 'hard',
+      });
   // Gap only when the target is provably on the same scale as the headline
   // (onboarding now stores 400-1600 composite goals; legacy profiles carry
   // 200-800 section targets).
@@ -821,7 +833,7 @@ export const runDiagnostic = (test, answers, diagnosticData, skillProgress = {},
   const skillAnalysis = analyzeSkills(questionAnalysis, skillProgress);
 
   // ═══ PHASE 6: Score projection ═══
-  const scoreProjection = projectScoreImprovements(scoredItems, targetScore, test.id);
+  const scoreProjection = projectScoreImprovements(scoredItems, targetScore, test.id, mathRoute);
 
   // ═══ PHASE 7: Difficulty analysis ═══
   const difficultyAnalysis = analyzeDifficulty(questionAnalysis);
@@ -868,7 +880,7 @@ export const runDiagnostic = (test, answers, diagnosticData, skillProgress = {},
     trendAnalysis,
     prioritizedActions,
 
-    confidenceInterval: calculateConfidenceInterval(totalCorrect, totalQuestions, scaledScore, isMultiSection),
+    confidenceInterval: calculateConfidenceInterval(totalCorrect, totalQuestions, scaledScore, isMultiSection, singleSection, mathRoute),
     learningVelocity: calculateLearningVelocity(previousTests, scaledScore, isMultiSection),
     skillClusters,
     answerPatterns,
@@ -1090,7 +1102,7 @@ const analyzeSkills = (questionAnalysis, skillProgress = {}) => {
 /**
  * Project how much score improvement is possible by fixing specific areas.
  */
-const projectScoreImprovements = (scoredItems, targetScore, formId) => {
+const projectScoreImprovements = (scoredItems, targetScore, formId, mathRoute = 'hard') => {
   // Everything is computed off the REAL response vector via the shared IRT
   // path, so the projection baseline equals the headline score and every
   // "+X points" gain reflects re-estimated ability, not a synthetic raw-count
@@ -1104,9 +1116,14 @@ const projectScoreImprovements = (scoredItems, targetScore, formId) => {
     const rw = items.filter(i => i.section === 'rw');
     const math = items.filter(i => i.section === 'math');
     if (rw.length > 0 && math.length > 0) {
-      return scaleResponseVector(rw, formId) + scaleResponseVector(math, formId);
+      return scaleResponseVector(rw, formId, { section: 'reading-writing' })
+        + scaleResponseVector(math, formId, { section: 'math', route: mathRoute });
     }
-    return scaleResponseVector(items, formId);
+    const sec = math.length > 0 ? 'math' : 'reading-writing';
+    return scaleResponseVector(items, formId, {
+      section: sec,
+      route: sec === 'math' ? mathRoute : 'hard',
+    });
   };
   const currentScaled = scoreVector(scoredItems);
 
@@ -1831,7 +1848,7 @@ const generateTrendMessage = (scoreChange, trend) => {
  * A student who got 30/44 could truly be a 27-33/44 student.
  * This prevents over-indexing on a single test result.
  */
-const calculateConfidenceInterval = (correct, total, scaledScore, isMultiSection = false) => {
+const calculateConfidenceInterval = (correct, total, scaledScore, isMultiSection = false, section = 'math', route = 'hard') => {
   const p = correct / total;
   const z95 = 1.96;
   const z80 = 1.28;
@@ -1850,7 +1867,10 @@ const calculateConfidenceInterval = (correct, total, scaledScore, isMultiSection
   const ci95 = wilson(z95);
   const ci80 = wilson(z80);
 
-  const rawToScaledCI = (raw) => convertToSATScore(raw, total);
+  const rawToScaledCI = (raw) => convertToSATScore(raw, total, {
+    section,
+    route: section === 'math' ? route : 'hard',
+  });
 
   // The raw→scaled conversion is single-section (200-800); a composite
   // headline has no honest scaled CI on that curve, so multi-section reports

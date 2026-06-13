@@ -10,7 +10,14 @@
 // 2.1.0: BAND_TO_B extended to band 8, DEFAULT_THETA_SCALE re-anchored to
 //        College Board linear PT 4-11 raw→scaled patterns, percentile table
 //        re-aligned with published CB SAT user norms (closer to 50th=500).
-export const SCORING_VERSION = '2.1.0';
+// 3.0.0: REPORTED score now comes from per-section, route-aware raw-correct →
+//        scaled lookup tables (services/scoring/scaleTables.js), anchored to
+//        Bluebook digital-SAT curves, with the easy-Module-2 cap (~600). IRT
+//        theta/SE retained for diagnostics only. Fixes 0/1/2-wrong on Math all
+//        pegging at 800 (the over-compressed theta→scale top end). Stored
+//        v2.1.0 scores are NOT rewritten — they keep their old scaledScore and
+//        are distinguishable by this field.
+export const SCORING_VERSION = '3.0.0';
 
 // ── Section identifiers ────────────────────────────────────────────────────
 export const SECTIONS = {

@@ -1,30 +1,21 @@
 /**
- * Regression test for band-aware IRT scoring.
+ * Regression test for the reported scaled score (raw→scaled table path).
  *
  * WHY THIS TEST EXISTS
  * ────────────────────
- * The whole point of band-aware IRT is to **change** scaled-score behavior
- * for the same answer pattern, because top-of-band items now carry a more
- * accurate b-parameter.  This test locks the engine's actual output for a
- * fixed synthetic test + answer pattern so any unintended drift in the
- * scoring pipeline (3PL probability, MLE convergence, theta clamps,
- * theta→scale interpolation, band→b mapping) shows up immediately.
+ * The reported section score comes from the per-section, route-aware raw→scaled
+ * lookup table (scaleTables.js), NOT from IRT theta. The score is therefore a
+ * deterministic function of (raw-correct, total, route) and is INDEPENDENT of
+ * per-item band/difficulty metadata. This test locks the engine's output for a
+ * fixed synthetic test + answer pattern so any unintended drift shows up
+ * immediately, and pins the band-independence invariant (band-aware and
+ * band-stripped runs must produce the identical reported score).
  *
  * WHEN TO UPDATE
  * ──────────────
- * Only update the locked baselines when an *intentional* IRT change is
- * shipped.  Examples of intentional changes:
- *   - BAND_TO_B re-calibrated against new CB equating data
- *   - DEFAULT_THETA_SCALE replaced with official equating tables
- *   - 3PL guess parameter (c) updated for SAT-specific values
- *
- * Examples of changes that should NOT shift these baselines:
- *   - Refactors to scoringSchema.js / irtEngine.js / calibration.js
- *   - Adding new metadata fields to questions
- *   - Renaming functions or restructuring exports
- *
- * If a refactor causes these baselines to drift, that's a regression and
- * needs investigation — do not just re-lock the numbers.
+ * Only update the locked baseline when the conversion TABLE itself changes
+ * (scaleTables.js) or the 0.60 routing threshold changes. A refactor to
+ * irtEngine.js / scoringSchema.js / calibration.js must never move it.
  */
 
 import { scoreTest } from '../irtEngine';
@@ -117,8 +108,8 @@ function buildSyntheticTest(withBand = true) {
  *   Hits all 3 band-1 + all 4 band-3 + all 5 band-5 + 0 band-6 + 0 band-7
  *   = 3 + 4 + 5 = 12 correct
  *
- * The asymmetric pattern lets us verify the scorer responds to band
- * weighting (right answers on harder items count more).
+ * Module-1 accuracy here is 14/22 = 63.6% (≥ 60%), so the scorer routes to
+ * the HARD Module 2 — pinned by the route assertion below.
  */
 function buildFixedAnswers() {
   const answers = {};
@@ -145,86 +136,45 @@ function buildFixedAnswers() {
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
-// LOCKED BASELINES
+// LOCKED BASELINE
 // ═══════════════════════════════════════════════════════════════════════════
 //
-// These constants were captured from the engine's actual output on the
-// fixture above.  Do NOT hand-edit unless you've intentionally changed the
-// IRT model or calibration data — see the WHY/WHEN comment at the top.
-//
-// Captured: band-aware run yields a sectionScore that reflects the granular
-// b-parameter mapping; band-stripped run yields a different sectionScore
-// because items fall back to the coarse difficulty buckets.
+// raw 26/44 with Module-1 accuracy 14/22 (63.6% ≥ 60% → HARD route) maps to
+// MATH_HARD[26] = 560 via scaleTables.js. Deterministic table lookup; do NOT
+// hand-edit unless scaleTables.js or the 0.60 routing threshold changes.
 // ═══════════════════════════════════════════════════════════════════════════
 
-// Re-locked at SCORING_VERSION 2.1.0 after BAND_TO_B was extended to band 8
-// and DEFAULT_THETA_SCALE was re-anchored to the College Board PT 4-11 raw→
-// scaled patterns (theta 0 ≈ 510, not 540).  Both baselines moved down by
-// ~30 because the midrange of the scale was lowered.
-const EXPECTED_BAND_AWARE_SCORE = 540;
-const EXPECTED_BAND_STRIPPED_SCORE = 570;
-
-// Allowed drift around each baseline.  ±10 points is one SAT score-step;
-// any larger movement is investigated as a regression.
-const SCORE_TOLERANCE = 10;
+const EXPECTED_SCORE = 560;
 
 // ═══════════════════════════════════════════════════════════════════════════
 // TESTS
 // ═══════════════════════════════════════════════════════════════════════════
 
-describe('IRT scoring regression — band-aware vs band-stripped', () => {
-  it('band-aware run produces the locked baseline scaled score (±10)', () => {
-    const test = buildSyntheticTest(true);
-    const answers = buildFixedAnswers();
-    const result = scoreTest(test, answers);
+describe('reported-score regression — raw→scaled table', () => {
+  it('produces the locked table baseline for the fixed answer pattern', () => {
+    const result = scoreTest(buildSyntheticTest(true), buildFixedAnswers());
 
     expect(result.rawScore).toBe(26); // 14 + 12
     expect(result.totalQuestions).toBe(44);
-    expect(result.sectionScore).toBeGreaterThanOrEqual(200);
-    expect(result.sectionScore).toBeLessThanOrEqual(800);
-    // SAT scaled scores are integers (multiples of 10), so we use an explicit
-    // ±SCORE_TOLERANCE window rather than toBeCloseTo's float-based precision.
-    expect(
-      Math.abs(result.sectionScore - EXPECTED_BAND_AWARE_SCORE),
-    ).toBeLessThanOrEqual(SCORE_TOLERANCE);
+    expect(result.sectionScore).toBe(EXPECTED_SCORE);
   });
 
-  it('band-stripped run produces a different (locked) baseline (±10)', () => {
-    const test = buildSyntheticTest(false);
-    const answers = buildFixedAnswers();
-    const result = scoreTest(test, answers);
-
-    expect(result.rawScore).toBe(26);
-    expect(result.totalQuestions).toBe(44);
-    expect(result.sectionScore).toBeGreaterThanOrEqual(200);
-    expect(result.sectionScore).toBeLessThanOrEqual(800);
-    expect(
-      Math.abs(result.sectionScore - EXPECTED_BAND_STRIPPED_SCORE),
-    ).toBeLessThanOrEqual(SCORE_TOLERANCE);
+  it('routes off Module-1 accuracy: 14/22 (63.6%) → hard route', () => {
+    const result = scoreTest(buildSyntheticTest(true), buildFixedAnswers());
+    expect(result.routeTaken).toBe('hard');
   });
 
-  it('band-aware score is LOWER than band-stripped for this answer pattern', () => {
-    // Direction note: in this fixture the student misses every band-7 item
-    // and most band-6 items.  When bands are present, those misses are
-    // properly weighted as harder-than-medium items, so the MLE pushes
-    // theta DOWN more than the difficulty-bucket fallback (which treats
-    // all "hard" items at b=+1.5 — same as band-7 — but band-6 items are
-    // also bucketed as hard, inflating their b above 0.7).  The combined
-    // shape of hits/misses across the 7-band distribution yields a lower
-    // theta and therefore a lower scaled score under band-aware scoring.
-    //
-    // This direction was empirically confirmed and locked.  If a future
-    // BAND_TO_B re-calibration flips this direction, this assertion (and
-    // the accompanying baselines) must be updated together.
+  it('band metadata does NOT change the reported score (band-independent)', () => {
+    // The table keys on raw + route only. This is the deliberate replacement
+    // for the old IRT band-sensitivity — a student can verify their score from
+    // the raw count alone, regardless of which items they missed.
     const bandAware = scoreTest(buildSyntheticTest(true), buildFixedAnswers());
     const bandStripped = scoreTest(buildSyntheticTest(false), buildFixedAnswers());
 
-    expect(bandAware.sectionScore).toBeLessThan(bandStripped.sectionScore);
+    expect(bandAware.sectionScore).toBe(bandStripped.sectionScore);
   });
 
   it('both runs produce identical raw scores and module breakdowns', () => {
-    // Sanity: band metadata only affects IRT b — it must not change the
-    // raw correctness counts or module score totals.
     const bandAware = scoreTest(buildSyntheticTest(true), buildFixedAnswers());
     const bandStripped = scoreTest(buildSyntheticTest(false), buildFixedAnswers());
 
@@ -235,10 +185,8 @@ describe('IRT scoring regression — band-aware vs band-stripped', () => {
   });
 
   it('result is deterministic — repeated runs give the same score', () => {
-    const test = buildSyntheticTest(true);
-    const answers = buildFixedAnswers();
-    const r1 = scoreTest(test, answers);
-    const r2 = scoreTest(test, answers);
+    const r1 = scoreTest(buildSyntheticTest(true), buildFixedAnswers());
+    const r2 = scoreTest(buildSyntheticTest(true), buildFixedAnswers());
     expect(r1.sectionScore).toBe(r2.sectionScore);
     expect(r1.thetaEstimate).toBe(r2.thetaEstimate);
   });

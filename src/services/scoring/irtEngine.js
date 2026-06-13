@@ -10,8 +10,13 @@
  *    equated scores on the same reported scale
  */
 
-import { getItemParams, determineRoute, thetaToScaledScore } from './calibration';
+import { getItemParams, determineRoute } from './calibration';
+import { rawToScaled } from './scaleTables';
 import { createScoredResult, MODULE_ROUTE } from './scoringSchema';
+
+// Sections that take a Math-style easy/hard Module-2 route. A section-less math
+// test collapses to the 'default' bucket; R&W never routes.
+const MATH_SECTION_KEYS = new Set(['math', 'default']);
 
 // ═══════════════════════════════════════════════════════════════════════════
 // 3PL MODEL
@@ -159,20 +164,33 @@ export function isAnswerCorrect(question, userAnswer) {
 export function scoreTest(test, answers, opts = {}) {
   const { timedMode = false, diagnosticData = null } = opts;
   const formId = test.id;
+  // The Math Module-2 variant the student was actually served, threaded from
+  // the test runner (PracticeTest's module2Variant). Authoritative over the
+  // M1-accuracy fallback below — and it rides on diagnosticData too so the
+  // diagnostic engine derives the identical route.
+  const servedMathRoute = opts.mathRoute || diagnosticData?.mathRoute || null;
 
   // ── 1. Score every item, grouped by module section ─────────────────────
-  // Each section gets its own response-vector → theta → 200-800 scaled score.
-  // Tests without per-module section info collapse to a single bucket and
-  // behave exactly like before.
-  const sectionItems = {};
+  // Each section accumulates its raw-correct count + total + Module-1 accuracy.
+  // Tests without per-module section info collapse to a single 'default' bucket.
+  const sectionItems = {};   // section → [{ params, response }] (IRT, for SE)
+  const sectionRaw = {};     // section → correct count (drives the reported score)
+  const sectionTotal = {};   // section → scored item count
+  const sectionM1 = {};      // section → { correct, total } for its FIRST module
+  const seenSection = new Set();
   let totalCorrect = 0;
   let totalQuestions = 0;
-  let mod1Correct = 0;
-  let mod1Total = 0;
 
   const moduleScores = test.modules.map((mod, modIdx) => {
     const section = mod.section || test.section || 'default';
-    if (!sectionItems[section]) sectionItems[section] = [];
+    if (!sectionItems[section]) {
+      sectionItems[section] = [];
+      sectionRaw[section] = 0;
+      sectionTotal[section] = 0;
+    }
+    const isFirstModuleOfSection = !seenSection.has(section);
+    seenSection.add(section);
+    if (isFirstModuleOfSection) sectionM1[section] = { correct: 0, total: 0 };
 
     let modCorrect = 0;
     mod.questions.forEach((q, qIdx) => {
@@ -183,15 +201,17 @@ export function scoreTest(test, answers, opts = {}) {
       const params = getItemParams(q);
       sectionItems[section].push({ params, response: correct ? 1 : 0 });
 
+      sectionTotal[section] += 1;
       if (correct) {
         totalCorrect++;
         modCorrect++;
+        sectionRaw[section] += 1;
       }
       totalQuestions++;
 
-      if (modIdx === 0) {
-        mod1Total++;
-        if (correct) mod1Correct++;
+      if (isFirstModuleOfSection) {
+        sectionM1[section].total += 1;
+        if (correct) sectionM1[section].correct += 1;
       }
     });
     return {
@@ -202,23 +222,44 @@ export function scoreTest(test, answers, opts = {}) {
     };
   });
 
-  // ── 2. Determine module route (uses M1 of the first section) ───────────
-  const routeTaken = test.modules.length >= 2
-    ? determineRoute(formId, mod1Correct, mod1Total)
-    : MODULE_ROUTE.HARD;
+  // Route (easy/hard Module 2) is meaningful for MATH only. Prefer the variant
+  // actually served; otherwise derive from that section's Module-1 accuracy —
+  // the MATH M1, not the first module overall (in a composite the first module
+  // is R&W, which is the long-standing quirk this fixes).
+  const routeForSection = (section) => {
+    if (!MATH_SECTION_KEYS.has(section)) return MODULE_ROUTE.HARD;
+    if (servedMathRoute === MODULE_ROUTE.EASY || servedMathRoute === MODULE_ROUTE.HARD) {
+      return servedMathRoute;
+    }
+    const m1 = sectionM1[section];
+    if (!m1 || m1.total === 0 || test.modules.length < 2) return MODULE_ROUTE.HARD;
+    return determineRoute(formId, m1.correct, m1.total);
+  };
 
-  // ── 3. Score each section independently ────────────────────────────────
+  // ── 2. Score each section independently ────────────────────────────────
+  // REPORTED score comes from the route-aware raw→scaled table. IRT theta is
+  // still estimated, but only to carry the standard error for diagnostics.
   const sectionScores = {};
   const sectionThetas = {};
+  const sectionRoutes = {};
   let aggregateSE = 0;
   Object.entries(sectionItems).forEach(([section, items]) => {
     if (items.length === 0) return;
     const { theta, se } = estimateTheta(items);
-    sectionScores[section] = thetaToScaledScore(theta, formId);
     sectionThetas[section] = Math.round(theta * 1000) / 1000;
     aggregateSE += se * se;
+
+    const route = routeForSection(section);
+    sectionRoutes[section] = route;
+    const tableSection = MATH_SECTION_KEYS.has(section) ? 'math' : section;
+    sectionScores[section] = rawToScaled(tableSection, sectionRaw[section], sectionTotal[section], route);
   });
   aggregateSE = Math.sqrt(aggregateSE);
+
+  // routeTaken reflects the MATH route (R&W has none); fixes the old behavior
+  // where it was computed off module 0 (= R&W in a composite).
+  const mathSectionKey = Object.keys(sectionScores).find(k => MATH_SECTION_KEYS.has(k));
+  const routeTaken = mathSectionKey ? sectionRoutes[mathSectionKey] : MODULE_ROUTE.HARD;
 
   // ── 4. Compose the headline score ──────────────────────────────────────
   // Single-section tests: the section score IS the headline (200-800).
@@ -251,70 +292,38 @@ export function scoreTest(test, answers, opts = {}) {
 }
 
 /**
- * Scale a prepared response vector (already-evaluated { params, response }
- * items) to a 200-800 score using the SAME IRT path as scoreTest's
- * per-section scoring (estimateTheta -> thetaToScaledScore). The diagnostic
- * engine uses this so the diagnosis score and its "+X point" projections are
- * computed off the student's REAL responses, not a synthetic raw-count vector
- * — which is what let them disagree with the headline score. (1.3)
+ * Reported scaled score (200-800) for a prepared response vector. Routes
+ * through the canonical raw→scaled table so the diagnostic engine's score and
+ * its "+X point" projections land on the EXACT same number as scoreTest's
+ * headline (the per-section raw counts are identical — that coupling is the
+ * 1.3 fix). The IRT params on the items are no longer consulted here; only the
+ * raw-correct count, section, and route matter.
  *
- * @param {Array<{params: object, response: 0|1}>} items
- * @param {string} [formId]
+ * @param {Array<{response: 0|1}>} items
+ * @param {string} [formId]  retained for signature compatibility (unused)
+ * @param {{section?: string, route?: 'easy'|'hard'}} [meta]
  * @returns {number} 200-800 scaled score
  */
-export function scaleResponseVector(items, formId) {
+export function scaleResponseVector(items, formId, meta = {}) {
   if (!items || items.length === 0) return 200;
-  const { theta } = estimateTheta(items);
-  return thetaToScaledScore(theta, formId);
+  const raw = items.reduce((s, i) => s + (i.response ? 1 : 0), 0);
+  return rawToScaled(meta.section || 'math', raw, items.length, meta.route || 'hard');
 }
 
 /**
- * Lightweight re-export for places that only need raw → scaled.
- * Acts as a drop-in replacement for the old convertToSATScore(),
- * but now backed by IRT under the hood.
+ * Raw-correct → scaled (200-800) via the canonical table. Section/route aware.
+ * The section defaults from the question count (54 → R&W, else Math) when not
+ * given; callers that know the section should pass it.
+ *
+ * @param {number} rawScore
+ * @param {number} [totalQuestions=44]
+ * @param {{section?: string, route?: 'easy'|'hard'}} [meta]
+ * @returns {number} 200-800 scaled score
  */
-export function convertToSATScore(rawScore, totalQuestions = 44) {
-  if (totalQuestions === 0) return 200;
-
-  // Build a synthetic response vector: rawScore items correct, rest incorrect,
-  // distributed across a balanced difficulty mix matching SAT proportions.
-  const items = buildSyntheticResponseVector(rawScore, totalQuestions);
-  const { theta } = estimateTheta(items);
-  return thetaToScaledScore(theta);
-}
-
-/**
- * Build a synthetic item vector for a given raw score.
- * Mirrors the real SAT difficulty distribution:
- *   ~30 % easy, ~45 % medium, ~25 % hard
- * Correct answers are assigned to easier items first (most-likely pattern).
- */
-function buildSyntheticResponseVector(rawScore, totalQuestions) {
-  const nEasy   = Math.round(totalQuestions * 0.30);
-  const nMedium = Math.round(totalQuestions * 0.45);
-  const nHard   = totalQuestions - nEasy - nMedium;
-
-  const items = [];
-  let remaining = rawScore;
-
-  const addItems = (count, difficulty) => {
-    for (let i = 0; i < count; i++) {
-      const correct = remaining > 0 ? 1 : 0;
-      if (correct) remaining--;
-      items.push({
-        params: { ...( { easy: { a: 1.0, b: -1.0, c: 0.25 },
-                          medium: { a: 1.0, b: 0.0, c: 0.25 },
-                          hard: { a: 1.0, b: 1.5, c: 0.25 } }[difficulty]) },
-        response: correct,
-      });
-    }
-  };
-
-  addItems(nEasy, 'easy');
-  addItems(nMedium, 'medium');
-  addItems(nHard, 'hard');
-
-  return items;
+export function convertToSATScore(rawScore, totalQuestions = 44, meta = {}) {
+  if (!totalQuestions) return 200;
+  const section = meta.section || (totalQuestions >= 50 ? 'reading-writing' : 'math');
+  return rawToScaled(section, rawScore, totalQuestions, meta.route || 'hard');
 }
 
 // Re-export calibration helpers so consumers only need one import
