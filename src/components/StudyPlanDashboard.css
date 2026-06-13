@@ -896,7 +896,7 @@
   font-weight: 700 !important;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--color-slate-500) !important;
+  color: var(--color-slate-600) !important;
   margin-bottom: 2px !important;
 }
 .sp-weekly-tight .acely-section-name {
@@ -1277,4 +1277,152 @@
   color: var(--color-warning-700);
   font-size: 13px;
   font-weight: 600;
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   Section switcher + diagnostic-style color treatment (2026-06-12).
+   Tri-color semantics: purple = plan chrome, green = done/mastery,
+   orange = Math section identity; info-blue = Reading & Writing identity.
+   ════════════════════════════════════════════════════════════════════ */
+
+/* Practice-Bank-style pill toggle (All · Math · Reading & Writing) —
+   lives in the Weekly Schedule header row so its scope reads clearly */
+.sp-section-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.sp-section-header-row .sp-section-header {
+  margin-bottom: 0;
+}
+
+.sp-section-toggle {
+  display: inline-flex;
+  background: var(--color-white);
+  border: 1px solid var(--color-slate-200);
+  border-radius: 999px;
+  padding: 4px;
+  gap: 2px;
+}
+
+.sp-section-toggle-btn {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-slate-500);
+  background: transparent;
+  border: none;
+  border-radius: 999px;
+  padding: 7px 16px;
+  min-height: 34px;
+  cursor: pointer;
+  transition: background 120ms ease, color 120ms ease;
+}
+
+.sp-section-toggle-btn:hover {
+  color: var(--color-slate-700);
+}
+
+.sp-section-toggle-btn.is-active {
+  font-weight: 700;
+  color: #ffffff;
+  background: #1d1d1f;
+}
+
+/* Day chip on weekly activity rows (matches the coming-up day chips) */
+.sp-act-day {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 38px;
+  padding: 2px 7px;
+  margin-right: 8px;
+  border-radius: 6px;
+  background: var(--color-slate-100);
+  color: var(--color-slate-600);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+/* Section identity chips — Math = brand orange, R&W = info blue */
+.sp-sec-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  margin-right: 8px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.sp-sec-chip.is-math {
+  background: var(--color-brand-primary-light);
+  color: var(--color-brand-primary);
+}
+
+.sp-sec-chip.is-rw {
+  background: var(--color-info-100);
+  color: var(--color-info-700);
+}
+
+.acely-metric-label .sp-sec-chip {
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+/* Plan-progress mini bar in the strip (diagnostic ProgressBar language) */
+.sp-strip-bar {
+  width: 100%;
+  max-width: 140px;
+  height: 5px;
+  margin: 4px 0 2px;
+  border-radius: 999px;
+  background: var(--color-slate-100);
+  overflow: hidden;
+}
+
+.sp-strip-bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--color-brand-purple-deep), var(--color-brand-purple));
+  transition: width 400ms ease;
+}
+
+/* Week cards: stronger current/complete identity (left accent rules) */
+.sp-weekly-tight .sp-week-card.is-current {
+  border-left: 3px solid var(--color-brand-purple-deep);
+  background: linear-gradient(180deg, var(--color-brand-purple-soft) 0, var(--color-white) 56px);
+}
+
+.sp-weekly-tight .sp-week-card.is-complete {
+  border-left: 3px solid var(--color-brand-green-deep);
+}
+
+/* Empty state when a section filter has no focus areas */
+.sp-focus-empty {
+  padding: 18px;
+  border: 1px dashed var(--color-slate-200);
+  border-radius: 12px;
+  color: var(--color-slate-500);
+  font-size: 14px;
+  text-align: center;
+}
+
+/* Collapsed week number discs join the plan's purple chrome (they were the
+   last all-gray zone); complete weeks already swap to the green check. */
+.sp-weekly-tight .sp-week-card:not(.is-complete) .sp-week-icon {
+  background: var(--color-brand-purple-soft);
+  color: var(--color-brand-purple-text);
+}
+
+.sp-weekly-tight .sp-week-card.is-complete .sp-week-icon {
+  background: var(--color-brand-green-soft);
+  color: var(--color-brand-green-text);
 }

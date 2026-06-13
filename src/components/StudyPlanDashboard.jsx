@@ -8,6 +8,9 @@ import {
 } from '../data/questions/rwBank';
 import { showToast } from './ui/Toaster';
 import { getWeaknessSection, getMathWeaknesses, getRWWeaknesses } from '../services/selectors/weaknesses';
+import { activitySection, matchesSectionFilter, SECTION_FILTERS } from '../services/selectors/planSection';
+import { DOMAIN_DISPLAY_NAMES } from '../services/scoring/domainInference';
+import { CB_RW_DOMAIN_LABELS } from '../data/questions/cbSkillTaxonomy';
 import { resolveActivityDrill } from '../services/activityDrillRouter';
 import { applyPredictionBoost } from '../services/selectors/predictionBoost';
 import { annotateFocusAreas } from '../services/selectors/focusAreaProgress';
@@ -57,13 +60,55 @@ const TYPE_META = {
   test:     { label: 'Test',     fg: colors.focus },
 };
 
+// Tinted icon-chip palette, diagnostic-report style: each activity kind gets
+// an identity color. Math/R&W use the section hues (orange / info-blue) the
+// section chips use; strategy = amber, review = purple (plan domain),
+// test = navy. Tri-color semantics preserved — purple stays plan/focus,
+// green stays completion (the done state).
+const chipColorsFor = (act) => {
+  if (act.type === 'test') return { bg: 'var(--color-slate-100)', fg: 'var(--color-brand-navy)' };
+  if (act.type === 'strategy' || act.type === 'review') {
+    // Both render the user-facing label "Tip" — one shared hue (amber), so
+    // color stays a one-to-one encoding on a page where it now means section.
+    return { bg: 'var(--color-warning-100)', fg: 'var(--color-warning-600)' };
+  }
+  const section = activitySection(act);
+  if (section === 'rw') return { bg: 'var(--color-info-100)', fg: 'var(--color-info-700)' };
+  // orange-600 (not primary): the lighter primary fails contrast at chip size
+  return { bg: 'var(--color-brand-primary-light)', fg: 'var(--color-brand-orange-600)' };
+};
+
+const SECTION_CHIP_LABEL = { math: 'Math', rw: 'R&W' };
+
+// Focus-card domain eyebrow: official display names, never raw kebab slugs
+// ("ADVANCED-MATH" next to the polished section chip read as a bug).
+const domainLabel = (domain) => {
+  if (!domain) return 'Skill';
+  return DOMAIN_DISPLAY_NAMES[domain]
+    || CB_RW_DOMAIN_LABELS[domain]
+    || domain.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+};
+
+// Week titles persisted by the generator embed their own "Week N:" prefix
+// ("Week 2: targeted practice"), which the header template then doubles
+// ("Week 2 — Week 2: targeted practice"). Strip at render so both new and
+// persisted plans read clean.
+const cleanWeekTitle = (title) => {
+  if (!title) return '';
+  const stripped = title.replace(/^week\s*\d+\s*[:—–-]\s*/i, '').trim();
+  if (!stripped) return '';
+  return stripped.charAt(0).toUpperCase() + stripped.slice(1);
+};
+
+// Icons inherit the tinted chip's color (chipColorsFor) via currentColor —
+// passing explicit hues here would fight the section/type tint.
 function activityIcon(type) {
-  if (type === 'lesson')   return <BookOpenIcon size={16} color={colors.text.tertiary} />;
-  if (type === 'practice') return <PencilIcon size={16} color={colors.focus} />;
-  if (type === 'strategy') return <BrainIcon size={16} color={colors.text.tertiary} />;
-  if (type === 'review')   return <SearchIcon size={16} color={colors.text.tertiary} />;
-  if (type === 'test')     return <DocumentIcon size={16} color={colors.focus} />;
-  return <PinIcon size={16} color={colors.text.secondary} />;
+  if (type === 'lesson')   return <BookOpenIcon size={16} color="currentColor" />;
+  if (type === 'practice') return <PencilIcon size={16} color="currentColor" />;
+  if (type === 'strategy') return <BrainIcon size={16} color="currentColor" />;
+  if (type === 'review')   return <SearchIcon size={16} color="currentColor" />;
+  if (type === 'test')     return <DocumentIcon size={16} color="currentColor" />;
+  return <PinIcon size={16} color="currentColor" />;
 }
 
 // ---------------------------------------------------------------------------
@@ -156,6 +201,10 @@ const StudyPlanDashboard = ({
     variant === 'inline' ? 'weeklyView' : 'todaysTasks'
   );
   const [showAllSkillChanges, setShowAllSkillChanges] = useState(false);
+  // Math / Reading & Writing switcher (Practice-Bank-style). Scopes the
+  // Weekly Schedule, Focus Areas, coming-up preview, and the plan-progress
+  // counts. Section-agnostic items (review/strategy/test) show everywhere.
+  const [sectionFilter, setSectionFilter] = useState('all');
 
   // ── Derived data ─────────────────────────────────────────────────────
   // Render-time guard: legacy plan artifacts in Firestore may still
@@ -165,7 +214,7 @@ const StudyPlanDashboard = ({
   // test activities. Generator no longer emits lessons (see
   // studyPlanGenerator.js:472), but this defends against old plans
   // already persisted server-side.
-  const isVisibleActivity = (a) => a && a.type !== 'lesson';
+  const isVisibleActivity = (a) => a && a.type !== 'lesson' && matchesSectionFilter(a, sectionFilter);
   const visibleActivities = (week) => (week?.activities || []).filter(isVisibleActivity);
 
   const delta = studyPlanArtifact?.delta || studyPlan._diff || null;
@@ -487,10 +536,18 @@ const StudyPlanDashboard = ({
   // boilerplate advice ("Untimed first; bring time pressure back once
   // accuracy holds."), repeated verbatim under every card — the single
   // loudest "generated, not written" signal on the page. When 3+ rows share
+  // Section switcher scope: Focus Areas show only the selected section's
+  // weaknesses. Computed BEFORE focusDiagnostics so the per-row diagnostic
+  // sentences (index-aligned) stay matched to their cards.
+  const sectionedFocusRows = useMemo(() => {
+    if (sectionFilter === 'all') return skillPracticeRows;
+    return skillPracticeRows.filter(w => (w.section === 'rw' ? 'rw' : 'math') === sectionFilter);
+  }, [skillPracticeRows, sectionFilter]);
+
   // a closing sentence, hoist it to ONE section-level coach line and strip
   // it from each card. Pure render-time presentation; plan data untouched.
   const focusDiagnostics = useMemo(() => {
-    const rows = skillPracticeRows.map(w => formatDiagnosticSentence(w) || '');
+    const rows = sectionedFocusRows.map(w => formatDiagnosticSentence(w) || '');
     const lastSentence = (t) => {
       const m = t.trim().match(/[^.!?]+[.!?]$/);
       return m ? m[0].trim() : '';
@@ -512,7 +569,7 @@ const StudyPlanDashboard = ({
       return trimmed;
     });
     return { shared, perRow };
-  }, [skillPracticeRows]);
+  }, [sectionedFocusRows]);
 
   // ── Activity row ─────────────────────────────────────────────────────
   const ActivityRow = ({ act, weekIdx, actIdx }) => {
@@ -521,6 +578,8 @@ const StudyPlanDashboard = ({
     const isTip = act.type === 'strategy' || act.type === 'review';
     const tips = act.tips || [];
     const meta = TYPE_META[act.type] || TYPE_META.lesson;
+    const chip = chipColorsFor(act);
+    const section = act.type === 'practice' ? activitySection(act) : null;
 
     // FINDING-007: the completion toggle was absolutely positioned at the
     // card's top-right corner (-10px outside it), floating detached over the
@@ -540,9 +599,9 @@ const StudyPlanDashboard = ({
 
         <div className="ai-banner-content" style={{ flex: 1 }}>
           <div className="ai-banner-icon" style={{
-            background: done ? 'var(--color-slate-100)' : 'var(--color-slate-50)',
-            color: done ? 'var(--color-slate-400)' : meta.fg,
-            borderColor: 'var(--color-slate-200)'
+            background: done ? 'var(--color-slate-100)' : chip.bg,
+            color: done ? 'var(--color-slate-400)' : chip.fg,
+            borderColor: done ? 'var(--color-slate-200)' : 'transparent'
           }}>
             {activityIcon(act.type)}
           </div>
@@ -551,6 +610,10 @@ const StudyPlanDashboard = ({
               <MathText>{act.title}</MathText>
             </div>
             <div className="ai-banner-desc">
+              {act.day && <span className="sp-act-day">{act.day.slice(0, 3).toUpperCase()}</span>}
+              {section && !done && (
+                <span className={`sp-sec-chip is-${section}`}>{SECTION_CHIP_LABEL[section]}</span>
+              )}
               {meta.label} {act.type === 'test' ? '· High Priority' : ''}
             </div>
             {isTip && tips.length > 0 && !done && (
@@ -608,14 +671,23 @@ const StudyPlanDashboard = ({
       return { act, origIdx, masteryStatus };
     });
 
-    // Sort: needs-focus first, normal middle, mastered last (within uncompleted)
+    // Sort: completed last; then CHRONOLOGICAL by day — with day chips
+    // visible, Wednesday rendering above Monday read as "disorganized"
+    // (design-critique blocker). Mastery urgency breaks ties within a day;
+    // the NEEDS FOCUS tag still flags it.
     const sortOrder = { 'needs-focus': 0, normal: 1, null: 1, 'mastered': 2 };
+    const weekDayOrder = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+    const dayRank = (act) => {
+      const i = weekDayOrder.indexOf(act.day);
+      return i === -1 ? weekDayOrder.length : i; // day-less activities sink to the end
+    };
     const sorted = [...rankedActivities].sort((a, b) => {
       // Completed always at end
       if (a.act.completed && !b.act.completed) return 1;
       if (!a.act.completed && b.act.completed) return -1;
       if (a.act.completed && b.act.completed) return 0;
-      // Then by mastery status
+      const byDay = dayRank(a.act) - dayRank(b.act);
+      if (byDay !== 0) return byDay;
       return (sortOrder[a.masteryStatus] ?? 1) - (sortOrder[b.masteryStatus] ?? 1);
     });
 
@@ -719,6 +791,9 @@ const StudyPlanDashboard = ({
           <div className="sp-strip-cell">
             <span className="sp-strip-eyebrow">Plan Progress</span>
             <span className="sp-strip-num">{progressPercent}%</span>
+            <div className="sp-strip-bar" role="progressbar" aria-valuenow={progressPercent} aria-valuemin={0} aria-valuemax={100}>
+              <div className="sp-strip-bar-fill" style={{ width: `${progressPercent}%` }} />
+            </div>
             <span className="sp-strip-meta">{completedActivities} of {totalActivities} tasks</span>
           </div>
           <div className="sp-strip-divider" aria-hidden="true" />
@@ -908,7 +983,6 @@ const StudyPlanDashboard = ({
       {activeView === 'weeklyView' && (
       <div className="sp-weekly-tight">
 
-
       {/* ────────────────────────────────────────────────────────────────
           0. WHAT CHANGED BANNER (adaptive plan diff)
           Sources: studyPlanArtifact.delta (Firestore) or studyPlan._diff (legacy)
@@ -1046,7 +1120,28 @@ const StudyPlanDashboard = ({
           diagnostics. Acely leads with tasks; so do we now.
       ──────────────────────────────────────────────────────────────── */}
       <div className="sp-section">
-        <h3 className="sp-section-header">Weekly Schedule</h3>
+        <div className="sp-section-header-row">
+          <h3 className="sp-section-header">Weekly Schedule</h3>
+          {/* Section switcher — Practice-Bank-style pill toggle. Scopes the
+              Weekly Schedule, Focus Areas, and the plan-progress counts to
+              one test section; whole-plan items (review/strategy/tests)
+              always show. Lives in the schedule header so its scope reads
+              clearly (critique: a toolbar above the banners attached to
+              nothing). */}
+          <div className="sp-section-toggle" role="tablist" aria-label="Plan section">
+            {SECTION_FILTERS.map(tab => (
+              <button
+                key={tab.id}
+                role="tab"
+                aria-selected={sectionFilter === tab.id}
+                className={`sp-section-toggle-btn${sectionFilter === tab.id ? ' is-active' : ''}`}
+                onClick={() => setSectionFilter(tab.id)}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
+        </div>
 
         <div className="sp-timeline">
           {/* Current week */}
@@ -1057,7 +1152,7 @@ const StudyPlanDashboard = ({
                 <div>
                   <div className="sp-week-label">This Week</div>
                   <div className="sp-week-title">
-                    Week {displayCurrentWeek + 1}{currentWeek?.title ? ` — ${currentWeek.title}` : ''}
+                    Week {displayCurrentWeek + 1}{cleanWeekTitle(currentWeek?.title) ? ` — ${cleanWeekTitle(currentWeek.title)}` : ''}
                   </div>
                 </div>
               </div>
@@ -1098,7 +1193,7 @@ const StudyPlanDashboard = ({
                           {isComplete ? <CheckIcon size={16} color="currentColor" /> : realIdx + 1}
                         </div>
                         <div className="sp-week-title" style={{ fontSize: '1rem' }}>
-                          Week {week.weekNumber}{week.title ? ` — ${week.title}` : ''}
+                          Week {week.weekNumber}{cleanWeekTitle(week.title) ? ` — ${cleanWeekTitle(week.title)}` : ''}
                         </div>
                       </div>
                       <div className="sp-week-meta">
@@ -1152,7 +1247,7 @@ const StudyPlanDashboard = ({
             <p className="sp-focus-shared-advice">{focusDiagnostics.shared}</p>
           )}
           <div className="dashboard-actions-grid">
-            {(showAllFocus ? skillPracticeRows : skillPracticeRows.slice(0, 5)).map((w, i) => {
+            {(showAllFocus ? sectionedFocusRows : sectionedFocusRows.slice(0, 5)).map((w, i) => {
               // v3.1: classify into low/mid/high bands so CSS picks the
               // soft-tint color. JSX no longer paints the heavy red/green
               // panel; the chip color reads from a data attribute.
@@ -1185,7 +1280,12 @@ const StudyPlanDashboard = ({
                     </div>
                     <div className="acely-split-right" style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
                       <div style={{ flex: 1, minWidth: 0, paddingRight: '1rem' }}>
-                        <div className="acely-metric-label">{w.domain || 'Skill'}</div>
+                        <div className="acely-metric-label">
+                          <span className={`sp-sec-chip is-${w.section === 'rw' ? 'rw' : 'math'}`}>
+                            {SECTION_CHIP_LABEL[w.section === 'rw' ? 'rw' : 'math']}
+                          </span>
+                          {domainLabel(w.domain)}
+                        </div>
                         <div className="acely-section-name" style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{w.skill}</div>
                         {/* Retirement (item 2): the green confirmation. The
                             weakness stays in the plan — the next full test
@@ -1254,7 +1354,7 @@ const StudyPlanDashboard = ({
               );
             })}
           </div>
-          {skillPracticeRows.length > 5 && (
+          {sectionedFocusRows.length > 5 && (
             <button
               type="button"
               className="sp-focus-show-all"
@@ -1262,8 +1362,14 @@ const StudyPlanDashboard = ({
             >
               {showAllFocus
                 ? 'Show fewer'
-                : `Show all ${skillPracticeRows.length} skills`}
+                : `Show all ${sectionedFocusRows.length} skills`}
             </button>
+          )}
+          {sectionedFocusRows.length === 0 && (
+            <div className="sp-focus-empty">
+              No {sectionFilter === 'rw' ? 'Reading & Writing' : 'Math'} focus areas right now —
+              your latest test didn't flag any. Switch back to All to see the full list.
+            </div>
           )}
         </div>
       )}
