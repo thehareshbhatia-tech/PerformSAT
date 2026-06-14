@@ -1,6 +1,13 @@
 // SATCircleDiagrams.jsx - Circle-related geometry diagrams for SAT questions
 import React from 'react';
-import { SAT_GRAPH_STYLES } from './SATGraphCore';
+import {
+  SAT_GRAPH_STYLES,
+  SAT_FIGURE_STYLE,
+  SAT_FIGURE_FONT,
+  LABEL_HALO,
+  isVariableLabel,
+  perpendicularLabelPos,
+} from './SATGraphCore';
 
 const styles = SAT_GRAPH_STYLES;
 
@@ -63,19 +70,20 @@ export const CircleWithSector = ({
   const angleLabelX = centerX + angleLabelRadius * Math.cos(angleLabelAngle);
   const angleLabelY = centerY + angleLabelRadius * Math.sin(angleLabelAngle);
 
-  // Radius label position (middle of first radius)
-  const radiusLabelAngle = startAngle;
-  const radiusMidX = centerX + (radius / 2) * Math.cos(radiusLabelAngle);
-  const radiusMidY = centerY + (radius / 2) * Math.sin(radiusLabelAngle);
+  // Radius label position — held perpendicular to the radius segment so it
+  // clears the line (the old fixed (-12,-8) offset could land on the stroke).
+  const radiusLabelPos = perpendicularLabelPos(
+    [centerX, centerY],
+    [x1, y1],
+    [centerX, centerY],
+    14,
+  );
 
   return (
     <svg
       width={width}
       height={height}
-      style={{
-        background: '#ffffff',
-        border: '1px solid #e5e7eb',
-      }}
+      style={SAT_FIGURE_STYLE}
     >
       {/* Full circle (faded background) */}
       <circle
@@ -137,10 +145,12 @@ export const CircleWithSector = ({
       <text
         x={centerX - 18}
         y={centerY + 5}
-        fontFamily="system-ui, sans-serif"
+        fontFamily={SAT_FIGURE_FONT}
+        fontStyle={isVariableLabel(labelCenter) ? 'italic' : 'normal'}
         fontSize={14}
         fontWeight="600"
         fill="#374151"
+        {...LABEL_HALO}
       >
         {labelCenter}
       </text>
@@ -149,11 +159,13 @@ export const CircleWithSector = ({
       <text
         x={point1LabelX}
         y={point1LabelY + 5}
-        fontFamily="system-ui, sans-serif"
+        fontFamily={SAT_FIGURE_FONT}
+        fontStyle={isVariableLabel(labelPoint1) ? 'italic' : 'normal'}
         fontSize={14}
         fontWeight="600"
         fill="#374151"
         textAnchor="middle"
+        {...LABEL_HALO}
       >
         {labelPoint1}
       </text>
@@ -162,11 +174,13 @@ export const CircleWithSector = ({
       <text
         x={point2LabelX}
         y={point2LabelY + 5}
-        fontFamily="system-ui, sans-serif"
+        fontFamily={SAT_FIGURE_FONT}
+        fontStyle={isVariableLabel(labelPoint2) ? 'italic' : 'normal'}
         fontSize={14}
         fontWeight="600"
         fill="#374151"
         textAnchor="middle"
+        {...LABEL_HALO}
       >
         {labelPoint2}
       </text>
@@ -175,7 +189,7 @@ export const CircleWithSector = ({
       {showAngleLabel && (() => {
         const labelText = angleLabel || `${centralAngle}°`;
         const labelFill = "#7c3aed";
-        const labelFont = "Georgia, serif";
+        const labelFont = SAT_FIGURE_FONT;
 
         // Render fractions as stacked numerator/denominator
         if (labelText.includes('/')) {
@@ -189,9 +203,10 @@ export const CircleWithSector = ({
                 fontFamily={labelFont}
                 fontSize={13}
                 fontWeight="600"
-                fontStyle="italic"
+                fontStyle={isVariableLabel(numerator) ? 'italic' : 'normal'}
                 fill={labelFill}
                 textAnchor="middle"
+                {...LABEL_HALO}
               >
                 {numerator}
               </text>
@@ -209,9 +224,10 @@ export const CircleWithSector = ({
                 fontFamily={labelFont}
                 fontSize={13}
                 fontWeight="600"
-                fontStyle="italic"
+                fontStyle={isVariableLabel(denominator) ? 'italic' : 'normal'}
                 fill={labelFill}
                 textAnchor="middle"
+                {...LABEL_HALO}
               >
                 {denominator}
               </text>
@@ -226,9 +242,10 @@ export const CircleWithSector = ({
             fontFamily={labelFont}
             fontSize={15}
             fontWeight="600"
-            fontStyle="italic"
+            fontStyle={isVariableLabel(labelText) ? 'italic' : 'normal'}
             fill={labelFill}
             textAnchor="middle"
+            {...LABEL_HALO}
           >
             {labelText}
           </text>
@@ -238,13 +255,16 @@ export const CircleWithSector = ({
       {/* Radius label */}
       {showRadiusLabel && displayRadius && (
         <text
-          x={radiusMidX - 12}
-          y={radiusMidY - 8}
-          fontFamily="system-ui, sans-serif"
+          x={radiusLabelPos.x}
+          y={radiusLabelPos.y}
+          fontFamily={SAT_FIGURE_FONT}
+          fontStyle={isVariableLabel(String(displayRadius)) ? 'italic' : 'normal'}
           fontSize={13}
           fontWeight="600"
           fill="#1e40af"
           textAnchor="middle"
+          dominantBaseline="central"
+          {...LABEL_HALO}
         >
           {displayRadius}
         </text>
@@ -282,10 +302,7 @@ export const CircleWithSquare = ({
     <svg
       width={width}
       height={height}
-      style={{
-        background: styles.colors.background,
-        border: `1px solid ${styles.colors.border}`,
-      }}
+      style={SAT_FIGURE_STYLE}
     >
       {/* Circle */}
       <circle
@@ -341,9 +358,11 @@ export const CircleWithSquare = ({
       <text
         x={centerX + 10}
         y={centerY - 5}
-        fontFamily={styles.font.axis}
+        fontFamily={SAT_FIGURE_FONT}
+        fontStyle={isVariableLabel(labels.O || 'O') ? 'italic' : 'normal'}
         fontSize={styles.fontSize.tickLabel}
         fill={styles.colors.axis}
+        {...LABEL_HALO}
       >
         {labels.O || 'O'}
       </text>
@@ -359,10 +378,12 @@ export const CircleWithSquare = ({
             key={`vertex-${i}`}
             x={labelX}
             y={labelY + 5}
-            fontFamily={styles.font.axis}
+            fontFamily={SAT_FIGURE_FONT}
+            fontStyle={isVariableLabel(v.label) ? 'italic' : 'normal'}
             fontSize={styles.fontSize.tickLabel}
             fill={styles.colors.axis}
             textAnchor="middle"
+            {...LABEL_HALO}
           >
             {v.label}
           </text>
@@ -404,10 +425,7 @@ export const CircleInscribed = ({
     <svg
       width={width}
       height={height}
-      style={{
-        background: styles.colors.background,
-        border: `1px solid ${styles.colors.border}`,
-      }}
+      style={SAT_FIGURE_STYLE}
     >
       {/* Circle */}
       <circle
@@ -478,9 +496,11 @@ export const CircleInscribed = ({
       <text
         x={centerX - 15}
         y={centerY + 5}
-        fontFamily={styles.font.axis}
+        fontFamily={SAT_FIGURE_FONT}
+        fontStyle={isVariableLabel(labelCenter) ? 'italic' : 'normal'}
         fontSize={styles.fontSize.tickLabel}
         fill={styles.colors.axis}
+        {...LABEL_HALO}
       >
         {labelCenter}
       </text>
@@ -488,10 +508,12 @@ export const CircleInscribed = ({
       <text
         x={Q.x}
         y={Q.y - 15}
-        fontFamily={styles.font.axis}
+        fontFamily={SAT_FIGURE_FONT}
+        fontStyle={isVariableLabel(labelPoints[0] || 'Q') ? 'italic' : 'normal'}
         fontSize={styles.fontSize.tickLabel}
         fill={styles.colors.axis}
         textAnchor="middle"
+        {...LABEL_HALO}
       >
         {labelPoints[0] || 'Q'}
       </text>
@@ -499,10 +521,12 @@ export const CircleInscribed = ({
       <text
         x={P.x + 15}
         y={P.y + 5}
-        fontFamily={styles.font.axis}
+        fontFamily={SAT_FIGURE_FONT}
+        fontStyle={isVariableLabel(labelPoints[1] || 'P') ? 'italic' : 'normal'}
         fontSize={styles.fontSize.tickLabel}
         fill={styles.colors.axis}
         textAnchor="middle"
+        {...LABEL_HALO}
       >
         {labelPoints[1] || 'P'}
       </text>
@@ -510,10 +534,12 @@ export const CircleInscribed = ({
       <text
         x={R.x - 15}
         y={R.y + 5}
-        fontFamily={styles.font.axis}
+        fontFamily={SAT_FIGURE_FONT}
+        fontStyle={isVariableLabel(labelPoints[2] || 'R') ? 'italic' : 'normal'}
         fontSize={styles.fontSize.tickLabel}
         fill={styles.colors.axis}
         textAnchor="middle"
+        {...LABEL_HALO}
       >
         {labelPoints[2] || 'R'}
       </text>
@@ -601,11 +627,12 @@ export const CircleWithInscribedTriangle = ({
           <text
             x={labelX}
             y={labelY + 4}
-            fontFamily="Georgia, serif"
+            fontFamily={SAT_FIGURE_FONT}
             fontSize={13}
-            fontStyle="italic"
+            fontStyle={isVariableLabel(angleAtA) ? 'italic' : 'normal'}
             fill={styles.colors.axis}
             textAnchor="middle"
+            {...LABEL_HALO}
           >
             {angleAtA}
           </text>
@@ -618,10 +645,7 @@ export const CircleWithInscribedTriangle = ({
     <svg
       width={width}
       height={height}
-      style={{
-        background: styles.colors.background,
-        border: `1px solid ${styles.colors.border}`,
-      }}
+      style={SAT_FIGURE_STYLE}
     >
       {/* Circle */}
       <circle
@@ -654,28 +678,40 @@ export const CircleWithInscribedTriangle = ({
       />
 
       {/* Optional radius label (drawn from O to C) */}
-      {radiusLabel && (
-        <g>
-          <line
-            x1={centerX}
-            y1={centerY}
-            x2={C.x}
-            y2={C.y}
-            stroke={styles.colors.gridLine}
-            strokeWidth={1}
-            strokeDasharray="4,4"
-          />
-          <text
-            x={(centerX + C.x) / 2 + 6}
-            y={(centerY + C.y) / 2 - 4}
-            fontFamily={styles.font.axis}
-            fontSize={styles.fontSize.tickLabel}
-            fill={styles.colors.axis}
-          >
-            {radiusLabel}
-          </text>
-        </g>
-      )}
+      {radiusLabel && (() => {
+        const radiusLabelPos = perpendicularLabelPos(
+          [centerX, centerY],
+          [C.x, C.y],
+          [centerX, centerY],
+          14,
+        );
+        return (
+          <g>
+            <line
+              x1={centerX}
+              y1={centerY}
+              x2={C.x}
+              y2={C.y}
+              stroke={styles.colors.gridLine}
+              strokeWidth={1}
+              strokeDasharray="4,4"
+            />
+            <text
+              x={radiusLabelPos.x}
+              y={radiusLabelPos.y}
+              fontFamily={SAT_FIGURE_FONT}
+              fontStyle={isVariableLabel(String(radiusLabel)) ? 'italic' : 'normal'}
+              fontSize={styles.fontSize.tickLabel}
+              fill={styles.colors.axis}
+              textAnchor="middle"
+              dominantBaseline="central"
+              {...LABEL_HALO}
+            >
+              {radiusLabel}
+            </text>
+          </g>
+        );
+      })()}
 
       {/* Right-angle marker at C */}
       {showRightAngleAtC && renderRightAngleAtC()}
@@ -695,30 +731,36 @@ export const CircleWithInscribedTriangle = ({
       <text
         x={A.x - 14}
         y={A.y + 5}
-        fontFamily={styles.font.axis}
+        fontFamily={SAT_FIGURE_FONT}
+        fontStyle={isVariableLabel(labels.A) ? 'italic' : 'normal'}
         fontSize={styles.fontSize.tickLabel}
         fill={styles.colors.axis}
         textAnchor="middle"
+        {...LABEL_HALO}
       >
         {labels.A}
       </text>
       <text
         x={B.x + 14}
         y={B.y + 5}
-        fontFamily={styles.font.axis}
+        fontFamily={SAT_FIGURE_FONT}
+        fontStyle={isVariableLabel(labels.B) ? 'italic' : 'normal'}
         fontSize={styles.fontSize.tickLabel}
         fill={styles.colors.axis}
         textAnchor="middle"
+        {...LABEL_HALO}
       >
         {labels.B}
       </text>
       <text
         x={C.x}
         y={C.y - 10}
-        fontFamily={styles.font.axis}
+        fontFamily={SAT_FIGURE_FONT}
+        fontStyle={isVariableLabel(labels.C) ? 'italic' : 'normal'}
         fontSize={styles.fontSize.tickLabel}
         fill={styles.colors.axis}
         textAnchor="middle"
+        {...LABEL_HALO}
       >
         {labels.C}
       </text>
@@ -726,9 +768,11 @@ export const CircleWithInscribedTriangle = ({
         <text
           x={centerX + 8}
           y={centerY + 14}
-          fontFamily={styles.font.axis}
+          fontFamily={SAT_FIGURE_FONT}
+          fontStyle={isVariableLabel(labels.O) ? 'italic' : 'normal'}
           fontSize={styles.fontSize.tickLabel}
           fill={styles.colors.axis}
+          {...LABEL_HALO}
         >
           {labels.O}
         </text>

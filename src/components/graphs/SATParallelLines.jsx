@@ -1,6 +1,12 @@
 // SATParallelLines.jsx - Parallel lines with transversal for angle problems
 import React from 'react';
-import { SAT_GRAPH_STYLES } from './SATGraphCore';
+import {
+  SAT_GRAPH_STYLES,
+  SAT_FIGURE_STYLE,
+  SAT_FIGURE_FONT,
+  LABEL_HALO,
+  isVariableLabel,
+} from './SATGraphCore';
 
 const styles = SAT_GRAPH_STYLES;
 
@@ -50,9 +56,12 @@ const SATParallelLines = ({
     const largeArc = Math.abs(endAngle - startAngle) > 180 ? 1 : 0;
     const sweep = endAngle > startAngle ? 0 : 1;
 
+    // Push the label well clear of the transversal — algebraic measures like
+    // "(3x+10)°" are wide, so they need more standoff than a bare "x°".
     const midAngle = ((startAngle + endAngle) / 2 * Math.PI) / 180;
-    const labelX = center[0] + (radius + 15) * Math.cos(midAngle);
-    const labelY = center[1] - (radius + 15) * Math.sin(midAngle);
+    const labelGap = radius + 26;
+    const labelX = center[0] + labelGap * Math.cos(midAngle);
+    const labelY = center[1] - labelGap * Math.sin(midAngle);
 
     return (
       <g>
@@ -60,16 +69,19 @@ const SATParallelLines = ({
           d={`M ${x1} ${y1} A ${radius} ${radius} 0 ${largeArc} ${sweep} ${x2} ${y2}`}
           fill="none"
           stroke={styles.colors.axis}
-          strokeWidth={1}
+          strokeWidth={1.25}
         />
         {label && (
           <text
             x={labelX}
-            y={labelY + 4}
-            fontFamily={styles.font.axis}
-            fontSize={styles.fontSize.tickLabel}
+            y={labelY}
+            fontFamily={SAT_FIGURE_FONT}
+            fontStyle={isVariableLabel(label) ? 'italic' : 'normal'}
+            fontSize={14}
             fill={styles.colors.axis}
             textAnchor="middle"
+            dominantBaseline="central"
+            {...LABEL_HALO}
           >
             {label}
           </text>
@@ -90,10 +102,7 @@ const SATParallelLines = ({
     <svg
       width={width}
       height={height}
-      style={{
-        background: styles.colors.background,
-        border: `1px solid ${styles.colors.border}`,
-      }}
+      style={SAT_FIGURE_STYLE}
     >
       {/* Parallel line 1 (top) */}
       <line
@@ -125,37 +134,47 @@ const SATParallelLines = ({
         strokeWidth={styles.strokeWidth.dataLine}
       />
 
-      {/* Parallel marks */}
+      {/* Parallel marks — matching chevron arrowheads ON each line (the SAT
+          convention for "these lines are parallel"), placed left of the
+          transversal so they stay clear of the angle labels. */}
       {showParallelMarks && (
         <>
-          <g transform={`translate(${padding + 40}, ${line1Y})`}>
-            <line x1={-5} y1={-8} x2={5} y2={-8} stroke={styles.colors.axis} strokeWidth={1.5} />
-            <line x1={-5} y1={-4} x2={5} y2={-4} stroke={styles.colors.axis} strokeWidth={1.5} />
-          </g>
-          <g transform={`translate(${padding + 40}, ${line2Y})`}>
-            <line x1={-5} y1={-8} x2={5} y2={-8} stroke={styles.colors.axis} strokeWidth={1.5} />
-            <line x1={-5} y1={-4} x2={5} y2={-4} stroke={styles.colors.axis} strokeWidth={1.5} />
-          </g>
+          <polyline
+            points={`${padding + 26},${line1Y - 5} ${padding + 32},${line1Y} ${padding + 26},${line1Y + 5}`}
+            fill="none"
+            stroke={styles.colors.axis}
+            strokeWidth={1.5}
+            strokeLinejoin="round"
+            strokeLinecap="round"
+          />
+          <polyline
+            points={`${padding + 26},${line2Y - 5} ${padding + 32},${line2Y} ${padding + 26},${line2Y + 5}`}
+            fill="none"
+            stroke={styles.colors.axis}
+            strokeWidth={1.5}
+            strokeLinejoin="round"
+            strokeLinecap="round"
+          />
         </>
       )}
 
       {/* Angle arcs at top intersection */}
-      {topAngles[0] && drawAngleArc(intersect1, 180, 180 - transAngle, 20, topAngles[0])}
-      {topAngles[1] && drawAngleArc(intersect1, 0, 180 - transAngle, 20, topAngles[1])}
+      {topAngles[0] && drawAngleArc(intersect1, 180, 180 - transAngle, 28, topAngles[0])}
+      {topAngles[1] && drawAngleArc(intersect1, 0, 180 - transAngle, 28, topAngles[1])}
 
       {/* Angle arcs at bottom intersection */}
-      {bottomAngles[0] && drawAngleArc(intersect2, 180, 180 - transAngle, 20, bottomAngles[0])}
-      {bottomAngles[1] && drawAngleArc(intersect2, 0, 180 - transAngle, 20, bottomAngles[1])}
+      {bottomAngles[0] && drawAngleArc(intersect2, 180, 180 - transAngle, 28, bottomAngles[0])}
+      {bottomAngles[1] && drawAngleArc(intersect2, 0, 180 - transAngle, 28, bottomAngles[1])}
 
       {/* Angle arcs and labels for x, y, z object format */}
       {angles.x !== undefined &&
-        drawAngleArc(intersect1, 180, 180 - transAngle, 20, typeof angles.x === 'boolean' ? 'x°' : angles.x)
+        drawAngleArc(intersect1, 180, 180 - transAngle, 28, typeof angles.x === 'boolean' ? 'x°' : angles.x)
       }
       {angles.y !== undefined &&
-        drawAngleArc(intersect2, 180, 180 - transAngle, 20, typeof angles.y === 'boolean' ? 'y°' : angles.y)
+        drawAngleArc(intersect2, 180, 180 - transAngle, 28, typeof angles.y === 'boolean' ? 'y°' : angles.y)
       }
       {angles.z !== undefined &&
-        drawAngleArc(intersect2, 0, -transAngle, 20, typeof angles.z === 'boolean' ? 'z°' : angles.z)
+        drawAngleArc(intersect2, 0, -transAngle, 28, typeof angles.z === 'boolean' ? 'z°' : angles.z)
       }
 
       {/* Line labels */}
@@ -163,10 +182,11 @@ const SATParallelLines = ({
         <text
           x={width - padding + 10}
           y={line1Y + 5}
-          fontFamily={styles.font.axis}
-          fontSize={styles.fontSize.tickLabel}
+          fontFamily={SAT_FIGURE_FONT}
+          fontSize={14}
           fontStyle="italic"
           fill={styles.colors.axis}
+          {...LABEL_HALO}
         >
           {lineLabels[0]}
         </text>
@@ -175,10 +195,11 @@ const SATParallelLines = ({
         <text
           x={width - padding + 10}
           y={line2Y + 5}
-          fontFamily={styles.font.axis}
-          fontSize={styles.fontSize.tickLabel}
+          fontFamily={SAT_FIGURE_FONT}
+          fontSize={14}
           fontStyle="italic"
           fill={styles.colors.axis}
+          {...LABEL_HALO}
         >
           {lineLabels[1]}
         </text>
@@ -187,10 +208,11 @@ const SATParallelLines = ({
         <text
           x={transEnd[0] + 10}
           y={transEnd[1]}
-          fontFamily={styles.font.axis}
-          fontSize={styles.fontSize.tickLabel}
+          fontFamily={SAT_FIGURE_FONT}
+          fontSize={14}
           fontStyle="italic"
           fill={styles.colors.axis}
+          {...LABEL_HALO}
         >
           {lineLabels[2]}
         </text>

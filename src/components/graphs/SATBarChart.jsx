@@ -1,6 +1,10 @@
 // SATBarChart.jsx - Professional bar chart component for SAT-style questions
 import React from 'react';
-import { SAT_GRAPH_STYLES } from './SATGraphCore';
+import {
+  SAT_GRAPH_STYLES,
+  SAT_FIGURE_STYLE,
+  LABEL_HALO,
+} from './SATGraphCore';
 
 const SATBarChart = ({
   title = '',
@@ -45,10 +49,7 @@ const SATBarChart = ({
     <svg
       width={width}
       height={height}
-      style={{
-        background: styles.colors.background,
-        border: `1px solid ${styles.colors.border}`,
-      }}
+      style={SAT_FIGURE_STYLE}
     >
       {/* Title */}
       {title && (
@@ -106,6 +107,7 @@ const SATBarChart = ({
               fontFamily={styles.font.axis}
               fontSize={styles.fontSize.tickLabel}
               fill={styles.colors.axis}
+              {...LABEL_HALO}
             >
               {tick.toLocaleString()}
             </text>
@@ -161,7 +163,7 @@ const SATBarChart = ({
           y={padding.top + chartHeight / 2}
           textAnchor="middle"
           fontFamily={styles.font.axis}
-          fontSize={11}
+          fontSize={13}
           fill={styles.colors.axis}
           transform={`rotate(-90, 15, ${padding.top + chartHeight / 2})`}
         >
@@ -176,7 +178,7 @@ const SATBarChart = ({
           y={height - 10}
           textAnchor="middle"
           fontFamily={styles.font.axis}
-          fontSize={11}
+          fontSize={13}
           fill={styles.colors.axis}
         >
           {xAxisLabel}

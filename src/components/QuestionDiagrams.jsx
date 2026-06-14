@@ -12,6 +12,13 @@ import SATTable from './graphs/SATTable';
 import SATDotPlot from './graphs/SATDotPlot';
 import SATBoxPlot from './graphs/SATBoxPlot';
 import { RightTriangle, TriangleWithAngles, RightTriangleWithAltitude, SimilarTriangles } from './graphs/SATTriangleDiagrams';
+import {
+  SAT_FIGURE_STYLE,
+  SAT_FIGURE_FONT,
+  LABEL_HALO,
+  isVariableLabel,
+  perpendicularLabelPos,
+} from './graphs/SATGraphCore';
 
 /**
  * Professional SAT-style SVG diagram components for practice questions
@@ -763,59 +770,78 @@ const NestedRightTrianglesDiagram = ({
   const D = [width - pad, height - pad];
 
   const rightAngleSize = 10;
+  // Interior reference for pushing side labels to the outside.
+  const interior = [(A[0] + D[0] + E[0]) / 3, (A[1] + D[1] + E[1]) / 3];
+
+  // Halo'd serif label, italic for single-letter variables (vertices) — matches
+  // the figure styling used across the geometry diagrams.
+  const Label = ({ x, y, children, anchor = 'middle' }) => (
+    <text
+      x={x}
+      y={y}
+      textAnchor={anchor}
+      dominantBaseline="central"
+      fontSize={14}
+      fontFamily={SAT_FIGURE_FONT}
+      fontStyle={isVariableLabel(children) ? 'italic' : 'normal'}
+      fill="#000000"
+      {...LABEL_HALO}
+    >
+      {children}
+    </text>
+  );
+
+  // Vertex letter held just outside the vertex, away from the figure interior.
+  const vertexPos = (p, dist = 14) => {
+    const dx = p[0] - interior[0];
+    const dy = p[1] - interior[1];
+    const len = Math.hypot(dx, dy) || 1;
+    return { x: p[0] + (dx / len) * dist, y: p[1] + (dy / len) * dist };
+  };
+  const av = vertexPos(A);
+  const bv = vertexPos(B);
+  const cv = { x: C[0], y: C[1] - 14 }; // C sits on the top edge → lift straight up
+  const dv = vertexPos(D);
+  const ev = vertexPos(E);
+
+  const abPos = perpendicularLabelPos(A, B, interior, 16);
+  const acPos = perpendicularLabelPos(A, C, interior, 16);
+  const cePos = perpendicularLabelPos(C, E, interior, 16);
 
   return (
-    <svg width={width} height={height} style={{ background: '#f8f8f8', border: '1px solid #ccc' }}>
+    <svg width={width} height={height} style={SAT_FIGURE_STYLE}>
       {/* Triangle outlines */}
       {/* Line A→E (horizontal top) */}
-      <line x1={A[0]} y1={A[1]} x2={E[0]} y2={E[1]} stroke="#333" strokeWidth={1.5} />
+      <line x1={A[0]} y1={A[1]} x2={E[0]} y2={E[1]} stroke="#000000" strokeWidth={1.5} />
       {/* Line A→D (diagonal) */}
-      <line x1={A[0]} y1={A[1]} x2={D[0]} y2={D[1]} stroke="#333" strokeWidth={1.5} />
+      <line x1={A[0]} y1={A[1]} x2={D[0]} y2={D[1]} stroke="#000000" strokeWidth={1.5} />
       {/* Line C→B (vertical, small triangle) */}
-      <line x1={C[0]} y1={C[1]} x2={B[0]} y2={B[1]} stroke="#333" strokeWidth={1.5} />
+      <line x1={C[0]} y1={C[1]} x2={B[0]} y2={B[1]} stroke="#000000" strokeWidth={1.5} />
       {/* Line E→D (vertical, large triangle) */}
-      <line x1={E[0]} y1={E[1]} x2={D[0]} y2={D[1]} stroke="#333" strokeWidth={1.5} />
+      <line x1={E[0]} y1={E[1]} x2={D[0]} y2={D[1]} stroke="#000000" strokeWidth={1.5} />
 
       {/* Right angle marker at C */}
       <polyline
         points={`${C[0]},${C[1] + rightAngleSize} ${C[0] - rightAngleSize},${C[1] + rightAngleSize} ${C[0] - rightAngleSize},${C[1]}`}
-        fill="none" stroke="#333" strokeWidth={1}
+        fill="none" stroke="#000000" strokeWidth={1.25}
       />
       {/* Right angle marker at E */}
       <polyline
         points={`${E[0]},${E[1] + rightAngleSize} ${E[0] - rightAngleSize},${E[1] + rightAngleSize} ${E[0] - rightAngleSize},${E[1]}`}
-        fill="none" stroke="#333" strokeWidth={1}
+        fill="none" stroke="#000000" strokeWidth={1.25}
       />
 
       {/* Vertex labels */}
-      <text x={A[0] - 15} y={A[1] + 5} fontSize={13} fontFamily="system-ui" fontWeight="bold" fill="#333">{labels.A}</text>
-      <text x={B[0] - 18} y={B[1] + 5} fontSize={13} fontFamily="system-ui" fontWeight="bold" fill="#333">{labels.B}</text>
-      <text x={C[0] - 5} y={C[1] - 10} fontSize={13} fontFamily="system-ui" fontWeight="bold" fill="#333">{labels.C}</text>
-      <text x={D[0] + 8} y={D[1] + 5} fontSize={13} fontFamily="system-ui" fontWeight="bold" fill="#333">{labels.D}</text>
-      <text x={E[0] + 8} y={E[1] + 5} fontSize={13} fontFamily="system-ui" fontWeight="bold" fill="#333">{labels.E}</text>
+      <Label x={av.x} y={av.y}>{labels.A}</Label>
+      <Label x={bv.x} y={bv.y}>{labels.B}</Label>
+      <Label x={cv.x} y={cv.y}>{labels.C}</Label>
+      <Label x={dv.x} y={dv.y}>{labels.D}</Label>
+      <Label x={ev.x} y={ev.y}>{labels.E}</Label>
 
-      {/* Side labels */}
-      {sideLabels.AB && (
-        <text
-          x={(A[0] + B[0]) / 2 - 20}
-          y={(A[1] + B[1]) / 2 + 5}
-          fontSize={12} fontFamily="system-ui" fill="#333" textAnchor="end"
-        >{sideLabels.AB}</text>
-      )}
-      {sideLabels.AC && (
-        <text
-          x={(A[0] + C[0]) / 2}
-          y={A[1] - 8}
-          fontSize={12} fontFamily="system-ui" fill="#333" textAnchor="middle"
-        >{sideLabels.AC}</text>
-      )}
-      {sideLabels.CE && (
-        <text
-          x={(C[0] + E[0]) / 2}
-          y={C[1] - 8}
-          fontSize={12} fontFamily="system-ui" fill="#333" textAnchor="middle"
-        >{sideLabels.CE}</text>
-      )}
+      {/* Side labels — perpendicular to each segment, on the outside */}
+      {sideLabels.AB && <Label x={abPos.x} y={abPos.y}>{sideLabels.AB}</Label>}
+      {sideLabels.AC && <Label x={acPos.x} y={acPos.y}>{sideLabels.AC}</Label>}
+      {sideLabels.CE && <Label x={cePos.x} y={cePos.y}>{sideLabels.CE}</Label>}
     </svg>
   );
 };

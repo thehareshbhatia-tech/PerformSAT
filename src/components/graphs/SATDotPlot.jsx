@@ -1,6 +1,10 @@
 // SATDotPlot.jsx - Dot plot component for SAT-style statistics questions
 import React from 'react';
-import { SAT_GRAPH_STYLES } from './SATGraphCore';
+import {
+  SAT_GRAPH_STYLES,
+  SAT_FIGURE_STYLE,
+  LABEL_HALO,
+} from './SATGraphCore';
 
 /**
  * Convert raw data array to value/count format
@@ -121,6 +125,7 @@ const SATDotPlot = ({
                 fontFamily={styles.font.axis}
                 fontSize={styles.fontSize.tickLabel}
                 fill={styles.colors.axis}
+                {...LABEL_HALO}
               >
                 {item.value}
               </text>
@@ -154,10 +159,7 @@ const SATDotPlot = ({
     <svg
       width={width}
       height={height}
-      style={{
-        background: styles.colors.background,
-        border: `1px solid ${styles.colors.border}`,
-      }}
+      style={SAT_FIGURE_STYLE}
     >
       {/* Title */}
       {title && (
@@ -205,7 +207,7 @@ const SATDotPlot = ({
           y={height - 8}
           textAnchor="middle"
           fontFamily={styles.font.axis}
-          fontSize={11}
+          fontSize={13}
           fill={styles.colors.axis}
         >
           {xLabel}

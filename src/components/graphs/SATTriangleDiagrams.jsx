@@ -1,8 +1,33 @@
 // SATTriangleDiagrams.jsx - Triangle geometry diagrams for SAT questions
 import React from 'react';
-import { SAT_GRAPH_STYLES } from './SATGraphCore';
+import {
+  SAT_GRAPH_STYLES,
+  SAT_FIGURE_STYLE,
+  SAT_FIGURE_FONT,
+  LABEL_HALO,
+  isVariableLabel,
+  perpendicularLabelPos,
+} from './SATGraphCore';
 
 const styles = SAT_GRAPH_STYLES;
+
+// A figure label that holds itself off the strokes (white halo) and italicizes
+// single-letter / short variable expressions the way the Digital SAT does.
+export const FigureLabel = ({ x, y, text, anchor = 'middle', baseline = 'central', size = 14 }) => (
+  <text
+    x={x}
+    y={y}
+    textAnchor={anchor}
+    dominantBaseline={baseline}
+    fontFamily={SAT_FIGURE_FONT}
+    fontStyle={isVariableLabel(text) ? 'italic' : 'normal'}
+    fontSize={size}
+    fill={styles.colors.axis}
+    {...LABEL_HALO}
+  >
+    {text}
+  </text>
+);
 
 /**
  * RightTriangle - Basic right triangle with labeled sides and vertices
@@ -70,21 +95,24 @@ export const RightTriangle = ({
   // Label positions (outside the triangle)
   const labelOffset = 20;
 
+  const center = [
+    (scaledVerts[0][0] + scaledVerts[1][0] + scaledVerts[2][0]) / 3,
+    (scaledVerts[0][1] + scaledVerts[1][1] + scaledVerts[2][1]) / 3,
+  ];
+
   return (
     <svg
       width={width}
       height={height}
-      style={{
-        background: styles.colors.background,
-        border: `1px solid ${styles.colors.border}`,
-      }}
+      style={SAT_FIGURE_STYLE}
     >
       {/* Triangle */}
       <polygon
         points={scaledVerts.map(v => v.join(',')).join(' ')}
-        fill="rgba(0, 0, 0, 0.02)"
+        fill="none"
         stroke={styles.colors.dataLine}
         strokeWidth={styles.strokeWidth.dataLine}
+        strokeLinejoin="round"
       />
 
       {/* Right angle marker */}
@@ -93,69 +121,34 @@ export const RightTriangle = ({
           points={`${ra1[0]},${ra1[1]} ${ra2[0]},${ra2[1]} ${ra3[0]},${ra3[1]}`}
           fill="none"
           stroke={styles.colors.axis}
-          strokeWidth={1}
+          strokeWidth={1.25}
         />
       )}
 
-      {/* Vertex labels */}
+      {/* Vertex labels — held just outside each vertex */}
       {labels.map((label, i) => {
         if (!label) return null;
         const v = scaledVerts[i];
-        // Position label away from triangle center
-        const center = [
-          (scaledVerts[0][0] + scaledVerts[1][0] + scaledVerts[2][0]) / 3,
-          (scaledVerts[0][1] + scaledVerts[1][1] + scaledVerts[2][1]) / 3,
-        ];
         const dx = v[0] - center[0];
         const dy = v[1] - center[1];
-        const len = Math.sqrt(dx * dx + dy * dy);
-        const labelX = v[0] + (dx / len) * labelOffset;
-        const labelY = v[1] + (dy / len) * labelOffset;
-
+        const len = Math.sqrt(dx * dx + dy * dy) || 1;
         return (
-          <text
+          <FigureLabel
             key={`vertex-${i}`}
-            x={labelX}
-            y={labelY + 5}
-            fontFamily={styles.font.axis}
-            fontSize={styles.fontSize.tickLabel}
-            fill={styles.colors.axis}
-            textAnchor="middle"
-          >
-            {label}
-          </text>
+            x={v[0] + (dx / len) * labelOffset}
+            y={v[1] + (dy / len) * labelOffset}
+            text={label}
+          />
         );
       })}
 
-      {/* Side labels */}
+      {/* Side labels — pushed perpendicular to each edge, off the line */}
       {sideLabels.map((label, i) => {
         if (!label) return null;
         const v1 = scaledVerts[i];
         const v2 = scaledVerts[(i + 1) % 3];
-        const midX = (v1[0] + v2[0]) / 2;
-        const midY = (v1[1] + v2[1]) / 2;
-        // Position label on outside of triangle
-        const center = [
-          (scaledVerts[0][0] + scaledVerts[1][0] + scaledVerts[2][0]) / 3,
-          (scaledVerts[0][1] + scaledVerts[1][1] + scaledVerts[2][1]) / 3,
-        ];
-        const dx = midX - center[0];
-        const dy = midY - center[1];
-        const len = Math.sqrt(dx * dx + dy * dy) || 1;
-
-        return (
-          <text
-            key={`side-${i}`}
-            x={midX + (dx / len) * 15}
-            y={midY + (dy / len) * 15 + 5}
-            fontFamily={styles.font.axis}
-            fontSize={styles.fontSize.tickLabel}
-            fill={styles.colors.axis}
-            textAnchor="middle"
-          >
-            {label}
-          </text>
-        );
+        const pos = perpendicularLabelPos(v1, v2, center, 18);
+        return <FigureLabel key={`side-${i}`} x={pos.x} y={pos.y} text={label} />;
       })}
     </svg>
   );
@@ -179,6 +172,12 @@ export const TriangleWithAngles = ({
     [padding + 20, height - padding],           // Bottom-left
     [width - padding - 10, height - padding],   // Bottom-right
     [width / 2 - 20, padding + 10],             // Top
+  ];
+
+  // Triangle centroid — used to push side labels perpendicular, away from the body
+  const centroid = [
+    (vertices[0][0] + vertices[1][0] + vertices[2][0]) / 3,
+    (vertices[0][1] + vertices[1][1] + vertices[2][1]) / 3,
   ];
 
   // Angle arc drawing helper
@@ -210,17 +209,15 @@ export const TriangleWithAngles = ({
     <svg
       width={width}
       height={height}
-      style={{
-        background: styles.colors.background,
-        border: `1px solid ${styles.colors.border}`,
-      }}
+      style={SAT_FIGURE_STYLE}
     >
       {/* Triangle */}
       <polygon
         points={vertices.map(v => v.join(',')).join(' ')}
-        fill="rgba(0, 0, 0, 0.02)"
+        fill="none"
         stroke={styles.colors.dataLine}
         strokeWidth={styles.strokeWidth.dataLine}
+        strokeLinejoin="round"
       />
 
       {/* Angle arcs and labels */}
@@ -239,46 +236,33 @@ export const TriangleWithAngles = ({
               stroke={styles.colors.axis}
               strokeWidth={1}
             />
-            <text
+            <FigureLabel
               x={arc.labelPos[0]}
-              y={arc.labelPos[1] + 4}
-              fontFamily={styles.font.axis}
-              fontSize={styles.fontSize.tickLabel - 1}
-              fill={styles.colors.axis}
-              textAnchor="middle"
-            >
-              {label}
-            </text>
+              y={arc.labelPos[1]}
+              text={label}
+              size={styles.fontSize.tickLabel - 1}
+            />
           </g>
         );
       })}
 
-      {/* Vertex labels */}
+      {/* Vertex labels — held just outside each vertex (radial offset) */}
       {vertexLabels.map((label, i) => {
         if (!label) return null;
         const v = vertices[i];
-        const center = [
-          (vertices[0][0] + vertices[1][0] + vertices[2][0]) / 3,
-          (vertices[0][1] + vertices[1][1] + vertices[2][1]) / 3,
-        ];
-        const dx = v[0] - center[0];
-        const dy = v[1] - center[1];
-        const len = Math.sqrt(dx * dx + dy * dy);
+        const dx = v[0] - centroid[0];
+        const dy = v[1] - centroid[1];
+        const len = Math.sqrt(dx * dx + dy * dy) || 1;
         const labelX = v[0] + (dx / len) * 25;
         const labelY = v[1] + (dy / len) * 25;
 
         return (
-          <text
+          <FigureLabel
             key={`vertex-${i}`}
             x={labelX}
-            y={labelY + 5}
-            fontFamily={styles.font.axis}
-            fontSize={styles.fontSize.tickLabel}
-            fill={styles.colors.axis}
-            textAnchor="middle"
-          >
-            {label}
-          </text>
+            y={labelY}
+            text={label}
+          />
         );
       })}
 
@@ -287,11 +271,12 @@ export const TriangleWithAngles = ({
         <text
           x={width / 2}
           y={height - 10}
-          fontFamily={styles.font.axis}
+          fontFamily={SAT_FIGURE_FONT}
           fontSize={10}
           fontStyle="italic"
           fill={styles.colors.axis}
           textAnchor="middle"
+          {...LABEL_HALO}
         >
           {note}
         </text>
@@ -330,21 +315,25 @@ export const RightTriangleWithAltitude = ({
   // Right angle markers
   const rightAngleSize = 12;
 
+  // Triangle centroid — used to push side-length labels perpendicular, off the line
+  const centroid = [
+    (L[0] + M[0] + N[0]) / 3,
+    (L[1] + M[1] + N[1]) / 3,
+  ];
+
   return (
     <svg
       width={width}
       height={height}
-      style={{
-        background: styles.colors.background,
-        border: `1px solid ${styles.colors.border}`,
-      }}
+      style={SAT_FIGURE_STYLE}
     >
       {/* Triangle */}
       <polygon
         points={`${L[0]},${L[1]} ${M[0]},${M[1]} ${N[0]},${N[1]}`}
-        fill="rgba(0, 0, 0, 0.02)"
+        fill="none"
         stroke={styles.colors.dataLine}
         strokeWidth={styles.strokeWidth.dataLine}
+        strokeLinejoin="round"
       />
 
       {/* Altitude MP */}
@@ -381,59 +370,31 @@ export const RightTriangleWithAltitude = ({
         strokeWidth={1}
       />
 
-      {/* Vertex labels */}
-      <text x={L[0] - 15} y={L[1] + 5} fontFamily={styles.font.axis} fontSize={styles.fontSize.tickLabel} fill={styles.colors.axis}>
-        {vertexLabels[0]}
-      </text>
-      <text x={M[0] - 5} y={M[1] - 10} fontFamily={styles.font.axis} fontSize={styles.fontSize.tickLabel} fill={styles.colors.axis}>
-        {vertexLabels[1]}
-      </text>
-      <text x={N[0] + 10} y={N[1] + 5} fontFamily={styles.font.axis} fontSize={styles.fontSize.tickLabel} fill={styles.colors.axis}>
-        {vertexLabels[2]}
-      </text>
-      <text x={P[0]} y={P[1] + 20} fontFamily={styles.font.axis} fontSize={styles.fontSize.tickLabel} fill={styles.colors.axis} textAnchor="middle">
-        {vertexLabels[3]}
-      </text>
+      {/* Vertex labels — held just outside each vertex */}
+      <FigureLabel x={L[0] - 15} y={L[1] + 5} text={vertexLabels[0]} anchor="start" baseline="middle" />
+      <FigureLabel x={M[0] - 5} y={M[1] - 10} text={vertexLabels[1]} anchor="start" baseline="middle" />
+      <FigureLabel x={N[0] + 10} y={N[1] + 5} text={vertexLabels[2]} anchor="start" baseline="middle" />
+      <FigureLabel x={P[0]} y={P[1] + 20} text={vertexLabels[3]} />
 
-      {/* Side length labels */}
+      {/* Side length labels — pushed perpendicular to each segment, off the line */}
       {Object.entries(sideLengths).map(([side, length]) => {
-        let midX, midY, offsetX = 0, offsetY = -15;
-        if (side === 'LP') {
-          midX = (L[0] + P[0]) / 2;
-          midY = (L[1] + P[1]) / 2;
-          offsetY = 20;
-        } else if (side === 'PM' || side === 'MP') {
-          midX = (P[0] + M[0]) / 2;
-          midY = (P[1] + M[1]) / 2;
-          offsetX = -15;
-        } else if (side === 'PN' || side === 'NP') {
-          midX = (P[0] + N[0]) / 2;
-          midY = (P[1] + N[1]) / 2;
-          offsetY = 20;
-        } else if (side === 'LM' || side === 'ML') {
-          midX = (L[0] + M[0]) / 2;
-          midY = (L[1] + M[1]) / 2;
-          offsetX = -20;
-        } else if (side === 'MN' || side === 'NM') {
-          midX = (M[0] + N[0]) / 2;
-          midY = (M[1] + N[1]) / 2;
-          offsetX = 15;
-        }
-        if (midX === undefined) return null;
+        // Resolve the side name to its two endpoints (order-insensitive)
+        const endpoints = {
+          LP: [L, P], PL: [P, L],
+          PM: [P, M], MP: [M, P],
+          PN: [P, N], NP: [N, P],
+          LM: [L, M], ML: [M, L],
+          MN: [M, N], NM: [N, M],
+        }[side];
+        if (!endpoints) return null;
+        const [a, b] = endpoints;
 
-        return (
-          <text
-            key={side}
-            x={midX + offsetX}
-            y={midY + offsetY}
-            fontFamily={styles.font.axis}
-            fontSize={styles.fontSize.tickLabel}
-            fill={styles.colors.axis}
-            textAnchor="middle"
-          >
-            {length}
-          </text>
-        );
+        // For the altitude PM (interior segment), push toward the side away from M's
+        // body; for the outer sides, push away from the centroid.
+        const interior = (side === 'PM' || side === 'MP') ? L : centroid;
+        const pos = perpendicularLabelPos(a, b, interior, 16);
+
+        return <FigureLabel key={side} x={pos.x} y={pos.y} text={String(length)} />;
       })}
     </svg>
   );
@@ -479,70 +440,48 @@ export const SimilarTriangles = ({
       ]);
     }
 
+    // Per-triangle centroid (computed from this triangle's own scaledVerts)
+    const centroid = [
+      (scaledVerts[0][0] + scaledVerts[1][0] + scaledVerts[2][0]) / 3,
+      (scaledVerts[0][1] + scaledVerts[1][1] + scaledVerts[2][1]) / 3,
+    ];
+
     return (
       <g>
         <polygon
           points={scaledVerts.map(v => v.join(',')).join(' ')}
-          fill="rgba(0, 0, 0, 0.02)"
+          fill="none"
           stroke={styles.colors.dataLine}
           strokeWidth={styles.strokeWidth.dataLine}
+          strokeLinejoin="round"
         />
 
-        {/* Vertex labels */}
+        {/* Vertex labels — held just outside each vertex (radial offset) */}
         {labels.map((label, i) => {
           if (!label) return null;
           const v = scaledVerts[i];
-          const center = [
-            (scaledVerts[0][0] + scaledVerts[1][0] + scaledVerts[2][0]) / 3,
-            (scaledVerts[0][1] + scaledVerts[1][1] + scaledVerts[2][1]) / 3,
-          ];
-          const dx = v[0] - center[0];
-          const dy = v[1] - center[1];
-          const len = Math.sqrt(dx * dx + dy * dy);
+          const dx = v[0] - centroid[0];
+          const dy = v[1] - centroid[1];
+          const len = Math.sqrt(dx * dx + dy * dy) || 1;
 
           return (
-            <text
+            <FigureLabel
               key={`label-${i}`}
               x={v[0] + (dx / len) * 18}
-              y={v[1] + (dy / len) * 18 + 4}
-              fontFamily={styles.font.axis}
-              fontSize={styles.fontSize.tickLabel}
-              fill={styles.colors.axis}
-              textAnchor="middle"
-            >
-              {label}
-            </text>
+              y={v[1] + (dy / len) * 18}
+              text={label}
+            />
           );
         })}
 
-        {/* Side labels */}
+        {/* Side labels — pushed perpendicular to each edge, off the line */}
         {sideLabels.map((label, i) => {
           if (!label) return null;
           const v1 = scaledVerts[i];
           const v2 = scaledVerts[(i + 1) % 3];
-          const midX = (v1[0] + v2[0]) / 2;
-          const midY = (v1[1] + v2[1]) / 2;
-          const center = [
-            (scaledVerts[0][0] + scaledVerts[1][0] + scaledVerts[2][0]) / 3,
-            (scaledVerts[0][1] + scaledVerts[1][1] + scaledVerts[2][1]) / 3,
-          ];
-          const dx = midX - center[0];
-          const dy = midY - center[1];
-          const len = Math.sqrt(dx * dx + dy * dy) || 1;
+          const pos = perpendicularLabelPos(v1, v2, centroid, 16);
 
-          return (
-            <text
-              key={`side-${i}`}
-              x={midX + (dx / len) * 15}
-              y={midY + (dy / len) * 15 + 4}
-              fontFamily={styles.font.axis}
-              fontSize={styles.fontSize.tickLabel}
-              fill={styles.colors.axis}
-              textAnchor="middle"
-            >
-              {label}
-            </text>
-          );
+          return <FigureLabel key={`side-${i}`} x={pos.x} y={pos.y} text={label} />;
         })}
       </g>
     );
@@ -552,10 +491,7 @@ export const SimilarTriangles = ({
     <svg
       width={width}
       height={height}
-      style={{
-        background: styles.colors.background,
-        border: `1px solid ${styles.colors.border}`,
-      }}
+      style={SAT_FIGURE_STYLE}
     >
       {renderTriangle(triangle1, 0)}
       {renderTriangle(triangle2, halfWidth + padding)}

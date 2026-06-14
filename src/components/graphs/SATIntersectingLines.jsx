@@ -1,6 +1,12 @@
 // SATIntersectingLines.jsx - Two intersecting lines with angle labels
 import React from 'react';
-import { SAT_GRAPH_STYLES } from './SATGraphCore';
+import {
+  SAT_GRAPH_STYLES,
+  SAT_FIGURE_STYLE,
+  SAT_FIGURE_FONT,
+  LABEL_HALO,
+  isVariableLabel,
+} from './SATGraphCore';
 
 const styles = SAT_GRAPH_STYLES;
 
@@ -54,7 +60,8 @@ const SATIntersectingLines = ({
     const y2 = centerY - radius * Math.sin(endRad);
 
     const midAngle = ((startAngle + endAngle) / 2 * Math.PI) / 180;
-    const labelRadius = radius + 18;
+    // Bump the standoff so labels like '128°'/'x°' clear the crossing lines.
+    const labelRadius = radius + 24;
     const labelX = centerX + labelRadius * Math.cos(midAngle);
     const labelY = centerY - labelRadius * Math.sin(midAngle);
 
@@ -72,10 +79,12 @@ const SATIntersectingLines = ({
         <text
           x={labelX}
           y={labelY + 4}
-          fontFamily={styles.font.axis}
+          fontFamily={SAT_FIGURE_FONT}
+          fontStyle={isVariableLabel(label) ? 'italic' : 'normal'}
           fontSize={styles.fontSize.tickLabel}
           fill={styles.colors.axis}
           textAnchor="middle"
+          {...LABEL_HALO}
         >
           {label}
         </text>
@@ -90,10 +99,7 @@ const SATIntersectingLines = ({
     <svg
       width={width}
       height={height}
-      style={{
-        background: styles.colors.background,
-        border: `1px solid ${styles.colors.border}`,
-      }}
+      style={SAT_FIGURE_STYLE}
     >
       {/* Line 1 */}
       <line
@@ -126,10 +132,11 @@ const SATIntersectingLines = ({
         <text
           x={line1.x2 + 10}
           y={line1.y2 + 5}
-          fontFamily={styles.font.axis}
+          fontFamily={SAT_FIGURE_FONT}
           fontSize={styles.fontSize.tickLabel}
-          fontStyle="italic"
+          fontStyle={isVariableLabel(lineLabels[0]) ? 'italic' : 'normal'}
           fill={styles.colors.axis}
+          {...LABEL_HALO}
         >
           {lineLabels[0]}
         </text>
@@ -138,10 +145,11 @@ const SATIntersectingLines = ({
         <text
           x={line2.x2 + 10}
           y={line2.y2 + 5}
-          fontFamily={styles.font.axis}
+          fontFamily={SAT_FIGURE_FONT}
           fontSize={styles.fontSize.tickLabel}
-          fontStyle="italic"
+          fontStyle={isVariableLabel(lineLabels[1]) ? 'italic' : 'normal'}
           fill={styles.colors.axis}
+          {...LABEL_HALO}
         >
           {lineLabels[1]}
         </text>
