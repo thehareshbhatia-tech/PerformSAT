@@ -50,60 +50,60 @@ const ACCENT_ROTATION = ['orange', 'purple', 'navy', 'green'];
 
 const ACCENTS = {
   orange: {
-    tile:       '#ea580c',
+    tile:       'var(--color-brand-primary)',
     tileInk:    '#FFFFFF',
     soft:       'rgba(234, 88, 12, 0.08)',
     softBorder: 'rgba(234, 88, 12, 0.18)',
     text:       '#9a3412',
-    cta:        '#ea580c',
-    ctaHover:   '#c2410c',
+    cta:        'var(--color-brand-primary)',
+    ctaHover:   'var(--color-brand-primary-hover)',
     ctaInk:     '#FFFFFF',
   },
   purple: {
-    tile:       '#553775',
-    tileInk:    '#C6F432',
+    tile:       'var(--color-brand-purple-deep)',
+    tileInk:    'var(--color-brand-green)',
     soft:       'rgba(85, 55, 117, 0.08)',
     softBorder: 'rgba(85, 55, 117, 0.18)',
-    text:       '#3D2052',
-    cta:        '#553775',
+    text:       'var(--color-brand-purple-text)',
+    cta:        'var(--color-brand-purple-deep)',
     ctaHover:   '#3D2052',
     ctaInk:     '#FFFFFF',
   },
   navy: {
-    tile:       '#1D1D1F',
-    tileInk:    '#C6F432',
+    tile:       'var(--color-slate-900)',
+    tileInk:    'var(--color-brand-green)',
     soft:       'rgba(29, 29, 31, 0.05)',
     softBorder: 'rgba(29, 29, 31, 0.15)',
-    text:       '#1D1D1F',
-    cta:        '#1D1D1F',
+    text:       'var(--color-slate-900)',
+    cta:        'var(--color-slate-900)',
     ctaHover:   '#000000',
     ctaInk:     '#FFFFFF',
   },
   green: {
-    tile:       '#C6F432',
-    tileInk:    '#2E4E2C',
+    tile:       'var(--color-brand-green)',
+    tileInk:    'var(--color-brand-green-deep)',
     soft:       'rgba(198, 244, 50, 0.18)',
     softBorder: 'rgba(46, 78, 44, 0.20)',
-    text:       '#2E4E2C',
-    cta:        '#2E4E2C',
+    text:       'var(--color-brand-green-text)',
+    cta:        'var(--color-brand-green-deep)',
     ctaHover:   '#1F3D1F',
-    ctaInk:     '#C6F432',
+    ctaInk:     'var(--color-brand-green)',
   },
 };
 
 const INK = {
-  primary:   '#1D1D1F',
-  secondary: '#48484A',
-  tertiary:  '#636366',
-  muted:     '#8E8E93',
+  primary:   'var(--color-slate-900)',
+  secondary: 'var(--color-slate-700)',
+  tertiary:  'var(--color-slate-600)',
+  muted:     'var(--color-slate-500)',
 };
 
 const SURFACE = {
   white:      '#FFFFFF',
-  paper:      '#FBFBFD',
+  paper:      'var(--color-slate-50)',
   cream:      '#FBF7F0',
-  lavender:   '#F6F2FB',
-  border:     '#E5E5EA',
+  lavender:   'var(--color-brand-purple-soft)',
+  border:     'var(--color-slate-200)',
   hairline:   '#EFEFF4',
 };
 
@@ -535,7 +535,7 @@ const SectionToggle = ({ section, onChange }) => (
             fontSize: '13px',
             fontWeight: active ? 700 : 500,
             color: active ? '#FFFFFF' : INK.tertiary,
-            backgroundColor: active ? '#1D1D1F' : 'transparent',
+            backgroundColor: active ? 'var(--color-slate-900)' : 'transparent',
             border: 'none',
             borderRadius: radius.full,
             padding: '8px 18px',
@@ -762,7 +762,7 @@ const FilterBar = ({ categories, search, onSearchChange, onJumpToDomain, section
               transition: `border-color ${transitions.fast}, box-shadow ${transitions.fast}`,
             }}
             onFocus={(e) => {
-              e.currentTarget.style.borderColor = '#ea580c';
+              e.currentTarget.style.borderColor = 'var(--color-brand-primary)';
               e.currentTarget.style.boxShadow = '0 0 0 3px rgba(234, 88, 12, 0.12)';
             }}
             onBlur={(e) => {
@@ -1123,9 +1123,9 @@ const TopicCard = ({ skill, accent, searchQuery, isOpen, onToggle, onSkillDrill,
             fontFamily: typography.fontFamily,
             fontSize: '13px',
             fontWeight: 700,
-            color: '#ea580c',
+            color: 'var(--color-brand-primary)',
             backgroundColor: 'transparent',
-            border: `1.5px solid #ea580c`,
+            border: `1.5px solid var(--color-brand-primary)`,
             borderRadius: '10px',
             padding: '8px 14px',
             cursor: 'pointer',
@@ -1136,12 +1136,12 @@ const TopicCard = ({ skill, accent, searchQuery, isOpen, onToggle, onSkillDrill,
             gap: '6px',
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.backgroundColor = '#ea580c';
+            e.currentTarget.style.backgroundColor = 'var(--color-brand-primary)';
             e.currentTarget.style.color = '#FFFFFF';
           }}
           onMouseLeave={(e) => {
             e.currentTarget.style.backgroundColor = 'transparent';
-            e.currentTarget.style.color = '#ea580c';
+            e.currentTarget.style.color = 'var(--color-brand-primary)';
           }}
         >
           Drill {DRILL_COUNT_PER_SKILL}
@@ -1279,7 +1279,7 @@ const EmptyState = ({ query, onClear }) => (
         fontSize: '13px',
         fontWeight: 700,
         color: '#FFFFFF',
-        backgroundColor: '#1D1D1F',
+        backgroundColor: 'var(--color-slate-900)',
         border: 'none',
         borderRadius: radius.full,
         padding: '10px 22px',

@@ -1052,7 +1052,7 @@ const StudyPlanDashboard = ({
                   ? `${sc.skill}: new gap found on this test`
                   : `${sc.skill}: was ${sc.oldAccuracy}%, no longer a weakness`;
                 return (
-                  <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px', color: '#334155' }}>
+                  <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px', color: 'var(--color-slate-700)' }}>
                     <span aria-hidden="true" style={{ width: '7px', height: '7px', borderRadius: '50%', background: dotColor, flexShrink: 0 }} />
                     <span>{label}</span>
                   </div>
@@ -1084,7 +1084,7 @@ const StudyPlanDashboard = ({
             </div>
           )}
           {delta.scoreChange && (
-            <div style={{ marginTop: '10px', fontSize: '13px', color: '#64748b' }}>
+            <div style={{ marginTop: '10px', fontSize: '13px', color: 'var(--color-slate-500)' }}>
               Score: {delta.scoreChange.old} → {delta.scoreChange.new} ({delta.scoreChange.delta > 0 ? '+' : ''}{delta.scoreChange.delta} points)
             </div>
           )}

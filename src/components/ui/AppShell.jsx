@@ -35,6 +35,42 @@ const NAV_ITEMS = [
   { id: 'profile', label: 'Profile', route: '/app/profile', icon: PersonIcon },
 ];
 
+// COLOR = FUNCTION: tint each nav item by its destination domain so the chrome
+// itself reads tri-color. Orange = Home/actions, Purple = Study Plan / focus /
+// insights, Green = Practice / mastery, neutral (white) = Tests / Profile.
+const NAV_DOMAIN_COLORS = {
+  dashboard: 'var(--color-brand-primary)',   // Home → orange
+  modules: 'var(--color-brand-green)',        // Videos (learning) → green
+  practiceTests: 'var(--color-white)',        // Tests → neutral
+  practiceBank: 'var(--color-brand-green)',   // Practice → green
+  studyPlan: 'var(--color-brand-purple)',     // Study Plan → purple
+  tutor: 'var(--color-brand-purple)',         // AI Tutor (insights/hints) → purple
+  profile: 'var(--color-white)',              // Profile → neutral
+};
+
+// Faint, navy-readable tint of each domain color for hover/active backgrounds.
+const NAV_DOMAIN_TINTS = {
+  dashboard: 'rgba(234, 88, 12, 0.18)',   // orange tint
+  modules: 'rgba(198, 244, 50, 0.16)',    // lime tint
+  practiceTests: 'rgba(255, 255, 255, 0.10)', // neutral white overlay
+  practiceBank: 'rgba(198, 244, 50, 0.16)',   // lime tint
+  studyPlan: 'rgba(176, 146, 221, 0.20)',     // lavender tint
+  tutor: 'rgba(176, 146, 221, 0.20)',         // lavender tint
+  profile: 'rgba(255, 255, 255, 0.10)',       // neutral white overlay
+};
+
+// AA-safe domain colors for the LIGHT mobile tab bar (vivid fills become -text
+// variants so the active icon/label stays legible on the frosted-white surface).
+const NAV_DOMAIN_COLORS_ON_LIGHT = {
+  dashboard: 'var(--color-brand-primary)',     // Home → orange
+  modules: 'var(--color-brand-green-text)',     // Videos → AA green text
+  practiceTests: 'var(--color-brand-navy)',     // Tests → neutral navy
+  practiceBank: 'var(--color-brand-green-text)',// Practice → AA green text
+  studyPlan: 'var(--color-brand-purple-text)',  // Study Plan → AA purple text
+  tutor: 'var(--color-brand-purple-text)',      // AI Tutor → AA purple text
+  profile: 'var(--color-brand-navy)',           // Profile → neutral navy
+};
+
 function HomeIcon({ color }) {
   return (
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -185,6 +221,8 @@ const AppShell = ({ children, currentView, onNavigate, user, onLogout, hideNav =
             {NAV_ITEMS.map(item => {
               const isActive = activeNavId === item.id;
               const Icon = item.icon;
+              const domainColor = NAV_DOMAIN_COLORS[item.id] || 'var(--color-white)';
+              const domainTint = NAV_DOMAIN_TINTS[item.id] || 'rgba(255, 255, 255, 0.10)';
               return (
                 <button
                   key={item.id}
@@ -198,14 +236,15 @@ const AppShell = ({ children, currentView, onNavigate, user, onLogout, hideNav =
                     padding: `${spacing.sm} ${spacing.md}`,
                     borderRadius: radius.md,
                     border: 'none',
-                    background: isActive ? 'var(--color-brand-primary)' : 'transparent',
+                    background: isActive ? domainTint : 'transparent',
+                    boxShadow: isActive ? `inset 3px 0 0 0 ${domainColor}` : 'none',
                     cursor: 'pointer',
                     transition: `all ${transitions.fast}`,
                     width: '100%',
                     textAlign: 'left',
                   }}
                 >
-                  <Icon color={isActive ? 'var(--color-white)' : 'var(--color-slate-400)'} />
+                  <Icon color={isActive ? domainColor : 'var(--color-slate-400)'} />
                   <span style={{
                     fontSize: typography.sizes.base,
                     fontWeight: isActive ? typography.weights.semibold : typography.weights.medium,
@@ -297,6 +336,8 @@ const AppShell = ({ children, currentView, onNavigate, user, onLogout, hideNav =
             {NAV_ITEMS.map(item => {
               const isActive = activeNavId === item.id;
               const Icon = item.icon;
+              const domainColor = NAV_DOMAIN_COLORS[item.id] || 'var(--color-white)';
+              const domainTint = NAV_DOMAIN_TINTS[item.id] || 'rgba(255, 255, 255, 0.10)';
               return (
                 <button
                   key={item.id}
@@ -311,14 +352,15 @@ const AppShell = ({ children, currentView, onNavigate, user, onLogout, hideNav =
                     padding: `${spacing.sm} ${sidebarExpanded ? spacing.md : '0'}`,
                     borderRadius: radius.md,
                     border: 'none',
-                    background: isActive ? 'var(--color-brand-primary)' : 'transparent',
+                    background: isActive ? domainTint : 'transparent',
+                    boxShadow: isActive ? `inset 3px 0 0 0 ${domainColor}` : 'none',
                     cursor: 'pointer',
                     transition: `all ${transitions.fast}`,
                     width: '100%',
                     justifyContent: sidebarExpanded ? 'flex-start' : 'center',
                   }}
                 >
-                  <Icon color={isActive ? 'var(--color-white)' : 'var(--color-slate-400)'} />
+                  <Icon color={isActive ? domainColor : 'var(--color-slate-400)'} />
                   {sidebarExpanded && (
                     <span style={{
                       fontSize: typography.sizes.base,
@@ -424,6 +466,7 @@ const AppShell = ({ children, currentView, onNavigate, user, onLogout, hideNav =
           {NAV_ITEMS.map(item => {
             const isActive = activeNavId === item.id;
             const Icon = item.icon;
+            const domainColor = NAV_DOMAIN_COLORS_ON_LIGHT[item.id] || 'var(--color-brand-primary)';
             return (
               <button
                 key={item.id}
@@ -445,11 +488,11 @@ const AppShell = ({ children, currentView, onNavigate, user, onLogout, hideNav =
                   transition: `all ${transitions.fast}`,
                 }}
               >
-                <Icon color={isActive ? 'var(--color-brand-primary)' : 'var(--color-slate-400)'} />
+                <Icon color={isActive ? domainColor : 'var(--color-slate-400)'} />
                 <span style={{
                   fontSize: '10px',
                   fontWeight: isActive ? typography.weights.semibold : typography.weights.medium,
-                  color: isActive ? 'var(--color-brand-primary)' : 'var(--color-slate-500)',
+                  color: isActive ? domainColor : 'var(--color-slate-500)',
                   lineHeight: 1,
                 }}>
                   {item.label}

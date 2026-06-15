@@ -18,7 +18,7 @@ const ErrorRecoveryDrills = ({ diagnostic, onStartDrill }) => {
       <div style={{
         fontSize: '0.75rem',
         fontWeight: '600',
-        color: 'var(--color-brand-orange-600)',
+        color: 'var(--color-brand-primary)',
         letterSpacing: '0.04em',
         textTransform: 'uppercase',
       }}>

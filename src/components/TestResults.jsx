@@ -1395,19 +1395,19 @@ const TestResults = ({
               const hasParts = parts && parts.length > 1;
               
               return (
-                <div key={i} style={{ 
-                  background: 'var(--color-accent-light-blue)', 
-                  borderRadius: '20px', 
+                <div key={i} style={{
+                  background: 'var(--color-brand-purple-soft)',
+                  borderRadius: '20px',
                   padding: '24px 32px',
                   display: 'flex',
                   alignItems: 'flex-start',
                   gap: '20px',
-                  border: '1px solid rgba(11, 19, 43, 0.05)'
+                  border: '1px solid var(--color-brand-purple-border)'
                 }}>
-                  <div style={{ 
-                    width: '32px', height: '32px', borderRadius: '50%', 
-                    background: 'var(--color-brand-primary)', color: '#fff', 
-                    display: 'flex', alignItems: 'center', justifyContent: 'center', 
+                  <div style={{
+                    width: '32px', height: '32px', borderRadius: '50%',
+                    background: 'var(--color-brand-purple-deep)', color: '#fff',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
                     fontSize: '14px', fontWeight: '700', flexShrink: 0
                   }}>
                     {i + 1}
@@ -1934,7 +1934,7 @@ const TestResults = ({
                 <span style={{ fontFamily: 'var(--font-ui)', fontSize: '11px', fontWeight: '700', color: 'var(--color-brand-primary)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Performance</span>
                 <span style={{ fontFamily: 'var(--font-ui)', fontSize: '11px', fontWeight: '700', color: 'var(--color-slate-500)', fontVariantNumeric: 'tabular-nums' }}>{satScore} / {scaleMax}</span>
               </div>
-              <div style={{ height: '8px', background: 'rgba(59, 82, 217, 0.1)', borderRadius: '9999px', overflow: 'hidden' }}>
+              <div style={{ height: '8px', background: 'var(--color-slate-100)', borderRadius: '9999px', overflow: 'hidden' }}>
                 <div style={{ width: `${Math.min(100, (satScore/scaleMax)*100)}%`, height: '100%', background: 'var(--color-brand-primary)', borderRadius: '9999px', transition: 'width 1s cubic-bezier(0.16, 1, 0.3, 1)' }} />
               </div>
 
@@ -1944,7 +1944,7 @@ const TestResults = ({
                     <span style={{ fontFamily: 'var(--font-ui)', fontSize: '11px', fontWeight: '700', color: 'var(--color-slate-500)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Target</span>
                     <span style={{ fontFamily: 'var(--font-ui)', fontSize: '11px', fontWeight: '700', color: 'var(--color-slate-500)', fontVariantNumeric: 'tabular-nums' }}>{satScore + gapToTarget} / {scaleMax}</span>
                   </div>
-                  <div style={{ height: '8px', background: 'rgba(59, 82, 217, 0.1)', borderRadius: '9999px', overflow: 'hidden' }}>
+                  <div style={{ height: '8px', background: 'var(--color-slate-100)', borderRadius: '9999px', overflow: 'hidden' }}>
                     <div style={{ width: `${Math.min(100, ((satScore + gapToTarget)/scaleMax)*100)}%`, height: '100%', background: 'var(--color-slate-400)', borderRadius: '9999px' }} />
                   </div>
                 </>
@@ -1954,7 +1954,7 @@ const TestResults = ({
           <div className="acely-projected-info">
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: '12px' }}>
               {meta.hasAI && (
-                <div style={{ display: 'flex', alignItems: 'center', gap: '6px', padding: '6px 12px', borderRadius: '9999px', background: 'rgba(59, 82, 217, 0.15)', border: '1px solid var(--color-brand-primary)' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '6px', padding: '6px 12px', borderRadius: '9999px', background: 'var(--color-brand-primary-light)', border: '1px solid var(--color-brand-primary)' }}>
                   <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--color-brand-primary)' }} />
                   <span style={{ fontFamily: 'var(--font-ui)', fontSize: '11px', fontWeight: '800', letterSpacing: '0.06em', textTransform: 'uppercase', color: 'var(--color-brand-primary)' }}>AI Analysis</span>
                 </div>
@@ -2059,10 +2059,10 @@ const TestResults = ({
                           <div style={{ width: '12px', height: '12px', borderRadius: '4px', background: group.color }} />
                           <div style={{ fontFamily: 'var(--font-ui)', fontSize: '1.25rem', fontWeight: '800', color: 'var(--color-slate-900)', letterSpacing: '-0.01em' }}>{group.name}</div>
                         </div>
-                        <div style={{ 
-                          fontFamily: 'var(--font-ui)', fontSize: '14px', fontWeight: '700', 
-                          color: 'var(--color-brand-navy)',
-                          background: 'var(--color-accent-light-blue)',
+                        <div style={{
+                          fontFamily: 'var(--font-ui)', fontSize: '14px', fontWeight: '700',
+                          color: 'var(--color-brand-green-text)',
+                          background: 'var(--color-brand-green-soft)',
                           padding: '6px 12px', borderRadius: '9999px',
                         }}>
                           {group.avgPct}% Mastery
@@ -2083,7 +2083,7 @@ const TestResults = ({
                                   {sk.correct} / {sk.total}
                                 </span>
                               </div>
-                              <div style={{ height: '8px', background: 'rgba(59, 82, 217, 0.1)', borderRadius: '9999px', overflow: 'hidden' }}>
+                              <div style={{ height: '8px', background: 'var(--color-slate-100)', borderRadius: '9999px', overflow: 'hidden' }}>
                                 <div style={{ width: `${visualPct}%`, height: '100%', background: 'var(--color-brand-primary)', borderRadius: '9999px' }} />
                               </div>
                             </div>

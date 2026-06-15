@@ -515,7 +515,9 @@
   left: 0;
   width: 6px;
   height: 100%;
-  background: var(--color-brand-purple-deep);
+  /* Tri-color: the current week is "act now" → orange. Only renders in the
+     .is-current card, so this always reads as the active week. */
+  background: var(--color-brand-primary);
 }
 
 .sp-week-header {
@@ -557,7 +559,9 @@
 .sp-week-label {
   font-size: 0.75rem;
   font-weight: 800;
-  color: var(--color-brand-purple-deep);
+  /* Tri-color: "THIS WEEK" eyebrow = current/act-now → orange. Only renders
+     in the .is-current card. */
+  color: var(--color-brand-primary);
   text-transform: uppercase;
   letter-spacing: 0.06em;
   margin-bottom: 0.25rem;
@@ -930,15 +934,22 @@
   background: var(--color-brand-purple-soft) !important;
 }
 
-/* Tri-color: study-plan primary launch CTAs read PURPLE (focus/opportunity domain).
-   The base .btn-launch fill is orange and shared with the home dashboard CTAs —
-   those stay orange; only study-plan-scoped buttons are overridden here. */
-.sp-weekly-tight .btn-launch.is-primary,
+/* Tri-color: the TOP focus-area CTA (.is-primary, the #1 weakness) is the
+   "do this now" action → ORANGE. Secondary activity-row launch buttons stay
+   PURPLE (plan/focus domain). The base .btn-launch fill is orange and shared
+   with the home dashboard CTAs — those stay orange; only study-plan-scoped
+   secondary buttons are overridden to purple here. */
+.sp-weekly-tight .btn-launch.is-primary {
+  background-color: var(--color-brand-primary) !important;
+  color: #fff !important;
+}
+.sp-weekly-tight .btn-launch.is-primary:hover {
+  background-color: var(--color-brand-primary-hover) !important;
+}
 .sp-weekly-tight .ai-banner-controls .btn-launch {
   background-color: var(--color-brand-purple-deep) !important;
   color: #fff !important;
 }
-.sp-weekly-tight .btn-launch.is-primary:hover,
 .sp-weekly-tight .ai-banner-controls .btn-launch:hover {
   background-color: var(--color-brand-purple-text) !important;
 }
@@ -1313,8 +1324,9 @@
   flex-shrink: 0;
 }
 .sp-review-tag.is-overdue {
-  background: #fee2e2;
-  color: #991b1b;
+  /* Overdue = needs action now → semantic error red (token-backed). */
+  background: var(--color-error-50);
+  color: var(--color-error-700);
 }
 .sp-review-chev {
   display: inline-flex;
@@ -1325,16 +1337,16 @@
 }
 
 /* ── Pacing & Timing (embedded in the plan) ──────────────────────────────
-   Quiet by default; boosts to a prominent purple-accented card when the plan
-   shows a timing struggle (getPacingStruggle). Purple = Study Plan/focus in
-   the brand palette. */
+   Quiet by default; boosts to a prominent card when the plan shows a timing
+   struggle (getPacingStruggle). Purple = Study Plan/focus base; the boost
+   state carries an ORANGE left accent for urgency (act-now). */
 .sp-pacing-boost {
   margin-top: 14px;
   margin-bottom: 14px;
   padding: 16px 18px;
   background: var(--color-brand-purple-soft);
   border: 1px solid var(--color-brand-purple-border, #dccdf1);
-  border-left: 3px solid var(--color-brand-purple-deep);
+  border-left: 3px solid var(--color-brand-primary);
   border-radius: 14px;
 }
 .sp-pacing-head {
@@ -1607,14 +1619,17 @@
 .sp-strip-bar-fill {
   height: 100%;
   border-radius: 999px;
-  background: linear-gradient(90deg, var(--color-brand-purple-deep), var(--color-brand-purple));
+  /* Tri-color journey: progress runs orange (in-progress / acting now) into
+     green (mastery / done) rather than a flat one-color bar. */
+  background: linear-gradient(90deg, var(--color-brand-primary), var(--color-brand-green));
   transition: width 400ms ease;
 }
 
-/* Week cards: stronger current/complete identity (left accent rules) */
+/* Week cards: stronger current/complete identity (left accent rules).
+   Tri-color: current week = orange (act now), complete week = green (done). */
 .sp-weekly-tight .sp-week-card.is-current {
-  border-left: 3px solid var(--color-brand-purple-deep);
-  background: linear-gradient(180deg, var(--color-brand-purple-soft) 0, var(--color-white) 56px);
+  border-left: 3px solid var(--color-brand-primary);
+  background: linear-gradient(180deg, var(--color-brand-primary-light) 0, var(--color-white) 56px);
 }
 
 .sp-weekly-tight .sp-week-card.is-complete {
@@ -1636,6 +1651,13 @@
 .sp-weekly-tight .sp-week-card:not(.is-complete) .sp-week-icon {
   background: var(--color-brand-purple-soft);
   color: var(--color-brand-purple-text);
+}
+
+/* Tri-color: the CURRENT week disc reads orange (act now), overriding the
+   purple future-week chrome above. */
+.sp-weekly-tight .sp-week-card.is-current:not(.is-complete) .sp-week-icon {
+  background: var(--color-brand-primary-light);
+  color: var(--color-brand-orange-600);
 }
 
 .sp-weekly-tight .sp-week-card.is-complete .sp-week-icon {

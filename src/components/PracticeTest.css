@@ -16,12 +16,12 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem 1.5rem;
-  background: var(--gradient-brand-primary);
+  background: var(--color-brand-navy);
   color: var(--color-white);
   border-bottom: none;
   z-index: 10;
   flex-shrink: 0;
-  box-shadow: var(--shadow-brand-glow);
+  box-shadow: var(--shadow-md);
 }
 
 .test-session-header .header-title,
@@ -642,9 +642,9 @@
 }
 
 .nav-grid-item.is-answered {
-  background-color: var(--color-brand-primary);
-  border-color: var(--color-brand-primary);
-  color: var(--color-white);
+  background-color: var(--color-brand-green);
+  border-color: var(--color-brand-green-border);
+  color: var(--color-brand-green-text);
 }
 
 .nav-grid-item.is-flagged::after {
@@ -691,8 +691,8 @@
   background-color: var(--color-brand-primary);
 }
 .nav-legend-icon.answered {
-  background-color: var(--color-slate-100);
-  border-color: var(--color-slate-300);
+  background-color: var(--color-brand-green);
+  border-color: var(--color-brand-green-border);
 }
 .nav-legend-icon.flagged {
   border-color: var(--color-slate-200);
@@ -705,7 +705,7 @@
   right: -2px;
   width: 8px;
   height: 8px;
-  background-color: var(--color-brand-neon);
+  background-color: var(--color-warning-600);
   border-radius: 50%;
   border: 1.5px solid var(--color-white);
 }

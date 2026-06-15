@@ -31,8 +31,8 @@ const DailyReviewCard = ({ reviewQueue, reviewStreak, onStartReview }) => {
       </div>
 
       {streak.current > 0 && (
-        <div className="review-streak" style={{ fontSize: '0.8125rem', color: '#6b7280', marginBottom: '0.5rem' }}>
-          <strong style={{ color: '#3f6212' }}>{streak.current}-day</strong> review streak{streak.best > streak.current ? ` · best ${streak.best}` : ''}
+        <div className="review-streak" style={{ fontSize: '0.8125rem', color: 'var(--color-slate-500)', marginBottom: '0.5rem' }}>
+          <strong style={{ color: 'var(--color-brand-green-text)' }}>{streak.current}-day</strong> review streak{streak.best > streak.current ? ` · best ${streak.best}` : ''}
         </div>
       )}
 
@@ -50,11 +50,11 @@ const DailyReviewCard = ({ reviewQueue, reviewStreak, onStartReview }) => {
 
       <div className="action-card-footer">
         {sectionGroups.length > 0 && (
-          <div style={{ fontSize: '0.8125rem', color: '#6b7280', marginBottom: '0.75rem' }}>Review by topic:</div>
+          <div style={{ fontSize: '0.8125rem', color: 'var(--color-slate-500)', marginBottom: '0.75rem' }}>Review by topic:</div>
         )}
         <div className="domain-list">
           {session.items.length === 0 ? (
-            <div className="domain-item" style={{ color: '#10b981' }}>✓ All caught up!</div>
+            <div className="domain-item" style={{ color: 'var(--color-success-text)' }}>✓ All caught up!</div>
           ) : sectionGroups.slice(0, 4).map(group => (
             <div
               className="domain-item domain-item-clickable"
@@ -65,7 +65,7 @@ const DailyReviewCard = ({ reviewQueue, reviewStreak, onStartReview }) => {
               onKeyDown={(e) => e.key === 'Enter' && onStartReview && onStartReview(group.items)}
             >
               <span>{group.name} ({group.items.length})</span>
-              <span className={group.hasOverdue ? "accuracy-pill blue" : "accuracy-pill"} style={{ background: group.hasOverdue ? '#fee2e2' : '#bef264', color: group.hasOverdue ? '#991b1b' : '#3f6212' }}>
+              <span className={group.hasOverdue ? "accuracy-pill blue" : "accuracy-pill"} style={{ background: group.hasOverdue ? 'var(--color-error-100)' : 'var(--color-brand-green-soft)', color: group.hasOverdue ? 'var(--color-error-text)' : 'var(--color-brand-green-text)' }}>
                 {group.hasOverdue ? 'Overdue' : 'Due'}
               </span>
             </div>

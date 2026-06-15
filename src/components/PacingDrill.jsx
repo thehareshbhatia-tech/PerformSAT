@@ -20,7 +20,9 @@ import AnswerChoiceList from './shared/AnswerChoiceList';
 import { evaluatePacingSession } from '../services/pacingService';
 import { deriveDeadline, computeRemaining } from '../services/timerClock';
 
-const ORANGE = '#ea580c';
+const ORANGE = 'var(--color-brand-primary)';
+const GREEN = 'var(--color-success-700)';
+const RED = 'var(--color-error-700)';
 const RESULT_FLASH_MS = 800;
 
 const fmtTime = (secs) => {
@@ -125,7 +127,7 @@ const PacingDrill = ({ config = {}, questions = [], onComplete, onExit, user = n
 
   if (!total) {
     return (
-      <div style={{ maxWidth: 720, margin: '40px auto', padding: 24, textAlign: 'center', color: '#6b7280' }}>
+      <div style={{ maxWidth: 720, margin: '40px auto', padding: 24, textAlign: 'center', color: 'var(--color-slate-500)' }}>
         <p>No questions available for this pacing drill right now.</p>
         <button onClick={onExit} style={btnStyle(true)}>Back to dashboard</button>
       </div>
@@ -133,21 +135,21 @@ const PacingDrill = ({ config = {}, questions = [], onComplete, onExit, user = n
   }
 
   if (phase === 'done' && summary) {
-    const gradeColor = summary.grade === 'A' ? '#15803d' : summary.grade === 'B' ? '#b45309' : '#b91c1c';
+    const gradeColor = summary.grade === 'A' ? 'var(--color-success-700)' : summary.grade === 'B' ? 'var(--color-warning-700)' : 'var(--color-error-700)';
     return (
       <div style={{ maxWidth: 560, margin: '48px auto', padding: '0 20px', textAlign: 'center' }}>
-        <div style={{ fontSize: 13, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#6b7280', marginBottom: 8 }}>
+        <div style={{ fontSize: 13, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--color-slate-500)', marginBottom: 8 }}>
           {config.label} complete
         </div>
         <div style={{ fontSize: 64, fontWeight: 800, color: gradeColor, lineHeight: 1 }}>{summary.grade}</div>
-        <div style={{ display: 'flex', justifyContent: 'center', gap: 28, margin: '24px 0', color: '#374151' }}>
+        <div style={{ display: 'flex', justifyContent: 'center', gap: 28, margin: '24px 0', color: 'var(--color-slate-700)' }}>
           <Stat label="Accuracy" value={`${summary.accuracy}%`} />
           <Stat label="Avg / question" value={`${summary.avgTimePerQuestion}s`} />
           {summary.underBudget != null && (
             <Stat label="Under budget" value={`${summary.underBudget}/${summary.total}`} />
           )}
         </div>
-        <p style={{ color: '#4b5563', fontSize: 15, lineHeight: 1.6, marginBottom: 28 }}>{summary.message}</p>
+        <p style={{ color: 'var(--color-slate-600)', fontSize: 15, lineHeight: 1.6, marginBottom: 28 }}>{summary.message}</p>
         <button onClick={onExit} style={btnStyle(true)}>Done</button>
       </div>
     );
@@ -155,12 +157,22 @@ const PacingDrill = ({ config = {}, questions = [], onComplete, onExit, user = n
 
   const q = questions[index];
   const lowTime = remaining <= 10;
+  // Pacing timer reads by function: ample time = GREEN, getting tight = ORANGE,
+  // critical = RED. Threshold is the remaining fraction of the budget (color only;
+  // timing logic above is untouched). The <=10s hard floor stays critical.
+  const timerBudget = isPerQuestion ? perQ : sessionSeconds;
+  const remainingFraction = remaining / Math.max(1, timerBudget);
+  const timerColor = lowTime || remainingFraction <= 0.15
+    ? RED
+    : remainingFraction <= 0.4
+      ? ORANGE
+      : GREEN;
 
   return (
     <div style={{ maxWidth: 760, margin: '24px auto', padding: '0 20px' }}>
       {/* Header: mode + timer */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 6 }}>
-        <div style={{ fontSize: 13, fontWeight: 600, color: '#6b7280' }}>
+        <div style={{ fontSize: 13, fontWeight: 600, color: 'var(--color-slate-500)' }}>
           {config.label} · Q{index + 1} of {total}
         </div>
         <div
@@ -168,7 +180,7 @@ const PacingDrill = ({ config = {}, questions = [], onComplete, onExit, user = n
           style={{
             fontVariantNumeric: 'tabular-nums',
             fontSize: 22, fontWeight: 700,
-            color: lowTime ? '#b91c1c' : ORANGE,
+            color: timerColor,
             transition: 'color 0.2s ease',
           }}
         >
@@ -177,17 +189,17 @@ const PacingDrill = ({ config = {}, questions = [], onComplete, onExit, user = n
       </div>
 
       {/* Progress / time bar */}
-      <div style={{ height: 4, background: '#e5e7eb', borderRadius: 999, overflow: 'hidden', marginBottom: 16 }}>
+      <div style={{ height: 4, background: 'var(--color-slate-200)', borderRadius: 999, overflow: 'hidden', marginBottom: 16 }}>
         <div style={{
           height: '100%',
           width: `${Math.max(0, Math.min(100, (remaining / (isPerQuestion ? perQ : sessionSeconds)) * 100))}%`,
-          background: lowTime ? '#b91c1c' : ORANGE,
+          background: timerColor,
           transition: 'width 0.25s linear',
         }} />
       </div>
 
       {config.personalizedReason && index === 0 && !showResult && (
-        <div style={{ fontSize: 13, color: '#6b7280', marginBottom: 14, fontStyle: 'italic' }}>
+        <div style={{ fontSize: 13, color: 'var(--color-slate-500)', marginBottom: 14, fontStyle: 'italic' }}>
           {config.personalizedReason}
         </div>
       )}
@@ -199,7 +211,7 @@ const PacingDrill = ({ config = {}, questions = [], onComplete, onExit, user = n
       )}
 
       {/* Question */}
-      <div style={{ fontFamily: "'Times New Roman', Georgia, serif", fontSize: 17, color: '#1f2937', lineHeight: 1.7, marginBottom: 20 }}>
+      <div style={{ fontFamily: "'Times New Roman', Georgia, serif", fontSize: 17, color: 'var(--color-slate-800)', lineHeight: 1.7, marginBottom: 20 }}>
         {Array.isArray(q.question) || (q.question && typeof q.question === 'object')
           ? <QuestionRenderer content={q.question} />
           : <MathText>{q.question}</MathText>}
@@ -222,17 +234,17 @@ const PacingDrill = ({ config = {}, questions = [], onComplete, onExit, user = n
 
 const Stat = ({ label, value }) => (
   <div>
-    <div style={{ fontSize: 22, fontWeight: 700, color: '#111827' }}>{value}</div>
-    <div style={{ fontSize: 12, color: '#9ca3af', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{label}</div>
+    <div style={{ fontSize: 22, fontWeight: 700, color: 'var(--color-slate-900)' }}>{value}</div>
+    <div style={{ fontSize: 12, color: 'var(--color-slate-400)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{label}</div>
   </div>
 );
 
 const btnStyle = (primary) => ({
   padding: '10px 22px',
   borderRadius: 999,
-  border: primary ? 'none' : '1px solid #d1d5db',
+  border: primary ? 'none' : '1px solid var(--color-slate-300)',
   background: primary ? ORANGE : 'transparent',
-  color: primary ? '#fff' : '#6b7280',
+  color: primary ? '#fff' : 'var(--color-slate-500)',
   fontSize: 14,
   fontWeight: 600,
   cursor: 'pointer',

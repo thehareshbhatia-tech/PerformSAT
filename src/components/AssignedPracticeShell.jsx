@@ -16,23 +16,23 @@ import { InfoIcon } from '../design/icons';
 import './AssignedPracticeShell.css';
 
 const C = {
-  // Drilling = practicing a focus area = the PURPLE domain (tri-color system).
-  brand: 'var(--color-brand-purple-deep)',
-  brandHover: 'var(--color-brand-purple-text)',
-  brandLight: 'rgba(176,146,221,0.12)', // soft lavender (matches the purple tile)
-  success: '#10b981',
-  successBg: 'rgba(16,185,129,0.08)',
-  error: '#ef4444',
-  errorBg: 'rgba(239,68,68,0.08)',
-  warning: '#f59e0b',
-  warningBg: 'rgba(245,158,11,0.08)',
-  text: '#1d1d1f',
-  textSec: '#6b7280',
-  textMuted: '#a3a3a3',
-  border: 'rgba(0,0,0,0.08)',
-  bg: '#f9fafb',
-  white: '#ffffff',
-  dark: '#1e293b',
+  // Primary action / CTA = the ORANGE brand domain (tri-color system).
+  brand: 'var(--color-brand-primary)',
+  brandHover: 'var(--color-brand-primary-hover)',
+  brandLight: 'var(--color-brand-primary-light)',
+  success: 'var(--color-brand-green-text)',
+  successBg: 'var(--color-brand-green-soft)',
+  error: 'var(--color-error-500)',
+  errorBg: 'var(--color-error-50)',
+  warning: 'var(--color-warning-500)',
+  warningBg: 'var(--color-warning-50)',
+  text: 'var(--color-slate-900)',
+  textSec: 'var(--color-slate-600)',
+  textMuted: 'var(--color-slate-500)',
+  border: 'var(--color-slate-200)',
+  bg: 'var(--color-slate-50)',
+  white: 'var(--color-white)',
+  dark: 'var(--color-brand-navy)',
 };
 
 // ── Sidebar: persistent question list (Acely-style left pane) ──────────
@@ -390,11 +390,11 @@ const AssignedPracticeShell = ({
               <div key={key} style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
                 <span style={{ fontSize: '12px', fontWeight: '600', padding: '3px 10px', borderRadius: '10px', background: bg, color, width: '68px', textAlign: 'center' }}>{label}</span>
                 <div style={{ flex: 1, marginLeft: '14px', marginRight: '12px' }}>
-                  <div style={{ height: '7px', background: '#e5e7eb', borderRadius: '4px', overflow: 'hidden' }}>
+                  <div style={{ height: '7px', background: 'var(--color-slate-200)', borderRadius: '4px', overflow: 'hidden' }}>
                     <div style={{ height: '100%', width: `${p}%`, background: color, borderRadius: '4px', transition: 'width 0.3s' }} />
                   </div>
                 </div>
-                <span style={{ fontSize: '13px', fontWeight: '600', color: '#374151', minWidth: '76px', textAlign: 'right' }}>{s.correct}/{s.total} ({p}%)</span>
+                <span style={{ fontSize: '13px', fontWeight: '600', color: 'var(--color-slate-700)', minWidth: '76px', textAlign: 'right' }}>{s.correct}/{s.total} ({p}%)</span>
               </div>
             );
           })}
@@ -643,7 +643,7 @@ const AssignedPracticeShell = ({
                     {currentQuestion.questionTable.headers.map((header, i) => (
                       <th key={i} style={{
                         border: `1px solid ${C.border}`, padding: '8px 16px',
-                        background: '#f5f5f7', fontWeight: '600'
+                        background: 'var(--color-slate-100)', fontWeight: '600'
                       }}>
                         <MathText>{header}</MathText>
                       </th>
@@ -748,8 +748,8 @@ const AssignedPracticeShell = ({
                   Hint
                 </button>
               ) : (
-                <div style={{ background: 'rgba(59,130,246,0.08)', borderRadius: '10px', padding: '14px 18px', borderLeft: '3px solid #3b82f6' }}>
-                  <div style={{ fontSize: '12px', fontWeight: '600', color: '#3b82f6', marginBottom: '6px' }}>Hint</div>
+                <div style={{ background: 'var(--color-brand-purple-soft)', borderRadius: '10px', padding: '14px 18px', borderLeft: '3px solid var(--color-brand-purple-border)' }}>
+                  <div style={{ fontSize: '12px', fontWeight: '600', color: 'var(--color-brand-purple-text)', marginBottom: '6px' }}>Hint</div>
                   <p style={{ fontSize: '14px', color: C.text, lineHeight: 1.5, margin: 0 }}>{currentQuestion.hint}</p>
                 </div>
               )}
@@ -795,8 +795,8 @@ const AssignedPracticeShell = ({
                 const tip = getDesmosTip(currentQuestion);
                 if (!tip) return null;
                 return (
-                  <div style={{ marginTop: '12px', background: 'rgba(71,85,105,0.07)', borderRadius: '10px', padding: '12px 16px', borderLeft: '3px solid #475569' }}>
-                    <div style={{ fontSize: '12px', fontWeight: '600', color: '#475569', marginBottom: '4px' }}>
+                  <div style={{ marginTop: '12px', background: 'var(--color-slate-100)', borderRadius: '10px', padding: '12px 16px', borderLeft: '3px solid var(--color-slate-600)' }}>
+                    <div style={{ fontSize: '12px', fontWeight: '600', color: 'var(--color-slate-600)', marginBottom: '4px' }}>
                       Desmos route — {tip.name} ({tip.timeEstimate})
                     </div>
                     <p style={{ fontSize: '14px', color: C.text, lineHeight: 1.5, margin: 0 }}>{tip.technique}</p>

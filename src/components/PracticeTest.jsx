@@ -2215,7 +2215,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
     const difficultyBg = reviewQ?.difficulty === 'hard' ? colors.semantic.errorLight : reviewQ?.difficulty === 'medium' ? colors.semantic.warningBg : colors.semantic.successLight;
 
     return (
-      <div style={{ display: 'flex', flexDirection: 'column', height: '100vh', background: '#F5F5F7', overflow: 'hidden' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', height: '100vh', background: 'var(--color-slate-100)', overflow: 'hidden' }}>
 
         {/* Stale-content notice (legacy attempts only, dismissible per-attempt) */}
         {showSnapshotNotice && (
@@ -2842,7 +2842,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
         height: '100vh',
         overflowY: 'auto',
         boxSizing: 'border-box',
-        background: '#F5F5F7',
+        background: 'var(--color-slate-100)',
         backgroundImage: 'radial-gradient(circle at 50% 0%, rgba(255,255,255,0.8) 0%, rgba(245,245,247,0) 100%)',
         padding: isMobile ? '16px' : '32px'
       }}>
@@ -3052,8 +3052,8 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
                   flex: 1,
                   padding: '10px 14px',
                   textAlign: 'left',
-                  background: active ? 'rgba(234, 88, 12, 0.06)' : '#fff',
-                  border: `2px solid ${active ? colors.focus : '#e5e7eb'}`,
+                  background: active ? 'rgba(234, 88, 12, 0.06)' : 'var(--color-white)',
+                  border: `2px solid ${active ? colors.focus : 'var(--color-slate-200)'}`,
                   borderRadius: radius.md,
                   cursor: active ? 'default' : 'pointer',
                   transition: 'border-color 0.15s, background 0.15s',

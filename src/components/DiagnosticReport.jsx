@@ -283,7 +283,7 @@ const QuestionBreakdown = ({ questionAnalysis }) => {
                   padding: '2px 8px', borderRadius: '10px', fontSize: '10px', fontWeight: '600',
                   textTransform: 'uppercase', letterSpacing: '0.03em',
                   background: q.difficulty === 'easy' ? colors.semantic.successLight : q.difficulty === 'hard' ? colors.semantic.errorLight : colors.semantic.warningBg,
-                  color: q.difficulty === 'easy' ? colors.semantic.success : q.difficulty === 'hard' ? colors.semantic.error : '#d97706',
+                  color: q.difficulty === 'easy' ? colors.semantic.success : q.difficulty === 'hard' ? colors.semantic.error : 'var(--color-warning-text)',
                 }}>
                   {q.difficulty || 'medium'}
                 </span>
@@ -607,21 +607,21 @@ const DiagnosticReport = ({
 
   const getActivityTypeIcon = (activity) => {
     const iconMap = {
-      lesson: <BooksIcon size={16} color={colors.semantic.info} />,
-      practice: <RulerIcon size={16} color={colors.semantic.success} />,
-      strategy: <LightBulbIcon size={16} color={colors.semantic.warning} />,
-      review: <SearchIcon size={16} color={colors.accent.orange} />,
-      test: <ClipboardIcon size={16} color={colors.accent.purple || colors.accent.orange} />,
+      lesson: <BooksIcon size={16} color={colors.accent.orange} />,
+      practice: <RulerIcon size={16} color="var(--color-brand-green-text)" />,
+      strategy: <LightBulbIcon size={16} color="var(--color-brand-purple-text)" />,
+      review: <SearchIcon size={16} color="var(--color-brand-purple-text)" />,
+      test: <ClipboardIcon size={16} color="var(--color-brand-purple-text)" />,
     };
     return iconMap[activity.type] || <ClipboardIcon size={16} color={colors.text.secondary} />;
   };
 
   const getActivityTypeBadge = (activity) => {
     const map = {
-      lesson: { bg: colors.semantic.infoLight || '#eff6ff', text: colors.semantic.info },
-      practice: { bg: colors.semantic.successLight || '#f0fdf4', text: colors.semantic.success },
-      strategy: { bg: colors.semantic.warningLight || '#fffbeb', text: colors.semantic.warning },
-      review: { bg: colors.accent.orangeLight || '#fff7ed', text: colors.accent.orange },
+      lesson: { bg: colors.accent.orangeLight || '#fff7ed', text: colors.accent.orange },
+      practice: { bg: 'var(--color-brand-green-soft)', text: 'var(--color-brand-green-text)' },
+      strategy: { bg: 'var(--color-brand-purple-soft)', text: 'var(--color-brand-purple-text)' },
+      review: { bg: 'var(--color-brand-purple-soft)', text: 'var(--color-brand-purple-text)' },
       test: { bg: colors.surface.offWhite, text: colors.text.secondary },
     };
     const labels = { lesson: 'Lesson', practice: 'Practice', strategy: 'Strategy', review: 'Review', test: 'Test' };
@@ -698,7 +698,7 @@ const DiagnosticReport = ({
         <div style={{ display: 'flex', gap: '1px', background: 'rgba(255,255,255,0.08)', borderRadius: radius.sm, overflow: 'hidden' }}>
           <StatBox value={planSummary.stats.currentScore} label="Current" color="white" />
           {/* null target = no honest same-scale comparison exists (cross-scale account) */}
-          <StatBox value={planSummary.stats.targetScore ?? '—'} label="Target" color={colors.accent.orange} />
+          <StatBox value={planSummary.stats.targetScore ?? '—'} label="Target" color="var(--color-brand-purple)" />
           <StatBox value={`${planSummary.stats.minutesPerDay}m`} label="Per Day" color="white" />
           <StatBox value={planSummary.stats.weeksInPlan} label="Weeks" color="white" />
         </div>
@@ -880,7 +880,7 @@ const DiagnosticReport = ({
                   <div style={{
                     width: '100%', maxWidth: '48px', height: `${height}px`,
                     background: test.isCurrent
-                      ? `linear-gradient(to top, ${colors.accent.orange}, #fb923c)`
+                      ? `linear-gradient(to top, ${colors.accent.orange}, var(--color-brand-orange-400))`
                       : colors.surface.gray,
                     borderRadius: '6px 6px 0 0',
                     border: test.isCurrent ? `2px solid ${colors.accent.orange}` : `1px solid ${colors.surface.grayDark}`,

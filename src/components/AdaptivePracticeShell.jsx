@@ -10,23 +10,23 @@ import { trackDrillStarted, trackDrillChipShown } from '../services/analyticsSer
 import { TargetIcon } from '../design/icons';
 
 const C = {
-  // Adaptive drilling = focus practice = the PURPLE domain (tri-color system).
-  brand: 'var(--color-brand-purple-deep)',
-  brandHover: 'var(--color-brand-purple-text)',
-  brandLight: 'rgba(176,146,221,0.12)',
-  success: '#10b981',
-  successBg: 'rgba(16,185,129,0.08)',
-  error: '#ef4444',
-  errorBg: 'rgba(239,68,68,0.08)',
-  warning: '#f59e0b',
-  warningBg: 'rgba(245,158,11,0.08)',
-  text: '#1d1d1f',
-  textSec: '#6b7280',
-  textMuted: '#a3a3a3',
-  border: 'rgba(0,0,0,0.08)',
-  bg: '#f9fafb',
-  white: '#ffffff',
-  dark: '#1e293b',
+  // Primary action / CTA = the ORANGE brand domain (tri-color system).
+  brand: 'var(--color-brand-primary)',
+  brandHover: 'var(--color-brand-primary-hover)',
+  brandLight: 'var(--color-brand-primary-light)',
+  success: 'var(--color-brand-green-text)',
+  successBg: 'var(--color-brand-green-soft)',
+  error: 'var(--color-error-500)',
+  errorBg: 'var(--color-error-50)',
+  warning: 'var(--color-warning-500)',
+  warningBg: 'var(--color-warning-50)',
+  text: 'var(--color-slate-900)',
+  textSec: 'var(--color-slate-600)',
+  textMuted: 'var(--color-slate-500)',
+  border: 'var(--color-slate-200)',
+  bg: 'var(--color-slate-50)',
+  white: 'var(--color-white)',
+  dark: 'var(--color-brand-navy)',
 };
 
 function QuestionGrid({ questions, currentIndex, answers, markedForReview, onNavigate }) {
@@ -268,7 +268,7 @@ const AdaptivePracticeShell = ({
           <div style={{
             background: practiceState.adaptiveCompletion.isComplete ? C.successBg : C.warningBg,
             borderRadius: '12px', padding: '14px 20px', marginBottom: '24px',
-            border: `1px solid ${practiceState.adaptiveCompletion.isComplete ? 'rgba(16,185,129,0.25)' : 'rgba(234,179,8,0.25)'}`,
+            border: `1px solid ${practiceState.adaptiveCompletion.isComplete ? 'var(--color-brand-green-border)' : 'var(--color-warning-300, #FCD34D)'}`,
           }}>
             <div style={{ fontSize: '13px', fontWeight: '600', color: practiceState.adaptiveCompletion.isComplete ? C.success : C.warning, marginBottom: '6px' }}>
               {practiceState.adaptiveCompletion.isComplete ? 'Assignment Complete' : 'Assignment In Progress'}
@@ -296,11 +296,11 @@ const AdaptivePracticeShell = ({
               <div key={key} style={{ display: 'flex', alignItems: 'center', marginBottom: '12px' }}>
                 <span style={{ fontSize: '12px', fontWeight: '600', padding: '4px 10px', borderRadius: '10px', background: bg, color, width: '70px', textAlign: 'center' }}>{label}</span>
                 <div style={{ flex: 1, marginLeft: '16px', marginRight: '12px' }}>
-                  <div style={{ height: '8px', background: '#e5e7eb', borderRadius: '4px', overflow: 'hidden' }}>
+                  <div style={{ height: '8px', background: 'var(--color-slate-200)', borderRadius: '4px', overflow: 'hidden' }}>
                     <div style={{ height: '100%', width: `${p}%`, background: color, borderRadius: '4px', transition: 'width 0.3s' }} />
                   </div>
                 </div>
-                <span style={{ fontSize: '14px', fontWeight: '600', color: '#374151', minWidth: '80px', textAlign: 'right' }}>{s.correct}/{s.total} ({p}%)</span>
+                <span style={{ fontSize: '14px', fontWeight: '600', color: 'var(--color-slate-700)', minWidth: '80px', textAlign: 'right' }}>{s.correct}/{s.total} ({p}%)</span>
               </div>
             );
           })}
@@ -373,8 +373,8 @@ const AdaptivePracticeShell = ({
           <span style={{
             fontSize: '12px', fontWeight: '700',
             padding: '3px 10px', borderRadius: '12px',
-            background: mastery >= minMastery ? 'rgba(16,185,129,0.2)' : 'rgba(255,255,255,0.1)',
-            color: mastery >= minMastery ? '#6ee7b7' : 'rgba(255,255,255,0.8)',
+            background: mastery >= minMastery ? 'rgba(198,244,50,0.2)' : 'rgba(255,255,255,0.1)',
+            color: mastery >= minMastery ? 'var(--color-brand-green)' : 'rgba(255,255,255,0.8)',
           }}>
             {mastery}% mastery
           </span>
@@ -389,7 +389,7 @@ const AdaptivePracticeShell = ({
           {/* Calculator is Math-only — not offered on R&W in the digital SAT. */}
           {currentQuestion?.section !== 'rw' && (
             <button onClick={onToggleCalculator} style={{
-              background: showCalculator ? C.brand : 'rgba(255,255,255,0.06)',
+              background: showCalculator ? 'var(--color-brand-purple-deep)' : 'rgba(255,255,255,0.06)',
               border: '1px solid rgba(255,255,255,0.1)', borderRadius: '6px',
               padding: '6px 10px', cursor: 'pointer', color: C.white,
               fontSize: '12px', fontWeight: '600',
@@ -482,7 +482,7 @@ const AdaptivePracticeShell = ({
                     {currentQuestion.questionTable.headers.map((header, i) => (
                       <th key={i} style={{
                         border: `1px solid ${C.border}`, padding: '8px 16px',
-                        background: '#f5f5f7', fontWeight: '600'
+                        background: 'var(--color-slate-100)', fontWeight: '600'
                       }}>
                         <MathText>{header}</MathText>
                       </th>
@@ -605,8 +605,8 @@ const AdaptivePracticeShell = ({
                   <span style={{
                     width: '28px', height: '28px', borderRadius: '6px',
                     background: showResult
-                      ? (isCorrect ? C.success : isSelected ? C.error : '#f5f5f7')
-                      : (isSelected && !isEliminated ? C.brand : '#f5f5f7'),
+                      ? (isCorrect ? C.success : isSelected ? C.error : 'var(--color-slate-100)')
+                      : (isSelected && !isEliminated ? C.brand : 'var(--color-slate-100)'),
                     color: (showResult && (isCorrect || isSelected)) || (isSelected && !isEliminated) ? C.white : C.textSec,
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                     fontSize: '13px', fontWeight: '700', flexShrink: 0,
@@ -621,7 +621,7 @@ const AdaptivePracticeShell = ({
                             {choice.table.headers.map((h, i) => (
                               <th key={i} style={{
                                 border: `1px solid ${C.border}`, padding: '4px 12px',
-                                background: '#f5f5f7', fontWeight: '600', fontStyle: 'italic'
+                                background: 'var(--color-slate-100)', fontWeight: '600', fontStyle: 'italic'
                               }}>{h}</th>
                             ))}
                           </tr>
@@ -674,8 +674,8 @@ const AdaptivePracticeShell = ({
                   Hint
                 </button>
               ) : (
-                <div style={{ background: 'rgba(59,130,246,0.08)', borderRadius: '10px', padding: '14px 18px', borderLeft: '3px solid #3b82f6' }}>
-                  <div style={{ fontSize: '12px', fontWeight: '600', color: '#3b82f6', marginBottom: '6px' }}>Hint</div>
+                <div style={{ background: 'var(--color-brand-purple-soft)', borderRadius: '10px', padding: '14px 18px', borderLeft: '3px solid var(--color-brand-purple-border)' }}>
+                  <div style={{ fontSize: '12px', fontWeight: '600', color: 'var(--color-brand-purple-text)', marginBottom: '6px' }}>Hint</div>
                   <p style={{ fontSize: '14px', color: C.text, lineHeight: 1.5, margin: 0 }}>{currentQuestion.hint}</p>
                 </div>
               )}
@@ -699,8 +699,8 @@ const AdaptivePracticeShell = ({
                 const tip = getDesmosTip(currentQuestion);
                 if (!tip) return null;
                 return (
-                  <div style={{ marginTop: '12px', background: 'rgba(71,85,105,0.07)', borderRadius: '10px', padding: '12px 16px', borderLeft: '3px solid #475569' }}>
-                    <div style={{ fontSize: '12px', fontWeight: '600', color: '#475569', marginBottom: '4px' }}>
+                  <div style={{ marginTop: '12px', background: 'var(--color-slate-100)', borderRadius: '10px', padding: '12px 16px', borderLeft: '3px solid var(--color-slate-600)' }}>
+                    <div style={{ fontSize: '12px', fontWeight: '600', color: 'var(--color-slate-600)', marginBottom: '4px' }}>
                       Desmos route — {tip.name} ({tip.timeEstimate})
                     </div>
                     <p style={{ fontSize: '14px', color: C.text, lineHeight: 1.5, margin: 0 }}>{tip.technique}</p>
@@ -717,7 +717,7 @@ const AdaptivePracticeShell = ({
               disabled={!practiceState.selectedAnswer}
               style={{
                 width: '100%', padding: '14px', borderRadius: '10px', border: 'none',
-                background: practiceState.selectedAnswer ? C.brand : '#e5e5e5',
+                background: practiceState.selectedAnswer ? C.brand : 'var(--color-slate-200)',
                 color: C.white, fontSize: '15px', fontWeight: '600',
                 cursor: practiceState.selectedAnswer ? 'pointer' : 'default',
               }}
@@ -785,7 +785,7 @@ const AdaptivePracticeShell = ({
           disabled={!practiceState.showFeedback && idx >= totalServed - 1}
           style={{
             padding: '8px 18px', borderRadius: '8px', border: 'none',
-            background: practiceState.showFeedback ? C.brand : (idx < totalServed - 1 ? '#3b82f6' : '#e5e5e5'),
+            background: practiceState.showFeedback ? C.brand : (idx < totalServed - 1 ? C.brand : 'var(--color-slate-200)'),
             color: C.white, fontSize: '13px', fontWeight: '600',
             cursor: (!practiceState.showFeedback && idx >= totalServed - 1) ? 'not-allowed' : 'pointer',
           }}
