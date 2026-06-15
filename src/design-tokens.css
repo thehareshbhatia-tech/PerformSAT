@@ -6,7 +6,7 @@
  *   Orange  (--color-brand-primary #ea580c)   primary actions, brand, accuracy, nav-active
  *   Green   (--color-brand-green   #C6F432 / deep #2E4E2C)  strengths, mastery, completion, positive
  *   Purple  (--color-brand-purple  #B092DD / deep #6B4E9E)  focus, opportunity, STUDY PLAN, insights
- *   Type:    Inter (UI/chrome)  +  Merriweather (narrative serif)  +  Fraunces italic (wordmark only)
+ *   Type:    Inter (UI/chrome)  +  Merriweather (narrative serif)  +  Baloo 2 (the rounded "seva" logo + tri-color S mark)
  *   Surface: warm off-white (--color-slate-50 #FBFBFD) under a low-opacity orange ambient gradient
  *   Depth:   restrained two-layer slate shadows (not pure black, not invisible)
  * The app must read tri-color, not mono-orange. Use the green/purple families below for

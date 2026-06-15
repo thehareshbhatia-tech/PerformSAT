@@ -1,53 +1,52 @@
-// Wordmark.jsx — the Seva brand wordmark.
+// Wordmark.jsx — the SEVA brand lockup: the tri-color "S" mark + the rounded
+// lowercase "seva" wordmark (Baloo 2). One component feeds every render site
+// (landing header/footer, sidebar, mobile header, legal pages, boot screen) so
+// the mark stays identical everywhere.
 //
-// Italic Fraunces (variable serif) with the SOFT axis cranked for swashy
-// editorial terminals on the v / a. Single word, no icon. Mirrors Acely's
-// editorial publication feel but with more typographic personality.
-//
-// `tone` controls contrast: "dark" (default) renders deep navy for light
-// backgrounds; "light" renders white for dark backgrounds. `size` scales
-// the text (sm / md / lg). All other typography lives inside this component
-// so the mark stays identical everywhere.
+// `tone` controls the wordmark text color: "dark" (default) renders brand
+// purple for light backgrounds; "light" renders white for dark backgrounds
+// (the navy sidebar). The S mark is tri-color in both. `size` (sm/md/lg) scales
+// the lockup; pass `fontSize` (px) to override for special cases (boot screen).
 
 import React from 'react';
+import Mark, { LOGO_COLORS, LOGO_FONT } from './Mark';
 
-const SIZES = {
-  // All-caps wants positive tracking — letters need room to breathe.
-  sm: { fontSize: '16px', letterSpacing: '0.04em' },
-  md: { fontSize: '20px', letterSpacing: '0.05em' },
-  lg: { fontSize: '26px', letterSpacing: '0.06em' },
+const SIZES = { sm: 18, md: 24, lg: 30 };
+
+const WORD_COLOR = {
+  dark:  LOGO_COLORS.purple, // on light backgrounds
+  light: '#FFFFFF',          // on dark backgrounds (navy sidebar)
 };
 
-const TONES = {
-  dark:  { color: '#021F35' },          // deep navy (matches sidebar bg)
-  light: { color: '#FFFFFF' },
-};
-
-// Fraunces variable axes:
-//   opsz 144  — display optical sizing (more contrast in strokes)
-//   wght 700  — bold body
-//   SOFT 100  — max softness, gives the swashy italic terminals
-const FRAUNCES_SETTINGS = '"opsz" 144, "SOFT" 100';
-
-const Wordmark = ({ size = 'md', tone = 'dark', as: As = 'span', style, ...rest }) => {
-  const sizeStyle = SIZES[size] || SIZES.md;
-  const toneStyle = TONES[tone] || TONES.dark;
+const Wordmark = ({ size = 'md', tone = 'dark', fontSize, as: As = 'span', style, ...rest }) => {
+  const px = fontSize || SIZES[size] || SIZES.md;
+  const wordColor = WORD_COLOR[tone] || WORD_COLOR.dark;
   return (
     <As
+      aria-label="Seva"
       style={{
-        fontFamily: '"Fraunces", "Lora", "Merriweather", "New York", Georgia, serif',
-        fontStyle: 'italic',
-        fontWeight: 700,
-        fontVariationSettings: FRAUNCES_SETTINGS,
+        display: 'inline-flex',
+        alignItems: 'center',
+        gap: `${Math.round(px * 0.3)}px`,
         lineHeight: 1,
         userSelect: 'none',
-        ...sizeStyle,
-        ...toneStyle,
         ...style,
       }}
       {...rest}
     >
-      SEVA
+      <Mark size={Math.round(px * 1.18)} decorative />
+      <span
+        style={{
+          fontFamily: LOGO_FONT,
+          fontWeight: 700,
+          fontSize: `${px}px`,
+          letterSpacing: '0.005em',
+          color: wordColor,
+          lineHeight: 1,
+        }}
+      >
+        seva
+      </span>
     </As>
   );
 };

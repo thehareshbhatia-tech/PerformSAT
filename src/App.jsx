@@ -19,6 +19,7 @@ import { getDifficultyBadge } from './services/adaptiveService';
 import { addToReviewQueue } from './services/reviewService';
 import { calculateOptimalDifficulty } from './services/recommendationService';
 import AppShell from './components/ui/AppShell';
+import Wordmark from './components/ui/Wordmark';
 import ErrorBoundary from './components/ui/ErrorBoundary';
 import Skeleton, { CardSkeleton } from './components/ui/Skeleton';
 import { allLessons } from './data/lessons';
@@ -1595,18 +1596,9 @@ const PerformSAT = () => {
         gap: '1.75rem',
         background: 'var(--color-slate-50)',
       }}>
-        {/* Branded boot screen — warm canvas + Fraunces italic wordmark, not a bare
-            spinner on white. Wordmark presumes nothing about the post-auth route. */}
-        <span style={{
-          fontFamily: '"Fraunces", "Lora", "Merriweather", "New York", Georgia, serif',
-          fontStyle: 'italic',
-          fontWeight: 700,
-          fontVariationSettings: '"opsz" 144, "SOFT" 100',
-          fontSize: '2.75rem',
-          letterSpacing: '0.05em',
-          color: 'var(--color-brand-navy)',
-          userSelect: 'none',
-        }}>SEVA</span>
+        {/* Branded boot screen — warm canvas + the seva lockup, not a bare
+            spinner on white. Presumes nothing about the post-auth route. */}
+        <Wordmark fontSize={40} tone="dark" />
         <div style={{
           width: '32px',
           height: '32px',

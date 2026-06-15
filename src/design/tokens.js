@@ -2,7 +2,7 @@
 // These legacy token names map directly onto the CSS variables defined in
 // src/design-tokens.css, whose header is the canonical owner of the aesthetic:
 // Apple/editorial chassis (warm off-white surface, restrained two-layer shadows,
-// generous space, Inter UI + Merriweather narrative serif + Fraunces italic wordmark)
+// generous space, Inter UI + Merriweather narrative serif + Baloo 2 "seva" logo)
 // + ONE orange accent (#ea580c). Old components inherit it automatically.
 
 export const colors = {

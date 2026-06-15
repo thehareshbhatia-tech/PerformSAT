@@ -3,6 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { colors, typography, spacing, radius, shadows, transitions, breakpoints, zIndex } from '../../design/tokens';
 import { injectAnimations } from '../../design/animations';
 import Wordmark from './Wordmark';
+import Mark from './Mark';
 import Avatar from './Avatar';
 
 // Route ↔ view state mapping
@@ -288,16 +289,7 @@ const AppShell = ({ children, currentView, onNavigate, user, onLogout, hideNav =
           >
             {sidebarExpanded
               ? <Wordmark size="lg" tone="light" />
-              : <span style={{
-                  fontFamily: '"Fraunces", "Lora", "Merriweather", "New York", Georgia, serif',
-                  fontStyle: 'italic',
-                  fontWeight: 700,
-                  fontVariationSettings: '"opsz" 144, "SOFT" 100',
-                  fontSize: '28px',
-                  lineHeight: 1,
-                  color: '#FFFFFF',
-                  userSelect: 'none',
-                }}>S</span>}
+              : <Mark size={30} />}
           </div>
 
           {/* Nav Items */}
