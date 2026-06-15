@@ -134,7 +134,25 @@ jest.mock('firebase/firestore', () => {
     where: (...args) => ({ __where: args }),
     orderBy: (...args) => ({ __orderBy: args }),
     limit: (n) => ({ __limit: n }),
-    getDocs: async () => ({ empty: true, docs: [] }),
+    getDocs: async (qOrCol) => {
+      // Store-aware: returns the direct child docs of a collection path so the
+      // study-plan re-point (which queries studyPlanArtifacts) can be tested.
+      // orderBy isn't honored — tests seed in the desired order (Map preserves
+      // insertion order). Returns empty for unknown/missing collection refs.
+      const colRef = qOrCol && qOrCol.__query ? qOrCol.__query[0] : qOrCol;
+      const base = colRef && colRef.__path;
+      if (!base) return { empty: true, docs: [] };
+      const docs = [];
+      for (const [path, value] of store.entries()) {
+        if (path.startsWith(base + '/')) {
+          const rest = path.slice(base.length + 1);
+          if (rest.indexOf('/') === -1) {
+            docs.push({ id: rest, data: () => deepClone(value), exists: () => true });
+          }
+        }
+      }
+      return { empty: docs.length === 0, docs };
+    },
     writeBatch: () => new FakeWriteBatch(),
   };
 });
@@ -143,6 +161,7 @@ jest.mock('firebase/firestore', () => {
 
 const {
   recordPracticeTestResult,
+  resetPracticeTest,
   loadAttemptSnapshot,
   generateAttemptId,
   SNAPSHOT_VERSION,
@@ -150,6 +169,10 @@ const {
 
 const firestoreMock = require('firebase/firestore');
 const getStore = () => firestoreMock.__getStore();
+
+// pendingTestSaveQueue is a pure localStorage module (not mocked) — used to
+// verify the reset flow purges the offline queue against real jsdom storage.
+const { enqueuePendingSave, readPendingSaves } = require('../pendingTestSaveQueue');
 
 // ── helpers ─────────────────────────────────────────────────────────────────
 
@@ -495,5 +518,188 @@ describe('snapshot payload shape', () => {
     // The matching subcollection doc should exist under that generated id
     const snap = getStore().get(`progress/user-1/attempts/${written.attemptId}`);
     expect(snap).toBeTruthy();
+  });
+});
+
+// ── resetPracticeTest ────────────────────────────────────────────────────────
+
+describe('resetPracticeTest', () => {
+  // Seed a progress doc carrying a target test plus sibling data that must
+  // survive the reset (a second test, a bank-fed review item, etc).
+  const seedProgress = (overrides = {}) => {
+    getStore().set('progress/u1', {
+      userId: 'u1',
+      practiceTestResults: {
+        'practice-test-1': { testId: 'practice-test-1', bestScaledScore: 600, totalAttempts: 1, attempts: [{ attemptId: 'a1' }] },
+        'practice-test-2': { testId: 'practice-test-2', bestScaledScore: 700, totalAttempts: 1, attempts: [{ attemptId: 'b1' }] },
+      },
+      inProgressTests: {
+        'practice-test-1': { testId: 'practice-test-1', currentModule: 1 },
+        'practice-test-2': { testId: 'practice-test-2', currentModule: 0 },
+      },
+      reviewQueue: {
+        'test::practice-test-1::std-craft-0-3': { moduleId: 'test::practice-test-1::std', questionId: '0-3' },
+        'test::practice-test-1::easy-algebra-2-1': { moduleId: 'test::practice-test-1::easy', questionId: '2-1' },
+        'test::practice-test-2::std-geo-1-0': { moduleId: 'test::practice-test-2::std', questionId: '1-0' },
+        'bank-Algebra-q123': { moduleId: 'bank', questionId: 'q123' },
+      },
+      predictionLog: [
+        { id: 'p1', createdAfterTestId: 'practice-test-1' },
+        { id: 'p2', createdAfterTestId: 'practice-test-2' },
+      ],
+      studentFingerprint: { archetype: 'careful' },
+      ...overrides,
+    });
+  };
+
+  test('removes the target test result + in-progress state, preserves siblings', async () => {
+    seedProgress();
+    const summary = await resetPracticeTest('u1', 'practice-test-1');
+
+    const doc = getStore().get('progress/u1');
+    expect(doc.practiceTestResults['practice-test-1']).toBeUndefined();
+    expect(doc.practiceTestResults['practice-test-2']).toBeDefined();
+    expect(doc.inProgressTests['practice-test-1']).toBeUndefined();
+    expect(doc.inProgressTests['practice-test-2']).toBeDefined();
+    expect(summary.removedResult).toBe(true);
+  });
+
+  test('prunes only the review-queue items this test seeded (std + easy), keeping bank + other-test items', async () => {
+    seedProgress();
+    const summary = await resetPracticeTest('u1', 'practice-test-1');
+
+    const rq = getStore().get('progress/u1').reviewQueue;
+    expect(rq['test::practice-test-1::std-craft-0-3']).toBeUndefined();
+    expect(rq['test::practice-test-1::easy-algebra-2-1']).toBeUndefined();
+    expect(rq['test::practice-test-2::std-geo-1-0']).toBeDefined();
+    expect(rq['bank-Algebra-q123']).toBeDefined();
+    expect(summary.prunedReviewItems).toBe(2);
+  });
+
+  test('drops predictions created by this test, keeps the rest', async () => {
+    seedProgress();
+    const summary = await resetPracticeTest('u1', 'practice-test-1');
+
+    const log = getStore().get('progress/u1').predictionLog;
+    expect(log).toHaveLength(1);
+    expect(log[0].id).toBe('p2');
+    expect(summary.prunedPredictions).toBe(1);
+  });
+
+  test('keeps the student fingerprint when other tests remain', async () => {
+    seedProgress();
+    await resetPracticeTest('u1', 'practice-test-1');
+    expect(getStore().get('progress/u1').studentFingerprint).toEqual({ archetype: 'careful' });
+  });
+
+  test('nulls the student fingerprint when the last test is reset', async () => {
+    seedProgress({
+      practiceTestResults: {
+        'practice-test-1': { testId: 'practice-test-1', bestScaledScore: 600, totalAttempts: 1, attempts: [] },
+      },
+    });
+    await resetPracticeTest('u1', 'practice-test-1');
+
+    const doc = getStore().get('progress/u1');
+    expect(Object.keys(doc.practiceTestResults)).toHaveLength(0);
+    expect(doc.studentFingerprint).toBeNull();
+  });
+
+  test('is a no-op (no throw) when the progress doc does not exist', async () => {
+    const summary = await resetPracticeTest('ghost-user', 'practice-test-1');
+    expect(summary).toEqual({ removedResult: false, prunedReviewItems: 0, prunedPredictions: 0 });
+  });
+
+  test('re-points the study plan to the newest surviving artifact when the reset test owned the current plan', async () => {
+    // Newest artifact belongs to the test being reset (becomes orphaned);
+    // older artifact belongs to a surviving test. Seed newest-first.
+    getStore().set('progress/u1/studyPlanArtifacts/art-new', { linkage: { sourceTestId: 'practice-test-1' }, plan: { weeks: [{}] } });
+    getStore().set('progress/u1/studyPlanArtifacts/art-old', { linkage: { sourceTestId: 'practice-test-2' }, plan: { weeks: [{}] } });
+    seedProgress({ currentStudyPlanArtifactId: 'art-new' });
+
+    await resetPracticeTest('u1', 'practice-test-1');
+
+    const doc = getStore().get('progress/u1');
+    expect(doc.currentStudyPlanArtifactId).toBe('art-old'); // survivor (test-2 still exists)
+    expect(doc.studyPlan).toBeNull();
+  });
+
+  test('keeps the current study-plan pointer untouched when an unrelated test is reset', async () => {
+    // Current plan is the latest test's artifact; a DIFFERENT, older test is reset.
+    getStore().set('progress/u1/studyPlanArtifacts/art-latest', { linkage: { sourceTestId: 'practice-test-3' }, plan: { weeks: [{}] } });
+    getStore().set('progress/u1/studyPlanArtifacts/art-mid', { linkage: { sourceTestId: 'practice-test-2' }, plan: { weeks: [{}] } });
+    seedProgress({
+      practiceTestResults: {
+        'practice-test-1': { testId: 'practice-test-1', attempts: [] },
+        'practice-test-2': { testId: 'practice-test-2', attempts: [] },
+        'practice-test-3': { testId: 'practice-test-3', attempts: [] },
+      },
+      currentStudyPlanArtifactId: 'art-latest',
+    });
+
+    await resetPracticeTest('u1', 'practice-test-1');
+
+    // test-3 (the current plan's source) still exists → pointer must not churn.
+    expect(getStore().get('progress/u1').currentStudyPlanArtifactId).toBe('art-latest');
+  });
+
+  test('re-points to the surviving mini-diagnostic artifact when the last full test is reset', async () => {
+    getStore().set('progress/u1/studyPlanArtifacts/art-test', { linkage: { sourceTestId: 'practice-test-1' }, plan: { weeks: [{}] } });
+    getStore().set('progress/u1/studyPlanArtifacts/art-mini', { linkage: { sourceTestId: null }, plan: { weeks: [{}] } });
+    seedProgress({
+      practiceTestResults: { 'practice-test-1': { testId: 'practice-test-1', attempts: [] } },
+      currentStudyPlanArtifactId: 'art-test',
+    });
+
+    await resetPracticeTest('u1', 'practice-test-1');
+
+    // Onboarding mini-diagnostic plan (sourceTestId null) survives → becomes current.
+    expect(getStore().get('progress/u1').currentStudyPlanArtifactId).toBe('art-mini');
+  });
+
+  test('clears the study-plan pointer when no artifact survives the reset', async () => {
+    getStore().set('progress/u1/studyPlanArtifacts/art-only', { linkage: { sourceTestId: 'practice-test-1' }, plan: { weeks: [{}] } });
+    seedProgress({
+      practiceTestResults: { 'practice-test-1': { testId: 'practice-test-1', attempts: [] } },
+      currentStudyPlanArtifactId: 'art-only',
+    });
+
+    await resetPracticeTest('u1', 'practice-test-1');
+
+    expect(getStore().get('progress/u1').currentStudyPlanArtifactId).toBeNull();
+  });
+
+  test('leaves the study-plan pointer untouched when the account has no study plan', async () => {
+    getStore().set('progress/u1/studyPlanArtifacts/art-x', { linkage: { sourceTestId: 'practice-test-2' }, plan: { weeks: [{}] } });
+    seedProgress(); // no currentStudyPlanArtifactId / studyPlan
+
+    await resetPracticeTest('u1', 'practice-test-1');
+
+    // Re-point block is guarded off — pointer field never introduced.
+    expect(getStore().get('progress/u1').currentStudyPlanArtifactId).toBeUndefined();
+  });
+
+  test('purges the offline pending-save queue for this test so it cannot resurrect on next boot', async () => {
+    window.localStorage.clear();
+    enqueuePendingSave('u1', { testId: 'practice-test-1', testTitle: 'T1', results: { attemptId: 'pa-1', scaledScore: 600 } });
+    enqueuePendingSave('u1', { testId: 'practice-test-2', testTitle: 'T2', results: { attemptId: 'pa-2', scaledScore: 700 } });
+    seedProgress();
+
+    await resetPracticeTest('u1', 'practice-test-1');
+
+    expect(readPendingSaves('u1').map((e) => e.testId)).toEqual(['practice-test-2']);
+    window.localStorage.clear();
+  });
+
+  test('reports removedResult:false when the test was never taken but still clears in-progress', async () => {
+    getStore().set('progress/u1', {
+      userId: 'u1',
+      practiceTestResults: { 'practice-test-2': { testId: 'practice-test-2', attempts: [] } },
+      inProgressTests: { 'practice-test-1': { testId: 'practice-test-1' } },
+    });
+    const summary = await resetPracticeTest('u1', 'practice-test-1');
+
+    expect(summary.removedResult).toBe(false);
+    expect(getStore().get('progress/u1').inProgressTests['practice-test-1']).toBeUndefined();
   });
 });

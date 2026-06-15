@@ -2,6 +2,8 @@ import { useState, useRef, useEffect } from 'react';
 import { getAllPracticeTests } from '../data/practiceTests';
 import { colors, radius, zIndex } from '../design/tokens';
 import { ArrowLeftIcon, ArrowRightIcon, ChevronDownIcon, TimerIcon, CircleDotIcon } from '../design/icons';
+import { Modal } from './ui/Modal';
+import { showToast } from './ui/Toaster';
 
 // Match the Acely-inspired brand palette used across the app
 // (indigo primary, soft shadows, off-white surfaces).
@@ -9,13 +11,38 @@ const BRAND = 'var(--color-brand-primary)';
 const BRAND_HOVER = 'var(--color-brand-primary-hover)';
 const BRAND_GLOW = 'var(--shadow-brand-glow)';
 
-const PracticeTestList = ({ onSelectTest, onBack, onSelectTestWithMode, getTestBestScore, getTestAttempts, inProgressTests, onResumeTest, onViewResults }) => {
+const PracticeTestList = ({ onSelectTest, onBack, onSelectTestWithMode, getTestBestScore, getTestAttempts, inProgressTests, onResumeTest, onViewResults, onResetTest }) => {
   const tests = getAllPracticeTests();
   // Each open dropdown is keyed by `${testId}:${section}` so R&W and Math
   // dropdowns don't collide on the same card.
   const [openDropdown, setOpenDropdown] = useState(null);
   const [expandedTestId, setExpandedTestId] = useState(null);
   const dropdownRef = useRef(null);
+  // Reset-this-test confirmation: holds { test, testNum } for the targeted card,
+  // null when closed. One Modal instance for the whole list.
+  const [resetTarget, setResetTarget] = useState(null);
+  const [resetting, setResetting] = useState(false);
+
+  const closeResetModal = () => {
+    if (resetting) return; // block Escape/backdrop close while the write runs
+    setResetTarget(null);
+  };
+
+  const handleConfirmReset = async () => {
+    if (!resetTarget || resetting) return;
+    const { test, testNum } = resetTarget;
+    setResetting(true);
+    try {
+      await onResetTest?.(test);
+      showToast({ type: 'success', message: `Digital SAT #${testNum} has been reset.` });
+      setResetTarget(null);
+    } catch {
+      // Optimistic clear is reverted by the progress snapshot; let the student retry.
+      showToast({ type: 'error', message: 'Could not reset the test. Please try again.' });
+    } finally {
+      setResetting(false);
+    }
+  };
 
   // First-load convenience: open the first in-progress test so Resume is one click away.
   useEffect(() => {
@@ -110,6 +137,7 @@ const PracticeTestList = ({ onSelectTest, onBack, onSelectTestWithMode, getTestB
               onSelectTestWithMode={onSelectTestWithMode}
               onResumeTest={onResumeTest}
               onViewResults={onViewResults}
+              onRequestReset={onResetTest ? () => setResetTarget({ test, testNum }) : undefined}
             />
           );
         })}
@@ -142,6 +170,61 @@ const PracticeTestList = ({ onSelectTest, onBack, onSelectTestWithMode, getTestB
           <li>Review your answers and explanations after completing the test.</li>
         </ul>
       </div>
+
+      <Modal
+        isOpen={!!resetTarget}
+        onClose={closeResetModal}
+        disabled={resetting}
+        title="Reset this test?"
+        maxWidth="440px"
+        footer={(
+          <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '10px' }}>
+            <button
+              type="button"
+              onClick={closeResetModal}
+              disabled={resetting}
+              style={{
+                padding: '9px 16px',
+                background: 'var(--color-white)',
+                border: `1px solid var(--color-slate-300)`,
+                borderRadius: radius.md,
+                color: colors.text.secondary,
+                fontSize: '14px',
+                fontWeight: 500,
+                cursor: resetting ? 'default' : 'pointer',
+              }}
+            >
+              Cancel
+            </button>
+            <button
+              type="button"
+              onClick={handleConfirmReset}
+              disabled={resetting}
+              style={{
+                padding: '9px 16px',
+                background: colors.semantic.error,
+                border: 'none',
+                borderRadius: radius.md,
+                color: 'var(--color-white)',
+                fontSize: '14px',
+                fontWeight: 600,
+                cursor: resetting ? 'default' : 'pointer',
+                opacity: resetting ? 0.7 : 1,
+              }}
+            >
+              {resetting ? 'Resetting…' : 'Reset test'}
+            </button>
+          </div>
+        )}
+      >
+        <p style={{ margin: 0, fontSize: '15px', lineHeight: 1.6, color: colors.text.secondary }}>
+          This permanently erases your scores, attempt history, and saved progress for{' '}
+          <strong style={{ color: colors.text.primary }}>
+            Digital SAT #{resetTarget?.testNum}
+          </strong>
+          {' '}— as if you never took it. Your other tests aren&rsquo;t affected, and this can&rsquo;t be undone.
+        </p>
+      </Modal>
     </div>
   );
 };
@@ -163,6 +246,7 @@ const TestCard = ({
   onSelectTestWithMode,
   onResumeTest,
   onViewResults,
+  onRequestReset,
 }) => {
   const totalTime = rwTime + mathTime;
   const totalQuestions = test.modules.reduce((sum, m) => sum + m.questions.length, 0);
@@ -308,6 +392,36 @@ const TestCard = ({
             dropdownRef={dropdownRef}
             totalTime={totalTime}
           />
+
+          {onRequestReset && (attempts > 0 || inProgress) && (
+            <div style={{
+              padding: '12px 20px',
+              borderTop: '1px solid var(--color-slate-100)',
+              display: 'flex',
+              justifyContent: 'flex-end',
+            }}>
+              <button
+                type="button"
+                onClick={(e) => { e.stopPropagation(); onRequestReset(); }}
+                onMouseEnter={(e) => { e.currentTarget.style.color = colors.semantic.error; }}
+                onMouseLeave={(e) => { e.currentTarget.style.color = colors.text.tertiary; }}
+                title="Erase this test's scores and progress — as if you never took it"
+                aria-label="Reset this test — erase its scores and progress, as if you never took it"
+                style={{
+                  background: 'none',
+                  border: 'none',
+                  color: colors.text.tertiary,
+                  fontSize: '13px',
+                  fontWeight: 500,
+                  cursor: 'pointer',
+                  padding: '4px 6px',
+                  transition: 'color 0.15s ease',
+                }}
+              >
+                Reset this test
+              </button>
+            </div>
+          )}
         </>
       )}
     </div>

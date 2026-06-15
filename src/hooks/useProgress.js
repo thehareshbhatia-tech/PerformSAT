@@ -7,7 +7,7 @@ import { markLessonComplete as markComplete, markLessonIncomplete } from '../ser
 import { upgradeLegacyPlanWeeks, planNeedsUpgrade, PLAN_FORMAT_VERSION } from '../services/planFormatUpgrade';
 import { getDueReviewCount, getReviewStats } from '../services/reviewService';
 import { recordSkillAttemptsBatch, getSkillDiagnosticSummary as getDiagnostic, getSkillBreakdown as getBreakdown } from '../services/skillService';
-import { recordPracticeTestResult as recordTestResult, getPracticeTestBestScore, getPracticeTestAttempts, saveTestProgress as saveProgress, clearTestProgress as clearProgress, getInProgressTest } from '../services/practiceTestService';
+import { recordPracticeTestResult as recordTestResult, getPracticeTestBestScore, getPracticeTestAttempts, saveTestProgress as saveProgress, clearTestProgress as clearProgress, resetPracticeTest as resetTest, getInProgressTest } from '../services/practiceTestService';
 // hybridStudyPlanService statically imports studyPlanGenerator, which pulls
 // the math bank + topic files + routing service (the whole question corpus)
 // into whatever chunk imports it. This hook lives in the MAIN chunk (App.jsx
@@ -15,6 +15,11 @@ import { recordPracticeTestResult as recordTestResult, getPracticeTestBestScore,
 // dynamic import() at their call sites instead (Stage 2b bundle split). Both
 // call sites are already promise-chained, so the extra hop is invisible.
 import { enqueuePendingSave, removePendingSave, flushPendingSaves } from '../services/pendingTestSaveQueue';
+// buildLongitudinalEvidence lives in studyPlanMerger, which is corpus-free
+// (imports only a selector) — safe to pull into the main chunk, unlike the
+// generators above. Used to keep the score-history strip live-accurate.
+import { buildLongitudinalEvidence } from '../services/studyPlanMerger';
+import { isOrphanArtifact } from '../services/studyPlanReset';
 import { showToast } from '../components/ui/Toaster';
 
 /** How long a test-result save may run before we declare it failed. */
@@ -196,7 +201,11 @@ export const useProgress = (userId) => {
                   ? { ...art.plan, adaptiveOverlay: incomingPlan.adaptiveOverlay }
                   : art.plan;
                 setStudyPlan(hydratedPlan);
-                setStudyPlanArtifact({ plan: art.plan, delta: art.delta || null, longitudinal: art.longitudinal || null, version: art.version || null });
+                // longitudinal is recomputed live from the CURRENT test results
+                // rather than read from the (possibly stale) stored artifact —
+                // so the Score History strip drops a reset test's dot
+                // immediately instead of waiting for the next plan regeneration.
+                setStudyPlanArtifact({ plan: art.plan, delta: art.delta || null, longitudinal: buildLongitudinalEvidence(data.practiceTestResults || {}), version: art.version || null });
                 studyPlanWriteInFlight.current = false;
                 setStudyPlanMeta(prev => ({ ...prev, artifactId: art.id }));
               } else if (incomingPlan?.weeks?.length) {
@@ -226,7 +235,12 @@ export const useProgress = (userId) => {
             import('../services/hybridStudyPlanService')
               .then(({ getLatestStudyPlanArtifact }) => getLatestStudyPlanArtifact(userId))
               .then(art => {
-              if (art?.plan?.weeks?.length) {
+              // Orphan guard: a reset test's artifact can't be deleted
+              // client-side, so getLatestStudyPlanArtifact can still surface it
+              // after the pointer was cleared. Don't re-hydrate a plan whose
+              // source test no longer exists — render the empty state instead.
+              const orphan = isOrphanArtifact(art, data.practiceTestResults || {});
+              if (art?.plan?.weeks?.length && !orphan) {
                 console.log('[useProgress] Artifact hydrated OK via latest-query — weeks:', art.plan.weeks.length);
                 // Same overlay graft as the pointer branch above — keep the
                 // artifact plan, carry the root field's adaptiveOverlay.
@@ -234,9 +248,16 @@ export const useProgress = (userId) => {
                   ? { ...art.plan, adaptiveOverlay: incomingPlan.adaptiveOverlay }
                   : art.plan;
                 setStudyPlan(hydratedPlan);
-                setStudyPlanArtifact({ plan: art.plan, delta: art.delta || null, longitudinal: art.longitudinal || null, version: art.version || null });
+                // longitudinal is recomputed live from the CURRENT test results
+                // rather than read from the (possibly stale) stored artifact —
+                // so the Score History strip drops a reset test's dot
+                // immediately instead of waiting for the next plan regeneration.
+                setStudyPlanArtifact({ plan: art.plan, delta: art.delta || null, longitudinal: buildLongitudinalEvidence(data.practiceTestResults || {}), version: art.version || null });
                 studyPlanWriteInFlight.current = false;
                 setStudyPlanMeta(prev => ({ ...prev, artifactId: art.id }));
+              } else if (orphan) {
+                setStudyPlan(null);
+                setStudyPlanArtifact(null);
               } else if (!studyPlanWriteInFlight.current) {
                 setStudyPlan(prev => prev?.weeks?.length ? prev : null);
               }
@@ -705,6 +726,41 @@ export const useProgress = (userId) => {
   };
 
   /**
+   * Resets a single practice test as if it was never taken — clears its scores,
+   * attempt history, resumable progress, and the derived data it seeded (review
+   * queue, predictions, and the fingerprint when no tests remain). Optimistically
+   * drops the test from both result maps so the catalog card snaps to a clean
+   * state; onSnapshot reconciles, re-adding it if the Firestore write fails.
+   * Rethrows so the caller can surface a failure toast.
+   * @param {string} testId - Test ID
+   * @returns {Promise<void>}
+   */
+  const resetPracticeTest = async (testId) => {
+    if (!userId || !testId) return;
+
+    // Optimistic update — clear the two maps the catalog card reads.
+    setPracticeTestResults(prev => {
+      const { [testId]: _omit, ...rest } = prev;
+      return rest;
+    });
+    setInProgressTests(prev => {
+      const { [testId]: _omit, ...rest } = prev;
+      return rest;
+    });
+
+    try {
+      // withTimeout is load-bearing for the same reason as test-result saves:
+      // Firestore's updateDoc hangs (never rejects) on network loss under the
+      // default memory persistence. Without it a hung write leaves the optimistic
+      // clear in state forever — the test looks reset but reappears on reload.
+      await withTimeout(resetTest(userId, testId));
+    } catch (err) {
+      console.error('[useProgress] Failed to reset practice test:', err);
+      throw err; // caller shows a failure toast; onSnapshot re-hydrates the row
+    }
+  };
+
+  /**
    * Gets in-progress test data
    * @param {string} testId - Test ID
    * @returns {Object|null} In-progress data or null
@@ -951,6 +1007,7 @@ export const useProgress = (userId) => {
     // In-progress test functions
     saveTestProgress,
     clearTestProgress,
+    resetPracticeTest,
     getTestProgress,
     hasTestProgress,
     // Onboarding mini-diagnostic

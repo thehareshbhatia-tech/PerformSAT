@@ -14,6 +14,7 @@ import {
   readPendingSaves,
   removePendingSave,
   clearPendingSaves,
+  clearPendingSavesForTest,
   flushPendingSaves,
 } from '../pendingTestSaveQueue';
 
@@ -223,6 +224,74 @@ describe('flushPendingSaves', () => {
     const saveFn = jest.fn();
     expect(await flushPendingSaves(UID, saveFn)).toEqual({ flushed: 0, failed: 0 });
     expect(saveFn).not.toHaveBeenCalled();
+  });
+});
+
+describe('clearPendingSavesForTest (reset-resurrection guard)', () => {
+  test('removes only entries for the target test, preserves sibling tests', () => {
+    enqueuePendingSave(UID, buildEntry({ testId: 'practice-test-1', results: { attemptId: 'a-1' } }));
+    enqueuePendingSave(UID, buildEntry({ testId: 'practice-test-2', results: { attemptId: 'b-1' } }));
+
+    clearPendingSavesForTest(UID, 'practice-test-1');
+
+    const remaining = readPendingSaves(UID);
+    expect(remaining.map((e) => e.testId)).toEqual(['practice-test-2']);
+  });
+
+  test('is a no-op when nothing matches the testId', () => {
+    enqueuePendingSave(UID, buildEntry({ testId: 'practice-test-2', results: { attemptId: 'b-1' } }));
+    clearPendingSavesForTest(UID, 'practice-test-1');
+    expect(readPendingSaves(UID).map((e) => e.testId)).toEqual(['practice-test-2']);
+  });
+
+  test('clears the storage key entirely when all entries are for the target test', () => {
+    enqueuePendingSave(UID, buildEntry({ testId: 'practice-test-1', results: { attemptId: 'a-1' } }));
+    enqueuePendingSave(UID, buildEntry({ testId: 'practice-test-1', results: { attemptId: 'a-2' } }));
+
+    clearPendingSavesForTest(UID, 'practice-test-1');
+
+    expect(window.localStorage.getItem(`seva:pendingTestSaves:${UID}`)).toBeNull();
+    expect(readPendingSaves(UID)).toEqual([]);
+  });
+
+  test('is per-uid: clearing one user does not touch another', () => {
+    enqueuePendingSave('user-a', buildEntry({ testId: 'practice-test-1', results: { attemptId: 'a-1' } }));
+    enqueuePendingSave('user-b', buildEntry({ testId: 'practice-test-1', results: { attemptId: 'b-1' } }));
+
+    clearPendingSavesForTest('user-a', 'practice-test-1');
+
+    expect(readPendingSaves('user-a')).toEqual([]);
+    expect(readPendingSaves('user-b')).toHaveLength(1);
+  });
+
+  test('ignores missing userId / testId', () => {
+    enqueuePendingSave(UID, buildEntry({ testId: 'practice-test-1', results: { attemptId: 'a-1' } }));
+    clearPendingSavesForTest(null, 'practice-test-1');
+    clearPendingSavesForTest(UID, null);
+    expect(readPendingSaves(UID)).toHaveLength(1);
+  });
+});
+
+describe('flushPendingSaves skips entries purged mid-flush', () => {
+  test('an entry removed from the live queue before its turn is not replayed', async () => {
+    enqueuePendingSave(UID, buildEntry({ testId: 'practice-test-1', results: { attemptId: 'a-1' } }));
+    enqueuePendingSave(UID, buildEntry({ testId: 'practice-test-2', results: { attemptId: 'a-2' } }));
+
+    // Simulate a concurrent reset of practice-test-1 firing while the first
+    // entry is being saved: purge it from the live queue mid-flush.
+    const saveFn = jest.fn(async (entry) => {
+      if (entry.results.attemptId === 'a-1') {
+        clearPendingSavesForTest(UID, 'practice-test-2');
+      }
+    });
+
+    const result = await flushPendingSaves(UID, saveFn);
+
+    // a-1 replays; a-2 was purged before its turn, so it is skipped (not resurrected).
+    expect(saveFn).toHaveBeenCalledTimes(1);
+    expect(saveFn.mock.calls[0][0].results.attemptId).toBe('a-1');
+    expect(result.flushed).toBe(1);
+    expect(readPendingSaves(UID)).toEqual([]);
   });
 });
 

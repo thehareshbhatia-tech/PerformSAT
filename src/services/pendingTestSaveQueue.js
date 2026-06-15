@@ -144,6 +144,27 @@ export const clearPendingSaves = (userId) => {
 };
 
 /**
+ * Drops every queued save belonging to a single test (across all its attempts).
+ * Used by the "reset test" flow: a queued offline save for the reset test would
+ * otherwise replay at the next boot flush (flushPendingSaves) and resurrect the
+ * deleted result. No-op when nothing matches.
+ *
+ * @param {string} userId - Firebase auth uid
+ * @param {string} testId - Catalog test id whose queued saves should be dropped
+ */
+export const clearPendingSavesForTest = (userId, testId) => {
+  if (!userId || !testId) return;
+  const all = readPendingSaves(userId);
+  const remaining = all.filter((e) => e?.testId !== testId);
+  if (remaining.length === all.length) return; // nothing matched — leave as-is
+  if (remaining.length === 0) {
+    clearPendingSaves(userId);
+    return;
+  }
+  writeQueue(userId, remaining);
+};
+
+/**
  * Sequentially replays every queued entry through saveFn. Successful entries
  * are removed; failures stay queued for the next boot. Never throws on a
  * per-entry failure — it keeps going so one bad entry can't block the rest.
@@ -158,9 +179,18 @@ export const flushPendingSaves = async (userId, saveFn) => {
   let failed = 0;
 
   for (const entry of entries) {
+    const attemptId = entry?.results?.attemptId;
+    // Re-read the live queue before replaying: a concurrent reset
+    // (clearPendingSavesForTest) or a flush in another tab may have purged this
+    // entry after we snapshotted `entries`. Replaying a purged save would
+    // resurrect a just-reset test (its idempotency guard can't fire once the
+    // result row is gone). Skip anything no longer queued.
+    if (attemptId && !readPendingSaves(userId).some((e) => e?.results?.attemptId === attemptId)) {
+      continue;
+    }
     try {
       await saveFn(entry);
-      removePendingSave(userId, entry?.results?.attemptId);
+      removePendingSave(userId, attemptId);
       flushed += 1;
     } catch (err) {
       console.error(
