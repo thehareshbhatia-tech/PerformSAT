@@ -30,6 +30,10 @@ import { useFeatureFlag } from '../hooks/useFeatureFlag';
 import CalendarMonth from './CalendarMonth';
 import Avatar, { AVATAR_SIZES } from './ui/Avatar';
 import TodaysTasksCard from './TodaysTasksCard';
+import StudyPlanReviewSection from './StudyPlanReviewSection';
+import StudyPlanPacingSection from './StudyPlanPacingSection';
+import { buildPacingTelemetry } from '../services/selectors/pacingTelemetry';
+import { getPacingStruggle } from '../services/selectors/pacingStruggle';
 import {
   ClipboardIcon,
   VideoCameraIcon,
@@ -150,6 +154,9 @@ const StudyPlanDashboard = ({
   studyPlanHistory,
   onSelectPlanVersion,
   onReviewPastTests,
+  onStartReview,
+  onStartPacing,
+  onReviewTestWrong,
   answeredQuestionIds = [],
   predictionLog = null,
 }) => {
@@ -288,6 +295,14 @@ const StudyPlanDashboard = ({
   // terrible as "-57"; flag + remap below.
   const daysUntilTest = getDaysUntilTest(user?.testDate);
   const testDateIsPast = daysUntilTest !== null && daysUntilTest < 0;
+  // Pacing & Timing section: per-question timing from the most recent test +
+  // the plan's timing-struggle signal (the generator's "Pacing Reset"
+  // activity). The section gates/boosts itself on these.
+  const pacingTelemetry = useMemo(
+    () => buildPacingTelemetry(practiceTestResults),
+    [practiceTestResults]
+  );
+  const pacingStruggle = useMemo(() => getPacingStruggle(studyPlan), [studyPlan]);
   // Goal already achieved? Common in mid-test cycles where a recent score
   // already exceeds onboarding-time target. Compared scale-safely (1.4): a
   // 400-1600 composite must never "achieve" a 200-800 section target.
@@ -834,6 +849,23 @@ const StudyPlanDashboard = ({
           </button>
         </div>
       )}
+
+      {/* Review Queue + Pacing — lifted off the home Dashboard into the plan.
+          Above the sub-tabs so they show in BOTH Today's Tasks and Weekly
+          View. Section-agnostic (a queue spans Math + R&W), so they sit
+          outside the Math/R&W filter scope. Each renders nothing when it has
+          nothing to show (no due items / no telemetry). */}
+      <StudyPlanReviewSection
+        reviewQueue={reviewQueue}
+        onReviewTestWrong={onReviewTestWrong}
+        onStartReview={onStartReview}
+      />
+      <StudyPlanPacingSection
+        questionTelemetry={pacingTelemetry}
+        struggle={pacingStruggle}
+        onStartPacing={onStartPacing}
+        testDateIsPast={testDateIsPast}
+      />
 
       {/* ────────────────────────────────────────────────────────────────
           SUB-TABS: 'Today's Tasks (N) / Weekly View (N)' matching Acely.

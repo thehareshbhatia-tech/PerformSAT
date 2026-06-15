@@ -1207,6 +1207,222 @@
   line-height: 1;
 }
 
+/* ── Review Queue (embedded in the plan) ─────────────────────────────────
+   Surfaces today's due review items inside the Study Plan. "From your tests"
+   rows deep-link to the specific wrong questions on that test; "Spaced
+   repetition" rows launch the existing review drill. Plan-native styling
+   (purple/info accents) rather than the home Dashboard's blue action-card. */
+.sp-review {
+  margin-top: 14px;
+  margin-bottom: 14px;
+  padding: 16px 18px;
+  background: #fff;
+  border: 1px solid var(--color-slate-200, #e2e8f0);
+  border-radius: 14px;
+}
+.sp-review-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.sp-review-icon {
+  display: inline-flex;
+  align-items: center;
+  color: var(--color-brand-purple-deep);
+  line-height: 1;
+}
+.sp-review-title {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--color-slate-900);
+}
+.sp-review-due {
+  margin-left: auto;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-brand-purple-text);
+  background: var(--color-brand-purple-soft);
+  padding: 2px 10px;
+  border-radius: 999px;
+}
+.sp-review-block + .sp-review-block {
+  margin-top: 12px;
+}
+.sp-review-block-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-slate-500);
+  margin-bottom: 6px;
+}
+.sp-review-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.sp-review-row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  background: var(--color-slate-50, #fbfbfd);
+  border: 1px solid var(--color-slate-200, #e2e8f0);
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 0.15s ease, background 0.15s ease, transform 0.1s ease;
+}
+.sp-review-row:hover {
+  border-color: var(--color-brand-purple-deep);
+  background: var(--color-brand-purple-soft);
+}
+.sp-review-row:active {
+  transform: translateY(1px);
+}
+.sp-review-row:focus-visible {
+  outline: 2px solid var(--color-brand-purple-deep);
+  outline-offset: 2px;
+}
+.sp-review-row-icon {
+  display: inline-flex;
+  align-items: center;
+  color: var(--color-brand-purple-deep);
+  flex-shrink: 0;
+  line-height: 1;
+}
+.sp-review-row-text {
+  flex: 1;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-slate-900);
+}
+.sp-review-tag {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--color-info-100);
+  color: var(--color-info-700);
+  flex-shrink: 0;
+}
+.sp-review-tag.is-overdue {
+  background: #fee2e2;
+  color: #991b1b;
+}
+.sp-review-chev {
+  display: inline-flex;
+  align-items: center;
+  color: var(--color-brand-purple-deep);
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+/* ── Pacing & Timing (embedded in the plan) ──────────────────────────────
+   Quiet by default; boosts to a prominent purple-accented card when the plan
+   shows a timing struggle (getPacingStruggle). Purple = Study Plan/focus in
+   the brand palette. */
+.sp-pacing-boost {
+  margin-top: 14px;
+  margin-bottom: 14px;
+  padding: 16px 18px;
+  background: var(--color-brand-purple-soft);
+  border: 1px solid var(--color-brand-purple-border, #dccdf1);
+  border-left: 3px solid var(--color-brand-purple-deep);
+  border-radius: 14px;
+}
+.sp-pacing-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.sp-pacing-icon {
+  display: inline-flex;
+  align-items: center;
+  color: var(--color-brand-purple-deep);
+  line-height: 1;
+}
+.sp-pacing-title {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--color-brand-purple-text);
+}
+.sp-pacing-badge {
+  margin-left: auto;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-brand-purple-text);
+  background: #fff;
+  border: 1px solid var(--color-brand-purple-border, #dccdf1);
+  padding: 2px 10px;
+  border-radius: 999px;
+}
+.sp-pacing-reason {
+  margin: 8px 0 12px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--color-slate-700);
+}
+.sp-pacing-cta {
+  display: inline-flex;
+  align-items: center;
+  padding: 9px 16px;
+  background: var(--color-brand-purple-deep);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+.sp-pacing-cta:hover { background: var(--color-brand-purple-text); }
+.sp-pacing-cta:active { transform: translateY(1px); }
+.sp-pacing-cta:focus-visible {
+  outline: 2px solid var(--color-brand-purple-deep);
+  outline-offset: 2px;
+}
+.sp-pacing-quiet {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 10px 14px;
+  background: var(--color-slate-50, #fbfbfd);
+  border: 1px solid var(--color-slate-200, #e2e8f0);
+  border-radius: 12px;
+}
+.sp-pacing-quiet .sp-pacing-icon { color: var(--color-slate-500); }
+.sp-pacing-quiet-text {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--color-slate-700);
+}
+.sp-pacing-quiet-cta {
+  margin-left: auto;
+  background: none;
+  border: none;
+  padding: 4px 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-brand-purple-deep);
+  cursor: pointer;
+}
+.sp-pacing-quiet-cta:hover { color: var(--color-brand-purple-text); text-decoration: underline; }
+.sp-pacing-quiet-cta:focus-visible {
+  outline: 2px solid var(--color-brand-purple-deep);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
 /* ── Adaptivity (2026-06 audit): live drill evidence on Focus Area cards ──
    Item 1: "40% on your last test → 78% in drills since" evidence line.
    Item 2: mastered-in-practice green state + "Keep sharp" secondary CTA.

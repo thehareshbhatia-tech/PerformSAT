@@ -105,10 +105,20 @@ const StudentDashboard = ({
   onCompleteActivity,
   onUncompleteActivity,
   onReviewPastTests,
+  onReviewTestWrong,
+  activeTab: controlledActiveTab,
+  onTabChange,
   showCheckInCard = false,
   onStartCheckIn,
 }) => {
-  const [activeTab, setActiveTab] = useState('dashboard');
+  // Tab state is lifted to App when controlled (activeTab + onTabChange) so it
+  // survives this component unmounting during a pacing drill / test review and
+  // remounting on return — that's what lets a plan-launched flow come back to
+  // the Study Plan tab instead of the Dashboard tab. Falls back to local state
+  // when mounted without the controlled props.
+  const [internalActiveTab, setInternalActiveTab] = useState('dashboard');
+  const activeTab = controlledActiveTab ?? internalActiveTab;
+  const setActiveTab = onTabChange || setInternalActiveTab;
   // Practice-test resolver for the recent-misses card (Stage 2c of the
   // bundle-split plan). The test catalog is its own async chunk now, so we
   // hold the resolver FUNCTION in state once the chunk arrives — note the
@@ -596,6 +606,9 @@ const StudentDashboard = ({
               onCompleteActivity={onCompleteActivity}
               onUncompleteActivity={onUncompleteActivity}
               onReviewPastTests={onReviewPastTests}
+              onStartReview={onStartReview}
+              onStartPacing={onStartPacing}
+              onReviewTestWrong={onReviewTestWrong}
             />
           ) : (
             <div className="studyplan-empty-state">

@@ -242,6 +242,15 @@ const PerformSAT = () => {
   const [onRampStage, setOnRampStage] = useState('wizard'); // 'wizard' | 'check-in'
   // Active pacing drill: { config, questions }. Set by onStartPacing, rendered at view==='pacingDrill'.
   const [pacingSession, setPacingSession] = useState(null);
+  // Which view a pacing drill was launched from, so onExit returns there
+  // instead of always dumping the student on the Dashboard (a plan-launched
+  // drill should return to the plan).
+  const [pacingDrillEntryView, setPacingDrillEntryView] = useState('dashboard');
+  // StudentDashboard's active tab, lifted here so it persists while the
+  // dashboard unmounts during a pacing drill / past-test review and remounts
+  // on return — a flow launched from the inline Study Plan tab then comes back
+  // to that tab rather than the Dashboard tab.
+  const [dashboardTab, setDashboardTab] = useState('dashboard');
   const [selectedPracticeTest, setSelectedPracticeTest] = useState(null);
   const [isTestTimed, setIsTestTimed] = useState(true);
   // 'reading-writing' | 'math' | null. When set, PracticeTest jumps to that
@@ -294,6 +303,10 @@ const PerformSAT = () => {
   // Plan view). Without this, entering from the Dashboard tab and clicking
   // back drops them on the standalone Study Plan view, losing tab context.
   const [pastTestReviewEntryView, setPastTestReviewEntryView] = useState('studyPlan');
+  // True when the per-test review was opened by deep-linking from the plan's
+  // Review Queue (vs browsing the index). Controls the detail view's back
+  // target: deep-linked → back to the plan; browsed → back to the index.
+  const [reviewEnteredViaDeepLink, setReviewEnteredViaDeepLink] = useState(false);
   // Monotonic request ID for handleSelectReviewTest — guards against
   // the user clicking a second test card before the first fetch resolves.
   // Without this, fetchB-resolves-first followed by fetchA-resolves-second
@@ -695,6 +708,10 @@ const PerformSAT = () => {
   // difficulty filter, then hand off to the self-contained PacingDrill runner.
   const startPacingDrill = async (config) => {
     if (!config) return;
+    // Remember where we launched from so onExit can return there. The plan
+    // (inline tab or standalone) launches via the embedded Pacing section;
+    // everything else falls back to the Dashboard.
+    setPacingDrillEntryView(view === 'studyPlan' ? 'studyPlan' : 'dashboard');
     const { getQuestionsByDomain } = await loadMathBank();
     const pool = [];
     ['algebra', 'problem-solving', 'advanced-math', 'geometry'].forEach((domain) => {
@@ -901,6 +918,7 @@ const PerformSAT = () => {
    */
   const handleOpenPastTestReview = () => {
     setPastTestReviewEntryView(view === 'dashboard' ? 'dashboard' : 'studyPlan');
+    setReviewEnteredViaDeepLink(false);
     setSelectedReviewTestId(null);
     setSelectedReviewItem(null);
     setReviewBundle(null);
@@ -915,11 +933,17 @@ const PerformSAT = () => {
    * to the detail view. The detail view renders its own loading + error
    * states (already handled by TestReviewDetail).
    */
-  const handleSelectReviewTest = async (testId /*, _attemptId */) => {
+  const handleSelectReviewTest = async (testId, { landOn = 'detail' } = {}) => {
     const { getAllPracticeTests } = await loadPracticeTests();
     const test = getAllPracticeTests().find(t => t.id === testId);
     const lastAttempt = getLatestAttempt(practiceTestResults, testId);
     if (!test || !lastAttempt) {
+      // The queue can outlive its source test (deleted/archived from the
+      // catalog, or an attempt that was reset). Log it so deep-link failures
+      // are debuggable, then surface a toast.
+      logWarn('pastTestReview', 'test_or_attempt_missing', {
+        testId, hasTest: !!test, hasAttempt: !!lastAttempt,
+      });
       showToast({
         type: 'error',
         message: 'Could not load this test for review. Please try again.',
@@ -962,6 +986,29 @@ const PerformSAT = () => {
         completedAt: lastAttempt.completedAt || null,
         snapshotMissing: !!data.snapshotMissing,
       });
+      // Deep-link from the plan's Review Queue: step straight into the first
+      // wrong question. The detail view's loading spinner shows during the
+      // fetch above, then flips to the single-question stepper here, whose
+      // prev/next walk the wrong-only slice (see the pastTestReviewItem route).
+      if (landOn === 'firstWrong') {
+        const firstWrong = extractItemsFromAttempt(lastAttempt).find(it => !it.isCorrect);
+        if (firstWrong) {
+          setSelectedReviewItem(firstWrong);
+          setView('pastTestReviewItem');
+          logPtrEvent('item_reviewed', {
+            studentId: user?.uid || null,
+            testId,
+            itemKey: firstWrong.key,
+            isCorrect: false,
+            source: 'review-queue-deeplink',
+          });
+        } else {
+          // Defensive: a test in the review queue should have wrong items, but
+          // stale/corrupted data could land here. Stay on the detail view
+          // (already set above) and tell the student why.
+          showToast({ type: 'info', message: 'No wrong answers to review on this test.' });
+        }
+      }
     } catch (err) {
       if (requestId !== reviewBundleRequestRef.current) return;
       logWarn('pastTestReview', 'select_failed', { message: err?.message || String(err) });
@@ -973,6 +1020,21 @@ const PerformSAT = () => {
         setReviewBundleLoading(false);
       }
     }
+  };
+
+  /**
+   * handleReviewTestWrong — deep-link from the plan's Review Queue into the
+   * specific wrong questions on a test. Reuses handleSelectReviewTest (same
+   * snapshot fetch) but lands on the single-question stepper at the first
+   * miss. Sets the back-target so the detail view returns to the plan.
+   *
+   * @param {string} testId
+   */
+  const handleReviewTestWrong = (testId) => {
+    if (!testId) return;
+    setPastTestReviewEntryView(view === 'dashboard' ? 'dashboard' : 'studyPlan');
+    setReviewEnteredViaDeepLink(true);
+    handleSelectReviewTest(testId, { landOn: 'firstWrong' });
   };
 
   /**
@@ -1822,6 +1884,9 @@ const PerformSAT = () => {
             onStartReview={startDailyReview}
             onStartPracticeTest={() => setView('practiceTests')}
             onStartPacing={startPacingDrill}
+            onReviewTestWrong={handleReviewTestWrong}
+            activeTab={dashboardTab}
+            onTabChange={setDashboardTab}
             onOpenProfile={() => setView('profile')}
             onRetrySimilar={handleTrySimilarFromReview}
             onBrowseLessons={() => {
@@ -2242,7 +2307,7 @@ const PerformSAT = () => {
                   trackPacingDrillDone(user.uid, pacingSession.config.id, summary.accuracy, summary.avgTimePerQuestion);
                 }
               }}
-              onExit={() => { setPacingSession(null); setView('dashboard'); }}
+              onExit={() => { setPacingSession(null); setView(pacingDrillEntryView); }}
             />
           </ErrorBoundary>
         )}
@@ -2278,6 +2343,9 @@ const PerformSAT = () => {
             onCompleteActivity={markStudyActivityComplete}
             onUncompleteActivity={unmarkStudyActivityComplete}
             onReviewPastTests={handleOpenPastTestReview}
+            onStartReview={startDailyReview}
+            onStartPacing={startPacingDrill}
+            onReviewTestWrong={handleReviewTestWrong}
           />
         )}
 
@@ -2310,7 +2378,16 @@ const PerformSAT = () => {
                   snapshotMissing={!!reviewBundle?.snapshotMissing}
                   onSelectItem={handleSelectReviewItem}
                   onRetryWrong={handleRetryWrongFromReview}
-                  onBack={() => setView('pastTestReviewIndex')}
+                  onBack={() => {
+                    // Deep-linked from the plan → back returns to the plan;
+                    // browsed from the index → back returns to the index.
+                    if (reviewEnteredViaDeepLink) {
+                      setReviewEnteredViaDeepLink(false);
+                      setView(pastTestReviewEntryView);
+                    } else {
+                      setView('pastTestReviewIndex');
+                    }
+                  }}
                 />
               </div>
             </div>
