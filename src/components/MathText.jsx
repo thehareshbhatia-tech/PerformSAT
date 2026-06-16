@@ -9,26 +9,22 @@ export const MathText = ({ children, text, className = '', style = {} }) => {
 
     let result = String(inputText);
 
-    // Step 0: Protect escaped dollar signs (\$) BEFORE any processing
-    // This handles \$25 style currency notation
-    const ESCAPED_DOLLAR_PLACEHOLDER = '\uFFFD';
+    // Step A: strip zero-width / BOM characters and normalize non-breaking
+    // spaces. These silently break KaTeX ("No character metrics for ...") or
+    // throw off the $-delimiter pairing, and are invisible in source review.
+    result = result
+      .replace(/[\u200B\u200C\u200D\u2060\uFEFF]/g, '')
+      .replace(/\u00A0/g, ' ');
+
+    // Step 0: Protect escaped dollar signs (\$) BEFORE any processing.
+    // Handles \$25 style currency notation. Private-use placeholder so it
+    // survives every later regex untouched.
+    const ESCAPED_DOLLAR_PLACEHOLDER = '\uE000';
     result = result.replace(/\\\$/g, ESCAPED_DOLLAR_PLACEHOLDER);
 
-    // Step 0.4: Markdown italic *foo* → <em>foo</em>
-    // CB-authentic R&W content stores book titles and emphasis with single-asterisk
-    // syntax (e.g., "*Blindspot: Hidden Biases of Good People*"). MathText is the
-    // shared text renderer for choices, table cells, studentNotes bullets/goal,
-    // explanations, and the COE-Q passage path; without this step those surfaces
-    // render literal asterisks. Constraints to avoid corrupting math:
-    //  - Single-line only ([^*\n]+? blocks runaway matches across paragraphs).
-    //  - Non-empty inner content (the +? requires at least one char).
-    //  - Runs BEFORE math/currency steps so any `*` inside an inline math
-    //    expression `$...$` is never seen by this regex.
-    //  - Single-* only; we don't currently use `**bold**` in the bank.
-    result = result.replace(/\*([^*\n]+?)\*/g, '<em>$1</em>');
-
-    // Step 0.5: Convert Markdown tables to HTML BEFORE newline conversion
-    // Detects consecutive lines starting/ending with | and converts to <table>
+    // Step 1: Convert Markdown tables to HTML. Must run on the raw text while
+    // newlines are still real \n (the row detector keys on them) and before
+    // math rendering so any $...$ in a cell stays literal for Step 4.
     result = result.replace(
       /(^|\n)((?:\|[^\n]*\|\s*\n){2,}\|[^\n]*\|)/g,
       (match, prefix, tableBlock) => {
@@ -62,16 +58,20 @@ export const MathText = ({ children, text, className = '', style = {} }) => {
       }
     );
 
-    // Step 1: Convert newlines to <br> BEFORE math processing
-    // This must happen before KaTeX renders, as KaTeX SVG output contains newlines
-    // that should NOT be converted to <br> tags
-    const NEWLINE_PLACEHOLDER = '\uFFFC';
+    // Step 2: Convert newlines to a placeholder BEFORE math processing. KaTeX
+    // SVG output contains newlines that should NOT become <br>; we restore real
+    // newlines just before each KaTeX call and convert the survivors at the end.
+    const NEWLINE_PLACEHOLDER = '\uE001';
     result = result.replace(/\n/g, NEWLINE_PLACEHOLDER);
 
-    // Step 2: Protect currency amounts ($12.50) BEFORE math processing
-    // Only match currency with decimal (e.g., $12.50) to avoid matching math like $5$
-    // BUT skip currency detection if the string looks like a math expression (starts with $ and ends with $)
-    const CURRENCY_PLACEHOLDER = '\uFFFE';
+    // Step 3: Protect currency amounts ($12.50) BEFORE math extraction so a
+    // currency $ never pairs with a later inline $x$. Deliberately matches only
+    // $NN.NN (cents required): a cents-optional guard ($45) creates so many
+    // placeholders that, in strings mixing currency with math, they leak into
+    // mis-paired math segments and crash KaTeX. Authored content escapes
+    // currency as \$, so this stays minimal. Skip when the whole string is one
+    // math expression ($...$ / $$...$$) — every $ is a delimiter then.
+    const CURRENCY_PLACEHOLDER = '\uE002';
     const currencies = [];
     const trimmed = result.trim();
     const isMathExpression = (trimmed.startsWith('$') && trimmed.endsWith('$')) ||
@@ -84,52 +84,51 @@ export const MathText = ({ children, text, className = '', style = {} }) => {
       });
     }
 
-    // Step 3: Display math $$...$$
-    result = result.replace(/\$\$([\s\S]*?)\$\$/g, (match, latex) => {
+    // Step 4: Render math spans into HTML placeholders NOW — display $$...$$
+    // first, then inline $...$. Doing this before the Markdown-italic step
+    // guarantees a `*` inside an inline math expression (e.g. $a * b$) is never
+    // seen by the italic regex, which would otherwise inject <em> into LaTeX.
+    const MATH_OPEN = '\uE003';
+    const MATH_CLOSE = '\uE004';
+    const mathHtml = [];
+    const renderSeg = (latex, displayMode, original) => {
+      const clean = latex
+        .replace(new RegExp(NEWLINE_PLACEHOLDER, 'g'), '\n')
+        .replace(new RegExp(ESCAPED_DOLLAR_PLACEHOLDER, 'g'), '\\$')
+        .trim();
+      let html;
       try {
-        // Restore newline placeholders + escaped-dollar placeholders before KaTeX renders.
-        // KaTeX understands \$ as a literal dollar sign in math mode; passing the raw
-        // U+FFFD placeholder triggers a "Unrecognized Unicode character" warning.
-        const cleanLatex = latex
-          .replace(new RegExp(NEWLINE_PLACEHOLDER, 'g'), '\n')
-          .replace(new RegExp(ESCAPED_DOLLAR_PLACEHOLDER, 'g'), '\\$');
-        return katex.renderToString(cleanLatex.trim(), {
-          displayMode: true,
-          throwOnError: false
-        });
+        html = katex.renderToString(clean, { displayMode, throwOnError: false });
       } catch (e) {
-        console.warn('KaTeX display math error:', e);
-        return match;
+        // throwOnError:false rarely throws, but keep the raw text as a fallback.
+        console.warn('KaTeX render error:', e);
+        html = original;
       }
-    });
+      mathHtml.push(html);
+      return MATH_OPEN + (mathHtml.length - 1) + MATH_CLOSE;
+    };
+    result = result.replace(/\$\$([\s\S]*?)\$\$/g, (m, latex) => renderSeg(latex, true, m));
+    result = result.replace(/\$([^\$]+?)\$/g, (m, latex) => renderSeg(latex, false, m));
 
-    // Step 4: Inline math $...$
-    result = result.replace(/\$([^\$]+?)\$/g, (match, latex) => {
-      try {
-        // Restore newline placeholders + escaped-dollar placeholders before KaTeX renders.
-        const cleanLatex = latex
-          .replace(new RegExp(NEWLINE_PLACEHOLDER, 'g'), '\n')
-          .replace(new RegExp(ESCAPED_DOLLAR_PLACEHOLDER, 'g'), '\\$');
-        return katex.renderToString(cleanLatex.trim(), {
-          displayMode: false,
-          throwOnError: false
-        });
-      } catch (e) {
-        console.warn('KaTeX inline math error:', e);
-        return match;
-      }
-    });
+    // Step 5: Markdown italic *foo* → <em>foo</em>. Math is already masked
+    // above, so the only `*` left are genuine emphasis (book titles, etc.).
+    //  - Single-line only ([^*\n]+? blocks runaway matches across paragraphs).
+    //  - Single-* only; we don't currently use **bold** in the bank.
+    result = result.replace(/\*([^*\n]+?)\*/g, '<em>$1</em>');
 
-    // Step 5: Restore currency amounts with $ sign
+    // Step 6: Restore rendered math HTML.
+    result = result.replace(new RegExp(MATH_OPEN + '(\\d+)' + MATH_CLOSE, 'g'), (m, i) => mathHtml[+i]);
+
+    // Step 7: Restore currency amounts with $ sign.
     let currencyIndex = 0;
     result = result.replace(new RegExp(CURRENCY_PLACEHOLDER, 'g'), () => {
       return '$' + currencies[currencyIndex++];
     });
 
-    // Step 6: Restore escaped dollar signs as $ (e.g., \$25 becomes $25)
+    // Step 8: Restore escaped dollar signs as literal $ (e.g., \$25 → $25).
     result = result.replace(new RegExp(ESCAPED_DOLLAR_PLACEHOLDER, 'g'), '$');
 
-    // Step 7: Convert newline placeholders to <br> for proper line breaks
+    // Step 9: Convert surviving newline placeholders to <br>.
     result = result.replace(new RegExp(NEWLINE_PLACEHOLDER, 'g'), '<br>');
 
     return result;
