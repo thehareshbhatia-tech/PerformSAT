@@ -77,7 +77,17 @@ export const MathText = ({ children, text, className = '', style = {} }) => {
     const isMathExpression = (trimmed.startsWith('$') && trimmed.endsWith('$')) ||
                              (trimmed.startsWith('$$') && trimmed.endsWith('$$'));
 
-    if (!isMathExpression) {
+    // Escaped \$ are already placeholders, so this counts only unescaped $.
+    // When they're balanced (even) and LaTeX is present, every $ is a math
+    // delimiter \u2014 skip currency so a math span beginning with a decimal like
+    // "$0.30 \times 80$" is not mis-grabbed as "$0.30" currency (which would
+    // leave the closing $ unpaired and crash the whole segment). An odd count
+    // means one $ really is stray currency, so detection still runs.
+    const dollarCount = (result.match(/\$/g) || []).length;
+    const hasLatexCmd = /\\[a-zA-Z]/.test(result);
+    const balancedMath = dollarCount >= 2 && dollarCount % 2 === 0 && hasLatexCmd;
+
+    if (!isMathExpression && !balancedMath) {
       result = result.replace(/\$(\d+(?:,\d{3})*\.\d{2})(?=[\s,;:.!?)}\]]|$)/g, (match, amount) => {
         currencies.push(amount);
         return CURRENCY_PLACEHOLDER;

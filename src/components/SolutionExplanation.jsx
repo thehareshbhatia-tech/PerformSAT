@@ -24,7 +24,16 @@ function convertPlainDiv(t){if(!t.includes('÷'))return t;return t.replace(/(\()
 function convertPlainSlash(t){if(!t.includes('/'))return t;const parts=[];let last=0;const re=/\$\$[\s\S]*?\$\$|\$[^$]+?\$/g;let m;while((m=re.exec(t))!==null){if(m.index>last)parts.push(cvtSlash(t.substring(last,m.index)));parts.push(m[0]);last=m.index+m[0].length;}if(last<t.length)parts.push(cvtSlash(t.substring(last)));return parts.join('');}
 function cvtSlash(s){s=s.replace(/\(([^)]+)\)\s*\/\s*(\d[\d,.]*)/g,(m,n,d)=>'$\\frac{'+n+'}{'+d+'}$');s=s.replace(/(\d[\d,.]*)\s*\/\s*\(([^)]+)\)/g,(m,n,d)=>'$\\frac{'+n+'}{'+d+'}$');s=s.replace(/(\d[\d,.]*)\s*\/\s*(\d[\d,.]*)/g,(m,n,d)=>'$\\frac{'+n+'}{'+d+'}$');return s;}
 
-function preprocessMath(t){if(!t)return t;let r=t;r=r.replace(/\$\\div\$/g,'÷');r=r.replace(/\$\$([\s\S]*?)\$\$/g,(m,l)=>'$$'+convertSlashDiv(convertLatexDiv(l))+'$$');r=r.replace(/\$([^\$]+?)\$/g,(m,l)=>'$'+convertSlashDiv(convertLatexDiv(l))+'$');r=convertPlainDiv(r);r=convertPlainSlash(r);return r;}
+// preprocessMath is now a NO-OP. Authored explanations are valid, self-contained
+// LaTeX — KaTeX renders \div, inline /, and \frac natively, so no rewriting is
+// needed. The old auto-converters (/ and \div → \frac, prose-slash → \frac) did
+// more harm than good once content was authored to spec: they corrupted clean
+// source (`4.5\% \div 100` → `\frac{%}{100}`; the prose-slash pass mis-handled
+// escaped \$ inside inline math and split `2^{1/10}` across injected $). The
+// helpers are retained (dead) to keep the diff small; remove on next cleanup.
+function preprocessMath(t){return t;}
+void grabLeft; void grabRight; void textSpans; void inSpans;
+void convertLatexDiv; void convertSlashDiv; void convertPlainDiv; void cvtSlash; void convertPlainSlash;
 
 // ═══════════════════════════════════════════════════════════════════════════════
 // PRESENTATION ADAPTER — parses raw explanation into semantic sections

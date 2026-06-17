@@ -39,7 +39,9 @@ function convertSlashDiv(l){if(!l.includes('/'))return l;let r=l,n=0;while(r.inc
 function convertPlainDiv(t){if(!t.includes('÷'))return t;return t.replace(/(\()?(\\\$)?(\d[\d,.]*)\s*÷\s*(\\\$)?(\d[\d,.]*)\)?/g,(m,p,c1,n,c2,d)=>{const fN=(c1||'')+n.replace(/,/g,'{,}'),fD=(c2||'')+d.replace(/,/g,'{,}');return p?'$\\left(\\frac{'+fN+'}{'+fD+'}\\right)$':'$\\frac{'+fN+'}{'+fD+'}$';});}
 function cvtSlash(s){s=s.replace(/\(([^)]+)\)\s*\/\s*(\d[\d,.]*)/g,(m,n,d)=>'$\\frac{'+n+'}{'+d+'}$');s=s.replace(/(\d[\d,.]*)\s*\/\s*\(([^)]+)\)/g,(m,n,d)=>'$\\frac{'+n+'}{'+d+'}$');s=s.replace(/(\d[\d,.]*)\s*\/\s*(\d[\d,.]*)/g,(m,n,d)=>'$\\frac{'+n+'}{'+d+'}$');return s;}
 function convertPlainSlash(t){if(!t.includes('/'))return t;const parts=[];let last=0;const re=/\$\$[\s\S]*?\$\$|\$[^$]+?\$/g;let m;while((m=re.exec(t))!==null){if(m.index>last)parts.push(cvtSlash(t.substring(last,m.index)));parts.push(m[0]);last=m.index+m[0].length;}if(last<t.length)parts.push(cvtSlash(t.substring(last)));return parts.join('');}
-function preprocessMath(t){if(!t)return t;let r=t;r=r.replace(/\$\\div\$/g,'÷');r=r.replace(/\$\$([\s\S]*?)\$\$/g,(m,l)=>'$$'+convertSlashDiv(convertLatexDiv(l))+'$$');r=r.replace(/\$([^\$]+?)\$/g,(m,l)=>'$'+convertSlashDiv(convertLatexDiv(l))+'$');r=convertPlainDiv(r);r=convertPlainSlash(r);return r;}
+function preprocessMath(t){return t;}
+void grabLeft; void grabRight; void textSpans; void inSpans;
+void convertLatexDiv; void convertSlashDiv; void convertPlainDiv; void cvtSlash; void convertPlainSlash;
 
 // ════════════════════════════════════════════════════════════════════════════
 // FAITHFUL copy of MathText extraction (steps 0,0.4,1,2,3,4) but with
@@ -61,7 +63,10 @@ function renderViaMathText(inputText) {
   const isMathExpression =
     (trimmed.startsWith('$') && trimmed.endsWith('$')) ||
     (trimmed.startsWith('$$') && trimmed.endsWith('$$'));
-  if (!isMathExpression) {
+  const dollarCount = (result.match(/\$/g) || []).length;
+  const hasLatexCmd = /\\[a-zA-Z]/.test(result);
+  const balancedMath = dollarCount >= 2 && dollarCount % 2 === 0 && hasLatexCmd;
+  if (!isMathExpression && !balancedMath) {
     result = result.replace(/\$(\d+(?:,\d{3})*\.\d{2})(?=[\s,;:.!?)}\]]|$)/g, (m, a) => {
       currencies.push(a); return CURRENCY;
     });
