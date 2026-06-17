@@ -1,3 +1,12 @@
+# Explanation quality overhaul — COMPLETE (2026-06-17)
+
+> **Status: DONE.** All 257/257 batches applied. Render audit = 0 real KaTeX errors.
+> 1601 tests green. Visual check passed. Commits d6df35d + 293e953 + 2d1ca94 +
+> the tidy commit are local and **ready to push** (`git push origin main`). The
+> notes below are the historical runbook from when the work was in progress.
+
+---
+
 # Explanation quality overhaul — resume notes
 
 Goal: fix render bugs in math explanations (exponents/radicals/fractions, stray
