@@ -182,8 +182,86 @@ function verifyRoundtrip() {
   console.error('[verify-roundtrip] applied identity patch — now run `git diff --stat` to confirm minimal/no change');
 }
 
+// split the extracted JSONL into per-batch input files (≤N items, grouped by
+// source file so each agent rewrites coherent, same-domain items)
+function split(batchSize = 12) {
+  if (!fs.existsSync(OUT)) extract();
+  const recs = fs.readFileSync(OUT, 'utf8').split('\n').filter(Boolean).map((l) => JSON.parse(l));
+  const byFile = {};
+  for (const r of recs) (byFile[r.file] ||= []).push(r);
+  const dir = path.join(ROOT, 'scripts', 'audit-output', 'batches');
+  fs.rmSync(dir, { recursive: true, force: true });
+  fs.mkdirSync(dir, { recursive: true });
+  const manifest = [];
+  for (const [file, items] of Object.entries(byFile)) {
+    for (let i = 0; i < items.length; i += batchSize) {
+      const chunk = items.slice(i, i + batchSize);
+      const n = String(manifest.length).padStart(3, '0');
+      const name = `batch-${n}.in.jsonl`;
+      fs.writeFileSync(path.join(dir, name), chunk.map((c) => JSON.stringify(c)).join('\n') + '\n');
+      manifest.push({ name, file, count: chunk.length });
+    }
+  }
+  fs.writeFileSync(path.join(dir, 'manifest.json'), JSON.stringify({ batchSize, total: recs.length, batches: manifest }, null, 2));
+  console.error(`[split] ${recs.length} items → ${manifest.length} batches of ≤${batchSize} in ${rel(dir)}`);
+}
+
+// Parse the agents' sentinel-delimited output files into one patch JSONL.
+// Each batch-NNN.out contains blocks:
+//   <<<EXPL idx=0>>>
+//   ...raw rewritten explanation (real backslashes/newlines, no escaping)...
+//   <<<ENDEXPL>>>
+// Batches are single-source-file, so the file path comes from the manifest.
+function gather() {
+  const dir = path.join(ROOT, 'scripts', 'audit-output', 'batches');
+  const manifest = JSON.parse(fs.readFileSync(path.join(dir, 'manifest.json'), 'utf8'));
+  const out = [];
+  let goodBatches = 0, missing = [], rejected = [], totalBlocks = 0;
+  const blockRe = /<<<EXPL idx=(\d+)>>>\n([\s\S]*?)\n<<<ENDEXPL>>>/g;
+  manifest.batches.forEach((b, n) => {
+    const id = String(n).padStart(3, '0');
+    const fp = path.join(dir, `batch-${id}.out`);
+    if (!fs.existsSync(fp)) { missing.push(id); return; }
+
+    // expected idx set + original SAT-Pattern header per idx, from the .in
+    const inRecs = fs.readFileSync(path.join(dir, `batch-${id}.in.jsonl`), 'utf8')
+      .split('\n').filter(Boolean).map((l) => JSON.parse(l));
+    const expected = new Map(inRecs.map((r) => [r.idx, r.satPattern]));
+
+    // parsed blocks from the .out
+    const txt = fs.readFileSync(fp, 'utf8');
+    const blocks = [];
+    let m; blockRe.lastIndex = 0;
+    while ((m = blockRe.exec(txt)) !== null) blocks.push({ idx: Number(m[1]), text: m[2] });
+
+    // VALIDATE alignment: idx set must match the .in exactly (no dup/extra/missing)
+    const seen = new Set();
+    let reason = null;
+    for (const blk of blocks) {
+      if (seen.has(blk.idx)) { reason = `duplicate idx ${blk.idx}`; break; }
+      seen.add(blk.idx);
+      if (!expected.has(blk.idx)) { reason = `extra idx ${blk.idx} not in batch`; break; }
+      const origHdr = expected.get(blk.idx);
+      const newHdr = (blk.text.match(SAT_PATTERN_RE) || [])[1] || null;
+      if (origHdr && origHdr !== newHdr) { reason = `idx ${blk.idx} header "${newHdr}" != "${origHdr}"`; break; }
+    }
+    if (!reason && seen.size !== expected.size) reason = `count ${seen.size} != expected ${expected.size}`;
+    if (reason) { rejected.push(`${id} (${reason})`); return; }
+
+    for (const blk of blocks) { out.push(JSON.stringify({ file: b.file, idx: blk.idx, newExplanation: blk.text })); totalBlocks++; }
+    goodBatches++;
+  });
+  const dest = path.join(ROOT, 'scripts', 'audit-output', 'all-patches.jsonl');
+  fs.writeFileSync(dest, out.join('\n') + '\n');
+  console.error(`[gather] ${totalBlocks} patches from ${goodBatches} validated batches → ${rel(dest)}`);
+  if (rejected.length) console.error(`[gather] REJECTED ${rejected.length} misaligned batches: ${rejected.join('; ')}`);
+  if (missing.length) console.error(`[gather] PENDING ${missing.length} batches (no .out): ${missing.slice(0, 8).join(',')}${missing.length > 8 ? ' …' : ''}`);
+}
+
 const mode = process.argv[2];
 if (mode === 'extract') extract();
+else if (mode === 'split') split(Number(process.argv[3]) || 12);
+else if (mode === 'gather') gather();
 else if (mode === 'apply') apply(process.argv[3], { dryRun: process.argv.includes('--dry-run') });
 else if (mode === 'verify-roundtrip') verifyRoundtrip();
 else { console.error('usage: explanationCodemod.mjs extract|apply <patch.jsonl>|verify-roundtrip'); process.exit(1); }
