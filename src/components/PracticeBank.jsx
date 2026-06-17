@@ -22,6 +22,7 @@ import {
   PATTERN_TO_CB_SKILL,
 } from '../data/questions/cbSkillTaxonomy';
 import { formatPatternLabel } from '../services/selectors/missedPatternLabel';
+import { progressForIds } from '../services/selectors/bankProgress';
 import { typography, spacing, radius, transitions } from '../design/tokens';
 
 const DOMAIN_WEIGHTS = {
@@ -127,10 +128,19 @@ const shuffle = (arr) => {
   return a;
 };
 
+// Push a question id onto a Map<key, string[]> bucket (for per-skill /
+// per-type progress lookups against the bankPractice store).
+function pushId(map, key, id) {
+  if (!map.has(key)) map.set(key, []);
+  map.get(key).push(id);
+}
+
 function buildMathCategories() {
   const patternCounts = new Map();
   const cbSkillItemCount = new Map();
   const domainTotals = new Map();
+  const patternQids = new Map();   // pattern slug → [question id]
+  const cbSkillQids = new Map();   // cb skill slug → [question id]
 
   for (const q of mathQuestionBank) {
     if (!isDrillable(q)) continue;
@@ -140,10 +150,12 @@ function buildMathCategories() {
     const pattern = extractSatPattern(q.explanation);
     if (!pattern) continue;
     patternCounts.set(pattern, (patternCounts.get(pattern) || 0) + 1);
+    pushId(patternQids, pattern, q.id);
 
     const cbSkill = PATTERN_TO_CB_SKILL[pattern];
     if (cbSkill) {
       cbSkillItemCount.set(cbSkill, (cbSkillItemCount.get(cbSkill) || 0) + 1);
+      pushId(cbSkillQids, cbSkill, q.id);
     }
   }
 
@@ -161,10 +173,11 @@ function buildMathCategories() {
               slug: patternSlug,
               label: formatPatternLabel(patternSlug),
               count: patternCounts.get(patternSlug) || 0,
+              qids: patternQids.get(patternSlug) || [],
             }))
             .filter(p => p.count >= MIN_PATTERN_POOL)
             .sort((a, b) => b.count - a.count || a.label.localeCompare(b.label));
-          return { ...skill, total, patterns };
+          return { ...skill, total, patterns, qids: cbSkillQids.get(skill.slug) || [] };
         })
         .filter(skill => skill.total > 0)
         .sort((a, b) => b.total - a.total);
@@ -196,6 +209,8 @@ function buildRWCategories() {
   const domainTotals = new Map();
   const patternCounts = new Map();          // patternSlug → item count
   const skillToPatterns = new Map();        // skillSlug → Set<patternSlug>
+  const skillQids = new Map();              // skillSlug → [question id]
+  const patternQids = new Map();            // patternSlug → [question id]
 
   for (const q of rwQuestionBank) {
     if (!isDrillable(q)) continue;
@@ -203,6 +218,7 @@ function buildRWCategories() {
     if (domain) domainTotals.set(domain, (domainTotals.get(domain) || 0) + 1);
     (q.skills || []).forEach(sid => {
       skillCounts.set(sid, (skillCounts.get(sid) || 0) + 1);
+      pushId(skillQids, sid, q.id);
     });
 
     // Derive the R&W sub-pattern (Phase 4) and bucket it under the item's
@@ -212,6 +228,7 @@ function buildRWCategories() {
     const pattern = deriveRWPattern(q);
     if (pattern) {
       patternCounts.set(pattern, (patternCounts.get(pattern) || 0) + 1);
+      pushId(patternQids, pattern, q.id);
       const sid = q.skill || (Array.isArray(q.skills) ? q.skills[0] : null);
       if (sid) {
         if (!skillToPatterns.has(sid)) skillToPatterns.set(sid, new Set());
@@ -231,6 +248,7 @@ function buildRWCategories() {
             slug,
             label: RW_TYPE_LABELS[slug],
             count: patternCounts.get(slug) || 0,
+            qids: patternQids.get(slug) || [],
           }))
           .filter(p => p.count >= MIN_PATTERN_POOL)
           .sort((a, b) => b.count - a.count || a.label.localeCompare(b.label));
@@ -238,6 +256,7 @@ function buildRWCategories() {
           ...skill,
           count: skillCounts.get(skill.slug) || 0,
           patterns,
+          qids: skillQids.get(skill.slug) || [],
         };
       })
       .filter(s => s.count > 0)
@@ -262,7 +281,7 @@ const matchesQuery = (text, q) =>
 // ────────────────────────────────────────────────────────────────────────────
 // PracticeBank — flat catalog: search + jump chips + everything visible
 // ────────────────────────────────────────────────────────────────────────────
-const PracticeBank = ({ onStartPractice }) => {
+const PracticeBank = ({ onStartPractice, bankPractice = {}, activeDrill = null, onResumeDrill }) => {
   const [section, setSection] = useState('math');
   const [search, setSearch] = useState('');
   const [openTopics, setOpenTopics] = useState(() => new Set());
@@ -276,6 +295,13 @@ const PracticeBank = ({ onStartPractice }) => {
   const totalAvailable = useMemo(
     () => categories.reduce((acc, c) => acc + c.total, 0),
     [categories],
+  );
+
+  // Per-section practice progress (how many of THIS section's questions the
+  // student has worked through, and accuracy over those) — drives the hero stat.
+  const sectionProgress = useMemo(
+    () => progressForIds(allItems.map(q => q.id), bankPractice),
+    [allItems, bankPractice],
   );
 
   const totalTopics = useMemo(
@@ -399,12 +425,17 @@ const PracticeBank = ({ onStartPractice }) => {
     <div style={pageStyle} ref={topLevelRef}>
       <TopBar section={section} onChangeSection={handlePickSection} />
 
+      {activeDrill && typeof onResumeDrill === 'function' && (
+        <ResumeBanner activeDrill={activeDrill} onResume={onResumeDrill} />
+      )}
+
       <EditorialHero
         sectionLabel={sectionLabel}
         totalAvailable={totalAvailable}
         totalTopics={totalTopics}
         totalDomains={categories.length}
         totalQuestionTypes={totalQuestionTypes}
+        progress={sectionProgress}
       />
 
       <QuickStartRow
@@ -443,6 +474,7 @@ const PracticeBank = ({ onStartPractice }) => {
                 openTopics={openTopics}
                 autoOpenSlugs={autoOpenSlugs}
                 onToggleTopic={handleToggleTopic}
+                bankPractice={bankPractice}
                 sectionRef={(el) => { domainRefs.current[cat.domain] = el; }}
               />
             );
@@ -554,7 +586,7 @@ const SectionToggle = ({ section, onChange }) => (
 // ────────────────────────────────────────────────────────────────────────────
 // EditorialHero — big serif headline + stat subtitle
 // ────────────────────────────────────────────────────────────────────────────
-const EditorialHero = ({ sectionLabel, totalAvailable, totalTopics, totalDomains, totalQuestionTypes }) => (
+const EditorialHero = ({ sectionLabel, totalAvailable, totalTopics, totalDomains, totalQuestionTypes, progress }) => (
   <section style={{ marginBottom: spacing['2xl'] }}>
     <h1 style={{
       fontFamily: SERIF,
@@ -578,8 +610,87 @@ const EditorialHero = ({ sectionLabel, totalAvailable, totalTopics, totalDomains
     }}>
       {totalAvailable.toLocaleString()} hand-authored {sectionLabel} questions across {totalDomains} domain{totalDomains === 1 ? '' : 's'} and {totalTopics} topic{totalTopics === 1 ? '' : 's'}. Search for a topic, jump to a domain, or expand any topic to drill a specific question type.
     </p>
+    {progress && progress.practiced > 0 && (
+      <p style={{
+        fontFamily: typography.fontFamily,
+        fontSize: '14px',
+        fontWeight: 600,
+        color: INK.tertiary,
+        margin: '14px 0 0',
+      }}>
+        <span style={{ color: 'var(--color-brand-primary)' }}>{progress.practiced.toLocaleString()}</span>
+        {' of '}{totalAvailable.toLocaleString()} {sectionLabel} questions practiced
+        {progress.accuracy != null && (
+          <>{' · '}<span style={{ color: 'var(--color-brand-green-text, #15803d)' }}>{progress.accuracy}% correct</span></>
+        )}
+      </p>
+    )}
   </section>
 );
+
+// ────────────────────────────────────────────────────────────────────────────
+// ResumeBanner — "Continue your last drill" (a saved, in-flight bank session)
+// ────────────────────────────────────────────────────────────────────────────
+const ResumeBanner = ({ activeDrill, onResume }) => {
+  const label = activeDrill?.assignmentMeta?.label || 'Practice Bank drill';
+  const total = Array.isArray(activeDrill?.questionIds) ? activeDrill.questionIds.length : 0;
+  const answered = activeDrill?.answers ? Object.keys(activeDrill.answers).length : 0;
+  const position = Math.min((activeDrill?.currentQuestionIndex || 0) + 1, total || 1);
+  return (
+    <section
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        gap: spacing.md,
+        flexWrap: 'wrap',
+        backgroundColor: 'var(--color-brand-primary-soft, #fff7ed)',
+        border: `1px solid var(--color-brand-primary, #ea580c)`,
+        borderRadius: '14px',
+        padding: '16px 20px',
+        marginBottom: spacing.xl,
+      }}
+    >
+      <div style={{ minWidth: 0 }}>
+        <div style={{
+          fontSize: '11px', fontWeight: 700, textTransform: 'uppercase',
+          letterSpacing: '0.12em', color: 'var(--color-brand-primary, #ea580c)', marginBottom: '4px',
+        }}>
+          Continue your last drill
+        </div>
+        <div style={{ fontFamily: SERIF, fontSize: '18px', fontWeight: 700, color: INK.primary, lineHeight: 1.2 }}>
+          {label}
+        </div>
+        <div style={{ fontSize: '13px', fontWeight: 600, color: INK.tertiary, marginTop: '4px' }}>
+          {total > 0 ? `Question ${position} of ${total} · ${answered} answered` : `${answered} answered`}
+        </div>
+      </div>
+      <button
+        type="button"
+        onClick={onResume}
+        style={{
+          flexShrink: 0,
+          fontFamily: typography.fontFamily,
+          fontSize: '14px',
+          fontWeight: 700,
+          color: '#FFFFFF',
+          backgroundColor: 'var(--color-brand-primary, #ea580c)',
+          border: 'none',
+          borderRadius: '12px',
+          padding: '12px 20px',
+          minHeight: '44px',
+          cursor: 'pointer',
+          display: 'inline-flex',
+          alignItems: 'center',
+          gap: '8px',
+        }}
+      >
+        Continue
+        <Arrow tone="#FFFFFF" />
+      </button>
+    </section>
+  );
+};
 
 // ────────────────────────────────────────────────────────────────────────────
 // QuickStartRow — three clean cards, no decoration
@@ -902,7 +1013,7 @@ const ClearIcon = () => (
 // ────────────────────────────────────────────────────────────────────────────
 // DomainSection — a domain header + every topic in it, all expanded
 // ────────────────────────────────────────────────────────────────────────────
-const DomainSection = ({ cat, domainNumber, accent, section, searchQuery, onSkillDrill, onPatternDrill, onDomainMixed, openTopics, autoOpenSlugs, onToggleTopic, sectionRef }) => {
+const DomainSection = ({ cat, domainNumber, accent, section, searchQuery, onSkillDrill, onPatternDrill, onDomainMixed, openTopics, autoOpenSlugs, onToggleTopic, bankPractice, sectionRef }) => {
   const sectionWord = section === 'math' ? 'Math' : 'R&W';
   const weight = DOMAIN_WEIGHTS[cat.domain];
   const blurb = DOMAIN_BLURBS[cat.domain] || '';
@@ -1028,6 +1139,7 @@ const DomainSection = ({ cat, domainNumber, accent, section, searchQuery, onSkil
               onToggle={() => onToggleTopic(skill.slug)}
               onSkillDrill={() => onSkillDrill(skill)}
               onPatternDrill={onPatternDrill}
+              bankPractice={bankPractice}
             />
           );
         })}
@@ -1042,11 +1154,12 @@ const DomainSection = ({ cat, domainNumber, accent, section, searchQuery, onSkil
 // type count) to expand the chip grid. Search auto-opens any topic that
 // matched on a pattern label.
 // ────────────────────────────────────────────────────────────────────────────
-const TopicCard = ({ skill, accent, searchQuery, isOpen, onToggle, onSkillDrill, onPatternDrill }) => {
+const TopicCard = ({ skill, accent, searchQuery, isOpen, onToggle, onSkillDrill, onPatternDrill, bankPractice }) => {
   const total = skill.total ?? skill.count ?? 0;
   const patterns = skill.patterns || [];
   const label = skill.label || skill.short;
   const hasPatterns = patterns.length > 0;
+  const prog = progressForIds(skill.qids || [], bankPractice);
 
   return (
     <article
@@ -1112,6 +1225,14 @@ const TopicCard = ({ skill, accent, searchQuery, isOpen, onToggle, onSkillDrill,
                   </span>
                 </>
               )}
+              {prog.practiced > 0 && (
+                <>
+                  {' · '}
+                  <span style={{ color: 'var(--color-brand-green-text, #15803d)', fontWeight: 600 }}>
+                    {prog.practiced} practiced{prog.accuracy != null ? ` · ${prog.accuracy}%` : ''}
+                  </span>
+                </>
+              )}
             </div>
           </div>
         </button>
@@ -1171,6 +1292,7 @@ const TopicCard = ({ skill, accent, searchQuery, isOpen, onToggle, onSkillDrill,
                 accent={accent}
                 searchQuery={searchQuery}
                 onClick={() => onPatternDrill(p.slug, p.label)}
+                bankPractice={bankPractice}
               />
             ))}
           </div>
@@ -1198,8 +1320,9 @@ const Chevron = ({ open }) => (
   </svg>
 );
 
-const PatternChip = ({ pattern, accent, searchQuery, onClick }) => {
+const PatternChip = ({ pattern, accent, searchQuery, onClick, bankPractice }) => {
   const [hover, setHover] = useState(false);
+  const prog = progressForIds(pattern.qids || [], bankPractice);
   return (
     <button
       onClick={onClick}
@@ -1232,13 +1355,20 @@ const PatternChip = ({ pattern, accent, searchQuery, onClick }) => {
         <Highlight text={pattern.label} query={searchQuery} />
       </span>
       <span style={{
-        fontSize: '12px',
-        fontWeight: 600,
-        color: INK.muted,
+        display: 'inline-flex',
+        alignItems: 'center',
+        gap: '6px',
         flexShrink: 0,
         fontVariantNumeric: 'tabular-nums',
       }}>
-        {pattern.count}
+        {prog.practiced > 0 && (
+          <span style={{ fontSize: '11px', fontWeight: 700, color: 'var(--color-brand-green-text, #15803d)' }}>
+            {prog.practiced} done
+          </span>
+        )}
+        <span style={{ fontSize: '12px', fontWeight: 600, color: INK.muted }}>
+          {pattern.count}
+        </span>
       </span>
     </button>
   );

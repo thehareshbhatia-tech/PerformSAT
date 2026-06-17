@@ -65,6 +65,14 @@ export const useProgress = (userId) => {
   const [studyPlanArtifact, setStudyPlanArtifact] = useState(null); // Full artifact: { plan, delta, longitudinal, version }
   const [studentFingerprint, setStudentFingerprint] = useState(null);
   const [answeredQuestionIds, setAnsweredQuestionIds] = useState([]);
+  // Practice-Bank progress — a SEPARATE store from answeredQuestionIds (which
+  // drives study-plan / mini-diagnostic dedup) on purpose: browsing the
+  // question bank must never change which questions the study plan serves.
+  // `bankPractice` is a per-question result map { [qid]: { c, n, t } }; powers
+  // the per-question-type progress shown in the Practice Bank.
+  const [bankPractice, setBankPractice] = useState({});
+  // The single in-flight, resumable Practice-Bank drill session (or null).
+  const [activeDrill, setActiveDrill] = useState(null);
   const [interventionLog, setInterventionLog] = useState([]);
   const [predictionLog, setPredictionLog] = useState([]);
   // Lean record of the onboarding mini-diagnostic (band + per-domain folds +
@@ -161,6 +169,8 @@ export const useProgress = (userId) => {
           // Get data loop fields
           setStudentFingerprint(data.studentFingerprint || null);
           setAnsweredQuestionIds(data.answeredQuestionIds || []);
+          setBankPractice(data.bankPractice || {});
+          setActiveDrill(data.activeDrill || null);
           setInterventionLog(data.interventionLog || []);
           setPredictionLog(data.predictionLog || []);
           setMiniDiagnostic(data.miniDiagnostic || null);
@@ -477,6 +487,71 @@ export const useProgress = (userId) => {
       }, { merge: true });
     } catch (err) {
       console.error('[useProgress] Failed to record practiced day:', err);
+    }
+  };
+
+  // ===== Practice-Bank progress + resume =====
+
+  /**
+   * Records one answered Practice-Bank question into the `bankPractice` map:
+   * `{ [questionId]: { c: lastCorrect, n: attempts, t: lastAnsweredAtISO } }`.
+   * Powers the per-question-type progress shown in the Practice Bank. Kept
+   * separate from `answeredQuestionIds` on purpose (see the state declaration):
+   * bank practice must not change study-plan / mini-diagnostic question dedup.
+   * Optimistic + best-effort; onSnapshot reconciles.
+   *
+   * @param {string|number} questionId
+   * @param {boolean} correct
+   */
+  const recordBankPractice = async (questionId, correct) => {
+    if (!userId || questionId == null) return;
+    const key = String(questionId);
+    const prior = bankPractice[key];
+    const rec = { c: !!correct, n: (prior?.n || 0) + 1, t: new Date().toISOString() };
+    setBankPractice(prev => ({ ...prev, [key]: rec }));
+    try {
+      const progressRef = doc(db, 'progress', userId);
+      // Nested-object merge updates just this key inside bankPractice without
+      // a dynamic field path (ids contain '-', never '.', so this is safe).
+      await setDoc(progressRef, {
+        bankPractice: { [key]: rec },
+        lastUpdated: serverTimestamp(),
+      }, { merge: true });
+    } catch (err) {
+      console.error('[useProgress] Failed to record bank practice:', err);
+    }
+  };
+
+  /**
+   * Persists the in-flight Practice-Bank drill so the student can resume it
+   * after leaving or refreshing (mirrors how full tests persist via
+   * saveTestProgress). Stores only the resumable essentials (question ids +
+   * answers + position + rounds + meta), never the resolved question objects.
+   * Optimistic + best-effort.
+   *
+   * @param {object} session - lean resumable session from buildResumableDrill
+   */
+  const saveActiveDrill = async (session) => {
+    if (!userId || !session) return;
+    const withTs = { ...session, savedAt: new Date().toISOString() };
+    setActiveDrill(withTs);
+    try {
+      const progressRef = doc(db, 'progress', userId);
+      await setDoc(progressRef, { activeDrill: withTs, lastUpdated: serverTimestamp() }, { merge: true });
+    } catch (err) {
+      console.error('[useProgress] Failed to save active drill:', err);
+    }
+  };
+
+  /** Clears the saved in-flight Practice-Bank drill (on completion or abandon). */
+  const clearActiveDrill = async () => {
+    if (!userId) return;
+    setActiveDrill(null);
+    try {
+      const progressRef = doc(db, 'progress', userId);
+      await setDoc(progressRef, { activeDrill: null, lastUpdated: serverTimestamp() }, { merge: true });
+    } catch (err) {
+      console.error('[useProgress] Failed to clear active drill:', err);
     }
   };
 
@@ -981,6 +1056,8 @@ export const useProgress = (userId) => {
     interventionLog,
     predictionLog,
     miniDiagnostic,
+    bankPractice,
+    activeDrill,
     loading,
     hydrated,
     error,
@@ -992,6 +1069,10 @@ export const useProgress = (userId) => {
     // were removed with the standard/prescriptive practice UI)
     recordDrillSkillAttempts,
     recordPracticedDay,
+    // Practice-Bank progress + resume
+    recordBankPractice,
+    saveActiveDrill,
+    clearActiveDrill,
     // Review queue functions
     getDueCount,
     getReviewStatistics,

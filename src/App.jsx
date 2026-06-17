@@ -28,6 +28,7 @@ import { Toaster, showToast } from './components/ui/Toaster';
 import CommandPalette from './components/ui/CommandPalette';
 import { ChartBarIcon, PlayIcon, ClipboardIcon, TargetIcon, CalendarIcon, BrainIcon } from './design/icons';
 import { buildRounds, classifyRoundBoundary } from './services/buildRounds';
+import { restoreAnswerStateForQuestion, buildResumableDrill } from './services/practiceNavigation';
 import {
   loadDiagnosticReportData,
   pickMostRecentTest,
@@ -332,7 +333,7 @@ const PerformSAT = () => {
   }, [showCalculator]);
 
   const { user, loading, logout, updateTestDate, updateTargetScore, updateCurrentScore, updateTargetSchools, updateProfilePhoto, updateFirstName, markOnboardingComplete, markOnboardingSkipped } = useAuth();
-  const { loading: progressLoading, hydrated: progressHydrated, completedLessons, practiceProgress, drillDays, reviewQueue, reviewStreak, skillProgress, answeredQuestionIds, practiceTestResults, inProgressTests, studyPlan, studyPlanMeta, studyPlanArtifact, predictionLog, interventionLog, studentFingerprint, miniDiagnostic, recordDrillSkillAttempts, recordPracticedDay, getDueCount, getReviewStatistics, getSkillDiagnosticSummary, getSkillBreakdown, recordPracticeTestAttempt, getTestBestScore, getTestAttempts, saveTestProgress, clearTestProgress, resetPracticeTest, getTestProgress, hasTestProgress, saveMiniDiagnostic, saveStudyPlan, markStudyActivityComplete, unmarkStudyActivityComplete, markLessonComplete, isLessonCompleted, getModuleProgress, lastSaveStatus, retryLastSave } = useProgress(user?.uid);
+  const { loading: progressLoading, hydrated: progressHydrated, completedLessons, practiceProgress, drillDays, reviewQueue, reviewStreak, skillProgress, answeredQuestionIds, practiceTestResults, inProgressTests, studyPlan, studyPlanMeta, studyPlanArtifact, predictionLog, interventionLog, studentFingerprint, miniDiagnostic, bankPractice, activeDrill, recordDrillSkillAttempts, recordPracticedDay, recordBankPractice, saveActiveDrill, clearActiveDrill, getDueCount, getReviewStatistics, getSkillDiagnosticSummary, getSkillBreakdown, recordPracticeTestAttempt, getTestBestScore, getTestAttempts, saveTestProgress, clearTestProgress, resetPracticeTest, getTestProgress, hasTestProgress, saveMiniDiagnostic, saveStudyPlan, markStudyActivityComplete, unmarkStudyActivityComplete, markLessonComplete, isLessonCompleted, getModuleProgress, lastSaveStatus, retryLastSave } = useProgress(user?.uid);
 
   // Mount the analytics session lifecycle (session_start / session_end +
   // beforeunload flush). Previously orphaned — the hook existed but was never
@@ -497,6 +498,24 @@ const PerformSAT = () => {
       nudgeRoutedRef.current = true; // unknown target — land on default dashboard.
     }
   }, [reviewQueue, user?.uid, startDailyReview]);
+
+  // Auto-persist the in-flight Practice-Bank drill so it survives leaving or
+  // refreshing (the "Continue your last drill" banner resumes it). Bank-sourced
+  // 'assigned' drills only — study-plan / adaptive / review sessions are out of
+  // scope. Clears the saved drill on completion. Debounced (600ms) so rapid
+  // answer/navigation changes coalesce into a single Firestore write.
+  useEffect(() => {
+    if (!user?.uid || view !== 'practice') return undefined;
+    const ps = practiceState;
+    const isBank = ps.practiceMode === 'assigned'
+      && (ps.assignmentMeta?.source || '').startsWith('practice-bank');
+    if (!isBank) return undefined;
+    if (ps.isComplete) { clearActiveDrill(); return undefined; }
+    const session = buildResumableDrill(ps, activeSection);
+    if (!session) return undefined;
+    const timer = setTimeout(() => { saveActiveDrill(session); }, 600);
+    return () => clearTimeout(timer);
+  }, [user?.uid, view, practiceState.currentQuestionIndex, practiceState.answers, practiceState.currentRoundIndex, practiceState.isComplete]);
 
   // On-ramp eligibility — decided once per session after progress hydrates.
   // Eligible: flagged on, no completion stamp, zero test attempts, no plan.
@@ -765,6 +784,43 @@ const PerformSAT = () => {
     });
     setActiveModule(null);
     setActiveSection('__assigned__');
+    setShowCalculator(false);
+    setView('practice');
+  };
+
+  // Resume a previously-saved, in-flight Practice-Bank drill (the "Continue
+  // your last drill" banner). Re-resolves the saved question IDs from the bank,
+  // restores answers + position + rounds, and re-paints the current question's
+  // recorded answer so the student lands exactly where they left off.
+  const resumeActiveDrill = async () => {
+    if (!activeDrill || !Array.isArray(activeDrill.questionIds) || activeDrill.questionIds.length === 0) return;
+    const { resolveAssignedQuestions } = await loadPracticeRouting();
+    // resolveAssignedQuestions preserves input order and drops only stale ids.
+    const { resolved } = resolveAssignedQuestions(activeDrill.questionIds);
+    if (resolved.length === 0) { clearActiveDrill(); return; }
+
+    const idx = Math.min(activeDrill.currentQuestionIndex || 0, resolved.length - 1);
+    const answers = activeDrill.answers || {};
+    const restored = restoreAnswerStateForQuestion(answers, resolved[idx]);
+
+    setPracticeState({
+      currentQuestionIndex: idx,
+      selectedAnswer: restored.selectedAnswer,
+      showFeedback: restored.showFeedback,
+      showHint: false,
+      showRoundComplete: false,
+      answers,
+      isComplete: false,
+      shuffledQuestions: resolved,
+      rounds: Array.isArray(activeDrill.rounds) ? activeDrill.rounds : buildRounds(resolved.map(q => q.id), 8),
+      currentRoundIndex: activeDrill.currentRoundIndex || 0,
+      practiceMode: 'assigned',
+      // Keep the original 'practice-bank-*' source so the auto-persist effect
+      // keeps tracking this resumed session.
+      assignmentMeta: activeDrill.assignmentMeta || { label: 'Practice Bank', source: 'practice-bank-resumed' },
+    });
+    setActiveModule(null);
+    setActiveSection(activeDrill.section || '__assigned__');
     setShowCalculator(false);
     setView('practice');
   };
@@ -1160,7 +1216,11 @@ const PerformSAT = () => {
   const handleNavigateToQuestion = (targetIdx) => {
     setPracticeState(prev => {
       if (targetIdx < 0 || targetIdx >= prev.shuffledQuestions.length) return prev;
-      return { ...prev, currentQuestionIndex: targetIdx, selectedAnswer: null, showFeedback: false, showHint: false };
+      // Restore the answer already recorded for the target question so going
+      // back shows the student's choice + feedback instead of a blank slate.
+      // (Unanswered target → blank, same as advancing to a fresh question.)
+      const restored = restoreAnswerStateForQuestion(prev.answers, prev.shuffledQuestions[targetIdx]);
+      return { ...prev, currentQuestionIndex: targetIdx, ...restored, showHint: false };
     });
   };
 
@@ -1179,6 +1239,15 @@ const PerformSAT = () => {
         }
       }
     }));
+
+    // Practice-Bank progress: record every answered bank question (right and
+    // wrong) into the per-question bankPractice store so the bank can show
+    // per-question-type progress. Bank-sourced drills only; kept out of the
+    // study-plan dedup set on purpose.
+    const isBankDrill = (practiceState.assignmentMeta?.source || '').startsWith('practice-bank');
+    if (user?.uid && isBankDrill && question?.id != null) {
+      recordBankPractice(question.id, isCorrect);
+    }
 
     const isAdaptiveOrAssigned = practiceState.practiceMode === 'assigned' || practiceState.practiceMode === 'adaptive';
     const isReviewSession = practiceState.assignmentMeta?.source === 'review-queue';
@@ -1766,7 +1835,12 @@ const PerformSAT = () => {
 
         {/* Practice Bank — browse question types and drill at will */}
         {view === 'practiceBank' && (
-          <PracticeBank onStartPractice={startAssignedPractice} />
+          <PracticeBank
+            onStartPractice={startAssignedPractice}
+            bankPractice={bankPractice}
+            activeDrill={activeDrill}
+            onResumeDrill={resumeActiveDrill}
+          />
         )}
 
         {/* Learn — Module Catalog View */}
