@@ -27,7 +27,7 @@ import ReviewItemCard from './components/PastTestReview/ReviewItemCard';
 import { Toaster, showToast } from './components/ui/Toaster';
 import CommandPalette from './components/ui/CommandPalette';
 import { ChartBarIcon, PlayIcon, ClipboardIcon, TargetIcon, CalendarIcon, BrainIcon } from './design/icons';
-import { buildRounds, classifyRoundBoundary } from './services/buildRounds';
+import { buildRounds, classifyRoundBoundary, findRoundIndexForQuestion } from './services/buildRounds';
 import { restoreAnswerStateForQuestion, buildResumableDrill } from './services/practiceNavigation';
 import {
   loadDiagnosticReportData,
@@ -499,23 +499,59 @@ const PerformSAT = () => {
     }
   }, [reviewQueue, user?.uid, startDailyReview]);
 
+  // Holds the latest unsaved resumable bank-drill session so it can be FLUSHED
+  // synchronously when the student leaves the drill before the debounce fires.
+  const pendingBankDrillRef = useRef(null);
+
   // Auto-persist the in-flight Practice-Bank drill so it survives leaving or
   // refreshing (the "Continue your last drill" banner resumes it). Bank-sourced
   // 'assigned' drills only — study-plan / adaptive / review sessions are out of
   // scope. Clears the saved drill on completion. Debounced (600ms) so rapid
-  // answer/navigation changes coalesce into a single Firestore write.
+  // answer/navigation changes coalesce into a single Firestore write; the latest
+  // session is mirrored into pendingBankDrillRef so the leave-flush below can
+  // persist an answer made within the debounce window before navigating away.
   useEffect(() => {
     if (!user?.uid || view !== 'practice') return undefined;
     const ps = practiceState;
     const isBank = ps.practiceMode === 'assigned'
       && (ps.assignmentMeta?.source || '').startsWith('practice-bank');
-    if (!isBank) return undefined;
-    if (ps.isComplete) { clearActiveDrill(); return undefined; }
+    if (!isBank) { pendingBankDrillRef.current = null; return undefined; }
+    if (ps.isComplete) { pendingBankDrillRef.current = null; clearActiveDrill(); return undefined; }
     const session = buildResumableDrill(ps, activeSection);
     if (!session) return undefined;
-    const timer = setTimeout(() => { saveActiveDrill(session); }, 600);
+    pendingBankDrillRef.current = session;
+    const timer = setTimeout(() => { saveActiveDrill(session); pendingBankDrillRef.current = null; }, 600);
     return () => clearTimeout(timer);
   }, [user?.uid, view, practiceState.currentQuestionIndex, practiceState.answers, practiceState.currentRoundIndex, practiceState.isComplete]);
+
+  // Flush a pending bank-drill save when the student LEAVES the practice view by
+  // any route (Back, a nav click, etc.). Without this, answering and then
+  // leaving within the 600ms debounce window would cancel the pending save and
+  // resume one answer stale. Tracks the previous view so it fires only on the
+  // practice → elsewhere transition.
+  const prevViewRef = useRef(view);
+  useEffect(() => {
+    const leftPractice = prevViewRef.current === 'practice' && view !== 'practice';
+    prevViewRef.current = view;
+    if (leftPractice && pendingBankDrillRef.current) {
+      saveActiveDrill(pendingBankDrillRef.current);
+      pendingBankDrillRef.current = null;
+    }
+  }, [view]);
+
+  // Best-effort flush when the tab is hidden / closed (covers a hard refresh
+  // mid-answer). Firestore web writes are not guaranteed to complete on unload,
+  // so this is a backstop on top of the reliable leave-flush above.
+  useEffect(() => {
+    const flush = () => {
+      if (document.visibilityState === 'hidden' && pendingBankDrillRef.current) {
+        saveActiveDrill(pendingBankDrillRef.current);
+        pendingBankDrillRef.current = null;
+      }
+    };
+    document.addEventListener('visibilitychange', flush);
+    return () => document.removeEventListener('visibilitychange', flush);
+  }, [saveActiveDrill]);
 
   // On-ramp eligibility — decided once per session after progress hydrates.
   // Eligible: flagged on, no completion stamp, zero test attempts, no plan.
@@ -799,8 +835,29 @@ const PerformSAT = () => {
     const { resolved } = resolveAssignedQuestions(activeDrill.questionIds);
     if (resolved.length === 0) { clearActiveDrill(); return; }
 
-    const idx = Math.min(activeDrill.currentQuestionIndex || 0, resolved.length - 1);
+    const savedIds = activeDrill.questionIds.map(String);
     const answers = activeDrill.answers || {};
+
+    // Realign the resume position by the saved CURRENT question's id, not its
+    // numeric index: if an earlier id went stale and was dropped, `resolved` is
+    // shorter and a raw index would land on the wrong question.
+    const savedCurrentId = savedIds[activeDrill.currentQuestionIndex] ?? null;
+    let idx = savedCurrentId != null
+      ? resolved.findIndex(q => String(q.id) === savedCurrentId)
+      : -1;
+    if (idx < 0) idx = Math.min(activeDrill.currentQuestionIndex || 0, resolved.length - 1);
+
+    // Trust the saved rounds only when nothing was dropped — otherwise they
+    // still reference missing ids and their boundaries desync (the celebration
+    // interstitial can never fire). Rebuild from the resolved ids and recompute
+    // the current round from the realigned position.
+    const dropped = resolved.length !== savedIds.length;
+    const rounds = (!dropped && Array.isArray(activeDrill.rounds))
+      ? activeDrill.rounds
+      : buildRounds(resolved.map(q => q.id), 8);
+    const roundIdx = findRoundIndexForQuestion(rounds, resolved[idx]?.id);
+    const currentRoundIndex = roundIdx >= 0 ? roundIdx : (activeDrill.currentRoundIndex || 0);
+
     const restored = restoreAnswerStateForQuestion(answers, resolved[idx]);
 
     setPracticeState({
@@ -812,8 +869,8 @@ const PerformSAT = () => {
       answers,
       isComplete: false,
       shuffledQuestions: resolved,
-      rounds: Array.isArray(activeDrill.rounds) ? activeDrill.rounds : buildRounds(resolved.map(q => q.id), 8),
-      currentRoundIndex: activeDrill.currentRoundIndex || 0,
+      rounds,
+      currentRoundIndex,
       practiceMode: 'assigned',
       // Keep the original 'practice-bank-*' source so the auto-persist effect
       // keeps tracking this resumed session.
@@ -1234,7 +1291,10 @@ const PerformSAT = () => {
         [question.id]: {
           selected: prev.selectedAnswer,
           correct: isCorrect,
-          difficulty: question.difficulty,
+          // Omit when absent — this map is persisted into activeDrill, and
+          // Firestore rejects `undefined` field values (config has no
+          // ignoreUndefinedProperties).
+          ...(question.difficulty != null ? { difficulty: question.difficulty } : {}),
           skills: question.skills || []
         }
       }
@@ -1840,6 +1900,7 @@ const PerformSAT = () => {
             bankPractice={bankPractice}
             activeDrill={activeDrill}
             onResumeDrill={resumeActiveDrill}
+            onDiscardDrill={clearActiveDrill}
           />
         )}
 
@@ -2559,9 +2620,13 @@ const PerformSAT = () => {
           // study plan, the Practice tab (browse by question type), or,
           // for review-mode drills, the past-test-review detail page.
           const source = practiceState.assignmentMeta?.source;
+          // Every Practice-Bank launcher emits a 'practice-bank-*' source
+          // (quick / full / mix / domain / skill / pattern / resumed), so match
+          // on the prefix — otherwise finishing or backing out of a bank drill
+          // lands the student on the Study Plan instead of the Practice Bank.
           const backHandler = practiceState.reviewMode
             ? pastTestReviewBackHandler
-            : (source === 'practice-bank' || source === 'practice-bank-domain')
+            : (typeof source === 'string' && source.startsWith('practice-bank'))
               ? practiceBankBackHandler
               : studyPlanBackHandler;
           const headerTitle = isAdaptive

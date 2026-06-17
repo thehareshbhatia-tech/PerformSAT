@@ -31,20 +31,3 @@ export function progressForIds(ids, bankPractice) {
     accuracy: practiced > 0 ? Math.round((correct / practiced) * 100) : null,
   };
 }
-
-/**
- * Total practiced/correct across the whole bankPractice map (section-agnostic).
- *
- * @param {Object<string, {c: boolean}>|null|undefined} bankPractice
- * @returns {{ practiced: number, correct: number, accuracy: number|null }}
- */
-export function overallBankProgress(bankPractice) {
-  const entries = Object.values(bankPractice || {});
-  const practiced = entries.length;
-  const correct = entries.filter(r => r && r.c).length;
-  return {
-    practiced,
-    correct,
-    accuracy: practiced > 0 ? Math.round((correct / practiced) * 100) : null,
-  };
-}

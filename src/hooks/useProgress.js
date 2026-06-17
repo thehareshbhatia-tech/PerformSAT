@@ -68,8 +68,9 @@ export const useProgress = (userId) => {
   // Practice-Bank progress — a SEPARATE store from answeredQuestionIds (which
   // drives study-plan / mini-diagnostic dedup) on purpose: browsing the
   // question bank must never change which questions the study plan serves.
-  // `bankPractice` is a per-question result map { [qid]: { c, n, t } }; powers
-  // the per-question-type progress shown in the Practice Bank.
+  // `bankPractice` is a per-question result map { [qid]: { c, t } } (c =
+  // last-correct, t = last-answered ISO); powers the per-question-type progress
+  // shown in the Practice Bank.
   const [bankPractice, setBankPractice] = useState({});
   // The single in-flight, resumable Practice-Bank drill session (or null).
   const [activeDrill, setActiveDrill] = useState(null);
@@ -494,7 +495,7 @@ export const useProgress = (userId) => {
 
   /**
    * Records one answered Practice-Bank question into the `bankPractice` map:
-   * `{ [questionId]: { c: lastCorrect, n: attempts, t: lastAnsweredAtISO } }`.
+   * `{ [questionId]: { c: lastCorrect, t: lastAnsweredAtISO } }`.
    * Powers the per-question-type progress shown in the Practice Bank. Kept
    * separate from `answeredQuestionIds` on purpose (see the state declaration):
    * bank practice must not change study-plan / mini-diagnostic question dedup.
@@ -506,8 +507,7 @@ export const useProgress = (userId) => {
   const recordBankPractice = async (questionId, correct) => {
     if (!userId || questionId == null) return;
     const key = String(questionId);
-    const prior = bankPractice[key];
-    const rec = { c: !!correct, n: (prior?.n || 0) + 1, t: new Date().toISOString() };
+    const rec = { c: !!correct, t: new Date().toISOString() };
     setBankPractice(prev => ({ ...prev, [key]: rec }));
     try {
       const progressRef = doc(db, 'progress', userId);

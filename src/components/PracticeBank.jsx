@@ -281,7 +281,7 @@ const matchesQuery = (text, q) =>
 // ────────────────────────────────────────────────────────────────────────────
 // PracticeBank — flat catalog: search + jump chips + everything visible
 // ────────────────────────────────────────────────────────────────────────────
-const PracticeBank = ({ onStartPractice, bankPractice = {}, activeDrill = null, onResumeDrill }) => {
+const PracticeBank = ({ onStartPractice, bankPractice = {}, activeDrill = null, onResumeDrill, onDiscardDrill }) => {
   const [section, setSection] = useState('math');
   const [search, setSearch] = useState('');
   const [openTopics, setOpenTopics] = useState(() => new Set());
@@ -299,8 +299,10 @@ const PracticeBank = ({ onStartPractice, bankPractice = {}, activeDrill = null, 
 
   // Per-section practice progress (how many of THIS section's questions the
   // student has worked through, and accuracy over those) — drives the hero stat.
+  // Scoped to DRILLABLE items so the numerator shares the same universe as the
+  // hero denominator (totalAvailable, which counts drillable items only).
   const sectionProgress = useMemo(
-    () => progressForIds(allItems.map(q => q.id), bankPractice),
+    () => progressForIds(allItems.filter(isDrillable).map(q => q.id), bankPractice),
     [allItems, bankPractice],
   );
 
@@ -426,7 +428,7 @@ const PracticeBank = ({ onStartPractice, bankPractice = {}, activeDrill = null, 
       <TopBar section={section} onChangeSection={handlePickSection} />
 
       {activeDrill && typeof onResumeDrill === 'function' && (
-        <ResumeBanner activeDrill={activeDrill} onResume={onResumeDrill} />
+        <ResumeBanner activeDrill={activeDrill} onResume={onResumeDrill} onDiscard={onDiscardDrill} />
       )}
 
       <EditorialHero
@@ -618,10 +620,10 @@ const EditorialHero = ({ sectionLabel, totalAvailable, totalTopics, totalDomains
         color: INK.tertiary,
         margin: '14px 0 0',
       }}>
-        <span style={{ color: 'var(--color-brand-primary)' }}>{progress.practiced.toLocaleString()}</span>
+        <span style={{ color: 'var(--color-brand-green-text)' }}>{progress.practiced.toLocaleString()}</span>
         {' of '}{totalAvailable.toLocaleString()} {sectionLabel} questions practiced
         {progress.accuracy != null && (
-          <>{' · '}<span style={{ color: 'var(--color-brand-green-text, #15803d)' }}>{progress.accuracy}% correct</span></>
+          <>{' · '}<span style={{ color: 'var(--color-brand-green-text)' }}>{progress.accuracy}% correct</span></>
         )}
       </p>
     )}
@@ -631,7 +633,7 @@ const EditorialHero = ({ sectionLabel, totalAvailable, totalTopics, totalDomains
 // ────────────────────────────────────────────────────────────────────────────
 // ResumeBanner — "Continue your last drill" (a saved, in-flight bank session)
 // ────────────────────────────────────────────────────────────────────────────
-const ResumeBanner = ({ activeDrill, onResume }) => {
+const ResumeBanner = ({ activeDrill, onResume, onDiscard }) => {
   const label = activeDrill?.assignmentMeta?.label || 'Practice Bank drill';
   const total = Array.isArray(activeDrill?.questionIds) ? activeDrill.questionIds.length : 0;
   const answered = activeDrill?.answers ? Object.keys(activeDrill.answers).length : 0;
@@ -644,8 +646,8 @@ const ResumeBanner = ({ activeDrill, onResume }) => {
         justifyContent: 'space-between',
         gap: spacing.md,
         flexWrap: 'wrap',
-        backgroundColor: 'var(--color-brand-primary-soft, #fff7ed)',
-        border: `1px solid var(--color-brand-primary, #ea580c)`,
+        backgroundColor: 'var(--color-brand-primary-light)',
+        border: `1px solid var(--color-brand-primary)`,
         borderRadius: '14px',
         padding: '16px 20px',
         marginBottom: spacing.xl,
@@ -654,7 +656,7 @@ const ResumeBanner = ({ activeDrill, onResume }) => {
       <div style={{ minWidth: 0 }}>
         <div style={{
           fontSize: '11px', fontWeight: 700, textTransform: 'uppercase',
-          letterSpacing: '0.12em', color: 'var(--color-brand-primary, #ea580c)', marginBottom: '4px',
+          letterSpacing: '0.12em', color: 'var(--color-brand-primary)', marginBottom: '4px',
         }}>
           Continue your last drill
         </div>
@@ -665,29 +667,51 @@ const ResumeBanner = ({ activeDrill, onResume }) => {
           {total > 0 ? `Question ${position} of ${total} · ${answered} answered` : `${answered} answered`}
         </div>
       </div>
-      <button
-        type="button"
-        onClick={onResume}
-        style={{
-          flexShrink: 0,
-          fontFamily: typography.fontFamily,
-          fontSize: '14px',
-          fontWeight: 700,
-          color: '#FFFFFF',
-          backgroundColor: 'var(--color-brand-primary, #ea580c)',
-          border: 'none',
-          borderRadius: '12px',
-          padding: '12px 20px',
-          minHeight: '44px',
-          cursor: 'pointer',
-          display: 'inline-flex',
-          alignItems: 'center',
-          gap: '8px',
-        }}
-      >
-        Continue
-        <Arrow tone="#FFFFFF" />
-      </button>
+      <div style={{ flexShrink: 0, display: 'inline-flex', alignItems: 'center', gap: '10px' }}>
+        {typeof onDiscard === 'function' && (
+          <button
+            type="button"
+            onClick={onDiscard}
+            aria-label="Discard saved drill"
+            style={{
+              fontFamily: typography.fontFamily,
+              fontSize: '13px',
+              fontWeight: 600,
+              color: INK.tertiary,
+              backgroundColor: 'transparent',
+              border: `1px solid ${SURFACE.border}`,
+              borderRadius: '12px',
+              padding: '12px 16px',
+              minHeight: '44px',
+              cursor: 'pointer',
+            }}
+          >
+            Discard
+          </button>
+        )}
+        <button
+          type="button"
+          onClick={onResume}
+          style={{
+            fontFamily: typography.fontFamily,
+            fontSize: '14px',
+            fontWeight: 700,
+            color: '#FFFFFF',
+            backgroundColor: 'var(--color-brand-primary)',
+            border: 'none',
+            borderRadius: '12px',
+            padding: '12px 20px',
+            minHeight: '44px',
+            cursor: 'pointer',
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '8px',
+          }}
+        >
+          Continue
+          <Arrow tone="#FFFFFF" />
+        </button>
+      </div>
     </section>
   );
 };
@@ -1228,7 +1252,7 @@ const TopicCard = ({ skill, accent, searchQuery, isOpen, onToggle, onSkillDrill,
               {prog.practiced > 0 && (
                 <>
                   {' · '}
-                  <span style={{ color: 'var(--color-brand-green-text, #15803d)', fontWeight: 600 }}>
+                  <span style={{ color: 'var(--color-brand-green-text)', fontWeight: 600 }}>
                     {prog.practiced} practiced{prog.accuracy != null ? ` · ${prog.accuracy}%` : ''}
                   </span>
                 </>
@@ -1362,7 +1386,7 @@ const PatternChip = ({ pattern, accent, searchQuery, onClick, bankPractice }) =>
         fontVariantNumeric: 'tabular-nums',
       }}>
         {prog.practiced > 0 && (
-          <span style={{ fontSize: '11px', fontWeight: 700, color: 'var(--color-brand-green-text, #15803d)' }}>
+          <span style={{ fontSize: '11px', fontWeight: 700, color: 'var(--color-brand-green-text)' }}>
             {prog.practiced} done
           </span>
         )}

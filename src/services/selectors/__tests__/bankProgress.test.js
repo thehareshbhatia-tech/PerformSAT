@@ -1,4 +1,4 @@
-import { progressForIds, overallBankProgress } from '../bankProgress';
+import { progressForIds } from '../bankProgress';
 
 describe('progressForIds', () => {
   const bankPractice = {
@@ -29,16 +29,5 @@ describe('progressForIds', () => {
   it('is null-safe for empty/missing inputs', () => {
     expect(progressForIds(null, null)).toEqual({ total: 0, practiced: 0, correct: 0, accuracy: null });
     expect(progressForIds(['a'], undefined)).toEqual({ total: 1, practiced: 0, correct: 0, accuracy: null });
-  });
-});
-
-describe('overallBankProgress', () => {
-  it('aggregates the whole map', () => {
-    expect(overallBankProgress({ a: { c: true }, b: { c: false }, c: { c: true } }))
-      .toEqual({ practiced: 3, correct: 2, accuracy: 67 });
-  });
-  it('is null-safe / empty', () => {
-    expect(overallBankProgress(null)).toEqual({ practiced: 0, correct: 0, accuracy: null });
-    expect(overallBankProgress({})).toEqual({ practiced: 0, correct: 0, accuracy: null });
   });
 });
