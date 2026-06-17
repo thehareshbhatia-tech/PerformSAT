@@ -10,6 +10,16 @@ describe('deriveRWPattern', () => {
     // to official counts + full rewrite; coe-textual-illustrate-claim
     // collapsed because COE-textual moved to finding-if-true forms and 1 per
     // module — it routes Tier-3 now, like the sub-threshold fss patterns).
+    //
+    // FSS counts re-frozen 2026-06-17: the grammar sub-types are now decided by
+    // the authoritative `rwGrammarType.js` map (per-item, classified by what
+    // varies across the answer choices) instead of the explanation-prose
+    // heuristic. The heuristic had mis-filed items — e.g. it counted a
+    // verb-tense item under modifier-placement and split several subject-verb
+    // items into the verb-tense bucket or left them untagged. SV-agreement rose
+    // 18 -> 26, verb-tense 20 -> 17, possessive 6 -> 5, pronoun 2 -> 3, and two
+    // items (449, 845) now route Tier-3 (no surfaced bucket). The boundaries /
+    // transitions / tsp buckets are unchanged (still derived deterministically).
     'boundaries-semicolon': 27,
     'boundaries-comma': 22,
     'boundaries-dash': 10,
@@ -22,12 +32,12 @@ describe('deriveRWPattern', () => {
     'tsp-overall-structure': 32,
     'tsp-function-of-underlined': 16,
     'coe-textual-illustrate-claim': 1,
-    'fss-subject-verb-agreement': 18,
-    'fss-verb-tense': 20,
+    'fss-subject-verb-agreement': 26,
+    'fss-verb-tense': 17,
     'fss-modifier-placement': 11,
     'fss-parallelism': 8,
-    'fss-pronoun': 2,
-    'fss-possessive': 6,
+    'fss-pronoun': 3,
+    'fss-possessive': 5,
   };
 
   const counts = {};
@@ -40,9 +50,11 @@ describe('deriveRWPattern', () => {
     expect(counts).toEqual(EXPECTED_COUNTS);
   });
 
-  it('tags exactly 269 of 648 items deterministically', () => {
+  it('tags exactly 274 of 648 items deterministically', () => {
+    // 204 non-FSS (boundaries/transitions/tsp/coe) + 70 FSS (72 FSS items, 2 of
+    // which authoritatively route Tier-3) = 274.
     const tagged = Object.values(counts).reduce((a, b) => a + b, 0);
-    expect(tagged).toBe(269);
+    expect(tagged).toBe(274);
     expect(rwQuestionBank.length).toBe(648);
   });
 
@@ -60,7 +72,10 @@ describe('deriveRWPattern', () => {
     expect(RW_PATTERN_LABELS['fss-comparison']).toBeUndefined();
   });
 
-  it('form-structure-and-sense: scopes to the first paragraph + verb-tense is the fallback', () => {
+  it('form-structure-and-sense FALLBACK heuristic: scopes to the first paragraph + verb-tense is the fallback', () => {
+    // These synthetic items carry no id, so they are NOT in the authoritative
+    // rwGrammarType map and exercise the explanation-prose fallback heuristic
+    // (the path that still serves any future FSS item not yet classified).
     const mk = (explanation) => ({ skill: 'form-structure-and-sense', explanation, correctAnswer: 'A', choices: [{ id: 'A', text: 'x' }] });
     // Parallelism wins even though the distractor prose later mentions verb forms.
     expect(deriveRWPattern(mk('The items in a coordinated list must be parallel. Why the wrong answers are tempting: they use a different verb tense.'))).toBe('fss-parallelism');

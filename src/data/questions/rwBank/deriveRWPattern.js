@@ -26,6 +26,8 @@
  * @returns {string|null} kebab-case pattern slug, or null for skill-level
  */
 
+import { getAuthoritativeGrammarType } from './rwGrammarType';
+
 // Transition lexicons by bucket. Flattened + sorted longest-phrase-first so
 // "on the other hand" wins over "on" and "therefore" wins over "then".
 // 'moreover'/'furthermore'/'in addition' are deliberately absent — the
@@ -100,15 +102,20 @@ function coeTextualPattern(item) {
   return null;
 }
 
-// form-structure-and-sense grammar sub-patterns (Phase 4 P3b). The tested rule
-// is stated in the FIRST paragraph of the explanation, before the distractor
-// discussion, so we scope there. Precedence runs most-distinctive-structural
-// first and the generic verb-tense LAST — without both, verb-form mentions in
-// the distractor prose swamp the classifier (46/71 false verb-tense). Validated
-// 27/27 against the items that carry a _meta.rule oracle. Of the 7 buckets,
-// only the 4 that clear the Tier-1 threshold are labeled (RW_PATTERN_LABELS);
-// the rest are emitted for diagnostic-signal completeness but route Tier-3
-// (sub-threshold pool) and show no chip — same handling as coe-textual.
+// form-structure-and-sense grammar sub-patterns — FALLBACK heuristic only.
+//
+// As of 2026-06-17 every live FSS item is classified authoritatively in
+// `rwGrammarType.js` (by what varies across the answer choices), and fssPattern
+// consults that map first. This prose-scoped heuristic now serves only FSS items
+// that are NOT yet in the authoritative map (e.g. newly authored ones) — and a
+// regression test fails CI if any live FSS item ships untagged, so reliance on
+// this fallback is bounded. It reads the FIRST paragraph of the explanation,
+// before the distractor discussion; precedence runs most-distinctive-structural
+// first and the generic verb-tense LAST. NOTE: this ordering is imperfect (it is
+// exactly why the authoritative map exists — "opening phrase" wording could pull
+// a verb-tense item into modifier-placement); the map supersedes it for all
+// current items. Of the 7 buckets, only the 4 that clear the Tier-1 threshold
+// are labeled (RW_PATTERN_LABELS); the rest route Tier-3 and show no chip.
 const FSS_RULES = [
   ['fss-parallelism', /parallel|coordinated (?:series|list)|(?:three|two|four)-item (?:list|series)|gerund-gerund/],
   ['fss-modifier-placement', /dangling|introductory (?:participial|modifier)|participial (?:introductory|opener|phrase|modifier)|modifier (?:attaches|must|should)|fronted modifier|opening (?:phrase|participial)/],
@@ -120,6 +127,15 @@ const FSS_RULES = [
 ];
 
 function fssPattern(item) {
+  // Authoritative per-item tag wins. It is decided by what varies across the
+  // answer choices (the reliable signal) rather than by explanation prose, so
+  // it never mis-files a verb-tense / subject-verb item into "Modifier
+  // placement." Present for every live FSS item; `undefined` means untagged
+  // (future items) → fall through to the heuristic below. A tagged `null` is
+  // authoritative ("no surfaced bucket") and short-circuits the heuristic.
+  const authoritative = getAuthoritativeGrammarType(item);
+  if (authoritative !== undefined) return authoritative;
+
   const firstPara = (item.explanation || '').split(/Why the wrong answers/i)[0].toLowerCase();
   if (!firstPara) return null;
   for (const [slug, re] of FSS_RULES) {
