@@ -551,7 +551,13 @@ const PerformSAT = () => {
     };
     document.addEventListener('visibilitychange', flush);
     return () => document.removeEventListener('visibilitychange', flush);
-  }, [saveActiveDrill]);
+    // Key on the user, not saveActiveDrill: saveActiveDrill is a fresh closure
+    // every render (no useCallback), so depending on it would re-subscribe the
+    // listener on every render. Re-running only when the user changes captures a
+    // correct-userId saveActiveDrill once auth resolves (an empty dep array would
+    // freeze the pre-auth, userId-null closure and never flush). The handler
+    // reads pendingBankDrillRef.current live, so nothing goes stale between.
+  }, [user?.uid]);
 
   // On-ramp eligibility — decided once per session after progress hydrates.
   // Eligible: flagged on, no completion stamp, zero test attempts, no plan.
