@@ -186,7 +186,9 @@ const AdaptivePracticeShell = ({
     drillStartTrackedRef.current = true;
   }, [user?.uid, drillPatternLabel, drillPatternSlug, practiceState?.adaptiveQueueSeed, questions]);
 
-  const currentElimKey = `${idx}`;
+  // Key crossed-out choices by the stable question id, not the array index, so
+  // a growing/reordered queue can't drag eliminations onto the wrong question.
+  const currentElimKey = String(currentQuestion?.id ?? `idx-${idx}`);
   const eliminated = eliminatedChoices[currentElimKey] || [];
 
   const handleNavigate = (targetIdx) => {

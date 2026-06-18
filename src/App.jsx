@@ -94,6 +94,13 @@ const LessonBrowser = React.lazy(() => import('./components/LessonBrowser'));
 const PastTestReviewIndex = React.lazy(() => import('./components/PastTestReview/PastTestReviewIndex'));
 const TestReviewDetail = React.lazy(() => import('./components/PastTestReview/TestReviewDetail'));
 
+// Direct (non-lazy) import: the drill calculator must open instantly when the
+// student clicks "Calculator" in a practice shell. Lazy-loading it would suspend
+// the whole practice view (it renders inside the shared Suspense boundary) and
+// blank the screen on first open. The heavy Desmos library still loads lazily at
+// runtime via a script tag inside the component.
+import DesmosCalculator from './components/DesmosCalculator';
+
 // Text-free skeleton shown while a lazy view chunk loads. Composed from the
 // shared Skeleton primitives. Renders INSIDE #main-content, so the takingTest
 // scroll-lock (height/overflow on the wrapper div) still applies around it.
@@ -1224,31 +1231,47 @@ const PerformSAT = () => {
       };
     };
 
-    const snapshotQuestions = wrongItems
+    const mapped = wrongItems
       .map(it => {
         const snap = reviewBundle.test?.modules?.[it.moduleIndex]?.questions?.[it.questionIndex];
         return enrichFromLive(snap, it.moduleIndex, it.questionIndex);
       })
       .filter(Boolean);
 
+    // AssignedPracticeShell renders multiple-choice only — it has no
+    // student-produced-response (fill-in) input, so a missed fill-in would be an
+    // unanswerable dead-end in the retry drill. Drop fill-ins (every other drill
+    // launcher applies the same MCQ filter).
+    const snapshotQuestions = mapped.filter(q => Array.isArray(q.choices) && q.choices.length >= 2);
+    const droppedFillIns = mapped.length - snapshotQuestions.length;
+
     if (snapshotQuestions.length === 0) {
-      showToast({ type: 'info', message: 'No items available to retry.' });
+      showToast({
+        type: 'info',
+        message: droppedFillIns > 0
+          ? "Those wrong items are fill-in questions, which aren't available in retry drills yet."
+          : 'No items available to retry.',
+      });
       return;
     }
 
-    // Surface partial-mapping when some wrong items couldn't be located in
-    // the snapshot (rare; happens if test content was edited after the
-    // attempt). Telemetry helps us spot it; toast keeps the user oriented.
+    // Surface partial-mapping when some wrong items were dropped — either they
+    // couldn't be located in the snapshot (rare; test edited after the attempt)
+    // or they were fill-ins. Telemetry helps us spot it; the toast keeps the
+    // user oriented.
     if (snapshotQuestions.length < wrongItems.length) {
       logPtrEvent('retry_dropped', {
         studentId: user?.uid || null,
         testId: selectedReviewTestId,
         expected: wrongItems.length,
         mapped: snapshotQuestions.length,
+        droppedFillIns,
       });
       showToast({
         type: 'info',
-        message: `Drilling ${snapshotQuestions.length} of ${wrongItems.length} wrong items — some couldn't be loaded.`,
+        message: droppedFillIns > 0
+          ? `Drilling ${snapshotQuestions.length} of ${wrongItems.length} wrong items — fill-in questions aren't available in retry drills yet.`
+          : `Drilling ${snapshotQuestions.length} of ${wrongItems.length} wrong items — some couldn't be loaded.`,
       });
     }
 
@@ -1430,6 +1453,15 @@ const PerformSAT = () => {
       const routing = practiceRoutingRef.current;
       if (!routing) {
         logWarn('adaptive', 'routing module missing in handleNextQuestion — session cannot advance');
+        return;
+      }
+      // If the student navigated BACK to an already-served question and clicks
+      // "Next", just step forward through the existing queue. The generate-next
+      // logic below must run ONLY when answering the newest (last-served)
+      // question — otherwise re-answering an earlier item would re-score mastery
+      // AND append a brand-new question, skipping past the queued ones.
+      if (practiceState.currentQuestionIndex < questions.length - 1) {
+        handleNavigateToQuestion(practiceState.currentQuestionIndex + 1);
         return;
       }
       const {
@@ -1656,9 +1688,28 @@ const PerformSAT = () => {
             result.question,
             ...prev.shuffledQuestions.slice(insertAt),
           ];
+          // Add the inserted question to the SAME round as the current question.
+          // Rounds are tracked by questionIds; without this the new id belongs to
+          // no round, so findRoundIndexForQuestion returns -1 and the shell drops
+          // the "Round N · Q M of K" header on the Try-Similar question.
+          let rounds = prev.rounds;
+          if (Array.isArray(prev.rounds) && prev.rounds.length > 0) {
+            const curId = prev.shuffledQuestions[prev.currentQuestionIndex]?.id;
+            const rIdx = findRoundIndexForQuestion(prev.rounds, curId);
+            if (rIdx >= 0) {
+              rounds = prev.rounds.map((r, i) => {
+                if (i !== rIdx) return r;
+                const ids = [...r.questionIds];
+                const pos = ids.indexOf(curId);
+                ids.splice(pos >= 0 ? pos + 1 : ids.length, 0, result.question.id);
+                return { ...r, questionIds: ids };
+              });
+            }
+          }
           return {
             ...prev,
             shuffledQuestions: next,
+            rounds,
             currentQuestionIndex: insertAt,
             selectedAnswer: null,
             showFeedback: false,
@@ -2723,6 +2774,26 @@ const PerformSAT = () => {
           // All live paths are assigned/adaptive (828dc0a unified routing);
           // the legacy standard/prescriptive inline UI was removed.
           return null;
+        })()}
+
+        {/* Desmos calculator for the drill flows (assigned + adaptive practice).
+            The shells' "Calculator" button toggles App-level showCalculator;
+            this renders the actual calculator. (PracticeTest mounts its own
+            instance for full tests.) Without this, the drill calculator button
+            lit up but nothing appeared — the bug fixed 2026-06-18.
+
+            Gated so the floating calculator only shows where it belongs: not on
+            R&W items (no calculator on the digital SAT R&W), and not over the
+            round-complete interstitial or the completion screen — those replace
+            the question card and have no Calculator toggle, so a stranded
+            calculator there would be unclosable from the visible UI. */}
+        {view === 'practice' && (() => {
+          const pq = practiceState.shuffledQuestions?.[practiceState.currentQuestionIndex];
+          const calcVisible = showCalculator
+            && pq?.section !== 'rw'
+            && !practiceState.showRoundComplete
+            && !practiceState.isComplete;
+          return <DesmosCalculator isOpen={calcVisible} onClose={() => setShowCalculator(false)} />;
         })()}
 
       </React.Suspense>

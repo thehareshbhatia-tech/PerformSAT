@@ -176,7 +176,10 @@ const AssignedPracticeShell = ({
   const correctCount = Object.values(practiceState.answers).filter(a => a.correct).length;
   const diffBadge = currentQuestion?.difficulty ? getDifficultyBadge(currentQuestion.difficulty) : null;
 
-  const currentElimKey = `${idx}`;
+  // Key crossed-out choices by the STABLE question id, not the array index — a
+  // Try-Similar insertion splices a question into the queue and shifts every
+  // later index, which would otherwise drag eliminations onto the wrong question.
+  const currentElimKey = String(currentQuestion?.id ?? `idx-${idx}`);
   const eliminated = eliminatedChoices[currentElimKey] || [];
 
   const handleNavigate = (targetIdx) => {

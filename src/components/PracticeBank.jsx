@@ -453,7 +453,7 @@ const PracticeBank = ({ onStartPractice, bankPractice = {}, activeDrill = null, 
       />
 
       <FilterBar
-        categories={categories}
+        categories={visibleCategories}
         search={search}
         onSearchChange={setSearch}
         onJumpToDomain={handleJumpToDomain}
