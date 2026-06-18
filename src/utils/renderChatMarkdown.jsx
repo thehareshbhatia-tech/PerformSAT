@@ -105,13 +105,61 @@ const renderMarkdown = (text) => {
     }
   };
 
-  lines.forEach((line, idx) => {
+  const splitTableRow = (r) => r.trim().replace(/^\||\|$/g, '').split('|').map((c) => c.trim());
+
+  // Indexed loop (not forEach) so multi-line constructs — fenced code blocks and
+  // tables — can consume several lines at once.
+  let idx = 0;
+  while (idx < lines.length) {
+    const line = lines[idx];
+
+    // Fenced code block: ```...``` — render verbatim (already HTML-escaped).
+    if (/^```/.test(line)) {
+      flushList();
+      const codeLines = [];
+      idx++;
+      while (idx < lines.length && !/^```/.test(lines[idx])) { codeLines.push(lines[idx]); idx++; }
+      idx++; // skip the closing fence
+      elements.push(
+        <pre key={`code-${idx}`} style={{ background: 'rgba(0,0,0,0.04)', borderRadius: '8px', padding: '12px 14px', overflowX: 'auto', margin: '12px 0', fontSize: '0.85em', lineHeight: '1.5', fontFamily: "'SF Mono',Menlo,monospace" }}>
+          <code dangerouslySetInnerHTML={{ __html: codeLines.join('\n') }} />
+        </pre>
+      );
+      continue;
+    }
+
+    // Pipe table: a `| ... |` header row followed by a `|---|---|` separator.
+    if (/^\|.*\|$/.test(line.trim()) && idx + 1 < lines.length
+        && /^\|?[\s:|-]+\|?$/.test(lines[idx + 1].trim()) && lines[idx + 1].includes('-')) {
+      flushList();
+      const headers = splitTableRow(line);
+      idx += 2; // skip header + separator
+      const rows = [];
+      while (idx < lines.length && /^\|.*\|$/.test(lines[idx].trim())) { rows.push(splitTableRow(lines[idx])); idx++; }
+      elements.push(
+        <div key={`tbl-${idx}`} style={{ overflowX: 'auto', margin: '12px 0' }}>
+          <table style={{ borderCollapse: 'collapse', width: '100%', fontSize: '0.9em' }}>
+            <thead><tr>{headers.map((h, hi) => (
+              <th key={hi} style={{ border: '1px solid rgba(0,0,0,0.12)', padding: '6px 10px', textAlign: 'left', background: 'rgba(0,0,0,0.03)', fontWeight: 600 }} dangerouslySetInnerHTML={{ __html: processInlineMarkdown(h) }} />
+            ))}</tr></thead>
+            <tbody>{rows.map((r, ri) => (
+              <tr key={ri}>{r.map((c, ci) => (
+                <td key={ci} style={{ border: '1px solid rgba(0,0,0,0.12)', padding: '6px 10px' }} dangerouslySetInnerHTML={{ __html: processInlineMarkdown(c) }} />
+              ))}</tr>
+            ))}</tbody>
+          </table>
+        </div>
+      );
+      continue;
+    }
+
     const numberedMatch = line.match(/^(\d+)\.\s+(.+)$/);
     if (numberedMatch) {
       if (listType !== 'ol') flushList();
       listType = 'ol';
       currentList.push(numberedMatch[2]);
-      return;
+      idx++;
+      continue;
     }
 
     const bulletMatch = line.match(/^[-*]\s+(.+)$/);
@@ -119,20 +167,22 @@ const renderMarkdown = (text) => {
       if (listType !== 'ul') flushList();
       listType = 'ul';
       currentList.push(bulletMatch[1]);
-      return;
+      idx++;
+      continue;
     }
 
     flushList();
 
     if (line.trim() === '') {
       elements.push(<div key={`br-${idx}`} style={{ height: '12px' }} />);
-      return;
+      idx++;
+      continue;
     }
 
     const headerMatch = line.match(/^(#{1,4})\s+(.+)$/);
     if (headerMatch) {
       const level = headerMatch[1].length;
-      const text = headerMatch[2];
+      const headerText = headerMatch[2];
       const sizes = { 1: '1.25em', 2: '1.15em', 3: '1.05em', 4: '1em' };
       const weights = { 1: '600', 2: '600', 3: '600', 4: '600' };
       elements.push(
@@ -145,23 +195,26 @@ const renderMarkdown = (text) => {
             color: designColors.text.primary,
             letterSpacing: '-0.02em'
           }}
-          dangerouslySetInnerHTML={{ __html: processInlineMarkdown(text) }}
+          dangerouslySetInnerHTML={{ __html: processInlineMarkdown(headerText) }}
         />
       );
-      return;
+      idx++;
+      continue;
     }
 
     if (line.match(/^-{3,}$/)) {
       elements.push(
         <hr key={idx} style={{ border: 'none', borderTop: '1px solid rgba(0,0,0,0.08)', margin: '16px 0' }} />
       );
-      return;
+      idx++;
+      continue;
     }
 
     elements.push(
       <p key={idx} style={{ margin: '0 0 12px 0', lineHeight: '1.55' }} dangerouslySetInnerHTML={{ __html: processInlineMarkdown(line) }} />
     );
-  });
+    idx++;
+  }
 
   flushList();
 

@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { chatWithTutor } from '../services/aiTutorService';
 import CoachModePicker from './CoachModePicker';
-import { trackCoachModeUsed } from '../services/analyticsService';
+import { trackCoachModeUsed, trackEvent } from '../services/analyticsService';
 import ProactiveHint from './ProactiveHint';
 import {
   generateProactiveRecommendation,
@@ -58,45 +58,53 @@ const design = {
   }
 };
 
-// Copy-to-clipboard affordance for an assistant message — students paste worked
-// solutions into their notes. Encapsulates its own transient "Copied" state so
-// the parent message list stays stateless.
-const CopyButton = ({ text }) => {
+// Per-assistant-message action row: Copy (paste worked solutions to notes),
+// Regenerate (re-ask, last message only), and 👍/👎 feedback. Encapsulates its
+// own transient state so the parent message list stays stateless.
+const ACTION_ICON = {
+  base: {
+    display: 'inline-flex', alignItems: 'center', gap: '5px',
+    padding: '3px 8px', borderRadius: '8px', border: 'none',
+    background: 'transparent', fontSize: '12px', fontWeight: 600,
+    cursor: 'pointer', transition: 'color 0.15s ease', color: '#9ca3af',
+  },
+};
+const MessageActions = ({ text, onRegenerate, onFeedback }) => {
   const [copied, setCopied] = useState(false);
+  const [vote, setVote] = useState(null);
+  const doVote = (v) => { setVote(v); onFeedback?.(v); };
   return (
-    <button
-      type="button"
-      aria-label="Copy this answer"
-      onClick={() => {
-        try {
-          navigator.clipboard?.writeText(text);
-          setCopied(true);
-          setTimeout(() => setCopied(false), 1500);
-        } catch { /* clipboard unavailable — no-op */ }
-      }}
-      style={{
-        marginTop: '8px',
-        display: 'inline-flex',
-        alignItems: 'center',
-        gap: '5px',
-        padding: '3px 8px',
-        borderRadius: '8px',
-        border: 'none',
-        background: 'transparent',
-        color: copied ? '#16a34a' : '#9ca3af',
-        fontSize: '12px',
-        fontWeight: 600,
-        cursor: 'pointer',
-        transition: 'color 0.15s ease',
-      }}
-    >
-      {copied ? (
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6L9 17l-5-5" /></svg>
-      ) : (
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" /><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" /></svg>
+    <div style={{ display: 'flex', alignItems: 'center', gap: '2px', marginTop: '8px', flexWrap: 'wrap' }}>
+      <button
+        type="button"
+        aria-label="Copy this answer"
+        onClick={() => {
+          try {
+            navigator.clipboard?.writeText(text);
+            setCopied(true);
+            setTimeout(() => setCopied(false), 1500);
+          } catch { /* clipboard unavailable */ }
+        }}
+        style={{ ...ACTION_ICON.base, color: copied ? '#16a34a' : '#9ca3af' }}
+      >
+        {copied
+          ? <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6L9 17l-5-5" /></svg>
+          : <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" /><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" /></svg>}
+        {copied ? 'Copied' : 'Copy'}
+      </button>
+      {onRegenerate && (
+        <button type="button" aria-label="Regenerate this answer" onClick={onRegenerate} style={ACTION_ICON.base}>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M1 4v6h6M23 20v-6h-6" /><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15" /></svg>
+          Retry
+        </button>
       )}
-      {copied ? 'Copied' : 'Copy'}
-    </button>
+      <button type="button" aria-label="This answer helped" onClick={() => doVote('up')} style={{ ...ACTION_ICON.base, color: vote === 'up' ? '#16a34a' : '#9ca3af', padding: '3px 6px' }}>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill={vote === 'up' ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3" /></svg>
+      </button>
+      <button type="button" aria-label="This answer did not help" onClick={() => doVote('down')} style={{ ...ACTION_ICON.base, color: vote === 'down' ? '#dc2626' : '#9ca3af', padding: '3px 6px' }}>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill={vote === 'down' ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3zm7-13h2.67A2.31 2.31 0 0 1 22 4v7a2.31 2.31 0 0 1-2.33 2H17" /></svg>
+      </button>
+    </div>
   );
 };
 
@@ -152,6 +160,11 @@ const AiTutorChat = ({
   // surfaces a "jump to latest" affordance when they've scrolled up.
   const nearBottomRef = useRef(true);
   const [showJumpPill, setShowJumpPill] = useState(false);
+  // Regenerate passes the trimmed history (everything before the last user turn)
+  // through this ref so handleSend rebuilds from it instead of its stale closure.
+  const regenBaseRef = useRef(null);
+  // Fire tutor_opened once per open (reset when closed) — engagement telemetry.
+  const openTrackedRef = useRef(false);
   const handleMessagesScroll = (e) => {
     const el = e.currentTarget;
     const near = el.scrollHeight - el.scrollTop - el.clientHeight < 80;
@@ -711,6 +724,19 @@ Your goal is to build their problem-solving instincts. Every question they solve
     }
   }, [isOpen, embedded]);
 
+  // Engagement telemetry: tutor_opened (once per open).
+  useEffect(() => {
+    if (isOpen && !openTrackedRef.current && user?.uid) {
+      openTrackedRef.current = true;
+      trackEvent(user.uid, 'tutor', 'opened', {
+        section: practiceContext?.section === 'rw' ? 'rw' : 'math',
+        isPracticeQuestion: !!isPracticeQuestion,
+        embedded: !!embedded,
+      });
+    }
+    if (!isOpen) openTrackedRef.current = false;
+  }, [isOpen, embedded, isPracticeQuestion, practiceContext, user?.uid]);
+
   // Generate proactive recommendations based on skill progress
   useEffect(() => {
     if (!skillProgress || hintDismissed || messages.length > 0) return;
@@ -811,6 +837,28 @@ Your goal is to build their problem-solving instincts. Every question they solve
   }, [messages.length, userId, skillProgress, practiceContext, practiceTestResults, studentFingerprint, learningMemory, isPracticeQuestion, moduleId, lessonId]);
 
   // Handle accepting a proactive recommendation
+  // Re-ask the last user question and replace the assistant reply.
+  const handleRegenerate = () => {
+    if (isLoading) return;
+    let i = messages.length - 1;
+    while (i >= 0 && messages[i].role !== 'user') i--;
+    if (i < 0) return;
+    regenBaseRef.current = messages.slice(0, i); // history before that user turn
+    handleSend(messages[i].content);
+  };
+
+  // 👍/👎 on an assistant answer — a quality signal we otherwise lack.
+  const handleMessageFeedback = (vote) => {
+    if (user?.uid) {
+      trackEvent(user.uid, 'tutor', 'message_feedback', {
+        vote,
+        section: practiceContext?.section === 'rw' ? 'rw' : 'math',
+        isPracticeQuestion: !!isPracticeQuestion,
+        coachMode: coachMode || null,
+      });
+    }
+  };
+
   const handleProactiveAccept = (recommendation) => {
     if (recommendation.suggestedPrompt) {
       // Auto-send the nudge instead of just filling the box — one tap to ask.
@@ -833,6 +881,27 @@ Your goal is to build their problem-solving instincts. Every question they solve
     return null;
   };
 
+  // Contextual follow-up chips shown UNDER the latest assistant reply so the
+  // Socratic loop keeps going past turn one (Khanmigo/Claude-style). Adapts to
+  // whether the answer is revealed and what the student got wrong.
+  const getFollowUpPrompts = () => {
+    const prompts = ['Explain that a different way'];
+    if (isPracticeQuestion && practiceContext) {
+      const revealed = practiceContext.answerRevealed;
+      const sel = practiceContext.selectedAnswer;
+      if (revealed && practiceContext.isCorrect === false && sel) {
+        const letter = String(sel).trim().charAt(0);
+        prompts.push(/^[A-D]$/.test(letter) ? `Why was ${letter} wrong?` : 'Why was my answer wrong?');
+      }
+      prompts.push(practiceContext.section === 'rw' ? 'Show me a similar question' : 'Give me a similar problem');
+      if (!revealed) prompts.push('Can you give me a hint?');
+    } else {
+      prompts.push('Can you give an example?');
+    }
+    // De-dupe + cap at 3 so the row stays compact.
+    return [...new Set(prompts)].slice(0, 3);
+  };
+
   const handleSend = async (overrideText) => {
     const now = Date.now();
     // overrideText lets a suggestion chip or the error Retry button send
@@ -842,8 +911,16 @@ Your goal is to build their problem-solving instincts. Every question they solve
 
     setLastSendTime(now);
     const userMessage = { role: 'user', content: text };
-    // Drop a trailing error bubble so a retry replaces it instead of stacking.
-    const base = messages[messages.length - 1]?.isError ? messages.slice(0, -1) : messages;
+    // Regenerate supplies a trimmed history (synchronously, via ref) so the old
+    // assistant reply is dropped; otherwise drop only a trailing error bubble so
+    // a retry replaces it instead of stacking.
+    let base;
+    if (regenBaseRef.current) {
+      base = regenBaseRef.current;
+      regenBaseRef.current = null;
+    } else {
+      base = messages[messages.length - 1]?.isError ? messages.slice(0, -1) : messages;
+    }
     const newMessages = [...base, userMessage];
     setMessages(newMessages);
     setInput('');
@@ -1568,7 +1645,11 @@ Your goal is to build their problem-solving instincts. Every question they solve
                     </button>
                   )}
                   {msg.role === 'assistant' && !msg.isError && msg.content && !(isLoading && idx === messages.length - 1) && (
-                    <div><CopyButton text={msg.content} /></div>
+                    <MessageActions
+                      text={msg.content}
+                      onRegenerate={idx === messages.length - 1 && !isLoading ? handleRegenerate : undefined}
+                      onFeedback={handleMessageFeedback}
+                    />
                   )}
                 </div>
               </div>
@@ -1617,6 +1698,33 @@ Your goal is to build their problem-solving instincts. Every question they solve
                     ))}
                   </div>
                 </div>
+              </div>
+            )}
+            {!isLoading && messages.length > 0 && messages[messages.length - 1]?.role === 'assistant' && !messages[messages.length - 1]?.isError && (
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: '4px', marginBottom: '4px', paddingLeft: premiumLearnMode ? '40px' : '0' }}>
+                {getFollowUpPrompts().map((p, i) => (
+                  <button
+                    key={i}
+                    type="button"
+                    onClick={() => handleSend(p)}
+                    style={{
+                      padding: '7px 13px',
+                      borderRadius: '999px',
+                      border: '1px solid rgba(234, 88, 12, 0.25)',
+                      background: 'rgba(234, 88, 12, 0.06)',
+                      color: '#9a3412',
+                      fontSize: '12.5px',
+                      fontWeight: 600,
+                      fontFamily: design.typography.fontFamily,
+                      cursor: 'pointer',
+                      transition: 'background 0.15s ease',
+                    }}
+                    onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(234, 88, 12, 0.12)'; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(234, 88, 12, 0.06)'; }}
+                  >
+                    {p}
+                  </button>
+                ))}
               </div>
             )}
             <div ref={messagesEndRef} />

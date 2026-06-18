@@ -158,3 +158,28 @@ describe('renderChatMarkdown edge cases', () => {
     expect(html).not.toContain('class="katex"');
   });
 });
+
+describe('renderChatMarkdown blocks', () => {
+  test('renders a fenced code block as <pre><code>', () => {
+    const html = renderToHtml('Here:\n```\nx = 2\ny = 3\n```\nDone');
+    expect(html).toContain('<pre');
+    expect(html).toContain('<code');
+    expect(html).toContain('x = 2');
+    expect(html).toContain('y = 3');
+  });
+
+  test('escaped HTML inside a code block stays inert', () => {
+    const html = renderToHtml('```\n<img onerror=alert(1)>\n```');
+    expect(html).toContain('&lt;img');
+    expect(html).not.toContain('<img');
+  });
+
+  test('renders a pipe table with header + rows', () => {
+    const html = renderToHtml('| Choice | Trap |\n| --- | --- |\n| A | surface match |\n| B | scope shift |');
+    expect(html).toContain('<table');
+    expect(html).toContain('<th');
+    expect(html).toContain('Choice');
+    expect(html).toContain('surface match');
+    expect(html).toContain('scope shift');
+  });
+});
