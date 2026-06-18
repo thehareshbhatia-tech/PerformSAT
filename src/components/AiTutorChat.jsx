@@ -138,6 +138,10 @@ const AiTutorChat = ({
 }) => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
+  // Expand the tutor to a full-screen overlay — primarily a mobile escape from
+  // the cramped 50vh strip, but available everywhere. Additive (a fixed overlay
+  // on the existing chat), so it doesn't restructure the shell's layout grid.
+  const [isExpanded, setIsExpanded] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   // Active coach mode (null = default tutor). Activates a structured system
   // overlay in chatWithTutor — the modes existed but were never wired.
@@ -1116,29 +1120,44 @@ Your goal is to build their problem-solving instincts. Every question they solve
       ref={chatContainerRef}
       role="dialog"
       aria-label="AI Tutor Chat"
-      aria-modal="false"
-      style={premiumLearnMode ? {
-        display: 'flex',
-        flexDirection: 'column',
-        height: '100%',
-        background: 'rgba(255, 255, 255, 0.6)',
-        backdropFilter: 'saturate(180%) blur(24px)',
-        WebkitBackdropFilter: 'saturate(180%) blur(24px)',
-        fontFamily: design.typography.fontFamily,
-        borderRadius: standalone ? '16px' : (embedded ? '0px' : '24px'),
-      } : {
-        marginTop: '0px',
-        borderRadius: standalone ? '16px' : (embedded ? '0px' : '20px'),
-        background: design.colors.surface.primary,
-        boxShadow: standalone || embedded ? 'none' : design.shadow.large,
-        overflow: 'hidden',
-        fontFamily: design.typography.fontFamily,
-        animation: standalone || embedded ? 'none' : 'chatSlideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
-        border: embedded ? 'none' : `1px solid ${design.colors.border.light}`,
-        display: 'flex',
-        flexDirection: 'column',
-        height: standalone ? 'calc(100vh - 160px)' : (embedded ? '100%' : '100%'),
-        minHeight: standalone ? '500px' : (embedded ? '0' : undefined),
+      aria-modal={isExpanded ? 'true' : 'false'}
+      style={{
+        ...(premiumLearnMode ? {
+          display: 'flex',
+          flexDirection: 'column',
+          height: '100%',
+          background: 'rgba(255, 255, 255, 0.6)',
+          backdropFilter: 'saturate(180%) blur(24px)',
+          WebkitBackdropFilter: 'saturate(180%) blur(24px)',
+          fontFamily: design.typography.fontFamily,
+          borderRadius: standalone ? '16px' : (embedded ? '0px' : '24px'),
+        } : {
+          marginTop: '0px',
+          borderRadius: standalone ? '16px' : (embedded ? '0px' : '20px'),
+          background: design.colors.surface.primary,
+          boxShadow: standalone || embedded ? 'none' : design.shadow.large,
+          overflow: 'hidden',
+          fontFamily: design.typography.fontFamily,
+          animation: standalone || embedded ? 'none' : 'chatSlideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
+          border: embedded ? 'none' : `1px solid ${design.colors.border.light}`,
+          display: 'flex',
+          flexDirection: 'column',
+          height: standalone ? 'calc(100vh - 160px)' : (embedded ? '100%' : '100%'),
+          minHeight: standalone ? '500px' : (embedded ? '0' : undefined),
+        }),
+        // Full-screen overlay when expanded — overrides the embedded strip.
+        ...(isExpanded ? {
+          position: 'fixed',
+          inset: 0,
+          width: '100vw',
+          height: '100vh',
+          maxWidth: 'none',
+          maxHeight: 'none',
+          minHeight: 0,
+          borderRadius: 0,
+          zIndex: 2000,
+          background: premiumLearnMode ? 'rgba(255,255,255,0.92)' : design.colors.surface.primary,
+        } : {}),
       }}
     >
       {/* Header */}
@@ -1176,6 +1195,21 @@ Your goal is to build their problem-solving instincts. Every question they solve
               </span>
             )}
           </div>
+          <button
+            onClick={() => setIsExpanded((v) => !v)}
+            aria-label={isExpanded ? 'Collapse tutor' : 'Expand tutor to full screen'}
+            title={isExpanded ? 'Collapse' : 'Expand'}
+            style={{
+              background: design.colors.surface.secondary,
+              border: 'none', width: '30px', height: '30px', borderRadius: '50%',
+              cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center',
+              color: design.colors.text.secondary, marginRight: '6px',
+            }}
+          >
+            {isExpanded
+              ? <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 14h6v6M20 10h-6V4M14 10l7-7M3 21l7-7" /></svg>
+              : <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" /></svg>}
+          </button>
           <button
             onClick={onClose}
             aria-label="Close chat"
@@ -1780,7 +1814,12 @@ Your goal is to build their problem-solving instincts. Every question they solve
           borderTop: `1px solid ${design.colors.border.light}`,
         }}
       >
-        <CoachModePicker activeMode={coachMode} onSelectMode={setCoachMode} />
+        <CoachModePicker
+          activeMode={coachMode}
+          onSelectMode={setCoachMode}
+          answerRevealed={practiceContext?.answerRevealed}
+          isCorrect={practiceContext?.isCorrect}
+        />
         <div style={{
           display: 'flex',
           gap: '12px',

@@ -3,6 +3,7 @@ import { MathText } from './MathText';
 import QuestionDiagram from './QuestionDiagrams';
 import QuestionRenderer from './QuestionRenderer';
 import SolutionExplanation from './SolutionExplanation';
+import AiTutorChat from './AiTutorChat';
 import { formatPatternLabel } from '../services/selectors/missedPatternLabel';
 import { getDesmosTip } from '../services/selectors/desmosTip';
 import { decideTier } from '../data/questions/bank';
@@ -108,10 +109,12 @@ const AdaptivePracticeShell = ({
   onRelaunch,
   getDifficultyBadge,
   user,
+  skillProgress,
 }) => {
   const [markedForReview, setMarkedForReview] = useState([]);
   const [eliminatedChoices, setEliminatedChoices] = useState({});
   const [showGrid, setShowGrid] = useState(false);
+  const [tutorOpen, setTutorOpen] = useState(false);
 
   const sessionState = practiceState.adaptiveSessionState;
   const answeredCount = sessionState?.answered?.length || 0;
@@ -190,6 +193,38 @@ const AdaptivePracticeShell = ({
   // a growing/reordered queue can't drag eliminations onto the wrong question.
   const currentElimKey = String(currentQuestion?.id ?? `idx-${idx}`);
   const eliminated = eliminatedChoices[currentElimKey] || [];
+
+  // Context for the on-demand AI tutor (adaptive practice had no tutor before).
+  // Mirrors the assigned shell so trap-coaching fires; only surfaces the
+  // answer/choice once feedback is shown.
+  const tutorRecorded = practiceState.answers[currentQuestion?.id];
+  const tutorPracticeContext = {
+    question: currentQuestion?.question || '',
+    choices: currentQuestion?.choices || [],
+    hint: currentQuestion?.hint || '',
+    answerRevealed: practiceState.showFeedback,
+    correctAnswer: practiceState.showFeedback
+      ? (currentQuestion?.type === 'fill-in'
+          ? currentQuestion?.correctAnswer
+          : currentQuestion?.choices?.find((c) => c.id === currentQuestion?.correctAnswer)?.text || currentQuestion?.correctAnswer)
+      : undefined,
+    explanation: practiceState.showFeedback ? (currentQuestion?.explanation || '') : '',
+    isCorrect: practiceState.showFeedback ? tutorRecorded?.correct : undefined,
+    selectedAnswer: practiceState.showFeedback && tutorRecorded?.selected
+      ? (currentQuestion?.type === 'fill-in'
+          ? tutorRecorded.selected
+          : (currentQuestion?.choices?.find((c) => c.id === tutorRecorded.selected)?.text
+              ? `${tutorRecorded.selected}) ${currentQuestion.choices.find((c) => c.id === tutorRecorded.selected).text}`
+              : tutorRecorded.selected))
+      : undefined,
+    skills: currentQuestion?.skills || (currentQuestion?.skill ? [currentQuestion.skill] : []),
+    section: currentQuestion?.section || 'math',
+    domain: currentQuestion?.domain,
+    passage: currentQuestion?.passage,
+    passages: currentQuestion?.passages,
+    studentNotes: currentQuestion?.studentNotes,
+    questionTable: currentQuestion?.questionTable,
+  };
 
   const handleNavigate = (targetIdx) => {
     if (targetIdx >= 0 && targetIdx < totalServed) {
@@ -399,6 +434,14 @@ const AdaptivePracticeShell = ({
               Calculator
             </button>
           )}
+          <button onClick={() => setTutorOpen(true)} style={{
+            background: tutorOpen ? 'var(--color-brand-purple-deep)' : 'rgba(255,255,255,0.06)',
+            border: '1px solid rgba(255,255,255,0.1)', borderRadius: '6px',
+            padding: '6px 10px', cursor: 'pointer', color: C.white,
+            fontSize: '12px', fontWeight: '600',
+          }}>
+            Ask SEVA
+          </button>
         </div>
       </div>
 
@@ -795,6 +838,33 @@ const AdaptivePracticeShell = ({
           {practiceState.showFeedback ? 'Next Question →' : 'Next →'}
         </button>
       </div>
+
+      {/* On-demand AI tutor — a fixed overlay panel (additive; doesn't touch the
+          single-column layout). Closes the gap where adaptive practice had no
+          tutor at all. The tutor itself can expand to full screen on mobile. */}
+      {tutorOpen && (
+        <>
+          <div onClick={() => setTutorOpen(false)} style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.3)', zIndex: 1500 }} />
+          <div style={{ position: 'fixed', top: 0, right: 0, bottom: 0, width: 'min(420px, 100vw)', zIndex: 1600, background: '#fff', boxShadow: '-8px 0 32px -8px rgba(0,0,0,0.25)', display: 'flex', flexDirection: 'column' }}>
+            <AiTutorChat
+              isOpen={true}
+              onClose={() => setTutorOpen(false)}
+              moduleId="adaptive-practice"
+              lessonId={`adaptive-${currentQuestion?.id || idx}`}
+              lessonTitle={headerTitle}
+              isVideoLesson={false}
+              isPracticeQuestion={true}
+              practiceContext={tutorPracticeContext}
+              embedded={true}
+              headerCompact={true}
+              standalone={false}
+              skillProgress={skillProgress}
+              testDate={user?.testDate}
+              user={user}
+            />
+          </div>
+        </>
+      )}
     </div>
   );
 };

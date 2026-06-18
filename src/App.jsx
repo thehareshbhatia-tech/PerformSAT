@@ -2767,6 +2767,7 @@ const PerformSAT = () => {
                 })}
                 getDifficultyBadge={getDifficultyBadge}
                 user={user}
+                skillProgress={skillProgress}
               />
             );
           }
