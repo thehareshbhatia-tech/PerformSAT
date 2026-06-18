@@ -182,6 +182,19 @@ const AssignedPracticeShell = ({
   const currentElimKey = String(currentQuestion?.id ?? `idx-${idx}`);
   const eliminated = eliminatedChoices[currentElimKey] || [];
 
+  // Answer context for the AI tutor's trap-analysis branch (only meaningful
+  // after the student has answered + revealed). Without these the "name the
+  // trap you fell for" coaching can never fire. selectedAnswer is the readable
+  // "C) <choice text>" form, not a bare letter, so feedback is specific.
+  const tutorRecordedAnswer = practiceState.answers[currentQuestion?.id];
+  const tutorSelectedDisplay = (() => {
+    const sel = tutorRecordedAnswer?.selected;
+    if (!sel) return undefined;
+    if (currentQuestion?.type === 'fill-in') return sel;
+    const t = currentQuestion?.choices?.find(c => c.id === sel)?.text;
+    return t ? `${sel}) ${t}` : sel;
+  })();
+
   const handleNavigate = (targetIdx) => {
     if (targetIdx >= 0 && targetIdx < total) {
       const q = questions[targetIdx];
@@ -902,6 +915,11 @@ const AssignedPracticeShell = ({
                   : currentQuestion?.choices?.find(c => c.id === currentQuestion?.correctAnswer)?.text || currentQuestion?.correctAnswer)
               : undefined,
             explanation: practiceState.showFeedback ? (currentQuestion?.explanation || '') : '',
+            // Revive the trap-analysis + emotional-state coaching: what the
+            // student picked and whether it was right (only post-reveal).
+            isCorrect: practiceState.showFeedback ? tutorRecordedAnswer?.correct : undefined,
+            selectedAnswer: practiceState.showFeedback ? tutorSelectedDisplay : undefined,
+            userAnswer: practiceState.showFeedback ? tutorRecordedAnswer?.selected : undefined,
             skills: currentQuestion?.skills || (currentQuestion?.skill ? [currentQuestion.skill] : []),
             // R&W stimulus + classification (undefined for math items → tutor stays math)
             section: currentQuestion?.section || 'math',

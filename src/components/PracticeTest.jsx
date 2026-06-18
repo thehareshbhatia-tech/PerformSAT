@@ -2461,6 +2461,12 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
                             ? reviewQ?.correctAnswer
                             : reviewQ?.choices?.find(c => c.id === reviewQ?.correctAnswer)?.text || reviewQ?.correctAnswer,
                           explanation: reviewQ?.explanation || '',
+                          // Revive trap-analysis coaching: what the student picked + whether right.
+                          isCorrect,
+                          selectedAnswer: userAnswer !== undefined
+                            ? (reviewQ?.type === 'fill-in' ? userAnswer : `${userAnswer}) ${userAnswerDisplay}`)
+                            : undefined,
+                          userAnswer,
                           skills: reviewQ?.skills || (reviewQ?.skill ? [reviewQ.skill] : []),
                           // R&W stimulus + classification (undefined for math items → tutor stays math)
                           section: reviewQ?.section || 'math',

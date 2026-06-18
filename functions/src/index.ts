@@ -268,6 +268,11 @@ export const aiTutor = onRequest(
       }
 
       const budget = thinking_budget || 10000;
+      // Default to streaming so the student sees the answer type in live instead
+      // of staring at a spinner through a long thinking pass. The client sends
+      // stream:false to use the buffered fallback path (and retries that way if
+      // the stream yields nothing), so a streaming hiccup can never break chat.
+      const useStream = request.body.stream !== false;
 
       const anthropicResponse = await fetch(
         "https://api.anthropic.com/v1/messages",
@@ -287,6 +292,7 @@ export const aiTutor = onRequest(
             },
             system: system || "",
             messages: messages,
+            stream: useStream,
           }),
         }
       );
@@ -300,18 +306,86 @@ export const aiTutor = onRequest(
         return;
       }
 
-      const data = await anthropicResponse.json() as {
-        content: Array<{type: string; text?: string}>;
-        usage: unknown;
+      // ── Buffered (non-streaming) path — unchanged behavior, the safety net ──
+      if (!useStream) {
+        const data = await anthropicResponse.json() as {
+          content: Array<{type: string; text?: string}>;
+          usage: unknown;
+          stop_reason?: string;
+        };
+        const textBlocks = data.content.filter((block) => block.type === "text");
+        const responseText = textBlocks.map((block) => block.text).join("\n");
+        response.json({
+          content: responseText,
+          usage: data.usage,
+          stop_reason: data.stop_reason,
+        });
+        return;
+      }
+
+      // ── Streaming path — parse Anthropic SSE, re-emit a minimal event stream ──
+      // Protocol to the client: data:{type:"chunk",text} per text delta,
+      // data:{type:"done",stop_reason,sawText} at the end, data:{type:"error",message}.
+      response.setHeader("Content-Type", "text/event-stream; charset=utf-8");
+      response.setHeader("Cache-Control", "no-cache, no-transform");
+      response.setHeader("Connection", "keep-alive");
+      response.setHeader("X-Accel-Buffering", "no");
+
+      const send = (obj: Record<string, unknown>) => {
+        response.write(`data: ${JSON.stringify(obj)}\n\n`);
       };
 
-      const textBlocks = data.content.filter((block) => block.type === "text");
-      const responseText = textBlocks.map((block) => block.text).join("\n");
+      const reader = anthropicResponse.body?.getReader();
+      if (!reader) {
+        send({type: "error", message: "No response stream"});
+        response.end();
+        return;
+      }
+      const decoder = new TextDecoder();
+      let buffer = "";
+      let stopReason: string | null = null;
+      let sawText = false;
 
-      response.json({
-        content: responseText,
-        usage: data.usage,
-      });
+      try {
+        for (;;) {
+          const {done, value} = await reader.read();
+          if (done) break;
+          buffer += decoder.decode(value, {stream: true});
+          let sep: number;
+          while ((sep = buffer.indexOf("\n\n")) !== -1) {
+            const rawEvent = buffer.slice(0, sep);
+            buffer = buffer.slice(sep + 2);
+            const dataLine = rawEvent.split("\n").find((l) => l.startsWith("data:"));
+            if (!dataLine) continue;
+            const json = dataLine.slice(5).trim();
+            if (!json || json === "[DONE]") continue;
+            let evt: {
+              type?: string;
+              delta?: {type?: string; text?: string; stop_reason?: string};
+              error?: {message?: string};
+            };
+            try {
+              evt = JSON.parse(json);
+            } catch {
+              continue;
+            }
+            if (evt.type === "content_block_delta" && evt.delta?.type === "text_delta" && typeof evt.delta.text === "string") {
+              sawText = true;
+              send({type: "chunk", text: evt.delta.text});
+            } else if (evt.type === "message_delta" && evt.delta?.stop_reason) {
+              stopReason = evt.delta.stop_reason;
+            } else if (evt.type === "error") {
+              send({type: "error", message: evt.error?.message || "stream error"});
+            }
+          }
+        }
+        send({type: "done", stop_reason: stopReason, sawText});
+      } catch (streamErr) {
+        logger.error("AI Tutor stream error:", streamErr);
+        send({type: "error", message: "stream interrupted"});
+      } finally {
+        response.end();
+      }
     } catch (error) {
       logger.error("AI Tutor error:", error);
       response.status(500).json({error: "Internal server error"});

@@ -8,6 +8,10 @@ import { getLessonContext, searchKnowledge, getRelevantStrategyContext } from '.
 import { getTranscriptContext, formatTime } from './transcriptService';
 import { buildCoachContext } from './aiCoachModes';
 import { authFetch } from './authFetch';
+import { parseSSEEvents } from './sseParse';
+
+// Re-export so callers can import the SSE parser from this service too.
+export { parseSSEEvents };
 
 // Cloud Function URL
 const AI_TUTOR_URL = process.env.REACT_APP_AI_TUTOR_URL || 'https://aitutor-ki77ua6x2a-uc.a.run.app';
@@ -306,9 +310,8 @@ STRICT RULES:
 1. ONLY answer SAT Math, SAT strategy, test prep, or current lesson/question content
 2. Off-topic? Redirect warmly: "I'm here for SAT Math — what concept can I help with?"
 3. No profanity, no emojis
-4. NEVER use LaTeX, $$, or backslash commands — write math in plain text: x^2, not $x^2$
-5. Simple notation: * for multiply, / for divide, ^ for exponents, sqrt() for square roots
-6. Fractions: 3/4 or "numerator / denominator"
+4. Format math with LaTeX so it renders as clean typeset math: inline math in single dollar signs ($x^2$, $\frac{3}{4}$, $\sqrt{x}$, $(x+3)^2 + (y-2)^2 = 25$) and a standalone equation in double dollar signs ($$x^2 + 6x - 4 = 0$$). The chat renders this for the student.
+5. Inside the math use proper notation: \frac{a}{b} for fractions, \sqrt{} for roots, ^ for exponents, \cdot or \times for multiply. Keep ordinary prose outside the dollar signs.
 
 WRITING STYLE:
 - Complete sentences. Never use "=" or ":" as shorthand between concepts.
@@ -507,7 +510,7 @@ STRICT RULES:
 1. ONLY answer SAT Reading and Writing, SAT strategy, test prep, or the current lesson/question content.
 2. Off-topic? Redirect warmly: "I'm here for SAT Reading and Writing — what can I help you with?"
 3. No profanity, no emojis.
-4. NEVER use LaTeX or backslash commands. Write plainly.
+4. Reading & Writing rarely needs math; write plainly. If a question does involve a number or formula (e.g. a data-table item), you may use LaTeX in dollar signs ($...$) — it renders as typeset math.
 5. When you quote the passage, use the exact words in quotation marks so the student can find them.
 
 WRITING STYLE:
@@ -646,7 +649,8 @@ export const chatWithTutor = async (
   learningMemoryContext = null, // { memory, recentSessions } — persistent learning memory
   strategyContext = null, // { errorPatterns, weakSkillIds } — for targeted strategy injection
   intelligenceContext = '', // Data loop intelligence context (fingerprint, predictions, approach guidance)
-  section = 'math' // 'math' | 'rw' — selects the subject-specific system prompt + gates math-only context
+  section = 'math', // 'math' | 'rw' — selects the subject-specific system prompt + gates math-only context
+  onChunk = null // optional (fullTextSoFar: string) => void — when provided, stream the answer in live
 ) => {
   // Get lesson context
   const lessonContext = getLessonContext(currentModuleId, currentLessonId);
@@ -741,25 +745,55 @@ export const chatWithTutor = async (
     content: m.content
   }));
 
-  try {
-    const response = await authFetch(AI_TUTOR_URL, {
-      method: 'POST',
-      body: JSON.stringify({
-        messages: claudeMessages,
-        system: enhancedSystem,
-        // Scale thinking budget based on context:
-        // - Socratic mode needs careful reasoning to avoid leaking the answer
-        // - Post-answer breakdowns need deep analysis of traps and solution paths
-        // - General lesson questions need less
-        thinking_budget: practiceContext ? 10000 : 6000
-      })
-    });
+  // Scale thinking budget based on context (Socratic mode + post-answer
+  // breakdowns reason harder; general lesson questions need less).
+  const thinkingBudget = practiceContext ? 10000 : 6000;
+  const buildBody = (stream) => JSON.stringify({
+    messages: claudeMessages,
+    system: enhancedSystem,
+    thinking_budget: thinkingBudget,
+    stream,
+  });
 
+  // ── Streaming path — only when the caller wants live tokens ──────────────
+  // On ANY streaming failure (network, no body, empty stream, server error)
+  // we fall through to the buffered request below, so chat never breaks.
+  if (typeof onChunk === 'function') {
+    try {
+      const response = await authFetch(AI_TUTOR_URL, { method: 'POST', body: buildBody(true) });
+      if (response.ok && response.body && typeof response.body.getReader === 'function') {
+        const reader = response.body.getReader();
+        const decoder = new TextDecoder();
+        let buffer = '';
+        let full = '';
+        for (;;) {
+          const { done, value } = await reader.read();
+          if (done) break;
+          buffer += decoder.decode(value, { stream: true });
+          const { events, rest } = parseSSEEvents(buffer);
+          buffer = rest;
+          for (const evt of events) {
+            if (evt.type === 'chunk' && typeof evt.text === 'string') {
+              full += evt.text;
+              onChunk(full);
+            }
+          }
+        }
+        if (full) return full; // streamed successfully
+      }
+      // Stream produced no text (server error / empty) → buffered fallback below.
+    } catch (streamErr) {
+      console.warn('AI Tutor streaming failed; using buffered fallback:', streamErr?.message);
+    }
+  }
+
+  // ── Buffered path (default + streaming fallback) ─────────────────────────
+  try {
+    const response = await authFetch(AI_TUTOR_URL, { method: 'POST', body: buildBody(false) });
     if (!response.ok) {
       const error = await response.json();
       throw new Error(error.error || 'Failed to get response from AI Tutor');
     }
-
     const data = await response.json();
     return data.content;
   } catch (error) {

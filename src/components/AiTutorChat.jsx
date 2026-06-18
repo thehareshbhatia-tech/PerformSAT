@@ -58,6 +58,48 @@ const design = {
   }
 };
 
+// Copy-to-clipboard affordance for an assistant message — students paste worked
+// solutions into their notes. Encapsulates its own transient "Copied" state so
+// the parent message list stays stateless.
+const CopyButton = ({ text }) => {
+  const [copied, setCopied] = useState(false);
+  return (
+    <button
+      type="button"
+      aria-label="Copy this answer"
+      onClick={() => {
+        try {
+          navigator.clipboard?.writeText(text);
+          setCopied(true);
+          setTimeout(() => setCopied(false), 1500);
+        } catch { /* clipboard unavailable — no-op */ }
+      }}
+      style={{
+        marginTop: '8px',
+        display: 'inline-flex',
+        alignItems: 'center',
+        gap: '5px',
+        padding: '3px 8px',
+        borderRadius: '8px',
+        border: 'none',
+        background: 'transparent',
+        color: copied ? '#16a34a' : '#9ca3af',
+        fontSize: '12px',
+        fontWeight: 600,
+        cursor: 'pointer',
+        transition: 'color 0.15s ease',
+      }}
+    >
+      {copied ? (
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6L9 17l-5-5" /></svg>
+      ) : (
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" /><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" /></svg>
+      )}
+      {copied ? 'Copied' : 'Copy'}
+    </button>
+  );
+};
+
 const AiTutorChat = ({
   isOpen,
   onClose,
@@ -104,6 +146,18 @@ const AiTutorChat = ({
   const messageCountSinceWrite = useRef(0);
   const messagesRef = useRef(messages);
   const interventionStarted = useRef(false);
+  // Smart scroll: only auto-follow new/streamed content when the student is
+  // already near the bottom — otherwise a re-reading student gets yanked down on
+  // every streamed token. nearBottomRef drives the auto-scroll; showJumpPill
+  // surfaces a "jump to latest" affordance when they've scrolled up.
+  const nearBottomRef = useRef(true);
+  const [showJumpPill, setShowJumpPill] = useState(false);
+  const handleMessagesScroll = (e) => {
+    const el = e.currentTarget;
+    const near = el.scrollHeight - el.scrollTop - el.clientHeight < 80;
+    nearBottomRef.current = near;
+    setShowJumpPill(!near);
+  };
 
   // Rate limiting: minimum 2 seconds between sends
   const RATE_LIMIT_MS = 2000;
@@ -312,7 +366,7 @@ CORRECT ANSWER: ${correctAnswer}
 FULL EXPLANATION: ${explanation}
 ${trapAnalysis}
 
-Your response should hit these beats:
+When the student just missed this question and wants the full breakdown, a strong answer hits these beats. But if they're asking a NARROW follow-up (e.g. "wait, why does that sentence matter?" or "why C and not D?"), answer just that, briefly — don't force all five beats:
 
 1. NAME THE TYPE: "This is a [question type]. You will see this [X times per test]."
 
@@ -446,7 +500,7 @@ CORRECT ANSWER: ${correctAnswer}
 FULL EXPLANATION: ${explanation}
 ${trapAnalysis}
 
-Your response should hit these beats:
+When the student just missed this question and wants the full breakdown, a strong answer hits these beats. But if they're asking a NARROW follow-up (e.g. "wait, why divide by 3?" or "where did the 2 come from?"), answer just that, briefly — don't force all five beats:
 
 1. NAME THE PATTERN: "This is a [question type]. You will see this [X times per test]."
 
@@ -639,7 +693,9 @@ Your goal is to build their problem-solving instincts. Every question they solve
   }, [userId, sessionId]);
 
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    // Only follow the conversation down when the student hasn't scrolled up to
+    // re-read — keeps streamed tokens from hijacking their scroll position.
+    if (nearBottomRef.current) messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
 
   useEffect(() => {
@@ -757,8 +813,8 @@ Your goal is to build their problem-solving instincts. Every question they solve
   // Handle accepting a proactive recommendation
   const handleProactiveAccept = (recommendation) => {
     if (recommendation.suggestedPrompt) {
-      setInput(recommendation.suggestedPrompt);
-      inputRef.current?.focus();
+      // Auto-send the nudge instead of just filling the box — one tap to ask.
+      handleSend(recommendation.suggestedPrompt);
     }
     setProactiveRec(null);
   };
@@ -777,15 +833,22 @@ Your goal is to build their problem-solving instincts. Every question they solve
     return null;
   };
 
-  const handleSend = async () => {
+  const handleSend = async (overrideText) => {
     const now = Date.now();
-    if (!input.trim() || isLoading || (now - lastSendTime < RATE_LIMIT_MS)) return;
+    // overrideText lets a suggestion chip or the error Retry button send
+    // directly. Guard against an event object reaching us via onClick={handleSend}.
+    const text = (typeof overrideText === 'string' && overrideText.trim() ? overrideText : input).trim();
+    if (!text || isLoading || (now - lastSendTime < RATE_LIMIT_MS)) return;
 
     setLastSendTime(now);
-    const userMessage = { role: 'user', content: input.trim() };
-    const newMessages = [...messages, userMessage];
+    const userMessage = { role: 'user', content: text };
+    // Drop a trailing error bubble so a retry replaces it instead of stacking.
+    const base = messages[messages.length - 1]?.isError ? messages.slice(0, -1) : messages;
+    const newMessages = [...base, userMessage];
     setMessages(newMessages);
     setInput('');
+    // Reset the auto-grown composer back to one row after sending.
+    if (inputRef.current) inputRef.current.style.height = 'auto';
     setIsLoading(true);
 
     try {
@@ -893,6 +956,22 @@ Your goal is to build their problem-solving instincts. Every question they solve
         trackCoachModeUsed(user.uid, coachMode, newMessages.filter(m => m.role === 'user').length);
       }
 
+      // Stream the answer in live: the loading dots show until the first token,
+      // then a streaming assistant bubble fills as tokens arrive. If the proxy
+      // can't stream (or it's the buffered fallback), onChunk simply never fires
+      // and the full answer is appended once below — same as before.
+      let streamStarted = false;
+      const onChunk = (fullText) => {
+        setMessages(prev => {
+          if (!streamStarted) return [...prev, { role: 'assistant', content: fullText }];
+          const next = [...prev];
+          const last = next[next.length - 1];
+          if (last?.role === 'assistant') next[next.length - 1] = { ...last, content: fullText };
+          return next;
+        });
+        if (!streamStarted) { streamStarted = true; setIsLoading(false); }
+      };
+
       const response = await chatWithTutor(
         newMessages,
         moduleId,
@@ -905,9 +984,20 @@ Your goal is to build their problem-solving instincts. Every question they solve
         learningMemoryCtx,
         strategyCtx,
         intelligenceCtx,
-        section
+        section,
+        onChunk
       );
-      setMessages([...newMessages, { role: 'assistant', content: response }]);
+      // Pin the final text: updates the streamed bubble, or appends it when the
+      // buffered fallback returned everything at once (no chunks streamed).
+      setMessages(prev => {
+        const last = prev[prev.length - 1];
+        if (last?.role === 'assistant') {
+          const next = [...prev];
+          next[next.length - 1] = { ...last, content: response };
+          return next;
+        }
+        return [...prev, { role: 'assistant', content: response }];
+      });
     } catch (error) {
       let errorMessage = "I couldn't connect right now. Please check your internet connection and try again.";
       if (error.message?.includes('rate') || error.message?.includes('limit')) {
@@ -919,7 +1009,9 @@ Your goal is to build their problem-solving instincts. Every question they solve
         ...newMessages,
         {
           role: 'assistant',
-          content: errorMessage
+          content: errorMessage,
+          isError: true,
+          retryText: text,
         }
       ]);
     } finally {
@@ -927,7 +1019,13 @@ Your goal is to build their problem-solving instincts. Every question they solve
     }
   };
 
-  const handleKeyPress = (e) => {
+  const handleKeyDown = (e) => {
+    // Enter sends; Shift+Enter inserts a newline; Cmd/Ctrl+Enter also sends.
+    if (e.key === 'Enter' && (e.metaKey || e.ctrlKey)) {
+      e.preventDefault();
+      handleSend();
+      return;
+    }
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
       handleSend();
@@ -1155,6 +1253,7 @@ Your goal is to build their problem-solving instincts. Every question they solve
         role="log"
         aria-label="Chat messages"
         aria-live="polite"
+        onScroll={handleMessagesScroll}
         style={premiumLearnMode ? {
           flex: 1,
           minHeight: '200px',
@@ -1168,6 +1267,7 @@ Your goal is to build their problem-solving instincts. Every question they solve
           overflowY: 'auto',
           padding: '24px',
           background: design.colors.surface.tertiary,
+          position: 'relative',
         }}
       >
         {/* Proactive Recommendation */}
@@ -1319,7 +1419,7 @@ Your goal is to build their problem-solving instincts. Every question they solve
               ).map((suggestion, i) => (
                 <button
                   key={i}
-                  onClick={() => setInput(suggestion)}
+                  onClick={() => handleSend(suggestion)}
                   style={premiumLearnMode ? {
                     padding: '12px 16px',
                     background: 'rgba(255, 255, 255, 0.5)',
@@ -1439,6 +1539,37 @@ Your goal is to build their problem-solving instincts. Every question they solve
                   }}
                 >
                   {msg.role === 'assistant' ? renderMarkdown(msg.content) : msg.content}
+                  {msg.isError && msg.retryText && (
+                    <button
+                      type="button"
+                      onClick={() => handleSend(msg.retryText)}
+                      aria-label="Retry sending your message"
+                      style={{
+                        marginTop: '10px',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '6px',
+                        padding: '6px 14px',
+                        borderRadius: '14px',
+                        cursor: 'pointer',
+                        background: 'transparent',
+                        border: `1px solid ${design.colors.semantic?.error || '#dc2626'}`,
+                        color: design.colors.semantic?.error || '#dc2626',
+                        fontSize: '13px',
+                        fontWeight: 600,
+                        fontFamily: design.typography.fontFamily,
+                      }}
+                    >
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M1 4v6h6M23 20v-6h-6" />
+                        <path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15" />
+                      </svg>
+                      Retry
+                    </button>
+                  )}
+                  {msg.role === 'assistant' && !msg.isError && msg.content && !(isLoading && idx === messages.length - 1) && (
+                    <div><CopyButton text={msg.content} /></div>
+                  )}
                 </div>
               </div>
             ))}
@@ -1491,6 +1622,41 @@ Your goal is to build their problem-solving instincts. Every question they solve
             <div ref={messagesEndRef} />
           </>
         )}
+        {showJumpPill && (
+          <button
+            type="button"
+            onClick={() => {
+              nearBottomRef.current = true;
+              setShowJumpPill(false);
+              messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+            }}
+            aria-label="Jump to latest message"
+            style={{
+              position: 'sticky',
+              bottom: '8px',
+              left: '50%',
+              transform: 'translateX(-50%)',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '6px',
+              padding: '7px 14px',
+              borderRadius: '999px',
+              border: 'none',
+              cursor: 'pointer',
+              background: 'linear-gradient(135deg, #ea580c 0%, #c2410c 100%)',
+              color: '#fff',
+              fontSize: '13px',
+              fontWeight: 600,
+              fontFamily: design.typography.fontFamily,
+              boxShadow: '0 4px 14px rgba(234, 88, 12, 0.35)',
+            }}
+          >
+            New messages
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M6 9l6 6 6-6" />
+            </svg>
+          </button>
+        )}
       </div>
 
       {/* Input Area */}
@@ -1519,8 +1685,13 @@ Your goal is to build their problem-solving instincts. Every question they solve
             <textarea
               ref={inputRef}
               value={input}
-              onChange={(e) => setInput(e.target.value)}
-              onKeyPress={handleKeyPress}
+              onChange={(e) => {
+                setInput(e.target.value);
+                // Auto-grow: fit the content up to the 120px max-height.
+                e.target.style.height = 'auto';
+                e.target.style.height = `${Math.min(e.target.scrollHeight, 120)}px`;
+              }}
+              onKeyDown={handleKeyDown}
               placeholder={premiumLearnMode ? "Ask me anything..." : "Message..."}
               aria-label="Type your message"
               rows={1}

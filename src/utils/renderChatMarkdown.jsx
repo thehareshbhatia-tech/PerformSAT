@@ -47,20 +47,20 @@ const renderMarkdown = (text) => {
     result = result.replace(/\\\$/g, ESC);
     // Display math: $$...$$ and \[...\]
     result = result.replace(/\$\$([\s\S]*?)\$\$/g, (_, latex) => {
-      try { return stash(katex.renderToString(latex.trim(), { displayMode: true, throwOnError: false })); }
+      try { return stash(katex.renderToString(latex.trim(), { displayMode: true, throwOnError: false, output: 'htmlAndMathml' })); }
       catch { return _; }
     });
     result = result.replace(/\\\[([\s\S]*?)\\\]/g, (_, latex) => {
-      try { return stash(katex.renderToString(latex.trim(), { displayMode: true, throwOnError: false })); }
+      try { return stash(katex.renderToString(latex.trim(), { displayMode: true, throwOnError: false, output: 'htmlAndMathml' })); }
       catch { return _; }
     });
     // Inline math: $...$ and \(...\)
     result = result.replace(/\$([^\$]+?)\$/g, (_, latex) => {
-      try { return stash(katex.renderToString(latex.trim(), { displayMode: false, throwOnError: false })); }
+      try { return stash(katex.renderToString(latex.trim(), { displayMode: false, throwOnError: false, output: 'htmlAndMathml' })); }
       catch { return _; }
     });
     result = result.replace(/\\\(([^)]+)\\\)/g, (_, latex) => {
-      try { return stash(katex.renderToString(latex.trim(), { displayMode: false, throwOnError: false })); }
+      try { return stash(katex.renderToString(latex.trim(), { displayMode: false, throwOnError: false, output: 'htmlAndMathml' })); }
       catch { return _; }
     });
     // Restore escaped dollars
