@@ -1,0 +1,19 @@
+# Large / derivable intermediates — regenerate with extract.mjs + the workflows.
+reading-items.json
+needs-llm.json
+llm-ids.json
+llm/
+author-config.json
+authored-blind.json
+verify-manifest.json
+verify-pass.json
+
+# Kept (committed) for provenance + regeneration of the committed artifacts:
+#   deterministic.json  — stem/goal rules (cheap, deterministic)
+#   classification.json — 3-voter panel output (NOT reproducible)
+#   authored-raw.json   — author→grade→verify output (NOT reproducible)
+#   authored.json       — { id: bucket } merged by buildMap.mjs
+!deterministic.json
+!classification.json
+!authored-raw.json
+!authored.json

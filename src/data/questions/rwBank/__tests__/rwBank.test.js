@@ -36,7 +36,8 @@ describe('rwBank composition', () => {
   it('every flattened item has the required namespaced ID + section + skill array', () => {
     for (const q of rwQuestionBank) {
       expect(typeof q.id).toBe('string');
-      expect(q.id.startsWith('rw-test')).toBe(true);
+      // Test-sourced items namespaced `rw-test…`; drill-only authored fills `rw-authored-…`.
+      expect(q.id.startsWith('rw-test') || q.id.startsWith('rw-authored-')).toBe(true);
       expect(q.section).toBe('rw');
       expect(Array.isArray(q.skills)).toBe(true);
       expect(q.skills).toHaveLength(1);
@@ -91,9 +92,15 @@ describe('rwBank composition', () => {
 
   it('every item carries provenance fields (sourceTest, sourceModuleId, sourceQuestionId)', () => {
     for (const q of rwQuestionBank) {
-      expect(typeof q.sourceTest).toBe('number');
-      expect(q.sourceTest).toBeGreaterThanOrEqual(1);
-      expect(q.sourceTest).toBeLessThanOrEqual(12);
+      // Test-sourced items: numeric sourceTest 1-12. Drill-only authored
+      // reading items (authoredReadingItems.js) carry sourceTest 'authored'.
+      if (q.sourceTest === 'authored') {
+        expect(q.sourceModuleId).toBe('authored-reading');
+      } else {
+        expect(typeof q.sourceTest).toBe('number');
+        expect(q.sourceTest).toBeGreaterThanOrEqual(1);
+        expect(q.sourceTest).toBeLessThanOrEqual(12);
+      }
       expect(typeof q.sourceModuleId).toBe('string');
       expect(typeof q.sourceQuestionId).toBe('number');
     }
@@ -365,9 +372,13 @@ describe('rwBank getBankStats', () => {
     expect(sum).toBe(stats.total);
   });
 
-  it('reports per-source-test counts spanning 12 tests', () => {
+  it('reports per-source-test counts spanning all 12 tests', () => {
     const stats = getBankStats();
-    expect(Object.keys(stats.bySourceTest)).toHaveLength(12);
+    // All 12 numeric test sources are present. (An additional 'authored' source
+    // may exist for drill-only reading-type-fill items — not asserted here.)
+    for (let n = 1; n <= 12; n++) {
+      expect(stats.bySourceTest[n]).toBeGreaterThan(0);
+    }
   });
 
   it('reports per-skill counts for all 11 canonical skills', () => {

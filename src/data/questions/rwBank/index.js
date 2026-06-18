@@ -29,7 +29,8 @@ import { practiceTest9RW } from '../../practiceTests/practiceTest9RW';
 import { practiceTest10RW } from '../../practiceTests/practiceTest10RW';
 import { practiceTest11RW } from '../../practiceTests/practiceTest11RW';
 import { practiceTest12RW } from '../../practiceTests/practiceTest12RW';
-import { deriveRWPattern } from './deriveRWPattern';
+import { deriveRWQuestionType } from './deriveRWPattern';
+import { authoredReadingItems } from './authoredReadingItems';
 import { RW_SKILL_ALIAS_MAP, RW_TIER1_PATTERN_THRESHOLD } from './taxonomy';
 
 // Pure-constant re-exports (Stage 2a bundle split): the R&W taxonomy lives
@@ -118,10 +119,13 @@ function flattenRWBank() {
           skills: [q.skill],
           domain: q.domain || RW_SKILL_TO_DOMAIN[q.skill] || 'craft-and-structure',
           section: 'rw',
-          // Tier-1 pattern slug (deterministic, from deriveRWPattern) or null.
-          // Same function the diagnostic engine uses, so the tag an item is
-          // indexed under matches the missedPattern a wrong answer emits.
-          rwPattern: deriveRWPattern(q),
+          // Question-type slug for the pattern index (powers PracticeBank's
+          // per-type drills). Uses the BROWSE type (deriveRWQuestionType) so the
+          // index includes reading-comprehension sub-types as well as the
+          // grammar routing patterns. Grammar slugs still match the
+          // missedPattern a wrong answer emits (deriveRWPattern is a subset);
+          // reading slugs are reached only via PracticeBank's per-type drills.
+          rwPattern: deriveRWQuestionType(q),
           difficulty: q.difficulty || 'medium',
           type: q.type || 'multiple-choice',
           authoredBy: q.authoredBy || 'performsat-rw-pipeline',
@@ -129,6 +133,32 @@ function flattenRWBank() {
         });
       }
     }
+  }
+
+  // Drill-only authored reading items (fill thin question-type buckets). Never
+  // part of a practice test — appended here so they deepen the drill pools.
+  // Namespaced `rw-authored-<id>`; their type tag lives in rwReadingType.js.
+  for (const q of authoredReadingItems) {
+    if (!q || !q.skill || !Array.isArray(q.choices) || q.choices.length < 2 || !q.correctAnswer) {
+      dropped++;
+      continue;
+    }
+    out.push({
+      ...q,
+      id: `rw-authored-${q.id}`,
+      sourceTest: 'authored',
+      sourceModuleId: 'authored-reading',
+      sourceQuestionId: q.id,
+      skill: q.skill,
+      skills: [q.skill],
+      domain: q.domain || RW_SKILL_TO_DOMAIN[q.skill] || 'craft-and-structure',
+      section: 'rw',
+      rwPattern: deriveRWQuestionType(q),
+      difficulty: q.difficulty || 'medium',
+      type: q.type || 'multiple-choice',
+      authoredBy: q.authoredBy || 'performsat-reading-type-fill',
+      calculatorAllowed: false,
+    });
   }
 
   if (dropped > 0) {

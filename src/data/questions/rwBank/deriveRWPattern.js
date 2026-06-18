@@ -1,32 +1,35 @@
 /**
- * deriveRWPattern — pure, deterministic R&W sub-pattern tagger.
+ * R&W sub-pattern taggers. This module exports TWO functions with deliberately
+ * different scopes — keep them straight:
  *
- * The R&W analog of the math bank's SAT-Pattern model, but only for the four
- * skills that carry a 100%-present discriminating signal:
- *   - boundaries              → punctuation in the CORRECT choice
- *   - transitions             → the leading transition word of the CORRECT choice
- *   - text-structure-and-purpose → the question stem
- *   - command-of-evidence-textual → the question stem (tag-only; see note)
+ *   deriveRWPattern(item)      — the ROUTING signal. Grammar/punctuation/structure
+ *     only (boundaries / transitions / text-structure-and-purpose /
+ *     form-structure-and-sense). Feeds diagnosticEngine's weakness.missedPatterns
+ *     → Tier-1 drill routing and the bank's grammar pattern index. All seven
+ *     reading-comprehension skills (incl. command-of-evidence-textual) return
+ *     null — R&W exact-match routing is deferred (see
+ *     index.js::getTargetedWeaknessSet).
  *
- * Every shipped tag derives from `choices`/`correctAnswer`/`question`, all
- * present on 100% of items, so it is immune to the sparse `_meta` fields.
+ *   deriveRWQuestionType(item) — the BROWSE type. Everything deriveRWPattern
+ *     returns, PLUS the seven reading-comprehension skills' question types from
+ *     the authoritative per-item map (rwReadingType.js): context-clue type,
+ *     logical relation, Text-2 stance, rhetorical goal. Drives the Practice
+ *     Bank's "question type" breakdown and the bank index's `rwPattern` field.
  *
- * This SAME function runs at both ends of the closed loop so they always agree:
- *   1. rwBank flatten — to build the patternIndex the drill cascade selects from.
- *   2. diagnosticEngine aggregation — to emit weakness.missedPatterns for wrong
- *      R&W items, which feeds the Tier-1 cascade.
+ * Splitting them lets the Practice Bank surface reading sub-types for browsing
+ * WITHOUT activating the deferred reading-type drill routing.
  *
- * Skills WITHOUT a deterministic >=8 signal (words-in-context, inferences,
- * central-ideas, rhetorical-synthesis, cross-text-connections,
- * command-of-evidence-quantitative, and form-structure-and-sense until its
- * _meta.rule is backfilled) always return null. A null tag means the item stays
- * Tier-3 skill-level — byte-identical to the pre-pattern behavior.
+ * Every grammar tag derives from `choices`/`correctAnswer`/`question` (present on
+ * 100% of items), so it is immune to the sparse `_meta` fields; reading tags come
+ * from the authoritative map (deterministic stem/goal rules + the
+ * rw-reading-type-classify diverse-lens panel).
  *
  * @param {object} item - an R&W item (bundle shape or flattened bank shape)
  * @returns {string|null} kebab-case pattern slug, or null for skill-level
  */
 
 import { getAuthoritativeGrammarType } from './rwGrammarType';
+import { getReadingType } from './rwReadingType';
 
 // Transition lexicons by bucket. Flattened + sorted longest-phrase-first so
 // "on the other hand" wins over "on" and "therefore" wins over "then".
@@ -94,14 +97,6 @@ function tspPattern(item) {
   return null;
 }
 
-function coeTextualPattern(item) {
-  // Tag-only: clears the threshold but its pool == the skill pool, so it adds
-  // no routing precision over Tier-3. Tagged for diagnostic-signal completeness.
-  const stem = (item.question || '').toLowerCase();
-  if (stem.includes('illustrates the claim')) return 'coe-textual-illustrate-claim';
-  return null;
-}
-
 // form-structure-and-sense grammar sub-patterns — FALLBACK heuristic only.
 //
 // As of 2026-06-17 every live FSS item is classified authoritatively in
@@ -144,6 +139,17 @@ function fssPattern(item) {
   return null;
 }
 
+/**
+ * deriveRWPattern — the ROUTING signal: grammar/punctuation/structure sub-patterns
+ * only (boundaries / transitions / text-structure-and-purpose / form-structure-
+ * and-sense). These are stable mechanical sub-skills, so they feed diagnostic
+ * `missedPatterns` → Tier-1 drill routing. Reading-comprehension skills (all
+ * seven, incl. command-of-evidence-textual) return null here ON PURPOSE: R&W
+ * exact-match drill routing is deliberately deferred (see
+ * rwBank/index.js::getTargetedWeaknessSet). For the Practice Bank's "question
+ * type" BROWSE breakdown — which DOES surface reading sub-types — use
+ * deriveRWQuestionType below.
+ */
 export function deriveRWPattern(item) {
   if (!item) return null;
   const skill = item.skill || (Array.isArray(item.skills) ? item.skills[0] : null);
@@ -151,17 +157,53 @@ export function deriveRWPattern(item) {
     case 'boundaries': return boundariesPattern(item);
     case 'transitions': return transitionsPattern(item);
     case 'text-structure-and-purpose': return tspPattern(item);
-    case 'command-of-evidence-textual': return coeTextualPattern(item);
     case 'form-structure-and-sense': return fssPattern(item);
     default: return null;
   }
 }
 
+// The seven reading-comprehension skills whose BROWSE question types come from
+// the authoritative per-item map (rwReadingType.js) — context-clue type, logical
+// relation, Text-2 stance, rhetorical goal — rather than a mechanical signal in
+// the correct answer.
+const READING_SKILLS = new Set([
+  'words-in-context',
+  'central-ideas-and-details',
+  'inferences',
+  'command-of-evidence-quantitative',
+  'command-of-evidence-textual',
+  'cross-text-connections',
+  'rhetorical-synthesis',
+]);
+
 /**
- * Human labels for the routing-useful R&W patterns, used by the
- * "Practicing: <pattern>" drill chip. coe-textual-illustrate-claim is
- * deliberately omitted — it is tag-only (its drill pool equals the skill pool),
- * so surfacing a chip for it would mislead.
+ * deriveRWQuestionType — the BROWSE type for the Practice Bank's question-type
+ * breakdown (PracticeBank.buildRWCategories + the bank index's `rwPattern`
+ * field). For the seven reading skills it returns the authoritative reading
+ * sub-type (rwReadingType.js); for grammar/structure skills it returns the same
+ * slug as deriveRWPattern. Distinct from deriveRWPattern so that surfacing
+ * reading types for BROWSING does not also activate the deferred reading-type
+ * drill routing (deriveRWPattern stays the routing signal, grammar-only).
+ *
+ * @param {object} item - an R&W item (bundle shape or flattened bank shape)
+ * @returns {string|null} kebab-case question-type slug, or null for skill-level
+ */
+export function deriveRWQuestionType(item) {
+  if (!item) return null;
+  const skill = item.skill || (Array.isArray(item.skills) ? item.skills[0] : null);
+  if (READING_SKILLS.has(skill)) {
+    const rt = getReadingType(item);
+    return rt === undefined ? null : rt;   // authoritative (incl. null → Tier-3)
+  }
+  return deriveRWPattern(item);
+}
+
+/**
+ * Human labels for the routing-useful R&W grammar/punctuation/structure
+ * patterns, used by the "Practicing: <pattern>" drill chip. Sub-threshold
+ * grammar buckets (fss-pronoun / fss-possessive / fss-comparison) are omitted —
+ * they surface in the Practice Bank browse list (via RW_READING_TYPE_LABELS'
+ * sibling map) but never as a routing chip.
  */
 export const RW_PATTERN_LABELS = {
   'boundaries-semicolon': 'Semicolons & independent clauses',

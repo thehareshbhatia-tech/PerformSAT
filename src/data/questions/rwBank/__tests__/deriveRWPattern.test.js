@@ -1,25 +1,18 @@
 import { rwQuestionBank } from '../index';
-import { deriveRWPattern, RW_PATTERN_LABELS } from '../deriveRWPattern';
+import { deriveRWPattern, deriveRWQuestionType, RW_PATTERN_LABELS } from '../deriveRWPattern';
 
-describe('deriveRWPattern', () => {
+describe('deriveRWPattern (routing signal — grammar/punctuation/structure only)', () => {
   // Frozen distribution snapshot — a tripwire. If anyone re-authors R&W items
   // these counts shift; update them intentionally and re-check that every
   // routing-useful pattern still clears the Tier-1 threshold (>=8).
+  //
+  // deriveRWPattern is the ROUTING signal (feeds diagnostic missedPatterns), so
+  // it tags ONLY grammar/punctuation/structure. The reading-comprehension BROWSE
+  // types live in deriveRWQuestionType (separate describe below).
   const EXPECTED_COUNTS = {
-    // Re-frozen 2026-06-11 after the R&W authenticity overhaul (re-blueprint
-    // to official counts + full rewrite; coe-textual-illustrate-claim
-    // collapsed because COE-textual moved to finding-if-true forms and 1 per
-    // module — it routes Tier-3 now, like the sub-threshold fss patterns).
-    //
-    // FSS counts re-frozen 2026-06-17: the grammar sub-types are now decided by
-    // the authoritative `rwGrammarType.js` map (per-item, classified by what
-    // varies across the answer choices) instead of the explanation-prose
-    // heuristic. The heuristic had mis-filed items — e.g. it counted a
-    // verb-tense item under modifier-placement and split several subject-verb
-    // items into the verb-tense bucket or left them untagged. SV-agreement rose
-    // 18 -> 26, verb-tense 20 -> 17, possessive 6 -> 5, pronoun 2 -> 3, and two
-    // items (449, 845) now route Tier-3 (no surfaced bucket). The boundaries /
-    // transitions / tsp buckets are unchanged (still derived deterministically).
+    // FSS counts re-frozen 2026-06-17: grammar sub-types are decided by the
+    // authoritative `rwGrammarType.js` map (per-item, by what varies across the
+    // answer choices) instead of the explanation-prose heuristic.
     'boundaries-semicolon': 27,
     'boundaries-comma': 22,
     'boundaries-dash': 10,
@@ -31,7 +24,6 @@ describe('deriveRWPattern', () => {
     'tsp-main-purpose': 23,
     'tsp-overall-structure': 32,
     'tsp-function-of-underlined': 16,
-    'coe-textual-illustrate-claim': 1,
     'fss-subject-verb-agreement': 26,
     'fss-verb-tense': 17,
     'fss-modifier-placement': 11,
@@ -50,12 +42,21 @@ describe('deriveRWPattern', () => {
     expect(counts).toEqual(EXPECTED_COUNTS);
   });
 
-  it('tags exactly 274 of 648 items deterministically', () => {
-    // 204 non-FSS (boundaries/transitions/tsp/coe) + 70 FSS (72 FSS items, 2 of
-    // which authoritatively route Tier-3) = 274.
+  it('tags exactly 273 grammar/structure items', () => {
+    // 203 non-FSS (boundaries 69 + transitions 63 + tsp 71) + 70 FSS (72 items,
+    // 2 route Tier-3) = 273. All reading skills return null here.
     const tagged = Object.values(counts).reduce((a, b) => a + b, 0);
-    expect(tagged).toBe(274);
-    expect(rwQuestionBank.length).toBe(648);
+    expect(tagged).toBe(273);
+  });
+
+  it('returns null for every reading-comprehension item (routing stays deferred)', () => {
+    const READING = new Set([
+      'words-in-context', 'central-ideas-and-details', 'inferences',
+      'command-of-evidence-quantitative', 'command-of-evidence-textual',
+      'cross-text-connections', 'rhetorical-synthesis',
+    ]);
+    const tagged = rwQuestionBank.filter((q) => READING.has(q.skill) && deriveRWPattern(q) !== null);
+    expect(tagged).toEqual([]);
   });
 
   it('every routing-useful pattern (label map) clears the Tier-1 threshold of 8', () => {
@@ -64,9 +65,8 @@ describe('deriveRWPattern', () => {
     }
   });
 
-  it('label map covers the 15 routing patterns and omits the tag-only / sub-threshold slugs', () => {
+  it('label map covers the 15 routing patterns and omits the sub-threshold slugs', () => {
     expect(Object.keys(RW_PATTERN_LABELS)).toHaveLength(15);
-    expect(RW_PATTERN_LABELS['coe-textual-illustrate-claim']).toBeUndefined();
     expect(RW_PATTERN_LABELS['fss-pronoun']).toBeUndefined();
     expect(RW_PATTERN_LABELS['fss-possessive']).toBeUndefined();
     expect(RW_PATTERN_LABELS['fss-comparison']).toBeUndefined();
@@ -116,5 +116,79 @@ describe('deriveRWPattern', () => {
     expect(deriveRWPattern(mk('Which choice best states the main purpose of the text?'))).toBe('tsp-main-purpose');
     expect(deriveRWPattern(mk('Which choice best describes the overall structure of the text?'))).toBe('tsp-overall-structure');
     expect(deriveRWPattern(mk('Which choice best describes the function of the underlined sentence?'))).toBe('tsp-function-of-underlined');
+  });
+});
+
+describe('deriveRWQuestionType (browse type — grammar patterns PLUS reading sub-types)', () => {
+  // Full question-type distribution surfaced in the Practice Bank. This is
+  // deriveRWPattern's grammar tags (minus the tag-only coe-textual-illustrate-
+  // claim, which reading-typing supersedes) PLUS all 390 reading items tagged
+  // via rwReadingType.js (360 from tests + 30 authored drill-only fills). Counts
+  // shift when items are authored — re-run buildMap.mjs + appendAuthored.mjs.
+  const EXPECTED_QT_COUNTS = {
+    // grammar / punctuation / structure (same as deriveRWPattern)
+    'boundaries-semicolon': 27,
+    'boundaries-comma': 22,
+    'boundaries-dash': 10,
+    'boundaries-colon': 10,
+    'transitions-contrast': 24,
+    'transitions-example-emphasis': 12,
+    'transitions-cause-effect': 18,
+    'transitions-sequence-time': 9,
+    'tsp-main-purpose': 23,
+    'tsp-overall-structure': 32,
+    'tsp-function-of-underlined': 16,
+    'fss-subject-verb-agreement': 26,
+    'fss-verb-tense': 17,
+    'fss-modifier-placement': 11,
+    'fss-parallelism': 8,
+    'fss-pronoun': 3,
+    'fss-possessive': 5,
+    // reading-comprehension question types (rwReadingType.js)
+    'cid-main-idea': 48,
+    'cid-supporting-detail': 24,
+    'wic-restatement': 38,
+    'wic-contrast': 35,
+    'wic-cause-effect': 21,
+    'wic-example-or-illustration': 7,
+    'inf-cause-effect': 20,
+    'inf-generalization-conclusion': 18,
+    'inf-contrast-qualification': 5,
+    'inf-comparison': 4,
+    'inf-prediction-expectation': 9,
+    'coe-quant-complete-statement': 33,
+    'coe-quant-support-claim': 15,
+    'coe-text-support-finding': 23,
+    'coe-text-illustrate-quote': 9,
+    'ctc-qualify-complicate': 11,
+    'ctc-disagree-challenge': 7,
+    'ctc-alternative-explanation': 6,
+    'rs-emphasize-significance': 21,
+    'rs-emphasize-difference': 10,
+    'rs-explain-finding': 7,
+    'rs-introduce-unfamiliar': 6,
+    'rs-present-claim': 6,
+    'rs-emphasize-similarity': 7,
+  };
+
+  const counts = {};
+  for (const item of rwQuestionBank) {
+    const p = deriveRWQuestionType(item);
+    if (p) counts[p] = (counts[p] || 0) + 1;
+  }
+
+  it('produces the frozen browse-type distribution over the live bank', () => {
+    expect(counts).toEqual(EXPECTED_QT_COUNTS);
+  });
+
+  it('tags 663 items (273 grammar/structure + 390 reading incl. 30 authored fills)', () => {
+    const tagged = Object.values(counts).reduce((a, b) => a + b, 0);
+    expect(tagged).toBe(663);
+  });
+
+  it('falls back to deriveRWPattern for grammar/structure skills', () => {
+    const mk = (text) => ({ skill: 'boundaries', correctAnswer: 'A', choices: [{ id: 'A', text }] });
+    expect(deriveRWQuestionType(mk('a clause; a clause'))).toBe('boundaries-semicolon');
+    expect(deriveRWQuestionType(null)).toBeNull();
   });
 });

@@ -1,0 +1,1041 @@
+[
+ {
+  "bucket": "inf-prediction-expectation",
+  "skill": "inferences",
+  "total": 30,
+  "min": 5,
+  "item": {
+   "difficulty": "hard",
+   "passage": "In Baroque keyboard music, performers were expected to realize a continuo part: rather than writing out every note, the composer supplied only a bass line marked with figures—numerals indicating the intervals above the bass that should sound—and left the player to flesh out the harmonies. Because the figures fix which chords are required but not how those chords are voiced or ornamented, two skilled performers working from the same figured bass will typically produce audibly different realizations. A musicologist examining a Baroque sonata observes that its surviving manuscript preserves only the figured bass for the keyboard part, with no fully written-out realization of any kind. It therefore follows that an editor who wishes to print a complete, playable keyboard part for this sonata ______",
+   "question": "Which choice most logically completes the text?",
+   "choices": [
+    {
+     "id": "A",
+     "text": "will have to supply choices about voicing and ornamentation that the figures alone do not determine, so the printed part will reflect interpretive decisions the manuscript leaves open."
+    },
+    {
+     "id": "B",
+     "text": "can reconstruct the composer's own intended realization exactly, since the figures specify every note the keyboard player is meant to perform."
+    },
+    {
+     "id": "C",
+     "text": "should conclude that the manuscript is incomplete because the composer never finished notating the keyboard part before the sonata was performed."
+    },
+    {
+     "id": "D",
+     "text": "must have access to a second manuscript in which the same sonata's keyboard part was written out in full by a contemporary performer."
+    }
+   ],
+   "correctAnswer": "A",
+   "explanation": "The correct answer is A. The premises are that figures fix the required chords but not their voicing or ornamentation, so skilled players produce audibly different realizations, and that this sonata survives only as a figured bass. The licensed expectation is that an editor printing a complete part must add voicing and ornamentation the figures leave open, making the result interpretive rather than dictated. Choice B contradicts the stated premise that the figures do not determine every note. Choice C wrongly treats the figured bass as an unfinished draft, when the passage presents it as the composer's intended, if underspecified, notation."
+  }
+ },
+ {
+  "bucket": "wic-example-or-illustration",
+  "skill": "words-in-context",
+  "total": 29,
+  "min": 4,
+  "item": {
+   "difficulty": "medium",
+   "passage": "Coral reefs are often described as the rainforests of the sea, but the phrase undersells how many roles a single reef plays. A healthy reef shelters juvenile fish among its branches, breaks the force of incoming waves before they reach the shoreline, and supplies the daily catch that feeds nearby fishing communities. Marine biologists therefore treat the reef as a remarkably ______ structure, one whose value cannot be reduced to any single function.",
+   "question": "Which choice completes the text with the most logical and precise word or phrase?",
+   "choices": [
+    {
+     "id": "A",
+     "text": "versatile"
+    },
+    {
+     "id": "B",
+     "text": "fragile"
+    },
+    {
+     "id": "C",
+     "text": "ancient"
+    },
+    {
+     "id": "D",
+     "text": "decorative"
+    }
+   ],
+   "correctAnswer": "A",
+   "explanation": "The correct answer is A, \\\"versatile.\\\" The sentence before the blank gives three concrete examples of distinct jobs a single reef does at once: sheltering juvenile fish, buffering waves, and feeding fishing communities. The blank needs a word meaning able to serve many different functions, and \\\"versatile\\\" captures exactly that, matching the closing claim that the reef's value \\\"cannot be reduced to any single function.\\\" \\\"Fragile\\\" is tempting because reefs are famously delicate, but the examples describe what the reef does, not how easily it is harmed, so fragility is unsupported by the listed clues.",
+   "studentNotes": null
+  }
+ },
+ {
+  "bucket": "wic-example-or-illustration",
+  "skill": "words-in-context",
+  "total": 29,
+  "min": 4,
+  "item": {
+   "difficulty": "medium",
+   "passage": "The overland routes linking Han China to the Mediterranean are often pictured as little more than channels for luxury goods. Yet the caravans that crossed them carried far more than bolts of silk, sacks of pepper, and crates of glassware: papermaking techniques, Buddhist scripture, and new musical instruments traveled the same roads. For the merchants and monks who used them, the routes were therefore not merely commercial but genuinely ______, moving knowledge and belief as readily as merchandise.",
+   "question": "Which choice completes the text with the most logical and precise word or phrase?",
+   "choices": [
+    {
+     "id": "A",
+     "text": "profitable"
+    },
+    {
+     "id": "B",
+     "text": "cultural"
+    },
+    {
+     "id": "C",
+     "text": "hazardous"
+    },
+    {
+     "id": "D",
+     "text": "ancient"
+    }
+   ],
+   "correctAnswer": "B",
+   "explanation": "The correct answer is B, \"cultural.\" The blank names what the routes were beyond commercial, and the passage pins the meaning with concrete examples of non-commercial cargo: papermaking techniques, Buddhist scripture, and new musical instruments, which it sums up as \"knowledge and belief.\" Those specific instances point precisely to \"cultural,\" the exchange of ideas, learning, and religion. \"Profitable\" merely restates the commercial side the sentence is contrasting against, and \"hazardous\" and \"ancient\" describe other qualities of the routes that the listed examples do nothing to signal.",
+   "studentNotes": null
+  }
+ },
+ {
+  "bucket": "wic-example-or-illustration",
+  "skill": "words-in-context",
+  "total": 29,
+  "min": 4,
+  "item": {
+   "difficulty": "medium",
+   "passage": "When the painter Wassily Kandinsky moved away from recognizable subjects in the early twentieth century, he came to treat the basic units of a picture as expressive in their own right. In his theoretical writings, he argued that a sharp diagonal could convey tension, that a warm yellow could seem to advance toward the viewer while a cool blue receded, and that a steady horizontal line could suggest calm. For Kandinsky, then, the painting's emotional effect arises not from any depicted scene but from these purely ______ elements—line, color, and shape—working on the viewer directly.",
+   "question": "Which choice completes the text with the most logical and precise word or phrase?",
+   "choices": [
+    {
+     "id": "A",
+     "text": "formal"
+    },
+    {
+     "id": "B",
+     "text": "narrative"
+    },
+    {
+     "id": "C",
+     "text": "historical"
+    },
+    {
+     "id": "D",
+     "text": "decorative"
+    }
+   ],
+   "correctAnswer": "A",
+   "explanation": "The correct answer is A, \"formal.\" The sentence offers a closing list of examples—line, color, and shape—as the elements that produce the painting's effect, and \"formal\" is the precise art-critical term for exactly those visual building blocks of a work, as opposed to its subject matter. \"Narrative\" is the key trap: it picks up on the words \"scene\" and \"effect,\" but the passage stresses that the emotion comes from no depicted story at all, so the elements are the opposite of narrative. \"Historical\" and \"decorative\" describe neither line, color, and shape themselves nor the direct expressive role the examples illustrate."
+  }
+ },
+ {
+  "bucket": "wic-example-or-illustration",
+  "skill": "words-in-context",
+  "total": 29,
+  "min": 4,
+  "item": {
+   "difficulty": "medium",
+   "question": "Which choice completes the text with the most logical and precise word or phrase?",
+   "passage": "Astronomers searching for planets around distant stars rarely observe the planets themselves; instead they read the subtle signatures a planet leaves on its star. A planet's gravity makes the star wobble slightly toward and away from Earth, a planet crossing in front of the star dims its light by a fraction of a percent, and the bending of light by a planet's gravity briefly brightens a more distant background star. These ______ effects—a velocity shift, a tiny dip in brightness, a fleeting magnification—are what allow researchers to infer a hidden world's presence.",
+   "choices": [
+    {
+     "id": "A",
+     "text": "indirect"
+    },
+    {
+     "id": "B",
+     "text": "deliberate"
+    },
+    {
+     "id": "C",
+     "text": "visible"
+    },
+    {
+     "id": "D",
+     "text": "permanent"
+    }
+   ],
+   "correctAnswer": "A",
+   "explanation": "The correct answer is A, \\\"indirect.\\\" The passage spells out three concrete examples—a velocity shift, a fractional dip in brightness, and a fleeting magnification—and stresses that astronomers \\\"rarely observe the planets themselves\\\" but instead \\\"read the subtle signatures a planet leaves on its star.\\\" The blank needs a word meaning that the planet is detected through secondary effects rather than seen directly, and \\\"indirect\\\" fits that enumerated evidence precisely. \\\"Visible\\\" is the key trap because it echoes the optical language of brightness and light, but it points the opposite way: the whole passage insists these signatures, not the planets, are what is observed. \\\"Deliberate\\\" and \\\"permanent\\\" describe no property the examples support, since the effects are natural and, in the transit and microlensing cases, explicitly brief."
+  }
+ },
+ {
+  "bucket": "inf-prediction-expectation",
+  "skill": "inferences",
+  "total": 29,
+  "min": 4,
+  "item": {
+   "difficulty": "hard",
+   "passage": "Reef-building corals derive much of their energy from symbiotic algae that live within their tissues and supply sugars produced by photosynthesis. When water stays unusually warm for an extended period, corals expel these algae, a stress response called bleaching that leaves the coral pale and without its principal food source. A bleached coral is not yet dead: if cooler conditions return promptly, it can take up new algae and recover. A marine biologist observes a reef where the corals have already bleached and where regional ocean temperatures are projected to remain elevated, with no cooling, for many more weeks. From this it follows that, absent some unaccounted-for intervention, the reef's corals ______",
+   "question": "Which choice most logically completes the text?",
+   "choices": [
+    {
+     "id": "A",
+     "text": "are likely to suffer extensive mortality, since recovery depends on a prompt return to cooler water that the projection does not provide."
+    },
+    {
+     "id": "B",
+     "text": "will reacquire their symbiotic algae within the coming weeks and regain their normal coloration."
+    },
+    {
+     "id": "C",
+     "text": "demonstrate that warm water is not, in fact, the factor responsible for triggering bleaching in the first place."
+    },
+    {
+     "id": "D",
+     "text": "must already have died at the moment they expelled their symbiotic algae rather than later."
+    }
+   ],
+   "correctAnswer": "A",
+   "explanation": "The correct answer is A. The premises are that bleached corals can recover only if cooler conditions return promptly, and that this reef's water is projected to stay warm for many more weeks with no such cooling. The licensed expectation is therefore extensive mortality, the outcome the evidence points toward once the recovery condition is denied. Choice B asserts recovery, the very outcome ruled out by the absence of cooling. Choice C overgeneralizes into a claim that warmth does not cause bleaching, which contradicts the passage. Choice D misreads the text, which states a bleached coral is not yet dead."
+  }
+ },
+ {
+  "bucket": "inf-prediction-expectation",
+  "skill": "inferences",
+  "total": 29,
+  "min": 4,
+  "item": {
+   "difficulty": "hard",
+   "question": "Which choice most logically completes the text?",
+   "passage": "When a long-distance trade route flourishes, the settlements positioned along it tend to accumulate durable foreign goods—coins, pottery, and ornaments produced far away—that travelers leave behind through exchange and loss. Archaeologists treat the density of such foreign objects in a settlement's layers as a rough index of how heavily the route through it was traveled in a given period. Crucially, once a route falls into disuse, the inflow of new foreign goods stops, so layers laid down afterward contain only what was already present. One excavated oasis town sits on a corridor that records describe as a major artery for centuries, yet the town's uppermost occupied layers contain almost no foreign objects of any kind. From this it follows that, by the time those upper layers were forming, the corridor through the town ______",
+   "choices": [
+    {
+     "id": "A",
+     "text": "had most likely ceased to carry significant long-distance traffic, since a still-busy route would have continued to deposit the foreign goods those layers lack."
+    },
+    {
+     "id": "B",
+     "text": "was carrying more long-distance traffic than ever, which is why so few foreign objects had the chance to settle into the town's layers."
+    },
+    {
+     "id": "C",
+     "text": "demonstrates that the density of foreign goods is, in general, an unreliable guide to how heavily any route was once traveled."
+    },
+    {
+     "id": "D",
+     "text": "must have been rerouted so that travelers passed through the oasis town more frequently than the written records suggest."
+    }
+   ],
+   "correctAnswer": "A",
+   "explanation": "The correct answer is A. The premises establish that a busy route keeps depositing foreign goods while a disused one stops adding any, and that the town's uppermost layers are nearly devoid of such goods; the expected consequence is that, by the time those layers formed, the corridor had largely stopped carrying long-distance traffic. Choice B is the key distractor: it reverses the stated relationship, since heavier traffic would deposit more foreign goods, not fewer. Choice C overgeneralizes into a claim the passage never supports, and Choice D contradicts the absence of new foreign goods by positing increased traffic through the town."
+  }
+ },
+ {
+  "bucket": "inf-prediction-expectation",
+  "skill": "inferences",
+  "total": 29,
+  "min": 4,
+  "item": {
+   "difficulty": "medium",
+   "passage": "When a community of deaf signers forms and a shared signed language emerges, that language does not stay fixed across generations. Linguists who track such languages observe a recurring pattern: the first signers often rely on broad, pantomime-like gestures whose meaning can be guessed from their resemblance to the things they depict, but as later generations acquire the language from birth, those signs tend to become more compact, systematic, and conventional, with their form governed by the grammar of the language rather than by visual resemblance. Researchers studying one young signed language note that it is still used primarily by its founding generation, whose signs remain heavily iconic and gesture-like. From this it follows that, as children born into the community acquire the language as their native one, the language's signs are likely to ______",
+   "question": "Which choice most logically completes the text?",
+   "choices": [
+    {
+     "id": "A",
+     "text": "become less transparently tied to the appearance of what they represent, growing more conventional as native acquisition shapes them."
+    },
+    {
+     "id": "B",
+     "text": "remain exactly as iconic as the founding generation's signs, since the appearance of a sign is fixed once a community begins to use it."
+    },
+    {
+     "id": "C",
+     "text": "abandon grammar altogether in favor of pantomime, making the language easier for outsiders to interpret on sight."
+    },
+    {
+     "id": "D",
+     "text": "prove that iconic, gesture-like signs are generally incapable of conveying grammatical information in any signed language."
+    }
+   ],
+   "correctAnswer": "A",
+   "explanation": "The correct answer is A. The passage establishes the general pattern that signs grow more compact and conventional, and less governed by visual resemblance, as later generations acquire a signed language from birth, then notes that this particular language is still in its iconic, founding-generation stage. The expected consequence is that native acquisition will make its signs less transparently iconic and more conventional, which is exactly what A predicts. Choice B is the tempting trap because it sounds like stability, but it directly contradicts the stated pattern of change across generations. Choice C reverses the direction of the trend (toward pantomime), and D overgeneralizes into a claim about all signed languages that the passage never supports."
+  }
+ },
+ {
+  "bucket": "inf-prediction-expectation",
+  "skill": "inferences",
+  "total": 29,
+  "min": 4,
+  "item": {
+   "difficulty": "hard",
+   "passage": "Economists studying retirement saving distinguish between an opt-in plan, in which employees enroll only by actively choosing to, and an opt-out plan, in which employees are enrolled automatically unless they actively decline. Because many people tend to stay with whatever option is already in place rather than make a deliberate change, the share of workers who end up saving can depend heavily on which arrangement is the default. A firm that has long used an opt-in plan, under which only a minority of new hires enroll, announces that it will switch to an opt-out plan while keeping every other feature—contribution rates, investment menu, and the freedom to leave at any time—unchanged. If the tendency described above holds for this firm's workforce, then after the switch the enrollment rate among new hires ______",
+   "question": "Which choice most logically completes the text?",
+   "choices": [
+    {
+     "id": "A",
+     "text": "should rise substantially, since most new hires will stay with the now-automatic enrollment rather than take the deliberate step of declining it."
+    },
+    {
+     "id": "B",
+     "text": "will remain essentially unchanged, because the contribution rates and investment options available to new hires are the same as before."
+    },
+    {
+     "id": "C",
+     "text": "must fall below the minority who enrolled under the opt-in plan, as the new arrangement makes leaving the plan easier than it had been."
+    },
+    {
+     "id": "D",
+     "text": "proves that workers generally prefer not to save for retirement unless an employer requires them to do so."
+    }
+   ],
+   "correctAnswer": "A",
+   "explanation": "The correct answer is A. The premises are that people tend to stay with whatever option is the default rather than make a deliberate change, and that the firm is moving the default from non-enrollment (opt-in) to enrollment (opt-out) while changing nothing else. The expected consequence is that enrollment should rise substantially, because staying enrolled is now the passive choice and only a minority will bother to decline. Choice B fails because it points to features the passage says are unchanged and ignores the one thing that did change—the default. Choice C reverses the predicted direction, and the option to leave was always available, so it is no easier than before. Choice D overgeneralizes into a claim about workers' underlying preferences that the inertia premise does not support."
+  }
+ },
+ {
+  "bucket": "inf-prediction-expectation",
+  "skill": "inferences",
+  "total": 29,
+  "min": 4,
+  "item": {
+   "difficulty": "medium",
+   "passage": "Beneath an active volcano, magma rising toward the surface releases dissolved gases and pushes outward on the surrounding rock, causing the ground above to swell slightly and stretch in measurable ways. Volcanologists track this swelling with instruments that detect even faint changes in the tilt and shape of the surface. Such deformation does not by itself trigger an eruption, but a sustained pattern of inflation indicates that pressure within the magma reservoir is steadily building rather than dissipating. A monitoring team reports that one long-quiet volcano has shown slow but uninterrupted surface inflation for many months, with no accompanying release of pressure through venting gas or minor tremors. From this it follows that the volcano's continued quiet ______",
+   "question": "Which choice most logically completes the text?",
+   "choices": [
+    {
+     "id": "A",
+     "text": "should not be taken as reassurance, since uninterrupted inflation without any release implies that reservoir pressure is still mounting and will eventually have to find an outlet."
+    },
+    {
+     "id": "B",
+     "text": "indicates that the magma reservoir beneath it has in fact begun to lose pressure over the months the team observed."
+    },
+    {
+     "id": "C",
+     "text": "demonstrates that surface deformation is, in general, an unreliable guide to what is happening within a magma reservoir."
+    },
+    {
+     "id": "D",
+     "text": "must mean that the rising magma has been venting its dissolved gases steadily enough to keep pressure from building at all."
+    }
+   ],
+   "correctAnswer": "A",
+   "explanation": "The correct answer is A. The premises are that sustained inflation signals mounting, undissipated pressure and that this volcano has inflated continuously for months with no venting or tremors to relieve it; the licensed prediction is that the quiet cannot be trusted to last, because building pressure must eventually find an outlet. Choice B is the key distractor: it reverses the premise by claiming pressure has been lost, which the absence of any release directly contradicts. Choice C overgeneralizes into a claim that deformation is unreliable, unsupported by the text, and D contradicts the stated lack of venting."
+  }
+ },
+ {
+  "bucket": "rs-emphasize-similarity",
+  "skill": "rhetorical-synthesis",
+  "total": 29,
+  "min": 4,
+  "item": {
+   "difficulty": "medium",
+   "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+   "passage": null,
+   "studentNotes": {
+    "intro": "While researching a topic, a student has taken the following notes:",
+    "bullets": [
+     "The Silk Road was a network of overland routes that linked markets in China, Central Asia, and the Mediterranean.",
+     "The Trans-Saharan routes were a network of desert tracks that linked markets in West Africa with North Africa and the Mediterranean.",
+     "Along the Silk Road, traders relied on a chain of oasis towns where goods were exchanged from one merchant to the next rather than carried end to end by a single party.",
+     "Along the Trans-Saharan routes, traders likewise relied on a chain of oasis settlements where goods passed from one group of merchants to another rather than being carried the whole distance by one party.",
+     "Both networks were sustained by caravans of pack animals that could survive long stretches between water sources."
+    ],
+    "goal": "The student wants to emphasize a similarity between the Silk Road and the Trans-Saharan routes."
+   },
+   "choices": [
+    {
+     "id": "A",
+     "text": "The Silk Road was a network of overland routes that linked markets in China, Central Asia, and the Mediterranean."
+    },
+    {
+     "id": "B",
+     "text": "Unlike the Silk Road, which crossed the oases of Central Asia, the Trans-Saharan routes crossed the desert tracks of West and North Africa."
+    },
+    {
+     "id": "C",
+     "text": "On both the Silk Road and the Trans-Saharan routes, goods moved along a chain of oasis settlements, passing from one group of merchants to another rather than being carried the whole distance by a single party."
+    },
+    {
+     "id": "D",
+     "text": "Along the Trans-Saharan routes, traders relied on a chain of oasis settlements where goods passed from one group of merchants to another rather than being carried the entire distance by one party."
+    }
+   ],
+   "correctAnswer": "C",
+   "explanation": "The correct answer is C. The goal is to emphasize a similarity between the two trade networks, so the sentence must name both and state a feature they share. Choice C does this: on both routes, goods moved along a chain of oasis settlements, passing between merchants rather than being carried the whole way by one party. Choice B names both networks but frames them as contrasting (\\\"Unlike...\\\"), emphasizing a difference instead of a similarity. Choices A and D each describe only one network, so neither states anything the two have in common."
+  }
+ },
+ {
+  "bucket": "rs-emphasize-similarity",
+  "skill": "rhetorical-synthesis",
+  "total": 29,
+  "min": 4,
+  "item": {
+   "difficulty": "medium",
+   "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+   "passage": null,
+   "studentNotes": {
+    "intro": "While researching a topic, a student has taken the following notes:",
+    "bullets": [
+     "Hilma af Klint (1862–1944) was a Swedish painter who produced large abstract canvases beginning around 1906.",
+     "Wassily Kandinsky (1866–1944) was a Russian-born painter who produced his first abstract works in roughly the same period.",
+     "Af Klint's series The Paintings for the Temple used spirals, circles, and pale color fields rather than recognizable objects.",
+     "Kandinsky's compositions used floating geometric shapes and bands of color rather than recognizable objects.",
+     "Both painters wrote that their abstract forms were meant to express inner spiritual states instead of depicting the visible world."
+    ],
+    "goal": "The student wants to emphasize a similarity between af Klint's paintings and Kandinsky's paintings."
+   },
+   "choices": [
+    {
+     "id": "A",
+     "text": "Hilma af Klint (1862–1944) was a Swedish painter who began producing large abstract canvases around 1906."
+    },
+    {
+     "id": "B",
+     "text": "Both af Klint and Kandinsky filled their canvases with nonrepresentational forms—spirals, circles, geometric shapes, and bands of color—that they described as expressing inner spiritual states rather than depicting the visible world."
+    },
+    {
+     "id": "C",
+     "text": "Kandinsky, born in Russia, built his compositions from floating geometric shapes and bands of color rather than recognizable objects."
+    },
+    {
+     "id": "D",
+     "text": "Af Klint produced her first abstract canvases as early as 1906, whereas Kandinsky did not complete his first abstract works until slightly afterward."
+    }
+   ],
+   "correctAnswer": "B",
+   "explanation": "The correct answer is B. The goal is to emphasize a similarity between the two painters, so the sentence must name both and identify what they shared. Choice B does this: both filled their canvases with nonrepresentational forms and described those forms as expressing inner spiritual states rather than the visible world. Choices A and C each describe only one painter, so neither states a similarity. Choice D mentions both but foregrounds a difference in timing rather than a shared feature, which is the opposite of the goal."
+  }
+ },
+ {
+  "bucket": "rs-emphasize-similarity",
+  "skill": "rhetorical-synthesis",
+  "total": 29,
+  "min": 4,
+  "item": {
+   "difficulty": "medium",
+   "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+   "passage": null,
+   "studentNotes": {
+    "intro": "While researching a topic, a student has taken the following notes:",
+    "bullets": [
+     "Astronomers cannot usually see exoplanets directly, so they often detect a planet by watching the star it orbits.",
+     "The transit method records small, regular dips in a star's brightness that occur when an orbiting planet passes in front of the star.",
+     "The radial-velocity method records small, regular shifts in a star's light caused by the gravitational tug of an orbiting planet.",
+     "Both methods look only at the star, not the planet, and both rely on a measurable change that repeats with each orbit.",
+     "From the timing of these repeating changes, astronomers using either method can estimate the length of the planet's orbit."
+    ],
+    "goal": "The student wants to emphasize a similarity between the transit method and the radial-velocity method."
+   },
+   "choices": [
+    {
+     "id": "A",
+     "text": "The transit method detects an exoplanet by recording the small, regular dips in a star's brightness that occur as the planet passes in front of the star."
+    },
+    {
+     "id": "B",
+     "text": "Because astronomers usually cannot see exoplanets directly, they often detect a planet by watching the star that it orbits."
+    },
+    {
+     "id": "C",
+     "text": "The radial-velocity method, unlike the transit method, detects an exoplanet through shifts in a star's light rather than through dips in the star's brightness."
+    },
+    {
+     "id": "D",
+     "text": "The transit method and the radial-velocity method both detect an exoplanet by observing only its star, watching for a measurable change that repeats with each orbit."
+    }
+   ],
+   "correctAnswer": "D",
+   "explanation": "The correct answer is D. The goal is to emphasize a similarity between the two detection methods, so the sentence must name both and identify what they share. Choice D does this: both methods detect a planet by observing only its star and watching for a repeating, measurable change. Choices A and B each describe only one method (or the general practice of one), so neither states a similarity, and Choice C names both methods but foregrounds a difference (\"unlike,\" brightness dips versus light shifts), the opposite of the goal."
+  }
+ },
+ {
+  "bucket": "rs-emphasize-similarity",
+  "skill": "rhetorical-synthesis",
+  "total": 29,
+  "min": 4,
+  "item": {
+   "difficulty": "medium",
+   "passage": null,
+   "studentNotes": {
+    "intro": "While researching a topic, a student has taken the following notes:",
+    "bullets": [
+     "American Sign Language (ASL) and British Sign Language (BSL) are natural languages used by Deaf communities in the United States and Britain, respectively.",
+     "Each language organizes its signs from a small set of building blocks: handshape, the place on or near the body where a sign is made, and the movement of the hands.",
+     "In both ASL and BSL, changing just one of these building blocks can change a sign into a different word, much as swapping one sound changes a spoken word.",
+     "Both languages also use the face and body, such as raised eyebrows or a head tilt, to mark grammatical information like questions.",
+     "Despite these shared design features, ASL and BSL are mutually unintelligible: a fluent signer of one cannot readily understand the other."
+    ],
+    "goal": "The student wants to emphasize a structural similarity between American Sign Language and British Sign Language."
+   },
+   "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+   "choices": [
+    {
+     "id": "A",
+     "text": "American Sign Language and British Sign Language are the natural languages used by Deaf communities in the United States and Britain, respectively."
+    },
+    {
+     "id": "B",
+     "text": "Both American Sign Language and British Sign Language build their signs from the same kinds of components, including handshape, location, and movement, so that changing just one component can produce a different word."
+    },
+    {
+     "id": "C",
+     "text": "Although they share a number of design features, American Sign Language and British Sign Language are mutually unintelligible, so a fluent signer of one cannot readily understand the other."
+    },
+    {
+     "id": "D",
+     "text": "In British Sign Language, signers use facial expressions and body movements, such as raised eyebrows or a head tilt, to mark grammatical information like questions."
+    }
+   ],
+   "correctAnswer": "B",
+   "explanation": "The correct answer is B. The goal is to emphasize a structural similarity, so the sentence must name both languages and identify a feature they share; B does this by stating that both ASL and BSL build signs from the same components (handshape, location, movement) and that changing one component changes the word. Choice C names both languages but emphasizes a difference (mutual unintelligibility) rather than a similarity, so it works against the goal. Choices A and D draw only on a single detail or describe just one language, so neither states a shared structural feature."
+  }
+ },
+ {
+  "bucket": "rs-emphasize-similarity",
+  "skill": "rhetorical-synthesis",
+  "total": 29,
+  "min": 4,
+  "item": {
+   "difficulty": "medium",
+   "passage": null,
+   "studentNotes": {
+    "intro": "While researching a topic, a student has taken the following notes:",
+    "bullets": [
+     "Stratovolcanoes are tall, steep-sided cones built up from many layers of hardened lava, ash, and rock.",
+     "Shield volcanoes are broad, gently sloping mountains that resemble a warrior's shield laid on the ground.",
+     "A stratovolcano grows when thick, slow-moving lava and explosive ash pile up near the vent before they can spread far.",
+     "A shield volcano grows when thin, runny lava flows easily down the sides and travels a long way before cooling.",
+     "Both stratovolcanoes and shield volcanoes are built gradually as repeated eruptions add fresh material to the structure over long spans of time."
+    ],
+    "goal": "The student wants to emphasize a similarity in how stratovolcanoes and shield volcanoes form."
+   },
+   "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+   "choices": [
+    {
+     "id": "A",
+     "text": "Both stratovolcanoes and shield volcanoes form gradually, built up over long spans of time as repeated eruptions add fresh layers of material to the structure."
+    },
+    {
+     "id": "B",
+     "text": "A stratovolcano is a tall, steep-sided cone, whereas a shield volcano is a broad, gently sloping mountain that resembles a warrior's shield laid on the ground."
+    },
+    {
+     "id": "C",
+     "text": "A stratovolcano grows when thick, slow-moving lava and explosive ash pile up near the vent before they can spread very far."
+    },
+    {
+     "id": "D",
+     "text": "Unlike a stratovolcano, a shield volcano forms from thin, runny lava that flows easily and travels a long way before it cools."
+    }
+   ],
+   "correctAnswer": "A",
+   "explanation": "The correct answer is A. The goal is to emphasize a similarity in how the two volcano types form, so the sentence must name both and identify the shared process: choice A states that both are built gradually over long spans of time by repeated eruptions adding fresh layers. Choice B names both but stresses how their shapes differ, and choice D explicitly frames the shield volcano in contrast (\"Unlike a stratovolcano\"), so both emphasize a difference rather than a similarity. Choice C describes only the stratovolcano, so it cannot express a similarity between the two."
+  }
+ },
+ {
+  "bucket": "rs-present-claim",
+  "skill": "rhetorical-synthesis",
+  "total": 29,
+  "min": 4,
+  "item": {
+   "difficulty": "medium",
+   "passage": null,
+   "studentNotes": {
+    "intro": "While researching a topic, a student has taken the following notes:",
+    "bullets": [
+     "Roger T. Hanlon is a marine biologist whose research centers on cephalopods—octopuses, squid, and cuttlefish—and their skin.",
+     "Cephalopod skin contains chromatophores, pigment-filled cells that expand and contract to change color in fractions of a second.",
+     "Beneath the chromatophores lie reflective cells called iridophores and leucophores that scatter and reflect ambient light.",
+     "In *Cephalopod Behaviour* (2018), Hanlon argues that a cephalopod's camouflage is not a fixed pattern but a rapid, moment-to-moment response generated by the animal's nervous system reading its surroundings.",
+     "On Hanlon's view, the animal does not match a background by storing a library of patterns; it produces an appropriate display on the spot from a small set of underlying components.",
+     "Hanlon notes that cephalopods are colorblind, which makes their precise color matching one of the field's enduring puzzles."
+    ],
+    "goal": "The student wants to present Hanlon's central claim about cephalopod camouflage."
+   },
+   "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+   "choices": [
+    {
+     "id": "A",
+     "text": "Cephalopod skin contains chromatophores, pigment-filled cells that expand and contract to change color in fractions of a second, layered above reflective iridophores and leucophores."
+    },
+    {
+     "id": "B",
+     "text": "Hanlon, a marine biologist who studies octopuses, squid, and cuttlefish, points out that cephalopods are colorblind, which makes their precise color matching one of the field's enduring puzzles."
+    },
+    {
+     "id": "C",
+     "text": "In *Cephalopod Behaviour* (2018), Hanlon argues that a cephalopod's camouflage is not a fixed pattern but a rapid, moment-to-moment display its nervous system generates from a few underlying components as it reads its surroundings."
+    },
+    {
+     "id": "D",
+     "text": "Roger T. Hanlon is a marine biologist whose research centers on cephalopods and the skin that allows them to change color so quickly."
+    }
+   ],
+   "correctAnswer": "C",
+   "explanation": "The correct answer is C. The goal is to present Hanlon's central claim about cephalopod camouflage, and C states it directly: camouflage is not a fixed pattern but a rapid, moment-to-moment display the nervous system generates on the spot from a few components as it reads the surroundings. Choice B is the most tempting distractor because it quotes Hanlon, but it reports a secondary observation (that cephalopods are colorblind) rather than his thesis. Choices A and D give the skin's mechanism and biographical background, never stating what Hanlon argues."
+  }
+ },
+ {
+  "bucket": "rs-present-claim",
+  "skill": "rhetorical-synthesis",
+  "total": 29,
+  "min": 4,
+  "item": {
+   "difficulty": "medium",
+   "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+   "passage": null,
+   "studentNotes": {
+    "intro": "While researching a topic, a student has taken the following notes:",
+    "bullets": [
+     "Valerie Hansen is a historian of premodern China and a professor of history at Yale University whose work examines cross-cultural exchange in Asia.",
+     "The phrase \"Silk Road\" was coined in 1877 by the geographer Ferdinand von Richthofen and is often imagined as a single, heavily traveled highway carrying caravans of silk between China and Rome.",
+     "The surviving documentary record from sites such as Dunhuang and Turfan shows mostly small-scale, local, and regional movement of goods rather than continuous long-distance commerce.",
+     "In *The Silk Road: A New History* (2012), Hansen argues that the routes are better understood as a shifting web of short, overlapping local exchanges than as a single transcontinental trade artery.",
+     "On Hansen's view, the lasting historical significance of these routes lay in the transmission of religions, languages, technologies, and art rather than in the volume of trade itself.",
+     "Hansen notes that paper documents survived in the dry climate of the Taklamakan Desert oases, which is why so much of the evidence comes from that region."
+    ],
+    "goal": "The student wants to present Hansen's central claim about the ancient Silk Road trade routes."
+   },
+   "choices": [
+    {
+     "id": "A",
+     "text": "Valerie Hansen, a professor of history at Yale University, specializes in premodern China and the cross-cultural exchange that took place across Asia."
+    },
+    {
+     "id": "B",
+     "text": "In *The Silk Road: A New History* (2012), Hansen argues that the Silk Road is best understood not as a single transcontinental trade artery but as a shifting web of short, overlapping local exchanges whose importance lay in transmitting religions, technologies, and art."
+    },
+    {
+     "id": "C",
+     "text": "The term \"Silk Road\" was coined in 1877 by the geographer Ferdinand von Richthofen, who imagined a single highway carrying caravans of silk between China and Rome."
+    },
+    {
+     "id": "D",
+     "text": "Hansen notes that paper documents survived in the dry climate of the Taklamakan Desert oases, which is why so much of the surviving evidence about the routes comes from that region."
+    }
+   ],
+   "correctAnswer": "B",
+   "explanation": "The correct answer is B. The goal is to present Hansen's central claim about the Silk Road, and B states it directly: the routes are best understood as a shifting web of short, overlapping local exchanges rather than a single transcontinental artery, with their significance lying in cultural transmission. Choice A gives only biographical background and never states her claim, and Choice C reports the term's origin and the popular image she revises rather than her own argument. Choice D is the key distractor: it states an accurate but peripheral methodological point about why the evidence survives, not the central thesis the goal requires."
+  }
+ },
+ {
+  "bucket": "rs-present-claim",
+  "skill": "rhetorical-synthesis",
+  "total": 29,
+  "min": 4,
+  "item": {
+   "difficulty": "medium",
+   "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+   "passage": null,
+   "studentNotes": {
+    "intro": "While researching a topic, a student has taken the following notes:",
+    "bullets": [
+     "Lisa Kaltenegger is an astronomer at Cornell University who studies the atmospheres of potentially habitable exoplanets.",
+     "The transit method detects a planet indirectly, by measuring the slight, periodic dimming of a star as the planet passes in front of it.",
+     "When a planet transits, a small fraction of the star's light filters through the planet's atmosphere, and different gases absorb that light at characteristic wavelengths.",
+     "In *Alien Earths* (2024), Kaltenegger argues that this filtered starlight carries a readable chemical fingerprint, so the search for life can become an observational science rather than only speculation.",
+     "On Kaltenegger's view, identifying combinations of gases that life would sustain is the key to recognizing a living world from light alone.",
+     "Kaltenegger notes that distinguishing a biological signal from gases produced by non-living geological processes remains a central difficulty for the approach."
+    ],
+    "goal": "The student wants to present Kaltenegger's central claim about the search for life on exoplanets."
+   },
+   "choices": [
+    {
+     "id": "A",
+     "text": "Lisa Kaltenegger is an astronomer at Cornell University who studies the atmospheres of potentially habitable exoplanets."
+    },
+    {
+     "id": "B",
+     "text": "In the transit method, a planet is detected indirectly, by the slight, periodic dimming of a star as the planet passes in front of it."
+    },
+    {
+     "id": "C",
+     "text": "Kaltenegger argues that the starlight filtered through a transiting planet's atmosphere carries a readable chemical fingerprint, so the search for life can become an observational science rather than only speculation."
+    },
+    {
+     "id": "D",
+     "text": "Kaltenegger notes that telling a biological signal apart from gases produced by non-living geological processes remains a central difficulty, a problem she considers far from solved."
+    }
+   ],
+   "correctAnswer": "C",
+   "explanation": "The correct answer is C. The goal is to present Kaltenegger's central claim about the search for life on exoplanets, and C states it directly: the starlight filtered through a transiting planet's atmosphere carries a readable chemical fingerprint, so the search for life can become an observational science rather than only speculation. Choice A gives biographical background and never states her claim, and B defines the transit method without saying what Kaltenegger argues. Choice D reports a real but secondary point from the notes—a difficulty the approach still faces—rather than the central claim the goal calls for."
+  }
+ },
+ {
+  "bucket": "coe-text-illustrate-quote",
+  "skill": "command-of-evidence-textual",
+  "total": 29,
+  "min": 4,
+  "item": {
+   "difficulty": "medium",
+   "passage": "In the contemplative nature poem \"The Unhurried Stream\" by Mirela Vance, the speaker spends a long summer afternoon beside a slow-moving brook. A reader might argue that the poem advances a pointed claim about patience: rather than admiring the stream for what it accomplishes or where it is going, the speaker insists that the water's value lies precisely in its refusal to hurry, treating its slowness not as a flaw but as a kind of quiet wisdom.",
+   "question": "Which quotation from \"The Unhurried Stream\" most effectively illustrates the claim?",
+   "choices": [
+    {
+     "id": "A",
+     "text": "\"It carries no cargo, charts no course, / and asks the meadow nothing in return.\""
+    },
+    {
+     "id": "B",
+     "text": "\"The stream is wisest when it will not race; / it teaches that to linger is to learn.\""
+    },
+    {
+     "id": "C",
+     "text": "\"Far off, the river it will someday join / roars white against the rocks and hurries on.\""
+    },
+    {
+     "id": "D",
+     "text": "\"All afternoon the willows lean to watch / their shadows lengthen on the cooling bank.\""
+    }
+   ],
+   "correctAnswer": "B",
+   "explanation": "The correct answer is B. The claim is that the poem treats the stream's slowness as a kind of wisdom rather than a flaw, and these lines state exactly that: the stream is \"wisest when it will not race\" and \"teaches that to linger is to learn,\" directly equating refusing to hurry with wisdom. C is the key distractor because it concerns motion and speed, but it describes the distant river that \"hurries on\"—the opposite of the unhurried stream the claim praises—so it illustrates haste, not patient slowness. A merely notes that the stream is purposeless, and D simply paints the surrounding scenery, so neither connects slowness to wisdom as the claim requires.",
+   "studentNotes": null
+  }
+ },
+ {
+  "bucket": "coe-text-illustrate-quote",
+  "skill": "command-of-evidence-textual",
+  "total": 29,
+  "min": 4,
+  "item": {
+   "difficulty": "medium",
+   "passage": "In the short lyric \"The Lent Coat\" (1911), the fictional poet Marguerite Vell reflects on a memory of a departed sister. A reader might argue that the poem suggests memory does not simply preserve the past but actively reshapes it, so that what the speaker recalls grows more vivid and more precious than the original moment ever was.",
+   "question": "Which quotation from \"The Lent Coat\" most effectively illustrates the claim?",
+   "choices": [
+    {
+     "id": "A",
+     "text": "\"I keep the gray coat you once lent / Folded still within the cedar chest.\""
+    },
+    {
+     "id": "B",
+     "text": "\"Each year I tell the morning over, / And each year its colors deepen— / brighter now than the day I lived it.\""
+    },
+    {
+     "id": "C",
+     "text": "\"The clock upon the landing stopped / The hour you turned to go.\""
+    },
+    {
+     "id": "D",
+     "text": "\"I cannot say what dress you wore, / Nor whether the rain had ceased.\""
+    }
+   ],
+   "correctAnswer": "B",
+   "explanation": "The correct answer is B. The claim is that memory reshapes the past so the remembered moment becomes more vivid than the original, and these lines show exactly that: as the speaker retells the morning \"each year,\" its \"colors deepen\" until it is \"brighter now than the day I lived it\"—the recollection actively intensifies beyond the real event. Choice C is the key distractor: the stopped clock movingly marks the moment of loss, but it depicts memory as frozen and preserved, the opposite of the active reshaping the claim requires. Choice A also shows preservation (the coat kept unchanged), and D shows memory fading rather than growing more vivid, so neither fits."
+  }
+ },
+ {
+  "bucket": "coe-text-illustrate-quote",
+  "skill": "command-of-evidence-textual",
+  "total": 29,
+  "min": 4,
+  "item": {
+   "difficulty": "medium",
+   "passage": "In her poem \"What the Frost Kept,\" the fictional poet Adela Verlane revisits an abandoned estate garden decades after it was last tended. A reader might argue that the poem makes a pointed claim about nature's indifference to human effort: the careful arrangements the gardeners once imposed have not merely faded but been overwritten, as wild growth reclaims the plot on terms entirely its own.",
+   "question": "Which quotation from \"What the Frost Kept\" most effectively illustrates the claim?",
+   "choices": [
+    {
+     "id": "A",
+     "text": "\"I knelt where once the gravel paths were swept, / and found the gate hung crooked on its pin.\""
+    },
+    {
+     "id": "B",
+     "text": "\"No hand corrects the bramble's restless sprawl; / the roses grow as briars, and the rows / the planters squared have buckled into wild— / the garden keeps no shape but what it chose.\""
+    },
+    {
+     "id": "C",
+     "text": "\"How long the gardeners must have labored here, / to coax such order from a stubborn soil.\""
+    },
+    {
+     "id": "D",
+     "text": "\"A single rose still reddens by the wall, / as though it half-remembered being loved.\""
+    }
+   ],
+   "correctAnswer": "B",
+   "explanation": "The correct answer is B. The claim is that nature has overwritten the gardeners' careful design and reclaimed the plot on its own terms, and these lines show exactly that: no hand corrects the growth, the planted roses revert to briars, the squared rows \"buckle into wild,\" and the garden \"keeps no shape but what it chose\"—nature imposing its own order. Choice D is the strongest distractor because the surviving rose evokes loss and abandonment, but it dwells on lingering human affection rather than on nature actively overwriting design, so it misses the claim's emphasis. Choice A merely sets the scene of decay, and Choice C praises the original gardeners' labor, a different idea entirely.",
+   "studentNotes": null
+  }
+ },
+ {
+  "bucket": "coe-text-illustrate-quote",
+  "skill": "command-of-evidence-textual",
+  "total": 29,
+  "min": 4,
+  "item": {
+   "difficulty": "medium",
+   "passage": "In Mara Olusegun's dramatic monologue \"The Lighthouse Keeper's Confession\" (2014), an aging keeper, speaking to a visitor on his final night before retirement, recalls the wrecks he watched from his tower. A reader might argue that the poem characterizes the keeper's pride in his lifelong duty as inseparable from a private guilt: even as he insists his lamp saved countless ships, he cannot finish that boast without recalling the one night the light failed and a vessel went down.",
+   "question": "Which quotation from \"The Lighthouse Keeper's Confession\" most effectively illustrates the claim?",
+   "choices": [
+    {
+     "id": "A",
+     "text": "\"Forty winters I have trimmed this wick, and trimmed it well; / the salt has gnawed the rail, the glass has fogged, but never me.\""
+    },
+    {
+     "id": "B",
+     "text": "\"Each captain owes his harbor to my hand— / yes, every one, save the November ship I name in sleep, / whose lights went under while mine, that hour, were dark.\""
+    },
+    {
+     "id": "C",
+     "text": "\"You ask what kept me here so long alone; / it was the sound the sea makes when it has no quarrel with you.\""
+    },
+    {
+     "id": "D",
+     "text": "\"Tomorrow a younger man will climb these stairs / and learn, as I did, that the lamp is heavier than it looks.\""
+    }
+   ],
+   "correctAnswer": "B",
+   "explanation": "The correct answer is B. The claim is that the keeper's pride in his duty is inseparable from a private guilt—that he cannot complete his boast without recalling the night his light failed. These lines do exactly that: the proud claim that every captain owes his harbor to the keeper's hand is interrupted by the exception he names in his sleep, the November ship that sank \"while mine, that hour, were dark,\" fusing the boast and the guilt in a single breath. Choice D is the key distractor: it conveys the weight and difficulty of the duty, but it expresses general weariness about the job, not the specific guilt over a failure that undercuts a boast. Choice A states pride without any guilt, and Choice C describes the solitude of the post, neither of which captures the contrast the claim depends on."
+  }
+ },
+ {
+  "bucket": "coe-text-illustrate-quote",
+  "skill": "command-of-evidence-textual",
+  "total": 29,
+  "min": 4,
+  "item": {
+   "difficulty": "medium",
+   "passage": "In her poem \"The Long Ledger of Birds\" (2014), the fictional poet Maren Okafor follows a flock of geese leaving a frozen northern lake for warmer ground. A reader might argue that the poem treats migration not as a loss of home but as a way of carrying home along the journey: for the birds, belonging is something they keep with them rather than something they leave behind.",
+   "question": "Which quotation from \"The Long Ledger of Birds\" most effectively illustrates the claim?",
+   "choices": [
+    {
+     "id": "A",
+     "text": "\"They lift in one slow wheel above the reeds, / and the lake below them whitens into glass.\""
+    },
+    {
+     "id": "B",
+     "text": "\"No nest is left behind them on the shore; / the warmth they knew is folded in their wings, / and where they land, that warmth unfolds again.\""
+    },
+    {
+     "id": "C",
+     "text": "\"The empty bank still holds their printed feet, / faint marks the rising water soon will take.\""
+    },
+    {
+     "id": "D",
+     "text": "\"Across the dark they call from rank to rank, / each cry a thread that keeps the line from breaking.\""
+    }
+   ],
+   "correctAnswer": "B",
+   "explanation": "The correct answer is B. The claim is that the birds carry home with them rather than leaving it behind, and these lines show exactly that: \"No nest is left behind\" rejects the idea of loss, while \"the warmth they knew is folded in their wings, / and where they land, that warmth unfolds again\" portrays home as something portable that is restored at the new destination. D is the tempting distractor because the calls that \"keep the line from breaking\" suggest the flock stays connected, but that describes the birds holding together with one another, not carrying their home with them. A simply sets the scene of departure, and C dwells on the traces left behind at the old shore, the opposite of the claim."
+  }
+ },
+ {
+  "bucket": "coe-text-illustrate-quote",
+  "skill": "command-of-evidence-textual",
+  "total": 29,
+  "min": 4,
+  "item": {
+   "difficulty": "medium",
+   "passage": "In the poem \"Slow Light Over Aldermere\" by Imogen Carrow, the speaker watches a city wake at dawn. A reader might argue that the poem makes a pointed claim about labor: long before the city's residents stir, it is the unseen work of early risers that quietly readies the streets for the day, so that the comfort the waking city enjoys is something already paid for by others.",
+   "question": "Which quotation from \"Slow Light Over Aldermere\" most effectively illustrates the claim?",
+   "choices": [
+    {
+     "id": "A",
+     "text": "\"The rooftops blush, then pale to slate, / as one by one the lamps go out.\""
+    },
+    {
+     "id": "B",
+     "text": "\"Before a single shutter lifts, / the baker's window glows; / by the hour the city stretches and yawns, / the bread already waits in rows.\""
+    },
+    {
+     "id": "C",
+     "text": "\"Above the spires the gulls wheel wide, / loud heralds of the coming light.\""
+    },
+    {
+     "id": "D",
+     "text": "\"And how the river holds the sky, / a ribbon of unhurried gold.\""
+    }
+   ],
+   "correctAnswer": "B",
+   "explanation": "The correct answer is B. The claim is that early risers' unseen labor readies the city before its residents wake, and these lines show exactly that: the baker works \"before a single shutter lifts,\" so that \"by the hour the city stretches and yawns, / the bread already waits in rows\"—the comfort is prepared in advance by someone else. A and D are atmospheric descriptions of dawn light and the river that say nothing about work. C describes gulls announcing the daybreak, which evokes the early hour but depicts no human labor and so does not illustrate the claim about work being done for others.",
+   "studentNotes": null
+  }
+ },
+ {
+  "bucket": "inf-prediction-expectation",
+  "skill": "inferences",
+  "total": 28,
+  "min": 4,
+  "item": {
+   "difficulty": "medium",
+   "passage": "When a museum acquires a large abstract painting, conservators must decide where to display it, since strong light slowly fades many pigments while dimmer conditions can leave a gallery too dark for visitors to read the work's subtle tonal shifts. A conservator notes that one mid-century canvas was painted with synthetic organic reds known to be among the most light-sensitive pigments in use at the time, and that the museum has kept the painting in a brightly lit central hall for the past several decades to showcase its scale. From this it follows that the painting's present vividness ______",
+   "question": "Which choice most logically completes the text?",
+   "choices": [
+    {
+     "id": "A",
+     "text": "is unlikely to endure, since prolonged exposure of unusually light-sensitive reds to bright illumination implies a continued fading that the canvas must eventually show."
+    },
+    {
+     "id": "B",
+     "text": "indicates that the synthetic organic reds the artist used have in fact proven more stable under light than the conservator's note suggests."
+    },
+    {
+     "id": "C",
+     "text": "proves that light exposure is, in general, an unreliable predictor of whether a painting's pigments will fade over time."
+    },
+    {
+     "id": "D",
+     "text": "must mean that the museum has been protecting the canvas from light more carefully in its central hall than it would in a dimmer gallery."
+    }
+   ],
+   "correctAnswer": "A",
+   "explanation": "The correct answer is A. The premises are that the painting's reds are unusually light-sensitive and that the museum has displayed it under bright light for decades; the licensed expectation is that its current vividness will not last, because continued exposure means continued fading that the canvas must eventually reveal. Choice B contradicts the stated light-sensitivity of the pigments, and Choice D reverses the setup by treating a brightly lit hall as protection rather than a fading risk. Choice C overgeneralizes into a claim the passage never supports, since the text treats light as a clear driver of fading, not an unreliable one."
+  }
+ },
+ {
+  "bucket": "inf-prediction-expectation",
+  "skill": "inferences",
+  "total": 28,
+  "min": 4,
+  "item": {
+   "difficulty": "medium",
+   "passage": "The transit method of detecting exoplanets watches a star for the slight, repeated dip in brightness that occurs when a planet passes directly between the star and the observer. Because a transit can be seen only when a planet's orbit happens to be edged on toward Earth, the method detects just a small fraction of the planets that actually orbit the stars being surveyed. The likelihood that an orbit is favorably aligned, moreover, drops as the planet's orbit grows wider, since a distant planet sweeps across only a narrow band of possible viewing angles. A team analyzing a large transit survey notes that the planets it found cluster tightly around their host stars, with very few on wide orbits. The team therefore cautions that this apparent scarcity of wide-orbit planets ______",
+   "question": "Which choice most logically completes the text?",
+   "choices": [
+    {
+     "id": "A",
+     "text": "likely reflects the survey method's bias rather than a real shortage, since wide orbits are the least likely to be favorably aligned for transit detection."
+    },
+    {
+     "id": "B",
+     "text": "demonstrates that wide-orbit planets form far less frequently than planets on close orbits around the same kinds of stars."
+    },
+    {
+     "id": "C",
+     "text": "shows that the transit method detects nearly all of the planets orbiting the stars in any survey it examines."
+    },
+    {
+     "id": "D",
+     "text": "must be due to the host stars dimming the light of any planets that happen to orbit them at great distances."
+    }
+   ],
+   "correctAnswer": "A",
+   "explanation": "The correct answer is A. The premises state that the transit method catches only a small fraction of planets and that the odds of a detectable alignment fall off as orbits widen; given a sample dominated by close-in planets, the expected conclusion is that the missing wide-orbit planets are an artifact of the method's selection bias, not evidence of true scarcity. Choice B is the key distractor: it reads the scarcity as a real difference in how often wide-orbit planets form, which directly ignores the stated detection bias the passage builds toward. Choice C contradicts the premise that the method detects only a small fraction, and Choice D invents a dimming mechanism the passage never mentions.",
+   "studentNotes": null
+  }
+ },
+ {
+  "bucket": "rs-emphasize-similarity",
+  "skill": "rhetorical-synthesis",
+  "total": 28,
+  "min": 4,
+  "item": {
+   "difficulty": "medium",
+   "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+   "passage": null,
+   "studentNotes": {
+    "intro": "While researching a topic, a student has taken the following notes:",
+    "bullets": [
+     "The fugue and the chorale prelude are two compositional forms developed during the Baroque period (roughly 1600–1750).",
+     "A fugue opens with a single melodic line, the subject, which is then imitated and overlapped by additional voices entering one at a time.",
+     "A chorale prelude takes a familiar hymn tune and surrounds it with newly composed accompanying lines.",
+     "In both forms the composer builds the texture by layering several independent melodic lines that sound at the same time.",
+     "Both forms were prized by Baroque organists as a way to display contrapuntal skill during church services."
+    ],
+    "goal": "The student wants to emphasize a similarity between the fugue and the chorale prelude."
+   },
+   "choices": [
+    {
+     "id": "A",
+     "text": "A fugue opens with a single melodic line, the subject, which is then imitated and overlapped by additional voices that enter one at a time."
+    },
+    {
+     "id": "B",
+     "text": "Both the fugue and the chorale prelude build their texture by layering several independent melodic lines that sound at the same time, and Baroque organists prized both as a way to display contrapuntal skill."
+    },
+    {
+     "id": "C",
+     "text": "Unlike a fugue, which begins from a single subject, a chorale prelude starts from a familiar hymn tune and surrounds it with newly composed accompanying lines."
+    },
+    {
+     "id": "D",
+     "text": "The fugue and the chorale prelude are two compositional forms that were developed during the Baroque period, which lasted roughly from 1600 to 1750."
+    }
+   ],
+   "correctAnswer": "B",
+   "explanation": "The correct answer is B. The goal is to emphasize a similarity between the fugue and the chorale prelude, so the sentence must name both forms and identify what they share. Choice B does this: both build their texture by layering several independent melodic lines that sound at once, and both were prized by Baroque organists for displaying contrapuntal skill. Choice A describes only the fugue, so it states no similarity. Choice C is the key trap: it names both forms but uses \"Unlike\" to foreground how they differ, which is the opposite of emphasizing a similarity. Choice D mentions both forms but only places them in a shared time period, an incidental detail rather than the shared compositional feature the goal calls for."
+  }
+ },
+ {
+  "bucket": "coe-text-illustrate-quote",
+  "skill": "command-of-evidence-textual",
+  "total": 28,
+  "min": 4,
+  "item": {
+   "difficulty": "medium",
+   "passage": "Della Hartwicke's narrative poem \"The Long Reckoning\" (a fictional work) follows a sea captain who, after years of chasing a fortune across distant waters, finally turns his ship toward home. A reader might argue that the poem's central claim is that the captain comes to value the voyage itself over the wealth he set out to win: by the journey's end, the experience of sailing has eclipsed the treasure that first drew him to sea.",
+   "question": "Which quotation from \"The Long Reckoning\" most effectively illustrates the claim?",
+   "choices": [
+    {
+     "id": "A",
+     "text": "\"He weighed the chests of coin he'd dreamed of long, / then let them lie; the open water's song, / the salt, the watch, the wind—these were the prize / he'd sailed to find without yet knowing why.\""
+    },
+    {
+     "id": "B",
+     "text": "\"The harbor's gold had called him from the start, / a glint that fixed itself within his heart / and would not loose its hold for any cost, / until the counting of it left him lost.\""
+    },
+    {
+     "id": "C",
+     "text": "\"For thirty years he carved a westward road / across the swells, and bore his heavy load / through storms that split the mainmast like a reed / and seasons that no almanac could read.\""
+    },
+    {
+     "id": "D",
+     "text": "\"He stood at last upon his native shore / and found the village smaller than before, / the faces changed, the harbor strangely still, / as though the years had emptied it at will.\""
+    }
+   ],
+   "correctAnswer": "A",
+   "explanation": "The correct answer is A. The claim is that the captain ends up valuing the voyage itself over the wealth he sought, and these lines show exactly that reversal: he sets the coin aside and names \"the open water's song, / the salt, the watch, the wind\" as \"the prize / he'd sailed to find,\" ranking the experience of the voyage above the treasure. B is the tempting trap because it is explicitly about gold, but it shows the opposite of the claim—it depicts the captain still consumed by the treasure that \"called him,\" not preferring the journey. C describes the hardship and duration of the voyage without any comparison to wealth, and D depicts his changed homecoming, neither of which illustrates the captain's valuing the voyage over the fortune."
+  }
+ },
+ {
+  "bucket": "coe-text-illustrate-quote",
+  "skill": "command-of-evidence-textual",
+  "total": 28,
+  "min": 4,
+  "item": {
+   "difficulty": "medium",
+   "passage": "In the pastoral poem \"Glebe and Furrow\" (1871), the fictional poet Marianne Holt depicts a farming village across a single harvest day. A reader might argue that the poem complicates the conventional image of country life as restful and idyllic: rather than picturing leisure, it insists that the land's apparent peace is purchased by relentless, body-wearing labor.",
+   "question": "Which quotation from \"Glebe and Furrow\" most effectively illustrates the claim?",
+   "choices": [
+    {
+     "id": "A",
+     "text": "\"The orchard drowsed in afternoon, / and bees went heavy through the rows.\""
+    },
+    {
+     "id": "B",
+     "text": "\"What stranger to the meadow calls it calm / has never bent a back from dawn to dusk, / nor felt the scythe drink dry the strongest arm.\""
+    },
+    {
+     "id": "C",
+     "text": "\"At dusk the children chase the lengthening shade / and count the swallows wheeling toward the eaves.\""
+    },
+    {
+     "id": "D",
+     "text": "\"The hills lay green and patient in their rows, / a quilt of fields stitched bright from edge to edge.\""
+    }
+   ],
+   "correctAnswer": "B",
+   "explanation": "The correct answer is B. The claim is that the poem reframes the village's apparent peace as the product of grinding labor, and these lines do exactly that: the \"stranger\" who \"calls it calm\" is rebuked precisely because he \"has never bent a back from dawn to dusk,\" with the scythe drinking \"the strongest arm\" dry, so the calm is shown to rest on exhausting work. A and D simply paint the restful, idyllic scene the claim says the poem complicates, and C depicts a peaceful evening of leisure; none of these expose labor as the cost of that peace. D is the key trap because its \"patient\" fields hint at toil, but it still only describes a tranquil landscape rather than the body-wearing work the claim depends on."
+  }
+ },
+ {
+  "bucket": "wic-example-or-illustration",
+  "skill": "words-in-context",
+  "total": 27,
+  "min": 4,
+  "item": {
+   "difficulty": "medium",
+   "passage": "Behavioral economists have shown that how a choice is presented can steer decisions without removing any options. A cafeteria that places fruit at eye level and tucks desserts behind the counter, a retirement plan that signs new employees up automatically unless they opt out, and a utility bill that shows a household its neighbors' average energy use all guide people toward a particular outcome while leaving them entirely free to choose otherwise. Such ______ arrangements work precisely because they shape behavior through the design of the choice rather than through mandates or financial penalties.",
+   "question": "Which choice completes the text with the most logical and precise word or phrase?",
+   "choices": [
+    {
+     "id": "A",
+     "text": "coercive"
+    },
+    {
+     "id": "B",
+     "text": "nudging"
+    },
+    {
+     "id": "C",
+     "text": "arbitrary"
+    },
+    {
+     "id": "D",
+     "text": "deceptive"
+    }
+   ],
+   "correctAnswer": "B",
+   "explanation": "The correct answer is B, \\\"nudging.\\\" The passage enumerates three concrete instances—eye-level fruit, automatic retirement enrollment, neighbor-comparison energy bills—that each steer a choice while \\\"leaving them entirely free to choose otherwise,\\\" and the closing sentence stresses that they work \\\"rather than through mandates or financial penalties.\\\" The blank needs a word for arrangements that guide behavior gently through choice design, and \\\"nudging\\\" fits these examples precisely. \\\"Coercive\\\" is the key trap: it captures the steering but directly contradicts the examples' freedom to opt out and the explicit rejection of mandates and penalties.",
+   "studentNotes": null
+  }
+ }
+]

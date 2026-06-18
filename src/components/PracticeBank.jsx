@@ -12,7 +12,8 @@ import {
   getQuestionsByDomain as getRWQuestionsByDomain,
   getQuestionsByPattern as getRWQuestionsByPattern,
 } from '../data/questions/rwBank';
-import { deriveRWPattern, RW_PATTERN_LABELS } from '../data/questions/rwBank/deriveRWPattern';
+import { deriveRWQuestionType, RW_PATTERN_LABELS } from '../data/questions/rwBank/deriveRWPattern';
+import { RW_READING_TYPE_LABELS } from '../data/questions/rwBank/rwReadingType';
 import { extractSatPattern } from '../data/questions/extractSatPattern';
 import {
   CB_MATH_SKILLS,
@@ -190,15 +191,18 @@ function buildMathCategories() {
     });
 }
 
-// Display labels for R&W "question types" in the practice bank. Extends the
-// routing taxonomy's RW_PATTERN_LABELS with the grammar sub-types it leaves
-// unlabeled: those sit below the Tier-1 routing threshold (so they show no
-// drill chip — see drillChip.js), but they are still legitimate, drillable
-// question types worth surfacing here. A pattern absent from this map (e.g.
-// the tag-only coe-textual-illustrate-claim, whose pool == the whole skill)
-// is intentionally NOT shown as a type.
+// Display labels for R&W "question types" in the practice bank. Composed from:
+//   - RW_PATTERN_LABELS — the Tier-1 grammar/punctuation routing patterns (≥8).
+//   - RW_READING_TYPE_LABELS — the reading-comprehension sub-types (context-clue
+//     type, logical relation, Text-2 stance, rhetorical goal) from the
+//     authoritative rwReadingType.js map. These surface at the bank's ≥4 browse
+//     threshold even though many sit below the Tier-1 routing threshold.
+//   - the three sub-threshold grammar types FSS leaves unlabeled.
+// A pattern absent from this map (e.g. any *-other reading bucket) is
+// intentionally NOT shown as a type.
 const RW_TYPE_LABELS = {
   ...RW_PATTERN_LABELS,
+  ...RW_READING_TYPE_LABELS,
   'fss-pronoun': 'Pronouns & antecedents',
   'fss-possessive': 'Possessives & apostrophes',
   'fss-comparison': 'Comparisons',
@@ -221,11 +225,12 @@ function buildRWCategories() {
       pushId(skillQids, sid, q.id);
     });
 
-    // Derive the R&W sub-pattern (Phase 4) and bucket it under the item's
-    // primary skill — the SAME skill deriveRWPattern keys off — so the type
-    // lands under the right topic (grammar types under Form/Structure/Sense,
-    // punctuation types under Boundaries, etc.).
-    const pattern = deriveRWPattern(q);
+    // Derive the R&W question type (browse type — grammar/punctuation/structure
+    // patterns AND reading-comprehension sub-types) and bucket it under the
+    // item's primary skill, so the type lands under the right topic (grammar
+    // types under Form/Structure/Sense, punctuation under Boundaries, reading
+    // types under Words in Context / Inferences / etc.).
+    const pattern = deriveRWQuestionType(q);
     if (pattern) {
       patternCounts.set(pattern, (patternCounts.get(pattern) || 0) + 1);
       pushId(patternQids, pattern, q.id);

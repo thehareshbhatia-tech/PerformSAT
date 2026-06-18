@@ -1,15 +1,17 @@
 import { rwQuestionBank } from '../index';
-import { deriveRWPattern } from '../deriveRWPattern';
+import { deriveRWQuestionType } from '../deriveRWPattern';
 
 /**
  * Pins the data behind the practice-bank "question types" breakdown for R&W
- * (PracticeBank.jsx buildRWCategories). Grammar/structure skills must surface
- * multiple drillable sub-types via deriveRWPattern, mirroring how math topics
- * show "· N question types". Reading-comprehension skills, which carry no
- * deterministic mechanical sub-type, must surface NONE.
+ * (PracticeBank.jsx buildRWCategories). EVERY R&W skill must surface multiple
+ * drillable sub-types via deriveRWPattern, mirroring how math topics show
+ * "· N question types": grammar/structure skills via the mechanical signal in
+ * the correct answer, and the seven reading-comprehension skills via the
+ * authoritative rwReadingType.js map (added 2026-06-18 — before that, reading
+ * skills surfaced NO types and rendered as a flat "Drill" button).
  *
- * Regression guard: if deriveRWPattern coverage ever collapses, grammar would
- * silently revert to a flat, uncategorized topic (the gap this test pins shut).
+ * Regression guard: if deriveRWPattern coverage ever collapses, a topic would
+ * silently revert to a flat, uncategorized button (the gap this test pins shut).
  */
 const MIN_PATTERN_POOL = 4; // matches PracticeBank.MIN_PATTERN_POOL
 
@@ -22,7 +24,7 @@ function summarizeSkill(skillSlug) {
   for (const q of rwQuestionBank) {
     if (!isDrillable(q) || skillOf(q) !== skillSlug) continue;
     items += 1;
-    const p = deriveRWPattern(q);
+    const p = deriveRWQuestionType(q);
     if (p) counts.set(p, (counts.get(p) || 0) + 1);
   }
   const types = [...counts.entries()].filter(([, n]) => n >= MIN_PATTERN_POOL).map(([s]) => s);
@@ -46,11 +48,37 @@ describe('R&W practice bank — question-type breakdown data', () => {
     ]));
   });
 
-  it('reading-comprehension skills have items but NO mechanical question types', () => {
-    for (const slug of ['central-ideas-and-details', 'words-in-context']) {
+  it('Central Ideas surfaces main-idea vs supporting-detail types', () => {
+    const { items, types } = summarizeSkill('central-ideas-and-details');
+    expect(items).toBeGreaterThan(0);
+    expect(types).toEqual(expect.arrayContaining(['cid-main-idea', 'cid-supporting-detail']));
+  });
+
+  it('Words in Context surfaces multiple context-clue question types', () => {
+    const { items, types } = summarizeSkill('words-in-context');
+    expect(items).toBeGreaterThan(0);
+    expect(types.length).toBeGreaterThanOrEqual(3);
+    expect(types).toEqual(expect.arrayContaining(['wic-restatement', 'wic-contrast', 'wic-cause-effect']));
+  });
+
+  it('Inferences surfaces multiple logical-relation question types', () => {
+    const { items, types } = summarizeSkill('inferences');
+    expect(items).toBeGreaterThan(0);
+    expect(types).toEqual(expect.arrayContaining(['inf-cause-effect', 'inf-generalization-conclusion']));
+  });
+
+  it('every reading-comprehension skill now surfaces at least one drillable type', () => {
+    // The gap this whole change closes: these seven skills used to render as a
+    // flat "Drill" button with zero sub-types.
+    const READING = [
+      'words-in-context', 'central-ideas-and-details', 'inferences',
+      'command-of-evidence-quantitative', 'command-of-evidence-textual',
+      'cross-text-connections', 'rhetorical-synthesis',
+    ];
+    for (const slug of READING) {
       const { items, types } = summarizeSkill(slug);
       expect(items).toBeGreaterThan(0);
-      expect(types).toHaveLength(0);
+      expect(types.length).toBeGreaterThanOrEqual(1);
     }
   });
 });
