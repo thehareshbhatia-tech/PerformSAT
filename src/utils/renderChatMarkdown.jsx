@@ -54,6 +54,18 @@ const renderMarkdown = (text) => {
       try { return stash(katex.renderToString(latex.trim(), { displayMode: true, throwOnError: false, output: 'htmlAndMathml' })); }
       catch { return _; }
     });
+    // Protect currency: a lone `$` directly before a money amount (digits, with
+    // optional thousands commas and cents) that is NOT the start of a math token.
+    // So "$10", "$1,200", "$5.50", "$5/hr" keep a literal dollar sign, while a
+    // math span like "$2x = 4$" is left intact. Runs AFTER $$/\[ display
+    // extraction (so a display delimiter is never mistaken for currency) and
+    // BEFORE the inline $...$ pairing — otherwise that pairing swallows the text
+    // between a money `$` and a real math `$` and renders it as garbled math.
+    // The money amount must be "terminal": not followed by a word char, another
+    // `$`, or a math continuation (`\` command, `^`, `_`, `{`). That keeps
+    // "$5/hour" / "$10." as currency while "$50\%$", "$30^\circ$", "$2x$" render
+    // as math.
+    result = result.replace(/\$(?=\d[\d,]*(?:\.\d{1,2})?(?![\w$\\^_{}]))/g, ESC);
     // Inline math: $...$ and \(...\)
     result = result.replace(/\$([^\$]+?)\$/g, (_, latex) => {
       try { return stash(katex.renderToString(latex.trim(), { displayMode: false, throwOnError: false, output: 'htmlAndMathml' })); }
@@ -81,7 +93,10 @@ const renderMarkdown = (text) => {
   const processInlineMarkdown = (line) => {
     let processed = line.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
     processed = processed.replace(/__(.+?)__/g, '<strong>$1</strong>');
-    processed = processed.replace(/(?<!\*)\*([^*\n]+)\*(?!\*)/g, '<em>$1</em>');
+    // Italic: require the emphasized text to start AND end with a non-space, per
+    // standard markdown. This stops a stray "2 * 3" (multiplication with spaces
+    // around the asterisks) from being read as italic "* 3 ... *".
+    processed = processed.replace(/(?<!\*)\*(\S(?:[^*\n]*?\S)?)\*(?!\*)/g, '<em>$1</em>');
     processed = processed.replace(/`([^`]+?)`/g, '<code style="background:rgba(0,0,0,0.04);padding:2px 6px;border-radius:4px;font-size:0.9em;font-family:\'SF Mono\',Menlo,monospace;">$1</code>');
     // Restore stashed KaTeX HTML last so the markdown regexes above never
     // operate on it. All three dangerouslySetInnerHTML sites funnel through

@@ -183,3 +183,87 @@ describe('renderChatMarkdown blocks', () => {
     expect(html).toContain('scope shift');
   });
 });
+
+// Currency-vs-math: the tutor now emits $...$ LaTeX (the LaTeX ban was flipped),
+// and SAT problems are full of money. A money $ must never be paired with a real
+// math $ — these pin the currency-protection rule.
+describe('renderChatMarkdown currency + math', () => {
+  test('a lone currency amount renders as a literal dollar, not math', () => {
+    const html = renderToHtml('The ticket costs $10.');
+    expect(html).toContain('$10');
+    expect(html).not.toContain('class="katex"');
+  });
+
+  test('two currency amounts do not pair into a bogus math span', () => {
+    const html = renderToHtml('It costs $10 and the rate is $5 per hour.');
+    expect(html).toContain('$10');
+    expect(html).toContain('$5');
+    expect(html).not.toContain('class="katex"');
+    // The text between the two $ must survive as words, not become math.
+    expect(html).toContain('the rate is');
+  });
+
+  test('currency with commas and cents stays literal', () => {
+    const html = renderToHtml('Revenue was $1,200 and change was $3.50.');
+    expect(html).toContain('$1,200');
+    expect(html).toContain('$3.50');
+    expect(html).not.toContain('class="katex"');
+  });
+
+  test('a real math span next to money: math renders, money stays literal', () => {
+    const html = renderToHtml('Solve $2x = 10$ when each ticket is $5.');
+    expect(html).toContain('class="katex"'); // the equation rendered
+    expect(html).toContain('$5');            // the money stayed literal
+    expect(html).not.toContain('$2x = 10$'); // the equation is NOT shown raw
+  });
+
+  test('a math token that starts with a digit is not mistaken for currency', () => {
+    const html = renderToHtml('Here $2x + 3 = 7$ is the equation.');
+    expect(html).toContain('class="katex"');
+    expect(html).not.toContain('$2x + 3 = 7$');
+  });
+
+  test('$5/hour: the $5 is money, /hour is text', () => {
+    const html = renderToHtml('The pay is $5/hour.');
+    expect(html).toContain('$5');
+    expect(html).toContain('/hour');
+    expect(html).not.toContain('class="katex"');
+  });
+
+  test('common math renders: fraction, sqrt, inequality, percent, display', () => {
+    expect(renderToHtml('Half is $\\frac{1}{2}$.')).toContain('class="katex"');
+    expect(renderToHtml('Root: $\\sqrt{x}$.')).toContain('class="katex"');
+    expect(renderToHtml('When $x < 5$ holds.')).toContain('class="katex"');
+    expect(renderToHtml('That is $50\\%$.')).toContain('class="katex"');
+    expect(renderToHtml('$$x^2 + 6x - 4 = 0$$')).toContain('class="katex"');
+  });
+
+  test('an unbalanced lone $ before non-money degrades to literal text (no crash)', () => {
+    const html = renderToHtml('The cost variable is written $cost in the model.');
+    expect(html).toContain('$cost');
+    expect(html).not.toContain('class="katex"');
+  });
+
+  test('explicitly escaped \\$ inside math renders a dollar sign', () => {
+    const html = renderToHtml('The price model is $p = \\$10 + 2q$.');
+    expect(html).toContain('class="katex"');
+  });
+});
+
+describe('renderChatMarkdown emphasis vs operators', () => {
+  test('spaced asterisks (multiplication in prose) are not italicized', () => {
+    const html = renderToHtml('Compute 2 * 3 and then 4 * 5.');
+    expect(html).not.toContain('<em>');
+    expect(html).toContain('2 * 3');
+  });
+
+  test('real italic still renders', () => {
+    const html = renderToHtml('That is the *key* idea.');
+    expect(html).toContain('<em>key</em>');
+  });
+
+  test('bold still renders', () => {
+    const html = renderToHtml('This is **important** advice.');
+    expect(html).toContain('<strong>important</strong>');
+  });
+});

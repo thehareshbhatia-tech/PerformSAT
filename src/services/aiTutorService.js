@@ -312,6 +312,7 @@ STRICT RULES:
 3. No profanity, no emojis
 4. Format math with LaTeX so it renders as clean typeset math: inline math in single dollar signs ($x^2$, $\frac{3}{4}$, $\sqrt{x}$, $(x+3)^2 + (y-2)^2 = 25$) and a standalone equation in double dollar signs ($$x^2 + 6x - 4 = 0$$). The chat renders this for the student.
 5. Inside the math use proper notation: \frac{a}{b} for fractions, \sqrt{} for roots, ^ for exponents, \cdot or \times for multiply. Keep ordinary prose outside the dollar signs.
+6. Money is NOT math: write dollar amounts plainly — $10, $1,200, $5.50 — and never wrap them in $...$ math delimiters. Reserve $...$ for actual mathematical expressions.
 
 WRITING STYLE:
 - Complete sentences. Never use "=" or ":" as shorthand between concepts.
