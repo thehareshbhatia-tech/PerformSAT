@@ -106,6 +106,7 @@ const PracticeTestList = ({
 
   return (
     <div className="pt-screen" data-theme="light">
+      <div className="pt-inner">
       <button type="button" className="pt-back" onClick={onBack}>
         <ArrowLeftIcon size={14} color="currentColor" /> Back to Dashboard
       </button>
@@ -172,11 +173,7 @@ const PracticeTestList = ({
         ))}
       </div>
 
-      <div className="pt-help">
-        <strong>Timed</strong> mode runs the official module timers; <strong>Untimed</strong> lets you practice
-        without pressure. Each test is 2 Reading &amp; Writing modules then 2 Math. Review your answers and
-        explanations after finishing.
-      </div>
+      </div>{/* /.pt-inner */}
 
       <Modal
         isOpen={!!resetTarget}
@@ -372,8 +369,8 @@ const TestCard = ({
           <SectionScoreRow kind="rw" title="Reading and Writing" q={rwQ} time={rwTime} score={rwScore} />
           <SectionScoreRow kind="math" title="Math" q={mathQ} time={mathTime} score={mathScore} />
           <div className="pt-card-foot">
-            <span className="pt-foot-date">{dateStr ? `Completed ${dateStr}` : 'Completed'}</span>
-            <div className="pt-foot-actions">
+            <div className="pt-foot-left">
+              <span className="pt-foot-date">{dateStr ? `Completed ${dateStr}` : 'Completed'}</span>
               {onRequestReset && (
                 <button
                   type="button"
@@ -384,14 +381,16 @@ const TestCard = ({
                   Reset
                 </button>
               )}
+            </div>
+            <div className="pt-foot-actions">
               <div className="pt-launch" ref={launchOpen ? dropdownRef : null}>
-                <button type="button" className="pt-btn is-outline" onClick={() => setOpenDropdown(launchOpen ? null : dropKey)}>
+                <button type="button" className="pt-btn is-outline is-sm" onClick={() => setOpenDropdown(launchOpen ? null : dropKey)}>
                   Retake
                 </button>
                 {launchOpen && <LaunchMenu totalTime={totalTime} onPick={launch} up />}
               </div>
               {onViewResults && attempts > 0 && (
-                <button type="button" className="pt-btn is-primary" onClick={() => onViewResults(test)}>
+                <button type="button" className="pt-btn is-primary is-sm" onClick={() => onViewResults(test)}>
                   Review answers <ArrowRightIcon size={16} color="currentColor" />
                 </button>
               )}
