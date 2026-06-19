@@ -1,27 +1,108 @@
-/* src/components/StudyPlanDashboard.css */
+/* src/components/StudyPlanDashboard.css
+ * ============================================================================
+ * SEVA Study Plan — 2026-06 redesign.
+ *
+ * A scoped visual system: Bricolage Grotesque (display) + Hanken Grotesk
+ * (body), a warm cream canvas, module cards with drill "rounds", a day-row
+ * weekly timeline, and colored summary tiles. Everything is driven by
+ * --sp-* theme variables declared on `.study-plan-dashboard`, so a dark
+ * theme is a single `[data-theme="dark"]` switch away (no toggle is wired
+ * yet — the rest of the app is light-only). Fonts and palette are scoped to
+ * this component; they do NOT leak app-wide.
+ *
+ * The tri-color brand is preserved: orange = action/brand, lime/green =
+ * mastery/done, purple = focus/plan. The mockup palette reconciles onto
+ * SEVA tokens (lime #C2E83A ≈ brand-green #C6F432, shared orange/purple).
+ * ========================================================================== */
 
 .study-plan-dashboard {
-  padding: 2rem 0;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  font-family: var(--font-ui), sans-serif;
-}
+  /* ── Light theme variables ───────────────────────────────────────────── */
+  --sp-bg: #F6F4EF;
+  --sp-surface: #FFFFFF;
+  --sp-surface-2: #F1EEE7;
+  --sp-inset: #FAF8F3;
+  --sp-line: #E7E3D9;
+  --sp-line-strong: #D9D4C7;
+  --sp-text: #16181D;
+  --sp-text-2: #5B6068;
+  --sp-text-3: #9A9EA6;
+  --sp-orange: #EA580C;
+  --sp-orange-600: #C2410C;
+  --sp-orange-tint: rgba(234, 88, 12, 0.12);
+  --sp-lime: #C6F432;
+  --sp-purple: #6B4E9E;
+  --sp-purple-soft: #F2ECFB;
+  --sp-purple-border: #DCCDF1;
+  --sp-done: #2E9E63;
+  --sp-done-tint: #E6F4EC;
+  --sp-warn: #B45309;
+  --sp-warn-tint: #FBF1DC;
+  --sp-error: #C0271E;
+  --sp-error-tint: #FCE9E7;
+  --sp-tile-score: #E7EEFB;
+  --sp-tile-score-ink: #1E3A6B;
+  --sp-tile-goal: #E9F5D6;
+  --sp-tile-goal-ink: #3A4F18;
+  --sp-tile-exam: #EFE8FB;
+  --sp-tile-exam-ink: #3B2A66;
+  --sp-cal-prac: #E9E1F7;
+  --sp-cal-prac-ink: #6A53A8;
+  --sp-shadow: 0 1px 2px rgba(20, 22, 28, 0.04), 0 6px 18px rgba(20, 22, 28, 0.05);
+  --sp-font-display: 'Bricolage Grotesque', 'Inter', system-ui, sans-serif;
+  --sp-font-body: 'Hanken Grotesk', 'Inter', system-ui, sans-serif;
 
-/* Acely-polish v2: 2-col layout (main + right rail) at >=1024px. */
-.study-plan-dashboard.sp-with-rail {
+  font-family: var(--sp-font-body);
+  color: var(--sp-text);
+  -webkit-font-smoothing: antialiased;
+  padding: 0;
   display: grid;
-  /* FINDING-004: bare 1fr is minmax(auto,1fr) — long unbreakable content
-     set min-content wider than the viewport and forced horizontal scroll
-     on mobile (550px of content in a 375px viewport). */
+  /* minmax(0,1fr), not bare 1fr — long unbreakable content otherwise forces
+     horizontal scroll on mobile (legacy FINDING-004). */
   grid-template-columns: minmax(0, 1fr);
   gap: 1.5rem;
   align-items: start;
 }
 
+/* Dark-ready: flip `data-theme="dark"` on the root to switch. No toggle is
+   wired yet (app is light-only); this block keeps the redesign one attribute
+   away from dark mode. */
+.study-plan-dashboard[data-theme="dark"] {
+  --sp-bg: #080B1C;
+  --sp-surface: #10152C;
+  --sp-surface-2: #161D38;
+  --sp-inset: #0C1226;
+  --sp-line: rgba(255, 255, 255, 0.08);
+  --sp-line-strong: rgba(255, 255, 255, 0.16);
+  --sp-text: #F3F5FA;
+  --sp-text-2: #A7ADBE;
+  --sp-text-3: #6B7185;
+  --sp-orange: #F2733F;
+  --sp-orange-600: #F2733F;
+  --sp-orange-tint: rgba(242, 115, 63, 0.16);
+  --sp-lime: #C2E83A;
+  --sp-purple: #A98BE5;
+  --sp-purple-soft: #231C3D;
+  --sp-purple-border: rgba(169, 139, 229, 0.3);
+  --sp-done: #4FC585;
+  --sp-done-tint: rgba(46, 158, 99, 0.16);
+  --sp-warn: #E0A33A;
+  --sp-warn-tint: rgba(180, 131, 9, 0.16);
+  --sp-error: #F0857C;
+  --sp-error-tint: rgba(192, 39, 30, 0.16);
+  --sp-tile-score: #16213F;
+  --sp-tile-score-ink: #9DB8EF;
+  --sp-tile-goal: #21311A;
+  --sp-tile-goal-ink: #BBE183;
+  --sp-tile-exam: #241B43;
+  --sp-tile-exam-ink: #C3ABEF;
+  --sp-cal-prac: #231C3D;
+  --sp-cal-prac-ink: #B49FE6;
+  --sp-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 10px 28px rgba(0, 0, 0, 0.38);
+}
+
 @media (min-width: 1024px) {
   .study-plan-dashboard.sp-with-rail {
-    grid-template-columns: minmax(0, 1fr) 320px;
+    grid-template-columns: minmax(0, 1fr) 332px;
     gap: 2rem;
   }
 }
@@ -29,7 +110,7 @@
 .sp-main {
   display: flex;
   flex-direction: column;
-  gap: 1.75rem;
+  gap: 1.25rem;
   min-width: 0;
 }
 
@@ -45,608 +126,697 @@
   .sp-rail { position: static; }
 }
 
-/* ── Personal hero — the plan is addressed to someone ─────────────── */
-.sp-hero {
-  padding: 4px 2px 0;
-}
-
-.sp-hero-title {
-  margin: 0;
-  font-family: var(--font-reading);
-  font-size: 22px;
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  line-height: 1.3;
-  color: var(--color-brand-navy);
-}
-
-.sp-hero-meta {
-  margin: 6px 0 0;
-  font-size: 14px;
-  line-height: 1.5;
-  color: var(--color-slate-600);
-}
-
-.sp-hero-meta strong {
-  color: var(--color-slate-900);
-  font-weight: 700;
-  font-variant-numeric: tabular-nums;
-}
-
-/* Interpunct separators between meta spans, skipping the first. */
-.sp-hero-meta span + span::before {
-  content: '·';
-  margin: 0 8px;
-  color: var(--color-slate-400);
-}
-
-/* ── "How you test" identity insights ─────────────────────────────── */
-.sp-identity-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 10px;
-}
-
-.sp-identity-card {
-  background: var(--color-white);
-  border: 1px solid var(--color-slate-200);
-  border-radius: 12px;
-  padding: 14px 16px;
-}
-
-.sp-identity-stat {
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--color-brand-purple-deep);
-  letter-spacing: -0.01em;
-  font-variant-numeric: tabular-nums;
-  line-height: 1.1;
-}
-
-.sp-identity-label {
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--color-slate-600);
-  margin-top: 2px;
-}
-
-.sp-identity-text {
-  margin: 8px 0 0;
-  font-family: var(--font-reading);
-  font-style: italic;
-  font-size: 13px;
-  line-height: 1.5;
-  color: var(--color-slate-600);
-}
-
-/* ── Compact progress strip (replaces the heavy 3-card hero) ──────── */
-.sp-strip {
+/* ── Title bar ─────────────────────────────────────────────────────────── */
+.sp-titlebar {
   display: flex;
-  align-items: stretch;
-  background: var(--color-white);
-  border: 1px solid var(--color-slate-200);
-  border-radius: 14px;
-  padding: 14px 18px;
-  gap: 14px;
-  box-shadow: var(--shadow-sm);
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
 }
 
-.sp-strip-cell {
+.sp-titlebar-id {
   display: flex;
-  flex-direction: column;
-  gap: 2px;
-  justify-content: center;
-  /* FINDING-006: fixed cells must not shrink below content ("Week 1" was
-     squeezing to "W…"); only the objective cell flexes. */
-  flex: 0 0 auto;
-}
-
-.sp-strip-objective {
-  flex: 1 1 auto;
+  align-items: center;
+  gap: 13px;
   min-width: 0;
 }
 
-.sp-strip-eyebrow {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--color-slate-500);
-}
-
-.sp-strip-num {
-  font-size: 24px;
-  font-weight: 700;
-  color: var(--color-brand-purple-deep);
-  line-height: 1.05;
-  letter-spacing: -0.01em;
-}
-
-.sp-strip-meta {
-  font-size: 12px;
-  color: var(--color-slate-600);
-}
-
-/* FINDING-006: was nowrap+ellipsis, which chopped the objective mid-word
-   ("...pacing overhaul ...") and forced horizontal overflow on mobile.
-   Two-line clamp keeps the strip compact but lets the sentence breathe. */
-.sp-strip-text {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--color-slate-900);
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  overflow-wrap: break-word;
-  line-height: 1.3;
-}
-
-.sp-strip-divider {
-  width: 1px;
-  background: var(--color-slate-200);
-  align-self: stretch;
-  margin: 4px 0;
-}
-
-@media (max-width: 768px) {
-  .sp-strip {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-  }
-  .sp-strip-divider { display: none; }
-}
-
-/* ── Adaptive notes (replaces the heavy delta paragraph banner) ───── */
-.sp-notes {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-/* FINDING-001: dropped the 3px colored left-border (AI-slop pattern) —
-   the eyebrow label already carries the "this is a coach note" signal. */
-.sp-note {
-  background: var(--color-slate-50);
-  border: 1px solid var(--color-slate-200);
-  border-radius: 10px;
-  padding: 12px 16px;
-}
-
-.sp-note-eyebrow {
-  display: block;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--color-slate-500);
-  margin-bottom: 4px;
-}
-
-.sp-note-text {
+.sp-title {
   margin: 0;
-  font-family: var(--font-reading);
-  font-size: 14px;
-  line-height: 1.55;
-  color: var(--color-slate-700);
-}
-
-.sp-note-toggle {
-  background: transparent;
-  border: none;
-  padding: 0;
-  margin-left: 6px;
-  font-family: var(--font-ui);
-  font-size: 12px;
+  font-family: var(--sp-font-display);
   font-weight: 700;
-  color: var(--color-brand-purple-deep);
-  cursor: pointer;
-  text-decoration: underline;
-}
-.sp-note-toggle:hover { color: var(--color-brand-purple-text); }
-
-/* ── Sub-tabs ('Today's Tasks (N) / Weekly View (N)') ─────────────── */
-.sp-subtabs {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  border-bottom: 1px solid var(--color-slate-200);
-  margin: 4px 0 0;
+  font-size: 29px;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  color: var(--sp-text);
 }
 
-.sp-subtab {
-  background: transparent;
-  border: none;
-  padding: 10px 4px 12px;
-  margin-right: 18px;
-  font-family: var(--font-ui);
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--color-slate-600);
-  cursor: pointer;
+.sp-title-meta {
+  font-size: 13.5px;
+  color: var(--sp-text-2);
+  margin-top: 3px;
+  line-height: 1.4;
+}
+.sp-title-meta strong {
+  color: var(--sp-text);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.sp-title-meta span + span::before {
+  content: '·';
+  margin: 0 7px;
+  color: var(--sp-text-3);
+}
+
+.sp-ghost-btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  border-bottom: 2px solid transparent;
+  gap: 7px;
+  background: var(--sp-surface);
+  border: 1px solid var(--sp-line-strong);
+  border-radius: 22px;
+  padding: 9px 17px;
+  font-family: var(--sp-font-body);
+  font-weight: 600;
+  font-size: 13.5px;
+  color: var(--sp-text);
+  cursor: pointer;
+  flex: none;
+  transition: background 120ms ease, border-color 120ms ease;
+}
+.sp-ghost-btn:hover { background: var(--sp-surface-2); }
+
+/* ── Tabs + date pills ─────────────────────────────────────────────────── */
+.sp-tabs-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  border-bottom: 1px solid var(--sp-line);
+  flex-wrap: wrap;
+}
+
+.sp-tabs {
+  display: flex;
+  gap: 26px;
+}
+
+.sp-tab {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--sp-font-body);
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--sp-text-3);
+  padding: 0 2px 14px;
   margin-bottom: -1px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 2.5px solid transparent;
   transition: color 120ms ease, border-color 120ms ease;
 }
-
-.sp-subtab:hover { color: var(--color-slate-900); }
-
-.sp-subtab.is-active {
-  color: var(--color-brand-purple-deep);
-  border-bottom-color: var(--color-brand-purple-deep);
+.sp-tab:hover { color: var(--sp-text-2); }
+.sp-tab.is-active {
+  color: var(--sp-text);
+  border-bottom-color: var(--sp-orange);
 }
 
-.sp-subtab-count {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 20px;
-  height: 20px;
-  padding: 0 6px;
-  border-radius: 10px;
-  background: var(--color-slate-100);
-  color: var(--color-slate-700);
-  font-size: 11px;
+.sp-tab-count {
+  font-size: 11.5px;
   font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 20px;
+  background: var(--sp-surface-2);
+  color: var(--sp-text-2);
+}
+.sp-tab.is-active .sp-tab-count {
+  background: var(--sp-orange);
+  color: #fff;
 }
 
-.sp-subtab.is-active .sp-subtab-count {
-  background: var(--color-brand-purple-soft);
-  color: var(--color-brand-purple-deep);
-}
-
-/* Empty State */
-.sp-empty-state {
-  text-align: center;
-  padding: 4rem 1.5rem;
-  border-radius: 16px;
-  background: var(--color-white);
-  border: 1px solid var(--color-slate-200);
-}
-
-.sp-empty-icon {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  background: var(--color-accent-light-blue);
-  color: var(--color-brand-purple-deep);
+.sp-datepills {
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin: 0 auto 1.5rem;
+  gap: 8px;
+  padding-bottom: 10px;
+  flex-wrap: wrap;
 }
-
-.sp-empty-title {
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: var(--color-brand-navy);
-  margin-bottom: 0.75rem;
-  letter-spacing: -0.02em;
-}
-
-.sp-empty-desc {
-  font-size: 1rem;
-  color: var(--color-slate-500);
-  max-width: 480px;
-  margin: 0 auto 2rem;
-  line-height: 1.6;
-}
-
-.sp-empty-btn {
-  padding: 0.875rem 1.75rem;
-  font-size: 0.9375rem;
+.sp-datepill {
   font-weight: 700;
-  color: var(--color-white);
-  background: var(--color-brand-purple-deep);
-  border: none;
-  border-radius: 9999px;
-  cursor: pointer;
-  transition: background 0.2s ease;
-  box-shadow: var(--shadow-sm);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  padding: 5px 11px;
+  border-radius: 7px;
+  background: var(--sp-surface-2);
+  color: var(--sp-text-2);
+  white-space: nowrap;
 }
-.sp-empty-btn:hover {
-  background: var(--color-brand-purple-text);
+.sp-datepill.is-streak {
+  background: var(--sp-cal-prac);
+  color: var(--sp-cal-prac-ink);
 }
 
-/* Banner / Alerts — flat surfaces with a left accent; no gradients. */
-.sp-banner {
-  border-radius: 14px;
-  padding: 1.25rem 1.5rem;
+/* ── Section filter (All / Math / R&W) ─────────────────────────────────── */
+.sp-seg {
+  display: inline-flex;
+  background: var(--sp-surface);
+  border: 1px solid var(--sp-line);
+  border-radius: 999px;
+  padding: 3px;
+  gap: 2px;
+}
+.sp-seg-btn {
+  border: none;
+  background: transparent;
+  color: var(--sp-text-2);
+  font-family: var(--sp-font-body);
+  font-weight: 600;
+  font-size: 12px;
+  padding: 6px 13px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 120ms ease, color 120ms ease;
+}
+.sp-seg-btn:hover { color: var(--sp-text); }
+.sp-seg-btn.is-active {
+  background: var(--sp-text);
+  color: var(--sp-surface);
+  font-weight: 700;
+}
+
+/* ── Today panel ───────────────────────────────────────────────────────── */
+.sp-today-panel {
+  background: var(--sp-surface-2);
+  border: 1px solid var(--sp-line);
+  border-radius: 20px;
+  padding: 24px;
+}
+.sp-today-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.sp-today-date {
+  font-family: var(--sp-font-display);
+  font-weight: 700;
+  font-size: 21px;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+.sp-today-narrative {
+  margin-top: 10px;
+  font-size: 14.5px;
+  color: var(--sp-text-2);
+  line-height: 1.6;
+  max-width: 64ch;
+}
+.sp-module-list {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 16px;
+  margin-top: 22px;
 }
 
-.sp-banner-info {
-  background: var(--color-white);
-  border: 1px solid var(--color-slate-200);
-  border-left: 3px solid var(--color-brand-purple-deep);
+.sp-showall {
+  margin-top: 14px;
+  background: transparent;
+  border: 1px solid var(--sp-line-strong);
+  border-radius: 10px;
+  padding: 9px 15px;
+  font-family: var(--sp-font-body);
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--sp-text-2);
+  cursor: pointer;
+  transition: background 120ms ease, border-color 120ms ease;
 }
-.sp-banner-success {
-  background: #f0fdf4;
-  border: 1px solid #bbf7d0;
-  border-left: 3px solid var(--color-success-500);
+.sp-showall:hover { background: var(--sp-surface); border-color: var(--sp-line-strong); }
+
+.sp-today-empty {
+  margin-top: 18px;
+  padding: 22px;
+  border: 1px dashed var(--sp-line-strong);
+  border-radius: 14px;
+  text-align: center;
+  color: var(--sp-text-2);
+  font-size: 14px;
+  line-height: 1.5;
 }
 
+/* ── Module card (with drill rounds) ───────────────────────────────────── */
+.sp-module {
+  background: var(--sp-surface);
+  border: 1px solid var(--sp-line);
+  border-radius: 16px;
+  padding: 22px;
+  box-shadow: var(--sp-shadow);
+}
+.sp-module-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.sp-module-tag {
+  font-weight: 700;
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  padding: 3px 8px;
+  border-radius: 5px;
+  margin-top: 3px;
+  flex: none;
+}
+.sp-module-tag.is-math { background: var(--sp-orange-tint); color: var(--sp-orange); }
+.sp-module-tag.is-rw { background: var(--sp-cal-prac); color: var(--sp-cal-prac-ink); }
+
+.sp-module-domain {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--sp-text-3);
+  margin-bottom: 3px;
+}
+.sp-module-titlerow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.sp-module-title {
+  font-family: var(--sp-font-display);
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: -0.01em;
+}
+.sp-module-acc {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-variant-numeric: tabular-nums;
+}
+.sp-module-acc.is-low { color: var(--sp-error); background: var(--sp-error-tint); }
+.sp-module-acc.is-mid { color: var(--sp-warn); background: var(--sp-warn-tint); }
+.sp-module-acc.is-high { color: var(--sp-done); background: var(--sp-done-tint); }
+
+.sp-module-desc {
+  font-size: 13.5px;
+  color: var(--sp-text-2);
+  margin-top: 4px;
+  line-height: 1.5;
+}
+
+.sp-module-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-top: 18px;
+}
+.sp-module-meta {
+  background: var(--sp-surface-2);
+  color: var(--sp-text-2);
+  font-weight: 700;
+  font-size: 11.5px;
+  letter-spacing: 0.04em;
+  padding: 7px 13px;
+  border-radius: 8px;
+}
+.sp-module-complete-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: var(--sp-done-tint);
+  color: var(--sp-done);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  padding: 7px 13px;
+  border-radius: 8px;
+}
+
+/* Module CTA buttons */
+.sp-module-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  border-radius: 11px;
+  padding: 12px 20px;
+  font-family: var(--sp-font-body);
+  font-weight: 700;
+  font-size: 13.5px;
+  cursor: pointer;
+  transition: background 120ms ease, transform 80ms ease;
+  flex: none;
+}
+.sp-module-btn:active { transform: translateY(1px); }
+.sp-module-btn.is-start {
+  background: var(--sp-orange);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(234, 88, 12, 0.3);
+}
+.sp-module-btn.is-start:hover { background: var(--sp-orange-600); }
+.sp-module-btn.is-continue {
+  background: var(--sp-text);
+  color: var(--sp-surface);
+}
+.sp-module-btn.is-continue:hover { opacity: 0.9; }
+.sp-module-btn.is-review {
+  background: var(--sp-surface);
+  border: 1px solid var(--sp-line-strong);
+  color: var(--sp-text);
+  font-weight: 600;
+  padding: 11px 19px;
+}
+.sp-module-btn.is-review:hover { background: var(--sp-surface-2); }
+
+/* Rounds */
+.sp-rounds {
+  margin-top: 16px;
+  border-top: 1px solid var(--sp-line);
+}
+.sp-round {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--sp-line);
+}
+.sp-round:last-child { border-bottom: none; }
+.sp-round-dot {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  flex: none;
+  display: grid;
+  place-items: center;
+}
+.sp-round-dot.is-done { background: var(--sp-done); }
+.sp-round-dot.is-active {
+  border: 2.5px solid var(--sp-orange);
+  border-top-color: transparent;
+}
+.sp-round-dot.is-todo { border: 2px solid var(--sp-line-strong); }
+.sp-round-label {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--sp-text);
+}
+.sp-round-key {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--sp-orange-tint);
+  color: var(--sp-orange);
+  font-weight: 700;
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  padding: 2px 8px;
+  border-radius: 5px;
+}
+.sp-round-spacer { flex: 1; }
+.sp-round-prog {
+  font-weight: 700;
+  font-size: 11.5px;
+  letter-spacing: 0.04em;
+  color: var(--sp-text-3);
+  font-variant-numeric: tabular-nums;
+}
+.sp-round-prog.is-active { color: var(--sp-orange); }
+
+/* ── Weekly: plan-updated banner ───────────────────────────────────────── */
+.sp-weekly { display: flex; flex-direction: column; gap: 12px; }
+
+.sp-banner {
+  background: var(--sp-surface);
+  border: 1px solid var(--sp-line);
+  border-radius: 14px;
+  padding: 16px 18px;
+}
+.sp-banner.is-info { border-left: 3px solid var(--sp-purple); }
+.sp-banner.is-success { border-left: 3px solid var(--sp-done); }
 .sp-banner-header {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 9px;
+  margin-bottom: 8px;
 }
-
 .sp-banner-icon {
-  width: 28px;
-  height: 28px;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 14px;
+  display: grid;
+  place-items: center;
+  flex: none;
+  color: #fff;
 }
-
-.sp-banner-info .sp-banner-icon { background: var(--color-brand-purple-deep); color: #fff; }
-.sp-banner-success .sp-banner-icon { color: var(--color-success-600); }
-
+.sp-banner.is-info .sp-banner-icon { background: var(--sp-purple); }
+.sp-banner.is-success .sp-banner-icon { background: var(--sp-done); }
 .sp-banner-title {
-  font-size: 0.875rem;
-  font-weight: 800;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  color: var(--sp-text);
   flex: 1;
 }
-
-.sp-banner-info .sp-banner-title { color: var(--color-slate-900); }
-.sp-banner-success .sp-banner-title { color: #14532d; font-size: 1rem; }
-
 .sp-banner-close {
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 1.25rem;
+  font-size: 20px;
   line-height: 1;
-  padding: 0.25rem;
-  opacity: 0.7;
-  transition: opacity 0.2s;
+  padding: 2px 4px;
+  color: var(--sp-text-3);
+  opacity: 0.8;
 }
-.sp-banner-close:hover { opacity: 1; }
-
+.sp-banner-close:hover { opacity: 1; color: var(--sp-text); }
 .sp-banner-content {
-  font-size: 0.9375rem;
-  line-height: 1.5;
-}
-.sp-banner-info .sp-banner-content { color: var(--color-slate-700); font-weight: 500; }
-.sp-banner-success .sp-banner-content { color: #166534; }
-
-/* Focus Areas */
-.sp-section-header {
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: var(--color-brand-navy);
-  margin: 0 0 1rem;
-  letter-spacing: -0.01em;
-}
-
-.sp-section-desc {
-  font-size: 0.9375rem;
-  color: var(--color-slate-600);
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
-  max-width: 800px;
-}
-
-/* FINDING-002: Focus Areas de-dupe — section-level shared coach advice,
-   in-card 2-line diagnostic, show-all disclosure. */
-.sp-focus-shared-advice {
-  margin: -8px 0 14px;
-  font-family: var(--font-reading);
-  font-style: italic;
   font-size: 14px;
+  color: var(--sp-text-2);
   line-height: 1.5;
-  color: var(--color-slate-700);
-  max-width: 800px;
 }
-
-.sp-card-diagnostic {
-  margin: 4px 0 0;
-  font-family: var(--font-reading);
-  font-style: italic;
-  font-size: 13px;
-  line-height: 1.45;
-  color: var(--color-slate-600);
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  white-space: normal;
-}
-
-.sp-focus-show-all {
-  margin-top: 10px;
-  background: transparent;
-  border: 1px solid var(--color-slate-200);
-  border-radius: 8px;
-  padding: 8px 14px;
-  font-family: var(--font-ui);
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--color-slate-700);
-  cursor: pointer;
-  transition: background 120ms ease, border-color 120ms ease;
-}
-.sp-focus-show-all:hover {
-  background: var(--color-slate-50);
-  border-color: var(--color-slate-300);
-}
-.sp-focus-show-all:focus-visible {
-  outline: 2px solid var(--color-brand-purple-deep);
-  outline-offset: 2px;
-}
-
-/* Action Plan / Weekly View */
-.sp-timeline {
+.sp-banner-changes {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 6px;
+  margin-top: 10px;
 }
-
-.sp-week-card {
-  border-radius: 14px;
-  background: var(--color-white);
-  border: 1px solid var(--color-slate-200);
-  overflow: hidden;
-  position: relative;
-  transition: border-color 0.2s ease;
-}
-.sp-week-card.is-current {
-  border-color: var(--color-brand-purple-soft);
-}
-.sp-week-card.is-complete {
-  background: var(--color-success-50);
-  border-color: var(--color-success-200);
-}
-
-.sp-week-indicator {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 6px;
-  height: 100%;
-  /* Tri-color: the current week is "act now" → orange. Only renders in the
-     .is-current card, so this always reads as the active week. */
-  background: var(--color-brand-primary);
-}
-
-.sp-week-header {
-  padding: 1.5rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid var(--color-slate-100);
-  cursor: pointer;
-}
-.sp-week-card.is-complete .sp-week-header {
-  background: transparent;
-  border-bottom-color: var(--color-success-200);
-}
-
-.sp-week-title-area {
+.sp-banner-change {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--sp-text-2);
 }
-
-.sp-week-icon {
-  width: 40px;
-  height: 40px;
+.sp-banner-change-dot {
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
-  background: var(--color-slate-100);
-  color: var(--color-slate-500);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 800;
-  font-size: 1rem;
+  flex: none;
 }
-.sp-week-card.is-complete .sp-week-icon {
-  background: var(--color-success-500);
-  color: var(--color-white);
-}
-
-.sp-week-label {
-  font-size: 0.75rem;
-  font-weight: 800;
-  /* Tri-color: "THIS WEEK" eyebrow = current/act-now → orange. Only renders
-     in the .is-current card. */
-  color: var(--color-brand-primary);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  margin-bottom: 0.25rem;
-}
-
-.sp-week-title {
-  font-size: 1.25rem;
-  font-weight: 800;
-  color: var(--color-brand-navy);
-  letter-spacing: -0.01em;
-}
-.sp-week-card.is-complete .sp-week-title { color: var(--color-slate-600); }
-
-.sp-week-meta {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.sp-week-progress {
-  padding: 0.375rem 1rem;
-  background: var(--color-white);
-  border-radius: 9999px;
-  font-size: 0.875rem;
-  font-weight: 700;
-  color: var(--color-brand-purple-deep);
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-  font-variant-numeric: tabular-nums;
-}
-
-/* FINDING-009: collapsed week headers are real <button>s now — reset
-   UA button chrome so they keep the header layout, add a focus ring. */
-.sp-week-header-btn {
-  width: 100%;
+.sp-banner-morebtn {
   background: transparent;
   border: none;
-  border-bottom: 1px solid var(--color-slate-100);
+  color: var(--sp-purple);
+  font-family: var(--sp-font-body);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 2px 0 0;
+  cursor: pointer;
+  text-decoration: underline;
+  align-self: flex-start;
+}
+
+/* ── Weekly: day-row timeline ──────────────────────────────────────────── */
+.sp-weekrows { display: flex; flex-direction: column; gap: 12px; }
+.sp-weekrow {
+  background: var(--sp-surface);
+  border: 1px solid var(--sp-line);
+  border-radius: 14px;
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: var(--sp-shadow);
+}
+.sp-weekrow.is-today { border-color: var(--sp-orange); }
+.sp-weekrow-date {
+  width: 54px;
+  flex: none;
+  text-align: center;
+}
+.sp-weekrow-dow {
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--sp-text-3);
+}
+.sp-weekrow-num {
+  font-family: var(--sp-font-display);
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 1.1;
+  color: var(--sp-text);
+}
+.sp-weekrow.is-today .sp-weekrow-num { color: var(--sp-orange); }
+.sp-weekrow-rule {
+  width: 1px;
+  align-self: stretch;
+  background: var(--sp-line);
+}
+.sp-weekrow-body { flex: 1; min-width: 0; }
+.sp-weekrow-title {
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--sp-text);
+}
+.sp-weekrow-sub {
+  font-size: 13px;
+  color: var(--sp-text-2);
+  margin-top: 2px;
+}
+.sp-weekrow-pill {
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  padding: 5px 11px;
+  border-radius: 20px;
+  flex: none;
+  background: var(--sp-surface-2);
+  color: var(--sp-text-3);
+}
+.sp-weekrow-pill.is-today { background: var(--sp-orange-tint); color: var(--sp-orange); }
+.sp-weekrow-pill.is-done { background: var(--sp-done-tint); color: var(--sp-done); }
+.sp-weekrow-cta {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0;
+}
+
+/* ── Weekly: other weeks accordion ─────────────────────────────────────── */
+.sp-otherweeks {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 4px;
+}
+.sp-otherweek {
+  background: var(--sp-surface);
+  border: 1px solid var(--sp-line);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.sp-otherweek.is-complete { border-color: var(--sp-done-tint); }
+.sp-otherweek-head {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 18px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
   font-family: inherit;
   text-align: left;
 }
-.sp-week-header-btn:focus-visible {
-  outline: 2px solid var(--color-brand-purple-deep);
-  outline-offset: -2px;
-  border-radius: 14px;
-}
-
-.sp-week-toggle {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: var(--color-white);
-  border: 1px solid var(--color-slate-200);
+.sp-otherweek-head:hover { background: var(--sp-inset); }
+.sp-otherweek-left {
   display: flex;
   align-items: center;
-  justify-content: center;
-  color: var(--color-slate-500);
-  transition: transform 0.3s ease;
+  gap: 12px;
+  min-width: 0;
 }
-.sp-week-toggle.is-open {
-  transform: rotate(180deg);
+.sp-otherweek-disc {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--sp-purple-soft);
+  color: var(--sp-purple);
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-size: 13px;
+  flex: none;
 }
-
-.sp-week-body {
-  padding: 1.5rem 2rem;
-  background: var(--color-white);
+.sp-otherweek.is-complete .sp-otherweek-disc { background: var(--sp-done-tint); color: var(--sp-done); }
+.sp-otherweek-title {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--sp-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.sp-otherweek-meta {
   display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  align-items: center;
+  gap: 10px;
+  flex: none;
 }
-.sp-week-card.is-complete .sp-week-body {
-  background: transparent;
+.sp-otherweek-prog {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--sp-text-2);
+  font-variant-numeric: tabular-nums;
+}
+.sp-otherweek-chev {
+  color: var(--sp-text-3);
+  display: inline-flex;
+  transition: transform 200ms ease;
+}
+.sp-otherweek-chev.is-open { transform: rotate(180deg); }
+.sp-otherweek-body {
+  padding: 6px 18px 16px;
+  border-top: 1px solid var(--sp-line);
 }
 
-/* ── Activity row: leading completion toggle + quiet tip list ─────────
-   FINDING-007: replaces the detached corner checkbox and the colored
-   left-border tip blocks. */
+/* ── Activity rows inside week bodies (kept ActivityRow markup, reskinned)  */
+.sp-weekly .ai-practice-banner {
+  margin-bottom: 0 !important;
+  padding: 12px 14px !important;
+  border-radius: 11px !important;
+  background: var(--sp-surface) !important;
+  border: 1px solid var(--sp-line) !important;
+  box-shadow: none !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  transition: background 120ms ease, border-color 120ms ease !important;
+}
+.sp-weekly .ai-practice-banner:hover {
+  background: var(--sp-inset) !important;
+  border-color: var(--sp-line-strong) !important;
+}
+.sp-weekly .ai-banner-content { display: flex !important; align-items: center !important; gap: 12px !important; flex: 1 !important; min-width: 0; }
+.sp-weekly .ai-banner-icon { width: 32px !important; height: 32px !important; border-radius: 8px !important; flex: none; }
+.sp-weekly .ai-banner-text-group { flex: 1 !important; min-width: 0; }
+.sp-weekly .ai-banner-title {
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  line-height: 1.35 !important;
+  color: var(--sp-text) !important;
+  margin: 0 !important;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.sp-weekly .ai-banner-desc { font-size: 12px !important; color: var(--sp-text-2) !important; margin: 1px 0 0 !important; }
+.sp-weekly .btn-launch {
+  padding: 7px 14px !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+  box-shadow: none !important;
+  min-height: 34px;
+  background: var(--sp-text) !important;
+  color: var(--sp-surface) !important;
+  border: none !important;
+  cursor: pointer;
+}
+.sp-weekly .btn-launch:hover { opacity: 0.9; }
+
 .sp-act-toggle {
   flex: none;
   align-self: flex-start;
   margin-top: 4px;
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
-  border: 2px solid var(--color-slate-300);
-  background: var(--color-white);
+  border: 2px solid var(--sp-line-strong);
+  background: var(--sp-surface);
   cursor: pointer;
   display: inline-flex;
   align-items: center;
@@ -655,913 +825,9 @@
   position: relative;
   transition: border-color 120ms ease, background 120ms ease;
 }
-/* Invisible 44px hit area without growing the visual circle. */
-.sp-act-toggle::after {
-  content: '';
-  position: absolute;
-  inset: -10px;
-  border-radius: 50%;
-}
-.sp-act-toggle:hover { border-color: var(--color-brand-purple-deep); }
-.sp-act-toggle:focus-visible {
-  outline: 2px solid var(--color-brand-purple-deep);
-  outline-offset: 2px;
-}
-.sp-act-toggle.is-done {
-  background: var(--color-success-500);
-  border-color: var(--color-success-500);
-}
-
-.sp-act-tips {
-  list-style: none;
-  margin: 8px 0 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-.sp-act-tip {
-  position: relative;
-  padding-left: 18px;
-  font-size: 13px;
-  line-height: 1.5;
-  color: var(--color-slate-600);
-  white-space: normal;
-}
-.sp-act-tip::before {
-  content: '';
-  position: absolute;
-  left: 4px;
-  top: 0.55em;
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--color-slate-300);
-}
-
-/* Activity status tag (Mastered / Needs Focus) */
-.sp-activity-status-tag {
-  position: absolute;
-  top: 1rem;
-  right: 4rem;
-  font-size: 0.625rem;
-  font-weight: 800;
-  padding: 0.25rem 0.5rem;
-  border-radius: 6px;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-.sp-activity-status-tag.mastered {
-  color: var(--color-success-700);
-  background: var(--color-success-50);
-  border: 1px solid var(--color-success-200);
-}
-.sp-activity-status-tag.needs-focus {
-  color: var(--color-error-700);
-  background: var(--color-error-50);
-  border: 1px solid var(--color-error-200);
-}
-
-/* Score Trajectory */
-.sp-trajectory {
-  display: flex;
-  gap: 0.5rem;
-  align-items: center;
-  margin-top: 2rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--color-slate-200);
-  flex-wrap: wrap;
-}
-
-.sp-trajectory-label {
-  font-size: 0.8125rem;
-  color: var(--color-slate-500);
-  font-weight: 700;
-  margin-right: 0.5rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.sp-trajectory-node {
-  font-size: 0.8125rem;
-  font-weight: 700;
-  color: var(--color-slate-600);
-  background: var(--color-slate-100);
-  padding: 0.375rem 0.75rem;
-  border-radius: 9999px;
-  font-variant-numeric: tabular-nums;
-}
-.sp-trajectory-node.is-latest {
-  color: var(--color-brand-purple-deep);
-  background: var(--color-brand-purple-soft);
-  box-shadow: 0 0 0 1px var(--color-brand-purple-deep);
-}
-
-/* ───────────────────────────────────────────────────────────────────────
- * Acely-polish v3 — Weekly View tightening
- *
- * Scoped under `.sp-weekly-tight` so the rest of the app keeps the
- * existing density. The wrapping `<>` of the Weekly View branch is
- * given this class on the outer container; rules below override the
- * shared activity-row + focus-area visuals to match Acely's calmer style.
- *
- * What we tune:
- *   1. .ai-practice-banner (activity rows) → single-line layout, smaller
- *      icon, no big "Launch X" button (whole row is clickable instead).
- *   2. .acely-split-card (focus-area cards) → smaller accuracy chip,
- *      neutral white card with subtle accent rather than full-bleed band.
- *   3. .sp-week-card → flatter card, less drop shadow, weaker hover lift.
- *   4. Plan Updated banner → neutral border instead of gradient bg.
- * ─────────────────────────────────────────────────────────────────── */
-
-/* (1) Activity rows: collapse to a quiet single line. */
-.sp-weekly-tight .ai-practice-banner {
-  margin-bottom: 0 !important;
-  padding: 12px 16px !important;
-  border-radius: 10px !important;
-  background: var(--color-white) !important;
-  border: 1px solid var(--color-slate-200) !important;
-  box-shadow: none !important;
-  transform: none !important;
-  display: flex !important;
-  align-items: center !important;
-  gap: 14px !important;
-  transition: background 120ms ease, border-color 120ms ease !important;
-}
-.sp-weekly-tight .ai-practice-banner:hover {
-  background: var(--color-slate-50) !important;
-  border-color: var(--color-slate-300) !important;
-  transform: none !important;
-}
-.sp-weekly-tight .ai-banner-content {
-  display: flex !important;
-  align-items: center !important;
-  gap: 12px !important;
-  flex: 1 !important;
-  min-width: 0;
-}
-.sp-weekly-tight .ai-banner-icon {
-  width: 32px !important;
-  height: 32px !important;
-  border-radius: 8px !important;
-  flex: none;
-}
-.sp-weekly-tight .ai-banner-text-group {
-  flex: 1 !important;
-  min-width: 0;
-}
-.sp-weekly-tight .ai-banner-title {
-  font-size: 14px !important;
-  font-weight: 600 !important;
-  line-height: 1.35 !important;
-  color: var(--color-slate-900) !important;
-  margin: 0 !important;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.sp-weekly-tight .ai-banner-desc {
-  font-size: 12px !important;
-  color: var(--color-slate-500) !important;
-  margin: 1px 0 0 !important;
-}
-.sp-weekly-tight .ai-banner-controls .btn-launch {
-  padding: 6px 14px !important;
-  font-size: 13px !important;
-  font-weight: 600 !important;
-  border-radius: 8px !important;
-  box-shadow: none !important;
-  /* FINDING-009: keep a comfortable touch target in the tight rows. */
-  min-height: 36px;
-}
-.sp-weekly-tight .ai-banner-controls .btn-launch:hover {
-  transform: none !important;
-  box-shadow: none !important;
-}
-
-/* dashboard-actions-grid is shared with the Dashboard tab; it switches to
- * 2-col at >=768px. When the right rail is also showing at >=1024px, the
- * main column shrinks and the inner 2-col grid overflows under the rail.
- * Force 1-col when nested inside .sp-weekly-tight (always — narrow column
- * benefits from full-width focus-area cards anyway). */
-.sp-weekly-tight .dashboard-actions-grid {
-  /* minmax(0,1fr), not bare 1fr — see FINDING-004 note on .sp-with-rail. */
-  grid-template-columns: minmax(0, 1fr) !important;
-}
-
-/* (2) Focus-area cards: small accuracy chip, white card, no split band.
- * Inline JSX styles set bgColorLeft to var(--color-error-600) for <40%
- * accuracy — solid red looks aggressive next to Acely's calmer palette.
- * Override to a slate chip with colored text instead. The data-attribute
- * trick can't be used here without JSX changes; we fall back to forcing
- * a neutral chip via !important. The accuracy color now reads via the
- * font, not a full red panel. */
-.sp-weekly-tight .acely-split-card {
-  border-radius: 12px !important;
-  border: 1px solid var(--color-slate-200) !important;
-  box-shadow: none !important;
-  overflow: hidden;
-  transition: border-color 120ms ease, background 120ms ease !important;
-}
-.sp-weekly-tight .acely-split-card:hover {
-  border-color: var(--color-slate-300) !important;
-  background: var(--color-slate-50);
-}
-.sp-weekly-tight .acely-split-left {
-  width: 64px !important;
-  background: var(--color-slate-100) !important;
-  color: var(--color-slate-700) !important;
-  font-size: 18px !important;
-  font-weight: 700 !important;
-  letter-spacing: -0.02em;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-}
-/* Color the % chip by accuracy band — soft tint, not loud panel. */
-.sp-weekly-tight .acely-split-card[data-accuracy-band="low"] .acely-split-left {
-  background: var(--color-error-50) !important;
-  color: var(--color-error-700) !important;
-}
-.sp-weekly-tight .acely-split-card[data-accuracy-band="mid"] .acely-split-left {
-  background: var(--color-warning-50, #fffbeb) !important;
-  color: var(--color-warning-700, #b45309) !important;
-}
-.sp-weekly-tight .acely-split-card[data-accuracy-band="high"] .acely-split-left {
-  background: var(--color-success-50) !important;
-  color: var(--color-success-700) !important;
-}
-.sp-weekly-tight .acely-split-right {
-  background: var(--color-white) !important;
-  padding: 14px 18px !important;
-}
-.sp-weekly-tight .acely-metric-label {
-  font-size: 10px !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--color-slate-600) !important;
-  margin-bottom: 2px !important;
-}
-.sp-weekly-tight .acely-section-name {
-  font-size: 15px !important;
-  font-weight: 600 !important;
-  color: var(--color-slate-900) !important;
-  letter-spacing: -0.01em;
-}
-.sp-weekly-tight .acely-split-right .btn-launch {
-  padding: 8px 14px !important;
-  font-size: 13px !important;
-  font-weight: 600 !important;
-  border-radius: 8px !important;
-  box-shadow: none !important;
-  min-height: 36px;
-}
-.sp-weekly-tight .acely-split-right .btn-launch:hover {
-  transform: none !important;
-  box-shadow: none !important;
-}
-/* FINDING-002: seven solid-orange CTAs shouted equally. Only the top
-   weakness keeps the filled button; the rest go quiet outline. */
-.sp-weekly-tight .acely-split-right .btn-launch:not(.is-primary) {
-  background: transparent !important;
-  color: var(--color-slate-700) !important;
-  border: 1px solid var(--color-slate-300) !important;
-}
-.sp-weekly-tight .acely-split-right .btn-launch:not(.is-primary):hover {
-  border-color: var(--color-brand-purple-deep) !important;
-  color: var(--color-brand-purple-deep) !important;
-  background: var(--color-brand-purple-soft) !important;
-}
-
-/* Tri-color: the TOP focus-area CTA (.is-primary, the #1 weakness) is the
-   "do this now" action → ORANGE. Secondary activity-row launch buttons stay
-   PURPLE (plan/focus domain). The base .btn-launch fill is orange and shared
-   with the home dashboard CTAs — those stay orange; only study-plan-scoped
-   secondary buttons are overridden to purple here. */
-.sp-weekly-tight .btn-launch.is-primary {
-  background-color: var(--color-brand-primary) !important;
-  color: #fff !important;
-}
-.sp-weekly-tight .btn-launch.is-primary:hover {
-  background-color: var(--color-brand-primary-hover) !important;
-}
-.sp-weekly-tight .ai-banner-controls .btn-launch {
-  background-color: var(--color-brand-purple-deep) !important;
-  color: #fff !important;
-}
-.sp-weekly-tight .ai-banner-controls .btn-launch:hover {
-  background-color: var(--color-brand-purple-text) !important;
-}
-
-/* Italic editorial sentence: lighter color, smaller. */
-.sp-weekly-tight .sp-diagnostic-sentence {
-  font-size: 13px !important;
-  color: var(--color-slate-600) !important;
-  margin: 6px 4px 0 !important;
-}
-
-/* (3) Week cards: flatter, less drop shadow. */
-.sp-weekly-tight .sp-week-card {
-  border-radius: 14px !important;
-  box-shadow: none !important;
-  border: 1px solid var(--color-slate-200);
-}
-.sp-weekly-tight .sp-week-card.is-current {
-  border-color: var(--color-brand-purple-soft);
-}
-.sp-weekly-tight .sp-week-indicator { display: none !important; }
-.sp-weekly-tight .sp-week-header {
-  padding: 14px 18px !important;
-}
-.sp-weekly-tight .sp-week-label {
-  font-size: 10px !important;
-}
-.sp-weekly-tight .sp-week-title {
-  font-size: 15px !important;
-  font-weight: 700 !important;
-  letter-spacing: -0.01em;
-}
-.sp-weekly-tight .sp-week-body {
-  padding: 8px 14px 14px !important;
-  gap: 6px !important;
-}
-.sp-weekly-tight .sp-week-progress {
-  font-size: 12px !important;
-  padding: 4px 10px !important;
-  background: var(--color-slate-100) !important;
-  color: var(--color-slate-700) !important;
-  box-shadow: none !important;
-}
-.sp-weekly-tight .sp-week-toggle {
-  width: 28px !important;
-  height: 28px !important;
-}
-
-/* (4) Plan Updated banner: clean white-with-orange-accent instead of gradient. */
-.sp-weekly-tight .sp-banner.sp-banner-info {
-  background: var(--color-white) !important;
-  border: 1px solid var(--color-slate-200) !important;
-  border-left: 3px solid var(--color-brand-purple-deep) !important;
-  border-radius: 12px !important;
-  padding: 14px 18px !important;
-}
-.sp-weekly-tight .sp-banner.sp-banner-info .sp-banner-icon {
-  background: var(--color-brand-purple-deep) !important;
-  color: var(--color-white) !important;
-  width: 22px !important;
-  height: 22px !important;
-}
-.sp-weekly-tight .sp-banner.sp-banner-info .sp-banner-title {
-  color: var(--color-slate-900) !important;
-  font-size: 12px !important;
-  letter-spacing: 0.06em;
-}
-.sp-weekly-tight .sp-banner.sp-banner-info .sp-banner-content {
-  color: var(--color-slate-700) !important;
-  font-size: 14px !important;
-  font-weight: 500 !important;
-}
-
-/* (5) Section header: Acely uses a smaller, quieter h3. */
-.sp-weekly-tight .sp-section-header {
-  font-size: 16px !important;
-  font-weight: 700 !important;
-  letter-spacing: -0.005em;
-  color: var(--color-slate-900) !important;
-  margin-bottom: 8px !important;
-}
-.sp-weekly-tight .sp-section-desc {
-  font-size: 13px !important;
-  color: var(--color-slate-600) !important;
-  line-height: 1.5;
-  margin-bottom: 12px !important;
-}
-
-/* Status tag (Mastered / Needs Focus) — smaller. */
-.sp-weekly-tight .sp-activity-status-tag {
-  top: -6px !important;
-  right: 56px !important;
-  font-size: 10px !important;
-  padding: 2px 6px !important;
-}
-
-/* ───────────────────────────────────────────────────────────────────────
- * "Coming up this week" preview — fills the gap on the Today's Tasks tab
- * when today is a rest-day or all-done. Pure-CSS card with one row per
- * scheduled upcoming day.
- * ─────────────────────────────────────────────────────────────────── */
-.sp-coming-up {
-  background: var(--color-white);
-  border: 1px solid var(--color-slate-200);
-  border-radius: 14px;
-  padding: 18px 20px 14px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  font-family: var(--font-ui);
-}
-
-.sp-coming-up-header {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 12px;
-}
-.sp-coming-up-eyebrow {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--color-slate-500);
-}
-.sp-coming-up-week {
-  font-size: 12px;
-  color: var(--color-slate-500);
-}
-
-.sp-coming-up-list {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.sp-coming-up-row {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 10px 4px;
-  border-top: 1px solid var(--color-slate-100);
-}
-.sp-coming-up-row:first-of-type { border-top: none; }
-
-.sp-coming-up-day {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2px;
-  min-width: 56px;
-}
-
-.sp-coming-up-daychip {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 44px;
-  height: 24px;
-  padding: 0 8px;
-  border-radius: 6px;
-  background: var(--color-slate-100);
-  color: var(--color-slate-700);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-}
-.sp-coming-up-soon {
-  font-size: 10px;
-  font-weight: 600;
-  color: var(--color-brand-purple-deep);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-}
-
-.sp-coming-up-text {
-  flex: 1 1 auto;
-  min-width: 0;
-}
-.sp-coming-up-title {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--color-slate-900);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.sp-coming-up-meta {
-  font-size: 12px;
-  color: var(--color-slate-500);
-  margin-top: 2px;
-}
-
-.sp-coming-up-cta {
-  flex: 0 0 auto;
-  background: transparent;
-  border: 1px solid var(--color-slate-200);
-  color: var(--color-slate-700);
-  padding: 6px 12px;
-  border-radius: 8px;
-  font-size: 13px;
-  font-weight: 600;
-  cursor: pointer;
-  font-family: var(--font-ui);
-  transition: background 120ms ease, border-color 120ms ease;
-}
-.sp-coming-up-cta:hover {
-  background: var(--color-slate-50);
-  border-color: var(--color-slate-300);
-}
-/* ────────────────────────────────────────────────────────────────────
-   Past-Test-Review CTA — appears below TodaysTasksCard when the
-   pastTestReview feature flag is on AND the student has ≥1 completed
-   test. Wired in Phase 6 of PAST_TEST_REVIEW_PLAN.md.
-   ────────────────────────────────────────────────────────────────── */
-.sp-past-test-review-cta {
-  margin-top: 14px;
-  margin-bottom: 14px;
-}
-.sp-past-test-review-btn {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 14px 18px;
-  background: #fff;
-  border: 1px solid var(--color-slate-200, #e2e8f0);
-  border-radius: 14px;
-  cursor: pointer;
-  text-align: left;
-  transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease;
-}
-.sp-past-test-review-btn:hover {
-  border-color: var(--color-brand-purple-deep);
-  background: #fff7ed;
-}
-.sp-past-test-review-btn:active {
-  transform: translateY(1px);
-}
-.sp-past-test-review-icon {
-  display: inline-flex;
-  align-items: center;
-  color: var(--color-brand-purple-deep);
-  line-height: 1;
-  flex-shrink: 0;
-}
-.sp-past-test-review-text {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-.sp-past-test-review-title {
-  font-size: 15px;
-  font-weight: 600;
-  color: #1d1d1f;
-}
-.sp-past-test-review-sub {
-  font-size: 13px;
-  color: #6b7280;
-}
-.sp-past-test-review-chev {
-  color: var(--color-brand-purple-deep);
-  font-size: 22px;
-  font-weight: 600;
-  line-height: 1;
-}
-
-/* ── Review Queue (embedded in the plan) ─────────────────────────────────
-   Surfaces today's due review items inside the Study Plan. "From your tests"
-   rows deep-link to the specific wrong questions on that test; "Spaced
-   repetition" rows launch the existing review drill. Plan-native styling
-   (purple/info accents) rather than the home Dashboard's blue action-card. */
-.sp-review {
-  margin-top: 14px;
-  margin-bottom: 14px;
-  padding: 16px 18px;
-  background: #fff;
-  border: 1px solid var(--color-slate-200, #e2e8f0);
-  border-radius: 14px;
-}
-.sp-review-head {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.sp-review-icon {
-  display: inline-flex;
-  align-items: center;
-  color: var(--color-brand-purple-deep);
-  line-height: 1;
-}
-.sp-review-title {
-  margin: 0;
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--color-slate-900);
-}
-.sp-review-due {
-  margin-left: auto;
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--color-brand-purple-text);
-  background: var(--color-brand-purple-soft);
-  padding: 2px 10px;
-  border-radius: 999px;
-}
-.sp-review-block + .sp-review-block {
-  margin-top: 12px;
-}
-.sp-review-block-label {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--color-slate-500);
-  margin-bottom: 6px;
-}
-.sp-review-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-.sp-review-row {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px 12px;
-  background: var(--color-slate-50, #fbfbfd);
-  border: 1px solid var(--color-slate-200, #e2e8f0);
-  border-radius: 10px;
-  cursor: pointer;
-  text-align: left;
-  transition: border-color 0.15s ease, background 0.15s ease, transform 0.1s ease;
-}
-.sp-review-row:hover {
-  border-color: var(--color-brand-purple-deep);
-  background: var(--color-brand-purple-soft);
-}
-.sp-review-row:active {
-  transform: translateY(1px);
-}
-.sp-review-row:focus-visible {
-  outline: 2px solid var(--color-brand-purple-deep);
-  outline-offset: 2px;
-}
-.sp-review-row-icon {
-  display: inline-flex;
-  align-items: center;
-  color: var(--color-brand-purple-deep);
-  flex-shrink: 0;
-  line-height: 1;
-}
-.sp-review-row-text {
-  flex: 1;
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--color-slate-900);
-}
-.sp-review-tag {
-  font-size: 11px;
-  font-weight: 600;
-  padding: 2px 8px;
-  border-radius: 999px;
-  background: var(--color-info-100);
-  color: var(--color-info-700);
-  flex-shrink: 0;
-}
-.sp-review-tag.is-overdue {
-  /* Overdue = needs action now → semantic error red (token-backed). */
-  background: var(--color-error-50);
-  color: var(--color-error-700);
-}
-.sp-review-chev {
-  display: inline-flex;
-  align-items: center;
-  color: var(--color-brand-purple-deep);
-  flex-shrink: 0;
-  line-height: 1;
-}
-
-/* ── Pacing & Timing (embedded in the plan) ──────────────────────────────
-   Quiet by default; boosts to a prominent card when the plan shows a timing
-   struggle (getPacingStruggle). Purple = Study Plan/focus base; the boost
-   state carries an ORANGE left accent for urgency (act-now). */
-.sp-pacing-boost {
-  margin-top: 14px;
-  margin-bottom: 14px;
-  padding: 16px 18px;
-  background: var(--color-brand-purple-soft);
-  border: 1px solid var(--color-brand-purple-border, #dccdf1);
-  border-left: 3px solid var(--color-brand-primary);
-  border-radius: 14px;
-}
-.sp-pacing-head {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.sp-pacing-icon {
-  display: inline-flex;
-  align-items: center;
-  color: var(--color-brand-purple-deep);
-  line-height: 1;
-}
-.sp-pacing-title {
-  margin: 0;
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--color-brand-purple-text);
-}
-.sp-pacing-badge {
-  margin-left: auto;
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--color-brand-purple-text);
-  background: #fff;
-  border: 1px solid var(--color-brand-purple-border, #dccdf1);
-  padding: 2px 10px;
-  border-radius: 999px;
-}
-.sp-pacing-reason {
-  margin: 8px 0 12px;
-  font-size: 13.5px;
-  font-weight: 500;
-  color: var(--color-slate-700);
-}
-.sp-pacing-cta {
-  display: inline-flex;
-  align-items: center;
-  padding: 9px 16px;
-  background: var(--color-brand-purple-deep);
-  color: #fff;
-  border: none;
-  border-radius: 10px;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.15s ease, transform 0.1s ease;
-}
-.sp-pacing-cta:hover { background: var(--color-brand-purple-text); }
-.sp-pacing-cta:active { transform: translateY(1px); }
-.sp-pacing-cta:focus-visible {
-  outline: 2px solid var(--color-brand-purple-deep);
-  outline-offset: 2px;
-}
-.sp-pacing-quiet {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  padding: 10px 14px;
-  background: var(--color-slate-50, #fbfbfd);
-  border: 1px solid var(--color-slate-200, #e2e8f0);
-  border-radius: 12px;
-}
-.sp-pacing-quiet .sp-pacing-icon { color: var(--color-slate-500); }
-.sp-pacing-quiet-text {
-  font-size: 13.5px;
-  font-weight: 500;
-  color: var(--color-slate-700);
-}
-.sp-pacing-quiet-cta {
-  margin-left: auto;
-  background: none;
-  border: none;
-  padding: 4px 6px;
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--color-brand-purple-deep);
-  cursor: pointer;
-}
-.sp-pacing-quiet-cta:hover { color: var(--color-brand-purple-text); text-decoration: underline; }
-.sp-pacing-quiet-cta:focus-visible {
-  outline: 2px solid var(--color-brand-purple-deep);
-  outline-offset: 2px;
-  border-radius: 6px;
-}
-
-/* ── Adaptivity (2026-06 audit): live drill evidence on Focus Area cards ──
-   Item 1: "40% on your last test → 78% in drills since" evidence line.
-   Item 2: mastered-in-practice green state + "Keep sharp" secondary CTA.
-   Item 3: improved/declined editorial line (diagnostic-sentence voice).
-   Item 5: triage-mode banner. */
-
-.sp-card-drill-delta {
-  margin: 4px 0 0;
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--color-slate-600);
-  letter-spacing: 0.01em;
-}
-
-.sp-card-mastered-note {
-  margin: 4px 0 0;
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--color-success-700);
-}
-
-/* Mastered card: quiet green tint, never louder than the active red cards
-   above it. */
-.sp-weekly-tight .acely-split-card[data-mastered="true"] {
-  border-color: var(--color-success-200) !important;
-  background: var(--color-success-50);
-}
-.sp-weekly-tight .acely-split-card[data-mastered="true"]:hover {
-  border-color: var(--color-success-200) !important;
-  background: var(--color-success-50);
-}
-.sp-weekly-tight .acely-split-card[data-mastered="true"] .acely-split-left {
-  background: var(--color-success-100) !important;
-  color: var(--color-success-700) !important;
-}
-.sp-weekly-tight .acely-split-card[data-mastered="true"] .acely-split-right {
-  background: transparent !important;
-}
-
-/* "Keep sharp" — the lighter secondary action on mastered cards. Wins over
-   the .btn-launch:not(.is-primary) outline override above (same specificity,
-   declared later). */
-.sp-weekly-tight .acely-split-right .btn-launch.is-keep-sharp {
-  background: transparent !important;
-  color: var(--color-success-700) !important;
-  border: 1px solid var(--color-success-200) !important;
-}
-.sp-weekly-tight .acely-split-right .btn-launch.is-keep-sharp:hover {
-  background: var(--color-success-100) !important;
-  border-color: var(--color-success-500) !important;
-  color: var(--color-success-700) !important;
-}
-
-/* Engine editorial line below an affected card — same italic diagnostic
-   voice as .sp-card-diagnostic, but it sits OUTSIDE the card like the
-   prediction flag, so it needs its own margins. */
-.sp-card-adaptive {
-  margin: 6px 4px 0;
-}
-
-/* Triage-mode banner — one quiet warning-tinted line, not a wall. */
-.sp-triage-banner {
-  margin: 0 0 16px;
-  padding: 10px 14px;
-  border: 1px solid var(--color-warning-200);
-  border-radius: 10px;
-  background: var(--color-warning-50);
-  color: var(--color-warning-700);
-  font-size: 13px;
-  font-weight: 600;
-}
-
-/* ════════════════════════════════════════════════════════════════════
-   Section switcher + diagnostic-style color treatment (2026-06-12).
-   Tri-color semantics: purple = plan chrome, green = done/mastery,
-   orange = Math section identity; info-blue = Reading & Writing identity.
-   ════════════════════════════════════════════════════════════════════ */
-
-/* Practice-Bank-style pill toggle (All · Math · Reading & Writing) —
-   lives in the Weekly Schedule header row so its scope reads clearly */
-.sp-section-header-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 0.75rem;
-}
-
-.sp-section-header-row .sp-section-header {
-  margin-bottom: 0;
-}
-
-.sp-section-toggle {
-  display: inline-flex;
-  background: var(--color-white);
-  border: 1px solid var(--color-slate-200);
-  border-radius: 999px;
-  padding: 4px;
-  gap: 2px;
-}
-
-.sp-section-toggle-btn {
-  font-family: var(--font-ui);
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--color-slate-500);
-  background: transparent;
-  border: none;
-  border-radius: 999px;
-  padding: 7px 16px;
-  min-height: 34px;
-  cursor: pointer;
-  transition: background 120ms ease, color 120ms ease;
-}
-
-.sp-section-toggle-btn:hover {
-  color: var(--color-slate-700);
-}
-
-.sp-section-toggle-btn.is-active {
-  font-weight: 700;
-  color: #ffffff;
-  background: #1d1d1f;
-}
-
-/* Day chip on weekly activity rows (matches the coming-up day chips) */
+.sp-act-toggle::after { content: ''; position: absolute; inset: -10px; border-radius: 50%; }
+.sp-act-toggle:hover { border-color: var(--sp-orange); }
+.sp-act-toggle.is-done { background: var(--sp-done); border-color: var(--sp-done); }
 .sp-act-day {
   display: inline-flex;
   align-items: center;
@@ -1570,14 +836,33 @@
   padding: 2px 7px;
   margin-right: 8px;
   border-radius: 6px;
-  background: var(--color-slate-100);
-  color: var(--color-slate-600);
+  background: var(--sp-surface-2);
+  color: var(--sp-text-2);
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.06em;
 }
+.sp-act-tips { list-style: none; margin: 8px 0 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.sp-act-tip { position: relative; padding-left: 18px; font-size: 13px; line-height: 1.5; color: var(--sp-text-2); }
+.sp-act-tip::before {
+  content: ''; position: absolute; left: 4px; top: 0.55em;
+  width: 5px; height: 5px; border-radius: 50%; background: var(--sp-line-strong);
+}
+.sp-activity-status-tag {
+  position: absolute;
+  top: -6px;
+  right: 56px;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.sp-activity-status-tag.mastered { color: var(--sp-done); background: var(--sp-done-tint); }
+.sp-activity-status-tag.needs-focus { color: var(--sp-error); background: var(--sp-error-tint); }
 
-/* Section identity chips — Math = brand orange, R&W = info blue */
+/* Section identity chip (Math / R&W) shared by modules + activity rows */
 .sp-sec-chip {
   display: inline-flex;
   align-items: center;
@@ -1589,78 +874,396 @@
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
+.sp-sec-chip.is-math { background: var(--sp-orange-tint); color: var(--sp-orange); }
+.sp-sec-chip.is-rw { background: var(--sp-cal-prac); color: var(--sp-cal-prac-ink); }
 
-.sp-sec-chip.is-math {
-  background: var(--color-brand-primary-light);
-  color: var(--color-brand-primary);
+/* ── How you test (identity insights) ──────────────────────────────────── */
+.sp-section-title {
+  font-family: var(--sp-font-display);
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: -0.01em;
+  margin: 18px 0 12px;
+  color: var(--sp-text);
+}
+.sp-identity-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+}
+.sp-identity-card {
+  background: var(--sp-surface);
+  border: 1px solid var(--sp-line);
+  border-radius: 14px;
+  padding: 16px 18px;
+  box-shadow: var(--sp-shadow);
+}
+.sp-identity-stat {
+  font-family: var(--sp-font-display);
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--sp-purple);
+  letter-spacing: -0.01em;
+  font-variant-numeric: tabular-nums;
+}
+.sp-identity-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--sp-text-2);
+  margin-top: 2px;
+}
+.sp-identity-text {
+  margin: 9px 0 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--sp-text-2);
 }
 
-.sp-sec-chip.is-rw {
-  background: var(--color-info-100);
-  color: var(--color-info-700);
-}
-
-.acely-metric-label .sp-sec-chip {
-  margin-right: 6px;
-  vertical-align: middle;
-}
-
-/* Plan-progress mini bar in the strip (diagnostic ProgressBar language) */
-.sp-strip-bar {
-  width: 100%;
-  max-width: 140px;
-  height: 5px;
-  margin: 4px 0 2px;
-  border-radius: 999px;
-  background: var(--color-slate-100);
-  overflow: hidden;
-}
-
-.sp-strip-bar-fill {
-  height: 100%;
-  border-radius: 999px;
-  /* Tri-color journey: progress runs orange (in-progress / acting now) into
-     green (mastery / done) rather than a flat one-color bar. */
-  background: linear-gradient(90deg, var(--color-brand-primary), var(--color-brand-green));
-  transition: width 400ms ease;
-}
-
-/* Week cards: stronger current/complete identity (left accent rules).
-   Tri-color: current week = orange (act now), complete week = green (done). */
-.sp-weekly-tight .sp-week-card.is-current {
-  border-left: 3px solid var(--color-brand-primary);
-  background: linear-gradient(180deg, var(--color-brand-primary-light) 0, var(--color-white) 56px);
-}
-
-.sp-weekly-tight .sp-week-card.is-complete {
-  border-left: 3px solid var(--color-brand-green-deep);
-}
-
-/* Empty state when a section filter has no focus areas */
-.sp-focus-empty {
-  padding: 18px;
-  border: 1px dashed var(--color-slate-200);
+/* ── Adaptive notes / coach lines (kept) ───────────────────────────────── */
+.sp-notes { display: flex; flex-direction: column; gap: 10px; }
+.sp-note {
+  background: var(--sp-inset);
+  border: 1px solid var(--sp-line);
   border-radius: 12px;
-  color: var(--color-slate-500);
+  padding: 13px 16px;
+}
+.sp-note-eyebrow {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--sp-text-3);
+  margin-bottom: 4px;
+}
+.sp-note-text {
+  margin: 0;
   font-size: 14px;
+  line-height: 1.55;
+  color: var(--sp-text-2);
+}
+.sp-note-toggle {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin-left: 6px;
+  font-family: var(--sp-font-body);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--sp-purple);
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/* Per-card editorial / prediction lines */
+.sp-card-diagnostic {
+  margin: 4px 0 0;
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--sp-text-2);
+}
+.sp-card-adaptive { margin: 6px 4px 0; }
+.sp-prediction-flag {
+  margin: 8px 4px 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--sp-orange);
+}
+
+/* Triage banner */
+.sp-triage-banner {
+  margin: 0 0 4px;
+  padding: 10px 14px;
+  border: 1px solid var(--sp-warn);
+  border-radius: 10px;
+  background: var(--sp-warn-tint);
+  color: var(--sp-warn);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* Score trajectory */
+.sp-trajectory {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--sp-line);
+  flex-wrap: wrap;
+}
+.sp-trajectory-label {
+  font-size: 0.8125rem;
+  color: var(--sp-text-3);
+  font-weight: 700;
+  margin-right: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.sp-trajectory-node {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--sp-text-2);
+  background: var(--sp-surface-2);
+  padding: 0.375rem 0.75rem;
+  border-radius: 9999px;
+  font-variant-numeric: tabular-nums;
+}
+.sp-trajectory-node.is-latest {
+  color: var(--sp-purple);
+  background: var(--sp-purple-soft);
+  box-shadow: 0 0 0 1px var(--sp-purple);
+}
+
+/* ── Coming up (rest-day / all-done preview) ───────────────────────────── */
+.sp-coming-up {
+  background: var(--sp-surface);
+  border: 1px solid var(--sp-line);
+  border-radius: 16px;
+  padding: 18px 20px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: var(--sp-shadow);
+}
+.sp-coming-up-header { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+.sp-coming-up-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sp-text-3); }
+.sp-coming-up-week { font-size: 12px; color: var(--sp-text-3); }
+.sp-coming-up-list { display: flex; flex-direction: column; gap: 6px; }
+.sp-coming-up-row { display: flex; align-items: center; gap: 14px; padding: 10px 4px; border-top: 1px solid var(--sp-line); }
+.sp-coming-up-row:first-of-type { border-top: none; }
+.sp-coming-up-day { display: flex; flex-direction: column; align-items: center; gap: 2px; min-width: 56px; }
+.sp-coming-up-daychip {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 44px; height: 24px; padding: 0 8px; border-radius: 6px;
+  background: var(--sp-surface-2); color: var(--sp-text-2);
+  font-size: 11px; font-weight: 700; letter-spacing: 0.05em;
+}
+.sp-coming-up-soon { font-size: 10px; font-weight: 600; color: var(--sp-purple); text-transform: uppercase; letter-spacing: 0.04em; }
+.sp-coming-up-text { flex: 1 1 auto; min-width: 0; }
+.sp-coming-up-title { font-size: 14px; font-weight: 600; color: var(--sp-text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.sp-coming-up-meta { font-size: 12px; color: var(--sp-text-3); margin-top: 2px; }
+.sp-coming-up-cta {
+  flex: 0 0 auto; background: transparent; border: 1px solid var(--sp-line-strong);
+  color: var(--sp-text-2); padding: 6px 12px; border-radius: 8px;
+  font-size: 13px; font-weight: 600; cursor: pointer; font-family: var(--sp-font-body);
+}
+.sp-coming-up-cta:hover { background: var(--sp-inset); }
+
+/* ════════════════════════════════════════════════════════════════════════
+   Kept engine features — restyled to the new theme
+   ════════════════════════════════════════════════════════════════════════ */
+
+/* Attention stack (review queue + pacing + past-test review live here) */
+.sp-attention { display: flex; flex-direction: column; gap: 10px; }
+
+/* Past-Test-Review CTA */
+.sp-past-test-review-cta { margin: 0; }
+.sp-past-test-review-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 13px 16px;
+  background: var(--sp-surface);
+  border: 1px solid var(--sp-line);
+  border-radius: 14px;
+  cursor: pointer;
+  text-align: left;
+  box-shadow: var(--sp-shadow);
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.sp-past-test-review-btn:hover { border-color: var(--sp-purple); }
+.sp-past-test-review-icon {
+  width: 34px; height: 34px; border-radius: 9px;
+  background: var(--sp-purple-soft); color: var(--sp-purple);
+  display: grid; place-items: center; flex: none;
+}
+.sp-past-test-review-text { flex: 1; display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.sp-past-test-review-title { font-size: 14.5px; font-weight: 600; color: var(--sp-text); }
+.sp-past-test-review-sub { font-size: 12.5px; color: var(--sp-text-2); }
+.sp-past-test-review-chev { color: var(--sp-text-3); font-size: 20px; font-weight: 600; line-height: 1; }
+
+/* Review Queue */
+.sp-review {
+  padding: 15px 17px;
+  background: var(--sp-surface);
+  border: 1px solid var(--sp-line);
+  border-radius: 14px;
+  box-shadow: var(--sp-shadow);
+}
+.sp-review-head { display: flex; align-items: center; gap: 8px; margin-bottom: 11px; }
+.sp-review-icon { display: inline-flex; align-items: center; color: var(--sp-purple); line-height: 1; }
+.sp-review-title { margin: 0; font-size: 14.5px; font-weight: 700; color: var(--sp-text); }
+.sp-review-due {
+  margin-left: auto; font-size: 11.5px; font-weight: 700;
+  color: var(--sp-purple); background: var(--sp-purple-soft);
+  padding: 3px 11px; border-radius: 999px;
+}
+.sp-review-block + .sp-review-block { margin-top: 12px; }
+.sp-review-block-label {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.04em;
+  text-transform: uppercase; color: var(--sp-text-3); margin-bottom: 6px;
+}
+.sp-review-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 7px; }
+.sp-review-row {
+  width: 100%; display: flex; align-items: center; gap: 10px;
+  padding: 10px 12px; background: var(--sp-inset);
+  border: 1px solid var(--sp-line); border-radius: 10px;
+  cursor: pointer; text-align: left;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.sp-review-row:hover { border-color: var(--sp-purple); background: var(--sp-purple-soft); }
+.sp-review-row-icon { display: inline-flex; align-items: center; color: var(--sp-purple); flex: none; line-height: 1; }
+.sp-review-row-text { flex: 1; font-size: 13.5px; font-weight: 500; color: var(--sp-text); }
+.sp-review-tag {
+  font-size: 11px; font-weight: 600; padding: 2px 9px; border-radius: 999px;
+  background: var(--sp-cal-prac); color: var(--sp-cal-prac-ink); flex: none;
+}
+.sp-review-tag.is-overdue { background: var(--sp-error-tint); color: var(--sp-error); }
+.sp-review-chev { display: inline-flex; align-items: center; color: var(--sp-text-3); flex: none; line-height: 1; }
+
+/* Pacing & Timing */
+.sp-pacing-boost {
+  padding: 15px 17px;
+  background: var(--sp-purple-soft);
+  border: 1px solid var(--sp-purple-border);
+  border-left: 3px solid var(--sp-orange);
+  border-radius: 14px;
+}
+.sp-pacing-head { display: flex; align-items: center; gap: 8px; }
+.sp-pacing-icon { display: inline-flex; align-items: center; color: var(--sp-purple); line-height: 1; }
+.sp-pacing-title { margin: 0; font-size: 14.5px; font-weight: 700; color: var(--sp-purple); }
+.sp-pacing-badge {
+  margin-left: auto; font-size: 11.5px; font-weight: 600;
+  color: var(--sp-purple); background: var(--sp-surface);
+  border: 1px solid var(--sp-purple-border); padding: 3px 11px; border-radius: 999px;
+}
+.sp-pacing-reason { margin: 9px 0 12px; font-size: 13.5px; font-weight: 500; color: var(--sp-text-2); }
+.sp-pacing-cta {
+  display: inline-flex; align-items: center; padding: 9px 16px;
+  background: var(--sp-purple); color: #fff; border: none; border-radius: 10px;
+  font-family: var(--sp-font-body); font-size: 13.5px; font-weight: 600; cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+.sp-pacing-cta:hover { opacity: 0.92; }
+.sp-pacing-quiet {
+  display: flex; align-items: center; gap: 8px;
+  padding: 10px 14px; background: var(--sp-inset);
+  border: 1px solid var(--sp-line); border-radius: 12px;
+}
+.sp-pacing-quiet .sp-pacing-icon { color: var(--sp-text-3); }
+.sp-pacing-quiet-text { font-size: 13.5px; font-weight: 500; color: var(--sp-text-2); }
+.sp-pacing-quiet-cta {
+  margin-left: auto; background: none; border: none; padding: 4px 6px;
+  font-family: var(--sp-font-body); font-size: 13px; font-weight: 600;
+  color: var(--sp-purple); cursor: pointer;
+}
+.sp-pacing-quiet-cta:hover { text-decoration: underline; }
+
+/* ════════════════════════════════════════════════════════════════════════
+   Right rail — calendar reskin + colored summary tiles
+   ════════════════════════════════════════════════════════════════════════ */
+
+/* Reskin the shared CalendarMonth (cm-*) to the cream/heatmap look.
+   Higher specificity (ancestor .study-plan-dashboard) wins over CalendarMonth.css. */
+.study-plan-dashboard .cm-card {
+  background: var(--sp-surface);
+  border: 1px solid var(--sp-line);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: var(--sp-shadow);
+  font-family: var(--sp-font-body);
+}
+.study-plan-dashboard .cm-eyebrow { margin-bottom: 12px; }
+.study-plan-dashboard .cm-eyebrow-stat { color: var(--sp-cal-prac-ink); background: var(--sp-cal-prac); font-weight: 700; font-size: 11px; letter-spacing: 0.05em; padding: 4px 10px; border-radius: 7px; }
+.study-plan-dashboard .cm-eyebrow-today { color: var(--sp-text-3); }
+.study-plan-dashboard .cm-title { font-family: var(--sp-font-display); font-weight: 700; color: var(--sp-text); letter-spacing: 0.01em; }
+.study-plan-dashboard .cm-nav { border: 1px solid var(--sp-line); background: var(--sp-surface); color: var(--sp-text-2); border-radius: 8px; }
+.study-plan-dashboard .cm-nav:hover { background: var(--sp-inset); }
+.study-plan-dashboard .cm-weekday { color: var(--sp-text-3); font-weight: 700; }
+.study-plan-dashboard .cm-cell { color: var(--sp-text-2); font-weight: 600; }
+.study-plan-dashboard .cm-cell-out { color: var(--sp-text-3); opacity: 0.45; }
+.study-plan-dashboard .cm-cell-practiced { background: var(--sp-cal-prac); color: var(--sp-cal-prac-ink); border-radius: 50%; }
+.study-plan-dashboard .cm-cell-today { background: var(--sp-orange); color: #fff; border-radius: 50%; box-shadow: none; }
+.study-plan-dashboard .cm-cell-test { box-shadow: inset 0 0 0 2px var(--sp-purple); border-radius: 50%; color: var(--sp-purple); }
+
+/* Colored summary tiles */
+.sp-tile {
+  border-radius: 20px;
+  padding: 22px;
+}
+.sp-tile-eyebrow {
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+.sp-tile-num {
+  font-family: var(--sp-font-display);
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin: 10px 0 4px;
+  font-variant-numeric: tabular-nums;
+}
+.sp-tile-sub { font-size: 12.5px; opacity: 0.72; }
+.sp-tile-row { display: flex; align-items: baseline; gap: 10px; margin: 10px 0 4px; }
+.sp-tile-delta {
+  display: inline-flex; align-items: center; gap: 3px;
+  font-weight: 700; font-size: 13px;
+}
+.sp-tile-delta.is-up { color: var(--sp-done); }
+.sp-tile-delta.is-down { color: var(--sp-error); }
+
+.sp-tile.is-score { background: var(--sp-tile-score); color: var(--sp-tile-score-ink); }
+.sp-tile.is-score .sp-tile-num { font-size: 40px; }
+.sp-tile.is-goal { background: var(--sp-tile-goal); color: var(--sp-tile-goal-ink); }
+.sp-tile.is-exam { background: var(--sp-tile-exam); color: var(--sp-tile-exam-ink); }
+.sp-tile.is-goal .sp-tile-num, .sp-tile.is-exam .sp-tile-num { font-size: 34px; }
+.sp-tile-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.sp-tile.is-goal, .sp-tile.is-exam { padding: 20px; }
+
+/* Neutral surface tiles (prediction record, review streak) */
+.sp-tile.is-plain {
+  background: var(--sp-surface);
+  border: 1px solid var(--sp-line);
+  box-shadow: var(--sp-shadow);
+  padding: 18px 20px;
+}
+.sp-tile.is-plain .sp-tile-eyebrow { color: var(--sp-text-3); }
+.sp-tile.is-plain .sp-tile-num { color: var(--sp-purple); font-size: 28px; margin: 8px 0 4px; }
+.sp-tile.is-plain .sp-tile-sub { color: var(--sp-text-2); opacity: 1; }
+
+/* ── Empty state ───────────────────────────────────────────────────────── */
+.sp-empty-state {
   text-align: center;
+  padding: 4rem 1.5rem;
+  border-radius: 20px;
+  background: var(--sp-surface);
+  border: 1px solid var(--sp-line);
+  font-family: var(--sp-font-body);
 }
-
-/* Collapsed week number discs join the plan's purple chrome (they were the
-   last all-gray zone); complete weeks already swap to the green check. */
-.sp-weekly-tight .sp-week-card:not(.is-complete) .sp-week-icon {
-  background: var(--color-brand-purple-soft);
-  color: var(--color-brand-purple-text);
+.sp-empty-icon {
+  width: 80px; height: 80px; border-radius: 50%;
+  background: var(--sp-purple-soft); color: var(--sp-purple);
+  display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;
 }
-
-/* Tri-color: the CURRENT week disc reads orange (act now), overriding the
-   purple future-week chrome above. */
-.sp-weekly-tight .sp-week-card.is-current:not(.is-complete) .sp-week-icon {
-  background: var(--color-brand-primary-light);
-  color: var(--color-brand-orange-600);
+.sp-empty-title { font-family: var(--sp-font-display); font-size: 1.5rem; font-weight: 700; color: var(--sp-text); margin-bottom: 0.75rem; letter-spacing: -0.02em; }
+.sp-empty-desc { font-size: 1rem; color: var(--sp-text-2); max-width: 480px; margin: 0 auto 2rem; line-height: 1.6; }
+.sp-empty-btn {
+  padding: 0.875rem 1.75rem; font-family: var(--sp-font-body); font-size: 0.9375rem; font-weight: 700;
+  color: #fff; background: var(--sp-orange); border: none; border-radius: 9999px; cursor: pointer;
+  box-shadow: 0 4px 12px rgba(234, 88, 12, 0.3);
 }
+.sp-empty-btn:hover { background: var(--sp-orange-600); }
 
-.sp-weekly-tight .sp-week-card.is-complete .sp-week-icon {
-  background: var(--color-brand-green-soft);
-  color: var(--color-brand-green-text);
+/* ── Responsive ────────────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .sp-today-panel { padding: 18px; }
+  .sp-module { padding: 18px; }
+  .sp-tile-pair { grid-template-columns: 1fr; }
+  .sp-titlebar { flex-wrap: wrap; gap: 12px; }
 }

@@ -17,7 +17,6 @@ import { annotateFocusAreas } from '../services/selectors/focusAreaProgress';
 import { getDrillChipForWeakness } from '../services/selectors/drillChip';
 import { formatDiagnosticSentence } from '../services/diagnosticEngine';
 import { getTodaySlice } from '../services/selectors/todaySlice';
-import { getSessionAdherence } from '../services/selectors/sessionAdherence';
 import { getIdentityInsights, getPredictionTrust } from '../services/selectors/identityInsights';
 import { getReviewStreak } from '../services/dailyReviewEngine';
 import { formatDailyIntro } from '../services/selectors/dailyIntro';
@@ -29,7 +28,6 @@ import { parseLocalDate } from '../utils/localDate';
 import { useFeatureFlag } from '../hooks/useFeatureFlag';
 import CalendarMonth from './CalendarMonth';
 import Avatar, { AVATAR_SIZES } from './ui/Avatar';
-import TodaysTasksCard from './TodaysTasksCard';
 import StudyPlanReviewSection from './StudyPlanReviewSection';
 import StudyPlanPacingSection from './StudyPlanPacingSection';
 import { buildPacingTelemetry } from '../services/selectors/pacingTelemetry';
@@ -113,6 +111,100 @@ function activityIcon(type) {
   if (type === 'review')   return <SearchIcon size={16} color="currentColor" />;
   if (type === 'test')     return <DocumentIcon size={16} color="currentColor" />;
   return <PinIcon size={16} color="currentColor" />;
+}
+
+// Monday-first weekday order for the Weekly View day-row timeline. Module
+// scope so the useMemo that consumes it stays dependency-stable.
+const WEEKDAY_FULL = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+
+// Humanize a kebab pattern slug into a short, title-cased round label
+// ("vertex-form-from-two-conditions" → "Vertex Form From Two…"). Capped at
+// four words so a round row never wraps.
+function humanizePattern(slug) {
+  if (!slug || typeof slug !== 'string') return '';
+  const words = slug.split('-').filter(Boolean);
+  const label = words.slice(0, 4).map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+  return words.length > 4 ? `${label}…` : label;
+}
+
+// Rough drill-time estimate from a question count (~1.2 min/Q, floored at 10).
+const estMinutes = (qCount) => Math.max(10, Math.round((qCount || 0) * 1.2));
+
+/**
+ * buildPlanModule — turn a focus-area weakness row into the "module card with
+ * rounds" model the redesigned Today panel renders.
+ *
+ * Rounds surface the skill's missed SAT patterns (real sub-skills the drill
+ * targets). Round status/progress is the skill's *drill evidence* projected
+ * onto those rounds — mastered → every round done; drilled-but-not-mastered →
+ * earlier rounds done + the next active; never-drilled → all to-do. This is
+ * honest at skill grain; per-pattern telemetry would refine it (follow-up).
+ *
+ * @param {object} w  a focus-area weakness (from skillPracticeRows)
+ * @param {number} i  index in the (sectioned) focus list — top row gets KEY FOCUS
+ * @param {object|undefined} skillProgress  uid skill-progress map
+ * @param {string} diagnosticSentence  editorial sentence for this row
+ * @returns {object} module model { section, tag, title, desc, acc, accBand,
+ *   status, meta, qIds, rounds[], weakness, adaptiveLine, predictedStruggle }
+ */
+function buildPlanModule(w, i, skillProgress, diagnosticSentence) {
+  const section = w.section === 'rw' ? 'rw' : 'math';
+  const rawAcc = typeof w.displayAccuracy === 'number' ? w.displayAccuracy : (w.accuracy ?? null);
+  const acc = rawAcc != null ? Math.round(rawAcc) : null;
+  const accBand = (w.isMastered || (acc != null && acc >= 70)) ? 'high'
+    : (acc != null && acc < 40) ? 'low' : 'mid';
+
+  const sp = (skillProgress && w.skillId) ? skillProgress[w.skillId] : null;
+  const attempts = sp?.attempts ?? 0;
+  const mastery = sp ? (sp.mastery ?? (attempts ? (sp.correct / attempts) * 100 : 0)) : 0;
+  const hasStarted = !!w.hasDrillSignal || attempts > 0;
+
+  const status = w.isMastered ? 'complete' : hasStarted ? 'progress' : 'start';
+
+  // Rounds from missed patterns (cap 3); fall back to a single skill round.
+  const patterns = Array.isArray(w.missedPatterns) ? w.missedPatterns.filter(Boolean).slice(0, 3) : [];
+  const roundCount = Math.max(1, patterns.length);
+  const total = w.qCount || roundCount * 8;
+  const perRound = Math.max(4, Math.round(total / roundCount));
+  const doneRounds = status === 'complete' ? roundCount
+    : status === 'progress' ? Math.min(roundCount - 1, Math.floor((mastery / 100) * roundCount))
+    : 0;
+
+  const rounds = [];
+  for (let r = 0; r < roundCount; r++) {
+    const label = patterns[r] ? humanizePattern(patterns[r]) : (w.skill || 'Targeted drill');
+    let rstatus, prog;
+    if (r < doneRounds) { rstatus = 'done'; prog = `${perRound}/${perRound}`; }
+    else if (r === doneRounds && status === 'progress') {
+      rstatus = 'active';
+      const within = Math.min(perRound - 1, Math.max(1, Math.round((mastery / 100) * perRound)));
+      prog = `${within}/${perRound}`;
+    } else { rstatus = 'todo'; prog = `0/${perRound}`; }
+    rounds.push({
+      label: `Round ${r + 1} · ${label}`,
+      keyFocus: r === 0 && status !== 'complete',
+      status: rstatus,
+      prog,
+    });
+  }
+
+  return {
+    section,
+    tag: section === 'math' ? 'MATH' : 'R&W',
+    title: w.skill || 'Focus skill',
+    desc: diagnosticSentence || w.errorType || '',
+    acc,
+    accBand,
+    status,
+    meta: `${estMinutes(total)} MIN · ${total} Q`,
+    qIds: Array.isArray(w.qIds) ? w.qIds : [],
+    rounds,
+    weakness: w,
+    domain: w.domain,
+    adaptiveLine: w.adaptiveLine,
+    predictedStruggle: w.predictedStruggle,
+    isMastered: w.isMastered,
+  };
 }
 
 // ---------------------------------------------------------------------------
@@ -226,7 +318,7 @@ const StudyPlanDashboard = ({
 
   const delta = studyPlanArtifact?.delta || studyPlan._diff || null;
   const longitudinal = studyPlanArtifact?.longitudinal || null;
-  const { weeks, summary } = studyPlan;
+  const { weeks } = studyPlan;
   // Prediction-aware Focus Areas ordering (2026-06 audit gap 2): weaknesses
   // the engine flags as likely struggle areas on the NEXT test move to the
   // front, annotated so the card can say why. Render-time re-rank — the
@@ -247,7 +339,6 @@ const StudyPlanDashboard = ({
   );
   const totalActivities = weeks.reduce((s, w) => s + visibleActivities(w).length, 0);
   const completedActivities = weeks.reduce((s, w) => s + visibleActivities(w).filter(a => a.completed).length, 0);
-  const progressPercent = totalActivities > 0 ? Math.round((completedActivities / totalActivities) * 100) : 0;
   const currentWeekIndex = weeks.findIndex(w => visibleActivities(w).some(a => !a.completed));
   const displayCurrentWeek = currentWeekIndex >= 0 ? currentWeekIndex : weeks.length - 1;
 
@@ -366,19 +457,14 @@ const StudyPlanDashboard = ({
   const strategyText = studyPlan.persistentWeaknessStrategy || '';
   const strategyFirstSentence = clampToSentence(strategyText);
   const strategyHasMore = strategyText.length > strategyFirstSentence.length + 4;
-  // FINDING-002: Focus Areas disclosure state — the section diagnosis clamps
-  // like the coach notes, and only the top 5 skills render until expanded.
-  const [diagExpanded, setDiagExpanded] = useState(false);
+  // FINDING-002: Focus Areas disclosure state — only the top 3 focus modules
+  // render in the Today panel until expanded.
   const [showAllFocus, setShowAllFocus] = useState(false);
 
   // Today's-Tasks tab derived state.
   const DAY_NAMES = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   const todayDayName = DAY_NAMES[new Date().getDay()];
   const todaySlice = useMemo(() => getTodaySlice(studyPlan, todayDayName), [studyPlan, todayDayName]);
-  const sessionAdherence = useMemo(
-    () => getSessionAdherence({ practiceProgress, practiceTestResults, drillDays }),
-    [practiceProgress, practiceTestResults, drillDays],
-  );
   const topWeakness = useMemo(() => {
     if (!studyPlan) return null;
     const math = getMathWeaknesses(studyPlan);
@@ -437,7 +523,7 @@ const StudyPlanDashboard = ({
     }
     if (activity.type !== 'practice' || !onStartPractice) return;
 
-    // Same 3-tier routing as TodaysTasksCard's onStartActivity below — the
+    // 3-tier activity routing (shared with the module-card launch path) — the
     // Weekly View previously called the raw 2-arg module/section form, which
     // App.jsx routed to the legacy 'prescriptive' screen instead of
     // AssignedPracticeShell.
@@ -733,238 +819,271 @@ const StudyPlanDashboard = ({
   const currentDone = currentVisibleActivities.filter(a => a.completed).length;
   const currentTotal = currentVisibleActivities.length;
 
+  // ── Plan modules (Today panel) ────────────────────────────────────────
+  // The focus-area weaknesses, rendered as the redesigned "module cards with
+  // rounds". sectionedFocusRows already respects the Math/R&W filter, and
+  // focusDiagnostics.perRow is index-aligned to it.
+  const modules = useMemo(
+    () => sectionedFocusRows.map((w, i) =>
+      buildPlanModule(w, i, skillProgress, focusDiagnostics.perRow[i])),
+    [sectionedFocusRows, skillProgress, focusDiagnostics]
+  );
+  const visibleModules = showAllFocus ? modules : modules.slice(0, 3);
+
+  // ── Weekly day-row timeline ───────────────────────────────────────────
+  // The current plan week's activities laid onto this calendar week (Mon–Sun).
+  const weekDayRows = useMemo(() => {
+    const acts = (currentWeek?.activities || []).filter(
+      (a) => a && a.type !== 'lesson' && matchesSectionFilter(a, sectionFilter)
+    );
+    const now = new Date();
+    const dow = now.getDay(); // 0 Sun … 6 Sat
+    const monday = new Date(now);
+    monday.setDate(now.getDate() + (dow === 0 ? -6 : 1 - dow));
+    return WEEKDAY_FULL.map((dayName, idx) => {
+      const date = new Date(monday);
+      date.setDate(monday.getDate() + idx);
+      const dayActs = acts.filter((a) => a.day === dayName);
+      const isToday = dayName === todayDayName;
+      const allDone = dayActs.length > 0 && dayActs.every((a) => a.completed);
+      const allTips = dayActs.length > 0 && dayActs.every((a) => a.type === 'strategy' || a.type === 'review');
+      let pill = 'PLANNED', pillKind = 'plain';
+      if (isToday) { pill = 'TODAY'; pillKind = 'today'; }
+      else if (dayActs.length === 0) { pill = 'REST'; }
+      else if (allDone) { pill = 'DONE'; pillKind = 'done'; }
+      else if (allTips) { pill = 'TIP'; }
+      let title, sub;
+      if (dayActs.length === 0) { title = 'Rest day'; sub = 'Recovery is part of the plan'; }
+      else {
+        const first = dayActs.find((a) => !a.completed) || dayActs[0];
+        const extra = dayActs.length - 1;
+        title = (first.title || 'Practice') + (extra > 0 ? ` +${extra} more` : '');
+        const doneN = dayActs.filter((a) => a.completed).length;
+        sub = `${dayActs.length} task${dayActs.length === 1 ? '' : 's'}${doneN ? ` · ${doneN} done` : ''}`;
+      }
+      return { dayName, dowLabel: dayName.slice(0, 3).toUpperCase(), num: date.getDate(), isToday, title, sub, pill, pillKind };
+    });
+  }, [currentWeek, sectionFilter, todayDayName]);
+
+  const todayLongDate = new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
+  const ymPrefix = new Date().toISOString().slice(0, 7);
+  const practicedThisMonth = Array.from(practicedDayKeys || []).filter(
+    (k) => typeof k === 'string' && k.startsWith(ymPrefix)
+  ).length;
+
+  // One focus "module card" with its drill rounds. Launches the same assigned
+  // drill the legacy Focus Area "Practice" button did (qIds + weakness).
+  const renderModule = (m, idx) => (
+    <div className="sp-module" key={m.weakness?.skillId || idx}>
+      <div className="sp-module-top">
+        <span className={`sp-module-tag is-${m.section}`}>{m.tag}</span>
+        <div style={{ flex: 1, minWidth: 0 }}>
+          {m.domain && <div className="sp-module-domain">{domainLabel(m.domain)}</div>}
+          <div className="sp-module-titlerow">
+            <span className="sp-module-title"><MathText>{m.title}</MathText></span>
+            {typeof m.acc === 'number' && (
+              <span className={`sp-module-acc is-${m.accBand}`}>{m.acc}%</span>
+            )}
+          </div>
+          {m.desc && <div className="sp-module-desc"><MathText>{m.desc}</MathText></div>}
+        </div>
+      </div>
+      <div className="sp-module-actions">
+        {m.status === 'complete' ? (
+          <span className="sp-module-complete-badge">
+            <CheckIcon size={14} color="currentColor" /> PRACTICE COMPLETE
+          </span>
+        ) : (
+          <span className="sp-module-meta">{m.meta}</span>
+        )}
+        <button
+          type="button"
+          className={`sp-module-btn ${m.status === 'complete' ? 'is-review' : m.status === 'progress' ? 'is-continue' : 'is-start'}`}
+          onClick={() => (m.qIds.length
+            ? onStartPractice(null, null, {
+                questionIds: m.qIds,
+                source: 'study-plan-assigned',
+                label: `${m.title} Practice`,
+                weakness: m.weakness,
+              })
+            : showToast({ type: 'info', message: 'No drill set is available for this skill yet.' }))}
+        >
+          {m.status === 'complete' ? 'Review session' : m.status === 'progress' ? 'Continue' : 'Start'}
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+      <div className="sp-rounds">
+        {m.rounds.map((r, ri) => (
+          <div className="sp-round" key={ri}>
+            <span className={`sp-round-dot is-${r.status}`} aria-hidden="true">
+              {r.status === 'done' && <CheckIcon size={13} color="#fff" />}
+            </span>
+            <span className="sp-round-label">{r.label}</span>
+            {r.keyFocus && <span className="sp-round-key">KEY FOCUS</span>}
+            <span className="sp-round-spacer" />
+            <span className={`sp-round-prog${r.status === 'active' ? ' is-active' : ''}`}>{r.prog} Q</span>
+          </div>
+        ))}
+      </div>
+      {m.adaptiveLine && (
+        <p className="sp-card-diagnostic sp-card-adaptive"><MathText>{m.adaptiveLine}</MathText></p>
+      )}
+      {m.predictedStruggle && (
+        <p className="sp-prediction-flag">
+          Prioritized in your plan — flagged as a likely struggle area on your next test{m.predictedStruggle.reason ? ` (${m.predictedStruggle.reason.toLowerCase()})` : ''}.
+        </p>
+      )}
+    </div>
+  );
+
   // ====================================================================
-  // RENDER — 3 clean sections
+  // RENDER
   // ====================================================================
 
   return (
-    <div className="study-plan-dashboard sp-with-rail">
+    <div className="study-plan-dashboard sp-with-rail" data-theme="light">
       <div className="sp-main">
 
-      {/* ────────────────────────────────────────────────────────────────
-          PERSONAL HERO — the plan is addressed to someone, anchored to
-          their target, their test date, and their stretch school. Falls
-          back gracefully field-by-field; hidden only when we know nothing.
-      ──────────────────────────────────────────────────────────────── */}
+      {/* ── Title bar ─────────────────────────────────────────────── */}
       {(user?.firstName || user?.targetScore || latestScore !== null) && (
-        <header
-          className="sp-hero"
-          // Standalone view only: in the inline (dashboard-tab) mount the
-          // identity hero above the tab bar already carries the face — a
-          // second avatar 100px below would read as repetition (H-3).
-          style={variant !== 'inline' ? { display: 'flex', alignItems: 'center', gap: '12px' } : undefined}
-        >
-          {variant !== 'inline' && <Avatar user={user} size={AVATAR_SIZES.md} />}
-          <div style={variant !== 'inline' ? { minWidth: 0 } : undefined}>
-          <h2 className="sp-hero-title">
-            {(() => {
-              const name = user?.firstName;
-              // Composite (400-1600, on-ramp era) targets read as plain SAT
-              // scores; legacy section-scale (200-800) targets keep the
-              // "Math" label so the title stays accurate when the latest
-              // headline score is a composite (scale-safety per
-              // goalProgress.js / isCompositeScaleTarget).
-              const targetLabel = user?.targetScore
-                ? `${user.targetScore}${user.targetScore <= 800 ? ' Math' : ''}`
-                : null;
-              const body = goalAchieved && targetLabel
-                ? `you're past ${targetLabel} — the job now is holding it`
-                : targetLabel
-                  ? `here's your path to ${targetLabel}`
-                  : 'here\'s your plan';
-              return name
-                ? `${name}, ${body}`
-                : body.charAt(0).toUpperCase() + body.slice(1);
-            })()}
-          </h2>
-          <p className="sp-hero-meta">
-            {latestScore !== null && (
-              <span>
-                <strong>{latestScore}</strong>
-                {isSectionScaleScore(latestScore, { isMultiSection: latestTest?.isMultiSection })
-                  ? ' now'
-                  : ' composite now'}
-              </span>
-            )}
-            {user?.testDate && !testDateIsPast && daysUntilTest !== null && (
-              <span>test in <strong>{daysUntilTest} day{daysUntilTest === 1 ? '' : 's'}</strong></span>
-            )}
-            {targetSchool && (
-              <span>{targetSchool.name} Median Math: <strong>{targetSchool.satMath}</strong></span>
-            )}
-          </p>
-          </div>
-        </header>
-      )}
-
-      {/* ────────────────────────────────────────────────────────────────
-          PROGRESS STRIP (Weekly View only — Today's Tasks gets its own
-          day-header inside TodaysTasksCard, matching Acely's reference).
-      ──────────────────────────────────────────────────────────────── */}
-      {activeView === 'weeklyView' && (
-        <header className="sp-strip">
-          <div className="sp-strip-cell">
-            <span className="sp-strip-eyebrow">Plan Progress</span>
-            <span className="sp-strip-num">{progressPercent}%</span>
-            <div className="sp-strip-bar" role="progressbar" aria-valuenow={progressPercent} aria-valuemin={0} aria-valuemax={100}>
-              <div className="sp-strip-bar-fill" style={{ width: `${progressPercent}%` }} />
+        <header className="sp-titlebar">
+          <div className="sp-titlebar-id">
+            {variant !== 'inline' && <Avatar user={user} size={AVATAR_SIZES.md} />}
+            <div style={{ minWidth: 0 }}>
+              <h1 className="sp-title">
+                {user?.firstName ? `${user.firstName}'s Study Plan` : 'Your Study Plan'}
+              </h1>
+              <div className="sp-title-meta">
+                {latestScore !== null && (
+                  <span>
+                    <strong>{latestScore}</strong>
+                    {isSectionScaleScore(latestScore, { isMultiSection: latestTest?.isMultiSection }) ? ' now' : ' composite'}
+                  </span>
+                )}
+                {user?.testDate && !testDateIsPast && daysUntilTest !== null && (
+                  <span>test in <strong>{daysUntilTest} day{daysUntilTest === 1 ? '' : 's'}</strong></span>
+                )}
+                {user?.targetScore && (
+                  <span>path to <strong>{user.targetScore}{user.targetScore <= 800 ? ' Math' : ''}</strong></span>
+                )}
+              </div>
             </div>
-            <span className="sp-strip-meta">{completedActivities} of {totalActivities} tasks</span>
-          </div>
-          <div className="sp-strip-divider" aria-hidden="true" />
-          <div className="sp-strip-cell sp-strip-objective">
-            <span className="sp-strip-eyebrow">Current Objective</span>
-            <span className="sp-strip-text">{summary?.headline || 'Your study plan'}</span>
-          </div>
-          <div className="sp-strip-divider" aria-hidden="true" />
-          <div className="sp-strip-cell">
-            <span className="sp-strip-eyebrow">Next</span>
-            <span className="sp-strip-text">Week {displayCurrentWeek + 1}</span>
           </div>
         </header>
       )}
 
-      {/* Past-Test-Review entry — above the sub-tabs so it appears in BOTH
-          inline (Dashboard tab) and standalone (sidebar) mounts. Originally
-          it lived inside the Today's Tasks branch, but the inline mount
-          defaults to Weekly View, so the CTA was invisible to dashboard
-          tab users. Gated by feature flag + at-least-one-completed-test. */}
-      {showReviewTestsButton && (
-        <div className="sp-past-test-review-cta">
-          <button
-            type="button"
-            className="sp-past-test-review-btn"
-            onClick={onReviewPastTests}
-          >
-            <span className="sp-past-test-review-icon" aria-hidden="true"><ClipboardIcon size={18} /></span>
-            <span className="sp-past-test-review-text">
-              <span className="sp-past-test-review-title">Review your tests</span>
-              <span className="sp-past-test-review-sub">
-                {completedTestCount === 1
-                  ? 'See every wrong answer explained from your test'
-                  : `See every wrong answer explained from your ${completedTestCount} tests`}
-              </span>
-            </span>
-            <span className="sp-past-test-review-chev" aria-hidden="true">›</span>
-          </button>
-        </div>
-      )}
-
-      {/* Review Queue + Pacing — lifted off the home Dashboard into the plan.
-          Above the sub-tabs so they show in BOTH Today's Tasks and Weekly
-          View. Section-agnostic (a queue spans Math + R&W), so they sit
-          outside the Math/R&W filter scope. Each renders nothing when it has
-          nothing to show (no due items / no telemetry). */}
-      <StudyPlanReviewSection
-        reviewQueue={reviewQueue}
-        onReviewTestWrong={onReviewTestWrong}
-        onStartReview={onStartReview}
-      />
-      <StudyPlanPacingSection
-        questionTelemetry={pacingTelemetry}
-        struggle={pacingStruggle}
-        onStartPacing={onStartPacing}
-        testDateIsPast={testDateIsPast}
-      />
-
-      {/* ────────────────────────────────────────────────────────────────
-          SUB-TABS: 'Today's Tasks (N) / Weekly View (N)' matching Acely.
-          Hidden when mounted inline inside another tab structure.
-      ──────────────────────────────────────────────────────────────── */}
+      {/* ── Tabs + date pills ─────────────────────────────────────── */}
       {showSubTabs && (
-        <div className="sp-subtabs" role="tablist" aria-label="Study plan view">
-          <button
-            type="button"
-            role="tab"
-            aria-selected={activeView === 'todaysTasks'}
-            className={`sp-subtab${activeView === 'todaysTasks' ? ' is-active' : ''}`}
-            onClick={() => setActiveView('todaysTasks')}
-          >
-            Today's Tasks
-            {todaysTasksCount > 0 && <span className="sp-subtab-count">{todaysTasksCount}</span>}
-          </button>
-          <button
-            type="button"
-            role="tab"
-            aria-selected={activeView === 'weeklyView'}
-            className={`sp-subtab${activeView === 'weeklyView' ? ' is-active' : ''}`}
-            onClick={() => setActiveView('weeklyView')}
-          >
-            Weekly View
-            {weeklyViewCount > 0 && <span className="sp-subtab-count">{weeklyViewCount}</span>}
-          </button>
+        <div className="sp-tabs-row">
+          <div className="sp-tabs" role="tablist" aria-label="Study plan view">
+            <button
+              type="button" role="tab"
+              aria-selected={activeView === 'todaysTasks'}
+              className={`sp-tab${activeView === 'todaysTasks' ? ' is-active' : ''}`}
+              onClick={() => setActiveView('todaysTasks')}
+            >
+              Today's Tasks
+              {todaysTasksCount > 0 && <span className="sp-tab-count">{todaysTasksCount}</span>}
+            </button>
+            <button
+              type="button" role="tab"
+              aria-selected={activeView === 'weeklyView'}
+              className={`sp-tab${activeView === 'weeklyView' ? ' is-active' : ''}`}
+              onClick={() => setActiveView('weeklyView')}
+            >
+              Weekly View
+              {weeklyViewCount > 0 && <span className="sp-tab-count">{weeklyViewCount}</span>}
+            </button>
+          </div>
+          <div className="sp-datepills">
+            {practicedThisMonth > 0 && (
+              <span className="sp-datepill is-streak">{practicedThisMonth} DAYS PRACTICED</span>
+            )}
+            <span className="sp-datepill">{todayLongDate.toUpperCase()}</span>
+          </div>
         </div>
       )}
 
-      {/* Triage mode (adaptivity audit item 5) — the reprioritization engine
-          flips isTriage when the SAT is < 7 days out and the plan narrows to
-          the top-3 highest-impact skills. One quiet line, both views. */}
+      {/* ── Attention stack — review queue + pacing + past tests (kept) ─ */}
+      <div className="sp-attention">
+        {showReviewTestsButton && (
+          <div className="sp-past-test-review-cta">
+            <button type="button" className="sp-past-test-review-btn" onClick={onReviewPastTests}>
+              <span className="sp-past-test-review-icon" aria-hidden="true"><ClipboardIcon size={18} /></span>
+              <span className="sp-past-test-review-text">
+                <span className="sp-past-test-review-title">Review your tests</span>
+                <span className="sp-past-test-review-sub">
+                  {completedTestCount === 1
+                    ? 'See every wrong answer explained from your test'
+                    : `See every wrong answer explained from your ${completedTestCount} tests`}
+                </span>
+              </span>
+              <span className="sp-past-test-review-chev" aria-hidden="true">›</span>
+            </button>
+          </div>
+        )}
+        <StudyPlanReviewSection
+          reviewQueue={reviewQueue}
+          onReviewTestWrong={onReviewTestWrong}
+          onStartReview={onStartReview}
+        />
+        <StudyPlanPacingSection
+          questionTelemetry={pacingTelemetry}
+          struggle={pacingStruggle}
+          onStartPacing={onStartPacing}
+          testDateIsPast={testDateIsPast}
+        />
+      </div>
+
       {adaptiveOverlay?.isTriage && (
         <div className="sp-triage-banner" role="status">
           Triage mode: prioritizing your highest-impact skills before test day.
         </div>
       )}
 
-      {/* ════════════════════════════════════════════════════════════════
-          TODAY'S TASKS TAB — day-grain TodaysTasksCard hero + a
-          "Coming Up This Week" preview when today's slate is empty so the
-          tab doesn't leave a wall of whitespace under a small card.
-      ════════════════════════════════════════════════════════════════ */}
+      {/* ════════════ TODAY'S TASKS TAB — focus modules with rounds ════════════ */}
       {activeView === 'todaysTasks' && (
-        <>
-          <TodaysTasksCard
-            slice={todaySlice}
-            adherence={sessionAdherence}
-            dailyIntro={dailyIntro}
-            firstName={user?.firstName}
-            onStartActivity={(activity) => {
-              if (!activity || !onStartPractice) return;
-
-              // Route this activity through AssignedPracticeShell (same UI as
-              // the Weekly View "Practice" buttons) instead of falling through
-              // to App.jsx's legacy `practiceMode: 'prescriptive'` inline
-              // render (since removed). The 3-tier granular-to-pattern lookup lives in
-              // services/activityDrillRouter.js (shared with the HOME
-              // dashboard mount of TodaysTasksCard — see commit 994933e for
-              // the original handler this was extracted from).
-              const route = resolveActivityDrill(
-                {
-                  activity,
-                  weaknesses,
-                  cachedRows: skillPracticeRows,
-                  answeredQuestionIds,
-                },
-                {
-                  getTargetedWeaknessSet,
-                  getQuestionsBySkillIds,
-                  getRWTargetedWeaknessSet,
-                  getRWQuestionsBySkillIds,
-                  getDrillChipForWeakness,
-                },
-              );
-              if (route?.kind === 'assigned') {
-                onStartPractice(null, null, {
-                  questionIds: route.questionIds,
-                  source: 'study-plan-todays-tasks',
-                  label: route.label,
-                  weakness: route.weakness,
-                });
-              } else if (route?.kind === 'module') {
-                // Last-resort fallback — the legacy module/section path so
-                // the user at least lands SOMEWHERE rather than a dead button.
-                onStartPractice(route.moduleId, route.sectionName);
-              } else {
-                showToast({ type: 'info', message: 'No drill set is available for this activity yet.' });
-              }
-            }}
-            onTakeTest={onStartPracticeTest}
-          />
+        <div className="sp-today-panel">
+          <div className="sp-today-head">
+            <h2 className="sp-today-date">{todayLongDate}</h2>
+            <div className="sp-seg" role="tablist" aria-label="Plan section">
+              {SECTION_FILTERS.map((tab) => (
+                <button
+                  key={tab.id} type="button" role="tab"
+                  aria-selected={sectionFilter === tab.id}
+                  className={`sp-seg-btn${sectionFilter === tab.id ? ' is-active' : ''}`}
+                  onClick={() => setSectionFilter(tab.id)}
+                >
+                  {tab.label}
+                </button>
+              ))}
+            </div>
+          </div>
+          {dailyIntro && <p className="sp-today-narrative">{dailyIntro}</p>}
+          {modules.length > 0 ? (
+            <>
+              <div className="sp-module-list">
+                {visibleModules.map((m, idx) => renderModule(m, idx))}
+              </div>
+              {modules.length > 3 && (
+                <button type="button" className="sp-showall" onClick={() => setShowAllFocus((v) => !v)}>
+                  {showAllFocus ? 'Show fewer' : `Show all ${modules.length} focus skills`}
+                </button>
+              )}
+            </>
+          ) : (
+            <div className="sp-today-empty">
+              {sectionFilter !== 'all'
+                ? `No ${sectionFilter === 'rw' ? 'Reading & Writing' : 'Math'} focus skills flagged right now. Switch to All to see your full plan.`
+                : 'No focus skills flagged right now — your latest test came back clean. Take another test to refresh your plan.'}
+            </div>
+          )}
 
           {(todaySlice?.kind === 'rest-day'
             || todaySlice?.kind === 'all-done'
             || todaySlice?.kind === 'plan-complete')
             && comingUpDays.length > 0 && (
-            <section className="sp-coming-up" aria-label="Coming up this week">
+            <section className="sp-coming-up" aria-label="Coming up this week" style={{ marginTop: '16px' }}>
               <div className="sp-coming-up-header">
                 <span className="sp-coming-up-eyebrow">Coming up this week</span>
                 <span className="sp-coming-up-week">Week {displayCurrentWeek + 1}</span>
@@ -977,9 +1096,7 @@ const StudyPlanDashboard = ({
                     <div key={cu.day} className="sp-coming-up-row">
                       <div className="sp-coming-up-day">
                         <span className="sp-coming-up-daychip">{dayShort}</span>
-                        {cu.offset === 1 && (
-                          <span className="sp-coming-up-soon">Tomorrow</span>
-                        )}
+                        {cu.offset === 1 && <span className="sp-coming-up-soon">Tomorrow</span>}
                       </div>
                       <div className="sp-coming-up-text">
                         <div className="sp-coming-up-title">{sampleTitle}</div>
@@ -988,19 +1105,7 @@ const StudyPlanDashboard = ({
                           {cu.incomplete < cu.total && ` · ${cu.total - cu.incomplete} done`}
                         </div>
                       </div>
-                      <button
-                        type="button"
-                        className="sp-coming-up-cta"
-                        onClick={() => {
-                          // "Coming up" is a preview of FUTURE days. Don't
-                          // auto-launch the activity — that route hits the
-                          // legacy LearnWorkspace / 2-arg practice flow, which
-                          // is old scaffolding the rest of the app no longer
-                          // surfaces. Switch to Weekly View where the user
-                          // can engage with the full plan in the canonical UI.
-                          setActiveView('weeklyView');
-                        }}
-                      >
+                      <button type="button" className="sp-coming-up-cta" onClick={() => setActiveView('weeklyView')}>
                         View →
                       </button>
                     </div>
@@ -1009,164 +1114,114 @@ const StudyPlanDashboard = ({
               </div>
             </section>
           )}
-        </>
+        </div>
       )}
 
+      {/* ════════════ WEEKLY VIEW TAB ════════════ */}
       {activeView === 'weeklyView' && (
-      <div className="sp-weekly-tight">
+      <div className="sp-weekly">
 
-      {/* ────────────────────────────────────────────────────────────────
-          0. WHAT CHANGED BANNER (adaptive plan diff)
-          Sources: studyPlanArtifact.delta (Firestore) or studyPlan._diff (legacy)
-      ──────────────────────────────────────────────────────────────── */}
-      {!deltaDismissed && delta && !delta.isFirst && delta.headline && (
-        <div className="sp-section sp-banner sp-banner-info">
-          <div className="sp-banner-header">
-            <div className="sp-banner-icon">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M2 12h4l3-9 5 18 3-9h5"/></svg>
+        {/* Plan-updated banner (adaptive plan diff) */}
+        {!deltaDismissed && delta && !delta.isFirst && delta.headline && (
+          <div className="sp-banner is-info">
+            <div className="sp-banner-header">
+              <span className="sp-banner-icon">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M2 12h4l3-9 5 18 3-9h5"/></svg>
+              </span>
+              <span className="sp-banner-title">Plan Updated</span>
+              <button className="sp-banner-close" onClick={() => {
+                if (studyPlanMeta?.artifactId) localStorage.setItem(`dismissedDelta:${studyPlanMeta.artifactId}`, '1');
+                setDeltaDismissed(true);
+              }}>&times;</button>
             </div>
-            <span className="sp-banner-title">Plan Updated</span>
-            <button className="sp-banner-close" onClick={() => {
-              if (studyPlanMeta?.artifactId) localStorage.setItem(`dismissedDelta:${studyPlanMeta.artifactId}`, '1');
-              setDeltaDismissed(true);
-            }}>&times;</button>
-          </div>
-          <div className="sp-banner-content" style={{ marginBottom: delta.skillChanges?.length > 0 ? '0.5rem' : '0' }}>
-            {delta.headline}
-          </div>
-          {delta.skillChanges?.length > 0 && (
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', marginTop: '6px' }}>
-              {(showAllSkillChanges ? delta.skillChanges : delta.skillChanges.slice(0, 2)).map((sc, i) => {
-                // No-emoji rule: a colored dot (same convention as
-                // ttc-adherence-dot) carries the direction; the label
-                // carries the evidence.
-                const dotColor = sc.direction === 'improved' ? 'var(--color-success-500)'
-                  : sc.direction === 'worsened' ? 'var(--color-error-500)'
-                  : sc.direction === 'new' ? 'var(--color-brand-primary)'
-                  : 'var(--color-slate-400)';
-                const label = sc.direction === 'improved'
-                  ? `${sc.skill}: ${sc.oldAccuracy}% → ${sc.newAccuracy}%`
-                  : sc.direction === 'worsened'
-                  ? `${sc.skill}: ${sc.oldAccuracy}% → ${sc.newAccuracy}%`
-                  : sc.direction === 'new'
-                  ? `${sc.skill}: new gap found on this test`
-                  : `${sc.skill}: was ${sc.oldAccuracy}%, no longer a weakness`;
-                return (
-                  <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px', color: 'var(--color-slate-700)' }}>
-                    <span aria-hidden="true" style={{ width: '7px', height: '7px', borderRadius: '50%', background: dotColor, flexShrink: 0 }} />
-                    <span>{label}</span>
-                  </div>
-                );
-              })}
-              {delta.skillChanges.length > 2 && (
-                <button
-                  type="button"
-                  onClick={() => setShowAllSkillChanges(v => !v)}
-                  style={{
-                    background: 'transparent',
-                    border: 'none',
-                    color: 'var(--color-brand-primary)',
-                    fontSize: '12px',
-                    fontWeight: 700,
-                    padding: 0,
-                    marginTop: '2px',
-                    textAlign: 'left',
-                    cursor: 'pointer',
-                    textDecoration: 'underline',
-                    alignSelf: 'flex-start',
-                  }}
-                >
-                  {showAllSkillChanges
-                    ? 'Show less'
-                    : `Show ${delta.skillChanges.length - 2} more`}
-                </button>
-              )}
-            </div>
-          )}
-          {delta.scoreChange && (
-            <div style={{ marginTop: '10px', fontSize: '13px', color: 'var(--color-slate-500)' }}>
-              Score: {delta.scoreChange.old} → {delta.scoreChange.new} ({delta.scoreChange.delta > 0 ? '+' : ''}{delta.scoreChange.delta} points)
-            </div>
-          )}
-        </div>
-      )}
-
-      {delta?.isFirst && (
-        <div className="sp-section sp-banner sp-banner-success">
-          <div className="sp-banner-header">
-            <span className="sp-banner-icon"><CheckIcon size={20} /></span>
-            <span className="sp-banner-title">Your First Study Plan</span>
-          </div>
-          <div className="sp-banner-content">
-            Based on your practice test results, here's your personalized weekly plan. Take another test to see how it adapts to your progress.
-          </div>
-        </div>
-      )}
-
-      {/* ────────────────────────────────────────────────────────────────
-          1. ADAPTIVE NOTES — collapsed by default to keep the above-fold
-             tight. Acely's per-day intro is 1-2 sentences; we mirror that.
-      ──────────────────────────────────────────────────────────────── */}
-      {(studyPlan.deltaFromPrevious || studyPlan.persistentWeaknessStrategy) && (
-        <div className="sp-section sp-notes">
-          {studyPlan.deltaFromPrevious && (
-            <div className="sp-note">
-              <span className="sp-note-eyebrow">Updated since your last test</span>
-              <p className="sp-note-text">
-                {deltaExpanded ? deltaText : deltaFirstSentence}
-                {deltaHasMore && (
-                  <button
-                    type="button"
-                    className="sp-note-toggle"
-                    onClick={() => setDeltaExpanded(v => !v)}
-                  >
-                    {deltaExpanded ? 'Show less' : 'Read more'}
+            <div className="sp-banner-content">{delta.headline}</div>
+            {delta.skillChanges?.length > 0 && (
+              <div className="sp-banner-changes">
+                {(showAllSkillChanges ? delta.skillChanges : delta.skillChanges.slice(0, 2)).map((sc, i) => {
+                  const dotColor = sc.direction === 'improved' ? 'var(--sp-done)'
+                    : sc.direction === 'worsened' ? 'var(--sp-error)'
+                    : sc.direction === 'new' ? 'var(--sp-orange)'
+                    : 'var(--sp-text-3)';
+                  const label = (sc.direction === 'improved' || sc.direction === 'worsened')
+                    ? `${sc.skill}: ${sc.oldAccuracy}% → ${sc.newAccuracy}%`
+                    : sc.direction === 'new'
+                    ? `${sc.skill}: new gap found on this test`
+                    : `${sc.skill}: was ${sc.oldAccuracy}%, no longer a weakness`;
+                  return (
+                    <div key={i} className="sp-banner-change">
+                      <span className="sp-banner-change-dot" style={{ background: dotColor }} aria-hidden="true" />
+                      <span>{label}</span>
+                    </div>
+                  );
+                })}
+                {delta.skillChanges.length > 2 && (
+                  <button type="button" className="sp-banner-morebtn" onClick={() => setShowAllSkillChanges(v => !v)}>
+                    {showAllSkillChanges ? 'Show less' : `Show ${delta.skillChanges.length - 2} more`}
                   </button>
                 )}
-              </p>
-            </div>
-          )}
-          {studyPlan.persistentWeaknessStrategy && (
-            <div className="sp-note">
-              <span className="sp-note-eyebrow">Stuck skill — different approach needed</span>
-              <p className="sp-note-text">
-                {strategyExpanded ? strategyText : strategyFirstSentence}
-                {strategyHasMore && (
-                  <button
-                    type="button"
-                    className="sp-note-toggle"
-                    onClick={() => setStrategyExpanded(v => !v)}
-                  >
-                    {strategyExpanded ? 'Show less' : 'Read more'}
-                  </button>
-                )}
-              </p>
-            </div>
-          )}
-        </div>
-      )}
+              </div>
+            )}
+            {delta.scoreChange && (
+              <div style={{ marginTop: '10px', fontSize: '13px', color: 'var(--sp-text-3)' }}>
+                Score: {delta.scoreChange.old} → {delta.scoreChange.new} ({delta.scoreChange.delta > 0 ? '+' : ''}{delta.scoreChange.delta} points)
+              </div>
+            )}
+          </div>
+        )}
 
-      {/* ────────────────────────────────────────────────────────────────
-          2. WEEKLY PLAN — the protagonist. Design-review FINDING-003: the
-          actual task list was the LAST section, below ~1800px of
-          diagnostics. Acely leads with tasks; so do we now.
-      ──────────────────────────────────────────────────────────────── */}
-      <div className="sp-section">
-        <div className="sp-section-header-row">
-          <h3 className="sp-section-header">Weekly Schedule</h3>
-          {/* Section switcher — Practice-Bank-style pill toggle. Scopes the
-              Weekly Schedule, Focus Areas, and the plan-progress counts to
-              one test section; whole-plan items (review/strategy/tests)
-              always show. Lives in the schedule header so its scope reads
-              clearly (critique: a toolbar above the banners attached to
-              nothing). */}
-          <div className="sp-section-toggle" role="tablist" aria-label="Plan section">
-            {SECTION_FILTERS.map(tab => (
+        {delta?.isFirst && (
+          <div className="sp-banner is-success">
+            <div className="sp-banner-header">
+              <span className="sp-banner-icon"><CheckIcon size={14} color="#fff" /></span>
+              <span className="sp-banner-title">Your First Study Plan</span>
+            </div>
+            <div className="sp-banner-content">
+              Based on your practice test results, here's your personalized weekly plan. Take another test to see how it adapts.
+            </div>
+          </div>
+        )}
+
+        {/* Adaptive coach notes */}
+        {(studyPlan.deltaFromPrevious || studyPlan.persistentWeaknessStrategy) && (
+          <div className="sp-notes">
+            {studyPlan.deltaFromPrevious && (
+              <div className="sp-note">
+                <span className="sp-note-eyebrow">Updated since your last test</span>
+                <p className="sp-note-text">
+                  {deltaExpanded ? deltaText : deltaFirstSentence}
+                  {deltaHasMore && (
+                    <button type="button" className="sp-note-toggle" onClick={() => setDeltaExpanded(v => !v)}>
+                      {deltaExpanded ? 'Show less' : 'Read more'}
+                    </button>
+                  )}
+                </p>
+              </div>
+            )}
+            {studyPlan.persistentWeaknessStrategy && (
+              <div className="sp-note">
+                <span className="sp-note-eyebrow">Stuck skill — different approach needed</span>
+                <p className="sp-note-text">
+                  {strategyExpanded ? strategyText : strategyFirstSentence}
+                  {strategyHasMore && (
+                    <button type="button" className="sp-note-toggle" onClick={() => setStrategyExpanded(v => !v)}>
+                      {strategyExpanded ? 'Show less' : 'Read more'}
+                    </button>
+                  )}
+                </p>
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* This week — day-row glance + section filter */}
+        <div className="sp-today-head" style={{ marginTop: '4px', marginBottom: '12px' }}>
+          <h3 className="sp-section-title" style={{ margin: 0 }}>This week</h3>
+          <div className="sp-seg" role="tablist" aria-label="Plan section">
+            {SECTION_FILTERS.map((tab) => (
               <button
-                key={tab.id}
-                role="tab"
+                key={tab.id} type="button" role="tab"
                 aria-selected={sectionFilter === tab.id}
-                className={`sp-section-toggle-btn${sectionFilter === tab.id ? ' is-active' : ''}`}
+                className={`sp-seg-btn${sectionFilter === tab.id ? ' is-active' : ''}`}
                 onClick={() => setSectionFilter(tab.id)}
               >
                 {tab.label}
@@ -1174,301 +1229,156 @@ const StudyPlanDashboard = ({
             ))}
           </div>
         </div>
+        <div className="sp-weekrows">
+          {weekDayRows.map((d) => (
+            <div className={`sp-weekrow${d.isToday ? ' is-today' : ''}`} key={d.dayName}>
+              <div className="sp-weekrow-date">
+                <div className="sp-weekrow-dow">{d.dowLabel}</div>
+                <div className="sp-weekrow-num">{d.num}</div>
+              </div>
+              <div className="sp-weekrow-rule" aria-hidden="true" />
+              <div className="sp-weekrow-body">
+                <div className="sp-weekrow-title">{d.title}</div>
+                <div className="sp-weekrow-sub">{d.sub}</div>
+              </div>
+              <span className={`sp-weekrow-pill${d.pillKind === 'today' ? ' is-today' : d.pillKind === 'done' ? ' is-done' : ''}`}>{d.pill}</span>
+            </div>
+          ))}
+        </div>
 
-        <div className="sp-timeline">
-          {/* Current week */}
-          <div className="sp-week-card is-current">
-            <div className="sp-week-indicator" />
-            <div className="sp-week-header" style={{ cursor: 'default' }}>
-              <div className="sp-week-title-area">
-                <div>
-                  <div className="sp-week-label">This Week</div>
-                  <div className="sp-week-title">
-                    Week {displayCurrentWeek + 1}{cleanWeekTitle(currentWeek?.title) ? ` — ${cleanWeekTitle(currentWeek.title)}` : ''}
-                  </div>
+        {/* This week's sessions (launchable) + collapsed other weeks */}
+        <div className="sp-otherweeks" style={{ marginTop: '14px' }}>
+          <div className="sp-otherweek" style={{ borderColor: 'var(--sp-orange)' }}>
+            <div className="sp-otherweek-head" style={{ cursor: 'default' }}>
+              <div className="sp-otherweek-left">
+                <div className="sp-otherweek-disc" style={{ background: 'var(--sp-orange-tint)', color: 'var(--sp-orange)' }}>{displayCurrentWeek + 1}</div>
+                <div className="sp-otherweek-title">
+                  This week's sessions{cleanWeekTitle(currentWeek?.title) ? ` — ${cleanWeekTitle(currentWeek.title)}` : ''}
                 </div>
               </div>
-              <div className="sp-week-meta">
-                <div className="sp-week-progress">
-                  {currentDone} / {currentTotal}
-                </div>
+              <div className="sp-otherweek-meta">
+                <span className="sp-otherweek-prog">{currentDone} / {currentTotal}</span>
               </div>
             </div>
-            <div className="sp-week-body">
+            <div className="sp-otherweek-body">
               {renderWeekActivities(currentWeek, displayCurrentWeek)}
             </div>
           </div>
-
-          {/* Other weeks — collapsed sleek cards */}
-          {otherWeeks.length > 0 && (
-            <div className="sp-timeline" style={{ gap: '0.75rem' }}>
-              {otherWeeks.map(week => {
-                const realIdx = weeks.indexOf(week);
-                const isOpen = expandedWeek === realIdx;
-                const done = (week.activities || []).filter(a => a.completed).length;
-                const total = (week.activities || []).length;
-                const pct = total > 0 ? Math.round((done / total) * 100) : 0;
-                const isComplete = pct === 100;
-
-                return (
-                  <div key={realIdx} className={`sp-week-card ${isComplete ? 'is-complete' : ''}`}>
-                    {/* FINDING-009: was a div with onClick — no keyboard
-                        access, no aria-expanded. Real button now. */}
-                    <button
-                      type="button"
-                      className="sp-week-header sp-week-header-btn"
-                      aria-expanded={isOpen}
-                      onClick={() => setExpandedWeek(isOpen ? null : realIdx)}
-                    >
-                      <div className="sp-week-title-area">
-                        <div className="sp-week-icon">
-                          {isComplete ? <CheckIcon size={16} color="currentColor" /> : realIdx + 1}
-                        </div>
-                        <div className="sp-week-title" style={{ fontSize: '1rem' }}>
-                          Week {week.weekNumber}{cleanWeekTitle(week.title) ? ` — ${cleanWeekTitle(week.title)}` : ''}
-                        </div>
-                      </div>
-                      <div className="sp-week-meta">
-                        <span style={{ fontSize: '0.875rem', fontWeight: 600, color: 'var(--color-slate-500)' }}>
-                          {done} / {total}
-                        </span>
-                        <div className={`sp-week-toggle ${isOpen ? 'is-open' : ''}`}>
-                          <ChevronDownIcon size={16} color="currentColor" />
-                        </div>
-                      </div>
-                    </button>
-                    {isOpen && (
-                      <div className="sp-week-body" style={{ borderTop: '1px solid var(--color-slate-100)' }}>
-                        {renderWeekActivities(week, realIdx)}
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-          )}
-        </div>
-      </div>
-
-      {/* ────────────────────────────────────────────────────────────────
-          3. SKILLS TO IMPROVE — weakness list with Practice buttons
-      ──────────────────────────────────────────────────────────────── */}
-      {skillPracticeRows.length > 0 && (
-        <div className="sp-section">
-          <h3 className="sp-section-header">Focus Areas</h3>
-
-          {/* AI diagnosis narrative — explains WHY these are the focus areas.
-              FINDING-002: clamped like the coach notes; the full paragraph
-              sits behind Read more. */}
-          {summary?.diagnosis && (
-            <div className="sp-section-desc">
-              {diagExpanded ? summary.diagnosis : clampToSentence(summary.diagnosis, 200)}
-              {summary.diagnosis.length > clampToSentence(summary.diagnosis, 200).length + 4 && (
+          {otherWeeks.map((week) => {
+            const realIdx = weeks.indexOf(week);
+            const isOpen = expandedWeek === realIdx;
+            const doneN = (week.activities || []).filter((a) => a.completed).length;
+            const totalN = (week.activities || []).length;
+            const isComplete = totalN > 0 && doneN === totalN;
+            return (
+              <div key={realIdx} className={`sp-otherweek${isComplete ? ' is-complete' : ''}`}>
                 <button
                   type="button"
-                  className="sp-note-toggle"
-                  onClick={() => setDiagExpanded(v => !v)}
+                  className="sp-otherweek-head"
+                  aria-expanded={isOpen}
+                  onClick={() => setExpandedWeek(isOpen ? null : realIdx)}
                 >
-                  {diagExpanded ? 'Show less' : 'Read more'}
-                </button>
-              )}
-            </div>
-          )}
-          {/* Shared coach advice hoisted from the per-card sentences. */}
-          {focusDiagnostics.shared && (
-            <p className="sp-focus-shared-advice">{focusDiagnostics.shared}</p>
-          )}
-          <div className="dashboard-actions-grid">
-            {(showAllFocus ? sectionedFocusRows : sectionedFocusRows.slice(0, 5)).map((w, i) => {
-              // v3.1: classify into low/mid/high bands so CSS picks the
-              // soft-tint color. JSX no longer paints the heavy red/green
-              // panel; the chip color reads from a data attribute.
-              // Adaptivity item 1: the band reads from the LIVE signal —
-              // recent drill accuracy when the student has drilled this
-              // skill since the last test, else the test-time baseline.
-              const liveAccuracy = typeof w.displayAccuracy === 'number' ? w.displayAccuracy : w.accuracy;
-              const accuracyBand = w.isMastered ? 'high'
-                : liveAccuracy >= 70 ? 'high'
-                : liveAccuracy < 40 ? 'low'
-                : 'mid';
-              const showDrillDelta = w.hasDrillSignal
-                && typeof w.accuracy === 'number'
-                && w.drillStats
-                && w.drillStats.accuracy !== w.accuracy;
-
-              // FINDING-002: the editorial sentence moved INSIDE the card
-              // (2-line clamp) — it used to float below as a full paragraph,
-              // ~7 near-identical paragraphs in a row.
-              const diagnosticSentence = focusDiagnostics.perRow[i] || '';
-              return (
-                <div key={w.skillId || i} style={{ display: 'flex', flexDirection: 'column' }}>
-                  <div
-                    className="acely-split-card"
-                    data-accuracy-band={accuracyBand}
-                    data-mastered={w.isMastered ? 'true' : undefined}
-                  >
-                    <div className="acely-split-left">
-                      {liveAccuracy}%
+                  <div className="sp-otherweek-left">
+                    <div className="sp-otherweek-disc">
+                      {isComplete ? <CheckIcon size={14} color="currentColor" /> : realIdx + 1}
                     </div>
-                    <div className="acely-split-right" style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
-                      <div style={{ flex: 1, minWidth: 0, paddingRight: '1rem' }}>
-                        <div className="acely-metric-label">
-                          <span className={`sp-sec-chip is-${w.section === 'rw' ? 'rw' : 'math'}`}>
-                            {SECTION_CHIP_LABEL[w.section === 'rw' ? 'rw' : 'math']}
-                          </span>
-                          {domainLabel(w.domain)}
-                        </div>
-                        <div className="acely-section-name" style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{w.skill}</div>
-                        {/* Retirement (item 2): the green confirmation. The
-                            weakness stays in the plan — the next full test
-                            is the arbiter. */}
-                        {w.isMastered && (
-                          <p className="sp-card-mastered-note">
-                            Mastered in practice — we'll confirm on your next test
-                          </p>
-                        )}
-                        {/* Both signals, side by side (item 1). */}
-                        {showDrillDelta && (
-                          <p className="sp-card-drill-delta">
-                            {w.accuracy}% on your last test → {w.drillStats.accuracy}% in drills since
-                          </p>
-                        )}
-                        {!w.isMastered && (diagnosticSentence ? (
-                          <p className="sp-card-diagnostic">{diagnosticSentence}</p>
-                        ) : w.errorType ? (
-                          <div style={{ fontSize: '0.8125rem', marginTop: '0.25rem', color: 'var(--color-slate-500)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-                            {w.errorType}
-                          </div>
-                        ) : null)}
-                      </div>
-                      <button
-                        className={`btn-launch${w.isMastered ? ' is-keep-sharp' : i === 0 ? ' is-primary' : ''}`}
-                        style={{ flexShrink: 0 }}
-                        onClick={() => onStartPractice(null, null, {
-                          questionIds: w.qIds,
-                          source: 'study-plan-assigned',
-                          label: `${w.skill} Practice`,
-                          weakness: w, // Day 5 D3: shell renders diagnostic sentence after wrong answers
-                        })}
-                      >
-                        {w.isMastered ? 'Keep sharp' : (
-                          <>
-                            <PencilIcon size={14} style={{ marginRight: '6px', verticalAlign: 'text-bottom' }} /> Practice
-                          </>
-                        )}
-                      </button>
+                    <div className="sp-otherweek-title">
+                      Week {week.weekNumber}{cleanWeekTitle(week.title) ? ` — ${cleanWeekTitle(week.title)}` : ''}
                     </div>
                   </div>
-                  {/* Reprioritization editorial (item 3) — the engine's
-                      improved/declined call, in the diagnostic-sentence
-                      voice. Suppressed on mastered cards (the green note
-                      already carries the story). */}
-                  {w.adaptiveLine && (
-                    <p className="sp-card-diagnostic sp-card-adaptive">{w.adaptiveLine}</p>
-                  )}
-                  {/* Prediction flag (audit gap 2) — the visible "your plan
-                      updated because..." moment. Renders only on weaknesses
-                      the engine flagged for the student's next test. */}
-                  {w.predictedStruggle && (
-                    <p
-                      className="sp-prediction-flag"
-                      style={{
-                        margin: '8px 4px 0',
-                        fontSize: '0.8125rem',
-                        fontWeight: 600,
-                        color: 'var(--color-brand-primary)',
-                      }}
-                    >
-                      Prioritized in your plan — flagged as a likely struggle area on your next test{w.predictedStruggle.reason ? ` (${w.predictedStruggle.reason.toLowerCase()})` : ''}.
-                    </p>
-                  )}
-                </div>
-              );
-            })}
-          </div>
-          {sectionedFocusRows.length > 5 && (
-            <button
-              type="button"
-              className="sp-focus-show-all"
-              onClick={() => setShowAllFocus(v => !v)}
-            >
-              {showAllFocus
-                ? 'Show fewer'
-                : `Show all ${sectionedFocusRows.length} skills`}
-            </button>
-          )}
-          {sectionedFocusRows.length === 0 && (
-            <div className="sp-focus-empty">
-              No {sectionFilter === 'rw' ? 'Reading & Writing' : 'Math'} focus areas right now —
-              your latest test didn't flag any. Switch back to All to see the full list.
-            </div>
-          )}
-        </div>
-      )}
-
-      {/* ────────────────────────────────────────────────────────────────
-          4. HOW YOU TEST — identity insights mined from signals the plan
-          already persisted but never rendered (answer-change behavior,
-          stamina fade, calculator dependency). Significance-gated: the
-          whole section hides rather than render filler.
-      ──────────────────────────────────────────────────────────────── */}
-      {identityInsights.length > 0 && (
-        <div className="sp-section sp-identity">
-          <h3 className="sp-section-header">How you test</h3>
-          <div className="sp-identity-grid">
-            {identityInsights.map((insight) => (
-              <div key={insight.key} className="sp-identity-card">
-                <div className="sp-identity-stat">{insight.stat}</div>
-                <div className="sp-identity-label">{insight.label}</div>
-                <p className="sp-identity-text">{insight.text}</p>
+                  <div className="sp-otherweek-meta">
+                    <span className="sp-otherweek-prog">{doneN} / {totalN}</span>
+                    <span className={`sp-otherweek-chev${isOpen ? ' is-open' : ''}`}>
+                      <ChevronDownIcon size={16} color="currentColor" />
+                    </span>
+                  </div>
+                </button>
+                {isOpen && (
+                  <div className="sp-otherweek-body">
+                    {renderWeekActivities(week, realIdx)}
+                  </div>
+                )}
               </div>
-            ))}
-          </div>
+            );
+          })}
         </div>
-      )}
 
-      {/* Score Trajectory */}
-      <ScoreTrajectory artifact={studyPlanArtifact} />
+        {/* How you test — identity insights */}
+        {identityInsights.length > 0 && (
+          <div>
+            <h3 className="sp-section-title">How you test</h3>
+            <div className="sp-identity-grid">
+              {identityInsights.map((insight) => (
+                <div key={insight.key} className="sp-identity-card">
+                  <div className="sp-identity-stat">{insight.stat}</div>
+                  <div className="sp-identity-label">{insight.label}</div>
+                  <p className="sp-identity-text">{insight.text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        <ScoreTrajectory artifact={studyPlanArtifact} />
 
       </div>
       )}
 
       </div> {/* /.sp-main */}
 
-      {/* ────────────────────────────────────────────────────────────────
-          RIGHT RAIL — calendar + score + goal/exam two-up.
-          Same composition as the StudentDashboard's Dashboard tab so
-          students see consistent context across both views.
-      ──────────────────────────────────────────────────────────────── */}
+      {/* ── Right rail — calendar heatmap + colored summary tiles ────── */}
       <aside className="sp-rail" aria-label="Study plan summary">
-        <CalendarMonth practicedDays={practicedDayKeys} />
+        <CalendarMonth practicedDays={practicedDayKeys} testDate={user?.testDate} />
 
         {latestScore !== null && (
-          <div className="dashboard-tile">
-            <div className="dashboard-tile-eyebrow">Current Score</div>
-            <div className="dashboard-tile-row">
-              <span className="dashboard-tile-num">{latestScore}</span>
+          <div className="sp-tile is-score">
+            <div className="sp-tile-eyebrow">Current Score</div>
+            <div className="sp-tile-row">
+              <span className="sp-tile-num">{latestScore}</span>
               {scoreDelta !== null && (
-                <span className={`dashboard-tile-delta ${scoreDelta >= 0 ? 'is-up' : 'is-down'}`}>
-                  {scoreDelta >= 0 ? '↑' : '↓'} {Math.abs(scoreDelta)} pts
+                <span className={`sp-tile-delta ${scoreDelta >= 0 ? 'is-up' : 'is-down'}`}>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round">
+                    {scoreDelta >= 0 ? <path d="M7 17 17 7M9 7h8v8"/> : <path d="M7 7 17 17M17 9v8H9"/>}
+                  </svg>
+                  {Math.abs(scoreDelta)} pts
                 </span>
               )}
             </div>
             {sortedTests.length > 0 && (
-              <div className="dashboard-tile-sub">
-                Across {sortedTests.length} test{sortedTests.length !== 1 ? 's' : ''}
+              <div className="sp-tile-sub">Across {sortedTests.length} test{sortedTests.length !== 1 ? 's' : ''}</div>
+            )}
+          </div>
+        )}
+
+        {(user?.targetScore || user?.testDate) && (
+          <div className="sp-tile-pair">
+            {user?.targetScore && (
+              <div className="sp-tile is-goal">
+                <div className="sp-tile-eyebrow">{goalAchieved ? 'Goal Achieved' : 'Goal Score'}</div>
+                <div className="sp-tile-num">{user.targetScore}</div>
+                <div className="sp-tile-sub">{goalAchieved ? `+${goalAboveDelta} pts above` : 'From onboarding'}</div>
+              </div>
+            )}
+            {user?.testDate && (
+              <div className="sp-tile is-exam">
+                <div className="sp-tile-eyebrow">{testDateIsPast ? 'Test Date' : 'Days Until Exam'}</div>
+                <div className="sp-tile-num">{testDateIsPast ? '—' : (daysUntilTest ?? '—')}</div>
+                <div className="sp-tile-sub">
+                  {testDateIsPast
+                    ? `Was ${Math.abs(daysUntilTest)} days ago`
+                    : parseLocalDate(user.testDate)?.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+                </div>
               </div>
             )}
           </div>
         )}
 
-        {/* Prediction record — "trust this plan" evidence. Only renders
-            when the engine has called at least one struggle area right. */}
+        {/* Prediction record — "trust this plan" evidence. */}
         {predictionTrust && (
-          <div className="dashboard-tile">
-            <div className="dashboard-tile-eyebrow">Prediction Record</div>
-            <div className="dashboard-tile-num">{predictionTrust.hits}/{predictionTrust.total}</div>
-            <div className="dashboard-tile-sub">
+          <div className="sp-tile is-plain">
+            <div className="sp-tile-eyebrow">Prediction Record</div>
+            <div className="sp-tile-num">{predictionTrust.hits}/{predictionTrust.total}</div>
+            <div className="sp-tile-sub">
               {predictionTrust.total === 1
                 ? 'test where we called your struggle areas early'
                 : 'tests where we called your struggle areas early'}
@@ -1478,45 +1388,12 @@ const StudyPlanDashboard = ({
 
         {/* Live review streak — hidden unless touched today/yesterday. */}
         {reviewStreak && (
-          <div className="dashboard-tile">
-            <div className="dashboard-tile-eyebrow">Review Streak</div>
-            <div className="dashboard-tile-num">{reviewStreak.current}</div>
-            <div className="dashboard-tile-sub">
+          <div className="sp-tile is-plain">
+            <div className="sp-tile-eyebrow">Review Streak</div>
+            <div className="sp-tile-num">{reviewStreak.current}</div>
+            <div className="sp-tile-sub">
               days in a row{reviewStreak.best > reviewStreak.current ? ` · best ${reviewStreak.best}` : ' · personal best'}
             </div>
-          </div>
-        )}
-
-        {(user?.targetScore || user?.testDate) && (
-          <div className="dashboard-tile-pair">
-            {user?.targetScore && (
-              <div className={`dashboard-tile ${goalAchieved ? 'is-positive' : ''}`}>
-                <div className="dashboard-tile-eyebrow">
-                  {goalAchieved ? 'Goal Achieved' : 'Goal Score'}
-                </div>
-                <div className="dashboard-tile-num">{user.targetScore}</div>
-                <div className="dashboard-tile-sub">
-                  {goalAchieved
-                    ? `+${goalAboveDelta} pts above target`
-                    : 'From onboarding'}
-                </div>
-              </div>
-            )}
-            {user?.testDate && (
-              <div className={`dashboard-tile ${testDateIsPast ? 'is-warn' : ''}`}>
-                <div className="dashboard-tile-eyebrow">
-                  {testDateIsPast ? 'Test Date' : 'Days Until Exam'}
-                </div>
-                <div className="dashboard-tile-num">
-                  {testDateIsPast ? '—' : (daysUntilTest ?? '—')}
-                </div>
-                <div className="dashboard-tile-sub">
-                  {testDateIsPast
-                    ? `Was ${Math.abs(daysUntilTest)} days ago — update in settings`
-                    : parseLocalDate(user.testDate)?.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
-                </div>
-              </div>
-            )}
           </div>
         )}
       </aside>
