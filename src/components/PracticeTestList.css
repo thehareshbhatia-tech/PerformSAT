@@ -157,9 +157,15 @@
   border: 1px solid var(--sp-line);
   border-radius: 16px;
   box-shadow: var(--sp-shadow);
-  overflow: hidden;
+  /* NO overflow:hidden — it would clip the Start/Retake launch dropdown. The
+     inner top/bottom elements round their own corners instead (rules below). */
 }
 .pt-card.is-progress { border-color: rgba(234, 88, 12, 0.35); }
+/* Keep corners clean without clipping the dropdown. */
+.pt-card-row { border-radius: 16px; }
+.pt-card-head { border-radius: 16px; }
+.pt-card-head.is-open { border-radius: 16px 16px 0 0; }
+.pt-card-body { border-radius: 0 0 16px 16px; }
 
 .pt-card-row,
 .pt-card-head {
@@ -348,7 +354,7 @@
   border-radius: 12px;
   box-shadow: 0 10px 28px rgba(20, 22, 28, 0.14);
   overflow: hidden;
-  z-index: 50;
+  z-index: 100;
   min-width: 200px;
 }
 .pt-dropdown.opens-up { top: auto; bottom: 100%; margin-top: 0; margin-bottom: 6px; }

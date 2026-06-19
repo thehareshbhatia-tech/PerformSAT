@@ -340,7 +340,7 @@ const TestCard = ({
   // Completed (expandable)
   return (
     <div className="pt-card is-completed">
-      <button type="button" className="pt-card-head" onClick={onToggleExpand} aria-expanded={isExpanded}>
+      <button type="button" className={`pt-card-head${isExpanded ? ' is-open' : ''}`} onClick={onToggleExpand} aria-expanded={isExpanded}>
         <span className="pt-badge is-completed">#{testNum}</span>
         <div className="pt-card-main">
           <div className="pt-card-titlerow">
