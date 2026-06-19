@@ -1899,11 +1899,11 @@ const PerformSAT = () => {
           globally). takingTest is excluded so the test-runner scroll-lock and the
           internal test->results flip (view stays 'takingTest') never animate. */}
       <div id="main-content" key={view} style={{
-        maxWidth: view === 'takingTest' || view === 'reviewingPastResults' || view === 'practice' || view === 'dashboard' || view === 'learn' || view === 'modules' || view === 'practiceBank' ? '100%' : view === 'studyPlan' ? '1220px' : view === 'practiceTests' ? '960px' : '800px',
+        maxWidth: view === 'takingTest' || view === 'reviewingPastResults' || view === 'practice' || view === 'dashboard' || view === 'learn' || view === 'modules' || view === 'practiceBank' ? '100%' : view === 'studyPlan' ? '1220px' : view === 'practiceTests' ? '1040px' : '800px',
         margin: '0 auto',
-        // Study Plan paints its own warm canvas + framing, so it wants a tighter
-        // outer gutter than the default 32px content padding.
-        padding: (view === 'dashboard' || view === 'reviewingPastResults' || view === 'practice' || view === 'takingTest' || view === 'learn' || view === 'practiceBank') ? '0' : view === 'studyPlan' ? '20px 20px 80px' : '32px 32px 100px',
+        // Study Plan + Practice Tests paint their own warm canvas + framing, so
+        // they want a tighter outer gutter than the default 32px content padding.
+        padding: (view === 'dashboard' || view === 'reviewingPastResults' || view === 'practice' || view === 'takingTest' || view === 'learn' || view === 'practiceBank') ? '0' : (view === 'studyPlan' || view === 'practiceTests') ? '20px 20px 80px' : '32px 32px 100px',
         ...(view === 'takingTest' ? { overflow: 'hidden', height: '100vh' } : { animation: 'fadeInUp 300ms cubic-bezier(0.25, 0.1, 0.25, 1)' })
       }}>
       {/* ONE Suspense boundary for the whole view-switch region: every lazy
@@ -2161,6 +2161,7 @@ const PerformSAT = () => {
               setView('takingTest');
             }}
             onBack={() => setView('dashboard')}
+            user={user}
             practiceTestResults={practiceTestResults}
             getTestBestScore={getTestBestScore}
             getTestAttempts={getTestAttempts}
