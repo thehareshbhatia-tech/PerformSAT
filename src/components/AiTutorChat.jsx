@@ -25,6 +25,29 @@ import {
 import { buildTrendContext } from '../services/trendContextBuilder';
 import { startIntervention, inferApproach, computeApproachEffectiveness } from '../services/interventionTracker';
 import { buildIntelligenceContext, getRecommendedApproach } from '../services/intelligenceContextBuilder';
+import Mark from './ui/Mark';
+
+// The tutor's identity mark, app-wide: the tri-color SEVA "S" on the brand-navy
+// tile (matches the favicon / collapsed-sidebar mark) — never a generic chat
+// bubble. One source of truth for every tutor avatar/header in this file.
+const TutorMark = ({ size = 32, radius = 8, style }) => (
+  <span
+    aria-hidden="true"
+    style={{
+      width: `${size}px`,
+      height: `${size}px`,
+      borderRadius: `${radius}px`,
+      background: '#0B132B', // --color-brand-navy
+      display: 'inline-flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      flexShrink: 0,
+      ...style,
+    }}
+  >
+    <Mark size={Math.round(size * 0.6)} decorative />
+  </span>
+);
 
 // Design system — sourced from shared tokens
 const design = {
@@ -1172,7 +1195,8 @@ Your goal is to build their problem-solving instincts. Every question they solve
             justifyContent: 'space-between'
           }}
         >
-          <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+            <TutorMark size={28} />
             <span style={{
               fontSize: '17px',
               fontWeight: '600',
@@ -1248,16 +1272,7 @@ Your goal is to build their problem-solving instincts. Every question they solve
           borderBottom: `1px solid ${design.colors.border.light}`,
           background: design.colors.surface.primary,
         }}>
-          <div style={{
-            width: '32px', height: '32px', borderRadius: '8px',
-            background: 'linear-gradient(135deg, #10B981 0%, #059669 100%)',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            color: 'white'
-          }}>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-            </svg>
-          </div>
+          <TutorMark size={32} />
           <h3 style={{
             fontSize: '18px', fontWeight: '700',
             color: design.colors.text.primary, margin: 0,
@@ -1281,17 +1296,7 @@ Your goal is to build their problem-solving instincts. Every question they solve
         >
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
-              <div style={{
-                width: '24px', height: '24px', borderRadius: '6px',
-                background: 'linear-gradient(135deg, #FF9F0A 0%, #FF5E3A 100%)',
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                color: 'white',
-                boxShadow: '0 2px 8px rgba(255, 149, 0, 0.25)'
-              }}>
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-                </svg>
-              </div>
+              <TutorMark size={24} radius={6} />
               <span style={{
                 fontSize: '18px',
                 fontWeight: '800',
@@ -1446,14 +1451,8 @@ Your goal is to build their problem-solving instincts. Every question they solve
               </div>
             ) : (
               <>
-                <div style={{
-                  fontSize: '32px',
-                  marginBottom: '16px',
-                  opacity: 0.15
-                }} aria-hidden="true">
-                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-                  </svg>
+                <div style={{ marginBottom: '16px' }} aria-hidden="true">
+                  <TutorMark size={56} radius={16} />
                 </div>
                 <div style={{
                   fontSize: '17px',
@@ -1603,17 +1602,7 @@ Your goal is to build their problem-solving instincts. Every question they solve
                 }}
               >
                 {premiumLearnMode && msg.role === 'assistant' && (
-                  <div style={{
-                    width: '28px', height: '28px', borderRadius: '8px',
-                    background: 'linear-gradient(135deg, #FF9F0A 0%, #FF5E3A 100%)',
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    color: 'white', marginRight: '12px', flexShrink: 0,
-                    boxShadow: '0 2px 8px rgba(255, 149, 0, 0.2)'
-                  }}>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-                    </svg>
-                  </div>
+                  <TutorMark size={28} style={{ marginRight: '12px' }} />
                 )}
                 <div
                   style={premiumLearnMode ? {
@@ -1691,17 +1680,7 @@ Your goal is to build their problem-solving instincts. Every question they solve
             {isLoading && (
               <div style={{ display: 'flex', justifyContent: 'flex-start', marginBottom: '16px' }}>
                 {premiumLearnMode && (
-                  <div style={{
-                    width: '28px', height: '28px', borderRadius: '8px',
-                    background: 'linear-gradient(135deg, #FF9F0A 0%, #FF5E3A 100%)',
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    color: 'white', marginRight: '12px', flexShrink: 0,
-                    boxShadow: '0 2px 8px rgba(255, 149, 0, 0.2)'
-                  }}>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-                    </svg>
-                  </div>
+                  <TutorMark size={28} style={{ marginRight: '12px' }} />
                 )}
                 <div
                   style={premiumLearnMode ? {

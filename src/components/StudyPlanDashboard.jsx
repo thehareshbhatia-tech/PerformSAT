@@ -688,7 +688,7 @@ const StudyPlanDashboard = ({
     // The toggle now leads the row like a checklist; tips are a quiet
     // dot-list in slate.
     return (
-      <div className="ai-practice-banner" style={{ marginBottom: '16px', opacity: done ? 0.6 : 1, filter: done ? 'grayscale(1)' : 'none', position: 'relative' }}>
+      <div className={`ai-practice-banner${isTip ? ' is-tip' : ''}`} style={{ marginBottom: '16px', opacity: done ? 0.6 : 1, filter: done ? 'grayscale(1)' : 'none', position: 'relative' }}>
         <button
           type="button"
           className={`sp-act-toggle${done ? ' is-done' : ''}`}
@@ -700,8 +700,10 @@ const StudyPlanDashboard = ({
 
         <div className="ai-banner-content" style={{ flex: 1 }}>
           <div className="ai-banner-icon" style={{
-            background: done ? 'var(--color-slate-100)' : chip.bg,
-            color: done ? 'var(--color-slate-400)' : chip.fg,
+            // Tips recede to a neutral ghost chip — no amber square, which read
+            // as a 4th brand hue and made tips out-shout the practice rows.
+            background: done ? 'var(--color-slate-100)' : (isTip ? 'var(--sp-surface-2)' : chip.bg),
+            color: done ? 'var(--color-slate-400)' : (isTip ? 'var(--sp-text-3)' : chip.fg),
             borderColor: done ? 'var(--color-slate-200)' : 'transparent'
           }}>
             {activityIcon(act.type)}
@@ -1004,37 +1006,6 @@ const StudyPlanDashboard = ({
         </div>
       )}
 
-      {/* ── Attention stack — review queue + pacing + past tests (kept) ─ */}
-      <div className="sp-attention">
-        {showReviewTestsButton && (
-          <div className="sp-past-test-review-cta">
-            <button type="button" className="sp-past-test-review-btn" onClick={onReviewPastTests}>
-              <span className="sp-past-test-review-icon" aria-hidden="true"><ClipboardIcon size={18} /></span>
-              <span className="sp-past-test-review-text">
-                <span className="sp-past-test-review-title">Review your tests</span>
-                <span className="sp-past-test-review-sub">
-                  {completedTestCount === 1
-                    ? 'See every wrong answer explained from your test'
-                    : `See every wrong answer explained from your ${completedTestCount} tests`}
-                </span>
-              </span>
-              <span className="sp-past-test-review-chev" aria-hidden="true">›</span>
-            </button>
-          </div>
-        )}
-        <StudyPlanReviewSection
-          reviewQueue={reviewQueue}
-          onReviewTestWrong={onReviewTestWrong}
-          onStartReview={onStartReview}
-        />
-        <StudyPlanPacingSection
-          questionTelemetry={pacingTelemetry}
-          struggle={pacingStruggle}
-          onStartPacing={onStartPacing}
-          testDateIsPast={testDateIsPast}
-        />
-      </div>
-
       {adaptiveOverlay?.isTriage && (
         <div className="sp-triage-banner" role="status">
           Triage mode: prioritizing your highest-impact skills before test day.
@@ -1176,7 +1147,7 @@ const StudyPlanDashboard = ({
               <span className="sp-banner-title">Your First Study Plan</span>
             </div>
             <div className="sp-banner-content">
-              Based on your practice test results, here's your personalized weekly plan. Take another test to see how it adapts.
+              This is your focused starter plan, built from your first test. Work through it, then take Practice Test&nbsp;2 — that gathers the data to unlock your full, more personalized plan.
             </div>
           </div>
         )}
@@ -1323,6 +1294,39 @@ const StudyPlanDashboard = ({
 
       </div>
       )}
+
+      {/* ── Tune-ups — review queue + pacing + past tests. Deliberately kept
+            quiet and BELOW the plan: important, but it must never out-shout the
+            actual study plan above it. ───────────────────────────────────── */}
+      <div className="sp-attention">
+        {showReviewTestsButton && (
+          <div className="sp-past-test-review-cta">
+            <button type="button" className="sp-past-test-review-btn" onClick={onReviewPastTests}>
+              <span className="sp-past-test-review-icon" aria-hidden="true"><ClipboardIcon size={18} /></span>
+              <span className="sp-past-test-review-text">
+                <span className="sp-past-test-review-title">Review your tests</span>
+                <span className="sp-past-test-review-sub">
+                  {completedTestCount === 1
+                    ? 'See every wrong answer explained from your test'
+                    : `See every wrong answer explained from your ${completedTestCount} tests`}
+                </span>
+              </span>
+              <span className="sp-past-test-review-chev" aria-hidden="true">›</span>
+            </button>
+          </div>
+        )}
+        <StudyPlanReviewSection
+          reviewQueue={reviewQueue}
+          onReviewTestWrong={onReviewTestWrong}
+          onStartReview={onStartReview}
+        />
+        <StudyPlanPacingSection
+          questionTelemetry={pacingTelemetry}
+          struggle={pacingStruggle}
+          onStartPacing={onStartPacing}
+          testDateIsPast={testDateIsPast}
+        />
+      </div>
 
       </div> {/* /.sp-main */}
 

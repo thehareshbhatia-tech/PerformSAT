@@ -1,12 +1,15 @@
 import React, { useMemo } from 'react';
 import { buildPacingSession } from '../services/pacingService';
-import { TimerIcon } from '../design/icons';
+import { TimerIcon, ChevronRightIcon } from '../design/icons';
 
 /**
- * StudyPlanPacingSection — Pacing & Timing inside the Study Plan.
+ * StudyPlanPacingSection — Pacing & Timing, a quiet "tune-up" strip BELOW the
+ * Study Plan (sibling to the Review Queue strip).
  *
- * Quiet by default; boosts to a prominent purple-accented card when the plan
- * shows a timing struggle (getPacingStruggle → struggle.struggling). Reuses
+ * Always renders as one compact, muted row so it never out-shouts the plan.
+ * When the plan shows a timing struggle (getPacingStruggle → struggle.struggling)
+ * it picks up a subtle orange flag dot + a one-line reason and a "Start drill"
+ * action; otherwise it's a plain "Practice pacing" affordance. Reuses
  * buildPacingSession for the speed read + the drill config the existing
  * onStartPacing handler consumes.
  *
@@ -31,38 +34,32 @@ function StudyPlanPacingSection({
 
   const avgTime = session.profile.stats?.avgTimePerQuestion ?? null;
   const struggling = !!struggle?.struggling;
-  const reason = (struggling && struggle.reason) || session.profile.reason;
+  const reason = (struggling && strugglingReason(struggle, session)) || null;
   const launch = () => onStartPacing && onStartPacing(session.config);
 
-  if (struggling) {
-    return (
-      <section className="sp-section sp-pacing sp-pacing-boost" aria-label="Pacing and timing">
-        <div className="sp-pacing-head">
-          <span className="sp-pacing-icon" aria-hidden="true"><TimerIcon size={18} /></span>
-          <h3 className="sp-pacing-title">Pacing &amp; Timing</h3>
-          {avgTime != null && (
-            <span className="sp-pacing-badge">{avgTime}s avg · target 95s</span>
-          )}
-        </div>
-        {reason && <p className="sp-pacing-reason">{reason}</p>}
-        <button type="button" className="sp-pacing-cta" onClick={launch}>
-          Start pacing drill
-        </button>
-      </section>
-    );
-  }
-
   return (
-    <section className="sp-section sp-pacing sp-pacing-quiet" aria-label="Pacing and timing">
-      <span className="sp-pacing-icon" aria-hidden="true"><TimerIcon size={16} /></span>
-      <span className="sp-pacing-quiet-text">
-        Pacing &amp; Timing · {avgTime != null ? `${avgTime}s avg` : 'on track'}
-      </span>
-      <button type="button" className="sp-pacing-quiet-cta" onClick={launch}>
-        Practice pacing
-      </button>
+    <section
+      className={`sp-tuneup sp-tuneup-pacing${struggling ? ' is-flagged' : ''}`}
+      aria-label="Pacing and timing"
+    >
+      <div className="sp-tuneup-bar sp-tuneup-static">
+        <span className="sp-tuneup-icon" aria-hidden="true"><TimerIcon size={16} /></span>
+        <span className="sp-tuneup-label">Pacing &amp; Timing</span>
+        <span className="sp-tuneup-meta">
+          {avgTime != null ? `${avgTime}s avg · target 95s` : 'on track'}
+        </span>
+        <button type="button" className="sp-tuneup-action" onClick={launch}>
+          {struggling ? 'Start drill' : 'Practice'}
+          <ChevronRightIcon size={14} />
+        </button>
+      </div>
+      {reason && <p className="sp-tuneup-note">{reason}</p>}
     </section>
   );
+}
+
+function strugglingReason(struggle, session) {
+  return struggle?.reason || session?.profile?.reason || null;
 }
 
 export default StudyPlanPacingSection;

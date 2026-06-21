@@ -848,11 +848,32 @@
   font-weight: 700;
   letter-spacing: 0.06em;
 }
-.sp-act-tips { list-style: none; margin: 8px 0 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
-.sp-act-tip { position: relative; padding-left: 18px; font-size: 13px; line-height: 1.5; color: var(--sp-text-2); }
+/* Tip rows (strategy/review) recede: a soft inset note, top-aligned ghost icon,
+   and a quieter bullet list — so they read as supporting notes, not cards that
+   compete with the practice rows. */
+.sp-weekly .ai-practice-banner.is-tip {
+  background: var(--sp-inset) !important;
+  border-color: transparent !important;
+  align-items: flex-start !important;
+}
+.sp-weekly .ai-practice-banner.is-tip:hover {
+  background: var(--sp-inset) !important;
+  border-color: var(--sp-line) !important;
+}
+.sp-weekly .ai-practice-banner.is-tip .ai-banner-content { align-items: flex-start !important; }
+.sp-weekly .ai-practice-banner.is-tip .ai-banner-icon {
+  width: 28px !important; height: 28px !important; margin-top: 1px;
+}
+.sp-weekly .ai-practice-banner.is-tip .ai-banner-title {
+  white-space: normal; overflow: visible; text-overflow: clip;
+}
+.sp-weekly .ai-practice-banner.is-tip .sp-act-toggle { margin-top: 3px; }
+
+.sp-act-tips { list-style: none; margin: 7px 0 1px; padding: 0; display: flex; flex-direction: column; gap: 5px; }
+.sp-act-tip { position: relative; padding-left: 16px; font-size: 12.5px; line-height: 1.5; color: var(--sp-text-2); }
 .sp-act-tip::before {
-  content: ''; position: absolute; left: 4px; top: 0.55em;
-  width: 5px; height: 5px; border-radius: 50%; background: var(--sp-line-strong);
+  content: ''; position: absolute; left: 3px; top: 0.6em;
+  width: 4px; height: 4px; border-radius: 50%; background: var(--sp-text-3);
 }
 .sp-activity-status-tag {
   position: absolute;
@@ -1060,8 +1081,9 @@
    Kept engine features — restyled to the new theme
    ════════════════════════════════════════════════════════════════════════ */
 
-/* Attention stack (review queue + pacing + past-test review live here) */
-.sp-attention { display: flex; flex-direction: column; gap: 10px; }
+/* Tune-ups stack — review queue + pacing + past-test review. Sits BELOW the
+   plan and stays deliberately quiet so it never out-shouts the plan above. */
+.sp-attention { display: flex; flex-direction: column; gap: 8px; margin-top: 24px; }
 
 /* Past-Test-Review CTA */
 .sp-past-test-review-cta { margin: 0; }
@@ -1090,22 +1112,58 @@
 .sp-past-test-review-sub { font-size: 12.5px; color: var(--sp-text-2); }
 .sp-past-test-review-chev { color: var(--sp-text-3); font-size: 20px; font-weight: 600; line-height: 1; }
 
-/* Review Queue */
-.sp-review {
-  padding: 15px 17px;
+/* ── Quiet tune-up strips (review queue + pacing) ─────────────────────────
+   One compact, muted row each. The review strip is collapsible; the pacing
+   strip is static with its own action. Subordinate by design. */
+.sp-tuneup {
   background: var(--sp-surface);
   border: 1px solid var(--sp-line);
-  border-radius: 14px;
-  box-shadow: var(--sp-shadow);
+  border-radius: 12px;
+  overflow: hidden;
 }
-.sp-review-head { display: flex; align-items: center; gap: 8px; margin-bottom: 11px; }
-.sp-review-icon { display: inline-flex; align-items: center; color: var(--sp-purple); line-height: 1; }
-.sp-review-title { margin: 0; font-size: 14.5px; font-weight: 700; color: var(--sp-text); }
-.sp-review-due {
-  margin-left: auto; font-size: 11.5px; font-weight: 700;
-  color: var(--sp-purple); background: var(--sp-purple-soft);
-  padding: 3px 11px; border-radius: 999px;
+.sp-tuneup-bar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 11px 14px;
+  background: none;
+  border: none;
+  font-family: var(--sp-font-body);
+  text-align: left;
+  color: var(--sp-text);
+  cursor: pointer;
 }
+.sp-tuneup-bar.sp-tuneup-static { cursor: default; }
+button.sp-tuneup-bar:hover { background: var(--sp-inset); }
+.sp-tuneup-icon { display: inline-flex; align-items: center; color: var(--sp-text-3); flex: none; line-height: 1; }
+.sp-tuneup-label { font-size: 13.5px; font-weight: 600; color: var(--sp-text); white-space: nowrap; }
+.sp-tuneup-count {
+  font-size: 11.5px; font-weight: 600; color: var(--sp-text-3);
+  background: var(--sp-inset); padding: 2px 9px; border-radius: 999px; flex: none;
+}
+.sp-tuneup-count.is-due { color: var(--sp-error); background: var(--sp-error-tint); }
+.sp-tuneup-meta { font-size: 12.5px; font-weight: 500; color: var(--sp-text-3); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.sp-tuneup-chev { margin-left: auto; display: inline-flex; align-items: center; color: var(--sp-text-3); flex: none; transition: transform 0.18s ease; }
+.sp-tuneup-chev.is-open { transform: rotate(90deg); }
+.sp-tuneup-action {
+  margin-left: auto; flex: none;
+  display: inline-flex; align-items: center; gap: 1px;
+  background: none; border: none; padding: 4px 0 4px 10px;
+  font-family: var(--sp-font-body); font-size: 12.5px; font-weight: 600;
+  color: var(--sp-purple); cursor: pointer;
+}
+.sp-tuneup-action:hover { text-decoration: underline; }
+/* Pacing flag: subtle orange cue when timing is a real struggle — never a card. */
+.sp-tuneup-pacing.is-flagged .sp-tuneup-icon { color: var(--sp-orange); }
+.sp-tuneup-pacing.is-flagged { border-left: 2px solid var(--sp-orange); }
+.sp-tuneup-note {
+  margin: 0; padding: 0 14px 11px 39px;
+  font-size: 12.5px; line-height: 1.45; color: var(--sp-text-2);
+}
+/* Expanded review body */
+.sp-tuneup-body { padding: 4px 12px 12px; border-top: 1px solid var(--sp-line); }
+.sp-review-block { margin-top: 10px; }
 .sp-review-block + .sp-review-block { margin-top: 12px; }
 .sp-review-block-label {
   font-size: 11px; font-weight: 700; letter-spacing: 0.04em;
@@ -1129,43 +1187,6 @@
 .sp-review-tag.is-overdue { background: var(--sp-error-tint); color: var(--sp-error); }
 .sp-review-chev { display: inline-flex; align-items: center; color: var(--sp-text-3); flex: none; line-height: 1; }
 
-/* Pacing & Timing */
-.sp-pacing-boost {
-  padding: 15px 17px;
-  background: var(--sp-purple-soft);
-  border: 1px solid var(--sp-purple-border);
-  border-left: 3px solid var(--sp-orange);
-  border-radius: 14px;
-}
-.sp-pacing-head { display: flex; align-items: center; gap: 8px; }
-.sp-pacing-icon { display: inline-flex; align-items: center; color: var(--sp-purple); line-height: 1; }
-.sp-pacing-title { margin: 0; font-size: 14.5px; font-weight: 700; color: var(--sp-purple); }
-.sp-pacing-badge {
-  margin-left: auto; font-size: 11.5px; font-weight: 600;
-  color: var(--sp-purple); background: var(--sp-surface);
-  border: 1px solid var(--sp-purple-border); padding: 3px 11px; border-radius: 999px;
-}
-.sp-pacing-reason { margin: 9px 0 12px; font-size: 13.5px; font-weight: 500; color: var(--sp-text-2); }
-.sp-pacing-cta {
-  display: inline-flex; align-items: center; padding: 9px 16px;
-  background: var(--sp-purple); color: #fff; border: none; border-radius: 10px;
-  font-family: var(--sp-font-body); font-size: 13.5px; font-weight: 600; cursor: pointer;
-  transition: opacity 0.15s ease;
-}
-.sp-pacing-cta:hover { opacity: 0.92; }
-.sp-pacing-quiet {
-  display: flex; align-items: center; gap: 8px;
-  padding: 10px 14px; background: var(--sp-inset);
-  border: 1px solid var(--sp-line); border-radius: 12px;
-}
-.sp-pacing-quiet .sp-pacing-icon { color: var(--sp-text-3); }
-.sp-pacing-quiet-text { font-size: 13.5px; font-weight: 500; color: var(--sp-text-2); }
-.sp-pacing-quiet-cta {
-  margin-left: auto; background: none; border: none; padding: 4px 6px;
-  font-family: var(--sp-font-body); font-size: 13px; font-weight: 600;
-  color: var(--sp-purple); cursor: pointer;
-}
-.sp-pacing-quiet-cta:hover { text-decoration: underline; }
 
 /* ════════════════════════════════════════════════════════════════════════
    Right rail — calendar reskin + colored summary tiles

@@ -59,6 +59,13 @@ const INTENSITY_LEVELS = {
   marathon:  { minutesPerDay: 100, label: 'Marathon', description: '100 min/day — maximum push', daysPerWeek: 7 },
 };
 
+// The first plan from a single diagnostic stays short and in-depth: a focused
+// 2-week cycle on the student's top weaknesses, capped here, that ends with a
+// "Take Practice Test 2" checkpoint. The second test gathers the evidence to
+// generate the full, longer, more personalized plan. One test is too little
+// signal to confidently schedule 10 weeks — and a 10-week wall reads as noise.
+const INITIAL_PLAN_WEEKS = 2;
+
 // Approximate time for different activity types (in minutes)
 const ACTIVITY_DURATIONS = {
   watchLesson: 8,         // Watch a video lesson
@@ -185,7 +192,25 @@ export const generateStudyPlan = (diagnostic, userProfile = {}, completedLessons
   // ═══ Calculate time constraints ═══
   const daysUntilTest = getDaysUntil(testDate);
   const weeksUntilTest = daysUntilTest !== null ? Math.ceil(daysUntilTest / 7) : 8; // Default 8 weeks
-  const effectiveWeeks = Math.min(Math.max(1, weeksUntilTest), 12); // Cap at 12 weeks
+  let effectiveWeeks = Math.min(Math.max(1, weeksUntilTest), 12); // Cap at 12 weeks
+
+  // ═══ First-plan gating: short focused cycle → retest → deeper plan ═══
+  // Count the distinct tests that have produced data, the triggering one
+  // included. Counting (rather than checking `previousPlan`) is timing-
+  // independent: it holds whether or not the just-finished test has hydrated
+  // into practiceTestResults yet, AND across the deterministic + hybrid
+  // generation phases (the hybrid phase re-reads the freshly-persisted first
+  // plan as `previousPlan`, so a `!previousPlan` check would misfire there).
+  const testsWithData = new Set(
+    [
+      ...((longitudinal?.scoreTrajectory || []).map((t) => t.testId)),
+      diagnostic.testId,
+    ].filter(Boolean),
+  ).size;
+  const isFirstPlan = testsWithData <= 1;
+  if (isFirstPlan) {
+    effectiveWeeks = Math.min(effectiveWeeks, INITIAL_PLAN_WEEKS);
+  }
 
   // ═══ Determine study intensity ═══
   // Null gap (cross-scale, no per-section data) → a moderate default climb.
@@ -210,7 +235,8 @@ export const generateStudyPlan = (diagnostic, userProfile = {}, completedLessons
     minutesPerWeek,
     diagnostic,
     previousPlan,
-    longitudinal
+    longitudinal,
+    isFirstPlan
   );
 
   // ═══ Generate milestones ═══
@@ -690,7 +716,7 @@ const generateStrategyActivities = (diagnostic) => {
  * - End of week: More practice + self-assessment
  * - Every 3-4 weeks: Take a practice test
  */
-const distributeAcrossWeeks = (activities, strategyActivities, totalWeeks, minutesPerWeek, diagnostic, previousPlan, longitudinal = null) => {
+const distributeAcrossWeeks = (activities, strategyActivities, totalWeeks, minutesPerWeek, diagnostic, previousPlan, longitudinal = null, isFirstPlan = false) => {
   const weeks = [];
 
   // ═══ ADAPTIVE PRIORITY ADJUSTMENT ═══
@@ -813,22 +839,35 @@ const distributeAcrossWeeks = (activities, strategyActivities, totalWeeks, minut
 
     // ── PHASE 3: Test week — add practice test ──
     if (isTestWeek && !isFirstWeek) {
+      // On the FIRST plan, the closing test is the unlock checkpoint: completing
+      // it gives the engine a second data point and regenerates the full, deeper
+      // plan. Frame it that way rather than as a generic "final" test.
+      const isUnlockCheckpoint = isFirstPlan && isLastWeek;
       weekActivities.push({
         type: 'test',
         activityType: 'practiceTest',
-        title: isLastWeek ? 'Final Practice Test' : 'Progress Check: Practice Test',
-        subtitle: isLastWeek
-          ? 'Full-length timed test to measure your final readiness'
-          : 'Take a practice test to measure improvement and adjust your plan',
+        title: isUnlockCheckpoint
+          ? 'Take Practice Test 2'
+          : isLastWeek ? 'Final Practice Test' : 'Progress Check: Practice Test',
+        subtitle: isUnlockCheckpoint
+          ? 'Unlock your full, personalized plan — this test shows exactly how far you have come and where to go deeper'
+          : isLastWeek
+            ? 'Full-length timed test to measure your final readiness'
+            : 'Take a practice test to measure improvement and adjust your plan',
         duration: ACTIVITY_DURATIONS.practiceTest,
         priority: 100,
         icon: null,
         day: 'Saturday',
         weekPhase: 'end',
-        tips: [
-          'Take this test under real conditions — timed, no breaks, no phone',
-          'After completing, review the diagnostic to see what improved',
-        ],
+        tips: isUnlockCheckpoint
+          ? [
+              'Take it under real conditions — timed, no breaks, no phone',
+              'Your results build a longer, more personalized plan tuned to where you are now',
+            ]
+          : [
+              'Take this test under real conditions — timed, no breaks, no phone',
+              'After completing, review the diagnostic to see what improved',
+            ],
       });
     }
 
