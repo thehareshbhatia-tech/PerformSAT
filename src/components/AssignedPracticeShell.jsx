@@ -38,19 +38,29 @@ const C = {
 // ── Sidebar: persistent question list (Acely-style left pane) ──────────
 // One row per question. Status icon + 2-line stem preview. Current row
 // gets an orange highlight; answered rows get green ✓ or red ✗.
-function QuestionSidebar({ questions, currentIndex, answers, onNavigate, onBack, headerTitle, drillPatternLabel }) {
+function QuestionSidebar({ questions, currentIndex, answers, onNavigate, onBack, headerTitle, drillPatternLabel, answeredCount, total }) {
+  const pct = total > 0 ? Math.round((answeredCount / total) * 100) : 0;
   return (
     <aside className="aps-sidebar">
-      <button onClick={onBack} className="aps-sidebar-back" type="button">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-          <path d="M15 18l-6-6 6-6"/>
-        </svg>
-        Back to Study Plan
-      </button>
+      <div className="aps-sidebar-head">
+        <button onClick={onBack} className="aps-sidebar-back" type="button">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="m15 18-6-6 6-6"/>
+          </svg>
+          Back to Study Plan
+        </button>
 
-      <div className="aps-sidebar-title">{drillPatternLabel || headerTitle}</div>
+        <div className="aps-sidebar-title">{drillPatternLabel || headerTitle}</div>
 
-      <div className="aps-sidebar-divider" />
+        <div className="aps-sidebar-progress">
+          <div className="aps-sidebar-progress-track">
+            <div className="aps-sidebar-progress-fill" style={{ width: `${pct}%` }} />
+          </div>
+          <span className="aps-sidebar-progress-count">
+            {answeredCount}<span className="aps-count-total">/{total}</span>
+          </span>
+        </div>
+      </div>
 
       <div className="aps-sidebar-list">
         {questions.map((q, idx) => {
@@ -71,14 +81,12 @@ function QuestionSidebar({ questions, currentIndex, answers, onNavigate, onBack,
               type="button"
               title={stem}
             >
-              <span className="aps-sidebar-status" aria-hidden="true">
+              <span className="aps-sidebar-dot" aria-hidden="true">
                 {ans?.correct
-                  ? <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  ? <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
                   : ans
-                    ? <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-                    : isCurrent
-                      ? <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="6"/></svg>
-                      : <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="9"/></svg>
+                    ? <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.2" strokeLinecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                    : null
                 }
               </span>
               <span className="aps-sidebar-stem">{stem}</span>
@@ -308,7 +316,7 @@ const AssignedPracticeShell = ({
       <div className="aps-interstitial" role="status" aria-live="polite">
         <div className="aps-interstitial-card">
           <div className="aps-interstitial-eyebrow">Round complete</div>
-          <h2 className="aps-interstitial-title">{currentRound.label} ✓</h2>
+          <h2 className="aps-interstitial-title">{currentRound.label}</h2>
           {correctText && <p className="aps-interstitial-sub">{correctText}</p>}
           <div className="aps-interstitial-circles" aria-hidden="true">
             {rounds.map((r, i) => {
@@ -326,7 +334,8 @@ const AssignedPracticeShell = ({
             className="aps-interstitial-cta"
             onClick={() => onAdvanceToNextRound && onAdvanceToNextRound()}
           >
-            Continue to {nextRound?.label || 'next round'} →
+            Continue to {nextRound?.label || 'next round'}
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: 8, verticalAlign: '-2px' }}><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </button>
           <button
             type="button"
@@ -473,12 +482,23 @@ const AssignedPracticeShell = ({
     );
   }
 
-  // ── ACTIVE PRACTICE — Acely-style 3-pane ──────────────────────────────
+  // ── ACTIVE PRACTICE — three-pane Practice Round ───────────────────────
+
+  // Topic chip (e.g. "ALGEBRA") — the broad domain; uppercase via CSS. The
+  // specific pattern ("No Solution Condition") is the title, not the chip.
+  const rawTopic = currentQuestion?.domain || currentQuestion?.skills?.[0] || currentQuestion?.skill || '';
+  const topicLabel = rawTopic ? String(rawTopic).replace(/[-_]/g, ' ') : '';
+  const isReviewItem = practiceState.reviewMode && typeof currentQuestion?.moduleIndex === 'number';
+  const eyebrowText = isReviewItem
+    ? 'REVIEW SESSION'
+    : currentRound ? currentRound.label.toUpperCase() : `QUESTION ${idx + 1}`;
+  const titleText = drillPatternLabel || headerTitle;
+  const answeredCorrect = practiceState.answers[currentQuestion?.id]?.correct;
 
   return (
     <div className="aps-shell">
 
-      {/* ── LEFT: Persistent question sidebar ── */}
+      {/* ── LEFT: question navigator ── */}
       <QuestionSidebar
         questions={questions}
         currentIndex={idx}
@@ -487,13 +507,15 @@ const AssignedPracticeShell = ({
         onBack={onBack}
         headerTitle={headerTitle}
         drillPatternLabel={drillPatternLabel}
+        answeredCount={answeredCount}
+        total={total}
       />
 
-      {/* ── CENTER: Question card ── */}
+      {/* ── CENTER: flat question column ── */}
       <main className="aps-center">
 
-        {/* Progress dots strip */}
-        <div className="aps-progress-strip">
+        {/* Segmented progress bar */}
+        <div className="aps-seg-row">
           <ProgressDots
             total={total}
             currentIndex={idx}
@@ -503,397 +525,375 @@ const AssignedPracticeShell = ({
           />
         </div>
 
-        {/* Review-mode banner */}
-        {practiceState.reviewMode && (
-          <div className="aps-review-banner" role="status" aria-live="polite">
-            <InfoIcon size={16} aria-hidden="true" />
-            <span><strong>Review session.</strong> This won't affect your study plan or skill mastery.</span>
-          </div>
-        )}
+        <div className="aps-scroll">
+          <div className="aps-content">
 
-        <div className="aps-card">
-          {/* Card eyebrow header (round label + tools) */}
-          <header className="aps-card-header">
-            <div className="aps-card-eyebrow">
-              <div className="aps-card-round">
-                {practiceState.reviewMode && typeof currentQuestion?.moduleIndex === 'number'
-                  ? 'REVIEW SESSION'
-                  : currentRound
-                    ? currentRound.label.toUpperCase()
-                    : `QUESTION ${idx + 1}`}
+            {/* Review-mode banner */}
+            {practiceState.reviewMode && (
+              <div className="aps-review-banner" role="status" aria-live="polite">
+                <InfoIcon size={16} aria-hidden="true" />
+                <span><strong>Review session.</strong> This won't affect your study plan or skill mastery.</span>
               </div>
-              <div className="aps-card-subtitle">
-                {practiceState.reviewMode && typeof currentQuestion?.moduleIndex === 'number'
-                  ? `M${currentQuestion.moduleIndex + 1}·Q${(currentQuestion.questionIndex ?? 0) + 1} (originally missed)`
-                  : currentRound
-                    ? `${drillPatternLabel || headerTitle} — ${currentRound.questionIds.length} questions`
-                    : `Question ${idx + 1} of ${total}`}
+            )}
+
+            {/* Question header — eyebrow / title / badges / calculator */}
+            <header className="aps-q-header">
+              <div style={{ minWidth: 0 }}>
+                <div className="aps-q-eyebrow">{eyebrowText}</div>
+                <div className="aps-q-title">
+                  {isReviewItem
+                    ? `M${currentQuestion.moduleIndex + 1}·Q${(currentQuestion.questionIndex ?? 0) + 1} (originally missed)`
+                    : titleText}
+                </div>
               </div>
+
+              <div className="aps-q-tools">
+                {diffBadge && (
+                  <span className={`aps-badge aps-badge-${diffBadge.label.toLowerCase()}`}>
+                    {diffBadge.label}
+                  </span>
+                )}
+                {topicLabel && (
+                  <span className="aps-badge aps-badge-topic">{topicLabel}</span>
+                )}
+                <HandAuthoredStamp />
+                {/* Calculator is a Math-only tool — the digital SAT does not
+                    offer it on Reading & Writing. Hide it for R&W items. */}
+                {currentQuestion?.section !== 'rw' && (
+                  <button
+                    onClick={onToggleCalculator}
+                    className={`aps-tool-btn ${showCalculator ? 'is-active' : ''}`}
+                    type="button"
+                    title="Toggle calculator"
+                  >
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round">
+                      <rect x="4" y="2" width="16" height="20" rx="2"/>
+                      <line x1="8" y1="6" x2="16" y2="6"/>
+                      <line x1="8" y1="10" x2="8.01" y2="10"/>
+                      <line x1="12" y1="10" x2="12.01" y2="10"/>
+                      <line x1="16" y1="10" x2="16.01" y2="10"/>
+                      <line x1="8" y1="14" x2="8.01" y2="14"/>
+                      <line x1="12" y1="14" x2="12.01" y2="14"/>
+                      <line x1="8" y1="18" x2="12" y2="18"/>
+                    </svg>
+                    Calculator
+                  </button>
+                )}
+              </div>
+            </header>
+
+            {/* Numbered question tag */}
+            <div className="aps-qtag">
+              <span className="aps-qtag-num">{idx + 1}</span>
+              <span className="aps-qtag-label">Question {idx + 1} of {total}</span>
             </div>
 
-            <div className="aps-card-tools">
-              {diffBadge && (
-                <span className={`aps-diff-badge aps-diff-${diffBadge.label.toLowerCase()}`}>
-                  {diffBadge.label}
-                </span>
-              )}
-              <HandAuthoredStamp />
-              {/* Calculator is a Math-only tool — the digital SAT does not
-                  offer it on Reading & Writing. Hide it for R&W items. */}
-              {currentQuestion?.section !== 'rw' && (
-                <button
-                  onClick={onToggleCalculator}
-                  className={`aps-tool-btn ${showCalculator ? 'is-active' : ''}`}
-                  type="button"
-                  title="Toggle calculator"
-                >
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="4" y="3" width="16" height="18" rx="2"/>
-                    <line x1="8" y1="7" x2="16" y2="7"/>
-                    <line x1="8" y1="12" x2="8.01" y2="12"/>
-                    <line x1="12" y1="12" x2="12.01" y2="12"/>
-                    <line x1="16" y1="12" x2="16.01" y2="12"/>
-                    <line x1="8" y1="16" x2="8.01" y2="16"/>
-                    <line x1="12" y1="16" x2="12.01" y2="16"/>
-                    <line x1="16" y1="16" x2="16.01" y2="16"/>
-                  </svg>
-                  Calculator
-                </button>
-              )}
-            </div>
-          </header>
+            {/* R&W passage — basic plain-serif rendering (no Bluebook
+                highlighting; that lives in PracticeTest for the timed flow).
+                Covers all three R&W content shapes: single `passage`, paired
+                `passages` array (cross-text-connections), and `studentNotes`
+                object (rhetorical-synthesis). */}
+            {currentQuestion.passage && (
+              <div style={{
+                fontFamily: "'Georgia', 'Cambria', 'Times New Roman', serif",
+                fontSize: '17px',
+                lineHeight: '1.65',
+                color: 'var(--pr-text)',
+                margin: '18px 0 4px',
+                whiteSpace: 'pre-wrap',
+              }}>
+                <MathText>{currentQuestion.passage}</MathText>
+              </div>
+            )}
 
-          {/* Scrollable card body */}
-          <div className="aps-card-body">
-
-          {/* R&W passage — basic plain-serif rendering (no Bluebook
-              highlighting; that lives in PracticeTest for the timed flow).
-              Covers all three R&W content shapes: single `passage`, paired
-              `passages` array (cross-text-connections), and `studentNotes`
-              object (rhetorical-synthesis). Without this, R&W drills show
-              only the stem ("Which choice most logically completes the
-              text?") with no passage to read. */}
-          {currentQuestion.passage && (
-            <div style={{
-              fontFamily: "'Georgia', 'Cambria', 'Times New Roman', serif",
-              fontSize: '17px',
-              lineHeight: '1.65',
-              color: C.text,
-              marginBottom: '20px',
-              whiteSpace: 'pre-wrap',
-            }}>
-              <MathText>{currentQuestion.passage}</MathText>
-            </div>
-          )}
-
-          {Array.isArray(currentQuestion.passages) && (
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', marginBottom: '20px' }}>
-              {currentQuestion.passages.map((p, i) => (
-                <div key={i}>
-                  <div style={{
-                    fontFamily: 'var(--font-ui)',
-                    fontSize: '13px',
-                    fontWeight: 700,
-                    letterSpacing: '0.04em',
-                    color: C.textSec,
-                    textTransform: 'uppercase',
-                    marginBottom: '6px',
-                  }}>
-                    {p.label || `Text ${i + 1}`}
+            {Array.isArray(currentQuestion.passages) && (
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', margin: '18px 0 4px' }}>
+                {currentQuestion.passages.map((p, i) => (
+                  <div key={i}>
+                    <div style={{
+                      fontFamily: 'var(--pr-font-body)',
+                      fontSize: '13px',
+                      fontWeight: 700,
+                      letterSpacing: '0.04em',
+                      color: 'var(--pr-text-2)',
+                      textTransform: 'uppercase',
+                      marginBottom: '6px',
+                    }}>
+                      {p.label || `Text ${i + 1}`}
+                    </div>
+                    <div style={{
+                      fontFamily: "'Georgia', 'Cambria', 'Times New Roman', serif",
+                      fontSize: '17px',
+                      lineHeight: '1.65',
+                      color: 'var(--pr-text)',
+                      whiteSpace: 'pre-wrap',
+                    }}>
+                      <MathText>{p.text}</MathText>
+                    </div>
                   </div>
-                  <div style={{
-                    fontFamily: "'Georgia', 'Cambria', 'Times New Roman', serif",
-                    fontSize: '17px',
-                    lineHeight: '1.65',
-                    color: C.text,
-                    whiteSpace: 'pre-wrap',
-                  }}>
-                    <MathText>{p.text}</MathText>
-                  </div>
-                </div>
-              ))}
-            </div>
-          )}
+                ))}
+              </div>
+            )}
 
-          {currentQuestion.studentNotes && (
-            <div style={{
-              fontFamily: "'Georgia', 'Cambria', 'Times New Roman', serif",
-              fontSize: '17px',
-              lineHeight: '1.65',
-              color: C.text,
-              marginBottom: '20px',
-            }}>
-              {currentQuestion.studentNotes.intro && (
-                <div style={{ marginBottom: '8px' }}>{currentQuestion.studentNotes.intro}</div>
-              )}
-              {Array.isArray(currentQuestion.studentNotes.bullets) && (
-                <ul style={{ paddingLeft: '1.25rem', margin: '8px 0' }}>
-                  {currentQuestion.studentNotes.bullets.map((b, i) => (
-                    <li key={i} style={{ marginBottom: '4px' }}>
-                      <MathText>{b}</MathText>
-                    </li>
-                  ))}
-                </ul>
-              )}
-              {currentQuestion.studentNotes.goal && (
-                <div style={{ marginTop: '8px', fontStyle: 'italic' }}>
-                  <MathText>{currentQuestion.studentNotes.goal}</MathText>
-                </div>
-              )}
-            </div>
-          )}
-
-          {/* Diagram */}
-          {currentQuestion.diagram && (
-            <div style={{ marginBottom: '20px', display: 'flex', justifyContent: 'center' }}>
-              <QuestionDiagram type={currentQuestion.diagram.type} params={currentQuestion.diagram.params} />
-            </div>
-          )}
-
-          {/* Question table */}
-          {currentQuestion.questionTable && (
-            <div style={{ marginBottom: '20px', display: 'flex', justifyContent: 'center' }}>
-              <table style={{ borderCollapse: 'collapse', fontSize: '15px' }}>
-                <thead>
-                  <tr>
-                    {currentQuestion.questionTable.headers.map((header, i) => (
-                      <th key={i} style={{
-                        border: `1px solid ${C.border}`, padding: '8px 16px',
-                        background: 'var(--color-slate-100)', fontWeight: '600'
-                      }}>
-                        <MathText>{header}</MathText>
-                      </th>
+            {currentQuestion.studentNotes && (
+              <div style={{
+                fontFamily: "'Georgia', 'Cambria', 'Times New Roman', serif",
+                fontSize: '17px',
+                lineHeight: '1.65',
+                color: 'var(--pr-text)',
+                margin: '18px 0 4px',
+              }}>
+                {currentQuestion.studentNotes.intro && (
+                  <div style={{ marginBottom: '8px' }}>{currentQuestion.studentNotes.intro}</div>
+                )}
+                {Array.isArray(currentQuestion.studentNotes.bullets) && (
+                  <ul style={{ paddingLeft: '1.25rem', margin: '8px 0' }}>
+                    {currentQuestion.studentNotes.bullets.map((b, i) => (
+                      <li key={i} style={{ marginBottom: '4px' }}>
+                        <MathText>{b}</MathText>
+                      </li>
                     ))}
-                  </tr>
-                </thead>
-                <tbody>
-                  {currentQuestion.questionTable.rows.map((row, i) => (
-                    <tr key={i}>
-                      {row.map((cell, j) => (
-                        <td key={j} style={{
-                          border: `1px solid ${C.border}`, padding: '8px 16px', textAlign: 'center'
+                  </ul>
+                )}
+                {currentQuestion.studentNotes.goal && (
+                  <div style={{ marginTop: '8px', fontStyle: 'italic' }}>
+                    <MathText>{currentQuestion.studentNotes.goal}</MathText>
+                  </div>
+                )}
+              </div>
+            )}
+
+            {/* Diagram */}
+            {currentQuestion.diagram && (
+              <div style={{ margin: '20px 0', display: 'flex', justifyContent: 'center' }}>
+                <QuestionDiagram type={currentQuestion.diagram.type} params={currentQuestion.diagram.params} />
+              </div>
+            )}
+
+            {/* Question table */}
+            {currentQuestion.questionTable && (
+              <div style={{ margin: '20px 0', display: 'flex', justifyContent: 'center' }}>
+                <table style={{ borderCollapse: 'collapse', fontSize: '15px' }}>
+                  <thead>
+                    <tr>
+                      {currentQuestion.questionTable.headers.map((header, i) => (
+                        <th key={i} style={{
+                          border: '1px solid var(--pr-line-strong)', padding: '8px 16px',
+                          background: 'var(--pr-surface-2)', fontWeight: '600'
                         }}>
-                          <MathText>{cell}</MathText>
-                        </td>
+                          <MathText>{header}</MathText>
+                        </th>
                       ))}
                     </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          )}
+                  </thead>
+                  <tbody>
+                    {currentQuestion.questionTable.rows.map((row, i) => (
+                      <tr key={i}>
+                        {row.map((cell, j) => (
+                          <td key={j} style={{
+                            border: '1px solid var(--pr-line-strong)', padding: '8px 16px', textAlign: 'center'
+                          }}>
+                            <MathText>{cell}</MathText>
+                          </td>
+                        ))}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
 
-          {/* Question text — serif (Times) to match the official Bluebook
-              test stem; same family the shared AnswerChoiceList uses. */}
-          <div style={{
-            fontFamily: "'Times New Roman', 'Georgia', 'Cambria', serif",
-            fontSize: '17px',
-            fontWeight: '400',
-            color: C.text,
-            lineHeight: '1.7',
-            marginBottom: '24px',
-          }}>
-            {Array.isArray(currentQuestion.question) || (currentQuestion.question && typeof currentQuestion.question === 'object')
-              ? <QuestionRenderer content={currentQuestion.question} />
-              : <MathText>{currentQuestion.question}</MathText>
-            }
-          </div>
-
-          {/* Formula */}
-          {currentQuestion.questionFormula && (
-            <div style={{
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              marginBottom: '24px', fontSize: '20px', fontFamily: 'Georgia, serif', fontStyle: 'italic', color: C.text,
-            }}>
-              {currentQuestion.questionFormula.text}
-              {currentQuestion.questionFormula.fraction && (
-                <span style={{ display: 'inline-flex', flexDirection: 'column', alignItems: 'center', marginLeft: currentQuestion.questionFormula.text ? '4px' : '0' }}>
-                  <span style={{ padding: '0 6px' }}>{currentQuestion.questionFormula.fraction.numerator}</span>
-                  <span style={{ width: '100%', height: '2px', background: C.text, margin: '2px 0' }} />
-                  <span style={{ padding: '0 6px' }}>{currentQuestion.questionFormula.fraction.denominator}</span>
-                </span>
-              )}
-              {currentQuestion.questionFormula.textAfter && (
-                <span style={{ marginLeft: '4px' }}>{currentQuestion.questionFormula.textAfter}</span>
-              )}
-            </div>
-          )}
-
-          {/* Continued text */}
-          {currentQuestion.questionContinued && (
-            <div style={{
-              fontFamily: "'Times New Roman', 'Georgia', 'Cambria', serif",
-              fontSize: '16px',
-              color: C.text,
-              lineHeight: '1.7',
-              marginBottom: '20px',
-            }}>
-              {Array.isArray(currentQuestion.questionContinued) || (typeof currentQuestion.questionContinued === 'object')
-                ? <QuestionRenderer content={currentQuestion.questionContinued} />
-                : <MathText>{currentQuestion.questionContinued}</MathText>
+            {/* Question stem — serif to match the official Bluebook test stem;
+                same family the shared AnswerChoiceList uses. */}
+            <div className="aps-stem">
+              {Array.isArray(currentQuestion.question) || (currentQuestion.question && typeof currentQuestion.question === 'object')
+                ? <QuestionRenderer content={currentQuestion.question} />
+                : <MathText>{currentQuestion.question}</MathText>
               }
             </div>
-          )}
 
-          {/* ── Answer choices (shared component — same look as the
-                full mock test, driven by AnswerChoiceList.css) ── */}
-          <div className="aps-answers" style={{ borderTop: `1px solid ${C.border}`, paddingTop: '20px' }}>
-            <AnswerChoiceList
-              choices={currentQuestion.choices || []}
-              selectedId={practiceState.selectedAnswer}
-              eliminatedIds={eliminated}
-              showResult={practiceState.showFeedback}
-              correctId={currentQuestion.correctAnswer}
-              onSelect={onSelectAnswer}
-              onToggleEliminate={handleToggleEliminate}
-            />
-          </div>
+            {/* Formula */}
+            {currentQuestion.questionFormula && (
+              <div style={{
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                marginBottom: '24px', fontSize: '20px', fontFamily: 'Georgia, serif', fontStyle: 'italic', color: 'var(--pr-text)',
+              }}>
+                {currentQuestion.questionFormula.text}
+                {currentQuestion.questionFormula.fraction && (
+                  <span style={{ display: 'inline-flex', flexDirection: 'column', alignItems: 'center', marginLeft: currentQuestion.questionFormula.text ? '4px' : '0' }}>
+                    <span style={{ padding: '0 6px' }}>{currentQuestion.questionFormula.fraction.numerator}</span>
+                    <span style={{ width: '100%', height: '2px', background: 'var(--pr-text)', margin: '2px 0' }} />
+                    <span style={{ padding: '0 6px' }}>{currentQuestion.questionFormula.fraction.denominator}</span>
+                  </span>
+                )}
+                {currentQuestion.questionFormula.textAfter && (
+                  <span style={{ marginLeft: '4px' }}>{currentQuestion.questionFormula.textAfter}</span>
+                )}
+              </div>
+            )}
 
-          {/* Hint */}
-          {currentQuestion.hint && !practiceState.showFeedback && (
-            <div style={{ marginBottom: '12px' }}>
-              {!practiceState.showHint ? (
-                <button onClick={onShowHint} style={{
-                  background: 'none', border: `1px solid ${C.border}`, borderRadius: '8px',
-                  padding: '8px 14px', fontSize: '13px', fontWeight: '500', color: C.textSec,
-                  cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '6px',
-                }}>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            {/* Continued text */}
+            {currentQuestion.questionContinued && (
+              <div style={{
+                fontFamily: "'Times New Roman', 'Georgia', 'Cambria', serif",
+                fontSize: '16px',
+                color: 'var(--pr-text)',
+                lineHeight: '1.7',
+                marginBottom: '20px',
+              }}>
+                {Array.isArray(currentQuestion.questionContinued) || (typeof currentQuestion.questionContinued === 'object')
+                  ? <QuestionRenderer content={currentQuestion.questionContinued} />
+                  : <MathText>{currentQuestion.questionContinued}</MathText>
+                }
+              </div>
+            )}
+
+            {/* ── Answer choices (shared AnswerChoiceList, scoped to the
+                  Round palette via .aps-answers overrides) ── */}
+            <div className="aps-answers">
+              <AnswerChoiceList
+                choices={currentQuestion.choices || []}
+                selectedId={practiceState.selectedAnswer}
+                eliminatedIds={eliminated}
+                showResult={practiceState.showFeedback}
+                correctId={currentQuestion.correctAnswer}
+                onSelect={onSelectAnswer}
+                onToggleEliminate={handleToggleEliminate}
+              />
+            </div>
+
+            {/* Center inline hint (main hints come from the Assisted Help panel) */}
+            {currentQuestion.hint && !practiceState.showFeedback && (
+              !practiceState.showHint ? (
+                <button onClick={onShowHint} className="aps-hint-btn" type="button">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <circle cx="12" cy="12" r="10" /><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" /><line x1="12" y1="17" x2="12.01" y2="17" />
                   </svg>
                   Hint
                 </button>
               ) : (
-                <div style={{ background: 'var(--color-brand-purple-soft)', borderRadius: '10px', padding: '14px 18px', borderLeft: '3px solid var(--color-brand-purple-border)' }}>
-                  <div style={{ fontSize: '12px', fontWeight: '600', color: 'var(--color-brand-purple-text)', marginBottom: '6px' }}>Hint</div>
-                  <p style={{ fontSize: '14px', color: C.text, lineHeight: 1.5, margin: 0 }}>{currentQuestion.hint}</p>
+                <div className="aps-hint-box">
+                  <div className="aps-hint-box-label">Hint</div>
+                  <p>{currentQuestion.hint}</p>
                 </div>
-              )}
-            </div>
-          )}
+              )
+            )}
 
-          {/* Feedback / explanation */}
-          {practiceState.showFeedback && (
-            <div style={{
-              background: practiceState.answers[currentQuestion.id]?.correct ? C.successBg : C.errorBg,
-              borderRadius: '10px', padding: '18px', marginBottom: '12px',
-              borderLeft: `3px solid ${practiceState.answers[currentQuestion.id]?.correct ? C.success : C.error}`,
-            }}>
-              <div style={{ fontSize: '13px', fontWeight: '600', color: practiceState.answers[currentQuestion.id]?.correct ? C.success : C.error, marginBottom: '8px' }}>
-                {practiceState.answers[currentQuestion.id]?.correct ? 'Correct!' : 'Incorrect'}
-              </div>
-              <SolutionExplanation explanation={currentQuestion.explanation} />
-
-              {/* Day 5 D3 — italic editorial sentence after a wrong answer.
-                  Only renders when the assignment carries a weakness shape
-                  (focus-area drills do; review-queue and ad-hoc don't). */}
-              {!practiceState.answers[currentQuestion.id]?.correct
-                && practiceState.assignmentMeta?.weakness
-                && (() => {
-                  const sentence = formatDiagnosticSentence(practiceState.assignmentMeta.weakness);
-                  if (!sentence) return null;
-                  return (
-                    <p style={{
-                      margin: '12px 0 0',
-                      fontFamily: 'var(--font-reading)',
-                      fontStyle: 'italic',
-                      fontSize: '14px',
-                      lineHeight: 1.5,
-                      color: C.textSec,
-                    }}>
-                      {sentence}
-                    </p>
-                  );
-                })()}
-
-              {/* Desmos route — the calculator play for this question family (math only) */}
-              {(() => {
-                const tip = getDesmosTip(currentQuestion);
-                if (!tip) return null;
-                return (
-                  <div style={{ marginTop: '12px', background: 'var(--color-slate-100)', borderRadius: '10px', padding: '12px 16px', borderLeft: '3px solid var(--color-slate-600)' }}>
-                    <div style={{ fontSize: '12px', fontWeight: '600', color: 'var(--color-slate-600)', marginBottom: '4px' }}>
-                      Desmos route — {tip.name} ({tip.timeEstimate})
-                    </div>
-                    <p style={{ fontSize: '14px', color: C.text, lineHeight: 1.5, margin: 0 }}>{tip.technique}</p>
+            {/* Feedback / explanation */}
+            {practiceState.showFeedback && (
+              <div className={`aps-feedback ${answeredCorrect ? 'is-correct' : 'is-wrong'}`}>
+                <span className="aps-feedback-icon" aria-hidden="true">
+                  {answeredCorrect ? (
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--pr-green)" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round">
+                      <circle cx="12" cy="12" r="10" fill="rgba(46,158,99,.12)" stroke="none"/><path d="M8 12.5l2.5 2.5 5-5.5"/>
+                    </svg>
+                  ) : (
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--pr-red)" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round">
+                      <circle cx="12" cy="12" r="10" fill="rgba(217,72,59,.1)" stroke="none"/><path d="M15 9l-6 6M9 9l6 6"/>
+                    </svg>
+                  )}
+                </span>
+                <div className="aps-feedback-main">
+                  <div className="aps-feedback-title">
+                    {answeredCorrect ? 'Correct — nicely done.' : 'Not quite — here’s why.'}
                   </div>
-                );
-              })()}
+                  <div className="aps-feedback-body">
+                    <SolutionExplanation explanation={currentQuestion.explanation} />
+                  </div>
 
-              {/* Try-similar — only when wrong (E4) and skill pool isn't exhausted (GAP-3) */}
-              {!practiceState.answers[currentQuestion.id]?.correct && typeof onTrySimilar === 'function' && (
-                <button
-                  type="button"
-                  onClick={handleTrySimilarClick}
-                  disabled={isTrySimilarExhausted}
-                  aria-label={isTrySimilarExhausted
-                    ? 'No more similar questions for this skill'
-                    : 'Try a similar question for the same skill'}
-                  style={{
-                    marginTop: '14px',
-                    minHeight: '44px',                /* D-A11Y-1: WCAG/iOS HIG tap target */
-                    padding: '12px 18px', borderRadius: '8px',
-                    border: `1px solid ${isTrySimilarExhausted ? C.border : C.brand}`,
-                    background: isTrySimilarExhausted ? C.bg : C.white,
-                    color: isTrySimilarExhausted ? C.textMuted : C.brand,
-                    fontSize: '14px', fontWeight: '600',
-                    cursor: isTrySimilarExhausted ? 'not-allowed' : 'pointer',
-                  }}
-                >
-                  {isTrySimilarExhausted
-                    ? 'No more similar questions'
-                    : '↻ Try a similar question'}
-                </button>
-              )}
-            </div>
-          )}
+                  {/* Day 5 D3 — italic editorial sentence after a wrong answer.
+                      Only renders when the assignment carries a weakness shape
+                      (focus-area drills do; review-queue and ad-hoc don't). */}
+                  {!answeredCorrect
+                    && practiceState.assignmentMeta?.weakness
+                    && (() => {
+                      const sentence = formatDiagnosticSentence(practiceState.assignmentMeta.weakness);
+                      if (!sentence) return null;
+                      return <p className="aps-diagnostic-sentence">{sentence}</p>;
+                    })()}
 
-          </div>{/* /aps-card-body */}
+                  {/* Desmos route — the calculator play for this question family (math only) */}
+                  {(() => {
+                    const tip = getDesmosTip(currentQuestion);
+                    if (!tip) return null;
+                    return (
+                      <div className="aps-desmos-route">
+                        <div className="aps-desmos-route-label">
+                          Desmos route — {tip.name} ({tip.timeEstimate})
+                        </div>
+                        <p>{tip.technique}</p>
+                      </div>
+                    );
+                  })()}
 
-          {/* Footer: Previous · counter · Continue (or Check Answer) */}
-          <footer className="aps-card-footer">
+                  {/* Try-similar — only when wrong (E4) and skill pool isn't exhausted (GAP-3) */}
+                  {!answeredCorrect && typeof onTrySimilar === 'function' && (
+                    <button
+                      type="button"
+                      onClick={handleTrySimilarClick}
+                      disabled={isTrySimilarExhausted}
+                      className="aps-trysimilar"
+                      aria-label={isTrySimilarExhausted
+                        ? 'No more similar questions for this skill'
+                        : 'Try a similar question for the same skill'}
+                    >
+                      {isTrySimilarExhausted
+                        ? 'No more similar questions'
+                        : 'Try a similar question'}
+                    </button>
+                  )}
+                </div>
+              </div>
+            )}
+
+          </div>{/* /aps-content */}
+        </div>{/* /aps-scroll */}
+
+        {/* Footer: Previous · counter · Check Answer / Continue */}
+        <footer className="aps-footer-row">
+          <button
+            type="button"
+            onClick={() => handleNavigate(idx - 1)}
+            disabled={idx === 0}
+            className="aps-footer-prev"
+            aria-label="Previous question"
+          >
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="m15 18-6-6 6-6"/>
+            </svg>
+            Previous
+          </button>
+
+          <span className="aps-footer-counter">
+            {answeredCount} of {total} answered
+            {correctCount > 0 && <span className="aps-footer-correct"> · {correctCount} correct</span>}
+          </span>
+
+          {!practiceState.showFeedback ? (
             <button
               type="button"
-              onClick={() => handleNavigate(idx - 1)}
-              disabled={idx === 0}
-              className="aps-footer-prev"
-              aria-label="Previous question"
+              onClick={() => onCheckAnswer(currentQuestion)}
+              disabled={!practiceState.selectedAnswer}
+              className="aps-footer-cta"
             >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-                <path d="M15 18l-6-6 6-6"/>
-              </svg>
-              Previous
+              Check Answer
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             </button>
+          ) : (
+            <button
+              type="button"
+              onClick={() => onNextQuestion(questions)}
+              className="aps-footer-cta is-next"
+            >
+              {idx < total - 1 ? 'Continue' : 'See Results'}
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+          )}
+        </footer>
 
-            <span className="aps-footer-counter">
-              {answeredCount} of {total} answered
-              {correctCount > 0 && <span className="aps-footer-correct"> · {correctCount} correct</span>}
-            </span>
-
-            {!practiceState.showFeedback ? (
-              <button
-                type="button"
-                onClick={() => onCheckAnswer(currentQuestion)}
-                disabled={!practiceState.selectedAnswer}
-                className="aps-footer-cta"
-              >
-                Check Answer
-              </button>
-            ) : (
-              <button
-                type="button"
-                onClick={() => onNextQuestion(questions)}
-                className="aps-footer-cta"
-              >
-                {idx < total - 1 ? 'Continue' : 'See Results'}
-              </button>
-            )}
-          </footer>
-
-        </div>{/* /aps-card */}
       </main>{/* /aps-center */}
 
-      {/* ── RIGHT: AI Tutor ── */}
+      {/* ── RIGHT: Assisted Help (AI Tutor) ── */}
       <aside className="aps-right">
         <AiTutorChat
           key={`assigned-${idx}`}
