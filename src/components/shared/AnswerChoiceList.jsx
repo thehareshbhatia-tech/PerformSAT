@@ -112,6 +112,7 @@ function AnswerChoice({
   isCorrectAnswer,
   onSelect,
   onToggleEliminate,
+  crossOut,
 }) {
   // After submit, "selected by user" + "is the correct answer" together
   // determine the result chip / styling.
@@ -129,7 +130,13 @@ function AnswerChoice({
   // Disable interaction post-submit and when crossed out.
   const interactive = !showResult && !isEliminated;
 
-  return (
+  // "bluebook" cross-out mode (the timed test): the eliminate control is a
+  // separate, always-visible button to the RIGHT of the card, and the
+  // selected card shows an inline check — matching the digital-SAT. The drill
+  // leaves crossOut undefined and keeps the hover cross-out inside the card.
+  const bluebook = crossOut === 'bluebook';
+
+  const card = (
     <div
       className={cardClass}
       onClick={() => interactive && onSelect && onSelect(choice.id)}
@@ -143,8 +150,8 @@ function AnswerChoice({
         }
       }}
     >
-      {/* Eliminate cross-out button (top-right corner) */}
-      {!showResult && onToggleEliminate && (
+      {/* Eliminate cross-out button (top-right corner) — non-bluebook only */}
+      {!bluebook && !showResult && onToggleEliminate && (
         <button
           type="button"
           className="answer-eliminate-btn"
@@ -173,8 +180,41 @@ function AnswerChoice({
       <div className="answer-text-content">
         <ChoiceBody choice={choice} />
       </div>
+
+      {/* Selected check — bluebook taking mode only */}
+      {bluebook && isSelected && !showResult && (
+        <span className="answer-selected-check" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--pt-orange, #EA580C)" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round">
+            <circle cx="12" cy="12" r="10" fill="var(--pt-orange-tint, rgba(234,88,12,.1))" stroke="none" />
+            <path d="M8 12.5l2.5 2.5 5-5.5" />
+          </svg>
+        </span>
+      )}
     </div>
   );
+
+  // Bluebook: wrap the card and a separate always-visible cross-out button in
+  // a flex row (state-aware glyph: X-strike letter → solid letter when out).
+  if (bluebook && !showResult && onToggleEliminate) {
+    return (
+      <div className="answer-choice-row">
+        {card}
+        <button
+          type="button"
+          className={`answer-crossout ${isEliminated ? 'is-eliminated' : ''}`}
+          onClick={(e) => { e.stopPropagation(); onToggleEliminate(choice.id); }}
+          title={isEliminated ? 'Undo cross-out' : 'Cross out choice'}
+          aria-label={isEliminated ? `Undo elimination of choice ${choice.id}` : `Eliminate choice ${choice.id}`}
+        >
+          {isEliminated
+            ? <span className="answer-crossout-glyph">{choice.id}</span>
+            : <span className="answer-crossout-glyph answer-crossout-strike">{choice.id}</span>}
+        </button>
+      </div>
+    );
+  }
+
+  return card;
 }
 
 // ── List ──────────────────────────────────────────────────────────────
@@ -208,6 +248,7 @@ function AnswerChoiceList({
   correctId = null,
   onSelect,
   onToggleEliminate,
+  crossOut,
 }) {
   if (!Array.isArray(choices) || choices.length === 0) return null;
 
@@ -223,6 +264,7 @@ function AnswerChoiceList({
           isCorrectAnswer={showResult && correctId === choice.id}
           onSelect={onSelect}
           onToggleEliminate={onToggleEliminate}
+          crossOut={crossOut}
         />
       ))}
     </div>

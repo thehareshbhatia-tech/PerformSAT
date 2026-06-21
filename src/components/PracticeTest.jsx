@@ -8,6 +8,7 @@ import QuestionRenderer from './QuestionRenderer';
 import SATReferenceSheet from './SATReferenceSheet';
 import DesmosCalculator from './DesmosCalculator';
 import AnswerChoiceList from './shared/AnswerChoiceList';
+import { deriveRWQuestionType } from '../data/questions/rwBank/deriveRWPattern';
 import { recordSkillAttempts } from '../services/skillService';
 import { showToast } from './ui/Toaster';
 import { buildTestReviewEntry } from '../services/reviewQueueResolve';
@@ -1837,50 +1838,31 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
     const isLastModule = currentModule === effectiveModules.length - 1;
     const remainingModules = effectiveModules.length - currentModule - 1;
 
+    const modulePct = questions.length ? Math.round((score / questions.length) * 100) : 0;
+
     return (
-      <div style={{ maxWidth: '600px', margin: '0 auto', padding: '40px 20px', textAlign: 'center' }}>
-        <h2 style={{ fontSize: '24px', fontWeight: '600', marginBottom: '16px', color: colors.text.primary }}>
-          {module.title} Complete
-        </h2>
-        <div style={{
-          fontSize: '48px',
-          fontWeight: '700',
-          color: colors.semantic.success,
-          marginBottom: '8px'
-        }}>
-          {score}/{questions.length}
+      <div className="test-module-complete">
+        <div className="test-module-complete-card">
+          <div className="test-module-complete-eyebrow">Module complete</div>
+          <h2 className="test-module-complete-title">{module.title}</h2>
+          <div className="test-module-complete-score">
+            {score}<span style={{ color: 'var(--pt-text-3)', fontSize: '24px', fontWeight: 700 }}>/{questions.length}</span>
+          </div>
+          <p className="test-module-complete-pct">{modulePct}% correct</p>
+
+          {!isLastModule && (
+            <p className="test-module-complete-note">
+              {remainingModules === 1
+                ? 'One more module to go before your final score.'
+                : `${remainingModules} modules remaining before your final score.`}
+            </p>
+          )}
+
+          <button className="test-module-complete-cta" onClick={handleNextModule} type="button">
+            {isLastModule ? 'See Final Results' : `Continue to Module ${currentModule + 2}`}
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
         </div>
-        <p style={{ color: colors.text.muted, marginBottom: '24px' }}>
-          {Math.round((score / questions.length) * 100)}% correct
-        </p>
-
-        {!isLastModule && (
-          <p style={{
-            color: colors.text.secondary,
-            fontSize: '14px',
-            marginBottom: '32px',
-          }}>
-            {remainingModules === 1
-              ? 'One more module to go before your final score.'
-              : `${remainingModules} modules remaining before your final score.`}
-          </p>
-        )}
-
-        <button
-          onClick={handleNextModule}
-          style={{
-            padding: '14px 32px',
-            background: colors.text.primary,
-            color: colors.text.inverse,
-            border: 'none',
-            borderRadius: radius.sm,
-            fontSize: '16px',
-            fontWeight: '600',
-            cursor: 'pointer'
-          }}
-        >
-          {isLastModule ? 'See Final Results' : `Continue to Module ${currentModule + 2}`}
-        </button>
       </div>
     );
   }
@@ -2624,19 +2606,63 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
   const currentAnswer = answers[`${currentModule}-${currentQuestion}`];
   const isMarked = markedForReview.includes(currentQuestion);
 
+  // Derived chrome for the SEVA Test redesign (presentational only).
+  const answeredInModule = Object.keys(moduleAnswersForGrid).length;
+  const moduleProgressPct = questions.length ? ((currentQuestion + 1) / questions.length) * 100 : 0;
+  const RING_C = 106.81; // 2π·17 for the answered-progress ring
+  const ringOffset = questions.length ? RING_C * (1 - answeredInModule / questions.length) : RING_C;
+  // R&W question-type chip ("WORDS IN CONTEXT"): de-kebab the derived type;
+  // uppercase via CSS. Null hides the chip (rare Tier-3 skill-only items).
+  const rwTypeRaw = isReadingWriting
+    ? (deriveRWQuestionType(question) || question?.skill || (Array.isArray(question?.skills) ? question.skills[0] : null))
+    : (question?.domain || question?.skill || (Array.isArray(question?.skills) ? question.skills[0] : null));
+  const typeChipLabel = rwTypeRaw ? String(rwTypeRaw).replace(/[-_]/g, ' ') : null;
+
+  // Shared answer block (choices or fill-in) — the timed test uses the
+  // Bluebook always-visible cross-out (crossOut="bluebook"); the drill does not.
+  const answerBlock = question?.type === 'fill-in' ? (
+    <div style={{ marginTop: '8px' }}>
+      <input
+        type="text"
+        value={fillInValue}
+        onChange={(e) => setFillInValue(e.target.value)}
+        onBlur={handleFillInSubmit}
+        placeholder="Enter your answer"
+        onKeyDown={(e) => { if (e.key === 'Enter') handleNext(); }}
+        style={{
+          width: '200px', padding: '12px 16px', fontFamily: 'var(--pt-font-serif)',
+          fontSize: '18px', border: '1.5px solid var(--pt-line-strong)', borderRadius: '10px',
+          outline: 'none', background: 'var(--pt-surface)', color: 'var(--pt-text)',
+        }}
+      />
+    </div>
+  ) : (
+    <AnswerChoiceList
+      choices={question?.choices || []}
+      selectedId={currentAnswer}
+      eliminatedIds={eliminatedChoices[`${currentModule}-${currentQuestion}`] || []}
+      onSelect={handleSelectAnswer}
+      onToggleEliminate={handleToggleEliminate}
+      crossOut="bluebook"
+    />
+  );
+
   return (
     <div className="test-session-shell" data-section={isReadingWriting ? 'reading-writing' : 'math'}>
       {/* Header */}
       <div className="test-session-header">
         <div className="header-left">
-          <button
-            onClick={handleRequestLeave}
-            className="btn-icon-subtle"
-            style={{ width: 'auto', padding: '0 0.75rem', fontSize: '0.875rem', fontWeight: 500 }}
-          >
-            ← Exit
+          <button onClick={handleRequestLeave} className="test-exit-btn" type="button">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+            Exit
           </button>
-          {!isMobile && <div className="header-title">{test.title}</div>}
+          {!isMobile && (
+            <>
+              <span className="test-session-divider" aria-hidden="true" />
+              <span className="test-wordmark"><span className="wm-s">S</span><span className="wm-e">E</span><span className="wm-v">V</span><span className="wm-a">A</span></span>
+              <span className="test-name-tag">{test.title}</span>
+            </>
+          )}
         </div>
 
         <div className="header-center">
@@ -2681,17 +2707,19 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
               Reference
             </button>
           )}
-          <button
-            onClick={handlePauseToggle}
-            className="btn-ghost-blue"
-          >
-            {isPaused ? '▶ Resume' : '⏸ Pause'}
+          <button onClick={handlePauseToggle} className="test-top-btn" type="button">
+            {isPaused ? (
+              <><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M8 5v14l11-7z"/></svg>Resume</>
+            ) : (
+              <><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>Pause</>
+            )}
           </button>
           {isTimed ? (
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
               <button
                 onClick={() => setShowTimer(!showTimer)}
-                className="btn-ghost-blue"
+                className="test-top-btn"
+                type="button"
               >
                 {showTimer ? 'Hide Timer' : 'Show Timer'}
               </button>
@@ -2707,24 +2735,13 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
               </div>
             </div>
           ) : (
-            <span style={{
-              padding: '0.25rem 0.75rem',
-              background: 'var(--color-success-100)',
-              color: 'var(--color-success-600)',
-              borderRadius: '9999px',
-              fontSize: isMobile ? '0.75rem' : '0.875rem',
-              fontWeight: 700,
-              whiteSpace: 'nowrap'
-            }}>
+            <span className="test-untimed-pill">
+              <span className="pill-dot" aria-hidden="true" />
               {isMobile ? 'Untimed' : 'Untimed Mode'}
             </span>
           )}
           {!isMobile && (
-            <button
-              onClick={handleRequestEndTest}
-              className="btn-ghost-blue"
-              style={{ color: 'var(--color-error-600)' }}
-            >
+            <button onClick={handleRequestEndTest} className="test-end-btn" type="button">
               End Test
             </button>
           )}
@@ -2737,6 +2754,9 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
               DEV: Auto-Submit
             </button>
           )}
+        </div>
+        <div className="test-session-progress" aria-hidden="true">
+          <div className="test-session-progress-fill" style={{ width: `${moduleProgressPct}%` }} />
         </div>
       </div>
 
@@ -2811,7 +2831,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
         </div>
       )}
 
-      {/* Desktop Nav Strip — visible on top for both Math and R&W. */}
+      {/* Desktop Nav Strip — chip grid + answered ring (both Math and R&W). */}
       {!isMobile && (
         <div className="test-session-nav-strip">
           <QuestionGrid
@@ -2821,6 +2841,25 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
             markedForReview={markedForReview}
             onNavigate={handleNavigate}
           />
+          <div className="nav-strip-ring">
+            <div className="nav-ring-wrap">
+              <svg width="42" height="42" viewBox="0 0 42 42">
+                <circle className="nav-ring-track" cx="21" cy="21" r="17" fill="none" strokeWidth="5" />
+                <circle
+                  className="nav-ring-fill"
+                  cx="21" cy="21" r="17" fill="none" strokeWidth="5" strokeLinecap="round"
+                  strokeDasharray={RING_C}
+                  strokeDashoffset={ringOffset}
+                  transform="rotate(-90 21 21)"
+                />
+              </svg>
+              <div className="nav-ring-num">{answeredInModule}</div>
+            </div>
+            <div className="nav-ring-label">
+              <div className="ring-count">{answeredInModule} of {questions.length}</div>
+              <div className="ring-sub">answered</div>
+            </div>
+          </div>
         </div>
       )}
 
@@ -2835,140 +2874,142 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
             {/* SAT Reference Sheet Modal */}
             <SATReferenceSheet isOpen={showReference} onClose={() => setShowReference(false)} />
 
-            {/* Question Card - SAT Style */}
-            <div className="question-panel">
-        {/* Question number badge — hidden for R&W (rendered in right pane instead) */}
-        {!isReadingWriting && (
-          <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            marginBottom: '2rem'
-          }}>
-            <div style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              width: '32px',
-              height: '32px',
-              backgroundColor: 'var(--color-slate-900)',
-              color: 'var(--color-white)',
-              fontFamily: 'var(--font-ui)',
-              fontWeight: '700',
-              fontSize: '14px',
-              borderRadius: 'var(--radius-sm)'
-            }}>
-              {currentQuestion + 1}
-            </div>
-          </div>
-        )}
+            {isReadingWriting ? (
+            <>
+              {/* R&W passage toolbar — Bluebook-style annotate tools (pinned) */}
+              {(question?.passage || question?.passages || question?.studentNotes) && (
+                <div className="rw-passage-toolbar">
+                  <span className="rw-toolbar-hint">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--pt-hl-edge)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 11l-4 4v3h3l4-4"/><path d="M13 7l4 4"/><path d="M3 21h7"/><path d="M14.5 5.5l4 4L21 7l-4-4z"/></svg>
+                    Select text to highlight it · click a highlight to remove
+                  </span>
+                  <div className="rw-toolbar-actions">
+                    <button
+                      type="button"
+                      className="rw-toolbar-btn"
+                      onClick={() => setHighlightsHidden((v) => !v)}
+                      aria-pressed={highlightsHidden}
+                      title={highlightsHidden ? 'Show highlights' : 'Hide highlights'}
+                    >
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        {highlightsHidden ? (
+                          <>
+                            <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24" />
+                            <line x1="1" y1="1" x2="23" y2="23" />
+                          </>
+                        ) : (
+                          <>
+                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                            <circle cx="12" cy="12" r="3" />
+                          </>
+                        )}
+                      </svg>
+                      {highlightsHidden ? 'Show Highlights' : 'Hide Highlights'}
+                    </button>
+                    <button
+                      type="button"
+                      className="rw-toolbar-btn"
+                      onClick={handleClearHighlights}
+                      title="Clear all highlights on this question"
+                    >
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <polyline points="3 6 5 6 21 6" />
+                        <path d="M19 6l-2 14a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2L5 6" />
+                      </svg>
+                      Clear All
+                    </button>
+                  </div>
+                </div>
+              )}
 
-        {/* Formula if present */}
-        {question?.questionFormula && renderFormula(question.questionFormula)}
-
-        {/* R&W passage toolbar — Bluebook-style annotate tools */}
-        {isReadingWriting && (question?.passage || question?.passages || question?.studentNotes) && (
-          <div className="rw-passage-toolbar">
-            <span className="rw-toolbar-hint">Select text in the passage to highlight it. Click a highlight to remove it.</span>
-            <div className="rw-toolbar-actions">
-              <button
-                type="button"
-                className="rw-toolbar-btn"
-                onClick={() => setHighlightsHidden((v) => !v)}
-                aria-pressed={highlightsHidden}
-                title={highlightsHidden ? 'Show highlights' : 'Hide highlights'}
-              >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  {highlightsHidden ? (
-                    <>
-                      <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24" />
-                      <line x1="1" y1="1" x2="23" y2="23" />
-                    </>
-                  ) : (
-                    <>
-                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-                      <circle cx="12" cy="12" r="3" />
-                    </>
-                  )}
-                </svg>
-                {highlightsHidden ? 'Show Highlights' : 'Hide Highlights'}
-              </button>
-              <button
-                type="button"
-                className="rw-toolbar-btn"
-                onClick={handleClearHighlights}
-                title="Clear all highlights on this question"
-              >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <polyline points="3 6 5 6 21 6" />
-                  <path d="M19 6l-2 14a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2L5 6" />
-                </svg>
-                Clear All
-              </button>
-            </div>
-          </div>
-        )}
-
-        {/* R&W single passage — Bluebook-style plain serif text with selection-to-highlight */}
-        {question?.passage && (
-          isReadingWriting ? (
-            <HighlightablePassage
-              text={question.passage}
-              highlights={highlightsByKey[buildHighlightKey('main')] || []}
-              hidden={highlightsHidden}
-              onAddHighlight={(r) => handleAddHighlight('main', r)}
-              onRemoveHighlight={(r) => handleRemoveHighlight('main', r)}
-            />
-          ) : (
-            <div className="rw-passage" style={{ whiteSpace: 'pre-wrap' }}>
-              <MathText text={question.passage} />
-            </div>
-          )
-        )}
-
-        {/* R&W dual-passage (Cross-Text Connections) — stacked vertically with Text 1 / Text 2 labels */}
-        {question?.passages && Array.isArray(question.passages) && (
-          <div className="rw-passage-stack">
-            {question.passages.map((p, i) => (
-              <div key={i}>
-                <div className="rw-passage-label">{p.label || `Text ${i + 1}`}</div>
-                {isReadingWriting ? (
+              {/* Passage scroll area (independent of the question pane) */}
+              <div className="rw-passage-scroll">
+                {question?.passage && (
                   <HighlightablePassage
-                    text={p.text}
-                    highlights={highlightsByKey[buildHighlightKey(`p${i}`)] || []}
+                    text={question.passage}
+                    highlights={highlightsByKey[buildHighlightKey('main')] || []}
                     hidden={highlightsHidden}
-                    onAddHighlight={(r) => handleAddHighlight(`p${i}`, r)}
-                    onRemoveHighlight={(r) => handleRemoveHighlight(`p${i}`, r)}
+                    onAddHighlight={(r) => handleAddHighlight('main', r)}
+                    onRemoveHighlight={(r) => handleRemoveHighlight('main', r)}
                   />
-                ) : (
-                  <div className="rw-passage" style={{ whiteSpace: 'pre-wrap' }}>
-                    <MathText text={p.text} />
+                )}
+                {question?.passages && Array.isArray(question.passages) && (
+                  <div className="rw-passage-stack">
+                    {question.passages.map((p, i) => (
+                      <div key={i}>
+                        <div className="rw-passage-label">{p.label || `Text ${i + 1}`}</div>
+                        <HighlightablePassage
+                          text={p.text}
+                          highlights={highlightsByKey[buildHighlightKey(`p${i}`)] || []}
+                          hidden={highlightsHidden}
+                          onAddHighlight={(r) => handleAddHighlight(`p${i}`, r)}
+                          onRemoveHighlight={(r) => handleRemoveHighlight(`p${i}`, r)}
+                        />
+                      </div>
+                    ))}
+                  </div>
+                )}
+                {question?.studentNotes && (
+                  <div className="rw-passage">
+                    {question.studentNotes.intro && (
+                      <div style={{ marginBottom: '0.5rem' }}>{question.studentNotes.intro}</div>
+                    )}
+                    <ul style={{ paddingLeft: '1.25rem', margin: '0.5rem 0' }}>
+                      {question.studentNotes.bullets.map((b, i) => (
+                        <li key={i} style={{ marginBottom: '0.25rem' }}>
+                          <MathText text={b} />
+                        </li>
+                      ))}
+                    </ul>
+                    {question.studentNotes.goal && (
+                      <div style={{ marginTop: '0.5rem', fontStyle: 'italic' }}>
+                        <MathText text={question.studentNotes.goal} />
+                      </div>
+                    )}
+                  </div>
+                )}
+                {question?.diagram && (
+                  <div style={{ margin: '20px 0', display: 'flex', justifyContent: 'center' }}>
+                    <QuestionDiagram type={question.diagram.type} params={question.diagram.params} />
+                  </div>
+                )}
+                {question?.questionTable && (
+                  <div style={{ margin: '20px 0', display: 'flex', justifyContent: 'center' }}>
+                    <table style={{ borderCollapse: 'collapse', fontFamily: 'var(--pt-font-serif)', fontSize: '16px' }}>
+                      <thead>
+                        <tr>
+                          {question.questionTable.headers.map((header, i) => (
+                            <th key={i} style={{ border: '1px solid var(--pt-line-strong)', padding: '8px 16px', background: 'var(--pt-surface-2)', fontWeight: '600' }}>
+                              <MathText text={header} />
+                            </th>
+                          ))}
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {question.questionTable.rows.map((row, i) => (
+                          <tr key={i}>
+                            {row.map((cell, j) => (
+                              <td key={j} style={{ border: '1px solid var(--pt-line-strong)', padding: '8px 16px', textAlign: 'center' }}>
+                                <MathText text={cell} />
+                              </td>
+                            ))}
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
                   </div>
                 )}
               </div>
-            ))}
-          </div>
-        )}
+            </>
+            ) : (
+            <div className="question-panel">
+        {/* Math question number badge */}
+        <div className="test-qnum-row">
+          <span className="test-qnum-badge">{currentQuestion + 1}</span>
+        </div>
 
-        {/* R&W student notes (Rhetorical Synthesis) if present */}
-        {question?.studentNotes && (
-          <div className="rw-passage">
-            {question.studentNotes.intro && (
-              <div style={{ marginBottom: '0.5rem' }}>{question.studentNotes.intro}</div>
-            )}
-            <ul style={{ paddingLeft: '1.25rem', margin: '0.5rem 0' }}>
-              {question.studentNotes.bullets.map((b, i) => (
-                <li key={i} style={{ marginBottom: '0.25rem' }}>
-                  <MathText text={b} />
-                </li>
-              ))}
-            </ul>
-            {question.studentNotes.goal && (
-              <div style={{ marginTop: '0.5rem', fontStyle: 'italic' }}>
-                <MathText text={question.studentNotes.goal} />
-              </div>
-            )}
-          </div>
-        )}
+        {/* Formula if present */}
+        {question?.questionFormula && renderFormula(question.questionFormula)}
 
         {/* Diagram if present */}
         {question?.diagram && (
@@ -2982,16 +3023,16 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
           <div style={{ marginBottom: '20px', display: 'flex', justifyContent: 'center' }}>
             <table style={{
               borderCollapse: 'collapse',
-              fontFamily: SAT_TYPOGRAPHY.questionFont,
+              fontFamily: 'var(--pt-font-serif)',
               fontSize: SAT_TYPOGRAPHY.sizes.choiceText
             }}>
               <thead>
                 <tr>
                   {question.questionTable.headers.map((header, i) => (
                     <th key={i} style={{
-                      border: `1px solid ${colors.surface.grayMedium}`,
+                      border: '1px solid var(--pt-line-strong)',
                       padding: '8px 16px',
-                      background: colors.surface.gray,
+                      background: 'var(--pt-surface-2)',
                       fontWeight: '600'
                     }}>
                       <MathText text={header} />
@@ -3004,7 +3045,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
                   <tr key={i}>
                     {row.map((cell, j) => (
                       <td key={j} style={{
-                        border: `1px solid ${colors.surface.grayMedium}`,
+                        border: '1px solid var(--pt-line-strong)',
                         padding: '8px 16px',
                         textAlign: 'center'
                       }}>
@@ -3019,7 +3060,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
         )}
 
         {/* Question text - SAT Style. For R&W, this renders in the right pane instead. */}
-        {!isReadingWriting && (() => {
+        {(() => {
           const questionText = question?.question;
           // Check if question has standalone equation blocks separated by \n\n
           // A standalone equation block is a paragraph where every line is purely math ($...$)
@@ -3088,7 +3129,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
         })()}
 
         {/* Continued question text if present */}
-        {!isReadingWriting && question?.questionContinued && (
+        {question?.questionContinued && (
           <p style={{
             fontFamily: SAT_TYPOGRAPHY.questionFont,
             fontSize: SAT_TYPOGRAPHY.sizes.questionText,
@@ -3102,172 +3143,80 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
             }
           </p>
         )}
-      </div> {/* End question-panel */}
-      </div> {/* End test-workspace-left */}
+            </div>
+            )}
+          </div> {/* End test-workspace-left */}
 
       <div className="test-workspace-right" ref={rightPaneRef}>
-        {/* Navigation buttons top right — Math only. R&W uses bottom bar. */}
-        {!isReadingWriting && (
-        <div className="test-controls-top">
-          <button
-            onClick={handlePrev}
-            disabled={currentQuestion === 0}
-            style={{
-              padding: '0.625rem 1.25rem',
-              background: 'transparent',
-              color: currentQuestion === 0 ? 'var(--color-slate-400)' : 'var(--color-slate-600)',
-              border: '1px solid var(--color-slate-200)',
-              borderRadius: '8px',
-              fontSize: '0.75rem',
-              fontWeight: '600',
-              textTransform: 'uppercase',
-              letterSpacing: '0.05em',
-              cursor: currentQuestion === 0 ? 'not-allowed' : 'pointer',
-              opacity: currentQuestion === 0 ? 0.5 : 1,
-              transition: 'all 0.2s ease'
-            }}
-          >
-            Prev. Question
-          </button>
-
-          {currentQuestion === questions.length - 1 ? (
-            <button
-              className="btn-launch"
-              onClick={handleSubmitModule}
-              style={{ textTransform: 'uppercase', fontSize: '0.75rem', letterSpacing: '0.05em', padding: '0.625rem 1.25rem' }}
-            >
-              Submit Section
-            </button>
-          ) : (
-            <button
-              className="btn-launch"
-              onClick={handleNext}
-              style={{ textTransform: 'uppercase', fontSize: '0.75rem', letterSpacing: '0.05em', padding: '0.625rem 1.25rem' }}
-            >
-              Next Question
-            </button>
-          )}
-        </div>
-        )}
-
-        {/* R&W: question number badge + stem rendered in right pane (Bluebook layout) */}
-        {isReadingWriting && (
-          <div className="rw-stem-block">
-            <div className="rw-stem-header">
-              <div className="rw-stem-number">{currentQuestion + 1}</div>
+        {isReadingWriting ? (
+          <>
+            {/* Pinned question header — number + type chip + Mark */}
+            <div className="rw-question-head">
+              <div className="rw-question-head-left">
+                <span className="rw-stem-number">{currentQuestion + 1}</span>
+                {typeChipLabel && <span className="rw-type-chip">{typeChipLabel}</span>}
+              </div>
               <button
                 onClick={handleToggleMark}
                 className={`rw-mark-toggle ${isMarked ? 'is-marked' : ''}`}
                 aria-pressed={isMarked}
+                type="button"
               >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill={isMarked ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill={isMarked ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
                 </svg>
-                Mark for Review
+                {isMarked ? 'Marked for Review' : 'Mark for Review'}
               </button>
             </div>
-            <p className="rw-stem-text">
-              {Array.isArray(question?.question) || (question?.question && typeof question.question === 'object')
-                ? <QuestionRenderer content={question.question} />
-                : <MathText text={question?.question} />
-              }
-            </p>
-            {question?.questionContinued && (
-              <p className="rw-stem-text">
-                {Array.isArray(question.questionContinued) || (typeof question.questionContinued === 'object')
-                  ? <QuestionRenderer content={question.questionContinued} />
-                  : <MathText text={question.questionContinued} />
-                }
-              </p>
-            )}
-          </div>
-        )}
 
-        {/* Answer choices or fill-in */}
-        {question?.type === 'fill-in' ? (
-          <div style={{ marginTop: '24px' }}>
-            <input
-              type="text"
-              value={fillInValue}
-              onChange={(e) => setFillInValue(e.target.value)}
-              onBlur={handleFillInSubmit}
-              placeholder="Enter your answer"
-              style={{
-                width: '180px',
-                padding: '12px 16px',
-                fontFamily: SAT_TYPOGRAPHY.questionFont,
-                fontSize: '18px',
-                border: `2px solid ${SAT_COLORS.border.dark}`,
-                borderRadius: '0',
-                outline: 'none',
-                backgroundColor: SAT_COLORS.background.page,
-              }}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter') {
-                  // handleNext already calls fillInSubmitRef which saves the fill-in value
-                  handleNext();
-                }
-              }}
-            />
-          </div>
+            {/* Question scroll area — stem + choices */}
+            <div className="rw-question-scroll">
+              <div className="rw-stem-block">
+                <p className="rw-stem-text">
+                  {Array.isArray(question?.question) || (question?.question && typeof question.question === 'object')
+                    ? <QuestionRenderer content={question.question} />
+                    : <MathText text={question?.question} />
+                  }
+                </p>
+                {question?.questionContinued && (
+                  <p className="rw-stem-text">
+                    {Array.isArray(question.questionContinued) || (typeof question.questionContinued === 'object')
+                      ? <QuestionRenderer content={question.questionContinued} />
+                      : <MathText text={question.questionContinued} />
+                    }
+                  </p>
+                )}
+              </div>
+              {answerBlock}
+            </div>
+          </>
         ) : (
-          // Shared <AnswerChoiceList> — same component the drill flow
-          // (AssignedPracticeShell) uses, so visuals stay in lockstep.
-          // R&W section overrides at .test-session-shell[data-section=
-          // "reading-writing"] .answer-choice-card still apply since the
-          // shared component renders those exact class names.
-          (() => {
-            const elimKey = `${currentModule}-${currentQuestion}`;
-            return (
-              <AnswerChoiceList
-                choices={question?.choices || []}
-                selectedId={currentAnswer}
-                eliminatedIds={eliminatedChoices[elimKey] || []}
-                onSelect={handleSelectAnswer}
-                onToggleEliminate={handleToggleEliminate}
-              />
-            );
-          })()
+          <>
+            {/* Math top controls */}
+            <div className="test-controls-top">
+              <button onClick={handlePrev} disabled={currentQuestion === 0} className="bottom-nav-btn" type="button">
+                Previous
+              </button>
+              {currentQuestion === questions.length - 1 ? (
+                <button className="bottom-nav-btn is-primary" onClick={handleSubmitModule} type="button">Submit Section</button>
+              ) : (
+                <button className="bottom-nav-btn is-primary" onClick={handleNext} type="button">Next Question</button>
+              )}
+            </div>
+
+            <div className="question-panel">
+              {answerBlock}
+              <div className="test-controls-bottom" style={{ justifyContent: 'center', borderTop: 'none', marginTop: '1.5rem' }}>
+                <button onClick={handleToggleMark} className={`rw-mark-toggle ${isMarked ? 'is-marked' : ''}`} type="button">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill={isMarked ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
+                  </svg>
+                  {isMarked ? 'Marked for Review' : 'Come Back Later'}
+                </button>
+              </div>
+            </div>
+          </>
         )}
-      {/* Action bottom right — hidden for R&W (mark toggle is up top in stem header) */}
-      {!isReadingWriting && (
-      <div className="test-controls-bottom" style={{ justifyContent: 'center', marginTop: '1.5rem', borderTop: 'none', padding: '1rem 0' }}>
-        <button
-          onClick={handleToggleMark}
-          style={{
-            padding: '0.625rem 1.25rem',
-            background: isMarked ? 'var(--color-slate-100)' : 'transparent',
-            border: '1px solid var(--color-slate-300)',
-            borderRadius: '8px',
-            fontSize: '0.75rem',
-            fontWeight: '600',
-            color: 'var(--color-slate-600)',
-            textTransform: 'uppercase',
-            letterSpacing: '0.05em',
-            cursor: 'pointer',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '0.5rem',
-            transition: 'all 0.2s ease'
-          }}
-        >
-          <svg
-            width="14"
-            height="14"
-            viewBox="0 0 24 24"
-            fill={isMarked ? 'currentColor' : 'none'}
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" />
-            <line x1="4" y1="22" x2="4" y2="15" />
-          </svg>
-          Come Back Later
-        </button>
-      </div>
-      )}
       </div> {/* End test-workspace-right */}
 
       {/* Mobile Nav Grid & Legend */}

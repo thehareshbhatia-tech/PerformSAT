@@ -233,6 +233,66 @@
   margin-left: 4px;
 }
 
+/* ── Bluebook cross-out (timed test only — crossOut="bluebook") ─────
+ * These classes render ONLY when AnswerChoiceList is given crossOut="bluebook"
+ * (PracticeTest). The drill never sets it, so its choice cards are untouched.
+ * Vars are scoped --pt-* (defined on .test-session-shell) with literal
+ * fallbacks for safety. */
+.answer-choice-row {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+}
+.answer-choice-row .answer-choice-card { flex: 1; min-width: 0; }
+.answer-choice-row .answer-choice-card.is-eliminated {
+  opacity: 1;
+  background: var(--pt-surface, #fff);
+  border-color: var(--pt-line, #E7E3D9);
+  box-shadow: none;
+}
+
+.answer-selected-check {
+  display: flex;
+  align-items: center;
+  flex: none;
+  margin-left: 8px;
+}
+
+.answer-crossout {
+  flex: none;
+  width: 42px;
+  margin-left: 8px;
+  border: 1.5px solid var(--pt-line-strong, #D9D4C7);
+  background: var(--pt-surface, #fff);
+  border-radius: 11px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  color: var(--pt-text-3, #9A9EA6);
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+.answer-crossout:hover { background: var(--pt-surface-2, #F1EEE7); color: var(--pt-text-2, #5B6068); }
+.answer-crossout.is-eliminated {
+  background: var(--pt-text, #16181D);
+  border-color: var(--pt-text, #16181D);
+  color: #fff;
+}
+.answer-crossout-glyph {
+  position: relative;
+  font-family: var(--pt-font-display, 'Bricolage Grotesque'), system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+}
+.answer-crossout-strike::after {
+  content: '';
+  position: absolute;
+  left: -3px;
+  right: -3px;
+  top: 50%;
+  height: 1.5px;
+  background: currentColor;
+}
+
 /* ── Mobile pass ──────────────────────────────────────────────────── */
 @media (max-width: 640px) {
   .answer-choice-card {
