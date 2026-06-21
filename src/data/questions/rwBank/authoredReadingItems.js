@@ -36,7 +36,7 @@ export const authoredReadingItems = [
       }
     ],
     "correctAnswer": "A",
-    "explanation": "The correct answer is A. The claim is that the poem treats the stream's slowness as a kind of wisdom rather than a flaw, and these lines state exactly that: the stream is \"wisest when it will not race\" and \"teaches that to linger is to learn,\" directly equating refusing to hurry with wisdom. C is the key distractor because it concerns motion and speed, but it describes the distant river that \"hurries on\"—the opposite of the unhurried stream the claim praises—so it illustrates haste, not patient slowness. A merely notes that the stream is purposeless, and D simply paints the surrounding scenery, so neither connects slowness to wisdom as the claim requires.",
+    "explanation": "**The correct answer is A.** The claim treats slowness as wisdom, and these lines say it outright: the stream is \"wisest when it will not race\" and \"teaches that to linger is to learn.\"\n\n**Why the other choices are wrong:**\nC shows the distant river that \"hurries on\" (haste, not slowness), B notes only that the stream is purposeless, and D just paints the scenery — none links slowness to wisdom.",
     "authoredBy": "performsat-reading-type-fill",
     "_meta": {
       "authoredFor": "coe-text-illustrate-quote"
@@ -70,7 +70,7 @@ export const authoredReadingItems = [
       }
     ],
     "correctAnswer": "B",
-    "explanation": "The correct answer is B. The claim is that memory reshapes the past so the remembered moment becomes more vivid than the original, and these lines show exactly that: as the speaker retells the morning \"each year,\" its \"colors deepen\" until it is \"brighter now than the day I lived it\"—the recollection actively intensifies beyond the real event. Choice C is the key distractor: the stopped clock movingly marks the moment of loss, but it depicts memory as frozen and preserved, the opposite of the active reshaping the claim requires. Choice A also shows preservation (the coat kept unchanged), and D shows memory fading rather than growing more vivid, so neither fits.",
+    "explanation": "**The correct answer is B.** The claim is that memory reshapes the past into something more vivid, and these lines show it: retold \"each year,\" the morning's \"colors deepen\" until it is \"brighter now than the day I lived it.\"\n\n**Why the other choices are wrong:**\nC's stopped clock and A's kept coat both show memory frozen and preserved, not reshaped, and D shows memory fading rather than intensifying.",
     "authoredBy": "performsat-reading-type-fill",
     "_meta": {
       "authoredFor": "coe-text-illustrate-quote"
@@ -104,7 +104,7 @@ export const authoredReadingItems = [
       }
     ],
     "correctAnswer": "C",
-    "explanation": "The correct answer is C. The claim is that nature has overwritten the gardeners' careful design and reclaimed the plot on its own terms, and these lines show exactly that: no hand corrects the growth, the planted roses revert to briars, the squared rows \"buckle into wild,\" and the garden \"keeps no shape but what it chose\"—nature imposing its own order. Choice D is the strongest distractor because the surviving rose evokes loss and abandonment, but it dwells on lingering human affection rather than on nature actively overwriting design, so it misses the claim's emphasis. Choice A merely sets the scene of decay, and Choice B praises the original gardeners' labor, a different idea entirely.",
+    "explanation": "**The correct answer is C.** The claim is that nature has overwritten the gardeners' design, and these lines show it: roses revert to briars, squared rows \"buckled into wild,\" and the garden \"keeps no shape but what it chose.\"\n\n**Why the other choices are wrong:**\nD's surviving rose dwells on lingering human affection, A merely sets the scene of decay, and B praises the original gardeners' labor — none shows nature actively reclaiming the plot.",
     "authoredBy": "performsat-reading-type-fill",
     "_meta": {
       "authoredFor": "coe-text-illustrate-quote"
@@ -138,7 +138,7 @@ export const authoredReadingItems = [
       }
     ],
     "correctAnswer": "D",
-    "explanation": "The correct answer is D. The claim is that the keeper's pride in his duty is inseparable from a private guilt—that he cannot complete his boast without recalling the night his light failed. These lines do exactly that: the proud claim that every captain owes his harbor to the keeper's hand is interrupted by the exception he names in his sleep, the November ship that sank \"while mine, that hour, were dark,\" fusing the boast and the guilt in a single breath. Choice C is the key distractor: it conveys the weight and difficulty of the duty, but it expresses general weariness about the job, not the specific guilt over a failure that undercuts a boast. Choice A states pride without any guilt, and Choice B describes the solitude of the post, neither of which captures the contrast the claim depends on.",
+    "explanation": "**The correct answer is D.** The claim fuses pride with private guilt, and these lines do exactly that: the boast that \"every captain owes his harbor to my hand\" breaks off at the November ship that sank \"while mine, that hour, were dark.\"\n\n**Why the other choices are wrong:**\nC conveys only general weariness about the duty, A states pride without guilt, and B describes the solitude of the post — none pairs the boast with the failure that undercuts it.",
     "authoredBy": "performsat-reading-type-fill",
     "_meta": {
       "authoredFor": "coe-text-illustrate-quote"
@@ -172,7 +172,7 @@ export const authoredReadingItems = [
       }
     ],
     "correctAnswer": "A",
-    "explanation": "The correct answer is A. The claim is that the birds carry home with them rather than leaving it behind, and these lines show exactly that: \"No nest is left behind\" rejects the idea of loss, while \"the warmth they knew is folded in their wings, / and where they land, that warmth unfolds again\" portrays home as something portable that is restored at the new destination. D is the tempting distractor because the calls that \"keep the line from breaking\" suggest the flock stays connected, but that describes the birds holding together with one another, not carrying their home with them. A simply sets the scene of departure, and C dwells on the traces left behind at the old shore, the opposite of the claim.",
+    "explanation": "**The correct answer is A.** The claim is that the birds carry home with them, and these lines show it: \"No nest is left behind,\" and \"the warmth they knew is folded in their wings, / and where they land, that warmth unfolds again.\"\n\n**Why the other choices are wrong:**\nD's calls describe the flock holding together, not carrying home, B just sets the scene of departure, and C dwells on the traces left behind — the opposite of the claim.",
     "authoredBy": "performsat-reading-type-fill",
     "_meta": {
       "authoredFor": "coe-text-illustrate-quote"
@@ -206,7 +206,7 @@ export const authoredReadingItems = [
       }
     ],
     "correctAnswer": "B",
-    "explanation": "The correct answer is B. The claim is that early risers' unseen labor readies the city before its residents wake, and these lines show exactly that: the baker works \"before a single shutter lifts,\" so that \"by the hour the city stretches and yawns, / the bread already waits in rows\"—the comfort is prepared in advance by someone else. A and D are atmospheric descriptions of dawn light and the river that say nothing about work. C describes gulls announcing the daybreak, which evokes the early hour but depicts no human labor and so does not illustrate the claim about work being done for others.",
+    "explanation": "**The correct answer is B.** The claim is that unseen early labor readies the city, and these lines show it: the baker works \"before a single shutter lifts,\" so that as the city wakes \"the bread already waits in rows.\"\n\n**Why the other choices are wrong:**\nA and D only paint dawn light and the river, and C's gulls announce daybreak — none depicts the human labor done for others that the claim requires.",
     "authoredBy": "performsat-reading-type-fill",
     "_meta": {
       "authoredFor": "coe-text-illustrate-quote"
@@ -240,7 +240,7 @@ export const authoredReadingItems = [
       }
     ],
     "correctAnswer": "C",
-    "explanation": "The correct answer is C. The claim is that the captain ends up valuing the voyage itself over the wealth he sought, and these lines show exactly that reversal: he sets the coin aside and names \"the open water's song, / the salt, the watch, the wind\" as \"the prize / he'd sailed to find,\" ranking the experience of the voyage above the treasure. B is the tempting trap because it is explicitly about gold, but it shows the opposite of the claim—it depicts the captain still consumed by the treasure that \"called him,\" not preferring the journey. C describes the hardship and duration of the voyage without any comparison to wealth, and D depicts his changed homecoming, neither of which illustrates the captain's valuing the voyage over the fortune.",
+    "explanation": "**The correct answer is C.** The claim is that the captain values the voyage over the wealth, and these lines show the reversal: he lets the coin \"lie\" and names \"the salt, the watch, the wind\" as \"the prize / he'd sailed to find.\"\n\n**Why the other choices are wrong:**\nA shows the captain still consumed by the gold that \"called him\" (the opposite), B describes only the voyage's hardship with no comparison to wealth, and D depicts his changed homecoming.",
     "authoredBy": "performsat-reading-type-fill",
     "_meta": {
       "authoredFor": "coe-text-illustrate-quote"
@@ -274,7 +274,7 @@ export const authoredReadingItems = [
       }
     ],
     "correctAnswer": "D",
-    "explanation": "The correct answer is D. The claim is that the poem reframes the village's apparent peace as the product of grinding labor, and these lines do exactly that: the \"stranger\" who \"calls it calm\" is rebuked precisely because he \"has never bent a back from dawn to dusk,\" with the scythe drinking \"the strongest arm\" dry, so the calm is shown to rest on exhausting work. A and C simply paint the restful, idyllic scene the claim says the poem complicates, and C depicts a peaceful evening of leisure; none of these expose labor as the cost of that peace. D is the key trap because its \"patient\" fields hint at toil, but it still only describes a tranquil landscape rather than the body-wearing work the claim depends on.",
+    "explanation": "**The correct answer is D.** The claim reframes the village's calm as the cost of grinding labor, and these lines do it: the \"stranger\" who \"calls it calm\" never \"bent a back from dawn to dusk,\" nor \"felt the scythe drink dry the strongest arm.\"\n\n**Why the other choices are wrong:**\nA and C paint the idyllic orchard and quilt-like fields, and B shows children at leisure at dusk — all describe the tranquil scene without exposing the body-wearing work behind it.",
     "authoredBy": "performsat-reading-type-fill",
     "_meta": {
       "authoredFor": "coe-text-illustrate-quote"
@@ -308,7 +308,7 @@ export const authoredReadingItems = [
       }
     ],
     "correctAnswer": "A",
-    "explanation": "The correct answer is A. The premises are that figures fix the required chords but not their voicing or ornamentation, so skilled players produce audibly different realizations, and that this sonata survives only as a figured bass. The licensed expectation is that an editor printing a complete part must add voicing and ornamentation the figures leave open, making the result interpretive rather than dictated. Choice B contradicts the stated premise that the figures do not determine every note. Choice C wrongly treats the figured bass as an unfinished draft, when the passage presents it as the composer's intended, if underspecified, notation.",
+    "explanation": "**The correct answer is A.** The figures fix the chords but not their voicing or ornamentation, so an editor printing a complete part must add interpretive choices the manuscript leaves open.\n\n**Why the other choices are wrong:**\nB contradicts the premise that the figures don't determine every note, C wrongly treats the figured bass as an unfinished draft, and D invents a needed second manuscript the passage never mentions.",
     "authoredBy": "performsat-reading-type-fill",
     "_meta": {
       "authoredFor": "inf-prediction-expectation"
@@ -342,7 +342,7 @@ export const authoredReadingItems = [
       }
     ],
     "correctAnswer": "B",
-    "explanation": "The correct answer is B. The premises are that bleached corals can recover only if cooler conditions return promptly, and that this reef's water is projected to stay warm for many more weeks with no such cooling. The licensed expectation is therefore extensive mortality, the outcome the evidence points toward once the recovery condition is denied. Choice A asserts recovery, the very outcome ruled out by the absence of cooling. Choice C overgeneralizes into a claim that warmth does not cause bleaching, which contradicts the passage. Choice D misreads the text, which states a bleached coral is not yet dead.",
+    "explanation": "**The correct answer is B.** Recovery requires a prompt return to cooler water, and the reef is projected to stay warm for weeks, so extensive mortality is the expected outcome.\n\n**Why the other choices are wrong:**\nA asserts recovery, the outcome ruled out by the absence of cooling, C contradicts the passage by denying warmth causes bleaching, and D misreads the text, which says a bleached coral is not yet dead.",
     "authoredBy": "performsat-reading-type-fill",
     "_meta": {
       "authoredFor": "inf-prediction-expectation"
@@ -376,7 +376,7 @@ export const authoredReadingItems = [
       }
     ],
     "correctAnswer": "C",
-    "explanation": "The correct answer is C. The premises establish that a busy route keeps depositing foreign goods while a disused one stops adding any, and that the town's uppermost layers are nearly devoid of such goods; the expected consequence is that, by the time those layers formed, the corridor had largely stopped carrying long-distance traffic. Choice A is the key distractor: it reverses the stated relationship, since heavier traffic would deposit more foreign goods, not fewer. Choice B overgeneralizes into a claim the passage never supports, and Choice D contradicts the absence of new foreign goods by positing increased traffic through the town.",
+    "explanation": "**The correct answer is C.** A busy route keeps depositing foreign goods while a disused one stops, so the near-absence of such goods in the top layers means the corridor had largely stopped carrying long-distance traffic.\n\n**Why the other choices are wrong:**\nA reverses the relationship (heavier traffic would leave more goods, not fewer), B overgeneralizes into a claim the passage never supports, and D's increased traffic contradicts the missing foreign goods.",
     "authoredBy": "performsat-reading-type-fill",
     "_meta": {
       "authoredFor": "inf-prediction-expectation"
@@ -410,7 +410,7 @@ export const authoredReadingItems = [
       }
     ],
     "correctAnswer": "D",
-    "explanation": "The correct answer is D. The passage establishes the general pattern that signs grow more compact and conventional, and less governed by visual resemblance, as later generations acquire a signed language from birth, then notes that this particular language is still in its iconic, founding-generation stage. The expected consequence is that native acquisition will make its signs less transparently iconic and more conventional, which is exactly what A predicts. Choice A is the tempting trap because it sounds like stability, but it directly contradicts the stated pattern of change across generations. Choice B reverses the direction of the trend (toward pantomime), and D overgeneralizes into a claim about all signed languages that the passage never supports.",
+    "explanation": "**The correct answer is D.** Signs grow more conventional and less governed by visual resemblance as later generations acquire a language from birth, so this still-iconic young language's signs will become less transparently tied to appearance.\n\n**Why the other choices are wrong:**\nA claims the signs stay fixed, contradicting the stated pattern of change, B reverses the trend toward pantomime, and C overgeneralizes into a claim about all signed languages.",
     "authoredBy": "performsat-reading-type-fill",
     "_meta": {
       "authoredFor": "inf-prediction-expectation"
@@ -444,7 +444,7 @@ export const authoredReadingItems = [
       }
     ],
     "correctAnswer": "A",
-    "explanation": "The correct answer is A. The premises are that people tend to stay with whatever option is the default rather than make a deliberate change, and that the firm is moving the default from non-enrollment (opt-in) to enrollment (opt-out) while changing nothing else. The expected consequence is that enrollment should rise substantially, because staying enrolled is now the passive choice and only a minority will bother to decline. Choice B fails because it points to features the passage says are unchanged and ignores the one thing that did change—the default. Choice C reverses the predicted direction, and the option to leave was always available, so it is no easier than before. Choice D overgeneralizes into a claim about workers' underlying preferences that the inertia premise does not support.",
+    "explanation": "**The correct answer is A.** People stay with the default, and the firm is flipping the default to enrollment, so enrollment should rise as most new hires stay put rather than decline.\n\n**Why the other choices are wrong:**\nB cites unchanged features and ignores the one thing that changed (the default), C reverses the direction and wrongly calls leaving easier, and D overgeneralizes into a claim about workers' preferences the inertia premise doesn't support.",
     "authoredBy": "performsat-reading-type-fill",
     "_meta": {
       "authoredFor": "inf-prediction-expectation"
@@ -478,7 +478,7 @@ export const authoredReadingItems = [
       }
     ],
     "correctAnswer": "B",
-    "explanation": "The correct answer is B. The premises are that sustained inflation signals mounting, undissipated pressure and that this volcano has inflated continuously for months with no venting or tremors to relieve it; the licensed prediction is that the quiet cannot be trusted to last, because building pressure must eventually find an outlet. Choice A is the key distractor: it reverses the premise by claiming pressure has been lost, which the absence of any release directly contradicts. Choice C overgeneralizes into a claim that deformation is unreliable, unsupported by the text, and D contradicts the stated lack of venting.",
+    "explanation": "**The correct answer is B.** Sustained inflation signals mounting pressure, and this volcano has inflated for months with no release, so the quiet can't be trusted — the pressure must eventually find an outlet.\n\n**Why the other choices are wrong:**\nA claims pressure has been lost, which the absence of any release contradicts, C overgeneralizes into a claim that deformation is unreliable, and D contradicts the stated lack of venting.",
     "authoredBy": "performsat-reading-type-fill",
     "_meta": {
       "authoredFor": "inf-prediction-expectation"
@@ -512,7 +512,7 @@ export const authoredReadingItems = [
       }
     ],
     "correctAnswer": "C",
-    "explanation": "The correct answer is C. The premises are that the painting's reds are unusually light-sensitive and that the museum has displayed it under bright light for decades; the licensed expectation is that its current vividness will not last, because continued exposure means continued fading that the canvas must eventually reveal. Choice A contradicts the stated light-sensitivity of the pigments, and Choice D reverses the setup by treating a brightly lit hall as protection rather than a fading risk. Choice B overgeneralizes into a claim the passage never supports, since the text treats light as a clear driver of fading, not an unreliable one.",
+    "explanation": "**The correct answer is C.** The reds are unusually light-sensitive and the museum has displayed the canvas under bright light for decades, so its current vividness won't last as fading continues.\n\n**Why the other choices are wrong:**\nA contradicts the stated light-sensitivity, D reverses the setup by treating a bright hall as protection, and B overgeneralizes into a claim that light is unreliable, when the text treats it as a clear driver of fading.",
     "authoredBy": "performsat-reading-type-fill",
     "_meta": {
       "authoredFor": "inf-prediction-expectation"
@@ -546,7 +546,7 @@ export const authoredReadingItems = [
       }
     ],
     "correctAnswer": "D",
-    "explanation": "The correct answer is D. The premises state that the transit method catches only a small fraction of planets and that the odds of a detectable alignment fall off as orbits widen; given a sample dominated by close-in planets, the expected conclusion is that the missing wide-orbit planets are an artifact of the method's selection bias, not evidence of true scarcity. Choice A is the key distractor: it reads the scarcity as a real difference in how often wide-orbit planets form, which directly ignores the stated detection bias the passage builds toward. Choice B contradicts the premise that the method detects only a small fraction, and Choice C invents a dimming mechanism the passage never mentions.",
+    "explanation": "**The correct answer is D.** The transit method catches only a fraction of planets and the odds of detection fall as orbits widen, so the scarcity of wide-orbit planets reflects the method's bias, not true scarcity.\n\n**Why the other choices are wrong:**\nA reads the scarcity as a real difference in formation, ignoring the detection bias, B contradicts the premise that the method catches only a small fraction, and C invents a dimming mechanism the passage never mentions.",
     "authoredBy": "performsat-reading-type-fill",
     "_meta": {
       "authoredFor": "inf-prediction-expectation"
@@ -580,7 +580,7 @@ export const authoredReadingItems = [
       }
     ],
     "correctAnswer": "A",
-    "explanation": "The correct answer is A. The goal is to emphasize a similarity between the two trade networks, so the sentence must name both and state a feature they share. Choice A does this: on both routes, goods moved along a chain of oasis settlements, passing between merchants rather than being carried the whole way by one party. Choice C names both networks but frames them as contrasting (\\\"Unlike...\\\"), emphasizing a difference instead of a similarity. Choices B and D each describe only one network, so neither states anything the two have in common.",
+    "explanation": "**The correct answer is A.** The goal is a similarity, and A names both routes and states a shared feature: on each, goods moved along a chain of oasis settlements, passing between merchants rather than carried the whole way by one party.\n\n**Why the other choices are wrong:**\nC names both but frames them as contrasting (\"Unlike...\"), a difference, while B and D each describe only one network, so neither states anything the two share.",
     "authoredBy": "performsat-reading-type-fill",
     "_meta": {
       "authoredFor": "rs-emphasize-similarity"
@@ -624,7 +624,7 @@ export const authoredReadingItems = [
       }
     ],
     "correctAnswer": "B",
-    "explanation": "The correct answer is B. The goal is to emphasize a similarity between the two painters, so the sentence must name both and identify what they shared. Choice B does this: both filled their canvases with nonrepresentational forms and described those forms as expressing inner spiritual states rather than the visible world. Choices A and C each describe only one painter, so neither states a similarity. Choice D mentions both but foregrounds a difference in timing rather than a shared feature, which is the opposite of the goal.",
+    "explanation": "**The correct answer is B.** The goal is a similarity, and B names both painters and what they shared: both filled their canvases with nonrepresentational forms they described as expressing inner spiritual states rather than the visible world.\n\n**Why the other choices are wrong:**\nA and C each describe only one painter, so neither states a similarity, and D foregrounds a difference in timing rather than a shared feature.",
     "authoredBy": "performsat-reading-type-fill",
     "_meta": {
       "authoredFor": "rs-emphasize-similarity"
@@ -668,7 +668,7 @@ export const authoredReadingItems = [
       }
     ],
     "correctAnswer": "C",
-    "explanation": "The correct answer is C. The goal is to emphasize a similarity between the two detection methods, so the sentence must name both and identify what they share. Choice C does this: both methods detect a planet by observing only its star and watching for a repeating, measurable change. Choices A and B each describe only one method (or the general practice of one), so neither states a similarity, and Choice D names both methods but foregrounds a difference (\"unlike,\" brightness dips versus light shifts), the opposite of the goal.",
+    "explanation": "**The correct answer is C.** The goal is a similarity, and C names both methods and what they share: each detects a planet by observing only its star and watching for a repeating, measurable change.\n\n**Why the other choices are wrong:**\nA and B each describe only one method, so neither states a similarity, and D names both but foregrounds a difference (\"unlike,\" brightness dips versus light shifts).",
     "authoredBy": "performsat-reading-type-fill",
     "_meta": {
       "authoredFor": "rs-emphasize-similarity"
@@ -712,7 +712,7 @@ export const authoredReadingItems = [
       }
     ],
     "correctAnswer": "D",
-    "explanation": "The correct answer is D. The goal is to emphasize a structural similarity, so the sentence must name both languages and identify a feature they share; B does this by stating that both ASL and BSL build signs from the same components (handshape, location, movement) and that changing one component changes the word. Choice B names both languages but emphasizes a difference (mutual unintelligibility) rather than a similarity, so it works against the goal. Choices A and C draw only on a single detail or describe just one language, so neither states a shared structural feature.",
+    "explanation": "**The correct answer is D.** The goal is a structural similarity, and D names both languages and a shared feature: ASL and BSL build signs from the same components (handshape, location, movement), and changing one changes the word.\n\n**Why the other choices are wrong:**\nB names both but emphasizes a difference (mutual unintelligibility), while A and C describe only one language or a single detail, so neither states a shared structural feature.",
     "authoredBy": "performsat-reading-type-fill",
     "_meta": {
       "authoredFor": "rs-emphasize-similarity"
@@ -756,7 +756,7 @@ export const authoredReadingItems = [
       }
     ],
     "correctAnswer": "A",
-    "explanation": "The correct answer is A. The goal is to emphasize a similarity in how the two volcano types form, so the sentence must name both and identify the shared process: choice A states that both are built gradually over long spans of time by repeated eruptions adding fresh layers. Choice B names both but stresses how their shapes differ, and choice D explicitly frames the shield volcano in contrast (\"Unlike a stratovolcano\"), so both emphasize a difference rather than a similarity. Choice C describes only the stratovolcano, so it cannot express a similarity between the two.",
+    "explanation": "**The correct answer is A.** The goal is a similarity in formation, and A names both types and the shared process: each is built gradually over long spans by repeated eruptions adding fresh layers.\n\n**Why the other choices are wrong:**\nB stresses how their shapes differ and D frames the shield volcano in contrast (\"Unlike a stratovolcano\") — both differences — while C describes only the stratovolcano.",
     "authoredBy": "performsat-reading-type-fill",
     "_meta": {
       "authoredFor": "rs-emphasize-similarity"
@@ -800,7 +800,7 @@ export const authoredReadingItems = [
       }
     ],
     "correctAnswer": "B",
-    "explanation": "The correct answer is B. The goal is to emphasize a similarity between the fugue and the chorale prelude, so the sentence must name both forms and identify what they share. Choice B does this: both build their texture by layering several independent melodic lines that sound at once, and both were prized by Baroque organists for displaying contrapuntal skill. Choice A describes only the fugue, so it states no similarity. Choice C is the key trap: it names both forms but uses \"Unlike\" to foreground how they differ, which is the opposite of emphasizing a similarity. Choice D mentions both forms but only places them in a shared time period, an incidental detail rather than the shared compositional feature the goal calls for.",
+    "explanation": "**The correct answer is B.** The goal is a similarity, and B names both forms and what they share: each layers several independent melodic lines at once, and both were prized by Baroque organists for displaying contrapuntal skill.\n\n**Why the other choices are wrong:**\nA describes only the fugue, C uses \"Unlike\" to foreground how they differ, and D only places them in a shared time period — an incidental detail, not the shared compositional feature.",
     "authoredBy": "performsat-reading-type-fill",
     "_meta": {
       "authoredFor": "rs-emphasize-similarity"
@@ -844,7 +844,7 @@ export const authoredReadingItems = [
       }
     ],
     "correctAnswer": "C",
-    "explanation": "The correct answer is C. The goal is to present Hanlon's central claim about cephalopod camouflage, and C states it directly: camouflage is not a fixed pattern but a rapid, moment-to-moment display the nervous system generates on the spot from a few components as it reads the surroundings. Choice B is the most tempting distractor because it quotes Hanlon, but it reports a secondary observation (that cephalopods are colorblind) rather than his thesis. Choices A and D give the skin's mechanism and biographical background, never stating what Hanlon argues.",
+    "explanation": "**The correct answer is C.** The goal is Hanlon's central claim, and C states it: camouflage is not a fixed pattern but a rapid, moment-to-moment display the nervous system generates on the spot from a few components.\n\n**Why the other choices are wrong:**\nB reports a secondary observation (that cephalopods are colorblind) rather than his thesis, and A and D give the skin's mechanism and biographical background, never stating what Hanlon argues.",
     "authoredBy": "performsat-reading-type-fill",
     "_meta": {
       "authoredFor": "rs-present-claim"
@@ -889,7 +889,7 @@ export const authoredReadingItems = [
       }
     ],
     "correctAnswer": "D",
-    "explanation": "The correct answer is D. The goal is to present Hansen's central claim about the Silk Road, and B states it directly: the routes are best understood as a shifting web of short, overlapping local exchanges rather than a single transcontinental artery, with their significance lying in cultural transmission. Choice A gives only biographical background and never states her claim, and Choice B reports the term's origin and the popular image she revises rather than her own argument. Choice C is the key distractor: it states an accurate but peripheral methodological point about why the evidence survives, not the central thesis the goal requires.",
+    "explanation": "**The correct answer is D.** The goal is Hansen's central claim, and D states it: the Silk Road is best understood as a shifting web of short, overlapping local exchanges rather than a single transcontinental artery, its significance lying in cultural transmission.\n\n**Why the other choices are wrong:**\nA gives only biographical background, B reports the term's origin and the popular image she revises, and C states an accurate but peripheral point about why the evidence survives — none is her thesis.",
     "authoredBy": "performsat-reading-type-fill",
     "_meta": {
       "authoredFor": "rs-present-claim"
@@ -934,7 +934,7 @@ export const authoredReadingItems = [
       }
     ],
     "correctAnswer": "A",
-    "explanation": "The correct answer is A. The goal is to present Kaltenegger's central claim about the search for life on exoplanets, and C states it directly: the starlight filtered through a transiting planet's atmosphere carries a readable chemical fingerprint, so the search for life can become an observational science rather than only speculation. Choice B gives biographical background and never states her claim, and B defines the transit method without saying what Kaltenegger argues. Choice D reports a real but secondary point from the notes—a difficulty the approach still faces—rather than the central claim the goal calls for.",
+    "explanation": "**The correct answer is A.** The goal is Kaltenegger's central claim, and A states it: starlight filtered through a transiting planet's atmosphere carries a readable chemical fingerprint, so the search for life can become an observational science rather than only speculation.\n\n**Why the other choices are wrong:**\nB gives biographical background and C defines the transit method without saying what she argues, and D reports a secondary difficulty the approach still faces rather than the central claim.",
     "authoredBy": "performsat-reading-type-fill",
     "_meta": {
       "authoredFor": "rs-present-claim"
@@ -979,7 +979,7 @@ export const authoredReadingItems = [
       }
     ],
     "correctAnswer": "B",
-    "explanation": "The correct answer is B, \\\"versatile.\\\" The sentence before the blank gives three concrete examples of distinct jobs a single reef does at once: sheltering juvenile fish, buffering waves, and feeding fishing communities. The blank needs a word meaning able to serve many different functions, and \\\"versatile\\\" captures exactly that, matching the closing claim that the reef's value \\\"cannot be reduced to any single function.\\\" \\\"Fragile\\\" is tempting because reefs are famously delicate, but the examples describe what the reef does, not how easily it is harmed, so fragility is unsupported by the listed clues.",
+    "explanation": "**The correct answer is B.** The reef does three distinct jobs at once — sheltering fish, buffering waves, feeding communities — so the blank needs \"able to serve many functions\": \"versatile,\" matching value that \"cannot be reduced to any single function.\"\n\n**Why the other choices are wrong:**\n\"Fragile\" describes how easily a reef is harmed, not what it does, and \"ancient\" and \"decorative\" name qualities the listed jobs give no clue about.",
     "authoredBy": "performsat-reading-type-fill",
     "_meta": {
       "authoredFor": "wic-example-or-illustration"
@@ -1013,7 +1013,7 @@ export const authoredReadingItems = [
       }
     ],
     "correctAnswer": "C",
-    "explanation": "The correct answer is C, \"cultural.\" The blank names what the routes were beyond commercial, and the passage pins the meaning with concrete examples of non-commercial cargo: papermaking techniques, Buddhist scripture, and new musical instruments, which it sums up as \"knowledge and belief.\" Those specific instances point precisely to \"cultural,\" the exchange of ideas, learning, and religion. \"Profitable\" merely restates the commercial side the sentence is contrasting against, and \"hazardous\" and \"ancient\" describe other qualities of the routes that the listed examples do nothing to signal.",
+    "explanation": "**The correct answer is C.** Beyond commercial, the routes carried papermaking, scripture, and instruments — \"knowledge and belief\" — so the blank needs a word for the exchange of ideas and religion: \"cultural.\"\n\n**Why the other choices are wrong:**\n\"Profitable\" just restates the commercial side the sentence contrasts against, and \"hazardous\" and \"ancient\" name qualities the listed examples do nothing to signal.",
     "authoredBy": "performsat-reading-type-fill",
     "_meta": {
       "authoredFor": "wic-example-or-illustration"
@@ -1047,7 +1047,7 @@ export const authoredReadingItems = [
       }
     ],
     "correctAnswer": "D",
-    "explanation": "The correct answer is D, \"formal.\" The sentence offers a closing list of examples—line, color, and shape—as the elements that produce the painting's effect, and \"formal\" is the precise art-critical term for exactly those visual building blocks of a work, as opposed to its subject matter. \"Narrative\" is the key trap: it picks up on the words \"scene\" and \"effect,\" but the passage stresses that the emotion comes from no depicted story at all, so the elements are the opposite of narrative. \"Historical\" and \"decorative\" describe neither line, color, and shape themselves nor the direct expressive role the examples illustrate.",
+    "explanation": "**The correct answer is D.** The blank labels \"line, color, and shape\" — and \"formal\" is the art-critical term for exactly those visual building blocks, as opposed to a work's subject matter.\n\n**Why the other choices are wrong:**\n\"Narrative\" reverses the passage's point that the emotion comes from no depicted story, and \"historical\" and \"decorative\" describe neither line, color, and shape nor their direct expressive role.",
     "authoredBy": "performsat-reading-type-fill",
     "_meta": {
       "authoredFor": "wic-example-or-illustration"
@@ -1081,7 +1081,7 @@ export const authoredReadingItems = [
       }
     ],
     "correctAnswer": "A",
-    "explanation": "The correct answer is A, \\\"indirect.\\\" The passage spells out three concrete examples—a velocity shift, a fractional dip in brightness, and a fleeting magnification—and stresses that astronomers \\\"rarely observe the planets themselves\\\" but instead \\\"read the subtle signatures a planet leaves on its star.\\\" The blank needs a word meaning that the planet is detected through secondary effects rather than seen directly, and \\\"indirect\\\" fits that enumerated evidence precisely. \\\"Visible\\\" is the key trap because it echoes the optical language of brightness and light, but it points the opposite way: the whole passage insists these signatures, not the planets, are what is observed. \\\"Deliberate\\\" and \\\"permanent\\\" describe no property the examples support, since the effects are natural and, in the transit and microlensing cases, explicitly brief.",
+    "explanation": "**The correct answer is A.** Astronomers \"rarely observe the planets themselves\" but \"read the subtle signatures\" — a velocity shift, a brightness dip, a fleeting magnification — so the blank needs \"detected through secondary effects\": \"indirect.\"\n\n**Why the other choices are wrong:**\n\"Visible\" reverses the point that the signatures, not the planets, are observed, and \"deliberate\" and \"permanent\" describe no property the natural, often brief effects support.",
     "authoredBy": "performsat-reading-type-fill",
     "_meta": {
       "authoredFor": "wic-example-or-illustration"
@@ -1115,7 +1115,7 @@ export const authoredReadingItems = [
       }
     ],
     "correctAnswer": "B",
-    "explanation": "The correct answer is B, \\\"nudging.\\\" The passage enumerates three concrete instances—eye-level fruit, automatic retirement enrollment, neighbor-comparison energy bills—that each steer a choice while \\\"leaving them entirely free to choose otherwise,\\\" and the closing sentence stresses that they work \\\"rather than through mandates or financial penalties.\\\" The blank needs a word for arrangements that guide behavior gently through choice design, and \\\"nudging\\\" fits these examples precisely. \\\"Coercive\\\" is the key trap: it captures the steering but directly contradicts the examples' freedom to opt out and the explicit rejection of mandates and penalties.",
+    "explanation": "**The correct answer is B.** The examples — eye-level fruit, automatic enrollment, neighbor-comparison bills — steer a choice while \"leaving them entirely free to choose otherwise,\" so the blank needs a word for guiding behavior gently: \"nudging.\"\n\n**Why the other choices are wrong:**\n\"Coercive\" contradicts the freedom to opt out and the explicit rejection of mandates and penalties, and \"arbitrary\" and \"deceptive\" describe nothing the examples support.",
     "authoredBy": "performsat-reading-type-fill",
     "_meta": {
       "authoredFor": "wic-example-or-illustration"

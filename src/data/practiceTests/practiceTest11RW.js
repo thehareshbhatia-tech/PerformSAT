@@ -58,7 +58,7 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "The correct answer is D, \"damage.\" The passage states that ultraviolet radiation at high altitude \"can break down the molecules inside living cells,\" so the hairs are valuable because they soak up that radiation before it can harm the tissue beneath. \"Damage\" names exactly the threat the hairs guard against. \"Nourish\" describes a benefit, the opposite of what the sentence sets up as a danger. \"Warm\" might tempt a reader who knows alpine plants struggle with cold, but the sentence is about radiation's destructive effect, not temperature. \"Reveal\" treats the light as merely illuminating the tissue, which does not match the protective role the hairs are said to play.",
+          "explanation": "**The correct answer is D.** The passage says ultraviolet radiation \"can break down the molecules inside living cells,\" so the hairs absorb it before it can harm the tissue — the blank needs a word for that harm, and \"damage\" fits.\n\n**Why the other choices are wrong:**\n\"Nourish\" names a benefit and \"reveal\" merely illuminates, but the sentence sets up a danger, and \"warm\" points to temperature when the threat is radiation.",
           "passage": "High on alpine slopes, sunlight carries far more ultraviolet radiation than it does in the valleys below, and such radiation can break down the molecules inside living cells. The flowering plant edelweiss is covered in a dense coat of tiny white hairs. Studies of these hairs suggest that their microscopic structure absorbs ultraviolet wavelengths, soaking up the radiation before it can reach and ______ the delicate tissue underneath.",
           "_meta": {
             "anchor": "edelweiss (Leontopodium alpinum): woolly hairs that absorb ultraviolet light at high altitude"
@@ -91,7 +91,7 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "The correct answer is A, \"overlooked.\" The passage contrasts the old method, which watched only the glacier's front, with newer surveys that reveal thinning hidden below the waterline. The older approach simply failed to register those losses, and \"overlooked\" captures that failure to notice. \"Exaggerated\" and \"anticipated\" would mean the old method saw the losses too vividly or saw them coming, the reverse of missing them, and \"prevented\" describes stopping the melt rather than detecting it.",
+          "explanation": "**The correct answer is A.** The old front-watching method missed the thinning hidden \"from below,\" so the blank needs a word for that failure to notice — \"overlooked\" fits.\n\n**Why the other choices are wrong:**\n\"Exaggerated\" and \"anticipated\" reverse the sense (seeing the losses too vividly or in advance, not missing them), and \"prevented\" means stopping the melt rather than detecting it.",
           "passage": "For most of the twentieth century, glaciologists judged the health of a glacier mainly by measuring how far its front advanced or retreated each year. Recent radar and satellite surveys suggest that this surface view can mislead: a glacier may hold a steady front while thinning dramatically from below, where comparatively warm ocean water melts the ice from underneath. Such hidden losses, researchers note, were almost entirely ______ by the older method of tracking front position alone.",
           "_meta": {
             "anchor": "glaciology: front-position monitoring vs. basal thinning from warm ocean water"
@@ -124,7 +124,7 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "The correct answer is B, \"accommodate.\" The sentence sets up a contrast: rather than fight the pixel grid, Carter worked with it, shaping letters to suit the grid's limits. \"Accommodate,\" meaning to adapt to or make room for, fits that cooperative move. \"Abandon\" would mean giving up the grid, which contradicts \"not to fight ... but to,\" and \"disguise\" implies hiding the grid rather than designing around it. \"Magnify\" points the wrong way, since Carter's problem was legibility at small sizes, not enlargement.",
+          "explanation": "**The correct answer is B.** The sentence says Carter chose \"not to fight the grid but to ______ it,\" tuning his letters to the pixel matrix — so the blank needs a word for adapting to it, and \"accommodate\" fits.\n\n**Why the other choices are wrong:**\n\"Abandon\" and \"disguise\" reject or hide the grid rather than design around it, and \"magnify\" points to enlargement when Carter's problem was legibility at small sizes.",
           "passage": "When the typeface designer Matthew Carter set out to draw fonts for low-resolution computer screens in the 1990s, he faced a constraint print designers had never confronted: at small sizes, a screen rendered each letter as a coarse grid of square pixels, and a graceful curve that looked elegant in print became a jagged stair-step on screen. Carter's solution was not to fight the grid but to ______ it, designing letterforms whose proportions were tuned to the pixel matrix itself.",
           "_meta": {
             "anchor": "Matthew Carter: screen typefaces (Verdana, Georgia) tuned to the pixel grid"
@@ -157,7 +157,7 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "The correct answer is C, \"rippled.\" The phrase \"through the whole network\" calls for a verb of spreading, and the point is that a problem at one end of the route spread its effects across the entire system. \"Rippled,\" with its image of a disturbance moving outward, fits precisely. \"Vanished\" reverses the sense, since the disruption spread rather than disappeared; \"lingered\" describes staying in place rather than moving through a network; and \"originated\" names where a disruption begins, not how it travels outward.",
+          "explanation": "**The correct answer is C.** The phrase \"through the whole network\" needs a verb of spreading — a disruption at one end moved outward across the whole system — and \"rippled\" captures that.\n\n**Why the other choices are wrong:**\n\"Vanished\" reverses the sense (disappearing, not spreading), \"lingered\" means staying put rather than moving through, and \"originated\" names where a disruption begins, not how it travels.",
           "passage": "Historians once treated the caravan routes linking Ottoman Bursa to the silk markets of Iran as a simple conduit, valued only for the goods that moved along them. Newer studies of customs ledgers and merchants' letters complicate that picture. The same routes, these studies show, also carried credit arrangements, legal conventions, and price information, so a disruption at one end ______ through the whole network in ways a purely physical account of cargo cannot explain.",
           "_meta": {
             "anchor": "Ottoman overland trade: routes as carriers of credit, law, price information"
@@ -190,7 +190,7 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "The correct answer is B. The poem opens by asking what \"immortal hand or eye\" could have framed the tiger's \"fearful symmetry,\" and the middle stanzas pile up further questions about the maker—\"What the hammer? what the chain? / In what furnace was thy brain?\"—none of which is ever answered. The final stanza repeats the opening almost word for word, changing only \"Could\" to \"Dare,\" so the structure runs from an opening question through sustained questioning back to the opening lines with one altered word. Choice A is wrong because the speaker never grows calmer and the tiger is never revealed as gentle; the awe only deepens. Choice C reverses the poem, which asks questions rather than proving a confident claim, and Choice D invents a chronological life story and a prediction the poem does not contain.",
+          "explanation": "**The correct answer is B.** The poem opens by asking what \"immortal hand or eye\" framed the tiger, piles up further unanswered questions about its maker, and closes by repeating the opening lines with only \"Could\" changed to \"Dare.\"\n\n**Why the other choices are wrong:**\nA is wrong because the awe deepens rather than calming and the tiger is never gentle; C reverses the poem, which asks rather than proves; and D invents a chronological life story and prediction the poem never gives.",
           "passage": "The following text is from William Blake's poem \"The Tyger\" (1794).\n\nTyger, tyger, burning bright\nIn the forests of the night,\nWhat immortal hand or eye\nCould frame thy fearful symmetry?\n\nIn what distant deeps or skies\nBurnt the fire of thine eyes?\nOn what wings dare he aspire?\nWhat the hand dare seize the fire?\n\nAnd what shoulder and what art\nCould twist the sinews of thy heart?\nAnd, when thy heart began to beat,\nWhat dread hand and what dread feet?\n\nWhat the hammer? what the chain?\nIn what furnace was thy brain?\nWhat the anvil? what dread grasp\nDare its deadly terrors clasp?\n\nWhen the stars threw down their spears,\nAnd watered heaven with their tears,\nDid he smile his work to see?\nDid he who made the lamb make thee?\n\nTyger, tyger, burning bright\nIn the forests of the night,\nWhat immortal hand or eye\nDare frame thy fearful symmetry?",
           "_meta": {
             "anchor": "William Blake, 'The Tyger' (1794)",
@@ -225,7 +225,7 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "The correct answer is A. The previous sentence reports that research established the grammar of an existing sign language; the underlined sentence adds a stronger case—village sign languages that develop full grammar on their own, without any model—and the final sentence ties this to the broad question the passage raises. So the sentence extends the argument with a further line of evidence. Choice B misreads it as conceding a flaw in the earlier work, but it supports that work rather than qualifying it. Choice C says it repeats the discredited \"pantomime\" view, which it does not, and Choice D claims a shift to social exclusion, a topic the passage never takes up.",
+          "explanation": "**The correct answer is A.** The sentence adds a stronger case to the passage's argument — village sign languages that grow full grammar on their own, \"without any model\" — extending the claim that sign languages are true languages.\n\n**Why the other choices are wrong:**\nB calls it a concession of a flaw, but it supports the earlier work; C says it repeats the discredited \"pantomime\" view, which it does not; and D claims a shift to social exclusion the passage never discusses.",
           "passage": "Sign languages were long dismissed by hearing scholars as crude systems of pantomime rather than true languages. Research beginning in the 1960s overturned that view by showing that a sign language such as American Sign Language has its own grammar, including rules for word order and for marking questions through facial expression. More recent work has documented village sign languages that arise spontaneously in communities with many deaf members and that develop complex grammar within a few generations, without any model from an established sign language. Such findings bear on a central question in linguistics: whether the structures common to human languages reflect a capacity that emerges whenever people need to communicate.",
           "_meta": {
             "anchor": "sign-language linguistics: established vs. emerging (village) sign languages"
@@ -258,7 +258,7 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "The correct answer is D. The passage states that Ptolemy's models were accurate but that some astronomers objected to a device within them on principled grounds, and so tried to build alternatives that kept the accurate predictions while removing that device. Explaining why they revised an accurate model is exactly the passage's purpose. Choice A says the models failed to predict planetary motion, which contradicts the passage's repeated point that they were accurate. Choice B focuses on instruments and Choice C on the transmission of texts, neither of which the passage discusses.",
+          "explanation": "**The correct answer is D.** The passage says Ptolemy's models were accurate yet some astronomers objected to an internal device on principle and built alternatives that kept the predictions while removing it — that is, why they revised an accurate model.\n\n**Why the other choices are wrong:**\nA says the models failed to predict planetary motion, contradicting the passage's stress on their accuracy; B focuses on instruments and C on the transmission of texts, neither of which the passage discusses.",
           "passage": "By the eleventh century, astronomers working in the medieval Islamic world had inherited the planetary models of the Greek astronomer Ptolemy, whose system reproduced the observed motions of the planets with impressive accuracy. Yet several of these astronomers were uneasy. Ptolemy's models, they argued, achieved their accuracy by means of a device—a point from which a planet's motion appeared uniform but around which the planet did not actually travel at a constant speed—that violated the principle of uniform circular motion the models were supposed to embody. Rather than discard Ptolemy, they set out to build alternative models that preserved his predictions while removing the offending device.",
           "_meta": {
             "anchor": "medieval Islamic astronomy: objection to Ptolemy's equant; alternative models"
@@ -291,7 +291,7 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "The correct answer is A. Text 2 locates Roman durability in lime clasts that release calcium to seal cracks whenever water—any water—seeps in, and it stresses that this self-healing would protect inland structures the sea never touches. Its authors would therefore point out that Text 1's seawater mechanism, however valid for harbor concrete, cannot explain the survival of Roman buildings far from the coast, where their own mechanism still applies. Choice B overstates their view: they do not deny that volcanic ash matters, only that seawater is the whole story. Choice C attributes to them the seawater-only position they reject, and Choice D has them conceding that their findings are narrower than they actually claim.",
+          "explanation": "**The correct answer is A.** Text 2 credits durability to lime clasts that seal cracks with \"ordinary water\" and notes this would protect \"inland structures that no seawater ever reaches,\" so its authors would say Text 1's seawater account cannot explain those inland survivals.\n\n**Why the other choices are wrong:**\nB has them denying volcanic ash matters at all (they only reject seawater as the whole story), C attributes the seawater-only view they reject, and D has them narrowing their findings to harbor concrete, which they do not.",
           "passages": [
             {
               "label": "Text 1",
@@ -333,7 +333,7 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "The correct answer is A. The passage names a limitation of X-ray crystallography—it needs a large crystal many molecules cannot form—and then presents electron crystallography as a method that resolves structures from far smaller samples, easing that limitation. Choice A states both halves at the right level. Choice B describes only how the older method works, Choice C states only the limitation, and Choice D reports a single supporting detail about electrons; each is true but narrower than the passage's central point.",
+          "explanation": "**The correct answer is A.** The passage names X-ray crystallography's limitation — it needs a large crystal many molecules cannot form — and presents electron crystallography as resolving structures from \"crystals far too small,\" easing that limit.\n\n**Why the other choices are wrong:**\nB describes only how the older method works, C states only the limitation, and D reports one detail about electrons — each true but narrower than the passage's main point.",
           "passage": "X-ray crystallography determines the arrangement of atoms in a solid by directing X-rays at a crystal and recording how the beam scatters into a pattern of spots. For decades the method's great limitation was that it required a sizable, well-ordered crystal, which many important molecules—among them many proteins—are difficult or impossible to grow. A newer technique called electron crystallography sidesteps the problem: because electrons interact with matter far more strongly than X-rays do, the method can resolve the atomic structure of crystals far too small for any X-ray beam to analyze, including powders made of countless microscopic grains.",
           "_meta": {
             "anchor": "crystallography: electron crystallography (e.g., MicroED) resolves structures from nanocrystals/powders"
@@ -366,7 +366,7 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "The correct answer is C. The passage's point is that retrieval makes a memory briefly unstable, so recalling it can change it rather than merely replay it. Choice C captures that claim. Choice A states the fixed-recording view the passage is arguing against. Choice B reports a methodological detail, and Choice D overstates one example—misleading suggestions are mentioned as one source of change, not the only one.",
+          "explanation": "**The correct answer is C.** The passage says retrieval returns a memory to \"a temporarily unstable state,\" so remembering can revise it rather than replay a fixed record.\n\n**Why the other choices are wrong:**\nA states the fixed-recording view the passage argues against, B reports a methodological detail, and D overstates one example by treating misleading suggestions as the only source of change.",
           "passage": "When we recall an event, it can feel as though we are replaying a recording stored intact since the event occurred. Research on memory reconsolidation complicates that picture. Studies in both animals and humans indicate that retrieving a memory can return it to a temporarily unstable state, during which the memory becomes open to modification before it is stored again. In this window, new information present at the moment of recall—or even a misleading suggestion—can be folded into the memory that is then restored. The findings imply that remembering is less the retrieval of a fixed record than an act that can quietly revise the very memory being recalled.",
           "_meta": {
             "anchor": "cognitive science of memory: reconsolidation; remembering as reconstruction"
@@ -399,7 +399,7 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "The correct answer is B. The passage says directly that the player \"supplied the actual voicing, spacing, and ornamentation on the spot,\" filling in what the shorthand left unspecified. Choice A contradicts this, since the player added a great deal; Choice C overshoots, because the player built chords above the composer's bass rather than replacing it; and Choice D describes recording the notation rather than realizing it in performance.",
+          "explanation": "**The correct answer is B.** The passage says the player \"supplied the actual voicing, spacing, and ornamentation on the spot,\" filling in what the numbered shorthand left unspecified.\n\n**Why the other choices are wrong:**\nA contradicts this, since the player added a great deal; C overshoots, because the player built chords above the bass rather than replacing it; and D describes recording the notation, not realizing it in performance.",
           "passage": "In the decades around 1700, composers rarely wrote out every note a performer was expected to play. A keyboard player reading from a \"figured bass\" saw only the bass line and a shorthand of numbers indicating which chords to build above it; the player supplied the actual voicing, spacing, and ornamentation on the spot. Performances of the same piece could therefore differ substantially from one player to the next. Modern \"historically informed\" performers have revived this practice, treating the printed score not as a complete set of instructions but as a framework the performer was expected to complete in the moment of playing.",
           "_meta": {
             "anchor": "Baroque performance practice: figured bass / basso continuo realization"
@@ -432,7 +432,7 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "The correct answer is C. The hypothesis is that misalignment between activity and the internal clock—not sleep loss—drives the metabolic harm, so the team holds total sleep constant and varies the timing of meals and activity. A finding that, with sleep equal, night eating and exercise produce worse metabolic markers than daytime eating and exercise directly supports that claim. Choice A concerns how rested people feel, not their metabolic markers; Choice B reports equal calories, which is neutral; and Choice D points to total sleep loss, which is precisely the explanation the team is arguing against.",
+          "explanation": "**The correct answer is C.** The hypothesis blames circadian misalignment, not sleep loss, so a finding that — with sleep held equal — night eating and exercise yield worse metabolic markers than daytime eating and exercise directly supports it.\n\n**Why the other choices are wrong:**\nA concerns how rested people feel, not metabolic markers; B reports equal calories, which is neutral; and D points to sleep loss, the very explanation the team is arguing against.",
           "passage": "Shift workers, whose schedules force them to sleep during the day and work at night, have higher rates of several metabolic disorders than day workers do. One research team proposed that the cause is not lost sleep as such but circadian misalignment—eating and being active at times of day when the body's internal clock has prepared it for rest. To test this idea, the team plans to compare metabolic markers in two groups who get the same total amount of sleep but differ in whether their meals and activity align with their internal clocks.",
           "_meta": {
             "anchor": "epidemiology of sleep: circadian misalignment vs. sleep loss in shift work"
@@ -465,7 +465,7 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "The correct answer is D. The claim is that the decline was concentrated in the earliest part of the record rather than spread evenly, so the evidence has to show that one early decade carried more of the loss than the later decades combined. Choice D does this: the 1960-to-1970 drop of 110 thousand metric tons (180 down to 70) is larger than the 1970-to-2010 losses added together (15 + 15 + 15 + 13 = 58). Choice B reports the full fifty-year decline of more than 90 percent, which shows the stock fell a great deal but says nothing about whether the loss was front-loaded. Choice A claims the 1990-to-2010 drop is the largest interval, but that 28-thousand-ton change is smaller than the 1960s drop, so it points the wrong way. Choice C fixes on the lowest single value, which marks the endpoint of the decline but cannot show how the loss was distributed across the decades.",
+          "explanation": "**The correct answer is D.** The claim is that the loss was front-loaded, so the evidence must show one early decade outweighing the later ones: the 1960-1970 drop of 110 (180 to 70) exceeds the 1970-2010 losses combined (58).\n\n**Why the other choices are wrong:**\nB gives the full 90-percent decline without showing it was front-loaded, A calls the smaller 1990-2010 drop the largest interval, and C fixes on the lowest single value, which marks the endpoint but not the distribution.",
           "passage": "The Atlantic cod stock on Georges Bank, in the Northwest Atlantic, has long served as a benchmark for the consequences of intensive fishing. Drawing on stock-assessment summaries published by the NOAA Northeast Fisheries Science Center, fisheries scientists have argued that, although the stock declined across every decade in the half-century after 1960, the loss was concentrated in the earliest part of the record rather than spread evenly across the period because _______",
           "questionTable": {
             "type": "table",
@@ -533,7 +533,7 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "The correct answer is C. The claim singles out the rise of one region of origin to majority status, so the evidence must name that region, trace its rise, and show that it crossed half by the most recent year. Choice C does all three: Latin America rises from 1 percent in 1900 to 9 percent in 1960 to 53 percent in 2010, the only figure in the table above 50 percent. Choice A reports the European share's 74-point fall, the largest single change, but a decline cannot demonstrate a rise to majority. Choice B notes that the Asian share more than tripled, which is true but never reaches a majority. Choice D highlights the nearly flat \"Other\" row, the smallest movement in the table, when the claim turns on the dominant rising trend.",
+          "explanation": "**The correct answer is C.** The claim is that one region rose to a majority, and Latin America rises from 1 percent (1900) to 9 percent (1960) to 53 percent (2010) — the only figure in the table above 50 percent.\n\n**Why the other choices are wrong:**\nA cites Europe's 74-point fall, but a decline cannot show a rise to majority; B notes Asia more than tripled yet never reached half; and D highlights the nearly flat \"Other\" row, the smallest movement in the table.",
           "passage": "Demographers studying the U.S. foreign-born population over the long twentieth century have noted that its regional composition was repeatedly reorganized by changes in immigration law, transportation, and economic geography. Drawing on Pew Research Center compilations of census records, one team argues that the most striking single feature of the period is not the broad shift away from European origins but the rise of one specific region of origin, which by the most recent benchmark constituted a majority of the foreign-born population, because _______",
           "questionTable": {
             "type": "table",
@@ -603,7 +603,7 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "The correct answer is A. The passage explains that a gecko's toes hold fast even to dry, spotless glass, that the clinging force comes from the van der Waals attraction generated by millions of microscopic hairs pressed into close contact, and that the foot releases the instant the toe is peeled back. Together these point to the modest inference that no sticky secretion is involved—the grip is a matter of physical contact, not glue. Choice B contradicts the passage, which says the foot works on dry surfaces. Choice C reverses the stated point that each hair contributes only a tiny force and that the grip comes from their combined number. Choice D claims geckos are unique in using van der Waals forces, a comparison the passage never makes.",
+          "explanation": "**The correct answer is A.** The passage says the grip works on \"dry glass,\" leaves no residue, and comes from van der Waals contact, not glue — so no sticky secretion is involved.\n\n**Why the other choices are wrong:**\nB contradicts the passage, which says the foot works on dry surfaces; C reverses the point that each hair contributes only a tiny force; and D claims geckos are unique in using van der Waals forces, a comparison never made.",
           "passage": "A gecko can run up a pane of spotless, dry glass and hang from it by a single toe, yet its feet leave no residue and lift away the instant the toe is peeled back. The grip is not glue. Each toe is covered with millions of microscopic hairs, and every hair splits into hundreds of still finer tips that press flat against the surface. The pull from any one tip is vanishingly small, arising from the faint van der Waals attraction between molecules in close contact; but spread across so many points of contact, the combined force easily supports the animal's weight. Because the effect depends only on getting enough tips close enough to the surface, researchers infer that ______",
           "_meta": {
             "anchor": "gecko foot adhesion: van der Waals forces from setae, not chemical glue"
@@ -636,7 +636,7 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "The correct answer is B. The passage says a zij's tables were accurate only near the latitude they were computed for and had to be recomputed for use elsewhere. So astronomers who adopted a zij prepared for another city would have had to recalculate its tables for their own latitude first. Choice A is too extreme, since recomputing the tables, not abandoning them, is what the passage describes; Choice C contradicts the stated latitude-dependence; and Choice D wrongly claims the handbook was useless, when the passage says it works once adjusted.",
+          "explanation": "**The correct answer is B.** The passage says a zij's tables were accurate only near their home latitude and \"had to be recomputed for the new latitude,\" so adopters elsewhere had to recalculate them first.\n\n**Why the other choices are wrong:**\nA is too extreme (the passage describes recomputing, not abandoning), C contradicts the stated latitude-dependence, and D wrongly calls the handbook useless when it works once adjusted.",
           "passage": "Astronomers in the medieval Islamic world compiled detailed handbooks, called zijes, that tabulated the predicted positions of the Sun, Moon, and planets for use in timekeeping and calendar work. A striking feature of these handbooks is that their tables were calculated for a specific city's latitude and were accurate only for an observer near that location. A user in a distant region could not simply copy the figures; the tables had to be recomputed for the new latitude before they would give correct results. It follows that when a zij prepared for one city circulated widely, the astronomers who adopted it elsewhere ______",
           "_meta": {
             "anchor": "medieval Islamic astronomy: latitude-specific zij (astronomical handbook) tables"
@@ -669,7 +669,7 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "The correct answer is A. The blank falls between two complete sentences: \"In 1817 the German inventor Karl von Drais unveiled a two-wheeled running machine that a rider straddled and pushed along with the feet\" and \"the machine had no pedals of any kind, leaving a rider to scramble against the ground so vigorously that a long trip left the legs aching.\" Standard English joins two independent clauses with a comma plus a coordinating conjunction, which is exactly what \", and\" supplies. \"And\" alone, with no comma, fuses the clauses into a run-on. A comma by itself produces a comma splice. And \"; and,\" stacks a semicolon, a conjunction, and a stray comma at a single junction, none of which belong together.",
+          "explanation": "**The correct answer is A.** The blank joins two independent clauses, and Standard English joins them with a comma plus a coordinating conjunction — \", and\" does exactly that.\n\n**Why the other choices are wrong:**\n\"And\" alone makes a run-on, the lone comma makes a comma splice, and \"; and,\" stacks a semicolon, a conjunction, and a stray comma that do not belong together.",
           "passage": "In 1817 the German inventor Karl von Drais unveiled a two-wheeled running machine that a rider straddled and pushed along with the feet ______ the machine had no pedals of any kind, leaving a rider to scramble against the ground so vigorously that a long trip left the legs aching.",
           "_meta": {
             "anchor": "Karl von Drais: 1817 running machine (Laufmaschine), the pedal-less ancestor of the bicycle",
@@ -703,7 +703,7 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "The correct answer is C. The subject of the verb is the singular noun \"account,\" not any of the plural nouns—\"routes,\" \"markets,\" \"tables,\" \"families\"—that sit between the subject and the blank. A singular subject takes a singular verb, so \"the ... account ... draws on customs ledgers\" is correct. \"Draw\" and \"are drawing\" are plural and agree with the nearer plural nouns rather than with the true subject, and \"have drawn\" likewise uses the plural \"have\" where the singular \"account\" requires \"draws.\"",
+          "explanation": "**The correct answer is C.** The subject is the singular \"account,\" not the plural nouns between it and the blank, so the singular verb \"draws\" agrees with it.\n\n**Why the other choices are wrong:**\n\"Draw\" and \"are drawing\" are plural and agree with the nearer plural nouns rather than the true subject, and \"have drawn\" likewise uses a plural form where the singular \"account\" needs \"draws.\"",
           "passage": "The historian's detailed account of the caravan routes that once linked the Ottoman silk markets to the Iranian interior, with all of its tables of prices and its lists of merchant families, ______ on customs ledgers that happened to survive in provincial archives.",
           "_meta": {
             "anchor": "Ottoman silk-route history (generic)",
@@ -737,7 +737,7 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "The correct answer is D. Everything before the blank—\"Researchers now focus instead on a cluster of everyday habits\"—is a complete sentence, and what follows is a list that spells out which habits are meant. A colon is the mark that introduces such a list after a complete statement, so \"habits:\" is correct. A semicolon would wrongly signal a second independent clause, but the list is not a sentence. A comma cannot cleanly introduce a three-item list whose items already contain commas, leaving the boundary blurred. And no punctuation at all runs the clause straight into the list.",
+          "explanation": "**The correct answer is D.** Everything before the blank is a complete sentence and a list of the habits follows, so a colon — \"habits:\" — correctly introduces that list.\n\n**Why the other choices are wrong:**\nThe semicolon wrongly signals a second independent clause, the comma blurs the boundary before a list whose items contain commas, and no punctuation runs the clause straight into the list.",
           "passage": "For much of the twentieth century, insomnia was treated as a single disorder with a single cause. Researchers now focus instead on a cluster of everyday habits ______ irregular bedtimes, late-evening screen use, and daytime napping that erodes the natural pressure to sleep at night.",
           "_meta": {
             "anchor": "epidemiology of sleep: behavioral cluster in insomnia",
@@ -771,7 +771,7 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "The correct answer is C. The choices belong to the printers, who are plural, so the possessive of the plural noun \"printers\" is formed by adding an apostrophe after the existing -s: \"the printers' choices.\" \"Printer's\" is the singular possessive, but the sentence is about more than one printer; \"printers\" with no apostrophe is merely the plural and marks no possession; and \"printers's\" adds an extra -s that the plural possessive does not take.",
+          "explanation": "**The correct answer is C.** The choices belong to more than one printer, so the plural possessive adds an apostrophe after the existing -s: \"the printers' choices.\"\n\n**Why the other choices are wrong:**\n\"Printer's\" is singular possessive, \"printers\" marks no possession, and \"printers's\" adds an extra -s the plural possessive does not take.",
           "passage": "In a traditional ukiyo-e printing workshop, the block carver worked faithfully from the artist's original drawing, and yet it was the printers ______ choices about ink density, color saturation, and registration that gave each individual impression much of its final character on the finished sheet.",
           "_meta": {
             "anchor": "ukiyo-e printmaking workshop (generic)",
@@ -805,7 +805,7 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "The correct answer is B. The blank holds a long parenthetical that explains the phase problem, and that insertion already contains several commas of its own. To bracket an inserted phrase that has internal commas, Standard English uses a matched pair of stronger marks—here, paired em-dashes—so the reader can see where the insertion opens and closes. Paired commas (the first option) would blur into the commas inside the insertion. Mixing a dash with a closing comma (the last option) fails to pair the marks. And omitting punctuation entirely runs the main sentence straight into the insertion.",
+          "explanation": "**The correct answer is B.** The blank holds a long parenthetical with internal commas of its own, and a matched pair of em-dashes brackets it cleanly so the reader sees where the insertion opens and closes.\n\n**Why the other choices are wrong:**\nPaired commas blur into the commas inside the insertion, a dash plus a closing comma fails to pair the marks, and no punctuation runs the sentence straight into the insertion.",
           "passage": "In the early decades of X-ray crystallography, researchers were repeatedly held up by what they called the \"phase problem\" ______ before they could turn a photograph of scattered spots into a three-dimensional map of the atoms packed inside a single crystal.",
           "_meta": {
             "anchor": "crystallography: the phase problem",
@@ -839,7 +839,7 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "The correct answer is C. The phrase \"By the time ... in the 1930s\" fixes a point in the past, and the founders' design work was already under way for decades before that point. The past perfect progressive \"had been working\" marks an action ongoing before a past reference point, so it is correct. \"Have been working\" is present perfect and ties the work to the present, clashing with the 1930s frame. \"Work\" and \"are working\" are present-tense forms that cannot express an action completed relative to an earlier past moment.",
+          "explanation": "**The correct answer is C.** \"By the time ... in the 1930s\" fixes a past point, and the design work had been going on for decades before it, so the past perfect progressive \"had been working\" is correct.\n\n**Why the other choices are wrong:**\n\"Have been working\" is present perfect and ties the work to now, clashing with the 1930s frame, and \"work\" and \"are working\" are present-tense forms that cannot mark an action ongoing before an earlier past moment.",
           "passage": "By the time the first cheap paperback editions began to reach the newsstands of British and American cities in the 1930s, the major type founders ______ for several decades to design typefaces that stayed legible even when printed quickly on rough, inexpensive paper.",
           "_meta": {
             "anchor": "typography history: legible faces for cheap paperbacks (generic)",
@@ -873,7 +873,7 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "The correct answer is D. The first sentence states a long-standing assumption that everyone needs about eight hours; the second reports evidence that some people thrive on far less, which runs counter to that assumption. \"However\" marks exactly that reversal of expectation. \"As a result\" would make the finding a consequence of the assumption, \"Likewise\" would make it a parallel agreement, and \"For example\" would make it an illustration of the rule—none of which matches a sentence that cuts against the rule.",
+          "explanation": "**The correct answer is D.** The first sentence gives the eight-hour assumption; the second reports carriers of a variant who thrive on six hours, cutting against it — \"However\" marks that reversal.\n\n**Why the other choices are wrong:**\n\"As a result\" makes the finding a consequence, \"Likewise\" makes it agree, and \"For example\" makes it an illustration of the rule — none fits a sentence that contradicts the rule.",
           "passage": "For years, sleep advice rested on the assumption that nearly everyone needs roughly eight hours a night and that consistently sleeping much less must harm a person's health. ______ studies of a small number of families have identified a rare genetic variant whose carriers feel fully rested after about six hours and show none of the health costs that short sleep usually predicts, suggesting that the eight-hour rule does not apply uniformly to everyone.",
           "_meta": {
             "anchor": "epidemiology of sleep: short-sleep genetic variant (generic)"
@@ -906,7 +906,7 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "The correct answer is C. The first sentence reports widespread skepticism that a new sign language could develop real grammar so fast; the second reports that, in spite of that skepticism, the evidence for exactly such grammar accumulated. \"Nevertheless\" is the connector for a development that holds despite an established expectation. \"Therefore\" would make the evidence a consequence of the skepticism, while \"Moreover\" and \"Likewise\" would treat the second sentence as adding to or agreeing with the first, when it instead works against it.",
+          "explanation": "**The correct answer is C.** The first sentence reports skepticism that a sign language could form grammar so fast; the second shows the evidence accumulated anyway — \"Nevertheless\" marks a result that holds despite the expectation.\n\n**Why the other choices are wrong:**\n\"Therefore\" makes the evidence a consequence of the skepticism, while \"Moreover\" and \"Likewise\" treat the second sentence as adding to or agreeing with the first, when it works against it.",
           "passage": "When researchers first proposed that a sign language emerging spontaneously among deaf children at a Nicaraguan school had developed its own grammar, many linguists were skeptical, reasoning that a language could not arise so quickly without a model to learn from. ______ as successive groups of younger children entered the school, observers documented that each cohort added grammatical regularities the previous one had lacked, until the system showed the kind of structure linguists had assumed required generations of established use.",
           "_meta": {
             "anchor": "sign-language linguistics: emergence of a new sign language (generic)"
@@ -939,7 +939,7 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "The correct answer is A. The first sentence makes a general point—that performers must settle matters the composer left open—and the second gives a specific instance of such a matter, a tempo marking as vague as \"adagio.\" \"For example\" introduces that illustration. \"However\" would signal a contrast, \"Therefore\" a consequence, and \"Meanwhile\" a parallel event in another setting, none of which fits a sentence that simply exemplifies the general claim.",
+          "explanation": "**The correct answer is A.** The first sentence makes a general point — performers settle what the composer left open — and the second gives a specific instance, a vague \"adagio\" marking, so \"For example\" introduces the illustration.\n\n**Why the other choices are wrong:**\n\"However\" signals contrast, \"Therefore\" a consequence, and \"Meanwhile\" a parallel event, none of which fits a sentence that simply exemplifies the claim.",
           "passage": "Performers in the early-music movement often have to make choices the composer left unspecified. ______ a Baroque score might mark a passage simply \"adagio,\" giving the tempo in only the vaguest terms, so the performer must decide how slow the music should actually go by weighing the character of the piece, the size of the hall, and the conventions of the period.",
           "_meta": {
             "anchor": "Baroque performance practice: unspecified tempo markings (generic)"
@@ -972,7 +972,7 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "The correct answer is A. The goal is to emphasize what made the catalog notable, and Choice A names the two features the notes mark as distinctive: its star positions were measured directly rather than copied, and they remained the most accurate available until the telescope. Choice B recounts the observatory, its instrument, and the circumstances of the catalog's compilation without saying what set the catalog apart; Choice C reports the number of stars and later use without saying what set the work apart; and Choice D records who compiled it and when, which is provenance rather than significance.",
+          "explanation": "**The correct answer is A.** The goal is to emphasize what made the catalog notable, and A names both distinctive features: its positions were measured directly rather than copied and stayed the most accurate until the telescope.\n\n**Why the other choices are wrong:**\nB recounts the observatory and compilation, C gives the star count and later use, and D records who compiled it and when — provenance and detail, not what set the work apart.",
           "studentNotes": {
             "intro": "While researching a topic, a student has taken the following notes:",
             "bullets": [
@@ -1015,7 +1015,7 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "The correct answer is B. The goal is to make a generalization about what Ralph's group's research shows, and Choice B states the higher-order point the notes build toward: the same handful of storms both supply much of California's water and cause most of its flooding, so one class of storm is at once the state's main water source and its main flood risk. Choice A only defines atmospheric rivers and identifies who studies them; Choice C gives the water-supply finding alone; and Choice D reports the flood and drought findings without connecting them to the storms' role as a water source. Only B joins the findings into a single generalization.",
+          "explanation": "**The correct answer is B.** The goal is a generalization, and B joins the notes into one: the same few storms both supply much of California's water and cause most of its floods, making one storm class both the main water source and main flood risk.\n\n**Why the other choices are wrong:**\nA only defines atmospheric rivers and who studies them, C gives the water-supply finding alone, and D reports floods and droughts without tying them to the water-source role.",
           "studentNotes": {
             "intro": "While researching a topic, a student has taken the following notes:",
             "bullets": [
@@ -1065,7 +1065,7 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "The correct answer is D, \"diminished.\" The clause after the colon explains the blank: the same hours of daytime sleep \"yields less\" recovery, so its restorative value is reduced. \"Diminished\" names that reduction. \"Restored\" points the wrong way, since the sentence is about value lost, not regained; \"prolonged\" concerns length, not worth; and \"standardized\" describes making something uniform, which has no bearing on how much recovery the sleep provides.",
+          "explanation": "**The correct answer is D.** The clause after the colon says the same hours \"yields less\" recovery, so the restorative value is reduced — \"diminished\" names that reduction.\n\n**Why the other choices are wrong:**\n\"Restored\" points to value regained, not lost; \"prolonged\" concerns length, not worth; and \"standardized\" means making uniform, irrelevant to how much recovery the sleep provides.",
           "passage": "Public-health researchers studying the long-term effects of shift work have begun to distinguish between the total hours a person sleeps and the timing of that sleep. A worker on a rotating night schedule may log a full eight hours during the day, yet because that sleep falls out of phase with the body's internal clock, its restorative value can be ______: the same number of hours yields less of the metabolic and cognitive recovery that nighttime sleep provides.",
           "_meta": {
             "anchor": "epidemiology of sleep: circadian timing vs. total sleep duration in shift work"
@@ -1098,7 +1098,7 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "The correct answer is D, \"accelerated.\" The sentence contrasts the old method, which \"consumed months\" of handwork, with robots that now run thousands of trials, so the robots have sped the process up. \"Accelerated\" captures that. \"Replaced\" is tempting, but the trial-and-error process still happens—just faster—so it is accelerated rather than replaced; \"abandoned\" wrongly suggests the search was given up; and \"complicated\" reverses the sense, since the robots streamline the work rather than make it harder.",
+          "explanation": "**The correct answer is D.** The robots run trials \"by the thousand\" on a process that \"once consumed months\" of handwork, so they sped it up — \"accelerated\" fits.\n\n**Why the other choices are wrong:**\n\"Replaced\" and \"abandoned\" wrongly drop the trial-and-error process, which still happens, just faster, and \"complicated\" reverses the sense, since the robots streamline the work.",
           "passage": "Protein crystallographers face a paradox: to learn a molecule's shape, they must first coax it into a crystal, but the conditions that make a protein crystallize are notoriously unpredictable. For decades, finding those conditions was largely a matter of trial and error, with researchers mixing thousands of slightly different chemical cocktails in the hope that one would work. Robotic systems that prepare and monitor such trials by the thousand have since ______ a process that once consumed months of painstaking handwork.",
           "_meta": {
             "anchor": "crystallography: robotic high-throughput protein crystallization screening"
@@ -1131,7 +1131,7 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "The correct answer is A, \"supplant.\" The astronomers judged Ptolemy's device incoherent and built new constructions to take its place while keeping his accurate predictions, so they sought to replace the device. \"Supplant,\" meaning to displace and take the place of, fits exactly. \"Endorse\" is the opposite of objecting to it; \"ignore\" contradicts the effort they put into replacing it; and \"exaggerate\" does not describe doing anything to the device at all.",
+          "explanation": "**The correct answer is A.** The astronomers judged Ptolemy's device \"physically incoherent\" and built new constructions to take its place, so the blank needs a word for replacing it — \"supplant\" fits.\n\n**Why the other choices are wrong:**\n\"Endorse\" is the opposite of objecting, \"ignore\" contradicts the effort they put into replacing it, and \"exaggerate\" describes doing nothing to the device.",
           "passage": "The astronomers of the medieval Islamic world did not merely preserve Greek astronomy; they subjected it to sustained criticism. Confronted with Ptolemy's claim that a certain planetary motion was uniform about a point off-center from the orbit, several of them judged the device physically incoherent and worked to ______ it—not by rejecting Ptolemy's hard-won predictive accuracy, but by devising new geometric constructions that reproduced his results while honoring the principle of uniform circular motion he had compromised.",
           "_meta": {
             "anchor": "medieval Islamic astronomy: replacing Ptolemy's equant with new constructions"
@@ -1164,7 +1164,7 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "The correct answer is B, \"adaptation.\" The phrase \"not a mere holdover but an ______\" sets up a contrast, and the clause after the colon describes active adjustment—reorganizing, extending credit, rewriting contracts. \"Adaptation\" names that adjustment. \"Inheritance\" is too close to the \"holdover\" the sentence rejects; \"illusion\" denies the persistence the passage treats as real; and \"obstacle\" does not describe what the city's continued success was.",
+          "explanation": "**The correct answer is B.** \"Not a mere holdover but an ______\" sets up a contrast, and the clause after the colon shows active adjustment — reorganizing, extending credit, rewriting contracts — so \"adaptation\" fits.\n\n**Why the other choices are wrong:**\n\"Inheritance\" is too close to the \"holdover\" being rejected, \"illusion\" denies the real persistence, and \"obstacle\" does not describe the city's continued success.",
           "passage": "Long after sea routes around Africa drew European merchants away from the overland silk trade, the Ottoman commercial city of Aleppo remained a thriving market hub. Recent work in the city's court records suggests that its persistence was not a mere holdover but an ______: local merchants reorganized around new goods, extended credit to caravans coming from farther east, and rewrote their contracts to handle the longer settlement times the changing trade now required.",
           "_meta": {
             "anchor": "Ottoman trade history: Aleppo's commercial adaptation in the early modern period"
@@ -1197,7 +1197,7 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "The correct answer is C. The passage describes the standard twentieth-century way of playing Baroque music, the historically informed movement's break from it, and the movement's goal of recovering interpretive options that had been lost. Explaining that departure and its aim is the passage's purpose. Choice A overstates the point into a blanket ban the passage never issues; Choice B promises careers the passage does not trace; and Choice D narrows the focus to instrument construction, only one detail among several.",
+          "explanation": "**The correct answer is C.** The passage lays out the standard modern way of playing Baroque music, the movement's break from it, and its aim of recovering \"interpretive options\" that had been lost.\n\n**Why the other choices are wrong:**\nA overstates the point into a blanket ban the passage never issues, B promises careers it does not trace, and D narrows to instrument construction, only one detail among several.",
           "passage": "For most of the twentieth century, orchestras performed Baroque music on modern instruments, at modern pitch, and with the large string sections of a Romantic symphony. Beginning in the 1970s, a movement known as historically informed performance challenged that habit. Its musicians played on instruments built to period specifications or on careful reproductions, tuned to the lower pitches documented in old treatises, and in ensembles sized to match the forces a composer would actually have had on hand. The aim was not to claim that older sounds were objectively better but to recover interpretive options the standardized modern approach had quietly foreclosed, letting listeners hear how the music might have struck audiences of its own time.",
           "_meta": {
             "anchor": "Baroque performance practice: historically informed performance movement"
@@ -1230,7 +1230,7 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "The correct answer is A. The passage opens with the resort's gossip about \"a new person\"—a lady with a dog—then follows Gurov, who has \"begun to take an interest in new arrivals,\" as he notices her and meets her \"several times a day,\" singling her out among the visitors. Introducing Gurov through that growing attention is the passage's purpose. Choice B reverses his attitude, since he is drawn to the new arrivals rather than avoiding them; Choice C invents an unhappiness the text never reports about the woman; and Choice D promises a Yalta-Moscow comparison the passage does not make.",
+          "explanation": "**The correct answer is A.** The passage opens with resort gossip about \"a lady with a little dog,\" then follows Gurov, who has \"begun to take an interest in new arrivals,\" as he notices her and meets her \"several times a day.\"\n\n**Why the other choices are wrong:**\nB reverses his attitude (he is drawn to the new arrivals, not avoiding them), C invents an unhappiness the text never reports, and D promises a Yalta-Moscow comparison the passage never makes.",
           "passage": "The following text is from Anton Chekhov's 1899 short story \"The Lady with the Dog\" (translated by Constance Garnett). Dmitri Gurov is a Moscow banker on holiday at the seaside resort of Yalta.\n\nIt was said that a new person had appeared on the sea-front: a lady with a little dog. Dmitri Dmitritch Gurov, who had by then been a fortnight at Yalta, and so was fairly at home there, had begun to take an interest in new arrivals. Sitting in Verney's pavilion, he saw, walking on the sea-front, a fair-haired young lady of medium height, wearing a beret; a white Pomeranian dog was running behind her. And afterwards he met her in the public gardens and in the square several times a day. She was walking alone, always wearing the same beret, and always with the same white dog; no one knew who she was, and every one called her simply \"the lady with the dog.\"",
           "_meta": {
             "anchor": "Anton Chekhov, 'The Lady with the Dog' (1899), trans. Constance Garnett",
@@ -1265,7 +1265,7 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "The correct answer is D. The passage contrasts hand-copied books, where no two copies matched, with printed editions, where every sheet is identical, and argues that this fixity—not just printing's speed—changed how knowledge could be shared and cited. Choice D states that purpose. Choice A pulls out a side detail (scribes' corrections) and inflates it into a claim about accuracy the passage does not defend; Choice B focuses on how type was cast, which the passage does not cover; and Choice C concerns the press's geographic spread, another topic the passage never takes up.",
+          "explanation": "**The correct answer is D.** The passage contrasts hand-copied books, where \"no two copies were exactly alike,\" with identical printed sheets, and argues this fixity — not just speed — changed how knowledge could be shared and cited.\n\n**Why the other choices are wrong:**\nA inflates a side detail (scribes' corrections) into a claim about accuracy, B focuses on how type was cast, and C concerns the press's geographic spread — none of which the passage defends.",
           "passage": "Before the mid-fifteenth century, every copy of a book in Europe was written out by hand, and no two copies were exactly alike: scribes abbreviated differently, made errors, and silently corrected the texts they copied. The printing press changed the nature of a \"copy.\" Once a page had been set in metal type, every sheet pulled from it was identical, and a mistake, once set, was reproduced in every copy of the edition. Scholars have argued that this new fixity, as much as the speed of printing, transformed European intellectual life: for the first time a writer in one city could refer a reader in another to a specific page and be confident they were looking at exactly the same words.",
           "_meta": {
             "anchor": "typography/print history: the 'fixity' of identical printed copies (generic)"
@@ -1298,7 +1298,7 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "The correct answer is B. Text 2 reports that Kao and Hockham traced the high losses in glass fibers to removable impurities, chiefly iron, rather than to the glass itself, and concluded that the claim that fibers were fundamentally unsuitable rested on an assumption the evidence did not require. They would therefore say that Text 1's pessimistic projection depends on treating the measured loss as a fixed property of glass when it need not be. Choice A has them embracing that very assumption and judging fibers even more hopeless, the reverse of their position; Choice C has them accepting the projection they actually reject; and Choice D inflates their measured point into a refusal to make any projection at all, which they never propose.",
+          "explanation": "**The correct answer is B.** Kao and Hockham traced the high losses to removable impurities, \"chiefly iron,\" not to glass itself, so they would say Text 1's gloomy projection treats the loss as fixed when the evidence does not require it.\n\n**Why the other choices are wrong:**\nA has them embracing that very assumption and judging fibers more hopeless, C has them accepting the projection they reject, and D inflates their point into a refusal to make any projection at all.",
           "passages": [
             {
               "label": "Text 1",
@@ -1340,7 +1340,7 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "The correct answer is D. The passage sets the standard view—the Ottomans as a passive supplier—against historians who use Ottoman records to show that the empire ran its own networks, set its own prices, and dictated its own credit terms, making it an active commercial system. Choice D captures that conclusion. Choice A overstates the evidence as the \"only\" sources; Choice B states a detail the passage actually denies; and Choice C describes a collapse the passage never mentions.",
+          "explanation": "**The correct answer is D.** The passage sets the \"passive supplier\" view against historians who use Ottoman records to show the empire ran its own networks, set its own prices, and dictated its own credit terms — an active commercial system.\n\n**Why the other choices are wrong:**\nA overstates the records as the \"only\" sources, B states a detail the passage actually denies, and C describes a collapse the passage never mentions.",
           "passage": "The standard account of early modern Mediterranean commerce treats the Ottoman Empire mainly as a supplier of raw materials to a rising European economy. Drawing on Ottoman customs registers and merchant correspondence, some historians have challenged that framing. These records show that Ottoman merchants did not simply hand goods to European buyers at the water's edge; they ran their own long-distance networks, set prices through their own guilds and courts, and extended credit across imperial borders on terms they themselves dictated. On this reading, the empire was not a passive periphery feeding European growth but an active commercial system whose institutions shaped the terms on which Mediterranean trade was conducted.",
           "_meta": {
             "anchor": "Ottoman trade history: empire as active commercial system, not passive periphery"
@@ -1373,7 +1373,7 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "The correct answer is B. The passage shows that signs, like spoken words, are built from reusable parts, and concludes that the combinatorial design once thought unique to speech belongs to human language in either channel. Choice B states that point. Choice A invents a claim about larger inventories and learning difficulty the passage does not make; Choice C contradicts the example, in which changing a handshape yields a different word; and Choice D asserts a complete catalogue the passage never claims.",
+          "explanation": "**The correct answer is B.** The passage shows signs are assembled from reusable parts, like spoken words, and concludes the combinatorial design once thought unique to speech is \"a property of human language in either channel.\"\n\n**Why the other choices are wrong:**\nA invents a claim about larger inventories and learning difficulty, C contradicts the example (changing a handshape yields a different word), and D asserts a complete catalogue the passage never claims.",
           "passage": "Spoken languages build words out of a small inventory of sounds; sign languages build them out of a small inventory of handshapes, locations, and movements. Linguists studying this parallel have shown that signs are not holistic pictures but are assembled from these reusable parts, so that changing a single component—the handshape while the location and movement stay the same—can yield a completely different word, just as changing a single sound can in speech. The finding matters because it indicates that the layered, combinatorial design once thought special to spoken language is in fact a property of human language in either channel, whether produced by the voice or by the hands.",
           "_meta": {
             "anchor": "sign-language linguistics: combinatorial (sublexical) structure of signs"
@@ -1406,7 +1406,7 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "The correct answer is A. The passage states that such patients can keep improving at a mirror-tracing task day by day \"even as they deny ever having attempted it before,\" so they learn a motor skill without remembering the practice. Choice B reverses this, since the passage says motor learning is retained, not lost; Choice C contradicts the central detail that these patients cannot form new event memories; and Choice D swaps the two abilities, attributing to them a loss of motor learning the passage assigns to declarative memory instead.",
+          "explanation": "**The correct answer is A.** The passage says these patients keep improving at a mirror-tracing task \"even as they deny ever having attempted it before\" — learning a motor skill without remembering the practice.\n\n**Why the other choices are wrong:**\nB reverses this, since motor learning is retained; C contradicts the detail that they cannot form new event memories; and D swaps the abilities, pinning on them a loss of motor learning the passage assigns to declarative memory.",
           "passage": "Not all memory loss is loss of the same thing. Patients with damage to a brain structure called the hippocampus may be unable to form new memories of events they experience—where they went yesterday, whom they met an hour ago—and yet retain the ability to acquire new motor skills, improving at a mirror-tracing task day by day even as they deny ever having attempted it before. Findings of this kind led researchers to distinguish \"declarative\" memory, the conscious recollection of facts and events, from \"procedural\" memory, the largely unconscious learning of skills, and to conclude that the two depend on partly separate brain systems rather than on a single faculty of memory.",
           "_meta": {
             "anchor": "cognitive science of memory: declarative vs. procedural memory in amnesia"
@@ -1439,7 +1439,7 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "The correct answer is C. The specialist's claim is that line wear can date an impression, and the plan is to check it against impressions of known order. A finding that, among documented impressions, the later ones reliably show the predicted breaks and thinning while the earlier ones stay crisp directly supports the claim. Choice A concerns color across different blocks, a separate variable; Choice B is about how many records survive, which is neutral to the wear hypothesis; and Choice D reports collector preferences, which say nothing about whether wear marks track printing order.",
+          "explanation": "**The correct answer is C.** The specialist's claim is that line wear can date an impression, so a finding that documented later impressions reliably show breaks and thinning while earlier ones stay crisp directly supports it.\n\n**Why the other choices are wrong:**\nA concerns color across different blocks, a separate variable; B is about how many records survive, which is neutral; and D reports collector preferences, which say nothing about whether wear tracks printing order.",
           "passage": "Many ukiyo-e prints survive in multiple impressions that look, at a glance, identical. Yet art historians can often place these impressions in a sequence, identifying which were pulled early in a block's life and which came later. One specialist argues that the key evidence is physical wear: as a woodblock is used, its finest carved lines gradually break down, so impressions pulled later show subtle gaps and thinning in details that are crisp in early ones. To test whether wear can date an impression, the specialist plans to compare impressions whose order of printing is already known from documentary records.",
           "_meta": {
             "anchor": "Japanese printmaking: block wear used to sequence ukiyo-e impressions"
@@ -1472,7 +1472,7 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "The correct answer is D. The claim compares intervals: the biggest single step toward maize-centered diets came at the start of the transition rather than later, so the evidence must compare each period-to-period change in delta-13C. Choice D does this: the Late Archaic to Early Preclassic shift is +2.6 permil, larger than the +2.5 of the next interval and the +1.4 of the last. Choice A points to the highest (least negative) value at the end of the sequence, which shows maize was a staple by then but not where the largest jump fell. Choice B substitutes the rising sample-size column for the isotope column, and sample size does not track diet. Choice C calls the final 1.4-permil shift the largest jump when it is in fact the smallest of the three.",
+          "explanation": "**The correct answer is D.** The claim is that the biggest step came at the start, so the evidence must compare each interval's change: the Late Archaic to Early Preclassic shift of +2.6 permil beats the next interval's +2.5 and the last's +1.4.\n\n**Why the other choices are wrong:**\nA points to the highest end value, which shows maize was a staple but not where the largest jump fell; B substitutes the sample-size column, which does not track diet; and C calls the final shift the largest when it is the smallest.",
           "passage": "Stable carbon isotope ratios (delta-13C) in human bone collagen rise as a person's diet incorporates more maize, a tropical grass whose photosynthetic pathway leaves a distinctive carbon signature. Reporting on cemetery samples from four Maya periods, Kennett and colleagues (2020) argue that the biggest single step toward maize-centered diets in the Maya lowlands occurred at the very beginning of the recorded transition rather than later in the sequence, because _______",
           "questionTable": {
             "type": "table",
@@ -1542,7 +1542,7 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "The correct answer is B. The claim is that the largest absolute jump came in the most recent twenty-year window, so the evidence must compare the size of each interval's change. Choice B does this: the 1990-to-2010 rise of 1.5 hours is larger than the 1.3-hour rise of 1950 to 1970 and the 1.0-hour rise of 1970 to 1990. Choice C gives the cumulative sixty-year change, which collapses three intervals into one and cannot say which window held the largest jump. Choice D names the real early-adoption rise, but that is smaller than the most recent window's. Choice A calls the 1.0-hour middle interval the largest when it is the smallest of the three.",
+          "explanation": "**The correct answer is B.** The claim is that the largest jump came in the most recent window, so the evidence must compare each interval: the 1990-2010 rise of 1.5 hours beats the 1.3-hour rise of 1950-1970 and the 1.0-hour rise of 1970-1990.\n\n**Why the other choices are wrong:**\nC gives the cumulative sixty-year change, which cannot say which window held the largest jump; D names the early-adoption rise, which is smaller; and A calls the 1.0-hour middle interval the largest when it is the smallest.",
           "passage": "A standard story about U.S. media history holds that television viewing rose steeply in the early postwar decades, when households were first acquiring sets, and then plateaued as the technology saturated the market. Compiling household-level figures from Nielsen historical reports and industry estimates, one media scholar challenges that account, arguing that the largest absolute jump in average daily viewing actually occurred in the most recent twenty-year window in the record rather than in the earliest decades, because _______",
           "questionTable": {
             "type": "table",
@@ -1602,7 +1602,7 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "The correct answer is B. The passage notes that long sleep is often a marker of an illness that itself raises mortality, so the higher death rate among long sleepers need not mean long sleep is the cause. Choice B draws exactly that hedged conclusion. Choice A leaps to a causal prescription the passage does not license; Choice C overshoots into the claim that sleep has no relation to health at all; and Choice D asserts identical illness rates, which contradicts the passage's point that illness is more common among long sleepers.",
+          "explanation": "**The correct answer is B.** The passage says long sleep is often a marker of an illness that itself raises mortality, so the higher death rate among long sleepers need not mean long sleep is the cause.\n\n**Why the other choices are wrong:**\nA leaps to a causal prescription the passage does not license, C overshoots into the claim that sleep has no relation to health at all, and D asserts identical illness rates, contradicting the passage.",
           "passage": "Studies that follow large groups of people over many years often find that those who report sleeping unusually little and those who report sleeping unusually much both have higher mortality than those in the middle of the range. It is tempting to read this as evidence that too much sleep is itself harmful. But researchers caution that in such studies long sleep is frequently a marker of an existing illness—chronic pain, depression, or undiagnosed disease—that both lengthens sleep and raises mortality on its own. This caution suggests that the higher mortality observed among long sleepers ______",
           "_meta": {
             "anchor": "epidemiology of sleep: confounding / reverse causation in long-sleep mortality studies"
@@ -1635,7 +1635,7 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "The correct answer is C. The passage says whistled speech encodes a community's spoken language and is understood only by those who already speak it, so a listener must map the whistles onto the spoken language to recover the message. Choice C states that. Choice A contradicts the point that comprehension requires knowing the local language; Choice B denies the dependence on spoken language the passage stresses; and Choice D is too absolute, since the passage says non-tonal whistlers simply encode word features another way, not that they cannot encode them at all.",
+          "explanation": "**The correct answer is C.** The passage says whistled speech is \"understood only by people who already speak the local spoken language,\" so a listener recovers the message by mapping the whistles onto that language.\n\n**Why the other choices are wrong:**\nA contradicts the point that comprehension requires knowing the local language, B denies that dependence, and D is too absolute, since non-tonal whistlers just encode word features another way.",
           "passage": "Whistled languages, found in a handful of communities around the world, let people converse across long distances by whistling. In a community whose spoken language is tonal, whistlers reproduce the pitch contours that distinguish words; in a community whose spoken language relies instead on vowels and consonants, whistlers must encode those features in some other way, since a whistle carries little besides pitch. Researchers note that whistled speech is generally understood only by people who already speak the local spoken language. It follows that a whistled message ______",
           "_meta": {
             "anchor": "linguistics of tone languages: whistled speech parasitic on the spoken language"
@@ -1668,7 +1668,7 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "The correct answer is B. The blank joins two complete sentences—\"The physicists ... worked out the law ...\" and \"the younger Bragg was just twenty-five ...\"—that are closely related but with no coordinating conjunction between them. A semicolon is the mark for joining two such independent clauses, so \"crystal;\" is correct. A comma alone makes a comma splice; no punctuation makes a run-on; and a colon would wrongly promise that the second clause explains or specifies the first, when it just adds a related fact.",
+          "explanation": "**The correct answer is B.** The blank joins two independent clauses with no coordinating conjunction, and a semicolon is the mark for that — \"crystal;\" is correct.\n\n**Why the other choices are wrong:**\nThe lone comma makes a comma splice, no punctuation makes a run-on, and the colon wrongly promises that the second clause explains the first when it just adds a related fact.",
           "passage": "The physicists William Henry Bragg and his son William Lawrence Bragg worked out the law that relates the angles of scattered X-rays to the spacing of atoms in a crystal ______ the younger Bragg was just twenty-five when the two shared the Nobel Prize for the achievement in 1915.",
           "_meta": {
             "anchor": "W. H. and W. L. Bragg: Bragg's law, 1915 Nobel Prize",
@@ -1702,7 +1702,7 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "The correct answer is A. The blank is the third item in a list governed by \"drew on three kinds of work,\" and the first two items are -ing phrases: \"observing the heavens\" and \"checking those observations.\" Parallel structure requires the third item to take the same form, so \"refining the trigonometric methods\" is correct. \"To refine\" is an infinitive that breaks the pattern; \"refined\" is a finite verb that cannot be coordinated with the two -ing phrases; and \"the refinement of\" switches to a noun phrase, again breaking the parallelism.",
+          "explanation": "**The correct answer is A.** The first two list items are -ing phrases — \"observing the heavens\" and \"checking those observations\" — so parallel structure requires the third to match: \"refining the trigonometric methods.\"\n\n**Why the other choices are wrong:**\n\"To refine\" is an infinitive, \"refined\" is a finite verb, and \"the refinement of\" is a noun phrase — each breaks the -ing pattern.",
           "passage": "To compile a major astronomical handbook, a medieval astronomer typically drew on three kinds of work: observing the heavens with large instruments, checking those observations against earlier Greek and Indian tables, and ______ the trigonometric methods needed to convert raw sightings into predicted positions.",
           "_meta": {
             "anchor": "medieval Islamic astronomy: compiling a zij (generic)",
@@ -1736,7 +1736,7 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "The correct answer is C. The phrase \"a pioneer of research on cave-dwelling microbes\" is a nonrestrictive appositive: it adds information about Barton, who is already fully identified by name, and could be lifted out without changing whom the sentence is about. An appositive set inside a sentence this way must be enclosed by a matched pair of commas, so the option with a comma both before and after it is correct. An opening comma with no closing one, or a closing comma with no opening one, leaves the insertion unclosed at one end, and using no commas at all wrongly treats the phrase as essential to identifying her.",
+          "explanation": "**The correct answer is C.** \"A pioneer of research on cave-dwelling microbes\" is a nonrestrictive appositive describing Barton, already named, so it needs a matched pair of commas — one before and one after.\n\n**Why the other choices are wrong:**\nThe options with only an opening or only a closing comma leave the insertion unclosed at one end, and no commas at all wrongly treat the phrase as essential to identifying her.",
           "passage": "Deep caves cut off from sunlight were long assumed to be nearly lifeless. The microbiologist Hazel Barton ______ has shown that the bare rock walls of such caves can support thriving communities of bacteria, which draw their energy from minerals in the stone rather than from the sun.",
           "_meta": {
             "anchor": "Hazel Barton: microbiology of cave-dwelling bacteria",
@@ -1770,7 +1770,7 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "The correct answer is A. The errors belong to the copyists, who are plural, so the possessive is formed by adding an apostrophe after the -s already present: \"the copyists' errors.\" \"Copyist's\" is the singular possessive, but the passage refers to more than one copyist; \"copyists\" with no apostrophe is the plain plural and marks no possession; and \"copyists's\" adds a second -s that the plural possessive does not require.",
+          "explanation": "**The correct answer is A.** The errors belong to more than one copyist, so the plural possessive adds an apostrophe after the existing -s: \"the copyists' errors.\"\n\n**Why the other choices are wrong:**\n\"Copyist's\" is singular possessive, \"copyists\" marks no possession, and \"copyists's\" adds a second -s the plural possessive does not require.",
           "passage": "Before printing, the texts that circulated in Europe bore the marks of their copyists. Modern editors can sometimes reconstruct a lost original by comparing the surviving manuscripts and sorting out which readings reflect the ______ errors rather than the author's own words.",
           "_meta": {
             "anchor": "textual criticism / typography history: copyists' errors (generic)",
@@ -1804,7 +1804,7 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "The correct answer is D. The blank sits between two complete sentences, and \"however\" is a conjunctive adverb, not a coordinating conjunction, so it cannot join the clauses by itself. A period (with a capital) cleanly ends the first sentence and begins the second, and the paired commas around \"however\" set it off as an interrupter within that second sentence. The comma-plus-\"however\" option leaves a comma splice between the clauses; the semicolon option fixes the boundary but gives \"however\" only an opening comma; and the last comma-splice option also fails to set off \"however\" at all.",
+          "explanation": "**The correct answer is D.** The blank sits between two complete sentences, and \"however\" is a conjunctive adverb that cannot join clauses, so a period ends the first sentence and paired commas set \"however\" off in the second.\n\n**Why the other choices are wrong:**\nThe comma-plus-\"however\" option makes a comma splice, the semicolon option gives \"however\" only an opening comma, and the last also fails to set \"however\" off at all.",
           "passage": "Popular sleep advice treats eight hours as the right amount of sleep for nearly every adult ______ argue that the optimal amount in fact varies from person to person and that a fixed nightly target may do more harm than good for some sleepers.",
           "_meta": {
             "anchor": "epidemiology of sleep: variation in optimal sleep need (generic)",
@@ -1838,7 +1838,7 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "The correct answer is B. The opening phrase \"Trained first as a physical chemist ...\" must modify the subject of the main clause, and only a person can have been trained as a chemist. \"Rosalind Franklin\" supplies that subject directly: she was trained, and she used X-ray diffraction. The other options make the subject \"the structure of DNA,\" the dummy \"it,\" or \"Rosalind Franklin's images,\" none of which can be the thing that was \"trained ... as a physical chemist,\" so each leaves the opening modifier dangling.",
+          "explanation": "**The correct answer is B.** The opening phrase \"Trained first as a physical chemist\" must modify the subject, and only a person can be trained — \"Rosalind Franklin\" supplies that subject directly.\n\n**Why the other choices are wrong:**\nThe others make the subject \"the structure of DNA,\" the dummy \"it,\" or \"Rosalind Franklin's images,\" none of which can be the thing trained as a chemist, leaving the modifier dangling.",
           "passage": "Trained first as a physical chemist before turning her attention to biological problems, ______ used X-ray diffraction to capture the remarkably sharp images of DNA fibers that later proved central to working out the three-dimensional structure of the molecule itself.",
           "_meta": {
             "anchor": "Rosalind Franklin: X-ray diffraction images of DNA",
@@ -1872,7 +1872,7 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "The correct answer is A. The first sentence reports a common assumption—that a confident witness recalls events like a camera—and the second corrects it with what research actually shows: memory is reconstructed and easily reshaped. \"In fact\" is the connector for replacing a loose impression with the more accurate truth. \"Consequently\" would make the research a result of the assumption; \"Likewise\" would make it agree with the assumption; and \"Meanwhile\" would mark an unrelated parallel event, none of which fits a sentence that overturns the assumption.",
+          "explanation": "**The correct answer is A.** The first sentence gives the camera-like assumption about memory; the second corrects it with what research shows — that memory is reconstructed and reshaped — so \"In fact\" replaces the loose impression with the truth.\n\n**Why the other choices are wrong:**\n\"Consequently\" makes the research a result of the assumption, \"Likewise\" makes it agree, and \"Meanwhile\" marks an unrelated parallel event — none fits a sentence that overturns the assumption.",
           "passage": "Eyewitness testimony is often described, even by jurors, as among the most compelling evidence a trial can offer, on the assumption that a confident witness is recalling the scene much as a camera would have recorded it. ______ decades of laboratory work show that memory for a witnessed event is reconstructed each time it is recalled and can be reshaped by leading questions, by exposure to other witnesses' accounts, and by the witness's own expectations, so that a vivid, confident memory may diverge sharply from what actually occurred.",
           "_meta": {
             "anchor": "cognitive science of memory: eyewitness memory as reconstructive (generic)"
@@ -1905,7 +1905,7 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "The correct answer is B. The second sentence describes design changes—cleaner letters, wider spacing, standardized punctuation—and the third reports their consequence: a page from 1550 is easier to read than one from 1470. \"As a result\" marks that cause-and-effect link. \"However\" would signal a contrast, \"Instead\" a replacement, and \"For example\" an illustration, none of which captures the way the later page's readability follows directly from the changes described.",
+          "explanation": "**The correct answer is B.** The prior sentence lists design changes — cleaner letters, wider spacing, standardized punctuation — and the blank's sentence reports their consequence: a 1550 page reads easier than a 1470 one. \"As a result\" marks that cause and effect.\n\n**Why the other choices are wrong:**\n\"However\" signals contrast, \"Instead\" a replacement, and \"For example\" an illustration — none captures readability following directly from the changes.",
           "passage": "When printers first set books in movable type, they imitated the dense, abbreviation-filled handwriting of scribes, packing as many characters onto a line as possible. Over the following century, type designers cut cleaner letterforms, widened the spacing between words, and standardized punctuation. ______ a printed page from 1550 is markedly easier for a modern reader to scan than one from 1470, even though both use the same alphabet.",
           "_meta": {
             "anchor": "typography history: legibility gains from sixteenth-century type reform (generic)"
@@ -1938,7 +1938,7 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "The correct answer is C. The first sentence says raw silk was easy to price quickly; the second says finished cloth was hard to price on the spot. The two cases are set against each other, and \"by contrast\" marks that opposition. \"For instance\" would make finished cloth an example of easy pricing, \"therefore\" would make it a consequence, and \"in addition\" would make it a further point on the same side—none of which fits a sentence drawing a contrast.",
+          "explanation": "**The correct answer is C.** Raw silk was easy to price quickly, but finished cloth was \"far harder to price on the spot\" — the two cases are opposed, so \"by contrast\" fits.\n\n**Why the other choices are wrong:**\n\"For instance\" makes cloth an example of easy pricing, \"therefore\" a consequence, and \"in addition\" a further point on the same side — none fits a contrast.",
           "passage": "In the textile trade of the early modern Ottoman cities, raw silk was typically sold by weight, and a buyer could judge the quality of a lot fairly quickly by inspecting and weighing a sample. Finished cloth, ______ was far harder to price on the spot: its value depended on the fineness of the weave, the fastness of the dyes, and the reputation of the workshop, none of which a quick inspection could fully reveal.",
           "_meta": {
             "anchor": "Ottoman trade history: pricing raw silk vs. finished cloth (generic)"
@@ -1971,7 +1971,7 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "The correct answer is D. The goal is to highlight a disagreement, and Choice D states both sides of it: conventional accounts prize the suppression of perspective, while D'Ignazio and Klein hold that default choices carry hidden assumptions and that disclosing perspective strengthens rigor. Choice A merely introduces the authors and the book; Choice B says the two sides agree, which inverts the disagreement; and Choice C gives only D'Ignazio and Klein's side without naming the conventional view it opposes.",
+          "explanation": "**The correct answer is D.** The goal is to highlight a disagreement, and D states both sides: conventional accounts prize suppressing perspective, while D'Ignazio and Klein hold that default choices hide assumptions and disclosing perspective strengthens rigor.\n\n**Why the other choices are wrong:**\nA only introduces the authors and book, B says the two sides agree (inverting the disagreement), and C gives only D'Ignazio and Klein's side without the opposing view.",
           "studentNotes": {
             "intro": "While researching a topic, a student has taken the following notes:",
             "bullets": [
@@ -2014,7 +2014,7 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "The correct answer is B. The goal is to compare the analytical projects of two essays, and Choice B names both and states what each does: one criticizes the separation of research from the communities it concerns, while the other goes further, casting the historian's task as treating, not only describing, a community's harm. Choice A compares the essays only by where they appear and what heritage they draw on, not by their arguments; Choice C describes a single essay; and Choice D introduces the collection as a whole without comparing the two essays at all.",
+          "explanation": "**The correct answer is B.** The goal is to compare the two essays' projects, and B names both: one criticizes separating research from communities, while the other goes further, casting the historian's task as treating, not only describing, a community's harm.\n\n**Why the other choices are wrong:**\nA compares only where the essays appear and what heritage they draw on, C describes a single essay, and D introduces the collection without comparing the two essays.",
           "studentNotes": {
             "intro": "While researching a topic, a student has taken the following notes:",
             "bullets": [

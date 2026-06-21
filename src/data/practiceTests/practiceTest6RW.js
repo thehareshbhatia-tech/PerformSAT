@@ -60,7 +60,7 @@ export const practiceTest6RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "The correct answer is D, \"incorporate.\" The sentence describes the cell taking a fragment of viral DNA and building it into its own genetic material as a lasting record. \"Incorporate\" means exactly that: to take something in and make it part of a larger whole. \"Ignore\" is the opposite of what the cell does, since the whole point is to keep the fragment rather than disregard it. \"Describe\" would treat the cell as if it were commenting on the DNA, which it cannot do, and \"imitate\" suggests copying the virus's behavior rather than filing away a piece of its DNA."
+          "explanation": "**The correct answer is D.** The cell builds a viral DNA fragment \"into the cell's own genetic material,\" so the blank needs a word for absorbing something into a whole — \"incorporate.\"\n\n**Why the other choices are wrong:**\n\"Ignore\" reverses the meaning (the cell keeps the fragment), \"describe\" treats the cell as if it could comment, and \"imitate\" means copying the virus rather than filing away its DNA."
         },
         {
           "id": 602,
@@ -90,7 +90,7 @@ export const practiceTest6RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "The correct answer is B, \"inertia.\" The passage contrasts the workers' genuine desire to save with their failure to act, and it attributes that failure to small frictions like paperwork. \"Inertia\" — a tendency to stay at rest unless pushed — captures precisely that gap between intention and action. \"Ambition\" and \"urgency\" both point toward eagerness to act, the reverse of what the sentence describes, and \"nostalgia,\" a longing for the past, has nothing to do with the difficulty of getting started."
+          "explanation": "**The correct answer is B.** The passage blames the gap between wanting to save and acting on \"small frictions, such as paperwork,\" so the blank needs a word for staying put unless pushed — \"inertia.\"\n\n**Why the other choices are wrong:**\n\"Ambition\" and \"urgency\" point toward eagerness to act, the reverse of the problem, and \"nostalgia\" (longing for the past) has nothing to do with the difficulty of getting started."
         },
         {
           "id": 603,
@@ -120,7 +120,7 @@ export const practiceTest6RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "The correct answer is A, \"interlocking.\" The example makes the point that altering one practice immediately changes the others, so the customs work as parts of a single connected whole. \"Interlocking\" names exactly that mutual dependence. \"Disposable\" would mean the customs could be discarded, and \"redundant\" would mean they merely repeat one another; neither fits a description of parts that depend on one another. \"Contradictory\" would imply the practices are at odds, but the passage describes them as linked, not conflicting."
+          "explanation": "**The correct answer is A.** Changing one practice \"immediately alters\" the others, so the customs are parts of one connected whole that depend on each other — \"interlocking.\"\n\n**Why the other choices are wrong:**\n\"Disposable\" (could be discarded) and \"redundant\" (merely repeat) miss the mutual dependence, and \"contradictory\" implies conflict, but the passage describes the practices as linked, not at odds."
         },
         {
           "id": 604,
@@ -150,7 +150,7 @@ export const practiceTest6RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "The correct answer is D, \"overstated.\" The second half of the passage gives evidence against the early explanation: audiences watched many scenes calmly and came back, which does not look like real confusion. To say historians find the explanation \"overstated\" is to say they think it claims more than the evidence supports, which matches that contrast. \"Persuasive\" would mean the historians accept the explanation, the opposite of the point. \"Inevitable\" and \"flattering\" describe qualities the passage never raises; the issue is whether the claim is exaggerated, not whether it is unavoidable or complimentary."
+          "explanation": "**The correct answer is D.** Audiences \"calmly watched dozens of other scenes and returned for more,\" evidence that the confusion claim says more than it should — the historians find it \"overstated.\"\n\n**Why the other choices are wrong:**\n\"Persuasive\" would mean the historians accept the claim, the opposite of the point, and \"inevitable\" and \"flattering\" raise qualities the passage never addresses."
         },
         {
           "id": 605,
@@ -180,7 +180,7 @@ export const practiceTest6RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "The correct answer is A. The passage builds toward Jansky's conclusion that the mysterious hiss came from the center of the galaxy, and the underlined sentence supplies the key step: the daily four-minute shift matches the motion of the stars, not anything on Earth, which is what allows him to place the source beyond the planet. The sentence does not catalog the kinds of interference (that work is done in the sentence before it), nor does it raise any doubt about his equipment. And it concerns the origin of the faint hiss, not the general problem of static on phone calls."
+          "explanation": "**The correct answer is A.** The sentence reports that the hiss shifted four minutes daily \"against the distant stars,\" the observation that lets Jansky rule out an earthly source and trace it beyond the planet.\n\n**Why the other choices are wrong:**\nB describes the earlier sentence cataloging the interference, C invents doubt about his equipment, and D concerns the general static problem rather than the faint hiss's origin."
         },
         {
           "id": 606,
@@ -210,7 +210,7 @@ export const practiceTest6RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "The correct answer is A. The passage explains how pigment binds into damp plaster, then uses that fact to show how a conservator can distinguish original fresco from later retouching, closing with why the distinction matters for treatment. That arc is explanatory and practical, which choice A captures. The text never claims frescoes outlast other paintings, never surveys the available pigments, and offers no history of the technique, so the other choices describe purposes the passage does not pursue."
+          "explanation": "**The correct answer is A.** The passage explains how pigment binds into damp plaster, uses that to show how a conservator tells fresco from retouching, and notes the two layers \"call for different treatments\" — an explanatory, practical purpose.\n\n**Why the other choices are wrong:**\nThe text never claims frescoes outlast other paintings (B), never surveys pigments (C), and gives no history of the technique (D)."
         },
         {
           "id": 607,
@@ -240,7 +240,7 @@ export const practiceTest6RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "The correct answer is D. The underlined sentence draws an explicit contrast: earlier attempts sketched poses as pictures, while Laban's system recorded movement as a continuous flow. That contrast is what distinguishes his notation from what came before, which is the function choice D names. The sentence raises no doubt about written systems, does not enumerate the staff's symbols, and does not address why memory and teaching had served for centuries; those are matters handled, if at all, elsewhere in the passage."
+          "explanation": "**The correct answer is D.** The sentence contrasts \"earlier attempts, which had tried to capture poses\" with Laban's flowing notation, marking what set his system apart from what came before.\n\n**Why the other choices are wrong:**\nA invents doubt about written systems, B claims it lists the staff's symbols (it doesn't), and C addresses why memory served for centuries, which the sentence never takes up."
         },
         {
           "id": 608,
@@ -279,7 +279,7 @@ export const practiceTest6RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "The correct answer is B. Text 1 argues that the streetcars were deliberately dismantled by the companies that profited from buses; Text 2 does not dispute that the conversions happened but contends that ridership was already sliding for economic reasons, so the purchases hastened a collapse rather than caused it. That is exactly the response in choice B. Choice A has Text 2 deny the purchases, which it explicitly accepts. Choice C has Text 2 endorse Text 1's causal claim, the reverse of its position. Choice D narrows the dispute to city size, a distinction Text 2 never draws; its quarrel is about cause, not scale.",
+          "explanation": "**The correct answer is B.** Text 2 accepts that the bus conversions happened but argues ridership \"had been sliding since the 1920s\" for economic reasons, so the corporate purchases sped along a decline already under way rather than causing it.\n\n**Why the other choices are wrong:**\nA has Text 2 deny purchases it explicitly accepts, C has it endorse Text 1's causal claim it rejects, and D narrows the dispute to city size, a distinction Text 2 never draws.",
           "_meta": {
             "source_pair": "transit-streetcar (corporate-conspiracy vs economic-decline)",
             "crossTextRelationship": "alternative-causal-account"
@@ -313,7 +313,7 @@ export const practiceTest6RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "The correct answer is C. The passage builds to the scholars' objection: classifying Goryeo celadon as a provincial offshoot of Chinese ceramics lets the borrowed glaze stand for the whole tradition and hides the innovations, sanggam inlay above all, that Korean potters developed on their own. Choice C states that argument. Choice A repeats only the opening detail about the wares' early admirers. Choice B affirms the very framing the scholars reject. Choice D isolates a single detail, the sanggam technique, and supplies a motive for its invention that the passage never offers, missing the larger point about how the tradition should be understood."
+          "explanation": "**The correct answer is C.** The passage builds to the scholars' point: calling Goryeo celadon derivative hides Korean innovations like sanggam inlay, \"with no counterpart in Chinese workshops.\"\n\n**Why the other choices are wrong:**\nA repeats only the opening detail about early admirers, B affirms the very \"provincial offshoot\" framing the scholars reject, and D invents a motive for sanggam the passage never gives."
         },
         {
           "id": 610,
@@ -343,7 +343,7 @@ export const practiceTest6RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "The correct answer is A. The passage states directly that among the Asante the colors are not chosen for visual effect alone and that each established color carries a recognized meaning a knowledgeable wearer is expected to read. Choice A restates that point. Choice B contradicts the text, which explicitly sets aside visual effect as the main reason. Choices C and D introduce ideas the passage never mentions: nothing links the colors to a particular loom, and nothing suggests the meanings have been lost."
+          "explanation": "**The correct answer is A.** The passage says \"each established color carries a recognized meaning that a knowledgeable wearer is expected to read,\" which choice A restates.\n\n**Why the other choices are wrong:**\nB contradicts the text, which sets aside visual effect as the main reason, while C (a particular loom) and D (lost meanings) introduce ideas the passage never mentions."
         },
         {
           "id": 611,
@@ -373,7 +373,7 @@ export const practiceTest6RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "The correct answer is B. The passage contrasts the older fixed-category systems with Ranganathan's faceted approach and stresses what the new approach made possible: representing books that fit no single heading. Choice B captures that central contribution. Choice A reports only a biographical detail, and choice C states only the background problem the system was meant to solve. Choice D raises a difficulty of adoption that the passage never mentions, so it cannot be the main idea."
+          "explanation": "**The correct answer is B.** The passage's point is that Ranganathan built call numbers from combinable facets, letting a catalog \"represent works that fit no single heading,\" which fixed schemes could not.\n\n**Why the other choices are wrong:**\nA reports only a biographical detail, C states only the background problem, and D invents an adoption difficulty the passage never mentions."
         },
         {
           "id": 612,
@@ -403,7 +403,7 @@ export const practiceTest6RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "The correct answer is D. The hypothesis predicts that if these organelles descend from engulfed bacteria, they should retain traces of a separate bacterial ancestry. A finding that each carries its own DNA and its own bacteria-like machinery for using that DNA is just such a trace, since ordinary parts of the host cell would not need their own genetic apparatus. Choice A, that the organelles cannot live outside the cell, fits the rival picture of an integrated host part at least as well. Choice B concerns how organelle numbers scale with energy demand, which says nothing about ancestry, and choice C, matching genetic material across a single organism's cells, points to common descent within that organism rather than to a bacterial origin."
+          "explanation": "**The correct answer is D.** The hypothesis predicts the organelles should \"carry traces of an independent bacterial ancestry\"; their own loop of DNA and bacteria-like copying machinery is exactly such a trace, since ordinary host-cell parts wouldn't need one.\n\n**Why the other choices are wrong:**\nA (can't survive outside) fits the rival integrated-part view too, B (numbers scale with energy) says nothing about ancestry, and C (matching DNA across one organism) shows common descent, not a bacterial origin."
         },
         {
           "id": 613,
@@ -464,7 +464,7 @@ export const practiceTest6RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "The team's claim is specific: the single-year lows within each decade have fallen faster than the decadal means. To support it, a choice must compare the two columns in a way that shows the lows pulling ahead. Choice D does this directly: the 2000s low of 4.3 million km2 (2007) already falls below the 2010s mean of 4.6 million km2, so a decadal low has dropped beneath an average from a later decade, which is exactly what \"falling faster\" looks like. Choice A reports only the means falling and so speaks to one column alone. Choice C compares a mean and a low within the single 2010s decade, which says nothing about relative rates across decades. Choice B notes that the 1985 low tops every later figure, a true statement that supports a plain downward trend rather than the steeper decline of the lows."
+          "explanation": "**The correct answer is D.** The claim is that the decadal lows fell faster than the means; D shows the 2000s low (4.3) already below the 2010s mean (4.6), a low dropping beneath a later decade's average — exactly \"falling faster.\"\n\n**Why the other choices are wrong:**\nA cites only the means (one column), C compares a mean and low within one decade (no cross-decade rate), and B notes the 1985 low tops all later figures, which shows a plain downward trend, not a steeper one."
         },
         {
           "id": 614,
@@ -532,7 +532,7 @@ export const practiceTest6RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "The team's claim is narrow: a brief interruption sits inside an overall warming trend. A supporting choice has to show both the dip and the surrounding rise. Choice D does so, pairing the 1960-1979 anomaly of -0.01 C, slightly below the preceding 1940-1959 value of +0.02 C, with the observation that the two most recent periods are warmer than every earlier one. That is a mid-record dip embedded in a long climb. Choice A cites only the single highest value and so cannot show an interruption. Choice C calls the rise monotonic, which both contradicts the table and erases the very dip the claim is about. Choice B reports that two early periods were negative, which speaks to the coolest stretch of the record, not to an interruption partway through a warming trend."
+          "explanation": "**The correct answer is D.** The claim is a brief interruption inside an overall warming trend; D shows both, pairing the 1960-1979 dip (-0.01, below 1940-1959's +0.02) with the two most recent periods warming above every earlier one.\n\n**Why the other choices are wrong:**\nA cites only the single highest value (no interruption), C calls the rise monotonic, erasing the dip, and B notes two early negatives, which point to the coolest stretch, not a mid-record interruption."
         },
         {
           "id": 615,
@@ -562,7 +562,7 @@ export const practiceTest6RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "The correct answer is C. Across Dirzo's plots, removing large animals causes big-seeded trees, whose seeds those animals once carried off, to fail and recruit poorly, while small-seeded trees keep recruiting. Over time, then, the trees that survive best are increasingly the small-seeded ones, so the makeup of the canopy gradually shifts toward them; that is what choice C states. Choice A overreaches by claiming big-seeded trees depend on a single disperser, which the passage never says. Choice B has the pattern backward, since it is the small-seeded trees that continue to do well. Choice D claims removal leaves recruitment unchanged, contradicting the central finding that big-seeded seedlings fail at high rates."
+          "explanation": "**The correct answer is C.** Without large animals, big-seeded trees \"fail at high rates\" while small-seeded ones keep recruiting, so over time the canopy gradually shifts toward trees that don't need those dispersers.\n\n**Why the other choices are wrong:**\nA overreaches with \"a single species\" of disperser the passage never claims, B has it backward (small-seeded trees do well), and D says recruitment is unchanged, contradicting the big-seeded failures."
         },
         {
           "id": 616,
@@ -592,7 +592,7 @@ export const practiceTest6RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "The correct answer is A. The wear pattern tied to grinding grain stays in women's molars but fades from men's, which most simply indicates that grinding had become women's work to a greater degree than before. Choice B confuses grinding with eating; men could still consume the grain without doing the grinding that wears the teeth. Choice C would predict the pattern to fade in both sexes, not just in men. Choice D introduces a claim about kinship that the dental evidence does not bear on at all."
+          "explanation": "**The correct answer is A.** The grinding-wear pattern \"persists in women's molars but largely disappears from men's,\" most simply meaning grinding had become women's work to a greater degree than before.\n\n**Why the other choices are wrong:**\nB confuses grinding with eating (men could still eat the grain), C would make the pattern fade in both sexes, not just men, and D raises kinship, which the dental evidence can't speak to."
         },
         {
           "id": 617,
@@ -622,7 +622,7 @@ export const practiceTest6RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "The correct answer is D, \"long;\". Both halves of the sentence are complete independent clauses: \"The practice . . . did not remain a disputed novelty for long\" and \"surgeons who adopted it watched their patients' infection rates fall sharply . . . .\" A semicolon correctly joins two such clauses. Choice C, a comma alone, creates a comma splice, and choice A, with no punctuation, fuses the two clauses into a run-on. Choice B adds the coordinating conjunction \"but,\" which signals a contrast; here the second clause explains why the practice did not stay disputed rather than opposing the first, so \"but\" misrepresents the logic."
+          "explanation": "**The correct answer is D.** Two independent clauses meet at the blank, and a semicolon (\"long;\") correctly joins them.\n\n**Why the other choices are wrong:**\nThe comma (C) makes a comma splice, no punctuation (A) makes a run-on, and \"but\" (B) signals a contrast, but the second clause explains the first rather than opposing it."
         },
         {
           "id": 618,
@@ -652,7 +652,7 @@ export const practiceTest6RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "The correct answer is C, \"are.\" The subject of the verb is the plural noun \"Methods,\" so the verb must be plural: methods \"are\" increasingly cited. The intervening phrase \"that translate astronomical data into sound\" can make a singular verb sound tempting, but it does not change the number of the subject. Choices A (\"was\"), B (\"has been\"), and D (\"is\") are all singular and so fail to agree with \"Methods.\""
+          "explanation": "**The correct answer is C.** The subject is the plural noun \"Methods,\" so the verb must be plural — \"are\" cited.\n\n**Why the other choices are wrong:**\n\"Was\" (A), \"has been\" (B), and \"is\" (D) are all singular and fail to agree with \"Methods.\""
         },
         {
           "id": 619,
@@ -682,7 +682,7 @@ export const practiceTest6RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "The correct answer is C, \"1998;\". The sentence lists three institutions, and each item already contains internal commas from its appositive description (city, date, founder or rank). When the items in a series themselves contain commas, Standard English separates the items with semicolons so their boundaries stay clear. A semicolon already divides the first item from the second (after \"Charles Reed Bishop\"), so the divider between the second and third items must also be a semicolon. Choice D, a comma, blurs that boundary; choice B, no punctuation, fuses the second and third items; and choice A, a comma plus \"and,\" breaks the parallel semicolon series the sentence has begun."
+          "explanation": "**The correct answer is C.** This is a list of three institutions whose items already contain internal commas, so they're separated by semicolons (\"1998;\"), matching the semicolon that already follows the first item.\n\n**Why the other choices are wrong:**\nThe comma (D) blurs the boundary, no punctuation (B) fuses the second and third items, and comma-plus-\"and\" (A) breaks the semicolon series."
         },
         {
           "id": 620,
@@ -712,7 +712,7 @@ export const practiceTest6RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "The correct answer is C, \"had argued.\" The sentence sets one past event, scholars coming to accept the Inca records, as a reference point, and the researchers' arguing happened before it. The past perfect \"had argued\" marks that earlier-than-past relationship. Choice A, the simple past \"argued,\" loses the sequence that \"by the time\" sets up. Choice B, \"are arguing,\" is present and clashes with the past frame, and choice D, \"have argued,\" is present perfect, which ties the action to the present rather than to the earlier past moment the sentence describes."
+          "explanation": "**The correct answer is C.** \"By the time\" sets the scholars' acceptance as a past reference point, and the researchers' arguing came before it, so the past perfect \"had argued\" is right.\n\n**Why the other choices are wrong:**\nSimple past \"argued\" (A) loses the sequence, \"are arguing\" (B) is present and clashes with the past frame, and \"have argued\" (D) ties the action to the present, not the earlier past."
         },
         {
           "id": 621,
@@ -742,7 +742,7 @@ export const practiceTest6RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "The correct answer is B. The list \"flowing water, geometric pathways, and shaded pavilions\" is an interrupting element that names the three elements just mentioned, and because the list itself contains commas, a matched pair of em dashes sets it off most cleanly. Choice A opens with a dash but closes with a comma, so the marks do not match. Choice C uses commas on both sides, which makes the list-internal commas and the boundary commas indistinguishable. Choice D supplies no punctuation at all, running the appositive directly into the clause that follows."
+          "explanation": "**The correct answer is B.** The interrupting list names the \"three recurring elements\" and itself contains commas, so a matched pair of em dashes sets it off most cleanly.\n\n**Why the other choices are wrong:**\nA opens with a dash but closes with a comma (marks don't match), C uses commas on both sides (indistinguishable from the list's own commas), and D supplies no punctuation, running the list into the next clause."
         },
         {
           "id": 622,
@@ -772,7 +772,7 @@ export const practiceTest6RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "The correct answer is A, \"its.\" The blank needs a singular possessive modifying \"output\" and referring back to \"One . . . model,\" and \"its\" is the singular possessive pronoun. Choice C, \"their,\" is plural and does not agree with the singular model. Choices B (\"they're\") and D (\"it's\") are contractions of \"they are\" and \"it is,\" not possessives, so neither can show ownership of the output."
+          "explanation": "**The correct answer is A.** The blank needs a singular possessive for \"output\" referring back to \"One . . . model,\" which is \"its.\"\n\n**Why the other choices are wrong:**\n\"Their\" (C) is plural and doesn't agree with the singular model, and \"they're\" (B) and \"it's\" (D) are contractions, not possessives."
         },
         {
           "id": 623,
@@ -802,7 +802,7 @@ export const practiceTest6RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "The correct answer is B, \"However.\" The first part of the passage reports the long-held impression that life thins out with depth, and the sentence after the blank overturns it with what the submersible dives revealed. That reversal calls for a contrast transition. \"Additionally\" and \"Finally\" would signal that the new information merely adds to or concludes the earlier point, and \"Therefore\" would present the dives' results as a consequence of the earlier impression rather than as a correction of it."
+          "explanation": "**The correct answer is B.** The earlier impression that life \"thins out\" with depth is overturned by what the deep dives revealed, so the contrast transition \"However\" fits.\n\n**Why the other choices are wrong:**\n\"Additionally\" and \"Finally\" would merely add to or conclude the prior point, and \"Therefore\" would make the dives' results a consequence of the old impression rather than a correction."
         },
         {
           "id": 624,
@@ -832,7 +832,7 @@ export const practiceTest6RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "The correct answer is C, \"Instead.\" The passage replaces the old assumption, that bees lead others back by scent, with a different account, the waggle dance that communicates direction and distance. \"Instead\" marks that substitution of one explanation for another. \"For example\" would present the dance as an instance of leading by scent, which it is not; \"Likewise\" would treat the two as parallel; and \"In summary\" would signal a recap rather than a correction."
+          "explanation": "**The correct answer is C.** The old scent-leading assumption is replaced by the waggle-dance account, so \"Instead\" marks that substitution of one explanation for another.\n\n**Why the other choices are wrong:**\n\"For example\" would make the dance an instance of leading by scent (it isn't), \"Likewise\" would treat the two as parallel, and \"In summary\" would signal a recap, not a correction."
         },
         {
           "id": 625,
@@ -862,7 +862,7 @@ export const practiceTest6RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "The correct answer is A, \"In addition.\" The passage describes the famous desert lines and then introduces a second, separate achievement of the same people, their underground aqueducts. \"In addition\" correctly signals that the aqueducts are a further accomplishment alongside the lines. \"For example\" would wrongly cast the aqueducts as an instance of the lines; \"Nevertheless\" would signal a contrast that the passage does not set up; and \"As a result\" would present the aqueducts as a consequence of the lines, which they are not."
+          "explanation": "**The correct answer is A.** The aqueducts are a second, separate achievement of the Nazca alongside the desert lines, so \"In addition\" fits.\n\n**Why the other choices are wrong:**\n\"For example\" would cast the aqueducts as an instance of the lines, \"Nevertheless\" signals a contrast the passage doesn't set up, and \"As a result\" makes the aqueducts a consequence of the lines, which they aren't."
         },
         {
           "id": 626,
@@ -903,7 +903,7 @@ export const practiceTest6RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "The correct answer is D. The goal is to emphasize a difference between what the two methods reveal, and choice D draws that contrast directly: dendrochronology can pin down a single calendar year, whereas radiocarbon dating yields only a range. Choice A stresses what the methods share and that both were used in one study, the opposite emphasis. Choice B describes only dendrochronology, so no difference emerges. Choice C names both methods but simply defines them side by side without contrasting what each can establish."
+          "explanation": "**The correct answer is D.** The goal is to emphasize a difference, and D contrasts it directly: dendrochronology pins down \"a single calendar year,\" whereas radiocarbon dating yields \"only a range.\"\n\n**Why the other choices are wrong:**\nA stresses what the methods share, B describes only dendrochronology, and C defines both side by side without contrasting what each can establish."
         },
         {
           "id": 627,
@@ -943,7 +943,7 @@ export const practiceTest6RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "The correct answer is B. The goal is to convey why the discovery mattered, and choice B does so by linking the repeating pulse to the first observational evidence of neutron stars, objects that had previously been only theoretical. Choice A reports only the circumstances of the work, with no statement of significance. Choice C dwells on the puzzle of whether the signal was artificial, a detail rather than the payoff. Choice D identifies the source of the pulses but stops short of explaining why confirming a neutron star was important."
+          "explanation": "**The correct answer is B.** The goal is to convey significance, and B does so by tying the pulse to \"the first observational evidence of neutron stars,\" objects previously only theoretical.\n\n**Why the other choices are wrong:**\nA reports only the circumstances of the work, C dwells on whether the signal was artificial (a detail), and D identifies the pulses' source but never says why that mattered."
         }
       ]
     },
@@ -980,7 +980,7 @@ export const practiceTest6RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "The correct answer is A, \"negotiate.\" The passage describes researchers in different countries, with different laws and norms, trying to arrive at common rules; that work of reaching agreement across differences is what \"negotiate\" names. \"Ridicule\" would have them mocking the rules rather than agreeing on them. \"Memorize\" treats rules that do not yet exist as something merely to be learned by heart, and \"inherit\" implies the rules are handed down ready-made, which contradicts the point that they still have to be worked out."
+          "explanation": "**The correct answer is A.** Researchers across \"different laws and different norms\" must reach a shared set of rules, and arriving at agreement across differences is what \"negotiate\" names.\n\n**Why the other choices are wrong:**\n\"Ridicule\" means mocking rather than agreeing, \"memorize\" treats not-yet-existing rules as something to learn by heart, and \"inherit\" implies the rules are handed down ready-made, contradicting that they still must be worked out."
         },
         {
           "id": 629,
@@ -1010,7 +1010,7 @@ export const practiceTest6RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "The correct answer is A, \"involuntary.\" The account treats the pauses and pitch resets not as habits a speaker chooses but as automatic signs of a real limit on how much a speaker can hold in attention at once; \"involuntary\" captures that they are produced unbidden by that limit rather than adopted as a style. \"Decorative\" would make them ornamental flourishes, which is the \"mere mannerisms\" reading the sentence rejects. \"Deliberate\" implies the speaker chooses them, the opposite of a fixed limit, and \"optional\" suggests they could simply be left out, which again contradicts the claim that they reflect a constraint the speaker cannot escape."
+          "explanation": "**The correct answer is A.** The breaks are automatic signs of a real limit on what a speaker can \"hold in focal attention,\" not chosen habits, so \"involuntary\" fits.\n\n**Why the other choices are wrong:**\n\"Decorative\" matches the \"mere mannerisms\" reading the sentence rejects, \"deliberate\" implies the speaker chooses them, and \"optional\" suggests they could be left out, all contradicting a constraint the speaker can't escape."
         },
         {
           "id": 630,
@@ -1040,7 +1040,7 @@ export const practiceTest6RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "The correct answer is D, \"restrained.\" The passage warns that stripping away every later addition destroys part of the object's history, then endorses cleanings that recover the original image without erasing those traces; a treatment that holds back in that way is a \"restrained\" one. \"Exhaustive\" is the opposite, describing the total removal the passage cautions against. \"Decorative\" does not fit a question about how far to clean, and \"reversible,\" though a real conservation value, refers to whether a treatment can later be undone, not to the restraint the sentence is defining."
+          "explanation": "**The correct answer is D.** The best cleanings \"recover the original image without erasing the traces of the work's long life,\" so the blank needs a word for holding back — \"restrained.\"\n\n**Why the other choices are wrong:**\n\"Exhaustive\" is the total removal the passage cautions against, \"decorative\" doesn't fit a question about how far to clean, and \"reversible\" refers to undoing a treatment, not the restraint being defined."
         },
         {
           "id": 631,
@@ -1070,7 +1070,7 @@ export const practiceTest6RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "The correct answer is D, \"decentralized.\" The sentence contrasts the word in the blank with \"centralized\" and explains that an octopus's cognition is spread across arms that can act on their own; \"decentralized\" names exactly that distribution of control away from a single center. \"Inherited\" concerns where a trait comes from, not how it is organized. \"Effortless\" describes ease rather than structure, and \"deliberate\" speaks to intention, neither of which captures the spread-out arrangement the passage describes."
+          "explanation": "**The correct answer is D.** The sentence contrasts the blank with \"centralized\" and describes cognition \"distributed across a body,\" so \"decentralized\" names that spread of control away from one center.\n\n**Why the other choices are wrong:**\n\"Inherited\" concerns a trait's origin, \"effortless\" describes ease, and \"deliberate\" speaks to intention, none of which captures the spread-out arrangement."
         },
         {
           "id": 632,
@@ -1100,7 +1100,7 @@ export const practiceTest6RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "The correct answer is B. The underlined sentence delivers the experiment's finding, that the horse is airborne only when its legs are tucked beneath it, and in doing so overturns the painters' assumption that the legs were extended. That is both a report of the result and a correction, which choice B states. The sentence raises no doubt about the cameras (choice A) and does not give the reason Muybridge was hired (choice C), which the opening sentence supplies. Choice D points to the closing remark about the motion picture, a separate idea the underlined sentence does not address."
+          "explanation": "**The correct answer is B.** The sentence reports the result (the horse is airborne only with legs \"gathered beneath its body\") and corrects the painters' assumption that the legs were extended.\n\n**Why the other choices are wrong:**\nA invents doubt about the cameras, C gives the reason Muybridge was hired (the opening sentence does that), and D points to the closing motion-picture remark the sentence never addresses."
         },
         {
           "id": 633,
@@ -1130,7 +1130,7 @@ export const practiceTest6RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "The correct answer is C. The passage walks through a field experiment step by step, choosing a population, randomly splitting it, tracking an outcome, and then comparing the groups, and closes by naming the final comparison as the source of the design's strength. That sequence-then-significance shape is what choice C describes. Choice A wrongly casts the passage as a history of a term, choice B imposes a problem-and-rival-solutions frame the text never uses, and choice D claims a comparison of two designs, though only one design is discussed."
+          "explanation": "**The correct answer is C.** The passage lists the steps of a field experiment in order, then names the final comparison as where \"the design's strength lies\" — sequence followed by significance.\n\n**Why the other choices are wrong:**\nA casts it as a history of a term, B imposes a problem-and-rival-solutions frame the text never uses, and D claims two designs are compared, though only one is discussed."
         },
         {
           "id": 634,
@@ -1160,7 +1160,7 @@ export const practiceTest6RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "The correct answer is D. The passage first sets up a problem—older tunings left remote keys sounding sour—then explains that equal temperament solved it by spreading the imperfection evenly across all twelve steps, and closes with what that compromise allowed: composers could move freely through every key. That problem-solution-consequence arc is the purpose choice D names. Choice A fixes on the dividing-the-octave detail the passage mentions only in passing; choice B treats a brief aside about purists' complaints as the text's argument, though the passage never claims the old sound was better; and choice C describes a history of instruments the text does not undertake."
+          "explanation": "**The correct answer is D.** The passage sets up the problem of sour remote keys, explains how equal temperament \"spread the unavoidable imperfection evenly,\" and closes with what it made possible — moving through every key with equal ease.\n\n**Why the other choices are wrong:**\nA fixes on the dividing-the-octave detail mentioned only in passing, B treats the purists' aside as the argument (the text never says the old sound was better), and C describes a history of instruments the text doesn't undertake."
         },
         {
           "id": 635,
@@ -1199,7 +1199,7 @@ export const practiceTest6RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "The correct answer is B. Text 1 holds that the Clovis horizon marks the moment humans first reached the Americas, since older claims have not held up; Text 2 points to securely dated pre-Clovis material at Monte Verde and elsewhere and concludes that the Clovis horizon cannot be the arrival point. Choice B states that response. Choice A has Text 2 deny that any pre-Clovis site is securely dated, which is the opposite of its central evidence. Choice C endorses the Clovis-first view Text 2 rejects, and choice D limits the dispute to North America, whereas Text 2's strongest evidence is precisely a South American site.",
+          "explanation": "**The correct answer is B.** Text 2 cites Monte Verde's tools and hearths \"securely dated\" to about a thousand years before Clovis, concluding that the Clovis horizon cannot mark first arrival.\n\n**Why the other choices are wrong:**\nA has Text 2 deny any securely dated pre-Clovis site (the opposite of its evidence), C endorses the Clovis-first view it rejects, and D limits the dispute to North America, though its strongest evidence is a South American site.",
           "_meta": {
             "source_pair": "americas-peopling (Clovis-first vs pre-Clovis)",
             "crossTextRelationship": "challenge-to-premise"
@@ -1233,7 +1233,7 @@ export const practiceTest6RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "The correct answer is D. The passage sets the individual-prejudice explanation against a more systematic account in which federal risk-grading maps shaped lending for decades, and that systematic account is the point it develops. Choice D states it. Choice A reports a single supporting detail, the existence of the maps, without the argument built on it. Choice B restates the explanation the passage moves beyond, and choice C invents a dispute about record-keeping that the text never raises."
+          "explanation": "**The correct answer is D.** The passage's point is that federal risk-grading maps \"embedded the disparity in routine institutional practice,\" making the pattern more systematic than individual bias alone.\n\n**Why the other choices are wrong:**\nA reports only the supporting detail of the maps' existence, B restates the individual-prejudice explanation the passage moves beyond, and C invents a record-keeping dispute the text never raises."
         },
         {
           "id": 637,
@@ -1263,7 +1263,7 @@ export const practiceTest6RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "The correct answer is B. The passage states that a specialized organ packed with bacteria fills much of the worm's body and that those bacteria, drawing energy from vent chemicals, supply the worm with the organic compounds it needs. Choice B restates that arrangement. Choice A imagines the worms feeding on material falling from sunlit waters, which the text does not describe. Choice C has them absorb compounds directly through the skin, and choice D has them migrate toward sunlight, neither of which the passage supports; the worms live in darkness and depend on their bacteria."
+          "explanation": "**The correct answer is B.** The passage says a \"specialized organ packed with bacteria\" supplies the worm with organic compounds the bacteria make from vent chemicals.\n\n**Why the other choices are wrong:**\nA imagines feeding on material from sunlit waters, C has the worm absorb compounds through its skin, and D has it migrate toward sunlight — none supported, since the worms live in darkness and depend on their bacteria."
         },
         {
           "id": 638,
@@ -1293,7 +1293,7 @@ export const practiceTest6RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "The correct answer is D. The passage corrects the idea that the film invented sound, noting that sound shorts and the Vitaphone system already existed, and locates its real importance in proving that a feature-length sound film could draw audiences, which quickly ended silent production. Choice D captures that distinction. Choice A repeats the misconception the text rejects. Choice B raises a claim about Vitaphone's quality the passage never makes, and choice C asserts a popularity comparison the text does not support."
+          "explanation": "**The correct answer is D.** The passage corrects the idea that the film invented sound (shorts and Vitaphone already existed) and locates its importance in convincing studios that \"talking features could succeed commercially,\" ending silent production.\n\n**Why the other choices are wrong:**\nA repeats the misconception the text rejects, B raises a claim about Vitaphone's quality the passage never makes, and C asserts a popularity comparison the text doesn't support."
         },
         {
           "id": 639,
@@ -1323,7 +1323,7 @@ export const practiceTest6RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "The correct answer is A. The claim is that what makes elite sprinters fast is the force each foot delivers to the track, not how frequently the feet strike it. A study finding that the fastest runners applied much greater force per step while taking no more steps per second is direct evidence for exactly that: speed tracked force, not frequency. Choice B describes frequency-focused training improving times, which would support the rival idea the claim rejects rather than the claim itself. Choice C reports how coaches train rather than what actually produces speed, and choice D concerns what spectators can perceive, which says nothing about the source of a sprinter's speed."
+          "explanation": "**The correct answer is A.** The claim is that speed comes from force per step, not step frequency; a finding that the fastest runners applied \"much greater force\" while taking no more steps is direct evidence speed tracked force.\n\n**Why the other choices are wrong:**\nB describes frequency-focused training improving times, supporting the rival idea, C reports how coaches train rather than what produces speed, and D concerns what spectators perceive."
         },
         {
           "id": 640,
@@ -1395,7 +1395,7 @@ export const practiceTest6RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "The team's claim about Facebook has two parts that must both be matched: a sharp jump in the first half of the decade and only marginal change in the second. Choice C supplies both, citing the 54-to-68 percent rise from 2012 to 2016 and the move of just one point, to 69 percent, from 2016 to 2021. Choice A reports Instagram's growth, a different platform than the claim is about. Choice B cites YouTube's high 2021 figure, again a different platform and only a single number. Choice D has the right platform and overall range but calls the increase \"steady across the decade,\" which contradicts both the claim and the data, since the first-half gain dwarfs the second-half gain."
+          "explanation": "**The correct answer is C.** The claim has two parts, a sharp first-half jump and marginal second-half change; C supplies both, the 54-to-68% rise (2012-2016) and the move of just one point to 69% (2016-2021).\n\n**Why the other choices are wrong:**\nA reports Instagram and B reports YouTube, both wrong platforms, and D calls Facebook's increase \"steady across the decade,\" contradicting the data, since the first-half gain dwarfs the second."
         },
         {
           "id": 641,
@@ -1461,7 +1461,7 @@ export const practiceTest6RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "The team's claim has two parts: precipitation rose across most of the bands, and the tropical northern band ran against that pattern with a slight decrease. Only choice A joins both, noting that four of the five bands rose while the tropical northern band, at -0.4 percent, was the lone decrease. Choice C cites only the single largest increase, which cannot show how the bands split. Choice D reports the overall spread of values but not how many bands lie on each side of the baseline. Choice B claims all five bands rose and mistakenly assigns the +8.2 percent figure to the tropical northern band, inverting the very exception the claim depends on."
+          "explanation": "**The correct answer is A.** The claim has two parts, most bands rose and the tropical northern band ran against it; A joins both, noting four bands rose while that band, at -0.4%, was the lone decrease.\n\n**Why the other choices are wrong:**\nC cites only the largest increase (no split shown), D gives the overall spread but not how many bands are on each side, and B wrongly says all five rose and assigns +8.2% to the tropical northern band, inverting the exception."
         },
         {
           "id": 642,
@@ -1491,7 +1491,7 @@ export const practiceTest6RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "The correct answer is C. The two groups were matched and faced identical conditions except for one sentence of instructions, so the only thing that could explain their different persistence is that sentence. Choice C draws exactly that conclusion. Choice A blames an ability difference, but matching was designed to rule that out, and nothing suggests it failed. Choice B faults the task, yet both groups did the same task, so it cannot account for a difference between them. Choice D attributes the gap to chance, which the controlled setup gives no reason to assume."
+          "explanation": "**The correct answer is C.** The groups were matched and identical except for \"a single sentence in the instructions,\" so that wording is the only thing that can explain the persistence gap.\n\n**Why the other choices are wrong:**\nA blames an ability difference matching was designed to rule out, B faults the task both groups shared, and D attributes the gap to chance the controlled setup gives no reason to assume."
         },
         {
           "id": 643,
@@ -1521,7 +1521,7 @@ export const practiceTest6RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "The correct answer is C. The scholars assumed the stencils were modern human work because they did not expect Neanderthals to make images, not because of evidence in the stencils; the new dates, older than modern humans' arrival, expose that assumption as a prior expectation rather than a finding. Choice C states this. Choice A dismisses the dating as flawed, which the prompt asks us to set aside by taking the dates as holding. Choice B asserts a certainty about Neanderthal ability the passage does not support, and choice D reverses the dates' implication, which is that the art predates modern humans, not that modern humans arrived earlier."
+          "explanation": "**The correct answer is C.** The scholars assumed modern-human authorship because \"no one expected such image-making from Neanderthals,\" so the assumption rested on an expectation they brought, not evidence in the images.\n\n**Why the other choices are wrong:**\nA dismisses the dating the prompt asks us to take as holding, B asserts a certainty about Neanderthal ability the passage doesn't support, and D reverses the dates' implication that the art predates modern humans."
         },
         {
           "id": 644,
@@ -1551,7 +1551,7 @@ export const practiceTest6RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "The correct answer is A, \"overlooked:\". The first part of the sentence is a complete clause that announces an overlooked \"feature,\" and the part after the blank then specifies what that feature is. A colon is the mark that introduces such a specification after a complete statement. Choice B supplies no punctuation, fusing the two parts into a run-on. Choice C, a comma, is too weak to introduce the explanatory clause and creates a comma splice. Choice D, a semicolon, would simply link two independent statements as equals rather than presenting the second as the promised explanation of the first."
+          "explanation": "**The correct answer is A.** A complete clause announces an overlooked \"feature,\" and what follows specifies it, so a colon (\"overlooked:\") introduces that specification.\n\n**Why the other choices are wrong:**\nNo punctuation (B) makes a run-on, the comma (C) makes a comma splice, and the semicolon (D) links two equals rather than presenting the second as the promised explanation."
         },
         {
           "id": 645,
@@ -1581,7 +1581,7 @@ export const practiceTest6RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "The correct answer is A, \"illustrates.\" The subject is \"Each,\" which is singular and takes a singular verb, even though the nearby plural \"panels\" can make a plural verb sound right. \"Illustrates\" agrees with \"Each.\" Choices B (\"are illustrating\") and D (\"illustrate\") are plural and so disagree with the singular subject, and choice C (\"have illustrated\") is also plural in form and shifts the action into the present perfect without fixing the agreement problem."
+          "explanation": "**The correct answer is A.** The subject is \"Each,\" which is singular and takes a singular verb, so \"illustrates\" agrees despite the nearby plural \"panels.\"\n\n**Why the other choices are wrong:**\n\"Are illustrating\" (B) and \"illustrate\" (D) are plural, and \"have illustrated\" (C) is also plural in form and doesn't fix the agreement."
         },
         {
           "id": 646,
@@ -1611,7 +1611,7 @@ export const practiceTest6RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "The correct answer is A, \"that.\" The clause \"that failed to detect any motion of the Earth\" is essential: it identifies which 1887 experiment is meant, so it attaches to \"experiment\" with no separating comma. Choice C places a comma before the essential clause, wrongly treating it as nonessential. Choice B puts a comma after \"that,\" interrupting the clause it introduces, and choice D adds commas on both sides, compounding both errors."
+          "explanation": "**The correct answer is A.** The clause \"that failed to detect any motion of the Earth\" is essential, identifying which experiment is meant, so it attaches with no comma.\n\n**Why the other choices are wrong:**\nC adds a comma before the essential clause (treating it as nonessential), B puts a comma after \"that\" (interrupting the clause), and D does both."
         },
         {
           "id": 647,
@@ -1641,7 +1641,7 @@ export const practiceTest6RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "The correct answer is B, \"by merging.\" The sentence lists three things the authority did, and the first two are phrased in parallel as \"by laying down . . .\" and \"by setting . . . .\" The third item must match that form, so \"by merging\" completes the parallel series. Choice A inserts a new clause with its own subject, breaking the pattern. Choice C turns the third item into a noun phrase, and choice D drops the \"by,\" so neither matches the \"by . . .-ing\" structure of the first two items."
+          "explanation": "**The correct answer is B.** The first two list items are \"by laying down\" and \"by setting,\" so the third must match that \"by . . .-ing\" form — \"by merging.\"\n\n**Why the other choices are wrong:**\n\"They merged\" (A) inserts a new clause with its own subject, \"the merger of\" (C) is a noun phrase, and \"merging\" (D) drops the \"by,\" so none keeps the parallel."
         },
         {
           "id": 648,
@@ -1671,7 +1671,7 @@ export const practiceTest6RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "The correct answer is B, \"; however,\". Two independent clauses meet at the blank: \"Open-records laws give the public a broad right to inspect the documents that government agencies produce\" and \"they almost always exempt certain categories . . . from any requirement to disclose them.\" When a conjunctive adverb like \"however\" joins two independent clauses, a semicolon precedes it and a comma follows it. Choice A uses only commas, producing a comma splice. Choice C puts the semicolon after \"however,\" misplacing the boundary, and choice D, a comma plus \"however,\" again leaves two independent clauses joined by only a comma."
+          "explanation": "**The correct answer is B.** Two independent clauses meet at the blank, and when \"however\" joins them a semicolon precedes it and a comma follows it (\"; however,\").\n\n**Why the other choices are wrong:**\nA uses only commas (comma splice), C puts the semicolon after \"however\" (misplaced boundary), and D again joins two clauses with only a comma."
         },
         {
           "id": 649,
@@ -1701,7 +1701,7 @@ export const practiceTest6RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "The correct answer is D. The sentence opens with the modifier \"Drawing on three decades of fieldwork in these highland communities,\" which has to attach to whoever carried out that fieldwork. Only choice D begins the main clause with \"researchers,\" so the people who did the fieldwork are the ones the modifier describes. Choices A, C, and D open instead with \"the resilience,\" \"the constant communal repair,\" and \"the terraces' survival,\" leaving the modifier dangling, as if an abstraction rather than a person had spent three decades doing fieldwork."
+          "explanation": "**The correct answer is D.** The opening modifier \"Drawing on three decades of fieldwork\" must attach to whoever did the fieldwork, and only D starts the main clause with \"researchers.\"\n\n**Why the other choices are wrong:**\nA, B, and C open with \"the resilience,\" \"the terraces' survival,\" and \"the constant communal repair,\" leaving the modifier dangling, as if an abstraction did the fieldwork."
         },
         {
           "id": 650,
@@ -1731,7 +1731,7 @@ export const practiceTest6RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "The correct answer is B, \"Today.\" The passage contrasts an earlier time, when preregistration was rare, with the present, in which it is routine, so a transition marking that shift to the present is needed. \"Today\" does this. \"However\" would signal a logical contrast rather than a movement in time, \"In addition\" would treat the second sentence as one more point alongside the first, and \"Therefore\" would present current practice as a logical consequence of the earlier rarity, which it is not."
+          "explanation": "**The correct answer is B.** The passage shifts from when preregistration \"was rare\" to the present, when it is routine, so the time transition \"Today\" fits.\n\n**Why the other choices are wrong:**\n\"However\" signals a logical contrast rather than a shift in time, \"In addition\" adds one more point, and \"Therefore\" makes current practice a consequence of the earlier rarity, which it isn't."
         },
         {
           "id": 651,
@@ -1761,7 +1761,7 @@ export const practiceTest6RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "The correct answer is D, \"Instead.\" The team expected a dispute about money but found a dispute about wording, so the transition must mark that the reality replaced the expectation. \"Instead\" does that. \"Moreover\" would add a further point, \"Likewise\" would signal similarity, and \"Therefore\" would make the finding a consequence of the expectation, none of which fits a result that overturned what the team anticipated."
+          "explanation": "**The correct answer is D.** The team \"expected the dispute to be about money\" but found it was about wording, so \"Instead\" marks reality replacing the expectation.\n\n**Why the other choices are wrong:**\n\"Moreover\" adds a point, \"Likewise\" signals similarity, and \"Therefore\" makes the finding a consequence of the expectation, none fitting a result that overturned it."
         },
         {
           "id": 652,
@@ -1791,7 +1791,7 @@ export const practiceTest6RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "The correct answer is A, \"For example.\" The sentence after the blank gives a specific instance, a particular Powers quilt depicting the 1833 meteor storm, of the general claim that her story quilts recorded events. \"For example\" introduces that instance. \"However\" and \"Instead\" would signal contrast or replacement, but the quilt illustrates rather than opposes the prior statement, and \"Therefore\" would make the example a consequence of the general claim instead of an illustration of it."
+          "explanation": "**The correct answer is A.** The sentence gives a specific instance — a Powers quilt depicting \"the 1833 Leonid meteor storm\" — of the general claim that her quilts recorded events, so \"For example\" fits.\n\n**Why the other choices are wrong:**\n\"However\" and \"Instead\" signal contrast or replacement, but the quilt illustrates rather than opposes, and \"Therefore\" would make it a consequence rather than an illustration."
         },
         {
           "id": 653,
@@ -1831,7 +1831,7 @@ export const practiceTest6RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "The correct answer is B. The goal is to introduce the central argument of Silent Spring to readers who do not know the book, and choice B states that argument: that the heavy use of pesticides like DDT was harming wildlife and human health and had been promoted without adequate testing. Choice A lists Carson's two books but gives neither one's argument. Choice C describes the earlier book, The Sea Around Us, not Silent Spring. Choice D reports the book's later influence rather than the argument it actually made."
+          "explanation": "**The correct answer is B.** The goal is to introduce the book's central argument, and B states it: that pesticides like DDT were harming wildlife and human health and had been promoted \"without adequate testing.\"\n\n**Why the other choices are wrong:**\nA lists both books but gives neither's argument, C describes the earlier book The Sea Around Us, and D reports later influence rather than the argument itself."
         },
         {
           "id": 654,
@@ -1871,7 +1871,7 @@ export const practiceTest6RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "The correct answer is C. The goal is to emphasize how the finding differed from the earlier assumption, and choice C sets the two directly against each other: the standard models assumed gains and losses were weighed equally, whereas the experiments found losses felt about twice as heavy as equivalent gains. Choice A names the finding but not the assumption it overturned, so no contrast appears. Choice B reports later applications of loss aversion. Choice D states the experimental result accurately but, without mentioning the standard assumption, leaves the difference the student wants to stress unexpressed."
+          "explanation": "**The correct answer is C.** The goal is to emphasize the difference from the earlier assumption, and C sets them against each other: standard models weighed gains and losses \"about equally,\" whereas the experiments found losses felt roughly twice as heavy.\n\n**Why the other choices are wrong:**\nA names the finding but not the assumption it overturned, B reports later applications, and D states the result accurately but omits the standard assumption, so no contrast appears."
         }
       ]
     }
