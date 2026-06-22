@@ -742,7 +742,7 @@ export const practiceTest5RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**The correct answer is C.** The three list items already contain internal commas, so semicolons separate them — confirmed by the semicolon already before the third item (\"in many countries; and\").\n\n**Why the other choices are wrong:**\nThe comma (A) blurs the boundary between items; the colon (B) would treat the second item as explaining the first; and the period (D) would split one list across two sentences.",
+          "explanation": "**The correct answer is C.** The three list items already contain internal commas, so semicolons separate them — confirmed by the semicolon already before the third item (\"across many countries; and\").\n\n**Why the other choices are wrong:**\nThe comma (A) blurs the boundary between items; the colon (B) would treat the second item as explaining the first; and the period (D) would split one list across two sentences.",
           "_meta": {
             "anchor": "Forest Inventory and Analysis / ForestGEO / NEON — three forest-monitoring programs"
           }

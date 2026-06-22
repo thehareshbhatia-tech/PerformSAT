@@ -1848,7 +1848,7 @@ export const practiceTest4RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**The correct answer is C.** The intro phrase modifies \"a biologist\" and names the same activity as the years of following the pack, so the present participle \"Studying…,\" with its comma, fits.\n\n**Why the other choices are wrong:**\n\"Having studied\" (B) wrongly makes the studying finished first, \"While studying\" (A) is a fragment with no finite verb, and \"Studying\" without a comma (D) runs into the subject.",
+          "explanation": "**The correct answer is C.** The intro phrase modifies \"a biologist\" and names the same activity as the years of following the pack, so the present participle \"Studying…,\" with its comma, fits.\n\n**Why the other choices are wrong:**\n\"Having studied\" (B) wrongly makes the studying finished first; \"While studying\" (A) and \"Studying\" (D) both omit the comma an introductory modifier needs before \"a biologist.\"",
           "passage": "______ a biologist spent three winters following a single wolf pack across the high mountains of the northern Rockies, recording every hunt, every birth, and every territorial dispute that she and her two field assistants were able to observe from a distance.",
           "_meta": {
             "anchor": "wolf-pack field study; present-participial modifier; single defensible answer"
