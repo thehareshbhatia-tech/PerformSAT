@@ -60,7 +60,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**The correct answer is B.** After working through \"a series of metal oxides,\" the physicist settles on the one that fits — lithium cobalt oxide — so the blank needs a word for singling it out: \"identified.\"\n\n**Why the other choices are wrong:**\n\"Concealed\" and \"discarded\" reverse the sense, since he brings the material to attention rather than hiding or rejecting it, and \"imitated\" wrongly suggests he copied an existing material."
+          "explanation": "**Choice B is correct.** The physicist is searching for a cathode material with a particular set of properties, and after working through \"a series of metal oxides\" he found the one that fit — lithium cobalt oxide. \"Identified\" captures the act of singling out the right compound.\n\n**The Full Solution:**\n- The passage credits him with bringing the right material to attention, not hiding or rejecting it.\n- \"Identified\" names the act of singling out the one compound that fit from the candidates he tested.\n\n**Why the other choices are wrong:**\n- A: \"Concealed\" runs opposite to the sense of the passage, which credits him with bringing the material to attention rather than hiding it.\n- C: \"Imitated\" wrongly suggests he copied an existing material rather than settling on one.\n- D: \"Discarded\" reverses the sense, since he settles on lithium cobalt oxide rather than rejecting it."
         },
         {
           "id": 1002,
@@ -90,7 +90,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**The correct answer is D.** The bacteria draw usable energy \"directly from the hydrogen sulfide\" venting from the seafloor, so the blank needs a word for pulling energy from a chemical source: \"extract.\"\n\n**Why the other choices are wrong:**\n\"Release\" reverses the direction (the bacteria take energy in, not give it off), \"store\" describes holding energy rather than obtaining it, and \"transmit\" means passing it along rather than capturing it."
+          "explanation": "**Choice D is correct.** The vent communities are sustained not by sunlight but by bacteria that draw usable energy \"directly from the hydrogen sulfide\" in the vent water. \"Extract\" fits the idea of pulling energy from a chemical source.\n\n**The Full Solution:**\n- The base of the food web is bacteria that obtain energy from the hydrogen sulfide venting out of the seafloor.\n- \"Extract\" names pulling energy out of that chemical source, converting an inorganic chemical into fuel.\n\n**Why the other choices are wrong:**\n- A: \"Release\" reverses the direction, since the bacteria take energy in rather than give it off.\n- B: \"Store\" describes holding energy rather than obtaining it from the sulfide.\n- C: \"Transmit\" describes passing energy along rather than capturing it from the sulfide."
         },
         {
           "id": 1003,
@@ -120,7 +120,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**The correct answer is C.** Appia wants scenery that moves \"with the performers' movement\" so the stage becomes an active partner, so the blank needs a word for working together: \"interact.\"\n\n**Why the other choices are wrong:**\n\"Compete\" and \"interfere\" imply the scenery works against the performers, the opposite of his aim, and \"coincide\" only means to occur at the same time, missing the responsive collaboration."
+          "explanation": "**Choice C is correct.** Appia rejects flat painted scenery and proposes platforms, steps, and shifting light that move \"with the performers' movement\" instead of sitting behind them, so the stage becomes an active partner. \"Interact\" captures that working-together relationship.\n\n**The Full Solution:**\n- Appia wants the stage to become \"an active element of the drama,\" responding to the performers rather than serving as a static backdrop.\n- \"Interact\" names the responsive collaboration between scenery and performers that he describes.\n\n**Why the other choices are wrong:**\n- A: \"Compete\" implies the scenery works against the performers, the opposite of his aim.\n- B: \"Interfere\" likewise implies opposition, contradicting his goal of partnership.\n- D: \"Coincide\" merely means to occur at the same time, missing the sense of responsive collaboration the passage describes."
         },
         {
           "id": 1004,
@@ -150,7 +150,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**The correct answer is A.** Schwendener says what looked like one organism is really two in close partnership, so the pair had been wrongly taken for a single species — \"mistaken for\" names that error.\n\n**Why the other choices are wrong:**\n\"Credited\" and \"prepared\" fit neither the idiom nor the sense, and \"substituted for\" would imply the pair replaced a species rather than being misread as one."
+          "explanation": "**Choice A is correct.** Schwendener's claim is that what looked like one organism was really two living in close partnership, so naturalists had wrongly taken the pair for a single species. \"Mistaken for\" expresses exactly that error of identification.\n\n**The Full Solution:**\n- A lichen is \"not one organism but two\" — a fungus and an alga — in such close partnership that the pair had long been misread as one species.\n- \"Mistaken for a single species\" names that error of identification.\n\n**Why the other choices are wrong:**\n- B: \"Credited\" does not fit the idiom or the sense of a misidentification.\n- C: \"Substituted for a single species\" would imply the pair had replaced a species rather than been misread as one.\n- D: \"Prepared\" does not fit the idiom or the sense of the sentence."
         },
         {
           "id": 1005,
@@ -180,7 +180,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**The correct answer is D.** The poem dwells on the Kraken's \"ancient, dreamless, uninvaded sleep\" amid the deep-sea life around him, then in its final lines foretells the violent end when he will \"rise\" and \"on the surface die.\"\n\n**Why the other choices are wrong:**\nA invents a voyage, sailors, and naturalists found nowhere in the text; B has the speaker doubting the Kraken's existence, but the poem treats the sleep as fact; and C stages a deep-versus-surface contrast the poem never develops.",
+          "explanation": "**Choice D is correct.** The poem first dwells on the Kraken's \"ancient, dreamless, uninvaded sleep\" far beneath the waves, then in its closing lines turns to prophecy — \"Until the latter fire shall heat the deep,\" he will rise \"in roaring\" and \"on the surface die.\"\n\n**The Full Solution:**\nThe structure is an extended portrait of an undisturbed sleep followed by a foretelling of its single, violent end.\n- The opening fills out the scene with the life surrounding the Kraken: huge sponges \"of millennial growth\" and enormous polypi winnowing \"the slumbering green.\"\n- Only in the closing lines does the poem turn from this long stillness to prophecy of the violent moment when the sleep will end.\n\n**Why the other choices are wrong:**\n- A: It invents a voyage, sailors, and naturalists that appear nowhere in the text.\n- B: It has the speaker doubting the creature's existence, but the poem presents the Kraken's sleep as fact, not as a story to be weighed.\n- C: It stages a contrast between deep and surface waters that the poem never develops, and the Kraken's stillness is presented as agelong sleep rather than preference.",
           "_meta": {
             "quoteVerify": true,
             "source": "Alfred, Lord Tennyson, \"The Kraken\" (1830), Poems, Chiefly Lyrical"
@@ -214,7 +214,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**The correct answer is B.** The passage moves from an old assumption (humpback sounds were \"incidental noise\") to Payne's finding that they are ordered, repeated sequences, reframing how biologists studied the animals.\n\n**Why the other choices are wrong:**\nA treats the recording technology as the focus, but it is mentioned only in passing; C mistakes one detail (seasonal revision) for the whole point; and D asserts a cross-species ranking the passage never makes."
+          "explanation": "**Choice B is correct.** The passage sets up an earlier assumption — that the long sounds near humpbacks were \"incidental noise\" — and then reports how Payne's analysis showed the sounds were ordered sequences of repeated themes, reframing the questions biologists asked.\n\n**The Full Solution:**\nThe arc from dismissed-as-noise to organized-display is the main purpose.\n- Before 1970, the patterned sounds were generally \"dismissed as incidental noise.\"\n- Payne showed each was a structured sequence of themes and phrases, repeated in a fixed order and revised over a season.\n- His analysis established humpback song as an organized acoustic display and reframed how marine biologists studied the animals.\n\n**Why the other choices are wrong:**\n- A: It treats the recording technology as the focus, but the passage mentions it only in passing.\n- C: It picks up a single detail (seasonal revision) and mistakes it for the whole point.\n- D: It makes a cross-species ranking the passage never asserts."
         },
         {
           "id": 1007,
@@ -244,7 +244,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**The correct answer is D.** The passage names a measurement difficulty (wells sample \"only scattered points\"), explains the satellite principle (stored-water change registers as a gravity change), and reports the finding (a decline across northern India pointing to pumping).\n\n**Why the other choices are wrong:**\nA claims an accepted conclusion is overturned, but none is; B says the ending lists untested regions, when it gives a result; and C invents a head-to-head comparison the passage never makes."
+          "explanation": "**Choice D is correct.** The passage first names a measurement difficulty — ground wells sample \"only scattered points,\" so basin-wide groundwater loss is hard to gauge — then explains the principle behind the satellite approach, and finally reports what it revealed.\n\n**The Full Solution:**\nThis is a problem-principle-finding structure.\n- It identifies the difficulty: measuring loss across an entire river basin is hard from the ground, where wells sample only scattered points.\n- It explains the principle: a large change in stored water should register as a tiny change in the planet's gravity field, which the paired GRACE satellites can track.\n- It reports the finding: a steady decline in stored water across northern India, larger than rainfall shortfalls explain, pointing to groundwater pumping.\n\n**Why the other choices are wrong:**\n- A: No widely accepted conclusion is overturned in the passage.\n- B: It misstates the ending, which gives a result rather than a list of untested regions.\n- C: It invents a head-to-head comparison of two methods that the passage never makes."
         },
         {
           "id": 1008,
@@ -283,7 +283,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**The correct answer is B.** Hughes grants that corals are losing the race and that heat-tolerant colonies exist, but argues that \"hectares\" of projects cannot answer bleaching striking \"thousands of kilometers,\" so emissions cuts remain essential.\n\n**Why the other choices are wrong:**\nA has him endorsing assisted evolution as sufficient, the view he resists; C denies the threat he explicitly concedes; and D has him rejecting emissions cuts, the reverse of his conclusion."
+          "explanation": "**Choice B is correct.** Hughes grants the central facts of Text 1 — corals are losing the race and heat-tolerant colonies exist — but presses a question of scale, treating rapid emissions cuts as the indispensable response.\n\n**The Full Solution:**\nChoice B matches his accept-the-evidence-but-doubt-the-remedy position.\n- He does not dispute that corals are losing the race against warming or that heat-tolerant colonies exist.\n- He objects on scale: assisted-evolution projects work on \"hectares\" while mass bleaching strikes \"thousands of kilometers\" in a single hot season.\n- He warns that presenting such projects as a remedy draws attention and funding from the one measure at the right scale: rapid greenhouse-gas emissions cuts.\n\n**Why the other choices are wrong:**\n- A: It has him endorsing assisted evolution as sufficient, the very view he resists.\n- C: It denies the threat, but Hughes explicitly concedes corals are losing the race.\n- D: It has him rejecting emissions cuts, the reverse of his conclusion."
         },
         {
           "id": 1009,
@@ -313,7 +313,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**The correct answer is C.** The passage replaces the old view (carbon survives because it is chemically indigestible) with a new one — carbon persists because minerals and soil structure shield it from microbes — \"less on what the carbon is than on where it ends up.\"\n\n**Why the other choices are wrong:**\nA reports only the older view being revised; B overstates it into a claim that microbes cannot digest plant material at all; and D fixes on one protective mechanism when the passage names both minerals and structure."
+          "explanation": "**Choice C is correct.** The passage contrasts an older explanation (carbon survives because it is chemically indigestible) with a newer one (carbon survives because it binds to mineral surfaces or sits where microbes cannot reach it), summing up the shift as a move from what the carbon is to where it ends up.\n\n**The Full Solution:**\n- The old view: certain plant compounds were thought too tough for microbes to break down, so they accumulated.\n- The new view: much persistent carbon is \"not intrinsically indigestible\" — it survives because it binds to mineral surfaces or sits trapped inside soil clumps.\n- The passage sums up the reframing: endurance depends \"less on what the carbon is than on where it ends up and what protects it.\"\n\n**Why the other choices are wrong:**\n- A: It reports only the older view the passage is revising.\n- B: It overstates the point into a claim that microbes cannot digest plant material at all.\n- D: It fixes on one protective mechanism (soil clumps) and treats it as the main claim, when the passage gives both minerals and structure as examples of a broader idea."
         },
         {
           "id": 1010,
@@ -343,7 +343,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**The correct answer is A.** The passage says explosive-eruption magma is \"rich in silica and dissolved gas\" and that escaping gas \"shatters the magma into ash and pumice\" near the surface — exactly what A reports.\n\n**Why the other choices are wrong:**\nB and C describe the effusive case (free-flowing, gas-poor, shield-building), the wrong properties, and D contradicts the passage, which says composition changes over time, not only after an eruption starts."
+          "explanation": "**Choice A is correct.** The passage says that in an explosive eruption the magma is \"rich in silica and dissolved gas,\" and that as pressure drops near the surface the gas comes out of solution violently enough to shatter the magma \"into ash and pumice.\"\n\n**The Full Solution:**\n- Explosive-eruption magma is rich in silica and dissolved gas — the distinguishing properties the question asks for.\n- As it nears the surface and pressure drops, the gas comes out of solution so violently that it shatters the magma into ash and pumice, blasting it upward in towering columns.\n\n**Why the other choices are wrong:**\n- B: It describes the effusive case — free-flowing, shield-building magma — so it attributes the wrong properties to explosive eruptions.\n- C: It also describes effusive magma (poorer in silica and gas, rising without fragmenting), the opposite of explosive magma.\n- D: It contradicts the passage, which says composition changes over time and can shift a volcano between styles, not only after an eruption starts."
         },
         {
           "id": 1011,
@@ -373,7 +373,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**The correct answer is B.** The passage builds to the historian's thesis: the transistor's significance lies in \"a shift of medium—from the vacuum tube to the solid-state device—that made compact, durable, mass-produced electronics possible.\"\n\n**Why the other choices are wrong:**\nA reports only the opening detail about the first transistor's fragility, while C (later miniaturization) and D (the tube's inefficiency) each restate a supporting fact, not the main point."
+          "explanation": "**Choice B is correct.** The passage builds toward the historian's claim that the transistor matters not for any single use but for \"a shift of medium—from the vacuum tube to the solid-state device—that made compact, durable, mass-produced electronics possible.\"\n\n**The Full Solution:**\n- The transistor switched and amplified signals using a small sliver of doped semiconductor rather than a heated, power-hungry, easily broken glass tube.\n- Engineers made transistors smaller, cheaper, and more reliable over the following decade.\n- The historian's thesis is that the lasting significance lies in the change of medium that first made compact, durable, mass-produced electronics possible — which Choice B captures.\n\n**Why the other choices are wrong:**\n- A: It reports only the opening detail about the first transistor's fragility.\n- C: It restates a supporting fact (later miniaturization) without reaching the main point.\n- D: It restates a supporting fact (the vacuum tube's inefficiency), not the thesis the passage is organized around."
         },
         {
           "id": 1012,
@@ -403,7 +403,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**The correct answer is A.** The claim is that stomata let plants live away from wet ground; A links the trait to dryness directly, since early dry-habitat plants had stomata while those in wet ground did not.\n\n**Why the other choices are wrong:**\nB describes how modern stomata respond to light, C concerns spore dispersal, and D is about how fossils were preserved — none speaks to what allowed plants to survive in dry settings."
+          "explanation": "**Choice A is correct.** The claim is causal: stomata were the innovation that let plants live away from permanently wet ground. Evidence that the earliest plants in seasonally dry habitats had stomata while those confined to wet ground did not links the trait directly to survival in dryness.\n\n**The Full Solution:**\n- The claim needs evidence connecting stomata specifically to surviving away from wet ground.\n- Choice A supplies exactly that contrast: early dry-habitat plants already had stomata, while contemporaneous wet-ground plants typically lacked them.\n\n**Why the other choices are wrong:**\n- B: It describes how modern stomata respond to light, a mechanism that says nothing about colonizing dry land.\n- C: It concerns spore dispersal, a different function unrelated to surviving dryness.\n- D: It is about how the oldest fossils were preserved, not about what allowed plants to live in dry settings."
         },
         {
           "id": 1013,
@@ -475,7 +475,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**The correct answer is D.** The claim needs both legs of Facebook's trajectory, and D supplies them: the 14-point rise from 54% to 68%, then the 1-point move from 68% to 69%, capturing the sharp-then-flat contrast.\n\n**Why the other choices are wrong:**\nA reports only the early rise and skips the 2016–2021 plateau, B is accurate but about Instagram's row not Facebook's, and C misreads 68% to 69% as a contraction when it is a slight increase."
+          "explanation": "**Choice D is correct.** The analyst's claim has two parts that must be supported together: Facebook's share climbed sharply between the first two surveys and then barely changed between the second and third. Choice D cites both legs in the same row.\n\n**The Full Solution:**\n- The claim turns on a sharp-then-flat contrast in Facebook's own trajectory.\n- Choice D gives the 14-point rise from 54% (2012) to 68% (2016) and the 1-point move from 68% (2016) to 69% (2021), so the figures carry the rate-of-change contrast the passage is making.\n\n**Why the other choices are wrong:**\n- A: It reports only the early rise and never addresses the 2016–2021 plateau the claim turns on.\n- B: It is accurate about Instagram but speaks to a different row, not Facebook's trajectory.\n- C: It misreads the direction of the recent change — 68% to 69% is a slight increase, not a contraction."
         },
         {
           "id": 1014,
@@ -536,7 +536,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**The correct answer is A.** The revised account needs a recovery from the Late Bronze I low that precedes the Iron Age I expansion, and A traces both moves — 165 to 240, then 240 to 380 — the rebound the \"collapse\" picture missed.\n\n**Why the other choices are wrong:**\nB reports only the initial decline the old synthesis already captured, C wrongly says the counts fell continuously (they rise, and Iron Age I is highest not lowest), and D skips straight from Middle Bronze IIB to Iron Age I, erasing the within-Late-Bronze recovery."
+          "explanation": "**Choice A is correct.** The revised account makes a two-part claim: Late Bronze II is a partial recovery from the Late Bronze I low point, and that recovery precedes the larger Iron Age I expansion. Choice A traces both moves.\n\n**The Full Solution:**\n- Supporting the claim requires showing the count rise from Late Bronze I to Late Bronze II and then rise again into Iron Age I.\n- Choice A gives both: approximately 165 (Late Bronze I) to 240 (Late Bronze II), then 240 to 380 (Iron Age I), preserving the rebound the older \"thoroughgoing collapse\" picture missed.\n\n**Why the other choices are wrong:**\n- B: It reports only the initial decline (290 to 165), which the older synthesis already captured.\n- C: It contradicts the table, since the counts rise after Late Bronze I rather than falling continuously, and Iron Age I is in fact the highest count, not the lowest.\n- D: It jumps from Middle Bronze IIB straight to Iron Age I, erasing the within-Late-Bronze recovery the claim is about."
         },
         {
           "id": 1015,
@@ -566,7 +566,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**The correct answer is D.** A ring's width \"responds to whatever most constrains growth\" at one place, so a single-site chronology reflects only that site's limiting factor — a \"misleadingly local picture\" of past climate.\n\n**Why the other choices are wrong:**\nA ignores the limit and overreaches to tropical trees the passage never mentions, B invents an age-versus-conditions comparison, and C claims single-site accuracy equal to a wide network, the opposite of the stated limit."
+          "explanation": "**Choice D is correct.** The passage explains that a ring's width \"responds to whatever most constrains growth in a given place\" and flags this as a built-in limit, so a single-site chronology reflects only that site's limiting factor.\n\n**The Full Solution:**\n- Because the limiting factor varies from place to place, a chronology drawn from one site may not represent climate elsewhere.\n- It follows that a single-site record can give a \"misleadingly local picture of past climate,\" since the factor that limits growth at one site may not be the factor that mattered elsewhere.\n\n**Why the other choices are wrong:**\n- A: It ignores the limitation and overreaches to tropical trees, which the passage does not address.\n- B: It introduces a comparison of age-keeping versus condition-recording that the passage does not make.\n- C: It claims single-site accuracy equal to a wide network, the opposite of the limitation just described."
         },
         {
           "id": 1016,
@@ -596,7 +596,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**The correct answer is C.** Because the trapped air is \"always somewhat younger than the ice enclosing it,\" a researcher must account for that age gap rather than treat the gas as exactly as old as the ice.\n\n**Why the other choices are wrong:**\nA assumes the very equality the passage rules out, B overreacts by calling the archive unreliable when the passage values it, and D discards the ice as uninformative though the passage says both ice and gas carry age information."
+          "explanation": "**Choice C is correct.** The passage states that the trapped air is \"always somewhat younger than the ice enclosing it,\" because snow does not seal completely until it has been buried for decades, so a researcher must allow for that offset rather than treat the two ages as identical.\n\n**The Full Solution:**\n- The air in a bubble is always somewhat younger than the surrounding ice, by the decades it takes snow to seal.\n- A researcher comparing the age of the ice with the age of the gas must therefore account for the gap rather than treating the gas as exactly as old as the ice — what Choice C says.\n\n**Why the other choices are wrong:**\n- A: It assumes the very equality (same year) the passage rules out.\n- B: It overreacts, since the passage presents ice cores as a valuable archive despite the offset.\n- D: It discards the ice as uninformative, but the passage treats both ice and gas as carrying age information."
         },
         {
           "id": 1017,
@@ -626,7 +626,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**The correct answer is C.** \"These were not casual sketches\" and \"They recorded microscopic details...\" are each complete sentences, so a period before the capitalized \"They\" separates them cleanly.\n\n**Why the other choices are wrong:**\nB joins two independent clauses with only a comma (a comma splice), A puts \"and\" before the comma ungrammatically, and D fuses the clauses with no boundary at all."
+          "explanation": "**Choice C is correct.** \"These were not casual sketches\" and \"They recorded microscopic details of germination that few naturalists of the 1890s had documented\" are each complete sentences, so they must be separated by end punctuation; a period followed by the capitalized \"They\" does this cleanly.\n\n**The Full Solution:**\nThe rule: two independent clauses cannot be joined by a comma alone; a period (or semicolon) is needed between them.\n- Both parts are independent clauses, so a period before the capitalized \"They\" correctly separates them.\n\n**Why the other choices are wrong:**\n- A: It places \"and\" before the comma, which is ungrammatical here.\n- B: It joins two independent clauses with only a comma, producing a comma splice.\n- D: It fuses the two clauses with no boundary at all."
         },
         {
           "id": 1018,
@@ -656,7 +656,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**The correct answer is A.** The subject is the singular \"body\" (of evidence), so it takes the singular \"indicates\"; the intervening \"of evidence she assembled\" does not change the number.\n\n**Why the other choices are wrong:**\n\"Indicate\" and \"are indicating\" are plural and clash with \"body,\" and \"have indicated\" is also plural (it would need \"has\") and needlessly shifts into the present perfect."
+          "explanation": "**Choice A is correct.** The subject of the verb is the singular noun \"body\" (\"The body of evidence she assembled\"), so it takes the singular \"indicates.\"\n\n**The Full Solution:**\nThe rule: a verb agrees with its subject's head noun, not with intervening words.\n- The head noun is the singular \"body,\" which requires the singular \"indicates.\"\n- The intervening \"of evidence she assembled over her career\" does not change the number of the subject.\n\n**Why the other choices are wrong:**\n- B: \"Indicate\" is plural and does not agree with the singular \"body.\"\n- C: \"Have indicated\" is also plural (it would require \"has\") and needlessly shifts into the present perfect without support.\n- D: \"Are indicating\" is plural and clashes with the singular \"body.\""
         },
         {
           "id": 1019,
@@ -686,7 +686,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**The correct answer is B.** The three listed instruments each contain internal commas (\"the seismometer, which records...\"), so semicolons must separate the items; the semicolon after \"upward\" gives the first clear break.\n\n**Why the other choices are wrong:**\nA's comma blurs into the internal commas, C supplies no punctuation and fuses the first two items, and D inserts \"and\" mid-series where it does not belong."
+          "explanation": "**Choice B is correct.** The sentence lists three instruments, and each item already contains internal commas (\"the seismometer, which records ...\"). When series items are long and comma-containing, they are separated by semicolons so the boundaries stay clear; the semicolon after \"upward\" provides the first such break.\n\n**The Full Solution:**\nThe rule: use semicolons between list items when the items themselves contain commas.\n- Each instrument is described by a \"which\" clause carrying its own internal comma.\n- A semicolon after \"upward\" keeps the boundary between the seismometer item and the tiltmeter item clear.\n\n**Why the other choices are wrong:**\n- A: A comma blurs into the internal commas, leaving the item boundaries unclear.\n- C: With no punctuation, the first two items fuse together.\n- D: It inserts \"and\" mid-series, where it does not belong in this semicolon-separated list."
         },
         {
           "id": 1020,
@@ -716,7 +716,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**The correct answer is B.** \"By the time his analysis was published\" marks a past moment, and the rival proposals existed before it, so the past perfect \"had circulated\" correctly places them earlier.\n\n**Why the other choices are wrong:**\nThe simple past \"circulated\" fails to mark the action as prior, and \"are circulating\" and \"have circulated\" use present and present-perfect forms that clash with the past time frame."
+          "explanation": "**Choice B is correct.** The sentence describes one past event (the publication of Ventris's analysis) and an earlier past situation (rival proposals already in circulation before that publication). The past perfect \"had circulated\" correctly places the rival proposals before the later past moment marked by \"By the time his analysis was published.\"\n\n**The Full Solution:**\nThe rule: the past perfect marks an action completed before another past action.\n- \"By the time his analysis was published\" fixes a past reference point.\n- The rival proposals were already circulating \"already\" before it, so the past perfect is required.\n\n**Why the other choices are wrong:**\n- A: The simple past \"circulated\" fails to mark the action as prior to the publication.\n- C: \"Are circulating\" shifts into the present, clashing with the clearly past time frame.\n- D: \"Have circulated\" is present perfect, which also clashes with the past time frame."
         },
         {
           "id": 1021,
@@ -746,7 +746,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**The correct answer is C.** The first part is a complete clause (\"...the famous quarries that most collections rely on\"), and a colon properly introduces the list of places the search reaches instead.\n\n**Why the other choices are wrong:**\nA adds a redundant \"including\" after the comma, B uses a comma alone, too weak to introduce the list, and D supplies no punctuation, running the clause straight into the list."
+          "explanation": "**Choice C is correct.** The first part of the sentence is a complete independent clause (\"The paleobotanist's search ... reaches deliberately beyond the famous quarries that most collections rely on\"), and what follows is a list specifying where the search reaches instead. A colon properly introduces that explanatory list after a complete clause.\n\n**The Full Solution:**\nThe rule: a colon may introduce a list when it follows a complete independent clause.\n- The clause before the blank is grammatically complete.\n- The colon then introduces the list of three places: the river cliffs, the road cuts, and the spoil heaps.\n\n**Why the other choices are wrong:**\n- A: Adding \"including\" after the comma creates a redundant and awkward join.\n- B: A comma alone is too weak to introduce the list after a complete clause.\n- D: With no punctuation, the clause runs directly into the list."
         },
         {
           "id": 1022,
@@ -776,7 +776,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**The correct answer is D.** The opening modifier \"Studying anomalies in how these waves arrived\" must attach to a person, and \"the seismologist Inge Lehmann concluded\" supplies a human subject who can do the studying.\n\n**Why the other choices are wrong:**\nA, B, and C begin with \"it,\" \"there,\" or \"the conclusion\" — none of which can logically study the waves — so each leaves the modifier dangling."
+          "explanation": "**Choice D is correct.** The opening modifier \"Studying anomalies in how these waves arrived\" must attach to the person doing the studying, so the subject after the comma has to name that person. \"The seismologist Inge Lehmann concluded\" supplies a human subject who can perform the studying.\n\n**The Full Solution:**\nThe rule: an introductory participial phrase must modify the subject that immediately follows it.\n- \"Studying anomalies ...\" describes an action only a person can perform.\n- \"The seismologist Inge Lehmann\" is that person, so the modifier attaches correctly.\n\n**Why the other choices are wrong:**\n- A: It begins with \"it,\" which cannot logically study the waves, leaving the modifier dangling.\n- B: It begins with \"there,\" which cannot study the waves, leaving the modifier dangling.\n- C: It begins with \"the conclusion,\" which cannot study the waves, leaving the modifier dangling."
         },
         {
           "id": 1023,
@@ -806,7 +806,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**The correct answer is A.** Dark surfaces absorb heat by day and release it slowly is the cause; cities staying warmer overnight is the effect, so \"As a result\" marks that cause-to-effect link.\n\n**Why the other choices are wrong:**\n\"Nevertheless\" signals a contrast the passage doesn't present, \"For example\" introduces an instance of a prior claim, and \"Likewise\" signals a parallel case rather than a consequence."
+          "explanation": "**Choice A is correct.** The first sentences establish a cause — dark urban surfaces absorb heat by day and release it slowly through the evening — and the sentence with the blank states the effect: cities stay warmer overnight than the surrounding countryside. \"As a result\" marks that cause-to-effect relationship.\n\n**The Full Solution:**\n- Cause: dark asphalt and concrete absorb the sun's energy by day and release stored heat slowly after sunset.\n- Effect: many large cities stay several degrees warmer overnight than the rural land around them.\n- \"As a result\" links the cause to the consequence.\n\n**Why the other choices are wrong:**\n- B: \"Nevertheless\" would signal a contrast the passage does not present.\n- C: \"For example\" would introduce an instance of a prior general claim, which this is not.\n- D: \"Likewise\" would signal a parallel case rather than a consequence."
         },
         {
           "id": 1024,
@@ -836,7 +836,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**The correct answer is C.** The passage states the dominant pattern (most glaciers losing ice) and then turns to glaciers that have done the opposite by advancing, so \"By contrast\" marks that opposition.\n\n**Why the other choices are wrong:**\n\"For instance\" would give an example of the first claim, not a counter-case, \"Therefore\" signals a consequence, and \"Likewise\" signals similarity, the reverse of the contrast."
+          "explanation": "**Choice C is correct.** The passage first states the dominant pattern — most mountain glaciers are losing ice and retreating — and then turns to glaciers that have done the opposite by advancing. \"By contrast\" marks that opposition between the general trend and the exceptional case.\n\n**The Full Solution:**\n- Dominant pattern: the great majority of mountain glaciers have been losing ice.\n- Exception: a small number in coastal ranges have actually advanced over the same decades.\n- \"By contrast\" sets the exception against the trend.\n\n**Why the other choices are wrong:**\n- A: \"For instance\" would present an example of the first claim rather than a counter-case.\n- B: \"Therefore\" would signal a consequence, which the advancing glaciers are not.\n- D: \"Likewise\" would signal similarity, the reverse of the contrast the sentence sets up."
         },
         {
           "id": 1025,
@@ -866,7 +866,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**The correct answer is A.** After star navigation, the passage says \"the stars were not their only guide\" and names further techniques (reading swells, watching seabirds), so \"In addition\" signals these added guides.\n\n**Why the other choices are wrong:**\n\"However\" marks a contrast, but the sentence extends rather than opposes; \"For example\" would treat swells and birds as instances of star navigation, which they aren't; and \"As a result\" wrongly casts them as a consequence."
+          "explanation": "**Choice A is correct.** The passage first describes holding a course by the rising and setting points of particular stars, then says \"the stars were not their only guide\" before naming further techniques — reading ocean swells and the flight of seabirds. \"In addition\" signals that these are added guides alongside the stars.\n\n**The Full Solution:**\n- First guide: navigators held a course by reading the rising and setting points of particular stars.\n- The passage then signals more guides: \"the stars were not their only guide.\"\n- Added guides: feeling swells refracting around islands and reading seabird flight paths.\n- \"In addition\" introduces these supplementary techniques.\n\n**Why the other choices are wrong:**\n- B: \"However\" would mark a contrast, but the sentence extends rather than opposes the prior point.\n- C: \"For example\" would treat swells and birds as instances of star navigation, which they are not.\n- D: \"As a result\" would wrongly cast them as a consequence of the star navigation."
         },
         {
           "id": 1026,
@@ -907,7 +907,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**The correct answer is C.** The goal is to show how Nightingale used visualization to drive reform, and C names the rose diagram, what it showed officials, and the sanitary reforms it helped secure.\n\n**Why the other choices are wrong:**\nA gives her statistical credentials without the diagram or reform, B states the underlying finding but not the visualization or its effect, and D describes the diagram's mechanics but stops short of its persuasive result."
+          "explanation": "**Choice C is correct.** The goal is to emphasize how Nightingale used data visualization to bring about reform, so the best choice ties the diagram to its persuasive purpose and its outcome. Choice C names the rose diagram, states what it was meant to show officials, and connects it to the sanitary reforms it helped secure.\n\n**The Full Solution:**\n- It identifies the visualization: the circular \"rose\" diagram of monthly deaths by cause.\n- It states its purpose: to show officials that disease, not combat, was killing most soldiers.\n- It names the outcome: it helped persuade the government to reform military hospital sanitation.\n\n**Why the other choices are wrong:**\n- A: It reports her statistical credentials without the diagram or the reform.\n- B: It states the underlying finding but not the visualization or its effect.\n- D: It describes the diagram's mechanics but stops short of its persuasive role and result."
         },
         {
           "id": 1027,
@@ -948,7 +948,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**The correct answer is B.** The goal is to contrast ozone's high-altitude and ground-level effects, and B sets them against each other: stratospheric ozone shields life by absorbing UV, whereas ground-level ozone is harmful smog.\n\n**Why the other choices are wrong:**\nA gestures at \"different roles\" but states neither side, C gives only the protective high-altitude side, and D gives only the harmful ground-level side, so neither draws the contrast."
+          "explanation": "**Choice B is correct.** The goal is to emphasize the contrast between ozone's effects high in the atmosphere and at ground level, so the best choice sets the two against each other in one statement. Choice B does this: stratospheric ozone shields life by absorbing ultraviolet radiation, whereas ground-level ozone is harmful smog.\n\n**The Full Solution:**\n- High-altitude side: stratospheric ozone shields life by absorbing the Sun's ultraviolet radiation.\n- Ground-level side: ozone formed from pollution near the ground is a component of smog that harms the lungs.\n- The \"whereas\" explicitly draws the contrast the goal calls for.\n\n**Why the other choices are wrong:**\n- A: It gestures at \"different roles\" but states neither side of the contrast.\n- C: It gives only the protective, high-altitude side.\n- D: It gives only the harmful, ground-level side, so it does not draw the comparison."
         }
       ]
     },
@@ -985,7 +985,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**The correct answer is C.** Carbonate encased the tissue \"before it could fully decay,\" so the coal balls retain ancient cellular structure in three dimensions — the blank needs \"preserve.\"\n\n**Why the other choices are wrong:**\n\"Conceal\" runs opposite, since the coal balls reveal the anatomy, \"exaggerate\" wrongly implies distortion, and \"imitate\" suggests a copy rather than the genuine original tissue."
+          "explanation": "**Choice C is correct.** Carbonate encased the plant tissues \"before it could fully decay,\" so the polished coal balls retain ancient cellular structure in three dimensions. \"Preserve\" names that retention of intact structure.\n\n**The Full Solution:**\n- The mineral-rich water encased the plant matter in carbonate before decay, keeping the original tissue intact.\n- \"Preserve\" captures the coal balls' retention of three-dimensional cellular structure that flattened shale impressions cannot provide.\n\n**Why the other choices are wrong:**\n- A: \"Conceal\" runs opposite, since the coal balls reveal the anatomy rather than hide it.\n- B: \"Exaggerate\" wrongly implies distortion of the structure.\n- D: \"Imitate\" suggests a copy rather than the genuine, original tissue the passage describes."
         },
         {
           "id": 1029,
@@ -1015,7 +1015,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**The correct answer is A.** Doping uses \"tiny, controlled amounts\" to adjust the crystal's behavior deliberately, supplying electrons or vacancies for predictable current — \"tailor\" captures that purposeful fine-tuning.\n\n**Why the other choices are wrong:**\n\"Abandon\" makes no sense with \"the crystal,\" \"flood\" implies an uncontrolled excess that contradicts \"tiny, controlled amounts,\" and \"imitate\" wrongly suggests copying rather than modifying."
+          "explanation": "**Choice A is correct.** The passage says doping does not damage the silicon crystal so much as adjust its electrical behavior in a controlled, deliberate way — supplying extra electrons or vacancies so current flows predictably. \"Tailor\" captures that purposeful fine-tuning.\n\n**The Full Solution:**\n- Doping adds \"tiny, controlled amounts\" of phosphorus or boron to change the crystal's behavior on purpose.\n- It supplies either extra electrons or vacancies so current flows in predictable ways.\n- \"Tailor\" names that deliberate, fine-grained modification.\n\n**Why the other choices are wrong:**\n- B: \"Abandon\" makes no sense applied to \"the crystal.\"\n- C: \"Flood\" implies an uncontrolled excess that contradicts the \"tiny, controlled amounts\" of the passage.\n- D: \"Imitate\" wrongly suggests copying rather than modifying the material."
         },
         {
           "id": 1030,
@@ -1045,7 +1045,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**The correct answer is D.** As the lowest stage drops free, the next stage, \"its own engines fueled and primed,\" stands available to ignite — so the blank needs \"ready.\"\n\n**Why the other choices are wrong:**\n\"Reluctant\" and \"forbidden\" make no sense applied to a rocket stage, and \"exhausted\" would describe the stage as spent, the opposite of being primed to fire."
+          "explanation": "**Choice D is correct.** The passage describes a rocket built in stages used in turn, so that as the fuel in the lowest stage burns away and that section drops free, the next stage, \"its own engines fueled and primed,\" stands available to ignite and carry the climb forward. \"Ready\" conveys that the next stage is fueled and on hand to take over.\n\n**The Full Solution:**\n- The spent lowest stage drops free, and the next stage is fueled and primed.\n- \"Ready\" conveys that this stage is available to ignite and drive the now lighter craft higher.\n\n**Why the other choices are wrong:**\n- A: \"Reluctant\" makes no sense applied to a rocket stage.\n- B: \"Forbidden\" makes no sense applied to a rocket stage.\n- C: \"Exhausted\" would describe the stage as spent, the opposite of being primed to fire."
         },
         {
           "id": 1031,
@@ -1075,7 +1075,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**The correct answer is B.** Transplanting only the fastest-growing fragments could deepen \"the very vulnerability they hoped to reduce,\" since heat-sensitive descendants might all die in one warm summer — so the blank needs \"entrench.\"\n\n**Why the other choices are wrong:**\n\"Measure\" means assessing, not worsening, \"advertise\" makes no sense here, and \"postpone\" would mean delaying the vulnerability rather than reinforcing it."
+          "explanation": "**Choice B is correct.** The passage warns that transplanting only the fastest-growing fragments could deepen \"the very vulnerability they hoped to reduce,\" because fragments descended from a few heat-sensitive parents might all die in one warm summer. \"Entrench\" conveys that hardening or deepening of an existing vulnerability.\n\n**The Full Solution:**\n- Early projects transplanted whatever colonies grew fastest, regardless of heat tolerance.\n- If those fragments share heat-sensitive parents, an unusually warm summer could kill the entire restored patch at once.\n- \"Entrench\" names the deepening of the very vulnerability managers hoped to reduce.\n\n**Why the other choices are wrong:**\n- A: \"Measure\" describes assessing the vulnerability rather than worsening it.\n- C: \"Advertise\" makes no sense applied to a vulnerability here.\n- D: \"Postpone\" would mean delaying the vulnerability, not reinforcing it as the passage says."
         },
         {
           "id": 1032,
@@ -1105,7 +1105,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**The correct answer is D.** The poem is a dialogue: a traveler asks question after question about the hard road and a second voice answers each with reassurance, ending \"Yea, beds for all who come.\"\n\n**Why the other choices are wrong:**\nA narrates a trip with obstacles overcome, but no journey is actually taken; B describes a deliberation ending in staying home that never occurs; and C reverses the roles, since the speaker seeks reassurance rather than giving warnings or directions.",
+          "explanation": "**Choice D is correct.** The poem unfolds as a dialogue: a traveler asks one question after another about a hard road and a second voice answers each in turn with reassurance, ending \"Yea, beds for all who come.\"\n\n**The Full Solution:**\nThe structure is a sequence of anxious questions about a hard journey, each met by an answer promising shelter and welcome at its end.\n- The traveler asks whether the road winds \"up-hill all the way,\" whether there is \"for the night a resting-place,\" whether other wayfarers will be met, and whether there will be beds.\n- The second voice answers each with reassurance, closing on \"Yea, beds for all who come.\"\n\n**Why the other choices are wrong:**\n- A: It turns the poem into a narrated trip with obstacles overcome, but no journey is actually taken; everything is asked and answered in advance.\n- B: It describes a deliberation ending in staying home, yet the traveler never weighs rewards against dangers or decides anything.\n- C: It reverses the poem's roles — the speaker seeks reassurance rather than giving warnings — and no directions for the road are ever offered.",
           "_meta": {
             "quoteVerify": true,
             "source": "Christina Rossetti, \"Up-Hill\" (1861), Goblin Market and Other Poems (1862)"
@@ -1139,7 +1139,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**The correct answer is A.** The passage presents Whittingham's intercalation idea, notes his cell was dropped for safety and commercial reasons, then stresses the principle survived to become the basis of today's lithium-ion batteries.\n\n**Why the other choices are wrong:**\nB treats the oil-price detail as the focus, C reverses the passage, which calls his metallic lithium \"prone to catching fire,\" and D isolates the chemistry of intercalation, a supporting detail."
+          "explanation": "**Choice A is correct.** The passage explains Whittingham's intercalation idea, notes that his particular cell was dropped for safety and commercial reasons, and then stresses that the principle survived and became the basis of today's lithium-ion batteries.\n\n**The Full Solution:**\nThe trajectory — idea, commercial dead end, enduring foundation — is the main purpose.\n- Whittingham built a cell on intercalation, letting lithium ions slip in and out of a layered electrode without destroying it.\n- His cell relied on metallic lithium \"prone to catching fire,\" and falling oil prices ended Exxon's interest.\n- The intercalation principle survived: later chemists replaced the dangerous components, and it became the foundation of modern lithium-ion batteries.\n\n**Why the other choices are wrong:**\n- B: It treats the oil-price detail as the focus rather than the surviving principle.\n- C: It reverses the passage, which calls his cell's metallic lithium prone to fire, not safer.\n- D: It isolates the chemistry of intercalation, a supporting detail rather than the overall point."
         },
         {
           "id": 1034,
@@ -1169,7 +1169,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**The correct answer is C.** The passage explains why the flytrap catches animals (nitrogen-poor soil), describes how the trap works (trigger hairs, two-touch rule, snap, enzymes), and closes by explaining the two-touch design as energy-saving.\n\n**Why the other choices are wrong:**\nA treats it as an evolutionary history it never recounts, B fixes on one detail and adds an unmade superiority claim, and D introduces a warning about nitrogen-rich soils the passage never raises."
+          "explanation": "**Choice C is correct.** The passage first explains why the flytrap catches animals at all — its boggy soil is too poor in nitrogen for its roots to supply what it needs — then describes how the trap works, and closes by accounting for the two-touch design as energy-saving.\n\n**The Full Solution:**\nThis is a need-mechanism-and-rationale arc.\n- Need: the bog is so poor in nitrogen that the plant's roots cannot supply all it needs, so it catches animals.\n- Mechanism: trigger hairs and the two-touch rule, the snap-shut lobes, the digestive enzymes, and the absorption of nitrogen.\n- Rationale: \"By requiring two touches in quick succession, the trap commits its energy only when a meal is actually present.\"\n\n**Why the other choices are wrong:**\n- A: It treats the passage as a history of the plant's evolution, which it does not recount.\n- B: It fixes on a single detail (trigger hairs) and adds a superiority claim the passage never makes.\n- D: It introduces a warning about nitrogen-rich soils that the passage does not raise."
         },
         {
           "id": 1035,
@@ -1208,7 +1208,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**The correct answer is B.** Airy accepts the weak-deflection observation but rejects Pratt's lighter-rock mechanism, attributing the shortfall instead to a deep, low-density \"root\" beneath the range.\n\n**Why the other choices are wrong:**\nA has Airy denying the measurement he treats as genuine, C has him agreeing with Pratt's density account he sets aside, and D dismisses the data as unusable though Airy builds his explanation directly on it."
+          "explanation": "**Choice B is correct.** The two texts share an observation — that the Himalayas deflect a plumb line far less than their visible bulk should — but explain it differently. Airy keeps the observation while rejecting Pratt's lighter-rock mechanism, arguing instead that a deep, low-density root beneath the range offsets the mass of the peaks.\n\n**The Full Solution:**\nChoice B captures the move: accept the anomaly, but relocate its cause from density to a hidden root.\n- Pratt (Text 1) traces the weak deflection to lighter rock within the crust beneath the mountains.\n- Airy (Text 2) accepts the same survey result but argues crustal rock is of roughly uniform density and differs in thickness.\n- He attributes the shortfall to a deep \"root\" of crust, like an iceberg's submerged mass, displacing denser rock at depth.\n\n**Why the other choices are wrong:**\n- A: It has Airy denying the measurement itself, when he treats the anomaly as genuine.\n- C: It has him agreeing with Pratt's density explanation, the very account he sets aside.\n- D: It dismisses the data as unusable, whereas Airy builds his own explanation directly on it."
         },
         {
           "id": 1036,
@@ -1238,7 +1238,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**The correct answer is D.** The passage builds to Darwin's claim that earthworms, far from trivial, are \"among the most important agents shaping the fertile upper layer of the land\" — a geological force underfoot.\n\n**Why the other choices are wrong:**\nA reports a biographical fact about the book's timing, B describes the method (measuring castings) not the conclusion, and C notes his relative fame, mentioned only to set up the surprise."
+          "explanation": "**Choice D is correct.** The passage moves from Darwin's patient measurements toward his central claim: that earthworms, far from being trivial, are \"among the most important agents shaping the fertile upper layer of the land\" — a geological force operating everywhere underfoot.\n\n**The Full Solution:**\n- Darwin measured how much soil worms bring to the surface and calculated they could bury a layer under inches of fresh soil within decades.\n- His central argument: earthworms are a major force slowly turning and aerating the topsoil on which agriculture depends.\n- What looked like the trivial activity of a humble animal was, in his account, a geological force underfoot.\n\n**Why the other choices are wrong:**\n- A: It reports a biographical fact about the book's timing.\n- B: It describes the method (measuring castings) rather than the conclusion.\n- C: It notes his relative fame, which the passage mentions only to set up the surprise of the earthworm work."
         },
         {
           "id": 1037,
@@ -1268,7 +1268,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**The correct answer is A.** As the tun forms, water leaves and \"protective molecules\" move into its place, \"propping up delicate internal structures so they neither collapse nor tear\" — exactly what A restates.\n\n**Why the other choices are wrong:**\nB reverses it, since the animal expels water rather than drawing more in, C contradicts the passage's \"almost no energy,\" and D describes a breaking-down and rebuilding the passage never mentions."
+          "explanation": "**Choice A is correct.** As a tardigrade forms a tun, most of the water is driven from its cells and \"protective molecules\" move into its place, \"propping up delicate internal structures so they neither collapse nor tear\" — exactly what Choice A restates.\n\n**The Full Solution:**\n- Entering the tun, the animal expels most of the water from its cells.\n- Protective molecules move in to take the water's place and prop up the cell's delicate internal structures so they neither collapse nor tear.\n\n**Why the other choices are wrong:**\n- B: It reverses the process, since the animal expels water rather than drawing more in.\n- C: It contradicts the passage, which says the suspended animal burns \"almost no energy\" rather than continuing normal activity.\n- D: It describes a breaking-down and rebuilding of the cells that the passage never mentions."
         },
         {
           "id": 1038,
@@ -1298,7 +1298,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**The correct answer is B.** The passage sets up a problem (telling a dim star from a distant one) and presents Leavitt's discovery as the solution: a Cepheid's period reveals its luminosity, yielding the first reliable yardstick beyond the Milky Way.\n\n**Why the other choices are wrong:**\nA reports only what she studied, C states only the problem, and D notes a later consequence — each a part rather than the main idea."
+          "explanation": "**Choice B is correct.** The passage sets up a problem — astronomers could not tell whether a faint star was dim or merely distant — and presents Leavitt's discovery as the solution: a Cepheid's period reveals its true luminosity, which, with apparent brightness, yields distance.\n\n**The Full Solution:**\n- The problem: astronomers could measure apparent brightness but had no general way to tell a dim star from a distant one.\n- The discovery: the longer a Cepheid takes to complete its cycle, the greater its true luminosity.\n- The payoff: because true and apparent brightness together reveal distance, this gave the first reliable yardstick for distances beyond the Milky Way.\n\n**Why the other choices are wrong:**\n- A: It reports only what she studied, not the achievement.\n- C: It states only the problem the discovery solved.\n- D: It notes a later consequence (others using her work), each capturing a part rather than the main idea."
         },
         {
           "id": 1039,
@@ -1328,7 +1328,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**The correct answer is D.** The claim is that Jenner's case rested on more than folklore, and a deliberate test — exposing a boy to cowpox, then finding smallpox didn't take hold — supplies exactly that kind of evidence.\n\n**Why the other choices are wrong:**\nA and B restate the folklore and its currency, the very starting point Jenner moved past, and C shows how dangerous smallpox was, context but not evidence beyond folklore."
+          "explanation": "**Choice D is correct.** The historian's claim is that Jenner's case rested on more than the folklore he started from. A deliberate test — exposing a person to cowpox and then finding that smallpox did not take hold — goes beyond the inherited belief and supplies evidence of the kind the claim says Jenner had.\n\n**The Full Solution:**\n- The folklore alone (dairymaids with cowpox avoided smallpox) is Jenner's starting point, not evidence beyond it.\n- Choice D reports a deliberate experiment — exposing a healthy boy to cowpox material, then finding he did not contract smallpox — which is exactly the kind of evidence that goes past folklore.\n\n**Why the other choices are wrong:**\n- A: It restates the folklore (cowpox known as a mild illness), the very starting point the claim says Jenner moved past.\n- B: It restates the currency of the folk belief, again the starting point rather than evidence beyond it.\n- C: It establishes how dangerous smallpox was, important context but not evidence that Jenner's case went beyond folklore."
         },
         {
           "id": 1040,
@@ -1394,7 +1394,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**The correct answer is B.** The claim is scoped — most bands wetter, but not all — and B enumerates the four positive bands and the single negative one (-0.4%), showing exactly that majority-with-one-exception pattern.\n\n**Why the other choices are wrong:**\nA foregrounds only the lone decreasing band, C cites only the largest single value (a magnitude, not a count), and D overstates by saying every band rose, which the -0.4% band contradicts."
+          "explanation": "**Choice B is correct.** The student's claim is carefully scoped: not every band became wetter, but the great majority did. Supporting it requires showing both that most bands increased and that not all did, and Choice B does exactly that.\n\n**The Full Solution:**\n- The claim is a majority-with-one-exception statement, so the support must enumerate both.\n- Choice B names the four bands with positive changes — high northern (+8.2%), mid northern (+1.7%), tropical southern (+1.1%), mid southern (+2.6%) — and pairs them with the single negative band (tropical northern, -0.4%).\n\n**Why the other choices are wrong:**\n- A: It foregrounds only the lone decreasing band, which points toward a mixed picture rather than a majority increase.\n- C: It cites only the largest single value, a magnitude claim rather than a count of bands.\n- D: It overstates the pattern by saying every band rose, which the tropical northern band's -0.4% contradicts."
         },
         {
           "id": 1041,
@@ -1460,7 +1460,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**The correct answer is B.** The claim names Acidobacteria as the largest decline, and B cites the exact drop (28.1% to 20.3%, 7.8 points) and anchors it as larger than any other phylum's shift.\n\n**Why the other choices are wrong:**\nA reverses the direction, claiming Acidobacteria rose, C points to a much smaller decline (Verrucomicrobia's 1.5 points), and D cites a phylum that rose, which cannot support a claim about decline."
+          "explanation": "**Choice B is correct.** The ecologist's claim names Acidobacteria as the phylum with the largest decline and treats that as the strongest evidence that warming favors some lineages over others. Choice B cites the exact change and anchors it as larger than any other phylum's shift.\n\n**The Full Solution:**\n- \"Largest decline\" requires both a drop and a comparison to the other phyla.\n- Choice B gives Acidobacteria falling from 28.1% (control) to 20.3% (heated), a 7.8-percentage-point decrease, and states it is larger in absolute magnitude than any other phylum's shift.\n\n**Why the other choices are wrong:**\n- A: It reverses the direction, claiming Acidobacteria rose to 28.1%.\n- C: It points to a real but much smaller decline (Verrucomicrobia's 1.5 points), not the largest.\n- D: It cites a phylum that rose (Proteobacteria), so it cannot support a claim whose key term is decline."
         },
         {
           "id": 1042,
@@ -1490,7 +1490,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**The correct answer is A.** Af Klint made large abstract canvases \"as early as 1906,\" documented by contemporaneous inscriptions, so the chronology should move earlier even though she worked outside the avant-garde galleries.\n\n**Why the other choices are wrong:**\nB overgeneralizes into a rule about all movements, C rejects the very dating evidence the passage relies on, and D leaves the chronology unchanged, contradicting the documented earlier dates."
+          "explanation": "**Choice A is correct.** The passage establishes that af Klint produced large abstract canvases \"as early as 1906\" — well before the 1910s works usually credited as the first — and that the early dates are documented by contemporaneous inscriptions and notebooks. It follows that the standard chronology should be moved earlier.\n\n**The Full Solution:**\n- Af Klint's abstract canvases predate the Kandinsky and Mondrian works the standard histories credit.\n- Scholars confirmed the early dates from inscriptions and notebooks made at the same time as the paintings.\n- So the chronology should be revised earlier, even though af Klint worked outside the famous avant-garde galleries.\n\n**Why the other choices are wrong:**\n- B: It overgeneralizes into a rule that any work made outside the galleries is the true origin of every movement.\n- C: It rejects the very dating evidence (inscriptions and notebooks) the passage relies on.\n- D: It leaves the chronology unchanged, contradicting the documented earlier dates."
         },
         {
           "id": 1043,
@@ -1520,7 +1520,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**The correct answer is C.** After about fifty thousand years \"only a negligible amount\" of carbon-14 remains, so for a far older fossil too little is left to measure and the researcher must use a different dating method.\n\n**Why the other choices are wrong:**\nA ignores that limit, B reverses the chemistry (older material has less carbon-14, not more), and D assumes precise dating is still possible, which depletion rules out."
+          "explanation": "**Choice C is correct.** The passage explains that carbon-14 decays quickly enough that after about fifty thousand years \"only a negligible amount\" remains. For a fossil far older than that, there is too little carbon-14 left to measure, so the researcher must use another method.\n\n**The Full Solution:**\n- Carbon-14 dating works by measuring how much of the isotope remains in a once-living sample.\n- After about fifty thousand years only a negligible amount is left to measure.\n- So for a far older fossil the researcher must turn to a different dating method.\n\n**Why the other choices are wrong:**\n- A: It ignores the limit, assuming a measurable amount of carbon-14 remains.\n- B: It reverses the chemistry — an organism stops taking in carbon at death and the isotope decays, so older material has less, not more.\n- D: It assumes precise dating is still possible, which the depletion of carbon-14 rules out for very old samples."
         },
         {
           "id": 1044,
@@ -1550,7 +1550,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**The correct answer is D.** The interrupter \"which colleagues initially doubted was worth testing\" opens with a dash after \"solution,\" so it must close with a matching dash before \"proved.\"\n\n**Why the other choices are wrong:**\nA comma (B) or semicolon (C) cannot pair with the opening dash, and no punctuation (A) jams the interrupter into the main clause."
+          "explanation": "**Choice D is correct.** The phrase \"which colleagues initially doubted was worth testing\" is a nonessential interruption, and because it already opens with a dash after \"solution,\" it has to close with a matching dash before \"proved.\"\n\n**The Full Solution:**\nThe rule: a nonessential element set off with a dash on one side must be closed with a dash on the other (punctuation marks must match in a pair).\n- The interrupter opens with a dash after \"solution,\" so a closing dash before \"proved\" completes the pair.\n- The main clause is \"The fiber spun from that solution ... proved to be stiffer and stronger for its weight than steel.\"\n\n**Why the other choices are wrong:**\n- A: With no punctuation, the interrupter jams into the main clause.\n- B: A comma cannot pair with the opening dash.\n- C: A semicolon cannot pair with the opening dash."
         },
         {
           "id": 1045,
@@ -1580,7 +1580,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**The correct answer is A.** The pronoun refers to the singular \"each transistor,\" so the singular possessive \"its\" is required before \"stored charge.\"\n\n**Why the other choices are wrong:**\n\"Their\" is plural and doesn't agree with \"each transistor,\" while \"it's\" (it is) and \"they're\" (they are) are contractions, not possessives."
+          "explanation": "**Choice A is correct.** The pronoun refers back to the singular \"each transistor,\" so the singular possessive \"its\" is required before \"stored charge.\"\n\n**The Full Solution:**\nThe rule: a possessive pronoun must agree in number with its antecedent, and a possessive is not a contraction.\n- The antecedent is the singular \"each transistor,\" so the singular possessive \"its\" is correct.\n\n**Why the other choices are wrong:**\n- B: \"Their\" is plural and does not agree with the singular \"each transistor.\"\n- C: \"It's\" is the contraction of \"it is,\" not a possessive.\n- D: \"They're\" is the contraction of \"they are,\" neither plural-agreeing nor possessive."
         },
         {
           "id": 1046,
@@ -1610,7 +1610,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**The correct answer is B.** The opening subordinate clause \"Although...had been hired mainly to teach\" needs a comma before the main clause \"she soon devoted herself.\"\n\n**Why the other choices are wrong:**\nA omits the comma and runs the parts together, C wrongly uses a semicolon though the first part is dependent, and D pairs \"and\" with \"Although,\" mixing subordination and coordination."
+          "explanation": "**Choice B is correct.** The sentence opens with the subordinate clause \"Although the chemist Alice Ball had been hired ... mainly to teach,\" which must be followed by a comma before the main clause begins with \"she soon devoted herself.\"\n\n**The Full Solution:**\nThe rule: an introductory dependent clause is set off from the main clause by a comma, not a semicolon, and is not coordinated with \"and.\"\n- \"Although ... to teach\" is dependent, so a comma is correct before the main clause.\n\n**Why the other choices are wrong:**\n- A: It omits the needed comma and runs the two parts together.\n- C: A semicolon is wrong because the first part is a dependent clause, not an independent one.\n- D: Adding \"and\" after \"Although\" produces a faulty mix of subordination and coordination."
         },
         {
           "id": 1047,
@@ -1640,7 +1640,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**The correct answer is C.** The first two list items are gerunds (\"by sketching,\" \"by photographing\"), so parallel structure requires the third to match: \"by sieving.\"\n\n**Why the other choices are wrong:**\n\"To sieve\" switches to an infinitive, \"had sieved\" to the past perfect, and \"sieved\" to a simple past form — each breaks the by-plus-gerund pattern."
+          "explanation": "**Choice C is correct.** The sentence lists three ways the team documents the site, and the first two are expressed as gerunds (\"by sketching ...,\" \"by photographing ...\"). Parallel structure requires the third item to take the same form, so \"by sieving\" is correct.\n\n**The Full Solution:**\nThe rule: items in a series must be grammatically parallel.\n- The series is built on \"by\" plus a gerund: by sketching, by photographing, by sieving.\n- \"By sieving\" matches the established pattern.\n\n**Why the other choices are wrong:**\n- A: \"To sieve\" switches to an infinitive, breaking the by-plus-gerund pattern.\n- B: \"Had sieved\" switches to the past perfect, breaking the pattern.\n- D: \"Sieved\" switches to a simple past form, breaking the pattern."
         },
         {
           "id": 1048,
@@ -1670,7 +1670,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**The correct answer is D.** Two independent clauses joined by the conjunctive adverb \"however\" need a semicolon before it and a comma after: \"instrument; however,\".\n\n**Why the other choices are wrong:**\nA uses only commas (a comma splice), B omits the punctuation before \"however,\" and C reverses the marks, putting the comma first and semicolon after."
+          "explanation": "**Choice D is correct.** The blank joins two independent clauses — one about scholars taking the fragments for a simple instrument, the other about imaging revealing intricate gears — linked by the conjunctive adverb \"however.\"\n\n**The Full Solution:**\nThe rule: two independent clauses joined by a conjunctive adverb like \"however\" take a semicolon before it and a comma after it.\n- Both sides of the blank are complete independent clauses.\n- So the punctuation is \"instrument; however,\".\n\n**Why the other choices are wrong:**\n- A: It uses only commas, producing a comma splice.\n- B: It omits the punctuation before \"however.\"\n- C: It reverses the marks, putting the comma first and the semicolon after, which is not how a conjunctive adverb is punctuated between clauses."
         },
         {
           "id": 1049,
@@ -1700,7 +1700,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**The correct answer is C.** The passage narrates completed past events — Wegener \"noticed\" and \"gathered\" — so the blank takes the simple past \"argued.\"\n\n**Why the other choices are wrong:**\n\"Argues\" (present) and \"will argue\" (future) clash with the past-tense narration, and \"has argued\" (present perfect) wrongly implies continuing present relevance."
+          "explanation": "**Choice C is correct.** The passage narrates a sequence of completed past events — Wegener \"noticed\" the fit of the coastlines and \"gathered\" evidence — so the verb in the blank should also be simple past: \"argued.\"\n\n**The Full Solution:**\nThe rule: keep verb tense consistent with the surrounding narration.\n- The neighboring verbs (\"noticed,\" \"gathered\") are simple past, describing what Wegener did.\n- The blank should match with the simple past \"argued.\"\n\n**Why the other choices are wrong:**\n- A: \"Argues\" is present tense and clashes with the past-tense narration.\n- B: \"Will argue\" is future tense and clashes with the past-tense narration.\n- D: \"Has argued\" is present perfect, implying continuing present relevance that does not fit a sentence describing what Wegener did and how geologists of the time responded."
         },
         {
           "id": 1050,
@@ -1730,7 +1730,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**The correct answer is D.** The passage contrasts early flight (no central system, navigating by landmarks) with the present, when radar and controllers track nearly every airliner, so \"Today\" marks the then-versus-now shift.\n\n**Why the other choices are wrong:**\n\"Therefore\" signals a consequence, \"Likewise\" a parallel, and \"For instance\" an example — none captures the shift to current practice."
+          "explanation": "**Choice D is correct.** The passage contrasts the early decades of flight — no central system, pilots navigating by landmarks — with the present, when radar, beacons, and controllers track nearly every airliner. \"Today\" marks that move from past practice to current practice.\n\n**The Full Solution:**\n- Past: in the first decades of powered flight, pilots followed roads and rivers and could lose track of which way was up in a cloud.\n- Present: a dense network of radar, radio beacons, and controllers now tracks virtually every airliner.\n- \"Today\" signals the then-versus-now shift between the two states.\n\n**Why the other choices are wrong:**\n- A: \"Therefore\" would signal a consequence rather than a shift in time.\n- B: \"Likewise\" would signal a parallel, not a contrast across eras.\n- C: \"For instance\" would introduce an example, not the shift to current practice."
         },
         {
           "id": 1051,
@@ -1760,7 +1760,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**The correct answer is C.** The first sentence makes a general claim (designing for the edges helps everyone), and the blank introduces a concrete case — curb cuts that also aid luggage, strollers, and carts — so \"For instance\" fits.\n\n**Why the other choices are wrong:**\n\"However\" and \"By contrast\" signal opposition, and \"Instead\" a substitution, none of which fits an illustrating example."
+          "explanation": "**Choice C is correct.** The first sentence states a general claim — that designing for the edges of the population tends to improve a product for everyone — and the sentence with the blank gives a concrete case: curb cuts added for wheelchair users that also help travelers with luggage, parents with strollers, and workers with carts. \"For instance\" introduces that example.\n\n**The Full Solution:**\n- General claim: designing for the edges of the population improves a product for everyone.\n- Concrete case: curb cuts introduced for a few turn out to serve nearly all.\n- \"For instance\" links the general claim to its illustrating example.\n\n**Why the other choices are wrong:**\n- A: \"However\" signals opposition, but the example supports the claim rather than countering it.\n- B: \"By contrast\" signals opposition, which the example does not provide.\n- D: \"Instead\" signals a substitution, not an illustration."
         },
         {
           "id": 1052,
@@ -1790,7 +1790,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**The correct answer is C.** Wagner's changes (darkening the hall, sinking the orchestra) are the cause, and the effect follows — nothing distracted the eye from the lit stage — so \"As a result\" marks the link.\n\n**Why the other choices are wrong:**\n\"Nevertheless\" signals a contrast, \"For example\" an illustration, and \"Meanwhile\" a simultaneous event, none of which expresses the consequence."
+          "explanation": "**Choice C is correct.** The passage describes Wagner's changes — darkening the hall and sinking the orchestra out of sight — and then states the effect: nothing distracted the eye from the lit stage, so the staged world could hold the audience's attention unbroken. \"As a result\" marks that cause-and-effect link.\n\n**The Full Solution:**\n- Cause: Wagner kept the auditorium dark and hid the orchestra in a sunken pit, so audiences could not see one another and the players' lamps no longer competed with the scene.\n- Effect: nothing distracted the eye from the illuminated stage, and the spectacle could hold attention as a single, unbroken world.\n- \"As a result\" links the changes to their consequence.\n\n**Why the other choices are wrong:**\n- A: \"Nevertheless\" would signal a contrast, not a consequence.\n- B: \"For example\" would signal an illustration of a prior claim.\n- D: \"Meanwhile\" would signal a simultaneous event rather than a consequence."
         },
         {
           "id": 1053,
@@ -1831,7 +1831,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**The correct answer is A.** The goal is the principal causal finding, and A traces the whole chain: nitrogen additions, taller plants with fewer deep roots, then bank destabilization and accelerated edge collapse versus controls.\n\n**Why the other choices are wrong:**\nB stops at plant height and misses the collapse, C reports only the design and timeframe a familiar audience assumes, and D frames why marshes matter in general, not what the experiment found."
+          "explanation": "**Choice A is correct.** The goal is to emphasize the principal causal finding for readers who already know salt-marsh ecology, so the best choice traces the whole causal chain.\n\n**The Full Solution:**\nChoice A names every link in the chain.\n- The manipulated variable: nitrogen additions simulating coastal fertilizer runoff.\n- The biological response: marsh-edge plants grew taller but invested less in deep roots.\n- The downstream result: bank destabilization and accelerated edge collapse relative to unenriched controls.\n\n**Why the other choices are wrong:**\n- B: It stops at one intermediate response, plant height, and misses the collapse that is the headline finding.\n- C: It reports only the design and timeframe, which a familiar audience already assumes.\n- D: It frames why marshes matter in general rather than what this experiment found."
         },
         {
           "id": 1054,
@@ -1872,7 +1872,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**The correct answer is A.** The goal is the two complementary uses, and A names both: detecting rare or elusive species that surveys miss, and flagging invasive species early before they establish.\n\n**Why the other choices are wrong:**\nB defines eDNA without naming a use, C reports one survey result (one use, not the pair), and D highlights low habitat disturbance, a separate advantage not among the two monitoring purposes."
+          "explanation": "**Choice A is correct.** The goal is to emphasize the two complementary uses eDNA sampling serves in freshwater monitoring, so the best choice names both. Choice A explains briefly what eDNA is and then pairs the two purposes.\n\n**The Full Solution:**\n- Use one: detecting rare or elusive species that traditional surveys frequently miss.\n- Use two: flagging invasive species early, before they become established and visible.\n- Choice A presents both as the two complementary purposes the goal calls for.\n\n**Why the other choices are wrong:**\n- B: It defines eDNA without naming any use.\n- C: It reports a single survey result, an instance of one use rather than the pair.\n- D: It highlights the method's low habitat disturbance, a separate advantage that is not one of the two monitoring purposes."
         }
       ]
     }

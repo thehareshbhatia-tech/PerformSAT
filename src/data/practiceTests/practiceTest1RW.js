@@ -60,7 +60,7 @@ export const practiceTest1RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**The correct answer is A.** The trees yield \"fuelwood and fruit for sale,\" so the blank needs a word for how rural people support themselves economically — \"livelihoods\" fits.\n\n**Why the other choices are wrong:**\n\"Hobbies\" and \"careers\" miss the subsistence economics (leisure and formal jobs, not selling produce), and \"hardships\" reverses the meaning, since the trees relieve rural problems rather than cause them."
+          "explanation": "**Choice A is correct.** The blank needs a noun meaning the means by which rural people support themselves economically, and \"livelihoods\" fits precisely.\n\n**The Full Solution:**\n- The passage spells out exactly what the women's groups gain from the planted trees: fuelwood and fruit \"for sale,\" alongside the soil and water benefits that keep their land productive.\n- \"Livelihoods\" covers subsistence income and material resources together, matching Maathai's claim that tree planting is simultaneously an economic and an ecological intervention.\n- The sentence sets the economic gain (the blank) beside the ecological one — \"even as it restores the surrounding ecosystem\" — confirming the blank names what people live on.\n\n**Why the other choices are wrong:**\n- B: \"Hobbies\" names a leisure activity, not a means of economic support, and ignores the selling of produce.\n- C: \"Careers\" implies formal, salaried jobs rather than the subsistence and resource income the passage describes.\n- D: \"Hardships\" reverses the meaning, since the trees relieve rural problems rather than cause them."
         },
         {
           "id": 102,
@@ -90,7 +90,7 @@ export const practiceTest1RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**The correct answer is C.** The sentence contrasts whales that \"travel thousands of miles\" with this group, which \"feed, breed, and raise their young in the same region\" year-round, so the blank needs a verb for staying put — \"remains.\"\n\n**Why the other choices are wrong:**\n\"Departs\" and \"surfaces\" point away from staying, and \"lingers\" implies only a brief pause, not the permanent, single-region residence the passage describes."
+          "explanation": "**Choice C is correct.** The blank needs a verb meaning \"stays in one place,\" and \"remains\" fits the contrast with \"travel\" cleanly while matching the year-round, single-region scope the passage describes.\n\n**The Full Solution:**\n- The sentence sets up an explicit contrast: most blue whales \"travel thousands of miles each year between feeding and breeding grounds,\" but \"this group ______ ... year-round.\"\n- The follow-up sentence confirms it — the whales \"feed, breed, and raise their young in the same region.\"\n- \"Remains\" names exactly that staying put, the opposite of the long-distance travel the rest of the population undertakes.\n\n**Why the other choices are wrong:**\n- A: \"Departs\" points away from staying, the reverse of what the year-round residence requires.\n- B: \"Lingers\" implies only a brief, temporary pause, not the permanent single-region residence the passage describes.\n- D: \"Surfaces\" describes a momentary rise to the surface, not where the group lives across the year."
         },
         {
           "id": 103,
@@ -120,7 +120,7 @@ export const practiceTest1RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**The correct answer is D.** The absorption features let researchers determine \"which molecules are present,\" so the blank needs a verb meaning to make that chemical identity known — \"disclose.\"\n\n**Why the other choices are wrong:**\n\"Mask\" reverses the meaning (it hides rather than reveals), \"forecast\" wrongly implies predicting a future state, and \"announce\" overstates the quiet, evidence-based way the spectra reveal the molecules."
+          "explanation": "**Choice D is correct.** The verb in the blank must mean to make a chemical identity known to an observer through spectral evidence, and \"disclose\" matches.\n\n**The Full Solution:**\n- The passage describes a transit in which starlight filters through a planet's atmosphere and emerges carrying narrow absorption features.\n- The pattern of those features lets researchers determine \"which molecules are present.\"\n- \"Disclose\" captures how the absorption features quietly make known what is in the atmosphere — the same scientific register Seager uses when she describes how transit spectra allow atmospheric constituents to be identified.\n\n**Why the other choices are wrong:**\n- A: \"Forecast\" wrongly implies predicting a future state, but the features reveal a present chemical identity.\n- B: \"Announce\" overstates the quiet, evidence-based way the spectra reveal the molecules.\n- C: \"Mask\" reverses the meaning — it hides rather than reveals the molecules present."
         },
         {
           "id": 104,
@@ -150,7 +150,7 @@ export const practiceTest1RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**The correct answer is A.** Trapped gas that \"expand[s] all at once\" makes a mild eruption turn violent, so the blank needs a word for that force — \"explosive.\"\n\n**Why the other choices are wrong:**\n\"Audible\" names a sound, not force; \"frequent\" describes how often, not how forceful; and \"predictable\" contradicts the passage, since a sudden release is what makes an eruption hard to anticipate."
+          "explanation": "**Choice A is correct.** The blank needs a word for what a rapid release makes an eruption, and \"explosive\" captures the violent, all-at-once expansion the passage describes.\n\n**The Full Solution:**\n- The sentence contrasts slow ascent, which lets gas leak out and produces gentle eruptions, with fast ascent, in which trapped gas \"expand[s] all at once.\"\n- When magma ascends quickly, the gases stay trapped until the last moment and then expand suddenly, turning an otherwise mild eruption violent.\n- \"Explosive\" names exactly that sudden, forceful release of pressure.\n\n**Why the other choices are wrong:**\n- B: \"Audible\" names a sound rather than the force of the eruption.\n- C: \"Frequent\" describes how often eruptions occur, not how forceful one is.\n- D: \"Predictable\" runs against the passage, since a sudden release is exactly what makes an eruption hard to anticipate."
         },
         {
           "id": 105,
@@ -180,7 +180,7 @@ export const practiceTest1RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**The correct answer is C.** The passage states the long-held assumption (early flowers were \"large and showy\"), gives fossil evidence that contradicts it (the oldest flowers were \"minute, simple\"), and ends with the conclusion that showy flowers \"evolved much later.\"\n\n**Why the other choices are wrong:**\nA's \"competing explanations\" for the assumption never appear, B's reproducibility problem is invented, and D's history of acceptance and critical objection is nowhere in the text."
+          "explanation": "**Choice C is correct.** The passage introduces a widely held assumption about early flowering plants, presents fossil evidence that contradicts it, and states a conclusion drawn from that evidence.\n\n**The Full Solution:**\n- It opens with the assumption researchers long held — that the earliest flowers were large and showy, like familiar blossoms today.\n- It then reports what Friis and her colleagues actually found in the Cretaceous fossils: the oldest flowers were \"minute, simple, and structurally modest,\" the opposite of the expectation.\n- It closes with the conclusion they draw — that the conspicuous flowers people picture evolved much later, and that the group's earliest success owed nothing to size or display.\n\n**Why the other choices are wrong:**\n- A: It misdescribes the second half, which contradicts the assumption rather than surveying competing explanations for how it arose.\n- B: It focuses on a fossil-collecting technique and a reproducibility problem the passage never raises.\n- D: It invents a history of gradual acceptance and continued critical objection that the text does not provide."
         },
         {
           "id": 106,
@@ -210,7 +210,7 @@ export const practiceTest1RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**The correct answer is A.** The passage explains that long-term microphones capture sounds \"beyond the range of human hearing\" and reveal \"signals that decades of direct listening had missed,\" so the purpose is to show how the technology widens what researchers can detect.\n\n**Why the other choices are wrong:**\nB fixes on the bats-and-whales detail (an example, not the point), C overstates software as a \"replacement\" for observation rather than a tool, and D treats the passing mention of months-long deployment as the focus."
+          "explanation": "**Choice A is correct.** The purpose is to explain how long-term recording technology has expanded what researchers can detect about animal communication.\n\n**The Full Solution:**\n- The passage explains that microphones left in place for long stretches capture sounds people cannot hear (\"beyond the range of human hearing\") and cover spans of time no observer could sit through.\n- The resulting archives are so large that biologists now rely on software to sift through them.\n- Patterns buried in those recordings have revealed \"signals that decades of direct listening had missed entirely\" — so the point is how the technology widens what researchers can detect.\n\n**Why the other choices are wrong:**\n- B: It fixes on the bats-and-whales detail, which is an example rather than the purpose.\n- C: It overstates the passage, which describes software as a tool for handling large archives, not a replacement for direct observation.\n- D: It treats the passing mention of months-long deployment as if it were the focus."
         },
         {
           "id": 107,
@@ -240,7 +240,7 @@ export const practiceTest1RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**The correct answer is C.** The passage names a limit of tide gauges (they \"cannot tell whether the water is rising or the land is settling\") and then explains how satellites, fixed to an Earth-centered frame, \"separate the two motions.\"\n\n**Why the other choices are wrong:**\nA invents a list of coastlines and skips the comparison, B frames a dispute between two researchers though only Cazenave appears, and D treats the closing illustration as a discovery and adds an instrument history the text never gives."
+          "explanation": "**Choice C is correct.** The passage identifies a limitation of an older measurement method and then explains how a newer method overcomes that limitation.\n\n**The Full Solution:**\n- It first describes what tide gauges cannot do: because they measure sea level relative to the land beneath them, they cannot tell whether the water is rising or the land is settling.\n- It then explains how satellite measurements, fixed instead to a reference frame centered on Earth itself, separate the two motions.\n- The closing line illustrates the payoff: a coastline a tide gauge records as stable may, against that fixed frame, be quietly subsiding.\n\n**Why the other choices are wrong:**\n- A: It ignores the comparison entirely and invents a list of coastlines where the technique has been applied.\n- B: It frames the passage as a dispute between two named researchers, though only Cazenave appears and no quarrel is described.\n- D: It treats the closing illustration as a discovery and adds an instrument history the text does not give."
         },
         {
           "id": 108,
@@ -279,7 +279,7 @@ export const practiceTest1RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**The correct answer is A.** Sharp says no instruments meant no deliberate voyaging; Finney grants the missing instruments but rejects the conclusion, because star paths, swells, and seabirds (and the instrument-free Hōkūleʻa voyage) made intentional navigation possible anyway.\n\n**Why the other choices are wrong:**\nB has Finney quarrel with the distances he never disputes, C has him accept the accidental account he sets out to overturn, and D raises a seaworthiness worry absent from his argument."
+          "explanation": "**Choice A is correct.** Finney would accept that Polynesian voyagers carried no instruments yet argue that the star paths, swells, and returning seabirds they tracked made deliberate two-way voyaging possible.\n\n**The Full Solution:**\n- Sharp's case rests on the absence of instruments: without compasses or charts, he holds, deliberate long-distance voyaging was impossible, so settlement must have been accidental.\n- Finney grants the very premise — Polynesians had no such instruments — but rejects the conclusion.\n- He points to star paths, ocean swells that bend around islands, and seabirds returning to land at dusk, plus the instrument-free Hōkūleʻa voyage from Hawaii to Tahiti and back, to show that precise, intentional navigation did not depend on instruments at all.\n\n**Why the other choices are wrong:**\n- B: It has Finney quarrel with the distances between islands, a point he never disputes.\n- C: It has him accept the accidental account he sets out to overturn.\n- D: It raises a seaworthiness worry about the canoes that appears nowhere in his argument."
         },
         {
           "id": 109,
@@ -309,7 +309,7 @@ export const practiceTest1RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**The correct answer is D.** The passage's main claim is that Leakey's Laetoli footprints gave \"uncommonly direct evidence\" that \"habitual bipedal locomotion was already established\" over three million years ago; the rest of the text supports it.\n\n**Why the other choices are wrong:**\nA, B, and C each grab a single supporting detail — the ash preservation, a misstated bones-beat-footprints claim, and the shuffling gait Leakey actually rejected — rather than the whole argument."
+          "explanation": "**Choice D is correct.** It names both the discovery and the broader conclusion it supported: Leakey's 1978 footprints gave uncommonly direct evidence that habitual bipedal locomotion was already established more than three million years ago.\n\n**The Full Solution:**\n- The passage opens with a topic sentence stating the central claim — Leakey's footprint discovery at Laetoli offered uncommonly direct evidence of upright walking in early hominins.\n- The remaining sentences support that claim: how the prints were preserved (fine volcanic ash, ~3.6 million years ago), what they showed (a clearly modern heel-to-toe stride along an arched foot), and why this kind of evidence mattered (it recorded behavior, not just anatomy).\n- Choice D captures the argument at the right level of generalization.\n\n**Why the other choices are wrong:**\n- A: It states only a supporting detail — the ash preservation — not the main idea.\n- B: It misstates the text, which says footprints supplied evidence bones could not, not that footprints are generally less reliable than bones.\n- C: It reports the shuffling gait that Leakey actually rejected; she described a clearly modern stride."
         },
         {
           "id": 110,
@@ -339,7 +339,7 @@ export const practiceTest1RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**The correct answer is B.** It synthesizes both of Payne-Gaposchkin's arguments — that spectral differences come from \"temperature and the ionization of atoms\" rather than composition, and that stars are \"overwhelmingly\" hydrogen and helium — plus the Earth-resemblance assumption she overturned.\n\n**Why the other choices are wrong:**\nA states the assumption she rejected, C captures only her first argument, and D reduces the passage to the senior astronomers' skepticism."
+          "explanation": "**Choice B is correct.** It synthesizes both of Payne-Gaposchkin's arguments and the assumption they overturned, capturing the main idea at the right level of generalization.\n\n**The Full Solution:**\n- Sentence 1 introduces her 1925 thesis at the Harvard College Observatory and signals that she drew a startling conclusion from stellar spectra.\n- Sentence 2 states her first argument: differences among stellar spectra arose chiefly from \"temperature and the ionization of atoms\" rather than from genuine differences in chemical makeup.\n- Sentence 3 states her further conclusion that stars are composed \"overwhelmingly\" of hydrogen and helium, unlike Earth's rocky composition.\n- Sentence 4 frames the significance: this second claim ran against the prevailing assumption that stars and Earth had broadly similar compositions.\n\n**Why the other choices are wrong:**\n- A: It states the assumption she rejected, not the conclusion she reached.\n- C: It captures only her first argument (temperature and ionization), dropping the hydrogen-and-helium conclusion and the assumption overturned.\n- D: It reduces the passage to the senior astronomers' skepticism, a single supporting detail."
         },
         {
           "id": 111,
@@ -369,7 +369,7 @@ export const practiceTest1RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**The correct answer is C.** The passage says the isotope comparison showed people buried in a single compound \"often grew up in different parts of Mesoamerica,\" which C restates.\n\n**Why the other choices are wrong:**\nA concerns where compounds were built, B invents a dietary contrast, and D shifts to total population size — none of which the isotopic comparison addresses."
+          "explanation": "**Choice C is correct.** It restates the passage's stated finding: people buried within a single compound had often grown up in different parts of Mesoamerica.\n\n**The Full Solution:**\n- Manzanilla concentrated not on the monumental pyramids but on Teotihuacan's dense residential neighborhoods of stone-walled apartment compounds.\n- By comparing the chemical signatures preserved in teeth and bones with the regional geology of central Mexico, she and her collaborators traced where the buried individuals grew up.\n- The comparison showed that people buried in one compound often originated in different regions of Mesoamerica before settling at Teotihuacan.\n\n**Why the other choices are wrong:**\n- A: It concerns where compounds were built, which the isotopic comparison does not address.\n- B: It introduces a dietary contrast the passage never makes.\n- D: It shifts to total population size, a claim the isotopic work was not used to support."
         },
         {
           "id": 112,
@@ -399,7 +399,7 @@ export const practiceTest1RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**The correct answer is A.** The hypothesis is that carbon moves \"preferentially toward shaded seedlings,\" so the evidence must compare shaded and sunlit seedlings — A shows the shaded ones receiving \"measurably more\" labeled carbon.\n\n**Why the other choices are wrong:**\nB shows only that the network aids growth, C concerns fungal diversity, and D shows carbon entering the network but not that it favors shaded seedlings."
+          "explanation": "**Choice A is correct.** The hypothesis is specifically that carbon flows preferentially to shaded seedlings rather than spreading evenly, so the supporting evidence must compare shaded and sunlit seedlings — and A shows the shaded ones receiving \"measurably more\" labeled carbon.\n\n**The Full Solution:**\n- Simard's broader claim is that hub trees pass carbon through fungal networks to shaded seedlings; the team is testing the narrower claim that the carbon moves preferentially toward shaded seedlings rather than at random.\n- To support that, the evidence has to compare shaded and sunlit seedlings and show the shaded ones getting more.\n- Choice A makes exactly that comparison: equally linked shaded seedlings received more of the hub tree's labeled carbon than seedlings in full sunlight did.\n\n**Why the other choices are wrong:**\n- B: It shows only that the network matters for growth, not that carbon favors shaded recipients.\n- C: It concerns fungal diversity, which says nothing about where the carbon goes.\n- D: It shows carbon entering the network but not that it is directed toward shaded seedlings in particular."
         },
         {
           "id": 113,
@@ -471,7 +471,7 @@ export const practiceTest1RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**The correct answer is B.** The claim is community-wide, so the evidence must cover every species: B notes that all five bloomed earlier in 2004-2006 and bounds the shift (2 to 10 days), and uniformly earlier blooming is what licenses a community-level conclusion.\n\n**Why the other choices are wrong:**\nA and D cite a single species each (highbush blueberry, lady's slipper — and D even misreads its shift as a delay), and C just compares two species' dates without showing any shift over time."
+          "explanation": "**Choice B is correct.** The claim is community-wide — warming has shifted blooming \"across the Concord plant community as a whole\" — so the evidence has to speak to every species in the table, which B does.\n\n**The Full Solution:**\n- To support a generalization about the whole community, the data must show the pattern holding across all five species, not just one.\n- Choice B notes that each of the five species bloomed earlier in 2004-2006 than in the 1850s and bounds the magnitude of the shift (2 days for yellow wood sorrel to 10 days for highbush blueberry).\n- That shows both that the pattern is uniform in direction and that it varies in size; uniformly negative shifts across all five rows are exactly what licenses a community-level conclusion.\n\n**Why the other choices are wrong:**\n- A: It cites only one species, highbush blueberry, which cannot support a claim about the whole community.\n- C: It just compares two species' 2004-2006 dates without showing any shift over time.\n- D: It cites only lady's slipper orchid and even misreads its shift as a delay (it bloomed earlier, not later)."
         },
         {
           "id": 114,
@@ -537,7 +537,7 @@ export const practiceTest1RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**The correct answer is A.** The claim is rise-then-fall, so the evidence must show both halves for manufacturing: A gives the rise (22% in 1900 to 26% in 1950) and the steep fall (26% to 13% by 2000).\n\n**Why the other choices are wrong:**\nB claims a steady decline that misses the midcentury rise, C cites agriculture instead of manufacturing, and D collapses the trajectory into one \"continuous contraction,\" erasing the rise."
+          "explanation": "**Choice A is correct.** The claim is precise — manufacturing rose between 1900 and 1950, then fell sharply by 2000 — so the evidence must be about the manufacturing row and capture both halves of that non-monotone trajectory, which A does.\n\n**The Full Solution:**\n- The statement says manufacturing did not decline uniformly: it rose early-to-mid-century, then fell late-century.\n- Supporting evidence must (i) be about the manufacturing row and (ii) show both the rise AND the fall.\n- Choice A does exactly this: 22 percent (1900) to 26 percent (1950) is the rise, and 26 percent (1950) to 13 percent (2000) is the steep decline. The two figures together are the only way the table vindicates the rise-then-fall claim.\n\n**Why the other choices are wrong:**\n- B: It claims manufacturing dropped in every interval, missing the midcentury rise from 22 to 26 percent.\n- C: It cites agriculture instead of manufacturing, the wrong row for this claim.\n- D: It collapses the trajectory into one \"continuous contraction\" (22 to 13 percent), erasing the rise the statement asserts."
         },
         {
           "id": 115,
@@ -567,7 +567,7 @@ export const practiceTest1RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**The correct answer is D.** Kelsey refused thalidomide because adult-patient data said little about a \"developing fetus,\" and Congress then tightened the rules — so the old framework must have been treating adult-safety evidence \"as though\" it settled fetal safety.\n\n**Why the other choices are wrong:**\nA reverses the relationship (the old system was looser, not stricter), B blames unrecognized medical knowledge the passage never mentions, and C overreaches by claiming the old framework required no premarket testing at all."
+          "explanation": "**Choice D is correct.** The pre-1962 framework had treated evidence of a drug's safety in adult patients as though it sufficiently demonstrated safety for a developing fetus — the hedged claim the two premises jointly force.\n\n**The Full Solution:**\n- Premise 1: Kelsey withheld approval of thalidomide because the manufacturer's submission described effects in adult patients but supplied little direct evidence about effects on a developing fetus.\n- Premise 2: Congress responded with the Kefauver-Harris Amendments, which for the first time required rigorous safety data before approval.\n- The minimum inference these jointly force is that the old framework had been accepting adult-only evidence as adequate stand-in evidence for fetal safety — otherwise Kelsey would not have had to refuse on those grounds, and Congress would not have had to fix the gap. The \"as though\" in D captures this implicit substitution without overreaching.\n- Neither premise alone licenses the claim: premise 1 is about one submission, not the broader framework; premise 2 is about a tightening, not what the old framework substituted for what.\n\n**Why the other choices are wrong:**\n- A: It reverses the relationship — the old system was looser, not stricter, on testing in pregnant patients.\n- B: It blames medical concerns \"not yet recognized,\" which the passage never mentions; the issue was the framework accepting adult data, not ignorance.\n- C: It overreaches by claiming the old framework required no premarket testing at all, which the text does not support."
         },
         {
           "id": 116,
@@ -597,7 +597,7 @@ export const practiceTest1RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**The correct answer is D.** McClintock found that relocating elements switched \"adjacent pigment genes on or off,\" so whether a maize pigment gene is active \"can depend\" not just on the gene but on what lies near it.\n\n**Why the other choices are wrong:**\nA flatly denies that chromosomal position matters, B overgeneralizes to \"every species of flowering plant,\" and C overstates necessity (patches \"cannot appear\" without relocation), exceeding what the evidence licenses."
+          "explanation": "**Choice D is correct.** Whether a particular pigment gene in maize is active can depend not only on the gene itself but also on what lies near it on the chromosome — the measured claim the premises license.\n\n**The Full Solution:**\n- Premise 1: McClintock observed pigment patches whose distribution did not fit established rules of inheritance.\n- Premise 2: She concluded that chromosomal elements were physically changing position and, in doing so, switching adjacent pigment genes on or off.\n- The minimum inference these force is that gene activity in maize is not fixed by the gene alone: what sits next to a gene on the chromosome can determine whether it is expressed.\n- Choice D uses \"can depend\" rather than \"must depend\" and limits the scope to maize pigment genes — exactly the population the premises concern.\n\n**Why the other choices are wrong:**\n- A: It flatly denies that chromosomal position matters, the opposite of McClintock's conclusion.\n- B: It overgeneralizes to \"every species of flowering plant,\" far beyond the maize evidence.\n- C: It overstates necessity — patches \"cannot appear\" without relocation — exceeding what the evidence licenses."
         },
         {
           "id": 117,
@@ -627,7 +627,7 @@ export const practiceTest1RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**The correct answer is A.** The \"Although\" clause is an introductory dependent clause, and Standard English puts a comma where it meets the main clause (\"Mirzakhani had a gift...\").\n\n**Why the other choices are wrong:**\nThe semicolon and colon both require an independent clause before them, which the \"Although\" fragment isn't, and no punctuation (B) runs the dependent clause into the main clause.",
+          "explanation": "**Choice A is correct.** The blank sits at the boundary between an introductory dependent clause and the main clause, and Standard English requires a comma there.\n\n**The Full Solution:**\n- The rule: when a sentence opens with a subordinate (dependent) clause, a comma separates it from the independent clause that follows.\n- \"Although her research drew on highly abstract ideas from hyperbolic geometry\" cannot stand alone — the subordinator \"Although\" makes it a fragment.\n- It is followed by the independent clause \"Mirzakhani had a gift for explaining the underlying questions ...,\" so a comma marks the junction.\n\n**Why the other choices are wrong:**\n- B: No punctuation runs the introductory dependent clause straight into the main clause.\n- C: A semicolon joins two independent clauses, but the \"Although\" fragment is not independent.\n- D: A colon introduces an amplification after an independent clause, but the \"Although\" fragment is not independent and nothing is being itemized.",
           "_meta": {
             "rule": "comma after introductory dependent clause",
             "anchor": "Maryam Mirzakhani — Fields Medal 2014, Stanford, Riemann surfaces, hyperbolic geometry",
@@ -666,7 +666,7 @@ export const practiceTest1RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**The correct answer is D.** \"In 1957\" fixes the action at a specific past date and the surrounding verbs are simple past (\"designed,\" \"showed\"), so the simple past \"observed\" is required.\n\n**Why the other choices are wrong:**\n\"Has observed\" and \"had observed\" are perfect tenses that clash with a fixed past date, and \"observes\" is present tense, wrong for a completed historical event."
+          "explanation": "**Choice D is correct.** A completed historical event tied to a specific past date requires the simple past tense, so \"observed\" is the correct verb form.\n\n**The Full Solution:**\n- The rule: a finite action fixed at a definite point in the past takes the simple past tense.\n- The temporal anchor \"In 1957\" pins the action to a specific past moment.\n- The surrounding sentences use simple past throughout — \"designed,\" \"showed,\" \"was\" — so \"observed\" keeps the sequence consistent.\n\n**Why the other choices are wrong:**\n- A: \"Has observed\" is present perfect, which clashes with the fixed past date \"In 1957.\"\n- B: \"Observes\" is present tense, wrong for a completed historical event.\n- C: \"Had observed\" is past perfect, which would require an even earlier past event for it to precede, and none is present."
         },
         {
           "id": 119,
@@ -696,7 +696,7 @@ export const practiceTest1RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**The correct answer is B.** The inserted list has its own internal commas, so it needs a matched pair of stronger marks — paired em-dashes — to show where the insertion starts and ends.\n\n**Why the other choices are wrong:**\nThe comma version (A) blurs into the list's own commas, no marks (C) loses the parenthetical entirely, and the dash-then-comma (D) is an unmatched pair that fails to close the insertion cleanly."
+          "explanation": "**Choice B is correct.** When a parenthetical insertion contains its own commas, Standard English requires a stronger matched pair of marks — paired em-dashes — and B supplies them.\n\n**The Full Solution:**\n- The blank holds a parenthetical list naming the three frameworks Chandrasekhar combined: \"quantum statistics, special relativity, and Newtonian gravity.\"\n- That list already contains internal commas, so commas alone could not show where the insertion starts and ends.\n- A matched pair of em-dashes (or paired parentheses) cleanly opens and closes the parenthetical and lets the main sentence resume with \"to derive a strict upper bound on the mass of any stable white dwarf ....\"\n\n**Why the other choices are wrong:**\n- A: The comma version blurs into the list's own internal commas, leaving the boundaries of the insertion unclear.\n- C: With no marks at all, the parenthetical runs into the surrounding sentence and the structure is lost.\n- D: The em-dash-then-comma pairing is mismatched and fails to close the insertion cleanly."
         },
         {
           "id": 120,
@@ -726,7 +726,7 @@ export const practiceTest1RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**The correct answer is D.** The subject is the singular noun \"acceleration,\" not the nearby plural \"effects\" or \"measurements,\" so it takes the singular verb \"is.\"\n\n**Why the other choices are wrong:**\n\"Are,\" \"have been,\" and \"were\" are all plural forms that wrongly agree with the intervening plural nouns instead of the true head noun \"acceleration.\""
+          "explanation": "**Choice D is correct.** The subject is the singular noun \"acceleration,\" so it takes the singular verb \"is.\"\n\n**The Full Solution:**\n- The rule: a verb agrees with its true subject (head noun), not with a noun that merely sits nearby inside an intervening phrase.\n- The head noun here is \"The sharp acceleration ... that these root-driven effects produce\"; the verb's subject is \"acceleration,\" which is singular.\n- The plurals \"effects\" (inside the relative clause) and \"measurements\" (later in the sentence) are distractors that do not govern the verb.\n\n**Why the other choices are wrong:**\n- A: \"Are\" is plural, agreeing with the nearby \"effects\" rather than the singular head noun.\n- B: \"Have been\" is plural and also shifts the tense unnecessarily.\n- C: \"Were\" is plural and past, doubly mismatched with the singular present-tense subject — the agreement trap the sentence is built to catch."
         },
         {
           "id": 121,
@@ -756,7 +756,7 @@ export const practiceTest1RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**The correct answer is C.** Both halves are complete independent clauses (\"Tooth enamel forms... grew up\" and \"bone remodels... as an adult\"), and a semicolon is the right mark for joining two related independent clauses.\n\n**Why the other choices are wrong:**\nThe comma (B) makes a splice, no punctuation (D) makes a run-on, and the colon (A) wrongly signals explanation when the second clause states a parallel fact."
+          "explanation": "**Choice C is correct.** Both halves are complete independent clauses, and a semicolon is the right mark for joining two closely related independent clauses.\n\n**The Full Solution:**\n- The material before the blank is independent: \"Tooth enamel forms in childhood and locks in the chemical signature of where a person grew up.\"\n- The material after it is also independent: \"bone remodels throughout life and records the signature of where that person lived as an adult.\"\n- The two clauses state parallel, closely related facts, which is exactly the relationship a semicolon marks.\n\n**Why the other choices are wrong:**\n- A: A colon would signal that what follows explains or itemizes the first clause, but the second clause states a parallel fact, not an explanation.\n- B: A comma alone produces a comma splice between two independent clauses.\n- D: No punctuation fuses the two clauses into a run-on."
         },
         {
           "id": 122,
@@ -786,7 +786,7 @@ export const practiceTest1RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**The correct answer is B.** The opening participial phrase \"Studying these hypoxic habitats... for more than three decades\" must modify the main clause's subject, and only a person can do the studying — \"Levin has argued\" supplies that subject.\n\n**Why the other choices are wrong:**\n\"Species compositions,\" \"her published research,\" and \"it\" all create dangling modifiers, since none of them can perform the \"studying.\""
+          "explanation": "**Choice B is correct.** The opening participial phrase must modify the subject of the main clause, and only a person can do the studying, so \"Levin has argued\" is required.\n\n**The Full Solution:**\n- The rule: an introductory participial phrase must logically modify the noun that immediately follows it — the subject of the main clause.\n- \"Studying these hypoxic habitats along the Pacific margin for more than three decades\" describes an action only a person can perform.\n- \"Levin has argued\" makes Levin both the one who has been studying the habitats and the one who argues, producing a grammatically correct sentence.\n\n**Why the other choices are wrong:**\n- A: \"The species compositions of these zones\" cannot perform the studying — a dangling modifier.\n- C: \"Her published research\" cannot do the studying either — also dangling.\n- D: \"It has been argued by Levin\" makes \"it\" the subject, and \"it\" cannot be doing the studying — dangling as well."
         },
         {
           "id": 123,
@@ -816,7 +816,7 @@ export const practiceTest1RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**The correct answer is D.** Sentence 1 is set \"in the mid-1970s\" and sentence 2 shifts to the present (\"forms the backbone\"), a then-versus-now move that \"Today,\" marks.\n\n**Why the other choices are wrong:**\n\"In addition\" and \"Therefore\" miss the time shift (one merely adds, one implies a cause), and \"Previously\" points backward when the second sentence describes the current state of the field."
+          "explanation": "**Choice D is correct.** The two sentences make a then-versus-now contrast, and \"Today,\" is the transition for that historical-to-present move.\n\n**The Full Solution:**\n- Sentence 1 is anchored in a specific past moment: \"In the mid-1970s,\" Washington helped build one of the first models that coupled atmosphere and ocean, when most NCAR simulations still treated them as separate.\n- Sentence 2 shifts to the present tense — that coupled architecture \"forms the backbone\" of the models scientists now rely on.\n- The single-word cue is \"mid-1970s\" in sentence 1 paired with present-tense \"forms\" in sentence 2: together they signal a shift from a specific past era to the current state of the field, which is exactly what \"Today,\" marks.\n\n**Why the other choices are wrong:**\n- A: \"In addition\" merely adds a point and misses the temporal then-vs-now shift.\n- B: \"Therefore\" implies a cause-and-effect relation the sentences do not have.\n- C: \"Previously\" points backward, but the second sentence describes the current state of the field, not an earlier one."
         },
         {
           "id": 124,
@@ -846,7 +846,7 @@ export const practiceTest1RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**The correct answer is C.** Sentence 1 makes a general claim about climate and disease outbreaks; sentence 2 gives one concrete case (Bangladeshi cholera tracking El Niño), a general-to-specific move that \"For instance,\" marks.\n\n**Why the other choices are wrong:**\n\"By contrast\" implies opposition, and \"Likewise\" and \"Moreover\" imply a parallel or added point — but the second sentence neither opposes nor adds; it exemplifies."
+          "explanation": "**Choice C is correct.** The move from a general principle to one concrete illustration is exactly what \"For instance,\" signals.\n\n**The Full Solution:**\n- Sentence 1 makes a general claim: ecologists hold that year-to-year climate swings can shift the timing of recurring disease outbreaks, but only when long records and careful models separate the climate's effect from a population's immunity cycles.\n- Sentence 2 gives a specific case that fits — Pascual's analyses of decades of Bangladeshi cholera records, where outbreak peaks track the El Niño-Southern Oscillation closely enough to distinguish the climate signal from the immune-driven cycles in the same data.\n- The cue is the shift in specificity: sentence 1 speaks abstractly, while sentence 2 names a particular country, disease, and climate pattern — one concrete realization of the general claim.\n\n**Why the other choices are wrong:**\n- A: \"By contrast\" implies opposition, but the second sentence supports rather than opposes the first.\n- B: \"Likewise\" implies a parallel point, but sentence 2 is an instance of sentence 1, not a parallel claim.\n- D: \"Moreover\" implies an added point, but the second sentence exemplifies rather than adds."
         },
         {
           "id": 125,
@@ -876,7 +876,7 @@ export const practiceTest1RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**The correct answer is A.** The prior sentence states a drawback (thicker electrodes slow ions) and the next describes designs that get around it, a contrast that \"However,\" marks.\n\n**Why the other choices are wrong:**\n\"Likewise\" signals similarity not reversal, \"For instance\" would introduce an example of the problem rather than a fix, and \"Therefore\" would make the new designs a consequence of the slowdown, not a response to it."
+          "explanation": "**Choice A is correct.** The sentences move from a drawback to a design that gets around it, a contrast that \"However,\" marks.\n\n**The Full Solution:**\n- The sentence before the blank states a drawback: packing in more material made electrodes thicker, which slowed the ions and limited charging speed.\n- The sentence after it describes recent designs that cut channels through the electrode, keeping the added capacity while giving ions a quicker path.\n- That reversal — a problem followed by a solution that overcomes it — is what \"However,\" signals.\n\n**Why the other choices are wrong:**\n- B: \"Likewise\" signals a similarity rather than a reversal.\n- C: \"For instance\" would introduce an example of the problem, not a solution to it.\n- D: \"Therefore\" would make the new designs a consequence of the slowdown rather than a response that overcomes it."
         },
         {
           "id": 126,
@@ -916,7 +916,7 @@ export const practiceTest1RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**The correct answer is B.** The goal is to introduce Perkins's argument to an unfamiliar reader, and B names her, her 2010 book, and the argument itself — painting \"not as decorative ornament but as a continuing system of Country-based knowledge.\"\n\n**Why the other choices are wrong:**\nA and D state only the rejected view or the conclusion without introducing the argument, and C gives biography and the book title but never states what Perkins argues."
+          "explanation": "**Choice B is correct.** The goal is to introduce Perkins's argument to a reader unfamiliar with Aboriginal Australian art, and B does so in a self-contained way pitched at a newcomer.\n\n**The Full Solution:**\n- Choice B names Perkins and her credentials (Australian art historian), names the 2010 book in which she makes the argument (*Art + Soul*), and states the argument itself.\n- It frames the painting tradition \"not as decorative ornament but as a continuing system of Country-based knowledge tied to specific lands\" — a form a newcomer can grasp.\n- It captures Perkins's claim that the work carries living legal and cosmological content rather than being freestanding decoration.\n\n**Why the other choices are wrong:**\n- A: It states only the view Perkins rejects, without introducing her positive argument.\n- C: It gives biography and the book title but never states what Perkins actually argues.\n- D: It states the conclusion about ongoing relationships but assumes familiarity, not introducing the argument to an unfamiliar reader."
         },
         {
           "id": 127,
@@ -957,7 +957,7 @@ export const practiceTest1RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**The correct answer is C.** The goal is to emphasize the broader cultural claim both books advance, and C ties each finding (Samoan adolescence, varying New Guinea gender traits) to the joint point — readers' assumptions are \"one cultural pattern, not a universal baseline.\"\n\n**Why the other choices are wrong:**\nA lists only biography and titles, B covers just one book, and D focuses on Mead's method and audience rather than the broader claim."
+          "explanation": "**Choice C is correct.** The goal is to emphasize the broader claim about culture that Mead's two ethnographies together advance, and C foregrounds that joint argument while anchoring it in the specific findings.\n\n**The Full Solution:**\n- Choice C names both works and summarizes the specific finding each contributed: Samoan adolescence lacked the expected turbulence, and gender traits varied across the three New Guinea societies.\n- It then states the joint claim those findings support — that readers' assumptions about adolescence and gender are \"one cultural pattern, not a universal baseline.\"\n- The general argument the two books together advance is foregrounded, exactly what the goal requires.\n\n**Why the other choices are wrong:**\n- A: It lists only biography and the two titles, never stating the broader cultural claim.\n- B: It covers just one book (*Sex and Temperament*), not the joint argument of both.\n- D: It focuses on Mead's comparative method and intended audience rather than the broader claim about culture."
         }
       ]
     },
@@ -994,7 +994,7 @@ export const practiceTest1RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**The correct answer is B.** The worm has \"no mouth or gut\" and the bacteria supply \"the organic carbon their host requires to grow,\" so the blank needs a verb for keeping the worm alive — \"sustain.\"\n\n**Why the other choices are wrong:**\n\"Nurture\" and \"cultivate\" wrongly cast the worm as something raised or tended rather than fed, and \"deplete\" reverses the meaning, draining the host instead of feeding it."
+          "explanation": "**Choice B is correct.** The verb in the blank must mean to keep the worm alive by supplying its nutritional needs, and \"sustain\" fits exactly.\n\n**The Full Solution:**\n- The passage establishes that the tube worm has \"no mouth or gut of its own\" and depends entirely on its internal bacteria.\n- Those microbes convert hydrogen sulfide from vent fluid into \"the organic carbon their host requires to grow.\"\n- In scientific writing about symbiosis, a partner \"sustains\" its host when it provides the energy or nutrients that allow the host to live — precisely Cavanaugh's claim about the chemosynthetic bacteria inside Riftia pachyptila.\n\n**Why the other choices are wrong:**\n- A: \"Nurture\" wrongly casts the worm as something raised or reared rather than fed.\n- C: \"Cultivate\" implies tending or growing the worm, not supplying its nutrition.\n- D: \"Deplete\" reverses the meaning, draining the host instead of feeding it."
         },
         {
           "id": 129,
@@ -1024,7 +1024,7 @@ export const practiceTest1RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**The correct answer is A.** The drugs hit disease-causing cells \"while leaving healthy tissue largely intact,\" so the blank needs a verb for acting selectively between the two — \"discriminate\" (to engage one and spare the other).\n\n**Why the other choices are wrong:**\n\"Differentiate\" means to tell apart, not to act selectively; \"interact\" loses the selectivity entirely; and \"equate\" reverses the meaning by treating the cells as the same."
+          "explanation": "**Choice A is correct.** The verb in the blank must mean to act selectively on one type of cell rather than the other on the basis of their differences, and \"discriminate\" carries exactly that pharmacological sense.\n\n**The Full Solution:**\n- The passage says Elion built her drugs by \"exploiting biochemical differences\" between host cells and disease-causing cells.\n- The resulting compounds interfered with leukemia cells, herpes viruses, and parasites \"while leaving healthy tissue largely intact.\"\n- A drug \"discriminates\" between target and non-target cells when it engages one and spares the other — matching both the technical register of rational drug design and the active, selectivity-based meaning the sentence requires.\n\n**Why the other choices are wrong:**\n- B: \"Differentiate\" means to tell things apart or perceive a difference, not to act selectively on one and spare the other.\n- C: \"Interact\" loses the selectivity entirely — it would mean engaging both kinds of cells alike.\n- D: \"Equate\" reverses the meaning by treating the two cell types as the same."
         },
         {
           "id": 130,
@@ -1054,7 +1054,7 @@ export const practiceTest1RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**The correct answer is D.** Hartman draws \"evidence of freedom from the very archives designed to record its suppression,\" so the blank needs a verb for pulling something out of an unpromising source — \"extracts.\"\n\n**Why the other choices are wrong:**\n\"Conceals\" reverses recovering evidence, \"inherits\" implies passively receiving the archives rather than working against them, and \"imitates\" makes no sense of mining records for what their compilers never meant to leave."
+          "explanation": "**Choice D is correct.** The verb must mean to pull evidence out of an unpromising source, and \"extracts\" captures that act of drawing something out.\n\n**The Full Solution:**\n- Hartman reads hostile documents — arrest reports, caseworkers' files, reformers' photographs — \"against the grain.\"\n- She draws traces of pleasure and self-invention out of records made to surveil and discipline her subjects.\n- The closing sentence makes this explicit: her method draws \"evidence of freedom from the very archives designed to record its suppression\" — i.e., she extracts it from a source built for the opposite purpose.\n\n**Why the other choices are wrong:**\n- A: \"Conceals\" is the reverse of recovering evidence — she reveals, not hides.\n- B: \"Inherits\" suggests passively receiving the archives rather than working against them.\n- C: \"Imitates\" makes no sense of a relationship in which she mines the records for what their compilers never intended to leave."
         },
         {
           "id": 131,
@@ -1084,7 +1084,7 @@ export const practiceTest1RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**The correct answer is A.** Electrons in a narrow tube \"shift between metallic and semiconducting,\" diverging from the bulk-graphite pattern, so the blank needs a verb for that break — \"departs\" (departs from).\n\n**Why the other choices are wrong:**\n\"Benefits\" and \"recovers\" describe no difference at all, and \"results from\" would need a cause to follow it, which \"the familiar bulk pattern\" does not sensibly supply."
+          "explanation": "**Choice A is correct.** A verb meaning to diverge is needed, and \"departs\" (departs from) conveys exactly that break from the bulk pattern.\n\n**The Full Solution:**\n- The sentence sets the behavior of electrons in a narrow carbon tube against their behavior in bulk graphite, where they act \"much as they do in ordinary metals.\"\n- The rest of the clause — \"shifting between metallic and semiconducting according to the exact geometry of the tube\" — describes how the two differ.\n- \"Departs\" names that divergence from the familiar bulk pattern.\n\n**Why the other choices are wrong:**\n- B: \"Benefits\" describes no difference at all and makes no sense with \"from the familiar bulk pattern.\"\n- C: \"Recovers\" likewise describes no divergence — it would suggest a return, not a break.\n- D: \"Results\" would need a cause to follow it (\"results from\"), which \"the familiar bulk pattern\" does not sensibly supply."
         },
         {
           "id": 132,
@@ -1114,7 +1114,7 @@ export const practiceTest1RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**The correct answer is C.** The passage states the old assumption (microbes \"drifted downward\"), says Bartlett's team \"expected\" to confirm it, then reports the overturning finding — the bacteria are \"specifically structured for high pressure.\"\n\n**Why the other choices are wrong:**\nA turns one overturned assumption into two unresolved theories, B treats the work as a methods critique though no method is questioned, and D restates the drift-and-adapt picture the results contradict."
+          "explanation": "**Choice C is correct.** The passage states a prior assumption, describes a study undertaken expecting to confirm it, and reports a finding that overturned it.\n\n**The Full Solution:**\n- It begins with the old assumption that deep-trench microbes were simply ordinary seafloor bacteria that had \"drifted downward\" and survived.\n- It notes that Bartlett's team \"expected to find familiar species pushed to the edge of tolerance\" — set out to confirm the assumption.\n- Instead they found bacteria whose membranes, enzymes, and genetic machinery were \"specifically structured for high pressure\" and would function poorly near the surface, leading Bartlett to conclude they are a distinct, adapted community.\n\n**Why the other choices are wrong:**\n- A: It turns the single overturned assumption into two unresolved, unconfirmed theories.\n- B: It treats the work as a methods critique, though no method is questioned.\n- D: It restates the drift-and-adapt picture that the team's results contradict."
         },
         {
           "id": 133,
@@ -1144,7 +1144,7 @@ export const practiceTest1RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**The correct answer is C.** The narrator starts \"frozen with horror\" at the medical book, then resolves to \"sift it to the bottom\" and works through it \"alphabetically,\" diagnosing himself with everything but housemaid's knee — an alarmed reaction extended into absurdly thorough self-diagnosis.\n\n**Why the other choices are wrong:**\nA assumes he actually suffered the illnesses, B invents a doctor he never considers, and D calls the comic housemaid's-knee payoff a \"sober\" self-examination.",
+          "explanation": "**Choice C is correct.** The narrator describes his alarmed first response to a reference book and then methodically extends it into an absurdly comprehensive self-diagnosis.\n\n**The Full Solution:**\n- The passage opens with his alarmed first reaction — \"frozen with horror,\" turning the pages \"in the listlessness of despair\" — as he discovers he has typhoid fever and then St. Vitus's Dance.\n- The turn is small: he resolves to \"sift it to the bottom\" and works through the volume \"alphabetically,\" diagnosing himself with cholera and diphtheria along the way.\n- The structure moves from an alarmed first response into a methodical, absurdly thorough extension of it, and the comedy lies in the mismatch between the orderly method and the ridiculous result — the only malady he concludes he lacks is housemaid's knee.\n\n**Why the other choices are wrong:**\n- A: The narrator has suffered none of these illnesses; he only imagines having them while reading.\n- B: He never weighs and rejects a visit to a doctor; no doctor is mentioned.\n- D: The closing housemaid's-knee line is the joke's payoff, not a sober counterweight to a serious self-examination.",
           "_meta": {
             "quoteVerify": true,
             "source": "Jerome K. Jerome, Three Men in a Boat (1889), ch. 1 — 'housemaid's knee' passage"
@@ -1178,7 +1178,7 @@ export const practiceTest1RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**The correct answer is B.** The passage sets up the painted-backdrop convention, gives Appia's critique that it \"worked against the very drama,\" his alternative of sculpted light, and notes that alternative \"reshaped twentieth-century staging.\"\n\n**Why the other choices are wrong:**\nA wrongly says composers preferred the old technique, C invents a second scenographer and a rivalry, and D describes improving backdrops when the passage is about replacing them."
+          "explanation": "**Choice B is correct.** The passage establishes a long-standing staging convention, presents one figure's critique of it, and notes the lasting influence of the alternative he proposed.\n\n**The Full Solution:**\n- It first describes the established nineteenth-century convention of painted backdrops — flat canvas panels in fixed perspective.\n- It then gives Appia's objection that such backdrops \"worked against the very drama they were meant to serve,\" since a painted shadow could not move as a singer moved.\n- It presents his alternative — three-dimensional structures of steps, platforms, and shifting light — and closes by noting that, though rarely built in his lifetime, the principle \"reshaped twentieth-century staging.\"\n\n**Why the other choices are wrong:**\n- A: It reverses the passage's stance by claiming composers came to prefer the old painted-backdrop technique.\n- C: It invents a second scenographer and a rivalry the text does not contain.\n- D: It describes a story of improving backdrops, whereas the passage is about replacing them."
         },
         {
           "id": 135,
@@ -1217,7 +1217,7 @@ export const practiceTest1RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**The correct answer is C.** Hughes grants that \"gardening can restore small patches\" but objects on scale and consequences — restoration covers hectares while bleaching kills corals \"across hundreds of kilometers,\" and promoting it may ease pressure to \"cut the emissions.\"\n\n**Why the other choices are wrong:**\nA denies a point Hughes grants, B pushes him to an abandon-everything stance he never takes, and D recommends a targeting strategy that, on his own logic, still loses to repeat bleaching."
+          "explanation": "**Choice C is correct.** Hughes would grant that gardening can restore small patches yet argue it cannot match warming-driven loss and may even weaken pressure to curb emissions.\n\n**The Full Solution:**\n- Hughes accepts the empirical part of Rinkevich's case — gardening can restore small patches and the nurseries work — so his reply is not a denial that transplants survive.\n- His quarrel is with scale: restoration operates over a few hectares while mass-bleaching kills corals \"across hundreds of kilometers in a single season,\" so transplanting onto a reef that will bleach again \"treats the symptom rather than the cause.\"\n- His further worry is about consequences: promoting restoration as the answer \"may ease the political pressure to cut the emissions\" warming the oceans. C captures that concede-then-challenge stance.\n\n**Why the other choices are wrong:**\n- A: It denies that nursery fragments survive transplantation, a point Hughes explicitly grants.\n- B: It pushes him to an abandon-everything, leave-every-reef-alone position he never takes.\n- D: It recommends targeting the reefs most likely to bleach again, a strategy that on his own logic would still lose to repeat bleaching."
         },
         {
           "id": 136,
@@ -1247,7 +1247,7 @@ export const practiceTest1RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**The correct answer is D.** Erdal reads the joint disease and dental wear \"together as evidence\" that life at Hakemi Use \"centered on demanding agricultural labor and a grain-heavy diet,\" which D captures.\n\n**Why the other choices are wrong:**\nA gives only Erdal's credentials, C cites one finding (joint disease) without his interpretation, and B states the aging explanation he explicitly rejects."
+          "explanation": "**Choice D is correct.** It captures Erdal's combined claim at the right level of generalization, naming both the kinds of evidence and the lifestyle they reveal.\n\n**The Full Solution:**\n- The opening sentence introduces Erdal's broader project: using Anatolian skeletal remains to ask how shifts in diet and labor shaped past bodies.\n- The middle sentences give the specific 2012 Hakemi Use findings — unusually common degenerative changes in the spine, knees, and shoulders, and heavy dental wear consistent with coarsely ground cereals.\n- Erdal's interpretive move is to read these features \"together as evidence\" that life there centered on demanding agricultural labor and a grain-heavy diet, rather than as ordinary signs of aging.\n\n**Why the other choices are wrong:**\n- A: It gives only Erdal's credentials and affiliation, not the main idea.\n- B: It states the ordinary-aging explanation Erdal explicitly rejects.\n- C: It cites one finding (joint disease) without his interpretation of what it reveals."
         },
         {
           "id": 137,
@@ -1277,7 +1277,7 @@ export const practiceTest1RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**The correct answer is B.** It names both sides of Hall's model — producers \"encode\" a preferred reading, and audiences decoding \"from their own social positions\" may accept, modify, or reject it — and the synthesis that TV is a site of reworked meaning.\n\n**Why the other choices are wrong:**\nA reduces the passage to founding a field, C lists only the three decoding types without the encoding half, and D states the producer-audience-agreement view Hall argues against."
+          "explanation": "**Choice B is correct.** It names both sides of Hall's encoding/decoding model plus its synthesis, capturing the main idea at the right level of generalization.\n\n**The Full Solution:**\n- The passage builds a two-sided argument: producers encode programs within an ideological frame, \"selecting images, language, and narrative conventions\" that carry a preferred reading.\n- Audiences do not simply absorb that reading; decoding \"from their own social positions,\" they may take a dominant interpretation, a negotiated one (accepting parts, resisting others), or an oppositional one (rejecting the frame outright).\n- The closing sentence states the synthesis: television is no longer a neutral transmitter but \"a site where ideological meaning is produced and then reworked.\" B captures both halves and that synthesis.\n\n**Why the other choices are wrong:**\n- A: It reduces the passage to Hall founding an academic field, a side detail.\n- C: It lists only the three decoding interpretations, dropping the encoding half and the synthesis.\n- D: It states the producer-audience-agreement view Hall actually argues against."
         },
         {
           "id": 138,
@@ -1307,7 +1307,7 @@ export const practiceTest1RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**The correct answer is A.** Mouritsen concluded the compass depends on \"light reaching the eye rather than on any structure in the beak\" or the iron-rich tissue others proposed, which A restates.\n\n**Why the other choices are wrong:**\nB contradicts the birds orienting on overcast nights, C contradicts the result that some wavelengths destroyed orientation, and D names the beak explanation Mouritsen rejects."
+          "explanation": "**Choice A is correct.** Mouritsen concluded the magnetic compass depends on light reaching the eye rather than on iron-rich tissue elsewhere in the body, which A restates.\n\n**The Full Solution:**\n- Mouritsen worked with European robins to explain how they hold a heading on overcast nights with no sun or stars.\n- In his experiments, robins under dim light of certain wavelengths oriented normally, while birds under other wavelengths \"lost their bearings entirely.\"\n- Because the effect \"depended on light reaching the eye rather than on any structure in the beak,\" he concluded the compass is tied to vision, not to the iron-rich tissue some earlier researchers had proposed.\n\n**Why the other choices are wrong:**\n- B: It contradicts the opening point that the birds orient on overcast nights when the sun and stars are not visible.\n- C: It contradicts the result that some wavelengths preserved orientation while others destroyed it.\n- D: It names the beak-based explanation Mouritsen rejects."
         },
         {
           "id": 139,
@@ -1337,7 +1337,7 @@ export const practiceTest1RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**The correct answer is B.** The proposal is that stiffness, not mere solidity, blocks dendrites, so the evidence must separate the two — B shows dendrites advancing through a soft solid but stalling at a stiff one, \"even though both materials were fully solid.\"\n\n**Why the other choices are wrong:**\nA concerns energy density, C concerns ion conduction speed, and D concerns manufacturing time — none of which bears on why dendrites are stopped."
+          "explanation": "**Choice B is correct.** The proposal is that stiffness, not mere solidity, is what stops the dendrites, so the supporting evidence must separate those two properties — and B does.\n\n**The Full Solution:**\n- Engineers hoped solid electrolytes would suppress dendrites; the team's specific claim is that the ceramic resists them \"not merely because it is solid but because it is mechanically stiff enough to physically block\" them.\n- To support that, evidence has to hold solidity constant and vary stiffness.\n- Choice B does exactly this: dendrites advanced through a softer solid but stalled against the stiffer ceramic, \"even though both materials were fully solid\" — isolating stiffness as the blocking factor.\n\n**Why the other choices are wrong:**\n- A: It concerns energy density, which is unrelated to dendrite blocking.\n- C: It concerns ion conduction speed at low temperatures, again beside the point.\n- D: It concerns manufacturing time, which says nothing about why dendrites are stopped."
         },
         {
           "id": 140,
@@ -1398,7 +1398,7 @@ export const practiceTest1RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**The correct answer is A.** The claim is that the rate of rise is accelerating, so the evidence must track the decadal increment growing — A lines up the increases (31, then 34, then 40 mm), each larger than the last.\n\n**Why the other choices are wrong:**\nB and D cite a total or single-decade rise that says nothing about a changing pace, and C falsely claims the increase \"held steady,\" the opposite of acceleration."
+          "explanation": "**Choice A is correct.** The claim is specifically about the rate of rise accelerating, so the evidence must track the decadal increment growing — and A lines up the three increases, each larger than the last.\n\n**The Full Solution:**\n- The statement is not merely that the ocean is rising, nor how much it has risen overall, but that the pace itself is changing.\n- Supporting evidence has to read the rightmost column — the increase over each successive decade — and show it growing.\n- Choice A does exactly that: 31 mm (to 2003), then 34 mm (to 2013), then 40 mm (to 2023), noting that each successive decade added more than the one before. That ordered comparison is what licenses the acceleration conclusion.\n\n**Why the other choices are wrong:**\n- B: It cites the total rise (105 mm) to 2023, which says nothing about a changing pace.\n- C: It falsely claims the increase \"held steady\" at roughly 30 mm — the opposite of acceleration.\n- D: It cites a single decade's rise (31 mm), which cannot show a trend in the rate."
         },
         {
           "id": 141,
@@ -1459,7 +1459,7 @@ export const practiceTest1RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**The correct answer is B.** The claim is that extremes fell faster than averages, so the evidence must compare both columns — B shows the lows dropping 3.3 million km² (6.9 to 3.6) versus the means' 2.6 (7.2 to 4.6), and 3.3 > 2.6.\n\n**Why the other choices are wrong:**\nA tracks only the means, C compares one year to one mean rather than the two trends, and D states the numbers but reverses the conclusion, calling the extremes' change \"smaller.\""
+          "explanation": "**Choice B is correct.** The claim is that decadal extremes have pulled away from decadal averages — the lows fell faster than the means — so the evidence must compare both columns and show the lows' change exceeding the means' change.\n\n**The Full Solution:**\n- The statement is comparative: the lowest single year in each decade has dropped faster than the decadal mean.\n- To support it, the choice must put the two columns side by side and show the \"lowest year\" change is larger than the \"mean\" change.\n- Choice B does exactly this: the lows dropped 3.3 million km² (6.9 to 3.6) while the means dropped 2.6 million km² (7.2 to 4.6), and 3.3 > 2.6, so the extremes did fall faster. Both numbers come straight from the table and the direction matches the claim.\n\n**Why the other choices are wrong:**\n- A: It tracks only the decadal means, never comparing them to the extremes.\n- C: It compares one year (2012) to one decadal mean (1980s) rather than the two trends.\n- D: It states the numbers but reverses the conclusion, wrongly calling the extremes' change \"smaller.\""
         },
         {
           "id": 142,
@@ -1489,7 +1489,7 @@ export const practiceTest1RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**The correct answer is D.** Schoolhouse-only reforms \"fade once the surrounding neighborhood conditions reassert themselves,\" so durable gains require pairing reform with neighborhood-level economic and housing policy.\n\n**Why the other choices are wrong:**\nA doubles down on the inside-school levers that already failed, B invents a nationwide-identical-package requirement, and C overreaches by abandoning curriculum and accountability \"solely\" for neighborhood policy."
+          "explanation": "**Choice D is correct.** Durable improvement is unlikely unless reform efforts are paired with neighborhood-level economic and housing policies addressing the conditions the schools have been asked to compensate for — the paired claim the two premises jointly force.\n\n**The Full Solution:**\n- Premise 1: urban schools serving the poorest neighborhoods have been asked to compensate for inequities — housing instability, joblessness, unequal health care — that originate outside the school and lie beyond educators' control.\n- Premise 2: reforms aimed only inside the schoolhouse (new curricula, accountability, leaders) produce short-term gains that \"fade once the surrounding neighborhood conditions reassert themselves.\"\n- The minimum inference is that durable improvement requires reform that reaches those surrounding conditions. Neither premise alone prescribes a remedy; only their joint claim — reform paired with neighborhood-level policy — is licensed.\n\n**Why the other choices are wrong:**\n- A: It doubles down on the inside-school levers that the passage says already fade.\n- B: It invents a requirement that every district adopt an identical package simultaneously, which the premises never support.\n- C: It overreaches by abandoning curriculum and accountability \"solely\" for neighborhood policy, an extreme the passage does not license."
         },
         {
           "id": 143,
@@ -1519,7 +1519,7 @@ export const practiceTest1RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**The correct answer is B.** Harrison treats the lost taxonomies \"as a body of empirical observation rather than as a matter of feeling,\" so the risk's seriousness does not depend on how attached a community feels to its language.\n\n**Why the other choices are wrong:**\nA overreaches to \"every field\" making documentation the first priority, C wrongly claims the knowledge is lost by the shift \"alone,\" and D ties the risk to conscious rejection of identity, which the passage never mentions."
+          "explanation": "**Choice B is correct.** Language endangerment poses risks whose seriousness does not depend on whether the community continues to express attachment to its ancestral language — the hedged claim the premises force.\n\n**The Full Solution:**\n- Premise 1: Harrison argues that endangered languages carry detailed ethnobiological taxonomies — fine-grained vocabularies for local plants, animals, and ecological relationships — which he treats \"as a body of empirical observation rather than as a matter of feeling.\"\n- Premise 2: when communities shift to a dominant language without systematically recording these vocabularies, the taxonomies \"are not retained\" and pass out of use.\n- Because the loss is framed as empirical, not sentimental, the minimum inference is that the seriousness of endangerment does not stand or fall with how the community feels about its language. The empirical loss is separate from the sentimental one.\n\n**Why the other choices are wrong:**\n- A: It overreaches to \"every field\" reliant on traditional knowledge and makes documentation the first priority, far beyond the premises.\n- C: It wrongly claims the knowledge is lost by the language shift \"alone,\" ignoring the role of absent systematic documentation.\n- D: It ties the risk to a conscious rejection of cultural identity, which the passage never mentions."
         },
         {
           "id": 144,
@@ -1549,7 +1549,7 @@ export const practiceTest1RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**The correct answer is D.** The inserted phrase is a nonrestrictive appositive describing Chafe, and it needs a matched pair of commas — one before and one after — to set it off cleanly.\n\n**Why the other choices are wrong:**\nThe closing-comma-only (A) and opening-comma-only (B) options are unmatched pairs that fail to open or close the insertion, and no commas (C) wrongly treats the appositive as restrictive.",
+          "explanation": "**Choice D is correct.** The blank holds a nonrestrictive appositive, which Standard English sets off with a matched pair of bracketing marks — here the lightest pair, paired commas.\n\n**The Full Solution:**\n- The rule: a nonrestrictive appositive (extra information that could be removed without changing which person is meant) must be enclosed by a matched pair of marks — paired commas, em-dashes, or parentheses.\n- \"A longtime professor of linguistics at UC Santa Barbara\" is extra biographical detail; \"Wallace Chafe\" already uniquely identifies him, so the phrase is nonrestrictive.\n- Because the inserted phrase contains no internal commas of its own, the lightest matched pair — paired commas, one before and one after — is the canonical choice, letting \"Linguist Wallace Chafe ... argued that ...\" read through unbroken.\n\n**Why the other choices are wrong:**\n- A: It places a comma only after the appositive, an unmatched pair that fails to open the insertion.\n- B: It places a comma only before the appositive, an unmatched pair that fails to close it.\n- C: With no commas at all, it wrongly treats the appositive as restrictive.",
           "_meta": {
             "rule": "paired commas around a nonrestrictive appositive (no internal commas)",
             "anchor": "Wallace Chafe — UC Santa Barbara linguist; intonation units / consciousness ('Discourse, Consciousness, and Time', 1994)",
@@ -1588,7 +1588,7 @@ export const practiceTest1RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**The correct answer is C.** The subject is the singular collective noun \"cabinet,\" not the plural \"rivals\" inside \"of rivals,\" so it takes the singular verb \"functions.\"\n\n**Why the other choices are wrong:**\n\"Are functioning,\" \"have functioned,\" and \"function\" are all plural forms that wrongly agree with the intervening \"rivals\" instead of the singular head noun \"cabinet.\""
+          "explanation": "**Choice C is correct.** The subject is the singular collective noun \"cabinet,\" which takes the singular verb \"functions.\"\n\n**The Full Solution:**\n- The rule: a singular collective noun naming a body acting as a unit pairs with a singular verb.\n- The grammatical subject is \"the cabinet of rivals,\" whose head noun is \"cabinet,\" not the plural \"rivals\" inside the prepositional phrase \"of rivals.\"\n- \"The cabinet ... functions as the new president's most reliable instrument\" agrees in number.\n\n**Why the other choices are wrong:**\n- A: \"Are functioning\" is plural and present-progressive, agreeing with the intervening \"rivals\" rather than the singular head noun.\n- B: \"Have functioned\" is plural and shifts the tense, again agreeing with \"rivals.\"\n- D: \"Function\" is the plural present form, wrong for the singular collective subject \"cabinet.\""
         },
         {
           "id": 146,
@@ -1618,7 +1618,7 @@ export const practiceTest1RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**The correct answer is C.** A complete independent clause is followed by a summative appositive (\"a refusal that... exposes settler sovereignty...\"), and a single em-dash marks that emphatic break; because the appositive has internal commas, the dash is clearer than a comma.\n\n**Why the other choices are wrong:**\nThe semicolon (A) needs an independent clause after it, not a noun phrase; the comma (D) blurs into the appositive's own commas; and no punctuation (B) runs the two together.",
+          "explanation": "**Choice C is correct.** A complete independent clause is followed by a summative appositive that renames it, and a single em-dash marks that emphatic break — preferable here because the appositive carries internal commas.\n\n**The Full Solution:**\n- The material before the blank is a complete independent clause: \"the Columbia anthropologist Audra Simpson argues that the Mohawks of Kahnawake actively decline the citizenship that Canada and the United States offer them.\"\n- What follows — \"a refusal that, far from being a gesture of withdrawal, exposes settler sovereignty as an ongoing political negotiation rather than a finished accomplishment\" — is a noun phrase in apposition that renames and amplifies the Mohawks' refusal.\n- A single em-dash cleanly marks this emphatic break at the end of an independent clause; because the appositive contains its own comma pair (\"that, far from being a gesture of withdrawal, exposes\"), the dash is clearer than a comma and avoids implying a list or formal definition as a colon would.\n\n**Why the other choices are wrong:**\n- A: A semicolon needs an independent clause after it, but what follows is a noun phrase.\n- B: No punctuation runs the clause and its appositive together.\n- D: A comma blurs into the appositive's own internal commas, obscuring the boundary.",
           "_meta": {
             "rule": "single em-dash before summative appositive with internal commas",
             "anchor": "Audra Simpson — Mohawk Interruptus (2014), Columbia, Mohawks of Kahnawake, refusal of state citizenship, settler sovereignty",
@@ -1657,7 +1657,7 @@ export const practiceTest1RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**The correct answer is B.** The blank is the third item in a list governed by \"by,\" and the first two are gerunds (\"interviewing,\" \"reviewing\"), so parallelism requires the gerund \"comparing.\"\n\n**Why the other choices are wrong:**\n\"The comparison of\" is a noun phrase, \"to compare\" is an infinitive, and \"compares\" is a finite verb — none matches the gerund pattern the list sets up."
+          "explanation": "**Choice B is correct.** The blank is the third item in a coordinated list governed by \"by,\" and parallelism requires it to be a gerund like the first two.\n\n**The Full Solution:**\n- The rule: items in a coordinated list must share the same grammatical form.\n- The list is governed by the preposition \"by\": \"by interviewing Lee's family, reviewing the medical records ..., and ______.\"\n- The first two items are gerunds (\"interviewing,\" \"reviewing\"), so the third must also be a gerund. \"Comparing\" yields the parallel \"by interviewing ..., reviewing ..., and comparing ....\"\n\n**Why the other choices are wrong:**\n- A: \"The comparison of\" is a noun phrase, breaking the gerund parallelism.\n- C: \"To compare\" is an infinitive, not a gerund.\n- D: \"Compares\" is a finite verb, which cannot stand as a parallel list item under \"by.\""
         },
         {
           "id": 148,
@@ -1687,7 +1687,7 @@ export const practiceTest1RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**The correct answer is A.** A complete independent clause announces a \"blind spot,\" and the colon introduces the noun phrase that defines it (\"the doctrine's treatment of race and sex as mutually exclusive axes...\").\n\n**Why the other choices are wrong:**\nThe semicolon (D) needs an independent clause after it, but the post-blank material is a noun phrase; the comma (B) can't carry the long appositive with internal commas; and no punctuation (C) fuses the clause and the amplification.",
+          "explanation": "**Choice A is correct.** A complete independent clause announces a \"blind spot,\" and a colon introduces the extended noun-phrase amplification that defines it.\n\n**The Full Solution:**\n- The material before the blank is a complete independent clause: \"Kimberlé Crenshaw, then a young law professor at UCLA, identified a single blind spot in antidiscrimination doctrine.\"\n- What follows defines that blind spot: \"the doctrine's treatment of race and sex as mutually exclusive axes, an analytical move that renders claims by Black women ... systematically invisible to the courts.\"\n- This is a single noun phrase (head noun \"treatment,\" with an inner appositive and relative clause), not a clause with its own main verb. Standard English uses a colon at exactly this boundary — a complete clause that has announced something, followed by an extended noun-phrase amplification that defines or specifies it.\n\n**Why the other choices are wrong:**\n- B: A comma cannot carry this long, internally-punctuated amplification and would create a splice-like blur.\n- C: No punctuation fuses the announcing clause and its amplification together.\n- D: A semicolon requires an independent clause after it, but the post-blank material is a noun phrase.",
           "_meta": {
             "rule": "colon to introduce a defining noun-phrase amplification (with internal commas) after a complete independent clause",
             "anchor": "Kimberlé Crenshaw — \"Demarginalizing the Intersection of Race and Sex\" (1989), UCLA School of Law; intersectionality, antidiscrimination doctrine, Black women's claims at race/sex intersection",
@@ -1726,7 +1726,7 @@ export const practiceTest1RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**The correct answer is D.** The subject is the singular noun \"record,\" not the plural \"layers\" inside \"that the sheet's many annual layers preserve,\" so it takes the singular verb \"allows.\"\n\n**Why the other choices are wrong:**\n\"Allow,\" \"have allowed,\" and \"are allowing\" are all plural forms that wrongly agree with the intervening \"layers\" instead of the head noun \"record.\""
+          "explanation": "**Choice D is correct.** The subject is the singular noun \"record,\" so it takes the singular verb \"allows.\"\n\n**The Full Solution:**\n- The rule: a verb agrees with its true subject, not with a noun in an intervening relative clause.\n- The head noun is \"The detailed chemical record ... that the sheet's many annual layers preserve\"; the subject is \"record,\" which is singular.\n- The plural \"layers\" sits right next to the blank inside the relative clause and is the agreement trap; the verb must still match \"record.\"\n\n**Why the other choices are wrong:**\n- A: \"Allow\" is the plural present form, agreeing with the intervening \"layers\" rather than \"record.\"\n- B: \"Have allowed\" is plural and also shifts the tense unnecessarily.\n- C: \"Are allowing\" is plural and present-progressive, again agreeing with \"layers.\""
         },
         {
           "id": 150,
@@ -1756,7 +1756,7 @@ export const practiceTest1RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**The correct answer is B.** Sentence 2 restates sentence 1's claim in new words — recasting \"distinctive social location\" as \"the simultaneous experience of being Black, female, and... working class\" — introducing no new idea, which \"In other words,\" marks.\n\n**Why the other choices are wrong:**\n\"Consequently\" implies a result, \"For example\" implies an illustration, and \"In addition\" implies a new point — but sentence 2 only rephrases the same claim."
+          "explanation": "**Choice B is correct.** Sentence 2 restates sentence 1's argument in different vocabulary, and \"In other words,\" is the transition for that reformulation move.\n\n**The Full Solution:**\n- Sentence 1 states Collins's claim abstractly: Black women's distinctive social location at the intersection of race, gender, and class produced a coherent intellectual tradition that cannot be derived from any one category alone.\n- Sentence 2 renames the same idea — recasting \"distinctive social location\" as \"the simultaneous experience of being Black, female, and (for most) working class,\" and \"a coherent intellectual tradition\" as \"the standpoint that gives those ideas their characteristic shape and shared core.\"\n- The cue is that sentence 2 introduces no new entities, only a rephrasing (the \"is not merely ... but is itself\" structure) — the signature of restatement.\n\n**Why the other choices are wrong:**\n- A: \"Consequently\" implies a result, but sentence 2 is not a consequence of sentence 1.\n- C: \"For example\" implies an illustration, but sentence 2 gives no concrete instance.\n- D: \"In addition\" implies a new point, but sentence 2 only rephrases the same claim."
         },
         {
           "id": 151,
@@ -1786,7 +1786,7 @@ export const practiceTest1RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**The correct answer is D.** Sentence 1 sets up the framing manipulation and sentence 2 reports the result it produced — the diagnostic group \"scored measurably lower\" — a cause-and-effect link that \"Consequently,\" marks.\n\n**Why the other choices are wrong:**\n\"By contrast\" implies opposition and \"Likewise\" implies a parallel, but the second sentence is the outcome of the first; \"Meanwhile\" implies mere simultaneity, not consequence."
+          "explanation": "**Choice D is correct.** Sentence 2 reports the result that follows directly from the experimental setup in sentence 1, and \"Consequently,\" is the transition for that cause-and-effect relation.\n\n**The Full Solution:**\n- Sentence 1 sets up the manipulation: Steele and Aronson assigned Black undergraduates to take the same verbal test under two framings — one group told it measured intellectual ability, the other told it did not.\n- Sentence 2 reports what followed: the diagnostic-framing group \"scored measurably lower\" than the nondiagnostic group, an effect Steele names stereotype threat.\n- The cue is the experimental \"set up conditions, then report outcome\" structure: sentence 1 names the independent variable, sentence 2 the dependent variable plus a causal label — the signature of consequence.\n\n**Why the other choices are wrong:**\n- A: \"By contrast\" implies opposition, but sentence 2 is the outcome of sentence 1, not its opposite.\n- B: \"Likewise\" implies a parallel point, but sentence 2 reports a result rather than a parallel claim.\n- C: \"Meanwhile\" implies mere simultaneity, not the causal consequence the sentences express."
         },
         {
           "id": 152,
@@ -1816,7 +1816,7 @@ export const practiceTest1RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**The correct answer is A.** The prior sentence states a general principle (a core reveals which plants grew nearby), and the next gives a concrete case (a tree-pollen drop marking a forest's loss), a general-to-specific move that \"For instance,\" marks.\n\n**Why the other choices are wrong:**\n\"Nevertheless\" and \"In contrast\" signal opposition, but the example confirms the principle, and \"Earlier\" falsely implies a shift back in time."
+          "explanation": "**Choice A is correct.** The sentences move from a general principle to a concrete case of it, a general-to-specific move that \"For instance,\" marks.\n\n**The Full Solution:**\n- The sentence before the blank states the general principle: because different plants' pollen has distinctive shapes, a lakebed core lets researchers read off which species grew nearby in a given year.\n- The sentence after it gives a concrete case — a sudden drop in tree pollen with a rise in grass pollen can mark the moment a forest gave way to open land.\n- That illustration confirms, rather than counters, the principle, which is exactly what \"For instance,\" signals.\n\n**Why the other choices are wrong:**\n- B: \"Nevertheless\" signals opposition, but the example confirms the principle rather than countering it.\n- C: \"In contrast\" also signals opposition, which the supporting example does not provide.\n- D: \"Earlier\" would falsely imply a shift back in time, but the example is a present application of the principle."
         },
         {
           "id": 153,
@@ -1857,7 +1857,7 @@ export const practiceTest1RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**The correct answer is C.** The goal is to correct a misconception, and C names it (\"often treated as neutral tools\") then states D'Alleva's correction — each method \"frames the same work differently,\" so choosing one \"is itself an interpretive act.\"\n\n**Why the other choices are wrong:**\nA and B merely define or survey the methods without correcting anything, and D invents a claim that semiotics is \"more rigorous,\" which the notes never support."
+          "explanation": "**Choice C is correct.** The goal is to correct a common misconception about art-historical methods, and C names the misconception then states D'Alleva's corrective claim.\n\n**The Full Solution:**\n- Choice C names the misconception explicitly — that iconography, formalism, and semiotics are \"often treated as neutral tools\" applied to a fixed object.\n- It then states D'Alleva's correction from the notes: each method \"frames the same work differently and yields a different account,\" so choosing a method \"is itself an interpretive act.\"\n- The \"Although ... argues that ...\" construction performs the corrective rhetorical move the goal requires.\n\n**Why the other choices are wrong:**\n- A: It merely distinguishes two of the methods without correcting any misconception.\n- B: It surveys the three methods as the approaches historians draw on, again correcting nothing.\n- D: It invents a claim that semiotics offers \"a more rigorous foundation,\" which the notes never support."
         },
         {
           "id": 154,
@@ -1898,7 +1898,7 @@ export const practiceTest1RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**The correct answer is C.** The goal is to show how the finding revised the old understanding, and C contrasts the century-old \"two-partner\" model with the 2016 discovery of an \"overlooked yeast\" that explains why identical-partner lichens differ.\n\n**Why the other choices are wrong:**\nA gives only biography, B states the traditional model without the revision, and D notes why the yeast was missed but never says how the understanding changed."
+          "explanation": "**Choice C is correct.** The goal is to explain how Spribille's finding revised the traditional understanding of lichens, and C names the old model, the 2016 discovery, and what it explained.\n\n**The Full Solution:**\n- Choice C names the long-held two-partner fungus-and-alga model that biologists had treated as complete for over a century.\n- It states the 2016 discovery that many lichens also contain a previously overlooked yeast.\n- It notes what that discovery explained — why lichens with seemingly identical partners can still look and behave differently — performing the revision the goal asks for.\n\n**Why the other choices are wrong:**\n- A: It introduces Spribille biographically without saying what changed.\n- B: It states only the traditional two-partner model and stops before the revision.\n- D: It reports one detail about why the yeast was missed but never states how the finding revised the understanding of lichens."
         }
       ]
     }

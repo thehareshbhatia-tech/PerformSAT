@@ -60,7 +60,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**The correct answer is B.** Reitsema works backward from chemical signals in ancient bone to recover past diets, so the blank needs a verb for piecing together the past from evidence — \"reconstruct.\"\n\n**Why the other choices are wrong:**\n\"Predict\" points forward, the wrong direction for medieval diets; \"imagine\" implies a guess when the passage stresses measurement; and \"exaggerate\" has her overstating data the text never suggests."
+          "explanation": "**Choice B is correct.** Reitsema works backward from chemical signals locked into ancient bone to recover dietary changes from centuries ago, so the blank needs a verb meaning to piece together a past state of affairs from physical evidence — \"reconstruct.\"\n\n**The Full Solution:**\n- She measures carbon and nitrogen isotope ratios in bone collagen, which track the plant and animal sources of a lifetime's diet.\n- The work moves backward from present-day evidence to a past state of affairs, so the verb must mean piecing together the past from physical evidence.\n- \"Reconstruct\" fits that exactly.\n\n**Why the other choices are wrong:**\n- A: \"Imagine\" implies forming a picture without firm evidence, but the passage stresses measurement.\n- C: \"Predict\" points forward to events that have not yet happened, the wrong direction for a study of medieval diets.\n- D: \"Exaggerate\" would have her overstating her data, which the passage never suggests."
         },
         {
           "id": 802,
@@ -90,7 +90,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**The correct answer is C.** The italic letters let \"a dense column\" fit onto a pocket-sized page, so the blank needs a word for compressing content into less space — \"condensed.\"\n\n**Why the other choices are wrong:**\n\"Scattered\" means spreading type out, the opposite of fitting more on a small page; \"decorated\" points to ornament, not space-saving; and \"translated\" concerns languages, which is not at issue."
+          "explanation": "**Choice C is correct.** The new italic letters let a great deal of text — \"a dense column of type\" — fit onto a page small enough to slip into a coat pocket, so the blank needs a word for compressing the same content into less space — \"condensed.\"\n\n**The Full Solution:**\n- The sentence stresses that the letters \"did not simply shrink the text\" but did something more: packed a dense column onto a tiny page.\n- The needed word is one for fitting the same content into less space.\n- \"Condensed\" captures that.\n\n**Why the other choices are wrong:**\n- A: \"Scattered\" would imply spreading the type out, the opposite of fitting more onto a small page.\n- B: \"Decorated\" points to ornament rather than to the space-saving the sentence describes.\n- D: \"Translated\" concerns moving between languages, which is not at issue here."
         },
         {
           "id": 803,
@@ -120,7 +120,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**The correct answer is D.** The two methods each \"captures detail the other misses\" and aren't competing, so the blank needs a word for working together to supply different parts of one picture — \"complementary.\"\n\n**Why the other choices are wrong:**\n\"Interchangeable\" would make the methods equivalent and swappable, contradicting that each catches what the other misses, and \"incompatible\" and \"provisional\" both reject the cooperative relationship the sentence builds."
+          "explanation": "**Choice D is correct.** The sentence sets up two methods that each catch what the other cannot, joined against the idea that they compete, so the blank needs a word meaning the two work together by supplying different parts of one picture — \"complementary.\"\n\n**The Full Solution:**\n- The field record and the satellite record are framed as alternatives to \"competing ones.\"\n- The closing clause says each \"captures detail the other misses,\" so the two cooperate rather than rival each other.\n- \"Complementary\" names exactly that cooperative, fill-in-the-gaps relationship.\n\n**Why the other choices are wrong:**\n- A: \"Interchangeable\" would mean the two methods are equivalent and could simply replace each other, which contradicts the point that each captures detail the other misses.\n- B: \"Incompatible\" runs against the cooperative relationship the sentence builds, making the methods clash.\n- C: \"Provisional\" labels the measurements as merely tentative, which the sentence never suggests and which misses the cooperative point."
         },
         {
           "id": 804,
@@ -150,7 +150,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**The correct answer is A.** The molecule can't be seen and the structure must be worked out \"from hundreds of diffraction spots\" rather than observed directly, so the blank needs a verb for reasoning to a conclusion from evidence — \"deduced.\"\n\n**Why the other choices are wrong:**\n\"Inherited\" suggests the structure was passed down, not figured out; \"dismissed\" reverses the sense to rejecting it; and \"memorized\" means recalling something already known, not determining the unknown."
+          "explanation": "**Choice A is correct.** The molecule is \"far too small to see,\" and each structure had to be worked out indirectly \"from hundreds of diffraction spots…rather than observed directly,\" so the blank needs a verb for reasoning to a conclusion from evidence — \"deduced.\"\n\n**The Full Solution:**\n- The passage stresses that the molecule cannot be seen and the structure must be inferred from a pattern of scattered dots.\n- That indirect, evidence-to-conclusion process is exactly what \"deduce\" names.\n- \"Deduced\" fits.\n\n**Why the other choices are wrong:**\n- B: \"Inherited\" would suggest the structure was passed down rather than figured out.\n- C: \"Dismissed\" reverses the sense, implying the structure was rejected.\n- D: \"Memorized\" describes recalling something already known, not determining something unknown."
         },
         {
           "id": 805,
@@ -180,7 +180,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**The correct answer is A.** The underlined opening states a broad claim — nothing should disturb \"the marriage of true minds\" — which the rest of the poem develops through images of love as an \"ever-fixed mark,\" a guiding star, and something time cannot bend.\n\n**Why the other choices are wrong:**\nThe poem builds on the opening claim rather than questioning it (B), retracting it as private disappointment (C), or revising a reaction to a witnessed betrayal (D).",
+          "explanation": "**Choice A is correct.** The underlined opening states a broad claim — that nothing should be allowed to disturb the union of faithful minds — and the lines that follow develop it through a series of images.\n\n**The Full Solution:**\nThe rest of the poem builds out the opening claim image by image:\n- Love as an \"ever-fixed mark\" that weathers tempests and is \"never shaken.\"\n- Love as the guiding star above a \"wandering bark.\"\n- Love as something that does not bend to time (\"Love's not Time's fool\").\n- The poem thus develops the opening claim rather than questioning, retracting, or revising it.\n\n**Why the other choices are wrong:**\n- B: The opening is a flat declaration, not a question, and the poem develops one claim rather than recalling a single past romance.\n- C: Nothing in the poem records a private disappointment the speaker talks himself out of; the conviction holds from start to finish.\n- D: The poem narrates no witnessed betrayal and revises no first reaction; it asserts and then reinforces a single position.",
           "_meta": {
             "quoteVerify": true,
             "source": "William Shakespeare, Sonnet 116 (1609)"
@@ -214,7 +214,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**The correct answer is B.** The passage walks through the division of labor behind one print — designer, line carver, color carvers, printer, publisher — to show the image was the work of a coordinated workshop, not a single artist.\n\n**Why the other choices are wrong:**\nThe influence-abroad comparison (A), the carver's-tools focus (C), and the publisher-versus-printer risk (D) are each absent or a single detail, not the overall purpose."
+          "explanation": "**Choice B is correct.** The passage walks through the division of labor behind a single print to make the point that the image was the product of a coordinated workshop, not the work of \"one pair of hands.\"\n\n**The Full Solution:**\nThe passage names each specialist in the sequence:\n- The designer supplied the drawing.\n- A line carver cut away everything that was not line.\n- A separate carver prepared an additional block for each color.\n- A printer inked the blocks in turn and judged the registration so colors fell within the lines.\n- The publisher commissioned the design, coordinated the sequence, and bore the financial risk.\n- The cumulative point is that producing a print was a coordinated, multi-specialist process.\n\n**Why the other choices are wrong:**\n- A: The text never compares the influence of Hokusai's designs abroad with the prints' reception in Japan.\n- C: The carver's tools are one narrow step, not the overall purpose; the passage describes roles, not specific tools.\n- D: The publisher-versus-printer risk is a single detail, not the point the whole passage builds toward."
         },
         {
           "id": 807,
@@ -244,7 +244,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**The correct answer is C.** The passage traces one line of reasoning: waves arrived where the liquid-core model \"predicted silence,\" so Lehmann inferred a solid inner core to explain them, a conclusion later confirmed.\n\n**Why the other choices are wrong:**\nThe instruments (A), the comparison of the two cores' influence (B), and the earthquake damage (D) are each topics the passage never takes up."
+          "explanation": "**Choice C is correct.** The passage traces a single line of reasoning: faint waves appeared where the liquid-core model \"predicted silence,\" so Lehmann inferred a solid inner core to account for them, a conclusion later observations confirmed.\n\n**The Full Solution:**\n- Seismologists already knew of a liquid outer core because waves bent around it, leaving a \"shadow zone.\"\n- In 1936 Lehmann noticed faint waves arriving inside that shadow zone, where the model predicted none.\n- She argued the readings made sense only if a smaller, solid inner core sat at the center, deflecting the waves inward.\n- Decades of later observations confirmed the boundary she had inferred.\n\n**Why the other choices are wrong:**\n- A: The passage never lists seismographic instruments of the 1930s.\n- B: It draws no comparison between the influence of the outer core and that of the inner core on earthquake waves.\n- D: It says nothing about earthquake damage in the regions she studied."
         },
         {
           "id": 808,
@@ -283,7 +283,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**The correct answer is D.** Jackson ties durability to a seawater reaction, but Masic studies inland concrete, so he would grant her marine crystal growth while noting it can't explain dry-land structures — where his lime clasts reseal cracks \"with no seawater at all.\"\n\n**Why the other choices are wrong:**\nDenying the ash plays any role (A), calling Jackson's work superseded (B), and saying Roman concrete offers engineers nothing more (C) are all positions Masic never takes and both texts contradict."
+          "explanation": "**Choice D is correct.** Jackson locates durability in a slow, seawater-driven reaction that grows strengthening crystals — a process tied to marine settings — while Masic studies concrete on dry land and identifies a different mechanism, so the natural response is to grant her marine reaction yet note it cannot explain inland structures.\n\n**The Full Solution:**\n- Jackson's account: seawater percolating through the material keeps reacting with volcanic ash, growing crystals that fill the pores and strengthen the concrete over time.\n- That mechanism depends on seawater, so it is specific to marine settings.\n- Masic studies lime clasts in concretes \"including those on dry land,\" where calcium dissolves and recrystallizes to reseal cracks \"with no seawater at all.\"\n- He would therefore grant that crystal growth works in the sea while pointing out it cannot account for inland durability — which his self-repair mechanism can.\n\n**Why the other choices are wrong:**\n- A: Denying the volcanic ash plays any chemical role contradicts Text 1's premise, a claim Masic never makes.\n- B: Calling Jackson's drill-core findings outdated and superseded is a \"set it aside\" move neither text supports.\n- C: Claiming Portland cement already reproduces both mechanisms and that Roman concrete offers nothing further runs against the thrust of both texts."
         },
         {
           "id": 809,
@@ -313,7 +313,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**The correct answer is C.** The passage builds to one point: Sprengel found orchids whose spurs \"looked as if they should hold nectar, yet none was inside,\" luring pollinators that carry off pollen without a reward.\n\n**Why the other choices are wrong:**\nThe blanket claim that insects fertilize every plant (A), the generalization about orchids studied later (B), and the orchids' scarcity (D) are each more than or other than what the passage asserts."
+          "explanation": "**Choice C is correct.** The passage builds to a single point: Sprengel discovered orchids whose spurs \"looked as if they should hold nectar, yet none was inside,\" drawing pollinators that carry away pollen without any reward.\n\n**The Full Solution:**\n- Sprengel had shown that many blossoms are shaped to steer insects toward pollen and nectar.\n- Examining wild orchids, he found a contradiction: long spurs that should hold nectar but held none.\n- He concluded these orchids draw insects by the mere appearance of a reward, so pollinators carry pollen away without being fed.\n- His \"false nectar flowers\" are cited as one of the earliest accounts of deception as a pollination strategy.\n\n**Why the other choices are wrong:**\n- A: It overstates his view into a blanket claim that insects fertilize every flowering plant, which the text does not assert.\n- B: It makes a sweeping generalization about orchids studied after his time that the passage never offers.\n- D: It introduces the scarcity of the orchids, a topic the passage never raises."
         },
         {
           "id": 810,
@@ -343,7 +343,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**The correct answer is B.** The passage's central point is that the Green Book served a practical purpose: telling Black motorists where they \"could expect to be served safely\" under segregation.\n\n**Why the other choices are wrong:**\nThe reader letters (A) and the rail comparison (C) are supporting details, and the reformist aim (D) is exactly what the passage rules out, calling the guide a practical response \"not a description of the country as he wished it to be.\""
+          "explanation": "**Choice B is correct.** The passage's central point is that the guide served a practical purpose: telling Black motorists where they \"could expect to be served safely\" during the era of segregation.\n\n**The Full Solution:**\n- The Green Book listed hotels, restaurants, service stations, and homes where Black motorists could expect safe service.\n- Travel by car promised freedom from the segregated railway car, but a driver who did not know which towns to avoid risked being turned away \"or worse.\"\n- Green's introductions made clear the guide was a practical response to a known hazard, not a vision of the country as he wished it.\n- The main idea is the practical, safety-oriented function of the guide.\n\n**Why the other choices are wrong:**\n- A: The reader letters are a true detail about how Green compiled listings, but a supporting point rather than the main idea.\n- C: The comparison with rail travel is a supporting detail, not the passage's central claim.\n- D: The reformist aim is exactly what the passage rules out, calling the guide a practical response \"not a description of the country as he wished it to be.\""
         },
         {
           "id": 811,
@@ -373,7 +373,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**The correct answer is D.** The passage states Beebe \"could not collect what he saw,\" and some creatures he reported \"were never matched to a specimen\" — the limitation the question asks about.\n\n**Why the other choices are wrong:**\nThe depth claim (A) contradicts the half-mile descent, the memory claim (B) reverses the detail that an assistant recorded his words, and the distorted-colors claim (C) is never mentioned."
+          "explanation": "**Choice D is correct.** The passage states that Beebe \"could not collect what he saw\" and that some creatures he reported \"were never matched to a specimen,\" which is the limitation the question asks about.\n\n**The Full Solution:**\n- Beebe watched deep-sea animals alive through the bathysphere's small quartz windows rather than hauling them up dead in a net.\n- Because he could not collect them, he could only describe them aloud to an assistant on the surface.\n- Some of the animals he reported were never matched to a specimen, and skeptics later questioned them.\n- That inability to capture specimens — leaving sightings unverified — is the stated limitation.\n\n**Why the other choices are wrong:**\n- A: The passage says he descended more than half a mile, so depth was not the limitation.\n- B: It reverses a detail; an assistant did record his words by telephone, so he did not rely on memory.\n- C: A problem with the quartz windows distorting colors is never mentioned."
         },
         {
           "id": 812,
@@ -403,7 +403,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**The correct answer is B.** The hypothesis says losing seed-dispersing animals drives larger seeds, so the strongest support ties the seed change to that loss over time — B shows lineages growing heavier seeds after dispersers vanished while islands that kept them did not.\n\n**Why the other choices are wrong:**\nThe disperser-retaining islands (A) only describe one side, the greenhouse survival (C) ignores the animals, and the wind-dispersed ancestors (D) never link seed size to the loss of dispersers."
+          "explanation": "**Choice B is correct.** The hypothesis claims that losing seed-dispersing animals drives plants toward larger, less mobile seeds, so the strongest support is a finding that ties the seed change directly to that loss over time, with islands that kept their dispersers as a contrast.\n\n**The Full Solution:**\n- The hypothesis links a cause (loss of seed-dispersing animals) to an effect (evolution of larger, less mobile seeds).\n- The best evidence shows the effect following the cause and absent where the cause is absent.\n- B supplies exactly that: lineages produced progressively larger, less mobile seeds in the generations after their dispersers disappeared, while lineages on islands that kept those animals did not.\n- The matched comparison directly supports the causal claim.\n\n**Why the other choices are wrong:**\n- A: It is consistent with the idea but only describes islands where dispersers remain — one side of the comparison, no over-time change tied to loss.\n- C: It shows large seeds are advantageous in greenhouse trials but says nothing about the animals.\n- D: It notes the ancestors' wind dispersal without linking seed size to the loss of dispersers."
         },
         {
           "id": 813,
@@ -433,7 +433,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**The correct answer is D.** The claim compares the two habitat classes as groups, so the data must show both obligate species declining more than both associated ones — D pairs the obligate drops (72 and 65 percent) against the associated drops (36 and 30 percent).\n\n**Why the other choices are wrong:**\nA and B each cite a single species without comparing the classes, and C compares only one species from each class, too narrow a basis for a claim about the groups.",
+          "explanation": "**Choice D is correct.** The claim compares the two habitat classes as groups, so the completion must show that both obligate species declined more steeply than both associated species.\n\n**The Full Solution:**\n- The conclusion is that grassland-obligate species fared considerably worse than grassland-associated species — a claim about the two classes.\n- Supporting it requires both obligate values to exceed both associated values.\n- D pairs the obligate declines (72 and 65 percent) against the associated declines (36 and 30 percent), supporting the conclusion directly.\n\n**Why the other choices are wrong:**\n- A: Vesper Sparrow's 36 percent is a single species and never compares the two classes.\n- B: Eastern Meadowlark's 72 percent is a single species; the largest single drop does not establish a class-versus-class difference.\n- C: Comparing one obligate species with one associated species is a weaker basis for a claim about the groups as a whole.",
           "questionTable": {
             "type": "table",
             "caption": "Estimated change in North American breeding population, 1970-2017 (selected species)",
@@ -494,7 +494,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**The correct answer is B.** To show acceleration, the rate must climb across the record and end highest — B moves from the earliest window's 2.7 mm/year to the latest window's 4.5 mm/year.\n\n**Why the other choices are wrong:**\nThe one-tenth difference between middle windows (A) is too small for a trend, the cumulative total (C) shows how much the sea rose but not whether the rate changed, and the steady-rate reading (D) argues the opposite of the claim.",
+          "explanation": "**Choice B is correct.** To show acceleration, the data must trace the rate climbing across the record and ending at its highest value, and B does that by moving from the earliest window's 2.7 mm per year to the latest window's 4.5 mm per year.\n\n**The Full Solution:**\n- The claim is that the rate of rise is itself increasing, not constant.\n- Supporting it means showing the mean rate rising from earliest to latest window, with the latest the fastest.\n- B reports the climb from 2.7 mm per year (1993-2002) to 4.5 mm per year (2013-2022), the latest window the fastest.\n\n**Why the other choices are wrong:**\n- A: A one-tenth difference between two middle windows (3.1 vs. 3.0) is far too small to establish a trend.\n- C: The cumulative total of roughly 100 mm speaks to how much the sea has risen, not to whether the rate is changing.\n- D: Reading the 2008-2017 rate as evidence the rate held steady argues the opposite of the claim.",
           "questionTable": {
             "type": "table",
             "caption": "Mean rate of global mean sea-level rise by decadal window (satellite altimetry)",
@@ -554,7 +554,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**The correct answer is C.** Vent communities survive without sunlight because their animals host bacteria that turn local chemicals into food, so the condition is a reliable chemical energy source plus animals carrying bacteria to exploit it — C states both halves.\n\n**Why the other choices are wrong:**\nA drops the bacteria the passage makes essential, B reintroduces the surface food chains the text rules out, and D describes a narrow experiment rather than the general requirement."
+          "explanation": "**Choice C is correct.** Vent and seep communities survive without sunlight because their animals host bacteria that turn local chemicals into food, so the condition that makes such communities possible is a reliable chemical energy source plus animals carrying bacteria able to exploit it — C states both halves.\n\n**The Full Solution:**\n- Sunlight never reaches those depths, so ordinary surface-based food chains cannot operate there.\n- The vent animals house bacteria that draw energy from chemicals such as hydrogen sulfide and pass nutrition to their hosts.\n- The same pattern appears at cold methane seeps, generalizing the requirement.\n- So a crowded community can persist below the sunlit zone given (1) a dependable chemical energy supply and (2) animals with bacteria able to convert it — both halves are needed.\n\n**Why the other choices are wrong:**\n- A: It drops the bacterial partners, which the passage makes essential to converting the chemicals into food.\n- B: It reintroduces organic matter sinking from the sunlit surface, the surface food chain the text rules out.\n- D: It describes a narrow experiment (growing tube-worm bacteria in clams) rather than the general requirement the passage points to."
         },
         {
           "id": 816,
@@ -584,7 +584,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**The correct answer is D.** Berg sought a pause on \"the most uncertain experiments\" yet \"did not abandon the research,\" so his example points to a scientist who urges restraint on the riskiest uses while pushing the broader work forward.\n\n**Why the other choices are wrong:**\nA and C have him renouncing the work, which he did not, and B hands the judgment to regulators, whereas Berg's own example shows scientists initiating the restraint."
+          "explanation": "**Choice D is correct.** Berg sought a pause on \"the most uncertain experiments\" yet \"did not abandon the research,\" resuming once safeguards were set, so his example points to a scientist who urges restraint on the riskiest applications while continuing the broader work.\n\n**The Full Solution:**\n- Berg helped organize the 1975 Asilomar conference, which called for a temporary, voluntary halt to the most uncertain experiments.\n- The halt was to last only until safety guidelines could be drawn up.\n- Once containment standards were agreed, work resumed and Berg continued to advance the field.\n- His conduct models balancing restraint on the riskiest uses with continued pursuit of the research.\n\n**Why the other choices are wrong:**\n- A: Berg did not conclude the techniques were too hazardous to pursue under any circumstances; he resumed the work.\n- B: He did not leave safety to government regulators; scientists themselves initiated the restraint at Asilomar.\n- C: He did not come to regard the techniques as a mistake; he kept advancing the field once it was safe."
         },
         {
           "id": 817,
@@ -614,7 +614,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**The correct answer is A.** Two independent clauses meet at the blank, and with no coordinating conjunction joining them, a semicolon is the conventional link — \"Tutankhamun; the find proved….\"\n\n**Why the other choices are wrong:**\nThe comma in B is a splice, the bare phrase in C is a run-on, and the comma-plus-\"however\" in D still leaves only a comma between two independent clauses, also a splice."
+          "explanation": "**Choice A is correct.** Two independent clauses meet at the blank, and with no coordinating conjunction joining them, a semicolon is the conventional way to link two complete clauses — \"Tutankhamun; the find proved….\"\n\n**The Full Solution:**\n- Rule: two independent clauses cannot be joined by a comma alone; they need a semicolon, a period, or a comma plus a coordinating conjunction.\n- Clause 1: \"the archaeologist Howard Carter uncovered the entrance to the tomb of Tutankhamun.\"\n- Clause 2: \"the find proved to be the most nearly intact royal burial ever recovered from ancient Egypt.\"\n- No coordinating conjunction joins them, so a semicolon is correct.\n\n**Why the other choices are wrong:**\n- B: A comma alone between two independent clauses creates a comma splice.\n- C: The bare phrase with no punctuation produces a run-on (fused sentence).\n- D: \"however\" is a conjunctive adverb, not a conjunction, so the comma-plus-\"however\" still leaves only a comma between two independent clauses — also a splice."
         },
         {
           "id": 818,
@@ -644,7 +644,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**The correct answer is A.** The subject is the plural noun \"footprints\" (the comma-set modifier between it and the verb is nonessential), so the verb must be the plural \"indicate.\"\n\n**Why the other choices are wrong:**\n\"Indicates\" (B), \"is indicating\" (C), and \"has indicated\" (D) are all singular and disagree with the plural subject."
+          "explanation": "**Choice A is correct.** The subject of the verb is the plural noun \"footprints,\" so the verb must be the plural \"indicate.\"\n\n**The Full Solution:**\n- Subject-verb agreement: match the verb to its true subject, ignoring intervening modifiers.\n- The subject is \"The footprints\" (plural).\n- The phrase \"preserved with their arches and toe impressions intact\" is a nonessential modifier set off by commas, not the subject.\n- A plural subject takes the plural verb \"indicate.\"\n\n**Why the other choices are wrong:**\n- B: \"Indicates\" is singular and disagrees with the plural subject.\n- C: \"Is indicating\" is also singular and disagrees with the plural subject.\n- D: \"Has indicated\" is singular as well and shifts the tense away from the straightforward present the sentence calls for."
         },
         {
           "id": 819,
@@ -674,7 +674,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**The correct answer is D.** The inserted supplement \"massive stone compounds…courtyard\" opens with an em dash after \"routes,\" so a matching dash must close it.\n\n**Why the other choices are wrong:**\nThe comma in A mismatches the opening dash, the bare phrase in B supplies no closing mark, and the semicolon in C joins independent clauses rather than closing a supplement."
+          "explanation": "**Choice D is correct.** The phrase \"massive stone compounds…within a single fortified courtyard\" is a supplement inserted into the main clause and introduced by the em dash after \"routes,\" so a matching dash must close it.\n\n**The Full Solution:**\n- Rule: a supplement set off by an em dash must be closed by a matching em dash (paired punctuation).\n- The supplement opens with the dash after \"routes\" and describes the caravanserais.\n- After the supplement, the main clause resumes: \"stood roughly a day's journey apart.\"\n- The closing dash in D matches the opening mark and keeps the punctuation around the inserted phrase consistent.\n\n**Why the other choices are wrong:**\n- A: A comma pairs a dash with a comma — a mismatch that leaves the marks around the supplement uneven.\n- B: The bare phrase supplies no closing mark, so the inserted phrase runs straight into \"stood roughly a day's journey apart.\"\n- C: A semicolon joins two independent clauses rather than closing a supplement and cannot sit inside a single sentence this way."
         },
         {
           "id": 820,
@@ -704,7 +704,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**The correct answer is C.** The blank is the third item in the series \"the names, titles, and ___,\" so it must be a noun parallel to \"names\" and \"titles\" — \"reigns.\"\n\n**Why the other choices are wrong:**\nThe participle \"reigning\" (A), the clause \"they reigned\" (B), and the infinitive \"to reign\" (D) each break the parallel by adding a non-noun form to the list."
+          "explanation": "**Choice C is correct.** The blank is the third item in a series — \"the names, titles, and ___\" — so it must be a noun parallel to \"names\" and \"titles.\" \"Reigns\" is that noun.\n\n**The Full Solution:**\n- Rule: items in a list must share the same grammatical form (parallel structure).\n- The first two items, \"names\" and \"titles,\" are plural nouns.\n- The third item must also be a plural noun.\n- \"Reigns\" matches; the texts recorded the names, titles, and reigns of the pharaohs.\n\n**Why the other choices are wrong:**\n- A: \"Reigning\" is a participle, breaking the noun parallel.\n- B: \"They reigned\" is a clause, introducing a different grammatical form into the list.\n- D: \"To reign\" is an infinitive, also breaking the parallel structure."
         },
         {
           "id": 821,
@@ -734,7 +734,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**The correct answer is C.** Each list item already holds an internal comma (\"the Tokyo National Museum, in Ueno Park\"), so the items take semicolons — matching the semicolon already used before \"and the British Museum.\"\n\n**Why the other choices are wrong:**\nThe bare phrase in A fuses the first two items, the comma-plus-\"and\" in B breaks the semicolon pattern, and the lone comma in D can't divide items that already contain commas."
+          "explanation": "**Choice C is correct.** Each item in this list already contains an internal comma (\"the Tokyo National Museum, in Ueno Park\"), so the items must be separated by semicolons to keep them from blurring together — matching the semicolon already used before \"and the British Museum.\"\n\n**The Full Solution:**\n- Rule: when list items themselves contain commas, separate the items with semicolons (a \"super-comma\" list).\n- Each institution is paired with a location set off by a comma: Tokyo National Museum, in Ueno Park; Honolulu Museum of Art, in Hawaii; British Museum, in London.\n- The sentence already uses a semicolon before \"and the British Museum,\" so the blank must match.\n- A semicolon after \"Park\" is correct.\n\n**Why the other choices are wrong:**\n- A: The bare phrase fuses the first two items together.\n- B: \"Park, and\" breaks the parallel semicolon pattern of the series.\n- D: A lone comma cannot divide items that themselves contain commas."
         },
         {
           "id": 822,
@@ -764,7 +764,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**The correct answer is B.** The pronoun stands in for the compound, plural subject \"Williamina Fleming and the other women,\" so it must be the plural \"they.\"\n\n**Why the other choices are wrong:**\n\"It\" (A) cannot refer to people, \"she\" (C) names only one woman and leaves the others out, and \"one\" (D) is indefinite and doesn't point back to the named group."
+          "explanation": "**Choice B is correct.** The pronoun stands in for the compound, plural subject \"Williamina Fleming and the other women…at the Harvard College Observatory,\" so it must be the plural \"they.\"\n\n**The Full Solution:**\n- Rule: a pronoun must agree in number with its antecedent.\n- The antecedent is the compound subject \"Williamina Fleming and the other women,\" which is plural.\n- The plural pronoun \"they\" agrees and credits the whole group with classifying the spectra.\n\n**Why the other choices are wrong:**\n- A: \"It\" cannot refer to people.\n- C: \"She\" names only one person, leaving the other computers out of the work the sentence credits.\n- D: \"One\" is indefinite and does not refer back to the specific group already named."
         },
         {
           "id": 823,
@@ -794,7 +794,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**The correct answer is C.** The eclipse measurement is the cause and the theory's new standing is the effect, so the transition must mark a result — \"As a result.\"\n\n**Why the other choices are wrong:**\n\"For example\" signals an illustration, \"Nevertheless\" signals a contrast that isn't there, and \"Meanwhile\" marks simultaneity rather than the cause-and-effect link the passage draws."
+          "explanation": "**Choice C is correct.** The eclipse measurement is the cause and the theory's new standing is the effect, so the transition must mark a result — \"As a result.\"\n\n**The Full Solution:**\n- Before the blank: Eddington's eclipse photographs measured starlight bent by the Sun's gravity and matched Einstein's prediction.\n- After the blank: a once-mathematical theory \"gained its first strong observational support,\" and Einstein became widely known.\n- The second is the consequence of the first, so a cause-and-effect transition fits.\n\n**Why the other choices are wrong:**\n- A: \"For example\" signals an illustration of a prior point, but the final sentence reports a consequence, not an instance.\n- B: \"Nevertheless\" signals contrast, though nothing here is being opposed.\n- D: \"Meanwhile\" marks simultaneous events rather than the cause-and-effect link the passage draws."
         },
         {
           "id": 824,
@@ -824,7 +824,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**The correct answer is A.** Designers accepted judging sound \"only by ear,\" but Sabine objected and devised a measurable quantity instead — a contrast that calls for \"Nevertheless.\"\n\n**Why the other choices are wrong:**\n\"Therefore\" makes his objection follow from that acceptance, \"Likewise\" marks agreement not tension, and \"For instance\" would make reverberation time an example of the old craft rather than a break from it."
+          "explanation": "**Choice A is correct.** Designers accepted the inherited craft, including judging a room's sound \"only by ear once the hall was built,\" but Sabine objected and devised a measurable quantity instead — a contrast that calls for \"Nevertheless.\"\n\n**The Full Solution:**\n- Before the blank: nineteenth-century architects accepted the assumption that acoustics could be judged only by ear after construction.\n- After the blank: Sabine objected to leaving acoustics to chance and worked out reverberation time to replace the old rules of thumb.\n- The second opposes the first, so a contrast transition fits.\n\n**Why the other choices are wrong:**\n- B: \"Therefore\" would signal that his objection follows logically from that acceptance, which it does not.\n- C: \"Likewise\" would mark agreement rather than the tension the passage sets up.\n- D: \"For instance\" would introduce an example of the inherited craft, but reverberation time is a break from it, not an illustration."
         },
         {
           "id": 825,
@@ -854,7 +854,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**The correct answer is A.** The figures leave spacing and voicing unspecified, and the last sentence adds a further gap — ornamentation — so the transition signals addition: \"Moreover.\"\n\n**Why the other choices are wrong:**\n\"In conclusion\" would sum up rather than add a new gap, \"By contrast\" signals opposition though the sentence parallels the last, and \"Until then\" marks a time sequence the passage never describes."
+          "explanation": "**Choice A is correct.** The figures fix the intervals but not the spacing or voicing, and the last sentence adds a further thing they leave unspecified — ornamentation — so the transition signals addition: \"Moreover.\"\n\n**The Full Solution:**\n- Before the blank: the numbers indicate which intervals to sound but not how to space or voice them.\n- After the blank: the figures also say nothing about ornamentation — the trills and passing tones treatises call essential.\n- The last sentence stacks one more gap onto the previous one, so an additive transition fits.\n\n**Why the other choices are wrong:**\n- B: \"In conclusion\" would mark a summing-up, but the sentence introduces a new gap rather than wrapping up.\n- C: \"By contrast\" signals opposition, though the last sentence parallels the previous one rather than opposing it.\n- D: \"Until then\" marks a moment in time, but the passage describes no sequence of events."
         },
         {
           "id": 826,
@@ -883,7 +883,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**The correct answer is B.** The goal is to convey what Stokoe argued, and B states his central claim — ASL is a full, independent language with its own grammar — plus the handshape-location-movement detail that backs it.\n\n**Why the other choices are wrong:**\nA reports only when he published, C describes the assumption he argued against, and D gives one supporting detail without his overall argument.",
+          "explanation": "**Choice B is correct.** The goal is to convey what Stokoe argued about ASL, and B states his central claim — that ASL is a full, independent language with its own grammar — while including the handshape-location-movement detail that shows how he supported it.\n\n**The Full Solution:**\n- The goal: explain to an unfamiliar audience what Stokoe argued about American Sign Language.\n- His central claim was that ASL is a full, independent language with its own grammar, not borrowed from English.\n- B states that claim and backs it with the supporting detail that ASL signs are built from contrasting parts — handshape, location, and movement.\n- Stating the argument plus its support best meets the goal.\n\n**Why the other choices are wrong:**\n- A: It reports only where and when he published, not what he argued.\n- C: It describes the assumption he argued against rather than his own claim.\n- D: It gives one supporting detail (the contrasting parts) without the overall argument the student wants to convey.",
           "studentNotes": {
             "intro": "While researching a topic, a student has taken the following notes:",
             "bullets": [
@@ -923,7 +923,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**The correct answer is D.** The goal is to contrast two kinds of work, and D sets the early general-purpose models against the 1967 study's focused calculation, naming both sides of the difference.\n\n**Why the other choices are wrong:**\nA and B each describe only one effort, so neither draws a contrast, and C groups the two works under a shared significance, blurring the difference.",
+          "explanation": "**Choice D is correct.** The goal is to highlight a difference in approach, and D sets the early general-purpose models against the 1967 study's focused calculation, naming both sides of the difference.\n\n**The Full Solution:**\n- The goal: highlight a difference between Manabe's early model-building work and his 1967 study with Wetherald.\n- The early work built general-purpose models meant to reproduce the climate as a whole.\n- The 1967 study instead ran a focused calculation of warming from doubled carbon dioxide.\n- D uses \"Whereas\" to set both sides side by side, drawing the contrast the goal asks for.\n\n**Why the other choices are wrong:**\n- A: It describes only the early general-purpose models, one of the two efforts, so it draws no contrast.\n- B: It describes only the 1967 study, the other effort, again drawing no contrast.\n- C: It groups the two works together under a shared significance, blurring rather than highlighting the difference.",
           "studentNotes": {
             "intro": "While researching a topic, a student has taken the following notes:",
             "bullets": [
@@ -971,7 +971,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**The correct answer is B.** Erratic hours cause \"the resulting mismatch\" and disturbances, so the blank needs a verb for throwing the internal clock out of order — \"unsettle.\"\n\n**Why the other choices are wrong:**\n\"Regulate\" means the opposite, putting the clock in order; \"shorten\" addresses duration, but total sleep stays adequate and the problem is timing; and \"record\" describes no effect on the clock."
+          "explanation": "**Choice B is correct.** Erratic bed-and-wake hours produce \"the resulting mismatch\" between schedule and the clock's expected rhythm, with disturbances following, so the blank needs a verb meaning to throw that internal clock out of order — \"unsettle.\"\n\n**The Full Solution:**\n- The next sentence describes a mismatch between a person's schedule and the body's expected rhythm, linked to disturbances in appetite, alertness, and hormone timing.\n- The blank must name what erratic hours do to the clock: throw it out of order.\n- \"Unsettle\" fits.\n\n**Why the other choices are wrong:**\n- A: \"Regulate\" means the opposite — putting the clock in good order.\n- C: \"Shorten\" addresses duration, but the passage says total sleep stays adequate and the problem is timing.\n- D: \"Record\" does not describe any effect on the clock at all."
         },
         {
           "id": 829,
@@ -1001,7 +1001,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**The correct answer is A.** The body pushes far more air than the string, \"turning a barely audible motion into a tone that fills the hall,\" so the blank needs a word for making the faint sound louder — \"amplifies.\"\n\n**Why the other choices are wrong:**\n\"Silences\" is the opposite, \"records\" means storing the sound the passage never mentions, and \"imitates\" implies copying a separate sound when the body strengthens the string's own."
+          "explanation": "**Choice A is correct.** The body pushes on far more air than the thin string can, \"turning a barely audible motion into a tone that fills the hall,\" so the blank needs a word for making the faint sound louder — \"amplifies.\"\n\n**The Full Solution:**\n- The string alone moves too little air to be heard across a room.\n- The hollow body trembles at the same frequencies and its broad surfaces push far more air.\n- The result is a faint sound made loud enough to fill the hall, which is what \"amplifies\" names.\n\n**Why the other choices are wrong:**\n- B: \"Silences\" is the opposite of what the body does.\n- C: \"Records\" would mean storing the sound for later, which the passage never describes.\n- D: \"Imitates\" implies reproducing a separate sound, but the body is strengthening the string's own sound, not copying another."
         },
         {
           "id": 830,
@@ -1031,7 +1031,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**The correct answer is D.** The same solvent that lifts varnish can, \"if left a moment too long,\" harm the original paint, so the blank names that threat — \"endanger.\"\n\n**Why the other choices are wrong:**\n\"Reveal\" and \"brighten\" name desirable results and miss the warning, and \"preserve\" is the opposite of the danger, since the worry is that the paint won't be preserved."
+          "explanation": "**Choice D is correct.** The passage frames a risk: the same solvent strong enough to lift the yellowed varnish can, \"if left a moment too long,\" harm the original paint beneath, so the blank names that threat — \"endanger.\"\n\n**The Full Solution:**\n- The conservator works under a \"constant tension\": the solvent that removes varnish can also damage the paint.\n- This is why the safest cleaning proceeds in tiny, tested, timed stages.\n- The blank must name the threat to the original paint, which is what \"endanger\" does.\n\n**Why the other choices are wrong:**\n- A: \"Reveal\" describes a desirable result and misses the warning the sentence is building.\n- B: \"Brighten\" also names a desirable outcome rather than the danger.\n- C: \"Preserve\" is the opposite of the danger, since the worry is precisely that the paint will not be preserved."
         },
         {
           "id": 831,
@@ -1061,7 +1061,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**The correct answer is C.** The timbers are \"splitting and shrinking as they dry,\" a rapid decline, so the blank needs a verb for breaking down — \"deteriorate.\"\n\n**Why the other choices are wrong:**\n\"Stabilize\" and \"harden\" suggest the wood becomes sound, the opposite of splitting, and \"float\" describes motion in water, unrelated to the drying damage."
+          "explanation": "**Choice C is correct.** The timbers are \"splitting and shrinking as they dry\" within hours of being raised into the air, a rapid decline, so the blank needs a verb for breaking down or falling apart — \"deteriorate.\"\n\n**The Full Solution:**\n- Waterlogged timbers stable on the seabed, their cells swollen with water, fail quickly once raised.\n- The sentence describes them splitting and shrinking as they dry — a rapid breakdown.\n- \"Deteriorate\" names that decline, and conservators keep finds submerged precisely to prevent it.\n\n**Why the other choices are wrong:**\n- A: \"Stabilize\" suggests the wood becomes sound, the opposite of splitting and shrinking.\n- B: \"Float\" describes a movement in water and has nothing to do with the drying damage the passage warns about.\n- D: \"Harden\" also implies the wood becomes sound, contradicting the splitting and shrinking."
         },
         {
           "id": 832,
@@ -1091,7 +1091,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**The correct answer is A.** The poem names the grinning mask, then reveals the \"torn and bleeding hearts\" and \"tortured souls\" beneath, each stanza insisting the concealment continue (\"We wear the mask\").\n\n**Why the other choices are wrong:**\nThe poem ends with the mask still on, not a sorrow overcome (B), treats the rhetorical question as one moment not the structure (C), and praises no admired figure (D).",
+          "explanation": "**Choice A is correct.** The poem opens by naming the grinning mask that hides the speakers' true feelings, then discloses the suffering beneath and insists the concealment continue.\n\n**The Full Solution:**\n- The opening names the concealing expression: \"the mask that grins and lies,\" which \"hides our cheeks and shades our eyes.\"\n- The middle and final stanzas reveal the suffering beneath — \"torn and bleeding hearts,\" cries from \"tortured souls.\"\n- Each stanza closes by insisting the mask stay on (\"We wear the mask\"), so the structure is: name the concealment, reveal what it hides, demand it continue.\n\n**Why the other choices are wrong:**\n- B: The poem ends with the concealment still in force, not a past sorrow gradually overcome.\n- C: The rhetorical question is one moment within the larger pattern, not the structuring move.\n- D: The poem praises no admired figure and urges no imitation of one.",
           "_meta": {
             "quoteVerify": true,
             "source": "Paul Laurence Dunbar, \"We Wear the Mask\" (1896), complete poem"
@@ -1125,7 +1125,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**The correct answer is C.** The passage opens with a puzzle (how the frog survives freezing), notes an early \"tolerate and repair\" proposal, then reports the glucose-antifreeze finding that shifts the question \"from how the frog repairs freezing damage to how it prevents the worst of it.\"\n\n**Why the other choices are wrong:**\nThe species ranking (A) and methods-and-equipment list (B) never appear, and disputing the frog's abilities (D) reverses the passage, which explains how they work."
+          "explanation": "**Choice C is correct.** The passage opens with a puzzle, notes an early proposal, then reports a finding that redirects the question from repair to prevention.\n\n**The Full Solution:**\n- The puzzle: how the wood frog survives being frozen solid, its heart stopped and two-thirds of its water turned to ice.\n- The early proposal: the frog simply tolerates the damage and repairs it on thawing.\n- The finding: as ice forms, the liver floods the blood and tissues with glucose, a natural antifreeze that keeps cells from rupturing.\n- The result moves the question \"from how the frog repairs freezing damage to how it prevents the worst of it.\"\n\n**Why the other choices are wrong:**\n- A: The passage ranks no species by how much body water each can lose.\n- B: It is not a description of a laboratory freezing technique or a list of equipment.\n- D: It does not dispute or scale back the frog's abilities; it explains how those abilities work."
         },
         {
           "id": 834,
@@ -1155,7 +1155,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**The correct answer is B.** The underlined sentence reports FitzRoy's storm-warning system and the resulting fall in shipping losses — an outcome the next sentence says critics resisted.\n\n**Why the other choices are wrong:**\nThe passage compares no rival storm explanations (A), the sentence reports the outcome without explaining the physics (C), and the network of reporting stations (D) is described elsewhere, not here."
+          "explanation": "**Choice B is correct.** The underlined sentence states what FitzRoy did — issuing storm warnings to ports by telegraph — and the fall in shipping losses that followed, an outcome the next sentence says critics resisted.\n\n**The Full Solution:**\n- The underlined sentence reports the action: using the daily reports, FitzRoy issued storm warnings to ports by telegraph.\n- It also reports the outcome: the number of vessels lost in unexpected gales began to fall.\n- The following sentence notes that critics, scornful of his predictions, resisted this very result and pressed to shut the service down.\n- So the sentence's function is to report the warning system and its result, an outcome critics nonetheless resisted.\n\n**Why the other choices are wrong:**\n- A: The passage does not lay out and weigh rival explanations of coastal storms.\n- C: The sentence reports the outcome without explaining the physics of how a falling barometer signals a storm.\n- D: The network of coastal reporting stations is described in the earlier sentence, not in the underlined one."
         },
         {
           "id": 835,
@@ -1194,7 +1194,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**The correct answer is A.** Brown and Kulik treat vividness and conviction as marks of reliability, but Neisser's Challenger subjects recalled the news confidently even after their accounts \"flatly contradicted\" what they wrote at the time, so he denies that vividness and confidence indicate accuracy.\n\n**Why the other choices are wrong:**\nB has him conceding the memories are accurate, the opposite of his finding; C invents a witnessed-versus-secondhand distinction; and D claims the field can say nothing useful, which his own work contradicts."
+          "explanation": "**Choice A is correct.** Brown and Kulik treat the vivid detail and strong conviction of these memories as evidence that a special, reliable mechanism is at work, but Neisser's findings lead him to deny that vividness and confidence indicate accuracy.\n\n**The Full Solution:**\n- Brown and Kulik's claim: surprising news triggers a special mechanism that captures the moment vividly and reliably, and the conviction and rich detail are signs of that reliability.\n- Neisser's test: students who wrote down how they heard of the Challenger explosion gave later accounts that were vivid and confident yet \"flatly contradicted\" what they had recorded at the time.\n- Some, shown their own earlier handwriting, still trusted the later memory.\n- He concluded that what sets such memories apart is confidence, not accuracy — so vividness and conviction do not guarantee reliability.\n\n**Why the other choices are wrong:**\n- B: It has Neisser conceding the memories are unusually accurate, the opposite of his finding, and traces accuracy to retelling, which he never claims.\n- C: It invents a witnessed-versus-secondhand distinction that neither text raises.\n- D: It overreaches into a claim that memory research can say nothing useful, which his own research contradicts."
         },
         {
           "id": 836,
@@ -1224,7 +1224,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**The correct answer is C.** The passage moves from Humboldt's many measurements to his broad conclusion — nature is \"a single connected system\" — an idea that helped found ecology.\n\n**Why the other choices are wrong:**\nThe precision comparison (A) isn't supported, separating plants from climate (B) reverses his view, and the five years of measurement (D) is a supporting detail without his conclusion."
+          "explanation": "**Choice C is correct.** The passage moves from Humboldt's many measurements to the broad conclusion he drew from them — that nature is \"a single connected system\" — an idea that helped found ecology, which is its central point.\n\n**The Full Solution:**\n- Humboldt spent five years measuring temperature, altitude, soil, and vegetation across South America.\n- On Chimborazo he saw that bands of vegetation by elevation resembled the sequence from the tropics toward the poles.\n- From thousands of such observations he concluded nature is not a collection of separate curiosities but a single connected system in which climate, geography, and living things shape one another.\n- This view, unusual in his day, helped lay the groundwork for ecology — the main idea.\n\n**Why the other choices are wrong:**\n- A: The text does not support a claim that his measurements were more precise than any earlier traveler's.\n- B: It reverses his view; he tied plants, climate, and geography together rather than keeping them apart.\n- D: The five years of travel and measurement is a supporting detail offered without the conclusion that gives the passage its point."
         },
         {
           "id": 837,
@@ -1254,7 +1254,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**The correct answer is A.** Eisenstein's claim is that print mattered less for spreading texts quickly than for giving distant readers \"exactly the same text\" they could trust and build upon.\n\n**Why the other choices are wrong:**\nB reverses her point that hand copies varied, C invents a claim about print's arrival date, and D denies the stable reference point the passage says enabled scholars to compare findings."
+          "explanation": "**Choice A is correct.** Eisenstein's claim, as the passage presents it, is that print's deepest effect was not speed of distribution but standardization — giving scattered readers \"exactly the same text\" they could trust and build upon.\n\n**The Full Solution:**\n- The common account said print mattered because it spread knowledge quickly; Eisenstein argued this misses what mattered most.\n- Before print, every hand-made copy differed slightly, so a reader could never be sure her version matched a distant colleague's.\n- Print made many far-apart readers confident they were examining exactly the same text.\n- That shared, stable reference point is what let scholars compare findings, catch errors, and build on one another's work.\n\n**Why the other choices are wrong:**\n- B: It reverses her point; she describes hand copies as varying from one another, not as more accurate.\n- C: It invents a claim about when the printing press reached Europe.\n- D: It denies the stable reference point the passage says enabled scholars to compare findings and check results."
         },
         {
           "id": 838,
@@ -1284,7 +1284,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**The correct answer is B.** In discovering eight comets Herschel became \"the first woman credited with such finds.\"\n\n**Why the other choices are wrong:**\nGrinding mirrors (A) was real work but not a first, the Gold Medal (C) was simply not given to another woman for a century, and her cataloguing (D) is never claimed as a first."
+          "explanation": "**Choice B is correct.** The passage states that in discovering eight comets between 1786 and 1797 Herschel became \"the first woman credited with such finds.\"\n\n**The Full Solution:**\n- The question asks what Herschel was the first woman to do.\n- The text says she discovered eight comets and became the first woman credited with such finds.\n- That is the only \"first\" the passage attaches to her.\n\n**Why the other choices are wrong:**\n- A: Grinding mirrors was real work she did, but the text never claims she was the first woman to do it.\n- C: The Gold Medal was simply not given to another woman for over a century; the text does not say she was the first woman to receive it.\n- D: Her cataloguing work is described without any claim that it was a first of its kind."
         },
         {
           "id": 839,
@@ -1314,7 +1314,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**The correct answer is B.** The hypothesis is that the compass depends on light, working under some colors but not others, so the strongest support compares orientation across wavelengths — B shows correct headings under blue-green light but random ones under red.\n\n**Why the other choices are wrong:**\nThe windowless-room test (A) uses no light at all, the migration-frequency finding (C) is about how often not how robins orient, and the electrical-installation result (D) never isolates the color of light."
+          "explanation": "**Choice B is correct.** The hypothesis is that the magnetic compass depends on light and works under some colors but not others, so the strongest support compares the birds' orientation across different wavelengths.\n\n**The Full Solution:**\n- The compass is said to depend on light striking molecules in the eye, working only within a certain range of wavelengths.\n- Testing that requires varying the color of light and watching whether orientation succeeds or fails.\n- B does exactly that: correct orientation under blue-green light but random headings under red light shows the compass functioning at one part of the spectrum and failing at another.\n\n**Why the other choices are wrong:**\n- A: A windowless room with no light at all cannot test a dependence on the color of light.\n- C: How often robins migrate, compared with non-migratory relatives, says nothing about how they orient.\n- D: Interference near a powerful electrical installation never isolates the color of light."
         },
         {
           "id": 840,
@@ -1344,7 +1344,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**The correct answer is D.** The claim is that the decline was uneven, not continuous, so the data must show a benchmark where the minimum rose — D points to the small rise from 1990 (6.24) to 2000 (6.32) against the downward trend.\n\n**Why the other choices are wrong:**\nA and C describe the overall high-to-low drop, showing decline but not unevenness, and B reports a fall between benchmarks, which supports continuity rather than the interruption the claim needs.",
+          "explanation": "**Choice D is correct.** The claim is that the long-run decline was uneven, not continuous — \"the minimum did not fall continuously from one benchmark year to the next\" — so the data must show a benchmark where the minimum rose rather than fell.\n\n**The Full Solution:**\n- The argument grants a downward long-run trend but stresses that the contraction was uneven.\n- Supporting unevenness means pointing to an interruption: a benchmark where the value went up.\n- D points to the small rise from 1990 (6.24 million km^2) to 2000 (6.32 million km^2) against the longer downward trend — the one interruption the table contains.\n\n**Why the other choices are wrong:**\n- A: The fall from 7.67 in 1980 to 3.92 in 2020 describes the overall drop, showing decline but not unevenness.\n- B: The fall from 2000 (6.32) to 2010 (4.87) reports a decline between benchmarks, which supports continuity rather than the interruption the claim needs.\n- C: Naming the highest and lowest values again describes the overall high-to-low drop, not an interruption in it.",
           "questionTable": {
             "type": "table",
             "caption": "",
@@ -1404,7 +1404,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**The correct answer is B.** The claim ties period to brightness, and since these stars are equally distant, apparent magnitude stands in for it — B traces period rising 3.0 to 33.0 days as magnitude drops 13.4 to 11.2, meaning longer-period Cepheids are brighter.\n\n**Why the other choices are wrong:**\nA cites one star and shows no relationship, C compares periods while ignoring brightness, and D notes the stars differ without showing how period and brightness move together.",
+          "explanation": "**Choice B is correct.** The claim ties pulsation period to intrinsic brightness, and because these stars are about equally distant, apparent brightness stands in for intrinsic brightness, so the support must trace period and brightness moving together.\n\n**The Full Solution:**\n- The stars all lie at roughly the same distance, so differences in apparent brightness reflect real differences in light output.\n- Apparent magnitude can therefore stand in for intrinsic brightness (smaller magnitude = brighter).\n- B traces the full pattern: as period rises from 3.0 to 33.0 days, apparent magnitude drops from 13.4 to 11.2.\n- Because a smaller magnitude means a brighter star, longer-period Cepheids are brighter — exactly the period-brightness relationship claimed.\n\n**Why the other choices are wrong:**\n- A: Citing only Cepheid A's shortest period and faintest magnitude shows a single data point, no relationship.\n- C: Comparing the longest and shortest periods ignores brightness.\n- D: Noting that the stars differ in both measures does not show how period and brightness move together.",
           "questionTable": {
             "type": "table",
             "caption": "Selected Cepheids (apparent magnitude: smaller number = brighter)",
@@ -1465,7 +1465,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**The correct answer is A.** The passage contrasts an object whose surroundings were recorded with one stripped of that record, which has lost \"much of what they could have told us,\" pointing to context as the source of value.\n\n**Why the other choices are wrong:**\nVisual appeal (B) is treated as separate from informational value, the count of similar finds (C) is never raised, and speed of removal (D) is the opposite of the careful recording the passage praises."
+          "explanation": "**Choice A is correct.** The passage contrasts an object whose layer and surroundings were recorded with one stripped of that information, which has lost \"much of what they could have told us,\" pointing to recorded context as the source of an object's value.\n\n**The Full Solution:**\n- Archaeologists record not only objects but the exact layer and position in which each lay.\n- A pot beside a hearth, beneath a layer of ash, is far more informative than the pot alone, because its surroundings fix it in time and link it to activities.\n- Objects dug up by looters and sold without record can still be admired, but much of what they could have told us is gone.\n- So an excavated object's value depends heavily on its recorded context, not on the object considered by itself.\n\n**Why the other choices are wrong:**\n- B: Visual appeal is treated as separate from informational value — looted objects can still be admired yet have lost their information.\n- C: The count of similar objects from other sites is never raised.\n- D: Speed of removal is the opposite of the careful recording the passage praises."
         },
         {
           "id": 843,
@@ -1495,7 +1495,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**The correct answer is C.** Removing the starfish let mussels overrun the shore and collapsed the variety of \"barnacles, limpets, and algae,\" showing the predator held a whole web in balance — so its removal sends effects rippling beyond its direct prey.\n\n**Why the other choices are wrong:**\nLeaving the community unchanged (A) contradicts the collapse, limiting effects to direct prey (B) ignores the other species that changed, and a welcomed outcome (D) reverses the loss of diversity."
+          "explanation": "**Choice C is correct.** Paine found that removing the starfish let mussels overrun the shore and collapsed the variety of many species, showing the predator held a whole web of relationships in balance — so removing such a species sends effects rippling well beyond its direct prey.\n\n**The Full Solution:**\n- The starfish fed on mussels that would otherwise crowd out other species.\n- When Paine removed it, the mussels spread unchecked and the variety of species collapsed: \"barnacles, limpets, and algae\" gave way to a near-monoculture.\n- Paine concluded that some species exert influence out of all proportion to their numbers, holding a web of relationships in balance.\n- It follows that removing such a species would set off changes rippling through many species it never fed on directly.\n\n**Why the other choices are wrong:**\n- A: Leaving the community unchanged contradicts the collapse Paine observed and the idea of interdependent species.\n- B: Limiting the effect to the direct prey ignores the barnacles, limpets, and algae that also changed.\n- D: A welcomed outcome reverses the loss of diversity the removal caused."
         },
         {
           "id": 844,
@@ -1525,7 +1525,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**The correct answer is B.** Two independent clauses meet at the blank, and the conjunctive adverb \"however\" can't splice them with a comma, so the clauses take a semicolon with a comma after \"however\": \"aid; however, modern imaging….\"\n\n**Why the other choices are wrong:**\nA leaves only a comma between the clauses (a splice), C drops the punctuation before \"however\" (a fusion), and D puts the semicolon after \"however\" rather than before it."
+          "explanation": "**Choice B is correct.** Two independent clauses meet at the blank, and the second begins with the conjunctive adverb \"however,\" which is not a conjunction and cannot splice the clauses with a comma — so the clauses take a semicolon, with a comma after \"however\": \"aid; however, modern imaging….\"\n\n**The Full Solution:**\n- Rule: two independent clauses need a semicolon (or period), not a comma, between them; a conjunctive adverb like \"however\" does not change that.\n- Clause 1: \"museum labels presented the Antikythera mechanism…as a simple navigational aid.\"\n- Clause 2: \"modern imaging has shown that the device was an intricate astronomical calculator….\"\n- A semicolon separates the clauses and \"however\" then takes a comma after it.\n\n**Why the other choices are wrong:**\n- A: \"aid, however\" leaves only a comma between the two clauses — a comma splice.\n- C: \"aid however,\" drops the punctuation before \"however\" entirely, fusing the clauses.\n- D: \"aid, however;\" puts the semicolon after \"however\" rather than before it, leaving the first clause spliced to the adverb."
         },
         {
           "id": 845,
@@ -1555,7 +1555,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**The correct answer is D.** The main clause's subject — \"the thousands of treaties, royal letters, and administrative records\" — needs a finite main verb, and only the past-tense \"survived\" supplies one.\n\n**Why the other choices are wrong:**\nThe infinitive \"to survive\" (A), participle \"surviving\" (B), and perfect participle \"having survived\" (C) are all nonfinite, leaving the sentence a fragment with no main verb."
+          "explanation": "**Choice D is correct.** After the opening participial phrase, the main clause's subject — \"the thousands of treaties, royal letters, and administrative records discovered there\" — needs a finite main verb, and only the past-tense \"survived\" supplies one.\n\n**The Full Solution:**\n- Rule: every sentence needs a finite (tensed) main verb; nonfinite forms cannot anchor the main clause.\n- The sentence opens with a long participial modifier (\"Pressed into clay…and then baked hard…\").\n- The subject is \"the thousands of treaties, royal letters, and administrative records discovered there.\"\n- That subject needs a finite verb; \"survived\" is the only finite option, giving \"records…survived the intervening centuries intact.\"\n\n**Why the other choices are wrong:**\n- A: The infinitive \"to survive\" is nonfinite, leaving the sentence a fragment with no main verb.\n- B: The present participle \"surviving\" is nonfinite and likewise cannot serve as the main verb.\n- C: The perfect participle \"having survived\" is also nonfinite, so the sentence still lacks a main verb."
         },
         {
           "id": 846,
@@ -1585,7 +1585,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**The correct answer is D.** What follows spells out \"a conclusion that surprised them,\" so a colon — standing after a complete clause and introducing the explanation — is right.\n\n**Why the other choices are wrong:**\nThe comma in A splices two independent clauses, the bare phrase in B fuses them, and \"them, but\" in C signals a contrast the sentence doesn't intend, since the second part explains rather than opposes."
+          "explanation": "**Choice D is correct.** What follows the blank spells out \"a conclusion that surprised them,\" so a colon — standing after a complete clause and introducing the explanation — is right.\n\n**The Full Solution:**\n- Rule: a colon may follow a complete independent clause to introduce an explanation, list, or elaboration.\n- The first clause is complete: \"the conservators had reached a conclusion that surprised them.\"\n- What follows explains the conclusion — that the startling blues and greens were the original colors, dimmed beneath soot and varnish.\n- A colon correctly introduces that explanation.\n\n**Why the other choices are wrong:**\n- A: The comma splices two independent clauses without a conjunction.\n- B: The bare \"them\" fuses the two clauses into a run-on.\n- C: \"them, but\" signals a contrast the sentence does not intend, since the second part explains the conclusion rather than opposing it."
         },
         {
           "id": 847,
@@ -1615,7 +1615,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**The correct answer is C.** The opening phrase \"Compiled over more than twenty years…\" must modify the thing compiled — the dictionary — and only C makes \"the linguist's dictionary\" the subject after the comma.\n\n**Why the other choices are wrong:**\nA wrongly makes the phrase describe \"the last fluent generation\" (not compiled), B points it at \"documenting\" (an activity), and D's dummy \"there were\" leaves the modifier nothing to attach to."
+          "explanation": "**Choice C is correct.** The opening phrase, \"Compiled over more than twenty years from hundreds of recorded interviews…,\" must modify the thing that was compiled — the dictionary — and only C makes \"the linguist's dictionary\" the subject after the comma.\n\n**The Full Solution:**\n- Rule: an opening modifying phrase must attach to the subject that immediately follows it, or it dangles.\n- The thing \"compiled over more than twenty years\" is the dictionary.\n- C puts \"the linguist's dictionary\" right after the comma, so the modifier attaches correctly and the later pronoun \"it\" has a clear antecedent.\n\n**Why the other choices are wrong:**\n- A: It makes the phrase describe \"the last fluent generation,\" who were not compiled.\n- B: It points the modifier at \"documenting,\" an activity rather than the compiled object.\n- D: Its dummy \"there were\" leaves the introductory phrase with nothing sensible to modify."
         },
         {
           "id": 848,
@@ -1645,7 +1645,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**The correct answer is A.** The long introductory \"Because…\" clause needs a comma to separate it from the main clause that follows, \"modern editors treat even its oldest readings with caution.\"\n\n**Why the other choices are wrong:**\nOmitting the mark (B) runs the two together, the semicolon (C) wrongly implies two independent clauses though \"Because…\" can't stand alone, and the colon (D) would announce a list this sentence doesn't have."
+          "explanation": "**Choice A is correct.** The sentence opens with a long introductory dependent clause beginning \"Because…,\" and a comma is needed to separate that clause from the main clause that follows, \"modern editors treat even its oldest and most familiar readings with real caution.\"\n\n**The Full Solution:**\n- Rule: an introductory dependent clause is set off from the main clause by a comma.\n- The \"Because…\" clause is dependent — it cannot stand alone as a sentence.\n- A single comma after \"made\" correctly joins it to the independent main clause.\n\n**Why the other choices are wrong:**\n- B: Omitting the mark runs the dependent and main clauses together.\n- C: The semicolon wrongly implies two independent clauses, but the \"Because\" clause cannot stand alone.\n- D: The colon would announce an explanation or list, which is not the relationship here."
         },
         {
           "id": 849,
@@ -1675,7 +1675,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**The correct answer is C.** The sentence is set firmly in the past — \"In 1833\" and \"over the following year\" — describing a completed action, so the simple past \"abolished\" is correct.\n\n**Why the other choices are wrong:**\nThe present \"abolishes\" (A) and future \"will abolish\" (D) clash with the past time frame, and the present perfect \"has abolished\" (B) wrongly frames a finished historical event as ongoing."
+          "explanation": "**Choice C is correct.** The sentence is set firmly in the past — \"In 1833\" and \"over the following year\" — and describes a completed historical action, so the simple past \"abolished\" is correct.\n\n**The Full Solution:**\n- Rule: verb tense must match the sentence's time frame.\n- The time markers \"In 1833\" and \"over the following year\" place the action squarely in the finished past.\n- A completed historical action takes the simple past, \"abolished.\"\n\n**Why the other choices are wrong:**\n- A: The present \"abolishes\" clashes with the past time frame.\n- B: The present perfect \"has abolished\" wrongly frames a clearly finished nineteenth-century event as continuing to bear on the present.\n- D: The future \"will abolish\" contradicts the past time frame."
         },
         {
           "id": 850,
@@ -1705,7 +1705,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**The correct answer is B.** The chimpanzees' tool use \"blurred\" the inherited boundary, and Goodall's later work shifted as a consequence, so the transition marks a result — \"Accordingly.\"\n\n**Why the other choices are wrong:**\n\"For instance\" introduces an example not an effect, \"Nevertheless\" signals a contrast though the later work follows from the observation, and \"Earlier\" misorders events, since the shift came after the discovery."
+          "explanation": "**Choice B is correct.** The chimpanzees' tool use \"blurred\" the boundary Goodall had inherited from Leakey, and her later work shifted course as a consequence, so the transition marks a result — \"Accordingly.\"\n\n**The Full Solution:**\n- Before the blank: Goodall saw wild chimpanzees making tools, which blurred the human-animal boundary Leakey had drawn around tool use.\n- After the blank: her later writing turned away from a single dividing line toward the capacities humans share with other primates.\n- The shift in her work follows from the observation, so a result transition fits.\n\n**Why the other choices are wrong:**\n- A: \"For instance\" introduces an example of the previous point rather than its effect.\n- C: \"Nevertheless\" signals contrast, but the later writing follows from the observation rather than opposing it.\n- D: \"Earlier\" misorders the events, since the shift came after the discovery."
         },
         {
           "id": 851,
@@ -1735,7 +1735,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**The correct answer is A.** The first sentence gives the popular image of Mendel as a lucky amateur; the second corrects it with the careful design behind his work, so the transition signals that the truth differs — \"In reality.\"\n\n**Why the other choices are wrong:**\n\"Likewise\" marks agreement though the sentences contradict, \"For example\" would illustrate the lucky-discovery story, and \"As a result\" marks a consequence with no cause-and-effect drawn."
+          "explanation": "**Choice A is correct.** The first sentence reports the popular image of Mendel as a lucky amateur; the second corrects it with the careful design behind his work, so the transition must signal that the truth differs from the impression — \"In reality.\"\n\n**The Full Solution:**\n- Before the blank: the retelling casts Mendel as a gardening monk who stumbled onto the laws of heredity.\n- After the blank: he designed his crosses deliberately, chose clear either-or traits, raised thousands of plants, and counted offspring with unusual rigor.\n- The second sentence overturns the impression of luck, so a transition signaling the real situation fits.\n\n**Why the other choices are wrong:**\n- B: \"Likewise\" would mark agreement, but the second sentence contradicts the first.\n- C: \"For example\" would offer an instance of the lucky-discovery story, which it does not.\n- D: \"As a result\" would mark a consequence, though no cause-and-effect link is drawn."
         },
         {
           "id": 852,
@@ -1765,7 +1765,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**The correct answer is C.** The passage moves from the clocks' narrow monastic use to their later, broader effect on town life — a development over time that \"In time\" marks.\n\n**Why the other choices are wrong:**\n\"Instead\" sets the sentences against each other though the second extends the first, \"Nevertheless\" signals a contrast the passage doesn't draw, and \"For example\" would make the spread to townspeople an instance of monastic use rather than a later consequence."
+          "explanation": "**Choice C is correct.** The passage moves from the clocks' first, narrow use inside monasteries to their later, broader effect on town life — a development over time that \"In time\" marks.\n\n**The Full Solution:**\n- Before the blank: the early monastic clocks simply rang a bell to call monks to prayer, dividing the day into equal units.\n- After the blank: they reshaped daily life beyond the cloister, accustoming townspeople to ordering work and meals by a public bell rather than the sun.\n- The second describes a later, wider development, so a time-sequence transition fits.\n\n**Why the other choices are wrong:**\n- A: \"Instead\" would set the second sentence against the first as an alternative, but it extends rather than replaces it.\n- B: \"Nevertheless\" signals a contrast the passage does not draw.\n- D: \"For example\" would make the spread to townspeople an instance of the monastic use, when it is a later and wider consequence."
         },
         {
           "id": 853,
@@ -1794,7 +1794,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**The correct answer is A.** The goal is to draw a contrast, and A sets earlier historians' focus on famous theorists against Shapin's focus on the unnamed assistants and technicians, naming both sides.\n\n**Why the other choices are wrong:**\nB describes only what Shapin studied, C reports one observation without how his focus departs from earlier work, and D states who did the labor without mentioning Shapin or the earlier historians.",
+          "explanation": "**Choice A is correct.** The goal is to highlight how Shapin's focus differs from earlier historians', and A sets earlier historians' focus on famous theorists against Shapin's focus on the unnamed assistants and technicians, naming both sides of the difference.\n\n**The Full Solution:**\n- The goal: show how Shapin's focus departs from that of earlier historians of science.\n- Earlier historians studied mainly the famous theorists whose names are attached to discoveries.\n- Shapin drew attention to the unnamed assistants, instrument makers, and technicians whose hands-on labor was essential.\n- A uses \"Whereas\" to set both sides side by side, drawing the contrast the goal asks for.\n\n**Why the other choices are wrong:**\n- B: It describes only what Shapin studied, with no contrast to earlier work.\n- C: It reports one of his observations but not how his focus departs from earlier historians.\n- D: It states who did the laboratory labor without mentioning Shapin or the earlier historians he is being compared with.",
           "studentNotes": {
             "intro": "While researching a topic, a student has taken the following notes:",
             "bullets": [
@@ -1834,7 +1834,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**The correct answer is D.** A reader new to the idea needs both a definition and the reason, and D supplies both: it defines an urban heat island as a built-up area warmer than its surroundings and explains why, largest after dark.\n\n**Why the other choices are wrong:**\nA gives only a historical detail, B lists causes without naming the effect, and C states the result without defining what an urban heat island is or why it occurs.",
+          "explanation": "**Choice D is correct.** A reader new to the idea needs both a definition and the reason behind it, and D supplies both: it defines an urban heat island as a built-up area warmer than its surroundings and explains why, noting the difference is largest after dark.\n\n**The Full Solution:**\n- The goal: introduce the concept of an urban heat island to a reader who has never encountered it.\n- That requires a definition plus a brief explanation of the cause.\n- D defines it as a built-up area that stays warmer than the surrounding countryside.\n- It then explains why — pavement and buildings absorb heat by day and release it at night, leaving city centers several degrees warmer, especially after dark.\n\n**Why the other choices are wrong:**\n- A: It gives only a historical detail (Luke Howard documenting the effect) without defining the concept.\n- B: It lists causes without naming or defining the effect.\n- C: It states the result but never explains what an urban heat island is or why it occurs.",
           "studentNotes": {
             "intro": "While researching a topic, a student has taken the following notes:",
             "bullets": [

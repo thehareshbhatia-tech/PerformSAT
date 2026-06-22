@@ -60,7 +60,7 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**The correct answer is D.** The blank is glossed as \"a pleasing pattern imposed for display,\" set against Babur's point that the layout did real work, so it needs a word meaning decorative for its own sake — \"ornamental.\"\n\n**Why the other choices are wrong:**\n\"Functional\" and \"deliberate\" undercut the contrast with the practical \"otherwise\" that follows, and \"ancient\" speaks to age, not display.",
+          "explanation": "**Choice D is correct.** The blank is modified by \"merely\" and glossed as \"a pleasing pattern imposed for display,\" so it needs a word meaning decorative for its own sake — \"ornamental.\"\n\n**The Full Solution:**\n- The sentence sets up a contrast: later visitors dismissed the charbagh's rigid symmetry as mere show, while Babur's memoirs suggest \"otherwise.\"\n- The blank describes what the visitors wrongly reduced the symmetry to — a pattern that exists only for display.\n- \"Ornamental\" fits that dismissive reading and sets up the \"otherwise\" turn, where the raised walkways and graded channels turn out to distribute scarce water and perform a practical task.\n\n**Why the other choices are wrong:**\n- A: \"Functional\" would undercut the contrast — it names the practical role Babur claims, not the for-show role the visitors dismissed.\n- B: \"Deliberate\" describes intent, not decoration-for-its-own-sake, and also fails to oppose the practical \"otherwise.\"\n- C: \"Ancient\" speaks to the garden's age, not to whether the symmetry was merely for display.",
           "_meta": {
             "anchor": "Babur and the Mughal charbagh garden plan"
           }
@@ -93,7 +93,7 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**The correct answer is B.** The protected cloth \"resists the blue and stays pale,\" so the blank needs a verb for keeping the dye out — \"blocks.\"\n\n**Why the other choices are wrong:**\n\"Absorbs\" and \"dilutes\" have the covering take in or weaken the dye rather than keep it out, and \"reveals\" describes nothing the resist does to the dye.",
+          "explanation": "**Choice B is correct.** The protected cloth \"resists the blue and stays pale,\" so the blank needs a verb meaning to keep the dye out — \"blocks.\"\n\n**The Full Solution:**\n- The passage explains how adire patterns form: cassava-starch paste or tight stitching coats sections of cotton before the fabric is dipped in indigo.\n- Wherever that covering keeps the dye off, the cloth stays pale, producing \"crisp light figures against a deep indigo ground.\"\n- The blank names what the paste or stitching does to the dye — keep it out — and \"blocks\" captures that resist action exactly.\n\n**Why the other choices are wrong:**\n- A: \"Absorbs\" would have the covering take the dye in, the opposite of keeping it out so the cloth stays pale.\n- C: \"Reveals\" describes nothing the resist does to the dye; the covering hides areas from the dye rather than revealing them.\n- D: \"Dilutes\" would merely weaken the dye, not keep it off the protected cloth entirely.",
           "_meta": {
             "anchor": "adire indigo resist-dyeing, Yoruba"
           }
@@ -126,7 +126,7 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**The correct answer is C.** The engineers handled the ridge \"by boring a tunnel straight through the hill,\" so the blank needs a verb for overcoming that obstacle — \"surmount.\"\n\n**Why the other choices are wrong:**\n\"Ignore\" is wrong because they worked through the ridge rather than leaving it alone, and \"exaggerate\" and \"postpone\" describe neither overcoming nor addressing it.",
+          "explanation": "**Choice C is correct.** The engineers handled the ridge \"by boring a tunnel straight through the hill,\" so the blank needs a verb meaning to get past or overcome that obstacle — \"surmount.\"\n\n**The Full Solution:**\n- Roman aqueducts moved water by gravity alone, so the channel had to descend at a steady, almost imperceptible grade mile after mile.\n- A ridge rising across the route threatened to interrupt that gentle slope — a real difficulty the engineers had to defeat.\n- They tunneled straight through the hill, preserving the continuous downward grade the whole system depended on, so the blank needs a verb meaning to overcome the obstacle: \"surmount.\"\n\n**Why the other choices are wrong:**\n- A: \"Exaggerate\" describes enlarging the ridge, not overcoming it, and makes no sense of boring through the hill.\n- B: \"Ignore\" is wrong because they did not leave the ridge alone — they worked through it.\n- D: \"Postpone\" implies delaying the problem, but the engineers addressed it on the spot by tunneling.",
           "_meta": {
             "anchor": "Roman aqueduct engineering: the gravity gradient"
           }
@@ -159,7 +159,7 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**The correct answer is A.** The blank names how Caral's scale was produced — \"not by military conquest but by an economy of trade and shared ceremony\" — so it needs a verb for keeping that scale up: \"sustained.\"\n\n**Why the other choices are wrong:**\n\"Limited\" reverses the meaning, \"recorded\" describes documentation rather than cause, and \"disguised\" makes no sense of the contrast.",
+          "explanation": "**Choice A is correct.** The blank names how Caral's scale was produced — \"not by military conquest but by an economy of trade and shared ceremony\" — so it needs a verb meaning to produce or keep that scale up: \"sustained.\"\n\n**The Full Solution:**\n- Shady's excavations found monumental platform mounds and sunken plazas dated to roughly 2600 BCE.\n- Because no fortifications, weapons, or other signs of warfare appeared, she ruled out military conquest as the source of the city's scale.\n- The sentence contrasts that rejected source with the one she favored — an economy of trade and shared ceremony — so the blank needs a verb describing how the scale was produced and kept up: \"sustained.\"\n\n**Why the other choices are wrong:**\n- B: \"Limited\" reverses the meaning — trade and ceremony are credited with building the scale, not restricting it.\n- C: \"Recorded\" describes documenting the scale, not causing it, which the contrast requires.\n- D: \"Disguised\" makes no sense of the contrast between two possible causes of the city's size.",
           "_meta": {
             "anchor": "Ruth Shady and Caral, Supe Valley"
           }
@@ -192,7 +192,7 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**The correct answer is C.** The poem concedes dislike — \"I, too, dislike it\" — then turns on \"however\" to find \"a place for the genuine,\" so it concedes a dislike and then names when poetry is still worth reading.\n\n**Why the other choices are wrong:**\nShe never lists favorite poems (A), defends \"high-sounding interpretation\" (B), or rejects her images as unfit for verse (D).",
+          "explanation": "**Choice C is correct.** The poem concedes a dislike — \"I, too, dislike it\" — then turns on \"however\" to identify the conditions under which the speaker still finds poetry worth reading.\n\n**The Full Solution:**\n- The poem opens by conceding dislike: \"I, too, dislike it: there are things that are important beyond all this fiddle.\"\n- It then pivots on \"however\": reading poetry \"with a perfect contempt for it, one discovers in it after all, a place for the genuine.\"\n- The structure is a concession (she dislikes poetry) followed by the conditions under which she nonetheless values it — exactly what Choice C describes.\n\n**Why the other choices are wrong:**\n- A: She does not enumerate kinds of poetry she admires, and names no critic whose taste she shares.\n- B: She does not praise \"high-sounding interpretation\" — she says the images matter \"not because\" of it but \"because they are useful.\"\n- D: She offers natural images but treats them as important and useful, not as unsuitable material for verse.",
           "_meta": {
             "quoteVerify": true,
             "source": "Marianne Moore, \"Poetry\" (1919), opening lines"
@@ -226,7 +226,7 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**The correct answer is A.** The poem catalogs the qualities of a free mind and ends in the petition \"let my country awake,\" so its purpose is that prayer for awakening.\n\n**Why the other choices are wrong:**\nThe country has not already begun to change (B), the speaker hopes rather than warns of impossibility (C), and the lines describe a hoped-for condition, not daily disciplines (D).",
+          "explanation": "**Choice A is correct.** The whole poem is a single address to a \"Father,\" cataloging the qualities of a free mind and culminating in the petition \"let my country awake.\"\n\n**The Full Solution:**\n- The poem is one sustained prayer addressed to a divine listener (\"my Father\").\n- It strings together the qualities of a free mind — fearless thought, free knowledge, a world not \"broken up... by narrow domestic walls,\" reason that has not lost its way \"into the dreary desert sand of dead habit.\"\n- It ends in the petition \"into that heaven of freedom, my Father, let my country awake,\" so its purpose is that prayer for the speaker's country to awaken into the freedom just described.\n\n**Why the other choices are wrong:**\n- B: The poem describes a hoped-for awakening, not reforms that \"have already begun\" to transform the country.\n- C: The speaker is hopeful and petitionary, not warning that habit and division have made change \"impossible.\"\n- D: The lines describe a desired condition of mind and country, not a list of \"daily disciplines\" a person must practice.",
           "_meta": {
             "quoteVerify": true,
             "source": "Rabindranath Tagore, Gitanjali (1912), poem 35"
@@ -260,7 +260,7 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**The correct answer is B.** The text sets early films — \"brief, single-shot records\" — against Melies's staged, invented stories, then explains how he redefined what the camera was for.\n\n**Why the other choices are wrong:**\nA reduces the text to a how-to list, C invents a ranking of his stage work over his films, and D imagines a debate the passage never stages.",
+          "explanation": "**Choice B is correct.** The text contrasts an earlier conception of film with Melies's approach and explains how his work redefined the medium's purpose.\n\n**The Full Solution:**\n- It first describes what films were before 1900 — \"brief, single-shot records of everyday events\" like a train arriving or workers leaving a factory.\n- It then turns to Melies, who treated the camera \"as a device for staging the impossible,\" using painted sets, costumed actors, and in-camera tricks to narrate a fantastical lunar voyage across some thirty linked scenes.\n- It closes by contrasting the two conceptions directly: earlier filmmakers asked what the camera could \"capture,\" Melies what it could be made to \"fabricate,\" helping turn a recording instrument into a medium for invented stories.\n\n**Why the other choices are wrong:**\n- A: It reduces the text to a technical how-to list and a scene-by-scene recap, but the passage's point is the shift in what film was for, not a step-by-step procedure.\n- C: The text never ranks his stage illusions above his films; it uses his theater background to explain his approach to the camera.\n- D: No dispute among filmmakers is staged; the contrast is between an earlier era and Melies, not a debate.",
           "_meta": {
             "anchor": "Georges Melies, A Trip to the Moon (1902)"
           }
@@ -302,7 +302,7 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**The correct answer is A.** Text 1 rests on Dewey's premise of a fixed map with a slot for every subject; Ranganathan doubts it, since \"new and hybrid topics\" can instead be expressed by combining facets.\n\n**Why the other choices are wrong:**\nB has him abandon order entirely, C has him side with Dewey, and D pushes him to an extreme his own faceted system contradicts.",
+          "explanation": "**Choice A is correct.** Ranganathan would question the assumption that knowledge forms a fixed map with a slot for every subject, since new or hybrid topics can instead be expressed by combining facets.\n\n**The Full Solution:**\n- Text 1 rests on Dewey's premise that knowledge can be laid out as a fixed map — broad classes into divisions into sections — with a reserved place for every subject \"settled in advance.\"\n- Text 2 says Ranganathan accepted that libraries need a systematic order but doubted that \"any fixed list of subjects could keep pace with knowledge,\" since new and hybrid topics \"rarely fall into a slot someone reserved decades earlier.\"\n- His colon classification builds call numbers from separate facets combined as needed, so an unanticipated subject can still be expressed \"without waiting for the master list to be revised\" — a direct challenge to Dewey's premise.\n\n**Why the other choices are wrong:**\n- B: Ranganathan accepts the need for systematic order; he would not endorse shelving books simply in acquisition order.\n- C: He doubts Dewey's fixed order rather than defending it as preferable for memorization.\n- D: He builds an alternative systematic scheme (faceted call numbers); abandoning systematic call numbers entirely contradicts his own system.",
           "_meta": {
             "anchor": "Dewey enumerative vs Ranganathan faceted classification"
           }
@@ -335,7 +335,7 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**The correct answer is D.** Because Rasmussen spoke Kalaallisut and needed no interpreters, he recorded full accounts and presented them as \"evidence of a shared body of belief and narrative\" across thousands of miles.\n\n**Why the other choices are wrong:**\nA and B give true details — his route or earlier expeditions' limits — and C contradicts the text by calling his materials mere curiosities.",
+          "explanation": "**Choice D is correct.** Because he spoke an Inuit language, Rasmussen recorded oral traditions in detail and presented them as evidence of beliefs and narratives shared across widely separated Arctic communities.\n\n**The Full Solution:**\n- Because Rasmussen had grown up speaking Kalaallisut and \"could converse without interpreters,\" he gathered detailed accounts that earlier, translator-dependent expeditions had captured \"only in fragments.\"\n- He treated these songs, stories, and rituals \"not as curiosities but as evidence\" of a shared body of belief and narrative.\n- That shared tradition stretched \"across thousands of miles of coast,\" linking groups \"long described as isolated from one another\" — the passage's central claim.\n\n**Why the other choices are wrong:**\n- A: His dog-sled route is a true detail but only the setup, not the main point about what his fluency let him document.\n- B: Earlier expeditions' reliance on interpreters is background that explains why his work was fuller, not the main idea.\n- C: This contradicts the text, which says he treated the materials \"not as curiosities\" but as serious evidence.",
           "_meta": {
             "anchor": "Knud Rasmussen, Fifth Thule Expedition"
           }
@@ -368,7 +368,7 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**The correct answer is B.** Each gamelan's instruments are tuned to one another \"rather than to a fixed, universal standard,\" so a borrowed one \"will usually clash\" with another ensemble's instruments.\n\n**Why the other choices are wrong:**\nC contradicts the text, which says the instruments are bronze, not bamboo, and A and D invent fragility and secrecy the passage never mentions.",
+          "explanation": "**Choice B is correct.** Each gamelan is tuned to its own pitch rather than to a fixed, universal standard, so its instruments do not match those of other ensembles.\n\n**The Full Solution:**\n- The instruments of any one gamelan are \"forged and tuned together as a matched set, adjusted to one another rather than to a fixed, universal standard of pitch.\"\n- As a result, two ensembles can sound noticeably different, and an instrument borrowed from one gamelan \"will usually clash with the instruments of another.\"\n- The reason a borrowed instrument is unsuitable is therefore the matched-set tuning — it is tuned to its home ensemble, not to a shared standard, so it does not match a different gamelan.\n\n**Why the other choices are wrong:**\n- A: The passage never says the instruments are too fragile or heavy to move; the problem is tuning, not transport.\n- C: This contradicts the text, which says the instruments are bronze metallophones and gongs, not bamboo.\n- D: No secrecy or rivalry over repertoire is mentioned; the reason given is purely the tuning.",
           "_meta": {
             "anchor": "Indonesian gamelan music: matched-set tuning"
           }
@@ -401,7 +401,7 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**The correct answer is D.** The wartime \"angels\" turned out to be birds migrating at night, and radar gave \"the first clear view of the scale and timing of nocturnal migration\" — the passage's arc.\n\n**Why the other choices are wrong:**\nA, B, and C are true but partial — the operators' puzzlement, one radar measurement, or just that the birds flew at night — not the main idea.",
+          "explanation": "**Choice D is correct.** Radar, first built to track aircraft, revealed that mysterious nighttime echoes were migrating birds and gave scientists their first clear view of nocturnal migration's scale and timing.\n\n**The Full Solution:**\n- During the war, radar operators were puzzled by faint, drifting echoes at dusk that faded by morning, blips they nicknamed \"angels.\"\n- After the war, ornithologists recognized the echoes as flocks of birds migrating under cover of darkness.\n- Trained on the night sky, radar could count the birds, measure their altitude and direction, and record the hours they took wing — movements daytime observers had never seen — so \"the instrument built to track aircraft thus opened the first clear view of the scale and timing of nocturnal migration.\"\n\n**Why the other choices are wrong:**\n- A: The operators' early puzzlement over the \"angels\" is just the opening of the arc, not the main idea.\n- B: Radar's ability to measure altitude and direction is one capability, not the central point about revealing nocturnal migration.\n- C: That the birds flew at night is a supporting detail, not the main idea about radar opening the first clear view of migration.",
           "_meta": {
             "anchor": "radar ornithology and nocturnal bird migration"
           }
@@ -434,7 +434,7 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**The correct answer is A.** The theory blames the effort of opting in, not knowledge, so this finding fits perfectly: automatic enrollment lifts participation while \"both groups scored similarly\" on financial knowledge.\n\n**Why the other choices are wrong:**\nB supports the rival knowledge-based account, C reports contribution size rather than participation, and D reports feelings, not enrollment.",
+          "explanation": "**Choice A is correct.** It isolates exactly what the behavioral account predicts: automatic enrollment lifts participation while financial knowledge is held constant, since \"both groups scored similarly\" on the test.\n\n**The Full Solution:**\n- The behavioral explanation is that the chief barrier is \"not a lack of financial knowledge but the effort of opting in\" — facing a form, people put the decision off.\n- On this account, changing the default to automatic enrollment (with opt-out) should raise participation sharply \"even among workers no better informed about finance than those who must opt in.\"\n- Choice A supplies exactly that test: the automatically enrolled group participated at \"far higher rates\" even though both groups scored similarly on financial knowledge, so the effort of opting in — not knowledge — must be driving the gap.\n\n**Why the other choices are wrong:**\n- B: This supports the rival, knowledge-based account by tying enrollment to financial-knowledge scores regardless of the default.\n- C: This reports contribution size, not participation rates, which is what the prediction concerns.\n- D: This reports workers' feelings of confidence, not actual enrollment, so it does not test the default-change prediction.",
           "_meta": {
             "anchor": "automatic enrollment / opt-out defaults"
           }
@@ -498,7 +498,7 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**The correct answer is C.** The statement needs the technology that leads on both measures, and the table shows LEDs highest in each column — 100 lumens per watt and 25,000 hours.\n\n**Why the other choices are wrong:**\nA names only the second-best efficacy, B misreads the lifetime column (2,000 hours is among the shortest), and D compares the two weakest types without naming the leader.",
+          "explanation": "**Choice C is correct.** The statement asks for the technology that leads on both efficacy and lifetime, and the table shows LEDs highest in each column — about 100 lumens per watt and roughly 25,000 hours.\n\n**The Full Solution:**\n- The sentence calls for the one technology that \"stands apart, leading on both measures at once.\"\n- In the efficacy column, LED's 100 lumens per watt is the highest of the four types; in the lifetime column, LED's 25,000 hours is also the highest.\n- Choice C is the only option that singles out that standout by naming both leading figures, completing the statement correctly.\n\n**Why the other choices are wrong:**\n- A: CFL's roughly 60 lumens per watt is only the second-highest efficacy, so it does not name the leader on both measures.\n- B: This misreads the lifetime column — halogen's 2,000 hours is among the shortest, not the longest.\n- D: This draws a true but minor comparison between the two weakest types (incandescent vs. halogen) without identifying the leader.",
           "_meta": {
             "anchor": "household lamp types: luminous efficacy and rated lifetime"
           }
@@ -562,7 +562,7 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**The correct answer is C.** The sentence claims the rise has steadily quickened, and the decadal increments show it: 31 mm, then 34 mm, then 40 mm, each larger than the last.\n\n**Why the other choices are wrong:**\nA compares one decade to the first cumulative rise without showing the step-by-step climb, B cites the cumulative total rather than the tempo, and D calls the pace steady.",
+          "explanation": "**Choice C is correct.** The sentence claims the rise has steadily quickened, decade by decade, and the decadal increments show exactly that: 31 mm, then 34 mm, then 40 mm, each larger than the last.\n\n**The Full Solution:**\n- The argument is that the consequential pattern is not the cumulative rise itself but \"the way the rise has steadily quickened: each successive decade since 1993 has added more millimeters than the one before it.\"\n- The data that demonstrate this are the per-decade increments — +31 mm, +34 mm, +40 mm — an upward step in the decadal increment each time.\n- Choice C cites those three rising increments directly, matching the claim of steady acceleration.\n\n**Why the other choices are wrong:**\n- A: It compares a single decade's 40 mm to the first decade's cumulative rise, but it does not establish the step-by-step acceleration the sentence asserts.\n- B: It cites the cumulative total (105 mm by 2023) rather than the tempo, missing the point about the rise quickening.\n- D: It draws the opposite conclusion, calling the increments \"essentially steady,\" which contradicts the claim that the pace has quickened.",
           "_meta": {
             "anchor": "NASA Goddard, global mean sea level 1993-2023"
           }
@@ -595,7 +595,7 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**The correct answer is D.** Since the added capacity \"itself attracts these trips,\" widening may not relieve congestion for long, because those new trips refill the lanes.\n\n**Why the other choices are wrong:**\nA denies the role of drivers' choices the passage stresses, B overstates by saying drivers never return, and C draws a sweeping prescription the text never supports.",
+          "explanation": "**Choice D is correct.** It follows that widening a congested road may not relieve congestion for long, because the added capacity itself draws extra trips that fill the new lanes.\n\n**The Full Solution:**\n- Planners expect widening to cut travel times, but researchers find traffic \"returns to near its former congestion\" within a few years.\n- Drivers who had shifted to other routes, times, or modes move back onto the faster road, and \"some who had not been making the trip at all now do.\"\n- Because \"the added capacity itself attracts these trips\" — induced demand — the logical conclusion is that widening may not relieve congestion for long, since the new trips refill the lanes.\n\n**Why the other choices are wrong:**\n- A: This denies the role of drivers' choices about when and how to travel, which the passage explicitly stresses.\n- B: This overstates the case — the passage says shifted drivers \"move back,\" not that they never return.\n- C: This draws a sweeping prescription (add as many lanes as possible) that the passage, which highlights induced demand's limits, does not support.",
           "_meta": {
             "anchor": "induced demand in road widening"
           }
@@ -628,7 +628,7 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**The correct answer is B.** Buon fresco binds pigment into the wall while a secco details \"sit on top\" in a weak film, so the surviving broad colors were likely buon fresco and the flaked details a secco.\n\n**Why the other choices are wrong:**\nA ignores the surviving color, and C and D reverse the durability of the two techniques.",
+          "explanation": "**Choice B is correct.** The vivid surviving areas were most likely painted in buon fresco, while the lost details had probably been added a secco.\n\n**The Full Solution:**\n- In buon fresco, the drying lime plaster binds the pigment \"into the wall itself, so the color becomes part of the surface\" — making it durable.\n- Details added a secco, after the plaster has dried, \"sit on top as a thin film held by a weak binder\" — making them fragile.\n- Since broad areas of color remain vivid while fine highlights and decorative borders \"have flaked away or faded,\" the supported inference is that the durable surviving areas were buon fresco and the lost fine details were a secco.\n\n**Why the other choices are wrong:**\n- A: This ignores the surviving vivid color; if the whole painting were a secco, the durable broad areas would not have lasted.\n- C: This reverses the durability — the thin a secco film is the fragile layer that flaked, not the more durable one.\n- D: This also reverses the techniques, wrongly calling the chemically bound buon fresco the less permanent of the two.",
           "_meta": {
             "anchor": "buon fresco vs a secco technique"
           }
@@ -661,7 +661,7 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**The correct answer is C.** Two independent clauses meet at the blank — the Paris screening and \"within a year their camera operators were shooting... on several continents\" — and a semicolon joins them.\n\n**Why the other choices are wrong:**\nA comma alone (A) makes a splice, no punctuation (B) fuses the clauses, and a colon (D) wrongly signals the second clause explains the first.",
+          "explanation": "**Choice C is correct.** Two independent clauses meet at the blank, and a semicolon correctly joins them.\n\n**The Full Solution:**\n- The rule: a semicolon links two closely related independent clauses without a coordinating conjunction.\n- Before the blank is an independent clause (the Lumieres \"charging a Paris audience admission to a program of short actualities\").\n- After the blank is a second independent clause (\"within a year their camera operators were shooting and projecting scenes on several continents\"), so a semicolon is the correct boundary.\n\n**Why the other choices are wrong:**\n- A: A comma alone between two independent clauses creates a comma splice.\n- B: No punctuation fuses the two independent clauses into a run-on.\n- D: A colon wrongly signals that the second clause explains or itemizes the first, but it is a separate, related statement, not an explanation.",
           "_meta": {
             "anchor": "Lumiere brothers, first commercial screening"
           }
@@ -694,7 +694,7 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**The correct answer is D.** The subject is the plural \"signals,\" so the verb must be the plural \"were\"; the nearby singular nouns sit inside the modifier, not the subject.\n\n**Why the other choices are wrong:**\n\"Was,\" \"is,\" and \"has been\" are all singular and do not agree with \"signals.\"",
+          "explanation": "**Choice D is correct.** The subject of the verb is the plural \"signals,\" so the verb must be the plural \"were.\"\n\n**The Full Solution:**\n- The rule: a verb must agree in number with its subject, not with the nearest noun.\n- The subject is \"The faint radio signals... from the plane of the Milky Way\" — plural.\n- The singular nouns closest to the blank (\"instrument,\" \"Milky Way\") sit inside the clause describing which signals are meant; they are not the subject, so the plural \"were\" is required.\n\n**Why the other choices are wrong:**\n- A: \"Was\" is singular and does not agree with the plural \"signals.\"\n- B: \"Is\" is singular (and wrong in tense for a past event), so it fails agreement.\n- C: \"Has been\" is singular and does not agree with \"signals.\"",
           "_meta": {
             "anchor": "Grote Reber, radio sky map"
           }
@@ -727,7 +727,7 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**The correct answer is A.** The phrase \"one of the oldest ceremonial centers in the Andes\" renames Chavin de Huantar — a nonessential appositive — so a comma sets it off.\n\n**Why the other choices are wrong:**\nA semicolon (B) or colon (C) wrongly treats the phrase as a clause or formal introduction, and no punctuation (D) runs it into the name.",
+          "explanation": "**Choice A is correct.** The phrase after the blank renames Chavin de Huantar and is nonessential, so it is set off with a comma.\n\n**The Full Solution:**\n- The rule: a nonessential appositive that renames a noun is set off with a comma (or commas).\n- \"One of the oldest ceremonial centers in the Andes\" renames the temple complex Chavin de Huantar — extra information, not a new clause.\n- A single comma after \"Huantar\" correctly introduces that appositive, which the later \"and argued...\" continues.\n\n**Why the other choices are wrong:**\n- B: A semicolon requires a full independent clause after it, but the appositive phrase is not independent.\n- C: A colon would wrongly signal a formal introduction or list rather than a renaming phrase.\n- D: No punctuation runs the appositive straight into the name, leaving it ungrammatical.",
           "_meta": {
             "anchor": "Julio C. Tello, Chavin de Huantar"
           }
@@ -760,7 +760,7 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**The correct answer is B.** The adoption happened \"within a decade\" of 1955 — a completed past event — so the simple past \"adopted\" fits, set against the present-tense \"now document.\"\n\n**Why the other choices are wrong:**\nThe present \"is adopting\" (A) and future \"will adopt\" (D) clash with the timeframe, and the present perfect \"has adopted\" (C) is needless once the time is fixed.",
+          "explanation": "**Choice B is correct.** The sentence places the Royal Ballet's adoption \"within a decade\" of 1955 — a completed action in the past — so the simple past \"adopted\" fits.\n\n**The Full Solution:**\n- The Benesh system was introduced in 1955, and the adoption is dated to \"within a decade\" of that — a completed event in the past.\n- The present-tense \"now document\" describes today's separate activity, so the two clauses span different times.\n- Simple past \"adopted\" correctly marks the completed past event, distinct from the present-day documenting.\n\n**Why the other choices are wrong:**\n- A: \"Is adopting\" is present progressive and clashes with the past \"within a decade\" timeframe.\n- C: \"Has adopted\" (present perfect) is not needed once the time is specified as a finished past window.\n- D: \"Will adopt\" is future and contradicts an action that already happened decades ago.",
           "_meta": {
             "anchor": "Benesh Movement Notation"
           }
@@ -793,7 +793,7 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**The correct answer is D.** The first clause announces \"one overriding lesson,\" and a colon properly introduces the noun phrase that states it.\n\n**Why the other choices are wrong:**\nA comma (A) or no punctuation (C) runs the announcement into its content, and a semicolon (B) needs a full independent clause, which \"the need to understand each culture...\" is not.",
+          "explanation": "**Choice D is correct.** The first clause announces \"one overriding lesson,\" and a colon properly introduces the noun phrase that states what that lesson was.\n\n**The Full Solution:**\n- The rule: a colon can follow an independent clause to introduce an explanation, definition, or the announced item.\n- Before the blank is an independent clause that announces \"one overriding lesson.\"\n- What follows — \"the need to understand each culture on its own terms rather than rank it...\" — is that lesson stated as a noun phrase, exactly what a colon introduces.\n\n**Why the other choices are wrong:**\n- A: A comma would simply run the announcement into its content without marking the formal introduction.\n- B: A semicolon requires a full independent clause after it, but \"the need to understand each culture...\" is not independent.\n- C: No punctuation fuses the announcement to the lesson it introduces.",
           "_meta": {
             "anchor": "Franz Boas, Baffin Island"
           }
@@ -826,7 +826,7 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**The correct answer is C.** The subject is the plural \"symbols,\" so the verb must be the plural \"carry\"; the singular \"panel\" belongs to the modifier, not the subject.\n\n**Why the other choices are wrong:**\n\"Carries\" and \"has carried\" are singular, and \"is carrying\" is singular and wrong in aspect for a general truth.",
+          "explanation": "**Choice C is correct.** The subject of the verb is the plural \"symbols,\" so the verb must be the plural \"carry.\"\n\n**The Full Solution:**\n- The rule: a verb agrees with its subject, not with an intervening noun.\n- The subject is \"The intricate white symbols that cover each finished panel\" — plural.\n- The singular \"panel\" sits inside the modifying phrase \"that cover each finished panel\" and is not the subject, so the plural \"carry\" is required.\n\n**Why the other choices are wrong:**\n- A: \"Carries\" is singular and does not agree with the plural \"symbols.\"\n- B: \"Is carrying\" is singular and also wrong in aspect for stating a general, ongoing truth.\n- D: \"Has carried\" is singular and fails agreement with \"symbols.\"",
           "_meta": {
             "anchor": "bogolanfini mud cloth, Bamana"
           }
@@ -859,7 +859,7 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**The correct answer is B.** Scattered, looted finds before the blank give way to an intact tomb that let researchers reconstruct burial practice — a reversal that calls for the contrast word \"However.\"\n\n**Why the other choices are wrong:**\n\"Likewise\" and \"For example\" signal similarity or illustration, and \"Therefore\" wrongly makes the breakthrough follow logically from the earlier ignorance.",
+          "explanation": "**Choice B is correct.** The passage reverses direction at the blank, so the contrast transition \"However\" is needed.\n\n**The Full Solution:**\n- Before the blank, the Moche were known only through their ceramics and through \"tombs that looters had emptied, scattering artifacts without any record\" of arrangement.\n- After the blank, Alva excavated an \"intact royal tomb,\" recovering regalia in their original positions and letting researchers reconstruct Moche burial practice \"for the first time.\"\n- That shift from scattered, contextless finds to an intact, informative tomb is a reversal, which calls for the contrast transition \"However.\"\n\n**Why the other choices are wrong:**\n- A: \"Likewise\" signals similarity, but the second sentence contrasts with the first rather than echoing it.\n- C: \"Therefore\" would make the breakthrough a logical consequence of the earlier ignorance, which it is not.\n- D: \"For example\" would cast the intact tomb as an illustration of the looted finds, but it is their opposite.",
           "_meta": {
             "anchor": "Walter Alva, Sipan royal tomb"
           }
@@ -892,7 +892,7 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**The correct answer is D.** MARC let one record be shared, and the next sentence states the payoff — a library could download an existing record instead of starting over — which is a result, so \"As a result\" fits.\n\n**Why the other choices are wrong:**\n\"Nevertheless\" and \"In contrast\" signal opposition, and \"For example\" wrongly casts the payoff as an instance of something already stated.",
+          "explanation": "**Choice D is correct.** The sentence after the blank states the payoff of MARC, which is a consequence, so \"As a result\" fits.\n\n**The Full Solution:**\n- Through the 1960s, each library typed its own catalog cards, repeating description work thousands of other libraries did for the same books.\n- Avram's MARC \"let one machine-readable catalog record be shared among institutions.\"\n- The sentence after the blank gives the direct result: a library \"could simply download a record another library had already created instead of recataloging the book from scratch\" — a consequence, so \"As a result\" is correct.\n\n**Why the other choices are wrong:**\n- A: \"Nevertheless\" signals opposition, but the downloading is the natural outcome of MARC, not a contrast to it.\n- B: \"For example\" would cast the payoff as an instance of something already stated, but it is the result of the shared format.\n- C: \"In contrast\" signals opposition, which does not fit a cause-and-effect relationship.",
           "_meta": {
             "anchor": "Henriette Avram, MARC"
           }
@@ -925,7 +925,7 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**The correct answer is A.** After explaining the fixing bath, the passage adds a separate fact — sodium thiosulfate \"found a second career in industry\" removing chlorine — so the additive \"Moreover\" fits.\n\n**Why the other choices are wrong:**\n\"Therefore\" wrongly makes the industrial use a consequence of fixing photos, \"Nevertheless\" signals an absent contrast, and \"Meanwhile\" implies simultaneity the passage never claims.",
+          "explanation": "**Choice A is correct.** The passage adds a separate fact about sodium thiosulfate after explaining its photographic use, so the additive transition \"Moreover\" fits.\n\n**The Full Solution:**\n- The passage first explains how a \"fixing\" bath dissolved away leftover silver salts, halting the reaction and making photographs permanent.\n- It then turns to a separate point: the same compound, sodium thiosulfate, \"found a second career in industry,\" still used to strip excess chlorine from treated water and bleached paper.\n- That added, parallel fact about the compound's other use calls for the additive \"Moreover.\"\n\n**Why the other choices are wrong:**\n- B: \"Therefore\" would treat the industrial use as a consequence of fixing photographs, which it is not.\n- C: \"Nevertheless\" signals a contrast that is not present between the two uses.\n- D: \"Meanwhile\" implies the two uses happen at the same time, which the passage does not claim.",
           "_meta": {
             "anchor": "early photography chemistry: the fixing bath"
           }
@@ -969,7 +969,7 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**The correct answer is A.** To introduce de Waal to a newcomer, it names who he was and his central argument — that \"the building blocks of human morality... are visible in other primates.\"\n\n**Why the other choices are wrong:**\nB and C give a single study or an administrative role, and D narrows his work to one zoo colony, misleading a newcomer about its scope.",
+          "explanation": "**Choice A is correct.** The goal is to introduce de Waal's research to a reader who does not know it, and Choice A names who he was and the central argument running through his major books.\n\n**The Full Solution:**\n- The goal is to \"introduce de Waal's research to a reader unfamiliar with his work,\" which calls for a broad orientation, not a single detail.\n- Choice A identifies him as a Dutch-American primatologist and states the central claim of his books — that the building blocks of human morality and social behavior are visible in other primates.\n- That summary gives a newcomer both who de Waal was and the through-line of his work, accomplishing the goal.\n\n**Why the other choices are wrong:**\n- B: It reports a single 2003 study and the term \"inequity aversion,\" too narrow to introduce his overall research.\n- C: It gives an administrative role (directing the Living Links Center), not the substance of his research.\n- D: It narrows his work to one zoo colony \"rather than... broad claims,\" which would mislead a newcomer about its scope.",
           "_meta": {
             "anchor": "Frans de Waal, primatology"
           }
@@ -1013,7 +1013,7 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**The correct answer is C.** To emphasize Monte Verde's significance, it sets the prevailing Clovis-first view against Dillehay's \"about 14,500 years ago\" date, \"well before the Clovis period.\"\n\n**Why the other choices are wrong:**\nA and B report the site or its artifacts without the stakes, and D wrongly claims the find stayed peripheral.",
+          "explanation": "**Choice C is correct.** To emphasize Monte Verde's significance, it sets the prevailing Clovis-first view against Dillehay's roughly 14,500-year-old date, making the stakes explicit.\n\n**The Full Solution:**\n- The goal is to \"emphasize the historical significance\" of Monte Verde for the peopling-of-the-Americas debate, which requires showing what it overturned.\n- Choice C contrasts the long-held view that the Clovis culture marked \"the earliest people in the Americas\" with Dillehay's dated occupation of \"about 14,500 years ago, well before the Clovis period.\"\n- That juxtaposition makes the significance explicit — Monte Verde pushed human presence more than a thousand years before Clovis.\n\n**Why the other choices are wrong:**\n- A: It reports the site and excavation start date without the stakes for the debate.\n- B: It lists the recovered artifacts (hearths, tools, plant remains) but not why they mattered to the Clovis question.\n- D: It wrongly claims the findings \"remained peripheral,\" contradicting the notes, which say Monte Verde \"became widely accepted.\"",
           "_meta": {
             "anchor": "Tom Dillehay, Monte Verde"
           }
@@ -1053,7 +1053,7 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**The correct answer is B.** Because the fungi \"suppress the pathogens on their own,\" growers need less chemical protection, so the blank needs a verb for cutting back — \"curtail.\"\n\n**Why the other choices are wrong:**\n\"Magnify\" reverses the relationship, and \"justify\" and \"predict\" say nothing about lessening fungicide use.",
+          "explanation": "**Choice B is correct.** Because the fungi \"suppress the pathogens on their own,\" growers need less chemical protection, so the blank needs a verb meaning to cut back — \"curtail.\"\n\n**The Full Solution:**\n- Trichoderma fungi grow alongside crop roots and attack the molds that cause seedlings to rot.\n- Because these helpful fungi suppress the pathogens themselves, growers can reduce chemical fungicides \"without leaving the young plants defenseless.\"\n- The blank names that reduction in reliance on chemicals, and \"curtail\" means exactly to cut back.\n\n**Why the other choices are wrong:**\n- A: \"Magnify\" reverses the relationship — the fungi let growers use fewer chemicals, not more.\n- C: \"Justify\" speaks to defending the use of fungicides, not lessening it.\n- D: \"Predict\" says nothing about reducing fungicide use, which the sentence requires.",
           "_meta": {
             "anchor": "Trichoderma biocontrol fungi in agriculture"
           }
@@ -1086,7 +1086,7 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**The correct answer is A.** Cities short of capital have \"building bus rapid transit lines that approach the speed of rail,\" so the blank needs a verb for copying the model — \"emulated.\"\n\n**Why the other choices are wrong:**\n\"Abandoned\" and \"postponed\" contradict the building that follows, and \"questioned\" does not match cities that adopt the approach.",
+          "explanation": "**Choice A is correct.** Cities short of capital have taken up Curitiba's bus model, \"building bus rapid transit lines that approach the speed of rail,\" so the blank needs a verb meaning to copy that model — \"emulated.\"\n\n**The Full Solution:**\n- Lerner reengineered the bus in Curitiba with dedicated lanes, pre-boarding tubes, and articulated vehicles to move subway-like volumes cheaply.\n- The sentence says cities short of capital \"have since ______ the model,\" then describes them building bus rapid transit lines that imitate rail \"without the expense of tunneling.\"\n- The blank therefore needs a verb meaning to copy or take up the model, and \"emulated\" fits.\n\n**Why the other choices are wrong:**\n- B: \"Abandoned\" contradicts the building that follows — these cities adopt the model, not drop it.\n- C: \"Questioned\" does not match cities that actually build BRT lines on Curitiba's pattern.\n- D: \"Postponed\" implies delay, but the cities have already built lines on the model.",
           "_meta": {
             "anchor": "Jaime Lerner, Curitiba bus rapid transit"
           }
@@ -1119,7 +1119,7 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**The correct answer is D.** \"Far from being ______\" is answered by \"the combinations follow convention,\" so the blank names what the patterns are not — random or unprincipled, i.e. \"arbitrary.\"\n\n**Why the other choices are wrong:**\n\"Decorative\" and \"durable\" do not contrast with rule-governed meaning, and \"traditional\" agrees with convention rather than opposing it.",
+          "explanation": "**Choice D is correct.** \"Far from being ______\" is answered by \"the combinations follow convention,\" so the blank must name what the patterns are not — random or unprincipled, i.e. \"arbitrary.\"\n\n**The Full Solution:**\n- The construction \"Far from being ______\" sets up a contrast with what the rest of the sentence affirms.\n- The sentence affirms that the color and pattern combinations \"follow convention,\" tied to \"proverbs, occasions, and rank,\" so a finished kente \"can be read as readily as it is worn.\"\n- The blank names the opposite of rule-governed — unprincipled or random — and \"arbitrary\" captures that meaning.\n\n**Why the other choices are wrong:**\n- A: \"Decorative\" does not contrast with rule-governed meaning; kente can be both decorative and conventional.\n- B: \"Durable\" describes physical wear, irrelevant to whether the patterns carry meaning.\n- C: \"Traditional\" agrees with \"follow convention\" rather than opposing it, so it breaks the \"Far from\" contrast.",
           "_meta": {
             "anchor": "kente cloth, Asante"
           }
@@ -1152,7 +1152,7 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**The correct answer is B.** The slope was \"not an obstacle... but a resource\" the designers used, since gravity alone carries the water, so the blank needs a verb for productive use — \"harnessed.\"\n\n**Why the other choices are wrong:**\n\"Ignored,\" \"concealed,\" and \"feared\" all clash with a design that depends on the slope to work.",
+          "explanation": "**Choice B is correct.** The slope was \"not an obstacle the designers merely tolerated but a resource they ______,\" and since gravity alone drives the water, the blank needs a verb meaning to make productive use of — \"harnessed.\"\n\n**The Full Solution:**\n- The Shalimar Bagh descends a hillside in broad terraces, with water dropping over carved stone chutes between levels.\n- The sentence frames the slope not as a problem the designers \"merely tolerated\" but as a \"resource\" they put to use.\n- Gravity alone carries the water through the entire garden, \"without a single pump,\" so the blank needs a verb meaning to make productive use of the slope: \"harnessed.\"\n\n**Why the other choices are wrong:**\n- A: \"Ignored\" clashes with a design that depends on the slope; they exploited it rather than disregarding it.\n- C: \"Concealed\" makes no sense — the slope is functional, not hidden.\n- D: \"Feared\" contradicts treating the slope as a resource the designers deliberately used.",
           "_meta": {
             "anchor": "Shalimar Bagh, Mughal garden hydraulics"
           }
@@ -1185,7 +1185,7 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**The correct answer is B.** Adams starts with the dynamo as a machine — the \"forty-foot\" wheel at \"vertiginous speed\" — and shifts into religious language until he is praying before it as a \"moral force.\"\n\n**Why the other choices are wrong:**\nThe passage shows no later disillusionment (A), no nearby engineers (C), and no catalog of engineering principles or ranking of machines (D).",
+          "explanation": "**Choice B is correct.** Adams describes the dynamo in mechanical terms and gradually shifts register until his response has become indistinguishable from religious devotion.\n\n**The Full Solution:**\n- He begins with the dynamo as a machine — the \"forty-foot\" wheel \"revolving within arm's-length at some vertiginous speed, and barely murmuring.\"\n- The language gradually takes on religious coloring: the dynamo becomes \"a symbol of infinity\" and a \"moral force, much as the early Christians had felt the Cross.\"\n- By the end the register is fully devotional — \"one began to pray to it\" — so the structure is a drift from mechanical description into religious devotion.\n\n**Why the other choices are wrong:**\n- A: The passage shows no later disillusionment; his response intensifies into reverence rather than fading.\n- C: It mentions no nearby engineers and contrasts no measured reaction with a casual one.\n- D: It does not catalog engineering principles or rank the dynamo against other engines on display.",
           "_meta": {
             "quoteVerify": true,
             "source": "Henry Adams, The Education of Henry Adams (1907), \"The Dynamo and the Virgin\""
@@ -1219,7 +1219,7 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**The correct answer is A.** The passage first explains Reiniger's frame-by-frame silhouette method, then stresses she kept refining it \"as a mature medium in its own right.\"\n\n**Why the other choices are wrong:**\nB invents a judgment against studio films, C says she abandoned the technique (the text says the opposite), and D raises a doubt about whether her work counts as animation that the passage never voices.",
+          "explanation": "**Choice A is correct.** The text explains the frame-by-frame method Reiniger developed and then characterizes her lasting commitment to it as a mature medium.\n\n**The Full Solution:**\n- It first describes her painstaking method: cutting figures from black cardboard, jointing them with wire, and photographing them \"one frame at a time against backlit glass,\" as in her 1926 feature The Adventures of Prince Achmed.\n- It then states that she \"spent the rest of her long career refining this technique rather than trading it for newer methods.\"\n- It characterizes that commitment as treating the cut-paper silhouette \"not as a passing novelty but as a mature medium in its own right\" — the second part of the structure.\n\n**Why the other choices are wrong:**\n- B: It invents a comparative judgment that her films were \"better\" than studio live-action; the text makes no such ranking.\n- C: It says she gave up silhouette animation, directly contradicting the text, which says she kept refining it.\n- D: It raises a doubt about whether her work counts as animation, a question the passage never voices.",
           "_meta": {
             "anchor": "Lotte Reiniger, silhouette animation"
           }
@@ -1252,7 +1252,7 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**The correct answer is D.** The text lays out a centuries-old problem (finding longitude), the favored astronomical solution, then Harrison's time-based approach and the sea trial that \"proved more reliable.\"\n\n**Why the other choices are wrong:**\nA recasts it as manufacturing and ranking, B endorses the astronomical method the passage treats as lesser, and C invents a dispute between Harrison and his crew.",
+          "explanation": "**Choice D is correct.** The text lays out a longstanding problem, describes the solution most navigators favored, and then presents a different approach that proved more reliable.\n\n**The Full Solution:**\n- It opens with a problem that troubled sailors \"for centuries\": they could fix latitude but \"had no dependable way to find their longitude,\" so ships ran aground.\n- It describes the favored solution as astronomical — reading longitude from the moon's position against the fixed stars.\n- It then turns to Harrison, who treated longitude as \"really a matter of time\" and built a sea clock; his fourth design \"lost only seconds on a long ocean voyage,\" showing a portable clock was \"the surer answer.\"\n\n**Why the other choices are wrong:**\n- A: It recasts the text as an account of how clocks were manufactured and ranked on land, which the passage does not do.\n- B: It endorses the astronomical method, but the passage treats it as the lesser option Harrison's clock surpassed.\n- C: It invents a dispute between Harrison and his crew that the text never mentions.",
           "_meta": {
             "anchor": "John Harrison and the longitude problem"
           }
@@ -1294,7 +1294,7 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**The correct answer is C.** Text 2 grants that salvage has \"lifted objects that might never otherwise have surfaced\" but warns that selling them without recording context \"strips that information away for good.\"\n\n**Why the other choices are wrong:**\nA denies anything can be recovered, B has the author endorse the practice outright, and D rejects even careful excavation, which Text 2 never opposes.",
+          "explanation": "**Choice C is correct.** The author of Text 2 grants that salvage has recovered objects that might otherwise have been lost but warns that selling them without recording their context destroys much of the knowledge a wreck could yield.\n\n**The Full Solution:**\n- Text 1 defends commercial salvage as the only practical way to fund the costly recovery of deep-water wrecks.\n- Text 2 concedes the point — \"No one denies that salvage has lifted objects that might never otherwise have surfaced.\"\n- But it warns that an artifact's scholarly value lies in its context (\"where it lay, beside what other finds, and at what depth\"), and that hauling cargo up for sale without recording it \"strips that information away for good\" — a concession-plus-warning, exactly Choice C.\n\n**Why the other choices are wrong:**\n- A: It denies that anything can be recovered, but Text 2 openly grants that salvage has lifted objects.\n- B: It has the author endorse selling artifacts outright, contradicting the warning that the practice costs scholarship dearly.\n- D: It rejects even careful scientific excavation, an extreme Text 2 never takes — its objection is to selling without recording, not to excavation itself.",
           "_meta": {
             "anchor": "underwater archaeology: commercial salvage vs. archaeological context"
           }
@@ -1327,7 +1327,7 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**The correct answer is B.** The central point is that Powers's quilts combine \"biblical episodes alongside recorded local events\" and survive \"with their maker's own account\" of the panels.\n\n**Why the other choices are wrong:**\nA adds unsupported claims about how she learned her craft, and C and D isolate single details — how many quilts survive, which events appear — not the main idea.",
+          "explanation": "**Choice B is correct.** The central point is that Powers's surviving quilts combine biblical episodes with recorded local events and come down to us with her own narrated account of their meaning.\n\n**The Full Solution:**\n- Powers made pictorial quilts on which appliqued figures \"depict biblical episodes alongside recorded local events,\" such as a meteor shower and a dark day.\n- She narrated the meaning of each panel to the women who acquired the quilts, and those notes were written down, so the works survive \"with their maker's own account of what the figures represent.\"\n- Scholars read them as deliberate visual storytelling fusing scripture, memory, and astronomical event — the main idea Choice B captures.\n\n**Why the other choices are wrong:**\n- A: It adds unsupported claims about how she learned her technique and that she worked \"entirely within her region's folk-craft tradition.\"\n- C: It isolates one detail — that two quilts survive — without the central point about their content and her narration.\n- D: It names only the specific local events depicted, a supporting detail rather than the main idea.",
           "_meta": {
             "anchor": "Harriet Powers, story quilts"
           }
@@ -1360,7 +1360,7 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**The correct answer is D.** The text says the monograph was valued \"less for any single discovery than for the breadth of daily life it documented.\"\n\n**Why the other choices are wrong:**\nA names the object-collecting the text says he set aside, B names the single discovery the text downplays, and C invents predictions the passage never mentions.",
+          "explanation": "**Choice D is correct.** The text says Jenness's monograph became a standard reference, \"valued less for any single discovery than for the breadth of daily life it documented.\"\n\n**The Full Solution:**\n- Rather than simply collecting objects, Jenness recorded the Copper Inuit's \"seasonal movements, kinship terms, songs, and the way tasks were divided through the year.\"\n- His monograph was prized \"less for any single discovery than for the breadth of daily life it documented.\"\n- That breadth of everyday life — captured \"at a moment when that life was beginning to change\" — is what the question asks for.\n\n**Why the other choices are wrong:**\n- A: The text says he went beyond object-collecting; the objects are not what the monograph was valued for.\n- B: The text explicitly downplays \"any single discovery\" in favor of the breadth of documentation.\n- C: The passage mentions no predictions about future contact; that is invented.",
           "_meta": {
             "anchor": "Diamond Jenness, Copper Inuit"
           }
@@ -1393,7 +1393,7 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**The correct answer is C.** Because Eshkol's system records movement as joint angles \"relative to the body itself,\" not to a stage, it can document motion well beyond dance, including animals and therapy gestures.\n\n**Why the other choices are wrong:**\nA gives a biographical detail, B describes only the systems Eshkol departed from, and D names one application without the central point.",
+          "explanation": "**Choice C is correct.** Because Eshkol's system records movement as joint angles relative to the body rather than to a stage, it can document motion well beyond dance, including animals and physical-therapy gestures.\n\n**The Full Solution:**\n- Most movement-notation systems mark steps and positions \"defined in relation to a stage and an audience.\"\n- Eshkol's system, developed with Wachman, takes a different starting point: it describes the body as limbs pivoting around joints, \"recording each movement as a change in angle relative to the body itself, with no reference to a front or a viewer.\"\n- Because it does not assume a stage, it has been used to record \"not only choreography but also the movement of animals and the gestures studied in physical therapy\" — the main idea.\n\n**Why the other choices are wrong:**\n- A: The collaboration with Wachman is a biographical detail, not the central point about the system's distinctive approach.\n- B: It describes only the ordinary stage-bound systems Eshkol departed from, not her own.\n- D: It names one application (animals, therapy) without the explanation of why the system can reach beyond dance.",
           "_meta": {
             "anchor": "Eshkol-Wachman Movement Notation"
           }
@@ -1426,7 +1426,7 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**The correct answer is A.** The hypothesis predicts \"the interval between pulses should hold nearly constant\" and the signal should come from a fixed point among the stars — and this finding matches both.\n\n**Why the other choices are wrong:**\nB describes the irregularity the hypothesis rules out, C concerns brightness the prediction ignores, and D ties the signal to the planets, pointing to a solar-system source.",
+          "explanation": "**Choice A is correct.** It matches both predictions of the hypothesis directly: a nearly constant pulse interval and arrival from a fixed celestial position.\n\n**The Full Solution:**\n- The hypothesis is that the signal comes from a rapidly rotating neutron star rather than a solar-system source.\n- A neutron star spins on a fixed period that changes \"only very slowly,\" so the interval between pulses \"should hold nearly constant over long stretches of time.\"\n- The signal should also \"arrive from a fixed point among the distant stars rather than tracking the Sun,\" and Choice A reports exactly both: constant interval and a fixed stellar position over many months.\n\n**Why the other choices are wrong:**\n- B: A widely varying, irregular interval is the opposite of the steady period the hypothesis predicts.\n- C: A signal growing steadily stronger concerns brightness, which the prediction says nothing about.\n- D: A signal that disappears when the antenna points away from the planets would tie it to the solar system, undermining the neutron-star hypothesis.",
           "_meta": {
             "anchor": "rotating neutron star hypothesis for a radio signal"
           }
@@ -1490,7 +1490,7 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**The correct answer is B.** The claim is that the typical extent fell in every successive decade, and the decadal means show it: 7.2, 6.6, 5.8, then 4.6 million square kilometers.\n\n**Why the other choices are wrong:**\nA misreads the single-year lows as roughly constant, C reports only the last two decades, and D cites one record year, not the decade-by-decade trend.",
+          "explanation": "**Choice B is correct.** The claim is that the typical September extent has fallen in every successive decade, and the decadal means show exactly that: 7.2, 6.6, 5.8, then 4.6 million km².\n\n**The Full Solution:**\n- The argument is that late-summer ice has \"not merely dipped in unusual years\"; rather, the typical extent \"has fallen in every successive decade on record.\"\n- The data that prove a decade-by-decade decline are the decadal mean extents, not single-year records.\n- Choice B cites those means falling step by step — 7.2 to 6.6 to 5.8 to 4.6 million km² — \"a step downward in every decade,\" matching the claim.\n\n**Why the other choices are wrong:**\n- A: It misreads the single-year lows (6.9 down to 3.6) as \"roughly constant,\" which both misstates the numbers and uses the wrong column.\n- C: It reports only the last two decades, not the every-decade trend the claim requires.\n- D: It cites one record year (2012) rather than the decade-by-decade decline in typical extent.",
           "_meta": {
             "anchor": "NSIDC, September Arctic sea ice extent by decade"
           }
@@ -1564,7 +1564,7 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**The correct answer is D.** The statement needs the one method that rose every reporting year, and only radial velocity does — 28, 48, 60, 73.\n\n**Why the other choices are wrong:**\nA and B describe transit, whose count fell after 2016, and C claims microlensing rose steadily though it drops from 9 in 2009 to 4 in 2014.",
+          "explanation": "**Choice D is correct.** The statement singles out the one method whose count rose in every reporting year, and only radial velocity does so — 28, 48, 60, 73.\n\n**The Full Solution:**\n- Annual totals \"swing sharply\" with mission lifecycles, so the sentence highlights the one method that \"produced a count that rose in every year the archive reports here, uninterrupted.\"\n- Checking each column, radial velocity climbs steadily: 28 (2009), 48 (2014), 60 (2016), 73 (2020).\n- Choice D reports that uninterrupted rise, matching the statement's setup.\n\n**Why the other choices are wrong:**\n- A: Transit fell from 1,339 in 2016 to 204 in 2020, so calling that drop evidence of \"steady growth\" is self-contradictory.\n- B: The transit total in 2016 is large but irrelevant — it does not rise every year, which is the criterion.\n- C: Microlensing did not rise every year; it drops from 9 in 2009 to 4 in 2014.",
           "_meta": {
             "anchor": "NASA Exoplanet Archive, detection methods"
           }
@@ -1597,7 +1597,7 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**The correct answer is D.** Workers accept a future increase but balk when it starts now, because \"the cost of saving feels heavier\" on present income — so delayed plans win more agreement than immediate ones.\n\n**Why the other choices are wrong:**\nA denies the timing effect the passage documents, B wrongly insists the increase must start at once, and C overgeneralizes to lifetime savings.",
+          "explanation": "**Choice D is correct.** It follows that plans postponing the first increase in saving to a future date are likely to win more agreement than plans that cut take-home pay right away.\n\n**The Full Solution:**\n- Offered a plan that raises savings \"starting with a paycheck several months away, many workers agree readily.\"\n- Offered an identical plan beginning with \"their very next paycheck, far fewer accept,\" even though the long-run effect is the same.\n- Researchers attribute the gap to a bias toward immediate reward — \"the cost of saving feels heavier when it falls on present income\" — so the logical conclusion is that delayed-start plans win more agreement than immediate ones.\n\n**Why the other choices are wrong:**\n- A: It denies the timing effect, but the passage documents that workers respond differently to now versus later.\n- B: It wrongly insists the increase must begin with the next paycheck, the very option workers resist.\n- C: It overgeneralizes to lifetime savings totals, which the passage does not address.",
           "_meta": {
             "anchor": "present bias in savings choices"
           }
@@ -1630,7 +1630,7 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**The correct answer is B.** With flow fixed and no pumps, the ridges change only how the water falls — \"turbulence that catches the light and can be heard\" — so they were chosen partly for that sensory effect.\n\n**Why the other choices are wrong:**\nA invents pumps the passage rules out, C makes an unsupported claim about flow rate, and D wrongly ties the effect to increasing the spring's flow.",
+          "explanation": "**Choice B is correct.** The ridged surfaces were chosen at least partly for their visible and audible effect on the falling water, not only to move it downhill.\n\n**The Full Solution:**\n- The designers cut the chutes with ridged or faceted surfaces \"rather than leaving them smooth.\"\n- Against a smooth chute water slides down \"in a quiet sheet,\" but against a ridged one it \"breaks into turbulence that catches the light and can be heard across the garden.\"\n- Since the flow at each chute is fixed by the spring above and there are no pumps, the ridges cannot be about moving more water; the only thing they change is how the water looks and sounds — so they were chosen partly for that sensory effect.\n\n**Why the other choices are wrong:**\n- A: It invents hidden pumps, which the passage explicitly rules out (\"built without pumps\").\n- C: It makes an unsupported claim that smooth chutes carry more water per minute; the passage says nothing about flow rate.\n- D: It wrongly ties the sound and sparkle to increasing the spring's flow, but the flow is fixed.",
           "_meta": {
             "anchor": "Mughal terraced garden hydraulics, Kashmir"
           }
@@ -1663,7 +1663,7 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**The correct answer is C.** Two independent clauses meet at the blank — \"were rarely the work of any single maker\" and \"groups of women each contributed a distinct... block\" — and a semicolon joins them.\n\n**Why the other choices are wrong:**\nA comma alone (A) makes a splice, no punctuation (B) fuses them, and a colon (D) wrongly signals the second clause defines the first.",
+          "explanation": "**Choice C is correct.** Two independent clauses meet at the blank, and a semicolon correctly joins them.\n\n**The Full Solution:**\n- The rule: a semicolon links two closely related independent clauses without a conjunction.\n- The first clause is independent: the quilts \"were rarely the work of any single maker.\"\n- The second is also independent: \"groups of women each contributed a distinct appliqued block, and the completed quilt was then presented...\" so a semicolon is the correct boundary.\n\n**Why the other choices are wrong:**\n- A: A comma alone between two independent clauses creates a comma splice.\n- B: No punctuation fuses the clauses into a run-on.\n- D: A colon wrongly signals that the second clause defines or lists out the first, but it is a separate related statement.",
           "_meta": {
             "anchor": "Baltimore album quilts"
           }
@@ -1696,7 +1696,7 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**The correct answer is B.** The subject is the plural \"pools,\" so the verb is the plural \"reflect\"; the singular \"axis\" sits inside the modifier, not the subject.\n\n**Why the other choices are wrong:**\n\"Reflects,\" \"has reflected,\" and \"is reflecting\" are all singular and fail to agree with \"pools.\"",
+          "explanation": "**Choice B is correct.** The subject of the verb is the plural \"pools,\" so the verb must be the plural \"reflect.\"\n\n**The Full Solution:**\n- The rule: a verb agrees with its subject, not with a nearer noun inside a modifier.\n- The subject is \"The long reflecting pools set along the central axis\" — plural.\n- The singular \"axis\" sits inside the modifying phrase and is not the subject, so the plural \"reflect\" is required.\n\n**Why the other choices are wrong:**\n- A: \"Reflects\" is singular and does not agree with the plural \"pools.\"\n- C: \"Has reflected\" is singular and fails agreement with \"pools.\"\n- D: \"Is reflecting\" is singular and does not agree with \"pools.\"",
           "_meta": {
             "anchor": "Taj Mahal charbagh garden"
           }
@@ -1729,7 +1729,7 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**The correct answer is C.** The clause announces \"a simple formula,\" and a colon properly introduces the noun phrase that states it — \"a nickel's admission to a continuous program...\"\n\n**Why the other choices are wrong:**\nA comma (A) merely runs the phrase on, a semicolon (B) needs a full independent clause after it, and no punctuation (D) fuses the announcement to its content.",
+          "explanation": "**Choice C is correct.** The clause announces \"a simple formula,\" and a colon properly introduces the noun phrase that states what that formula was.\n\n**The Full Solution:**\n- The rule: a colon follows an independent clause to introduce an explanation or the announced item.\n- Before the blank is an independent clause that the nickelodeon \"owed its very name to a simple formula.\"\n- What follows — \"a nickel's admission to a continuous program of short films...\" — is that formula stated as a noun phrase, exactly what a colon introduces.\n\n**Why the other choices are wrong:**\n- A: A comma merely runs the phrase on without marking the formal introduction.\n- B: A semicolon requires a full independent clause after it, but the phrase is not independent.\n- D: No punctuation fuses the announcement to its content.",
           "_meta": {
             "anchor": "the nickelodeon"
           }
@@ -1762,7 +1762,7 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**The correct answer is D.** \"In the decades since\" marks action that began in the past and continues now, which calls for the present perfect \"have pursued.\"\n\n**Why the other choices are wrong:**\nThe simple present \"pursue\" (A) loses the span of time, the past perfect \"had pursued\" (B) needs a later past reference, and \"will pursue\" (C) contradicts work already done.",
+          "explanation": "**Choice D is correct.** \"In the decades since\" describes action that began in the past and continues into the present, which calls for the present perfect \"have pursued.\"\n\n**The Full Solution:**\n- Drake wrote his equation in 1961, and \"In the decades since,\" researchers have continued the search he helped launch.\n- An action begun in the past and still ongoing takes the present perfect.\n- \"Have pursued\" expresses that span — work started after 1961 and continuing \"without yet detecting one\" — so it is correct.\n\n**Why the other choices are wrong:**\n- A: The simple present \"pursue\" loses the span of time the phrase \"in the decades since\" establishes.\n- B: The past perfect \"had pursued\" needs a later past reference point, which the sentence does not provide.\n- C: The future \"will pursue\" contradicts work that has already been done over the decades.",
           "_meta": {
             "anchor": "Frank Drake, the search for radio signals"
           }
@@ -1795,7 +1795,7 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**The correct answer is A.** The phrase \"a librarian who believed...\" renames Antonio Panizzi — a nonessential appositive — so a comma sets it off.\n\n**Why the other choices are wrong:**\nA semicolon (B) or colon (C) treats the appositive as a clause or formal introduction, and no punctuation (D) runs it straight into the name.",
+          "explanation": "**Choice A is correct.** The phrase \"a librarian who believed...\" renames Antonio Panizzi and is nonessential, so a comma sets it off.\n\n**The Full Solution:**\n- The rule: a nonessential appositive that renames a noun is set off with a comma.\n- \"A librarian who believed that a national collection should be open to any serious reader\" renames Antonio Panizzi — added description, not a new clause.\n- A single comma after \"Panizzi\" correctly introduces that appositive.\n\n**Why the other choices are wrong:**\n- B: A semicolon requires a full independent clause after it, but the appositive phrase is not independent.\n- C: A colon would signal a formal introduction or list rather than a renaming phrase.\n- D: No punctuation runs the appositive straight into the name.",
           "_meta": {
             "anchor": "Antonio Panizzi, British Museum reading room"
           }
@@ -1828,7 +1828,7 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**The correct answer is C.** The subject is the plural \"layers,\" so the verb must be the plural \"are\"; the singular \"boulder\" sits inside the modifier, not the subject.\n\n**Why the other choices are wrong:**\n\"Is,\" \"was,\" and \"has been\" are all singular and fail to agree with \"layers.\"",
+          "explanation": "**Choice C is correct.** The subject of the verb is the plural \"layers,\" so the verb must be the plural \"are.\"\n\n**The Full Solution:**\n- The rule: a verb agrees with its subject, not with an intervening noun.\n- The subject is \"The thin layers deposited on each weathered boulder\" — plural.\n- The singular \"boulder\" sits inside the modifying phrase \"deposited on each weathered boulder\" and is not the subject, so the plural \"are\" is required.\n\n**Why the other choices are wrong:**\n- A: \"Is\" is singular and does not agree with the plural \"layers.\"\n- B: \"Was\" is singular (and wrong in tense for an ongoing process) and fails agreement.\n- D: \"Has been\" is singular and does not agree with \"layers.\"",
           "_meta": {
             "anchor": "desert varnish geochemistry"
           }
@@ -1861,7 +1861,7 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**The correct answer is D.** After the researchers blame a fault and even remove pigeons, the sentence corrects that assumption — the hiss \"proved to be radiation left over from the early universe\" — which \"In fact\" marks.\n\n**Why the other choices are wrong:**\n\"Therefore\" makes it a consequence, \"Likewise\" a similarity, and \"Meanwhile\" mere simultaneity.",
+          "explanation": "**Choice D is correct.** The sentence corrects the researchers' assumption, and \"In fact\" marks that correction.\n\n**The Full Solution:**\n- Penzias and Wilson first assumed the persistent hiss was \"a fault in the equipment,\" even removing pigeons that had nested in the antenna.\n- The sentence after the blank overturns that assumption: the signal \"proved to be radiation left over from the early universe,\" confirming Big Bang cosmology.\n- That move from mistaken assumption to the surprising truth calls for \"In fact,\" which marks a correction or emphatic clarification.\n\n**Why the other choices are wrong:**\n- A: \"Therefore\" would make the discovery a consequence of removing pigeons, which it is not.\n- B: \"Likewise\" signals similarity, but the discovery contrasts with their fault assumption.\n- C: \"Meanwhile\" implies mere simultaneity, missing the corrective relationship.",
           "_meta": {
             "anchor": "Penzias and Wilson, cosmic microwave background"
           }
@@ -1894,7 +1894,7 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**The correct answer is B.** Because raising fares \"can backfire\" and cancel the gain, agencies turn to other budget measures — a consequence, so \"Consequently\" fits.\n\n**Why the other choices are wrong:**\n\"Nevertheless\" and \"By contrast\" signal opposition, and \"For example\" wrongly casts the budget measures as an instance of the fare problem.",
+          "explanation": "**Choice B is correct.** Because raising fares backfires, agencies turn to other budget measures, which is a consequence, so \"Consequently\" fits.\n\n**The Full Solution:**\n- Transit systems recover only part of operating costs from fares, with the rest from public subsidy.\n- Raising fares to close the gap \"can backfire, because higher prices drive away some riders,\" and the lost fares \"partly cancel the intended gain.\"\n- Because of that self-defeating effect, agencies have \"looked elsewhere to balance their budgets\" — trimming service, seeking tax revenue, redesigning routes — a consequence, so \"Consequently\" is correct.\n\n**Why the other choices are wrong:**\n- A: \"Nevertheless\" signals opposition, but the budget measures follow logically from the fare problem.\n- C: \"For example\" would cast the budget measures as an instance of the fare problem, but they are its result.\n- D: \"By contrast\" signals opposition, which does not fit a cause-and-effect relationship.",
           "_meta": {
             "anchor": "transit farebox recovery and fare policy"
           }
@@ -1927,7 +1927,7 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**The correct answer is A.** After Giotto's break with convention, his naturalism \"came to be regarded as a turning point\" over later generations — a temporal development that \"In time\" marks.\n\n**Why the other choices are wrong:**\n\"However\" signals contrast, \"For example\" an instance, and \"Likewise\" a similarity, none of which fits the move from his innovation to its later influence.",
+          "explanation": "**Choice A is correct.** The passage moves from Giotto's innovation to its later influence over generations, a temporal development that \"In time\" marks.\n\n**The Full Solution:**\n- Around 1305 Giotto broke with the \"flat, gold-ground convention\" of medieval painting, giving figures weight, cast shadow, and visible emotion.\n- The next sentence traces what happened later: the cycle \"came to be regarded as a turning point,\" and painters \"from Masaccio onward\" treated his naturalism as the foundation of Renaissance picture-making.\n- That unfolding over later generations calls for the temporal transition \"In time.\"\n\n**Why the other choices are wrong:**\n- B: \"However\" signals contrast, but the later influence develops from his innovation rather than opposing it.\n- C: \"For example\" would mark an instance, but the second sentence reports a later development, not an example.\n- D: \"Likewise\" signals similarity, which does not fit the move from innovation to subsequent influence.",
           "_meta": {
             "anchor": "Giotto, Arena Chapel frescoes"
           }
@@ -1971,7 +1971,7 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**The correct answer is A.** To highlight the methodological difference, it draws the contrast directly: where contemporaries \"stripped songs from their ceremonial settings,\" Densmore recorded when, by whom, and why each was performed.\n\n**Why the other choices are wrong:**\nB and C give her reputation or biography without the comparison, and D wrongly aligns her with the very contemporaries she differed from.",
+          "explanation": "**Choice A is correct.** The goal is to highlight how Densmore's method differed from her contemporaries', and Choice A draws that contrast directly.\n\n**The Full Solution:**\n- The goal is to \"emphasize a methodological difference\" between Densmore and her comparative-musicology contemporaries, which requires a direct contrast.\n- Her contemporaries \"often abstracted songs from their ceremonial settings to compare them as melodic specimens.\"\n- Densmore instead \"paired each transcription with notes on when, by whom, and for what purpose the song was performed,\" and Choice A juxtaposes the two approaches explicitly.\n\n**Why the other choices are wrong:**\n- B: It states her reputation among recent scholars without the comparison to her contemporaries.\n- C: It gives biography (where and when she recorded) without the methodological contrast.\n- D: It wrongly aligns her with her contemporaries (\"Like her contemporaries... for cross-cultural melodic comparison\"), the very method she differed from.",
           "_meta": {
             "anchor": "Frances Densmore, ethnomusicology"
           }
@@ -2015,7 +2015,7 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**The correct answer is C.** To show the revision, it sets the older reading — khipus as \"purely numerical accounting devices\" — against Urton's argument that knot direction, cord ply, and color form a code that could carry narrative too.\n\n**Why the other choices are wrong:**\nA and B give biography or colonial testimony without the revision, and D narrows his work to imperial accounting, missing the point.",
+          "explanation": "**Choice C is correct.** To emphasize how Urton revises a long-standing view, it sets the older reading of khipus against his argument that they form a binary code able to carry narrative.\n\n**The Full Solution:**\n- The goal is to \"emphasize how Urton's analysis revises a long-standing scholarly understanding\" of khipus, which requires the old view and his revision side by side.\n- Through the 20th century, khipus were \"widely interpreted only as numerical accounting devices.\"\n- Urton argues that knot direction, cord ply, fiber color, and attachment style \"constitute a binary signaling system\" that could also carry narrative content — and Choice C contrasts that revision with the older numerical-only reading.\n\n**Why the other choices are wrong:**\n- A: It gives Urton's biography without the revision of the older view.\n- B: It reports Spanish colonial testimony, not Urton's revising argument.\n- D: It narrows his work to \"imperial accounting practices,\" the very limited reading he challenges, missing the point.",
           "_meta": {
             "anchor": "Gary Urton, Andean khipu research"
           }
