@@ -20,6 +20,7 @@ import { formatDailyIntro } from '../services/selectors/dailyIntro';
 import { getMathWeaknesses, getRWWeaknesses } from '../services/selectors/weaknesses';
 import { isGoalAchieved, goalDelta } from '../services/selectors/goalProgress';
 import { isScoreableAttempt } from '../services/selectors/latestTestStats';
+import { buildPerformanceTiles } from '../services/selectors/performanceTiles';
 import { snapToScale } from '../services/scoring/scaleTables';
 import { getDaysUntilTest } from '../services/selectors/daysUntilTest';
 import { buildPacingTelemetry } from '../services/selectors/pacingTelemetry';
@@ -166,9 +167,16 @@ const StudentDashboard = ({
   }));
 
   const practiceEntries = Object.entries(practiceProgress || {}).filter(([_, p]) => p.bestScore !== undefined);
-  const totalCorrect = practiceEntries.reduce((sum, [_, p]) => sum + (p.bestScore || 0), 0);
-  const totalQuestions = practiceEntries.reduce((sum, [_, p]) => sum + (p.totalQuestions || 5), 0);
-  const practicePercent = totalQuestions > 0 ? Math.round((totalCorrect / totalQuestions) * 100) : 0;
+  // Combined practice performance for the three colorful tiles — blends live
+  // drills (skillProgress, both sections) with the most recent full test, so
+  // the numbers reflect everything the student has done across Math AND R&W.
+  const performanceTiles = useMemo(
+    () => buildPerformanceTiles(skillProgress, practiceTestResults),
+    [skillProgress, practiceTestResults],
+  );
+  const totalCorrect = performanceTiles.overall.correct;
+  const totalQuestions = performanceTiles.overall.total;
+  const practicePercent = performanceTiles.overall.percent;
 
   const { projectedScore, projectedRange, projectedTestsCount, scoreHistory, latestIsMultiSection } = useMemo(() => {
     if (!practiceTestResults || Object.keys(practiceTestResults).length === 0) {
@@ -232,36 +240,12 @@ const StudentDashboard = ({
     };
   }, [practiceTestResults]);
 
-  // Compute per-module practice accuracy (correct / total questions attempted)
-  const moduleAccuracy = useMemo(() => {
-    const acc = {};
-    const moduleIds = MODULES.map(m => m.id);
-    Object.entries(practiceProgress || {}).forEach(([key, data]) => {
-      if (data.bestScore === undefined) return;
-      // Match key against known module IDs (handles hyphenated IDs like "linear-equations")
-      const matchedModule = moduleIds.find(id => key.startsWith(id + '-'));
-      if (!matchedModule) return;
-      if (!acc[matchedModule]) acc[matchedModule] = { correct: 0, total: 0 };
-      acc[matchedModule].correct += (data.bestScore || 0);
-      acc[matchedModule].total += (data.totalQuestions || 5);
-    });
-    return acc;
-  }, [practiceProgress]);
-
-  const practicedModules = MODULES
-    .map(m => {
-      const a = moduleAccuracy[m.id];
-      if (!a || a.total === 0) return null;
-      return { ...m, accuracy: Math.round((a.correct / a.total) * 100) };
-    })
-    .filter(Boolean);
-
-  const strongest = practicedModules.length > 0
-    ? practicedModules.reduce((a, b) => a.accuracy > b.accuracy ? a : b)
-    : null;
-  const weakest = practicedModules.length > 1
-    ? practicedModules.reduce((a, b) => a.accuracy < b.accuracy ? a : b)
-    : null;
+  // Strongest / biggest-opportunity SECTION (Math vs R&W), derived from the
+  // combined per-section signal above. Replaces the old per-math-module pick,
+  // which could never surface R&W (it matched frozen practiceProgress against
+  // a hardcoded math-only module list).
+  const strongest = performanceTiles.strongest;
+  const opportunity = performanceTiles.opportunity;
 
   // Shared selector — one day-count for the SAT date everywhere (CalendarMonth,
   // study-plan hero, and this rail all consume the same signed integer).
@@ -515,7 +499,7 @@ const StudentDashboard = ({
   // #9b — while a returning user's data hydrates, show a skeleton instead of
   // flashing the empty/teaser state. Placed after all hooks; a genuinely new
   // account (not loading, no data) falls through to the designed empty states.
-  const hasAnyData = !!studyPlan || practiceEntries.length > 0 || (practiceTestResults?.length > 0);
+  const hasAnyData = !!studyPlan || practiceEntries.length > 0 || performanceTiles.hasData || (practiceTestResults?.length > 0);
   if (dataLoading && !hasAnyData) {
     return <DashboardSkeleton />;
   }
@@ -628,7 +612,7 @@ const StudentDashboard = ({
       {/* Performance Panel — D-IH-3: hide until the user has at least one
           practice attempt. An empty 3-card grid is dead pixels above the fold.
           (Restored 2026-06-06 by user call — the colorful tiles ARE the look.) */}
-      {practiceEntries.length > 0 && (
+      {performanceTiles.hasData && (
       <div className="acely-performance-grid">
         <div className="acely-metric-card acely-accuracy-card">
           <div className="acely-metric-label">Practice Accuracy</div>
@@ -644,29 +628,29 @@ const StudentDashboard = ({
                 <div className="acely-split-left">{strongest.accuracy}%</div>
                 <div className="acely-split-right">
                   <div className="acely-metric-label">Strongest Section</div>
-                  <div className="acely-section-name">{strongest.title}</div>
+                  <div className="acely-section-name">{strongest.label}</div>
                 </div>
               </>
             ) : (
               <div className="acely-split-empty">
                 <div className="acely-metric-label">Strongest Section</div>
-                <div className="acely-empty-hint">Practice a module to see your strongest area</div>
+                <div className="acely-empty-hint">Practice to see your strongest section</div>
               </div>
             )}
           </div>
           <div className="acely-split-card acely-weakest-card">
-            {weakest ? (
+            {opportunity && !opportunity.empty ? (
               <>
-                <div className="acely-split-left">{weakest.accuracy}%</div>
+                <div className="acely-split-left">{opportunity.accuracy}%</div>
                 <div className="acely-split-right">
                   <div className="acely-metric-label">Biggest Opportunity</div>
-                  <div className="acely-section-name">{weakest.title}</div>
+                  <div className="acely-section-name">{opportunity.label}</div>
                 </div>
               </>
             ) : (
               <div className="acely-split-empty">
                 <div className="acely-metric-label">Biggest Opportunity</div>
-                <div className="acely-empty-hint">Practice two modules to compare strengths</div>
+                <div className="acely-empty-hint">{opportunity?.empty ? `Practice ${opportunity.label} to compare` : 'Practice both sections to compare'}</div>
               </div>
             )}
           </div>
