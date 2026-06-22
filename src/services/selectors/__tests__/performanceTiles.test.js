@@ -1,18 +1,18 @@
 /**
- * buildPerformanceTiles.test.js — the home-screen performance tiles (orange
+ * performanceTiles.test.js — the home-screen performance tiles (orange
  * Practice Accuracy + green Strongest Section + purple Biggest Opportunity).
  *
- * These tiles used to read the FROZEN, math-only `practiceProgress`, so the %
- * stopped updating after the 2026-06-12 writer excision and R&W could never
- * appear. The rewrite blends live drills (skillProgress, both sections) with
- * the most recent full test (per-section raw counts) into one combined,
- * section-level signal. This pins that behavior.
+ * These tiles are derived from the most recent full-length practice test —
+ * the only clean, true-count, per-section accuracy source. (Earlier versions
+ * summed per-skill skillProgress, which double-counts: one question tagged
+ * with N skills bumped N tallies, producing nonsense like "6376 of 25706".)
+ * Every % is plain accuracy and every tile carries its raw count.
  */
 
 import { buildPerformanceTiles } from '../performanceTiles';
 
-// A scoreable multi-section attempt: 18/22 Math, 12/18 R&W.
-const TEST_RESULTS = {
+// A scoreable multi-section attempt: 18/22 Math, 12/18 R&W, 30/40 overall.
+const MULTI = {
   t1: {
     testTitle: 'Practice Test 1',
     lastAttemptAt: 2000,
@@ -31,62 +31,53 @@ const TEST_RESULTS = {
   },
 };
 
-describe('buildPerformanceTiles — combined, section-level practice tiles', () => {
-  test('blends drill (skillProgress) + latest test counts per section', () => {
-    const skillProgress = {
-      'linear-equations': { attempts: 10, correct: 9 }, // math drills
-      'functions': { attempts: 5, correct: 3 },         // math drills
-      'words-in-context': { attempts: 8, correct: 4 },  // R&W drills
-      'boundaries': { attempts: 4, correct: 3 },        // R&W drills
-    };
-    const r = buildPerformanceTiles(skillProgress, TEST_RESULTS);
+// A legacy math-only attempt (no sectionScores / moduleScores): 20/30.
+const MATH_ONLY = {
+  t1: {
+    testTitle: 'Old Test',
+    lastAttemptAt: 1000,
+    attempts: [{ completedAt: 1000, scaledScore: 600, rawScore: 20, totalQuestions: 30, isMultiSection: false }],
+  },
+};
 
-    // Math: drills 12/15 + test 18/22 = 30/37 = 81%
-    expect(r.sections.math).toEqual({ correct: 30, total: 37, accuracy: 81 });
-    // R&W: drills 7/12 + test 12/18 = 19/30 = 63%
-    expect(r.sections.rw).toEqual({ correct: 19, total: 30, accuracy: 63 });
-    // Overall: 49/67 = 73%
-    expect(r.overall).toEqual({ correct: 49, total: 67, percent: 73 });
+describe('buildPerformanceTiles — latest-test, section-level, with raw counts', () => {
+  test('overall accuracy comes from the test raw score (sane count, not inflated)', () => {
+    const r = buildPerformanceTiles(MULTI);
+    expect(r.overall).toEqual({ correct: 30, total: 40, percent: 75 });
     expect(r.hasData).toBe(true);
   });
 
-  test('strongest = higher-accuracy section, opportunity = lower (both as sections)', () => {
-    const skillProgress = {
-      'linear-equations': { attempts: 10, correct: 9 },
-      'words-in-context': { attempts: 8, correct: 4 },
-    };
-    const r = buildPerformanceTiles(skillProgress, TEST_RESULTS);
-    expect(r.strongest.key).toBe('math');
-    expect(r.strongest.label).toBe('Math');
-    expect(r.opportunity.key).toBe('rw');
-    expect(r.opportunity.label).toBe('Reading & Writing');
-    expect(r.strongest.accuracy).toBeGreaterThan(r.opportunity.accuracy);
+  test('each section carries accuracy AND the raw count behind it', () => {
+    const r = buildPerformanceTiles(MULTI);
+    expect(r.sections.math).toEqual({ correct: 18, total: 22, accuracy: 82 });
+    expect(r.sections.rw).toEqual({ correct: 12, total: 18, accuracy: 67 });
   });
 
-  test('R&W skill IDs bucket to R&W via getSkillSection (not math)', () => {
-    const r = buildPerformanceTiles({ 'words-in-context': { attempts: 6, correct: 3 } }, {});
-    expect(r.sections.math).toBeNull();
-    expect(r.sections.rw).toEqual({ correct: 3, total: 6, accuracy: 50 });
-    expect(r.strongest.key).toBe('rw');
+  test('strongest = higher-accuracy section, opportunity = lower (with counts)', () => {
+    const r = buildPerformanceTiles(MULTI);
+    expect(r.strongest).toEqual({ key: 'math', label: 'Math', accuracy: 82, correct: 18, total: 22 });
+    expect(r.opportunity).toEqual({ key: 'rw', label: 'Reading & Writing', accuracy: 67, correct: 12, total: 18 });
   });
 
-  test('only one section practiced → opportunity names the other, no %', () => {
-    const r = buildPerformanceTiles({ 'linear-equations': { attempts: 4, correct: 2 } }, {});
-    expect(r.strongest).toEqual({ key: 'math', label: 'Math', accuracy: 50 });
-    expect(r.opportunity).toEqual({ key: 'rw', label: 'Reading & Writing', accuracy: null, empty: true });
-    expect(r.hasData).toBe(true);
+  test('legacy math-only test → Math present, R&W opportunity is an empty prompt', () => {
+    const r = buildPerformanceTiles(MATH_ONLY);
+    expect(r.overall).toEqual({ correct: 20, total: 30, percent: 67 });
+    expect(r.sections.math).toEqual({ correct: 20, total: 30, accuracy: 67 });
+    expect(r.sections.rw).toBeNull();
+    expect(r.strongest).toEqual({ key: 'math', label: 'Math', accuracy: 67, correct: 20, total: 30 });
+    expect(r.opportunity).toEqual({ key: 'rw', label: 'Reading & Writing', accuracy: null, correct: null, total: null, empty: true });
   });
 
-  test('no data → hasData false, no strongest/opportunity, 0% overall', () => {
-    const r = buildPerformanceTiles({}, {});
+  test('no scored test → hasData false, nothing to show', () => {
+    const r = buildPerformanceTiles({});
     expect(r.hasData).toBe(false);
     expect(r.strongest).toBeNull();
     expect(r.opportunity).toBeNull();
     expect(r.overall.percent).toBe(0);
   });
 
-  test('zero-attempt skill records are ignored', () => {
-    const r = buildPerformanceTiles({ 'functions': { attempts: 0, correct: 0 } }, {});
-    expect(r.hasData).toBe(false);
+  test('null / undefined input is handled', () => {
+    expect(buildPerformanceTiles(null).hasData).toBe(false);
+    expect(buildPerformanceTiles(undefined).hasData).toBe(false);
   });
 });

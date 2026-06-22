@@ -167,12 +167,12 @@ const StudentDashboard = ({
   }));
 
   const practiceEntries = Object.entries(practiceProgress || {}).filter(([_, p]) => p.bestScore !== undefined);
-  // Combined practice performance for the three colorful tiles — blends live
-  // drills (skillProgress, both sections) with the most recent full test, so
-  // the numbers reflect everything the student has done across Math AND R&W.
+  // Performance data for the three colorful tiles, derived from the most
+  // recent full-length practice test (the only clean, true-count, per-section
+  // accuracy source — see services/selectors/performanceTiles.js).
   const performanceTiles = useMemo(
-    () => buildPerformanceTiles(skillProgress, practiceTestResults),
-    [skillProgress, practiceTestResults],
+    () => buildPerformanceTiles(practiceTestResults),
+    [practiceTestResults],
   );
   const totalCorrect = performanceTiles.overall.correct;
   const totalQuestions = performanceTiles.overall.total;
@@ -618,7 +618,7 @@ const StudentDashboard = ({
           <div className="acely-metric-label">Practice Accuracy</div>
           <div className="acely-metric-value">{practicePercent || 0}%</div>
           <div className="acely-metric-detail">
-            {totalCorrect} of {totalQuestions} questions correct
+            {totalCorrect} of {totalQuestions} correct · latest practice test
           </div>
         </div>
         <div className="acely-metric-stack">
@@ -629,12 +629,13 @@ const StudentDashboard = ({
                 <div className="acely-split-right">
                   <div className="acely-metric-label">Strongest Section</div>
                   <div className="acely-section-name">{strongest.label}</div>
+                  <div className="acely-split-detail">{strongest.correct} of {strongest.total} correct</div>
                 </div>
               </>
             ) : (
               <div className="acely-split-empty">
                 <div className="acely-metric-label">Strongest Section</div>
-                <div className="acely-empty-hint">Practice to see your strongest section</div>
+                <div className="acely-empty-hint">Take a practice test to see your strongest section</div>
               </div>
             )}
           </div>
@@ -645,12 +646,13 @@ const StudentDashboard = ({
                 <div className="acely-split-right">
                   <div className="acely-metric-label">Biggest Opportunity</div>
                   <div className="acely-section-name">{opportunity.label}</div>
+                  <div className="acely-split-detail">{opportunity.correct} of {opportunity.total} correct</div>
                 </div>
               </>
             ) : (
               <div className="acely-split-empty">
                 <div className="acely-metric-label">Biggest Opportunity</div>
-                <div className="acely-empty-hint">{opportunity?.empty ? `Practice ${opportunity.label} to compare` : 'Practice both sections to compare'}</div>
+                <div className="acely-empty-hint">{opportunity?.empty ? `Take a test with ${opportunity.label} to compare your sections` : 'Take a practice test to compare your sections'}</div>
               </div>
             )}
           </div>
