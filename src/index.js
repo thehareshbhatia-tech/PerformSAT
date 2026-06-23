@@ -10,14 +10,21 @@ import * as Sentry from '@sentry/react';
 // rides in the entry chunk. Loaded only when the #__diag= hash is present.
 const DiagramPreview = React.lazy(() => import('./components/__DiagramPreview'));
 
-// Error reporting: Sentry when a DSN is configured (CRA bakes REACT_APP_* at
-// build time), otherwise a console listener for unhandled rejections. Do NOT
-// add a manual unhandledrejection listener on the Sentry branch — Sentry's
-// default globalHandlersIntegration already hooks it, and a second listener
-// would double-report every rejection.
-if (process.env.REACT_APP_SENTRY_DSN) {
+// Error reporting: Sentry. A frontend DSN is public by design (it ships in the
+// client bundle), so the production DSN is committed here as a fallback — crash
+// reporting then works without depending on a Vercel env var being set. Gated to
+// production so local dev / test noise doesn't burn the error quota. An explicit
+// REACT_APP_SENTRY_DSN still wins (e.g. point a dev/preview build at its own
+// project). Do NOT add a manual unhandledrejection listener on the Sentry branch
+// — Sentry's default globalHandlersIntegration already hooks it, and a second
+// listener would double-report every rejection.
+const SENTRY_DSN = process.env.REACT_APP_SENTRY_DSN
+  || (process.env.NODE_ENV === 'production'
+    ? 'https://027be0645dc9f0e762b5019c76c86444@o4511616418578432.ingest.us.sentry.io/4511616425000960'
+    : '');
+if (SENTRY_DSN) {
   Sentry.init({
-    dsn: process.env.REACT_APP_SENTRY_DSN,
+    dsn: SENTRY_DSN,
     environment: process.env.NODE_ENV,
     sendDefaultPii: false,
   });
