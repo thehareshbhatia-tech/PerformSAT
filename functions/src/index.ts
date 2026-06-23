@@ -293,12 +293,14 @@ export const aiTutor = onRequest(
             // spinner before the first streamed token — the single biggest
             // source of perceived latency in chat. The tutor is explaining a
             // known answer with a rich persona prompt; it does not need
-            // chain-of-thought. disabled + effort:low is Anthropic's documented
-            // fast-chat setting for Sonnet 4.6 (first token streams almost
-            // immediately). Re-enable adaptive thinking only if answer quality
-            // visibly regresses.
+            // chain-of-thought. Thinking-off is what makes the first token stream
+            // almost immediately (no pre-reply reasoning pass = no spinner). Effort
+            // stays at "medium" (not "low") so the model still reliably follows the
+            // formatting rules — notably wrapping ALL math in LaTeX dollar signs;
+            // at "low" it got terse enough to emit raw "b^2 - 4ac" plain text.
+            // Medium effort does NOT re-add the pre-token wait (that was thinking).
             thinking: {type: "disabled"},
-            output_config: {effort: "low"},
+            output_config: {effort: "medium"},
             // Prompt caching: send the system prompt as a cacheable content
             // block so the stable persona prefix is reused across turns. (Pays
             // off fully once the client stops interleaving per-turn volatile
