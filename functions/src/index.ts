@@ -33,12 +33,15 @@ const anthropicApiKey = defineSecret("ANTHROPIC_API_KEY");
 
 setGlobalOptions({maxInstances: 10});
 
-// Allowed CORS origins — restrict to your production domains.
-// NOTE: SEVA is served from Vercel (perform-sat.vercel.app); the prod origin
-// MUST be listed here or the authenticated tutor will be CORS-blocked after
-// the hardened function deploys. Confirm/extend with your canonical domain
-// (and any custom domain) before deploying.
+// Allowed CORS origins — restrict to your production domains. EVERY origin the
+// app is served from MUST be listed here, or authenticated function calls (the
+// AI tutor, AI study-plan generation, etc.) are CORS-blocked by the browser and
+// surface to the user as a generic connection error. The live custom domain is
+// sevaprep.com (apex 308-redirects to www); keep both. Add any new domain here
+// AND redeploy functions when the app's served origin changes.
 const ALLOWED_ORIGINS = [
+  "https://sevaprep.com",
+  "https://www.sevaprep.com",
   "https://perform-sat.vercel.app",
   "https://performsat-production.web.app",
   "https://performsat-production.firebaseapp.com",
