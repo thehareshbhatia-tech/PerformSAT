@@ -135,7 +135,7 @@ const humanizeSkillId = (id) => {
   return id.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
 };
 import { convertToSATScore, scaleResponseVector, getItemParams, isAnswerCorrect, estimatePercentile as _estimatePercentile, inferDomain } from './scoring';
-import { isCompositeScaleTarget } from './selectors/goalProgress';
+import { isCompositeScaleTarget, DEFAULT_GOAL_SCORE } from './selectors/goalProgress';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // CONSTANTS
@@ -818,7 +818,7 @@ export const runDiagnostic = (test, answers, diagnosticData, skillProgress = {},
   // Gap only when the target is provably on the same scale as the headline
   // (onboarding now stores 400-1600 composite goals; legacy profiles carry
   // 200-800 section targets).
-  const targetScore = userProfile.targetScore || (isMultiSection ? 1400 : 700);
+  const targetScore = userProfile.targetScore || (isMultiSection ? DEFAULT_GOAL_SCORE : 700);
   const targetComparable = isCompositeScaleTarget(targetScore) === isMultiSection;
   const scoreGap = targetComparable ? Math.max(0, targetScore - scaledScore) : 0;
 

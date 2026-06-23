@@ -707,7 +707,9 @@ const StudentDashboard = ({
             <ScoreSlider
               value={tempCurrentScore}
               onChange={setTempCurrentScore}
-              label="What's your current SAT Math score?"
+              min={400}
+              max={1600}
+              label="What's your current SAT score?"
               description="Enter your most recent practice test or official score"
               onSave={() => handleSelectCurrentScore(tempCurrentScore)}
               onCancel={() => setShowCurrentScorePicker(false)}
@@ -964,7 +966,12 @@ const StudentDashboard = ({
                           ? (
                             <span className="dashboard-tile-school">
                               <span className="tile-school-name">{user.targetSchools[0].name}</span>
-                              <span className="tile-school-median">Median Math: {user.targetSchools[0].satMath}</span>
+                              {/* collegeData carries only a math-section median (<=800).
+                                  Show it only under a legacy section goal — never beneath
+                                  a composite (400-1600) goal, which would mix scales. */}
+                              {user.targetScore <= 800 && (
+                                <span className="tile-school-median">Median Math: {user.targetSchools[0].satMath}</span>
+                              )}
                             </span>
                           )
                           : 'From onboarding')}

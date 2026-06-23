@@ -62,6 +62,7 @@ import { buildDailySession } from './services/dailyReviewEngine';
 import { getReadyAiDiagnostic, loadAttemptSnapshot } from './services/practiceTestService';
 import { reprioritizePlan } from './services/adaptivePlanService';
 import { findMatchingPlanActivity } from './services/selectors/planActivityMatch';
+import { DEFAULT_GOAL_SCORE } from './services/selectors/goalProgress';
 import { buildLongitudinalEvidence } from './services/studyPlanMerger';
 import { generateStudyPlan as generateAIPlan } from './services/studyPlanService';
 import { logInfo, logWarn } from './utils/log';
@@ -685,7 +686,7 @@ const PerformSAT = () => {
       try {
         const { plan: aiPlan } = await generateAIPlan(
           diagnosticReport,
-          { targetScore: user?.targetScore || 700, testDate: user?.testDate },
+          { targetScore: user?.targetScore || DEFAULT_GOAL_SCORE, testDate: user?.testDate },
           previousPlans,
           longitudinalContext
         );

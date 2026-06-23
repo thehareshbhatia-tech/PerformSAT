@@ -218,13 +218,17 @@ const AiTutorChat = ({
 
     // Score context
     const scores = [];
-    if (user?.currentScore) scores.push(`${profileSection === 'rw' ? 'Current SAT score' : 'Current SAT Math score'}: ${user.currentScore}`);
+    // A composite score (> 800) is the whole SAT; only a section-scale score is "Math".
+    if (user?.currentScore) scores.push(`${(user.currentScore > 800 || profileSection === 'rw') ? 'Current SAT score' : 'Current SAT Math score'}: ${user.currentScore}`);
     if (user?.targetScore) scores.push(`Target score: ${user.targetScore}`);
     if (user?.currentScore && user?.targetScore) {
+      // Only state a gap when goal and current score are on the same scale
+      // (both composite > 800, or both section <= 800) — never cross-scale.
+      const sameScale = (user.targetScore > 800) === (user.currentScore > 800);
       const gap = user.targetScore - user.currentScore;
-      if (gap > 0) {
+      if (sameScale && gap > 0) {
         scores.push(`Needs to gain: ${gap} points`);
-      } else {
+      } else if (sameScale) {
         scores.push(`Already at or above target`);
       }
     }
@@ -313,8 +317,10 @@ const AiTutorChat = ({
       }
     }
 
-    // Strategic coaching note based on score gap
-    if (user?.currentScore && user?.targetScore) {
+    // Strategic coaching note based on score gap — only when goal and current
+    // score are on the same scale (both composite > 800, or both section).
+    if (user?.currentScore && user?.targetScore
+        && ((user.targetScore > 800) === (user.currentScore > 800))) {
       const gap = user.targetScore - user.currentScore;
       if (gap >= 100) {
         parts.push(`COACHING STRATEGY: ${gap}-point gap requires systematic improvement. Focus on the highest-frequency domains first — ${profileSection === 'rw' ? 'Information & Ideas and Standard English Conventions are together about half the section' : 'Algebra alone is 35% of the test'}. Every easy question they currently miss is the fastest possible point gain. Do NOT waste time on the hardest 5% of questions until they are nailing everything else.`);

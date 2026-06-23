@@ -286,8 +286,8 @@ const Profile = ({
             value={user?.targetScore}
             onSave={onUpdateTargetScore}
             type="number"
-            min={200}
-            max={800}
+            min={400}
+            max={1600}
           />
           <div style={{ borderTop: `1px solid ${colors.surface.gray}` }} />
           <EditableField
@@ -295,8 +295,8 @@ const Profile = ({
             value={user?.currentScore}
             onSave={onUpdateCurrentScore}
             type="number"
-            min={200}
-            max={800}
+            min={400}
+            max={1600}
           />
           <div style={{ borderTop: `1px solid ${colors.surface.gray}` }} />
           <EditableField

@@ -22,6 +22,7 @@ import { hasQuestionsForSection, getSectionsWithQuestions } from '../data/questi
 // cascade so an unmapped math gap whose skillId the bank can't serve emits
 // no activity (the pre-feature status quo) instead of a dead Launch button.
 import { getTargetedWeaknessSet as bankTargetedWeaknessSet, getQuestionsBySkillIds as bankQuestionsBySkillIds } from '../data/questions/bank';
+import { DEFAULT_GOAL_SCORE } from './selectors/goalProgress';
 import { getSkillById, skillTaxonomy } from '../data/skillTaxonomy';
 import { ERROR_TYPES, ERROR_TYPE_LABELS, ERROR_TYPE_ICONS } from './diagnosticEngine';
 import { generatePracticeAssignments, buildAdaptiveQueueSeed, buildStrengthFocusAssignments, serializeAdaptiveState, createAdaptiveSessionState } from './practiceAssignmentService';
@@ -168,7 +169,7 @@ function extractWrongAnswerIds(previousPlan, currentExcludeIds) {
  * @returns {Object} Complete study plan
  */
 export const generateStudyPlan = (diagnostic, userProfile = {}, completedLessons = {}, practiceProgress = {}, previousPlan = null, longitudinal = null, answeredQuestionIds = []) => {
-  const { targetScore = 700, testDate } = userProfile;
+  const { targetScore = DEFAULT_GOAL_SCORE, testDate } = userProfile;
   const currentScore = diagnostic.score.scaled;
 
   // ═══ Scale-guarded gap basis ═══

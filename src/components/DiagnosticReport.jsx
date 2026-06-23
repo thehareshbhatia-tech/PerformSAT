@@ -18,6 +18,7 @@
 
 import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { runDiagnostic, ERROR_TYPES, ERROR_TYPE_LABELS, ERROR_TYPE_ICONS, ERROR_TYPE_COLORS } from '../services/diagnosticEngine';
+import { DEFAULT_GOAL_SCORE } from '../services/selectors/goalProgress';
 import { generateStudyPlan, compareDiagnostics } from '../services/studyPlanGenerator';
 import { isBlankAttempt } from '../services/selectors/latestTestStats';
 // Drill routing for the Do-This-First CTA when the next action is a
@@ -419,7 +420,7 @@ const DiagnosticReport = ({
   const diagnostic = useMemo(() => {
     return runDiagnostic(
       test, answers, diagnosticData, skillProgress,
-      { targetScore: user?.targetScore || 700, testDate: user?.testDate, currentScore: user?.currentScore },
+      { targetScore: user?.targetScore || DEFAULT_GOAL_SCORE, testDate: user?.testDate, currentScore: user?.currentScore },
       practiceTestResults
     );
   }, [test, answers, diagnosticData, skillProgress, user, practiceTestResults]);
@@ -430,7 +431,7 @@ const DiagnosticReport = ({
     if (savedStudyPlan) return savedStudyPlan;
     return generateStudyPlan(
       diagnostic,
-      { targetScore: user?.targetScore || 700, testDate: user?.testDate },
+      { targetScore: user?.targetScore || DEFAULT_GOAL_SCORE, testDate: user?.testDate },
       completedLessons,
       practiceProgress,
       null

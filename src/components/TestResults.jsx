@@ -9,7 +9,7 @@ import React, { useState, useMemo, useRef, useEffect } from 'react';
 import { colors, radius, shadows } from '../design/tokens';
 import { cardStyles, buttonStyles } from '../design/components';
 import { MathText } from './MathText';
-import { isGoalAchieved } from '../services/selectors/goalProgress';
+import { isGoalAchieved, isCompositeScaleTarget, DEFAULT_GOAL_SCORE } from '../services/selectors/goalProgress';
 import { isBlankAttempt } from '../services/selectors/latestTestStats';
 import './TestResults.css';
 import { ChartBarIcon, ArrowRightIcon, BookOpenIcon, PencilIcon, BrainIcon, SearchIcon, PinIcon } from '../design/icons';
@@ -641,13 +641,11 @@ const TestResults = ({
     const mod2Hard = isModule2Hard();
     const mod1 = calculateModuleScore(0);
     const mod2 = test.modules.length > 1 ? calculateModuleScore(1) : null;
-    const targetScore = user?.targetScore || 700;
-    // The onboarding target is section-scale (200-800). A full-length result is a
-    // 400-1600 composite, so the section target is not comparable to it without a
-    // per-section target we don't capture yet (1.4). Only compare — and only claim
-    // "at target" — when the score is section-scale; never falsely celebrate a
-    // composite that numerically clears a section target.
-    const targetComparable = !isMultiSection;
+    const targetScore = user?.targetScore || DEFAULT_GOAL_SCORE;
+    // Compare only when goal and score are on the SAME scale: a composite goal
+    // (> 800) against a composite full-length result, or a legacy section goal
+    // (<= 800) against a section-only result. Never compare across scales.
+    const targetComparable = isCompositeScaleTarget(targetScore) === isMultiSection;
     const gap = targetComparable ? Math.max(0, targetScore - satScore) : 0;
     const isAtTarget = isGoalAchieved({ latestScore: satScore, targetScore, isMultiSection });
     const accuracyPct = totalQuestions > 0 ? Math.round((totalCorrect / totalQuestions) * 100) : 0;
@@ -1904,11 +1902,12 @@ const TestResults = ({
     let sectionNum = 0;
 
     // Compute our 4 custom metrics
-    const targetScore = user?.targetScore || 700;
-    // Scale-aware: composite full-length results render against /1600, and the
-    // section-scale target only compares when the score is itself section-scale (1.4).
+    const targetScore = user?.targetScore || DEFAULT_GOAL_SCORE;
+    // Scale-aware: composite full-length results render against /1600; the goal
+    // compares only when it's on the same scale as the score (composite goal +
+    // composite result, or legacy section goal + section result).
     const scaleMax = isMultiSection ? 1600 : 800;
-    const targetComparable = !isMultiSection;
+    const targetComparable = isCompositeScaleTarget(targetScore) === isMultiSection;
     const gapToTarget = targetComparable ? Math.max(0, targetScore - satScore) : 0;
 
     const qDetails = diagnosticData?.questionDetails || {};

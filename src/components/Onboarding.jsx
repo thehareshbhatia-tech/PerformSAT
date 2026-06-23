@@ -7,7 +7,7 @@ import { Button } from './ui/Button';
 
 const Onboarding = ({ user, onUpdateTargetScore, onUpdateTestDate, onUpdateCurrentScore, onComplete, onSkip }) => {
   const [step, setStep] = useState(0);
-  const [targetScore, setTargetScore] = useState(1300);
+  const [targetScore, setTargetScore] = useState(1500);
   const [testDateOption, setTestDateOption] = useState(null);
   const [customDate, setCustomDate] = useState('');
   const [hasScore, setHasScore] = useState(null);

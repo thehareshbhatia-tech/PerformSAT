@@ -24,6 +24,16 @@ export const SECTION_SCALE_MAX = 800;
 export const COMPOSITE_SCALE_MAX = 1600;
 
 /**
+ * Default goal when a student hasn't set one. The app covers BOTH sections, so
+ * the default is a composite (400-1600) target — 1500 is "750 in each section,"
+ * the original math-only goal applied across both. Must stay above
+ * SECTION_SCALE_MAX so the scale helpers above treat it as composite. Legacy
+ * accounts that stored a 200-800 section goal are left as-is and still compare
+ * correctly via the section path.
+ */
+export const DEFAULT_GOAL_SCORE = 1500;
+
+/**
  * Is `target` provably on the composite (400-1600) scale? A target above the
  * section ceiling can only be a composite goal (set by onboarding's 400-1600
  * slider); a target at or below 800 is treated as the legacy section scale.

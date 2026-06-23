@@ -6,7 +6,18 @@ import {
   isCompositeScaleTarget,
   SECTION_SCALE_MAX,
   COMPOSITE_SCALE_MAX,
+  DEFAULT_GOAL_SCORE,
 } from '../goalProgress';
+
+describe('goalProgress — DEFAULT_GOAL_SCORE', () => {
+  it('is a composite-scale goal (both sections), above the section ceiling', () => {
+    // Must stay > 800 so the scale helpers treat the default as composite —
+    // a default <= 800 would be silently mis-read as a math-section goal.
+    expect(DEFAULT_GOAL_SCORE).toBeGreaterThan(SECTION_SCALE_MAX);
+    expect(DEFAULT_GOAL_SCORE).toBeLessThanOrEqual(COMPOSITE_SCALE_MAX);
+    expect(isCompositeScaleTarget(DEFAULT_GOAL_SCORE)).toBe(true);
+  });
+});
 
 describe('goalProgress — isSectionScaleScore', () => {
   it('treats a section-flagged score within the ceiling as comparable', () => {

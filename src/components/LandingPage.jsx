@@ -319,7 +319,7 @@ const LandingPage = () => {
                   {hasTakenSAT === 'yes' && (
                     <div className="auth-form-group">
                       <label className="auth-form-label" htmlFor="satScore">
-                        What was your SAT Math score? (optional)
+                        What was your most recent SAT score? (optional)
                       </label>
                       <input
                         id="satScore"
@@ -327,12 +327,12 @@ const LandingPage = () => {
                         className="auth-form-input"
                         value={satScore}
                         onChange={(e) => setSatScore(e.target.value)}
-                        placeholder="e.g., 600"
-                        min="200"
-                        max="800"
+                        placeholder="e.g., 1200"
+                        min="400"
+                        max="1600"
                       />
                       <p className="auth-form-hint">
-                        Score range: 200-800
+                        Score range: 400-1600
                       </p>
                     </div>
                   )}
