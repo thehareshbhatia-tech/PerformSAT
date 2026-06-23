@@ -1,0 +1,260 @@
+/**
+ * studyPlanEditor — pure transforms for student-initiated study-plan edits.
+ *
+ * Every function takes a `plan` (the generated study-plan object) plus edit
+ * args and returns a NEW plan (immutable; the input is never mutated). Keeping
+ * these pure makes them unit-testable and keeps mutation logic out of React /
+ * the persistence layer (`useProgress.saveEditedStudyPlan` writes whatever
+ * these return).
+ *
+ * Edits live on the current plan and are persisted to the Firestore artifact,
+ * exactly like the existing `completed` flag. A new practice test still
+ * regenerates a fresh plan (a new test == a new plan) — surviving edits across
+ * regeneration is a deliberate non-goal for v1.
+ *
+ * Conventions added to activities by these edits:
+ *   - `skipped: boolean`    — student set the task aside (kept, but excluded
+ *                             from "today"/counts; see selectors/todaySlice).
+ *   - `custom: boolean`     — a student-added task (no drill to launch).
+ *   - `userEdited: boolean` — touched by any manual edit (drives a subtle
+ *                             "edited" affordance and future regen-survival).
+ */
+
+const DAY_ORDER = [
+  'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday',
+];
+
+/** Deep clone matching the codebase convention (plans are plain JSON). */
+function clone(plan) {
+  return JSON.parse(JSON.stringify(plan));
+}
+
+/** Guard: is this a valid (weekIndex, activityIndex) into the plan? */
+function hasActivity(plan, weekIndex, activityIndex) {
+  return !!plan?.weeks?.[weekIndex]?.activities?.[activityIndex];
+}
+
+/**
+ * Move an activity to a different day of its week.
+ * @param {object} plan
+ * @param {number} weekIndex
+ * @param {number} activityIndex
+ * @param {string} newDay - one of Monday..Sunday
+ * @returns {object} new plan (unchanged if args are invalid)
+ */
+export function rescheduleActivity(plan, weekIndex, activityIndex, newDay) {
+  if (!hasActivity(plan, weekIndex, activityIndex) || !DAY_ORDER.includes(newDay)) {
+    return plan;
+  }
+  const next = clone(plan);
+  const act = next.weeks[weekIndex].activities[activityIndex];
+  act.day = newDay;
+  act.userEdited = true;
+  return next;
+}
+
+/**
+ * Skip (or un-skip) an activity. Skipped activities stay in the plan but are
+ * excluded from the day slice and progress counts.
+ * @returns {object} new plan
+ */
+export function setActivitySkipped(plan, weekIndex, activityIndex, skipped) {
+  if (!hasActivity(plan, weekIndex, activityIndex)) return plan;
+  const next = clone(plan);
+  const act = next.weeks[weekIndex].activities[activityIndex];
+  act.skipped = !!skipped;
+  act.userEdited = true;
+  return next;
+}
+
+/**
+ * Remove an activity from its week.
+ * @returns {object} new plan
+ */
+export function removeActivity(plan, weekIndex, activityIndex) {
+  if (!hasActivity(plan, weekIndex, activityIndex)) return plan;
+  const next = clone(plan);
+  next.weeks[weekIndex].activities.splice(activityIndex, 1);
+  return next;
+}
+
+/**
+ * Append a student-authored task to a week. Custom tasks are checklist items —
+ * they have no drill to launch, only a complete/skip/remove lifecycle.
+ * @param {object} plan
+ * @param {number} weekIndex
+ * @param {{title:string, day?:string, duration?:number, section?:string}} task
+ * @returns {object} new plan (unchanged if title is blank or week is invalid)
+ */
+export function addCustomActivity(plan, weekIndex, task) {
+  const title = (task?.title || '').trim();
+  if (!plan?.weeks?.[weekIndex] || !title) return plan;
+  const next = clone(plan);
+  const day = DAY_ORDER.includes(task.day) ? task.day : 'Monday';
+  const duration = Number.isFinite(task.duration) && task.duration > 0
+    ? Math.round(task.duration)
+    : 20;
+  if (!Array.isArray(next.weeks[weekIndex].activities)) {
+    next.weeks[weekIndex].activities = [];
+  }
+  next.weeks[weekIndex].activities.push({
+    type: 'custom',
+    activityType: 'customTask',
+    title,
+    subtitle: 'Your task',
+    duration,
+    priority: 0,
+    day,
+    weekPhase: 'mid',
+    section: task.section === 'rw' ? 'rw' : undefined,
+    custom: true,
+    userEdited: true,
+  });
+  return next;
+}
+
+/**
+ * Replace the focus-area (weaknesses) list. Reconciles activities: practice
+ * activities whose `skillId` is no longer in the focus set are dropped (unless
+ * completed), and any newly-added focus skill gets one practice activity in the
+ * first week so the plan actually reflects the new focus. Custom tasks and
+ * non-practice activities are never touched.
+ *
+ * @param {object} plan
+ * @param {Array<object>} nextWeaknesses - the new weaknesses[] (drill-shape)
+ * @returns {object} new plan (unchanged if nextWeaknesses is empty/invalid)
+ */
+export function setFocusAreas(plan, nextWeaknesses) {
+  if (!plan || !Array.isArray(nextWeaknesses) || nextWeaknesses.length === 0) {
+    return plan;
+  }
+  const next = clone(plan);
+  const prevSkillIds = new Set((next.weaknesses || []).map((w) => w.skillId));
+  const nextSkillIds = new Set(nextWeaknesses.map((w) => w.skillId));
+  next.weaknesses = nextWeaknesses.map((w) => ({ ...w }));
+
+  // Drop generated practice activities for de-focused skills (keep completed
+  // work and anything the student customized or added).
+  (next.weeks || []).forEach((week) => {
+    week.activities = (week.activities || []).filter((act) => {
+      const isGeneratedPractice = act.type === 'practice' && !act.custom && !act.completed;
+      if (isGeneratedPractice && act.skillId && !nextSkillIds.has(act.skillId)) {
+        return false;
+      }
+      return true;
+    });
+  });
+
+  // Add a practice activity for each newly-focused skill (first week).
+  const added = nextWeaknesses.filter((w) => w.skillId && !prevSkillIds.has(w.skillId));
+  if (added.length && next.weeks?.[0]) {
+    added.forEach((w) => {
+      next.weeks[0].activities.push({
+        type: 'practice',
+        activityType: 'practiceSection',
+        title: `Practice: ${w.skill}`,
+        subtitle: w.skill,
+        duration: 20,
+        priority: 5,
+        skillId: w.skillId,
+        skillName: w.skill,
+        section: w.section === 'rw' ? 'rw' : 'math',
+        day: 'Monday',
+        weekPhase: 'start',
+        userEdited: true,
+      });
+    });
+  }
+  return next;
+}
+
+/**
+ * Compute the intensity label for a given minutes/day, matching the generator's
+ * bands closely enough for display.
+ */
+export function intensityForMinutes(minutesPerDay) {
+  if (minutesPerDay <= 20) return 'light';
+  if (minutesPerDay <= 35) return 'moderate';
+  if (minutesPerDay <= 55) return 'focused';
+  if (minutesPerDay <= 80) return 'intensive';
+  return 'marathon';
+}
+
+/**
+ * Greedily re-bin a week's active (non-completed, non-skipped) activities across
+ * the calendar so each day's total duration stays near `minutesPerDay`. Fills
+ * Monday → Sunday, opening a new day when the current one is full, so a smaller
+ * minutes/day naturally spreads work across more days. Completed and skipped
+ * activities keep their existing day.
+ */
+function redistributeWeek(week, minutesPerDay) {
+  const cap = Math.max(10, minutesPerDay);
+  const active = (week.activities || []).filter((a) => !a.completed && !a.skipped);
+  let dayIdx = 0;
+  let dayTotal = 0;
+  active.forEach((act) => {
+    const dur = Number.isFinite(act.duration) ? act.duration : 20;
+    if (dayTotal > 0 && dayTotal + dur > cap && dayIdx < DAY_ORDER.length - 1) {
+      dayIdx += 1;
+      dayTotal = 0;
+    }
+    act.day = DAY_ORDER[dayIdx];
+    dayTotal += dur;
+  });
+}
+
+/**
+ * Apply a pacing change: new minutes/day and/or exam date. Updates the plan's
+ * displayed stats + intensity, re-bins each week's activities to the new daily
+ * load, and records the choice in `plan.userPrefs`. `todayISO` is passed in
+ * (not read from the clock) so the transform stays pure/testable.
+ *
+ * @param {object} plan
+ * @param {{minutesPerDay?:number, examDate?:string|null}} prefs
+ * @param {string} todayISO - YYYY-MM-DD for computing daysUntilTest
+ * @returns {object} new plan
+ */
+export function setPacing(plan, prefs, todayISO) {
+  if (!plan) return plan;
+  const next = clone(plan);
+  const minutesPerDay = Number.isFinite(prefs?.minutesPerDay) && prefs.minutesPerDay > 0
+    ? Math.round(prefs.minutesPerDay)
+    : (next.summary?.stats?.minutesPerDay || next.intensityConfig?.minutesPerDay || 30);
+
+  next.userPrefs = {
+    ...(next.userPrefs || {}),
+    minutesPerDay,
+    examDate: prefs?.examDate ?? next.userPrefs?.examDate ?? next.examDate ?? null,
+    edited: true,
+  };
+  next.intensity = intensityForMinutes(minutesPerDay);
+  if (next.intensityConfig) next.intensityConfig.minutesPerDay = minutesPerDay;
+  if (next.summary?.stats) {
+    next.summary.stats.minutesPerDay = minutesPerDay;
+    next.summary.stats.intensity = next.intensity;
+  }
+
+  if (prefs?.examDate) {
+    next.examDate = prefs.examDate;
+    if (todayISO) {
+      const days = Math.round(
+        (Date.parse(prefs.examDate) - Date.parse(todayISO)) / 86400000
+      );
+      if (Number.isFinite(days)) {
+        next.daysUntilTest = Math.max(0, days);
+        if (next.summary?.stats) next.summary.stats.daysUntilTest = Math.max(0, days);
+      }
+    }
+  }
+
+  (next.weeks || []).forEach((week) => {
+    redistributeWeek(week, minutesPerDay);
+    week.totalMinutes = (week.activities || [])
+      .filter((a) => !a.skipped)
+      .reduce((sum, a) => sum + (Number.isFinite(a.duration) ? a.duration : 0), 0);
+  });
+
+  return next;
+}
+
+export const __testing = { DAY_ORDER, redistributeWeek };

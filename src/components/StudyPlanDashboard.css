@@ -1242,6 +1242,179 @@ button.sp-tuneup-bar:hover { background: var(--sp-inset); }
   display: inline-flex; align-items: center; gap: 3px;
   font-weight: 700; font-size: 13px;
 }
+
+/* ── Edit-plan mode (student edits study plan) ───────────────────────── */
+.sp-edit-bar {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 14px;
+}
+.sp-edit-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  background: var(--sp-surface);
+  border: 1px solid var(--sp-line-strong);
+  border-radius: 9px;
+  font-family: var(--sp-font-body);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--sp-text-2);
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+.sp-edit-toggle:hover { background: var(--sp-surface-2); }
+.sp-edit-toggle.is-active {
+  background: var(--sp-purple-soft);
+  border-color: var(--sp-purple-border);
+  color: var(--sp-purple);
+}
+
+.sp-edit-settings {
+  margin-top: 12px;
+  padding: 16px;
+  background: var(--sp-purple-soft);
+  border: 1px solid var(--sp-purple-border);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.sp-edit-section-title {
+  font-family: var(--sp-font-body);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--sp-text-3);
+  margin-bottom: 10px;
+}
+.sp-focus-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.sp-focus-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 6px 5px 11px;
+  background: var(--sp-surface);
+  border: 1px solid var(--sp-line-strong);
+  border-radius: 999px;
+  font-family: var(--sp-font-body);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--sp-text);
+}
+.sp-focus-chip button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border: none;
+  border-radius: 50%;
+  background: var(--sp-surface-2);
+  color: var(--sp-text-3);
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+}
+.sp-focus-chip button:hover { background: var(--sp-error-tint); color: var(--sp-error); }
+.sp-focus-add,
+.sp-pacing-date,
+.sp-edit-day {
+  appearance: auto;
+  padding: 6px 10px;
+  background: var(--sp-surface);
+  border: 1px solid var(--sp-line-strong);
+  border-radius: 8px;
+  font-family: var(--sp-font-body);
+  font-size: 13px;
+  color: var(--sp-text);
+  cursor: pointer;
+}
+.sp-focus-add { margin-top: 10px; max-width: 260px; }
+
+.sp-pacing-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.sp-pacing-row:last-child { margin-bottom: 0; }
+.sp-pacing-label {
+  font-family: var(--sp-font-body);
+  font-size: 13px;
+  color: var(--sp-text-2);
+  min-width: 110px;
+}
+.sp-pacing-opts { display: flex; gap: 6px; flex-wrap: wrap; }
+.sp-pacing-opt {
+  min-width: 38px;
+  padding: 6px 10px;
+  background: var(--sp-surface);
+  border: 1px solid var(--sp-line-strong);
+  border-radius: 8px;
+  font-family: var(--sp-font-body);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--sp-text-2);
+  cursor: pointer;
+}
+.sp-pacing-opt:hover { background: var(--sp-surface-2); }
+.sp-pacing-opt.is-active {
+  background: var(--sp-purple);
+  border-color: var(--sp-purple);
+  color: #fff;
+}
+
+/* Per-activity edit controls (replace the Launch button in edit mode) */
+.sp-edit-controls { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
+.sp-edit-day { padding: 5px 8px; }
+.sp-edit-btn {
+  padding: 6px 10px;
+  background: var(--sp-surface);
+  border: 1px solid var(--sp-line-strong);
+  border-radius: 8px;
+  font-family: var(--sp-font-body);
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--sp-text-2);
+  cursor: pointer;
+}
+.sp-edit-btn:hover { background: var(--sp-surface-2); }
+.sp-edit-remove:hover { background: var(--sp-error-tint); color: var(--sp-error); border-color: var(--sp-error); }
+
+/* Add-task form */
+.sp-add-task { margin-top: 10px; }
+.sp-add-task-btn {
+  width: 100%;
+  padding: 10px;
+  background: transparent;
+  border: 1px dashed var(--sp-line-strong);
+  border-radius: 10px;
+  font-family: var(--sp-font-body);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--sp-text-3);
+  cursor: pointer;
+}
+.sp-add-task-btn:hover { color: var(--sp-purple); border-color: var(--sp-purple-border); background: var(--sp-purple-soft); }
+.sp-add-task-form { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.sp-add-task-input {
+  flex: 1;
+  min-width: 200px;
+  padding: 8px 12px;
+  background: var(--sp-surface);
+  border: 1px solid var(--sp-line-strong);
+  border-radius: 8px;
+  font-family: var(--sp-font-body);
+  font-size: 14px;
+  color: var(--sp-text);
+}
+@media (max-width: 640px) {
+  .sp-edit-controls { flex-wrap: wrap; justify-content: flex-end; }
+  .sp-pacing-label { min-width: 0; }
+}
 .sp-tile-delta.is-up { color: var(--sp-done); }
 .sp-tile-delta.is-down { color: var(--sp-error); }
 

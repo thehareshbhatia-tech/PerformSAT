@@ -16,6 +16,14 @@ import { applyPredictionBoost } from '../services/selectors/predictionBoost';
 import { annotateFocusAreas } from '../services/selectors/focusAreaProgress';
 import { getDrillChipForWeakness } from '../services/selectors/drillChip';
 import { formatDiagnosticSentence } from '../services/diagnosticEngine';
+import {
+  rescheduleActivity,
+  setActivitySkipped,
+  removeActivity,
+  addCustomActivity,
+  setFocusAreas,
+  setPacing,
+} from '../services/studyPlanEditor';
 import { getTodaySlice } from '../services/selectors/todaySlice';
 import { getIdentityInsights, getPredictionTrust } from '../services/selectors/identityInsights';
 import { getReviewStreak } from '../services/dailyReviewEngine';
@@ -243,6 +251,7 @@ const StudyPlanDashboard = ({
   onStartPracticeTest,
   onCompleteActivity,
   onUncompleteActivity,
+  onEditPlan,
   studyPlanHistory,
   onSelectPlanVersion,
   onReviewPastTests,
@@ -305,6 +314,15 @@ const StudyPlanDashboard = ({
   // counts. Section-agnostic items (review/strategy/test) show everywhere.
   const [sectionFilter, setSectionFilter] = useState('all');
 
+  // ── Edit-plan mode (student-initiated edits) ──────────────────────────
+  // Off by default; the Weekly view's "Edit plan" toggle flips it on, which
+  // reveals per-task controls (reschedule / skip / remove), an "add task"
+  // form per week, and the Plan Settings panel (focus areas + pacing).
+  const [editMode, setEditMode] = useState(false);
+  const [addTaskWeek, setAddTaskWeek] = useState(null); // week index with an open add-task form
+  const [addTaskTitle, setAddTaskTitle] = useState('');
+  const [addTaskDay, setAddTaskDay] = useState('Monday');
+
   // ── Derived data ─────────────────────────────────────────────────────
   // Render-time guard: legacy plan artifacts in Firestore may still
   // carry type='lesson' activities — those routed to the legacy
@@ -313,7 +331,7 @@ const StudyPlanDashboard = ({
   // test activities. Generator no longer emits lessons (see
   // studyPlanGenerator.js:472), but this defends against old plans
   // already persisted server-side.
-  const isVisibleActivity = (a) => a && a.type !== 'lesson' && matchesSectionFilter(a, sectionFilter);
+  const isVisibleActivity = (a) => a && a.type !== 'lesson' && !a.skipped && matchesSectionFilter(a, sectionFilter);
   const visibleActivities = (week) => (week?.activities || []).filter(isVisibleActivity);
 
   const delta = studyPlanArtifact?.delta || studyPlan._diff || null;
@@ -493,7 +511,7 @@ const StudyPlanDashboard = ({
     const week = weeks[displayCurrentWeek];
     if (!week || !Array.isArray(week.activities)) return [];
     const todayIdx = DAY_NAMES.indexOf(todayDayName);
-    const visible = week.activities.filter(a => a && a.type !== 'lesson');
+    const visible = week.activities.filter(a => a && a.type !== 'lesson' && !a.skipped);
     const out = [];
     for (let offset = 1; offset <= 6; offset++) {
       const dayIdx = (todayIdx + offset) % 7;
@@ -565,6 +583,68 @@ const StudyPlanDashboard = ({
       onCompleteActivity?.(weekIdx, actIdx);
     }
   };
+
+  // ── Edit handlers ─────────────────────────────────────────────────────
+  // Each applies a pure transform (studyPlanEditor) to the current plan and
+  // hands the result to onEditPlan (= useProgress.saveEditedStudyPlan), which
+  // persists the whole plan to the Firestore artifact.
+  const EDIT_DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+  const todayISO = () => {
+    const d = new Date();
+    return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+  };
+  const applyEdit = (transform) => {
+    if (!onEditPlan || !studyPlan) return;
+    const next = transform(studyPlan);
+    if (next && next !== studyPlan) onEditPlan(next);
+  };
+  const handleReschedule = (weekIdx, actIdx, day) => applyEdit(p => rescheduleActivity(p, weekIdx, actIdx, day));
+  const handleToggleSkip = (weekIdx, actIdx, currentlySkipped) => applyEdit(p => setActivitySkipped(p, weekIdx, actIdx, !currentlySkipped));
+  const handleRemoveActivity = (weekIdx, actIdx) => applyEdit(p => removeActivity(p, weekIdx, actIdx));
+  const handleAddTask = (weekIdx) => {
+    const title = addTaskTitle.trim();
+    if (!title) return;
+    applyEdit(p => addCustomActivity(p, weekIdx, { title, day: addTaskDay }));
+    setAddTaskTitle('');
+    setAddTaskWeek(null);
+    showToast({ type: 'success', message: 'Task added to your plan.' });
+  };
+  const handleRemoveFocus = (skillId) => {
+    const remaining = (studyPlan.weaknesses || []).filter(w => w.skillId !== skillId);
+    if (remaining.length === 0) {
+      showToast({ type: 'info', message: 'Keep at least one focus area.' });
+      return;
+    }
+    applyEdit(p => setFocusAreas(p, remaining));
+  };
+  const handleAddFocus = (gap) => {
+    if (!gap?.skillId) return;
+    const weakness = {
+      skillId: gap.skillId,
+      skill: gap.skillName || gap.skill || gap.skillId,
+      section: gap.section === 'rw' ? 'rw' : 'math',
+      accuracy: gap.testAccuracy ?? gap.accuracy ?? 0,
+      domain: gap.domain || '',
+      missedPatterns: gap.missedPatterns || [],
+      evidence: gap.evidence || 'Added to your focus areas.',
+      errorType: gap.errorType || 'Focus area',
+    };
+    applyEdit(p => setFocusAreas(p, [...(p.weaknesses || []), weakness]));
+  };
+  const handlePacing = (minutesPerDay, examDate) => applyEdit(p => setPacing(p, { minutesPerDay, examDate }, todayISO()));
+
+  // Skills the diagnosis surfaced that aren't currently in the focus list —
+  // the pool the student can re-add via the Plan Settings panel.
+  const addableFocusSkills = useMemo(() => {
+    const current = new Set((studyPlan?.weaknesses || []).map(w => w.skillId));
+    const gaps = studyPlan?.skillGaps || [];
+    const seen = new Set();
+    return gaps.filter(g => {
+      if (!g?.skillId || current.has(g.skillId) || seen.has(g.skillId)) return false;
+      seen.add(g.skillId);
+      return true;
+    });
+  }, [studyPlan]);
 
   // ── Skill practice data ──────────────────────────────────────────────
   // Section-tag contract (Day 0): each weakness now has `section: 'math' | 'rw'`.
@@ -688,7 +768,7 @@ const StudyPlanDashboard = ({
     // The toggle now leads the row like a checklist; tips are a quiet
     // dot-list in slate.
     return (
-      <div className={`ai-practice-banner${isTip ? ' is-tip' : ''}`} style={{ marginBottom: '16px', opacity: done ? 0.6 : 1, filter: done ? 'grayscale(1)' : 'none', position: 'relative' }}>
+      <div className={`ai-practice-banner${isTip ? ' is-tip' : ''}`} style={{ marginBottom: '16px', opacity: (done || act.skipped) ? 0.55 : 1, filter: (done || act.skipped) ? 'grayscale(1)' : 'none', position: 'relative' }}>
         <button
           type="button"
           className={`sp-act-toggle${done ? ' is-done' : ''}`}
@@ -717,7 +797,9 @@ const StudyPlanDashboard = ({
               {section && !done && (
                 <span className={`sp-sec-chip is-${section}`}>{SECTION_CHIP_LABEL[section]}</span>
               )}
-              {meta.label} {act.type === 'test' ? '· High Priority' : ''}
+              {act.custom && <span className="sp-sec-chip" style={{ background: 'var(--sp-surface-2)', color: 'var(--sp-text-3)' }}>CUSTOM</span>}
+              {act.skipped && <span className="sp-sec-chip" style={{ background: 'var(--sp-surface-2)', color: 'var(--sp-text-3)' }}>SKIPPED</span>}
+              {act.custom ? 'Your task' : meta.label} {act.type === 'test' ? '· High Priority' : ''}
             </div>
             {isTip && tips.length > 0 && !done && (
               <ul className="sp-act-tips">
@@ -731,13 +813,30 @@ const StudyPlanDashboard = ({
           </div>
         </div>
 
-        {!done && isNavigable && (
+        {editMode ? (
+          <div className="sp-edit-controls" onClick={(e) => e.stopPropagation()}>
+            <select
+              className="sp-edit-day"
+              value={EDIT_DAYS.includes(act.day) ? act.day : 'Monday'}
+              onChange={(e) => handleReschedule(weekIdx, actIdx, e.target.value)}
+              aria-label={`Move "${act.title}" to a different day`}
+            >
+              {EDIT_DAYS.map((d) => <option key={d} value={d}>{d.slice(0, 3)}</option>)}
+            </select>
+            <button type="button" className="sp-edit-btn" onClick={() => handleToggleSkip(weekIdx, actIdx, act.skipped)}>
+              {act.skipped ? 'Unskip' : 'Skip'}
+            </button>
+            <button type="button" className="sp-edit-btn sp-edit-remove" aria-label={`Remove "${act.title}"`} onClick={() => handleRemoveActivity(weekIdx, actIdx)}>
+              Remove
+            </button>
+          </div>
+        ) : (!done && isNavigable && (
           <div className="ai-banner-controls">
             <button className="btn-launch" onClick={(e) => { e.stopPropagation(); handleGo(act); }}>
               Launch {meta.label}
             </button>
           </div>
-        )}
+        ))}
       </div>
     );
   };
@@ -753,7 +852,11 @@ const StudyPlanDashboard = ({
     const fullActivities = week.activities || [];
     const activitiesWithIdx = fullActivities
       .map((act, origIdx) => ({ act, origIdx }))
-      .filter(({ act }) => isVisibleActivity(act));
+      // In edit mode, also surface skipped tasks (greyed) so they can be
+      // un-skipped or removed; otherwise skipped tasks stay hidden.
+      .filter(({ act }) => (editMode
+        ? (act.type !== 'lesson' && matchesSectionFilter(act, sectionFilter))
+        : isVisibleActivity(act)));
     if (activitiesWithIdx.length === 0) {
       return <div style={{ fontSize: '14px', color: colors.text.muted, padding: '12px 0', textAlign: 'center' }}>No activities this week.</div>;
     }
@@ -836,7 +939,7 @@ const StudyPlanDashboard = ({
   // The current plan week's activities laid onto this calendar week (Mon–Sun).
   const weekDayRows = useMemo(() => {
     const acts = (currentWeek?.activities || []).filter(
-      (a) => a && a.type !== 'lesson' && matchesSectionFilter(a, sectionFilter)
+      (a) => a && a.type !== 'lesson' && !a.skipped && matchesSectionFilter(a, sectionFilter)
     );
     const now = new Date();
     const dow = now.getDay(); // 0 Sun … 6 Sat
@@ -1217,6 +1320,82 @@ const StudyPlanDashboard = ({
           ))}
         </div>
 
+        {/* Edit-plan toggle (Weekly view) */}
+        {onEditPlan && (
+          <div className="sp-edit-bar">
+            <button
+              type="button"
+              className={`sp-edit-toggle${editMode ? ' is-active' : ''}`}
+              aria-pressed={editMode}
+              onClick={() => { setEditMode((v) => !v); setAddTaskWeek(null); }}
+            >
+              {editMode ? 'Done editing' : 'Edit plan'}
+            </button>
+          </div>
+        )}
+
+        {/* Plan Settings — focus areas + pacing (edit mode only) */}
+        {editMode && (
+          <div className="sp-edit-settings">
+            <div className="sp-edit-section">
+              <div className="sp-edit-section-title">Focus areas</div>
+              <div className="sp-focus-chips">
+                {(studyPlan.weaknesses || []).map((w) => (
+                  <span key={w.skillId} className="sp-focus-chip">
+                    {w.skill}
+                    <button type="button" aria-label={`Remove ${w.skill} from focus areas`} onClick={() => handleRemoveFocus(w.skillId)}>×</button>
+                  </span>
+                ))}
+              </div>
+              {addableFocusSkills.length > 0 && (
+                <select
+                  className="sp-focus-add"
+                  value=""
+                  aria-label="Add a focus area"
+                  onChange={(e) => {
+                    const gap = addableFocusSkills.find((g) => g.skillId === e.target.value);
+                    if (gap) handleAddFocus(gap);
+                  }}
+                >
+                  <option value="" disabled>+ Add a focus skill…</option>
+                  {addableFocusSkills.map((g) => (
+                    <option key={g.skillId} value={g.skillId}>{g.skillName || g.skill || g.skillId}</option>
+                  ))}
+                </select>
+              )}
+            </div>
+
+            <div className="sp-edit-section">
+              <div className="sp-edit-section-title">Pacing</div>
+              <div className="sp-pacing-row">
+                <span className="sp-pacing-label">Minutes per day</span>
+                <div className="sp-pacing-opts">
+                  {[15, 30, 45, 60, 90].map((m) => {
+                    const cur = studyPlan.summary?.stats?.minutesPerDay || studyPlan.intensityConfig?.minutesPerDay || 30;
+                    return (
+                      <button
+                        key={m}
+                        type="button"
+                        className={`sp-pacing-opt${cur === m ? ' is-active' : ''}`}
+                        onClick={() => handlePacing(m, studyPlan.userPrefs?.examDate || studyPlan.examDate || null)}
+                      >{m}</button>
+                    );
+                  })}
+                </div>
+              </div>
+              <div className="sp-pacing-row">
+                <span className="sp-pacing-label">Test date</span>
+                <input
+                  type="date"
+                  className="sp-pacing-date"
+                  value={(studyPlan.userPrefs?.examDate || studyPlan.examDate || '').slice(0, 10)}
+                  onChange={(e) => handlePacing(studyPlan.summary?.stats?.minutesPerDay || studyPlan.intensityConfig?.minutesPerDay || 30, e.target.value || null)}
+                />
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* This week's sessions (launchable) + collapsed other weeks */}
         <div className="sp-otherweeks" style={{ marginTop: '14px' }}>
           <div className="sp-otherweek" style={{ borderColor: 'var(--sp-orange)' }}>
@@ -1233,13 +1412,38 @@ const StudyPlanDashboard = ({
             </div>
             <div className="sp-otherweek-body">
               {renderWeekActivities(currentWeek, displayCurrentWeek)}
+              {editMode && (
+                <div className="sp-add-task">
+                  {addTaskWeek === displayCurrentWeek ? (
+                    <div className="sp-add-task-form">
+                      <input
+                        type="text"
+                        className="sp-add-task-input"
+                        placeholder="Add your own task (e.g. Redo Test 3 misses)"
+                        value={addTaskTitle}
+                        onChange={(e) => setAddTaskTitle(e.target.value)}
+                        onKeyDown={(e) => { if (e.key === 'Enter') handleAddTask(displayCurrentWeek); }}
+                      />
+                      <select className="sp-edit-day" value={addTaskDay} onChange={(e) => setAddTaskDay(e.target.value)} aria-label="Day for new task">
+                        {EDIT_DAYS.map((d) => <option key={d} value={d}>{d.slice(0, 3)}</option>)}
+                      </select>
+                      <button type="button" className="sp-edit-btn" onClick={() => handleAddTask(displayCurrentWeek)}>Add</button>
+                      <button type="button" className="sp-edit-btn" onClick={() => { setAddTaskWeek(null); setAddTaskTitle(''); }}>Cancel</button>
+                    </div>
+                  ) : (
+                    <button type="button" className="sp-add-task-btn" onClick={() => { setAddTaskWeek(displayCurrentWeek); setAddTaskDay('Monday'); }}>
+                      + Add a task
+                    </button>
+                  )}
+                </div>
+              )}
             </div>
           </div>
           {otherWeeks.map((week) => {
             const realIdx = weeks.indexOf(week);
             const isOpen = expandedWeek === realIdx;
-            const doneN = (week.activities || []).filter((a) => a.completed).length;
-            const totalN = (week.activities || []).length;
+            const doneN = (week.activities || []).filter((a) => a.completed && !a.skipped).length;
+            const totalN = (week.activities || []).filter((a) => !a.skipped).length;
             const isComplete = totalN > 0 && doneN === totalN;
             return (
               <div key={realIdx} className={`sp-otherweek${isComplete ? ' is-complete' : ''}`}>

@@ -35,7 +35,7 @@ import './TodaysTasksCard.css';
  * @param {() => void} [props.onTakeTest]
  * @param {string} [props.firstName]  Name-aware no-plan copy (made-for-me item 13)
  */
-function TodaysTasksCard({ slice, adherence, dailyIntro, onStartActivity, onStartStrategy, onTakeTest, firstName }) {
+function TodaysTasksCard({ slice, adherence, dailyIntro, onStartActivity, onStartStrategy, onTakeTest, onCompleteActivity, firstName }) {
   const safeSlice = slice || { kind: 'no-plan', activities: [], day: '', weekNumber: null };
   const showAdherence = adherence
     && safeSlice.kind !== 'no-plan'
@@ -44,7 +44,7 @@ function TodaysTasksCard({ slice, adherence, dailyIntro, onStartActivity, onStar
   return (
     <section className="ttc-card" aria-label="Today's tasks">
       {dailyIntro && <p className="ttc-daily-intro">{dailyIntro}</p>}
-      {renderBody(safeSlice, onStartActivity, onStartStrategy, onTakeTest, firstName)}
+      {renderBody(safeSlice, onStartActivity, onStartStrategy, onTakeTest, onCompleteActivity, firstName)}
       {showAdherence && (
         <div className="ttc-adherence" data-testid="ttc-adherence">
           <span className="ttc-adherence-dot" aria-hidden="true" />
@@ -55,7 +55,7 @@ function TodaysTasksCard({ slice, adherence, dailyIntro, onStartActivity, onStar
   );
 }
 
-function renderBody(slice, onStartActivity, onStartStrategy, onTakeTest, firstName) {
+function renderBody(slice, onStartActivity, onStartStrategy, onTakeTest, onCompleteActivity, firstName) {
   switch (slice.kind) {
     case 'no-plan':
       return (
@@ -162,6 +162,7 @@ function renderBody(slice, onStartActivity, onStartStrategy, onTakeTest, firstNa
                 isComplete={isComplete}
                 onStart={onStartActivity}
                 onStartStrategy={onStartStrategy}
+                onComplete={onCompleteActivity}
                 index={i}
               />
             ))}
@@ -172,7 +173,7 @@ function renderBody(slice, onStartActivity, onStartStrategy, onTakeTest, firstNa
   }
 }
 
-function ActivityRow({ activity, isComplete, onStart, onStartStrategy, index = 0 }) {
+function ActivityRow({ activity, isComplete, onStart, onStartStrategy, onComplete, index = 0 }) {
   const [expanded, setExpanded] = useState(!isComplete);
   if (!activity) return null;
 
@@ -203,6 +204,16 @@ function ActivityRow({ activity, isComplete, onStart, onStartStrategy, index = 0
     (isStrategy && typeof onStartStrategy === 'function')
   );
 
+  // Custom (student-added) tasks have no drill to launch — they're checklist
+  // items, completed in place. When the index is available (from getTodaySlice)
+  // and a completion handler is wired, the row gets a "Mark done" button
+  // instead of a dead, disabled Start.
+  const isCustom = !!(activity?.custom || activity?.type === 'custom');
+  const canMarkDone = isCustom
+    && typeof onComplete === 'function'
+    && Number.isInteger(activity?.weekIndex)
+    && Number.isInteger(activity?.activityIndex);
+
   const handleStart = () => {
     if (!isStartable) return;
     if (isStrategy && typeof onStartStrategy === 'function') {
@@ -210,6 +221,9 @@ function ActivityRow({ activity, isComplete, onStart, onStartStrategy, index = 0
       return;
     }
     if (typeof onStart === 'function') onStart(activity);
+  };
+  const handleMarkDone = () => {
+    if (canMarkDone) onComplete(activity.weekIndex, activity.activityIndex);
   };
 
   const collapsed = isComplete && !expanded;
@@ -254,6 +268,14 @@ function ActivityRow({ activity, isComplete, onStart, onStartStrategy, index = 0
                 ▴
               </button>
             </>
+          ) : canMarkDone ? (
+            <button
+              type="button"
+              className="ttc-activity-cta ttc-activity-cta-primary"
+              onClick={handleMarkDone}
+            >
+              Mark done →
+            </button>
           ) : (
             <button
               type="button"

@@ -76,7 +76,7 @@ export function getTodaySlice(plan, todayDayName) {
   // Current week = first week with any incomplete activity. Mirrors the
   // existing StudyPlanDashboard.jsx:123 derivation. Lesson-type activities
   // are excluded — see studyPlanGenerator.js:472 for the cleanup note.
-  const isVisibleActivity = (a) => a && a.type !== 'lesson';
+  const isVisibleActivity = (a) => a && a.type !== 'lesson' && !a.skipped;
   const currentWeekIndex = weeks.findIndex(
     w => Array.isArray(w?.activities) && w.activities.filter(isVisibleActivity).some(a => !a.completed),
   );
@@ -92,7 +92,12 @@ export function getTodaySlice(plan, todayDayName) {
   }
 
   const week = weeks[currentWeekIndex];
+  // Carry the (weekIndex, activityIndex) so a non-launchable item (e.g. a
+  // student-added custom task) can be completed from the Today card via the
+  // same mark-complete handler the Weekly view uses. Index is taken BEFORE
+  // filtering so it points at the real position in week.activities.
   const todayActivities = (week.activities || [])
+    .map((a, i) => ({ ...a, weekIndex: currentWeekIndex, activityIndex: i }))
     .filter(isVisibleActivity)
     .filter(a => a.day === todayDayName);
 

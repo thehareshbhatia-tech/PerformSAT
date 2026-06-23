@@ -105,6 +105,7 @@ const StudentDashboard = ({
   skillProgress,
   onCompleteActivity,
   onUncompleteActivity,
+  onEditPlan,
   onReviewPastTests,
   onReviewTestWrong,
   activeTab: controlledActiveTab,
@@ -589,6 +590,7 @@ const StudentDashboard = ({
               onStartPracticeTest={onStartPracticeTest}
               onCompleteActivity={onCompleteActivity}
               onUncompleteActivity={onUncompleteActivity}
+              onEditPlan={onEditPlan}
               onReviewPastTests={onReviewPastTests}
               onStartReview={onStartReview}
               onStartPacing={onStartPacing}
@@ -741,6 +743,7 @@ const StudentDashboard = ({
                 onStartActivity={handleStartTodaysActivity}
                 onStartStrategy={handleStartStrategyActivity}
                 onTakeTest={onStartPracticeTest}
+                onCompleteActivity={onCompleteActivity}
               />
               {predictionSummary && (
                 <div style={{ marginTop: '16px' }}>

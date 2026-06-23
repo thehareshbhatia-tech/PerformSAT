@@ -1039,6 +1039,49 @@ export const useProgress = (userId) => {
     }
   };
 
+  /**
+   * Persist a fully-edited study plan (student edits: reschedule / skip / remove
+   * / add task / focus areas / pacing). Writes the WHOLE plan to the current
+   * artifact and the legacy root field — same dual-write as
+   * markStudyActivityComplete — so edits survive reloads (the artifact is the
+   * hydration source of truth). Pass the new plan from the studyPlanEditor
+   * transforms. A subsequent practice test still regenerates a fresh plan.
+   * @param {object} nextPlan - the edited plan to persist
+   */
+  const saveEditedStudyPlan = async (nextPlan) => {
+    if (!userId || !nextPlan?.weeks) return;
+
+    // Optimistic update so the edit shows immediately.
+    studyPlanWriteInFlight.current = true;
+    setStudyPlan(nextPlan);
+
+    try {
+      const sanitized = JSON.parse(JSON.stringify(nextPlan));
+      // Source of truth: the current artifact's `plan` field.
+      const artId = studyPlanMeta.artifactId;
+      if (artId) {
+        const artRef = doc(db, 'progress', userId, 'studyPlanArtifacts', artId);
+        const artSnap = await getDoc(artRef);
+        if (artSnap.exists()) {
+          await updateDoc(artRef, { plan: sanitized, editedAt: serverTimestamp() });
+        }
+      }
+      // Legacy root field, kept in sync for backward-compat hydration.
+      const progressRef = doc(db, 'progress', userId);
+      const progressSnap = await getDoc(progressRef);
+      if (progressSnap.exists()) {
+        await updateDoc(progressRef, { studyPlan: sanitized, lastUpdated: serverTimestamp() });
+      } else {
+        await setDoc(progressRef, { userId, studyPlan: sanitized, lastUpdated: serverTimestamp() }, { merge: true });
+      }
+    } catch (err) {
+      console.error('[useProgress] Failed to save edited study plan:', err);
+      setError(err.message);
+    } finally {
+      studyPlanWriteInFlight.current = false;
+    }
+  };
+
   return {
     completedLessons,
     practiceProgress,
@@ -1095,6 +1138,7 @@ export const useProgress = (userId) => {
     saveMiniDiagnostic,
     // Study plan functions
     saveStudyPlan,
+    saveEditedStudyPlan,
     markStudyActivityComplete,
     unmarkStudyActivityComplete
   };
