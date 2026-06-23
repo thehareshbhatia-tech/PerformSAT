@@ -284,16 +284,21 @@ export const aiTutor = onRequest(
           },
           body: JSON.stringify({
             model: "claude-sonnet-4-6",
-            // Streaming removes the HTTP-timeout risk, so keep max_tokens
-            // generous — adaptive thinking tokens count toward it, and a tight
-            // cap would truncate a hard breakdown mid-thought.
-            max_tokens: 16000,
-            // Adaptive thinking (recommended on Sonnet 4.6; replaces the
-            // deprecated fixed budget_tokens) — easy follow-ups stop
-            // over-thinking, hard traps still get depth. effort:medium balances
-            // quality vs latency for an interactive chat.
-            thinking: {type: "adaptive"},
-            output_config: {effort: "medium"},
+            // Tutor answers are short coaching replies, not essays, so a tight
+            // cap is fine and guards against a runaway response. (Thinking is
+            // off — see below — so no thinking tokens count toward this.)
+            max_tokens: 2000,
+            // Thinking DISABLED for the interactive tutor. Adaptive thinking ran
+            // a reasoning pass before every reply, so the student stared at a
+            // spinner before the first streamed token — the single biggest
+            // source of perceived latency in chat. The tutor is explaining a
+            // known answer with a rich persona prompt; it does not need
+            // chain-of-thought. disabled + effort:low is Anthropic's documented
+            // fast-chat setting for Sonnet 4.6 (first token streams almost
+            // immediately). Re-enable adaptive thinking only if answer quality
+            // visibly regresses.
+            thinking: {type: "disabled"},
+            output_config: {effort: "low"},
             // Prompt caching: send the system prompt as a cacheable content
             // block so the stable persona prefix is reused across turns. (Pays
             // off fully once the client stops interleaving per-turn volatile
