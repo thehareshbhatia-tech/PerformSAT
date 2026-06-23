@@ -8,7 +8,7 @@
  *   1. `localStorage["ff:<key>"] === "1"` — runtime override (set in DevTools)
  *   2. `process.env.REACT_APP_FF_<KEY>` === `"true"` — build-time default
  *   3. test mode: `process.env.NODE_ENV === 'test'` reads localStorage with no env fallback
- *   4. otherwise `false`
+ *   4. otherwise the per-flag default in `FLAG_DEFAULTS` (graduated flags default ON), else `false`
  *
  * Notes:
  *   - This is a Create React App project (`react-scripts 5.0.1`). Vite-style
@@ -24,6 +24,16 @@
  *                      `REACT_APP_FF_TODAYS_TASKS` for `'todaysTasks'`.
  * @returns {boolean}   True if the flag is enabled in this runtime.
  */
+// Flags that have graduated from experiment to permanent product behavior
+// default ON, so they no longer depend on a production env var being set in the
+// host (Vercel). The app is now both-sections — these ARE the current UX, not
+// experiments. An explicit env var ("true"/"false") or a localStorage override
+// still wins over this default.
+const FLAG_DEFAULTS = {
+  rwDrills: true,     // R&W weaknesses route to a real drill (not "coming soon")
+  todaysTasks: true,  // dashboard shows the Today's Tasks hero, not the legacy banner
+};
+
 function camelToScreamingSnake(key) {
   return String(key)
     .replace(/([a-z0-9])([A-Z])/g, '$1_$2')
@@ -66,8 +76,8 @@ export function useFeatureFlag(key) {
   if (envValue === 'true') return true;
   if (envValue === 'false') return false;
 
-  // 3. default off
-  return false;
+  // 3. default — ON for graduated flags (see FLAG_DEFAULTS), otherwise off
+  return FLAG_DEFAULTS[key] === true;
 }
 
 /**

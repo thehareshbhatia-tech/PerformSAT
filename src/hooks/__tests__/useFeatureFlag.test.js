@@ -12,6 +12,13 @@ describe('useFeatureFlag', () => {
     it('returns false when neither env nor localStorage set the flag', () => {
       expect(useFeatureFlag('experimentalThing')).toBe(false);
     });
+
+    it('defaults graduated flags (rwDrills, todaysTasks) ON with no env/localStorage', () => {
+      // These graduated from experiment to permanent both-sections UX, so they
+      // default on (FLAG_DEFAULTS) and no longer need a production env var.
+      expect(useFeatureFlag('rwDrills')).toBe(true);
+      expect(useFeatureFlag('todaysTasks')).toBe(true);
+    });
   });
 
   describe('localStorage override', () => {
@@ -25,10 +32,11 @@ describe('useFeatureFlag', () => {
       expect(useFeatureFlag('todaysTasks')).toBe(false);
     });
 
-    it('clears override when set to undefined', () => {
-      setFeatureFlagForTest('todaysTasks', true);
-      setFeatureFlagForTest('todaysTasks', undefined);
-      expect(useFeatureFlag('todaysTasks')).toBe(false);
+    it('clears override when set to undefined (falls back to default)', () => {
+      // Use a non-graduated flag so the cleared default is off.
+      setFeatureFlagForTest('experimentalThing', true);
+      setFeatureFlagForTest('experimentalThing', undefined);
+      expect(useFeatureFlag('experimentalThing')).toBe(false);
     });
 
     it('handles legacy "true"/"false" string values', () => {
@@ -53,8 +61,8 @@ describe('useFeatureFlag', () => {
     it('does not throw when localStorage.getItem throws', () => {
       const original = window.localStorage.getItem;
       window.localStorage.getItem = () => { throw new Error('private mode'); };
-      expect(() => useFeatureFlag('todaysTasks')).not.toThrow();
-      expect(useFeatureFlag('todaysTasks')).toBe(false);
+      expect(() => useFeatureFlag('experimentalThing')).not.toThrow();
+      expect(useFeatureFlag('experimentalThing')).toBe(false);
       window.localStorage.getItem = original;
     });
 
