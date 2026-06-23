@@ -1109,10 +1109,17 @@ Your goal is to build their problem-solving instincts. Every question they solve
         return [...prev, { role: 'assistant', content: response }];
       });
     } catch (error) {
+      // Map the underlying failure to an accurate message. The proxy returns
+      // 429 "Too many requests..." and 401 "Authentication required"; matching
+      // only "rate"/"limit" before meant both showed the misleading
+      // connection/internet message.
+      const raw = (error.message || '').toLowerCase();
       let errorMessage = "I couldn't connect right now. Please check your internet connection and try again.";
-      if (error.message?.includes('rate') || error.message?.includes('limit')) {
-        errorMessage = "Too many requests. Please wait a moment before trying again.";
-      } else if (error.message?.includes('timeout')) {
+      if (raw.includes('too many') || raw.includes('rate') || raw.includes('limit')) {
+        errorMessage = "You've sent a lot of messages in a short time. Please wait a minute, then try again.";
+      } else if (raw.includes('authenticat') || raw.includes('sign in') || raw.includes('401')) {
+        errorMessage = "Your session expired. Refresh the page (or sign out and back in), then try again.";
+      } else if (raw.includes('timeout') || raw.includes('took too long')) {
         errorMessage = "The request took too long. Please try again with a shorter question.";
       }
       setMessages([

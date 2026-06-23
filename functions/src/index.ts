@@ -246,9 +246,11 @@ export const aiTutor = onRequest(
       return;
     }
 
-    // Rate limit: 60 AI tutor calls per hour per user
-    if (!(await checkRateLimit(user.uid, "aiTutor", 60))) {
-      response.status(429).json({error: "Too many requests. Please try again later."});
+    // Rate limit: AI tutor calls per hour per user. 60/hr was too low for an
+    // active tutoring session (a student working through problems + the occasional
+    // retry trips it fast, and the client then shows a misleading error).
+    if (!(await checkRateLimit(user.uid, "aiTutor", 200))) {
+      response.status(429).json({error: "Too many requests. Please wait a minute and try again."});
       return;
     }
 
