@@ -1,0 +1,301 @@
+/* LessonBrowser — the "Learn / Videos" library page (view='modules').
+ * Reskin to the SEVA Videos design file. Scoped --lv-* palette (cream, matching
+ * the app's other surfaces); dynamic bits (domain gradients, bar widths, status
+ * colors) come from inline styles in the component. Dark-ready via --lv-* vars. */
+
+.lv-root {
+  --lv-bg: #F6F4EF;
+  --lv-surface: #FFFFFF;
+  --lv-surface-2: #F1EEE7;
+  --lv-line: #E7E3D9;
+  --lv-line-strong: #D9D4C7;
+  --lv-text: #16181D;
+  --lv-text-2: #5B6068;
+  --lv-text-3: #9A9EA6;
+  --lv-orange: #EC5C2B;
+  --lv-lime-deep: #5A8A16;
+  --lv-purple: #7C5CC7;
+  --lv-navy: #0C1026;
+  --lv-amber: #C98A12;
+  --lv-amber-tint: #FBF1DC;
+  --lv-shadow: 0 1px 2px rgba(20, 22, 28, .04), 0 5px 16px rgba(20, 22, 28, .05);
+  --lv-font-display: 'Bricolage Grotesque', 'Inter', system-ui, sans-serif;
+  --lv-font-body: 'Hanken Grotesk', 'Inter', system-ui, sans-serif;
+
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 34px 36px 90px;
+  font-family: var(--lv-font-body);
+  color: var(--lv-text);
+}
+
+/* ── Header ──────────────────────────────────────────────────────────── */
+.lv-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 26px;
+}
+.lv-title {
+  font-family: var(--lv-font-display);
+  font-weight: 800;
+  font-size: 42px;
+  line-height: 1;
+  letter-spacing: -.025em;
+  margin: 0;
+}
+.lv-subtitle {
+  margin-top: 12px;
+  font-size: 15px;
+  color: var(--lv-text-2);
+  max-width: 540px;
+  line-height: 1.5;
+}
+.lv-search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--lv-surface);
+  border: 1px solid var(--lv-line);
+  border-radius: 12px;
+  padding: 11px 15px;
+  width: 280px;
+  flex: none;
+  box-shadow: var(--lv-shadow);
+}
+.lv-search:focus-within { border-color: var(--lv-line-strong); }
+.lv-search input {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: var(--lv-font-body);
+  font-size: 14px;
+  color: var(--lv-text);
+  flex: 1;
+  min-width: 0;
+}
+.lv-search input::placeholder { color: var(--lv-text-3); }
+
+/* ── Continue-learning hero ──────────────────────────────────────────── */
+.lv-hero {
+  display: flex;
+  background: var(--lv-surface);
+  border: 1px solid var(--lv-line);
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 34px;
+  box-shadow: var(--lv-shadow);
+}
+.lv-hero-tile {
+  width: 340px;
+  flex: none;
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 204px;
+}
+.lv-hero-tile::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(0, 0, 0, .12), transparent 60%);
+}
+.lv-play {
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .92);
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+.lv-hero .lv-play { width: 66px; height: 66px; box-shadow: 0 8px 22px rgba(0, 0, 0, .22); }
+.lv-hero-tag {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: rgba(12, 16, 38, .55);
+  color: #fff;
+  font-weight: 700;
+  font-size: 10.5px;
+  letter-spacing: .1em;
+  padding: 5px 11px;
+  border-radius: 7px;
+}
+.lv-hero-body {
+  flex: 1;
+  min-width: 0;
+  padding: 28px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.lv-hero-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12.5px;
+  color: var(--lv-text-3);
+  font-weight: 600;
+}
+.lv-hero-eyebrow b {
+  font-weight: 700;
+  font-size: 10.5px;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  color: var(--lv-purple);
+}
+.lv-hero-eyebrow .lv-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--lv-text-3); }
+.lv-hero-title {
+  font-family: var(--lv-font-display);
+  font-weight: 700;
+  font-size: 27px;
+  letter-spacing: -.02em;
+  margin: 8px 0 6px;
+}
+.lv-hero-meta { font-size: 14px; color: var(--lv-text-2); }
+.lv-hero-prog { display: flex; align-items: center; gap: 16px; margin-top: 18px; }
+.lv-hero-prog .lv-bar { flex: 1; max-width: 360px; height: 8px; }
+.lv-hero-pct { font-size: 13px; font-weight: 700; color: var(--lv-purple); flex: none; }
+.lv-hero-btn {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--lv-orange);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 13px 22px;
+  font-family: var(--lv-font-body);
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 20px;
+  box-shadow: 0 4px 12px rgba(236, 92, 43, .3);
+  transition: filter .15s ease;
+}
+.lv-hero-btn:hover { filter: brightness(1.05); }
+
+/* ── Filter pills ────────────────────────────────────────────────────── */
+.lv-pills { display: flex; align-items: center; gap: 10px; margin-bottom: 22px; flex-wrap: wrap; }
+.lv-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 22px;
+  padding: 9px 18px;
+  font-family: var(--lv-font-body);
+  font-weight: 600;
+  font-size: 13.5px;
+  cursor: pointer;
+  background: var(--lv-surface);
+  color: var(--lv-text-2);
+  border: 1px solid var(--lv-line);
+  transition: background .15s ease, color .15s ease, border-color .15s ease;
+}
+.lv-pill:hover { background: var(--lv-surface-2); }
+.lv-pill.is-active { background: var(--lv-navy); color: #fff; border-color: var(--lv-navy); }
+.lv-pill .lv-pill-count { font-weight: 700; opacity: .65; }
+
+/* ── Grid + cards ────────────────────────────────────────────────────── */
+.lv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.lv-card {
+  display: flex;
+  gap: 18px;
+  background: var(--lv-surface);
+  border: 1px solid var(--lv-line);
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: var(--lv-shadow);
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--lv-font-body);
+  transition: border-color .15s ease, transform .15s ease;
+}
+.lv-card:hover { border-color: var(--lv-line-strong); transform: translateY(-1px); }
+.lv-card-tile {
+  width: 108px;
+  height: 108px;
+  flex: none;
+  border-radius: 14px;
+  position: relative;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+.lv-card-tile::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, .14), transparent 55%);
+}
+.lv-card-tile .lv-play { width: 42px; height: 42px; box-shadow: 0 4px 12px rgba(0, 0, 0, .18); }
+.lv-card-count {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  background: rgba(12, 16, 38, .5);
+  color: #fff;
+  font-weight: 700;
+  font-size: 10px;
+  padding: 3px 7px;
+  border-radius: 6px;
+}
+.lv-card-body { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.lv-card-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
+.lv-card-title {
+  font-family: var(--lv-font-display);
+  font-weight: 700;
+  font-size: 17.5px;
+  letter-spacing: -.01em;
+  line-height: 1.2;
+}
+.lv-card-domain {
+  flex: none;
+  font-weight: 700;
+  font-size: 10px;
+  letter-spacing: .03em;
+  padding: 4px 9px;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+.lv-card-sub { display: flex; align-items: center; gap: 8px; margin-top: 5px; }
+.lv-card-lessons { font-size: 12.5px; color: var(--lv-text-3); font-weight: 500; }
+.lv-badge-needs {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--lv-amber-tint);
+  color: var(--lv-amber);
+  font-weight: 700;
+  font-size: 10px;
+  letter-spacing: .03em;
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+.lv-card-spacer { flex: 1; min-height: 8px; }
+.lv-bar { height: 7px; border-radius: 5px; background: var(--lv-surface-2); overflow: hidden; }
+.lv-bar-fill { height: 100%; border-radius: 5px; transition: width .4s ease; }
+.lv-card-foot { display: flex; align-items: center; justify-content: space-between; margin-top: 9px; }
+.lv-card-status { font-size: 12.5px; font-weight: 700; }
+.lv-card-pct { font-size: 12.5px; font-weight: 700; color: var(--lv-text-3); }
+
+/* ── Empty state ─────────────────────────────────────────────────────── */
+.lv-empty { text-align: center; padding: 56px 0; color: var(--lv-text-3); }
+.lv-empty p { font-size: 15px; margin-bottom: 10px; }
+.lv-empty button {
+  background: none; border: none; color: var(--lv-orange);
+  font-family: var(--lv-font-body); font-weight: 700; font-size: 14px; cursor: pointer;
+}
+
+/* ── Responsive ──────────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .lv-root { padding: 24px 20px 80px; }
+  .lv-header { flex-direction: column; align-items: stretch; }
+  .lv-search { width: 100%; }
+  .lv-title { font-size: 34px; }
+  .lv-grid { grid-template-columns: 1fr; }
+  .lv-hero { flex-direction: column; }
+  .lv-hero-tile { width: 100%; min-height: 150px; }
+}

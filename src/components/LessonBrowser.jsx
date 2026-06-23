@@ -1,9 +1,7 @@
-import React, { useState, useEffect, useMemo } from 'react';
-import { colors, typography, spacing, radius, shadows, transitions, breakpoints } from '../design/tokens';
-import { buttonStyles, cardStyles, inputStyles, badgeStyles } from '../design/components';
-import { injectAnimations } from '../design/animations';
-import { Button } from './ui/Button';
+import React, { useMemo, useState } from 'react';
+import './LessonBrowser.css';
 
+// Real lesson modules (match src/data/lessons). lessonCount drives progress %.
 const MODULES = [
   { id: 'linear-equations', title: 'Linear Equations', lessonCount: 24, domain: 'Algebra' },
   { id: 'functions', title: 'Functions', lessonCount: 10, domain: 'Algebra' },
@@ -21,266 +19,179 @@ const MODULES = [
   { id: 'dimensional-analysis', title: 'Dimensional Analysis', lessonCount: 4, domain: 'Problem Solving' },
 ];
 
-const LessonBrowser = ({ completedLessons = {}, skillProgress = {}, onSelectModule }) => {
-  const [filter, setFilter] = useState('all'); // 'all', 'weak', 'inProgress'
-  const [searchQuery, setSearchQuery] = useState('');
-  const [showSearch, setShowSearch] = useState(false);
+// Per-domain visual identity: thumbnail gradient + play-button accent + the
+// domain-chip background/text. Mirrors the SEVA Videos design file.
+const DOMAIN_STYLE = {
+  'Algebra': { accent: '#EC5C2B', tile: 'linear-gradient(135deg,#F2865C,#D8431F)', bg: 'rgba(236,92,43,.1)', col: '#C2451F' },
+  'Advanced Math': { accent: '#7C5CC7', tile: 'linear-gradient(135deg,#9A7DDB,#5E40A6)', bg: 'rgba(124,92,199,.12)', col: '#6645B0' },
+  'Problem Solving': { accent: '#2B3566', tile: 'linear-gradient(135deg,#3A4684,#161D3E)', bg: 'rgba(43,53,102,.1)', col: '#2B3566' },
+  'Geometry': { accent: '#5A8A16', tile: 'linear-gradient(135deg,#86B53A,#46720E)', bg: 'rgba(90,138,22,.12)', col: '#4C7714' },
+};
+const domainStyle = (d) => DOMAIN_STYLE[d] || DOMAIN_STYLE.Algebra;
 
-  useEffect(() => { injectAnimations(); }, []);
+function statusFor(pct) {
+  if (pct >= 100) return { label: 'Complete', col: 'var(--lv-lime-deep)', bar: 'var(--lv-lime-deep)' };
+  if (pct >= 20) return { label: 'In Progress', col: 'var(--lv-purple)', bar: 'var(--lv-purple)' };
+  if (pct > 0) return { label: 'Just Started', col: 'var(--lv-orange)', bar: 'var(--lv-orange)' };
+  return { label: 'Not Started', col: 'var(--lv-text-3)', bar: 'var(--lv-surface-2)' };
+}
+const isInProgress = (m) => m.percent > 0 && m.percent < 100;
+// "Needs work": started but not yet solid. (A real per-skill mastery signal
+// could refine this later; progress is the honest signal we have per module.)
+const needsWork = (m) => m.percent > 0 && m.percent < 50;
 
-  // Responsive
-  const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1024);
-  useEffect(() => {
-    const handleResize = () => setWindowWidth(window.innerWidth);
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-  const isMobile = windowWidth < breakpoints.tablet;
+const PlayIcon = ({ size, accent }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill={accent} stroke="none" style={{ marginLeft: '2px' }}>
+    <path d="M7 4v16l13-8z" />
+  </svg>
+);
 
-  // Calculate progress per module
-  const moduleData = useMemo(() => {
-    return MODULES.map(mod => {
-      const completed = Object.keys(completedLessons).filter(
-        key => key.startsWith(`${mod.id}-`) && completedLessons[key]?.completed
-      ).length;
-      const percent = Math.round((completed / mod.lessonCount) * 100);
+const LessonBrowser = ({ completedLessons = {}, onSelectModule }) => {
+  const [filter, setFilter] = useState('all'); // 'all' | 'needs' | 'progress'
+  const [query, setQuery] = useState('');
 
-      let status = 'Not Started';
-      let statusColor = colors.text.muted;
-      if (percent === 100) { status = 'Complete'; statusColor = colors.semantic.success; }
-      else if (percent >= 60) { status = 'Strong'; statusColor = colors.semantic.success; }
-      else if (percent >= 20) { status = 'In Progress'; statusColor = colors.semantic.info; }
-      else if (percent > 0) { status = 'Just Started'; statusColor = colors.semantic.warning; }
+  // Progress per module from real completed-lesson records.
+  const moduleData = useMemo(() => MODULES.map((mod) => {
+    const completed = Object.keys(completedLessons).filter(
+      (key) => key.startsWith(`${mod.id}-`) && completedLessons[key]?.completed
+    ).length;
+    const percent = Math.min(100, Math.round((completed / mod.lessonCount) * 100));
+    return { ...mod, completed, percent };
+  }), [completedLessons]);
 
-      return { ...mod, completed, percent, status, statusColor };
-    });
-  }, [completedLessons]);
+  const counts = useMemo(() => ({
+    all: moduleData.length,
+    needs: moduleData.filter(needsWork).length,
+    progress: moduleData.filter(isInProgress).length,
+  }), [moduleData]);
 
-  // Filter modules
-  const filteredModules = useMemo(() => {
+  const visible = useMemo(() => {
     let mods = moduleData;
-
-    if (filter === 'weak') {
-      mods = mods.filter(m => m.percent < 50);
-    } else if (filter === 'inProgress') {
-      mods = mods.filter(m => m.percent > 0 && m.percent < 100);
-    }
-
-    if (searchQuery.trim()) {
-      const q = searchQuery.toLowerCase();
-      mods = mods.filter(m => m.title.toLowerCase().includes(q) || m.domain.toLowerCase().includes(q));
-    }
-
+    if (filter === 'needs') mods = mods.filter(needsWork);
+    else if (filter === 'progress') mods = mods.filter(isInProgress);
+    const q = query.trim().toLowerCase();
+    if (q) mods = mods.filter((m) => m.title.toLowerCase().includes(q) || m.domain.toLowerCase().includes(q));
     return mods;
-  }, [moduleData, filter, searchQuery]);
+  }, [moduleData, filter, query]);
 
-  const filters = [
-    { id: 'all', label: 'All' },
-    { id: 'weak', label: 'Needs Work' },
-    { id: 'inProgress', label: 'In Progress' },
+  // Resume the furthest-along in-progress module (fall back to the first one).
+  const featured = useMemo(() => {
+    const prog = moduleData.filter(isInProgress).sort((a, b) => b.percent - a.percent);
+    return prog[0] || null;
+  }, [moduleData]);
+
+  const PILLS = [
+    { id: 'all', label: 'All', count: counts.all },
+    { id: 'needs', label: 'Needs Work', count: counts.needs },
+    { id: 'progress', label: 'In Progress', count: counts.progress },
   ];
 
   return (
-    <div style={{
-      maxWidth: '960px',
-      margin: '0 auto',
-      padding: `${spacing.lg} ${isMobile ? spacing.md : spacing.lg}`,
-      fontFamily: typography.fontFamily,
-    }}>
+    <div className="lv-root">
       {/* Header */}
-      <div style={{
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        marginBottom: spacing.lg,
-      }}>
-        <h1 style={{
-          fontSize: typography.sizes['2xl'],
-          fontWeight: typography.weights.bold,
-          color: colors.text.primary,
-        }}>
-          Learn
-        </h1>
-        <Button
-          onClick={() => setShowSearch(!showSearch)}
-          aria-label="Search modules"
-          variant="ghost"
-          style={{ padding: spacing.xs }}
-        >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={colors.text.secondary} strokeWidth="2">
-            <circle cx="11" cy="11" r="8" />
-            <line x1="21" y1="21" x2="16.65" y2="16.65" />
-          </svg>
-        </Button>
-      </div>
-
-      {/* Search Bar */}
-      {showSearch && (
-        <div style={{ marginBottom: spacing.md, animation: 'fadeInDown 200ms ease' }}>
+      <div className="lv-header">
+        <div>
+          <h1 className="lv-title">Learn</h1>
+          <p className="lv-subtitle">Short video lessons for every SAT topic. Pick up where you left off or start something new.</p>
+        </div>
+        <div className="lv-search">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--lv-text-3)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7" /><path d="m21 21-4.3-4.3" /></svg>
           <input
             type="text"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Search modules..."
-            autoFocus
-            style={inputStyles.base}
-            aria-label="Search modules"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Search topics"
+            aria-label="Search topics"
           />
         </div>
-      )}
-
-      {/* Filter Pills */}
-      <div role="tablist" aria-label="Module filters" style={{
-        display: 'flex',
-        gap: spacing.xs,
-        marginBottom: spacing.lg,
-        overflowX: 'auto',
-        WebkitOverflowScrolling: 'touch',
-      }}>
-        {filters.map(f => (
-          <button
-            key={f.id}
-            role="tab"
-            aria-selected={filter === f.id}
-            onClick={() => setFilter(f.id)}
-            style={{
-              ...buttonStyles.base,
-              padding: `6px ${spacing.md}`,
-              height: '36px',
-              borderRadius: radius.full,
-              fontSize: typography.sizes.sm,
-              fontWeight: filter === f.id ? typography.weights.semibold : typography.weights.medium,
-              backgroundColor: filter === f.id ? colors.accent.orange : colors.surface.gray,
-              color: filter === f.id ? colors.text.inverse : colors.text.secondary,
-              border: 'none',
-              whiteSpace: 'nowrap',
-              transition: `all ${transitions.fast}`,
-            }}
-          >
-            {f.label}
-          </button>
-        ))}
       </div>
 
-      {/* Module Grid */}
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, 1fr)',
-        gap: spacing.md,
-      }}>
-        {filteredModules.map((mod, i) => (
-          <button
-            key={mod.id}
-            onClick={() => onSelectModule(mod.id)}
-            style={{
-              ...cardStyles.interactive,
-              textAlign: 'left',
-              animation: `fadeInUp ${300 + i * 50}ms ease`,
-              display: 'flex',
-              flexDirection: 'column',
-              gap: spacing.sm,
-            }}
-          >
-            {/* Module Title + Domain Badge */}
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-              <div>
-                <h3 style={{
-                  fontSize: typography.sizes.md,
-                  fontWeight: typography.weights.semibold,
-                  color: colors.text.primary,
-                  marginBottom: '4px',
-                }}>
-                  {mod.title}
-                </h3>
-                <span style={{
-                  fontSize: typography.sizes.xs,
-                  color: colors.text.tertiary,
-                }}>
-                  {mod.lessonCount} lessons
-                </span>
+      {/* Continue learning hero */}
+      {featured && (() => {
+        const a = domainStyle(featured.domain);
+        const lessonNo = Math.max(1, Math.round(featured.lessonCount * featured.percent / 100));
+        const left = Math.max(0, featured.lessonCount - lessonNo);
+        return (
+          <div className="lv-hero">
+            <div className="lv-hero-tile" style={{ background: a.tile }}>
+              <div className="lv-play"><PlayIcon size={26} accent={a.accent} /></div>
+              <span className="lv-hero-tag">RESUME</span>
+            </div>
+            <div className="lv-hero-body">
+              <div className="lv-hero-eyebrow">
+                <b>Continue learning</b>
+                <span className="lv-dot" />
+                <span>{featured.domain}</span>
               </div>
-              <span style={{
-                ...badgeStyles.base,
-                ...badgeStyles.neutral,
-                fontSize: '10px',
-                flexShrink: 0,
-              }}>
-                {mod.domain}
-              </span>
+              <div className="lv-hero-title">{featured.title}</div>
+              <div className="lv-hero-meta">Lesson {lessonNo} of {featured.lessonCount} · {left} lesson{left === 1 ? '' : 's'} left</div>
+              <div className="lv-hero-prog">
+                <div className="lv-bar"><div className="lv-bar-fill" style={{ width: `${featured.percent}%`, background: 'var(--lv-purple)' }} /></div>
+                <span className="lv-hero-pct">{featured.percent}%</span>
+              </div>
+              <button className="lv-hero-btn" onClick={() => onSelectModule(featured.id)}>
+                Resume lesson
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+              </button>
             </div>
+          </div>
+        );
+      })()}
 
-            {/* Progress Bar */}
-            <div
-              role="progressbar"
-              aria-valuenow={mod.percent}
-              aria-valuemin={0}
-              aria-valuemax={100}
-              aria-label={`${mod.title} progress: ${mod.percent}%`}
-              style={{
-                width: '100%',
-                height: '6px',
-                borderRadius: '3px',
-                backgroundColor: colors.surface.gray,
-                overflow: 'hidden',
-              }}
-            >
-              <div style={{
-                width: `${mod.percent}%`,
-                height: '100%',
-                borderRadius: '3px',
-                backgroundColor: mod.percent === 100 ? colors.semantic.success : colors.accent.orange,
-                transition: `width ${transitions.slow}`,
-              }} />
-            </div>
-
-            {/* Status */}
-            <div style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-            }}>
-              <span style={{
-                fontSize: typography.sizes.xs,
-                fontWeight: typography.weights.medium,
-                color: mod.statusColor,
-              }}>
-                {mod.status}
-              </span>
-              <span style={{
-                fontSize: typography.sizes.xs,
-                color: colors.text.muted,
-              }}>
-                {mod.percent}%
-              </span>
-            </div>
+      {/* Filter pills */}
+      <div className="lv-pills" role="tablist" aria-label="Topic filters">
+        {PILLS.map((p) => (
+          <button
+            key={p.id}
+            role="tab"
+            aria-selected={filter === p.id}
+            className={`lv-pill${filter === p.id ? ' is-active' : ''}`}
+            onClick={() => setFilter(p.id)}
+          >
+            {p.label} <span className="lv-pill-count">{p.count}</span>
           </button>
         ))}
       </div>
 
-      {/* Empty State */}
-      {filteredModules.length === 0 && (
-        <div style={{
-          textAlign: 'center',
-          padding: spacing['2xl'],
-          color: colors.text.tertiary,
-        }}>
-          {searchQuery ? (
-            <>
-              <p style={{ fontSize: typography.sizes.md, marginBottom: spacing.xs }}>
-                No modules match "{searchQuery}"
-              </p>
-              <p style={{ fontSize: typography.sizes.sm }}>Try a different search.</p>
-            </>
-          ) : (
-            <>
-              <p style={{ fontSize: typography.sizes.md, marginBottom: spacing.xs }}>
-                No modules match this filter.
-              </p>
-              <Button onClick={() => setFilter('all')} variant="tertiary">
-                Show All
-              </Button>
-            </>
-          )}
+      {/* Grid */}
+      <div className="lv-grid">
+        {visible.map((mod) => {
+          const a = domainStyle(mod.domain);
+          const s = statusFor(mod.percent);
+          return (
+            <button key={mod.id} className="lv-card" onClick={() => onSelectModule(mod.id)}>
+              <div className="lv-card-tile" style={{ background: a.tile }}>
+                <div className="lv-play"><PlayIcon size={17} accent={a.accent} /></div>
+                <span className="lv-card-count">{mod.lessonCount}</span>
+              </div>
+              <div className="lv-card-body">
+                <div className="lv-card-head">
+                  <div className="lv-card-title">{mod.title}</div>
+                  <span className="lv-card-domain" style={{ background: a.bg, color: a.col }}>{mod.domain}</span>
+                </div>
+                <div className="lv-card-sub">
+                  <span className="lv-card-lessons">{mod.lessonCount} lessons</span>
+                  {needsWork(mod) && <span className="lv-badge-needs">NEEDS WORK</span>}
+                </div>
+                <div className="lv-card-spacer" />
+                <div className="lv-bar"><div className="lv-bar-fill" style={{ width: `${mod.percent}%`, background: s.bar }} /></div>
+                <div className="lv-card-foot">
+                  <span className="lv-card-status" style={{ color: s.col }}>{s.label}</span>
+                  <span className="lv-card-pct">{mod.percent}%</span>
+                </div>
+              </div>
+            </button>
+          );
+        })}
+      </div>
+
+      {/* Empty state */}
+      {visible.length === 0 && (
+        <div className="lv-empty">
+          {query.trim()
+            ? <p>No topics match &ldquo;{query.trim()}&rdquo;.</p>
+            : <p>No topics match this filter.</p>}
+          {!query.trim() && <button onClick={() => setFilter('all')}>Show all topics</button>}
         </div>
       )}
     </div>
