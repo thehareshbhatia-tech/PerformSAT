@@ -129,10 +129,13 @@ function ProgressDots({ total, currentIndex, answers, questions, onNavigate }) {
         const q = questions[i];
         const ans = q ? answers[q.id] : null;
         const isCurrent = i === currentIndex;
+        // Calm, positional progress (Acely-style): the filled bar shows how far
+        // along you are; the current question carries the number badge.
+        // Correctness is NOT repeated here in red/green — it already lives in
+        // the left navigator, so the top bar stays quiet.
         let cls = 'aps-progress-dot';
         if (isCurrent) cls += ' is-current';
-        else if (ans?.correct) cls += ' is-correct';
-        else if (ans) cls += ' is-wrong';
+        else if (ans) cls += ' is-answered';
         return (
           <button
             key={i}
@@ -177,6 +180,38 @@ const AssignedPracticeShell = ({
   const [eliminatedChoices, setEliminatedChoices] = useState({});
   // Debounce trap so a rapid double-click doesn't insert two questions.
   const trySimilarLockRef = useRef(0);
+
+  // Resizable Assisted Help pane — the AI chat is a co-equal pane (Acely-style)
+  // the student can widen with a drag handle. Presentation-only state, persisted
+  // locally; it never touches the controlled session state in App.jsx.
+  const [panelWidth, setPanelWidth] = useState(() => {
+    try {
+      const saved = Number(localStorage.getItem('performsat:drillPanelW'));
+      if (saved >= 360 && saved <= 680) return saved;
+    } catch (_) { /* ignore unavailable storage */ }
+    return 460;
+  });
+  const startPanelDrag = (e) => {
+    e.preventDefault();
+    document.body.style.userSelect = 'none';
+    document.body.style.cursor = 'col-resize';
+    const onMove = (ev) => {
+      const w = Math.min(680, Math.max(360, window.innerWidth - ev.clientX));
+      setPanelWidth(w);
+    };
+    const onUp = () => {
+      document.body.style.userSelect = '';
+      document.body.style.cursor = '';
+      window.removeEventListener('mousemove', onMove);
+      window.removeEventListener('mouseup', onUp);
+      setPanelWidth((w) => {
+        try { localStorage.setItem('performsat:drillPanelW', String(Math.round(w))); } catch (_) { /* ignore */ }
+        return w;
+      });
+    };
+    window.addEventListener('mousemove', onMove);
+    window.addEventListener('mouseup', onUp);
+  };
 
   const idx = practiceState.currentQuestionIndex;
   const total = questions.length;
@@ -496,7 +531,7 @@ const AssignedPracticeShell = ({
   const answeredCorrect = practiceState.answers[currentQuestion?.id]?.correct;
 
   return (
-    <div className="aps-shell">
+    <div className="aps-shell" style={{ '--pr-panel-w': `${panelWidth}px` }}>
 
       {/* ── LEFT: question navigator ── */}
       <QuestionSidebar
@@ -893,8 +928,17 @@ const AssignedPracticeShell = ({
 
       </main>{/* /aps-center */}
 
-      {/* ── RIGHT: Assisted Help (AI Tutor) ── */}
+      {/* ── RIGHT: Assisted Help (AI Tutor) — resizable co-equal pane ── */}
       <aside className="aps-right">
+        {/* Drag handle on the pane's left edge to widen / narrow the chat. */}
+        <div
+          className="aps-resize-handle"
+          onMouseDown={startPanelDrag}
+          role="separator"
+          aria-orientation="vertical"
+          aria-label="Drag to resize the help panel"
+          title="Drag to resize"
+        />
         <AiTutorChat
           key={`assigned-${idx}`}
           isOpen={true}

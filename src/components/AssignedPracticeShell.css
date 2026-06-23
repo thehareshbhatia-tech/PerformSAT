@@ -86,7 +86,7 @@
 
 .aps-shell {
   display: grid;
-  grid-template-columns: 288px minmax(0, 1fr) 372px;
+  grid-template-columns: 288px minmax(0, 1fr) var(--pr-panel-w, 460px);
   height: 100vh;
   background: var(--pr-bg);
   font-family: var(--pr-font-body);
@@ -655,6 +655,7 @@
 
 /* ── RIGHT: Assisted Help (AiTutorChat renders inside, unchanged) ───── */
 .aps-right {
+  position: relative;
   background: var(--pr-surface);
   border-left: 1px solid var(--pr-line);
   display: flex;
@@ -662,6 +663,36 @@
   overflow: hidden;
   min-width: 0;
 }
+
+/* Drag handle to resize the Assisted Help pane (sits on its left edge).
+   A wider, draggable chat — the student can make the AI tutor a co-equal
+   pane (Acely-style). Width is held in --pr-panel-w on .aps-shell. */
+.aps-resize-handle {
+  position: absolute;
+  left: -4px;
+  top: 0;
+  bottom: 0;
+  width: 9px;
+  cursor: col-resize;
+  z-index: 6;
+  background: transparent;
+  touch-action: none;
+}
+.aps-resize-handle::after {
+  content: '';
+  position: absolute;
+  left: 3px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 42px;
+  border-radius: 3px;
+  background: var(--pr-line-strong);
+  opacity: 0;
+  transition: opacity 0.15s ease, background-color 0.15s ease;
+}
+.aps-resize-handle:hover::after { opacity: 1; }
+.aps-resize-handle:active::after { opacity: 1; background: var(--pr-orange); }
 
 /* ════════════════════════════════════════════════════════════════════
  * Round-complete interstitial (between rounds)
@@ -779,7 +810,7 @@
 
 /* ── RESPONSIVE ────────────────────────────────────────────────────── */
 @media (max-width: 1180px) {
-  .aps-shell { grid-template-columns: 248px minmax(0, 1fr) 340px; }
+  .aps-shell { grid-template-columns: 248px minmax(0, 1fr) var(--pr-panel-w, 380px); }
 }
 
 @media (max-width: 980px) {
@@ -810,6 +841,8 @@
     border-top: 1px solid var(--pr-line);
     max-height: 52vh;
   }
+  /* Panes stack on narrow screens — no horizontal resize. */
+  .aps-resize-handle { display: none; }
 }
 
 @media (max-width: 640px) {
