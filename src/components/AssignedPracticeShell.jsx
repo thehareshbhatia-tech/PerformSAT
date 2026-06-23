@@ -6,6 +6,7 @@ import SolutionExplanation from './SolutionExplanation';
 import AiTutorChat from './AiTutorChat';
 import HandAuthoredStamp from './HandAuthoredStamp';
 import AnswerChoiceList from './shared/AnswerChoiceList';
+import HighlightablePassage, { mergeHighlights } from './rw/HighlightablePassage';
 import { formatDiagnosticSentence } from '../services/diagnosticEngine';
 import { findRoundIndexForQuestion, computeRoundProgress } from '../services/buildRounds';
 import { getDrillChipForWeakness } from '../services/selectors/drillChip';
@@ -178,6 +179,12 @@ const AssignedPracticeShell = ({
   predictionLog = null,
 }) => {
   const [eliminatedChoices, setEliminatedChoices] = useState({});
+  // Bluebook-style passage highlights, mirroring the timed test (PracticeTest).
+  // Transient local UI state (not persisted) keyed by `${questionId}-${passageKey}`
+  // so a Try-Similar splice — which shifts later array indexes — never drags a
+  // highlight onto the wrong question. `highlightsHidden` toggles all on/off.
+  const [highlightsByKey, setHighlightsByKey] = useState({});
+  const [highlightsHidden, setHighlightsHidden] = useState(false);
   // Debounce trap so a rapid double-click doesn't insert two questions.
   const trySimilarLockRef = useRef(0);
 
@@ -224,6 +231,35 @@ const AssignedPracticeShell = ({
   // later index, which would otherwise drag eliminations onto the wrong question.
   const currentElimKey = String(currentQuestion?.id ?? `idx-${idx}`);
   const eliminated = eliminatedChoices[currentElimKey] || [];
+
+  // Highlight handlers — scoped per passage within the current question. Keyed
+  // by stable question id (same rationale as currentElimKey above) plus a
+  // passageKey ('main' for a single passage, `p${i}` for paired-text items).
+  const buildHlKey = (passageKey) => `${currentQuestion?.id ?? `idx-${idx}`}-${passageKey}`;
+  const handleAddHighlight = (passageKey, range) => {
+    setHighlightsByKey((prev) => {
+      const k = buildHlKey(passageKey);
+      const existing = prev[k] || [];
+      return { ...prev, [k]: mergeHighlights([...existing, range]) };
+    });
+  };
+  const handleRemoveHighlight = (passageKey, range) => {
+    setHighlightsByKey((prev) => {
+      const k = buildHlKey(passageKey);
+      const existing = prev[k] || [];
+      return { ...prev, [k]: existing.filter((h) => !(h.start === range.start && h.end === range.end)) };
+    });
+  };
+  const handleClearHighlights = () => {
+    setHighlightsByKey((prev) => {
+      const next = { ...prev };
+      Object.keys(next).forEach((k) => {
+        if (k.startsWith(`${currentQuestion?.id ?? `idx-${idx}`}-`)) delete next[k];
+      });
+      return next;
+    });
+  };
+  const hasPassageToHighlight = !!(currentQuestion?.passage || Array.isArray(currentQuestion?.passages));
 
   // Answer context for the AI tutor's trap-analysis branch (only meaningful
   // after the student has answered + revealed). Without these the "name the
@@ -623,48 +659,83 @@ const AssignedPracticeShell = ({
               <span className="aps-qtag-label">Question {idx + 1} of {total}</span>
             </div>
 
-            {/* R&W passage — basic plain-serif rendering (no Bluebook
-                highlighting; that lives in PracticeTest for the timed flow).
-                Covers all three R&W content shapes: single `passage`, paired
-                `passages` array (cross-text-connections), and `studentNotes`
-                object (rhetorical-synthesis). */}
-            {currentQuestion.passage && (
-              <div style={{
-                fontFamily: "'Georgia', 'Cambria', 'Times New Roman', serif",
-                fontSize: '17px',
-                lineHeight: '1.65',
-                color: 'var(--pr-text)',
-                margin: '18px 0 4px',
-                whiteSpace: 'pre-wrap',
-              }}>
-                <MathText>{currentQuestion.passage}</MathText>
+            {/* R&W passage — Bluebook-style highlightable rendering, shared with
+                the timed test (PracticeTest) so students annotate the same way
+                in drills. Covers the single `passage` and paired `passages`
+                shapes; `studentNotes` (rhetorical-synthesis) is rendered below
+                as plain notes, matching the timed test which does not highlight
+                them. The toolbar only appears when there is a passage to mark. */}
+            {hasPassageToHighlight && (
+              <div className="aps-rw-toolbar">
+                <span className="aps-rw-toolbar-hint">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M9 11l-4 4v3h3l4-4"/><path d="M13 7l4 4"/><path d="M3 21h7"/><path d="M14.5 5.5l4 4L21 7l-4-4z"/></svg>
+                  Select text to highlight it · click a highlight to remove
+                </span>
+                <div className="aps-rw-toolbar-actions">
+                  <button
+                    type="button"
+                    className="aps-rw-btn"
+                    onClick={() => setHighlightsHidden((v) => !v)}
+                    aria-pressed={highlightsHidden}
+                    title={highlightsHidden ? 'Show highlights' : 'Hide highlights'}
+                  >
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                      {highlightsHidden ? (
+                        <>
+                          <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24" />
+                          <line x1="1" y1="1" x2="23" y2="23" />
+                        </>
+                      ) : (
+                        <>
+                          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                          <circle cx="12" cy="12" r="3" />
+                        </>
+                      )}
+                    </svg>
+                    {highlightsHidden ? 'Show Highlights' : 'Hide Highlights'}
+                  </button>
+                  <button
+                    type="button"
+                    className="aps-rw-btn"
+                    onClick={handleClearHighlights}
+                    title="Clear all highlights on this question"
+                  >
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                      <polyline points="3 6 5 6 21 6" />
+                      <path d="M19 6l-2 14a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2L5 6" />
+                    </svg>
+                    Clear All
+                  </button>
+                </div>
               </div>
             )}
 
+            {currentQuestion.passage && (
+              <HighlightablePassage
+                className="aps-rw-passage"
+                text={currentQuestion.passage}
+                highlights={highlightsByKey[buildHlKey('main')] || []}
+                hidden={highlightsHidden}
+                onAddHighlight={(r) => handleAddHighlight('main', r)}
+                onRemoveHighlight={(r) => handleRemoveHighlight('main', r)}
+                ariaLabel="Reading passage"
+              />
+            )}
+
             {Array.isArray(currentQuestion.passages) && (
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', margin: '18px 0 4px' }}>
+              <div className="aps-rw-passage-stack">
                 {currentQuestion.passages.map((p, i) => (
                   <div key={i}>
-                    <div style={{
-                      fontFamily: 'var(--pr-font-body)',
-                      fontSize: '13px',
-                      fontWeight: 700,
-                      letterSpacing: '0.04em',
-                      color: 'var(--pr-text-2)',
-                      textTransform: 'uppercase',
-                      marginBottom: '6px',
-                    }}>
-                      {p.label || `Text ${i + 1}`}
-                    </div>
-                    <div style={{
-                      fontFamily: "'Georgia', 'Cambria', 'Times New Roman', serif",
-                      fontSize: '17px',
-                      lineHeight: '1.65',
-                      color: 'var(--pr-text)',
-                      whiteSpace: 'pre-wrap',
-                    }}>
-                      <MathText>{p.text}</MathText>
-                    </div>
+                    <div className="aps-rw-passage-label">{p.label || `Text ${i + 1}`}</div>
+                    <HighlightablePassage
+                      className="aps-rw-passage"
+                      text={p.text}
+                      highlights={highlightsByKey[buildHlKey(`p${i}`)] || []}
+                      hidden={highlightsHidden}
+                      onAddHighlight={(r) => handleAddHighlight(`p${i}`, r)}
+                      onRemoveHighlight={(r) => handleRemoveHighlight(`p${i}`, r)}
+                      ariaLabel={p.label || `Text ${i + 1}`}
+                    />
                   </div>
                 ))}
               </div>

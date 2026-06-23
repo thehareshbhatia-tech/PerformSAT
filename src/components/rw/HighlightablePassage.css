@@ -1,0 +1,30 @@
+/* Shared annotation swatch for the Bluebook-style highlightable passage.
+ * Self-contained so it renders identically in the timed test (cream --pt-*
+ * palette) and the study-plan drill (--pr-* palette). Consumers may override
+ * the swatch by setting --rw-hl / --rw-hl-edge on an ancestor; the defaults
+ * match the practice test's original highlight yellow exactly. The blank-line
+ * placeholder follows the surrounding text color via currentColor so it adapts
+ * to either palette (and to dark mode in the drill). */
+
+.rw-highlight {
+  background-color: var(--rw-hl, #FCE9A6);
+  box-shadow: inset 0 -1px 0 var(--rw-hl-edge, #E9C84B);
+  color: inherit;
+  padding: 0 1px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+.rw-highlight:hover {
+  background-color: var(--rw-hl-hover, #FBDF82);
+  outline: 1px dashed var(--rw-hl-edge, #E9C84B);
+}
+
+.rw-blank {
+  display: inline-block;
+  min-width: 74px;
+  height: 1px;
+  border-bottom: 2px solid currentColor;
+  margin: 0 0.2em;
+  vertical-align: middle;
+}

@@ -533,25 +533,9 @@
   margin-bottom: 8px;
 }
 
-.rw-blank {
-  display: inline-block;
-  min-width: 74px;
-  height: 1px;
-  border-bottom: 2px solid var(--pt-text);
-  margin: 0 0.2em;
-  vertical-align: middle;
-}
-
-.rw-highlight {
-  background-color: var(--pt-hl);
-  box-shadow: inset 0 -1px 0 var(--pt-hl-edge);
-  color: inherit;
-  padding: 0 1px;
-  border-radius: 2px;
-  cursor: pointer;
-  transition: background-color 0.15s ease;
-}
-.rw-highlight:hover { background-color: #FBDF82; outline: 1px dashed var(--pt-hl-edge); }
+/* .rw-blank and .rw-highlight now live in the shared rw/HighlightablePassage.css
+ * (the test palette's --pt-hl / --pt-hl-edge match the shared defaults exactly,
+ * so the timed-test appearance is unchanged). */
 
 /* Right pane: question header + stem */
 .test-session-shell[data-section="reading-writing"] .rw-question-scroll {

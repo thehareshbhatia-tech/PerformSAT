@@ -394,6 +394,74 @@
 .aps-q-tools .ha-stamp,
 .aps-q-tools svg.ha-stamp { flex: none; }
 
+/* R&W passage + Bluebook highlight toolbar (drill palette). The swatch itself
+   (.rw-highlight / .rw-blank) is owned by the shared rw/HighlightablePassage.css. */
+.aps-rw-passage {
+  font-family: 'Georgia', 'Cambria', 'Times New Roman', serif;
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--pr-text);
+  margin: 14px 0 4px;
+}
+.aps-rw-passage-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 14px 0 4px;
+}
+.aps-rw-passage-label {
+  font-family: var(--pr-font-body);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--pr-text-2);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.aps-rw-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin: 18px 0 2px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--pr-line);
+}
+.aps-rw-toolbar-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--pr-font-body);
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--pr-text-3);
+  min-width: 0;
+}
+.aps-rw-toolbar-actions { display: flex; gap: 8px; flex-shrink: 0; }
+.aps-rw-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 12px;
+  background: var(--pr-surface);
+  border: 1px solid var(--pr-line-strong);
+  border-radius: 9px;
+  font-family: var(--pr-font-body);
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--pr-text-2);
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.aps-rw-btn:hover { background: var(--pr-surface-2); }
+.aps-rw-btn[aria-pressed="true"] { background: var(--pr-surface-2); color: var(--pr-text); }
+/* The highlight swatch is always a light yellow (shared default), so in the
+   drill's dark theme — where passage text is light — force dark ink on a
+   highlight so it stays legible. Light theme keeps the shared `color: inherit`
+   (already dark), so this is a no-op until the dark toggle is wired. */
+.aps-shell[data-theme="dark"] .rw-highlight { color: #16181D; }
+
 /* Numbered question tag */
 .aps-qtag {
   display: flex;
