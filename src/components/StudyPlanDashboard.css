@@ -771,6 +771,93 @@
   border-top: 1px solid var(--sp-line);
 }
 
+/* ── This-week block + day-grouped schedule ──────────────────────────── */
+.sp-week-block {
+  background: var(--sp-surface);
+  border: 1px solid var(--sp-line);
+  border-left: 3px solid var(--sp-orange);
+  border-radius: 12px;
+  padding: 14px 16px 8px;
+  margin-top: 4px;
+}
+.sp-week-block-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 10px;
+  margin-bottom: 2px;
+  border-bottom: 1px solid var(--sp-line);
+}
+.sp-week-block-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--sp-text);
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.sp-week-block-prog {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--sp-text-2);
+  font-variant-numeric: tabular-nums;
+  flex: none;
+}
+.sp-sched { display: flex; flex-direction: column; }
+.sp-sched-day {
+  display: flex;
+  gap: 14px;
+  padding: 11px 0;
+  border-top: 1px solid var(--sp-line);
+}
+.sp-sched-day:first-child { border-top: none; }
+.sp-sched-day.is-rest { padding: 8px 0; }
+.sp-sched-daycol {
+  flex: none;
+  width: 38px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 5px;
+}
+.sp-sched-dow {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  color: var(--sp-text-3);
+}
+.sp-sched-date {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--sp-text);
+  line-height: 1.15;
+  font-variant-numeric: tabular-nums;
+}
+.sp-sched-day.is-today .sp-sched-dow,
+.sp-sched-day.is-today .sp-sched-date { color: var(--sp-orange); }
+.sp-sched-sessions {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.sp-sched-rest {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  font-size: 12.5px;
+  color: var(--sp-text-3);
+}
+.sp-sched-empty {
+  font-size: 14px;
+  color: var(--sp-text-3);
+  text-align: center;
+  padding: 16px 0;
+}
+
 /* ── Activity rows inside week bodies (kept ActivityRow markup, reskinned)  */
 .sp-weekly .ai-practice-banner {
   margin-bottom: 0 !important;

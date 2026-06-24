@@ -67,6 +67,12 @@ const INTENSITY_LEVELS = {
 // signal to confidently schedule 10 weeks — and a 10-week wall reads as noise.
 const INITIAL_PLAN_WEEKS = 2;
 
+// A focused full plan runs 4-5 weeks, not a 10-week wall. Short cycles that
+// regenerate from each new test beat a long static schedule the student stops
+// trusting — a 10-week plan reads as noise and most of it goes stale before
+// they reach it. The first plan stays shorter still (INITIAL_PLAN_WEEKS).
+const MAX_PLAN_WEEKS = 5;
+
 // Approximate time for different activity types (in minutes)
 const ACTIVITY_DURATIONS = {
   watchLesson: 8,         // Watch a video lesson
@@ -192,8 +198,8 @@ export const generateStudyPlan = (diagnostic, userProfile = {}, completedLessons
 
   // ═══ Calculate time constraints ═══
   const daysUntilTest = getDaysUntil(testDate);
-  const weeksUntilTest = daysUntilTest !== null ? Math.ceil(daysUntilTest / 7) : 8; // Default 8 weeks
-  let effectiveWeeks = Math.min(Math.max(1, weeksUntilTest), 12); // Cap at 12 weeks
+  const weeksUntilTest = daysUntilTest !== null ? Math.ceil(daysUntilTest / 7) : MAX_PLAN_WEEKS;
+  let effectiveWeeks = Math.min(Math.max(1, weeksUntilTest), MAX_PLAN_WEEKS); // Cap at 5 weeks
 
   // ═══ First-plan gating: short focused cycle → retest → deeper plan ═══
   // Count the distinct tests that have produced data, the triggering one
@@ -225,8 +231,14 @@ export const generateStudyPlan = (diagnostic, userProfile = {}, completedLessons
   // ═══ Map skill gaps to specific curriculum activities ═══
   const activities = mapGapsToActivities(skillGaps, completedLessons, practiceProgress, diagnostic);
 
-  // ═══ Add strategy activities (trap avoidance, time management, etc.) ═══
-  const strategyActivities = generateStrategyActivities(diagnostic);
+  // ═══ No generic "tip" cards in the plan ═══
+  // The plan used to inject templated strategy/review cards ("Pacing Reset",
+  // "Review Your Missed Questions", "Trap Answer Recognition") that read as
+  // bland boilerplate filler. The plan is now focused practice + progress
+  // checks; the personalized coaching lives in the diagnostic sentences and
+  // the coach notes (deltaFromPrevious / persistentWeaknessStrategy), and
+  // reviewing missed questions has its own dedicated CTA below the plan.
+  const strategyActivities = [];
 
   // ═══ Distribute activities across weeks ═══
   const weeklyPlan = distributeAcrossWeeks(
@@ -607,104 +619,6 @@ const mapGapsToActivities = (skillGaps, completedLessons, practiceProgress, diag
   return deduped;
 };
 
-/**
- * Generate strategy-focused activities based on error patterns.
- */
-const generateStrategyActivities = (diagnostic) => {
-  const activities = [];
-  const errorCounts = diagnostic.errorPatterns.counts;
-  const hasRWGaps = (diagnostic.skillAnalysis?.weakSkills || []).some(s => s.section === 'rw');
-
-  // Trap avoidance drills — tips match the sections the student actually
-  // struggled in (the all-math tip list read oddly under an R&W-heavy plan).
-  if ((errorCounts[ERROR_TYPES.TRAP_SUSCEPTIBILITY] || 0) >= 2) {
-    activities.push({
-      type: 'strategy',
-      activityType: 'strategyDrill',
-      title: 'Trap Answer Recognition Drill',
-      subtitle: `You picked ${errorCounts[ERROR_TYPES.TRAP_SUSCEPTIBILITY]} designed-to-tempt answers last test`,
-      duration: ACTIVITY_DURATIONS.strategyDrill,
-      priority: 90,
-      icon: null,
-      tips: [
-        'Before choosing, predict what trap answers might look like',
-        'In percent problems: "increased by X%" ≠ "X% of"',
-        'In multi-step problems: check that you answered the FINAL question, not an intermediate step',
-        ...(hasRWGaps ? [
-          'In reading questions: the tempting wrong answer is usually TRUE — it just doesn\'t answer THIS question',
-          'Distrust extreme wording — "always", "never", "proves" usually overstate what the passage supports',
-        ] : []),
-        'If your answer came too easily on a hard question, it\'s probably a trap',
-      ],
-    });
-  }
-
-  // Time management drills. The gate is an OR: the fade branch can fire
-  // with timeRelatedErrors at 0-2, so the subtitle must cite whichever
-  // evidence actually triggered it ("clock cost you 0 questions" was a
-  // live contradiction caught in review).
-  const timePressureCount = errorCounts[ERROR_TYPES.TIME_PRESSURE] || 0;
-  const fadeEffect = diagnostic.timeAnalysis.fadeEffect || 0;
-  if (timePressureCount >= 3 || fadeEffect > 15) {
-    activities.push({
-      type: 'strategy',
-      activityType: 'strategyDrill',
-      title: 'Pacing Reset',
-      subtitle: timePressureCount >= 3
-        ? `The clock cost you ${timePressureCount} question${timePressureCount === 1 ? '' : 's'} last test`
-        : `Your accuracy dropped ${fadeEffect}% in the second half — pacing faded`,
-      duration: ACTIVITY_DURATIONS.strategyDrill,
-      priority: 85,
-      icon: null,
-      tips: [
-        'Easy: max 90 seconds. Medium: max 2 minutes. Hard: max 3 minutes.',
-        'If stuck, flag it and move on — come back with fresh eyes',
-        'Use the last 5 minutes to review flagged questions',
-        'Don\'t spend 4 minutes on one hard question and rush the next three',
-      ],
-    });
-  }
-
-  // Careless error reduction
-  if ((errorCounts[ERROR_TYPES.CARELESS_ERROR] || 0) >= 2) {
-    activities.push({
-      type: 'strategy',
-      activityType: 'strategyDrill',
-      title: 'Stop the Avoidable Misses',
-      subtitle: `${errorCounts[ERROR_TYPES.CARELESS_ERROR]} questions you knew how to solve went wrong last test`,
-      duration: ACTIVITY_DURATIONS.strategyDrill,
-      priority: 95,
-      icon: null,
-      tips: [
-        'Re-read the last sentence of EVERY question before answering',
-        'After solving, plug your answer back in to verify',
-        'Circle/highlight what the question is actually asking for (x? 2x+1? y?)',
-        'For fill-in: double-check that your answer is in the right units/form',
-      ],
-    });
-  }
-
-  // Mistake review session
-  if (diagnostic.errorPatterns.totalWrong > 5) {
-    activities.push({
-      type: 'review',
-      activityType: 'reviewMistakes',
-      title: 'Review Your Missed Questions',
-      subtitle: `${diagnostic.errorPatterns.totalWrong} questions to review from ${diagnostic.testTitle}`,
-      duration: ACTIVITY_DURATIONS.reviewMistakes,
-      priority: 100, // Always high priority
-      icon: null,
-      tips: [
-        'For each wrong answer, understand WHY the correct answer is right',
-        'Write down what you would do differently next time',
-        'Focus on questions you "almost" got right — these are your quick wins',
-      ],
-    });
-  }
-
-  return activities;
-};
-
 // ═══════════════════════════════════════════════════════════════════════════
 // WEEKLY DISTRIBUTION
 // ═══════════════════════════════════════════════════════════════════════════
@@ -777,37 +691,11 @@ const distributeAcrossWeeks = (activities, strategyActivities, totalWeeks, minut
     let weekMinutesUsed = 0;
     const weekMinutesBudget = minutesPerWeek;
 
-    // ── PHASE 1: Start of week — Review + Strategy ──
-    if (isFirstWeek) {
-      // First week: review mistakes from the test that triggered this plan
-      const reviewActivity = activityPool.find(a => a.type === 'review');
-      if (reviewActivity) {
-        weekActivities.push({
-          ...reviewActivity,
-          day: 'Monday',
-          weekPhase: 'start',
-        });
-        weekMinutesUsed += reviewActivity.duration;
-        activityPool = activityPool.filter(a => a !== reviewActivity);
-      }
-    }
-
-    // Add one strategy activity per week (if available)
-    const strategyIdx = activityPool.findIndex(a => a.type === 'strategy');
-    if (strategyIdx !== -1 && weekMinutesUsed + activityPool[strategyIdx].duration <= weekMinutesBudget) {
-      weekActivities.push({
-        ...activityPool[strategyIdx],
-        day: isFirstWeek ? 'Tuesday' : 'Monday',
-        weekPhase: 'start',
-      });
-      weekMinutesUsed += activityPool[strategyIdx].duration;
-      activityPool.splice(strategyIdx, 1);
-    }
-
-    // ── PHASE 2: Mid-week — Lessons and Practice ──
-    const midWeekDays = isFirstWeek
-      ? ['Wednesday', 'Thursday', 'Friday']
-      : ['Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+    // ── Practice across the week — Monday through Friday ──
+    // The plan is now pure focused practice (no strategy/review tip cards), so
+    // practice fills the whole work-week instead of starting mid-week behind
+    // the old Mon/Tue review + strategy slots.
+    const midWeekDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
 
     let dayIdx = 0;
     while (activityPool.length > 0 && weekMinutesUsed < weekMinutesBudget && dayIdx < midWeekDays.length) {
@@ -1306,8 +1194,8 @@ const fuzzyMatchModule = (skillId) => {
 const generateWeekTitle = (weekNum, totalWeeks, isTestWeek, domains, skills = []) => {
   if (weekNum === 1) {
     return skills.length > 0
-      ? `${skills[0]} + the avoidable misses`
-      : 'The avoidable misses first';
+      ? `${skills[0]} first`
+      : 'Your weakest skills first';
   }
   if (weekNum === totalWeeks) return 'Lock it in before test day';
   if (isTestWeek) return 'Practice test — measure what moved';
@@ -1320,8 +1208,8 @@ const generateWeekTitle = (weekNum, totalWeeks, isTestWeek, domains, skills = []
 const generateWeekGoal = (weekNum, totalWeeks, skills, isTestWeek) => {
   if (weekNum === 1) {
     return skills.length > 0
-      ? `Clear your missed questions, then rebuild ${skills[0]}`
-      : 'Clear your missed questions — the avoidable ones first';
+      ? `Rebuild ${skills[0]} — start with your biggest gap`
+      : 'Start with your weakest skills';
   }
   if (weekNum === totalWeeks) return 'Full-speed practice — accuracy under real timing';
   if (isTestWeek) return 'Take a timed practice test to measure what moved';

@@ -120,7 +120,7 @@ describe('StudyPlanDashboard redesign render', () => {
     teardown();
   });
 
-  it('renders the Weekly branch (day-row timeline) when the Weekly View tab is clicked', () => {
+  it('renders the Weekly branch (day-grouped schedule) when the Weekly View tab is clicked', () => {
     const { container, teardown } = mount({ variant: 'inline' });
     const weeklyTab = Array.from(container.querySelectorAll('button.sp-tab'))
       .find((b) => /Weekly View/.test(b.textContent));
@@ -129,9 +129,13 @@ describe('StudyPlanDashboard redesign render', () => {
       weeklyTab.dispatchEvent(new MouseEvent('click', { bubbles: true }));
     });
     const text = container.textContent || '';
-    // Day-row timeline + launchable sessions are in the weekly branch.
-    expect(text).toContain("This week's sessions");
+    // Day-grouped weekly schedule: "This week" head + "Week N of M" + a
+    // launchable session rendered under a day group.
     expect(text).toContain('This week');
+    expect(text).toMatch(/Week \d+ of 2/);
+    expect(container.querySelector('.sp-sched')).toBeTruthy();
+    expect(container.querySelector('.sp-sched-day')).toBeTruthy();
+    expect(Array.from(container.querySelectorAll('.btn-launch')).length).toBeGreaterThan(0);
     teardown();
   });
 
