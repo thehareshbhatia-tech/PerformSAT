@@ -40,6 +40,7 @@ import StudyPlanReviewSection from './StudyPlanReviewSection';
 import StudyPlanPacingSection from './StudyPlanPacingSection';
 import { buildPacingTelemetry } from '../services/selectors/pacingTelemetry';
 import { getPacingStruggle } from '../services/selectors/pacingStruggle';
+import { partitionReviewQueue } from '../services/selectors/planReviewQueue';
 import {
   ClipboardIcon,
   VideoCameraIcon,
@@ -294,7 +295,6 @@ const StudyPlanDashboard = ({
   }
 
   // ── Hooks (all below the empty-state early return) ──────────────────
-  const [expandedWeek, setExpandedWeek] = useState(null);
   const [deltaDismissed, setDeltaDismissed] = useState(() =>
     !!studyPlanMeta?.artifactId && !!localStorage.getItem(`dismissedDelta:${studyPlanMeta.artifactId}`)
   );
@@ -320,6 +320,12 @@ const StudyPlanDashboard = ({
   const [addTaskWeek, setAddTaskWeek] = useState(null); // week index with an open add-task form
   const [addTaskTitle, setAddTaskTitle] = useState('');
   const [addTaskDay, setAddTaskDay] = useState('Monday');
+  // Weekly View week-carousel: which plan week is shown (defaults to the
+  // current week once derived). Tip cards expand inline; state lifted here
+  // (keyed weekIdx:actIdx) so it survives ActivityRow re-creation each render.
+  const [selectedWeek, setSelectedWeek] = useState(null);
+  const [expandedTips, setExpandedTips] = useState({});
+  const toggleTip = (key) => setExpandedTips((m) => ({ ...m, [key]: !m[key] }));
 
   // ── Derived data ─────────────────────────────────────────────────────
   // Render-time guard: legacy plan artifacts in Firestore may still
@@ -329,10 +335,7 @@ const StudyPlanDashboard = ({
   // test activities. Generator no longer emits lessons (see
   // studyPlanGenerator.js:472), but this defends against old plans
   // already persisted server-side.
-  // Hide lessons (legacy LearnWorkspace flow) AND the old generic strategy/
-  // review "tip" cards — the plan is focused practice + progress checks now, so
-  // any tips lingering in already-persisted plans don't render either.
-  const isVisibleActivity = (a) => a && a.type !== 'lesson' && a.type !== 'strategy' && a.type !== 'review' && !a.skipped && matchesSectionFilter(a, sectionFilter);
+  const isVisibleActivity = (a) => a && a.type !== 'lesson' && !a.skipped && matchesSectionFilter(a, sectionFilter);
   const visibleActivities = (week) => (week?.activities || []).filter(isVisibleActivity);
 
   const delta = studyPlanArtifact?.delta || studyPlan._diff || null;
@@ -413,6 +416,9 @@ const StudyPlanDashboard = ({
     [practiceTestResults]
   );
   const pacingStruggle = useMemo(() => getPacingStruggle(studyPlan), [studyPlan]);
+  // "Beyond this week" gating: only show the section (and its divider) when at
+  // least one of Review Queue / Pacing / past-test review will actually render.
+  const reviewDue = useMemo(() => partitionReviewQueue(reviewQueue).sessionSize, [reviewQueue]);
   // Goal already achieved? Common in mid-test cycles where a recent score
   // already exceeds onboarding-time target. Compared scale-safely (1.4): a
   // 400-1600 composite must never "achieve" a 200-800 section target.
@@ -756,75 +762,97 @@ const StudyPlanDashboard = ({
   // ── Activity row ─────────────────────────────────────────────────────
   // hideDay suppresses the day chip when the row is rendered under a day
   // header in the weekly schedule (the day is already the group label).
-  const ActivityRow = ({ act, weekIdx, actIdx, hideDay = false }) => {
+  // ── Activity row — weekly "session" task card (week-carousel design) ──
+  // Checkbox + day/icon column + title + subject/type/NEEDS FOCUS chips + an
+  // action (Launch / Start test / Tips dropdown). Tip cards expand their
+  // coaching bullets inline. Edit mode swaps the action for reschedule / skip /
+  // remove controls. Tip-open state lives in the parent (expandedTips) because
+  // ActivityRow is re-created each render.
+  const ActivityRow = ({ act, weekIdx, actIdx }) => {
     const done = act.completed;
+    const isTip = act.type === 'strategy' || act.type === 'review';
+    const isTest = act.type === 'test';
     const isNavigable = act.type === 'lesson' || act.type === 'practice' || act.type === 'test';
     const meta = TYPE_META[act.type] || TYPE_META.lesson;
     const chip = chipColorsFor(act);
     const section = act.type === 'practice' ? activitySection(act) : null;
-    // The "Practice:" / "Drill:" / "Review:" prefix is redundant once the row
-    // already carries a PRACTICE label + section chip + practice icon.
-    const title = (act.title || '').replace(/^(Practice|Drill|Review)\s*:\s*/i, '');
+    const tips = act.tips || [];
+    const tipKey = `${weekIdx}:${actIdx}`;
+    const tipsOpen = !!expandedTips[tipKey];
+    // The "Practice:" / "Drill:" prefix is redundant beside the type label.
+    const title = (act.title || '').replace(/^(Practice|Drill)\s*:\s*/i, '');
+    const sp = (!done && act.skillId && skillProgress) ? skillProgress[act.skillId] : null;
+    const needsFocus = !!(sp && sp.attempts >= 2 && (sp.mastery ?? (sp.correct / sp.attempts * 100)) < 40);
 
     return (
-      <div className="ai-practice-banner" style={{ marginBottom: '16px', opacity: (done || act.skipped) ? 0.55 : 1, filter: (done || act.skipped) ? 'grayscale(1)' : 'none', position: 'relative' }}>
-        <button
-          type="button"
-          className={`sp-act-toggle${done ? ' is-done' : ''}`}
-          aria-label={done ? `Mark "${title}" incomplete` : `Mark "${title}" complete`}
-          onClick={(e) => handleToggle(e, weekIdx, actIdx, done)}
-        >
-          {done && <CheckIcon size={14} color="#fff" />}
-        </button>
+      <div className={`sp-task${done ? ' is-done' : ''}${(needsFocus && !done) ? ' is-needsfocus' : ''}${act.skipped ? ' is-skipped' : ''}`}>
+        <div className="sp-task-main">
+          <button
+            type="button"
+            className={`sp-task-check${done ? ' is-done' : ''}`}
+            aria-label={done ? `Mark "${title}" incomplete` : `Mark "${title}" complete`}
+            onClick={(e) => handleToggle(e, weekIdx, actIdx, done)}
+          >
+            {done && <CheckIcon size={13} color="#fff" />}
+          </button>
 
-        <div className="ai-banner-content" style={{ flex: 1 }}>
-          <div className="ai-banner-icon" style={{
-            background: done ? 'var(--color-slate-100)' : chip.bg,
-            color: done ? 'var(--color-slate-400)' : chip.fg,
-            borderColor: done ? 'var(--color-slate-200)' : 'transparent'
-          }}>
-            {activityIcon(act.type)}
+          <div className="sp-task-daycol">
+            <span className="sp-task-dow">{(act.day || '').slice(0, 3).toUpperCase()}</span>
+            <span className="sp-task-icon" style={{ background: chip.bg, color: chip.fg }}>
+              {activityIcon(act.type)}
+            </span>
           </div>
-          <div className="ai-banner-text-group" style={{ flex: 1 }}>
-            <div className="ai-banner-title">
-              <MathText>{title}</MathText>
-            </div>
-            <div className="ai-banner-desc">
-              {!hideDay && act.day && <span className="sp-act-day">{act.day.slice(0, 3).toUpperCase()}</span>}
-              {section && !done && (
-                <span className={`sp-sec-chip is-${section}`}>{SECTION_CHIP_LABEL[section]}</span>
-              )}
-              {act.custom && <span className="sp-sec-chip" style={{ background: 'var(--sp-surface-2)', color: 'var(--sp-text-3)' }}>CUSTOM</span>}
-              {act.skipped && <span className="sp-sec-chip" style={{ background: 'var(--sp-surface-2)', color: 'var(--sp-text-3)' }}>SKIPPED</span>}
-              {act.custom ? 'Your task' : meta.label} {act.type === 'test' ? '· High Priority' : ''}
+
+          <div className="sp-task-text">
+            <div className="sp-task-title"><MathText>{title}</MathText></div>
+            <div className="sp-task-meta">
+              {section && <span className={`sp-sec-chip is-${section}`}>{SECTION_CHIP_LABEL[section]}</span>}
+              {act.custom && <span className="sp-sec-chip sp-sec-chip-ghost">CUSTOM</span>}
+              {act.skipped && <span className="sp-sec-chip sp-sec-chip-ghost">SKIPPED</span>}
+              <span className="sp-task-type">{act.custom ? 'Your task' : meta.label}</span>
+              {needsFocus && <span className="sp-task-needs">NEEDS FOCUS</span>}
             </div>
           </div>
+
+          {editMode ? (
+            <div className="sp-edit-controls" onClick={(e) => e.stopPropagation()}>
+              <select
+                className="sp-edit-day"
+                value={EDIT_DAYS.includes(act.day) ? act.day : 'Monday'}
+                onChange={(e) => handleReschedule(weekIdx, actIdx, e.target.value)}
+                aria-label={`Move "${title}" to a different day`}
+              >
+                {EDIT_DAYS.map((d) => <option key={d} value={d}>{d.slice(0, 3)}</option>)}
+              </select>
+              <button type="button" className="sp-edit-btn" onClick={() => handleToggleSkip(weekIdx, actIdx, act.skipped)}>
+                {act.skipped ? 'Unskip' : 'Skip'}
+              </button>
+              <button type="button" className="sp-edit-btn sp-edit-remove" aria-label={`Remove "${title}"`} onClick={() => handleRemoveActivity(weekIdx, actIdx)}>
+                Remove
+              </button>
+            </div>
+          ) : isTip ? (
+            tips.length > 0 && (
+              <button type="button" className="sp-task-tipsbtn" aria-expanded={tipsOpen} onClick={() => toggleTip(tipKey)}>
+                Tips
+                <span className={`sp-task-tipschev${tipsOpen ? ' is-open' : ''}`} aria-hidden="true"><ChevronDownIcon size={14} color="currentColor" /></span>
+              </button>
+            )
+          ) : (!done && isNavigable && (
+            <button className={`sp-task-action${isTest ? ' is-test' : ''}`} onClick={(e) => { e.stopPropagation(); handleGo(act); }}>
+              {isTest ? 'Start test' : 'Launch'}
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+          ))}
         </div>
 
-        {editMode ? (
-          <div className="sp-edit-controls" onClick={(e) => e.stopPropagation()}>
-            <select
-              className="sp-edit-day"
-              value={EDIT_DAYS.includes(act.day) ? act.day : 'Monday'}
-              onChange={(e) => handleReschedule(weekIdx, actIdx, e.target.value)}
-              aria-label={`Move "${act.title}" to a different day`}
-            >
-              {EDIT_DAYS.map((d) => <option key={d} value={d}>{d.slice(0, 3)}</option>)}
-            </select>
-            <button type="button" className="sp-edit-btn" onClick={() => handleToggleSkip(weekIdx, actIdx, act.skipped)}>
-              {act.skipped ? 'Unskip' : 'Skip'}
-            </button>
-            <button type="button" className="sp-edit-btn sp-edit-remove" aria-label={`Remove "${act.title}"`} onClick={() => handleRemoveActivity(weekIdx, actIdx)}>
-              Remove
-            </button>
-          </div>
-        ) : (!done && isNavigable && (
-          <div className="ai-banner-controls">
-            <button className="btn-launch" onClick={(e) => { e.stopPropagation(); handleGo(act); }}>
-              Launch {meta.label}
-            </button>
-          </div>
-        ))}
+        {isTip && tipsOpen && tips.length > 0 && (
+          <ul className="sp-task-tips">
+            {tips.map((tip, i) => (
+              <li key={i} className="sp-task-tip"><MathText>{tip}</MathText></li>
+            ))}
+          </ul>
+        )}
       </div>
     );
   };
@@ -848,65 +876,59 @@ const StudyPlanDashboard = ({
     return m;
   };
 
-  // ── Render a plan week as a day-grouped schedule (Mon→Sun) ────────────
-  // One deliberate weekly calendar: each active day is a header with its
-  // session(s) launchable inline; interior rest days read as "rest"; trailing
-  // empty days are trimmed so the week never ends on filler. Replaces the old
-  // flat list + duplicate day-row glance + floating "NEEDS FOCUS" overlays.
-  const renderWeekSchedule = (week, weekIdx) => {
+  // Format a week's calendar span as "Jun 22 – 28" (same month) or
+  // "Jun 29 – Jul 5" (crossing a month boundary).
+  const fmtWeekRange = (monday) => {
+    const end = new Date(monday);
+    end.setDate(monday.getDate() + 6);
+    const m1 = monday.toLocaleString('en-US', { month: 'short' });
+    const m2 = end.toLocaleString('en-US', { month: 'short' });
+    return m1 === m2
+      ? `${m1} ${monday.getDate()} – ${end.getDate()}`
+      : `${m1} ${monday.getDate()} – ${m2} ${end.getDate()}`;
+  };
+
+  // ── Render one plan week's sessions as a flat, day-ordered task list ───
+  // The week-carousel shows a single week at a time; tasks render in calendar
+  // order (Mon→Sun), completed struck in place. Returns null when the week has
+  // no visible sessions so the caller can show the "unlocks as you go" state.
+  const renderWeekTasks = (week, weekIdx) => {
     const fullActivities = week?.activities || [];
     // In edit mode, also surface skipped tasks (greyed) so they can be
-    // un-skipped or removed; otherwise hidden (and tips never show).
-    const acts = fullActivities.filter((a) => (editMode
-      ? (a.type !== 'lesson' && a.type !== 'strategy' && a.type !== 'review' && matchesSectionFilter(a, sectionFilter))
-      : isVisibleActivity(a)));
-
-    const rows = WEEKDAY_FULL.map((dayName, idx) => {
-      const date = new Date(mondayForWeek(weekIdx));
-      date.setDate(date.getDate() + idx);
-      const dayActs = acts
-        .filter((a) => a.day === dayName)
-        .sort((a, b) => (a.completed === b.completed ? 0 : a.completed ? 1 : -1));
-      const isToday = weekIdx === displayCurrentWeek && dayName === todayDayName;
-      return { dayName, dow: dayName.slice(0, 3).toUpperCase(), num: date.getDate(), isToday, dayActs };
-    });
-
-    let lastActiveIdx = -1;
-    rows.forEach((r, i) => { if (r.dayActs.length > 0) lastActiveIdx = i; });
-    if (lastActiveIdx === -1) {
-      return <div className="sp-sched-empty">No sessions scheduled this week.</div>;
-    }
-    const visibleRows = rows.slice(0, lastActiveIdx + 1);
-
+    // un-skipped or removed; otherwise hidden.
+    const acts = fullActivities
+      .map((act, origIdx) => ({ act, origIdx }))
+      .filter(({ act }) => (editMode
+        ? (act.type !== 'lesson' && matchesSectionFilter(act, sectionFilter))
+        : isVisibleActivity(act)));
+    if (acts.length === 0) return null;
+    const dayRank = (a) => { const i = WEEKDAY_FULL.indexOf(a.day); return i === -1 ? 99 : i; };
+    acts.sort((a, b) => dayRank(a.act) - dayRank(b.act));
     return (
-      <div className="sp-sched">
-        {visibleRows.map((r) => (
-          <div className={`sp-sched-day${r.isToday ? ' is-today' : ''}${r.dayActs.length === 0 ? ' is-rest' : ''}`} key={r.dayName}>
-            <div className="sp-sched-daycol">
-              <span className="sp-sched-dow">{r.dow}</span>
-              <span className="sp-sched-date">{r.num}</span>
-            </div>
-            {r.dayActs.length === 0 ? (
-              <div className="sp-sched-rest">Rest day</div>
-            ) : (
-              <div className="sp-sched-sessions">
-                {r.dayActs.map((a) => {
-                  const origIdx = fullActivities.indexOf(a);
-                  return <ActivityRow key={origIdx} act={a} weekIdx={weekIdx} actIdx={origIdx} hideDay />;
-                })}
-              </div>
-            )}
-          </div>
+      <div className="sp-tasklist">
+        {acts.map(({ act, origIdx }) => (
+          <ActivityRow key={origIdx} act={act} weekIdx={weekIdx} actIdx={origIdx} />
         ))}
       </div>
     );
   };
 
-  const otherWeeks = weeks.filter((_, i) => i !== displayCurrentWeek);
-  const currentWeek = weeks[displayCurrentWeek];
-  const currentVisibleActivities = visibleActivities(currentWeek);
-  const currentDone = currentVisibleActivities.filter(a => a.completed).length;
-  const currentTotal = currentVisibleActivities.length;
+  // ── Week carousel (Weekly View) ──────────────────────────────────────
+  // selectedWeek is null until the user navigates; default to the current week.
+  const selWeek = selectedWeek == null
+    ? displayCurrentWeek
+    : Math.min(Math.max(0, selectedWeek), weeks.length - 1);
+  const shownWeek = weeks[selWeek];
+  const shownVisible = visibleActivities(shownWeek);
+  const shownDone = shownVisible.filter((a) => a.completed).length;
+  const shownTotal = shownVisible.length;
+  const shownRange = fmtWeekRange(mondayForWeek(selWeek));
+  const isCurrentShown = selWeek === displayCurrentWeek;
+  // Does the shown week have ANY real sessions (ignoring the section filter)?
+  // Distinguishes a genuinely empty "unlocks later" week from one filtered out.
+  const shownAnyTasks = (shownWeek?.activities || []).some((a) => a && a.type !== 'lesson' && !a.skipped);
+  const pacingWillShow = pacingTelemetry.length > 0 && !testDateIsPast;
+  const hasBeyond = showReviewTestsButton || reviewDue > 0 || pacingWillShow;
 
   // ── Plan modules (Today panel) ────────────────────────────────────────
   // The focus-area weaknesses, rendered as the redesigned "module cards with
@@ -1234,23 +1256,6 @@ const StudyPlanDashboard = ({
           </div>
         )}
 
-        {/* This week — section filter */}
-        <div className="sp-today-head" style={{ marginTop: '4px', marginBottom: '10px' }}>
-          <h3 className="sp-section-title" style={{ margin: 0 }}>This week</h3>
-          <div className="sp-seg" role="tablist" aria-label="Plan section">
-            {SECTION_FILTERS.map((tab) => (
-              <button
-                key={tab.id} type="button" role="tab"
-                aria-selected={sectionFilter === tab.id}
-                className={`sp-seg-btn${sectionFilter === tab.id ? ' is-active' : ''}`}
-                onClick={() => setSectionFilter(tab.id)}
-              >
-                {tab.label}
-              </button>
-            ))}
-          </div>
-        </div>
-
         {/* Edit-plan toggle (Weekly view) */}
         {onEditPlan && (
           <div className="sp-edit-bar">
@@ -1327,84 +1332,139 @@ const StudyPlanDashboard = ({
           </div>
         )}
 
-        {/* This week — day-grouped schedule */}
-        <div className="sp-week-block">
-          <div className="sp-week-block-head">
-            <span className="sp-week-block-title">
-              Week {currentWeek?.weekNumber} of {weeks.length}{cleanWeekTitle(currentWeek?.title) ? ` · ${cleanWeekTitle(currentWeek.title)}` : ''}
-            </span>
-            <span className="sp-week-block-prog">{currentDone} / {currentTotal} done</span>
-          </div>
-          {renderWeekSchedule(currentWeek, displayCurrentWeek)}
-          {editMode && (
-            <div className="sp-add-task">
-              {addTaskWeek === displayCurrentWeek ? (
-                <div className="sp-add-task-form">
-                  <input
-                    type="text"
-                    className="sp-add-task-input"
-                    placeholder="Add your own task (e.g. Redo Test 3 misses)"
-                    value={addTaskTitle}
-                    onChange={(e) => setAddTaskTitle(e.target.value)}
-                    onKeyDown={(e) => { if (e.key === 'Enter') handleAddTask(displayCurrentWeek); }}
-                  />
-                  <select className="sp-edit-day" value={addTaskDay} onChange={(e) => setAddTaskDay(e.target.value)} aria-label="Day for new task">
-                    {EDIT_DAYS.map((d) => <option key={d} value={d}>{d.slice(0, 3)}</option>)}
-                  </select>
-                  <button type="button" className="sp-edit-btn" onClick={() => handleAddTask(displayCurrentWeek)}>Add</button>
-                  <button type="button" className="sp-edit-btn" onClick={() => { setAddTaskWeek(null); setAddTaskTitle(''); }}>Cancel</button>
-                </div>
-              ) : (
-                <button type="button" className="sp-add-task-btn" onClick={() => { setAddTaskWeek(displayCurrentWeek); setAddTaskDay('Monday'); }}>
-                  + Add a task
-                </button>
+        {/* This week — week carousel */}
+        <div className="sp-wk">
+          <div className="sp-wk-head">
+            <button
+              type="button"
+              className="sp-wk-nav"
+              onClick={() => setSelectedWeek(Math.max(0, selWeek - 1))}
+              disabled={selWeek === 0}
+              aria-label="Previous week"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.3" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+            </button>
+            <div className="sp-wk-id">
+              <div className="sp-wk-id-top">
+                <span className="sp-wk-label">Week {shownWeek?.weekNumber ?? selWeek + 1}</span>
+                <span className="sp-wk-of">of {weeks.length}</span>
+                {isCurrentShown && <span className="sp-wk-chip">THIS WEEK</span>}
+              </div>
+              {(cleanWeekTitle(shownWeek?.title) || shownWeek?.goalDescription) && (
+                <div className="sp-wk-theme">{cleanWeekTitle(shownWeek?.title) || shownWeek?.goalDescription}</div>
               )}
+            </div>
+            <div className="sp-wk-prog">
+              <div className="sp-wk-prog-num">{shownAnyTasks ? `${shownDone} / ${shownTotal} sessions` : 'Unlocks later'}</div>
+              <div className="sp-wk-prog-range">{shownRange}</div>
+            </div>
+            <button
+              type="button"
+              className="sp-wk-nav"
+              onClick={() => setSelectedWeek(Math.min(weeks.length - 1, selWeek + 1))}
+              disabled={selWeek === weeks.length - 1}
+              aria-label="Next week"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.3" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+            </button>
+          </div>
+
+          <div className="sp-wk-bar">
+            <div className="sp-wk-bar-fill" style={{ width: shownTotal > 0 ? `${Math.round((shownDone / shownTotal) * 100)}%` : '0%' }} />
+          </div>
+
+          {shownAnyTasks ? (
+            <>
+              <div className="sp-wk-sessions-head">
+                <span className="sp-wk-sessions-label">This week's sessions</span>
+                <div className="sp-seg sp-seg-sm" role="tablist" aria-label="Plan section">
+                  {SECTION_FILTERS.map((tab) => (
+                    <button
+                      key={tab.id} type="button" role="tab"
+                      aria-selected={sectionFilter === tab.id}
+                      className={`sp-seg-btn${sectionFilter === tab.id ? ' is-active' : ''}`}
+                      onClick={() => setSectionFilter(tab.id)}
+                    >
+                      {tab.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+              {renderWeekTasks(shownWeek, selWeek) || (
+                <div className="sp-wk-empty">No sessions match this filter — switch to All.</div>
+              )}
+              {editMode && (
+                <div className="sp-add-task">
+                  {addTaskWeek === selWeek ? (
+                    <div className="sp-add-task-form">
+                      <input
+                        type="text"
+                        className="sp-add-task-input"
+                        placeholder="Add your own task (e.g. Redo Test 3 misses)"
+                        value={addTaskTitle}
+                        onChange={(e) => setAddTaskTitle(e.target.value)}
+                        onKeyDown={(e) => { if (e.key === 'Enter') handleAddTask(selWeek); }}
+                      />
+                      <select className="sp-edit-day" value={addTaskDay} onChange={(e) => setAddTaskDay(e.target.value)} aria-label="Day for new task">
+                        {EDIT_DAYS.map((d) => <option key={d} value={d}>{d.slice(0, 3)}</option>)}
+                      </select>
+                      <button type="button" className="sp-edit-btn" onClick={() => handleAddTask(selWeek)}>Add</button>
+                      <button type="button" className="sp-edit-btn" onClick={() => { setAddTaskWeek(null); setAddTaskTitle(''); }}>Cancel</button>
+                    </div>
+                  ) : (
+                    <button type="button" className="sp-add-task-btn" onClick={() => { setAddTaskWeek(selWeek); setAddTaskDay('Monday'); }}>
+                      + Add a task
+                    </button>
+                  )}
+                </div>
+              )}
+            </>
+          ) : (
+            <div className="sp-wk-empty-state">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              <div className="sp-wk-empty-title">Sessions unlock as you go</div>
+              <div className="sp-wk-empty-sub">Your next practice test fills this week with targeted work.</div>
             </div>
           )}
         </div>
 
-        {/* Upcoming weeks — collapsed */}
-        {otherWeeks.length > 0 && (
-          <div className="sp-otherweeks" style={{ marginTop: '10px' }}>
-            {otherWeeks.map((week) => {
-              const realIdx = weeks.indexOf(week);
-              const isOpen = expandedWeek === realIdx;
-              const realActs = (week.activities || []).filter((a) => !a.skipped && a.type !== 'lesson' && a.type !== 'strategy' && a.type !== 'review');
-              const doneN = realActs.filter((a) => a.completed).length;
-              const totalN = realActs.length;
-              const isComplete = totalN > 0 && doneN === totalN;
-              return (
-                <div key={realIdx} className={`sp-otherweek${isComplete ? ' is-complete' : ''}`}>
-                  <button
-                    type="button"
-                    className="sp-otherweek-head"
-                    aria-expanded={isOpen}
-                    onClick={() => setExpandedWeek(isOpen ? null : realIdx)}
-                  >
-                    <div className="sp-otherweek-left">
-                      <div className="sp-otherweek-disc">
-                        {isComplete ? <CheckIcon size={14} color="currentColor" /> : realIdx + 1}
-                      </div>
-                      <div className="sp-otherweek-title">
-                        Week {week.weekNumber}{cleanWeekTitle(week.title) ? ` — ${cleanWeekTitle(week.title)}` : ''}
-                      </div>
-                    </div>
-                    <div className="sp-otherweek-meta">
-                      <span className="sp-otherweek-prog">{doneN} / {totalN}</span>
-                      <span className={`sp-otherweek-chev${isOpen ? ' is-open' : ''}`}>
-                        <ChevronDownIcon size={16} color="currentColor" />
-                      </span>
-                    </div>
-                  </button>
-                  {isOpen && (
-                    <div className="sp-otherweek-body">
-                      {renderWeekSchedule(week, realIdx)}
-                    </div>
-                  )}
-                </div>
-              );
-            })}
-          </div>
+        {/* Beyond this week — review queue + pacing + past-test review */}
+        {hasBeyond && (
+          <>
+            <div className="sp-beyond-head">
+              <span className="sp-beyond-label">Beyond this week</span>
+              <div className="sp-beyond-rule" aria-hidden="true" />
+            </div>
+            <StudyPlanReviewSection
+              prominent
+              reviewQueue={reviewQueue}
+              onReviewTestWrong={onReviewTestWrong}
+              onStartReview={onStartReview}
+            />
+            <StudyPlanPacingSection
+              prominent
+              questionTelemetry={pacingTelemetry}
+              struggle={pacingStruggle}
+              onStartPacing={onStartPacing}
+              testDateIsPast={testDateIsPast}
+            />
+            {showReviewTestsButton && (
+              <div className="sp-past-test-review-cta">
+                <button type="button" className="sp-past-test-review-btn" onClick={onReviewPastTests}>
+                  <span className="sp-past-test-review-icon" aria-hidden="true"><ClipboardIcon size={18} /></span>
+                  <span className="sp-past-test-review-text">
+                    <span className="sp-past-test-review-title">Review your tests</span>
+                    <span className="sp-past-test-review-sub">
+                      {completedTestCount === 1
+                        ? 'See every wrong answer explained from your test'
+                        : `See every wrong answer explained from your ${completedTestCount} tests`}
+                    </span>
+                  </span>
+                  <span className="sp-past-test-review-chev" aria-hidden="true">›</span>
+                </button>
+              </div>
+            )}
+          </>
         )}
 
         {/* How you test — identity insights */}
@@ -1427,39 +1487,6 @@ const StudyPlanDashboard = ({
 
       </div>
       )}
-
-      {/* ── Tune-ups — review queue + pacing + past tests. Deliberately kept
-            quiet and BELOW the plan: important, but it must never out-shout the
-            actual study plan above it. ───────────────────────────────────── */}
-      <div className="sp-attention">
-        {showReviewTestsButton && (
-          <div className="sp-past-test-review-cta">
-            <button type="button" className="sp-past-test-review-btn" onClick={onReviewPastTests}>
-              <span className="sp-past-test-review-icon" aria-hidden="true"><ClipboardIcon size={18} /></span>
-              <span className="sp-past-test-review-text">
-                <span className="sp-past-test-review-title">Review your tests</span>
-                <span className="sp-past-test-review-sub">
-                  {completedTestCount === 1
-                    ? 'See every wrong answer explained from your test'
-                    : `See every wrong answer explained from your ${completedTestCount} tests`}
-                </span>
-              </span>
-              <span className="sp-past-test-review-chev" aria-hidden="true">›</span>
-            </button>
-          </div>
-        )}
-        <StudyPlanReviewSection
-          reviewQueue={reviewQueue}
-          onReviewTestWrong={onReviewTestWrong}
-          onStartReview={onStartReview}
-        />
-        <StudyPlanPacingSection
-          questionTelemetry={pacingTelemetry}
-          struggle={pacingStruggle}
-          onStartPacing={onStartPacing}
-          testDateIsPast={testDateIsPast}
-        />
-      </div>
 
       </div> {/* /.sp-main */}
 

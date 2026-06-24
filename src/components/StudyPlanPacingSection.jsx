@@ -27,6 +27,7 @@ function StudyPlanPacingSection({
   struggle,
   onStartPacing,
   testDateIsPast = false,
+  prominent = false,
 }) {
   const session = useMemo(() => buildPacingSession(questionTelemetry), [questionTelemetry]);
 
@@ -36,6 +37,27 @@ function StudyPlanPacingSection({
   const struggling = !!struggle?.struggling;
   const reason = (struggling && strugglingReason(struggle, session)) || null;
   const launch = () => onStartPacing && onStartPacing(session.config);
+
+  // Prominent variant — a full card (orange left rail) for the weekly
+  // "Beyond this week" section, vs the quiet strip used below the plan.
+  if (prominent) {
+    return (
+      <section className={`sp-bq-pacing${struggling ? ' is-flagged' : ''}`} aria-label="Pacing and timing">
+        <div className="sp-bq-pacing-icon" aria-hidden="true"><TimerIcon size={20} /></div>
+        <div className="sp-bq-pacing-text">
+          <div className="sp-bq-pacing-head">
+            <span className="sp-bq-pacing-title">Pacing &amp; Timing</span>
+            <span className="sp-bq-pacing-meta">{avgTime != null ? `${avgTime}s avg · target 95s` : 'on track'}</span>
+          </div>
+          {reason && <div className="sp-bq-pacing-note">{reason}</div>}
+        </div>
+        <button type="button" className="sp-bq-pacing-btn" onClick={launch}>
+          {struggling ? 'Start drill' : 'Practice'}
+          <ChevronRightIcon size={14} />
+        </button>
+      </section>
+    );
+  }
 
   return (
     <section

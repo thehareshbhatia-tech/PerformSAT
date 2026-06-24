@@ -21,7 +21,7 @@ import { DocumentIcon, RepeatIcon, ChevronRightIcon } from '../design/icons';
  * @param {(testId: string) => void} props.onReviewTestWrong
  * @param {(items: Array) => void} props.onStartReview
  */
-function StudyPlanReviewSection({ reviewQueue, onReviewTestWrong, onStartReview }) {
+function StudyPlanReviewSection({ reviewQueue, onReviewTestWrong, onStartReview, prominent = false }) {
   const [expanded, setExpanded] = useState(false);
   const { testGroups, drillGroups, sessionSize } = useMemo(
     () => partitionReviewQueue(reviewQueue),
@@ -31,6 +31,58 @@ function StudyPlanReviewSection({ reviewQueue, onReviewTestWrong, onStartReview 
   if (sessionSize === 0) return null;
 
   const hasOverdue = testGroups.some((g) => g.hasOverdue) || drillGroups.some((g) => g.hasOverdue);
+
+  // Prominent variant — a full open card for the weekly "Beyond this week"
+  // section (vs the quiet collapsible strip used below the plan).
+  if (prominent) {
+    return (
+      <section className="sp-bq sp-bq-review" aria-label="Review queue">
+        <div className="sp-bq-head">
+          <span className="sp-bq-head-icon" aria-hidden="true"><RepeatIcon size={18} /></span>
+          <span className="sp-bq-head-title">Review Queue</span>
+          <span className={`sp-bq-head-count${hasOverdue ? ' is-due' : ''}`}>{sessionSize} due</span>
+        </div>
+        {testGroups.length > 0 && (
+          <div className="sp-bq-block">
+            <div className="sp-bq-block-label">From your tests</div>
+            {testGroups.map((g) => (
+              <button
+                key={g.testId}
+                type="button"
+                className="sp-bq-row"
+                onClick={() => onReviewTestWrong && onReviewTestWrong(g.testId)}
+                aria-label={`Review the ${g.count} questions you got wrong on ${g.label}`}
+              >
+                <span className="sp-bq-row-icon" aria-hidden="true"><DocumentIcon size={16} /></span>
+                <span className="sp-bq-row-text">{g.label} · {g.count} {g.count === 1 ? 'miss' : 'misses'} to review</span>
+                {g.hasOverdue && <span className="sp-bq-tag is-overdue">Overdue</span>}
+                <span className="sp-bq-row-chev" aria-hidden="true"><ChevronRightIcon size={15} /></span>
+              </button>
+            ))}
+          </div>
+        )}
+        {drillGroups.length > 0 && (
+          <div className="sp-bq-block">
+            <div className="sp-bq-block-label">Spaced repetition</div>
+            {drillGroups.map((g) => (
+              <button
+                key={g.name}
+                type="button"
+                className={`sp-bq-row${g.hasOverdue ? ' is-overdue' : ''}`}
+                onClick={() => onStartReview && onStartReview(g.items)}
+                aria-label={`Start a ${g.count}-question ${g.name} review drill`}
+              >
+                <span className="sp-bq-row-icon" aria-hidden="true"><RepeatIcon size={16} /></span>
+                <span className="sp-bq-row-text">{g.name} · {g.count}</span>
+                <span className={`sp-bq-tag${g.hasOverdue ? ' is-overdue' : ''}`}>{g.hasOverdue ? 'Overdue' : 'Due'}</span>
+                <span className="sp-bq-row-chev" aria-hidden="true"><ChevronRightIcon size={15} /></span>
+              </button>
+            ))}
+          </div>
+        )}
+      </section>
+    );
+  }
 
   return (
     <section className={`sp-tuneup${expanded ? ' is-open' : ''}`} aria-label="Review queue">
