@@ -299,15 +299,13 @@ const StudyPlanDashboard = ({
     !!studyPlanMeta?.artifactId && !!localStorage.getItem(`dismissedDelta:${studyPlanMeta.artifactId}`)
   );
   // Acely-polish v2: top-level sub-tabs ("Today's Tasks" / "Weekly View")
-  // matching the reference. Default to Today's Tasks (the day-grain view).
-  // When mounted inside another tab structure (variant='inline'), the sub-
-  // tabs are hidden and we always render the weekly content — the outer
-  // tab is already labeled 'Study Plan' so the day-grain branch is
-  // redundant in that mount.
-  const showSubTabs = variant !== 'inline';
-  const [activeView, setActiveView] = useState(
-    variant === 'inline' ? 'weeklyView' : 'todaysTasks'
-  );
+  // matching the reference. BOTH mounts — the standalone view (variant=
+  // 'default') and the home-screen Study Plan tab (variant='inline') — show
+  // the sub-tabs and default to Today's Tasks (the day-grain view), so
+  // clicking "Study Plan" lands on today's work with the Weekly View one tap
+  // away. (Earlier the inline mount was weekly-only and hid the tabs; users
+  // expected to see today's tasks there too, not just the weekly timeline.)
+  const [activeView, setActiveView] = useState('todaysTasks');
   const [showAllSkillChanges, setShowAllSkillChanges] = useState(false);
   // Math / Reading & Writing switcher (Practice-Bank-style). Scopes the
   // Weekly Schedule, Focus Areas, coming-up preview, and the plan-progress
@@ -1078,8 +1076,7 @@ const StudyPlanDashboard = ({
       )}
 
       {/* ── Tabs + date pills ─────────────────────────────────────── */}
-      {showSubTabs && (
-        <div className="sp-tabs-row">
+      <div className="sp-tabs-row">
           <div className="sp-tabs" role="tablist" aria-label="Study plan view">
             <button
               type="button" role="tab"
@@ -1106,8 +1103,7 @@ const StudyPlanDashboard = ({
             )}
             <span className="sp-datepill">{todayLongDate.toUpperCase()}</span>
           </div>
-        </div>
-      )}
+      </div>
 
       {adaptiveOverlay?.isTriage && (
         <div className="sp-triage-banner" role="status">

@@ -3,10 +3,10 @@
  *
  * No RTL in this repo, so we mount with react-dom + act directly. The goal is
  * coverage that the redesigned component RENDERS with realistic data without
- * throwing — exercising both the Today branch (module cards with rounds,
- * variant='default') and the Weekly branch (day-row timeline, variant='inline'
- * which defaults activeView to weeklyView). This guards the new buildPlanModule
- * / weekDayRows derivations against runtime regressions.
+ * throwing — exercising both the Today branch (module cards with rounds, the
+ * default landing for every mount) and the Weekly branch (day-row timeline,
+ * reached by clicking the "Weekly View" sub-tab). This guards the new
+ * buildPlanModule / weekDayRows derivations against runtime regressions.
  */
 // StudyPlanDashboard transitively imports firebase/config (via the daily
 // review engine). Stub it before that import runs (per setupTests convention).
@@ -61,7 +61,10 @@ const SKILL_PROGRESS = {
   'systems-of-equations': { attempts: 8, correct: 7, mastery: 88 },
 };
 
-function renderWith(props) {
+// Mounts the component and returns the live container + root so a test can
+// inspect the DOM and drive interactions (e.g. clicking a sub-tab) before
+// unmounting. Caller is responsible for cleanup via the returned teardown.
+function mount(props) {
   const container = document.createElement('div');
   document.body.appendChild(container);
   const root = createRoot(container);
@@ -80,9 +83,17 @@ function renderWith(props) {
       />
     );
   });
+  const teardown = () => {
+    act(() => root.unmount());
+    container.remove();
+  };
+  return { container, teardown };
+}
+
+function renderWith(props) {
+  const { container, teardown } = mount(props);
   const text = container.textContent || '';
-  act(() => root.unmount());
-  container.remove();
+  teardown();
   return text;
 }
 
@@ -95,11 +106,33 @@ describe('StudyPlanDashboard redesign render', () => {
     expect(text).toMatch(/Round 1/);
   });
 
-  it('renders the Weekly branch (day-row timeline) without throwing', () => {
-    const text = renderWith({ variant: 'inline' });
+  it('defaults the inline (home-screen Study Plan tab) mount to Today\'s Tasks', () => {
+    // Regression guard: the inline mount used to be weekly-only and hid the
+    // sub-tabs. It now lands on Today's Tasks (module cards) with both sub-
+    // tabs visible, matching the standalone view.
+    const { container, teardown } = mount({ variant: 'inline' });
+    const text = container.textContent || '';
+    expect(text).toContain('Slope-intercept form'); // a Today-branch module card
+    const todayTab = Array.from(container.querySelectorAll('button.sp-tab'))
+      .find((b) => /Today's Tasks/.test(b.textContent));
+    expect(todayTab).toBeTruthy();
+    expect(todayTab.className).toContain('is-active');
+    teardown();
+  });
+
+  it('renders the Weekly branch (day-row timeline) when the Weekly View tab is clicked', () => {
+    const { container, teardown } = mount({ variant: 'inline' });
+    const weeklyTab = Array.from(container.querySelectorAll('button.sp-tab'))
+      .find((b) => /Weekly View/.test(b.textContent));
+    expect(weeklyTab).toBeTruthy();
+    act(() => {
+      weeklyTab.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+    });
+    const text = container.textContent || '';
     // Day-row timeline + launchable sessions are in the weekly branch.
     expect(text).toContain("This week's sessions");
     expect(text).toContain('This week');
+    teardown();
   });
 
   it('renders the empty state when there is no plan', () => {
