@@ -579,8 +579,16 @@ export const generateDiagnosticNarrative = onRequest(
       const systemPrompt = buildDiagnosticNarrativeSystemPrompt();
       const userPrompt = buildDiagnosticNarrativeUserPrompt(evidence, userProfile || {});
 
-      // ─── PASS 1: Generate diagnosis with Sonnet for maximum quality ───
-      const generateModel = "claude-opus-4-8";
+      // ─── PASS 1: Generate diagnosis ───
+      // Sonnet 4.6, not Opus 4.8. This pass is a structured schema-fill over numbers
+      // the deterministic engine already computed — the quality gate + repair pass
+      // below are the backstop — so the faster, cheaper tier is the right call, and it
+      // unlocks two levers Opus 4.8 rejects with a 400: a low `temperature` for
+      // run-to-run consistency, and a 2048-token prompt-cache floor (vs Opus's 4096)
+      // so the static system prompt actually caches. `thinking` is disabled because
+      // the engine already did the reasoning — keeping it off is exactly what removed
+      // the pre-token spinner from the tutor and is the single biggest latency win.
+      const generateModel = "claude-sonnet-4-6";
       const anthropicResponse = await fetch(
         "https://api.anthropic.com/v1/messages",
         {
@@ -592,8 +600,22 @@ export const generateDiagnosticNarrative = onRequest(
           },
           body: JSON.stringify({
             model: generateModel,
-            max_tokens: 6500,
-            system: systemPrompt,
+            max_tokens: 5000,
+            // Low (not zero) — the numbers are fixed by the engine, so this only
+            // steadies phrasing run-to-run without going robotic.
+            temperature: 0.4,
+            thinking: {type: "disabled"},
+            output_config: {effort: "high"},
+            // Cache the static, section-neutral system prompt as an ephemeral block so
+            // PASS 1, the repair pass, and end-of-test bursts re-read it at ~0.1x
+            // instead of paying full prefill every time. All per-test framing lives in
+            // the user prompt (below), which stays uncached — so the cache key never
+            // fragments by test type.
+            system: [{
+              type: "text",
+              text: systemPrompt,
+              cache_control: {type: "ephemeral"},
+            }],
             messages: [{role: "user", content: userPrompt}],
           }),
         }
@@ -974,7 +996,11 @@ Return ONLY the corrected JSON.`;
         },
         body: JSON.stringify({
           model: "claude-sonnet-4-6",
-          max_tokens: 6000,
+          max_tokens: 5000,
+          // Match PASS 1: same model + low temperature + thinking off, so the repaired
+          // narrative keeps one consistent voice and the repair stays fast.
+          temperature: 0.4,
+          thinking: {type: "disabled"},
           system: "You are a quality assurance editor for diagnostic narratives. You enforce clinical precision, causal depth, evidence rigor, and cross-test awareness. Fix the issues and return valid JSON only.",
           messages: [{role: "user", content: repairPrompt}],
         }),
@@ -994,7 +1020,7 @@ Return ONLY the corrected JSON.`;
 }
 
 function buildDiagnosticNarrativeSystemPrompt(): string {
-  return `You are a senior SAT psychometrician and test diagnostician performing a deep-dive analysis. Given rich evidence from a student's Digital SAT Math practice test, produce a clinically precise structured diagnostic that explains the CAUSAL MECHANISMS behind performance, not just what happened. Every claim MUST be anchored to numeric evidence from the data provided. Do NOT fabricate numbers — use only the data given.
+  return `You are a senior SAT psychometrician and test diagnostician performing a deep-dive analysis. Given rich evidence from a student's Digital SAT practice test, produce a clinically precise structured diagnostic that explains the CAUSAL MECHANISMS behind performance, not just what happened. The test may cover Math only, Reading & Writing only, or both sections (a 400–1600 composite) — the score header and domain data tell you which. Frame every observation to the section(s) actually present; never assume the test is Math, and never reference a domain or skill that isn't in the data. Every claim MUST be anchored to numeric evidence from the data provided. Do NOT fabricate numbers — use only the data given.
 
 Your output MUST be valid JSON (no markdown fences) matching this schema:
 
@@ -1121,9 +1147,27 @@ function buildDiagnosticNarrativeUserPrompt(
 ): string {
   const sections: string[] = [];
 
+  // Score header is section/scale-aware. The engine attaches isMultiSection and a
+  // per-section {math, rw} breakdown; a both-section test is a 400–1600 composite,
+  // a single section is 200–800. Render the right scale (never a hard-coded "/800")
+  // and name the section(s) so the model frames the diagnosis correctly.
   const score = evidence.score as Record<string, unknown> || {};
-  sections.push(`## Score: ${score.scaled || "N/A"}/800 (${score.raw || 0}/${score.total || 44} raw, ${score.percentCorrect || 0}%)
-Target: ${score.target || 700} | Gap: ${score.gap || 0} points`);
+  const isMulti = !!score.isMultiSection;
+  const secScores = (score.sections as Record<string, number | null>) || {};
+  const sectionLabel = isMulti ? "Full SAT — Math + Reading & Writing" :
+    secScores.math != null ? "Math" :
+      secScores.rw != null ? "Reading & Writing" : "single section";
+  const scoreHeader = isMulti ?
+    `${score.scaled ?? "N/A"}/1600 (Math ${secScores.math ?? "—"}/800, Reading & Writing ${secScores.rw ?? "—"}/800)` :
+    `${score.scaled ?? "N/A"}/800`;
+  const rawLine = (score.raw != null && score.total != null) ?
+    ` — ${score.raw}/${score.total} raw, ${score.percentCorrect ?? 0}% correct` : "";
+  sections.push(`## Section: ${sectionLabel}\n## Score: ${scoreHeader}${rawLine}`);
+  // Only state the target gap when the goal and this score are provably on the same
+  // scale (a 400–1600 composite goal vs an 800 single-section score is not comparable).
+  if (score.target != null && score.targetComparable) {
+    sections.push(`Target: ${score.target} | Gap: ${score.gap ?? 0} points (${isMulti ? "composite 400–1600" : "section 200–800"} scale)`);
+  }
 
   if (userProfile.testDate) {
     sections.push(`Test Date: ${userProfile.testDate}`);
@@ -1271,7 +1315,7 @@ These students are stuck — not just untaught. The plan must include a
 "reteach from first principles" activity for each, not just practice questions.
 ` : "";
 
-  return `You are the PerformSAT AI Study Strategist. Produce a focused, actionable weekly study plan from Digital SAT Math diagnostics.
+  return `You are the PerformSAT AI Study Strategist. Produce a focused, actionable weekly study plan from Digital SAT diagnostics. The test may cover Math only, Reading & Writing only, or both sections (a 400–1600 composite) — the score overview and domain data tell you which; target the section(s) actually present and never assume the plan is Math-only.
 ${contextBlock}${persistentBlock}
 IMPORTANT: Strengths and weaknesses are computed deterministically. Do NOT generate them. Focus entirely on the weekly plan and a brief diagnosis.
 
@@ -1356,10 +1400,20 @@ function buildStudyPlanUserPrompt(
 
   const sections: string[] = [];
 
-  sections.push(`## Score Overview
-Current: ${score.scaled || "N/A"} / 800 (${score.raw || 0}/${score.total || 44} raw)
-Target: ${score.target || 700}
-Gap: ${score.gap || 0} points`);
+  // Section/scale-aware (same contract as the diagnostic narrative): a both-section
+  // test is a 400–1600 composite, a single section is 200–800. Never hard-code "/800",
+  // and only state the gap when the goal is on the same scale as this score.
+  const isMulti = !!score.isMultiSection;
+  const secScores = (score.sections as Record<string, number | null>) || {};
+  const scoreLine = isMulti ?
+    `Current: ${score.scaled ?? "N/A"} / 1600 (Math ${secScores.math ?? "—"}/800, Reading & Writing ${secScores.rw ?? "—"}/800)` :
+    `Current: ${score.scaled ?? "N/A"} / 800 (${score.raw ?? 0}/${score.total ?? 0} raw)`;
+  const overview = ["## Score Overview", scoreLine];
+  if (score.target != null && score.targetComparable) {
+    overview.push(`Target: ${score.target}`);
+    overview.push(`Gap: ${score.gap ?? 0} points (${isMulti ? "composite 400–1600" : "section 200–800"} scale)`);
+  }
+  sections.push(overview.join("\n"));
 
   if (userProfile.testDate) {
     sections.push(`Test Date: ${userProfile.testDate}`);

@@ -11,6 +11,13 @@ import { authFetch } from './authFetch';
 const DIAGNOSTIC_NARRATIVE_URL = process.env.REACT_APP_DIAGNOSTIC_NARRATIVE_URL ||
   'https://us-central1-performsat-production.cloudfunctions.net/generateDiagnosticNarrative';
 
+// Client-side ceiling on the request. The deterministic diagnosis already renders
+// instantly, so this only bounds the "Your Diagnosis" prose spinner — past this we
+// hand off to the fallback strip + Retry instead of spinning forever. The Cloud
+// Function keeps running server-side (timeoutSeconds: 120) and persists the artifact,
+// so a later visit still rehydrates the narrative via getReadyAiDiagnostic.
+const DIAGNOSTIC_TIMEOUT_MS = 35000;
+
 /**
  * Calls the Cloud Function to generate an AI diagnostic narrative
  * from the full evidence graph.
@@ -18,10 +25,24 @@ const DIAGNOSTIC_NARRATIVE_URL = process.env.REACT_APP_DIAGNOSTIC_NARRATIVE_URL 
 export const generateDiagnosticNarrative = async (diagnosticReport, userProfile = {}) => {
   const payload = serializeForNarrative(diagnosticReport);
 
-  const response = await authFetch(DIAGNOSTIC_NARRATIVE_URL, {
-    method: 'POST',
-    body: JSON.stringify({ evidence: payload, userProfile }),
-  });
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), DIAGNOSTIC_TIMEOUT_MS);
+
+  let response;
+  try {
+    response = await authFetch(DIAGNOSTIC_NARRATIVE_URL, {
+      method: 'POST',
+      body: JSON.stringify({ evidence: payload, userProfile }),
+      signal: controller.signal,
+    });
+  } catch (err) {
+    if (err?.name === 'AbortError') {
+      throw new Error('AI analysis is taking longer than usual — tap retry in a moment.');
+    }
+    throw err;
+  } finally {
+    clearTimeout(timeout);
+  }
 
   if (!response.ok) {
     const err = await response.json().catch(() => ({}));

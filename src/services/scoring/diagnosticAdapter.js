@@ -1238,11 +1238,16 @@ export function mergeAiIntoReport(report, ai) {
     const sec = merged.sections.find(s => s.id === 'patternsThatDroveScore');
     if (sec) {
       sec.patterns = aiWeaknesses.map(w => {
-        const existingW = sec.patterns.find(ew => 
-          ew.title.toLowerCase() === w.title.toLowerCase() || 
-          ew.title.toLowerCase().includes(w.title.toLowerCase()) || 
-          w.title.toLowerCase().includes(ew.title.toLowerCase())
-        ) || sec.patterns[0];
+        // Guard every title: w.title is AI-supplied and ew.title comes from the
+        // deterministic report — a single missing/non-string title used to throw a
+        // TypeError here that blanked the whole Diagnostic Insights tab.
+        const wTitle = String(w.title || '').toLowerCase();
+        const existingW = sec.patterns.find(ew => {
+          const ewTitle = String(ew.title || '').toLowerCase();
+          return ewTitle === wTitle ||
+            (wTitle && ewTitle.includes(wTitle)) ||
+            (ewTitle && wTitle.includes(ewTitle));
+        }) || sec.patterns[0];
 
         return {
           id: w.title,

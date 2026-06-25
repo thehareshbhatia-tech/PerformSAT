@@ -2012,7 +2012,25 @@ const TestResults = ({
         </div>
 
         {/* ═══════ ① YOUR DIAGNOSIS (via renderBlock) ═══════ */}
-        {isGenerating ? (
+        {isGenerating && getBlock('context') ? (
+          // Optimistic: the deterministic diagnosis is already computed (merged ===
+          // diagUI.report while the AI call is in flight), so show it immediately with
+          // a quiet "Refining with AI" cue instead of a blank spinner. When the AI
+          // narrative lands the section re-renders into the richer version in place —
+          // the student reads real analysis at zero latency.
+          <div className="diag-story-section">
+            <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '32px' }}>
+              <div style={{ width: '28px', height: '28px', borderRadius: '50%', background: 'var(--color-brand-primary)', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '13px', fontWeight: '800', flexShrink: 0 }}>{++sectionNum}</div>
+              <h2 style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', fontWeight: '800', color: 'var(--color-slate-800)', textTransform: 'uppercase', letterSpacing: '0.06em', margin: 0 }}>Your Diagnosis</h2>
+              <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontFamily: 'var(--font-ui)', fontSize: '11px', fontWeight: '700', color: 'var(--color-brand-orange-600)', background: 'rgba(251,146,60,0.12)', borderRadius: '999px', padding: '3px 10px', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+                <span style={{ width: '8px', height: '8px', border: '2px solid rgba(251,146,60,0.3)', borderTopColor: 'var(--color-brand-orange-600)', borderRadius: '50%', animation: 'spin 1s linear infinite' }} />
+                Refining with AI
+              </span>
+              <div style={{ flex: 1, height: '1px', background: 'var(--color-slate-200)' }} />
+            </div>
+            {renderBlock(getBlock('context'), 0)}
+          </div>
+        ) : isGenerating ? (
           <div className="diag-story-section">
             <div style={{ padding: '48px 0', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px' }}>
               <div style={{ width: '40px', height: '40px', border: '3px solid rgba(59, 130, 246, 0.15)', borderTopColor: 'var(--color-brand-primary)', borderRadius: '50%', animation: 'spin 1s cubic-bezier(0.5, 0.1, 0.5, 0.9) infinite' }} />
