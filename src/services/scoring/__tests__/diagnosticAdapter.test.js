@@ -1,4 +1,4 @@
-import { adaptDiagnosticForUI, mergeAiIntoReport, buildUnifiedReport, buildNarrativeFlow, splitTextToBullets, normalizeReasons, isGenericClaim, rankByClaimQuality } from '../diagnosticAdapter';
+import { adaptDiagnosticForUI, mergeAiIntoReport, buildUnifiedReport, buildNarrativeFlow, buildDiagnosisNarrative, splitTextToBullets, normalizeReasons, isGenericClaim, rankByClaimQuality } from '../diagnosticAdapter';
 
 function diagTexts(uni) {
   return uni.diagnosis.points.map(p => typeof p === 'string' ? p : p.text);
@@ -1790,5 +1790,166 @@ describe('buildUnifiedReport sharpness guardrails', () => {
     const uni = buildUnifiedReport(merged);
     const texts = diagTexts(uni);
     expect(texts[0]).toContain('Deep 62%');
+  });
+});
+
+// ═══════════════════════════════════════════════════════════════
+// buildDiagnosisNarrative — coherent tutor-voice spine (thesis + prose + bottom line)
+// ═══════════════════════════════════════════════════════════════
+
+describe('buildDiagnosisNarrative', () => {
+  function uni(overrides = {}) {
+    return {
+      diagnosis: { points: [], headline: '' },
+      scoreDrivers: [],
+      behaviorInsights: [],
+      meta: {},
+      ...overrides,
+    };
+  }
+  const point = (text, extra = {}) => ({ text, evidence: null, causalMechanism: null, estimatedImpact: null, confidence: 'medium', ...extra });
+
+  it('returns null for null / empty input', () => {
+    expect(buildDiagnosisNarrative(null)).toBeNull();
+    expect(buildDiagnosisNarrative(uni())).toBeNull();
+  });
+
+  it('uses the AI thesis (meta.aiThesis) as the headline, sentence-terminated', () => {
+    const nar = buildDiagnosisNarrative(uni({
+      diagnosis: { points: [point('You rush the back half, turning easy algebra into careless misses')], headline: '' },
+      meta: { aiThesis: 'Your score comes down to pace under pressure' },
+    }));
+    expect(nar.thesis).toBe('Your score comes down to pace under pressure.');
+  });
+
+  it('falls back to the deterministic headline when no AI thesis is present', () => {
+    const nar = buildDiagnosisNarrative(uni({
+      diagnosis: { points: [point('Geometry accuracy of 57% is dragging the score')], headline: '' },
+      meta: { deterministicHeadline: 'Your biggest challenge: Geometry. Also affecting you: Factoring.' },
+    }));
+    expect(nar.thesis).toBe('Your biggest challenge: Geometry. Also affecting you: Factoring.');
+  });
+
+  it('does not use the placeholder deterministic headline', () => {
+    const nar = buildDiagnosisNarrative(uni({
+      diagnosis: { points: [point('Careless errors on 3 easy questions cost ~30 points')], headline: '' },
+      meta: { deterministicHeadline: 'Your performance analysis is ready.' },
+    }));
+    // Placeholder is rejected → the strongest point is promoted to the lead instead.
+    expect(nar.thesis).toContain('Careless errors on 3 easy questions');
+  });
+
+  it('promotes the top point to the thesis and does not repeat it as a body paragraph', () => {
+    const nar = buildDiagnosisNarrative(uni({
+      diagnosis: {
+        points: [
+          point('Careless errors on 3 easy questions cost ~30 points'),
+          point('Geometry accuracy of 57% costs another ~20 points'),
+        ],
+        headline: '',
+      },
+      meta: {},
+    }));
+    expect(nar.thesis).toContain('Careless errors on 3 easy questions');
+    expect(nar.paragraphs).toHaveLength(1);
+    expect(nar.paragraphs[0].text).toContain('Geometry accuracy of 57%');
+  });
+
+  it('renders each point as flowing prose — no bullet shredding', () => {
+    const nar = buildDiagnosisNarrative(uni({
+      diagnosis: {
+        points: [point('You spend 45s on missed geometry vs 70s on correct; you sense the uncertainty but cannot resolve it in time')],
+        headline: '',
+      },
+      meta: { aiThesis: 'Time, not knowledge, is the limiter' },
+    }));
+    // The whole sentence survives intact in one paragraph (semicolons preserved, not split into <li>s).
+    expect(nar.paragraphs).toHaveLength(1);
+    expect(nar.paragraphs[0].text).toContain('45s on missed geometry vs 70s on correct');
+    expect(nar.paragraphs[0].text).toContain('cannot resolve it in time');
+  });
+
+  it('weaves a distinct causal mechanism into the paragraph prose', () => {
+    const nar = buildDiagnosisNarrative(uni({
+      diagnosis: {
+        points: [point('You missed 4 of 7 coordinate-geometry questions', {
+          causalMechanism: 'the gap is conceptual rather than procedural — you know the steps but misapply them under spatial demands',
+        })],
+        headline: '',
+      },
+      meta: { aiThesis: 'A coordinate-geometry blind spot is the core story' },
+    }));
+    expect(nar.paragraphs[0].text).toContain('You missed 4 of 7 coordinate-geometry questions.');
+    expect(nar.paragraphs[0].text).toContain('conceptual rather than procedural');
+  });
+
+  it('drops a body paragraph that merely restates the thesis', () => {
+    const claim = 'Careless errors on easy questions are the single biggest drag on your score';
+    const nar = buildDiagnosisNarrative(uni({
+      diagnosis: { points: [point(claim)], headline: '' },
+      meta: { aiThesis: claim },
+    }));
+    expect(nar.thesis).toContain('Careless errors on easy questions');
+    expect(nar.paragraphs).toHaveLength(0);
+  });
+
+  it('uses the AI rootCause as the bottom-line closing, and null when absent', () => {
+    const withRoot = buildDiagnosisNarrative(uni({
+      diagnosis: { points: [point('Back-half rushing drives careless misses')], headline: '' },
+      meta: { aiThesis: 'Pace is the limiter', aiRootCause: 'More than anything, it is pace under pressure' },
+    }));
+    expect(withRoot.closingCause).toBe('More than anything, it is pace under pressure.');
+
+    const withoutRoot = buildDiagnosisNarrative(uni({
+      diagnosis: { points: [point('Back-half rushing drives careless misses')], headline: '' },
+      meta: { aiThesis: 'Pace is the limiter' },
+    }));
+    expect(withoutRoot.closingCause).toBeNull();
+  });
+
+  it('skips score-restatement and generic points entirely', () => {
+    const nar = buildDiagnosisNarrative(uni({
+      diagnosis: {
+        points: [
+          point('You scored 650 out of 800'),          // score restatement → filtered
+          point('Keep practicing and review your mistakes'), // generic → filtered
+          point('Coordinate-geometry errors cost ~25 points'),
+        ],
+        headline: '',
+      },
+      meta: { aiThesis: 'A coordinate-geometry blind spot is the core story' },
+    }));
+    const allText = [nar.thesis, ...nar.paragraphs.map(p => p.text)].join(' ');
+    expect(allText).not.toContain('You scored 650');
+    expect(allText).not.toContain('Keep practicing');
+    expect(allText).toContain('Coordinate-geometry errors');
+  });
+
+  it('integration: attaches a narrative to the context block through the full pipeline', () => {
+    const base = adaptDiagnosticForUI(buildReport(), {});
+    const ai = {
+      diagnosis: 'Careless back-half errors, not missing knowledge, are the core story of this test.',
+      rootCause: 'More than anything, it is pace under pressure in the second half.',
+      diagnosisPoints: [
+        { claim: 'Careless errors on 3 easy questions cost roughly 30 recoverable points because you answered them in under 30s', evidence: '3 easy misses; <30s each', causalMechanism: 'rushing familiar questions under time pressure rather than genuine difficulty', estimatedImpact: '~30 points', confidence: 'high' },
+        { claim: 'Geometry accuracy of 57% drags the score by about 20 points', evidence: 'Geometry 4/7', causalMechanism: 'a coordinate-geometry blind spot', estimatedImpact: '~20 points', confidence: 'medium' },
+      ],
+      weaknesses: [],
+    };
+    const merged = mergeAiIntoReport(base.report, ai);
+    expect(merged._aiThesis).toContain('Careless back-half errors');
+    expect(merged._aiRootCause).toContain('pace under pressure');
+
+    const uniReport = buildUnifiedReport(merged);
+    expect(uniReport.meta.aiThesis).toContain('Careless back-half errors');
+
+    const flow = buildNarrativeFlow(uniReport);
+    const ctx = flow.blocks.find(b => b.id === 'context');
+    expect(ctx.narrative).toBeTruthy();
+    expect(ctx.narrative.thesis).toContain('Careless back-half errors');
+    expect(ctx.narrative.closingCause).toContain('pace under pressure');
+    expect(ctx.narrative.paragraphs.length).toBeGreaterThanOrEqual(1);
+    // Paragraphs are connected prose, not bullet fragments.
+    expect(ctx.narrative.paragraphs.every(p => p.text.trim().length > 30)).toBe(true);
   });
 });

@@ -1381,59 +1381,74 @@ const TestResults = ({
 
     const renderBlock = (block, idx) => {
       if (block.id === 'context') {
+        const scoreRestateRe = /^(you scored|you're scoring|your score|you got \d+\/|you are \d+ points|your percentile|scoring at the \d+)/i;
+        const nar = block.narrative;
+        const hasNarrative = nar && (nar.thesis || (nar.paragraphs && nar.paragraphs.length > 0));
+
+        // Coherent tutor-voice narrative: a headline thesis, connected evidence-backed
+        // paragraphs (numbers woven inline, never shredded into bullets), and an
+        // optional bottom-line root cause. Replaces the old disconnected numbered boxes.
+        if (hasNarrative) {
+          return (
+            <div key={block.id} className="diag-narrative" style={{
+              background: '#fff',
+              border: '1px solid var(--color-slate-200)',
+              borderLeft: '3px solid var(--color-brand-purple-deep)',
+              borderRadius: '16px',
+              padding: '28px 32px',
+            }}>
+              {nar.thesis && (
+                <p style={{
+                  fontFamily: 'var(--font-ui)', fontSize: '1.3125rem', fontWeight: '600',
+                  color: 'var(--color-brand-navy)', lineHeight: '1.45', letterSpacing: '-0.01em',
+                  margin: 0, marginBottom: nar.paragraphs.length > 0 ? '18px' : 0,
+                }}>
+                  <MathText>{nar.thesis}</MathText>
+                </p>
+              )}
+              {nar.paragraphs.map((p, i) => (
+                <p key={i} style={{
+                  fontFamily: 'var(--font-ui)', fontSize: '1.0625rem', fontWeight: '400',
+                  color: 'var(--color-slate-700)', lineHeight: '1.7',
+                  margin: 0, marginTop: i === 0 ? 0 : '14px',
+                }}>
+                  <MathText>{p.text}</MathText>
+                </p>
+              ))}
+              {nar.closingCause && (
+                <div style={{ marginTop: '20px', paddingTop: '18px', borderTop: '1px solid var(--color-slate-200)' }}>
+                  <div style={{ fontFamily: 'var(--font-ui)', fontSize: '11px', fontWeight: '800', letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--color-slate-500)', marginBottom: '6px' }}>The bottom line</div>
+                  <p style={{ fontFamily: 'var(--font-ui)', fontSize: '1.0625rem', fontWeight: '600', color: 'var(--color-brand-navy)', lineHeight: '1.55', margin: 0 }}>
+                    <MathText>{nar.closingCause}</MathText>
+                  </p>
+                </div>
+              )}
+            </div>
+          );
+        }
+
+        // Fallback (no synthesized narrative): render the points as clean connected
+        // paragraphs — still no shredding into bullets.
         return (
-          <div key={block.id} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+          <div key={block.id} className="diag-narrative" style={{
+            background: '#fff',
+            border: '1px solid var(--color-slate-200)',
+            borderLeft: '3px solid var(--color-brand-purple-deep)',
+            borderRadius: '16px',
+            padding: '28px 32px',
+            display: 'flex', flexDirection: 'column', gap: '14px',
+          }}>
             {block.items.map((rawPt, i) => {
               const text = typeof rawPt === 'string' ? rawPt : rawPt.text;
               if (!text || text.trim() === '') return null;
-              const scoreRestateRe = /^(you scored|you're scoring|your score|you got \d+\/|you are \d+ points|your percentile|scoring at the \d+)/i;
               if (scoreRestateRe.test(text.trim())) return null;
-              
-              const parts = splitToScannable(text);
-              const hasParts = parts && parts.length > 1;
-              
               return (
-                <div key={i} style={{
-                  background: 'var(--color-brand-purple-soft)',
-                  borderRadius: '20px',
-                  padding: '24px 32px',
-                  display: 'flex',
-                  alignItems: 'flex-start',
-                  gap: '20px',
-                  border: '1px solid var(--color-brand-purple-border)'
+                <p key={i} style={{
+                  fontFamily: 'var(--font-ui)', fontSize: '1.0625rem', fontWeight: '400',
+                  color: 'var(--color-slate-700)', lineHeight: '1.7', margin: 0,
                 }}>
-                  <div style={{
-                    width: '32px', height: '32px', borderRadius: '50%',
-                    background: 'var(--color-brand-purple-deep)', color: '#fff',
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    fontSize: '14px', fontWeight: '700', flexShrink: 0
-                  }}>
-                    {i + 1}
-                  </div>
-                  <div style={{ width: '100%' }}>
-                    {hasParts ? (
-                      <>
-                        <div style={{ fontFamily: 'var(--font-ui)', fontSize: '1.25rem', color: 'var(--color-brand-navy)', lineHeight: '1.4', fontWeight: '600', letterSpacing: '-0.01em', marginBottom: '12px' }}>
-                          <MathText>{parts[0]}</MathText>
-                        </div>
-                        <ul style={{ margin: 0, paddingLeft: '24px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                          {parts.slice(1).map((p, pIdx) => (
-                            <li key={pIdx} style={{ fontFamily: 'var(--font-ui)', fontSize: '1.1rem', color: 'var(--color-slate-700)', lineHeight: '1.5', fontWeight: '400' }}>
-                              <MathText>{p}</MathText>
-                            </li>
-                          ))}
-                        </ul>
-                      </>
-                    ) : (
-                      <div style={{ 
-                        fontFamily: 'var(--font-ui)', fontSize: '1.25rem', color: 'var(--color-brand-navy)', 
-                        lineHeight: '1.6', fontWeight: '400', letterSpacing: '-0.01em' 
-                      }}>
-                        <MathText>{text}</MathText>
-                      </div>
-                    )}
-                  </div>
-                </div>
+                  <MathText>{text}</MathText>
+                </p>
               );
             })}
           </div>

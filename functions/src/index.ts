@@ -706,7 +706,7 @@ export const generateDiagnosticNarrative = onRequest(
   }
 );
 
-const DIAGNOSTIC_PROMPT_VERSION = "3.0";
+const DIAGNOSTIC_PROMPT_VERSION = "3.1";
 const QUALITY_THRESHOLD = 0.65;
 
 interface QualityScores {
@@ -1026,7 +1026,7 @@ Your output MUST be valid JSON (no markdown fences) matching this schema:
 
 {
   "promptVersion": "${DIAGNOSTIC_PROMPT_VERSION}",
-  "diagnosis": "string — 1 concise sentence title summarizing the student's primary performance pattern (e.g. 'Conceptual gaps in geometry and rushed easy-question errors are your biggest score drags'). Do NOT restate the score, percentile, or target gap — those are displayed separately. Focus on the WHY.",
+  "diagnosis": "string — THE THESIS: 1-2 sentences that name the SINGLE dominant story of this test by integrating the student's top 2 linked causes into one coherent takeaway a tutor would open with. This is the headline the whole narrative hangs on, so it must connect the dots, not list facts. Good: 'Your score comes down to one thing: you understand the math but you're losing it to the clock — strong concept accuracy collapses in the back half, where rushing turns easy questions into careless misses.' Do NOT restate the score, percentile, or target gap. Focus on the WHY, and make it feel written for THIS student.",
   "diagnosisPoints": [
     {
       "claim": "string — one sharp diagnostic INSIGHT following the 3-part causal chain: OBSERVATION (what the data shows, with a specific number) -> MECHANISM (why it happens) -> IMPACT (how many points it costs). Must answer WHY the score is what it is, not WHAT it is. Bad: 'You missed 4 geometry questions.' Good: '62% of your errors stem from conceptual gaps concentrated in geometry and advanced algebra, where you average 45s per question vs 70s on topics you understand — this single pattern accounts for roughly 40 of your 50-point gap.' Do NOT restate the score, percentile, or target gap. Each claim must synthesize at least 2 data signals (e.g. error type + domain accuracy, or time data + difficulty level).",
@@ -1082,6 +1082,7 @@ Your output MUST be valid JSON (no markdown fences) matching this schema:
     ]
   },
   "changesSinceLast": "string | null — what improved or worsened compared to prior test(s), with specific numbers and whether the change is statistically meaningful. null if first test.",
+  "rootCause": "string — THE BOTTOM LINE: 1 sentence naming the single deepest root cause that, if fixed, would move the score the most. This closes the narrative. It must point at ONE thing (not a list) and follow from the diagnosis thesis and points above. No study advice — name the cause, not the cure. Good: 'More than anything, it's pace under pressure — when the clock tightens, accuracy you clearly have stops showing up.'",
   "uncertainties": "string | null — 1-2 sentences on where the evidence is thin, classifications are ambiguous, or sample sizes are too small to draw firm conclusions. null only if all claims are high-confidence.",
   "consistencyFlags": {
     "trendDirection": "improving | declining | stable | insufficient_data",
@@ -1112,7 +1113,7 @@ CLINICAL ACCURACY RULES:
 
 === CONSISTENCY GUARDRAILS ===
 11. CONTRADICTION BAN: Do NOT produce claims that contradict each other. If trendDirection is "improving", no claim may say performance is declining in the same scope. If you detect conflicting signals, flag the ambiguity in uncertainties.
-12. REDUNDANCY BAN: Each insight must be UNIQUE across all sections. Do not repeat the same observation in diagnosisPoints AND scoreImpactPoints. If a pattern appears in multiple sections, each mention must add a distinct angle (e.g. diagnosis names the pattern, scoreImpact quantifies the cost, weakness explains the root cause).
+12. CONNECT, DON'T REPEAT: Never repeat the same observation verbatim across sections — but DO connect causally related findings into one coherent story. When a skill gap, an error pattern, and a behavior share a root cause, say so explicitly with causal language (e.g. "the same back-half rushing that drives your careless algebra misses also explains the answer-changes below"). Each section adds a DISTINCT angle (diagnosis names the pattern; scoreImpact quantifies the cost; weakness explains the root cause), and the diagnosis thesis + rootCause must tie those angles together. A diagnosis that reads as a list of unrelated facts is a failure; one that reads as a single tutor explaining how the pieces fit is the goal.
 13. CONFIDENCE TAGGING: Set confidence to "high" when the claim is directly derivable from the data, "medium" when it requires reasonable inference, "low" when evidence is thin or ambiguous.
 
 === RANKING & OUTPUT QUALITY ===
@@ -1137,8 +1138,8 @@ CLINICAL ACCURACY RULES:
 26. Tone: clinical, precise, and incisive. State facts, quantify impact, explain mechanisms, acknowledge uncertainty. No motivational filler. Write as if producing a medical-style diagnostic report for a specialist audience.
 
 === FORMAT ===
-27. SCANNABLE SUPPORT FIELDS: In evidence, causalMechanism, and proof fields, prefer semicolon-separated concise clauses over dense paragraphs (e.g. "Geometry: 4/7 correct; Avg time 45s vs 70s on correct; 3/4 coordinate geometry wrong"). This lets the UI render them as scannable bullet lists. Keep each clause short and self-contained.
-28. SCANNABLE CLAIMS: When a diagnosisPoint claim has multiple linked ideas, separate them into concise clauses with semicolons or em-dashes instead of one long paragraph sentence. Keep each clause information-dense and causally connected.`;
+27. EVIDENCE FIELDS STAY SCANNABLE: In the evidence and proof fields ONLY (the raw data citations), use semicolon-separated concise clauses (e.g. "Geometry: 4/7 correct; Avg time 45s vs 70s on correct; 3/4 coordinate geometry wrong"). These are shown as a compact supporting-data list, so keep each clause short and self-contained.
+28. CLAIMS ARE FLOWING PROSE, NOT FRAGMENTS: The "claim" field of every diagnosisPoint, scoreImpactPoint, and behaviorInsightPoint — and the diagnosis thesis and rootCause — MUST be written as 1-3 complete, flowing sentences with the numbers woven INTO the prose. Do NOT fragment a claim into a semicolon clause-list or an em-dash chain of sentence stubs: the UI renders these as connected paragraphs a student reads top to bottom, NOT as bullets. Write the way a sharp tutor talks — "You spent 45s on the geometry questions you missed versus 70s on the ones you got right, so you knew you were unsure but couldn't resolve it in time" — not "Geometry slow; 45s vs 70s; unsure". Causally linked ideas belong in one sentence joined by because / so / which / and, not split apart.`;
 }
 
 function buildDiagnosticNarrativeUserPrompt(

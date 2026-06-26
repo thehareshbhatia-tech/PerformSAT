@@ -1212,6 +1212,16 @@ export function mergeAiIntoReport(report, ai) {
     }
   }
 
+  // Capture the AI's one-sentence thesis title and (schema v3.1+) closing root cause.
+  // These power the coherent "Your Diagnosis" narrative spine — the thesis was
+  // previously folded into headlinePoints and effectively discarded.
+  if (typeof ai.diagnosis === 'string' && ai.diagnosis.trim()) {
+    merged._aiThesis = ai.diagnosis.trim();
+  }
+  if (typeof ai.rootCause === 'string' && ai.rootCause.trim()) {
+    merged._aiRootCause = ai.rootCause.trim();
+  }
+
   // --- "Why You Got This Score" ---
   // New schema: scoreImpactPoints (array). Old schema: scoreImpact (string).
   const scoreSec = merged.sections.find(s => s.id === 'whyThisScore');
@@ -1694,6 +1704,11 @@ export function buildUnifiedReport(mergedReport) {
     qualityScore: aiQuality?.total ?? null,
     qualityRepaired: aiQuality?.repaired ?? false,
     qualityFailed: !!qualityFailed,
+    // Narrative spine inputs (see buildDiagnosisNarrative): the AI thesis/root-cause
+    // when available, with the deterministic headline as a graceful fallback.
+    aiThesis: mergedReport._aiThesis || null,
+    aiRootCause: mergedReport._aiRootCause || null,
+    deterministicHeadline: hero.headline || null,
   };
 
   // Apply trend contradiction filtering to diagnosis and score drivers too
@@ -1796,6 +1811,116 @@ function dedup(arr) {
   });
 }
 
+// ─── Narrative prose helpers ───────────────────────────────────────────────
+function lowerFirst(s) {
+  if (!s) return s;
+  // Lowercase a leading capitalized word, but leave acronyms / proper-noun runs alone.
+  return /^[A-Z][a-z]/.test(s) ? s.charAt(0).toLowerCase() + s.slice(1) : s;
+}
+function upperFirst(s) {
+  return s ? s.charAt(0).toUpperCase() + s.slice(1) : s;
+}
+function endSentence(s) {
+  const t = (s || '').trim();
+  if (!t) return '';
+  return /[.!?]$/.test(t) ? t : t + '.';
+}
+
+/**
+ * Compose one diagnosis point into a single flowing prose paragraph.
+ *
+ * The point already carries {text, causalMechanism, evidence, estimatedImpact}.
+ * The old renderer rendered only `text` (shredded into bullets) and discarded the
+ * rest. Here we weave the causal mechanism and (when the observation lacks a number)
+ * the quantified impact back INTO connected prose — no fragments, numbers inline.
+ *
+ * @param {object|string} pt - a diagnosis point
+ * @returns {string} a 1-3 sentence prose paragraph, or '' when the point is empty
+ */
+function composeDiagnosisProse(pt) {
+  const text = (typeof pt === 'string' ? pt : (pt && pt.text) || '').trim();
+  if (!text) return '';
+  let out = endSentence(text);
+
+  const mech = (pt && pt.causalMechanism ? String(pt.causalMechanism) : '').trim();
+  if (mech.length > 15) {
+    const tKey = canonicalKey(text);
+    const mKey = canonicalKey(mech);
+    // Only append the mechanism when it adds a genuinely distinct "why" — avoid
+    // echoing the observation back as its own explanation.
+    const overlaps = tKey.includes(mKey.slice(0, 40)) || mKey.includes(tKey.slice(0, 40));
+    if (!overlaps) out += ' ' + endSentence(upperFirst(mech));
+  }
+
+  const impact = (pt && pt.estimatedImpact ? String(pt.estimatedImpact) : '').trim();
+  if (impact && /\d/.test(impact) && !/\d/.test(text)) {
+    const cleanImpact = lowerFirst(impact.replace(/^[~≈]\s*/, ''));
+    out += ' This costs roughly ' + endSentence(cleanImpact);
+  }
+
+  return out;
+}
+
+/**
+ * Build a single coherent "Your Diagnosis" narrative from the unified report.
+ *
+ * Returns a tutor-voice spine — a headline thesis, 2-3 connected evidence-backed
+ * paragraphs explaining WHY the score happened (pure narrative, no prescriptive
+ * tips — advice lives in the study plan), and an optional closing root-cause line.
+ *
+ * Prefers the AI thesis/root-cause when present (schema v3.1+, post-deploy) and
+ * synthesizes from the deterministic signal otherwise, so the narrative is coherent
+ * even before the Cloud Function is redeployed.
+ *
+ * @param {object} uni - the unified report from buildUnifiedReport
+ * @returns {{thesis: string|null, paragraphs: {text: string}[], closingCause: string|null}|null}
+ */
+export function buildDiagnosisNarrative(uni) {
+  if (!uni || !uni.diagnosis) return null;
+
+  const rawPoints = Array.isArray(uni.diagnosis.points) ? uni.diagnosis.points : [];
+  const points = rawPoints.filter(p => {
+    const t = (typeof p === 'string' ? p : (p && p.text) || '').trim();
+    return t && !SCORE_RESTATEMENT_PATTERNS.test(t) && !isGenericClaim(t);
+  });
+
+  const meta = uni.meta || {};
+  const aiThesis = (meta.aiThesis || uni.diagnosis.headline || '').trim();
+  const detHeadline = (meta.deterministicHeadline || '').trim();
+
+  let thesis = null;
+  let bodyPoints = points;
+
+  if (aiThesis && !isGenericClaim(aiThesis)) {
+    thesis = endSentence(aiThesis);
+  } else if (detHeadline && !/performance analysis is ready/i.test(detHeadline)) {
+    thesis = endSentence(detHeadline);
+  } else if (points.length > 0) {
+    // No usable thesis sentence — promote the strongest point to the lead and
+    // keep the remaining points as the body so nothing is said twice.
+    thesis = composeDiagnosisProse(points[0]);
+    bodyPoints = points.slice(1);
+  }
+
+  let paragraphs = bodyPoints.slice(0, 3).map(p => ({ text: composeDiagnosisProse(p) })).filter(p => p.text);
+
+  // If the lead thesis and the first body paragraph say essentially the same thing
+  // (common when the AI thesis summarizes its own top point), drop the duplicate.
+  if (thesis && paragraphs.length > 0) {
+    const tKey = canonicalKey(thesis);
+    const pKey = canonicalKey(paragraphs[0].text);
+    if (tKey && pKey && (tKey.includes(pKey.slice(0, 45)) || pKey.includes(tKey.slice(0, 45)))) {
+      paragraphs = paragraphs.slice(1);
+    }
+  }
+
+  const aiRoot = (meta.aiRootCause || '').trim();
+  const closingCause = (aiRoot && !isGenericClaim(aiRoot)) ? endSentence(aiRoot) : null;
+
+  if (!thesis && paragraphs.length === 0) return null;
+  return { thesis: thesis || null, paragraphs, closingCause };
+}
+
 /**
  * Transform a unified report into ordered narrative blocks with transitions.
  * Each block has: { id, items[], transition? }
@@ -1850,6 +1975,7 @@ export function buildNarrativeFlow(uni) {
     label: 'Your Diagnosis',
     title: contextTitle || null,
     items: mainDiagnosis,
+    narrative: buildDiagnosisNarrative(uni),
     style: 'headline',
   });
 
