@@ -44,11 +44,16 @@
  */
 
 import { db } from '../firebase/config';
-import { doc, updateDoc, arrayUnion, getDoc, setDoc, serverTimestamp } from 'firebase/firestore';
+import { doc, updateDoc, getDoc, setDoc, serverTimestamp } from 'firebase/firestore';
 
 const EVENT_BUFFER = [];
 const FLUSH_INTERVAL_MS = 30_000;
 const MAX_BUFFER_SIZE = 20;
+// Cap the persisted analytics history. This array lives in the shared
+// progress/{uid} doc alongside per-attempt diagnosticData; uncapped (the old
+// arrayUnion) it grows forever and eventually pushes the doc past Firestore's
+// 1MB hard limit, after which EVERY write to progress/{uid} fails.
+const MAX_STORED_EVENTS = 200;
 
 let flushTimer = null;
 
@@ -92,20 +97,31 @@ export const flushEvents = async (userId) => {
     const snap = await getDoc(ref);
 
     if (snap.exists()) {
+      // Read-append-trim instead of arrayUnion so the stored history stays
+      // bounded to the most recent MAX_STORED_EVENTS.
+      const existing = Array.isArray(snap.data().analyticsEvents)
+        ? snap.data().analyticsEvents
+        : [];
+      const merged = [...existing, ...batch].slice(-MAX_STORED_EVENTS);
       await updateDoc(ref, {
-        analyticsEvents: arrayUnion(...batch),
+        analyticsEvents: merged,
         lastEventAt: serverTimestamp(),
       });
     } else {
       await setDoc(ref, {
         userId,
-        analyticsEvents: batch,
+        analyticsEvents: batch.slice(-MAX_STORED_EVENTS),
         lastEventAt: serverTimestamp(),
       }, { merge: true });
     }
   } catch (err) {
     console.error('[analytics] flush failed — events re-queued:', err);
+    // Re-queue for the next flush, but bound the in-memory buffer too so a
+    // persistently-failing write can't grow it without limit.
     EVENT_BUFFER.unshift(...batch);
+    if (EVENT_BUFFER.length > MAX_STORED_EVENTS) {
+      EVENT_BUFFER.splice(MAX_STORED_EVENTS, EVENT_BUFFER.length - MAX_STORED_EVENTS);
+    }
   }
 };
 

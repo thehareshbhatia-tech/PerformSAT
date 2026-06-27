@@ -70,6 +70,16 @@ describe('normalizeProfileGoal', () => {
     expect(setDoc).not.toHaveBeenCalled();
   });
 
+  test('respects goalScale:composite — a deliberate sub-800 composite goal is NOT doubled', () => {
+    // The slider allows a composite goal down to 400; stamping goalScale lets a
+    // legitimate 750 composite target survive instead of being migrated to 1500.
+    const profile = { uid: 'u1', email: 'a@b.com', targetScore: 750, goalScale: 'composite' };
+    const out = normalizeProfileGoal(profile);
+    expect(out).toBe(profile);          // same reference, untouched
+    expect(out.targetScore).toBe(750);  // NOT doubled
+    expect(setDoc).not.toHaveBeenCalled();
+  });
+
   test('is a no-op when no goal is set (new account)', () => {
     const profile = { uid: 'u1', email: 'a@b.com' };
     const out = normalizeProfileGoal(profile);

@@ -70,6 +70,7 @@ const ids = new Set();
 const skillCoverage = {};
 const domainCounts = {};
 const diffCounts = {};
+const answerPos = { A: 0, B: 0, C: 0, D: 0 };
 
 bank.forEach((q, i) => {
   const label = q.id || `Q[${i}]`;
@@ -86,6 +87,7 @@ bank.forEach((q, i) => {
   if (q.type === 'multiple-choice') {
     if (!q.choices || q.choices.length !== 4) errors.push(`${label}: MC must have 4 choices`);
     if (!['A', 'B', 'C', 'D'].includes(q.correctAnswer)) errors.push(`${label}: MC correctAnswer must be A-D`);
+    else answerPos[q.correctAnswer]++;
   }
   if (!q.explanation) errors.push(`${label}: missing explanation`);
 
@@ -113,6 +115,22 @@ console.log(`Total questions: ${bank.length} (hand-authored only — generated b
 console.log(`Unique IDs: ${ids.size}`);
 console.log('\nBy domain:', domainCounts);
 console.log('By difficulty:', diffCounts);
+
+// Answer-key position distribution. The drill shells render choices in array
+// order without shuffling, so a heavily skewed correct-answer position lets a
+// student pattern-match ("guess A") and erodes drill validity. Non-fatal: the
+// real fix is a careful bank rebalance — the explanations reference choice
+// letters by name, so a render-time shuffle would mislabel them. See the
+// 2026-06-27 bug audit (deferred item #14).
+const mcTotal = answerPos.A + answerPos.B + answerPos.C + answerPos.D;
+if (mcTotal > 0) {
+  const pct = (n) => Math.round((n / mcTotal) * 100);
+  console.log(`Answer-key position: A ${answerPos.A} (${pct(answerPos.A)}%), B ${answerPos.B} (${pct(answerPos.B)}%), C ${answerPos.C} (${pct(answerPos.C)}%), D ${answerPos.D} (${pct(answerPos.D)}%)`);
+  const pcts = ['A', 'B', 'C', 'D'].map(k => pct(answerPos[k]));
+  if (Math.max(...pcts) > 40 || Math.min(...pcts) < 12) {
+    warnings.push(`answer-key position is skewed (A ${pcts[0]}% / B ${pcts[1]}% / C ${pcts[2]}% / D ${pcts[3]}%); choices are NOT shuffled at render — rebalance the bank toward ~25% each`);
+  }
+}
 console.log(`Skills covered: ${Object.keys(skillCoverage).length} / ${TAXONOMY_SKILLS.length}`);
 
 const uncovered = TAXONOMY_SKILLS.filter(s => !skillCoverage[s]);

@@ -4,7 +4,7 @@
  */
 
 import { db } from '../firebase/config';
-import { doc, getDoc, setDoc, serverTimestamp } from 'firebase/firestore';
+import { doc, getDoc, setDoc, updateDoc, serverTimestamp } from 'firebase/firestore';
 
 // SM-2 inspired intervals (in days)
 const REVIEW_INTERVALS = [1, 2, 4, 7, 14, 30, 60];
@@ -189,10 +189,13 @@ export const removeFromReviewQueue = async (userId, key) => {
     const { reviewQueue = {} } = progressDoc.data();
     delete reviewQueue[key];
 
-    await setDoc(progressRef, {
+    // Full-field replace (NOT setDoc merge): Firestore merge-mode deep-merges
+    // maps, so a key deleted from the JS object is NOT removed server-side and
+    // re-hydrates on the next snapshot. updateDoc replaces the whole map.
+    await updateDoc(progressRef, {
       reviewQueue,
       lastUpdated: serverTimestamp()
-    }, { merge: true });
+    });
 
   } catch (err) {
     console.error('Error removing from review queue:', err);
@@ -235,10 +238,13 @@ export const updateReviewItem = async (userId, key, wasCorrect) => {
       };
     }
 
-    await setDoc(progressRef, {
+    // Full-field replace (NOT setDoc merge) so a mastered item's deleted key is
+    // actually removed server-side — merge-mode would leave it behind and it
+    // would resurface as permanently "due" on the next snapshot.
+    await updateDoc(progressRef, {
       reviewQueue,
       lastUpdated: serverTimestamp()
-    }, { merge: true });
+    });
 
   } catch (err) {
     console.error('Error updating review item:', err);

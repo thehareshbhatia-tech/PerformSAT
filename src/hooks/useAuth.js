@@ -52,6 +52,12 @@ export const buildSignupUserDoc = (email, firstName = '', additionalInfo = {}) =
  */
 export const normalizeProfileGoal = (profile) => {
   if (!profile || typeof profile.targetScore !== 'number') return profile;
+  // A goal written through the composite slider (400-1600) is stamped
+  // goalScale:'composite'. Trust the flag and never migrate, so a deliberate
+  // sub-800 composite target (e.g. 750) isn't doubled by the legacy
+  // section→composite migration on every page load. Magnitude alone can't
+  // distinguish a legacy section goal from a low composite goal in [400,800].
+  if (profile.goalScale === 'composite') return profile;
   const migrated = toCompositeGoal(profile.targetScore);
   if (migrated === profile.targetScore) return profile;
   if (profile.uid) {
@@ -292,10 +298,11 @@ export const useAuth = () => {
 
     try {
       await setDoc(doc(db, 'users', user.uid), {
-        targetScore: targetScore
+        targetScore: targetScore,
+        goalScale: 'composite', // provenance: came from the 400-1600 slider, never re-migrate
       }, { merge: true });
 
-      setUser(prev => ({ ...prev, targetScore }));
+      setUser(prev => ({ ...prev, targetScore, goalScale: 'composite' }));
     } catch (err) {
       console.error('Error updating target score:', err);
       throw err;
