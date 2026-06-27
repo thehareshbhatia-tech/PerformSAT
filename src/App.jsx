@@ -2203,6 +2203,11 @@ const PerformSAT = () => {
                     const liveMod = test.modules?.[modIdx];
                     moduleMap.set(modIdx, {
                       title: liveMod?.title || `Module ${modIdx + 1}`,
+                      // Keep the section axis ('reading-writing' | 'math') — without
+                      // it scoreTest collapses every module into one 'default'(=math)
+                      // bucket and the whole 98-item test scores as a single Math
+                      // section (~210). Mirrors diagnosticReportLoader.js.
+                      section: snap.section ?? liveMod?.section ?? null,
                       questions: [],
                     });
                   }
@@ -2269,6 +2274,15 @@ const PerformSAT = () => {
                 test: reviewTest,
                 liveTest: test,
                 answers: reconstructedAnswers,
+                // Authoritative score persisted at completion — the results
+                // screen displays this rather than re-scoring the reconstructed
+                // review test (which can diverge, e.g. a section-stripped or
+                // content-swapped snapshot scoring as a single ~210 Math bucket).
+                storedResult: (typeof lastAttempt.scaledScore === 'number') ? {
+                  scaledScore: lastAttempt.scaledScore,
+                  sectionScores: lastAttempt.sectionScores,
+                  isMultiSection: lastAttempt.isMultiSection,
+                } : null,
                 diagnosticData: lastAttempt.diagnosticData,
                 diagnosticReport: diagReport,
                 aiDiagnosticState: aiState,
@@ -2295,6 +2309,7 @@ const PerformSAT = () => {
               <TestResults
                 test={viewingResultsData.test}
                 answers={viewingResultsData.answers}
+                storedResult={viewingResultsData.storedResult}
                 diagnosticData={viewingResultsData.diagnosticData}
                 diagnosticReport={viewingResultsData.diagnosticReport}
                 practiceTestResults={practiceTestResults}

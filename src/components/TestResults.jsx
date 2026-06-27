@@ -22,6 +22,37 @@ import {
 } from '../services/scoring';
 import { getDomainInfo } from '../data/skillTaxonomy';
 
+/**
+ * Resolve the scores to DISPLAY on the results screen. Prefers the authoritative
+ * score persisted at completion (scored against the exact modules the student
+ * saw + the served math route); falls back to a live recompute only for legacy
+ * attempts saved before scores were persisted.
+ *
+ * This is the guard against the "1370 then Math 210" bug: a reconstructed review
+ * `test` that lost its per-module section makes scoreTest() collapse the whole
+ * test into one ~210 Math bucket. Trusting the stored score makes the displayed
+ * number match what was actually scored, regardless of recompute drift.
+ *
+ * @param {{scaledScore?:number, sectionScores?:Object, isMultiSection?:boolean}|null} storedResult
+ * @param {{sectionScore:number, sectionScores?:Object, isMultiSection?:boolean}} fallbackScored
+ * @returns {{satScore:number, sectionScores:Object, isMultiSection:boolean}}
+ */
+export function resolveDisplayScores(storedResult, fallbackScored) {
+  if (storedResult && typeof storedResult.scaledScore === 'number') {
+    const sectionScores = storedResult.sectionScores || {};
+    return {
+      satScore: storedResult.scaledScore,
+      sectionScores,
+      isMultiSection: storedResult.isMultiSection ?? (Object.keys(sectionScores).length > 1),
+    };
+  }
+  return {
+    satScore: fallbackScored.sectionScore,
+    sectionScores: fallbackScored.sectionScores || {},
+    isMultiSection: !!fallbackScored.isMultiSection,
+  };
+}
+
 const BULLET_LENGTH_THRESHOLD = 80;
 const BULLET_SPLIT_RE = /\s*;\s*|\s*\n\s*|\s*(?:(?:^|\s)[-•])\s+|\s*\d+\)\s+/;
 
@@ -464,6 +495,11 @@ const CollapsibleSection = ({ icon, iconBg, iconColor, label, expanded, onToggle
 const TestResults = ({
   test,
   answers,
+  // The authoritative score persisted at completion (scored against the exact
+  // modules the student saw + the served math route). When present it is the
+  // source of truth for the displayed scores; scoreTest(test, answers) is only
+  // a legacy fallback for attempts saved before scores were persisted.
+  storedResult = null,
   diagnosticData,
   diagnosticReport,
   practiceTestResults,
@@ -593,10 +629,13 @@ const TestResults = ({
   const totalCorrect = calculateTotalScore();
   // Section-aware scoring: a full-length SAT (R&W + Math) returns a 400-1600
   // composite; a single-section test returns a 200-800 score.
+  // _scored is still computed for the per-question review grid + diagnostics,
+  // but the DISPLAYED scores prefer the authoritative storedResult when present.
+  // Re-deriving from scoreTest(test, answers) can diverge from the persisted
+  // score when `test` was reconstructed for review (e.g. a snapshot that lost
+  // its per-module section collapses all items into one math bucket -> ~210).
   const _scored = scoreTest(test, answers);
-  const satScore = _scored.sectionScore;
-  const sectionScores = _scored.sectionScores || {};
-  const isMultiSection = !!_scored.isMultiSection;
+  const { satScore, sectionScores, isMultiSection } = resolveDisplayScores(storedResult, _scored);
   const headlineLabel = isMultiSection
     ? 'Total Score'
     : (test.modules[0]?.section === 'reading-writing' ? 'Reading & Writing Score' : 'Math Score');

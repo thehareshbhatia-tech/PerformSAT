@@ -621,6 +621,10 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
   const diagnosticReportRef = useRef(null);
   const attemptTimestampRef = useRef(null);
   const attemptIdRef = useRef(null);
+  // The authoritative score from completion (scored against the exact modules
+  // the student saw + the served math route). The results screen reads this
+  // instead of re-deriving from scoreTest(test, answers), which can diverge.
+  const scoredRef = useRef(null);
 
   // Identify which test.modules indices are math (vs Reading & Writing).
   // For math-only tests, all modules are math. For full SATs (Test 1), R&W modules come first.
@@ -949,6 +953,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
       // Central scoring engine — reported score from the route-aware raw→scaled
       // table; mathRoute is the variant the student actually saw.
       const scored = scoreTest(effectiveTest, answers, { timedMode: isTimed, diagnosticData, mathRoute: module2Variant });
+      scoredRef.current = scored;
       const newAttemptId = generateAttemptId();
       attemptIdRef.current = newAttemptId;
 
@@ -2386,6 +2391,11 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
           <TestResults
             test={test}
             answers={answers}
+            storedResult={scoredRef.current ? {
+              scaledScore: scoredRef.current.sectionScore,
+              sectionScores: scoredRef.current.sectionScores,
+              isMultiSection: scoredRef.current.isMultiSection,
+            } : null}
             diagnosticData={diagnosticDataRef.current}
             diagnosticReport={diagnosticReportRef.current}
             practiceTestResults={practiceTestResults}
