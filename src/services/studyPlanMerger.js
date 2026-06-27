@@ -49,6 +49,9 @@ export const buildLongitudinalEvidence = (practiceTestResults = {}) => {
   const scoreTrajectory = allAttempts.map(a => ({
     testId: a.testId,
     scaledScore: a.scaledScore,
+    // Carry the scale so the Score History strip can avoid mixing 200-800
+    // single-section scores with 400-1600 composites on one axis.
+    isMultiSection: !!a.isMultiSection,
     date: a.completedAt,
   }));
 

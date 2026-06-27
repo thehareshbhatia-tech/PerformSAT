@@ -19,7 +19,7 @@ import { getPracticedDayKeys } from '../services/selectors/practicedDays';
 import { formatDailyIntro } from '../services/selectors/dailyIntro';
 import { getMathWeaknesses, getRWWeaknesses } from '../services/selectors/weaknesses';
 import { isGoalAchieved, goalDelta } from '../services/selectors/goalProgress';
-import { isScoreableAttempt } from '../services/selectors/latestTestStats';
+import { isScoreableAttempt, getLatestTestStats } from '../services/selectors/latestTestStats';
 import { buildPerformanceTiles } from '../services/selectors/performanceTiles';
 import { snapToScale } from '../services/scoring/scaleTables';
 import { getDaysUntilTest } from '../services/selectors/daysUntilTest';
@@ -284,14 +284,17 @@ const StudentDashboard = ({
     () => getPracticedDayKeys({ practiceProgress, practiceTestResults, drillDays }),
     [practiceProgress, practiceTestResults, drillDays],
   );
-  const latestScore = useMemo(() => {
-    if (!Array.isArray(scoreHistory) || scoreHistory.length === 0) return null;
-    return scoreHistory[scoreHistory.length - 1];
-  }, [scoreHistory]);
-  const scoreDelta = useMemo(() => {
-    if (!Array.isArray(scoreHistory) || scoreHistory.length < 2) return null;
-    return scoreHistory[scoreHistory.length - 1] - scoreHistory[0];
-  }, [scoreHistory]);
+  // "Current Score" tile = the literal LATEST attempt (matches the diagnostic
+  // widget). scoreHistory is best-per-test and stays the basis for the trend +
+  // projection only — using it here showed best-of-latest-test, which could
+  // disagree with the widget when the latest attempt wasn't the best.
+  const latestStats = useMemo(() => getLatestTestStats(practiceTestResults), [practiceTestResults]);
+  const latestScore = latestStats ? latestStats.scaledScore : null;
+  // Delta vs the PREVIOUS attempt, from the SAME selector as the headline, so
+  // the arrow can never contradict the number (e.g. an up-arrow on a lower
+  // retake). getLatestTestStats returns null on a single attempt or a
+  // section/composite scale mismatch, and the render already hides null deltas.
+  const scoreDelta = latestStats ? latestStats.scoreDelta : null;
   const topWeakness = useMemo(() => {
     if (!studyPlan) return null;
     const math = getMathWeaknesses(studyPlan);
@@ -933,11 +936,13 @@ const StudentDashboard = ({
                   </span>
                 )}
               </div>
-              {projectedTestsCount > 0 && (
+              {scoreDelta !== null ? (
+                <div className="dashboard-tile-sub">vs your previous test</div>
+              ) : projectedTestsCount > 0 ? (
                 <div className="dashboard-tile-sub">
                   Across {projectedTestsCount} test{projectedTestsCount !== 1 ? 's' : ''}
                 </div>
-              )}
+              ) : null}
             </div>
           )}
 

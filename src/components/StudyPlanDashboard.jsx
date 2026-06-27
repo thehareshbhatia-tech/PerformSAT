@@ -221,8 +221,16 @@ function buildPlanModule(w, i, skillProgress, diagnosticSentence) {
 // ---------------------------------------------------------------------------
 
 const ScoreTrajectory = ({ artifact }) => {
-  const trajectory = artifact?.longitudinal?.scoreTrajectory;
-  if (!trajectory?.length) return null;
+  const full = artifact?.longitudinal?.scoreTrajectory;
+  if (!full?.length) return null;
+
+  // Don't mix 200-800 single-section scores with 400-1600 composites on one
+  // axis — show only entries on the latest attempt's scale. (Legacy nodes saved
+  // before isMultiSection inferred from the score magnitude as a fallback.)
+  const scaleOf = (e) => (e.isMultiSection ?? (e.scaledScore > 800));
+  const latestScale = scaleOf(full[full.length - 1]);
+  const trajectory = full.filter(e => scaleOf(e) === latestScale);
+  if (!trajectory.length) return null;
 
   return (
     <div className="sp-trajectory">

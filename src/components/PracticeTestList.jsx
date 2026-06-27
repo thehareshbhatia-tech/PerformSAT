@@ -18,10 +18,33 @@ const attemptDate = (result) => {
   const d = v?.toDate?.() || new Date(v || 0);
   return Number.isNaN(d.getTime()) ? new Date(0) : d;
 };
-// sectionScores is { 'reading-writing': N, 'math': N } when present (legacy
-// attempts predate it → null, and the card falls back to total only).
+// sectionScores is persisted PER ATTEMPT, not on the aggregate row — reading
+// result.sectionScores was always null, so the section chips/bars never showed.
+// Pick the attempt backing the displayed TOTAL (max scaledScore; newest
+// completedAt as tiebreak — by score/date, not array position, since the
+// attempts array orientation is not a stable contract).
+const bestAttempt = (result) => {
+  const attempts = Array.isArray(result?.attempts) ? result.attempts : [];
+  return attempts.reduce((best, a) => {
+    if (!a) return best;
+    if (!best) return a;
+    const as = a.scaledScore ?? -Infinity;
+    const bs = best.scaledScore ?? -Infinity;
+    if (as !== bs) return as > bs ? a : best;
+    return new Date(a.completedAt || 0) >= new Date(best.completedAt || 0) ? a : best;
+  }, null);
+};
 const sectionScore = (result, key) => {
-  const s = result?.sectionScores;
+  const best = bestAttempt(result);
+  if (!best) return null;
+  // bestScaledScore is a persisted monotonic max that can outlive its backing
+  // attempt (trimAttempts keeps only the 5 newest). If the best RETAINED
+  // attempt isn't the one driving the displayed TOTAL, suppress the section
+  // chips rather than show numbers that won't sum to the TOTAL.
+  if (typeof result?.bestScaledScore === 'number' && best.scaledScore !== result.bestScaledScore) {
+    return null;
+  }
+  const s = best.sectionScores;
   return s && typeof s[key] === 'number' ? s[key] : null;
 };
 

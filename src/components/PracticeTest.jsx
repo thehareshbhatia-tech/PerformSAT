@@ -2388,8 +2388,13 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
         padding: isMobile ? '16px' : '32px'
       }}>
         <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+          {/* Easy-route students answered the EASY Module 2; grade the breakdown /
+              domain / difficulty aggregates + review grid against the modules they
+              actually saw (effectiveModules), matching the authoritative headline.
+              Hard/no-variant: effectiveModules === test.modules, so gate on the
+              variant to avoid minting a new object ref every render. */}
           <TestResults
-            test={test}
+            test={module2Variant === 'easy' ? { ...test, modules: effectiveModules } : test}
             answers={answers}
             storedResult={scoredRef.current ? {
               scaledScore: scoredRef.current.sectionScore,

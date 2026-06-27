@@ -135,15 +135,32 @@ export function isAnswerCorrect(question, userAnswer) {
     const ca = String(question.correctAnswer).trim();
     if (ua === ca) return true;
     // Numeric comparison — Number() (not parseFloat) so "12/13" → NaN, not 12
-    const numUser = Number(ua);
-    const numCorrect = Number(ca);
-    if (!isNaN(numUser) && !isNaN(numCorrect) && numUser === numCorrect) return true;
+    // Parse "a/b" to a number so a fraction answer key matches its decimal
+    // equivalent (e.g. "19/5" vs 3.8) — plain Number("19/5") is NaN by design,
+    // which is why valid decimal entries were being marked wrong. Non-fractions
+    // still go through Number().
+    const toNum = (s) => {
+      if (/^-?\d+\/\d+$/.test(s)) {
+        const [n, d] = s.split('/').map(Number);
+        return d === 0 ? NaN : n / d;
+      }
+      return Number(s);
+    };
+    const numUser = toNum(ua);
+    const numCorrect = toNum(ca);
+    // SAT grid-ins accept the fraction OR a decimal rounded/truncated to >=3
+    // places, so allow a tiny FLAT tolerance. 3-place rounding/truncation error
+    // is always < 0.001 in absolute terms regardless of magnitude — do NOT
+    // scale the window by |y| (that would accept adjacent integers like 1001
+    // for a 1000 answer).
+    const within = (x, y) => Math.abs(x - y) <= 1e-3;
+    if (!isNaN(numUser) && !isNaN(numCorrect) && within(numUser, numCorrect)) return true;
     if (Array.isArray(question.acceptedAnswers)) {
       return question.acceptedAnswers.some(a => {
         const as = String(a).trim();
         if (ua === as) return true;
-        const numA = Number(as);
-        return !isNaN(numUser) && !isNaN(numA) && numUser === numA;
+        const numA = toNum(as);
+        return !isNaN(numUser) && !isNaN(numA) && within(numUser, numA);
       });
     }
     return false;

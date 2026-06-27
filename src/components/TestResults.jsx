@@ -689,7 +689,10 @@ const TestResults = ({
     const isAtTarget = isGoalAchieved({ latestScore: satScore, targetScore, isMultiSection });
     const accuracyPct = totalQuestions > 0 ? Math.round((totalCorrect / totalQuestions) * 100) : 0;
 
-    const percentile = estimatePercentile(satScore);
+    // estimatePercentile uses a 200-800 per-section table. A full-test composite
+    // (400-1600) would clamp to 800 -> 99th for almost everyone; reduce it to a
+    // per-section average first (mirrors diagnosticEngine.js).
+    const percentile = estimatePercentile(isMultiSection ? Math.round(satScore / 2) : satScore);
 
     // ── Difficulty aggregates ──
     const diffAll = { easy: { correct: 0, total: 0 }, medium: { correct: 0, total: 0 }, hard: { correct: 0, total: 0 } };
@@ -779,7 +782,11 @@ const TestResults = ({
     const pastAttempts = attempts.filter(a => a.scaledScore !== satScore || a.completedAt !== attempts[attempts.length - 1]?.completedAt);
     const hasHistory = attempts.length > 1;
     const bestScore = testHistory?.bestScaledScore || satScore;
-    const firstAttemptScore = attempts.length > 0 ? attempts[0].scaledScore : satScore;
+    // attempts is newest-first after Firestore hydration (trimAttempts sorts
+    // desc), so attempts[0] is the LATEST. Sort chronologically to baseline the
+    // "Change" stat on the genuine FIRST attempt (matches the trajectory chart).
+    const chronoAttempts = [...attempts].sort((a, b) => new Date(a.completedAt || 0) - new Date(b.completedAt || 0));
+    const firstAttemptScore = chronoAttempts.length > 0 ? (chronoAttempts[0].scaledScore ?? satScore) : satScore;
     const improvementFromFirst = satScore - firstAttemptScore;
 
     // Linear gauge geometry — 200-800 single-section, 400-1600 full SAT.

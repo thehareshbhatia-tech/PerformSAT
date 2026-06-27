@@ -2169,9 +2169,18 @@ const PerformSAT = () => {
             getTestAttempts={getTestAttempts}
             inProgressTests={inProgressTests}
             onViewResults={async (test) => {
-              // Get the last attempt from saved results
+              // Pick the NEWEST attempt order-independently by completedAt. The
+              // attempts array orientation is not stable: trimAttempts stores it
+              // newest-first after Firestore hydration, but the in-session
+              // optimistic write appends newest-last — so attempts[length-1]
+              // returned the OLDEST attempt on hydrated/retaken tests, making
+              // Review Answers show the first attempt's score/answers/diagnosis.
               const testResults = practiceTestResults?.[test.id];
-              const lastAttempt = testResults?.attempts?.[testResults.attempts.length - 1];
+              const lastAttempt = (testResults?.attempts || []).reduce((best, a) => {
+                if (!a) return best;
+                if (!best) return a;
+                return (Date.parse(a.completedAt) || 0) >= (Date.parse(best.completedAt) || 0) ? a : best;
+              }, null);
               if (!lastAttempt) return;
 
               // Try to load the per-attempt snapshot. When present, Review Answers
