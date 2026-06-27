@@ -7,6 +7,7 @@ import { extractSatPattern } from '../extractSatPattern';
 import { PATTERN_TO_CB_SKILL } from '../cbSkillTaxonomy';
 import { makeLogger } from '../../../utils/log';
 import { SKILL_ALIAS_MAP, DRILL_ROUTING_THRESHOLDS } from './aliases';
+import { rebalanceAnswerKey } from './rebalanceAnswerKey';
 
 // Pure-constant re-exports (Stage 2a bundle split): SKILL_ALIAS_MAP and
 // DRILL_ROUTING_THRESHOLDS live in `./aliases.js` so corpus-free consumers
@@ -141,13 +142,17 @@ function flattenTopicQuestions(byModule) {
 
 const topicBank = flattenTopicQuestions(topicQuestionsByModule);
 
+// Rebalance the correct-answer position at assembly so drills aren't gameable
+// by "guess A" (the hand-authored shards skew ~59% A and choices aren't shuffled
+// at render). Deterministic per id, non-destructive to the source shards, and
+// never changes which answer is correct — see ./rebalanceAnswerKey.js.
 export const questionBank = [
   ...algebraBank,
   ...problemSolvingBank,
   ...advancedMathBank,
   ...geometryBank,
   ...topicBank,
-];
+].map(rebalanceAnswerKey);
 
 const bankIndex = new Map(questionBank.map(q => [q.id, q]));
 const skillIndex = new Map();

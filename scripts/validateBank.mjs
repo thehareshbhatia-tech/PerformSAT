@@ -19,6 +19,7 @@ import { algebraBank } from '../src/data/questions/bank/algebra.js';
 import { problemSolvingBank } from '../src/data/questions/bank/problemSolving.js';
 import { advancedMathBank } from '../src/data/questions/bank/advancedMath.js';
 import { geometryBank } from '../src/data/questions/bank/geometry.js';
+import { rebalanceAnswerKey } from '../src/data/questions/bank/rebalanceAnswerKey.js';
 
 const VALID_DOMAINS = ['algebra', 'problem-solving', 'advanced-math', 'geometry'];
 const VALID_DIFFICULTIES = ['easy', 'medium', 'hard'];
@@ -87,7 +88,7 @@ bank.forEach((q, i) => {
   if (q.type === 'multiple-choice') {
     if (!q.choices || q.choices.length !== 4) errors.push(`${label}: MC must have 4 choices`);
     if (!['A', 'B', 'C', 'D'].includes(q.correctAnswer)) errors.push(`${label}: MC correctAnswer must be A-D`);
-    else answerPos[q.correctAnswer]++;
+    else answerPos[rebalanceAnswerKey(q).correctAnswer]++; // tally the SERVED (post-rebalance) position
   }
   if (!q.explanation) errors.push(`${label}: missing explanation`);
 
@@ -116,12 +117,12 @@ console.log(`Unique IDs: ${ids.size}`);
 console.log('\nBy domain:', domainCounts);
 console.log('By difficulty:', diffCounts);
 
-// Answer-key position distribution. The drill shells render choices in array
-// order without shuffling, so a heavily skewed correct-answer position lets a
-// student pattern-match ("guess A") and erodes drill validity. Non-fatal: the
-// real fix is a careful bank rebalance — the explanations reference choice
-// letters by name, so a render-time shuffle would mislabel them. See the
-// 2026-06-27 bug audit (deferred item #14).
+// Answer-key position distribution AS SERVED — after rebalanceAnswerKey runs at
+// bank assembly. The raw shards skew ~59% A (and choices aren't shuffled at
+// render), so a student could game drills by "guess A"; the load-time rebalance
+// flattens the served bank to ~25% each. This check now guards that the
+// rebalance keeps the served distribution balanced (warns, non-fatal, if it
+// ever drifts outside a healthy band). See the 2026-06-27 bug audit (#14).
 const mcTotal = answerPos.A + answerPos.B + answerPos.C + answerPos.D;
 if (mcTotal > 0) {
   const pct = (n) => Math.round((n / mcTotal) * 100);
