@@ -53,14 +53,24 @@ export function pickSimilarQuestion({
 
   let pool;
   try {
-    pool = dispatcher(skillIds, { excludeIds, limit: 1 });
+    // No `limit` — fetch the full matched pool so the MCQ filter below has
+    // candidates to choose from after fill-ins are dropped.
+    pool = dispatcher(skillIds, { excludeIds });
   } catch (err) {
     return { kind: 'error', error: err };
   }
 
-  if (!Array.isArray(pool) || pool.length === 0) {
+  // The drill shells render answers ONLY through AnswerChoiceList (multiple
+  // choice) — a fill-in has no input there and would be an unanswerable
+  // dead-end. Every other drill launcher applies this same choices>=2 guard;
+  // match it here so Try-Similar can never strand the student mid-round.
+  const mcqPool = Array.isArray(pool)
+    ? pool.filter((q) => Array.isArray(q.choices) && q.choices.length >= 2)
+    : [];
+
+  if (mcqPool.length === 0) {
     return { kind: 'exhausted', skillIds };
   }
 
-  return { kind: 'ok', question: pool[0] };
+  return { kind: 'ok', question: mcqPool[0] };
 }

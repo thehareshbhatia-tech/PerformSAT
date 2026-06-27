@@ -1556,7 +1556,14 @@ const PerformSAT = () => {
         currentQ?.id,
         practiceState.answers,
       );
-      if (boundary.isLastInRound && !boundary.isLastRound) {
+      // Only pause on the interstitial when genuinely finishing the ACTIVE
+      // round for the first time. Revisiting an already-completed earlier round
+      // (via Back / the navigator) and clicking Continue must NOT re-fire it —
+      // that desyncs currentRoundIndex against the question-derived round and
+      // can soft-lock a 2-round drill on a dead "Continue to next round".
+      const boundaryRound = practiceState.rounds[boundary.roundIndex];
+      const isActiveRound = boundary.roundIndex === (practiceState.currentRoundIndex ?? 0);
+      if (boundary.isLastInRound && !boundary.isLastRound && isActiveRound && !boundaryRound?.completedAt) {
         const nowIso = new Date().toISOString();
         setPracticeState(prev => ({
           ...prev,

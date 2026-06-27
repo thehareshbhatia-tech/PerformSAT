@@ -649,15 +649,11 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
     m1Qs.forEach((q, idx) => {
       const ans = answers[`${mathM1Index}-${idx}`];
       if (ans === undefined || ans === null) return;
-      if (q.type === 'fill-in') {
-        const expected = String(q.correctAnswer).trim();
-        const given = String(ans).trim();
-        if (expected === given) { correct++; return; }
-        const en = parseFloat(expected); const gn = parseFloat(given);
-        if (!isNaN(en) && !isNaN(gn) && Math.abs(en - gn) < 1e-9) correct++;
-      } else if (ans === q.correctAnswer) {
-        correct++;
-      }
+      // Use the canonical grader so the route decision matches scoreTest. A
+      // hand-rolled parseFloat compare miscounts fraction grid-ins
+      // (parseFloat("19/5") === 19) — counting the SAT-valid "3.8" wrong and
+      // bare "19" right — which can misroute a borderline student to Easy M2.
+      if (isAnswerCorrect(q, ans)) correct++;
     });
     return { correct, total: m1Qs.length, pct: correct / m1Qs.length };
   }, [test, mathM1Index, answers]);
@@ -1425,16 +1421,8 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
         m1Questions.forEach((q, qIdx) => {
           const ans = answers[`${mathM1Index}-${qIdx}`];
           if (ans === undefined || ans === null) return;
-          if (q.type === 'fill-in') {
-            const expected = String(q.correctAnswer).trim();
-            const given = String(ans).trim();
-            // Allow simple numeric equivalence (e.g., "3" === "3.0")
-            if (expected === given) { correct++; return; }
-            const en = parseFloat(expected); const gn = parseFloat(given);
-            if (!isNaN(en) && !isNaN(gn) && Math.abs(en - gn) < 1e-9) correct++;
-          } else if (ans === q.correctAnswer) {
-            correct++;
-          }
+          // Canonical grader — matches scoreTest and is fraction-aware (see m1Score).
+          if (isAnswerCorrect(q, ans)) correct++;
         });
         const pct = m1Questions.length > 0 ? correct / m1Questions.length : 0;
         if (pct < M2_ROUTING_THRESHOLD) {
@@ -2428,6 +2416,15 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
               attemptTimestampRef.current = null;
               questionTelemetry.current = {};
               navigationHistory.current = [];
+              // A retake is a fresh attempt. Re-arm study-plan generation
+              // (otherwise the plan stays frozen on the prior attempt's
+              // diagnosis) and reset the Module-2 route so the retake
+              // re-evaluates Easy/Hard instead of inheriting the prior route
+              // (which would re-cap a recovered student at the Easy ceiling).
+              planGenerationAttempted.current = false;
+              setModule2Variant('hard');
+              setM2VariantManuallySet(false);
+              setResumeTimeRemaining(null);
             }}
             onReview={() => {
               setReviewMode(true);

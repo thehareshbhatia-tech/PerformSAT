@@ -121,18 +121,21 @@ describe('pickSimilarQuestion — excludeIds plumbing', () => {
     });
     expect(dispatcher).toHaveBeenCalledWith(
       ['arithmetic'],
-      { excludeIds: ['math-q-001', 'math-q-002', 'math-q-003'], limit: 1 },
+      { excludeIds: ['math-q-001', 'math-q-002', 'math-q-003'] },
     );
   });
 
-  it('always asks the dispatcher for limit: 1', () => {
+  it('does NOT cap the dispatcher with a limit, so the MCQ filter sees the full pool', () => {
+    // The function used to ask for limit:1, but a single returned item could be
+    // a fill-in (unanswerable in the drill shell). It now fetches the whole
+    // matched pool and filters to multiple-choice, so no limit is passed.
     const dispatcher = makeMockDispatcher([makeQ({ id: 'next' })]);
     pickSimilarQuestion({
       currentQuestion: makeQ(),
       mathDispatcher: dispatcher,
     });
     const opts = dispatcher.mock.calls[0][1];
-    expect(opts.limit).toBe(1);
+    expect(opts.limit).toBeUndefined();
   });
 
   it('defaults excludeIds to [] when not provided', () => {
@@ -176,6 +179,36 @@ describe('pickSimilarQuestion — pool exhaustion', () => {
     });
     expect(result.kind).toBe('exhausted');
     expect(result.skillIds).toEqual(['skill-a', 'skill-b']);
+  });
+});
+
+// ── MCQ-only filter (drill shells have no fill-in input) ─────────────────────
+
+describe('pickSimilarQuestion — MCQ-only filter', () => {
+  it('skips fill-in (choiceless) items and returns the first multiple-choice item', () => {
+    const fillIn = makeQ({ id: 'fill-1', choices: undefined, type: 'fill-in', correctAnswer: '3.8' });
+    const mcq = makeQ({ id: 'mcq-1' });
+    const dispatcher = makeMockDispatcher([fillIn, mcq]);
+    const result = pickSimilarQuestion({ currentQuestion: makeQ(), mathDispatcher: dispatcher });
+    expect(result.kind).toBe('ok');
+    expect(result.question).toBe(mcq); // the fill-in was skipped, not served
+  });
+
+  it('returns exhausted when the pool is all fill-ins (would be an unanswerable dead-end)', () => {
+    const fillA = makeQ({ id: 'fill-a', choices: undefined, type: 'fill-in' });
+    const fillB = makeQ({ id: 'fill-b', choices: [], type: 'fill-in' });
+    const dispatcher = makeMockDispatcher([fillA, fillB]);
+    const result = pickSimilarQuestion({ currentQuestion: makeQ(), mathDispatcher: dispatcher });
+    expect(result.kind).toBe('exhausted');
+  });
+
+  it('treats a single-choice item as non-MCQ (needs >= 2 choices)', () => {
+    const oneChoice = makeQ({ id: 'one', choices: [{ id: 'a', text: '4' }] });
+    const mcq = makeQ({ id: 'mcq-2' });
+    const dispatcher = makeMockDispatcher([oneChoice, mcq]);
+    const result = pickSimilarQuestion({ currentQuestion: makeQ(), mathDispatcher: dispatcher });
+    expect(result.kind).toBe('ok');
+    expect(result.question).toBe(mcq);
   });
 });
 
