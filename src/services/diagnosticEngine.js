@@ -725,6 +725,14 @@ export const runDiagnostic = (test, answers, diagnosticData, skillProgress = {},
       // non-R&W skills, so there is no cross-section misfire.
       const satPattern = extractSatPattern(q.explanation) || deriveRWPattern(q) || null;
 
+      // Section axis on each entry so stamina/fade analysis can split WITHIN a
+      // section. On a full SAT items are ordered R&W-then-Math, so a whole-test
+      // half/quarter split lands on the section boundary and misreads the
+      // R&W-vs-Math accuracy gap as fatigue. (Mirrors the scoredItems split.)
+      const itemSection = mod.section
+        ? (mod.section === 'reading-writing' ? 'rw' : 'math')
+        : (rawSkillIds.some(s => RW_SKILL_SET.has(s)) ? 'rw' : 'math');
+
       if (isCorrect) {
         totalCorrect++;
         questionAnalysis.push({
@@ -732,6 +740,7 @@ export const runDiagnostic = (test, answers, diagnosticData, skillProgress = {},
           questionNumber: questionAnalysis.length + 1,
           moduleIndex: modIdx,
           questionIndex: qIdx,
+          section: itemSection,
           isCorrect: true,
           difficulty: q.difficulty,
           skills: rawSkillIds,
@@ -749,6 +758,7 @@ export const runDiagnostic = (test, answers, diagnosticData, skillProgress = {},
           questionNumber: questionAnalysis.length + 1,
           moduleIndex: modIdx,
           questionIndex: qIdx,
+          section: itemSection,
           isCorrect: false,
           difficulty: q.difficulty,
           skills: rawSkillIds,
@@ -1286,17 +1296,31 @@ const analyzeTimeManagement = (questionAnalysis, diagnosticData) => {
     return fast || slow;
   });
 
-  // Pacing analysis: did student run out of steam?
-  // Compare first half vs second half performance
-  const halfIdx = Math.floor(questionAnalysis.length / 2);
-  const firstHalf = questionAnalysis.slice(0, halfIdx);
-  const secondHalf = questionAnalysis.slice(halfIdx);
-  const firstHalfAccuracy = firstHalf.length > 0
-    ? firstHalf.filter(q => q.isCorrect).length / firstHalf.length
-    : 0;
-  const secondHalfAccuracy = secondHalf.length > 0
-    ? secondHalf.filter(q => q.isCorrect).length / secondHalf.length
-    : 0;
+  // Pacing analysis: did the student run out of steam? Compare first-half vs
+  // second-half accuracy WITHIN each section, then average across sections. A
+  // whole-test split on a full SAT lands on the R&W|Math boundary and misreads
+  // the section accuracy gap as fatigue. Single-section tests collapse to one
+  // group, so their behavior is unchanged.
+  const halfGroups = new Map();
+  for (const q of questionAnalysis) {
+    const sec = q.section || 'math';
+    if (!halfGroups.has(sec)) halfGroups.set(sec, []);
+    halfGroups.get(sec).push(q);
+  }
+  const halfPairs = [];
+  for (const items of halfGroups.values()) {
+    if (items.length < 4) continue; // too short to split meaningfully
+    const h = Math.floor(items.length / 2);
+    const fh = items.slice(0, h);
+    const sh = items.slice(h);
+    halfPairs.push({
+      first: fh.length ? fh.filter(q => q.isCorrect).length / fh.length : 0,
+      second: sh.length ? sh.filter(q => q.isCorrect).length / sh.length : 0,
+    });
+  }
+  const avgOf = (xs) => (xs.length ? xs.reduce((a, b) => a + b, 0) / xs.length : 0);
+  const firstHalfAccuracy = avgOf(halfPairs.map(p => p.first));
+  const secondHalfAccuracy = avgOf(halfPairs.map(p => p.second));
   const fadeEffect = firstHalfAccuracy - secondHalfAccuracy;
 
   // Module time remaining analysis
@@ -2127,15 +2151,43 @@ const analyzeStamina = (questionAnalysis) => {
   const total = questionAnalysis.length;
   if (total < 8) return { hasData: false };
 
-  const q1End = Math.floor(total * 0.25);
-  const q2End = Math.floor(total * 0.5);
-  const q3End = Math.floor(total * 0.75);
+  // Quartile WITHIN each section, then pool by relative position. On a full SAT
+  // items are ordered R&W-then-Math, so whole-test quartiles would put R&W in
+  // Q1-Q2 and Math in Q3-Q4 and read the section accuracy gap as a stamina
+  // collapse. Per-section quartiles measure real within-section fade; a
+  // single-section test collapses to one group (legacy behavior preserved).
+  const staminaBySection = new Map();
+  for (const q of questionAnalysis) {
+    const sec = q.section || 'math';
+    if (!staminaBySection.has(sec)) staminaBySection.set(sec, []);
+    staminaBySection.get(sec).push(q);
+  }
+  const buckets = [[], [], [], []];
+  for (const items of staminaBySection.values()) {
+    const n = items.length;
+    if (n < 4) continue; // too short to quartile meaningfully
+    const e1 = Math.floor(n * 0.25);
+    const e2 = Math.floor(n * 0.5);
+    const e3 = Math.floor(n * 0.75);
+    [items.slice(0, e1), items.slice(e1, e2), items.slice(e2, e3), items.slice(e3)]
+      .forEach((slice, i) => buckets[i].push(...slice));
+  }
+  // Degenerate fallback (no section had >= 4 items): quartile the whole list.
+  if (buckets.every(b => b.length === 0)) {
+    const e1 = Math.floor(total * 0.25);
+    const e2 = Math.floor(total * 0.5);
+    const e3 = Math.floor(total * 0.75);
+    buckets[0] = questionAnalysis.slice(0, e1);
+    buckets[1] = questionAnalysis.slice(e1, e2);
+    buckets[2] = questionAnalysis.slice(e2, e3);
+    buckets[3] = questionAnalysis.slice(e3);
+  }
 
   const quarters = [
-    { label: 'Q1 (Start)', questions: questionAnalysis.slice(0, q1End) },
-    { label: 'Q2', questions: questionAnalysis.slice(q1End, q2End) },
-    { label: 'Q3', questions: questionAnalysis.slice(q2End, q3End) },
-    { label: 'Q4 (End)', questions: questionAnalysis.slice(q3End) },
+    { label: 'Q1 (Start)', questions: buckets[0] },
+    { label: 'Q2', questions: buckets[1] },
+    { label: 'Q3', questions: buckets[2] },
+    { label: 'Q4 (End)', questions: buckets[3] },
   ].map(q => ({
     ...q,
     total: q.questions.length,

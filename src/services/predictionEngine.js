@@ -39,7 +39,7 @@ const MAX_PREDICTION_LOG = 10;
  */
 export const generatePredictions = (fingerprint, practiceTestResults, skillProgress, interventionLog, afterTestId, options = {}) => {
   const { isMultiSection = false, currentScore = null } = options;
-  const historyScores = getRecentScores(practiceTestResults, 3);
+  const historyScores = getRecentScores(practiceTestResults, 3, isMultiSection);
   const recentScores = (currentScore != null)
     ? [currentScore, ...historyScores].slice(0, 3)
     : historyScores;
@@ -364,8 +364,11 @@ function predictTrapVulnerabilities(practiceTestResults, fingerprint) {
   for (const attempt of recentAttempts) {
     const errorCounts = attempt.diagnosticData?.errorPatterns?.counts || {};
     for (const [type, count] of Object.entries(errorCounts)) {
-      if (type === 'TRAP_SUSCEPTIBILITY') {
-        // This is the aggregate; look at individual traps in question analysis
+      if (type === 'trap_susceptibility') {
+        // This is the aggregate; look at individual traps in question analysis.
+        // (Canonical error-type ids are lowercase — see ERROR_TYPES in
+        // diagnosticEngine. The old 'TRAP_SUSCEPTIBILITY' never matched, so
+        // every error type leaked into trapCounts as a fake "trap".)
         continue;
       }
       trapCounts[type] = (trapCounts[type] || 0) + count;
@@ -374,7 +377,7 @@ function predictTrapVulnerabilities(practiceTestResults, fingerprint) {
     // Also check question-level trap data
     const questions = attempt.diagnosticData?.questionAnalysis || [];
     for (const q of questions) {
-      if (q.errorType === 'TRAP_SUSCEPTIBILITY') {
+      if (q.errorType === 'trap_susceptibility') {
         const trapType = q.trapType || 'general_trap';
         trapCounts[trapType] = (trapCounts[trapType] || 0) + 1;
       }
@@ -411,7 +414,7 @@ function predictArchetype(fingerprint) {
 /**
  * Gets the most recent N scaled scores from practice test results.
  */
-function getRecentScores(practiceTestResults, n) {
+function getRecentScores(practiceTestResults, n, wantMultiSection) {
   if (!practiceTestResults) return [];
 
   const allAttempts = [];
@@ -421,6 +424,12 @@ function getRecentScores(practiceTestResults, n) {
         // Blank/abandoned submissions score at the IRT floor — feeding them
         // into baselines/velocity would drag every prediction toward 400.
         if (isBlankAttempt(attempt)) continue;
+        // Only mix SAME-scale history into the band: a 200-800 section score
+        // and a 400-1600 composite aren't comparable. Every other
+        // scale-sensitive path filters by isMultiSection; this one used to be
+        // the lone exception, polluting the expected-range center.
+        if (typeof wantMultiSection === 'boolean'
+            && !!attempt.isMultiSection !== wantMultiSection) continue;
         if (attempt.scaledScore) {
           allAttempts.push({
             score: attempt.scaledScore,

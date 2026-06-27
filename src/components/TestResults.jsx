@@ -617,14 +617,6 @@ const TestResults = ({
     return domains;
   };
 
-  // Determine if Module 2 is "Hard" based on Module 1 performance
-  const isModule2Hard = () => {
-    if (test.modules.length < 2) return false;
-    const mod1Score = calculateModuleScore(0);
-    const percentage = (mod1Score.correct / mod1Score.total) * 100;
-    return percentage >= 60; // Threshold for unlocking hard module
-  };
-
   const totalQuestions = test.modules.reduce((sum, m) => sum + m.questions.length, 0);
   const totalCorrect = calculateTotalScore();
   // Section-aware scoring: a full-length SAT (R&W + Math) returns a 400-1600
@@ -677,9 +669,22 @@ const TestResults = ({
   const sectionTitle = { fontSize: '11px', fontWeight: '700', color: colors.text.secondary, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '16px' };
 
   const renderSummaryView = () => {
-    const mod2Hard = isModule2Hard();
-    const mod1 = calculateModuleScore(0);
-    const mod2 = test.modules.length > 1 ? calculateModuleScore(1) : null;
+    // The Module-1/Module-2 two-up describes the adaptive MATH routing. On a
+    // full SAT the math modules aren't 0/1 (R&W comes first), so select the
+    // math modules explicitly; fall back to 0/1 for a math-only or R&W-only
+    // test. "(Hard)" reflects the actually-served route, not a recompute.
+    const mathModuleIndices = test.modules
+      .map((m, i) => ((m.section || test.section) === 'math' ? i : -1))
+      .filter((i) => i >= 0);
+    const statM1Idx = mathModuleIndices[0] ?? 0;
+    const statM2Idx = mathModuleIndices.length >= 2
+      ? mathModuleIndices[1]
+      : (mathModuleIndices.length === 0 && test.modules.length > 1 ? 1 : null);
+    const mod1 = calculateModuleScore(statM1Idx);
+    const mod2 = statM2Idx != null ? calculateModuleScore(statM2Idx) : null;
+    const mod2Hard = mathModuleIndices.length >= 2
+      && (diagnosticData?.mathRoute || storedResult?.mathRoute) === 'hard';
+    const statModuleLabel = mathModuleIndices.length >= 1 && isMultiSection ? 'Math Module' : 'Module';
     const targetScore = user?.targetScore || DEFAULT_GOAL_SCORE;
     // Compare only when goal and score are on the SAME scale: a composite goal
     // (> 800) against a composite full-length result, or a legacy section goal
@@ -978,12 +983,12 @@ const TestResults = ({
           
           <div style={{ ...cardBase, padding: '24px', display: 'flex', gap: '12px', justifyContent: 'space-between', alignItems: 'center' }}>
             <div style={{ flex: 1 }}>
-              <div style={{ fontSize: '11px', fontWeight: '600', color: colors.text.secondary, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Module 1</div>
+              <div style={{ fontSize: '11px', fontWeight: '600', color: colors.text.secondary, textTransform: 'uppercase', letterSpacing: '0.04em' }}>{statModuleLabel} 1</div>
               <div style={{ fontSize: '20px', fontWeight: '700', color: colors.text.primary, marginTop: '4px' }}>{mod1Pct}%</div>
             </div>
             {mod2Pct !== null && (
               <div style={{ flex: 1, textAlign: 'right' }}>
-                <div style={{ fontSize: '11px', fontWeight: '600', color: colors.text.secondary, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Module 2 {mod2Hard && <span style={{ color: '#f97316' }}>(Hard)</span>}</div>
+                <div style={{ fontSize: '11px', fontWeight: '600', color: colors.text.secondary, textTransform: 'uppercase', letterSpacing: '0.04em' }}>{statModuleLabel} 2 {mod2Hard && <span style={{ color: '#f97316' }}>(Hard)</span>}</div>
                 <div style={{ fontSize: '20px', fontWeight: '700', color: colors.text.primary, marginTop: '4px' }}>{mod2Pct}%</div>
               </div>
             )}
