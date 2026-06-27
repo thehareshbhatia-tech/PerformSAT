@@ -154,6 +154,49 @@ jest.mock('firebase/firestore', () => {
       return { empty: docs.length === 0, docs };
     },
     writeBatch: () => new FakeWriteBatch(),
+    // Transaction shim: get() reads the live store, set/update() buffer ops that
+    // are applied atomically after the callback (mirrors FakeWriteBatch.commit).
+    // Reuses nextBatchShouldFail so the existing failure/rollback test still
+    // simulates a commit failure for the now-transactional save path.
+    runTransaction: async (database, updateFn) => {
+      const ops = [];
+      const txn = {
+        get: async (ref) => {
+          const data = store.get(ref.__path);
+          return {
+            exists: () => data !== undefined,
+            data: () => (data === undefined ? undefined : deepClone(data)),
+            id: ref.__path.split('/').pop(),
+          };
+        },
+        set: (ref, data, options) => { ops.push({ kind: 'set', path: ref.__path, data, merge: !!options?.merge }); },
+        update: (ref, data) => { ops.push({ kind: 'update', path: ref.__path, data }); },
+      };
+      const result = await updateFn(txn);
+      if (nextBatchShouldFail) {
+        nextBatchShouldFail = false;
+        throw new Error('Simulated transaction failure');
+      }
+      const rollback = new Map(store);
+      try {
+        for (const op of ops) {
+          if (op.kind === 'set') {
+            if (op.merge) {
+              store.set(op.path, applyDotted(store.get(op.path) || {}, op.data));
+            } else {
+              store.set(op.path, deepClone(op.data));
+            }
+          } else if (op.kind === 'update') {
+            store.set(op.path, applyDotted(store.get(op.path) || {}, op.data));
+          }
+        }
+      } catch (err) {
+        store.clear();
+        rollback.forEach((v, k) => store.set(k, v));
+        throw err;
+      }
+      return result;
+    },
   };
 });
 
@@ -398,13 +441,13 @@ describe('recordPracticeTestResult — missing snapshot', () => {
 });
 
 describe('recordPracticeTestResult — atomicity', () => {
-  test('batch commit failure rolls back: neither main nor snapshot is written', async () => {
+  test('transaction failure rolls back: neither main nor snapshot is written', async () => {
     firestoreMock.__setBatchShouldFail(true);
 
     await expect(
       recordPracticeTestResult('user-1', 'practice-test-1', 'Practice Test 1',
         buildResults({ attemptId: 'will-fail' }))
-    ).rejects.toThrow(/Simulated batch commit failure/);
+    ).rejects.toThrow(/Simulated transaction failure/);
 
     // Verify NEITHER doc was created — atomic rollback
     expect(getStore().get('progress/user-1')).toBeUndefined();

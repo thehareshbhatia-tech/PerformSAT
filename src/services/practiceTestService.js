@@ -1,5 +1,5 @@
 import { db } from '../firebase/config';
-import { doc, getDoc, setDoc, updateDoc, serverTimestamp, arrayUnion, collection, addDoc, query, where, orderBy, limit, getDocs, writeBatch } from 'firebase/firestore';
+import { doc, getDoc, setDoc, updateDoc, serverTimestamp, arrayUnion, collection, addDoc, query, where, orderBy, limit, getDocs, runTransaction } from 'firebase/firestore';
 import { TEST_REVIEW_MODULE_PREFIX } from './reviewQueueResolve';
 import { clearPendingSavesForTest } from './pendingTestSaveQueue';
 import { pickSurvivingArtifactId } from './studyPlanReset';
@@ -57,9 +57,6 @@ export const recordPracticeTestResult = async (userId, testId, testTitle, result
 
   try {
     const progressRef = doc(db, 'progress', userId);
-    console.log('[practiceTestService] Getting progress document for user:', userId);
-    const progressSnap = await getDoc(progressRef);
-    console.log('[practiceTestService] Progress document exists:', progressSnap.exists());
 
     const attemptId = results.attemptId || generateAttemptId();
     const completedAt = new Date().toISOString();
@@ -136,37 +133,49 @@ export const recordPracticeTestResult = async (userId, testId, testTitle, result
       snapshotVersion: SNAPSHOT_VERSION,
     } : null;
 
-    // Atomic batched write: either both writes (main + snapshot) succeed, or both
-    // are rolled back. Eliminates the silent-drift partial-failure flagged in
-    // the recalibration plan's failure-mode table.
-    const batch = writeBatch(db);
+    // Atomic transactional read-modify-write. The progress doc (attempts arrays
+    // + best-score/counters) and the per-attempt snapshot are committed in ONE
+    // transaction, so two concurrent completions (e.g. the same test finished on
+    // two devices) or a boot-flush replay overlapping a fresh save can't clobber
+    // each other's attempts. Firestore re-runs the callback on contention
+    // (re-reading the doc), so attemptId/completedAt are computed ABOVE the
+    // transaction to stay stable across retries; the idempotency guard still
+    // catches exact-duplicate replays.
+    await runTransaction(db, async (tx) => {
+      const progressSnap = await tx.get(progressRef);
 
-    if (!progressSnap.exists()) {
-      console.log('[practiceTestService] Creating new progress document...');
-      batch.set(progressRef, {
-        userId,
-        [`practiceTestResults.${testId}`]: {
-          testId,
-          testTitle,
-          attempts: [attemptData],
-          bestScaledScore: results.scaledScore ?? 0,
-          bestRawScore: results.rawScore ?? 0,
-          // Scale of the latest attempt, surfaced at row level so the goal
-          // comparison can distinguish a section score from a composite (1.4).
-          isMultiSection: results.isMultiSection ?? false,
-          totalAttempts: 1,
-          lastAttemptAt: serverTimestamp()
-        },
-        lastUpdated: serverTimestamp()
-      }, { merge: true });
-    } else {
+      if (!progressSnap.exists()) {
+        console.log('[practiceTestService] Creating new progress document...');
+        tx.set(progressRef, {
+          userId,
+          [`practiceTestResults.${testId}`]: {
+            testId,
+            testTitle,
+            attempts: [attemptData],
+            bestScaledScore: results.scaledScore ?? 0,
+            bestRawScore: results.rawScore ?? 0,
+            // Scale of the latest attempt, surfaced at row level so the goal
+            // comparison can distinguish a section score from a composite (1.4).
+            isMultiSection: results.isMultiSection ?? false,
+            totalAttempts: 1,
+            lastAttemptAt: serverTimestamp()
+          },
+          lastUpdated: serverTimestamp()
+        }, { merge: true });
+        if (snapshotRef && snapshotPayload) {
+          // Per-attempt snapshot doc — bounded ~90KB so well under Firestore's 1MB limit.
+          tx.set(snapshotRef, snapshotPayload);
+        }
+        return;
+      }
+
       const currentData = progressSnap.data();
       const existingTest = currentData.practiceTestResults?.[testId];
 
-      // Idempotency guard: a hung offline batch.commit() can land AFTER the
-      // client already timed out, queued the payload, and replayed it (retry
-      // button or boot flush). Without this check a replay would append a
-      // duplicate attempt and inflate totalAttempts/best-score rows.
+      // Idempotency guard: a hung offline write can land AFTER the client already
+      // timed out, queued the payload, and replayed it (retry button or boot
+      // flush). Without this check a replay would append a duplicate attempt and
+      // inflate totalAttempts/best-score rows. Returning commits an empty transaction.
       if (existingTest?.attempts?.some(a => a.attemptId === attemptId)) {
         console.log('[practiceTestService] Attempt ' + attemptId + ' already recorded — skipping duplicate write');
         return;
@@ -192,14 +201,14 @@ export const recordPracticeTestResult = async (userId, testId, testTitle, result
         console.warn('[practiceTestService] Audit failed (non-fatal):', auditErr.message);
       }
 
-      // In-batch sanitation: trim every OTHER test's attempts to MAX_ATTEMPTS
-      // and strip diagnosticReport from the survivors so the doc stays under
-      // Firestore's 1MB limit. Earlier builds persisted diagnosticReport on
-      // the latest attempt of each test (and stored every attempt without
-      // trimming on tests recorded before MAX_ATTEMPTS was introduced), which
-      // alone can push the doc past the size cap. The report is regenerated
-      // on demand via runDiagnostic when the user views past results, so
-      // dropping it here is lossless.
+      // Accumulate every field-path write into ONE update object (a single write
+      // to the progress doc inside the transaction).
+      const updates = { lastUpdated: serverTimestamp() };
+
+      // Sanitation: trim every OTHER test's attempts to MAX_ATTEMPTS and strip
+      // diagnosticReport from the survivors so the doc stays under Firestore's
+      // 1MB limit. The report is regenerated on demand via runDiagnostic when the
+      // user views past results, so dropping it here is lossless.
       const existingResults = currentData.practiceTestResults || {};
       Object.entries(existingResults).forEach(([otherTestId, otherTest]) => {
         if (otherTestId === testId) return; // current test handled below
@@ -219,49 +228,40 @@ export const recordPracticeTestResult = async (userId, testId, testTitle, result
           const { diagnosticReport, diagnosticData, ...slim } = a;
           return slim;
         });
-        batch.update(progressRef, {
-          [`practiceTestResults.${otherTestId}.attempts`]: cleaned,
-        });
+        updates[`practiceTestResults.${otherTestId}.attempts`] = cleaned;
       });
 
       if (existingTest) {
         // Update existing test results, trimming old attempts to stay under Firestore 1MB limit
         console.log('[practiceTestService] Updating existing test results...');
-        const updatedAttempts = trimAttempts([attemptData, ...(existingTest.attempts || [])]);
-        batch.update(progressRef, {
-          [`practiceTestResults.${testId}.attempts`]: updatedAttempts,
-          [`practiceTestResults.${testId}.bestScaledScore`]: Math.max(existingTest.bestScaledScore ?? 0, results.scaledScore ?? 0),
-          [`practiceTestResults.${testId}.bestRawScore`]: Math.max(existingTest.bestRawScore ?? 0, results.rawScore ?? 0),
-          [`practiceTestResults.${testId}.isMultiSection`]: results.isMultiSection ?? false, // scale signal for goal comparison (1.4)
-          [`practiceTestResults.${testId}.totalAttempts`]: (existingTest.totalAttempts ?? 0) + 1,
-          [`practiceTestResults.${testId}.lastAttemptAt`]: serverTimestamp(),
-          lastUpdated: serverTimestamp()
-        });
+        updates[`practiceTestResults.${testId}.attempts`] = trimAttempts([attemptData, ...(existingTest.attempts || [])]);
+        updates[`practiceTestResults.${testId}.bestScaledScore`] = Math.max(existingTest.bestScaledScore ?? 0, results.scaledScore ?? 0);
+        updates[`practiceTestResults.${testId}.bestRawScore`] = Math.max(existingTest.bestRawScore ?? 0, results.rawScore ?? 0);
+        updates[`practiceTestResults.${testId}.isMultiSection`] = results.isMultiSection ?? false; // scale signal for goal comparison (1.4)
+        updates[`practiceTestResults.${testId}.totalAttempts`] = (existingTest.totalAttempts ?? 0) + 1;
+        updates[`practiceTestResults.${testId}.lastAttemptAt`] = serverTimestamp();
       } else {
         // Add new test to results
         console.log('[practiceTestService] Adding new test to existing document...');
-        batch.update(progressRef, {
-          [`practiceTestResults.${testId}`]: {
-            testId,
-            testTitle,
-            attempts: [attemptData],
-            bestScaledScore: results.scaledScore ?? 0,
-            bestRawScore: results.rawScore ?? 0,
-            isMultiSection: results.isMultiSection ?? false, // scale signal for goal comparison (1.4)
-            totalAttempts: 1,
-            lastAttemptAt: serverTimestamp()
-          },
-          lastUpdated: serverTimestamp()
-        });
+        updates[`practiceTestResults.${testId}`] = {
+          testId,
+          testTitle,
+          attempts: [attemptData],
+          bestScaledScore: results.scaledScore ?? 0,
+          bestRawScore: results.rawScore ?? 0,
+          isMultiSection: results.isMultiSection ?? false, // scale signal for goal comparison (1.4)
+          totalAttempts: 1,
+          lastAttemptAt: serverTimestamp()
+        };
       }
-    }
 
-    if (snapshotRef && snapshotPayload) {
-      // Per-attempt snapshot doc — bounded ~90KB so well under Firestore's 1MB limit.
-      batch.set(snapshotRef, snapshotPayload);
-    }
+      tx.update(progressRef, updates);
 
-    await batch.commit();
+      if (snapshotRef && snapshotPayload) {
+        // Per-attempt snapshot doc — bounded ~90KB so well under Firestore's 1MB limit.
+        tx.set(snapshotRef, snapshotPayload);
+      }
+    });
     console.log('[practiceTestService] Save complete (attemptId=' + attemptId + ', snapshot=' + hasSnapshot + ')');
   } catch (error) {
     console.error('[practiceTestService] Error recording practice test result:', error);
