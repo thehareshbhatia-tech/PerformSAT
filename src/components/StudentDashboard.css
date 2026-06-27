@@ -987,3 +987,123 @@
   font-weight: 600;
   color: var(--color-brand-purple-text);
 }
+
+/* ── First-run (no-data) dashboard ─────────────────────────────────────────
+   Replaces the flat "everything is locked" dump for brand-new users with one
+   welcoming get-started layout: a single promise + CTA, the goal/exam tiles,
+   and a calm tri-color "what you'll unlock" preview (orange = diagnosis,
+   purple = study plan, green = pacing). Renders only when noData is true. */
+.firstrun-dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  max-width: 780px;
+}
+.firstrun-dashboard .section-heading { margin-bottom: 0; }
+
+.firstrun-hero {
+  background: linear-gradient(180deg, var(--color-brand-primary-light) 0%, var(--color-white) 100%);
+  border: 1px solid rgba(234, 88, 12, 0.18);
+  border-radius: 20px;
+  padding: 2rem 2.25rem;
+}
+.firstrun-hero-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111827;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.5rem;
+}
+.firstrun-hero-desc {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--color-slate-600);
+  margin: 0 0 1.5rem;
+  max-width: 46ch;
+}
+.firstrun-hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+.firstrun-hero-cta {
+  background-color: var(--color-brand-primary);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 0.7rem 1.5rem;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(234, 88, 12, 0.25);
+  transition: background-color 0.15s ease, transform 0.08s ease;
+}
+.firstrun-hero-cta:hover { background-color: var(--color-brand-primary-hover); }
+.firstrun-hero-cta:active { transform: translateY(1px); }
+.firstrun-hero-warmup {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-brand-primary);
+  cursor: pointer;
+}
+.firstrun-hero-warmup:hover { color: var(--color-brand-primary-hover); text-decoration: underline; }
+
+.firstrun-tiles {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.firstrun-unlock-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+.firstrun-unlock-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-slate-200);
+  border-radius: 16px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.firstrun-unlock-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 11px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.25rem;
+}
+.firstrun-unlock-icon.is-diagnosis { background: var(--color-brand-primary-light); color: var(--color-brand-primary); }
+.firstrun-unlock-icon.is-plan { background: var(--color-brand-purple-soft); color: var(--color-brand-purple-deep); }
+.firstrun-unlock-icon.is-pacing { background: var(--color-brand-green-soft); color: var(--color-brand-green-deep); }
+.firstrun-unlock-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+}
+.firstrun-unlock-desc {
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: var(--color-slate-500);
+  margin: 0;
+}
+
+@media (max-width: 720px) {
+  .firstrun-tiles { grid-template-columns: 1fr; }
+  .firstrun-unlock-grid { grid-template-columns: 1fr; }
+  .firstrun-hero { padding: 1.5rem; }
+}

@@ -31,7 +31,7 @@ import { formatPatternLabel } from '../services/selectors/missedPatternLabel';
 import { loadPracticeTests, loadMathBank, loadRWBank } from '../data/corpusLoader';
 import { MathText } from './MathText';
 import { trackAddPhotoClicked } from '../services/analyticsService';
-import { PlayIcon, ChartBarIcon, TrendingUpIcon, ClipboardIcon, CameraIcon } from '../design/icons';
+import { PlayIcon, ChartBarIcon, TrendingUpIcon, ClipboardIcon, CameraIcon, MicroscopeIcon, TimerIcon, ArrowRightIcon } from '../design/icons';
 import { parseLocalDate } from '../utils/localDate';
 import { injectAnimations, useCountUp } from '../design/animations';
 import { DataCard } from './ui/DataCard';
@@ -273,6 +273,11 @@ const StudentDashboard = ({
     [practiceProgress, practiceTestResults, drillDays],
   );
   const hasStudyPlan = !!(studyPlan && Array.isArray(studyPlan.weeks) && studyPlan.weeks.length > 0);
+  // First-run (no-data) dashboard: no scored practice test AND no study plan.
+  // In this state the protected performance grid + projected chart are already
+  // gated off, so we replace the flat "everything is locked" dump with a single
+  // welcoming get-started layout (one CTA + goal/exam tiles + what-you'll-unlock).
+  const noData = !performanceTiles.hasData && !hasStudyPlan;
   // Predicted vs Actual (Day 5 ADD B). summarizePredictions returns null when
   // no validated prediction exists yet, so the card hides itself pre-2nd-test.
   const predictionSummary = useMemo(
@@ -703,6 +708,75 @@ const StudentDashboard = ({
       )}
 
       {/* Dashboard Content Grid */}
+      {noData ? (
+        <div className="firstrun-dashboard">
+          {/* Welcome hero — one promise, one primary CTA, an optional warm-up. */}
+          <div className="firstrun-hero">
+            <h2 className="firstrun-hero-title">
+              {user?.firstName ? `Welcome to SEVA, ${user.firstName}` : 'Welcome to SEVA'}
+            </h2>
+            <p className="firstrun-hero-desc">
+              One practice test unlocks your diagnosis and a week-by-week plan, built from your answers.
+            </p>
+            <div className="firstrun-hero-actions">
+              <button type="button" className="firstrun-hero-cta" onClick={onStartPracticeTest}>
+                Start Practice Test
+              </button>
+              {showCheckInCard ? (
+                <button type="button" className="firstrun-hero-warmup" onClick={onStartCheckIn}>
+                  or start with a 15-minute check-in <ArrowRightIcon size={14} color="currentColor" />
+                </button>
+              ) : recommendations[0] ? (
+                <button type="button" className="firstrun-hero-warmup" onClick={() => handleWarmUpClick(recommendations[0])}>
+                  or warm up first: {recommendations[0].title.toLowerCase()} <ArrowRightIcon size={14} color="currentColor" />
+                </button>
+              ) : null}
+            </div>
+          </div>
+
+          {/* Goal / exam tiles — the real data a day-0 user already has. */}
+          {(user?.targetScore || user?.testDate) && (
+            <div className="firstrun-tiles">
+              {user?.targetScore && (
+                <div className="dashboard-tile">
+                  <div className="dashboard-tile-eyebrow">Goal Score</div>
+                  <div className="dashboard-tile-num">{user.targetScore}</div>
+                  <div className="dashboard-tile-sub">{user?.targetSchools?.[0]?.name || 'From onboarding'}</div>
+                </div>
+              )}
+              {user?.testDate && (
+                <div className="dashboard-tile">
+                  <div className="dashboard-tile-eyebrow">Days Until Exam</div>
+                  <div className="dashboard-tile-num">{daysUntilTest ?? '—'}</div>
+                  <div className="dashboard-tile-sub">
+                    {parseLocalDate(user.testDate)?.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* What you'll unlock — aspirational previews, not locked/Overdue cards. */}
+          <h2 className="section-heading">What you&rsquo;ll unlock</h2>
+          <div className="firstrun-unlock-grid">
+            <div className="firstrun-unlock-card">
+              <span className="firstrun-unlock-icon is-diagnosis"><MicroscopeIcon size={22} color="currentColor" /></span>
+              <h3 className="firstrun-unlock-title">Your diagnosis</h3>
+              <p className="firstrun-unlock-desc">Exactly why you miss each question — the skill, the trap, and the fix.</p>
+            </div>
+            <div className="firstrun-unlock-card">
+              <span className="firstrun-unlock-icon is-plan"><ClipboardIcon size={22} color="currentColor" /></span>
+              <h3 className="firstrun-unlock-title">A week-by-week plan</h3>
+              <p className="firstrun-unlock-desc">Built from your test — what to drill first, scheduled day by day.</p>
+            </div>
+            <div className="firstrun-unlock-card">
+              <span className="firstrun-unlock-icon is-pacing"><TimerIcon size={22} color="currentColor" /></span>
+              <h3 className="firstrun-unlock-title">Pacing &amp; timing</h3>
+              <p className="firstrun-unlock-desc">Where you rush or stall, with timed drills to fix it.</p>
+            </div>
+          </div>
+        </div>
+      ) : (
       <div className="dashboard-grid">
         <div className="dashboard-main-col">
           {/* Current SAT Score Section (When Edit is clicked) */}
@@ -1015,6 +1089,7 @@ const StudentDashboard = ({
           />
         </div>
       </div>
+      )}
       </>
       )}
     </div>
