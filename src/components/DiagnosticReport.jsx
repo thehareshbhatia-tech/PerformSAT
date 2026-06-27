@@ -698,8 +698,11 @@ const DiagnosticReport = ({
 
         <div style={{ display: 'flex', gap: '1px', background: 'rgba(255,255,255,0.08)', borderRadius: radius.sm, overflow: 'hidden' }}>
           <StatBox value={planSummary.stats.currentScore} label="Current" color="white" />
-          {/* null target = no honest same-scale comparison exists (cross-scale account) */}
-          <StatBox value={planSummary.stats.targetScore ?? '—'} label="Target" color="var(--color-brand-purple)" />
+          {/* The live profile goal is the source of truth for "Target": a saved plan
+              may carry a pre-migration section-scale goal (e.g. 750) until it next
+              regenerates, and the score projection above already uses user.targetScore.
+              Fall back to the plan stat, then '—' (cross-scale account, no honest value). */}
+          <StatBox value={user?.targetScore ?? planSummary.stats.targetScore ?? '—'} label="Target" color="var(--color-brand-purple)" />
           <StatBox value={`${planSummary.stats.minutesPerDay}m`} label="Per Day" color="white" />
           <StatBox value={planSummary.stats.weeksInPlan} label="Weeks" color="white" />
         </div>
