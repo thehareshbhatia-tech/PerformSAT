@@ -9,7 +9,7 @@
  */
 
 import { db } from '../firebase/config';
-import { doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
+import { doc, runTransaction } from 'firebase/firestore';
 // taxonomy.js (not the rwBank index) keeps this engine corpus-free — the
 // rwBank index flattens all 12 R&W test bundles at import time (Stage 2a).
 import { getSkillSection } from '../data/questions/rwBank/taxonomy';
@@ -160,21 +160,18 @@ export const validatePrediction = (prediction, diagnosticData, testId, options =
 export const savePrediction = async (userId, prediction) => {
   try {
     const progressRef = doc(db, 'progress', userId);
-    const progressSnap = await getDoc(progressRef);
-
-    let log = [];
-    if (progressSnap.exists()) {
-      log = progressSnap.data().predictionLog || [];
-    }
-
-    log.push(prediction);
-
-    // Evict oldest if over cap
-    while (log.length > MAX_PREDICTION_LOG) {
-      log.shift();
-    }
-
-    await setDoc(progressRef, { predictionLog: log }, { merge: true });
+    // Transaction: re-read + retry so a prediction saved on another device at
+    // the same time isn't clobbered by this append (read-modify-write race).
+    await runTransaction(db, async (tx) => {
+      const snap = await tx.get(progressRef);
+      let log = snap.exists() ? (snap.data().predictionLog || []) : [];
+      log = [...log, prediction];
+      // Evict oldest if over cap
+      while (log.length > MAX_PREDICTION_LOG) {
+        log.shift();
+      }
+      tx.set(progressRef, { predictionLog: log }, { merge: true });
+    });
   } catch (err) {
     console.error('[predictionEngine] Failed to save prediction:', err);
     throw err;
@@ -193,23 +190,26 @@ export const savePrediction = async (userId, prediction) => {
 export const validateAndUpdatePredictions = async (userId, diagnosticData, testId, options = {}) => {
   try {
     const progressRef = doc(db, 'progress', userId);
-    const progressSnap = await getDoc(progressRef);
+    // Transaction: re-read + retry so resolving predictions doesn't clobber a
+    // concurrent append/resolve from another device.
+    await runTransaction(db, async (tx) => {
+      const snap = await tx.get(progressRef);
+      if (!snap.exists()) return;
 
-    if (!progressSnap.exists()) return;
+      const log = [...(snap.data().predictionLog || [])];
+      let updated = false;
 
-    const log = progressSnap.data().predictionLog || [];
-    let updated = false;
-
-    for (let i = 0; i < log.length; i++) {
-      if (!log[i].resolved) {
-        log[i] = validatePrediction(log[i], diagnosticData, testId, options);
-        updated = true;
+      for (let i = 0; i < log.length; i++) {
+        if (!log[i].resolved) {
+          log[i] = validatePrediction(log[i], diagnosticData, testId, options);
+          updated = true;
+        }
       }
-    }
 
-    if (updated) {
-      await updateDoc(progressRef, { predictionLog: log });
-    }
+      if (updated) {
+        tx.update(progressRef, { predictionLog: log });
+      }
+    });
   } catch (err) {
     console.error('[predictionEngine] Failed to validate predictions:', err);
   }

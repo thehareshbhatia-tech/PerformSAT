@@ -8,7 +8,7 @@
  */
 
 import { db } from '../firebase/config';
-import { doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
+import { doc, getDoc, runTransaction } from 'firebase/firestore';
 
 const MAX_INTERVENTION_LOG = 50;
 
@@ -61,22 +61,20 @@ export const startIntervention = async (userId, { type, skillIds, approach, cont
 
   try {
     const progressRef = doc(db, 'progress', userId);
-    const progressSnap = await getDoc(progressRef);
-
-    let log = [];
-    if (progressSnap.exists()) {
-      log = progressSnap.data().interventionLog || [];
-    }
-
-    log.push(intervention);
-
-    // Evict oldest resolved entries first if over cap
-    if (log.length > MAX_INTERVENTION_LOG) {
-      log = evictOldest(log, MAX_INTERVENTION_LOG);
-    }
-
-    // Use setDoc+merge so this works even if the progress doc doesn't exist yet
-    await setDoc(progressRef, { interventionLog: log }, { merge: true });
+    // Transaction: re-reads the log and retries if another device wrote
+    // concurrently, so a second device starting an intervention at the same
+    // time doesn't clobber this append (read-modify-write lost-update).
+    await runTransaction(db, async (tx) => {
+      const snap = await tx.get(progressRef);
+      let log = snap.exists() ? (snap.data().interventionLog || []) : [];
+      log = [...log, intervention];
+      // Evict oldest resolved entries first if over cap
+      if (log.length > MAX_INTERVENTION_LOG) {
+        log = evictOldest(log, MAX_INTERVENTION_LOG);
+      }
+      // setDoc+merge so this works even if the progress doc doesn't exist yet
+      tx.set(progressRef, { interventionLog: log }, { merge: true });
+    });
     return interventionId;
   } catch (err) {
     console.error('[interventionTracker] Failed to start intervention:', err);
@@ -120,43 +118,46 @@ export const getUnresolvedInterventions = async (userId) => {
 export const resolveIntervention = async (userId, interventionId, postMetrics) => {
   try {
     const progressRef = doc(db, 'progress', userId);
-    const progressSnap = await getDoc(progressRef);
+    // Transaction: re-read + retry so resolving an intervention on one device
+    // doesn't clobber a concurrent append/resolve from another device.
+    await runTransaction(db, async (tx) => {
+      const snap = await tx.get(progressRef);
+      if (!snap.exists()) return;
 
-    if (!progressSnap.exists()) return;
+      const log = [...(snap.data().interventionLog || [])];
+      const idx = log.findIndex(i => i.id === interventionId);
+      if (idx === -1) return;
 
-    const log = progressSnap.data().interventionLog || [];
-    const idx = log.findIndex(i => i.id === interventionId);
-    if (idx === -1) return;
+      const intervention = log[idx];
 
-    const intervention = log[idx];
+      // Compute delta per skill
+      const delta = {};
+      let totalDelta = 0;
+      let deltaCount = 0;
+      for (const skillId of intervention.skillIds) {
+        const pre = intervention.preMetrics?.skillMastery?.[skillId] ?? 0;
+        const post = postMetrics?.skillMastery?.[skillId] ?? pre;
+        delta[skillId] = post - pre;
+        totalDelta += delta[skillId];
+        deltaCount++;
+      }
 
-    // Compute delta per skill
-    const delta = {};
-    let totalDelta = 0;
-    let deltaCount = 0;
-    for (const skillId of intervention.skillIds) {
-      const pre = intervention.preMetrics?.skillMastery?.[skillId] ?? 0;
-      const post = postMetrics?.skillMastery?.[skillId] ?? pre;
-      delta[skillId] = post - pre;
-      totalDelta += delta[skillId];
-      deltaCount++;
-    }
+      const avgDelta = deltaCount > 0 ? totalDelta / deltaCount : 0;
 
-    const avgDelta = deltaCount > 0 ? totalDelta / deltaCount : 0;
+      log[idx] = {
+        ...intervention,
+        resolved: true,
+        resolvedAt: new Date().toISOString(),
+        postMetrics: {
+          skillMastery: postMetrics?.skillMastery || {},
+          errorTypes: postMetrics?.errorTypes || {},
+          delta,
+          improved: avgDelta > 0,
+        },
+      };
 
-    log[idx] = {
-      ...intervention,
-      resolved: true,
-      resolvedAt: new Date().toISOString(),
-      postMetrics: {
-        skillMastery: postMetrics?.skillMastery || {},
-        errorTypes: postMetrics?.errorTypes || {},
-        delta,
-        improved: avgDelta > 0,
-      },
-    };
-
-    await updateDoc(progressRef, { interventionLog: log });
+      tx.update(progressRef, { interventionLog: log });
+    });
   } catch (err) {
     console.error('[interventionTracker] Failed to resolve intervention:', err);
     throw err;

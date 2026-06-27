@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { db } from '../firebase/config';
-import { doc, onSnapshot, updateDoc, setDoc, getDoc, serverTimestamp, arrayUnion } from 'firebase/firestore';
+import { doc, onSnapshot, updateDoc, setDoc, getDoc, serverTimestamp, arrayUnion, runTransaction } from 'firebase/firestore';
 import { markLessonComplete as markComplete, markLessonIncomplete } from '../services/progressService';
 // Corpus-free (bundleGuard-safe): one-time upgrade of persisted format-1
 // plans whose weeks lack both-section drill activities.
@@ -955,33 +955,38 @@ export const useProgress = (userId) => {
     });
 
     try {
-      // Update the artifact doc if we have a pointer
+      // Atomic across the artifact + legacy root field. The whole `plan` object
+      // must be rewritten (Firestore can't field-path into the weeks ARRAY), so
+      // a transaction re-reads and retries if another device wrote concurrently
+      // — without it, marking a task done on the iPad would clobber an edit just
+      // made on the laptop (read-modify-write lost-update). Firestore offline
+      // persistence is disabled, so this carries no offline regression.
       const artId = studyPlanMeta.artifactId;
-      if (artId) {
-        const artRef = doc(db, 'progress', userId, 'studyPlanArtifacts', artId);
-        const artSnap = await getDoc(artRef);
-        if (artSnap.exists()) {
-          const artData = artSnap.data();
-          const plan = artData.plan ? JSON.parse(JSON.stringify(artData.plan)) : null;
+      const artRef = artId ? doc(db, 'progress', userId, 'studyPlanArtifacts', artId) : null;
+      const progressRef = doc(db, 'progress', userId);
+      await runTransaction(db, async (tx) => {
+        // All reads must precede all writes inside a transaction.
+        const artSnap = artRef ? await tx.get(artRef) : null;
+        const progressSnap = await tx.get(progressRef);
+        const stamp = new Date().toISOString();
+        if (artSnap && artSnap.exists()) {
+          const plan = artSnap.data().plan ? JSON.parse(JSON.stringify(artSnap.data().plan)) : null;
           if (plan?.weeks?.[weekIndex]?.activities?.[activityIndex]) {
             plan.weeks[weekIndex].activities[activityIndex].completed = true;
-            plan.weeks[weekIndex].activities[activityIndex].completedAt = new Date().toISOString();
-            await updateDoc(artRef, { plan });
+            plan.weeks[weekIndex].activities[activityIndex].completedAt = stamp;
+            tx.update(artRef, { plan });
           }
         }
-      }
-      // Also update legacy root field if present
-      const progressRef = doc(db, 'progress', userId);
-      const progressSnap = await getDoc(progressRef);
-      if (progressSnap.exists()) {
-        const data = progressSnap.data();
-        if (data.studyPlan?.weeks?.[weekIndex]?.activities?.[activityIndex]) {
-          const plan = JSON.parse(JSON.stringify(data.studyPlan));
-          plan.weeks[weekIndex].activities[activityIndex].completed = true;
-          plan.weeks[weekIndex].activities[activityIndex].completedAt = new Date().toISOString();
-          await updateDoc(progressRef, { studyPlan: plan });
+        if (progressSnap.exists()) {
+          const data = progressSnap.data();
+          if (data.studyPlan?.weeks?.[weekIndex]?.activities?.[activityIndex]) {
+            const plan = JSON.parse(JSON.stringify(data.studyPlan));
+            plan.weeks[weekIndex].activities[activityIndex].completed = true;
+            plan.weeks[weekIndex].activities[activityIndex].completedAt = stamp;
+            tx.update(progressRef, { studyPlan: plan });
+          }
         }
-      }
+      });
     } catch (err) {
       console.error('[useProgress] Failed to mark activity complete:', err);
       setError(err.message);
@@ -1008,31 +1013,32 @@ export const useProgress = (userId) => {
     });
 
     try {
+      // Atomic across artifact + root, same transaction rationale as
+      // markStudyActivityComplete (the weeks array forces a whole-plan rewrite).
       const artId = studyPlanMeta.artifactId;
-      if (artId) {
-        const artRef = doc(db, 'progress', userId, 'studyPlanArtifacts', artId);
-        const artSnap = await getDoc(artRef);
-        if (artSnap.exists()) {
-          const artData = artSnap.data();
-          const plan = artData.plan ? JSON.parse(JSON.stringify(artData.plan)) : null;
+      const artRef = artId ? doc(db, 'progress', userId, 'studyPlanArtifacts', artId) : null;
+      const progressRef = doc(db, 'progress', userId);
+      await runTransaction(db, async (tx) => {
+        const artSnap = artRef ? await tx.get(artRef) : null;
+        const progressSnap = await tx.get(progressRef);
+        if (artSnap && artSnap.exists()) {
+          const plan = artSnap.data().plan ? JSON.parse(JSON.stringify(artSnap.data().plan)) : null;
           if (plan?.weeks?.[weekIndex]?.activities?.[activityIndex]) {
             plan.weeks[weekIndex].activities[activityIndex].completed = false;
             delete plan.weeks[weekIndex].activities[activityIndex].completedAt;
-            await updateDoc(artRef, { plan });
+            tx.update(artRef, { plan });
           }
         }
-      }
-      const progressRef = doc(db, 'progress', userId);
-      const progressSnap = await getDoc(progressRef);
-      if (progressSnap.exists()) {
-        const data = progressSnap.data();
-        if (data.studyPlan?.weeks?.[weekIndex]?.activities?.[activityIndex]) {
-          const plan = JSON.parse(JSON.stringify(data.studyPlan));
-          plan.weeks[weekIndex].activities[activityIndex].completed = false;
-          delete plan.weeks[weekIndex].activities[activityIndex].completedAt;
-          await updateDoc(progressRef, { studyPlan: plan });
+        if (progressSnap.exists()) {
+          const data = progressSnap.data();
+          if (data.studyPlan?.weeks?.[weekIndex]?.activities?.[activityIndex]) {
+            const plan = JSON.parse(JSON.stringify(data.studyPlan));
+            plan.weeks[weekIndex].activities[activityIndex].completed = false;
+            delete plan.weeks[weekIndex].activities[activityIndex].completedAt;
+            tx.update(progressRef, { studyPlan: plan });
+          }
         }
-      }
+      });
     } catch (err) {
       console.error('[useProgress] Failed to unmark activity:', err);
       setError(err.message);
