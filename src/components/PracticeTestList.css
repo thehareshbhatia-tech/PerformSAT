@@ -294,6 +294,8 @@
 .pt-progress-track { flex: 1; height: 6px; border-radius: 4px; background: var(--sp-surface-2); overflow: hidden; }
 .pt-progress-fill { height: 100%; border-radius: 4px; background: var(--sp-orange); transition: width 400ms ease; }
 .pt-progress-label { font-size: 12px; font-weight: 700; color: var(--sp-text-2); font-variant-numeric: tabular-nums; flex: none; white-space: nowrap; }
+/* In-progress: quiet Reset paired with the primary Continue button */
+.pt-progress-actions { display: flex; align-items: center; gap: 14px; flex: none; }
 
 /* ── Buttons ───────────────────────────────────────────────────────────── */
 .pt-btn {
@@ -385,6 +387,10 @@
   .pt-summary { gap: 16px; padding: 18px; }
   .pt-summary-divider { display: none; }
   .pt-card-row, .pt-card-head { padding: 16px; gap: 14px; }
+  /* In-progress: drop Reset + Continue to their own full-width row so the
+     title and progress bar keep their space instead of wrapping to slivers. */
+  .pt-card.is-progress .pt-card-row { flex-wrap: wrap; }
+  .pt-card.is-progress .pt-progress-actions { width: 100%; justify-content: flex-end; }
   .pt-secrow { flex-wrap: wrap; }
   .pt-secrow-track { width: 100%; order: 3; margin-top: 6px; }
   .pt-secrow-info { flex-basis: 60%; }

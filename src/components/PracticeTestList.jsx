@@ -191,7 +191,7 @@ const PracticeTestList = ({
             onSelectTestWithMode={onSelectTestWithMode}
             onResumeTest={onResumeTest}
             onViewResults={onViewResults}
-            onRequestReset={onResetTest ? () => setResetTarget({ test, testNum: idx + 1 }) : undefined}
+            onRequestReset={onResetTest ? () => setResetTarget({ test, testNum: idx + 1, inProgress: !!inProgressTests?.[test.id] }) : undefined}
           />
         ))}
       </div>
@@ -234,9 +234,15 @@ const PracticeTestList = ({
         )}
       >
         <p style={{ margin: 0, fontSize: '15px', lineHeight: 1.6, color: 'var(--color-slate-600)' }}>
-          This permanently erases your scores, attempt history, and saved progress for{' '}
-          <strong style={{ color: 'var(--color-slate-900)' }}>Digital SAT #{resetTarget?.testNum}</strong>
-          {' '}— as if you never took it. Your other tests aren&rsquo;t affected, and this can&rsquo;t be undone.
+          {resetTarget?.inProgress ? (
+            <>This discards your saved progress for{' '}
+            <strong style={{ color: 'var(--color-slate-900)' }}>Digital SAT #{resetTarget?.testNum}</strong>
+            {' '}— as if you never started it. You&rsquo;ll begin again from question 1. Your other tests aren&rsquo;t affected, and this can&rsquo;t be undone.</>
+          ) : (
+            <>This permanently erases your scores, attempt history, and saved progress for{' '}
+            <strong style={{ color: 'var(--color-slate-900)' }}>Digital SAT #{resetTarget?.testNum}</strong>
+            {' '}— as if you never took it. Your other tests aren&rsquo;t affected, and this can&rsquo;t be undone.</>
+          )}
         </p>
       </Modal>
     </div>
@@ -329,9 +335,21 @@ const TestCard = ({
               <span className="pt-progress-label">{answered}/{totalQ}</span>
             </div>
           </div>
-          <button type="button" className="pt-btn is-primary" onClick={() => onResumeTest && onResumeTest(test, inProgress?.isTimed)}>
-            Continue <ArrowRightIcon size={16} color="currentColor" />
-          </button>
+          <div className="pt-progress-actions">
+            {onRequestReset && (
+              <button
+                type="button"
+                className="pt-reset"
+                onClick={onRequestReset}
+                title="Discard your progress on this test and start over from question 1"
+              >
+                Reset
+              </button>
+            )}
+            <button type="button" className="pt-btn is-primary" onClick={() => onResumeTest && onResumeTest(test, inProgress?.isTimed)}>
+              Continue <ArrowRightIcon size={16} color="currentColor" />
+            </button>
+          </div>
         </div>
       </div>
     );
