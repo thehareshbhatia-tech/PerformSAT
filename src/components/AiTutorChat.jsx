@@ -1839,7 +1839,9 @@ Your goal is to build their problem-solving instincts. Every question they solve
                 padding: '16px 20px',
                 borderRadius: '24px',
                 border: '1px solid rgba(0, 0, 0, 0.08)',
-                fontSize: '15px',
+                // 16px (not 15px) so iOS/iPadOS Safari does not auto-zoom the
+                // page when the composer is focused.
+                fontSize: '16px',
                 fontFamily: design.typography.fontFamily,
                 resize: 'none',
                 outline: 'none',
@@ -1857,7 +1859,9 @@ Your goal is to build their problem-solving instincts. Every question they solve
                 padding: '14px 18px',
                 borderRadius: '24px',
                 border: `1px solid ${design.colors.border.medium}`,
-                fontSize: '15px',
+                // 16px (not 15px) so iOS/iPadOS Safari does not auto-zoom the
+                // page when the composer is focused.
+                fontSize: '16px',
                 fontFamily: design.typography.fontFamily,
                 resize: 'none',
                 outline: 'none',

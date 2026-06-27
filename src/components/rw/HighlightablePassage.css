@@ -28,3 +28,17 @@
   margin: 0 0.2em;
   vertical-align: middle;
 }
+
+/* The passage container must be selectable for highlighting to work. On touch
+ * devices, suppress the iOS long-press callout (Copy/Look-Up/Share) so the
+ * select-to-highlight gesture isn't hijacked by the native menu. Removed
+ * highlights are tapped, so removal still works. */
+.hl-passage {
+  -webkit-user-select: text;
+  user-select: text;
+}
+@media (hover: none), (pointer: coarse) {
+  .hl-passage {
+    -webkit-touch-callout: none;
+  }
+}

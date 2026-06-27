@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { colors, typography, spacing, radius, shadows, transitions, breakpoints, zIndex } from '../../design/tokens';
+import { colors, typography, spacing, radius, shadows, transitions, zIndex } from '../../design/tokens';
 import { injectAnimations } from '../../design/animations';
+import { useViewport } from '../../hooks/useViewport';
 import Wordmark from './Wordmark';
 import Mark from './Mark';
 import Avatar from './Avatar';
@@ -135,27 +136,14 @@ function PersonIcon({ color }) {
   );
 }
 
-// Hook to detect viewport width
-function useViewport() {
-  const [width, setWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1024);
-
-  useEffect(() => {
-    const handleResize = () => setWidth(window.innerWidth);
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  return {
-    width,
-    isMobile: width < breakpoints.tablet,
-    isTablet: width >= breakpoints.tablet && width < breakpoints.desktop,
-    isDesktop: width >= breakpoints.desktop,
-  };
-}
-
 const AppShell = ({ children, currentView, onNavigate, user, onLogout, hideNav = false }) => {
-  const { isMobile, isTablet, isDesktop } = useViewport();
+  const { isMobile, isTablet, isDesktop, isCoarsePointer } = useViewport();
   const [sidebarExpanded, setSidebarExpanded] = useState(false);
+  // On touch devices there is no hover, so the hover-to-expand tablet rail
+  // would strand every nav label out of reach. In that case we render a
+  // permanently labeled compact rail (icon + label stacked) instead.
+  const tabletLabelsStacked = isTablet && isCoarsePointer;
+  const railExpanded = sidebarExpanded && !isCoarsePointer;
 
   useEffect(() => { injectAnimations(); }, []);
 
@@ -298,10 +286,10 @@ const AppShell = ({ children, currentView, onNavigate, user, onLogout, hideNav =
         <aside
           role="navigation"
           aria-label="Tablet navigation"
-          onMouseEnter={() => setSidebarExpanded(true)}
-          onMouseLeave={() => setSidebarExpanded(false)}
+          onMouseEnter={isCoarsePointer ? undefined : () => setSidebarExpanded(true)}
+          onMouseLeave={isCoarsePointer ? undefined : () => setSidebarExpanded(false)}
           style={{
-            width: sidebarExpanded ? '240px' : '72px',
+            width: railExpanded ? '240px' : '72px',
             backgroundColor: 'var(--color-brand-navy)',
             borderRight: 'none',
             position: 'fixed',
@@ -317,16 +305,16 @@ const AppShell = ({ children, currentView, onNavigate, user, onLogout, hideNav =
         >
           {/* Logo */}
           <div style={{
-            padding: `${spacing.lg} ${sidebarExpanded ? spacing.lg : spacing.md}`,
+            padding: `${spacing.lg} ${railExpanded ? spacing.lg : spacing.md}`,
             display: 'flex',
             alignItems: 'center',
             gap: '6px',
             cursor: 'pointer',
-            justifyContent: sidebarExpanded ? 'flex-start' : 'center',
+            justifyContent: railExpanded ? 'flex-start' : 'center',
           }}
             onClick={() => onNavigate('dashboard')}
           >
-            {sidebarExpanded
+            {railExpanded
               ? <Wordmark size="lg" tone="light" />
               : <Mark size={30} />}
           </div>
@@ -338,18 +326,22 @@ const AppShell = ({ children, currentView, onNavigate, user, onLogout, hideNav =
               const Icon = item.icon;
               const domainColor = NAV_DOMAIN_COLORS[item.id] || 'var(--color-white)';
               const domainTint = NAV_DOMAIN_TINTS[item.id] || 'rgba(255, 255, 255, 0.10)';
+              const showLabel = railExpanded || tabletLabelsStacked;
               return (
                 <button
                   key={item.id}
                   onClick={() => handleNavClick(item)}
                   aria-label={item.label}
                   aria-current={isActive ? 'page' : undefined}
-                  title={!sidebarExpanded ? item.label : undefined}
+                  title={showLabel ? undefined : item.label}
                   style={{
                     display: 'flex',
+                    flexDirection: tabletLabelsStacked ? 'column' : 'row',
                     alignItems: 'center',
-                    gap: spacing.sm,
-                    padding: `${spacing.sm} ${sidebarExpanded ? spacing.md : '0'}`,
+                    gap: tabletLabelsStacked ? '3px' : spacing.sm,
+                    padding: tabletLabelsStacked
+                      ? `${spacing.sm} 2px`
+                      : `${spacing.sm} ${railExpanded ? spacing.md : '0'}`,
                     borderRadius: radius.md,
                     border: 'none',
                     background: isActive ? domainTint : 'transparent',
@@ -357,16 +349,17 @@ const AppShell = ({ children, currentView, onNavigate, user, onLogout, hideNav =
                     cursor: 'pointer',
                     transition: `all ${transitions.fast}`,
                     width: '100%',
-                    justifyContent: sidebarExpanded ? 'flex-start' : 'center',
+                    justifyContent: railExpanded ? 'flex-start' : 'center',
                   }}
                 >
                   <Icon color={isActive ? domainColor : 'var(--color-slate-400)'} />
-                  {sidebarExpanded && (
+                  {showLabel && (
                     <span style={{
-                      fontSize: typography.sizes.base,
+                      fontSize: tabletLabelsStacked ? '10px' : typography.sizes.base,
                       fontWeight: isActive ? typography.weights.semibold : typography.weights.medium,
                       color: isActive ? 'var(--color-white)' : 'var(--color-slate-400)',
                       whiteSpace: 'nowrap',
+                      lineHeight: 1,
                     }}>
                       {item.label}
                     </span>

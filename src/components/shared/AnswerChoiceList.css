@@ -176,6 +176,16 @@
   color: var(--color-slate-700);
 }
 
+/* Touch devices have no hover, so the eliminate button would be invisible and
+   unreachable. Keep it always visible and give it a 36px tap target. */
+@media (hover: none), (pointer: coarse) {
+  .answer-eliminate-btn {
+    opacity: 1;
+    width: 36px;
+    height: 36px;
+  }
+}
+
 .answer-choice-card.is-eliminated .answer-eliminate-btn {
   color: var(--color-slate-600);
   background-color: var(--color-slate-200);

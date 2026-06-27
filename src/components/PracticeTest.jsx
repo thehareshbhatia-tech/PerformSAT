@@ -1939,7 +1939,9 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
               <div style={{
                 flex: isMobile ? 1 : '1 1 0%',
                 maxWidth: isMobile ? 'none' : '540px',
-                minWidth: isMobile ? 'none' : '340px',
+                // No 340px floor below 1024px (iPad portrait) — let the question
+                // pane shrink instead of overflowing the screen.
+                minWidth: isMobile || windowWidth < 1024 ? 'none' : '340px',
                 borderRadius: isMobile ? 0 : '20px',
                 boxShadow: isMobile ? 'none' : '0 4px 20px rgba(0,0,0,0.03)',
                 border: isMobile ? 'none' : `1px solid rgba(0,0,0,0.06)`,
@@ -2196,7 +2198,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
             {/* RIGHT / EXPLANATION + AI TUTOR PANE */}
             {(!isMobile || reviewTab !== 'question') && (
               <div style={{
-                flex: '1.2 1 0%', minWidth: 0, display: 'flex', flexDirection: reviewRightPane === 'both' && !isMobile ? 'row' : 'column',
+                flex: '1.2 1 0%', minWidth: 0, display: 'flex', flexDirection: reviewRightPane === 'both' && windowWidth >= 1024 ? 'row' : 'column',
                 overflow: 'hidden', background: 'transparent', gap: isMobile ? 0 : '16px'
               }}>
                 {/* Explanation */}

@@ -106,7 +106,11 @@
   --sp-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 10px 28px rgba(0, 0, 0, 0.38);
 }
 
-@media (min-width: 1024px) {
+/* 1180, not 1024: this view sits inside the AppShell content area offset by the
+   240px desktop sidebar, so at a 1024px viewport the real content is only
+   ~784px and the main column collapses behind the fixed 340px rail. Engage the
+   side-rail layout only once there's room for it. */
+@media (min-width: 1180px) {
   .study-plan-dashboard.sp-with-rail {
     grid-template-columns: minmax(0, 1fr) 340px;
     gap: 2.25rem;
@@ -128,7 +132,10 @@
   top: 16px;
 }
 
-@media (max-width: 1023px) {
+/* Static whenever the layout is single-column. Must match the 2-column
+   breakpoint (now min-width:1180px) so the rail isn't left sticky in the
+   1024-1179px single-column band. */
+@media (max-width: 1179px) {
   .sp-rail { position: static; }
 }
 

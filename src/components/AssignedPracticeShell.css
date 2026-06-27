@@ -86,7 +86,11 @@
 
 .aps-shell {
   display: grid;
-  grid-template-columns: 288px minmax(0, 1fr) var(--pr-panel-w, 460px);
+  /* Tutor pane honors the persisted/dragged width on wide screens but is
+     floored by min()+calc so the center question column never drops below
+     ~360px — protects iPad Pro 11"/12.9" landscape (1194/1366px) and any
+     desktop window narrowed with a large stored panel width. */
+  grid-template-columns: 288px minmax(0, 1fr) min(var(--pr-panel-w, 460px), calc(100vw - 648px));
   height: 100vh;
   background: var(--pr-bg);
   font-family: var(--pr-font-body);
@@ -277,6 +281,18 @@
   transition: background-color 0.15s;
 }
 .aps-progress-dot:hover { background: var(--pr-line-strong); }
+/* The visual bar stays 8px, but on touch extend each dot's hit area to ~40px
+   tall (transparent ::before) so it's tappable without enlarging the bar. */
+@media (hover: none), (pointer: coarse) {
+  .aps-progress-dot::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -16px;
+    bottom: -16px;
+  }
+}
 .aps-progress-dot.is-correct { background: var(--pr-green); }
 .aps-progress-dot.is-wrong { background: var(--pr-red); }
 .aps-progress-dot.is-current { background: var(--pr-orange); }
@@ -877,8 +893,15 @@
 .aps-interstitial-secondary:hover { color: var(--pr-text); }
 
 /* ── RESPONSIVE ────────────────────────────────────────────────────── */
+/* iPad-landscape band (981-1180px, incl. iPad Pro 12.9" portrait at 1024).
+   Cap the tutor pane with min(): this clamps even a persisted --pr-panel-w
+   (which may be 460-680px from a prior desktop session) so the center
+   question column always keeps real width instead of being crushed to ~100px.
+   The nav rail also narrows to give the question more room. */
 @media (max-width: 1180px) {
-  .aps-shell { grid-template-columns: 248px minmax(0, 1fr) var(--pr-panel-w, 380px); }
+  .aps-shell {
+    grid-template-columns: 224px minmax(0, 1fr) min(var(--pr-panel-w, 360px), calc(100vw - 584px));
+  }
 }
 
 @media (max-width: 980px) {
@@ -907,9 +930,18 @@
   .aps-right {
     border-left: none;
     border-top: 1px solid var(--pr-line);
-    max-height: 52vh;
+    /* Lighter default so the question owns the top of an iPad-portrait screen
+       instead of the tutor strip eating over half of it. */
+    max-height: 42vh;
   }
   /* Panes stack on narrow screens — no horizontal resize. */
+  .aps-resize-handle { display: none; }
+}
+
+/* The drag-to-resize handle is mouse-only (and its grip only shows on hover).
+   On touch devices it is both invisible and inert, so hide it — the CSS min()
+   clamp above already keeps the tutor pane a sane width without it. */
+@media (hover: none), (pointer: coarse) {
   .aps-resize-handle { display: none; }
 }
 

@@ -7,7 +7,16 @@
   background-color: #ffffff;
 }
 
+/* Tablet band: lighter padding so the 240px/72px nav + heavy side padding
+   don't starve the content of width. The full 3rem 4rem is reserved for the
+   desktop band where there's room beside the 240px sidebar. */
 @media (min-width: 768px) {
+  .student-dashboard-container {
+    padding: 2rem 2.5rem;
+  }
+}
+
+@media (min-width: 1180px) {
   .student-dashboard-container {
     padding: 3rem 4rem;
   }
@@ -414,7 +423,11 @@
   align-items: start;
 }
 
-@media (min-width: 1024px) {
+/* 1180, not 1024: the dashboard lives inside the AppShell content area, which
+   is offset by the 240px desktop sidebar. Measured against the viewport, 1024px
+   leaves only ~784px of real content — so the 8/4 split crushes. Engage two
+   columns only once there's genuine room beside the sidebar. */
+@media (min-width: 1180px) {
   .dashboard-grid {
     grid-template-columns: repeat(12, 1fr);
   }
@@ -427,7 +440,7 @@
   gap: 2rem;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1180px) {
   .dashboard-main-col {
     grid-column: span 8;
   }
@@ -440,7 +453,7 @@
   gap: 1rem;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1180px) {
   .dashboard-side-col {
     grid-column: span 4;
   }

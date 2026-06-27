@@ -1,4 +1,4 @@
-import { memo, useCallback, useMemo, useRef } from 'react';
+import { memo, useCallback, useEffect, useMemo, useRef } from 'react';
 import './HighlightablePassage.css';
 
 // ============================================
@@ -183,9 +183,11 @@ const HighlightablePassage = memo(function HighlightablePassage({
 
   const segments = useMemo(() => buildSegments(plain, highlights, formats, hidden), [plain, highlights, formats, hidden]);
 
-  const handleMouseUp = useCallback(() => {
+  // Capture the current text selection as a highlight range. Shared by the
+  // mouseup path (mouse/trackpad) and the selectionchange path (touch).
+  const captureSelection = useCallback(() => {
     const sel = window.getSelection();
-    if (!sel || sel.isCollapsed || !ref.current) return;
+    if (!sel || sel.isCollapsed || sel.rangeCount === 0 || !ref.current) return;
     const range = sel.getRangeAt(0);
     if (!ref.current.contains(range.startContainer) || !ref.current.contains(range.endContainer)) return;
     const start = getCharOffsetWithin(ref.current, range.startContainer, range.startOffset);
@@ -193,6 +195,27 @@ const HighlightablePassage = memo(function HighlightablePassage({
     if (start < end) onAddHighlight({ start, end });
     sel.removeAllRanges();
   }, [onAddHighlight]);
+
+  // Touch highlighting: on iPadOS/Safari a long-press + drag-handle selection
+  // does not reliably emit a `mouseup` on a plain div, so the mouseup path
+  // alone misses it. Listen to `selectionchange` (debounced so it fires once
+  // the selection settles) on coarse-pointer devices. The mouse path is left
+  // untouched on desktop. Double-capture is harmless: ranges are merged and the
+  // selection is cleared after the first capture.
+  useEffect(() => {
+    if (typeof window === 'undefined' || !window.matchMedia) return undefined;
+    if (!window.matchMedia('(hover: none), (pointer: coarse)').matches) return undefined;
+    let timer;
+    const onSelectionChange = () => {
+      clearTimeout(timer);
+      timer = setTimeout(captureSelection, 320);
+    };
+    document.addEventListener('selectionchange', onSelectionChange);
+    return () => {
+      clearTimeout(timer);
+      document.removeEventListener('selectionchange', onSelectionChange);
+    };
+  }, [captureSelection]);
 
   const renderSegment = (s) => {
     if (s.blank) {
@@ -222,9 +245,9 @@ const HighlightablePassage = memo(function HighlightablePassage({
   return (
     <div
       ref={ref}
-      className={className}
+      className={`hl-passage ${className}`}
       style={{ whiteSpace: 'pre-wrap' }}
-      onMouseUp={handleMouseUp}
+      onMouseUp={captureSelection}
       aria-label={ariaLabel}
     >
       {segments.map(renderSegment)}
