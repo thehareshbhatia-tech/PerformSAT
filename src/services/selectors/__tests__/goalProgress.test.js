@@ -4,6 +4,7 @@ import {
   isSectionScaleScore,
   isCompositeScaleScore,
   isCompositeScaleTarget,
+  toCompositeGoal,
   SECTION_SCALE_MAX,
   COMPOSITE_SCALE_MAX,
   DEFAULT_GOAL_SCORE,
@@ -134,6 +135,39 @@ describe('goalProgress — composite target comparisons (on-ramp 2026-06)', () =
   it('keeps the section path byte-identical when the target is section-scale', () => {
     expect(isGoalAchieved({ latestScore: 720, targetScore: 700, isMultiSection: false })).toBe(true);
     expect(isGoalAchieved({ latestScore: 900, targetScore: 700, isMultiSection: true })).toBe(false);
+  });
+});
+
+describe('goalProgress — toCompositeGoal (legacy section → composite migration)', () => {
+  it('doubles a legacy section goal onto the composite scale ("N in each section")', () => {
+    expect(toCompositeGoal(750)).toBe(1500); // the reported bug: 750 Math → 1500 composite
+    expect(toCompositeGoal(700)).toBe(1400);
+    expect(toCompositeGoal(600)).toBe(1200);
+  });
+
+  it('maps a perfect section goal to the composite ceiling', () => {
+    expect(toCompositeGoal(SECTION_SCALE_MAX)).toBe(COMPOSITE_SCALE_MAX); // 800 → 1600
+  });
+
+  it('is idempotent — an already-composite goal passes through unchanged', () => {
+    expect(toCompositeGoal(1500)).toBe(1500);
+    expect(toCompositeGoal(DEFAULT_GOAL_SCORE)).toBe(DEFAULT_GOAL_SCORE);
+    expect(toCompositeGoal(COMPOSITE_SCALE_MAX)).toBe(COMPOSITE_SCALE_MAX);
+  });
+
+  it('ALWAYS returns a provably composite value, so the migration never loops', () => {
+    // A degenerate low goal whose double would not clear the section ceiling
+    // must not stay ≤ 800 (it would be re-migrated on every load).
+    expect(toCompositeGoal(400)).toBe(DEFAULT_GOAL_SCORE); // 400*2 = 800, not > 800 → default
+    expect(toCompositeGoal(300)).toBe(DEFAULT_GOAL_SCORE);
+    expect(isCompositeScaleTarget(toCompositeGoal(750))).toBe(true);
+    expect(isCompositeScaleTarget(toCompositeGoal(400))).toBe(true);
+  });
+
+  it('passes non-numbers through unchanged (nothing to migrate)', () => {
+    expect(toCompositeGoal(null)).toBe(null);
+    expect(toCompositeGoal(undefined)).toBe(undefined);
+    expect(toCompositeGoal(NaN)).toBeNaN();
   });
 });
 

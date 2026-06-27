@@ -8,6 +8,7 @@ import {
 } from 'firebase/auth';
 import { doc, getDoc, setDoc, serverTimestamp } from 'firebase/firestore';
 import { TERMS_VERSION } from '../constants/legal';
+import { toCompositeGoal } from '../services/selectors/goalProgress';
 
 /**
  * Build the users/{uid} document written at signup.
@@ -32,6 +33,35 @@ export const buildSignupUserDoc = (email, firstName = '', additionalInfo = {}) =
   lastLoginAt: serverTimestamp()
 });
 
+/**
+ * Migrate a freshly-loaded profile onto the composite (400-1600) goal scale.
+ * SEVA used to be math-only, so legacy accounts stored a section-scale (≤800)
+ * `targetScore` — a 750 Math goal, or a college Math median adopted via
+ * updateTargetSchools. The app now covers BOTH sections, so that number is
+ * converted to composite once on load (750 → 1500, "750 each section") and
+ * (best-effort) persisted, so the stale math-only goal never resurfaces in the
+ * goal tile, study plan, diagnosis, or anywhere else. Idempotent: a composite
+ * goal or a profile without a numeric goal passes through untouched.
+ *
+ * The Firestore write-back is fire-and-forget — the returned (migrated) profile
+ * is authoritative for this session even if the write fails, and the next load
+ * simply retries the conversion (which is deterministic).
+ *
+ * @param {Object} profile - the assembled user profile (uid + Firestore data)
+ * @returns {Object} the profile to hand to setUser, with a composite targetScore
+ */
+export const normalizeProfileGoal = (profile) => {
+  if (!profile || typeof profile.targetScore !== 'number') return profile;
+  const migrated = toCompositeGoal(profile.targetScore);
+  if (migrated === profile.targetScore) return profile;
+  if (profile.uid) {
+    Promise.resolve(
+      setDoc(doc(db, 'users', profile.uid), { targetScore: migrated }, { merge: true })
+    ).catch((err) => console.error('Error persisting goal-scale migration:', err));
+  }
+  return { ...profile, targetScore: migrated };
+};
+
 export const useAuth = () => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -44,11 +74,11 @@ export const useAuth = () => {
           // Fetch user profile from Firestore
           const userDoc = await getDoc(doc(db, 'users', firebaseUser.uid));
           if (userDoc.exists()) {
-            setUser({
+            setUser(normalizeProfileGoal({
               uid: firebaseUser.uid,
               email: firebaseUser.email,
               ...userDoc.data()
-            });
+            }));
           } else {
             setUser({
               uid: firebaseUser.uid,
@@ -152,11 +182,11 @@ export const useAuth = () => {
 
       // Fetch user data
       const userDoc = await getDoc(doc(db, 'users', result.user.uid));
-      const userData = {
+      const userData = normalizeProfileGoal({
         uid: result.user.uid,
         email: result.user.email,
         ...userDoc.data()
-      };
+      });
 
       setUser(userData);
       return userData;
@@ -350,12 +380,14 @@ export const useAuth = () => {
 
       // School medians are MATH-section scale (collegeData has only satMath).
       // Never overwrite a composite (400-1600) on-ramp goal with one — that
-      // silently rebrands the whole plan as a Math plan. Only adopt the
-      // median when the existing goal is also section-scale or unset.
+      // silently rebrands the whole plan as a Math plan. Only adopt the median
+      // when the existing goal is unset, and convert it onto the composite scale
+      // first (a 750 Math median → a 1500 "750 each section" goal) so the app
+      // never stores a stale math-only target. [composite goal migration]
       const keepExistingTarget = typeof user?.targetScore === 'number' && user.targetScore > 800;
       const payload = keepExistingTarget
         ? { targetSchools: schools }
-        : { targetSchools: schools, targetScore: medianScore };
+        : { targetSchools: schools, targetScore: toCompositeGoal(medianScore) };
 
       await setDoc(doc(db, 'users', user.uid), payload, { merge: true });
 

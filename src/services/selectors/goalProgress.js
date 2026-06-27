@@ -47,6 +47,31 @@ export function isCompositeScaleTarget(target) {
 }
 
 /**
+ * Convert a legacy section-scale (200-800) goal to the composite (400-1600)
+ * scale. SEVA used to be math-only, so a stored math-section target of N
+ * ("N in Math") maps to a composite of 2N ("N in each section"), clamped to the
+ * composite ceiling — exactly how DEFAULT_GOAL_SCORE frames 1500 as "750 each."
+ *
+ * Idempotent and safe to call on every load: a value already above the section
+ * ceiling (already composite) or a non-number passes through unchanged, and a
+ * degenerate low goal that wouldn't clear the section ceiling once doubled falls
+ * back to the default so the result is ALWAYS provably composite (> 800) — which
+ * keeps the migration from looping (a result ≤ 800 would be re-migrated forever).
+ *
+ * Use when hydrating a stored profile goal, or when adopting a college math
+ * median (collegeData carries only `satMath`) as a composite target.
+ *
+ * @param {number} goal - a goal that may still be on the section (≤800) scale
+ * @returns {number} a composite-scale goal (>800, ≤1600); the input unchanged when not a section-scale number
+ */
+export function toCompositeGoal(goal) {
+  if (typeof goal !== 'number' || Number.isNaN(goal)) return goal;
+  if (goal > SECTION_SCALE_MAX) return goal; // already composite — idempotent
+  const doubled = Math.round(goal * 2);
+  return doubled > SECTION_SCALE_MAX ? Math.min(COMPOSITE_SCALE_MAX, doubled) : DEFAULT_GOAL_SCORE;
+}
+
+/**
  * Is `score` provably on the composite (400-1600) scale? True for a flagged
  * multi-section result, or any score above the section ceiling (no section
  * score exceeds 800). An unflagged score at or below 800 stays ambiguous —
