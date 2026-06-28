@@ -1235,6 +1235,12 @@
   margin: 0;
   max-width: 58ch;
 }
+.firstrun-spotlight-meta {
+  margin-top: 0.45rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-slate-500);
+}
 /* CTA rendered as a solid button (visual only — the whole card is the button),
    pinned to the right so the banner fills the full width on wide screens. */
 .firstrun-spotlight-action {
