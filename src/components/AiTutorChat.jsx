@@ -412,23 +412,19 @@ CORRECT ANSWER: ${correctAnswer}
 FULL EXPLANATION: ${explanation}
 ${trapAnalysis}
 
-When the student just missed this question and wants the full breakdown, a strong answer hits these beats. But if they're asking a NARROW follow-up (e.g. "wait, why does that sentence matter?" or "why C and not D?"), answer just that, briefly — don't force all five beats:
+When the student wants the full breakdown of a question (especially one they just missed), give the clean, complete explanation a great tutor gives — the kind that makes the answer obvious in hindsight. Cover these, naturally and in this order; don't pad it, but don't cut it short either:
 
-1. NAME THE TYPE: "This is a [question type]. You will see this [X times per test]."
+THE GOAL — In one line, what is this question actually asking you to do? (e.g. "emphasize the methodological innovation", "find the claim the data support", "pick the transition that signals a contrast", "make the two halves a single complete sentence".)
 
-2. FIND THE EVIDENCE: Quote the EXACT words in the passage that make the correct answer correct. For a conventions question, state the grammar rule in one line.
+WHY ${correctAnswer} IS RIGHT — Quote the exact words in the passage that make it correct, or state the grammar rule in one line.
 
-3. TRAP ANALYSIS: ${!isCorrect && selectedAnswer ?
-  `The student chose ${selectedAnswer} instead of ${correctAnswer}. This is the most important teaching moment. Explain EXACTLY what pulled them to ${selectedAnswer} — did they match a word from the passage, miss a negative, choose a transition by feel, or add a comma by ear? Name the trap class. Be empathetic ("this trap catches a lot of students") but precise, then give a recognition cue for next time.` :
-  'For each wrong choice, name the trap class and the specific mistake that picks it.'}
+EVERY CHOICE, SIDE BY SIDE — Go through ALL the answer choices, one tight line each, the right one and every wrong one, each marked clearly so it's scannable at a glance. For each wrong choice, name the specific reason it fails in plain language — it matches a word but misses the point, it's the opposite of the goal, it's out of scope, it's too extreme, it's only half right, it's true but doesn't do what the question asks. This side-by-side elimination is the most useful part of the whole answer — never skip a choice.${!isCorrect && selectedAnswer ? ` Give the student's choice ${selectedAnswer} a little extra care: name exactly what pulled them to it and how to catch it next time.` : ''}
 
-4. THE MOVE: State the one habit that decides this question type — go back to the text, predict before matching, name the logical relationship first, or run the complete-sentence test.
+THE TAKEAWAY — One sentence the student can carry to test day.
 
-5. ONE-SENTENCE TAKEAWAY: End with a single rule for test day — concrete, memorable.
+But if they're only asking a NARROW follow-up ("why C and not D?", "why does that sentence matter?"), just answer that briefly — don't force the whole structure.
 
-${isCorrect ? 'The student got this right. Push on precision: "Correct — now can you say in one line why each other choice is wrong?"' : 'The student got this wrong. Be encouraging but direct. Make sure they NEVER fall for this trap again — name it and give a recognition cue for test day.'}
-
-Use the provided explanation as a foundation but add your own expert analysis — trap names, the exact textual evidence, and the "why" behind each wrong choice.
+Use the provided explanation as a foundation, but write the clearer, sharper version: exact textual evidence and a specific, plain-language reason for every single choice.
 `;
     } else {
       context += `
@@ -546,24 +542,22 @@ CORRECT ANSWER: ${correctAnswer}
 FULL EXPLANATION: ${explanation}
 ${trapAnalysis}
 
-When the student just missed this question and wants the full breakdown, a strong answer hits these beats. But if they're asking a NARROW follow-up (e.g. "wait, why divide by 3?" or "where did the 2 come from?"), answer just that, briefly — don't force all five beats:
+When the student wants the full breakdown of a question (especially one they just missed), give the clean, complete explanation a great tutor gives — the kind that makes the answer obvious in hindsight. Cover these, naturally; don't pad it, but don't cut it short either:
 
-1. NAME THE PATTERN: "This is a [question type]. You will see this [X times per test]."
+THE SETUP — Name what the question is really testing in one line, then the fastest correct path to the answer. Lead with the quickest method (Desmos, backsolving, plugging in) before the algebra; for Desmos, say exactly what to type, not "try graphing it."
+${!isFillin ?
+`
+EVERY CHOICE, SIDE BY SIDE — Go through ALL the answer choices, one tight line each, the right one and every wrong one, each marked clearly so it's scannable at a glance. For each wrong choice, name the SPECIFIC slip that produces it — a sign error, a partial calculation, a reversed operation, the value one step early, a misread.${!isCorrect && selectedAnswer ? ` Give the student's choice ${selectedAnswer} extra care: name exactly the slip that led there and how to catch it next time.` : ''} This side-by-side elimination is the most useful part of the whole answer — never skip a choice.` :
+`
+COMMON MISTAKES — Name the wrong values students most often produce on this question and the specific slip behind each.${!isCorrect && selectedAnswer ? ` The student answered ${selectedAnswer}; name exactly the slip that led there and how to catch it next time.` : ''}`}
 
-2. THE FASTEST PATH: Walk through the optimal solution — lead with the fastest method (Desmos, backsolving, plugging in) before algebraic solutions. Be specific with Desmos instructions: say exactly what to type, not "try graphing it."
+VERIFY — ${!isFillin ? 'Show the Desmos keystrokes that confirm the answer.' : 'Show how to check by substituting back in.'}
 
-3. TRAP ANALYSIS: ${!isCorrect && selectedAnswer ?
-  `The student chose ${selectedAnswer} instead of ${correctAnswer}. This is the most important teaching moment. Explain EXACTLY what cognitive error led to ${selectedAnswer}. Name the trap by name. Be empathetic ("this trap catches a lot of students") but precise about the mistake. Then explain how to recognize and avoid this trap next time.` :
-  !isFillin ? 'For each wrong answer, explain what specific mistake produces it and name the trap type.' :
-  'Explain the most common mistakes students make on this question type.'}
+THE TAKEAWAY — One memorable rule for test day.
 
-4. ${!isFillin ? 'DESMOS VERIFICATION: Show how Desmos solves or confirms this — include exact keystrokes.' : 'VERIFICATION: Show how to check by substituting back in.'}
+But if they're only asking a NARROW follow-up ("why divide by 3?", "where did the 2 come from?"), just answer that briefly — don't force the whole structure.
 
-5. ONE-SENTENCE TAKEAWAY: End with a single rule for test day — concrete, actionable, memorable.
-
-${isCorrect ? 'The student got this right. Push them on speed: "You got it — but could you get it faster? Here is how..." or on depth: "Correct. Do you know why each wrong answer is there?"' : 'The student got this wrong. Be encouraging but direct. Your job is to make sure they NEVER fall for this same trap again. Name the trap, explain the fix, and give them a recognition cue for test day.'}
-
-Use the provided explanation as a foundation but add your own expert analysis — especially SAT strategy, trap names, Desmos techniques, and the "why" behind each step that a textbook explanation misses.
+Use the provided explanation as a foundation, but write the clearer, sharper version — the fast path, the specific reason behind every wrong choice, and the "why" a textbook explanation skips.
 `;
     } else {
       context += `
