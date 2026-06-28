@@ -997,16 +997,30 @@
   display: flex;
   flex-direction: column;
   gap: 1.75rem;
-  max-width: 780px;
+  /* Fills the full content container (like the populated 8/4 grid) — no narrow
+     left column that leaves a dead white void on the right of a wide screen. */
 }
 .firstrun-dashboard .section-heading { margin-bottom: 0; }
 
 .firstrun-hero {
-  background: linear-gradient(180deg, var(--color-brand-primary-light) 0%, var(--color-white) 100%);
+  background: linear-gradient(135deg, var(--color-brand-primary-light) 0%, var(--color-white) 60%);
   border: 1px solid rgba(234, 88, 12, 0.18);
   border-radius: 20px;
-  padding: 2rem 2.25rem;
+  padding: 2.25rem 2.5rem;
+  display: flex;
+  gap: 2.5rem;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
 }
+.firstrun-hero-text { flex: 1 1 440px; min-width: 0; }
+.firstrun-hero-stats {
+  flex: 0 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(160px, 200px));
+  gap: 1rem;
+}
+.firstrun-hero-stats .dashboard-tile { background: var(--color-white); }
 .firstrun-hero-title {
   font-size: 1.5rem;
   font-weight: 700;
@@ -1036,6 +1050,7 @@
   font-family: inherit;
   font-size: 0.95rem;
   font-weight: 700;
+  white-space: nowrap;
   cursor: pointer;
   box-shadow: 0 6px 16px rgba(234, 88, 12, 0.25);
   transition: background-color 0.15s ease, transform 0.08s ease;
@@ -1056,12 +1071,6 @@
   cursor: pointer;
 }
 .firstrun-hero-warmup:hover { color: var(--color-brand-primary-hover); text-decoration: underline; }
-
-.firstrun-tiles {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-}
 
 .firstrun-unlock-grid {
   display: grid;
@@ -1102,8 +1111,12 @@
   margin: 0;
 }
 
+@media (max-width: 900px) {
+  .firstrun-hero { flex-direction: column; }
+  .firstrun-hero-stats { width: 100%; grid-template-columns: 1fr 1fr; }
+}
 @media (max-width: 720px) {
-  .firstrun-tiles { grid-template-columns: 1fr; }
+  .firstrun-hero-stats { grid-template-columns: 1fr; }
   .firstrun-unlock-grid { grid-template-columns: 1fr; }
   .firstrun-hero { padding: 1.5rem; }
 }

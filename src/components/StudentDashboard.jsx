@@ -710,51 +710,52 @@ const StudentDashboard = ({
       {/* Dashboard Content Grid */}
       {noData ? (
         <div className="firstrun-dashboard">
-          {/* Welcome hero — one promise, one primary CTA, an optional warm-up. */}
+          {/* Welcome hero — full-width band: promise + CTA on the left, the
+              goal/exam stats pulled up to the top-right so the row fills the page. */}
           <div className="firstrun-hero">
-            <h2 className="firstrun-hero-title">
-              {user?.firstName ? `Welcome to SEVA, ${user.firstName}` : 'Welcome to SEVA'}
-            </h2>
-            <p className="firstrun-hero-desc">
-              One practice test unlocks your diagnosis and a week-by-week plan, built from your answers.
-            </p>
-            <div className="firstrun-hero-actions">
-              <button type="button" className="firstrun-hero-cta" onClick={onStartPracticeTest}>
-                Start Practice Test
-              </button>
-              {showCheckInCard ? (
-                <button type="button" className="firstrun-hero-warmup" onClick={onStartCheckIn}>
-                  or start with a 15-minute check-in <ArrowRightIcon size={14} color="currentColor" />
+            <div className="firstrun-hero-text">
+              <h2 className="firstrun-hero-title">
+                {user?.firstName ? `Welcome to SEVA, ${user.firstName}` : 'Welcome to SEVA'}
+              </h2>
+              <p className="firstrun-hero-desc">
+                One practice test unlocks your diagnosis and a week-by-week plan, built from your answers.
+              </p>
+              <div className="firstrun-hero-actions">
+                <button type="button" className="firstrun-hero-cta" onClick={onStartPracticeTest}>
+                  Start Practice Test
                 </button>
-              ) : recommendations[0] ? (
-                <button type="button" className="firstrun-hero-warmup" onClick={() => handleWarmUpClick(recommendations[0])}>
-                  or warm up first: {recommendations[0].title.toLowerCase()} <ArrowRightIcon size={14} color="currentColor" />
-                </button>
-              ) : null}
+                {showCheckInCard ? (
+                  <button type="button" className="firstrun-hero-warmup" onClick={onStartCheckIn}>
+                    or start with a 15-minute check-in <ArrowRightIcon size={14} color="currentColor" />
+                  </button>
+                ) : recommendations[0] ? (
+                  <button type="button" className="firstrun-hero-warmup" onClick={() => handleWarmUpClick(recommendations[0])}>
+                    or warm up first: {recommendations[0].title.toLowerCase()} <ArrowRightIcon size={14} color="currentColor" />
+                  </button>
+                ) : null}
+              </div>
             </div>
-          </div>
-
-          {/* Goal / exam tiles — the real data a day-0 user already has. */}
-          {(user?.targetScore || user?.testDate) && (
-            <div className="firstrun-tiles">
-              {user?.targetScore && (
-                <div className="dashboard-tile">
-                  <div className="dashboard-tile-eyebrow">Goal Score</div>
-                  <div className="dashboard-tile-num">{user.targetScore}</div>
-                  <div className="dashboard-tile-sub">{user?.targetSchools?.[0]?.name || 'From onboarding'}</div>
-                </div>
-              )}
-              {user?.testDate && (
-                <div className="dashboard-tile">
-                  <div className="dashboard-tile-eyebrow">Days Until Exam</div>
-                  <div className="dashboard-tile-num">{daysUntilTest ?? '—'}</div>
-                  <div className="dashboard-tile-sub">
-                    {parseLocalDate(user.testDate)?.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+            {(user?.targetScore || user?.testDate) && (
+              <div className="firstrun-hero-stats">
+                {user?.targetScore && (
+                  <div className="dashboard-tile">
+                    <div className="dashboard-tile-eyebrow">Goal Score</div>
+                    <div className="dashboard-tile-num">{user.targetScore}</div>
+                    <div className="dashboard-tile-sub">{user?.targetSchools?.[0]?.name || 'From onboarding'}</div>
                   </div>
-                </div>
-              )}
-            </div>
-          )}
+                )}
+                {user?.testDate && (
+                  <div className="dashboard-tile">
+                    <div className="dashboard-tile-eyebrow">Days Until Exam</div>
+                    <div className="dashboard-tile-num">{daysUntilTest ?? '—'}</div>
+                    <div className="dashboard-tile-sub">
+                      {parseLocalDate(user.testDate)?.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
 
           {/* What you'll unlock — aspirational previews, not locked/Overdue cards. */}
           <h2 className="section-heading">What you&rsquo;ll unlock</h2>
