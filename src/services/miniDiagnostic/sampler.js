@@ -86,22 +86,39 @@ function isEligibleMC(item) {
 
 // ─── Pool picking with exhaustion fallbacks ─────────────────────────────────
 
+// Primary skill key for stage-1 skill diversity. Math items carry `skills[]`,
+// R&W items carry `skill` + `skills[]`; fall back to domain so an untagged item
+// never silently collapses a whole domain into one bucket.
+function getItemSkillKey(item) {
+  if (Array.isArray(item.skills) && item.skills.length) return String(item.skills[0]);
+  if (item.skill) return String(item.skill);
+  if (item.skillId) return String(item.skillId);
+  return `domain:${item.domain || 'unknown'}`;
+}
+
 /**
- * Take up to `count` items from an already-shuffled pool, walking four
- * fallback phases in the contract order (relax difficulty preference first,
- * then relax excludeIds):
- *   1. preferred difficulty, not excluded
- *   2. any difficulty, not excluded
- *   3. preferred difficulty, excluded (excludeIds relaxed)
- *   4. any difficulty, excluded
- * `used` ids are never re-picked in any phase.
+ * Take up to `count` items from an already-shuffled pool, walking fallback
+ * phases in contract order: relax skill diversity first, then difficulty
+ * preference, then excludeIds. `used` ids are never re-picked.
+ *
+ * With `diversifyKey` set (stage 1), earlier phases additionally avoid
+ * repeating a key already chosen IN THIS CALL — so a 2-per-domain probe spans
+ * two distinct skills when the bank allows, while difficulty preference still
+ * wins (a same-skill medium is taken before an off-difficulty novel skill).
+ * When `diversifyKey` is null the novel() guard is always true and the phase
+ * list collapses to the original four — byte-identical behavior for the
+ * stage-2 pool picks that don't pass it.
  */
-function pickWithFallback(shuffled, count, { preferred, excluded, used }) {
+function pickWithFallback(shuffled, count, { preferred, excluded, used, diversifyKey = null }) {
+  const seenKeys = new Set();
+  const novel = (q) => !diversifyKey || !seenKeys.has(diversifyKey(q));
   const phases = [
-    (q) => preferred(q) && !excluded.has(q.id),
-    (q) => !excluded.has(q.id),
-    (q) => preferred(q) && excluded.has(q.id),
-    () => true,
+    (q) => preferred(q) && !excluded.has(q.id) && novel(q), // preferred difficulty, new skill
+    (q) => preferred(q) && !excluded.has(q.id),             // preferred difficulty, any skill
+    (q) => !excluded.has(q.id) && novel(q),                 // any difficulty, new skill
+    (q) => !excluded.has(q.id),                             // any difficulty, any skill
+    (q) => preferred(q) && excluded.has(q.id),              // excludeIds relaxed, preferred difficulty
+    () => true,                                             // anything left
   ];
   const picks = [];
   const pickedIds = new Set();
@@ -112,6 +129,7 @@ function pickWithFallback(shuffled, count, { preferred, excluded, used }) {
       if (!phase(q)) continue;
       picks.push(q);
       pickedIds.add(q.id);
+      if (diversifyKey) seenKeys.add(diversifyKey(q));
     }
   }
   return picks;
@@ -133,13 +151,16 @@ function buildSectionPlan({ getQuestionsByDomain, domains, baseSeed, sectionKey,
     ),
   }));
 
-  // Stage 1 — 2 medium-preferred items per domain.
+  // Stage 1 — 2 medium-preferred items per domain, spanning 2 distinct skills
+  // when the domain's bank allows (skill diversity sharpens the per-domain read
+  // without changing the count or the medium preference).
   const stage1 = [];
   perDomain.forEach(({ shuffled }) => {
     const picks = pickWithFallback(shuffled, STAGE1_PER_DOMAIN, {
       preferred: (q) => q.difficulty === 'medium',
       excluded,
       used,
+      diversifyKey: getItemSkillKey,
     });
     picks.forEach((q) => used.add(q.id));
     stage1.push(...picks);

@@ -71,6 +71,31 @@ describe('mini-diagnostic sampler against the real banks', () => {
     expect(idsOf(again)).toEqual(idsOf(plan));
   });
 
+  test('stage 1 spans distinct skills within domains (skill diversity)', async () => {
+    const plan = await buildMiniDiagnosticPlan({ userId: 'diversity-user', attemptId: 'attempt-9' });
+    const skillKey = (q) => (
+      Array.isArray(q.skills) && q.skills.length
+        ? String(q.skills[0])
+        : (q.skill || q.skillId || `domain:${q.domain}`)
+    );
+
+    [['rw', RW_DOMAIN_ORDER], ['math', MATH_DOMAIN_ORDER]].forEach(([section, domains]) => {
+      const { stage1 } = plan[section];
+      // The 8-item probe must cover well more than one skill per domain — every
+      // real domain carries multiple skills, so the diverse stage-1 pick should
+      // span more distinct skills than there are domains.
+      const distinct = new Set(stage1.map(skillKey)).size;
+      expect(distinct).toBeGreaterThan(domains.length);
+      // At least 3 of the 4 domains diversified to 2 distinct skills (the 4th is
+      // slack for a domain whose two medium items happen to share a skill).
+      const diversified = domains.filter((d) => {
+        const picks = stage1.filter((q) => q.domain === d);
+        return new Set(picks.map(skillKey)).size === 2;
+      }).length;
+      expect(diversified).toBeGreaterThanOrEqual(3);
+    });
+  });
+
   test('end-to-end: stage 2 selection and score band on a real plan', async () => {
     const plan = await buildMiniDiagnosticPlan({ userId: 'integration-user', attemptId: 'attempt-8' });
 
