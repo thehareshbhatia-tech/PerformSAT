@@ -2090,6 +2090,8 @@ const PerformSAT = () => {
               setActiveLesson(null);
               setView('modules');
             }}
+            onOpenPractice={() => setView('practiceBank')}
+            onOpenTutor={() => setView('tutor')}
             onViewFullDiagnosis={async () => {
               // Closes CEO C1: surface DiagnosticReport from the dashboard.
               const { testId, lastAttempt } = pickMostRecentTest(practiceTestResults);

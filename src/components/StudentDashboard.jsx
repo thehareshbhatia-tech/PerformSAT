@@ -31,7 +31,7 @@ import { formatPatternLabel } from '../services/selectors/missedPatternLabel';
 import { loadPracticeTests, loadMathBank, loadRWBank } from '../data/corpusLoader';
 import { MathText } from './MathText';
 import { trackAddPhotoClicked } from '../services/analyticsService';
-import { PlayIcon, ChartBarIcon, TrendingUpIcon, ClipboardIcon, CameraIcon, MicroscopeIcon, TimerIcon, ArrowRightIcon } from '../design/icons';
+import { PlayIcon, ChartBarIcon, TrendingUpIcon, ClipboardIcon, CameraIcon, MicroscopeIcon, TimerIcon, ArrowRightIcon, BrainIcon, TargetIcon, VideoCameraIcon } from '../design/icons';
 import { parseLocalDate } from '../utils/localDate';
 import { injectAnimations, useCountUp } from '../design/animations';
 import { DataCard } from './ui/DataCard';
@@ -95,6 +95,8 @@ const StudentDashboard = ({
   onRetrySimilar,
   onViewFullDiagnosis,
   onBrowseLessons,
+  onOpenPractice,
+  onOpenTutor,
   answeredQuestionIds = [],
   allLessons,
   skillDiagnosticSummary,
@@ -757,24 +759,62 @@ const StudentDashboard = ({
             )}
           </div>
 
-          {/* What you'll unlock — aspirational previews, not locked/Overdue cards. */}
-          <h2 className="section-heading">What you&rsquo;ll unlock</h2>
+          {/* Explore SEVA — the tools a brand-new student can use RIGHT NOW,
+              before any test: the AI Tutor, the practice-question bank, and the
+              video lessons. Each card is a button that navigates into that
+              feature, so day-0 isn't a dead end with one CTA. */}
+          <div className="firstrun-section-head">
+            <h2 className="section-heading">Explore SEVA</h2>
+            <p className="firstrun-section-sub">Jump in and get a feel for the app — no test required.</p>
+          </div>
+          <div className="firstrun-feature-grid">
+            <button type="button" className="firstrun-feature-card" onClick={onOpenTutor}>
+              <span className="firstrun-unlock-icon is-plan"><BrainIcon size={22} color="currentColor" /></span>
+              <h3 className="firstrun-unlock-title">AI Tutor</h3>
+              <p className="firstrun-unlock-desc">Stuck on a question? Get instant hints and step-by-step explanations, any time.</p>
+              <span className="firstrun-feature-cta">Open AI Tutor <ArrowRightIcon size={14} color="currentColor" /></span>
+            </button>
+            <button type="button" className="firstrun-feature-card" onClick={onOpenPractice}>
+              <span className="firstrun-unlock-icon is-diagnosis"><TargetIcon size={22} color="currentColor" /></span>
+              <h3 className="firstrun-unlock-title">Practice questions</h3>
+              <p className="firstrun-unlock-desc">Drill any skill on demand — thousands of questions, each with a worked explanation.</p>
+              <span className="firstrun-feature-cta">Browse practice <ArrowRightIcon size={14} color="currentColor" /></span>
+            </button>
+            <button type="button" className="firstrun-feature-card" onClick={onBrowseLessons}>
+              <span className="firstrun-unlock-icon is-pacing"><VideoCameraIcon size={22} color="currentColor" /></span>
+              <h3 className="firstrun-unlock-title">Video lessons</h3>
+              <p className="firstrun-unlock-desc">Short lessons on every SAT skill, from linear equations to grammar rules.</p>
+              <span className="firstrun-feature-cta">Watch lessons <ArrowRightIcon size={14} color="currentColor" /></span>
+            </button>
+          </div>
+
+          {/* What your first test unlocks — the personalized payoff that needs
+              test data. Each card now routes to the practice-test list (the one
+              action that unlocks all three), so they're live buttons, not the
+              dead previews the user flagged. */}
+          <div className="firstrun-section-head">
+            <h2 className="section-heading">What your first test unlocks</h2>
+            <p className="firstrun-section-sub">Take one practice test and SEVA builds these from your answers.</p>
+          </div>
           <div className="firstrun-unlock-grid">
-            <div className="firstrun-unlock-card">
+            <button type="button" className="firstrun-unlock-card" onClick={onStartPracticeTest}>
               <span className="firstrun-unlock-icon is-diagnosis"><MicroscopeIcon size={22} color="currentColor" /></span>
               <h3 className="firstrun-unlock-title">Your diagnosis</h3>
               <p className="firstrun-unlock-desc">Exactly why you miss each question — the skill, the trap, and the fix.</p>
-            </div>
-            <div className="firstrun-unlock-card">
+              <span className="firstrun-unlock-foot">Take a test to unlock <ArrowRightIcon size={13} color="currentColor" /></span>
+            </button>
+            <button type="button" className="firstrun-unlock-card" onClick={onStartPracticeTest}>
               <span className="firstrun-unlock-icon is-plan"><ClipboardIcon size={22} color="currentColor" /></span>
               <h3 className="firstrun-unlock-title">A week-by-week plan</h3>
               <p className="firstrun-unlock-desc">Built from your test — what to drill first, scheduled day by day.</p>
-            </div>
-            <div className="firstrun-unlock-card">
+              <span className="firstrun-unlock-foot">Take a test to unlock <ArrowRightIcon size={13} color="currentColor" /></span>
+            </button>
+            <button type="button" className="firstrun-unlock-card" onClick={onStartPracticeTest}>
               <span className="firstrun-unlock-icon is-pacing"><TimerIcon size={22} color="currentColor" /></span>
               <h3 className="firstrun-unlock-title">Pacing &amp; timing</h3>
               <p className="firstrun-unlock-desc">Where you rush or stall, with timed drills to fix it.</p>
-            </div>
+              <span className="firstrun-unlock-foot">Take a test to unlock <ArrowRightIcon size={13} color="currentColor" /></span>
+            </button>
           </div>
         </div>
       ) : (
