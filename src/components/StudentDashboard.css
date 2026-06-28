@@ -1179,6 +1179,88 @@
   color: var(--color-brand-primary);
 }
 
+/* Diagnosis spotlight — the featured first-run call. The diagnostic is what we
+   want from a new student first, so it gets a large orange-accented card (icon
+   beside the copy), not one of three equal previews. */
+.firstrun-spotlight-card {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+  text-align: left;
+  font-family: inherit;
+  cursor: pointer;
+  background: linear-gradient(135deg, var(--color-brand-primary-light) 0%, var(--color-white) 72%);
+  border: 1.5px solid rgba(234, 88, 12, 0.35);
+  border-radius: 18px;
+  padding: 1.75rem 2rem;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.08s ease;
+}
+.firstrun-spotlight-card:hover {
+  border-color: var(--color-brand-primary);
+  box-shadow: 0 10px 26px rgba(234, 88, 12, 0.16);
+  transform: translateY(-2px);
+}
+.firstrun-spotlight-card:active { transform: translateY(0); }
+.firstrun-spotlight-icon {
+  flex: 0 0 auto;
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-brand-primary);
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(234, 88, 12, 0.3);
+}
+.firstrun-spotlight-body { flex: 1 1 auto; display: flex; flex-direction: column; gap: 0.3rem; min-width: 0; }
+.firstrun-spotlight-eyebrow {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-brand-primary);
+}
+.firstrun-spotlight-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+}
+.firstrun-spotlight-desc {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--color-slate-600);
+  margin: 0;
+  max-width: 58ch;
+}
+/* CTA rendered as a solid button (visual only — the whole card is the button),
+   pinned to the right so the banner fills the full width on wide screens. */
+.firstrun-spotlight-action {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: var(--color-brand-primary);
+  color: #fff;
+  border-radius: 10px;
+  padding: 0.7rem 1.4rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  white-space: nowrap;
+  box-shadow: 0 6px 16px rgba(234, 88, 12, 0.25);
+  transition: background-color 0.15s ease;
+}
+.firstrun-spotlight-card:hover .firstrun-spotlight-action { background: var(--color-brand-primary-hover); }
+
+/* Secondary payoffs (plan + pacing) beneath the diagnosis spotlight. */
+.firstrun-secondary-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
 @media (max-width: 900px) {
   .firstrun-hero { flex-direction: column; }
   .firstrun-hero-stats { width: 100%; grid-template-columns: 1fr 1fr; }
@@ -1187,5 +1269,7 @@
   .firstrun-hero-stats { grid-template-columns: 1fr; }
   .firstrun-unlock-grid { grid-template-columns: 1fr; }
   .firstrun-feature-grid { grid-template-columns: 1fr; }
+  .firstrun-secondary-grid { grid-template-columns: 1fr; }
+  .firstrun-spotlight-card { flex-direction: column; align-items: flex-start; gap: 1rem; padding: 1.5rem; }
   .firstrun-hero { padding: 1.5rem; }
 }
