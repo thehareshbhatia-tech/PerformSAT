@@ -31,7 +31,7 @@ import { formatPatternLabel } from '../services/selectors/missedPatternLabel';
 import { loadPracticeTests, loadMathBank, loadRWBank } from '../data/corpusLoader';
 import { MathText } from './MathText';
 import { trackAddPhotoClicked } from '../services/analyticsService';
-import { PlayIcon, ChartBarIcon, TrendingUpIcon, ClipboardIcon, CameraIcon, MicroscopeIcon, TimerIcon, ArrowRightIcon, BrainIcon, TargetIcon, VideoCameraIcon } from '../design/icons';
+import { PlayIcon, ChartBarIcon, TrendingUpIcon, ClipboardIcon, CameraIcon, MicroscopeIcon, TimerIcon, ArrowRightIcon, BrainIcon, TargetIcon, VideoCameraIcon, CheckCircleIcon, CrossIcon, LockIcon } from '../design/icons';
 import { parseLocalDate } from '../utils/localDate';
 import { injectAnimations, useCountUp } from '../design/animations';
 import { DataCard } from './ui/DataCard';
@@ -713,45 +713,45 @@ const StudentDashboard = ({
       {/* Dashboard Content Grid */}
       {noData ? (
         <div className="firstrun-dashboard">
-          {/* Welcome hero — full-width band: promise + CTA on the left, the
-              goal/exam stats pulled up to the top-right so the row fills the page. */}
-          <div className="firstrun-hero">
-            <div className="firstrun-hero-text">
-              <h2 className="firstrun-hero-title">
-                {user?.firstName ? `Welcome to SEVA, ${user.firstName}` : 'Welcome to SEVA'}
-              </h2>
-              <p className="firstrun-hero-desc">
-                Start with a quick diagnostic — about 15 minutes to pinpoint exactly where you stand, then SEVA builds your plan around it.
+          {/* ── HERO: the diagnostic is the first step. Left = promise + CTA +
+              meta; right = the goal/exam panel (the real data a day-0 user has). */}
+          <div className="fr-hero">
+            <div className="fr-hero-main">
+              <span className="fr-badge">First step</span>
+              <h2 className="fr-hero-title">Let&rsquo;s find out exactly where you stand.</h2>
+              <p className="fr-hero-desc">
+                Take a 15-minute adaptive diagnostic. SEVA pinpoints every weak skill, then builds your entire study plan around it.
               </p>
-              <div className="firstrun-hero-actions">
-                <button type="button" className="firstrun-hero-cta" onClick={onStartDiagnostic}>
-                  Take your diagnostic
+              <div className="fr-hero-actions">
+                <button type="button" className="fr-cta" onClick={onStartDiagnostic}>
+                  Take your diagnostic <ArrowRightIcon size={17} color="currentColor" />
                 </button>
-                {showCheckInCard ? (
-                  <button type="button" className="firstrun-hero-warmup" onClick={onStartCheckIn}>
-                    or start with a 15-minute check-in <ArrowRightIcon size={14} color="currentColor" />
-                  </button>
-                ) : recommendations[0] ? (
-                  <button type="button" className="firstrun-hero-warmup" onClick={() => handleWarmUpClick(recommendations[0])}>
-                    or warm up first: {recommendations[0].title.toLowerCase()} <ArrowRightIcon size={14} color="currentColor" />
+                {recommendations[0] ? (
+                  <button type="button" className="fr-warmup" onClick={() => handleWarmUpClick(recommendations[0])}>
+                    or warm up first: {recommendations[0].title.toLowerCase()}
                   </button>
                 ) : null}
               </div>
+              <div className="fr-hero-meta">
+                <span><TimerIcon size={14} color="currentColor" /> ~15 minutes</span>
+                <span><CheckCircleIcon size={14} color="currentColor" /> 24 adaptive questions</span>
+                <span><CrossIcon size={13} color="currentColor" /> not a full test</span>
+              </div>
             </div>
             {(user?.targetScore || user?.testDate) && (
-              <div className="firstrun-hero-stats">
+              <div className="fr-hero-panel">
                 {user?.targetScore && (
-                  <div className="dashboard-tile">
-                    <div className="dashboard-tile-eyebrow">Goal Score</div>
-                    <div className="dashboard-tile-num">{user.targetScore}</div>
-                    <div className="dashboard-tile-sub">{user?.targetSchools?.[0]?.name || 'From onboarding'}</div>
+                  <div className="fr-stat">
+                    <div className="fr-stat-label">Goal Score</div>
+                    <div className="fr-stat-num">{user.targetScore}</div>
+                    <div className="fr-stat-sub">{user?.targetSchools?.[0]?.name || 'From onboarding'}</div>
                   </div>
                 )}
                 {user?.testDate && (
-                  <div className="dashboard-tile">
-                    <div className="dashboard-tile-eyebrow">Days Until Exam</div>
-                    <div className="dashboard-tile-num">{daysUntilTest ?? '—'}</div>
-                    <div className="dashboard-tile-sub">
+                  <div className="fr-stat">
+                    <div className="fr-stat-label">Days Until Exam</div>
+                    <div className="fr-stat-num">{daysUntilTest ?? '—'}</div>
+                    <div className="fr-stat-sub">
                       {parseLocalDate(user.testDate)?.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
                     </div>
                   </div>
@@ -760,67 +760,67 @@ const StudentDashboard = ({
             )}
           </div>
 
-          {/* Start with your diagnosis — THE spotlight. Getting a brand-new
-              student diagnosed is the #1 goal, so "Your diagnosis" is a large
-              featured card (not one of three equal previews) and sits directly
-              under the hero, above the explore tools. Plan + pacing follow as
-              smaller secondary payoffs. All route to the practice-test list —
-              the one action that produces them. */}
-          <div className="firstrun-section-head">
-            <h2 className="section-heading">Start with your diagnosis</h2>
-            <p className="firstrun-section-sub">It&rsquo;s the first thing SEVA builds — a 15-minute adaptive check, separate from the full practice tests.</p>
+          {/* ── YOUR PATH: step 1 (diagnostic) is live and routes to the
+              mini-diagnostic; steps 2 + 3 are locked previews the diagnostic
+              unlocks. The heading names the student's real goal score. */}
+          <div className="fr-section-head">
+            <h3 className="fr-section-title">{user?.targetScore ? `Your path to ${user.targetScore}` : 'Your path'}</h3>
+            <span className="fr-section-sub">Your diagnostic unlocks everything else.</span>
           </div>
-          <button type="button" className="firstrun-spotlight-card" onClick={onStartDiagnostic}>
-            <span className="firstrun-spotlight-icon"><MicroscopeIcon size={30} color="currentColor" /></span>
-            <span className="firstrun-spotlight-body">
-              <span className="firstrun-spotlight-eyebrow">Your first step</span>
-              <h3 className="firstrun-spotlight-title">Your diagnosis</h3>
-              <p className="firstrun-spotlight-desc">See exactly why you miss each question — the skill behind it, the trap you fell for, and the fix. Every wrong answer becomes a targeted next step, not just a red X.</p>
-              <span className="firstrun-spotlight-meta">About 15 minutes &middot; 24 adaptive questions &middot; not a full test</span>
-            </span>
-            <span className="firstrun-spotlight-action">Take your diagnostic <ArrowRightIcon size={16} color="currentColor" /></span>
-          </button>
-          <div className="firstrun-secondary-grid">
-            <button type="button" className="firstrun-unlock-card" onClick={onStartDiagnostic}>
-              <span className="firstrun-unlock-icon is-plan"><ClipboardIcon size={22} color="currentColor" /></span>
-              <h3 className="firstrun-unlock-title">A week-by-week plan</h3>
-              <p className="firstrun-unlock-desc">Built from your diagnostic — what to drill first, scheduled day by day.</p>
-              <span className="firstrun-unlock-foot">Unlocks with your diagnostic <ArrowRightIcon size={13} color="currentColor" /></span>
+          <div className="fr-path">
+            <button type="button" className="fr-step is-active" onClick={onStartDiagnostic}>
+              <div className="fr-step-top">
+                <span className="fr-step-icon is-diag"><MicroscopeIcon size={22} color="currentColor" /></span>
+                <span className="fr-step-num is-active">Step 1</span>
+              </div>
+              <div className="fr-step-title">Take your diagnostic</div>
+              <p className="fr-step-desc">See exactly why you miss each question — the skill, the trap, and the fix.</p>
+              <span className="fr-step-cta">Start now <ArrowRightIcon size={15} color="currentColor" /></span>
             </button>
-            <button type="button" className="firstrun-unlock-card" onClick={onStartDiagnostic}>
-              <span className="firstrun-unlock-icon is-pacing"><TimerIcon size={22} color="currentColor" /></span>
-              <h3 className="firstrun-unlock-title">Pacing &amp; timing</h3>
-              <p className="firstrun-unlock-desc">Where you rush or stall, with timed drills to fix it.</p>
-              <span className="firstrun-unlock-foot">Unlocks with your diagnostic <ArrowRightIcon size={13} color="currentColor" /></span>
-            </button>
+            <div className="fr-step is-locked">
+              <div className="fr-step-top">
+                <span className="fr-step-icon is-plan"><ClipboardIcon size={21} color="currentColor" /></span>
+                <span className="fr-step-num is-locked"><LockIcon size={11} color="currentColor" /> Step 2</span>
+              </div>
+              <div className="fr-step-title">A week-by-week plan</div>
+              <p className="fr-step-desc">Built from your diagnostic — what to drill first, scheduled day by day.</p>
+              <span className="fr-step-note">Unlocks with your diagnostic <ArrowRightIcon size={14} color="currentColor" /></span>
+            </div>
+            <div className="fr-step is-locked">
+              <div className="fr-step-top">
+                <span className="fr-step-icon is-pace"><TimerIcon size={21} color="currentColor" /></span>
+                <span className="fr-step-num is-locked"><LockIcon size={11} color="currentColor" /> Step 3</span>
+              </div>
+              <div className="fr-step-title">Pacing &amp; timing</div>
+              <p className="fr-step-desc">Where you rush or stall, with timed drills to fix it.</p>
+              <span className="fr-step-note">Unlocks with your diagnostic <ArrowRightIcon size={14} color="currentColor" /></span>
+            </div>
           </div>
 
-          {/* Explore SEVA — SECONDARY: the tools a student can use right now,
-              before the diagnostic (AI Tutor, question bank, video lessons).
-              Sits below the diagnosis spotlight so the diagnostic stays the
-              primary call. Each card navigates into that feature. */}
-          <div className="firstrun-section-head">
-            <h2 className="section-heading">Or explore while you&rsquo;re here</h2>
-            <p className="firstrun-section-sub">No test required — get a feel for the app.</p>
+          {/* ── EXPLORE: tools the student can use right now, before the
+              diagnostic. Each card navigates into that feature. */}
+          <div className="fr-section-head">
+            <h3 className="fr-section-title">Or explore while you&rsquo;re here</h3>
+            <span className="fr-section-sub">No test required — get a feel for the app.</span>
           </div>
-          <div className="firstrun-feature-grid">
-            <button type="button" className="firstrun-feature-card" onClick={onOpenTutor}>
-              <span className="firstrun-unlock-icon is-plan"><BrainIcon size={22} color="currentColor" /></span>
-              <h3 className="firstrun-unlock-title">AI Tutor</h3>
-              <p className="firstrun-unlock-desc">Stuck on a question? Get instant hints and step-by-step explanations, any time.</p>
-              <span className="firstrun-feature-cta">Open AI Tutor <ArrowRightIcon size={14} color="currentColor" /></span>
+          <div className="fr-explore">
+            <button type="button" className="fr-xcard" onClick={onOpenTutor}>
+              <span className="fr-xicon is-tutor"><BrainIcon size={22} color="currentColor" /></span>
+              <div className="fr-xtitle">AI Tutor</div>
+              <p className="fr-xdesc">Stuck on a question? Get instant hints and step-by-step explanations, any time.</p>
+              <span className="fr-xcta">Open AI Tutor <ArrowRightIcon size={14} color="currentColor" /></span>
             </button>
-            <button type="button" className="firstrun-feature-card" onClick={onOpenPractice}>
-              <span className="firstrun-unlock-icon is-diagnosis"><TargetIcon size={22} color="currentColor" /></span>
-              <h3 className="firstrun-unlock-title">Practice questions</h3>
-              <p className="firstrun-unlock-desc">Drill any skill on demand — thousands of questions, each with a worked explanation.</p>
-              <span className="firstrun-feature-cta">Browse practice <ArrowRightIcon size={14} color="currentColor" /></span>
+            <button type="button" className="fr-xcard" onClick={onOpenPractice}>
+              <span className="fr-xicon is-practice"><TargetIcon size={22} color="currentColor" /></span>
+              <div className="fr-xtitle">Practice questions</div>
+              <p className="fr-xdesc">Drill any skill on demand — thousands of questions, each with a worked explanation.</p>
+              <span className="fr-xcta">Browse practice <ArrowRightIcon size={14} color="currentColor" /></span>
             </button>
-            <button type="button" className="firstrun-feature-card" onClick={onBrowseLessons}>
-              <span className="firstrun-unlock-icon is-pacing"><VideoCameraIcon size={22} color="currentColor" /></span>
-              <h3 className="firstrun-unlock-title">Video lessons</h3>
-              <p className="firstrun-unlock-desc">Short lessons on every SAT skill, from linear equations to grammar rules.</p>
-              <span className="firstrun-feature-cta">Watch lessons <ArrowRightIcon size={14} color="currentColor" /></span>
+            <button type="button" className="fr-xcard" onClick={onBrowseLessons}>
+              <span className="fr-xicon is-video"><VideoCameraIcon size={22} color="currentColor" /></span>
+              <div className="fr-xtitle">Video lessons</div>
+              <p className="fr-xdesc">Short lessons on every SAT skill, from linear equations to grammar rules.</p>
+              <span className="fr-xcta">Watch lessons <ArrowRightIcon size={14} color="currentColor" /></span>
             </button>
           </div>
         </div>

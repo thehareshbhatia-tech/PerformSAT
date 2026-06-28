@@ -109,3 +109,5 @@ export const FlagIcon = (p) => <Icon {...p}><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4
 export const TimerIcon = (p) => <Icon {...p}><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2"/><path d="M5 3L2 6"/><path d="M22 6l-3-3"/><path d="M12 2v2"/></Icon>;
 
 export const CircleDotIcon = (p) => <Icon {...p}><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="1" fill={p.color || 'currentColor'}/></Icon>;
+
+export const LockIcon = (p) => <Icon {...p}><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></Icon>;
