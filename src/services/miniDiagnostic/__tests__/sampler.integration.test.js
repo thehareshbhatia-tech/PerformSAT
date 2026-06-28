@@ -96,6 +96,42 @@ describe('mini-diagnostic sampler against the real banks', () => {
     });
   });
 
+  test('stage 2 reaches for skills stage 1 did not probe', async () => {
+    const plan = await buildMiniDiagnosticPlan({ userId: 'stage2-skill-user', attemptId: 'attempt-10' });
+    const skillKey = (q) => (
+      Array.isArray(q.skills) && q.skills.length
+        ? String(q.skills[0])
+        : (q.skill || q.skillId || `domain:${q.domain}`)
+    );
+
+    let newSkillTotal = 0;
+    [['rw', RW_DOMAIN_ORDER], ['math', MATH_DOMAIN_ORDER]].forEach(([section]) => {
+      const { stage1, stage2Pools } = plan[section];
+      // Every stage-1 item wrong -> every domain weak -> the two weakest get
+      // stage-2 follow-ups from their (routed) pools.
+      const answersById = {};
+      stage1.forEach((q) => {
+        answersById[q.id] = q.choices.find((c) => String(c.id) !== String(q.correctAnswer)).id;
+      });
+      const stage2 = selectStage2(stage1, answersById, stage2Pools);
+      expect(stage2).toHaveLength(4);
+
+      const s1ByDomain = {};
+      stage1.forEach((q) => {
+        if (!s1ByDomain[q.domain]) s1ByDomain[q.domain] = new Set();
+        s1ByDomain[q.domain].add(skillKey(q));
+      });
+      newSkillTotal += stage2.filter((q) => !(s1ByDomain[q.domain] || new Set()).has(skillKey(q))).length;
+    });
+
+    // Stage 2 prefers items whose skill its domain hasn't probed yet, so a weak
+    // domain gets pinpointed at the skill level rather than re-asking a skill we
+    // already measured. This is a floor: where a routed pool carries skill
+    // variety (the math domains) every follow-up lands on a new skill; some R&W
+    // easier pools cluster on one or two skills, capping how much they diversify.
+    expect(newSkillTotal).toBeGreaterThanOrEqual(3);
+  });
+
   test('end-to-end: stage 2 selection and score band on a real plan', async () => {
     const plan = await buildMiniDiagnosticPlan({ userId: 'integration-user', attemptId: 'attempt-8' });
 

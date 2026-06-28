@@ -183,18 +183,23 @@ function buildSectionPlan({ getQuestionsByDomain, domains, baseSeed, sectionKey,
   // Stage 2 reserve pools — per domain, ~4 easy candidates and ~4 hard
   // candidates, disjoint from stage1, from each other, and from excludeIds
   // (excludeIds relaxed only on exhaustion, same contract as stage 1).
+  // Reserve pools are also skill-diverse so stage 2 has more than one skill to
+  // reach for when it deepens a weak domain (selectStage2 then prefers the
+  // skills stage 1 didn't probe).
   const stage2Pools = {};
   perDomain.forEach(({ domain, shuffled }) => {
     const easier = pickWithFallback(shuffled, STAGE2_POOL_SIZE, {
       preferred: (q) => q.difficulty === 'easy',
       excluded,
       used,
+      diversifyKey: getItemSkillKey,
     });
     easier.forEach((q) => used.add(q.id));
     const harder = pickWithFallback(shuffled, STAGE2_POOL_SIZE, {
       preferred: (q) => q.difficulty === 'hard',
       excluded,
       used,
+      diversifyKey: getItemSkillKey,
     });
     harder.forEach((q) => used.add(q.id));
     stage2Pools[domain] = { easier, harder };
@@ -288,17 +293,35 @@ export function selectStage2(stage1Items, answersById, stage2Pools) {
       String(a.domain).localeCompare(String(b.domain)));
 
   const stage1Ids = new Set(items.map((i) => i.id));
+  // Skills each domain already probed in stage 1. Stage 2 reaches for the
+  // skills NOT in here first, so a deepened weak domain pinpoints WHICH skill
+  // is the problem instead of re-asking one we already measured.
+  const stage1SkillsByDomain = new Map();
+  items.forEach((item) => {
+    const d = item.domain || 'unknown';
+    if (!stage1SkillsByDomain.has(d)) stage1SkillsByDomain.set(d, new Set());
+    stage1SkillsByDomain.get(d).add(getItemSkillKey(item));
+  });
+
   const picked = [];
   const pickedIds = new Set();
 
-  const takeFrom = (list, max) => {
+  // Two deterministic passes over the pool: prefer items whose skill the domain
+  // hasn't probed yet, then fill with anything left. `seenSkills` grows as we
+  // pick, so the two stage-2 items also differ from each other. Omitting
+  // seenSkills (last-resort backfill) collapses to the original one-pass take.
+  const takeFrom = (list, max, seenSkills) => {
     let taken = 0;
-    for (const q of (list || [])) {
-      if (taken >= max) break;
-      if (!q || pickedIds.has(q.id) || stage1Ids.has(q.id)) continue;
-      picked.push(q);
-      pickedIds.add(q.id);
-      taken += 1;
+    for (const preferNew of [true, false]) {
+      for (const q of (list || [])) {
+        if (taken >= max) return taken;
+        if (!q || pickedIds.has(q.id) || stage1Ids.has(q.id)) continue;
+        if (preferNew && seenSkills && seenSkills.has(getItemSkillKey(q))) continue;
+        picked.push(q);
+        pickedIds.add(q.id);
+        if (seenSkills) seenSkills.add(getItemSkillKey(q));
+        taken += 1;
+      }
     }
     return taken;
   };
@@ -309,8 +332,9 @@ export function selectStage2(stage1Items, answersById, stage2Pools) {
     const routeEasier = stat.accuracy <= EASIER_ROUTE_MAX_ACCURACY;
     const primary = routeEasier ? pool.easier : pool.harder;
     const secondary = routeEasier ? pool.harder : pool.easier;
-    const got = takeFrom(primary, want);
-    if (got < want) takeFrom(secondary, want - got);
+    const seenSkills = new Set(stage1SkillsByDomain.get(stat.domain) || []);
+    const got = takeFrom(primary, want, seenSkills);
+    if (got < want) takeFrom(secondary, want - got, seenSkills);
   };
 
   // Primary pass: 2 items into each of the 2 weakest domains.
