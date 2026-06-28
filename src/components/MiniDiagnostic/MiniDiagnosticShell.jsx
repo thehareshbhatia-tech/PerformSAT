@@ -33,6 +33,7 @@ import { deriveDeadline, computeRemaining } from '../../services/timerClock';
 import { generateAttemptId } from '../../services/practiceTestService';
 import { buildMiniDiagnosticPlan, selectStage2 } from '../../services/miniDiagnostic/sampler';
 import { finishMiniDiagnostic } from '../../services/miniDiagnostic/finishMiniDiagnostic';
+import MiniDiagnosticResults from './MiniDiagnosticResults';
 import { logError, logInfo } from '../../utils/log';
 
 export const MINI_DIAG_PROGRESS_KEY = 'mini-diagnostic';
@@ -414,15 +415,6 @@ const MiniDiagnosticShell = ({
     }
   };
 
-  // ── Derived results display data ──────────────────────────────────────────
-  const resultHighlights = useMemo(() => {
-    if (!finishResult?.groundTruth) return { strengths: [], focus: [] };
-    return {
-      strengths: (finishResult.groundTruth.strengths || []).slice(0, 3),
-      focus: (finishResult.groundTruth.weaknesses || []).slice(0, 3),
-    };
-  }, [finishResult]);
-
   // ── Screens ───────────────────────────────────────────────────────────────
   const pageWrap = {
     minHeight: '100vh',
@@ -540,66 +532,9 @@ const MiniDiagnosticShell = ({
   }
 
   if (phase === 'results' && finishResult) {
-    const band = finishResult.scoreBand;
     return (
       <div style={{ ...pageWrap, background: colors.surface.white }}>
-        <div style={{ marginTop: '8vh', maxWidth: '520px', width: '100%', animation: 'fadeInUp 400ms ease' }}>
-          <h1 style={{ fontSize: typography.sizes['3xl'], fontWeight: typography.weights.bold, color: colors.text.primary, marginBottom: spacing.xs, textAlign: 'center' }}>
-            Your starting point
-          </h1>
-          <p style={{ fontSize: typography.sizes.base, color: colors.text.secondary, textAlign: 'center', marginBottom: spacing.xl }}>
-            Based on 24 questions — a first read, not a final score. Your first
-            full practice test sharpens everything below.
-          </p>
-
-          {band && (
-            <div style={{
-              textAlign: 'center', padding: spacing.xl, borderRadius: '16px',
-              border: `1px solid ${colors.surface.grayDark}`, marginBottom: spacing.lg,
-            }}>
-              <div style={{ fontSize: typography.sizes.sm, fontWeight: typography.weights.medium, color: colors.text.secondary, marginBottom: spacing.xs }}>
-                Estimated starting range
-              </div>
-              <div style={{ fontSize: '44px', fontWeight: typography.weights.bold, color: colors.accent.orange, lineHeight: 1.1 }}>
-                {band.low}–{band.high}
-              </div>
-              <div style={{ display: 'flex', justifyContent: 'center', gap: spacing.lg, marginTop: spacing.sm, fontSize: typography.sizes.sm, color: colors.text.secondary }}>
-                <span>Reading & Writing {band.rwBand.low}–{band.rwBand.high}</span>
-                <span>Math {band.mathBand.low}–{band.mathBand.high}</span>
-              </div>
-            </div>
-          )}
-
-          {resultHighlights.strengths.length > 0 && (
-            <div style={{ marginBottom: spacing.lg }}>
-              <h3 style={{ fontSize: typography.sizes.sm, fontWeight: typography.weights.semibold, color: colors.accent.green, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: spacing.sm }}>
-                Looking strong
-              </h3>
-              {resultHighlights.strengths.map((s, i) => (
-                <div key={i} style={{ fontSize: typography.sizes.base, color: colors.text.primary, padding: `${spacing.xs} 0` }}>
-                  {s.skill || s.name}
-                </div>
-              ))}
-            </div>
-          )}
-
-          {resultHighlights.focus.length > 0 && (
-            <div style={{ marginBottom: spacing.xl }}>
-              <h3 style={{ fontSize: typography.sizes.sm, fontWeight: typography.weights.semibold, color: colors.accent.purple, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: spacing.sm }}>
-                Your first focus areas
-              </h3>
-              {resultHighlights.focus.map((w, i) => (
-                <div key={i} style={{ fontSize: typography.sizes.base, color: colors.text.primary, padding: `${spacing.xs} 0` }}>
-                  {w.skill || w.name}
-                </div>
-              ))}
-            </div>
-          )}
-
-          <Button variant="primary" onClick={onViewPlan} style={{ width: '100%', fontSize: typography.sizes.md }}>
-            See my starter plan
-          </Button>
-        </div>
+        <MiniDiagnosticResults result={finishResult} user={user} onViewPlan={onViewPlan} />
       </div>
     );
   }
