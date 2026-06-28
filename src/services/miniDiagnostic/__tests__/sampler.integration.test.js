@@ -124,12 +124,13 @@ describe('mini-diagnostic sampler against the real banks', () => {
       newSkillTotal += stage2.filter((q) => !(s1ByDomain[q.domain] || new Set()).has(skillKey(q))).length;
     });
 
-    // Stage 2 prefers items whose skill its domain hasn't probed yet, so a weak
-    // domain gets pinpointed at the skill level rather than re-asking a skill we
-    // already measured. This is a floor: where a routed pool carries skill
-    // variety (the math domains) every follow-up lands on a new skill; some R&W
-    // easier pools cluster on one or two skills, capping how much they diversify.
-    expect(newSkillTotal).toBeGreaterThanOrEqual(3);
+    // Stage 2 pinpoints weak domains at the skill level — it prefers un-probed
+    // skills at the routed difficulty, then reaches one level for a skill the
+    // routed pool can't field (so even R&W domains whose easy items cluster on
+    // one skill still get a second skill probed) instead of re-asking a skill
+    // stage 1 already measured. Floor above math-only (4), so this also guards
+    // that R&W reaches new skills via the cross-pool, with slack for bank drift.
+    expect(newSkillTotal).toBeGreaterThanOrEqual(5);
   });
 
   test('end-to-end: stage 2 selection and score band on a real plan', async () => {
@@ -146,15 +147,23 @@ describe('mini-diagnostic sampler against the real banks', () => {
     const mathStage2 = selectStage2(plan.math.stage1, answersById, plan.math.stage2Pools);
     expect(rwStage2).toHaveLength(4);
     expect(mathStage2).toHaveLength(4);
-    // All R&W domains weak -> items come from easier pools; all Math domains
-    // strong -> harder pools. Assert pool membership (the routing contract)
-    // rather than raw difficulty, which depends on per-domain bank supply.
-    rwStage2.forEach((q) => {
-      expect(plan.rw.stage2Pools[q.domain].easier.map((p) => p.id)).toContain(q.id);
-    });
-    mathStage2.forEach((q) => {
-      expect(plan.math.stage2Pools[q.domain].harder.map((p) => p.id)).toContain(q.id);
-    });
+    // Weak R&W domains route to their easier pool, strong Math domains to their
+    // harder pool — but each may reach the OTHER pool for at most one un-probed
+    // skill per domain (some skills only exist at higher difficulty). Assert
+    // routed-pool preference + the cross-pool cap, not raw difficulty.
+    const assertRouted = (stage2, pools, routedKey, otherKey) => {
+      const crossByDomain = {};
+      stage2.forEach((q) => {
+        const pool = pools[q.domain];
+        const inRouted = pool[routedKey].some((p) => p.id === q.id);
+        const inOther = pool[otherKey].some((p) => p.id === q.id);
+        expect(inRouted || inOther).toBe(true);
+        if (inOther && !inRouted) crossByDomain[q.domain] = (crossByDomain[q.domain] || 0) + 1;
+      });
+      Object.values(crossByDomain).forEach((n) => expect(n).toBeLessThanOrEqual(1));
+    };
+    assertRouted(rwStage2, plan.rw.stage2Pools, 'easier', 'harder');
+    assertRouted(mathStage2, plan.math.stage2Pools, 'harder', 'easier');
     [...rwStage2, ...mathStage2].forEach((q) => expect(isRunnerSafe(q)).toBe(true));
 
     // Answer stage 2 the same way and band the full 24.

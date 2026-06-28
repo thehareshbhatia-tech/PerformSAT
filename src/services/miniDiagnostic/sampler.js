@@ -38,6 +38,7 @@ const STAGE2_COUNT = 4;       // items selectStage2 returns per section
 const STAGE2_PER_DOMAIN = 2;  // items added to each probed weak domain
 const WEAK_DOMAINS_PROBED = 2;
 const EASIER_ROUTE_MAX_ACCURACY = 0.5; // accuracy <= 0.5 routes to the easier pool
+const CROSS_POOL_NEW_SKILL_REACH = 1;  // at most 1 off-difficulty item per domain, to probe a skill the routed pool can't field
 
 // ─── Deterministic helpers ───────────────────────────────────────────────────
 // Same LCG shuffle + djb2 hash as practiceAssignmentService.js's private
@@ -306,22 +307,19 @@ export function selectStage2(stage1Items, answersById, stage2Pools) {
   const picked = [];
   const pickedIds = new Set();
 
-  // Two deterministic passes over the pool: prefer items whose skill the domain
-  // hasn't probed yet, then fill with anything left. `seenSkills` grows as we
-  // pick, so the two stage-2 items also differ from each other. Omitting
-  // seenSkills (last-resort backfill) collapses to the original one-pass take.
-  const takeFrom = (list, max, seenSkills) => {
+  // Take up to `max` items from a pool. With onlyNewSkill, skip items whose
+  // skill the domain already probed (`seenSkills` grows as we pick, so the two
+  // stage-2 items also differ from each other). Without it, take anything left.
+  const takeFrom = (list, max, seenSkills, onlyNewSkill) => {
     let taken = 0;
-    for (const preferNew of [true, false]) {
-      for (const q of (list || [])) {
-        if (taken >= max) return taken;
-        if (!q || pickedIds.has(q.id) || stage1Ids.has(q.id)) continue;
-        if (preferNew && seenSkills && seenSkills.has(getItemSkillKey(q))) continue;
-        picked.push(q);
-        pickedIds.add(q.id);
-        if (seenSkills) seenSkills.add(getItemSkillKey(q));
-        taken += 1;
-      }
+    for (const q of (list || [])) {
+      if (taken >= max) return taken;
+      if (!q || pickedIds.has(q.id) || stage1Ids.has(q.id)) continue;
+      if (onlyNewSkill && seenSkills && seenSkills.has(getItemSkillKey(q))) continue;
+      picked.push(q);
+      pickedIds.add(q.id);
+      if (seenSkills) seenSkills.add(getItemSkillKey(q));
+      taken += 1;
     }
     return taken;
   };
@@ -333,8 +331,18 @@ export function selectStage2(stage1Items, answersById, stage2Pools) {
     const primary = routeEasier ? pool.easier : pool.harder;
     const secondary = routeEasier ? pool.harder : pool.easier;
     const seenSkills = new Set(stage1SkillsByDomain.get(stat.domain) || []);
-    const got = takeFrom(primary, want, seenSkills);
-    if (got < want) takeFrom(secondary, want - got, seenSkills);
+    // 1. un-probed skills at the routed difficulty — best: a new skill, right level.
+    let got = takeFrom(primary, want, seenSkills, true);
+    // 2. reach the OTHER difficulty for a skill the routed pool can't field,
+    //    capped so a weak domain keeps at least one at-level item. Some R&W
+    //    skills (command-of-evidence, inference) barely exist as "easy" items,
+    //    so this is the only way a weak reader gets probed on them at all —
+    //    and mapping a new skill beats re-asking one stage 1 already measured.
+    if (got < want) got += takeFrom(secondary, Math.min(want - got, CROSS_POOL_NEW_SKILL_REACH), seenSkills, true);
+    // 3. fill the remainder at the routed difficulty (any skill).
+    if (got < want) got += takeFrom(primary, want - got, seenSkills, false);
+    // 4. last resort: the other pool, any skill.
+    if (got < want) takeFrom(secondary, want - got, seenSkills, false);
   };
 
   // Primary pass: 2 items into each of the 2 weakest domains.
