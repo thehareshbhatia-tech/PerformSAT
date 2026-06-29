@@ -9,6 +9,7 @@
 
 import { DOMAIN_DISPLAY_NAMES, SAT_MATH_DOMAINS } from './domainInference';
 import { resolveRemediationLinks, buildLearningPathItems } from './remediationLinker';
+import { sectionModuleShort } from '../selectors/moduleLabel';
 
 const ERROR_TYPE_DISPLAY = {
   careless_error:       { label: 'Careless Mistakes',   color: '#b45309', bg: 'rgba(245, 158, 11, 0.08)' },
@@ -27,9 +28,21 @@ function formatTime(seconds) {
   return `${m}m ${s}s`;
 }
 
-function questionLabel(key) {
+// Map continuous module index → section, so item locators read "Math M1"
+// instead of the continuous "M3" on a full-length test.
+function sectionByModuleIndex(report) {
+  const map = {};
+  (report?.questionAnalysis || []).forEach((q) => {
+    if (q.moduleIndex != null && map[q.moduleIndex] == null) {
+      map[q.moduleIndex] = q.section ?? null;
+    }
+  });
+  return map;
+}
+
+function questionLabel(key, sectionMap) {
   const [modIdx, qIdx] = key.split('-').map(Number);
-  return `M${modIdx + 1} Q${qIdx + 1}`;
+  return `${sectionModuleShort(sectionMap?.[modIdx], modIdx)} Q${qIdx + 1}`;
 }
 
 /**
@@ -102,6 +115,7 @@ function buildPointLoss(report) {
   const { errorPatterns } = report;
   if (!errorPatterns) return [];
 
+  const sectionMap = sectionByModuleIndex(report);
   return (errorPatterns.summary || []).map(s => {
     const display = ERROR_TYPE_DISPLAY[s.type] || { label: s.label, color: '#888', bg: 'rgba(0,0,0,0.04)' };
     return {
@@ -113,7 +127,7 @@ function buildPointLoss(report) {
       bg: display.bg,
       sampleQuestions: (s.questions || []).slice(0, 3).map(q => ({
         key: q.key,
-        label: questionLabel(q.key),
+        label: questionLabel(q.key, sectionMap),
         difficulty: q.difficulty,
         reasoning: q.reasoning,
         confidence: q.confidence,
@@ -308,13 +322,14 @@ function buildQuestionEvidence(report) {
   const { questionAnalysis } = report;
   if (!questionAnalysis) return [];
 
+  const sectionMap = sectionByModuleIndex(report);
   return questionAnalysis
     .filter(q => !q.isCorrect && q.reasoning)
     .sort((a, b) => (b.confidence || 0) - (a.confidence || 0))
     .slice(0, 6)
     .map(q => ({
       key: q.key,
-      label: questionLabel(q.key),
+      label: questionLabel(q.key, sectionMap),
       difficulty: q.difficulty,
       domain: q.domain,
       domainName: DOMAIN_DISPLAY_NAMES[q.domain] || q.domain,
@@ -352,6 +367,7 @@ function buildScoreProjection(report) {
  */
 function buildWeaknessClusters(report) {
   const { skillClusters, rootCauseClusters } = report;
+  const sectionMap = sectionByModuleIndex(report);
   const clusters = [];
 
   (skillClusters || []).forEach(c => {
@@ -375,7 +391,7 @@ function buildWeaknessClusters(report) {
       severity: c.severity,
       detail: c.description,
       count: c.count,
-      questions: (c.questions || []).slice(0, 4).map(k => questionLabel(k)),
+      questions: (c.questions || []).slice(0, 4).map(k => questionLabel(k, sectionMap)),
       recurringSkills: c.recurringSkills,
     });
   });

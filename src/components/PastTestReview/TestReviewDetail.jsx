@@ -10,6 +10,7 @@ import {
   ERROR_TYPE_ICONS,
   ERROR_TYPE_COLORS,
 } from '../../services/diagnosticEngine';
+import { sectionModuleLabel, sectionModuleShort } from '../../services/selectors/moduleLabel';
 import './TestReviewDetail.css';
 
 /**
@@ -159,11 +160,11 @@ function TestReviewDetail({
         <div className="trd-modules">
           {attempt.moduleScores.map((m, i) => (
             <div key={i} className="trd-module">
-              <div className="trd-module-name">{m.name || `Module ${i + 1}`}</div>
+              <div className="trd-module-name">{sectionModuleLabel(m.moduleSection, i)}</div>
               <div className="trd-module-score">
                 {m.score ?? '—'}
-                {typeof m.totalQuestions === 'number' && (
-                  <span className="trd-module-total">/{m.totalQuestions}</span>
+                {typeof m.total === 'number' && (
+                  <span className="trd-module-total">/{m.total}</span>
                 )}
               </div>
             </div>
@@ -262,9 +263,9 @@ function ItemRow({ item, onClick }) {
   return (
     <li className={`trd-item trd-item-${tone}`}>
       <button type="button" className="trd-item-button" onClick={onClick}
-        aria-label={`${item.isCorrect ? 'Correct' : 'Wrong'}, Module ${item.moduleIndex + 1} Q${item.questionIndex + 1}, time ${time}`}>
+        aria-label={`${item.isCorrect ? 'Correct' : 'Wrong'}, ${sectionModuleLabel(item.section, item.moduleIndex)} Q${item.questionIndex + 1}, time ${time}`}>
         <span className="trd-item-icon" aria-hidden="true">{item.isCorrect ? '✓' : '✗'}</span>
-        <span className="trd-item-id">M{item.moduleIndex + 1}·Q{item.questionIndex + 1}</span>
+        <span className="trd-item-id">{sectionModuleShort(item.section, item.moduleIndex)}·Q{item.questionIndex + 1}</span>
         {item.difficulty && <span className={`trd-item-diff trd-item-diff-${item.difficulty}`}>{item.difficulty}</span>}
         {skill && <span className="trd-item-skill">{prettifySkill(skill)}</span>}
         <span className="trd-item-time">{time}</span>

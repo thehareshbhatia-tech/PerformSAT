@@ -642,7 +642,7 @@ const MiniDiagnosticShell = ({
               </ul>
             )}
             {currentQuestion.studentNotes.goal && (
-              <div style={{ marginTop: '8px', fontStyle: 'italic' }}>
+              <div style={{ marginTop: '8px' }}>
                 <MathText>{currentQuestion.studentNotes.goal}</MathText>
               </div>
             )}

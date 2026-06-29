@@ -1,5 +1,6 @@
 import { runDiagnostic } from './diagnosticEngine';
 import { getReadyAiDiagnostic, loadAttemptSnapshot } from './practiceTestService';
+import { sectionModuleLabel } from './selectors/moduleLabel';
 export { pickMostRecentTest } from './selectors/recentTest';
 
 /**
@@ -76,11 +77,12 @@ export async function loadDiagnosticReportData({
       const modIdx = snap.moduleIndex ?? 0;
       if (!moduleMap.has(modIdx)) {
         const liveMod = test.modules?.[modIdx];
+        // Keep the section axis ('reading-writing' | 'math') — without it
+        // the reconstructed test reads as math-only downstream.
+        const section = snap.section ?? liveMod?.section ?? null;
         moduleMap.set(modIdx, {
-          title: liveMod?.title || `Module ${modIdx + 1}`,
-          // Keep the section axis ('reading-writing' | 'math') — without it
-          // the reconstructed test reads as math-only downstream.
-          section: snap.section ?? liveMod?.section ?? null,
+          title: liveMod?.title || sectionModuleLabel(section, modIdx),
+          section,
           questions: [],
         });
       }

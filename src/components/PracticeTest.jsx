@@ -9,6 +9,7 @@ import SATReferenceSheet from './SATReferenceSheet';
 import DesmosCalculator from './DesmosCalculator';
 import AnswerChoiceList from './shared/AnswerChoiceList';
 import HighlightablePassage, { mergeHighlights } from './rw/HighlightablePassage';
+import { sectionModuleShort } from '../services/selectors/moduleLabel';
 import { deriveRWQuestionType } from '../data/questions/rwBank/deriveRWPattern';
 import { recordSkillAttempts } from '../services/skillService';
 import { showToast } from './ui/Toaster';
@@ -677,7 +678,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
     replaced[mathM2Index] = {
       ...slot,
       ...test.module2Easy,
-      title: slot.title,         // keep "Module 2" or "Module 4" labeling
+      title: slot.title,         // keep the section-relative "Math Module 2" label
       section: slot.section,     // preserve section ('math')
     };
     return replaced;
@@ -1621,16 +1622,6 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
     setIsPaused(false);
   };
 
-  // Calculate score for current module
-  const calculateModuleScore = () => {
-    let correct = 0;
-    questions.forEach((q, idx) => {
-      const key = `${currentModule}-${idx}`;
-      if (isAnswerCorrect(q, answers[key])) correct++;
-    });
-    return correct;
-  };
-
   // Calculate total score
   const calculateTotalScore = () => {
     let total = 0;
@@ -1653,21 +1644,17 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
 
   // Module completion screen
   if (moduleCompleted && !testCompleted) {
-    const score = calculateModuleScore();
     const isLastModule = currentModule === effectiveModules.length - 1;
     const remainingModules = effectiveModules.length - currentModule - 1;
-
-    const modulePct = questions.length ? Math.round((score / questions.length) * 100) : 0;
+    // Like the real digital SAT, the per-module score is never revealed mid-test;
+    // the score appears only on the final results screen after the whole test.
+    const nextModuleTitle = effectiveModules[currentModule + 1]?.title;
 
     return (
       <div className="test-module-complete">
         <div className="test-module-complete-card">
           <div className="test-module-complete-eyebrow">Module complete</div>
           <h2 className="test-module-complete-title">{module.title}</h2>
-          <div className="test-module-complete-score">
-            {score}<span style={{ color: 'var(--pt-text-3)', fontSize: '24px', fontWeight: 700 }}>/{questions.length}</span>
-          </div>
-          <p className="test-module-complete-pct">{modulePct}% correct</p>
 
           {!isLastModule && (
             <p className="test-module-complete-note">
@@ -1678,7 +1665,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
           )}
 
           <button className="test-module-complete-cta" onClick={handleNextModule} type="button">
-            {isLastModule ? 'See Final Results' : `Continue to Module ${currentModule + 2}`}
+            {isLastModule ? 'See Final Results' : `Continue to ${nextModuleTitle}`}
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </button>
         </div>
@@ -1831,7 +1818,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
                     cursor: 'pointer', whiteSpace: 'nowrap', transition: `all ${transitions.fast}`
                   }}
                 >
-                  M{modIdx + 1} <span style={{ opacity: 0.7, marginLeft: '2px', fontWeight: 'normal' }}>({correctCount}/{mod.questions.length})</span>
+                  {sectionModuleShort(mod.section, modIdx)} <span style={{ opacity: 0.7, marginLeft: '2px', fontWeight: 'normal' }}>({correctCount}/{mod.questions.length})</span>
                 </button>
               );
             })}
@@ -2055,7 +2042,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
                       ))}
                     </ul>
                     {reviewQ.studentNotes.goal && (
-                      <div style={{ marginTop: '0.5rem', fontStyle: 'italic' }}>
+                      <div style={{ marginTop: '0.5rem' }}>
                         <MathText text={reviewQ.studentNotes.goal} />
                       </div>
                     )}
@@ -2802,7 +2789,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
                       ))}
                     </ul>
                     {question.studentNotes.goal && (
-                      <div style={{ marginTop: '0.5rem', fontStyle: 'italic' }}>
+                      <div style={{ marginTop: '0.5rem' }}>
                         <MathText text={question.studentNotes.goal} />
                       </div>
                     )}
@@ -3101,7 +3088,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
           <div className="bottom-bar-center">
             {showQuestionGridPopover && (
               <div className="question-grid-popover">
-                <div className="question-grid-popover-title">Question Navigator — Module {currentModule + 1}</div>
+                <div className="question-grid-popover-title">Question Navigator — {module.title}</div>
                 <QuestionGrid
                   questions={questions}
                   currentIndex={currentQuestion}

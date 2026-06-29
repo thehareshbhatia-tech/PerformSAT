@@ -39,6 +39,7 @@ import {
   findErrorClassForItem,
   extractItemsFromAttempt,
 } from './services/selectors/completedTests';
+import { sectionModuleLabel } from './services/selectors/moduleLabel';
 // Corpus access (Stage 2b of the bundle-split plan): the question banks,
 // practice-test bundles, and the two corpus-coupled services load as their
 // own chunks via these memoized dynamic-import loaders. Handlers `await`
@@ -2220,13 +2221,14 @@ const PerformSAT = () => {
                   const modIdx = snap.moduleIndex ?? 0;
                   if (!moduleMap.has(modIdx)) {
                     const liveMod = test.modules?.[modIdx];
+                    // Keep the section axis ('reading-writing' | 'math') — without
+                    // it scoreTest collapses every module into one 'default'(=math)
+                    // bucket and the whole 98-item test scores as a single Math
+                    // section (~210). Mirrors diagnosticReportLoader.js.
+                    const section = snap.section ?? liveMod?.section ?? null;
                     moduleMap.set(modIdx, {
-                      title: liveMod?.title || `Module ${modIdx + 1}`,
-                      // Keep the section axis ('reading-writing' | 'math') — without
-                      // it scoreTest collapses every module into one 'default'(=math)
-                      // bucket and the whole 98-item test scores as a single Math
-                      // section (~210). Mirrors diagnosticReportLoader.js.
-                      section: snap.section ?? liveMod?.section ?? null,
+                      title: liveMod?.title || sectionModuleLabel(section, modIdx),
+                      section,
                       questions: [],
                     });
                   }

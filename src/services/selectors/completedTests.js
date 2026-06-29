@@ -132,11 +132,22 @@ export function extractItemsFromAttempt(attempt) {
   if (!attempt) return [];
   const dd = attempt.diagnosticData;
   if (!dd?.questionDetails || typeof dd.questionDetails !== 'object') return [];
+  // Section axis per continuous module index, so item labels can read
+  // "Math M1" instead of the continuous "M3". moduleScores is in full-test
+  // order ([R&W M1, R&W M2, Math M1, Math M2]); fall back to the item detail.
+  const sectionByModule = {};
+  if (Array.isArray(attempt.moduleScores)) {
+    attempt.moduleScores.forEach((ms, idx) => {
+      sectionByModule[idx] = ms?.moduleSection ?? null;
+    });
+  }
   return Object.entries(dd.questionDetails).map(([key, detail]) => {
     const [m, q] = key.split('-').map(Number);
+    const moduleIndex = Number.isFinite(m) ? m : 0;
     return {
       key,
-      moduleIndex: Number.isFinite(m) ? m : 0,
+      moduleIndex,
+      section: detail.section ?? sectionByModule[moduleIndex] ?? null,
       questionIndex: Number.isFinite(q) ? q : 0,
       isCorrect: !!detail.isCorrect,
       timeSpent: typeof detail.timeSpent === 'number' ? detail.timeSpent : 0,

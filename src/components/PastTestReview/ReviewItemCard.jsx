@@ -7,6 +7,7 @@ import {
   ERROR_TYPE_DESCRIPTIONS,
   ERROR_TYPE_COLORS,
 } from '../../services/diagnosticEngine';
+import { sectionModuleShort } from '../../services/selectors/moduleLabel';
 import './ReviewItemCard.css';
 
 /**
@@ -74,7 +75,7 @@ function ReviewItemCard({
   }
 
   const errorMeta = buildErrorMeta(errorClass);
-  const moduleQ = `M${(snapshotItem.moduleIndex ?? 0) + 1}·Q${(snapshotItem.questionIndex ?? 0) + 1}`;
+  const moduleQ = `${sectionModuleShort(snapshotItem.section, snapshotItem.moduleIndex)}·Q${(snapshotItem.questionIndex ?? 0) + 1}`;
   const stemText = snapshotItem.stem || snapshotItem.question || '';
   const explanationText = snapshotItem.explanation || '';
 

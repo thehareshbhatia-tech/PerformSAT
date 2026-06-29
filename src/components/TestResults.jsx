@@ -1288,12 +1288,19 @@ const TestResults = ({
 
     // Domain accuracy is now percentage-based; no max scaling needed.
 
+    // Label the module by its own section, numbered within that section — so a
+    // full SAT reads "Math: Module 1", never "Math: Module 3" (continuous count).
+    const sec = module.section || (test.section === 'reading-writing' ? 'reading-writing' : 'math');
+    const sectionMods = test.modules.filter(m => (m.section || test.section) === sec);
+    const idxWithinSection = sectionMods.indexOf(module) + 1;
+    const sectionLabel = sec === 'reading-writing' ? 'Reading & Writing' : 'Math';
+
     return (
       <div className="mod-summary-container">
         {/* Module Header */}
         <div className="mod-summary-header">
           <div>
-            <h2 className="mod-summary-title">Math: Module {moduleIndex + 1}</h2>
+            <h2 className="mod-summary-title">{sectionLabel}: Module {idxWithinSection}</h2>
             <div className="mod-summary-subtitle">Performance breakdown and accuracy insights</div>
           </div>
           <button

@@ -32,6 +32,7 @@ import { extractSatPattern } from '../data/questions/extractSatPattern';
 // Zero-import selector (bundleGuard-safe) — the single source of truth for
 // what counts as a blank/abandoned attempt.
 import { isBlankAttempt } from './selectors/latestTestStats';
+import { sectionModuleLabel } from './selectors/moduleLabel';
 
 // R&W canonical skills as a Set for O(1) membership checks. Used to tag
 // weakness entries with `section: 'rw'` and to infer domain when the math
@@ -1325,6 +1326,14 @@ const analyzeTimeManagement = (questionAnalysis, diagnosticData) => {
 
   // Module time remaining analysis
   const moduleTimeRemaining = diagnosticData?.moduleTimeRemaining || {};
+  // Map continuous module index → section so insights can name modules
+  // section-relatively ("Math Module 1") instead of continuously ("Module 3").
+  const moduleSectionByIndex = {};
+  for (const q of questionAnalysis) {
+    if (q.moduleIndex != null && moduleSectionByIndex[q.moduleIndex] == null) {
+      moduleSectionByIndex[q.moduleIndex] = q.section ?? null;
+    }
+  }
 
   // Generate time insights
   const insights = [];
@@ -1350,9 +1359,10 @@ const analyzeTimeManagement = (questionAnalysis, diagnosticData) => {
   // Check for remaining time in modules
   Object.entries(moduleTimeRemaining).forEach(([modKey, remaining]) => {
     if (remaining > 600) { // More than 10 minutes remaining
+      const mi = parseInt(modKey);
       insights.push({
         type: 'info',
-        message: `Module ${parseInt(modKey) + 1}: ${Math.round(remaining / 60)} minutes unused — you could slow down and check work`,
+        message: `${sectionModuleLabel(moduleSectionByIndex[mi], mi)}: ${Math.round(remaining / 60)} minutes unused — you could slow down and check work`,
       });
     }
   });

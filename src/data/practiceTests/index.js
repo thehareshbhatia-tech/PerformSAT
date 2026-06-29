@@ -62,7 +62,9 @@ const easyVariants = {
 };
 
 // Build a full-length practice test from R&W + Math sections. R&W modules
-// come first (numbered Module 1..N), Math modules follow (Module N+1..N+M).
+// come first, Math modules follow. Module titles are numbered WITHIN their
+// section (matching the official digital SAT), not continuously across the
+// whole test — so the math modules are "Math Module 1/2", never "Module 3/4".
 // Each module carries a `section` so the test session UI can switch between
 // R&W layout (passage split, annotate tools) and Math layout (calculator,
 // reference sheet) appropriately.
@@ -70,13 +72,12 @@ const buildFullTest = (id, title, rw, math) => {
   const rwModules = rw.modules.map((m, idx) => ({
     ...m,
     section: 'reading-writing',
-    title: `Module ${idx + 1}`,
+    title: `Reading and Writing Module ${idx + 1}`,
   }));
-  const offset = rwModules.length;
   const mathModules = math.modules.map((m, idx) => ({
     ...m,
     section: 'math',
-    title: `Module ${offset + idx + 1}`,
+    title: `Math Module ${idx + 1}`,
   }));
   return {
     id,

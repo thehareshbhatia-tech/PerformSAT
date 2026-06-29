@@ -11,6 +11,7 @@ import { formatDiagnosticSentence } from '../services/diagnosticEngine';
 import { findRoundIndexForQuestion, computeRoundProgress } from '../services/buildRounds';
 import { getDrillChipForWeakness } from '../services/selectors/drillChip';
 import { getDesmosTip } from '../services/selectors/desmosTip';
+import { sectionModuleShort } from '../services/selectors/moduleLabel';
 import { decideTier } from '../data/questions/bank';
 import { trackDrillStarted, trackDrillChipShown } from '../services/analyticsService';
 import { InfoIcon } from '../design/icons';
@@ -613,7 +614,7 @@ const AssignedPracticeShell = ({
                 <div className="aps-q-eyebrow">{eyebrowText}</div>
                 <div className="aps-q-title">
                   {isReviewItem
-                    ? `M${currentQuestion.moduleIndex + 1}·Q${(currentQuestion.questionIndex ?? 0) + 1} (originally missed)`
+                    ? `${sectionModuleShort(currentQuestion.section, currentQuestion.moduleIndex)}·Q${(currentQuestion.questionIndex ?? 0) + 1} (originally missed)`
                     : titleText}
                 </div>
               </div>
@@ -762,7 +763,7 @@ const AssignedPracticeShell = ({
                   </ul>
                 )}
                 {currentQuestion.studentNotes.goal && (
-                  <div style={{ marginTop: '8px', fontStyle: 'italic' }}>
+                  <div style={{ marginTop: '8px' }}>
                     <MathText>{currentQuestion.studentNotes.goal}</MathText>
                   </div>
                 )}
