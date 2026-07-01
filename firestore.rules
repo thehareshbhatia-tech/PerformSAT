@@ -57,5 +57,17 @@ service cloud.firestore {
         allow delete: if false;
       }
     }
+
+    // Entitlements (SEVA Premium billing) — SERVER-WRITE-ONLY.
+    //
+    // The doc holds the trial clock and subscription state. If clients could
+    // write it, a student could grant themselves premium (or extend their
+    // trial) from devtools. Only Cloud Functions write here (Admin SDK
+    // bypasses rules): ensureEntitlement stamps the trial, stripeWebhook
+    // applies subscription state. The client only reads (useEntitlement).
+    match /entitlements/{userId} {
+      allow read: if isAuthenticated() && isOwner(userId);
+      allow write: if false;
+    }
   }
 }

@@ -1171,7 +1171,9 @@ Your goal is to build their problem-solving instincts. Every question they solve
       // connection/internet message.
       const raw = (error.message || '').toLowerCase();
       let errorMessage = "I couldn't connect right now. Please check your internet connection and try again.";
-      if (raw.includes('too many') || raw.includes('rate') || raw.includes('limit')) {
+      if (raw.includes('subscription_required') || raw.includes('subscription required')) {
+        errorMessage = 'Your free trial has ended, so the AI tutor is paused. Subscribe from your Profile to keep going.';
+      } else if (raw.includes('too many') || raw.includes('rate') || raw.includes('limit')) {
         errorMessage = "You've sent a lot of messages in a short time. Please wait a minute, then try again.";
       } else if (raw.includes('authenticat') || raw.includes('sign in') || raw.includes('401')) {
         errorMessage = "Your session expired. Refresh the page (or sign out and back in), then try again.";
