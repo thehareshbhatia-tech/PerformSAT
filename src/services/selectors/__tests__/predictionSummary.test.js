@@ -248,4 +248,21 @@ describe('summarizePredictions — validation-time score vs re-derived score', (
     expect(r.hitRate).toBe(0);
     expect(r.latest).not.toBeNull();
   });
+
+  it('REGRESSION: display fallback picks the NEWEST non-blank attempt by completedAt, order-independent', () => {
+    // Hydrated rows are newest-FIRST (trimAttempts sorts desc); the old
+    // tail-first scan read the OLDEST attempt and printed "You scored 910"
+    // when the student's latest attempt scored 1080.
+    const log = [mkPrediction({ actualTestId: 't9' })]; // legacy record -> display fallback path
+    const newest = { scaledScore: 1080, rawScore: 60, completedAt: '2026-05-09T10:00:00Z' };
+    const oldest = { scaledScore: 910, rawScore: 40, completedAt: '2026-04-01T10:00:00Z' };
+
+    // Newest-first (hydrated) order.
+    const hydrated = { t9: { attempts: [newest, oldest], bestScaledScore: 1080 } };
+    expect(summarizePredictions(log, hydrated).latest.actualScore).toBe(1080);
+
+    // Newest-last (in-session optimistic append) order.
+    const optimistic = { t9: { attempts: [oldest, newest], bestScaledScore: 1080 } };
+    expect(summarizePredictions(log, optimistic).latest.actualScore).toBe(1080);
+  });
 });

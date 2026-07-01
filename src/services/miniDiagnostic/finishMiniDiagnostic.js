@@ -33,6 +33,32 @@ export const MINI_DIAGNOSTIC_TEST_ID = 'mini-diagnostic-v1';
  *  starter plan ("take a full test to sharpen it") until a real test lands. */
 export const MINI_DIAGNOSTIC_PLAN_SOURCE = 'mini-diagnostic';
 
+/** How long a finish-pipeline Firestore write may run before we declare it failed. */
+const WRITE_TIMEOUT_MS = 15000;
+
+/**
+ * Races a promise against a rejection timer — same load-bearing pattern (and
+ * timeout/error) as useProgress's private withTimeout: with the Firestore web
+ * SDK's default memory persistence, writes HANG (stay pending forever) on
+ * network loss instead of rejecting. Without this, a student finishing on
+ * flaky wifi sits on "Building your starter plan" indefinitely; a rejection
+ * lands on the shell's error screen, whose "Try again" re-runs the finish.
+ * Exported for tests only.
+ *
+ * @param {Promise} promise - The write promise to race
+ * @param {number} [ms=WRITE_TIMEOUT_MS] - Timeout in milliseconds
+ * @returns {Promise} Rejects with Error('save-timeout') when the timer wins
+ */
+export const withTimeout = (promise, ms = WRITE_TIMEOUT_MS) => {
+  let timer;
+  return Promise.race([
+    promise,
+    new Promise((_, reject) => {
+      timer = setTimeout(() => reject(new Error('save-timeout')), ms);
+    }),
+  ]).finally(() => clearTimeout(timer));
+};
+
 /**
  * Build the synthetic test object the diagnostic engine consumes. Module
  * order matches the official section order (R&W first), and the section
@@ -195,10 +221,13 @@ export async function finishMiniDiagnostic({
   };
 
   // Persist the artifact (sets the currentStudyPlanArtifactId pointer).
-  await persistDeterministicArtifact(user.uid, plan, {
+  // withTimeout covers every write inside (artifact addDoc + the plan-mirror
+  // pointer/preview write on the progress doc) so an offline hang rejects
+  // into the shell's error screen instead of stranding "finishing" forever.
+  await withTimeout(persistDeterministicArtifact(user.uid, plan, {
     attemptId: attemptId || null,
     sourceTestId: MINI_DIAGNOSTIC_TEST_ID,
-  });
+  }));
   logInfo('miniDiagnostic', 'starter-plan artifact persisted');
 
   // Seed skillProgress with the session's evidence (one read + one write).

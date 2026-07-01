@@ -159,7 +159,7 @@ export const practiceTest6RW = {
           "band": 3,
           "domain": "craft-and-structure",
           "skill": "text-structure-and-purpose",
-          "passage": "In the early 1930s, Karl Jansky, an engineer at Bell Telephone Laboratories, was asked to track down the static that interfered with transatlantic radio calls. He identified two kinds of interference from nearby and distant thunderstorms, but a third, fainter hiss puzzled him. *After months of recording, he noticed that the hiss grew strongest about four minutes earlier each day, the signature not of any source on Earth but of something fixed against the distant stars.* The hiss, he concluded, came from the direction of the center of the Milky Way.",
+          "passage": "In the early 1930s, Karl Jansky, an engineer at Bell Telephone Laboratories, was asked to track down the static that interfered with transatlantic radio calls. He identified two kinds of interference from nearby and distant thunderstorms, but a third, fainter hiss puzzled him. __After months of recording, he noticed that the hiss grew strongest about four minutes earlier each day, the signature not of any source on Earth but of something fixed against the distant stars.__ The hiss, he concluded, came from the direction of the center of the Milky Way.",
           "question": "Which choice best describes the function of the underlined sentence in the text as a whole?",
           "choices": [
             {
@@ -219,7 +219,7 @@ export const practiceTest6RW = {
           "band": 4,
           "domain": "craft-and-structure",
           "skill": "text-structure-and-purpose",
-          "passage": "Choreography was for centuries preserved mainly through memory and direct teaching, passed from one dancer's body to another. In the 1920s, Rudolf Laban proposed a written notation in which symbols arranged along a vertical staff record not only the steps but the direction, level, and timing of each movement. *Unlike earlier attempts, which had tried to capture poses as a series of pictures, Laban's system treated movement as a continuous flow that could be written down as it unfolded, much as a melody is.* The notation let a dance be archived, studied, and reconstructed long after its first performers had stopped dancing.",
+          "passage": "Choreography was for centuries preserved mainly through memory and direct teaching, passed from one dancer's body to another. In the 1920s, Rudolf Laban proposed a written notation in which symbols arranged along a vertical staff record not only the steps but the direction, level, and timing of each movement. __Unlike earlier attempts, which had tried to capture poses as a series of pictures, Laban's system treated movement as a continuous flow that could be written down as it unfolded, much as a melody is.__ The notation let a dance be archived, studied, and reconstructed long after its first performers had stopped dancing.",
           "question": "Which choice best describes the function of the underlined sentence in the text as a whole?",
           "choices": [
             {
@@ -1079,7 +1079,7 @@ export const practiceTest6RW = {
           "band": 3,
           "domain": "craft-and-structure",
           "skill": "text-structure-and-purpose",
-          "passage": "In the 1870s, the photographer Eadweard Muybridge was hired to settle a wager about whether a galloping horse ever lifts all four hooves off the ground at once. Using a row of cameras triggered in sequence as a horse ran past, he produced a series of stop-motion images. *The photographs showed that the horse does leave the ground entirely, but only when its legs are gathered beneath its body, not when they are stretched out as painters had long assumed.* The sequence is often described as a step toward the motion picture.",
+          "passage": "In the 1870s, the photographer Eadweard Muybridge was hired to settle a wager about whether a galloping horse ever lifts all four hooves off the ground at once. Using a row of cameras triggered in sequence as a horse ran past, he produced a series of stop-motion images. __The photographs showed that the horse does leave the ground entirely, but only when its legs are gathered beneath its body, not when they are stretched out as painters had long assumed.__ The sequence is often described as a step toward the motion picture.",
           "question": "Which choice best describes the function of the underlined sentence in the text as a whole?",
           "choices": [
             {

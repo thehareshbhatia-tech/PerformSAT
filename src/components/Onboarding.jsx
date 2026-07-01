@@ -45,7 +45,17 @@ const Onboarding = ({ user, onUpdateTargetScore, onUpdateTestDate, onUpdateCurre
 
   const getTestDatePresets = () => {
     const now = new Date();
-    const addMonths = (d, m) => { const r = new Date(d); r.setMonth(r.getMonth() + m); return r.toISOString().split('T')[0]; };
+    // Format from LOCAL date parts (same YYYY-MM-DD shape as localDateKey) —
+    // toISOString() is UTC, so students east of UTC got yesterday's date and
+    // saw "Days Until Exam: -1" minutes after signup.
+    const addMonths = (d, m) => {
+      const r = new Date(d);
+      r.setMonth(r.getMonth() + m);
+      const y = r.getFullYear();
+      const mo = String(r.getMonth() + 1).padStart(2, '0');
+      const day = String(r.getDate()).padStart(2, '0');
+      return `${y}-${mo}-${day}`;
+    };
     return [
       { label: 'This month', value: addMonths(now, 0) },
       { label: '2-3 months', value: addMonths(now, 2) },

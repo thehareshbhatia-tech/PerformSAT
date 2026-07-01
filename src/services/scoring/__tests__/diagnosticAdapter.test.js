@@ -226,6 +226,22 @@ describe('adaptDiagnosticForUI', () => {
         expect(labels).toContain('top-domain-drag');
         expect(labels).toContain('trend');
       });
+
+      it('omits the Recent Trend stat when scoreChange is null (cross-scale attempts)', () => {
+        // The engine deliberately nulls scoreChange when adjacent attempts span
+        // scales (200-800 vs 400-1600); the stat must be skipped, not render
+        // "null pts".
+        const crossScale = adaptDiagnosticForUI(buildReport({
+          trendAnalysis: {
+            hasHistory: true, trend: 'mixed_scales', scoreChange: null,
+            improvingSkills: [], decliningSkills: [], persistentWeaknesses: [],
+            testHistory: [], message: 'Scales differ',
+          },
+        }), { questionDetails: {} });
+        const labels = crossScale.quickStats.map(s => s.id);
+        expect(labels).not.toContain('trend');
+        expect(crossScale.quickStats.some(s => String(s.value).includes('null'))).toBe(false);
+      });
     });
 
     describe('keyFindings', () => {

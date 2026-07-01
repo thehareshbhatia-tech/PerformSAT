@@ -666,8 +666,11 @@ function buildQuickStats(report) {
     });
   }
 
-  if (report.trendAnalysis?.hasHistory) {
-    const sc = report.trendAnalysis.scoreChange;
+  // scoreChange is deliberately null when adjacent attempts span scales
+  // (200-800 section vs 400-1600 composite) — skip the stat rather than
+  // render "null pts" (mirrors DiagnosticReport's !== null guard).
+  const sc = report.trendAnalysis?.scoreChange;
+  if (report.trendAnalysis?.hasHistory && typeof sc === 'number') {
     stats.push({
       id: 'trend',
       label: 'Recent Trend',

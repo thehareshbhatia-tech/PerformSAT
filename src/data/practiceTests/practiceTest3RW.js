@@ -194,7 +194,7 @@ export const practiceTest3RW = {
           "_meta": {
             "anchor": "Cuttlefish dermal light sensing (unnamed marine biologists); opsins in skin; camouflage without color vision"
           },
-          "passage": "Cuttlefish change the color and texture of their skin almost instantly, despite being colorblind. A team of marine biologists set out to explain how an animal that cannot perceive color can match its background so precisely. They first ruled out the obvious possibility that the animals were registering color through their eyes alone. *They then turned to the skin itself, testing whether light-sensitive proteins distributed across the body might let the animal sense the brightness and pattern of its surroundings.* On this view, camouflage is a problem the animal solves partly outside the brain.",
+          "passage": "Cuttlefish change the color and texture of their skin almost instantly, despite being colorblind. A team of marine biologists set out to explain how an animal that cannot perceive color can match its background so precisely. They first ruled out the obvious possibility that the animals were registering color through their eyes alone. __They then turned to the skin itself, testing whether light-sensitive proteins distributed across the body might let the animal sense the brightness and pattern of its surroundings.__ On this view, camouflage is a problem the animal solves partly outside the brain.",
           "type": "multiple-choice"
         },
         {
@@ -260,7 +260,7 @@ export const practiceTest3RW = {
           "_meta": {
             "anchor": "Sistine Chapel ceiling fresco cleaning (1980-1994); a-secco shadow dispute [theme: Renaissance fresco conservation]"
           },
-          "passage": "Between 1980 and 1994, conservators cleaned the frescoes of Michelangelo's Sistine Chapel ceiling, removing centuries of soot, glue, and earlier restoration varnish. The recovered colors were far brighter than anyone expected, and the result provoked an unusually public dispute. *Some art historians argued that the cleaning had stripped away a final layer of shadow that Michelangelo himself had brushed on in glue-based paint after the plaster dried, flattening the figures the artist had deliberately modeled.* The conservators replied that chemical analysis showed the dark material was not original paint but later grime and animal glue. The disagreement turned, in the end, on which marks were Michelangelo's and which were added afterward.",
+          "passage": "Between 1980 and 1994, conservators cleaned the frescoes of Michelangelo's Sistine Chapel ceiling, removing centuries of soot, glue, and earlier restoration varnish. The recovered colors were far brighter than anyone expected, and the result provoked an unusually public dispute. __Some art historians argued that the cleaning had stripped away a final layer of shadow that Michelangelo himself had brushed on in glue-based paint after the plaster dried, flattening the figures the artist had deliberately modeled.__ The conservators replied that chemical analysis showed the dark material was not original paint but later grime and animal glue. The disagreement turned, in the end, on which marks were Michelangelo's and which were added afterward.",
           "type": "multiple-choice"
         },
         {
@@ -1199,7 +1199,7 @@ export const practiceTest3RW = {
           "_meta": {
             "anchor": "U.S. railroad standard time zones (1883); function of an underlined sentence"
           },
-          "passage": "Before the 1880s, towns across the United States kept their own local time, set by the sun, so that clocks in neighboring cities could differ by several minutes. *This patchwork was tolerable when travel was slow, but it became a hazard once railroads could carry passengers between dozens of such towns in a single day, since a printed timetable had no single \"time\" to refer to.* In 1883 the railroad companies, not the government, imposed a system of four standard zones, and most communities adopted railroad time within a few years.",
+          "passage": "Before the 1880s, towns across the United States kept their own local time, set by the sun, so that clocks in neighboring cities could differ by several minutes. __This patchwork was tolerable when travel was slow, but it became a hazard once railroads could carry passengers between dozens of such towns in a single day, since a printed timetable had no single \"time\" to refer to.__ In 1883 the railroad companies, not the government, imposed a system of four standard zones, and most communities adopted railroad time within a few years.",
           "type": "multiple-choice"
         },
         {
@@ -1232,7 +1232,7 @@ export const practiceTest3RW = {
           "_meta": {
             "anchor": "Helicobacter pylori and peptic ulcers (Marshall and Warren, early 1980s); function of underlined sentence"
           },
-          "passage": "For most of the twentieth century, physicians blamed stomach ulcers on stress and excess acid and treated them by neutralizing acid. In the early 1980s two Australian researchers proposed instead that a bacterium, Helicobacter pylori, caused most ulcers. *Their claim met sharp resistance, partly because it implied that a condition managed for decades with antacids might be cured outright by a short course of antibiotics — a reversal that would overturn an entire treatment industry.* To answer the doubters, one of the researchers swallowed a culture of the bacterium, developed the predicted inflammation, and cured himself with antibiotics.",
+          "passage": "For most of the twentieth century, physicians blamed stomach ulcers on stress and excess acid and treated them by neutralizing acid. In the early 1980s two Australian researchers proposed instead that a bacterium, Helicobacter pylori, caused most ulcers. __Their claim met sharp resistance, partly because it implied that a condition managed for decades with antacids might be cured outright by a short course of antibiotics — a reversal that would overturn an entire treatment industry.__ To answer the doubters, one of the researchers swallowed a culture of the bacterium, developed the predicted inflammation, and cured himself with antibiotics.",
           "type": "multiple-choice"
         },
         {

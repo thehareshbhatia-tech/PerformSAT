@@ -1145,7 +1145,7 @@ export const practiceTest7RW = {
           "band": 4,
           "domain": "craft-and-structure",
           "skill": "text-structure-and-purpose",
-          "passage": "For most of the fossil record, plants appear only as flattened impressions in rock, their soft tissues long gone. A rare set of deposits in Scotland, however, preserves an entire early ecosystem in three dimensions, its plants turned to stone so quickly that individual cells remain visible. *Because the silica-rich water of ancient hot springs flooded the plants and hardened around them before they could decay, paleobotanists can slice the fossils as thinly as living tissue and study cell walls, reproductive structures, and even the fungi that once invaded them.* The site has become a touchstone for understanding how the earliest land plants were built more than 400 million years ago.",
+          "passage": "For most of the fossil record, plants appear only as flattened impressions in rock, their soft tissues long gone. A rare set of deposits in Scotland, however, preserves an entire early ecosystem in three dimensions, its plants turned to stone so quickly that individual cells remain visible. __Because the silica-rich water of ancient hot springs flooded the plants and hardened around them before they could decay, paleobotanists can slice the fossils as thinly as living tissue and study cell walls, reproductive structures, and even the fungi that once invaded them.__ The site has become a touchstone for understanding how the earliest land plants were built more than 400 million years ago.",
           "question": "Which choice best describes the function of the underlined sentence in the text as a whole?",
           "choices": [
             {

@@ -73,6 +73,18 @@ export const buildDailySession = (reviewQueue = {}) => {
  */
 const STREAK_KEY = 'performsat_review_streak';
 
+// LOCAL-day key (YYYY-MM-DD, zero-padded — same format as practicedDays.js'
+// localDateKey). Streak days must follow the student's calendar: the old
+// UTC key (`toISOString().slice(0, 10)`) rolled the day boundary hours early
+// for US-evening reviewers, wrongly resetting (or no-oping) their streaks.
+// Stored lastDate values keep the identical YYYY-MM-DD format.
+const localDayKey = (d) => {
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, '0');
+  const day = String(d.getDate()).padStart(2, '0');
+  return `${y}-${m}-${day}`;
+};
+
 export const getReviewStreak = () => {
   try {
     const raw = localStorage.getItem(STREAK_KEY);
@@ -83,19 +95,60 @@ export const getReviewStreak = () => {
   }
 };
 
-export const recordReviewSessionComplete = () => {
-  const todayStr = new Date().toISOString().slice(0, 10);
-  const streak = getReviewStreak();
+/**
+ * Increment the daily review streak (no-op on a same-day repeat).
+ *
+ * @param {{ current: number, best: number, lastDate: string|null }|null}
+ *   [serverStreak] - the Firestore-hydrated streak (progress.reviewStreak).
+ *   localStorage is per-device: without this seed a fresh device computes
+ *   streak 1 and the caller persists it server-side, wiping a long streak.
+ *   When the server state is fresher (newer lastDate) or further along on
+ *   the same day, it seeds the computation; `best` always merges as max.
+ * @returns {{ current: number, best: number, lastDate: string }}
+ */
+export const recordReviewSessionComplete = (serverStreak = null) => {
+  const todayStr = localDayKey(new Date());
+  let streak = getReviewStreak();
 
-  if (streak.lastDate === todayStr) return streak;
+  let seededFromServer = false;
+  if (serverStreak && typeof serverStreak === 'object') {
+    const serverLast = typeof serverStreak.lastDate === 'string' ? serverStreak.lastDate : null;
+    const localLast = typeof streak.lastDate === 'string' ? streak.lastDate : null;
+    // YYYY-MM-DD compares correctly as a string.
+    const serverFresher = !!serverLast && (!localLast || serverLast > localLast);
+    const serverFurther = !!serverLast && serverLast === localLast
+      && (serverStreak.current || 0) > (streak.current || 0);
+    if (serverFresher || serverFurther) {
+      streak = {
+        current: serverStreak.current || 0,
+        best: serverStreak.best || 0,
+        lastDate: serverLast,
+      };
+      seededFromServer = true;
+    }
+    const mergedBest = Math.max(streak.best || 0, serverStreak.best || 0);
+    if (mergedBest !== streak.best) {
+      streak = { ...streak, best: mergedBest };
+      seededFromServer = true;
+    }
+  }
+
+  if (streak.lastDate === todayStr) {
+    // Same-day repeat: no increment, but let the device cache catch up to a
+    // server-seeded value so later reads (and persists) don't regress it.
+    if (seededFromServer) {
+      try { localStorage.setItem(STREAK_KEY, JSON.stringify(streak)); } catch { /* noop */ }
+    }
+    return streak;
+  }
 
   const yesterday = new Date();
   yesterday.setDate(yesterday.getDate() - 1);
-  const yesterdayStr = yesterday.toISOString().slice(0, 10);
+  const yesterdayStr = localDayKey(yesterday);
 
   const isConsecutive = streak.lastDate === yesterdayStr;
-  const newCurrent = isConsecutive ? streak.current + 1 : 1;
-  const newBest = Math.max(streak.best, newCurrent);
+  const newCurrent = isConsecutive ? (streak.current || 0) + 1 : 1;
+  const newBest = Math.max(streak.best || 0, newCurrent);
 
   const updated = { current: newCurrent, best: newBest, lastDate: todayStr };
   try { localStorage.setItem(STREAK_KEY, JSON.stringify(updated)); } catch { /* noop */ }
@@ -104,12 +157,18 @@ export const recordReviewSessionComplete = () => {
 
 /**
  * Summary after a review session completes.
+ *
+ * @param {Array<{wasCorrect: boolean}>} [results]
+ * @param {{ current: number, best: number, lastDate: string|null }|null}
+ *   [serverStreak] - Firestore-hydrated streak, threaded through so a fresh
+ *   device can't clobber a longer server-side streak (see
+ *   recordReviewSessionComplete).
  */
-export const buildSessionSummary = (results = []) => {
+export const buildSessionSummary = (results = [], serverStreak = null) => {
   const correct = results.filter(r => r.wasCorrect).length;
   const total = results.length;
   const accuracy = total > 0 ? Math.round((correct / total) * 100) : 0;
-  const streak = recordReviewSessionComplete();
+  const streak = recordReviewSessionComplete(serverStreak);
 
   return {
     correct,

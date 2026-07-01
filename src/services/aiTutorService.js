@@ -16,6 +16,16 @@ export { parseSSEEvents };
 // Cloud Function URL
 const AI_TUTOR_URL = process.env.REACT_APP_AI_TUTOR_URL || 'https://aitutor-ki77ua6x2a-uc.a.run.app';
 
+// The server truncates replies at its max_tokens budget and reports it via
+// stop_reason === 'max_tokens'. Append this honest marker instead of silently
+// presenting a half-answer as complete.
+const LENGTH_LIMIT_NOTE = '\n\n*The explanation hit the length limit — say "continue" and I\'ll finish the walkthrough.*';
+
+// The proxy rejects payloads over 100 messages with a 400 — cap the history we
+// send so a long-running chat never bricks. The UI + Firestore keep the full
+// thread; only the model's context window is trimmed.
+const MAX_HISTORY_MESSAGES = 30;
+
 // System prompt that defines the teaching style — v2.0 Elite Tutor
 const SYSTEM_PROMPT = `You are the SAT math tutor that every parent wishes they could afford — the one who has personally coached 400+ students past 750 and knows exactly what College Board is doing on every single question. You do not teach "math." You teach students how to dismantle this specific test.
 
@@ -655,7 +665,8 @@ export const chatWithTutor = async (
   strategyContext = null, // { errorPatterns, weakSkillIds } — for targeted strategy injection
   intelligenceContext = '', // Data loop intelligence context (fingerprint, predictions, approach guidance)
   section = 'math', // 'math' | 'rw' — selects the subject-specific system prompt + gates math-only context
-  onChunk = null // optional (fullTextSoFar: string) => void — when provided, stream the answer in live
+  onChunk = null, // optional (fullTextSoFar: string) => void — when provided, stream the answer in live
+  signal = null // optional AbortSignal — lets the caller cancel an in-flight request (e.g. on unmount)
 ) => {
   // Get lesson context
   const lessonContext = getLessonContext(currentModuleId, currentLessonId);
@@ -744,8 +755,8 @@ export const chatWithTutor = async (
     enhancedSystem += buildCoachContext(coachMode.modeId, coachMode.context || {}, section);
   }
 
-  // Prepare messages for Claude API
-  const claudeMessages = messages.map(m => ({
+  // Prepare messages for Claude API — only the recent window (see MAX_HISTORY_MESSAGES).
+  const claudeMessages = messages.slice(-MAX_HISTORY_MESSAGES).map(m => ({
     role: m.role === 'assistant' ? 'assistant' : 'user',
     content: m.content
   }));
@@ -765,7 +776,7 @@ export const chatWithTutor = async (
   // we fall through to the buffered request below, so chat never breaks.
   if (typeof onChunk === 'function') {
     try {
-      const response = await authFetch(AI_TUTOR_URL, { method: 'POST', body: buildBody(true) });
+      const response = await authFetch(AI_TUTOR_URL, { method: 'POST', body: buildBody(true), signal });
       if (response.ok && response.body && typeof response.body.getReader === 'function') {
         const reader = response.body.getReader();
         const decoder = new TextDecoder();
@@ -781,6 +792,16 @@ export const chatWithTutor = async (
             if (evt.type === 'chunk' && typeof evt.text === 'string') {
               full += evt.text;
               onChunk(full);
+            } else if (evt.type === 'error') {
+              // Mid-stream server error — a half-answer must not be presented
+              // as complete. Throw into the catch below: the buffered fallback
+              // retries, and if that also fails the caller's error UI takes over.
+              throw new Error(evt.message || 'stream error');
+            } else if (evt.type === 'done' && evt.stop_reason === 'max_tokens' && full) {
+              // Truncated by the token budget — mark it honestly. (Empty full
+              // means nothing streamed; let the buffered fallback below retry.)
+              full += LENGTH_LIMIT_NOTE;
+              onChunk(full);
             }
           }
         }
@@ -788,21 +809,26 @@ export const chatWithTutor = async (
       }
       // Stream produced no text (server error / empty) → buffered fallback below.
     } catch (streamErr) {
+      // A deliberate cancel (unmount/navigation) must not trigger a buffered retry.
+      if (streamErr?.name === 'AbortError') throw streamErr;
       console.warn('AI Tutor streaming failed; using buffered fallback:', streamErr?.message);
     }
   }
 
   // ── Buffered path (default + streaming fallback) ─────────────────────────
   try {
-    const response = await authFetch(AI_TUTOR_URL, { method: 'POST', body: buildBody(false) });
+    const response = await authFetch(AI_TUTOR_URL, { method: 'POST', body: buildBody(false), signal });
     if (!response.ok) {
       const error = await response.json();
       throw new Error(error.error || 'Failed to get response from AI Tutor');
     }
     const data = await response.json();
+    if (data.stop_reason === 'max_tokens' && typeof data.content === 'string') {
+      return data.content + LENGTH_LIMIT_NOTE;
+    }
     return data.content;
   } catch (error) {
-    console.error('AI Tutor Error:', error);
+    if (error?.name !== 'AbortError') console.error('AI Tutor Error:', error);
     throw error;
   }
 };
@@ -815,7 +841,10 @@ export const quickAnswer = async (question, section = 'math') => {
       body: JSON.stringify({
         messages: [{ role: 'user', content: question }],
         system: getSystemPrompt(section),
-        thinking_budget: 4000
+        thinking_budget: 4000,
+        // The server streams by default — without this, response.json() below
+        // would choke on an SSE body.
+        stream: false
       })
     });
 

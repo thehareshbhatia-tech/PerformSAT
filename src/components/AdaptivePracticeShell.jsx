@@ -847,6 +847,9 @@ const AdaptivePracticeShell = ({
           <div onClick={() => setTutorOpen(false)} style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.3)', zIndex: 1500 }} />
           <div style={{ position: 'fixed', top: 0, right: 0, bottom: 0, width: 'min(420px, 100vw)', zIndex: 1600, background: '#fff', boxShadow: '-8px 0 32px -8px rgba(0,0,0,0.25)', display: 'flex', flexDirection: 'column' }}>
             <AiTutorChat
+              // Remount per question so an in-flight answer for the previous
+              // question can never land in (and persist under) this one's chat.
+              key={`adaptive-tutor-${currentQuestion?.id || idx}`}
               isOpen={true}
               onClose={() => setTutorOpen(false)}
               moduleId="adaptive-practice"

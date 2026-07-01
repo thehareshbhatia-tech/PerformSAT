@@ -67,3 +67,19 @@ describe('generateStudyPlan — first-plan gating', () => {
     expect(plan.weeks.length).toBeGreaterThan(2);
   });
 });
+
+describe('generateStudyPlan — summary for a perfect run (0 wrong)', () => {
+  const farTestDate = new Date(Date.now() + 63 * 24 * 60 * 60 * 1000).toISOString();
+
+  test('zero wrong answers gets clean-run copy, not the "0 misses" template', () => {
+    const diag = mkDiag({
+      errorPatterns: { totalWrong: 0, counts: {}, dominantPattern: null, summary: [] },
+    });
+    const plan = generateStudyPlan(diag, { targetScore: 750, testDate: farTestDate });
+    const insight = plan.summary.keyInsight;
+    expect(insight.type).toBe('clean_run');
+    expect(insight.title).toMatch(/clean run/i);
+    expect(insight.message).not.toMatch(/0 misses/);
+    expect(insight.message).toMatch(/correct/i);
+  });
+});

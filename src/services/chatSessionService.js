@@ -110,6 +110,11 @@ export const updateSessionMessages = async (userId, sessionId, messages, force =
   pendingWrites.set(key, {
     timer,
     lastWrittenCount: pending?.lastWrittenCount || 0,
+    // Carry the write args so flushPendingWrites can perform the pending
+    // write itself (e.g. on tab close) instead of just cancelling it.
+    userId,
+    sessionId,
+    messages,
   });
 };
 
@@ -225,14 +230,31 @@ export const updateLearningMemory = async (userId, learningMemory) => {
 };
 
 /**
- * Flush any pending debounced writes (call on unmount)
+ * Flush any pending debounced writes (call on unmount / tab hide).
+ * Performs the pending write immediately instead of dropping it — otherwise a
+ * tab close inside the debounce window silently loses the last exchanges.
  */
 export const flushPendingWrites = async (userId, sessionId) => {
   const key = `${userId}_${sessionId}`;
   const pending = pendingWrites.get(key);
-  if (pending?.timer) {
-    clearTimeout(pending.timer);
-    pendingWrites.delete(key);
+  if (!pending?.timer) return;
+  clearTimeout(pending.timer);
+  pendingWrites.delete(key);
+  if (!pending.userId || !pending.sessionId || !Array.isArray(pending.messages)) return;
+  try {
+    const sessionRef = doc(db, 'progress', pending.userId, 'aiChatSessions', pending.sessionId);
+    await updateDoc(sessionRef, {
+      messages: pending.messages.map(m => ({
+        role: m.role,
+        content: m.content,
+        timestamp: m.timestamp || new Date().toISOString(),
+      })),
+      messageCount: pending.messages.length,
+      lastMessageAt: serverTimestamp(),
+    });
+    pendingWrites.set(key, { lastWrittenCount: pending.messages.length });
+  } catch (e) {
+    console.error('Flush of pending session write failed:', e);
   }
 };
 

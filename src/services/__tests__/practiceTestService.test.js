@@ -32,10 +32,15 @@ jest.mock('firebase/firestore', () => {
     return out;
   };
 
+  const isDeleteSentinel = (v) => !!v && typeof v === 'object' && v.__deleteField === true;
+
+  // update() semantics: dotted keys are nested field PATHS (faithful to the
+  // real SDK, which only splits dots in update — never in set).
   const applyDotted = (target, updates) => {
     const out = deepClone(target);
     Object.entries(updates).forEach(([key, value]) => {
       if (!key.includes('.')) {
+        if (isDeleteSentinel(value)) { delete out[key]; return; }
         out[key] = deepClone(value);
         return;
       }
@@ -44,11 +49,28 @@ jest.mock('firebase/firestore', () => {
       for (let i = 0; i < parts.length - 1; i++) {
         const part = parts[i];
         if (!cursor[part] || typeof cursor[part] !== 'object') {
+          if (isDeleteSentinel(value)) return; // nothing to delete along a missing path
           cursor[part] = {};
         }
         cursor = cursor[part];
       }
+      if (isDeleteSentinel(value)) { delete cursor[parts[parts.length - 1]]; return; }
       cursor[parts[parts.length - 1]] = deepClone(value);
+    });
+    return out;
+  };
+
+  // set()+merge semantics: keys are LITERAL (a dotted key becomes a top-level
+  // field whose NAME contains the dot — the real-SDK trap the service code
+  // must avoid); plain-object values deep-merge, everything else replaces.
+  const mergeLiteral = (target, patch) => {
+    const isPlainObj = (v) => !!v && typeof v === 'object' && !Array.isArray(v);
+    const out = deepClone(target);
+    Object.entries(patch).forEach(([key, value]) => {
+      if (isDeleteSentinel(value)) { delete out[key]; return; }
+      out[key] = (isPlainObj(value) && isPlainObj(out[key]))
+        ? mergeLiteral(out[key], value)
+        : deepClone(value);
     });
     return out;
   };
@@ -75,7 +97,7 @@ jest.mock('firebase/firestore', () => {
           if (op.kind === 'set') {
             if (op.merge) {
               const existing = store.get(op.path) || {};
-              store.set(op.path, applyDotted(existing, op.data));
+              store.set(op.path, mergeLiteral(existing, op.data));
             } else {
               store.set(op.path, deepClone(op.data));
             }
@@ -114,7 +136,7 @@ jest.mock('firebase/firestore', () => {
     setDoc: async (ref, data, options) => {
       if (options?.merge) {
         const existing = store.get(ref.__path) || {};
-        store.set(ref.__path, applyDotted(existing, data));
+        store.set(ref.__path, mergeLiteral(existing, data));
       } else {
         store.set(ref.__path, deepClone(data));
       }
@@ -125,6 +147,7 @@ jest.mock('firebase/firestore', () => {
     },
     serverTimestamp: () => ({ __serverTimestamp: true }),
     arrayUnion: (...items) => ({ __arrayUnion: items }),
+    deleteField: () => ({ __deleteField: true }),
     addDoc: async (colRef, data) => {
       const id = `auto-${Math.random().toString(36).slice(2, 10)}`;
       store.set(`${colRef.__path}/${id}`, deepClone(data));
@@ -182,7 +205,7 @@ jest.mock('firebase/firestore', () => {
         for (const op of ops) {
           if (op.kind === 'set') {
             if (op.merge) {
-              store.set(op.path, applyDotted(store.get(op.path) || {}, op.data));
+              store.set(op.path, mergeLiteral(store.get(op.path) || {}, op.data));
             } else {
               store.set(op.path, deepClone(op.data));
             }
@@ -205,6 +228,7 @@ jest.mock('firebase/firestore', () => {
 const {
   recordPracticeTestResult,
   resetPracticeTest,
+  saveTestProgress,
   loadAttemptSnapshot,
   generateAttemptId,
   SNAPSHOT_VERSION,
@@ -437,6 +461,44 @@ describe('recordPracticeTestResult — missing snapshot', () => {
     expect(getStore().get('progress/user-1/attempts/empty-snap')).toBeUndefined();
     expect(warnSpy).toHaveBeenCalled();
     warnSpy.mockRestore();
+  });
+});
+
+describe('dotted-key merge trap — missing progress doc writes NESTED maps', () => {
+  // set()+merge treats dotted keys as LITERAL field names (only update()
+  // splits dots into paths), so the create branches must write nested
+  // objects — a literal "practiceTestResults.practice-test-1" top-level
+  // field would be invisible to every nested-map reader.
+  test('recordPracticeTestResult creates a nested practiceTestResults map, no literal dotted field', async () => {
+    await recordPracticeTestResult('user-1', 'practice-test-1', 'Practice Test 1', buildResults());
+
+    const main = getStore().get('progress/user-1');
+    expect(Object.keys(main).some((k) => k.includes('.'))).toBe(false);
+    expect(main.practiceTestResults['practice-test-1'].totalAttempts).toBe(1);
+  });
+
+  test('saveTestProgress creates a nested inProgressTests map, no literal dotted field', async () => {
+    await saveTestProgress('user-1', 'practice-test-1',
+      { currentModule: 1, currentQuestion: 3, answers: { '0-0': 'A' }, isTimed: true });
+
+    const main = getStore().get('progress/user-1');
+    expect(Object.keys(main).some((k) => k.includes('.'))).toBe(false);
+    expect(main.inProgressTests['practice-test-1']).toMatchObject({
+      testId: 'practice-test-1', currentModule: 1, currentQuestion: 3,
+    });
+  });
+
+  test('saveTestProgress on an EXISTING doc updates via dot path, keeping sibling in-progress tests', async () => {
+    getStore().set('progress/user-1', {
+      userId: 'user-1',
+      inProgressTests: { 'practice-test-2': { testId: 'practice-test-2', currentModule: 0 } },
+    });
+    await saveTestProgress('user-1', 'practice-test-1', { currentModule: 2, answers: {} });
+
+    const main = getStore().get('progress/user-1');
+    expect(main.inProgressTests['practice-test-1']).toBeTruthy();
+    expect(main.inProgressTests['practice-test-2']).toBeTruthy();
+    expect(Object.keys(main).some((k) => k.includes('.'))).toBe(false);
   });
 });
 
@@ -732,6 +794,37 @@ describe('resetPracticeTest', () => {
 
     expect(readPendingSaves('u1').map((e) => e.testId)).toEqual(['practice-test-2']);
     window.localStorage.clear();
+  });
+
+  test('a concurrent save landing mid-reset survives (targeted field deletes, not a whole-map overwrite)', async () => {
+    // The pre-transaction code rewrote the ENTIRE practiceTestResults map from
+    // its own stale read — a save committing between the read and the write
+    // (e.g. the boot-time pending-save flush) was silently erased. Simulate
+    // that interleaving via the artifact re-point's getDoc, which runs inside
+    // the reset callback AFTER the progress doc was read.
+    getStore().set('progress/u1/studyPlanArtifacts/art-new', { linkage: { sourceTestId: 'practice-test-1' }, plan: { weeks: [{}] } });
+    seedProgress({ currentStudyPlanArtifactId: 'art-new' });
+
+    const realGetDoc = firestoreMock.getDoc;
+    firestoreMock.getDoc = async (ref) => {
+      if (ref.__path === 'progress/u1/studyPlanArtifacts/art-new') {
+        // Concurrent commit: another test's result lands in the store now.
+        getStore().get('progress/u1').practiceTestResults['practice-test-9'] = {
+          testId: 'practice-test-9', bestScaledScore: 750, totalAttempts: 1, attempts: [{ attemptId: 'c1' }],
+        };
+      }
+      return realGetDoc(ref);
+    };
+    try {
+      await resetPracticeTest('u1', 'practice-test-1');
+    } finally {
+      firestoreMock.getDoc = realGetDoc;
+    }
+
+    const doc = getStore().get('progress/u1');
+    expect(doc.practiceTestResults['practice-test-1']).toBeUndefined(); // reset applied
+    expect(doc.practiceTestResults['practice-test-2']).toBeDefined();   // sibling kept
+    expect(doc.practiceTestResults['practice-test-9']).toBeDefined();   // concurrent save survived
   });
 
   test('reports removedResult:false when the test was never taken but still clears in-progress', async () => {

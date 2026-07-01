@@ -7,6 +7,7 @@ import { buildMiniDiagnosticPlan, selectStage2 } from '../sampler';
 import {
   finishMiniDiagnostic,
   buildSyntheticTest,
+  withTimeout,
   MINI_DIAGNOSTIC_TEST_ID,
   MINI_DIAGNOSTIC_PLAN_SOURCE,
 } from '../finishMiniDiagnostic';
@@ -158,5 +159,23 @@ describe('finishMiniDiagnostic (real engine, mocked persistence)', () => {
   it('throws without a user id (caller bug guard)', async () => {
     await expect(finishMiniDiagnostic({ user: null, rwQuestions: [], mathQuestions: [], answers: {} }))
       .rejects.toThrow('user.uid required');
+  });
+});
+
+describe('withTimeout (offline-write hang guard)', () => {
+  // Firestore writes hang forever offline (memory persistence never rejects);
+  // the artifact write is raced against this timer so the shell's error
+  // screen — whose "Try again" re-runs the finish — actually fires.
+  it('rejects a never-settling write with save-timeout', async () => {
+    await expect(withTimeout(new Promise(() => {}), 20)).rejects.toThrow('save-timeout');
+  });
+
+  it('passes a resolving write through untouched', async () => {
+    await expect(withTimeout(Promise.resolve('ok'), 1000)).resolves.toBe('ok');
+  });
+
+  it('propagates a real write rejection (not masked by the timer)', async () => {
+    await expect(withTimeout(Promise.reject(new Error('permission-denied')), 1000))
+      .rejects.toThrow('permission-denied');
   });
 });

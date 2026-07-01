@@ -37,18 +37,41 @@ const StatCard = ({ label, value, total }) => (
   </div>
 );
 
-const EditableField = ({ label, value, onSave, type = 'text', min, max }) => {
+// `value` is the raw value saved to Firestore (and fed to the edit input);
+// `displayValue` optionally overrides what read mode shows (e.g. the Test Date
+// field displays "August 22, 2026" while `value` stays the YYYY-MM-DD the
+// <input type="date"> and users/{uid}.testDate contract require).
+const EditableField = ({ label, value, onSave, type = 'text', min, max, displayValue }) => {
   const [editing, setEditing] = useState(false);
   const [draft, setDraft] = useState(value || '');
   const [saving, setSaving] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('');
 
   const handleSave = async () => {
+    if (type === 'number') {
+      // Guard the parseInt('') === NaN path — a cleared field must never
+      // save NaN to Firestore (it renders as "your NaN goal" downstream).
+      const n = parseInt(draft, 10);
+      if (!Number.isFinite(n)) {
+        setErrorMsg('Enter a number.');
+        return;
+      }
+      if ((Number.isFinite(min) && n < min) || (Number.isFinite(max) && n > max)) {
+        setErrorMsg(
+          Number.isFinite(min) && Number.isFinite(max)
+            ? `Enter a number between ${min} and ${max}.`
+            : 'That number is out of range.'
+        );
+        return;
+      }
+    }
     setSaving(true);
+    setErrorMsg('');
     try {
-      await onSave(type === 'number' ? parseInt(draft) : draft);
+      await onSave(type === 'number' ? parseInt(draft, 10) : draft);
       setEditing(false);
     } catch {
-      // keep editing
+      setErrorMsg("Couldn't save — try again.");
     } finally {
       setSaving(false);
     }
@@ -56,23 +79,30 @@ const EditableField = ({ label, value, onSave, type = 'text', min, max }) => {
 
   if (editing) {
     return (
-      <div style={{ display: 'flex', alignItems: 'center', gap: spacing.xs }}>
-        <input
-          type={type}
-          value={draft}
-          onChange={(e) => setDraft(e.target.value)}
-          min={min}
-          max={max}
-          style={{ ...inputStyles.base, height: '40px', fontSize: typography.sizes.sm, flex: 1 }}
-          autoFocus
-          aria-label={label}
-        />
-        <Button onClick={handleSave} disabled={saving} variant="primary" size="sm">
-          {saving ? '...' : 'Save'}
-        </Button>
-        <Button onClick={() => { setEditing(false); setDraft(value || ''); }} variant="ghost" size="sm">
-          Cancel
-        </Button>
+      <div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: spacing.xs }}>
+          <input
+            type={type}
+            value={draft}
+            onChange={(e) => { setDraft(e.target.value); setErrorMsg(''); }}
+            min={min}
+            max={max}
+            style={{ ...inputStyles.base, height: '40px', fontSize: typography.sizes.sm, flex: 1 }}
+            autoFocus
+            aria-label={label}
+          />
+          <Button onClick={handleSave} disabled={saving} variant="primary" size="sm">
+            {saving ? '...' : 'Save'}
+          </Button>
+          <Button onClick={() => { setEditing(false); setDraft(value || ''); setErrorMsg(''); }} variant="ghost" size="sm">
+            Cancel
+          </Button>
+        </div>
+        {errorMsg && (
+          <p role="alert" style={{ fontSize: typography.sizes.xs, color: colors.semantic.error, marginTop: spacing.xs, marginBottom: 0 }}>
+            {errorMsg}
+          </p>
+        )}
       </div>
     );
   }
@@ -82,11 +112,11 @@ const EditableField = ({ label, value, onSave, type = 'text', min, max }) => {
       <div>
         <div style={{ fontSize: typography.sizes.xs, color: colors.text.tertiary, marginBottom: '2px' }}>{label}</div>
         <div style={{ fontSize: typography.sizes.base, color: colors.text.primary, fontWeight: typography.weights.medium }}>
-          {value || 'Not set'}
+          {displayValue || value || 'Not set'}
         </div>
       </div>
       <Button
-        onClick={() => setEditing(true)}
+        onClick={() => { setErrorMsg(''); setEditing(true); }}
         variant="tertiary"
         size="sm"
       >
@@ -301,7 +331,8 @@ const Profile = ({
           <div style={{ borderTop: `1px solid ${colors.surface.gray}` }} />
           <EditableField
             label="Test Date"
-            value={formatDate(user?.testDate)}
+            value={user?.testDate || ''}
+            displayValue={formatDate(user?.testDate)}
             onSave={onUpdateTestDate}
             type="date"
           />
@@ -332,7 +363,10 @@ const Profile = ({
           <StatCard label="Skills Mastered" value={skillsMastered} total={totalSkills} />
           <StatCard label="Best Score" value={
             Object.values(practiceTestResults).reduce((best, t) => {
-              const score = t.bestScaledScore || t.attempts?.[0]?.scaledScore || 0;
+              // attempts[] is NEWEST-first after Firestore hydration, so the
+              // legacy fallback must take the max — attempts[0] is the LATEST
+              // score, not the best. Math.max(0, ...[]) === 0 covers empty.
+              const score = t.bestScaledScore || Math.max(0, ...(t.attempts || []).map(a => a?.scaledScore || 0));
               return Math.max(best, score);
             }, 0) || '--'
           } />

@@ -1,4 +1,4 @@
-import { parseExplanation } from '../SolutionExplanation';
+import { parseExplanation, parseChoiceBullet } from '../SolutionExplanation';
 
 // The canonical house format every math bank/test item uses.
 const HOUSE_FORMAT = `**SAT Pattern: Right Triangle — Pythagorean**
@@ -92,5 +92,39 @@ describe('parseExplanation — legacy and prose fallbacks', () => {
     expect(parsed.answer).toBe('');
     expect(parsed.sections).toHaveLength(0);
     expect(parsed.fastWay).toBeNull();
+  });
+});
+
+describe('parseChoiceBullet — why-wrong bullet letter + body', () => {
+  // June-2026 house format: "Choice A ($75$): explanation." The old regex's
+  // `[\s:(]+` consumed the OPEN paren while `\)?$` only stripped a close paren
+  // at end-of-string, so the body rendered as a dangling "75): ...".
+  it('keeps the parenthetical body balanced (June-2026 format)', () => {
+    const m = parseChoiceBullet('Choice A ($75$): divides the rise by the run instead of run by rise.');
+    expect(m[1]).toBe('A');
+    expect(m[2]).toBe('($75$): divides the rise by the run instead of run by rise.');
+    expect((m[2].match(/\(/g) || []).length).toBe((m[2].match(/\)/g) || []).length);
+  });
+
+  it('keeps the parenthetical body balanced (legacy prose-paren format)', () => {
+    const m = parseChoiceBullet('Choice B (uses the radius): text.');
+    expect(m[1]).toBe('B');
+    expect(m[2]).toBe('(uses the radius): text.');
+  });
+
+  it('parses the bare-colon format', () => {
+    const m = parseChoiceBullet('Choice C: subtracts the squares.');
+    expect(m[1]).toBe('C');
+    expect(m[2]).toBe('subtracts the squares.');
+  });
+
+  it('parses a bullet without the "Choice" prefix', () => {
+    const m = parseChoiceBullet('D: forgets the square root.');
+    expect(m[1]).toBe('D');
+    expect(m[2]).toBe('forgets the square root.');
+  });
+
+  it('returns null for a non-choice bullet', () => {
+    expect(parseChoiceBullet('Watch for reversed operations.')).toBeNull();
   });
 });

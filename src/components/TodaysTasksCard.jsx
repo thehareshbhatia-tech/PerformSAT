@@ -162,6 +162,7 @@ function renderBody(slice, onStartActivity, onStartStrategy, onTakeTest, onCompl
                 isComplete={isComplete}
                 onStart={onStartActivity}
                 onStartStrategy={onStartStrategy}
+                onTakeTest={onTakeTest}
                 onComplete={onCompleteActivity}
                 index={i}
               />
@@ -173,7 +174,7 @@ function renderBody(slice, onStartActivity, onStartStrategy, onTakeTest, onCompl
   }
 }
 
-function ActivityRow({ activity, isComplete, onStart, onStartStrategy, onComplete, index = 0 }) {
+function ActivityRow({ activity, isComplete, onStart, onStartStrategy, onTakeTest, onComplete, index = 0 }) {
   const [expanded, setExpanded] = useState(!isComplete);
   if (!activity) return null;
 
@@ -194,28 +195,37 @@ function ActivityRow({ activity, isComplete, onStart, onStartStrategy, onComplet
 
   // An activity is startable when it can route ANYWHERE: a moduleId routes
   // to the legacy module path, a skillId routes through the shared 3-tier
-  // lookup (services/activityDrillRouter.js) into AssignedPracticeShell, and
-  // a strategy drill (e.g. Pacing Reset — no module/skill) routes to the
-  // timed pacing runner when the mount provides onStartStrategy.
+  // lookup (services/activityDrillRouter.js) into AssignedPracticeShell, a
+  // strategy drill (e.g. Pacing Reset — no module/skill) routes to the
+  // timed pacing runner when the mount provides onStartStrategy, and a
+  // practice-test task (incl. the "Take Practice Test 2" unlock checkpoint)
+  // routes to the test catalog when the mount provides onTakeTest.
   const isStrategy = activity?.activityType === 'strategyDrill';
+  const isTest = activity?.type === 'test' || activity?.activityType === 'practiceTest';
   const isStartable = !!(
     activity?.moduleId ||
     activity?.skillId ||
-    (isStrategy && typeof onStartStrategy === 'function')
+    (isStrategy && typeof onStartStrategy === 'function') ||
+    (isTest && typeof onTakeTest === 'function')
   );
 
-  // Custom (student-added) tasks have no drill to launch — they're checklist
-  // items, completed in place. When the index is available (from getTodaySlice)
-  // and a completion handler is wired, the row gets a "Mark done" button
-  // instead of a dead, disabled Start.
+  // Non-launchable tasks — custom (student-added) checklist items, plus any
+  // generator row with no route (e.g. review/tip rows when no handler is
+  // wired) — are completed in place. When the index is available (from
+  // getTodaySlice) and a completion handler is wired, the row gets a
+  // "Mark done" button instead of a dead, disabled Start.
   const isCustom = !!(activity?.custom || activity?.type === 'custom');
-  const canMarkDone = isCustom
+  const canMarkDone = (isCustom || !isStartable)
     && typeof onComplete === 'function'
     && Number.isInteger(activity?.weekIndex)
     && Number.isInteger(activity?.activityIndex);
 
   const handleStart = () => {
     if (!isStartable) return;
+    if (isTest && typeof onTakeTest === 'function') {
+      onTakeTest();
+      return;
+    }
     if (isStrategy && typeof onStartStrategy === 'function') {
       onStartStrategy(activity);
       return;
@@ -283,7 +293,7 @@ function ActivityRow({ activity, isComplete, onStart, onStartStrategy, onComplet
               onClick={handleStart}
               disabled={!isStartable}
             >
-              Start →
+              {isTest ? 'Start test →' : 'Start →'}
             </button>
           )}
         </div>

@@ -15,6 +15,21 @@
 // presented as "You scored N" (their score is the IRT floor, not a result).
 import { isBlankAttempt } from './latestTestStats';
 
+function toMillis(ts) {
+  if (!ts) return null;
+  if (typeof ts === 'number') return ts;
+  if (ts instanceof Date) return ts.getTime();
+  if (typeof ts === 'object') {
+    if (typeof ts.toMillis === 'function') return ts.toMillis();
+    if (typeof ts.seconds === 'number') return ts.seconds * 1000;
+  }
+  if (typeof ts === 'string') {
+    const t = Date.parse(ts);
+    return Number.isFinite(t) ? t : null;
+  }
+  return null;
+}
+
 /**
  * @typedef {Object} ValidatedPrediction
  * @property {{ low: number, high: number }} predictions.expectedScoreRange
@@ -37,11 +52,26 @@ function pickActualScoreForTest(practiceTestResults, testId) {
   // validation moment which captured a specific test attempt). A blank
   // submission's floor score was never the validated attempt — dogfood
   // caught the card reading "You scored 400" off one.
+  //
+  // Pick by max completedAt, ORDER-INDEPENDENT (mirrors pickMostRecentTest):
+  // hydrated rows are newest-FIRST (trimAttempts sorts desc), so the old
+  // tail-first scan returned the OLDEST attempt's score.
   const attempts = Array.isArray(entry.attempts) ? entry.attempts : [];
-  for (let i = attempts.length - 1; i >= 0; i--) {
-    const a = attempts[i];
-    if (a && typeof a.scaledScore === 'number' && !isBlankAttempt(a)) return a.scaledScore;
+  const eligible = attempts.filter(
+    a => a && typeof a.scaledScore === 'number' && !isBlankAttempt(a),
+  );
+  let newest = null;
+  let newestMs = -Infinity;
+  for (const a of eligible) {
+    const ms = toMillis(a.completedAt);
+    if (ms !== null && ms > newestMs) {
+      newest = a;
+      newestMs = ms;
+    }
   }
+  // Legacy attempts without a usable completedAt: keep the old tail preference.
+  if (!newest && eligible.length > 0) newest = eligible[eligible.length - 1];
+  if (newest) return newest.scaledScore;
   if (typeof entry.bestScaledScore === 'number') return entry.bestScaledScore;
   return null;
 }

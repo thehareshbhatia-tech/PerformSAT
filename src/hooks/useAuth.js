@@ -76,9 +76,26 @@ export const useAuth = () => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
       if (firebaseUser) {
+        // The awaits below give a sign-out or account switch time to land
+        // mid-callback, so every setUser is gated on the auth user being
+        // unchanged — a stale callback must not resurrect the previous user.
+        // Bailing skips setLoading(false) too; the listener invocation for
+        // the NEW auth state owns it. (The hook mounts twice — App +
+        // LandingPage — so this also keeps the listeners idempotent.)
+        const isStale = () => auth.currentUser?.uid !== firebaseUser.uid;
         try {
           // Fetch user profile from Firestore
-          const userDoc = await getDoc(doc(db, 'users', firebaseUser.uid));
+          let userDoc = await getDoc(doc(db, 'users', firebaseUser.uid));
+          if (!userDoc.exists() && !isStale()) {
+            // Signup race: the signup flow's users-doc write usually lands
+            // within ~1.5s of the auth user existing. Retry once before
+            // settling for the minimal profile, so the other hook instance
+            // doesn't strand a fresh signup without firstName/goal fields.
+            await new Promise((resolve) => setTimeout(resolve, 1500));
+            if (isStale()) return;
+            userDoc = await getDoc(doc(db, 'users', firebaseUser.uid));
+          }
+          if (isStale()) return;
           if (userDoc.exists()) {
             setUser(normalizeProfileGoal({
               uid: firebaseUser.uid,
@@ -94,6 +111,13 @@ export const useAuth = () => {
         } catch (err) {
           console.error('Error fetching user profile:', err);
           setError(err.message);
+          if (isStale()) return;
+          // A transient profile read failure must not render a signed-in
+          // student the login page — fall back to the minimal auth profile.
+          setUser({
+            uid: firebaseUser.uid,
+            email: firebaseUser.email
+          });
         }
       } else {
         setUser(null);
@@ -227,17 +251,25 @@ export const useAuth = () => {
 
   /**
    * Update user's test date
-   * @param {string} testDate - Test date in YYYY-MM-DD format
+   * @param {string} testDate - Test date in YYYY-MM-DD format; '' clears it
    */
   const updateTestDate = async (testDate) => {
     if (!user?.uid) return;
+    // Contract: users/{uid}.testDate is 'YYYY-MM-DD' (parseLocalDate /
+    // getDaysUntilTest / plan pacing all consume it). An empty value is an
+    // explicit clear, stored as null (every consumer null-guards a missing
+    // date); anything else non-conforming is a no-op so a formatted display
+    // string can never be persisted.
+    const cleared = testDate === '' || testDate === null || testDate === undefined;
+    if (!cleared && !/^\d{4}-\d{2}-\d{2}$/.test(testDate)) return;
+    const nextTestDate = cleared ? null : testDate;
 
     try {
       await setDoc(doc(db, 'users', user.uid), {
-        testDate: testDate
+        testDate: nextTestDate
       }, { merge: true });
 
-      setUser(prev => ({ ...prev, testDate }));
+      setUser(prev => ({ ...prev, testDate: nextTestDate }));
     } catch (err) {
       console.error('Error updating test date:', err);
       throw err;
@@ -295,6 +327,7 @@ export const useAuth = () => {
    */
   const updateTargetScore = async (targetScore) => {
     if (!user?.uid) return;
+    if (!Number.isFinite(targetScore)) return; // never persist NaN/undefined
 
     try {
       await setDoc(doc(db, 'users', user.uid), {
@@ -316,6 +349,7 @@ export const useAuth = () => {
    */
   const updateCurrentScore = async (currentScore) => {
     if (!user?.uid) return;
+    if (!Number.isFinite(currentScore)) return; // never persist NaN/undefined
 
     try {
       await setDoc(doc(db, 'users', user.uid), {
@@ -377,13 +411,18 @@ export const useAuth = () => {
     if (!user?.uid) return;
 
     try {
-      // Calculate median score from selected schools
-      const scores = schools.map(s => s.satMath);
+      // Calculate median score from selected schools. The Profile editor
+      // submits schools as {name}-only (no satMath), so filter to finite
+      // scores — an undefined/NaN median would either throw inside Firestore
+      // ("Unsupported field value: undefined") or persist a NaN goal.
+      const scores = schools.map(s => s.satMath).filter(Number.isFinite);
       const sorted = [...scores].sort((a, b) => a - b);
       const mid = Math.floor(sorted.length / 2);
-      const medianScore = sorted.length % 2 === 0
-        ? Math.round((sorted[mid - 1] + sorted[mid]) / 2)
-        : sorted[mid];
+      const medianScore = sorted.length === 0
+        ? null
+        : sorted.length % 2 === 0
+          ? Math.round((sorted[mid - 1] + sorted[mid]) / 2)
+          : sorted[mid];
 
       // School medians are MATH-section scale (collegeData has only satMath).
       // Never overwrite a composite (400-1600) on-ramp goal with one — that
@@ -391,10 +430,13 @@ export const useAuth = () => {
       // when the existing goal is unset, and convert it onto the composite scale
       // first (a 750 Math median → a 1500 "750 each section" goal) so the app
       // never stores a stale math-only target. [composite goal migration]
+      // Always save the schools list itself; only attach targetScore when the
+      // computed composite is a real number.
       const keepExistingTarget = typeof user?.targetScore === 'number' && user.targetScore > 800;
-      const payload = keepExistingTarget
+      const compositeGoal = medianScore === null ? null : toCompositeGoal(medianScore);
+      const payload = keepExistingTarget || !Number.isFinite(compositeGoal)
         ? { targetSchools: schools }
-        : { targetSchools: schools, targetScore: toCompositeGoal(medianScore) };
+        : { targetSchools: schools, targetScore: compositeGoal };
 
       await setDoc(doc(db, 'users', user.uid), payload, { merge: true });
 

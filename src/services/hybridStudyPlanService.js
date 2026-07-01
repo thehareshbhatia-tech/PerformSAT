@@ -154,15 +154,22 @@ export const generateAndPersistHybridPlan = async ({
   attemptId = null,
   aiArtifactId = null,
   groundTruth = null,
+  answeredQuestionIds = [],
 }) => {
   const longitudinal = buildLongitudinalEvidence(practiceTestResults);
 
+  // Thread longitudinal + answeredQuestionIds through to the deterministic
+  // generator. Dropping `longitudinal` here made `testsWithData` always 1,
+  // so every plan (even after test 5) stayed first-plan-capped at 2 weeks
+  // with the "Take Practice Test 2" unlock checkpoint.
   const deterministicPlan = generateDeterministic(
     diagnostic,
     userProfile,
     completedLessons,
     practiceProgress,
     previousPlan,
+    longitudinal,
+    answeredQuestionIds || [],
   );
 
   let aiPlan = null;

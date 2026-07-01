@@ -39,6 +39,33 @@ export function itemKey(moduleIndex, questionIndex) {
 }
 
 /**
+ * Newest attempt by max `completedAt`, ORDER-INDEPENDENT (mirrors
+ * pickMostRecentTest in recentTest.js). The array orientation is not a
+ * stable contract: hydrated rows are newest-first (trimAttempts sorts desc)
+ * but the in-session optimistic update appends newest-LAST, so a positional
+ * `attempts[0]` read returns the PREVIOUS attempt right after a retake.
+ * Falls back to attempts[0] (the hydrated convention) when no attempt
+ * carries a usable timestamp.
+ *
+ * @param {Array|null|undefined} attempts
+ * @returns {object|null}
+ */
+function pickLatestAttempt(attempts) {
+  if (!Array.isArray(attempts) || attempts.length === 0) return null;
+  let newest = null;
+  let newestMs = -Infinity;
+  for (const a of attempts) {
+    if (!a) continue;
+    const ms = toMillis(a.completedAt);
+    if (ms !== null && ms > newestMs) {
+      newest = a;
+      newestMs = ms;
+    }
+  }
+  return newest || attempts.find(a => a) || null;
+}
+
+/**
  * getCompletedTests(practiceTestResults, opts?)
  *
  * Returns one summary per test that has at least one attempt, sorted by the
@@ -46,8 +73,9 @@ export function itemKey(moduleIndex, questionIndex) {
  * Past-Test-Review index card needs to render — no Firestore reads required.
  *
  * Note on `attempts` ordering: practiceTestService.recordPracticeTestResult
- * stores newest-first via `trimAttempts` (see practiceTestService.js:96).
- * So `attempts[0]` is the latest.
+ * stores newest-first via `trimAttempts` (see practiceTestService.js:96), but
+ * the in-session optimistic update appends newest-last — so the latest is
+ * picked by max `completedAt` (pickLatestAttempt), never positionally.
  *
  * Each entry carries `hasItemDetails` — true when the latest attempt has
  * `diagnosticData.questionDetails` (the per-question telemetry needed for
@@ -73,7 +101,8 @@ export function getCompletedTests(practiceTestResults, opts = {}) {
   for (const [testId, results] of Object.entries(practiceTestResults)) {
     const attempts = results && Array.isArray(results.attempts) ? results.attempts : [];
     if (attempts.length === 0) continue;
-    const latest = attempts[0];
+    const latest = pickLatestAttempt(attempts);
+    if (!latest) continue;
     const qDetails = latest?.diagnosticData?.questionDetails;
     const hasItemDetails = !!(qDetails && typeof qDetails === 'object' && Object.keys(qDetails).length > 0);
     if (requireItemDetails && !hasItemDetails) continue;
@@ -114,7 +143,7 @@ export function getCompletedTests(practiceTestResults, opts = {}) {
 export function getLatestAttempt(practiceTestResults, testId) {
   const results = practiceTestResults?.[testId];
   const attempts = results && Array.isArray(results.attempts) ? results.attempts : [];
-  return attempts[0] || null;
+  return pickLatestAttempt(attempts);
 }
 
 /**

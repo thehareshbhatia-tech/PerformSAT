@@ -52,6 +52,22 @@ export const calculateOptimalDifficulty = (bestScore) => {
 };
 
 /**
+ * Split a practiceProgress key (`${moduleId}-${sectionName}`) into its parts.
+ * Module ids can themselves contain dashes ('linear-equations',
+ * 'radians-degrees'), so a bare split('-') mangles both halves — resolve by
+ * prefix against the known MODULE_INFO ids, falling back to the legacy
+ * first-dash split for unknown keys.
+ * @param {string} key - practiceProgress key
+ * @returns {[string, string]} [moduleId, sectionName]
+ */
+const splitPracticeKey = (key) => {
+  const moduleId = Object.keys(MODULE_INFO).find(id => key.startsWith(`${id}-`));
+  if (moduleId) return [moduleId, key.slice(moduleId.length + 1)];
+  const [first, ...rest] = key.split('-');
+  return [first, rest.join('-')];
+};
+
+/**
  * Find sections with low scores that need more practice
  * @param {Object} practiceProgress - Practice progress data
  * @returns {Array} Weak sections sorted by score (lowest first)
@@ -60,8 +76,7 @@ const findWeakSections = (practiceProgress) => {
   const weakSections = [];
 
   Object.entries(practiceProgress || {}).forEach(([key, data]) => {
-    const [moduleId, ...sectionParts] = key.split('-');
-    const sectionName = sectionParts.join('-');
+    const [moduleId, sectionName] = splitPracticeKey(key);
 
     // Consider sections with score <= 3 as "weak"
     if (data.bestScore !== undefined && data.bestScore <= 3) {

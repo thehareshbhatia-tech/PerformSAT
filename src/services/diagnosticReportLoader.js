@@ -86,6 +86,20 @@ export async function loadDiagnosticReportData({
           questions: [],
         });
       }
+      // Backfill stimulus fields from the live test at the same position —
+      // older snapshots never persisted passage/diagram/table, which left
+      // R&W review items passage-less and math items figure-less. Easy-route
+      // attempts saw module2Easy in the final (math-M2) slot, so merge from
+      // the module the student actually took.
+      const mathRoute = lastAttempt.diagnosticData?.mathRoute;
+      const liveMod = (mathRoute === 'easy'
+          && test.module2Easy
+          && modIdx === (test.modules?.length ?? 0) - 1)
+        ? test.module2Easy
+        : test.modules?.[modIdx];
+      const liveQ = liveMod?.questions?.[
+        snap.questionIndex ?? moduleMap.get(modIdx).questions.length
+      ];
       moduleMap.get(modIdx).questions.push({
         id: snap.id,
         type: snap.type,
@@ -97,6 +111,13 @@ export async function loadDiagnosticReportData({
         difficulty: snap.difficulty,
         band: snap.band,
         skills: snap.skills || [],
+        passage: snap.passage ?? liveQ?.passage,
+        passages: snap.passages ?? liveQ?.passages,
+        studentNotes: snap.studentNotes ?? liveQ?.studentNotes,
+        questionContinued: snap.questionContinued ?? liveQ?.questionContinued,
+        diagram: snap.diagram ?? liveQ?.diagram,
+        questionTable: snap.questionTable ?? liveQ?.questionTable,
+        questionFormula: snap.questionFormula ?? liveQ?.questionFormula,
       });
     });
     reviewTest = {

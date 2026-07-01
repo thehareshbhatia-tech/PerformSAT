@@ -98,6 +98,20 @@ describe('getCompletedTests', () => {
     expect(entry.latestAttemptId).toBe('newest');
   });
 
+  it('picks the latest by completedAt when newest is appended LAST (in-session optimistic order)', () => {
+    // The in-session optimistic update appends the fresh attempt at the tail;
+    // a positional attempts[0] read would surface the PREVIOUS attempt right
+    // after finishing a retake.
+    const oldA = makeAttempt({ attemptId: 'older', completedAt: dt('2026-04-01T10:00:00Z'), scaledScore: 910 });
+    const newA = makeAttempt({ attemptId: 'newest', completedAt: dt('2026-05-09T10:00:00Z'), scaledScore: 1080 });
+    const data = {
+      'test-1': { testTitle: 'T1', attempts: [oldA, newA] },
+    };
+    const [entry] = getCompletedTests(data);
+    expect(entry.latestAttemptId).toBe('newest');
+    expect(entry.scaledScore).toBe(1080);
+  });
+
   it('includes bestScaledScore + totalAttempts when present', () => {
     const data = {
       'test-1': {
@@ -143,6 +157,20 @@ describe('getLatestAttempt', () => {
     const newest = makeAttempt({ attemptId: 'newest' });
     const data = { 'test-1': { attempts: [newest, makeAttempt({ attemptId: 'older' })] } };
     expect(getLatestAttempt(data, 'test-1').attemptId).toBe('newest');
+  });
+
+  it('is order-independent: picks by max completedAt in either orientation', () => {
+    const newest = makeAttempt({ attemptId: 'newest', completedAt: dt('2026-05-09T10:00:00Z') });
+    const older = makeAttempt({ attemptId: 'older', completedAt: dt('2026-04-01T10:00:00Z') });
+    // Hydrated order (newest-first).
+    expect(getLatestAttempt({ t: { attempts: [newest, older] } }, 't').attemptId).toBe('newest');
+    // In-session optimistic order (newest appended LAST).
+    expect(getLatestAttempt({ t: { attempts: [older, newest] } }, 't').attemptId).toBe('newest');
+  });
+
+  it('falls back to attempts[0] when no attempt carries a usable completedAt', () => {
+    const data = { t: { attempts: [{ attemptId: 'first' }, { attemptId: 'second' }] } };
+    expect(getLatestAttempt(data, 't').attemptId).toBe('first');
   });
 });
 

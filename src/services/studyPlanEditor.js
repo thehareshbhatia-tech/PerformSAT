@@ -115,9 +115,11 @@ export function addCustomActivity(plan, weekIndex, task) {
 
 /**
  * Replace the focus-area (weaknesses) list. Reconciles activities: practice
- * activities whose `skillId` is no longer in the focus set are dropped (unless
- * completed), and any newly-added focus skill gets one practice activity in the
- * first week so the plan actually reflects the new focus. Custom tasks and
+ * activities whose `skillId` was explicitly de-focused (dropped from the
+ * previous focus set) are removed (unless completed), and any newly-added
+ * focus skill gets one practice activity in the first week so the plan
+ * actually reflects the new focus. Activities for skills that were never
+ * focus areas (weekly work beyond the 8-weakness cap), custom tasks and
  * non-practice activities are never touched.
  *
  * @param {object} plan
@@ -133,12 +135,17 @@ export function setFocusAreas(plan, nextWeaknesses) {
   const nextSkillIds = new Set(nextWeaknesses.map((w) => w.skillId));
   next.weaknesses = nextWeaknesses.map((w) => ({ ...w }));
 
-  // Drop generated practice activities for de-focused skills (keep completed
-  // work and anything the student customized or added).
+  // Drop generated practice activities ONLY for explicitly de-focused skills
+  // (in the previous focus set but not the new one). plan.weaknesses is capped
+  // at 8 while weekly activities are generated from UNCAPPED skill gaps, so
+  // filtering on membership in the new set alone silently deleted scheduled
+  // tasks for beyond-the-cap skills on every edit — even a pure add. Keep
+  // completed work and anything the student customized or added.
   (next.weeks || []).forEach((week) => {
     week.activities = (week.activities || []).filter((act) => {
       const isGeneratedPractice = act.type === 'practice' && !act.custom && !act.completed;
-      if (isGeneratedPractice && act.skillId && !nextSkillIds.has(act.skillId)) {
+      if (isGeneratedPractice && act.skillId
+        && prevSkillIds.has(act.skillId) && !nextSkillIds.has(act.skillId)) {
         return false;
       }
       return true;

@@ -86,7 +86,7 @@ export const systemsQuestions = {
     {
       id: 1,
       difficulty: "easy",
-      question: "Adult tickets cost $8 and child tickets cost $5. Total sales were $95 for 14 tickets. Which system represents this?",
+      question: "Adult tickets cost \\$8 and child tickets cost \\$5. Total sales were \\$95 for 14 tickets. Which system represents this?",
       choices: [
         { id: "A", text: "a + c = 95, 8a + 5c = 14" },
         { id: "B", text: "a + c = 14, 8a + 5c = 95" },
@@ -101,7 +101,7 @@ export const systemsQuestions = {
     {
       id: 2,
       difficulty: "easy",
-      question: "A store sells pens for $2 and notebooks for $5. Maria spent $29 on 8 items. If p = pens and n = notebooks, which system is correct?",
+      question: "A store sells pens for \\$2 and notebooks for \\$5. Maria spent \\$29 on 8 items. If p = pens and n = notebooks, which system is correct?",
       choices: [
         { id: "A", text: "p + n = 29, 2p + 5n = 8" },
         { id: "B", text: "2p + 5n = 29, p + n = 8" },
@@ -146,7 +146,7 @@ export const systemsQuestions = {
     {
       id: 5,
       difficulty: "hard",
-      question: "Coffee A costs $4/lb and Coffee B costs $7/lb. To make 10 lbs of a blend costing $5.50/lb, which system applies?",
+      question: "Coffee A costs \\$4/lb and Coffee B costs \\$7/lb. To make 10 lbs of a blend costing \\$5.50/lb, which system applies?",
       choices: [
         { id: "A", text: "a + b = 10, 4a + 7b = 55" },
         { id: "B", text: "a + b = 55, 4a + 7b = 10" },
@@ -154,7 +154,7 @@ export const systemsQuestions = {
         { id: "D", text: "4a + 7b = 10, a + b = 55" }
       ],
       correctAnswer: "A",
-      hint: "The total weight is 10 lbs. For the cost equation, calculate the total value of the blend: 10 lbs times $5.50/lb.",
+      hint: "The total weight is 10 lbs. For the cost equation, calculate the total value of the blend: 10 lbs times \\$5.50/lb.",
       explanation: "**Choice A is correct.**\n\n**The Fast Way (~15s):** Weight equation $a+b=10$; value equation uses total cost $10 \\times \\$5.50 = \\$55$, so $4a+7b=55$. Choice A.\n\n**The Full Solution:**\nStep 1: Let $a$ and $b$ be pounds of Coffee A and Coffee B.\nStep 2: Weight equation — the blend is 10 lbs: $a+b=10$.\nStep 3: Value equation — the blend's total cost is $10 \\times \\$5.50 = \\$55$, and A contributes $4a$, B contributes $7b$: $4a+7b=55$. That is Choice A.\n\n**Why the wrong answers are tempting:**\n* Choice B: swaps the right sides, setting the weight sum to $55$ and the cost to $10$ — units don't match.\n* Choice C: uses the per-pound price $\\$5.50$ instead of the total value $\\$55$; $4a+7b$ is total dollars, so it must equal $55$.\n* Choice D: same reversed swap as B, with the cost expression set to a weight and vice versa.\n\n**Test Day Takeaway:** In mixture problems the value equation uses total value, not unit price: $\\text{total value} = \\text{unit price} \\times \\text{total amount}$.",
       skills: ['setting-up-systems', 'word-problem-to-equation']
     }

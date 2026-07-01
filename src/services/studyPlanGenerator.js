@@ -1036,7 +1036,16 @@ const generatePlanSummary = (diagnostic, weeklyPlan, intensity, totalWeeks, days
   const quickWinCount = carelessCount + trapCount;
   const easyMissed = diagnostic.scoreProjection.easyWins.count;
 
-  if (quickWinCount >= 4) {
+  if (totalWrong === 0) {
+    // A perfect run has no miss pattern to narrate — the generic else-branch
+    // below would interpolate "Your 0 misses spread across error types".
+    // Diagnostic narrative only: state what happened, no advice.
+    keyInsight = {
+      title: 'Clean run — no error pattern to chase',
+      message: 'Every question you attempted landed correct, so there is no miss pattern to diagnose. The plan starts from your strengths and raises the difficulty from there.',
+      type: 'clean_run',
+    };
+  } else if (quickWinCount >= 4) {
     keyInsight = {
       title: 'Your biggest opportunity: quick wins',
       message: `${quickWinCount} of your ${totalWrong} wrong answers were careless mistakes or trap answers. Fixing just these would add ~${diagnostic.scoreProjection.errorTypeProjections.slice(0, 2).reduce((s, p) => s + p.projectedPointGain, 0)} points.`,

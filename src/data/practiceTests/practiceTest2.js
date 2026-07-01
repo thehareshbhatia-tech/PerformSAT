@@ -493,7 +493,7 @@ export const practiceTest2 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "In a star chart, the angular separation labeled $M$ measures $\\dfrac{3\\pi}{4}$ radians. A second separation, labeled $N$, is $\\dfrac{7\\pi}{12}$ radians greater than $M$. What is the measure of separation $N$, in \\underline{degrees}?",
+  question: "In a star chart, the angular separation labeled $M$ measures $\\dfrac{3\\pi}{4}$ radians. A second separation, labeled $N$, is $\\dfrac{7\\pi}{12}$ radians greater than $M$. What is the measure of separation $N$, in degrees?",
   choices: [
     // distractor: converts only the increment 7pi/12 = 105 (forgets to add M)
     { id: "A", text: "$105$" },

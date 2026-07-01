@@ -1,6 +1,8 @@
 import React from 'react';
 import { MathText } from '../MathText';
 import AnswerChoiceList from '../shared/AnswerChoiceList';
+import QuestionDiagram from '../QuestionDiagrams';
+import { parsePassageMarkup, buildSegments } from '../rw/HighlightablePassage';
 import {
   ERROR_TYPE_LABELS,
   ERROR_TYPE_ICONS,
@@ -9,6 +11,30 @@ import {
 } from '../../services/diagnosticEngine';
 import { sectionModuleShort } from '../../services/selectors/moduleLabel';
 import './ReviewItemCard.css';
+
+/**
+ * ReadOnlyPassage — markup-aware R&W passage render (italics, underlines,
+ * conventions blanks) without the highlighting interactivity. Snapshot items
+ * carry the passage since the stimulus-field backfill; without this block a
+ * reviewed R&W item was just a stem ("Which choice completes the text...?")
+ * with nothing to read.
+ */
+function ReadOnlyPassage({ text }) {
+  if (!text) return null;
+  const { plain, formats } = parsePassageMarkup(String(text));
+  const segments = buildSegments(plain, [], formats, true);
+  return (
+    <div className="ric-passage" data-testid="ric-passage">
+      {segments.map(seg => {
+        if (seg.blank) return <span key={seg.key} className="ric-passage-blank" aria-label="blank" />;
+        let node = seg.text;
+        if (seg.u) node = <u>{node}</u>;
+        if (seg.em) node = <em>{node}</em>;
+        return <React.Fragment key={seg.key}>{node}</React.Fragment>;
+      })}
+    </div>
+  );
+}
 
 /**
  * ReviewItemCard — single-item review surface for Past-Test-Review
@@ -114,10 +140,44 @@ function ReviewItemCard({
         </div>
       )}
 
+      {/* R&W passage (before the stem, matching the test/drill layout) */}
+      <ReadOnlyPassage text={snapshotItem.passage} />
+
       {/* Stem */}
       <div className="ric-stem">
         <MathText text={stemText} />
       </div>
+
+      {/* Math figure */}
+      {snapshotItem.diagram?.type && (
+        <div className="ric-diagram">
+          <QuestionDiagram type={snapshotItem.diagram.type} params={snapshotItem.diagram.params} />
+        </div>
+      )}
+
+      {/* Data table */}
+      {snapshotItem.questionTable?.headers && (
+        <div className="ric-table-wrap">
+          <table className="ric-table">
+            <thead>
+              <tr>
+                {snapshotItem.questionTable.headers.map((header, i) => (
+                  <th key={i}><MathText text={String(header)} /></th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {(snapshotItem.questionTable.rows || []).map((row, i) => (
+                <tr key={i}>
+                  {row.map((cell, j) => (
+                    <td key={j}><MathText text={String(cell)} /></td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
 
       {/* Choices (review mode = showResult=true) */}
       {Array.isArray(snapshotItem.choices) && snapshotItem.choices.length > 0 && (
@@ -198,7 +258,10 @@ function ReviewItemCard({
               gap: '6px',
             }}
           >
-            <span aria-hidden="true">🔁</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/>
+              <path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/>
+            </svg>
             Try a similar question
           </button>
         </div>

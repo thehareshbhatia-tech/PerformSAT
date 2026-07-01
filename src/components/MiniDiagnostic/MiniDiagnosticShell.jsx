@@ -23,6 +23,7 @@
  */
 import React, { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import { MathText } from '../MathText';
+import { parsePassageMarkup, buildSegments } from '../rw/HighlightablePassage';
 import QuestionDiagram from '../QuestionDiagrams';
 import QuestionRenderer from '../QuestionRenderer';
 import AnswerChoiceList from '../shared/AnswerChoiceList';
@@ -51,6 +52,30 @@ function formatClock(totalSeconds) {
   const s = Math.floor(totalSeconds % 60);
   return `${m}:${String(s).padStart(2, '0')}`;
 }
+
+/**
+ * Read-only R&W passage renderer for the check-in. Parses the shared inline
+ * markup (*italic*, __underline__, 4+ underscores = a Conventions blank)
+ * through the SAME parser the drill/test HighlightablePassage uses and
+ * renders the same elements (em/u/.rw-blank), minus the highlighting layer —
+ * no annotation during onboarding. The drill path renders passages without
+ * MathText (R&W passages carry no math), mirrored here.
+ */
+const PassageText = ({ text }) => {
+  const { plain, formats } = parsePassageMarkup(text);
+  const segments = buildSegments(plain, [], formats, false);
+  return (
+    <>
+      {segments.map((s) => {
+        if (s.blank) return <span key={s.key} className="rw-blank" aria-label="blank" />;
+        let node = s.text;
+        if (s.em) node = <em>{node}</em>;
+        if (s.u) node = <u>{node}</u>;
+        return <span key={s.key}>{node}</span>;
+      })}
+    </>
+  );
+};
 
 /** Map answers keyed `${modIdx}-${qIdx}` onto item-id keys for the sampler. */
 function answersByItemId(items, answers, modIdx) {
@@ -131,7 +156,11 @@ const MiniDiagnosticShell = ({
           // of stage1 answers + pools, so identical to what the student saw).
           const savedAnswers = saved.answers || {};
           let rw = plan.rw.stage1;
-          if ((saved.rwStage2 || saved.phase === 'math' || saved.phase === 'interstitial') && rw.length === STAGE1_COUNT) {
+          // Only re-append stage 2 when it was actually served (rwStage2 is
+          // persisted as rwServed.length > STAGE1_COUNT at save time). An
+          // R&W timeout at Q<=8 reaches math/interstitial WITHOUT stage 2 —
+          // force-appending here scored 4 never-seen items as wrong.
+          if (saved.rwStage2 && rw.length === STAGE1_COUNT) {
             rw = [...rw, ...selectStage2(plan.rw.stage1, answersByItemId(plan.rw.stage1, savedAnswers, 0), plan.rw.stage2Pools)];
           }
           let math = plan.math.stage1;
@@ -599,7 +628,7 @@ const MiniDiagnosticShell = ({
             fontSize: '17px', lineHeight: '1.65', color: colors.text.primary,
             marginBottom: '20px', whiteSpace: 'pre-wrap',
           }}>
-            <MathText>{currentQuestion.passage}</MathText>
+            <PassageText text={currentQuestion.passage} />
           </div>
         )}
 
@@ -617,7 +646,7 @@ const MiniDiagnosticShell = ({
                   fontFamily: "'Georgia', 'Cambria', 'Times New Roman', serif",
                   fontSize: '17px', lineHeight: '1.65', color: colors.text.primary, whiteSpace: 'pre-wrap',
                 }}>
-                  <MathText>{p.text}</MathText>
+                  <PassageText text={p.text} />
                 </div>
               </div>
             ))}

@@ -111,6 +111,12 @@ export const useProgress = (userId) => {
     // missed an in-flight check-in resume.
     setLoading(true);
     setHydrated(false);
+    // Re-arm the artifact-hydration failure latch for this subscription. It
+    // survives in a ref, so without this reset one transient fetch failure
+    // (network blip, or a stale code-split chunk right after a deploy) would
+    // keep study-plan hydration disabled for the rest of the session — and
+    // even for a DIFFERENT account signing in on the same tab.
+    artifactHydrationFailed.current = false;
 
     const progressRef = doc(db, 'progress', userId);
 
@@ -198,6 +204,9 @@ export const useProgress = (userId) => {
             import('../services/hybridStudyPlanService')
               .then(({ getStudyPlanArtifact }) => getStudyPlanArtifact(userId, artifactId))
               .then(art => {
+              // Fetch resolved: clear the failure latch so a later transient
+              // failure only skips retries until the next success or session.
+              artifactHydrationFailed.current = false;
               if (art?.plan?.weeks?.length) {
                 console.log('[useProgress] Artifact hydrated OK via', source, '— weeks:', art.plan.weeks.length);
                 // Overlay graft (adaptivity audit item 3): reprioritizePlan's
@@ -246,6 +255,9 @@ export const useProgress = (userId) => {
             import('../services/hybridStudyPlanService')
               .then(({ getLatestStudyPlanArtifact }) => getLatestStudyPlanArtifact(userId))
               .then(art => {
+              // Fetch resolved: clear the failure latch so a later transient
+              // failure only skips retries until the next success or session.
+              artifactHydrationFailed.current = false;
               // Orphan guard: a reset test's artifact can't be deleted
               // client-side, so getLatestStudyPlanArtifact can still surface it
               // after the pointer was cleared. Don't re-hydrate a plan whose
@@ -293,9 +305,14 @@ export const useProgress = (userId) => {
           setInProgressTests({});
           setStudyPlan(null);
           setStudyPlanMeta({ artifactId: null, preview: null });
+          setStudyPlanArtifact(null);
           setStudentFingerprint(null);
+          setAnsweredQuestionIds([]);
+          setBankPractice({});
+          setActiveDrill(null);
           setInterventionLog([]);
           setPredictionLog([]);
+          setMiniDiagnostic(null);
         }
         setLoading(false);
         setHydrated(true);
@@ -633,7 +650,11 @@ export const useProgress = (userId) => {
           ...prev,
           [testId]: {
             ...existing,
-            attempts: [...(existing.attempts || []), attemptData],
+            // Prepend: the hydrated invariant is newest-FIRST (trimAttempts
+            // sorts desc), so the optimistic row must match or in-session
+            // consumers reading attempts[0] would get the PREVIOUS attempt
+            // right after a retake.
+            attempts: [attemptData, ...(existing.attempts || [])],
             bestScaledScore: Math.max(existing.bestScaledScore, results.scaledScore),
             bestRawScore: Math.max(existing.bestRawScore, results.rawScore),
             // Scale of the latest attempt, surfaced at row level so the goal

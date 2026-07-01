@@ -115,6 +115,35 @@ describe('setFocusAreas', () => {
     const next = setFocusAreas(plan, [{ skillId: 'slope', skill: 'Slope', section: 'math' }]);
     expect(next.weeks[0].activities.find((a) => a.skillId === 'commas')).toBeTruthy();
   });
+  it('a pure ADD never removes scheduled activities (incl. beyond-the-cap skills)', () => {
+    // plan.weaknesses is capped at 8 but weekly activities are generated from
+    // UNCAPPED skill gaps — a scheduled task can reference a skill that never
+    // made the focus list. Adding a focus area must not delete it.
+    const plan = makePlan();
+    plan.weeks[0].activities.push({
+      type: 'practice', title: 'Practice: Exponents', skillId: 'exponents', duration: 20, day: 'Thursday',
+    });
+    const next = setFocusAreas(plan, [
+      ...plan.weaknesses,
+      { skillId: 'circles', skill: 'Circles', section: 'math' },
+    ]);
+    expect(next.weeks[0].activities.find((a) => a.skillId === 'slope')).toBeTruthy();
+    expect(next.weeks[0].activities.find((a) => a.skillId === 'commas')).toBeTruthy();
+    expect(next.weeks[0].activities.find((a) => a.skillId === 'exponents')).toBeTruthy();
+    expect(next.weeks[0].activities.find((a) => a.type === 'strategy')).toBeTruthy();
+    expect(next.weeks[0].activities.find((a) => a.skillId === 'circles')).toBeTruthy();
+  });
+  it('removing a focus area drops only that skill\'s incomplete generated activities', () => {
+    const plan = makePlan();
+    plan.weeks[0].activities.push({
+      type: 'practice', title: 'Practice: Exponents', skillId: 'exponents', duration: 20, day: 'Thursday',
+    });
+    // De-focus commas (keep slope). The never-focused exponents work survives.
+    const next = setFocusAreas(plan, [{ skillId: 'slope', skill: 'Slope', section: 'math' }]);
+    expect(next.weeks[0].activities.find((a) => a.skillId === 'commas')).toBeUndefined();
+    expect(next.weeks[0].activities.find((a) => a.skillId === 'slope')).toBeTruthy();
+    expect(next.weeks[0].activities.find((a) => a.skillId === 'exponents')).toBeTruthy();
+  });
   it('returns the plan unchanged for an empty focus set', () => {
     const plan = makePlan();
     expect(setFocusAreas(plan, [])).toBe(plan);

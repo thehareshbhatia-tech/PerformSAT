@@ -425,14 +425,25 @@ const PerformSAT = () => {
         getQuestionsForSection: topicsMod.getQuestionsForSection,
         getTestById: testsMod.getPracticeTestById,
       });
-      if (q) {
+      // MCQ-only: AssignedPracticeShell has no fill-in input, so a fill-in
+      // test miss would be an unanswerable dead-end that blocks the whole
+      // session from completing (and SM-2 from ever rescheduling it).
+      if (q && Array.isArray(q.choices) && q.choices.length >= 2) {
         questions.push(q);
         if (item.key != null && q.id != null) {
           reviewKeyByQuestionId[q.id] = item.key;
         }
       }
     });
+    if (questions.length === 0) {
+      showToast({
+        type: 'info',
+        message: 'These review items cannot be drilled right now (fill-in and retired questions are skipped).',
+      });
+      return;
+    }
     if (questions.length > 0) {
+      setTrySimilarExhausted(new Set());
       setPracticeState({
         currentQuestionIndex: 0,
         selectedAnswer: null,
@@ -749,6 +760,7 @@ const PerformSAT = () => {
       i === 0 ? { ...r, startedAt: new Date().toISOString() } : r,
     );
 
+    setTrySimilarExhausted(new Set());
     setPracticeState({
       currentQuestionIndex: 0,
       selectedAnswer: null,
@@ -814,6 +826,7 @@ const PerformSAT = () => {
       i === 0 ? { ...r, startedAt: new Date().toISOString() } : r,
     );
 
+    setTrySimilarExhausted(new Set());
     setPracticeState({
       currentQuestionIndex: 0,
       selectedAnswer: null,
@@ -875,6 +888,7 @@ const PerformSAT = () => {
 
     const restored = restoreAnswerStateForQuestion(answers, resolved[idx]);
 
+    setTrySimilarExhausted(new Set());
     setPracticeState({
       currentQuestionIndex: idx,
       selectedAnswer: restored.selectedAnswer,
@@ -1003,11 +1017,22 @@ const PerformSAT = () => {
   const startRetryDrillFromTest = ({ testId, testTitle, snapshotQuestions, originalWrongCount }) => {
     if (!Array.isArray(snapshotQuestions) || snapshotQuestions.length === 0) return;
 
-    const rounds = buildRounds(snapshotQuestions.map(q => q.id), 8);
+    // Raw test ids restart at 1 inside every module (two id-7s in one math
+    // retry is the norm), and the whole session keys answers/eliminations/
+    // rounds by question id — so remint each snapshot question with a unique
+    // position-derived id. Idempotent: the completion screen's "Retry" relaunch
+    // passes already-reminted questions back in.
+    const uniqueQuestions = snapshotQuestions.map((q, i) => {
+      if (typeof q?.id === 'string' && q.id.startsWith('retry::')) return q;
+      return { ...q, id: `retry::${testId}::${q?.moduleIndex ?? 'm'}-${q?.questionIndex ?? i}` };
+    });
+
+    const rounds = buildRounds(uniqueQuestions.map(q => q.id), 8);
     const roundsWithStart = rounds.map((r, i) =>
       i === 0 ? { ...r, startedAt: new Date().toISOString() } : r,
     );
 
+    setTrySimilarExhausted(new Set());
     setPracticeState({
       currentQuestionIndex: 0,
       selectedAnswer: null,
@@ -1016,7 +1041,7 @@ const PerformSAT = () => {
       showRoundComplete: false,
       answers: {},
       isComplete: false,
-      shuffledQuestions: snapshotQuestions,
+      shuffledQuestions: uniqueQuestions,
       rounds: roundsWithStart,
       currentRoundIndex: 0,
       practiceMode: 'assigned',
@@ -1062,7 +1087,14 @@ const PerformSAT = () => {
    * to the detail view. The detail view renders its own loading + error
    * states (already handled by TestReviewDetail).
    */
-  const handleSelectReviewTest = async (testId, { landOn = 'detail' } = {}) => {
+  const handleSelectReviewTest = async (testId, maybeOpts) => {
+    // Callers historically passed (testId, latestAttemptId) — a string or
+    // null in the options slot. Destructuring null throws, which turned a
+    // legacy no-attemptId test card into a silent dead click. Only honor a
+    // real options object.
+    const { landOn = 'detail' } = (maybeOpts && typeof maybeOpts === 'object' && !Array.isArray(maybeOpts))
+      ? maybeOpts
+      : {};
     const { getAllPracticeTests } = await loadPracticeTests();
     const test = getAllPracticeTests().find(t => t.id === testId);
     const lastAttempt = getLatestAttempt(practiceTestResults, testId);
@@ -1212,20 +1244,38 @@ const PerformSAT = () => {
     // and math figures render in the retry drill.
     const enrichFromLive = (snapshotQ, modIdx, qIdx) => {
       if (!snapshotQ) return null;
-      const liveQ = reviewBundle.liveTest?.modules?.[modIdx]?.questions?.[qIdx];
+      // Easy-route attempts saw module2Easy questions in the math-M2 slot
+      // (the final module) — enriching from the standard module there would
+      // attach a foreign diagram/table under an Easy stem.
+      const mathRoute = reviewBundle.attempt?.diagnosticData?.mathRoute;
+      const liveModules = reviewBundle.liveTest?.modules;
+      const liveMod = (mathRoute === 'easy'
+          && reviewBundle.liveTest?.module2Easy
+          && modIdx === (liveModules?.length ?? 0) - 1)
+        ? reviewBundle.liveTest.module2Easy
+        : liveModules?.[modIdx];
+      const liveQ = liveMod?.questions?.[qIdx];
       // The snapshot reshape in loadDiagnosticReportData strips position
       // metadata. Re-attach moduleIndex/questionIndex so the retry-drill
       // header can show "M1·Q3 (originally missed)" instead of the
-      // generic round-position label.
+      // generic round-position label. Tag the drill-contract `section`
+      // ('rw'|'math') from the owning module — without it the calculator
+      // gates and the tutor's R&W mode treat every test-sourced item as math.
+      const modSection = reviewBundle.test?.modules?.[modIdx]?.section
+        ?? liveModules?.[modIdx]?.section ?? null;
       const withPosition = {
         ...snapshotQ,
         moduleIndex: modIdx,
         questionIndex: qIdx,
+        section: modSection === 'reading-writing' ? 'rw' : 'math',
       };
       if (!liveQ) return withPosition;
       return {
         ...withPosition,
         passage: snapshotQ.passage ?? liveQ.passage,
+        passages: snapshotQ.passages ?? liveQ.passages,
+        studentNotes: snapshotQ.studentNotes ?? liveQ.studentNotes,
+        questionContinued: snapshotQ.questionContinued ?? liveQ.questionContinued,
         diagram: snapshotQ.diagram ?? liveQ.diagram,
         questionTable: snapshotQ.questionTable ?? liveQ.questionTable,
         questionFormula: snapshotQ.questionFormula ?? liveQ.questionFormula,
@@ -1342,7 +1392,14 @@ const PerformSAT = () => {
 
     const isAdaptiveOrAssigned = practiceState.practiceMode === 'assigned' || practiceState.practiceMode === 'adaptive';
     const isReviewSession = practiceState.assignmentMeta?.source === 'review-queue';
-    if (user?.uid && isAdaptiveOrAssigned && !isReviewSession && !isCorrect && question?.id != null) {
+    // Only bank-resolvable string ids can be re-served by the daily-review
+    // resolver — numeric topic-file ids and retry::/tq:: synthetics would sit
+    // in the queue as permanently-unresolvable phantoms that inflate the due
+    // count and shrink sessions. Retry (reviewMode) sessions are excluded
+    // outright: their banner promises they won't affect the study plan.
+    const isQueueResolvableId = typeof question?.id === 'string' && !question.id.includes('::');
+    if (user?.uid && isAdaptiveOrAssigned && !isReviewSession && !practiceState.reviewMode
+        && isQueueResolvableId && !isCorrect) {
       // Phase 2: feed production-drill MISSES into the review queue. Stored
       // bank-resolvable (moduleId='bank' + real question id) so spaced repetition
       // can re-serve the exact item. Skip review sessions (the review-complete
@@ -1374,7 +1431,9 @@ const PerformSAT = () => {
           .map(([qid, a]) => ({ key: keyByQ[qid], wasCorrect: !!(a && a.correct) }))
           .filter(it => it.key);
         const reviewSession = buildReviewSession({ reviewItems, userId: user?.uid ?? null });
-        dispatchSessionComplete(reviewSession, { userId: user?.uid ?? null })
+        // serverStreak: the Firestore-hydrated streak seeds the computation so
+        // a fresh device (empty localStorage) can't clobber a longer streak.
+        dispatchSessionComplete(reviewSession, { userId: user?.uid ?? null, serverStreak: reviewStreak ?? null })
           .then(out => {
             const s = out?.summary;
             if (s) {
@@ -1590,13 +1649,19 @@ const PerformSAT = () => {
     }
 
     if (practiceState.currentQuestionIndex < questions.length - 1) {
-      setPracticeState(prev => ({
-        ...prev,
-        currentQuestionIndex: prev.currentQuestionIndex + 1,
-        selectedAnswer: null,
-        showFeedback: false,
-        showHint: false
-      }));
+      setPracticeState(prev => {
+        const nextIndex = prev.currentQuestionIndex + 1;
+        // Restore any answer already recorded for the next question (going
+        // back then clicking Continue must not present an answered question
+        // as blank/re-answerable — re-checking would overwrite the result).
+        const restored = restoreAnswerStateForQuestion(prev.answers, prev.shuffledQuestions[nextIndex]);
+        return {
+          ...prev,
+          currentQuestionIndex: nextIndex,
+          ...restored,
+          showHint: false,
+        };
+      });
     } else {
       const correctCount = Object.values(practiceState.answers).filter(a => a.correct).length;
       // Past-Test-Review retry-drill completion telemetry (Phase 7).
@@ -1629,16 +1694,19 @@ const PerformSAT = () => {
     setPracticeState(prev => {
       const nextRoundIndex = (prev.currentRoundIndex ?? 0) + 1;
       if (!prev.rounds || nextRoundIndex >= prev.rounds.length) return prev;
+      const nextIndex = prev.currentQuestionIndex + 1;
+      // Restore rather than blank: the next round's opener may already be
+      // answered (student navigated ahead, then finished this round).
+      const restored = restoreAnswerStateForQuestion(prev.answers, prev.shuffledQuestions[nextIndex]);
       return {
         ...prev,
-        currentQuestionIndex: prev.currentQuestionIndex + 1,
+        currentQuestionIndex: nextIndex,
         currentRoundIndex: nextRoundIndex,
         showRoundComplete: false,
         rounds: prev.rounds.map((r, i) =>
           i === nextRoundIndex ? { ...r, startedAt: new Date().toISOString() } : r,
         ),
-        selectedAnswer: null,
-        showFeedback: false,
+        ...restored,
         showHint: false,
       };
     });
@@ -1884,8 +1952,10 @@ const PerformSAT = () => {
       {/* Accessibility: Skip to main content link */}
       <a href="#main-content" className="skip-link">Skip to main content</a>
 
-      {/* Cmd/Ctrl+K command palette (owns its own open state + global listener) */}
-      <CommandPalette commands={paletteCommands} />
+      {/* Cmd/Ctrl+K command palette (owns its own open state + global listener).
+          Suppressed during a timed test sitting — a palette command would
+          silently eject the student mid-module with no confirmation. */}
+      {view !== 'takingTest' && <CommandPalette commands={paletteCommands} />}
 
       <AppShell
         currentView={view}
@@ -2232,6 +2302,21 @@ const PerformSAT = () => {
                       questions: [],
                     });
                   }
+                  // Backfill stimulus fields (passage/diagram/table/formula)
+                  // from the live test at the same position — older snapshots
+                  // never persisted them, which left R&W review passage-less
+                  // and math review figure-less. Easy-route attempts saw
+                  // module2Easy in the final (math-M2) slot, so merge from
+                  // the module the student actually took.
+                  const mathRoute = lastAttempt.diagnosticData?.mathRoute;
+                  const liveMod = (mathRoute === 'easy'
+                      && test.module2Easy
+                      && modIdx === (test.modules?.length ?? 0) - 1)
+                    ? test.module2Easy
+                    : test.modules?.[modIdx];
+                  const liveQ = liveMod?.questions?.[
+                    snap.questionIndex ?? moduleMap.get(modIdx).questions.length
+                  ];
                   moduleMap.get(modIdx).questions.push({
                     id: snap.id,
                     type: snap.type,
@@ -2243,6 +2328,13 @@ const PerformSAT = () => {
                     difficulty: snap.difficulty,
                     band: snap.band,
                     skills: snap.skills || [],
+                    passage: snap.passage ?? liveQ?.passage,
+                    passages: snap.passages ?? liveQ?.passages,
+                    studentNotes: snap.studentNotes ?? liveQ?.studentNotes,
+                    questionContinued: snap.questionContinued ?? liveQ?.questionContinued,
+                    diagram: snap.diagram ?? liveQ?.diagram,
+                    questionTable: snap.questionTable ?? liveQ?.questionTable,
+                    questionFormula: snap.questionFormula ?? liveQ?.questionFormula,
                   });
                 });
                 reviewTest = {
@@ -2340,8 +2432,15 @@ const PerformSAT = () => {
                   setViewingResultsData(null);
                 }}
                 onRetake={() => {
+                  // Retake must launch the pristine catalog test — the snapshot
+                  // reconstruction (viewingResultsData.test) has no passages,
+                  // diagrams, or per-module time limits, and may hold the Easy
+                  // M2 variant in the standard slot.
+                  const freshTest = viewingResultsData.liveTest || viewingResultsData.test;
                   setViewingResultsData(null);
-                  setSelectedPracticeTest(viewingResultsData.test);
+                  setSelectedPracticeTest(freshTest);
+                  setIsTestTimed(true);
+                  setInitialTestSection(null);
                   setView('takingTest');
                 }}
                 onReview={() => {
@@ -2407,9 +2506,13 @@ const PerformSAT = () => {
                     setView('studyPlan');
                   }}
                   onBack={() => {
+                    // This mount is only reachable from the dashboard's
+                    // "View full diagnosis" — back returns there, not to the
+                    // study plan it never came from.
                     setViewingResultsData(null);
-                    setView('studyPlan');
+                    setView('dashboard');
                   }}
+                  backLabel="Back to Home"
                 />
               </div>
             </div>
@@ -2729,6 +2832,17 @@ const PerformSAT = () => {
             : (typeof source === 'string' && source.startsWith('practice-bank'))
               ? practiceBankBackHandler
               : studyPlanBackHandler;
+          // Label must match where the handler actually lands — the shell
+          // hardcoding "Back to Study Plan" misled bank and review sessions.
+          const backLabel = practiceState.reviewMode
+            ? 'Back to Review'
+            : (typeof source === 'string' && source.startsWith('practice-bank'))
+              ? 'Back to Practice'
+              : 'Back to Study Plan';
+          // Only Practice-Bank drills persist a resumable session (activeDrill)
+          // — the interstitial's exit button must not promise "resume later"
+          // for study-plan/review sessions that restart from question 1.
+          const sessionResumable = typeof source === 'string' && source.startsWith('practice-bank');
           const headerTitle = isAdaptive
             ? (practiceState.adaptiveDomainLabel ? `Adaptive Practice — ${practiceState.adaptiveDomainLabel}` : 'Adaptive Practice')
             : isAssigned
@@ -2750,6 +2864,8 @@ const PerformSAT = () => {
                 currentQuestion={currentQuestion}
                 headerTitle={headerTitle}
                 onBack={backHandler}
+                backLabel={backLabel}
+                sessionResumable={sessionResumable}
                 onSelectAnswer={handleSelectAnswer}
                 onCheckAnswer={handleCheckAnswer}
                 onNextQuestion={handleNextQuestion}
@@ -2835,6 +2951,7 @@ const PerformSAT = () => {
           const pq = practiceState.shuffledQuestions?.[practiceState.currentQuestionIndex];
           const calcVisible = showCalculator
             && pq?.section !== 'rw'
+            && !pq?.passage // belt-and-suspenders: only R&W items carry a passage
             && !practiceState.showRoundComplete
             && !practiceState.isComplete;
           return <DesmosCalculator isOpen={calcVisible} onClose={() => setShowCalculator(false)} />;

@@ -749,6 +749,10 @@ export const runDiagnostic = (test, answers, diagnosticData, skillProgress = {},
           domain,
           satPattern,
           timeSpent: tSpent,
+          // Additive: position-bias analysis needs the picked letter on
+          // CORRECT answers too — counting only wrong-answer letters against
+          // an all-answers denominator fabricated a bias for every student.
+          userAnswer,
           ...behaviorEvidence,
         });
       } else {
@@ -2070,6 +2074,11 @@ const analyzeAnswerPatterns = (questionAnalysis, diagnosticData) => {
   let changedToWrong = 0;
   let totalChanged = 0;
   let totalAnswered = 0;
+  // Denominator for position bias: only entries with an A-D letter answer
+  // count. Fill-ins (numeric answers) and legacy correct-answer records
+  // without a userAnswer would otherwise deflate every letter's share and
+  // fabricate a "systematic bias" warning.
+  let letterAnswered = 0;
 
   questionAnalysis.forEach((q, idx) => {
     if (q.isUnanswered) return;
@@ -2079,6 +2088,7 @@ const analyzeAnswerPatterns = (questionAnalysis, diagnosticData) => {
     const choiceIds = ['A', 'B', 'C', 'D'];
     const answerIdx = choiceIds.indexOf(q.userAnswer?.toUpperCase?.());
     if (answerIdx >= 0) {
+      letterAnswered++;
       choiceCounts[choiceIds[answerIdx]]++;
       if (q.isCorrect) choiceCorrect[choiceIds[answerIdx]]++;
     }
@@ -2096,11 +2106,14 @@ const analyzeAnswerPatterns = (questionAnalysis, diagnosticData) => {
   const positionBias = Object.entries(choiceCounts).map(([letter, count]) => ({
     letter,
     count,
-    percent: totalAnswered > 0 ? Math.round((count / totalAnswered) * 100) : 0,
-    deviation: totalAnswered > 0 ? Math.round((count / totalAnswered) * 100) - expectedPct : 0,
+    percent: letterAnswered > 0 ? Math.round((count / letterAnswered) * 100) : 0,
+    deviation: letterAnswered > 0 ? Math.round((count / letterAnswered) * 100) - expectedPct : 0,
   })).sort((a, b) => Math.abs(b.deviation) - Math.abs(a.deviation));
 
-  const strongBias = positionBias.find(p => Math.abs(p.deviation) > 15);
+  // Bias means OVER-picking a letter. An under-picked letter is just the
+  // arithmetic complement of the others — warning on any |deviation| flagged
+  // nearly every student.
+  const strongBias = positionBias.find(p => p.deviation > 15);
 
   // First instinct analysis
   const firstInstinctAccuracy = totalChanged > 0

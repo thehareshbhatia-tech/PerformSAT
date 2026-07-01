@@ -40,4 +40,35 @@ describe('generateRecommendations', () => {
     const out = generateRecommendations({ ...base, testDate: '2026-08-22' });
     expect(Array.isArray(out)).toBe(true);
   });
+
+  it('resolves dashed module ids in practiceProgress keys (linear-equations)', () => {
+    // Regression: `key.split('-')` mangled module ids that themselves contain
+    // dashes -> title "Practice: equations-Solving Linear Equations" and a
+    // dead launch (moduleId 'linear' matches no module -> 0 questions).
+    const out = generateRecommendations({
+      ...base,
+      practiceProgress: {
+        'linear-equations-Solving Linear Equations': { bestScore: 2, totalAttempts: 1 },
+      },
+    });
+    const rec = out.find(r => r.type === 'practice');
+    expect(rec).toBeDefined();
+    expect(rec.title).toBe('Practice: Solving Linear Equations');
+    expect(rec.subtitle).toBe('Linear Equations');
+    expect(rec.action.moduleId).toBe('linear-equations');
+    expect(rec.action.sectionName).toBe('Solving Linear Equations');
+  });
+
+  it('keeps the legacy first-dash split for keys with unknown module prefixes', () => {
+    const out = generateRecommendations({
+      ...base,
+      practiceProgress: {
+        'mystery-Some Section': { bestScore: 1, totalAttempts: 2 },
+      },
+    });
+    const rec = out.find(r => r.type === 'practice');
+    expect(rec).toBeDefined();
+    expect(rec.action.moduleId).toBe('mystery');
+    expect(rec.action.sectionName).toBe('Some Section');
+  });
 });

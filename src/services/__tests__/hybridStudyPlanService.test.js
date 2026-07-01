@@ -1,3 +1,27 @@
+// generateAndPersistHybridPlan touches Firestore + the AI cloud function —
+// stub both so only the generation/merge pipeline is under test (per the
+// setupTests convention; CRA jest sets resetMocks:true, so resolved values
+// are installed per-test in beforeEach, not in the factories).
+jest.mock('../../firebase/config', () => ({ db: {} }));
+jest.mock('firebase/firestore', () => ({
+  doc: jest.fn(),
+  getDoc: jest.fn(),
+  updateDoc: jest.fn(),
+  setDoc: jest.fn(),
+  collection: jest.fn(),
+  addDoc: jest.fn(),
+  getDocs: jest.fn(),
+  query: jest.fn(),
+  orderBy: jest.fn(),
+  limit: jest.fn(),
+  serverTimestamp: jest.fn(),
+}));
+jest.mock('../studyPlanService', () => ({ generateStudyPlan: jest.fn() }));
+
+import { getDoc, updateDoc, setDoc, addDoc, serverTimestamp } from 'firebase/firestore';
+import { generateStudyPlan as generateAIPlan } from '../studyPlanService';
+import { generateAndPersistHybridPlan } from '../hybridStudyPlanService';
+import * as generatorModule from '../studyPlanGenerator';
 import {
   buildLongitudinalEvidence,
   computePlanDelta,
@@ -437,5 +461,111 @@ describe('mergeHybridPlan', () => {
     const result = mergeHybridPlan(det);
     expect(result.targetedQuestionIds).toEqual(['bank-off-alg-001']);
     expect(result.practiceAssignments).toHaveLength(1);
+  });
+});
+
+describe('generateAndPersistHybridPlan — longitudinal threading', () => {
+  // Diagnostic fixture matching studyPlanGenerator.firstPlan.test.js.
+  const mkDiag = (over = {}) => ({
+    testId: 'test-2',
+    score: { scaled: 920, isMultiSection: true, sections: { math: 480, rw: 440 }, percentCorrect: 45 },
+    skillAnalysis: {
+      weakSkills: [
+        { skillId: 'exponent-rules', name: 'Exponent Rules', domain: 'advanced-math', section: 'math', testAccuracy: 0, correct: 0, total: 2, primaryErrorType: 'CONCEPTUAL_GAP', missedPatterns: [], modules: ['exponents'], sections: [] },
+        { skillId: 'words-in-context', name: 'Words In Context', domain: 'craft-and-structure', section: 'rw', testAccuracy: 0, correct: 0, total: 6, primaryErrorType: 'CONCEPTUAL_GAP', missedPatterns: [], modules: [], sections: [] },
+      ],
+      strongSkills: [],
+    },
+    prioritizedActions: [],
+    errorPatterns: { totalWrong: 20, counts: {}, dominantPattern: null, summary: [] },
+    difficultyAnalysis: {},
+    timeAnalysis: { fadeEffect: 0 },
+    trendAnalysis: { persistentWeaknesses: [] },
+    scoreProjection: { easyWins: { count: 0, points: 0 } },
+    ...over,
+  });
+
+  // Two completed tests worth of history — enough that the generator's
+  // testsWithData count must exceed 1 (i.e. NOT a first plan).
+  const mkResults = () => ({
+    'test-1': {
+      testId: 'test-1',
+      testTitle: 'Test 1',
+      attempts: [
+        { completedAt: '2026-05-01T00:00:00Z', scaledScore: 900, diagnosticData: { questionDetails: [] } },
+      ],
+    },
+    'test-2': {
+      testId: 'test-2',
+      testTitle: 'Test 2',
+      attempts: [
+        { completedAt: '2026-06-01T00:00:00Z', scaledScore: 920, diagnosticData: { questionDetails: [] } },
+      ],
+    },
+  });
+
+  // A test date 9 weeks out would otherwise allow a ~5-week (max) plan.
+  const farTestDate = new Date(Date.now() + 63 * 24 * 60 * 60 * 1000).toISOString();
+
+  beforeEach(() => {
+    getDoc.mockResolvedValue({ exists: () => true, data: () => ({}) });
+    addDoc.mockResolvedValue({ id: 'artifact-1' });
+    updateDoc.mockResolvedValue(undefined);
+    setDoc.mockResolvedValue(undefined);
+    serverTimestamp.mockReturnValue('server-ts');
+    // AI generation fails — the pipeline must fall back to deterministic-only.
+    generateAIPlan.mockRejectedValue(new Error('AI offline (test)'));
+  });
+
+  test('REGRESSION: with 2+ completed tests the plan is NOT first-plan-capped', async () => {
+    // The service used to drop `longitudinal` when calling the deterministic
+    // generator, so testsWithData was always 1 and EVERY plan (even after
+    // test 5) stayed capped at 2 weeks with the unlock checkpoint.
+    const { artifact } = await generateAndPersistHybridPlan({
+      userId: 'u1',
+      diagnostic: mkDiag(),
+      userProfile: { targetScore: 750, testDate: farTestDate },
+      practiceTestResults: mkResults(),
+    });
+    expect(artifact.plan.weeks.length).toBeGreaterThan(2);
+    const titles = artifact.plan.weeks.flatMap((w) => (w.activities || []).map((a) => a.title));
+    expect(titles).not.toContain('Take Practice Test 2');
+  });
+
+  test('forwards longitudinal + answeredQuestionIds to the deterministic generator', async () => {
+    const spy = jest.spyOn(generatorModule, 'generateStudyPlan');
+    try {
+      await generateAndPersistHybridPlan({
+        userId: 'u1',
+        diagnostic: mkDiag(),
+        userProfile: { targetScore: 750, testDate: farTestDate },
+        practiceTestResults: mkResults(),
+        answeredQuestionIds: ['seen-q-1', 'seen-q-2'],
+      });
+      expect(spy).toHaveBeenCalledTimes(1);
+      const args = spy.mock.calls[0];
+      // 6th param: the longitudinal evidence built from practiceTestResults.
+      expect(args[5]).toEqual(expect.objectContaining({ totalTests: 2 }));
+      // 7th param: answeredQuestionIds passed by the caller.
+      expect(args[6]).toEqual(['seen-q-1', 'seen-q-2']);
+    } finally {
+      spy.mockRestore();
+    }
+  });
+
+  test('backward compatible: callers that omit answeredQuestionIds still generate', async () => {
+    const spy = jest.spyOn(generatorModule, 'generateStudyPlan');
+    try {
+      const { artifact } = await generateAndPersistHybridPlan({
+        userId: 'u1',
+        diagnostic: mkDiag({ testId: 'solo-test' }),
+        userProfile: { targetScore: 750, testDate: farTestDate },
+        practiceTestResults: {},
+      });
+      expect(spy.mock.calls[0][6]).toEqual([]);
+      expect(artifact.plan.weeks.length).toBeGreaterThan(0);
+    } finally {
+      spy.mockRestore();
+    }
   });
 });

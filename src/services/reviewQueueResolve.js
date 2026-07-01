@@ -99,7 +99,19 @@ export const resolveTestReviewItem = (item, getTestById) => {
     : (test.modules?.[modIdx]?.questions || []);
   const q = questions[qIdx];
   if (!q) return null;
-  return { ...q, id: `tq::${testId}::${variant}::${modIdx}-${qIdx}`, sourceTestId: testId };
+  // Tag the drill-contract `section` ('rw'|'math') from the owning module —
+  // test questions don't carry one themselves, and without it the drill
+  // shells offer the calculator on Reading & Writing items and the AI tutor
+  // coaches them with the math prompt.
+  const moduleSection = variant === 'easy'
+    ? 'math'
+    : (test.modules?.[modIdx]?.section === 'reading-writing' ? 'rw' : 'math');
+  return {
+    ...q,
+    id: `tq::${testId}::${variant}::${modIdx}-${qIdx}`,
+    sourceTestId: testId,
+    section: moduleSection,
+  };
 };
 
 /**

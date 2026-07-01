@@ -166,6 +166,12 @@ const AiTutorChat = ({
   // on the existing chat), so it doesn't restructure the shell's layout grid.
   const [isExpanded, setIsExpanded] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  // True for the WHOLE send round-trip. isLoading is cleared on the first
+  // streamed token (so the typing dots hand off to the streaming bubble), which
+  // means it cannot gate re-entry — a second send mid-stream would run two
+  // concurrent streams both writing to "the last assistant message". Every
+  // send entry point checks isLoading || isStreaming.
+  const [isStreaming, setIsStreaming] = useState(false);
   // Active coach mode (null = default tutor). Activates a structured system
   // overlay in chatWithTutor — the modes existed but were never wired.
   const [coachMode, setCoachMode] = useState(null);
@@ -190,6 +196,14 @@ const AiTutorChat = ({
   // Regenerate passes the trimmed history (everything before the last user turn)
   // through this ref so handleSend rebuilds from it instead of its stale closure.
   const regenBaseRef = useRef(null);
+  // The persist effect fires on every streamed-chunk render; saveSession is an
+  // unconditional addDoc. This guard keeps a new conversation from creating a
+  // duplicate session doc per chunk while the first create is still in flight.
+  const sessionCreateInFlightRef = useRef(false);
+  // Aborts the in-flight tutor request when the conversation changes or the
+  // component unmounts — otherwise the fetch keeps running (burning rate limit)
+  // and its callbacks fire against a dead conversation.
+  const abortRef = useRef(null);
   // Fire tutor_opened once per open (reset when closed) — engagement telemetry.
   const openTrackedRef = useRef(false);
   const handleMessagesScroll = (e) => {
@@ -613,11 +627,13 @@ Your goal is to build their problem-solving instincts. Every question they solve
       setMessages([]);
       setInput('');
       setIsLoading(false);
+      setIsStreaming(false);
       setProactiveRec(null);
       setHintDismissed(false);
       setSessionId(null);
       messageCountSinceWrite.current = 0;
       interventionStarted.current = false;
+      sessionCreateInFlightRef.current = false;
 
       if (!userId) {
         // No user — fall back to sessionStorage
@@ -660,7 +676,14 @@ Your goal is to build their problem-solving instincts. Every question they solve
     };
 
     loadSession();
-    return () => { cancelled = true; };
+    return () => {
+      cancelled = true;
+      // Cancel any in-flight tutor request for the conversation being left —
+      // on unmount too. Keeps a stale stream from burning rate limit and from
+      // resolving into a conversation the student is no longer in.
+      abortRef.current?.abort();
+      abortRef.current = null;
+    };
   }, [storageKey, userId, moduleId, lessonId]);
 
   // Load learning memory and recent sessions on mount
@@ -698,17 +721,28 @@ Your goal is to build their problem-solving instincts. Every question they solve
     const persistToFirestore = async () => {
       try {
         if (!sessionId && messages.length >= 1) {
-          // Create new session
-          const newSessionId = await saveSession(userId, {
-            moduleId,
-            lessonId,
-            lessonTitle,
-            context: standalone ? 'standalone' : (isPracticeQuestion ? 'practice' : 'lesson'),
-            messages,
-            topicsDiscussed: practiceContext?.skills || [],
-          });
-          setSessionId(newSessionId);
-          messageCountSinceWrite.current = messages.length;
+          // Create new session — at most one create in flight. Streaming
+          // re-runs this effect per chunk while sessionId is still null, and
+          // each unguarded run would addDoc another duplicate session.
+          if (sessionCreateInFlightRef.current) return;
+          sessionCreateInFlightRef.current = true;
+          try {
+            const newSessionId = await saveSession(userId, {
+              moduleId,
+              lessonId,
+              lessonTitle,
+              context: standalone ? 'standalone' : (isPracticeQuestion ? 'practice' : 'lesson'),
+              messages,
+              topicsDiscussed: practiceContext?.skills || [],
+            });
+            setSessionId(newSessionId);
+            messageCountSinceWrite.current = messages.length;
+          } finally {
+            // Success: setSessionId above lands before any later effect run, so
+            // those runs take the update branch. Failure: clearing lets the
+            // next messages change retry the create.
+            sessionCreateInFlightRef.current = false;
+          }
         } else if (sessionId) {
           // Update existing session (debounced)
           messageCountSinceWrite.current++;
@@ -730,6 +764,22 @@ Your goal is to build their problem-solving instincts. Every question they solve
         flushPendingWrites(userId, sessionId);
       }
     };
+  }, [userId, sessionId]);
+
+  // Best-effort flush when the tab is hidden / closed — a tab close inside the
+  // 30s debounce window would otherwise drop the last exchanges. Mirrors the
+  // bank-drill backstop in App.jsx: Firestore web writes are not guaranteed to
+  // complete on unload, so this is a backstop on top of the unmount flush.
+  // force=true writes the freshest messages immediately and clears the debounce.
+  useEffect(() => {
+    if (!userId || !sessionId) return undefined;
+    const flush = () => {
+      if (document.visibilityState === 'hidden') {
+        updateSessionMessages(userId, sessionId, messagesRef.current, true).catch(() => {});
+      }
+    };
+    document.addEventListener('visibilitychange', flush);
+    return () => document.removeEventListener('visibilitychange', flush);
   }, [userId, sessionId]);
 
   useEffect(() => {
@@ -866,7 +916,7 @@ Your goal is to build their problem-solving instincts. Every question they solve
   // Handle accepting a proactive recommendation
   // Re-ask the last user question and replace the assistant reply.
   const handleRegenerate = () => {
-    if (isLoading) return;
+    if (isLoading || isStreaming) return;
     let i = messages.length - 1;
     while (i >= 0 && messages[i].role !== 'user') i--;
     if (i < 0) return;
@@ -934,7 +984,10 @@ Your goal is to build their problem-solving instincts. Every question they solve
     // overrideText lets a suggestion chip or the error Retry button send
     // directly. Guard against an event object reaching us via onClick={handleSend}.
     const text = (typeof overrideText === 'string' && overrideText.trim() ? overrideText : input).trim();
-    if (!text || isLoading || (now - lastSendTime < RATE_LIMIT_MS)) return;
+    // isStreaming (not just isLoading) blocks re-entry for the whole round-trip:
+    // isLoading clears on the first streamed token, and a second send mid-stream
+    // would run two concurrent streams corrupting the last assistant bubble.
+    if (!text || isLoading || isStreaming || (now - lastSendTime < RATE_LIMIT_MS)) return;
 
     setLastSendTime(now);
     const userMessage = { role: 'user', content: text };
@@ -954,6 +1007,11 @@ Your goal is to build their problem-solving instincts. Every question they solve
     // Reset the auto-grown composer back to one row after sending.
     if (inputRef.current) inputRef.current.style.height = 'auto';
     setIsLoading(true);
+    setIsStreaming(true);
+    // One controller per send; the conversation effect's cleanup aborts it on
+    // unmount / conversation switch so a stale stream can't keep running.
+    const controller = new AbortController();
+    abortRef.current = controller;
 
     try {
       const videoContext = isVideoLesson && videoTranscript ? {
@@ -1089,7 +1147,8 @@ Your goal is to build their problem-solving instincts. Every question they solve
         strategyCtx,
         intelligenceCtx,
         section,
-        onChunk
+        onChunk,
+        controller.signal
       );
       // Pin the final text: updates the streamed bubble, or appends it when the
       // buffered fallback returned everything at once (no chunks streamed).
@@ -1103,6 +1162,9 @@ Your goal is to build their problem-solving instincts. Every question they solve
         return [...prev, { role: 'assistant', content: response }];
       });
     } catch (error) {
+      // A deliberate abort (unmount / conversation switch) is not a failure —
+      // no error bubble, no retry.
+      if (error?.name === 'AbortError') return;
       // Map the underlying failure to an accurate message. The proxy returns
       // 429 "Too many requests..." and 401 "Authentication required"; matching
       // only "rate"/"limit" before meant both showed the misleading
@@ -1126,7 +1188,9 @@ Your goal is to build their problem-solving instincts. Every question they solve
         }
       ]);
     } finally {
+      if (abortRef.current === controller) abortRef.current = null;
       setIsLoading(false);
+      setIsStreaming(false);
     }
   };
 
@@ -1674,10 +1738,10 @@ Your goal is to build their problem-solving instincts. Every question they solve
                       Retry
                     </button>
                   )}
-                  {msg.role === 'assistant' && !msg.isError && msg.content && !(isLoading && idx === messages.length - 1) && (
+                  {msg.role === 'assistant' && !msg.isError && msg.content && !((isLoading || isStreaming) && idx === messages.length - 1) && (
                     <MessageActions
                       text={msg.content}
-                      onRegenerate={idx === messages.length - 1 && !isLoading ? handleRegenerate : undefined}
+                      onRegenerate={idx === messages.length - 1 && !isLoading && !isStreaming ? handleRegenerate : undefined}
                       onFeedback={handleMessageFeedback}
                     />
                   )}
@@ -1720,7 +1784,7 @@ Your goal is to build their problem-solving instincts. Every question they solve
                 </div>
               </div>
             )}
-            {!isLoading && messages.length > 0 && messages[messages.length - 1]?.role === 'assistant' && !messages[messages.length - 1]?.isError && (
+            {!isLoading && !isStreaming && messages.length > 0 && messages[messages.length - 1]?.role === 'assistant' && !messages[messages.length - 1]?.isError && (
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: '4px', marginBottom: '4px', paddingLeft: premiumLearnMode ? '40px' : '0' }}>
                 {getFollowUpPrompts().map((p, i) => (
                   <button
@@ -1892,17 +1956,17 @@ Your goal is to build their problem-solving instincts. Every question they solve
           </div>
           <button
             onClick={handleSend}
-            disabled={!input.trim() || isLoading}
-            aria-label={isLoading ? "Sending message" : "Send message"}
+            disabled={!input.trim() || isLoading || isStreaming}
+            aria-label={isLoading || isStreaming ? "Sending message" : "Send message"}
             style={{
               width: '44px',
               height: '44px',
               borderRadius: '50%',
               border: 'none',
-              background: input.trim() && !isLoading
+              background: input.trim() && !isLoading && !isStreaming
                 ? design.colors.accent.orange
                 : design.colors.surface.secondary,
-              cursor: input.trim() && !isLoading ? 'pointer' : 'default',
+              cursor: input.trim() && !isLoading && !isStreaming ? 'pointer' : 'default',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -1910,7 +1974,7 @@ Your goal is to build their problem-solving instincts. Every question they solve
               flexShrink: 0,
             }}
             onMouseOver={(e) => {
-              if (input.trim() && !isLoading) {
+              if (input.trim() && !isLoading && !isStreaming) {
                 e.currentTarget.style.transform = 'scale(1.05)';
               }
             }}
@@ -1931,14 +1995,14 @@ Your goal is to build their problem-solving instincts. Every question they solve
             >
               <path
                 d="M22 2L11 13"
-                stroke={input.trim() && !isLoading ? 'white' : design.colors.text.tertiary}
+                stroke={input.trim() && !isLoading && !isStreaming ? 'white' : design.colors.text.tertiary}
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
               />
               <path
                 d="M22 2L15 22L11 13L2 9L22 2Z"
-                stroke={input.trim() && !isLoading ? 'white' : design.colors.text.tertiary}
+                stroke={input.trim() && !isLoading && !isStreaming ? 'white' : design.colors.text.tertiary}
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"

@@ -1,15 +1,21 @@
 /**
- * TodaysTasksCard — pure-helper tests.
+ * TodaysTasksCard — pure-helper tests + activity-row wiring render tests.
  *
- * The component itself is a thin presentation layer over `getTodaySlice` +
- * `getSessionAdherence`, both of which are independently tested in their
- * own service-level test files. We test only the pure logic exported from
- * this file (`pickStartableActivity`) here. Visual-state coverage lives in
- * the manual QA list per the eng-review test plan (no @testing-library/
- * react in the codebase yet).
+ * The component is a thin presentation layer over `getTodaySlice` +
+ * `getSessionAdherence`, both independently tested in their own
+ * service-level test files. Pure logic (`pickStartableActivity`) is tested
+ * directly; the CTA wiring for test/review-type rows (which have no
+ * moduleId/skillId route) is covered with react-dom + act mounts per the
+ * StudyPlanDashboard.render.test.jsx convention (no RTL in this repo).
  */
 
-import { pickStartableActivity } from '../TodaysTasksCard';
+// react-dom 18 concurrent act() opt-in (silences the act-environment warning).
+global.IS_REACT_ACT_ENVIRONMENT = true;
+
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import { act as reactAct } from 'react-dom/test-utils';
+import TodaysTasksCard, { pickStartableActivity } from '../TodaysTasksCard';
 
 const act = (overrides = {}) => ({
   type: 'practice',
@@ -58,5 +64,115 @@ describe('pickStartableActivity', () => {
     const a = act({ moduleId: 'real' });
     // null / undefined entries don't crash the find.
     expect(pickStartableActivity([null, undefined, a])).toBe(a);
+  });
+});
+
+describe('ActivityRow wiring — no permanently-disabled Start buttons', () => {
+  function mountCard(props) {
+    const container = document.createElement('div');
+    document.body.appendChild(container);
+    const root = createRoot(container);
+    reactAct(() => {
+      root.render(<TodaysTasksCard {...props} />);
+    });
+    const teardown = () => {
+      reactAct(() => root.unmount());
+      container.remove();
+    };
+    return { container, teardown };
+  }
+
+  const click = (el) => reactAct(() => {
+    el.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+  });
+
+  it('a test-type activity renders an ENABLED button that fires the test callback', () => {
+    // Regression: type:'test' rows (incl. the "Take Practice Test 2" unlock
+    // checkpoint) had no moduleId/skillId route and rendered a dead,
+    // disabled Start button.
+    const onTakeTest = jest.fn();
+    const onStartActivity = jest.fn();
+    const slice = {
+      kind: 'ready',
+      day: 'Saturday',
+      weekNumber: 2,
+      activities: [{
+        type: 'test',
+        activityType: 'practiceTest',
+        title: 'Take Practice Test 2',
+        duration: 134,
+        weekIndex: 1,
+        activityIndex: 0,
+      }],
+      completedToday: [],
+    };
+    const { container, teardown } = mountCard({ slice, onTakeTest, onStartActivity });
+    const btn = Array.from(container.querySelectorAll('button'))
+      .find((b) => /Start test/.test(b.textContent));
+    expect(btn).toBeTruthy();
+    expect(btn.disabled).toBe(false);
+    click(btn);
+    expect(onTakeTest).toHaveBeenCalledTimes(1);
+    expect(onStartActivity).not.toHaveBeenCalled();
+    teardown();
+  });
+
+  it('a review-type activity gets a Mark done button when a completion handler is wired', () => {
+    const onCompleteActivity = jest.fn();
+    const slice = {
+      kind: 'ready',
+      day: 'Wednesday',
+      weekNumber: 1,
+      activities: [{
+        type: 'review',
+        activityType: 'reviewMistakes',
+        title: 'Review Your Missed Questions',
+        duration: 30,
+        weekIndex: 0,
+        activityIndex: 2,
+      }],
+      completedToday: [],
+    };
+    const { container, teardown } = mountCard({ slice, onCompleteActivity });
+    const markDone = Array.from(container.querySelectorAll('button'))
+      .find((b) => /Mark done/.test(b.textContent));
+    expect(markDone).toBeTruthy();
+    click(markDone);
+    expect(onCompleteActivity).toHaveBeenCalledWith(0, 2);
+    // And no disabled Start button is left anywhere on the card.
+    const deadStart = Array.from(container.querySelectorAll('button'))
+      .find((b) => /Start/.test(b.textContent) && b.disabled);
+    expect(deadStart).toBeUndefined();
+    teardown();
+  });
+
+  it('practice rows still route through onStartActivity (unchanged)', () => {
+    const onStartActivity = jest.fn();
+    const onTakeTest = jest.fn();
+    const activity = {
+      type: 'practice',
+      activityType: 'practiceSection',
+      title: 'Practice: Slope',
+      skillId: 'slope-intercept-form',
+      duration: 20,
+      weekIndex: 0,
+      activityIndex: 0,
+    };
+    const slice = {
+      kind: 'ready',
+      day: 'Wednesday',
+      weekNumber: 1,
+      activities: [activity],
+      completedToday: [],
+    };
+    const { container, teardown } = mountCard({ slice, onStartActivity, onTakeTest });
+    const btn = Array.from(container.querySelectorAll('button'))
+      .find((b) => /Start/.test(b.textContent));
+    expect(btn.disabled).toBe(false);
+    click(btn);
+    expect(onStartActivity).toHaveBeenCalledTimes(1);
+    expect(onStartActivity.mock.calls[0][0].skillId).toBe('slope-intercept-form');
+    expect(onTakeTest).not.toHaveBeenCalled();
+    teardown();
   });
 });

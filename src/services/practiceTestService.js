@@ -1,5 +1,5 @@
 import { db } from '../firebase/config';
-import { doc, getDoc, setDoc, updateDoc, serverTimestamp, arrayUnion, collection, addDoc, query, where, orderBy, limit, getDocs, runTransaction } from 'firebase/firestore';
+import { doc, getDoc, setDoc, updateDoc, deleteField, serverTimestamp, arrayUnion, collection, addDoc, query, where, orderBy, limit, getDocs, runTransaction } from 'firebase/firestore';
 import { TEST_REVIEW_MODULE_PREFIX } from './reviewQueueResolve';
 import { clearPendingSavesForTest } from './pendingTestSaveQueue';
 import { pickSurvivingArtifactId } from './studyPlanReset';
@@ -146,19 +146,25 @@ export const recordPracticeTestResult = async (userId, testId, testTitle, result
 
       if (!progressSnap.exists()) {
         console.log('[practiceTestService] Creating new progress document...');
+        // Nested object, NOT a dotted key: set()+merge treats dotted keys as
+        // LITERAL field names (only update() splits dots into field paths), so
+        // the old dotted form created a junk top-level "practiceTestResults.x"
+        // field instead of the nested map every reader expects.
         tx.set(progressRef, {
           userId,
-          [`practiceTestResults.${testId}`]: {
-            testId,
-            testTitle,
-            attempts: [attemptData],
-            bestScaledScore: results.scaledScore ?? 0,
-            bestRawScore: results.rawScore ?? 0,
-            // Scale of the latest attempt, surfaced at row level so the goal
-            // comparison can distinguish a section score from a composite (1.4).
-            isMultiSection: results.isMultiSection ?? false,
-            totalAttempts: 1,
-            lastAttemptAt: serverTimestamp()
+          practiceTestResults: {
+            [testId]: {
+              testId,
+              testTitle,
+              attempts: [attemptData],
+              bestScaledScore: results.scaledScore ?? 0,
+              bestRawScore: results.rawScore ?? 0,
+              // Scale of the latest attempt, surfaced at row level so the goal
+              // comparison can distinguish a section score from a composite (1.4).
+              isMultiSection: results.isMultiSection ?? false,
+              totalAttempts: 1,
+              lastAttemptAt: serverTimestamp()
+            }
           },
           lastUpdated: serverTimestamp()
         }, { merge: true });
@@ -381,9 +387,11 @@ export const saveTestProgress = async (userId, testId, progressData) => {
     }));
 
     if (!progressSnap.exists()) {
+      // Nested object, NOT a dotted key: set()+merge treats dotted keys as
+      // literal field names (only update() splits dots into field paths).
       await setDoc(progressRef, {
         userId,
-        [`inProgressTests.${testId}`]: inProgressData,
+        inProgressTests: { [testId]: inProgressData },
         lastUpdated: serverTimestamp()
       }, { merge: true });
     } else {
@@ -441,7 +449,10 @@ export const clearTestProgress = async (userId, testId) => {
  * subcollection snapshots stay physically present but unreferenced (the same
  * residue deleteAccount leaves) and are never surfaced again.
  *
- * Clears in one read + one write:
+ * Clears in ONE transaction (read-modify-write on the progress doc), using
+ * targeted field paths (deleteField) rather than whole-map rewrites so a
+ * concurrent save of ANY other test (e.g. the boot-time pending-save flush)
+ * can never be clobbered:
  *   1. practiceTestResults[testId] — scores + every attempt for this test
  *   2. inProgressTests[testId]     — resumable mid-test state
  *   3. reviewQueue entries this test seeded — full-test misses are keyed
@@ -471,104 +482,131 @@ export const clearTestProgress = async (userId, testId) => {
  * @returns {Promise<{removedResult: boolean, prunedReviewItems: number, prunedPredictions: number}>}
  */
 export const resetPracticeTest = async (userId, testId) => {
-  const summary = { removedResult: false, prunedReviewItems: 0, prunedPredictions: 0 };
-  if (!userId || !testId) return summary;
+  if (!userId || !testId) return { removedResult: false, prunedReviewItems: 0, prunedPredictions: 0 };
 
   try {
     const progressRef = doc(db, 'progress', userId);
-    const snap = await getDoc(progressRef);
-    if (!snap.exists()) return summary;
 
-    const data = snap.data();
-    const updates = { lastUpdated: serverTimestamp() };
+    // Transactional read-modify-write (mirrors recordPracticeTestResult): the
+    // boot-time pending-save flush or a completion on another device can write
+    // practiceTestResults between a plain read and write. Firestore re-runs
+    // this callback on contention, and the map fields are cleared via targeted
+    // field paths (deleteField) instead of whole-map rewrites, so a reset can
+    // never clobber another test's freshly-saved attempt.
+    const summary = await runTransaction(db, async (tx) => {
+      // Fresh counters every attempt — the callback re-runs on contention.
+      const result = { removedResult: false, prunedReviewItems: 0, prunedPredictions: 0 };
+      const snap = await tx.get(progressRef);
+      if (!snap.exists()) return result;
 
-    // 1. Completed results — the source every visible surface recomputes from.
-    const results = { ...(data.practiceTestResults || {}) };
-    if (Object.prototype.hasOwnProperty.call(results, testId)) {
-      delete results[testId];
-      summary.removedResult = true;
-      updates.practiceTestResults = results;
-    }
+      const data = snap.data();
+      const updates = { lastUpdated: serverTimestamp() };
 
-    // 2. In-progress (resumable) state.
-    const inProgress = { ...(data.inProgressTests || {}) };
-    if (Object.prototype.hasOwnProperty.call(inProgress, testId)) {
-      delete inProgress[testId];
-      updates.inProgressTests = inProgress;
-    }
-
-    // 3. Review-queue items this test seeded (exact attribution via moduleId).
-    const stdMod = `${TEST_REVIEW_MODULE_PREFIX}${testId}::std`;
-    const easyMod = `${TEST_REVIEW_MODULE_PREFIX}${testId}::easy`;
-    const reviewQueue = { ...(data.reviewQueue || {}) };
-    Object.keys(reviewQueue).forEach((key) => {
-      const mod = reviewQueue[key]?.moduleId;
-      if (mod === stdMod || mod === easyMod) {
-        delete reviewQueue[key];
-        summary.prunedReviewItems += 1;
+      // 1. Completed results — the source every visible surface recomputes from.
+      //    `results` (the map minus the reset test) still feeds the fingerprint
+      //    and artifact-survivor checks below.
+      const results = { ...(data.practiceTestResults || {}) };
+      if (Object.prototype.hasOwnProperty.call(results, testId)) {
+        delete results[testId];
+        result.removedResult = true;
+        updates[`practiceTestResults.${testId}`] = deleteField();
       }
-    });
-    if (summary.prunedReviewItems > 0) updates.reviewQueue = reviewQueue;
 
-    // 4. Predictions this test generated.
-    const predictionLog = Array.isArray(data.predictionLog) ? data.predictionLog : [];
-    const remainingPredictions = predictionLog.filter((p) => p?.createdAfterTestId !== testId);
-    if (remainingPredictions.length !== predictionLog.length) {
-      summary.prunedPredictions = predictionLog.length - remainingPredictions.length;
-      updates.predictionLog = remainingPredictions;
-    }
+      // 2. In-progress (resumable) state.
+      if (Object.prototype.hasOwnProperty.call(data.inProgressTests || {}, testId)) {
+        updates[`inProgressTests.${testId}`] = deleteField();
+      }
 
-    // 5. Fingerprint only when this was the last test on the account.
-    if (Object.keys(results).length === 0 && data.studentFingerprint) {
-      updates.studentFingerprint = null;
-    }
-
-    // 6. Re-point the study plan to the newest SURVIVING artifact. The plan is a
-    //    persisted artifact (regenerated only on test completion) whose docs
-    //    can't be deleted client-side, so without this the Study Plan tab keeps
-    //    showing the reset test's weaknesses / "What Changed" banner. Folding the
-    //    pointer move into THIS write means one snapshot (no flash of a stale
-    //    plan); buildLongitudinalEvidence (hydration) keeps the score-history
-    //    strip honest, and the hydration orphan guard covers the no-survivor case.
-    // Guard on the artifact pointer specifically: a legacy root-only studyPlan
-    // (no artifact, no sourceTestId) can't be attributed to a test, so leave it
-    // untouched rather than wipe it on an unrelated reset.
-    if (data.currentStudyPlanArtifactId) {
-      try {
-        // Check the CURRENT artifact directly first. If its source test still
-        // exists (or it's a mini-diagnostic plan, sourceTestId null), keep the
-        // pointer untouched — resetting an unrelated test must not churn the
-        // plan. Reading the doc by id also dodges the top-N window: an old
-        // current artifact that survives is honored even past any query limit.
-        const currentRef = doc(db, 'progress', userId, 'studyPlanArtifacts', data.currentStudyPlanArtifactId);
-        const currentSnap = await getDoc(currentRef);
-        const currentSourceTestId = currentSnap.exists() ? (currentSnap.data()?.linkage?.sourceTestId ?? null) : undefined;
-        const currentSurvives = currentSnap.exists()
-          && (currentSourceTestId == null || Object.prototype.hasOwnProperty.call(results, currentSourceTestId));
-
-        if (!currentSurvives) {
-          // Current plan's source test was reset (or the artifact is gone) —
-          // re-point to the newest SURVIVING artifact, or null when none
-          // survive (the hydration orphan guard then renders the empty state).
-          const artifactsCol = collection(db, 'progress', userId, 'studyPlanArtifacts');
-          const artSnap = await getDocs(query(artifactsCol, orderBy('createdAt', 'desc'), limit(50)));
-          const history = artSnap.docs.map((d) => ({ id: d.id, sourceTestId: d.data()?.linkage?.sourceTestId || null }));
-          updates.currentStudyPlanArtifactId = pickSurvivingArtifactId(history, results);
+      // 3. Review-queue items this test seeded (exact attribution via moduleId).
+      const stdMod = `${TEST_REVIEW_MODULE_PREFIX}${testId}::std`;
+      const easyMod = `${TEST_REVIEW_MODULE_PREFIX}${testId}::easy`;
+      const reviewQueue = data.reviewQueue || {};
+      const prunedKeys = Object.keys(reviewQueue).filter((key) => {
+        const mod = reviewQueue[key]?.moduleId;
+        return mod === stdMod || mod === easyMod;
+      });
+      if (prunedKeys.length > 0) {
+        result.prunedReviewItems = prunedKeys.length;
+        // Targeted per-key deletes when every key is a safe string field path
+        // (update() splits on '.' and rejects ~*/[] outright). Queue keys are
+        // `${moduleId}-${sectionName}-${questionId}` with free-form section
+        // names, so guard rather than assume; the whole-map fallback is still
+        // race-safe here because it derives from THIS transaction's read.
+        if (prunedKeys.every((key) => !/[.~*/[\]]/.test(key))) {
+          prunedKeys.forEach((key) => { updates[`reviewQueue.${key}`] = deleteField(); });
+        } else {
+          const prunedQueue = { ...reviewQueue };
+          prunedKeys.forEach((key) => { delete prunedQueue[key]; });
+          updates.reviewQueue = prunedQueue;
         }
-        // Either way, drop the stale legacy root copy so the pointer (or the
-        // empty state) wins. NOTE: when the current artifact survives we keep
-        // its persisted plan.weaknesses as-is — if a now-reset MIDDLE test
-        // contributed a weakness it may briefly linger on Focus Areas until the
-        // next completed test regenerates the plan. The Score History strip is
-        // always live-correct (buildLongitudinalEvidence at hydration); this
-        // weakness staleness is an accepted, self-healing tradeoff.
-        updates.studyPlan = null;
-      } catch (planErr) {
-        console.warn('[practiceTestService] Study-plan re-point skipped (non-fatal):', planErr.message);
       }
-    }
 
-    await updateDoc(progressRef, updates);
+      // 4. Predictions this test generated (an array — no per-element field
+      //    path exists, so the filtered array is written whole; atomic in-tx).
+      const predictionLog = Array.isArray(data.predictionLog) ? data.predictionLog : [];
+      const remainingPredictions = predictionLog.filter((p) => p?.createdAfterTestId !== testId);
+      if (remainingPredictions.length !== predictionLog.length) {
+        result.prunedPredictions = predictionLog.length - remainingPredictions.length;
+        updates.predictionLog = remainingPredictions;
+      }
+
+      // 5. Fingerprint only when this was the last test on the account.
+      if (Object.keys(results).length === 0 && data.studentFingerprint) {
+        updates.studentFingerprint = null;
+      }
+
+      // 6. Re-point the study plan to the newest SURVIVING artifact. The plan is a
+      //    persisted artifact (regenerated only on test completion) whose docs
+      //    can't be deleted client-side, so without this the Study Plan tab keeps
+      //    showing the reset test's weaknesses / "What Changed" banner. Folding the
+      //    pointer move into THIS write means one snapshot (no flash of a stale
+      //    plan); buildLongitudinalEvidence (hydration) keeps the score-history
+      //    strip honest, and the hydration orphan guard covers the no-survivor case.
+      // Guard on the artifact pointer specifically: a legacy root-only studyPlan
+      // (no artifact, no sourceTestId) can't be attributed to a test, so leave it
+      // untouched rather than wipe it on an unrelated reset.
+      // NOTE: the artifact reads stay PLAIN getDoc/getDocs — the web SDK's
+      // tx.get cannot run queries, and these are read-only inputs to the
+      // pointer choice (same non-transactional semantics as before); the
+      // progress-doc read-modify-write itself is what the transaction protects.
+      if (data.currentStudyPlanArtifactId) {
+        try {
+          // Check the CURRENT artifact directly first. If its source test still
+          // exists (or it's a mini-diagnostic plan, sourceTestId null), keep the
+          // pointer untouched — resetting an unrelated test must not churn the
+          // plan. Reading the doc by id also dodges the top-N window: an old
+          // current artifact that survives is honored even past any query limit.
+          const currentRef = doc(db, 'progress', userId, 'studyPlanArtifacts', data.currentStudyPlanArtifactId);
+          const currentSnap = await getDoc(currentRef);
+          const currentSourceTestId = currentSnap.exists() ? (currentSnap.data()?.linkage?.sourceTestId ?? null) : undefined;
+          const currentSurvives = currentSnap.exists()
+            && (currentSourceTestId == null || Object.prototype.hasOwnProperty.call(results, currentSourceTestId));
+
+          if (!currentSurvives) {
+            // Current plan's source test was reset (or the artifact is gone) —
+            // re-point to the newest SURVIVING artifact, or null when none
+            // survive (the hydration orphan guard then renders the empty state).
+            const artifactsCol = collection(db, 'progress', userId, 'studyPlanArtifacts');
+            const artSnap = await getDocs(query(artifactsCol, orderBy('createdAt', 'desc'), limit(50)));
+            const history = artSnap.docs.map((d) => ({ id: d.id, sourceTestId: d.data()?.linkage?.sourceTestId || null }));
+            updates.currentStudyPlanArtifactId = pickSurvivingArtifactId(history, results);
+          }
+          // Either way, drop the stale legacy root copy so the pointer (or the
+          // empty state) wins. NOTE: when the current artifact survives we keep
+          // its persisted plan.weaknesses as-is — if a now-reset MIDDLE test
+          // contributed a weakness it may briefly linger on Focus Areas until the
+          // next completed test regenerates the plan. The Score History strip is
+          // always live-correct (buildLongitudinalEvidence at hydration); this
+          // weakness staleness is an accepted, self-healing tradeoff.
+          updates.studyPlan = null;
+        } catch (planErr) {
+          console.warn('[practiceTestService] Study-plan re-point skipped (non-fatal):', planErr.message);
+        }
+      }
+
+      tx.update(progressRef, updates);
+      return result;
+    });
 
     // 7. Stop the offline queue from resurrecting the result on next boot.
     clearPendingSavesForTest(userId, testId);

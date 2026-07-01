@@ -272,6 +272,15 @@ const FastWayCard = ({ content, bullets }) => {
   );
 };
 
+// Split a why-wrong bullet into its choice letter (the red chip) + body.
+// Handles both house formats:
+//   "Choice A ($75$): divides the rise by the run."  (June-2026 parenthetical)
+//   "Choice B: misreads the slope."                   (legacy bare colon)
+// `[\s:]+` must NOT consume `(` — eating the parenthetical's open paren left
+// a dangling "75): ..." body (a trailing `\)?` strip can only repair a paren
+// at end-of-string), so the body keeps its parens balanced instead.
+const parseChoiceBullet = (item) => item.match(/^(?:Choice\s+)?([A-D])[\s:]+(.+)$/);
+
 const WhyWrongCard = ({ content, bullets, defaultOpen = false }) => {
   const [open, setOpen] = useState(defaultOpen);
   const items = bullets?.length ? bullets : content ? content.split('\n').filter(l => l.trim()) : [];
@@ -310,7 +319,7 @@ const WhyWrongCard = ({ content, bullets, defaultOpen = false }) => {
       {open && (
         <div style={{ padding: '0 24px 20px' }}>
           {items.map((item, idx) => {
-            const cm = item.match(/^(?:Choice\s+)?([A-D])[\s:(]+(.+?)\)?$/);
+            const cm = parseChoiceBullet(item);
             // Internal trap-classification tags ([TRAP: reversed_operation])
             // ship inside some bank-item bullets — humanize them into a small
             // label instead of leaking raw snake_case at students.
@@ -685,6 +694,6 @@ const SolutionExplanation = ({ explanation, isCorrect }) => {
 
 // Exported for unit tests — the parser is the contract between the authored
 // explanation format and the layered presentation.
-export { parseExplanation };
+export { parseExplanation, parseChoiceBullet };
 
 export default SolutionExplanation;

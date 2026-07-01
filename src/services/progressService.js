@@ -18,15 +18,21 @@ export const markLessonComplete = async (userId, moduleId, lessonId, lessonData)
     const progressSnap = await getDoc(progressRef);
 
     if (!progressSnap.exists()) {
+      // Nested object, NOT a dotted key: set()+merge treats dotted keys as
+      // LITERAL field names (only update() splits dots into field paths), so
+      // the old dotted form created a junk top-level "completedLessons.x-y"
+      // field instead of the nested map every reader expects.
       await setDoc(progressRef, {
         userId,
-        [`completedLessons.${lessonKey}`]: {
-          completed: true,
-          completedAt: serverTimestamp(),
-          moduleId,
-          lessonId,
-          lessonTitle: lessonData.title,
-          lessonType: lessonData.type
+        completedLessons: {
+          [lessonKey]: {
+            completed: true,
+            completedAt: serverTimestamp(),
+            moduleId,
+            lessonId,
+            lessonTitle: lessonData.title,
+            lessonType: lessonData.type
+          }
         },
         lastUpdated: serverTimestamp(),
         totalLessonsCompleted: 1,
@@ -87,7 +93,11 @@ export const markLessonIncomplete = async (userId, moduleId, lessonId) => {
           totalLessonsCompleted: increment(-1)
         };
 
-        await setDoc(progressRef, updateData, { merge: true });
+        // updateDoc, not setDoc+merge: only update() splits the dotted key
+        // into a nested field PATH — set()+merge writes a junk literal
+        // "completedLessons.x-y" top-level field and never flips the real
+        // nested entry. Doc existence is already guarded above.
+        await updateDoc(progressRef, updateData);
       }
     }
   } catch (error) {

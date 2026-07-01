@@ -602,6 +602,13 @@ const TestResults = ({
     const domains = {};
     SAT_MATH_DOMAINS.forEach(d => { domains[d] = { correct: 0, total: 0 }; });
 
+    // Math-domain axis only: R&W items carry R&W skill ids that inferDomain
+    // can't map (they'd all collapse into the 'algebra' fallback bucket), so
+    // R&W modules contribute nothing. All-zero totals keep both render sites'
+    // existing total>0 filters working unchanged.
+    const moduleSection = module.section || (test.section === 'reading-writing' ? 'reading-writing' : 'math');
+    if (moduleSection === 'reading-writing') return domains;
+
     module.questions.forEach((q, qIdx) => {
       const key = `${moduleIndex}-${qIdx}`;
       const userAnswer = answers[key];
@@ -1084,9 +1091,12 @@ const TestResults = ({
           </div>
 
           {/* ── 2D  DOMAIN PERFORMANCE ── */}
+          {/* The content-domain axis covers the four SAT MATH domains only
+              (R&W modules contribute nothing), so on a full SAT the title
+              says so rather than implying whole-test coverage. */}
           {domEntries.length > 0 && (
             <div style={cardBase}>
-              <div style={sectionTitle}>Domain Performance</div>
+              <div style={sectionTitle}>{isMultiSection ? 'Math Domain Performance' : 'Domain Performance'}</div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
                 {domEntries.map(([domain, stats]) => {
                   const pct = stats.total > 0 ? Math.round((stats.correct / stats.total) * 100) : 0;
@@ -1356,29 +1366,32 @@ const TestResults = ({
           <DonutLegend />
         </div>
 
-        {/* Domain Breakdown */}
-        <div className="mod-summary-card">
-          <div>
-            <h3 className="mod-summary-card-title">Accuracy by Content Domain</h3>
-            <div style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', color: 'var(--color-slate-500)', marginTop: '4px' }}>Your performance across the four SAT Math areas</div>
-          </div>
+        {/* Domain Breakdown — math modules only: the content-domain axis is
+            the four SAT MATH domains, so it has nothing to say on an R&W tab. */}
+        {sec !== 'reading-writing' && (
+          <div className="mod-summary-card">
+            <div>
+              <h3 className="mod-summary-card-title">Accuracy by Content Domain</h3>
+              <div style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', color: 'var(--color-slate-500)', marginTop: '4px' }}>Your performance across the four SAT Math areas</div>
+            </div>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginTop: '8px' }}>
-            {/* Stable SAT domain order */}
-            {SAT_MATH_DOMAINS.map(domainId => {
-              const data = domainBreakdown[domainId];
-              if (!data || data.total === 0) return null;
-              return (
-                <DomainBar
-                  key={domainId}
-                  domain={domainId}
-                  correct={data.correct}
-                  total={data.total}
-                />
-              );
-            })}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginTop: '8px' }}>
+              {/* Stable SAT domain order */}
+              {SAT_MATH_DOMAINS.map(domainId => {
+                const data = domainBreakdown[domainId];
+                if (!data || data.total === 0) return null;
+                return (
+                  <DomainBar
+                    key={domainId}
+                    domain={domainId}
+                    correct={data.correct}
+                    total={data.total}
+                  />
+                );
+              })}
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Back to Summary */}
         <div style={{ textAlign: 'center', marginTop: '8px' }}>

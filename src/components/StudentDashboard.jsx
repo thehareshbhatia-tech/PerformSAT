@@ -189,15 +189,19 @@ const StudentDashboard = ({
     // Recompute each row's best from its REAL attempts — the row-level
     // bestScaledScore can be poisoned by a blank/abandoned submission (IRT
     // floor: composite 400), which would feed the Current Score tile, the
-    // projection, and the score-trend chart.
+    // projection, and the score-trend chart. Only attempts on the ROW's scale
+    // count (a row mixing 200-800 section-era attempts with 400-1600
+    // composites must not take its "best" across scales).
     const tests = Object.values(practiceTestResults)
       .map(t => {
-        const scoreable = Array.isArray(t.attempts) ? t.attempts.filter(isScoreableAttempt) : [];
+        const scoreable = Array.isArray(t.attempts)
+          ? t.attempts.filter(a => isScoreableAttempt(a) && !!a.isMultiSection === !!t.isMultiSection)
+          : [];
         if (scoreable.length > 0) {
           return { ...t, bestScaledScore: Math.max(...scoreable.map(a => a.scaledScore)) };
         }
         // No attempts array at all (legacy aggregate-only row): trust the
-        // stored best. Rows whose every attempt is junk are dropped.
+        // stored best. Rows whose every attempt is junk (or off-scale) are dropped.
         return Array.isArray(t.attempts) ? null : t;
       })
       .filter(t => t && t.bestScaledScore)
@@ -428,7 +432,7 @@ const StudentDashboard = ({
       // button: send the student to the plan view where the activity's full
       // context (and its Weekly View fallbacks) live.
       showToast({ type: 'info', message: 'No drill set is available for this activity yet — opening your Study Plan.' });
-      setActiveTab('plan');
+      setActiveTab('studyPlan');
     } catch {
       if (activity?.moduleId) onStartPractice(activity.moduleId, activity.sectionName);
     }
@@ -747,15 +751,22 @@ const StudentDashboard = ({
                     <div className="fr-stat-sub">{user?.targetSchools?.[0]?.name || 'From onboarding'}</div>
                   </div>
                 )}
-                {user?.testDate && (
-                  <div className="fr-stat">
-                    <div className="fr-stat-label">Days Until Exam</div>
-                    <div className="fr-stat-num">{daysUntilTest ?? '—'}</div>
-                    <div className="fr-stat-sub">
-                      {parseLocalDate(user.testDate)?.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+                {user?.testDate && (() => {
+                  // Past test date: mirror the main dashboard tile — never
+                  // render a raw negative day count.
+                  const frTestDateIsPast = daysUntilTest !== null && daysUntilTest < 0;
+                  return (
+                    <div className="fr-stat">
+                      <div className="fr-stat-label">{frTestDateIsPast ? 'Test Date' : 'Days Until Exam'}</div>
+                      <div className="fr-stat-num">{frTestDateIsPast ? '—' : (daysUntilTest ?? '—')}</div>
+                      <div className="fr-stat-sub">
+                        {frTestDateIsPast
+                          ? `Was ${Math.abs(daysUntilTest)} days ago — update in settings`
+                          : parseLocalDate(user.testDate)?.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+                      </div>
                     </div>
-                  </div>
-                )}
+                  );
+                })()}
               </div>
             )}
           </div>

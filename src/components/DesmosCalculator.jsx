@@ -17,6 +17,9 @@ const DesmosCalculator = ({ isOpen, onClose }) => {
   const [isDragging, setIsDragging] = useState(false);
   const [calcMode, setCalcMode] = useState('graphing'); // 'graphing' or 'scientific'
   const [isMinimized, setIsMinimized] = useState(false);
+  // True after the Desmos script fails to load; Retry flips it back to false,
+  // which re-runs the init effect and re-attempts the load.
+  const [scriptError, setScriptError] = useState(false);
 
   const CALC_WIDTH = 560;
   const CALC_HEIGHT = 500;
@@ -69,9 +72,12 @@ const DesmosCalculator = ({ isOpen, onClose }) => {
     };
   }, [isDragging]);
 
-  // Initialize/switch calculator
+  // Initialize/switch calculator. isMinimized is deliberately NOT a dep and
+  // the container stays mounted (display:none) while minimized — minimizing
+  // used to unmount the container AND run this effect's destroy() cleanup,
+  // wiping the student's graphs/expressions on every minimize.
   useEffect(() => {
-    if (isOpen && containerRef.current && !isMinimized) {
+    if (isOpen && containerRef.current && !scriptError) {
       // Destroy existing calculator if switching modes
       if (calculatorRef.current) {
         calculatorRef.current.destroy();
@@ -114,6 +120,12 @@ const DesmosCalculator = ({ isOpen, onClose }) => {
         script.src = 'https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6';
         script.async = true;
         script.onload = initCalculator;
+        script.onerror = () => {
+          // Offline/blocked CDN: surface a retryable error instead of a
+          // permanent white panel. Remove the dead tag so Retry re-fetches.
+          script.remove();
+          setScriptError(true);
+        };
         document.head.appendChild(script);
       } else {
         initCalculator();
@@ -126,7 +138,18 @@ const DesmosCalculator = ({ isOpen, onClose }) => {
         calculatorRef.current = null;
       }
     };
-  }, [isOpen, calcMode, isMinimized]);
+  }, [isOpen, calcMode, scriptError]);
+
+  // Un-minimizing restores the container's real size; nudge Desmos to
+  // re-measure (autosize covers live resizes, but a display:none → visible
+  // flip doesn't reliably emit one).
+  useEffect(() => {
+    if (!isMinimized && calculatorRef.current && typeof calculatorRef.current.resize === 'function') {
+      calculatorRef.current.resize();
+    }
+  }, [isMinimized]);
+
+  const handleRetryScriptLoad = () => setScriptError(false);
 
   if (!isOpen) return null;
 
@@ -275,17 +298,39 @@ const DesmosCalculator = ({ isOpen, onClose }) => {
         </div>
       </div>
 
-      {/* Calculator Container */}
-      {!isMinimized && (
-        <div
-          ref={containerRef}
-          style={{
-            flex: 1,
-            width: '100%',
-            minHeight: isMobileCalc ? 'auto' : CALC_HEIGHT - 50
-          }}
-        />
+      {/* Script-load failure state (retryable) */}
+      {scriptError && !isMinimized && (
+        <div style={{
+          flex: 1,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: '12px',
+          padding: '24px',
+          textAlign: 'center'
+        }}>
+          <span style={{ fontSize: '13px', color: colors.text.secondary }}>
+            The calculator failed to load. Check your connection and try again.
+          </span>
+          <button onClick={handleRetryScriptLoad} style={modeButtonStyle(true)}>
+            Retry
+          </button>
+        </div>
       )}
+
+      {/* Calculator Container — stays MOUNTED while minimized (hidden via
+          display) so the Desmos instance, and the student's work, survive
+          minimize/expand. */}
+      <div
+        ref={containerRef}
+        style={{
+          flex: 1,
+          width: '100%',
+          minHeight: isMobileCalc ? 'auto' : CALC_HEIGHT - 50,
+          display: (isMinimized || scriptError) ? 'none' : undefined
+        }}
+      />
     </div>
     </>
   );

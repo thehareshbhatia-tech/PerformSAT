@@ -148,7 +148,7 @@ describe('dispatchSessionComplete — daily review', () => {
 
     expect(buildSessionSummary).toHaveBeenCalledWith([
       { wasCorrect: true }, { wasCorrect: false }, { wasCorrect: true },
-    ]);
+    ], null); // no hydrated serverStreak passed -> null seed
     expect(trackReviewSessionDone).toHaveBeenCalledWith('u1', 3, 67, 4);
 
     // review never runs the prediction pipeline
@@ -168,8 +168,14 @@ describe('dispatchSessionComplete — daily review', () => {
     expect(out.review).toBe(false);
     expect(out.skippedReason).toBe('no-items');
     expect(updateReviewItem).not.toHaveBeenCalled();
-    expect(buildSessionSummary).toHaveBeenCalledWith([]); // still bumps streak (review attempted)
+    expect(buildSessionSummary).toHaveBeenCalledWith([], null); // still bumps streak (review attempted)
     expect(trackReviewSessionDone).toHaveBeenCalled();
+  });
+
+  test('threads deps.serverStreak into the streak computation (second-device guard)', async () => {
+    const serverStreak = { current: 9, best: 11, lastDate: '2026-06-14' };
+    await dispatchSessionComplete(reviewSession(), { serverStreak });
+    expect(buildSessionSummary).toHaveBeenCalledWith(expect.any(Array), serverStreak);
   });
 
   test('a reschedule failure does not block streak/analytics', async () => {

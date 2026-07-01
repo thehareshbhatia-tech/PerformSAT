@@ -40,7 +40,7 @@ const C = {
 // ── Sidebar: persistent question list (Acely-style left pane) ──────────
 // One row per question. Status icon + 2-line stem preview. Current row
 // gets an orange highlight; answered rows get green ✓ or red ✗.
-function QuestionSidebar({ questions, currentIndex, answers, onNavigate, onBack, headerTitle, drillPatternLabel, answeredCount, total }) {
+function QuestionSidebar({ questions, currentIndex, answers, onNavigate, onBack, backLabel, headerTitle, drillPatternLabel, answeredCount, total }) {
   const pct = total > 0 ? Math.round((answeredCount / total) * 100) : 0;
   return (
     <aside className="aps-sidebar">
@@ -49,7 +49,7 @@ function QuestionSidebar({ questions, currentIndex, answers, onNavigate, onBack,
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
             <path d="m15 18-6-6 6-6"/>
           </svg>
-          Back to Study Plan
+          {backLabel || 'Back to Study Plan'}
         </button>
 
         <div className="aps-sidebar-title">{drillPatternLabel || headerTitle}</div>
@@ -160,6 +160,8 @@ const AssignedPracticeShell = ({
   currentQuestion,
   headerTitle,
   onBack,
+  backLabel = 'Back to Study Plan',
+  sessionResumable = false,
   onSelectAnswer,
   onCheckAnswer,
   onNextQuestion,
@@ -414,7 +416,9 @@ const AssignedPracticeShell = ({
             className="aps-interstitial-secondary"
             onClick={() => onBack && onBack()}
           >
-            Pause and resume later
+            {sessionResumable
+              ? 'Pause and resume later'
+              : 'Exit drill — progress won\'t be saved'}
           </button>
         </div>
       </div>
@@ -446,7 +450,7 @@ const AssignedPracticeShell = ({
           color: C.brand, cursor: 'pointer', display: 'flex', alignItems: 'center',
           gap: '6px', marginBottom: '48px', fontWeight: '500',
         }}>
-          ← Back to Study Plan
+          ← {backLabel}
         </button>
 
         {/* Score circle */}
@@ -547,7 +551,7 @@ const AssignedPracticeShell = ({
             padding: '14px 28px', borderRadius: '12px', border: 'none',
             background: C.brand, color: C.white, fontSize: '15px', fontWeight: '600', cursor: 'pointer',
           }}>
-            {practiceState.reviewMode ? 'Back to Review' : 'Back to Study Plan'}
+            {backLabel}
           </button>
         </div>
       </div>
@@ -577,6 +581,7 @@ const AssignedPracticeShell = ({
         answers={practiceState.answers}
         onNavigate={handleNavigate}
         onBack={onBack}
+        backLabel={backLabel}
         headerTitle={headerTitle}
         drillPatternLabel={drillPatternLabel}
         answeredCount={answeredCount}
@@ -630,8 +635,10 @@ const AssignedPracticeShell = ({
                 )}
                 <HandAuthoredStamp />
                 {/* Calculator is a Math-only tool — the digital SAT does not
-                    offer it on Reading & Writing. Hide it for R&W items. */}
-                {currentQuestion?.section !== 'rw' && (
+                    offer it on Reading & Writing. Hide it for R&W items.
+                    Passage presence is the fallback signal for test-sourced
+                    items whose resolver didn't tag `section`. */}
+                {currentQuestion?.section !== 'rw' && !currentQuestion?.passage && (
                   <button
                     onClick={onToggleCalculator}
                     className={`aps-tool-btn ${showCalculator ? 'is-active' : ''}`}
@@ -1038,7 +1045,7 @@ const AssignedPracticeShell = ({
             userAnswer: practiceState.showFeedback ? tutorRecordedAnswer?.selected : undefined,
             skills: currentQuestion?.skills || (currentQuestion?.skill ? [currentQuestion.skill] : []),
             // R&W stimulus + classification (undefined for math items → tutor stays math)
-            section: currentQuestion?.section || 'math',
+            section: currentQuestion?.section || (currentQuestion?.passage ? 'rw' : 'math'),
             domain: currentQuestion?.domain,
             passage: currentQuestion?.passage,
             passages: currentQuestion?.passages,

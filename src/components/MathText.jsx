@@ -83,8 +83,16 @@ export const MathText = ({ children, text, className = '', style = {} }) => {
     // "$0.30 \times 80$" is not mis-grabbed as "$0.30" currency (which would
     // leave the closing $ unpaired and crash the whole segment). An odd count
     // means one $ really is stray currency, so detection still runs.
+    // The LaTeX signal must read the ORIGINAL input, not `result`: Step 0 has
+    // already eaten the backslash of every escaped \$, and \% has no letter,
+    // so a line whose only commands are \% (or whose only backslash was \$
+    // currency) would test command-free here and get a math opener like
+    // "$1.03 " consumed as currency, garbling the rest of the line. The
+    // escaped-dollar placeholder itself also counts as a signal — a \$ means
+    // the content was authored LaTeX-aware.
     const dollarCount = (result.match(/\$/g) || []).length;
-    const hasLatexCmd = /\\[a-zA-Z]/.test(result);
+    const hasLatexCmd = /\\[a-zA-Z%]/.test(String(inputText)) ||
+      result.includes(ESCAPED_DOLLAR_PLACEHOLDER);
     const balancedMath = dollarCount >= 2 && dollarCount % 2 === 0 && hasLatexCmd;
 
     if (!isMathExpression && !balancedMath) {

@@ -384,6 +384,7 @@ const DiagnosticReport = ({
   onSaveStudyPlan,
   onGoToStudyPlan,
   onBack,
+  backLabel = 'Back to Results',
 }) => {
   const [activeSection, setActiveSection] = useState('overview');
   const [expandedWeek, setExpandedWeek] = useState(1);
@@ -859,13 +860,20 @@ const DiagnosticReport = ({
     // snapshots were computed before the widened heuristic existed, so their
     // stored testHistory can still carry floor-score blank rows. The entries
     // keep rawScore/scaledScore/isMultiSection — enough to re-judge them.
-    const fullHistory = trendAnalysis.testHistory.filter(t => !isBlankAttempt(t));
-    if (fullHistory.length === 0) return null;
+    const nonBlankHistory = trendAnalysis.testHistory.filter(t => !isBlankAttempt(t));
+    if (nonBlankHistory.length === 0) return null;
+    // Single-scale guard (mirrors the engine's own trend-message guard):
+    // history mixes 200-800 section-era attempts with 400-1600 composites, and
+    // one bar series plotting both reads as a score cliff that never happened.
+    // Chart only the entries on the LATEST entry's scale, and keep the
+    // >= 2-entries gate (a one-bar "trend" says nothing).
+    const latestScale = !!nonBlankHistory[nonBlankHistory.length - 1].isMultiSection;
+    const fullHistory = nonBlankHistory.filter(t => !!t.isMultiSection === latestScale);
+    if (fullHistory.length < 2) return null;
     const visibleHistory = fullHistory.slice(-TREND_WINDOW);
     const windowOffset = fullHistory.length - visibleHistory.length;
-    // Scale bars to the window's own range — scores mix 200-800 section-era
-    // attempts with 400-1600 composites, so a hardcoded 800 cap both
-    // overflows composite bars and flattens section-score variation.
+    // Scale bars to the window's own range — a hardcoded 800 cap would
+    // overflow composite bars and flatten section-score variation.
     const maxScore = Math.max(...visibleHistory.map(t => t.scaledScore || 0), 1);
 
     return (
@@ -938,7 +946,7 @@ const DiagnosticReport = ({
           onMouseEnter={(e) => e.target.style.color = colors.text.primary}
           onMouseLeave={(e) => e.target.style.color = colors.text.secondary}
           >
-            <ArrowLeftIcon size={16} /> Back to Results
+            <ArrowLeftIcon size={16} /> {backLabel}
           </button>
         )}
 

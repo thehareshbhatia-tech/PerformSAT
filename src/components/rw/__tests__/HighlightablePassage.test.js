@@ -1,4 +1,5 @@
-import {
+import { renderToStaticMarkup } from 'react-dom/server';
+import HighlightablePassage, {
   mergeHighlights,
   parsePassageMarkup,
   buildSegments,
@@ -94,5 +95,27 @@ describe('buildSegments', () => {
   it('reconstructs the full plain string across all segments', () => {
     const segs = buildSegments('abcdef', [{ start: 2, end: 4 }], [], false);
     expect(segs.map((s) => s.text).join('')).toBe('abcdef');
+  });
+});
+
+describe('rendered blank keeps DOM text aligned with the plain string', () => {
+  // getCharOffsetWithin walks TEXT nodes only. A childless blank span
+  // contributes no text node, so every selection after a blank landed one
+  // char off per preceding blank. The blank must render exactly ONE text
+  // character (an NBSP) to match the one char parsePassageMarkup emits.
+  it('renders exactly one NBSP inside the blank span', () => {
+    const html = renderToStaticMarkup(
+      <HighlightablePassage text="fill ______ in" highlights={[]} onAddHighlight={() => {}} />
+    );
+    expect(html).toMatch(/<span class="rw-blank" aria-label="blank">\u00A0<\/span>/);
+  });
+
+  it('keeps total rendered text length equal to the plain string length', () => {
+    const raw = 'fill ______ in, then ____ again';
+    const html = renderToStaticMarkup(
+      <HighlightablePassage text={raw} highlights={[]} onAddHighlight={() => {}} />
+    );
+    const domText = html.replace(/<[^>]+>/g, '');
+    expect(domText.length).toBe(parsePassageMarkup(raw).plain.length);
   });
 });

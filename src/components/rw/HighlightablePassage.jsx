@@ -219,7 +219,14 @@ const HighlightablePassage = memo(function HighlightablePassage({
 
   const renderSegment = (s) => {
     if (s.blank) {
-      return <span key={s.key} className="rw-blank" aria-label="blank" />;
+      // Exactly ONE text character inside the blank: parsePassageMarkup maps
+      // the underscore run to one plain-string char, but a childless span
+      // contributes no TEXT node, so getCharOffsetWithin (which walks text
+      // nodes only) undercounted and every selection after a blank landed one
+      // char off per preceding blank. The span is inline-block with a fixed
+      // min-width/height (HighlightablePassage.css), so the invisible NBSP
+      // does not change the drawn blank.
+      return <span key={s.key} className="rw-blank" aria-label="blank">{'\u00A0'}</span>;
     }
     let node = s.text;
     if (s.em) node = <em>{node}</em>;

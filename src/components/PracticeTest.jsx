@@ -797,12 +797,12 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
 
   // Auto-save progress when answers, module, or question changes (debounced to reduce I/O)
   const saveTimerRef = useRef(null);
+  const buildProgressRef = useRef(null);
   useEffect(() => {
     if (testCompleted || reviewMode || !onSaveProgress) return;
     if (Object.keys(answers).length === 0) return;
 
-    clearTimeout(saveTimerRef.current);
-    saveTimerRef.current = setTimeout(() => {
+    const buildProgressData = () => {
       const telemetrySnapshot = {};
       Object.entries(questionTelemetry.current).forEach(([k, v]) => {
         telemetrySnapshot[k] = {
@@ -813,7 +813,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
           markedForReview: v.markedForReview || false,
         };
       });
-      const progressData = {
+      return {
         currentModule,
         currentQuestion,
         answers,
@@ -825,7 +825,14 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
         module2Variant,
         m2VariantManuallySet,
       };
-      onSaveProgress(progressData);
+    };
+    // Freshest builder for the visibility flush below — timeRemaining reads
+    // a ref, so a flush between interactions still captures the live clock.
+    buildProgressRef.current = buildProgressData;
+
+    clearTimeout(saveTimerRef.current);
+    saveTimerRef.current = setTimeout(() => {
+      onSaveProgress(buildProgressData());
     }, 2000);
 
     return () => clearTimeout(saveTimerRef.current);
@@ -837,6 +844,22 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
     window.addEventListener('beforeunload', onBeforeUnload);
     return () => window.removeEventListener('beforeunload', onBeforeUnload);
   }, [testCompleted, reviewMode]);
+
+  // Flush progress the moment the tab hides (refresh/close/app-switch).
+  // The debounced save above only fires on interaction, so without this a
+  // refresh restored the clock to its value at the LAST answer — an
+  // unbounded time refund on a timed module.
+  useEffect(() => {
+    if (testCompleted || reviewMode || !onSaveProgress) return;
+    const flushOnHide = () => {
+      if (document.visibilityState !== 'hidden') return;
+      if (!buildProgressRef.current) return;
+      clearTimeout(saveTimerRef.current);
+      onSaveProgress(buildProgressRef.current());
+    };
+    document.addEventListener('visibilitychange', flushOnHide);
+    return () => document.removeEventListener('visibilitychange', flushOnHide);
+  }, [testCompleted, reviewMode, onSaveProgress]);
 
   // Flush any pending auto-save when test completes
   useEffect(() => {
@@ -970,6 +993,18 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
             difficulty: q.difficulty || null,
             band: q.band ?? null,
             skills: getQuestionSkills(q),
+            // Stimulus fields — without them a snapshot-reconstructed review
+            // shows R&W stems with no passage and math stems with no figure/
+            // table (the readers backfill from the live test for OLD
+            // snapshots, but the snapshot is the ground truth of what the
+            // student actually saw).
+            passage: q.passage ?? null,
+            passages: q.passages ?? null,
+            studentNotes: q.studentNotes ?? null,
+            questionContinued: q.questionContinued ?? null,
+            diagram: q.diagram ?? null,
+            questionTable: q.questionTable ?? null,
+            questionFormula: q.questionFormula ?? null,
             // Section axis ('reading-writing' | 'math') so snapshot-
             // reconstructed tests stay multi-section-aware even if the live
             // catalog changes (the report loader reads snap.section first).
@@ -996,6 +1031,10 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
           mod.questions.forEach((q, qIdx) => {
             const key = `${modIdx}-${qIdx}`;
             if (questionDetails[key]?.isCorrect) return;
+            // MCQ-only: the daily-review drill shell has no fill-in input, so
+            // a fill-in entry could never be served — it would sit due forever
+            // and block its session from completing.
+            if (!Array.isArray(q.choices) || q.choices.length < 2) return;
             missed.push({
               entry: buildTestReviewEntry(test.id, {
                 modIdx,
@@ -1157,6 +1196,9 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
                 practiceProgress,
                 practiceTestResults: practiceTestResults || {},
                 previousPlan: existingPlan,
+                // Without answeredQuestionIds the Phase-2 plan re-assigns
+                // questions the student already answered (Phase 1 passes it).
+                answeredQuestionIds: answeredQuestionIds || [],
                 attemptId: attemptIdRef.current,
                 aiArtifactId: null,
                 groundTruth,
@@ -1325,20 +1367,33 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
 
   const handleToggleEliminate = useCallback((choiceId) => {
     const key = `${currentModuleRef.current}-${currentQuestionRef.current}`;
-    setEliminatedChoices(prev => {
-      const current = prev[key] || [];
-      if (current.includes(choiceId)) {
-        const updated = current.filter(id => id !== choiceId);
-        if (updated.length === 0) {
+    const current = eliminatedChoices[key] || [];
+    if (current.includes(choiceId)) {
+      // Un-eliminate.
+      setEliminatedChoices(prev => {
+        const cur = (prev[key] || []).filter(id => id !== choiceId);
+        if (cur.length === 0) {
           const newState = { ...prev };
           delete newState[key];
           return newState;
         }
-        return { ...prev, [key]: updated };
-      }
-      return { ...prev, [key]: [...current, choiceId] };
-    });
-  }, []);
+        return { ...prev, [key]: cur };
+      });
+      return;
+    }
+    // Bluebook parity: crossing out the currently-selected choice also
+    // deselects it — leaving it recorded would grade a visibly-struck
+    // choice as the student's final answer.
+    if (answers[key] === choiceId) {
+      setAnswers(prev => {
+        if (prev[key] !== choiceId) return prev;
+        const next = { ...prev };
+        delete next[key];
+        return next;
+      });
+    }
+    setEliminatedChoices(prev => ({ ...prev, [key]: [...(prev[key] || []), choiceId] }));
+  }, [eliminatedChoices, answers]);
 
   // Frame-based debounce prevents rapid clicks from overwhelming KaTeX re-renders
   const navDebounceRef = useRef(false);
@@ -1449,6 +1504,16 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
 
   const handleTimeUp = useCallback(() => {
     if (moduleCompletedRef.current) return; // Guard against double-fire with manual submit
+    // Commit a typed-but-unconfirmed fill-in before the module closes —
+    // every manual submit path does this, and on the real SAT whatever is
+    // in the box counts when time expires. Also stamp the final question's
+    // time so pacing telemetry doesn't lose the last dwell.
+    fillInSubmitRef.current?.();
+    const elapsed = (Date.now() - questionStartTime.current) / 1000;
+    if (elapsed > 0 && elapsed < 3600) {
+      const telemetry = getOrCreateTelemetry(currentModuleRef.current, currentQuestionRef.current);
+      telemetry.timeSpent += elapsed;
+    }
     moduleTimeRemaining.current[currentModuleRef.current] = 0;
     setModuleCompleted(true);
   }, []);
@@ -2231,6 +2296,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
                     overflow: 'hidden'
                   }}>
                     <AiTutorChat
+                        key={`review-tutor-${reviewModule}-${reviewQuestion}`}
                         isOpen={true}
                         onClose={() => {}}
                         moduleId={test.id}
@@ -2392,6 +2458,15 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
               setAnswers({});
               setMarkedForReview([]);
               setEliminatedChoices({});
+              // Highlights + timing refs are per-attempt state too — without
+              // these resets the retake shows the prior attempt's highlights
+              // and its telemetry inherits the results-screen dwell time.
+              setHighlightsByKey({});
+              setHighlightsHidden(false);
+              moduleTimeRemaining.current = {};
+              questionStartTime.current = Date.now();
+              prevQuestion.current = { module: 0, question: 0 };
+              visitedQuestions.current = new Set();
               setModuleCompleted(false);
               setTestCompleted(false);
               setResultSaved(false);
@@ -3045,6 +3120,23 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
           </>
         )}
       </div> {/* End test-workspace-right */}
+
+      {/* R&W mobile navigation — the fixed Bluebook bottom bar below is
+          desktop-only, so without this row a phone-width R&W module had no
+          Back/Next/Submit at all: a student could answer all 27 questions
+          and never be able to advance to the next module. */}
+      {isReadingWriting && isMobile && (
+        <div className="test-controls-top" style={{ marginTop: '1.5rem' }}>
+          <button onClick={handlePrev} disabled={currentQuestion === 0} className="bottom-nav-btn" type="button">
+            Back
+          </button>
+          {currentQuestion === questions.length - 1 ? (
+            <button className="bottom-nav-btn is-primary" onClick={handleSubmitModule} type="button">Next</button>
+          ) : (
+            <button className="bottom-nav-btn is-primary" onClick={handleNext} type="button">Next</button>
+          )}
+        </div>
+      )}
 
       {/* Mobile Nav Grid & Legend */}
       {isMobile && (

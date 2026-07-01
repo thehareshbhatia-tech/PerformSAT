@@ -167,6 +167,8 @@ export const buildReviewSession = ({ reviewItems = [], userId = null, completedA
  * @param {Object} [deps.skillProgress]
  * @param {Object} [deps.practiceTestResults]
  * @param {Object[]} [deps.interventionLog]
+ * @param {Object|null} [deps.serverStreak] — hydrated progress.reviewStreak
+ *   (review sessions only; seeds the streak so a fresh device can't clobber it)
  * @returns {Promise<{analytics: boolean, prediction: boolean, skippedReason: string|null}>}
  */
 export const dispatchSessionComplete = async (session, deps = {}) => {
@@ -182,7 +184,7 @@ export const dispatchSessionComplete = async (session, deps = {}) => {
   // review analytics, and return a session summary the UI surfaces. They never
   // run the prediction pipeline.
   if (session.sessionType === 'review') {
-    return dispatchReviewComplete(session, userId);
+    return dispatchReviewComplete(session, userId, deps.serverStreak ?? null);
   }
 
   // ── Subscriber 1: analytics (always, best-effort) ──
@@ -338,9 +340,12 @@ async function resolveInterventionsForTest(userId, diagnosticReport) {
  *
  * @param {Object} session — review session from buildReviewSession
  * @param {string|null} userId
+ * @param {{ current: number, best: number, lastDate: string|null }|null}
+ *   [serverStreak] — the Firestore-hydrated reviewStreak, seeded into the
+ *   streak computation so a fresh device can't clobber a longer server streak.
  * @returns {Promise<{review: boolean, analytics: boolean, summary: object|null, skippedReason: string|null}>}
  */
-async function dispatchReviewComplete(session, userId) {
+async function dispatchReviewComplete(session, userId, serverStreak = null) {
   const outcome = { review: false, analytics: false, summary: null, skippedReason: null };
   const items = Array.isArray(session.reviewItems) ? session.reviewItems.filter(it => it && it.key) : [];
 
@@ -366,7 +371,7 @@ async function dispatchReviewComplete(session, userId) {
   //    (localStorage can't be read by a Cloud Function). Best-effort.
   let summary = null;
   try {
-    summary = buildSessionSummary(items.map(it => ({ wasCorrect: !!it.wasCorrect })));
+    summary = buildSessionSummary(items.map(it => ({ wasCorrect: !!it.wasCorrect })), serverStreak);
     outcome.summary = summary;
     if (userId && summary?.streak) {
       await persistReviewStreak(userId, summary.streak);

@@ -24,7 +24,7 @@ import {
   setFocusAreas,
   setPacing,
 } from '../services/studyPlanEditor';
-import { getTodaySlice } from '../services/selectors/todaySlice';
+import { getTodaySlice, countRemainingTodayTasks } from '../services/selectors/todaySlice';
 import { getIdentityInsights, getPredictionTrust } from '../services/selectors/identityInsights';
 import { getReviewStreak } from '../services/dailyReviewEngine';
 import { formatDailyIntro } from '../services/selectors/dailyIntro';
@@ -369,7 +369,14 @@ const StudyPlanDashboard = ({
   );
   const totalActivities = weeks.reduce((s, w) => s + visibleActivities(w).length, 0);
   const completedActivities = weeks.reduce((s, w) => s + visibleActivities(w).filter(a => a.completed).length, 0);
-  const currentWeekIndex = weeks.findIndex(w => visibleActivities(w).some(a => !a.completed));
+  // Current-week derivation is section-filter-INDEPENDENT on purpose:
+  // mondayForWeek anchors every week's date range on it and the THIS WEEK
+  // chip compares against it, so deriving it from the filtered activity list
+  // let a Math/R&W toggle slide all the week date labels by a week. The
+  // section filter still drives per-week task counts/visibility via
+  // visibleActivities.
+  const currentWeekIndex = weeks.findIndex(w => (w?.activities || [])
+    .some(a => a && a.type !== 'lesson' && !a.skipped && !a.completed));
   const displayCurrentWeek = currentWeekIndex >= 0 ? currentWeekIndex : weeks.length - 1;
 
   // Past-Test-Review CTA gate. Hooks live here (after the empty-state
@@ -511,9 +518,10 @@ const StudyPlanDashboard = ({
   );
 
   // Tab count badges — 'Today's Tasks (N) / Weekly View (N)' matches the
-  // Acely reference exactly.
-  const todaysTasksCount = (todaySlice && Array.isArray(todaySlice.activities))
-    ? todaySlice.activities.length : 0;
+  // Acely reference exactly. countRemainingTodayTasks re-derives from the
+  // slice KIND — in 'all-done' the activities array holds the COMPLETED
+  // list, so a naive .length badge kept nagging "(3)" after finishing.
+  const todaysTasksCount = countRemainingTodayTasks(todaySlice);
   const weeklyViewCount = totalActivities - completedActivities;
 
   // Coming-up preview for the Today's Tasks tab — when today is a rest-day
@@ -950,7 +958,11 @@ const StudyPlanDashboard = ({
   const visibleModules = showAllFocus ? modules : modules.slice(0, 3);
 
   const todayLongDate = new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
-  const ymPrefix = new Date().toISOString().slice(0, 7);
+  // practicedDayKeys are LOCAL-time day keys, so the month prefix must come
+  // from local date parts — a UTC prefix (toISOString) undercounts on the
+  // last evening of each month in US timezones.
+  const nowLocal = new Date();
+  const ymPrefix = `${nowLocal.getFullYear()}-${String(nowLocal.getMonth() + 1).padStart(2, '0')}`;
   const practicedThisMonth = Array.from(practicedDayKeys || []).filter(
     (k) => typeof k === 'string' && k.startsWith(ymPrefix)
   ).length;
