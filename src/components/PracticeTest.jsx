@@ -528,7 +528,7 @@ const renderChoice = (choice) => {
   return <MathText text={choice.text} />;
 };
 
-const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplete, onSaveProgress, onClearProgress, onSaveStudyPlan, onGoToStudyPlan, savedProgress, isTimed = true, skillProgress = null, user = null, practiceTestResults = null, completedLessons = {}, practiceProgress = {}, onStartPractice, answeredQuestionIds = [], initialReviewModule = null, reviewSnapshotMissing = false, reviewAttemptId = null, initialSection = null, resultSaveStatus = null, onRetrySave = null }) => {
+const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplete, onSaveProgress, onClearProgress, onSaveStudyPlan, onGoToStudyPlan, savedProgress, isTimed = true, skillProgress = null, user = null, practiceTestResults = null, completedLessons = {}, practiceProgress = {}, onStartPractice, answeredQuestionIds = [], initialReviewModule = null, reviewSnapshotMissing = false, reviewAttemptId = null, initialSection = null, resultSaveStatus = null, onRetrySave = null, tutorLocked = false, onSubscribe = null }) => {
   const [currentModule, setCurrentModule] = useState(
     pickInitialModuleIndex(test, savedProgress, initialSection)
   );
@@ -2285,8 +2285,40 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
                   </div>
                 ) : null}
 
-                {/* AI Tutor Chat */}
-                {(!isMobile && (reviewRightPane === 'ai' || reviewRightPane === 'both')) || (isMobile && reviewTab === 'ai') ? (
+                {/* AI Tutor Chat. Review stays read-only post-trial, but the
+                    tutor burns tokens — locked accounts get a subscribe note
+                    instead (the server enforces the same rule with a 402). */}
+                {((!isMobile && (reviewRightPane === 'ai' || reviewRightPane === 'both')) || (isMobile && reviewTab === 'ai')) && tutorLocked ? (
+                  <div style={{
+                    flex: 1, display: 'flex', flexDirection: 'column',
+                    alignItems: 'center', justifyContent: 'center', gap: '12px',
+                    background: '#ffffff',
+                    borderRadius: isMobile ? 0 : '20px',
+                    border: isMobile ? 'none' : '1px solid rgba(0,0,0,0.06)',
+                    padding: '32px 24px', textAlign: 'center',
+                  }}>
+                    <p style={{ margin: 0, fontWeight: 700, color: colors.text.primary }}>
+                      The AI tutor is a Premium feature
+                    </p>
+                    <p style={{ margin: 0, fontSize: typography.sizes.sm, color: colors.text.muted, maxWidth: '320px' }}>
+                      Subscribe to ask the tutor about any question in this review.
+                    </p>
+                    {onSubscribe && (
+                      <button
+                        type="button"
+                        onClick={onSubscribe}
+                        style={{
+                          border: 'none', borderRadius: '10px', padding: '10px 18px',
+                          background: '#ea580c', color: '#ffffff', fontWeight: 700,
+                          fontSize: typography.sizes.sm, cursor: 'pointer',
+                        }}
+                      >
+                        See plans
+                      </button>
+                    )}
+                  </div>
+                ) : null}
+                {(!isMobile && (reviewRightPane === 'ai' || reviewRightPane === 'both')) || (isMobile && reviewTab === 'ai') ? (!tutorLocked && (
                   <div style={{
                     flex: 1, display: 'flex', flexDirection: 'column',
                     background: 'transparent',
@@ -2337,7 +2369,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
                         standalone={false}
                       />
                   </div>
-                ) : null}
+                )) : null}
               </div>
             )}
           </div>

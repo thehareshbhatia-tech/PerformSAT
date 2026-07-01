@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
 import { useAuth } from '../hooks/useAuth';
+import { useFeatureFlag } from '../hooks/useFeatureFlag';
 import { Modal } from './ui/Modal';
 import Wordmark from './ui/Wordmark';
 import { PencilIcon, MicroscopeIcon, TargetIcon } from '../design/icons';
 import './LandingPage.css';
 
 const LandingPage = () => {
+  // Billing dark-launch: pricing copy flips with the same flag as the app's
+  // paywall so the landing page never promises "free forever" once the
+  // 7-day-trial model is live (and never promises a trial before it exists).
+  const billingLive = useFeatureFlag('billing');
   const [showAuth, setShowAuth] = useState(false);
   const [isLogin, setIsLogin] = useState(false);
   
@@ -91,13 +96,17 @@ const LandingPage = () => {
               </p>
               <div className="hero-actions">
                 <button className="btn-primary" onClick={() => openAuth(false)}>
-                  Get Started for Free
+                  {billingLive ? 'Start Your Free Trial' : 'Get Started for Free'}
                 </button>
                 <button className="btn-secondary" onClick={() => document.getElementById('features').scrollIntoView({ behavior: 'smooth' })}>
                   See What's Inside
                 </button>
               </div>
-              <p className="hero-note">Free during early access — full product, no credit card.</p>
+              <p className="hero-note">
+                {billingLive
+                  ? '7 days free — full product, no credit card to start. Then $50/month or $250/year.'
+                  : 'Free during early access — full product, no credit card.'}
+              </p>
             </div>
             <div className="hero-visual" aria-hidden="true">
               {/* Optional: Insert hero image or video here */}
@@ -196,11 +205,13 @@ const LandingPage = () => {
           <div className="conversion-section">
             <h2 className="conversion-title">Ready to reach your target score?</h2>
             <p className="conversion-subtitle">
-              SEVA is free during early access — the full product, no credit card. Start with a diagnostic test, then follow a study plan built around the skills holding your score back.
+              {billingLive
+                ? 'Try everything free for 7 days — no credit card to start. Take a diagnostic, follow a study plan built around the skills holding your score back, and keep going for $50/month or $250/year.'
+                : 'SEVA is free during early access — the full product, no credit card. Start with a diagnostic test, then follow a study plan built around the skills holding your score back.'}
             </p>
             <div className="conversion-actions">
               <button className="btn-primary" onClick={() => openAuth(false)} style={{ fontSize: '1.125rem', padding: '1rem 2rem' }}>
-                Get Started for Free
+                {billingLive ? 'Start Your Free Trial' : 'Get Started for Free'}
               </button>
             </div>
           </div>

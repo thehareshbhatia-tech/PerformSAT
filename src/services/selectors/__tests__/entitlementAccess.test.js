@@ -1,0 +1,132 @@
+/**
+ * entitlementAccess selector — the client-side access rule. Must stay in
+ * sync with functions/src/stripePolicy.ts (hasAccessMs); the phase strings
+ * here additionally drive the paywall/banner UI.
+ */
+import {
+  deriveEntitlementAccess,
+  toMillisFlexible,
+} from '../entitlementAccess';
+
+const DAY = 86400000;
+const NOW = Date.parse('2026-07-15T12:00:00Z');
+
+describe('toMillisFlexible', () => {
+  it('coerces every stored timestamp shape', () => {
+    expect(toMillisFlexible(NOW)).toBe(NOW);
+    expect(toMillisFlexible({ toMillis: () => NOW })).toBe(NOW);
+    expect(toMillisFlexible({ seconds: NOW / 1000 })).toBe(NOW);
+    expect(toMillisFlexible('2026-07-15T12:00:00Z')).toBe(NOW);
+    expect(toMillisFlexible(new Date(NOW))).toBe(NOW);
+  });
+
+  it('returns null for unusable values, never epoch 0', () => {
+    expect(toMillisFlexible(null)).toBeNull();
+    expect(toMillisFlexible(undefined)).toBeNull();
+    expect(toMillisFlexible('not a date')).toBeNull();
+    expect(toMillisFlexible(NaN)).toBeNull();
+    expect(toMillisFlexible({})).toBeNull();
+  });
+});
+
+describe('deriveEntitlementAccess', () => {
+  it('no doc: locked, phase none', () => {
+    const v = deriveEntitlementAccess(null, NOW);
+    expect(v.hasAccess).toBe(false);
+    expect(v.phase).toBe('none');
+  });
+
+  it('trial running: access with correct days-left ceiling', () => {
+    const v = deriveEntitlementAccess(
+      { status: 'trialing', trialEndsAt: NOW + 2.5 * DAY },
+      NOW,
+    );
+    expect(v.hasAccess).toBe(true);
+    expect(v.phase).toBe('trial');
+    expect(v.trialDaysLeft).toBe(3); // ceil(2.5)
+  });
+
+  it('trial on its last minute still counts as 1 day left', () => {
+    const v = deriveEntitlementAccess(
+      { status: 'trialing', trialEndsAt: NOW + 60000 },
+      NOW,
+    );
+    expect(v.hasAccess).toBe(true);
+    expect(v.trialDaysLeft).toBe(1);
+  });
+
+  it('trial expired: locked, phase expired, zero days left', () => {
+    const v = deriveEntitlementAccess(
+      { status: 'trialing', trialEndsAt: NOW - 1 },
+      NOW,
+    );
+    expect(v.hasAccess).toBe(false);
+    expect(v.phase).toBe('expired');
+    expect(v.trialDaysLeft).toBe(0);
+  });
+
+  it('trialing with no clock at all is locked (never fail-open)', () => {
+    const v = deriveEntitlementAccess({ status: 'trialing' }, NOW);
+    expect(v.hasAccess).toBe(false);
+  });
+
+  it('active subscriber: premium phase with renewal date', () => {
+    const v = deriveEntitlementAccess(
+      {
+        status: 'active',
+        plan: 'monthly',
+        currentPeriodEnd: NOW + 20 * DAY,
+        cancelAtPeriodEnd: false,
+      },
+      NOW,
+    );
+    expect(v.hasAccess).toBe(true);
+    expect(v.phase).toBe('premium');
+    expect(v.plan).toBe('monthly');
+    expect(v.endsAtMs).toBe(NOW + 20 * DAY);
+  });
+
+  it('active but canceling at period end: phase ending, still has access', () => {
+    const v = deriveEntitlementAccess(
+      { status: 'active', cancelAtPeriodEnd: true, currentPeriodEnd: NOW + 5 * DAY },
+      NOW,
+    );
+    expect(v.hasAccess).toBe(true);
+    expect(v.phase).toBe('ending');
+  });
+
+  it('past_due keeps access (dunning grace)', () => {
+    const v = deriveEntitlementAccess({ status: 'past_due' }, NOW);
+    expect(v.hasAccess).toBe(true);
+    expect(v.phase).toBe('grace');
+  });
+
+  it('canceled with future period end: access until it passes', () => {
+    const paid = deriveEntitlementAccess(
+      { status: 'canceled', currentPeriodEnd: NOW + 3 * DAY },
+      NOW,
+    );
+    expect(paid.hasAccess).toBe(true);
+    expect(paid.phase).toBe('ending');
+
+    const done = deriveEntitlementAccess(
+      { status: 'canceled', currentPeriodEnd: NOW - 1 },
+      NOW,
+    );
+    expect(done.hasAccess).toBe(false);
+    expect(done.phase).toBe('expired');
+  });
+
+  it('unknown status is locked', () => {
+    expect(deriveEntitlementAccess({ status: 'mystery' }, NOW).hasAccess).toBe(false);
+  });
+
+  it('handles Firestore Timestamp-shaped fields', () => {
+    const v = deriveEntitlementAccess(
+      { status: 'trialing', trialEndsAt: { toMillis: () => NOW + DAY } },
+      NOW,
+    );
+    expect(v.hasAccess).toBe(true);
+    expect(v.trialDaysLeft).toBe(1);
+  });
+});

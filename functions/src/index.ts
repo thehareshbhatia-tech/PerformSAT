@@ -10,7 +10,7 @@ import {onSchedule} from "firebase-functions/v2/scheduler";
 import {onDocumentUpdated} from "firebase-functions/v2/firestore";
 import * as logger from "firebase-functions/logger";
 import {initializeApp} from "firebase-admin/app";
-import {getAuth, DecodedIdToken} from "firebase-admin/auth";
+import {getAuth} from "firebase-admin/auth";
 import {
   getFirestore,
   FieldValue,
@@ -25,6 +25,19 @@ import {
   daysUntilTest,
   toMillis,
 } from "./reengagementPolicy";
+// Shared endpoint helpers (CORS allowlist, bearer auth, rate limiting) —
+// extracted to shared.ts so billing endpoints (stripe.ts) reuse them without
+// a circular import. Same objects, same behavior.
+import {ALLOWED_ORIGINS, verifyAuth, checkRateLimit, RATE_LIMIT_COLLECTION} from "./shared";
+// SEVA Premium billing (spec 2026-07-01): entitlement bootstrap, hosted
+// Checkout, Customer Portal, webhook sink, and the aiTutor access gate.
+import {
+  ensureEntitlement,
+  createCheckoutSession,
+  createPortalSession,
+  stripeWebhook,
+  hasEntitlementAccess,
+} from "./stripe";
 
 initializeApp();
 const db = getFirestore();
@@ -33,57 +46,7 @@ const anthropicApiKey = defineSecret("ANTHROPIC_API_KEY");
 
 setGlobalOptions({maxInstances: 10});
 
-// Allowed CORS origins — restrict to your production domains. EVERY origin the
-// app is served from MUST be listed here, or authenticated function calls (the
-// AI tutor, AI study-plan generation, etc.) are CORS-blocked by the browser and
-// surface to the user as a generic connection error. The live custom domain is
-// sevaprep.com (apex 308-redirects to www); keep both. Add any new domain here
-// AND redeploy functions when the app's served origin changes.
-const ALLOWED_ORIGINS = [
-  "https://sevaprep.com",
-  "https://www.sevaprep.com",
-  "https://perform-sat.vercel.app",
-  "https://performsat-production.web.app",
-  "https://performsat-production.firebaseapp.com",
-  "https://performsat.com",
-  "https://www.performsat.com",
-  "http://localhost:3000",
-  "http://localhost:3001",
-];
-
-// Auth helper — verifies Firebase ID token from Authorization header
-async function verifyAuth(request: {headers: {authorization?: string}}): Promise<DecodedIdToken | null> {
-  const authHeader = request.headers.authorization;
-  if (!authHeader?.startsWith("Bearer ")) return null;
-  try {
-    return await getAuth().verifyIdToken(authHeader.substring(7));
-  } catch {
-    return null;
-  }
-}
-
-// Simple per-user rate limiter using Firestore
-const RATE_LIMIT_COLLECTION = "_rateLimits";
-async function checkRateLimit(userId: string, endpoint: string, maxPerHour = 60): Promise<boolean> {
-  const key = `${userId}_${endpoint}`;
-  const ref = db.collection(RATE_LIMIT_COLLECTION).doc(key);
-  const now = Date.now();
-  const hourAgo = now - 3600000;
-
-  try {
-    const snap = await ref.get();
-    const data = snap.data();
-    const timestamps: number[] = (data?.timestamps || []).filter((t: number) => t > hourAgo);
-
-    if (timestamps.length >= maxPerHour) return false;
-
-    timestamps.push(now);
-    await ref.set({timestamps, updatedAt: FieldValue.serverTimestamp()});
-    return true;
-  } catch {
-    return true; // Allow on rate limit check failure
-  }
-}
+export {ensureEntitlement, createCheckoutSession, createPortalSession, stripeWebhook};
 
 interface TranscriptSegment {
   start: number;
@@ -254,6 +217,15 @@ export const aiTutor = onRequest(
     // retry trips it fast, and the client then shows a misleading error).
     if (!(await checkRateLimit(user.uid, "aiTutor", 200))) {
       response.status(429).json({error: "Too many requests. Please wait a minute and try again."});
+      return;
+    }
+
+    // SEVA Premium gate — the tutor is the one endpoint with real marginal
+    // cost (Anthropic tokens), so it enforces server-side; client gates are
+    // cosmetic. Accounts with NO entitlement doc are allowed (pre-launch
+    // compatibility — see hasEntitlementAccess).
+    if (!(await hasEntitlementAccess(user.uid))) {
+      response.status(402).json({error: "subscription_required"});
       return;
     }
 
@@ -1889,6 +1861,10 @@ export const deleteAccount = onRequest(
       await db.recursiveDelete(db.collection("progress").doc(uid));
       // 2. users/{uid} (flat today; recursiveDelete is future-proof)
       await db.recursiveDelete(db.collection("users").doc(uid));
+      // 2b. entitlements/{uid} — billing state is user data. The Stripe
+      // customer object itself is retained in Stripe (financial records);
+      // deleting the app-side doc severs the app linkage.
+      await db.recursiveDelete(db.collection("entitlements").doc(uid));
       // 3. _rateLimits docs keyed `${uid}_${endpoint}` — prefix range on doc ID
       const rlSnap = await db.collection(RATE_LIMIT_COLLECTION)
         .where(FieldPath.documentId(), ">=", `${uid}_`)

@@ -1,0 +1,110 @@
+/**
+ * useEntitlement — live view of the student's SEVA Premium entitlement.
+ *
+ * Subscribes to entitlements/{uid} (server-write-only doc) and derives the
+ * access view via deriveEntitlementAccess. When the doc doesn't exist yet it
+ * calls ensureEntitlement once, which stamps the 7-day trial clock
+ * server-side (the client can never write the doc — firestore.rules denies
+ * it — so a devtools user can't extend their own trial).
+ *
+ * FLAG OFF (`billing` / REACT_APP_FF_BILLING): returns a static, permissive
+ * value and makes ZERO reads or function calls — the entire billing system
+ * stays dark until launch.
+ *
+ * While loading (flag on, first snapshot pending): hasAccess is false and
+ * loading is true — gate call sites show a brief pending state rather than
+ * failing open (a fast student could otherwise start a test during boot) or
+ * flashing the paywall.
+ *
+ * @param {object|null} user - the auth user ({uid}) from useAuth
+ * @returns {{loading: boolean, flagEnabled: boolean, hasAccess: boolean,
+ *   phase: string, trialDaysLeft: number, endsAtMs: number|null,
+ *   plan: string|null, cancelAtPeriodEnd: boolean, hasBillingAccount: boolean}}
+ */
+import { useState, useEffect, useRef, useMemo } from 'react';
+import { doc, onSnapshot } from 'firebase/firestore';
+import { db } from '../firebase/config';
+import { useFeatureFlag } from './useFeatureFlag';
+import { deriveEntitlementAccess } from '../services/selectors/entitlementAccess';
+import { ensureEntitlement } from '../services/billingService';
+import { makeLogger } from '../utils/log';
+
+const log = makeLogger('billing');
+
+const FLAG_OFF_VALUE = {
+  loading: false,
+  flagEnabled: false,
+  hasAccess: true,
+  phase: 'flag-off',
+  trialDaysLeft: 0,
+  endsAtMs: null,
+  plan: null,
+  cancelAtPeriodEnd: false,
+  hasBillingAccount: false,
+};
+
+export function useEntitlement(user) {
+  const flagEnabled = useFeatureFlag('billing');
+  const uid = user?.uid || null;
+
+  const [docData, setDocData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  // Re-derive on a slow tick so an expiry mid-session flips the UI without
+  // a reload (the trial clock crosses zero exactly once a week per student —
+  // a 60s tick is plenty).
+  const [nowMs, setNowMs] = useState(() => Date.now());
+  const ensureRequestedRef = useRef(null); // uid we already called ensure for
+
+  useEffect(() => {
+    if (!flagEnabled || !uid) {
+      setDocData(null);
+      setLoading(!!uid && flagEnabled);
+      return undefined;
+    }
+    setLoading(true);
+    const unsubscribe = onSnapshot(
+      doc(db, 'entitlements', uid),
+      (snap) => {
+        setDocData(snap.exists() ? snap.data() : null);
+        setLoading(false);
+        if (!snap.exists() && ensureRequestedRef.current !== uid) {
+          // First session for this account (or pre-launch account's first
+          // post-launch session): stamp the trial server-side, once.
+          ensureRequestedRef.current = uid;
+          ensureEntitlement().catch((err) => {
+            // Allow a retry on the next mount/sign-in rather than wedging
+            // this account in the doc-less state forever.
+            ensureRequestedRef.current = null;
+            log.error('ensureEntitlement failed', err);
+          });
+        }
+      },
+      (err) => {
+        log.error('entitlement subscription failed', err);
+        // Fail closed but not stuck: loading=false with no doc reads as
+        // locked; a reload re-subscribes.
+        setLoading(false);
+      },
+    );
+    return unsubscribe;
+  }, [flagEnabled, uid]);
+
+  useEffect(() => {
+    if (!flagEnabled || !uid) return undefined;
+    const id = setInterval(() => setNowMs(Date.now()), 60000);
+    return () => clearInterval(id);
+  }, [flagEnabled, uid]);
+
+  return useMemo(() => {
+    if (!flagEnabled) return FLAG_OFF_VALUE;
+    const derived = deriveEntitlementAccess(docData, nowMs);
+    return {
+      loading,
+      flagEnabled: true,
+      ...derived,
+      hasBillingAccount: !!docData?.stripeCustomerId,
+    };
+  }, [flagEnabled, docData, loading, nowMs]);
+}
+
+export default useEntitlement;

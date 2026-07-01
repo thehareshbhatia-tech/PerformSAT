@@ -4,6 +4,8 @@ import { useAuth } from './hooks/useAuth';
 import { useProgress } from './hooks/useProgress';
 import { useAnalytics } from './hooks/useAnalytics';
 import { useFeatureFlag } from './hooks/useFeatureFlag';
+import { useEntitlement } from './hooks/useEntitlement';
+import { openBillingPortal } from './services/billingService';
 import {
   dispatchSessionComplete,
   buildFullTestSession,
@@ -95,6 +97,8 @@ const LearnWorkspace = React.lazy(() => import('./components/learn/LearnWorkspac
 const LessonBrowser = React.lazy(() => import('./components/LessonBrowser'));
 const PastTestReviewIndex = React.lazy(() => import('./components/PastTestReview/PastTestReviewIndex'));
 const TestReviewDetail = React.lazy(() => import('./components/PastTestReview/TestReviewDetail'));
+const PaywallScreen = React.lazy(() => import('./components/billing/PaywallScreen'));
+const TrialBanner = React.lazy(() => import('./components/billing/TrialBanner'));
 
 // Direct (non-lazy) import: the drill calculator must open instantly when the
 // student clicks "Calculator" in a practice shell. Lazy-loading it would suspend
@@ -350,6 +354,34 @@ const PerformSAT = () => {
   // separately by the onSessionComplete seam (see dispatchSessionComplete).
   useAnalytics(user?.uid);
 
+  // ── SEVA Premium entitlement (billing spec 2026-07-01) ───────────────────
+  // Dark until REACT_APP_FF_BILLING flips: with the flag off the hook returns
+  // a static permissive value and performs zero reads/calls. With it on, the
+  // 7-day trial clock + subscription state live in the server-write-only
+  // entitlements/{uid} doc.
+  const entitlement = useEntitlement(user);
+  const entitlementStateRef = useRef(entitlement);
+  useEffect(() => { entitlementStateRef.current = entitlement; }, [entitlement]);
+
+  // Single choke-point gate for every practice/test/tutor LAUNCHER. Reads
+  // through a ref so useCallback'd launchers with [] deps stay correct.
+  // Viewers (results, review, diagnosis, dashboard, profile) are never gated
+  // — post-trial access is read-only by design (decision D5).
+  const ensurePracticeAccess = useCallback(() => {
+    const ent = entitlementStateRef.current;
+    if (!ent.flagEnabled || ent.hasAccess) return true;
+    if (ent.loading) {
+      showToast({ type: 'info', message: 'Checking your access — one moment.' });
+      return false;
+    }
+    setView('paywall');
+    return false;
+  }, []);
+
+  // Render-time flavor of the same rule, for locked-state affordances
+  // (test-card CTAs, the standalone tutor view, review-pane tutor note).
+  const billingLocked = entitlement.flagEnabled && !entitlement.loading && !entitlement.hasAccess;
+
   // ── Live plan reprioritization (adaptivity audit item 3) ─────────────────
   // reprioritizePlan used to run ONLY in the post-test save path, so its
   // improved/declined/triage read never moved between tests. It is pure and
@@ -410,6 +442,7 @@ const PerformSAT = () => {
   const startDailyReview = useCallback(async (items) => {
     const reviewItems = items || [];
     if (reviewItems.length === 0) return;
+    if (!ensurePracticeAccess()) return;
     // Queue items resolve against the bank (routing service), the legacy
     // topic files, and the test catalog — load all three corpus slices.
     const [routingMod, topicsMod, testsMod] = await Promise.all([
@@ -482,6 +515,30 @@ const PerformSAT = () => {
         params.delete('next');
         const qs = params.toString();
         window.history.replaceState({}, '', window.location.pathname + (qs ? `?${qs}` : ''));
+      }
+    } catch { /* noop */ }
+  }, []);
+
+  // ── Stripe Checkout return (?checkout=success|canceled) ─────────────────
+  // Hosted Checkout redirects back here. Strip the param (refresh/share must
+  // not re-fire the toast) and acknowledge; the entitlement onSnapshot flips
+  // access live the moment the webhook lands — no polling needed.
+  useEffect(() => {
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const checkout = params.get('checkout');
+      if (!checkout) return;
+      params.delete('checkout');
+      const qs = params.toString();
+      window.history.replaceState({}, '', window.location.pathname + (qs ? `?${qs}` : ''));
+      if (checkout === 'success') {
+        showToast({
+          type: 'success',
+          message: 'Payment received — your Premium access is activating.',
+          duration: 6000,
+        });
+      } else if (checkout === 'canceled') {
+        showToast({ type: 'info', message: 'Checkout canceled — you were not charged.' });
       }
     } catch { /* noop */ }
   }, []);
@@ -610,6 +667,7 @@ const PerformSAT = () => {
   // Re-entry from the dashboard "finish your check-in" card. Students who
   // already answered the wizard (targetScore set) jump straight to the runner.
   const handleResumeOnRamp = () => {
+    if (!ensurePracticeAccess()) return;
     setOnRampStage(user?.targetScore ? 'check-in' : 'wizard');
     setOnRampActive(true);
   };
@@ -727,6 +785,7 @@ const PerformSAT = () => {
 
   // Prescriptive practice - auto-selects difficulty based on performance
   const startPrescriptivePractice = async (moduleId, sectionName) => {
+    if (!ensurePracticeAccess()) return;
     const { getRandomQuestions } = await loadTopicQuestions();
 
     // Get student's performance for this section
@@ -791,6 +850,7 @@ const PerformSAT = () => {
   // difficulty filter, then hand off to the self-contained PacingDrill runner.
   const startPacingDrill = async (config) => {
     if (!config) return;
+    if (!ensurePracticeAccess()) return;
     // Remember where we launched from so onExit can return there. The plan
     // (inline tab or standalone) launches via the embedded Pacing section;
     // everything else falls back to the Dashboard.
@@ -815,6 +875,7 @@ const PerformSAT = () => {
   };
 
   const startAssignedPractice = async (questionIds, meta = {}) => {
+    if (!ensurePracticeAccess()) return;
     const { resolveAssignedQuestions } = await loadPracticeRouting();
     const { resolved } = resolveAssignedQuestions(questionIds);
     if (resolved.length === 0) return;
@@ -858,6 +919,7 @@ const PerformSAT = () => {
   // recorded answer so the student lands exactly where they left off.
   const resumeActiveDrill = async () => {
     if (!activeDrill || !Array.isArray(activeDrill.questionIds) || activeDrill.questionIds.length === 0) return;
+    if (!ensurePracticeAccess()) return;
     const { resolveAssignedQuestions } = await loadPracticeRouting();
     // resolveAssignedQuestions preserves input order and drops only stale ids.
     const { resolved } = resolveAssignedQuestions(activeDrill.questionIds);
@@ -912,6 +974,7 @@ const PerformSAT = () => {
   };
 
   const startAdaptivePractice = async (opts = {}) => {
+    if (!ensurePracticeAccess()) return;
     // Resolve + stash the routing namespace BEFORE any session state exists:
     // handleNextQuestion reads practiceRoutingRef synchronously per answer.
     const routing = await loadPracticeRouting();
@@ -1016,6 +1079,7 @@ const PerformSAT = () => {
    */
   const startRetryDrillFromTest = ({ testId, testTitle, snapshotQuestions, originalWrongCount }) => {
     if (!Array.isArray(snapshotQuestions) || snapshotQuestions.length === 0) return;
+    if (!ensurePracticeAccess()) return;
 
     // Raw test ids restart at 1 inside every module (two id-7s in one math
     // retry is the norm), and the whole session keys answers/eliminations/
@@ -1957,6 +2021,22 @@ const PerformSAT = () => {
           silently eject the student mid-module with no confirmation. */}
       {view !== 'takingTest' && <CommandPalette commands={paletteCommands} />}
 
+      {/* Trial countdown / payment-issue chip. Hidden mid-test and on the
+          wall itself; renders nothing while billing is dark or subscribed. */}
+      {view !== 'takingTest' && view !== 'paywall' && user && (
+        <React.Suspense fallback={null}>
+          <TrialBanner
+            entitlement={entitlement}
+            onSubscribe={() => setView('paywall')}
+            onManageBilling={() => {
+              openBillingPortal().catch((err) => {
+                showToast({ type: 'error', message: err.message || 'Could not open billing.' });
+              });
+            }}
+          />
+        </React.Suspense>
+      )}
+
       <AppShell
         currentView={view}
         onNavigate={(navId) => {
@@ -1978,11 +2058,11 @@ const PerformSAT = () => {
           globally). takingTest is excluded so the test-runner scroll-lock and the
           internal test->results flip (view stays 'takingTest') never animate. */}
       <div id="main-content" key={view} style={{
-        maxWidth: view === 'takingTest' || view === 'reviewingPastResults' || view === 'practice' || view === 'dashboard' || view === 'learn' || view === 'modules' || view === 'practiceBank' ? '100%' : view === 'studyPlan' ? '1220px' : view === 'practiceTests' ? '1040px' : '800px',
+        maxWidth: view === 'takingTest' || view === 'reviewingPastResults' || view === 'practice' || view === 'dashboard' || view === 'learn' || view === 'modules' || view === 'practiceBank' || view === 'paywall' ? '100%' : view === 'studyPlan' ? '1220px' : view === 'practiceTests' ? '1040px' : '800px',
         margin: '0 auto',
         // Study Plan + Practice Tests paint their own warm canvas + framing, so
         // they want a tighter outer gutter than the default 32px content padding.
-        padding: (view === 'dashboard' || view === 'reviewingPastResults' || view === 'practice' || view === 'takingTest' || view === 'learn' || view === 'practiceBank') ? '0' : (view === 'studyPlan' || view === 'practiceTests') ? '20px 20px 80px' : '32px 32px 100px',
+        padding: (view === 'dashboard' || view === 'reviewingPastResults' || view === 'practice' || view === 'takingTest' || view === 'learn' || view === 'practiceBank' || view === 'paywall') ? '0' : (view === 'studyPlan' || view === 'practiceTests') ? '20px 20px 80px' : '32px 32px 100px',
         ...(view === 'takingTest' ? { overflow: 'hidden', height: '100vh' } : { animation: 'fadeInUp 300ms cubic-bezier(0.25, 0.1, 0.25, 1)' })
       }}>
       {/* ONE Suspense boundary for the whole view-switch region: every lazy
@@ -1991,7 +2071,13 @@ const PerformSAT = () => {
           the div above) stays applied while a chunk loads. */}
       <React.Suspense fallback={<ViewChunkFallback />}>
         {/* Standalone AI Tutor View */}
-        {view === 'tutor' && (
+        {view === 'tutor' && billingLocked && (
+          <PaywallScreen
+            entitlement={entitlement}
+            onBack={() => setView('dashboard')}
+          />
+        )}
+        {view === 'tutor' && !billingLocked && (
           <div style={{ maxWidth: '720px', margin: '0 auto' }}>
             <AiTutorChat
               isOpen={true}
@@ -2028,6 +2114,21 @@ const PerformSAT = () => {
             completedLessons={completedLessons}
             practiceTestResults={practiceTestResults}
             skillProgress={skillProgress}
+            entitlement={entitlement}
+            onSubscribe={() => setView('paywall')}
+            onManageBilling={() => {
+              openBillingPortal().catch((err) => {
+                showToast({ type: 'error', message: err.message || 'Could not open billing.' });
+              });
+            }}
+          />
+        )}
+
+        {/* SEVA Premium subscribe wall — every locked launcher routes here */}
+        {view === 'paywall' && (
+          <PaywallScreen
+            entitlement={entitlement}
+            onBack={() => setView('dashboard')}
           />
         )}
 
@@ -2216,6 +2317,7 @@ const PerformSAT = () => {
         {view === 'practiceTests' && (
           <PracticeTestList
             onSelectTest={(test) => {
+              if (!ensurePracticeAccess()) return;
               // Clear any existing progress when starting fresh
               if (hasTestProgress(test.id)) {
                 clearTestProgress(test.id);
@@ -2225,6 +2327,7 @@ const PerformSAT = () => {
               setView('takingTest');
             }}
             onSelectTestWithMode={(test, timed, section) => {
+              if (!ensurePracticeAccess()) return;
               // Clear any existing progress when starting fresh
               if (hasTestProgress(test.id)) {
                 clearTestProgress(test.id);
@@ -2235,6 +2338,7 @@ const PerformSAT = () => {
               setView('takingTest');
             }}
             onResumeTest={(test, timed) => {
+              if (!ensurePracticeAccess()) return;
               // Resume with existing progress. Clear initialTestSection so a
               // stale value from a previous fresh-launch can't override the
               // savedProgress.currentModule on resume.
@@ -2245,6 +2349,8 @@ const PerformSAT = () => {
             }}
             onBack={() => setView('dashboard')}
             user={user}
+            billingLocked={billingLocked}
+            onSubscribe={() => setView('paywall')}
             practiceTestResults={practiceTestResults}
             getTestBestScore={getTestBestScore}
             getTestAttempts={getTestAttempts}
@@ -2432,6 +2538,7 @@ const PerformSAT = () => {
                   setViewingResultsData(null);
                 }}
                 onRetake={() => {
+                  if (!ensurePracticeAccess()) return;
                   // Retake must launch the pristine catalog test — the snapshot
                   // reconstruction (viewingResultsData.test) has no passages,
                   // diagrams, or per-module time limits, and may hold the Easy
@@ -2535,6 +2642,8 @@ const PerformSAT = () => {
             answeredQuestionIds={answeredQuestionIds}
             reviewSnapshotMissing={viewingResultsData.snapshotMissing}
             reviewAttemptId={viewingResultsData.attemptId}
+            tutorLocked={billingLocked}
+            onSubscribe={() => setView('paywall')}
             onBack={() => {
               setView('viewingResults');
             }}

@@ -60,6 +60,8 @@ const PracticeTestList = ({
   onResumeTest,
   onViewResults,
   onResetTest,
+  billingLocked = false,
+  onSubscribe,
 }) => {
   const tests = getAllPracticeTests();
   // One open launch dropdown at a time, keyed by `${testId}:launch`.
@@ -192,6 +194,8 @@ const PracticeTestList = ({
             onResumeTest={onResumeTest}
             onViewResults={onViewResults}
             onRequestReset={onResetTest ? () => setResetTarget({ test, testNum: idx + 1, inProgress: !!inProgressTests?.[test.id] }) : undefined}
+            billingLocked={billingLocked}
+            onSubscribe={onSubscribe}
           />
         ))}
       </div>
@@ -296,6 +300,8 @@ const TestCard = ({
   onResumeTest,
   onViewResults,
   onRequestReset,
+  billingLocked = false,
+  onSubscribe,
 }) => {
   const status = inProgress ? 'progress' : (bestScore != null || attempts > 0) ? 'completed' : 'notstarted';
   const rwMods = test.modules.filter((m) => m.section === 'reading-writing');
@@ -346,9 +352,15 @@ const TestCard = ({
                 Reset
               </button>
             )}
-            <button type="button" className="pt-btn is-primary" onClick={() => onResumeTest && onResumeTest(test, inProgress?.isTimed)}>
-              Continue <ArrowRightIcon size={16} color="currentColor" />
-            </button>
+            {billingLocked ? (
+              <button type="button" className="pt-btn is-outline" onClick={() => onSubscribe && onSubscribe()}>
+                Subscribe to continue
+              </button>
+            ) : (
+              <button type="button" className="pt-btn is-primary" onClick={() => onResumeTest && onResumeTest(test, inProgress?.isTimed)}>
+                Continue <ArrowRightIcon size={16} color="currentColor" />
+              </button>
+            )}
           </div>
         </div>
       </div>
@@ -368,10 +380,16 @@ const TestCard = ({
             <div className="pt-card-meta">Full-length · {totalQ} questions · ~{totalTime} min</div>
           </div>
           <div className="pt-launch" ref={launchOpen ? dropdownRef : null}>
-            <button type="button" className="pt-btn is-outline" onClick={() => setOpenDropdown(launchOpen ? null : dropKey)}>
-              Start test
-            </button>
-            {launchOpen && <LaunchMenu totalTime={totalTime} onPick={launch} />}
+            {billingLocked ? (
+              <button type="button" className="pt-btn is-outline" onClick={() => onSubscribe && onSubscribe()}>
+                Subscribe to unlock
+              </button>
+            ) : (
+              <button type="button" className="pt-btn is-outline" onClick={() => setOpenDropdown(launchOpen ? null : dropKey)}>
+                Start test
+              </button>
+            )}
+            {!billingLocked && launchOpen && <LaunchMenu totalTime={totalTime} onPick={launch} />}
           </div>
         </div>
       </div>

@@ -139,6 +139,9 @@ const Profile = ({
   practiceTestResults = {},
   skillProgress = {},
   allLessonsCount = 205,
+  entitlement = null,
+  onSubscribe = null,
+  onManageBilling = null,
 }) => {
   const [showLogoutConfirm, setShowLogoutConfirm] = useState(false);
   const [photoBusy, setPhotoBusy] = useState(false);
@@ -372,6 +375,52 @@ const Profile = ({
           } />
         </div>
       </div>
+
+      {/* Membership (SEVA Premium) — hidden while billing is dark */}
+      {entitlement?.flagEnabled && (
+        <div style={{ marginBottom: spacing.xl }}>
+          <h2 style={{
+            fontSize: typography.sizes.sm,
+            fontWeight: typography.weights.semibold,
+            color: colors.text.tertiary,
+            textTransform: 'uppercase',
+            letterSpacing: typography.letterSpacing.wider,
+            marginBottom: spacing.md,
+          }}>
+            Membership
+          </h2>
+          <div style={{ ...cardStyles.base, display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: spacing.md, flexWrap: 'wrap' }}>
+            <div>
+              <p style={{ margin: 0, fontSize: typography.sizes.base, fontWeight: typography.weights.semibold, color: colors.text.primary }}>
+                {entitlement.phase === 'premium' && `SEVA Premium — ${entitlement.plan === 'annual' ? 'Annual' : 'Monthly'}`}
+                {entitlement.phase === 'ending' && 'SEVA Premium — ending soon'}
+                {entitlement.phase === 'grace' && 'SEVA Premium — payment issue'}
+                {entitlement.phase === 'trial' && 'Free trial'}
+                {(entitlement.phase === 'expired' || entitlement.phase === 'none') && 'No active plan'}
+                {entitlement.loading && 'Checking your plan…'}
+              </p>
+              <p style={{ margin: `${spacing.xs} 0 0`, fontSize: typography.sizes.sm, color: colors.text.muted }}>
+                {entitlement.phase === 'premium' && entitlement.endsAtMs && `Renews ${new Date(entitlement.endsAtMs).toLocaleDateString(undefined, { month: 'long', day: 'numeric', year: 'numeric' })}`}
+                {entitlement.phase === 'ending' && entitlement.endsAtMs && `Premium until ${new Date(entitlement.endsAtMs).toLocaleDateString(undefined, { month: 'long', day: 'numeric', year: 'numeric' })}`}
+                {entitlement.phase === 'grace' && 'Update your card to keep access.'}
+                {entitlement.phase === 'trial' && `${entitlement.trialDaysLeft} day${entitlement.trialDaysLeft === 1 ? '' : 's'} left — subscribe anytime.`}
+                {(entitlement.phase === 'expired' || entitlement.phase === 'none') && 'Subscribe to unlock tests, drills, and the AI tutor.'}
+              </p>
+            </div>
+            {!entitlement.loading && (
+              entitlement.hasBillingAccount && onManageBilling ? (
+                <Button onClick={onManageBilling} variant="secondary">
+                  Manage billing
+                </Button>
+              ) : onSubscribe ? (
+                <Button onClick={onSubscribe} variant="primary">
+                  Subscribe
+                </Button>
+              ) : null
+            )}
+          </div>
+        </div>
+      )}
 
       {/* Logout */}
       <div style={{ marginTop: spacing['2xl'] }}>

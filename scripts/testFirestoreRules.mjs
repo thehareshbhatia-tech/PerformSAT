@@ -46,6 +46,7 @@ await env.withSecurityRulesDisabled(async (ctx) => {
   await setDoc(doc(db, 'users', 'studentA'), { email: 'a@x.com' });
   await setDoc(doc(db, 'users', 'studentB'), { email: 'b@x.com' });
   await setDoc(doc(db, 'progress', 'studentB'), { userId: 'studentB' });
+  await setDoc(doc(db, 'entitlements', 'studentA'), { uid: 'studentA', status: 'trialing' });
 });
 
 const studentA = env.authenticatedContext('studentA').firestore();
@@ -73,6 +74,27 @@ await it('user CANNOT write another user doc', () =>
 
 await it('anonymous CANNOT read any user doc', () =>
   assertFails(getDoc(doc(anon, 'users', 'studentA'))));
+
+// ── Entitlements (SEVA Premium) — server-write-only ──────────────────────
+// The billing model depends on the client NEVER being able to write this
+// doc: a self-granted status:'active' or a pushed-out trialEndsAt would be
+// free premium. Only the Admin SDK (Cloud Functions) may write.
+
+await it('user CAN read own entitlement', () =>
+  assertSucceeds(getDoc(doc(studentA, 'entitlements', 'studentA'))));
+
+await it('user CANNOT write own entitlement (self-granted premium)', () =>
+  assertFails(setDoc(doc(studentA, 'entitlements', 'studentA'), { status: 'active' }, { merge: true })));
+
+await it('user CANNOT create own entitlement doc', async () => {
+  const fresh = env.authenticatedContext('studentNew2').firestore();
+  await assertFails(setDoc(doc(fresh, 'entitlements', 'studentNew2'), { status: 'active' }));
+});
+
+await it('user CANNOT read another user entitlement', () => {
+  const studentB = env.authenticatedContext('studentB').firestore();
+  return assertFails(getDoc(doc(studentB, 'entitlements', 'studentA')));
+});
 
 await env.cleanup();
 console.log(`\n${passed} passed, ${failed} failed`);
