@@ -7,7 +7,16 @@
  * point from quiz answers to users/{uid} profile fields.
  */
 
+/** Persisted schema version for users/{uid}.onboardingProfile. */
 export const FUNNEL_VERSION = 1;
+
+/**
+ * Staging-format version for the in-progress localStorage state. Separate
+ * from FUNNEL_VERSION: bumping this discards half-finished sessions when
+ * the step table changes shape, WITHOUT implying the persisted answers
+ * schema changed.
+ */
+export const FUNNEL_STORAGE_VERSION = 3;
 
 /** localStorage key for in-progress funnel state (pre-auth staging). */
 export const FUNNEL_STORAGE_KEY = 'seva:onboardingFunnel:v1';
@@ -15,13 +24,26 @@ export const FUNNEL_STORAGE_KEY = 'seva:onboardingFunnel:v1';
 export const DEFAULT_FUNNEL_GOAL = 1400;
 
 /**
+ * The quiz's real arc, surfaced as chapters: eyebrow labels above each
+ * question and the four segments of the progress bar. Tones map to the
+ * tri-color brand (orange action / purple focus / lime mastery, navy ink).
+ */
+export const FUNNEL_CHAPTERS = [
+  { id: 'test', label: 'Your test', tone: 'orange' },
+  { id: 'how', label: 'How you work', tone: 'purple' },
+  { id: 'way', label: "What's in the way", tone: 'lime' },
+  { id: 'why', label: 'Why it matters', tone: 'navy' },
+];
+
+/**
  * Question definitions, in flow order. `id` is the answers-object key;
  * option `value`s are stable slugs persisted into onboardingProfile —
- * never rename them once shipped.
+ * never rename them once shipped. `chapter` indexes FUNNEL_CHAPTERS.
  */
 export const FUNNEL_QUESTIONS = [
   {
     id: 'timing',
+    chapter: 0,
     title: 'When are you taking the SAT?',
     options: [
       { value: 'lt2m', label: 'In the next 2 months' },
@@ -32,6 +54,7 @@ export const FUNNEL_QUESTIONS = [
   },
   {
     id: 'baseline',
+    chapter: 0,
     title: 'Where are you starting from?',
     options: [
       { value: 'sat', label: "I've taken the real SAT" },
@@ -42,6 +65,7 @@ export const FUNNEL_QUESTIONS = [
   },
   {
     id: 'feeling',
+    chapter: 0,
     title: 'Honestly — how do you feel about this test?',
     options: [
       { value: 'confident', label: 'Confident. I just need reps' },
@@ -52,6 +76,7 @@ export const FUNNEL_QUESTIONS = [
   },
   {
     id: 'stuckHabit',
+    chapter: 1,
     title: 'When a question stumps you, what do you usually do?',
     options: [
       { value: 'wrestle', label: 'Wrestle with it until it clicks' },
@@ -62,6 +87,7 @@ export const FUNNEL_QUESTIONS = [
   },
   {
     id: 'studyWindow',
+    chapter: 1,
     title: 'When would studying realistically happen?',
     options: [
       { value: 'morning', label: 'Before school or in free periods' },
@@ -72,6 +98,7 @@ export const FUNNEL_QUESTIONS = [
   },
   {
     id: 'sessionLength',
+    chapter: 1,
     title: 'How long is a real study session for you?',
     options: [
       { value: '15m', label: 'About 15 focused minutes' },
@@ -82,6 +109,7 @@ export const FUNNEL_QUESTIONS = [
   },
   {
     id: 'blocker',
+    chapter: 2,
     title: 'What gets between you and studying?',
     options: [
       { value: 'procrastinate', label: 'I keep putting it off' },
@@ -92,6 +120,7 @@ export const FUNNEL_QUESTIONS = [
   },
   {
     id: 'testReaction',
+    chapter: 2,
     title: 'How do practice tests usually leave you feeling?',
     options: [
       { value: 'motivated', label: 'Ready to attack my weak spots' },
@@ -102,6 +131,7 @@ export const FUNNEL_QUESTIONS = [
   },
   {
     id: 'motivation',
+    chapter: 3,
     title: 'What would hitting your target actually change?',
     options: [
       { value: 'colleges', label: 'Which colleges I can realistically aim for' },
@@ -110,24 +140,31 @@ export const FUNNEL_QUESTIONS = [
       { value: 'pressure', label: 'Less pressure from everyone around me' },
     ],
   },
+  // Pre-gate micro-commitment (Headway pattern: an easy yes right before the
+  // ask builds buy-in). Both answers are affirmative on purpose — this is a
+  // commitment device, not a filter — and it calls back INT-B's
+  // "twenty minutes" promise.
+  {
+    id: 'commitment',
+    chapter: 3,
+    title: 'Could you give this 20 focused minutes a day?',
+    options: [
+      { value: 'allin', label: "I'm in — let's do this" },
+      { value: 'try', label: "I'll do my best" },
+    ],
+  },
 ];
 
 /**
- * Interstitial copy. INT-A's heading adapts to the `feeling` answer;
- * everything else is static. Visuals are rendered by the flow component
- * (keyed on `visual`) — pure CSS/SVG product-truth cards, no testimonials.
+ * Interstitial copy. The reassure heading adapts to the `feeling` answer
+ * and the student's name (see reassureHeading). Visuals are rendered by
+ * the flow component (keyed on `visual`) — pure CSS/SVG product-truth
+ * cards, no testimonials.
  */
 export const FUNNEL_INTERSTITIALS = {
   reassure: {
     id: 'reassure',
     visual: 'trajectory',
-    headingByFeeling: {
-      confident: "Good. Let's turn that into points.",
-      fine: "That's a solid place to start from.",
-      stressed: 'That feeling is common — and fixable.',
-      heavy: 'That feeling is common — and fixable.',
-    },
-    defaultHeading: 'Wherever you start, the path is the same.',
     body:
       'Score plateaus usually aren’t about effort. They come from studying everything instead of the handful of question types actually costing you points. SEVA finds those, and builds your plan around them.',
     cta: 'Continue',
@@ -150,8 +187,64 @@ export const FUNNEL_INTERSTITIALS = {
   },
 };
 
-/** Flow order: questions interleaved with interstitials, then goal → path → signup. */
+/**
+ * Reassure-interstitial heading: mirrors the feeling answer back, with the
+ * student's name woven in when we have one.
+ */
+export function reassureHeading(feeling, name = '') {
+  const n = (name || '').trim();
+  switch (feeling) {
+    case 'confident':
+      return n ? `Good, ${n}. Let's turn that into points.` : "Good. Let's turn that into points.";
+    case 'fine':
+      return n ? `${n}, that's a solid place to start from.` : "That's a solid place to start from.";
+    case 'stressed':
+    case 'heavy':
+      return n ? `That feeling is common, ${n} — and fixable.` : 'That feeling is common — and fixable.';
+    default:
+      return 'Wherever you start, the path is the same.';
+  }
+}
+
+/**
+ * The plan-build interlude: four staged lines assembling the plan from the
+ * student's own answers. Rendered on the funnel's single navy screen,
+ * immediately before the path reveal.
+ */
+export function buildInterludeLines(answers = {}, goal = DEFAULT_FUNNEL_GOAL, name = '') {
+  const n = (name || '').trim();
+  const timingPhrase = {
+    lt2m: 'a test in the next 2 months',
+    '2to6m': 'a test 2–6 months out',
+    gt6m: 'a runway of 6+ months',
+    undecided: 'a test date still to be picked',
+  }[answers.timing];
+  return [
+    n ? `Reading your answers, ${n}` : 'Reading your answers',
+    'Locating where your points are hiding',
+    timingPhrase ? `Calibrating pacing for ${timingPhrase}` : 'Calibrating your pacing',
+    `Setting the bar at ${goal}`,
+  ];
+}
+
+/**
+ * Honest authority strip on the path screen — real content inventory only
+ * (same rounded-down numbers the landing page asserts). Never student
+ * counts or score promises.
+ */
+export const FUNNEL_PROOF_POINTS = [
+  '2,200+ hand-authored questions',
+  '12 full-length practice tests',
+  'Every explanation written by a person',
+];
+
+/**
+ * Flow order. `name` collects the personalization thread; `build` is the
+ * auto-advancing plan-assembly interlude; chapters interleave with
+ * interstitials at each chapter turn.
+ */
 export const FUNNEL_STEPS = [
+  { type: 'name', id: 'name' },
   { type: 'question', id: 'timing' },
   { type: 'question', id: 'baseline' },
   { type: 'question', id: 'feeling' },
@@ -164,10 +257,33 @@ export const FUNNEL_STEPS = [
   { type: 'question', id: 'testReaction' },
   { type: 'interstitial', id: 'neverStuck' },
   { type: 'question', id: 'motivation' },
+  { type: 'question', id: 'commitment' },
   { type: 'goal', id: 'goal' },
+  { type: 'build', id: 'build' },
   { type: 'path', id: 'path' },
   { type: 'signup', id: 'signup' },
 ];
+
+/**
+ * Per-chapter fill fractions (0..1) for the segmented progress bar.
+ * Chapter spans are step-index ranges over FUNNEL_STEPS; everything at or
+ * past the build interlude reads as complete.
+ */
+const BUILD_STEP_INDEX = FUNNEL_STEPS.findIndex((s) => s.type === 'build');
+const CHAPTER_SPANS = [
+  { start: 1, end: 4 },
+  { start: 5, end: 8 },
+  { start: 9, end: 11 },
+  { start: 12, end: 14 },
+];
+
+export function chapterFills(stepIndex) {
+  return CHAPTER_SPANS.map(({ start, end }) => {
+    if (stepIndex >= BUILD_STEP_INDEX) return 1;
+    const span = end + 1 - start;
+    return Math.min(1, Math.max(0, (stepIndex - start) / span));
+  });
+}
 
 /**
  * Context line under the goal slider — mirrors the tiers students actually

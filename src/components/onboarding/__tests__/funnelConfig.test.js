@@ -4,18 +4,23 @@
  * The option `value` slugs are persisted into users/{uid}.onboardingProfile
  * at signup — they are a storage schema, not just copy. These tests pin
  * the invariants a refactor must not break: id/slug stability rules,
- * 4-option screens, step-table integrity, the no-emoji policy, and the
- * exact translation buildFunnelProfile performs (goal snapping + the
- * goalScale:'composite' provenance stamp that keeps normalizeProfileGoal
- * from doubling sub-800 goals).
+ * 4-option screens, step-table integrity, chapter mapping, the no-emoji
+ * policy, and the exact translation buildFunnelProfile performs (goal
+ * snapping + the goalScale:'composite' provenance stamp that keeps
+ * normalizeProfileGoal from doubling sub-800 goals).
  */
 
 import {
   FUNNEL_QUESTIONS,
   FUNNEL_INTERSTITIALS,
   FUNNEL_STEPS,
+  FUNNEL_CHAPTERS,
   FUNNEL_VERSION,
+  FUNNEL_PROOF_POINTS,
   DEFAULT_FUNNEL_GOAL,
+  chapterFills,
+  reassureHeading,
+  buildInterludeLines,
   goalContextLine,
   normalizeFunnelGoal,
   buildFunnelProfile,
@@ -30,16 +35,38 @@ describe('funnel content invariants', () => {
     expect(new Set(ids).size).toBe(ids.length);
   });
 
-  test('every question has exactly 4 options with unique stable values', () => {
+  test('every question has 2-4 options with unique stable values', () => {
     for (const q of FUNNEL_QUESTIONS) {
-      expect(q.options).toHaveLength(4);
+      expect(q.options.length).toBeGreaterThanOrEqual(2);
+      expect(q.options.length).toBeLessThanOrEqual(4);
       const values = q.options.map((o) => o.value);
-      expect(new Set(values).size).toBe(4);
+      expect(new Set(values).size).toBe(values.length);
       for (const v of values) expect(v).toMatch(/^[a-z0-9]+$/i);
+    }
+    // The commitment micro-question is deliberately binary — a commitment
+    // device (both answers affirmative), not a filter.
+    const commitment = FUNNEL_QUESTIONS.find((q) => q.id === 'commitment');
+    expect(commitment.options).toHaveLength(2);
+    // Standard quiz questions keep the 4-option pattern.
+    for (const q of FUNNEL_QUESTIONS) {
+      if (q.id !== 'commitment') expect(q.options).toHaveLength(4);
     }
   });
 
-  test('FUNNEL_STEPS references only real questions/interstitials, ends path → signup', () => {
+  test('every question maps to a real chapter', () => {
+    for (const q of FUNNEL_QUESTIONS) {
+      expect(FUNNEL_CHAPTERS[q.chapter]).toBeDefined();
+    }
+    // Chapters are traversed in order — question chapter indexes never decrease.
+    const chapterSeq = FUNNEL_STEPS
+      .filter((s) => s.type === 'question')
+      .map((s) => FUNNEL_QUESTIONS.find((q) => q.id === s.id).chapter);
+    for (let i = 1; i < chapterSeq.length; i++) {
+      expect(chapterSeq[i]).toBeGreaterThanOrEqual(chapterSeq[i - 1]);
+    }
+  });
+
+  test('FUNNEL_STEPS references only real questions/interstitials, converts via goal → build → path → signup', () => {
     for (const step of FUNNEL_STEPS) {
       if (step.type === 'question') {
         expect(FUNNEL_QUESTIONS.some((q) => q.id === step.id)).toBe(true);
@@ -51,22 +78,88 @@ describe('funnel content invariants', () => {
     // Every question appears exactly once in the flow.
     const questionSteps = FUNNEL_STEPS.filter((s) => s.type === 'question');
     expect(questionSteps).toHaveLength(FUNNEL_QUESTIONS.length);
-    // The funnel must end by converting: goal → path → signup.
-    const tail = FUNNEL_STEPS.slice(-3).map((s) => s.type);
-    expect(tail).toEqual(['goal', 'path', 'signup']);
-  });
-
-  test('the reassure interstitial covers every feeling answer', () => {
-    const feelings = FUNNEL_QUESTIONS.find((q) => q.id === 'feeling').options.map((o) => o.value);
-    for (const f of feelings) {
-      expect(typeof FUNNEL_INTERSTITIALS.reassure.headingByFeeling[f]).toBe('string');
-    }
+    // The name step opens the flow (personalization thread starts there).
+    expect(FUNNEL_STEPS[0].type).toBe('name');
+    // The funnel must end by converting: goal → build → path → signup.
+    const tail = FUNNEL_STEPS.slice(-4).map((s) => s.type);
+    expect(tail).toEqual(['goal', 'build', 'path', 'signup']);
   });
 
   test('copy contains no emojis and never names the competitor', () => {
-    const allCopy = JSON.stringify({ FUNNEL_QUESTIONS, FUNNEL_INTERSTITIALS });
+    const allCopy = JSON.stringify({
+      FUNNEL_QUESTIONS,
+      FUNNEL_INTERSTITIALS,
+      FUNNEL_CHAPTERS,
+      FUNNEL_PROOF_POINTS,
+      lines: buildInterludeLines({ timing: '2to6m' }, 1450, 'Maya'),
+      headings: ['confident', 'fine', 'stressed', 'heavy', undefined].map((f) =>
+        reassureHeading(f, 'Maya')
+      ),
+    });
     expect(allCopy).not.toMatch(EMOJI_RE);
     expect(allCopy).not.toMatch(/acely/i);
+  });
+
+  test('proof points claim only the real content inventory (no student counts, no guarantees)', () => {
+    const joined = FUNNEL_PROOF_POINTS.join(' ');
+    expect(joined).not.toMatch(/students?/i);
+    expect(joined).not.toMatch(/guarantee/i);
+    expect(joined).toContain('2,200+');
+    expect(joined).toContain('12 full-length');
+  });
+});
+
+describe('reassureHeading', () => {
+  test('covers every feeling answer, with and without a name', () => {
+    const feelings = FUNNEL_QUESTIONS.find((q) => q.id === 'feeling').options.map((o) => o.value);
+    for (const f of feelings) {
+      expect(reassureHeading(f, 'Maya')).toContain('Maya');
+      expect(reassureHeading(f, '').length).toBeGreaterThan(10);
+    }
+  });
+
+  test('unknown feeling falls back to the neutral heading', () => {
+    expect(reassureHeading(undefined, 'Maya')).toBe('Wherever you start, the path is the same.');
+  });
+});
+
+describe('buildInterludeLines', () => {
+  test('weaves name, timing, and goal into the four lines', () => {
+    const lines = buildInterludeLines({ timing: '2to6m' }, 1450, 'Maya');
+    expect(lines).toHaveLength(4);
+    expect(lines[0]).toContain('Maya');
+    expect(lines[2]).toContain('2–6 months');
+    expect(lines[3]).toContain('1450');
+  });
+
+  test('degrades cleanly without name or timing', () => {
+    const lines = buildInterludeLines({}, DEFAULT_FUNNEL_GOAL, '');
+    expect(lines[0]).toBe('Reading your answers');
+    expect(lines[2]).toBe('Calibrating your pacing');
+    expect(lines[3]).toContain(String(DEFAULT_FUNNEL_GOAL));
+  });
+});
+
+describe('chapterFills', () => {
+  test('all empty at the name step, all full from the build step on', () => {
+    expect(chapterFills(0)).toEqual([0, 0, 0, 0]);
+    const buildIdx = FUNNEL_STEPS.findIndex((s) => s.type === 'build');
+    expect(chapterFills(buildIdx)).toEqual([1, 1, 1, 1]);
+    expect(chapterFills(FUNNEL_STEPS.length - 1)).toEqual([1, 1, 1, 1]);
+  });
+
+  test('fills are monotonic and bounded as the flow advances', () => {
+    let prevTotal = -1;
+    for (let i = 0; i < FUNNEL_STEPS.length; i++) {
+      const fills = chapterFills(i);
+      for (const f of fills) {
+        expect(f).toBeGreaterThanOrEqual(0);
+        expect(f).toBeLessThanOrEqual(1);
+      }
+      const total = fills.reduce((a, b) => a + b, 0);
+      expect(total).toBeGreaterThanOrEqual(prevTotal);
+      prevTotal = total;
+    }
   });
 });
 

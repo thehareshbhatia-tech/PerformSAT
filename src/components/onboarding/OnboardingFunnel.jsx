@@ -4,9 +4,14 @@ import {
   FUNNEL_QUESTIONS,
   FUNNEL_INTERSTITIALS,
   FUNNEL_STEPS,
+  FUNNEL_CHAPTERS,
   FUNNEL_STORAGE_KEY,
-  FUNNEL_VERSION,
+  FUNNEL_STORAGE_VERSION,
+  FUNNEL_PROOF_POINTS,
   DEFAULT_FUNNEL_GOAL,
+  chapterFills,
+  reassureHeading,
+  buildInterludeLines,
   goalContextLine,
   normalizeFunnelGoal,
   buildFunnelProfile,
@@ -15,10 +20,12 @@ import './OnboardingFunnel.css';
 
 /**
  * Pre-signup onboarding funnel — the flow behind every "Get started" CTA
- * on the landing page. One question per screen (tap to advance), three
- * product-truth interstitials, a goal slider, a personalized path summary,
- * then the account form. Answers are staged in localStorage until signup
- * hands them to buildSignupUserDoc via additionalInfo.funnelProfile.
+ * on the landing page. One question per screen (tap to advance) organized
+ * into four labeled chapters, three product-truth interstitials with
+ * animated visuals, a goal slider, a navy plan-assembly interlude, a
+ * personalized path summary, then the account form. Answers are staged in
+ * localStorage until signup hands them to buildSignupUserDoc via
+ * additionalInfo.funnelProfile.
  *
  * @param {Function} signup - useAuth signup(email, password, firstName, additionalInfo)
  * @param {Function} onExit - leave the funnel back to the landing page
@@ -27,12 +34,15 @@ import './OnboardingFunnel.css';
  */
 const QUESTION_BY_ID = Object.fromEntries(FUNNEL_QUESTIONS.map((q) => [q.id, q]));
 
+const BUILD_ROW_MS = 650; // one interlude row checks in per beat
+const BUILD_EXIT_MS = 900; // hold after the last row before the reveal
+
 const readSavedState = () => {
   try {
     const raw = window.localStorage.getItem(FUNNEL_STORAGE_KEY);
     if (!raw) return null;
     const parsed = JSON.parse(raw);
-    if (parsed?.version !== FUNNEL_VERSION) return null;
+    if (parsed?.version !== FUNNEL_STORAGE_VERSION) return null;
     return parsed;
   } catch {
     return null;
@@ -55,24 +65,46 @@ const clearSavedState = () => {
   }
 };
 
+const prefersReducedMotion = () =>
+  window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches === true;
+
+/** Check-mark that draws itself into a just-tapped option card. */
+const OptionCheck = () => (
+  <svg className="of-option-check" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+    <circle cx="10" cy="10" r="9" fill="none" stroke="currentColor" strokeWidth="1.6" />
+    <path
+      className="of-option-check-tick"
+      d="M6 10.4 8.8 13 14 7.4"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+
 /** Rising projected-score sketch — echoes the app's real projected-score chart. */
 const TrajectoryVisual = () => (
   <div className="of-visual-card" aria-hidden="true">
     <div className="of-visual-label">Projected score</div>
     <svg className="of-trajectory" viewBox="0 0 320 130" role="presentation" focusable="false">
       <path
+        className="of-trajectory-band"
         d="M16 104 C 70 98, 105 88, 150 72 C 200 54, 250 44, 304 30 L 304 74 C 250 84, 200 92, 150 102 C 105 110, 70 114, 16 116 Z"
         fill="rgba(124, 92, 199, 0.12)"
       />
       <path
+        className="of-trajectory-line"
         d="M16 110 C 70 106, 110 96, 152 84 C 202 70, 252 58, 304 48"
         fill="none"
         stroke="#EA580C"
         strokeWidth="3"
         strokeLinecap="round"
+        pathLength="100"
       />
-      <circle cx="16" cy="110" r="5" fill="#D9D4C7" />
-      <circle cx="304" cy="48" r="6" fill="#5A8A16" />
+      <circle className="of-trajectory-start" cx="16" cy="110" r="5" fill="#D9D4C7" />
+      <circle className="of-trajectory-end" cx="304" cy="48" r="6" fill="#5A8A16" />
       <text x="16" y="94" className="of-trajectory-tick">check-in</text>
       <text x="304" y="34" className="of-trajectory-tick" textAnchor="end">your target</text>
     </svg>
@@ -89,14 +121,17 @@ const DiagnosisVisual = () => (
         { name: 'Algebra', pct: 58, tone: 'orange' },
         { name: 'Craft and Structure', pct: 64, tone: 'purple' },
         { name: 'Problem-Solving and Data', pct: 71, tone: 'lime' },
-      ].map((row) => (
+      ].map((row, i) => (
         <div className="of-diag-row" key={row.name}>
           <div className="of-diag-meta">
             <span className="of-diag-name">{row.name}</span>
             <span className="of-diag-pct">{row.pct}% accuracy</span>
           </div>
           <div className="of-diag-track">
-            <div className={`of-diag-fill of-diag-fill--${row.tone}`} style={{ width: `${row.pct}%` }} />
+            <div
+              className={`of-diag-fill of-diag-fill--${row.tone}`}
+              style={{ '--of-diag-w': `${row.pct}%`, '--of-diag-delay': `${i * 140}ms` }}
+            />
           </div>
         </div>
       ))}
@@ -135,11 +170,13 @@ const OnboardingFunnel = ({ signup, onExit, onLogIn, billingLive }) => {
     return Number.isInteger(idx) && idx >= 0 && idx < FUNNEL_STEPS.length ? idx : 0;
   });
   const [answers, setAnswers] = useState(() => saved?.answers || {});
+  const [name, setName] = useState(() => (typeof saved?.name === 'string' ? saved.name : ''));
   const [goal, setGoal] = useState(() => normalizeFunnelGoal(saved?.goal ?? DEFAULT_FUNNEL_GOAL));
   const [pendingAdvance, setPendingAdvance] = useState(null); // option value mid tap-animation
+  const [buildProgress, setBuildProgress] = useState(0); // rows checked in on the build screen
 
   // Signup form state (last step)
-  const [firstName, setFirstName] = useState('');
+  const [signupName, setSignupName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [agreedToTerms, setAgreedToTerms] = useState(false);
@@ -151,8 +188,8 @@ const OnboardingFunnel = ({ signup, onExit, onLogIn, billingLive }) => {
 
   // Stage progress for reload-resume; cleared on successful signup.
   useEffect(() => {
-    writeSavedState({ version: FUNNEL_VERSION, stepIndex, answers, goal });
-  }, [stepIndex, answers, goal]);
+    writeSavedState({ version: FUNNEL_STORAGE_VERSION, stepIndex, answers, name, goal });
+  }, [stepIndex, answers, name, goal]);
 
   // Each step is its own "screen" — put focus/scroll back at the top.
   useEffect(() => {
@@ -162,6 +199,8 @@ const OnboardingFunnel = ({ signup, onExit, onLogIn, billingLive }) => {
   const step = FUNNEL_STEPS[stepIndex];
   const totalSteps = FUNNEL_STEPS.length;
   const progressPct = Math.round((stepIndex / (totalSteps - 1)) * 100);
+  const fills = chapterFills(stepIndex);
+  const trimmedName = name.trim();
 
   const goNext = () => setStepIndex((i) => Math.min(i + 1, totalSteps - 1));
   const goBack = () => {
@@ -171,18 +210,42 @@ const OnboardingFunnel = ({ signup, onExit, onLogIn, billingLive }) => {
       onExit();
       return;
     }
-    setStepIndex((i) => Math.max(i - 1, 0));
+    // Never land back on the auto-advancing interlude — return to the goal.
+    setStepIndex((i) => {
+      let prev = Math.max(i - 1, 0);
+      if (FUNNEL_STEPS[prev]?.type === 'build') prev = Math.max(prev - 1, 0);
+      return prev;
+    });
   };
+
+  // The plan-build interlude: rows check in on a beat, then auto-advance.
+  // Reduced motion resolves every row immediately and shortens the hold.
+  useEffect(() => {
+    if (step.type !== 'build') return undefined;
+    const lineCount = 4;
+    const reduce = prefersReducedMotion();
+    setBuildProgress(reduce ? lineCount : 0);
+    const timers = [];
+    if (!reduce) {
+      for (let i = 1; i <= lineCount; i++) {
+        timers.push(setTimeout(() => setBuildProgress(i), i * BUILD_ROW_MS));
+      }
+    }
+    const total = reduce ? BUILD_EXIT_MS : lineCount * BUILD_ROW_MS + BUILD_EXIT_MS;
+    timers.push(setTimeout(() => {
+      setStepIndex((i) => (FUNNEL_STEPS[i]?.type === 'build' ? i + 1 : i));
+    }, total));
+    return () => timers.forEach(clearTimeout);
+  }, [step.type]);
 
   const handleOption = (questionId, value) => {
     if (pendingAdvance) return; // ignore double-taps mid-transition
     setAnswers((prev) => ({ ...prev, [questionId]: value }));
     setPendingAdvance(value);
-    const reduceMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches;
     advanceTimer.current = setTimeout(() => {
       setPendingAdvance(null);
       goNext();
-    }, reduceMotion ? 60 : 240);
+    }, prefersReducedMotion() ? 60 : 300);
   };
 
   const handleSignup = async (e) => {
@@ -195,7 +258,7 @@ const OnboardingFunnel = ({ signup, onExit, onLogIn, billingLive }) => {
     setSubmitting(true);
     try {
       const funnelProfile = buildFunnelProfile(answers, goal);
-      await signup(email, password, firstName, {
+      await signup(email, password, signupName, {
         agreedToTerms: true,
         hasTakenSAT: funnelProfile.hasTakenSAT,
         satScore: null,
@@ -210,8 +273,56 @@ const OnboardingFunnel = ({ signup, onExit, onLogIn, billingLive }) => {
     }
   };
 
+  const renderEyebrow = (chapterIdx) => {
+    const chapter = FUNNEL_CHAPTERS[chapterIdx];
+    if (!chapter) return null;
+    return (
+      <div className={`of-eyebrow of-eyebrow--${chapter.tone}`}>
+        {`0${chapterIdx + 1}`}
+        <span className="of-eyebrow-sep" aria-hidden="true" />
+        {chapter.label}
+      </div>
+    );
+  };
+
+  const renderName = () => (
+    <div className="of-step" key="name">
+      <div className="of-eyebrow of-eyebrow--orange">Welcome</div>
+      <h1 className="of-title">First — what should we call you?</h1>
+      <p className="of-body">
+        Your plan is going to be personal — it should know your name.
+        Ten questions, about a minute.
+      </p>
+      <form
+        className="of-form of-form--name"
+        onSubmit={(e) => {
+          e.preventDefault();
+          goNext();
+        }}
+      >
+        <input
+          className="of-name-input"
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          placeholder="Your first name"
+          aria-label="Your first name"
+          autoComplete="given-name"
+          maxLength={40}
+        />
+        <button type="submit" className="of-cta">
+          {trimmedName ? `Let's go, ${trimmedName}` : 'Continue'}
+        </button>
+      </form>
+      <button type="button" className="of-switch" onClick={onLogIn}>
+        Already have an account? Log in
+      </button>
+    </div>
+  );
+
   const renderQuestion = (question) => (
     <div className="of-step" key={question.id}>
+      {renderEyebrow(question.chapter)}
       <h1 className="of-title">{question.title}</h1>
       <div className="of-options" role="group" aria-label={question.title}>
         {question.options.map((opt) => {
@@ -224,7 +335,8 @@ const OnboardingFunnel = ({ signup, onExit, onLogIn, billingLive }) => {
               aria-pressed={selected}
               onClick={() => handleOption(question.id, opt.value)}
             >
-              {opt.label}
+              <span>{opt.label}</span>
+              {selected ? <OptionCheck /> : null}
             </button>
           );
         })}
@@ -234,8 +346,8 @@ const OnboardingFunnel = ({ signup, onExit, onLogIn, billingLive }) => {
 
   const renderInterstitial = (interstitial) => {
     const Visual = VISUALS[interstitial.visual];
-    const heading = interstitial.headingByFeeling
-      ? interstitial.headingByFeeling[answers.feeling] || interstitial.defaultHeading
+    const heading = interstitial.id === 'reassure'
+      ? reassureHeading(answers.feeling, trimmedName)
       : interstitial.heading;
     return (
       <div className="of-step" key={interstitial.id}>
@@ -251,6 +363,7 @@ const OnboardingFunnel = ({ signup, onExit, onLogIn, billingLive }) => {
 
   const renderGoal = () => (
     <div className="of-step" key="goal">
+      {renderEyebrow(3)}
       <h1 className="of-title">Set your target score.</h1>
       <p className="of-body">You can change this anytime — your plan bends around it.</p>
       <div className="of-goal-readout" aria-live="polite">{goal}</div>
@@ -273,10 +386,55 @@ const OnboardingFunnel = ({ signup, onExit, onLogIn, billingLive }) => {
       </div>
       <div className="of-goal-context">{goalContextLine(goal)}</div>
       <button type="button" className="of-cta" onClick={goNext}>
-        Continue
+        Build my plan
       </button>
     </div>
   );
+
+  const renderBuild = () => {
+    const lines = buildInterludeLines(answers, goal, trimmedName);
+    return (
+      <div className="of-step of-step--build" key="build">
+        <div className="of-build-arc" aria-hidden="true">
+          <svg viewBox="0 0 72 72" focusable="false">
+            <circle cx="36" cy="36" r="30" fill="none" stroke="rgba(246,244,239,0.14)" strokeWidth="4" />
+            <circle
+              className="of-build-arc-sweep"
+              cx="36" cy="36" r="30"
+              fill="none"
+              stroke="url(#of-build-grad)"
+              strokeWidth="4"
+              strokeLinecap="round"
+              pathLength="100"
+            />
+            <defs>
+              <linearGradient id="of-build-grad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stopColor="#EA580C" />
+                <stop offset="0.55" stopColor="#7C5CC7" />
+                <stop offset="1" stopColor="#8FBE3F" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <h1 className="of-title of-title--build" aria-live="polite">Assembling your plan</h1>
+        <ul className="of-build-lines">
+          {lines.map((line, i) => (
+            <li
+              key={line}
+              className={`of-build-line${i < buildProgress ? ' is-done' : ''}`}
+            >
+              <span className="of-build-check" aria-hidden="true">
+                <svg viewBox="0 0 16 16" focusable="false">
+                  <path d="M3.5 8.5 6.5 11.5 12.5 5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </span>
+              {line}
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  };
 
   const renderPath = () => (
     <div className="of-step" key="path">
@@ -284,7 +442,11 @@ const OnboardingFunnel = ({ signup, onExit, onLogIn, billingLive }) => {
         <span className="of-goal-chip-label">Target</span>
         <span className="of-goal-chip-score">{goal}</span>
       </div>
-      <h1 className="of-title">This is exactly what SEVA was built for.</h1>
+      <h1 className="of-title">
+        {trimmedName
+          ? `${trimmedName}, this is exactly what SEVA was built for.`
+          : 'This is exactly what SEVA was built for.'}
+      </h1>
       <p className="of-body">Here&rsquo;s the path to {goal}:</p>
       <ol className="of-path">
         <li className="of-path-step">
@@ -309,6 +471,14 @@ const OnboardingFunnel = ({ signup, onExit, onLogIn, billingLive }) => {
           </div>
         </li>
       </ol>
+      <div className="of-proof" aria-label="What SEVA is built on">
+        {FUNNEL_PROOF_POINTS.map((point, i) => (
+          <React.Fragment key={point}>
+            {i > 0 && <span className="of-proof-dot" aria-hidden="true" />}
+            <span className="of-proof-item">{point}</span>
+          </React.Fragment>
+        ))}
+      </div>
       <button type="button" className="of-cta" onClick={goNext}>
         Create my free account
       </button>
@@ -322,15 +492,20 @@ const OnboardingFunnel = ({ signup, onExit, onLogIn, billingLive }) => {
 
   const renderSignup = () => (
     <div className="of-step" key="signup">
-      <h1 className="of-title">Last step — save your plan.</h1>
-      <p className="of-body">Your check-in and study plan are waiting on the other side.</p>
+      <h1 className="of-title">
+        {trimmedName ? `Last step, ${trimmedName} — save your plan.` : 'Last step — save your plan.'}
+      </h1>
+      <p className="of-body">
+        Everything you just set up — your target, your answers, your pacing —
+        rides along. The check-in is waiting on the other side.
+      </p>
       <form className="of-form" onSubmit={handleSignup}>
         <label className="of-field">
           <span className="of-field-label">First name</span>
           <input
             type="text"
-            value={firstName}
-            onChange={(e) => setFirstName(e.target.value)}
+            value={signupName}
+            onChange={(e) => setSignupName(e.target.value)}
             placeholder="Your first name"
             autoComplete="given-name"
             required
@@ -384,22 +559,36 @@ const OnboardingFunnel = ({ signup, onExit, onLogIn, billingLive }) => {
     </div>
   );
 
+  // Pre-fill the signup name from the welcome step once the student
+  // reaches the form (still editable there).
+  useEffect(() => {
+    if (step.type === 'signup') {
+      setSignupName((current) => current || trimmedName);
+    }
+  }, [step.type, trimmedName]);
+
   let content;
-  if (step.type === 'question') content = renderQuestion(QUESTION_BY_ID[step.id]);
+  if (step.type === 'name') content = renderName();
+  else if (step.type === 'question') content = renderQuestion(QUESTION_BY_ID[step.id]);
   else if (step.type === 'interstitial') content = renderInterstitial(FUNNEL_INTERSTITIALS[step.id]);
   else if (step.type === 'goal') content = renderGoal();
+  else if (step.type === 'build') content = renderBuild();
   else if (step.type === 'path') content = renderPath();
   else content = renderSignup();
 
+  const onBuildScreen = step.type === 'build';
+
   return (
-    <div className="onboarding-funnel">
+    <div className={`onboarding-funnel${onBuildScreen ? ' is-navy' : ''}`}>
       <header className="of-topbar">
-        <button type="button" className="of-back" onClick={goBack} aria-label={stepIndex === 0 ? 'Back to home' : 'Back'}>
-          <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false">
-            <path d="M10.5 2.5 5 8l5.5 5.5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-          <span>Back</span>
-        </button>
+        {!onBuildScreen && (
+          <button type="button" className="of-back" onClick={goBack} aria-label={stepIndex === 0 ? 'Back to home' : 'Back'}>
+            <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false">
+              <path d="M10.5 2.5 5 8l5.5 5.5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+            <span>Back</span>
+          </button>
+        )}
         <div
           className="of-progress"
           role="progressbar"
@@ -408,10 +597,17 @@ const OnboardingFunnel = ({ signup, onExit, onLogIn, billingLive }) => {
           aria-valuemax={100}
           aria-valuenow={progressPct}
         >
-          <div className="of-progress-fill" style={{ width: `${progressPct}%` }} />
+          {fills.map((fill, i) => (
+            <div className="of-progress-seg" key={FUNNEL_CHAPTERS[i].id}>
+              <div
+                className={`of-progress-fill of-progress-fill--${FUNNEL_CHAPTERS[i].tone}`}
+                style={{ width: `${fill * 100}%` }}
+              />
+            </div>
+          ))}
         </div>
         <div className="of-topbar-brand" aria-hidden="true">
-          <Wordmark size="sm" tone="dark" />
+          <Wordmark size="sm" tone={onBuildScreen ? 'light' : 'dark'} />
         </div>
       </header>
       <main className="of-content">{content}</main>
