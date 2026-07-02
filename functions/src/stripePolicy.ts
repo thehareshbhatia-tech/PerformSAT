@@ -27,8 +27,16 @@ export interface StripeSubscriptionLike {
   id: string;
   status: string;
   cancel_at_period_end?: boolean;
-  current_period_end?: number | null; // unix SECONDS (Stripe convention)
-  items?: {data?: Array<{price?: {id?: string}}>};
+  current_period_end?: number | null; // unix SECONDS (older API versions)
+  items?: {
+    data?: Array<{
+      price?: {id?: string};
+      // Newer Stripe API versions (2025-03+) moved the billing period from
+      // the subscription onto its items — verified live 2026-07-01: the
+      // top-level field is absent and items[0].current_period_end carries it.
+      current_period_end?: number | null;
+    }>;
+  };
 }
 
 export const TRIAL_DAYS = 7;
@@ -102,14 +110,19 @@ export function subscriptionToEntitlementPatch(
   monthlyPriceId: string,
   annualPriceId: string,
 ): EntitlementPatch {
-  const priceId = sub.items?.data?.[0]?.price?.id;
+  const firstItem = sub.items?.data?.[0];
+  // Period end lives on the subscription in older API versions and on the
+  // ITEM in newer ones — read whichever is present.
+  const periodEndSec = typeof sub.current_period_end === "number" ?
+    sub.current_period_end :
+    (typeof firstItem?.current_period_end === "number" ?
+      firstItem.current_period_end :
+      null);
   return {
     status: mapStripeStatus(sub.status),
-    plan: planFromPriceId(priceId, monthlyPriceId, annualPriceId),
+    plan: planFromPriceId(firstItem?.price?.id, monthlyPriceId, annualPriceId),
     subscriptionId: sub.id || null,
-    currentPeriodEndMs: typeof sub.current_period_end === "number" ?
-      sub.current_period_end * 1000 :
-      null,
+    currentPeriodEndMs: periodEndSec != null ? periodEndSec * 1000 : null,
     cancelAtPeriodEnd: !!sub.cancel_at_period_end,
   };
 }

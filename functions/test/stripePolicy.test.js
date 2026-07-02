@@ -109,6 +109,33 @@ test("subscription -> patch: canceled annual keeps period end + flag", () => {
   assert.strictEqual(patch.currentPeriodEndMs, periodEndSec * 1000);
 });
 
+test("subscription -> patch: item-level period end (2025-03+ API shape)", () => {
+  // Live-verified 2026-07-01: newer Stripe API versions omit the top-level
+  // current_period_end and put it on the subscription ITEM instead.
+  const periodEndSec = Math.floor((NOW + 365 * DAY_MS) / 1000);
+  const patch = subscriptionToEntitlementPatch({
+    id: "sub_new_api",
+    status: "active",
+    cancel_at_period_end: false,
+    // no top-level current_period_end
+    items: {data: [{price: {id: ANNUAL}, current_period_end: periodEndSec}]},
+  }, MONTHLY, ANNUAL);
+  assert.strictEqual(patch.currentPeriodEndMs, periodEndSec * 1000);
+  assert.strictEqual(patch.plan, "annual");
+});
+
+test("subscription -> patch: top-level period end wins when both exist", () => {
+  const topSec = 2000000000;
+  const itemSec = 2100000000;
+  const patch = subscriptionToEntitlementPatch({
+    id: "sub_both",
+    status: "active",
+    current_period_end: topSec,
+    items: {data: [{price: {id: MONTHLY}, current_period_end: itemSec}]},
+  }, MONTHLY, ANNUAL);
+  assert.strictEqual(patch.currentPeriodEndMs, topSec * 1000);
+});
+
 test("subscription -> patch: missing items/period end degrade to nulls", () => {
   const patch = subscriptionToEntitlementPatch(
     {id: "sub_789", status: "past_due"}, MONTHLY, ANNUAL,
