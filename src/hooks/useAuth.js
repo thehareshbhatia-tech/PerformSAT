@@ -16,22 +16,40 @@ import { toCompositeGoal } from '../services/selectors/goalProgress';
  * consent stamp: agreedToTermsAt + termsVersion) is unit-testable without
  * a renderer. Field order/values mirror the original signup literal.
  *
+ * When the signup came through the pre-signup onboarding funnel,
+ * additionalInfo.funnelProfile (built by buildFunnelProfile) lands the
+ * goal + quiz answers in the SAME initial write — profile setters can't
+ * run pre-auth, and a follow-up write would race the 1.5s hydration retry
+ * below. goalScale:'composite' must ride along with targetScore or
+ * normalizeProfileGoal doubles sub-800 goals on the next load.
+ *
  * @param {string} email - The new account's email
  * @param {string} [firstName] - Display name; falls back to the email prefix
- * @param {Object} [additionalInfo] - Signup extras (hasTakenSAT, satScore)
+ * @param {Object} [additionalInfo] - Signup extras (hasTakenSAT, satScore, funnelProfile)
  * @returns {Object} The Firestore user document payload
  */
-export const buildSignupUserDoc = (email, firstName = '', additionalInfo = {}) => ({
-  email,
-  firstName: firstName || email.split('@')[0],
-  role: 'student',
-  hasTakenSAT: additionalInfo.hasTakenSAT || false,
-  satScore: additionalInfo.satScore || null,
-  agreedToTermsAt: serverTimestamp(),
-  termsVersion: TERMS_VERSION,
-  createdAt: serverTimestamp(),
-  lastLoginAt: serverTimestamp()
-});
+export const buildSignupUserDoc = (email, firstName = '', additionalInfo = {}) => {
+  const userDoc = {
+    email,
+    firstName: firstName || email.split('@')[0],
+    role: 'student',
+    hasTakenSAT: additionalInfo.hasTakenSAT || false,
+    satScore: additionalInfo.satScore || null,
+    agreedToTermsAt: serverTimestamp(),
+    termsVersion: TERMS_VERSION,
+    createdAt: serverTimestamp(),
+    lastLoginAt: serverTimestamp()
+  };
+
+  const funnel = additionalInfo.funnelProfile;
+  if (funnel && typeof funnel.targetScore === 'number') {
+    userDoc.targetScore = funnel.targetScore;
+    userDoc.goalScale = funnel.goalScale || 'composite';
+    userDoc.onboardingProfile = funnel.onboardingProfile || null;
+  }
+
+  return userDoc;
+};
 
 /**
  * Migrate a freshly-loaded profile onto the composite (400-1600) goal scale.

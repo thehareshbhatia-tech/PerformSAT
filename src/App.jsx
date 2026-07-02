@@ -82,7 +82,6 @@ const AiTutorChat = React.lazy(() => import('./components/AiTutorChat'));
 const PracticeTest = React.lazy(() => import('./components/PracticeTest'));
 const PracticeTestList = React.lazy(() => import('./components/PracticeTestList'));
 const TestResults = React.lazy(() => import('./components/TestResults'));
-const Onboarding = React.lazy(() => import('./components/Onboarding'));
 // On-ramp check-in: lazy chunk carries the sampler + diagnosis pipeline
 // (banks, studyPlanGenerator) — never import it statically (bundle guard).
 const MiniDiagnosticShell = React.lazy(() => import('./components/MiniDiagnostic/MiniDiagnosticShell'));
@@ -252,9 +251,11 @@ const PerformSAT = () => {
   // app shell, false = dismissed for this session. The activation effect
   // below decides ONCE per session so mid-flow profile stamps
   // (onboardingCompletedAt) can't unmount the results screen.
+  // The old profile wizard stage is gone: the pre-signup funnel (LandingPage →
+  // OnboardingFunnel) collects goal + context before the account exists, so
+  // the on-ramp goes straight to the 24Q check-in.
   const ffOnRamp = useFeatureFlag('onRamp');
   const [onRampActive, setOnRampActive] = useState(null);
-  const [onRampStage, setOnRampStage] = useState('wizard'); // 'wizard' | 'check-in'
   // Active pacing drill: { config, questions }. Set by onStartPacing, rendered at view==='pacingDrill'.
   const [pacingSession, setPacingSession] = useState(null);
   // Which view a pacing drill was launched from, so onExit returns there
@@ -650,12 +651,10 @@ const PerformSAT = () => {
     const hasResume = !!(inProgressTests && inProgressTests['mini-diagnostic']);
     if (user.onboardingCompletedAt || hasTests) { setOnRampActive(false); return; }
     if (hasResume) {
-      setOnRampStage('check-in');
       setOnRampActive(true);
       return;
     }
     if (user.onboardingSkippedAt || studyPlan) { setOnRampActive(false); return; }
-    setOnRampStage('wizard');
     setOnRampActive(true);
   }, [onRampActive, ffOnRamp, user, progressHydrated, practiceTestResults, inProgressTests, studyPlan]);
 
@@ -664,11 +663,12 @@ const PerformSAT = () => {
     markOnboardingSkipped().catch((e) => console.error('[onramp] skip stamp failed:', e));
   };
 
-  // Re-entry from the dashboard "finish your check-in" card. Students who
-  // already answered the wizard (targetScore set) jump straight to the runner.
+  // Re-entry from the dashboard "finish your check-in" card — straight to
+  // the check-in runner (goal/context now arrive with signup via the funnel;
+  // students without a goal get DEFAULT_GOAL_SCORE pacing and can edit it
+  // in Profile).
   const handleResumeOnRamp = () => {
     if (!ensurePracticeAccess()) return;
-    setOnRampStage(user?.targetScore ? 'check-in' : 'wizard');
     setOnRampActive(true);
   };
 
@@ -696,29 +696,18 @@ const PerformSAT = () => {
 
   const renderOnRamp = () => (
     <React.Suspense fallback={<div style={{ minHeight: '100vh', background: '#ffffff' }} />}>
-      {onRampStage === 'wizard' ? (
-        <Onboarding
-          user={user}
-          onUpdateTargetScore={updateTargetScore}
-          onUpdateTestDate={updateTestDate}
-          onUpdateCurrentScore={updateCurrentScore}
-          onComplete={() => setOnRampStage('check-in')}
-          onSkip={handleOnRampSkip}
-        />
-      ) : (
-        <MiniDiagnosticShell
-          user={user}
-          savedProgress={getTestProgress('mini-diagnostic')}
-          onSaveProgress={saveTestProgress}
-          onClearProgress={clearTestProgress}
-          answeredQuestionIds={answeredQuestionIds}
-          completedLessons={completedLessons}
-          practiceProgress={practiceProgress}
-          onFinished={handleOnRampFinished}
-          onViewPlan={() => { setOnRampActive(false); setView('studyPlan'); }}
-          onSkip={handleOnRampSkip}
-        />
-      )}
+      <MiniDiagnosticShell
+        user={user}
+        savedProgress={getTestProgress('mini-diagnostic')}
+        onSaveProgress={saveTestProgress}
+        onClearProgress={clearTestProgress}
+        answeredQuestionIds={answeredQuestionIds}
+        completedLessons={completedLessons}
+        practiceProgress={practiceProgress}
+        onFinished={handleOnRampFinished}
+        onViewPlan={() => { setOnRampActive(false); setView('studyPlan'); }}
+        onSkip={handleOnRampSkip}
+      />
     </React.Suspense>
   );
 

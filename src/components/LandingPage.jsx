@@ -6,21 +6,22 @@ import Wordmark from './ui/Wordmark';
 import { PencilIcon, MicroscopeIcon, TargetIcon } from '../design/icons';
 import './LandingPage.css';
 
+// The pre-signup quiz funnel is its own chunk: the landing page must stay
+// light (it's an eager import in App.jsx), and most visitors bounce before
+// clicking a CTA.
+const OnboardingFunnel = React.lazy(() => import('./onboarding/OnboardingFunnel'));
+
 const LandingPage = () => {
   // Billing dark-launch: pricing copy flips with the same flag as the app's
   // paywall so the landing page never promises "free forever" once the
   // 7-day-trial model is live (and never promises a trial before it exists).
   const billingLive = useFeatureFlag('billing');
-  const [showAuth, setShowAuth] = useState(false);
-  const [isLogin, setIsLogin] = useState(false);
-  
-  // Auth Form State
+  const [showAuth, setShowAuth] = useState(false); // login modal
+  const [showFunnel, setShowFunnel] = useState(false); // signup quiz funnel
+
+  // Login Form State (signup now lives inside the funnel)
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [firstName, setFirstName] = useState('');
-  const [hasTakenSAT, setHasTakenSAT] = useState('');
-  const [satScore, setSatScore] = useState('');
-  const [agreedToTerms, setAgreedToTerms] = useState(false);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
@@ -29,27 +30,10 @@ const LandingPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
-
-    // Guard before setLoading(true) so the finally block's loading reset
-    // never has to undo anything for a blocked submit.
-    if (!isLogin && !agreedToTerms) {
-      setError('Please confirm you are 13 or older and agree to the Terms of Service and Privacy Policy.');
-      return;
-    }
-
     setLoading(true);
 
     try {
-      if (isLogin) {
-        await login(email, password);
-      } else {
-        const additionalInfo = {
-          hasTakenSAT: hasTakenSAT === 'yes',
-          satScore: hasTakenSAT === 'yes' && satScore ? parseInt(satScore) : null,
-          agreedToTerms: true // provably true here because of the guard above
-        };
-        await signup(email, password, firstName, additionalInfo);
-      }
+      await login(email, password);
       // User will be redirected automatically by App.jsx routing
     } catch (err) {
       setError(err.message);
@@ -58,10 +42,30 @@ const LandingPage = () => {
     }
   };
 
+  // Every signup CTA routes through the quiz funnel; only "Log in" opens
+  // the modal directly.
   const openAuth = (loginMode = false) => {
-    setIsLogin(loginMode);
-    setShowAuth(true);
+    if (loginMode) {
+      setShowFunnel(false);
+      setShowAuth(true);
+    } else {
+      setShowAuth(false);
+      setShowFunnel(true);
+    }
   };
+
+  if (showFunnel) {
+    return (
+      <React.Suspense fallback={<div style={{ minHeight: '100vh', background: '#F6F4EF' }} />}>
+        <OnboardingFunnel
+          signup={signup}
+          billingLive={billingLive}
+          onExit={() => setShowFunnel(false)}
+          onLogIn={() => openAuth(true)}
+        />
+      </React.Suspense>
+    );
+  }
 
   return (
     <div className="landing-container">
@@ -251,105 +255,18 @@ const LandingPage = () => {
         </div>
       </footer>
 
-      {/* Auth Modal */}
+      {/* Login Modal (signup happens in the onboarding funnel) */}
       <Modal
         isOpen={showAuth}
         onClose={() => setShowAuth(false)}
-        title={isLogin ? 'Welcome Back' : 'Get Started'}
+        title="Welcome Back"
         maxWidth="480px"
       >
         <p className="auth-form-subtitle" style={{ marginTop: '-0.5rem', marginBottom: '1.5rem', color: 'var(--color-slate-500)' }}>
-          {isLogin ? 'Log in to continue learning' : 'Create your account and start learning'}
+          Log in to continue learning
         </p>
 
         <form onSubmit={handleSubmit}>
-              {!isLogin && (
-                <>
-                  <div className="auth-form-group">
-                    <label className="auth-form-label" htmlFor="firstName">
-                      First Name
-                    </label>
-                    <input
-                      id="firstName"
-                      type="text"
-                      className="auth-form-input"
-                      value={firstName}
-                      onChange={(e) => setFirstName(e.target.value)}
-                      placeholder="Your first name"
-                      required
-                    />
-                  </div>
-
-                  <fieldset className="auth-form-group auth-form-fieldset">
-                    <legend className="auth-form-label">
-                      Have you taken the SAT before?
-                    </legend>
-                    <div className="auth-form-radio-group">
-                      <label className="auth-form-radio-label">
-                        <input
-                          type="radio"
-                          name="hasTakenSAT"
-                          value="yes"
-                          checked={hasTakenSAT === 'yes'}
-                          onChange={(e) => setHasTakenSAT(e.target.value)}
-                          required
-                        />
-                        <span>Yes</span>
-                      </label>
-                      <label className="auth-form-radio-label">
-                        <input
-                          type="radio"
-                          name="hasTakenSAT"
-                          value="no"
-                          checked={hasTakenSAT === 'no'}
-                          onChange={(e) => {
-                            setHasTakenSAT(e.target.value);
-                            setSatScore('');
-                          }}
-                          required
-                        />
-                        <span>No</span>
-                      </label>
-                      <label className="auth-form-radio-label">
-                        <input
-                          type="radio"
-                          name="hasTakenSAT"
-                          value="prefer-not-to-say"
-                          checked={hasTakenSAT === 'prefer-not-to-say'}
-                          onChange={(e) => {
-                            setHasTakenSAT(e.target.value);
-                            setSatScore('');
-                          }}
-                          required
-                        />
-                        <span>Prefer not to say</span>
-                      </label>
-                    </div>
-                  </fieldset>
-
-                  {hasTakenSAT === 'yes' && (
-                    <div className="auth-form-group">
-                      <label className="auth-form-label" htmlFor="satScore">
-                        What was your most recent SAT score? (optional)
-                      </label>
-                      <input
-                        id="satScore"
-                        type="number"
-                        className="auth-form-input"
-                        value={satScore}
-                        onChange={(e) => setSatScore(e.target.value)}
-                        placeholder="e.g., 1200"
-                        min="400"
-                        max="1600"
-                      />
-                      <p className="auth-form-hint">
-                        Score range: 400-1600
-                      </p>
-                    </div>
-                  )}
-                </>
-              )}
-
               <div className="auth-form-group">
                 <label className="auth-form-label" htmlFor="email">
                   Email
@@ -379,32 +296,7 @@ const LandingPage = () => {
                   required
                   minLength="6"
                 />
-                <p className="auth-form-hint">
-                  Minimum 6 characters
-                </p>
               </div>
-
-              {/* Own !isLogin wrapper: the password group above is shared
-                  with login mode, so the consent checkbox cannot live
-                  inside the signup-only block higher up. */}
-              {!isLogin && (
-                <div className="auth-form-group">
-                  <label className="auth-form-checkbox-label">
-                    <input
-                      type="checkbox"
-                      checked={agreedToTerms}
-                      onChange={(e) => setAgreedToTerms(e.target.checked)}
-                      required
-                    />
-                    <span>
-                      I am 13 or older and agree to the{' '}
-                      <a href="/terms" target="_blank" rel="noopener noreferrer">Terms of Service</a>
-                      {' '}and{' '}
-                      <a href="/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
-                    </span>
-                  </label>
-                </div>
-              )}
 
               {error && (
                 <div className="auth-form-error">
@@ -417,15 +309,15 @@ const LandingPage = () => {
                 className="auth-form-submit"
                 disabled={loading}
               >
-                {loading ? 'Please wait...' : (isLogin ? 'Log In' : 'Create Account')}
+                {loading ? 'Please wait...' : 'Log In'}
               </button>
 
               <button
                 type="button"
                 className="auth-form-toggle"
-                onClick={() => setIsLogin(!isLogin)}
+                onClick={() => { setShowAuth(false); openAuth(false); }}
               >
-                {isLogin ? "Don't have an account? Sign up" : 'Already have an account? Log in'}
+                Don't have an account? Sign up
               </button>
             </form>
       </Modal>

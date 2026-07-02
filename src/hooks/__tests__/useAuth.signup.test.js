@@ -73,6 +73,45 @@ describe('buildSignupUserDoc', () => {
     expect(userDoc.satScore).toBeNull();
     expect(userDoc.role).toBe('student');
   });
+
+  test('funnelProfile lands goal + answers in the initial doc, with the composite provenance stamp', () => {
+    const userDoc = buildSignupUserDoc('a@b.com', 'Ana', {
+      agreedToTerms: true,
+      hasTakenSAT: true,
+      funnelProfile: {
+        targetScore: 1450,
+        goalScale: 'composite',
+        hasTakenSAT: true,
+        onboardingProfile: {
+          version: 1,
+          completedAt: '2026-07-02T00:00:00.000Z',
+          answers: { timing: '2to6m', feeling: 'stressed' },
+        },
+      },
+    });
+    expect(userDoc.targetScore).toBe(1450);
+    // Without this stamp normalizeProfileGoal doubles sub-800 goals on next load.
+    expect(userDoc.goalScale).toBe('composite');
+    expect(userDoc.onboardingProfile.answers).toEqual({ timing: '2to6m', feeling: 'stressed' });
+    expect(userDoc.hasTakenSAT).toBe(true);
+  });
+
+  test('funnelProfile without a numeric targetScore adds no goal fields', () => {
+    const userDoc = buildSignupUserDoc('a@b.com', 'Ana', {
+      agreedToTerms: true,
+      funnelProfile: { targetScore: 'not-a-number' },
+    });
+    expect(userDoc).not.toHaveProperty('targetScore');
+    expect(userDoc).not.toHaveProperty('goalScale');
+    expect(userDoc).not.toHaveProperty('onboardingProfile');
+  });
+
+  test('no funnelProfile → legacy doc shape unchanged (no goal keys)', () => {
+    const userDoc = buildSignupUserDoc('a@b.com', 'Ana', { agreedToTerms: true });
+    expect(userDoc).not.toHaveProperty('targetScore');
+    expect(userDoc).not.toHaveProperty('goalScale');
+    expect(userDoc).not.toHaveProperty('onboardingProfile');
+  });
 });
 
 describe('TERMS_VERSION', () => {
