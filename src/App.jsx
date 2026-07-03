@@ -902,6 +902,21 @@ const PerformSAT = () => {
     setView('practice');
   };
 
+  // Post-drill loop: relaunch a fresh Practice-Bank drill containing only the
+  // questions the student just missed. Reuses the exact bank launcher
+  // (startAssignedPractice) so resume/persist/telemetry all behave identically —
+  // the 'practice-bank-redrill' source keeps the resumable-drill machinery on.
+  // Guarded: no-op on an empty/missing miss set so a stray click can't launch
+  // an empty session.
+  const handleRedrillMisses = (missedIds) => {
+    if (!Array.isArray(missedIds) || missedIds.length === 0) return;
+    startAssignedPractice(missedIds, {
+      label: 'Missed questions rerun',
+      source: 'practice-bank-redrill',
+      section: practiceState.assignmentMeta?.section,
+    });
+  };
+
   // Resume a previously-saved, in-flight Practice-Bank drill (the "Continue
   // your last drill" banner). Re-resolves the saved question IDs from the bank,
   // restores answers + position + rounds, and re-paints the current question's
@@ -2126,6 +2141,7 @@ const PerformSAT = () => {
           <PracticeBank
             onStartPractice={startAssignedPractice}
             bankPractice={bankPractice}
+            weaknesses={studyPlan?.weaknesses || null}
             activeDrill={activeDrill}
             onResumeDrill={resumeActiveDrill}
             onDiscardDrill={clearActiveDrill}
@@ -2974,6 +2990,7 @@ const PerformSAT = () => {
                 onNavigateToQuestion={handleNavigateToQuestion}
                 onToggleCalculator={() => setShowCalculator(!showCalculator)}
                 showCalculator={showCalculator}
+                onRedrillMisses={handleRedrillMisses}
                 onRetry={() => {
                   // Review-mode retries can't use startAssignedPractice
                   // because snapshot question IDs aren't in the drill bank.

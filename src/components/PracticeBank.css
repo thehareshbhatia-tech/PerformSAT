@@ -293,7 +293,6 @@
 .pb-topic-main { flex: 1; min-width: 0; }
 .pb-topic-title { font-family: var(--pb-font-display); font-weight: 700; font-size: 18.5px; letter-spacing: -0.01em; color: var(--pb-text); }
 .pb-topic-meta { font-size: 13px; color: var(--pb-text-3); font-weight: 600; margin-top: 3px; }
-.pb-topic-meta .pb-done { color: var(--pb-done); }
 .pb-topic-drill {
   display: inline-flex; align-items: center; gap: 7px;
   background: var(--pb-surface); border: 1.5px solid; border-radius: 11px;
@@ -325,11 +324,198 @@
   font-size: 13px; font-weight: 600; color: var(--pb-text-2); cursor: pointer;
 }
 
+/* ── Mastery layer (Slice 1) ───────────────────────────────────────────────
+ * Student-progress signals over the catalog: hero 3-stat row, topic accuracy
+ * pills, and band-tinted question-type tiles. Tri-color semantics:
+ * green = strength/done, purple = focus/needs work, neutral = in progress.
+ * ────────────────────────────────────────────────────────────────────────── */
+.pb-screen {
+  --pb-green-ink: var(--pb-done);
+  --pb-green-bg: rgba(90, 138, 22, 0.10);
+  --pb-purple-bg: rgba(124, 92, 199, 0.08);
+  --pb-neutral-ink: var(--pb-text-2);
+  --pb-neutral-bg: rgba(22, 24, 29, 0.06);
+}
+.pb-screen[data-theme="dark"] {
+  --pb-green-bg: rgba(159, 210, 58, 0.14);
+  --pb-purple-bg: rgba(169, 139, 229, 0.14);
+  --pb-neutral-bg: rgba(255, 255, 255, 0.08);
+}
+
+/* Hero 3-stat row (Practiced / Accuracy / Strong topics) */
+.pb-hero-stats { display: flex; gap: 26px; justify-content: flex-end; align-items: flex-start; }
+.pb-hero-stat-cell { text-align: right; }
+.pb-hero-stats .pb-hero-stat-num { font-size: 26px; }
+.pb-hero-stat-num.is-green { color: var(--pb-green-ink); }
+.pb-hero-stat-focus { font-size: 11.5px; font-weight: 600; color: var(--pb-purple); margin-top: 3px; }
+
+/* Topic mastery pill (sits beside the Drill button) */
+.pb-pill {
+  display: inline-flex; align-items: center; flex: none;
+  padding: 4px 10px; border-radius: 999px;
+  font-size: 11.5px; font-weight: 600; line-height: 1.2;
+  white-space: nowrap; font-variant-numeric: tabular-nums;
+}
+.pb-pill.is-learning { background: var(--pb-neutral-bg); color: var(--pb-neutral-ink); }
+.pb-pill.is-strong { background: var(--pb-green-bg); color: var(--pb-green-ink); }
+.pb-pill.is-focus { background: var(--pb-purple-bg); color: var(--pb-purple); }
+
+/* Question-type tile band states */
+.pb-type.is-strong { border-left: 2px solid var(--pb-green-ink); }
+.pb-type.is-focus { border-left: 2px solid var(--pb-purple); }
+.pb-type-acc { font-weight: 700; }
+.pb-type-acc.is-learning { color: var(--pb-text-2); }
+.pb-type-acc.is-strong { color: var(--pb-green-ink); }
+.pb-type-acc.is-focus { color: var(--pb-purple); }
+
+/* ── For you strip (Slice 2) ────────────────────────────────────────────────
+ * Performance-driven guided entry: up to three "start here" cards between the
+ * hero divider and the master/detail grid. Tri-color tones by kind — orange =
+ * revisit misses (action), purple = focus from the last test, navy = neutral
+ * new ground. Solid accent buttons with lime ink on the dark (purple/navy)
+ * tones, matching the ACCENTS convention. Green stays reserved for done.
+ * ────────────────────────────────────────────────────────────────────────── */
+.pb-foryou { margin-bottom: 30px; }
+.pb-foryou-label { margin-bottom: 14px; }
+.pb-foryou-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(248px, 1fr));
+  gap: 14px;
+}
+.pb-foryou-card {
+  display: flex; flex-direction: column;
+  background: var(--pb-surface); border: 1px solid var(--pb-line);
+  border-left-width: 3px; border-radius: 15px; padding: 18px 20px;
+  box-shadow: var(--pb-shadow); min-height: 148px;
+}
+.pb-foryou-card.is-orange { border-left-color: var(--pb-orange); }
+.pb-foryou-card.is-purple { border-left-color: var(--pb-purple); }
+.pb-foryou-card.is-navy   { border-left-color: var(--pb-navy); }
+
+.pb-foryou-eyebrow {
+  font-weight: 700; font-size: 10.5px; letter-spacing: 0.13em; text-transform: uppercase;
+}
+.pb-foryou-card.is-orange .pb-foryou-eyebrow { color: var(--pb-orange); }
+.pb-foryou-card.is-purple .pb-foryou-eyebrow { color: var(--pb-purple); }
+.pb-foryou-card.is-navy   .pb-foryou-eyebrow { color: var(--pb-text-2); }
+
+.pb-foryou-title {
+  font-family: var(--pb-font-display); font-weight: 700; font-size: 18px;
+  letter-spacing: -0.01em; line-height: 1.15; color: var(--pb-text); margin-top: 7px;
+}
+.pb-foryou-reason { font-size: 12.5px; color: var(--pb-text-2); line-height: 1.4; margin-top: 5px; flex: 1; }
+.pb-foryou-foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 16px; }
+.pb-foryou-count { font-size: 11.5px; color: var(--pb-text-3); font-weight: 600; }
+.pb-foryou-start {
+  display: inline-flex; align-items: center; gap: 6px;
+  border: none; border-radius: 10px; padding: 9px 16px;
+  font-family: var(--pb-font-body); font-weight: 700; font-size: 13px;
+  cursor: pointer; flex: none; white-space: nowrap;
+  transition: filter 120ms ease, transform 80ms ease;
+}
+.pb-foryou-start:hover { filter: brightness(1.06); }
+.pb-foryou-start:active { transform: translateY(1px); }
+.pb-foryou-card.is-orange .pb-foryou-start { background: var(--pb-orange); color: #fff; }
+.pb-foryou-card.is-purple .pb-foryou-start { background: var(--pb-purple); color: var(--pb-lime); }
+.pb-foryou-card.is-navy   .pb-foryou-start { background: var(--pb-navy);   color: var(--pb-lime); }
+
+/* ── Custom drill builder (Slice 3) ─────────────────────────────────────────
+ * Power-user affordance next to "Drill mixed": an outlined header toggle opens
+ * an inline card (NOT a modal) that filters the selected domain's pool by topic,
+ * count, difficulty, and pool status (all / unseen / missed). Chips stay quiet
+ * neutral (echoing .pb-type tiles); accent only marks the selected state, via
+ * the domain's selTint/selBorder applied inline. Action = solid accent button.
+ * ────────────────────────────────────────────────────────────────────────── */
+.pb-detail-actions { display: flex; align-items: center; gap: 10px; flex: none; flex-wrap: wrap; }
+.pb-builder-toggle {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--pb-surface); border: 1.5px solid; border-radius: 12px;
+  padding: 12px 18px; font-family: var(--pb-font-body); font-weight: 700; font-size: 14px;
+  cursor: pointer; flex: none; white-space: nowrap; transition: background 120ms ease;
+}
+.pb-builder-toggle:hover,
+.pb-builder-toggle[aria-expanded="true"] { background: var(--pb-inset); }
+
+.pb-builder {
+  background: var(--pb-surface); border: 1px solid var(--pb-line);
+  border-radius: 16px; padding: 20px; margin-bottom: 16px;
+  box-shadow: var(--pb-shadow); animation: pb-builder-in 180ms ease;
+}
+@keyframes pb-builder-in {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) { .pb-builder { animation: none; } }
+
+.pb-builder-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
+.pb-builder-title { font-family: var(--pb-font-display); font-weight: 700; font-size: 18px; letter-spacing: -0.01em; color: var(--pb-text); }
+.pb-builder-close {
+  width: 32px; height: 32px; border-radius: 9px; flex: none;
+  display: grid; place-items: center; cursor: pointer;
+  background: var(--pb-surface-2); border: 1px solid var(--pb-line); color: var(--pb-text-2);
+  transition: background 120ms ease, color 120ms ease;
+}
+.pb-builder-close:hover { background: var(--pb-inset); color: var(--pb-text); }
+
+.pb-builder-row { display: flex; gap: 16px; align-items: flex-start; padding: 13px 0; border-top: 1px solid var(--pb-line); }
+.pb-builder-row:first-of-type { border-top: none; padding-top: 0; }
+.pb-builder-label {
+  width: 82px; flex: none; padding-top: 7px;
+  font-weight: 700; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--pb-text-3);
+}
+.pb-chips { display: flex; flex-wrap: wrap; gap: 8px; flex: 1; min-width: 0; }
+.pb-chip {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: var(--pb-surface); border: 1px solid var(--pb-line); border-radius: 999px;
+  padding: 8px 14px; font-family: var(--pb-font-body); font-weight: 600; font-size: 13px;
+  color: var(--pb-text-2); cursor: pointer;
+  transition: border-color 120ms ease, background 120ms ease, color 120ms ease;
+}
+.pb-chip:hover:not(.is-disabled) { border-color: var(--pb-line-strong); }
+.pb-chip.is-on { font-weight: 700; color: var(--pb-text); }
+.pb-chip.is-disabled { opacity: 0.4; cursor: not-allowed; }
+.pb-chip-n { font-family: var(--pb-font-display); font-weight: 700; font-size: 12.5px; color: var(--pb-text-3); font-variant-numeric: tabular-nums; }
+.pb-chip.is-on .pb-chip-n { color: var(--pb-text-2); }
+
+/* Count segmented control */
+.pb-seg { display: inline-flex; background: var(--pb-surface-2); border: 1px solid var(--pb-line); border-radius: 10px; padding: 3px; gap: 3px; }
+.pb-seg-btn {
+  border: none; background: transparent; color: var(--pb-text-2);
+  font-family: var(--pb-font-body); font-weight: 700; font-size: 13px;
+  padding: 7px 16px; border-radius: 8px; cursor: pointer; min-width: 44px;
+  font-variant-numeric: tabular-nums; transition: background 120ms ease, color 120ms ease;
+}
+.pb-seg-btn:hover { color: var(--pb-text); }
+.pb-seg-btn.is-on { background: var(--pb-surface); color: var(--pb-text); box-shadow: var(--pb-shadow); }
+
+.pb-builder-foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--pb-line); }
+.pb-builder-reset {
+  background: transparent; border: none; color: var(--pb-text-2);
+  font-family: var(--pb-font-body); font-weight: 600; font-size: 13px; cursor: pointer; padding: 8px 4px;
+}
+.pb-builder-reset:hover { color: var(--pb-text); text-decoration: underline; }
+.pb-builder-start {
+  display: inline-flex; align-items: center; gap: 8px;
+  border: none; border-radius: 12px; padding: 12px 22px;
+  font-family: var(--pb-font-body); font-weight: 700; font-size: 14px;
+  color: #fff; cursor: pointer; white-space: nowrap;
+  transition: filter 120ms ease, transform 80ms ease;
+}
+.pb-builder-start:hover:not(:disabled) { filter: brightness(1.06); }
+.pb-builder-start:active:not(:disabled) { transform: translateY(1px); }
+.pb-builder-start:disabled { background: var(--pb-surface-2); color: var(--pb-text-3); cursor: not-allowed; }
+
+@media (max-width: 480px) {
+  .pb-builder-row { flex-direction: column; gap: 9px; }
+  .pb-builder-label { width: auto; padding-top: 0; }
+}
+
 /* ── Responsive ────────────────────────────────────────────────────────── */
 @media (max-width: 900px) {
   .pb-md { flex-direction: column; }
   .pb-rail { width: 100%; position: static; }
   .pb-domainnav { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+  .pb-foryou-row { grid-template-columns: 1fr; }
 }
 @media (max-width: 600px) {
   .pb-topbar { padding: 0 18px; }

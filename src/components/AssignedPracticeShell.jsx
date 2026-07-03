@@ -11,6 +11,7 @@ import { formatDiagnosticSentence } from '../services/diagnosticEngine';
 import { findRoundIndexForQuestion, computeRoundProgress } from '../services/buildRounds';
 import { getDrillChipForWeakness } from '../services/selectors/drillChip';
 import { getDesmosTip } from '../services/selectors/desmosTip';
+import { extractMissedIds } from '../services/selectors/drillSummary';
 import { sectionModuleShort } from '../services/selectors/moduleLabel';
 import { decideTier } from '../data/questions/bank';
 import { trackDrillStarted, trackDrillChipShown } from '../services/analyticsService';
@@ -173,6 +174,10 @@ const AssignedPracticeShell = ({
   onToggleCalculator,
   showCalculator,
   onRetry,
+  // Optional (bank drills only): relaunch a fresh drill of just the missed
+  // questions. Absent for study-plan / adaptive / review sessions, where the
+  // "What's next" re-drill row does not render. Receives the missed-question ids.
+  onRedrillMisses,
   getDifficultyBadge,
   user,
   skillProgress,
@@ -443,6 +448,12 @@ const AssignedPracticeShell = ({
       }
     });
 
+    // "What's next" forward action — Practice-Bank drills only (every bank
+    // launcher emits a 'practice-bank-*' source). Study-plan / adaptive /
+    // review-retry summaries keep the plain Try Again / Back row below.
+    const isBankSession = (practiceState.assignmentMeta?.source || '').startsWith('practice-bank');
+    const missedIds = isBankSession ? extractMissedIds(questions, practiceState.answers) : [];
+
     return (
       <div style={{ maxWidth: '580px', margin: '0 auto', padding: '48px 24px' }}>
         <button onClick={onBack} style={{
@@ -540,20 +551,67 @@ const AssignedPracticeShell = ({
           </div>
         </div>
 
-        <div style={{ display: 'flex', gap: '14px', justifyContent: 'center' }}>
-          <button onClick={onRetry} style={{
-            padding: '14px 28px', borderRadius: '12px', border: `2px solid ${C.brand}`,
-            background: C.white, color: C.brand, fontSize: '15px', fontWeight: '600', cursor: 'pointer',
-          }}>
-            Try Again
-          </button>
-          <button onClick={onBack} style={{
-            padding: '14px 28px', borderRadius: '12px', border: 'none',
-            background: C.brand, color: C.white, fontSize: '15px', fontWeight: '600', cursor: 'pointer',
-          }}>
-            {backLabel}
-          </button>
-        </div>
+        {/* What's next — Practice-Bank drills only. The load-bearing post-drill
+            loop: re-drill the exact questions you just missed (primary), rerun
+            the whole set, or return. This IS the action zone for bank sessions,
+            so the generic Try Again / Back row below is suppressed to avoid a
+            duplicate back button. */}
+        {isBankSession ? (
+          <div style={{ background: C.bg, borderRadius: '14px', padding: '22px', marginBottom: '32px' }}>
+            <h3 style={{ fontSize: '13px', fontWeight: '600', color: C.textSec, marginBottom: '14px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+              What's Next
+            </h3>
+            <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap' }}>
+              {missedIds.length >= 2 && typeof onRedrillMisses === 'function' && (
+                <button
+                  type="button"
+                  onClick={() => onRedrillMisses(missedIds)}
+                  style={{
+                    padding: '14px 28px', borderRadius: '12px', border: 'none',
+                    background: C.brand, color: C.white, fontSize: '15px', fontWeight: '600', cursor: 'pointer',
+                  }}
+                >
+                  Re-drill your misses ({missedIds.length})
+                </button>
+              )}
+              <button
+                type="button"
+                onClick={onRetry}
+                style={{
+                  padding: '14px 28px', borderRadius: '12px', border: `2px solid ${C.brand}`,
+                  background: C.white, color: C.brand, fontSize: '15px', fontWeight: '600', cursor: 'pointer',
+                }}
+              >
+                Try again
+              </button>
+              <button
+                type="button"
+                onClick={onBack}
+                style={{
+                  padding: '14px 28px', borderRadius: '12px', border: `1px solid var(--color-slate-300)`,
+                  background: 'transparent', color: C.textSec, fontSize: '15px', fontWeight: '600', cursor: 'pointer',
+                }}
+              >
+                Back to Practice Bank
+              </button>
+            </div>
+          </div>
+        ) : (
+          <div style={{ display: 'flex', gap: '14px', justifyContent: 'center' }}>
+            <button onClick={onRetry} style={{
+              padding: '14px 28px', borderRadius: '12px', border: `2px solid ${C.brand}`,
+              background: C.white, color: C.brand, fontSize: '15px', fontWeight: '600', cursor: 'pointer',
+            }}>
+              Try Again
+            </button>
+            <button onClick={onBack} style={{
+              padding: '14px 28px', borderRadius: '12px', border: 'none',
+              background: C.brand, color: C.white, fontSize: '15px', fontWeight: '600', cursor: 'pointer',
+            }}>
+              {backLabel}
+            </button>
+          </div>
+        )}
       </div>
     );
   }
