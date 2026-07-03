@@ -81,6 +81,16 @@ const design = {
   }
 };
 
+// Concept-level suggestion chip for practice questions. A suggestion chip is
+// normally a plain string (its own label AND the message it sends); this pair lets
+// a short button label send a richer directive that makes the tutor teach the
+// underlying concept — name it, explain it generally, then tie it to this question.
+// Works for both math and R&W via the existing section-selected system prompt.
+const CONCEPT_CHIP = {
+  label: 'Teach me this concept',
+  prompt: "Teach me the concept this question is testing. First name the concept, then explain the general idea in plain language, and finally connect it back to this specific question.",
+};
+
 // Per-assistant-message action row: Copy (paste worked solutions to notes),
 // Regenerate (re-ask, last message only), and 👍/👎 feedback. Encapsulates its
 // own transient state so the parent message list stays stateless.
@@ -1572,37 +1582,47 @@ Your goal is to build their problem-solving instincts. Every question they solve
               justifyContent: 'center',
               maxWidth: '340px'
             }}>
-              {(
-                // Use smart prompts if skill progress is available
-                (skillProgress && isPracticeQuestion && getSmartPrompts()) ||
-                // Otherwise use default prompts
-                (isPracticeQuestion
-                  ? (practiceContext?.answerRevealed
-                    ? [
-                      "Explain the solution",
-                      "Why is that the answer?",
-                      "Show me the steps"
-                    ]
-                    : [
-                      "Explain the hint",
-                      "What formula do I use?",
-                      "How do I start?"
-                    ])
-                  : (isVideoLesson
-                    ? [
-                      "Explain this step",
-                      "Why did he do that?",
-                      "What formula is this?"
-                    ]
-                    : [
-                      "Why this formula?",
-                      "Explain again",
-                      "Common mistakes?"
-                    ]))
-              ).map((suggestion, i) => (
+              {(() => {
+                // Use smart prompts if skill progress is available; else defaults.
+                const base = (
+                  (skillProgress && isPracticeQuestion && getSmartPrompts()) ||
+                  (isPracticeQuestion
+                    ? (practiceContext?.answerRevealed
+                      ? [
+                        "Explain the solution",
+                        "Why is that the answer?",
+                        "Show me the steps"
+                      ]
+                      : [
+                        "Explain the hint",
+                        "What formula do I use?",
+                        "How do I start?"
+                      ])
+                    : (isVideoLesson
+                      ? [
+                        "Explain this step",
+                        "Why did he do that?",
+                        "What formula is this?"
+                      ]
+                      : [
+                        "Why this formula?",
+                        "Explain again",
+                        "Common mistakes?"
+                      ]))
+                );
+                // Add the concept-teaching chip on practice questions (both math
+                // and R&W). Kept last so the existing smart-prompt order is intact.
+                return isPracticeQuestion ? [...base, CONCEPT_CHIP] : base;
+              })().map((suggestion, i) => {
+                // A chip is either a plain string (label === prompt) or a
+                // { label, prompt } pair so a short label can send a richer prompt.
+                const chip = typeof suggestion === 'string'
+                  ? { label: suggestion, prompt: suggestion }
+                  : suggestion;
+                return (
                 <button
                   key={i}
-                  onClick={() => handleSend(suggestion)}
+                  onClick={() => handleSend(chip.prompt)}
                   style={premiumLearnMode ? {
                     padding: '12px 16px',
                     background: 'rgba(255, 255, 255, 0.5)',
@@ -1652,7 +1672,7 @@ Your goal is to build their problem-solving instincts. Every question they solve
                     }
                   }}
                 >
-                  {suggestion}
+                  {chip.label}
                   {premiumLearnMode && (
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ opacity: 0.5 }}>
                       <line x1="22" y1="2" x2="11" y2="13"></line>
@@ -1660,7 +1680,8 @@ Your goal is to build their problem-solving instincts. Every question they solve
                     </svg>
                   )}
                 </button>
-              ))}
+                );
+              })}
             </div>
           </div>
         ) : (

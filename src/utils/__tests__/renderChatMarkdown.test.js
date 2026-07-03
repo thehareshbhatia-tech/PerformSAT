@@ -250,6 +250,54 @@ describe('renderChatMarkdown currency + math', () => {
   });
 });
 
+// Inline graphs: a ```seva-graph``` block renders a real SVG diagram in place;
+// malformed / streaming / unsupported blocks degrade to prose and never dump JSON.
+describe('renderChatMarkdown inline graphs', () => {
+  const graphBlock = (obj) => '```seva-graph\n' + JSON.stringify(obj) + '\n```';
+
+  test('a valid graph block renders an SVG and keeps the surrounding prose', () => {
+    const text = `The two lines meet here:\n\n${graphBlock({
+      type: 'twoLineGraph',
+      params: { intersection: { x: 2, y: 3 }, slope1: 1, slope2: -1 },
+    })}\n\nSo the solution is (2, 3).`;
+    const html = renderToHtml(text);
+    expect(html).toContain('<svg');
+    expect(html).toContain('The two lines meet here');
+    expect(html).toContain('So the solution is');
+    // The raw block/JSON must never be shown.
+    expect(html).not.toContain('seva-graph');
+    expect(html).not.toContain('intersection');
+  });
+
+  test('a malformed graph block degrades to prose with no SVG and no raw JSON', () => {
+    const text = 'Before.\n\n```seva-graph\n{ not valid json }\n```\n\nAfter.';
+    const html = renderToHtml(text);
+    expect(html).toContain('Before.');
+    expect(html).toContain('After.');
+    expect(html).not.toContain('<svg');
+    expect(html).not.toContain('seva-graph');
+    expect(html).not.toContain('not valid json');
+  });
+
+  test('an unclosed (streaming) graph block hides its partial JSON', () => {
+    const text = 'Let me graph that:\n\n```seva-graph\n{ "type": "parabola", "par';
+    const html = renderToHtml(text);
+    expect(html).toContain('Let me graph that');
+    expect(html).not.toContain('<svg');
+    expect(html).not.toContain('seva-graph');
+    expect(html).not.toContain('parabola');
+  });
+
+  test('an unsupported graph type degrades to prose', () => {
+    const text = `A.\n\n${graphBlock({ type: 'pieChart', params: {} })}\n\nB.`;
+    const html = renderToHtml(text);
+    expect(html).toContain('A.');
+    expect(html).toContain('B.');
+    expect(html).not.toContain('<svg');
+    expect(html).not.toContain('pieChart');
+  });
+});
+
 describe('renderChatMarkdown emphasis vs operators', () => {
   test('spaced asterisks (multiplication in prose) are not italicized', () => {
     const html = renderToHtml('Compute 2 * 3 and then 4 * 5.');

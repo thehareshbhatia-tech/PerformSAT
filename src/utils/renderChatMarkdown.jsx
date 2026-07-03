@@ -2,6 +2,8 @@ import React from 'react';
 import katex from 'katex';
 import normalizeFractions from './normalizeFractions';
 import { colors as designColors } from '../design/tokens';
+import { extractGraphSpec } from './graphSpec';
+import TutorGraph from '../components/TutorGraph';
 
 /**
  * Escapes the HTML-significant characters (& < >) so raw model output can
@@ -29,7 +31,7 @@ const KATEX_TOKEN_RE = /\uE000(\d+)\uE001/g;
 //   3. Markdown regexes run on the escaped text.
 //   4. Tokens are restored at the END of processInlineMarkdown, after the
 //      markdown regexes, so they can never chew on KaTeX's own HTML.
-const renderMarkdown = (text) => {
+const renderProse = (text) => {
   if (!text) return null;
 
   const katexChunks = [];
@@ -234,6 +236,36 @@ const renderMarkdown = (text) => {
   flushList();
 
   return <>{elements}</>;
+};
+
+/**
+ * Chat message renderer. Wraps the prose renderer with inline-graph support: if the
+ * message contains a ```seva-graph``` block, the (first, valid) graph is mounted in
+ * place via <TutorGraph>, with the surrounding prose rendered normally before and
+ * after it. Everything degrades gracefully (see extractGraphSpec): a still-streaming
+ * unclosed block, malformed JSON, or an unsupported type all fall back to prose and
+ * never dump raw JSON.
+ *
+ * The before/after prose are each rendered through the original renderProse pipeline
+ * and wrapped in their own keyed fragments, so their internal element keys live in
+ * separate parents and cannot collide. When there is no graph (the common case),
+ * this is byte-identical to the old single-pass behavior.
+ */
+const renderMarkdown = (text) => {
+  if (!text) return null;
+
+  const { spec, before, after } = extractGraphSpec(text);
+
+  // Fast path: no graph and nothing was stripped → original single-pass output.
+  if (!spec && !after) return renderProse(before);
+
+  return (
+    <>
+      {before ? <React.Fragment key="seva-pre">{renderProse(before)}</React.Fragment> : null}
+      {spec ? <TutorGraph key="seva-graph" spec={spec} /> : null}
+      {after ? <React.Fragment key="seva-post">{renderProse(after)}</React.Fragment> : null}
+    </>
+  );
 };
 
 export default renderMarkdown;
