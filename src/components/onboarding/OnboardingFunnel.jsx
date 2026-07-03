@@ -484,8 +484,8 @@ const OnboardingFunnel = ({ signup, onExit, onLogIn, billingLive }) => {
       </button>
       <p className="of-fineprint">
         {billingLive
-          ? '7 days free — full product, no credit card to start.'
-          : 'Free during early access — full product, no credit card.'}
+          ? "Free for 7 days, then $50/month or $250/year. Cancel anytime before day 7 and you won't be charged."
+          : 'Free during early access — the full product, everything included.'}
       </p>
     </div>
   );

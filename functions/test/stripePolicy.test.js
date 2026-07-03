@@ -9,7 +9,6 @@ const assert = require("node:assert");
 const {
   TRIAL_DAYS,
   DAY_MS,
-  computeTrialEndMs,
   mapStripeStatus,
   planFromPriceId,
   subscriptionToEntitlementPatch,
@@ -18,44 +17,21 @@ const {
 } = require("../lib/stripePolicy");
 
 const NOW = Date.parse("2026-07-15T12:00:00Z");
-const LAUNCH = Date.parse("2026-07-10T00:00:00Z");
 const MONTHLY = "price_monthly_test";
 const ANNUAL = "price_annual_test";
 
-// ── computeTrialEndMs ────────────────────────────────────────────────────
-
-test("trial end: new account (created after launch) gets created + 7d", () => {
-  const created = LAUNCH + 3 * DAY_MS;
-  assert.strictEqual(
-    computeTrialEndMs(created, LAUNCH),
-    created + TRIAL_DAYS * DAY_MS,
-  );
-});
-
-test("trial end: pre-existing account gets launch + 7d (decision D7)", () => {
-  const created = LAUNCH - 90 * DAY_MS; // signed up long before the paywall
-  assert.strictEqual(
-    computeTrialEndMs(created, LAUNCH),
-    LAUNCH + TRIAL_DAYS * DAY_MS,
-  );
-});
-
-test("trial end: garbage inputs degrade to the other operand", () => {
-  assert.strictEqual(
-    computeTrialEndMs(0, LAUNCH),
-    LAUNCH + TRIAL_DAYS * DAY_MS,
-  );
-  assert.strictEqual(
-    computeTrialEndMs(NOW, 0),
-    NOW + TRIAL_DAYS * DAY_MS,
-  );
+// TRIAL_DAYS is the source of truth reused by createCheckoutSession's
+// subscription_data.trial_period_days — pin it so a stray edit is caught.
+test("trial length constant is 7 days", () => {
+  assert.strictEqual(TRIAL_DAYS, 7);
 });
 
 // ── mapStripeStatus ──────────────────────────────────────────────────────
 
 test("stripe status mapping covers every documented status", () => {
   assert.strictEqual(mapStripeStatus("active"), "active");
-  assert.strictEqual(mapStripeStatus("trialing"), "active");
+  // Card-up-front: "trialing" is now first-class (was mapped to "active").
+  assert.strictEqual(mapStripeStatus("trialing"), "trialing");
   assert.strictEqual(mapStripeStatus("past_due"), "past_due");
   assert.strictEqual(mapStripeStatus("canceled"), "canceled");
   assert.strictEqual(mapStripeStatus("unpaid"), "canceled");
@@ -90,8 +66,40 @@ test("subscription -> patch: active monthly with period end", () => {
     plan: "monthly",
     subscriptionId: "sub_123",
     currentPeriodEndMs: periodEndSec * 1000,
+    trialEndsAtMs: null,
     cancelAtPeriodEnd: false,
   });
+});
+
+test("subscription -> patch: trialing carries trial_end (card-up-front)", () => {
+  const trialEndSec = Math.floor((NOW + 7 * DAY_MS) / 1000);
+  const patch = subscriptionToEntitlementPatch({
+    id: "sub_trial",
+    status: "trialing",
+    cancel_at_period_end: false,
+    trial_end: trialEndSec,
+    // during a trial Stripe sets current_period_end == trial_end
+    items: {data: [{price: {id: ANNUAL}, current_period_end: trialEndSec}]},
+  }, MONTHLY, ANNUAL);
+  assert.strictEqual(patch.status, "trialing");
+  assert.strictEqual(patch.plan, "annual");
+  assert.strictEqual(patch.trialEndsAtMs, trialEndSec * 1000);
+  assert.strictEqual(patch.currentPeriodEndMs, trialEndSec * 1000);
+});
+
+test("subscription -> patch: trialing + cancel_at_period_end (canceled " +
+  "during trial keeps access until trial_end)", () => {
+  const trialEndSec = Math.floor((NOW + 4 * DAY_MS) / 1000);
+  const patch = subscriptionToEntitlementPatch({
+    id: "sub_trial_cancel",
+    status: "trialing",
+    cancel_at_period_end: true,
+    trial_end: trialEndSec,
+    items: {data: [{price: {id: MONTHLY}, current_period_end: trialEndSec}]},
+  }, MONTHLY, ANNUAL);
+  assert.strictEqual(patch.status, "trialing");
+  assert.strictEqual(patch.cancelAtPeriodEnd, true);
+  assert.strictEqual(patch.trialEndsAtMs, trialEndSec * 1000);
 });
 
 test("subscription -> patch: canceled annual keeps period end + flag", () => {
@@ -143,6 +151,7 @@ test("subscription -> patch: missing items/period end degrade to nulls", () => {
   assert.strictEqual(patch.status, "past_due");
   assert.strictEqual(patch.plan, null);
   assert.strictEqual(patch.currentPeriodEndMs, null);
+  assert.strictEqual(patch.trialEndsAtMs, null);
   assert.strictEqual(patch.cancelAtPeriodEnd, false);
 });
 
@@ -161,24 +170,36 @@ test("event ordering: newer and same-second apply, older is skipped", () => {
 
 // ── hasAccessMs (THE access rule) ────────────────────────────────────────
 
-test("access: trialing before/after the clock", () => {
+test("access: trialing always has access (Stripe owns the clock)", () => {
+  // Card-up-front: a "trialing" subscription means the card is on file and
+  // Stripe will flip the status at trial_end — access does NOT re-gate on a
+  // local clock (that would risk locking a paying customer mid-transition).
   assert.strictEqual(
     hasAccessMs({status: "trialing", trialEndsAtMs: NOW + DAY_MS}, NOW),
     true,
   );
   assert.strictEqual(
     hasAccessMs({status: "trialing", trialEndsAtMs: NOW - 1}, NOW),
-    false,
+    true,
   );
   assert.strictEqual(
     hasAccessMs({status: "trialing", trialEndsAtMs: null}, NOW),
-    false,
+    true,
   );
 });
 
 test("access: active and past_due always have access", () => {
   assert.strictEqual(hasAccessMs({status: "active"}, NOW), true);
   assert.strictEqual(hasAccessMs({status: "past_due"}, NOW), true);
+});
+
+test("access: the no-access seed state ('none') locks", () => {
+  // ensureEntitlement seeds this until Checkout completes — no card, no access.
+  assert.strictEqual(hasAccessMs({status: "none"}, NOW), false);
+  assert.strictEqual(
+    hasAccessMs({status: "none", trialEndsAtMs: NOW + 30 * DAY_MS}, NOW),
+    false,
+  );
 });
 
 test("access: canceled honors a still-future period end, else locks", () => {

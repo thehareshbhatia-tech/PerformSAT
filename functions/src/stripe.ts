@@ -1,28 +1,31 @@
 /**
- * SEVA Premium billing endpoints (Stripe).
+ * SEVA Premium billing endpoints (Stripe) — CARD-UP-FRONT 7-day trial.
  *
  * Four endpoints + one gate helper:
- *   ensureEntitlement     — idempotently stamps the server-side trial clock
- *   createCheckoutSession — hosted Stripe Checkout (subscription mode)
+ *   ensureEntitlement     — idempotently creates the entitlement doc in a
+ *                           NO-ACCESS state ("none") until Checkout completes
+ *   createCheckoutSession — hosted Stripe Checkout (subscription mode) that
+ *                           collects a card up front and starts a 7-day trial
  *   createPortalSession   — Stripe Customer Portal (manage/cancel/card)
  *   stripeWebhook         — signature-verified event sink -> entitlements/{uid}
  *   hasEntitlementAccess  — server-side gate used by aiTutor (402)
  *
  * The entitlement doc (entitlements/{uid}) is SERVER-WRITE-ONLY — firestore
  * rules deny all client writes; the Admin SDK bypasses rules. The client only
- * ever reads it (useEntitlement onSnapshot).
+ * ever reads it (useEntitlement onSnapshot). Access comes ONLY from a real
+ * Stripe subscription (trialing/active) — there is no no-card grant.
  *
  * Deploy-time params (functions/.env or `firebase functions:secrets:set`):
  *   secrets: STRIPE_SECRET_KEY, STRIPE_WEBHOOK_SECRET
- *   strings: STRIPE_PRICE_MONTHLY, STRIPE_PRICE_ANNUAL,
- *            BILLING_LAUNCH_EPOCH (ISO date), BILLING_APP_BASE_URL
+ *   strings: STRIPE_PRICE_MONTHLY, STRIPE_PRICE_ANNUAL, BILLING_APP_BASE_URL
+ *   (BILLING_LAUNCH_EPOCH is retained in .env for history but no longer read —
+ *    the trial clock is now Stripe's, not the app's.)
  */
 
 import Stripe from "stripe";
 import {onRequest} from "firebase-functions/v2/https";
 import * as logger from "firebase-functions/logger";
 import {defineSecret, defineString} from "firebase-functions/params";
-import {getAuth} from "firebase-admin/auth";
 import {
   getFirestore,
   FieldValue,
@@ -31,7 +34,7 @@ import {
 } from "firebase-admin/firestore";
 import {ALLOWED_ORIGINS, verifyAuth, checkRateLimit} from "./shared";
 import {
-  computeTrialEndMs,
+  TRIAL_DAYS,
   subscriptionToEntitlementPatch,
   shouldApplyEvent,
   hasAccessMs,
@@ -42,12 +45,6 @@ const stripeSecretKey = defineSecret("STRIPE_SECRET_KEY");
 const stripeWebhookSecret = defineSecret("STRIPE_WEBHOOK_SECRET");
 const stripePriceMonthly = defineString("STRIPE_PRICE_MONTHLY", {default: ""});
 const stripePriceAnnual = defineString("STRIPE_PRICE_ANNUAL", {default: ""});
-// The paywall launch moment: pre-existing accounts get trialEndsAt =
-// max(createdAt, THIS) + 7d (decision D7). Set it to the real launch date
-// before flipping REACT_APP_FF_BILLING on.
-const billingLaunchEpoch = defineString("BILLING_LAUNCH_EPOCH", {
-  default: "2026-07-01T00:00:00Z",
-});
 const appBaseUrl = defineString("BILLING_APP_BASE_URL", {
   default: "https://www.sevaprep.com",
 });
@@ -131,15 +128,14 @@ export const ensureEntitlement = onRequest(
       await getFirestore().runTransaction(async (tx) => {
         const snap = await tx.get(ref);
         if (snap.exists) return; // idempotent — never touch an existing doc
-        const authUser = await getAuth().getUser(user.uid);
-        const createdMs =
-          Date.parse(authUser.metadata.creationTime) || Date.now();
-        const launchMs = Date.parse(billingLaunchEpoch.value()) || Date.now();
-        const trialEndMs = computeTrialEndMs(createdMs, launchMs);
+        // Card-up-front model: signup grants NO access. Seed the doc in a
+        // no-access "none" state so the aiTutor gate (hasEntitlementAccess)
+        // and the client both read "locked" until the student starts a trial
+        // via Checkout (the webhook then flips this doc to "trialing").
         tx.set(ref, {
           uid: user.uid,
-          status: "trialing",
-          trialEndsAt: Timestamp.fromMillis(trialEndMs),
+          status: "none",
+          trialEndsAt: null,
           stripeCustomerId: null,
           subscriptionId: null,
           plan: null,
@@ -201,10 +197,23 @@ export const createCheckoutSession = onRequest(
           {customer_email: user.email || undefined}),
         line_items: [{price, quantity: 1}],
         allow_promotion_codes: true,
-        // uid on BOTH the session and the subscription: the webhook resolves
-        // checkout.session.completed via client_reference_id and later
-        // customer.subscription.* events via subscription.metadata.uid.
-        subscription_data: {metadata: {uid: user.uid}},
+        // payment_method_collection stays at its default ("always") so the
+        // card IS collected during Checkout even though the first charge is
+        // deferred to trial end — that is the whole point of card-up-front.
+        subscription_data: {
+          // uid on BOTH the session and the subscription: the webhook resolves
+          // checkout.session.completed via client_reference_id and later
+          // customer.subscription.* events via subscription.metadata.uid.
+          metadata: {uid: user.uid},
+          // Card-up-front 7-day free trial: the saved card is charged only
+          // when the trial ends (unless canceled first).
+          trial_period_days: TRIAL_DAYS,
+          // Safety net: if the trial somehow ends with no usable payment
+          // method on file, cancel the subscription instead of charging.
+          trial_settings: {
+            end_behavior: {missing_payment_method: "cancel"},
+          },
+        },
         metadata: {uid: user.uid},
         success_url: `${base}/course?checkout=success`,
         cancel_url: `${base}/course?checkout=canceled`,
@@ -284,6 +293,11 @@ async function applyEntitlementPatch(
       subscriptionId: patch.subscriptionId,
       currentPeriodEnd: patch.currentPeriodEndMs != null ?
         Timestamp.fromMillis(patch.currentPeriodEndMs) :
+        null,
+      // Stripe's trial_end drives the client's "N days left / won't be
+      // charged until <date>" copy — never app-side math.
+      trialEndsAt: patch.trialEndsAtMs != null ?
+        Timestamp.fromMillis(patch.trialEndsAtMs) :
         null,
       cancelAtPeriodEnd: patch.cancelAtPeriodEnd,
       ...(stripeCustomerId ? {stripeCustomerId} : {}),
@@ -365,6 +379,7 @@ export const stripeWebhook = onRequest(
         logger.info(`Entitlement activated for ${uid} (${patch.plan})`);
         break;
       }
+      case "customer.subscription.created":
       case "customer.subscription.updated":
       case "customer.subscription.deleted": {
         const sub = event.data.object as Stripe.Subscription;

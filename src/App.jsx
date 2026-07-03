@@ -365,6 +365,10 @@ const PerformSAT = () => {
   const entitlement = useEntitlement(user);
   const entitlementStateRef = useRef(entitlement);
   useEffect(() => { entitlementStateRef.current = entitlement; }, [entitlement]);
+  // Set true the instant we return from a successful Checkout so the hard-gate
+  // auto-route below doesn't bounce a student who JUST paid back to the wall
+  // during the brief window before the webhook flips their doc to trialing.
+  const awaitingCheckoutRef = useRef(false);
 
   // Single choke-point gate for every practice/test/tutor LAUNCHER. Reads
   // through a ref so useCallback'd launchers with [] deps stay correct.
@@ -384,6 +388,25 @@ const PerformSAT = () => {
   // Render-time flavor of the same rule, for locked-state affordances
   // (test-card CTAs, the standalone tutor view, review-pane tutor note).
   const billingLocked = entitlement.flagEnabled && !entitlement.loading && !entitlement.hasAccess;
+
+  // Card-up-front HARD gate: a logged-in account that has never put a card on
+  // file (no access AND no Stripe customer) has NO access in this model — send
+  // it straight to the start-trial wall. Lapsed accounts (canceled/expired
+  // WITH a prior billing account) are excluded here: they keep the read-only
+  // dashboard and only hit the wall via a launcher (ensurePracticeAccess).
+  // Suppressed right after a successful Checkout return (awaitingCheckoutRef)
+  // so we don't flash the wall while the activation webhook lands.
+  useEffect(() => {
+    if (!entitlement.flagEnabled || !user || entitlement.loading) return;
+    if (entitlement.hasAccess) {
+      awaitingCheckoutRef.current = false; // trial/subscription is live
+      return;
+    }
+    if (awaitingCheckoutRef.current) return; // just paid — wait for the webhook
+    if (!entitlement.hasBillingAccount && view !== 'paywall') {
+      setView('paywall');
+    }
+  }, [entitlement.flagEnabled, entitlement.loading, entitlement.hasAccess, entitlement.hasBillingAccount, user, view]);
 
   // ── Live plan reprioritization (adaptivity audit item 3) ─────────────────
   // reprioritizePlan used to run ONLY in the post-test save path, so its
@@ -535,9 +558,13 @@ const PerformSAT = () => {
       const qs = params.toString();
       window.history.replaceState({}, '', window.location.pathname + (qs ? `?${qs}` : ''));
       if (checkout === 'success') {
+        // Suppress the hard-gate auto-route until the webhook flips the doc to
+        // trialing (entitlement.hasAccess) — otherwise a student who just added
+        // their card would flash back to the start-trial wall for a beat.
+        awaitingCheckoutRef.current = true;
         showToast({
           type: 'success',
-          message: 'Payment received — your Premium access is activating.',
+          message: 'Card saved — your 7-day free trial is starting.',
           duration: 6000,
         });
       } else if (checkout === 'canceled') {
@@ -2080,7 +2107,6 @@ const PerformSAT = () => {
         <React.Suspense fallback={null}>
           <TrialBanner
             entitlement={entitlement}
-            onSubscribe={() => setView('paywall')}
             onManageBilling={() => {
               openBillingPortal().catch((err) => {
                 showToast({ type: 'error', message: err.message || 'Could not open billing.' });

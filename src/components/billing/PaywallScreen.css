@@ -147,6 +147,14 @@
   border: 2px solid #ea580c;
 }
 
+.pw-grace-actions {
+  margin-bottom: 28px;
+}
+.pw-grace-actions .pw-plan-cta {
+  display: inline-block;
+  min-width: 240px;
+}
+
 .pw-features {
   list-style: none;
   margin: 0;

@@ -20,9 +20,10 @@ const CREATE_PORTAL_URL = process.env.REACT_APP_CREATE_PORTAL_URL ||
   'https://createportalsession-ki77ua6x2a-uc.a.run.app';
 
 /**
- * Idempotently create the server-side entitlement doc (stamps the 7-day
- * trial clock for accounts that don't have one yet). Safe to call on every
- * boot; the function never touches an existing doc.
+ * Idempotently create the server-side entitlement doc in a NO-ACCESS "none"
+ * state (card-up-front model — access only comes from a Stripe subscription
+ * the webhook writes). Safe to call on every boot; the function never touches
+ * an existing doc.
  *
  * @returns {Promise<object>} serialized entitlement ({status, trialEndsAt, ...})
  */

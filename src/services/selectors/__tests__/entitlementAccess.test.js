@@ -55,19 +55,30 @@ describe('deriveEntitlementAccess', () => {
     expect(v.trialDaysLeft).toBe(1);
   });
 
-  it('trial expired: locked, phase expired, zero days left', () => {
+  it('trialing keeps access even if the local clock has passed (Stripe owns it)', () => {
+    // Card-up-front: Stripe flips trialing->active/canceled at trial_end via
+    // webhook. If the doc still reads trialing (webhook lag) we grant access
+    // rather than lock a customer Stripe is about to charge. Days-left floors.
     const v = deriveEntitlementAccess(
       { status: 'trialing', trialEndsAt: NOW - 1 },
       NOW,
     );
-    expect(v.hasAccess).toBe(false);
-    expect(v.phase).toBe('expired');
+    expect(v.hasAccess).toBe(true);
+    expect(v.phase).toBe('trial');
     expect(v.trialDaysLeft).toBe(0);
   });
 
-  it('trialing with no clock at all is locked (never fail-open)', () => {
+  it('trialing with no clock still has access (card on file, display-only clock)', () => {
     const v = deriveEntitlementAccess({ status: 'trialing' }, NOW);
+    expect(v.hasAccess).toBe(true);
+    expect(v.phase).toBe('trial');
+    expect(v.trialDaysLeft).toBe(0);
+  });
+
+  it("no-access seed state ('none') is locked", () => {
+    const v = deriveEntitlementAccess({ status: 'none' }, NOW);
     expect(v.hasAccess).toBe(false);
+    expect(v.phase).toBe('none');
   });
 
   it('active subscriber: premium phase with renewal date', () => {

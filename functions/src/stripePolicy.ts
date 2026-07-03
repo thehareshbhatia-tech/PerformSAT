@@ -2,15 +2,28 @@
  * Pure billing/entitlement policy — no Firebase or Stripe SDK imports, so it
  * is unit-testable with node --test (same pattern as reengagementPolicy.ts).
  *
- * The entitlement model (spec 2026-07-01, decisions D1/D5/D6/D7):
- *   - 7-day NO-CARD trial, clock stamped server-side from
- *     max(accountCreatedAt, BILLING_LAUNCH_EPOCH).
- *   - Paid: $50/mo or $250/yr via Stripe Checkout (hosted).
- *   - Post-trial unpaid: hard lock, read-only score access (client enforces
- *     surface-level gating; the aiTutor endpoint enforces server-side).
+ * The entitlement model (CARD-UP-FRONT 7-day trial, 2026-07-03):
+ *   - Signup grants NO access. To start a 7-day free trial the student must
+ *     enter a card via hosted Stripe Checkout (payment_method_collection
+ *     stays "always"; subscription_data.trial_period_days = 7).
+ *   - During the trial the Stripe subscription status is "trialing" — full
+ *     access, card on file, not yet charged. Stripe owns the trial clock
+ *     (subscription.trial_end); the app never stamps it.
+ *   - At trial end Stripe auto-charges and the subscription flips to "active"
+ *     ($50/mo or $250/yr) — UNLESS the student canceled during the trial, in
+ *     which case it flips to "canceled" at trial_end with no charge.
+ *   - Access rule: "trialing" OR "active" grants full access. "past_due"
+ *     keeps access (dunning grace). "canceled" keeps access only until any
+ *     still-future currentPeriodEnd, then locks (read-only score access on
+ *     the client; the aiTutor endpoint enforces server-side).
+ *   - There is NO app-side trial clock and NO no-card grant anymore.
  */
 
-export type EntitlementStatus = "trialing" | "active" | "past_due" | "canceled";
+export type EntitlementStatus =
+  | "trialing"
+  | "active"
+  | "past_due"
+  | "canceled";
 export type PlanId = "monthly" | "annual" | null;
 
 export interface EntitlementPatch {
@@ -19,6 +32,11 @@ export interface EntitlementPatch {
   subscriptionId: string | null;
   /** Unix ms; null when the subscription carries no period end. */
   currentPeriodEndMs: number | null;
+  /**
+   * Unix ms of the Stripe trial end (subscription.trial_end), for display.
+   * Null when the subscription is not (and never was) in a trial.
+   */
+  trialEndsAtMs: number | null;
   cancelAtPeriodEnd: boolean;
 }
 
@@ -28,6 +46,7 @@ export interface StripeSubscriptionLike {
   status: string;
   cancel_at_period_end?: boolean;
   current_period_end?: number | null; // unix SECONDS (older API versions)
+  trial_end?: number | null; // unix SECONDS; set while status is "trialing"
   items?: {
     data?: Array<{
       price?: {id?: string};
@@ -43,36 +62,21 @@ export const TRIAL_DAYS = 7;
 export const DAY_MS = 86400000;
 
 /**
- * Trial end for an account: 7 days from the LATER of account creation and
- * the paywall launch epoch — one rule for both new and pre-existing accounts
- * (decision D7), no grandfather list.
- * @param {number} accountCreatedMs auth account creation time (unix ms)
- * @param {number} launchEpochMs BILLING_LAUNCH_EPOCH (unix ms)
- * @return {number} trial end (unix ms)
- */
-export function computeTrialEndMs(
-  accountCreatedMs: number,
-  launchEpochMs: number,
-): number {
-  const base = Math.max(accountCreatedMs || 0, launchEpochMs || 0);
-  return base + TRIAL_DAYS * DAY_MS;
-}
-
-/**
  * Map Stripe's subscription status to our four-state entitlement status.
+ * "trialing" is now a first-class state — the card-up-front trial IS a Stripe
+ * trial (subscription_data.trial_period_days), so trialing must survive the
+ * mapping (it grants access and carries the Stripe trial_end for display).
  * past_due keeps access (Stripe dunning window); everything terminal or
  * unstarted (canceled/unpaid/incomplete/incomplete_expired/paused) locks.
- * Stripe-side "trialing" maps to active — we never create Stripe trials
- * (the 7-day trial is app-side, decision D6), so if one exists it was made
- * manually in the dashboard and should count as paid access.
  * @param {string} stripeStatus Stripe subscription.status
  * @return {EntitlementStatus} our four-state status
  */
 export function mapStripeStatus(stripeStatus: string): EntitlementStatus {
   switch (stripeStatus) {
   case "active":
-  case "trialing":
     return "active";
+  case "trialing":
+    return "trialing";
   case "past_due":
     return "past_due";
   default:
@@ -118,11 +122,17 @@ export function subscriptionToEntitlementPatch(
     (typeof firstItem?.current_period_end === "number" ?
       firstItem.current_period_end :
       null);
+  // Stripe owns the trial clock — carry subscription.trial_end straight
+  // through for display ("N days left", "won't be charged until <date>").
+  const trialEndSec = typeof sub.trial_end === "number" ?
+    sub.trial_end :
+    null;
   return {
     status: mapStripeStatus(sub.status),
     plan: planFromPriceId(firstItem?.price?.id, monthlyPriceId, annualPriceId),
     subscriptionId: sub.id || null,
     currentPeriodEndMs: periodEndSec != null ? periodEndSec * 1000 : null,
+    trialEndsAtMs: trialEndSec != null ? trialEndSec * 1000 : null,
     cancelAtPeriodEnd: !!sub.cancel_at_period_end,
   };
 }
@@ -153,10 +163,14 @@ export interface EntitlementAccessInput {
 /**
  * The single access rule, shared conceptually with the client selector
  * (src/services/selectors/entitlementAccess.js — keep the two in sync):
- *   trialing  -> access while the trial clock runs
+ *   trialing  -> access (card on file, Stripe owns the trial clock; Stripe
+ *                flips the status to active/canceled at trial_end, so we do
+ *                NOT re-gate on a local clock and risk locking a paying
+ *                customer during the trial->active webhook window)
  *   active    -> access (covers cancel-at-period-end until Stripe flips it)
  *   past_due  -> access (dunning grace)
  *   canceled  -> access only until any still-future currentPeriodEnd
+ *   anything else (incl. "none"/undefined) -> NO access
  * @param {EntitlementAccessInput|null} doc plain-ms entitlement view
  * @param {number} nowMs current time (unix ms)
  * @return {boolean} whether the account has premium/trial access
@@ -168,8 +182,6 @@ export function hasAccessMs(
   if (!doc) return false;
   switch (doc.status) {
   case "trialing":
-    return typeof doc.trialEndsAtMs === "number" &&
-        doc.trialEndsAtMs > nowMs;
   case "active":
   case "past_due":
     return true;

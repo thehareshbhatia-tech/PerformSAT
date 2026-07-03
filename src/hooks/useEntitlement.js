@@ -3,9 +3,11 @@
  *
  * Subscribes to entitlements/{uid} (server-write-only doc) and derives the
  * access view via deriveEntitlementAccess. When the doc doesn't exist yet it
- * calls ensureEntitlement once, which stamps the 7-day trial clock
- * server-side (the client can never write the doc — firestore.rules denies
- * it — so a devtools user can't extend their own trial).
+ * calls ensureEntitlement once, which (card-up-front model) seeds the doc in a
+ * NO-ACCESS "none" state — access only ever comes from a real Stripe
+ * subscription (trialing/active) written by the webhook. The client can never
+ * write the doc (firestore.rules denies it), so a devtools user can't grant
+ * themselves access.
  *
  * FLAG OFF (`billing` / REACT_APP_FF_BILLING): returns a static, permissive
  * value and makes ZERO reads or function calls — the entire billing system
@@ -69,7 +71,8 @@ export function useEntitlement(user) {
         setLoading(false);
         if (!snap.exists() && ensureRequestedRef.current !== uid) {
           // First session for this account (or pre-launch account's first
-          // post-launch session): stamp the trial server-side, once.
+          // post-launch session): seed the no-access entitlement doc once so
+          // the gate reads "locked" until the student starts a Checkout trial.
           ensureRequestedRef.current = uid;
           ensureEntitlement().catch((err) => {
             // Allow a retry on the next mount/sign-in rather than wedging

@@ -69,7 +69,10 @@ describe('LandingPage content', () => {
 
   test('frames the free early-access packaging consistently', () => {
     expect(html).toMatch(/free during early access/i);
-    expect(html).toContain('no credit card');
+    // Card-up-front billing model (2026-07-03): the "no credit card" claim was
+    // removed everywhere so the page never contradicts the card-up-front trial
+    // once the billing flag flips on.
+    expect(html).not.toMatch(/no credit card/i);
     expect(html).toContain('Get Started for Free');
     // The old CTA led nowhere (no payment flow exists).
     expect(html).not.toContain('Enroll Now');

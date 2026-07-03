@@ -403,21 +403,33 @@ const Profile = ({
                 {entitlement.phase === 'premium' && entitlement.endsAtMs && `Renews ${new Date(entitlement.endsAtMs).toLocaleDateString(undefined, { month: 'long', day: 'numeric', year: 'numeric' })}`}
                 {entitlement.phase === 'ending' && entitlement.endsAtMs && `Premium until ${new Date(entitlement.endsAtMs).toLocaleDateString(undefined, { month: 'long', day: 'numeric', year: 'numeric' })}`}
                 {entitlement.phase === 'grace' && 'Update your card to keep access.'}
-                {entitlement.phase === 'trial' && `${entitlement.trialDaysLeft} day${entitlement.trialDaysLeft === 1 ? '' : 's'} left — subscribe anytime.`}
-                {(entitlement.phase === 'expired' || entitlement.phase === 'none') && 'Subscribe to unlock tests, drills, and the AI tutor.'}
+                {entitlement.phase === 'trial' && (entitlement.endsAtMs
+                  ? `${entitlement.trialDaysLeft} day${entitlement.trialDaysLeft === 1 ? '' : 's'} left — you won't be charged until ${new Date(entitlement.endsAtMs).toLocaleDateString(undefined, { month: 'long', day: 'numeric', year: 'numeric' })}. Cancel anytime before then.`
+                  : `${entitlement.trialDaysLeft} day${entitlement.trialDaysLeft === 1 ? '' : 's'} left — cancel anytime before you're charged.`)}
+                {entitlement.phase === 'none' && 'Start your 7-day free trial to unlock tests, drills, and the AI tutor.'}
+                {entitlement.phase === 'expired' && 'Subscribe to unlock tests, drills, and the AI tutor.'}
               </p>
             </div>
-            {!entitlement.loading && (
-              entitlement.hasBillingAccount && onManageBilling ? (
-                <Button onClick={onManageBilling} variant="secondary">
-                  Manage billing
-                </Button>
-              ) : onSubscribe ? (
-                <Button onClick={onSubscribe} variant="primary">
-                  Subscribe
-                </Button>
-              ) : null
-            )}
+            {!entitlement.loading && (() => {
+              // Never-subscribed / lapsed → route to the paywall (Checkout);
+              // a live billing account (trial/premium/ending/grace) → Portal.
+              const needsCheckout = entitlement.phase === 'none' || entitlement.phase === 'expired';
+              if (!needsCheckout && entitlement.hasBillingAccount && onManageBilling) {
+                return (
+                  <Button onClick={onManageBilling} variant="secondary">
+                    Manage billing
+                  </Button>
+                );
+              }
+              if (onSubscribe) {
+                return (
+                  <Button onClick={onSubscribe} variant="primary">
+                    {entitlement.phase === 'none' ? 'Start free trial' : 'Subscribe'}
+                  </Button>
+                );
+              }
+              return null;
+            })()}
           </div>
         </div>
       )}

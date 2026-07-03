@@ -109,8 +109,8 @@ const LandingPage = () => {
               </div>
               <p className="hero-note">
                 {billingLive
-                  ? '7 days free — full product, no credit card to start. Then $50/month or $250/year.'
-                  : 'Free during early access — full product, no credit card.'}
+                  ? "Free for 7 days, then $50/month or $250/year. Cancel anytime before day 7 and you won't be charged."
+                  : 'Free during early access — the full product, everything included.'}
               </p>
             </div>
             <div className="hero-visual" aria-hidden="true">
@@ -212,8 +212,8 @@ const LandingPage = () => {
               <h2 className="section-title">Simple, honest pricing</h2>
               <p className="section-subtitle">
                 {billingLive
-                  ? 'Start with a 7-day free trial — no credit card. Then keep going month to month, or save with an annual plan.'
-                  : 'SEVA is free during early access — the full product, no credit card. One plan, everything included.'}
+                  ? "Start with a 7-day free trial. Add your card to begin — you won't be charged until day 7, and you can cancel anytime before then. Then keep going month to month, or save with an annual plan."
+                  : 'SEVA is free during early access — the full product, everything included. One plan.'}
               </p>
             </div>
 
@@ -278,7 +278,7 @@ const LandingPage = () => {
                     </button>
                   </div>
                 </div>
-                <p className="pricing-reassurance">No credit card to start. Cancel anytime.</p>
+                <p className="pricing-reassurance">Cancel anytime before day 7 and you won't be charged.</p>
               </>
             ) : (
               <div className="pricing-cards pricing-cards-single">
@@ -288,7 +288,7 @@ const LandingPage = () => {
                   <div className="pricing-amount">
                     <span className="pricing-price">Free</span>
                   </div>
-                  <p className="pricing-plan-note">The full product, no credit card.</p>
+                  <p className="pricing-plan-note">The full product, everything included.</p>
                   <button className="btn-primary pricing-cta" onClick={() => openAuth(false)}>
                     Get Started for Free
                   </button>
@@ -304,8 +304,8 @@ const LandingPage = () => {
             <h2 className="conversion-title">Ready to reach your target score?</h2>
             <p className="conversion-subtitle">
               {billingLive
-                ? 'Try everything free for 7 days — no credit card to start. Take a diagnostic, follow a study plan built around the skills holding your score back, and keep going for $50/month or $250/year.'
-                : 'SEVA is free during early access — the full product, no credit card. Start with a diagnostic test, then follow a study plan built around the skills holding your score back.'}
+                ? "Try everything free for 7 days. Take a diagnostic, follow a study plan built around the skills holding your score back, and keep going for $50/month or $250/year. Cancel anytime before day 7 and you won't be charged."
+                : 'SEVA is free during early access — the full product, everything included. Start with a diagnostic test, then follow a study plan built around the skills holding your score back.'}
             </p>
             <div className="conversion-actions">
               <button className="btn-primary" onClick={() => openAuth(false)} style={{ fontSize: '1.125rem', padding: '1rem 2rem' }}>

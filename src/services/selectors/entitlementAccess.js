@@ -2,11 +2,16 @@
  * entitlementAccess — pure selector over the entitlements/{uid} doc.
  *
  * Mirrors the server-side rule in functions/src/stripePolicy.ts (hasAccessMs)
- * — keep the two in sync:
- *   trialing  -> access while the trial clock runs
+ * — keep the two in sync (CARD-UP-FRONT 7-day trial):
+ *   trialing  -> access (card on file; Stripe owns the trial clock and flips
+ *                the status at trial_end, so we never re-gate on a local
+ *                clock — trialEndsAt is display-only). cancel-at-period-end
+ *                during the trial keeps access until day 7.
  *   active    -> access ('ending' phase when cancel-at-period-end is set)
  *   past_due  -> access (Stripe dunning grace)
  *   canceled  -> access only until a still-future currentPeriodEnd
+ *   none / anything else -> NO access (the ensureEntitlement no-access seed
+ *                state and lapsed trials both land here)
  *
  * The doc is SERVER-WRITE-ONLY (see firestore.rules) — this selector never
  * mutates, it only derives what the UI needs.
@@ -66,12 +71,15 @@ export function deriveEntitlementAccess(doc, nowMs = Date.now()) {
 
   switch (doc.status) {
     case 'trialing': {
-      const running = trialEndsAtMs != null && trialEndsAtMs > nowMs;
+      // Card-up-front: a trialing subscription always has access. Stripe flips
+      // the status to active/canceled at trial_end, so we don't lock on a
+      // local clock — trialEndsAt is only for the "N days left / won't be
+      // charged until <date>" copy (floored at 0 if the webhook lags).
       return {
         ...base,
-        hasAccess: running,
-        phase: running ? 'trial' : 'expired',
-        trialDaysLeft: running ? Math.max(0, Math.ceil((trialEndsAtMs - nowMs) / DAY_MS)) : 0,
+        hasAccess: true,
+        phase: 'trial',
+        trialDaysLeft: trialEndsAtMs != null ? Math.max(0, Math.ceil((trialEndsAtMs - nowMs) / DAY_MS)) : 0,
         endsAtMs: trialEndsAtMs,
         plan,
         cancelAtPeriodEnd,
