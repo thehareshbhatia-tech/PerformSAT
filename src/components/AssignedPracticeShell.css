@@ -406,6 +406,31 @@
   color: #fff;
 }
 
+/* Flag-a-question bookmark toggle — quiet by default, orange when active
+   (orange = student action in the tri-color scheme). */
+.aps-flag-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--pr-surface);
+  border: 1px solid var(--pr-line-strong);
+  border-radius: 9px;
+  padding: 7px 12px;
+  font-family: var(--pr-font-body);
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--pr-text-2);
+  cursor: pointer;
+  transition: background-color 0.15s, border-color 0.15s, color 0.15s;
+}
+.aps-flag-btn:hover { background: var(--pr-surface-2); color: var(--pr-text); }
+.aps-flag-btn.is-flagged {
+  background: var(--pr-orange-tint);
+  border-color: var(--pr-orange-ring);
+  color: var(--pr-orange);
+}
+.aps-flag-label { line-height: 1; }
+
 /* Hand-authored monogram sits inline with the tools, muted on cream */
 .aps-q-tools .ha-stamp,
 .aps-q-tools svg.ha-stamp { flex: none; }

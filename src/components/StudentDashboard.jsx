@@ -80,6 +80,8 @@ const StudentDashboard = ({
   drillDays = [],
   practiceTestResults,
   reviewQueue,
+  flaggedQuestions = {},
+  onUnflagQuestion,
   adaptiveOverlay = null,
   reviewStreak,
   dueReviewCount = 0,
@@ -597,6 +599,8 @@ const StudentDashboard = ({
               drillDays={drillDays}
               skillProgress={skillProgress}
               reviewQueue={reviewQueue}
+              flaggedQuestions={flaggedQuestions}
+              onUnflagQuestion={onUnflagQuestion}
               adaptiveOverlay={adaptiveOverlay}
               predictionLog={predictionLog}
               answeredQuestionIds={answeredQuestionIds}

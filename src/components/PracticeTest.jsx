@@ -1050,6 +1050,30 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
         reviewFeed.push(...missed.slice(0, MAX_REVIEW_FEED).map(m => m.entry));
       }
 
+      // "Mark for Review" refs — the questions the student flagged during the
+      // test (from the durable per-question telemetry, not the module-scoped
+      // nav-grid array which resets between modules). Persisted onto the attempt
+      // record so they survive reload, and fanned out to the flag store by the
+      // App-level onSaveResult handler so they appear in the Review Queue's
+      // Flagged group. No correctness signal — flagging stays user-driven.
+      const markedForReviewRefs = [];
+      if (!reviewMode) {
+        effectiveModules.forEach((mod, modIdx) => {
+          mod.questions.forEach((q, qIdx) => {
+            const key = `${modIdx}-${qIdx}`;
+            if (!questionDetails[key]?.markedForReview) return;
+            markedForReviewRefs.push({
+              questionId: q.id,
+              section: mod.section ?? null,
+              moduleIndex: modIdx,
+              questionIndex: qIdx,
+              skills: getQuestionSkills(q),
+              snippet: q.stem ?? q.question ?? null,
+            });
+          });
+        });
+      }
+
       const resultsToSave = {
         attemptId: newAttemptId,
         rawScore: scored.rawScore,
@@ -1067,6 +1091,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
         routeTaken: scored.routeTaken,
         questionsSnapshot,
         answers: { ...answers },
+        markedForReview: markedForReviewRefs,
       };
       console.log('[PracticeTest] Calling onSaveResult with:', resultsToSave);
       onSaveResult(resultsToSave);
@@ -1357,6 +1382,10 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
     const telemetry = getOrCreateTelemetry(mod, q);
     setMarkedForReview(prev => {
       if (prev.includes(q)) {
+        // Unmark — clear the durable telemetry flag too, else this question
+        // would still be captured as marked-for-review at submission (and land
+        // in the flag store) despite the student toggling it back off.
+        telemetry.markedForReview = false;
         return prev.filter(i => i !== q);
       }
       // Mark for review — record in telemetry

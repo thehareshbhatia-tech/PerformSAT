@@ -13,6 +13,7 @@ import { getDrillChipForWeakness } from '../services/selectors/drillChip';
 import { getDesmosTip } from '../services/selectors/desmosTip';
 import { extractMissedIds } from '../services/selectors/drillSummary';
 import { sectionModuleShort } from '../services/selectors/moduleLabel';
+import { flagKeyFor } from '../services/selectors/flaggedQuestions';
 import { decideTier } from '../data/questions/bank';
 import { trackDrillStarted, trackDrillChipShown } from '../services/analyticsService';
 import { InfoIcon } from '../design/icons';
@@ -173,6 +174,10 @@ const AssignedPracticeShell = ({
   onNavigateToQuestion,
   onToggleCalculator,
   showCalculator,
+  // Flag-a-question store (map { flagKey: entry }) + toggle. When absent the
+  // bookmark control simply doesn't render (e.g. a shell mounted without a user).
+  flaggedQuestions = {},
+  onToggleFlag,
   onRetry,
   // Optional (bank drills only): relaunch a fresh drill of just the missed
   // questions. Absent for study-plan / adaptive / review sessions, where the
@@ -629,6 +634,29 @@ const AssignedPracticeShell = ({
   const titleText = drillPatternLabel || headerTitle;
   const answeredCorrect = practiceState.answers[currentQuestion?.id]?.correct;
 
+  // Flag-a-question: build the raw store entry for the current question so the
+  // bookmark can toggle + reflect persisted state. Pulls routing context off the
+  // drill's weakness (skillId + missedPatterns) so the Review Queue's Re-drill
+  // can fire Tier-1 exact-pattern routing later.
+  const flagWeakness = practiceState?.assignmentMeta?.weakness || null;
+  const currentFlagEntry = currentQuestion ? {
+    questionId: currentQuestion.id,
+    section: currentQuestion.section
+      || flagWeakness?.section
+      || (currentQuestion.passage || Array.isArray(currentQuestion.passages) ? 'rw' : 'math'),
+    source: practiceState?.reviewMode
+      ? 'review-retry'
+      : (practiceState?.assignmentMeta?.source || 'assigned'),
+    skillId: (Array.isArray(currentQuestion.skills) ? currentQuestion.skills[0] : currentQuestion.skill)
+      || flagWeakness?.skillId || null,
+    domain: currentQuestion.domain || flagWeakness?.domain || null,
+    missedPatterns: Array.isArray(flagWeakness?.missedPatterns) ? flagWeakness.missedPatterns : null,
+    snippet: typeof currentQuestion.question === 'string'
+      ? currentQuestion.question
+      : (currentQuestion.stem || null),
+  } : null;
+  const isCurrentFlagged = !!(currentFlagEntry && flaggedQuestions[flagKeyFor(currentFlagEntry)]);
+
   return (
     <div className="aps-shell" style={{ '--pr-panel-w': `${panelWidth}px` }}>
 
@@ -690,6 +718,21 @@ const AssignedPracticeShell = ({
                 )}
                 {topicLabel && (
                   <span className="aps-badge aps-badge-topic">{topicLabel}</span>
+                )}
+                {onToggleFlag && currentFlagEntry && (
+                  <button
+                    type="button"
+                    className={`aps-flag-btn${isCurrentFlagged ? ' is-flagged' : ''}`}
+                    onClick={() => onToggleFlag(currentFlagEntry)}
+                    aria-pressed={isCurrentFlagged}
+                    aria-label={isCurrentFlagged ? 'Remove this question from your review list' : 'Flag this question to review later'}
+                    title={isCurrentFlagged ? 'Flagged for review — click to remove' : 'Flag to review later'}
+                  >
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill={isCurrentFlagged ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                      <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
+                    </svg>
+                    <span className="aps-flag-label">{isCurrentFlagged ? 'Flagged' : 'Flag'}</span>
+                  </button>
                 )}
                 <HandAuthoredStamp />
                 {/* Calculator is a Math-only tool — the digital SAT does not

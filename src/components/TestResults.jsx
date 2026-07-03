@@ -19,6 +19,7 @@ import {
   adaptDiagnosticForUI, mergeAiIntoReport, buildUnifiedReport, buildNarrativeFlow,
 } from '../services/scoring';
 import { getDomainInfo } from '../data/skillTaxonomy';
+import { buildDomainSkillTable } from '../services/selectors/domainSkillTable';
 
 /**
  * Resolve the scores to DISPLAY on the results screen. Prefers the authoritative
@@ -471,6 +472,11 @@ const TestResults = ({
   onRetake,
   onReview,
   onReviewModule,
+  // Opt-in: launch a targeted drill on one weak skill through the app's
+  // 3-tier drill router (passes exact missedPatterns). Only wired on the
+  // past-results mount — the completion screen (test runner) leaves it
+  // undefined, so the Drill button simply doesn't render there.
+  onDrillWeakness,
   onGoToStudyPlan,
   savedStudyPlan,
   user,
@@ -484,6 +490,9 @@ const TestResults = ({
   const [showEvidenceDetail, setShowEvidenceDetail] = useState(false);
   const [activeDomainTab, setActiveDomainTab] = useState(null);
   const [showQuestionInsights, setShowQuestionInsights] = useState(false);
+  // Domains & Skills block: which domain rows are expanded to their skills.
+  // Keyed `${section}:${domainId}`. Collapsed by default (empty set).
+  const [expandedDomains, setExpandedDomains] = useState(() => new Set());
   const [diagEntrance, setDiagEntrance] = useState(true);
   const diagEntranceTimer = useRef(null);
   // Latches once the post-test save fails so the banner can keep narrating
@@ -505,6 +514,24 @@ const TestResults = ({
     () => adaptDiagnosticForUI(diagnosticReport, diagnosticData),
     [diagnosticReport, diagnosticData]
   );
+
+  // The organized Math / R&W → domain → skill accuracy table (Acely-parity).
+  // Recomputed from the engine's per-question questionAnalysis — which
+  // runDiagnostic regenerates on every mount (the stored report is stripped),
+  // so accuracy here is always re-derived, never a trusted stored aggregate.
+  const domainSkillTable = useMemo(() => {
+    const qa = diagnosticReport?.questionAnalysis;
+    if (!Array.isArray(qa) || qa.length === 0) return null;
+    const skillNames = {};
+    (diagnosticReport?.skillAnalysis?.allSkills || []).forEach(s => {
+      if (s?.skillId) skillNames[s.skillId] = s.name || s.skillId;
+    });
+    const domainNames = {};
+    (diagnosticReport?.domainAnalysis || []).forEach(d => {
+      if (d?.domain) domainNames[d.domain] = d.displayName || d.domain;
+    });
+    return buildDomainSkillTable(qa, { skillNames, domainNames });
+  }, [diagnosticReport]);
 
   // AI diagnostic comes pre-populated from PracticeTest's auto-generation pipeline
   const aiStatus = aiDiagnosticState?.status || 'idle';
@@ -635,6 +662,120 @@ const TestResults = ({
   };
   const sectionTitle = { fontSize: '11px', fontWeight: '700', color: colors.text.secondary, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '16px' };
 
+  // ── Domains & Skills: one organized, expandable Math / R&W → domain → skill
+  // accuracy block. Folds the old math-only "Domain Performance" bars and the
+  // diagnostic tab's "Skill Gaps by Domain" grid into a single hierarchy with
+  // per-skill deep-links (into the answer review) and drill actions.
+  const toggleDomain = (key) => {
+    setExpandedDomains(prev => {
+      const next = new Set(prev);
+      if (next.has(key)) next.delete(key); else next.add(key);
+      return next;
+    });
+  };
+
+  const renderDomainSkills = () => {
+    if (!domainSkillTable || domainSkillTable.sections.length === 0) return null;
+    const multiSection = domainSkillTable.sections.length > 1;
+    const GREEN_BAR = '#22c55e';
+    const NEUTRAL_BAR = '#94a3b8';
+
+    return (
+      <div style={cardBase} data-testid="domain-skills">
+        <div style={sectionTitle}>Domains &amp; Skills</div>
+        <p style={{ fontSize: '13px', color: colors.text.muted, marginTop: '-8px', marginBottom: '20px', lineHeight: 1.5 }}>
+          Accuracy by content domain. Expand a domain to see each skill, jump to the questions you missed, or drill it.
+        </p>
+
+        {domainSkillTable.sections.map((sec, sIdx) => (
+          <div key={sec.section} style={{ marginTop: sIdx === 0 ? 0 : '28px' }}>
+            {multiSection && (
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '12px' }}>
+                <span style={{ fontSize: '13px', fontWeight: 800, color: colors.text.primary, letterSpacing: '-0.01em' }}>{sec.label}</span>
+                <span style={{ fontSize: '12px', fontWeight: 600, color: colors.text.muted, fontVariantNumeric: 'tabular-nums' }}>
+                  {sec.accuracy}% · {sec.correct}/{sec.total}
+                </span>
+              </div>
+            )}
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+              {sec.domains.map((dom, dIdx) => {
+                const key = `${sec.section}:${dom.domainId}`;
+                const open = expandedDomains.has(key);
+                // Weakest domain in the section (and not already strong) is the
+                // focus area — purple tag (purple = focus/study-plan role).
+                const isFocus = dIdx === 0 && !dom.isStrong && dom.total > 0;
+                const pctColor = dom.isStrong ? 'var(--color-brand-green-text)' : colors.text.primary;
+                return (
+                  <div
+                    key={key}
+                    className={`ds-domain${dom.isStrong ? ' is-strong' : ''}`}
+                  >
+                    <button
+                      type="button"
+                      className="ds-domain-row"
+                      onClick={() => toggleDomain(key)}
+                      aria-expanded={open}
+                      aria-label={`${dom.domainName}, ${dom.accuracy} percent, ${dom.correct} of ${dom.total} correct`}
+                    >
+                      <svg className={`ds-chevron${open ? ' is-open' : ''}`} width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><polyline points="9 6 15 12 9 18" /></svg>
+                      <span className="ds-domain-name">{dom.domainName}</span>
+                      {isFocus && <span className="ds-tag ds-tag-focus">Focus</span>}
+                      {dom.isStrong && <span className="ds-tag ds-tag-strong">Strong</span>}
+                      <span className="ds-flex-spacer" />
+                      <span className="ds-bar" aria-hidden="true"><span className="ds-bar-fill" style={{ width: `${dom.accuracy}%`, background: dom.isStrong ? GREEN_BAR : NEUTRAL_BAR }} /></span>
+                      <span className="ds-domain-pct" style={{ color: pctColor }}>{dom.accuracy}%</span>
+                      <span className="ds-domain-count">{dom.correct}/{dom.total}</span>
+                    </button>
+
+                    {open && (
+                      <div className="ds-skills">
+                        {dom.skills.map(sk => (
+                          <div key={sk.skillId} className="ds-skill-row">
+                            <span className="ds-skill-name">{formatSkillName(sk.skillName)}</span>
+                            {sk.misses > 0 && <span className="ds-skill-miss">{sk.misses} missed</span>}
+                            <span className="ds-flex-spacer" />
+                            <span className="ds-skill-count" style={{ color: sk.isStrong ? 'var(--color-brand-green-text)' : colors.text.secondary }}>{sk.correct}/{sk.total}</span>
+                            {sk.misses > 0 && onReviewModule && sk.firstMissModuleIndex != null && (
+                              <button
+                                type="button"
+                                className="ds-link-btn"
+                                onClick={() => onReviewModule(sk.firstMissModuleIndex)}
+                                aria-label={`Review your missed ${formatSkillName(sk.skillName)} questions`}
+                              >
+                                Review
+                              </button>
+                            )}
+                            {sk.misses > 0 && onDrillWeakness && (
+                              <button
+                                type="button"
+                                className="ds-drill-btn"
+                                onClick={() => onDrillWeakness({
+                                  skillId: sk.skillId,
+                                  skill: sk.skillName,
+                                  domain: sk.domainId,
+                                  section: sk.section,
+                                  missedPatterns: sk.missedPatterns,
+                                })}
+                                aria-label={`Drill ${formatSkillName(sk.skillName)}`}
+                              >
+                                Drill
+                              </button>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        ))}
+      </div>
+    );
+  };
+
   const renderSummaryView = () => {
     // The Module-1/Module-2 two-up describes the adaptive MATH routing. On a
     // full SAT the math modules aren't 0/1 (R&W comes first), so select the
@@ -676,21 +817,9 @@ const TestResults = ({
       });
     });
 
-    // ── Domain aggregates (always all 4 SAT domains) ──
-    const domAll = {};
-    SAT_MATH_DOMAINS.forEach(d => { domAll[d] = { correct: 0, total: 0 }; });
-    test.modules.forEach((_, modIdx) => {
-      const bd = calculateDomainBreakdown(modIdx);
-      Object.entries(bd).forEach(([dom, vals]) => {
-        if (!domAll[dom]) domAll[dom] = { correct: 0, total: 0 };
-        domAll[dom].correct += vals.correct;
-        domAll[dom].total += vals.total;
-      });
-    });
-    const domEntries = SAT_MATH_DOMAINS
-      .filter(d => domAll[d].total > 0)
-      .map(d => [d, domAll[d]])
-      .sort((a, b) => (a[1].correct / a[1].total) - (b[1].correct / b[1].total));
+    // Domain/skill mastery is rendered by the organized "Domains & Skills"
+    // block (renderDomainSkills) — the old math-only domain aggregate here
+    // was folded into it.
 
     // ── Telemetry extraction (current attempt) ──
     const qDetails = diagnosticData?.questionDetails || {};
@@ -734,10 +863,6 @@ const TestResults = ({
         }
       }
     }
-
-    // Weakest and strongest domain
-    const weakestDom = domEntries.length > 0 ? domEntries[0] : null;
-    const strongestDom = domEntries.length > 0 ? domEntries[domEntries.length - 1] : null;
 
     // Easy misses (high-value recoverable points)
     const easyMissed = qEntries.filter(([, q]) => q.difficulty === 'easy' && !q.isCorrect).length;
@@ -962,6 +1087,9 @@ const TestResults = ({
           </div>
         </div>
 
+        {/* ═══════════ DOMAINS & SKILLS (organized, expandable) ═══════════ */}
+        {renderDomainSkills()}
+
         {/* ═══════════ BLOCK 2: ATTEMPT DATA ═══════════ */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
 
@@ -1050,46 +1178,8 @@ const TestResults = ({
             </div>
           </div>
 
-          {/* ── 2D  DOMAIN PERFORMANCE ── */}
-          {/* The content-domain axis covers the four SAT MATH domains only
-              (R&W modules contribute nothing), so on a full SAT the title
-              says so rather than implying whole-test coverage. */}
-          {domEntries.length > 0 && (
-            <div style={cardBase}>
-              <div style={sectionTitle}>{isMultiSection ? 'Math Domain Performance' : 'Domain Performance'}</div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-                {domEntries.map(([domain, stats]) => {
-                  const pct = stats.total > 0 ? Math.round((stats.correct / stats.total) * 100) : 0;
-                  const isWeakest = weakestDom && weakestDom[0] === domain;
-                  const isStrongest = strongestDom && strongestDom[0] === domain;
-                  const barColor = pct >= 80 ? '#22c55e' : pct >= 60 ? '#06b6d4' : pct >= 40 ? '#f97316' : '#ef4444';
-                  return (
-                    <div key={domain}>
-                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px', flexWrap: 'wrap', gap: '4px' }}>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', minWidth: 0 }}>
-                          <span style={{ fontSize: '14px', fontWeight: '600', color: colors.text.primary }}>
-                            {DOMAIN_DISPLAY_NAMES[domain] || domain}
-                          </span>
-                          {isWeakest && <span style={{ fontSize: '10px', fontWeight: '700', color: 'var(--color-brand-purple-text)', background: 'var(--color-brand-purple-soft)', padding: '2px 6px', borderRadius: '6px' }}>Weakest</span>}
-                          {isStrongest && domEntries.length > 1 && <span style={{ fontSize: '10px', fontWeight: '700', color: 'var(--color-brand-green-text)', background: 'var(--color-brand-green-soft)', padding: '2px 6px', borderRadius: '6px' }}>Strongest</span>}
-                        </div>
-                        <div style={{ display: 'flex', alignItems: 'baseline', gap: '6px', flexShrink: 0 }}>
-                          <span style={{ fontSize: '16px', fontWeight: '800', color: barColor, fontVariantNumeric: 'tabular-nums' }}>{pct}%</span>
-                          <span style={{ fontSize: '11px', color: colors.text.muted, fontVariantNumeric: 'tabular-nums' }}>{stats.correct}/{stats.total}</span>
-                        </div>
-                      </div>
-                      <div style={{ height: '8px', background: 'rgba(0,0,0,0.04)', borderRadius: '4px', overflow: 'hidden' }}>
-                        <div style={{
-                          width: `${pct}%`, height: '100%', background: barColor, borderRadius: '4px',
-                          transition: 'width 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)',
-                        }} />
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          )}
+          {/* Domain & skill mastery now lives in the organized "Domains &
+              Skills" block above (both sections, expandable, deep-linked). */}
 
           {/* ── 2E  STAMINA & BEHAVIOR ── */}
           {hasTelemetry && (
@@ -2097,78 +2187,13 @@ const TestResults = ({
           </div>
         ) : null}
 
-        {/* ═══════ ② SKILL GAPS BY DOMAIN (Cards) ═══════ */}
-        {sortedDomains.length > 0 && (() => {
-          return (
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-              <SectionHeader number={++sectionNum} title="Skill Gaps by Domain" />
-
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '24px' }}>
-                {sortedDomains.map(group => {
-                  const displaySkills = group.skills.slice(0, 5);
-                  const overflow = group.skills.length - 5;
-                  
-                  return (
-                    <div key={group.id} style={{ 
-                      background: '#ffffff', 
-                      borderRadius: 'var(--radius-xl)', 
-                      padding: '24px',
-                      boxShadow: '0 4px 6px rgba(0,0,0,0.02), 0 10px 15px rgba(0,0,0,0.03)',
-                      border: '1px solid rgba(0,0,0,0.05)',
-                      display: 'flex', flexDirection: 'column', gap: '24px'
-                    }}>
-                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                          <div style={{ width: '12px', height: '12px', borderRadius: '4px', background: group.color }} />
-                          <div style={{ fontFamily: 'var(--font-ui)', fontSize: '1.25rem', fontWeight: '800', color: 'var(--color-slate-900)', letterSpacing: '-0.01em' }}>{group.name}</div>
-                        </div>
-                        <div style={{
-                          fontFamily: 'var(--font-ui)', fontSize: '14px', fontWeight: '700',
-                          color: 'var(--color-brand-green-text)',
-                          background: 'var(--color-brand-green-soft)',
-                          padding: '6px 12px', borderRadius: '9999px',
-                        }}>
-                          {group.avgPct}% Mastery
-                        </div>
-                      </div>
-
-                      <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                        {displaySkills.length > 0 ? displaySkills.map((sk, si) => {
-                          // Ensure even a 0% score has a tiny visible sliver so it doesn't look completely empty/broken
-                          const visualPct = Math.max(sk.pct, 3);
-                          return (
-                            <div key={si} style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
-                                <span style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', fontWeight: '600', color: 'var(--color-slate-800)' }}>
-                                  {formatSkillName(sk.name)}
-                                </span>
-                                <span style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', fontWeight: '700', color: 'var(--color-brand-primary)', fontVariantNumeric: 'tabular-nums' }}>
-                                  {sk.correct} / {sk.total}
-                                </span>
-                              </div>
-                              <div style={{ height: '8px', background: 'var(--color-slate-100)', borderRadius: '9999px', overflow: 'hidden' }}>
-                                <div style={{ width: `${visualPct}%`, height: '100%', background: 'var(--color-brand-primary)', borderRadius: '9999px' }} />
-                              </div>
-                            </div>
-                          );
-                        }) : (
-                          <div style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', color: 'var(--color-slate-500)', textAlign: 'center', padding: '16px 0', background: 'var(--color-slate-50)', borderRadius: '12px', border: '1px dashed var(--color-slate-200)' }}>
-                            No weak skills identified in this domain.
-                          </div>
-                        )}
-                        {overflow > 0 && (
-                          <div style={{ fontFamily: 'var(--font-ui)', fontSize: '12px', fontWeight: '600', color: 'var(--color-slate-400)', textAlign: 'center', paddingTop: '8px' }}>
-                            + {overflow} more skill{overflow !== 1 ? 's' : ''} tested
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          );
-        })()}
+        {/* Skill-gap-by-domain detail intentionally lives on the TEST OVERVIEW
+            tab now (the organized, expandable "Domains & Skills" block with
+            per-skill review deep-links + drills). Keeping it off the
+            diagnostic tab preserves this tab as pure narrative "why" and
+            avoids duplicating the same domain/skill data in two places. The
+            sortedDomains computation is retained above — it feeds the
+            protected "Biggest Lever" tile. */}
 
         {/* ═══════ ③ HOW YOU TOOK THE TEST (via renderBlock) ═══════ */}
         {getBlock('behaviorAmplifier') && getBlock('behaviorAmplifier').items.length > 0 && (

@@ -84,6 +84,10 @@ export const recordPracticeTestResult = async (userId, testId, testTitle, result
       routeTaken: results.routeTaken || null,
       aiArtifactId: results.aiArtifactId || null,
       studyPlanArtifactId: results.studyPlanArtifactId || null,
+      // "Mark for Review" refs the student flagged during the test, persisted so
+      // they survive reload (and feed the Review Queue's Flagged group). Purely
+      // user-driven — no correctness signal is written mid-test.
+      markedForReview: Array.isArray(results.markedForReview) ? results.markedForReview : null,
     };
 
     // Keep only the last MAX_ATTEMPTS per test to prevent document bloat.
@@ -130,6 +134,7 @@ export const recordPracticeTestResult = async (userId, testId, testTitle, result
       completedAt,
       questionsSnapshot: results.questionsSnapshot,
       answers: results.answers || {},
+      markedForReview: Array.isArray(results.markedForReview) ? results.markedForReview : null,
       snapshotVersion: SNAPSHOT_VERSION,
     } : null;
 

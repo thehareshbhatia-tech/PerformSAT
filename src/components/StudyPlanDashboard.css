@@ -893,6 +893,28 @@
 .sp-bq-tag.is-overdue { background: var(--sp-orange-tint); color: var(--sp-orange); }
 .sp-bq-row-chev { flex: none; display: inline-flex; color: var(--sp-text-3); }
 
+/* Flagged to review — quiet rows inside the Review Queue. Bookmark icon is
+   orange (student action); Re-drill is the orange CTA, Unflag stays muted. */
+.sp-flagged-group + .sp-flagged-group { margin-top: 12px; }
+.sp-flagged-subhead { font-weight: 700; font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: var(--sp-text-3); margin: 4px 0 7px; }
+.sp-flagged-row { display: flex; align-items: center; gap: 12px; background: var(--sp-inset); border: 1px solid var(--sp-line); border-radius: 12px; padding: 10px 14px; }
+.sp-flagged-row + .sp-flagged-row { margin-top: 8px; }
+.sp-flagged-icon { flex: none; display: inline-flex; color: var(--sp-orange); }
+.sp-flagged-text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.sp-flagged-title { font-weight: 600; font-size: 13.5px; color: var(--sp-text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.sp-flagged-meta { font-size: 11.5px; color: var(--sp-text-3); font-weight: 500; }
+.sp-flagged-actions { flex: none; display: inline-flex; align-items: center; gap: 6px; }
+.sp-flagged-redrill { background: var(--sp-orange-tint); border: 1px solid transparent; border-radius: 8px; padding: 6px 12px; font-family: var(--sp-font-body); font-weight: 700; font-size: 12px; color: var(--sp-orange); cursor: pointer; transition: background 120ms ease; }
+.sp-flagged-redrill:hover { background: var(--sp-orange); color: #fff; }
+.sp-flagged-unflag { background: none; border: none; padding: 6px 8px; font-family: var(--sp-font-body); font-weight: 600; font-size: 12px; color: var(--sp-text-3); cursor: pointer; }
+.sp-flagged-unflag:hover { color: var(--sp-text-2); text-decoration: underline; }
+.sp-flagged-drillall { width: 100%; margin-top: 8px; background: var(--sp-surface-2); border: 1px solid var(--sp-line); border-radius: 10px; padding: 9px 14px; font-family: var(--sp-font-body); font-weight: 700; font-size: 12.5px; color: var(--sp-orange); cursor: pointer; transition: background 120ms ease, border-color 120ms ease; }
+.sp-flagged-drillall:hover { background: var(--sp-orange-tint); border-color: var(--sp-orange); }
+@media (max-width: 560px) {
+  .sp-flagged-row { flex-wrap: wrap; }
+  .sp-flagged-actions { width: 100%; justify-content: flex-end; }
+}
+
 /* Pacing (prominent card) */
 .sp-bq-pacing { display: flex; align-items: center; gap: 16px; background: var(--sp-surface); border: 1px solid var(--sp-line); border-left: 4px solid var(--sp-orange); border-radius: 18px; padding: 18px 22px; box-shadow: var(--sp-shadow); }
 .sp-bq-pacing-icon { width: 40px; height: 40px; border-radius: 11px; background: var(--sp-orange-tint); display: grid; place-items: center; color: var(--sp-orange); flex: none; }

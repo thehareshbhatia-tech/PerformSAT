@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { db } from '../firebase/config';
-import { doc, onSnapshot, updateDoc, setDoc, getDoc, serverTimestamp, arrayUnion, runTransaction } from 'firebase/firestore';
+import { doc, onSnapshot, updateDoc, setDoc, getDoc, serverTimestamp, arrayUnion, deleteField, runTransaction } from 'firebase/firestore';
+import { buildFlagEntry, flagKeyFor } from '../services/selectors/flaggedQuestions';
 import { markLessonComplete as markComplete, markLessonIncomplete } from '../services/progressService';
 // Corpus-free (bundleGuard-safe): one-time upgrade of persisted format-1
 // plans whose weeks lack both-section drill activities.
@@ -74,6 +75,10 @@ export const useProgress = (userId) => {
   const [bankPractice, setBankPractice] = useState({});
   // The single in-flight, resumable Practice-Bank drill session (or null).
   const [activeDrill, setActiveDrill] = useState(null);
+  // "Flag a question, review it later" store — a keyed MAP { [flagKey]: entry }
+  // on the progress doc (rides this same onSnapshot listener, needs no rules
+  // change, de-dups by key). Written by flagQuestion / unflagQuestion / batch.
+  const [flaggedQuestions, setFlaggedQuestions] = useState({});
   const [interventionLog, setInterventionLog] = useState([]);
   const [predictionLog, setPredictionLog] = useState([]);
   // Lean record of the onboarding mini-diagnostic (band + per-domain folds +
@@ -178,6 +183,7 @@ export const useProgress = (userId) => {
           setAnsweredQuestionIds(data.answeredQuestionIds || []);
           setBankPractice(data.bankPractice || {});
           setActiveDrill(data.activeDrill || null);
+          setFlaggedQuestions(data.flaggedQuestions || {});
           setInterventionLog(data.interventionLog || []);
           setPredictionLog(data.predictionLog || []);
           setMiniDiagnostic(data.miniDiagnostic || null);
@@ -569,6 +575,87 @@ export const useProgress = (userId) => {
       await setDoc(progressRef, { activeDrill: null, lastUpdated: serverTimestamp() }, { merge: true });
     } catch (err) {
       console.error('[useProgress] Failed to clear active drill:', err);
+    }
+  };
+
+  // ===== Flagged-Questions Functions =====
+  // The store is a map field on progress/{uid}. `update` is allowed on the
+  // progress doc (only its subcollection DELETES are blocked — see the
+  // reset-test gotcha), so unflag is a true delete via deleteField(), no rules
+  // change or firebase deploy required. Keys are sanitized in flagKeyFor, so
+  // both the nested-merge write and the dotted deleteField path are safe.
+
+  /**
+   * Flags one question for later review. Optimistic + best-effort. De-duped by
+   * key (re-flagging overwrites its own key, never a duplicate).
+   * @param {object} rawEntry - see buildFlagEntry (questionId + section + source + …)
+   */
+  const flagQuestion = async (rawEntry) => {
+    if (!userId || !rawEntry) return;
+    const { key, entry } = buildFlagEntry(rawEntry);
+    if (!key) return;
+    setFlaggedQuestions(prev => ({ ...prev, [key]: entry }));
+    try {
+      const progressRef = doc(db, 'progress', userId);
+      await setDoc(progressRef, { flaggedQuestions: { [key]: entry }, lastUpdated: serverTimestamp() }, { merge: true });
+    } catch (err) {
+      console.error('[useProgress] Failed to flag question:', err);
+    }
+  };
+
+  /**
+   * Removes a flag. Accepts a flagKey string or a raw entry (from which the key
+   * is derived). Optimistic + best-effort.
+   * @param {string|object} keyOrEntry
+   */
+  const unflagQuestion = async (keyOrEntry) => {
+    if (!userId || keyOrEntry == null) return;
+    const key = typeof keyOrEntry === 'string' ? keyOrEntry : flagKeyFor(keyOrEntry);
+    if (!key) return;
+    setFlaggedQuestions(prev => {
+      const next = { ...prev };
+      delete next[key];
+      return next;
+    });
+    try {
+      const progressRef = doc(db, 'progress', userId);
+      await updateDoc(progressRef, { [`flaggedQuestions.${key}`]: deleteField(), lastUpdated: serverTimestamp() });
+    } catch (err) {
+      console.error('[useProgress] Failed to unflag question:', err);
+    }
+  };
+
+  /**
+   * Toggles a flag: flag if absent, unflag if present. Returns a promise of the
+   * resulting boolean (true = now flagged). Reads current state by key.
+   * @param {object} rawEntry
+   * @returns {Promise<boolean>}
+   */
+  const toggleFlagQuestion = async (rawEntry) => {
+    if (!rawEntry) return false;
+    const key = flagKeyFor(rawEntry);
+    if (key && flaggedQuestions[key]) {
+      await unflagQuestion(key);
+      return false;
+    }
+    await flagQuestion(rawEntry);
+    return true;
+  };
+
+  /**
+   * Batch-flags many questions in one write (used when a test is submitted with
+   * marked-for-review items). Input is a pre-keyed map { [flagKey]: entry } from
+   * buildTestFlagEntries — already de-duped. Merges over any existing flags.
+   * @param {Object.<string, object>} entryMap
+   */
+  const flagQuestionsBatch = async (entryMap) => {
+    if (!userId || !entryMap || Object.keys(entryMap).length === 0) return;
+    setFlaggedQuestions(prev => ({ ...prev, ...entryMap }));
+    try {
+      const progressRef = doc(db, 'progress', userId);
+      await setDoc(progressRef, { flaggedQuestions: entryMap, lastUpdated: serverTimestamp() }, { merge: true });
+    } catch (err) {
+      console.error('[useProgress] Failed to batch-flag questions:', err);
     }
   };
 
@@ -1133,6 +1220,7 @@ export const useProgress = (userId) => {
     miniDiagnostic,
     bankPractice,
     activeDrill,
+    flaggedQuestions,
     loading,
     hydrated,
     error,
@@ -1148,6 +1236,11 @@ export const useProgress = (userId) => {
     recordBankPractice,
     saveActiveDrill,
     clearActiveDrill,
+    // Flagged-questions (flag-a-question, review-it-later)
+    flagQuestion,
+    unflagQuestion,
+    toggleFlagQuestion,
+    flagQuestionsBatch,
     // Review queue functions
     getDueCount,
     getReviewStatistics,

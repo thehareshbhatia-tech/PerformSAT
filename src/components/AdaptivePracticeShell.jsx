@@ -6,6 +6,7 @@ import SolutionExplanation from './SolutionExplanation';
 import AiTutorChat from './AiTutorChat';
 import { formatPatternLabel } from '../services/selectors/missedPatternLabel';
 import { getDesmosTip } from '../services/selectors/desmosTip';
+import { flagKeyFor } from '../services/selectors/flaggedQuestions';
 import { decideTier } from '../data/questions/bank';
 import { trackDrillStarted, trackDrillChipShown } from '../services/analyticsService';
 import { TargetIcon } from '../design/icons';
@@ -106,6 +107,8 @@ const AdaptivePracticeShell = ({
   onNavigateToQuestion,
   onToggleCalculator,
   showCalculator,
+  flaggedQuestions = {},
+  onToggleFlag,
   onRelaunch,
   getDifficultyBadge,
   user,
@@ -256,6 +259,23 @@ const AdaptivePracticeShell = ({
   };
 
   const isMarked = markedForReview.includes(idx);
+
+  // Flag-a-question: persistent bookmark entry for the current adaptive item.
+  // Adaptive sessions are math-only today; pull skill/domain off the question.
+  const seedDomain = practiceState?.adaptiveQueueSeed?.enforcedDomain || null;
+  const currentFlagEntry = currentQuestion ? {
+    questionId: currentQuestion.id,
+    section: currentQuestion.section === 'rw' ? 'rw' : 'math',
+    source: 'adaptive',
+    skillId: (Array.isArray(currentQuestion.skills) ? currentQuestion.skills[0] : currentQuestion.skill) || null,
+    domain: currentQuestion.domain || seedDomain || null,
+    missedPatterns: Array.isArray(practiceState?.adaptiveQueueSeed?.missedPatterns)
+      ? practiceState.adaptiveQueueSeed.missedPatterns : null,
+    snippet: typeof currentQuestion.question === 'string'
+      ? currentQuestion.question
+      : (currentQuestion.stem || null),
+  } : null;
+  const isCurrentFlagged = !!(currentFlagEntry && flaggedQuestions[flagKeyFor(currentFlagEntry)]);
 
   if (isSessionComplete) {
     const answeredEntries = Object.values(practiceState.answers);
@@ -432,6 +452,28 @@ const AdaptivePracticeShell = ({
               fontSize: '12px', fontWeight: '600',
             }}>
               Calculator
+            </button>
+          )}
+          {onToggleFlag && currentFlagEntry && (
+            <button
+              type="button"
+              onClick={() => onToggleFlag(currentFlagEntry)}
+              aria-pressed={isCurrentFlagged}
+              aria-label={isCurrentFlagged ? 'Remove this question from your review list' : 'Flag this question to review later'}
+              title={isCurrentFlagged ? 'Flagged for review — click to remove' : 'Flag to review later'}
+              style={{
+                display: 'inline-flex', alignItems: 'center', gap: '5px',
+                background: isCurrentFlagged ? 'rgba(234,88,12,0.18)' : 'rgba(255,255,255,0.06)',
+                border: `1px solid ${isCurrentFlagged ? 'rgba(234,88,12,0.55)' : 'rgba(255,255,255,0.1)'}`,
+                borderRadius: '6px', padding: '6px 10px', cursor: 'pointer',
+                color: isCurrentFlagged ? '#F2733F' : C.white,
+                fontSize: '12px', fontWeight: '600',
+              }}
+            >
+              <svg width="12" height="12" viewBox="0 0 24 24" fill={isCurrentFlagged ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
+              </svg>
+              {isCurrentFlagged ? 'Flagged' : 'Flag'}
             </button>
           )}
           <button onClick={() => setTutorOpen(true)} style={{

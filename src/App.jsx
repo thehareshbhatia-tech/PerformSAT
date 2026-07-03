@@ -48,6 +48,7 @@ import { sectionModuleLabel } from './services/selectors/moduleLabel';
 // them; the idle pre-warm effect below makes that await a cache hit.
 import {
   loadMathBank,
+  loadRWBank,
   loadTopicQuestions,
   loadPracticeTests,
   loadPracticeRouting,
@@ -65,6 +66,7 @@ import { buildDailySession } from './services/dailyReviewEngine';
 import { getReadyAiDiagnostic, loadAttemptSnapshot } from './services/practiceTestService';
 import { reprioritizePlan } from './services/adaptivePlanService';
 import { findMatchingPlanActivity } from './services/selectors/planActivityMatch';
+import { buildTestFlagEntries } from './services/selectors/flaggedQuestions';
 import { DEFAULT_GOAL_SCORE } from './services/selectors/goalProgress';
 import { buildLongitudinalEvidence } from './services/studyPlanMerger';
 import { generateStudyPlan as generateAIPlan } from './services/studyPlanService';
@@ -347,7 +349,7 @@ const PerformSAT = () => {
   }, [showCalculator]);
 
   const { user, loading, logout, updateTestDate, updateTargetScore, updateCurrentScore, updateTargetSchools, updateProfilePhoto, updateFirstName, markOnboardingComplete, markOnboardingSkipped } = useAuth();
-  const { loading: progressLoading, hydrated: progressHydrated, completedLessons, practiceProgress, drillDays, reviewQueue, reviewStreak, skillProgress, answeredQuestionIds, practiceTestResults, inProgressTests, studyPlan, studyPlanMeta, studyPlanArtifact, predictionLog, interventionLog, studentFingerprint, miniDiagnostic, bankPractice, activeDrill, recordDrillSkillAttempts, recordPracticedDay, recordBankPractice, saveActiveDrill, clearActiveDrill, getDueCount, getReviewStatistics, getSkillDiagnosticSummary, getSkillBreakdown, recordPracticeTestAttempt, getTestBestScore, getTestAttempts, saveTestProgress, clearTestProgress, resetPracticeTest, getTestProgress, hasTestProgress, saveMiniDiagnostic, saveStudyPlan, saveEditedStudyPlan, markStudyActivityComplete, unmarkStudyActivityComplete, markLessonComplete, isLessonCompleted, getModuleProgress, lastSaveStatus, retryLastSave } = useProgress(user?.uid);
+  const { loading: progressLoading, hydrated: progressHydrated, completedLessons, practiceProgress, drillDays, reviewQueue, reviewStreak, skillProgress, answeredQuestionIds, practiceTestResults, inProgressTests, studyPlan, studyPlanMeta, studyPlanArtifact, predictionLog, interventionLog, studentFingerprint, miniDiagnostic, bankPractice, activeDrill, flaggedQuestions, recordDrillSkillAttempts, recordPracticedDay, recordBankPractice, saveActiveDrill, clearActiveDrill, toggleFlagQuestion, unflagQuestion, flagQuestionsBatch, getDueCount, getReviewStatistics, getSkillDiagnosticSummary, getSkillBreakdown, recordPracticeTestAttempt, getTestBestScore, getTestAttempts, saveTestProgress, clearTestProgress, resetPracticeTest, getTestProgress, hasTestProgress, saveMiniDiagnostic, saveStudyPlan, saveEditedStudyPlan, markStudyActivityComplete, unmarkStudyActivityComplete, markLessonComplete, isLessonCompleted, getModuleProgress, lastSaveStatus, retryLastSave } = useProgress(user?.uid);
 
   // Mount the analytics session lifecycle (session_start / session_end +
   // beforeunload flush). Previously orphaned — the hook existed but was never
@@ -1249,6 +1251,53 @@ const PerformSAT = () => {
         setReviewBundleLoading(false);
       }
     }
+  };
+
+  /**
+   * handleDrillFromResults — launch a targeted drill on ONE weak skill from
+   * the post-test "Domains & Skills" block. Routes through the exact-question-
+   * type 3-tier cascade (getTargetedWeaknessSet) and — critically — passes the
+   * skill's missedPatterns so Tier 1 (SAT Pattern) can fire instead of the
+   * blunt skill-alias Tier 3 (see project_skill_alias_routing_bug). Section-
+   * routed: 'rw' weaknesses hit the R&W bank, everything else the math bank.
+   *
+   * @param {{skillId:string, skill?:string, domain?:string,
+   *   section?:'math'|'rw', missedPatterns?:string[]}} weakness
+   */
+  const handleDrillFromResults = async (weakness) => {
+    if (!weakness || !weakness.skillId) return;
+    if (!ensurePracticeAccess()) return;
+    const section = weakness.section === 'rw' ? 'rw' : 'math';
+    const weakSkills = [{
+      skillId: weakness.skillId,
+      domain: weakness.domain,
+      // The load-bearing bit: honest Tier-1 routing needs the exact patterns.
+      missedPatterns: Array.isArray(weakness.missedPatterns) ? weakness.missedPatterns : [],
+    }];
+    let pool = [];
+    try {
+      const bank = section === 'rw' ? await loadRWBank() : await loadMathBank();
+      pool = bank.getTargetedWeaknessSet({ weakSkills, count: 12 }) || [];
+    } catch (err) {
+      logWarn('testReview', 'drill_route_failed', { message: err?.message || String(err) });
+    }
+    const ids = pool.map(q => q && q.id).filter(Boolean);
+    if (ids.length === 0) {
+      showToast({ type: 'info', message: 'No drill questions are available for that skill yet.' });
+      return;
+    }
+    setViewingResultsData(null);
+    startAssignedPractice(ids, {
+      label: `${weakness.skill || 'Skill'} Practice`,
+      source: 'test-review-drill',
+      weakness: {
+        skillId: weakness.skillId,
+        skill: weakness.skill,
+        domain: weakness.domain,
+        section,
+        missedPatterns: weakSkills[0].missedPatterns,
+      },
+    });
   };
 
   /**
@@ -2219,6 +2268,8 @@ const PerformSAT = () => {
             drillDays={drillDays}
             practiceTestResults={practiceTestResults}
             reviewQueue={reviewQueue}
+            flaggedQuestions={flaggedQuestions}
+            onUnflagQuestion={unflagQuestion}
             adaptiveOverlay={adaptiveOverlay}
             reviewStreak={reviewStreak}
             dueReviewCount={getDueCount()}
@@ -2563,6 +2614,7 @@ const PerformSAT = () => {
                   setViewingResultsData(prev => ({ ...prev, reviewModule: moduleIndex }));
                   setView('reviewingPastResults');
                 }}
+                onDrillWeakness={handleDrillFromResults}
                 onGoToStudyPlan={() => { setViewingResultsData(null); setView('studyPlan'); }}
                 savedStudyPlan={studyPlan}
                 user={user}
@@ -2714,6 +2766,15 @@ const PerformSAT = () => {
               if (user) {
                 console.log('[App.jsx] Calling recordPracticeTestAttempt...');
                 recordPracticeTestAttempt(selectedPracticeTest.id, selectedPracticeTest.title, results);
+                // Fan the student's mark-for-review picks into the flag store so
+                // they surface in the Study Plan's Flagged group. De-duped by key.
+                if (Array.isArray(results.markedForReview) && results.markedForReview.length) {
+                  const entryMap = buildTestFlagEntries(results.markedForReview, {
+                    testId: selectedPracticeTest.id,
+                    testLabel: selectedPracticeTest.title,
+                  });
+                  flagQuestionsBatch(entryMap);
+                }
               } else {
                 console.error('[App.jsx] No user - cannot save results!');
               }
@@ -2763,6 +2824,8 @@ const PerformSAT = () => {
             drillDays={drillDays}
             skillProgress={skillProgress}
             reviewQueue={reviewQueue}
+            flaggedQuestions={flaggedQuestions}
+            onUnflagQuestion={unflagQuestion}
             adaptiveOverlay={adaptiveOverlay}
             answeredQuestionIds={answeredQuestionIds}
             predictionLog={predictionLog}
@@ -2990,6 +3053,8 @@ const PerformSAT = () => {
                 onNavigateToQuestion={handleNavigateToQuestion}
                 onToggleCalculator={() => setShowCalculator(!showCalculator)}
                 showCalculator={showCalculator}
+                flaggedQuestions={flaggedQuestions}
+                onToggleFlag={toggleFlagQuestion}
                 onRedrillMisses={handleRedrillMisses}
                 onRetry={() => {
                   // Review-mode retries can't use startAssignedPractice
@@ -3035,6 +3100,8 @@ const PerformSAT = () => {
                 onNavigateToQuestion={handleNavigateToQuestion}
                 onToggleCalculator={() => setShowCalculator(!showCalculator)}
                 showCalculator={showCalculator}
+                flaggedQuestions={flaggedQuestions}
+                onToggleFlag={toggleFlagQuestion}
                 onRelaunch={() => startAdaptivePractice({
                   enforcedDomain: practiceState.adaptiveQueueSeed?.enforcedDomain,
                   label: practiceState.adaptiveDomainLabel,

@@ -40,6 +40,7 @@ import StudyPlanReviewSection from './StudyPlanReviewSection';
 import StudyPlanPacingSection from './StudyPlanPacingSection';
 import { buildPacingTelemetry } from '../services/selectors/pacingTelemetry';
 import { getPacingStruggle } from '../services/selectors/pacingStruggle';
+import { groupFlaggedBySection, flaggedCount as countFlagged, toDrillSeeds } from '../services/selectors/flaggedQuestions';
 import { partitionReviewQueue } from '../services/selectors/planReviewQueue';
 import {
   ClipboardIcon,
@@ -267,6 +268,8 @@ const StudyPlanDashboard = ({
   onStartReview,
   onStartPacing,
   onReviewTestWrong,
+  flaggedQuestions = {},
+  onUnflagQuestion,
   answeredQuestionIds = [],
   predictionLog = null,
 }) => {
@@ -434,6 +437,10 @@ const StudyPlanDashboard = ({
   // "Beyond this week" gating: only show the section (and its divider) when at
   // least one of Review Queue / Pacing / past-test review will actually render.
   const reviewDue = useMemo(() => partitionReviewQueue(reviewQueue).sessionSize, [reviewQueue]);
+  // Flagged questions (flag-a-question, review-it-later) grouped by section for
+  // the Review Queue's Flagged block. Count feeds the "Beyond this week" gate.
+  const flaggedGroups = useMemo(() => groupFlaggedBySection(flaggedQuestions), [flaggedQuestions]);
+  const flaggedTotal = useMemo(() => countFlagged(flaggedQuestions), [flaggedQuestions]);
   // Goal already achieved? Common in mid-test cycles where a recent score
   // already exceeds onboarding-time target. Compared scale-safely (1.4): a
   // 400-1600 composite must never "achieve" a 200-800 section target.
@@ -748,6 +755,44 @@ const StudyPlanDashboard = ({
     return skillPracticeRows.filter(w => (w.section === 'rw' ? 'rw' : 'math') === sectionFilter);
   }, [skillPracticeRows, sectionFilter]);
 
+  // Re-drill flagged questions through the SAME 3-tier cascade as focus areas:
+  // collapse the flagged items into weakSkills seeds (skillId + unioned
+  // missedPatterns) so Tier 1 (exact SAT Pattern) fires instead of the
+  // SKILL_ALIAS_MAP-only Tier 3 (see the skill-alias-routing gotcha). Falls back
+  // to the flagged questions' own ids when routing yields nothing. Accepts one
+  // flag (per-item Re-drill) or many (per-section "Drill all flagged").
+  const handleRedrillFlagged = (flags, section) => {
+    if (!onStartPractice || !Array.isArray(flags) || flags.length === 0) return;
+    const sec = section === 'rw' ? 'rw' : 'math';
+    const targetedQuery = sec === 'rw' ? getRWTargetedWeaknessSet : getTargetedWeaknessSet;
+    const seeds = toDrillSeeds(flags);
+    const weakSkills = seeds
+      .filter(s => s.skillId || (s.missedPatterns && s.missedPatterns.length))
+      .map(s => ({ skillId: s.skillId, domain: s.domain, missedPatterns: s.missedPatterns }));
+    let questions = [];
+    if (weakSkills.length) {
+      // Do NOT exclude answered ids — revisiting is the whole point of a flag.
+      questions = targetedQuery({
+        weakSkills,
+        count: Math.max(8, Math.min(20, flags.length * 4)),
+      }).filter(q => Array.isArray(q.choices) && q.choices.length >= 2);
+    }
+    const flaggedIds = flags.map(f => f.questionId).filter(Boolean);
+    const questionIds = questions.length ? questions.map(q => q.id) : flaggedIds;
+    if (!questionIds.length) {
+      showToast({ type: 'info', message: 'No matching drill questions available yet.' });
+      return;
+    }
+    const primary = flags.find(f => f.skillId) || flags[0];
+    onStartPractice(null, null, {
+      questionIds,
+      label: flags.length === 1 ? 'Flagged question review' : 'Flagged questions review',
+      weakness: primary
+        ? { skillId: primary.skillId, domain: primary.domain, section: sec, missedPatterns: primary.missedPatterns || undefined }
+        : undefined,
+    });
+  };
+
   // a closing sentence, hoist it to ONE section-level coach line and strip
   // it from each card. Pure render-time presentation; plan data untouched.
   const focusDiagnostics = useMemo(() => {
@@ -944,7 +989,7 @@ const StudyPlanDashboard = ({
   // Distinguishes a genuinely empty "unlocks later" week from one filtered out.
   const shownAnyTasks = (shownWeek?.activities || []).some((a) => a && a.type !== 'lesson' && !a.skipped);
   const pacingWillShow = pacingTelemetry.length > 0 && !testDateIsPast;
-  const hasBeyond = showReviewTestsButton || reviewDue > 0 || pacingWillShow;
+  const hasBeyond = showReviewTestsButton || reviewDue > 0 || pacingWillShow || flaggedTotal > 0;
 
   // ── Plan modules (Today panel) ────────────────────────────────────────
   // The focus-area weaknesses, rendered as the redesigned "module cards with
@@ -1460,6 +1505,9 @@ const StudyPlanDashboard = ({
               reviewQueue={reviewQueue}
               onReviewTestWrong={onReviewTestWrong}
               onStartReview={onStartReview}
+              flaggedGroups={flaggedGroups}
+              onRedrillFlagged={handleRedrillFlagged}
+              onUnflagQuestion={onUnflagQuestion}
             />
             <StudyPlanPacingSection
               prominent
