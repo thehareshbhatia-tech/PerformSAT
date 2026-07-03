@@ -496,6 +496,188 @@
   justify-content: center;
 }
 
+/* Pricing Section
+   Sits on the default slate-50 canvas (between the white How-It-Works and the
+   dark conversion card) with white plan cards. Tri-color roles: orange = the
+   CTA (btn-primary), green = value/savings/included (check discs, savings line,
+   "Best value" badge), purple = focus accent on the recommended card. */
+.pricing-section {
+  background: var(--color-slate-50);
+}
+
+/* Shared "what's included" block above the cards */
+.pricing-includes {
+  max-width: 720px;
+  margin: 0 auto 3rem;
+}
+
+.pricing-includes-title {
+  text-align: center;
+  font-size: 0.875rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-slate-500);
+  margin-bottom: 1.5rem;
+}
+
+.pricing-includes-grid {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem 2rem;
+}
+
+@media (min-width: 768px) {
+  .pricing-includes-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.pricing-include-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  color: var(--color-slate-700);
+  line-height: 1.5;
+}
+
+.pricing-check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  background: var(--color-brand-green-soft);
+  color: var(--color-brand-green-text);
+  margin-top: 1px; /* optical alignment with the first text line */
+}
+
+/* Plan cards */
+.pricing-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+  align-items: stretch;
+}
+
+@media (min-width: 768px) {
+  .pricing-cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+/* Off-state early-access card — a single centered card */
+.pricing-cards-single {
+  grid-template-columns: 1fr;
+  max-width: 420px;
+}
+
+.pricing-card {
+  position: relative;
+  background: var(--color-white);
+  border: 1px solid var(--color-slate-200);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem 2rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+/* Recommended plan — purple = focus accent */
+.pricing-card-featured {
+  border: 2px solid var(--color-brand-purple-border);
+  box-shadow: 0 12px 32px -12px rgba(107, 78, 158, 0.35);
+}
+
+@media (min-width: 768px) {
+  .pricing-card-featured {
+    transform: translateY(-8px);
+  }
+}
+
+/* "Best value" ribbon — green = value/savings */
+.pricing-badge {
+  position: absolute;
+  top: -0.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-brand-green-soft);
+  color: var(--color-brand-green-text);
+  border: 1px solid var(--color-brand-green-border);
+  border-radius: 999px;
+  padding: 0.25rem 0.875rem;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+.pricing-plan-name {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-slate-900);
+  margin-bottom: 1rem;
+}
+
+.pricing-amount {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.pricing-price {
+  font-family: var(--font-reading);
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--color-slate-900);
+}
+
+.pricing-period {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-slate-500);
+}
+
+.pricing-plan-note {
+  font-size: 0.9rem;
+  color: var(--color-slate-500);
+  margin-bottom: 2rem;
+}
+
+/* Savings line — green = savings/value */
+.pricing-savings {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-brand-green-text);
+  margin-bottom: 2rem;
+}
+
+/* Push every CTA to the bottom so buttons line up across cards of unequal copy */
+.pricing-cta {
+  width: 100%;
+  margin-top: auto;
+}
+
+.pricing-reassurance {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--color-slate-500);
+  margin: 1.75rem auto 0;
+}
+
 /* Conversion Section */
 .conversion-section {
   background: var(--color-slate-900);

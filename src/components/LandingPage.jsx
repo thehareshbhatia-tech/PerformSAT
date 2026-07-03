@@ -3,7 +3,7 @@ import { useAuth } from '../hooks/useAuth';
 import { useFeatureFlag } from '../hooks/useFeatureFlag';
 import { Modal } from './ui/Modal';
 import Wordmark from './ui/Wordmark';
-import { PencilIcon, MicroscopeIcon, TargetIcon } from '../design/icons';
+import { PencilIcon, MicroscopeIcon, TargetIcon, CheckIcon } from '../design/icons';
 import './LandingPage.css';
 
 // The pre-signup quiz funnel is its own chunk: the landing page must stay
@@ -78,6 +78,7 @@ const LandingPage = () => {
           <nav className="header-nav">
             <a href="#features" className="header-nav-link">Features</a>
             <a href="#how-it-works" className="header-nav-link">How it Works</a>
+            <a href="#pricing" className="header-nav-link">Pricing</a>
           </nav>
           <div className="header-actions">
             <button className="btn-ghost" onClick={() => openAuth(true)}>Log in</button>
@@ -204,6 +205,99 @@ const LandingPage = () => {
           </div>
         </section>
 
+        {/* Pricing Section */}
+        <section id="pricing" className="pricing-section section-container">
+          <div className="section-inner">
+            <div className="section-header">
+              <h2 className="section-title">Simple, honest pricing</h2>
+              <p className="section-subtitle">
+                {billingLive
+                  ? 'Start with a 7-day free trial — no credit card. Then keep going month to month, or save with an annual plan.'
+                  : 'SEVA is free during early access — the full product, no credit card. One plan, everything included.'}
+              </p>
+            </div>
+
+            {/* Shared "what's included" list — every plan gets the full product */}
+            <div className="pricing-includes">
+              <p className="pricing-includes-title">Everything is included</p>
+              <ul className="pricing-includes-grid">
+                <li className="pricing-include-item">
+                  <span className="pricing-check" aria-hidden="true"><CheckIcon size={18} /></span>
+                  2,200+ hand-authored practice questions
+                </li>
+                <li className="pricing-include-item">
+                  <span className="pricing-check" aria-hidden="true"><CheckIcon size={18} /></span>
+                  12 full-length adaptive practice tests
+                </li>
+                <li className="pricing-include-item">
+                  <span className="pricing-check" aria-hidden="true"><CheckIcon size={18} /></span>
+                  Six-class error diagnosis after every test
+                </li>
+                <li className="pricing-include-item">
+                  <span className="pricing-check" aria-hidden="true"><CheckIcon size={18} /></span>
+                  Targeted drills for the exact question types you miss
+                </li>
+                <li className="pricing-include-item">
+                  <span className="pricing-check" aria-hidden="true"><CheckIcon size={18} /></span>
+                  AI tutor with step-by-step, inline graphs
+                </li>
+                <li className="pricing-include-item">
+                  <span className="pricing-check" aria-hidden="true"><CheckIcon size={18} /></span>
+                  A study plan built around your gaps
+                </li>
+              </ul>
+            </div>
+
+            {billingLive ? (
+              <>
+                <div className="pricing-cards">
+                  {/* Monthly */}
+                  <div className="pricing-card">
+                    <h3 className="pricing-plan-name">Monthly</h3>
+                    <div className="pricing-amount">
+                      <span className="pricing-price">$50</span>
+                      <span className="pricing-period">/month</span>
+                    </div>
+                    <p className="pricing-plan-note">Billed monthly. Cancel anytime.</p>
+                    <button className="btn-primary pricing-cta" onClick={() => openAuth(false)}>
+                      Start your 7-day free trial
+                    </button>
+                  </div>
+
+                  {/* Annual — highlighted / recommended */}
+                  <div className="pricing-card pricing-card-featured">
+                    <span className="pricing-badge">Best value</span>
+                    <h3 className="pricing-plan-name">Annual</h3>
+                    <div className="pricing-amount">
+                      <span className="pricing-price">$250</span>
+                      <span className="pricing-period">/year</span>
+                    </div>
+                    <p className="pricing-savings">$20.83/mo billed annually — save $350/year</p>
+                    <button className="btn-primary pricing-cta" onClick={() => openAuth(false)}>
+                      Start your 7-day free trial
+                    </button>
+                  </div>
+                </div>
+                <p className="pricing-reassurance">No credit card to start. Cancel anytime.</p>
+              </>
+            ) : (
+              <div className="pricing-cards pricing-cards-single">
+                <div className="pricing-card pricing-card-featured">
+                  <span className="pricing-badge">Early access</span>
+                  <h3 className="pricing-plan-name">Free during early access</h3>
+                  <div className="pricing-amount">
+                    <span className="pricing-price">Free</span>
+                  </div>
+                  <p className="pricing-plan-note">The full product, no credit card.</p>
+                  <button className="btn-primary pricing-cta" onClick={() => openAuth(false)}>
+                    Get Started for Free
+                  </button>
+                </div>
+              </div>
+            )}
+          </div>
+        </section>
+
         {/* Conversion / Early Access Section */}
         <section id="early-access" className="section-container" style={{ padding: '0 5%' }}>
           <div className="conversion-section">
@@ -238,6 +332,7 @@ const LandingPage = () => {
             <ul className="footer-links">
               <li><a href="#features" className="footer-link">Features</a></li>
               <li><a href="#how-it-works" className="footer-link">How it Works</a></li>
+              <li><a href="#pricing" className="footer-link">Pricing</a></li>
               <li><a href="#early-access" className="footer-link">Early Access</a></li>
             </ul>
           </div>

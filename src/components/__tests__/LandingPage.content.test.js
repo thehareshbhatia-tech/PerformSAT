@@ -73,7 +73,11 @@ describe('LandingPage content', () => {
     expect(html).toContain('Get Started for Free');
     // The old CTA led nowhere (no payment flow exists).
     expect(html).not.toContain('Enroll Now');
-    expect(html).not.toMatch(/pricing/i);
+    // The pricing section exists, but with the billing flag OFF it must render
+    // the single "free during early access" card — never paid dollar prices
+    // that would contradict the free packaging elsewhere on the page.
+    expect(html).not.toContain('$50');
+    expect(html).not.toContain('$250');
   });
 
   test('contains no known-false or unverifiable claims', () => {
@@ -94,8 +98,10 @@ describe('LandingPage content', () => {
     expect(html).toContain('href="/terms"');
     expect(html).toContain('href="#features"');
     expect(html).toContain('href="#how-it-works"');
+    expect(html).toContain('href="#pricing"');
     expect(html).toContain('href="#early-access"');
-    // The #early-access anchor target must exist on the page itself.
+    // The #pricing and #early-access anchor targets must exist on the page.
+    expect(html).toContain('id="pricing"');
     expect(html).toContain('id="early-access"');
   });
 
