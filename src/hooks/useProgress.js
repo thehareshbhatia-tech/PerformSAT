@@ -1084,23 +1084,28 @@ export const useProgress = (userId) => {
 
     try {
       const sanitized = JSON.parse(JSON.stringify(nextPlan));
-      // Source of truth: the current artifact's `plan` field.
+      // One transaction for BOTH writes (artifact `plan` field + legacy root
+      // `studyPlan`). The previous read-then-write pair could tear under a
+      // concurrent edit from another device — artifact holding one version and
+      // the root field another, so what the student saw depended on which
+      // hydration path won. Whole-plan replacement stays last-writer-wins by
+      // design (it's a whole-plan editor); the transaction guarantees the two
+      // copies can never diverge from each other.
       const artId = studyPlanMeta.artifactId;
-      if (artId) {
-        const artRef = doc(db, 'progress', userId, 'studyPlanArtifacts', artId);
-        const artSnap = await getDoc(artRef);
-        if (artSnap.exists()) {
-          await updateDoc(artRef, { plan: sanitized, editedAt: serverTimestamp() });
-        }
-      }
-      // Legacy root field, kept in sync for backward-compat hydration.
       const progressRef = doc(db, 'progress', userId);
-      const progressSnap = await getDoc(progressRef);
-      if (progressSnap.exists()) {
-        await updateDoc(progressRef, { studyPlan: sanitized, lastUpdated: serverTimestamp() });
-      } else {
-        await setDoc(progressRef, { userId, studyPlan: sanitized, lastUpdated: serverTimestamp() }, { merge: true });
-      }
+      await runTransaction(db, async (txn) => {
+        const artRef = artId ? doc(db, 'progress', userId, 'studyPlanArtifacts', artId) : null;
+        const artSnap = artRef ? await txn.get(artRef) : null;
+        const progressSnap = await txn.get(progressRef);
+        if (artSnap?.exists()) {
+          txn.update(artRef, { plan: sanitized, editedAt: serverTimestamp() });
+        }
+        if (progressSnap.exists()) {
+          txn.update(progressRef, { studyPlan: sanitized, lastUpdated: serverTimestamp() });
+        } else {
+          txn.set(progressRef, { userId, studyPlan: sanitized, lastUpdated: serverTimestamp() }, { merge: true });
+        }
+      });
     } catch (err) {
       console.error('[useProgress] Failed to save edited study plan:', err);
       setError(err.message);

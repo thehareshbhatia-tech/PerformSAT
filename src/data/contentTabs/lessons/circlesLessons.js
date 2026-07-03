@@ -141,7 +141,7 @@ export const circlesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "Convert diameter to radius before squaring. Use the correction rule above as your final verification step before selecting an answer."
+            "content": "If the problem hands you a diameter, halve it before touching $\\pi r^2$ — squaring the diameter instead of the radius inflates the area by a factor of 4, and that inflated value is almost always waiting in the answer choices. Before selecting, ask: did I square the radius, or the diameter?"
           }
         ]
       },

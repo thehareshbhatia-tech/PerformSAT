@@ -261,10 +261,13 @@ export const aiTutor = onRequest(
           },
           body: JSON.stringify({
             model: "claude-sonnet-4-6",
-            // Tutor answers are short coaching replies, not essays, so a tight
-            // cap is fine and guards against a runaway response. (Thinking is
+            // Tutor answers are coaching replies, not essays — but the 2026-06-28
+            // per-choice breakdown format (GOAL → WHY-RIGHT → EVERY-CHOICE →
+            // TAKEAWAY) regularly ran past 2000 and truncated mid-choice, so the
+            // client shows a truncation note. 3000 clears the observed breakdown
+            // sizes while still guarding against a runaway response. (Thinking is
             // off — see below — so no thinking tokens count toward this.)
-            max_tokens: 2000,
+            max_tokens: 3000,
             // Thinking DISABLED for the interactive tutor. Adaptive thinking ran
             // a reasoning pass before every reply, so the student stared at a
             // spinner before the first streamed token — the single biggest

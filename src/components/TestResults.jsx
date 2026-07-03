@@ -6,17 +6,15 @@
  */
 
 import React, { useState, useMemo, useRef, useEffect } from 'react';
-import { colors, radius, shadows } from '../design/tokens';
-import { cardStyles, buttonStyles } from '../design/components';
+import { colors } from '../design/tokens';
 import { MathText } from './MathText';
 import { isGoalAchieved, isCompositeScaleTarget, DEFAULT_GOAL_SCORE } from '../services/selectors/goalProgress';
 import { isBlankAttempt } from '../services/selectors/latestTestStats';
 import './TestResults.css';
 import { ChartBarIcon, ArrowRightIcon, BookOpenIcon, PencilIcon, BrainIcon, SearchIcon, PinIcon } from '../design/icons';
-import QuestionInsightCard from './QuestionInsightCard';
 import Avatar, { AVATAR_SIZES } from './ui/Avatar';
 import {
-  scoreTest, convertToSATScore, isAnswerCorrect, estimatePercentile,
+  scoreTest, isAnswerCorrect, estimatePercentile,
   inferDomain, SAT_MATH_DOMAINS, DOMAIN_DISPLAY_NAMES,
   adaptDiagnosticForUI, mergeAiIntoReport, buildUnifiedReport, buildNarrativeFlow,
 } from '../services/scoring';
@@ -51,16 +49,6 @@ export function resolveDisplayScores(storedResult, fallbackScored) {
     sectionScores: fallbackScored.sectionScores || {},
     isMultiSection: !!fallbackScored.isMultiSection,
   };
-}
-
-const BULLET_LENGTH_THRESHOLD = 80;
-const BULLET_SPLIT_RE = /\s*;\s*|\s*\n\s*|\s*(?:(?:^|\s)[-•])\s+|\s*\d+\)\s+/;
-
-function bulletizeText(text) {
-  if (!text || typeof text !== 'string') return null;
-  if (text.length <= BULLET_LENGTH_THRESHOLD && !BULLET_SPLIT_RE.test(text)) return null;
-  const parts = text.split(BULLET_SPLIT_RE).map(s => s.trim()).filter(s => s.length > 0);
-  return parts.length >= 2 ? parts : null;
 }
 
 /**
@@ -109,34 +97,6 @@ function splitToScannable(text) {
   if (parts.length >= 2) return parts;
 
   return null;
-}
-
-function SupportText({ text, label, labelColor, textColor, textSize = '14px', dotColor = 'var(--color-slate-400)' }) {
-  if (!text) return null;
-  const bullets = bulletizeText(text);
-  if (bullets) {
-    return (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
-        {label && (
-          <span style={{ fontFamily: 'var(--font-ui)', fontSize: '12px', fontWeight: '700', color: labelColor || 'var(--color-slate-600)', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '2px' }}>{label}</span>
-        )}
-        <ul style={{ margin: 0, padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '4px' }}>
-          {bullets.map((b, i) => (
-            <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', fontFamily: 'var(--font-ui)', fontSize: textSize, fontWeight: '500', color: textColor || 'var(--color-slate-500)', lineHeight: '1.45' }}>
-              <span style={{ flexShrink: 0, width: '5px', height: '5px', borderRadius: '50%', background: dotColor, marginTop: '7px' }} />
-              {b}
-            </li>
-          ))}
-        </ul>
-      </div>
-    );
-  }
-  return (
-    <div style={{ fontFamily: 'var(--font-ui)', fontSize: textSize, fontWeight: '500', color: textColor || 'var(--color-slate-500)', lineHeight: '1.45' }}>
-      {label && <span style={{ fontWeight: '600', color: labelColor || 'var(--color-slate-600)' }}>{label}: </span>}
-      {text}
-    </div>
-  );
 }
 
 /**
