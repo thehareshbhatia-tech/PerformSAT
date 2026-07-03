@@ -25,6 +25,8 @@ import {
   setPacing,
 } from '../services/studyPlanEditor';
 import { getTodaySlice, countRemainingTodayTasks } from '../services/selectors/todaySlice';
+import { activitySummary, activityBreakdown } from '../services/selectors/activitySummary';
+import { buildDayNarrative } from '../services/selectors/dayNarrative';
 import { getIdentityInsights, getPredictionTrust } from '../services/selectors/identityInsights';
 import { getReviewStreak } from '../services/dailyReviewEngine';
 import { formatDailyIntro } from '../services/selectors/dailyIntro';
@@ -337,6 +339,12 @@ const StudyPlanDashboard = ({
   const [selectedWeek, setSelectedWeek] = useState(null);
   const [expandedTips, setExpandedTips] = useState({});
   const toggleTip = (key) => setExpandedTips((m) => ({ ...m, [key]: !m[key] }));
+  // Per-card breakdown disclosure in the Weekly View (keyed weekIdx:actIdx).
+  // Today's cards open by default (see ActivityRow's defaultOpen); the map only
+  // stores explicit user overrides.
+  const [expandedBreakdowns, setExpandedBreakdowns] = useState({});
+  // Weekly View week-picker dropdown open/closed.
+  const [weekMenuOpen, setWeekMenuOpen] = useState(false);
 
   // ── Derived data ─────────────────────────────────────────────────────
   // Render-time guard: legacy plan artifacts in Firestore may still
@@ -829,7 +837,7 @@ const StudyPlanDashboard = ({
   // coaching bullets inline. Edit mode swaps the action for reschedule / skip /
   // remove controls. Tip-open state lives in the parent (expandedTips) because
   // ActivityRow is re-created each render.
-  const ActivityRow = ({ act, weekIdx, actIdx }) => {
+  const ActivityRow = ({ act, weekIdx, actIdx, hideDow = false, defaultOpen = false }) => {
     const done = act.completed;
     const isTip = act.type === 'strategy' || act.type === 'review';
     const isTest = act.type === 'test';
@@ -844,6 +852,13 @@ const StudyPlanDashboard = ({
     const title = (act.title || '').replace(/^(Practice|Drill)\s*:\s*/i, '');
     const sp = (!done && act.skillId && skillProgress) ? skillProgress[act.skillId] : null;
     const needsFocus = !!(sp && sp.attempts >= 2 && (sp.mastery ?? (sp.correct / sp.attempts * 100)) < 40);
+    // Summary chip (minutes + estimated question count) + the expandable
+    // per-skill breakdown. Breakdown is offered only for open practice cards;
+    // today's cards start open (defaultOpen), the rest collapsed.
+    const summary = activitySummary(act);
+    const breakdown = (act.type === 'practice' && !done && !act.custom) ? activityBreakdown(act, skillProgress) : [];
+    const hasBreakdown = breakdown.length > 0;
+    const bdOpen = (tipKey in expandedBreakdowns) ? expandedBreakdowns[tipKey] : defaultOpen;
 
     return (
       <div className={`sp-task${done ? ' is-done' : ''}${(needsFocus && !done) ? ' is-needsfocus' : ''}${act.skipped ? ' is-skipped' : ''}`}>
@@ -857,8 +872,8 @@ const StudyPlanDashboard = ({
             {done && <CheckIcon size={13} color="#fff" />}
           </button>
 
-          <div className="sp-task-daycol">
-            <span className="sp-task-dow">{(act.day || '').slice(0, 3).toUpperCase()}</span>
+          <div className={`sp-task-daycol${hideDow ? ' is-icononly' : ''}`}>
+            {!hideDow && <span className="sp-task-dow">{(act.day || '').slice(0, 3).toUpperCase()}</span>}
             <span className="sp-task-icon" style={{ background: chip.bg, color: chip.fg }}>
               {activityIcon(act.type)}
             </span>
@@ -873,6 +888,21 @@ const StudyPlanDashboard = ({
               <span className="sp-task-type">{act.custom ? 'Your task' : meta.label}</span>
               {needsFocus && <span className="sp-task-needs">NEEDS FOCUS</span>}
             </div>
+            {summary && (hasBreakdown ? (
+              <button
+                type="button"
+                className="sp-task-summary is-toggle"
+                aria-expanded={bdOpen}
+                onClick={() => setExpandedBreakdowns((m) => ({ ...m, [tipKey]: !bdOpen }))}
+              >
+                {summary.label}
+                <span className={`sp-task-summary-chev${bdOpen ? ' is-open' : ''}`} aria-hidden="true">
+                  <ChevronDownIcon size={13} color="currentColor" />
+                </span>
+              </button>
+            ) : (
+              <span className="sp-task-summary">{summary.label}</span>
+            ))}
           </div>
 
           {editMode ? (
@@ -906,6 +936,21 @@ const StudyPlanDashboard = ({
             </button>
           ))}
         </div>
+
+        {hasBreakdown && bdOpen && (
+          <div className="sp-task-rounds">
+            {breakdown.map((r, ri) => (
+              <div className="sp-task-round" key={ri}>
+                <span className={`sp-round-dot is-${r.status}`} aria-hidden="true">
+                  {r.status === 'done' && <CheckIcon size={12} color="#fff" />}
+                </span>
+                <span className="sp-task-round-label"><MathText>{r.label}</MathText></span>
+                <span className="sp-round-spacer" />
+                <span className={`sp-round-prog${r.status === 'active' ? ' is-active' : ''}`}>{r.prog} Q</span>
+              </div>
+            ))}
+          </div>
+        )}
 
         {isTip && tipsOpen && tips.length > 0 && (
           <ul className="sp-task-tips">
@@ -949,11 +994,12 @@ const StudyPlanDashboard = ({
       : `${m1} ${monday.getDate()} – ${m2} ${end.getDate()}`;
   };
 
-  // ── Render one plan week's sessions as a flat, day-ordered task list ───
-  // The week-carousel shows a single week at a time; tasks render in calendar
-  // order (Mon→Sun), completed struck in place. Returns null when the week has
-  // no visible sessions so the caller can show the "unlocks as you go" state.
-  const renderWeekTasks = (week, weekIdx) => {
+  // ── Render one plan week's sessions grouped under day headers ──────────
+  // Acely-style organization: each day gets a "Friday, July 3" header, a short
+  // plain-language narrative (buildDayNarrative), then that day's cards. Cards
+  // in today's group open their breakdown by default. Returns null when the
+  // week has no visible sessions so the caller shows the "unlocks" state.
+  const renderWeekDays = (week, weekIdx) => {
     const fullActivities = week?.activities || [];
     // In edit mode, also surface skipped tasks (greyed) so they can be
     // un-skipped or removed; otherwise hidden.
@@ -963,13 +1009,72 @@ const StudyPlanDashboard = ({
         ? (act.type !== 'lesson' && matchesSectionFilter(act, sectionFilter))
         : isVisibleActivity(act)));
     if (acts.length === 0) return null;
-    const dayRank = (a) => { const i = WEEKDAY_FULL.indexOf(a.day); return i === -1 ? 99 : i; };
-    acts.sort((a, b) => dayRank(a.act) - dayRank(b.act));
+
+    const monday = mondayForWeek(weekIdx);
+    const todayStr = new Date().toDateString();
+
+    // Bucket by weekday; anything with an unknown/missing day falls into a
+    // single "Anytime this week" group rendered last.
+    const byDay = new Map();
+    const anytime = [];
+    acts.forEach((entry) => {
+      const d = entry.act.day;
+      if (WEEKDAY_FULL.includes(d)) {
+        if (!byDay.has(d)) byDay.set(d, []);
+        byDay.get(d).push(entry);
+      } else {
+        anytime.push(entry);
+      }
+    });
+
+    const dayGroups = WEEKDAY_FULL
+      .filter((d) => byDay.has(d))
+      .map((dayName) => {
+        const date = new Date(monday);
+        date.setDate(monday.getDate() + WEEKDAY_FULL.indexOf(dayName));
+        return { dayName, date, entries: byDay.get(dayName) };
+      });
+
+    const renderGroup = ({ key, heading, date, entries }) => {
+      const isToday = date ? date.toDateString() === todayStr : false;
+      const dayActs = entries.map((e) => e.act);
+      // Only today's line carries the exam-proximity nudge — repeating it under
+      // every day header would read as noise. Non-today days lead with their
+      // weekday name so they don't read as if they were today.
+      const narrative = date
+        ? buildDayNarrative({
+            activities: dayActs,
+            weaknesses: annotatedWeaknesses,
+            daysUntilTest: isToday ? daysUntilTest : null,
+            dayLabel: isToday ? 'Today' : heading.split(',')[0],
+          })
+        : '';
+      return (
+        <section className="sp-daygroup" key={key}>
+          <div className="sp-day-head">
+            <span className="sp-day-date">{heading}</span>
+            {isToday && <span className="sp-day-today">Today</span>}
+            <span className="sp-day-count">{entries.length} {entries.length === 1 ? 'session' : 'sessions'}</span>
+          </div>
+          {narrative && <p className="sp-day-narrative">{narrative}</p>}
+          <div className="sp-tasklist">
+            {entries.map(({ act, origIdx }) => (
+              <ActivityRow key={origIdx} act={act} weekIdx={weekIdx} actIdx={origIdx} hideDow defaultOpen={isToday} />
+            ))}
+          </div>
+        </section>
+      );
+    };
+
     return (
-      <div className="sp-tasklist">
-        {acts.map(({ act, origIdx }) => (
-          <ActivityRow key={origIdx} act={act} weekIdx={weekIdx} actIdx={origIdx} />
-        ))}
+      <div className="sp-daygroups">
+        {dayGroups.map(({ dayName, date, entries }) => renderGroup({
+          key: dayName,
+          heading: date.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' }),
+          date,
+          entries,
+        }))}
+        {anytime.length > 0 && renderGroup({ key: 'anytime', heading: 'Anytime this week', date: null, entries: anytime })}
       </div>
     );
   };
@@ -990,6 +1095,30 @@ const StudyPlanDashboard = ({
   const shownAnyTasks = (shownWeek?.activities || []).some((a) => a && a.type !== 'lesson' && !a.skipped);
   const pacingWillShow = pacingTelemetry.length > 0 && !testDateIsPast;
   const hasBeyond = showReviewTestsButton || reviewDue > 0 || pacingWillShow || flaggedTotal > 0;
+
+  // ── Week-picker dropdown metadata ─────────────────────────────────────
+  // Whether the plan carries the first-plan "Take Practice Test 2" checkpoint —
+  // if so, empty (not-yet-unlocked) weeks name that unlock condition rather
+  // than showing fake content, honoring the 2-week first-plan cap.
+  const pt2Checkpoint = useMemo(
+    () => weeks.some((w) => (w?.activities || []).some(
+      (a) => a && a.type === 'test' && /Practice Test 2/i.test(a.title || ''))),
+    [weeks],
+  );
+  // Per-week menu meta: session progress (filter-independent for stable nav),
+  // or the unlock note for a week with no real sessions yet.
+  const weekMenuMeta = (wk, wi) => {
+    const real = (wk?.activities || []).filter((a) => a && a.type !== 'lesson' && !a.skipped);
+    const hasTasks = real.length > 0;
+    return {
+      isCurrent: wi === displayCurrentWeek,
+      hasTasks,
+      done: real.filter((a) => a.completed).length,
+      total: real.length,
+      unlockNote: hasTasks ? '' : (pt2Checkpoint ? 'After Test 2' : 'Unlocks later'),
+      range: fmtWeekRange(mondayForWeek(wi)),
+    };
+  };
 
   // ── Plan modules (Today panel) ────────────────────────────────────────
   // The focus-area weaknesses, rendered as the redesigned "module cards with
@@ -1410,13 +1539,55 @@ const StudyPlanDashboard = ({
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.3" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
             </button>
             <div className="sp-wk-id">
-              <div className="sp-wk-id-top">
-                <span className="sp-wk-label">Week {shownWeek?.weekNumber ?? selWeek + 1}</span>
-                <span className="sp-wk-of">of {weeks.length}</span>
-                {isCurrentShown && <span className="sp-wk-chip">THIS WEEK</span>}
-              </div>
-              {(cleanWeekTitle(shownWeek?.title) || shownWeek?.goalDescription) && (
-                <div className="sp-wk-theme">{cleanWeekTitle(shownWeek?.title) || shownWeek?.goalDescription}</div>
+              <button
+                type="button"
+                className="sp-wk-select"
+                aria-haspopup="listbox"
+                aria-expanded={weekMenuOpen}
+                onClick={() => setWeekMenuOpen((v) => !v)}
+              >
+                <span className="sp-wk-id-top">
+                  <span className="sp-wk-label">Week {shownWeek?.weekNumber ?? selWeek + 1}</span>
+                  <span className="sp-wk-of">of {weeks.length}</span>
+                  {isCurrentShown && <span className="sp-wk-chip">NOW</span>}
+                  <span className={`sp-wk-select-chev${weekMenuOpen ? ' is-open' : ''}`} aria-hidden="true">
+                    <ChevronDownIcon size={16} color="currentColor" />
+                  </span>
+                </span>
+                {(cleanWeekTitle(shownWeek?.title) || shownWeek?.goalDescription) && (
+                  <span className="sp-wk-theme">{cleanWeekTitle(shownWeek?.title) || shownWeek?.goalDescription}</span>
+                )}
+              </button>
+              {weekMenuOpen && (
+                <>
+                  <div className="sp-wk-menu-backdrop" onClick={() => setWeekMenuOpen(false)} aria-hidden="true" />
+                  <ul className="sp-wk-menu" role="listbox" aria-label="Choose a week">
+                    {weeks.map((wk, wi) => {
+                      const wm = weekMenuMeta(wk, wi);
+                      return (
+                        <li key={wi} role="option" aria-selected={wi === selWeek}>
+                          <button
+                            type="button"
+                            className={`sp-wk-menu-item${wi === selWeek ? ' is-active' : ''}`}
+                            onClick={() => { setSelectedWeek(wi); setWeekMenuOpen(false); }}
+                          >
+                            <span className="sp-wk-menu-main">
+                              <span className="sp-wk-menu-name">Week {wk?.weekNumber ?? wi + 1}</span>
+                              <span className="sp-wk-menu-range">{wm.range}</span>
+                            </span>
+                            {wm.isCurrent ? (
+                              <span className="sp-wk-menu-now">Now</span>
+                            ) : wm.hasTasks ? (
+                              <span className="sp-wk-menu-count">{wm.done}/{wm.total}</span>
+                            ) : (
+                              <span className="sp-wk-menu-lock">{wm.unlockNote}</span>
+                            )}
+                          </button>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </>
               )}
             </div>
             <div className="sp-wk-prog">
@@ -1455,7 +1626,7 @@ const StudyPlanDashboard = ({
                   ))}
                 </div>
               </div>
-              {renderWeekTasks(shownWeek, selWeek) || (
+              {renderWeekDays(shownWeek, selWeek) || (
                 <div className="sp-wk-empty">No sessions match this filter — switch to All.</div>
               )}
               {editMode && (

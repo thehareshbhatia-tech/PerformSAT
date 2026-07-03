@@ -1,15 +1,17 @@
 /* src/components/PracticeBank.css
  * ============================================================================
- * Practice Bank — 2026-06 redesign, matched to the SEVA Practice design file.
- * Master/detail: a domain rail (quick-start + domain nav) on the left, the
- * selected domain's topics (expandable → question-type tiles) on the right.
+ * Practice Bank — progressive-disclosure entry (2026-07 restructure).
+ * First paint per section = a calm hierarchy: a hero launcher + mastery summary,
+ * a compact "For you" recommendation strip, then a grid of domain cards (topic
+ * list inline; question-type tiles one click away). The custom-drill builder and
+ * its filters live behind a single "Build a custom drill" modal.
  * Bricolage Grotesque (display) + Hanken Grotesk (body), warm cream canvas.
  * --pb-* theme vars on .pb-screen → dark is one [data-theme="dark"] switch away
- * (no toggle wired). Scoped to this screen. Tri-color: orange = action/Math,
- * purple = R&W/Craft, navy = data, lime ink on dark badges, lime-green = done.
+ * (no toggle wired). Scoped to this screen. Tri-color: orange = action/CTA,
+ * purple = focus/needs-work, navy = data, lime ink on dark badges, green = done.
  *
- * Accent colors (orange/purple/navy) vary per domain and are applied INLINE
- * from the ACCENTS map; this file owns structure + the neutral palette.
+ * Domain accent colors (orange/purple/navy) rotate per card and are applied
+ * INLINE from the ACCENTS map; this file owns structure + the neutral palette.
  * Orange is SEVA brand #EA580C (design file used #EC5C2B) for app harmony.
  * ========================================================================== */
 
@@ -33,6 +35,13 @@
   --pb-shadow: 0 1px 2px rgba(20, 22, 28, 0.04), 0 5px 16px rgba(20, 22, 28, 0.05);
   --pb-font-display: 'Bricolage Grotesque', 'Inter', system-ui, sans-serif;
   --pb-font-body: 'Hanken Grotesk', 'Inter', system-ui, sans-serif;
+
+  /* Mastery-band tints (green = strength/done, purple = focus, neutral = other) */
+  --pb-green-ink: var(--pb-done);
+  --pb-green-bg: rgba(90, 138, 22, 0.10);
+  --pb-purple-bg: rgba(124, 92, 199, 0.08);
+  --pb-neutral-ink: var(--pb-text-2);
+  --pb-neutral-bg: rgba(22, 24, 29, 0.06);
 
   font-family: var(--pb-font-body);
   color: var(--pb-text);
@@ -59,6 +68,9 @@
   --pb-done: #9FD23A;
   --pb-track: rgba(255, 255, 255, 0.10);
   --pb-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 10px 28px rgba(0, 0, 0, 0.38);
+  --pb-green-bg: rgba(159, 210, 58, 0.14);
+  --pb-purple-bg: rgba(169, 139, 229, 0.14);
+  --pb-neutral-bg: rgba(255, 255, 255, 0.08);
 }
 
 /* ── Top bar (toggle) ──────────────────────────────────────────────────── */
@@ -108,6 +120,12 @@
   padding: 30px 36px 90px;
 }
 
+/* Shared small section label (For you / More ways to practice) */
+.pb-section-label {
+  font-weight: 700; font-size: 11px; letter-spacing: 0.13em; text-transform: uppercase;
+  color: var(--pb-text-3); margin-bottom: 13px; padding-left: 2px;
+}
+
 /* ── Continue banner ───────────────────────────────────────────────────── */
 .pb-resume {
   display: flex;
@@ -143,213 +161,189 @@
 }
 .pb-resume-continue:hover { filter: brightness(1.05); }
 
-/* ── Hero ──────────────────────────────────────────────────────────────── */
+/* ── Hero row ──────────────────────────────────────────────────────────── */
 .pb-hero {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
   gap: 28px;
-  margin-bottom: 28px;
+  margin-bottom: 34px;
   flex-wrap: wrap;
 }
+.pb-hero-lead { flex: 1; min-width: 260px; }
 .pb-hero-title {
   font-family: var(--pb-font-display);
   font-weight: 800;
-  font-size: 40px;
-  line-height: 1;
+  font-size: 38px;
+  line-height: 1.02;
   letter-spacing: -0.025em;
   color: var(--pb-text);
   margin: 0;
 }
 .pb-hero-desc {
   margin-top: 12px;
-  font-size: 15px;
+  font-size: 14.5px;
   line-height: 1.5;
   color: var(--pb-text-2);
-  max-width: 560px;
+  max-width: 520px;
 }
-.pb-hero-stat { text-align: right; flex: none; }
+.pb-hero-side {
+  display: flex; align-items: center; gap: 26px; flex-wrap: wrap;
+}
+
+/* Hero mastery summary (Practiced / Accuracy / Strong) */
+.pb-hero-stats { display: flex; gap: 24px; align-items: flex-start; }
+.pb-hero-stat-cell { text-align: right; }
 .pb-hero-stat-num {
-  font-family: var(--pb-font-display);
-  font-weight: 700;
-  font-size: 34px;
-  line-height: 1;
-  color: var(--pb-text);
-  font-variant-numeric: tabular-nums;
+  font-family: var(--pb-font-display); font-weight: 700; font-size: 26px; line-height: 1;
+  color: var(--pb-text); font-variant-numeric: tabular-nums;
 }
-.pb-hero-stat-num small { font-size: 18px; color: var(--pb-text-3); font-weight: 600; }
-.pb-hero-stat-sub { font-size: 12.5px; color: var(--pb-text-2); margin-top: 4px; }
-.pb-hero-stat-sub strong { color: var(--pb-done); font-weight: 700; }
+.pb-hero-stat-num.is-green { color: var(--pb-green-ink); }
+.pb-hero-stat-sub { font-size: 12px; color: var(--pb-text-2); margin-top: 5px; }
+.pb-hero-stat-focus { font-size: 11.5px; font-weight: 600; color: var(--pb-purple); margin-top: 3px; }
 
-.pb-divider { height: 1px; background: var(--pb-line); margin: 24px 0 28px; }
-
-/* ── Master / detail ───────────────────────────────────────────────────── */
-.pb-md { display: flex; gap: 28px; align-items: flex-start; }
-.pb-rail { width: 286px; flex: none; position: sticky; top: 80px; }
-.pb-rail-label {
-  font-weight: 700; font-size: 11px; letter-spacing: 0.13em; text-transform: uppercase;
-  color: var(--pb-text-3); margin-bottom: 12px; padding-left: 2px;
-}
-
-/* Quick-start actions */
-.pb-quickstart { display: flex; flex-direction: column; gap: 9px; margin-bottom: 26px; }
-.pb-qs {
-  display: flex; align-items: center; gap: 12px;
-  background: var(--pb-surface); border: 1px solid var(--pb-line);
-  border-radius: 13px; padding: 12px 14px; box-shadow: var(--pb-shadow);
-  cursor: pointer; text-align: left; width: 100%; font-family: var(--pb-font-body);
-  transition: border-color 120ms ease;
-}
-.pb-qs:hover { border-color: var(--pb-line-strong); }
-.pb-qs.is-primary {
-  background: var(--pb-orange); border-color: var(--pb-orange); color: #fff;
-  box-shadow: 0 5px 14px rgba(234, 88, 12, 0.26);
-}
-.pb-qs-icon {
-  width: 34px; height: 34px; border-radius: 10px; flex: none;
-  display: grid; place-items: center; background: var(--pb-surface-2); color: var(--pb-text-2);
-}
-.pb-qs.is-primary .pb-qs-icon { background: rgba(255, 255, 255, 0.18); color: #fff; }
-.pb-qs-icon.is-purple { background: rgba(124, 92, 199, 0.12); color: var(--pb-purple); }
-.pb-qs-text { flex: 1; min-width: 0; }
-.pb-qs-title { font-weight: 700; font-size: 14px; color: inherit; }
-.pb-qs-sub { font-size: 11.5px; color: var(--pb-text-3); }
-.pb-qs.is-primary .pb-qs-sub { color: rgba(255, 255, 255, 0.85); }
-
-/* Domain nav */
-.pb-domainnav { display: flex; flex-direction: column; gap: 10px; }
-.pb-domain {
-  display: flex; align-items: center; gap: 13px;
-  background: var(--pb-surface); border: 1.5px solid var(--pb-line);
-  border-radius: 14px; padding: 14px; cursor: pointer; text-align: left;
-  width: 100%; font-family: var(--pb-font-body);
-  transition: border-color 120ms ease, background 120ms ease;
-}
-.pb-domain-badge {
-  width: 40px; height: 40px; border-radius: 11px; flex: none;
-  display: grid; place-items: center;
-  font-family: var(--pb-font-display); font-weight: 700; font-size: 16px;
-}
-.pb-domain-main { flex: 1; min-width: 0; }
-.pb-domain-title { font-weight: 700; font-size: 14.5px; line-height: 1.2; color: var(--pb-text); }
-.pb-domain-progress { display: flex; align-items: center; gap: 8px; margin-top: 7px; }
-.pb-domain-bar { flex: 1; height: 5px; border-radius: 4px; background: var(--pb-surface-2); overflow: hidden; }
-.pb-domain-bar-fill { height: 100%; border-radius: 4px; }
-.pb-domain-pct { font-size: 11px; font-weight: 700; color: var(--pb-text-3); flex: none; }
-.pb-domain-meta { font-size: 11.5px; color: var(--pb-text-3); margin-top: 5px; }
-
-/* ── Detail ────────────────────────────────────────────────────────────── */
-.pb-detail { flex: 1; min-width: 0; }
-.pb-detail-head { display: flex; align-items: flex-start; gap: 18px; }
-.pb-detail-headmain { flex: 1; min-width: 0; }
-.pb-detail-eyebrow { font-weight: 700; font-size: 11.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--pb-text-3); }
-.pb-detail-title {
-  font-family: var(--pb-font-display); font-weight: 700; font-size: 32px;
-  letter-spacing: -0.02em; line-height: 1.05; margin-top: 3px; color: var(--pb-text);
-}
-.pb-detail-tagline { font-style: italic; font-size: 15px; color: var(--pb-text-2); margin-top: 6px; }
-.pb-detail-stats { font-size: 13px; color: var(--pb-text-3); font-weight: 600; margin-top: 11px; }
-.pb-drill-mixed {
-  display: inline-flex; align-items: center; gap: 8px;
-  border: none; border-radius: 12px; padding: 13px 20px;
-  font-family: var(--pb-font-body); font-weight: 700; font-size: 14px;
-  color: #fff; cursor: pointer; flex: none; white-space: nowrap;
+/* Hero primary launcher (orange = action) */
+.pb-hero-launch {
+  display: inline-flex; align-items: center; gap: 14px;
+  background: var(--pb-orange); color: #fff; border: none; border-radius: 14px;
+  padding: 13px 22px; cursor: pointer; flex: none; font-family: var(--pb-font-body);
+  box-shadow: 0 6px 16px rgba(234, 88, 12, 0.28);
   transition: filter 120ms ease, transform 80ms ease;
 }
-.pb-drill-mixed:hover { filter: brightness(1.06); }
-.pb-drill-mixed:active { transform: translateY(1px); }
-.pb-detail-line { height: 2px; border-radius: 2px; margin: 16px 0 18px; }
+.pb-hero-launch:hover { filter: brightness(1.05); }
+.pb-hero-launch:active { transform: translateY(1px); }
+.pb-hero-launch-text { display: flex; flex-direction: column; text-align: left; }
+.pb-hero-launch-title { font-weight: 700; font-size: 15px; }
+.pb-hero-launch-sub { font-size: 11.5px; color: rgba(255, 255, 255, 0.85); margin-top: 1px; }
 
-/* Search */
-.pb-search {
-  display: flex; align-items: center; gap: 10px;
+/* ── For you strip (compact rows) ──────────────────────────────────────────
+ * One-line "start here" rows between the hero and the domain grid. Tri-color
+ * tones by kind — orange = revisit misses (action), purple = focus from the last
+ * test, navy = neutral new ground. Green stays reserved for done.
+ * ────────────────────────────────────────────────────────────────────────── */
+.pb-foryou { margin-bottom: 34px; }
+.pb-foryou-list { display: flex; flex-direction: column; gap: 10px; }
+.pb-rec {
+  display: flex; align-items: center; gap: 16px;
+  width: 100%; text-align: left; cursor: pointer; font-family: var(--pb-font-body);
   background: var(--pb-surface); border: 1px solid var(--pb-line);
-  border-radius: 12px; padding: 11px 15px; margin-bottom: 16px; box-shadow: var(--pb-shadow);
+  border-left-width: 3px; border-radius: 13px; padding: 13px 18px;
+  box-shadow: var(--pb-shadow);
+  transition: border-color 120ms ease, transform 80ms ease;
 }
-.pb-search input {
-  flex: 1; min-width: 0; border: none; outline: none; background: transparent;
-  font-family: var(--pb-font-body); font-size: 14px; color: var(--pb-text);
-}
-.pb-search input::placeholder { color: var(--pb-text-3); }
-.pb-search-key {
-  border: 1px solid var(--pb-line-strong); border-radius: 6px; padding: 1px 7px;
-  font-size: 11.5px; color: var(--pb-text-3); font-weight: 600; flex: none;
-}
+.pb-rec:hover { border-color: var(--pb-line-strong); }
+.pb-rec:active { transform: translateY(1px); }
+.pb-rec.is-orange { border-left-color: var(--pb-orange); }
+.pb-rec.is-purple { border-left-color: var(--pb-purple); }
+.pb-rec.is-navy   { border-left-color: var(--pb-navy); }
 
-/* Topic accordion */
-.pb-topics { display: flex; flex-direction: column; gap: 12px; }
-.pb-topic {
-  background: var(--pb-surface); border: 1px solid var(--pb-line);
-  border-radius: 15px; box-shadow: var(--pb-shadow); overflow: hidden;
+.pb-rec-eyebrow {
+  flex: none; min-width: 96px;
+  font-weight: 700; font-size: 10.5px; letter-spacing: 0.11em; text-transform: uppercase;
 }
-.pb-topic-head {
-  display: flex; align-items: center; gap: 15px; padding: 18px 20px;
-  cursor: pointer; width: 100%; background: transparent; border: none;
+.pb-rec.is-orange .pb-rec-eyebrow { color: var(--pb-orange); }
+.pb-rec.is-purple .pb-rec-eyebrow { color: var(--pb-purple); }
+.pb-rec.is-navy   .pb-rec-eyebrow { color: var(--pb-text-2); }
+
+.pb-rec-body { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 1px; }
+.pb-rec-title {
+  font-family: var(--pb-font-display); font-weight: 700; font-size: 15.5px;
+  letter-spacing: -0.01em; color: var(--pb-text);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.pb-rec-reason { font-size: 12.5px; color: var(--pb-text-2); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.pb-rec-count { flex: none; font-size: 11.5px; font-weight: 600; color: var(--pb-text-3); font-variant-numeric: tabular-nums; }
+.pb-rec-go {
+  flex: none; display: inline-flex; align-items: center; gap: 6px;
+  font-weight: 700; font-size: 13px;
+}
+.pb-rec.is-orange .pb-rec-go { color: var(--pb-orange); }
+.pb-rec.is-purple .pb-rec-go { color: var(--pb-purple); }
+.pb-rec.is-navy   .pb-rec-go { color: var(--pb-text); }
+
+/* ── Domain grid ───────────────────────────────────────────────────────── */
+.pb-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  align-items: start;
+}
+.pb-card {
+  display: flex; flex-direction: column;
+  background: var(--pb-surface); border: 1px solid var(--pb-line);
+  border-radius: 18px; padding: 22px 22px 20px; box-shadow: var(--pb-shadow);
+}
+.pb-card-head { display: flex; align-items: flex-start; gap: 13px; }
+.pb-card-badge {
+  width: 38px; height: 38px; border-radius: 11px; flex: none;
+  display: grid; place-items: center;
+  font-family: var(--pb-font-display); font-weight: 700; font-size: 15px;
+}
+.pb-card-headmain { flex: 1; min-width: 0; }
+.pb-card-title {
+  font-family: var(--pb-font-display); font-weight: 700; font-size: 22px;
+  letter-spacing: -0.02em; line-height: 1.1; color: var(--pb-text);
+}
+.pb-card-share { font-size: 12px; font-weight: 600; color: var(--pb-text-3); margin-top: 5px; }
+.pb-card-tagline { font-style: italic; font-size: 13.5px; color: var(--pb-text-2); margin-top: 12px; }
+
+.pb-card-topics { display: flex; flex-direction: column; margin-top: 14px; }
+.pb-trow { border-top: 1px solid var(--pb-line); }
+.pb-trow:first-child { border-top: none; }
+.pb-trow-head {
+  display: flex; align-items: center; gap: 11px; padding: 11px 8px;
+  border-radius: 10px; width: 100%; background: transparent; border: none;
   text-align: left; font-family: var(--pb-font-body);
 }
-.pb-topic-head:hover { background: var(--pb-inset); }
-.pb-topic-chev { color: var(--pb-text-3); display: inline-flex; flex: none; transition: transform 200ms ease; }
-.pb-topic-chev.is-open { transform: rotate(90deg); }
-.pb-topic-main { flex: 1; min-width: 0; }
-.pb-topic-title { font-family: var(--pb-font-display); font-weight: 700; font-size: 18.5px; letter-spacing: -0.01em; color: var(--pb-text); }
-.pb-topic-meta { font-size: 13px; color: var(--pb-text-3); font-weight: 600; margin-top: 3px; }
-.pb-topic-drill {
-  display: inline-flex; align-items: center; gap: 7px;
-  background: var(--pb-surface); border: 1.5px solid; border-radius: 11px;
-  padding: 9px 17px; font-family: var(--pb-font-body); font-weight: 700; font-size: 13px;
+.pb-trow.is-open > .pb-trow-head,
+.pb-trow-head[aria-expanded]:hover { background: var(--pb-inset); }
+.pb-trow-chev { width: 16px; height: 16px; flex: none; color: var(--pb-text-3); display: inline-flex; transition: transform 200ms ease; }
+.pb-trow-chev.is-open { transform: rotate(90deg); }
+.pb-trow-chev.is-empty { visibility: hidden; }
+.pb-trow-main { flex: 1; min-width: 0; }
+.pb-trow-name { font-weight: 600; font-size: 14px; line-height: 1.25; color: var(--pb-text); }
+.pb-trow-meta { display: block; font-size: 11px; color: var(--pb-text-3); font-weight: 600; margin-top: 1px; }
+.pb-trow-drill {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--pb-surface); border: 1.5px solid; border-radius: 10px;
+  padding: 7px 13px; font-family: var(--pb-font-body); font-weight: 700; font-size: 12px;
   cursor: pointer; flex: none; white-space: nowrap; transition: background 120ms ease;
 }
-.pb-topic-body {
-  border-top: 1px solid var(--pb-line); background: var(--pb-inset);
-  padding: 16px 20px;
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(215px, 1fr)); gap: 11px;
+.pb-trow-drill:hover { background: var(--pb-inset); }
+.pb-trow-types {
+  padding: 4px 8px 14px 35px;
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 9px;
 }
+
+/* Question-type tiles */
 .pb-type {
   display: flex; align-items: center; justify-content: space-between; gap: 12px;
   background: var(--pb-surface); border: 1px solid var(--pb-line); border-radius: 11px;
-  padding: 13px 15px; cursor: pointer; min-height: 54px; text-align: left;
+  padding: 11px 13px; cursor: pointer; min-height: 50px; text-align: left;
   width: 100%; font-family: var(--pb-font-body); transition: border-color 120ms ease;
 }
 .pb-type:hover { border-color: var(--pb-line-strong); }
-.pb-type-name { font-weight: 600; font-size: 13.5px; line-height: 1.3; color: var(--pb-text); }
-.pb-type-count { font-family: var(--pb-font-display); font-weight: 700; font-size: 14px; color: var(--pb-text-3); flex: none; }
+.pb-type-name { font-weight: 600; font-size: 13px; line-height: 1.3; color: var(--pb-text); }
+.pb-type-count { font-family: var(--pb-font-display); font-weight: 700; font-size: 13.5px; color: var(--pb-text-3); flex: none; }
+.pb-type.is-strong { border-left: 2px solid var(--pb-green-ink); }
+.pb-type.is-focus { border-left: 2px solid var(--pb-purple); }
+.pb-type-acc { font-weight: 700; }
+.pb-type-acc.is-learning { color: var(--pb-text-2); }
+.pb-type-acc.is-strong { color: var(--pb-green-ink); }
+.pb-type-acc.is-focus { color: var(--pb-purple); }
 
-.pb-empty {
-  padding: 40px 20px; text-align: center; color: var(--pb-text-2);
-  font-size: 14px; border: 1px dashed var(--pb-line-strong); border-radius: 14px;
+/* Domain primary action */
+.pb-card-practice {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  margin-top: 18px; border: none; border-radius: 12px; padding: 13px 20px;
+  font-family: var(--pb-font-body); font-weight: 700; font-size: 14px;
+  cursor: pointer; white-space: nowrap;
+  transition: filter 120ms ease, transform 80ms ease;
 }
-.pb-empty-clear {
-  margin-top: 14px; background: transparent; border: 1px solid var(--pb-line-strong);
-  border-radius: 999px; padding: 9px 18px; font-family: var(--pb-font-body);
-  font-size: 13px; font-weight: 600; color: var(--pb-text-2); cursor: pointer;
-}
+.pb-card-practice:hover { filter: brightness(1.06); }
+.pb-card-practice:active { transform: translateY(1px); }
 
-/* ── Mastery layer (Slice 1) ───────────────────────────────────────────────
- * Student-progress signals over the catalog: hero 3-stat row, topic accuracy
- * pills, and band-tinted question-type tiles. Tri-color semantics:
- * green = strength/done, purple = focus/needs work, neutral = in progress.
- * ────────────────────────────────────────────────────────────────────────── */
-.pb-screen {
-  --pb-green-ink: var(--pb-done);
-  --pb-green-bg: rgba(90, 138, 22, 0.10);
-  --pb-purple-bg: rgba(124, 92, 199, 0.08);
-  --pb-neutral-ink: var(--pb-text-2);
-  --pb-neutral-bg: rgba(22, 24, 29, 0.06);
-}
-.pb-screen[data-theme="dark"] {
-  --pb-green-bg: rgba(159, 210, 58, 0.14);
-  --pb-purple-bg: rgba(169, 139, 229, 0.14);
-  --pb-neutral-bg: rgba(255, 255, 255, 0.08);
-}
-
-/* Hero 3-stat row (Practiced / Accuracy / Strong topics) */
-.pb-hero-stats { display: flex; gap: 26px; justify-content: flex-end; align-items: flex-start; }
-.pb-hero-stat-cell { text-align: right; }
-.pb-hero-stats .pb-hero-stat-num { font-size: 26px; }
-.pb-hero-stat-num.is-green { color: var(--pb-green-ink); }
-.pb-hero-stat-focus { font-size: 11.5px; font-weight: 600; color: var(--pb-purple); margin-top: 3px; }
-
-/* Topic mastery pill (sits beside the Drill button) */
+/* ── Mastery-band chip (shared: domain cards + topic rows) ────────────────── */
 .pb-pill {
   display: inline-flex; align-items: center; flex: none;
   padding: 4px 10px; border-radius: 999px;
@@ -359,96 +353,56 @@
 .pb-pill.is-learning { background: var(--pb-neutral-bg); color: var(--pb-neutral-ink); }
 .pb-pill.is-strong { background: var(--pb-green-bg); color: var(--pb-green-ink); }
 .pb-pill.is-focus { background: var(--pb-purple-bg); color: var(--pb-purple); }
+.pb-pill.is-unseen { background: transparent; color: var(--pb-text-3); border: 1px solid var(--pb-line); }
 
-/* Question-type tile band states */
-.pb-type.is-strong { border-left: 2px solid var(--pb-green-ink); }
-.pb-type.is-focus { border-left: 2px solid var(--pb-purple); }
-.pb-type-acc { font-weight: 700; }
-.pb-type-acc.is-learning { color: var(--pb-text-2); }
-.pb-type-acc.is-strong { color: var(--pb-green-ink); }
-.pb-type-acc.is-focus { color: var(--pb-purple); }
-
-/* ── For you strip (Slice 2) ────────────────────────────────────────────────
- * Performance-driven guided entry: up to three "start here" cards between the
- * hero divider and the master/detail grid. Tri-color tones by kind — orange =
- * revisit misses (action), purple = focus from the last test, navy = neutral
- * new ground. Solid accent buttons with lime ink on the dark (purple/navy)
- * tones, matching the ACCENTS convention. Green stays reserved for done.
- * ────────────────────────────────────────────────────────────────────────── */
-.pb-foryou { margin-bottom: 30px; }
-.pb-foryou-label { margin-bottom: 14px; }
-.pb-foryou-row {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(248px, 1fr));
-  gap: 14px;
+/* ── More ways to practice ─────────────────────────────────────────────── */
+.pb-more { margin-top: 36px; }
+.pb-more-row {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px;
 }
-.pb-foryou-card {
-  display: flex; flex-direction: column;
+.pb-more-btn {
+  display: flex; align-items: center; gap: 12px;
   background: var(--pb-surface); border: 1px solid var(--pb-line);
-  border-left-width: 3px; border-radius: 15px; padding: 18px 20px;
-  box-shadow: var(--pb-shadow); min-height: 148px;
+  border-radius: 13px; padding: 13px 15px; box-shadow: var(--pb-shadow);
+  cursor: pointer; text-align: left; width: 100%; font-family: var(--pb-font-body);
+  transition: border-color 120ms ease;
 }
-.pb-foryou-card.is-orange { border-left-color: var(--pb-orange); }
-.pb-foryou-card.is-purple { border-left-color: var(--pb-purple); }
-.pb-foryou-card.is-navy   { border-left-color: var(--pb-navy); }
+.pb-more-btn:hover { border-color: var(--pb-line-strong); }
+.pb-more-icon {
+  width: 34px; height: 34px; border-radius: 10px; flex: none;
+  display: grid; place-items: center; background: var(--pb-surface-2); color: var(--pb-text-2);
+}
+.pb-more-icon.is-purple { background: rgba(124, 92, 199, 0.12); color: var(--pb-purple); }
+.pb-more-text { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.pb-more-title { font-weight: 700; font-size: 14px; color: var(--pb-text); }
+.pb-more-sub { font-size: 11.5px; color: var(--pb-text-3); }
 
-.pb-foryou-eyebrow {
-  font-weight: 700; font-size: 10.5px; letter-spacing: 0.13em; text-transform: uppercase;
-}
-.pb-foryou-card.is-orange .pb-foryou-eyebrow { color: var(--pb-orange); }
-.pb-foryou-card.is-purple .pb-foryou-eyebrow { color: var(--pb-purple); }
-.pb-foryou-card.is-navy   .pb-foryou-eyebrow { color: var(--pb-text-2); }
-
-.pb-foryou-title {
-  font-family: var(--pb-font-display); font-weight: 700; font-size: 18px;
-  letter-spacing: -0.01em; line-height: 1.15; color: var(--pb-text); margin-top: 7px;
-}
-.pb-foryou-reason { font-size: 12.5px; color: var(--pb-text-2); line-height: 1.4; margin-top: 5px; flex: 1; }
-.pb-foryou-foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 16px; }
-.pb-foryou-count { font-size: 11.5px; color: var(--pb-text-3); font-weight: 600; }
-.pb-foryou-start {
-  display: inline-flex; align-items: center; gap: 6px;
-  border: none; border-radius: 10px; padding: 9px 16px;
-  font-family: var(--pb-font-body); font-weight: 700; font-size: 13px;
-  cursor: pointer; flex: none; white-space: nowrap;
-  transition: filter 120ms ease, transform 80ms ease;
-}
-.pb-foryou-start:hover { filter: brightness(1.06); }
-.pb-foryou-start:active { transform: translateY(1px); }
-.pb-foryou-card.is-orange .pb-foryou-start { background: var(--pb-orange); color: #fff; }
-.pb-foryou-card.is-purple .pb-foryou-start { background: var(--pb-purple); color: var(--pb-lime); }
-.pb-foryou-card.is-navy   .pb-foryou-start { background: var(--pb-navy);   color: var(--pb-lime); }
-
-/* ── Custom drill builder (Slice 3) ─────────────────────────────────────────
- * Power-user affordance next to "Drill mixed": an outlined header toggle opens
- * an inline card (NOT a modal) that filters the selected domain's pool by topic,
- * count, difficulty, and pool status (all / unseen / missed). Chips stay quiet
- * neutral (echoing .pb-type tiles); accent only marks the selected state, via
- * the domain's selTint/selBorder applied inline. Action = solid accent button.
+/* ── Custom drill builder (modal) ───────────────────────────────────────────
+ * Opened by the single "Build a custom drill" action. A domain selector scopes
+ * the pool; chips stay quiet neutral (echoing .pb-type tiles) and the domain's
+ * accent (selTint/selBorder) marks only the selected state, applied inline.
  * ────────────────────────────────────────────────────────────────────────── */
-.pb-detail-actions { display: flex; align-items: center; gap: 10px; flex: none; flex-wrap: wrap; }
-.pb-builder-toggle {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: var(--pb-surface); border: 1.5px solid; border-radius: 12px;
-  padding: 12px 18px; font-family: var(--pb-font-body); font-weight: 700; font-size: 14px;
-  cursor: pointer; flex: none; white-space: nowrap; transition: background 120ms ease;
+.pb-modal-backdrop {
+  position: fixed; inset: 0; z-index: 1000;
+  background: rgba(10, 12, 20, 0.5);
+  display: grid; place-items: center; padding: 24px; overflow-y: auto;
+  animation: pb-fade-in 140ms ease;
 }
-.pb-builder-toggle:hover,
-.pb-builder-toggle[aria-expanded="true"] { background: var(--pb-inset); }
+.pb-modal {
+  width: min(580px, 100%); max-height: 90vh; overflow-y: auto;
+  animation: pb-modal-in 180ms ease;
+}
+@keyframes pb-fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes pb-modal-in { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) { .pb-modal-backdrop, .pb-modal { animation: none; } }
 
 .pb-builder {
   background: var(--pb-surface); border: 1px solid var(--pb-line);
-  border-radius: 16px; padding: 20px; margin-bottom: 16px;
-  box-shadow: var(--pb-shadow); animation: pb-builder-in 180ms ease;
+  border-radius: 16px; padding: 22px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.28);
 }
-@keyframes pb-builder-in {
-  from { opacity: 0; transform: translateY(-6px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-@media (prefers-reduced-motion: reduce) { .pb-builder { animation: none; } }
-
 .pb-builder-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
-.pb-builder-title { font-family: var(--pb-font-display); font-weight: 700; font-size: 18px; letter-spacing: -0.01em; color: var(--pb-text); }
+.pb-builder-title { font-family: var(--pb-font-display); font-weight: 700; font-size: 20px; letter-spacing: -0.01em; color: var(--pb-text); }
 .pb-builder-close {
   width: 32px; height: 32px; border-radius: 9px; flex: none;
   display: grid; place-items: center; cursor: pointer;
@@ -505,22 +459,25 @@
 .pb-builder-start:active:not(:disabled) { transform: translateY(1px); }
 .pb-builder-start:disabled { background: var(--pb-surface-2); color: var(--pb-text-3); cursor: not-allowed; }
 
-@media (max-width: 480px) {
-  .pb-builder-row { flex-direction: column; gap: 9px; }
-  .pb-builder-label { width: auto; padding-top: 0; }
-}
-
 /* ── Responsive ────────────────────────────────────────────────────────── */
 @media (max-width: 900px) {
-  .pb-md { flex-direction: column; }
-  .pb-rail { width: 100%; position: static; }
-  .pb-domainnav { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
-  .pb-foryou-row { grid-template-columns: 1fr; }
+  .pb-grid { grid-template-columns: 1fr; }
+  .pb-hero-side { width: 100%; justify-content: space-between; }
 }
 @media (max-width: 600px) {
   .pb-topbar { padding: 0 18px; }
   .pb-inner { padding: 22px 18px 80px; }
-  .pb-hero-title { font-size: 32px; }
-  .pb-detail-head { flex-direction: column; }
-  .pb-domainnav { grid-template-columns: 1fr; }
+  .pb-hero-title { font-size: 30px; }
+  .pb-hero-side { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .pb-hero-stats { justify-content: flex-start; }
+  .pb-hero-stat-cell { text-align: left; }
+  .pb-hero-launch { width: 100%; justify-content: center; }
+  .pb-rec { flex-wrap: wrap; gap: 6px 12px; }
+  .pb-rec-eyebrow { min-width: 0; width: 100%; }
+  .pb-rec-body { flex-basis: 100%; }
+  .pb-trow-types { grid-template-columns: 1fr; padding-left: 8px; }
+}
+@media (max-width: 480px) {
+  .pb-builder-row { flex-direction: column; gap: 9px; }
+  .pb-builder-label { width: auto; padding-top: 0; }
 }

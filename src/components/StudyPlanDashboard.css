@@ -797,8 +797,45 @@
 }
 .sp-wk-nav:hover:not(:disabled) { background: var(--sp-surface-2); border-color: var(--sp-text-3); }
 .sp-wk-nav:disabled { opacity: .4; cursor: default; }
-.sp-wk-id { flex: 1; min-width: 0; }
+.sp-wk-id { flex: 1; min-width: 0; position: relative; }
 .sp-wk-id-top { display: flex; align-items: center; gap: 9px; }
+/* Week-picker dropdown — the week identity doubles as the selector trigger. */
+.sp-wk-select {
+  display: block; width: 100%; text-align: left; cursor: pointer;
+  background: transparent; border: none; font-family: var(--sp-font-body);
+  padding: 5px 8px; margin: -5px -8px; border-radius: 11px;
+  transition: background 120ms ease;
+}
+.sp-wk-select:hover { background: var(--sp-surface); }
+.sp-wk-select-chev { display: inline-flex; color: var(--sp-text-3); transition: transform 200ms ease; }
+.sp-wk-select-chev.is-open { transform: rotate(180deg); }
+.sp-wk-menu-backdrop { position: fixed; inset: 0; z-index: 30; }
+.sp-wk-menu {
+  position: absolute; z-index: 31; top: calc(100% + 6px); left: 0; right: 0;
+  margin: 0; padding: 6px; list-style: none;
+  background: var(--sp-surface); border: 1px solid var(--sp-line-strong);
+  border-radius: 14px; box-shadow: var(--sp-shadow);
+  max-height: 320px; overflow-y: auto;
+}
+.sp-wk-menu li { list-style: none; }
+.sp-wk-menu-item {
+  width: 100%; display: flex; align-items: center; gap: 12px;
+  padding: 10px 12px; background: transparent; border: none; border-radius: 10px;
+  cursor: pointer; font-family: var(--sp-font-body); text-align: left;
+  transition: background 120ms ease;
+}
+.sp-wk-menu-item:hover { background: var(--sp-surface-2); }
+.sp-wk-menu-item.is-active { background: var(--sp-purple-soft); }
+.sp-wk-menu-main { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.sp-wk-menu-name { font-weight: 700; font-size: 14px; color: var(--sp-text); }
+.sp-wk-menu-range { font-size: 12px; color: var(--sp-text-3); }
+.sp-wk-menu-now {
+  flex: none; background: var(--sp-orange-tint); color: var(--sp-orange);
+  font-weight: 700; font-size: 10.5px; letter-spacing: .05em; text-transform: uppercase;
+  padding: 3px 9px; border-radius: 6px;
+}
+.sp-wk-menu-count { flex: none; font-weight: 700; font-size: 12.5px; color: var(--sp-text-2); font-variant-numeric: tabular-nums; }
+.sp-wk-menu-lock { flex: none; font-size: 11px; font-weight: 600; color: var(--sp-text-3); }
 .sp-wk-label { font-family: var(--sp-font-display); font-weight: 700; font-size: 20px; letter-spacing: -.01em; color: var(--sp-text); }
 .sp-wk-of { font-size: 12.5px; color: var(--sp-text-3); font-weight: 600; }
 .sp-wk-chip { background: var(--sp-orange-tint); color: var(--sp-orange); font-weight: 700; font-size: 10.5px; letter-spacing: .06em; padding: 3px 9px; border-radius: 6px; }
@@ -869,6 +906,49 @@
 .sp-task-tips { list-style: none; margin: 0; padding: 14px 20px 16px; border-top: 1px solid var(--sp-line); background: var(--sp-inset); display: flex; flex-direction: column; gap: 6px; }
 .sp-task-tip { position: relative; padding-left: 16px; font-size: 13.5px; line-height: 1.5; color: var(--sp-text-2); }
 .sp-task-tip::before { content: ''; position: absolute; left: 3px; top: .55em; width: 5px; height: 5px; border-radius: 50%; background: var(--sp-orange); }
+
+/* Icon-only day column (Weekly View groups by day, so the per-card DOW chip
+   is redundant — keep just the tinted kind icon). */
+.sp-task-daycol.is-icononly { width: 34px; }
+.sp-task-daycol.is-icononly .sp-task-icon { margin-top: 0; }
+
+/* Summary chip line — "15 MIN · ~12 Q", optionally a disclosure toggle. */
+.sp-task-summary {
+  display: inline-flex; align-items: center; gap: 5px; margin-top: 7px;
+  padding: 0; background: transparent; border: none;
+  font-family: var(--sp-font-body); font-weight: 700; font-size: 11px;
+  letter-spacing: .04em; color: var(--sp-text-3); font-variant-numeric: tabular-nums;
+}
+button.sp-task-summary.is-toggle { cursor: pointer; }
+button.sp-task-summary.is-toggle:hover { color: var(--sp-text-2); }
+.sp-task-summary-chev { display: inline-flex; transition: transform 200ms ease; }
+.sp-task-summary-chev.is-open { transform: rotate(180deg); }
+
+/* Per-skill breakdown rows revealed under a card (reuses .sp-round-* chrome). */
+.sp-task-rounds {
+  padding: 4px 18px 12px; border-top: 1px solid var(--sp-line); background: var(--sp-inset);
+}
+.sp-task-round { display: flex; align-items: center; gap: 10px; padding: 9px 0; }
+.sp-task-round + .sp-task-round { border-top: 1px solid var(--sp-line); }
+.sp-task-round-label { font-weight: 600; font-size: 13px; color: var(--sp-text-2); min-width: 0; }
+
+/* ── Weekly View: day groups + per-day narrative ─────────────────────── */
+.sp-daygroups { display: flex; flex-direction: column; gap: 24px; }
+.sp-day-head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 8px; }
+.sp-day-date {
+  font-family: var(--sp-font-display); font-weight: 700; font-size: 15px;
+  color: var(--sp-text); letter-spacing: -.01em;
+}
+.sp-day-today {
+  background: var(--sp-orange-tint); color: var(--sp-orange); font-weight: 700;
+  font-size: 10px; letter-spacing: .05em; text-transform: uppercase;
+  padding: 2px 8px; border-radius: 5px;
+}
+.sp-day-count { margin-left: auto; font-size: 12px; color: var(--sp-text-3); font-weight: 600; }
+.sp-day-narrative {
+  margin: 0 0 12px; font-size: 13.5px; line-height: 1.55;
+  color: var(--sp-text-2); max-width: 68ch;
+}
 
 /* ── Beyond this week ────────────────────────────────────────────────── */
 .sp-beyond-head { display: flex; align-items: center; gap: 12px; margin-top: 6px; }
