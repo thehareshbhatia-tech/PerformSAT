@@ -1,5 +1,6 @@
 import { db } from '../firebase/config';
 import { doc, getDoc, setDoc, updateDoc, deleteField, serverTimestamp, arrayUnion, collection, addDoc, query, where, orderBy, limit, getDocs, runTransaction } from 'firebase/firestore';
+import { sanitizeForFirestore, restoreFromFirestore } from '../utils/firestoreSafe';
 import { TEST_REVIEW_MODULE_PREFIX } from './reviewQueueResolve';
 import { clearPendingSavesForTest } from './pendingTestSaveQueue';
 import { pickSurvivingArtifactId } from './studyPlanReset';
@@ -20,82 +21,10 @@ export const generateAttemptId = () => {
   return `${ts}-${rand}`;
 };
 
-/**
- * Sentinel key that boxes a nested array (an array element that is itself an
- * array) so Firestore will accept it. The Firestore Web SDK rejects arrays that
- * DIRECTLY contain arrays ("Nested arrays are not supported") — e.g. a table
- * question's questionTable.rows, which is a 2D array [["Facebook","54%"],…].
- * restoreFromFirestore reverses the boxing on read so callers see the original
- * shape.
- */
-const FS_NESTED_ARRAY_KEY = '__fsNestedArray';
-
-/**
- * Deep-copies a value into a shape the Firestore Web SDK will accept:
- *  - undefined object properties are DROPPED (default init throws on them),
- *  - undefined / non-finite (NaN, Infinity) values become null,
- *  - any array element that is itself an array is boxed as
- *    { [FS_NESTED_ARRAY_KEY]: [...] } (Firestore forbids array-in-array).
- * Lossless round-trip with restoreFromFirestore. Pure — no Firestore calls.
- *
- * Why this exists: a single unserializable field (a table question's 2D rows)
- * used to reject the ENTIRE save transaction and silently lose a student's
- * completed practice test (retries replayed the same doomed payload forever).
- * See recordPracticeTestResult.
- *
- * @param {*} value - Arbitrary JSON-ish value
- * @returns {*} Firestore-safe deep copy
- */
-export const sanitizeForFirestore = (value) => {
-  if (value === undefined || value === null) return null;
-  if (typeof value === 'number') return Number.isFinite(value) ? value : null;
-  if (Array.isArray(value)) {
-    return value.map((el) =>
-      Array.isArray(el)
-        ? { [FS_NESTED_ARRAY_KEY]: sanitizeForFirestore(el) }
-        : sanitizeForFirestore(el)
-    );
-  }
-  if (typeof value === 'object') {
-    const out = {};
-    for (const [k, v] of Object.entries(value)) {
-      if (v === undefined) continue; // Firestore rejects undefined; omit the field.
-      out[k] = sanitizeForFirestore(v);
-    }
-    return out;
-  }
-  return value; // string, boolean
-};
-
-/**
- * Reverses sanitizeForFirestore: unboxes { [FS_NESTED_ARRAY_KEY]: [...] } back
- * into a nested array so callers (Review Answers table renderers reading
- * questionTable.rows) see the original 2D shape. No-op on data written before
- * this encoding existed — a plain snapshot never contains the sentinel key.
- *
- * @param {*} value
- * @returns {*}
- */
-export const restoreFromFirestore = (value) => {
-  if (Array.isArray(value)) {
-    return value.map((el) => {
-      if (
-        el && typeof el === 'object' && !Array.isArray(el) &&
-        Array.isArray(el[FS_NESTED_ARRAY_KEY]) &&
-        Object.keys(el).length === 1
-      ) {
-        return restoreFromFirestore(el[FS_NESTED_ARRAY_KEY]);
-      }
-      return restoreFromFirestore(el);
-    });
-  }
-  if (value && typeof value === 'object') {
-    const out = {};
-    for (const [k, v] of Object.entries(value)) out[k] = restoreFromFirestore(v);
-    return out;
-  }
-  return value;
-};
+// Firestore-safety helpers (nested-array boxing + undefined/NaN scrubbing) are
+// imported from the shared pure util (top of file) and re-exported here because
+// existing callers/tests import them from this service.
+export { sanitizeForFirestore, restoreFromFirestore };
 
 /**
  * Records a practice test result to Firestore.
