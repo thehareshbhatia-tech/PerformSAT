@@ -8,7 +8,7 @@ import { markLessonComplete as markComplete, markLessonIncomplete } from '../ser
 import { upgradeLegacyPlanWeeks, planNeedsUpgrade, PLAN_FORMAT_VERSION } from '../services/planFormatUpgrade';
 import { getDueReviewCount, getReviewStats } from '../services/reviewService';
 import { recordSkillAttemptsBatch, getSkillDiagnosticSummary as getDiagnostic, getSkillBreakdown as getBreakdown } from '../services/skillService';
-import { recordPracticeTestResult as recordTestResult, getPracticeTestBestScore, getPracticeTestAttempts, saveTestProgress as saveProgress, clearTestProgress as clearProgress, resetPracticeTest as resetTest, getInProgressTest } from '../services/practiceTestService';
+import { recordPracticeTestResult as recordTestResult, getPracticeTestBestScore, getPracticeTestAttempts, saveTestProgress as saveProgress, clearTestProgress as clearProgress, resetPracticeTest as resetTest, removeTestAttempt as removeAttempt, getInProgressTest } from '../services/practiceTestService';
 // hybridStudyPlanService statically imports studyPlanGenerator, which pulls
 // the math bank + topic files + routing service (the whole question corpus)
 // into whatever chunk imports it. This hook lives in the MAIN chunk (App.jsx
@@ -944,6 +944,52 @@ export const useProgress = (userId) => {
   };
 
   /**
+   * Removes a single attempt from a test (e.g. a junk retake). onSnapshot
+   * re-hydrates the recomputed row; the optimistic update below just avoids a
+   * flash of the stale attempt while the write lands.
+   * @param {string} testId - Test ID
+   * @param {string} attemptId - attemptId to remove
+   * @returns {Promise<{removed: boolean, remainingAttempts: number, testRemoved: boolean}>}
+   */
+  const removeTestAttempt = async (testId, attemptId) => {
+    if (!userId || !testId || !attemptId) return { removed: false, remainingAttempts: 0, testRemoved: false };
+
+    // Optimistic: drop the attempt from the row (or the whole row if it was the
+    // last one) and recompute best/total so the card updates immediately.
+    setPracticeTestResults(prev => {
+      const row = prev[testId];
+      if (!row || !Array.isArray(row.attempts)) return prev;
+      const remaining = row.attempts.filter(a => a?.attemptId !== attemptId);
+      if (remaining.length === row.attempts.length) return prev;
+      if (remaining.length === 0) {
+        const { [testId]: _omit, ...rest } = prev;
+        return rest;
+      }
+      const finiteScaled = remaining.map(a => a.scaledScore).filter(v => typeof v === 'number' && Number.isFinite(v));
+      const finiteRaw = remaining.map(a => a.rawScore).filter(v => typeof v === 'number' && Number.isFinite(v));
+      const newest = [...remaining].sort((a, b) => new Date(b.completedAt || 0) - new Date(a.completedAt || 0))[0];
+      return {
+        ...prev,
+        [testId]: {
+          ...row,
+          attempts: remaining,
+          bestScaledScore: finiteScaled.length ? Math.max(...finiteScaled) : 0,
+          bestRawScore: finiteRaw.length ? Math.max(...finiteRaw) : 0,
+          totalAttempts: remaining.length,
+          isMultiSection: !!newest?.isMultiSection,
+        },
+      };
+    });
+
+    try {
+      return await withTimeout(removeAttempt(userId, testId, attemptId));
+    } catch (err) {
+      console.error('[useProgress] Failed to remove test attempt:', err);
+      throw err; // caller shows a failure toast; onSnapshot re-hydrates the row
+    }
+  };
+
+  /**
    * Gets in-progress test data
    * @param {string} testId - Test ID
    * @returns {Object|null} In-progress data or null
@@ -1257,6 +1303,7 @@ export const useProgress = (userId) => {
     saveTestProgress,
     clearTestProgress,
     resetPracticeTest,
+    removeTestAttempt,
     getTestProgress,
     hasTestProgress,
     // Onboarding mini-diagnostic

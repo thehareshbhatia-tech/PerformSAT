@@ -289,6 +289,18 @@
 .pt-foot-date { font-size: 13px; color: var(--sp-text-3); }
 .pt-foot-actions { display: flex; align-items: center; gap: 10px; }
 
+/* Attempt history — shown only when a test has more than one attempt, so a
+   student can remove a junk retake instead of resetting the whole test. */
+.pt-attempts { margin-top: 6px; padding-top: 12px; border-top: 1px solid var(--sp-border, #e5e7eb); }
+.pt-attempts-title { font-size: 12px; font-weight: 700; letter-spacing: 0.02em; text-transform: uppercase; color: var(--sp-text-3); margin-bottom: 8px; }
+.pt-attempt-row { display: flex; align-items: center; gap: 12px; padding: 7px 0; }
+.pt-attempt-score { font-size: 15px; font-weight: 700; color: var(--sp-text-1); font-variant-numeric: tabular-nums; min-width: 44px; }
+.pt-attempt-badge { font-size: 11px; font-weight: 700; color: var(--sp-green, #16a34a); background: var(--sp-green-bg, rgba(22,163,74,0.10)); border-radius: 999px; padding: 2px 8px; letter-spacing: 0.02em; }
+.pt-attempt-date { font-size: 13px; color: var(--sp-text-3); }
+.pt-attempt-del { margin-left: auto; background: none; border: none; padding: 4px 6px; font-size: 13px; font-weight: 600; color: var(--sp-text-3); cursor: pointer; border-radius: 6px; }
+.pt-attempt-del:hover:not(:disabled) { color: var(--sp-error); text-decoration: underline; }
+.pt-attempt-del:disabled { opacity: 0.4; cursor: default; }
+
 /* In-progress: thin progress bar + label */
 .pt-progress { display: flex; align-items: center; gap: 10px; margin-top: 9px; max-width: 320px; }
 .pt-progress-track { flex: 1; height: 6px; border-radius: 4px; background: var(--sp-surface-2); overflow: hidden; }

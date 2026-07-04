@@ -2,7 +2,7 @@ import { db } from '../firebase/config';
 import { doc, getDoc, setDoc, updateDoc, deleteField, serverTimestamp, arrayUnion, collection, addDoc, query, where, orderBy, limit, getDocs, runTransaction } from 'firebase/firestore';
 import { sanitizeForFirestore, restoreFromFirestore } from '../utils/firestoreSafe';
 import { TEST_REVIEW_MODULE_PREFIX } from './reviewQueueResolve';
-import { clearPendingSavesForTest } from './pendingTestSaveQueue';
+import { clearPendingSavesForTest, removePendingSave } from './pendingTestSaveQueue';
 import { pickSurvivingArtifactId } from './studyPlanReset';
 
 /**
@@ -642,6 +642,124 @@ export const resetPracticeTest = async (userId, testId) => {
     return summary;
   } catch (error) {
     console.error('[practiceTestService] Error resetting practice test:', error);
+    throw error;
+  }
+};
+
+/**
+ * Removes ONE attempt from a test, recomputing the row's aggregates from the
+ * survivors. Unlike resetPracticeTest (which drops the whole test), this
+ * surgically deletes a single attempt — e.g. a junk retake a student only did
+ * because a prior save silently failed, which would otherwise become the
+ * "most recent" attempt driving Review Answers, the dashboard latest-score,
+ * and the study plan while the real result hides behind the best-score badge.
+ *
+ * Behavior:
+ *   - Recomputes bestScaledScore / bestRawScore from the SURVIVING attempts.
+ *     Unlike the record path (monotonic max), a delete MUST be able to LOWER
+ *     the best — that's the whole point — so best* is recomputed from scratch.
+ *   - isMultiSection tracks the newest surviving attempt (row-level scale signal).
+ *   - When the removed attempt was the last one, the whole test row is dropped.
+ *   - Purges any queued offline save for that attemptId so the boot flush can't
+ *     resurrect it.
+ *   - If the CURRENT study-plan artifact was built from the removed attempt,
+ *     re-points to the newest surviving artifact (or null) and drops the stale
+ *     legacy root copy — so the plan stops reflecting the deleted attempt.
+ *
+ * Firestore rules block client deletes of the attempts/{attemptId} snapshot
+ * subcollection doc, so (like resetPracticeTest) it's left as harmless orphaned
+ * residue — nothing references it once it's out of the attempts array.
+ *
+ * @param {string} userId - User ID
+ * @param {string} testId - Catalog test ID (e.g., "practice-test-4")
+ * @param {string} attemptId - attemptId of the attempt to remove
+ * @returns {Promise<{removed: boolean, remainingAttempts: number, testRemoved: boolean}>}
+ */
+export const removeTestAttempt = async (userId, testId, attemptId) => {
+  const empty = { removed: false, remainingAttempts: 0, testRemoved: false };
+  if (!userId || !testId || !attemptId) return empty;
+
+  try {
+    const progressRef = doc(db, 'progress', userId);
+
+    const summary = await runTransaction(db, async (tx) => {
+      const result = { removed: false, remainingAttempts: 0, testRemoved: false };
+      const snap = await tx.get(progressRef);
+      if (!snap.exists()) return result;
+
+      const data = snap.data();
+      const testRow = data.practiceTestResults?.[testId];
+      if (!testRow || !Array.isArray(testRow.attempts)) return result;
+
+      const remaining = testRow.attempts.filter((a) => a?.attemptId !== attemptId);
+      if (remaining.length === testRow.attempts.length) {
+        // attemptId not present — nothing to do (already removed / never saved).
+        result.remainingAttempts = testRow.attempts.length;
+        return result;
+      }
+
+      result.removed = true;
+      const updates = { lastUpdated: serverTimestamp() };
+
+      if (remaining.length === 0) {
+        // Deleting the only attempt = the test has no result anymore. Drop the
+        // whole row via a targeted field path (race-safe like resetPracticeTest).
+        updates[`practiceTestResults.${testId}`] = deleteField();
+        result.testRemoved = true;
+      } else {
+        // Recompute row aggregates from the SURVIVING attempts. best* recomputed
+        // from scratch so a delete can lower them.
+        const finiteScaled = remaining
+          .map((a) => a.scaledScore)
+          .filter((v) => typeof v === 'number' && Number.isFinite(v));
+        const finiteRaw = remaining
+          .map((a) => a.rawScore)
+          .filter((v) => typeof v === 'number' && Number.isFinite(v));
+        const newest = [...remaining].sort(
+          (a, b) => new Date(b.completedAt || 0) - new Date(a.completedAt || 0)
+        )[0];
+
+        updates[`practiceTestResults.${testId}.attempts`] = remaining;
+        updates[`practiceTestResults.${testId}.bestScaledScore`] = finiteScaled.length ? Math.max(...finiteScaled) : 0;
+        updates[`practiceTestResults.${testId}.bestRawScore`] = finiteRaw.length ? Math.max(...finiteRaw) : 0;
+        updates[`practiceTestResults.${testId}.totalAttempts`] = remaining.length;
+        updates[`practiceTestResults.${testId}.isMultiSection`] = !!newest?.isMultiSection;
+      }
+
+      // Re-point the study plan when it was built from the deleted attempt.
+      // Artifacts link by linkage.attemptId (hybridStudyPlanService). Reads stay
+      // plain getDoc/getDocs — tx.get can't run queries; the progress-doc RMW is
+      // what the transaction protects.
+      if (data.currentStudyPlanArtifactId) {
+        try {
+          const currentRef = doc(db, 'progress', userId, 'studyPlanArtifacts', data.currentStudyPlanArtifactId);
+          const currentSnap = await getDoc(currentRef);
+          const currentAttemptId = currentSnap.exists() ? (currentSnap.data()?.linkage?.attemptId ?? null) : undefined;
+          if (currentSnap.exists() && currentAttemptId === attemptId) {
+            const artifactsCol = collection(db, 'progress', userId, 'studyPlanArtifacts');
+            const artSnap = await getDocs(query(artifactsCol, orderBy('createdAt', 'desc'), limit(50)));
+            // Newest artifact NOT linked to the removed attempt; null if none.
+            const survivor = artSnap.docs.find((d) => (d.data()?.linkage?.attemptId ?? null) !== attemptId);
+            updates.currentStudyPlanArtifactId = survivor ? survivor.id : null;
+            updates.studyPlan = null; // drop stale legacy copy so the pointer wins
+          }
+        } catch (planErr) {
+          console.warn('[practiceTestService] Attempt-delete study-plan re-point skipped (non-fatal):', planErr.message);
+        }
+      }
+
+      tx.update(progressRef, updates);
+      result.remainingAttempts = remaining.length;
+      return result;
+    });
+
+    // Stop the offline queue from resurrecting this exact attempt on next boot.
+    removePendingSave(userId, attemptId);
+
+    console.log('[practiceTestService] Removed attempt', attemptId, 'from', testId, summary);
+    return summary;
+  } catch (error) {
+    console.error('[practiceTestService] Error removing test attempt:', error);
     throw error;
   }
 };

@@ -60,6 +60,7 @@ const PracticeTestList = ({
   onResumeTest,
   onViewResults,
   onResetTest,
+  onDeleteAttempt,
   billingLocked = false,
   onSubscribe,
 }) => {
@@ -89,6 +90,29 @@ const PracticeTestList = ({
       showToast({ type: 'error', message: 'Could not reset the test. Please try again.' });
     } finally {
       setResetting(false);
+    }
+  };
+
+  const [deleteAttemptTarget, setDeleteAttemptTarget] = useState(null);
+  const [deletingAttempt, setDeletingAttempt] = useState(false);
+
+  const closeDeleteAttemptModal = () => {
+    if (deletingAttempt) return;
+    setDeleteAttemptTarget(null);
+  };
+
+  const handleConfirmDeleteAttempt = async () => {
+    if (!deleteAttemptTarget || deletingAttempt) return;
+    const { test, attempt } = deleteAttemptTarget;
+    setDeletingAttempt(true);
+    try {
+      await onDeleteAttempt?.(test.id, attempt.attemptId);
+      showToast({ type: 'success', message: 'That attempt has been removed.' });
+      setDeleteAttemptTarget(null);
+    } catch {
+      showToast({ type: 'error', message: 'Could not remove the attempt. Please try again.' });
+    } finally {
+      setDeletingAttempt(false);
     }
   };
 
@@ -194,6 +218,7 @@ const PracticeTestList = ({
             onResumeTest={onResumeTest}
             onViewResults={onViewResults}
             onRequestReset={onResetTest ? () => setResetTarget({ test, testNum: idx + 1, inProgress: !!inProgressTests?.[test.id] }) : undefined}
+            onRequestDeleteAttempt={onDeleteAttempt ? (attempt) => setDeleteAttemptTarget({ test, testNum: idx + 1, attempt }) : undefined}
             billingLocked={billingLocked}
             onSubscribe={onSubscribe}
           />
@@ -249,6 +274,51 @@ const PracticeTestList = ({
           )}
         </p>
       </Modal>
+
+      <Modal
+        isOpen={!!deleteAttemptTarget}
+        onClose={closeDeleteAttemptModal}
+        disabled={deletingAttempt}
+        title="Delete this attempt?"
+        maxWidth="440px"
+        footer={(
+          <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '10px' }}>
+            <button
+              type="button"
+              onClick={closeDeleteAttemptModal}
+              disabled={deletingAttempt}
+              style={{
+                padding: '9px 16px', background: 'var(--color-white)', border: '1px solid var(--color-slate-300)',
+                borderRadius: 'var(--radius-md)', color: 'var(--color-slate-600)', fontSize: '14px', fontWeight: 600,
+                cursor: deletingAttempt ? 'default' : 'pointer',
+              }}
+            >
+              Cancel
+            </button>
+            <button
+              type="button"
+              onClick={handleConfirmDeleteAttempt}
+              disabled={deletingAttempt}
+              style={{
+                padding: '9px 16px', background: 'var(--color-error-600)', border: 'none',
+                borderRadius: 'var(--radius-md)', color: 'var(--color-white)', fontSize: '14px', fontWeight: 700,
+                cursor: deletingAttempt ? 'default' : 'pointer', opacity: deletingAttempt ? 0.7 : 1,
+              }}
+            >
+              {deletingAttempt ? 'Deleting…' : 'Delete attempt'}
+            </button>
+          </div>
+        )}
+      >
+        <p style={{ margin: 0, fontSize: '15px', lineHeight: 1.6, color: 'var(--color-slate-600)' }}>
+          This removes the{' '}
+          <strong style={{ color: 'var(--color-slate-900)' }}>
+            {typeof deleteAttemptTarget?.attempt?.scaledScore === 'number' ? deleteAttemptTarget.attempt.scaledScore : ''}
+          </strong>
+          {' '}attempt on <strong style={{ color: 'var(--color-slate-900)' }}>Digital SAT #{deleteAttemptTarget?.testNum}</strong>.
+          Your best score, review, and study plan will reflect your remaining attempts. Your other attempts and tests aren&rsquo;t affected, and this can&rsquo;t be undone.
+        </p>
+      </Modal>
     </div>
   );
 };
@@ -300,6 +370,7 @@ const TestCard = ({
   onResumeTest,
   onViewResults,
   onRequestReset,
+  onRequestDeleteAttempt,
   billingLocked = false,
   onSubscribe,
 }) => {
@@ -427,6 +498,39 @@ const TestCard = ({
         <div className="pt-card-body">
           <SectionScoreRow kind="rw" title="Reading and Writing" q={rwQ} time={rwTime} score={rwScore} />
           <SectionScoreRow kind="math" title="Math" q={mathQ} time={mathTime} score={mathScore} />
+          {/* Attempt history — only when there's more than one, so a student can
+              remove a junk retake (e.g. one taken because a prior save failed)
+              instead of nuking the whole test. Newest first; the best score is
+              badged so it's clear which one the card total reflects. */}
+          {onRequestDeleteAttempt && Array.isArray(result?.attempts) && result.attempts.length > 1 && (
+            <div className="pt-attempts">
+              <div className="pt-attempts-title">Attempts ({result.attempts.length})</div>
+              {[...result.attempts]
+                .sort((a, b) => new Date(b.completedAt || 0) - new Date(a.completedAt || 0))
+                .map((a, i) => {
+                  const scoreLabel = typeof a.scaledScore === 'number' ? a.scaledScore : '—';
+                  const isBest = typeof bestScore === 'number' && a.scaledScore === bestScore;
+                  const when = fmtShortDate(a.completedAt);
+                  return (
+                    <div key={a.attemptId || i} className="pt-attempt-row">
+                      <span className="pt-attempt-score">{scoreLabel}</span>
+                      {isBest && <span className="pt-attempt-badge">Best</span>}
+                      {when && <span className="pt-attempt-date">{when}</span>}
+                      <button
+                        type="button"
+                        className="pt-attempt-del"
+                        onClick={(e) => { e.stopPropagation(); onRequestDeleteAttempt(a); }}
+                        disabled={!a.attemptId}
+                        title={a.attemptId ? 'Delete this attempt' : 'This older attempt cannot be deleted individually'}
+                        aria-label={`Delete the attempt scoring ${scoreLabel}`}
+                      >
+                        Delete
+                      </button>
+                    </div>
+                  );
+                })}
+            </div>
+          )}
           <div className="pt-card-foot">
             <div className="pt-foot-left">
               <span className="pt-foot-date">{dateStr ? `Completed ${dateStr}` : 'Completed'}</span>

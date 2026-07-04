@@ -228,6 +228,7 @@ jest.mock('firebase/firestore', () => {
 const {
   recordPracticeTestResult,
   resetPracticeTest,
+  removeTestAttempt,
   saveTestProgress,
   loadAttemptSnapshot,
   generateAttemptId,
@@ -958,5 +959,116 @@ describe('resetPracticeTest', () => {
 
     expect(summary.removedResult).toBe(false);
     expect(getStore().get('progress/u1').inProgressTests['practice-test-1']).toBeUndefined();
+  });
+});
+
+// ── removeTestAttempt (junk-retake cleanup) ──────────────────────────────────
+
+describe('removeTestAttempt', () => {
+  test('removes the junk attempt and keeps the real one as the authoritative result', async () => {
+    // The reported scenario: a real 1490 (recovered) + a rushed 400 retake.
+    await recordPracticeTestResult('u1', 'practice-test-4', 'PT4',
+      buildResults({ attemptId: 'real-1490', scaledScore: 1490, rawScore: 90, isMultiSection: true }));
+    await new Promise(r => setTimeout(r, 5));
+    await recordPracticeTestResult('u1', 'practice-test-4', 'PT4',
+      buildResults({ attemptId: 'junk-400', scaledScore: 400, rawScore: 10, isMultiSection: true }));
+
+    let row = getTestRow(getStore().get('progress/u1'), 'practice-test-4');
+    expect(row.attempts).toHaveLength(2);
+
+    const summary = await removeTestAttempt('u1', 'practice-test-4', 'junk-400');
+    expect(summary).toMatchObject({ removed: true, testRemoved: false, remainingAttempts: 1 });
+
+    row = getTestRow(getStore().get('progress/u1'), 'practice-test-4');
+    expect(row.attempts).toHaveLength(1);
+    expect(row.attempts[0].attemptId).toBe('real-1490');
+    expect(row.bestScaledScore).toBe(1490);
+    expect(row.totalAttempts).toBe(1);
+  });
+
+  test('recomputes best DOWNWARD when the high attempt is the one removed (not monotonic)', async () => {
+    await recordPracticeTestResult('u1', 'practice-test-4', 'PT4',
+      buildResults({ attemptId: 'a-1490', scaledScore: 1490, rawScore: 90 }));
+    await new Promise(r => setTimeout(r, 5));
+    await recordPracticeTestResult('u1', 'practice-test-4', 'PT4',
+      buildResults({ attemptId: 'a-400', scaledScore: 400, rawScore: 10 }));
+
+    await removeTestAttempt('u1', 'practice-test-4', 'a-1490');
+    const row = getTestRow(getStore().get('progress/u1'), 'practice-test-4');
+    expect(row.attempts).toHaveLength(1);
+    expect(row.bestScaledScore).toBe(400); // dropped from 1490 — recompute, not a stale max
+    expect(row.bestRawScore).toBe(10);
+  });
+
+  test('removing the last attempt drops the whole test row', async () => {
+    await recordPracticeTestResult('u1', 'practice-test-4', 'PT4',
+      buildResults({ attemptId: 'only', scaledScore: 1200 }));
+    const summary = await removeTestAttempt('u1', 'practice-test-4', 'only');
+    expect(summary).toMatchObject({ removed: true, testRemoved: true, remainingAttempts: 0 });
+    expect(getTestRow(getStore().get('progress/u1'), 'practice-test-4')).toBeUndefined();
+  });
+
+  test('unknown attemptId is a no-op (nothing removed)', async () => {
+    await recordPracticeTestResult('u1', 'practice-test-4', 'PT4',
+      buildResults({ attemptId: 'keep', scaledScore: 1200 }));
+    const summary = await removeTestAttempt('u1', 'practice-test-4', 'does-not-exist');
+    expect(summary.removed).toBe(false);
+    expect(getTestRow(getStore().get('progress/u1'), 'practice-test-4').attempts).toHaveLength(1);
+  });
+
+  test('missing userId / testId / attemptId returns the empty summary without throwing', async () => {
+    expect(await removeTestAttempt(null, 'practice-test-4', 'a')).toEqual({ removed: false, remainingAttempts: 0, testRemoved: false });
+    expect(await removeTestAttempt('u1', null, 'a')).toEqual({ removed: false, remainingAttempts: 0, testRemoved: false });
+    expect(await removeTestAttempt('u1', 'practice-test-4', null)).toEqual({ removed: false, remainingAttempts: 0, testRemoved: false });
+  });
+
+  test('purges the offline pending-save queue for the removed attempt (no boot-flush resurrection)', async () => {
+    window.localStorage.clear();
+    await recordPracticeTestResult('u1', 'practice-test-4', 'PT4',
+      buildResults({ attemptId: 'a-keep', scaledScore: 1490 }));
+    await new Promise(r => setTimeout(r, 5));
+    await recordPracticeTestResult('u1', 'practice-test-4', 'PT4',
+      buildResults({ attemptId: 'a-junk', scaledScore: 400 }));
+    enqueuePendingSave('u1', { testId: 'practice-test-4', testTitle: 'PT4', results: { attemptId: 'a-junk', scaledScore: 400 } });
+    expect(readPendingSaves('u1').some((e) => e.results.attemptId === 'a-junk')).toBe(true);
+
+    await removeTestAttempt('u1', 'practice-test-4', 'a-junk');
+    expect(readPendingSaves('u1').some((e) => e.results.attemptId === 'a-junk')).toBe(false);
+    window.localStorage.clear();
+  });
+
+  test('re-points the study plan when its artifact was built from the removed attempt', async () => {
+    await recordPracticeTestResult('u1', 'practice-test-4', 'PT4',
+      buildResults({ attemptId: 'a-real', scaledScore: 1490 }));
+    await new Promise(r => setTimeout(r, 5));
+    await recordPracticeTestResult('u1', 'practice-test-4', 'PT4',
+      buildResults({ attemptId: 'a-junk', scaledScore: 400 }));
+    // Current plan came from the junk attempt; an older artifact came from the real one.
+    getStore().set('progress/u1/studyPlanArtifacts/art-junk', { linkage: { attemptId: 'a-junk' }, plan: { weeks: [{}] } });
+    getStore().set('progress/u1/studyPlanArtifacts/art-real', { linkage: { attemptId: 'a-real' }, plan: { weeks: [{}] } });
+    const doc0 = getStore().get('progress/u1');
+    getStore().set('progress/u1', { ...doc0, currentStudyPlanArtifactId: 'art-junk', studyPlan: { weeks: [{ stale: true }] } });
+
+    await removeTestAttempt('u1', 'practice-test-4', 'a-junk');
+
+    const after = getStore().get('progress/u1');
+    expect(after.currentStudyPlanArtifactId).toBe('art-real'); // re-pointed off the junk artifact
+    expect(after.studyPlan).toBeNull();                         // stale legacy copy dropped
+  });
+
+  test('leaves the study-plan pointer untouched when the current plan is unrelated to the removed attempt', async () => {
+    await recordPracticeTestResult('u1', 'practice-test-4', 'PT4',
+      buildResults({ attemptId: 'a-real', scaledScore: 1490 }));
+    await new Promise(r => setTimeout(r, 5));
+    await recordPracticeTestResult('u1', 'practice-test-4', 'PT4',
+      buildResults({ attemptId: 'a-junk', scaledScore: 400 }));
+    getStore().set('progress/u1/studyPlanArtifacts/art-real', { linkage: { attemptId: 'a-real' }, plan: { weeks: [{}] } });
+    const doc0 = getStore().get('progress/u1');
+    getStore().set('progress/u1', { ...doc0, currentStudyPlanArtifactId: 'art-real' });
+
+    await removeTestAttempt('u1', 'practice-test-4', 'a-junk');
+
+    // Plan was built from the SURVIVING attempt → pointer must not churn.
+    expect(getStore().get('progress/u1').currentStudyPlanArtifactId).toBe('art-real');
   });
 });
