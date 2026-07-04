@@ -33,6 +33,7 @@ import {ALLOWED_ORIGINS, verifyAuth, checkRateLimit, RATE_LIMIT_COLLECTION} from
 // Checkout, Customer Portal, webhook sink, and the aiTutor access gate.
 import {
   ensureEntitlement,
+  redeemPromoCode,
   createCheckoutSession,
   createPortalSession,
   stripeWebhook,
@@ -46,7 +47,7 @@ const anthropicApiKey = defineSecret("ANTHROPIC_API_KEY");
 
 setGlobalOptions({maxInstances: 10});
 
-export {ensureEntitlement, createCheckoutSession, createPortalSession, stripeWebhook};
+export {ensureEntitlement, redeemPromoCode, createCheckoutSession, createPortalSession, stripeWebhook};
 
 interface TranscriptSegment {
   start: number;

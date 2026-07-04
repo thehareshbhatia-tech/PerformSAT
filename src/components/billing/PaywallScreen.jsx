@@ -15,7 +15,7 @@
  * redirects.
  */
 import React, { useState } from 'react';
-import { startCheckout, openBillingPortal } from '../../services/billingService';
+import { startCheckout, openBillingPortal, redeemPromoCode } from '../../services/billingService';
 import './PaywallScreen.css';
 
 const FEATURES = [
@@ -91,6 +91,30 @@ function PaywallScreen({ entitlement, onBack }) {
     } catch (err) {
       setError(err.message || 'Could not open billing. Please try again.');
       setRedirecting(null);
+    }
+  };
+
+  // Promo code — redeems into permanent free access. On success the
+  // useEntitlement onSnapshot flips to comped and App.jsx routes off the
+  // paywall on its own; we show a brief success line for the interim.
+  const [promoOpen, setPromoOpen] = useState(false);
+  const [promoCode, setPromoCode] = useState('');
+  const [promoBusy, setPromoBusy] = useState(false);
+  const [promoError, setPromoError] = useState(null);
+  const [promoDone, setPromoDone] = useState(false);
+
+  const redeem = async (e) => {
+    e?.preventDefault?.();
+    if (promoBusy || !promoCode.trim()) return;
+    setPromoBusy(true);
+    setPromoError(null);
+    try {
+      await redeemPromoCode(promoCode);
+      setPromoDone(true); // entitlement listener dismisses the wall
+    } catch (err) {
+      setPromoError(err.message || "That promo code isn't valid.");
+    } finally {
+      setPromoBusy(false);
     }
   };
 
@@ -188,6 +212,37 @@ function PaywallScreen({ entitlement, onBack }) {
                 ))}
               </ul>
             </div>
+          </div>
+        )}
+
+        {mode !== 'grace' && (
+          <div className="pw-promo">
+            {promoDone ? (
+              <p className="pw-promo-done" role="status">Code applied — unlocking your account…</p>
+            ) : !promoOpen ? (
+              <button type="button" className="pw-promo-toggle" onClick={() => setPromoOpen(true)}>
+                Have a promo code?
+              </button>
+            ) : (
+              <form className="pw-promo-form" onSubmit={redeem}>
+                <input
+                  type="text"
+                  className="pw-promo-input"
+                  placeholder="Enter code"
+                  value={promoCode}
+                  onChange={(e) => { setPromoCode(e.target.value); setPromoError(null); }}
+                  autoCapitalize="characters"
+                  autoCorrect="off"
+                  spellCheck="false"
+                  aria-label="Promo code"
+                  disabled={promoBusy}
+                />
+                <button type="submit" className="pw-promo-apply" disabled={promoBusy || !promoCode.trim()}>
+                  {promoBusy ? 'Applying…' : 'Apply'}
+                </button>
+              </form>
+            )}
+            {promoError && <p className="pw-promo-error" role="alert">{promoError}</p>}
           </div>
         )}
 

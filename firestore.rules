@@ -69,5 +69,16 @@ service cloud.firestore {
       allow read: if isAuthenticated() && isOwner(userId);
       allow write: if false;
     }
+
+    // Promo codes — FULLY server-side. The redeemPromoCode function (Admin SDK,
+    // bypasses rules) validates the code and grants comped access. Clients must
+    // never read (would leak/enumerate codes) or write (would self-grant free
+    // access) these. Includes the redeemers/{uid} slot-tracking subcollection.
+    match /promoCodes/{code} {
+      allow read, write: if false;
+      match /redeemers/{userId} {
+        allow read, write: if false;
+      }
+    }
   }
 }

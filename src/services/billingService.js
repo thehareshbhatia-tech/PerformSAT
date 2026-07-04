@@ -18,6 +18,8 @@ const CREATE_CHECKOUT_URL = process.env.REACT_APP_CREATE_CHECKOUT_URL ||
   'https://createcheckoutsession-ki77ua6x2a-uc.a.run.app';
 const CREATE_PORTAL_URL = process.env.REACT_APP_CREATE_PORTAL_URL ||
   'https://createportalsession-ki77ua6x2a-uc.a.run.app';
+const REDEEM_PROMO_URL = process.env.REACT_APP_REDEEM_PROMO_URL ||
+  'https://redeempromocode-ki77ua6x2a-uc.a.run.app';
 
 /**
  * Idempotently create the server-side entitlement doc in a NO-ACCESS "none"
@@ -75,4 +77,30 @@ export async function openBillingPortal() {
   if (!url) throw new Error('Could not open billing. Please try again.');
   window.location.assign(url);
   return url;
+}
+
+/**
+ * Redeem a promo code for permanent free ("comped") access. The server
+ * validates the code and grants the entitlement; on success the useEntitlement
+ * onSnapshot listener flips to comped and the paywall dismisses on its own.
+ *
+ * @param {string} code the code the user typed
+ * @returns {Promise<{entitlement: object, outcome: string}>}
+ * @throws {Error} with a user-facing message on an invalid/exhausted code
+ */
+export async function redeemPromoCode(code) {
+  const res = await authFetch(REDEEM_PROMO_URL, {
+    method: 'POST',
+    body: JSON.stringify({ code: String(code || '').trim() }),
+  });
+  if (res.status === 422 || res.status === 400) {
+    // Expected "invalid / exhausted / empty" — surface the server's message.
+    const data = await res.json().catch(() => ({}));
+    throw new Error(data.error || "That promo code isn't valid.");
+  }
+  if (!res.ok) {
+    log.error('redeem promo failed', res.status);
+    throw new Error('Could not redeem the code. Please try again.');
+  }
+  return res.json();
 }

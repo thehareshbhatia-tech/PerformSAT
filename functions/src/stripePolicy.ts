@@ -232,3 +232,103 @@ export function isGrandfathered(
   }
   return accountCreatedMs < launchEpochMs;
 }
+
+// ── Promo codes (comp a user into permanent free access) ───────────────────
+
+/** Server-side view of a promoCodes/{CODE} doc for the redemption decision. */
+export interface PromoCodeState {
+  active?: boolean;
+  /** null/undefined = unlimited; a number caps total redemptions. */
+  maxRedemptions?: number | null;
+  redemptions?: number;
+}
+
+export type PromoRedeemOutcome =
+  | "granted" // valid code, access newly comped, slot consumed
+  | "already_has_access" // caller already has access — no-op, no slot burned
+  | "already_redeemed" // caller redeemed this code before — re-grant, no slot
+  | "inactive" // unknown or disabled code
+  | "exhausted"; // code hit its maxRedemptions cap
+
+export interface PromoRedeemDecision {
+  outcome: PromoRedeemOutcome;
+  /** Set the caller's entitlement to comped. */
+  grantComped: boolean;
+  /** Increment the code's redemptions + record the redeemer. */
+  consumeSlot: boolean;
+  /** Success from the caller's POV (they end up with access). */
+  ok: boolean;
+}
+
+/**
+ * Normalize a user-entered promo code into its canonical doc-id form:
+ * trimmed, uppercased, and restricted to [A-Z0-9] (letters/digits only, which
+ * is what our codes use). Returns null for empty/invalid input so the caller
+ * can reject before any Firestore read.
+ *
+ * @param {string} raw the code as typed
+ * @return {string|null} canonical code, or null when unusable
+ */
+export function normalizePromoCode(raw: string): string | null {
+  if (typeof raw !== "string") return null;
+  const code = raw.trim().toUpperCase();
+  if (!code) return null;
+  if (!/^[A-Z0-9]{1,64}$/.test(code)) return null;
+  return code;
+}
+
+/**
+ * Pure decision for a promo-code redemption. Firestore reads/writes stay in the
+ * caller's transaction; this just says what to do given the code state and the
+ * caller's current standing. Order matters:
+ *   1. already has access  -> no-op success (never burn a slot on someone who
+ *      doesn't need it — e.g. a trialing/active/comped/grandfathered account)
+ *   2. code missing/disabled -> invalid
+ *   3. caller already redeemed THIS code -> re-grant, don't consume a 2nd slot
+ *   4. cap reached -> exhausted
+ *   5. otherwise -> grant + consume one slot
+ *
+ * @param {PromoCodeState|null} code the code doc (null when it doesn't exist)
+ * @param {object} ctx caller state (alreadyHasAccess, alreadyRedeemed)
+ * @return {PromoRedeemDecision} what the transaction should do
+ */
+export function evaluatePromoRedemption(
+  code: PromoCodeState | null,
+  ctx: {alreadyHasAccess: boolean; alreadyRedeemed: boolean},
+): PromoRedeemDecision {
+  if (ctx.alreadyHasAccess) {
+    return {
+      outcome: "already_has_access",
+      grantComped: false,
+      consumeSlot: false,
+      ok: true,
+    };
+  }
+  if (!code || code.active !== true) {
+    return {
+      outcome: "inactive",
+      grantComped: false,
+      consumeSlot: false,
+      ok: false,
+    };
+  }
+  if (ctx.alreadyRedeemed) {
+    return {
+      outcome: "already_redeemed",
+      grantComped: true,
+      consumeSlot: false,
+      ok: true,
+    };
+  }
+  const max = code.maxRedemptions;
+  const used = typeof code.redemptions === "number" ? code.redemptions : 0;
+  if (typeof max === "number" && Number.isFinite(max) && used >= max) {
+    return {
+      outcome: "exhausted",
+      grantComped: false,
+      consumeSlot: false,
+      ok: false,
+    };
+  }
+  return {outcome: "granted", grantComped: true, consumeSlot: true, ok: true};
+}

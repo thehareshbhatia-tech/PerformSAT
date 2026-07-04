@@ -41,6 +41,8 @@ import {
   shouldApplyEvent,
   hasAccessMs,
   isGrandfathered,
+  normalizePromoCode,
+  evaluatePromoRedemption,
   EntitlementPatch,
 } from "./stripePolicy";
 
@@ -60,6 +62,9 @@ const getStripe = () => new Stripe(stripeSecretKey.value());
 
 const entitlementRef = (uid: string) =>
   getFirestore().collection("entitlements").doc(uid);
+
+const promoCodeRef = (code: string) =>
+  getFirestore().collection("promoCodes").doc(code);
 
 const tsToMs = (v: unknown): number | null => {
   if (v instanceof Timestamp) return v.toMillis();
@@ -204,6 +209,132 @@ export const ensureEntitlement = onRequest(
     } catch (err) {
       logger.error("ensureEntitlement failed", err);
       response.status(500).json({error: "Could not initialize entitlement"});
+    }
+  },
+);
+
+/**
+ * Redeem a promo code for permanent free ("comped") access — the promo path
+ * into the same grandfathered state ensureEntitlement grants pre-launch users.
+ *
+ * SERVER-SIDE ONLY grant: entitlements/{uid} is server-write-only, so this is
+ * the only way a client can reach comped without paying — the code is validated
+ * here against promoCodes/{CODE} (server-write-only too), never trusted from
+ * the client. One transaction enforces the cap (maxRedemptions) + entitlement
+ * grant together, and a redeemers/{uid} sub-doc makes a repeat redemption a
+ * no-op that never double-counts a slot. Callers who already have access get a
+ * clean no-op success so a trialing/comped user never burns a slot.
+ */
+export const redeemPromoCode = onRequest(
+  {cors: ALLOWED_ORIGINS, invoker: "public"},
+  async (request, response) => {
+    if (request.method !== "POST") {
+      response.status(405).json({error: "Method not allowed"});
+      return;
+    }
+    const user = await verifyAuth(request);
+    if (!user) {
+      response.status(401).json({error: "Authentication required"});
+      return;
+    }
+    if (!(await checkRateLimit(user.uid, "redeemPromoCode", 20))) {
+      response
+        .status(429)
+        .json({error: "Too many attempts. Please wait a moment."});
+      return;
+    }
+
+    const code = normalizePromoCode(String(request.body?.code ?? ""));
+    if (!code) {
+      response.status(400).json({error: "Enter a promo code."});
+      return;
+    }
+
+    try {
+      const codeRef = promoCodeRef(code);
+      const entRef = entitlementRef(user.uid);
+      const redeemerRef = codeRef.collection("redeemers").doc(user.uid);
+
+      const decision = await getFirestore().runTransaction(async (tx) => {
+        // All reads BEFORE any writes (Firestore transaction rule).
+        const [codeSnap, entSnap, redeemerSnap] = await Promise.all([
+          tx.get(codeRef),
+          tx.get(entRef),
+          tx.get(redeemerRef),
+        ]);
+        const codeData = codeSnap.exists ? codeSnap.data() || {} : null;
+        const entData = entSnap.exists ? entSnap.data() || {} : {};
+        const alreadyHasAccess = hasAccessMs(
+          {
+            status: entData.status,
+            trialEndsAtMs: tsToMs(entData.trialEndsAt),
+            currentPeriodEndMs: tsToMs(entData.currentPeriodEnd),
+          },
+          Date.now(),
+        );
+
+        const d = evaluatePromoRedemption(
+          codeData && {
+            active: codeData.active,
+            maxRedemptions: codeData.maxRedemptions ?? null,
+            redemptions: codeData.redemptions ?? 0,
+          },
+          {alreadyHasAccess, alreadyRedeemed: redeemerSnap.exists},
+        );
+
+        if (d.consumeSlot) {
+          tx.update(codeRef, {
+            redemptions: FieldValue.increment(1),
+            lastRedeemedAt: FieldValue.serverTimestamp(),
+          });
+          tx.set(redeemerRef, {
+            uid: user.uid,
+            redeemedAt: FieldValue.serverTimestamp(),
+          });
+        }
+
+        if (d.grantComped) {
+          const patch: Record<string, unknown> = {
+            uid: user.uid,
+            status: "comped",
+            grandfathered: false,
+            comped: true,
+            compedVia: "promo",
+            promoCode: code,
+            trialEndsAt: null,
+            stripeCustomerId: null,
+            subscriptionId: null,
+            plan: null,
+            currentPeriodEnd: null,
+            cancelAtPeriodEnd: false,
+            lastEventCreated: null,
+            updatedAt: FieldValue.serverTimestamp(),
+          };
+          if (!entSnap.exists) patch.createdAt = FieldValue.serverTimestamp();
+          tx.set(entRef, patch, {merge: true});
+        }
+
+        return d;
+      });
+
+      if (!decision.ok) {
+        const msg = decision.outcome === "exhausted" ?
+          "This code has reached its redemption limit." :
+          "That promo code isn't valid.";
+        response.status(422).json({error: msg, outcome: decision.outcome});
+        return;
+      }
+
+      const snap = await entRef.get();
+      response.json({
+        entitlement: serializeEntitlement(snap),
+        outcome: decision.outcome,
+      });
+    } catch (err) {
+      logger.error("redeemPromoCode failed", err);
+      response
+        .status(500)
+        .json({error: "Could not redeem the code. Please try again."});
     }
   },
 );
