@@ -231,6 +231,8 @@ const {
   saveTestProgress,
   loadAttemptSnapshot,
   generateAttemptId,
+  sanitizeForFirestore,
+  restoreFromFirestore,
   SNAPSHOT_VERSION,
 } = require('../practiceTestService');
 
@@ -623,6 +625,125 @@ describe('snapshot payload shape', () => {
     // The matching subcollection doc should exist under that generated id
     const snap = getStore().get(`progress/user-1/attempts/${written.attemptId}`);
     expect(snap).toBeTruthy();
+  });
+});
+
+// ── Firestore-serialization safety (PT4 data-loss regression) ────────────────
+//
+// A full test whose questionsSnapshot carried a table question (questionTable.
+// rows is a 2D array) used to reject the ENTIRE save transaction — Firestore
+// forbids nested arrays — silently losing the student's score. Retries and the
+// boot flush replayed the same doomed payload, so nothing EVER saved. Two-part
+// fix: (1) sanitizeForFirestore boxes nested arrays / drops undefined so the
+// snapshot itself serializes; (2) the snapshot write is decoupled from the
+// score-row transaction, so even an unsaveable snapshot can't lose the score.
+
+describe('sanitizeForFirestore / restoreFromFirestore', () => {
+  test('boxes nested arrays (questionTable.rows) and round-trips losslessly', () => {
+    const original = {
+      questionTable: {
+        headers: ['Platform', '2012', '2021'],       // flat array — untouched
+        rows: [                                        // 2D array — Firestore rejects
+          ['Facebook', '54%', '69%'],
+          ['Instagram', '13%', '40%'],
+        ],
+      },
+    };
+    const safe = sanitizeForFirestore(original);
+
+    // No array in `safe` may directly contain another array.
+    const hasNestedArray = (v) =>
+      Array.isArray(v)
+        ? v.some((el) => Array.isArray(el)) || v.some(hasNestedArray)
+        : v && typeof v === 'object'
+          ? Object.values(v).some(hasNestedArray)
+          : false;
+    expect(hasNestedArray(safe)).toBe(false);
+
+    // Round-trips back to the exact original shape the renderers expect.
+    expect(restoreFromFirestore(safe)).toEqual(original);
+  });
+
+  test('drops undefined object properties and nulls non-finite numbers', () => {
+    const safe = sanitizeForFirestore({
+      keep: 'yes',
+      gone: undefined,
+      nan: NaN,
+      inf: Infinity,
+      nested: { alsoGone: undefined, keep: 1 },
+    });
+    expect(safe).toEqual({ keep: 'yes', nan: null, inf: null, nested: { keep: 1 } });
+    expect('gone' in safe).toBe(false);
+    expect('alsoGone' in safe.nested).toBe(false);
+  });
+
+  test('restore is a no-op on plain (pre-encoding) snapshots', () => {
+    const plain = { a: [1, 2, 3], b: { c: 'x' }, rows: null };
+    expect(restoreFromFirestore(plain)).toEqual(plain);
+  });
+});
+
+describe('recordPracticeTestResult — snapshot decoupled from score (PT4 regression)', () => {
+  // A table question: rows is a nested array, which the real Firestore SDK
+  // rejects. Proves the payload now saves AND round-trips through the reader.
+  const tableSnapshot = () => [{
+    id: 'q-table',
+    type: 'multiple-choice',
+    stem: 'Per the table, which platform grew most?',
+    choices: [{ id: 'A', text: 'Facebook' }, { id: 'B', text: 'Instagram' }],
+    correctAnswer: 'B',
+    moduleIndex: 2,
+    questionIndex: 0,
+    questionTable: {
+      type: 'table',
+      headers: ['Platform', '2012', '2021'],
+      rows: [['Facebook', '54%', '69%'], ['Instagram', '13%', '40%']],
+    },
+  }];
+
+  test('a table-question snapshot saves and loadAttemptSnapshot restores rows to their 2D shape', async () => {
+    await recordPracticeTestResult('user-1', 'practice-test-4', 'Practice Test 4',
+      buildResults({ attemptId: 'tbl-1', questionsSnapshot: tableSnapshot() }));
+
+    // Score row saved.
+    const row = getTestRow(getStore().get('progress/user-1'), 'practice-test-4');
+    expect(row.attempts[0].attemptId).toBe('tbl-1');
+
+    // Snapshot saved AND decodes back to the original nested-array rows.
+    const loaded = await loadAttemptSnapshot('user-1', 'tbl-1');
+    expect(loaded.questionsSnapshot[0].questionTable.rows).toEqual([
+      ['Facebook', '54%', '69%'],
+      ['Instagram', '13%', '40%'],
+    ]);
+  });
+
+  test('a snapshot write that THROWS does not lose the score row (decoupling guarantee)', async () => {
+    const warnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
+    const realSetDoc = firestoreMock.setDoc;
+    // Simulate Firestore hard-rejecting the snapshot doc (nested array / quota /
+    // 1MB). The score-row transaction has already committed by then.
+    firestoreMock.setDoc = async () => { throw new Error('Nested arrays are not supported'); };
+    try {
+      await expect(
+        recordPracticeTestResult('user-1', 'practice-test-4', 'Practice Test 4',
+          buildResults({ attemptId: 'snap-throws', questionsSnapshot: tableSnapshot() }))
+      ).resolves.toBeUndefined(); // MUST NOT reject
+    } finally {
+      firestoreMock.setDoc = realSetDoc;
+    }
+
+    // The score row survived even though the snapshot write blew up.
+    const row = getTestRow(getStore().get('progress/user-1'), 'practice-test-4');
+    expect(row).toBeTruthy();
+    expect(row.attempts[0].attemptId).toBe('snap-throws');
+    expect(row.bestScaledScore).toBe(620);
+    // Snapshot doc absent (write threw) — Review Answers falls back to live content.
+    expect(getStore().get('progress/user-1/attempts/snap-throws')).toBeUndefined();
+    expect(warnSpy).toHaveBeenCalledWith(
+      expect.stringContaining('snapshot write failed'),
+      expect.anything()
+    );
+    warnSpy.mockRestore();
   });
 });
 

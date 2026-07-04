@@ -21,6 +21,83 @@ export const generateAttemptId = () => {
 };
 
 /**
+ * Sentinel key that boxes a nested array (an array element that is itself an
+ * array) so Firestore will accept it. The Firestore Web SDK rejects arrays that
+ * DIRECTLY contain arrays ("Nested arrays are not supported") — e.g. a table
+ * question's questionTable.rows, which is a 2D array [["Facebook","54%"],…].
+ * restoreFromFirestore reverses the boxing on read so callers see the original
+ * shape.
+ */
+const FS_NESTED_ARRAY_KEY = '__fsNestedArray';
+
+/**
+ * Deep-copies a value into a shape the Firestore Web SDK will accept:
+ *  - undefined object properties are DROPPED (default init throws on them),
+ *  - undefined / non-finite (NaN, Infinity) values become null,
+ *  - any array element that is itself an array is boxed as
+ *    { [FS_NESTED_ARRAY_KEY]: [...] } (Firestore forbids array-in-array).
+ * Lossless round-trip with restoreFromFirestore. Pure — no Firestore calls.
+ *
+ * Why this exists: a single unserializable field (a table question's 2D rows)
+ * used to reject the ENTIRE save transaction and silently lose a student's
+ * completed practice test (retries replayed the same doomed payload forever).
+ * See recordPracticeTestResult.
+ *
+ * @param {*} value - Arbitrary JSON-ish value
+ * @returns {*} Firestore-safe deep copy
+ */
+export const sanitizeForFirestore = (value) => {
+  if (value === undefined || value === null) return null;
+  if (typeof value === 'number') return Number.isFinite(value) ? value : null;
+  if (Array.isArray(value)) {
+    return value.map((el) =>
+      Array.isArray(el)
+        ? { [FS_NESTED_ARRAY_KEY]: sanitizeForFirestore(el) }
+        : sanitizeForFirestore(el)
+    );
+  }
+  if (typeof value === 'object') {
+    const out = {};
+    for (const [k, v] of Object.entries(value)) {
+      if (v === undefined) continue; // Firestore rejects undefined; omit the field.
+      out[k] = sanitizeForFirestore(v);
+    }
+    return out;
+  }
+  return value; // string, boolean
+};
+
+/**
+ * Reverses sanitizeForFirestore: unboxes { [FS_NESTED_ARRAY_KEY]: [...] } back
+ * into a nested array so callers (Review Answers table renderers reading
+ * questionTable.rows) see the original 2D shape. No-op on data written before
+ * this encoding existed — a plain snapshot never contains the sentinel key.
+ *
+ * @param {*} value
+ * @returns {*}
+ */
+export const restoreFromFirestore = (value) => {
+  if (Array.isArray(value)) {
+    return value.map((el) => {
+      if (
+        el && typeof el === 'object' && !Array.isArray(el) &&
+        Array.isArray(el[FS_NESTED_ARRAY_KEY]) &&
+        Object.keys(el).length === 1
+      ) {
+        return restoreFromFirestore(el[FS_NESTED_ARRAY_KEY]);
+      }
+      return restoreFromFirestore(el);
+    });
+  }
+  if (value && typeof value === 'object') {
+    const out = {};
+    for (const [k, v] of Object.entries(value)) out[k] = restoreFromFirestore(v);
+    return out;
+  }
+  return value;
+};
+
+/**
  * Records a practice test result to Firestore.
  *
  * Writes are atomic via Firestore writeBatch:
@@ -173,10 +250,8 @@ export const recordPracticeTestResult = async (userId, testId, testTitle, result
           },
           lastUpdated: serverTimestamp()
         }, { merge: true });
-        if (snapshotRef && snapshotPayload) {
-          // Per-attempt snapshot doc — bounded ~90KB so well under Firestore's 1MB limit.
-          tx.set(snapshotRef, snapshotPayload);
-        }
+        // NOTE: the per-attempt snapshot is written AFTER this transaction (see
+        // below), decoupled so an unserializable snapshot can't lose the score.
         return;
       }
 
@@ -267,12 +342,27 @@ export const recordPracticeTestResult = async (userId, testId, testTitle, result
       }
 
       tx.update(progressRef, updates);
-
-      if (snapshotRef && snapshotPayload) {
-        // Per-attempt snapshot doc — bounded ~90KB so well under Firestore's 1MB limit.
-        tx.set(snapshotRef, snapshotPayload);
-      }
+      // Snapshot is written AFTER the transaction (see below) — decoupled on
+      // purpose so a snapshot Firestore can't serialize can't fail the score.
     });
+
+    // Per-attempt snapshot write — DECOUPLED from the score-row transaction
+    // above, and best-effort. A snapshot Firestore can't serialize (a table
+    // question whose questionTable.rows is a nested array; a stray undefined)
+    // must NEVER take down the score row. That coupling was the PT4 data-loss
+    // bug: the whole transaction rejected, the score was lost, and every
+    // retry/boot-flush replayed the same doomed payload forever. The score is
+    // committed by the time we get here; sanitizeForFirestore makes the snapshot
+    // itself succeed so Review Answers still works. Runs unconditionally (even
+    // when the idempotency guard skipped the score write) so a boot-flush replay
+    // can heal a snapshot that failed on an earlier attempt.
+    if (snapshotRef && snapshotPayload) {
+      try {
+        await setDoc(snapshotRef, sanitizeForFirestore(snapshotPayload));
+      } catch (snapErr) {
+        console.warn('[practiceTestService] Per-attempt snapshot write failed (score row IS saved; Review Answers falls back to live test content for this attempt):', snapErr && snapErr.message);
+      }
+    }
     console.log('[practiceTestService] Save complete (attemptId=' + attemptId + ', snapshot=' + hasSnapshot + ')');
   } catch (error) {
     console.error('[practiceTestService] Error recording practice test result:', error);
@@ -297,7 +387,10 @@ export const loadAttemptSnapshot = async (userId, attemptId) => {
     const snapshotRef = doc(db, 'progress', userId, 'attempts', attemptId);
     const snap = await getDoc(snapshotRef);
     if (!snap.exists()) return null;
-    return { id: snap.id, ...snap.data() };
+    // Reverse the nested-array boxing applied at write time so table questions'
+    // questionTable.rows come back as the original [[...],[...]] shape the
+    // renderers expect. No-op for snapshots written without the encoding.
+    return restoreFromFirestore({ id: snap.id, ...snap.data() });
   } catch (error) {
     console.warn('[practiceTestService] loadAttemptSnapshot error (non-blocking):', error.message);
     return null;

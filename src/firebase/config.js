@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth, connectAuthEmulator } from 'firebase/auth';
-import { getFirestore, connectFirestoreEmulator } from 'firebase/firestore';
+import { initializeFirestore, connectFirestoreEmulator } from 'firebase/firestore';
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -16,7 +16,13 @@ const app = initializeApp(firebaseConfig);
 
 // Initialize services
 export const auth = getAuth(app);
-export const db = getFirestore(app);
+// ignoreUndefinedProperties: without it, ANY undefined field value makes the
+// entire write throw — which silently loses data (a completed test that never
+// saves, a study plan that vanishes). Omitting the undefined field is always
+// the safe degradation. This closes the `undefined` half of the Firestore-
+// serialization class of bugs; the nested-array half is handled by
+// sanitizeForFirestore in practiceTestService.js.
+export const db = initializeFirestore(app, { ignoreUndefinedProperties: true });
 
 // ─── Emulator wiring (Day 6 DX-3) ─────────────────────────────────────────
 // `npm run dev:emulator` starts the dev server with REACT_APP_USE_FIREBASE_EMULATOR=1.
