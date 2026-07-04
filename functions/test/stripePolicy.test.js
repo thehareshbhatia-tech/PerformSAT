@@ -14,6 +14,7 @@ const {
   subscriptionToEntitlementPatch,
   shouldApplyEvent,
   hasAccessMs,
+  isGrandfathered,
 } = require("../lib/stripePolicy");
 
 const NOW = Date.parse("2026-07-15T12:00:00Z");
@@ -202,6 +203,20 @@ test("access: the no-access seed state ('none') locks", () => {
   );
 });
 
+test("access: comped (grandfathered) always has access, no billing fields", () => {
+  // The free early-access cohort: permanent access with no subscription, no
+  // trial clock, no period end. Must never lock regardless of other fields.
+  assert.strictEqual(hasAccessMs({status: "comped"}, NOW), true);
+  assert.strictEqual(
+    hasAccessMs({status: "comped", currentPeriodEndMs: NOW - 999 * DAY_MS}, NOW),
+    true,
+  );
+  assert.strictEqual(
+    hasAccessMs({status: "comped", trialEndsAtMs: null}, NOW),
+    true,
+  );
+});
+
 test("access: canceled honors a still-future period end, else locks", () => {
   assert.strictEqual(
     hasAccessMs(
@@ -223,4 +238,28 @@ test("access: null doc and unknown status lock", () => {
   assert.strictEqual(hasAccessMs(null, NOW), false);
   assert.strictEqual(hasAccessMs({status: "weird"}, NOW), false);
   assert.strictEqual(hasAccessMs({}, NOW), false);
+});
+
+// ── isGrandfathered (existing-user grandfather rule) ─────────────────────
+
+test("grandfather: accounts created before the launch epoch are comped", () => {
+  const epoch = Date.parse("2026-07-04T00:00:00Z");
+  const before = Date.parse("2026-07-01T09:00:00Z");
+  const after = Date.parse("2026-07-05T09:00:00Z");
+  assert.strictEqual(isGrandfathered(before, epoch), true);
+  assert.strictEqual(isGrandfathered(after, epoch), false);
+  // Exactly-at-epoch is a NEW user (billed) — boundary is strict "<".
+  assert.strictEqual(isGrandfathered(epoch, epoch), false);
+});
+
+test("grandfather: missing/unparseable inputs are NOT grandfathered", () => {
+  // Conservative: a bad clock must never silently comp every new signup and
+  // quietly disable billing. (Existing users are still protected because the
+  // hard-gate never walls on a failed seed — see App.jsx hasEntitlementDoc.)
+  const epoch = Date.parse("2026-07-04T00:00:00Z");
+  assert.strictEqual(isGrandfathered(null, epoch), false);
+  assert.strictEqual(isGrandfathered(undefined, epoch), false);
+  assert.strictEqual(isGrandfathered(NaN, epoch), false);
+  assert.strictEqual(isGrandfathered(1_000_000, null), false);
+  assert.strictEqual(isGrandfathered(1_000_000, NaN), false);
 });

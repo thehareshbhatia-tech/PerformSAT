@@ -23,7 +23,13 @@ export type EntitlementStatus =
   | "trialing"
   | "active"
   | "past_due"
-  | "canceled";
+  | "canceled"
+  // "comped" = grandfathered permanent free access for accounts that existed
+  // before billing launched (the free early-access cohort). Never billed,
+  // never walled, no Stripe subscription. Set once by ensureEntitlement at the
+  // account's first post-launch session (see isGrandfathered) and never
+  // overwritten by subscription events (a comped user has no subscription).
+  | "comped";
 export type PlanId = "monthly" | "annual" | null;
 
 export interface EntitlementPatch {
@@ -163,6 +169,7 @@ export interface EntitlementAccessInput {
 /**
  * The single access rule, shared conceptually with the client selector
  * (src/services/selectors/entitlementAccess.js — keep the two in sync):
+ *   comped    -> access (grandfathered free early-access user; unconditional)
  *   trialing  -> access (card on file, Stripe owns the trial clock; Stripe
  *                flips the status to active/canceled at trial_end, so we do
  *                NOT re-gate on a local clock and risk locking a paying
@@ -181,6 +188,7 @@ export function hasAccessMs(
 ): boolean {
   if (!doc) return false;
   switch (doc.status) {
+  case "comped":
   case "trialing":
   case "active":
   case "past_due":
@@ -191,4 +199,36 @@ export function hasAccessMs(
   default:
     return false;
   }
+}
+
+/**
+ * Grandfather rule: an account is a "current" (free early-access) user — and
+ * therefore gets permanent comped access, never billing — when it was created
+ * before billing launched. Post-launch accounts (created at/after the epoch)
+ * go through the card-up-front trial instead.
+ *
+ * Conservative by design: if either timestamp is missing/unparseable we return
+ * false (NOT grandfathered) so a bad clock never silently comps every new
+ * signup and quietly disables billing. The caller treats a thrown/failed
+ * lookup the same way. Because the ONLY path that charges a card is the user
+ * actively completing Checkout, a mis-classified existing user is never billed
+ * without first being sent to (and choosing to act on) the paywall — and this
+ * rule is exactly what keeps them off it.
+ *
+ * @param {number|null} accountCreatedMs account creation time (unix ms)
+ * @param {number|null} launchEpochMs billing-launch cutoff (unix ms)
+ * @return {boolean} true when the account predates billing launch
+ */
+export function isGrandfathered(
+  accountCreatedMs: number | null | undefined,
+  launchEpochMs: number | null | undefined,
+): boolean {
+  if (typeof accountCreatedMs !== "number" ||
+      !Number.isFinite(accountCreatedMs)) {
+    return false;
+  }
+  if (typeof launchEpochMs !== "number" || !Number.isFinite(launchEpochMs)) {
+    return false;
+  }
+  return accountCreatedMs < launchEpochMs;
 }

@@ -81,6 +81,15 @@ describe('deriveEntitlementAccess', () => {
     expect(v.phase).toBe('none');
   });
 
+  it('comped (grandfathered free early-access user) has permanent access, no billing UI', () => {
+    const v = deriveEntitlementAccess({ status: 'comped' }, NOW);
+    expect(v.hasAccess).toBe(true);
+    expect(v.phase).toBe('comped');
+    expect(v.plan).toBeNull();
+    expect(v.cancelAtPeriodEnd).toBe(false);
+    expect(v.trialDaysLeft).toBe(0);
+  });
+
   it('active subscriber: premium phase with renewal date', () => {
     const v = deriveEntitlementAccess(
       {

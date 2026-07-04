@@ -3,6 +3,8 @@
  *
  * Mirrors the server-side rule in functions/src/stripePolicy.ts (hasAccessMs)
  * — keep the two in sync (CARD-UP-FRONT 7-day trial):
+ *   comped    -> access (grandfathered free early-access user; unconditional,
+ *                no billing, no trial clock — see isGrandfathered server-side)
  *   trialing  -> access (card on file; Stripe owns the trial clock and flips
  *                the status at trial_end, so we never re-gate on a local
  *                clock — trialEndsAt is display-only). cancel-at-period-end
@@ -70,6 +72,15 @@ export function deriveEntitlementAccess(doc, nowMs = Date.now()) {
   const periodEndMs = toMillisFlexible(doc.currentPeriodEnd);
 
   switch (doc.status) {
+    case 'comped':
+      // Grandfathered free early-access user: permanent access, no billing UI.
+      return {
+        ...base,
+        hasAccess: true,
+        phase: 'comped',
+        plan: null,
+        cancelAtPeriodEnd: false,
+      };
     case 'trialing': {
       // Card-up-front: a trialing subscription always has access. Stripe flips
       // the status to active/canceled at trial_end, so we don't lock on a

@@ -387,26 +387,38 @@ const PerformSAT = () => {
 
   // Render-time flavor of the same rule, for locked-state affordances
   // (test-card CTAs, the standalone tutor view, review-pane tutor note).
-  const billingLocked = entitlement.flagEnabled && !entitlement.loading && !entitlement.hasAccess;
+  // Gated on hasEntitlementDoc so a grandfathered/comped user never flashes
+  // "locked" affordances in the window before their doc resolves.
+  const billingLocked = entitlement.flagEnabled && entitlement.hasEntitlementDoc &&
+    !entitlement.loading && !entitlement.hasAccess;
 
   // Card-up-front HARD gate: a logged-in account that has never put a card on
   // file (no access AND no Stripe customer) has NO access in this model — send
   // it straight to the start-trial wall. Lapsed accounts (canceled/expired
   // WITH a prior billing account) are excluded here: they keep the read-only
   // dashboard and only hit the wall via a launcher (ensurePracticeAccess).
+  // GRANDFATHERED users (status "comped", created before billing launched) have
+  // hasAccess === true, so they short-circuit below and never see the wall.
+  // We also wait for hasEntitlementDoc before walling: a not-yet-seeded (null)
+  // doc must not flash the paywall, since we can't yet tell a comped user from
+  // a brand-new one until ensureEntitlement writes the doc. And if access is
+  // granted while somehow sitting on the wall (comped doc lands, or the
+  // activation webhook flips a fresh trial), bounce back to the dashboard.
   // Suppressed right after a successful Checkout return (awaitingCheckoutRef)
   // so we don't flash the wall while the activation webhook lands.
   useEffect(() => {
     if (!entitlement.flagEnabled || !user || entitlement.loading) return;
     if (entitlement.hasAccess) {
-      awaitingCheckoutRef.current = false; // trial/subscription is live
+      awaitingCheckoutRef.current = false; // trial/subscription/comped is live
+      if (view === 'paywall') setView('dashboard'); // rescue off the wall
       return;
     }
     if (awaitingCheckoutRef.current) return; // just paid — wait for the webhook
+    if (!entitlement.hasEntitlementDoc) return; // doc not seeded yet — don't wall
     if (!entitlement.hasBillingAccount && view !== 'paywall') {
       setView('paywall');
     }
-  }, [entitlement.flagEnabled, entitlement.loading, entitlement.hasAccess, entitlement.hasBillingAccount, user, view]);
+  }, [entitlement.flagEnabled, entitlement.loading, entitlement.hasAccess, entitlement.hasBillingAccount, entitlement.hasEntitlementDoc, user, view]);
 
   // ── Live plan reprioritization (adaptivity audit item 3) ─────────────────
   // reprioritizePlan used to run ONLY in the post-test save path, so its

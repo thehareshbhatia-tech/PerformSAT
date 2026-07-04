@@ -17,15 +17,17 @@
  *
  * Deploy-time params (functions/.env or `firebase functions:secrets:set`):
  *   secrets: STRIPE_SECRET_KEY, STRIPE_WEBHOOK_SECRET
- *   strings: STRIPE_PRICE_MONTHLY, STRIPE_PRICE_ANNUAL, BILLING_APP_BASE_URL
- *   (BILLING_LAUNCH_EPOCH is retained in .env for history but no longer read —
- *    the trial clock is now Stripe's, not the app's.)
+ *   strings: STRIPE_PRICE_MONTHLY, STRIPE_PRICE_ANNUAL, BILLING_APP_BASE_URL,
+ *            BILLING_LAUNCH_EPOCH (grandfather cutoff — accounts created before
+ *            it get permanent comped access; accounts created at/after it must
+ *            start a paid trial. Set this to the moment you flip the flag.)
  */
 
 import Stripe from "stripe";
 import {onRequest} from "firebase-functions/v2/https";
 import * as logger from "firebase-functions/logger";
 import {defineSecret, defineString} from "firebase-functions/params";
+import {getAuth} from "firebase-admin/auth";
 import {
   getFirestore,
   FieldValue,
@@ -38,6 +40,7 @@ import {
   subscriptionToEntitlementPatch,
   shouldApplyEvent,
   hasAccessMs,
+  isGrandfathered,
   EntitlementPatch,
 } from "./stripePolicy";
 
@@ -48,6 +51,10 @@ const stripePriceAnnual = defineString("STRIPE_PRICE_ANNUAL", {default: ""});
 const appBaseUrl = defineString("BILLING_APP_BASE_URL", {
   default: "https://www.sevaprep.com",
 });
+// Grandfather cutoff: accounts created before this instant are the free
+// early-access cohort and get permanent comped access; accounts created at/
+// after it must start a paid trial. Set to the moment billing goes live.
+const billingLaunchEpoch = defineString("BILLING_LAUNCH_EPOCH", {default: ""});
 
 const getStripe = () => new Stripe(stripeSecretKey.value());
 
@@ -124,14 +131,60 @@ export const ensureEntitlement = onRequest(
     }
 
     try {
+      // Grandfather the free early-access cohort: an account created BEFORE
+      // billing launched keeps permanent free access ("comped"), never a
+      // paywall and never a charge. Only accounts created AT/AFTER the launch
+      // epoch enter the card-up-front trial. Reads the authoritative account
+      // creation time from Firebase Auth (unspoofable). Any failure falls
+      // through to the no-access seed (billing only ever charges a card via an
+      // explicit Checkout the user initiates, so failing this way never bills
+      // anyone silently — it only means an existing user could see the wall,
+      // which the grandfather rule exists to prevent; hence we log loudly).
+      let comped = false;
+      try {
+        const epochMs = Date.parse(billingLaunchEpoch.value());
+        const authUser = await getAuth().getUser(user.uid);
+        const createdMs = Date.parse(authUser.metadata.creationTime);
+        comped = isGrandfathered(
+          Number.isNaN(createdMs) ? null : createdMs,
+          Number.isNaN(epochMs) ? null : epochMs,
+        );
+      } catch (ghErr) {
+        logger.error(
+          `grandfather check failed for ${user.uid} — seeding no-access`,
+          ghErr,
+        );
+      }
+
       const ref = entitlementRef(user.uid);
       await getFirestore().runTransaction(async (tx) => {
         const snap = await tx.get(ref);
         if (snap.exists) return; // idempotent — never touch an existing doc
-        // Card-up-front model: signup grants NO access. Seed the doc in a
-        // no-access "none" state so the aiTutor gate (hasEntitlementAccess)
-        // and the client both read "locked" until the student starts a trial
-        // via Checkout (the webhook then flips this doc to "trialing").
+        if (comped) {
+          // Pre-launch account: permanent free access. No Stripe customer, no
+          // subscription, no trial clock — hasAccessMs("comped") is always
+          // true, so the client never walls them and aiTutor never 402s them.
+          tx.set(ref, {
+            uid: user.uid,
+            status: "comped",
+            grandfathered: true,
+            trialEndsAt: null,
+            stripeCustomerId: null,
+            subscriptionId: null,
+            plan: null,
+            currentPeriodEnd: null,
+            cancelAtPeriodEnd: false,
+            lastEventCreated: null,
+            createdAt: FieldValue.serverTimestamp(),
+            updatedAt: FieldValue.serverTimestamp(),
+          });
+          return;
+        }
+        // Card-up-front model: post-launch signup grants NO access. Seed the
+        // doc in a no-access "none" state so the aiTutor gate
+        // (hasEntitlementAccess) and the client both read "locked" until the
+        // student starts a trial via Checkout (the webhook then flips this doc
+        // to "trialing").
         tx.set(ref, {
           uid: user.uid,
           status: "none",

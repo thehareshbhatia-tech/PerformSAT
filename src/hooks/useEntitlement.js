@@ -43,6 +43,7 @@ const FLAG_OFF_VALUE = {
   plan: null,
   cancelAtPeriodEnd: false,
   hasBillingAccount: false,
+  hasEntitlementDoc: false,
 };
 
 export function useEntitlement(user) {
@@ -106,6 +107,11 @@ export function useEntitlement(user) {
       flagEnabled: true,
       ...derived,
       hasBillingAccount: !!docData?.stripeCustomerId,
+      // Whether the server-write-only entitlement doc has actually been read
+      // yet. The hard-gate must NOT wall on a not-yet-seeded (null) doc — a
+      // grandfathered "comped" user would otherwise flash the paywall in the
+      // window before ensureEntitlement's doc lands via onSnapshot.
+      hasEntitlementDoc: docData != null,
     };
   }, [flagEnabled, docData, loading, nowMs]);
 }

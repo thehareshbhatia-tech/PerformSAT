@@ -392,6 +392,7 @@ const Profile = ({
           <div style={{ ...cardStyles.base, display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: spacing.md, flexWrap: 'wrap' }}>
             <div>
               <p style={{ margin: 0, fontSize: typography.sizes.base, fontWeight: typography.weights.semibold, color: colors.text.primary }}>
+                {entitlement.phase === 'comped' && 'Free access'}
                 {entitlement.phase === 'premium' && `SEVA Premium — ${entitlement.plan === 'annual' ? 'Annual' : 'Monthly'}`}
                 {entitlement.phase === 'ending' && 'SEVA Premium — ending soon'}
                 {entitlement.phase === 'grace' && 'SEVA Premium — payment issue'}
@@ -406,13 +407,15 @@ const Profile = ({
                 {entitlement.phase === 'trial' && (entitlement.endsAtMs
                   ? `${entitlement.trialDaysLeft} day${entitlement.trialDaysLeft === 1 ? '' : 's'} left — you won't be charged until ${new Date(entitlement.endsAtMs).toLocaleDateString(undefined, { month: 'long', day: 'numeric', year: 'numeric' })}. Cancel anytime before then.`
                   : `${entitlement.trialDaysLeft} day${entitlement.trialDaysLeft === 1 ? '' : 's'} left — cancel anytime before you're charged.`)}
+                {entitlement.phase === 'comped' && 'Complimentary access — thanks for being an early SEVA user. You won’t be charged.'}
                 {entitlement.phase === 'none' && 'Start your 7-day free trial to unlock tests, drills, and the AI tutor.'}
                 {entitlement.phase === 'expired' && 'Subscribe to unlock tests, drills, and the AI tutor.'}
               </p>
             </div>
-            {!entitlement.loading && (() => {
+            {!entitlement.loading && entitlement.phase !== 'comped' && (() => {
               // Never-subscribed / lapsed → route to the paywall (Checkout);
               // a live billing account (trial/premium/ending/grace) → Portal.
+              // Comped (grandfathered) users get no CTA — nothing to buy.
               const needsCheckout = entitlement.phase === 'none' || entitlement.phase === 'expired';
               if (!needsCheckout && entitlement.hasBillingAccount && onManageBilling) {
                 return (
