@@ -732,6 +732,27 @@
   color: var(--of-ink-faint);
 }
 
+.of-field-optional {
+  font-weight: 500;
+  color: var(--of-ink-faint);
+}
+
+.of-field-hint {
+  font: 500 12.5px/1.45 var(--of-body-font);
+  color: var(--of-ink-faint);
+}
+
+.of-promo-input {
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 600 !important;
+}
+.of-promo-input::placeholder {
+  text-transform: none;
+  letter-spacing: normal;
+  font-weight: 500;
+}
+
 .of-consent {
   display: flex;
   gap: 10px;

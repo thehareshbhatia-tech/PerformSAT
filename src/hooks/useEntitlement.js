@@ -28,7 +28,8 @@ import { doc, onSnapshot } from 'firebase/firestore';
 import { db } from '../firebase/config';
 import { useFeatureFlag } from './useFeatureFlag';
 import { deriveEntitlementAccess } from '../services/selectors/entitlementAccess';
-import { ensureEntitlement } from '../services/billingService';
+import { ensureEntitlement, redeemPromoCode } from '../services/billingService';
+import { readPendingPromoCode, clearPendingPromoCode } from '../services/pendingPromo';
 import { makeLogger } from '../utils/log';
 
 const log = makeLogger('billing');
@@ -72,15 +73,32 @@ export function useEntitlement(user) {
         setLoading(false);
         if (!snap.exists() && ensureRequestedRef.current !== uid) {
           // First session for this account (or pre-launch account's first
-          // post-launch session): seed the no-access entitlement doc once so
-          // the gate reads "locked" until the student starts a Checkout trial.
+          // post-launch session). Seed the entitlement doc exactly once.
           ensureRequestedRef.current = uid;
-          ensureEntitlement().catch((err) => {
+          const seedNoAccess = () => ensureEntitlement().catch((err) => {
             // Allow a retry on the next mount/sign-in rather than wedging
             // this account in the doc-less state forever.
             ensureRequestedRef.current = null;
             log.error('ensureEntitlement failed', err);
           });
+          const pendingPromo = readPendingPromoCode();
+          if (pendingPromo) {
+            // A code entered during onboarding: redeem it FIRST. On success the
+            // server writes the doc directly as "comped" (permanent free, no
+            // card, no Stripe subscription), so the student bypasses the paywall
+            // entirely — no "none" flash. On any failure (invalid/exhausted/
+            // transient) drop the code and fall back to the no-access seed; the
+            // student can still re-enter it on the paywall's promo field.
+            redeemPromoCode(pendingPromo)
+              .then(() => clearPendingPromoCode())
+              .catch((err) => {
+                clearPendingPromoCode();
+                log.error('onboarding promo redeem failed', err);
+                seedNoAccess();
+              });
+          } else {
+            seedNoAccess();
+          }
         }
       },
       (err) => {

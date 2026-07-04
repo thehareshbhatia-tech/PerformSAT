@@ -16,6 +16,7 @@ import {
   normalizeFunnelGoal,
   buildFunnelProfile,
 } from './funnelConfig';
+import { stashPendingPromoCode, clearPendingPromoCode } from '../../services/pendingPromo';
 import './OnboardingFunnel.css';
 
 /**
@@ -179,6 +180,7 @@ const OnboardingFunnel = ({ signup, onExit, onLogIn, billingLive }) => {
   const [signupName, setSignupName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [promoCode, setPromoCode] = useState('');
   const [agreedToTerms, setAgreedToTerms] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState('');
@@ -256,6 +258,11 @@ const OnboardingFunnel = ({ signup, onExit, onLogIn, billingLive }) => {
       return;
     }
     setSubmitting(true);
+    // Stash a promo code (if any) BEFORE signup so it's already in place when
+    // the new account's entitlement doc is seeded — useEntitlement redeems it
+    // to grant permanent free ("comped") access, bypassing Stripe entirely.
+    const trimmedPromo = promoCode.trim();
+    if (trimmedPromo) stashPendingPromoCode(trimmedPromo);
     try {
       const funnelProfile = buildFunnelProfile(answers, goal);
       await signup(email, password, signupName, {
@@ -268,6 +275,8 @@ const OnboardingFunnel = ({ signup, onExit, onLogIn, billingLive }) => {
       // No navigation here — App.jsx's auth listener flips `user` and the
       // "/" route redirects to /course (same contract as the modal form).
     } catch (err) {
+      // Don't strand a code against an account that never got created.
+      if (trimmedPromo) clearPendingPromoCode();
       setError(err.message);
       setSubmitting(false);
     }
@@ -534,6 +543,27 @@ const OnboardingFunnel = ({ signup, onExit, onLogIn, billingLive }) => {
             required
           />
         </label>
+        {billingLive && (
+          <label className="of-field of-field--promo">
+            <span className="of-field-label">
+              Promo code <span className="of-field-optional">(optional)</span>
+            </span>
+            <input
+              type="text"
+              className="of-promo-input"
+              value={promoCode}
+              onChange={(e) => setPromoCode(e.target.value)}
+              placeholder="Enter a code"
+              autoCapitalize="characters"
+              autoCorrect="off"
+              spellCheck="false"
+              aria-label="Promo code"
+            />
+            <span className="of-field-hint">
+              Have a code? You&rsquo;ll get full access free — no card required.
+            </span>
+          </label>
+        )}
         <label className="of-consent">
           <input
             type="checkbox"
