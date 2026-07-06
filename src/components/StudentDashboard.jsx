@@ -40,17 +40,9 @@ import { PrimaryButton, SecondaryButton } from './ui/Button';
 import Avatar, { AVATAR_SIZES } from './ui/Avatar';
 import './StudentDashboard.css';
 
-// Official SAT Test Dates (from College Board)
-const SAT_TEST_DATES = [
-  { name: 'March 2026 SAT', date: '2026-03-14' },
-  { name: 'May 2026 SAT', date: '2026-05-02' },
-  { name: 'June 2026 SAT', date: '2026-06-06' },
-  { name: 'August 2026 SAT', date: '2026-08-15' },
-  { name: 'September 2026 SAT', date: '2026-09-12' },
-  { name: 'October 2026 SAT', date: '2026-10-03' },
-  { name: 'November 2026 SAT', date: '2026-11-07' },
-  { name: 'December 2026 SAT', date: '2026-12-05' },
-];
+// Official SAT test dates live in the canonical source: src/data/satTestDates.js
+// (import { SAT_TEST_DATES, getUpcomingSATDates, getSATNameFromDate } when the
+// dashboard needs an official-date picker; see the inner-onboarding chips).
 
 const MODULES = [
   { id: 'linear-equations', title: 'Linear Equations', lessonCount: 24 },
@@ -145,17 +137,6 @@ const StudentDashboard = ({
   const [selectedDate, setSelectedDate] = useState(user?.testDate || '');
   const [tempTargetScore, setTempTargetScore] = useState(user?.targetScore || 600);
   const [tempCurrentScore, setTempCurrentScore] = useState(user?.currentScore || 500);
-
-  const getUpcomingSATDates = () => {
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
-    return SAT_TEST_DATES.filter(sat => new Date(sat.date) >= today);
-  };
-
-  const getSATNameFromDate = (dateStr) => {
-    const sat = SAT_TEST_DATES.find(s => s.date === dateStr);
-    return sat ? sat.name : null;
-  };
 
   const totalCompleted = Object.values(completedLessons || {}).filter(l => l?.completed).length;
   const completionPercent = Math.round((totalCompleted / TOTAL_LESSONS) * 100);

@@ -4,6 +4,7 @@ import Wordmark from '../ui/Wordmark';
 import {
   CheckIcon, ArrowLeftIcon, ArrowRightIcon, CalendarIcon, TargetIcon,
 } from '../../design/icons';
+import { getUpcomingSATDates, formatSatChipLabel } from '../../data/satTestDates';
 
 /**
  * InnerOnboarding — the post-signup "inner boarding" flow.
@@ -53,21 +54,6 @@ const SECTION_OPTIONS = [
   { value: 'strategy', label: 'Test-taking strategy' },
 ];
 
-// Official US digital-SAT administration dates. MAINTENANCE: refresh this list
-// each school year — past dates are filtered out automatically, and the native
-// date picker is always available as the accurate fallback, so a stale list
-// only means fewer quick-pick chips, never a wrong date.
-const SAT_DATES = [
-  '2026-08-29', '2026-10-03', '2026-11-07', '2026-12-05',
-  '2027-03-13', '2027-05-01', '2027-06-05',
-];
-
-const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-function formatChipDate(iso) {
-  const [, m, d] = iso.split('-');
-  return `${MONTHS[Number(m) - 1]} ${Number(d)}`;
-}
-
 const InnerOnboarding = ({ user, onComplete }) => {
   const firstName = (user?.firstName || '').trim();
 
@@ -93,10 +79,8 @@ const InnerOnboarding = ({ user, onComplete }) => {
 
   const nowYear = new Date().getFullYear();
   const gradYears = [nowYear, nowYear + 1, nowYear + 2, nowYear + 3, nowYear + 4];
-  const upcomingSatDates = useMemo(() => {
-    const today = new Date().toISOString().slice(0, 10);
-    return SAT_DATES.filter((d) => d >= today).slice(0, 4);
-  }, []);
+  // Quick-pick chips from the canonical College Board list (src/data/satTestDates).
+  const upcomingSatDates = useMemo(() => getUpcomingSATDates().slice(0, 4), []);
 
   // Derived current composite score (null if the student skipped it).
   const currentScore = useMemo(() => {
@@ -184,14 +168,14 @@ const InnerOnboarding = ({ user, onComplete }) => {
               <>
                 <div className="io-field-label">Pick a test date</div>
                 <div className="io-chip-grid">
-                  {upcomingSatDates.map((d) => (
+                  {upcomingSatDates.map((sat) => (
                     <button
-                      key={d}
+                      key={sat.date}
                       type="button"
-                      className={`io-chip${testDate === d ? ' is-selected' : ''}`}
-                      onClick={() => setTestDate(d)}
+                      className={`io-chip${testDate === sat.date ? ' is-selected' : ''}`}
+                      onClick={() => setTestDate(sat.date)}
                     >
-                      {formatChipDate(d)}
+                      {formatSatChipLabel(sat.date)}
                     </button>
                   ))}
                 </div>
