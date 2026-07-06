@@ -422,6 +422,60 @@ export const useAuth = () => {
   };
 
   /**
+   * Persist the post-signup inner-onboarding answers in ONE merged write and
+   * stamp it complete. Runs after the account already exists (unlike the
+   * funnel, which rides its data into the signup doc). Batching all fields +
+   * the completion stamp into a single setDoc avoids racing multiple profile
+   * setters against hydration and makes the finish step atomic.
+   *
+   * Each field is guarded the same way its individual setter guards it, so a
+   * skipped screen (undefined) or a malformed value is simply omitted rather
+   * than persisted. `innerOnboardingCompletedAt` is always written so the
+   * /course gate stops mounting the inner-onboarding flow next session.
+   *
+   * @param {Object} payload
+   * @param {string} [payload.feeling] - test-prep feeling slug (confident|fine|stressed|heavy)
+   * @param {string} [payload.testDate] - 'YYYY-MM-DD' exam date
+   * @param {number} [payload.currentScore] - self-reported current composite 400-1600
+   * @param {number} [payload.targetScore] - goal composite 400-1600
+   * @param {string} [payload.confidentArea] - section slug they feel most confident about
+   * @param {string} [payload.worryArea] - section slug that worries them most
+   * @param {number} [payload.gradYear] - high-school graduation year
+   * @returns {Promise<void>}
+   */
+  const completeInnerOnboarding = async (payload = {}) => {
+    if (!user?.uid) return;
+    const {
+      feeling, testDate, currentScore, targetScore,
+      confidentArea, worryArea, gradYear,
+    } = payload;
+
+    const update = { innerOnboardingCompletedAt: new Date().toISOString() };
+
+    if (typeof feeling === 'string' && feeling) update.feeling = feeling;
+    // testDate: only a real 'YYYY-MM-DD' string is stored (plan pacing parses it).
+    if (typeof testDate === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(testDate)) {
+      update.testDate = testDate;
+    }
+    if (Number.isFinite(currentScore)) update.currentScore = currentScore;
+    if (Number.isFinite(targetScore)) {
+      update.targetScore = targetScore;
+      update.goalScale = 'composite'; // provenance — never re-migrate the 400-1600 value
+    }
+    if (typeof confidentArea === 'string' && confidentArea) update.confidentArea = confidentArea;
+    if (typeof worryArea === 'string' && worryArea) update.worryArea = worryArea;
+    if (Number.isFinite(gradYear)) update.gradYear = gradYear;
+
+    try {
+      await setDoc(doc(db, 'users', user.uid), update, { merge: true });
+      setUser(prev => ({ ...prev, ...update }));
+    } catch (err) {
+      console.error('Error saving inner onboarding:', err);
+      throw err;
+    }
+  };
+
+  /**
    * Update user's target schools and auto-calculate target score
    * @param {Array} schools - Array of school objects [{id, name, satMath}, ...]
    */
@@ -480,6 +534,7 @@ export const useAuth = () => {
     updateFirstName,
     markOnboardingComplete,
     markOnboardingSkipped,
+    completeInnerOnboarding,
     isAuthenticated: !!user
   };
 };

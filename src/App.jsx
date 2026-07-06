@@ -87,6 +87,8 @@ const TestResults = React.lazy(() => import('./components/TestResults'));
 // On-ramp check-in: lazy chunk carries the sampler + diagnosis pipeline
 // (banks, studyPlanGenerator) — never import it statically (bundle guard).
 const MiniDiagnosticShell = React.lazy(() => import('./components/MiniDiagnostic/MiniDiagnosticShell'));
+// Post-signup inner onboarding: lazy chunk shown once, before the home screen.
+const InnerOnboarding = React.lazy(() => import('./components/onboarding/InnerOnboarding'));
 const Profile = React.lazy(() => import('./components/Profile'));
 const StudyPlanDashboard = React.lazy(() => import('./components/StudyPlanDashboard'));
 const AdaptivePracticeShell = React.lazy(() => import('./components/AdaptivePracticeShell'));
@@ -258,6 +260,12 @@ const PerformSAT = () => {
   // the on-ramp goes straight to the 24Q check-in.
   const ffOnRamp = useFeatureFlag('onRamp');
   const [onRampActive, setOnRampActive] = useState(null);
+  // Inner onboarding (post-signup, pre-home) state — same tri-state contract as
+  // onRampActive. A fresh account runs this ONCE, then lands on the first-run
+  // home where the diagnostic CTA is waiting; the diagnostic no longer
+  // auto-launches. Gated on the innerOnboarding flag (default ON).
+  const ffInnerOnboarding = useFeatureFlag('innerOnboarding');
+  const [innerOnboardingActive, setInnerOnboardingActive] = useState(null);
   // Active pacing drill: { config, questions }. Set by onStartPacing, rendered at view==='pacingDrill'.
   const [pacingSession, setPacingSession] = useState(null);
   // Which view a pacing drill was launched from, so onExit returns there
@@ -348,7 +356,7 @@ const PerformSAT = () => {
     return () => window.removeEventListener('keydown', handleEsc);
   }, [showCalculator]);
 
-  const { user, loading, logout, updateTestDate, updateTargetScore, updateCurrentScore, updateTargetSchools, updateProfilePhoto, updateFirstName, markOnboardingComplete, markOnboardingSkipped } = useAuth();
+  const { user, loading, logout, updateTestDate, updateTargetScore, updateCurrentScore, updateTargetSchools, updateProfilePhoto, updateFirstName, markOnboardingComplete, markOnboardingSkipped, completeInnerOnboarding } = useAuth();
   const { loading: progressLoading, hydrated: progressHydrated, completedLessons, practiceProgress, drillDays, reviewQueue, reviewStreak, skillProgress, answeredQuestionIds, practiceTestResults, inProgressTests, studyPlan, studyPlanMeta, studyPlanArtifact, predictionLog, interventionLog, studentFingerprint, miniDiagnostic, bankPractice, activeDrill, flaggedQuestions, recordDrillSkillAttempts, recordPracticedDay, recordBankPractice, saveActiveDrill, clearActiveDrill, toggleFlagQuestion, unflagQuestion, flagQuestionsBatch, getDueCount, getReviewStatistics, getSkillDiagnosticSummary, getSkillBreakdown, recordPracticeTestAttempt, getTestBestScore, getTestAttempts, saveTestProgress, clearTestProgress, resetPracticeTest, removeTestAttempt, getTestProgress, hasTestProgress, saveMiniDiagnostic, saveStudyPlan, saveEditedStudyPlan, markStudyActivityComplete, unmarkStudyActivityComplete, markLessonComplete, isLessonCompleted, getModuleProgress, lastSaveStatus, retryLastSave } = useProgress(user?.uid);
 
   // Mount the analytics session lifecycle (session_start / session_end +
@@ -679,25 +687,41 @@ const PerformSAT = () => {
   }, [user?.uid]);
 
   // On-ramp eligibility — decided once per session after progress hydrates.
-  // Eligible: flagged on, no completion stamp, zero test attempts, no plan.
-  // An in-flight check-in (inProgressTests['mini-diagnostic']) re-enters the
-  // flow directly at the runner, even past a skip stamp.
+  // The diagnostic NO LONGER auto-launches at signup: a fresh account runs the
+  // inner-onboarding flow (effect below) and lands on the home screen, where
+  // the "Take your diagnostic" CTA is waiting. The only auto-mount left here is
+  // resuming a check-in a student had genuinely already started
+  // (inProgressTests['mini-diagnostic']); everything else falls through to the
+  // app shell and reaches the diagnostic via the CTA.
   useEffect(() => {
     if (onRampActive !== null) return; // decided already this session
     // `progressHydrated` (not !progressLoading): in the commit where the
     // user first resolves, loading still reads false from the boot no-user
     // state, and deciding there would miss an in-flight check-in resume.
     if (!ffOnRamp || !user || !progressHydrated) return;
+    const hasResume = !!(inProgressTests && inProgressTests['mini-diagnostic']);
+    // Resume an in-flight check-in even past a skip stamp; never auto-launch
+    // a fresh one.
+    setOnRampActive(hasResume === true);
+  }, [onRampActive, ffOnRamp, user, progressHydrated, inProgressTests]);
+
+  // Inner-onboarding eligibility — decided once per session after hydration.
+  // Eligible: flagged on, a fresh account with nothing behind it yet (no inner
+  // onboarding / diagnostic completion or skip, no tests, no plan) and no
+  // in-flight diagnostic to resume (that takes precedence). Runs the 9-screen
+  // flow, then stamps innerOnboardingCompletedAt so it never re-shows.
+  useEffect(() => {
+    if (innerOnboardingActive !== null) return; // decided already this session
+    if (!ffInnerOnboarding || !user || !progressHydrated) { return; }
     const hasTests = Object.keys(practiceTestResults || {}).length > 0;
     const hasResume = !!(inProgressTests && inProgressTests['mini-diagnostic']);
-    if (user.onboardingCompletedAt || hasTests) { setOnRampActive(false); return; }
-    if (hasResume) {
-      setOnRampActive(true);
-      return;
-    }
-    if (user.onboardingSkippedAt || studyPlan) { setOnRampActive(false); return; }
-    setOnRampActive(true);
-  }, [onRampActive, ffOnRamp, user, progressHydrated, practiceTestResults, inProgressTests, studyPlan]);
+    const eligible =
+      !user.innerOnboardingCompletedAt &&
+      !user.onboardingCompletedAt &&
+      !user.onboardingSkippedAt &&
+      !hasTests && !studyPlan && !hasResume;
+    setInnerOnboardingActive(eligible === true);
+  }, [innerOnboardingActive, ffInnerOnboarding, user, progressHydrated, practiceTestResults, inProgressTests, studyPlan]);
 
   const handleOnRampSkip = () => {
     setOnRampActive(false);
@@ -749,6 +773,27 @@ const PerformSAT = () => {
         onViewPlan={() => { setOnRampActive(false); setView('studyPlan'); }}
         onSkip={handleOnRampSkip}
       />
+    </React.Suspense>
+  );
+
+  // Inner onboarding finished: persist the collected profile (one merged write)
+  // then unmount → the app shell renders the first-run home. We land the student
+  // home regardless of a write failure so a transient error can't trap them
+  // (a failed stamp just re-offers the flow next session, per the on-ramp's
+  // resilience model). The diagnostic is launched later, from the home CTA.
+  const handleInnerOnboardingFinished = async (payload) => {
+    try {
+      await completeInnerOnboarding(payload);
+    } catch (e) {
+      console.error('[innerOnboarding] profile save failed:', e);
+    }
+    setInnerOnboardingActive(false);
+    setView('dashboard');
+  };
+
+  const renderInnerOnboarding = () => (
+    <React.Suspense fallback={<div style={{ minHeight: '100vh', background: '#F6F4EF' }} />}>
+      <InnerOnboarding user={user} onComplete={handleInnerOnboardingFinished} />
     </React.Suspense>
   );
 
@@ -2061,6 +2106,7 @@ const PerformSAT = () => {
         {/* Course Route */}
         <Route path="/course" element={
           user ? (
+            innerOnboardingActive === true ? renderInnerOnboarding() :
             onRampActive === true ? renderOnRamp() : (
             <div style={{
               minHeight: '100vh',

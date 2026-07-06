@@ -32,6 +32,7 @@
 const FLAG_DEFAULTS = {
   rwDrills: true,     // R&W weaknesses route to a real drill (not "coming soon")
   todaysTasks: true,  // dashboard shows the Today's Tasks hero, not the legacy banner
+  innerOnboarding: true, // post-signup inner onboarding runs before the diagnostic; kill-switch via REACT_APP_FF_INNER_ONBOARDING=false
 };
 
 function camelToScreamingSnake(key) {
