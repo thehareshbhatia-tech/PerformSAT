@@ -40,6 +40,14 @@ const clampSection = (n) => {
   return Math.min(800, Math.max(200, Math.round(v / 10) * 10));
 };
 
+// "2026-08-22" → "Aug 22, 2026" (local, no Date-parse TZ drift).
+const RECAP_MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+const formatRecapDate = (iso) => {
+  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso || '');
+  if (!m) return iso;
+  return `${RECAP_MONTHS[Number(m[2]) - 1]} ${Number(m[3])}, ${m[1]}`;
+};
+
 const FEELING_OPTIONS = [
   { value: 'confident', label: 'Confident. I just need reps' },
   { value: 'fine', label: 'Mostly fine, a little on edge' },
@@ -147,7 +155,7 @@ const InnerOnboarding = ({ user, onComplete }) => {
               <span className="io-eyebrow-sep" />Getting started
             </span>
             <h1 className="io-title">
-              {firstName ? `${firstName}, how are you feeling about test prep right now?` : 'How are you feeling about test prep right now?'}
+              {firstName ? `${firstName}, where's your head at with the SAT right now?` : "Where's your head at with the SAT right now?"}
             </h1>
             <p className="io-body">No wrong answer — it just helps us set the tone.</p>
             <OptionList options={FEELING_OPTIONS} selected={feeling} onSelect={pick(setFeeling)} />
@@ -161,12 +169,12 @@ const InnerOnboarding = ({ user, onComplete }) => {
             <span className="io-eyebrow io-eyebrow--orange">
               <span className="io-eyebrow-sep" />Your timeline
             </span>
-            <h1 className="io-title">Are you registered for an upcoming SAT?</h1>
-            <p className="io-body">You can always adjust this date later.</p>
+            <h1 className="io-title">Have you locked in a test date yet?</h1>
+            <p className="io-body">Nothing's final here — you can change it whenever.</p>
 
             {upcomingSatDates.length > 0 && (
               <>
-                <div className="io-field-label">Pick a test date</div>
+                <div className="io-field-label">Upcoming SAT dates</div>
                 <div className="io-chip-grid">
                   {upcomingSatDates.map((sat) => (
                     <button
@@ -182,7 +190,7 @@ const InnerOnboarding = ({ user, onComplete }) => {
               </>
             )}
 
-            <div className="io-field-label">{upcomingSatDates.length > 0 ? 'Or choose your own date' : 'Choose your test date'}</div>
+            <div className="io-field-label">{upcomingSatDates.length > 0 ? 'Or pick a different date' : 'Pick your test date'}</div>
             <label className="io-date-field">
               <CalendarIcon width={20} height={20} aria-hidden="true" />
               <input
@@ -198,7 +206,7 @@ const InnerOnboarding = ({ user, onComplete }) => {
               Continue
             </button>
             <button type="button" className="io-skip" onClick={() => { setTestDate(''); goNext(); }}>
-              I'm not registered yet <ArrowRightIcon width={16} height={16} aria-hidden="true" />
+              I haven't registered yet <ArrowRightIcon width={16} height={16} aria-hidden="true" />
             </button>
           </div>
         );
@@ -210,8 +218,8 @@ const InnerOnboarding = ({ user, onComplete }) => {
             <span className="io-eyebrow io-eyebrow--purple">
               <span className="io-eyebrow-sep" />Where you're starting
             </span>
-            <h1 className="io-title">Do you have a recent SAT or practice score?</h1>
-            <p className="io-body">No stress if it wasn't your best — it just helps us start your plan in the right place.</p>
+            <h1 className="io-title">Have you taken the SAT or a full practice test?</h1>
+            <p className="io-body">Even a rough number helps us aim your plan. No score yet is completely fine.</p>
 
             <div className="io-toggle" role="tablist" aria-label="Score type">
               <button
@@ -221,7 +229,7 @@ const InnerOnboarding = ({ user, onComplete }) => {
                 className={`io-toggle-btn${scoreMode === 'total' ? ' is-active' : ''}`}
                 onClick={() => setScoreMode('total')}
               >
-                Total score
+                Total
               </button>
               <button
                 type="button"
@@ -230,7 +238,7 @@ const InnerOnboarding = ({ user, onComplete }) => {
                 className={`io-toggle-btn${scoreMode === 'section' ? ' is-active' : ''}`}
                 onClick={() => setScoreMode('section')}
               >
-                Section scores
+                By section
               </button>
             </div>
 
@@ -269,7 +277,7 @@ const InnerOnboarding = ({ user, onComplete }) => {
               Continue
             </button>
             <button type="button" className="io-skip" onClick={() => { setTotalScore(''); setRwScore(''); setMathScore(''); goNext(); }}>
-              I don't have a score yet <ArrowRightIcon width={16} height={16} aria-hidden="true" />
+              I haven't tested yet <ArrowRightIcon width={16} height={16} aria-hidden="true" />
             </button>
           </div>
         );
@@ -278,37 +286,32 @@ const InnerOnboarding = ({ user, onComplete }) => {
       case 3: {
         const base = currentScore ?? 400;
         const delta = currentScore != null ? Math.max(0, goal - currentScore) : null;
-        const BARS = 13;
+        const pct = (score) => ((Math.min(1600, Math.max(400, score)) - 400) / 1200) * 100;
+        const basePct = pct(Math.min(base, goal));
+        const goalPct = pct(goal);
+        const gainPct = delta != null && delta > 0 ? Math.max(0, goalPct - basePct) : 0;
         return (
           <div className="io-step" key="goal">
             <span className="io-eyebrow io-eyebrow--lime">
               <span className="io-eyebrow-sep" />Your target
             </span>
-            <h1 className="io-title">Now — what's your goal score?</h1>
+            <h1 className="io-title">What score are you aiming for?</h1>
             <p className="io-body">We pulled in the goal you set earlier. Adjust it if you'd like.</p>
 
-            <div className="io-goal-chart" aria-hidden="true">
-              {delta != null && delta > 0 && (
-                <div
-                  className="io-goal-badge"
-                  style={{ left: `${(BARS - 3) / BARS * 100}%` }}
-                >
-                  +{delta} pts
-                </div>
-              )}
-              <div className="io-goal-bars">
-                {Array.from({ length: BARS }).map((_, i) => {
-                  const barScore = 400 + Math.round((i / (BARS - 1)) * 1200);
-                  const reached = barScore <= goal;
-                  const inDelta = currentScore != null && barScore > currentScore && barScore <= goal;
-                  const h = 24 + (i / (BARS - 1)) * 76;
-                  const cls = inDelta ? 'is-delta' : reached ? 'is-reached' : 'is-rest';
-                  return <span key={i} className={`io-goal-bar ${cls}`} style={{ height: `${h}%` }} />;
-                })}
+            <div className="io-goal-track" aria-hidden="true">
+              <div className="io-goal-runway">
+                <span className="io-goal-seg io-goal-seg--base" style={{ width: `${basePct}%` }} />
+                {gainPct > 0 && (
+                  <span className="io-goal-seg io-goal-seg--gain" style={{ left: `${basePct}%`, width: `${gainPct}%` }} />
+                )}
+                <span className="io-goal-marker" style={{ left: `${goalPct}%` }} />
+                {gainPct > 0 && (
+                  <span className="io-goal-gain" style={{ left: `${basePct + gainPct / 2}%` }}>+{delta} pts</span>
+                )}
               </div>
               <div className="io-goal-scale">
-                <span>{currentScore != null ? `Current ${currentScore}` : 'Current'}</span>
-                <span>Max 1600</span>
+                <span>{currentScore != null ? `Now ${currentScore}` : 'Start 400'}</span>
+                <span>Top 1600</span>
               </div>
             </div>
 
@@ -334,15 +337,19 @@ const InnerOnboarding = ({ user, onComplete }) => {
       case 4:
         return (
           <div className="io-step io-step--center" key="interlude">
-            <div className="io-interlude-card">
-              <div className="io-interlude-badge"><TargetIcon width={16} height={16} aria-hidden="true" /> {goal}</div>
-              <div className="io-interlude-head">Your tasks for today</div>
-              <div className="io-interlude-row is-done"><span className="io-interlude-check"><CheckIcon width={12} height={12} aria-hidden="true" /></span><i /><i style={{ width: '38%' }} /></div>
-              <div className="io-interlude-row"><span className="io-interlude-box" /><i style={{ width: '30%' }} /><i style={{ width: '44%' }} /></div>
-              <div className="io-interlude-row"><span className="io-interlude-box" /><i style={{ width: '58%' }} /></div>
+            <div className="io-recap-card">
+              <div className="io-recap-head">
+                <span className="io-recap-eyebrow">What we have so far</span>
+                <span className="io-recap-target"><TargetIcon width={15} height={15} aria-hidden="true" /> {goal}</span>
+              </div>
+              <dl className="io-recap-list">
+                <div className="io-recap-row"><dt>Goal score</dt><dd>{goal}</dd></div>
+                <div className="io-recap-row"><dt>Test date</dt><dd>{testDate ? formatRecapDate(testDate) : 'Flexible for now'}</dd></div>
+                <div className="io-recap-row"><dt>Starting point</dt><dd>{currentScore != null ? currentScore : "We'll find it together"}</dd></div>
+              </dl>
             </div>
-            <h1 className="io-title">Got it{firstName ? `, ${firstName}` : ''} — let's get you there.</h1>
-            <p className="io-body">We're almost done personalizing your plan. Just a few more details about you.</p>
+            <h1 className="io-title">That's the picture{firstName ? `, ${firstName}` : ''}. Now let's build your plan.</h1>
+            <p className="io-body">A couple more details and your plan is ready.</p>
             <button type="button" className="io-cta" onClick={goNext}>Keep going</button>
           </div>
         );
@@ -354,7 +361,7 @@ const InnerOnboarding = ({ user, onComplete }) => {
             <span className="io-eyebrow io-eyebrow--lime">
               <span className="io-eyebrow-sep" />Your strengths
             </span>
-            <h1 className="io-title">Which part of the test do you feel most confident about?</h1>
+            <h1 className="io-title">What are you strongest at right now?</h1>
             <OptionList options={SECTION_OPTIONS} selected={confidentArea} onSelect={pick(setConfidentArea)} />
           </div>
         );
@@ -366,7 +373,7 @@ const InnerOnboarding = ({ user, onComplete }) => {
             <span className="io-eyebrow io-eyebrow--purple">
               <span className="io-eyebrow-sep" />Your focus
             </span>
-            <h1 className="io-title">And which part worries you the most?</h1>
+            <h1 className="io-title">And what's tripping you up the most?</h1>
             <p className="io-body">This is where we'll spend the most time together.</p>
             <OptionList options={SECTION_OPTIONS} selected={worryArea} onSelect={pick(setWorryArea)} />
           </div>
@@ -379,8 +386,8 @@ const InnerOnboarding = ({ user, onComplete }) => {
             <span className="io-eyebrow io-eyebrow--orange">
               <span className="io-eyebrow-sep" />Almost done
             </span>
-            <h1 className="io-title">Finally — what's your high school graduation year?</h1>
-            <p className="io-body">This helps us tailor SEVA to your test-prep timeline.</p>
+            <h1 className="io-title">Last one — when do you graduate?</h1>
+            <p className="io-body">It helps us pace your plan to your timeline.</p>
             <div className="io-chip-grid io-chip-grid--years">
               {gradYears.map((y) => (
                 <button
@@ -403,13 +410,13 @@ const InnerOnboarding = ({ user, onComplete }) => {
           <div className="io-step io-step--center" key="finish">
             <div className="io-finish-mark"><TargetIcon width={40} height={40} aria-hidden="true" /></div>
             <h1 className="io-title">
-              {firstName ? `Ready to get your plan, ${firstName}?` : 'Ready to get your personalized plan?'}
+              {firstName ? `Ready to see your plan, ${firstName}?` : 'Ready to see your plan?'}
             </h1>
             <p className="io-body">
               Next up: a quick 15-minute check-in on your home screen. It's how SEVA builds a study plan that's actually yours.
             </p>
             <button type="button" className="io-cta io-cta--lg" onClick={finish} disabled={submitting}>
-              {submitting ? 'Setting things up…' : "Let's go"}
+              {submitting ? 'Setting things up…' : 'Show me my plan'}
             </button>
           </div>
         );

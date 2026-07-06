@@ -64,7 +64,7 @@ afterEach(() => {
 
 test('opens on the feeling step with the funnel answer pre-selected', () => {
   mount();
-  expect(container.textContent).toContain('how are you feeling about test prep');
+  expect(container.textContent).toContain("where's your head at with the SAT");
   const selected = container.querySelector('.io-option.is-selected');
   expect(selected).toBeTruthy();
   expect(selected.textContent).toContain('Stressed when I think about it');
@@ -74,14 +74,14 @@ test('tapping feeling advances to the exam-date step', () => {
   mount();
   clickByText('.io-option', "It's genuinely weighing on me");
   flush();
-  expect(container.textContent).toContain('registered for an upcoming SAT');
+  expect(container.textContent).toContain('locked in a test date');
 });
 
 test('goal step is pre-filled from the user target score', () => {
   mount();
   clickByText('.io-option', 'Confident'); flush();          // feeling -> exam date
-  clickByText('.io-skip', "I'm not registered yet");         // exam date -> current score
-  clickByText('.io-skip', "I don't have a score yet");       // current score -> goal
+  clickByText('.io-skip', "I haven't registered yet");         // exam date -> current score
+  clickByText('.io-skip', "I haven't tested yet");       // current score -> goal
   expect(container.querySelector('.io-goal-readout').textContent).toBe('1450');
 });
 
@@ -90,15 +90,15 @@ test('walks to the end and reports the collected profile', () => {
   mount({ onComplete });
 
   clickByText('.io-option', 'Confident'); flush();           // 0 feeling
-  clickByText('.io-skip', "I'm not registered yet");          // 1 exam date (skip)
-  clickByText('.io-skip', "I don't have a score yet");        // 2 current score (skip)
+  clickByText('.io-skip', "I haven't registered yet");          // 1 exam date (skip)
+  clickByText('.io-skip', "I haven't tested yet");        // 2 current score (skip)
   clickByText('.io-cta', 'Continue');                         // 3 goal -> interlude
   clickByText('.io-cta', 'Keep going');                       // 4 interlude -> confident
   clickByText('.io-option', 'Math'); flush();                 // 5 confident = math
   clickByText('.io-option', 'Reading and Writing'); flush();  // 6 worry = rw
   const year = String(new Date().getFullYear() + 2);
   clickByText('.io-chip', year); flush();                     // 7 grad year
-  clickByText('.io-cta', "Let's go");                         // 8 finish
+  clickByText('.io-cta', 'Show me my plan');                  // 8 finish
 
   expect(onComplete).toHaveBeenCalledTimes(1);
   const payload = onComplete.mock.calls[0][0];
@@ -115,8 +115,8 @@ test('every step renders emoji-free', () => {
   mount();
   const steps = [
     () => clickByText('.io-option', 'Confident'),
-    () => clickByText('.io-skip', "I'm not registered yet"),
-    () => clickByText('.io-skip', "I don't have a score yet"),
+    () => clickByText('.io-skip', "I haven't registered yet"),
+    () => clickByText('.io-skip', "I haven't tested yet"),
     () => clickByText('.io-cta', 'Continue'),
     () => clickByText('.io-cta', 'Keep going'),
     () => clickByText('.io-option', 'Math'),
