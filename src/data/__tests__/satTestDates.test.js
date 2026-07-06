@@ -16,16 +16,41 @@ describe('satTestDates canonical source', () => {
   });
 
   test('getUpcomingSATDates drops past dates and returns chronological order', () => {
-    const from = new Date(2026, 6, 6); // Jul 6 2026, local
+    const from = new Date(2026, 10, 15); // Nov 15 2026, local — after the Nov 7 date
     const upcoming = getUpcomingSATDates(from);
     expect(upcoming.length).toBeGreaterThan(0);
     // all on/after the cutoff day
-    for (const s of upcoming) expect(s.date >= '2026-07-06').toBe(true);
-    // none of the spring 2026 dates survive
-    expect(upcoming.find((s) => s.date === '2026-03-14')).toBeUndefined();
+    for (const s of upcoming) expect(s.date >= '2026-11-15').toBe(true);
+    // Aug–Nov 2026 dropped, Dec 2026 survives and leads
+    expect(upcoming.find((s) => s.date === '2026-08-22')).toBeUndefined();
+    expect(upcoming[0].date).toBe('2026-12-05');
     // sorted ascending
     const sorted = [...upcoming].sort((a, b) => a.date.localeCompare(b.date));
     expect(upcoming).toEqual(sorted);
+  });
+
+  test('the confirmed 2026 dates match the official College Board schedule', () => {
+    const byName = Object.fromEntries(SAT_TEST_DATES.map((s) => [s.name, s.date]));
+    expect(byName['August 2026 SAT']).toBe('2026-08-22');
+    expect(byName['September 2026 SAT']).toBe('2026-09-12');
+    expect(byName['October 2026 SAT']).toBe('2026-10-03');
+    expect(byName['November 2026 SAT']).toBe('2026-11-07');
+    expect(byName['December 2026 SAT']).toBe('2026-12-05');
+  });
+
+  test('registration deadlines are valid and fall before the test date; anticipated dates carry no deadlines', () => {
+    for (const s of SAT_TEST_DATES) {
+      if (s.anticipated) {
+        expect(s.regDeadline).toBeUndefined();
+        expect(s.lateDeadline).toBeUndefined();
+        continue;
+      }
+      expect(s.regDeadline).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+      expect(s.lateDeadline).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+      expect(s.regDeadline < s.date).toBe(true);        // register before test day
+      expect(s.regDeadline <= s.lateDeadline).toBe(true); // late window is after regular
+      expect(s.lateDeadline < s.date).toBe(true);
+    }
   });
 
   test('getUpcomingSATDates includes a date falling exactly on the cutoff day', () => {
