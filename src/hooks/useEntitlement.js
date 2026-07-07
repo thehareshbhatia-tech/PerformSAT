@@ -58,6 +58,7 @@ export function useEntitlement(user) {
   // a 60s tick is plenty).
   const [nowMs, setNowMs] = useState(() => Date.now());
   const ensureRequestedRef = useRef(null); // uid we already called ensure for
+  const healRequestedRef = useRef(null); // uid we already asked to self-heal
 
   useEffect(() => {
     if (!flagEnabled || !uid) {
@@ -69,8 +70,32 @@ export function useEntitlement(user) {
     const unsubscribe = onSnapshot(
       doc(db, 'entitlements', uid),
       (snap) => {
-        setDocData(snap.exists() ? snap.data() : null);
+        const data = snap.exists() ? snap.data() : null;
+        setDocData(data);
         setLoading(false);
+        // Self-heal a grandfathered account stranded on a stale pre-grandfather
+        // doc (an old no-card "trialing" doc, or a "none" seed). The server's
+        // ensureEntitlement only seeds a MISSING doc, so a pre-launch user who
+        // already had one keeps seeing a trial/paywall. Re-call ensureEntitlement
+        // ONCE per session for a heal-candidate doc — non-comped, no
+        // grandfathered flag, no Stripe customer/subscription. The server
+        // re-checks the authoritative account age (isGrandfathered) and only
+        // upgrades a genuine pre-launch account; for anyone else it's a no-op.
+        if (
+          data &&
+          healRequestedRef.current !== uid &&
+          data.status !== 'comped' &&
+          !data.grandfathered &&
+          !data.stripeCustomerId &&
+          !data.subscriptionId &&
+          (data.status === 'trialing' || data.status === 'none')
+        ) {
+          healRequestedRef.current = uid;
+          ensureEntitlement().catch((err) => {
+            healRequestedRef.current = null;
+            log.error('entitlement self-heal request failed', err);
+          });
+        }
         if (!snap.exists() && ensureRequestedRef.current !== uid) {
           // First session for this account (or pre-launch account's first
           // post-launch session). Seed the entitlement doc exactly once.

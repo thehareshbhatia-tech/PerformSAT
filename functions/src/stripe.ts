@@ -41,6 +41,7 @@ import {
   shouldApplyEvent,
   hasAccessMs,
   isGrandfathered,
+  shouldGrandfatherExisting,
   normalizePromoCode,
   evaluatePromoRedemption,
   EntitlementPatch,
@@ -164,7 +165,25 @@ export const ensureEntitlement = onRequest(
       const ref = entitlementRef(user.uid);
       await getFirestore().runTransaction(async (tx) => {
         const snap = await tx.get(ref);
-        if (snap.exists) return; // idempotent — never touch an existing doc
+        if (snap.exists) {
+          // Self-heal grandfathered accounts seeded BEFORE the grandfather rule
+          // existed: an old no-card "trialing" doc (or a "none" seed) on a
+          // pre-launch account is upgraded to comped so a current free
+          // early-access user is never shown a trial or paywall. Conservative —
+          // never touches a comped doc or one backed by a real Stripe
+          // customer/subscription (that path is owned by the webhook).
+          if (shouldGrandfatherExisting(snap.data() ?? null, comped)) {
+            tx.update(ref, {
+              status: "comped",
+              grandfathered: true,
+              trialEndsAt: null,
+              plan: null,
+              updatedAt: FieldValue.serverTimestamp(),
+            });
+            logger.info(`self-healed ${user.uid} to comped (grandfathered)`);
+          }
+          return; // otherwise idempotent — never touch an existing doc
+        }
         if (comped) {
           // Pre-launch account: permanent free access. No Stripe customer, no
           // subscription, no trial clock — hasAccessMs("comped") is always

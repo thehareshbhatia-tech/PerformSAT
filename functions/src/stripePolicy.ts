@@ -233,6 +233,46 @@ export function isGrandfathered(
   return accountCreatedMs < launchEpochMs;
 }
 
+/** Minimal view of an existing entitlement doc for the self-heal decision. */
+export interface ExistingEntitlementView {
+  status?: string | null;
+  stripeCustomerId?: string | null;
+  subscriptionId?: string | null;
+}
+
+/**
+ * Should ensureEntitlement upgrade an ALREADY-EXISTING entitlement doc to
+ * comped? The grandfather seed only ran for accounts with no doc yet, so a
+ * pre-launch user who already had a doc (an old no-card "trialing" doc, or a
+ * "none" seed) from before the grandfather rule shipped stayed non-comped and
+ * kept seeing a trial/paywall. This heals them on their next ensureEntitlement
+ * call.
+ *
+ * Conservative — returns false unless ALL hold:
+ *   - the account is grandfathered (created before billing launch), AND
+ *   - the existing doc is not already comped (no pointless write), AND
+ *   - the doc is NOT backed by a real Stripe customer/subscription.
+ * The last guard is load-bearing: a doc with a stripeCustomerId/subscriptionId
+ * is owned by the Stripe webhook lifecycle, so we never overwrite it here (that
+ * could free a genuinely paying account or race a subscription event). Such a
+ * case — a pre-launch account that later entered Checkout — is left for manual
+ * handling, never silently comped.
+ *
+ * @param {ExistingEntitlementView|null} existing current entitlement doc data
+ * @param {boolean} grandfathered whether the account predates billing launch
+ * @return {boolean} true when the existing doc should be upgraded to comped
+ */
+export function shouldGrandfatherExisting(
+  existing: ExistingEntitlementView | null | undefined,
+  grandfathered: boolean,
+): boolean {
+  if (!grandfathered) return false;
+  if (!existing) return false;
+  if (existing.status === "comped") return false;
+  if (existing.stripeCustomerId || existing.subscriptionId) return false;
+  return true;
+}
+
 // ── Promo codes (comp a user into permanent free access) ───────────────────
 
 /** Server-side view of a promoCodes/{CODE} doc for the redemption decision. */

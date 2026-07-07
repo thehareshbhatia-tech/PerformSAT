@@ -15,6 +15,7 @@ const {
   shouldApplyEvent,
   hasAccessMs,
   isGrandfathered,
+  shouldGrandfatherExisting,
 } = require("../lib/stripePolicy");
 
 const NOW = Date.parse("2026-07-15T12:00:00Z");
@@ -262,4 +263,46 @@ test("grandfather: missing/unparseable inputs are NOT grandfathered", () => {
   assert.strictEqual(isGrandfathered(NaN, epoch), false);
   assert.strictEqual(isGrandfathered(1_000_000, null), false);
   assert.strictEqual(isGrandfathered(1_000_000, NaN), false);
+});
+
+// ── shouldGrandfatherExisting (self-heal a stale pre-grandfather doc) ─────
+
+test("self-heal: upgrades a pre-launch account's stale trialing/none doc", () => {
+  // The exact bug: an old no-card "trialing" doc on a grandfathered account.
+  assert.strictEqual(
+    shouldGrandfatherExisting({status: "trialing"}, true), true);
+  assert.strictEqual(
+    shouldGrandfatherExisting({status: "none"}, true), true);
+  // No-Stripe fields present but null — still heals.
+  assert.strictEqual(
+    shouldGrandfatherExisting(
+      {status: "trialing", stripeCustomerId: null, subscriptionId: null},
+      true), true);
+});
+
+test("self-heal: never touches a non-grandfathered account", () => {
+  // A post-launch account on a trial must keep its trial.
+  assert.strictEqual(shouldGrandfatherExisting({status: "trialing"}, false), false);
+  assert.strictEqual(shouldGrandfatherExisting({status: "none"}, false), false);
+});
+
+test("self-heal: no-op when already comped", () => {
+  assert.strictEqual(shouldGrandfatherExisting({status: "comped"}, true), false);
+});
+
+test("self-heal: never overwrites a real Stripe-backed doc", () => {
+  // Load-bearing: a pre-launch account that later ran Checkout has a real
+  // subscription owned by the webhook — comping it here could free a paying
+  // account or race a subscription event. Left for manual handling.
+  assert.strictEqual(
+    shouldGrandfatherExisting(
+      {status: "trialing", subscriptionId: "sub_123"}, true), false);
+  assert.strictEqual(
+    shouldGrandfatherExisting(
+      {status: "active", stripeCustomerId: "cus_123"}, true), false);
+});
+
+test("self-heal: null/undefined doc is a safe no-op", () => {
+  assert.strictEqual(shouldGrandfatherExisting(null, true), false);
+  assert.strictEqual(shouldGrandfatherExisting(undefined, true), false);
 });
