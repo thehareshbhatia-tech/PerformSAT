@@ -1,12 +1,14 @@
 import React, { useMemo, useState, useEffect } from 'react';
 import {
   questionBank as mathQuestionBank,
+  getQuestionsByDomain as getMathQuestionsByDomain,
   getQuestionsByCBSkill,
 } from '../data/questions/bank';
 import {
   rwQuestionBank,
   RW_DOMAINS,
   getQuestionsBySkillIds as getRWQuestionsBySkillIds,
+  getQuestionsByDomain as getRWQuestionsByDomain,
 } from '../data/questions/rwBank';
 import { deriveRWQuestionType, RW_PATTERN_LABELS } from '../data/questions/rwBank/deriveRWPattern';
 import { RW_READING_TYPE_LABELS } from '../data/questions/rwBank/rwReadingType';
@@ -71,6 +73,7 @@ const POOL_CHIPS = [
   { key: 'missed', label: 'Missed only' },
 ];
 const allTopicSlugs = (cat) => new Set((cat?.cbSkills || []).map(s => s.slug));
+const DRILL_COUNT_PER_SKILL = 15;
 const DRILL_COUNT_PER_DOMAIN = 20;
 const DRILL_COUNT_HERO = 25;
 const DRILL_COUNT_SPRINT = 10;
@@ -263,7 +266,7 @@ const BandChip = ({ m }) => {
 // a calm grid of domain cards (topic list inline, question types one click away).
 // The drill builder lives behind a single "Build a custom drill" modal.
 // ────────────────────────────────────────────────────────────────────────────
-const PracticeBank = ({ onStartPractice, onStartAdaptive, bankPractice = {}, weaknesses = null, activeDrill = null, onResumeDrill, onDiscardDrill }) => {
+const PracticeBank = ({ onStartPractice, bankPractice = {}, weaknesses = null, activeDrill = null, onResumeDrill, onDiscardDrill }) => {
   const [section, setSection] = useState('math');
 
   // ── Custom drill builder (modal) ───────────────────────────────────────────
@@ -406,32 +409,16 @@ const PracticeBank = ({ onStartPractice, onStartAdaptive, bankPractice = {}, wea
     if (ids.length === 0) return;
     onStartPractice(ids, { label: rec.title, source: `practice-bank-foryou-${rec.kind}`, section });
   };
-  // Domain "Practice" → adaptive round over the whole domain (difficulty
-  // ladders to the student's performance).
+  // Domain "Practice" → a round over the whole domain (the SEVA Round shell).
   const launchDomainMixed = (cat) => {
-    onStartAdaptive({
-      enforcedDomain: cat.domain,
-      label: `${cat.label} practice`,
-      section,
-      ephemeral: true,
-      source: 'practice-bank-domain',
-    });
+    const fetchDomain = section === 'math' ? getMathQuestionsByDomain : getRWQuestionsByDomain;
+    launchFromPool(fetchDomain(cat.domain), DRILL_COUNT_PER_DOMAIN, `${cat.label} mix`, 'practice-bank-domain');
   };
-  // Topic "Practice" → adaptive round over EVERY question type that lives under
-  // this topic. The round isn't a fixed list: the adaptive engine picks the
-  // next item by difficulty as the student answers.
+  // Topic "Practice" → a round pulling from EVERY question type that lives under
+  // this topic (the types are folded into the topic, not browsed separately).
   const launchSkillDrill = (skill) => {
     const pool = section === 'math' ? getQuestionsByCBSkill(skill.slug) : getRWQuestionsBySkillIds([skill.slug]);
-    const poolIds = pool.filter(isDrillable).map(q => q.id);
-    if (poolIds.length === 0) return;
-    onStartAdaptive({
-      poolIds,
-      label: skill.label,
-      section,
-      enforcedDomain: skill.domain,
-      ephemeral: true,
-      source: 'practice-bank-topic',
-    });
+    launchFromPool(pool, DRILL_COUNT_PER_SKILL, skill.label, 'practice-bank-skill');
   };
 
   // Custom builder: multi-select topics (at least one must stay on), then launch

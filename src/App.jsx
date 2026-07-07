@@ -1083,7 +1083,6 @@ const PerformSAT = () => {
       normalizeDomain,
       RW_DOMAIN_ORDER,
       buildDomainAdaptiveQueueSeed,
-      buildAdaptiveSeedFromIds,
       createAdaptiveSessionState,
       deserializeAdaptiveState,
       getNextAdaptiveQuestion,
@@ -1096,20 +1095,7 @@ const PerformSAT = () => {
     let queueSeed;
     let sessionState;
 
-    if (Array.isArray(opts.poolIds) && opts.poolIds.length > 0) {
-      // Topic-scoped adaptive round (Practice Bank): the pool is an explicit
-      // id list — every question type that lives under one topic — and the
-      // adaptive engine ladders difficulty up/down over it. Always ephemeral
-      // (free practice, never persisted into the plan's adaptive slot).
-      queueSeed = buildAdaptiveSeedFromIds({
-        ids: opts.poolIds,
-        label,
-        weakDomains: resolvedDomain ? [resolvedDomain] : [],
-        seed: `${label || 'topic'}:${opts.poolIds.length}`,
-      });
-      if (!queueSeed?.poolIds?.length) return;
-      sessionState = createAdaptiveSessionState(queueSeed);
-    } else if (resolvedDomain) {
+    if (resolvedDomain) {
       // Phase 2 parity: pass math weaknesses so the seed can bias its pool
       // toward currently-missed SAT Patterns within this domain (Tier-1
       // routing for the adaptive flow, matching what AssignedPracticeShell
@@ -1156,12 +1142,6 @@ const PerformSAT = () => {
       adaptiveQueueSeed: queueSeed,
       adaptiveSessionState: sessionState,
       adaptiveDomainLabel: label || null,
-      // Practice Bank rounds are free practice: don't persist their session
-      // into the study plan's adaptivePracticeState slot (would clobber it).
-      adaptiveEphemeral: !!opts.ephemeral,
-      // A 'practice-bank-*' source is what makes recordBankPractice fire, so
-      // adaptive topic/domain rounds still update the per-topic mastery bands.
-      ...(opts.source ? { assignmentMeta: { label: label || 'Practice', source: opts.source } } : {}),
     });
     setActiveModule(null);
     setActiveSection('__adaptive__');
@@ -1775,10 +1755,9 @@ const PerformSAT = () => {
       // Evaluate both-rule completion (target + mastery)
       const completion = evaluateAdaptiveCompletion(nextState);
 
-      // Persist state after each answer — but NOT for ephemeral Practice Bank
-      // rounds, which must never overwrite the study plan's own adaptive slot.
+      // Persist state after each answer
       const artId = studyPlanMeta?.artifactId;
-      if (user?.uid && artId && !practiceState.adaptiveEphemeral) {
+      if (user?.uid && artId) {
         const toSave = { ...serializeAdaptiveState(nextState) };
         if (completion.isComplete) {
           toSave.isCompleted = true;
@@ -1968,13 +1947,7 @@ const PerformSAT = () => {
   const handleTrySimilar = useCallback(async (currentQuestion) => {
     const excludeIds = (practiceState.shuffledQuestions || []).map(q => q.id).filter(Boolean);
     const { pickSimilarQuestion } = await loadTrySimilar();
-    // Adaptive Practice Bank rounds drill DOWN into the exact question type
-    // (satPattern); the study-plan assigned path keeps matching by skill.
-    const result = pickSimilarQuestion({
-      currentQuestion,
-      excludeIds,
-      preferType: practiceState.practiceMode === 'adaptive',
-    });
+    const result = pickSimilarQuestion({ currentQuestion, excludeIds });
 
     switch (result.kind) {
       case 'invalid':
@@ -2035,7 +2008,7 @@ const PerformSAT = () => {
       default:
         return;
     }
-  }, [practiceState.shuffledQuestions, practiceState.practiceMode]);
+  }, [practiceState.shuffledQuestions]);
 
   /**
    * handleTrySimilarFromReview — launches a 1-question assigned-practice
@@ -2310,7 +2283,6 @@ const PerformSAT = () => {
         {view === 'practiceBank' && (
           <PracticeBank
             onStartPractice={startAssignedPractice}
-            onStartAdaptive={startAdaptivePractice}
             bankPractice={bankPractice}
             weaknesses={studyPlan?.weaknesses || null}
             activeDrill={activeDrill}
@@ -3209,20 +3181,13 @@ const PerformSAT = () => {
 
           // Adaptive practice uses the adaptive shell
           if (isAdaptive) {
-            // Same per-skill pool-exhaustion flag the assigned shell uses, so
-            // the adaptive "Practice a similar question" button disables once
-            // the bank runs dry for the current item.
-            const cqSkills = Array.isArray(currentQuestion?.skills)
-              ? currentQuestion.skills
-              : (currentQuestion?.skill ? [currentQuestion.skill] : []);
-            const isTrySimilarExhausted = cqSkills.some(s => trySimilarExhausted.has(s));
             return (
               <AdaptivePracticeShell
                 practiceState={practiceState}
                 questions={questions}
                 currentQuestion={currentQuestion}
                 headerTitle={headerTitle}
-                onBack={backHandler}
+                onBack={studyPlanBackHandler}
                 onSelectAnswer={handleSelectAnswer}
                 onCheckAnswer={handleCheckAnswer}
                 onNextQuestion={handleNextQuestion}
@@ -3232,8 +3197,6 @@ const PerformSAT = () => {
                 showCalculator={showCalculator}
                 flaggedQuestions={flaggedQuestions}
                 onToggleFlag={toggleFlagQuestion}
-                onTrySimilar={handleTrySimilar}
-                isTrySimilarExhausted={isTrySimilarExhausted}
                 onRelaunch={() => startAdaptivePractice({
                   enforcedDomain: practiceState.adaptiveQueueSeed?.enforcedDomain,
                   label: practiceState.adaptiveDomainLabel,
