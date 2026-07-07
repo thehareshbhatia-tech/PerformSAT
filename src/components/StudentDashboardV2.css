@@ -1,0 +1,322 @@
+/* StudentDashboardV2.css
+ * ============================================================================
+ * SEVA Home v2 — the redesigned Dashboard tab (matched to the "SEVA Home v2"
+ * standalone mockup). Cream canvas + navy accents + tri-color tiles, Bricolage
+ * Grotesque (display) / Hanken Grotesk (body). Palette uses the SEVA house
+ * brand values (orange #EA580C, not the mockup's #EC5C2B) so it stays in step
+ * with PracticeTest.css --pt-* and the tri-color brand rule.
+ *
+ * Everything is scoped under .hv2 so it never leaks into the legacy dashboard
+ * markup (StudentDashboard.css) or the Study Plan tab. Class contract: restyle,
+ * don't rename — the JSX in StudentDashboard.jsx keys off these names.
+ * ========================================================================== */
+
+.hv2 {
+  --hv2-bg: #F6F4EF;
+  --hv2-surface: #FFFFFF;
+  --hv2-surface-2: #F1EEE7;
+  --hv2-inset: #FAF8F3;
+  --hv2-line: #E7E3D9;
+  --hv2-line-strong: #D9D4C7;
+  --hv2-text: #15171C;
+  --hv2-text-2: #5B6068;
+  --hv2-text-3: #9A9EA6;
+  --hv2-orange: #EA580C;
+  --hv2-orange-2: #F2865C;
+  --hv2-orange-tint: rgba(234, 88, 12, .1);
+  --hv2-lime: #C2E83A;
+  --hv2-lime-deep: #5A8A16;
+  --hv2-lime-ink: #1D2F0E;
+  --hv2-purple: #7C5CC7;
+  --hv2-purple-tint: #F1ECFA;
+  --hv2-navy: #0C1026;
+  --hv2-shadow: 0 1px 2px rgba(20, 22, 28, .04), 0 6px 18px rgba(20, 22, 28, .05);
+  --hv2-shadow-lg: 0 2px 6px rgba(20, 22, 28, .05), 0 18px 40px rgba(20, 22, 28, .09);
+  --hv2-font-display: 'Bricolage Grotesque', 'Inter', system-ui, sans-serif;
+  --hv2-font-body: 'Hanken Grotesk', 'Inter', system-ui, sans-serif;
+  font-family: var(--hv2-font-body);
+  color: var(--hv2-text);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Grid ──────────────────────────────────────────────────────────────── */
+.hv2-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: 24px;
+  align-items: start;
+  margin-top: 26px;
+}
+.hv2-main { min-width: 0; display: flex; flex-direction: column; gap: 24px; }
+.hv2-side { display: flex; flex-direction: column; gap: 20px; position: sticky; top: 30px; }
+
+@media (max-width: 1100px) {
+  .hv2-grid { grid-template-columns: 1fr; }
+  .hv2-side { position: static; }
+}
+
+/* ── Section heading ───────────────────────────────────────────────────── */
+.hv2-section-head {
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: 12px; margin-bottom: 14px;
+}
+.hv2-section-title {
+  font-family: var(--hv2-font-display); font-weight: 700; font-size: 19px;
+  letter-spacing: -.01em; color: var(--hv2-text); margin: 0;
+}
+.hv2-section-meta { font-size: 12.5px; font-weight: 600; color: var(--hv2-text-3); }
+
+/* ── Generic card + hover ──────────────────────────────────────────────── */
+.hv2-card {
+  background: var(--hv2-surface); border: 1px solid var(--hv2-line);
+  border-radius: 18px; padding: 24px; box-shadow: var(--hv2-shadow);
+}
+.hv2-hov-lift { transition: transform .16s, box-shadow .16s, border-color .16s; }
+.hv2-hov-lift:hover { transform: translateY(-2px); box-shadow: var(--hv2-shadow-lg); }
+.hv2-hov-soft { transition: background .15s; }
+.hv2-hov-soft:hover { background: var(--hv2-surface-2); }
+
+/* ── Performance snapshot ──────────────────────────────────────────────── */
+.hv2-perf { display: grid; grid-template-columns: 1.12fr 1fr; gap: 16px; }
+.hv2-perf-accuracy {
+  background: var(--hv2-orange); border-radius: 20px; padding: 26px 28px;
+  color: #fff; display: flex; flex-direction: column; justify-content: space-between;
+  min-height: 214px;
+}
+.hv2-perf-accuracy .hv2-eyebrow { color: rgba(255, 255, 255, .88); }
+.hv2-perf-accuracy .hv2-big-pct {
+  font-family: var(--hv2-font-display); font-weight: 700; font-size: 80px;
+  line-height: .82; letter-spacing: -.03em;
+}
+.hv2-perf-accuracy .hv2-big-pct span { font-size: 42px; }
+.hv2-perf-accuracy .hv2-perf-detail { font-size: 13px; color: rgba(255, 255, 255, .82); }
+
+.hv2-eyebrow {
+  font-weight: 700; font-size: 12px; letter-spacing: .13em; text-transform: uppercase;
+}
+.hv2-perf-stack { display: flex; flex-direction: column; gap: 16px; }
+.hv2-split { display: flex; border-radius: 18px; overflow: hidden; flex: 1; min-height: 99px; }
+.hv2-split-num {
+  flex: 0 0 42%; display: flex; align-items: center; padding: 0 22px;
+  font-family: var(--hv2-font-display); font-weight: 700; font-size: 38px; letter-spacing: -.02em;
+}
+.hv2-split-body {
+  flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 0 22px;
+}
+.hv2-split-eyebrow {
+  font-weight: 700; font-size: 10.5px; letter-spacing: .11em; text-transform: uppercase;
+}
+.hv2-split-name {
+  font-family: var(--hv2-font-display); font-weight: 700; font-size: 19px; margin-top: 2px;
+}
+.hv2-split-detail { font-size: 11.5px; margin-top: 1px; }
+
+.hv2-split-strong .hv2-split-num { background: var(--hv2-lime-ink); color: var(--hv2-lime); }
+.hv2-split-strong .hv2-split-body { background: var(--hv2-lime); color: var(--hv2-lime-ink); }
+.hv2-split-strong .hv2-split-eyebrow { opacity: .72; }
+.hv2-split-strong .hv2-split-detail { opacity: .7; }
+
+.hv2-split-opp .hv2-split-num { background: #37285F; color: #CDB8F0; }
+.hv2-split-opp .hv2-split-body { background: var(--hv2-purple); color: #fff; }
+.hv2-split-opp .hv2-split-eyebrow { color: rgba(255, 255, 255, .82); }
+.hv2-split-opp .hv2-split-detail { color: rgba(255, 255, 255, .78); }
+
+.hv2-split-empty {
+  flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 0 22px;
+  background: var(--hv2-surface-2); color: var(--hv2-text-2);
+}
+.hv2-split-empty .hv2-split-eyebrow { color: var(--hv2-text-3); }
+.hv2-split-empty .hv2-empty-hint { font-size: 12px; margin-top: 4px; line-height: 1.4; }
+
+/* ── Score trajectory hero ─────────────────────────────────────────────── */
+.hv2-score-hero {
+  background: var(--hv2-surface); border: 1px solid var(--hv2-line);
+  border-radius: 22px; padding: 30px 32px; box-shadow: var(--hv2-shadow);
+}
+.hv2-score-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; }
+.hv2-score-eyebrow {
+  font-weight: 700; font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--hv2-text-3);
+}
+.hv2-score-numrow { display: flex; align-items: flex-end; gap: 12px; margin-top: 8px; }
+.hv2-score-num {
+  font-family: var(--hv2-font-display); font-weight: 700; font-size: 64px;
+  line-height: .85; letter-spacing: -.03em; color: var(--hv2-text);
+}
+.hv2-goal-pill {
+  display: inline-flex; align-items: center; gap: 4px; font-weight: 700; font-size: 13px;
+  padding: 5px 11px; border-radius: 20px; margin-bottom: 8px;
+  background: rgba(90, 138, 22, .12); color: var(--hv2-lime-deep);
+}
+.hv2-goal-pill.is-achieved { background: rgba(90, 138, 22, .16); }
+.hv2-sub-tiles { display: flex; gap: 10px; flex: none; }
+.hv2-sub-tile {
+  background: var(--hv2-inset); border: 1px solid var(--hv2-line); border-radius: 13px;
+  padding: 13px 16px; text-align: center; min-width: 88px;
+}
+.hv2-sub-tile-label {
+  font-weight: 700; font-size: 10px; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--hv2-text-3);
+}
+.hv2-sub-tile-num {
+  font-family: var(--hv2-font-display); font-weight: 700; font-size: 24px;
+  margin-top: 4px; color: var(--hv2-text);
+}
+
+.hv2-progress-wrap { margin-top: 26px; }
+.hv2-progress-bar { position: relative; height: 10px; border-radius: 6px; background: var(--hv2-surface-2); }
+.hv2-progress-fill {
+  position: absolute; left: 0; top: 0; bottom: 0; border-radius: 6px;
+  background: linear-gradient(90deg, var(--hv2-orange), var(--hv2-orange-2));
+  transition: width .4s ease;
+}
+.hv2-progress-goal {
+  position: absolute; left: 100%; top: -4px; bottom: -4px; width: 2.5px; border-radius: 2px;
+  background: var(--hv2-lime-deep); transform: translateX(-2px);
+}
+.hv2-progress-labels {
+  display: flex; justify-content: space-between; margin-top: 10px; font-size: 12px; font-weight: 600;
+}
+.hv2-progress-labels .lo { color: var(--hv2-text-3); }
+.hv2-progress-labels .mid { color: var(--hv2-text-2); }
+.hv2-progress-labels .hi { color: var(--hv2-lime-deep); }
+
+.hv2-hero-footer {
+  display: flex; gap: 26px; margin-top: 24px; padding-top: 22px;
+  border-top: 1px solid var(--hv2-line); flex-wrap: wrap;
+}
+.hv2-hero-foot-item { display: flex; align-items: center; gap: 10px; }
+.hv2-hero-foot-label { font-size: 12px; color: var(--hv2-text-3); font-weight: 600; }
+.hv2-hero-foot-val { font-weight: 700; font-size: 14px; color: var(--hv2-text); }
+.hv2-hero-foot-val.is-warn { color: var(--hv2-orange); }
+
+/* ── Today's focus ─────────────────────────────────────────────────────── */
+.hv2-focus-row { display: flex; align-items: center; gap: 18px; }
+.hv2-focus-row + .hv2-focus-row { margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--hv2-line); }
+.hv2-focus-icon {
+  width: 52px; height: 52px; border-radius: 14px; background: var(--hv2-orange-tint);
+  display: grid; place-items: center; color: var(--hv2-orange); flex: none;
+}
+.hv2-focus-icon.is-done { background: rgba(90, 138, 22, .12); color: var(--hv2-lime-deep); }
+.hv2-focus-text { flex: 1; min-width: 0; }
+.hv2-focus-titlerow { display: flex; align-items: center; gap: 9px; flex-wrap: wrap; }
+.hv2-focus-title { font-family: var(--hv2-font-display); font-weight: 700; font-size: 18px; }
+.hv2-chip {
+  background: var(--hv2-surface-2); color: var(--hv2-text-2); font-weight: 700; font-size: 11px;
+  padding: 3px 9px; border-radius: 20px; white-space: nowrap;
+}
+.hv2-chip.is-done { background: rgba(90, 138, 22, .12); color: var(--hv2-lime-deep); }
+.hv2-focus-desc { font-size: 14px; color: var(--hv2-text-2); line-height: 1.5; margin-top: 5px; }
+
+/* ── Buttons ───────────────────────────────────────────────────────────── */
+.hv2-btn-primary {
+  flex: none; display: inline-flex; align-items: center; gap: 8px; background: var(--hv2-orange);
+  color: #fff; border: none; border-radius: 13px; padding: 14px 24px;
+  font-family: var(--hv2-font-body); font-weight: 700; font-size: 14.5px; cursor: pointer;
+  box-shadow: 0 4px 12px rgba(234, 88, 12, .3); transition: box-shadow .15s, transform .15s;
+}
+.hv2-btn-primary:hover { box-shadow: 0 6px 16px rgba(234, 88, 12, .34); }
+.hv2-btn-primary:disabled { opacity: .5; cursor: not-allowed; box-shadow: none; }
+.hv2-btn-secondary {
+  flex: none; background: var(--hv2-surface-2); border: 1px solid var(--hv2-line);
+  border-radius: 12px; padding: 13px 20px; font-family: var(--hv2-font-body);
+  font-weight: 700; font-size: 14px; color: var(--hv2-text); cursor: pointer; transition: background .15s;
+}
+.hv2-btn-secondary:hover { background: var(--hv2-line); }
+
+/* ── Daily review ──────────────────────────────────────────────────────── */
+.hv2-review-desc { font-size: 13.5px; color: var(--hv2-text-2); line-height: 1.5; margin: 0 0 16px; }
+.hv2-review-topics { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 22px; }
+.hv2-review-topic {
+  display: flex; align-items: center; gap: 10px; padding: 9px 0;
+  border-bottom: 1px solid var(--hv2-line); cursor: pointer; background: none; border-left: 0;
+  border-right: 0; border-top: 0; width: 100%; text-align: left; font: inherit;
+}
+.hv2-review-topic-dot { width: 9px; height: 9px; border-radius: 3px; flex: none; }
+.hv2-review-topic-name {
+  flex: 1; min-width: 0; font-size: 13.5px; font-weight: 600; color: var(--hv2-text);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.hv2-review-topic-count {
+  font-family: var(--hv2-font-display); font-weight: 700; font-size: 13.5px;
+  color: var(--hv2-text-3); flex: none;
+}
+.hv2-review-actions { display: flex; gap: 12px; margin-top: 20px; }
+.hv2-review-actions .hv2-btn-primary { flex: 1; justify-content: center; padding: 13px; }
+
+/* ── Struggled (right rail) ────────────────────────────────────────────── */
+.hv2-struggled-sub { font-size: 12.5px; color: var(--hv2-text-3); margin: 0 0 16px; }
+.hv2-struggled-list { display: flex; flex-direction: column; }
+.hv2-struggled-row {
+  display: flex; align-items: center; gap: 12px; padding: 13px 12px; border-radius: 12px;
+  margin: 0 -12px; background: none; border: none; width: calc(100% + 24px); text-align: left;
+  font: inherit; cursor: pointer;
+}
+.hv2-struggled-dot { width: 8px; height: 8px; border-radius: 3px; flex: none; }
+.hv2-struggled-main { flex: 1; min-width: 0; }
+.hv2-struggled-name {
+  font-weight: 700; font-size: 13.5px; line-height: 1.2; color: var(--hv2-text);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.hv2-struggled-meta { font-size: 12px; color: var(--hv2-text-3); margin-top: 2px; }
+.hv2-struggled-retry { font-size: 12.5px; font-weight: 700; color: var(--hv2-orange); flex: none; }
+
+/* ── Study-plan nudge (purple) ─────────────────────────────────────────── */
+.hv2-nudge {
+  background: var(--hv2-purple-tint); border: 1px solid #E3D8F6; border-radius: 18px; padding: 22px;
+}
+.hv2-nudge-head { display: flex; align-items: center; gap: 11px; }
+.hv2-nudge-icon {
+  width: 36px; height: 36px; border-radius: 10px; background: var(--hv2-purple);
+  display: grid; place-items: center; color: #fff; flex: none;
+}
+.hv2-nudge-title { font-family: var(--hv2-font-display); font-weight: 700; font-size: 16px; color: #3B2A66; }
+.hv2-nudge-desc { font-size: 13px; color: #4A3A72; line-height: 1.55; margin: 12px 0 0; }
+.hv2-nudge-link {
+  display: inline-flex; align-items: center; gap: 6px; font-size: 13.5px; font-weight: 700;
+  color: var(--hv2-purple); text-decoration: none; cursor: pointer; margin-top: 14px;
+  background: none; border: none; padding: 0; font-family: var(--hv2-font-body);
+}
+
+/* ── Right-rail generic card title ─────────────────────────────────────── */
+.hv2-side-card-title { font-family: var(--hv2-font-display); font-weight: 700; font-size: 16px; color: var(--hv2-text); }
+
+/* ── "View full diagnosis" link inside the score hero ──────────────────── */
+.hv2-hero-link {
+  display: inline-flex; align-items: center; gap: 6px; margin-top: 18px;
+  font-family: var(--hv2-font-body); font-size: 13px; font-weight: 700;
+  color: var(--hv2-orange); background: none; border: none; padding: 0; cursor: pointer;
+  transition: gap .15s ease, opacity .15s ease;
+}
+.hv2-hero-link:hover { gap: 9px; opacity: .82; }
+
+/* ── Projected-score card (re-added; protected UI, v2-styled) ──────────── */
+.hv2-proj-card {
+  display: flex; align-items: stretch; gap: 24px;
+  background: var(--hv2-surface); border: 1px solid var(--hv2-line);
+  border-radius: 18px; padding: 22px 24px; box-shadow: var(--hv2-shadow);
+}
+.hv2-proj-graph { flex: 1 1 auto; min-width: 0; height: 92px; }
+.hv2-proj-graph svg { display: block; width: 100%; height: 100%; }
+.hv2-proj-info {
+  flex: none; display: flex; flex-direction: column; justify-content: center;
+  align-items: flex-end; text-align: right; min-width: 132px;
+  border-left: 1px solid var(--hv2-line); padding-left: 24px;
+}
+.hv2-proj-eyebrow {
+  font-weight: 700; font-size: 11px; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--hv2-text-3);
+}
+.hv2-proj-num {
+  font-family: var(--hv2-font-display); font-weight: 700; font-size: 40px;
+  line-height: 1; letter-spacing: -.02em; color: var(--hv2-text); margin: 6px 0 5px;
+}
+.hv2-proj-detail { font-size: 12px; font-weight: 600; color: var(--hv2-text-3); line-height: 1.5; }
+
+@media (max-width: 560px) {
+  .hv2-proj-card { flex-direction: column; gap: 16px; }
+  .hv2-proj-info {
+    align-items: flex-start; text-align: left; border-left: none; padding-left: 0;
+    border-top: 1px solid var(--hv2-line); padding-top: 16px; min-width: 0;
+  }
+}

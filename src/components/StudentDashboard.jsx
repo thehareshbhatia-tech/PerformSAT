@@ -5,10 +5,6 @@ import SkillDiagnosticSummary from './SkillDiagnosticSummary';
 import ScoreSlider from './ScoreSlider';
 import CollegePicker from './CollegePicker';
 import StudyPlanDashboard from './StudyPlanDashboard';
-import DashboardDiagnosticWidget from './DashboardDiagnosticWidget';
-import DailyReviewCard from './DailyReviewCard';
-import PacingDrillCard from './PacingDrillCard';
-import TodaysTasksCard from './TodaysTasksCard';
 import PredictedVsActualCard from './PredictedVsActualCard';
 import CalendarMonth from './CalendarMonth';
 import { getTodaySlice, countRemainingTodayTasks } from '../services/selectors/todaySlice';
@@ -26,7 +22,7 @@ import { getDaysUntilTest } from '../services/selectors/daysUntilTest';
 import { buildPacingTelemetry } from '../services/selectors/pacingTelemetry';
 import { buildPacingSession } from '../services/pacingService';
 import { getRecentMisses } from '../services/selectors/recentMisses';
-import { getIdentityInsights } from '../services/selectors/identityInsights';
+import { buildDailySession } from '../services/dailyReviewEngine';
 import { formatPatternLabel } from '../services/selectors/missedPatternLabel';
 import { loadPracticeTests, loadMathBank, loadRWBank } from '../data/corpusLoader';
 import { MathText } from './MathText';
@@ -39,6 +35,7 @@ import { DashboardSkeleton } from './ui/Skeleton';
 import { PrimaryButton, SecondaryButton } from './ui/Button';
 import Avatar, { AVATAR_SIZES } from './ui/Avatar';
 import './StudentDashboard.css';
+import './StudentDashboardV2.css';
 
 // Official SAT test dates live in the canonical source: src/data/satTestDates.js
 // (import { SAT_TEST_DATES, getUpcomingSATDates, getSATNameFromDate } when the
@@ -311,9 +308,6 @@ const StudentDashboard = ({
     () => (resolveTest ? getRecentMisses(practiceTestResults, { resolveTest }) : []),
     [practiceTestResults, resolveTest],
   );
-  // One significance-gated "How you test" fact (item 17) — the FACT only
-  // (stat + label); the prescriptive text stays on the study-plan tab.
-  const homeInsight = useMemo(() => getIdentityInsights(studyPlan)[0] || null, [studyPlan]);
   // Tab count badges (Day 1 Acely-polish):
   //   dashboardCount = activities scheduled today that aren't completed
   //   studyPlanCount = total incomplete activities across all weeks
@@ -422,8 +416,8 @@ const StudentDashboard = ({
   };
 
   // Strategy activities (Pacing Reset etc.) carry no moduleId/skillId — they
-  // route to the timed pacing runner with the same personalized config the
-  // PacingDrillCard builds from real test telemetry.
+  // route to the timed pacing runner with a personalized config built from
+  // real test telemetry.
   const handleStartStrategyActivity = () => {
     const session = buildPacingSession(buildPacingTelemetry(practiceTestResults));
     const launch = onStartPacing || onStartPracticeTest;
@@ -530,9 +524,9 @@ const StudentDashboard = ({
             {getGreeting()}{user?.firstName ? `, ${user.firstName}` : ''}
           </h1>
         </div>
-        {/* D-IH-2: hide the subtitle when TodaysTasksCard already anchors
-            the user — it has its own copy. Brand-new users still see the
-            longer pitch. */}
+        {/* D-IH-2: hide the subtitle when the Today's focus section already
+            anchors the user — it has its own copy. Brand-new users still see
+            the longer pitch. */}
         {!(activeTab === 'dashboard' && hasStudyPlan) && (
           <p className="dashboard-subtitle">
             Study with your personalized AI learning plan and get instant hints, explanations, and more with our AI Tutor.
@@ -611,94 +605,9 @@ const StudentDashboard = ({
         </div>
       ) : (
       <>
-      {/* Performance Panel — D-IH-3: hide until the user has at least one
-          practice attempt. An empty 3-card grid is dead pixels above the fold.
-          (Restored 2026-06-06 by user call — the colorful tiles ARE the look.) */}
-      {performanceTiles.hasData && (
-      <div className="acely-performance-grid">
-        <div className="acely-metric-card acely-accuracy-card">
-          <div className="acely-metric-label">Practice Accuracy</div>
-          <div className="acely-metric-value">{practicePercent || 0}%</div>
-          <div className="acely-metric-detail">
-            {totalCorrect} of {totalQuestions} correct · latest practice test
-          </div>
-        </div>
-        <div className="acely-metric-stack">
-          <div className="acely-split-card acely-strongest-card">
-            {strongest ? (
-              <>
-                <div className="acely-split-left">{strongest.accuracy}%</div>
-                <div className="acely-split-right">
-                  <div className="acely-metric-label">Strongest Section</div>
-                  <div className="acely-section-name">{strongest.label}</div>
-                  <div className="acely-split-detail">{strongest.correct} of {strongest.total} correct</div>
-                </div>
-              </>
-            ) : (
-              <div className="acely-split-empty">
-                <div className="acely-metric-label">Strongest Section</div>
-                <div className="acely-empty-hint">Take a practice test to see your strongest section</div>
-              </div>
-            )}
-          </div>
-          <div className="acely-split-card acely-weakest-card">
-            {opportunity && !opportunity.empty ? (
-              <>
-                <div className="acely-split-left">{opportunity.accuracy}%</div>
-                <div className="acely-split-right">
-                  <div className="acely-metric-label">Biggest Opportunity</div>
-                  <div className="acely-section-name">{opportunity.label}</div>
-                  <div className="acely-split-detail">{opportunity.correct} of {opportunity.total} correct</div>
-                </div>
-              </>
-            ) : (
-              <div className="acely-split-empty">
-                <div className="acely-metric-label">Biggest Opportunity</div>
-                <div className="acely-empty-hint">{opportunity?.empty ? `Take a test with ${opportunity.label} to compare your sections` : 'Take a practice test to compare your sections'}</div>
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
-      )}
-      {/* D-IH-4: hide the projected score chart until the user has at
-          least 2 tests on file. With 0 or 1 tests the trend line is
-          decorative noise. */}
-      {scoreHistory.length >= 2 && (
-      <div className="acely-projected-card">
-        <div className="acely-projected-graph">
-          <svg width="100%" height="100%" viewBox="0 0 400 120" preserveAspectRatio="none">
-            {[60, 120, 180, 240].map(x => (
-              <line key={x} x1={x} y1="0" x2={x} y2="120" stroke="rgba(0,0,0,0.06)" strokeWidth="1" />
-            ))}
-            <path
-              d={buildScorePath()}
-              fill="none"
-              stroke="var(--color-brand-primary)"
-              strokeWidth="3"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              pathLength="100"
-              style={prefersReducedMotion ? undefined : {
-                strokeDasharray: 100,
-                animation: 'drawLine 800ms cubic-bezier(0.25, 0.1, 0.25, 1) 300ms both',
-              }}
-            />
-          </svg>
-        </div>
-        <div className="acely-projected-info">
-          <div className="acely-metric-value">{animatedScore || '--'}</div>
-          <div className="acely-metric-label">Projected Score</div>
-          {projectedRange && (
-            <div className="acely-metric-detail">Likely range {projectedRange.low}–{projectedRange.high}</div>
-          )}
-          {projectedTestsCount > 0 && (
-            <div className="acely-metric-detail">Based on {projectedTestsCount} test{projectedTestsCount !== 1 ? 's' : ''}</div>
-          )}
-        </div>
-      </div>
-      )}
-
+      {/* Home v2: the performance snapshot (protected tiles) and the score
+          trajectory hero now live inside the v2 grid's left column below —
+          see the `.hv2` block in the !noData branch. */}
       {/* Dashboard Content Grid */}
       {noData ? (
         <div className="firstrun-dashboard">
@@ -821,316 +730,362 @@ const StudentDashboard = ({
           </div>
         </div>
       ) : (
-      <div className="dashboard-grid">
-        <div className="dashboard-main-col">
-          {/* Current SAT Score Section (When Edit is clicked) */}
-          {showCurrentScorePicker && (
-            <ScoreSlider
-              value={tempCurrentScore}
-              onChange={setTempCurrentScore}
-              min={400}
-              max={1600}
-              label="What's your current SAT score?"
-              description="Enter your most recent practice test or official score"
-              onSave={() => handleSelectCurrentScore(tempCurrentScore)}
-              onCancel={() => setShowCurrentScorePicker(false)}
-            />
-          )}
+      <div className="hv2">
+        {/* Edit current-score overlay (kept from v1 — functional) */}
+        {showCurrentScorePicker && (
+          <ScoreSlider
+            value={tempCurrentScore}
+            onChange={setTempCurrentScore}
+            min={400}
+            max={1600}
+            label="What's your current SAT score?"
+            description="Enter your most recent practice test or official score"
+            onSave={() => handleSelectCurrentScore(tempCurrentScore)}
+            onCancel={() => setShowCurrentScorePicker(false)}
+          />
+        )}
 
-          {/* Today's Tasks (Day 4) — replaces AI Practice Banner when a plan exists (D-IH-1).
-              The legacy banner stays as the no-plan fallback so brand-new users still
-              see a clear CTA before their first diagnostic. */}
-          <h2 className="section-heading">Targeted Practice</h2>
-          {hasStudyPlan ? (
-            <>
-              {/* Starter-plan framing: a plan built from the 15-minute
-                  check-in is honest about its resolution. The line retires
-                  itself the moment a full test supersedes the plan (the new
-                  plan no longer carries planSource: 'mini-diagnostic'). */}
-              {studyPlan?.planSource === 'mini-diagnostic' && (
-                <div className="starter-plan-banner">
-                  <span className="starter-plan-banner-text">
-                    Starter plan, built from your 15-minute check-in.
-                    A full practice test sharpens it into a complete diagnosis.
-                  </span>
-                  <button type="button" className="starter-plan-banner-cta" onClick={onStartPracticeTest}>
-                    Take a full test
-                  </button>
-                </div>
-              )}
-              <TodaysTasksCard
-                slice={todaySlice}
-                adherence={sessionAdherence}
-                dailyIntro={dailyIntro}
-                firstName={user?.firstName}
-                onStartActivity={handleStartTodaysActivity}
-                onStartStrategy={handleStartStrategyActivity}
-                onTakeTest={onStartPracticeTest}
-                onCompleteActivity={onCompleteActivity}
-              />
-              {predictionSummary && (
-                <div style={{ marginTop: '16px' }}>
-                  <PredictedVsActualCard summary={predictionSummary} />
-                </div>
-              )}
-            </>
-          ) : showCheckInCard ? (
-            /* On-ramp re-entry for students who skipped the signup check-in.
-               Replaces (not joins) the "first test unlocks your plan" banner
-               so day 0 keeps exactly one primary CTA. */
-            <div className="ai-practice-banner">
-              <div className="ai-banner-content">
-                <div className="ai-banner-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                </div>
-                <div className="ai-banner-text-group">
-                  <div className="ai-banner-title">
-                    {user?.firstName
-                      ? `${user.firstName}, a 15-minute check-in builds your starter plan.`
-                      : 'A 15-minute check-in builds your starter plan.'}
-                  </div>
-                  <div className="ai-banner-desc">
-                    24 quick questions, no prep needed. Prefer the real thing?{' '}
-                    <button
-                      type="button"
-                      className="btn-ghost-blue ai-banner-warmup-link"
-                      onClick={onStartPracticeTest}
-                    >
-                      take a full practice test
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div className="ai-banner-controls">
-                <button className="btn-launch" onClick={onStartCheckIn}>
-                  Start the check-in
-                </button>
-              </div>
-            </div>
-          ) : (
-            recommendations[0] && (
-              <div className="ai-practice-banner">
-                <div className="ai-banner-content">
-                  <div className="ai-banner-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
-                  </div>
-                  <div className="ai-banner-text-group">
-                    {/* Name-aware new-user promise (item 13) — this banner owns
-                        the ONE "first test unlocks your plan" line; the hero
-                        stays identity-only so the promise never repeats. */}
-                    <div className="ai-banner-title">
-                      {user?.firstName
-                        ? `Hi ${user.firstName} — take your first practice test to unlock your plan.`
-                        : 'Take your first practice test to unlock your plan.'}
-                    </div>
-                    <div className="ai-banner-desc">
-                      Or warm up first:{' '}
-                      <button
-                        type="button"
-                        className="btn-ghost-blue ai-banner-warmup-link"
-                        onClick={() => handleWarmUpClick(recommendations[0])}
-                      >
-                        {recommendations[0].title.toLowerCase()}
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                <div className="ai-banner-controls">
-                  <div className="accuracy-group">
-                    <span className="accuracy-label">Accuracy <span style={{fontSize: '0.75rem'}}>ⓘ</span></span>
-                    <span className="accuracy-pill">{practicePercent || 0}%</span>
-                  </div>
-                  {/* The first practice test is the personalization on-ramp —
-                      this banner only renders when no study plan exists, and a
-                      plan is built FROM a test, so the practice-test list is
-                      the right destination here. (Once a plan exists this
-                      banner is replaced by TodaysTasksCard, which IS today's
-                      plan.) Previously this ran recommendations[0].action,
-                      which for day-0 users is 'browseModules' — a no-op. */}
-                  <button className="btn-launch" onClick={onStartPracticeTest}>
-                    Launch Practice
-                  </button>
-                </div>
-              </div>
-            )
-          )}
+        <div className="hv2-grid">
+          {/* ============ LEFT COLUMN ============ */}
+          <div className="hv2-main">
 
-          {/* QUESTIONS YOU STRUGGLED WITH (item 16) — the page's strongest
-              proof it knows this student: their actual missed questions,
-              actionable in one tap. Hidden entirely without misses. */}
-          {recentMisses.length > 0 && (
-            <div className="recent-misses-card">
-              <div className="rm-header">
-                <h3 className="rm-title">Questions you struggled with</h3>
-                <span className="rm-sub">From your last test</span>
-              </div>
-              {recentMisses.map((m) => (
-                <div className="rm-row" key={m.key}>
-                  <div className="rm-row-main">
-                    <div className="rm-skill">
-                      {m.skills.length > 0 ? formatPatternLabel(m.skills[0]) : 'Mixed skills'}
-                      {m.difficulty ? <span className="rm-difficulty"> · {m.difficulty}</span> : null}
+            {/* PERFORMANCE SNAPSHOT (protected tiles, restyled per mock) */}
+            {performanceTiles.hasData && (
+              <div>
+                <div className="hv2-section-head">
+                  <h2 className="hv2-section-title">Performance snapshot</h2>
+                  <span className="hv2-section-meta">Latest practice test</span>
+                </div>
+                <div className="hv2-perf">
+                  <div className="hv2-perf-accuracy">
+                    <div className="hv2-eyebrow">Practice Accuracy</div>
+                    <div className="hv2-big-pct">{practicePercent || 0}<span>%</span></div>
+                    <div className="hv2-perf-detail">{totalCorrect} of {totalQuestions} correct · latest practice test</div>
+                  </div>
+                  <div className="hv2-perf-stack">
+                    <div className="hv2-split hv2-split-strong">
+                      {strongest ? (
+                        <>
+                          <div className="hv2-split-num">{strongest.accuracy}%</div>
+                          <div className="hv2-split-body">
+                            <div className="hv2-split-eyebrow">Strongest Section</div>
+                            <div className="hv2-split-name">{strongest.label}</div>
+                            <div className="hv2-split-detail">{strongest.correct} of {strongest.total} correct</div>
+                          </div>
+                        </>
+                      ) : (
+                        <div className="hv2-split-empty">
+                          <div className="hv2-split-eyebrow">Strongest Section</div>
+                          <div className="hv2-empty-hint">Take a practice test to see your strongest section</div>
+                        </div>
+                      )}
                     </div>
-                    {/* Full stem rendered, CSS line-clamped — never string-cut
-                        (a JS clamp mid-LaTeX breaks MathText rendering). */}
-                    {m.stem && (
-                      <div className="rm-stem"><MathText text={m.stem} /></div>
+                    <div className="hv2-split hv2-split-opp">
+                      {opportunity && !opportunity.empty ? (
+                        <>
+                          <div className="hv2-split-num">{opportunity.accuracy}%</div>
+                          <div className="hv2-split-body">
+                            <div className="hv2-split-eyebrow">Biggest Opportunity</div>
+                            <div className="hv2-split-name">{opportunity.label}</div>
+                            <div className="hv2-split-detail">{opportunity.correct} of {opportunity.total} correct</div>
+                          </div>
+                        </>
+                      ) : (
+                        <div className="hv2-split-empty">
+                          <div className="hv2-split-eyebrow">Biggest Opportunity</div>
+                          <div className="hv2-empty-hint">{opportunity?.empty ? `Take a test with ${opportunity.label} to compare your sections` : 'Take a practice test to compare your sections'}</div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* SCORE TRAJECTORY HERO */}
+            {latestScore !== null && (() => {
+              const goalArgs = { latestScore, targetScore: user?.targetScore, isMultiSection: latestIsMultiSection };
+              const goalAchieved = isGoalAchieved(goalArgs);
+              const goalGap = goalDelta(goalArgs);
+              const goalForBar = (user?.targetScore && user.targetScore > 800) ? user.targetScore : 1500;
+              const pct = Math.max(0, Math.min(100, Math.round((latestScore / goalForBar) * 100)));
+              const testDateIsPast = daysUntilTest !== null && daysUntilTest < 0;
+              return (
+                <div className="hv2-score-hero">
+                  <div className="hv2-score-top">
+                    <div>
+                      <div className="hv2-score-eyebrow">Current Score</div>
+                      <div className="hv2-score-numrow">
+                        <span className="hv2-score-num">{latestScore}</span>
+                        {user?.targetScore != null && goalGap != null && (
+                          <span className={`hv2-goal-pill${goalAchieved ? ' is-achieved' : ''}`}>
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+                            {goalAchieved ? `${goalGap} above target` : `${goalGap} to goal`}
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                    {(latestStats?.math?.scaled != null || latestStats?.rw?.scaled != null) && (
+                      <div className="hv2-sub-tiles">
+                        {latestStats?.math?.scaled != null && (
+                          <div className="hv2-sub-tile"><div className="hv2-sub-tile-label">Math</div><div className="hv2-sub-tile-num">{latestStats.math.scaled}</div></div>
+                        )}
+                        {latestStats?.rw?.scaled != null && (
+                          <div className="hv2-sub-tile"><div className="hv2-sub-tile-label">R&amp;W</div><div className="hv2-sub-tile-num">{latestStats.rw.scaled}</div></div>
+                        )}
+                      </div>
                     )}
                   </div>
-                  {onRetrySimilar && m.question?.skills?.length > 0 && (
-                    <button
-                      type="button"
-                      className="rm-retry"
-                      onClick={() => onRetrySimilar(m.question)}
-                    >
-                      Retry similar
+                  {user?.targetScore != null && (
+                    <div className="hv2-progress-wrap">
+                      <div className="hv2-progress-bar">
+                        <div className="hv2-progress-fill" style={{ width: `${pct}%` }} />
+                        <div className="hv2-progress-goal" />
+                      </div>
+                      <div className="hv2-progress-labels">
+                        <span className="lo">400</span>
+                        <span className="mid">You're {pct}% of the way there</span>
+                        <span className="hi">Goal {goalForBar}</span>
+                      </div>
+                    </div>
+                  )}
+                  {(user?.testDate || user?.targetSchools?.[0]) && (
+                    <div className="hv2-hero-footer">
+                      {user?.testDate && (
+                        <div className="hv2-hero-foot-item">
+                          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--hv2-text-3)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                          <div>
+                            <div className="hv2-hero-foot-label">Exam</div>
+                            <div className={`hv2-hero-foot-val${testDateIsPast ? ' is-warn' : ''}`}>
+                              {parseLocalDate(user.testDate)?.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}{!testDateIsPast && daysUntilTest != null ? ` · ${daysUntilTest} days` : ''}
+                            </div>
+                          </div>
+                        </div>
+                      )}
+                      {user?.targetSchools?.[0] && (
+                        <div className="hv2-hero-foot-item">
+                          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--hv2-text-3)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1 2 3 6 3s6-2 6-3v-5"/></svg>
+                          <div>
+                            <div className="hv2-hero-foot-label">Goal school</div>
+                            <div className="hv2-hero-foot-val">{user.targetSchools[0].name}</div>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  )}
+                  {typeof onViewFullDiagnosis === 'function' && latestStats && (
+                    <button type="button" className="hv2-hero-link" onClick={onViewFullDiagnosis}>
+                      View full diagnosis
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
                     </button>
                   )}
                 </div>
-              ))}
-            </div>
-          )}
+              );
+            })()}
 
-          <h2 className="section-heading">Review & Pacing</h2>
-          {/* "How you test" (item 17) — one significance-gated identity FACT
-              in the diagnostic-sentence editorial register. Pure narrative;
-              the prescriptive coaching for it lives on the study-plan tab. */}
-          {homeInsight && (
-            <p className="home-insight-line">
-              How you test: {homeInsight.stat} {homeInsight.label}.
-            </p>
-          )}
-          <div className="dashboard-actions-grid">
-            {/* DAILY REVIEW LOOP */}
-            <DailyReviewCard
-              reviewQueue={reviewQueue}
-              reviewStreak={reviewStreak}
-              onStartReview={onStartReview}
-            />
+            {/* PROJECTED SCORE — re-added per user (protected UI); v2-styled, gated on 2+ tests */}
+            {scoreHistory.length >= 2 && (
+              <div className="hv2-proj-card">
+                <div className="hv2-proj-graph">
+                  <svg width="100%" height="100%" viewBox="0 0 400 120" preserveAspectRatio="none" aria-hidden="true">
+                    {[60, 120, 180, 240, 300].map((x) => (
+                      <line key={x} x1={x} y1="0" x2={x} y2="120" stroke="rgba(12,16,38,0.06)" strokeWidth="1" />
+                    ))}
+                    <path
+                      d={buildScorePath()}
+                      fill="none"
+                      stroke="var(--hv2-orange)"
+                      strokeWidth="3"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      pathLength="100"
+                      style={prefersReducedMotion ? undefined : {
+                        strokeDasharray: 100,
+                        animation: 'drawLine 800ms cubic-bezier(0.25, 0.1, 0.25, 1) 300ms both',
+                      }}
+                    />
+                  </svg>
+                </div>
+                <div className="hv2-proj-info">
+                  <div className="hv2-proj-eyebrow">Projected Score</div>
+                  <div className="hv2-proj-num">{animatedScore || '--'}</div>
+                  {projectedRange && (
+                    <div className="hv2-proj-detail">Likely range {projectedRange.low}–{projectedRange.high}</div>
+                  )}
+                  {projectedTestsCount > 0 && (
+                    <div className="hv2-proj-detail">Based on {projectedTestsCount} test{projectedTestsCount !== 1 ? 's' : ''}</div>
+                  )}
+                </div>
+              </div>
+            )}
 
-            {/* PACING TRAINING */}
-            <PacingDrillCard
-              questionTelemetry={buildPacingTelemetry(practiceTestResults)}
-              onStartPacing={onStartPacing || onStartPracticeTest}
-            />
+            {/* TODAY'S FOCUS */}
+            {hasStudyPlan && todaySlice?.activities?.length > 0 ? (
+              <div>
+                <div className="hv2-section-head">
+                  <h2 className="hv2-section-title">Today's focus</h2>
+                  <span className="hv2-section-meta">{todaySlice.day || 'Today'} · {Math.max(0, todaySlice.activities.length - dashboardCount)} of {todaySlice.activities.length} done</span>
+                </div>
+                {studyPlan?.planSource === 'mini-diagnostic' && (
+                  <div className="starter-plan-banner" style={{ marginBottom: '14px' }}>
+                    <span className="starter-plan-banner-text">Starter plan, built from your 15-minute check-in. A full practice test sharpens it into a complete diagnosis.</span>
+                    <button type="button" className="starter-plan-banner-cta" onClick={onStartPracticeTest}>Take a full test</button>
+                  </div>
+                )}
+                <div className="hv2-card">
+                  {todaySlice.activities.map((a, i) => {
+                    const isStrategy = a?.activityType === 'strategyDrill';
+                    const isTest = a?.type === 'test' || a?.activityType === 'practiceTest';
+                    const isStartable = !!(a?.moduleId || a?.skillId || (isStrategy && typeof handleStartStrategyActivity === 'function') || (isTest && typeof onStartPracticeTest === 'function'));
+                    const minutes = typeof a?.duration === 'number' ? a.duration : null;
+                    const onStart = () => {
+                      if (!isStartable) return;
+                      if (isTest) { onStartPracticeTest(); return; }
+                      if (isStrategy) { handleStartStrategyActivity(a); return; }
+                      handleStartTodaysActivity(a);
+                    };
+                    return (
+                      <div className="hv2-focus-row" key={a?.id || i}>
+                        <div className="hv2-focus-icon">
+                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><path d="M3 2v6h6"/><path d="M21 12A9 9 0 0 0 6 5.3L3 8"/><path d="M21 22v-6h-6"/><path d="M3 12a9 9 0 0 0 15 6.7l3-2.7"/></svg>
+                        </div>
+                        <div className="hv2-focus-text">
+                          <div className="hv2-focus-titlerow">
+                            <span className="hv2-focus-title">{a?.title || 'Practice session'}</span>
+                            {minutes !== null && <span className="hv2-chip">~{minutes} MIN</span>}
+                          </div>
+                          {(a?.subtitle || a?.skillName) && <p className="hv2-focus-desc">{a.subtitle || a.skillName}</p>}
+                        </div>
+                        <button type="button" className="hv2-btn-primary" onClick={onStart} disabled={!isStartable}>
+                          {isTest ? 'Start test' : 'Start now'}
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                        </button>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            ) : !hasStudyPlan ? (
+              <div>
+                <div className="hv2-section-head"><h2 className="hv2-section-title">Get started</h2></div>
+                <div className="hv2-card">
+                  <div className="hv2-focus-row">
+                    <div className="hv2-focus-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg></div>
+                    <div className="hv2-focus-text">
+                      <div className="hv2-focus-titlerow"><span className="hv2-focus-title">{showCheckInCard ? 'Take your 15-minute check-in' : 'Take your first practice test'}</span></div>
+                      <p className="hv2-focus-desc">{showCheckInCard ? '24 quick questions build your starter plan — no prep needed.' : 'One test builds your personalized plan from every answer.'}</p>
+                    </div>
+                    <button type="button" className="hv2-btn-primary" onClick={showCheckInCard ? onStartCheckIn : onStartPracticeTest}>
+                      {showCheckInCard ? 'Start check-in' : 'Start test'}
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ) : null}
+
+            {/* DAILY REVIEW */}
+            {(() => {
+              const session = buildDailySession(reviewQueue);
+              if (!session || session.sessionSize <= 0) return null;
+              const prettifyTopic = (s) =>
+                String(s || 'General')
+                  .split(/[-_\s]+/)
+                  .filter(Boolean)
+                  .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+                  .join(' ');
+              const groups = {};
+              session.items.forEach((it) => {
+                const k = prettifyTopic(it.sectionName || 'General');
+                if (!groups[k]) groups[k] = { name: k, count: 0 };
+                groups[k].count += 1;
+              });
+              const topics = Object.values(groups).slice(0, 4);
+              const purpleRe = /read|writ|english|convention|vocab|grammar|rhetor/i;
+              return (
+                <div>
+                  <div className="hv2-section-head">
+                    <h2 className="hv2-section-title">Daily review</h2>
+                    <span className="hv2-section-meta">{session.sessionSize} due today</span>
+                  </div>
+                  <div className="hv2-card">
+                    <p className="hv2-review-desc">{session.hasMore ? session.totalDue : session.sessionSize} questions waiting for spaced-repetition review — these are the ones your memory is about to lose.</p>
+                    {topics.length > 0 && (
+                      <div className="hv2-review-topics">
+                        {topics.map((t) => (
+                          <div className="hv2-review-topic" key={t.name}>
+                            <span className="hv2-review-topic-dot" style={{ background: purpleRe.test(t.name) ? 'var(--hv2-purple)' : 'var(--hv2-orange)' }} />
+                            <span className="hv2-review-topic-name">{t.name}</span>
+                            <span className="hv2-review-topic-count">{t.count}</span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                    <div className="hv2-review-actions">
+                      <button type="button" className="hv2-btn-primary" onClick={() => onStartReview && onStartReview(session.items)}>Review {session.sessionSize} due</button>
+                      <button type="button" className="hv2-btn-secondary" onClick={() => (onStartPacing || onStartPracticeTest)()}>Timed practice</button>
+                    </div>
+                  </div>
+                </div>
+              );
+            })()}
+
           </div>
 
-          {/* STUDY PLAN TEASER — full plan lives in the Study Plan tab */}
-          {studyPlan?.weeks?.length ? (
-            <div className="studyplan-teaser-card" onClick={() => setActiveTab('studyPlan')} role="button" tabIndex={0} onKeyDown={(e) => e.key === 'Enter' && setActiveTab('studyPlan')}>
-              <div className="teaser-header">
-                <span className="teaser-icon"><ClipboardIcon size={18} /></span>
-                <h3>Your Study Plan</h3>
-                {studyPlanArtifact?.delta?.skillChanges?.length > 0 && (
-                  <span className="teaser-badge">Updated</span>
-                )}
-              </div>
-              <p className="teaser-summary">
-                {studyPlan.weeks.length}-week plan &bull; {studyPlan.weeks.reduce((sum, w) => sum + (w.activities?.length || 0), 0)} activities
-                {studyPlan.summary?.headline ? ` — ${studyPlan.summary.headline}` : ''}
-              </p>
-              <span className="teaser-cta">View Full Plan &rarr;</span>
-            </div>
-          ) : null}
-        </div>
-        
-        <div className="dashboard-side-col">
-          {/* Acely-polish (Day 1): right-rail composition.
-              Order matches the Acely reference: calendar (effort) → current
-              score (delta) → goal/countdown two-up. The legacy
-              DashboardDiagnosticWidget stays below the new tiles. */}
-          {hasStudyPlan && (
-            <CalendarMonth practicedDays={practicedDayKeys} testDate={user?.testDate} />
-          )}
+          {/* ============ RIGHT RAIL ============ */}
+          <div className="hv2-side">
+            {hasStudyPlan && (
+              <CalendarMonth practicedDays={practicedDayKeys} testDate={user?.testDate} />
+            )}
 
-          {latestScore !== null && (
-            <div className="dashboard-tile">
-              <div className="dashboard-tile-eyebrow">Current Score</div>
-              <div className="dashboard-tile-row">
-                <span className="dashboard-tile-num">{latestScore}</span>
-                {scoreDelta !== null && (
-                  <span className={`dashboard-tile-delta ${scoreDelta >= 0 ? 'is-up' : 'is-down'}`}>
-                    {scoreDelta >= 0 ? '↑' : '↓'} {Math.abs(scoreDelta)} pts
-                  </span>
-                )}
-              </div>
-              {scoreDelta !== null ? (
-                <div className="dashboard-tile-sub">vs your previous test</div>
-              ) : projectedTestsCount > 0 ? (
-                <div className="dashboard-tile-sub">
-                  Across {projectedTestsCount} test{projectedTestsCount !== 1 ? 's' : ''}
+            {recentMisses.length > 0 && (
+              <div className="hv2-card">
+                <div className="hv2-side-card-title">Pick up where you struggled</div>
+                <p className="hv2-struggled-sub">Hard misses from your last test.</p>
+                <div className="hv2-struggled-list">
+                  {recentMisses.map((m) => {
+                    const canRetry = onRetrySimilar && m.question?.skills?.length > 0;
+                    return canRetry ? (
+                      <button type="button" className="hv2-struggled-row hv2-hov-soft" key={m.key} onClick={() => onRetrySimilar(m.question)}>
+                        <span className="hv2-struggled-dot" style={{ background: 'var(--hv2-orange)' }} />
+                        <div className="hv2-struggled-main">
+                          <div className="hv2-struggled-name">{m.skills?.length > 0 ? formatPatternLabel(m.skills[0]) : 'Mixed skills'}</div>
+                          <div className="hv2-struggled-meta">{m.difficulty ? m.difficulty : 'Review'}</div>
+                        </div>
+                        <span className="hv2-struggled-retry">Retry →</span>
+                      </button>
+                    ) : (
+                      <div className="hv2-struggled-row" key={m.key}>
+                        <span className="hv2-struggled-dot" style={{ background: 'var(--hv2-orange)' }} />
+                        <div className="hv2-struggled-main">
+                          <div className="hv2-struggled-name">{m.skills?.length > 0 ? formatPatternLabel(m.skills[0]) : 'Mixed skills'}</div>
+                          <div className="hv2-struggled-meta">{m.difficulty ? m.difficulty : 'Review'}</div>
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
-              ) : null}
-            </div>
-          )}
-
-          {(user?.targetScore || user?.testDate) && (() => {
-            const testDateIsPast = daysUntilTest !== null && daysUntilTest < 0;
-            // Scale-safe goal comparison (1.4): a 400-1600 composite must never
-            // "achieve" a 200-800 section target.
-            const goalArgs = { latestScore, targetScore: user?.targetScore, isMultiSection: latestIsMultiSection };
-            const goalAchieved = isGoalAchieved(goalArgs);
-            const goalAboveDelta = goalDelta(goalArgs);
-            return (
-              <div className="dashboard-tile-pair">
-                {user?.targetScore && (
-                  <div className={`dashboard-tile ${goalAchieved ? 'is-positive' : ''}`}>
-                    <div className="dashboard-tile-eyebrow">
-                      {goalAchieved ? 'Goal Achieved' : 'Goal Score'}
-                    </div>
-                    <div className="dashboard-tile-num">{user.targetScore}</div>
-                    <div className="dashboard-tile-sub">
-                      {goalAchieved
-                        ? `+${goalAboveDelta} pts above target`
-                        : (user?.targetSchools?.[0]
-                          // School anchor (item 14) — WHY the target matters.
-                          // Single median, not a range: collegeData.satMath is
-                          // the 50th percentile only.
-                          ? (
-                            <span className="dashboard-tile-school">
-                              <span className="tile-school-name">{user.targetSchools[0].name}</span>
-                              {/* collegeData carries only a math-section median (<=800).
-                                  Show it only under a legacy section goal — never beneath
-                                  a composite (400-1600) goal, which would mix scales. */}
-                              {user.targetScore <= 800 && (
-                                <span className="tile-school-median">Median Math: {user.targetSchools[0].satMath}</span>
-                              )}
-                            </span>
-                          )
-                          : 'From onboarding')}
-                    </div>
-                  </div>
-                )}
-                {user?.testDate && (
-                  <div className={`dashboard-tile ${testDateIsPast ? 'is-warn' : ''}`}>
-                    <div className="dashboard-tile-eyebrow">
-                      {testDateIsPast ? 'Test Date' : 'Days Until Exam'}
-                    </div>
-                    <div className="dashboard-tile-num">
-                      {testDateIsPast ? '—' : (daysUntilTest ?? '—')}
-                    </div>
-                    <div className="dashboard-tile-sub">
-                      {testDateIsPast
-                        ? `Was ${Math.abs(daysUntilTest)} days ago — update in settings`
-                        : parseLocalDate(user.testDate)?.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
-                    </div>
-                  </div>
-                )}
               </div>
-            );
-          })()}
+            )}
 
-          {/* AI DIAGNOSTIC & INSIGHTS — kept; visually below the new tiles. */}
-          <DashboardDiagnosticWidget
-            practiceTestResults={practiceTestResults}
-            skillProgress={skillProgress}
-            user={user}
-            completedLessons={completedLessons}
-            practiceProgress={practiceProgress}
-            onViewFullDiagnosis={onViewFullDiagnosis}
-            onStartPracticeTest={onStartPracticeTest}
-            onStartPractice={onStartPractice}
-          />
+            {predictionSummary && (
+              <PredictedVsActualCard summary={predictionSummary} />
+            )}
+
+            {studyPlan?.weeks?.length ? (
+              <div className="hv2-nudge">
+                <div className="hv2-nudge-head">
+                  <span className="hv2-nudge-icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><rect x="8" y="3" width="8" height="4" rx="1.5"/><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><path d="m9 14 2 2 4-4"/></svg></span>
+                  <span className="hv2-nudge-title">Your {studyPlan.weeks.length}-week plan</span>
+                </div>
+                <p className="hv2-nudge-desc">{studyPlan.weeks.reduce((s, w) => s + (w.activities?.length || 0), 0)} activities scheduled. The plan starts where the points are cheapest to win.</p>
+                <button type="button" className="hv2-nudge-link" onClick={() => setActiveTab('studyPlan')}>
+                  View full plan
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                </button>
+              </div>
+            ) : null}
+          </div>
         </div>
       </div>
       )}
