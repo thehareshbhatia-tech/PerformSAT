@@ -1083,6 +1083,7 @@ const PerformSAT = () => {
       normalizeDomain,
       RW_DOMAIN_ORDER,
       buildDomainAdaptiveQueueSeed,
+      buildAdaptiveSeedFromIds,
       createAdaptiveSessionState,
       deserializeAdaptiveState,
       getNextAdaptiveQuestion,
@@ -1095,7 +1096,20 @@ const PerformSAT = () => {
     let queueSeed;
     let sessionState;
 
-    if (resolvedDomain) {
+    if (Array.isArray(opts.poolIds) && opts.poolIds.length > 0) {
+      // Topic-scoped adaptive round (Practice Bank): the pool is an explicit
+      // id list — every question type under one topic — and the adaptive engine
+      // ladders difficulty up/down over it. Always ephemeral (free practice,
+      // never persisted into the plan's adaptive slot).
+      queueSeed = buildAdaptiveSeedFromIds({
+        ids: opts.poolIds,
+        label,
+        weakDomains: resolvedDomain ? [resolvedDomain] : [],
+        seed: `${label || 'topic'}:${opts.poolIds.length}`,
+      });
+      if (!queueSeed?.poolIds?.length) return;
+      sessionState = createAdaptiveSessionState(queueSeed);
+    } else if (resolvedDomain) {
       // Phase 2 parity: pass math weaknesses so the seed can bias its pool
       // toward currently-missed SAT Patterns within this domain (Tier-1
       // routing for the adaptive flow, matching what AssignedPracticeShell
@@ -1142,6 +1156,12 @@ const PerformSAT = () => {
       adaptiveQueueSeed: queueSeed,
       adaptiveSessionState: sessionState,
       adaptiveDomainLabel: label || null,
+      // Practice Bank rounds are free practice: don't persist their session
+      // into the study plan's adaptivePracticeState slot (would clobber it).
+      adaptiveEphemeral: !!opts.ephemeral,
+      // A 'practice-bank-*' source makes recordBankPractice fire (mastery
+      // bands) AND routes the render to the SEVA Round shell in adaptive mode.
+      ...(opts.source ? { assignmentMeta: { label: label || 'Practice', source: opts.source } } : {}),
     });
     setActiveModule(null);
     setActiveSection('__adaptive__');
@@ -1755,9 +1775,10 @@ const PerformSAT = () => {
       // Evaluate both-rule completion (target + mastery)
       const completion = evaluateAdaptiveCompletion(nextState);
 
-      // Persist state after each answer
+      // Persist state after each answer — but NOT for ephemeral Practice Bank
+      // rounds, which must never overwrite the study plan's own adaptive slot.
       const artId = studyPlanMeta?.artifactId;
-      if (user?.uid && artId) {
+      if (user?.uid && artId && !practiceState.adaptiveEphemeral) {
         const toSave = { ...serializeAdaptiveState(nextState) };
         if (completion.isComplete) {
           toSave.isCompleted = true;
@@ -2283,6 +2304,7 @@ const PerformSAT = () => {
         {view === 'practiceBank' && (
           <PracticeBank
             onStartPractice={startAssignedPractice}
+            onStartAdaptive={startAdaptivePractice}
             bankPractice={bankPractice}
             weaknesses={studyPlan?.weaknesses || null}
             activeDrill={activeDrill}
@@ -3095,6 +3117,13 @@ const PerformSAT = () => {
           // study plan, the Practice tab (browse by question type), or,
           // for review-mode drills, the past-test-review detail page.
           const source = practiceState.assignmentMeta?.source;
+          // Practice Bank adaptive rounds (topic/domain) render in the SEVA
+          // Round shell (AssignedPracticeShell) in "adaptive mode" — the design
+          // the user approved: a target-based, growing progress rail with
+          // locked placeholders for not-yet-served questions. The study-plan
+          // adaptive flow still uses the dedicated AdaptivePracticeShell.
+          const isBankAdaptive = isAdaptive
+            && typeof source === 'string' && source.startsWith('practice-bank');
           // Every Practice-Bank launcher emits a 'practice-bank-*' source
           // (quick / full / mix / domain / skill / pattern / resumed), so match
           // on the prefix — otherwise finishing or backing out of a bank drill
@@ -3115,14 +3144,17 @@ const PerformSAT = () => {
           // — the interstitial's exit button must not promise "resume later"
           // for study-plan/review sessions that restart from question 1.
           const sessionResumable = typeof source === 'string' && source.startsWith('practice-bank');
-          const headerTitle = isAdaptive
-            ? (practiceState.adaptiveDomainLabel ? `Adaptive Practice — ${practiceState.adaptiveDomainLabel}` : 'Adaptive Practice')
-            : isAssigned
-              ? (practiceState.assignmentMeta?.label || 'Assigned Practice')
-              : activeSection;
+          const headerTitle = isBankAdaptive
+            ? (practiceState.adaptiveDomainLabel || 'Practice')
+            : isAdaptive
+              ? (practiceState.adaptiveDomainLabel ? `Adaptive Practice — ${practiceState.adaptiveDomainLabel}` : 'Adaptive Practice')
+              : isAssigned
+                ? (practiceState.assignmentMeta?.label || 'Assigned Practice')
+                : activeSection;
 
-          // Assigned practice uses its own dedicated shell
-          if (isAssigned) {
+          // Assigned practice + Practice Bank adaptive rounds both render the
+          // SEVA Round shell; adaptiveMode toggles the target-based rail.
+          if (isAssigned || isBankAdaptive) {
             // Surface pool-exhaustion as a per-skill flag so the shell can
             // disable the Try-Similar button after the bank returns [].
             const cqSkills = Array.isArray(currentQuestion?.skills)
@@ -3135,6 +3167,8 @@ const PerformSAT = () => {
                 questions={questions}
                 currentQuestion={currentQuestion}
                 headerTitle={headerTitle}
+                adaptiveMode={isBankAdaptive}
+                adaptiveTarget={practiceState.adaptiveSessionState?.targetQuestions || 15}
                 onBack={backHandler}
                 backLabel={backLabel}
                 sessionResumable={sessionResumable}
@@ -3152,10 +3186,20 @@ const PerformSAT = () => {
                 onToggleFlag={toggleFlagQuestion}
                 onRedrillMisses={handleRedrillMisses}
                 onRetry={() => {
-                  // Review-mode retries can't use startAssignedPractice
-                  // because snapshot question IDs aren't in the drill bank.
-                  // Re-launch with the snapshot questions in hand.
-                  if (practiceState.reviewMode) {
+                  // Bank adaptive rounds relaunch a fresh adaptive session over
+                  // the same topic/domain pool (not a fixed replay).
+                  if (isBankAdaptive) {
+                    startAdaptivePractice({
+                      poolIds: practiceState.adaptiveQueueSeed?.poolIds,
+                      enforcedDomain: practiceState.adaptiveQueueSeed?.enforcedDomain,
+                      label: practiceState.adaptiveDomainLabel,
+                      ephemeral: true,
+                      source,
+                    });
+                  } else if (practiceState.reviewMode) {
+                    // Review-mode retries can't use startAssignedPractice
+                    // because snapshot question IDs aren't in the drill bank.
+                    // Re-launch with the snapshot questions in hand.
                     startRetryDrillFromTest({
                       testId: practiceState.assignmentMeta?.sourceTestId,
                       testTitle: practiceState.assignmentMeta?.sourceTestTitle,
@@ -3179,8 +3223,10 @@ const PerformSAT = () => {
             );
           }
 
-          // Adaptive practice uses the adaptive shell
-          if (isAdaptive) {
+          // Study-plan adaptive practice uses the dedicated adaptive shell.
+          // (Practice Bank adaptive rounds were handled above via the SEVA
+          // Round shell in adaptiveMode.)
+          if (isAdaptive && !isBankAdaptive) {
             return (
               <AdaptivePracticeShell
                 practiceState={practiceState}

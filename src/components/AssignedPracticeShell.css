@@ -384,6 +384,24 @@
 .aps-badge-hard   { background: var(--pr-red-tint); color: var(--pr-red); }
 .aps-badge-topic  { background: var(--pr-orange-tint); color: var(--pr-orange); }
 
+/* ── Adaptive-mode round chrome (Practice Bank topic/domain rounds) ── */
+.aps-adaptive-pill {
+  display: inline-block; margin-left: 9px; padding: 2px 8px; border-radius: 999px;
+  background: var(--pr-purple-tint); color: var(--pr-purple);
+  font-family: var(--pr-font-body); font-size: 9.5px; font-weight: 800;
+  letter-spacing: 0.07em; text-transform: uppercase; vertical-align: middle;
+}
+.aps-adapt-cue {
+  margin: 2px 0 16px; padding: 9px 13px; border-radius: 10px;
+  font-family: var(--pr-font-body); font-size: 12.5px; font-weight: 600;
+  color: var(--pr-text-2); line-height: 1.45;
+  background: var(--pr-green-tint); border: 1px solid rgba(46, 158, 99, 0.22);
+}
+.aps-adapt-cue.is-down {
+  background: var(--pr-amber-tint); border-color: rgba(201, 138, 18, 0.22);
+}
+.aps-sidebar-stem-ph { font-style: italic; }
+
 .aps-tool-btn {
   display: inline-flex;
   align-items: center;

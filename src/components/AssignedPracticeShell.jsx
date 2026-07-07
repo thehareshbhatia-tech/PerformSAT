@@ -42,8 +42,11 @@ const C = {
 // ── Sidebar: persistent question list (Acely-style left pane) ──────────
 // One row per question. Status icon + 2-line stem preview. Current row
 // gets an orange highlight; answered rows get green ✓ or red ✗.
-function QuestionSidebar({ questions, currentIndex, answers, onNavigate, onBack, backLabel, headerTitle, drillPatternLabel, answeredCount, total }) {
+function QuestionSidebar({ questions, currentIndex, answers, onNavigate, onBack, backLabel, headerTitle, drillPatternLabel, answeredCount, total, adaptiveMode = false }) {
   const pct = total > 0 ? Math.round((answeredCount / total) * 100) : 0;
+  // In adaptive mode `total` is the session TARGET; the questions after the
+  // served ones aren't chosen yet, so they render as locked placeholders.
+  const placeholderCount = adaptiveMode ? Math.max(0, total - questions.length) : 0;
   return (
     <aside className="aps-sidebar">
       <div className="aps-sidebar-head">
@@ -61,7 +64,7 @@ function QuestionSidebar({ questions, currentIndex, answers, onNavigate, onBack,
             <div className="aps-sidebar-progress-fill" style={{ width: `${pct}%` }} />
           </div>
           <span className="aps-sidebar-progress-count">
-            {answeredCount}<span className="aps-count-total">/{total}</span>
+            {answeredCount}<span className="aps-count-total">/{adaptiveMode ? '~' : ''}{total}</span>
           </span>
         </div>
       </div>
@@ -97,6 +100,14 @@ function QuestionSidebar({ questions, currentIndex, answers, onNavigate, onBack,
             </button>
           );
         })}
+        {Array.from({ length: placeholderCount }).map((_, k) => (
+          <div key={`ph-${k}`} className="aps-sidebar-row is-locked" aria-hidden="true">
+            <span className="aps-sidebar-dot" />
+            <span className="aps-sidebar-stem aps-sidebar-stem-ph">
+              {k === 0 ? 'Next — picked from how you answer' : ''}
+            </span>
+          </div>
+        ))}
       </div>
     </aside>
   );
@@ -161,6 +172,11 @@ const AssignedPracticeShell = ({
   questions,
   currentQuestion,
   headerTitle,
+  // Adaptive mode (Practice Bank topic/domain rounds): the round serves one
+  // question at a time and ladders difficulty. The rail/progress show a target
+  // (`adaptiveTarget`) with locked placeholders for not-yet-served questions.
+  adaptiveMode = false,
+  adaptiveTarget = 0,
   onBack,
   backLabel = 'Back to Study Plan',
   sessionResumable = false,
@@ -238,6 +254,20 @@ const AssignedPracticeShell = ({
   const answeredCount = Object.keys(practiceState.answers).length;
   const correctCount = Object.values(practiceState.answers).filter(a => a.correct).length;
   const diffBadge = currentQuestion?.difficulty ? getDifficultyBadge(currentQuestion.difficulty) : null;
+  // Adaptive mode: the rail/dots/counter show a target with locked placeholders
+  // for questions the engine hasn't chosen yet. displayTotal never shrinks below
+  // what's already served.
+  const displayTotal = adaptiveMode ? Math.max(adaptiveTarget || 0, total) : total;
+  // Difficulty trend vs the previously served question — drives the "stepping
+  // up / easing back" cue so the adaptation is legible.
+  const DIFF_RANK = { easy: 0, medium: 1, hard: 2 };
+  const difficultyTrend = (() => {
+    if (!adaptiveMode || idx <= 0) return null;
+    const cur = DIFF_RANK[String(currentQuestion?.difficulty || '').toLowerCase()];
+    const prev = DIFF_RANK[String(questions[idx - 1]?.difficulty || '').toLowerCase()];
+    if (cur == null || prev == null || cur === prev) return null;
+    return cur > prev ? 'up' : 'down';
+  })();
 
   // Key crossed-out choices by the STABLE question id, not the array index — a
   // Try-Similar insertion splices a question into the queue and shifts every
@@ -671,7 +701,8 @@ const AssignedPracticeShell = ({
         headerTitle={headerTitle}
         drillPatternLabel={drillPatternLabel}
         answeredCount={answeredCount}
-        total={total}
+        total={displayTotal}
+        adaptiveMode={adaptiveMode}
       />
 
       {/* ── CENTER: flat question column ── */}
@@ -680,7 +711,7 @@ const AssignedPracticeShell = ({
         {/* Segmented progress bar */}
         <div className="aps-seg-row">
           <ProgressDots
-            total={total}
+            total={displayTotal}
             currentIndex={idx}
             answers={practiceState.answers}
             questions={questions}
@@ -702,7 +733,10 @@ const AssignedPracticeShell = ({
             {/* Question header — eyebrow / title / badges / calculator */}
             <header className="aps-q-header">
               <div style={{ minWidth: 0 }}>
-                <div className="aps-q-eyebrow">{eyebrowText}</div>
+                <div className="aps-q-eyebrow">
+                  {eyebrowText}
+                  {adaptiveMode && <span className="aps-adaptive-pill">Adaptive</span>}
+                </div>
                 <div className="aps-q-title">
                   {isReviewItem
                     ? `${sectionModuleShort(currentQuestion.section, currentQuestion.moduleIndex)}·Q${(currentQuestion.questionIndex ?? 0) + 1} (originally missed)`
@@ -762,10 +796,19 @@ const AssignedPracticeShell = ({
               </div>
             </header>
 
+            {/* Adaptive difficulty cue — makes the per-answer laddering legible */}
+            {adaptiveMode && difficultyTrend && (
+              <div className={`aps-adapt-cue is-${difficultyTrend}`} role="status" aria-live="polite">
+                {difficultyTrend === 'up'
+                  ? 'Stepping up — you’re on a streak, so this one’s harder. Miss one and the next eases back.'
+                  : 'Easing back — this one’s a little gentler. String some together and it steps back up.'}
+              </div>
+            )}
+
             {/* Numbered question tag */}
             <div className="aps-qtag">
               <span className="aps-qtag-num">{idx + 1}</span>
-              <span className="aps-qtag-label">Question {idx + 1} of {total}</span>
+              <span className="aps-qtag-label">Question {idx + 1} of {adaptiveMode ? `~${displayTotal}` : total}</span>
             </div>
 
             {/* R&W passage — Bluebook-style highlightable rendering, shared with
@@ -1080,7 +1123,7 @@ const AssignedPracticeShell = ({
           </button>
 
           <span className="aps-footer-counter">
-            {answeredCount} of {total} answered
+            {answeredCount} of {adaptiveMode ? `~${displayTotal}` : total} answered
             {correctCount > 0 && <span className="aps-footer-correct"> · {correctCount} correct</span>}
           </span>
 
@@ -1100,7 +1143,10 @@ const AssignedPracticeShell = ({
               onClick={() => onNextQuestion(questions)}
               className="aps-footer-cta is-next"
             >
-              {idx < total - 1 ? 'Continue' : 'See Results'}
+              {/* Adaptive rounds end dynamically (target + mastery, or pool dry) —
+                  the engine flips isComplete and the completion screen renders,
+                  so the button is always "Continue" until then. */}
+              {adaptiveMode ? 'Continue' : (idx < total - 1 ? 'Continue' : 'See Results')}
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             </button>
           )}
