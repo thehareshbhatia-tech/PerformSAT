@@ -110,6 +110,8 @@ const AdaptivePracticeShell = ({
   flaggedQuestions = {},
   onToggleFlag,
   onRelaunch,
+  onTrySimilar,
+  isTrySimilarExhausted = false,
   getDifficultyBadge,
   user,
   skillProgress,
@@ -118,6 +120,16 @@ const AdaptivePracticeShell = ({
   const [eliminatedChoices, setEliminatedChoices] = useState({});
   const [showGrid, setShowGrid] = useState(false);
   const [tutorOpen, setTutorOpen] = useState(false);
+  // Debounce "Practice a similar question" so a double-click can't insert two
+  // items (mirrors AssignedPracticeShell's 500ms lock).
+  const trySimilarLockRef = useRef(0);
+  const handleTrySimilarClick = () => {
+    if (typeof onTrySimilar !== 'function') return;
+    const now = Date.now();
+    if (now - trySimilarLockRef.current < 500) return;
+    trySimilarLockRef.current = now;
+    onTrySimilar(currentQuestion);
+  };
 
   const sessionState = practiceState.adaptiveSessionState;
   const answeredCount = sessionState?.answered?.length || 0;
@@ -794,6 +806,30 @@ const AdaptivePracticeShell = ({
                   </div>
                 );
               })()}
+
+              {/* Practice a similar question — drills DOWN into the exact
+                  question type of the current item (satPattern), so a student
+                  can master one type on demand instead of picking it off a
+                  tree. Falls back to the same skill when no type is derivable. */}
+              {typeof onTrySimilar === 'function' && (
+                <button
+                  type="button"
+                  onClick={handleTrySimilarClick}
+                  disabled={isTrySimilarExhausted}
+                  aria-label={isTrySimilarExhausted
+                    ? 'No more similar questions of this type'
+                    : 'Practice a similar question of this type'}
+                  style={{
+                    marginTop: '14px', width: '100%', padding: '11px',
+                    borderRadius: '10px', border: `1.5px solid ${C.border}`,
+                    background: C.white, color: isTrySimilarExhausted ? 'var(--color-slate-400)' : C.text,
+                    fontSize: '14px', fontWeight: '600',
+                    cursor: isTrySimilarExhausted ? 'default' : 'pointer',
+                  }}
+                >
+                  {isTrySimilarExhausted ? 'No more like this one' : 'Practice a similar question →'}
+                </button>
+              )}
             </div>
           )}
 

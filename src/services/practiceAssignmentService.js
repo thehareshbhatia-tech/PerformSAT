@@ -585,6 +585,72 @@ export function buildDomainAdaptiveQueueSeed({
   };
 }
 
+/**
+ * buildAdaptiveSeedFromIds — build an adaptive queue seed from an EXPLICIT
+ * question-id pool (e.g. every question that lives under one Practice Bank
+ * topic, across all of that topic's question types). Unlike
+ * buildDomainAdaptiveQueueSeed this doesn't re-query a bank by domain — the
+ * caller already knows exactly which items belong in the round; we just
+ * resolve, MCQ-filter, shuffle, and bin them by difficulty so the adaptive
+ * engine can ladder up/down on performance.
+ *
+ * This is what makes a "Practice this topic" round adaptive AND
+ * type-inclusive: the pool is the union of the topic's types, and difficulty
+ * (not a fixed list) drives what the student sees next.
+ *
+ * @param {Object}   args
+ * @param {string[]} args.ids          — candidate question ids (a topic's qids)
+ * @param {string}   [args.seed='']    — deterministic shuffle seed
+ * @param {string}   [args.label=null] — display label for the round
+ * @param {string[]} [args.weakDomains=[]] — domain(s) the topic belongs to
+ * @param {number}   [args.poolSize=60] — cap on pool size
+ * @returns {Object|null} queueSeed (same shape as buildDomainAdaptiveQueueSeed) or null if empty
+ */
+export function buildAdaptiveSeedFromIds({
+  ids = [],
+  seed = '',
+  label = null,
+  weakDomains = [],
+  poolSize = 60,
+} = {}) {
+  const numericSeed = hashString(seed || `${label || ''}:${ids.length}`);
+
+  const seen = new Set();
+  const pool = [];
+  for (const id of ids) {
+    if (seen.has(id)) continue;
+    const q = getQuestionById(id);
+    if (q && isMCQGlobal(q)) { seen.add(id); pool.push(q); }
+  }
+  if (pool.length === 0) return null;
+
+  const shuffled = seededShuffle(pool, numericSeed).slice(0, poolSize);
+
+  const byDifficulty = { easy: [], medium: [], hard: [] };
+  shuffled.forEach(q => {
+    const d = q.difficulty || 'medium';
+    if (byDifficulty[d]) byDifficulty[d].push(q.id);
+    else byDifficulty.medium.push(q.id);
+  });
+  Object.keys(byDifficulty).forEach(d => {
+    byDifficulty[d] = seededShuffle(byDifficulty[d], numericSeed + d.length);
+  });
+
+  return {
+    poolIds: shuffled.map(q => q.id),
+    byDifficulty,
+    weakSkillIds: [],
+    weakDomains,
+    enforcedDomain: null,
+    missedPatterns: [],
+    sessionLength: DEFAULT_SESSION_LENGTH,
+    targetQuestions: DEFAULT_SESSION_LENGTH,
+    minMasteryPercent: DEFAULT_MIN_MASTERY_PERCENT,
+    createdAt: new Date().toISOString(),
+    topicLabel: label || null,
+  };
+}
+
 // ─── Fixed domain assignments for Strengths & Focus Areas ─────────────────
 
 const DEFAULT_DOMAIN_ASSIGN_COUNT = 10;

@@ -1,16 +1,12 @@
 import React, { useMemo, useState, useEffect } from 'react';
 import {
   questionBank as mathQuestionBank,
-  getQuestionsBySatPatterns,
-  getQuestionsByDomain as getMathQuestionsByDomain,
   getQuestionsByCBSkill,
 } from '../data/questions/bank';
 import {
   rwQuestionBank,
   RW_DOMAINS,
   getQuestionsBySkillIds as getRWQuestionsBySkillIds,
-  getQuestionsByDomain as getRWQuestionsByDomain,
-  getQuestionsByPattern as getRWQuestionsByPattern,
 } from '../data/questions/rwBank';
 import { deriveRWQuestionType, RW_PATTERN_LABELS } from '../data/questions/rwBank/deriveRWPattern';
 import { RW_READING_TYPE_LABELS } from '../data/questions/rwBank/rwReadingType';
@@ -60,7 +56,6 @@ const FORYOU_KINDS = {
 };
 
 const MIN_PATTERN_POOL = 4;
-const DRILL_COUNT_PER_TYPE = 10;
 // Custom drill builder — count options + filter-chip definitions.
 const CUSTOM_COUNTS = [10, 15, 20];
 const CUSTOM_COUNT_DEFAULT = 15;
@@ -76,7 +71,6 @@ const POOL_CHIPS = [
   { key: 'missed', label: 'Missed only' },
 ];
 const allTopicSlugs = (cat) => new Set((cat?.cbSkills || []).map(s => s.slug));
-const DRILL_COUNT_PER_SKILL = 15;
 const DRILL_COUNT_PER_DOMAIN = 20;
 const DRILL_COUNT_HERO = 25;
 const DRILL_COUNT_SPRINT = 10;
@@ -246,7 +240,6 @@ const fmt = (n) => Number(n).toLocaleString('en-US');
 const Arrow = ({ size = 15 }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
 );
-const Chev = () => (<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6" /></svg>);
 const Bolt = () => (<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9z" /></svg>);
 const Book = () => (<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" /><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" /></svg>);
 const Sliders = () => (<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6" /></svg>);
@@ -270,14 +263,8 @@ const BandChip = ({ m }) => {
 // a calm grid of domain cards (topic list inline, question types one click away).
 // The drill builder lives behind a single "Build a custom drill" modal.
 // ────────────────────────────────────────────────────────────────────────────
-const PracticeBank = ({ onStartPractice, bankPractice = {}, weaknesses = null, activeDrill = null, onResumeDrill, onDiscardDrill }) => {
+const PracticeBank = ({ onStartPractice, onStartAdaptive, bankPractice = {}, weaknesses = null, activeDrill = null, onResumeDrill, onDiscardDrill }) => {
   const [section, setSection] = useState('math');
-  // The full domain/topic/type taxonomy is opt-in: the calm default leads with the
-  // guided path (Start practice + For you + More ways) and the catalog stays hidden
-  // behind "Browse all topics" until the student asks for it.
-  const [browseOpen, setBrowseOpen] = useState(false);
-  // Question-type reveal is opt-in per topic (calm first paint = all collapsed).
-  const [openTopics, setOpenTopics] = useState(() => new Set());
 
   // ── Custom drill builder (modal) ───────────────────────────────────────────
   const [builderOpen, setBuilderOpen] = useState(false);
@@ -294,7 +281,6 @@ const PracticeBank = ({ onStartPractice, bankPractice = {}, weaknesses = null, a
   const fullLabel = section === 'math' ? 'Full Math' : 'Full R&W';
 
   const bankTotal = useMemo(() => categories.reduce((a, c) => a + c.total, 0), [categories]);
-  const totalTopics = useMemo(() => categories.reduce((a, c) => a + c.cbSkills.length, 0), [categories]);
   const sectionProgress = useMemo(
     () => progressForIds(allItems.filter(isDrillable).map(q => q.id), bankPractice),
     [allItems, bankPractice],
@@ -420,17 +406,32 @@ const PracticeBank = ({ onStartPractice, bankPractice = {}, weaknesses = null, a
     if (ids.length === 0) return;
     onStartPractice(ids, { label: rec.title, source: `practice-bank-foryou-${rec.kind}`, section });
   };
+  // Domain "Practice" → adaptive round over the whole domain (difficulty
+  // ladders to the student's performance).
   const launchDomainMixed = (cat) => {
-    const fetchDomain = section === 'math' ? getMathQuestionsByDomain : getRWQuestionsByDomain;
-    launchFromPool(fetchDomain(cat.domain), DRILL_COUNT_PER_DOMAIN, `${cat.label} mix`, 'practice-bank-domain');
+    onStartAdaptive({
+      enforcedDomain: cat.domain,
+      label: `${cat.label} practice`,
+      section,
+      ephemeral: true,
+      source: 'practice-bank-domain',
+    });
   };
+  // Topic "Practice" → adaptive round over EVERY question type that lives under
+  // this topic. The round isn't a fixed list: the adaptive engine picks the
+  // next item by difficulty as the student answers.
   const launchSkillDrill = (skill) => {
     const pool = section === 'math' ? getQuestionsByCBSkill(skill.slug) : getRWQuestionsBySkillIds([skill.slug]);
-    launchFromPool(pool, DRILL_COUNT_PER_SKILL, skill.label, 'practice-bank-skill');
-  };
-  const launchPatternDrill = (slug, label) => {
-    const pool = section === 'math' ? getQuestionsBySatPatterns([slug]) : getRWQuestionsByPattern([slug]);
-    launchFromPool(pool, DRILL_COUNT_PER_TYPE, label, 'practice-bank-pattern');
+    const poolIds = pool.filter(isDrillable).map(q => q.id);
+    if (poolIds.length === 0) return;
+    onStartAdaptive({
+      poolIds,
+      label: skill.label,
+      section,
+      enforcedDomain: skill.domain,
+      ephemeral: true,
+      source: 'practice-bank-topic',
+    });
   };
 
   // Custom builder: multi-select topics (at least one must stay on), then launch
@@ -456,7 +457,6 @@ const PracticeBank = ({ onStartPractice, bankPractice = {}, weaknesses = null, a
   // ── Handlers ──────────────────────────────────────────────────────────────
   const pickSection = (next) => {
     setSection(next);
-    setOpenTopics(new Set());
     setBuilderOpen(false);
     setBuilderDomainIdx(0);
     const cats = next === 'math' ? MATH_CATEGORIES : RW_CATEGORIES;
@@ -465,11 +465,6 @@ const PracticeBank = ({ onStartPractice, bankPractice = {}, weaknesses = null, a
     setBuilderDifficulty('all');
     setBuilderPool('all');
   };
-  const toggleTopic = (slug) => setOpenTopics(prev => {
-    const next = new Set(prev);
-    if (next.has(slug)) next.delete(slug); else next.add(slug);
-    return next;
-  });
   const openBuilder = () => {
     setBuilderTopics(allTopicSlugs(builderDomain));
     setBuilderCount(CUSTOM_COUNT_DEFAULT);
@@ -491,7 +486,6 @@ const PracticeBank = ({ onStartPractice, bankPractice = {}, weaknesses = null, a
   };
 
   const accentFor = (i) => ACCENTS[ACCENT_ROTATION[i % ACCENT_ROTATION.length]];
-  const pctOf = (cat) => (bankTotal && cat ? Math.round((cat.total / bankTotal) * 100) : 0);
   const bAcc = accentFor(builderDomainIdx);
 
   const resumeTotal = Array.isArray(activeDrill?.questionIds) ? activeDrill.questionIds.length : 0;
@@ -619,22 +613,11 @@ const PracticeBank = ({ onStartPractice, bankPractice = {}, weaknesses = null, a
           </div>
         </section>
 
-        {/* Browse all topics — the full domain → topic → type catalog, collapsed by
-            default so the guided path leads. Opt-in for students who want to explore. */}
-        <section className="pb-browse" aria-label="Browse all topics">
-          <button
-            type="button"
-            className="pb-browse-toggle"
-            aria-expanded={browseOpen}
-            onClick={() => setBrowseOpen((o) => !o)}
-          >
-            <span className="pb-browse-toggle-main">
-              <span className="pb-browse-toggle-title">Browse all topics</span>
-              <span className="pb-browse-toggle-sub">{categories.length} domains · {totalTopics} topics · {fmt(bankTotal)} questions</span>
-            </span>
-            <span className={`pb-browse-chev${browseOpen ? ' is-open' : ''}`}><Chev /></span>
-          </button>
-          {browseOpen && (
+        {/* Practice by topic — the categorization: 4 domains, each listing its
+            topics. Picking a topic launches an adaptive round over every
+            question type inside it (difficulty ladders to performance). */}
+        <section className="pb-browse" aria-label={`${sectionLabel} topics`}>
+          <div className="pb-section-label">Practice by topic</div>
           <div className="pb-grid" aria-label={`${sectionLabel} domains`}>
           {categories.map((cat, i) => {
             const a = accentFor(i);
@@ -645,7 +628,7 @@ const PracticeBank = ({ onStartPractice, bankPractice = {}, weaknesses = null, a
                   <span className="pb-card-badge" style={{ background: a.badge, color: a.num }}>{num2(i + 1)}</span>
                   <div className="pb-card-headmain">
                     <div className="pb-card-title">{cat.label}</div>
-                    <div className="pb-card-share">{pctOf(cat)}% of {shortLabel} · {fmt(cat.total)} questions · {cat.cbSkills.length} topics</div>
+                    <div className="pb-card-share">{fmt(cat.total)} questions · {cat.cbSkills.length} topics</div>
                   </div>
                   <BandChip m={dm} />
                 </div>
@@ -653,64 +636,24 @@ const PracticeBank = ({ onStartPractice, bankPractice = {}, weaknesses = null, a
 
                 <div className="pb-card-topics">
                   {cat.cbSkills.map((skill) => {
-                    const open = openTopics.has(skill.slug);
                     const total = section === 'math' ? skill.total : skill.count;
-                    const types = skill.patterns?.length || 0;
                     const tm = masteryByKey.get(`topic:${skill.slug}`) || EMPTY_MASTERY;
                     return (
-                      <div className={`pb-trow${open ? ' is-open' : ''}`} key={skill.slug}>
-                        <div
-                          className="pb-trow-head"
-                          role="button"
-                          tabIndex={0}
-                          aria-expanded={types > 0 ? open : undefined}
-                          onClick={() => { if (types > 0) toggleTopic(skill.slug); }}
-                          onKeyDown={(e) => { if (types > 0 && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); toggleTopic(skill.slug); } }}
-                        >
-                          {types > 0
-                            ? <span className={`pb-trow-chev${open ? ' is-open' : ''}`}><Chev /></span>
-                            : <span className="pb-trow-chev is-empty" aria-hidden="true" />}
-                          <span className="pb-trow-main">
-                            <span className="pb-trow-name">{skill.label}</span>
-                            <span className="pb-trow-meta">{fmt(total)} q{types > 0 ? ` · ${types} types` : ''}</span>
-                          </span>
-                          <BandChip m={tm} />
-                          <button
-                            type="button"
-                            className="pb-trow-drill"
-                            style={{ color: a.out, borderColor: a.outBorder }}
-                            onClick={(e) => { e.stopPropagation(); launchSkillDrill(skill); }}
-                          >
-                            Drill {DRILL_COUNT_PER_SKILL}
-                          </button>
-                        </div>
-                        {open && types > 0 && (
-                          <div className="pb-trow-types">
-                            {skill.patterns.map((p) => {
-                              const pm = masteryByKey.get(`type:${p.slug}`) || EMPTY_MASTERY;
-                              const band = pm.band;
-                              const seen = band !== MASTERY_BANDS.UNSEEN && pm.accuracy != null;
-                              const tileClass = band === MASTERY_BANDS.STRONG ? ' is-strong' : band === MASTERY_BANDS.FOCUS ? ' is-focus' : '';
-                              return (
-                                <button
-                                  type="button"
-                                  className={`pb-type${tileClass}`}
-                                  key={p.slug}
-                                  title={seen ? `${p.count} questions · ${pm.practiced} practiced` : undefined}
-                                  onClick={() => launchPatternDrill(p.slug, p.label)}
-                                >
-                                  <span className="pb-type-name">{p.label}</span>
-                                  {seen ? (
-                                    <span className="pb-type-count"><span className={`pb-type-acc is-${band}`}>{pm.accuracy}%</span> · {p.count}</span>
-                                  ) : (
-                                    <span className="pb-type-count">{p.count}</span>
-                                  )}
-                                </button>
-                              );
-                            })}
-                          </div>
-                        )}
-                      </div>
+                      <button
+                        type="button"
+                        className="pb-trow-head"
+                        key={skill.slug}
+                        onClick={() => launchSkillDrill(skill)}
+                      >
+                        <span className="pb-trow-main">
+                          <span className="pb-trow-name">{skill.label}</span>
+                          <span className="pb-trow-meta">{fmt(total)} questions</span>
+                        </span>
+                        <BandChip m={tm} />
+                        <span className="pb-trow-drill" style={{ color: a.out, borderColor: a.outBorder }}>
+                          Practice <Arrow size={13} />
+                        </span>
+                      </button>
                     );
                   })}
                 </div>
@@ -727,7 +670,6 @@ const PracticeBank = ({ onStartPractice, bankPractice = {}, weaknesses = null, a
             );
           })}
           </div>
-          )}
         </section>
       </div>
 
