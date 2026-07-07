@@ -1,0 +1,103 @@
+/* MiniDiagnosticShell.css
+ * ============================================================================
+ * The onboarding check-in reuses the SEVA Test chrome so the diagnostic reads
+ * as the same product as the full practice test: PracticeTest.css supplies the
+ * --pt-* cream palette, the navy .test-session-header, the white workspace
+ * card, the orange progress bar, and the Bluebook AnswerChoiceList. These
+ * overrides adapt that two-pane, jump-around runner to the check-in's simpler
+ * shape — a single centered column, forward-only (stage-2 items are routed off
+ * stage-1 answers, so there is no question navigator to jump back with).
+ * Scoped under .mini-diag-shell so nothing here leaks into the real runner.
+ * ========================================================================== */
+
+/* Single centered workspace card. The runner is two panes each flex:1; the
+   check-in is one linear column of short items, so center a single capped card
+   on the cream canvas instead of letting it stretch edge-to-edge at 1920px. */
+.mini-diag-shell .test-workspace-main {
+  justify-content: center;
+}
+.mini-diag-shell .test-workspace-left {
+  flex: 1 1 auto;
+  max-width: 920px;
+  width: 100%;
+}
+
+/* R&W passages / student notes — serif stimulus matched to .question-stimulus,
+   but palette-aware (var(--pt-text)) so it tracks the shell in dark mode. */
+.mini-diag-shell .mini-diag-passage {
+  font-family: var(--pt-font-serif);
+  font-size: 1.12rem;
+  line-height: 1.72;
+  color: var(--pt-text);
+  margin-bottom: 1.5rem;
+  white-space: pre-wrap;
+}
+.mini-diag-shell .mini-diag-passage-label {
+  font-family: var(--pt-font-body);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--pt-text-3);
+  margin-bottom: 6px;
+}
+.mini-diag-shell .mini-diag-stem {
+  font-family: var(--pt-font-serif);
+  font-size: 1.18rem;
+  line-height: 1.7;
+  color: var(--pt-text);
+  margin-bottom: 1.75rem;
+}
+
+.mini-diag-shell .mini-diag-media {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+.mini-diag-shell .mini-diag-table {
+  border-collapse: collapse;
+  font-family: var(--pt-font-body);
+  font-size: 15px;
+  color: var(--pt-text);
+}
+.mini-diag-shell .mini-diag-table th,
+.mini-diag-shell .mini-diag-table td {
+  border: 1px solid var(--pt-line-strong);
+  padding: 8px 16px;
+  text-align: center;
+}
+.mini-diag-shell .mini-diag-table th {
+  background: var(--pt-surface-2);
+  font-weight: 600;
+}
+
+/* Forward-only footer: a single right-aligned primary action (Next / Finish). */
+.mini-diag-footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--pt-line);
+}
+.mini-diag-footer .bottom-nav-btn.is-primary { min-width: 168px; justify-content: center; }
+.mini-diag-hint {
+  margin: 0.75rem 0 0;
+  text-align: right;
+  font-family: var(--pt-font-body);
+  font-size: 12.5px;
+  color: var(--pt-text-3);
+}
+
+/* Narrow screens — the check-in has no isMobile hook, so drop the left-side
+   brand cluster (like the runner does) and tighten the header so the section
+   title, Math tools, and timer never overflow the 64px bar. */
+@media (max-width: 640px) {
+  .mini-diag-shell .test-wordmark,
+  .mini-diag-shell .test-session-divider,
+  .mini-diag-shell .test-name-tag { display: none; }
+  .mini-diag-shell .test-session-header { padding: 0 14px; gap: 10px; }
+  .mini-diag-shell .btn-launch { padding: 8px 10px; }
+  .mini-diag-shell .test-workspace-main { padding: 0.75rem; }
+  .mini-diag-shell .test-workspace-left { padding: 1.5rem 1.25rem; }
+}

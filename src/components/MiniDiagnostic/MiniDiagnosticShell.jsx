@@ -27,8 +27,17 @@ import { parsePassageMarkup, buildSegments } from '../rw/HighlightablePassage';
 import QuestionDiagram from '../QuestionDiagrams';
 import QuestionRenderer from '../QuestionRenderer';
 import AnswerChoiceList from '../shared/AnswerChoiceList';
+import DesmosCalculator from '../DesmosCalculator';
+import SATReferenceSheet from '../SATReferenceSheet';
 import { Button } from '../ui/Button';
 import { colors, typography, spacing } from '../../design/tokens';
+// The active check-in adopts the SEVA Test chrome: PracticeTest.css owns the
+// --pt-* cream palette + navy header + workspace card; the local sheet adapts
+// it to the single-column, forward-only check-in. Both are imported here so
+// the (lazy) diagnostic chunk pulls the stylesheet even if PracticeTest never
+// loaded (its global classes dedupe across chunks in webpack).
+import '../PracticeTest.css';
+import './MiniDiagnosticShell.css';
 import { injectAnimations } from '../../design/animations';
 import { deriveDeadline, computeRemaining } from '../../services/timerClock';
 import { generateAttemptId } from '../../services/practiceTestService';
@@ -111,6 +120,10 @@ const MiniDiagnosticShell = ({
   const [remaining, setRemaining] = useState(null);
   const [finishResult, setFinishResult] = useState(null);
   const [errorMessage, setErrorMessage] = useState('');
+  // Math-section tools (parity with PracticeTest). Modals reuse the exact
+  // components the full test uses; gated to the Math phase below.
+  const [showCalculator, setShowCalculator] = useState(false);
+  const [showReference, setShowReference] = useState(false);
 
   const attemptIdRef = useRef(savedProgress?.attemptId || generateAttemptId());
   // Snapshot exclusions ONCE (or restore the saved snapshot) so resume
@@ -528,18 +541,20 @@ const MiniDiagnosticShell = ({
   }
 
   if (phase === 'interstitial') {
+    // Between-section handoff — reuse the runner's module-complete card so the
+    // R&W → Math transition stays inside the SEVA Test visual world.
     return (
-      <div style={pageWrap}>
-        <div style={{ marginTop: '20vh', maxWidth: '440px', textAlign: 'center', animation: 'fadeInUp 400ms ease' }}>
-          <h2 style={{ fontSize: typography.sizes['2xl'], fontWeight: typography.weights.bold, color: colors.text.primary, marginBottom: spacing.sm }}>
-            Reading & Writing done
-          </h2>
-          <p style={{ fontSize: typography.sizes.base, color: colors.text.secondary, marginBottom: spacing['2xl'] }}>
+      <div className="test-module-complete">
+        <div className="test-module-complete-card" style={{ animation: 'fadeInUp 400ms ease' }}>
+          <div className="test-module-complete-eyebrow">Section 1 of 2 complete</div>
+          <div className="test-module-complete-title">Reading &amp; Writing done</div>
+          <p className="test-module-complete-note" style={{ margin: '0 0 4px' }}>
             Next up: 12 Math questions in 9 minutes. The clock starts when you do.
           </p>
-          <Button variant="primary" onClick={handleStartMath} style={{ width: '100%', maxWidth: '320px' }}>
+          <button type="button" className="test-module-complete-cta" onClick={handleStartMath}>
             Start Math
-          </Button>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </button>
         </div>
       </div>
     );
@@ -579,176 +594,187 @@ const MiniDiagnosticShell = ({
 
   const total = served.length > STAGE1_COUNT ? served.length : SECTION_CONFIG[phase].count;
   const lowTime = remaining !== null && remaining <= 60;
+  const isMath = phase === 'math';
+  const isLast = currentIndex + 1 >= total && served.length > STAGE1_COUNT;
 
   return (
-    <div style={{ minHeight: '100vh', background: colors.surface.white, fontFamily: typography.fontFamily }}>
-      {/* Header: section label, progress, clock */}
-      <div style={{
-        position: 'sticky', top: 0, zIndex: 5, background: colors.surface.white,
-        borderBottom: `1px solid ${colors.surface.grayDark}`,
-      }}>
-        <div style={{
-          maxWidth: '760px', margin: '0 auto', padding: `${spacing.sm} ${spacing.lg}`,
-          display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-        }}>
-          <div style={{ fontSize: typography.sizes.sm, fontWeight: typography.weights.semibold, color: colors.text.primary }}>
-            Quick Check-In · {section.label}
-          </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: spacing.lg }}>
-            <span style={{ fontSize: typography.sizes.sm, color: colors.text.secondary }}>
-              Question {currentIndex + 1} of {total}
-            </span>
-            <span
-              role="timer"
-              aria-label={`Time remaining ${remaining !== null ? formatClock(remaining) : ''}`}
-              style={{
-                fontSize: typography.sizes.sm, fontVariantNumeric: 'tabular-nums',
-                fontWeight: typography.weights.semibold,
-                color: lowTime ? colors.semantic.error : colors.text.primary,
+    // Reuse the SEVA Test shell (navy header, cream canvas, workspace card).
+    // data-section="math" pins the single-column workspace layout for both
+    // sections — the check-in stacks passage + question in one linear column
+    // rather than the runner's two-pane split. The Math tools below are gated
+    // on `isMath`, not on this attribute.
+    <div className="test-session-shell mini-diag-shell" data-section="math">
+      {/* Math-section tools — same modals the full test uses */}
+      <DesmosCalculator isOpen={showCalculator} onClose={() => setShowCalculator(false)} />
+      <SATReferenceSheet isOpen={showReference} onClose={() => setShowReference(false)} />
+
+      {/* Header — navy top bar with the tri-color SEVA wordmark */}
+      <div className="test-session-header">
+        <div className="header-left">
+          <span className="test-wordmark">
+            <span className="wm-s">S</span><span className="wm-e">E</span><span className="wm-v">V</span><span className="wm-a">A</span>
+          </span>
+          <span className="test-session-divider" aria-hidden="true" />
+          <span className="test-name-tag">Check-In</span>
+        </div>
+
+        <div className="header-center">
+          <div className="header-title">{section.label}</div>
+          <div className="header-subtitle">Question {currentIndex + 1} of {total}</div>
+        </div>
+
+        <div className="header-right">
+          {isMath && (
+            <button
+              type="button"
+              className="btn-launch"
+              onClick={() => {
+                const telem = getOrCreateTelemetry(qKey);
+                telem.usedCalculator = true;
+                setShowCalculator(true);
               }}
             >
-              {remaining !== null ? formatClock(remaining) : '--:--'}
-            </span>
-          </div>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <rect x="4" y="2" width="16" height="20" rx="2" />
+                <line x1="8" y1="6" x2="16" y2="6" />
+                <line x1="8" y1="10" x2="10" y2="10" />
+                <line x1="14" y1="10" x2="16" y2="10" />
+                <line x1="8" y1="14" x2="10" y2="14" />
+                <line x1="8" y1="18" x2="16" y2="18" />
+                <line x1="14" y1="18" x2="16" y2="18" />
+              </svg>
+              Calculator
+            </button>
+          )}
+          {isMath && (
+            <button type="button" className="btn-launch" onClick={() => setShowReference(true)}>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+              </svg>
+              Reference
+            </button>
+          )}
+          <span
+            role="timer"
+            aria-label={`Time remaining ${remaining !== null ? formatClock(remaining) : ''}`}
+            className={`test-timer-pill ${lowTime ? 'is-low' : ''}`}
+          >
+            {remaining !== null ? formatClock(remaining) : '--:--'}
+          </span>
         </div>
-        <div style={{ height: '3px', background: colors.surface.gray }}>
-          <div style={{
-            height: '100%', width: `${((currentIndex + 1) / total) * 100}%`,
-            background: colors.accent.orange, transition: 'width 200ms ease',
-          }} />
+
+        <div className="test-session-progress" aria-hidden="true">
+          <div className="test-session-progress-fill" style={{ width: `${((currentIndex + 1) / total) * 100}%` }} />
         </div>
       </div>
 
-      {/* Question card */}
-      <div style={{ maxWidth: '760px', margin: '0 auto', padding: `${spacing.xl} ${spacing.lg} 120px` }}>
-        {/* R&W passage shapes (single passage, paired passages, student notes) */}
-        {currentQuestion.passage && (
-          <div style={{
-            fontFamily: "'Georgia', 'Cambria', 'Times New Roman', serif",
-            fontSize: '17px', lineHeight: '1.65', color: colors.text.primary,
-            marginBottom: '20px', whiteSpace: 'pre-wrap',
-          }}>
-            <PassageText text={currentQuestion.passage} />
-          </div>
-        )}
-
-        {Array.isArray(currentQuestion.passages) && (
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', marginBottom: '20px' }}>
-            {currentQuestion.passages.map((p, i) => (
-              <div key={i}>
-                <div style={{
-                  fontSize: '13px', fontWeight: 700, letterSpacing: '0.04em',
-                  color: colors.text.secondary, textTransform: 'uppercase', marginBottom: '6px',
-                }}>
-                  {p.label || `Text ${i + 1}`}
+      {/* Body — single centered workspace card */}
+      <div className="test-session-body">
+        <div className="test-workspace-main">
+          <div className="test-workspace-left">
+            <div className="question-panel">
+              {/* R&W passage shapes (single passage, paired passages, student notes) */}
+              {currentQuestion.passage && (
+                <div className="mini-diag-passage">
+                  <PassageText text={currentQuestion.passage} />
                 </div>
-                <div style={{
-                  fontFamily: "'Georgia', 'Cambria', 'Times New Roman', serif",
-                  fontSize: '17px', lineHeight: '1.65', color: colors.text.primary, whiteSpace: 'pre-wrap',
-                }}>
-                  <PassageText text={p.text} />
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
+              )}
 
-        {currentQuestion.studentNotes && (
-          <div style={{
-            fontFamily: "'Georgia', 'Cambria', 'Times New Roman', serif",
-            fontSize: '17px', lineHeight: '1.65', color: colors.text.primary, marginBottom: '20px',
-          }}>
-            {currentQuestion.studentNotes.intro && (
-              <div style={{ marginBottom: '8px' }}>{currentQuestion.studentNotes.intro}</div>
-            )}
-            {Array.isArray(currentQuestion.studentNotes.bullets) && (
-              <ul style={{ paddingLeft: '1.25rem', margin: '8px 0' }}>
-                {currentQuestion.studentNotes.bullets.map((b, i) => (
-                  <li key={i} style={{ marginBottom: '4px' }}>
-                    <MathText>{b}</MathText>
-                  </li>
-                ))}
-              </ul>
-            )}
-            {currentQuestion.studentNotes.goal && (
-              <div style={{ marginTop: '8px' }}>
-                <MathText>{currentQuestion.studentNotes.goal}</MathText>
-              </div>
-            )}
-          </div>
-        )}
-
-        {currentQuestion.diagram && (
-          <div style={{ marginBottom: '20px', display: 'flex', justifyContent: 'center' }}>
-            <QuestionDiagram type={currentQuestion.diagram.type} params={currentQuestion.diagram.params} />
-          </div>
-        )}
-
-        {currentQuestion.questionTable && (
-          <div style={{ marginBottom: '20px', display: 'flex', justifyContent: 'center' }}>
-            <table style={{ borderCollapse: 'collapse', fontSize: '15px' }}>
-              <thead>
-                <tr>
-                  {currentQuestion.questionTable.headers.map((header, i) => (
-                    <th key={i} style={{
-                      border: `1px solid ${colors.surface.grayDark}`, padding: '8px 16px',
-                      background: '#f5f5f7', fontWeight: '600',
-                    }}>
-                      <MathText>{header}</MathText>
-                    </th>
+              {Array.isArray(currentQuestion.passages) && (
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', marginBottom: '20px' }}>
+                  {currentQuestion.passages.map((p, i) => (
+                    <div key={i}>
+                      <div className="mini-diag-passage-label">{p.label || `Text ${i + 1}`}</div>
+                      <div className="mini-diag-passage" style={{ marginBottom: 0 }}>
+                        <PassageText text={p.text} />
+                      </div>
+                    </div>
                   ))}
-                </tr>
-              </thead>
-              <tbody>
-                {currentQuestion.questionTable.rows.map((row, i) => (
-                  <tr key={i}>
-                    {row.map((cell, j) => (
-                      <td key={j} style={{
-                        border: `1px solid ${colors.surface.grayDark}`, padding: '8px 16px', textAlign: 'center',
-                      }}>
-                        <MathText>{cell}</MathText>
-                      </td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+                </div>
+              )}
+
+              {currentQuestion.studentNotes && (
+                <div className="mini-diag-passage">
+                  {currentQuestion.studentNotes.intro && (
+                    <div style={{ marginBottom: '8px' }}>{currentQuestion.studentNotes.intro}</div>
+                  )}
+                  {Array.isArray(currentQuestion.studentNotes.bullets) && (
+                    <ul style={{ paddingLeft: '1.25rem', margin: '8px 0' }}>
+                      {currentQuestion.studentNotes.bullets.map((b, i) => (
+                        <li key={i} style={{ marginBottom: '4px' }}>
+                          <MathText>{b}</MathText>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                  {currentQuestion.studentNotes.goal && (
+                    <div style={{ marginTop: '8px' }}>
+                      <MathText>{currentQuestion.studentNotes.goal}</MathText>
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {currentQuestion.diagram && (
+                <div className="mini-diag-media">
+                  <QuestionDiagram type={currentQuestion.diagram.type} params={currentQuestion.diagram.params} />
+                </div>
+              )}
+
+              {currentQuestion.questionTable && (
+                <div className="mini-diag-media">
+                  <table className="mini-diag-table">
+                    <thead>
+                      <tr>
+                        {currentQuestion.questionTable.headers.map((header, i) => (
+                          <th key={i}><MathText>{header}</MathText></th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {currentQuestion.questionTable.rows.map((row, i) => (
+                        <tr key={i}>
+                          {row.map((cell, j) => (
+                            <td key={j}><MathText>{cell}</MathText></td>
+                          ))}
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              )}
+
+              <div className="mini-diag-stem">
+                {Array.isArray(currentQuestion.question) || (currentQuestion.question && typeof currentQuestion.question === 'object')
+                  ? <QuestionRenderer content={currentQuestion.question} />
+                  : <MathText>{currentQuestion.question}</MathText>
+                }
+              </div>
+
+              <AnswerChoiceList
+                choices={currentQuestion.choices || []}
+                selectedId={answers[qKey] ?? null}
+                eliminatedIds={eliminatedChoices[qKey] || []}
+                showResult={false}
+                correctId={null}
+                onSelect={handleSelectAnswer}
+                onToggleEliminate={handleToggleEliminate}
+                crossOut="bluebook"
+              />
+
+              {/* Footer — single forward-only primary action */}
+              <div className="mini-diag-footer">
+                <button type="button" className="bottom-nav-btn is-primary" onClick={handleNext}>
+                  {isLast ? (phase === 'rw' ? 'Finish section' : 'Finish check-in') : 'Next'}
+                </button>
+              </div>
+              <p className="mini-diag-hint">
+                You can leave a question blank — blanks just tell us where to start.
+              </p>
+            </div>
           </div>
-        )}
-
-        <div style={{
-          fontFamily: "'Times New Roman', 'Georgia', 'Cambria', serif",
-          fontSize: '17px', color: colors.text.primary, lineHeight: '1.7', marginBottom: '24px',
-        }}>
-          {Array.isArray(currentQuestion.question) || (currentQuestion.question && typeof currentQuestion.question === 'object')
-            ? <QuestionRenderer content={currentQuestion.question} />
-            : <MathText>{currentQuestion.question}</MathText>
-          }
         </div>
-
-        <div style={{ borderTop: `1px solid ${colors.surface.grayDark}`, paddingTop: '20px' }}>
-          <AnswerChoiceList
-            choices={currentQuestion.choices || []}
-            selectedId={answers[qKey] ?? null}
-            eliminatedIds={eliminatedChoices[qKey] || []}
-            showResult={false}
-            correctId={null}
-            onSelect={handleSelectAnswer}
-            onToggleEliminate={handleToggleEliminate}
-          />
-        </div>
-
-        {/* Footer actions */}
-        <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: spacing.xl }}>
-          <Button variant="primary" onClick={handleNext} style={{ minWidth: '160px' }}>
-            {currentIndex + 1 >= total && served.length > STAGE1_COUNT
-              ? (phase === 'rw' ? 'Finish section' : 'Finish check-in')
-              : 'Next'}
-          </Button>
-        </div>
-        <p style={{ marginTop: spacing.sm, fontSize: typography.sizes.xs, color: colors.text.muted, textAlign: 'right' }}>
-          You can leave a question blank — blanks just tell us where to start.
-        </p>
       </div>
     </div>
   );
