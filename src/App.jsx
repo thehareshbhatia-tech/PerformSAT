@@ -826,35 +826,45 @@ const PerformSAT = () => {
     // Step 4: Save reprioritized deterministic plan immediately (fast path)
     await saveStudyPlan(planToSave);
 
-    // Step 5: AI augmentation in background (slow path)
+    // Step 5: AI augmentation — FIRE-AND-FORGET. This is the slow path (an LLM
+    // Cloud Function that can take tens of seconds or hang), so it must never
+    // gate the caller. Awaiting it here stranded the mini-diagnostic on
+    // "Building your starter plan" indefinitely whenever generateStudyPlan was
+    // slow, because handleOnRampFinished awaits handleSaveStudyPlan before the
+    // shell shows results. The deterministic plan (Step 4) already drives the
+    // UI; when the AI call returns it saves the enhanced plan and useProgress's
+    // onSnapshot refreshes the view. Errors/timeouts are swallowed — the
+    // deterministic plan stands.
     if (diagnosticReport && (longitudinalContext.totalTests > 0 || !isFirstTest)) {
-      try {
-        const { plan: aiPlan } = await generateAIPlan(
-          diagnosticReport,
-          { targetScore: user?.targetScore || DEFAULT_GOAL_SCORE, testDate: user?.testDate },
-          previousPlans,
-          longitudinalContext
-        );
+      (async () => {
+        try {
+          const { plan: aiPlan } = await generateAIPlan(
+            diagnosticReport,
+            { targetScore: user?.targetScore || DEFAULT_GOAL_SCORE, testDate: user?.testDate },
+            previousPlans,
+            longitudinalContext
+          );
 
-        if (aiPlan?.summary?.diagnosis) {
-          // Read-before-merge: use current studyPlan state to preserve any user changes
-          const currentPlan = studyPlan || planToSave;
-          const enhanced = {
-            ...currentPlan,
-            summary: {
-              ...currentPlan.summary,
-              diagnosis: aiPlan.summary.diagnosis,
-              headline: aiPlan.summary.headline || currentPlan.summary?.headline,
-            },
-            nextAction: aiPlan.nextAction || currentPlan.nextAction,
-            deltaFromPrevious: aiPlan.deltaFromPrevious || null,
-            persistentWeaknessStrategy: aiPlan.persistentWeaknessStrategy || null,
-          };
-          await saveStudyPlan(enhanced);
+          if (aiPlan?.summary?.diagnosis) {
+            // Read-before-merge: use current studyPlan state to preserve any user changes
+            const currentPlan = studyPlan || planToSave;
+            const enhanced = {
+              ...currentPlan,
+              summary: {
+                ...currentPlan.summary,
+                diagnosis: aiPlan.summary.diagnosis,
+                headline: aiPlan.summary.headline || currentPlan.summary?.headline,
+              },
+              nextAction: aiPlan.nextAction || currentPlan.nextAction,
+              deltaFromPrevious: aiPlan.deltaFromPrevious || null,
+              persistentWeaknessStrategy: aiPlan.persistentWeaknessStrategy || null,
+            };
+            await saveStudyPlan(enhanced);
+          }
+        } catch (err) {
+          console.warn('[handleSaveStudyPlan] AI augmentation failed, using deterministic plan:', err.message);
         }
-      } catch (err) {
-        console.warn('[handleSaveStudyPlan] AI augmentation failed, using deterministic plan:', err.message);
-      }
+      })();
     }
   };
 
