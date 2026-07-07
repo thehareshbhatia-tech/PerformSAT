@@ -202,19 +202,29 @@
 .pb-hero-stat-sub { font-size: 12px; color: var(--pb-text-2); margin-top: 5px; }
 .pb-hero-stat-focus { font-size: 11.5px; font-weight: 600; color: var(--pb-purple); margin-top: 3px; }
 
-/* Hero primary launcher (orange = action) */
-.pb-hero-launch {
-  display: inline-flex; align-items: center; gap: 14px;
-  background: var(--pb-orange); color: #fff; border: none; border-radius: 14px;
-  padding: 13px 22px; cursor: pointer; flex: none; font-family: var(--pb-font-body);
-  box-shadow: 0 6px 16px rgba(234, 88, 12, 0.28);
+/* Guided primary launcher — full-width, the calm default action (orange = action) */
+.pb-startnow {
+  display: flex; align-items: center; gap: 16px; width: 100%;
+  background: var(--pb-orange); color: #fff; border: none; border-radius: 16px;
+  padding: 18px 22px; cursor: pointer; font-family: var(--pb-font-body); text-align: left;
+  box-shadow: 0 8px 20px rgba(234, 88, 12, 0.26);
   transition: filter 120ms ease, transform 80ms ease;
+  margin-bottom: 34px;
 }
-.pb-hero-launch:hover { filter: brightness(1.05); }
-.pb-hero-launch:active { transform: translateY(1px); }
-.pb-hero-launch-text { display: flex; flex-direction: column; text-align: left; }
-.pb-hero-launch-title { font-weight: 700; font-size: 15px; }
-.pb-hero-launch-sub { font-size: 11.5px; color: rgba(255, 255, 255, 0.85); margin-top: 1px; }
+.pb-startnow:hover { filter: brightness(1.05); }
+.pb-startnow:active { transform: translateY(1px); }
+.pb-startnow-icon {
+  width: 46px; height: 46px; border-radius: 13px; flex: none;
+  display: grid; place-items: center; background: rgba(255, 255, 255, 0.18);
+}
+.pb-startnow-text { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.pb-startnow-title { font-family: var(--pb-font-display); font-weight: 700; font-size: 19px; letter-spacing: -0.01em; }
+.pb-startnow-sub { font-size: 13px; color: rgba(255, 255, 255, 0.88); margin-top: 2px; }
+.pb-startnow-go {
+  flex: none; display: inline-flex; align-items: center; gap: 7px;
+  font-weight: 700; font-size: 14px; background: rgba(255, 255, 255, 0.16);
+  padding: 10px 16px; border-radius: 11px; white-space: nowrap;
+}
 
 /* ── For you strip (compact rows) ──────────────────────────────────────────
  * One-line "start here" rows between the hero and the domain grid. Tri-color
@@ -260,6 +270,26 @@
 .pb-rec.is-orange .pb-rec-go { color: var(--pb-orange); }
 .pb-rec.is-purple .pb-rec-go { color: var(--pb-purple); }
 .pb-rec.is-navy   .pb-rec-go { color: var(--pb-text); }
+
+/* ── Browse all topics (opt-in taxonomy) ───────────────────────────────────
+ * The domain/topic/type grid is hidden behind this toggle so the guided path
+ * (Start practice + For you + More ways) owns the calm first paint.
+ * ────────────────────────────────────────────────────────────────────────── */
+.pb-browse { margin-top: 36px; }
+.pb-browse-toggle {
+  display: flex; align-items: center; gap: 14px; width: 100%;
+  background: var(--pb-surface); border: 1px solid var(--pb-line);
+  border-radius: 14px; padding: 16px 20px; cursor: pointer; text-align: left;
+  font-family: var(--pb-font-body); box-shadow: var(--pb-shadow);
+  transition: border-color 120ms ease;
+}
+.pb-browse-toggle:hover { border-color: var(--pb-line-strong); }
+.pb-browse-toggle-main { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.pb-browse-toggle-title { font-family: var(--pb-font-display); font-weight: 700; font-size: 16px; letter-spacing: -0.01em; color: var(--pb-text); }
+.pb-browse-toggle-sub { font-size: 12.5px; color: var(--pb-text-3); margin-top: 2px; font-variant-numeric: tabular-nums; }
+.pb-browse-chev { flex: none; color: var(--pb-text-3); display: inline-flex; transition: transform 200ms ease; }
+.pb-browse-chev.is-open { transform: rotate(90deg); }
+.pb-browse .pb-grid { margin-top: 18px; }
 
 /* ── Domain grid ───────────────────────────────────────────────────────── */
 .pb-grid {
@@ -471,7 +501,7 @@
   .pb-hero-side { flex-direction: column; align-items: flex-start; gap: 16px; }
   .pb-hero-stats { justify-content: flex-start; }
   .pb-hero-stat-cell { text-align: left; }
-  .pb-hero-launch { width: 100%; justify-content: center; }
+  .pb-startnow-go { display: none; }
   .pb-rec { flex-wrap: wrap; gap: 6px 12px; }
   .pb-rec-eyebrow { min-width: 0; width: 100%; }
   .pb-rec-body { flex-basis: 100%; }

@@ -272,6 +272,10 @@ const BandChip = ({ m }) => {
 // ────────────────────────────────────────────────────────────────────────────
 const PracticeBank = ({ onStartPractice, bankPractice = {}, weaknesses = null, activeDrill = null, onResumeDrill, onDiscardDrill }) => {
   const [section, setSection] = useState('math');
+  // The full domain/topic/type taxonomy is opt-in: the calm default leads with the
+  // guided path (Start practice + For you + More ways) and the catalog stays hidden
+  // behind "Browse all topics" until the student asks for it.
+  const [browseOpen, setBrowseOpen] = useState(false);
   // Question-type reveal is opt-in per topic (calm first paint = all collapsed).
   const [openTopics, setOpenTopics] = useState(() => new Set());
 
@@ -528,7 +532,7 @@ const PracticeBank = ({ onStartPractice, bankPractice = {}, weaknesses = null, a
           <div className="pb-hero-lead">
             <h1 className="pb-hero-title">Practice the {sectionLabel} section.</h1>
             <p className="pb-hero-desc">
-              {fmt(bankTotal)} hand-authored questions across {categories.length} domains and {totalTopics} topics — pick where to start below.
+              {fmt(bankTotal)} hand-authored questions. Start with a set picked for you, or browse every topic below.
             </p>
           </div>
           <div className="pb-hero-side">
@@ -549,15 +553,19 @@ const PracticeBank = ({ onStartPractice, bankPractice = {}, weaknesses = null, a
                 )}
               </div>
             </div>
-            <button type="button" className="pb-hero-launch" onClick={launchTodaysMix}>
-              <span className="pb-hero-launch-text">
-                <span className="pb-hero-launch-title">Start practice</span>
-                <span className="pb-hero-launch-sub">{DRILL_COUNT_PER_DOMAIN} picked for you · ~25 min</span>
-              </span>
-              <Arrow size={18} />
-            </button>
           </div>
         </section>
+
+        {/* Guided primary action — the calm default path (Today's mix). Full-width
+            so it reads as THE thing to do; the taxonomy is opt-in below. */}
+        <button type="button" className="pb-startnow" onClick={launchTodaysMix}>
+          <span className="pb-startnow-icon"><Bolt /></span>
+          <span className="pb-startnow-text">
+            <span className="pb-startnow-title">Start practice</span>
+            <span className="pb-startnow-sub">{DRILL_COUNT_PER_DOMAIN} questions picked for you · ~25 min</span>
+          </span>
+          <span className="pb-startnow-go">Start <Arrow size={16} /></span>
+        </button>
 
         {/* For you — compact one-line recommendation rows */}
         {foryouRecs.length > 0 && (
@@ -583,8 +591,51 @@ const PracticeBank = ({ onStartPractice, bankPractice = {}, weaknesses = null, a
           </section>
         )}
 
-        {/* Domain grid — one card per domain, topics inline, types one click away */}
-        <section className="pb-grid" aria-label={`${sectionLabel} domains`}>
+        {/* More ways to practice — quick / full / custom builder */}
+        <section className="pb-more" aria-label="More ways to practice">
+          <div className="pb-section-label">More ways to practice</div>
+          <div className="pb-more-row">
+            <button type="button" className="pb-more-btn" onClick={launchQuickDrill}>
+              <span className="pb-more-icon"><Bolt /></span>
+              <span className="pb-more-text">
+                <span className="pb-more-title">Quick drill</span>
+                <span className="pb-more-sub">{DRILL_COUNT_SPRINT} questions · ~12 min</span>
+              </span>
+            </button>
+            <button type="button" className="pb-more-btn" onClick={launchFullSection}>
+              <span className="pb-more-icon is-purple"><Book /></span>
+              <span className="pb-more-text">
+                <span className="pb-more-title">{fullLabel}</span>
+                <span className="pb-more-sub">{DRILL_COUNT_HERO} questions · ~30 min</span>
+              </span>
+            </button>
+            <button type="button" className="pb-more-btn" onClick={openBuilder}>
+              <span className="pb-more-icon"><Sliders /></span>
+              <span className="pb-more-text">
+                <span className="pb-more-title">Build a custom drill</span>
+                <span className="pb-more-sub">Pick topics, difficulty &amp; count</span>
+              </span>
+            </button>
+          </div>
+        </section>
+
+        {/* Browse all topics — the full domain → topic → type catalog, collapsed by
+            default so the guided path leads. Opt-in for students who want to explore. */}
+        <section className="pb-browse" aria-label="Browse all topics">
+          <button
+            type="button"
+            className="pb-browse-toggle"
+            aria-expanded={browseOpen}
+            onClick={() => setBrowseOpen((o) => !o)}
+          >
+            <span className="pb-browse-toggle-main">
+              <span className="pb-browse-toggle-title">Browse all topics</span>
+              <span className="pb-browse-toggle-sub">{categories.length} domains · {totalTopics} topics · {fmt(bankTotal)} questions</span>
+            </span>
+            <span className={`pb-browse-chev${browseOpen ? ' is-open' : ''}`}><Chev /></span>
+          </button>
+          {browseOpen && (
+          <div className="pb-grid" aria-label={`${sectionLabel} domains`}>
           {categories.map((cat, i) => {
             const a = accentFor(i);
             const dm = masteryByKey.get(`domain:${cat.domain}`) || EMPTY_MASTERY;
@@ -675,34 +726,8 @@ const PracticeBank = ({ onStartPractice, bankPractice = {}, weaknesses = null, a
               </div>
             );
           })}
-        </section>
-
-        {/* More ways to practice — quick / full / custom builder */}
-        <section className="pb-more" aria-label="More ways to practice">
-          <div className="pb-section-label">More ways to practice</div>
-          <div className="pb-more-row">
-            <button type="button" className="pb-more-btn" onClick={launchQuickDrill}>
-              <span className="pb-more-icon"><Bolt /></span>
-              <span className="pb-more-text">
-                <span className="pb-more-title">Quick drill</span>
-                <span className="pb-more-sub">{DRILL_COUNT_SPRINT} questions · ~12 min</span>
-              </span>
-            </button>
-            <button type="button" className="pb-more-btn" onClick={launchFullSection}>
-              <span className="pb-more-icon is-purple"><Book /></span>
-              <span className="pb-more-text">
-                <span className="pb-more-title">{fullLabel}</span>
-                <span className="pb-more-sub">{DRILL_COUNT_HERO} questions · ~30 min</span>
-              </span>
-            </button>
-            <button type="button" className="pb-more-btn" onClick={openBuilder}>
-              <span className="pb-more-icon"><Sliders /></span>
-              <span className="pb-more-text">
-                <span className="pb-more-title">Build a custom drill</span>
-                <span className="pb-more-sub">Pick topics, difficulty &amp; count</span>
-              </span>
-            </button>
           </div>
+          )}
         </section>
       </div>
 
