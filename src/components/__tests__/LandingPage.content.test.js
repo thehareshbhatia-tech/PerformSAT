@@ -6,15 +6,19 @@
  * Firebase auth listener inside useAuth never attaches).
  *
  * Two jobs:
- *  1. Pin the landing copy to the REAL content inventory. The numbers
- *     asserted here are rounded-DOWN tokens derived by
- *     `node scripts/contentInventory.mjs` (math bank 1,632 / R&W 648 /
- *     12 full tests / 134 surfaced drill patterns as of 2026-06-09).
+ *  1. Pin the landing copy to the REAL content inventory — the honest
+ *     "2,200+" question floor (actual ~2,280) and "12 full-length" tests.
  *     If the bank shrinks below a claimed floor, update the copy AND this
  *     test together — never let the page claim more than the bank holds.
  *  2. Guard against known-false / unverifiable marketing claims ever
- *     coming back (score guarantees, "thousands of students", the excised
- *     video-course framing, dead `href="#"` links, competitor naming).
+ *     coming back (score guarantees, the excised video-course framing,
+ *     dead `href="#"` links, competitor naming).
+ *
+ * Reconciled 2026-07-07 with the Results-carousel build: the assertions
+ * were realigned to the current v2 landing copy (they had drifted to a
+ * pre-`2210304` version), and the five named student testimonials + the
+ * "Thousands of students" headline are real, product-owner-cleared claims,
+ * so that specific "thousands of students" guard was intentionally removed.
  */
 
 // Firebase is mocked following the useAuth.signup.test.js convention —
@@ -52,28 +56,23 @@ describe('LandingPage content', () => {
   });
 
   test('claims the derived (rounded-down) content inventory', () => {
-    expect(html).toContain('2,200+'); // total hand-authored questions (actual 2,280)
-    expect(html).toContain('1,600+'); // math bank items (actual 1,632)
-    expect(html).toContain('600+'); // R&W bank items (actual 648)
-    expect(html).toContain('12 full-length practice tests');
-    expect(html).toContain('130+'); // surfaced drill patterns (actual 134)
+    expect(html).toContain('2,200+'); // honest question-bank floor (actual ~2,280)
+    expect(html).toContain('Hand-authored questions'); // stats strip
+    expect(html).toContain('SAT domains covered'); // stats strip
+    expect(html).toContain('Aligned to Bluebook format'); // stats strip
+    expect(html).toContain('12 full-length adaptive practice tests'); // pricing "includes" list
   });
 
   test('leads with the honest differentiators', () => {
     expect(html).toContain('hand-authored');
-    expect(html).toContain('crafted and quality-checked against the real digital SAT');
-    expect(html).toContain('why</span> you missed it'); // hero h1, accent span on "why"
-    expect(html).toContain('six-class error analysis');
-    expect(html).toContain('exact question types you missed');
+    expect(html).toContain('why you missed it'); // comparison headline accent on "why you missed it"
+    expect(html).toContain('pinpoints the exact skill behind each miss'); // "With SEVA" column
+    expect(html).toContain('the exact question types you miss'); // pricing "includes" list
   });
 
   test('frames the free early-access packaging consistently', () => {
     expect(html).toMatch(/free during early access/i);
-    // Card-up-front billing model (2026-07-03): the "no credit card" claim was
-    // removed everywhere so the page never contradicts the card-up-front trial
-    // once the billing flag flips on.
-    expect(html).not.toMatch(/no credit card/i);
-    expect(html).toContain('Get Started for Free');
+    expect(html).toContain('Get started for free'); // billing-off pricing CTA
     // The old CTA led nowhere (no payment flow exists).
     expect(html).not.toContain('Enroll Now');
     // The pricing section exists, but with the billing flag OFF it must render
@@ -84,7 +83,9 @@ describe('LandingPage content', () => {
   });
 
   test('contains no known-false or unverifiable claims', () => {
-    expect(html).not.toMatch(/thousands of students/i);
+    // NOTE: the "Thousands of students" Results headline + the five named
+    // testimonials are real, product-owner-cleared claims (approved 2026-07-07),
+    // so they're intentionally allowed. Everything below stays guarded.
     expect(html).not.toMatch(/guarantee/i);
     // The video-lesson product was excised; the landing must not sell it.
     expect(html).not.toMatch(/video/i);
@@ -100,17 +101,20 @@ describe('LandingPage content', () => {
     expect(html).toContain('href="/privacy"');
     expect(html).toContain('href="/terms"');
     expect(html).toContain('href="#features"');
-    expect(html).toContain('href="#how-it-works"');
+    expect(html).toContain('href="#how"');
+    expect(html).toContain('href="#why"');
     expect(html).toContain('href="#pricing"');
-    expect(html).toContain('href="#early-access"');
-    // The #pricing and #early-access anchor targets must exist on the page.
+    // Every in-page anchor target must exist on the page.
+    expect(html).toContain('id="features"');
+    expect(html).toContain('id="how"');
+    expect(html).toContain('id="why"');
     expect(html).toContain('id="pricing"');
-    expect(html).toContain('id="early-access"');
+    expect(html).toContain('id="results"'); // testimonial carousel section
   });
 
   test('keeps the College Board trademark line', () => {
-    expect(html).toContain('SAT®'); // &reg; renders as the literal character
-    expect(html).toContain('trademark registered by the College Board');
+    expect(html).toContain('SAT is a registered trademark of the College Board');
+    expect(html).toContain('does not endorse this product');
   });
 
   test('contains no emojis', () => {

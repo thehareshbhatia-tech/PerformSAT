@@ -22,6 +22,19 @@ const XMark = ({ size = 12 }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" stroke="var(--lp-text-3)" strokeWidth="2.8" strokeLinecap="round"><path d="M18 6 6 18M6 6l12 12" /></svg>
 );
 
+// Testimonial avatar: renders the student's initials, then overlays their
+// photo from public/testimonials/ when it exists. onError hides a missing
+// photo so we never flash a broken-image icon before the real photos land.
+const Avatar = ({ src, name }) => {
+  const initials = name.split(/\s+/).map((w) => w[0]).join('').slice(0, 2).toUpperCase();
+  return (
+    <span className="lp-avatar" style={{ width: 46, height: 46 }} aria-hidden="true">
+      {initials}
+      <img className="lp-avatar-img" src={src} alt="" loading="lazy" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
+    </span>
+  );
+};
+
 // Feature cards — icon inherits `currentColor` from the wrapper's color.
 const FEATURES = [
   { title: 'Adaptive Diagnostic', iconBg: 'var(--lp-orange-tint)', iconCol: 'var(--lp-orange)',
@@ -56,6 +69,22 @@ const STEPS = [
     icon: <path d="M13 2 3 14h9l-1 8 10-12h-9z" /> },
 ];
 
+// Real, product-owner-cleared student results (approved to publish by name +
+// college on 2026-07-07). Photos live in public/testimonials/; until they land
+// the Avatar falls back to initials. Order + photo mapping match the mockup.
+const ROSTER = [
+  { img: '/testimonials/student-1.png', name: 'Jake C.', meta: 'Princeton University', from: '1420', to: '1540',
+    quote: 'The best decision I made in my whole SAT journey. It found the exact grammar slips costing me points and drilled them until they were gone.' },
+  { img: '/testimonials/student-2.png', name: 'Gino S.', meta: 'University of Florida · Honors', from: '1220', to: '1490',
+    quote: 'It taught me to see the SAT as patterns, not random questions. My score jumped 270 points and I earned over $350K in scholarships.' },
+  { img: '/testimonials/student-3.png', name: 'Sansai H.', meta: 'Villanova University', from: '1250', to: '1430',
+    quote: 'I stopped chasing volume and started following a real system. The improvement felt structural — it just clicked into place.' },
+  { img: '/testimonials/student-5.png', name: 'Rocco D.', meta: 'Fordham University', from: '1180', to: '1420',
+    quote: "I couldn't have gotten these results without SEVA. By test day I wasn't guessing anymore — I was executing." },
+  { img: '/testimonials/student-4.png', name: 'Luca S.', meta: 'Tufts University', from: '1280', to: '1410',
+    quote: 'It matched the intensity I bring to the field. Once I saw the structure beneath each question, my accuracy and timing transformed.' },
+];
+
 const PRICING_INCLUDES = [
   '2,200+ hand-authored practice questions',
   '12 full-length adaptive practice tests',
@@ -72,6 +101,7 @@ const LandingPage = () => {
   const billingLive = useFeatureFlag('billing');
   const [showAuth, setShowAuth] = useState(false); // login modal
   const [showFunnel, setShowFunnel] = useState(false); // signup quiz funnel
+  const [active, setActive] = useState(0); // results carousel index (can go +/-, wrapped on read)
 
   // Login Form State (signup now lives inside the funnel)
   const [email, setEmail] = useState('');
@@ -140,6 +170,15 @@ const LandingPage = () => {
     e.preventDefault();
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   };
+
+  // Results carousel: `active` is unbounded; wrap on read so prev/next always
+  // resolve to a real roster entry.
+  const cycle = (d) => setActive((a) => a + d);
+  const rn = ROSTER.length;
+  const ri = ((active % rn) + rn) % rn;
+  const cur = ROSTER[ri];
+  const prevCard = ROSTER[(ri - 1 + rn) % rn];
+  const nextCard = ROSTER[(ri + 1) % rn];
 
   if (showFunnel) {
     return (
@@ -381,6 +420,42 @@ const LandingPage = () => {
             </div>
           ))}
         </div>
+      </section>
+
+      {/* ===== RESULTS SHOWCASE (real, cleared student testimonials) ===== */}
+      <section id="results" className="lp-results lp-reveal">
+        <h2 className="lp-results-title">Thousands of students.<br />Life-changing results.</h2>
+        <p className="lp-results-sub">Real score gains, for students at every level.</p>
+        <div className="lp-results-stage">
+          <div className="lp-peek lp-peek-prev" aria-hidden="true">
+            <span className="lp-peek-pill">{prevCard.from} → {prevCard.to}</span>
+            <p className="lp-peek-quote">“{prevCard.quote}”</p>
+          </div>
+          <div className="lp-peek lp-peek-next" aria-hidden="true">
+            <span className="lp-peek-pill">{nextCard.from} → {nextCard.to}</span>
+            <p className="lp-peek-quote">“{nextCard.quote}”</p>
+          </div>
+          <div className="lp-featcard">
+            <span className="lp-result-pill">{cur.from} <span className="to">→</span> {cur.to}</span>
+            <p className="lp-result-quote">“{cur.quote}”</p>
+            <div className="lp-result-person">
+              <Avatar src={cur.img} name={cur.name} />
+              <div>
+                <div className="lp-result-name">{cur.name}</div>
+                <div className="lp-result-meta">{cur.meta}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="lp-results-nav">
+          <button type="button" className="lp-arrow" onClick={() => cycle(-1)} aria-label="Previous result">
+            <svg width="18" height="18" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.4" {...svgBase}><path d="m15 18-6-6 6-6" /></svg>
+          </button>
+          <button type="button" className="lp-arrow" onClick={() => cycle(1)} aria-label="Next result">
+            <svg width="18" height="18" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.4" {...svgBase}><path d="m9 18 6-6-6-6" /></svg>
+          </button>
+        </div>
+        <p className="lp-results-foot">Real students used SEVA to boost their SAT scores and open doors to top colleges nationwide.</p>
       </section>
 
       {/* ===== PRICING (kept + restyled; gated on the billing flag) ===== */}
