@@ -72,4 +72,10 @@ describe('formatTime', () => {
     expect(formatTime(75)).toBe('1m 15s');
     expect(formatTime(125)).toBe('2m 5s');
   });
+
+  it('rounds up to the next minute instead of showing "1m 60s"', () => {
+    // 119.6 → 120s → "2m" (was "1m 60s" before rounding-first).
+    expect(formatTime(119.6)).toBe('2m');
+    expect(formatTime(59.6)).toBe('1m');
+  });
 });

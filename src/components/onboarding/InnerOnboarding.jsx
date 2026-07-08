@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import './InnerOnboarding.css';
 import Wordmark from '../ui/Wordmark';
 import {
@@ -84,6 +84,11 @@ const InnerOnboarding = ({ user, onComplete }) => {
   const [worryArea, setWorryArea] = useState(null);
   const [gradYear, setGradYear] = useState(null);
   const [submitting, setSubmitting] = useState(false);
+  // Guards the auto-advance so a double-click on an option can't queue two
+  // goNext calls (which would skip an entire screen). Mirrors OnboardingFunnel.
+  const [pendingAdvance, setPendingAdvance] = useState(false);
+  const advanceTimer = useRef(null);
+  useEffect(() => () => { if (advanceTimer.current) clearTimeout(advanceTimer.current); }, []);
 
   const nowYear = new Date().getFullYear();
   const gradYears = [nowYear, nowYear + 1, nowYear + 2, nowYear + 3, nowYear + 4];
@@ -104,8 +109,24 @@ const InnerOnboarding = ({ user, onComplete }) => {
 
   const TOTAL_STEPS = 9;
   const goNext = () => setStep((s) => Math.min(TOTAL_STEPS - 1, s + 1));
-  const goBack = () => setStep((s) => Math.max(0, s - 1));
-  const pick = (setter) => (value) => { setter(value); setTimeout(goNext, 160); };
+  const clearPendingAdvance = () => {
+    if (advanceTimer.current) { clearTimeout(advanceTimer.current); advanceTimer.current = null; }
+    setPendingAdvance(false);
+  };
+  const goBack = () => {
+    clearPendingAdvance();
+    setStep((s) => Math.max(0, s - 1));
+  };
+  const pick = (setter) => (value) => {
+    if (pendingAdvance) return; // ignore double-taps mid-transition
+    setter(value);
+    setPendingAdvance(true);
+    advanceTimer.current = setTimeout(() => {
+      advanceTimer.current = null;
+      setPendingAdvance(false);
+      goNext();
+    }, 160);
+  };
 
   const finish = () => {
     if (submitting) return;
@@ -394,7 +415,7 @@ const InnerOnboarding = ({ user, onComplete }) => {
                   key={y}
                   type="button"
                   className={`io-chip${gradYear === y ? ' is-selected' : ''}`}
-                  onClick={() => { setGradYear(y); setTimeout(goNext, 160); }}
+                  onClick={() => pick(setGradYear)(y)}
                 >
                   {y}
                 </button>

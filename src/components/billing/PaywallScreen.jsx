@@ -14,7 +14,7 @@
  * No card form ever renders in-app — Checkout and the Portal are Stripe-owned
  * redirects.
  */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { startCheckout, openBillingPortal, redeemPromoCode } from '../../services/billingService';
 import './PaywallScreen.css';
 
@@ -68,6 +68,15 @@ function statusLine(entitlement) {
 function PaywallScreen({ entitlement, onBack }) {
   const [redirecting, setRedirecting] = useState(null); // 'monthly' | 'annual' | 'portal' | null
   const [error, setError] = useState(null);
+
+  // Returning from Stripe Checkout via the browser back-button can restore this
+  // page from the bfcache with `redirecting` still set, permanently disabling
+  // every CTA. Clear it when the page is shown from cache (e.persisted).
+  useEffect(() => {
+    const onPageShow = (e) => { if (e.persisted) setRedirecting(null); };
+    window.addEventListener('pageshow', onPageShow);
+    return () => window.removeEventListener('pageshow', onPageShow);
+  }, []);
 
   const subscribe = async (plan) => {
     if (redirecting) return;

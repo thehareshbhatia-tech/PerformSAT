@@ -236,8 +236,11 @@ function ReviewItemCard({
       {/* Try-Similar CTA — Plan D4 of PAST_TEST_REVIEW_PLAN.md. Lets a
           student browsing wrong items launch a single-question drill on
           this item's skill without entering retry-drill mode. Opt-in via
-          the onTrySimilar prop (App.jsx wires it; tests can render without). */}
-      {onTrySimilar && (
+          the onTrySimilar prop (App.jsx wires it; tests can render without).
+          Only meaningful on a WRONG item with a real snapshot — a correct item
+          has nothing to re-practice, and a reconstructed (snapshotMissing) item
+          can't reliably route the drill. */}
+      {onTrySimilar && !isCorrect && !snapshotMissing && (
         <div className="ric-cta-row" style={{ borderTop: '1px solid rgba(0,0,0,0.06)', paddingTop: '14px', marginTop: '6px' }}>
           <button
             type="button"
@@ -328,9 +331,12 @@ function prettifyClass(cls) {
  */
 export function formatTime(seconds) {
   if (typeof seconds !== 'number' || seconds < 0) return '—';
-  if (seconds < 60) return `${Math.round(seconds)}s`;
-  const m = Math.floor(seconds / 60);
-  const s = Math.round(seconds - m * 60);
+  // Round to whole seconds FIRST, then split — otherwise 119.6s rounds the
+  // remainder to 60 and renders "1m 60s" instead of "2m".
+  const t = Math.round(seconds);
+  if (t < 60) return `${t}s`;
+  const m = Math.floor(t / 60);
+  const s = t % 60;
   return s === 0 ? `${m}m` : `${m}m ${s}s`;
 }
 

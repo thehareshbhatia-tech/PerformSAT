@@ -45,7 +45,7 @@ const PushOptInCard = ({ userId }) => {
     getPushAvailability().then(({ supported, configured, permission }) => {
       if (cancelled) return;
       setShow(supported && configured && permission === 'default');
-    });
+    }).catch(() => { if (!cancelled) setShow(false); });
     return () => { cancelled = true; };
   }, [enabled, userId]);
 

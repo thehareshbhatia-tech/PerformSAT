@@ -111,9 +111,13 @@ const PacingDrill = ({ config = {}, questions = [], onComplete, onExit, user = n
       setRemaining(remainingSeconds);
       if (!isUp) return;
       if (isPerQuestion) {
-        // Per-question expiry: mark unanswered as wrong, move on.
+        // Per-question expiry: mark unanswered as wrong, then advance behind the
+        // same brief flash as a manual answer (handleSelect) instead of jumping
+        // instantly. Schedule once: advance() nulls advanceTimer when it runs, so
+        // the guard stops later ticks (still firing every 250ms past the deadline)
+        // from re-scheduling and deferring the advance forever.
         if (!answeredRef.current) { record(false, perQ); setShowResult(true); }
-        advance();
+        if (!advanceTimer.current) advanceTimer.current = setTimeout(advance, RESULT_FLASH_MS);
       } else {
         finish(); // cumulative budget exhausted
       }

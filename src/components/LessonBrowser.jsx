@@ -109,8 +109,10 @@ const LessonBrowser = ({ completedLessons = {}, onSelectModule }) => {
       {/* Continue learning hero */}
       {featured && (() => {
         const a = domainStyle(featured.domain);
-        const lessonNo = Math.max(1, Math.round(featured.lessonCount * featured.percent / 100));
-        const left = Math.max(0, featured.lessonCount - lessonNo);
+        // Resume the NEXT lesson after the ones already completed (not a lesson
+        // number re-derived from the rounded percent, which was off by one).
+        const lessonNo = Math.min(featured.completed + 1, featured.lessonCount);
+        const left = featured.lessonCount - featured.completed;
         return (
           <div className="lv-hero">
             <div className="lv-hero-tile" style={{ background: a.tile }}>

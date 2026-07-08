@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect, useRef } from 'react';
 import {
   extractItemsFromAttempt,
   getWrongItems,
@@ -60,6 +60,17 @@ function TestReviewDetail({
     () => groupItemsByErrorClass(wrongItems, diagnosticReport),
     [wrongItems, diagnosticReport]
   );
+
+  // Default to the 'wrong' filter, but on a perfect attempt (no wrong items)
+  // fall back to 'all' so the list isn't an empty "No items match this filter".
+  // Runs once the attempt has actually loaded (the parent fetches async), and
+  // never after the student has interacted with the filter.
+  const didInitFilter = useRef(false);
+  useEffect(() => {
+    if (didInitFilter.current || !attempt) return;
+    didInitFilter.current = true;
+    if (wrongItems.length === 0) setFilter('all');
+  }, [attempt, wrongItems]);
 
   const errorClassChips = useMemo(() => buildErrorClassChips(errorClassGroups), [errorClassGroups]);
   const visibleItems = useMemo(
@@ -336,9 +347,12 @@ function prettifySkill(skill) {
  */
 export function formatTime(seconds) {
   if (typeof seconds !== 'number' || seconds < 0) return '—';
-  if (seconds < 60) return `${Math.round(seconds)}s`;
-  const m = Math.floor(seconds / 60);
-  const s = Math.round(seconds - m * 60);
+  // Round to whole seconds FIRST, then split — otherwise 119.6s rounds the
+  // remainder to 60 and renders "1m 60s" instead of "2m".
+  const t = Math.round(seconds);
+  if (t < 60) return `${t}s`;
+  const m = Math.floor(t / 60);
+  const s = t % 60;
   return s === 0 ? `${m}m` : `${m}m ${s}s`;
 }
 
