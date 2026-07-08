@@ -14,6 +14,10 @@
  * (same pattern as useFeatureFlag.js).
  */
 
+import { makeLogger } from '../utils/log';
+
+const log = makeLogger('pendingTestSaveQueue');
+
 /** Maximum queued saves per user; oldest entries are dropped past this. */
 const MAX_PENDING = 3;
 
@@ -180,6 +184,16 @@ export const flushPendingSaves = async (userId, saveFn) => {
 
   for (const entry of entries) {
     const attemptId = entry?.results?.attemptId;
+    // An entry with no attemptId can never be deduped by the idempotency guard,
+    // so every replay mints a fresh attemptId (duplicate attempts) AND
+    // removePendingSave can't target it — it would replay forever. Drop it.
+    if (!attemptId) {
+      log.warn('Dropping queued save with no attemptId (would replay forever / duplicate)');
+      const live = readPendingSaves(userId).filter((e) => e?.results?.attemptId);
+      if (live.length === 0) clearPendingSaves(userId);
+      else writeQueue(userId, live);
+      continue;
+    }
     // Re-read the live queue before replaying: a concurrent reset
     // (clearPendingSavesForTest) or a flush in another tab may have purged this
     // entry after we snapshotted `entries`. Replaying a purged save would

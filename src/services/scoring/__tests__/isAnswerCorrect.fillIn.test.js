@@ -69,4 +69,35 @@ describe('isAnswerCorrect — fill-in fraction/decimal equivalence', () => {
     expect(isAnswerCorrect(fillIn('1/2'), undefined)).toBe(false);
     expect(isAnswerCorrect(fillIn('1/2'), null)).toBe(false);
   });
+
+  describe('input normalization (commas / whitespace / unicode minus)', () => {
+    it('accepts a comma-grouped thousands entry', () => {
+      expect(isAnswerCorrect(fillIn('1000'), '1,000')).toBe(true);
+      expect(isAnswerCorrect(fillIn('25000'), '25,000')).toBe(true);
+      expect(isAnswerCorrect(fillIn('1000000'), '1,000,000')).toBe(true);
+    });
+
+    it('accepts a fraction typed with surrounding whitespace', () => {
+      expect(isAnswerCorrect(fillIn('19/5'), '19 / 5')).toBe(true);
+      expect(isAnswerCorrect(fillIn('3.8'), ' 19 / 5 ')).toBe(true);
+      expect(isAnswerCorrect(fillIn('1/2'), '1 /2')).toBe(true);
+    });
+
+    it('accepts a unicode-minus / dash negative', () => {
+      expect(isAnswerCorrect(fillIn('-5'), '−5')).toBe(true);   // U+2212 minus
+      expect(isAnswerCorrect(fillIn('-0.5'), '−0.5')).toBe(true);
+      expect(isAnswerCorrect(fillIn('-1/2'), '−1/2')).toBe(true);
+      expect(isAnswerCorrect(fillIn('-5'), '–5')).toBe(true);   // U+2013 en dash
+    });
+
+    it('normalizes the answer KEY side too (comma-grouped key)', () => {
+      expect(isAnswerCorrect(fillIn('1,000'), '1000')).toBe(true);
+      expect(isAnswerCorrect(fillIn('19 / 5'), '3.8')).toBe(true);
+    });
+
+    it('still rejects a wrong comma-grouped entry (no false positives)', () => {
+      expect(isAnswerCorrect(fillIn('1000'), '1,001')).toBe(false);
+      expect(isAnswerCorrect(fillIn('25000'), '25,024')).toBe(false);
+    });
+  });
 });

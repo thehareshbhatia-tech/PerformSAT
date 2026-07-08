@@ -130,9 +130,16 @@ export function isAnswerCorrect(question, userAnswer) {
     return false;
   }
   if (question.type === 'fill-in') {
-    // Normalise both sides to strings so '1' vs 1 never causes a false negative
-    const ua = String(userAnswer).trim();
-    const ca = String(question.correctAnswer).trim();
+    // Normalise both sides to strings so '1' vs 1 never causes a false negative.
+    // Also strip thousands separators + any whitespace and fold a unicode minus
+    // (U+2212) to ASCII '-', so SAT-valid entries like "1,000", "19 / 5" and
+    // "−5" grade against their plain forms instead of failing Number().
+    const normalizeGrid = (s) => String(s)
+      .replace(/[−–—]/g, '-')  // unicode minus / en / em dash to hyphen
+      .replace(/[,\s]/g, '')    // thousands separators + all whitespace
+      .trim();
+    const ua = normalizeGrid(userAnswer);
+    const ca = normalizeGrid(question.correctAnswer);
     if (ua === ca) return true;
     // Numeric comparison — Number() (not parseFloat) so "12/13" → NaN, not 12
     // Parse "a/b" to a number so a fraction answer key matches its decimal
@@ -157,7 +164,7 @@ export function isAnswerCorrect(question, userAnswer) {
     if (!isNaN(numUser) && !isNaN(numCorrect) && within(numUser, numCorrect)) return true;
     if (Array.isArray(question.acceptedAnswers)) {
       return question.acceptedAnswers.some(a => {
-        const as = String(a).trim();
+        const as = normalizeGrid(a);
         if (ua === as) return true;
         const numA = toNum(as);
         return !isNaN(numUser) && !isNaN(numA) && within(numUser, numA);

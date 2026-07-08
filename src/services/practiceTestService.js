@@ -403,14 +403,30 @@ export const saveTestProgress = async (userId, testId, progressData) => {
     // m2VariantManuallySet never survived a resume) and wrote `undefined`
     // for any field the caller omitted — which Firestore rejects outright
     // (the mini-diagnostic's differently-shaped payload hit exactly that).
-    // questionTelemetry stays out of full-test Firestore saves (doc size;
-    // session-local). The JSON round-trip deep-strips undefined values.
-    const { questionTelemetry: _sessionLocal, ...passthrough } = progressData;
+    // The JSON round-trip deep-strips undefined values.
+    //
+    // questionTelemetry IS persisted, but SLIMMED to the per-key behavioral
+    // signals (timeSpent/visits/answerChanges/usedCalculator/markedForReview).
+    // Without it, a mid-test resume re-seeds every pre-resume answer with
+    // timeSpent 0 and the diagnostic misclassifies those misses as rushing.
+    // Slimming (dropping firstAnswerTime/finalAnswerTime and rounding) keeps
+    // the doc-size cost bounded.
+    const { questionTelemetry: rawTelemetry, ...passthrough } = progressData;
+    const slimTelemetry = rawTelemetry && typeof rawTelemetry === 'object'
+      ? Object.fromEntries(Object.entries(rawTelemetry).map(([k, v]) => [k, {
+          timeSpent: Math.round(((v && v.timeSpent) || 0) * 10) / 10,
+          visits: (v && v.visits) || 0,
+          answerChanges: Array.isArray(v && v.answerChanges) ? v.answerChanges : [],
+          usedCalculator: !!(v && v.usedCalculator),
+          markedForReview: !!(v && v.markedForReview),
+        }]))
+      : null;
     const inProgressData = JSON.parse(JSON.stringify({
       ...passthrough,
       testId,
       markedForReview: progressData.markedForReview || [],
       eliminatedChoices: progressData.eliminatedChoices || {},
+      ...(slimTelemetry ? { questionTelemetry: slimTelemetry } : {}),
       lastSavedAt: new Date().toISOString()
     }));
 

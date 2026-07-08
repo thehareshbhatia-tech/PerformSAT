@@ -225,6 +225,39 @@ describe('flushPendingSaves', () => {
     expect(await flushPendingSaves(UID, saveFn)).toEqual({ flushed: 0, failed: 0 });
     expect(saveFn).not.toHaveBeenCalled();
   });
+
+  test('drops an entry with no attemptId instead of replaying it forever', async () => {
+    const warnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
+    // A malformed offline save whose results carry no attemptId: recordPractice
+    // TestResult would mint a fresh id on every replay (duplicate attempts) and
+    // removePendingSave could never target it — it must be dropped, not replayed.
+    enqueuePendingSave(UID, buildEntry({ results: { attemptId: undefined } }));
+    expect(readPendingSaves(UID)).toHaveLength(1);
+    expect(readPendingSaves(UID)[0].results.attemptId).toBeUndefined();
+
+    const saveFn = jest.fn().mockResolvedValue(undefined);
+    const result = await flushPendingSaves(UID, saveFn);
+
+    expect(saveFn).not.toHaveBeenCalled();       // never replayed
+    expect(result).toEqual({ flushed: 0, failed: 0 });
+    expect(readPendingSaves(UID)).toEqual([]);    // and dropped from the queue
+    warnSpy.mockRestore();
+  });
+
+  test('drops a no-attemptId entry but still replays a valid sibling', async () => {
+    const warnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
+    enqueuePendingSave(UID, buildEntry({ testId: 't-bad', results: { attemptId: undefined } }));
+    enqueuePendingSave(UID, buildEntry({ testId: 't-ok', results: { attemptId: 'a-ok' } }));
+
+    const saveFn = jest.fn().mockResolvedValue(undefined);
+    const result = await flushPendingSaves(UID, saveFn);
+
+    expect(saveFn).toHaveBeenCalledTimes(1);
+    expect(saveFn.mock.calls[0][0].results.attemptId).toBe('a-ok');
+    expect(result).toEqual({ flushed: 1, failed: 0 });
+    expect(readPendingSaves(UID)).toEqual([]);
+    warnSpy.mockRestore();
+  });
 });
 
 describe('clearPendingSavesForTest (reset-resurrection guard)', () => {

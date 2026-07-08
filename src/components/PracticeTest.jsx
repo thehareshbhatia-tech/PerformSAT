@@ -528,6 +528,16 @@ const renderChoice = (choice) => {
   return <MathText text={choice.text} />;
 };
 
+// Restrict a grid-in (fill-in) entry to the SAT-valid character set as the
+// student types or pastes: digits, one decimal point, a fraction slash, and a
+// leading minus. Folds a unicode minus / en / em dash to ASCII '-' and strips
+// everything else (commas, "$", spaces, letters) so "1,000", "19 / 5" and
+// "$40" can never reach the grader as ungradeable strings. The grader
+// (isAnswerCorrect) normalizes the same way as a second line of defense.
+const sanitizeGridIn = (raw) => String(raw)
+  .replace(/[−–—]/g, '-')      // unicode minus / en / em dash to hyphen
+  .replace(/[^0-9./-]/g, '');   // keep only the SAT grid-in charset
+
 const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplete, onSaveProgress, onClearProgress, onSaveStudyPlan, onGoToStudyPlan, savedProgress, isTimed = true, skillProgress = null, user = null, practiceTestResults = null, completedLessons = {}, practiceProgress = {}, onStartPractice, answeredQuestionIds = [], initialReviewModule = null, reviewSnapshotMissing = false, reviewAttemptId = null, initialSection = null, resultSaveStatus = null, onRetrySave = null, tutorLocked = false, onSubscribe = null }) => {
   const [currentModule, setCurrentModule] = useState(
     pickInitialModuleIndex(test, savedProgress, initialSection)
@@ -541,7 +551,10 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
   const [highlightsHidden, setHighlightsHidden] = useState(false);
   const [eliminatedChoices, setEliminatedChoices] = useState(savedProgress?.eliminatedChoices || {});
   const [showTimer, setShowTimer] = useState(isTimed);
-  const [moduleCompleted, setModuleCompleted] = useState(false);
+  // Persisted + restored so a resume lands on the module-complete screen (or the
+  // next module) rather than re-entering an already-submitted module with the
+  // frozen clock and editable answers.
+  const [moduleCompleted, setModuleCompleted] = useState(savedProgress?.moduleCompleted || false);
   const [testCompleted, setTestCompleted] = useState(initialReviewModule !== null);
   const [fillInValue, setFillInValue] = useState('');
   const [showCalculator, setShowCalculator] = useState(false);
@@ -607,7 +620,23 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
   const isMobile = windowWidth < 768;
 
   // Diagnostic tracking refs (refs avoid re-renders on every data point)
-  const questionTelemetry = useRef({});
+  // Seed from a resumed session so pre-resume answers keep their real dwell
+  // time / visit counts — otherwise the diagnostic re-reads every pre-resume
+  // miss as timeSpent 0 and misclassifies it as rushing. Normalized to the
+  // full working shape getOrCreateTelemetry expects.
+  const questionTelemetry = useRef(
+    savedProgress?.questionTelemetry && typeof savedProgress.questionTelemetry === 'object'
+      ? Object.fromEntries(Object.entries(savedProgress.questionTelemetry).map(([k, v]) => [k, {
+          timeSpent: (v && v.timeSpent) || 0,
+          visits: (v && v.visits) || 0,
+          answerChanges: Array.isArray(v && v.answerChanges) ? v.answerChanges : [],
+          usedCalculator: !!(v && v.usedCalculator),
+          markedForReview: !!(v && v.markedForReview),
+          firstAnswerTime: (v && v.firstAnswerTime) ?? null,
+          finalAnswerTime: (v && v.finalAnswerTime) ?? null,
+        }]))
+      : {}
+  );
   const questionStartTime = useRef(Date.now());
   const prevQuestion = useRef({ module: 0, question: 0 });
   const navigationHistory = useRef([]);
@@ -824,6 +853,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
         questionTelemetry: telemetrySnapshot,
         module2Variant,
         m2VariantManuallySet,
+        moduleCompleted,
       };
     };
     // Freshest builder for the visibility flush below — timeRemaining reads
@@ -836,7 +866,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
     }, 2000);
 
     return () => clearTimeout(saveTimerRef.current);
-  }, [answers, currentModule, currentQuestion, markedForReview, eliminatedChoices, testCompleted, reviewMode, onSaveProgress, isTimed, module2Variant, m2VariantManuallySet]);
+  }, [answers, currentModule, currentQuestion, markedForReview, eliminatedChoices, testCompleted, reviewMode, onSaveProgress, isTimed, module2Variant, m2VariantManuallySet, moduleCompleted]);
 
   useEffect(() => {
     if (testCompleted || reviewMode) return;
@@ -1362,18 +1392,31 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
   }, []);
 
   const handleFillInSubmit = () => {
-    if (fillInValue.trim()) {
-      const key = `${currentModule}-${currentQuestion}`;
-      const value = fillInValue.trim();
-
-      const telemetry = getOrCreateTelemetry(currentModule, currentQuestion);
-      const now = Date.now();
-      telemetry.answerChanges.push({ from: answers[key] || null, to: value, timestamp: now });
-      if (!telemetry.firstAnswerTime) telemetry.firstAnswerTime = now;
-      telemetry.finalAnswerTime = now;
-
-      setAnswers(prev => ({ ...prev, [key]: value }));
+    const key = `${currentModule}-${currentQuestion}`;
+    const value = fillInValue.trim();
+    if (!value) {
+      // Clearing a previously-committed fill-in: drop the stored key so the
+      // answered-count and the review screen reflect the cleared state. Without
+      // this, a committed grid-in could never be un-answered (score is
+      // unaffected either way — a blank grid-in never scores correct).
+      if (answers[key] !== undefined) {
+        setAnswers(prev => {
+          if (prev[key] === undefined) return prev;
+          const next = { ...prev };
+          delete next[key];
+          return next;
+        });
+      }
+      return;
     }
+
+    const telemetry = getOrCreateTelemetry(currentModule, currentQuestion);
+    const now = Date.now();
+    telemetry.answerChanges.push({ from: answers[key] || null, to: value, timestamp: now });
+    if (!telemetry.firstAnswerTime) telemetry.firstAnswerTime = now;
+    telemetry.finalAnswerTime = now;
+
+    setAnswers(prev => ({ ...prev, [key]: value }));
   };
 
   const handleToggleMark = useCallback(() => {
@@ -1455,6 +1498,9 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
   // the End-Test blank-attempt guard can't discard a test whose only answer
   // is the fill-in being committed at end time.
   const fillInHasValueRef = useRef(false);
+  // Declared here (above handleSubmitModule) so the synchronous ref-set inside
+  // it beats the effect that lags it by a render.
+  const moduleCompletedRef = useRef(false);
   useEffect(() => {
     fillInHasValueRef.current = question?.type === 'fill-in' && String(fillInValue ?? '').trim() !== '';
   });
@@ -1478,7 +1524,15 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
       const telemetry = getOrCreateTelemetry(mod, q);
       telemetry.timeSpent += elapsed;
     }
+    // Reset the clock so the completion effect's final-question re-stamp
+    // (now - questionStartTime) doesn't double-count the dwell we just recorded
+    // plus the time spent sitting on the module-complete screen.
+    questionStartTime.current = now;
     moduleTimeRemaining.current[mod] = timerSecondsRef.current;
+    // Set the ref synchronously (the effect that syncs it lags a render): a
+    // timer tick between this paint and the effect would otherwise see the ref
+    // still false, re-stamp telemetry, and zero moduleTimeRemaining.
+    moduleCompletedRef.current = true;
     setModuleCompleted(true);
   }, []);
 
@@ -1518,17 +1572,32 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
       setCurrentModule(nextMod);
       setCurrentQuestion(0);
       setMarkedForReview([]);
-      setEliminatedChoices({});
+      // Do NOT clear eliminatedChoices here: keys are module-scoped
+      // (`${modIdx}-${qIdx}`) so prior modules' entries can't collide with the
+      // new module's, and the completion path reads eliminations across ALL
+      // modules for the elimination-evidence diagnostic. Clearing here erased
+      // that evidence for every already-submitted module.
       setModuleCompleted(false);
       setResumeTimeRemaining(null);
       questionStartTime.current = Date.now();
       prevQuestion.current = { module: nextMod, question: 0 };
     } else {
+      // A whole test submitted with nothing answered is an abandon, not a
+      // result — mirror handleConfirmEndTest's blank-attempt guard so the
+      // normal last-module flow can't mint an IRT-floor 400 attempt that
+      // becomes the dashboard's "latest result" + next test's delta baseline.
+      const answeredCount = Object.values(answers)
+        .filter(v => v !== null && v !== undefined && v !== '').length;
+      if (answeredCount === 0 && !fillInHasValueRef.current) {
+        onClearProgress?.();
+        showToast({ type: 'info', message: 'Test ended with no answers — this attempt was not scored.' });
+        onBack?.();
+        return;
+      }
       setTestCompleted(true);
     }
-  }, [test.modules.length, test.module2Easy, test.modules, mathM1Index, module2Variant, m2VariantManuallySet, answers]);
+  }, [test.modules.length, test.module2Easy, test.modules, mathM1Index, module2Variant, m2VariantManuallySet, answers, onClearProgress, onBack]);
 
-  const moduleCompletedRef = useRef(false);
   useEffect(() => { moduleCompletedRef.current = moduleCompleted; }, [moduleCompleted]);
 
   const handleTimeUp = useCallback(() => {
@@ -1575,6 +1644,13 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
         const out = { ...prev };
         Object.keys(out).forEach(k => { if (k.startsWith(prefix)) delete out[k]; });
         return out;
+      });
+      // Drop the abandoned variant's telemetry too — the `${mathM2Index}-*`
+      // keys now point at the OTHER variant's questions, so leaving them would
+      // attribute the discarded variant's dwell time / marks / flags to the
+      // freshly-served questions.
+      Object.keys(questionTelemetry.current).forEach(k => {
+        if (k.startsWith(prefix)) delete questionTelemetry.current[k];
       });
       setMarkedForReview([]);  // M2-only list at this point in the test
     }
@@ -1675,6 +1751,9 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
       const telemetry = getOrCreateTelemetry(mod, q);
       telemetry.timeSpent += elapsed;
     }
+    // Reset the clock so the completion effect doesn't re-add (now -
+    // questionStartTime) on top of the dwell we just recorded (double-count).
+    questionStartTime.current = now;
     moduleTimeRemaining.current[mod] = timerSecondsRef.current;
     setTestCompleted(true);
   }, [onBack, onClearProgress]);
@@ -1684,32 +1763,17 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
     setIsPaused(false);
     // Save fill-in value via ref (reads current question type and value)
     fillInSubmitRef.current?.();
-    if (onSaveProgress) {
-      const mod = currentModuleRef.current;
-      const q = currentQuestionRef.current;
-      const telemetrySnapshot = {};
-      Object.entries(questionTelemetry.current).forEach(([k, v]) => {
-        telemetrySnapshot[k] = {
-          timeSpent: Math.round((v.timeSpent || 0) * 10) / 10,
-          visits: v.visits || 0,
-          answerChanges: v.answerChanges || [],
-          usedCalculator: v.usedCalculator || false,
-          markedForReview: v.markedForReview || false,
-        };
-      });
-      onSaveProgress({
-        currentModule: mod,
-        currentQuestion: q,
-        answers: answersRef.current,
-        markedForReview,
-        eliminatedChoices,
-        isTimed,
-        timeRemaining: timerSecondsRef.current,
-        questionTelemetry: telemetrySnapshot,
-      });
+    // Reuse the auto-save builder so the leave payload carries the FULL progress
+    // shape — module2Variant / m2VariantManuallySet / moduleCompleted / slim
+    // telemetry. The old hand-built payload dropped module2Variant, so an
+    // Easy-routed student who Save-&-Left resumed on the HARD module and their
+    // positional answers regraded against the wrong questions. buildProgressRef
+    // is null only before any answer exists (nothing worth resuming).
+    if (onSaveProgress && buildProgressRef.current) {
+      onSaveProgress(buildProgressRef.current());
     }
     onBack();
-  }, [onSaveProgress, markedForReview, eliminatedChoices, isTimed, onBack]);
+  }, [onSaveProgress, onBack]);
 
   const handleCancelAction = () => {
     setConfirmAction(null);
@@ -2503,6 +2567,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
               sectionScores: scoredRef.current.sectionScores,
               isMultiSection: scoredRef.current.isMultiSection,
             } : null}
+            servedMathRoute={module2Variant}
             diagnosticData={diagnosticDataRef.current}
             diagnosticReport={diagnosticReportRef.current}
             practiceTestResults={practiceTestResults}
@@ -2587,8 +2652,9 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
     <div style={{ marginTop: '8px' }}>
       <input
         type="text"
+        inputMode="text"
         value={fillInValue}
-        onChange={(e) => setFillInValue(e.target.value)}
+        onChange={(e) => setFillInValue(sanitizeGridIn(e.target.value))}
         onBlur={handleFillInSubmit}
         placeholder="Enter your answer"
         onKeyDown={(e) => { if (e.key === 'Enter') handleNext(); }}

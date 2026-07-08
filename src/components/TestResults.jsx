@@ -461,6 +461,12 @@ const TestResults = ({
   // source of truth for the displayed scores; scoreTest(test, answers) is only
   // a legacy fallback for attempts saved before scores were persisted.
   storedResult = null,
+  // The Math Module-2 variant the student was actually served. Threaded into
+  // the legacy scoreTest fallback so the brief pre-storedResult paint doesn't
+  // re-derive the route from Module-1 accuracy (which is wrong whenever the
+  // student manually overrode the variant). diagnosticData.mathRoute wins when
+  // present; this is the fallback for the first paint before it is set.
+  servedMathRoute = null,
   diagnosticData,
   diagnosticReport,
   practiceTestResults,
@@ -620,7 +626,7 @@ const TestResults = ({
   // Re-deriving from scoreTest(test, answers) can diverge from the persisted
   // score when `test` was reconstructed for review (e.g. a snapshot that lost
   // its per-module section collapses all items into one math bucket -> ~210).
-  const _scored = scoreTest(test, answers);
+  const _scored = scoreTest(test, answers, { mathRoute: diagnosticData?.mathRoute ?? servedMathRoute ?? undefined });
   const { satScore, sectionScores, isMultiSection } = resolveDisplayScores(storedResult, _scored);
   const headlineLabel = isMultiSection
     ? 'Total Score'
