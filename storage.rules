@@ -1,0 +1,13 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+
+    // Firebase Storage is entirely unused by the SEVA app (no getStorage /
+    // uploadBytes / getDownloadURL anywhere in src/). Default-deny every path
+    // as defense-in-depth so the bucket is locked down in-repo, not only in
+    // the console. If Storage is ever adopted, add scoped rules above this.
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}

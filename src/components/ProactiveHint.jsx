@@ -150,8 +150,8 @@ const ProactiveHint = ({ recommendation, onDismiss, onAccept }) => {
                 gap: '6px',
                 transition: `background ${transitions.fast}`
               }}
-              onMouseEnter={(e) => e.target.style.background = colors.text.secondary}
-              onMouseLeave={(e) => e.target.style.background = colors.surface.dark}
+              onMouseEnter={(e) => e.currentTarget.style.background = colors.text.secondary}
+              onMouseLeave={(e) => e.currentTarget.style.background = colors.surface.dark}
             >
               {recommendation.actionLabel || 'Try it'}
               <ArrowRightIcon size={14} color="currentColor" />
@@ -175,8 +175,8 @@ const ProactiveHint = ({ recommendation, onDismiss, onAccept }) => {
               justifyContent: 'center',
               transition: `color ${transitions.fast}`
             }}
-            onMouseEnter={(e) => e.target.style.color = colors.text.secondary}
-            onMouseLeave={(e) => e.target.style.color = colors.text.muted}
+            onMouseEnter={(e) => e.currentTarget.style.color = colors.text.secondary}
+            onMouseLeave={(e) => e.currentTarget.style.color = colors.text.muted}
             aria-label="Dismiss"
           >
             <CrossIcon size={18} color="currentColor" />

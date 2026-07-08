@@ -100,6 +100,76 @@ export const buildLongitudinalEvidence = (practiceTestResults = {}) => {
   };
 };
 
+/**
+ * Reshape buildLongitudinalEvidence's per-question skillHistory into the
+ * per-test aggregate shape the generateStudyPlan Cloud Function consumes
+ * (functions/src/index.ts buildStudyPlanUserPrompt): one appearance PER TEST
+ * per skill, each carrying an aggregate `accuracy` (0-100). The server
+ * compares appearances[0].accuracy vs appearances[last].accuracy to emit the
+ * "improved since last test" / "new regressions" prompt sections, so
+ * appearances must stay in chronological (oldest -> newest) order — which
+ * they are, because the upstream per-question appearances are pushed in
+ * attempt-completion order.
+ *
+ * Payload is bounded to stay far under the server's 150KB request cap:
+ * at most `maxSkills` skills — multi-test skills first (only those can show
+ * improvement/regression server-side), then most recently seen — and at most
+ * the `maxAppearancesPerSkill` MOST RECENT test appearances per skill.
+ *
+ * Pure function; does NOT mutate or replace the local skillHistory shape
+ * (studyPlanGenerator reads the per-question {attempts, correct} counters).
+ *
+ * @param {Object} skillHistory per-question map from buildLongitudinalEvidence
+ * @param {{maxSkills?: number, maxAppearancesPerSkill?: number}} [opts]
+ * @returns {Object} { [skillId]: { appearances: [{testId, date, accuracy}] } }
+ */
+export const buildSkillHistoryForAI = (
+  skillHistory = {},
+  { maxSkills = 30, maxAppearancesPerSkill = 6 } = {},
+) => {
+  const perSkill = Object.entries(skillHistory).map(([skillId, data]) => {
+    // Group per-question appearances into one entry per test, preserving
+    // first-encounter (chronological) order.
+    const byTest = [];
+    const index = new Map();
+    (data?.appearances || []).forEach((app) => {
+      let entry = index.get(app.testId);
+      if (!entry) {
+        entry = { testId: app.testId, date: app.date || null, attempts: 0, correct: 0 };
+        index.set(app.testId, entry);
+        byTest.push(entry);
+      }
+      entry.attempts += 1;
+      if (app.correct) entry.correct += 1;
+      if (app.date) entry.date = app.date;
+    });
+    const appearances = byTest.map((t) => ({
+      testId: t.testId,
+      date: t.date,
+      accuracy: t.attempts > 0 ? Math.round((t.correct / t.attempts) * 100) : 0,
+    }));
+    return { skillId, appearances };
+  });
+
+  const lastSeenMs = (s) => {
+    const last = s.appearances[s.appearances.length - 1];
+    const t = last?.date ? new Date(last.date).getTime() : 0;
+    return Number.isNaN(t) ? 0 : t;
+  };
+  perSkill.sort((a, b) => {
+    const aMulti = a.appearances.length >= 2 ? 1 : 0;
+    const bMulti = b.appearances.length >= 2 ? 1 : 0;
+    if (aMulti !== bMulti) return bMulti - aMulti;
+    return lastSeenMs(b) - lastSeenMs(a);
+  });
+
+  const out = {};
+  perSkill.slice(0, maxSkills).forEach(({ skillId, appearances }) => {
+    out[skillId] = { appearances: appearances.slice(-maxAppearancesPerSkill) };
+  });
+  return out;
+};
+
 function computeSkillTrend(appearances) {
   if (appearances.length < 2) return 'insufficient_data';
   const recent = appearances.slice(-3);

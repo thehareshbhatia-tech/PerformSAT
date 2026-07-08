@@ -779,13 +779,11 @@ export const chatWithTutor = async (
     content: m.content
   }));
 
-  // Scale thinking budget based on context (Socratic mode + post-answer
-  // breakdowns reason harder; general lesson questions need less).
-  const thinkingBudget = practiceContext ? 10000 : 6000;
+  // (No thinking_budget field: the aiTutor Cloud Function never reads it —
+  // thinking is hard-disabled server-side for first-token latency.)
   const buildBody = (stream) => JSON.stringify({
     messages: claudeMessages,
     system: enhancedSystem,
-    thinking_budget: thinkingBudget,
     stream,
   });
 
@@ -863,7 +861,6 @@ export const quickAnswer = async (question, section = 'math') => {
       body: JSON.stringify({
         messages: [{ role: 'user', content: question }],
         system: getSystemPrompt(section),
-        thinking_budget: 4000,
         // The server streams by default — without this, response.json() below
         // would choke on an SSE body.
         stream: false

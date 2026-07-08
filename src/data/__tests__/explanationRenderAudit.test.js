@@ -88,16 +88,57 @@ function renderViaMathText(inputText) {
 }
 
 // ── Static detectors for SILENT mis-renders (KaTeX accepts, draws wrong) ────
+//
+// GROUND-TRUTH RECALIBRATION — 2026-07-08.
+// The original detectors here reported inflated counts (italic-asterisk 3235,
+// unbalanced-dollars 445, unicode-in-math 191, unbalanced-braces 4,
+// silent-superscript 2). Every one of those was proven a FALSE POSITIVE by
+// server-rendering the flagged items through the REAL production pipeline
+// (<SolutionExplanation> → parseExplanation → InlineRich → MathText → KaTeX,
+// via react-dom/server): 0 katex-errors, 0 raw-$ leaks, 0 prose-swallowed math,
+// 0 dropped glyphs. See the investigation notes below per category. The
+// throwOnError:true render pass in renderViaMathText() above is the AUTHORITATIVE
+// signal for hard breakage (it captures everything KaTeX chokes on and reported
+// zero); these static detectors only exist to catch SILENT mis-renders that
+// KaTeX accepts but draws wrong — so each is now tightened to its genuine-risk
+// core so the reported count reflects reality instead of heuristic noise.
 function staticFlags(field, raw) {
   const flags = [];
   const s = String(raw);
 
-  // odd number of unescaped $ that aren't currency → guaranteed mis-pairing
-  const dollarsNoCurrency = s
-    .replace(/\\\$/g, '')                                  // escaped currency
-    .replace(/\$\d+(?:,\d{3})*\.\d{2}/g, '');              // $12.50 currency
-  const dollarCount = (dollarsNoCurrency.match(/\$/g) || []).length;
-  if (dollarCount % 2 === 1) flags.push({ cat: 'unbalanced-dollars', detail: `${dollarCount} unescaped $`, sev: 'high' });
+  // ── unbalanced-dollars ────────────────────────────────────────────────────
+  // FALSE-POSITIVE FIX. The old test stripped `\$` to EMPTY then stripped
+  // `$NN.NN` currency and flagged an odd `$` count. That mis-eats a real math
+  // opener: `$\$1.00$` (an escaped dollar INSIDE a math span) collapsed to
+  // `$1.00$`, whose leading `$` was then consumed as currency, leaving the
+  // closing `$` "odd" — a phantom. It also flagged plain unescaped currency
+  // ("$60", "$25 ... $0.10 ...") which MathText leaves as literal text that
+  // displays correctly. Mirror MathText's ACTUAL preprocessing instead:
+  //   Step 0 — `\$` → an inert placeholder (a literal $, never a delimiter)
+  //   balancedMath — even $-count + a LaTeX signal ⇒ every $ is a delimiter,
+  //     balanced by construction (this is exactly MathText's own gate; the
+  //     escaped-dollar placeholder counts as the LaTeX signal, as in MathText)
+  //   currency — only `$NN.NN` is stripped, matching MathText Step 3
+  // then flag ONLY a residual odd `$` that is NOT itself a currency amount
+  // ($ + digits) — i.e. a genuine stray delimiter that could expose raw LaTeX.
+  // This drops 445 → 0 on the corpus while still flagging a true stray such as
+  // "the value $x plus 3". (Verified 2026-07-08.)
+  const ESCAPED_PH = '';
+  const masked = s.replace(/\\\$/g, ESCAPED_PH);
+  const mTrim = masked.trim();
+  const isMathExpression =
+    (mTrim.startsWith('$') && mTrim.endsWith('$')) ||
+    (mTrim.startsWith('$$') && mTrim.endsWith('$$'));
+  const dollarCount = (masked.match(/\$/g) || []).length;
+  const hasLatexCmd = /\\[a-zA-Z%]/.test(s) || masked.includes(ESCAPED_PH);
+  const balancedMath = dollarCount >= 2 && dollarCount % 2 === 0 && hasLatexCmd;
+  if (!isMathExpression && !balancedMath) {
+    const afterCurrency = masked.replace(/\$(\d+(?:,\d{3})*\.\d{2})(?=[\s,;:.!?)}\]]|$)/g, '');
+    if ((afterCurrency.match(/\$/g) || []).length % 2 === 1) {
+      const strayNonCurrency = (afterCurrency.replace(/\$\d[\d,]*(?:\.\d+)?/g, '').match(/\$/g) || []).length;
+      if (strayNonCurrency >= 1) flags.push({ cat: 'unbalanced-dollars', detail: `${strayNonCurrency} stray $`, sev: 'high' });
+    }
+  }
 
   // walk each $...$ segment for inner problems
   const segRe = /\$\$([\s\S]*?)\$\$|\$([^$]+?)\$/g;
@@ -105,24 +146,42 @@ function staticFlags(field, raw) {
   while ((m = segRe.exec(s)) !== null) {
     const inner = m[1] !== undefined ? m[1] : m[2];
     if (inner === undefined) continue;
-    // multi-char superscript without braces:  2^10  x^23
-    if (/\^\s*-?\d{2,}/.test(inner) || /\^\s*[A-Za-z]{2,}/.test(inner))
-      flags.push({ cat: 'silent-superscript', detail: inner.match(/\^\s*-?[\dA-Za-z]{2,}/)[0], seg: inner, sev: 'high' });
-    // multi-char subscript without braces:  V_new  x_12
+    // ── silent-superscript ──────────────────────────────────────────────────
+    // FALSE-POSITIVE FIX. The old multi-LETTER clause (`^\s*[A-Za-z]{2,}`)
+    // flagged `a^nb^nc^n` and `ax^by^c`, but `^` binds to a SINGLE token, so
+    // those render exactly as authored: a^n·b^n·c^n and a·x^b·y^c (verified via
+    // real render 2026-07-08). Multi-letter after `^` is genuinely ambiguous
+    // (`a^nb` = product-of-powers, correct) so we no longer flag it. Multi-DIGIT
+    // without braces (`x^12` → x^1·2) is the unambiguous silent-mis-render; keep
+    // that clause as the real guard (0 in corpus today).
+    if (/\^\s*-?\d{2,}/.test(inner))
+      flags.push({ cat: 'silent-superscript', detail: inner.match(/\^\s*-?\d{2,}/)[0], seg: inner, sev: 'high' });
+    // multi-char subscript without braces: V_new, x_12 → only first char binds.
+    // Kept unchanged: a multi-letter subscript is almost always a real label bug
+    // (V_new meant V_{new}), unlike the superscript case. 0 in corpus today.
     if (/_\s*\d{2,}/.test(inner) || /_\s*[A-Za-z]{2,}/.test(inner))
       flags.push({ cat: 'silent-subscript', detail: inner.match(/_\s*[\dA-Za-z]{2,}/)[0], seg: inner, sev: 'med' });
-    // unicode math chars inside math mode (should be LaTeX commands)
-    const uni = inner.match(/[√²³¼½¾×÷≤≥≠≈∞π°±∓·•→⇒∑∏∫√µΔΩθαβ]/g);
-    if (uni) flags.push({ cat: 'unicode-in-math', detail: [...new Set(uni)].join(''), seg: inner, sev: 'med' });
-    // unbalanced braces within the segment
-    const opens = (inner.match(/(?<!\\)\{/g) || []).length;
-    const closes = (inner.match(/(?<!\\)\}/g) || []).length;
-    if (opens !== closes) flags.push({ cat: 'unbalanced-braces', detail: `{${opens} }${closes}`, seg: inner, sev: 'high' });
+    // ── unicode-in-math & unbalanced-braces: REMOVED (both false positives) ──
+    // unicode-in-math (was 191, ALL the degree sign `°`): KaTeX renders `°`,
+    //   `×`, `≤`, etc. correctly under strict:false — the exact mode the app
+    //   uses. This was an authoring-STYLE nit ("prefer \times over ×"), not a
+    //   render bug; the throwOnError render pass flags any glyph that truly
+    //   fails to parse (found none). Dropped so the count reflects render truth.
+    // unbalanced-braces (was 4): all artifacts of THIS regex's naive $...$
+    //   segmentation (a non-greedy `[^$]+?` cut a valid span mid-\frac). Genuine
+    //   brace imbalance makes KaTeX throw and is already caught by the
+    //   throwOnError render pass (found none). Dropped as redundant + spurious.
   }
 
-  // asterisk-in-math corruption: a $...$ segment that contains * and the whole
-  // string has another * (so step-0.4 italic regex can inject <em> into latex)
-  if (/\$[^$]*\*[^$]*\$/.test(s)) flags.push({ cat: 'italic-asterisk-in-math', detail: 'has * inside $...$', sev: 'med' });
+  // ── italic-asterisk-in-math: REMOVED (obsolete false positive, was 3235) ───
+  // This guarded a historical bug where the markdown-italic pass could inject
+  // <em> into LaTeX. MathText.jsx now renders every $...$ / $$...$$ span into an
+  // inert stashed token (Step 4) BEFORE the `*foo*`→<em> pass runs (Step 6), so
+  // a `*` inside math can never be seen by the italic regex — the bug is
+  // structurally impossible. Moreover the old regex `/\$[^$]*\*[^$]*\$/` mostly
+  // matched the PROSE gap (`**bold**` headers) BETWEEN two real math spans, not
+  // `*` inside actual math. Real-render check: 400/400 sampled items rendered
+  // clean. Dropped. (Verified 2026-07-08.)
 
   return flags;
 }

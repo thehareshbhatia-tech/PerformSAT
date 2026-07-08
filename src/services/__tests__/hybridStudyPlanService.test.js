@@ -24,6 +24,7 @@ import { generateAndPersistHybridPlan } from '../hybridStudyPlanService';
 import * as generatorModule from '../studyPlanGenerator';
 import {
   buildLongitudinalEvidence,
+  buildSkillHistoryForAI,
   computePlanDelta,
   mergeHybridPlan,
   stripEmojis,
@@ -242,6 +243,89 @@ describe('buildLongitudinalEvidence', () => {
     const evidence = buildLongitudinalEvidence(results);
     expect(evidence.skillHistory['exponent-rules'].attempts).toBe(2);
     expect(evidence.skillHistory['exponent-rules'].correct).toBe(1);
+  });
+});
+
+describe('buildSkillHistoryForAI', () => {
+  // Local (per-question) skillHistory shape, as buildLongitudinalEvidence
+  // produces it: appearances pushed in attempt-completion order.
+  const perQuestion = (entries) => ({ appearances: entries });
+
+  test('aggregates per-question appearances into one per-test entry with accuracy %', () => {
+    const skillHistory = {
+      quadratics: perQuestion([
+        { testId: 'test-1', date: '2026-05-01T00:00:00Z', correct: false },
+        { testId: 'test-1', date: '2026-05-01T00:00:00Z', correct: false },
+        { testId: 'test-1', date: '2026-05-01T00:00:00Z', correct: true },
+        { testId: 'test-2', date: '2026-06-01T00:00:00Z', correct: true },
+        { testId: 'test-2', date: '2026-06-01T00:00:00Z', correct: true },
+      ]),
+    };
+    const out = buildSkillHistoryForAI(skillHistory);
+    // One appearance PER TEST, chronological, each carrying aggregate accuracy —
+    // the exact shape the Cloud Function's first-vs-last comparison consumes.
+    expect(out.quadratics.appearances).toEqual([
+      { testId: 'test-1', date: '2026-05-01T00:00:00Z', accuracy: 33 },
+      { testId: 'test-2', date: '2026-06-01T00:00:00Z', accuracy: 100 },
+    ]);
+    // Server logic: last - first >= 20 → "improved since last test".
+    const apps = out.quadratics.appearances;
+    expect(apps[apps.length - 1].accuracy - apps[0].accuracy).toBeGreaterThanOrEqual(20);
+  });
+
+  test('detectable regression: first >= 70 and last < 50 survive aggregation', () => {
+    const skillHistory = {
+      statistics: perQuestion([
+        { testId: 'test-1', date: '2026-05-01T00:00:00Z', correct: true },
+        { testId: 'test-1', date: '2026-05-01T00:00:00Z', correct: true },
+        { testId: 'test-1', date: '2026-05-01T00:00:00Z', correct: true },
+        { testId: 'test-1', date: '2026-05-01T00:00:00Z', correct: false },
+        { testId: 'test-2', date: '2026-06-01T00:00:00Z', correct: false },
+        { testId: 'test-2', date: '2026-06-01T00:00:00Z', correct: true },
+        { testId: 'test-2', date: '2026-06-01T00:00:00Z', correct: false },
+      ]),
+    };
+    const apps = buildSkillHistoryForAI(skillHistory).statistics.appearances;
+    expect(apps[0].accuracy).toBe(75);
+    expect(apps[apps.length - 1].accuracy).toBe(33);
+  });
+
+  test('caps skills at maxSkills, prioritizing multi-test skills over single-test ones', () => {
+    const skillHistory = {
+      // Single-test skill seen most recently — would win on recency alone.
+      'single-recent': perQuestion([
+        { testId: 'test-9', date: '2026-07-01T00:00:00Z', correct: true },
+      ]),
+      // Multi-test skills — only these can show improvement/regression.
+      'multi-a': perQuestion([
+        { testId: 'test-1', date: '2026-05-01T00:00:00Z', correct: true },
+        { testId: 'test-2', date: '2026-06-01T00:00:00Z', correct: false },
+      ]),
+      'multi-b': perQuestion([
+        { testId: 'test-1', date: '2026-05-01T00:00:00Z', correct: false },
+        { testId: 'test-2', date: '2026-06-01T00:00:00Z', correct: true },
+      ]),
+    };
+    const out = buildSkillHistoryForAI(skillHistory, { maxSkills: 2 });
+    expect(Object.keys(out).sort()).toEqual(['multi-a', 'multi-b']);
+  });
+
+  test('keeps only the most recent appearances per skill (chronological order intact)', () => {
+    const appearances = [];
+    for (let i = 1; i <= 9; i++) {
+      appearances.push({ testId: `test-${i}`, date: `2026-01-0${i}T00:00:00Z`, correct: i % 2 === 0 });
+    }
+    const out = buildSkillHistoryForAI({ algebra: perQuestion(appearances) }, { maxAppearancesPerSkill: 6 });
+    const apps = out.algebra.appearances;
+    expect(apps).toHaveLength(6);
+    expect(apps[0].testId).toBe('test-4'); // oldest 3 trimmed
+    expect(apps[apps.length - 1].testId).toBe('test-9');
+  });
+
+  test('handles empty / malformed input', () => {
+    expect(buildSkillHistoryForAI({})).toEqual({});
+    expect(buildSkillHistoryForAI(undefined)).toEqual({});
+    expect(buildSkillHistoryForAI({ broken: {} })).toEqual({ broken: { appearances: [] } });
   });
 });
 
@@ -551,6 +635,35 @@ describe('generateAndPersistHybridPlan — longitudinal threading', () => {
     } finally {
       spy.mockRestore();
     }
+  });
+
+  test('sends per-test aggregated skillHistory (with accuracy) to the AI plan call', async () => {
+    const results = mkResults();
+    results['test-1'].attempts[0].diagnosticData.questionDetails = [
+      { skills: ['exponent-rules'], isCorrect: false },
+      { skills: ['exponent-rules'], isCorrect: false },
+    ];
+    results['test-2'].attempts[0].diagnosticData.questionDetails = [
+      { skills: ['exponent-rules'], isCorrect: true },
+      { skills: ['exponent-rules'], isCorrect: true },
+    ];
+
+    await generateAndPersistHybridPlan({
+      userId: 'u1',
+      diagnostic: mkDiag(),
+      userProfile: { targetScore: 750, testDate: farTestDate },
+      practiceTestResults: results,
+    });
+
+    expect(generateAIPlan).toHaveBeenCalledTimes(1);
+    const longitudinalForAI = generateAIPlan.mock.calls[0][3];
+    // The Cloud Function's prompt builder reads appearances[i].accuracy and
+    // compares first vs last — the payload must be per-test aggregates, not
+    // the local per-question {correct} shape.
+    expect(longitudinalForAI.skillHistory['exponent-rules'].appearances).toEqual([
+      { testId: 'test-1', date: '2026-05-01T00:00:00Z', accuracy: 0 },
+      { testId: 'test-2', date: '2026-06-01T00:00:00Z', accuracy: 100 },
+    ]);
   });
 
   test('backward compatible: callers that omit answeredQuestionIds still generate', async () => {

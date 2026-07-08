@@ -765,7 +765,7 @@ export const practiceTest8 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "$$f(x) = (x + 8)(x + 3)(x - 7)$$\nConsider the function $g(x) = f(x) - 4$. Which table gives the value of $g(x)$ at $x = -8$, $x = -3$, and $x = 7$?",
+  question: "$$f(x) = (x + 8)(x + 3)(x - 7)$$\nConsider the function $g(x) = f(x) - 4$. What are the values of $g(x)$ at $x = -8$, $x = -3$, and $x = 7$?",
   choices: [
     { id: "A", text: "$g(-8) = -4,\\ g(-3) = -4,\\ g(7) = -4$" },
     // distractor: evaluates f at its own zeros but forgets the -4 shift

@@ -1,5 +1,5 @@
 import React from 'react';
-import { PrimaryButton, SecondaryButton } from './ui/Button';
+import { PrimaryButton } from './ui/Button';
 import { DataCard } from './ui/DataCard';
 
 const ScoreSlider = ({

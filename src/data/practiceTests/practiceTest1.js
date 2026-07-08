@@ -820,6 +820,18 @@ export const practiceTest1 = {
   difficulty: "hard",
   band: 7,
   question: "Two cheese-aging rooms, A and B, each log the mass, in grams, of $20$ wheels in a frequency table that uses the same set of half-open intervals of width $50$ (for example, $[400, 450)$ means at least $400$ but less than $450$ grams). The two rooms recorded the identical frequency count in every one of these identical intervals. What is the smallest possible value of $|\\,\\overline{x}_A - \\overline{x}_B\\,|$, the absolute difference between the mean masses of the two rooms?",
+  diagram: {
+    type: "dataTable",
+    params: {
+      headers: ["Mass (g)", "Room A", "Room B"],
+      rows: [
+        ["[400, 450)", "5", "5"],
+        ["[450, 500)", "7", "7"],
+        ["[500, 550)", "5", "5"],
+        ["[550, 600)", "3", "3"]
+      ]
+    }
+  },
   choices: [
     { id: "A", text: "$0$" },
     // distractor: assumes at least one wheel must differ by a gram

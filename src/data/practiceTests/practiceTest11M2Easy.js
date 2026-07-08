@@ -230,6 +230,22 @@ export const practiceTest11M2Easy = {
       difficulty: "medium",
       band: 5,
       question: "The bar graph (described below) shows the number of books read by five students last month: Alex read $8$, Bree read $5$, Cara read $11$, Devon read $4$, and Eli read $7$. What is the average (arithmetic mean) number of books read?",
+      diagram: {
+        type: "barChart",
+        params: {
+          data: [
+            { label: "Alex", value: 8 },
+            { label: "Bree", value: 5 },
+            { label: "Cara", value: 11 },
+            { label: "Devon", value: 4 },
+            { label: "Eli", value: 7 }
+          ],
+          xAxisLabel: "Student",
+          yAxisLabel: "Books read",
+          yMax: 12,
+          yStep: 2
+        }
+      },
       choices: [
         // distractor: gives median
         { id: "A", text: "$8$" },

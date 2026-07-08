@@ -13,9 +13,11 @@ const DIAGNOSTIC_NARRATIVE_URL = process.env.REACT_APP_DIAGNOSTIC_NARRATIVE_URL 
 
 // Client-side ceiling on the request. The deterministic diagnosis already renders
 // instantly, so this only bounds the "Your Diagnosis" prose spinner — past this we
-// hand off to the fallback strip + Retry instead of spinning forever. The Cloud
-// Function keeps running server-side (timeoutSeconds: 120) and persists the artifact,
-// so a later visit still rehydrates the narrative via getReadyAiDiagnostic.
+// hand off to the fallback strip + Retry instead of spinning forever. Note the
+// Cloud Function only RETURNS the narrative — persistence is client-side
+// (completeAiDiagnosticArtifact in PracticeTest.jsx marks the aiDiagnostics
+// artifact ready), so an aborted request means no artifact this attempt and a
+// later visit rehydrates via getReadyAiDiagnostic only after a successful retry.
 const DIAGNOSTIC_TIMEOUT_MS = 35000;
 
 /**

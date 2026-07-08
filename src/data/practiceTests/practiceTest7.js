@@ -687,7 +687,18 @@ export const practiceTest7 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "The table shows three values of $x$ and their corresponding values of $g(x)$, where $g(x) = \\dfrac{f(x)}{x+4}$ and $f$ is a linear function: $g(-24) = 4$, $g(-8) = 0$, $g(16) = 6$. What is the $y$-intercept of the graph of $y = f(x)$?",
+  question: "The table shows three values of $x$ and their corresponding values of $g(x)$, where $g(x) = \\dfrac{f(x)}{x+4}$ and $f$ is a linear function. What is the $y$-intercept of the graph of $y = f(x)$?",
+  diagram: {
+    type: "dataTable",
+    params: {
+      headers: ["x", "g(x)"],
+      rows: [
+        ["-24", "4"],
+        ["-8", "0"],
+        ["16", "6"]
+      ]
+    }
+  },
   choices: [
     { id: "A", text: "$(0,\\,40)$" },
     // distractor: wrong base — reports an f-value from the table without fitting the full line

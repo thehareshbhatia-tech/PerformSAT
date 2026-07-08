@@ -85,7 +85,6 @@ export const SKILL_ALIAS_MAP = {
   'Linear models':               ['word-problem-to-equation', 'slope-intercept-form'],
   'linear-expressions':          ['slope-intercept-form', 'word-problem-to-equation'],
   'linear-inequalities':         ['word-problem-to-equation', 'slope-intercept-form'],
-  'Linear Inequalities':         ['word-problem-to-equation', 'slope-intercept-form'],
   'Linear inequalities':         ['word-problem-to-equation', 'slope-intercept-form'],
   'Linear function interpretation': ['slope-intercept-form', 'function-notation'],
   'slope':                       ['slope-from-points', 'slope-intercept-form'],
@@ -119,7 +118,6 @@ export const SKILL_ALIAS_MAP = {
   'Rearranging formulas':        ['function-evaluation', 'word-problem-to-equation'],
   'formula-rearrangement':       ['function-evaluation', 'word-problem-to-equation'],
   'Physics Applications':        ['word-problem-to-equation'],
-  'modeling':                    ['word-problem-to-equation', 'function-evaluation'],
   'interpretation':              ['function-notation', 'slope-intercept-form'],
   'multi-step-reasoning':        ['word-problem-to-equation', 'function-evaluation'],
 

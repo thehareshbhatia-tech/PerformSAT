@@ -4,6 +4,8 @@
  * Uses our Cloud Function to fetch transcripts from YouTube
  */
 
+import { authFetch } from './authFetch';
+
 // Cloud Function URL for transcript fetching
 const TRANSCRIPT_URL = 'https://gettranscript-ki77ua6x2a-uc.a.run.app';
 
@@ -38,8 +40,10 @@ export const fetchTranscript = async (videoId) => {
   }
 
   try {
-    // Use our Cloud Function to fetch the transcript
-    const response = await fetch(`${TRANSCRIPT_URL}?videoId=${videoId}`);
+    // Use our Cloud Function to fetch the transcript. The getTranscript
+    // endpoint requires bearer auth (hardened server-side), so this must go
+    // through authFetch — a plain fetch would 401 on every request.
+    const response = await authFetch(`${TRANSCRIPT_URL}?videoId=${encodeURIComponent(videoId)}`);
 
     if (!response.ok) {
       const error = await response.json().catch(() => ({}));

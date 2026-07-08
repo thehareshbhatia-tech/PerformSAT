@@ -23,12 +23,13 @@ import { generateStudyPlan as generateDeterministic } from './studyPlanGenerator
 import { generateStudyPlan as generateAIPlan } from './studyPlanService';
 import {
   buildLongitudinalEvidence,
+  buildSkillHistoryForAI,
   computePlanDelta,
   mergeHybridPlan,
   MERGE_VERSION,
 } from './studyPlanMerger';
 
-export { buildLongitudinalEvidence, computePlanDelta, mergeHybridPlan, MERGE_VERSION };
+export { buildLongitudinalEvidence, buildSkillHistoryForAI, computePlanDelta, mergeHybridPlan, MERGE_VERSION };
 
 // Firestore rejects writes with `undefined` field values. Round-tripping through
 // JSON.stringify drops every undefined key (and any non-serializable value), so
@@ -180,6 +181,13 @@ export const generateAndPersistHybridPlan = async ({
       totalAttempts: longitudinal.totalAttempts,
       persistentWeaknesses: longitudinal.persistentWeaknesses.slice(0, 8),
       scoreTrajectory: longitudinal.scoreTrajectory.slice(-6),
+      // Per-test aggregated skill history. The Cloud Function's prompt
+      // builder reads lc.skillHistory[skillId].appearances[i].accuracy to
+      // emit the "improved since last test" / "new regressions" sections for
+      // returning students; the local per-question shape (which
+      // studyPlanGenerator consumes) carries no accuracy field, so it is
+      // reshaped + size-bounded here (see buildSkillHistoryForAI).
+      skillHistory: buildSkillHistoryForAI(longitudinal.skillHistory),
     };
     const aiResult = await generateAIPlan(
       diagnostic,

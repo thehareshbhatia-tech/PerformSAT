@@ -122,7 +122,7 @@ export const getAdaptiveQuestionSet = (moduleId, sectionName, count = 5) => {
   // Start with balanced distribution, favor medium
   const easyCount = Math.ceil(count * 0.3);
   const hardCount = Math.ceil(count * 0.2);
-  const mediumCount = count - easyCount - hardCount;
+  const mediumCount = Math.max(0, count - easyCount - hardCount);
 
   const selected = [
     ...shuffleArray(easy).slice(0, easyCount),
