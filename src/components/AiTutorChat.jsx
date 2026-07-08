@@ -141,6 +141,109 @@ const MessageActions = ({ text, onRegenerate, onFeedback }) => {
   );
 };
 
+// One chat bubble, memoized so only the streaming (last) message re-renders per
+// chunk instead of the entire transcript. Comparison is keyed on the message
+// content + the display flags that actually change what renders; the handler
+// props are refreshed at every load/stream state transition (isLoading /
+// isStreaming are in the comparator), which is the only moment a non-last bubble
+// needs current handlers. renderMarkdown itself is separately LRU-cached, so
+// even a forced re-render here is cheap.
+const messageBubblePropsEqual = (prev, next) => (
+  prev.msg.role === next.msg.role &&
+  prev.msg.content === next.msg.content &&
+  prev.msg.isError === next.msg.isError &&
+  prev.msg.retryText === next.msg.retryText &&
+  prev.isLast === next.isLast &&
+  prev.premiumLearnMode === next.premiumLearnMode &&
+  prev.isLoading === next.isLoading &&
+  prev.isStreaming === next.isStreaming
+);
+
+const MessageBubble = React.memo(({ msg, isLast, premiumLearnMode, isLoading, isStreaming, onRetry, onRegenerate, onFeedback }) => (
+  <div
+    style={{
+      marginBottom: '16px',
+      display: 'flex',
+      justifyContent: msg.role === 'user' ? 'flex-end' : 'flex-start'
+    }}
+  >
+    {premiumLearnMode && msg.role === 'assistant' && (
+      <TutorMark size={28} style={{ marginRight: '12px' }} />
+    )}
+    <div
+      style={premiumLearnMode ? {
+        maxWidth: msg.role === 'user' ? '80%' : '85%',
+        padding: msg.role === 'user' ? '12px 18px' : '16px 20px',
+        borderRadius: msg.role === 'user' ? '18px 18px 4px 18px' : '4px 18px 18px 18px',
+        background: msg.role === 'user'
+          ? 'linear-gradient(135deg, #ea580c 0%, #c2410c 100%)'
+          : '#ffffff',
+        color: msg.role === 'user' ? 'white' : design.colors.text.primary,
+        fontSize: '15px',
+        lineHeight: '1.55',
+        boxShadow: msg.role === 'user'
+          ? '0 4px 12px rgba(234, 88, 12, 0.2)'
+          : '0 2px 12px rgba(0, 0, 0, 0.03)',
+        border: msg.role === 'user' ? 'none' : '1px solid rgba(0, 0, 0, 0.06)',
+        letterSpacing: '0',
+        whiteSpace: msg.role === 'user' ? 'pre-wrap' : 'normal',
+      } : {
+        maxWidth: '88%',
+        padding: msg.role === 'user' ? '12px 18px' : '16px 20px',
+        borderRadius: msg.role === 'user' ? '18px 18px 4px 18px' : '18px 18px 18px 4px',
+        background: msg.role === 'user'
+          ? design.colors.accent.orange
+          : design.colors.surface.primary,
+        color: msg.role === 'user' ? 'white' : design.colors.text.primary,
+        fontSize: '15px',
+        lineHeight: '1.55',
+        boxShadow: msg.role === 'user'
+          ? 'none'
+          : design.shadow.small,
+        letterSpacing: '0',
+        whiteSpace: msg.role === 'user' ? 'pre-wrap' : 'normal',
+      }}
+    >
+      {msg.role === 'assistant' ? renderMarkdown(msg.content) : msg.content}
+      {msg.isError && msg.retryText && (
+        <button
+          type="button"
+          onClick={() => onRetry(msg.retryText)}
+          aria-label="Retry sending your message"
+          style={{
+            marginTop: '10px',
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '6px',
+            padding: '6px 14px',
+            borderRadius: '14px',
+            cursor: 'pointer',
+            background: 'transparent',
+            border: `1px solid ${design.colors.semantic?.error || '#dc2626'}`,
+            color: design.colors.semantic?.error || '#dc2626',
+            fontSize: '13px',
+            fontWeight: 600,
+            fontFamily: design.typography.fontFamily,
+          }}
+        >
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M1 4v6h6M23 20v-6h-6" />
+            <path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15" />
+          </svg>
+          Retry
+        </button>
+      )}
+      {msg.role === 'assistant' && !msg.isError && msg.content && !((isLoading || isStreaming) && isLast) && (
+        <MessageActions
+          text={msg.content}
+          onRegenerate={isLast && !isLoading && !isStreaming ? onRegenerate : undefined}
+          onFeedback={onFeedback}
+        />
+      )}
+    </div>
+  </div>
+), messageBubblePropsEqual);
+
 const AiTutorChat = ({
   isOpen,
   onClose,
@@ -700,20 +803,27 @@ Your goal is to build their problem-solving instincts. Every question they solve
   useEffect(() => {
     if (!userId) return;
 
+    // cancelled guard mirrors the loadSession effect above: a slow resolve for
+    // the OLD uid on account switch must not feed the previous student's memory
+    // into the tutor prompt.
+    let cancelled = false;
+
     const loadMemory = async () => {
       try {
         const [memory, sessions] = await Promise.all([
           getLearningMemory(userId),
           loadRecentSessions(userId, 5),
         ]);
+        if (cancelled) return;
         setLearningMemory(memory);
         setRecentSessions(sessions);
       } catch (e) {
-        console.error('Failed to load learning memory:', e);
+        if (!cancelled) console.error('Failed to load learning memory:', e);
       }
     };
 
     loadMemory();
+    return () => { cancelled = true; };
   }, [userId]);
 
   // Save to Firestore (debounced) + sessionStorage (immediate) when messages change
@@ -1687,89 +1797,17 @@ Your goal is to build their problem-solving instincts. Every question they solve
         ) : (
           <>
             {messages.map((msg, idx) => (
-              <div
+              <MessageBubble
                 key={idx}
-                style={{
-                  marginBottom: '16px',
-                  display: 'flex',
-                  justifyContent: msg.role === 'user' ? 'flex-end' : 'flex-start'
-                }}
-              >
-                {premiumLearnMode && msg.role === 'assistant' && (
-                  <TutorMark size={28} style={{ marginRight: '12px' }} />
-                )}
-                <div
-                  style={premiumLearnMode ? {
-                    maxWidth: msg.role === 'user' ? '80%' : '85%',
-                    padding: msg.role === 'user' ? '12px 18px' : '16px 20px',
-                    borderRadius: msg.role === 'user' ? '18px 18px 4px 18px' : '4px 18px 18px 18px',
-                    background: msg.role === 'user'
-                      ? 'linear-gradient(135deg, #ea580c 0%, #c2410c 100%)'
-                      : '#ffffff',
-                    color: msg.role === 'user' ? 'white' : design.colors.text.primary,
-                    fontSize: '15px',
-                    lineHeight: '1.55',
-                    boxShadow: msg.role === 'user'
-                      ? '0 4px 12px rgba(234, 88, 12, 0.2)'
-                      : '0 2px 12px rgba(0, 0, 0, 0.03)',
-                    border: msg.role === 'user' ? 'none' : '1px solid rgba(0, 0, 0, 0.06)',
-                    letterSpacing: '0',
-                    whiteSpace: msg.role === 'user' ? 'pre-wrap' : 'normal',
-                  } : {
-                    maxWidth: '88%',
-                    padding: msg.role === 'user' ? '12px 18px' : '16px 20px',
-                    borderRadius: msg.role === 'user' ? '18px 18px 4px 18px' : '18px 18px 18px 4px',
-                    background: msg.role === 'user'
-                      ? design.colors.accent.orange
-                      : design.colors.surface.primary,
-                    color: msg.role === 'user' ? 'white' : design.colors.text.primary,
-                    fontSize: '15px',
-                    lineHeight: '1.55',
-                    boxShadow: msg.role === 'user'
-                      ? 'none'
-                      : design.shadow.small,
-                    letterSpacing: '0',
-                    whiteSpace: msg.role === 'user' ? 'pre-wrap' : 'normal',
-                  }}
-                >
-                  {msg.role === 'assistant' ? renderMarkdown(msg.content) : msg.content}
-                  {msg.isError && msg.retryText && (
-                    <button
-                      type="button"
-                      onClick={() => handleSend(msg.retryText)}
-                      aria-label="Retry sending your message"
-                      style={{
-                        marginTop: '10px',
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        gap: '6px',
-                        padding: '6px 14px',
-                        borderRadius: '14px',
-                        cursor: 'pointer',
-                        background: 'transparent',
-                        border: `1px solid ${design.colors.semantic?.error || '#dc2626'}`,
-                        color: design.colors.semantic?.error || '#dc2626',
-                        fontSize: '13px',
-                        fontWeight: 600,
-                        fontFamily: design.typography.fontFamily,
-                      }}
-                    >
-                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M1 4v6h6M23 20v-6h-6" />
-                        <path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15" />
-                      </svg>
-                      Retry
-                    </button>
-                  )}
-                  {msg.role === 'assistant' && !msg.isError && msg.content && !((isLoading || isStreaming) && idx === messages.length - 1) && (
-                    <MessageActions
-                      text={msg.content}
-                      onRegenerate={idx === messages.length - 1 && !isLoading && !isStreaming ? handleRegenerate : undefined}
-                      onFeedback={handleMessageFeedback}
-                    />
-                  )}
-                </div>
-              </div>
+                msg={msg}
+                isLast={idx === messages.length - 1}
+                premiumLearnMode={premiumLearnMode}
+                isLoading={isLoading}
+                isStreaming={isStreaming}
+                onRetry={handleSend}
+                onRegenerate={handleRegenerate}
+                onFeedback={handleMessageFeedback}
+              />
             ))}
             {isLoading && (
               <div style={{ display: 'flex', justifyContent: 'flex-start', marginBottom: '16px' }}>

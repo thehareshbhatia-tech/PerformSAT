@@ -251,9 +251,7 @@ const renderProse = (text) => {
  * separate parents and cannot collide. When there is no graph (the common case),
  * this is byte-identical to the old single-pass behavior.
  */
-const renderMarkdown = (text) => {
-  if (!text) return null;
-
+const computeMarkdown = (text) => {
   const { spec, before, after } = extractGraphSpec(text);
 
   // Fast path: no graph and nothing was stripped → original single-pass output.
@@ -266,6 +264,37 @@ const renderMarkdown = (text) => {
       {after ? <React.Fragment key="seva-post">{renderProse(after)}</React.Fragment> : null}
     </>
   );
+};
+
+// Module-level LRU cache. AiTutorChat re-runs renderMarkdown over the WHOLE
+// transcript on every keystroke and every streamed chunk; each katex.renderToString
+// runs twice (output:'htmlAndMathml' — kept deliberately: the visually-hidden
+// MathML annotation is what screen readers announce, so dropping it to 'html'
+// would silently break math accessibility). Caching the produced element tree
+// by source string means only genuinely-new text (the growing streaming message)
+// pays the render cost; every stable earlier message is a Map hit. Element trees
+// are immutable descriptors, so returning the same one is safe.
+const markdownCache = new Map();
+const MARKDOWN_CACHE_CAP = 200;
+
+const renderMarkdown = (text) => {
+  if (!text) return null;
+
+  const cached = markdownCache.get(text);
+  if (cached !== undefined) {
+    // Refresh recency: re-insert so this key is now the newest.
+    markdownCache.delete(text);
+    markdownCache.set(text, cached);
+    return cached;
+  }
+
+  const result = computeMarkdown(text);
+  markdownCache.set(text, result);
+  if (markdownCache.size > MARKDOWN_CACHE_CAP) {
+    // Evict the oldest (first-inserted) entry.
+    markdownCache.delete(markdownCache.keys().next().value);
+  }
+  return result;
 };
 
 export default renderMarkdown;

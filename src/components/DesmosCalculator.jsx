@@ -1,6 +1,37 @@
 import { useState, useEffect, useRef } from 'react';
 import { colors, radius, transitions } from '../design/tokens';
 
+const DESMOS_SRC = 'https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6';
+
+// Module-level singleton loader. The Desmos <script> is fetched AT MOST ONCE
+// per page regardless of how many calculators mount or how fast the student
+// toggles graphing/scientific on a slow connection. Previously the init effect
+// appended a fresh <script> on every run while window.Desmos was still
+// undefined, leaving two pending tags with two stale onload closures that each
+// built a calculator into the same container (the first never destroyed).
+// One shared promise fixes that: concurrent callers await the same load, and
+// the onload/onerror handlers live here (not in the effect), so there is no
+// per-effect closure to leak. On failure the tag AND the cached promise are
+// dropped so a later Retry re-fetches from scratch.
+let desmosScriptPromise = null;
+const loadDesmosScript = () => {
+  if (typeof window !== 'undefined' && window.Desmos) return Promise.resolve();
+  if (desmosScriptPromise) return desmosScriptPromise;
+  desmosScriptPromise = new Promise((resolve, reject) => {
+    const script = document.createElement('script');
+    script.src = DESMOS_SRC;
+    script.async = true;
+    script.onload = () => resolve();
+    script.onerror = () => {
+      script.remove();
+      desmosScriptPromise = null; // let the next call (Retry) start clean
+      reject(new Error('desmos-script-load-failed'));
+    };
+    document.head.appendChild(script);
+  });
+  return desmosScriptPromise;
+};
+
 // SAT-Style Draggable Desmos Calculator
 //
 // Extracted from PracticeTest.jsx (2026-06-18) so BOTH the full practice test
@@ -77,62 +108,61 @@ const DesmosCalculator = ({ isOpen, onClose }) => {
   // used to unmount the container AND run this effect's destroy() cleanup,
   // wiping the student's graphs/expressions on every minimize.
   useEffect(() => {
-    if (isOpen && containerRef.current && !scriptError) {
-      // Destroy existing calculator if switching modes
-      if (calculatorRef.current) {
-        calculatorRef.current.destroy();
-        calculatorRef.current = null;
-      }
+    if (!(isOpen && containerRef.current && !scriptError)) return undefined;
 
-      const initCalculator = () => {
-        if (!containerRef.current) return;
+    // Effect-scoped guard: a mode switch (or unmount) mid-load must not let a
+    // late script resolve build a calculator into a container the effect has
+    // already torn down.
+    let cancelled = false;
 
-        const options = {
-          keypad: true,
-          expressions: true,
-          settingsMenu: true,
-          zoomButtons: true,
-          expressionsTopbar: true,
-          pointsOfInterest: true,
-          trace: true,
-          border: false,
-          lockViewport: false,
-          notes: true,
-          sliders: true,
-          links: false,
-          images: false,
-          folders: true,
-          actions: true,
-          advancedStyling: true,
-          autosize: true,
-        };
-
-        if (calcMode === 'scientific') {
-          calculatorRef.current = window.Desmos.ScientificCalculator(containerRef.current, options);
-        } else {
-          calculatorRef.current = window.Desmos.GraphingCalculator(containerRef.current, options);
-        }
-      };
-
-      // Load Desmos script if not already loaded
-      if (!window.Desmos) {
-        const script = document.createElement('script');
-        script.src = 'https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6';
-        script.async = true;
-        script.onload = initCalculator;
-        script.onerror = () => {
-          // Offline/blocked CDN: surface a retryable error instead of a
-          // permanent white panel. Remove the dead tag so Retry re-fetches.
-          script.remove();
-          setScriptError(true);
-        };
-        document.head.appendChild(script);
-      } else {
-        initCalculator();
-      }
+    // Destroy existing calculator if switching modes
+    if (calculatorRef.current) {
+      calculatorRef.current.destroy();
+      calculatorRef.current = null;
     }
 
+    const initCalculator = () => {
+      if (cancelled || !containerRef.current) return;
+
+      const options = {
+        keypad: true,
+        expressions: true,
+        settingsMenu: true,
+        zoomButtons: true,
+        expressionsTopbar: true,
+        pointsOfInterest: true,
+        trace: true,
+        border: false,
+        lockViewport: false,
+        notes: true,
+        sliders: true,
+        links: false,
+        images: false,
+        folders: true,
+        actions: true,
+        advancedStyling: true,
+        autosize: true,
+      };
+
+      if (calcMode === 'scientific') {
+        calculatorRef.current = window.Desmos.ScientificCalculator(containerRef.current, options);
+      } else {
+        calculatorRef.current = window.Desmos.GraphingCalculator(containerRef.current, options);
+      }
+    };
+
+    // Single shared load (see loadDesmosScript). The cancelled guard makes the
+    // resolve/reject inert once this effect run is superseded.
+    loadDesmosScript()
+      .then(() => { if (!cancelled) initCalculator(); })
+      .catch(() => {
+        // Offline/blocked CDN: surface a retryable error instead of a
+        // permanent white panel.
+        if (!cancelled) setScriptError(true);
+      });
+
     return () => {
+      cancelled = true;
       if (calculatorRef.current) {
         calculatorRef.current.destroy();
         calculatorRef.current = null;

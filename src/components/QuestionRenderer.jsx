@@ -45,7 +45,11 @@ const Segment = ({ segment }) => {
  * - { math: "y = mx + b", display: true } - Display math (centered, own line)
  * - "plain string" - Plain text (shorthand)
  */
-const QuestionRenderer = ({ content, className = '', style = {} }) => {
+// React.memo: every caller passes a stable `content` reference off the current
+// question object (e.g. currentQuestion.question) and no fn/object literals, so
+// when a sibling fill-in input re-renders the question on each keystroke this
+// whole subtree — and its per-segment MathText typesetting — is skipped.
+const QuestionRenderer = React.memo(({ content, className = '', style = {} }) => {
   // Handle null/undefined
   if (!content) return null;
 
@@ -78,7 +82,7 @@ const QuestionRenderer = ({ content, className = '', style = {} }) => {
 
   // Fallback
   return <MathText className={className} style={style}>{String(content)}</MathText>;
-};
+});
 
 /**
  * Helper function to create question content from a template string

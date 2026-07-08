@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import katex from 'katex';
 
-export const MathText = ({ children, text, className = '', style = {} }) => {
-  const content = text !== undefined ? text : children;
-
-  const renderMath = (inputText) => {
+// Hoisted to module scope (was defined inline in the component body) so the
+// per-render useMemo below can key purely on `content`. This pipeline runs a
+// dozen regex passes plus katex.renderToString per span; before memoization it
+// re-typeset every question on every PracticeTest fill-in keystroke.
+const renderMath = (inputText) => {
     if (!inputText) return '';
 
     let result = String(inputText);
@@ -150,16 +151,26 @@ export const MathText = ({ children, text, className = '', style = {} }) => {
     result = result.replace(new RegExp(NEWLINE_PLACEHOLDER, 'g'), '<br>');
 
     return result;
-  };
+};
+
+// React.memo + useMemo: skip both the reconcile and the expensive typeset when
+// the resolved content is unchanged (the common case while a sibling fill-in
+// input re-renders the question on every keystroke). Output is byte-identical
+// to the pre-memo version.
+const MathTextInner = ({ children, text, className = '', style = {} }) => {
+  const content = text !== undefined ? text : children;
+  const html = useMemo(() => renderMath(content), [content]);
 
   return (
     <span
       className={className}
       style={style}
-      dangerouslySetInnerHTML={{ __html: renderMath(content) }}
+      dangerouslySetInnerHTML={{ __html: html }}
     />
   );
 };
+
+export const MathText = React.memo(MathTextInner);
 
 export const MathBlock = ({ children, className = '', style = {} }) => {
   if (!children) return null;

@@ -101,12 +101,24 @@ export const useProgress = (userId) => {
   // gating on !loading fire against empty data. Decision-making effects
   // (e.g. the on-ramp gate) must require `hydrated` instead.
   const [hydrated, setHydrated] = useState(false);
+  // True when the progress listener errored before any snapshot landed. We
+  // still flip `hydrated` true in that case (below) so hydration-gated effects
+  // degrade deliberately instead of hanging forever; this flag lets a consumer
+  // that cares tell "loaded, genuinely empty" from "load failed".
+  const [hydrationFailed, setHydrationFailed] = useState(false);
 
   useEffect(() => {
     if (!userId) {
       setLoading(false);
       return;
     }
+
+    // Per-effect-run guard. `getStudyPlanArtifact` / `getLatestStudyPlanArtifact`
+    // promises launched from a snapshot for THIS userId can resolve AFTER the
+    // account has switched (the effect re-ran with a new userId). Without this
+    // a late resolve would setStudyPlan(previous user's plan). Cleanup flips it
+    // true, and every deferred .then / .catch bails when stale.
+    let cancelled = false;
 
     // Re-arm the loading flag for this subscription. Boot renders with no
     // userId (auth still resolving), which lands in the branch above and
@@ -116,6 +128,7 @@ export const useProgress = (userId) => {
     // missed an in-flight check-in resume.
     setLoading(true);
     setHydrated(false);
+    setHydrationFailed(false);
     // Re-arm the artifact-hydration failure latch for this subscription. It
     // survives in a ref, so without this reset one transient fetch failure
     // (network blip, or a stale code-split chunk right after a deploy) would
@@ -210,6 +223,9 @@ export const useProgress = (userId) => {
             import('../services/hybridStudyPlanService')
               .then(({ getStudyPlanArtifact }) => getStudyPlanArtifact(userId, artifactId))
               .then(art => {
+              // Stale-resolve guard: account switched while this fetch was in
+              // flight — do not write the previous user's plan into state.
+              if (cancelled) return;
               // Fetch resolved: clear the failure latch so a later transient
               // failure only skips retries until the next success or session.
               artifactHydrationFailed.current = false;
@@ -241,6 +257,7 @@ export const useProgress = (userId) => {
                 setStudyPlan(prev => prev?.weeks?.length ? prev : null);
               }
             }).catch(err => {
+              if (cancelled) return;
               console.warn('[useProgress] Artifact hydration skipped:', err.code || err.message);
               artifactHydrationFailed.current = true; // stop retrying on every snapshot
               if (incomingPlan?.weeks?.length) {
@@ -261,6 +278,9 @@ export const useProgress = (userId) => {
             import('../services/hybridStudyPlanService')
               .then(({ getLatestStudyPlanArtifact }) => getLatestStudyPlanArtifact(userId))
               .then(art => {
+              // Stale-resolve guard: account switched while this fetch was in
+              // flight — do not write the previous user's plan into state.
+              if (cancelled) return;
               // Fetch resolved: clear the failure latch so a later transient
               // failure only skips retries until the next success or session.
               artifactHydrationFailed.current = false;
@@ -291,6 +311,7 @@ export const useProgress = (userId) => {
                 setStudyPlan(prev => prev?.weeks?.length ? prev : null);
               }
             }).catch(err => {
+              if (cancelled) return;
               console.warn('[useProgress] Artifact hydration skipped:', err.code || err.message);
               artifactHydrationFailed.current = true; // stop retrying on every snapshot
               if (!studyPlanWriteInFlight.current) {
@@ -316,6 +337,9 @@ export const useProgress = (userId) => {
           setAnsweredQuestionIds([]);
           setBankPractice({});
           setActiveDrill(null);
+          // Reset flags too — without this, account A's flagged questions bled
+          // into a fresh account B whose progress doc doesn't exist yet.
+          setFlaggedQuestions({});
           setInterventionLog([]);
           setPredictionLog([]);
           setMiniDiagnostic(null);
@@ -327,10 +351,20 @@ export const useProgress = (userId) => {
         console.error('Error listening to progress:', err);
         setError(err.message);
         setLoading(false);
+        // Make failure explicit rather than leaving hydration-gated effects
+        // (the on-ramp + inner-onboarding gates in App.jsx) hanging forever on
+        // a single listener error. They only require `hydrated`, so flip it
+        // true with whatever data we have; `hydrationFailed` records that this
+        // was a degraded, not a genuine-empty, hydration.
+        setHydrationFailed(true);
+        setHydrated(true);
       }
     );
 
-    return () => unsubscribe();
+    return () => {
+      cancelled = true;
+      unsubscribe();
+    };
   }, [userId]);
 
   // Boot-time flush of test saves that failed in a previous session.
@@ -1269,6 +1303,7 @@ export const useProgress = (userId) => {
     flaggedQuestions,
     loading,
     hydrated,
+    hydrationFailed,
     error,
     markLessonComplete,
     toggleLessonComplete,

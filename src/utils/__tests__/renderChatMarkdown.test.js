@@ -298,6 +298,26 @@ describe('renderChatMarkdown inline graphs', () => {
   });
 });
 
+// The LRU cache must be transparent: identical source returns the SAME element
+// tree (a cache hit, so streaming skips re-typesetting stable earlier messages)
+// while different source still produces distinct, correct output.
+describe('renderChatMarkdown LRU cache', () => {
+  test('identical input returns the identical (cached) element tree', () => {
+    const src = 'Solve $2x = 10$ then check.';
+    const a = renderMarkdown(src);
+    const b = renderMarkdown(src);
+    expect(a).toBe(b);
+  });
+
+  test('different input still renders its own correct output', () => {
+    const one = renderToHtml('First $x^2$ message');
+    const two = renderToHtml('Second $y^3$ message');
+    expect(one).toContain('First');
+    expect(two).toContain('Second');
+    expect(one).not.toContain('Second');
+  });
+});
+
 describe('renderChatMarkdown emphasis vs operators', () => {
   test('spaced asterisks (multiplication in prose) are not italicized', () => {
     const html = renderToHtml('Compute 2 * 3 and then 4 * 5.');
