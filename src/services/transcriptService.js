@@ -20,7 +20,8 @@ export const fetchTranscript = async (videoId) => {
   }
 
   // Check localStorage cache (with 24 hour expiry)
-  const cachedData = localStorage.getItem(`transcript_${videoId}`);
+  const storageKey = `transcript_${videoId}`;
+  const cachedData = localStorage.getItem(storageKey);
   if (cachedData) {
     try {
       const parsed = JSON.parse(cachedData);
@@ -28,8 +29,11 @@ export const fetchTranscript = async (videoId) => {
         transcriptCache.set(videoId, parsed);
         return parsed;
       }
+      // Expired — evict so stale entries don't accumulate in localStorage.
+      localStorage.removeItem(storageKey);
     } catch (e) {
-      // Invalid cache, continue to fetch
+      // Invalid cache — drop it and continue to fetch.
+      localStorage.removeItem(storageKey);
     }
   }
 

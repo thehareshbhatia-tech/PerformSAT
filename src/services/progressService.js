@@ -39,22 +39,20 @@ export const markLessonComplete = async (userId, moduleId, lessonId, lessonData)
         totalModulesCompleted: 0
       }, { merge: true });
     } else {
-      // Update existing document
-      const currentData = progressSnap.data();
-      const updatedLessons = {
-        ...currentData.completedLessons,
-        [lessonKey]: {
+      // Update existing document via a dotted field PATH for this one lesson
+      // (mirrors markLessonIncomplete). The old whole-map rewrite from a stale
+      // read could clobber a concurrent lesson-complete on another device;
+      // touching only this key is race-safe. update() splits the dotted key
+      // into a nested path (doc existence is guarded above).
+      await updateDoc(progressRef, {
+        [`completedLessons.${lessonKey}`]: {
           completed: true,
           completedAt: serverTimestamp(),
           moduleId,
           lessonId,
           lessonTitle: lessonData.title,
           lessonType: lessonData.type
-        }
-      };
-
-      await updateDoc(progressRef, {
-        completedLessons: updatedLessons,
+        },
         lastUpdated: serverTimestamp(),
         totalLessonsCompleted: increment(1)
       });
@@ -102,36 +100,6 @@ export const markLessonIncomplete = async (userId, moduleId, lessonId) => {
     }
   } catch (error) {
     console.error('Error marking lesson incomplete:', error);
-    throw error;
-  }
-};
-
-/**
- * Gets user progress data
- * @param {string} userId - User ID
- * @returns {Promise<Object|null>} Progress data or null
- */
-export const getProgress = async (userId) => {
-  try {
-    const progressRef = doc(db, 'progress', userId);
-    const progressSnap = await getDoc(progressRef);
-
-    if (!progressSnap.exists()) {
-      // Create initial progress document if it doesn't exist
-      const initialProgress = {
-        userId,
-        lastUpdated: serverTimestamp(),
-        totalLessonsCompleted: 0,
-        totalModulesCompleted: 0,
-        completedLessons: {}
-      };
-      await setDoc(progressRef, initialProgress);
-      return initialProgress;
-    }
-
-    return progressSnap.data();
-  } catch (error) {
-    console.error('Error getting progress:', error);
     throw error;
   }
 };

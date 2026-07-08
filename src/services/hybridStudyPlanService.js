@@ -18,6 +18,7 @@ import {
   collection, addDoc, getDocs,
   query, orderBy, limit, serverTimestamp,
 } from 'firebase/firestore';
+import { isSafeFirestoreFieldPathKey } from './firestoreFieldPath';
 import { generateStudyPlan as generateDeterministic } from './studyPlanGenerator';
 import { generateStudyPlan as generateAIPlan } from './studyPlanService';
 import {
@@ -274,33 +275,56 @@ async function persistHybridArtifact(userId, artifact) {
   };
 
   const progressSnap = await getDoc(progressRef);
-  const updatePayload = {
-    currentStudyPlanArtifactId: artifactRef.id,
-    studyPlanPreview: preview,
-    studyPlanHistory: buildHistoryEntry(artifactRef.id, artifact),
-    lastUpdated: serverTimestamp(),
-  };
+  const artifactId = artifactRef.id;
+  const historyEntry = buildHistoryEntry(artifactId, artifact);
 
   if (progressSnap.exists()) {
+    // Top-level DOTTED field paths so the entry lands under
+    // studyPlanHistory.entries.<id> and history ACCUMULATES. The old code
+    // nested `{ ["entries."+id]: ... }` as the VALUE of studyPlanHistory, so
+    // the dot was stored literally and every write replaced the prior history.
+    const updatePayload = {
+      currentStudyPlanArtifactId: artifactId,
+      studyPlanPreview: preview,
+      lastUpdated: serverTimestamp(),
+    };
+    if (isSafeFirestoreFieldPathKey(artifactId)) {
+      updatePayload[`studyPlanHistory.entries.${artifactId}`] = historyEntry;
+      updatePayload['studyPlanHistory.latestId'] = artifactId;
+    } else {
+      // Firestore auto-ids are always field-path-safe, so this is defensive:
+      // merge into the existing history read above rather than a dotted path.
+      const existingHistory = progressSnap.data()?.studyPlanHistory || {};
+      updatePayload.studyPlanHistory = {
+        ...existingHistory,
+        entries: { ...(existingHistory.entries || {}), [artifactId]: historyEntry },
+        latestId: artifactId,
+      };
+    }
     await updateDoc(progressRef, updatePayload);
   } else {
-    await setDoc(progressRef, { userId, ...updatePayload }, { merge: true });
+    // set()+merge treats dotted keys as literal fields, so the create case
+    // writes a NESTED studyPlanHistory map.
+    await setDoc(progressRef, {
+      userId,
+      currentStudyPlanArtifactId: artifactId,
+      studyPlanPreview: preview,
+      studyPlanHistory: { entries: { [artifactId]: historyEntry }, latestId: artifactId },
+      lastUpdated: serverTimestamp(),
+    }, { merge: true });
   }
 
-  return artifactRef.id;
+  return artifactId;
 }
 
 function buildHistoryEntry(artifactId, artifact) {
   return {
-    [`entries.${artifactId}`]: {
-      id: artifactId,
-      generatedAt: artifact.generatedAt,
-      sourceTestId: artifact.linkage?.sourceTestId || null,
-      headline: artifact.plan?.summary?.headline || 'Study Plan',
-      currentScore: artifact.plan?.currentScore || null,
-      deltaChanges: artifact.delta?.changes?.length || 0,
-    },
-    latestId: artifactId,
+    id: artifactId,
+    generatedAt: artifact.generatedAt,
+    sourceTestId: artifact.linkage?.sourceTestId || null,
+    headline: artifact.plan?.summary?.headline || 'Study Plan',
+    currentScore: artifact.plan?.currentScore || null,
+    deltaChanges: artifact.delta?.changes?.length || 0,
   };
 }
 

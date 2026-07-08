@@ -1,5 +1,5 @@
 import { db } from '../firebase/config';
-import { doc, updateDoc, getDoc, serverTimestamp } from 'firebase/firestore';
+import { doc, serverTimestamp, runTransaction } from 'firebase/firestore';
 import { skillTaxonomy, getSkillById, getSkillsForDomain } from '../data/skillTaxonomy';
 
 const EMPTY_SKILL = {
@@ -60,28 +60,27 @@ export const recordSkillAttempts = async (userId, skillIds, wasCorrect) => {
 
   try {
     const progressRef = doc(db, 'progress', userId);
-    const progressSnap = await getDoc(progressRef);
 
-    if (!progressSnap.exists()) {
-      console.error('User progress document not found');
-      return;
-    }
+    // Transactional read-fold-write: a plain read-modify-write races itself and
+    // concurrent sessions lost attempts (two questions answered close together,
+    // or two devices). Firestore re-runs the callback on contention so the fold
+    // always builds on the freshest skillProgress.
+    await runTransaction(db, async (tx) => {
+      const snap = await tx.get(progressRef);
+      if (!snap.exists()) {
+        console.error('User progress document not found');
+        return;
+      }
 
-    const currentData = progressSnap.data();
-    const skillProgress = currentData.skillProgress || {};
-
-    // Update each skill
-    const updates = {};
-    for (const skillId of skillIds) {
-      updates[`skillProgress.${skillId}`] = {
-        ...foldSkillAttempt(skillProgress[skillId], wasCorrect),
-        lastAttemptAt: serverTimestamp()
-      };
-    }
-
-    await updateDoc(progressRef, {
-      ...updates,
-      lastUpdated: serverTimestamp()
+      const skillProgress = snap.data().skillProgress || {};
+      const updates = { lastUpdated: serverTimestamp() };
+      for (const skillId of skillIds) {
+        updates[`skillProgress.${skillId}`] = {
+          ...foldSkillAttempt(skillProgress[skillId], wasCorrect),
+          lastAttemptAt: serverTimestamp()
+        };
+      }
+      tx.update(progressRef, updates);
     });
   } catch (error) {
     console.error('Error recording skill attempts:', error);
@@ -105,37 +104,38 @@ export const recordSkillAttemptsBatch = async (userId, attempts) => {
 
   try {
     const progressRef = doc(db, 'progress', userId);
-    const progressSnap = await getDoc(progressRef);
 
-    if (!progressSnap.exists()) {
-      console.error('User progress document not found');
-      return;
-    }
-
-    const skillProgress = progressSnap.data().skillProgress || {};
-
-    // Fold every answer in session order; later answers see earlier folds.
-    const working = {};
-    for (const attempt of valid) {
-      for (const skillId of attempt.skills) {
-        working[skillId] = foldSkillAttempt(
-          working[skillId] || skillProgress[skillId],
-          !!attempt.correct
-        );
+    // Transactional read-fold-write so a concurrent session (another drill on a
+    // second device, or an overlapping per-question write) can't lose attempts.
+    // Firestore re-runs the callback on contention, re-reading skillProgress.
+    await runTransaction(db, async (tx) => {
+      const snap = await tx.get(progressRef);
+      if (!snap.exists()) {
+        console.error('User progress document not found');
+        return;
       }
-    }
 
-    const updates = {};
-    Object.entries(working).forEach(([skillId, record]) => {
-      updates[`skillProgress.${skillId}`] = {
-        ...record,
-        lastAttemptAt: serverTimestamp()
-      };
-    });
+      const skillProgress = snap.data().skillProgress || {};
 
-    await updateDoc(progressRef, {
-      ...updates,
-      lastUpdated: serverTimestamp()
+      // Fold every answer in session order; later answers see earlier folds.
+      const working = {};
+      for (const attempt of valid) {
+        for (const skillId of attempt.skills) {
+          working[skillId] = foldSkillAttempt(
+            working[skillId] || skillProgress[skillId],
+            !!attempt.correct
+          );
+        }
+      }
+
+      const updates = { lastUpdated: serverTimestamp() };
+      Object.entries(working).forEach(([skillId, record]) => {
+        updates[`skillProgress.${skillId}`] = {
+          ...record,
+          lastAttemptAt: serverTimestamp()
+        };
+      });
+      tx.update(progressRef, updates);
     });
   } catch (error) {
     console.error('Error recording batched skill attempts:', error);

@@ -4,7 +4,8 @@
  */
 
 import { db } from '../firebase/config';
-import { doc, getDoc, setDoc, updateDoc, serverTimestamp } from 'firebase/firestore';
+import { doc, getDoc, setDoc, serverTimestamp, runTransaction, deleteField } from 'firebase/firestore';
+import { isSafeFirestoreFieldPathKey } from './firestoreFieldPath';
 
 // SM-2 inspired intervals (in days)
 const REVIEW_INTERVALS = [1, 2, 4, 7, 14, 30, 60];
@@ -46,31 +47,54 @@ export const addToReviewQueue = async (userId, moduleId, sectionName, questionId
 
   try {
     const progressRef = doc(db, 'progress', userId);
-    const progressDoc = await getDoc(progressRef);
-    const data = progressDoc.exists() ? progressDoc.data() : {};
 
-    const reviewQueue = data.reviewQueue || {};
-    const key = `${moduleId}-${sectionName}-${questionId}`;
-    const existing = reviewQueue[key] || { correctStreak: 0, wrongCount: 0 };
+    // Transactional read-modify-write, writing ONLY this item's field path
+    // (`reviewQueue.${key}`) rather than the whole map. A whole-map rewrite
+    // loses concurrent updates from another device AND can resurrect entries
+    // resetPracticeTest pruned; a targeted field path touches only this key.
+    await runTransaction(db, async (tx) => {
+      const snap = await tx.get(progressRef);
+      const data = snap.exists() ? snap.data() : {};
+      const reviewQueue = data.reviewQueue || {};
+      const key = `${moduleId}-${sectionName}-${questionId}`;
+      const existing = reviewQueue[key] || { correctStreak: 0, wrongCount: 0 };
 
-    const correctStreak = wasCorrect ? existing.correctStreak + 1 : 0;
-    const wrongCount = wasCorrect ? existing.wrongCount : existing.wrongCount + 1;
+      const correctStreak = wasCorrect ? existing.correctStreak + 1 : 0;
+      const wrongCount = wasCorrect ? existing.wrongCount : existing.wrongCount + 1;
 
-    reviewQueue[key] = {
-      moduleId,
-      sectionName,
-      questionId,
-      correctStreak,
-      wrongCount,
-      lastAttempt: new Date().toISOString(),
-      nextReviewDate: calculateNextReviewDate(correctStreak, wasCorrect).toISOString(),
-      lastWasCorrect: wasCorrect
-    };
+      const entry = {
+        moduleId,
+        sectionName,
+        questionId,
+        correctStreak,
+        wrongCount,
+        lastAttempt: new Date().toISOString(),
+        nextReviewDate: calculateNextReviewDate(correctStreak, wasCorrect).toISOString(),
+        lastWasCorrect: wasCorrect
+      };
 
-    await setDoc(progressRef, {
-      reviewQueue,
-      lastUpdated: serverTimestamp()
-    }, { merge: true });
+      if (!snap.exists()) {
+        // set()+merge treats dotted keys as LITERAL fields, so the create case
+        // writes a NESTED map (never a `reviewQueue.${key}` literal field).
+        tx.set(progressRef, {
+          userId,
+          reviewQueue: { [key]: entry },
+          lastUpdated: serverTimestamp()
+        }, { merge: true });
+        return;
+      }
+
+      const updates = { lastUpdated: serverTimestamp() };
+      if (isSafeFirestoreFieldPathKey(key)) {
+        updates[`reviewQueue.${key}`] = entry;
+      } else {
+        // Free-form section names can carry field-path metacharacters — fall
+        // back to a whole-map write derived from THIS transaction's read
+        // (still race-safe, unlike a plain read-modify-write).
+        updates.reviewQueue = { ...reviewQueue, [key]: entry };
+      }
+      tx.update(progressRef, updates);
+    });
 
   } catch (err) {
     console.error('Error adding to review queue:', err);
@@ -93,30 +117,57 @@ export const addManyToReviewQueue = async (userId, entries) => {
 
   try {
     const progressRef = doc(db, 'progress', userId);
-    const progressDoc = await getDoc(progressRef);
-    const data = progressDoc.exists() ? progressDoc.data() : {};
 
-    const reviewQueue = data.reviewQueue || {};
-    const now = new Date().toISOString();
-    valid.forEach(({ moduleId, sectionName, questionId }) => {
-      const key = `${moduleId}-${sectionName}-${questionId}`;
-      const existing = reviewQueue[key] || { correctStreak: 0, wrongCount: 0 };
-      reviewQueue[key] = {
-        moduleId,
-        sectionName,
-        questionId,
-        correctStreak: 0,
-        wrongCount: existing.wrongCount + 1,
-        lastAttempt: now,
-        nextReviewDate: calculateNextReviewDate(0, false).toISOString(),
-        lastWasCorrect: false
-      };
+    // Transactional read-modify-write. Each miss is written as its own field
+    // path (`reviewQueue.${key}`) when every key is field-path-safe, so a
+    // concurrent write from another device isn't clobbered and pruned entries
+    // aren't resurrected. Falls back to a whole-map write (from this tx's own
+    // read — still race-safe) only when a key carries illegal chars.
+    await runTransaction(db, async (tx) => {
+      const snap = await tx.get(progressRef);
+      const data = snap.exists() ? snap.data() : {};
+      const reviewQueue = data.reviewQueue || {};
+      const now = new Date().toISOString();
+
+      const built = valid.map(({ moduleId, sectionName, questionId }) => {
+        const key = `${moduleId}-${sectionName}-${questionId}`;
+        const existing = reviewQueue[key] || { correctStreak: 0, wrongCount: 0 };
+        return {
+          key,
+          entry: {
+            moduleId,
+            sectionName,
+            questionId,
+            correctStreak: 0,
+            wrongCount: existing.wrongCount + 1,
+            lastAttempt: now,
+            nextReviewDate: calculateNextReviewDate(0, false).toISOString(),
+            lastWasCorrect: false
+          }
+        };
+      });
+
+      if (!snap.exists()) {
+        const map = {};
+        built.forEach(({ key, entry }) => { map[key] = entry; });
+        tx.set(progressRef, {
+          userId,
+          reviewQueue: map,
+          lastUpdated: serverTimestamp()
+        }, { merge: true });
+        return;
+      }
+
+      const updates = { lastUpdated: serverTimestamp() };
+      if (built.every(({ key }) => isSafeFirestoreFieldPathKey(key))) {
+        built.forEach(({ key, entry }) => { updates[`reviewQueue.${key}`] = entry; });
+      } else {
+        const merged = { ...reviewQueue };
+        built.forEach(({ key, entry }) => { merged[key] = entry; });
+        updates.reviewQueue = merged;
+      }
+      tx.update(progressRef, updates);
     });
-
-    await setDoc(progressRef, {
-      reviewQueue,
-      lastUpdated: serverTimestamp()
-    }, { merge: true });
 
   } catch (err) {
     console.error('Error batch-adding to review queue:', err);
@@ -182,19 +233,27 @@ export const removeFromReviewQueue = async (userId, key) => {
 
   try {
     const progressRef = doc(db, 'progress', userId);
-    const progressDoc = await getDoc(progressRef);
 
-    if (!progressDoc.exists()) return;
+    // Transactional delete of a SINGLE key via deleteField() so a mastered
+    // item's key is actually removed server-side (merge-mode would leave it
+    // behind and it would resurface as permanently "due"), without rewriting
+    // the whole map — which would clobber a concurrent write and could
+    // resurrect entries resetPracticeTest just pruned.
+    await runTransaction(db, async (tx) => {
+      const snap = await tx.get(progressRef);
+      if (!snap.exists()) return;
+      const reviewQueue = snap.data().reviewQueue || {};
+      if (!Object.prototype.hasOwnProperty.call(reviewQueue, key)) return;
 
-    const { reviewQueue = {} } = progressDoc.data();
-    delete reviewQueue[key];
-
-    // Full-field replace (NOT setDoc merge): Firestore merge-mode deep-merges
-    // maps, so a key deleted from the JS object is NOT removed server-side and
-    // re-hydrates on the next snapshot. updateDoc replaces the whole map.
-    await updateDoc(progressRef, {
-      reviewQueue,
-      lastUpdated: serverTimestamp()
+      const updates = { lastUpdated: serverTimestamp() };
+      if (isSafeFirestoreFieldPathKey(key)) {
+        updates[`reviewQueue.${key}`] = deleteField();
+      } else {
+        const pruned = { ...reviewQueue };
+        delete pruned[key];
+        updates.reviewQueue = pruned;
+      }
+      tx.update(progressRef, updates);
     });
 
   } catch (err) {
@@ -213,22 +272,21 @@ export const updateReviewItem = async (userId, key, wasCorrect) => {
 
   try {
     const progressRef = doc(db, 'progress', userId);
-    const progressDoc = await getDoc(progressRef);
 
-    if (!progressDoc.exists()) return;
+    // Transactional read-modify-write on a SINGLE key. Mastered items are
+    // removed via deleteField() (merge-mode can't delete a map key); still-due
+    // items are re-written at their own field path. Neither touches other keys,
+    // so a concurrent device write survives and pruned entries stay pruned.
+    await runTransaction(db, async (tx) => {
+      const snap = await tx.get(progressRef);
+      if (!snap.exists()) return;
+      const reviewQueue = snap.data().reviewQueue || {};
+      const item = reviewQueue[key];
+      if (!item) return;
 
-    const { reviewQueue = {} } = progressDoc.data();
-    const item = reviewQueue[key];
-
-    if (!item) return;
-
-    const correctStreak = wasCorrect ? item.correctStreak + 1 : 0;
-
-    // If they've gotten it right many times, consider it mastered
-    if (correctStreak >= REVIEW_INTERVALS.length) {
-      delete reviewQueue[key];
-    } else {
-      reviewQueue[key] = {
+      const correctStreak = wasCorrect ? item.correctStreak + 1 : 0;
+      const mastered = correctStreak >= REVIEW_INTERVALS.length;
+      const nextEntry = mastered ? null : {
         ...item,
         correctStreak,
         wrongCount: wasCorrect ? item.wrongCount : item.wrongCount + 1,
@@ -236,14 +294,17 @@ export const updateReviewItem = async (userId, key, wasCorrect) => {
         nextReviewDate: calculateNextReviewDate(correctStreak, wasCorrect).toISOString(),
         lastWasCorrect: wasCorrect
       };
-    }
 
-    // Full-field replace (NOT setDoc merge) so a mastered item's deleted key is
-    // actually removed server-side — merge-mode would leave it behind and it
-    // would resurface as permanently "due" on the next snapshot.
-    await updateDoc(progressRef, {
-      reviewQueue,
-      lastUpdated: serverTimestamp()
+      const updates = { lastUpdated: serverTimestamp() };
+      if (isSafeFirestoreFieldPathKey(key)) {
+        updates[`reviewQueue.${key}`] = mastered ? deleteField() : nextEntry;
+      } else {
+        const next = { ...reviewQueue };
+        if (mastered) delete next[key];
+        else next[key] = nextEntry;
+        updates.reviewQueue = next;
+      }
+      tx.update(progressRef, updates);
     });
 
   } catch (err) {

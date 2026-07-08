@@ -58,12 +58,30 @@ const MAX_STORED_EVENTS = 200;
 let flushTimer = null;
 
 /**
+ * Select the buffered events that belong to `userId`. Pure — the buffer is a
+ * shared module global, and after a logout→login the same process can hold
+ * events from more than one account. Only events tagged with the flushing uid
+ * may be written to that uid's doc; everything else is another account's data.
+ *
+ * @param {Array} events - buffered events (each carries an internal `uid` tag)
+ * @param {string} userId - the account currently flushing
+ * @returns {Array} the subset enqueued under `userId`
+ */
+export const selectEventsForUid = (events, userId) =>
+  (events || []).filter(e => e && e.uid === userId);
+
+/**
  * Record an analytics event. Buffered and flushed periodically.
  */
 export const trackEvent = (userId, category, event, properties = {}) => {
   if (!userId) return;
 
+  // Tag every event with its owner at enqueue time. The buffer + flushTimer are
+  // module globals shared across accounts in one tab; the tag is what lets the
+  // flush route each event to the RIGHT doc (no cross-account bleed after a
+  // logout→login) even if a timer armed under one uid fires under another.
   EVENT_BUFFER.push({
+    uid: userId,
     ts: new Date().toISOString(),
     category,
     event,
@@ -80,7 +98,10 @@ export const trackEvent = (userId, category, event, properties = {}) => {
 /**
  * Flush buffered events to Firestore.
  * Appends to a `analyticsEvents` array in the progress document
- * to avoid extra collections.
+ * to avoid extra collections. Only events enqueued under `userId` are written
+ * to `userId`'s doc — events tagged with any other uid are DROPPED (they are a
+ * previous account's residue after logout→login). Analytics loss is acceptable;
+ * writing an event to the wrong account is not.
  */
 export const flushEvents = async (userId) => {
   if (!userId || EVENT_BUFFER.length === 0) return;
@@ -90,7 +111,14 @@ export const flushEvents = async (userId) => {
     flushTimer = null;
   }
 
-  const batch = EVENT_BUFFER.splice(0, EVENT_BUFFER.length);
+  // Partition: keep only this account's events; drop everyone else's.
+  const mine = selectEventsForUid(EVENT_BUFFER, userId);
+  EVENT_BUFFER.length = 0;
+
+  if (mine.length === 0) return;
+
+  // Strip the internal uid tag before persisting — the doc is already per-uid.
+  const batch = mine.map(({ uid, ...rest }) => rest);
 
   try {
     const ref = doc(db, 'progress', userId);
@@ -116,9 +144,10 @@ export const flushEvents = async (userId) => {
     }
   } catch (err) {
     console.error('[analytics] flush failed — events re-queued:', err);
-    // Re-queue for the next flush, but bound the in-memory buffer too so a
-    // persistently-failing write can't grow it without limit.
-    EVENT_BUFFER.unshift(...batch);
+    // Re-queue ONLY this account's events (still uid-tagged) for the next
+    // flush, and bound the in-memory buffer so a persistently-failing write
+    // can't grow it without limit.
+    EVENT_BUFFER.unshift(...mine);
     if (EVENT_BUFFER.length > MAX_STORED_EVENTS) {
       EVENT_BUFFER.splice(MAX_STORED_EVENTS, EVENT_BUFFER.length - MAX_STORED_EVENTS);
     }

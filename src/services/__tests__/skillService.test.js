@@ -6,28 +6,42 @@
  * recordSkillAttemptsBatch folds a whole drill session into ONE Firestore
  * read + write — the drill→mastery loop closed by the 2026-06
  * personalization audit (assigned/adaptive drill answers previously never
- * updated skillProgress at all).
+ * updated skillProgress at all). The read-fold-write now runs inside a
+ * runTransaction so a concurrent session can't lose attempts.
  *
- * Firestore is mocked; only the fold + batching contracts are under test.
+ * Firestore is mocked; only the fold + batching (transaction) contracts are
+ * under test.
  */
 
 jest.mock('../../firebase/config', () => ({ db: {} }));
 jest.mock('firebase/firestore', () => ({
-  doc: jest.fn(),
-  getDoc: jest.fn(),
-  updateDoc: jest.fn(),
+  doc: jest.fn(() => ({ __ref: true })),
   serverTimestamp: jest.fn(),
+  runTransaction: jest.fn(),
 }));
 
-import { getDoc, updateDoc, serverTimestamp } from 'firebase/firestore';
+import { runTransaction, serverTimestamp } from 'firebase/firestore';
 import { foldSkillAttempt, recordSkillAttemptsBatch } from '../skillService';
 
 // CRA's jest config sets resetMocks: true, so implementations must be
 // (re)installed per test, not in the module factory.
 beforeEach(() => {
-  updateDoc.mockResolvedValue(undefined);
   serverTimestamp.mockReturnValue('SERVER_TS');
 });
+
+// Drives the mocked transaction: tx.get returns the given snapshot, tx.update
+// records the payload. Returns the array of recorded writes.
+function installTransaction({ exists, data }) {
+  const writes = [];
+  runTransaction.mockImplementation(async (_db, cb) => {
+    const tx = {
+      get: async () => ({ exists: () => exists, data: () => data }),
+      update: (_ref, payload) => writes.push(payload),
+    };
+    return cb(tx);
+  });
+  return writes;
+}
 
 describe('foldSkillAttempt', () => {
   test('first attempt on a fresh skill', () => {
@@ -64,15 +78,8 @@ describe('foldSkillAttempt', () => {
 });
 
 describe('recordSkillAttemptsBatch', () => {
-  const mockProgressDoc = (skillProgress = {}) => {
-    getDoc.mockResolvedValue({
-      exists: () => true,
-      data: () => ({ skillProgress }),
-    });
-  };
-
-  test('folds a whole session with one read and one write', async () => {
-    mockProgressDoc({});
+  test('folds a whole session inside one transaction, one write', async () => {
+    const writes = installTransaction({ exists: true, data: { skillProgress: {} } });
 
     await recordSkillAttemptsBatch('u1', [
       { skills: ['slope-intercept-form'], correct: false },
@@ -80,10 +87,10 @@ describe('recordSkillAttemptsBatch', () => {
       { skills: ['circle-equations'], correct: true },
     ]);
 
-    expect(getDoc).toHaveBeenCalledTimes(1);
-    expect(updateDoc).toHaveBeenCalledTimes(1);
+    expect(runTransaction).toHaveBeenCalledTimes(1);
+    expect(writes).toHaveLength(1);
 
-    const payload = updateDoc.mock.calls[0][1];
+    const payload = writes[0];
     const slope = payload['skillProgress.slope-intercept-form'];
     expect(slope.attempts).toBe(2);
     expect(slope.correct).toBe(1);
@@ -99,8 +106,13 @@ describe('recordSkillAttemptsBatch', () => {
   });
 
   test('folds on top of the existing Firestore record', async () => {
-    mockProgressDoc({
-      'slope-intercept-form': { attempts: 8, correct: 4, mastery: 50, confidenceLevel: 'medium', history: [] },
+    const writes = installTransaction({
+      exists: true,
+      data: {
+        skillProgress: {
+          'slope-intercept-form': { attempts: 8, correct: 4, mastery: 50, confidenceLevel: 'medium', history: [] },
+        },
+      },
     });
 
     await recordSkillAttemptsBatch('u1', [
@@ -108,7 +120,7 @@ describe('recordSkillAttemptsBatch', () => {
       { skills: ['slope-intercept-form'], correct: true },
     ]);
 
-    const slope = updateDoc.mock.calls[0][1]['skillProgress.slope-intercept-form'];
+    const slope = writes[0]['skillProgress.slope-intercept-form'];
     expect(slope.attempts).toBe(10);
     expect(slope.correct).toBe(6);
     expect(slope.mastery).toBe(60);
@@ -116,31 +128,31 @@ describe('recordSkillAttemptsBatch', () => {
   });
 
   test('a question tagged with multiple skills updates each of them', async () => {
-    mockProgressDoc({});
+    const writes = installTransaction({ exists: true, data: { skillProgress: {} } });
 
     await recordSkillAttemptsBatch('u1', [
       { skills: ['systems-of-equations', 'linear-equations'], correct: true },
     ]);
 
-    const payload = updateDoc.mock.calls[0][1];
+    const payload = writes[0];
     expect(payload['skillProgress.systems-of-equations'].attempts).toBe(1);
     expect(payload['skillProgress.linear-equations'].attempts).toBe(1);
   });
 
-  test('no-ops without touching Firestore when there is nothing to record', async () => {
+  test('no-ops without opening a transaction when there is nothing to record', async () => {
+    installTransaction({ exists: true, data: { skillProgress: {} } });
     await recordSkillAttemptsBatch('u1', []);
     await recordSkillAttemptsBatch('u1', [{ skills: [], correct: true }, null]);
     await recordSkillAttemptsBatch(null, [{ skills: ['factoring'], correct: true }]);
 
-    expect(getDoc).not.toHaveBeenCalled();
-    expect(updateDoc).not.toHaveBeenCalled();
+    expect(runTransaction).not.toHaveBeenCalled();
   });
 
   test('bails cleanly when the progress doc does not exist', async () => {
-    getDoc.mockResolvedValue({ exists: () => false });
+    const writes = installTransaction({ exists: false, data: undefined });
 
     await recordSkillAttemptsBatch('u1', [{ skills: ['factoring'], correct: true }]);
 
-    expect(updateDoc).not.toHaveBeenCalled();
+    expect(writes).toHaveLength(0);
   });
 });

@@ -15,6 +15,52 @@ const pendingWrites = new Map();
 const DEBOUNCE_INTERVAL_MS = 30000; // 30 seconds
 const DEBOUNCE_MESSAGE_COUNT = 3;
 
+// sessionId -> { moduleId, lessonId } so the debounced / forced / flush writers
+// (which only receive userId + sessionId) can refresh the module/lesson-keyed
+// sessionStorage cache. Populated at saveSession + loadActiveSession time.
+const sessionCacheMeta = new Map();
+
+const cacheKeyFor = (userId, moduleId, lessonId) =>
+  `aiChatSession_${userId}_${moduleId}_${lessonId}`;
+
+const registerSessionCacheMeta = (userId, sessionId, moduleId, lessonId) => {
+  if (!userId || !sessionId) return;
+  sessionCacheMeta.set(`${userId}_${sessionId}`, { moduleId, lessonId });
+};
+
+const normalizeMessages = (messages) =>
+  (messages || []).map(m => ({
+    role: m.role,
+    content: m.content,
+    timestamp: m.timestamp || new Date().toISOString(),
+  }));
+
+/**
+ * Refresh the module/lesson-keyed sessionStorage cache to the messages just
+ * persisted. The cache was previously written ONLY at session creation and
+ * never updated by the debounced writer, so returning to a chat replayed a
+ * stale 1-message snapshot and the next write truncated Firestore's messages
+ * array. Every write path now calls this so the cache tracks what Firestore
+ * holds. No-op when the session's module/lesson mapping is unknown (nothing to
+ * key the cache on) or sessionStorage is unavailable.
+ */
+const refreshSessionCache = (userId, sessionId, messages) => {
+  try {
+    const meta = sessionCacheMeta.get(`${userId}_${sessionId}`);
+    if (!meta) return;
+    const normalized = normalizeMessages(messages);
+    sessionStorage.setItem(cacheKeyFor(userId, meta.moduleId, meta.lessonId), JSON.stringify({
+      sessionId,
+      moduleId: meta.moduleId,
+      lessonId: meta.lessonId,
+      messages: normalized,
+      messageCount: normalized.length,
+    }));
+  } catch (e) {
+    // Storage full / unavailable — non-critical.
+  }
+};
+
 /**
  * Save a new chat session to Firestore
  */
@@ -38,11 +84,13 @@ export const saveSession = async (userId, sessionData) => {
   });
 
   // Update sessionStorage cache
+  registerSessionCacheMeta(userId, docRef.id, sessionData.moduleId, sessionData.lessonId);
   try {
-    const cacheKey = `aiChatSession_${userId}_${sessionData.moduleId}_${sessionData.lessonId}`;
+    const cacheKey = cacheKeyFor(userId, sessionData.moduleId, sessionData.lessonId);
     sessionStorage.setItem(cacheKey, JSON.stringify({
       sessionId: docRef.id,
       ...sessionData,
+      messageCount: sessionData.messages?.length || 0,
     }));
   } catch (e) {
     // Storage full — non-critical
@@ -73,14 +121,14 @@ export const updateSessionMessages = async (userId, sessionId, messages, force =
 
     const sessionRef = doc(db, 'progress', userId, 'aiChatSessions', sessionId);
     await updateDoc(sessionRef, {
-      messages: messages.map(m => ({
-        role: m.role,
-        content: m.content,
-        timestamp: m.timestamp || new Date().toISOString(),
-      })),
+      messages: normalizeMessages(messages),
       messageCount,
       lastMessageAt: serverTimestamp(),
     });
+
+    // Keep the sessionStorage cache in step with what we just wrote so a later
+    // loadActiveSession returns the FULL conversation, not a creation-time stub.
+    refreshSessionCache(userId, sessionId, messages);
 
     pendingWrites.set(key, { lastWrittenCount: messageCount });
     return;
@@ -93,14 +141,11 @@ export const updateSessionMessages = async (userId, sessionId, messages, force =
     try {
       const sessionRef = doc(db, 'progress', userId, 'aiChatSessions', sessionId);
       await updateDoc(sessionRef, {
-        messages: messages.map(m => ({
-          role: m.role,
-          content: m.content,
-          timestamp: m.timestamp || new Date().toISOString(),
-        })),
+        messages: normalizeMessages(messages),
         messageCount: messages.length,
         lastMessageAt: serverTimestamp(),
       });
+      refreshSessionCache(userId, sessionId, messages);
       pendingWrites.set(key, { lastWrittenCount: messages.length });
     } catch (e) {
       console.error('Debounced session write failed:', e);
@@ -124,20 +169,23 @@ export const updateSessionMessages = async (userId, sessionId, messages, force =
 export const loadActiveSession = async (userId, moduleId, lessonId) => {
   if (!userId) return null;
 
-  // Check sessionStorage cache first
+  const cacheKey = cacheKeyFor(userId, moduleId, lessonId);
+
+  // Read the cache, but DON'T trust it blindly. A cache that was written at
+  // creation and never refreshed replays an old 1-message snapshot, and the
+  // next write would then truncate Firestore's messages array. We compare
+  // messageCounts below and prefer whichever source holds MORE messages.
+  let cached = null;
   try {
-    const cacheKey = `aiChatSession_${userId}_${moduleId}_${lessonId}`;
-    const cached = sessionStorage.getItem(cacheKey);
-    if (cached) {
-      const parsed = JSON.parse(cached);
-      if (parsed.sessionId && parsed.messages?.length > 0) {
-        // Verify session still exists in Firestore (async, non-blocking)
-        return parsed;
-      }
+    const raw = sessionStorage.getItem(cacheKey);
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      if (parsed?.sessionId && parsed.messages?.length > 0) cached = parsed;
     }
   } catch (e) {
     // Ignore cache errors
   }
+  const cacheCount = cached ? (cached.messageCount ?? cached.messages?.length ?? 0) : 0;
 
   // Query Firestore
   try {
@@ -151,26 +199,38 @@ export const loadActiveSession = async (userId, moduleId, lessonId) => {
     );
 
     const snapshot = await getDocs(q);
-    if (snapshot.empty) return null;
+    if (snapshot.empty) {
+      // No server session yet — the cache (if any) is all we have.
+      if (cached) registerSessionCacheMeta(userId, cached.sessionId, moduleId, lessonId);
+      return cached;
+    }
 
     const sessionDoc = snapshot.docs[0];
     const data = sessionDoc.data();
+    const serverCount = data.messageCount ?? data.messages?.length ?? 0;
 
-    // Update cache
+    registerSessionCacheMeta(userId, sessionDoc.id, moduleId, lessonId);
+
+    // Belt-and-suspenders: only honor the cache when it's for the SAME session
+    // and is at least as fresh as the server (>= server count). Otherwise the
+    // server wins — a stale/short cache can never truncate the conversation.
+    if (cached && cached.sessionId === sessionDoc.id && cacheCount >= serverCount) {
+      return cached;
+    }
+
+    // Server wins — refresh the cache to the server snapshot.
+    const result = { sessionId: sessionDoc.id, ...data };
     try {
-      const cacheKey = `aiChatSession_${userId}_${moduleId}_${lessonId}`;
-      sessionStorage.setItem(cacheKey, JSON.stringify({
-        sessionId: sessionDoc.id,
-        ...data,
-      }));
+      sessionStorage.setItem(cacheKey, JSON.stringify(result));
     } catch (e) {
       // Non-critical
     }
-
-    return { sessionId: sessionDoc.id, ...data };
+    return result;
   } catch (e) {
     console.error('Failed to load session from Firestore:', e);
-    return null;
+    // Offline / query failed — fall back to the cache we already have.
+    if (cached) registerSessionCacheMeta(userId, cached.sessionId, moduleId, lessonId);
+    return cached;
   }
 };
 
@@ -244,14 +304,11 @@ export const flushPendingWrites = async (userId, sessionId) => {
   try {
     const sessionRef = doc(db, 'progress', pending.userId, 'aiChatSessions', pending.sessionId);
     await updateDoc(sessionRef, {
-      messages: pending.messages.map(m => ({
-        role: m.role,
-        content: m.content,
-        timestamp: m.timestamp || new Date().toISOString(),
-      })),
+      messages: normalizeMessages(pending.messages),
       messageCount: pending.messages.length,
       lastMessageAt: serverTimestamp(),
     });
+    refreshSessionCache(pending.userId, pending.sessionId, pending.messages);
     pendingWrites.set(key, { lastWrittenCount: pending.messages.length });
   } catch (e) {
     console.error('Flush of pending session write failed:', e);

@@ -4,6 +4,7 @@ import { sanitizeForFirestore, restoreFromFirestore } from '../utils/firestoreSa
 import { TEST_REVIEW_MODULE_PREFIX } from './reviewQueueResolve';
 import { clearPendingSavesForTest, removePendingSave } from './pendingTestSaveQueue';
 import { pickSurvivingArtifactId } from './studyPlanReset';
+import { isSafeFirestoreFieldPathKey } from './firestoreFieldPath';
 
 /**
  * Schema version for the per-attempt snapshot doc.
@@ -450,10 +451,11 @@ export const clearTestProgress = async (userId, testId) => {
     if (progressSnap.exists()) {
       const data = progressSnap.data();
       if (data.inProgressTests && data.inProgressTests[testId]) {
-        // Remove the in-progress test entry
-        const { [testId]: _, ...remainingTests } = data.inProgressTests;
+        // Targeted field-path delete (mirrors resetPracticeTest) instead of a
+        // whole-map rewrite: touching only this key can't clobber a concurrent
+        // save of another in-progress test on a second device.
         await updateDoc(progressRef, {
-          inProgressTests: remainingTests,
+          [`inProgressTests.${testId}`]: deleteField(),
           lastUpdated: serverTimestamp()
         });
         console.log('[practiceTestService] Cleared in-progress test:', testId);
@@ -559,7 +561,7 @@ export const resetPracticeTest = async (userId, testId) => {
         // `${moduleId}-${sectionName}-${questionId}` with free-form section
         // names, so guard rather than assume; the whole-map fallback is still
         // race-safe here because it derives from THIS transaction's read.
-        if (prunedKeys.every((key) => !/[.~*/[\]]/.test(key))) {
+        if (prunedKeys.every((key) => isSafeFirestoreFieldPathKey(key))) {
           prunedKeys.forEach((key) => { updates[`reviewQueue.${key}`] = deleteField(); });
         } else {
           const prunedQueue = { ...reviewQueue };
@@ -803,32 +805,34 @@ export const linkArtifactToAttempt = async (userId, testId, attemptId, links = {
 
   try {
     const progressRef = doc(db, 'progress', userId);
-    const snap = await getDoc(progressRef);
-    if (!snap.exists()) return;
 
-    const data = snap.data();
-    const testRecord = data.practiceTestResults?.[testId];
-    if (!testRecord?.attempts) return;
+    // Transactional read-modify-write (mirrors recordPracticeTestResult): this
+    // rewrites the whole attempts array, so a plain getDoc→updateDoc raced a
+    // concurrent test-completion write and could drop the just-saved attempt.
+    // Firestore re-runs the callback on contention, re-reading the array.
+    await runTransaction(db, async (tx) => {
+      const snap = await tx.get(progressRef);
+      if (!snap.exists()) return;
 
-    const attemptIdx = testRecord.attempts.findIndex(a => a.attemptId === attemptId);
-    if (attemptIdx === -1) return;
+      const data = snap.data();
+      const testRecord = data.practiceTestResults?.[testId];
+      if (!testRecord?.attempts) return;
 
-    const updates = {};
-    if (links.aiArtifactId) {
-      updates[`practiceTestResults.${testId}.attempts`] = testRecord.attempts.map((a, i) =>
-        i === attemptIdx ? { ...a, aiArtifactId: links.aiArtifactId } : a
+      const attemptIdx = testRecord.attempts.findIndex(a => a.attemptId === attemptId);
+      if (attemptIdx === -1) return;
+
+      const patch = {};
+      if (links.aiArtifactId) patch.aiArtifactId = links.aiArtifactId;
+      if (links.studyPlanArtifactId) patch.studyPlanArtifactId = links.studyPlanArtifactId;
+      if (Object.keys(patch).length === 0) return;
+
+      const nextAttempts = testRecord.attempts.map((a, i) =>
+        i === attemptIdx ? { ...a, ...patch } : a
       );
-    }
-    if (links.studyPlanArtifactId) {
-      const current = updates[`practiceTestResults.${testId}.attempts`] || testRecord.attempts;
-      updates[`practiceTestResults.${testId}.attempts`] = current.map((a, i) =>
-        i === attemptIdx ? { ...a, studyPlanArtifactId: links.studyPlanArtifactId } : a
-      );
-    }
-
-    if (Object.keys(updates).length > 0) {
-      await updateDoc(progressRef, updates);
-    }
+      tx.update(progressRef, {
+        [`practiceTestResults.${testId}.attempts`]: nextAttempts,
+      });
+    });
   } catch (err) {
     console.warn('[practiceTestService] linkArtifactToAttempt error (non-blocking):', err.message);
   }
