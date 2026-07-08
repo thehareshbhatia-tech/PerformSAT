@@ -16,7 +16,6 @@ import LandingPage from './components/LandingPage';
 import PrivacyPolicy from './components/legal/PrivacyPolicy';
 import TermsOfService from './components/legal/TermsOfService';
 import PushOptInCard from './components/PushOptInCard';
-import { runDiagnostic } from './services/diagnosticEngine';
 import { getDifficultyBadge } from './services/adaptiveService';
 import { addToReviewQueue } from './services/reviewService';
 import { calculateOptimalDifficulty } from './services/recommendationService';
@@ -24,17 +23,14 @@ import AppShell from './components/ui/AppShell';
 import Wordmark from './components/ui/Wordmark';
 import ErrorBoundary from './components/ui/ErrorBoundary';
 import Skeleton, { CardSkeleton } from './components/ui/Skeleton';
-import { allLessons } from './data/lessons';
-import ReviewItemCard from './components/PastTestReview/ReviewItemCard';
 import { Toaster, showToast } from './components/ui/Toaster';
 import CommandPalette from './components/ui/CommandPalette';
 import { ChartBarIcon, PlayIcon, ClipboardIcon, TargetIcon, CalendarIcon, BrainIcon } from './design/icons';
 import { buildRounds, classifyRoundBoundary, findRoundIndexForQuestion } from './services/buildRounds';
 import { restoreAnswerStateForQuestion, buildResumableDrill } from './services/practiceNavigation';
-import {
-  loadDiagnosticReportData,
-  pickMostRecentTest,
-} from './services/diagnosticReportLoader';
+// diagnosticReportLoader (loadDiagnosticReportData / pickMostRecentTest) is
+// loaded as a lazy chunk via loadReportLoader() below — a static import here
+// welded diagnosticEngine (~190KB) into the main bundle. All call sites are async.
 import {
   getLatestAttempt,
   itemKey,
@@ -78,7 +74,8 @@ import { logInfo, logWarn } from './utils/log';
 // chunk fetches; key={view} on that div remounts the boundary per navigation.
 // KEEP EAGER: LandingPage, PrivacyPolicy/TermsOfService (render via early
 // return BEFORE the router), AppShell, ErrorBoundary, Toaster, CommandPalette,
-// PushOptInCard, ReviewItemCard, icons.
+// PushOptInCard, icons. ReviewItemCard is lazy — a static import welded its
+// MathText -> katex (1.2MB) chain into the main bundle for pre-auth visitors.
 const StudentDashboard = React.lazy(() => import('./components/StudentDashboard'));
 const AiTutorChat = React.lazy(() => import('./components/AiTutorChat'));
 const PracticeTest = React.lazy(() => import('./components/PracticeTest'));
@@ -98,6 +95,7 @@ const PracticeBank = React.lazy(() => import('./components/PracticeBank'));
 const DiagnosticReport = React.lazy(() => import('./components/DiagnosticReport'));
 const LearnWorkspace = React.lazy(() => import('./components/learn/LearnWorkspace'));
 const LessonBrowser = React.lazy(() => import('./components/LessonBrowser'));
+const ReviewItemCard = React.lazy(() => import('./components/PastTestReview/ReviewItemCard'));
 const PastTestReviewIndex = React.lazy(() => import('./components/PastTestReview/PastTestReviewIndex'));
 const TestReviewDetail = React.lazy(() => import('./components/PastTestReview/TestReviewDetail'));
 const PaywallScreen = React.lazy(() => import('./components/billing/PaywallScreen'));
@@ -109,6 +107,18 @@ const TrialBanner = React.lazy(() => import('./components/billing/TrialBanner'))
 // blank the screen on first open. The heavy Desmos library still loads lazily at
 // runtime via a script tag inside the component.
 import DesmosCalculator from './components/DesmosCalculator';
+
+// Pin the shared answer-choice + passage stylesheet order in the MAIN chunk.
+// ReviewItemCard used to establish this order as an eager import; now that it's
+// lazy (to keep MathText -> katex out of main), these two stylesheets would
+// otherwise be pulled into a shared async chunk where mini-css-extract can't
+// reconcile the order — MiniDiagnosticShell imports them passage-before-choices
+// while every other consumer imports choices-before-passage, which fails the
+// CI "Conflicting order" check. Loading them here (choices first, the majority
+// order) keeps them in main and resolves the conflict globally. CSS only —
+// zero JS weight, no katex.
+import './components/shared/AnswerChoiceList.css';
+import './components/rw/HighlightablePassage.css';
 
 // Text-free skeleton shown while a lazy view chunk loads. Composed from the
 // shared Skeleton primitives. Renders INSIDE #main-content, so the takingTest
@@ -127,6 +137,41 @@ const ViewChunkFallback = () => (
     <CardSkeleton lines={2} />
   </div>
 );
+
+// Memoized dynamic imports for two modules that are only needed deep in a
+// flow, never on the main/landing path (bundle-split house style — mirrors
+// data/corpusLoader.js and the useProgress.js:12 guard). A static import of
+// either welded heavy code into the main chunk for every pre-auth visitor:
+//   ./data/lessons        (~300KB) — used only in the Learn/Modules views
+//   ./services/diagnosticEngine (~190KB source) — used only to regenerate a
+//                          legacy attempt's diagnosis at review time
+// Each caches its import PROMISE at module scope, so concurrent callers share
+// one in-flight fetch and repeats resolve synchronously (cache hits).
+let lessonsChunkPromise = null;
+const loadLessonsChunk = () => {
+  if (!lessonsChunkPromise) {
+    lessonsChunkPromise = import(/* webpackChunkName: "lessons" */ './data/lessons');
+  }
+  return lessonsChunkPromise;
+};
+let diagnosticEngineChunkPromise = null;
+const loadDiagnosticEngine = () => {
+  if (!diagnosticEngineChunkPromise) {
+    diagnosticEngineChunkPromise = import(/* webpackChunkName: "diagnostic-engine" */ './services/diagnosticEngine');
+  }
+  return diagnosticEngineChunkPromise;
+};
+// diagnosticReportLoader statically imports diagnosticEngine, so a static
+// import of it here (App is the main chunk) kept the whole ~190KB diagnostic
+// stack welded into main even after runDiagnostic went dynamic above. All of
+// its call sites are async, so load it as a chunk too.
+let reportLoaderChunkPromise = null;
+const loadReportLoader = () => {
+  if (!reportLoaderChunkPromise) {
+    reportLoaderChunkPromise = import(/* webpackChunkName: "diagnostic-report-loader" */ './services/diagnosticReportLoader');
+  }
+  return reportLoaderChunkPromise;
+};
 
 // ── Past-Test-Review telemetry (Phase 7 of PAST_TEST_REVIEW_PLAN.md) ──
 // Events are scoped under [performsat:pastTestReview] so they're filterable
@@ -249,6 +294,10 @@ const PerformSAT = () => {
   const [activeModule, setActiveModule] = useState(null);
   const [activeLesson, setActiveLesson] = useState(null);
   const [activeSection, setActiveSection] = useState(null); // For section-based practice
+  // Lesson catalog (~300KB) loads as its own chunk only when a student enters
+  // the Learn/Modules views — see loadLessonsChunk. `lessons` is the resolved
+  // `allLessons` map, or null while the chunk is still in flight.
+  const [lessons, setLessons] = useState(null);
   const [view, setView] = useState('dashboard'); // 'dashboard' | 'practice' | 'practiceTests' | 'takingTest' | 'profile' | 'studyPlan' | 'tutor' | 'viewingResults' | 'diagnosticReport' | 'reviewingPastResults' | 'pastTestReviewIndex' | 'pastTestReviewDetail' | 'pastTestReviewItem' | 'pacingDrill'
   // On-ramp (signup mini-diagnostic) state. `onRampActive` is tri-state:
   // null = eligibility not yet decided, true = flow mounted instead of the
@@ -373,6 +422,27 @@ const PerformSAT = () => {
   const entitlement = useEntitlement(user);
   const entitlementStateRef = useRef(entitlement);
   useEffect(() => { entitlementStateRef.current = entitlement; }, [entitlement]);
+
+  // Freshest studyPlan snapshot for the fire-and-forget AI merge in
+  // handleSaveStudyPlan (Step 5). The AI Cloud Function can take ~68s; during
+  // that window the student may check off / edit activities. Merging the AI
+  // fields onto the studyPlan captured in the closure would clobber those live
+  // edits (checkmarks vanish), so the merge re-reads this ref instead.
+  const studyPlanRef = useRef(studyPlan);
+  useEffect(() => { studyPlanRef.current = studyPlan; }, [studyPlan]);
+
+  // Lazy-load the lesson catalog on entry to the Learn/Modules views. The
+  // render paths below read `lessons` (the resolved allLessons map); until the
+  // chunk lands, the 'learn' view shows the shared chunk fallback.
+  useEffect(() => {
+    if ((view === 'modules' || view === 'learn') && !lessons) {
+      let cancelled = false;
+      loadLessonsChunk()
+        .then((mod) => { if (!cancelled) setLessons(mod.allLessons); })
+        .catch(() => { /* non-fatal: views guard on null lessons */ });
+      return () => { cancelled = true; };
+    }
+  }, [view, lessons]);
   // Set true the instant we return from a successful Checkout so the hard-gate
   // auto-route below doesn't bounce a student who JUST paid back to the wall
   // during the brief window before the webhook flips their doc to trialing.
@@ -846,8 +916,12 @@ const PerformSAT = () => {
           );
 
           if (aiPlan?.summary?.diagnosis) {
-            // Read-before-merge: use current studyPlan state to preserve any user changes
-            const currentPlan = studyPlan || planToSave;
+            // Read-before-merge against the FRESHEST plan (studyPlanRef), not
+            // the studyPlan captured when this closure was created ~68s ago.
+            // The student can complete/edit activities during the LLM call; we
+            // merge ONLY the AI-generated fields onto their current plan so
+            // completed flags and other user edits survive.
+            const currentPlan = studyPlanRef.current || planToSave;
             const enhanced = {
               ...currentPlan,
               summary: {
@@ -990,6 +1064,9 @@ const PerformSAT = () => {
         weekNumber: meta.weekNumber ?? null,
         source: meta.source || 'study-plan-assigned',
         weakness: meta.weakness || null,
+        // Carry the section forward so a re-drill (handleRedrillMisses reads
+        // assignmentMeta.section) can route back into the same subject bank.
+        section: meta.section ?? null,
       },
     });
     setActiveModule(null);
@@ -1303,6 +1380,7 @@ const PerformSAT = () => {
     setReviewBundleLoading(true);
     setView('pastTestReviewDetail');
     try {
+      const { loadDiagnosticReportData } = await loadReportLoader();
       const data = await loadDiagnosticReportData({
         userId: user?.uid,
         test,
@@ -2319,9 +2397,9 @@ const PerformSAT = () => {
             completedLessons={completedLessons}
             skillProgress={skillProgress}
             onSelectModule={(moduleId) => {
-              const lessons = allLessons[moduleId] || [];
+              const moduleLessons = (lessons && lessons[moduleId]) || [];
               setActiveModule(moduleId);
-              setActiveLesson(lessons[0]?.id || null);
+              setActiveLesson(moduleLessons[0]?.id || null);
               setView('learn');
             }}
           />
@@ -2329,7 +2407,10 @@ const PerformSAT = () => {
 
         {/* Learn — Lesson Workspace View */}
         {view === 'learn' && activeModule && (() => {
-          const moduleLessons = allLessons[activeModule] || [];
+          // Lesson catalog is a lazy chunk (loadLessonsChunk); show the shared
+          // fallback until it resolves rather than a lesson-less workspace.
+          if (!lessons) return <ViewChunkFallback />;
+          const moduleLessons = lessons[activeModule] || [];
           const currentLesson = moduleLessons.find(l => l.id === activeLesson) || moduleLessons[0] || null;
           // Find module title from LessonBrowser's MODULES if available; fall back to id.
           const moduleTitleMap = {
@@ -2439,6 +2520,7 @@ const PerformSAT = () => {
             onOpenTutor={() => setView('tutor')}
             onViewFullDiagnosis={async () => {
               // Closes CEO C1: surface DiagnosticReport from the dashboard.
+              const { pickMostRecentTest, loadDiagnosticReportData } = await loadReportLoader();
               const { testId, lastAttempt } = pickMostRecentTest(practiceTestResults);
               if (!testId || !lastAttempt) {
                 showToast({
@@ -2640,13 +2722,19 @@ const PerformSAT = () => {
                 });
               }
 
-              // Load saved diagnostic report — only regenerate if not saved (legacy attempts)
-              const diagReport = lastAttempt.diagnosticReport || runDiagnostic(
-                reviewTest, reconstructedAnswers, lastAttempt.diagnosticData,
-                skillProgress || {},
-                { targetScore: user?.targetScore, currentScore: user?.currentScore, testDate: user?.testDate },
-                practiceTestResults || {}
-              );
+              // Load saved diagnostic report — only regenerate if not saved
+              // (legacy attempts). diagnosticEngine is a ~190KB lazy chunk
+              // (loadDiagnosticEngine), awaited only on this legacy path.
+              let diagReport = lastAttempt.diagnosticReport;
+              if (!diagReport) {
+                const { runDiagnostic } = await loadDiagnosticEngine();
+                diagReport = runDiagnostic(
+                  reviewTest, reconstructedAnswers, lastAttempt.diagnosticData,
+                  skillProgress || {},
+                  { targetScore: user?.targetScore, currentScore: user?.currentScore, testDate: user?.testDate },
+                  practiceTestResults || {}
+                );
+              }
 
               // Load saved AI diagnostic narrative from Firestore
               let aiState = { status: 'idle', narrative: null, error: null };
@@ -3176,7 +3264,13 @@ const PerformSAT = () => {
                 onCheckAnswer={handleCheckAnswer}
                 onNextQuestion={handleNextQuestion}
                 onAdvanceToNextRound={handleAdvanceToNextRound}
-                onTrySimilar={handleTrySimilar}
+                // Try-Similar is only sound in fixed assigned drills. In a
+                // Practice-Bank adaptive round the miss is applied on Continue
+                // (handleNextQuestion -> applyAdaptiveResult); splicing a similar
+                // question in bypasses that, desyncing the ladder and the
+                // served/target counts. Omit the prop so the shell hides the
+                // button (it guards on typeof onTrySimilar === 'function').
+                onTrySimilar={isBankAdaptive ? undefined : handleTrySimilar}
                 isTrySimilarExhausted={isTrySimilarExhausted}
                 onShowHint={handleShowHint}
                 onNavigateToQuestion={handleNavigateToQuestion}

@@ -492,7 +492,7 @@ const StudentDashboard = ({
   // #9b — while a returning user's data hydrates, show a skeleton instead of
   // flashing the empty/teaser state. Placed after all hooks; a genuinely new
   // account (not loading, no data) falls through to the designed empty states.
-  const hasAnyData = !!studyPlan || practiceEntries.length > 0 || performanceTiles.hasData || (practiceTestResults?.length > 0);
+  const hasAnyData = !!studyPlan || practiceEntries.length > 0 || performanceTiles.hasData || (Object.keys(practiceTestResults || {}).length > 0);
   if (dataLoading && !hasAnyData) {
     return <DashboardSkeleton />;
   }
@@ -808,7 +808,10 @@ const StudentDashboard = ({
               const goalAchieved = isGoalAchieved(goalArgs);
               const goalGap = goalDelta(goalArgs);
               const goalForBar = (user?.targetScore && user.targetScore > 800) ? user.targetScore : 1500;
-              const pct = Math.max(0, Math.min(100, Math.round((latestScore / goalForBar) * 100)));
+              // Progress is measured against the 400-1600 composite band (the
+              // bar's floor label is "400"), so anchor the fill at 400 — not 0.
+              // A raw latestScore/goalForBar made a 400 composite read 27% full.
+              const pct = Math.max(0, Math.min(100, Math.round(((latestScore - 400) / (goalForBar - 400)) * 100)));
               const testDateIsPast = daysUntilTest !== null && daysUntilTest < 0;
               return (
                 <div className="hv2-score-hero">
@@ -836,7 +839,10 @@ const StudentDashboard = ({
                       </div>
                     )}
                   </div>
-                  {user?.targetScore != null && (
+                  {/* Only meaningful for a 400-1600 composite: a single-section
+                      200-800 latest against a composite goal is apples-to-oranges,
+                      so hide the bar entirely when the latest isn't multi-section. */}
+                  {user?.targetScore != null && latestIsMultiSection && (
                     <div className="hv2-progress-wrap">
                       <div className="hv2-progress-bar">
                         <div className="hv2-progress-fill" style={{ width: `${pct}%` }} />
@@ -924,7 +930,18 @@ const StudentDashboard = ({
               <div>
                 <div className="hv2-section-head">
                   <h2 className="hv2-section-title">Today's focus</h2>
-                  <span className="hv2-section-meta">{todaySlice.day || 'Today'} · {Math.max(0, todaySlice.activities.length - dashboardCount)} of {todaySlice.activities.length} done</span>
+                  {(() => {
+                    // getTodaySlice puts only INCOMPLETE activities in
+                    // slice.activities for 'ready'/'partial' — so the header
+                    // must add back the day's already-completed count from
+                    // completedToday. For 'all-done', activities already IS the
+                    // completed list, so don't double-count it.
+                    const doneToday = todaySlice.completedToday?.length || 0;
+                    const totalToday = todaySlice.activities.length + (todaySlice.kind !== 'all-done' ? doneToday : 0);
+                    return (
+                      <span className="hv2-section-meta">{todaySlice.day || 'Today'} · {doneToday} of {totalToday} done</span>
+                    );
+                  })()}
                 </div>
                 {studyPlan?.planSource === 'mini-diagnostic' && (
                   <div className="starter-plan-banner" style={{ marginBottom: '14px' }}>
@@ -1023,7 +1040,7 @@ const StudentDashboard = ({
                     )}
                     <div className="hv2-review-actions">
                       <button type="button" className="hv2-btn-primary" onClick={() => onStartReview && onStartReview(session.items)}>Review {session.sessionSize} due</button>
-                      <button type="button" className="hv2-btn-secondary" onClick={() => (onStartPacing || onStartPracticeTest)()}>Timed practice</button>
+                      <button type="button" className="hv2-btn-secondary" onClick={handleStartStrategyActivity}>Timed practice</button>
                     </div>
                   </div>
                 </div>
