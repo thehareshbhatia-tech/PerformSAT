@@ -16,6 +16,8 @@ const {
   hasAccessMs,
   isGrandfathered,
   shouldGrandfatherExisting,
+  subscriptionPatchUsedTrial,
+  trialDaysForCheckout,
 } = require("../lib/stripePolicy");
 
 const NOW = Date.parse("2026-07-15T12:00:00Z");
@@ -155,6 +157,55 @@ test("subscription -> patch: missing items/period end degrade to nulls", () => {
   assert.strictEqual(patch.currentPeriodEndMs, null);
   assert.strictEqual(patch.trialEndsAtMs, null);
   assert.strictEqual(patch.cancelAtPeriodEnd, false);
+});
+
+// ── subscriptionPatchUsedTrial (one-trial-per-customer marker) ───────────
+
+test("trial marker: trialing status implies a trial was used", () => {
+  assert.strictEqual(
+    subscriptionPatchUsedTrial({status: "trialing", trialEndsAtMs: null}),
+    true,
+  );
+});
+
+test("trial marker: a trial_end (even after conversion to active) counts", () => {
+  // Stripe keeps trial_end on the subscription after it converts, so an
+  // active-with-trial_end subscription must still mark the customer as having
+  // used their trial (durable).
+  assert.strictEqual(
+    subscriptionPatchUsedTrial({status: "active", trialEndsAtMs: NOW}),
+    true,
+  );
+});
+
+test("trial marker: a never-trialed subscription does NOT mark trialUsed", () => {
+  assert.strictEqual(
+    subscriptionPatchUsedTrial({status: "active", trialEndsAtMs: null}),
+    false,
+  );
+  assert.strictEqual(
+    subscriptionPatchUsedTrial({status: "past_due", trialEndsAtMs: null}),
+    false,
+  );
+  assert.strictEqual(
+    subscriptionPatchUsedTrial({status: "canceled", trialEndsAtMs: null}),
+    false,
+  );
+});
+
+// ── trialDaysForCheckout (block a second free trial) ─────────────────────
+
+test("checkout trial: a fresh customer gets the full trial", () => {
+  assert.strictEqual(trialDaysForCheckout(null), TRIAL_DAYS);
+  assert.strictEqual(trialDaysForCheckout(undefined), TRIAL_DAYS);
+  assert.strictEqual(trialDaysForCheckout({}), TRIAL_DAYS);
+  assert.strictEqual(trialDaysForCheckout({trialUsed: false}), TRIAL_DAYS);
+});
+
+test("checkout trial: a customer who already trialed gets NO trial (null)", () => {
+  // The exploit this closes: a canceled customer re-running Checkout on the
+  // same Stripe customer would otherwise get a brand-new 7-day trial forever.
+  assert.strictEqual(trialDaysForCheckout({trialUsed: true}), null);
 });
 
 // ── shouldApplyEvent (webhook ordering guard) ────────────────────────────

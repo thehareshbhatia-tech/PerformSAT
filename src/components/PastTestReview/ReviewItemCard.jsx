@@ -2,6 +2,7 @@ import React from 'react';
 import { MathText } from '../MathText';
 import AnswerChoiceList from '../shared/AnswerChoiceList';
 import QuestionDiagram from '../QuestionDiagrams';
+import { InlineRich } from '../SolutionExplanation';
 import { parsePassageMarkup, buildSegments } from '../rw/HighlightablePassage';
 import {
   ERROR_TYPE_LABELS,
@@ -228,7 +229,7 @@ function ReviewItemCard({
         <div className="ric-explanation">
           <h3 className="ric-section-title">Explanation</h3>
           <div className="ric-explanation-body">
-            <MathText text={explanationText} />
+            <InlineRich text={explanationText} />
           </div>
         </div>
       )}

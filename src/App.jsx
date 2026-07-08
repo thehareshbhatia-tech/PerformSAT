@@ -185,6 +185,12 @@ const loadReportLoader = () => {
 // rejection, so the same click works on retry once the network recovers.
 const CORPUS_LOAD_ERROR = 'Could not load practice content. Check your connection and try again.';
 
+// Grace window after a successful Checkout return during which launchers grant
+// access while the activation webhook lands. Bounded so a dropped/failed
+// webhook can't grant access indefinitely — after this we fall back to the
+// normal paywall gate. ~3 min comfortably covers Stripe's webhook latency.
+const CHECKOUT_GRACE_MS = 3 * 60 * 1000;
+
 // ── Past-Test-Review telemetry (Phase 7 of PAST_TEST_REVIEW_PLAN.md) ──
 // Events are scoped under [performsat:pastTestReview] so they're filterable
 // in DevTools and pre-shaped for a future analytics integration. Suppressed
@@ -462,10 +468,13 @@ const PerformSAT = () => {
       return () => { cancelled = true; };
     }
   }, [view, lessons, lessonsRetryToken]);
-  // Set true the instant we return from a successful Checkout so the hard-gate
+  // Timestamp (ms) of the last successful Checkout return, so the hard-gate
   // auto-route below doesn't bounce a student who JUST paid back to the wall
   // during the brief window before the webhook flips their doc to trialing.
-  const awaitingCheckoutRef = useRef(false);
+  // 0 = not awaiting. Bounded by CHECKOUT_GRACE_MS: if the activation webhook
+  // never lands (dropped/failed), we stop granting after the grace window and
+  // fall back to the normal paywall gate instead of granting forever.
+  const awaitingCheckoutRef = useRef(0);
 
   // Single choke-point gate for every practice/test/tutor LAUNCHER. Reads
   // through a ref so useCallback'd launchers with [] deps stay correct.
@@ -478,8 +487,10 @@ const PerformSAT = () => {
     // flipped the doc to trialing yet (the same window the hard-gate auto-route
     // already suppresses via awaitingCheckoutRef). Don't wall a student who
     // literally just paid — let the launcher through while entitlement catches
-    // up; the onSnapshot flips hasAccess true within a beat.
-    if (awaitingCheckoutRef.current) {
+    // up; the onSnapshot flips hasAccess true within a beat. Bounded by
+    // CHECKOUT_GRACE_MS so a webhook that never lands stops granting access.
+    if (awaitingCheckoutRef.current &&
+        Date.now() - awaitingCheckoutRef.current < CHECKOUT_GRACE_MS) {
       showToast({ type: 'info', message: 'Activating your subscription…' });
       return true;
     }
@@ -515,11 +526,14 @@ const PerformSAT = () => {
   useEffect(() => {
     if (!entitlement.flagEnabled || !user || entitlement.loading) return;
     if (entitlement.hasAccess) {
-      awaitingCheckoutRef.current = false; // trial/subscription/comped is live
+      awaitingCheckoutRef.current = 0; // trial/subscription/comped is live
       if (view === 'paywall') setView('dashboard'); // rescue off the wall
       return;
     }
-    if (awaitingCheckoutRef.current) return; // just paid — wait for the webhook
+    // Just paid — wait for the webhook, but only within the grace window. Once
+    // it lapses (webhook never landed), fall through to the normal gate.
+    if (awaitingCheckoutRef.current &&
+        Date.now() - awaitingCheckoutRef.current < CHECKOUT_GRACE_MS) return;
     if (!entitlement.hasEntitlementDoc) return; // doc not seeded yet — don't wall
     if (!entitlement.hasBillingAccount && view !== 'paywall') {
       setView('paywall');
@@ -685,7 +699,9 @@ const PerformSAT = () => {
         // Suppress the hard-gate auto-route until the webhook flips the doc to
         // trialing (entitlement.hasAccess) — otherwise a student who just added
         // their card would flash back to the start-trial wall for a beat.
-        awaitingCheckoutRef.current = true;
+        // Stamp the return time so the suppression self-expires (CHECKOUT_GRACE_MS)
+        // if the activation webhook never lands.
+        awaitingCheckoutRef.current = Date.now();
         showToast({
           type: 'success',
           message: 'Card saved — your 7-day free trial is starting.',

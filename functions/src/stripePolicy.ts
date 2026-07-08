@@ -144,6 +144,39 @@ export function subscriptionToEntitlementPatch(
 }
 
 /**
+ * Does the entitlement state a subscription event implies mean the customer has
+ * (ever) consumed a free trial? True when the observed subscription is trialing
+ * or carries a trial_end (Stripe keeps trial_end on the subscription even after
+ * it converts to active, so the marker is durable once stamped). The webhook
+ * path stamps a permanent `trialUsed: true` off this so a later re-subscribe
+ * (after a cancel) never gets a fresh trial — exactly ONE trial per customer.
+ * @param {object} patch the entitlement patch (status + trialEndsAtMs) derived
+ *   from the observed subscription
+ * @return {boolean} true when this subscription carries/carried a trial
+ */
+export function subscriptionPatchUsedTrial(
+  patch: Pick<EntitlementPatch, "status" | "trialEndsAtMs">,
+): boolean {
+  return patch.status === "trialing" || patch.trialEndsAtMs != null;
+}
+
+/**
+ * How many trial days a NEW Checkout should grant this customer. Returns null
+ * (omit trial_period_days entirely — start billing immediately) once the
+ * entitlement carries the durable `trialUsed` marker, so a canceled customer
+ * who re-runs Checkout on the same Stripe customer can't mint a fresh 7-day
+ * trial forever. Otherwise the standard TRIAL_DAYS.
+ * @param {object|null} existing the current entitlement doc (reads trialUsed)
+ * @return {number|null} trial days to pass, or null to omit the trial
+ */
+export function trialDaysForCheckout(
+  existing: {trialUsed?: boolean} | null | undefined,
+): number | null {
+  if (existing && existing.trialUsed === true) return null;
+  return TRIAL_DAYS;
+}
+
+/**
  * Webhook ordering guard: Stripe does not guarantee event delivery order, so
  * an older subscription.updated must never overwrite a newer one. Events with
  * the same created second re-apply (idempotent absolute-state writes).

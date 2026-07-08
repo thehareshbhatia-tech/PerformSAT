@@ -36,7 +36,6 @@ import {
 } from "firebase-admin/firestore";
 import {ALLOWED_ORIGINS, verifyAuth, checkRateLimit} from "./shared";
 import {
-  TRIAL_DAYS,
   subscriptionToEntitlementPatch,
   shouldApplyEvent,
   hasAccessMs,
@@ -44,6 +43,8 @@ import {
   shouldGrandfatherExisting,
   normalizePromoCode,
   evaluatePromoRedemption,
+  subscriptionPatchUsedTrial,
+  trialDaysForCheckout,
   EntitlementPatch,
 } from "./stripePolicy";
 
@@ -393,13 +394,22 @@ export const createCheckoutSession = onRequest(
       // active means a live Stripe subscription; comped is a grandfathered/promo
       // free grant. Any of these should manage billing via the Customer Portal,
       // not start a second Checkout (which would create a duplicate subscription).
-      // (past_due and still-in-period canceled are intentionally NOT blocked —
-      // those users legitimately need to (re)subscribe.)
+      // (still-in-period canceled is intentionally NOT blocked — those users
+      // legitimately need to re-subscribe.)
       const existingStatus = existing?.status;
       if (existingStatus === "trialing" ||
           existingStatus === "active" ||
           existingStatus === "comped") {
         response.status(409).json({error: "already_subscribed"});
+        return;
+      }
+      // A past_due subscription is STILL LIVE — Stripe is retrying the card in
+      // its dunning window. Opening a fresh Checkout would create a SECOND
+      // subscription alongside the one being retried (double billing). Send the
+      // client to the Customer Portal to fix the card on the existing sub. The
+      // distinct code lets billingService route to createPortalSession.
+      if (existingStatus === "past_due") {
+        response.status(409).json({error: "past_due"});
         return;
       }
 
@@ -425,6 +435,29 @@ export const createCheckoutSession = onRequest(
         );
       }
 
+      // Exactly ONE trial per customer: once the entitlement carries the
+      // durable trialUsed marker (stamped by the webhook the first time this
+      // customer trialed), a re-subscribe after a cancel gets NO fresh trial —
+      // billing starts immediately. Otherwise the standard 7-day trial.
+      const trialDays = trialDaysForCheckout(existing);
+      const subscriptionData: Stripe.Checkout.SessionCreateParams
+        .SubscriptionData = {
+          // uid on BOTH the session and the subscription: the webhook resolves
+          // checkout.session.completed via client_reference_id and later
+          // customer.subscription.* events via subscription.metadata.uid.
+          metadata: {uid: user.uid},
+        };
+      if (trialDays != null) {
+        // Card-up-front 7-day free trial: the saved card is charged only
+        // when the trial ends (unless canceled first).
+        subscriptionData.trial_period_days = trialDays;
+        // Safety net: if the trial somehow ends with no usable payment
+        // method on file, cancel the subscription instead of charging.
+        subscriptionData.trial_settings = {
+          end_behavior: {missing_payment_method: "cancel"},
+        };
+      }
+
       const base = appBaseUrl.value().replace(/\/$/, "");
       const session = await getStripe().checkout.sessions.create({
         mode: "subscription",
@@ -435,20 +468,7 @@ export const createCheckoutSession = onRequest(
         // payment_method_collection stays at its default ("always") so the
         // card IS collected during Checkout even though the first charge is
         // deferred to trial end — that is the whole point of card-up-front.
-        subscription_data: {
-          // uid on BOTH the session and the subscription: the webhook resolves
-          // checkout.session.completed via client_reference_id and later
-          // customer.subscription.* events via subscription.metadata.uid.
-          metadata: {uid: user.uid},
-          // Card-up-front 7-day free trial: the saved card is charged only
-          // when the trial ends (unless canceled first).
-          trial_period_days: TRIAL_DAYS,
-          // Safety net: if the trial somehow ends with no usable payment
-          // method on file, cancel the subscription instead of charging.
-          trial_settings: {
-            end_behavior: {missing_payment_method: "cancel"},
-          },
-        },
+        subscription_data: subscriptionData,
         metadata: {uid: user.uid},
         success_url: `${base}/course?checkout=success`,
         cancel_url: `${base}/course?checkout=canceled`,
@@ -536,6 +556,11 @@ async function applyEntitlementPatch(
         null,
       cancelAtPeriodEnd: patch.cancelAtPeriodEnd,
       ...(stripeCustomerId ? {stripeCustomerId} : {}),
+      // Durable one-trial-per-customer marker: once an observed subscription
+      // carries a trial we stamp trialUsed permanently (merge-set, never unset)
+      // so a re-subscribe after cancel can't mint a fresh trial. Read back by
+      // createCheckoutSession via trialDaysForCheckout.
+      ...(subscriptionPatchUsedTrial(patch) ? {trialUsed: true} : {}),
       lastEventCreated: eventCreatedSec,
       updatedAt: FieldValue.serverTimestamp(),
     }, {merge: true});

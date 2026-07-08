@@ -1738,55 +1738,62 @@ ${conversationText}`;
         summaryCount: FieldValue.increment(1),
       });
 
-      // Update parent learningMemory
+      // Update parent learningMemory. Read-modify-write in a transaction so a
+      // concurrent summarization for the same user can't clobber the merged
+      // arrays (get -> merge -> set is a lost-update race outside a txn). Merge
+      // semantics are preserved exactly — the reads and array math just moved
+      // inside tx.get/tx.set.
       const progressRef = db.collection("progress").doc(userId);
-      const progressDoc = await progressRef.get();
-      const currentMemory = progressDoc.exists ? (progressDoc.data()?.learningMemory || {}) : {};
+      await db.runTransaction(async (tx) => {
+        const progressDoc = await tx.get(progressRef);
+        const currentMemory = progressDoc.exists ?
+          (progressDoc.data()?.learningMemory || {}) : {};
 
-      const recentSummaries = currentMemory.recentSessionSummaries || [];
-      recentSummaries.unshift({
-        sessionId,
-        moduleId: after.moduleId,
-        summary: parsed.summary,
-        keyInsights: parsed.keyInsights,
-        lastMessageAt: after.lastMessageAt,
+        const recentSummaries = currentMemory.recentSessionSummaries || [];
+        recentSummaries.unshift({
+          sessionId,
+          moduleId: after.moduleId,
+          summary: parsed.summary,
+          keyInsights: parsed.keyInsights,
+          lastMessageAt: after.lastMessageAt,
+        });
+
+        // Merge effective approaches and confusions
+        const effectiveApproaches = [
+          ...(currentMemory.effectiveApproaches || []),
+          ...(parsed.effectiveApproaches || []),
+        ].slice(0, 10);
+
+        const persistentConfusions = [
+          ...(parsed.confusionPoints || []),
+          ...(currentMemory.persistentConfusions || []),
+        ].slice(0, 10);
+
+        // Merge pending interventions
+        const existingInterventions = (currentMemory.pendingInterventions || [])
+          .filter((i: {shown: boolean}) => !i.shown);
+        const newInterventions = parsed.pendingInterventions || [];
+        const allInterventions = [...newInterventions, ...existingInterventions]
+          .slice(0, 5);
+
+        // Update topic frequency
+        const topicFrequency = currentMemory.topicFrequency || {};
+        (after.topicsDiscussed || []).forEach((skillId: string) => {
+          topicFrequency[skillId] = (topicFrequency[skillId] || 0) + 1;
+        });
+
+        tx.set(progressRef, {
+          learningMemory: {
+            totalSessions: (currentMemory.totalSessions || 0) + 1,
+            lastSessionAt: FieldValue.serverTimestamp(),
+            recentSessionSummaries: recentSummaries.slice(0, 5),
+            effectiveApproaches,
+            persistentConfusions,
+            pendingInterventions: allInterventions,
+            topicFrequency,
+          },
+        }, {merge: true});
       });
-
-      // Merge effective approaches and confusions
-      const effectiveApproaches = [
-        ...(currentMemory.effectiveApproaches || []),
-        ...(parsed.effectiveApproaches || []),
-      ].slice(0, 10);
-
-      const persistentConfusions = [
-        ...(parsed.confusionPoints || []),
-        ...(currentMemory.persistentConfusions || []),
-      ].slice(0, 10);
-
-      // Merge pending interventions
-      const existingInterventions = (currentMemory.pendingInterventions || []).filter(
-        (i: {shown: boolean}) => !i.shown
-      );
-      const newInterventions = parsed.pendingInterventions || [];
-      const allInterventions = [...newInterventions, ...existingInterventions].slice(0, 5);
-
-      // Update topic frequency
-      const topicFrequency = currentMemory.topicFrequency || {};
-      (after.topicsDiscussed || []).forEach((skillId: string) => {
-        topicFrequency[skillId] = (topicFrequency[skillId] || 0) + 1;
-      });
-
-      await progressRef.set({
-        learningMemory: {
-          totalSessions: (currentMemory.totalSessions || 0) + 1,
-          lastSessionAt: FieldValue.serverTimestamp(),
-          recentSessionSummaries: recentSummaries.slice(0, 5),
-          effectiveApproaches,
-          persistentConfusions,
-          pendingInterventions: allInterventions,
-          topicFrequency,
-        },
-      }, {merge: true});
 
       logger.info(`Successfully summarized session ${sessionId}`);
     } catch (error) {
@@ -1828,7 +1835,10 @@ export const cleanupRateLimits = onSchedule("every day 03:00", async () => {
 // every send to reEngagementLog for client-side open-rate attribution.
 
 const REENGAGE_DEDUP_HOURS = 20;
-const REENGAGE_LINK = "https://perform-sat.vercel.app/course?next=review";
+// Canonical production origin is www.sevaprep.com (apex 308-redirects to www —
+// see ALLOWED_ORIGINS in shared.ts). Deep-link re-engagement pushes there, not
+// the raw Vercel origin.
+const REENGAGE_LINK = "https://www.sevaprep.com/course?next=review";
 
 /**
  * Process one opted-in user: dedup, read engagement signals, classify, send,

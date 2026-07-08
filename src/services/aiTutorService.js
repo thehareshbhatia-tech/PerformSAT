@@ -837,8 +837,12 @@ export const chatWithTutor = async (
   try {
     const response = await authFetch(AI_TUTOR_URL, { method: 'POST', body: buildBody(false), signal });
     if (!response.ok) {
-      const error = await response.json();
-      throw new Error(error.error || 'Failed to get response from AI Tutor');
+      const error = await response.json().catch(() => ({}));
+      const err = new Error(error.error || 'Failed to get response from AI Tutor');
+      // The chat UI classifies failures (paywall vs rate limit vs outage) by
+      // status first, message text as fallback — keep both on the Error.
+      err.status = response.status;
+      throw err;
     }
     const data = await response.json();
     if (data.stop_reason === 'max_tokens' && typeof data.content === 'string') {
@@ -867,8 +871,10 @@ export const quickAnswer = async (question, section = 'math') => {
     });
 
     if (!response.ok) {
-      const error = await response.json();
-      throw new Error(error.error || 'Failed to get response');
+      const error = await response.json().catch(() => ({}));
+      const err = new Error(error.error || 'Failed to get response');
+      err.status = response.status;
+      throw err;
     }
 
     const data = await response.json();

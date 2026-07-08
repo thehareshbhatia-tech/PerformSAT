@@ -849,7 +849,10 @@ const NestedRightTrianglesDiagram = ({
 // =============================================================================
 // MAIN QUESTION DIAGRAM COMPONENT - Switch based on type
 // =============================================================================
-const QuestionDiagram = ({ type, params }) => {
+const QuestionDiagram = ({ type, params = {} }) => {
+  // Default to {} so cases that read a param before the {...params} spread
+  // (e.g. 'table' → params.headers, 'parallelLines' → params.lineLabels) don't
+  // throw on a diagram spec that omits params entirely.
   switch (type) {
     case 'rationalFunction':
       return <RationalFunctionDiagram {...params} />;

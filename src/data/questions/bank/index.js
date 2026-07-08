@@ -169,6 +169,10 @@ const difficultyIndex = new Map();
 const patternIndex = new Map();
 const styleIndex = new Map();
 const patternToStyle = new Map();
+// Per-pattern tally of the sourceStyleRef values its items carry, used to
+// resolve `patternToStyle` to each pattern's DOMINANT (most common) style
+// after the index pass — see the resolution block below the forEach.
+const patternStyleCounts = new Map();
 // CB skill index — maps each of the 19 official CB math skill slugs to the
 // items whose SAT Pattern maps to that skill. Populated below via
 // `PATTERN_TO_CB_SKILL`. Drives the Practice Bank UI's CB-skill-level
@@ -204,10 +208,16 @@ questionBank.forEach(q => {
   if (satPattern) {
     if (!patternIndex.has(satPattern)) patternIndex.set(satPattern, []);
     patternIndex.get(satPattern).push(q);
-    if (q.sourceStyleRef && !patternToStyle.has(satPattern)) {
-      patternToStyle.set(satPattern, q.sourceStyleRef);
-    } else if (derivedStyle && !patternToStyle.has(satPattern)) {
-      patternToStyle.set(satPattern, derivedStyle);
+    // Tally each style this pattern's items carry; the dominant style is
+    // resolved after the pass (see below). Previously this took the FIRST
+    // item's style, which for ~37 patterns was an unrepresentative outlier
+    // (often a generic label like `direct-formula` shared across unrelated
+    // patterns), sending the Tier-2 fallback to a grab-bag pool.
+    const styleVote = q.sourceStyleRef || derivedStyle;
+    if (styleVote) {
+      if (!patternStyleCounts.has(satPattern)) patternStyleCounts.set(satPattern, new Map());
+      const counts = patternStyleCounts.get(satPattern);
+      counts.set(styleVote, (counts.get(styleVote) || 0) + 1);
     }
     const cbSkill = PATTERN_TO_CB_SKILL[satPattern];
     if (cbSkill) {
@@ -220,6 +230,24 @@ questionBank.forEach(q => {
     if (!styleIndex.has(styleForIndex)) styleIndex.set(styleForIndex, []);
     styleIndex.get(styleForIndex).push(q);
   }
+});
+
+// Resolve patternToStyle to each pattern's DOMINANT sourceStyleRef (the style
+// the plurality of its items carry) rather than the first-encountered one.
+// This is the parent category Tier 2 widens to when the Tier-1 pattern pool is
+// exhausted; picking the plurality keeps that fallback pool coherent (same
+// flavor of question) instead of a minority/generic outlier. Ties break toward
+// the first-seen style (Map insertion order preserves determinism).
+patternStyleCounts.forEach((counts, pattern) => {
+  let bestStyle = null;
+  let bestCount = -1;
+  counts.forEach((count, style) => {
+    if (count > bestCount) {
+      bestCount = count;
+      bestStyle = style;
+    }
+  });
+  if (bestStyle) patternToStyle.set(pattern, bestStyle);
 });
 
 function resolveSkillIds(rawIds) {

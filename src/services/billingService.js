@@ -49,6 +49,19 @@ export async function startCheckout(plan) {
     method: 'POST',
     body: JSON.stringify({ plan: plan === 'annual' ? 'annual' : 'monthly' }),
   });
+  if (res.status === 409) {
+    // The account already has a live subscription. Opening a second Checkout
+    // would create a duplicate subscription, so the server refuses. For a
+    // past_due subscription (card failing in Stripe's dunning window) the fix
+    // is the Customer Portal — send them there to update the card on the
+    // EXISTING subscription rather than starting a new one.
+    const data = await res.json().catch(() => ({}));
+    if (data.error === 'past_due') {
+      return openBillingPortal();
+    }
+    log.error('checkout session refused (409)', data.error || '');
+    throw new Error('You already have an active subscription.');
+  }
   if (!res.ok) {
     log.error('checkout session failed', res.status);
     throw new Error('Could not start checkout. Please try again.');

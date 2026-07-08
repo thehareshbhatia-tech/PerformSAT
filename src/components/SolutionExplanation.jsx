@@ -708,7 +708,11 @@ const SolutionExplanation = ({ explanation, isCorrect }) => {
 };
 
 // Exported for unit tests — the parser is the contract between the authored
-// explanation format and the layered presentation.
-export { parseExplanation, parseChoiceBullet };
+// explanation format and the layered presentation. `InlineRich` is also reused
+// by ReviewItemCard so bank `**bold**` renders as real <strong> instead of the
+// literal `*<em>…</em>*` a bare <MathText> leaves behind (MathText only parses
+// single-* italic), while every fragment still routes through MathText's XSS
+// escaping.
+export { parseExplanation, parseChoiceBullet, InlineRich };
 
 export default SolutionExplanation;

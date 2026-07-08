@@ -232,6 +232,10 @@ const AssignedPracticeShell = ({
     } catch (_) { /* ignore unavailable storage */ }
     return 460;
   });
+  // Hold the live drag listeners so an unmount MID-DRAG (before mouseup) can tear
+  // them down — otherwise the window listeners leak and setPanelWidth fires after
+  // unmount.
+  const dragCleanupRef = useRef(null);
   const startPanelDrag = (e) => {
     e.preventDefault();
     document.body.style.userSelect = 'none';
@@ -240,19 +244,25 @@ const AssignedPracticeShell = ({
       const w = Math.min(680, Math.max(360, window.innerWidth - ev.clientX));
       setPanelWidth(w);
     };
-    const onUp = () => {
+    const teardown = () => {
       document.body.style.userSelect = '';
       document.body.style.cursor = '';
       window.removeEventListener('mousemove', onMove);
       window.removeEventListener('mouseup', onUp);
+      dragCleanupRef.current = null;
+    };
+    const onUp = () => {
+      teardown();
       setPanelWidth((w) => {
         try { localStorage.setItem('performsat:drillPanelW', String(Math.round(w))); } catch (_) { /* ignore */ }
         return w;
       });
     };
+    dragCleanupRef.current = teardown;
     window.addEventListener('mousemove', onMove);
     window.addEventListener('mouseup', onUp);
   };
+  useEffect(() => () => { if (dragCleanupRef.current) dragCleanupRef.current(); }, []);
 
   const idx = practiceState.currentQuestionIndex;
   const total = questions.length;

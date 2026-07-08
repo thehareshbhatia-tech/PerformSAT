@@ -1353,18 +1353,31 @@ Your goal is to build their problem-solving instincts. Every question they solve
       // A deliberate abort (unmount / conversation switch) is not a failure —
       // no error bubble, no retry.
       if (error?.name === 'AbortError') return;
-      // Map the underlying failure to an accurate message. The proxy returns
-      // 429 "Too many requests..." and 401 "Authentication required"; matching
-      // only "rate"/"limit" before meant both showed the misleading
-      // connection/internet message.
+      // Classify the failure by HTTP status first (aiTutorService attaches
+      // err.status when the server responded), falling back to message text
+      // for status-less errors (network failures, mid-stream errors).
+      //
+      // Server contract (functions/src/index.ts, aiTutor handler):
+      //   401 "Authentication required"                 → session expired
+      //   402 "subscription_required"                   → paywall
+      //   429 "Too many requests. Please wait a minute" → per-user rate limit
+      //   429 "The AI service is busy..."               → upstream throttle
+      //   5xx (500/502) generic messages                → server/upstream fault
+      // A server outage must NOT fall through to the "check your internet
+      // connection" default — it isn't a client network problem.
       const raw = (error.message || '').toLowerCase();
+      const status = typeof error.status === 'number' ? error.status : null;
       let errorMessage = "I couldn't connect right now. Please check your internet connection and try again.";
-      if (raw.includes('subscription_required') || raw.includes('subscription required')) {
+      if (status === 402 || raw.includes('subscription_required') || raw.includes('subscription required')) {
         errorMessage = 'Your free trial has ended, so the AI tutor is paused. Subscribe from your Profile to keep going.';
-      } else if (raw.includes('too many') || raw.includes('rate') || raw.includes('limit')) {
+      } else if (status === 429 && raw.includes('busy')) {
+        errorMessage = "The AI tutor is temporarily unavailable. Please try again in a moment.";
+      } else if (status === 429 || raw.includes('too many') || raw.includes('rate') || raw.includes('limit')) {
         errorMessage = "You've sent a lot of messages in a short time. Please wait a minute, then try again.";
-      } else if (raw.includes('authenticat') || raw.includes('sign in') || raw.includes('401')) {
+      } else if (status === 401 || raw.includes('authenticat') || raw.includes('sign in') || raw.includes('401')) {
         errorMessage = "Your session expired. Refresh the page (or sign out and back in), then try again.";
+      } else if ((status !== null && status >= 500) || raw.includes('busy') || raw.includes('unavailable') || raw.includes('temporarily') || raw.includes('server error') || raw.includes('not configured')) {
+        errorMessage = "The AI tutor is temporarily unavailable. Please try again in a moment.";
       } else if (raw.includes('timeout') || raw.includes('took too long')) {
         errorMessage = "The request took too long. Please try again with a shorter question.";
       }
