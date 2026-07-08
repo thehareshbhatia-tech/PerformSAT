@@ -11,6 +11,7 @@ import { TERMS_VERSION } from '../constants/legal';
 import { toCompositeGoal } from '../services/selectors/goalProgress';
 import { setReviewStreakUser } from '../services/dailyReviewEngine';
 import { clearChatSessionStorage } from '../services/chatSessionService';
+import { phIdentify, phReset } from '../services/posthogClient';
 
 /**
  * Build the users/{uid} document written at signup.
@@ -99,6 +100,12 @@ export const useAuth = () => {
       // anonymous) so a shared device never mixes two students' streaks. Runs
       // synchronously before any await / stale-guard bailout.
       setReviewStreakUser(firebaseUser?.uid || null);
+      // PostHog identity follows auth state: uid only (no email/name — PII
+      // stays out of product analytics), reset on sign-out so a shared device
+      // never chains two students' events under one person. Lazy wrapper —
+      // inert without REACT_APP_POSTHOG_KEY, never throws into auth.
+      if (firebaseUser) phIdentify(firebaseUser.uid);
+      else phReset();
       if (firebaseUser) {
         // The awaits below give a sign-out or account switch time to land
         // mid-callback, so every setUser is gated on the auth user being

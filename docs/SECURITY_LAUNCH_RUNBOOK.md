@@ -103,7 +103,17 @@ Console path (APIs blocked for the agent): [Cloud Monitoring](https://console.cl
   (checkout/portal/webhook permissions only), separate live webhook secret,
   Radar left on.
 
-## 8. Confirm third-party key scoping (5 min)
+## 8. PostHog activation (5 min)
+
+The SDK is fully wired (src/index.js init, uid-only identify in useAuth,
+analyticsService events mirrored, CSP allows us.i.posthog.com) but inert until
+keyed. Create/log into [PostHog](https://us.posthog.com) → Project Settings →
+copy the project API key (`phc_...`) → set `REACT_APP_POSTHOG_KEY` in Vercel
+production env and `.env.local`, redeploy. Session recording is deliberately
+disabled in the init config — if you ever enable it, turn on input masking
+first (student app).
+
+## 9. Confirm third-party key scoping (5 min)
 
 - Desmos partner console: confirm the embed key in `DesmosCalculator.jsx` is
   domain-locked to sevaprep.com.

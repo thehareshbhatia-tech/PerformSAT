@@ -5,6 +5,7 @@ import './design-tokens.css';
 import './design/global.css';
 import App from './App';
 import * as Sentry from '@sentry/react';
+import { initPostHog } from './services/posthogClient';
 
 // Dev-only diagram preview is code-split so the math bank it imports never
 // rides in the entry chunk. Loaded only when the #__diag= hash is present.
@@ -33,6 +34,13 @@ if (SENTRY_DSN) {
     console.error('[performsat:unhandledrejection]', event.reason);
   });
 }
+
+// Product analytics: PostHog, lazy-loaded so its ~70KB gz never rides in the
+// entry chunk (see services/posthogClient.js for config + privacy posture).
+// Inert until REACT_APP_POSTHOG_KEY is set. The app is view-state driven (URL
+// stays /course), so per-view funnels come from analyticsService's mirrored
+// events rather than pageviews.
+initPostHog();
 
 // Global KaTeX style fixes
 const style = document.createElement('style');

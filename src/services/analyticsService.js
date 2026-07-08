@@ -45,6 +45,7 @@
 
 import { db } from '../firebase/config';
 import { doc, updateDoc, getDoc, setDoc, serverTimestamp } from 'firebase/firestore';
+import { phCapture } from './posthogClient';
 
 const EVENT_BUFFER = [];
 const FLUSH_INTERVAL_MS = 30_000;
@@ -75,6 +76,11 @@ export const selectEventsForUid = (events, userId) =>
  */
 export const trackEvent = (userId, category, event, properties = {}) => {
   if (!userId) return;
+
+  // Mirror to PostHog (lazy wrapper — inert without REACT_APP_POSTHOG_KEY).
+  // Same privacy contract as the Firestore buffer: no PII in properties,
+  // uid-only identity (phIdentify in useAuth). Never throws into the app path.
+  phCapture(`${category}:${event}`, properties);
 
   // Tag every event with its owner at enqueue time. The buffer + flushTimer are
   // module globals shared across accounts in one tab; the tag is what lets the
