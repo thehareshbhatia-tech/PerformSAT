@@ -387,17 +387,49 @@ export const createCheckoutSession = onRequest(
       }
 
       const entSnap = await entitlementRef(user.uid).get();
-      const existingCustomer = entSnap.exists ?
-        entSnap.data()?.stripeCustomerId :
-        null;
+      const existing = entSnap.exists ? entSnap.data() : null;
+
+      // Don't sell a subscription to someone who already has access. trialing/
+      // active means a live Stripe subscription; comped is a grandfathered/promo
+      // free grant. Any of these should manage billing via the Customer Portal,
+      // not start a second Checkout (which would create a duplicate subscription).
+      // (past_due and still-in-period canceled are intentionally NOT blocked —
+      // those users legitimately need to (re)subscribe.)
+      const existingStatus = existing?.status;
+      if (existingStatus === "trialing" ||
+          existingStatus === "active" ||
+          existingStatus === "comped") {
+        response.status(409).json({error: "already_subscribed"});
+        return;
+      }
+
+      // Create (or reuse) the Stripe customer OURSELVES and persist its id to the
+      // entitlement doc BEFORE opening Checkout. Letting Checkout mint the
+      // customer via customer_email means every abandoned checkout can leave an
+      // orphan customer; pre-creating + persisting makes the next attempt reuse
+      // this one. The entitlement doc is server-write-only, so this Admin write
+      // is the only way the id gets there.
+      let customerId: string | null = existing?.stripeCustomerId || null;
+      if (!customerId) {
+        const customer = await getStripe().customers.create({
+          email: user.email || undefined,
+          metadata: {uid: user.uid},
+        });
+        customerId = customer.id;
+        await entitlementRef(user.uid).set(
+          {
+            stripeCustomerId: customerId,
+            updatedAt: FieldValue.serverTimestamp(),
+          },
+          {merge: true},
+        );
+      }
 
       const base = appBaseUrl.value().replace(/\/$/, "");
       const session = await getStripe().checkout.sessions.create({
         mode: "subscription",
         client_reference_id: user.uid,
-        ...(existingCustomer ?
-          {customer: existingCustomer} :
-          {customer_email: user.email || undefined}),
+        customer: customerId,
         line_items: [{price, quantity: 1}],
         allow_promotion_codes: true,
         // payment_method_collection stays at its default ("always") so the

@@ -10,6 +10,7 @@
 
 import {getAuth, DecodedIdToken} from "firebase-admin/auth";
 import {getFirestore, FieldValue} from "firebase-admin/firestore";
+import * as logger from "firebase-functions/logger";
 
 // Allowed CORS origins — restrict to your production domains. EVERY origin the
 // app is served from MUST be listed here, or authenticated function calls (the
@@ -61,23 +62,33 @@ export async function checkRateLimit(
   endpoint: string,
   maxPerHour = 60,
 ): Promise<boolean> {
-  const key = `${userId}_${endpoint}`;
-  const ref = getFirestore().collection(RATE_LIMIT_COLLECTION).doc(key);
+  const db = getFirestore();
+  const ref = db.collection(RATE_LIMIT_COLLECTION).doc(`${userId}_${endpoint}`);
   const now = Date.now();
   const hourAgo = now - 3600000;
 
   try {
-    const snap = await ref.get();
-    const data = snap.data();
-    const timestamps: number[] = (data?.timestamps || [])
-      .filter((t: number) => t > hourAgo);
+    // Atomic read-modify-write: a plain get()->set() lets concurrent requests
+    // read the same pre-write timestamp array and each decide they're under the
+    // cap, silently bypassing the limit. runTransaction serializes the window
+    // update so the Nth concurrent call sees the (N-1) it races with.
+    return await db.runTransaction(async (tx) => {
+      const snap = await tx.get(ref);
+      const data = snap.data();
+      const timestamps: number[] = (data?.timestamps || [])
+        .filter((t: number) => t > hourAgo);
 
-    if (timestamps.length >= maxPerHour) return false;
+      if (timestamps.length >= maxPerHour) return false;
 
-    timestamps.push(now);
-    await ref.set({timestamps, updatedAt: FieldValue.serverTimestamp()});
-    return true;
-  } catch {
+      timestamps.push(now);
+      tx.set(ref, {timestamps, updatedAt: FieldValue.serverTimestamp()});
+      return true;
+    });
+  } catch (err) {
+    // Fail open (availability over enforcement) but never SILENTLY — a
+    // persistently failing limiter that swallows its error is invisible abuse
+    // surface, so surface it in the logs.
+    logger.warn(`checkRateLimit failed for ${userId}_${endpoint} — allowing`, err);
     return true; // Allow on rate limit check failure
   }
 }

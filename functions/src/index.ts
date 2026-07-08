@@ -49,6 +49,32 @@ setGlobalOptions({maxInstances: 10});
 
 export {ensureEntitlement, redeemPromoCode, createCheckoutSession, createPortalSession, stripeWebhook};
 
+// Reject oversized request bodies before they reach an LLM call. A serialized
+// payload above this cap is almost always abuse or a client bug, and it blows
+// up both token cost and function memory. 150KB comfortably fits a legitimate
+// tutor history, study-plan diagnostic, or diagnostic-narrative evidence blob.
+const MAX_REQUEST_BYTES = 150 * 1024;
+
+/**
+ * True when the combined UTF-8 byte size of the given payload parts exceeds
+ * MAX_REQUEST_BYTES. Strings are measured as-is; anything else is JSON
+ * serialized first. Short-circuits as soon as the cap is passed.
+ * @param {...unknown} parts payload pieces (messages, system, request.body, …)
+ * @return {boolean} true when the request is too large and must be rejected
+ */
+function exceedsRequestBodyCap(...parts: unknown[]): boolean {
+  let bytes = 0;
+  for (const part of parts) {
+    if (part == null) continue;
+    bytes += Buffer.byteLength(
+      typeof part === "string" ? part : JSON.stringify(part),
+      "utf8",
+    );
+    if (bytes > MAX_REQUEST_BYTES) return true;
+  }
+  return false;
+}
+
 interface TranscriptSegment {
   start: number;
   duration: number;
@@ -141,10 +167,27 @@ async function fetchFromYouTube(videoId: string): Promise<TranscriptResult | nul
 export const getTranscript = onRequest(
   {cors: ALLOWED_ORIGINS},
   async (request, response) => {
+    // Was an UNAUTHENTICATED public endpoint that fetched YouTube and wrote to
+    // Firestore — anyone could drive arbitrary reads/writes. Gate it like every
+    // other endpoint: bearer auth + per-user rate limit + strict input shape.
+    const user = await verifyAuth(request);
+    if (!user) {
+      response.status(401).json({error: "Authentication required"});
+      return;
+    }
+
+    if (!(await checkRateLimit(user.uid, "getTranscript", 30))) {
+      response.status(429).json({error: "Too many requests. Please try again later."});
+      return;
+    }
+
     const videoId = (request.query.videoId as string) || request.body?.videoId;
 
-    if (!videoId) {
-      response.status(400).json({error: "videoId is required"});
+    // A YouTube video id is exactly 11 URL-safe base64 chars. Validate BEFORE
+    // any fetch or Firestore write so a malformed/hostile id can never reach
+    // the network or the transcripts collection doc path.
+    if (typeof videoId !== "string" || !/^[A-Za-z0-9_-]{11}$/.test(videoId)) {
+      response.status(400).json({error: "A valid videoId is required"});
       return;
     }
 
@@ -177,11 +220,10 @@ export const getTranscript = onRequest(
         hint: "Run the fetchTranscripts.js script locally to populate transcripts",
       });
     } catch (error) {
+      // Log the real error server-side only; never leak internal error detail
+      // (stack, upstream URLs, library messages) back to the client.
       logger.error(`Transcript fetch error for ${videoId}:`, (error as Error).message);
-      response.status(500).json({
-        error: (error as Error).message || "Failed to fetch transcript",
-        videoId,
-      });
+      response.status(500).json({error: "Failed to fetch transcript"});
     }
   }
 );
@@ -235,6 +277,13 @@ export const aiTutor = onRequest(
 
       if (!messages || !Array.isArray(messages) || messages.length > 100) {
         response.status(400).json({error: "Messages array is required (max 100)"});
+        return;
+      }
+
+      // Cap on serialized SIZE, not just count: 100 short turns is fine, but 100
+      // turns each carrying a giant pasted blob would blow up token cost/memory.
+      if (exceedsRequestBodyCap(messages, system)) {
+        response.status(400).json({error: "Request too large", code: "payload_too_large"});
         return;
       }
 
@@ -390,7 +439,15 @@ export const aiTutor = onRequest(
       }
     } catch (error) {
       logger.error("AI Tutor error:", error);
-      response.status(500).json({error: "Internal server error"});
+      // The streaming path has already sent headers (and possibly a partial
+      // body), so a status(500).json() here would throw "headers already sent".
+      // Only emit a JSON error if nothing has gone out yet; otherwise just close
+      // the (SSE) response cleanly.
+      if (!response.headersSent) {
+        response.status(500).json({error: "Internal server error"});
+      } else if (response.writable) {
+        response.end();
+      }
     }
   }
 );
@@ -427,6 +484,11 @@ export const generateStudyPlan = onRequest(
 
       if (!diagnosticReport) {
         response.status(400).json({error: "diagnosticReport is required"});
+        return;
+      }
+
+      if (exceedsRequestBodyCap(diagnosticReport, userProfile, previousPlans, longitudinalContext)) {
+        response.status(400).json({error: "Request too large", code: "payload_too_large"});
         return;
       }
 
@@ -542,6 +604,11 @@ export const generateDiagnosticNarrative = onRequest(
 
       if (!evidence) {
         response.status(400).json({error: "evidence payload is required"});
+        return;
+      }
+
+      if (exceedsRequestBodyCap(evidence, userProfile)) {
+        response.status(400).json({error: "Request too large", code: "payload_too_large"});
         return;
       }
 
@@ -1541,6 +1608,27 @@ export const summarizeChatSession = onDocumentUpdated(
     const userId = event.params.userId;
     const sessionId = event.params.sessionId;
 
+    // Abuse guard: a client can loop update({summary:null, messageCount:n++}) to
+    // fire an unbounded number of (paid) Haiku calls, since resetting summary to
+    // null re-arms the trigger every time. Enforce a per-session cooldown and a
+    // hard lifetime cap so a single session can never cost more than a handful of
+    // summarization calls no matter how the client mutates the doc.
+    const SUMMARY_COOLDOWN_MS = 10 * 60 * 1000;
+    const MAX_SUMMARIES_PER_SESSION = 20;
+    const lastSummarizedAt = after.lastSummarizedAt;
+    const lastSummarizedMs = typeof lastSummarizedAt?.toMillis === "function" ?
+      lastSummarizedAt.toMillis() :
+      (typeof lastSummarizedAt === "number" ? lastSummarizedAt : null);
+    if (lastSummarizedMs !== null &&
+        Date.now() - lastSummarizedMs < SUMMARY_COOLDOWN_MS) {
+      logger.info(`Skipping summary for ${sessionId} — cooldown active`);
+      return;
+    }
+    if ((after.summaryCount || 0) >= MAX_SUMMARIES_PER_SESSION) {
+      logger.info(`Skipping summary for ${sessionId} — per-session summary cap reached`);
+      return;
+    }
+
     logger.info(`Summarizing chat session ${sessionId} for user ${userId}`);
 
     const apiKey = anthropicApiKey.value();
@@ -1622,6 +1710,10 @@ ${conversationText}`;
         summary: parsed.summary || null,
         keyInsights: parsed.keyInsights || null,
         teachingApproachNotes: parsed.teachingApproachNotes || null,
+        // Stamp the cooldown watermark + lifetime counter that the guards above
+        // read, so a re-armed (summary reset to null) session can't loop the LLM.
+        lastSummarizedAt: FieldValue.serverTimestamp(),
+        summaryCount: FieldValue.increment(1),
       });
 
       // Update parent learningMemory
