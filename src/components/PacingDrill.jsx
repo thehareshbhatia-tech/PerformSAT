@@ -122,12 +122,21 @@ const PacingDrill = ({ config = {}, questions = [], onComplete, onExit, user = n
         finish(); // cumulative budget exhausted
       }
     }, 250);
-    return () => {
-      clearInterval(id);
-      if (advanceTimer.current) clearTimeout(advanceTimer.current);
-      if (checkpointTimer.current) clearTimeout(checkpointTimer.current);
-    };
+    // Only tear down the interval here. The advance/checkpoint timeouts are NOT
+    // owned by this effect: `advance`/`finish` change identity on every parent
+    // render (onComplete is an inline prop), so this effect re-runs constantly —
+    // clearing the pending advance timer on a re-run cancels an in-flight
+    // answer-flash advance, and in cumulative modes nothing reschedules it
+    // (the drill would freeze on the current question).
+    return () => { clearInterval(id); };
   }, [isPerQuestion, perQ, record, advance, finish]);
+
+  // Unmount-only cleanup for the pending advance/checkpoint timeouts (prevents a
+  // setState-after-unmount without cancelling advances on benign effect re-runs).
+  useEffect(() => () => {
+    if (advanceTimer.current) clearTimeout(advanceTimer.current);
+    if (checkpointTimer.current) clearTimeout(checkpointTimer.current);
+  }, []);
 
   if (!total) {
     return (

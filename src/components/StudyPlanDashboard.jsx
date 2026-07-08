@@ -433,8 +433,14 @@ const StudyPlanDashboard = ({
   }, [practiceTestResults]);
   const latestTest = sortedTests.length > 0 ? sortedTests[sortedTests.length - 1] : null;
   const latestScore = latestTest ? latestTest.bestScaledScore : null;
-  const scoreDelta = sortedTests.length >= 2
-    ? sortedTests[sortedTests.length - 1].bestScaledScore - sortedTests[0].bestScaledScore
+  // Delta from the first test to the latest — but only when both are on the
+  // SAME scale. A math-only single-section baseline (200-800) against a full
+  // composite (400-1600) latest would render a nonsense "+700 pts" (the same
+  // cross-scale trap latestTestStats.js:170 and goalProgress guard against).
+  const oldestTest = sortedTests.length >= 2 ? sortedTests[0] : null;
+  const scoreDelta = (latestTest && oldestTest
+    && !!latestTest.isMultiSection === !!oldestTest.isMultiSection)
+    ? latestTest.bestScaledScore - oldestTest.bestScaledScore
     : null;
   // Shared selector — one day-count for the SAT date everywhere. Negative
   // values (test date in the past) are common in dogfood/seed data and look

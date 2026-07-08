@@ -171,14 +171,29 @@ function parseExplanation(raw) {
 // RENDERING HELPERS
 // ═══════════════════════════════════════════════════════════════════════════════
 
-const strip = t => (t || '').replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+// Render inline markdown bold (**x**) as a real <strong>, routing every other
+// fragment (and the bold fragment's own residual math / *italic*) through
+// MathText. The bold must be real JSX, not an HTML string fed to MathText:
+// MathText HTML-escapes its input (XSS pipeline), so embedded <strong> tags
+// would reach students as literal text. Splitting here keeps that escaping
+// intact for every fragment while the emphasis renders.
+const InlineRich = ({ text }) => {
+  if (text == null || text === '') return null;
+  const parts = String(text).split(/(\*\*[^*]+?\*\*)/g);
+  return parts.map((part, i) => {
+    if (part.length > 4 && part.startsWith('**') && part.endsWith('**')) {
+      return <strong key={i}><MathText text={part.slice(2, -2)} /></strong>;
+    }
+    return part ? <MathText key={i} text={part} /> : null;
+  });
+};
 
 const RichText = ({ text, size = '15px', color, lineHeight = '1.55' }) => {
   if (!text) return null;
-  const ls = strip(text).split('\n').filter(l => l.trim());
+  const ls = String(text).split('\n').filter(l => l.trim());
   return (
     <div style={{ fontSize: size, color: color || colors.text.primary, letterSpacing: '0' }}>
-      {ls.map((l, i) => <div key={i} style={{ lineHeight, marginBottom: '8px' }}><MathText text={l} /></div>)}
+      {ls.map((l, i) => <div key={i} style={{ lineHeight, marginBottom: '8px' }}><InlineRich text={l} /></div>)}
     </div>
   );
 };
@@ -190,7 +205,7 @@ const BulletList = ({ items, color }) => {
       {items.map((b, i) => (
         <div key={i} style={{ display: 'flex', gap: '10px', marginBottom: '8px', fontSize: '15px', lineHeight: '1.55', color: color || colors.text.primary }}>
           <span style={{ color: colors.text.muted, flexShrink: 0, marginTop: '5px', fontSize: '7px' }}>●</span>
-          <span style={{ flex: 1, minWidth: 0 }}><MathText text={strip(b)} /></span>
+          <span style={{ flex: 1, minWidth: 0 }}><InlineRich text={b} /></span>
         </div>
       ))}
     </div>
@@ -223,7 +238,7 @@ const StepCard = ({ number, title, content, bullets, isLast }) => (
     <div style={{ flex: 1, paddingBottom: isLast ? 0 : '20px', minWidth: 0 }}>
       {title && (
         <div style={{ fontSize: '15px', fontWeight: '600', color: colors.text.primary, lineHeight: '28px', marginBottom: '6px' }}>
-          <MathText text={strip(title)} />
+          <InlineRich text={title} />
         </div>
       )}
       {content && <RichText text={content} />}
@@ -242,7 +257,7 @@ const MethodCard = ({ number, title, content, bullets, label }) => (
         fontSize: typography.sizes.xs, fontWeight: typography.weights.bold,
         color: colors.text.muted, letterSpacing: '0.04em', marginBottom: '12px'
       }}>
-        {label || 'METHOD ' + number}{title ? ' — ' : ''}{title && <MathText text={strip(title)} />}
+        {label || 'METHOD ' + number}{title ? ' — ' : ''}{title && <InlineRich text={title} />}
       </div>
       <RichText text={content} />
       {bullets?.length > 0 && <BulletList items={bullets} />}
@@ -355,12 +370,12 @@ const WhyWrongCard = ({ content, bullets, defaultOpen = false }) => {
                     color: colors.semantic.error, flexShrink: 0, marginTop: '2px'
                   }}>{cm[1]}</div>
                   <span style={{ fontSize: '15px', lineHeight: '1.75', color: colors.text.secondary, flex: 1, minWidth: 0 }}>
-                    {trapTag}<MathText text={strip(body)} />
+                    {trapTag}<InlineRich text={body} />
                   </span>
                 </> : <>
                   <span style={{ color: colors.text.muted, flexShrink: 0, marginTop: '7px', fontSize: '8px' }}>●</span>
                   <span style={{ fontSize: '15px', lineHeight: '1.55', color: colors.text.secondary, flex: 1, minWidth: 0 }}>
-                    {trapTag}<MathText text={strip(body)} />
+                    {trapTag}<InlineRich text={body} />
                   </span>
                 </>}
               </div>
@@ -564,14 +579,14 @@ const SolutionExplanation = ({ explanation, isCorrect }) => {
               fontSize: typography.sizes.xl, fontWeight: typography.weights.bold,
               color: colors.text.primary, letterSpacing: typography.letterSpacing.tight, lineHeight: '1.3',
             }}>
-              <MathText text={strip(answer)} />
+              <InlineRich text={answer} />
             </div>
             {answerDetail && (
               <div style={{
                 marginTop: '10px', fontSize: '15px', lineHeight: '1.75',
                 color: colors.text.secondary
               }}>
-                <MathText text={strip(answerDetail)} />
+                <InlineRich text={answerDetail} />
               </div>
             )}
           </div>
@@ -604,7 +619,7 @@ const SolutionExplanation = ({ explanation, isCorrect }) => {
                     color: colors.text.muted, letterSpacing: typography.letterSpacing.wider, marginBottom: '8px'
                   }}>EQUATION USED</div>
                   <div style={{ fontSize: '17px', color: colors.text.primary, lineHeight: '1.9' }}>
-                    <MathText text={strip(equation)} />
+                    <InlineRich text={equation} />
                   </div>
                 </div>
               )}

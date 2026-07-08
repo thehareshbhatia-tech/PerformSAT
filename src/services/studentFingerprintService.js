@@ -7,7 +7,7 @@
  */
 
 import { db } from '../firebase/config';
-import { doc, getDoc, setDoc } from 'firebase/firestore';
+import { doc, runTransaction } from 'firebase/firestore';
 
 const MAX_SNAPSHOTS = 10;
 
@@ -65,44 +65,52 @@ export const updateFingerprint = async (userId, diagnosticData, skillProgress, t
 
   try {
     const progressRef = doc(db, 'progress', userId);
-    const progressSnap = await getDoc(progressRef);
 
-    let existing = null;
-    if (progressSnap.exists()) {
-      existing = progressSnap.data().studentFingerprint || null;
-    }
+    // Transactional read-modify-write. updateFingerprint fires on test
+    // completion — the same moment a second device finishing the same test (or
+    // an overlapping save path) could write studentFingerprint. A plain
+    // getDoc→setDoc read-modify-write drops the concurrent write's snapshot;
+    // Firestore re-runs this callback on contention so the snapshots array
+    // always appends onto the freshest read (mirrors skillService /
+    // predictionEngine / interventionTracker). `fingerprint` is hoisted so the
+    // merged value survives to the return (callers feed it to generatePredictions).
+    let fingerprint = null;
+    await runTransaction(db, async (tx) => {
+      const snap = await tx.get(progressRef);
+      const existing = snap.exists() ? (snap.data().studentFingerprint || null) : null;
 
-    // Build snapshot
-    const snapshot = {
-      testId,
-      timestamp: new Date().toISOString(),
-      dimensions: {
-        speedProfile: dimensions.speedProfile,
-        conceptualDepth: dimensions.conceptualDepth,
-        trapResistance: dimensions.trapResistance,
-        staminaProfile: dimensions.staminaProfile,
-        confidenceCalibration: dimensions.confidenceCalibration,
-        learningVelocity: dimensions.learningVelocity,
-      },
-      scaledScore: scaledScore ?? diagnosticData.score?.scaled ?? null,
-    };
+      // Build snapshot
+      const snapshot = {
+        testId,
+        timestamp: new Date().toISOString(),
+        dimensions: {
+          speedProfile: dimensions.speedProfile,
+          conceptualDepth: dimensions.conceptualDepth,
+          trapResistance: dimensions.trapResistance,
+          staminaProfile: dimensions.staminaProfile,
+          confidenceCalibration: dimensions.confidenceCalibration,
+          learningVelocity: dimensions.learningVelocity,
+        },
+        scaledScore: scaledScore ?? diagnosticData.score?.scaled ?? null,
+      };
 
-    // Merge snapshots
-    const snapshots = existing?.snapshots || [];
-    snapshots.push(snapshot);
+      // Merge snapshots (fresh copy each retry so a re-run doesn't double-append)
+      const snapshots = [...(existing?.snapshots || []), snapshot];
 
-    // Evict oldest if over cap
-    while (snapshots.length > MAX_SNAPSHOTS) {
-      snapshots.shift();
-    }
+      // Evict oldest if over cap
+      while (snapshots.length > MAX_SNAPSHOTS) {
+        snapshots.shift();
+      }
 
-    const fingerprint = {
-      ...dimensions,
-      snapshots,
-      updatedAt: new Date().toISOString(),
-    };
+      fingerprint = {
+        ...dimensions,
+        snapshots,
+        updatedAt: new Date().toISOString(),
+      };
 
-    await setDoc(progressRef, { studentFingerprint: fingerprint }, { merge: true });
+      // set()+merge so this works even if the progress doc doesn't exist yet.
+      tx.set(progressRef, { studentFingerprint: fingerprint }, { merge: true });
+    });
     return fingerprint;
   } catch (err) {
     console.error('[studentFingerprint] Failed to update fingerprint:', err);

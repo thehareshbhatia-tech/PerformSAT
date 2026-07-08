@@ -349,11 +349,22 @@ export const aiTutor = onRequest(
       );
 
       if (!anthropicResponse.ok) {
-        const errorData = await anthropicResponse.json() as Record<string, unknown>;
-        logger.error("Anthropic API error:", errorData);
-        response.status(anthropicResponse.status).json({
-          error: (errorData.error as Record<string, string>)?.message || "Failed to get AI response",
-        });
+        // Log upstream detail server-side ONLY. Never forward Anthropic's HTTP
+        // status or error message to the client: AiTutorChat string-matches the
+        // error TEXT (e.g. "401"/"authenticat", "rate"/"limit",
+        // "subscription_required") to pick which failure UI to show, so leaking
+        // an upstream 401 (expired API key) or 429 (our org quota, not this
+        // user) there mis-fires those branches — telling a perfectly valid,
+        // paying student their "session expired" or they're rate-limited. Map
+        // upstream failure to a stable 502, keeping a plain 429 only for genuine
+        // upstream throttling. (.catch guards a non-JSON gateway error body.)
+        const errorData = await anthropicResponse.json().catch(() => ({}));
+        logger.error("Anthropic API error:", {status: anthropicResponse.status, errorData});
+        if (anthropicResponse.status === 429) {
+          response.status(429).json({error: "The AI service is busy. Please wait a moment and try again."});
+        } else {
+          response.status(502).json({error: "The AI service is temporarily unavailable. Please try again."});
+        }
         return;
       }
 
@@ -533,10 +544,16 @@ export const generateStudyPlan = onRequest(
       );
 
       if (!anthropicResponse.ok) {
-        const errorData = await anthropicResponse.json();
-        logger.error("Anthropic API error:", errorData);
-        response.status(anthropicResponse.status).json({
-          error: errorData.error?.message || "Failed to generate study plan",
+        // Do not forward the upstream status/message to the client (see the
+        // aiTutor handler for the full rationale — the client surfaces this
+        // text). Log server-side; return a stable 502 (or plain 429 for genuine
+        // upstream throttling).
+        const errorData = await anthropicResponse.json().catch(() => ({}));
+        logger.error("Anthropic API error:", {status: anthropicResponse.status, errorData});
+        response.status(anthropicResponse.status === 429 ? 429 : 502).json({
+          error: anthropicResponse.status === 429 ?
+            "The AI service is busy. Please try again in a moment." :
+            "Could not generate study plan right now. Please try again.",
         });
         return;
       }
@@ -665,10 +682,15 @@ export const generateDiagnosticNarrative = onRequest(
       );
 
       if (!anthropicResponse.ok) {
-        const errorData = await anthropicResponse.json();
-        logger.error("Anthropic API error:", errorData);
-        response.status(anthropicResponse.status).json({
-          error: errorData.error?.message || "Failed to generate narrative",
+        // Do not forward the upstream status/message to the client (see the
+        // aiTutor handler for the full rationale). Log server-side; return a
+        // stable 502 (or plain 429 for genuine upstream throttling).
+        const errorData = await anthropicResponse.json().catch(() => ({}));
+        logger.error("Anthropic API error:", {status: anthropicResponse.status, errorData});
+        response.status(anthropicResponse.status === 429 ? 429 : 502).json({
+          error: anthropicResponse.status === 429 ?
+            "The AI service is busy. Please try again in a moment." :
+            "Could not generate narrative right now. Please try again.",
         });
         return;
       }

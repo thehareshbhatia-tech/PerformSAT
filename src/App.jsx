@@ -3125,11 +3125,11 @@ const PerformSAT = () => {
               }
             }}
             onSaveResult={(results) => {
-              console.log('[App.jsx] onSaveResult called with:', results);
-              console.log('[App.jsx] User:', user);
-              console.log('[App.jsx] selectedPracticeTest:', selectedPracticeTest);
+              // Scoped logger only — never console.log the user object or raw
+              // results here: this fires in production on every completed test
+              // and would expose PII in the browser console.
+              logInfo('app', 'onSaveResult', { testId: selectedPracticeTest?.id, hasUser: !!user });
               if (user) {
-                console.log('[App.jsx] Calling recordPracticeTestAttempt...');
                 recordPracticeTestAttempt(selectedPracticeTest.id, selectedPracticeTest.title, results);
                 // Fan the student's mark-for-review picks into the flag store so
                 // they surface in the Study Plan's Flagged group. De-duped by key.
@@ -3141,7 +3141,7 @@ const PerformSAT = () => {
                   flagQuestionsBatch(entryMap);
                 }
               } else {
-                console.error('[App.jsx] No user - cannot save results!');
+                logWarn('app', 'onSaveResult: no user — cannot save results');
               }
             }}
             resultSaveStatus={lastSaveStatus}
