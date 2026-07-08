@@ -70,8 +70,33 @@ export const buildDailySession = (reviewQueue = {}) => {
 /**
  * Compute a daily review "streak" from the history of review sessions
  * stored in localStorage (lightweight, no Firestore round-trip).
+ *
+ * The streak is now UID-SCOPED so two accounts sharing a device (a tutor + a
+ * student, siblings, a library machine) don't inherit each other's streak. The
+ * active uid is set via setReviewStreakUser (wired from useAuth on every auth
+ * transition) rather than threaded through every call site — getReviewStreak /
+ * recordReviewSessionComplete / buildSessionSummary keep their existing
+ * signatures, so their callers (DailyReviewCard, StudyPlanDashboard,
+ * sessionComplete) are untouched.
  */
-const STREAK_KEY = 'performsat_review_streak';
+const LEGACY_STREAK_KEY = 'performsat_review_streak';
+
+// Set by useAuth's onAuthStateChanged. null → anonymous (falls back to the
+// legacy unscoped key, so a signed-out visitor still gets a working streak).
+let streakUid = null;
+
+/**
+ * Point the streak store at a specific user (or null for anonymous). Called
+ * from useAuth on login/logout/account-switch so subsequent reads and writes
+ * land under a per-uid localStorage key.
+ * @param {string|null} uid
+ */
+export const setReviewStreakUser = (uid) => {
+  streakUid = uid || null;
+};
+
+const streakKey = () =>
+  streakUid ? `${LEGACY_STREAK_KEY}_${streakUid}` : LEGACY_STREAK_KEY;
 
 // LOCAL-day key (YYYY-MM-DD, zero-padded — same format as practicedDays.js'
 // localDateKey). Streak days must follow the student's calendar: the old
@@ -86,8 +111,19 @@ const localDayKey = (d) => {
 };
 
 export const getReviewStreak = () => {
+  const key = streakKey();
   try {
-    const raw = localStorage.getItem(STREAK_KEY);
+    let raw = localStorage.getItem(key);
+    // One-time migration: a signed-in user whose uid-scoped key has never been
+    // written inherits the pre-scoping unscoped streak once, so an existing
+    // single-account device keeps its history the first time it upgrades.
+    if (raw == null && streakUid) {
+      const legacy = localStorage.getItem(LEGACY_STREAK_KEY);
+      if (legacy != null) {
+        try { localStorage.setItem(key, legacy); } catch { /* noop */ }
+        raw = legacy;
+      }
+    }
     if (!raw) return { current: 0, best: 0, lastDate: null };
     return JSON.parse(raw);
   } catch {
@@ -137,7 +173,7 @@ export const recordReviewSessionComplete = (serverStreak = null) => {
     // Same-day repeat: no increment, but let the device cache catch up to a
     // server-seeded value so later reads (and persists) don't regress it.
     if (seededFromServer) {
-      try { localStorage.setItem(STREAK_KEY, JSON.stringify(streak)); } catch { /* noop */ }
+      try { localStorage.setItem(streakKey(), JSON.stringify(streak)); } catch { /* noop */ }
     }
     return streak;
   }
@@ -151,7 +187,7 @@ export const recordReviewSessionComplete = (serverStreak = null) => {
   const newBest = Math.max(streak.best || 0, newCurrent);
 
   const updated = { current: newCurrent, best: newBest, lastDate: todayStr };
-  try { localStorage.setItem(STREAK_KEY, JSON.stringify(updated)); } catch { /* noop */ }
+  try { localStorage.setItem(streakKey(), JSON.stringify(updated)); } catch { /* noop */ }
   return updated;
 };
 

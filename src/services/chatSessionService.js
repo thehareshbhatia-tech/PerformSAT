@@ -23,6 +23,29 @@ const sessionCacheMeta = new Map();
 const cacheKeyFor = (userId, moduleId, lessonId) =>
   `aiChatSession_${userId}_${moduleId}_${lessonId}`;
 
+// sessionStorage prefixes that hold user-scoped chat state. Kept here (next to
+// the writers) so the logout cleanup has a single source of truth.
+const CHAT_CACHE_PREFIXES = ['aiChatSession_', 'aiTutorChat_'];
+
+/**
+ * Clear every user-scoped chat cache from sessionStorage. Called on sign-out so
+ * the next account on the same tab can't read the previous student's tutor chat
+ * (the AiTutorChat fallback + this service's write-through cache both persist
+ * conversations in sessionStorage). No-op when sessionStorage is unavailable.
+ */
+export const clearChatSessionStorage = () => {
+  try {
+    const keys = [];
+    for (let i = 0; i < sessionStorage.length; i++) {
+      const k = sessionStorage.key(i);
+      if (k && CHAT_CACHE_PREFIXES.some((p) => k.startsWith(p))) keys.push(k);
+    }
+    keys.forEach((k) => sessionStorage.removeItem(k));
+  } catch (e) {
+    // Storage unavailable — non-critical.
+  }
+};
+
 const registerSessionCacheMeta = (userId, sessionId, moduleId, lessonId) => {
   if (!userId || !sessionId) return;
   sessionCacheMeta.set(`${userId}_${sessionId}`, { moduleId, lessonId });
@@ -105,6 +128,16 @@ export const saveSession = async (userId, sessionData) => {
  */
 export const updateSessionMessages = async (userId, sessionId, messages, force = false) => {
   if (!userId || !sessionId) return;
+
+  // Never force-write an empty transcript over an existing session. The forced
+  // path is used by unmount / tab-hide flushes; a conversation switch resets the
+  // component's messages to [] right before the outgoing session's flush fires,
+  // and persisting that would wipe the session's messages array. A legitimate
+  // session always has at least one message by the time it's flushed.
+  if (force && (!Array.isArray(messages) || messages.length === 0)) {
+    console.warn('[chatSessionService] Ignoring forced empty-message write for', sessionId);
+    return;
+  }
 
   const key = `${userId}_${sessionId}`;
   const pending = pendingWrites.get(key);
@@ -323,4 +356,5 @@ export default {
   getLearningMemory,
   updateLearningMemory,
   flushPendingWrites,
+  clearChatSessionStorage,
 };

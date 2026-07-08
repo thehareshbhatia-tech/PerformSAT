@@ -9,6 +9,8 @@ import {
 import { doc, getDoc, setDoc, serverTimestamp } from 'firebase/firestore';
 import { TERMS_VERSION } from '../constants/legal';
 import { toCompositeGoal } from '../services/selectors/goalProgress';
+import { setReviewStreakUser } from '../services/dailyReviewEngine';
+import { clearChatSessionStorage } from '../services/chatSessionService';
 
 /**
  * Build the users/{uid} document written at signup.
@@ -93,6 +95,10 @@ export const useAuth = () => {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
+      // Scope the daily-review streak store to the active account (null =
+      // anonymous) so a shared device never mixes two students' streaks. Runs
+      // synchronously before any await / stale-guard bailout.
+      setReviewStreakUser(firebaseUser?.uid || null);
       if (firebaseUser) {
         // The awaits below give a sign-out or account switch time to land
         // mid-callback, so every setUser is gated on the auth user being
@@ -258,6 +264,10 @@ export const useAuth = () => {
    */
   const logout = async () => {
     try {
+      // Clear user-scoped chat caches from sessionStorage BEFORE the auth state
+      // flips, so the next account on this tab can't restore the previous
+      // student's tutor conversation from the fallback cache.
+      clearChatSessionStorage();
       await signOut(auth);
       setUser(null);
     } catch (err) {

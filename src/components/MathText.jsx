@@ -1,6 +1,20 @@
 import React, { useMemo } from 'react';
 import katex from 'katex';
 
+// HTML-escape the five significant characters so raw (LLM-generated or
+// AI-authored bank) text can never inject markup into the dangerouslySetInnerHTML
+// sink below. Ampersand first so existing entities are not double-broken. This is
+// the same escape-first + private-use-placeholder-stash model as
+// renderChatMarkdown.jsx: every construct that must emit real HTML (KaTeX output,
+// <em>, table markup) is rendered and stashed into an inert private-use token
+// BEFORE this runs, so escaping only ever touches plain narrative text.
+const escapeHtml = (s) => s
+  .replace(/&/g, '&amp;')
+  .replace(/</g, '&lt;')
+  .replace(/>/g, '&gt;')
+  .replace(/"/g, '&quot;')
+  .replace(/'/g, '&#39;');
+
 // Hoisted to module scope (was defined inline in the component body) so the
 // per-render useMemo below can key purely on `content`. This pipeline runs a
 // dozen regex passes plus katex.renderToString per span; before memoization it
@@ -14,18 +28,76 @@ const renderMath = (inputText) => {
     // spaces. These silently break KaTeX ("No character metrics for ...") or
     // throw off the $-delimiter pairing, and are invisible in source review.
     result = result
-      .replace(/[\u200B\u200C\u200D\u2060\uFEFF]/g, '')
-      .replace(/\u00A0/g, ' ');
+      .replace(/[​‌‍⁠﻿]/g, '')
+      .replace(/ /g, ' ');
+
+    // Private-use-area placeholders — codepoints the model / bank text can never
+    // emit, so a token can never be forged from input:
+    //     escaped-dollar (\$)  → literal $  at the end
+    //     newline              → <br>        at the end
+    //     currency ($NN.NN)    → literal $NN.NN at the end
+    //    …   trusted-HTML token (KaTeX / table / <em> stash)
+    // The trusted-HTML stash is the security core: constructs that must emit
+    // real HTML are rendered, escaped where appropriate, and hidden behind an
+    // inert token; the surrounding prose is then HTML-escaped; tokens are
+    // restored last. So a raw `<img onerror=...>` in a narrative or a table cell
+    // becomes inert text, while legitimate math / tables / emphasis render.
+    const ESCAPED_DOLLAR_PLACEHOLDER = '';
+    const NEWLINE_PLACEHOLDER = '';
+    const CURRENCY_PLACEHOLDER = '';
+    const HTML_OPEN = '';
+    const HTML_CLOSE = '';
+    const HTML_TOKEN_RE = /(\d+)/g;
+
+    const htmlChunks = [];
+    const stashHtml = (html) => {
+      htmlChunks.push(html);
+      return HTML_OPEN + (htmlChunks.length - 1) + HTML_CLOSE;
+    };
+
+    // Render $$...$$ then $...$ into stashed trusted-HTML tokens. Runs on any
+    // fragment (the whole string, or a single table cell) BEFORE that fragment
+    // is escaped, so `<`, `>`, `&` living inside LaTeX (e.g. $a<b$, common in the
+    // bank) reach KaTeX intact instead of as entities. A `*` inside math is
+    // masked here too, so the later italic pass can never inject <em> into LaTeX.
+    const renderMathSpans = (str) => {
+      const renderSeg = (latex, displayMode, original) => {
+        const clean = latex
+          .replace(new RegExp(NEWLINE_PLACEHOLDER, 'g'), '\n')
+          .replace(new RegExp(ESCAPED_DOLLAR_PLACEHOLDER, 'g'), '\\$')
+          .trim();
+        let html;
+        try {
+          html = katex.renderToString(clean, { displayMode, throwOnError: false });
+        } catch (e) {
+          // throwOnError:false rarely throws; on the rare failure keep the raw
+          // text but ESCAPE it — a failed span must never funnel raw markup to
+          // innerHTML.
+          console.warn('KaTeX render error:', e);
+          html = escapeHtml(original);
+        }
+        return stashHtml(html);
+      };
+      let out = str.replace(/\$\$([\s\S]*?)\$\$/g, (m, latex) => renderSeg(latex, true, m));
+      out = out.replace(/\$([^\$]+?)\$/g, (m, latex) => renderSeg(latex, false, m));
+      return out;
+    };
+
+    // Markdown italic *foo* → <em>foo</em>, run on already-escaped text (so the
+    // only `<`/`>` it produces are its own tags). Single-line, single-*; we
+    // don't use **bold** in the bank.
+    const applyItalic = (str) => str.replace(/\*([^*\n]+?)\*/g, '<em>$1</em>');
 
     // Step 0: Protect escaped dollar signs (\$) BEFORE any processing.
-    // Handles \$25 style currency notation. Private-use placeholder so it
-    // survives every later regex untouched.
-    const ESCAPED_DOLLAR_PLACEHOLDER = '\uE000';
+    // Handles \$25 style currency notation.
     result = result.replace(/\\\$/g, ESCAPED_DOLLAR_PLACEHOLDER);
 
     // Step 1: Convert Markdown tables to HTML. Must run on the raw text while
-    // newlines are still real \n (the row detector keys on them) and before
-    // math rendering so any $...$ in a cell stays literal for Step 4.
+    // newlines are still real \n (the row detector keys on them). Each cell is
+    // rendered through the SAME escape-first pipeline (math → escape → italic)
+    // and the finished <table> is stashed as one trusted-HTML token, so a
+    // `<script>` in a cell is inert while `$x$` / *emphasis* still render.
+    const fmtCell = (raw) => applyItalic(escapeHtml(renderMathSpans(raw)));
     result = result.replace(
       /(^|\n)((?:\|[^\n]*\|\s*\n){2,}\|[^\n]*\|)/g,
       (match, prefix, tableBlock) => {
@@ -43,26 +115,25 @@ const renderMath = (inputText) => {
         let html = '<table style="border-collapse:collapse;margin:12px auto;font-size:15px;">';
         html += '<thead><tr>';
         for (const h of headers) {
-          html += '<th style="border:1px solid rgba(0,0,0,0.15);padding:8px 16px;background:#f5f5f7;font-weight:600;text-align:center;">' + h + '</th>';
+          html += '<th style="border:1px solid rgba(0,0,0,0.15);padding:8px 16px;background:#f5f5f7;font-weight:600;text-align:center;">' + fmtCell(h) + '</th>';
         }
         html += '</tr></thead><tbody>';
         for (const row of dataRows) {
           html += '<tr>';
           for (const cell of row) {
-            html += '<td style="border:1px solid rgba(0,0,0,0.15);padding:8px 16px;text-align:center;">' + cell + '</td>';
+            html += '<td style="border:1px solid rgba(0,0,0,0.15);padding:8px 16px;text-align:center;">' + fmtCell(cell) + '</td>';
           }
           html += '</tr>';
         }
         html += '</tbody></table>';
 
-        return prefix + html;
+        return prefix + stashHtml(html);
       }
     );
 
     // Step 2: Convert newlines to a placeholder BEFORE math processing. KaTeX
-    // SVG output contains newlines that should NOT become <br>; we restore real
-    // newlines just before each KaTeX call and convert the survivors at the end.
-    const NEWLINE_PLACEHOLDER = '\uE001';
+    // SVG output contains newlines that should NOT become <br>; the survivors
+    // become <br> at the end.
     result = result.replace(/\n/g, NEWLINE_PLACEHOLDER);
 
     // Step 3: Protect currency amounts ($12.50) BEFORE math extraction so a
@@ -72,7 +143,6 @@ const renderMath = (inputText) => {
     // mis-paired math segments and crash KaTeX. Authored content escapes
     // currency as \$, so this stays minimal. Skip when the whole string is one
     // math expression ($...$ / $$...$$) — every $ is a delimiter then.
-    const CURRENCY_PLACEHOLDER = '\uE002';
     const currencies = [];
     const trimmed = result.trim();
     const isMathExpression = (trimmed.startsWith('$') && trimmed.endsWith('$')) ||
@@ -80,7 +150,7 @@ const renderMath = (inputText) => {
 
     // Escaped \$ are already placeholders, so this counts only unescaped $.
     // When they're balanced (even) and LaTeX is present, every $ is a math
-    // delimiter \u2014 skip currency so a math span beginning with a decimal like
+    // delimiter — skip currency so a math span beginning with a decimal like
     // "$0.30 \times 80$" is not mis-grabbed as "$0.30" currency (which would
     // leave the closing $ unpaired and crash the whole segment). An odd count
     // means one $ really is stray currency, so detection still runs.
@@ -103,51 +173,40 @@ const renderMath = (inputText) => {
       });
     }
 
-    // Step 4: Render math spans into HTML placeholders NOW — display $$...$$
-    // first, then inline $...$. Doing this before the Markdown-italic step
-    // guarantees a `*` inside an inline math expression (e.g. $a * b$) is never
-    // seen by the italic regex, which would otherwise inject <em> into LaTeX.
-    const MATH_OPEN = '\uE003';
-    const MATH_CLOSE = '\uE004';
-    const mathHtml = [];
-    const renderSeg = (latex, displayMode, original) => {
-      const clean = latex
-        .replace(new RegExp(NEWLINE_PLACEHOLDER, 'g'), '\n')
-        .replace(new RegExp(ESCAPED_DOLLAR_PLACEHOLDER, 'g'), '\\$')
-        .trim();
-      let html;
-      try {
-        html = katex.renderToString(clean, { displayMode, throwOnError: false });
-      } catch (e) {
-        // throwOnError:false rarely throws, but keep the raw text as a fallback.
-        console.warn('KaTeX render error:', e);
-        html = original;
-      }
-      mathHtml.push(html);
-      return MATH_OPEN + (mathHtml.length - 1) + MATH_CLOSE;
-    };
-    result = result.replace(/\$\$([\s\S]*?)\$\$/g, (m, latex) => renderSeg(latex, true, m));
-    result = result.replace(/\$([^\$]+?)\$/g, (m, latex) => renderSeg(latex, false, m));
+    // Step 4: Render remaining (non-table) math spans into trusted-HTML tokens —
+    // display $$...$$ first, then inline $...$. Doing this before the italic step
+    // guarantees a `*` inside an inline math expression ($a * b$) is never seen
+    // by the italic regex, which would otherwise inject <em> into LaTeX.
+    result = renderMathSpans(result);
 
-    // Step 5: Markdown italic *foo* → <em>foo</em>. Math is already masked
-    // above, so the only `*` left are genuine emphasis (book titles, etc.).
-    //  - Single-line only ([^*\n]+? blocks runaway matches across paragraphs).
-    //  - Single-* only; we don't currently use **bold** in the bank.
-    result = result.replace(/\*([^*\n]+?)\*/g, '<em>$1</em>');
+    // Step 5: HTML-escape everything that remains. At this point the only
+    // non-plain-text in `result` is inert placeholders (- + digits),
+    // so escaping cannot touch a single KaTeX / table byte — it only neutralizes
+    // raw markup that lived in the surrounding narrative.
+    result = escapeHtml(result);
 
-    // Step 6: Restore rendered math HTML.
-    result = result.replace(new RegExp(MATH_OPEN + '(\\d+)' + MATH_CLOSE, 'g'), (m, i) => mathHtml[+i]);
+    // Step 6: Markdown italic *foo* → <em>foo</em> on the escaped prose. Math is
+    // already masked, so the only `*` left are genuine emphasis (book titles).
+    result = applyItalic(result);
 
-    // Step 7: Restore currency amounts with $ sign.
+    // Step 7: Restore stashed trusted HTML (KaTeX + tables). A table token
+    // expands to markup that still contains math tokens, so loop until stable
+    // (bounded — nesting is at most table → math, one level).
+    let restoreGuard = 0;
+    while (result.indexOf(HTML_OPEN) !== -1 && restoreGuard++ < 5) {
+      result = result.replace(HTML_TOKEN_RE, (m, i) => htmlChunks[+i] || '');
+    }
+
+    // Step 8: Restore currency amounts with $ sign (digits only — safe).
     let currencyIndex = 0;
     result = result.replace(new RegExp(CURRENCY_PLACEHOLDER, 'g'), () => {
       return '$' + currencies[currencyIndex++];
     });
 
-    // Step 8: Restore escaped dollar signs as literal $ (e.g., \$25 → $25).
+    // Step 9: Restore escaped dollar signs as literal $ (e.g., \$25 → $25).
     result = result.replace(new RegExp(ESCAPED_DOLLAR_PLACEHOLDER, 'g'), '$');
 
-    // Step 9: Convert surviving newline placeholders to <br>.
+    // Step 10: Convert surviving newline placeholders to <br>.
     result = result.replace(new RegExp(NEWLINE_PLACEHOLDER, 'g'), '<br>');
 
     return result;

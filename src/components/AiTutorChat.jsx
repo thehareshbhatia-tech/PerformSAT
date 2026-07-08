@@ -306,9 +306,26 @@ const AiTutorChat = ({
   // surfaces a "jump to latest" affordance when they've scrolled up.
   const nearBottomRef = useRef(true);
   const [showJumpPill, setShowJumpPill] = useState(false);
-  // Regenerate passes the trimmed history (everything before the last user turn)
-  // through this ref so handleSend rebuilds from it instead of its stale closure.
-  const regenBaseRef = useRef(null);
+  // Set true when messages were restored from the sessionStorage fallback
+  // (Firestore load failed/empty). While true we do NOT auto-create a Firestore
+  // session doc — otherwise every reload of a fallback-restored chat would
+  // addDoc a brand-new duplicate session. Cleared as soon as the student sends
+  // a new message, at which point the (restored + new) history is persisted once.
+  const restoredFromFallbackRef = useRef(false);
+  // Transient inline notice under the composer when a send is swallowed (rate
+  // limit / mid-stream), so a rate-limited Retry / proactive-accept isn't a
+  // silent no-op.
+  const [sendNotice, setSendNotice] = useState('');
+  const sendNoticeTimerRef = useRef(null);
+  const flashSendNotice = (msg) => {
+    setSendNotice(msg);
+    if (sendNoticeTimerRef.current) clearTimeout(sendNoticeTimerRef.current);
+    sendNoticeTimerRef.current = setTimeout(() => setSendNotice(''), 2600);
+  };
+  // True when a send would currently be blocked (mid-flight or inside the rate
+  // window). Lets the proactive-accept / Retry paths give feedback synchronously
+  // instead of firing a no-op.
+  const sendIsBlocked = () => isLoading || isStreaming || (Date.now() - lastSendTime < RATE_LIMIT_MS);
   // The persist effect fires on every streamed-chunk render; saveSession is an
   // unconditional addDoc. This guard keeps a new conversation from creating a
   // duplicate session doc per chunk while the first create is still in flight.
@@ -724,12 +741,27 @@ Your goal is to build their problem-solving instincts. Every question they solve
     return context;
   };
 
-  // Keep messagesRef in sync with state for unmount cleanup
-  messagesRef.current = messages;
+  // Keep messagesRef in sync with state for unmount / tab-hide flushes. Updated
+  // in a POST-COMMIT effect (not during render): a conversation switch resets
+  // messages to [] before the old session's flush-cleanup runs, and a
+  // render-time assignment would feed that [] to the forced flush and clobber
+  // the old session. Updating after commit means the cleanup for the outgoing
+  // (userId, sessionId) still sees the previous conversation's committed messages.
+  useEffect(() => {
+    messagesRef.current = messages;
+  }, [messages]);
 
-  // Generate storage key based on lesson
-  const storageKey = `aiTutorChat_${moduleId}_${lessonId}`;
+  // Clear the transient send-notice timer on unmount so it can't setState on a
+  // dead component.
+  useEffect(() => () => {
+    if (sendNoticeTimerRef.current) clearTimeout(sendNoticeTimerRef.current);
+  }, []);
+
+  // Generate storage key based on user + lesson. The userId segment scopes the
+  // sessionStorage fallback per account, so User B on the same tab can never
+  // read User A's cached tutor chat ('anon' when signed out).
   const userId = user?.uid || null;
+  const storageKey = `aiTutorChat_${userId || 'anon'}_${moduleId}_${lessonId}`;
 
   // Load chat history from Firestore (with sessionStorage cache fallback) on lesson change
   useEffect(() => {
@@ -747,6 +779,7 @@ Your goal is to build their problem-solving instincts. Every question they solve
       messageCountSinceWrite.current = 0;
       interventionStarted.current = false;
       sessionCreateInFlightRef.current = false;
+      restoredFromFallbackRef.current = false;
 
       if (!userId) {
         // No user — fall back to sessionStorage
@@ -774,7 +807,10 @@ Your goal is to build their problem-solving instincts. Every question they solve
         console.error('Failed to load session:', e);
       }
 
-      // Final fallback: sessionStorage
+      // Final fallback: sessionStorage. Mark it as fallback-restored so the
+      // persist effect does NOT addDoc a new session for this reload-restored
+      // history — a fresh session doc is only created once the student sends a
+      // new message (see restoredFromFallbackRef).
       if (!cancelled) {
         try {
           const saved = sessionStorage.getItem(storageKey);
@@ -782,6 +818,7 @@ Your goal is to build their problem-solving instincts. Every question they solve
             const parsed = JSON.parse(saved);
             if (Array.isArray(parsed) && parsed.length > 0) {
               setMessages(parsed);
+              restoredFromFallbackRef.current = true;
             }
           }
         } catch (e) { /* ignore */ }
@@ -840,7 +877,7 @@ Your goal is to build their problem-solving instincts. Every question they solve
 
     const persistToFirestore = async () => {
       try {
-        if (!sessionId && messages.length >= 1) {
+        if (!sessionId && messages.length >= 1 && !restoredFromFallbackRef.current) {
           // Create new session — at most one create in flight. Streaming
           // re-runs this effect per chunk while sessionId is still null, and
           // each unguarded run would addDoc another duplicate session.
@@ -876,11 +913,18 @@ Your goal is to build their problem-solving instincts. Every question they solve
     persistToFirestore();
   }, [messages, storageKey, userId, sessionId, moduleId, lessonId, lessonTitle, standalone, isPracticeQuestion]);
 
-  // Flush pending writes on unmount (read from ref to avoid stale closure)
+  // Flush pending writes on unmount / conversation switch. Snapshot the ref in
+  // the cleanup body and only force-write a NON-empty transcript: on a
+  // conversation switch messages is reset to [], and forcing that empty array
+  // would clobber the outgoing session's messages. (updateSessionMessages also
+  // rejects forced empty writes as a second line of defense.)
   useEffect(() => {
     return () => {
       if (userId && sessionId) {
-        updateSessionMessages(userId, sessionId, messagesRef.current, true).catch(() => {});
+        const snapshot = messagesRef.current;
+        if (Array.isArray(snapshot) && snapshot.length > 0) {
+          updateSessionMessages(userId, sessionId, snapshot, true).catch(() => {});
+        }
         flushPendingWrites(userId, sessionId);
       }
     };
@@ -1040,8 +1084,12 @@ Your goal is to build their problem-solving instincts. Every question they solve
     let i = messages.length - 1;
     while (i >= 0 && messages[i].role !== 'user') i--;
     if (i < 0) return;
-    regenBaseRef.current = messages.slice(0, i); // history before that user turn
-    handleSend(messages[i].content);
+    // Pass the trimmed history (everything before that user turn) as an ARGUMENT
+    // so it only takes effect once the send passes handleSend's rate-limit
+    // guard. Previously this was stashed in a ref BEFORE the guard, so a
+    // swallowed (rate-limited) regenerate left a stale base that silently
+    // truncated the next real send.
+    handleSend(messages[i].content, messages.slice(0, i));
   };
 
   // 👍/👎 on an assistant answer — a quality signal we otherwise lack.
@@ -1058,6 +1106,12 @@ Your goal is to build their problem-solving instincts. Every question they solve
 
   const handleProactiveAccept = (recommendation) => {
     if (recommendation.suggestedPrompt) {
+      // Don't dismiss the hint if the send would be swallowed (rate limit /
+      // mid-stream) — keep it and tell the student, so accepting isn't a no-op.
+      if (sendIsBlocked()) {
+        flashSendNotice('One moment — finishing the last reply.');
+        return;
+      }
       // Auto-send the nudge instead of just filling the box — one tap to ask.
       handleSend(recommendation.suggestedPrompt);
     }
@@ -1068,6 +1122,16 @@ Your goal is to build their problem-solving instincts. Every question they solve
   const handleProactiveDismiss = () => {
     setProactiveRec(null);
     setHintDismissed(true);
+  };
+
+  // Error-bubble Retry: surface a brief notice instead of a silent no-op when a
+  // send is currently blocked (rate window / mid-stream).
+  const handleRetry = (retryText) => {
+    if (sendIsBlocked()) {
+      flashSendNotice('One moment — try again in a second.');
+      return;
+    }
+    handleSend(retryText);
   };
 
   // Generate smart prompts based on skill progress
@@ -1099,7 +1163,7 @@ Your goal is to build their problem-solving instincts. Every question they solve
     return [...new Set(prompts)].slice(0, 3);
   };
 
-  const handleSend = async (overrideText) => {
+  const handleSend = async (overrideText, regenBase) => {
     const now = Date.now();
     // overrideText lets a suggestion chip or the error Retry button send
     // directly. Guard against an event object reaching us via onClick={handleSend}.
@@ -1107,20 +1171,24 @@ Your goal is to build their problem-solving instincts. Every question they solve
     // isStreaming (not just isLoading) blocks re-entry for the whole round-trip:
     // isLoading clears on the first streamed token, and a second send mid-stream
     // would run two concurrent streams corrupting the last assistant bubble.
-    if (!text || isLoading || isStreaming || (now - lastSendTime < RATE_LIMIT_MS)) return;
+    // Returns false when swallowed so callers can react instead of assuming
+    // the message went out.
+    if (!text || isLoading || isStreaming || (now - lastSendTime < RATE_LIMIT_MS)) return false;
 
     setLastSendTime(now);
+    setSendNotice('');
+    // A real new user message means this session is no longer merely
+    // fallback-restored history — allow the persist effect to create/update the
+    // Firestore session from here on.
+    restoredFromFallbackRef.current = false;
     const userMessage = { role: 'user', content: text };
-    // Regenerate supplies a trimmed history (synchronously, via ref) so the old
-    // assistant reply is dropped; otherwise drop only a trailing error bubble so
-    // a retry replaces it instead of stacking.
-    let base;
-    if (regenBaseRef.current) {
-      base = regenBaseRef.current;
-      regenBaseRef.current = null;
-    } else {
-      base = messages[messages.length - 1]?.isError ? messages.slice(0, -1) : messages;
-    }
+    // Regenerate supplies the trimmed history (everything before the last user
+    // turn) as an ARGUMENT so it only applies once this send passes the guard
+    // above; otherwise drop just a trailing error bubble so a retry replaces it
+    // instead of stacking.
+    const base = Array.isArray(regenBase)
+      ? regenBase
+      : (messages[messages.length - 1]?.isError ? messages.slice(0, -1) : messages);
     const newMessages = [...base, userMessage];
     setMessages(newMessages);
     setInput('');
@@ -1314,6 +1382,7 @@ Your goal is to build their problem-solving instincts. Every question they solve
       setIsLoading(false);
       setIsStreaming(false);
     }
+    return true;
   };
 
   const handleKeyDown = (e) => {
@@ -1328,6 +1397,16 @@ Your goal is to build their problem-solving instincts. Every question they solve
       handleSend();
     }
   };
+
+  // Whether to render the header close button. Several embedded shells pass a
+  // no-op `onClose={() => {}}` to mean "no close affordance here." The old
+  // check compared onClose.toString() to the literal '() => {}', which a
+  // production minifier rewrites (`()=>{}`, whitespace stripped, etc.) so the
+  // button rendered but did nothing. Match any empty-bodied function form
+  // instead — robust across minification, and touches only this file. (Cleaner
+  // long-term: those shells should omit onClose / pass undefined.)
+  const NOOP_FN_RE = /^\s*(?:function\s*)?\(\s*\)\s*(?:=>)?\s*\{\s*\}\s*$/;
+  const showCloseButton = typeof onClose === 'function' && !NOOP_FN_RE.test(onClose.toString());
 
   if (!isOpen) return null;
 
@@ -1524,7 +1603,7 @@ Your goal is to build their problem-solving instincts. Every question they solve
               </div>
             )}
           </div>
-          {onClose && onClose.toString() !== '() => {}' && (
+          {showCloseButton && (
             <button
               onClick={onClose}
               aria-label="Close chat"
@@ -1804,7 +1883,7 @@ Your goal is to build their problem-solving instincts. Every question they solve
                 premiumLearnMode={premiumLearnMode}
                 isLoading={isLoading}
                 isStreaming={isStreaming}
-                onRetry={handleSend}
+                onRetry={handleRetry}
                 onRegenerate={handleRegenerate}
                 onFeedback={handleMessageFeedback}
               />
@@ -1925,6 +2004,20 @@ Your goal is to build their problem-solving instincts. Every question they solve
           borderTop: `1px solid ${design.colors.border.light}`,
         }}
       >
+        {sendNotice && (
+          <div
+            role="status"
+            style={{
+              margin: '0 0 8px',
+              fontSize: '12.5px',
+              fontWeight: 600,
+              color: '#9a3412',
+              fontFamily: design.typography.fontFamily,
+            }}
+          >
+            {sendNotice}
+          </div>
+        )}
         <CoachModePicker
           activeMode={coachMode}
           onSelectMode={setCoachMode}

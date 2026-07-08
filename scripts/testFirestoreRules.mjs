@@ -45,8 +45,20 @@ await env.withSecurityRulesDisabled(async (ctx) => {
   const db = ctx.firestore();
   await setDoc(doc(db, 'users', 'studentA'), { email: 'a@x.com' });
   await setDoc(doc(db, 'users', 'studentB'), { email: 'b@x.com' });
+  await setDoc(doc(db, 'progress', 'studentA'), { userId: 'studentA' });
   await setDoc(doc(db, 'progress', 'studentB'), { userId: 'studentB' });
   await setDoc(doc(db, 'entitlements', 'studentA'), { uid: 'studentA', status: 'trialing' });
+  // A summarized session: summary set, watermarks stamped by the server.
+  await setDoc(doc(db, 'progress', 'studentA', 'aiChatSessions', 'sessSummarized'), {
+    moduleId: 'm1', lessonId: 'l1', messages: [{ role: 'user', content: 'hi' }],
+    messageCount: 4, summary: 'A prior summary', summaryCount: 2,
+    lastSummarizedAt: 1000,
+  });
+  // A fresh, not-yet-summarized session.
+  await setDoc(doc(db, 'progress', 'studentA', 'aiChatSessions', 'sessFresh'), {
+    moduleId: 'm1', lessonId: 'l1', messages: [{ role: 'user', content: 'hi' }],
+    messageCount: 1, summary: null,
+  });
 });
 
 const studentA = env.authenticatedContext('studentA').firestore();
@@ -94,6 +106,44 @@ await it('user CANNOT create own entitlement doc', async () => {
 await it('user CANNOT read another user entitlement', () => {
   const studentB = env.authenticatedContext('studentB').firestore();
   return assertFails(getDoc(doc(studentB, 'entitlements', 'studentA')));
+});
+
+// ── AI chat sessions — client may freshen messages, never the server-owned
+// summarization watermarks (cost-abuse guard for summarizeChatSession) ──────
+
+await it('user CAN create own chat session with summary:null', () => {
+  const ref = doc(studentA, 'progress', 'studentA', 'aiChatSessions', 'sessNew');
+  return assertSucceeds(setDoc(ref, {
+    moduleId: 'm1', lessonId: 'l1', messages: [], messageCount: 0, summary: null,
+  }));
+});
+
+await it('user CAN update own chat session message fields', () => {
+  const ref = doc(studentA, 'progress', 'studentA', 'aiChatSessions', 'sessFresh');
+  return assertSucceeds(setDoc(ref, {
+    messages: [{ role: 'user', content: 'hi' }, { role: 'assistant', content: 'yo' }],
+    messageCount: 2, lastMessageAt: 123,
+  }, { merge: true }));
+});
+
+await it('user CANNOT reset summaryCount (re-arm summary trigger)', () => {
+  const ref = doc(studentA, 'progress', 'studentA', 'aiChatSessions', 'sessSummarized');
+  return assertFails(setDoc(ref, { summaryCount: 0 }, { merge: true }));
+});
+
+await it('user CANNOT modify lastSummarizedAt (defeat cooldown)', () => {
+  const ref = doc(studentA, 'progress', 'studentA', 'aiChatSessions', 'sessSummarized');
+  return assertFails(setDoc(ref, { lastSummarizedAt: 0 }, { merge: true }));
+});
+
+await it('user CANNOT null out an existing summary (re-arm trigger)', () => {
+  const ref = doc(studentA, 'progress', 'studentA', 'aiChatSessions', 'sessSummarized');
+  return assertFails(setDoc(ref, { summary: null, messageCount: 8 }, { merge: true }));
+});
+
+await it('user CAN still update messages on a summarized session', () => {
+  const ref = doc(studentA, 'progress', 'studentA', 'aiChatSessions', 'sessSummarized');
+  return assertSucceeds(setDoc(ref, { messageCount: 6, lastMessageAt: 999 }, { merge: true }));
 });
 
 await env.cleanup();
