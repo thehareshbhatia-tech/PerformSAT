@@ -159,6 +159,10 @@ const AdaptivePracticeShell = ({
   // input for `decideTier` to make the classification consistent with
   // AssignedPracticeShell — same source-of-truth helper, same cascade logic.
   const drillStartTrackedRef = useRef(false);
+  // Timestamp of the last Check Answer click. Check swaps to Continue IN
+  // PLACE, so a fast double-click's second hit would land on Continue and
+  // skip the feedback. Swallow Continue clicks within ~350ms of the check.
+  const checkClickRef = useRef(0);
   useEffect(() => {
     if (drillStartTrackedRef.current) return;
     const uid = user?.uid;
@@ -233,7 +237,12 @@ const AdaptivePracticeShell = ({
     if (targetIdx >= 0 && targetIdx < totalServed) {
       const q = questions[targetIdx];
       const hasAnswer = !!practiceState.answers[q?.id];
-      if (hasAnswer || targetIdx <= idx) {
+      // Allow stepping forward to the frontier (the immediate next served tile)
+      // once the current question is answered — otherwise that tile is a dead
+      // click. Backward + answered tiles stay freely navigable.
+      const currentAnswered = !!practiceState.answers[currentQuestion?.id];
+      const isFrontier = targetIdx === idx + 1 && currentAnswered;
+      if (hasAnswer || targetIdx <= idx || isFrontier) {
         onNavigateToQuestion(targetIdx);
       }
     }
@@ -800,7 +809,7 @@ const AdaptivePracticeShell = ({
           {/* Action buttons */}
           {!practiceState.showFeedback ? (
             <button
-              onClick={() => onCheckAnswer(currentQuestion)}
+              onClick={() => { checkClickRef.current = Date.now(); onCheckAnswer(currentQuestion); }}
               disabled={!practiceState.selectedAnswer}
               style={{
                 width: '100%', padding: '14px', borderRadius: '10px', border: 'none',
@@ -813,7 +822,7 @@ const AdaptivePracticeShell = ({
             </button>
           ) : (
             <button
-              onClick={() => onNextQuestion(questions)}
+              onClick={() => { if (Date.now() - checkClickRef.current < 350) return; onNextQuestion(questions); }}
               style={{
                 width: '100%', padding: '14px', borderRadius: '10px', border: 'none',
                 background: C.brand, color: C.white, fontSize: '15px', fontWeight: '600', cursor: 'pointer',

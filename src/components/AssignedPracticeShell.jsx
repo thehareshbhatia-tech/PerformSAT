@@ -216,6 +216,11 @@ const AssignedPracticeShell = ({
   const [highlightsHidden, setHighlightsHidden] = useState(false);
   // Debounce trap so a rapid double-click doesn't insert two questions.
   const trySimilarLockRef = useRef(0);
+  // Timestamp of the last Check Answer click. The Check button swaps to
+  // Continue IN PLACE, so the second click of a fast double-click would land
+  // on Continue and skip past the feedback. Swallow Continue clicks that land
+  // within ~350ms of the check (timestamp only — no timer to leak).
+  const checkClickRef = useRef(0);
 
   // Resizable Assisted Help pane — the AI chat is a co-equal pane (Acely-style)
   // the student can widen with a drag handle. Presentation-only state, persisted
@@ -321,7 +326,12 @@ const AssignedPracticeShell = ({
     if (targetIdx >= 0 && targetIdx < total) {
       const q = questions[targetIdx];
       const hasAnswer = !!practiceState.answers[q?.id];
-      if (hasAnswer || targetIdx <= idx) {
+      // Allow stepping forward to the frontier (the immediate next tile) once
+      // the current question is answered — otherwise that tile is a dead click
+      // with no affordance. Backward + answered tiles stay freely navigable.
+      const currentAnswered = !!practiceState.answers[currentQuestion?.id];
+      const isFrontier = targetIdx === idx + 1 && currentAnswered;
+      if (hasAnswer || targetIdx <= idx || isFrontier) {
         onNavigateToQuestion(targetIdx);
       }
     }
@@ -1130,7 +1140,7 @@ const AssignedPracticeShell = ({
           {!practiceState.showFeedback ? (
             <button
               type="button"
-              onClick={() => onCheckAnswer(currentQuestion)}
+              onClick={() => { checkClickRef.current = Date.now(); onCheckAnswer(currentQuestion); }}
               disabled={!practiceState.selectedAnswer}
               className="aps-footer-cta"
             >
@@ -1140,7 +1150,7 @@ const AssignedPracticeShell = ({
           ) : (
             <button
               type="button"
-              onClick={() => onNextQuestion(questions)}
+              onClick={() => { if (Date.now() - checkClickRef.current < 350) return; onNextQuestion(questions); }}
               className="aps-footer-cta is-next"
             >
               {/* Adaptive rounds end dynamically (target + mastery, or pool dry) —

@@ -147,17 +147,23 @@ const ViewChunkFallback = () => (
 //                          legacy attempt's diagnosis at review time
 // Each caches its import PROMISE at module scope, so concurrent callers share
 // one in-flight fetch and repeats resolve synchronously (cache hits).
+// A REJECTED import must never be cached (a single flaky-network fetch would
+// otherwise poison every future call). Each slot is cleared on rejection so
+// the next call re-imports; the rejection still propagates to the awaiter,
+// whose try/catch surfaces an error toast — so it's always handled.
 let lessonsChunkPromise = null;
 const loadLessonsChunk = () => {
   if (!lessonsChunkPromise) {
-    lessonsChunkPromise = import(/* webpackChunkName: "lessons" */ './data/lessons');
+    lessonsChunkPromise = import(/* webpackChunkName: "lessons" */ './data/lessons')
+      .catch((err) => { lessonsChunkPromise = null; throw err; });
   }
   return lessonsChunkPromise;
 };
 let diagnosticEngineChunkPromise = null;
 const loadDiagnosticEngine = () => {
   if (!diagnosticEngineChunkPromise) {
-    diagnosticEngineChunkPromise = import(/* webpackChunkName: "diagnostic-engine" */ './services/diagnosticEngine');
+    diagnosticEngineChunkPromise = import(/* webpackChunkName: "diagnostic-engine" */ './services/diagnosticEngine')
+      .catch((err) => { diagnosticEngineChunkPromise = null; throw err; });
   }
   return diagnosticEngineChunkPromise;
 };
@@ -168,10 +174,16 @@ const loadDiagnosticEngine = () => {
 let reportLoaderChunkPromise = null;
 const loadReportLoader = () => {
   if (!reportLoaderChunkPromise) {
-    reportLoaderChunkPromise = import(/* webpackChunkName: "diagnostic-report-loader" */ './services/diagnosticReportLoader');
+    reportLoaderChunkPromise = import(/* webpackChunkName: "diagnostic-report-loader" */ './services/diagnosticReportLoader')
+      .catch((err) => { reportLoaderChunkPromise = null; throw err; });
   }
   return reportLoaderChunkPromise;
 };
+
+// Shown when a corpus/chunk loader rejects at a launcher await (offline or a
+// stale chunk after deploy). The loaders above evict their poisoned cache on
+// rejection, so the same click works on retry once the network recovers.
+const CORPUS_LOAD_ERROR = 'Could not load practice content. Check your connection and try again.';
 
 // ── Past-Test-Review telemetry (Phase 7 of PAST_TEST_REVIEW_PLAN.md) ──
 // Events are scoped under [performsat:pastTestReview] so they're filterable
@@ -298,6 +310,12 @@ const PerformSAT = () => {
   // the Learn/Modules views — see loadLessonsChunk. `lessons` is the resolved
   // `allLessons` map, or null while the chunk is still in flight.
   const [lessons, setLessons] = useState(null);
+  // True when the lazy lesson-catalog chunk failed to load. Lets the Learn
+  // view render a retry affordance instead of an infinite skeleton (the
+  // loader evicts its poisoned cache on rejection, so the retry re-imports).
+  const [lessonsLoadError, setLessonsLoadError] = useState(false);
+  // Bumped by the Learn-view retry button to re-run the lesson-load effect.
+  const [lessonsRetryToken, setLessonsRetryToken] = useState(0);
   const [view, setView] = useState('dashboard'); // 'dashboard' | 'practice' | 'practiceTests' | 'takingTest' | 'profile' | 'studyPlan' | 'tutor' | 'viewingResults' | 'diagnosticReport' | 'reviewingPastResults' | 'pastTestReviewIndex' | 'pastTestReviewDetail' | 'pastTestReviewItem' | 'pacingDrill'
   // On-ramp (signup mini-diagnostic) state. `onRampActive` is tri-state:
   // null = eligibility not yet decided, true = flow mounted instead of the
@@ -437,12 +455,13 @@ const PerformSAT = () => {
   useEffect(() => {
     if ((view === 'modules' || view === 'learn') && !lessons) {
       let cancelled = false;
+      setLessonsLoadError(false);
       loadLessonsChunk()
         .then((mod) => { if (!cancelled) setLessons(mod.allLessons); })
-        .catch(() => { /* non-fatal: views guard on null lessons */ });
+        .catch(() => { if (!cancelled) setLessonsLoadError(true); });
       return () => { cancelled = true; };
     }
-  }, [view, lessons]);
+  }, [view, lessons, lessonsRetryToken]);
   // Set true the instant we return from a successful Checkout so the hard-gate
   // auto-route below doesn't bounce a student who JUST paid back to the wall
   // during the brief window before the webhook flips their doc to trialing.
@@ -455,6 +474,15 @@ const PerformSAT = () => {
   const ensurePracticeAccess = useCallback(() => {
     const ent = entitlementStateRef.current;
     if (!ent.flagEnabled || ent.hasAccess) return true;
+    // Just returned from a successful Checkout: the activation webhook hasn't
+    // flipped the doc to trialing yet (the same window the hard-gate auto-route
+    // already suppresses via awaitingCheckoutRef). Don't wall a student who
+    // literally just paid — let the launcher through while entitlement catches
+    // up; the onSnapshot flips hasAccess true within a beat.
+    if (awaitingCheckoutRef.current) {
+      showToast({ type: 'info', message: 'Activating your subscription…' });
+      return true;
+    }
     if (ent.loading) {
       showToast({ type: 'info', message: 'Checking your access — one moment.' });
       return false;
@@ -561,11 +589,17 @@ const PerformSAT = () => {
     if (!ensurePracticeAccess()) return;
     // Queue items resolve against the bank (routing service), the legacy
     // topic files, and the test catalog — load all three corpus slices.
-    const [routingMod, topicsMod, testsMod] = await Promise.all([
-      loadPracticeRouting(),
-      loadTopicQuestions(),
-      loadPracticeTests(),
-    ]);
+    let routingMod, topicsMod, testsMod;
+    try {
+      [routingMod, topicsMod, testsMod] = await Promise.all([
+        loadPracticeRouting(),
+        loadTopicQuestions(),
+        loadPracticeTests(),
+      ]);
+    } catch (err) {
+      showToast({ type: 'error', message: CORPUS_LOAD_ERROR });
+      return;
+    }
     const questions = [];
     const reviewKeyByQuestionId = {};
     reviewItems.forEach(item => {
@@ -852,10 +886,23 @@ const PerformSAT = () => {
   // (a failed stamp just re-offers the flow next session, per the on-ramp's
   // resilience model). The diagnostic is launched later, from the home CTA.
   const handleInnerOnboardingFinished = async (payload) => {
+    // completeInnerOnboarding does a Firestore setDoc, which HANGS (never
+    // settles) on network loss under the SDK's memory persistence. A bare
+    // await here would strand the student behind InnerOnboarding's disabled
+    // Finish button forever. Race an ~8s timeout (same pattern as
+    // useProgress.withTimeout) so we always land them home; persistence stays
+    // best-effort — a failed stamp just re-offers the flow next session.
+    let timer;
     try {
-      await completeInnerOnboarding(payload);
+      await Promise.race([
+        completeInnerOnboarding(payload),
+        new Promise((_, reject) => { timer = setTimeout(() => reject(new Error('onboarding-save-timeout')), 8000); }),
+      ]);
     } catch (e) {
-      console.error('[innerOnboarding] profile save failed:', e);
+      console.error('[innerOnboarding] profile save failed or timed out:', e);
+      showToast({ type: 'info', message: 'We could not save your answers, but you can keep going.' });
+    } finally {
+      clearTimeout(timer);
     }
     setInnerOnboardingActive(false);
     setView('dashboard');
@@ -945,7 +992,13 @@ const PerformSAT = () => {
   // Prescriptive practice - auto-selects difficulty based on performance
   const startPrescriptivePractice = async (moduleId, sectionName) => {
     if (!ensurePracticeAccess()) return;
-    const { getRandomQuestions } = await loadTopicQuestions();
+    let getRandomQuestions;
+    try {
+      ({ getRandomQuestions } = await loadTopicQuestions());
+    } catch (err) {
+      showToast({ type: 'error', message: CORPUS_LOAD_ERROR });
+      return;
+    }
 
     // Get student's performance for this section
     const practiceKey = `${moduleId}-${sectionName}`;
@@ -1014,7 +1067,13 @@ const PerformSAT = () => {
     // (inline tab or standalone) launches via the embedded Pacing section;
     // everything else falls back to the Dashboard.
     setPacingDrillEntryView(view === 'studyPlan' ? 'studyPlan' : 'dashboard');
-    const { getQuestionsByDomain } = await loadMathBank();
+    let getQuestionsByDomain;
+    try {
+      ({ getQuestionsByDomain } = await loadMathBank());
+    } catch (err) {
+      showToast({ type: 'error', message: CORPUS_LOAD_ERROR });
+      return;
+    }
     const pool = [];
     ['algebra', 'problem-solving', 'advanced-math', 'geometry'].forEach((domain) => {
       try { pool.push(...(getQuestionsByDomain(domain) || [])); } catch { /* domain absent */ }
@@ -1035,7 +1094,13 @@ const PerformSAT = () => {
 
   const startAssignedPractice = async (questionIds, meta = {}) => {
     if (!ensurePracticeAccess()) return;
-    const { resolveAssignedQuestions } = await loadPracticeRouting();
+    let resolveAssignedQuestions;
+    try {
+      ({ resolveAssignedQuestions } = await loadPracticeRouting());
+    } catch (err) {
+      showToast({ type: 'error', message: CORPUS_LOAD_ERROR });
+      return;
+    }
     const { resolved } = resolveAssignedQuestions(questionIds);
     if (resolved.length === 0) return;
 
@@ -1097,7 +1162,13 @@ const PerformSAT = () => {
   const resumeActiveDrill = async () => {
     if (!activeDrill || !Array.isArray(activeDrill.questionIds) || activeDrill.questionIds.length === 0) return;
     if (!ensurePracticeAccess()) return;
-    const { resolveAssignedQuestions } = await loadPracticeRouting();
+    let resolveAssignedQuestions;
+    try {
+      ({ resolveAssignedQuestions } = await loadPracticeRouting());
+    } catch (err) {
+      showToast({ type: 'error', message: CORPUS_LOAD_ERROR });
+      return;
+    }
     // resolveAssignedQuestions preserves input order and drops only stale ids.
     const { resolved } = resolveAssignedQuestions(activeDrill.questionIds);
     if (resolved.length === 0) { clearActiveDrill(); return; }
@@ -1154,7 +1225,13 @@ const PerformSAT = () => {
     if (!ensurePracticeAccess()) return;
     // Resolve + stash the routing namespace BEFORE any session state exists:
     // handleNextQuestion reads practiceRoutingRef synchronously per answer.
-    const routing = await loadPracticeRouting();
+    let routing;
+    try {
+      routing = await loadPracticeRouting();
+    } catch (err) {
+      showToast({ type: 'error', message: CORPUS_LOAD_ERROR });
+      return;
+    }
     practiceRoutingRef.current = routing;
     const {
       normalizeDomain,
@@ -1216,6 +1293,16 @@ const PerformSAT = () => {
       sessionState = (persisted?.answered?.length > 0 && !persisted?.isCompleted)
         ? deserializeAdaptiveState(persisted)
         : createAdaptiveSessionState(queueSeed);
+
+      // A resumed session whose persisted state is already exhausted
+      // (totalAnswered >= sessionLength with an empty retryQueue — see
+      // getNextAdaptiveQuestion) deserializes to a state that immediately
+      // yields no question, so the launcher below would silently no-op
+      // forever. Detect that and restart from a fresh session so pressing
+      // Start always opens a question.
+      if (!getNextAdaptiveQuestion(queueSeed, sessionState).question) {
+        sessionState = createAdaptiveSessionState(queueSeed);
+      }
     }
 
     const { question } = getNextAdaptiveQuestion(queueSeed, sessionState);
@@ -1356,7 +1443,13 @@ const PerformSAT = () => {
     const { landOn = 'detail' } = (maybeOpts && typeof maybeOpts === 'object' && !Array.isArray(maybeOpts))
       ? maybeOpts
       : {};
-    const { getAllPracticeTests } = await loadPracticeTests();
+    let getAllPracticeTests;
+    try {
+      ({ getAllPracticeTests } = await loadPracticeTests());
+    } catch (err) {
+      showToast({ type: 'error', message: CORPUS_LOAD_ERROR });
+      return;
+    }
     const test = getAllPracticeTests().find(t => t.id === testId);
     const lastAttempt = getLatestAttempt(practiceTestResults, testId);
     if (!test || !lastAttempt) {
@@ -1841,13 +1934,19 @@ const PerformSAT = () => {
         getNextAdaptiveQuestion,
       } = routing;
       const currentQ = questions[practiceState.currentQuestionIndex];
+      // Retry serves are reminted with a `${bankId}::retry-N` serve id (see the
+      // append branch below) so the id-keyed answers map can't collide with the
+      // ORIGINAL serve of the same bank item — but the adaptive engine tracks
+      // the bank id everywhere (retryQueue / seenIds / answered), so all engine
+      // + persistence calls use engineId, never the serve id.
+      const engineId = currentQ?._adaptiveOriginalId || currentQ?.id;
       const lastAnswer = practiceState.answers[currentQ?.id];
-      const isRetry = practiceState.adaptiveSessionState?.seenIds?.has(currentQ?.id) &&
-        practiceState.adaptiveSessionState.answered.some(a => a.id === currentQ?.id);
+      const isRetry = practiceState.adaptiveSessionState?.seenIds?.has(engineId) &&
+        practiceState.adaptiveSessionState.answered.some(a => a.id === engineId);
 
       let nextState = practiceState.adaptiveSessionState;
       if (currentQ && lastAnswer) {
-        nextState = applyAdaptiveResult(nextState, currentQ.id, lastAnswer.correct, isRetry);
+        nextState = applyAdaptiveResult(nextState, engineId, lastAnswer.correct, isRetry);
       }
 
       // Evaluate both-rule completion (target + mastery)
@@ -1871,13 +1970,15 @@ const PerformSAT = () => {
           .then(({ patchAdaptivePracticeState }) => patchAdaptivePracticeState(user.uid, artId, toSave))
           .catch(err => console.warn('[App] Failed to persist adaptive state:', err?.message));
 
-        // Also write answered question ID to progress doc for cross-plan dedup
-        if (currentQ?.id) {
+        // Also write answered question ID to progress doc for cross-plan dedup.
+        // Use engineId (the bank id), never a `::retry-N` serve id — the dedup
+        // set must stay resolvable against the bank.
+        if (engineId) {
           import('firebase/firestore').then(({ doc: fsDoc, updateDoc: fsUpdate, arrayUnion: fsUnion, serverTimestamp: fsTs }) => {
             import('./firebase/config').then(({ db: fsDb }) => {
               const progressRef = fsDoc(fsDb, 'progress', user.uid);
               fsUpdate(progressRef, {
-                answeredQuestionIds: fsUnion(currentQ.id),
+                answeredQuestionIds: fsUnion(engineId),
                 lastUpdated: fsTs(),
               }).catch(err => console.warn('[App] Failed to save adaptive question ID:', err.message));
             });
@@ -1885,9 +1986,19 @@ const PerformSAT = () => {
         }
       }
 
-      const { question: nextQ, isComplete: queueExhausted } = getNextAdaptiveQuestion(
+      const { question: rawNextQ, isComplete: queueExhausted, isRetry: nextIsRetry } = getNextAdaptiveQuestion(
         practiceState.adaptiveQueueSeed, nextState,
       );
+
+      // A retry re-serves the SAME bank id. The session keys answers by
+      // question.id, so appending the retry under its bank id would let it
+      // restore the ORIGINAL miss's answer (revealed, pre-attempt) when the
+      // student navigates back then forward. Remint the retry serve with a
+      // unique id and stash the bank id on `_adaptiveOriginalId` (engineId
+      // above reads it) so mastery/telemetry still attribute to the bank item.
+      const nextQ = (rawNextQ && nextIsRetry)
+        ? { ...rawNextQ, id: `${rawNextQ.id}::retry-${nextState.answered.length}`, _adaptiveOriginalId: rawNextQ.id }
+        : rawNextQ;
 
       // Session ends when both rules are met OR queue is exhausted
       if (completion.isComplete || queueExhausted || !nextQ) {
@@ -2120,7 +2231,13 @@ const PerformSAT = () => {
    */
   const handleTrySimilarFromReview = useCallback(async (snapshotItem) => {
     if (!snapshotItem) return;
-    const { pickSimilarQuestion } = await loadTrySimilar();
+    let pickSimilarQuestion;
+    try {
+      ({ pickSimilarQuestion } = await loadTrySimilar());
+    } catch (err) {
+      showToast({ type: 'error', message: CORPUS_LOAD_ERROR });
+      return;
+    }
     const result = pickSimilarQuestion({
       currentQuestion: snapshotItem,
       excludeIds: [snapshotItem.id].filter(Boolean),
@@ -2407,8 +2524,33 @@ const PerformSAT = () => {
 
         {/* Learn — Lesson Workspace View */}
         {view === 'learn' && activeModule && (() => {
-          // Lesson catalog is a lazy chunk (loadLessonsChunk); show the shared
-          // fallback until it resolves rather than a lesson-less workspace.
+          // Lesson catalog is a lazy chunk (loadLessonsChunk). On a load
+          // failure, offer a retry instead of an infinite skeleton — the
+          // loader evicted its poisoned cache, so retry re-imports cleanly.
+          if (!lessons && lessonsLoadError) {
+            return (
+              <div style={{
+                minHeight: '60vh', display: 'flex', flexDirection: 'column',
+                alignItems: 'center', justifyContent: 'center', gap: '1rem', textAlign: 'center',
+              }}>
+                <p style={{ fontSize: '1rem', color: '#4B5563', maxWidth: '28rem' }}>
+                  We could not load the lessons. Check your connection and try again.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => { setLessonsLoadError(false); setLessonsRetryToken(t => t + 1); }}
+                  style={{
+                    padding: '0.65rem 1.4rem', borderRadius: '0.6rem', border: 'none',
+                    background: '#EA580C', color: '#fff', fontSize: '0.95rem', fontWeight: 600, cursor: 'pointer',
+                  }}
+                >
+                  Retry
+                </button>
+              </div>
+            );
+          }
+          // Show the shared fallback while the chunk is still in flight rather
+          // than a lesson-less workspace.
           if (!lessons) return <ViewChunkFallback />;
           const moduleLessons = lessons[activeModule] || [];
           const currentLesson = moduleLessons.find(l => l.id === activeLesson) || moduleLessons[0] || null;
@@ -2520,7 +2662,13 @@ const PerformSAT = () => {
             onOpenTutor={() => setView('tutor')}
             onViewFullDiagnosis={async () => {
               // Closes CEO C1: surface DiagnosticReport from the dashboard.
-              const { pickMostRecentTest, loadDiagnosticReportData } = await loadReportLoader();
+              let pickMostRecentTest, loadDiagnosticReportData, getAllPracticeTests;
+              try {
+                ({ pickMostRecentTest, loadDiagnosticReportData } = await loadReportLoader());
+              } catch (err) {
+                showToast({ type: 'error', message: CORPUS_LOAD_ERROR });
+                return;
+              }
               const { testId, lastAttempt } = pickMostRecentTest(practiceTestResults);
               if (!testId || !lastAttempt) {
                 showToast({
@@ -2529,7 +2677,12 @@ const PerformSAT = () => {
                 });
                 return;
               }
-              const { getAllPracticeTests } = await loadPracticeTests();
+              try {
+                ({ getAllPracticeTests } = await loadPracticeTests());
+              } catch (err) {
+                showToast({ type: 'error', message: CORPUS_LOAD_ERROR });
+                return;
+              }
               const test = getAllPracticeTests().find(t => t.id === testId);
               if (!test) {
                 showToast({
@@ -2727,7 +2880,14 @@ const PerformSAT = () => {
               // (loadDiagnosticEngine), awaited only on this legacy path.
               let diagReport = lastAttempt.diagnosticReport;
               if (!diagReport) {
-                const { runDiagnostic } = await loadDiagnosticEngine();
+                let runDiagnostic;
+                try {
+                  ({ runDiagnostic } = await loadDiagnosticEngine());
+                } catch (err) {
+                  console.warn('[ViewResults] diagnostic engine load failed:', err && err.message);
+                  showToast({ type: 'error', message: CORPUS_LOAD_ERROR });
+                  return;
+                }
                 diagReport = runDiagnostic(
                   reviewTest, reconstructedAnswers, lastAttempt.diagnosticData,
                   skillProgress || {},
@@ -3127,17 +3287,27 @@ const PerformSAT = () => {
               )
             : null;
 
-          // Prev/Next walk the SAME slice the user was viewing in
-          // TestReviewDetail. Default to wrong-only (matches the detail
-          // view's default filter). Items already arrive sorted by
-          // (moduleIndex, questionIndex) from extractItemsFromAttempt.
-          const wrongItems = reviewBundle.attempt
-            ? extractItemsFromAttempt(reviewBundle.attempt).filter(it => !it.isCorrect)
+          // Prev/Next walk the slice the user was viewing in TestReviewDetail.
+          // The detail view defaults to the wrong-only filter, but the All
+          // filter can open a CORRECT item — which isn't in the wrong-only
+          // slice, so scoping Prev/Next to wrong items gave currentIdx -1 and
+          // no navigation at all. Pick the slice by where the item actually
+          // lives: if it's a wrong item keep the wrong-only walk (the common
+          // path); otherwise walk the full item list so a correct item still
+          // has Prev/Next. Items arrive sorted by (moduleIndex, questionIndex).
+          // (For exact filter parity, TestReviewDetail could pass its `filter`
+          // as a 2nd arg to onSelectItem — one line there — but this App-side
+          // slice already fixes the dead-end for every filter.)
+          const allItems = reviewBundle.attempt
+            ? extractItemsFromAttempt(reviewBundle.attempt)
             : [];
-          const currentIdx = wrongItems.findIndex(it => it.key === selectedReviewItem.key);
-          const prev = currentIdx > 0 ? wrongItems[currentIdx - 1] : null;
-          const next = currentIdx >= 0 && currentIdx < wrongItems.length - 1
-            ? wrongItems[currentIdx + 1]
+          const wrongItems = allItems.filter(it => !it.isCorrect);
+          const wrongIdx = wrongItems.findIndex(it => it.key === selectedReviewItem.key);
+          const navItems = wrongIdx >= 0 ? wrongItems : allItems;
+          const currentIdx = navItems.findIndex(it => it.key === selectedReviewItem.key);
+          const prev = currentIdx > 0 ? navItems[currentIdx - 1] : null;
+          const next = currentIdx >= 0 && currentIdx < navItems.length - 1
+            ? navItems[currentIdx + 1]
             : null;
           return (
             <ErrorBoundary message="Couldn't render this question. Please go back and try again.">

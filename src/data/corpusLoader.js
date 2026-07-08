@@ -21,12 +21,39 @@
  * the corpus lands in their chunk graph, not in main.
  */
 
-let mathBankPromise = null;
-let topicQuestionsPromise = null;
-let rwBankPromise = null;
-let practiceTestsPromise = null;
-let practiceRoutingPromise = null;
-let trySimilarPromise = null;
+// One memo slot per corpus chunk. A slot holds the in-flight/resolved import
+// promise — or null once evicted so the next call re-imports.
+const chunkCache = {
+  mathBank: null,
+  topicQuestions: null,
+  rwBank: null,
+  practiceTests: null,
+  practiceRouting: null,
+  trySimilar: null,
+};
+
+/**
+ * Memoize a chunk import, but NEVER cache a rejected promise. If the import
+ * rejects (a flaky-network chunk fetch — e.g. the idle pre-warm), the memo
+ * slot is cleared so the next call re-imports instead of handing every future
+ * caller the same poisoned rejection. The rejection still propagates to THIS
+ * call's awaiter (which surfaces an error toast), and because every launcher
+ * that awaits a loader now has a catch, the rethrown rejection is always
+ * handled — no unhandled-rejection warning.
+ *
+ * @param {keyof chunkCache} key
+ * @param {() => Promise<object>} importer - the raw dynamic import() thunk
+ * @returns {Promise<object>} the shared, cache-hit-on-repeat import promise
+ */
+const loadChunk = (key, importer) => {
+  if (!chunkCache[key]) {
+    chunkCache[key] = importer().catch((err) => {
+      chunkCache[key] = null; // evict the poisoned slot so a retry re-imports
+      throw err;              // still reject this awaiter — the caller toasts
+    });
+  }
+  return chunkCache[key];
+};
 
 /**
  * Load the hand-authored math drill bank (4 shards + topic-file lift,
@@ -35,12 +62,8 @@ let trySimilarPromise = null;
  * @returns {Promise<typeof import('./questions/bank')>} module namespace
  *   (getQuestionById, getQuestionsByDomain, getTargetedWeaknessSet, ...)
  */
-export const loadMathBank = () => {
-  if (!mathBankPromise) {
-    mathBankPromise = import(/* webpackChunkName: "bank-math" */ './questions/bank');
-  }
-  return mathBankPromise;
-};
+export const loadMathBank = () =>
+  loadChunk('mathBank', () => import(/* webpackChunkName: "bank-math" */ './questions/bank'));
 
 /**
  * Load the legacy topic question files (free-practice sections keyed by
@@ -49,12 +72,8 @@ export const loadMathBank = () => {
  * @returns {Promise<typeof import('./questions')>} module namespace
  *   (getQuestionsForSection, getRandomQuestions, hasQuestionsForSection, ...)
  */
-export const loadTopicQuestions = () => {
-  if (!topicQuestionsPromise) {
-    topicQuestionsPromise = import(/* webpackChunkName: "topic-questions" */ './questions');
-  }
-  return topicQuestionsPromise;
-};
+export const loadTopicQuestions = () =>
+  loadChunk('topicQuestions', () => import(/* webpackChunkName: "topic-questions" */ './questions'));
 
 /**
  * Load the R&W bank (648 items flattened from the 12 R&W test bundles)
@@ -63,12 +82,8 @@ export const loadTopicQuestions = () => {
  * @returns {Promise<typeof import('./questions/rwBank')>} module namespace
  *   (getQuestionById, getQuestionsBySkillIds, getTargetedWeaknessSet, ...)
  */
-export const loadRWBank = () => {
-  if (!rwBankPromise) {
-    rwBankPromise = import(/* webpackChunkName: "bank-rw" */ './questions/rwBank');
-  }
-  return rwBankPromise;
-};
+export const loadRWBank = () =>
+  loadChunk('rwBank', () => import(/* webpackChunkName: "bank-rw" */ './questions/rwBank'));
 
 /**
  * Load the full practice-test catalog (12 tests x [R&W + Math M1/M2 + M2
@@ -77,12 +92,8 @@ export const loadRWBank = () => {
  * @returns {Promise<typeof import('./practiceTests')>} module namespace
  *   (getAllPracticeTests, getPracticeTestById, ...)
  */
-export const loadPracticeTests = () => {
-  if (!practiceTestsPromise) {
-    practiceTestsPromise = import(/* webpackChunkName: "practice-tests" */ './practiceTests');
-  }
-  return practiceTestsPromise;
-};
+export const loadPracticeTests = () =>
+  loadChunk('practiceTests', () => import(/* webpackChunkName: "practice-tests" */ './practiceTests'));
 
 /**
  * Load the practice-assignment/routing service (imports BOTH banks: drill
@@ -94,24 +105,16 @@ export const loadPracticeTests = () => {
  *
  * @returns {Promise<typeof import('../services/practiceAssignmentService')>}
  */
-export const loadPracticeRouting = () => {
-  if (!practiceRoutingPromise) {
-    practiceRoutingPromise = import(/* webpackChunkName: "practice-routing" */ '../services/practiceAssignmentService');
-  }
-  return practiceRoutingPromise;
-};
+export const loadPracticeRouting = () =>
+  loadChunk('practiceRouting', () => import(/* webpackChunkName: "practice-routing" */ '../services/practiceAssignmentService'));
 
 /**
  * Load the try-similar service (imports both banks' skill dispatchers).
  *
  * @returns {Promise<typeof import('../services/trySimilarService')>}
  */
-export const loadTrySimilar = () => {
-  if (!trySimilarPromise) {
-    trySimilarPromise = import(/* webpackChunkName: "try-similar" */ '../services/trySimilarService');
-  }
-  return trySimilarPromise;
-};
+export const loadTrySimilar = () =>
+  loadChunk('trySimilar', () => import(/* webpackChunkName: "try-similar" */ '../services/trySimilarService'));
 
 /**
  * Pre-warm every corpus chunk in parallel. Called from App.jsx's idle

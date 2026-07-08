@@ -47,6 +47,22 @@ const withTimeout = (promise, ms = SAVE_TIMEOUT_MS) => {
   ]).finally(() => clearTimeout(timer));
 };
 
+// The drill/mid-test autosaves below (skill attempts, bank practice, active
+// drill, test progress) are best-effort: they swallow errors so a save blip
+// never interrupts a session. Without any signal, though, a student on a dead
+// connection silently loses progress. Warn ONCE per session (module-level
+// latch) across all four paths so a flaky link can't spam a toast on every
+// autosave. Reset on real logout is unnecessary — a reload clears the module.
+let bestEffortSaveWarned = false;
+const warnBestEffortSaveOnce = () => {
+  if (bestEffortSaveWarned) return;
+  bestEffortSaveWarned = true;
+  showToast({
+    type: 'warn',
+    message: 'Having trouble saving your progress — your connection may be offline.',
+  });
+};
+
 /**
  * Hook for managing user progress with real-time Firestore sync
  * @param {string} userId - User ID
@@ -426,6 +442,7 @@ export const useProgress = (userId) => {
         return updated;
       });
       setError(err.message);
+      showToast({ type: 'error', message: 'Could not save your change — check your connection.' });
     }
   };
 
@@ -520,6 +537,7 @@ export const useProgress = (userId) => {
       await recordSkillAttemptsBatch(userId, attempts);
     } catch (err) {
       console.error('[useProgress] Failed to record drill skill attempts:', err);
+      warnBestEffortSaveOnce();
     }
   };
 
@@ -576,6 +594,7 @@ export const useProgress = (userId) => {
       }, { merge: true });
     } catch (err) {
       console.error('[useProgress] Failed to record bank practice:', err);
+      warnBestEffortSaveOnce();
     }
   };
 
@@ -597,6 +616,7 @@ export const useProgress = (userId) => {
       await setDoc(progressRef, { activeDrill: withTs, lastUpdated: serverTimestamp() }, { merge: true });
     } catch (err) {
       console.error('[useProgress] Failed to save active drill:', err);
+      warnBestEffortSaveOnce();
     }
   };
 
@@ -887,6 +907,7 @@ export const useProgress = (userId) => {
       await saveProgress(userId, testId, progressData);
     } catch (err) {
       console.error('Failed to save test progress:', err);
+      warnBestEffortSaveOnce();
     }
   };
 
@@ -1178,6 +1199,7 @@ export const useProgress = (userId) => {
     } catch (err) {
       console.error('[useProgress] Failed to mark activity complete:', err);
       setError(err.message);
+      showToast({ type: 'error', message: 'Could not save your change — check your connection.' });
     }
   };
 
@@ -1230,6 +1252,7 @@ export const useProgress = (userId) => {
     } catch (err) {
       console.error('[useProgress] Failed to unmark activity:', err);
       setError(err.message);
+      showToast({ type: 'error', message: 'Could not save your change — check your connection.' });
     }
   };
 
@@ -1276,6 +1299,7 @@ export const useProgress = (userId) => {
     } catch (err) {
       console.error('[useProgress] Failed to save edited study plan:', err);
       setError(err.message);
+      showToast({ type: 'error', message: 'Could not save your change — check your connection.' });
     } finally {
       studyPlanWriteInFlight.current = false;
     }

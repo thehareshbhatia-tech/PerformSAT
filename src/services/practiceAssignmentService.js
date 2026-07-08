@@ -796,9 +796,12 @@ export function getNextAdaptiveQuestion(queueSeed, sessionState) {
       if (q && isMCQGlobal(q)) {
         return { question: q, isRetry: true, isComplete: false };
       }
-      // Stale retry — drop and recurse
-      sessionState.retryQueue.shift();
-      return getNextAdaptiveQuestion(queueSeed, sessionState);
+      // Stale retry — drop it and recurse WITHOUT mutating the caller's state.
+      // getNextAdaptiveQuestion is also used as a read-only probe (App.jsx
+      // resume + completion checks), so an in-place retryQueue.shift() here
+      // would silently corrupt the caller's session. Recurse on a pruned copy.
+      const pruned = { ...sessionState, retryQueue: sessionState.retryQueue.slice(1) };
+      return getNextAdaptiveQuestion(queueSeed, pruned);
     }
   }
 
