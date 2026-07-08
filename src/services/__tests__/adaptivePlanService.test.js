@@ -94,6 +94,39 @@ describe('reprioritizePlan', () => {
     expect(result.adaptiveOverlay.latestScaledScore).toBe(610);
   });
 
+  test('REGRESSION: a blank newest attempt does not fake skill accuracy (skipped in flatten)', () => {
+    // extractLatestTestSkillAccuracy used to take allAttempts[0] (newest)
+    // without a blank filter. An abandoned submit reads every sampled skill at
+    // 0%, fabricating a "new" gap. It must be skipped so the real older attempt
+    // (exponent-rules 2/2 = 100%) wins → no fake gap surfaces.
+    const plan = makePlan();
+    const testResults = {
+      'test-1': {
+        testId: 'test-1', testTitle: 'T1',
+        attempts: [
+          {
+            completedAt: '2026-01-01', scaledScore: 620, answeredCount: 44,
+            diagnosticData: { questionDetails: [
+              { skills: ['exponent-rules'], correct: true },
+              { skills: ['exponent-rules'], correct: true },
+            ] },
+          },
+          // newest attempt is an abandoned blank submit — 0/2 on the skill
+          {
+            completedAt: '2026-02-01', scaledScore: 400, answeredCount: 0,
+            diagnosticData: { questionDetails: [
+              { skills: ['exponent-rules'], correct: false },
+              { skills: ['exponent-rules'], correct: false },
+            ] },
+          },
+        ],
+      },
+    };
+    const result = reprioritizePlan(plan, {}, testResults, {});
+    const fake = result.adaptiveOverlay.focusSkills.find(s => s.skillId === 'exponent-rules');
+    expect(fake).toBeUndefined();
+  });
+
   test('activates triage mode when test is < 7 days away', () => {
     const plan = makePlan();
     const testDate = new Date();

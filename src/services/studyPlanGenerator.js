@@ -305,27 +305,45 @@ export const generateStudyPlan = (diagnostic, userProfile = {}, completedLessons
     poolSize: 80,
     excludeIds: answeredQuestionIds,
   });
+
+  // ═══ Cross-session wrong-answer reinsertion ═══
+  // Front-load the questions the student missed in the PREVIOUS plan's adaptive
+  // session into the NEW seed so the session engine actually re-serves them.
+  // getNextAdaptiveQuestion picks from byDifficulty[currentDifficulty] in order
+  // (skipping seen ids), so placing a missed id at the FRONT of its matching
+  // difficulty bucket guarantees it is the first item served at that level.
+  // Deduped, capped at 5, MCQ-only (the adaptive engine only serves MCQ).
+  //
+  // Historical note: these ids used to be written to weeklyPlan[0]
+  // .targetedQuestionIds / .wrongAnswerReinsertion, which NOTHING read — the
+  // reinsertion feature was dead. Wiring them into the adaptive seed makes it
+  // function through the same path adaptive sessions already consume.
+  const wrongQuestionIds = extractWrongAnswerIds(previousPlan, answeredQuestionIds);
+  const reinsertedWrongIds = [];
+  if (wrongQuestionIds.length > 0) {
+    const wrongQuestions = wrongQuestionIds
+      .map(id => resolveQuestionById(id)) // section-aware: rw- ids hit the R&W bank
+      .filter(q => q && Array.isArray(q.choices) && q.choices.length >= 2)
+      .slice(0, 5);
+    wrongQuestions.forEach(q => {
+      const diff = adaptivePractice.byDifficulty[q.difficulty] ? q.difficulty : 'medium';
+      const bucket = adaptivePractice.byDifficulty[diff] || [];
+      // Front-load, removing any existing occurrence so ids stay unique.
+      adaptivePractice.byDifficulty[diff] = [q.id, ...bucket.filter(id => id !== q.id)];
+      if (!adaptivePractice.poolIds.includes(q.id)) {
+        adaptivePractice.poolIds = [q.id, ...adaptivePractice.poolIds];
+      }
+      reinsertedWrongIds.push(q.id);
+    });
+    if (reinsertedWrongIds.length > 0) {
+      adaptivePractice.wrongAnswerReinsertion = reinsertedWrongIds.length;
+      adaptivePractice.reinsertedWrongIds = reinsertedWrongIds;
+    }
+  }
+
   const adaptivePracticeState = serializeAdaptiveState(
     createAdaptiveSessionState(adaptivePractice),
   );
-
-  // ═══ Cross-session wrong-answer reinsertion into week 1 ═══
-  const wrongQuestionIds = extractWrongAnswerIds(previousPlan, answeredQuestionIds);
-  if (wrongQuestionIds.length > 0 && weeklyPlan.length > 0) {
-    const wrongQuestions = wrongQuestionIds
-      .map(id => resolveQuestionById(id)) // section-aware: rw- ids hit the R&W bank
-      .filter(Boolean)
-      .slice(0, 5);
-    if (wrongQuestions.length > 0) {
-      const w1 = weeklyPlan[0];
-      const existingIds = w1.targetedQuestionIds || [];
-      w1.targetedQuestionIds = [
-        ...wrongQuestions.map(q => q.id),
-        ...existingIds.filter(id => !wrongQuestions.find(q => q.id === id)),
-      ];
-      w1.wrongAnswerReinsertion = wrongQuestions.length;
-    }
-  }
 
   return {
     // Core plan data

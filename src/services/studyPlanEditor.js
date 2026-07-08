@@ -35,6 +35,30 @@ function hasActivity(plan, weekIndex, activityIndex) {
 }
 
 /**
+ * Recompute a week's rollup stats (totalMinutes + activity-type counts) from
+ * its current activities so any structural edit keeps them consistent with the
+ * generator's original fields. Skipped activities are excluded — matching the
+ * plan's "skipped == kept but excluded from counts" convention (and the
+ * totalMinutes math setPacing already used). Mutates `week` in place.
+ *
+ * @param {object} week - a plan week ({ activities: [] })
+ * @returns {void}
+ */
+function recomputeWeekStats(week) {
+  if (!week) return;
+  const active = (week.activities || []).filter((a) => !a.skipped);
+  week.totalMinutes = active.reduce(
+    (sum, a) => sum + (Number.isFinite(a.duration) ? a.duration : 0),
+    0,
+  );
+  week.practiceCount = active.filter((a) => a.type === 'practice').length;
+  week.lessonCount = active.filter((a) => a.type === 'lesson').length;
+  week.strategyCount = active.filter(
+    (a) => a.type === 'strategy' || a.type === 'review',
+  ).length;
+}
+
+/**
  * Move an activity to a different day of its week.
  * @param {object} plan
  * @param {number} weekIndex
@@ -64,6 +88,7 @@ export function setActivitySkipped(plan, weekIndex, activityIndex, skipped) {
   const act = next.weeks[weekIndex].activities[activityIndex];
   act.skipped = !!skipped;
   act.userEdited = true;
+  recomputeWeekStats(next.weeks[weekIndex]);
   return next;
 }
 
@@ -75,6 +100,7 @@ export function removeActivity(plan, weekIndex, activityIndex) {
   if (!hasActivity(plan, weekIndex, activityIndex)) return plan;
   const next = clone(plan);
   next.weeks[weekIndex].activities.splice(activityIndex, 1);
+  recomputeWeekStats(next.weeks[weekIndex]);
   return next;
 }
 
@@ -110,6 +136,7 @@ export function addCustomActivity(plan, weekIndex, task) {
     custom: true,
     userEdited: true,
   });
+  recomputeWeekStats(next.weeks[weekIndex]);
   return next;
 }
 
@@ -256,9 +283,7 @@ export function setPacing(plan, prefs, todayISO) {
 
   (next.weeks || []).forEach((week) => {
     redistributeWeek(week, minutesPerDay);
-    week.totalMinutes = (week.activities || [])
-      .filter((a) => !a.skipped)
-      .reduce((sum, a) => sum + (Number.isFinite(a.duration) ? a.duration : 0), 0);
+    recomputeWeekStats(week);
   });
 
   return next;

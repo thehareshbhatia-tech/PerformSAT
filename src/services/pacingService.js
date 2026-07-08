@@ -30,11 +30,15 @@ export const analyzePacingProfile = (questionTelemetry = []) => {
   const total = questionTelemetry.length;
   const avgTime = questionTelemetry.reduce((s, q) => s + (q.timeSpent || 0), 0) / total;
 
+  const incorrectCount = questionTelemetry.filter(q => !q.wasCorrect).length;
   const rushedCount = questionTelemetry.filter(q => q.timeSpent < 30 && !q.wasCorrect).length;
   const overtimeCount = questionTelemetry.filter(q => q.timeSpent > SAT_SECONDS_PER_QUESTION * 1.5).length;
   const endgameUnanswered = questionTelemetry.filter(q => q.questionIndex >= 18 && (!q.wasCorrect && (q.timeSpent || 0) < 10)).length;
 
-  const rushedRate = rushedCount / total;
+  // Mode-selection threshold uses the share of ALL questions that were rushed —
+  // this fraction is what the `> 0.15` gate below is calibrated against, so it
+  // must stay in the all-questions space (don't repoint it at incorrectCount).
+  const rushedFractionOfAll = rushedCount / total;
   const overtimeRate = overtimeCount / total;
 
   const stats = {
@@ -43,7 +47,10 @@ export const analyzePacingProfile = (questionTelemetry = []) => {
     overtimeCount,
     endgameUnanswered,
     totalQuestions: total,
-    rushedRate: Math.round(rushedRate * 100),
+    // "% of incorrect answers that were rushed (<30 s)" — matches the copy in
+    // the speed_rounds branch. rushedCount is already incorrect-only, so the
+    // denominator is incorrectCount (guarded), not total.
+    rushedRate: incorrectCount > 0 ? Math.round((rushedCount / incorrectCount) * 100) : 0,
     overtimeRate: Math.round(overtimeRate * 100),
   };
 
@@ -63,7 +70,7 @@ export const analyzePacingProfile = (questionTelemetry = []) => {
     };
   }
 
-  if (rushedRate > 0.15) {
+  if (rushedFractionOfAll > 0.15) {
     return {
       mode: 'speed_rounds',
       reason: `${stats.rushedRate}% of incorrect answers were rushed (<30 s). Speed rounds build deliberate-fast habits.`,

@@ -21,6 +21,9 @@ const makePlan = () => ({
     {
       weekNumber: 1,
       totalMinutes: 60,
+      practiceCount: 2,
+      strategyCount: 1,
+      lessonCount: 0,
       activities: [
         { type: 'practice', title: 'Practice: Slope', skillId: 'slope', duration: 20, day: 'Monday' },
         { type: 'practice', title: 'Practice: Commas', skillId: 'commas', duration: 20, day: 'Tuesday' },
@@ -54,6 +57,16 @@ describe('setActivitySkipped', () => {
     const unskipped = setActivitySkipped(skipped, 0, 1, false);
     expect(unskipped.weeks[0].activities[1].skipped).toBe(false);
   });
+  it('recomputes week totalMinutes and practiceCount (skipped excluded)', () => {
+    const plan = makePlan(); // 2 practice + 1 strategy, all 20min
+    const skipped = setActivitySkipped(plan, 0, 1, true); // skip a practice
+    expect(skipped.weeks[0].totalMinutes).toBe(40); // skipped 20min excluded
+    expect(skipped.weeks[0].practiceCount).toBe(1);
+    // Un-skipping restores the rollup.
+    const unskipped = setActivitySkipped(skipped, 0, 1, false);
+    expect(unskipped.weeks[0].totalMinutes).toBe(60);
+    expect(unskipped.weeks[0].practiceCount).toBe(2);
+  });
 });
 
 describe('removeActivity', () => {
@@ -63,6 +76,13 @@ describe('removeActivity', () => {
     expect(next.weeks[0].activities).toHaveLength(2);
     expect(next.weeks[0].activities.find((a) => a.skillId === 'slope')).toBeUndefined();
     expect(plan.weeks[0].activities).toHaveLength(3); // input untouched
+  });
+  it('recomputes week totalMinutes and practiceCount', () => {
+    const plan = makePlan(); // 3 × 20min: 2 practice + 1 strategy
+    const next = removeActivity(plan, 0, 0); // drop a practice
+    expect(next.weeks[0].totalMinutes).toBe(40);
+    expect(next.weeks[0].practiceCount).toBe(1);
+    expect(next.weeks[0].strategyCount).toBe(1);
   });
 });
 
@@ -76,6 +96,12 @@ describe('addCustomActivity', () => {
     expect(added.day).toBe('Saturday');
     expect(added.duration).toBe(20);
     expect(added.type).toBe('custom');
+  });
+  it('recomputes week totalMinutes (custom is not a practice, so practiceCount holds)', () => {
+    const plan = makePlan(); // 60 min, practiceCount 2
+    const next = addCustomActivity(plan, 0, { title: 'Redo misses', day: 'Saturday', duration: 30 });
+    expect(next.weeks[0].totalMinutes).toBe(90);
+    expect(next.weeks[0].practiceCount).toBe(2); // custom type != practice
   });
   it('ignores a blank title', () => {
     const plan = makePlan();
@@ -171,6 +197,13 @@ describe('setPacing', () => {
     const days = next.weeks[0].activities.map((a) => a.day);
     // With a 20-min cap, the three tasks spread to three distinct days
     expect(new Set(days).size).toBe(3);
+  });
+  it('recomputes week practiceCount alongside totalMinutes (shared helper)', () => {
+    const plan = makePlan();
+    const next = setPacing(plan, { minutesPerDay: 40 }, '2026-06-23');
+    expect(next.weeks[0].totalMinutes).toBe(60);
+    expect(next.weeks[0].practiceCount).toBe(2);
+    expect(next.weeks[0].strategyCount).toBe(1);
   });
 });
 

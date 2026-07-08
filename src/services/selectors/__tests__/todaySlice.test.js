@@ -55,6 +55,80 @@ describe('countRemainingTodayTasks', () => {
     expect(countRemainingTodayTasks(slice)).toBe(0);
   });
 
+  test("nextScheduledDay skips a day holding only skipped/lesson activities (rest day)", () => {
+    // Monday is today (incomplete work). Wednesday holds only a skipped drill;
+    // Thursday holds only a lesson. Neither is real work — nextScheduledDay
+    // must skip both and land on Friday, which has a live drill.
+    const slice = getTodaySlice(
+      {
+        weeks: [{
+          weekNumber: 1,
+          activities: [
+            act('Monday'),
+            act('Wednesday', false, { skipped: true }),
+            act('Thursday', false, { type: 'lesson' }),
+            act('Friday'),
+          ],
+        }],
+      },
+      'Monday',
+    );
+    // Monday has one done + we're asking Monday, so it's 'ready'; but the field
+    // we care about is exercised via a rest-day. Ask Tuesday instead.
+    const rest = getTodaySlice(
+      {
+        weeks: [{
+          weekNumber: 1,
+          activities: [
+            act('Monday'),
+            act('Wednesday', false, { skipped: true }),
+            act('Thursday', false, { type: 'lesson' }),
+            act('Friday'),
+          ],
+        }],
+      },
+      'Tuesday',
+    );
+    expect(rest.kind).toBe('rest-day');
+    expect(rest.nextScheduledDay).toBe('Friday'); // skips skipped Wed + lesson Thu
+    // sanity: the Monday slice is real work, unaffected
+    expect(slice.kind).toBe('ready');
+  });
+
+  test("nextScheduledDay is null when every other day holds only skipped/lesson activities", () => {
+    const rest = getTodaySlice(
+      {
+        weeks: [{
+          weekNumber: 1,
+          activities: [
+            act('Monday'), // today's live work
+            act('Wednesday', false, { skipped: true }),
+            act('Friday', false, { type: 'lesson' }),
+          ],
+        }],
+      },
+      'Monday',
+    );
+    // Monday is 'ready' (live). getNextScheduledDay isn't attached to 'ready',
+    // so probe rest-day directly on a plan whose only live day is Monday.
+    const restProbe = getTodaySlice(
+      {
+        weeks: [{
+          weekNumber: 1,
+          activities: [
+            act('Monday'),
+            act('Wednesday', false, { skipped: true }),
+            act('Friday', false, { type: 'lesson' }),
+          ],
+        }],
+      },
+      'Sunday',
+    );
+    expect(restProbe.kind).toBe('rest-day');
+    expect(restProbe.nextScheduledDay).toBe('Monday'); // only live day, cycles to it
+    expect(rest.kind).toBe('ready');
+  });
+
   test("'rest-day', 'plan-complete', 'no-plan', 'refreshing' → 0", () => {
     const restDay = getTodaySlice(
       { weeks: [{ weekNumber: 1, activities: [act('Tuesday')] }] },

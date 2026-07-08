@@ -200,7 +200,7 @@ export const getDueReviews = async (userId) => {
         key,
         ...item
       }))
-      .sort((a, b) => a.wrongCount - b.wrongCount); // Prioritize most-missed
+      .sort((a, b) => (b.wrongCount || 0) - (a.wrongCount || 0)); // Prioritize most-missed (highest wrongCount first)
 
   } catch (err) {
     console.error('Error getting due reviews:', err);

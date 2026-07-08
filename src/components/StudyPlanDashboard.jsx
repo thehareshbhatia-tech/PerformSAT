@@ -247,6 +247,13 @@ const ScoreTrajectory = ({ artifact }) => {
   );
 };
 
+// LOCAL-day key (YYYY-MM-DD, zero-padded) — matches dailyReviewEngine.localDayKey
+// so streak/pacing date math follows the student's calendar day, not UTC. An
+// evening reviewer in a negative-UTC-offset timezone must not have their day
+// roll early (which hid a continuable streak). See dailyReviewEngine.js:76-80.
+const localDateKey = (d) =>
+  `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+
 const StudyPlanDashboard = ({
   variant = 'default',
   studyPlan,
@@ -476,9 +483,9 @@ const StudyPlanDashboard = ({
   const reviewStreak = useMemo(() => {
     const streak = getReviewStreak();
     if (!streak || streak.current < 2 || !streak.lastDate) return null;
-    const today = new Date().toISOString().slice(0, 10);
+    const today = localDateKey(new Date());
     const y = new Date(); y.setDate(y.getDate() - 1);
-    const yesterday = y.toISOString().slice(0, 10);
+    const yesterday = localDateKey(y);
     return (streak.lastDate === today || streak.lastDate === yesterday) ? streak : null;
   }, []);
 
@@ -627,10 +634,7 @@ const StudyPlanDashboard = ({
   // hands the result to onEditPlan (= useProgress.saveEditedStudyPlan), which
   // persists the whole plan to the Firestore artifact.
   const EDIT_DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-  const todayISO = () => {
-    const d = new Date();
-    return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
-  };
+  const todayISO = () => localDateKey(new Date());
   const applyEdit = (transform) => {
     if (!onEditPlan || !studyPlan) return;
     const next = transform(studyPlan);

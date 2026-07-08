@@ -63,6 +63,10 @@ function extractLatestTestSkillAccuracy(practiceTestResults = {}) {
   const allAttempts = [];
   Object.values(practiceTestResults).forEach(test => {
     (test.attempts || []).forEach(attempt => {
+      // Skip blank/abandoned attempts — every skill reads 0% off them, which
+      // fakes "declined"/"new gap" classifications (mirrors the line-219 guard
+      // in reprioritizePlan's latest-test selection).
+      if (isBlankAttempt(attempt)) return;
       allAttempts.push(attempt);
     });
   });

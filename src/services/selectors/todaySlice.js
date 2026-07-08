@@ -14,15 +14,24 @@
 const DAY_ORDER = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
 /**
+ * An activity that actually shows up as work in the day slice: not a lesson,
+ * not skipped. Mirrors the same predicate used in getTodaySlice so "next work
+ * on Thursday" can never point at a rest day (a day holding only skipped or
+ * lesson activities).
+ */
+const isVisibleActivity = (a) => a && a.type !== 'lesson' && !a.skipped;
+
+/**
  * Return the next day name (Sunday-cycled) in the same week that has at
- * least one scheduled activity. Returns null if no such day exists.
+ * least one VISIBLE scheduled activity. Returns null if no such day exists.
  *
  * @param {{activities?: Array<{day: string}>}} week
  * @param {string} fromDayName
  * @returns {string | null}
  */
 function getNextScheduledDay(week, fromDayName) {
-  const activities = (week && Array.isArray(week.activities)) ? week.activities : [];
+  const all = (week && Array.isArray(week.activities)) ? week.activities : [];
+  const activities = all.filter(isVisibleActivity);
   if (activities.length === 0) return null;
   const startIdx = DAY_ORDER.indexOf(fromDayName);
   if (startIdx < 0) return null;
@@ -76,7 +85,8 @@ export function getTodaySlice(plan, todayDayName) {
   // Current week = first week with any incomplete activity. Mirrors the
   // existing StudyPlanDashboard.jsx:123 derivation. Lesson-type activities
   // are excluded — see studyPlanGenerator.js:472 for the cleanup note.
-  const isVisibleActivity = (a) => a && a.type !== 'lesson' && !a.skipped;
+  // (isVisibleActivity is defined at module scope and shared with
+  // getNextScheduledDay so both agree on what counts as "work".)
   const currentWeekIndex = weeks.findIndex(
     w => Array.isArray(w?.activities) && w.activities.filter(isVisibleActivity).some(a => !a.completed),
   );
