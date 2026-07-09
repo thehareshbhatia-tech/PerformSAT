@@ -27,6 +27,7 @@ import { startIntervention, inferApproach, computeApproachEffectiveness } from '
 import { buildIntelligenceContext, getRecommendedApproach } from '../services/intelligenceContextBuilder';
 import { buildTutorSkillContext } from '../services/selectors/tutorSkillContext';
 import { extractChoiceMisconceptions } from '../services/selectors/choiceMisconceptions';
+import { buildFollowUpPrompts, buildTrapWelcome } from '../services/selectors/tutorEngagement';
 import { noteTutorExchange, makeQuestionKey } from '../services/tutorExchangeTracker';
 import Mark from './ui/Mark';
 
@@ -517,10 +518,10 @@ const AiTutorChat = ({
       }
     }
 
-    // Conversation momentum — how far into the session are we?
-    if (messages.length > 6) {
-      parts.push(`SESSION NOTE: This is message ${messages.length} in the conversation. The student has been engaged for a while — maintain energy and keep explanations focused.`);
-    }
+    // NOTE: the conversation-momentum SESSION NOTE used to live here, but its
+    // text changes every message, which busted the cached (stable) prompt
+    // prefix this profile lands in. It now rides the volatile practice-context
+    // block in handleSend.
 
     // Only return if we have meaningful data beyond the headers
     if (parts.length <= 3) return '';
@@ -1219,25 +1220,14 @@ Your goal is to build their problem-solving instincts. Every question they solve
   };
 
   // Contextual follow-up chips shown UNDER the latest assistant reply so the
-  // Socratic loop keeps going past turn one (Khanmigo/Claude-style). Adapts to
-  // whether the answer is revealed and what the student got wrong.
-  const getFollowUpPrompts = () => {
-    const prompts = ['Explain that a different way'];
-    if (isPracticeQuestion && practiceContext) {
-      const revealed = practiceContext.answerRevealed;
-      const sel = practiceContext.selectedAnswer;
-      if (revealed && practiceContext.isCorrect === false && sel) {
-        const letter = String(sel).trim().charAt(0);
-        prompts.push(/^[A-D]$/.test(letter) ? `Why was ${letter} wrong?` : 'Why was my answer wrong?');
-      }
-      prompts.push(practiceContext.section === 'rw' ? 'Show me a similar question' : 'Give me a similar problem');
-      if (!revealed) prompts.push('Can you give me a hint?');
-    } else {
-      prompts.push('Can you give an example?');
-    }
-    // De-dupe + cap at 3 so the row stays compact.
-    return [...new Set(prompts)].slice(0, 3);
-  };
+  // Socratic loop keeps going past turn one (Khanmigo/Claude-style). Logic
+  // lives in selectors/tutorEngagement.js (pure, tested): wrong answers lead
+  // with the parsed trap, correct answers upgrade toward speed and pattern.
+  const getFollowUpPrompts = () => buildFollowUpPrompts(practiceContext, isPracticeQuestion);
+
+  // Personalized empty-state welcome when the answer key names the exact trap
+  // the student fell for; null keeps the generic copy below.
+  const trapWelcome = isPracticeQuestion ? buildTrapWelcome(practiceContext) : null;
 
   const handleSend = async (overrideText, regenBase) => {
     const now = Date.now();
@@ -1306,6 +1296,13 @@ Your goal is to build their problem-solving instincts. Every question they solve
       if (section === 'math' && skillProgress && practiceContext?.skills) {
         const skillContext = buildSkillContextForAI(skillProgress, practiceContext.skills);
         practiceContextStr = skillContext + '\n' + practiceContextStr;
+      }
+
+      // Conversation momentum — changes EVERY message, so it must ride the
+      // volatile block (the practiceContext param), never the cached stable
+      // prefix (it used to live in buildStudentProfile and busted the cache).
+      if (newMessages.length > 6) {
+        practiceContextStr += `\n\nSESSION NOTE: This is message ${newMessages.length} in the conversation. The student has been engaged for a while — maintain energy and keep explanations focused.`;
       }
 
       // Build student profile for personalization. Fold in the skill-history
@@ -1858,7 +1855,7 @@ Your goal is to build their problem-solving instincts. Every question they solve
                   letterSpacing: '-0.02em'
                 }}>
                   {isPracticeQuestion
-                    ? (practiceContext?.answerRevealed ? "Let's review" : "Need a hint?")
+                    ? (trapWelcome ? trapWelcome.title : (practiceContext?.answerRevealed ? "Let's review" : "Need a hint?"))
                     : (isVideoLesson && videoTranscript
                       ? "I'm watching with you"
                       : "How can I help?")
@@ -1870,9 +1867,9 @@ Your goal is to build their problem-solving instincts. Every question they solve
                   lineHeight: '1.5'
                 }}>
                   {isPracticeQuestion
-                    ? (practiceContext?.answerRevealed
+                    ? (trapWelcome ? trapWelcome.body : (practiceContext?.answerRevealed
                       ? "I can explain the solution and answer any questions."
-                      : "I can guide your thinking without giving away the answer.")
+                      : "I can guide your thinking without giving away the answer."))
                     : (isVideoLesson && videoTranscript
                       ? "Ask me about any step in the video, and I'll explain it."
                       : "Ask me anything about this lesson or how it applies to the test.")
@@ -1892,7 +1889,7 @@ Your goal is to build their problem-solving instincts. Every question they solve
                   letterSpacing: '-0.02em'
                 }}>
                   {isPracticeQuestion
-                    ? (practiceContext?.answerRevealed ? "Let's review" : "Need a hint?")
+                    ? (trapWelcome ? trapWelcome.title : (practiceContext?.answerRevealed ? "Let's review" : "Need a hint?"))
                     : (isVideoLesson && videoTranscript
                       ? "Ask about any step"
                       : "How can I help?")
@@ -1907,9 +1904,9 @@ Your goal is to build their problem-solving instincts. Every question they solve
                   lineHeight: '1.5'
                 }}>
                   {isPracticeQuestion
-                    ? (practiceContext?.answerRevealed
+                    ? (trapWelcome ? trapWelcome.body : (practiceContext?.answerRevealed
                       ? "I can explain the solution and answer any questions."
-                      : "I can guide your thinking without giving away the answer.")
+                      : "I can guide your thinking without giving away the answer."))
                     : (isVideoLesson && videoTranscript
                       ? "I can see what's happening in the video and explain it."
                       : "Ask me anything about this lesson.")
@@ -1957,9 +1954,15 @@ Your goal is to build their problem-solving instincts. Every question they solve
                         "Common mistakes?"
                       ]))
                 );
+                // When the answer key names the student's exact trap, lead with
+                // it — that chip is the single highest-signal question they can
+                // ask, and the system prompt already carries the parsed slip.
+                const withTrap = trapWelcome
+                  ? [{ label: 'Show me my exact mistake', prompt: 'Show me my exact mistake and how to catch it next time.' }, ...base]
+                  : base;
                 // Add the concept-teaching chip on practice questions (both math
                 // and R&W). Kept last so the existing smart-prompt order is intact.
-                return isPracticeQuestion ? [...base, CONCEPT_CHIP] : base;
+                return isPracticeQuestion ? [...withTrap, CONCEPT_CHIP] : withTrap;
               })().map((suggestion, i) => {
                 // A chip is either a plain string (label === prompt) or a
                 // { label, prompt } pair so a short label can send a richer prompt.
