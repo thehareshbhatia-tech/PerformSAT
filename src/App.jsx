@@ -25,7 +25,7 @@ import ErrorBoundary from './components/ui/ErrorBoundary';
 import Skeleton, { CardSkeleton } from './components/ui/Skeleton';
 import { Toaster, showToast } from './components/ui/Toaster';
 import CommandPalette from './components/ui/CommandPalette';
-import { ChartBarIcon, PlayIcon, ClipboardIcon, TargetIcon, CalendarIcon, BrainIcon } from './design/icons';
+import { ChartBarIcon, PlayIcon, ClipboardIcon, TargetIcon, CalendarIcon, BrainIcon, BookOpenIcon } from './design/icons';
 import { buildRounds, classifyRoundBoundary, findRoundIndexForQuestion } from './services/buildRounds';
 import { restoreAnswerStateForQuestion, buildResumableDrill } from './services/practiceNavigation';
 // diagnosticReportLoader (loadDiagnosticReportData / pickMostRecentTest) is
@@ -95,6 +95,8 @@ const PracticeBank = React.lazy(() => import('./components/PracticeBank'));
 const DiagnosticReport = React.lazy(() => import('./components/DiagnosticReport'));
 const LearnWorkspace = React.lazy(() => import('./components/learn/LearnWorkspace'));
 const LessonBrowser = React.lazy(() => import('./components/LessonBrowser'));
+const LearnTab = React.lazy(() => import('./components/learnTab/LearnTab'));
+const ChapterReader = React.lazy(() => import('./components/learnTab/ChapterReader'));
 const ReviewItemCard = React.lazy(() => import('./components/PastTestReview/ReviewItemCard'));
 const PastTestReviewIndex = React.lazy(() => import('./components/PastTestReview/PastTestReviewIndex'));
 const TestReviewDetail = React.lazy(() => import('./components/PastTestReview/TestReviewDetail'));
@@ -312,6 +314,8 @@ const PerformSAT = () => {
   const [activeModule, setActiveModule] = useState(null);
   const [activeLesson, setActiveLesson] = useState(null);
   const [activeSection, setActiveSection] = useState(null); // For section-based practice
+  // Learn-tab reader target — the chapter id open in ChapterReader (view 'learnChapter').
+  const [selectedChapterId, setSelectedChapterId] = useState(null);
   // Lesson catalog (~300KB) loads as its own chunk only when a student enters
   // the Learn/Modules views — see loadLessonsChunk. `lessons` is the resolved
   // `allLessons` map, or null while the chunk is still in flight.
@@ -430,7 +434,7 @@ const PerformSAT = () => {
   }, [showCalculator]);
 
   const { user, loading, logout, updateTestDate, updateTargetScore, updateCurrentScore, updateTargetSchools, updateProfilePhoto, updateFirstName, markOnboardingComplete, markOnboardingSkipped, completeInnerOnboarding } = useAuth();
-  const { loading: progressLoading, hydrated: progressHydrated, completedLessons, practiceProgress, drillDays, reviewQueue, reviewStreak, skillProgress, answeredQuestionIds, practiceTestResults, inProgressTests, studyPlan, studyPlanMeta, studyPlanArtifact, predictionLog, interventionLog, studentFingerprint, miniDiagnostic, bankPractice, activeDrill, flaggedQuestions, recordDrillSkillAttempts, recordPracticedDay, recordBankPractice, saveActiveDrill, clearActiveDrill, toggleFlagQuestion, unflagQuestion, flagQuestionsBatch, getDueCount, getReviewStatistics, getSkillDiagnosticSummary, getSkillBreakdown, recordPracticeTestAttempt, getTestBestScore, getTestAttempts, saveTestProgress, clearTestProgress, resetPracticeTest, removeTestAttempt, getTestProgress, hasTestProgress, saveMiniDiagnostic, saveStudyPlan, saveEditedStudyPlan, markStudyActivityComplete, unmarkStudyActivityComplete, markLessonComplete, isLessonCompleted, getModuleProgress, lastSaveStatus, retryLastSave } = useProgress(user?.uid);
+  const { loading: progressLoading, hydrated: progressHydrated, completedLessons, practiceProgress, drillDays, reviewQueue, reviewStreak, skillProgress, answeredQuestionIds, practiceTestResults, inProgressTests, studyPlan, studyPlanMeta, studyPlanArtifact, predictionLog, interventionLog, studentFingerprint, miniDiagnostic, bankPractice, activeDrill, flaggedQuestions, recordDrillSkillAttempts, recordPracticedDay, recordBankPractice, saveActiveDrill, clearActiveDrill, toggleFlagQuestion, unflagQuestion, flagQuestionsBatch, getDueCount, getReviewStatistics, getSkillDiagnosticSummary, getSkillBreakdown, recordPracticeTestAttempt, getTestBestScore, getTestAttempts, saveTestProgress, clearTestProgress, resetPracticeTest, removeTestAttempt, getTestProgress, hasTestProgress, saveMiniDiagnostic, saveStudyPlan, saveEditedStudyPlan, markStudyActivityComplete, unmarkStudyActivityComplete, markLessonComplete, isLessonCompleted, getModuleProgress, chaptersRead, markChapterComplete, unmarkChapterComplete, isChapterComplete, lastSaveStatus, retryLastSave } = useProgress(user?.uid);
 
   // Mount the analytics session lifecycle (session_start / session_end +
   // beforeunload flush). Previously orphaned — the hook existed but was never
@@ -2324,6 +2328,7 @@ const PerformSAT = () => {
     { id: 'studyPlan', label: 'Open Study Plan', hint: 'Your plan', icon: <CalendarIcon size={16} />, run: () => setView('studyPlan') },
     { id: 'tests', label: 'Practice Tests', hint: 'Full-length', icon: <ClipboardIcon size={16} />, run: () => { setView('practiceTests'); setSelectedPracticeTest(null); } },
     { id: 'tutor', label: 'Open AI Tutor', hint: 'Ask anything', icon: <BrainIcon size={16} />, run: () => { setView('tutor'); } },
+    { id: 'learn', label: 'Learn', hint: 'Chapters', icon: <BookOpenIcon size={16} />, run: () => { setView('learnTab'); setSelectedChapterId(null); } },
     { id: 'videos', label: 'Videos', hint: 'Lessons', icon: <PlayIcon size={16} />, run: () => { setView('modules'); setActiveModule(null); setActiveLesson(null); } },
     { id: 'profile', label: 'Profile & settings', run: () => setView('profile') },
   ];
@@ -2420,6 +2425,7 @@ const PerformSAT = () => {
         currentView={view}
         onNavigate={(navId) => {
           if (navId === 'dashboard') { setView('dashboard'); setActiveModule(null); setActiveLesson(null); }
+          else if (navId === 'learnTab') { setView('learnTab'); setSelectedChapterId(null); }
           else if (navId === 'modules') { setView('modules'); setActiveModule(null); setActiveLesson(null); }
           else if (navId === 'practiceTests') { setView('practiceTests'); setSelectedPracticeTest(null); }
           else if (navId === 'studyPlan') { setView('studyPlan'); }
@@ -2437,11 +2443,11 @@ const PerformSAT = () => {
           globally). takingTest is excluded so the test-runner scroll-lock and the
           internal test->results flip (view stays 'takingTest') never animate. */}
       <div id="main-content" key={view} style={{
-        maxWidth: view === 'takingTest' || view === 'reviewingPastResults' || view === 'practice' || view === 'dashboard' || view === 'learn' || view === 'modules' || view === 'practiceBank' || view === 'paywall' ? '100%' : view === 'studyPlan' ? '1220px' : view === 'practiceTests' ? '1040px' : '800px',
+        maxWidth: view === 'takingTest' || view === 'reviewingPastResults' || view === 'practice' || view === 'dashboard' || view === 'learn' || view === 'learnTab' || view === 'learnChapter' || view === 'modules' || view === 'practiceBank' || view === 'paywall' ? '100%' : view === 'studyPlan' ? '1220px' : view === 'practiceTests' ? '1040px' : '800px',
         margin: '0 auto',
         // Study Plan + Practice Tests paint their own warm canvas + framing, so
         // they want a tighter outer gutter than the default 32px content padding.
-        padding: (view === 'dashboard' || view === 'reviewingPastResults' || view === 'practice' || view === 'takingTest' || view === 'learn' || view === 'practiceBank' || view === 'paywall') ? '0' : (view === 'studyPlan' || view === 'practiceTests') ? '20px 20px 80px' : '32px 32px 100px',
+        padding: (view === 'dashboard' || view === 'reviewingPastResults' || view === 'practice' || view === 'takingTest' || view === 'learn' || view === 'learnTab' || view === 'learnChapter' || view === 'practiceBank' || view === 'paywall') ? '0' : (view === 'studyPlan' || view === 'practiceTests') ? '20px 20px 80px' : '32px 32px 100px',
         ...(view === 'takingTest' ? { overflow: 'hidden', height: '100vh' } : { animation: 'fadeInUp 300ms cubic-bezier(0.25, 0.1, 0.25, 1)' })
       }}>
       {/* ONE Suspense boundary for the whole view-switch region: every lazy
@@ -2524,11 +2530,41 @@ const PerformSAT = () => {
           />
         )}
 
-        {/* Learn — Module Catalog View */}
+        {/* Learn — Chapter Table of Contents */}
+        {view === 'learnTab' && (
+          <LearnTab
+            chaptersRead={chaptersRead}
+            onOpenChapter={(id) => { setSelectedChapterId(id); setView('learnChapter'); }}
+          />
+        )}
+
+        {/* Learn — Chapter Reader */}
+        {view === 'learnChapter' && selectedChapterId && (
+          <ChapterReader
+            chapterId={selectedChapterId}
+            isChapterComplete={isChapterComplete}
+            onToggleComplete={(id, meta) => {
+              if (isChapterComplete(id)) unmarkChapterComplete(id);
+              else markChapterComplete(id, meta || {});
+            }}
+            onBack={() => { setView('learnTab'); setSelectedChapterId(null); }}
+            onOpenChapter={(id) => setSelectedChapterId(id)}
+            onPractice={() => { setView('practiceBank'); }}
+            onWatchVideos={(moduleId) => {
+              const moduleLessons = (lessons && lessons[moduleId]) || [];
+              setActiveModule(moduleId);
+              setActiveLesson(moduleLessons[0]?.id || null);
+              setView('learn');
+            }}
+          />
+        )}
+
+        {/* Videos — Module Catalog View */}
         {view === 'modules' && (
           <LessonBrowser
             completedLessons={completedLessons}
             skillProgress={skillProgress}
+            lessons={lessons}
             onSelectModule={(moduleId) => {
               const moduleLessons = (lessons && lessons[moduleId]) || [];
               setActiveModule(moduleId);

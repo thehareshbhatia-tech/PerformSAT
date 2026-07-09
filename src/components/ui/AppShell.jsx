@@ -10,9 +10,11 @@ import Avatar from './Avatar';
 // Route ↔ view state mapping
 const VIEW_ROUTES = {
   dashboard: '/app',
-  modules: '/app/learn',
-  list: '/app/learn/module',
-  lesson: '/app/learn/lesson',
+  learnTab: '/app/learn',
+  learnChapter: '/app/learn/chapter',
+  modules: '/app/videos',
+  list: '/app/videos/module',
+  lesson: '/app/videos/lesson',
   practice: '/app/practice',
   practiceBank: '/app/practice-bank',
   practiceTests: '/app/tests',
@@ -28,7 +30,8 @@ const ROUTE_VIEWS = Object.fromEntries(
 // Navigation items.
 const NAV_ITEMS = [
   { id: 'dashboard', label: 'Home', route: '/app', icon: HomeIcon },
-  { id: 'modules', label: 'Videos', route: '/app/learn', icon: BookIcon },
+  { id: 'learnTab', label: 'Learn', route: '/app/learn', icon: OpenBookIcon },
+  { id: 'modules', label: 'Videos', route: '/app/videos', icon: BookIcon },
   { id: 'practiceTests', label: 'Tests', route: '/app/tests', icon: ClockIcon },
   { id: 'practiceBank', label: 'Practice', route: '/app/practice-bank', icon: TargetIcon },
   { id: 'studyPlan', label: 'Study Plan', route: '/app/study-plan', icon: StudyPlanIcon },
@@ -41,6 +44,7 @@ const NAV_ITEMS = [
 // insights, Green = Practice / mastery, neutral (white) = Tests / Profile.
 const NAV_DOMAIN_COLORS = {
   dashboard: 'var(--color-brand-primary)',   // Home → orange
+  learnTab: 'var(--color-brand-purple)',      // Learn (textbook / focus) → purple
   modules: 'var(--color-brand-green)',        // Videos (learning) → green
   practiceTests: 'var(--color-white)',        // Tests → neutral
   practiceBank: 'var(--color-brand-green)',   // Practice → green
@@ -52,6 +56,7 @@ const NAV_DOMAIN_COLORS = {
 // Faint, navy-readable tint of each domain color for hover/active backgrounds.
 const NAV_DOMAIN_TINTS = {
   dashboard: 'rgba(234, 88, 12, 0.18)',   // orange tint
+  learnTab: 'rgba(176, 146, 221, 0.20)',  // lavender tint
   modules: 'rgba(198, 244, 50, 0.16)',    // lime tint
   practiceTests: 'rgba(255, 255, 255, 0.10)', // neutral white overlay
   practiceBank: 'rgba(198, 244, 50, 0.16)',   // lime tint
@@ -64,6 +69,7 @@ const NAV_DOMAIN_TINTS = {
 // variants so the active icon/label stays legible on the frosted-white surface).
 const NAV_DOMAIN_COLORS_ON_LIGHT = {
   dashboard: 'var(--color-brand-primary)',     // Home → orange
+  learnTab: 'var(--color-brand-purple-text)',   // Learn → AA purple text
   modules: 'var(--color-brand-green-text)',     // Videos → AA green text
   practiceTests: 'var(--color-brand-navy)',     // Tests → neutral navy
   practiceBank: 'var(--color-brand-green-text)',// Practice → AA green text
@@ -86,6 +92,15 @@ function BookIcon({ color }) {
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
       <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+    </svg>
+  );
+}
+
+function OpenBookIcon({ color }) {
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+      <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
     </svg>
   );
 }
@@ -154,6 +169,8 @@ const AppShell = ({ children, currentView, onNavigate, user, onLogout, hideNav =
 
   const activeNavId = currentView === 'list' || currentView === 'lesson' || currentView === 'practice'
     ? 'modules'
+    : currentView === 'learnChapter'
+    ? 'learnTab'
     : currentView === 'takingTest'
     ? 'practiceTests'
     : currentView === 'diagnosticReport'

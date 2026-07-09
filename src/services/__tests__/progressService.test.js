@@ -85,7 +85,7 @@ jest.mock('firebase/firestore', () => {
   };
 });
 
-const { markLessonComplete, markLessonIncomplete } = require('../progressService');
+const { markLessonComplete, markLessonIncomplete, markChapterComplete, markChapterIncomplete } = require('../progressService');
 
 const firestoreMock = require('firebase/firestore');
 const getStore = () => firestoreMock.__getStore();
@@ -161,6 +161,66 @@ describe('markLessonIncomplete', () => {
 
   test('is a no-op when the progress doc does not exist', async () => {
     await markLessonIncomplete('ghost', 'algebra', 3);
+    expect(getStore().get('progress/ghost')).toBeUndefined();
+  });
+});
+
+describe('markChapterComplete — first chapter (progress doc missing)', () => {
+  test('writes chaptersRead as a NESTED map, never a literal dotted field', async () => {
+    await markChapterComplete('u1', 'math-quadratics', { title: 'Quadratics', unitId: 'math-advanced' });
+
+    const main = getStore().get('progress/u1');
+    expect(main).toBeTruthy();
+    expect(Object.keys(main).some((k) => k.includes('.'))).toBe(false);
+    expect(main.chaptersRead['math-quadratics']).toMatchObject({
+      completed: true,
+      chapterId: 'math-quadratics',
+      chapterTitle: 'Quadratics',
+      unitId: 'math-advanced',
+    });
+  });
+});
+
+describe('markChapterComplete — existing doc', () => {
+  test('merges the new chapter into the nested map, keeping siblings', async () => {
+    getStore().set('progress/u1', {
+      userId: 'u1',
+      chaptersRead: { 'math-functions': { completed: true } },
+    });
+
+    await markChapterComplete('u1', 'math-systems', { title: 'Systems' });
+
+    const main = getStore().get('progress/u1');
+    expect(main.chaptersRead['math-functions']).toBeTruthy();
+    expect(main.chaptersRead['math-systems'].completed).toBe(true);
+    expect(Object.keys(main).some((k) => k.includes('.'))).toBe(false);
+  });
+});
+
+describe('markChapterIncomplete', () => {
+  test('flips the NESTED entry to completed:false via a dot-path update', async () => {
+    getStore().set('progress/u1', {
+      userId: 'u1',
+      chaptersRead: { 'math-circles': { completed: true, chapterId: 'math-circles', unitId: 'math-geometry' } },
+    });
+
+    await markChapterIncomplete('u1', 'math-circles');
+
+    const main = getStore().get('progress/u1');
+    expect(Object.keys(main).some((k) => k.includes('.'))).toBe(false);
+    expect(main.chaptersRead['math-circles'].completed).toBe(false);
+    expect(main.chaptersRead['math-circles'].unitId).toBe('math-geometry');
+  });
+
+  test('is a no-op when the chapter was not read', async () => {
+    getStore().set('progress/u1', { userId: 'u1', chaptersRead: {} });
+    await markChapterIncomplete('u1', 'math-circles');
+    const main = getStore().get('progress/u1');
+    expect(main.chaptersRead).toEqual({});
+  });
+
+  test('is a no-op when the progress doc does not exist', async () => {
+    await markChapterIncomplete('ghost', 'math-circles');
     expect(getStore().get('progress/ghost')).toBeUndefined();
   });
 });

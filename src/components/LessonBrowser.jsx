@@ -46,18 +46,21 @@ const PlayIcon = ({ size, accent }) => (
   </svg>
 );
 
-const LessonBrowser = ({ completedLessons = {}, onSelectModule }) => {
+const LessonBrowser = ({ completedLessons = {}, lessons = null, onSelectModule }) => {
   const [filter, setFilter] = useState('all'); // 'all' | 'needs' | 'progress'
   const [query, setQuery] = useState('');
 
-  // Progress per module from real completed-lesson records.
+  // Progress per module from real completed-lesson records. Lesson counts come
+  // from the loaded `lessons` index when available (the hardcoded MODULES array
+  // only provides order/domain/title + a fallback count until the chunk lands).
   const moduleData = useMemo(() => MODULES.map((mod) => {
+    const total = (lessons && Array.isArray(lessons[mod.id]) && lessons[mod.id].length) || mod.lessonCount;
     const completed = Object.keys(completedLessons).filter(
       (key) => key.startsWith(`${mod.id}-`) && completedLessons[key]?.completed
     ).length;
-    const percent = Math.min(100, Math.round((completed / mod.lessonCount) * 100));
-    return { ...mod, completed, percent };
-  }), [completedLessons]);
+    const percent = total ? Math.min(100, Math.round((completed / total) * 100)) : 0;
+    return { ...mod, lessonCount: total, completed, percent };
+  }), [completedLessons, lessons]);
 
   const counts = useMemo(() => ({
     all: moduleData.length,
@@ -91,7 +94,7 @@ const LessonBrowser = ({ completedLessons = {}, onSelectModule }) => {
       {/* Header */}
       <div className="lv-header">
         <div>
-          <h1 className="lv-title">Learn</h1>
+          <h1 className="lv-title">Videos</h1>
           <p className="lv-subtitle">Short video lessons for every SAT topic. Pick up where you left off or start something new.</p>
         </div>
         <div className="lv-search">

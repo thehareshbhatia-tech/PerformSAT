@@ -105,6 +105,85 @@ export const markLessonIncomplete = async (userId, moduleId, lessonId) => {
 };
 
 /**
+ * Marks a Learn-tab chapter as read for a user.
+ *
+ * Cloned from markLessonComplete: existence-guarded setDoc+merge on the first
+ * write (a nested map, NOT a dotted key — set()+merge treats dotted keys as
+ * literal field names), then a dotted field PATH via updateDoc afterwards
+ * (only update() splits the dotted key into a nested path). Race-safe: each
+ * write touches only this chapter's key.
+ *
+ * @param {string} userId - User ID
+ * @param {string} chapterId - Chapter ID (e.g. 'math-quadratics')
+ * @param {Object} [chapterMeta] - Optional metadata (title, unitId)
+ * @returns {Promise<void>}
+ */
+export const markChapterComplete = async (userId, chapterId, chapterMeta = {}) => {
+  try {
+    const progressRef = doc(db, 'progress', userId);
+    const progressSnap = await getDoc(progressRef);
+
+    const entry = {
+      completed: true,
+      completedAt: serverTimestamp(),
+      chapterId,
+      chapterTitle: chapterMeta.title || null,
+      unitId: chapterMeta.unitId || null,
+    };
+
+    if (!progressSnap.exists()) {
+      // Nested object, NOT a dotted key (see markLessonComplete for why).
+      await setDoc(progressRef, {
+        userId,
+        chaptersRead: { [chapterId]: entry },
+        lastUpdated: serverTimestamp(),
+      }, { merge: true });
+    } else {
+      // Dotted field PATH via update() splits into a nested path (doc guarded above).
+      await updateDoc(progressRef, {
+        [`chaptersRead.${chapterId}`]: entry,
+        lastUpdated: serverTimestamp(),
+      });
+    }
+  } catch (error) {
+    console.error('Error marking chapter complete:', error);
+    throw error;
+  }
+};
+
+/**
+ * Marks a Learn-tab chapter as unread for a user.
+ *
+ * Mirrors markLessonIncomplete: flips the nested entry's `completed` to false
+ * via a dotted field PATH (updateDoc, not setDoc+merge — only update() splits
+ * the dotted key into a real nested path). No-ops when the chapter was never
+ * marked read.
+ *
+ * @param {string} userId - User ID
+ * @param {string} chapterId - Chapter ID
+ * @returns {Promise<void>}
+ */
+export const markChapterIncomplete = async (userId, chapterId) => {
+  try {
+    const progressRef = doc(db, 'progress', userId);
+    const progressSnap = await getDoc(progressRef);
+    if (progressSnap.exists()) {
+      const data = progressSnap.data();
+      const entry = data.chaptersRead?.[chapterId];
+      if (entry?.completed) {
+        await updateDoc(progressRef, {
+          [`chaptersRead.${chapterId}`]: { ...entry, completed: false },
+          lastUpdated: serverTimestamp(),
+        });
+      }
+    }
+  } catch (error) {
+    console.error('Error marking chapter incomplete:', error);
+    throw error;
+  }
+};
+
+/**
  * Calculates module completion percentage
  * @param {Object} completedLessons - Completed lessons object
  * @param {string} moduleId - Module ID

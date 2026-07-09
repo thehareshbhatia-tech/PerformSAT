@@ -1,0 +1,181 @@
+/* Learn tab (TOC) — scoped .lt-* / --lt-*. Textbook-simple: no search, no
+   filters, no gamification. Bricolage display + Hanken body, matching the app. */
+.lt-root {
+  --lt-font-display: 'Bricolage Grotesque', 'Inter', system-ui, sans-serif;
+  --lt-font-body: 'Hanken Grotesk', 'Inter', system-ui, sans-serif;
+  --lt-ink: #1c2333;
+  --lt-ink-2: #4a5468;
+  --lt-ink-3: #8791a3;
+  --lt-line: #eceef2;
+  --lt-line-2: #e2e5eb;
+  --lt-surface: #ffffff;
+  --lt-hover: #faf7f4;
+  --lt-accent: var(--color-brand-purple-text, #5A3E8E);
+  --lt-accent-soft: var(--color-brand-purple-soft, #F2ECFB);
+  --lt-done: var(--color-brand-green-text, #3F5B1E);
+
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 44px 24px 96px;
+  font-family: var(--lt-font-body);
+  color: var(--lt-ink);
+}
+
+.lt-page-head {
+  margin-bottom: 40px;
+}
+.lt-page-title {
+  font-family: var(--lt-font-display);
+  font-size: 2.15rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0 0 8px;
+}
+.lt-page-sub {
+  font-size: 1.02rem;
+  line-height: 1.55;
+  color: var(--lt-ink-2);
+  max-width: 46ch;
+  margin: 0;
+}
+
+.lt-section {
+  margin-bottom: 44px;
+}
+.lt-section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.lt-section-title {
+  font-family: var(--lt-font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+.lt-section-progress {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--lt-ink-3);
+  white-space: nowrap;
+}
+.lt-progress-track {
+  height: 4px;
+  border-radius: 999px;
+  background: var(--lt-line);
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+.lt-progress-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: var(--lt-accent);
+  transition: width 0.4s ease;
+}
+
+.lt-unit {
+  margin-bottom: 26px;
+}
+.lt-unit-title {
+  font-family: var(--lt-font-display);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--lt-ink-3);
+  margin: 0 0 8px;
+}
+
+.lt-chapter-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--lt-line);
+}
+
+.lt-chapter-row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 15px 12px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--lt-line);
+  text-align: left;
+  cursor: pointer;
+  font-family: inherit;
+  border-radius: 8px;
+  transition: background 0.15s ease;
+}
+.lt-chapter-row:hover {
+  background: var(--lt-hover);
+}
+.lt-chapter-row:focus-visible {
+  outline: 2px solid var(--lt-accent);
+  outline-offset: -2px;
+}
+
+.lt-chapter-num {
+  flex: 0 0 auto;
+  width: 30px;
+  height: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: var(--lt-accent-soft);
+  color: var(--lt-accent);
+  font-family: var(--lt-font-display);
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+.lt-chapter-row.is-read .lt-chapter-num {
+  background: var(--color-brand-green-soft, #F0F8DC);
+  color: var(--lt-done);
+}
+
+.lt-chapter-body {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.lt-chapter-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--lt-ink);
+  line-height: 1.3;
+}
+.lt-chapter-blurb {
+  font-size: 0.86rem;
+  line-height: 1.4;
+  color: var(--lt-ink-2);
+}
+
+.lt-chapter-meta {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.lt-chapter-time {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--lt-ink-3);
+  white-space: nowrap;
+}
+.lt-check {
+  color: var(--lt-done);
+}
+
+@media (max-width: 640px) {
+  .lt-root { padding: 28px 16px 88px; }
+  .lt-page-title { font-size: 1.8rem; }
+  .lt-chapter-row { gap: 12px; padding: 14px 6px; }
+  .lt-chapter-blurb { display: none; }
+}

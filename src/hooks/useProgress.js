@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { db } from '../firebase/config';
 import { doc, onSnapshot, updateDoc, setDoc, getDoc, serverTimestamp, arrayUnion, deleteField, runTransaction } from 'firebase/firestore';
 import { buildFlagEntry, flagKeyFor } from '../services/selectors/flaggedQuestions';
-import { markLessonComplete as markComplete, markLessonIncomplete } from '../services/progressService';
+import { markLessonComplete as markComplete, markLessonIncomplete, markChapterComplete as markChapterRead, markChapterIncomplete as markChapterUnread } from '../services/progressService';
 // Corpus-free (bundleGuard-safe): one-time upgrade of persisted format-1
 // plans whose weeks lack both-section drill activities.
 import { upgradeLegacyPlanWeeks, planNeedsUpgrade, PLAN_FORMAT_VERSION } from '../services/planFormatUpgrade';
@@ -70,6 +70,9 @@ const warnBestEffortSaveOnce = () => {
  */
 export const useProgress = (userId) => {
   const [completedLessons, setCompletedLessons] = useState({});
+  // Learn-tab chapter read-state — a keyed map { [chapterId]: { completed } } on
+  // progress/{uid}, cloned from the completedLessons pattern (see progressService).
+  const [chaptersRead, setChaptersRead] = useState({});
   const [practiceProgress, setPracticeProgress] = useState({});
   const [drillDays, setDrillDays] = useState([]);
   const [reviewQueue, setReviewQueue] = useState({});
@@ -178,6 +181,9 @@ export const useProgress = (userId) => {
           }
 
           setCompletedLessons(completedLessonsData);
+
+          // Learn-tab chapter read-state (nested map).
+          setChaptersRead(data.chaptersRead || {});
 
           // Also get practice progress
           setPracticeProgress(data.practiceProgress || {});
@@ -339,6 +345,7 @@ export const useProgress = (userId) => {
           }
         } else {
           setCompletedLessons({});
+          setChaptersRead({});
           setPracticeProgress({});
           setDrillDays([]);
           setReviewQueue({});
@@ -495,6 +502,58 @@ export const useProgress = (userId) => {
     const lessonKey = `${moduleId}-${lessonId}`;
     return completedLessons[lessonKey]?.completed || false;
   };
+
+  // ===== Learn-tab chapter read-state =====
+  // Mirrors markLessonComplete: optimistic update + rollback + error toast.
+
+  /**
+   * Marks a Learn-tab chapter as read (optimistic + rollback on failure).
+   * @param {string} chapterId - Chapter ID (e.g. 'math-quadratics')
+   * @param {Object} [chapterMeta] - Optional metadata (title, unitId)
+   */
+  const markChapterComplete = async (chapterId, chapterMeta = {}) => {
+    setChaptersRead(prev => ({
+      ...prev,
+      [chapterId]: { completed: true, chapterId, chapterTitle: chapterMeta.title || null, unitId: chapterMeta.unitId || null, completedAt: new Date() },
+    }));
+    try {
+      await markChapterRead(userId, chapterId, chapterMeta);
+    } catch (err) {
+      console.error('Failed to mark chapter complete:', err);
+      setChaptersRead(prev => {
+        const updated = { ...prev };
+        delete updated[chapterId];
+        return updated;
+      });
+      setError(err.message);
+      showToast({ type: 'error', message: 'Could not save your change — check your connection.' });
+    }
+  };
+
+  /**
+   * Marks a Learn-tab chapter as unread (optimistic + rollback on failure).
+   * @param {string} chapterId - Chapter ID
+   */
+  const unmarkChapterComplete = async (chapterId) => {
+    const prevEntry = chaptersRead[chapterId];
+    if (!prevEntry?.completed) return;
+    setChaptersRead(prev => ({ ...prev, [chapterId]: { ...prev[chapterId], completed: false } }));
+    try {
+      await markChapterUnread(userId, chapterId);
+    } catch (err) {
+      console.error('Failed to mark chapter incomplete:', err);
+      setChaptersRead(prev => ({ ...prev, [chapterId]: prevEntry }));
+      setError(err.message);
+      showToast({ type: 'error', message: 'Could not save your change — check your connection.' });
+    }
+  };
+
+  /**
+   * Checks whether a Learn-tab chapter is marked read.
+   * @param {string} chapterId - Chapter ID
+   * @returns {boolean}
+   */
+  const isChapterComplete = (chapterId) => !!chaptersRead[chapterId]?.completed;
 
   /**
    * Gets module progress percentage
@@ -1307,6 +1366,7 @@ export const useProgress = (userId) => {
 
   return {
     completedLessons,
+    chaptersRead,
     practiceProgress,
     drillDays,
     reviewQueue,
@@ -1332,6 +1392,10 @@ export const useProgress = (userId) => {
     markLessonComplete,
     toggleLessonComplete,
     isLessonCompleted,
+    // Learn-tab chapter read-state
+    markChapterComplete,
+    unmarkChapterComplete,
+    isChapterComplete,
     getModuleProgress,
     // Practice functions (drill-based; legacy section-based writers/readers
     // were removed with the standard/prescriptive practice UI)

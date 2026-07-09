@@ -260,7 +260,7 @@ const BlockRenderers = {
   ),
 };
 
-const SectionContent = ({ section }) => {
+export const SectionContent = ({ section }) => {
   if (!section || !section.blocks) return null;
 
   return (
