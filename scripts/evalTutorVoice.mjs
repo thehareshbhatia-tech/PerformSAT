@@ -9,11 +9,15 @@
  * openers, closing ceremony, missing contractions, exclamation spam,
  * bullet-pointed conversation, self-reference as an AI.
  *
- * Usage:
- *   ANTHROPIC_API_KEY=sk-ant-... node scripts/evalTutorVoice.mjs
- *   ANTHROPIC_API_KEY=... node scripts/evalTutorVoice.mjs --scenario=frustrated
- *   ANTHROPIC_API_KEY=... node scripts/evalTutorVoice.mjs --full   # print full replies
+ * Two ways to run:
+ *   1. Direct Anthropic call (fastest):
+ *      ANTHROPIC_API_KEY=sk-ant-... node scripts/evalTutorVoice.mjs
+ *   2. Through the DEPLOYED aiTutor Cloud Function — the real production path,
+ *      authenticated as the dogfood test account (same env vars the e2e suite
+ *      uses; the Firebase web key is read from .env.local automatically):
+ *      PERFORMSAT_TEST_EMAIL=... PERFORMSAT_TEST_PASSWORD=... node scripts/evalTutorVoice.mjs
  *
+ * Flags: --scenario=<id> to run one, --full to print untruncated replies.
  * Exit code 0 when every scenario passes the lint; 1 otherwise — safe to wire
  * into a pre-deploy check later.
  */
@@ -23,10 +27,42 @@ import { dirname, join } from 'node:path';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const API_KEY = process.env.ANTHROPIC_API_KEY;
-if (!API_KEY) {
-  console.error('ANTHROPIC_API_KEY is required. Usage: ANTHROPIC_API_KEY=... node scripts/evalTutorVoice.mjs');
+const TEST_EMAIL = process.env.PERFORMSAT_TEST_EMAIL;
+const TEST_PASSWORD = process.env.PERFORMSAT_TEST_PASSWORD;
+if (!API_KEY && !(TEST_EMAIL && TEST_PASSWORD)) {
+  console.error('Provide ANTHROPIC_API_KEY (direct mode) or PERFORMSAT_TEST_EMAIL + PERFORMSAT_TEST_PASSWORD (production-function mode).');
   process.exit(1);
 }
+
+// ── Production-function mode helpers ─────────────────────────────────────────
+// Reads CRA-style keys out of .env.local without a dotenv dependency.
+const readEnvLocal = (key) => {
+  try {
+    const env = readFileSync(join(ROOT, '.env.local'), 'utf8');
+    const line = env.split('\n').find((l) => l.startsWith(`${key}=`));
+    return line ? line.slice(key.length + 1).trim() : null;
+  } catch {
+    return null;
+  }
+};
+
+const AI_TUTOR_URL = readEnvLocal('REACT_APP_AI_TUTOR_URL') || 'https://aitutor-ki77ua6x2a-uc.a.run.app';
+
+/** Sign in the dogfood test account via the Identity Toolkit REST API. */
+const signInTestAccount = async () => {
+  const webKey = readEnvLocal('REACT_APP_FIREBASE_API_KEY');
+  if (!webKey) throw new Error('REACT_APP_FIREBASE_API_KEY not found in .env.local');
+  const res = await fetch(
+    `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${webKey}`,
+    {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: TEST_EMAIL, password: TEST_PASSWORD, returnSecureToken: true }),
+    }
+  );
+  if (!res.ok) throw new Error(`Test-account sign-in failed: ${res.status} ${(await res.text()).slice(0, 200)}`);
+  return (await res.json()).idToken;
+};
 
 const args = process.argv.slice(2);
 const onlyScenario = (args.find((a) => a.startsWith('--scenario=')) || '').split('=')[1] || null;
@@ -146,26 +182,47 @@ const lintReply = (text) => {
 };
 
 // ── Run ──────────────────────────────────────────────────────────────────────
+let idTokenPromise = null;
+
 const callClaude = async (system, messages) => {
-  const res = await fetch('https://api.anthropic.com/v1/messages', {
+  if (API_KEY) {
+    // Direct mode: mirror the Cloud Function's exact production parameters.
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': API_KEY,
+        'anthropic-version': '2023-06-01',
+      },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-6',
+        max_tokens: 3000,
+        thinking: { type: 'disabled' },
+        output_config: { effort: 'medium' },
+        system,
+        messages,
+      }),
+    });
+    if (!res.ok) throw new Error(`API ${res.status}: ${(await res.text()).slice(0, 300)}`);
+    const data = await res.json();
+    return (data.content || []).filter((b) => b.type === 'text').map((b) => b.text).join('');
+  }
+  // Production-function mode: the REAL path students hit — deployed proxy,
+  // deployed model settings, buffered response ({content: string}).
+  if (!idTokenPromise) idTokenPromise = signInTestAccount();
+  const idToken = await idTokenPromise;
+  const res = await fetch(AI_TUTOR_URL, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'x-api-key': API_KEY,
-      'anthropic-version': '2023-06-01',
+      'Authorization': `Bearer ${idToken}`,
     },
-    body: JSON.stringify({
-      model: 'claude-sonnet-4-6',
-      max_tokens: 3000,
-      thinking: { type: 'disabled' },
-      output_config: { effort: 'medium' },
-      system,
-      messages,
-    }),
+    body: JSON.stringify({ messages, system, stream: false }),
   });
-  if (!res.ok) throw new Error(`API ${res.status}: ${(await res.text()).slice(0, 300)}`);
+  if (!res.ok) throw new Error(`aiTutor ${res.status}: ${(await res.text()).slice(0, 300)}`);
   const data = await res.json();
-  return (data.content || []).filter((b) => b.type === 'text').map((b) => b.text).join('');
+  if (typeof data.content !== 'string') throw new Error(`Unexpected aiTutor response shape: ${JSON.stringify(data).slice(0, 200)}`);
+  return data.content;
 };
 
 let failures = 0;
