@@ -38,6 +38,9 @@ const SUPPORTED_VISUAL_TYPES = [
   'horizontalShiftDiagram', 'verticalShiftDiagram',
   'exponentialGrowthDiagram',
   'percentChangeDiagram',
+  'adaptiveModuleFlowDiagram', 'scoreCompositionDiagram',
+  'moduleTimeBudgetDiagram', 'sentenceBoundaryDiagram',
+  'subjectVerbAgreementDiagram', 'transitionMapDiagram',
 ];
 
 const SEMANTIC_RULES = [

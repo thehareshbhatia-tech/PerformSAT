@@ -67,6 +67,7 @@ import { DEFAULT_GOAL_SCORE } from './services/selectors/goalProgress';
 import { buildLongitudinalEvidence } from './services/studyPlanMerger';
 import { generateStudyPlan as generateAIPlan } from './services/studyPlanService';
 import { logInfo, logWarn } from './utils/log';
+import { CB_MATH_SKILLS, CB_RW_SKILLS } from './data/questions/cbSkillTaxonomy';
 
 // ── Code-split view components (Stage 1 of the bundle-split plan) ──────────
 // Each heavy view loads as its own webpack chunk on first render. The single
@@ -310,12 +311,22 @@ const design = {
   }
 };
 
+// cbSkill slug → Practice-Bank domain slug, for landing a Learn chapter on its
+// domain. Built once from the CB taxonomy (math + R&W skills each carry .domain).
+const CB_SKILL_TO_DOMAIN = new Map(
+  [...CB_MATH_SKILLS, ...CB_RW_SKILLS].map((s) => [s.slug, s.domain]),
+);
+
 const PerformSAT = () => {
   const [activeModule, setActiveModule] = useState(null);
   const [activeLesson, setActiveLesson] = useState(null);
   const [activeSection, setActiveSection] = useState(null); // For section-based practice
   // Learn-tab reader target — the chapter id open in ChapterReader (view 'learnChapter').
   const [selectedChapterId, setSelectedChapterId] = useState(null);
+  // Practice-Bank focus hand-off from the Learn reader: {section, domain,
+  // skillSlugs, token}. A fresh token per request re-fires the scroll+highlight;
+  // it is cleared when the student reaches Practice by normal navigation.
+  const [practiceFocus, setPracticeFocus] = useState(null);
   // Lesson catalog (~300KB) loads as its own chunk only when a student enters
   // the Learn/Modules views — see loadLessonsChunk. `lessons` is the resolved
   // `allLessons` map, or null while the chunk is still in flight.
@@ -1110,6 +1121,23 @@ const PerformSAT = () => {
     }
     setPacingSession({ config, questions });
     setView('pacingDrill');
+  };
+
+  // Land the Practice Bank on a Learn chapter's skills. Derives {section,
+  // domain, skillSlugs} from the chapter (math → 'math', rw → 'rw'; domain via
+  // the CB taxonomy), stamps a fresh token so the bank re-fires its scroll +
+  // purple focus pulse, and navigates. Strategy chapters (cbSkills: []) never
+  // reach here — the reader hides the CTA for them.
+  const focusPracticeOnChapter = (chapter) => {
+    const skillSlugs = Array.isArray(chapter?.cbSkills) ? chapter.cbSkills : [];
+    if (skillSlugs.length === 0) { setPracticeFocus(null); setView('practiceBank'); return; }
+    const section = chapter.unitId && chapter.unitId.startsWith('rw') ? 'rw' : 'math';
+    let domain = null;
+    for (const slug of skillSlugs) {
+      if (CB_SKILL_TO_DOMAIN.has(slug)) { domain = CB_SKILL_TO_DOMAIN.get(slug); break; }
+    }
+    setPracticeFocus({ section, domain, skillSlugs, token: Date.now() });
+    setView('practiceBank');
   };
 
   const startAssignedPractice = async (questionIds, meta = {}) => {
@@ -2324,7 +2352,7 @@ const PerformSAT = () => {
 
   const paletteCommands = [
     { id: 'home', label: 'Go to Home', hint: 'Dashboard', icon: <ChartBarIcon size={16} />, run: () => { setView('dashboard'); setActiveModule(null); setActiveLesson(null); } },
-    { id: 'practice', label: 'Practice', hint: 'Practice bank', icon: <TargetIcon size={16} />, run: () => setView('practiceBank') },
+    { id: 'practice', label: 'Practice', hint: 'Practice bank', icon: <TargetIcon size={16} />, run: () => { setPracticeFocus(null); setView('practiceBank'); } },
     { id: 'studyPlan', label: 'Open Study Plan', hint: 'Your plan', icon: <CalendarIcon size={16} />, run: () => setView('studyPlan') },
     { id: 'tests', label: 'Practice Tests', hint: 'Full-length', icon: <ClipboardIcon size={16} />, run: () => { setView('practiceTests'); setSelectedPracticeTest(null); } },
     { id: 'tutor', label: 'Open AI Tutor', hint: 'Ask anything', icon: <BrainIcon size={16} />, run: () => { setView('tutor'); } },
@@ -2431,7 +2459,7 @@ const PerformSAT = () => {
           else if (navId === 'studyPlan') { setView('studyPlan'); }
           else if (navId === 'tutor') { setView('tutor'); }
           else if (navId === 'profile') { setView('profile'); }
-          else if (navId === 'practiceBank') { setView('practiceBank'); }
+          else if (navId === 'practiceBank') { setPracticeFocus(null); setView('practiceBank'); }
           else { setView(navId); }
         }}
         user={user}
@@ -2527,6 +2555,7 @@ const PerformSAT = () => {
             activeDrill={activeDrill}
             onResumeDrill={resumeActiveDrill}
             onDiscardDrill={clearActiveDrill}
+            focusRequest={practiceFocus}
           />
         )}
 
@@ -2549,7 +2578,7 @@ const PerformSAT = () => {
             }}
             onBack={() => { setView('learnTab'); setSelectedChapterId(null); }}
             onOpenChapter={(id) => setSelectedChapterId(id)}
-            onPractice={() => { setView('practiceBank'); }}
+            onPracticeSkills={focusPracticeOnChapter}
             onWatchVideos={(moduleId) => {
               const moduleLessons = (lessons && lessons[moduleId]) || [];
               setActiveModule(moduleId);

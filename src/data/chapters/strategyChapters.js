@@ -41,6 +41,11 @@ export const strategyChapters = [
           content: 'The most important thing to understand is that the test is **adaptive by module**. Module 1 of each section is a fixed mix of easy, medium, and hard questions. **How you do on Module 1 decides which Module 2 you get.** Score well on Module 1 and you unlock the *harder, higher-ceiling* Module 2 — the one whose questions are worth more and can carry you to a top score. Miss too many on Module 1 and you get the easier Module 2, whose score ceiling is capped lower no matter how many you get right.',
         },
         {
+          type: 'diagramRef',
+          visualType: 'adaptiveModuleFlowDiagram',
+          description: 'Your Module 1 accuracy routes you to a harder, higher-ceiling Module 2 or an easier, capped Module 2.',
+        },
+        {
           type: 'text',
           content: 'A few practical things follow from the digital, adaptive design. You cannot go back to a module once you submit it or once its timer runs out — so within a module, flag and revisit freely, but there is no returning to Reading and Writing after you start Math. Within a module you *can* move around: answer the easy ones first, flag the hard ones, and come back with whatever time is left. The on-screen countdown and a flag tool are built into Bluebook, and Math carries the Desmos calculator and a formula sheet on every question. None of this rewards memorizing obscure facts; it rewards steady accuracy on the questions you can already do.',
         },
@@ -51,6 +56,11 @@ export const strategyChapters = [
         {
           type: 'text',
           content: 'Scoring runs from **400 to 1600**. Each section is scored **200 to 800**, and the two add up to your composite. There is **no penalty for a wrong answer** — a blank and a wrong answer both score zero, but a guess has a chance of being right. That single rule drives one hard commitment: *never leave a question blank.* Even a random guess on a four-choice question gives you a 1-in-4 shot; a blank gives you nothing.',
+        },
+        {
+          type: 'diagramRef',
+          visualType: 'scoreCompositionDiagram',
+          description: 'The composite is just the two section scores added together: 200 to 800 each, 400 to 1600 total.',
         },
         {
           type: 'example',
@@ -106,6 +116,11 @@ export const strategyChapters = [
         {
           type: 'text',
           content: 'Pacing is a budget, not a race. In **Reading and Writing** you have about *1 minute 10 seconds* per question. Spend less than that on the grammar (conventions) questions — aim to finish those in **under 40 seconds** — so you bank extra time for the inference and synthesis questions that need real reading. In **Math** you have about *1 minute 35 seconds* per question; the early questions in a module are the quickest, so move briskly through them to leave room for the multi-step problems later.',
+        },
+        {
+          type: 'diagramRef',
+          visualType: 'moduleTimeBudgetDiagram',
+          description: 'Each module is a fixed time budget: 32 minutes for 27 R&W questions, 35 minutes for 22 Math questions.',
         },
         {
           type: 'text',

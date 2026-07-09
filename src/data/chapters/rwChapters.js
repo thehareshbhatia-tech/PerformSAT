@@ -605,6 +605,11 @@ export const rwChapters = [
           content: 'Cover the choices and figure out the relationship yourself. **Read sentence 1, read sentence 2, and name the connection** in plain words: *does 2 agree with 1, contradict it, result from it, give an example of it, or mark a time shift?* Then match. The transition families: **contrast** (however, but, nevertheless), **result** (therefore, thus, as a result), **addition** (also, in addition, moreover), **example** (for example, for instance), and **time** (previously, today, later).',
         },
         {
+          type: 'diagramRef',
+          visualType: 'transitionMapDiagram',
+          description: 'The five transition families and their signal words — name the relationship, then pick from its family.',
+        },
+        {
           type: 'text',
           content: 'Keep the scope tight: a transition links the sentence right before the blank to the sentence right after it — not the whole paragraph. Read just those two, decide the relationship in a word or two, then plug in your predicted family and confirm it reads smoothly. If two choices come from the same family (say, *however* and *nevertheless* are both contrast words), they are almost always both wrong, because the SAT will not give you two right answers — the correct choice comes from the family the other three do not. That two-same-means-both-out check quietly eliminates half the options on many transition questions.',
         },
@@ -771,6 +776,11 @@ export const rwChapters = [
           content: '**Two complete sentences** need strong punctuation: a period, a semicolon, or a comma *plus* a joining word (and, but, or, so). Right: *The lab ran overnight; the results came by morning.* Wrong (comma splice): *The lab ran overnight, the results came by morning.* **A dependent opener** (a part beginning with although, because, when, since, if) followed by a complete sentence takes a comma at the seam. Right: *Although the data was noisy, the trend was clear.*',
         },
         {
+          type: 'diagramRef',
+          visualType: 'sentenceBoundaryDiagram',
+          description: 'Two independent clauses join with a period, semicolon, or comma + FANBOYS; a comma alone is a comma splice.',
+        },
+        {
           type: 'text',
           content: '**A colon** works only after a complete sentence, and it introduces a list or an explanation. Right: *She had one goal: finish the map.* **A pair of dashes or commas** sets off extra information you could lift out. Right: *The bridge — built in 1932 — still carries traffic.* If a dash opens the aside, a dash must close it; do not mix a dash with a comma. **Use semicolons inside a list** only when the list items already contain their own commas.',
         },
@@ -852,6 +862,11 @@ export const rwChapters = [
         {
           type: 'text',
           content: '**Subject-verb agreement:** find the one word the verb is really about and ignore everything wedged between them. Right: *The box of old letters was heavy* (the subject is "box," singular — not "letters"). Phrases like *along with*, *as well as*, and *together with* do **not** change the subject\'s number. Words like *each*, *every*, *one of*, and *neither* are singular.',
+        },
+        {
+          type: 'diagramRef',
+          visualType: 'subjectVerbAgreementDiagram',
+          description: 'Match the verb to the real subject ("box"), not the decoy phrase wedged in between.',
         },
         {
           type: 'text',

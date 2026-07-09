@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useEffect } from 'react';
+import React, { useMemo, useState, useEffect, useRef } from 'react';
 import {
   questionBank as mathQuestionBank,
   getQuestionsByCBSkill,
@@ -263,8 +263,16 @@ const BandChip = ({ m }) => {
 // a calm grid of domain cards (topic list inline, question types one click away).
 // The drill builder lives behind a single "Build a custom drill" modal.
 // ────────────────────────────────────────────────────────────────────────────
-const PracticeBank = ({ onStartPractice, onStartAdaptive, bankPractice = {}, weaknesses = null, activeDrill = null, onResumeDrill, onDiscardDrill }) => {
+const PracticeBank = ({ onStartPractice, onStartAdaptive, bankPractice = {}, weaknesses = null, activeDrill = null, onResumeDrill, onDiscardDrill, focusRequest = null }) => {
   const [section, setSection] = useState('math');
+
+  // Chapter-hand-off focus: when the Learn reader sends {section, domain,
+  // skillSlugs, token}, jump to the right section, scroll the matching domain
+  // card into view, and pulse it (+ its target topic rows) purple = focus.
+  // Fires once per token so re-clicking "Practice these skills" re-triggers.
+  const browseRef = useRef(null);
+  const lastFocusToken = useRef(null);
+  const [focusPulse, setFocusPulse] = useState(null); // { domain, skillSlugs }
 
   // ── Custom drill builder (modal) ───────────────────────────────────────────
   const [builderOpen, setBuilderOpen] = useState(false);
@@ -360,6 +368,29 @@ const PracticeBank = ({ onStartPractice, onStartAdaptive, bankPractice = {}, wea
   );
   const builderAvailable = composedPool.ids.length;
   const allTopicsSelected = !!builderDomain && builderTopics.size === builderDomain.cbSkills.length;
+
+  // Apply an incoming chapter focus request. Guarded by token so a stale
+  // focusRequest (still held in App while the student navigates back via the
+  // nav bar) never re-fires — only a fresh token from a chapter CTA does.
+  useEffect(() => {
+    const token = focusRequest?.token;
+    if (!token || lastFocusToken.current === token) return undefined;
+    lastFocusToken.current = token;
+    if (focusRequest.section) setSection(focusRequest.section);
+    setFocusPulse({ domain: focusRequest.domain || null, skillSlugs: focusRequest.skillSlugs || [] });
+    // Delay the scroll so the section switch commits first, then land on the
+    // target domain card (falls back to the whole browse section).
+    const scrollTimer = setTimeout(() => {
+      const root = browseRef.current;
+      if (!root) return;
+      const target = (focusRequest.domain && root.querySelector(`[data-pb-domain="${focusRequest.domain}"]`)) || root;
+      if (target && typeof target.scrollIntoView === 'function') {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 120);
+    const clearTimer = setTimeout(() => setFocusPulse(null), 2600);
+    return () => { clearTimeout(scrollTimer); clearTimeout(clearTimer); };
+  }, [focusRequest]);
 
   // Escape closes the builder modal (listener mounted only while open).
   useEffect(() => {
@@ -616,14 +647,15 @@ const PracticeBank = ({ onStartPractice, onStartAdaptive, bankPractice = {}, wea
         {/* Practice by topic — the categorization: 4 domains, each listing its
             topics. Picking a topic launches an adaptive round over every
             question type inside it (difficulty ladders to performance). */}
-        <section className="pb-browse" aria-label={`${sectionLabel} topics`}>
+        <section className="pb-browse" aria-label={`${sectionLabel} topics`} ref={browseRef}>
           <div className="pb-section-label">Practice by topic</div>
           <div className="pb-grid" aria-label={`${sectionLabel} domains`}>
           {categories.map((cat, i) => {
             const a = accentFor(i);
             const dm = masteryByKey.get(`domain:${cat.domain}`) || EMPTY_MASTERY;
+            const domainPulse = !!focusPulse && focusPulse.domain === cat.domain;
             return (
-              <div className="pb-card" key={cat.domain}>
+              <div className={`pb-card${domainPulse ? ' pb-focus-pulse' : ''}`} data-pb-domain={cat.domain} key={cat.domain}>
                 <div className="pb-card-head">
                   <span className="pb-card-badge" style={{ background: a.badge, color: a.num }}>{num2(i + 1)}</span>
                   <div className="pb-card-headmain">
@@ -638,10 +670,11 @@ const PracticeBank = ({ onStartPractice, onStartAdaptive, bankPractice = {}, wea
                   {cat.cbSkills.map((skill) => {
                     const total = section === 'math' ? skill.total : skill.count;
                     const tm = masteryByKey.get(`topic:${skill.slug}`) || EMPTY_MASTERY;
+                    const skillPulse = !!focusPulse && focusPulse.skillSlugs.includes(skill.slug);
                     return (
                       <button
                         type="button"
-                        className="pb-trow-head"
+                        className={`pb-trow-head${skillPulse ? ' pb-focus-pulse-row' : ''}`}
                         key={skill.slug}
                         onClick={() => launchSkillDrill(skill)}
                       >

@@ -1672,6 +1672,410 @@ const PercentChangeDiagram = () => {
 };
 
 /* ═══════════════════════════════════════════════════════════════
+   24. ADAPTIVE MODULE FLOW  (Strategy ch 1 — signature concept)
+      Module 1 (fixed mix) → branch on accuracy →
+      harder, higher-ceiling Module 2  OR  easier, capped Module 2.
+   ═══════════════════════════════════════════════════════════════ */
+const AdaptiveModuleFlowDiagram = () => {
+  const W = 600, H = 380;
+  return (
+    <div style={DIAGRAM_STYLE}>
+      <svg viewBox={`0 0 ${W} ${H}`} style={{ maxWidth: 640, width: '100%' }}
+        aria-label="Adaptive module flow diagram: Module 1 performance routes you to a harder higher-ceiling Module 2 or an easier lower-ceiling Module 2">
+        <defs>
+          <linearGradient id="amf-bg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stopColor={COLORS.bgSubtle} />
+            <stop offset="100%" stopColor="#f1f5f9" />
+          </linearGradient>
+          <linearGradient id="amf-m1" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stopColor="#eef2ff" />
+            <stop offset="100%" stopColor="#e0e7ff" />
+          </linearGradient>
+          <linearGradient id="amf-hard" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stopColor="#f0fdf4" />
+            <stop offset="100%" stopColor="#dcfce7" />
+          </linearGradient>
+          <linearGradient id="amf-easy" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stopColor="#fff7ed" />
+            <stop offset="100%" stopColor="#ffedd5" />
+          </linearGradient>
+          <marker id="amf-arr-g" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto">
+            <polygon points="0 0, 8 3, 0 6" fill={COLORS.success} />
+          </marker>
+          <marker id="amf-arr-o" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto">
+            <polygon points="0 0, 8 3, 0 6" fill={COLORS.secondary} />
+          </marker>
+          <marker id="amf-arr-p" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto">
+            <polygon points="0 0, 8 3, 0 6" fill={COLORS.primary} />
+          </marker>
+        </defs>
+        <rect width={W} height={H} fill="url(#amf-bg)" rx="12" />
+
+        {/* Connectors (drawn first, under the cards) */}
+        <line x1={180} y1={200} x2={244} y2={200}
+          stroke={COLORS.primary} strokeWidth="2.5" markerEnd="url(#amf-arr-p)" />
+        {/* branch to harder M2 */}
+        <line x1={256} y1={196} x2={392} y2={96}
+          stroke={COLORS.success} strokeWidth="2.5" markerEnd="url(#amf-arr-g)" />
+        {/* branch to easier M2 */}
+        <line x1={256} y1={204} x2={392} y2={300}
+          stroke={COLORS.secondary} strokeWidth="2.5" markerEnd="url(#amf-arr-o)" />
+
+        {/* Module 1 card */}
+        <rect x={28} y={150} width={152} height={100} rx="14" fill="url(#amf-m1)"
+          stroke={COLORS.primary} strokeWidth="2.5" />
+        <text x={104} y={186} fontSize="17" fill={COLORS.primary} fontWeight="800"
+          textAnchor="middle" fontFamily={FONT}>Module 1</text>
+        <text x={104} y={210} fontSize="12" fill={COLORS.text} fontWeight="600"
+          textAnchor="middle" fontFamily={FONT}>fixed mix, same for all</text>
+        <text x={104} y={230} fontSize="11" fill={COLORS.axisLabel} fontWeight="600"
+          textAnchor="middle" fontFamily={FONT}>{'easy · medium · hard'}</text>
+
+        {/* Branch node */}
+        <circle cx={250} cy={200} r="7" fill={COLORS.axis} />
+
+        {/* Branch labels */}
+        <PillLabel x={318} y={140} text="score well" color={COLORS.success}
+          bgColor="#f0fdf4" borderColor={COLORS.success} fontSize={12} />
+        <PillLabel x={318} y={266} text="miss too many" color={COLORS.secondary}
+          bgColor="#fff7ed" borderColor={COLORS.secondary} fontSize={12} />
+
+        {/* Harder Module 2 card */}
+        <rect x={398} y={44} width={178} height={104} rx="14" fill="url(#amf-hard)"
+          stroke={COLORS.success} strokeWidth="2.5" />
+        <text x={476} y={76} fontSize="15" fill={COLORS.success} fontWeight="800"
+          textAnchor="middle" fontFamily={FONT}>{'Module 2 — Harder'}</text>
+        <text x={476} y={100} fontSize="12" fill={COLORS.text} fontWeight="700"
+          textAnchor="middle" fontFamily={FONT}>higher score ceiling</text>
+        <text x={476} y={122} fontSize="11" fill={COLORS.axisLabel} fontWeight="600"
+          textAnchor="middle" fontFamily={FONT}>reaches the top scores</text>
+        {/* ceiling gauge — full */}
+        <rect x={556} y={58} width="10" height="76" rx="5" fill="#fff" stroke={COLORS.grid} strokeWidth="1" />
+        <rect x={556} y={58} width="10" height="76" rx="5" fill={COLORS.success} opacity="0.85" />
+
+        {/* Easier Module 2 card */}
+        <rect x={398} y={252} width={178} height={104} rx="14" fill="url(#amf-easy)"
+          stroke={COLORS.secondary} strokeWidth="2.5" />
+        <text x={476} y={284} fontSize="15" fill={COLORS.secondary} fontWeight="800"
+          textAnchor="middle" fontFamily={FONT}>{'Module 2 — Easier'}</text>
+        <text x={476} y={308} fontSize="12" fill={COLORS.text} fontWeight="700"
+          textAnchor="middle" fontFamily={FONT}>lower score ceiling</text>
+        <text x={476} y={330} fontSize="11" fill={COLORS.axisLabel} fontWeight="600"
+          textAnchor="middle" fontFamily={FONT}>top score is capped</text>
+        {/* ceiling gauge — capped */}
+        <rect x={556} y={266} width="10" height="76" rx="5" fill="#fff" stroke={COLORS.grid} strokeWidth="1" />
+        <rect x={556} y={266 + 76 * 0.45} width="10" height={76 * 0.55} rx="5" fill={COLORS.secondary} opacity="0.85" />
+      </svg>
+    </div>
+  );
+};
+
+/* ═══════════════════════════════════════════════════════════════
+   25. SCORE COMPOSITION  (Strategy ch 1)
+      R&W (200–800) + Math (200–800) = Composite (400–1600).
+   ═══════════════════════════════════════════════════════════════ */
+const ScoreCompositionDiagram = () => {
+  const W = 560, H = 190;
+  return (
+    <div style={DIAGRAM_STYLE}>
+      <svg viewBox={`0 0 ${W} ${H}`} style={{ maxWidth: 580, width: '100%' }}
+        aria-label="Score composition diagram: Reading and Writing 200 to 800 plus Math 200 to 800 equals a composite of 400 to 1600">
+        <defs>
+          <linearGradient id="sc-bg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stopColor={COLORS.bgSubtle} />
+            <stop offset="100%" stopColor="#f1f5f9" />
+          </linearGradient>
+          <linearGradient id="sc-rw" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#eef2ff" />
+            <stop offset="100%" stopColor="#e0e7ff" />
+          </linearGradient>
+          <linearGradient id="sc-m" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#fff7ed" />
+            <stop offset="100%" stopColor="#ffedd5" />
+          </linearGradient>
+          <linearGradient id="sc-t" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#f0fdf4" />
+            <stop offset="100%" stopColor="#dcfce7" />
+          </linearGradient>
+        </defs>
+        <rect width={W} height={H} fill="url(#sc-bg)" rx="12" />
+
+        {/* R&W section box */}
+        <rect x={26} y={56} width={150} height={78} rx="12" fill="url(#sc-rw)"
+          stroke={COLORS.primary} strokeWidth="2.5" />
+        <text x={101} y={90} fontSize="13" fill={COLORS.primary} fontWeight="800"
+          textAnchor="middle" fontFamily={FONT}>Reading &amp; Writing</text>
+        <text x={101} y={114} fontSize="15" fill={COLORS.text} fontWeight="700"
+          textAnchor="middle" fontFamily={FONT}>{'200–800'}</text>
+
+        <text x={196} y={102} fontSize="26" fill={COLORS.axisLabel} fontWeight="800"
+          textAnchor="middle" fontFamily={FONT}>+</text>
+
+        {/* Math section box */}
+        <rect x={216} y={56} width={150} height={78} rx="12" fill="url(#sc-m)"
+          stroke={COLORS.secondary} strokeWidth="2.5" />
+        <text x={291} y={90} fontSize="13" fill={COLORS.secondary} fontWeight="800"
+          textAnchor="middle" fontFamily={FONT}>Math</text>
+        <text x={291} y={114} fontSize="15" fill={COLORS.text} fontWeight="700"
+          textAnchor="middle" fontFamily={FONT}>{'200–800'}</text>
+
+        <text x={386} y={102} fontSize="26" fill={COLORS.axisLabel} fontWeight="800"
+          textAnchor="middle" fontFamily={FONT}>=</text>
+
+        {/* Composite box */}
+        <rect x={406} y={46} width={128} height={98} rx="12" fill="url(#sc-t)"
+          stroke={COLORS.success} strokeWidth="2.5" />
+        <text x={470} y={84} fontSize="13" fill={COLORS.success} fontWeight="800"
+          textAnchor="middle" fontFamily={FONT}>Composite</text>
+        <text x={470} y={112} fontSize="18" fill={COLORS.text} fontWeight="800"
+          textAnchor="middle" fontFamily={FONT}>{'400–1600'}</text>
+
+        <text x={W / 2} y={30} fontSize="12" fill={COLORS.axisLabel} fontWeight="600"
+          textAnchor="middle" fontFamily={FONT}>Each section scores 200 to 800; the two add up.</text>
+      </svg>
+    </div>
+  );
+};
+
+/* ═══════════════════════════════════════════════════════════════
+   26. MODULE TIME BUDGET  (Strategy ch 2 — pacing)
+      Per-module time laid out as a budget bar; per-question pace.
+   ═══════════════════════════════════════════════════════════════ */
+const ModuleTimeBudgetDiagram = () => {
+  const W = 560, H = 250;
+  const barX = 46;
+  const maxW = 430;          // width for the longest module (35 min)
+  const rwW = maxW * (32 / 35);
+  const mathW = maxW;
+  const ticks = 4;           // quarter-budget guides
+
+  const budgetBar = (y, width, fill, stroke, title, inside, pace) => (
+    <g>
+      <text x={barX} y={y - 10} fontSize="13" fill={stroke} fontWeight="800" fontFamily={FONT}>{title}</text>
+      <rect x={barX} y={y} width={width} height={40} rx="10" fill={fill} stroke={stroke} strokeWidth="2" />
+      {Array.from({ length: ticks - 1 }, (_, i) => (
+        <line key={i} x1={barX + (width * (i + 1)) / ticks} y1={y + 4}
+          x2={barX + (width * (i + 1)) / ticks} y2={y + 36}
+          stroke="#fff" strokeWidth="1.5" strokeDasharray="3 3" opacity="0.8" />
+      ))}
+      <text x={barX + 14} y={y + 25} fontSize="13" fill={COLORS.text} fontWeight="700" fontFamily={FONT}>{inside}</text>
+      <text x={barX + width + 8} y={y + 25} fontSize="12" fill={COLORS.axisLabel} fontWeight="700" fontFamily={FONT}>{pace}</text>
+    </g>
+  );
+
+  return (
+    <div style={DIAGRAM_STYLE}>
+      <svg viewBox={`0 0 ${W} ${H}`} style={{ maxWidth: 580, width: '100%' }}
+        aria-label="Per-module time budget: Reading and Writing gives 32 minutes for 27 questions, Math gives 35 minutes for 22 questions">
+        <defs>
+          <linearGradient id="tb-bg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stopColor={COLORS.bgSubtle} />
+            <stop offset="100%" stopColor="#f1f5f9" />
+          </linearGradient>
+          <linearGradient id="tb-rw" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#c7d2fe" />
+            <stop offset="100%" stopColor="#a5b4fc" />
+          </linearGradient>
+          <linearGradient id="tb-m" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#fed7aa" />
+            <stop offset="100%" stopColor="#fdba74" />
+          </linearGradient>
+        </defs>
+        <rect width={W} height={H} fill="url(#tb-bg)" rx="12" />
+
+        {budgetBar(64, rwW, 'url(#tb-rw)', COLORS.primary,
+          'Reading & Writing module',
+          '27 questions', '32 min')}
+        {budgetBar(160, mathW, 'url(#tb-m)', COLORS.secondary,
+          'Math module',
+          '22 questions', '35 min')}
+
+        {/* pace callout */}
+        <CalloutCard x={46} y={H - 40} width={470}
+          text={'Per question: R&W about 1:10   ·   Math about 1:35'}
+          color={COLORS.warning} fontSize={13} />
+      </svg>
+    </div>
+  );
+};
+
+/* ═══════════════════════════════════════════════════════════════
+   27. SENTENCE BOUNDARY  (R&W Boundaries — core mental model)
+      Two independent clauses: valid joiners vs the comma splice.
+   ═══════════════════════════════════════════════════════════════ */
+const SentenceBoundaryDiagram = () => {
+  const W = 600, H = 336;
+  const optCard = (x, mark, label) => (
+    <g>
+      <rect x={x} y={150} width={166} height={62} rx="12" fill="#f0fdf4"
+        stroke={COLORS.success} strokeWidth="2" />
+      <text x={x + 83} y={182} fontSize="18" fill={COLORS.success} fontWeight="800"
+        textAnchor="middle" fontFamily={FONT}>{mark}</text>
+      <text x={x + 83} y={201} fontSize="11" fill={COLORS.text} fontWeight="700"
+        textAnchor="middle" fontFamily={FONT}>{label}</text>
+      <text x={x + 150} y={167} fontSize="14" fill={COLORS.success} fontWeight="800" fontFamily={FONT}>{'✓'}</text>
+    </g>
+  );
+  return (
+    <div style={DIAGRAM_STYLE}>
+      <svg viewBox={`0 0 ${W} ${H}`} style={{ maxWidth: 620, width: '100%' }}
+        aria-label="Sentence boundary diagram: two independent clauses joined by a period, semicolon, or comma plus FANBOYS are correct; a comma alone is a comma splice">
+        <defs>
+          <linearGradient id="sb-bg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stopColor={COLORS.bgSubtle} />
+            <stop offset="100%" stopColor="#f1f5f9" />
+          </linearGradient>
+        </defs>
+        <rect width={W} height={H} fill="url(#sb-bg)" rx="12" />
+
+        {/* Two independent clauses */}
+        <rect x={40} y={30} width={222} height={62} rx="12" fill="#eef2ff"
+          stroke={COLORS.primary} strokeWidth="2" />
+        <text x={151} y={58} fontSize="13" fill={COLORS.text} fontWeight="700"
+          textAnchor="middle" fontFamily={FONT}>The lab ran overnight</text>
+        <text x={151} y={80} fontSize="11" fill={COLORS.primary} fontWeight="700"
+          textAnchor="middle" fontFamily={FONT}>independent clause</text>
+
+        <text x={300} y={66} fontSize="20" fill={COLORS.axisLabel} fontWeight="800"
+          textAnchor="middle" fontFamily={FONT}>+</text>
+
+        <rect x={338} y={30} width={222} height={62} rx="12" fill="#eef2ff"
+          stroke={COLORS.primary} strokeWidth="2" />
+        <text x={449} y={58} fontSize="13" fill={COLORS.text} fontWeight="700"
+          textAnchor="middle" fontFamily={FONT}>the results came by morning</text>
+        <text x={449} y={80} fontSize="11" fill={COLORS.primary} fontWeight="700"
+          textAnchor="middle" fontFamily={FONT}>independent clause</text>
+
+        {/* Rule heading */}
+        <text x={W / 2} y={128} fontSize="13" fill={COLORS.text} fontWeight="700"
+          textAnchor="middle" fontFamily={FONT}>Two complete sentences? Join with exactly one of these:</text>
+
+        {/* Valid joiners */}
+        {optCard(40, '.', 'period')}
+        {optCard(217, ';', 'semicolon')}
+        {optCard(394, ', and', 'comma + FANBOYS')}
+
+        {/* The error */}
+        <rect x={150} y={244} width={300} height={64} rx="12" fill="#fef2f2"
+          stroke={COLORS.error} strokeWidth="2" />
+        <text x={172} y={284} fontSize="20" fill={COLORS.error} fontWeight="800" fontFamily={FONT}>,</text>
+        <text x={196} y={272} fontSize="13" fill={COLORS.text} fontWeight="700" fontFamily={FONT}>comma alone</text>
+        <text x={196} y={292} fontSize="11" fill={COLORS.error} fontWeight="700" fontFamily={FONT}>comma splice &mdash; wrong</text>
+        <text x={430} y={282} fontSize="18" fill={COLORS.error} fontWeight="800"
+          textAnchor="middle" fontFamily={FONT}>{'✗'}</text>
+      </svg>
+    </div>
+  );
+};
+
+/* ═══════════════════════════════════════════════════════════════
+   28. SUBJECT–VERB AGREEMENT  (R&W Form, Structure & Sense)
+      Strip the middle phrase; match the real subject to the verb.
+   ═══════════════════════════════════════════════════════════════ */
+const SubjectVerbAgreementDiagram = () => {
+  const W = 600, H = 260;
+  return (
+    <div style={DIAGRAM_STYLE}>
+      <svg viewBox={`0 0 ${W} ${H}`} style={{ maxWidth: 620, width: '100%' }}
+        aria-label="Subject-verb agreement diagram: the subject box is singular, the phrase in between is a decoy, and the verb must agree with the subject not the decoy">
+        <defs>
+          <linearGradient id="sv-bg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stopColor={COLORS.bgSubtle} />
+            <stop offset="100%" stopColor="#f1f5f9" />
+          </linearGradient>
+        </defs>
+        <rect width={W} height={H} fill="url(#sv-bg)" rx="12" />
+
+        {/* Agreement arc */}
+        <path d="M 92 96 Q 300 34 452 96" fill="none"
+          stroke={COLORS.success} strokeWidth="2.5" strokeDasharray="6 4" />
+        <PillLabel x={300} y={54} text="subject + verb must agree" color={COLORS.success}
+          bgColor="#f0fdf4" borderColor={COLORS.success} fontSize={12} />
+
+        {/* Subject */}
+        <text x={92} y={128} fontSize="19" fill={COLORS.primary} fontWeight="800"
+          textAnchor="middle" fontFamily={FONT}>The box</text>
+        <line x1={54} y1={138} x2={130} y2={138} stroke={COLORS.primary} strokeWidth="2.5" />
+        <text x={92} y={158} fontSize="11" fill={COLORS.primary} fontWeight="700"
+          textAnchor="middle" fontFamily={FONT}>subject (singular)</text>
+
+        {/* Decoy phrase */}
+        <text x={252} y={128} fontSize="17" fill={COLORS.textMuted} fontWeight="600"
+          textAnchor="middle" fontFamily={FONT}>of old letters</text>
+        <line x1={196} y1={122} x2={308} y2={122} stroke={COLORS.error} strokeWidth="2" />
+        <text x={252} y={158} fontSize="11" fill={COLORS.axisLabel} fontWeight="700"
+          textAnchor="middle" fontFamily={FONT}>decoy phrase &mdash; ignore</text>
+
+        {/* Verb */}
+        <text x={452} y={128} fontSize="19" fill={COLORS.secondary} fontWeight="800"
+          textAnchor="middle" fontFamily={FONT}>was heavy</text>
+        <text x={452} y={158} fontSize="11" fill={COLORS.secondary} fontWeight="700"
+          textAnchor="middle" fontFamily={FONT}>verb</text>
+
+        {/* Correct vs wrong */}
+        <rect x={96} y={196} width={180} height={44} rx="10" fill="#f0fdf4"
+          stroke={COLORS.success} strokeWidth="2" />
+        <text x={114} y={223} fontSize="15" fill={COLORS.success} fontWeight="800" fontFamily={FONT}>{'✓'}</text>
+        <text x={136} y={223} fontSize="13" fill={COLORS.text} fontWeight="700" fontFamily={FONT}>was (singular)</text>
+
+        <rect x={320} y={196} width={200} height={44} rx="10" fill="#fef2f2"
+          stroke={COLORS.error} strokeWidth="2" />
+        <text x={338} y={223} fontSize="15" fill={COLORS.error} fontWeight="800" fontFamily={FONT}>{'✗'}</text>
+        <text x={360} y={223} fontSize="13" fill={COLORS.text} fontWeight="700" fontFamily={FONT}>were (matches decoy)</text>
+      </svg>
+    </div>
+  );
+};
+
+/* ═══════════════════════════════════════════════════════════════
+   29. TRANSITION MAP  (R&W Transitions)
+      The five transition families and their signal words.
+   ═══════════════════════════════════════════════════════════════ */
+const TransitionMapDiagram = () => {
+  const W = 560, H = 372;
+  const rows = [
+    { label: 'Contrast', words: 'however · but · yet · nevertheless', color: COLORS.error, bg: '#fef2f2' },
+    { label: 'Cause / Result', words: 'therefore · thus · so · as a result', color: COLORS.secondary, bg: '#fff7ed' },
+    { label: 'Addition', words: 'also · in addition · moreover', color: COLORS.primary, bg: '#eef2ff' },
+    { label: 'Example', words: 'for example · for instance', color: COLORS.accent1, bg: '#ecfeff' },
+    { label: 'Time', words: 'previously · today · later', color: COLORS.warning, bg: '#fffbeb' },
+  ];
+  const rowH = 56, gap = 10, top = 44;
+  return (
+    <div style={DIAGRAM_STYLE}>
+      <svg viewBox={`0 0 ${W} ${H}`} style={{ maxWidth: 580, width: '100%' }}
+        aria-label="Transition map: five families — contrast, cause and result, addition, example, and time — with their signal words">
+        <defs>
+          <linearGradient id="tm-bg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stopColor={COLORS.bgSubtle} />
+            <stop offset="100%" stopColor="#f1f5f9" />
+          </linearGradient>
+        </defs>
+        <rect width={W} height={H} fill="url(#tm-bg)" rx="12" />
+
+        <text x={W / 2} y={28} fontSize="13" fill={COLORS.text} fontWeight="700"
+          textAnchor="middle" fontFamily={FONT}>Name the relationship, then pick from its family.</text>
+
+        {rows.map((r, i) => {
+          const y = top + i * (rowH + gap);
+          return (
+            <g key={r.label}>
+              <rect x={30} y={y} width={500} height={rowH} rx="10" fill={r.bg}
+                stroke={COLORS.grid} strokeWidth="1" />
+              <rect x={30} y={y} width="5" height={rowH} rx="2.5" fill={r.color} />
+              <text x={52} y={y + rowH / 2 + 5} fontSize="14" fill={r.color} fontWeight="800"
+                fontFamily={FONT}>{r.label}</text>
+              <text x={200} y={y + rowH / 2 + 5} fontSize="13" fill={COLORS.text} fontWeight="600"
+                fontFamily={FONT}>{r.words}</text>
+            </g>
+          );
+        })}
+      </svg>
+    </div>
+  );
+};
+
+/* ═══════════════════════════════════════════════════════════════
    REGISTRY — maps visualType strings to components
    ═══════════════════════════════════════════════════════════════ */
 const visualRegistry = {
@@ -1698,6 +2102,12 @@ const visualRegistry = {
   verticalShiftDiagram: VerticalShiftDiagram,
   exponentialGrowthDiagram: ExponentialGrowthDiagram,
   percentChangeDiagram: PercentChangeDiagram,
+  adaptiveModuleFlowDiagram: AdaptiveModuleFlowDiagram,
+  scoreCompositionDiagram: ScoreCompositionDiagram,
+  moduleTimeBudgetDiagram: ModuleTimeBudgetDiagram,
+  sentenceBoundaryDiagram: SentenceBoundaryDiagram,
+  subjectVerbAgreementDiagram: SubjectVerbAgreementDiagram,
+  transitionMapDiagram: TransitionMapDiagram,
 };
 
 const LessonVisualRenderer = ({ type }) => {

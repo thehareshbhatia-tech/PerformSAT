@@ -85,6 +85,10 @@ const SUPPORTED_VISUAL_TYPES = [
   'parallelLinesDiagram', 'perpendicularLinesDiagram',
   'slopeFromGraphDiagram', 'slopeFromTableDiagram',
   'yInterceptDiagram', 'parabolaFromGraphDiagram',
+  // Strategy + R&W chapter diagrams
+  'adaptiveModuleFlowDiagram', 'scoreCompositionDiagram',
+  'moduleTimeBudgetDiagram', 'sentenceBoundaryDiagram',
+  'subjectVerbAgreementDiagram', 'transitionMapDiagram',
 ];
 
 export const SECTION_QUALITY = {

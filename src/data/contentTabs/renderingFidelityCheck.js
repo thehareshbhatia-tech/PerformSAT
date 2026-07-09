@@ -45,6 +45,9 @@ const VISUAL_REGISTRY = new Set([
   'horizontalShiftDiagram', 'verticalShiftDiagram',
   'exponentialGrowthDiagram',
   'percentChangeDiagram',
+  'adaptiveModuleFlowDiagram', 'scoreCompositionDiagram',
+  'moduleTimeBudgetDiagram', 'sentenceBoundaryDiagram',
+  'subjectVerbAgreementDiagram', 'transitionMapDiagram',
 ]);
 
 const UNICODE_MATH_PATTERNS = [

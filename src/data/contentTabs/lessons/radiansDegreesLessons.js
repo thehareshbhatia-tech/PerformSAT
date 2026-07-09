@@ -5,7 +5,7 @@ export const radiansDegreesLessonTabs = {
     "sections": {
       "learn": {
         "title": "Learn",
-        "summary": "Degrees and radians are two units for measuring angles. A full rotation equals 360° or 2π radians, and every conversion rests on the identity 180° = π radians.",
+        "summary": "A radian measures an angle by arc length; a full turn is $2\\pi$ radians, which reduces to the one identity every conversion needs, $180^\\circ = \\pi$ radians.",
         "blocks": [
           {
             "type": "heading",
@@ -13,69 +13,150 @@ export const radiansDegreesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "Degrees and radians are two ways to measure angles. $180° = \\pi$ radians. This one conversion factor is all you need."
+            "content": "A **radian** measures an angle by arc length. Lay the radius along the circle's edge; the angle that arc subtends at the center is exactly $1$ radian. Because the full circumference is $2\\pi r$, wrapping the radius around the circle takes $2\\pi$ of those arcs, so a full turn is $2\\pi$ radians. That fact, $360^\\circ = 2\\pi$ radians, reduces to the only identity you truly need: $180^\\circ = \\pi$ radians. It is not an arbitrary constant — it is the circumference over the radius, $\\frac{2\\pi r}{r}=2\\pi$, for a whole circle."
           },
           {
             "type": "text",
-            "content": "Degrees → radians: multiply by $\\frac{\\pi}{180}$. Radians → degrees: multiply by $\\frac{180}{\\pi}$. Common values to memorize: $90° = \\frac{\\pi}{2}$, $60° = \\frac{\\pi}{3}$, $45° = \\frac{\\pi}{4}$, $30° = \\frac{\\pi}{6}$. For example, if angle $r = \\frac{2\\pi}{3}$ radians and angle $t$ is $\\frac{5\\pi}{12}$ radians greater than $r$, then $t = \\frac{2\\pi}{3} + \\frac{5\\pi}{12} = \\frac{13\\pi}{12}$ radians $= \\frac{13\\pi}{12} \\times \\frac{180}{\\pi} = 195°$."
-          },
-          {
-            "type": "formula",
-            "label": "Radians & Degrees — Core Rule",
-            "content": "$$\\pi\\ \\text{rad} = 180^\\circ,\\quad s = r\\theta\\ (\\theta\\ \\text{in radians})$$",
-            "note": "Use this after identifying what the question asks. Do not apply blindly."
+            "content": "Every conversion is one multiplication by a fraction equal to $1$. Degrees to radians: multiply by $\\dfrac{\\pi}{180^\\circ}$. Radians to degrees: multiply by $\\dfrac{180^\\circ}{\\pi}$. For example $150^\\circ \\times \\dfrac{\\pi}{180^\\circ}=\\dfrac{150\\pi}{180}=\\dfrac{5\\pi}{6}$, and in reverse $\\dfrac{\\pi}{3}\\times\\dfrac{180^\\circ}{\\pi}=60^\\circ$. Reduce the fraction to lowest terms, and reread the question — some ask for the reduced fraction, others for a quantity built from it."
           },
           {
             "type": "callout",
             "variant": "success",
-            "title": "Quick Example",
-            "content": "Convert $120°$ to radians: $120 \\times \\frac{\\pi}{180} = \\frac{2\\pi}{3}$."
+            "title": "Adding angles, then converting",
+            "content": "If angle $r = \\frac{2\\pi}{3}$ radians and angle $t$ is $\\frac{5\\pi}{12}$ radians larger, work in one unit throughout: $t = \\frac{2\\pi}{3} + \\frac{5\\pi}{12} = \\frac{8\\pi}{12} + \\frac{5\\pi}{12} = \\frac{13\\pi}{12}$. Convert only at the end: $\\frac{13\\pi}{12}\\times\\frac{180^\\circ}{\\pi} = 195^\\circ$. Converting each piece separately invites arithmetic slips — combine first, convert once."
+          },
+          {
+            "type": "formulaGrid",
+            "items": [
+              { "label": "Master identity", "formula": "$180^\\circ=\\pi\\ \\text{rad}$" },
+              { "label": "Degrees to radians", "formula": "$\\theta_{\\text{rad}}=\\theta_{\\text{deg}}\\cdot\\dfrac{\\pi}{180}$" },
+              { "label": "Radians to degrees", "formula": "$\\theta_{\\text{deg}}=\\theta_{\\text{rad}}\\cdot\\dfrac{180}{\\pi}$" },
+              { "label": "One radian", "formula": "$1\\ \\text{rad}\\approx 57.3^\\circ$" }
+            ]
           },
           {
             "type": "heading",
-            "content": "Common Mistake"
+            "content": "The Common Angles and the Unit Circle"
           },
           {
             "type": "text",
-            "content": "Students multiply by $\\frac{180}{\\pi}$ when they should multiply by $\\frac{\\pi}{180}$ (converting degrees to radians), or vice versa. Check your answer: degrees should be a \"normal\" number (30, 45, 60, 90, etc.). Radians should involve $\\pi$ and be a fraction of $\\pi$. If your radian answer is $> 7$, you probably converted the wrong direction."
+            "content": "A handful of landmark angles cover most questions; read each denominator as the fraction of $180^\\circ$ it represents: $30^\\circ=\\frac{\\pi}{6}$, $45^\\circ=\\frac{\\pi}{4}$, $60^\\circ=\\frac{\\pi}{3}$, $90^\\circ=\\frac{\\pi}{2}$, and $180^\\circ=\\pi$. The denominator names the slice: a bigger denominator means a smaller angle, so $\\frac{\\pi}{6}$ is the smallest of the four and $\\frac{\\pi}{2}$ the largest. On the unit circle a point at angle $\\theta$ has coordinates $(\\cos\\theta,\\ \\sin\\theta)$, so the $x$-coordinate is the cosine and the $y$-coordinate is the sine, and every such point sits at distance $1$ from the origin. The quadrant fixes the signs: in Quadrant I both are positive, in Quadrant II ($\\frac{\\pi}{2}$ to $\\pi$) cosine is negative, in Quadrant III ($\\pi$ to $\\frac{3\\pi}{2}$) both are negative, and in Quadrant IV sine is negative. Because sine and cosine are coordinates on a unit-radius circle, neither can exceed $1$ in size — any value beyond that is automatically wrong. Worth knowing cold: $\\sin\\frac{\\pi}{6}=\\frac{1}{2}$, $\\cos\\frac{\\pi}{3}=\\frac{1}{2}$, and $\\sin\\frac{\\pi}{2}=1$."
+          },
+          {
+            "type": "table",
+            "title": "Landmark angles",
+            "headers": ["Degrees", "Radians", "$\\sin$", "$\\cos$"],
+            "rows": [
+              ["$0^\\circ$", "$0$", "$0$", "$1$"],
+              ["$30^\\circ$", "$\\frac{\\pi}{6}$", "$\\frac{1}{2}$", "$\\frac{\\sqrt{3}}{2}$"],
+              ["$45^\\circ$", "$\\frac{\\pi}{4}$", "$\\frac{\\sqrt{2}}{2}$", "$\\frac{\\sqrt{2}}{2}$"],
+              ["$60^\\circ$", "$\\frac{\\pi}{3}$", "$\\frac{\\sqrt{3}}{2}$", "$\\frac{1}{2}$"],
+              ["$90^\\circ$", "$\\frac{\\pi}{2}$", "$1$", "$0$"]
+            ]
           },
           {
             "type": "heading",
-            "content": "Test-Day Strategy"
+            "content": "Arc Length and Sector Area"
           },
           {
             "type": "text",
-            "content": "Lock unit first (degrees or radians), then convert once. Use the correction rule above as your final verification step before selecting an answer."
+            "content": "Radians make circle measurements clean. When the central angle $\\theta$ is in **radians**, arc length is $s=r\\theta$ and sector area is $A=\\frac{1}{2}r^2\\theta$. When the angle is in **degrees**, use the fraction-of-the-circle forms instead: arc length $=\\dfrac{\\theta}{360^\\circ}\\cdot 2\\pi r$ and sector area $=\\dfrac{\\theta}{360^\\circ}\\cdot\\pi r^2$, where $\\dfrac{\\theta}{360^\\circ}$ is simply the slice of the whole circle the angle covers. The two systems agree — a $\\frac{\\pi}{4}$-radian ($45^\\circ$) arc on radius $2$ is $s=2\\cdot\\frac{\\pi}{4}=\\frac{\\pi}{2}$, the same as $\\frac{45}{360}\\cdot 2\\pi(2)=\\frac{\\pi}{2}$. A $72^\\circ$ arc on radius $10$ is $\\frac{72}{360}=\\frac{1}{5}$ of the circumference $20\\pi$, so $s=4\\pi$. Check the angle's units before choosing a formula: the fastest way to a wrong answer is dropping a degree measure straight into $s=r\\theta$ or $A=\\frac{1}{2}r^2\\theta$."
+          },
+          {
+            "type": "trapCard",
+            "title": "Feeding degrees into a radian formula",
+            "wrong": "For a $60^\\circ$ sector on radius $6$, the arc length is $s=r\\theta=6\\cdot 60=360$.",
+            "correction": "The formula $s=r\\theta$ requires $\\theta$ in radians. Convert first: $60^\\circ=\\frac{\\pi}{3}$, so $s=6\\cdot\\frac{\\pi}{3}=2\\pi$. Equivalently $\\frac{60}{360}\\cdot 2\\pi(6)=2\\pi$."
+          },
+          {
+            "type": "heading",
+            "content": "The Desmos Mode Trap"
+          },
+          {
+            "type": "text",
+            "content": "The built-in Desmos calculator defaults to **radian mode**, so $\\sin(90)$ returns the sine of $90$ radians ($\\approx 0.894$), not the $1$ you expect from $90^\\circ$. Set the mode to match the units before evaluating — click the wrench, or convert the angle to radians yourself so the answer never depends on a setting. Radian mode is convenient for large angles: since $\\tan$ repeats every $\\pi$, $\\tan\\!\\left(\\frac{92\\pi}{3}\\right)=\\tan\\!\\left(\\frac{92\\pi}{3}-30\\pi\\right)=\\tan\\!\\left(\\frac{2\\pi}{3}\\right)=-\\sqrt{3}$. Lock the unit first and convert once; a radian answer larger than about $7$ where you expected a fraction of a turn signals a conversion in the wrong direction."
+          },
+          {
+            "type": "keyInsight",
+            "content": "Anchor everything on $180^\\circ = \\pi$ radians. From that one bridge you can convert either direction, place any landmark angle on the unit circle, and pick the right circle formula — $s=r\\theta$ and $A=\\frac{1}{2}r^2\\theta$ when the angle is in radians, or the $\\frac{\\theta}{360^\\circ}$ fraction of $2\\pi r$ and $\\pi r^2$ when it is in degrees. Confirm the angle's units and the calculator's mode before you compute, and the two systems stop competing and start agreeing."
           }
         ]
       },
       "practice": {
         "title": "Practice",
-        "summary": "Put \"Radians & Degrees\" into practice with a worked example and a checkpoint question.",
+        "summary": "Two worked examples and three checkpoint questions spanning conversion, arc length, sector area, quadrants, and the Desmos-mode trap.",
         "blocks": [
           {
             "type": "example",
-            "difficulty": "Easy",
-            "problem": "Convert $150°$ to radians.",
+            "difficulty": "Medium",
+            "problem": "Convert $150^\\circ$ to radians, then find the length of the arc it subtends on a circle of radius $6$.",
             "steps": [
               {
-                "label": "Apply factor",
-                "content": "$150 \\times \\frac{\\pi}{180}$"
+                "label": "Convert the angle",
+                "content": "$150^\\circ\\times\\dfrac{\\pi}{180^\\circ}=\\dfrac{150\\pi}{180}=\\dfrac{5\\pi}{6}$."
               },
               {
-                "label": "Reduce",
-                "content": "$\\frac{150}{180} = \\frac{5}{6}$"
+                "label": "Use the radian arc formula",
+                "content": "$s=r\\theta=6\\cdot\\dfrac{5\\pi}{6}=5\\pi$."
               },
               {
-                "label": "Answer",
-                "content": "$\\dfrac{5\\pi}{6}$"
+                "label": "Check with the degree form",
+                "content": "$\\dfrac{150}{360}\\cdot 2\\pi(6)=\\dfrac{5}{12}\\cdot 12\\pi=5\\pi$. $\\checkmark$"
+              }
+            ]
+          },
+          {
+            "type": "example",
+            "difficulty": "Medium",
+            "problem": "A sprinkler waters a circular sector of radius $15$ feet through a central angle of $120^\\circ$. What area does it cover?",
+            "steps": [
+              {
+                "label": "Find the fraction of the circle",
+                "content": "$120^\\circ$ is $\\dfrac{120}{360}=\\dfrac{1}{3}$ of a full turn."
+              },
+              {
+                "label": "Take that share of the area",
+                "content": "The full area is $\\pi(15)^2=225\\pi$, so the sector is $\\dfrac{1}{3}(225\\pi)=75\\pi$ square feet."
+              },
+              {
+                "label": "Radian check",
+                "content": "$120^\\circ=\\frac{2\\pi}{3}$, and $A=\\frac{1}{2}r^2\\theta=\\frac{1}{2}(225)\\cdot\\frac{2\\pi}{3}=75\\pi$. $\\checkmark$"
+              }
+            ]
+          },
+          {
+            "type": "example",
+            "difficulty": "Hard",
+            "problem": "An arc on a circle of radius $9$ has length $6\\pi$. What is the measure of its central angle, in both radians and degrees?",
+            "steps": [
+              {
+                "label": "Solve the radian arc formula for the angle",
+                "content": "From $s=r\\theta$, $\\theta=\\dfrac{s}{r}=\\dfrac{6\\pi}{9}=\\dfrac{2\\pi}{3}$ radians."
+              },
+              {
+                "label": "Convert to degrees",
+                "content": "$\\dfrac{2\\pi}{3}\\times\\dfrac{180^\\circ}{\\pi}=\\dfrac{2\\cdot 180}{3}=120^\\circ$."
+              },
+              {
+                "label": "Check",
+                "content": "A $120^\\circ$ arc is $\\frac{1}{3}$ of the circle; the circumference is $2\\pi(9)=18\\pi$, and $\\frac{1}{3}(18\\pi)=6\\pi$. $\\checkmark$"
               }
             ]
           },
           {
             "type": "checkpointQuestion",
-            "question": "Convert $210°$ to radians and state the quadrant.",
-            "answer": "$210 \\times \\frac{\\pi}{180} = \\frac{210\\pi}{180} = \\frac{7\\pi}{6}$. Because $180° < 210° < 270°$, the angle is in Quadrant III."
+            "question": "Convert $\\dfrac{7\\pi}{6}$ radians to degrees and name the quadrant.",
+            "answer": "$\\dfrac{7\\pi}{6}\\times\\dfrac{180^\\circ}{\\pi}=\\dfrac{7\\cdot 180}{6}=210^\\circ$. Since $180^\\circ<210^\\circ<270^\\circ$, the angle is in Quadrant III."
+          },
+          {
+            "type": "checkpointQuestion",
+            "question": "The Desmos calculator is in radian mode. You type $\\sin(30)$ expecting $\\sin(30^\\circ)$. Why is the result wrong, and what is $\\sin(30^\\circ)$?",
+            "answer": "In radian mode $\\sin(30)$ is the sine of $30$ radians ($\\approx -0.988$), not of $30^\\circ$. Either switch to degree mode or enter $\\sin(\\pi/6)$. The exact value is $\\sin(30^\\circ)=\\dfrac{1}{2}$."
+          },
+          {
+            "type": "checkpointQuestion",
+            "question": "A pendulum of length $2$ meters swings through $\\dfrac{\\pi}{4}$ radians. How far does its tip travel?",
+            "answer": "The angle is already in radians, so $s=r\\theta=2\\cdot\\dfrac{\\pi}{4}=\\dfrac{\\pi}{2}$ meters. Degree check: $\\frac{\\pi}{4}=45^\\circ$, and $\\frac{45}{360}\\cdot 2\\pi(2)=\\frac{\\pi}{2}$. $\\checkmark$"
           }
         ]
       }

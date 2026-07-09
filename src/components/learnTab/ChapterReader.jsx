@@ -41,7 +41,7 @@ const CheckIcon = () => (
  * @param {(id: string) => void} props.onToggleComplete - mark/unmark complete
  * @param {() => void} props.onBack - return to the TOC
  * @param {(id: string) => void} props.onOpenChapter - open another chapter (prev/next)
- * @param {(chapter: object) => void} props.onPractice - hand off to the Practice tab
+ * @param {(chapter: object) => void} props.onPracticeSkills - land the Practice tab on this chapter's skills
  * @param {(moduleId: string) => void} props.onWatchVideos - open the module's videos
  * @returns {JSX.Element|null}
  */
@@ -51,7 +51,7 @@ const ChapterReader = ({
   onToggleComplete,
   onBack,
   onOpenChapter,
-  onPractice,
+  onPracticeSkills,
   onWatchVideos,
 }) => {
   const chapter = getChapter(chapterId);
@@ -114,6 +114,9 @@ const ChapterReader = ({
 
   const completed = isChapterComplete ? isChapterComplete(chapter.id) : false;
   const blocksSection = chapter.source?.kind === 'blocks' ? { blocks: chapter.source.blocks } : null;
+  // Strategy chapters carry no cbSkills — there is nothing to focus in the
+  // Practice Bank, so the "Practice these skills" CTA is hidden for them.
+  const hasPracticeSkills = Array.isArray(chapter.cbSkills) && chapter.cbSkills.length > 0;
 
   return (
     <div className="cr-root" ref={stageRef}>
@@ -153,23 +156,27 @@ const ChapterReader = ({
             {completed ? (<><CheckIcon /> Completed</>) : 'Mark chapter complete'}
           </button>
 
-          <div className="cr-keepgoing">
-            <span className="cr-keepgoing-label">Keep going</span>
-            <div className="cr-keepgoing-actions">
-              <button type="button" className="cr-ghost-btn" onClick={() => onPractice(chapter)}>
-                Practice these skills
-              </button>
-              {isContentTab && (
-                <button
-                  type="button"
-                  className="cr-ghost-btn"
-                  onClick={() => onWatchVideos(chapter.source.moduleId)}
-                >
-                  Watch the videos
-                </button>
-              )}
+          {(hasPracticeSkills || isContentTab) && (
+            <div className="cr-keepgoing">
+              <span className="cr-keepgoing-label">Keep going</span>
+              <div className="cr-keepgoing-actions">
+                {hasPracticeSkills && (
+                  <button type="button" className="cr-ghost-btn" onClick={() => onPracticeSkills(chapter)}>
+                    Practice these skills
+                  </button>
+                )}
+                {isContentTab && (
+                  <button
+                    type="button"
+                    className="cr-ghost-btn"
+                    onClick={() => onWatchVideos(chapter.source.moduleId)}
+                  >
+                    Watch the videos
+                  </button>
+                )}
+              </div>
             </div>
-          </div>
+          )}
 
           <nav className="cr-prevnext" aria-label="Chapter navigation">
             {prevChapter ? (
