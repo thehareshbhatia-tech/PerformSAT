@@ -17,7 +17,7 @@ export const trianglesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, the angle-sum property is tested directly (\"find the third angle\") and indirectly (in multi-step problems). If two angles are given, the third is $180° - (\\text{angle}_1 + \\text{angle}_2)$. In isosceles triangles, two equal sides mean two equal base angles. In triangle ABC, the measure of angle B is 52° and the measure of angle C is 17°. What is the measure of angle A? All right, we're dealing with a triangle. Triangle ABC. In triangle ABC, the measure of angle A, we do not know. That's what we're tryin."
+            "content": "On the SAT, the angle-sum property is tested directly (\"find the third angle\") and indirectly (in multi-step problems). If two angles are given, the third is $180° - (\\text{angle}_1 + \\text{angle}_2)$. In isosceles triangles, two equal sides mean two equal base angles. For example, in triangle $ABC$ with $\\angle B = 52°$ and $\\angle C = 17°$, the third angle is $\\angle A = 180° - (52° + 17°) = 111°$."
           },
           {
             "type": "formula",
@@ -95,7 +95,7 @@ export const trianglesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Types of Triangles by Angles (Triangle Fundamentals) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Tag triangle type first (right/similar/isosceles) before computing. In triangle ABC, the measure of angle B is 52° and the measure of angle C is 17°. What is the measure of angle A? All right, we're dealing with a triangle. Triangle ABC. In triangle ABC, the measure of angle A, we do not know. That's what we're tryin."
+            "content": "On the SAT, Types of Triangles by Angles (Triangle Fundamentals) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Tag triangle type first (right/similar/isosceles) before computing. For example, in triangle $ABC$ with $\\angle B = 52°$ and $\\angle C = 17°$, the third angle is $180° - 69° = 111°$ — obtuse, so this is an obtuse triangle."
           },
           {
             "type": "formula",
@@ -171,7 +171,7 @@ export const trianglesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Triangle Inequality Theorem (Triangle Fundamentals) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Tag triangle type first (right/similar/isosceles) before computing. In triangle ABC, the measure of angle B is 52° and the measure of angle C is 17°. What is the measure of angle A? All right, we're dealing with a triangle. Triangle ABC. In triangle ABC, the measure of angle A, we do not know. That's what we're tryin."
+            "content": "On the SAT, Triangle Inequality Theorem (Triangle Fundamentals) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Tag triangle type first (right/similar/isosceles) before computing. For example, sides of length $4$, $7$, and $x$ form a triangle only when $7 - 4 < x < 7 + 4$, i.e. $3 < x < 11$."
           },
           {
             "type": "formula",
@@ -247,7 +247,7 @@ export const trianglesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Simple Angles of a Triangle Example (Angles of a Triangle) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Tag triangle type first (right/similar/isosceles) before computing. In triangle ABC, the measure of angle B is 52° and the measure of angle C is 17°. What is the measure of angle A? All right, we're dealing with a triangle. Triangle ABC. In triangle ABC, the measure of angle A, we do not know. That's what we're tryin."
+            "content": "On the SAT, Simple Angles of a Triangle Example (Angles of a Triangle) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Tag triangle type first (right/similar/isosceles) before computing. For example, if $\\angle B = 52°$ and $\\angle C = 17°$, then $\\angle A = 180° - 69° = 111°$."
           },
           {
             "type": "formula",
@@ -323,7 +323,7 @@ export const trianglesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Complex Angles of a Triangle Example (Angles of a Triangle) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Tag triangle type first (right/similar/isosceles) before computing. In triangle RST, the measure of angle R is 63°. Which of the following could be the measure in degrees of angle S? All right, there's a triangle R ST. We are told that angle R has a measurement of 63° and we want to know the measurement of angle S. W."
+            "content": "On the SAT, Complex Angles of a Triangle Example (Angles of a Triangle) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Tag triangle type first (right/similar/isosceles) before computing. For example, if $\\angle R = 63°$, then $\\angle S$ must satisfy $\\angle S < 180° - 63° = 117°$, so any measure below $117°$ that leaves a positive third angle is possible."
           },
           {
             "type": "formula",
@@ -403,7 +403,7 @@ export const trianglesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Area of a Triangle (Area of a Triangle) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Height must be perpendicular to the chosen base. The figure shows the lengths in inches of two sides of a right triangle. What is the area of the triangle in square in? All right, we are dealing with a triangle and specifically we want to find the area of this triangle. Well, the area of a triangle."
+            "content": "On the SAT, Area of a Triangle (Area of a Triangle) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Height must be perpendicular to the chosen base. For example, in a right triangle the two legs serve as base and height, so the area is $\\frac{1}{2} \\times \\text{leg}_1 \\times \\text{leg}_2$."
           },
           {
             "type": "diagramRef",
@@ -484,7 +484,7 @@ export const trianglesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Simple Area of a Right Triangle Example (Area of a Triangle) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Tag triangle type first (right/similar/isosceles) before computing. The figure shows the lengths in inches of two sides of a right triangle. What is the area of the triangle in square in? All right, we are dealing with a triangle and specifically we want to find the area of this triangle. Well, the area of a triangle."
+            "content": "On the SAT, Simple Area of a Right Triangle Example (Area of a Triangle) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Tag triangle type first (right/similar/isosceles) before computing. For example, a right triangle with legs $6$ in and $8$ in has area $\\frac{1}{2} \\times 6 \\times 8 = 24$ square inches."
           },
           {
             "type": "diagramRef",
@@ -565,7 +565,7 @@ export const trianglesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Complex Area of a Right Triangle Example (Area of a Triangle) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Tag triangle type first (right/similar/isosceles) before computing. A right triangle has sides of length 2 radical 2, 6 radical 2, and radical 80 units. What is the area of the triangle in square units? All right, we're dealing with a right triangle, and we're asked to find the area of the right triangle. Now, rememb."
+            "content": "On the SAT, Complex Area of a Right Triangle Example (Area of a Triangle) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Tag triangle type first (right/similar/isosceles) before computing. For example, a right triangle with legs $2\\sqrt{2}$ and $6\\sqrt{2}$ and hypotenuse $\\sqrt{80}$ has area $\\frac{1}{2}(2\\sqrt{2})(6\\sqrt{2}) = \\frac{1}{2}(12 \\times 2) = 12$ square units."
           },
           {
             "type": "diagramRef",
@@ -646,7 +646,7 @@ export const trianglesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, similarity is established by AA (two pairs of equal angles), SAS, or SSS ratio. Once similar, set up a proportion: $\\frac{\\text{side}_1}{\\text{corresponding side}_2} = \\frac{\\text{side}_1}{\\text{corresponding side}_2}$. Cross-multiply and solve. Right triangles L MN N and PQR are similar where L and M correspond to P and Q respectively. Angle M has a measure of 53°. What is the measure of angle Q? All right, we are dealing with two right triangles here. specifically right triangle L M N and."
+            "content": "On the SAT, similarity is established by AA (two pairs of equal angles), SAS, or SSS ratio. Once similar, set up a proportion: $\\frac{\\text{side}_1}{\\text{corresponding side}_2} = \\frac{\\text{side}_1}{\\text{corresponding side}_2}$. Cross-multiply and solve. For example, if right triangles $LMN$ and $PQR$ are similar with $M$ corresponding to $Q$, then $\\angle Q = \\angle M = 53°$, since corresponding angles of similar triangles are equal."
           },
           {
             "type": "diagramRef",
@@ -729,7 +729,7 @@ export const trianglesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, similarity is established by AA (two pairs of equal angles), SAS, or SSS ratio. Once similar, set up a proportion: $\\frac{\\text{side}_1}{\\text{corresponding side}_2} = \\frac{\\text{side}_1}{\\text{corresponding side}_2}$. Cross-multiply and solve. Right triangles L MN N and PQR are similar where L and M correspond to P and Q respectively. Angle M has a measure of 53°. What is the measure of angle Q? All right, we are dealing with two right triangles here. specifically right triangle L M N and."
+            "content": "On the SAT, similarity is established by AA (two pairs of equal angles), SAS, or SSS ratio. Once similar, set up a proportion: $\\frac{\\text{side}_1}{\\text{corresponding side}_2} = \\frac{\\text{side}_1}{\\text{corresponding side}_2}$. Cross-multiply and solve. For example, two triangles are similar by AA when two pairs of angles match; their corresponding angles are then equal, so if $M$ corresponds to $Q$ and $\\angle M = 53°$, then $\\angle Q = 53°$."
           },
           {
             "type": "diagramRef",
@@ -816,7 +816,7 @@ export const trianglesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, similarity is established by AA (two pairs of equal angles), SAS, or SSS ratio. Once similar, set up a proportion: $\\frac{\\text{side}_1}{\\text{corresponding side}_2} = \\frac{\\text{side}_1}{\\text{corresponding side}_2}$. Cross-multiply and solve. Right triangles L MN N and PQR are similar where L and M correspond to P and Q respectively. Angle M has a measure of 53°. What is the measure of angle Q? All right, we are dealing with two right triangles here. specifically right triangle L M N and."
+            "content": "On the SAT, similarity is established by AA (two pairs of equal angles), SAS, or SSS ratio. Once similar, set up a proportion: $\\frac{\\text{side}_1}{\\text{corresponding side}_2} = \\frac{\\text{side}_1}{\\text{corresponding side}_2}$. Cross-multiply and solve. As above, corresponding angles are equal: if $M$ corresponds to $Q$ and $\\angle M = 53°$, then $\\angle Q = 53°$."
           },
           {
             "type": "diagramRef",
@@ -903,7 +903,7 @@ export const trianglesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, similarity is established by AA (two pairs of equal angles), SAS, or SSS ratio. Once similar, set up a proportion: $\\frac{\\text{side}_1}{\\text{corresponding side}_2} = \\frac{\\text{side}_1}{\\text{corresponding side}_2}$. Cross-multiply and solve. Right triangles PQR and STU are similar where P corresponds to S. If the measure of angle Q is 18°, what is the measure of angle S? Okay, we are told that right triangles PQR and STU are similar. Luckily, we don't have to draw them out. They were giv."
+            "content": "On the SAT, similarity is established by AA (two pairs of equal angles), SAS, or SSS ratio. Once similar, set up a proportion: $\\frac{\\text{side}_1}{\\text{corresponding side}_2} = \\frac{\\text{side}_1}{\\text{corresponding side}_2}$. Cross-multiply and solve. For example, if $PQR \\sim STU$ with $P$ corresponding to $S$, then $\\angle S = \\angle P$; use the triangle's known angles (including any right angle) and the $180°$ sum to find it."
           },
           {
             "type": "diagramRef",
@@ -990,7 +990,7 @@ export const trianglesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, similarity is established by AA (two pairs of equal angles), SAS, or SSS ratio. Once similar, set up a proportion: $\\frac{\\text{side}_1}{\\text{corresponding side}_2} = \\frac{\\text{side}_1}{\\text{corresponding side}_2}$. Cross-multiply and solve. Triangle XYZ is similar to triangle RST such that X Y and Z correspond to R S and T respectively. The measure of angle Z is 20° and 2XY = RS. What is the measure of angle T? All right, we're dealing with two similar triangles and so let's draw out th."
+            "content": "On the SAT, similarity is established by AA (two pairs of equal angles), SAS, or SSS ratio. Once similar, set up a proportion: $\\frac{\\text{side}_1}{\\text{corresponding side}_2} = \\frac{\\text{side}_1}{\\text{corresponding side}_2}$. Cross-multiply and solve. For example, if $XYZ \\sim RST$ with $Z$ corresponding to $T$ and $\\angle Z = 20°$, then $\\angle T = 20°$ — the side relationship $2XY = RS$ does not change corresponding angles."
           },
           {
             "type": "diagramRef",
@@ -1077,7 +1077,7 @@ export const trianglesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, similarity is established by AA (two pairs of equal angles), SAS, or SSS ratio. Once similar, set up a proportion: $\\frac{\\text{side}_1}{\\text{corresponding side}_2} = \\frac{\\text{side}_1}{\\text{corresponding side}_2}$. Cross-multiply and solve. Triangles E, F, GG, and J, KL are congruent, where E, F, and G correspond to J, K, and L respectively. The measure of angle E is 45° and the measure of angle F is 20°. What is the measure of angle J? All right, we're dealing with two triangles here."
+            "content": "On the SAT, similarity is established by AA (two pairs of equal angles), SAS, or SSS ratio. Once similar, set up a proportion: $\\frac{\\text{side}_1}{\\text{corresponding side}_2} = \\frac{\\text{side}_1}{\\text{corresponding side}_2}$. Cross-multiply and solve. For example, if triangles $EFG$ and $JKL$ are congruent with $E$ corresponding to $J$, then $\\angle J = \\angle E = 45°$."
           },
           {
             "type": "diagramRef",
@@ -1251,7 +1251,7 @@ export const trianglesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Right Triangles (Right Triangles & Pythagorean Theorem) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Tag triangle type first (right/similar/isosceles) before computing. For the right triangle shown, A= 4, B= 5, which expression represents the value of C. All right, remember the Pythagorean theorem is a theorem or an equation that allows us to find the missing side of a right triangle. Here's the theorem. A^2 + 2 = C."
+            "content": "On the SAT, Right Triangles (Right Triangles & Pythagorean Theorem) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Tag triangle type first (right/similar/isosceles) before computing. For example, for a right triangle with legs $A = 4$ and $B = 5$, the hypotenuse is $C = \\sqrt{A^2 + B^2} = \\sqrt{4^2 + 5^2} = \\sqrt{41}$."
           },
           {
             "type": "diagramRef",
@@ -1332,7 +1332,7 @@ export const trianglesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, you use it to find a missing side when two sides are given. CB also tests Pythagorean triples — integer side lengths that satisfy the theorem without computation: $3$-$4$-$5$, $5$-$12$-$13$, $8$-$15$-$17$, and their multiples. For the right triangle shown, A= 4, B= 5, which expression represents the value of C. All right, remember the Pythagorean theorem is a theorem or an equation that allows us to find the missing side of a right triangle. Here's the theorem. A^2 + 2 = C."
+            "content": "On the SAT, you use it to find a missing side when two sides are given. CB also tests Pythagorean triples — integer side lengths that satisfy the theorem without computation: $3$-$4$-$5$, $5$-$12$-$13$, $8$-$15$-$17$, and their multiples. For example, with legs $4$ and $5$, the hypotenuse is $\\sqrt{4^2 + 5^2} = \\sqrt{41}$, since $a^2 + b^2 = c^2$."
           },
           {
             "type": "diagramRef",
@@ -1415,7 +1415,7 @@ export const trianglesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, you use it to find a missing side when two sides are given. CB also tests Pythagorean triples — integer side lengths that satisfy the theorem without computation: $3$-$4$-$5$, $5$-$12$-$13$, $8$-$15$-$17$, and their multiples. For the right triangle shown, A= 4, B= 5, which expression represents the value of C. All right, remember the Pythagorean theorem is a theorem or an equation that allows us to find the missing side of a right triangle. Here's the theorem. A^2 + 2 = C."
+            "content": "On the SAT, you use it to find a missing side when two sides are given. CB also tests Pythagorean triples — integer side lengths that satisfy the theorem without computation: $3$-$4$-$5$, $5$-$12$-$13$, $8$-$15$-$17$, and their multiples. As above, apply $a^2 + b^2 = c^2$: legs $4$ and $5$ give hypotenuse $\\sqrt{4^2 + 5^2} = \\sqrt{41}$."
           },
           {
             "type": "diagramRef",
@@ -1502,7 +1502,7 @@ export const trianglesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, you use it to find a missing side when two sides are given. CB also tests Pythagorean triples — integer side lengths that satisfy the theorem without computation: $3$-$4$-$5$, $5$-$12$-$13$, $8$-$15$-$17$, and their multiples. In triangle ABC, angle B is a right angle. The length of side AB is 10 rad 37 and the length of side BC is 24 rad 37. What is the length of side AC? All right, we're dealing with a right triangle ABC where B is the right angle and the remainder of th."
+            "content": "On the SAT, you use it to find a missing side when two sides are given. CB also tests Pythagorean triples — integer side lengths that satisfy the theorem without computation: $3$-$4$-$5$, $5$-$12$-$13$, $8$-$15$-$17$, and their multiples. For example, in right triangle $ABC$ with the right angle at $B$, $AB = 10\\sqrt{37}$ and $BC = 24\\sqrt{37}$, so $AC = \\sqrt{(10\\sqrt{37})^2 + (24\\sqrt{37})^2} = \\sqrt{676 \\times 37} = 26\\sqrt{37}$."
           },
           {
             "type": "diagramRef",
@@ -1589,7 +1589,7 @@ export const trianglesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, you use it to find a missing side when two sides are given. CB also tests Pythagorean triples — integer side lengths that satisfy the theorem without computation: $3$-$4$-$5$, $5$-$12$-$13$, $8$-$15$-$17$, and their multiples. One leg of a right triangle has a length of 43.2 mm. The hypotenuse of the triangle has a length of 196.8 mm. What is the length of the other leg of the triangle in millime? All right, we are told that we are dealing with a right triangle in which on."
+            "content": "On the SAT, you use it to find a missing side when two sides are given. CB also tests Pythagorean triples — integer side lengths that satisfy the theorem without computation: $3$-$4$-$5$, $5$-$12$-$13$, $8$-$15$-$17$, and their multiples. For example, if one leg is $43.2$ mm and the hypotenuse is $196.8$ mm, the other leg is $\\sqrt{196.8^2 - 43.2^2} = \\sqrt{36864} = 192$ mm."
           },
           {
             "type": "diagramRef",
@@ -1676,7 +1676,7 @@ export const trianglesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, you use it to find a missing side when two sides are given. CB also tests Pythagorean triples — integer side lengths that satisfy the theorem without computation: $3$-$4$-$5$, $5$-$12$-$13$, $8$-$15$-$17$, and their multiples. A right triangle has legs with lengths of 24 cm and 21 cm. If the length of the triangle's hypotenuse in centimeters can be written in the form of 3 radical d where d is an integer, what is the value of d? All right, we're dealing with a right triang."
+            "content": "On the SAT, you use it to find a missing side when two sides are given. CB also tests Pythagorean triples — integer side lengths that satisfy the theorem without computation: $3$-$4$-$5$, $5$-$12$-$13$, $8$-$15$-$17$, and their multiples. For example, legs $24$ cm and $21$ cm give hypotenuse $\\sqrt{24^2 + 21^2} = \\sqrt{1017} = 3\\sqrt{113}$, so $d = 113$."
           },
           {
             "type": "diagramRef",
@@ -1767,7 +1767,7 @@ export const trianglesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Introduction to Trigonometry (SOH CAH TOA) (Trigonometric Ratios) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Tag triangle type first (right/similar/isosceles) before computing. In the right triangle shown, what is the value of s of a? Okay, we are looking to find s of an angle. Remember that s is one of the trigonometric ratios and s is opposite over hypotenuse. In this case, we are looking to find s of angle a and this is."
+            "content": "On the SAT, Introduction to Trigonometry (SOH CAH TOA) (Trigonometric Ratios) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Tag triangle type first (right/similar/isosceles) before computing. For example, $\\sin$ of an angle is the opposite side over the hypotenuse (SOH): if the side opposite angle $A$ is $3$ and the hypotenuse is $5$, then $\\sin A = \\frac{3}{5}$."
           },
           {
             "type": "formula",
@@ -1843,7 +1843,7 @@ export const trianglesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Simple Trigonometric Ratios Example #1 (Trigonometric Ratios) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Tag triangle type first (right/similar/isosceles) before computing. In the right triangle shown, what is the value of s of a? Okay, we are looking to find s of an angle. Remember that s is one of the trigonometric ratios and s is opposite over hypotenuse. In this case, we are looking to find s of angle a and this is."
+            "content": "On the SAT, Simple Trigonometric Ratios Example #1 (Trigonometric Ratios) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Tag triangle type first (right/similar/isosceles) before computing. For example, using SOH, $\\sin A = \\frac{\\text{opposite}}{\\text{hypotenuse}}$: read the side opposite $A$ and the hypotenuse from the figure and form the ratio."
           },
           {
             "type": "formula",
@@ -1923,7 +1923,7 @@ export const trianglesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Simple Trigonometric Ratios Example #2 (Trigonometric Ratios) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Tag triangle type first (right/similar/isosceles) before computing. In the triangle shown, what is the value of cosine of x? Okay, cosine is one of the trigatic ratios. Cosine is adjacent over hypotenuse. And so in this specific case, we are trying to find cosine of x°. Adjacent to this x is 11. Remember adjacent mea."
+            "content": "On the SAT, Simple Trigonometric Ratios Example #2 (Trigonometric Ratios) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Tag triangle type first (right/similar/isosceles) before computing. For example, using CAH, $\\cos x = \\frac{\\text{adjacent}}{\\text{hypotenuse}}$: if the side adjacent to $x$ is $11$, divide it by the hypotenuse."
           },
           {
             "type": "formula",
@@ -2003,7 +2003,7 @@ export const trianglesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Simple Trigonometric Ratios Example #3 (Trigonometric Ratios) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Tag triangle type first (right/similar/isosceles) before computing. In triangle J KL L cosine of K is 24 51 and angle J is a right angle. What is the value of cosine of L? All right, we're dealing with a right triangle in which J is the right angle and the remainder of the sides are K and L. Hence the name J K L. And."
+            "content": "On the SAT, Simple Trigonometric Ratios Example #3 (Trigonometric Ratios) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Tag triangle type first (right/similar/isosceles) before computing. For example, in right triangle $JKL$ with the right angle at $J$, if $\\cos K = \\frac{24}{51}$, then $JK = 24$ and $KL = 51$ give $JL = \\sqrt{51^2 - 24^2} = 45$, so $\\cos L = \\frac{45}{51} = \\frac{15}{17}$."
           },
           {
             "type": "formula",
@@ -2087,7 +2087,7 @@ export const trianglesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Simple Trigonometric Ratios Example #4 (Trigonometric Ratios) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Tag triangle type first (right/similar/isosceles) before computing. Triangle F GH is similar to triangle J K L where angle F corresponds to angle J and angles G and K are right angles. If S of F is 308 over 317, what is the value of S of J? All right, we are dealing with two right triangles here. In these right trian."
+            "content": "On the SAT, Simple Trigonometric Ratios Example #4 (Trigonometric Ratios) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Tag triangle type first (right/similar/isosceles) before computing. For example, if $FGH \\sim JKL$ with $F$ corresponding to $J$, then $\\sin J = \\sin F = \\frac{308}{317}$, since similar triangles share corresponding angle measures."
           },
           {
             "type": "formula",
@@ -2167,7 +2167,7 @@ export const trianglesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Simple Trigonometric Ratios Example #5 (Trigonometric Ratios) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Tag triangle type first (right/similar/isosceles) before computing. In right triangle R ST the sum of the measures of angle R and S is 90°. The value of S of R is radical 15 / 4. What is the value of cosine of S? All right, we are dealing with a right triangle and this right triangle is R ST and so let's label it R S."
+            "content": "On the SAT, Simple Trigonometric Ratios Example #5 (Trigonometric Ratios) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Tag triangle type first (right/similar/isosceles) before computing. For example, in right triangle $RST$ with $\\angle R + \\angle S = 90°$, the two acute angles are complementary, so $\\cos S = \\sin R = \\frac{\\sqrt{15}}{4}$."
           },
           {
             "type": "formula",
@@ -2247,7 +2247,7 @@ export const trianglesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Complex Trigonometric Ratios Example (Trigonometric Ratios) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Tag triangle type first (right/similar/isosceles) before computing. In triangle XYZ, angle Z is a right angle and the length of YZ is 24 units. If tan of X = 12 over 35, what is the perimeter in units of triangle XYZ? All right, we are dealing with triangle XYZ where Z is a right angle and so the remainder of sides i."
+            "content": "On the SAT, Complex Trigonometric Ratios Example (Trigonometric Ratios) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Tag triangle type first (right/similar/isosceles) before computing. For example, in right triangle $XYZ$ with the right angle at $Z$, $YZ = 24$, and $\\tan X = \\frac{12}{35} = \\frac{YZ}{XZ}$, we get $XZ = 70$ and hypotenuse $XY = \\sqrt{24^2 + 70^2} = 74$, so the perimeter is $24 + 70 + 74 = 168$ units."
           },
           {
             "type": "formula",
@@ -2331,7 +2331,7 @@ export const trianglesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, The 45-45-90 Triangle (Special Right Triangles) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Tag triangle type first (right/similar/isosceles) before computing. An isoclesles right triangle has a hypotenuse of length 58 in. What is the perimeter in inches of this triangle? All right, we are dealing with an isosesles right triangle. Remember isoclesles means that two sides of a triangle are equal. And when yo."
+            "content": "On the SAT, The 45-45-90 Triangle (Special Right Triangles) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Tag triangle type first (right/similar/isosceles) before computing. For example, a $45$-$45$-$90$ triangle with hypotenuse $58$ has legs $\\frac{58}{\\sqrt{2}} = 29\\sqrt{2}$, so its perimeter is $58 + 2(29\\sqrt{2}) = 58 + 58\\sqrt{2}$."
           },
           {
             "type": "diagramRef",
@@ -2416,7 +2416,7 @@ export const trianglesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Simple 45-45-90 Triangle Example (Special Right Triangles) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Tag triangle type first (right/similar/isosceles) before computing. An isoclesles right triangle has a hypotenuse of length 58 in. What is the perimeter in inches of this triangle? All right, we are dealing with an isosesles right triangle. Remember isoclesles means that two sides of a triangle are equal. And when yo."
+            "content": "On the SAT, Simple 45-45-90 Triangle Example (Special Right Triangles) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Tag triangle type first (right/similar/isosceles) before computing. As above, a $45$-$45$-$90$ triangle with hypotenuse $58$ has legs $29\\sqrt{2}$ each, giving perimeter $58 + 58\\sqrt{2}$."
           },
           {
             "type": "diagramRef",
@@ -2501,7 +2501,7 @@ export const trianglesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Complex 45-45-90 Triangle Example (Special Right Triangles) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Tag triangle type first (right/similar/isosceles) before computing. An isosesles right triangle has a perimeter of 94 + 94 2 in. What is the length in inches of one leg of this triangle? All right, we are dealing with an isosesles right triangle. Remember isoclesles means that two sides of that one triangle are the s."
+            "content": "On the SAT, Complex 45-45-90 Triangle Example (Special Right Triangles) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Tag triangle type first (right/similar/isosceles) before computing. For example, if a $45$-$45$-$90$ triangle has perimeter $94 + 94\\sqrt{2}$, then with leg $L$ the perimeter is $L(2 + \\sqrt{2}) = 94(1 + \\sqrt{2})$, giving $L = 47\\sqrt{2}$."
           },
           {
             "type": "diagramRef",
@@ -2586,7 +2586,7 @@ export const trianglesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, The 30-60-90 Triangle (Special Right Triangles) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Tag triangle type first (right/similar/isosceles) before computing. An isoclesles right triangle has a hypotenuse of length 58 in. What is the perimeter in inches of this triangle? All right, we are dealing with an isosesles right triangle. Remember isoclesles means that two sides of a triangle are equal. And when yo."
+            "content": "On the SAT, The 30-60-90 Triangle (Special Right Triangles) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Tag triangle type first (right/similar/isosceles) before computing. For example, in a $30$-$60$-$90$ triangle the sides are in ratio $1 : \\sqrt{3} : 2$, so if the short leg is $5$, the long leg is $5\\sqrt{3}$ and the hypotenuse is $10$."
           },
           {
             "type": "diagramRef",
@@ -2671,7 +2671,7 @@ export const trianglesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Simple 30-60-90 Triangle Example (Special Right Triangles) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Tag triangle type first (right/similar/isosceles) before computing. Right triangle ABC is shown. What is the value of tan of A? All right, let's look at the angles of this triangle specifically. Notice that this angle is 90°. This angle is 30° and this angle which we don't know is X. 90 + 30 + x must equal 180 becaus."
+            "content": "On the SAT, Simple 30-60-90 Triangle Example (Special Right Triangles) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Tag triangle type first (right/similar/isosceles) before computing. For example, the angles must sum to $180°$: $90° + 30° + x = 180°$ gives $x = 60°$, so the triangle is $30$-$60$-$90$; then $\\tan(30°) = \\frac{1}{\\sqrt{3}}$ and $\\tan(60°) = \\sqrt{3}$."
           },
           {
             "type": "diagramRef",
@@ -2756,7 +2756,7 @@ export const trianglesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Complex 30-60-90 Triangle Example #1 (Special Right Triangles) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Tag triangle type first (right/similar/isosceles) before computing. The perimeter of an equilateral triangle is 624 cm. The height of this triangle is kle 3 cm where k is a constant. What is the value of k? All right, we are dealing with an equilateral triangle. And the special thing about an equilateral triangle is."
+            "content": "On the SAT, Complex 30-60-90 Triangle Example #1 (Special Right Triangles) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Tag triangle type first (right/similar/isosceles) before computing. For example, an equilateral triangle with perimeter $624$ cm has side $208$ cm; its height is $\\frac{208\\sqrt{3}}{2} = 104\\sqrt{3}$, so $k = 104$."
           },
           {
             "type": "diagramRef",
@@ -2841,7 +2841,7 @@ export const trianglesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Complex 30-60-90 Triangle Example #2 (Special Right Triangles) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Tag triangle type first (right/similar/isosceles) before computing. The perimeter of an equilateral triangle is 852 cm. The three vertices of the triangle lie on a circle. The radius of the circle is W rad 3 cm. What is the value of W? Okay, we have a circle and within this circle we have an equilateral triangle insc."
+            "content": "On the SAT, Complex 30-60-90 Triangle Example #2 (Special Right Triangles) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Tag triangle type first (right/similar/isosceles) before computing. For example, an equilateral triangle with perimeter $852$ cm has side $284$ cm; its circumradius is $R = \\frac{\\text{side}}{\\sqrt{3}} = \\frac{284}{\\sqrt{3}} = \\frac{284\\sqrt{3}}{3}$, so matching $R = W\\sqrt{3}$ gives $W = \\frac{284}{3}$."
           },
           {
             "type": "diagramRef",

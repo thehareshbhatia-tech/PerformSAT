@@ -17,7 +17,7 @@ export const functionsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, $f(x)$ is NOT \"$f$ times $x$\" — it means \"the output of function $f$ when the input is $x$.\" When the question says \"find $f(3)$,\" it means substitute $x = 3$ into the rule and compute the output. This notation distinction is the single most tested concept in the functions module. The function g is defined by g ofx = x^2 + 9 for which value of x is g ofx = 25. All right. So just like the text stated above, functions are an input output system whereas the function is a machine that takes the input and turns it into the output."
+            "content": "On the SAT, $f(x)$ is NOT \"$f$ times $x$\" — it means \"the output of function $f$ when the input is $x$.\" When the question says \"find $f(3)$,\" it means substitute $x = 3$ into the rule and compute the output. This notation distinction is the single most tested concept in the functions module. For example, if $g(x) = x^2 + 9$, then $g(3) = 3^2 + 9 = 18$: the machine takes the input $3$, applies the rule, and returns the output $18$."
           },
           {
             "type": "formula",
@@ -103,7 +103,7 @@ export const functionsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "Multiple notations appear on the SAT: $f(x)$, $g(x)$, $h(t)$. The letter changes but the logic is identical — plug in the value inside the parentheses for every occurrence of the variable in the rule. When you see $g(a + 1)$, replace every $x$ in $g$'s rule with $(a + 1)$. The function g is defined by g ofx = x^2 + 9 for which value of x is g ofx = 25. All right. So just like the text stated above, functions are an input output system whereas the function is a machine that takes the input and turns it into the output."
+            "content": "Multiple notations appear on the SAT: $f(x)$, $g(x)$, $h(t)$. The letter changes but the logic is identical — plug in the value inside the parentheses for every occurrence of the variable in the rule. When you see $g(a + 1)$, replace every $x$ in $g$'s rule with $(a + 1)$. For example, if $g(x) = x^2 + 9$, then $g(a + 1) = (a + 1)^2 + 9$ — substitute the full input before simplifying."
           },
           {
             "type": "formula",
@@ -185,7 +185,7 @@ export const functionsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Evaluating Functions (Fundamentals) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Translate notation to plain language before solving. The function g is defined by g ofx = x^2 + 9 for which value of x is g ofx = 25. All right. So just like the text stated above, functions are an input output system whereas the function is a machine that takes the input and turns it into the output."
+            "content": "On the SAT, Evaluating Functions (Fundamentals) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Translate notation to plain language before solving. For example, if $g(x) = x^2 + 9$, then \"for which value of $x$ is $g(x) = 25$?\" means solve $x^2 + 9 = 25$, so $x^2 = 16$ and $x = \\pm 4$."
           },
           {
             "type": "formula",
@@ -261,7 +261,7 @@ export const functionsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Simple Function Example #1 (Simple Function Problems) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Translate notation to plain language before solving. The function g is defined by g ofx = x^2 + 9 for which value of x is g ofx = 25. All right. So just like the text stated above, functions are an input output system whereas the function is a machine that takes the input and turns it into the output."
+            "content": "On the SAT, Simple Function Example #1 (Simple Function Problems) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Translate notation to plain language before solving. For example, if $g(x) = x^2 + 9$, solving $g(x) = 25$ gives $x^2 = 16$, so $x = \\pm 4$."
           },
           {
             "type": "formula",
@@ -341,7 +341,7 @@ export const functionsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Simple Function Example #2 (Simple Function Problems) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Translate notation to plain language before solving. The function f is defined by the equation f ofx = 7x + 2. What is the value of f ofx when x= 4? Okay, this is very similar to our previous question, but now it's the opposite. Instead of testing for the input when the output was 25, in this case we a."
+            "content": "On the SAT, Simple Function Example #2 (Simple Function Problems) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Translate notation to plain language before solving. For example, if $f(x) = 7x + 2$, then $f(4) = 7(4) + 2 = 30$ — here you are given the input and asked for the output, the reverse of solving for an input."
           },
           {
             "type": "formula",
@@ -421,7 +421,7 @@ export const functionsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Simple Function Example #3 (Simple Function Problems) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Translate notation to plain language before solving. Okay, the function f is defined by f ofx equals that long expression and we're asked what is the value of f of 1/4. Okay, let's write out everything that we were given. This is the expression we're given. We input an x value. We run this function thr."
+            "content": "On the SAT, Simple Function Example #3 (Simple Function Problems) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Translate notation to plain language before solving. For example, to find $f\\!\\left(\\tfrac{1}{4}\\right)$, substitute $x = \\tfrac{1}{4}$ into the function's rule wherever $x$ appears, then simplify."
           },
           {
             "type": "formula",
@@ -497,7 +497,7 @@ export const functionsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Simple Function Example #4 (Word Problem) (Simple Function Problems) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Translate notation to plain language before solving. The total cost f ofx in dollars to lease a car for 36 months from a particular car dealership is given by the function f ofx = 36x + 1,000 where x is the monthly payment in dollars. What is the total cost to lease a car when the monthly payment is $4."
+            "content": "On the SAT, Simple Function Example #4 (Word Problem) (Simple Function Problems) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Translate notation to plain language before solving. For example, if the total lease cost is $f(x) = 36x + 1{,}000$ where $x$ is the monthly payment in dollars, then a monthly payment of $\\$400$ gives $f(400) = 36(400) + 1{,}000 = \\$15{,}400$."
           },
           {
             "type": "formula",
@@ -573,7 +573,7 @@ export const functionsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Complex Functions Example #1 (Complex Function Problems) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Translate notation to plain language before solving. The function g is defined by g ofx= partheses x + 14 partheses t - x where t is a constant. In the xy plane, the graph of y = g ofx passes through the point 24, 0. What is the value of g of 0? Okay, the function is defined by g ofx equ= partheses x +."
+            "content": "On the SAT, Complex Functions Example #1 (Complex Function Problems) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Translate notation to plain language before solving. For example, if $g(x) = (x + 14)(t - x)$ and the graph of $y = g(x)$ passes through $(24, 0)$, then $(24 + 14)(t - 24) = 0$ forces $t = 24$, so $g(0) = (0 + 14)(24 - 0) = 336$."
           },
           {
             "type": "formula",
@@ -653,7 +653,7 @@ export const functionsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Complex Functions Example #2 (Complex Function Problems) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Translate notation to plain language before solving. The table shows three values of x and their corresponding values of g ofx where g ofx is equal to f ofx over x + 3 and f or f ofx is a linear function. What is the y intercept of the graph of y= f ofx in the xy plane? All right, more importantly, we."
+            "content": "On the SAT, Complex Functions Example #2 (Complex Function Problems) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Translate notation to plain language before solving. For example, if $g(x) = \\frac{f(x)}{x + 3}$ with $f$ linear, use the table values to recover $f(x) = g(x)(x + 3)$ at two points, determine the line, and read its $y$-intercept $f(0)$."
           },
           {
             "type": "formula",
@@ -729,7 +729,7 @@ export const functionsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Complex Functions Example #3 (Polynomial) (Complex Function Problems) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Translate notation to plain language before solving. The function g is defined by g ofx = x * x - 2 * x + 6^ 2. The value of g of 7 - w is zero where w is a constant. What is the sum of all possible values of w. Okay, we are given this function g of x. We are told g of x is equal to x * x - 2 * x + 6^."
+            "content": "On the SAT, Complex Functions Example #3 (Polynomial) (Complex Function Problems) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Translate notation to plain language before solving. For example, if $g$ is a polynomial and $g(7 - w) = 0$, set the input $7 - w$ equal to each root of $g$ and solve for $w$; the sum of those $w$-values is the answer."
           },
           {
             "type": "formula",

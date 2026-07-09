@@ -17,7 +17,7 @@ export const dimensionalAnalysisLessonTabs = {
           },
           {
             "type": "text",
-            "content": "Set up a chain of fractions where the unit you want to cancel appears in the denominator. Write units on every number. Cancel units left to right. The remaining unit should be your target. A printer produces posters at a constant rate of 42 posters per minute. At what rate in posters per hour does a printer produce the posters? Okay, this is a simple dimensional analysis or a unit conversion question because we are simply converting fr."
+            "content": "Set up a chain of fractions where the unit you want to cancel appears in the denominator. Write units on every number. Cancel units left to right; the remaining unit should be your target. For example, a printer that produces $42$ posters per minute makes $42\\ \\frac{\\text{posters}}{\\text{minute}} \\times 60\\ \\frac{\\text{minutes}}{\\text{hour}} = 2{,}520$ posters per hour."
           },
           {
             "type": "formula",
@@ -103,7 +103,7 @@ export const dimensionalAnalysisLessonTabs = {
           },
           {
             "type": "text",
-            "content": "Set up a chain of fractions where the unit you want to cancel appears in the denominator. Write units on every number. Cancel units left to right. The remaining unit should be your target. A printer produces posters at a constant rate of 42 posters per minute. At what rate in posters per hour does a printer produce the posters? Okay, this is a simple dimensional analysis or a unit conversion question because we are simply converting fr."
+            "content": "As above, cancel the time unit: $42\\ \\frac{\\text{posters}}{\\text{minute}} \\times 60\\ \\frac{\\text{minutes}}{\\text{hour}} = 2{,}520$ posters per hour. Minutes cancel, leaving posters per hour."
           },
           {
             "type": "formula",
@@ -189,7 +189,7 @@ export const dimensionalAnalysisLessonTabs = {
           },
           {
             "type": "text",
-            "content": "$1\\ \\text{ft}^2 = (12\\ \\text{in})^2 = 144\\ \\text{in}^2$. $1\\ \\text{ft}^3 = (12\\ \\text{in})^3 = 1728\\ \\text{in}^3$. The conversion factor gets raised to the same power as the unit. Certain town has an area of 4.36 square miles. What is the area in square yards of this town knowing that 1 mile is equal to 1,760 yard? Okay, this is a very simple unit conversion or dimensional analysis question. The units that we are given are squ."
+            "content": "$1\\ \\text{ft}^2 = (12\\ \\text{in})^2 = 144\\ \\text{in}^2$. $1\\ \\text{ft}^3 = (12\\ \\text{in})^3 = 1728\\ \\text{in}^3$. The conversion factor gets raised to the same power as the unit. For example, a town with an area of $4.36$ square miles, where $1$ mile $= 1{,}760$ yards, has area $(1{,}760)^2 \\times 4.36 = 3{,}097{,}600 \\times 4.36 \\approx 1.35 \\times 10^7$ square yards."
           },
           {
             "type": "formula",
@@ -271,7 +271,7 @@ export const dimensionalAnalysisLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Squared Units Example (Squared & Cubic Units) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Write units on every number and cancel units left-to-right. Certain town has an area of 4.36 square miles. What is the area in square yards of this town knowing that 1 mile is equal to 1,760 yard? Okay, this is a very simple unit conversion or dimensional analysis question. The units that we are given are squ."
+            "content": "As with any area conversion, square the linear factor: for a town of $4.36$ square miles with $1$ mile $= 1{,}760$ yards, the area is $(1{,}760)^2 \\times 4.36 \\approx 1.35 \\times 10^7$ square yards."
           },
           {
             "type": "formula",
@@ -351,7 +351,7 @@ export const dimensionalAnalysisLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Multi-Step Squared Units (Squared & Cubic Units) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Write units on every number and cancel units left-to-right. The speed of a vehicle is increasing at a rate of 7.3 m/s squared. What is this rate in miles per minute squared round to the nearest 10th? Use 1 mile is equal to 1,609 m. Okay, this is a little bit of advanced dimensional analysis or unit conversion."
+            "content": "For a multi-step version, convert $7.3\\ \\text{m/s}^2$ to miles per minute squared using $1$ mile $= 1{,}609$ m. Convert the length once and the time (squared) once: $7.3\\ \\frac{\\text{m}}{\\text{s}^2} \\times \\frac{1\\ \\text{mi}}{1{,}609\\ \\text{m}} \\times \\left(\\frac{60\\ \\text{s}}{1\\ \\text{min}}\\right)^2 = \\frac{7.3 \\times 3{,}600}{1{,}609} \\approx 16.3$ miles per minute squared."
           },
           {
             "type": "formula",

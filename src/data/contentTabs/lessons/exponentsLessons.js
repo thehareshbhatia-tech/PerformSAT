@@ -17,7 +17,7 @@ export const exponentsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "The three core rules: (1) **Product rule**: $a^m \\cdot a^n = a^{m+n}$ — same base, add exponents. (2) **Quotient rule**: $\\frac{a^m}{a^n} = a^{m-n}$ — same base, subtract exponents. (3) **Power rule**: $(a^m)^n = a^{mn}$ — power of a power, multiply exponents. These only work when the bases are the same. Which expression is equivalent to m 4th q 4th z1* m q to 5th z 3r where mq and z are positive? Okay, this is a very simple and direct laws of x1's question. Let's rewrite this expression so we can clearly see what laws of exponents are at play here."
+            "content": "The three core rules: (1) **Product rule**: $a^m \\cdot a^n = a^{m+n}$ — same base, add exponents. (2) **Quotient rule**: $\\frac{a^m}{a^n} = a^{m-n}$ — same base, subtract exponents. (3) **Power rule**: $(a^m)^n = a^{mn}$ — power of a power, multiply exponents. These only work when the bases are the same. For example, $m^4 q^4 z \\cdot m\\, q^5 z^3 = m^{4+1} q^{4+5} z^{1+3} = m^5 q^9 z^4$ — add exponents on each matching base."
           },
           {
             "type": "formula",
@@ -99,7 +99,7 @@ export const exponentsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "The three core rules: (1) **Product rule**: $a^m \\cdot a^n = a^{m+n}$ — same base, add exponents. (2) **Quotient rule**: $\\frac{a^m}{a^n} = a^{m-n}$ — same base, subtract exponents. (3) **Power rule**: $(a^m)^n = a^{mn}$ — power of a power, multiply exponents. These only work when the bases are the same. Which expression is equivalent to m 4th q 4th z1* m q to 5th z 3r where mq and z are positive? Okay, this is a very simple and direct laws of x1's question. Let's rewrite this expression so we can clearly see what laws of exponents are at play here."
+            "content": "Using the product rule, add exponents on matching bases: $m^4 q^4 z \\cdot m\\, q^5 z^3 = m^{5} q^{9} z^{4}$."
           },
           {
             "type": "formula",
@@ -185,7 +185,7 @@ export const exponentsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "The three core rules: (1) **Product rule**: $a^m \\cdot a^n = a^{m+n}$ — same base, add exponents. (2) **Quotient rule**: $\\frac{a^m}{a^n} = a^{m-n}$ — same base, subtract exponents. (3) **Power rule**: $(a^m)^n = a^{mn}$ — power of a power, multiply exponents. These only work when the bases are the same. Which expression is equivalent to h the 15th q to the 7th over h 5th q to the 21st power? Okay, this is a very simple laws of exponents example. Let's first break this expression into given terms so it's easier to look at. H to the 15th over H to 5th."
+            "content": "Using the quotient rule, subtract exponents on matching bases: $\\frac{h^{15} q^7}{h^5 q^{21}} = h^{15-5}\\, q^{7-21} = h^{10} q^{-14} = \\frac{h^{10}}{q^{14}}$."
           },
           {
             "type": "formula",
@@ -271,7 +271,7 @@ export const exponentsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Fractional Exponents Simple Example (Laws of Exponents) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Rewrite every exponent expression to a common base before comparing. expression is equivalent to a^ the 112th power where a is greater than zero. Okay, this is a simple fractional exponent question. If we remember our fractional exponent rules when anything is to the fractional exponent power, we can rewrite it in its."
+            "content": "On the SAT, Fractional Exponents Simple Example (Laws of Exponents) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Rewrite every exponent expression to a common base before comparing. For example, a radical becomes a fractional exponent: $\\sqrt[3]{a^2} = a^{2/3}$, and $\\left(a^{2/3}\\right)^{6} = a^{4}$ — multiply the exponents."
           },
           {
             "type": "formula",
@@ -351,7 +351,7 @@ export const exponentsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Fractional Exponents Complex Example (Laws of Exponents) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Rewrite every exponent expression to a common base before comparing. The expression is equivalent to a x to the b power where a and b are positive constants and x is greater than one. What is the value of a plus b? Okay, this question looks much more complex than it actually is. Let's first work with that unique radic."
+            "content": "On the SAT, Fractional Exponents Complex Example (Laws of Exponents) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Rewrite every exponent expression to a common base before comparing. For example, if an expression simplifies to $a\\,x^{b}$ with $a$ and $b$ positive constants, rewrite every radical as a fractional exponent first, read off $a$ and $b$, then compute $a + b$."
           },
           {
             "type": "formula",
@@ -431,7 +431,7 @@ export const exponentsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "Strategy: express both sides as powers of the same base. $8^3$ vs $4^5$: rewrite as $(2^3)^3 = 2^9$ vs $(2^2)^5 = 2^{10}$. Since $2^{10} > 2^9$, $4^5 > 8^3$. If 4 to the 8 C power is equal to the cube root of 4 to the 7th power, what is the value of C? Okay, I'm just going to rewrite this radical in a fractional exponent form so it's just easier to compare and see. Okay, this is what we're told. This is w."
+            "content": "Strategy: express both sides as powers of the same base. $8^3$ vs $4^5$: rewrite as $(2^3)^3 = 2^9$ vs $(2^2)^5 = 2^{10}$. Since $2^{10} > 2^9$, $4^5 > 8^3$. For example, if $4^{8C} = \\sqrt[3]{4^7}$, rewrite the radical as a fractional exponent: $4^{8C} = 4^{7/3}$, so $8C = \\frac{7}{3}$ and $C = \\frac{7}{24}$."
           },
           {
             "type": "formula",
@@ -513,7 +513,7 @@ export const exponentsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Simple Exponential Expression Comparison Example (Comparing Exponential Expressions) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Rewrite every exponent expression to a common base before comparing. If 4 to the 8 C power is equal to the cube root of 4 to the 7th power, what is the value of C? Okay, I'm just going to rewrite this radical in a fractional exponent form so it's just easier to compare and see. Okay, this is what we're told. This is w."
+            "content": "On the SAT, Simple Exponential Expression Comparison Example (Comparing Exponential Expressions) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Rewrite every exponent expression to a common base before comparing. For example, if $4^{8C} = \\sqrt[3]{4^7}$, match exponents on the common base $4$: $8C = \\frac{7}{3}$, so $C = \\frac{7}{24}$."
           },
           {
             "type": "formula",
@@ -593,7 +593,7 @@ export const exponentsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Complex Exponential Expression Comparison Example (Comparing Exponential Expressions) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Rewrite every exponent expression to a common base before comparing. The function f is defined by the given equation. The equation can be rewritten as f ofx equals in parentheses 1 + p over 100 to the x power where p is a constant. Which of the following is the closest value of p. Okay, let's look at this question. We."
+            "content": "On the SAT, Complex Exponential Expression Comparison Example (Comparing Exponential Expressions) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Rewrite every exponent expression to a common base before comparing. For example, if a function can be rewritten as $f(x) = \\left(1 + \\frac{p}{100}\\right)^x$, then the base tells you the rate: match the given base to $1 + \\frac{p}{100}$ and solve for $p$."
           },
           {
             "type": "formula",
@@ -944,7 +944,7 @@ export const exponentsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Complex Exponential Function Example (Exponential Functions) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Rewrite every exponent expression to a common base before comparing. Okay, function f is defined by f ofx= a to the x power plus b where a and b are constants. In the xy plane, the graph of y = fx -5 has a y intercept at 0,99 / 7. The product of a and b is 65 over 7. What is the value of a? Okay, ton of information th."
+            "content": "On the SAT, Complex Exponential Function Example (Exponential Functions) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Rewrite every exponent expression to a common base before comparing. For example, suppose $f(x) = a^x + b$ for constants $a$ and $b$, the graph of $y = f(x) - 5$ has $y$-intercept $\\left(0, \\frac{99}{7}\\right)$, and $ab = \\frac{65}{7}$. Evaluate at $x = 0$: $f(0) - 5 = a^0 + b - 5 = b - 4$, so $b - 4 = \\frac{99}{7}$ gives $b = \\frac{127}{7}$, and then $a = \\frac{65/7}{b} = \\frac{65}{127}$."
           },
           {
             "type": "diagramRef",

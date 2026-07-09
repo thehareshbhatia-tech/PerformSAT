@@ -17,7 +17,7 @@ export const percentsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "Converting between forms: Percent → decimal: divide by $100$ (move decimal left $2$). Decimal → percent: multiply by $100$. Fraction → percent: divide numerator by denominator, then multiply by $100$. The SAT tests whether you can move fluidly between these forms. What is 10% of 470? Okay, this is a very easy question that most kids can solve in very easy ways. But just so we can adapt to my curriculum, let's solve this question in more detail. Whenever you're dealing with a percent question, the first questio."
+            "content": "Converting between forms: Percent → decimal: divide by $100$ (move the decimal left $2$ places). Decimal → percent: multiply by $100$. Fraction → percent: divide numerator by denominator, then multiply by $100$. The SAT tests whether you can move fluidly between these forms. For example, to find $10\\%$ of $470$, convert $10\\%$ to $0.10$ and multiply: $470 \\times 0.10 = 47$."
           },
           {
             "type": "formula",
@@ -99,7 +99,7 @@ export const percentsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "The word \"of\" always means multiply. Set up the equation by translating English to math: **is** → $=$, **of** → $\\times$, **what** → $x$, **percent** → $\\div 100$. Then solve. What is 10% of 470? Okay, this is a very easy question that most kids can solve in very easy ways. But just so we can adapt to my curriculum, let's solve this question in more detail. Whenever you're dealing with a percent question, the first questio."
+            "content": "The word \"of\" always means multiply. Set up the equation by translating English to math: **is** → $=$, **of** → $\\times$, **what** → $x$, **percent** → $\\div 100$. Then solve. For example, \"what is $10\\%$ of $470$?\" becomes $x = 0.10 \\times 470 = 47$."
           },
           {
             "type": "formula",
@@ -181,7 +181,7 @@ export const percentsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "The word \"of\" always means multiply. Set up the equation by translating English to math: **is** → $=$, **of** → $\\times$, **what** → $x$, **percent** → $\\div 100$. Then solve. What is 10% of 470? Okay, this is a very easy question that most kids can solve in very easy ways. But just so we can adapt to my curriculum, let's solve this question in more detail. Whenever you're dealing with a percent question, the first questio."
+            "content": "As before, translate the words into math: \"what is $10\\%$ of $470$?\" means $x = 0.10 \\times 470 = 47$. Whenever you meet a percent question, first decide whether it is a *percent of* or a *percent change* question — this one says \"of,\" so it is a straight multiplication."
           },
           {
             "type": "formula",
@@ -263,7 +263,7 @@ export const percentsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "The word \"of\" always means multiply. Set up the equation by translating English to math: **is** → $=$, **of** → $\\times$, **what** → $x$, **percent** → $\\div 100$. Then solve. What percentage of 300 is 75? Okay. When you're dealing with a percent question, the first question you ask yourself is this percent change or percent of. This particular example is a percent of question because it directly says percent of. The way w."
+            "content": "Using the same setup, take \"what percent of $300$ is $75$?\" This is a *percent of* question — it says \"percent of\" — so translate directly: $\\frac{x}{100} \\times 300 = 75$, giving $x = \\frac{75}{300} \\times 100 = 25\\%$."
           },
           {
             "type": "formula",
@@ -349,7 +349,7 @@ export const percentsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "The word \"of\" always means multiply. Set up the equation by translating English to math: **is** → $=$, **of** → $\\times$, **what** → $x$, **percent** → $\\div 100$. Then solve. 13 is P% of 25. What is the value of P? Again, like always, whenever we're dealing with percent question, the first question we ask ourel is this percent change or percent of. This particular example is percent of because it directly says percent of."
+            "content": "Again, translate the words: \"$13$ is $P\\%$ of $25$\" becomes $13 = \\frac{P}{100} \\times 25$. Solve for $P$: $P = \\frac{13}{25} \\times 100 = 52$."
           },
           {
             "type": "formula",
@@ -431,7 +431,7 @@ export const percentsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "The word \"of\" always means multiply. Set up the equation by translating English to math: **is** → $=$, **of** → $\\times$, **what** → $x$, **percent** → $\\div 100$. Then solve. Okay, for the positive quantities H, J, and K, 11% of H is equivalent to 33% of J and J is equivalent to 14% of K. What percentage of K is H? Cool. Whenever we're dealing with percent question, like always, the first question we ask ourselves is, is."
+            "content": "For a harder version: for positive $H$, $J$, and $K$, $11\\%$ of $H$ equals $33\\%$ of $J$, and $J$ equals $14\\%$ of $K$. To find what percent of $K$ is $H$, translate each statement: $0.11H = 0.33J$ gives $H = 3J$, and $J = 0.14K$, so $H = 3(0.14K) = 0.42K$. Thus $H$ is $42\\%$ of $K$."
           },
           {
             "type": "formula",
@@ -513,7 +513,7 @@ export const percentsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "The word \"of\" always means multiply. Set up the equation by translating English to math: **is** → $=$, **of** → $\\times$, **what** → $x$, **percent** → $\\div 100$. Then solve. Okay, for x greater than zero, the function f is defined as follows. f ofx equals 201% of x. Which of the following describes this function? Okay, this is a very conceptual percent of question, but like always, we're going to apply the same strategy."
+            "content": "In a conceptual version, for $x > 0$ the function $f$ is defined by $f(x) = 201\\%$ of $x$ — that is, $f(x) = 2.01x$. Because $1 < 2.01$, $f$ scales its input up by a factor of $2.01$, so $f(x)$ is always slightly more than double $x$."
           },
           {
             "type": "formula",
@@ -599,7 +599,7 @@ export const percentsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "$\\text{Percent change} = \\frac{\\text{new} - \\text{old}}{\\text{old}} \\times 100\\%$. Positive result = increase. Negative result = decrease. On the SAT, \"by what percent did X increase?\" always means: difference divided by the ORIGINAL value. The population of Greenville increased by 7% from 2015 to 2016. If the 2016 population is K times the 2015 population, what is the value of K? Okay, this is a good question to get us started on understanding the concept of percent change. We clearly."
+            "content": "$\\text{Percent change} = \\frac{\\text{new} - \\text{old}}{\\text{old}} \\times 100\\%$. A positive result is an increase; a negative result is a decrease. On the SAT, \"by what percent did $X$ increase?\" always means the difference divided by the ORIGINAL value. For example, if a town's population increased by $7\\%$ from 2015 to 2016 and the 2016 population is $K$ times the 2015 population, then $K = 1 + 0.07 = 1.07$."
           },
           {
             "type": "diagramRef",
@@ -694,7 +694,7 @@ export const percentsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "$\\text{Percent change} = \\frac{\\text{new} - \\text{old}}{\\text{old}} \\times 100\\%$. Positive result = increase. Negative result = decrease. On the SAT, \"by what percent did X increase?\" always means: difference divided by the ORIGINAL value. The population of Greenville increased by 7% from 2015 to 2016. If the 2016 population is K times the 2015 population, what is the value of K? Okay, this is a good question to get us started on understanding the concept of percent change. We clearly."
+            "content": "As above, an increase of $7\\%$ means multiplying by $1.07$. So if a 2016 population is $K$ times its 2015 value after a $7\\%$ increase, $K = 1.07$. The original value always sits in the denominator of the percent-change formula."
           },
           {
             "type": "diagramRef",
@@ -785,7 +785,7 @@ export const percentsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "$\\text{Percent change} = \\frac{\\text{new} - \\text{old}}{\\text{old}} \\times 100\\%$. Positive result = increase. Negative result = decrease. On the SAT, \"by what percent did X increase?\" always means: difference divided by the ORIGINAL value. The number A is 110% greater than the number B. The number B is 90% less than 47. What is the value of A? Okay. Whenever we're dealing with a percent question, the first question we ask ourselves is this percent of or percent change. This is clearly."
+            "content": "For a multi-step version: $A$ is $110\\%$ greater than $B$, and $B$ is $90\\%$ less than $47$. Work inward: $B = 47 \\times (1 - 0.90) = 4.7$, then $A = B \\times (1 + 1.10) = 4.7 \\times 2.10 = 9.87$."
           },
           {
             "type": "diagramRef",
@@ -880,7 +880,7 @@ export const percentsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "$\\text{Percent change} = \\frac{\\text{new} - \\text{old}}{\\text{old}} \\times 100\\%$. Positive result = increase. Negative result = decrease. On the SAT, \"by what percent did X increase?\" always means: difference divided by the ORIGINAL value. The regular price of a shirt at a store is $170. The sale price is 80% less than the regular price and the sale price is 30% greater than the store's cost for the shirt. What is the store's cost in dollars for the shirt? Okay. Again, when we're deali."
+            "content": "Another layered example: a shirt's regular price is $\\$170$. The sale price is $80\\%$ less than that: $170 \\times (1 - 0.80) = \\$34$. The sale price is also $30\\%$ greater than the store's cost $c$, so $34 = c \\times 1.30$, giving $c = \\frac{34}{1.30} \\approx \\$26.15$."
           },
           {
             "type": "diagramRef",
@@ -975,7 +975,7 @@ export const percentsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "$\\text{Percent change} = \\frac{\\text{new} - \\text{old}}{\\text{old}} \\times 100\\%$. Positive result = increase. Negative result = decrease. On the SAT, \"by what percent did X increase?\" always means: difference divided by the ORIGINAL value. In 2008, Zenna earned 14% more than in 2007. And in 2009, Zenna earned 4% more than in 2008. If Zenna earned Y times as much in 2009 as in 2007, what is the value of Y? Okay, this is clearly a percent change question. More specifically, this is a per."
+            "content": "Successive percent changes multiply, they do not add: if earnings rose $14\\%$ from 2007 to 2008 and $4\\%$ from 2008 to 2009, then 2009 earnings are $Y = 1.14 \\times 1.04 = 1.1856$ times the 2007 earnings — not $18\\%$ more from adding $14\\%$ and $4\\%$."
           },
           {
             "type": "diagramRef",
@@ -1062,7 +1062,7 @@ export const percentsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Percent Models (Percent Model Questions) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Convert percent language to decimal equations before solving. Okay, for the function Q, the value of Q of X decreases by 45% for every increase in the value of X by 1. If Q of 0 equals 14, which equation defines Q. This is a very simple percent model equation. Percent models are just functions that involve perc."
+            "content": "On the SAT, Percent Models (Percent Model Questions) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Convert percent language to decimal equations before solving. For example, if $Q(x)$ decreases by $45\\%$ for every increase of $1$ in $x$ and $Q(0) = 14$, the multiplier is $1 - 0.45 = 0.55$, so $Q(x) = 14(0.55)^x$."
           },
           {
             "type": "formula",
@@ -1138,7 +1138,7 @@ export const percentsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Simple Percent Model (Percent Model Questions) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Convert percent language to decimal equations before solving. Okay, for the function Q, the value of Q of X decreases by 45% for every increase in the value of X by 1. If Q of 0 equals 14, which equation defines Q. This is a very simple percent model equation. Percent models are just functions that involve perc."
+            "content": "As with any percent model, write $f(t) = a \\cdot b^t$, where $a$ is the starting value and $b$ is the multiplier per step. If $Q$ decreases by $45\\%$ per unit increase in $x$ with $Q(0) = 14$, then $b = 0.55$ and $Q(x) = 14(0.55)^x$."
           },
           {
             "type": "formula",
@@ -1218,7 +1218,7 @@ export const percentsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Complex Percent Model (Percent Model Questions) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Convert percent language to decimal equations before solving. Okay, a model estimates that at the end of each year from 2015 to 2020, the number of squirrels in a population was 150% more than the number of squirrels in the population at the end of the previous year. The model estimates that at the end of 2016,."
+            "content": "For a growth model: if a squirrel population is $150\\%$ more than the previous year at the end of each year, the multiplier is $1 + 1.50 = 2.5$ per year. Starting from the end-of-2015 count $P_0$, the end-of-year count $n$ years later is $P_0(2.5)^n$."
           },
           {
             "type": "formula",
@@ -1298,7 +1298,7 @@ export const percentsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Conceptual Percent Model #1 (Percent Model Questions) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Convert percent language to decimal equations before solving. Okay, the function f gives the value in dollars of a certain piece of equipment after x months of use. If the value of the equipment decreases each year by p% of its value the preceding year, what is the value of p? This is a conceptual percent model."
+            "content": "In a conceptual version, $f$ gives an equipment's value after $x$ months, decreasing each year by $p\\%$ of the previous year's value. Match the model's yearly multiplier to $1 - \\frac{p}{100}$ to solve for $p$."
           },
           {
             "type": "formula",
@@ -1378,7 +1378,7 @@ export const percentsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Conceptual Percent Model #2 (Percent Model Questions) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Convert percent language to decimal equations before solving. Okay. The function P models a population in thousands of a certain city t years after 2003. According to the model, the population is predicted to increase by 4% every n months. What is the value then? Okay, this is a percent model question. We are g."
+            "content": "When the compounding period and the question's period differ, convert carefully: if a population $P$ grows by $4\\%$ every $n$ months, express the annual multiplier as $(1.04)^{12/n}$ and match it to the model's yearly growth to find $n$."
           },
           {
             "type": "formula",

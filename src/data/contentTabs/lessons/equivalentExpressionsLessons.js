@@ -17,7 +17,7 @@ export const equivalentExpressionsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "Three main strategies: (1) **Expand** — distribute and combine like terms to see if they match. (2) **Factor** — pull out common factors or use special identities ($a^2 - b^2 = (a-b)(a+b)$). (3) **Plug in** — substitute a simple value into both expressions; if the results differ, they are NOT equivalent. Which expression is equivalent to the given expression where x is greater than 7? All right, this is clearly a equivalent expression question because the question is clearly asking us for an expression that is equivalent to our given expression. Now."
+            "content": "Three main strategies: (1) **Expand** — distribute and combine like terms to see if they match. (2) **Factor** — pull out common factors or use special identities ($a^2 - b^2 = (a-b)(a+b)$). (3) **Plug in** — substitute a simple value into both expressions; if the results differ, they are NOT equivalent. For instance, $(2x - 5)(2x + 5)$ expands to $4x^2 - 25$, so those two expressions are equivalent for every $x$."
           },
           {
             "type": "formula",
@@ -103,7 +103,7 @@ export const equivalentExpressionsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "Three main strategies: (1) **Expand** — distribute and combine like terms to see if they match. (2) **Factor** — pull out common factors or use special identities ($a^2 - b^2 = (a-b)(a+b)$). (3) **Plug in** — substitute a simple value into both expressions; if the results differ, they are NOT equivalent. Which expression is equivalent to the given expression where x is greater than 7? All right, this is clearly a equivalent expression question because the question is clearly asking us for an expression that is equivalent to our given expression. Now."
+            "content": "Using the same strategies, pick the approach that fits the answer choices: expand when they are in expanded form, factor when they are factored, and plug in a value when you just need to test equivalence quickly."
           },
           {
             "type": "formula",
@@ -189,7 +189,7 @@ export const equivalentExpressionsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "Three main strategies: (1) **Expand** — distribute and combine like terms to see if they match. (2) **Factor** — pull out common factors or use special identities ($a^2 - b^2 = (a-b)(a+b)$). (3) **Plug in** — substitute a simple value into both expressions; if the results differ, they are NOT equivalent. Which expression is equivalent to 42 a over k plus 42 a k where k is greater than zero? All right, we are dealing with an equivalent expression question. Now we can definitely do the math on this and find which expression is equivalent to our given e."
+            "content": "For example, to simplify $\\frac{42a}{k} + 42ak$ with $k > 0$, combine over a common denominator: $\\frac{42a}{k} + 42ak = \\frac{42a + 42ak^2}{k} = \\frac{42a(1 + k^2)}{k}$."
           },
           {
             "type": "formula",

@@ -17,7 +17,7 @@ export const systemsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, systems appear in three flavors: (1) **One solution** — the lines cross at exactly one point (different slopes). (2) **No solution** — the lines are parallel (same slope, different intercepts). (3) **Infinitely many solutions** — the lines are identical (same slope AND same intercept). CB tests whether you can classify the system before solving. Jay walks at a speed of 3 mph and runs at a speed of 5 miles hour. He walks for W hours and runs for R hours for a combined of 14 miles. Which equation represents this situation? All right. He walks for W hours and for every hour of walking he covers."
+            "content": "On the SAT, systems appear in three flavors: (1) **One solution** — the lines cross at exactly one point (different slopes). (2) **No solution** — the lines are parallel (same slope, different intercepts). (3) **Infinitely many solutions** — the lines are identical (same slope AND same intercept). CB tests whether you can classify the system before solving. For example, the system $y = 2x + 1$ and $y = -x + 4$ has different slopes, so the lines cross once — a one-solution system."
           },
           {
             "type": "formula",
@@ -99,7 +99,7 @@ export const systemsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "Compare the equations in slope-intercept form: Same slope + different intercept = parallel = **no solution**. Same slope + same intercept = same line = **infinitely many**. Different slopes = they must cross somewhere = **exactly one solution**. For standard form $ax + by = c$, compare the ratios $a_1/a_2$, $b_1/b_2$, $c_1/c_2$. Jay walks at a speed of 3 mph and runs at a speed of 5 miles hour. He walks for W hours and runs for R hours for a combined of 14 miles. Which equation represents this situation? All right. He walks for W hours and for every hour of walking he covers."
+            "content": "Compare the equations in slope-intercept form: Same slope + different intercept = parallel = **no solution**. Same slope + same intercept = same line = **infinitely many**. Different slopes = they must cross somewhere = **exactly one solution**. For standard form $ax + by = c$, compare the ratios $a_1/a_2$, $b_1/b_2$, $c_1/c_2$. For example, $y = 2x + 1$ and $y = 2x - 3$ share the same slope but have different intercepts, so the system has no solution."
           },
           {
             "type": "formula",
@@ -181,7 +181,7 @@ export const systemsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Writing Systems from Word Problems (Setting Up Systems) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Classify solution type before computing exact values. Jay walks at a speed of 3 mph and runs at a speed of 5 miles hour. He walks for W hours and runs for R hours for a combined of 14 miles. Which equation represents this situation? All right. He walks for W hours and for every hour of walking he covers."
+            "content": "On the SAT, Writing Systems from Word Problems (Setting Up Systems) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Classify solution type before computing exact values. For example, if Jay walks at $3$ mph for $W$ hours and runs at $5$ mph for $R$ hours to cover $14$ miles total, the equation is $3W + 5R = 14$ — distance equals rate times time for each leg."
           },
           {
             "type": "formula",
@@ -265,7 +265,7 @@ export const systemsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Deriving System of Equation from Context Example #1 (Setting Up Systems) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Classify solution type before computing exact values. Jay walks at a speed of 3 mph and runs at a speed of 5 miles hour. He walks for W hours and runs for R hours for a combined of 14 miles. Which equation represents this situation? All right. He walks for W hours and for every hour of walking he covers."
+            "content": "As with any context problem, translate each leg into rate times time: walking $3$ mph for $W$ hours and running $5$ mph for $R$ hours to total $14$ miles gives $3W + 5R = 14$."
           },
           {
             "type": "diagramRef",
@@ -443,7 +443,7 @@ export const systemsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "Step 1: Pick the equation where one variable is easiest to isolate. Step 2: Solve for that variable. Step 3: Substitute into the other equation. Step 4: Solve and back-substitute. Best when one equation already has a variable isolated (e.g., $y = 3x + 1$). y = -3x 4x + y = 15. The solution to the given system of equations is x comma y. What is the value of x? All right, we're given these two equations here. This is equation one and this is equation two. Now, both of these equations have two variables a."
+            "content": "Step 1: Pick the equation where one variable is easiest to isolate. Step 2: Solve for that variable. Step 3: Substitute into the other equation. Step 4: Solve and back-substitute. Best when one equation already has a variable isolated (e.g., $y = 3x + 1$). For example, given $y = -3x$ and $4x + y = 15$, substitute the first into the second: $4x + (-3x) = 15$, so $x = 15$."
           },
           {
             "type": "formula",
@@ -529,7 +529,7 @@ export const systemsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "Step 1: Pick the equation where one variable is easiest to isolate. Step 2: Solve for that variable. Step 3: Substitute into the other equation. Step 4: Solve and back-substitute. Best when one equation already has a variable isolated (e.g., $y = 3x + 1$). y = -3x 4x + y = 15. The solution to the given system of equations is x comma y. What is the value of x? All right, we're given these two equations here. This is equation one and this is equation two. Now, both of these equations have two variables a."
+            "content": "As above, substitute the isolated variable: putting $y = -3x$ into $4x + y = 15$ gives $4x - 3x = 15$, so $x = 15$."
           },
           {
             "type": "formula",
@@ -615,7 +615,7 @@ export const systemsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "Step 1: Align equations in $ax + by = c$ form. Step 2: Multiply one or both equations so that one variable has equal (or opposite) coefficients. Step 3: Add or subtract to eliminate that variable. Step 4: Solve for the remaining variable and back-substitute. 24x + y is equal to 48. 6x + y = 72. The solution to the given system of equations is x comma y. What is the value of y? All right. This is equation one. This is equation two. Whenever you are given two equations within a system of equations, you are."
+            "content": "Step 1: Align equations in $ax + by = c$ form. Step 2: Multiply one or both equations so that one variable has equal (or opposite) coefficients. Step 3: Add or subtract to eliminate that variable. Step 4: Solve for the remaining variable and back-substitute. For example, subtracting $6x + y = 72$ from $24x + y = 48$ eliminates $y$: $18x = -24$, so $x = -\\frac{4}{3}$, and back-substituting gives $y = 80$."
           },
           {
             "type": "formula",
@@ -701,7 +701,7 @@ export const systemsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "Step 1: Align equations in $ax + by = c$ form. Step 2: Multiply one or both equations so that one variable has equal (or opposite) coefficients. Step 3: Add or subtract to eliminate that variable. Step 4: Solve for the remaining variable and back-substitute. 24x + y is equal to 48. 6x + y = 72. The solution to the given system of equations is x comma y. What is the value of y? All right. This is equation one. This is equation two. Whenever you are given two equations within a system of equations, you are."
+            "content": "As above, subtract to eliminate a variable: $24x + y = 48$ minus $6x + y = 72$ gives $18x = -24$, so $x = -\\frac{4}{3}$ and $y = 80$."
           },
           {
             "type": "formula",
@@ -1031,7 +1031,7 @@ export const systemsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Infinite Solutions & Parametric Form (Infinite Solutions) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Classify solution type before computing exact values. For each real number r, which of the following points lies on the graph of each equation in the xy plane for the given system? All right, we are given these two equations. This is equation one. This is equation two. And these two equations exist in a."
+            "content": "On the SAT, Infinite Solutions & Parametric Form (Infinite Solutions) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Classify solution type before computing exact values. For example, when a system has infinitely many solutions, every point on the shared line works: let $x = r$, then the line's equation gives the matching $y$, so $(r,\\, y(r))$ lies on both graphs for every real $r$."
           },
           {
             "type": "formula",
@@ -1111,7 +1111,7 @@ export const systemsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Infinite Solutions SAT Example (Infinite Solutions) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Classify solution type before computing exact values. For each real number r, which of the following points lies on the graph of each equation in the xy plane for the given system? All right, we are given these two equations. This is equation one. This is equation two. And these two equations exist in a."
+            "content": "As above, parametrize a dependent system: let $x = r$; the shared equation then fixes $y$, so the point $(r,\\, y(r))$ lies on both graphs for every real number $r$."
           },
           {
             "type": "formula",

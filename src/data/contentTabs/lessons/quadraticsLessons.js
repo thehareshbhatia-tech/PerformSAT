@@ -17,7 +17,7 @@ export const quadraticsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "The standard form is $y = ax^2 + bx + c$. The coefficient $a$ controls **direction**: when $a > 0$ the parabola opens upward (has a minimum); when $a < 0$ it opens downward (has a maximum). The SAT tests this in one sentence: \"what is the **minimum** value?\" tells you $a > 0$, and \"maximum\" tells you $a < 0$. The x intercept of the graph shown is parentheses x comm 0. What is the value of x? All right. The x intercept is clearly when our graph intercepts the x-axis which happens at this point. And this point is also the root the solution to our quadratic."
+            "content": "The standard form is $y = ax^2 + bx + c$. The coefficient $a$ controls **direction**: when $a > 0$ the parabola opens upward (has a minimum); when $a < 0$ it opens downward (has a maximum). The SAT tests this in one sentence: \"what is the **minimum** value?\" tells you $a > 0$, and \"maximum\" tells you $a < 0$. For example, the $x$-intercepts of $y = ax^2 + bx + c$ are the roots, where the parabola crosses the $x$-axis; a crossing at $(4, 0)$ means $x = 4$ is a solution."
           },
           {
             "type": "diagramRef",
@@ -108,7 +108,7 @@ export const quadraticsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "Set the equation equal to zero and solve. Three methods: **factoring** (fastest when integers work), **quadratic formula** (always works), and **graphing/DESMOS** (visual confirmation). On the SAT, the question wording tells you which to use: \"what are the solutions?\" → factor or formula; \"how many solutions?\" → discriminant. The x intercept of the graph shown is parentheses x comm 0. What is the value of x? All right. The x intercept is clearly when our graph intercepts the x-axis which happens at this point. And this point is also the root the solution to our quadratic."
+            "content": "Set the equation equal to zero and solve. Three methods: **factoring** (fastest when integers work), **quadratic formula** (always works), and **graphing/DESMOS** (visual confirmation). On the SAT, the question wording tells you which to use: \"what are the solutions?\" → factor or formula; \"how many solutions?\" → discriminant. For example, a parabola's $x$-intercepts are its roots — the values of $x$ where $y = 0$; if the graph crosses at $(4, 0)$, then $x = 4$ is a solution."
           },
           {
             "type": "diagramRef",
@@ -199,7 +199,7 @@ export const quadraticsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "Set the equation equal to zero and solve. Three methods: **factoring** (fastest when integers work), **quadratic formula** (always works), and **graphing/DESMOS** (visual confirmation). On the SAT, the question wording tells you which to use: \"what are the solutions?\" → factor or formula; \"how many solutions?\" → discriminant. The x intercept of the graph shown is parentheses x comm 0. What is the value of x? All right. The x intercept is clearly when our graph intercepts the x-axis which happens at this point. And this point is also the root the solution to our quadratic."
+            "content": "Set the equation equal to zero and solve. Three methods: **factoring** (fastest when integers work), **quadratic formula** (always works), and **graphing/DESMOS** (visual confirmation). On the SAT, the question wording tells you which to use: \"what are the solutions?\" → factor or formula; \"how many solutions?\" → discriminant. For example, read the roots straight off the graph: each point where the parabola crosses the $x$-axis, such as $(4, 0)$, gives a solution $x = 4$."
           },
           {
             "type": "diagramRef",
@@ -290,7 +290,7 @@ export const quadraticsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "Set the equation equal to zero and solve. Three methods: **factoring** (fastest when integers work), **quadratic formula** (always works), and **graphing/DESMOS** (visual confirmation). On the SAT, the question wording tells you which to use: \"what are the solutions?\" → factor or formula; \"how many solutions?\" → discriminant. What is one of the solutions to the given equation? All right, we are given a quadratic equation. I know it's a quadratic because the highest degree is two and it is equal to zero making it a quadratic. Now the easiest ways to find the solution which."
+            "content": "Set the equation equal to zero and solve. Three methods: **factoring** (fastest when integers work), **quadratic formula** (always works), and **graphing/DESMOS** (visual confirmation). On the SAT, the question wording tells you which to use: \"what are the solutions?\" → factor or formula; \"how many solutions?\" → discriminant. For example, factor and set each factor to zero: $x^2 - 7x + 12 = (x - 3)(x - 4) = 0$ gives $x = 3$ or $x = 4$."
           },
           {
             "type": "diagramRef",
@@ -381,7 +381,7 @@ export const quadraticsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "Set the equation equal to zero and solve. Three methods: **factoring** (fastest when integers work), **quadratic formula** (always works), and **graphing/DESMOS** (visual confirmation). On the SAT, the question wording tells you which to use: \"what are the solutions?\" → factor or formula; \"how many solutions?\" → discriminant. Which of the following is a solution to the given equation? All right, we are given this equation w ^2 + 12 w - 40 = z. And we know that this given equation is a quadratic because the highest degree is 2 and it is equal to zero. Now, usually how we w."
+            "content": "Set the equation equal to zero and solve. Three methods: **factoring** (fastest when integers work), **quadratic formula** (always works), and **graphing/DESMOS** (visual confirmation). On the SAT, the question wording tells you which to use: \"what are the solutions?\" → factor or formula; \"how many solutions?\" → discriminant. For example, to solve $w^2 + 12w - 40 = 0$ by completing the square: $(w + 6)^2 = 40 + 36 = 76$, so $w = -6 \\pm \\sqrt{76}$."
           },
           {
             "type": "diagramRef",
@@ -472,7 +472,7 @@ export const quadraticsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "Set the equation equal to zero and solve. Three methods: **factoring** (fastest when integers work), **quadratic formula** (always works), and **graphing/DESMOS** (visual confirmation). On the SAT, the question wording tells you which to use: \"what are the solutions?\" → factor or formula; \"how many solutions?\" → discriminant. Which of the following is a solution to the given equation? All right. The most efficient and perhaps the smartest way of solving the factoring of a quadratic equation is always utilizing Desmos. Now you can simply input the given equation the way it."
+            "content": "Set the equation equal to zero and solve. Three methods: **factoring** (fastest when integers work), **quadratic formula** (always works), and **graphing/DESMOS** (visual confirmation). On the SAT, the question wording tells you which to use: \"what are the solutions?\" → factor or formula; \"how many solutions?\" → discriminant. As above, enter the equation in DESMOS and read the $x$-intercepts of the graph — those are the real solutions."
           },
           {
             "type": "diagramRef",
@@ -563,7 +563,7 @@ export const quadraticsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "Set the equation equal to zero and solve. Three methods: **factoring** (fastest when integers work), **quadratic formula** (always works), and **graphing/DESMOS** (visual confirmation). On the SAT, the question wording tells you which to use: \"what are the solutions?\" → factor or formula; \"how many solutions?\" → discriminant. One solution to the given equation can be written as 1 + radical k where k is a constant. What is the value of k? All right, we are given this quadratic expression that we can enter on Desmos just the way it's given to us. And the solutions to this e."
+            "content": "Set the equation equal to zero and solve. Three methods: **factoring** (fastest when integers work), **quadratic formula** (always works), and **graphing/DESMOS** (visual confirmation). On the SAT, the question wording tells you which to use: \"what are the solutions?\" → factor or formula; \"how many solutions?\" → discriminant. For example, if a solution has the form $1 + \\sqrt{k}$, graph the equation in DESMOS, read the root, and match it to $1 + \\sqrt{k}$ to find $k$."
           },
           {
             "type": "diagramRef",
@@ -654,7 +654,7 @@ export const quadraticsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "From standard form $y = ax^2 + bx + c$: the $x$-coordinate of the vertex is $h = \\frac{-b}{2a}$. Plug $h$ back in to get $k = f(h)$, the $y$-coordinate. From vertex form $y = a(x - h)^2 + k$: read the vertex directly as $(h, k)$. **Critical distinction on the SAT**: \"at what value of $x$?\" asks for $h$. \"What is the minimum/maximum value?\" asks for $k$. Okay, in this example, I am given the graph of a quadratic function y = f ofx and I'm asked what is the vertex of this graph. If I was not told that this was a graph of a quadratic function, I can easily figure that out based off of the shape of this."
+            "content": "From standard form $y = ax^2 + bx + c$: the $x$-coordinate of the vertex is $h = \\frac{-b}{2a}$. Plug $h$ back in to get $k = f(h)$, the $y$-coordinate. From vertex form $y = a(x - h)^2 + k$: read the vertex directly as $(h, k)$. **Critical distinction on the SAT**: \"at what value of $x$?\" asks for $h$. \"What is the minimum/maximum value?\" asks for $k$. For example, for $y = x^2 - 6x + 5$, the vertex $x$-coordinate is $h = \\frac{-(-6)}{2(1)} = 3$, and $k = f(3) = 9 - 18 + 5 = -4$, so the vertex is $(3, -4)$."
           },
           {
             "type": "diagramRef",
@@ -741,7 +741,7 @@ export const quadraticsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "From standard form $y = ax^2 + bx + c$: the $x$-coordinate of the vertex is $h = \\frac{-b}{2a}$. Plug $h$ back in to get $k = f(h)$, the $y$-coordinate. From vertex form $y = a(x - h)^2 + k$: read the vertex directly as $(h, k)$. **Critical distinction on the SAT**: \"at what value of $x$?\" asks for $h$. \"What is the minimum/maximum value?\" asks for $k$. Okay, in this example, I am given the graph of a quadratic function y = f ofx and I'm asked what is the vertex of this graph. If I was not told that this was a graph of a quadratic function, I can easily figure that out based off of the shape of this."
+            "content": "From standard form $y = ax^2 + bx + c$: the $x$-coordinate of the vertex is $h = \\frac{-b}{2a}$. Plug $h$ back in to get $k = f(h)$, the $y$-coordinate. From vertex form $y = a(x - h)^2 + k$: read the vertex directly as $(h, k)$. **Critical distinction on the SAT**: \"at what value of $x$?\" asks for $h$. \"What is the minimum/maximum value?\" asks for $k$. For example, in vertex form $y = (x - 3)^2 - 4$ you read the vertex directly as $(3, -4)$ — no computation needed."
           },
           {
             "type": "diagramRef",
@@ -828,7 +828,7 @@ export const quadraticsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "From standard form $y = ax^2 + bx + c$: the $x$-coordinate of the vertex is $h = \\frac{-b}{2a}$. Plug $h$ back in to get $k = f(h)$, the $y$-coordinate. From vertex form $y = a(x - h)^2 + k$: read the vertex directly as $(h, k)$. **Critical distinction on the SAT**: \"at what value of $x$?\" asks for $h$. \"What is the minimum/maximum value?\" asks for $k$. Okay, in this example, I am given the graph of a quadratic function y = f ofx and I'm asked what is the vertex of this graph. If I was not told that this was a graph of a quadratic function, I can easily figure that out based off of the shape of this."
+            "content": "From standard form $y = ax^2 + bx + c$: the $x$-coordinate of the vertex is $h = \\frac{-b}{2a}$. Plug $h$ back in to get $k = f(h)$, the $y$-coordinate. From vertex form $y = a(x - h)^2 + k$: read the vertex directly as $(h, k)$. **Critical distinction on the SAT**: \"at what value of $x$?\" asks for $h$. \"What is the minimum/maximum value?\" asks for $k$. For example, read the vertex off the graph as the lowest (or highest) point of the parabola, such as $(3, -4)$."
           },
           {
             "type": "diagramRef",
@@ -1006,7 +1006,7 @@ export const quadraticsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "From standard form $y = ax^2 + bx + c$: the $x$-coordinate of the vertex is $h = \\frac{-b}{2a}$. Plug $h$ back in to get $k = f(h)$, the $y$-coordinate. From vertex form $y = a(x - h)^2 + k$: read the vertex directly as $(h, k)$. **Critical distinction on the SAT**: \"at what value of $x$?\" asks for $h$. \"What is the minimum/maximum value?\" asks for $k$. f ofx is equal to 4x^2 + 64x + 262. The function g is defined by g ofx = fx + 5. For what value of x does g of x reach its minimum? All right, we are given the function f ofx which is this. Then we are told that g of x is equal to f of x + 5. Now we."
+            "content": "From standard form $y = ax^2 + bx + c$: the $x$-coordinate of the vertex is $h = \\frac{-b}{2a}$. Plug $h$ back in to get $k = f(h)$, the $y$-coordinate. From vertex form $y = a(x - h)^2 + k$: read the vertex directly as $(h, k)$. **Critical distinction on the SAT**: \"at what value of $x$?\" asks for $h$. \"What is the minimum/maximum value?\" asks for $k$. For example, if $f(x) = 4x^2 + 64x + 262$ has its minimum at $x = \\frac{-64}{2(4)} = -8$, then $g(x) = f(x + 5)$ shifts the graph left $5$, so $g$ reaches its minimum at $x = -8 - 5 = -13$."
           },
           {
             "type": "diagramRef",
@@ -1097,7 +1097,7 @@ export const quadraticsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "From standard form $y = ax^2 + bx + c$: the $x$-coordinate of the vertex is $h = \\frac{-b}{2a}$. Plug $h$ back in to get $k = f(h)$, the $y$-coordinate. From vertex form $y = a(x - h)^2 + k$: read the vertex directly as $(h, k)$. **Critical distinction on the SAT**: \"at what value of $x$?\" asks for $h$. \"What is the minimum/maximum value?\" asks for $k$. Now this exact question can be solved simply using desasmos. We do know that f ofx is equal to 4x^2 + 64x + 262. And we do know that g of x is equal to f of x + 5. and f of x + 5 must be 4 x + 5^ 2 + 64 x + 5^ 2 + 262. And so this is what g of x is."
+            "content": "From standard form $y = ax^2 + bx + c$: the $x$-coordinate of the vertex is $h = \\frac{-b}{2a}$. Plug $h$ back in to get $k = f(h)$, the $y$-coordinate. From vertex form $y = a(x - h)^2 + k$: read the vertex directly as $(h, k)$. **Critical distinction on the SAT**: \"at what value of $x$?\" asks for $h$. \"What is the minimum/maximum value?\" asks for $k$. As above, in DESMOS graph $f(x) = 4x^2 + 64x + 262$ and $g(x) = f(x + 5)$; the minimum of $g$ sits $5$ units left of the minimum of $f$, at $x = -13$."
           },
           {
             "type": "diagramRef",
@@ -1461,7 +1461,7 @@ export const quadraticsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "Three cases: (1) $\\Delta > 0$: two distinct real roots — the parabola crosses the $x$-axis twice. (2) $\\Delta = 0$: exactly one real root (a repeated root) — the parabola just touches the $x$-axis. (3) $\\Delta < 0$: no real roots — the parabola never reaches the $x$-axis. The SAT often phrases this as \"for what value of $k$ does the equation have no real solutions?\" — set $\\Delta < 0$ and solve the inequality. Okay, in this example, I am given an equation -9x^2 + 30x + c = 0. I'm told in the given equation, C is a constant. The equation has exactly one solution. What is the value of C? Well, first things first, I must first identify what type of equation t."
+            "content": "Three cases: (1) $\\Delta > 0$: two distinct real roots — the parabola crosses the $x$-axis twice. (2) $\\Delta = 0$: exactly one real root (a repeated root) — the parabola just touches the $x$-axis. (3) $\\Delta < 0$: no real roots — the parabola never reaches the $x$-axis. The SAT often phrases this as \"for what value of $k$ does the equation have no real solutions?\" — set $\\Delta < 0$ and solve the inequality. For example, for $-9x^2 + 30x + c = 0$ to have exactly one solution, set $\\Delta = 30^2 - 4(-9)(c) = 0$: $900 + 36c = 0$, so $c = -25$."
           },
           {
             "type": "diagramRef",
@@ -1643,7 +1643,7 @@ export const quadraticsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "Three cases: (1) $\\Delta > 0$: two distinct real roots — the parabola crosses the $x$-axis twice. (2) $\\Delta = 0$: exactly one real root (a repeated root) — the parabola just touches the $x$-axis. (3) $\\Delta < 0$: no real roots — the parabola never reaches the $x$-axis. The SAT often phrases this as \"for what value of $k$ does the equation have no real solutions?\" — set $\\Delta < 0$ and solve the inequality. In the given equation, K is an integer constant. If the equation has no real solution, what is the least possible value of K? Okay, notice we are given this equation. And when I distribute the x within my given equation, I end up with this equation."
+            "content": "Three cases: (1) $\\Delta > 0$: two distinct real roots — the parabola crosses the $x$-axis twice. (2) $\\Delta = 0$: exactly one real root (a repeated root) — the parabola just touches the $x$-axis. (3) $\\Delta < 0$: no real roots — the parabola never reaches the $x$-axis. The SAT often phrases this as \"for what value of $k$ does the equation have no real solutions?\" — set $\\Delta < 0$ and solve the inequality. For example, to find the least integer $K$ giving no real solution, expand to standard form, set the discriminant $\\Delta < 0$, and solve the resulting inequality for $K$."
           },
           {
             "type": "diagramRef",
@@ -1734,7 +1734,7 @@ export const quadraticsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "Three cases: (1) $\\Delta > 0$: two distinct real roots — the parabola crosses the $x$-axis twice. (2) $\\Delta = 0$: exactly one real root (a repeated root) — the parabola just touches the $x$-axis. (3) $\\Delta < 0$: no real roots — the parabola never reaches the $x$-axis. The SAT often phrases this as \"for what value of $k$ does the equation have no real solutions?\" — set $\\Delta < 0$ and solve the inequality. All right, take a second to read this question before we begin. Okay, now that we read this question, let's jump in. In this question, we are given two equations. The first equation being this one, which is the equation of a quadratic because the hig."
+            "content": "Three cases: (1) $\\Delta > 0$: two distinct real roots — the parabola crosses the $x$-axis twice. (2) $\\Delta = 0$: exactly one real root (a repeated root) — the parabola just touches the $x$-axis. (3) $\\Delta < 0$: no real roots — the parabola never reaches the $x$-axis. The SAT often phrases this as \"for what value of $k$ does the equation have no real solutions?\" — set $\\Delta < 0$ and solve the inequality. For example, a line and a parabola meet where the system's combined equation has real solutions; setting its discriminant to zero gives the value that makes them tangent, meeting at exactly one point."
           },
           {
             "type": "diagramRef",
@@ -1912,7 +1912,7 @@ export const quadraticsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "Three cases: (1) $\\Delta > 0$: two distinct real roots — the parabola crosses the $x$-axis twice. (2) $\\Delta = 0$: exactly one real root (a repeated root) — the parabola just touches the $x$-axis. (3) $\\Delta < 0$: no real roots — the parabola never reaches the $x$-axis. The SAT often phrases this as \"for what value of $k$ does the equation have no real solutions?\" — set $\\Delta < 0$ and solve the inequality. All right, take a second to read this question before we begin. Okay, now that you've read this question, let's understand it. In this example, we are given two different equations. The first equation being this, which again is the equation of a quad."
+            "content": "Three cases: (1) $\\Delta > 0$: two distinct real roots — the parabola crosses the $x$-axis twice. (2) $\\Delta = 0$: exactly one real root (a repeated root) — the parabola just touches the $x$-axis. (3) $\\Delta < 0$: no real roots — the parabola never reaches the $x$-axis. The SAT often phrases this as \"for what value of $k$ does the equation have no real solutions?\" — set $\\Delta < 0$ and solve the inequality. As above, substitute the line into the parabola, collect into one quadratic, and use the discriminant to count intersections: $\\Delta = 0$ means the line is tangent to the parabola."
           },
           {
             "type": "diagramRef",
@@ -2003,7 +2003,7 @@ export const quadraticsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "Three paths: (1) If you can read the roots $r_1, r_2$ from the graph → factored form: $y = a(x - r_1)(x - r_2)$, then use another point to find $a$. (2) If you can read the vertex $(h, k)$ → vertex form: $y = a(x - h)^2 + k$, then use another point to find $a$. (3) DESMOS regression: enter the points and fit a quadratic. The graph of y = 2x^2 + bx + c is shown where b and c are constants. What is the value of bc? All right, we are given the standard form of this graph. But within the standard form, the b and the c values are missing. Now we are also given the graph w."
+            "content": "Three paths: (1) If you can read the roots $r_1, r_2$ from the graph → factored form: $y = a(x - r_1)(x - r_2)$, then use another point to find $a$. (2) If you can read the vertex $(h, k)$ → vertex form: $y = a(x - h)^2 + k$, then use another point to find $a$. (3) DESMOS regression: enter the points and fit a quadratic. For example, if $y = 2x^2 + bx + c$ passes through two readable points, substitute them to get two equations in $b$ and $c$, solve the system, then compute $bc$."
           },
           {
             "type": "diagramRef",
@@ -2094,7 +2094,7 @@ export const quadraticsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "Three paths: (1) If you can read the roots $r_1, r_2$ from the graph → factored form: $y = a(x - r_1)(x - r_2)$, then use another point to find $a$. (2) If you can read the vertex $(h, k)$ → vertex form: $y = a(x - h)^2 + k$, then use another point to find $a$. (3) DESMOS regression: enter the points and fit a quadratic. The graph of y = 2x^2 + bx + c is shown where b and c are constants. What is the value of bc? All right, we are given the standard form of this graph. But within the standard form, the b and the c values are missing. Now we are also given the graph w."
+            "content": "Three paths: (1) If you can read the roots $r_1, r_2$ from the graph → factored form: $y = a(x - r_1)(x - r_2)$, then use another point to find $a$. (2) If you can read the vertex $(h, k)$ → vertex form: $y = a(x - h)^2 + k$, then use another point to find $a$. (3) DESMOS regression: enter the points and fit a quadratic. As above, read two clear points off the parabola $y = 2x^2 + bx + c$, form two equations, solve for $b$ and $c$, and multiply to get $bc$."
           },
           {
             "type": "diagramRef",
@@ -2185,7 +2185,7 @@ export const quadraticsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "Three paths: (1) If you can read the roots $r_1, r_2$ from the graph → factored form: $y = a(x - r_1)(x - r_2)$, then use another point to find $a$. (2) If you can read the vertex $(h, k)$ → vertex form: $y = a(x - h)^2 + k$, then use another point to find $a$. (3) DESMOS regression: enter the points and fit a quadratic. The graph of y = 2x^2 + bx + c is shown where b and c are constants. What is the value of bc? All right. This particular question can also be solved by using desmos entirely. And the reason for that is because we have three points on our graph on Des."
+            "content": "Three paths: (1) If you can read the roots $r_1, r_2$ from the graph → factored form: $y = a(x - r_1)(x - r_2)$, then use another point to find $a$. (2) If you can read the vertex $(h, k)$ → vertex form: $y = a(x - h)^2 + k$, then use another point to find $a$. (3) DESMOS regression: enter the points and fit a quadratic. As above, enter the visible points into DESMOS and fit $y = 2x^2 + bx + c$; the regression returns $b$ and $c$, and their product is $bc$."
           },
           {
             "type": "diagramRef",
@@ -2276,7 +2276,7 @@ export const quadraticsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "From standard form $y = ax^2 + bx + c$: the $x$-coordinate of the vertex is $h = \\frac{-b}{2a}$. Plug $h$ back in to get $k = f(h)$, the $y$-coordinate. From vertex form $y = a(x - h)^2 + k$: read the vertex directly as $(h, k)$. **Critical distinction on the SAT**: \"at what value of $x$?\" asks for $h$. \"What is the minimum/maximum value?\" asks for $k$. All right, before even reading this question, I can already tell this is going to be a mouthful, especially because it's question 27, one of the last questions, and also because I just have a giant paragraph in front of me. The trick for solving ques."
+            "content": "From standard form $y = ax^2 + bx + c$: the $x$-coordinate of the vertex is $h = \\frac{-b}{2a}$. Plug $h$ back in to get $k = f(h)$, the $y$-coordinate. From vertex form $y = a(x - h)^2 + k$: read the vertex directly as $(h, k)$. **Critical distinction on the SAT**: \"at what value of $x$?\" asks for $h$. \"What is the minimum/maximum value?\" asks for $k$. For example, when a graph gives the vertex $(h, k)$, write $y = a(x - h)^2 + k$ and use one more point to solve for $a$, then expand to standard form if needed."
           },
           {
             "type": "diagramRef",
@@ -2367,7 +2367,7 @@ export const quadraticsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "Three paths: (1) If you can read the roots $r_1, r_2$ from the graph → factored form: $y = a(x - r_1)(x - r_2)$, then use another point to find $a$. (2) If you can read the vertex $(h, k)$ → vertex form: $y = a(x - h)^2 + k$, then use another point to find $a$. (3) DESMOS regression: enter the points and fit a quadratic. All right, before we even begin this question, we can clearly tell that this question is a lot of information thrown at you all at once. And this is one of the tricks of the college word. They throw an influx of information at you. And after reading."
+            "content": "Three paths: (1) If you can read the roots $r_1, r_2$ from the graph → factored form: $y = a(x - r_1)(x - r_2)$, then use another point to find $a$. (2) If you can read the vertex $(h, k)$ → vertex form: $y = a(x - h)^2 + k$, then use another point to find $a$. (3) DESMOS regression: enter the points and fit a quadratic. For example, when a graph gives several points, set up one equation per point in $y = ax^2 + bx + c$ and solve the system for $a$, $b$, and $c$."
           },
           {
             "type": "diagramRef",

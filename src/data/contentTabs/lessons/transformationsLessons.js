@@ -17,7 +17,7 @@ export const transformationsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "The general form $g(x) = a \\cdot f(b(x - h)) + k$ encodes all transformations: $h$ shifts horizontally, $k$ shifts vertically, $a$ stretches/reflects vertically, $b$ stretches/reflects horizontally. Read from inside-out: inside changes $x$ (horizontal), outside changes $y$ (vertical). The graph of the rational function f is shown where y = f ofx and x is greater than or equal to zero. Which of the following is a graph of y = fx + 5 where x is again greater than or equal to zero? Okay. The graph that is shown to us is a graph of f."
+            "content": "The general form $g(x) = a \\cdot f(b(x - h)) + k$ encodes all transformations: $h$ shifts horizontally, $k$ shifts vertically, $a$ stretches/reflects vertically, $b$ stretches/reflects horizontally. Read from inside-out: inside changes $x$ (horizontal), outside changes $y$ (vertical). For example, given the graph of $y = f(x)$, the graph of $y = f(x) + 5$ is the same curve shifted up $5$ units, because adding $5$ outside the function raises every output."
           },
           {
             "type": "diagramRef",
@@ -104,7 +104,7 @@ export const transformationsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "$f(x) + k$ shifts UP $k$ units. $f(x) - k$ shifts DOWN $k$ units. Every $y$-value changes by $k$; $x$-values stay the same. The shape of the graph is unchanged. The graph of the rational function f is shown where y = f ofx and x is greater than or equal to zero. Which of the following is a graph of y = fx + 5 where x is again greater than or equal to zero? Okay. The graph that is shown to us is a graph of f."
+            "content": "$f(x) + k$ shifts UP $k$ units. $f(x) - k$ shifts DOWN $k$ units. Every $y$-value changes by $k$; $x$-values stay the same. The shape of the graph is unchanged. For example, if $y = f(x)$ is shown, then $y = f(x) + 5$ is that graph shifted up $5$ units — every $y$-value increases by $5$ while the shape stays the same."
           },
           {
             "type": "diagramRef",
@@ -191,7 +191,7 @@ export const transformationsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "$f(x - h)$ shifts RIGHT $h$ units. $f(x + h)$ shifts LEFT $h$ units. Think of it as: the graph needs to \"compensate\" by moving in the opposite direction to keep the same outputs. The graph of the rational function f is shown where y = f ofx and x is greater than or equal to zero. Which of the following is a graph of y = fx + 5 where x is again greater than or equal to zero? Okay. The graph that is shown to us is a graph of f."
+            "content": "$f(x - h)$ shifts RIGHT $h$ units. $f(x + h)$ shifts LEFT $h$ units. Think of it as: the graph needs to \"compensate\" by moving in the opposite direction to keep the same outputs. For example, $y = f(x - 3)$ shifts the graph of $y = f(x)$ right $3$ units, while $y = f(x + 3)$ shifts it left $3$ units."
           },
           {
             "type": "diagramRef",
@@ -278,7 +278,7 @@ export const transformationsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Transformation Rules Summary (Fundamentals) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Read transformed form from inside-out: inside changes x, outside changes y. The graph of the rational function f is shown where y = f ofx and x is greater than or equal to zero. Which of the following is a graph of y = fx + 5 where x is again greater than or equal to zero? Okay. The graph that is shown to us is a graph of f."
+            "content": "On the SAT, Transformation Rules Summary (Fundamentals) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Read transformed form from inside-out: inside changes x, outside changes y. For example, reading inside-out: $y = f(x) + 5$ shifts up $5$ (outside the function), while $y = f(x - 3)$ shifts right $3$ (inside the function)."
           },
           {
             "type": "formula",
@@ -362,7 +362,7 @@ export const transformationsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Simple Transformation From Graph Example (Transformations from Graph) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Read transformed form from inside-out: inside changes x, outside changes y. The graph of the rational function f is shown where y = f ofx and x is greater than or equal to zero. Which of the following is a graph of y = fx + 5 where x is again greater than or equal to zero? Okay. The graph that is shown to us is a graph of f."
+            "content": "On the SAT, Simple Transformation From Graph Example (Transformations from Graph) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Read transformed form from inside-out: inside changes x, outside changes y. For example, if the graph of $y = f(x)$ is shown, then $y = f(x) + 5$ is the same curve raised $5$ units."
           },
           {
             "type": "formula",
@@ -442,7 +442,7 @@ export const transformationsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Complex Transformation From Graph Example (Transformations from Graph) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Read transformed form from inside-out: inside changes x, outside changes y. The graph of y = fx + 14 is shown. Which of the equations defines function f? Okay, so this is the graph of f ofx + 14, which means this is the graph of f ofx after it has been moved up 14 units. And so we want to find the original function, the orig."
+            "content": "On the SAT, Complex Transformation From Graph Example (Transformations from Graph) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Read transformed form from inside-out: inside changes x, outside changes y. For example, if the graph shown is $y = f(x) + 14$, then it is $y = f(x)$ raised $14$ units, so the original $f(x)$ is that graph lowered back down $14$ units."
           },
           {
             "type": "formula",
@@ -526,7 +526,7 @@ export const transformationsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Simple Transformation From Table Example #1 (Transformations from Table) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Read transformed form from inside-out: inside changes x, outside changes y. The function f is given f ofx= partheses x + 6 partheses x + 5 partheses x - 4. Which table of values represents y = fx - 3? Okay, we are given the function f ofx and then we are concerning ourselves with a function f ofx -3 and we're asked to find t."
+            "content": "On the SAT, Simple Transformation From Table Example #1 (Transformations from Table) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Read transformed form from inside-out: inside changes x, outside changes y. For example, if $f(x) = (x + 6)(x + 5)(x - 4)$, then $y = f(x - 3)$ shifts every point right $3$ units, so the value at input $x$ becomes $f(x - 3)$."
           },
           {
             "type": "formula",
@@ -606,7 +606,7 @@ export const transformationsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Simple Transformation From Table #1 (DESMOS Method) (Transformations from Table) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Read transformed form from inside-out: inside changes x, outside changes y. For the linear function f, the table shows three values of x and their corresponding values of f ofx. If h ofx= fx -3, which equation defines h? Okay, if you've been following along with this material so far and understanding it, this should be a ver."
+            "content": "On the SAT, Simple Transformation From Table #1 (DESMOS Method) (Transformations from Table) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Read transformed form from inside-out: inside changes x, outside changes y. For example, if $f$ is linear and $h(x) = f(x) - 3$, find $f$'s slope and intercept from the table, then subtract $3$ from the constant term to define $h$."
           },
           {
             "type": "formula",
@@ -686,7 +686,7 @@ export const transformationsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Complex Transformation From Table Example (Transformations from Table) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Read transformed form from inside-out: inside changes x, outside changes y. For line h, the table shows three values of x and their corresponding values of y. Line k is a result of translating line h down five units in the xy plane. What is the x intercept of line k? Okay, we are given this table which holds the data for lin."
+            "content": "On the SAT, Complex Transformation From Table Example (Transformations from Table) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Read transformed form from inside-out: inside changes x, outside changes y. For example, if line $k$ is line $h$ shifted down $5$ units, then $k(x) = h(x) - 5$; find $h$'s equation from the table, subtract $5$, and set $k(x) = 0$ to get the $x$-intercept."
           },
           {
             "type": "formula",
@@ -770,7 +770,7 @@ export const transformationsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Complex Transformation From Table (DESMOS Method) (Transformations from Table) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Read transformed form from inside-out: inside changes x, outside changes y. All right. Now, let's look at the way of solving this question using Desmos to our advantage. For line H, the table shows three values of X and the corresponding values of Y. Line K is a result of translating line H down five units in the XY plane. W."
+            "content": "On the SAT, Complex Transformation From Table (DESMOS Method) (Transformations from Table) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Read transformed form from inside-out: inside changes x, outside changes y. As above, model $k(x) = h(x) - 5$ from the table values; in DESMOS, plot the shifted line and read where it crosses the $x$-axis."
           },
           {
             "type": "formula",
@@ -854,7 +854,7 @@ export const transformationsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Simple Transformation From Expression Example (Transformations from Expression) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Read transformed form from inside-out: inside changes x, outside changes y. The function f is defined by f ofx = 7x 3r in the xy plane. The graph of y= g ofx is a result of shifting the graph of y = f ofx down to units. Which equation defines the function g. Okay, this is a very simple transformation from expression example."
+            "content": "On the SAT, Simple Transformation From Expression Example (Transformations from Expression) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Read transformed form from inside-out: inside changes x, outside changes y. For example, if $g$ is the graph of $f$ shifted down $2$ units, then $g(x) = f(x) - 2$: subtract $2$ from the expression for $f$."
           },
           {
             "type": "formula",
@@ -934,7 +934,7 @@ export const transformationsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Complex Transformation From Expression Example #1 (Transformations from Expression) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Read transformed form from inside-out: inside changes x, outside changes y. The function f is defined by f ofx= parentheses x - 6 partheses x - 2 parentheses x + 6 in the xy plane. The graph of y= g ofx is a result of translating the graph of y= fx up four units. What is the value of g of 0? Okay, we are given the function f."
+            "content": "On the SAT, Complex Transformation From Expression Example #1 (Transformations from Expression) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Read transformed form from inside-out: inside changes x, outside changes y. For example, if $f(x) = (x - 6)(x - 2)(x + 6)$ and $g$ is $f$ shifted up $4$ units, then $g(x) = f(x) + 4$, so $g(0) = f(0) + 4 = (-6)(-2)(6) + 4 = 72 + 4 = 76$."
           },
           {
             "type": "formula",
@@ -1018,7 +1018,7 @@ export const transformationsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Complex Transformation From Expression Example #2 (Transformations from Expression) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Read transformed form from inside-out: inside changes x, outside changes y. The graph of 9x - 10 y = 19 is translated down four units in the xy plane. What is the xcoordinate of the x intercept of resulting graph? Okay, again this is a very simple transformation from expression example. We are given the equation of a graph w."
+            "content": "On the SAT, Complex Transformation From Expression Example #2 (Transformations from Expression) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Read transformed form from inside-out: inside changes x, outside changes y. For example, translating $9x - 10y = 19$ down $4$ units gives $y = \\frac{9x - 19}{10} - 4$; setting $y = 0$ yields $\\frac{9x - 19}{10} = 4$, so $9x - 19 = 40$ and $x = \\frac{59}{9}$."
           },
           {
             "type": "formula",
@@ -1102,7 +1102,7 @@ export const transformationsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Difficult Transformations (System of Equations Method) (Difficult Transformations) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Read transformed form from inside-out: inside changes x, outside changes y. The rational function f is defined by an equation in the form f ofx= a /x + b where a and b are constants. The partial graph of y= f ofx is shown. If g ofx equals fx + 4, which equation could define the function g? Okay, this is as tough as transform."
+            "content": "On the SAT, Difficult Transformations (System of Equations Method) (Difficult Transformations) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Read transformed form from inside-out: inside changes x, outside changes y. For example, if $f(x) = \\frac{a}{x} + b$ and $g(x) = f(x) + 4$, then $g(x) = \\frac{a}{x} + (b + 4)$ — a vertical shift changes only the constant $b$."
           },
           {
             "type": "formula",
@@ -1186,7 +1186,7 @@ export const transformationsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Difficult Transformations (Answer Choice Method) (Difficult Transformations) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Read transformed form from inside-out: inside changes x, outside changes y. All right, this exact question can now also be solved by simply just using the answer choices. We are told that there is a rational function f. This is the format of function f and the partial graph of f ofx is shown. And so this is a graph of f ofx."
+            "content": "On the SAT, Difficult Transformations (Answer Choice Method) (Difficult Transformations) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Read transformed form from inside-out: inside changes x, outside changes y. As above, for $f(x) = \\frac{a}{x} + b$ you can also test answer choices: the graph of $g(x) = f(x) + 4$ must match $\\frac{a}{x} + (b + 4)$, so pick the choice whose constant is $4$ greater."
           },
           {
             "type": "formula",
