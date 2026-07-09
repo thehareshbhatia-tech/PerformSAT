@@ -35,7 +35,6 @@ const NAV_ITEMS = [
   { id: 'practiceTests', label: 'Tests', route: '/app/tests', icon: ClockIcon },
   { id: 'practiceBank', label: 'Practice', route: '/app/practice-bank', icon: TargetIcon },
   { id: 'studyPlan', label: 'Study Plan', route: '/app/study-plan', icon: StudyPlanIcon },
-  { id: 'tutor', label: 'AI Tutor', route: '/app/tutor', icon: SparklesIcon },
   { id: 'profile', label: 'Profile', route: '/app/profile', icon: PersonIcon },
 ];
 
@@ -49,7 +48,6 @@ const NAV_DOMAIN_COLORS = {
   practiceTests: 'var(--color-white)',        // Tests → neutral
   practiceBank: 'var(--color-brand-green)',   // Practice → green
   studyPlan: 'var(--color-brand-purple)',     // Study Plan → purple
-  tutor: 'var(--color-brand-purple)',         // AI Tutor (insights/hints) → purple
   profile: 'var(--color-white)',              // Profile → neutral
 };
 
@@ -61,7 +59,6 @@ const NAV_DOMAIN_TINTS = {
   practiceTests: 'rgba(255, 255, 255, 0.10)', // neutral white overlay
   practiceBank: 'rgba(198, 244, 50, 0.16)',   // lime tint
   studyPlan: 'rgba(176, 146, 221, 0.20)',     // lavender tint
-  tutor: 'rgba(176, 146, 221, 0.20)',         // lavender tint
   profile: 'rgba(255, 255, 255, 0.10)',       // neutral white overlay
 };
 
@@ -74,7 +71,6 @@ const NAV_DOMAIN_COLORS_ON_LIGHT = {
   practiceTests: 'var(--color-brand-navy)',     // Tests → neutral navy
   practiceBank: 'var(--color-brand-green-text)',// Practice → AA green text
   studyPlan: 'var(--color-brand-purple-text)',  // Study Plan → AA purple text
-  tutor: 'var(--color-brand-purple-text)',      // AI Tutor → AA purple text
   profile: 'var(--color-brand-navy)',           // Profile → neutral navy
 };
 
@@ -110,14 +106,6 @@ function ClockIcon({ color }) {
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <circle cx="12" cy="12" r="10" />
       <polyline points="12 6 12 12 16 14" />
-    </svg>
-  );
-}
-
-function SparklesIcon({ color }) {
-  return (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z" />
     </svg>
   );
 }
@@ -178,12 +166,7 @@ const AppShell = ({ children, currentView, onNavigate, user, onLogout, hideNav =
     : currentView;
 
   const handleNavClick = (item) => {
-    if (item.id === 'tutor' || item.id === 'profile') {
-      // These are new screens — for now, pass through to parent
-      onNavigate(item.id);
-    } else {
-      onNavigate(item.id);
-    }
+    onNavigate(item.id);
   };
 
   return (
