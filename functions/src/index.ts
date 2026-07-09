@@ -39,6 +39,15 @@ import {
   stripeWebhook,
   hasEntitlementAccess,
 } from "./stripe";
+// AI-tutor systemBlocks v2 (cacheable multi-block system) + the deterministic
+// math-verification pass. Pure validation/mapping/parsing lives in these
+// modules (node --test covered); index.ts only does the plumbing.
+import {
+  validateSystemBlocks,
+  toAnthropicSystem,
+  AnthropicSystemBlock,
+} from "./tutorSystemBlocks";
+import {parseMathCheckResult, MathCheckResult} from "./tutorMathCheckPolicy";
 
 initializeApp();
 const db = getFirestore();
@@ -54,15 +63,19 @@ export {ensureEntitlement, redeemPromoCode, createCheckoutSession, createPortalS
 // up both token cost and function memory. 150KB comfortably fits a legitimate
 // tutor history, study-plan diagnostic, or diagnostic-narrative evidence blob.
 const MAX_REQUEST_BYTES = 150 * 1024;
+// tutorMathCheck carries only one reply + one question + choices, never a full
+// tutor history, so it enforces its own much tighter cap.
+const MATH_CHECK_MAX_BYTES = 50 * 1024;
 
 /**
  * True when the combined UTF-8 byte size of the given payload parts exceeds
- * MAX_REQUEST_BYTES. Strings are measured as-is; anything else is JSON
- * serialized first. Short-circuits as soon as the cap is passed.
+ * capBytes. Strings are measured as-is; anything else is JSON serialized first.
+ * Short-circuits as soon as the cap is passed.
+ * @param {number} capBytes the byte ceiling to enforce
  * @param {...unknown} parts payload pieces (messages, system, request.body, …)
- * @return {boolean} true when the request is too large and must be rejected
+ * @return {boolean} true when the payload is too large and must be rejected
  */
-function exceedsRequestBodyCap(...parts: unknown[]): boolean {
+function exceedsByteCap(capBytes: number, ...parts: unknown[]): boolean {
   let bytes = 0;
   for (const part of parts) {
     if (part == null) continue;
@@ -70,9 +83,19 @@ function exceedsRequestBodyCap(...parts: unknown[]): boolean {
       typeof part === "string" ? part : JSON.stringify(part),
       "utf8",
     );
-    if (bytes > MAX_REQUEST_BYTES) return true;
+    if (bytes > capBytes) return true;
   }
   return false;
+}
+
+/**
+ * True when the combined UTF-8 byte size of the given payload parts exceeds
+ * MAX_REQUEST_BYTES. Thin wrapper over exceedsByteCap for the standard cap.
+ * @param {...unknown} parts payload pieces (messages, system, request.body, …)
+ * @return {boolean} true when the request is too large and must be rejected
+ */
+function exceedsRequestBodyCap(...parts: unknown[]): boolean {
+  return exceedsByteCap(MAX_REQUEST_BYTES, ...parts);
 }
 
 interface TranscriptSegment {
@@ -273,7 +296,7 @@ export const aiTutor = onRequest(
     }
 
     try {
-      const {messages, system} = request.body;
+      const {messages, system, systemBlocks} = request.body;
 
       if (!messages || !Array.isArray(messages) || messages.length > 100) {
         response.status(400).json({error: "Messages array is required (max 100)"});
@@ -282,9 +305,34 @@ export const aiTutor = onRequest(
 
       // Cap on serialized SIZE, not just count: 100 short turns is fine, but 100
       // turns each carrying a giant pasted blob would blow up token cost/memory.
-      if (exceedsRequestBodyCap(messages, system)) {
+      // systemBlocks is measured too so a giant blocks array can't bypass the cap.
+      if (exceedsRequestBodyCap(messages, system, systemBlocks)) {
         response.status(400).json({error: "Request too large", code: "payload_too_large"});
         return;
+      }
+
+      // systemBlocks v2: when present, a small array of cacheable {text, cache}
+      // blocks takes precedence over the legacy `system` string. We construct
+      // the Anthropic system array ourselves (only .text/.cache survive) so no
+      // client key can be smuggled upstream. Invalid systemBlocks is a hard 400
+      // — the client sends it deliberately, so there is NO silent fallback. When
+      // absent, the legacy string path below is byte-identical to before.
+      let anthropicSystem: string | AnthropicSystemBlock[];
+      if (systemBlocks != null) {
+        const validated = validateSystemBlocks(systemBlocks);
+        if (!validated) {
+          response.status(400).json({error: "Invalid systemBlocks"});
+          return;
+        }
+        anthropicSystem = toAnthropicSystem(validated);
+      } else {
+        anthropicSystem = system ?
+          [{
+            type: "text",
+            text: typeof system === "string" ? system : String(system),
+            cache_control: {type: "ephemeral"},
+          }] :
+          "";
       }
 
       const apiKey = anthropicApiKey.value();
@@ -331,17 +379,12 @@ export const aiTutor = onRequest(
             // Medium effort does NOT re-add the pre-token wait (that was thinking).
             thinking: {type: "disabled"},
             output_config: {effort: "medium"},
-            // Prompt caching: send the system prompt as a cacheable content
-            // block so the stable persona prefix is reused across turns. (Pays
-            // off fully once the client stops interleaving per-turn volatile
-            // content into the system prefix — tracked separately.)
-            system: system ?
-              [{
-                type: "text",
-                text: typeof system === "string" ? system : String(system),
-                cache_control: {type: "ephemeral"},
-              }] :
-              "",
+            // Prompt caching: the stable persona prefix goes up as a cacheable
+            // content block so it is reused across turns. systemBlocks v2 (built
+            // above) lets the client cache ONLY the stable blocks and keep
+            // per-turn volatile framing uncached, so the cache prefix actually
+            // matches turn-to-turn. Legacy single-string `system` still works.
+            system: anthropicSystem,
             messages: messages,
             stream: useStream,
           }),
@@ -460,6 +503,206 @@ export const aiTutor = onRequest(
         response.end();
       }
     }
+  }
+);
+
+/**
+ * Build the fact-checker system prompt. Kept as a function so the exact wording
+ * is reviewable in one place. Ground-truth framing + a narrow error scope +
+ * strict-JSON + fail-toward-ok are all load-bearing.
+ * @return {string} the tutorMathCheck system prompt
+ */
+function buildMathCheckSystemPrompt(): string {
+  return [
+    "You are a math fact-checker for a single SAT tutoring reply.",
+    "You are given the tutoring reply, the question, and the KNOWN correct",
+    "answer. The known correct answer is GROUND TRUTH — treat it as definitely",
+    "correct and never question it.",
+    "",
+    "Check the tutor reply ONLY for:",
+    "(a) arithmetic or algebraic statements that are objectively wrong,",
+    "(b) statements that contradict the known correct answer,",
+    "(c) mislabeling which answer choice is correct.",
+    "",
+    "Ignore everything else: pedagogy, tone, phrasing, completeness,",
+    "formatting, and LaTeX or notation style. Do not re-teach the problem.",
+    "",
+    "Respond with STRICT JSON and nothing else — no code fences, no text before",
+    "or after it. Either:",
+    "  {\"ok\": true}",
+    "when the reply contains no certain math error, or",
+    "  {\"ok\": false, \"correction\": \"<one sentence, addressed to the student," +
+      " plainly stating the corrected fact>\"}",
+    "when you are CERTAIN the reply states something mathematically wrong.",
+    "",
+    "Err strongly on the side of {\"ok\": true}. Only flag an error you are",
+    "certain of — a false alarm is worse than a miss.",
+  ].join("\n");
+}
+
+/**
+ * Build the fact-checker user message from the validated request fields.
+ * Optional selectedAnswer/choices are appended only when present.
+ * @param {object} p the request fields (reply, question, correctAnswer, …)
+ * @return {string} the user message content
+ */
+function buildMathCheckUserPrompt(p: {
+  reply: string;
+  question: string;
+  correctAnswer: string;
+  selectedAnswer?: unknown;
+  choices?: unknown;
+}): string {
+  const parts: string[] = [
+    "QUESTION:",
+    p.question,
+    "",
+    "KNOWN CORRECT ANSWER (ground truth):",
+    p.correctAnswer,
+  ];
+  if (typeof p.selectedAnswer === "string" && p.selectedAnswer.trim()) {
+    parts.push("", "STUDENT'S SELECTED ANSWER:", p.selectedAnswer);
+  }
+  if (Array.isArray(p.choices) && p.choices.length > 0) {
+    const rendered = p.choices
+      .map((c) => {
+        const choice = c as Record<string, unknown>;
+        const id = typeof choice?.id === "string" ? choice.id : "";
+        const text = typeof choice?.text === "string" ? choice.text : "";
+        return `${id}. ${text}`.trim();
+      })
+      .filter((line) => line.length > 1)
+      .join("\n");
+    if (rendered) parts.push("", "ANSWER CHOICES:", rendered);
+  }
+  parts.push("", "TUTOR REPLY TO CHECK:", p.reply);
+  return parts.join("\n");
+}
+
+/**
+ * Math-verification pass — a cheap, deterministic guardrail that checks the AI
+ * tutor's math claims against the known-correct answer before the student
+ * trusts them (Khanmigo-style). Fires at most once per tutor reply. Fail-open
+ * by construction: every non-auth path returns 200 {ok, correction?}, and any
+ * validation/upstream/parse failure resolves to {ok:true} so a checker hiccup
+ * never blocks or scares the student. Upstream status is never leaked to the
+ * client (same reasoning as aiTutor's error-mapping comment).
+ */
+export const tutorMathCheck = onRequest(
+  {
+    cors: ALLOWED_ORIGINS,
+    secrets: [anthropicApiKey],
+    timeoutSeconds: 60,
+    memory: "256MiB",
+  },
+  async (request, response) => {
+    if (request.method !== "POST") {
+      response.status(405).json({error: "Method not allowed"});
+      return;
+    }
+
+    const user = await verifyAuth(request);
+    if (!user) {
+      response.status(401).json({error: "Authentication required"});
+      return;
+    }
+
+    // Own rate-limit bucket: fires at most once per tutor reply, so 200/hr
+    // comfortably covers an active session while capping abuse independently
+    // of the aiTutor bucket.
+    if (!(await checkRateLimit(user.uid, "tutorMathCheck", 200))) {
+      response.status(429).json({error: "Too many requests. Please wait a minute and try again."});
+      return;
+    }
+
+    // Same premium gate as aiTutor — this endpoint also spends Anthropic tokens.
+    if (!(await hasEntitlementAccess(user.uid))) {
+      response.status(402).json({error: "subscription_required"});
+      return;
+    }
+
+    const {reply, question, correctAnswer, selectedAnswer, choices} =
+      request.body || {};
+
+    // Validate: reply, question, correctAnswer required non-empty strings.
+    if (
+      typeof reply !== "string" || reply.trim().length === 0 ||
+      typeof question !== "string" || question.trim().length === 0 ||
+      typeof correctAnswer !== "string" || correctAnswer.trim().length === 0
+    ) {
+      response.status(400).json({error: "reply, question, and correctAnswer are required"});
+      return;
+    }
+
+    // Tighter 50KB cap (its own, not the 150KB tutor cap).
+    if (exceedsByteCap(MATH_CHECK_MAX_BYTES, reply, question, correctAnswer, selectedAnswer, choices)) {
+      response.status(400).json({error: "Request too large", code: "payload_too_large"});
+      return;
+    }
+
+    const apiKey = anthropicApiKey.value();
+    if (!apiKey) {
+      // Config error, not the student's fault — fail open, don't surface it.
+      logger.error("ANTHROPIC_API_KEY secret is not configured (tutorMathCheck)");
+      response.json({ok: true} as MathCheckResult);
+      return;
+    }
+
+    let result: MathCheckResult = {ok: true};
+    try {
+      const anthropicResponse = await fetch(
+        "https://api.anthropic.com/v1/messages",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "x-api-key": apiKey,
+            "anthropic-version": "2023-06-01",
+          },
+          body: JSON.stringify({
+            // Cheapest fast tier — this is a narrow yes/no verification, not a
+            // teaching pass. temperature 0 for a deterministic verdict; thinking
+            // off (the check is a lookup against a known answer, not reasoning).
+            model: "claude-haiku-4-5-20251001",
+            max_tokens: 300,
+            temperature: 0,
+            thinking: {type: "disabled"},
+            system: buildMathCheckSystemPrompt(),
+            messages: [{
+              role: "user",
+              content: buildMathCheckUserPrompt({
+                reply, question, correctAnswer, selectedAnswer, choices,
+              }),
+            }],
+          }),
+        }
+      );
+
+      if (!anthropicResponse.ok) {
+        // Log upstream detail server-side ONLY; never surface it. This endpoint
+        // must never scare or block the student, so an upstream failure is just
+        // "no correction" (see aiTutor's error-mapping rationale).
+        const errorData = await anthropicResponse.json().catch(() => ({}));
+        logger.error("tutorMathCheck upstream error:", {status: anthropicResponse.status, errorData});
+        response.json({ok: true} as MathCheckResult);
+        return;
+      }
+
+      const data = await anthropicResponse.json() as {
+        content?: Array<{type: string; text?: string}>;
+      };
+      const rawText = (data.content || [])
+        .filter((b) => b.type === "text")
+        .map((b) => b.text || "")
+        .join("");
+      result = parseMathCheckResult(rawText);
+    } catch (error) {
+      logger.error("tutorMathCheck error:", error);
+      response.json({ok: true} as MathCheckResult);
+      return;
+    }
+
+    response.json(result);
   }
 );
 

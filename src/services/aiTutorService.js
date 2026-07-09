@@ -16,6 +16,13 @@ export { parseSSEEvents };
 // Cloud Function URL
 const AI_TUTOR_URL = process.env.REACT_APP_AI_TUTOR_URL || 'https://aitutor-ki77ua6x2a-uc.a.run.app';
 
+// Server-side math guardrail endpoint. Cloud Functions v2 gives every function
+// its OWN Cloud Run subdomain (lowercased function name — same pattern as
+// billingService's ensureentitlement-* URLs), so this is a sibling host, NOT a
+// path on the aiTutor host.
+const TUTOR_MATH_CHECK_URL = process.env.REACT_APP_TUTOR_MATH_CHECK_URL ||
+  'https://tutormathcheck-ki77ua6x2a-uc.a.run.app';
+
 // The server truncates replies at its max_tokens budget and reports it via
 // stop_reason === 'max_tokens'. Append this honest marker instead of silently
 // presenting a half-answer as complete.
@@ -699,22 +706,34 @@ export const chatWithTutor = async (
     3
   );
 
-  // Build enhanced system message with context (subject-specific base prompt)
-  let enhancedSystem = getSystemPrompt(section);
+  // ── Prompt-cache split (systemBlocks v2) ────────────────────────────────
+  // The system prompt is assembled in two parts so the aiTutor proxy can mark
+  // the stable half with cache_control: ephemeral:
+  //   STABLE prefix   — base persona + studentProfile + learningMemory +
+  //                     intelligence + strategy corpus + lesson + search.
+  //                     Constant across turns within one question/session, so
+  //                     it is the cache key.
+  //   VOLATILE suffix — video (changing currentTime) + practiceContext
+  //                     (per-turn emotional state) + coachMode overlay.
+  // We send BOTH `system` (the exact concatenation, for old servers that ignore
+  // unknown fields) and `systemBlocks` (the two-part form). By construction
+  // stablePrefix + volatileSuffix === enhancedSystem, so behavior is identical
+  // whichever path the server takes.
 
   // Add student profile right after system prompt (highest priority context)
+  let stablePrefix = getSystemPrompt(section);
   if (studentProfile) {
-    enhancedSystem += '\n\n' + studentProfile;
+    stablePrefix += '\n\n' + studentProfile;
   }
 
   // Add persistent learning memory (cross-session context)
   if (learningMemoryContext) {
-    enhancedSystem += buildLearningMemoryBlock(learningMemoryContext);
+    stablePrefix += buildLearningMemoryBlock(learningMemoryContext);
   }
 
   // Add data loop intelligence context (fingerprint, predictions, approach guidance)
   if (intelligenceContext) {
-    enhancedSystem += intelligenceContext;
+    stablePrefix += intelligenceContext;
   }
 
   // Add targeted strategy guides based on error patterns.
@@ -726,9 +745,30 @@ export const chatWithTutor = async (
       strategyContext.weakSkillIds
     );
     if (strategies) {
-      enhancedSystem += '\n' + strategies;
+      stablePrefix += '\n' + strategies;
     }
   }
+
+  // Add lesson context
+  if (lessonContext) {
+    stablePrefix += buildContextMessage(lessonContext);
+  }
+
+  // Add search results
+  if (searchResults.length > 0) {
+    stablePrefix += '\n\n--- ADDITIONAL RELEVANT CONTENT ---\n';
+    searchResults.forEach(result => {
+      if (result.content.length > 0) {
+        stablePrefix += `\n${result.title}:\n`;
+        result.content.slice(0, 3).forEach(c => {
+          stablePrefix += `- ${c}\n`;
+        });
+      }
+    });
+  }
+
+  // ── Volatile suffix — changes turn-to-turn, kept out of the cache key ──
+  let volatileSuffix = '';
 
   // Add video transcript context if available (most important for "why did he do that")
   if (videoContext?.transcript && videoContext?.currentTime !== undefined) {
@@ -737,41 +777,31 @@ export const chatWithTutor = async (
       videoContext.currentTime,
       60 // 60 seconds window
     );
-    enhancedSystem += buildVideoContext(transcriptContext, videoContext.currentTime);
+    volatileSuffix += buildVideoContext(transcriptContext, videoContext.currentTime);
   } else if (videoContext?.currentTime !== undefined) {
     // Video lesson but no transcript available
-    enhancedSystem += `\n\n--- VIDEO LESSON INFO ---\n`;
-    enhancedSystem += `The student is watching a video lesson at timestamp: ${formatTime(videoContext.currentTime)}\n`;
-    enhancedSystem += `Note: Video transcript is not available for this video. If the student asks about a specific step, ask them to describe what they're seeing.\n`;
-  }
-
-  // Add lesson context
-  if (lessonContext) {
-    enhancedSystem += buildContextMessage(lessonContext);
-  }
-
-  // Add search results
-  if (searchResults.length > 0) {
-    enhancedSystem += '\n\n--- ADDITIONAL RELEVANT CONTENT ---\n';
-    searchResults.forEach(result => {
-      if (result.content.length > 0) {
-        enhancedSystem += `\n${result.title}:\n`;
-        result.content.slice(0, 3).forEach(c => {
-          enhancedSystem += `- ${c}\n`;
-        });
-      }
-    });
+    volatileSuffix += `\n\n--- VIDEO LESSON INFO ---\n`;
+    volatileSuffix += `The student is watching a video lesson at timestamp: ${formatTime(videoContext.currentTime)}\n`;
+    volatileSuffix += `Note: Video transcript is not available for this video. If the student asks about a specific step, ask them to describe what they're seeing.\n`;
   }
 
   // Add practice question context if provided
   if (practiceContext) {
-    enhancedSystem += '\n\n' + practiceContext;
+    volatileSuffix += '\n\n' + practiceContext;
   }
 
   // Add coach mode overlay if active (section-aware: R&W uses verbal overlays)
   if (coachMode?.modeId) {
-    enhancedSystem += buildCoachContext(coachMode.modeId, coachMode.context || {}, section);
+    volatileSuffix += buildCoachContext(coachMode.modeId, coachMode.context || {}, section);
   }
+
+  const enhancedSystem = stablePrefix + volatileSuffix;
+
+  // systemBlocks contract (server maps cache:true -> cache_control: ephemeral):
+  // 1-4 blocks, at most 2 cached, no empty-text blocks. The stable prefix is
+  // always non-empty (it starts with the base persona prompt).
+  const systemBlocks = [{ text: stablePrefix, cache: true }];
+  if (volatileSuffix) systemBlocks.push({ text: volatileSuffix });
 
   // Prepare messages for Claude API — only the recent window (see MAX_HISTORY_MESSAGES).
   const claudeMessages = messages.slice(-MAX_HISTORY_MESSAGES).map(m => ({
@@ -783,7 +813,10 @@ export const chatWithTutor = async (
   // thinking is hard-disabled server-side for first-token latency.)
   const buildBody = (stream) => JSON.stringify({
     messages: claudeMessages,
+    // Legacy full string — old deployed servers ignore `systemBlocks` and read
+    // this. Equal to systemBlocks.map(b => b.text).join('') by construction.
     system: enhancedSystem,
+    systemBlocks,
     stream,
   });
 
@@ -879,5 +912,43 @@ export const quickAnswer = async (question, section = 'math') => {
   } catch (error) {
     console.error('Quick Answer Error:', error);
     throw error;
+  }
+};
+
+/**
+ * Server guardrail that catches a tutor reply contradicting the answer key.
+ * POSTs the finished reply plus question context to /tutorMathCheck and returns
+ * the verdict. Fail-open by design: ANY error, timeout (10s), non-200, or
+ * malformed body resolves to { ok: true } and never throws, so a flaky check
+ * can never block or corrupt an already-rendered reply. Only an exact
+ * { ok: false, correction: <non-empty string> } response yields a correction.
+ *
+ * Use it fire-and-forget after a MATH tutor reply completes, once the answer is
+ * revealed and the reply makes a numeric claim worth verifying.
+ *
+ * @param {{reply:string, question:string, correctAnswer:string, selectedAnswer?:string, choices?:Array<{id:string,text:string}>}} args
+ * @returns {Promise<{ok:boolean, correction?:string}>} verdict — { ok:true } means "no correction".
+ */
+export const checkTutorMath = async ({ reply, question, correctAnswer, selectedAnswer, choices }) => {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), 10000);
+  try {
+    const response = await authFetch(TUTOR_MATH_CHECK_URL, {
+      method: 'POST',
+      body: JSON.stringify({ reply, question, correctAnswer, selectedAnswer, choices }),
+      signal: controller.signal,
+    });
+    if (!response.ok) return { ok: true };
+    const data = await response.json();
+    if (data && data.ok === false && typeof data.correction === 'string' && data.correction.trim()) {
+      return { ok: false, correction: data.correction };
+    }
+    return { ok: true };
+  } catch {
+    // Fail open on network error / timeout / abort / bad body — a guardrail must
+    // never surface an error over a reply the student already sees.
+    return { ok: true };
+  } finally {
+    clearTimeout(timer);
   }
 };

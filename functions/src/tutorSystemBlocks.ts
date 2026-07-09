@@ -1,0 +1,97 @@
+/**
+ * Pure validation/mapping for the AI-tutor "systemBlocks v2" protocol — no
+ * Firebase or Anthropic SDK imports, so it is unit-testable with node --test
+ * (same pattern as stripePolicy.ts / reengagementPolicy.ts).
+ *
+ * Why this exists: the tutor client used to concatenate volatile per-turn
+ * content into one big `system` STRING, so the single `cache_control:
+ * ephemeral` block never produced a cache hit (the prefix changed every turn).
+ * The v2 protocol lets the client send a SMALL array of system blocks and mark
+ * only the stable ones cacheable, so the persona prefix is actually reused
+ * across turns while volatile framing stays uncached.
+ *
+ * Security note: the mapping here NEVER passes a client object through
+ * untouched. It reads only `.text` and `.cache` and constructs the Anthropic
+ * block objects itself, so a client cannot smuggle other keys (e.g. a
+ * `cache_control` with an arbitrary TTL) into the upstream request.
+ */
+
+/** A single client-supplied system block (already sanitized to text+cache). */
+export interface SystemBlockInput {
+  text: string;
+  /** true = mark this block cacheable (cache_control: ephemeral). */
+  cache?: boolean;
+}
+
+/** An Anthropic Messages API `system` array entry we build ourselves. */
+export interface AnthropicSystemBlock {
+  type: "text";
+  text: string;
+  cache_control?: {type: "ephemeral"};
+}
+
+/** Protocol limits — kept as named constants so the tests can pin them. */
+export const MAX_SYSTEM_BLOCKS = 4;
+export const MAX_CACHED_BLOCKS = 2;
+
+/**
+ * Validate + sanitize a client-supplied `systemBlocks` value. Accepts an array
+ * of 1..MAX_SYSTEM_BLOCKS objects, each with a non-empty string `text` and an
+ * optional boolean `cache`, with at most MAX_CACHED_BLOCKS cached blocks. Any
+ * extra keys are stripped: the returned blocks carry ONLY `text` and (when
+ * truthy) `cache`. Returns null on ANY violation so the caller can reject the
+ * request (400) — the client only sends systemBlocks deliberately, so there
+ * is no silent fallback.
+ * @param {unknown} input the raw request.body.systemBlocks value
+ * @return {SystemBlockInput[]|null} sanitized blocks, or null when invalid
+ */
+export function validateSystemBlocks(
+  input: unknown,
+): SystemBlockInput[] | null {
+  if (!Array.isArray(input)) return null;
+  if (input.length < 1 || input.length > MAX_SYSTEM_BLOCKS) return null;
+
+  const sanitized: SystemBlockInput[] = [];
+  let cachedCount = 0;
+
+  for (const raw of input) {
+    if (raw == null || typeof raw !== "object" || Array.isArray(raw)) {
+      return null;
+    }
+    const block = raw as Record<string, unknown>;
+    const text = block.text;
+    // Non-empty string required. Whitespace-only is treated as empty — a
+    // blank system block is never a legitimate prompt and just wastes tokens.
+    if (typeof text !== "string" || text.trim().length === 0) return null;
+
+    // Only an explicit boolean true marks a block cacheable. Anything else
+    // (absent, false, or a non-boolean) is treated as uncached — never an
+    // error and never cached, so a malformed `cache` can't smuggle caching in.
+    const cached = block.cache === true;
+    if (cached) cachedCount++;
+
+    // Reconstruct from scratch — drop every other key.
+    sanitized.push(cached ? {text, cache: true} : {text});
+  }
+
+  if (cachedCount > MAX_CACHED_BLOCKS) return null;
+  return sanitized;
+}
+
+/**
+ * Map already-validated blocks to an Anthropic Messages `system` array. Each
+ * block becomes {type:"text", text}, and cache:true additionally attaches
+ * cache_control:{type:"ephemeral"}. Builds fresh objects from only text+cache
+ * so no client-supplied key can reach the upstream request.
+ * @param {SystemBlockInput[]} blocks validated blocks from validateSystemBlocks
+ * @return {AnthropicSystemBlock[]} the Anthropic system array
+ */
+export function toAnthropicSystem(
+  blocks: SystemBlockInput[],
+): AnthropicSystemBlock[] {
+  return blocks.map((block) => {
+    const out: AnthropicSystemBlock = {type: "text", text: block.text};
+    if (block.cache === true) out.cache_control = {type: "ephemeral"};
+    return out;
+  });
+}

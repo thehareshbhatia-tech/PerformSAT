@@ -206,6 +206,8 @@ const AdaptivePracticeShell = ({
   // answer/choice once feedback is shown.
   const tutorRecorded = practiceState.answers[currentQuestion?.id];
   const tutorPracticeContext = {
+    // Stable id for next-item-correctness telemetry (tutorExchangeTracker).
+    questionId: currentQuestion?.id,
     question: currentQuestion?.question || '',
     choices: currentQuestion?.choices || [],
     hint: currentQuestion?.hint || '',
@@ -224,6 +226,9 @@ const AdaptivePracticeShell = ({
               ? `${tutorRecorded.selected}) ${currentQuestion.choices.find((c) => c.id === tutorRecorded.selected).text}`
               : tutorRecorded.selected))
       : undefined,
+    // Raw selected choice id (not the display string) — keys the explicit
+    // misconception injection in AiTutorChat's buildPracticeContext.
+    userAnswer: practiceState.showFeedback ? tutorRecorded?.selected : undefined,
     skills: currentQuestion?.skills || (currentQuestion?.skill ? [currentQuestion.skill] : []),
     section: currentQuestion?.section || 'math',
     domain: currentQuestion?.domain,

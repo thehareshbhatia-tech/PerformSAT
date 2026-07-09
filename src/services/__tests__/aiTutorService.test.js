@@ -15,7 +15,7 @@ jest.mock('../../data/knowledgeBase', () => ({
   getRelevantStrategyContext: jest.fn(),
 }));
 
-import { chatWithTutor, quickAnswer } from '../aiTutorService';
+import { chatWithTutor, quickAnswer, checkTutorMath } from '../aiTutorService';
 import { authFetch } from '../authFetch';
 import { getLessonContext, searchKnowledge, getRelevantStrategyContext } from '../../data/knowledgeBase';
 
@@ -140,6 +140,122 @@ describe('chatWithTutor transport contract', () => {
       null, controller.signal
     );
     expect(authFetch.mock.calls[0][1].signal).toBe(controller.signal);
+  });
+});
+
+describe('chatWithTutor systemBlocks (prompt-cache v2)', () => {
+  beforeEach(() => authFetch.mockReset());
+
+  it('sends systemBlocks whose text concatenates to the legacy system string', async () => {
+    authFetch.mockResolvedValueOnce(jsonResponse({ content: 'ok' }));
+    await chatWithTutor(
+      userTurns(1), null, null, null,
+      null, 'PRACTICE-CTX', 'PROFILE-CTX', null, null, null, 'INTEL-CTX', 'math'
+    );
+    const body = bodyOfCall(0);
+    expect(Array.isArray(body.systemBlocks)).toBe(true);
+    // Contract: 1-4 blocks, at most 2 cached, no empty-text blocks.
+    expect(body.systemBlocks.length).toBeGreaterThanOrEqual(1);
+    expect(body.systemBlocks.length).toBeLessThanOrEqual(4);
+    expect(body.systemBlocks.filter(b => b.cache).length).toBeLessThanOrEqual(2);
+    body.systemBlocks.forEach(b => expect(b.text.length).toBeGreaterThan(0));
+    // Round-trip equality: whichever path the server takes, content is identical.
+    expect(body.systemBlocks.map(b => b.text).join('')).toBe(body.system);
+  });
+
+  it('splits stable context into a cached block and volatile context into a second block', async () => {
+    authFetch.mockResolvedValueOnce(jsonResponse({ content: 'ok' }));
+    await chatWithTutor(
+      userTurns(1), null, null, null,
+      null, 'PRACTICE-CTX', 'PROFILE-CTX', null, null, null, 'INTEL-CTX', 'math'
+    );
+    const body = bodyOfCall(0);
+    expect(body.systemBlocks).toHaveLength(2);
+    const [stable, volatile] = body.systemBlocks;
+    expect(stable.cache).toBe(true);
+    // Stable holds persona + profile + intelligence; volatile holds practice ctx.
+    expect(stable.text).toContain('PROFILE-CTX');
+    expect(stable.text).toContain('INTEL-CTX');
+    expect(stable.text).not.toContain('PRACTICE-CTX');
+    expect(volatile.cache).toBeFalsy();
+    expect(volatile.text).toContain('PRACTICE-CTX');
+  });
+
+  it('omits the volatile block entirely when there is no turn-specific context', async () => {
+    authFetch.mockResolvedValueOnce(jsonResponse({ content: 'ok' }));
+    await chatWithTutor(userTurns(1), null, null, null);
+    const body = bodyOfCall(0);
+    expect(body.systemBlocks).toHaveLength(1);
+    expect(body.systemBlocks[0].cache).toBe(true);
+    expect(body.systemBlocks[0].text).toBe(body.system);
+  });
+});
+
+describe('checkTutorMath (server math guardrail)', () => {
+  const args = {
+    reply: 'The answer is 12.',
+    question: 'What is 3 times 4?',
+    correctAnswer: '12',
+    selectedAnswer: 'B',
+    choices: [{ id: 'A', text: '7' }, { id: 'B', text: '12' }],
+  };
+
+  beforeEach(() => {
+    authFetch.mockReset();
+    jest.spyOn(console, 'error').mockImplementation(() => {});
+    jest.spyOn(console, 'warn').mockImplementation(() => {});
+  });
+  afterEach(() => {
+    console.error.mockRestore();
+    console.warn.mockRestore();
+  });
+
+  it('returns { ok: true } (fail-open) when the request rejects', async () => {
+    authFetch.mockRejectedValueOnce(new Error('network down'));
+    await expect(checkTutorMath(args)).resolves.toEqual({ ok: true });
+  });
+
+  it('returns { ok: true } on a non-200 response', async () => {
+    authFetch.mockResolvedValueOnce({ ok: false, status: 429, json: async () => ({}) });
+    await expect(checkTutorMath(args)).resolves.toEqual({ ok: true });
+  });
+
+  it('returns { ok: true } when the response body is malformed JSON', async () => {
+    authFetch.mockResolvedValueOnce({
+      ok: true,
+      json: async () => { throw new SyntaxError('Unexpected token'); },
+    });
+    await expect(checkTutorMath(args)).resolves.toEqual({ ok: true });
+  });
+
+  it('returns the correction on a proper { ok: false, correction } response', async () => {
+    authFetch.mockResolvedValueOnce(
+      jsonResponse({ ok: false, correction: 'You wrote x = 5, but the key is x = 6.' })
+    );
+    await expect(checkTutorMath(args)).resolves.toEqual({
+      ok: false,
+      correction: 'You wrote x = 5, but the key is x = 6.',
+    });
+  });
+
+  it('treats { ok: false } without a non-empty correction as no correction', async () => {
+    authFetch.mockResolvedValueOnce(jsonResponse({ ok: false, correction: '   ' }));
+    await expect(checkTutorMath(args)).resolves.toEqual({ ok: true });
+  });
+
+  it('POSTs the reply and question context to the tutorMathCheck function URL', async () => {
+    authFetch.mockResolvedValueOnce(jsonResponse({ ok: true }));
+    await checkTutorMath(args);
+    expect(authFetch).toHaveBeenCalledTimes(1);
+    const [url, opts] = authFetch.mock.calls[0];
+    // v2 functions get their own Cloud Run subdomain (lowercased fn name).
+    expect(url).toMatch(/^https:\/\/tutormathcheck-/);
+    expect(opts.method).toBe('POST');
+    expect(JSON.parse(opts.body)).toMatchObject({
+      reply: args.reply,
+      question: args.question,
+      correctAnswer: args.correctAnswer,
+    });
   });
 });
 

@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
-import { chatWithTutor } from '../services/aiTutorService';
+import { chatWithTutor, checkTutorMath } from '../services/aiTutorService';
 import CoachModePicker from './CoachModePicker';
 import { trackCoachModeUsed, trackEvent } from '../services/analyticsService';
 import ProactiveHint from './ProactiveHint';
@@ -25,6 +25,9 @@ import {
 import { buildTrendContext } from '../services/trendContextBuilder';
 import { startIntervention, inferApproach, computeApproachEffectiveness } from '../services/interventionTracker';
 import { buildIntelligenceContext, getRecommendedApproach } from '../services/intelligenceContextBuilder';
+import { buildTutorSkillContext } from '../services/selectors/tutorSkillContext';
+import { extractChoiceMisconceptions } from '../services/selectors/choiceMisconceptions';
+import { noteTutorExchange, makeQuestionKey } from '../services/tutorExchangeTracker';
 import Mark from './ui/Mark';
 
 // The tutor's identity mark, app-wide: the tri-color SEVA "S" on the brand-navy
@@ -153,6 +156,7 @@ const messageBubblePropsEqual = (prev, next) => (
   prev.msg.content === next.msg.content &&
   prev.msg.isError === next.msg.isError &&
   prev.msg.retryText === next.msg.retryText &&
+  prev.msg.correction === next.msg.correction &&
   prev.isLast === next.isLast &&
   prev.premiumLearnMode === next.premiumLearnMode &&
   prev.isLoading === next.isLoading &&
@@ -205,6 +209,36 @@ const MessageBubble = React.memo(({ msg, isLast, premiumLearnMode, isLoading, is
       }}
     >
       {msg.role === 'assistant' ? renderMarkdown(msg.content) : msg.content}
+      {msg.role === 'assistant' && msg.correction && (
+        <div
+          role="note"
+          style={{
+            marginTop: '10px',
+            padding: '8px 12px',
+            borderLeft: `3px solid ${design.colors.accent.orange}`,
+            background: 'rgba(234, 88, 12, 0.06)',
+            borderRadius: '8px',
+            fontSize: '13px',
+            lineHeight: '1.5',
+            color: design.colors.text.primary,
+          }}
+        >
+          <span
+            style={{
+              display: 'block',
+              fontSize: '11px',
+              fontWeight: 700,
+              letterSpacing: '0.04em',
+              textTransform: 'uppercase',
+              color: design.colors.accent.orange,
+              marginBottom: '3px',
+            }}
+          >
+            Correction
+          </span>
+          {renderMarkdown(msg.correction)}
+        </div>
+      )}
       {msg.isError && msg.retryText && (
         <button
           type="button"
@@ -336,6 +370,14 @@ const AiTutorChat = ({
   const abortRef = useRef(null);
   // Fire tutor_opened once per open (reset when closed) — engagement telemetry.
   const openTrackedRef = useRef(false);
+  // Stale-guards for the async math guardrail (checkTutorMath): a correction can
+  // resolve seconds after the reply, by which point the chat may have closed or
+  // the component unmounted. Read these before attaching so a late correction is
+  // dropped silently instead of writing to a dead / hidden conversation.
+  const mountedRef = useRef(true);
+  const isOpenRef = useRef(isOpen);
+  useEffect(() => { isOpenRef.current = isOpen; }, [isOpen]);
+  useEffect(() => () => { mountedRef.current = false; }, []);
   const handleMessagesScroll = (e) => {
     const el = e.currentTarget;
     const near = el.scrollHeight - el.scrollTop - el.clientHeight < 80;
@@ -493,7 +535,7 @@ const AiTutorChat = ({
   // R&W items are always multiple choice.
   const buildRWPracticeContextBlock = ({
     question, choices, hint, answerRevealed, correctAnswer, explanation,
-    difficulty, skills, isCorrect, selectedAnswer,
+    difficulty, skills, isCorrect, selectedAnswer, userAnswer,
     passage, passages, studentNotes, questionTable, domain, emotionalState,
   }) => {
     // Serialize the stimulus the student is actually looking at.
@@ -539,13 +581,27 @@ ${hint ? `HINT PROVIDED TO STUDENT: ${hint}` : ''}
 `;
 
     if (answerRevealed) {
+      // Lift the human-authored per-choice reasons out of the explanation so the
+      // model is told the mistake behind each choice instead of guessing it.
+      const misconceptions = extractChoiceMisconceptions(explanation);
+
       let trapAnalysis = '';
       if (choices && correctAnswer) {
         const wrongChoices = choices.filter(c => c.id !== correctAnswer);
         trapAnalysis = `\nWRONG ANSWER ANALYSIS (name the trap class for each):`;
         wrongChoices.forEach(c => {
-          trapAnalysis += `\n- Choice ${c.id} (${c.text}): which trap is this — surface match, inverse/opposite, scope shift, too extreme, half right, or out of scope? For a grammar item, name the error (comma splice, run-on, agreement, modifier, pronoun).`;
+          trapAnalysis += misconceptions[c.id]
+            ? `\n- Choice ${c.id} (${c.text}): ${misconceptions[c.id]}`
+            : `\n- Choice ${c.id} (${c.text}): which trap is this — surface match, inverse/opposite, scope shift, too extreme, half right, or out of scope? For a grammar item, name the error (comma splice, run-on, agreement, modifier, pronoun).`;
         });
+      }
+
+      // When the student picked a specific wrong choice we KNOW the mistake —
+      // hand it over explicitly rather than letting the model infer it.
+      let explicitError = '';
+      const chosenWrongId = isCorrect === false ? userAnswer : null;
+      if (chosenWrongId && misconceptions[chosenWrongId]) {
+        explicitError = `\nTHE STUDENT'S SPECIFIC ERROR (from the answer key): Choice ${chosenWrongId} = ${misconceptions[chosenWrongId]}. Do not guess at their mistake — this IS their mistake; coach them on recognizing and avoiding exactly this trap.\n`;
       }
 
       context += `
@@ -555,6 +611,7 @@ ${isCorrect !== undefined ? `RESULT: ${isCorrect ? 'CORRECT' : 'WRONG'}` : ''}
 CORRECT ANSWER: ${correctAnswer}
 FULL EXPLANATION: ${explanation}
 ${trapAnalysis}
+${explicitError}
 
 When the student wants the full breakdown of a question (especially one they just missed), give the clean, complete explanation a great tutor gives — the kind that makes the answer obvious in hindsight. Cover these, naturally and in this order; don't pad it, but don't cut it short either:
 
@@ -608,7 +665,7 @@ Your goal is to build their reading and reasoning instincts. Every question they
     if (!isPracticeQuestion || !practiceContext) return '';
 
     const section = practiceContext.section === 'rw' ? 'rw' : 'math';
-    const { question, choices, hint, answerRevealed, correctAnswer, explanation, difficulty, skills, isCorrect, selectedAnswer, passage, passages, studentNotes, questionTable, domain } = practiceContext;
+    const { question, choices, hint, answerRevealed, correctAnswer, explanation, difficulty, skills, isCorrect, selectedAnswer, userAnswer, passage, passages, studentNotes, questionTable, domain } = practiceContext;
 
     const isFillin = !choices || choices.length === 0;
 
@@ -633,7 +690,7 @@ Your goal is to build their reading and reasoning instincts. Every question they
     if (section === 'rw') {
       return buildRWPracticeContextBlock({
         question, choices, hint, answerRevealed, correctAnswer, explanation,
-        difficulty, skills, isCorrect, selectedAnswer,
+        difficulty, skills, isCorrect, selectedAnswer, userAnswer: practiceContext.userAnswer,
         passage, passages, studentNotes, questionTable, domain, emotionalState,
       });
     }
@@ -668,14 +725,32 @@ ${(() => {
 `;
 
     if (answerRevealed) {
-      // Build wrong-answer trap analysis for the AI
+      // Pull the human-authored per-choice trap reasons out of the explanation
+      // so the model is TOLD the mistake behind each choice instead of asked to
+      // infer it (frontier models reliably fail that inference — GuideEval).
+      const misconceptions = extractChoiceMisconceptions(explanation);
+
+      // Build wrong-answer trap analysis for the AI. State the parsed reason
+      // where we have one; fall back to today's infer-prompt otherwise.
       let trapAnalysis = '';
       if (!isFillin && choices && correctAnswer) {
         const wrongChoices = choices.filter(c => c.id !== correctAnswer);
         trapAnalysis = `\nWRONG ANSWER ANALYSIS (use this to explain traps):`;
         wrongChoices.forEach(c => {
-          trapAnalysis += `\n- Choice ${c.id} (${c.text}): Identify what specific mistake leads here — is it a partial calculation, sign error, misread, reversed operation, or wrong formula?`;
+          trapAnalysis += misconceptions[c.id]
+            ? `\n- Choice ${c.id} (${c.text}): ${misconceptions[c.id]}`
+            : `\n- Choice ${c.id} (${c.text}): Identify what specific mistake leads here — is it a partial calculation, sign error, misread, reversed operation, or wrong formula?`;
         });
+      }
+
+      // When the student picked a specific wrong choice we KNOW the mistake —
+      // hand it over explicitly rather than letting the model guess.
+      let explicitError = '';
+      const chosenWrongId = isCorrect === false ? userAnswer : null;
+      if (chosenWrongId && misconceptions[chosenWrongId]) {
+        explicitError = `\nTHE STUDENT'S SPECIFIC ERROR (from the answer key): Choice ${chosenWrongId} = ${misconceptions[chosenWrongId]}. Do not guess at their mistake — this IS their mistake; coach them on recognizing and avoiding exactly this trap.\n`;
+      } else if (isFillin && isCorrect === false && misconceptions._common) {
+        explicitError = `\nTHE STUDENT'S LIKELY ERROR (from the answer key's common mistakes): ${misconceptions._common} Coach them on recognizing and avoiding exactly this trap.\n`;
       }
 
       context += `
@@ -685,6 +760,7 @@ ${isCorrect !== undefined ? `RESULT: ${isCorrect ? 'CORRECT' : 'WRONG'}` : ''}
 CORRECT ANSWER: ${correctAnswer}
 FULL EXPLANATION: ${explanation}
 ${trapAnalysis}
+${explicitError}
 
 When the student wants the full breakdown of a question (especially one they just missed), give the clean, complete explanation a great tutor gives — the kind that makes the answer obvious in hindsight. Cover these, naturally; don't pad it, but don't cut it short either:
 
@@ -1210,6 +1286,18 @@ Your goal is to build their problem-solving instincts. Every question they solve
       // Subject of the active item — selects the system prompt + gates math-only context.
       const section = practiceContext?.section === 'rw' ? 'rw' : 'math';
 
+      // Next-item-correctness telemetry: remember which question the student is
+      // asking the tutor about, so the drill answer path can later tell whether
+      // the NEXT item landed. Fail-silent, zero-latency, never blocks a send.
+      if (isPracticeQuestion && practiceContext) {
+        try {
+          noteTutorExchange(makeQuestionKey({
+            id: practiceContext.questionId,
+            text: practiceContext.question,
+          }));
+        } catch { /* telemetry must never block a send */ }
+      }
+
       // Build practice context string with restrictions
       let practiceContextStr = buildPracticeContext();
 
@@ -1220,8 +1308,15 @@ Your goal is to build their problem-solving instincts. Every question they solve
         practiceContextStr = skillContext + '\n' + practiceContextStr;
       }
 
-      // Build student profile for personalization
-      const studentProfileStr = buildStudentProfile();
+      // Build student profile for personalization. Fold in the skill-history
+      // block (the +6pp lever): demonstrated level on THIS question's skills +
+      // related weak areas so the tutor calibrates depth. It is per-question
+      // stable, so passing it via the studentProfile param lands it in the
+      // cached (stable) prompt prefix.
+      const skillHistoryBlock = isPracticeQuestion
+        ? buildTutorSkillContext({ practiceTestResults, skills: practiceContext?.skills })
+        : '';
+      const studentProfileStr = [buildStudentProfile(), skillHistoryBlock].filter(Boolean).join('\n\n');
 
       // Build learning memory context for cross-session awareness
       const learningMemoryCtx = (learningMemory || recentSessions.length > 0)
@@ -1339,16 +1434,66 @@ Your goal is to build their problem-solving instincts. Every question they solve
         controller.signal
       );
       // Pin the final text: updates the streamed bubble, or appends it when the
-      // buffered fallback returned everything at once (no chunks streamed).
+      // buffered fallback returned everything at once (no chunks streamed). Stamp
+      // a stable id so the async math guardrail below can find THIS reply later
+      // even if the message list shifts (or fail to find it if the thread reset).
+      const replyId = `reply-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
       setMessages(prev => {
         const last = prev[prev.length - 1];
         if (last?.role === 'assistant') {
           const next = [...prev];
-          next[next.length - 1] = { ...last, content: response };
+          next[next.length - 1] = { ...last, content: response, id: replyId };
           return next;
         }
-        return [...prev, { role: 'assistant', content: response }];
+        return [...prev, { role: 'assistant', content: response, id: replyId }];
       });
+
+      // ── Server math guardrail (fire-and-forget) ──────────────────────────
+      // Only for a REVEALED MATH item whose reply makes a numeric claim: verify
+      // the reply doesn't contradict the answer key and attach a small
+      // "Correction" note if it does. Never blocks or delays the reply —
+      // checkTutorMath fails open ({ ok: true }) on any error/timeout/non-200.
+      // Runs at most once per assistant reply (single call after completion).
+      if (
+        section !== 'rw' &&
+        practiceContext?.answerRevealed &&
+        practiceContext?.correctAnswer &&
+        typeof response === 'string' &&
+        /\d/.test(response)
+      ) {
+        const pc = practiceContext;
+        checkTutorMath({
+          reply: response,
+          question: pc.question,
+          correctAnswer: pc.correctAnswer,
+          selectedAnswer: pc.selectedAnswer,
+          choices: pc.choices,
+        })
+          .then((verdict) => {
+            if (!verdict || verdict.ok !== false || !verdict.correction) return;
+            // Stale-guard: drop silently if the chat closed, the component
+            // unmounted, or the thread moved on to another question (the id is
+            // gone from the committed message list).
+            if (!mountedRef.current || !isOpenRef.current) return;
+            if (!messagesRef.current.some(m => m.id === replyId)) return;
+            setMessages(prev => {
+              const idx = prev.findIndex(m => m.id === replyId);
+              if (idx === -1) return prev;
+              const next = [...prev];
+              next[idx] = { ...next[idx], correction: verdict.correction };
+              return next;
+            });
+            // Telemetry (fail-silent): only when a correction is actually shown.
+            if (user?.uid) {
+              try {
+                trackEvent(user.uid, 'tutor', 'tutor_math_correction', {
+                  questionKey: makeQuestionKey({ id: pc.questionId, text: pc.question }),
+                });
+              } catch { /* telemetry must never throw */ }
+            }
+          })
+          .catch(() => { /* fail open: never surface a guardrail error */ });
+      }
     } catch (error) {
       // A deliberate abort (unmount / conversation switch) is not a failure —
       // no error bubble, no retry.

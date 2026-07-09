@@ -57,7 +57,8 @@ import {
   BANK_REVIEW_MODULE,
 } from './services/reviewQueueResolve';
 import { selectPacingQuestions } from './services/pacingService';
-import { trackPacingDrillDone, trackReengagementOpened } from './services/analyticsService';
+import { trackPacingDrillDone, trackReengagementOpened, trackEvent } from './services/analyticsService';
+import { consumeTutorExchange, makeQuestionKey } from './services/tutorExchangeTracker';
 import { buildDailySession } from './services/dailyReviewEngine';
 import { getReadyAiDiagnostic, loadAttemptSnapshot } from './services/practiceTestService';
 import { reprioritizePlan } from './services/adaptivePlanService';
@@ -1856,6 +1857,24 @@ const PerformSAT = () => {
       // path already reschedules those) and correct answers (nothing to review).
       addToReviewQueue(user.uid, BANK_REVIEW_MODULE, reviewDisplaySection(question), question.id, false);
     }
+
+    // Next-item-correctness telemetry (the tutor A/B metric): if the student had
+    // a tutor exchange on a DIFFERENT (earlier) question, this answer is the
+    // "next item" after that exchange — log whether it landed. When the exchange
+    // was on THIS question, consumeTutorExchange keeps it pending (the next item
+    // hasn't happened yet). Fully fail-silent; adds no latency to the answer path.
+    try {
+      const nextKey = makeQuestionKey({ id: question?.id, text: question?.question });
+      const exchange = consumeTutorExchange(nextKey);
+      if (exchange && user?.uid) {
+        trackEvent(user.uid, 'tutor', 'tutor_next_item', {
+          tutoredQuestionKey: exchange.questionKey,
+          nextQuestionKey: nextKey,
+          correct: isCorrect,
+          skills: question?.skills || [],
+        });
+      }
+    } catch { /* telemetry must never break the answer path */ }
   };
 
   // onSessionComplete seam for drills (Phase 2). Called from handleNextQuestion's

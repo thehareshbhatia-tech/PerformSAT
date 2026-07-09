@@ -1195,6 +1195,8 @@ const AssignedPracticeShell = ({
           isVideoLesson={false}
           isPracticeQuestion={true}
           practiceContext={{
+            // Stable id for next-item-correctness telemetry (tutorExchangeTracker).
+            questionId: currentQuestion?.id,
             question: currentQuestion?.question || '',
             choices: currentQuestion?.choices || [],
             hint: currentQuestion?.hint || '',

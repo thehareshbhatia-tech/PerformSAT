@@ -139,7 +139,7 @@ The diagnostic adapter in `services/scoring/diagnosticAdapter.js` builds a **sep
 | 6-class error taxonomy | `src/services/diagnosticEngine.js:128-172` | Built. Surfaces as italic editorial sentences via `formatDiagnosticSentence(weakness)` below Focus Area cards + after wrong answers in AssignedPracticeShell. |
 | Prediction engine + validation history | `src/services/predictionEngine.js` | Built. Surfaced via `<PredictedVsActualCard>` on the Dashboard tab; selector at `selectors/predictionSummary.js`. |
 | Intervention tracker | `src/services/interventionTracker.js` | Built. Currently consumed by AiTutorChat. |
-| 4 coach modes | `src/services/aiCoachModes.js` (hint ladder, mistake replay, teach-back, exam strategy) | Built. `CoachModePicker.jsx` exists but is currently unused. |
+| 4 coach modes | `src/services/aiCoachModes.js` (hint ladder, mistake replay, teach-back, exam strategy) | Built. `CoachModePicker.jsx` is mounted in `AiTutorChat.jsx` above the input. |
 | Study plan tab on homepage | `StudentDashboard.jsx` (activeTab state + tab bar with count badges + Study Plan tab mount) | Shipped 2026-03-27; refreshed in Acely-polish batch (right-rail composition). |
 | Trend / longitudinal analysis | `src/services/studyPlanMerger.js`, `trendContextBuilder.js` | Built. Persistent-weakness escalation works; surfaces as a small banner. |
 | Pacing analysis | `src/services/pacingService.js` | Built. PacingDrillCard.jsx component exists but is not yet wired into the dashboard. |
