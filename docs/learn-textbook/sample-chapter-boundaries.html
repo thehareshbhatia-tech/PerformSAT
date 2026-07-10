@@ -1,0 +1,448 @@
+<title>Sample Chapter — Punctuation & Sentence Boundaries · SEVA Learn</title>
+<style>
+  :root {
+    --ink:#1b2030; --ink-2:#454d63; --ink-3:#6b7488;
+    --line:#e4e2ee; --line-2:#efedf6; --bg:#faf9fc; --panel:#ffffff; --panel-2:#f5f3fb;
+    --accent:#5a3e8e; --accent-soft:#f0eafb; --orange:#ea580c; --orange-soft:#fdece2;
+    --green:#3f6b28; --green-soft:#e9f2e1; --red:#b3261e; --red-soft:#fbe3e1;
+    --shadow:0 1px 2px rgba(27,32,48,.05), 0 10px 30px -20px rgba(27,32,48,.35);
+    --radius:14px;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    --sans:ui-sans-serif,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace;
+  }
+  @media (prefers-color-scheme: dark){:root{
+    --ink:#eef0f6;--ink-2:#c0c6d6;--ink-3:#8b93a8;--line:#2c2b3a;--line-2:#242332;
+    --bg:#131320;--panel:#1b1a29;--panel-2:#211f31;--accent:#b69ae6;--accent-soft:#2a2340;
+    --orange:#ff8a4c;--orange-soft:#3a2416;--green:#9dd07f;--green-soft:#20301a;--red:#f0928a;--red-soft:#38201e;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 12px 32px -20px rgba(0,0,0,.7);
+  }}
+  :root[data-theme="dark"]{
+    --ink:#eef0f6;--ink-2:#c0c6d6;--ink-3:#8b93a8;--line:#2c2b3a;--line-2:#242332;
+    --bg:#131320;--panel:#1b1a29;--panel-2:#211f31;--accent:#b69ae6;--accent-soft:#2a2340;
+    --orange:#ff8a4c;--orange-soft:#3a2416;--green:#9dd07f;--green-soft:#20301a;--red:#f0928a;--red-soft:#38201e;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 12px 32px -20px rgba(0,0,0,.7);
+  }
+  :root[data-theme="light"]{
+    --ink:#1b2030;--ink-2:#454d63;--ink-3:#6b7488;--line:#e4e2ee;--line-2:#efedf6;
+    --bg:#faf9fc;--panel:#ffffff;--panel-2:#f5f3fb;--accent:#5a3e8e;--accent-soft:#f0eafb;
+    --orange:#ea580c;--orange-soft:#fdece2;--green:#3f6b28;--green-soft:#e9f2e1;--red:#b3261e;--red-soft:#fbe3e1;
+    --shadow:0 1px 2px rgba(27,32,48,.05),0 10px 30px -20px rgba(27,32,48,.35);
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+       font-size:17px;line-height:1.66;-webkit-font-smoothing:antialiased;}
+
+  .exemplar{background:var(--accent);color:#fff;font-family:var(--mono);font-size:.76rem;
+            letter-spacing:.04em;padding:9px 20px;text-align:center;}
+  .exemplar b{font-weight:700;}
+  @media (prefers-color-scheme: dark){.exemplar{color:#1a1526;}}
+  :root[data-theme="dark"] .exemplar{color:#1a1526;}
+
+  .shell{display:grid;grid-template-columns:272px 1fr;max-width:1200px;margin:0 auto;min-height:100vh;}
+  nav.toc{border-right:1px solid var(--line);padding:28px 18px;position:sticky;top:0;align-self:start;
+          height:100vh;overflow-y:auto;background:var(--panel-2);}
+  .toc .unit{font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;
+             color:var(--accent);font-weight:600;margin:0 0 4px;}
+  .toc .chap{font-family:var(--serif);font-size:1.1rem;font-weight:600;margin:0 0 16px;line-height:1.2;}
+  .toc .grp{font-family:var(--mono);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;
+            color:var(--ink-3);font-weight:600;margin:16px 0 4px;padding-left:9px;}
+  .toc ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:1px;}
+  .toc a{display:grid;grid-template-columns:34px 1fr;gap:6px;text-decoration:none;color:var(--ink-2);
+         font-size:.84rem;padding:6px 9px;border-radius:8px;line-height:1.25;}
+  .toc a:hover{background:var(--accent-soft);color:var(--ink);}
+  .toc a .n{font-family:var(--mono);font-size:.72rem;color:var(--accent);font-weight:600;}
+  .toc a.active{background:var(--accent-soft);color:var(--ink);font-weight:600;}
+  .toc .foot{margin-top:18px;padding-top:14px;border-top:1px solid var(--line);font-size:.7rem;color:var(--ink-3);}
+
+  main{padding:40px clamp(22px,4.5vw,68px) 90px;min-width:0;}
+  .article{max-width:72ch;margin:0 auto;}
+
+  .eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
+           color:var(--accent);font-weight:600;display:flex;align-items:center;gap:10px;}
+  .eyebrow::before{content:"";width:24px;height:2px;background:var(--accent);}
+  h1{font-family:var(--serif);font-weight:600;letter-spacing:-.015em;font-size:clamp(2rem,4vw,2.8rem);
+     line-height:1.06;margin:15px 0 8px;text-wrap:balance;}
+  .subtitle{font-size:1.1rem;color:var(--ink-2);margin:0;}
+  .readmeta{font-family:var(--mono);font-size:.75rem;color:var(--ink-3);margin:14px 0 0;
+            padding-top:14px;border-top:1px solid var(--line);display:flex;gap:18px;flex-wrap:wrap;}
+
+  /* section headers */
+  h2{font-family:var(--serif);font-weight:600;font-size:1.5rem;letter-spacing:-.01em;line-height:1.14;
+     margin:48px 0 4px;scroll-margin-top:16px;display:flex;align-items:baseline;gap:11px;text-wrap:balance;}
+  h2 .sn{font-family:var(--mono);font-size:.86rem;color:var(--accent);font-weight:600;flex:none;}
+  .secintro{color:var(--ink-2);margin:8px 0 4px;}
+  h3{font-size:1.08rem;font-weight:700;letter-spacing:-.005em;margin:26px 0 4px;}
+  p{margin:12px 0;}
+  .lead{font-size:1.06rem;color:var(--ink-2);}
+  strong{font-weight:700;color:var(--ink);}
+  .term{font-weight:700;color:var(--accent);}
+
+  /* ---- ROADMAP ---- */
+  .roadmap{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:24px 0 8px;}
+  .stage{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+         padding:16px 16px 14px;box-shadow:var(--shadow);}
+  .stage .st{font-family:var(--mono);font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;
+             color:var(--accent);font-weight:700;}
+  .stage h4{margin:5px 0 8px;font-size:1rem;font-weight:700;letter-spacing:-.01em;}
+  .stage ul{margin:0;padding-left:16px;font-size:.85rem;color:var(--ink-2);line-height:1.5;}
+  .stage ul li{margin:3px 0;}
+  @media (max-width:680px){.roadmap{grid-template-columns:1fr;}}
+
+  /* ---- example lines ---- */
+  .ex{font-family:var(--serif);font-size:1.03rem;padding:2px 0 2px 14px;border-left:3px solid var(--line);
+      margin:8px 0;color:var(--ink);}
+  .ex.good{border-left-color:var(--green);}
+  .ex.bad{border-left-color:var(--red);}
+  .ex .lbl{font-family:var(--mono);font-size:.62rem;letter-spacing:.06em;text-transform:uppercase;
+           font-weight:700;display:inline-block;margin-right:8px;vertical-align:1px;}
+  .ex.good .lbl{color:var(--green);}
+  .ex.bad .lbl{color:var(--red);}
+  .ex .mark{color:var(--orange);font-weight:700;}
+
+  /* ---- RULE CARD (the repeating structural unit) ---- */
+  .rule{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+        padding:0;margin:18px 0;box-shadow:var(--shadow);overflow:hidden;}
+  .rule .rc-head{display:flex;align-items:center;gap:12px;padding:14px 18px;background:var(--panel-2);
+        border-bottom:1px solid var(--line);}
+  .rule .rc-num{font-family:var(--mono);font-weight:700;font-size:.9rem;color:#fff;background:var(--accent);
+        width:30px;height:30px;border-radius:8px;display:grid;place-items:center;flex:none;}
+  @media (prefers-color-scheme: dark){.rule .rc-num{color:#1a1526;}}
+  :root[data-theme="dark"] .rule .rc-num{color:#1a1526;}
+  .rule .rc-name{font-weight:700;font-size:1.02rem;letter-spacing:-.01em;}
+  .rule .rc-body{padding:14px 18px 16px;}
+  .rule .rc-state{margin:0 0 4px;}
+  .rule .rc-why{margin:10px 0 0;font-size:.9rem;color:var(--ink-3);}
+  .rule .rc-why b{color:var(--ink-2);}
+
+  /* inline error flag inside a rule */
+  .flag{margin:12px 0 0;padding:10px 14px;background:var(--red-soft);border-radius:10px;font-size:.9rem;}
+  .flag b{color:var(--red);}
+  .flag .fix{color:var(--green);font-weight:600;}
+
+  /* ---- DECISION FLOW ---- */
+  .flowwrap{overflow-x:auto;margin:20px 0;}
+  .flow{min-width:520px;display:flex;flex-direction:column;align-items:stretch;gap:0;}
+  .fnode{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 16px;
+         box-shadow:var(--shadow);text-align:center;font-weight:600;font-size:.94rem;align-self:center;max-width:440px;}
+  .fnode.q{border-color:var(--accent);background:var(--accent-soft);}
+  .fnode.r{border-left:3px solid var(--green);text-align:left;font-weight:400;font-size:.9rem;}
+  .fnode.r b{color:var(--green);font-weight:700;}
+  .fbar{width:2px;height:16px;background:var(--line);align-self:center;}
+  .fbranch{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin:6px 0;}
+  .fcol{display:flex;flex-direction:column;align-items:center;gap:6px;flex:1;min-width:150px;}
+  .flabel{font-family:var(--mono);font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;
+          font-weight:700;color:var(--accent);padding:2px 9px;background:var(--accent-soft);border-radius:999px;}
+
+  /* ---- try-it / checkpoint ---- */
+  .try{background:var(--accent-soft);border-radius:var(--radius);padding:16px 18px;margin:18px 0;}
+  .try .h{font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;
+          color:var(--accent);font-weight:700;margin-bottom:5px;}
+  .try p{margin:5px 0;}
+  details.reveal{margin-top:8px;}
+  details.reveal summary{font-family:var(--mono);font-size:.76rem;color:var(--accent);font-weight:600;
+          cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:6px;padding:4px 0;}
+  details.reveal summary::-webkit-details-marker{display:none;}
+  details.reveal summary::before{content:"►";font-size:.62rem;}
+  details.reveal[open] summary::before{content:"▼";}
+  details.reveal .ans{margin-top:7px;padding-top:7px;border-top:1px dashed var(--line);font-size:.94rem;color:var(--ink-2);}
+
+  /* ---- worked example ---- */
+  .worked{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+          padding:18px 20px;margin:22px 0;box-shadow:var(--shadow);}
+  .worked .h{font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;
+             color:var(--ink-3);font-weight:700;margin-bottom:9px;}
+  .worked .q{font-family:var(--serif);font-size:1.03rem;}
+  .worked ol{margin:13px 0 0;padding-left:0;list-style:none;counter-reset:s;display:flex;flex-direction:column;gap:11px;}
+  .worked ol li{display:grid;grid-template-columns:24px 1fr;gap:11px;}
+  .worked ol li::before{counter-increment:s;content:counter(s);font-family:var(--mono);font-weight:700;
+        color:var(--accent);background:var(--accent-soft);border-radius:7px;width:24px;height:24px;
+        display:grid;place-items:center;font-size:.8rem;}
+  .worked .stl{font-weight:700;font-size:.9rem;}
+  .worked .ans{margin-top:14px;padding-top:12px;border-top:1px solid var(--line);}
+  .worked .ans .lbl{font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;
+        color:var(--green);font-weight:700;}
+  .pin{font-family:var(--mono);font-size:.64rem;font-weight:700;color:var(--accent);background:var(--accent-soft);
+       padding:1px 7px;border-radius:999px;white-space:nowrap;}
+
+  /* ---- tables ---- */
+  .scroll{overflow-x:auto;margin:18px 0;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);}
+  table{border-collapse:collapse;width:100%;font-size:.9rem;background:var(--panel);}
+  thead th{text-align:left;font-family:var(--mono);font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;
+        color:var(--ink-3);font-weight:600;padding:11px 15px;background:var(--panel-2);border-bottom:1px solid var(--line);}
+  tbody td{padding:10px 15px;border-bottom:1px solid var(--line-2);vertical-align:top;}
+  tbody tr:last-child td{border-bottom:none;}
+  td.mk{font-family:var(--serif);font-weight:700;color:var(--accent);white-space:nowrap;}
+  td.rn{font-family:var(--mono);font-weight:700;color:var(--accent);white-space:nowrap;}
+
+  .navrow{display:flex;justify-content:space-between;gap:12px;margin-top:50px;padding-top:20px;border-top:1px solid var(--line);}
+  .navrow a{text-decoration:none;color:var(--ink-2);font-size:.88rem;padding:11px 15px;border:1px solid var(--line);
+        border-radius:12px;flex:1;background:var(--panel);}
+  .navrow a .d{font-family:var(--mono);font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);display:block;}
+  .navrow a.next{text-align:right;}
+  .navrow a:hover{border-color:var(--accent);color:var(--ink);}
+
+  @media (max-width:860px){.shell{grid-template-columns:1fr;} nav.toc{display:none;}}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+</style>
+
+<div class="exemplar">SAMPLE CHAPTER · proof-of-voice for the new <b>teach-it-completely</b> bar — one rebuilt Reading &amp; Writing chapter, v2 (more structured)</div>
+
+<div class="shell">
+  <nav class="toc" aria-label="Chapter contents">
+    <p class="unit">Part 1 · Reading &amp; Writing</p>
+    <p class="chap">Standard English Conventions</p>
+    <ol>
+      <li><a href="#s0" class="active"><span class="n">1.3.01</span><span>Punctuation &amp; Sentence Boundaries</span></a></li>
+    </ol>
+    <p class="grp">Stage 1 · Foundations</p>
+    <ol>
+      <li><a href="#s1"><span class="n">.01</span><span>The clause: complete vs. incomplete</span></a></li>
+      <li><a href="#s2"><span class="n">.02</span><span>The one test you'll always run</span></a></li>
+    </ol>
+    <p class="grp">Stage 2 · The rulebook</p>
+    <ol>
+      <li><a href="#s3"><span class="n">R1</span><span>Joining two complete sentences</span></a></li>
+      <li><a href="#s3"><span class="n">R2</span><span>Attaching an incomplete opener</span></a></li>
+      <li><a href="#s3"><span class="n">R3</span><span>The colon</span></a></li>
+      <li><a href="#s3"><span class="n">R4</span><span>Paired asides</span></a></li>
+      <li><a href="#s3"><span class="n">R5</span><span>Extra vs. essential info</span></a></li>
+      <li><a href="#s3"><span class="n">R6</span><span>Semicolons in a list</span></a></li>
+    </ol>
+    <p class="grp">Stage 3 · On the test</p>
+    <ol>
+      <li><a href="#s4"><span class="n">.04</span><span>The decision flow</span></a></li>
+      <li><a href="#s5"><span class="n">.05</span><span>Traps to watch for</span></a></li>
+      <li><a href="#s6"><span class="n">.06</span><span>Worked example &amp; checks</span></a></li>
+      <li><a href="#s7"><span class="n">.07</span><span>One-page summary</span></a></li>
+    </ol>
+    <p class="foot">Left rail previews the eventual two-pane reader. The chapter content is the point of this sample.</p>
+  </nav>
+
+  <main>
+    <article class="article">
+      <div id="s0"></div>
+      <p class="eyebrow">Chapter 1.3.01 · Standard English Conventions</p>
+      <h1>Punctuation &amp; Sentence Boundaries</h1>
+      <p class="subtitle">How to end, join, and separate the parts of a sentence — using rules you can prove, not an ear you have to trust.</p>
+      <p class="readmeta"><span>16 min read</span><span>~26% of Reading &amp; Writing</span><span>No prior grammar assumed</span></p>
+
+      <p class="lead" style="margin-top:22px;">On the SAT, "Boundaries" questions hand you a sentence with a gap and four choices that differ only by one punctuation mark. The good news most students never hear: <strong>you don't need a good ear for these.</strong> Every one is decided by a short, fixed set of rules — learn them once and you can <em>prove</em> the answer. This chapter is built in three stages.</p>
+
+      <div class="roadmap">
+        <div class="stage">
+          <span class="st">Stage 1</span>
+          <h4>Foundations</h4>
+          <ul><li>What a clause is</li><li>Complete vs. incomplete</li><li>The one test you'll reuse</li></ul>
+        </div>
+        <div class="stage">
+          <span class="st">Stage 2</span>
+          <h4>The rulebook</h4>
+          <ul><li>6 numbered rules</li><li>Each: rule → right → wrong → why</li><li>Every mark's one job</li></ul>
+        </div>
+        <div class="stage">
+          <span class="st">Stage 3</span>
+          <h4>On the test</h4>
+          <ul><li>A decision flow</li><li>The common traps</li><li>Worked example + practice</li></ul>
+        </div>
+      </div>
+
+      <!-- ===================== STAGE 1 ===================== -->
+      <h2 id="s1"><span class="sn">.01</span> The clause: complete vs. incomplete</h2>
+      <p class="secintro">Almost every punctuation rule comes down to one question: <strong>is this piece a complete thought, or not?</strong> So we start there.</p>
+      <p>A <span class="term">clause</span> is a group of words with a subject (who or what it's about) and a verb (what they do or are). There are only two kinds, and telling them apart is the whole game.</p>
+
+      <h3>Independent = a complete thought</h3>
+      <p>An <span class="term">independent clause</span> can stand alone as a sentence. It has a subject and a verb, and it feels finished.</p>
+      <p class="ex good"><span class="lbl">Complete</span>The lab ran overnight.</p>
+      <p class="ex good"><span class="lbl">Complete</span>The results arrived by morning.</p>
+
+      <h3>Dependent = <em>not</em> a complete thought</h3>
+      <p>A <span class="term">dependent clause</span> also has a subject and a verb, but it opens with a word — <em>because, although, when, if, since, while, after, before</em> — that leaves it hanging.</p>
+      <p class="ex bad"><span class="lbl">Not complete</span>Because the lab ran overnight…</p>
+      <p>Subject and verb are there, but <em>because</em> makes you wait: <em>because the lab ran overnight… what?</em> It has to lean on a complete sentence to finish.</p>
+
+      <h2 id="s2"><span class="sn">.02</span> The one test you'll always run</h2>
+      <div class="rule">
+        <div class="rc-head"><span class="rc-num" style="background:var(--orange)">✓</span><span class="rc-name">The stand-alone test</span></div>
+        <div class="rc-body">
+          <p class="rc-state"><strong>Cover a piece of the sentence and ask: could this stand on its own as a sentence?</strong> If yes, it's complete (independent). If it leaves you waiting, it's incomplete (dependent or a fragment).</p>
+          <p class="rc-why"><b>Why it matters:</b> every rule in Stage 2 is just this test applied to each side of the gap. Master it and the rest is lookup.</p>
+        </div>
+      </div>
+      <div class="try">
+        <p class="h">Try it</p>
+        <p>Which can stand alone? (a) <em>The bridge opened in 1932.</em> &nbsp;(b) <em>When the bridge opened in 1932.</em> &nbsp;(c) <em>Carrying traffic for decades.</em></p>
+        <details class="reveal"><summary>Show answer</summary>
+          <div class="ans">Only <strong>(a)</strong> — subject (<em>bridge</em>), verb (<em>opened</em>), finished thought. (b) adds <em>When</em>, leaving it hanging; (c) has no subject, so it's a fragment.</div>
+        </details>
+      </div>
+
+      <!-- ===================== STAGE 2 ===================== -->
+      <h2 id="s3"><span class="sn">R1–R6</span> The rulebook</h2>
+      <p class="secintro">Six rules cover every Boundaries question. Each one follows the same shape: the <strong>rule</strong>, a <strong>right</strong> example, a <strong>wrong</strong> example, and the <strong>why</strong>.</p>
+
+      <div class="rule">
+        <div class="rc-head"><span class="rc-num">1</span><span class="rc-name">Two complete sentences take a <em>strong</em> join</span></div>
+        <div class="rc-body">
+          <p class="rc-state">When both sides are complete, connect them with a <strong>period</strong>, a <strong>semicolon</strong> ( ; ), or a <strong>comma + a joining word</strong> (<em>and, but, or, so, for, nor, yet</em> — the <strong>FANBOYS</strong>).</p>
+          <p class="ex good"><span class="lbl">Right</span>The telescope was old<span class="mark">;</span> it still worked.</p>
+          <p class="ex good"><span class="lbl">Right</span>The telescope was old<span class="mark">, but</span> it still worked.</p>
+          <div class="flag"><b>Error — the comma splice:</b> a comma <em>alone</em> can't hold two complete sentences (<em>The telescope was old<span style="color:var(--red)">,</span> it still worked</em>). Two complete sides with nothing between them is a <b>run-on</b>. <span class="fix">Fix: upgrade to a period, semicolon, or comma + FANBOYS.</span></div>
+          <p class="rc-why"><b>Why:</b> two strong ideas need a strong link. A bare comma is too weak to hold them.</p>
+        </div>
+      </div>
+
+      <div class="rule">
+        <div class="rc-head"><span class="rc-num">2</span><span class="rc-name">An incomplete opener attaches with a comma</span></div>
+        <div class="rc-body">
+          <p class="rc-state">When a dependent clause comes <strong>first</strong>, put a comma at the seam where it meets the complete sentence.</p>
+          <p class="ex good"><span class="lbl">Right</span>Although the data was noisy<span class="mark">,</span> the trend was clear.</p>
+          <p class="ex bad"><span class="lbl">Flip side</span>The trend was clear although the data was noisy. <span style="color:var(--ink-3);font-size:.85rem;">(complete part first → usually no comma)</span></p>
+          <p class="rc-why"><b>Why:</b> an incomplete piece is weak, so it attaches with a weak mark — a comma, or nothing.</p>
+        </div>
+      </div>
+
+      <div class="rule">
+        <div class="rc-head"><span class="rc-num">3</span><span class="rc-name">A colon needs a complete sentence in front of it</span></div>
+        <div class="rc-body">
+          <p class="rc-state">A <strong>colon</strong> ( : ) is a spotlight — it introduces a list or explanation. What comes <em>before</em> it must be able to stand alone; what comes after doesn't.</p>
+          <p class="ex good"><span class="lbl">Right</span>She had one goal<span class="mark">:</span> finish the map.</p>
+          <p class="ex bad"><span class="lbl">Wrong</span>Her one goal was to<span class="mark">:</span> finish the map.</p>
+          <p class="rc-why"><b>Why:</b> <em>Her one goal was to</em> isn't a complete sentence, so nothing can follow with a colon. Run the stand-alone test on the left side.</p>
+        </div>
+      </div>
+
+      <div class="rule">
+        <div class="rc-head"><span class="rc-num">4</span><span class="rc-name">Set off a mid-sentence aside with a matching pair</span></div>
+        <div class="rc-body">
+          <p class="rc-state">To drop extra information into the middle of a sentence, wrap it in a <strong>pair</strong> of dashes, a <strong>pair</strong> of commas, or a <strong>pair</strong> of parentheses — both ends the <em>same</em> mark.</p>
+          <p class="ex good"><span class="lbl">Right</span>The bridge <span class="mark">—</span> built in 1932 <span class="mark">—</span> still carries traffic.</p>
+          <p class="ex bad"><span class="lbl">Wrong</span>The bridge <span class="mark">—</span> built in 1932<span class="mark">,</span> still carries traffic.</p>
+          <p class="rc-why"><b>Why:</b> opened with a dash, so it must close with a dash. A dash-then-comma mix looks balanced but is a favorite trap.</p>
+        </div>
+      </div>
+
+      <div class="rule">
+        <div class="rc-head"><span class="rc-num">5</span><span class="rc-name">Extra info gets commas; essential info gets none</span></div>
+        <div class="rc-body">
+          <p class="rc-state">If the middle phrase is <strong>removable</strong> (lift it out and the sentence still points to the right thing), wrap it in commas. If it's <strong>essential</strong> to the meaning, use no commas.</p>
+          <p class="ex good"><span class="lbl">Extra</span>My sister<span class="mark">,</span> who lives in Denver<span class="mark">,</span> is visiting.</p>
+          <p class="ex good"><span class="lbl">Essential</span>The runner who finished first set a record.</p>
+          <p class="rc-why"><b>Why (the remove-it test):</b> "who lives in Denver" is bonus detail → commas. "who finished first" tells you <em>which</em> runner → no commas.</p>
+        </div>
+      </div>
+
+      <div class="rule">
+        <div class="rc-head"><span class="rc-num">6</span><span class="rc-name">Semicolons separate list items only when items contain commas</span></div>
+        <div class="rc-body">
+          <p class="rc-state">Inside a list, upgrade the separating commas to <strong>semicolons</strong> only when the items themselves already contain commas.</p>
+          <p class="ex good"><span class="lbl">Right</span>The tour visits Lima, Peru<span class="mark">;</span> Quito, Ecuador<span class="mark">;</span> and Bogotá, Colombia.</p>
+          <p class="rc-why"><b>Why:</b> the semicolons keep the city-and-country pairs from blurring. No internal commas? Plain commas are correct.</p>
+        </div>
+      </div>
+
+      <!-- ===================== STAGE 3 ===================== -->
+      <h2 id="s4"><span class="sn">.04</span> The decision flow</h2>
+      <p class="secintro">On any Boundaries question, run this. Cover the gap, judge each side with the stand-alone test, and follow the arrows to the rule.</p>
+      <div class="flowwrap">
+        <div class="flow">
+          <div class="fnode q">Is the <u>left</u> side a complete sentence?</div>
+          <div class="fbar"></div>
+          <div class="fbranch">
+            <div class="fcol">
+              <span class="flabel">No — incomplete opener</span>
+              <div class="fnode r"><b>Comma</b> at the seam &nbsp;<span class="pin">R2</span></div>
+            </div>
+            <div class="fcol">
+              <span class="flabel">Yes — it's complete</span>
+              <div class="fnode q" style="font-size:.9rem;">Now: what's the <u>right</u> side?</div>
+              <div class="fbar"></div>
+              <div class="fnode r"><b>Also complete</b> → period · semicolon · comma + FANBOYS &nbsp;<span class="pin">R1</span></div>
+              <div class="fnode r"><b>A list or explanation</b> → colon &nbsp;<span class="pin">R3</span></div>
+              <div class="fnode r"><b>A trailing dependent clause</b> → usually no comma &nbsp;<span class="pin">R2</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p style="color:var(--ink-3);font-size:.9rem;">The stem is always a version of: <em>"Which choice conforms to the conventions of Standard English?"</em> — about <strong>6 per test</strong>, pure rules, no reading required.</p>
+
+      <h2 id="s5"><span class="sn">.05</span> Traps to watch for</h2>
+      <div class="flag"><b>Trap · the comfortable pause.</b> Both sides are complete and the bare-comma choice <em>reads</em> smoothly because you'd pause there aloud. <span class="fix">Sounding right isn't the test — two complete sides can't take a comma alone (Rule 1).</span></div>
+      <div class="flag" style="margin-top:12px;"><b>Trap · the half-open aside.</b> A mid-sentence aside opens with a dash but closes with a comma, and looks balanced. <span class="fix">Find the opening mark; make the closing mark match it exactly (Rule 4).</span></div>
+
+      <h2 id="s6"><span class="sn">.06</span> Worked example &amp; check yourself</h2>
+      <div class="worked">
+        <p class="h">Worked example · medium</p>
+        <p class="q">Although the recipe called for saffron, a spice far too costly for most medieval households ______ cooks often substituted marigold petals to get a similar golden color.<br><br>
+        (A) households, cooks &nbsp;(B) households cooks &nbsp;(C) households; cooks &nbsp;(D) households: cooks</p>
+        <ol>
+          <li><span><span class="stl">Left side.</span> "Although the recipe called for saffron, a spice far too costly for most medieval households." Starts with <em>Although</em> → incomplete opener.</span></li>
+          <li><span><span class="stl">Right side.</span> "cooks often substituted marigold petals…" Subject <em>cooks</em>, verb <em>substituted</em> → complete.</span></li>
+          <li><span><span class="stl">Follow the flow.</span> Left incomplete → comma at the seam <span class="pin">R2</span>. Semicolon (C) needs two complete sides <span class="pin">R1</span>; colon (D) needs a complete left side <span class="pin">R3</span>; (B) is a run-on.</span></li>
+        </ol>
+        <div class="ans"><span class="lbl">Answer</span> &nbsp;<strong>(A) households, cooks.</strong></div>
+      </div>
+
+      <div class="try">
+        <p class="h">Check yourself · 1 of 3 &nbsp;<span class="pin">R1</span></p>
+        <p>Both sides are complete. Which are valid: a period, a semicolon, a comma alone, or a comma with "and"?</p>
+        <details class="reveal"><summary>Show answer</summary>
+          <div class="ans">Period, semicolon, and comma-with-"and" — all valid. The <strong>comma alone is a splice</strong>.</div>
+        </details>
+      </div>
+      <div class="try">
+        <p class="h">Check yourself · 2 of 3 &nbsp;<span class="pin">R3</span></p>
+        <p>"The museum has one rule ___ no flash photography." Left side stands alone; a specification follows. Which mark?</p>
+        <details class="reveal"><summary>Show answer</summary>
+          <div class="ans">A <strong>colon</strong> — complete sentence in front, explanation after.</div>
+        </details>
+      </div>
+      <div class="try">
+        <p class="h">Check yourself · 3 of 3 &nbsp;<span class="pin">R4</span></p>
+        <p>"My uncle ___ a retired firefighter ___ volunteers at the museum." How do you set off the aside?</p>
+        <details class="reveal"><summary>Show answer</summary>
+          <div class="ans">A <strong>matching pair</strong> — two commas or two dashes, not one of each.</div>
+        </details>
+      </div>
+
+      <h2 id="s7"><span class="sn">.07</span> One-page summary</h2>
+      <p class="secintro">The whole chapter in one place. Remember only this and you can still answer most Boundaries questions.</p>
+      <div class="scroll">
+        <table>
+          <thead><tr><th>Rule</th><th>Situation</th><th>Correct mark</th></tr></thead>
+          <tbody>
+            <tr><td class="rn">R1</td><td>Complete + complete</td><td>Period · semicolon · comma + FANBOYS <em>(never a comma alone)</em></td></tr>
+            <tr><td class="rn">R2</td><td>Incomplete opener + complete</td><td>Comma at the seam</td></tr>
+            <tr><td class="rn">R2</td><td>Complete + trailing dependent</td><td>Usually no comma</td></tr>
+            <tr><td class="rn">R3</td><td>Complete + list / explanation</td><td>Colon</td></tr>
+            <tr><td class="rn">R4</td><td>Mid-sentence aside</td><td>Matching pair — dash…dash or comma…comma</td></tr>
+            <tr><td class="rn">R5</td><td>Removable extra info</td><td>Commas (essential info → none)</td></tr>
+            <tr><td class="rn">R6</td><td>List items that contain commas</td><td>Semicolons between items</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="navrow">
+        <a href="#s0" class="prev"><span class="d">Previous</span>1.3 · Standard English Conventions intro</a>
+        <a href="#s0" class="next"><span class="d">Next chapter</span>1.3.02 · Form, Structure &amp; Sense →</a>
+      </div>
+    </article>
+  </main>
+</div>
+
+<script>
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav.toc a'));
+  var map = {};
+  links.forEach(function(a){ var id=a.getAttribute('href').slice(1); if(!map[id]) map[id]=a; });
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        links.forEach(function(l){ l.classList.remove('active'); });
+        var a = map[e.target.id]; if(a) a.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-8% 0px -82% 0px' });
+  document.querySelectorAll('main [id]').forEach(function(el){ if(el.id) obs.observe(el); });
+</script>
