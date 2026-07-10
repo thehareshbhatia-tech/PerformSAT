@@ -264,6 +264,11 @@ export const aiTutor = onRequest(
     secrets: [anthropicApiKey],
     timeoutSeconds: 120,
     memory: "512MiB",
+    // The hottest endpoint (every tutor message, long-lived streams). The
+    // global maxInstances: 10 is a cost backstop for the fleet; this endpoint
+    // gets its own higher ceiling so a burst of concurrent tutoring sessions
+    // queues at Anthropic's rate limit, not at our instance cap.
+    maxInstances: 30,
   },
   async (request, response) => {
     if (request.method !== "POST") {
@@ -715,6 +720,9 @@ export const generateStudyPlan = onRequest(
     cors: ALLOWED_ORIGINS,
     secrets: [anthropicApiKey],
     timeoutSeconds: 120,
+    // Long AI calls (~60s+): a cohort finishing tests in the same window
+    // stacks up here, so it gets its own ceiling above the global 10.
+    maxInstances: 20,
   },
   async (request, response) => {
     if (request.method !== "POST") {
