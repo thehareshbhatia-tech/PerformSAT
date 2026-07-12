@@ -66,26 +66,37 @@ const ChapterReader = ({
   const [tabError, setTabError] = useState(false);
 
   const isContentTab = chapter?.source?.kind === 'contentTab';
+  // R&W textbook chapters keep their bodies in the rwBodies corpus, behind
+  // the same dynamic-import boundary as the math contentTabs corpus, so the
+  // chapter index (and every screen that imports it) stays light.
+  const isRwBody = chapter?.source?.kind === 'rwBody';
 
   useEffect(() => {
     if (stageRef.current) stageRef.current.scrollTo({ top: 0 });
   }, [chapterId]);
 
   useEffect(() => {
-    if (!isContentTab) return undefined;
+    if (!isContentTab && !isRwBody) return undefined;
     let cancelled = false;
     setTabSection(null);
     setTabError(false);
-    import('../../data/chapters/composeChapterBlocks')
-      .then((mod) => {
+    const load = isContentTab
+      ? import('../../data/chapters/composeChapterBlocks')
+          .then((mod) => mod.composeChapterSection(chapter.source.moduleId))
+      : import('../../data/chapters/rwBodies')
+          .then((mod) => {
+            const blocks = mod.RW_CHAPTER_BODIES[chapter.source.bodyId];
+            return Array.isArray(blocks) && blocks.length ? { blocks } : null;
+          });
+    load
+      .then((section) => {
         if (cancelled) return;
-        const section = mod.composeChapterSection(chapter.source.moduleId);
         if (section) setTabSection(section);
         else setTabError(true);
       })
       .catch(() => { if (!cancelled) setTabError(true); });
     return () => { cancelled = true; };
-  }, [isContentTab, chapter?.source?.moduleId]);
+  }, [isContentTab, isRwBody, chapter?.source?.moduleId, chapter?.source?.bodyId]);
 
   const unit = useMemo(
     () => (chapter ? LEARN_UNITS.find((u) => u.id === chapter.unitId) : null),
@@ -132,7 +143,7 @@ const ChapterReader = ({
         </header>
 
         <div className="cr-content">
-          {isContentTab ? (
+          {(isContentTab || isRwBody) ? (
             tabSection ? (
               <SectionContent section={tabSection} />
             ) : tabError ? (

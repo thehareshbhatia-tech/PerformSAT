@@ -757,92 +757,10 @@ export const rwChapters = [
     id: 'rw-boundaries',
     unitId: 'rw-conventions',
     title: 'Boundaries (Punctuation)',
-    blurb: 'Choose the punctuation that correctly joins or separates the parts of a sentence.',
-    readMinutes: 9,
+    blurb: 'End, join, and separate the parts of a sentence with rules you can prove: count the clauses, look up the mark, cancel the twins.',
+    readMinutes: 16,
     cbSkills: ['boundaries'],
-    source: {
-      kind: 'blocks',
-      blocks: [
-        {
-          type: 'text',
-          content: 'The stem is always *"Which choice completes the text so that it conforms to the conventions of Standard English?"* and the four choices differ only in punctuation — a comma, a semicolon, a colon, a dash, or nothing. Expect roughly 6 per test. Every one of these is decided by a small set of rules, so once you know the rules, you do not need an "ear" — you can prove the answer.',
-        },
-        {
-          type: 'text',
-          content: 'The master move: **cover the blank and check each side. Can each side stand alone as a complete sentence?** That one test drives almost every answer. A complete sentence has a subject and its own verb and expresses a finished thought. Once you know which sides are complete, the rule picks itself.',
-        },
-        {
-          type: 'text',
-          content: '**Two complete sentences** need strong punctuation: a period, a semicolon, or a comma *plus* a joining word (and, but, or, so). Right: *The lab ran overnight; the results came by morning.* Wrong (comma splice): *The lab ran overnight, the results came by morning.* **A dependent opener** (a part beginning with although, because, when, since, if) followed by a complete sentence takes a comma at the seam. Right: *Although the data was noisy, the trend was clear.*',
-        },
-        {
-          type: 'diagramRef',
-          visualType: 'sentenceBoundaryDiagram',
-          description: 'Two independent clauses join with a period, semicolon, or comma + FANBOYS; a comma alone is a comma splice.',
-        },
-        {
-          type: 'text',
-          content: '**A colon** works only after a complete sentence, and it introduces a list or an explanation. Right: *She had one goal: finish the map.* **A pair of dashes or commas** sets off extra information you could lift out. Right: *The bridge — built in 1932 — still carries traffic.* If a dash opens the aside, a dash must close it; do not mix a dash with a comma. **Use semicolons inside a list** only when the list items already contain their own commas.',
-        },
-        {
-          type: 'text',
-          content: 'One more distinction sorts most comma questions: is the extra information *essential* or *removable*? A removable aside — one you could lift out and still have a complete, clear sentence — gets commas (or dashes) around it: *My sister, who lives in Denver, is visiting.* An essential phrase that the sentence needs to point to the right thing gets **no** commas: *The runner who finished first set a record* needs "who finished first" to say which runner, so no commas. Test it by covering the phrase: if the sentence still makes sense and still means the same thing, wrap it in commas; if removing it breaks the meaning, leave the commas out.',
-        },
-        {
-          type: 'keyInsight',
-          content: 'Decide the completeness of each side first, then apply the rule. A comma alone can never hold two complete sentences together — that single fact eliminates a wrong choice on most Boundaries questions.',
-        },
-        {
-          type: 'trapCard',
-          title: 'The comma splice',
-          wrong: 'Both sides of the blank are complete sentences, and you pick the bare comma because it reads with a natural pause: *The telescope was old, it still worked.*',
-          correction: 'Two complete sentences cannot be joined by a comma alone. Upgrade to a period, a semicolon, or a comma with a joining word: *The telescope was old, but it still worked.* When each side can stand on its own, a lone comma is always wrong.',
-        },
-        {
-          type: 'trapCard',
-          title: 'The half-open aside',
-          wrong: 'The sentence sets off extra information with a dash on one end and a comma on the other, and it looks balanced enough to pass.',
-          correction: 'A parenthetical aside must be closed with the same mark that opened it — dash with dash, comma with comma. Find the opening mark first, then match it. *The author, a former pilot, wrote about flight* uses commas on both ends.',
-        },
-        {
-          type: 'example',
-          difficulty: 'Medium',
-          problem: 'Although the recipe called for saffron, a spice that was far too costly for most medieval households ______ cooks often substituted marigold petals to get a similar golden color.\n\nWhich choice conforms to the conventions of Standard English?\n(A) households, cooks  (B) households cooks  (C) households; cooks  (D) households: cooks',
-          steps: [
-            {
-              label: 'Check each side',
-              content: 'Before the blank: "Although the recipe called for saffron, a spice that was far too costly for most medieval households" — this opens with "Although," so it is incomplete. After: "cooks often substituted marigold petals..." is a complete sentence.',
-            },
-            {
-              label: 'Apply the rule',
-              content: 'A dependent opener (Although...) followed by a complete sentence takes a comma at the seam. A semicolon (C) needs two complete sides; a colon (D) needs a complete sentence before it; no punctuation (B) jams them together.',
-            },
-            {
-              label: 'Answer',
-              content: '(A) households, cooks. The comma marks the seam between the incomplete opener and the complete main sentence.',
-            },
-          ],
-        },
-        {
-          type: 'checkpointQuestion',
-          number: 1,
-          question: 'Both sides of a blank are complete sentences. Which are valid: a period, a semicolon, a comma alone, or a comma with "and"?',
-          answer: 'A period, a semicolon, or a comma with "and" — all valid. The comma alone is not. **Why:** two complete sentences need strong punctuation; a bare comma creates a splice.',
-        },
-        {
-          type: 'checkpointQuestion',
-          number: 2,
-          question: 'A sentence reads: "The museum has one rule ___ no flash photography." The part before is a complete sentence and a specification follows. What punctuation fits?',
-          answer: 'A colon. **Why:** a colon follows a complete sentence and introduces an explanation or list — here, the rule itself.',
-        },
-        {
-          type: 'checkpointQuestion',
-          number: 3,
-          question: 'When do you use semicolons *between items in a list*?',
-          answer: 'Only when the items themselves already contain commas. **Why:** the semicolons then show where each item ends; if the items have no internal commas, plain commas are correct.',
-        },
-      ],
-    },
+    source: { kind: 'rwBody', bodyId: 'rw-boundaries' },
   },
 
   {
