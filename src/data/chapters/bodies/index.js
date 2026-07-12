@@ -28,6 +28,8 @@ import { inequalitiesBlocks } from './inequalities';
 import { nonlinearEquationsBlocks } from './nonlinearEquations';
 import { twoVariableDataBlocks } from './twoVariableData';
 import { statisticalClaimsBlocks } from './statisticalClaims';
+import { ratiosProportionsBlocks } from './ratiosProportions';
+import { linesAnglesBlocks } from './linesAngles';
 
 export const CHAPTER_BODIES = {
   // Math (source.kind 'body')
@@ -35,6 +37,8 @@ export const CHAPTER_BODIES = {
   'math-nonlinear-equations': nonlinearEquationsBlocks,
   'math-two-variable-data': twoVariableDataBlocks,
   'math-statistical-claims': statisticalClaimsBlocks,
+  'math-dimensional-analysis': ratiosProportionsBlocks,
+  'math-lines-angles': linesAnglesBlocks,
   // Reading & Writing
   'rw-central-ideas': centralIdeasBlocks,
   'rw-inferences': inferencesBlocks,

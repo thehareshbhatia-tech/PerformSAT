@@ -146,14 +146,23 @@ export const mathChapters = [
   {
     id: 'math-dimensional-analysis',
     unitId: 'math-problem-solving',
-    title: 'Ratios, Rates & Units',
-    blurb: 'Set up proportions and chain unit conversions to move cleanly between quantities.',
-    readMinutes: 4,
+    title: 'Ratios, Rates & Proportions',
+    blurb: 'Set up proportions, split ratios into parts, combine rates, and chain unit conversions with a magnitude check.',
+    readMinutes: 16,
     cbSkills: ['ratios-rates-proportions'],
-    source: { kind: 'contentTab', moduleId: 'dimensional-analysis' },
+    source: { kind: 'body', bodyId: 'math-dimensional-analysis' },
   },
 
   // ── Geometry and Trigonometry ───────────────────────────────────────────────
+  {
+    id: 'math-lines-angles',
+    unitId: 'math-geometry',
+    title: 'Lines, Angles & Congruence',
+    blurb: 'Chase angles across parallel lines and triangles, apply congruence and similarity criteria, decompose areas, and scale by k, k squared, and k cubed.',
+    readMinutes: 20,
+    cbSkills: ['lines-angles-triangles'],
+    source: { kind: 'body', bodyId: 'math-lines-angles' },
+  },
   {
     id: 'math-radians-degrees',
     unitId: 'math-geometry',
