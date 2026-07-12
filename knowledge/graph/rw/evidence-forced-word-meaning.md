@@ -35,6 +35,7 @@ Words in Context is a recurring item family in every R&W module (unverified-clai
 - **forced-prediction-habit** — Misapplying "predict first" by planting a low-confidence guess that then biases matching. Formed by treating prediction as a mandatory step rather than a conditional one. Produces rejection of the credited answer for failing to match a wrong anchor.
 - **topic-association-trust** — Believing a word is supported because it belongs to the passage's subject matter or matches another word physically present nearby. Produces topic-association and nearby-synonym-bait picks that "feel textually supported" because the student literally saw a cousin of the word.
 - **unknown-word-panic** — Freezing or guessing randomly because some *choices* are unknown, when identifying the right answer never requires defining the wrong ones. Produces abandonment and time hemorrhage on items that were solvable from the known choices alone.
+- **reversed-dependency-blindness** — Verifying that a choice involves the right two ideas without checking which one governs the other. Formed because school reading rewards topic matching, so "both terms present" feels like verification. It feeds the **reversed-dependency decoy**: a choice that states the relationship backwards — A-governs-B offered where the sentence establishes B-governs-A (the precursor cast as the descendant, the cause as the consequence, the dependent party as the controlling one). The decoy survives every field-and-charge check because it lives in the right semantic territory; only mapping the sentence's actual direction kills it.
 
 ## Diagnostic indicators
 - **single-meaning-belief**: on word-probe items, picks the choice matching the target's everyday sense; explanation is a dictionary recital, no passage evidence cited.
@@ -42,6 +43,7 @@ Words in Context is a recurring item family in every R&W module (unverified-clai
 - **forced-prediction-habit**: scratch work shows a predicted word unrelated to the evidence; rejects the credited answer as "not what I was looking for."
 - **topic-association-trust**: picks the choice sharing semantic field with the passage topic (or matching a nearby word) over the choice matching the slot's logic; fast, confident wrong answers.
 - **unknown-word-panic**: disproportionate time on items with rare distractors; blank or changed answers there; says "I didn't know two of the words so I guessed."
+- **reversed-dependency-blindness**: picks relational choices with the arrow backwards (wrong side of a precursor/descendant, cause/effect, or governs/depends pair); explanation names both ideas but never says which drives which; errors cluster on time-direction and dependency vocabulary.
 
 ## Remediation pathways
 - **single-meaning-belief**: show three sentences forcing three different meanings from one common word — meaning is location-dependent, full stop. Then the presumption rule for word-probe items. If unfixed, prereq is [[connector-logic-families]] (they can't compute the slot's demand).
@@ -49,6 +51,7 @@ Words in Context is a recurring item family in every R&W module (unverified-clai
 - **forced-prediction-habit**: make prediction explicitly conditional: confident → predict; else → charge-tag only. Show a worked case where a planted guess caused rejection of the right answer.
 - **topic-association-trust**: dissect a topic-association decoy — the word belongs to the subject but its definition breaks the slot's logic. Rule: association is a red flag, not support.
 - **unknown-word-panic**: teach quarantine explicitly — park unknowns, verify knowns; demonstrate an item solved with two choices never defined. Morphology enters only as a bounded tiebreaker (see [[second-sense-vocabulary]]).
+- **reversed-dependency-blindness**: install a direction step for any relational slot — draw the arrow ("X produces Y," "Y depends on X") from the sentence BEFORE sweeping choices, then require every survivor to sit on the correct side of it. Contrast pair: the credited answer and its reversed twin against the same evidence, with the student stating what in the text fixes the direction.
 
 ## Mastery criteria
 The student can, on demand: name the evidence phrase and connector family for any WiC item; state whether they predicted or fell back to polarity and why; justify the winner by definition-vs-evidence (including running the overclaim test); and solve items containing unknown distractors without defining them. Proof: consistent accuracy on medium/hard blank-fill AND word-probe items, with familiar-sense and topic-association decoys absent from their error log.

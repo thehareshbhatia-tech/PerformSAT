@@ -47,6 +47,15 @@ differ → what is being tested.*
 The second half of the model: **the axis the choices vary on that does NOT decide
 the answer is decoration.** If choices split on number, tense variation is noise.
 
+One calibration worth carrying for active-vs-passive splits: **passive voice is
+not an error.** Never auto-eliminate a choice for being passive — a clean
+passive that satisfies the tested rule can win. But between two otherwise-clean
+choices, the active form is the expected key, and a wordy passive construction
+is a distractor marker (unverified-claim on the skew — verify against bank
+before the tutor uses it as more than a tiebreaker prior). Voice is almost
+always a decoration axis; treat it as the deciding axis only when nothing else
+separates the survivors.
+
 ## Expert reasoning process
 1. Read the four choices before reading the passage sentence. Ask: what is the
    minimal difference between them? (Same words, different marks? Same marks,

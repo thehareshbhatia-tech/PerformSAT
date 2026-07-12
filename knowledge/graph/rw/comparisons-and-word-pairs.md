@@ -55,6 +55,19 @@ Two checks:
   noun phrases flip the answer (many species / less biodiversity) — exactly the
   contrast the test builds.
 
+## Completeness note: infinitive vs gerund after a verb
+A neighboring idiom family, noted here for completeness only. Whether a given verb
+takes an infinitive complement ("refused to participate"), a bare gerund ("avoided
+participating"), or a gerund forced through a preposition ("insisted ON
+participating") is pure idiom — there is no rule to derive, and the gerund
+alternative usually drags a preposition with it, which is the surface cue that a
+form has been swapped. The exam does not pit two idiomatic forms against each other
+in one choice set [unverified-claim: per our review of released digital material;
+verify against bank], so memorizing verb lists is negative-ROI. The whole play is:
+recognize that the choices differ in complement form, trust the reading ear on the
+one construction in front of you, and move on — minutes here are minutes taken from
+rule-governed families that actually recur.
+
 ## Expert reasoning process
 1. Triage ([[choice-set-diagnosis]]): choices varying in than/as/nor/and or in
    the second half of a recognizable template → word-pair item; choices varying

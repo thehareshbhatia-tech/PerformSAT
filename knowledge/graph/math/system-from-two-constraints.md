@@ -54,7 +54,7 @@ Once the system is BUILT, and the item asks for actual counts, Desmos is excelle
 - misc-answer-first-solved-variable: same written-target discipline as [[system-combination-target]].
 
 ## Mastery criteria
-Student translates a two-constraint scenario into a correct system in under a minute with variables defined in writing, passes the unit-check on demand, handles comparison clauses in both directions, and reports the asked-for quantity. Evidence: consistent accuracy on both which-system items (where all four swap-distractors lurk) and solve-through items, across money, mixture, and rate/time contexts.
+Student translates a two-constraint scenario into a correct system in under a minute with variables defined in writing, passes the unit-check on demand, handles comparison clauses in both directions, and reports the asked-for quantity. Evidence: consistent accuracy on both which-system items (where all four swap-distractors lurk) and solve-through items, across money, mixture, and rate/time contexts. (Mixture stems carry their own conserved-quantity model — concentration coefficients, both-ledgers bookkeeping — in [[mixture-as-conserved-quantities]]; the system-building discipline here is the shared foundation.)
 
 ## Difficulty ladder
 - **Easy**: two quantities, clean count+value template, integer prices, "which system represents."

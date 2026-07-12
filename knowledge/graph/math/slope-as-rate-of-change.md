@@ -30,7 +30,8 @@ The sign convention that kills most errors: always traverse left-to-right, so Δ
 3. A table is just a point list: subtract adjacent rows for Δx and Δy; the ratio must be constant (that constancy is also the test for "is this linear?"); non-adjacent rows scale the same ratio.
 4. Normalize before comparing to answers: reduce p/q, or convert to per-1-unit form. Distractors are rescalings and reciprocals of the truth.
 5. For "how much does y change when x changes by k": Δy = m·k, one multiplication. For an unknown coordinate on a known-slope line: set the slope expression between the points equal to the slope value and solve — one template covers the whole item family.
-6. Sanity-check the sign against the picture or story: rising left-to-right ⇒ positive; falling ⇒ negative.
+6. **Bound before (or instead of) computing.** Coordinate constraints translate to slope SIZE CLASSES with no arithmetic: a line through the origin and a point (a, b) with a > b > 0 climbs less than one unit per unit right — 0 < m < 1; with b > a > 0, m > 1. Sign-of-product questions (is m·b positive?) decompose the same way — read each factor's sign off the picture independently, then combine. On "which could be the slope" items, sign plus size class usually eliminates every choice but one; exact computation is often impossible by design and never needed.
+7. Sanity-check the sign against the picture or story: rising left-to-right ⇒ positive; falling ⇒ negative.
 
 **Desmos vs. algebra:** counting a drawn lattice step beats any tool. For two numeric points, mental/paper formula is faster than typing — but when coordinates are ugly (decimals, large numbers), plotting both points and eyeballing direction is a cheap sign-check, and a Desmos table with the two rows makes the subtraction typo-proof. For unknown-coordinate items, Desmos can verify by plotting the finished line through the known point. Teach: slope extraction is a by-hand skill; Desmos is the checker for sign and messy arithmetic.
 
@@ -61,10 +62,10 @@ Student extracts the correct signed slope from a graph, a point pair, and a tabl
 ## Difficulty ladder
 - **Easy:** slope between two plotted lattice points; read m from y = mx + b.
 - **Medium:** two numeric points with negatives; slope from a table; slope needed as step one of an equation build.
-- **Hard:** unknown-coordinate items (slope-expression = value); slope in terms of abstract constants; fractional-slope proportional questions; multi-line comparisons; slope hidden behind function notation or context so the item never says "slope." Module 2 Hard hides the skill's name and parameterizes the points — the arithmetic stays tame.
+- **Hard:** unknown-coordinate items (slope-expression = value); slope in terms of abstract constants; fractional-slope proportional questions; multi-line comparisons; slope hidden behind function notation or context so the item never says "slope"; qualitative-bounding items where the givens are coordinate inequalities and only a size class (0 < m < 1, m > 1, sign of m·b) is derivable — computing is not an option. Module 2 Hard hides the skill's name and parameterizes the points — the arithmetic stays tame.
 
 ## Teaching notes
 - **Struggling:** staircase imagery and step-counting on clean graphs ONLY until sign and direction are automatic; delay the formula — it's a fallback, not the foundation.
 - **Average:** formula with the consistent-order rule taught as traversal; tables as point lists; the Δy = m·Δx shortcut.
 - **Advanced:** unknown-coordinate template; normalization against rescaled distractors; slope through function notation (f(b) − f(a) over b − a).
-- **1500+:** parameterized and composed items — slope of one function defined via another, ratio-of-coordinates through the origin; coach recognizing slope questions that never mention slope.
+- **1500+:** parameterized and composed items — slope of one function defined via another, ratio-of-coordinates through the origin; coach recognizing slope questions that never mention slope, and bounding by size class when the item supplies no numbers to compute with.

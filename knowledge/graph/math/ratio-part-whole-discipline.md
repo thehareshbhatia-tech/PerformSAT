@@ -35,6 +35,17 @@ reference group is fixed do you go hunting for the count on top. A ratio written
 is two parts sitting side by side; the whole is offstage and must be constructed
 (a+b) before any "of the total" question can be answered.
 
+**The fraction-of-total cascade (equation-free route):** for stories that hand out
+fractions in sequence — 1/6 of the fund to A, then 1/4 of the REST to B, then half
+the remainder to C — no equation is needed. Track one running number: the fraction
+still remaining OF THE ORIGINAL WHOLE. After the 1/6 gift, 5/6 remains; giving 1/4
+of the rest keeps 3/4 of it, so 3/4 × 5/6 = 5/8 of the original remains; half the
+remainder leaves 5/16. Multiply by the actual total once, at the very end. The
+discipline is the re-expression: every intermediate fraction is converted back to
+original-whole terms immediately, so "of the rest" never silently gets applied to
+the original — that silent rebase is exactly the error the sequence is built to
+provoke.
+
 ## Expert reasoning process
 1. Read the question tail first: "what fraction of ___" / "if a ___ is chosen at
    random" — the noun in that clause IS the denominator.
@@ -98,7 +109,8 @@ with no a/b-for-share errors across a session.
 ## Difficulty ladder
 - **easy**: reduce a ratio; read one part's share given a two-part ratio and a total.
 - **medium**: restricted reference group ("of the students who chose X..."); ratio
-  given, real count of one part given, find the other; three-term ratios.
+  given, real count of one part given, find the other; three-term ratios;
+  fraction-of-remainder cascades run against the original whole.
 - **hard**: partially known two-way table plus verbal multipliers ("4 times as many
   X as Y") requiring a small linear system, ending in a restricted-denominator
   probability — composes with [[two-way-table-probability]] and linear-systems

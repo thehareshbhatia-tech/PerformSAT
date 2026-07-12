@@ -38,6 +38,11 @@ A supporting visual: an uncomputed pattern table. Rows for count 0, 1, 2, … n 
 
 **Desmos vs. algebra:** the modeling itself is untouchable by any calculator — a student who can't write the model gets nothing from Desmos. Once the model exists, Desmos becomes the arithmetic executor (define the function, read values) and the verifier (a table of plotted points confirms the constant step). Teach: brain builds the model, Desmos runs it. The step-2 extraction is always pencil-and-eyes work.
 
+## Piecewise accumulation and pursuit
+When the rate CHANGES at a known breakpoint (walks for 2 hours, then jogs; fills at one rate until the pump is added), the model doesn't break — it segments. Accumulate one linear chunk per rate-regime and glue them at the breakpoint: total = rate₁ · t₁ + rate₂ · (remaining time). The one modeling decision that items are built around is the second segment's count: it is what's LEFT of the time after the breakpoint, never the whole time — a total of T hours with a break at t₁ gives the second regime T − t₁ hours, and writing rate₂ · T instead is the planted corruption in which-expression choice sets.
+
+Catch-up and pursuit stories are two accumulation expressions EQUATED: write each actor's total independently — own start, own rate, shared clock — and set them equal ("same total when" / "catches up when" is the equation sentence). The meeting moment is literally where the two lines cross, so this is a system solved as intersection ([[linear-system-solution-as-intersection]]): plot both accumulation expressions in Desmos and read the crossing when the algebra is uninviting. A head start enters as a bigger start value or an earlier clock, never as a rate edit.
+
 ## Misconceptions
 - **rate-constant-slot-swap** — putting the per-unit number where the start belongs or vice versa, especially when both arrive as letters. Forms because y = mx + b is memorized as positions rather than meanings (per-unit change vs. amount-at-zero); answer sets enumerate all slot arrangements to harvest it.
 - **sign-of-change-flip** — adding the change for a decreasing quantity. Forms because story verbs get skimmed; the word "loses" appears once while the numbers appear prominently.
@@ -65,7 +70,7 @@ Given fresh stories across all three structural cases (including decreasing, two
 ## Difficulty ladder
 - **Easy:** pure-rate evaluate; rate + constant, choices enumerate structures.
 - **Medium:** write and evaluate; negative rates; given the total, solve backward.
-- **Hard:** two simultaneous rates needing netting; rate given per one unit, question in another; linearity implied by data ("increases by the same amount each year" plus two data points) rather than stated; off-by-one boundaries ("each additional unit after the first" — composes with [[variable-definition-discipline]]). Module 2 Hard = more inference before the model exists, never uglier numbers.
+- **Hard:** two simultaneous rates needing netting; rate given per one unit, question in another; linearity implied by data ("increases by the same amount each year" plus two data points) rather than stated; off-by-one boundaries ("each additional unit after the first" — composes with [[variable-definition-discipline]]); piecewise accumulation across a breakpoint and pursuit/catch-up stories where two actors' accumulations are equated. Module 2 Hard = more inference before the model exists, never uglier numbers.
 
 ## Teaching notes
 - **Struggling:** start from their lived proportional intuition (pay per hour) and the three-costume story; build models only from uncomputed pattern tables until the words-formula is automatic. No symbols until the words version is reliable.

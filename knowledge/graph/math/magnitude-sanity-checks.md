@@ -4,7 +4,7 @@ section: math
 domain: cross-cutting
 skill: cross.number_sense (meta-skill; filter habits applied across all domains, heaviest in problem-solving/data and word problems)
 difficulty_span: [easy, hard]
-prereqs: [fraction-fluency, percent-as-multiplier]
+prereqs: [fraction-operations, percent-as-multiplier]
 unlocks: []
 related: [distractor-forensics-study-skill, desmos-decision-framework, answer-the-asked-question, extraneous-solutions-non-reversible-moves]
 ---

@@ -6,7 +6,7 @@ skill: transitions
 difficulty_span: [easy, hard]
 prereqs: [transition-relationship-families, transition-backward-anchoring]
 unlocks: [notes-question-goal-first]
-related: [writing-choice-set-classification, topic-point-attitude-reading]
+related: [writing-choice-set-classification, topic-point-attitude-reading, boundary-equivalence-cancellation]
 ---
 
 # Predict the relationship before reading any choice
@@ -26,7 +26,7 @@ Transition distractors are engineered against choice-first processing: near-fami
 3. Compress each statement to a one-clause gist, reading past terminology ([[topic-point-attitude-reading]]).
 4. Name the relationship — family, then sub-job if callable — as an explicit prediction.
 5. Scan choices for the match. For a cause-effect pick, sanity-check the arrow direction.
-6. If no choice matches the precise prediction, fall back to **family-level elimination**: strike whole groups at once (all continuers, or all contrast + causal words) and decide among survivors.
+6. If no choice matches the precise prediction, fall back to **family-level elimination**: strike whole groups at once (all continuers, or all contrast + causal words) and decide among survivors. Inside this sweep, apply **twin cancellation**: two choices that are functional synonyms doing the same logical job cannot both be right, so BOTH are wrong — the survivor from a unique category wins by default. This is the transitions face of [[boundary-equivalence-cancellation]]; students who pick either twin are shopping by tone or register, not logic.
 7. Re-insert the winner and confirm the passage reads coherently — the only moment "sound" is consulted, and only as a final check.
 
 ## Misconceptions

@@ -26,24 +26,28 @@ The exam tests whether a student holds absolute value as a concept or as a butto
 3. For |x − c| < r: the band c − r < x < c + r (one interval, "and").
 4. For |x − c| > r: the two rays x < c − r or x > c + r ("or").
 5. Only strip to the two-case algebra (inside = +r and inside = −r) when the inside is complex; the distance read is faster for the standard forms.
-6. **Desmos decision:** graphing y = |expression| against y = r and reading intersections/regions is a reliable safety net, especially when the inside is messy or a parameter is involved; the distance read is faster for clean forms and is the only route when the constant is symbolic.
+6. When the variable sits on BOTH sides, reason by sign region before any algebra. |x| = x asks "where is x its own distance from zero?" — everywhere x ≥ 0, so infinitely many solutions. √(−x) = x demands x ≤ 0 (the radicand must be non-negative) AND x ≥ 0 (a principal root's output is non-negative), pinning x = 0 — exactly one. Chart which sign regions are even eligible; often the region chart IS the answer, and case-grinding never produces the count.
+7. **Desmos decision:** graphing y = |expression| against y = r and reading intersections/regions is a reliable safety net, especially when the inside is messy or a parameter is involved; the distance read is faster for clean forms and is the only route when the constant is symbolic.
 
 ## Misconceptions
 - **dropped-negative-case** — Solving |x − c| = r for only x = c + r. Forms from the "absolute value makes it positive" mislearning, which hides the second point entirely. Produces exactly one of the two correct answers, and on the SAT the omitted one is usually a listed choice.
 - **band-ray-confusion** — Treating |x − c| > r as an interval or |x − c| < r as two rays. Forms because both are "solve, then write an inequality," and without the distance picture the student has no principle for which shape results — so they guess or over-apply the flip rule. The signature hard-item trap.
 - **negative-r-not-flagged** — Grinding two cases on |x − c| = −4 instead of declaring "no solution." Forms from mechanical case-splitting divorced from meaning; distance is never negative, so no point qualifies.
 - **center-sign-error** — Reading the center of |x + 3| as +3. Forms from surface pattern-matching; the center is the value that zeroes the inside, so |x + 3| centers at −3.
+- **region-blind-bar-stripping** — On variable-on-both-sides equations, deleting the machinery instead of reasoning about regions: |x| = x declared "always true" (the bars "do nothing"), or √(−x) = x declared impossible (a negative under a root "is illegal"). Forms because absolute value was learned as "makes it positive" and radicals as "no negatives allowed" — both rules stated without their sign-region scope. Produces swapped picks on the {zero, exactly one, exactly two, infinitely many} solution-count format, where every wrong region read maps to a listed choice.
 
 ## Diagnostic indicators
 - **dropped-negative-case**: absolute-value equation items answered with the single positive root; the negative root is the chosen distractor's complement.
 - **band-ray-confusion**: inequality items where the interval and the two-ray answer are both offered and the student picks the wrong shape while getting the boundary numbers right.
 - **negative-r / center-sign**: no-solution items answered with numbers; |x + c| items centered at +c.
+- **region-blind-bar-stripping**: answers "infinitely many" or "no solution" on |x| = x / √(−x) = x-shaped counts without any region work shown; explain-back cites a blanket rule ("absolute value doesn't change it," "you can't root a negative") rather than a sign condition.
 
 ## Remediation pathways
 - dropped-negative-case: re-anchor on the number line — literally ask "what points are r away?" and require both before any algebra.
 - band-ray-confusion: drill the two inequality shapes side by side with their pictures until "within → band, beyond → rays" is reflexive; connect to [[inequality-direction-logic]] for why the rays are an "or."
 - negative-r: one exposure to "distance can't be negative" usually fixes it permanently.
 - center-sign: practice rewriting |x + c| as |x − (−c)| until the zeroing move is automatic.
+- region-blind-bar-stripping: test the blanket rule at one point per region — |−3| = −3 is false, so |x| = x is not "always"; √(−(−4)) = 2 ≠ −4, so negative inputs are legal but fail the equation for a different reason. Then rebuild the two-constraint read for radicals (radicand ≥ 0 AND output ≥ 0). Plotting both sides in Desmos shows the solution set as the overlap, making the count visible.
 
 ## Mastery criteria
 The student produces both solutions to any absolute-value equation, correctly shapes both inequality directions (band vs rays) with the right boundaries, flags negative-constant equations as no-solution on sight, and locates the center by zeroing the inside — all without a memorized four-rule table. Proof: a mixed set containing an equation, both inequality directions, and one no-solution item.
@@ -51,7 +55,7 @@ The student produces both solutions to any absolute-value equation, correctly sh
 ## Difficulty ladder
 - **Easy**: |x| = k and |x − c| = r with clean numbers.
 - **Medium**: the two inequality directions; center-finding with |x + c|; no-solution flags.
-- **Hard**: a coefficient on the inside (|2x − c|), the absolute value embedded in a larger equation, or a symbolic constant where the distance read must stay abstract; occasionally a two-absolute-value comparison better handled by [[desmos-decision-framework]].
+- **Hard**: a coefficient on the inside (|2x − c|), the absolute value embedded in a larger equation, or a symbolic constant where the distance read must stay abstract; domain-constrained solution counts (|x| = x, √(−x) = x) under the four-way {zero, one, two, infinitely many} format, answered by sign-region reasoning; occasionally a two-absolute-value comparison better handled by [[desmos-decision-framework]].
 
 ## Teaching notes
 - **Struggling**: teach only the number-line picture — center, step off r both ways — and skip the two-case algebra entirely until the picture is solid.

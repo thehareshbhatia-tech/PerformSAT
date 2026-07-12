@@ -54,6 +54,17 @@ promote a one-word connective into a dramatic aside — the mark's weight must
 fit the span's weight. (Style rationale; the testable rule is just: bracketed
 transitions take commas.)
 
+One legal-but-rare shape to know so it doesn't get auto-eliminated: **the
+clause-final explainer.** When a non-essential span sits at the END of its
+clause and what follows explains or defines, the span may legally take a comma
+in front and a colon or dash behind — the opening mark closes the aside, the
+explainer mark launches the definition. It LOOKS like a mismatched pair
+(comma...dash), but the two marks are doing two different jobs: the front mark
+is bracket-half, the back mark is an explainer boundary. Before killing an
+apparent hybrid, check whether what follows the second mark unpacks what
+precedes ([[three-legal-joins]]'s colon gate); if it does, the "mismatch" is
+legal.
+
 ## Expert reasoning process
 1. **Left-scan first** (inherited from [[delete-and-reread]]): before judging
    the blank, sweep left for an unpaired comma, dash, or open paren. Found →

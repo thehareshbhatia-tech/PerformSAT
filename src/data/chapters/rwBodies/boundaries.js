@@ -25,7 +25,7 @@ export const boundariesBlocks = [
     title: 'How this chapter is built',
     items: [
       '**Stage 1 · Foundations.** What a clause is, complete vs. incomplete, and the one test you will reuse on every question.',
-      '**Stage 2 · The rulebook.** Six numbered rules, each in the same shape: the rule, a right example, a wrong example, and the why.',
+      '**Stage 2 · The rulebook.** Seven numbered rules, each in the same shape: the rule, a right example, a wrong example, and the why.',
       '**Stage 3 · On the test.** A decision flow that routes you to the right rule, the traps the test sets, worked examples, and a one-page summary.',
     ],
   },
@@ -78,7 +78,7 @@ export const boundariesBlocks = [
   { type: 'heading', content: 'Stage 2 · The rulebook' },
   {
     type: 'text',
-    content: 'Six rules cover every Boundaries question. Each follows the same shape: the **rule**, a **right** example, a **wrong** example, and the **why**.',
+    content: 'Seven rules cover every Boundaries question. Each follows the same shape: the **rule**, a **right** example, a **wrong** example, and the **why**.',
   },
 
   { type: 'heading', content: 'Rule 1 — Two complete thoughts take a strong join' },
@@ -166,6 +166,29 @@ export const boundariesBlocks = [
       { label: 'Right', content: '*The tour visits Lima, Peru; Quito, Ecuador; and Bogotá, Colombia.* Each city–country pair stays intact.', variant: 'right' },
       { label: 'Plain list — plain commas', content: '*The tour visits Lima, Quito, and Bogotá.* No internal commas, so no semicolons.', variant: 'right' },
     ],
+  },
+
+  { type: 'heading', content: 'Rule 7 — Every comma must name its job' },
+  {
+    type: 'text',
+    content: 'Rules 1 through 6 tell you where marks belong. Rule 7 is the reverse filter, and it kills more wrong answers than any other: **a comma in an answer choice is guilty until proven employed.** A comma survives only by naming one of five jobs — separating items in a list of three or more, separating two adjectives that each independently describe the noun (test: swap them, or insert *and* — if it still reads naturally, the comma stays), closing a sentence-opening transition word, serving as half of a matching pair around extra info (Rule 4), or sitting before the joining word between two complete thoughts (Rule 1). No job, no comma.',
+  },
+  {
+    type: 'text',
+    content: 'And some positions are **forbidden zones** — a comma there kills the choice on sight: between a subject and its verb, *no matter how long the subject runs* (only a full two-comma aside may sit between them — a lone comma after a long subject either needs a partner or needs to disappear); touching a preposition on either side; between the final adjective and its noun; after the joining word that closes a list; and inside a compound pair, where two verbs share one subject — *She wrote the report and filed it* takes no comma, because the second half cannot stand alone (swap in a period to check: if you do not get two complete sentences, the comma was illegal).',
+  },
+  {
+    type: 'comparison',
+    items: [
+      { label: 'Employed commas', content: '*The kit includes a map, a compass, and rope.* List job. *After the storm, crews cleared the roads.* Opener job.', variant: 'right' },
+      { label: 'Unemployed commas', content: '*The results of the four-year survey of coastal farms, were published in May.* A lone comma between subject and verb — the pause feels natural after a long subject, and it is always wrong.', variant: 'wrong' },
+    ],
+  },
+  {
+    type: 'checkpointQuestion',
+    number: 6,
+    question: '*The engineer who designed the bridge and later inspected it, kept detailed notes.* The comma feels natural. What job is it doing, and does it survive?',
+    answer: 'It has no job — delete it. It is a lone comma between the subject (*the engineer who designed the bridge and later inspected it*) and its verb (*kept*). **Why:** a long subject invites a spoken pause, but a single comma may never separate subject from verb; only a complete two-comma aside can sit there.',
   },
 
   // ── Stage 3 · On the test ──────────────────────────────────────────────
@@ -279,6 +302,7 @@ export const boundariesBlocks = [
       ['R4', 'Mid-sentence aside', 'Matching pair — comma…comma or dash…dash, never mixed'],
       ['R5', 'Removable extra info', 'Commas around it; essential info takes none (remove-it test)'],
       ['R6', 'List items containing commas', 'Semicolons between items'],
+      ['R7', 'Any other comma in a choice', 'Guilty until employed — no nameable job means delete it (never between subject and verb, never touching a preposition, never in a shared-subject pair)'],
     ],
   },
   {

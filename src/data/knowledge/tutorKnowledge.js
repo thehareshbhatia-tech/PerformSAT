@@ -381,6 +381,11 @@ export const TUTOR_KNOWLEDGE = {
     ],
     "misc": [
       {
+        "b": "believing x = 3 is a horizontal line \"because the x-axis is horizontal,\" and pairing zero slope with the wrong one of the two.",
+        "t": "picks x = c for a drawn horizontal line (or vice versa); calls a vertical line's slope 0 or a horizontal line's slope undefined; explain-back cites t…",
+        "f": "plot two points of x = 3 and read the shared coordinate aloud — the constant-coordinate meaning replaces the axis-name anchor."
+      },
+      {
         "b": "(y₂ − y₁)/(x₁ − x₂): treating the two subtractions as independent instead of one consistent traversal.",
         "t": "picks the sign-flipped distractor; scratch work shows points labeled inconsistently.",
         "f": "teach traversal, not formula — pick the leftmost point, walk right; or physically draw the arrow between points and subtract head-minus-tail in both…"
@@ -394,11 +399,6 @@ export const TUTOR_KNOWLEDGE = {
         "b": "believing only one of the two given points is \"the right one\" to substitute, or that different points give different lines.",
         "t": "long timing on two-point items; explain-back includes \"I didn't know which point to use.\"",
         "f": "have the student build the same line from BOTH points once; identical results dissolve the anxiety permanently."
-      },
-      {
-        "b": "expecting parallel lines to share an intercept, or coefficient-matching all three constants so the same-line candidate looks parallel.",
-        "t": "picks the identical-line candidate, or eliminates a correct parallel choice for having \"different numbers\"; misses the proportional-coefficients equi…",
-        "f": "contrast triple in Desmos — same slope different intercept (parallel), scaled whole equation (same line), same intercept different slope (intersectin…"
       }
     ]
   },

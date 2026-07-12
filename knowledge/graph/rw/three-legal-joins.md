@@ -6,7 +6,7 @@ skill: boundaries
 difficulty_span: [easy, hard]
 prereqs: [clause-counting]
 unlocks: [comma-splice, boundary-equivalence-cancellation, transition-backward-anchoring]
-related: [sentence-fragment-connectors, punctuating-by-ear]
+related: [sentence-fragment-connectors, punctuating-by-ear, comma-jobs-and-forbidden-zones]
 ---
 
 # The three legal joins — the complete menu for two independent clauses
@@ -47,6 +47,12 @@ mechanical:
 - comma + coordinator needs BOTH pieces: coordinator without the comma is a
   run-on shaped join; comma without the coordinator is a splice
   ([[comma-splice]]).
+- the comma half is licensed only when both sides are full clauses: a second
+  verb sharing the first clause's subject (a compound predicate, subject not
+  restated) takes NO comma before the coordinator. Decide mechanically with
+  the **period-substitution test**: comma + coordinator is equivalent to a
+  period, so substitute one — if the result is not two complete sentences,
+  the comma is wrong ([[comma-jobs-and-forbidden-zones]]).
 - colon vs dash at a clause seam is pure style; the exam will not force that
   choice (unverified-claim — consistent across sources, verify against bank).
 
@@ -56,13 +62,18 @@ mechanical:
 2. Collapse the choice set: mark period and semicolon options as the same mark;
    if both appear, BOTH are usually wrong
    ([[boundary-equivalence-cancellation]]).
-3. Strike off-menu shapes: comma alone; full stop + coordinator; comma +
+3. Work the hard stops first: evaluate the period and colon choices before
+   the subtler ones — a hard boundary is the cheapest to verify (both sides
+   either pass the sentence test or they don't), and a period among the
+   choices hints the item's point is a two-sentence split (unverified-claim
+   as a prior — a work-order heuristic, never a verdict).
+4. Strike off-menu shapes: comma alone; full stop + coordinator; comma +
    connective adverb (*however* has no gluing power —
    [[boundaries-word-roles]]).
-4. If a colon/dash survives, run the unpacking gate: restate clause 2's job in
+5. If a colon/dash survives, run the unpacking gate: restate clause 2's job in
    three words — "explains it" / "names it" / "results from it" → keep;
    "more info" → kill.
-5. Install the survivor and re-read the whole sentence.
+6. Install the survivor and re-read the whole sentence.
 
 ## Misconceptions
 - **comma-can-join-sentences** — The splice belief; canonical treatment in

@@ -4,8 +4,8 @@ section: math
 domain: algebra
 skill: algebra.inequality-regions-and-point-testing
 difficulty_span: [easy, hard]
-prereqs: [inequality-direction-logic, linear-system-solution-as-intersection, linear-system-solution-as-intersection]
-unlocks: [inequality-regions-and-point-testing, inequality-translation-and-integer-bounds]
+prereqs: [inequality-direction-logic, linear-system-solution-as-intersection]
+unlocks: [inequality-translation-and-integer-bounds]
 related: [compound-inequality-operations]
 ---
 
@@ -27,6 +27,7 @@ The digital SAT tests inequalities mostly through REPRESENTATION — matching pi
 4. **Known coordinate propagation**: given that (a, 3) or (5, b) solves a system, feed the known coordinate through each inequality, producing an interval for the unknown coordinate; intersect the intervals; pick the choice inside.
 5. **Boundary points in systems**: a point ON a dashed boundary fails that inequality — even if it is inside every other region. Check boundary membership explicitly whenever a candidate lands on a line.
 6. For no-solution topology: two half-planes fail to overlap only when their boundaries are parallel and the shadings face away from each other — a rare but askable structure that reduces to slope comparison ([[linear-system-solution-count]] logic transplanted).
+7. **Extreme values live at the boundary intersection.** When the item asks for the maximum or minimum of x or y over a two-inequality system ("the greatest possible y-coordinate of a solution"), the overlap region is a wedge, and the extreme sits at its corner — where the two BOUNDARIES cross. Procedure: replace each inequality's sign with =, solve the resulting 2×2 system ([[linear-system-method-selection]]), and read the asked coordinate off the intersection point. Check strictness before answering: if either boundary is dashed, the corner itself is excluded and the correct phrasing is "approaches but never reaches" — integer-answer variants then want the nearest solution-side integer. The word-problem twin needs no graph at all: to maximize one variable under a joint cap ("x + y ≤ 100, y is at least 20 — greatest possible x"), spend the MINIMUM on the other variable first; max x = 100 − 20. Minimizing works mirror-image: give the other variable its maximum.
 
 ## Desmos vs algebra
 This is the highest-leverage Desmos territory in the entire section. Desmos shades inequality regions NATIVELY: type each inequality verbatim (no y-isolation needed — it accepts standard form directly, sidestepping the flip-changes-the-side hazard entirely), and the overlap region appears as the darkest area. Point-in-region items: plot the candidate points too and see which dot sits in the overlap. Strictness still needs your eyes — Desmos's boundary rendering for strict vs inclusive is subtle, so read the SIGN for membership decisions on boundary-sitting points. Algebra/point-testing wins only when candidates are few and coefficients are tiny (two mental substitutions beat any typing), or when no graph intuition is needed at all. Decision rule: **ugly coefficients, many candidates, or any region reasoning → Desmos shade-and-read; two clean candidates → just substitute; boundary-membership calls → read the sign yourself.**
@@ -59,7 +60,7 @@ Student can decompose any shaded picture into inequalities (boundary, side, memb
 - **Easy**: one inequality, which-point or which-graph; origin test settles the side.
 - **Medium**: two-inequality systems; dashed/solid discrimination; identify the inequality from a shaded graph.
 - **Hard**: known-coordinate propagation; wedges and bands requiring TWO inequalities to describe one picture; negative-y-coefficient boundaries where naive side-reading fails; no-overlap topology reasoning.
-- **Hardest**: region reasoning fused with optimization — the extreme point of the overlap ([[inequality-regions-and-point-testing]]) and word-built constraint systems ([[inequality-translation-and-integer-bounds]]).
+- **Hardest**: region reasoning fused with optimization — the extreme point of the overlap (the boundary-intersection procedure of step 7, composing [[linear-system-method-selection]]) and word-built constraint systems ([[inequality-translation-and-integer-bounds]]).
 
 ## Teaching notes
 - **Struggling**: start with membership, not pictures: one inequality, five points, plug and verdict each. Then introduce the picture as the map of all the "yes" points. Desmos makes this immediate — type the inequality, drop the points, see the verdicts.

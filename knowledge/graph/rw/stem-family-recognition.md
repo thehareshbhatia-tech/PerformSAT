@@ -6,7 +6,7 @@ skill: central-ideas-details, inferences, command-of-evidence-textual, command-o
 difficulty_span: [easy, hard]
 prereqs: [question-first-reading-protocol]
 unlocks: [predict-then-verify, detail-lookup-protocol, topic-point-attitude-reading]
-related: [writing-module-economics]
+related: [writing-module-economics, section-economics-and-triage]
 ---
 
 # Stem recognition: classify the question before touching the passage
@@ -63,7 +63,7 @@ Shown 10 stems with passages hidden, the student classifies all 10 into families
 - **Hard**: family is clear but the CORRECT procedure requires composing families — e.g., a quantitative-evidence item that is really a claim-matching item ([[chart-decoding-fundamentals]] composed with [[abstraction-ladder-paraphrase]]); paired-text items that require running the main-point procedure twice then a comparison.
 
 ## Teaching notes
-- **Struggling**: don't teach all families at once — teach three (vocab, detail, main idea), get recognition solid, then add. Use a sorting game: stems on cards, sort into bins, no solving allowed.
-- **Average**: full taxonomy plus the "name it before you solve it" ritual on every practice item for two weeks. Show them their own drill-vs-test gap as motivation.
-- **Advanced**: focus on hybrid stems and on review discipline — their recognition is fine; their error autopsies are shallow. Teach family-sorted miss logs.
+- **Struggling**: don't teach all families at once — teach three (vocab, detail, main idea), get recognition solid, then add. Use a sorting game: stems on cards, sort into bins, no solving allowed. All of it untimed: recognition training happens with the clock OFF, and the clock returns only after naming is automatic ([[section-economics-and-triage]]'s untimed-mastery-first rule).
+- **Average**: full taxonomy plus the "name it before you solve it" ritual on every practice item for two weeks — untimed first, then a stepped clock once the naming goes silent. Show them their own drill-vs-test gap as motivation. Let the miss distribution set study order: clustered misses → drill exactly those families; scattered misses → no family is the problem, study comprehensively in sequence instead of chasing phantom weaknesses ([[section-economics-and-triage]]).
+- **Advanced**: focus on hybrid stems and on review discipline — their recognition is fine; their error autopsies are shallow. Teach family-sorted miss logs, and apply the same clustered-vs-scattered rule to them: only a clustered histogram justifies targeted drilling.
 - **1500+**: recognition is automatic; the remaining value is in review analytics (which family × distractor-species combination produces their rare misses) and in knowing when a stem signals a likely time-sink for triage purposes ([[writing-module-economics]]).

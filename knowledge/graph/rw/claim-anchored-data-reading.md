@@ -28,7 +28,8 @@ These items test whether a student can use data *as evidence for something* rath
 5. Audit each surviving choice against EVERY condition: magnitude ("far lower" needs a genuinely large gap; "roughly equal" needs near-identical values), entity count (a claim about ONE subject's internal contrast disqualifies any two-subject comparison structurally, regardless of numbers), window (right comparison in the time slice the transition demands), and direction.
 6. For completion hybrids: an illustration transition before the blank means the governing idea is the sentence BEFORE the blank; a contrast transition means the blank states the opposite pole ([[transition-relationship-families]]).
 7. For weaken variants: find the inference gap in the passage's conclusion — usually a category-level claim drawn from its most prominent member — and hunt the display for the ignored counterexample (a second member behaving oppositely).
-8. One survivor → commit. Do not reopen.
+8. Under time pressure: when the conclusion names a causal agent, check FIRST the choice that mentions that agent — the others typically describe data without touching the causal link (unverified-claim on the skew; a check-order heuristic, not a verdict — the agent-naming choice still has to pass the full checklist).
+9. One survivor → commit. Do not reopen.
 
 ## Misconceptions
 - **graph-match-equals-correct** — the quantitative mask of the root error; treated fully in [[topical-vs-logical-relevance]]. Here: "true of the display" taken as sufficient, producing first-accurate-choice picks.

@@ -26,6 +26,8 @@ This is the single most reused piece of machinery in the R&W section. Words-in-C
 
 The expert's first read of any decision-relevant sentence is: *find the arrow, name its family.* Once the family is named, the space of acceptable answers collapses.
 
+**Structural mirroring** is the arrow model's operational sharpening: some constructions don't just point a direction, they name the exact partner the answer must parallel. Paired frames ("both X and ___," "not only X but also ___"), colon elaborations, and two-clause restatements all force the blank to mirror a specific stated idea — not the sentence's general drift. The move: find the partner (the X the frame names), then mirror it — matching its role, its register, and its level of generality. When a mirror frame is present, the answer is more constrained than the bare arrow family suggests, and choices that fit the direction but not the partner are exactly the engineered near-misses.
+
 ## Expert reasoning process
 1. Locate the decision point (blank, underlined portion, transition slot, or referenced sentence).
 2. Scan for explicit connectors touching it — sentence-initial words, mid-sentence conjunctions — AND for silent connectors: colon, dash, semicolon, parallel construction.

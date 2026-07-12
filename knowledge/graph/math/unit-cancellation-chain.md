@@ -49,10 +49,19 @@ or gallons/mile depending on which unit must die.
    target unit. Mismatch = a factor is inverted or missing — a signal, not a mystery.
 5. For compound rates (speed, density): convert numerator-unit and denominator-unit
    as independent links in the same chain. For squared/cubed units: apply the linear
-   factor once per dimension (see [[scaling-laws-k-k2-k3]]).
-6. Evaluate as ONE Desmos line. Reason first, one-line chain second, never round
+   factor once per dimension (see [[scaling-laws-k-k2-k3]]). A compound unit IS its
+   own formula — read it, don't recall one. Density in g/cm³ says, literally, grams
+   divided by cubic centimeters: given a 54 g object of volume 20 cm³, the unit
+   sentence yields 54/20 = 2.7 g/cm³ with nothing memorized; given density and either
+   partner, the third quantity follows by making the units cancel to what's asked
+   (mass = density × volume because g/cm³ × cm³ leaves g). Every "formula" of this
+   family is recoverable from its unit on sight.
+6. Two-leg journeys: average speed is TOTAL distance over TOTAL time — compute each
+   leg's time, sum, divide. Never average the legs' speeds (see the misconception
+   below).
+7. Evaluate as ONE Desmos line. Reason first, one-line chain second, never round
    intermediates — chained rounding drifts onto near-miss distractors.
-7. Run the [[unit-magnitude-sanity-check]]: did the number move the sensible
+8. Run the [[unit-magnitude-sanity-check]]: did the number move the sensible
    direction?
 
 ## Misconceptions
@@ -74,6 +83,13 @@ or gallons/mile depending on which unit must die.
 - **stepwise-rounding-drift** — rounding each intermediate because school rewarded
   tidy rounding; accumulated error lands on a near-miss distractor or misses a
   grid-in tolerance.
+- **arithmetic-mean-of-speeds** — on a two-leg trip (out at 30, back at 60), the
+  student averages the two speeds and reports 45. Forms because the word "average"
+  triggers the add-and-halve schema, which is correct only when the legs take EQUAL
+  TIME; here the slow leg lasts longer and drags the true average below the midpoint.
+  Average speed is total distance ÷ total time — a time-weighted quantity, not a
+  mean of the two rate numbers. The arithmetic mean is planted prominently in the
+  choices; the true value always sits below it (closer to the slower leg's speed).
 
 ## Diagnostic indicators
 - Answer is the reciprocal-chain result (coinflip): correct value × k² or ÷ k² for
@@ -88,6 +104,8 @@ or gallons/mile depending on which unit must die.
 - Symbolic-rate items: picks the wrong arrangement of 20a/d vs 20d/a — with letters
   the cancellation habit was abandoned; verbal explanation says "I wasn't sure which
   goes on top."
+- Picks the exact midpoint of the two speeds on two-leg average-speed items
+  (arithmetic-mean-of-speeds); no time computation appears in scratch work.
 
 ## Remediation pathways
 - **coinflip**: forbid memorized directions entirely; re-teach orientation as "write
@@ -103,6 +121,12 @@ or gallons/mile depending on which unit must die.
   units showing before converting anything.
 - **rounding drift**: switch the habit, not the intent — carry the whole computation
   as one Desmos chain and only round at the very end.
+- **arithmetic-mean-of-speeds**: one concrete demolition — a trip with an extreme
+  slow leg (1 mile at 1 mph, 1 mile at 60 mph: the mean says ~30, the truth is
+  under 2) makes the time-weighting undeniable. Then install the replacement as
+  definition, not formula: average speed = total distance ÷ total time, computed
+  leg-time by leg-time. The equal-time special case can be named honestly so the
+  schema has a home instead of leaking.
 
 ## Mastery criteria
 Student can (a) plan a 3+ hop route aloud before computing, (b) solve a chain with a

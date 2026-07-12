@@ -25,30 +25,35 @@ It is a hidden prerequisite. A student can understand slope conceptually and sti
 2. To multiply: multiply numerators and denominators straight across; cancel common factors first to keep numbers small.
 3. To divide: multiply by the reciprocal of the divisor.
 4. To clear fractions from an equation: multiply EVERY term (both sides) by a common denominator; done correctly, no fractions remain.
-5. **Desmos decision:** Desmos evaluates any concrete fraction arithmetic instantly and exactly — use it to check, not to avoid understanding, since symbolic/literal work (a fraction with variables) still requires the by-hand rules.
+5. Mixed numbers: convert to a single improper fraction the moment one appears — three-and-a-half becomes 7/2 before anything touches it. Mixed form is ambiguous in algebra (it means addition but sits like multiplication) and useless at answer entry: the student-produced-response field rejects mixed forms, and digits typed together read as a different number entirely (3 1/2 entered as "31/2" is thirty-one halves).
+6. Two equal fractions can be flipped as whole sides: if a/b = c/d, then b/a = d/c. When the given equation is fraction = fraction and the ask is the reciprocal of one side, reciprocate both sides and read the answer directly — no solving for components.
+7. **Desmos decision:** Desmos evaluates any concrete fraction arithmetic instantly and exactly — use it to check, not to avoid understanding, since symbolic/literal work (a fraction with variables) still requires the by-hand rules.
 
 ## Misconceptions
 - **add-across-denominators** — Computing a/b + c/d as (a+c)/(b+d). Forms by false analogy to multiplication, where straight-across IS correct; addition's need for a common denominator feels arbitrary without the "same units" idea. Produces wrong sums that are often close enough to a distractor.
 - **partial-term-clearing** — When clearing fractions, multiplying only the fraction terms and forgetting the whole-number or other-side terms. Forms from treating "get rid of the fraction" as a local move rather than an equation-wide operation; breaks the equality silently.
 - **reciprocal-only-one-part** — Dividing by a fraction by flipping the wrong fraction, or flipping and then also dividing. Forms from a half-remembered rule; the fix is the meaning ("how many d/c fit into a/b").
 - **cancel-terms-not-factors** — Cancelling across a sum, e.g. striking the x in (x+2)/x. Forms from over-generalizing legal factor cancellation; only common FACTORS of the whole numerator and denominator cancel (see [[cancellation-legality]]).
+- **mixed-number-clinging** — Carrying whole-plus-fraction form through algebra instead of converting immediately. Forms from elementary-school notation habits, where mixed numbers were the polished final answer. Produces multiplication botches (multiplying only the fraction part by the whole number) and unenterable answers at the student-produced-response field, which cannot accept mixed forms.
 
 ## Diagnostic indicators
 - **add-across-denominators**: fraction-addition results that match the (a+c)/(b+d) distractor; errors concentrated on sum/difference, not product.
 - **partial-term-clearing**: rational-equation work where one term still has a denominator or a constant went unmultiplied; answer off by a predictable factor.
 - **cancel-terms-not-factors**: simplifications that illegally strike a shared symbol across a sum.
+- **mixed-number-clinging**: scratch work carrying whole-plus-fraction quantities into multiplication; free-response entries off by exactly the whole-number part, or mixed-looking digit strings typed into the answer field.
 
 ## Remediation pathways
 - add-across-denominators: re-teach common denominators as "same-size pieces" with a concrete pie/number-line image; contrast explicitly with multiplication's legal straight-across.
 - partial-term-clearing: require writing the multiplier against every single term as an explicit step before simplifying.
 - cancel errors: route to [[cancellation-legality]] — factor first, then cancel; never cancel across + or −.
+- mixed-number-clinging: one burn example (multiply a mixed number by 2 both ways and compare), then install convert-on-sight as a reflex, reinforced by the entry-field fact: the answer box literally cannot take the mixed form, so improper fractions are not a style preference but the only working format.
 
 ## Mastery criteria
 The student adds/subtracts/multiplies/divides fractions reliably, clears fractions from an equation by multiplying every term, and never cancels across a sum. Proof: clean execution embedded inside slope, rate, and rational-equation items — the skill is invisible because it stopped generating errors.
 
 ## Difficulty ladder
 - **Easy**: numeric fraction arithmetic with small denominators.
-- **Medium**: clearing fractions from a linear or rational equation; fractions with variable numerators; nested fractions (a fraction over a fraction).
+- **Medium**: clearing fractions from a linear or rational equation; fractions with variable numerators; nested fractions (a fraction over a fraction); mixed numbers under time pressure; reciprocal reads on fraction = fraction equations where the ask is the flipped side.
 
 ## Teaching notes
 - **Struggling**: this is often THE hidden blocker — diagnose and remediate it before any algebra topic that sits on it, or the topic work won't stick.

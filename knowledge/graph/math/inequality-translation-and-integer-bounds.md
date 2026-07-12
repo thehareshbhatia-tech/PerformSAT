@@ -27,6 +27,7 @@ Threshold translation items check symbol precision (an entire answer choice set 
 4. Solve with normal inequality mechanics ([[inequality-direction-logic]]).
 5. If the quantity is discrete: state the algebraic bound, then step to the nearest integer IN THE FEASIBLE DIRECTION — up for minimums, down for maximums. Verify by plugging the chosen integer AND its rejected neighbor into the original condition; exactly one should pass.
 6. If the boundary came out exactly whole (e.g., x ≥ 12 for a minimum), inclusion decides: ≥ 12 → 12 itself is the answer; > 12 → 13 is. This is where the strict/inclusive translation from step 1 pays or punishes.
+7. **Limiting-resource analysis** — when each unit of output requires SEVERAL inputs at once (each gift box needs 2 ribbons and 3 bows; stocks of both are given), run one cap computation per resource: that resource's stock ÷ its per-unit requirement, rounded DOWN (a partial unit is no unit). The true maximum output is the MINIMUM of the solo caps, because the scarcest input runs out first and idle surplus of the others buys nothing. The planted wrong answers are the larger cap (the abundant resource's number) and the sum or average of the caps; the whole item is decided by which resource binds, not by any solving.
 
 ## Desmos vs algebra
 Translation is untooled — no calculator writes the inequality for you, and which-inequality-represents items are pure setup. For the solve-and-round tail, Desmos helps two ways: plot the constraint expression against the threshold line and read the crossing x (the algebraic boundary), or — for gridded integer answers — evaluate the original condition at candidate integers directly (a table of the expression at x = 14, 15, 16 makes the feasible first integer visually undeniable). The rounding JUDGMENT stays with you: Desmos reports the continuous boundary; feasibility direction is a modeling decision. Decision rule: **setup by hand always; ugly-arithmetic boundaries → let Desmos find the crossing; the final integer step is yours.**
@@ -57,7 +58,7 @@ Student translates threshold phrases with correct direction AND strictness on fi
 ## Difficulty ladder
 - **Easy**: one clause, one threshold phrase, translate only.
 - **Medium**: rate + flat-fee contexts solved through to a bound; unit conversions planted; whole-number boundary where inclusion decides the answer.
-- **Hard**: fractional boundaries with feasibility rounding; two constraints in one story (cap + floor) feeding a combined条件; comparative phrasing layered over thresholds.
+- **Hard**: fractional boundaries with feasibility rounding; two constraints in one story (cap + floor) feeding a combined condition; comparative phrasing layered over thresholds; limiting-resource caps, where several required inputs each yield a solo cap and the answer is the smallest one.
 - **Hardest**: full constrained-optimization items where translation, a system of inequalities, boundary reasoning, and integer rounding all stack ([[inequality-translation-and-integer-bounds]]).
 
 ## Teaching notes

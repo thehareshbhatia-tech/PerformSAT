@@ -6,7 +6,7 @@ skill: geometry.triangle-angle-sum, geometry.triangle-area
 difficulty_span: [easy, hard]
 prereqs: [triangle-angle-sum-and-exterior-shortcut]
 unlocks: [congruence-criteria-and-correspondence, special-right-triangles, triangle-properties-toolkit]
-related: [angle-chasing-ritual, triangle-properties-toolkit]
+related: [angle-chasing-ritual, triangle-properties-toolkit, area-by-decomposition]
 ---
 
 # Triangle properties: isosceles symmetry, side-angle order, and the case split
@@ -27,6 +27,7 @@ These are the facts that convert one known value into several, so they appear bo
 4. Ordering questions: rank the angles, transfer the ranking to opposite sides (or the reverse). No computation needed.
 5. Third-side questions: the unknown side lives strictly between |a − b| and a + b; answers are compound-inequality bands.
 6. Never convert an angle ratio into a side ratio directly — a 60° angle does not face a side twice as long as a 30° angle's. Only special-right templates or trig translate between angles and side lengths.
+7. Area calls: A = ½·base·height works with ANY side as the base, but the height must be the PERPENDICULAR distance from the opposite vertex to that base (or its extension) — never an adjacent slanted side. Full discipline, including obtuse triangles whose altitude foot lands outside the base, in [[area-by-decomposition]].
 
 ## Misconceptions
 - **unique-isosceles** — assuming the given angle must be the repeated one, producing exactly one of the two candidate answers. Forms because worked examples usually draw the repeated-angle case. "Greatest/least possible" phrasing exposes it; the missed case's value is always a distractor.

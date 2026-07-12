@@ -54,7 +54,10 @@ Slot-check refinements (each earns its place by blocking a trap):
   outer subject is still verb-less.
 - **Openers predict fragments.** A string opening with a preposition, an -ing
   form, a relative word (which/who/where), or a subordinator (because/although/
-  while...) is a fragment until an independent clause shows up. Subordinator-first
+  while...) is a fragment until an independent clause shows up. (One rare
+  exception: a which/who-opened string IS a sentence when the w-word itself is
+  the subject of the main verb — the slot-check, not the opener, has the final
+  word.) Subordinator-first
   sentences are legal ONLY when a comma + independent clause follows — the
   schoolroom "never start with because" rule is half-true and worth debunking
   explicitly.

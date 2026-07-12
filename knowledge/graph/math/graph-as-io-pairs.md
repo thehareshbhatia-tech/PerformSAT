@@ -4,7 +4,7 @@ section: math
 domain: advanced-math
 skill: graph-reading, function-evaluation, solve-for-input-from-output
 difficulty_span: [easy, hard]
-prereqs: [function-as-io-machine, coordinate-plane-basics]
+prereqs: [function-as-io-machine, coordinate-plane-literacy]
 unlocks: [zeros-roots-factors-identity, parabola-fast-feature-read, discriminant-trichotomy]
 related: [function-composition-chains]
 ---
