@@ -31,25 +31,53 @@ import { gPronounsBlocks } from './gPronouns';
 import { gVerbsBlocks } from './gVerbs';
 import { gModifiersParallelismBlocks } from './gModifiersParallelism';
 import { gApostrophesBlocks } from './gApostrophes';
+// Math — lean per-skill lessons (every math chapter is now source.kind 'body';
+// the dense contentTab composition path was retired 2026-07-12).
+import { solvingEquationsBlocks } from './solvingEquations';
+import { mLinearEquationsBlocks } from './mLinearEquations';
+import { mFunctionsBlocks } from './mFunctions';
+import { mSystemsBlocks } from './mSystems';
 import { inequalitiesBlocks } from './inequalities';
+import { expressionsBlocks } from './expressions';
+import { mExponentsBlocks } from './mExponents';
+import { mQuadraticsBlocks } from './mQuadratics';
+import { mTransformationsBlocks } from './mTransformations';
 import { nonlinearEquationsBlocks } from './nonlinearEquations';
+import { mPercentsBlocks } from './mPercents';
+import { mStatisticsBlocks } from './mStatistics';
 import { twoVariableDataBlocks } from './twoVariableData';
 import { statisticalClaimsBlocks } from './statisticalClaims';
 import { ratiosProportionsBlocks } from './ratiosProportions';
 import { linesAnglesBlocks } from './linesAngles';
-import { solvingEquationsBlocks } from './solvingEquations';
-import { expressionsBlocks } from './expressions';
+import { mRadiansBlocks } from './mRadians';
+import { mTrianglesBlocks } from './mTriangles';
+import { mRightTriangleTrigBlocks } from './mRightTriangleTrig';
+import { mCirclesBlocks } from './mCircles';
+import { mVolumeBlocks } from './mVolume';
 
 export const CHAPTER_BODIES = {
-  // Math (source.kind 'body')
+  // Math (source.kind 'body') — lean per-skill lessons
+  'math-solving-equations': solvingEquationsBlocks,
+  'math-linear-equations': mLinearEquationsBlocks,
+  'math-functions': mFunctionsBlocks,
+  'math-systems': mSystemsBlocks,
   'math-inequalities': inequalitiesBlocks,
+  'math-equivalent-expressions': expressionsBlocks,
+  'math-exponents': mExponentsBlocks,
+  'math-quadratics': mQuadraticsBlocks,
+  'math-transformations': mTransformationsBlocks,
   'math-nonlinear-equations': nonlinearEquationsBlocks,
+  'math-percents': mPercentsBlocks,
+  'math-statistics': mStatisticsBlocks,
   'math-two-variable-data': twoVariableDataBlocks,
   'math-statistical-claims': statisticalClaimsBlocks,
   'math-dimensional-analysis': ratiosProportionsBlocks,
   'math-lines-angles': linesAnglesBlocks,
-  'math-solving-equations': solvingEquationsBlocks,
-  'math-equivalent-expressions': expressionsBlocks,
+  'math-radians-degrees': mRadiansBlocks,
+  'math-triangles': mTrianglesBlocks,
+  'math-right-triangle-trig': mRightTriangleTrigBlocks,
+  'math-circles': mCirclesBlocks,
+  'math-volume': mVolumeBlocks,
   // Reading (still dense — lean rewrite pending in a later wave)
   'rw-central-ideas': centralIdeasBlocks,
   'rw-inferences': inferencesBlocks,
