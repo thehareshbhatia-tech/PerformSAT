@@ -281,6 +281,34 @@ export const trianglesLessons = [
   { id: 26, title: "Simple Trigonometric Ratios Example #4", type: "video", duration: "8 min", section: "Trigonometric Ratios", videoId: "HaJettXIUlU", hero: { tagline: "PRACTICE", subtitle: "Additional practice" } },
   { id: 27, title: "Simple Trigonometric Ratios Example #5", type: "video", duration: "8 min", section: "Trigonometric Ratios", videoId: "byD4ls13d64", hero: { tagline: "PRACTICE", subtitle: "Final basic examples" } },
   { id: 28, title: "Complex Trigonometric Ratios Example", type: "video", duration: "12 min", section: "Trigonometric Ratios", videoId: "lTF4dy953gw", hero: { tagline: "ADVANCED", subtitle: "Challenging trig problems" } },
+  {
+    id: 36,
+    title: "Cofunctions & Complementary Angles",
+    type: "lesson",
+    duration: "6 min",
+    section: "Trigonometric Ratios",
+    hero: {
+      tagline: "sin θ = cos(90° − θ)",
+      subtitle: "The complement identity"
+    },
+    content: {
+      blocks: [
+        { type: "text", content: "Once you know **SOH CAH TOA**, there's a beautiful shortcut waiting for you: the **cofunction identity**. The prefix \"co-\" in **co**sine literally means \"complement of\" — cosine is the sine of the *complementary* angle. On the SAT this identity turns a whole family of trig questions into a one-line answer, and it's tested often enough that recognizing it instantly is worth real points." },
+        { type: "formula", label: "Cofunction Identity", content: "sin(θ) = cos(90° − θ)  and  cos(θ) = sin(90° − θ)" },
+        { type: "text", content: "**Why is it true?** Look at any right triangle. One angle is 90°, so the two **acute** angles must add to 90° — they are **complementary**. Now pick one acute angle, θ. The side **opposite** θ is the side **adjacent** to the other acute angle (90° − θ). Since sine uses the opposite side and cosine uses the adjacent side, sin(θ) and cos(90° − θ) are literally the same ratio — the same two sides, just viewed from the other corner." },
+        { type: "list", items: [
+          "In a right triangle, the two acute angles are **complementary** — they sum to 90°.",
+          "One angle's **opposite** leg is the other angle's **adjacent** leg.",
+          "So **sine of an angle = cosine of its complement**, and vice versa."
+        ]},
+        { type: "example", title: "The Classic SAT Setup", content: "The SAT loves this one:\n\nIf sin(x°) = cos(y°), what is x + y?\n\nBecause sine equals cosine only when the angles are complementary, x and y must add to 90.\n\n**x + y = 90.**\n\nYou don't need the actual value of the sine or cosine — the identity alone gives the answer." },
+        { type: "text", content: "The identity also shows up in **algebraic costume**. Instead of clean numbers, the SAT hides the angles inside expressions like sin(2x°) = cos(3x°). The move is the same: the two angles are complementary, so set their sum equal to 90 and solve. Here, 2x + 3x = 90 → 5x = 90 → x = 18." },
+        { type: "example", title: "Tangent Has a Cofunction Too", content: "The pattern isn't limited to sine and cosine. Tangent pairs with **cotangent** the same way:\n\ntan(θ) = 1 / tan(90° − θ)\n\nSo the tangent of an angle is the reciprocal of the tangent of its complement. For example, tan(30°) and tan(60°) are reciprocals because 30° and 60° are complementary." },
+        { type: "text", content: "**SAT trap to avoid:** the identity only works when the two functions are **different** (sine paired with cosine, tangent paired with cotangent). If a problem says sin(x°) = sin(y°), that does **not** mean x + y = 90 — it means the angles are equal (for acute angles). Reach for \"add to 90\" only when a sine is set equal to a cosine." },
+        { type: "text", content: "**Real-world connection:** surveyors and navigators constantly switch between an angle and its complement when they measure from different reference lines — an angle measured up from the ground is the complement of the same direction measured down from the vertical. The cofunction identity is what lets them use one measurement to get the other without re-measuring." }
+      ]
+    }
+  },
   // Section 7: Special Right Triangles
   {
     id: 29,

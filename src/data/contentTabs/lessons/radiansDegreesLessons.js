@@ -403,5 +403,125 @@ export const radiansDegreesLessonTabs = {
         ]
       }
     }
+  },
+  "5": {
+    "moduleId": "radians-degrees",
+    "title": "Evaluating on the Unit Circle",
+    "sections": {
+      "learn": {
+        "title": "Learn",
+        "summary": "On a circle of radius $1$, a point at angle $\\theta$ has coordinates $(\\cos\\theta,\\ \\sin\\theta)$, so the $x$-coordinate is the cosine and the $y$-coordinate is the sine — magnitude comes from the reference angle, sign comes from the quadrant.",
+        "blocks": [
+          {
+            "type": "heading",
+            "content": "Evaluating on the Unit Circle"
+          },
+          {
+            "type": "text",
+            "content": "Right-triangle trig only defines $\\sin$, $\\cos$, and $\\tan$ for angles strictly between $0^\\circ$ and $90^\\circ$. The **unit circle** — a circle of radius $1$ centered at the origin — completes the definition. Put the angle $\\theta$ in standard position: vertex at the origin, initial side along the positive $x$-axis. Where the terminal side crosses the circle, the point is $(\\cos\\theta,\\ \\sin\\theta)$. So the $x$-coordinate **is** the cosine, the $y$-coordinate **is** the sine, and $\\tan\\theta=\\dfrac{\\sin\\theta}{\\cos\\theta}=\\dfrac{y}{x}$. For an acute angle this reproduces the triangle ratios exactly; for every other angle, it becomes the definition."
+          },
+          {
+            "type": "formula",
+            "label": "Coordinates on the circle",
+            "content": "$$\\cos\\theta = x,\\qquad \\sin\\theta = y,\\qquad \\tan\\theta=\\frac{y}{x}$$",
+            "note": "On the unit circle $r=1$. For a point at any radius, $\\sin\\theta=\\frac{y}{r}$, $\\cos\\theta=\\frac{x}{r}$, where $r=\\sqrt{x^2+y^2}$ is always positive."
+          },
+          {
+            "type": "text",
+            "content": "**Magnitude and sign are two separate computations.** The *size* of a value comes from the **reference angle** — the acute angle between the terminal side and the $x$-axis (always the $x$-axis, never the $y$-axis) — evaluated with the special-triangle ratios. The *sign* comes from the **quadrant**, read straight off the coordinates: $\\cos$ takes the sign of $x$, $\\sin$ takes the sign of $y$, $\\tan$ takes the sign of their quotient. No mnemonic required — the coordinates are the rule. And because $|x|\\le 1$ and $|y|\\le 1$ on a unit-radius circle, neither $\\sin$ nor $\\cos$ can ever exceed $1$ in size — any value beyond that is automatically wrong."
+          },
+          {
+            "type": "callout",
+            "variant": "success",
+            "title": "The five-step evaluation loop",
+            "content": "1) **Reduce** by full turns ($2\\pi$ in radians, $360^\\circ$ in degrees) until $\\theta$ lands within one revolution. 2) **Locate the quadrant**. 3) **Form the reference angle** to the $x$-axis. 4) **Get the magnitude** from the special triangle. 5) **Attach the sign last**, as a separate pass: which coordinate is negative here? Doing signs last, in writing, is the entire fix for the classic $\\pm$ sign-flip trap."
+          },
+          {
+            "type": "table",
+            "title": "Common angles on the unit circle",
+            "headers": ["Radians", "Degrees", "Point $(\\cos\\theta,\\ \\sin\\theta)$", "$\\tan\\theta$"],
+            "rows": [
+              ["$0$", "$0^\\circ$", "$(1,\\ 0)$", "$0$"],
+              ["$\\frac{\\pi}{6}$", "$30^\\circ$", "$\\left(\\frac{\\sqrt{3}}{2},\\ \\frac{1}{2}\\right)$", "$\\frac{\\sqrt{3}}{3}$"],
+              ["$\\frac{\\pi}{4}$", "$45^\\circ$", "$\\left(\\frac{\\sqrt{2}}{2},\\ \\frac{\\sqrt{2}}{2}\\right)$", "$1$"],
+              ["$\\frac{\\pi}{3}$", "$60^\\circ$", "$\\left(\\frac{1}{2},\\ \\frac{\\sqrt{3}}{2}\\right)$", "$\\sqrt{3}$"],
+              ["$\\frac{\\pi}{2}$", "$90^\\circ$", "$(0,\\ 1)$", "undefined"]
+            ]
+          },
+          {
+            "type": "text",
+            "content": "Every other landmark is one of these four first-quadrant shapes with a sign attached. For instance $\\frac{2\\pi}{3}=120^\\circ$ sits in Quadrant II with reference angle $\\frac{\\pi}{3}$, so its point is $\\left(-\\frac{1}{2},\\ \\frac{\\sqrt{3}}{2}\\right)$ — the $\\frac{\\pi}{3}$ coordinates with the $x$ made negative. Likewise $\\frac{7\\pi}{6}=210^\\circ$ is in Quadrant III with reference angle $\\frac{\\pi}{6}$, giving $\\left(-\\frac{\\sqrt{3}}{2},\\ -\\frac{1}{2}\\right)$. The axis points are exact: $\\pi\\to(-1,\\ 0)$ and $\\frac{3\\pi}{2}\\to(0,\\ -1)$."
+          },
+          {
+            "type": "trapCard",
+            "title": "Reducing by a half turn instead of a full turn",
+            "wrong": "To evaluate $\\sin\\!\\left(\\frac{9\\pi}{4}\\right)$, subtract $\\pi$: $\\frac{9\\pi}{4}-\\pi=\\frac{5\\pi}{4}$, so $\\sin\\!\\left(\\frac{9\\pi}{4}\\right)=\\sin\\!\\left(\\frac{5\\pi}{4}\\right)=-\\frac{\\sqrt{2}}{2}$.",
+            "correction": "Coterminal angles differ by full turns of $2\\pi$, not half turns of $\\pi$. A half-turn reduction lands in the opposite quadrant and flips the sign. Correctly, $\\frac{9\\pi}{4}-2\\pi=\\frac{\\pi}{4}$, so $\\sin\\!\\left(\\frac{9\\pi}{4}\\right)=\\sin\\!\\left(\\frac{\\pi}{4}\\right)=\\frac{\\sqrt{2}}{2}$."
+          },
+          {
+            "type": "text",
+            "content": "One more sign trap: when a terminal point is given off the unit circle, $r=\\sqrt{x^2+y^2}$ is a distance, so it is **always positive**. Writing $r$ negative for a point in a \"negative\" quadrant corrupts both $\\sin$ and $\\cos$ — the signs belong to $x$ and $y$ alone."
+          },
+          {
+            "type": "keyInsight",
+            "content": "A point at angle $\\theta$ is $(\\cos\\theta,\\ \\sin\\theta)$ on the unit circle. Reduce by full turns, read the quadrant, take the magnitude from the reference triangle, and attach the sign last from the coordinates. When a terminal point is handed to you, $r=\\sqrt{x^2+y^2}$ is always positive and the signs come for free inside $x$ and $y$."
+          }
+        ]
+      },
+      "practice": {
+        "title": "Practice",
+        "summary": "Worked examples covering evaluation in a non-first quadrant and reading trig values off a terminal point, plus checkpoint questions on sign, reference angles, and multi-turn reduction.",
+        "blocks": [
+          {
+            "type": "example",
+            "difficulty": "Medium",
+            "problem": "Evaluate $\\cos\\!\\left(\\dfrac{2\\pi}{3}\\right)$ and $\\sin\\!\\left(\\dfrac{2\\pi}{3}\\right)$ exactly.",
+            "steps": [
+              {
+                "label": "Locate the quadrant",
+                "content": "$\\frac{2\\pi}{3}=120^\\circ$ is between $\\frac{\\pi}{2}$ and $\\pi$, so it is in Quadrant II, where $x<0$ and $y>0$."
+              },
+              {
+                "label": "Reference angle and magnitude",
+                "content": "Reference angle $=\\pi-\\frac{2\\pi}{3}=\\frac{\\pi}{3}$. From the $\\frac{\\pi}{3}$ point $\\left(\\frac{1}{2},\\frac{\\sqrt{3}}{2}\\right)$ the magnitudes are $\\frac{1}{2}$ and $\\frac{\\sqrt{3}}{2}$."
+              },
+              {
+                "label": "Attach the signs",
+                "content": "In Quadrant II cosine is negative and sine is positive: $\\cos\\!\\left(\\frac{2\\pi}{3}\\right)=-\\frac{1}{2}$ and $\\sin\\!\\left(\\frac{2\\pi}{3}\\right)=\\frac{\\sqrt{3}}{2}$."
+              }
+            ]
+          },
+          {
+            "type": "example",
+            "difficulty": "Hard",
+            "problem": "The terminal side of $\\theta$ passes through the point $(-3,\\ 4)$. Find $\\sin\\theta$, $\\cos\\theta$, and $\\tan\\theta$.",
+            "steps": [
+              {
+                "label": "Compute $r$ (always positive)",
+                "content": "$r=\\sqrt{(-3)^2+4^2}=\\sqrt{9+16}=\\sqrt{25}=5$."
+              },
+              {
+                "label": "Read the ratios",
+                "content": "$\\sin\\theta=\\dfrac{y}{r}=\\dfrac{4}{5}$, $\\cos\\theta=\\dfrac{x}{r}=\\dfrac{-3}{5}$."
+              },
+              {
+                "label": "Tangent from the coordinates",
+                "content": "$\\tan\\theta=\\dfrac{y}{x}=\\dfrac{4}{-3}=-\\dfrac{4}{3}$. The point is in Quadrant II, matching $\\sin>0$, $\\cos<0$."
+              }
+            ]
+          },
+          {
+            "type": "checkpointQuestion",
+            "question": "Without computing an exact value, state the sign of $\\cos\\!\\left(\\dfrac{5\\pi}{4}\\right)$ and explain why.",
+            "answer": "$\\frac{5\\pi}{4}=225^\\circ$ is in Quadrant III, where $x<0$. Since $\\cos\\theta$ is the $x$-coordinate, $\\cos\\!\\left(\\frac{5\\pi}{4}\\right)$ is negative. (Its exact value is $-\\frac{\\sqrt{2}}{2}$.)"
+          },
+          {
+            "type": "checkpointQuestion",
+            "question": "Evaluate $\\sin\\!\\left(\\dfrac{13\\pi}{6}\\right)$ by first reducing to one revolution.",
+            "answer": "$\\frac{13\\pi}{6}-2\\pi=\\frac{\\pi}{6}$, which is coterminal. Since $\\frac{\\pi}{6}=30^\\circ$ is in Quadrant I (sine positive), $\\sin\\!\\left(\\frac{13\\pi}{6}\\right)=\\sin\\!\\left(\\frac{\\pi}{6}\\right)=\\frac{1}{2}$."
+          }
+        ]
+      }
+    }
   }
 };

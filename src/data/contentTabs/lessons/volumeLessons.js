@@ -1301,5 +1301,87 @@ export const volumeLessonTabs = {
         ]
       }
     }
+  },
+  "17": {
+    "moduleId": "volume",
+    "title": "Density & Applied Volume",
+    "sections": {
+      "learn": {
+        "title": "Learn",
+        "summary": "Applied volume problems compute a solid's volume first, then convert it to mass, cost, or a count using the relationship mass = density × volume.",
+        "blocks": [
+          {
+            "type": "heading",
+            "content": "Density & Applied Volume"
+          },
+          {
+            "type": "text",
+            "content": "Once you know a solid's volume, the SAT often asks a second question: how heavy is it, how much does it cost, or how many units fit? Almost every one of these runs through one relationship — **mass = density × volume**."
+          },
+          {
+            "type": "text",
+            "content": "Density is just a ratio: how much mass sits in each unit of volume. The unit string is the formula — g/cm³ literally means \"grams divided by cubic centimeters,\" so $\\text{density} = \\dfrac{\\text{mass}}{\\text{volume}}$. There is nothing extra to memorize; read the units. For example, a $400 \\text{ cm}^3$ metal bar with density $8$ g/cm³ has mass $8 \\times 400 = 3{,}200$ g."
+          },
+          {
+            "type": "formula",
+            "label": "Density & Applied Volume — Core Rule",
+            "content": "$$\\text{mass} = \\text{density} \\times \\text{volume},\\quad \\text{volume} = \\frac{\\text{mass}}{\\text{density}},\\quad \\text{density} = \\frac{\\text{mass}}{\\text{volume}}$$",
+            "note": "Find the volume first, then multiply or divide by the rate. Read the units to pick the right rearrangement."
+          },
+          {
+            "type": "callout",
+            "variant": "success",
+            "title": "Quick Example",
+            "content": "Concrete costs $\\$6$ per ft³. A footing is $3 \\times 2 \\times 0.5 = 3$ ft³. Cost $= 6 \\times 3 = \\$18$. Same skeleton — volume first, then multiply by the rate."
+          },
+          {
+            "type": "heading",
+            "content": "Common Mistake"
+          },
+          {
+            "type": "text",
+            "content": "The biggest error is a unit mismatch. If density is g/cm³, your volume must be in cm³ before you multiply. When dimensions mix inches and feet, convert first — and remember volume conversions cube the factor: $1 \\text{ ft} = 12$ in, but $1 \\text{ ft}^3 = 12^3 = 1{,}728 \\text{ in}^3$. Line up units before calculating, not after."
+          },
+          {
+            "type": "heading",
+            "content": "Test-Day Strategy"
+          },
+          {
+            "type": "text",
+            "content": "Treat every applied solid problem as two steps. First, compute the volume with the right formula. Then multiply or divide by the rate (density, price per cubic unit, or amount per unit). When the mass or a dimension is the missing slot, divide; when the mass or cost is what's asked, multiply. Deciding multiply-vs-divide up front prevents the inverted-answer trap."
+          }
+        ]
+      },
+      "practice": {
+        "title": "Practice",
+        "summary": "Put \"Density & Applied Volume\" into practice with a worked example and a checkpoint question.",
+        "blocks": [
+          {
+            "type": "example",
+            "difficulty": "Medium",
+            "problem": "A solid cylindrical rod has a radius of $2$ cm and a height of $10$ cm. The metal has a density of $7$ g/cm³. What is the mass of the rod? (Use $\\pi \\approx 3.14$.)",
+            "steps": [
+              {
+                "label": "Find the volume first",
+                "content": "$V = \\pi r^2 h = \\pi (2)^2 (10) = 40\\pi \\approx 125.6 \\text{ cm}^3$"
+              },
+              {
+                "label": "Apply mass = density × volume",
+                "content": "$\\text{mass} = 7 \\times 125.6 = 879.2 \\text{ g}$"
+              },
+              {
+                "label": "Confirm the units",
+                "content": "g/cm³ × cm³ = g, so the answer is a mass in grams — matches what the question asked."
+              }
+            ]
+          },
+          {
+            "type": "checkpointQuestion",
+            "question": "A rectangular block of material measures $5$ cm by $4$ cm by $3$ cm and has a total mass of $480$ g. What is the density of the material?",
+            "answer": "Volume $= 5 \\times 4 \\times 3 = 60 \\text{ cm}^3$. Density $= \\dfrac{\\text{mass}}{\\text{volume}} = \\dfrac{480}{60} = 8$ g/cm³."
+          }
+        ]
+      }
+    }
   }
 };

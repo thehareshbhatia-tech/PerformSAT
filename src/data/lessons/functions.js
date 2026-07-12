@@ -93,5 +93,60 @@ export const functionsLessons = [
   // Section: Complex Function Problems
   { id: 8, title: "Complex Functions Example #1", type: "video", duration: "10 min", section: "Complex Function Problems", videoId: "p7Z2beYwpaI", hero: { tagline: "ADVANCED", subtitle: "Multi-step problems" } },
   { id: 9, title: "Complex Functions Example #2", type: "video", duration: "10 min", section: "Complex Function Problems", videoId: "dUWjb0racis", hero: { tagline: "ADVANCED", subtitle: "Challenging scenarios" } },
-  { id: 10, title: "Complex Functions Example #3 (Polynomial)", type: "video", duration: "12 min", section: "Complex Function Problems", videoId: "WIKiYCOZnSw", hero: { tagline: "POLYNOMIALS", subtitle: "Higher degree functions" } }
+  { id: 10, title: "Complex Functions Example #3 (Polynomial)", type: "video", duration: "12 min", section: "Complex Function Problems", videoId: "WIKiYCOZnSw", hero: { tagline: "POLYNOMIALS", subtitle: "Higher degree functions" } },
+  // Section: Composing & Reading Functions
+  {
+    id: 11,
+    title: "Function Composition",
+    type: "lesson",
+    duration: "6 min",
+    section: "Composing & Reading Functions",
+    hero: {
+      tagline: "INSIDE-OUT",
+      subtitle: "Chaining one function into another"
+    },
+    content: {
+      blocks: [
+        { type: "text", content: "**Composition** means feeding one function's output straight into another function's input slot. When you see f(g(x)), read it as a two-machine assembly line: run g first, then pour whatever comes out into f. The whole skill is doing one clean evaluation at a time, from the inside out." },
+        { type: "diagram", content: "x → g → g(x) → f → f(g(x))" },
+        { type: "list", items: [
+          "The **inner** function (the one wrapped in parentheses) runs first — it is just a value waiting to be computed",
+          "The **outer** function receives that value as its complete input",
+          "Never try to build one giant formula for a numeric problem — evaluate step by step and it stays fast and safe"
+        ]},
+        { type: "formula", label: "Composition Notation", content: "(f ∘ g)(x) = f(g(x))" },
+        { type: "text", content: "**Order is everything.** In general f(g(x)) is NOT the same as g(f(x)). The outer letter you see first is the function that runs *last*. Students who read left to right and evaluate the outer function on the visible inner number get the classic wrong answer — the SAT almost always offers that swapped-order result as a trap choice." },
+        { type: "text", content: "**Composing with an expression instead of a number:** when the inner input is symbolic, substitute the whole inner rule into every x-slot of the outer rule, then simplify. The empty-parentheses habit from single-function work scales up unchanged — parenthesize the entire inner expression before plugging it in." },
+        { type: "text", content: "**Reading composition from tables or graphs:** you do not need a formula. To find f(g(3)) from a table, look up g(3) in the table, then look up f of that result. From a graph, read the height of g at x = 3, then read the height of f at that x-value. Same inside-out order, just a different source for each value." },
+        { type: "example", title: "Numeric Composition", content: "Let f(x) = x + 5 and g(x) = 2x.\n\nFind f(g(3)):\n• Inner first: g(3) = 2(3) = 6\n• Outer next: f(6) = 6 + 5 = 11\n\nNow reverse it: g(f(3)) = g(8) = 16.\n\nThe two answers differ — proof that order matters." }
+      ]
+    }
+  },
+  {
+    id: 12,
+    title: "Reading Function Graphs",
+    type: "lesson",
+    duration: "6 min",
+    section: "Composing & Reading Functions",
+    hero: {
+      tagline: "POINTS ARE PAIRS",
+      subtitle: "Turning a curve into input-output answers"
+    },
+    content: {
+      blocks: [
+        { type: "text", content: "A graph is just a **picture of input-output pairs**. Every point on the graph of y = f(x) says \"this input went in, this output came out\": the x-coordinate is the input, the y-coordinate is the output. Once you see it that way, most graph questions become simple read-offs instead of calculations." },
+        { type: "formula", label: "The Core Identity", content: "point (a, b) on the graph  ⟺  f(a) = b" },
+        { type: "list", items: [
+          "To find **f(a)**: go to x = a, then read the height of the curve there — that height is the output",
+          "To solve **f(x) = k**: draw the horizontal line at height k and find every x where the curve meets it",
+          "**Intercepts:** the y-intercept is the output at x = 0; an x-intercept is any input where the output is 0"
+        ]},
+        { type: "text", content: "**Increasing vs decreasing** is a statement about outputs as you move right: the curve rises where the function is increasing and falls where it is decreasing. A peak or valley is where it switches — those are the maximum and minimum points." },
+        { type: "text", content: "**Where two functions are equal:** if a problem shows the graphs of f and g together, the solutions to f(x) = g(x) are exactly the x-values where the two curves **intersect**. Every crossing point is one shared input that produces the same output for both." },
+        { type: "text", content: "**Check the axis scale before trusting any coordinate.** Do not assume each gridline is worth 1 or that the window starts at the origin. Read the tick labels on both axes first — misreading the scale is the most common graph mistake, and wrong answer choices are built to reward it." },
+        { type: "text", content: "**Answer the object that was asked.** \"Where does the maximum occur?\" wants an x-value; \"what is the maximum?\" wants the output. \"f(3)\" and \"the x that makes f(x) = 3\" point at opposite axes. Decide what kind of thing your answer must be before you read the graph." },
+        { type: "example", title: "Reading a Graph", content: "Suppose the graph of y = f(x) passes through (0, 4), rises to a peak at (2, 9), then falls through (5, 0).\n\n• f(0) = 4 — the y-intercept\n• The maximum output is 9, and it occurs at x = 2\n• x = 5 is an x-intercept, so f(5) = 0\n• To solve f(x) = 9, read where the curve reaches height 9: only x = 2" }
+      ]
+    }
+  }
 ];

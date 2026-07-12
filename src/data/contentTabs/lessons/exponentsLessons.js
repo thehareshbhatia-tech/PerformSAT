@@ -1014,5 +1014,95 @@ export const exponentsLessonTabs = {
         ]
       }
     }
+  },
+  "13": {
+    "moduleId": "exponents",
+    "title": "Changing the Time Unit",
+    "sections": {
+      "learn": {
+        "title": "Learn",
+        "summary": "In $y = a \\cdot b^t$ the exponent counts change intervals — when the input unit differs from the rate's period, convert the exponent so the units match.",
+        "blocks": [
+          {
+            "type": "heading",
+            "content": "Changing the Time Unit"
+          },
+          {
+            "type": "text",
+            "content": "In an exponential model $y = a \\cdot b^t$, the base $b$ carries the rate and the exponent counts **how many times that factor has been applied**. The exponent must count in the same time unit the rate was quoted in. When the input variable is measured in a different unit than the rate, you convert the exponent — never the base itself."
+          },
+          {
+            "type": "text",
+            "content": "Ask two questions every time: (1) What unit is the **input variable** measured in? (2) How long is **one full rate period**? Then write the exponent so that advancing the input by exactly one rate period advances the exponent by exactly $1$. A quantity growing $7\\%$ per year, with input $m$ in months, gives $y = a \\cdot (1.07)^{m/12}$ — after $12$ months the exponent equals $1$, so the yearly factor applies once."
+          },
+          {
+            "type": "text",
+            "content": "\"Doubles every $3$ years\" means the exponent is $t/3$: at $t = 3$ the exponent must equal $1$, forcing $y = a \\cdot 2^{t/3}$. The same idea covers any interval — \"every $4$ years\" gives $t/4$; a process repeating every $18$ minutes, written as a function of hours $h$, gives exponent $\\frac{60h}{18}$ because one hour is $60$ minutes."
+          },
+          {
+            "type": "formula",
+            "label": "Changing the Time Unit — Core Rewrite",
+            "content": "$$a \\cdot b^{t} = a \\cdot \\left(b^{1/12}\\right)^{12t}$$",
+            "note": "Yearly factor $b$ becomes an equivalent monthly factor $b^{1/12}$ applied $12$ times per year. Same value, finer cadence."
+          },
+          {
+            "type": "callout",
+            "variant": "success",
+            "title": "Direction check",
+            "content": "A **finer** input unit (months instead of years) means **more** input steps per factor application, so the exponent coefficient shrinks: $t/12$. A **coarser** input unit means fewer steps, so it grows: $12t$."
+          },
+          {
+            "type": "heading",
+            "content": "Common Mistake"
+          },
+          {
+            "type": "text",
+            "content": "The classic error is the inverted conversion — multiplying by $12$ when you should divide ($12t$ vs $t/12$) because \"$12$ months per year\" suggests $\\times 12$ in either direction. Substituting one full rate period is a useful check (the exponent should equal $1$), but an upside-down setup can slip past it, so always confirm direction as well."
+          },
+          {
+            "type": "heading",
+            "content": "Test-Day Strategy"
+          },
+          {
+            "type": "text",
+            "content": "Read the finished expression back as a sentence: $(1.07)^{t/12}$ says \"grows $7\\%$ every $12$ months\"; $(1.07)^{12t}$ says \"grows $7\\%$ twelve times per year.\" If the sentence contradicts the story's cadence, the conversion is flipped — swap $\\times k$ for $\\div k$."
+          }
+        ]
+      },
+      "practice": {
+        "title": "Practice",
+        "summary": "Put \"Changing the Time Unit\" into practice with a worked example and a checkpoint question.",
+        "blocks": [
+          {
+            "type": "example",
+            "difficulty": "Medium",
+            "problem": "A quantity grows by $6\\%$ per year. Its value is modeled by $V(m) = 400 \\cdot b^{\\,m}$, where $m$ is the number of **months** since the start. Find $b$ and rewrite the exponent so the model is correct.",
+            "steps": [
+              {
+                "label": "Find the base from the rate",
+                "content": "A $6\\%$ yearly increase gives a growth factor $1 + 0.06 = 1.06$ **per year**."
+              },
+              {
+                "label": "Pin the input unit and rate period",
+                "content": "The input $m$ is in months, but the factor $1.06$ applies once per year. One year is $12$ months."
+              },
+              {
+                "label": "Convert the exponent so one rate period advances it by 1",
+                "content": "After $12$ months the factor must apply once, so the exponent must equal $1$ when $m = 12$. That forces exponent $\\dfrac{m}{12}$."
+              },
+              {
+                "label": "Write the model and verify",
+                "content": "$V(m) = 400 \\cdot (1.06)^{m/12}$. Check: at $m = 12$, exponent $= 1$, so $V = 400 \\cdot 1.06$ — exactly one year of growth."
+              }
+            ]
+          },
+          {
+            "type": "checkpointQuestion",
+            "question": "A sample of a substance loses half its mass every $8$ hours. Write an exponential model for the mass as a function of $t$, measured in **hours**, starting from an initial mass of $200$ grams.",
+            "answer": "Halving every $8$ hours means base $\\tfrac{1}{2}$ applied once per $8$ hours, so the exponent is $t/8$: $M(t) = 200 \\cdot \\left(\\tfrac{1}{2}\\right)^{t/8}$. Check: at $t = 8$, exponent $= 1$, giving $200 \\cdot \\tfrac{1}{2} = 100$ grams — exactly one half-life."
+          }
+        ]
+      }
+    }
   }
 };

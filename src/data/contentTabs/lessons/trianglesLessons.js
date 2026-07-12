@@ -2907,5 +2907,91 @@ export const trianglesLessonTabs = {
         ]
       }
     }
+  },
+  "36": {
+    "moduleId": "triangles",
+    "title": "Cofunctions & Complementary Angles",
+    "sections": {
+      "learn": {
+        "title": "Learn",
+        "summary": "The cofunction identity says $\\sin\\theta = \\cos(90° - \\theta)$, because the two acute angles of a right triangle are complementary.",
+        "blocks": [
+          {
+            "type": "heading",
+            "content": "Cofunctions & Complementary Angles"
+          },
+          {
+            "type": "text",
+            "content": "In any right triangle, the two acute angles must sum to $90°$ — they are complementary. Because sine measures the opposite side and cosine measures the adjacent side, one acute angle's sine equals the other acute angle's cosine. The prefix \"co-\" in cosine literally means \"complement of.\""
+          },
+          {
+            "type": "text",
+            "content": "On the SAT, cofunction items rarely require computing an actual ratio. The key move is recognition: when a sine is set equal to a cosine, the two angles are complementary, so their measures add to $90°$. This works whether the angles are given as numbers or hidden inside algebraic expressions. For example, if $\\sin(x°) = \\cos(y°)$ for acute angles, then $x + y = 90$."
+          },
+          {
+            "type": "formula",
+            "label": "Cofunction Identity — Core Rule",
+            "content": "$$\\sin\\theta = \\cos(90° - \\theta), \\quad \\cos\\theta = \\sin(90° - \\theta)$$",
+            "note": "Use when a sine is set equal to a cosine: the angles are complementary, so they sum to $90°$."
+          },
+          {
+            "type": "callout",
+            "variant": "success",
+            "title": "Quick Example",
+            "content": "If $\\sin(2x°) = \\cos(3x°)$, the angles are complementary: $2x + 3x = 90$, so $x = 18$."
+          },
+          {
+            "type": "heading",
+            "content": "Common Mistake"
+          },
+          {
+            "type": "text",
+            "content": "Students apply \"add to $90$\" whenever two trig values are equal — even $\\sin(x°) = \\sin(y°)$. The complement rule only applies when the two functions are DIFFERENT (a sine set equal to a cosine, or a tangent to a cotangent). If the same function appears on both sides, the acute angles are simply equal. Check which functions you are comparing before setting up the equation."
+          },
+          {
+            "type": "heading",
+            "content": "Test-Day Strategy"
+          },
+          {
+            "type": "text",
+            "content": "Decision rule: when you see a sine set equal to a cosine, then the angles are complementary — first write \"they sum to $90°$\" and solve, rather than hunting for the actual ratio. The same trigger applies to tangent and cotangent: $\\tan\\theta = \\dfrac{1}{\\tan(90° - \\theta)}$, so $\\tan(30°)$ and $\\tan(60°)$ are reciprocals."
+          }
+        ]
+      },
+      "practice": {
+        "title": "Practice",
+        "summary": "Put \"Cofunctions & Complementary Angles\" into practice with a worked example and a checkpoint question.",
+        "blocks": [
+          {
+            "type": "example",
+            "difficulty": "Medium",
+            "problem": "In a right triangle, $\\sin(A) = \\cos(B)$, where $A$ and $B$ are the two acute angles. If $A = (4x + 10)°$ and $B = (x + 20)°$, find the value of $x$.",
+            "steps": [
+              {
+                "label": "Recognize the cofunction relationship",
+                "content": "$\\sin(A) = \\cos(B)$ means $A$ and $B$ are complementary, so $A + B = 90°$."
+              },
+              {
+                "label": "Set up the equation",
+                "content": "$(4x + 10) + (x + 20) = 90$, which simplifies to $5x + 30 = 90$."
+              },
+              {
+                "label": "Solve for x",
+                "content": "$5x = 60$, so $x = 12$."
+              },
+              {
+                "label": "Verify",
+                "content": "$A = 4(12) + 10 = 58°$ and $B = 12 + 20 = 32°$. Check: $58° + 32° = 90°$. ✓"
+              }
+            ]
+          },
+          {
+            "type": "checkpointQuestion",
+            "question": "If $\\sin(x°) = \\cos(52°)$ and $x$ is acute, what is the value of $x$?",
+            "answer": "The angles are complementary, so $x + 52 = 90$, giving $x = 38$."
+          }
+        ]
+      }
+    }
   }
 };

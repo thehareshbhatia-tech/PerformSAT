@@ -185,5 +185,29 @@ export const volumeLessons = [
       ]
     }
   },
-  { id: 16, title: "Simple Volume of Triangular Prism Example", type: "video", duration: "6 min", section: "Triangular Prism", videoId: "Hu_1bndFGFY", hero: { tagline: "PRACTICE", subtitle: "Triangular prism basics" } }
+  { id: 16, title: "Simple Volume of Triangular Prism Example", type: "video", duration: "6 min", section: "Triangular Prism", videoId: "Hu_1bndFGFY", hero: { tagline: "PRACTICE", subtitle: "Triangular prism basics" } },
+  // Section: Applied Volume
+  {
+    id: 17,
+    title: "Density & Applied Volume",
+    type: "lesson",
+    duration: "6 min",
+    section: "Applied Volume",
+    hero: {
+      tagline: "MASS = DENSITY × VOLUME",
+      subtitle: "Turning volume into mass, cost, and counts"
+    },
+    content: {
+      blocks: [
+        { type: "text", content: "You already know how to find the volume of every solid on the reference sheet. This lesson is the layer that sits on **top** of those formulas: once you know how much space a solid takes up, the SAT often asks a second question — how **heavy** is it, how **much does it cost**, or **how many units** fit? Almost every one of those follow-ups runs through one relationship: **mass = density × volume**." },
+        { type: "text", content: "**Density is just a ratio.** Density tells you how much mass is packed into each unit of volume — grams per cubic centimeter, pounds per cubic foot, and so on. The unit string IS the formula: g/cm³ literally reads \"grams divided by cubic centimeters.\" So density = mass ÷ volume, and you can rearrange it three ways depending on which slot is missing:\n\n• **mass = density × volume** (volume and density known)\n• **volume = mass ÷ density** (mass and density known)\n• **density = mass ÷ volume** (mass and volume known)" },
+        { type: "text", content: "**The universal applied pattern: find the volume FIRST.** Applied solid problems are almost always two steps. Step 1: compute the volume with the right formula (cube, prism, cylinder, whatever the solid is). Step 2: multiply or divide that volume by a rate — density (to get mass), a price per cubic unit (to get cost), or a per-unit amount (to get a count). The SAT hides the two-step structure inside a story, but the skeleton is always \"volume, then multiply.\"" },
+        { type: "text", content: "**Worked example — volume then mass.** A solid metal bar is a rectangular prism $4$ cm by $5$ cm by $20$ cm. The metal has a density of $8$ g/cm³. What is the mass?\n\n• Step 1 — volume: $V = 4 \\times 5 \\times 20 = 400$ cm³.\n• Step 2 — mass: mass = density × volume = $8 \\times 400 = 3{,}200$ g.\n\nNotice you never needed to memorize a density formula — you read it straight out of the units." },
+        { type: "text", content: "**Worked example — volume then cost.** Concrete costs $\\$6$ per cubic foot. A rectangular footing is $3$ ft by $2$ ft by $0.5$ ft. What does the concrete cost?\n\n• Step 1 — volume: $V = 3 \\times 2 \\times 0.5 = 3$ ft³.\n• Step 2 — cost: cost = rate × volume = $6 \\times 3 = \\$18$.\n\nSame skeleton — the only thing that changed is the rate you multiply by." },
+        { type: "text", content: "**SAT Trap — keep the units consistent.** The single biggest mistake in applied volume problems is a **unit mismatch**. If the density is given in g/cm³, your volume must be in cm³ before you multiply. If one dimension is in inches and another in feet, convert first — and remember that volume conversions cube the factor (1 ft = 12 in, but 1 ft³ = 12³ = 1,728 in³). Line up the units before you calculate, not after." },
+        { type: "text", content: "**SAT Trap — pick the right rearrangement.** Read the question to see which slot is missing. \"Given the density and dimensions, find the mass\" means multiply. \"Given the mass and density, find the volume (then a dimension)\" means divide, and you may then run a volume formula backward to recover a length. Deciding multiply-vs-divide up front prevents the classic inverted-answer trap." },
+        { type: "text", content: "**Key Takeaway:** Applied volume = volume first, then one multiplication or division by a rate. Density is mass ÷ volume — the units tell you the formula, so there is nothing extra to memorize. Keep every measurement in matching units, decide whether the missing slot calls for multiplying or dividing, and these \"hard\" problems collapse into two clean steps." }
+      ]
+    }
+  }
 ];

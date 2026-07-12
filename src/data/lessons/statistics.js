@@ -369,5 +369,39 @@ export const statisticsLessons = [
         { type: "text", content: "**SAT Strategy:** Before answering any two-way table question, highlight (or mentally note) the **specific row, column, or total** the question is asking about. Write the fraction as numerator/denominator before simplifying. This prevents the most common error: grabbing the wrong number from the table in the pressure of the test." }
       ]
     }
+  },
+  // Section: Data Displays
+  {
+    id: 30,
+    title: "Box Plots & Histograms",
+    type: "lesson",
+    duration: "7 min",
+    section: "Data Displays",
+    hero: {
+      tagline: "READING DISTRIBUTIONS",
+      subtitle: "Five numbers, four quarters, grouped bins"
+    },
+    content: {
+      blocks: [
+        { type: "text", content: "A **box plot** is a five-number picture of a data set: the **minimum**, the **first quartile (Q1)**, the **median**, the **third quartile (Q3)**, and the **maximum**. The rectangle (the \"box\") stretches from Q1 to Q3, a vertical line inside it marks the median, and the two **whiskers** reach out to the smallest and largest values. That is the entire anatomy — five numbers and four segments." },
+        { type: "text", content: "The single most important idea is that each of the four segments — the lower whisker, the two halves of the box, and the upper whisker — holds about **25% of the data** by count. This is true no matter how wide or narrow a segment is drawn. A wide segment does not mean more data points; it means that particular quarter of the data is **spread out** over a larger range of values. The box itself (Q1 to Q3) always holds the **middle 50%** of the data." },
+        { type: "list", items: [
+          "**Minimum** and **maximum**: the ends of the two whiskers",
+          "**Q1** and **Q3**: the edges of the box — the 25th and 75th percentile cut points",
+          "**Median**: the line inside the box (the 50th percentile)",
+          "**IQR = Q3 − Q1**: the width of the box, a measure of spread for the middle 50%",
+          "Each of the four segments holds roughly **25%** of the values"
+        ]},
+        { type: "example", title: "Example", content: "A box plot shows minimum $12$, $Q_1 = 20$, median $= 26$, $Q_3 = 34$, maximum $= 50$.\n\nIQR $= 34 - 20 = $ **14** — and the middle 50% of the data lies between **20 and 34**." },
+        { type: "text", content: "A box plot is honest about what it hides. From a box plot alone you **can** read the five numbers, the range (max − min), the IQR, and the skew (whichever side is stretched is the tail). But you **cannot** read the **mean**, the **number of data points**, or any **individual value**. Two data sets can share the exact same box plot yet have completely different means. When a question asks you to compare the means of two box plots, \"cannot be determined\" is sometimes the genuinely correct answer." },
+        { type: "text", content: "A **histogram** groups data into equal-width **bins** and draws a bar whose height is the **count (frequency)** of values in that bin. Because the raw values are bundled into bins, a histogram behaves like grouped data: you can find which bin contains the **median** by counting up the frequencies, and you can compare the overall shape of two distributions. But you **cannot** recover each individual value, so you can only **estimate** the mean — never compute it exactly." },
+        { type: "list", items: [
+          "**Box plot shows**: five-number summary, range, IQR, skew — never the mean or count",
+          "**Histogram shows**: the shape and the count in each bin — the median bin, but only an estimate of the mean",
+          "**Comparing two box plots**: line up the medians, boxes (IQR), and whisker reach",
+          "**Grouped data rule**: exact individual values are lost, so the exact mean is unknowable"
+        ]}
+      ]
+    }
   }
 ];

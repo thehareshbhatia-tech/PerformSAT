@@ -83,5 +83,27 @@ export const exponentsLessons = [
   },
   { id: 10, title: "Simple Exponential Function Example", type: "video", duration: "8 min", section: "Exponential Functions", videoId: "l7O1iak-Zh8", hero: { tagline: "PRACTICE", subtitle: "Basic exponential function" } },
   { id: 11, title: "Interpreting Exponential Functions Example", type: "video", duration: "10 min", section: "Exponential Functions", videoId: "aySy8jrjpRU", hero: { tagline: "INTERPRETATION", subtitle: "Understanding meaning" } },
-  { id: 12, title: "Complex Exponential Function Example", type: "video", duration: "10 min", section: "Exponential Functions", videoId: "dTcLpzbW3Rg", hero: { tagline: "ADVANCED", subtitle: "Challenging scenarios" } }
+  { id: 12, title: "Complex Exponential Function Example", type: "video", duration: "10 min", section: "Exponential Functions", videoId: "dTcLpzbW3Rg", hero: { tagline: "ADVANCED", subtitle: "Challenging scenarios" } },
+  {
+    id: 13,
+    title: "Changing the Time Unit",
+    type: "lesson",
+    duration: "6 min",
+    section: "Exponential Functions",
+    hero: {
+      tagline: "MATCH THE UNITS",
+      subtitle: "Convert the compounding period"
+    },
+    content: {
+      blocks: [
+        { type: "text", content: "In an exponential model f(t) = a · bᵗ, the **exponent counts how many times the growth factor has been applied**. The rate lives in the base, and the exponent must count in the same time unit the rate was quoted in. When the input variable is measured in a different unit than the rate, you must convert the exponent — not the base." },
+        { type: "text", content: "**The two questions to ask every time:** (1) What unit is the input variable measured in? (2) What is the length of one full rate period? Write the exponent so that advancing the input by exactly one rate period advances the exponent by exactly 1. If a quantity grows 7% per year but t is measured in months, one year is 12 months, so the exponent is t/12: f(t) = a · (1.07)^(t/12)." },
+        { type: "text", content: "**\"Doubles every 3 years\" means the exponent is t/3.** After 3 years the factor must have applied once, so the exponent must equal 1 when t = 3 — that forces t/3, giving a · 2^(t/3). The same machinery handles any interval: \"every 4 years\" gives t/4; a process that repeats every 18 minutes, written as a function of hours h, gives 60h/18 because one hour is 60 minutes." },
+        { type: "text", content: "**Going the other direction (coarser input).** A monthly process written as a function of years t needs 12 applications per year, so the exponent is 12t: a · b^(12t). Notice the direction — a **finer** input unit (months instead of years) means **more** input steps per factor application, so the coefficient on the exponent shrinks (t/12); a **coarser** input unit means fewer input steps, so the coefficient grows (12t)." },
+        { type: "example", title: "Worked Example", content: "A colony grows by 20% every 5 hours. Write the model as a function of hours t.\n\nBase from the rate: b = 1 + 0.20 = 1.20\nOne full rate period is 5 hours, so the exponent must equal 1 when t = 5.\nThat forces exponent t/5: f(t) = a · (1.20)^(t/5)\nCheck: at t = 5, exponent = 1, so the factor applies exactly once — **correct**." },
+        { type: "text", content: "**The classic yearly → monthly rewrite.** You can also change the *unit of the base* instead of the exponent, using b^t = (b^(1/12))^(12t). Reading a · bᵗ (t in years) as a · (b^(1/12))^(12t) re-expresses the yearly factor b as an equivalent monthly factor b^(1/12) applied 12 times per year. The value is identical — you have only changed the cadence of the description, never the rate." },
+        { type: "text", content: "**SAT trap — the inverted conversion.** The most common error is multiplying when you should divide (12t vs t/12) because \"12 months per year\" suggests ×12 regardless of direction. Substituting one full rate period is a good check (the exponent should equal 1), but it can pass on an upside-down setup too — so always confirm the direction: read the finished expression back as a sentence. (1.07)^(t/12) says \"grows 7% every 12 months\"; (1.07)^(12t) says \"grows 7% twelve times per year.\" If the sentence contradicts the story, the conversion is flipped." }
+      ]
+    }
+  }
 ];

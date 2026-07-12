@@ -2316,5 +2316,100 @@ export const statisticsLessonTabs = {
         ]
       }
     }
+  },
+  "30": {
+    "moduleId": "statistics",
+    "title": "Box Plots & Histograms",
+    "sections": {
+      "learn": {
+        "title": "Learn",
+        "summary": "A box plot is a five-number picture (min, Q1, median, Q3, max) where each segment holds about 25% of the data; a histogram groups data into bins. Both let you read the median but hide the exact mean.",
+        "blocks": [
+          {
+            "type": "heading",
+            "content": "Box Plots & Histograms"
+          },
+          {
+            "type": "text",
+            "content": "A box plot summarizes a data set with five numbers: the minimum, the first quartile $Q_1$, the median, the third quartile $Q_3$, and the maximum. The rectangle spans $Q_1$ to $Q_3$, a line inside marks the median, and two whiskers reach out to the smallest and largest values."
+          },
+          {
+            "type": "text",
+            "content": "The box holds the middle $50\\%$ of the data, and each of the four segments — the two whiskers and the two halves of the box — contains about $25\\%$ of the values. A segment's width shows how spread out that quarter is, not how many points it holds: a wide whisker still contains a quarter of the data, just stretched over more values. The interquartile range measures the spread of that middle half."
+          },
+          {
+            "type": "formula",
+            "label": "Interquartile Range — Middle 50% Spread",
+            "content": "$$\\text{IQR} = Q_3 - Q_1$$",
+            "note": "The box (Q1 to Q3) always contains the middle 50% of the data. IQR is its width."
+          },
+          {
+            "type": "callout",
+            "variant": "success",
+            "title": "Quick Read",
+            "content": "Box plot with min $12$, $Q_1 = 20$, median $26$, $Q_3 = 34$, max $50$. Middle $50\\%$ lies between $20$ and $34$. IQR $= 34 - 20 = 14$. Range $= 50 - 12 = 38$."
+          },
+          {
+            "type": "table",
+            "headers": ["What a box plot shows", "What a box plot hides"],
+            "rows": [
+              ["The five-number summary (min, Q1, median, Q3, max)", "The mean of the data"],
+              ["Range, IQR, and skew (the stretched side is the tail)", "The number of data points (the count)"],
+              ["The fraction above or below any quartile (~25% per segment)", "Any individual data value"]
+            ]
+          },
+          {
+            "type": "text",
+            "content": "A histogram groups the data into equal-width bins and draws a bar whose height is the count of values in each bin. You can find the median bin by counting up the frequencies, and you can compare the shapes of two distributions. Because the individual values are bundled into bins, a histogram — like any grouped data — lets you estimate the mean but never compute it exactly."
+          },
+          {
+            "type": "heading",
+            "content": "Common Mistake"
+          },
+          {
+            "type": "text",
+            "content": "Two box-plot misreads cost the most points. First, treating a wide box or whisker as \"more data\": every segment holds about $25\\%$ of the values regardless of width, so width means spread, not count. Second, reading the middle line as the mean: that line is the median, and a box plot cannot show the mean at all. When a question asks you to compare the means of two box plots, check whether the display can even answer — often the correct choice is that it cannot be determined."
+          },
+          {
+            "type": "heading",
+            "content": "Test-Day Strategy"
+          },
+          {
+            "type": "text",
+            "content": "Label the five numbers against the axis first, then translate the question into five-number arithmetic: range is max minus min, IQR is $Q_3 - Q_1$, and the middle $50\\%$ sits between $Q_1$ and $Q_3$. Before answering anything about the mean, the count, or a single value, confirm the display can actually determine it."
+          }
+        ]
+      },
+      "practice": {
+        "title": "Practice",
+        "summary": "Put \"Box Plots & Histograms\" into practice with a worked example and a checkpoint question.",
+        "blocks": [
+          {
+            "type": "example",
+            "difficulty": "Medium",
+            "problem": "A box plot shows minimum $12$, $Q_1 = 20$, median $= 26$, $Q_3 = 34$, maximum $= 50$. Find the interquartile range and the two values the middle $50\\%$ of the data falls between.",
+            "steps": [
+              {
+                "label": "Middle 50%",
+                "content": "The box spans $Q_1$ to $Q_3$, so the middle half of the data lies between $20$ and $34$."
+              },
+              {
+                "label": "IQR",
+                "content": "$\\text{IQR} = Q_3 - Q_1 = 34 - 20 = 14$."
+              },
+              {
+                "label": "Sanity check",
+                "content": "The full range is $50 - 12 = 38$, wider than the IQR because the whiskers stretch past the box."
+              }
+            ]
+          },
+          {
+            "type": "checkpointQuestion",
+            "question": "A histogram groups $30$ test scores into bins: $60$-$69$ ($4$ students), $70$-$79$ ($12$), $80$-$89$ ($9$), $90$-$99$ ($5$). Which bin contains the median, and can you compute the exact mean from the histogram?",
+            "answer": "$n = 30$, so the median is the average of the $15$th and $16$th values. Cumulative counts: $4, 16, 25, 30$. Both the $15$th and $16$th values fall in the $70$-$79$ bin, so the median is in $70$-$79$. You cannot compute the exact mean — grouped bins hide each student's exact score, so a histogram gives only an estimate."
+          }
+        ]
+      }
+    }
   }
 };

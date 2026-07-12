@@ -179,5 +179,27 @@ export const systemsLessons = [
       ]
     }
   },
-  { id: 14, title: "Infinite Solutions SAT Example", type: "video", duration: "10 min", section: "Infinite Solutions", videoId: "e37RY2cRYMI", hero: { tagline: "ADVANCED", subtitle: "Recognizing infinite solutions" } }
+  { id: 14, title: "Infinite Solutions SAT Example", type: "video", duration: "10 min", section: "Infinite Solutions", videoId: "e37RY2cRYMI", hero: { tagline: "ADVANCED", subtitle: "Recognizing infinite solutions" } },
+  // Section: Mixtures & Combinations
+  {
+    id: 15,
+    title: "Mixtures & Solving for a Combination",
+    type: "lesson",
+    duration: "7 min",
+    section: "Mixtures & Combinations",
+    hero: {
+      tagline: "TWO LEDGERS, ONE ANSWER",
+      subtitle: "Mixtures as systems, and shortcuts when a combination is asked"
+    },
+    content: {
+      blocks: [
+        { type: "text", content: "Two of the most rewarding systems topics on the SAT hide in plain sight. The first is the **mixture problem** — blending two things (solutions, coffee beans, coins, investments) into one — which is really just a system in disguise. The second is the **combination shortcut** — when a question asks for an *expression* like x + y instead of x and y individually, you can often add or subtract the two equations and land the answer in a single line. Together they turn intimidating word problems into quick, mechanical wins." },
+        { type: "text", content: "Every mixture rests on one idea: **amount of the ingredient = (concentration or per-unit value) × (total amount)**. When two inputs combine, TWO things are conserved at once — the total quantity and the ingredient it carries. That gives you two equations: a **count equation** (the amounts add up to the blend's total) and a **value equation** (each input's ingredient content adds up to the blend's ingredient content). The classic shape is 0.10A + 0.20B = 0.15(A + B) — the substance poured in equals the substance in the mix." },
+        { type: "text", content: "The most common mixture trap is freezing one ledger while updating the other. When you add pure salt to a solution to raise its concentration, both the salt AND the total volume grow — students grow the numerator but keep the old total in the denominator and undershoot. A quick sanity check kills most wrong answers: a blend's concentration must land strictly *between* the two input concentrations, nearer whichever input contributes more. Any answer outside that band is dead on arrival." },
+        { type: "text", content: "Now the combination shortcut. Some systems ask for x + y, or 3a − 2b, or 6x + 6y — a *combination* of the variables, not the variables themselves. These systems are built so that a single addition or subtraction of the two given equations produces exactly what's asked (sometimes a clean multiple of it). Solving for each variable separately is the slow path the question is designed to punish — and on the hard ones, the individual values are deliberately ugly fractions while the combination comes out clean." },
+        { type: "text", content: "The move: **write the target expression at the top of your scratch work first.** Stack the two equations with like terms aligned, add them, and check the result against the target. If addition misses, subtract. If you get 2x + 2y = 14 when x + y was asked, divide by 2. Only fall back to a full solve if both add and subtract miss — which is rare by design. Finish by checking that your answer's *shape* matches the ask: a value of x + y, not a value of x. The individual values are decoys, even when you can compute them." },
+        { type: "text", content: "**Test-day workflow:** For a blend or mixing word problem, name your two unknowns, write the count equation and the value equation, and remember the silent coefficients — pure water contributes 0 to the ingredient ledger, a pure additive contributes 1. For any question asking for an expression rather than a single variable, run the add/subtract scan *before* you start solving. Both habits save time and dodge the traps the SAT plants for students who grind through the long way." }
+      ]
+    }
+  }
 ];

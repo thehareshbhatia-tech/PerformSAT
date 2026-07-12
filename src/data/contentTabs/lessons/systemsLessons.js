@@ -1172,5 +1172,109 @@ export const systemsLessonTabs = {
         ]
       }
     }
+  },
+  "15": {
+    "moduleId": "systems",
+    "title": "Mixtures & Solving for a Combination",
+    "sections": {
+      "learn": {
+        "title": "Learn",
+        "summary": "A mixture is a system in disguise: one count equation and one value equation. And when a question asks for a combination like $x + y$, add or subtract the equations to land the answer directly instead of solving for each variable.",
+        "blocks": [
+          {
+            "type": "heading",
+            "content": "Mixtures as a System of Equations"
+          },
+          {
+            "type": "text",
+            "content": "A mixture problem blends two inputs — two solutions, two kinds of coffee bean, two coin denominations, two investments — into one combined result. It looks like a word problem, but underneath it is always a system. The key relationship: $\\text{ingredient amount} = (\\text{concentration or per-unit value}) \\times (\\text{total amount})$. A $40\\%$ solution of $200$ mL holds $0.40 \\times 200 = 80$ mL of the substance."
+          },
+          {
+            "type": "text",
+            "content": "When two inputs combine, TWO things are conserved at once: the total quantity and the ingredient it carries. That gives you two equations. The **count equation** says the amounts add to the blend's total. The **value equation** says each input's ingredient content adds to the blend's content. For inputs $A$ and $B$ combining into a total $T$: $A + B = T$ and $c_1 A + c_2 B = c_{\\text{blend}}\\,T$."
+          },
+          {
+            "type": "formula",
+            "label": "Mixture — Two-Equation Setup",
+            "content": "$$A + B = T \\qquad c_1 A + c_2 B = c_{\\text{blend}}\\,T$$",
+            "note": "First is the count equation (amounts add up); second is the value equation (ingredient content adds up). Water contributes $0$ to the value ledger; a pure additive contributes $1$."
+          },
+          {
+            "type": "callout",
+            "variant": "success",
+            "title": "Quick Example",
+            "content": "Mix $A$ lb of \\$8/lb beans with $B$ lb of \\$14/lb beans into a $30$-lb blend worth \\$282. Count: $A + B = 30$. Value: $8A + 14B = 282$."
+          },
+          {
+            "type": "heading",
+            "content": "When the Question Asks for a Combination"
+          },
+          {
+            "type": "text",
+            "content": "Some systems ask not for $x$ or $y$ but for a **combination** — $x + y$, $3a - 2b$, or $6x + 6y$. These are built so that a single addition or subtraction of the two given equations produces the target directly (sometimes a clean multiple of it). Solving for each variable separately is the long way around — and on hard versions the individual values are deliberately ugly fractions while the combination comes out clean."
+          },
+          {
+            "type": "formula",
+            "label": "Combination Target — The Shortcut",
+            "content": "$$\\text{Write the target first, then}\\ \\text{ADD or SUBTRACT the two equations to build it}$$",
+            "note": "If you get $2x + 2y$ when $x + y$ is asked, divide by $2$. Fall back to a full solve only if both add and subtract miss."
+          },
+          {
+            "type": "heading",
+            "content": "Common Mistake"
+          },
+          {
+            "type": "text",
+            "content": "Two traps dominate. In mixtures, students freeze one ledger: adding a pure ingredient grows the total AND the ingredient, but they keep the old total in the denominator and undershoot. Sanity check — a blend's concentration must land strictly between the two inputs, nearer the bigger contributor. In combination problems, students grind out $x$ and $y$ individually when only $x + y$ was asked, then sometimes report $x$ instead of the combination. Write the target at the top and check your final answer's shape against it."
+          },
+          {
+            "type": "heading",
+            "content": "Test-Day Strategy"
+          },
+          {
+            "type": "text",
+            "content": "For a blend problem: name two unknowns, write the count equation and the value equation, and supply the silent coefficients ($0$ for water, $1$ for a pure additive). For any question asking for an expression rather than a single variable: run the add/subtract scan BEFORE solving. Both habits turn slow, trap-laden problems into one-line wins."
+          }
+        ]
+      },
+      "practice": {
+        "title": "Practice",
+        "summary": "Put \"Mixtures & Solving for a Combination\" into practice with a worked mixture example and a combination-target checkpoint.",
+        "blocks": [
+          {
+            "type": "example",
+            "difficulty": "Medium",
+            "problem": "A chemist combines a $20\\%$ acid solution with a $50\\%$ acid solution to make $60$ mL of a $30\\%$ acid solution. How many mL of the $20\\%$ solution are used?",
+            "steps": [
+              {
+                "label": "Define variables",
+                "content": "Let $A$ = mL of the $20\\%$ solution and $B$ = mL of the $50\\%$ solution."
+              },
+              {
+                "label": "Count equation",
+                "content": "The volumes add to the blend's total: $A + B = 60$."
+              },
+              {
+                "label": "Value equation",
+                "content": "The acid carried in adds to the acid in the blend: $0.20A + 0.50B = 0.30(60) = 18$."
+              },
+              {
+                "label": "Substitute and solve",
+                "content": "From the count equation, $B = 60 - A$. Then $0.20A + 0.50(60 - A) = 18$ → $0.20A + 30 - 0.50A = 18$ → $-0.30A = -12$ → $A = 40$."
+              },
+              {
+                "label": "Verify with the sanity band",
+                "content": "$B = 20$; acid $= 0.20(40) + 0.50(20) = 8 + 10 = 18$ ✓. The blend's $30\\%$ sits between $20\\%$ and $50\\%$, nearer the larger $20\\%$ contributor. Answer: **40 mL**."
+              }
+            ]
+          },
+          {
+            "type": "checkpointQuestion",
+            "question": "If $5x + 2y = 23$ and $2x + 5y = 19$, what is $x + y$?",
+            "answer": "Add the equations: $(5x + 2y) + (2x + 5y) = 23 + 19$ → $7x + 7y = 42$ → $7(x + y) = 42$ → $x + y = 6$. No need to find $x$ and $y$ separately."
+          }
+        ]
+      }
+    }
   }
 };

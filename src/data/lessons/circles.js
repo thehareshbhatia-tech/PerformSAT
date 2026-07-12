@@ -303,5 +303,36 @@ export const circlesLessons = [
       ]
     }
   },
-  { id: 33, title: "Tangent Line to a Circle Example", type: "video", duration: "10 min", section: "Tangent Lines", videoId: "CYnV3su1S5A", hero: { tagline: "PRACTICE", subtitle: "Working with tangents" } }
+  { id: 33, title: "Tangent Line to a Circle Example", type: "video", duration: "10 min", section: "Tangent Lines", videoId: "CYnV3su1S5A", hero: { tagline: "PRACTICE", subtitle: "Working with tangents" } },
+  // Section 10: Circle Angles
+  {
+    id: 34,
+    title: "Circle Angles: Inscribed & Tangent",
+    type: "lesson",
+    duration: "7 min",
+    section: "Circle Angles",
+    hero: {
+      tagline: "HALVES AND DOUBLES",
+      subtitle: "Angles from arcs, the rim, and tangents"
+    },
+    content: {
+      blocks: [
+        { type: "text", content: "So far, circle problems have been about **length and area** — radius, circumference, arcs, sectors. This lesson is about **angles**: how the corners of a figure drawn inside or touching a circle get their measures. Two ideas do almost all the work — where the angle's vertex sits (at the **center** or on the **rim**), and what a **tangent** line does when it meets a radius." },
+        { type: "text", content: "**The one habit that unlocks these problems:** every point marked on the circle deserves a radius drawn to it. All radii are equal, so drawing them fills the figure with isosceles triangles whose base angles come for free. Circle angle figures almost always arrive unfinished — the segment that solves the problem is the one you draw yourself." },
+        { type: "formula", label: "Central Angle", content: "A central angle (vertex AT the center) equals the measure of the arc it intercepts." },
+        { type: "formula", label: "Inscribed Angle", content: "An inscribed angle (vertex ON the circle) is HALF its intercepted arc — half the central angle standing on the same arc." },
+        { type: "text", content: "That single 2-to-1 exchange rate produces the results the SAT reuses most:" },
+        { type: "list", items: [
+          "**Same-arc inscribed angles are equal.** Any two inscribed angles that open onto the same arc are the same size, because both equal half of that one arc.",
+          "**An angle inscribed in a semicircle is 90°.** When the arc is a full half-circle (its 'central angle' is the 180° diameter), the inscribed angle is half of 180°, a perfect right angle. Spot a diameter with a third point on the circle, and you have a right triangle.",
+          "**A tangent is perpendicular to the radius at the point of tangency.** The moment a problem says 'tangent,' draw the radius to the contact point — it lands at a clean 90° angle, and that right angle is the only fact tangency gives you."
+        ]},
+        { type: "formula", label: "Tangent Rule", content: "A tangent line meets the radius at the point of tangency at a 90° angle." },
+        { type: "example", title: "Angle in a Semicircle", content: "AB is a diameter and C is a point on the circle. Since the angle inscribed in a semicircle is 90°, angle ACB = 90°. If angle ABC = 35°, then the triangle's angles sum to 180°, so angle BAC = 180 - 90 - 35 = **55°**. The diameter handed you the right angle; the triangle sum did the rest." },
+        { type: "example", title: "Same Arc, Same Angle", content: "Two inscribed angles both open onto arc PQ. One measures 28°. The other must also measure **28°** — same arc means same half-arc, so the two inscribed angles are identical, no matter where their vertices sit on the rim." },
+        { type: "text", content: "**Before you convert, name your view.** Label each angle as central (C) or inscribed (I) first. Central-view sees the whole arc; rim-view sees half. Writing the ÷2 or ×2 as its own step is what keeps you from landing on an answer that is exactly double or half the correct one — those wrong values are always sitting in the choices." },
+        { type: "text", content: "**Real-world connection:** a camera positioned anywhere along a circular balcony that frames the same stage-front arc captures it at the same angle of view — the same-arc inscribed-angle rule is why every seat on that curve sees the stage span identically." }
+      ]
+    }
+  }
 ];

@@ -790,5 +790,169 @@ export const functionsLessonTabs = {
         ]
       }
     }
+  },
+  "11": {
+    "moduleId": "functions",
+    "title": "Function Composition",
+    "sections": {
+      "learn": {
+        "title": "Learn",
+        "summary": "Composition feeds one function's output into another function's input — evaluate inside-out, and order matters.",
+        "blocks": [
+          {
+            "type": "heading",
+            "content": "Function Composition"
+          },
+          {
+            "type": "text",
+            "content": "Composition chains two functions together: the output of the inner function becomes the input of the outer function. When you see $f(g(x))$, read it as a two-step assembly line — run $g$ first, then pour whatever comes out into $f$. The whole skill is doing one clean evaluation at a time, working from the inside out."
+          },
+          {
+            "type": "text",
+            "content": "The innermost expression is a value waiting to be computed. Resolve it completely, then pass that result outward to the next layer. For $f(g(2))$, first find $g(2)$, then evaluate $f$ at that number. Never build one giant combined formula for a numeric problem — stepwise evaluation is both faster and safer. For example, if $f(x) = x + 5$ and $g(x) = 2x$, then $f(g(3)) = f(6) = 11$: compute $g(3) = 6$ first, then feed $6$ into $f$."
+          },
+          {
+            "type": "formula",
+            "label": "Function Composition — Core Rule",
+            "content": "$$(f \\circ g)(x) = f(g(x))$$",
+            "note": "Innermost call first. Compute its value, then use it as the entire input to the next layer out."
+          },
+          {
+            "type": "callout",
+            "variant": "warning",
+            "title": "Order Matters",
+            "content": "In general $f(g(x)) \\neq g(f(x))$. The outer letter you read first is the function that runs last. With $f(x) = x + 5$ and $g(x) = 2x$: $f(g(3)) = 11$ but $g(f(3)) = g(8) = 16$. Different answers — always check which order the stem asked for."
+          },
+          {
+            "type": "heading",
+            "content": "Common Mistake"
+          },
+          {
+            "type": "text",
+            "content": "The classic error is evaluating outside-in: reading $g(f(2))$ and computing $g(2)$ first because $g$ is written first. Reading order is left to right, but composition runs inside to out. The swapped-order result is nearly always offered as a trap answer choice. Annotate the innermost call as step $1$, and let the visible number never fool you into skipping a layer."
+          },
+          {
+            "type": "heading",
+            "content": "Test-Day Strategy"
+          },
+          {
+            "type": "text",
+            "content": "Number the layers before computing: innermost is step $1$. For composition read from a table or graph, look up the inner value first (its output), then look up the outer function at that value — no formula required. Same inside-out order, just a different source for each number."
+          }
+        ]
+      },
+      "practice": {
+        "title": "Practice",
+        "summary": "Put \"Function Composition\" into practice with a worked example and a checkpoint question.",
+        "blocks": [
+          {
+            "type": "example",
+            "difficulty": "Medium",
+            "problem": "The functions $f$ and $g$ are defined by the table below. What is $f(g(1))$? | $x$ | $1$ | $2$ | $3$ | $4$ | |---|---|---|---|---| | $f(x)$ | $3$ | $1$ | $4$ | $2$ | | $g(x)$ | $2$ | $4$ | $1$ | $3$ |",
+            "steps": [
+              {
+                "label": "Inner first",
+                "content": "Read $g(1)$ from the table: $g(1) = 2$."
+              },
+              {
+                "label": "Feed the result into $f$",
+                "content": "Now find $f(2)$ from the table: $f(2) = 1$."
+              },
+              {
+                "label": "Answer",
+                "content": "$f(g(1)) = f(2) = 1$"
+              }
+            ]
+          },
+          {
+            "type": "checkpointQuestion",
+            "question": "If $f(x) = 3x - 1$ and $g(x) = x^2$, what is $f(g(2))$, and does it equal $g(f(2))$?",
+            "answer": "$f(g(2))$: inner $g(2) = 4$, outer $f(4) = 3(4) - 1 = 11$. $g(f(2))$: inner $f(2) = 5$, outer $g(5) = 25$. They are not equal ($11 \\neq 25$) — order matters."
+          }
+        ]
+      }
+    }
+  },
+  "12": {
+    "moduleId": "functions",
+    "title": "Reading Function Graphs",
+    "sections": {
+      "learn": {
+        "title": "Learn",
+        "summary": "A graph is a picture of input-output pairs: read $f(a)$ as a height, and solve $f(x) = k$ by finding where the curve meets height $k$.",
+        "blocks": [
+          {
+            "type": "heading",
+            "content": "Reading Function Graphs"
+          },
+          {
+            "type": "text",
+            "content": "Every point on the graph of $y = f(x)$ is an input-output pair: the $x$-coordinate went into the machine, the $y$-coordinate came out. In graph contexts, $f(x)$ and $y$ are interchangeable. This single idea turns most graph questions into simple read-offs instead of calculations."
+          },
+          {
+            "type": "text",
+            "content": "To find $f(a)$, go to $x = a$ and read the height of the curve there — that height is the output. To solve $f(x) = k$, draw the horizontal line at height $k$ and find every $x$ where the curve meets it. The $y$-intercept is the output at $x = 0$; an $x$-intercept is any input where the output is $0$. For example, if the graph passes through $(0, 4)$, then $f(0) = 4$."
+          },
+          {
+            "type": "formula",
+            "label": "Reading Function Graphs — Core Rule",
+            "content": "$$\\text{point } (a, b) \\text{ on the graph} \\iff f(a) = b$$",
+            "note": "Every 'passes through $(a, b)$' clause cashes in immediately as $f(a) = b$."
+          },
+          {
+            "type": "callout",
+            "variant": "success",
+            "title": "Where Two Curves Meet",
+            "content": "If the graphs of $f$ and $g$ are shown together, the solutions to $f(x) = g(x)$ are exactly the $x$-values where the curves intersect. Each crossing is one shared input giving both functions the same output."
+          },
+          {
+            "type": "heading",
+            "content": "Common Mistake"
+          },
+          {
+            "type": "text",
+            "content": "Two traps dominate. First, assuming every gridline is worth $1$ and the window starts at the origin — always read the tick labels on both axes before trusting a coordinate. Second, answering the wrong object: \"where does the maximum occur?\" wants an $x$-value, but \"what is the maximum?\" wants the output. Likewise $f(3)$ and \"the $x$ that makes $f(x) = 3$\" point at opposite axes. Decide what kind of thing your answer must be before you read the graph."
+          },
+          {
+            "type": "heading",
+            "content": "Test-Day Strategy"
+          },
+          {
+            "type": "text",
+            "content": "Reword the question into graph language first: max or min becomes the highest or lowest point; $f(x) > 0$ becomes 'above the $x$-axis'; the number of solutions to $f(x) = k$ becomes the number of crossings with the line $y = k$. Then read the answer straight off the picture, after checking the axis scales."
+          }
+        ]
+      },
+      "practice": {
+        "title": "Practice",
+        "summary": "Put \"Reading Function Graphs\" into practice with a worked example and a checkpoint question.",
+        "blocks": [
+          {
+            "type": "example",
+            "difficulty": "Medium",
+            "problem": "The graph of $y = f(x)$ passes through $(0, 4)$, rises to a peak at $(2, 9)$, then falls through $(5, 0)$. Find $f(0)$, the value of $x$ where the maximum occurs, and all solutions to $f(x) = 9$.",
+            "steps": [
+              {
+                "label": "Read the $y$-intercept",
+                "content": "At $x = 0$ the height is $4$, so $f(0) = 4$."
+              },
+              {
+                "label": "Locate the maximum",
+                "content": "The peak is the point $(2, 9)$. The maximum output is $9$, and it occurs at $x = 2$ (the question asks where, so the answer is the $x$-value)."
+              },
+              {
+                "label": "Solve $f(x) = 9$",
+                "content": "Find where the curve reaches height $9$. The peak $(2, 9)$ is the only such point, so $x = 2$."
+              }
+            ]
+          },
+          {
+            "type": "checkpointQuestion",
+            "question": "The graph of $y = f(x)$ crosses the $x$-axis at $(-3, 0)$ and $(4, 0)$ and crosses the $y$-axis at $(0, -6)$. What is $f(0)$, and how many solutions does $f(x) = 0$ have?",
+            "answer": "$f(0) = -6$ (the height where $x = 0$, i.e. the $y$-intercept). The equation $f(x) = 0$ asks for $x$-intercepts; the curve meets the $x$-axis at $x = -3$ and $x = 4$, so there are $2$ solutions."
+          }
+        ]
+      }
+    }
   }
 };

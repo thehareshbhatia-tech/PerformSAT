@@ -57,7 +57,7 @@ const VISUAL_EXPECTED_PATTERNS = [
   { titlePattern: /equation.*circle|circle.*equation|standard form.*circle/i, visualType: 'circleEquationDiagram' },
   // volume
   { titlePattern: /volume of a cube|cube example/i, visualType: 'cubeDiagram' },
-  { titlePattern: /rectangular prism|box/i, visualType: 'rectangularPrismDiagram' },
+  { titlePattern: /rectangular prism/i, visualType: 'rectangularPrismDiagram' },
   { titlePattern: /cylinder/i, visualType: 'cylinderDiagram' },
   { titlePattern: /sphere/i, visualType: 'sphereDiagram' },
   { titlePattern: /cone/i, visualType: 'coneDiagram' },
@@ -96,7 +96,7 @@ const LESSON_SEMANTIC_GUARDRAILS = [
     requiredVisual: 'cubeDiagram',
   },
   {
-    titlePattern: /rectangular prism|box/i,
+    titlePattern: /rectangular prism/i,
     required: [/(lwh|length.*width.*height)/i],
     forbidden: [/s\^3/i, /\\frac\{4\}\{3\}\\pi r\^3/i],
     requiredVisual: 'rectangularPrismDiagram',

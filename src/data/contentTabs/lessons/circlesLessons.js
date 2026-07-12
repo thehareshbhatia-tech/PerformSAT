@@ -2670,5 +2670,87 @@ export const circlesLessonTabs = {
         ]
       }
     }
+  },
+  "34": {
+    "moduleId": "circles",
+    "title": "Circle Angles: Inscribed & Tangent",
+    "sections": {
+      "learn": {
+        "title": "Learn",
+        "summary": "Where an angle's vertex sits decides its measure: a central angle equals its arc, an inscribed angle is half of it, and a tangent meets the radius at a right angle.",
+        "blocks": [
+          {
+            "type": "heading",
+            "content": "Circle Angles: Inscribed & Tangent"
+          },
+          {
+            "type": "text",
+            "content": "A **central angle** has its vertex at the center and equals the measure of the arc it intercepts. An **inscribed angle** has its vertex on the circle and is **half** its intercepted arc — so an inscribed angle is half of the central angle that stands on the same arc."
+          },
+          {
+            "type": "text",
+            "content": "Three consequences carry most circle-angle questions: (1) two inscribed angles opening onto the **same arc** are equal, since both equal half of that arc; (2) an angle **inscribed in a semicircle** is $90°$, because its arc is the $180°$ diameter and $\\frac{1}{2}(180°) = 90°$; (3) a **tangent** line meets the radius at the point of tangency at $90°$. The habit that unlocks the figure: draw a radius to every marked point, since equal radii create isosceles triangles whose base angles you get for free."
+          },
+          {
+            "type": "formula",
+            "label": "Circle Angles — Core Rules",
+            "content": "$$\\angle_{\\text{inscribed}}=\\tfrac{1}{2}\\,\\angle_{\\text{central}}\\ (\\text{same arc}),\\quad \\text{semicircle}\\Rightarrow 90°,\\quad \\text{tangent}\\perp\\text{radius}$$",
+            "note": "Name each angle central or inscribed before you convert. Do not apply blindly."
+          },
+          {
+            "type": "callout",
+            "variant": "success",
+            "title": "Quick Example",
+            "content": "A central angle intercepts a $120°$ arc, so the arc measures $120°$. An inscribed angle on that same arc measures $\\frac{1}{2}(120°) = 60°$. Any other inscribed angle on the same arc is also $60°$."
+          },
+          {
+            "type": "heading",
+            "content": "Common Mistake"
+          },
+          {
+            "type": "text",
+            "content": "Students apply the halving rule to a central angle, or skip it for an inscribed one, landing exactly $\\times 2$ or $\\div 2$ off — and both the doubled and halved values are waiting in the choices. The fix: before converting, point at the vertex. Vertex at the center means the angle equals the full arc; vertex on the rim means halve it. When a problem says 'tangent,' immediately draw the radius to the contact point so the $90°$ actually appears in your diagram."
+          },
+          {
+            "type": "heading",
+            "content": "Test-Day Strategy"
+          },
+          {
+            "type": "text",
+            "content": "Complete the figure first: radius to every marked point, radius to any tangency point (it lands perpendicular), and the diameter whenever an inscribed right angle would help. Then run an ordinary angle chase on the finished picture, writing each $\\times 2$ or $\\div 2$ as its own step before selecting an answer."
+          }
+        ]
+      },
+      "practice": {
+        "title": "Practice",
+        "summary": "Put \"Circle Angles: Inscribed & Tangent\" into practice with a worked example and a checkpoint question.",
+        "blocks": [
+          {
+            "type": "example",
+            "difficulty": "Medium",
+            "problem": "In a circle, $AB$ is a diameter and $C$ is a point on the circle. If $\\angle ABC = 35°$, find $\\angle BAC$.",
+            "steps": [
+              {
+                "label": "Angle in a semicircle",
+                "content": "$C$ lies on the circle with diameter $AB$, so the inscribed angle $\\angle ACB = 90°$."
+              },
+              {
+                "label": "Triangle sum",
+                "content": "$\\angle BAC + \\angle ABC + \\angle ACB = 180°$"
+              },
+              {
+                "label": "Solve",
+                "content": "$\\angle BAC = 180° - 90° - 35° = 55°$"
+              }
+            ]
+          },
+          {
+            "type": "checkpointQuestion",
+            "question": "A central angle intercepts an arc of $80°$. What is the measure of an inscribed angle that intercepts the same arc?",
+            "answer": "The inscribed angle is half the arc: $\\frac{1}{2}(80°) = 40°$."
+          }
+        ]
+      }
+    }
   }
 };
