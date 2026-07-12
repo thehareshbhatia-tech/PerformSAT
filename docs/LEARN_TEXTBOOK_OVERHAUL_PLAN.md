@@ -1,6 +1,10 @@
 # Learn-Tab Textbook Overhaul — Plan & Content Audit
 
-_Status: planning + voice locked (2026-07-10). Content authoring not yet started._
+_Status: **Phase 1 SHIPPED (2026-07-12)** — all 11 R&W chapters rebuilt to the locked
+template from the SAT knowledge graph (~500 blocks, was 117), living in the lazy
+`src/data/chapters/rwBodies/` corpus (`source.kind: 'rwBody'`, gated by
+`rwBodies.test.js`). Phases 2-5 (Math holes, data hygiene, decimal numbering,
+two-pane reader) not started._
 
 ## Why
 
