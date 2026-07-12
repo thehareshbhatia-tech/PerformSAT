@@ -28,13 +28,16 @@ import { rwChapters } from './rwChapters';
 import { strategyChapters } from './strategyChapters';
 
 /**
- * The three top-level sections of the Learn tab, in render order, with their
- * student-facing section headers.
+ * The top-level sections of the Learn tab, in render order, with their
+ * student-facing section headers. Reading and Writing & Grammar are split
+ * into two separate sections (they were previously one "Reading & Writing"
+ * section) so students study reading comprehension and grammar independently.
  */
 export const LEARN_SECTIONS = [
   { id: 'strategy', label: 'The Digital SAT' },
+  { id: 'reading', label: 'Reading Comprehension' },
+  { id: 'writing', label: 'Writing & Grammar' },
   { id: 'math', label: 'Math' },
-  { id: 'rw', label: 'Reading & Writing' },
 ];
 
 /**
@@ -53,11 +56,13 @@ const UNIT_REGISTRY = [
   { id: 'math-problem-solving', label: 'Problem-Solving and Data Analysis', section: 'math' },
   { id: 'math-geometry', label: 'Geometry and Trigonometry', section: 'math' },
 
-  // ── Reading & Writing (section header: "Reading & Writing") ──
-  { id: 'rw-information-ideas', label: 'Information and Ideas', section: 'rw' },
-  { id: 'rw-craft-structure', label: 'Craft and Structure', section: 'rw' },
-  { id: 'rw-expression-ideas', label: 'Expression of Ideas', section: 'rw' },
-  { id: 'rw-conventions', label: 'Standard English Conventions', section: 'rw' },
+  // ── Reading Comprehension (section header: "Reading Comprehension") ──
+  { id: 'rw-information-ideas', label: 'Information and Ideas', section: 'reading' },
+  { id: 'rw-craft-structure', label: 'Craft and Structure', section: 'reading' },
+
+  // ── Writing & Grammar (section header: "Writing & Grammar") ──
+  { id: 'rw-expression-ideas', label: 'Expression of Ideas', section: 'writing' },
+  { id: 'rw-conventions', label: 'Standard English Conventions', section: 'writing' },
 ];
 
 /** Flat list of every chapter across all sections, in registry-unit order. */

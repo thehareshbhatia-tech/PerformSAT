@@ -16,13 +16,13 @@ describe('LEARN_UNITS', () => {
     LEARN_UNITS.forEach((u) => {
       expect(typeof u.id).toBe('string');
       expect(typeof u.label).toBe('string');
-      expect(['strategy', 'math', 'rw']).toContain(u.section);
+      expect(['strategy', 'reading', 'writing', 'math']).toContain(u.section);
       expect(Array.isArray(u.chapterIds)).toBe(true);
     });
   });
 
-  test('sections cover the three fixed Learn sections in order', () => {
-    expect(LEARN_SECTIONS.map((s) => s.id)).toEqual(['strategy', 'math', 'rw']);
+  test('sections cover the four fixed Learn sections in order', () => {
+    expect(LEARN_SECTIONS.map((s) => s.id)).toEqual(['strategy', 'reading', 'writing', 'math']);
   });
 
   test('the four math units carry the 18 math chapters', () => {

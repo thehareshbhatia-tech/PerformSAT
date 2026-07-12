@@ -12,9 +12,10 @@ const CheckIcon = () => (
 /**
  * Learn tab — a single-page table of contents for the SEVA textbook.
  *
- * Renders the three sections (The Digital SAT, Math, Reading & Writing) in a
- * fixed order, each with the units it contains and a simple numbered chapter
- * list. Empty units/sections are skipped. Clicking a row opens the reader.
+ * Renders the top-level sections (The Digital SAT, Reading Comprehension,
+ * Writing & Grammar, Math) in a fixed order, each with the units it contains
+ * and a simple numbered chapter list. Empty units/sections are skipped.
+ * Clicking a row opens the reader.
  *
  * @param {Object} props
  * @param {Object} props.chaptersRead - map of { [chapterId]: { completed } }
