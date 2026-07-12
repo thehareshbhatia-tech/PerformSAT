@@ -23,6 +23,15 @@
 export const mathChapters = [
   // ── Algebra ────────────────────────────────────────────────────────────────
   {
+    id: 'math-solving-equations',
+    unitId: 'math-algebra',
+    title: 'Solving Equations & Rearranging Formulas',
+    blurb: 'Peel an equation to isolate a variable, handle variables on both sides, rearrange a formula for any letter, and solve for the exact quantity asked.',
+    readMinutes: 18,
+    cbSkills: ['linear-equations-one-variable'],
+    source: { kind: 'body', bodyId: 'math-solving-equations' },
+  },
+  {
     id: 'math-linear-equations',
     unitId: 'math-algebra',
     title: 'Linear Equations',
@@ -63,11 +72,11 @@ export const mathChapters = [
   {
     id: 'math-equivalent-expressions',
     unitId: 'math-advanced',
-    title: 'Equivalent Expressions',
-    blurb: 'Factor, expand, and simplify expressions into the form a question is really asking for.',
-    readMinutes: 7,
+    title: 'Working with Expressions',
+    blurb: 'Expand, factor, and re-shape expressions — including the binomial templates and coefficient-matching moves the SAT leans on.',
+    readMinutes: 15,
     cbSkills: ['equivalent-expressions'],
-    source: { kind: 'contentTab', moduleId: 'equivalent-expressions' },
+    source: { kind: 'body', bodyId: 'math-equivalent-expressions' },
   },
   {
     id: 'math-exponents',

@@ -30,6 +30,8 @@ import { twoVariableDataBlocks } from './twoVariableData';
 import { statisticalClaimsBlocks } from './statisticalClaims';
 import { ratiosProportionsBlocks } from './ratiosProportions';
 import { linesAnglesBlocks } from './linesAngles';
+import { solvingEquationsBlocks } from './solvingEquations';
+import { expressionsBlocks } from './expressions';
 
 export const CHAPTER_BODIES = {
   // Math (source.kind 'body')
@@ -39,6 +41,8 @@ export const CHAPTER_BODIES = {
   'math-statistical-claims': statisticalClaimsBlocks,
   'math-dimensional-analysis': ratiosProportionsBlocks,
   'math-lines-angles': linesAnglesBlocks,
+  'math-solving-equations': solvingEquationsBlocks,
+  'math-equivalent-expressions': expressionsBlocks,
   // Reading & Writing
   'rw-central-ideas': centralIdeasBlocks,
   'rw-inferences': inferencesBlocks,
