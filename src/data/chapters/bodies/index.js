@@ -1,8 +1,8 @@
 /**
- * R&W chapter-body corpus — the heavy textbook content for every
- * `source.kind === 'rwBody'` chapter in rwChapters.js.
+ * Chapter-body corpus — the heavy textbook content for every
+ * `source.kind === 'body'` chapter (R&W and math alike).
  *
- * This module is the R&W twin of the math contentTabs corpus: ChapterReader
+ * ChapterReader
  * dynamic-import()s it when an R&W chapter opens, so the chapter index (and
  * every screen that imports it) stays light. NEVER static-import this module
  * from src/data/chapters/index.js, rwChapters.js, or any component — that
@@ -25,7 +25,7 @@ import { textStructureAndPurposeBlocks } from './textStructureAndPurpose';
 import { transitionsBlocks } from './transitions';
 import { wordsInContextBlocks } from './wordsInContext';
 
-export const RW_CHAPTER_BODIES = {
+export const CHAPTER_BODIES = {
   'rw-central-ideas': centralIdeasBlocks,
   'rw-inferences': inferencesBlocks,
   'rw-command-of-evidence-textual': commandOfEvidenceTextualBlocks,

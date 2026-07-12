@@ -51,7 +51,7 @@ describe('getChapter + ALL_CHAPTERS', () => {
       expect(typeof c.blurb).toBe('string');
       expect(Number.isInteger(c.readMinutes)).toBe(true);
       expect(Array.isArray(c.cbSkills)).toBe(true);
-      expect(['contentTab', 'blocks', 'rwBody']).toContain(c.source.kind);
+      expect(['contentTab', 'blocks', 'body']).toContain(c.source.kind);
     });
   });
 });

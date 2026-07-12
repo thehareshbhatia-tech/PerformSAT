@@ -1,5 +1,5 @@
 /**
- * Quality gate for the R&W textbook chapter bodies (rwBodies corpus).
+ * Quality gate for the textbook chapter bodies corpus (R&W + math).
  *
  * Pins the locked chapter template (docs/LEARN_TEXTBOOK_OVERHAUL_PLAN.md §4):
  * every rebuilt chapter must carry the full spine — headings (roadmap through
@@ -9,8 +9,8 @@
  * emojis, and no reference-book fingerprints.
  */
 
-import { RW_CHAPTER_BODIES } from '../rwBodies';
-import { rwChapters } from '../rwChapters';
+import { CHAPTER_BODIES } from '../bodies';
+import { ALL_CHAPTERS } from '../index';
 import { LOW_SIGNAL_PATTERNS } from '../../contentTabs/schema';
 
 // Block types SectionContent (ContentTabRenderer) renders that R&W chapter
@@ -18,7 +18,7 @@ import { LOW_SIGNAL_PATTERNS } from '../../contentTabs/schema';
 const ALLOWED_TYPES = new Set([
   'heading', 'text', 'table', 'callout', 'tip', 'keyInsight', 'trapCard',
   'strategyCard', 'example', 'steps', 'checkpointQuestion', 'comparison',
-  'diagramRef',
+  'diagramRef', 'formula', 'formulaGrid',
 ]);
 
 const REQUIRED_FIELDS = {
@@ -35,6 +35,8 @@ const REQUIRED_FIELDS = {
   checkpointQuestion: ['question', 'answer'],
   comparison: ['items'],
   diagramRef: ['visualType'],
+  formula: ['content'],
+  formulaGrid: ['items'],
 };
 
 // Source-book fingerprints that must never appear (originality invariant from
@@ -54,27 +56,27 @@ function collectStrings(value, out) {
   return out;
 }
 
-const bodyIds = Object.keys(RW_CHAPTER_BODIES);
+const bodyIds = Object.keys(CHAPTER_BODIES);
 
-describe('rwBodies wiring', () => {
-  test('every rwBody-source chapter resolves to a non-empty body', () => {
-    rwChapters
-      .filter((c) => c.source.kind === 'rwBody')
+describe('bodies wiring', () => {
+  test('every body-source chapter resolves to a non-empty body', () => {
+    ALL_CHAPTERS
+      .filter((c) => c.source.kind === 'body')
       .forEach((c) => {
-        const blocks = RW_CHAPTER_BODIES[c.source.bodyId];
+        const blocks = CHAPTER_BODIES[c.source.bodyId];
         expect(Array.isArray(blocks)).toBe(true);
         expect(blocks.length).toBeGreaterThan(0);
       });
   });
 
   test('every body key belongs to a real R&W chapter', () => {
-    const chapterIds = new Set(rwChapters.map((c) => c.id));
+    const chapterIds = new Set(ALL_CHAPTERS.map((c) => c.id));
     bodyIds.forEach((id) => expect(chapterIds.has(id)).toBe(true));
   });
 });
 
-describe.each(bodyIds)('rwBodies template contract: %s', (bodyId) => {
-  const blocks = RW_CHAPTER_BODIES[bodyId];
+describe.each(bodyIds)('bodies template contract: %s', (bodyId) => {
+  const blocks = CHAPTER_BODIES[bodyId];
   const allText = collectStrings(blocks, []).join('\n');
 
   test('uses only renderer-supported block types with required fields', () => {
