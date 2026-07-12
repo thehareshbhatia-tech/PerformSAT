@@ -26,6 +26,7 @@ import { buildTrendContext } from '../services/trendContextBuilder';
 import { startIntervention, inferApproach, computeApproachEffectiveness } from '../services/interventionTracker';
 import { buildIntelligenceContext, getRecommendedApproach } from '../services/intelligenceContextBuilder';
 import { buildTutorSkillContext } from '../services/selectors/tutorSkillContext';
+import { buildTutorKnowledgeContext } from '../services/selectors/tutorKnowledgeContext';
 import { extractChoiceMisconceptions } from '../services/selectors/choiceMisconceptions';
 import { buildFollowUpPrompts, buildTrapWelcome } from '../services/selectors/tutorEngagement';
 import { noteTutorExchange, makeQuestionKey } from '../services/tutorExchangeTracker';
@@ -1313,7 +1314,14 @@ Your goal is to build their problem-solving instincts. Every question they solve
       const skillHistoryBlock = isPracticeQuestion
         ? buildTutorSkillContext({ practiceTestResults, skills: practiceContext?.skills })
         : '';
-      const studentProfileStr = [buildStudentProfile(), skillHistoryBlock].filter(Boolean).join('\n\n');
+      // Expert misconception map for THIS question's skill(s), distilled from the
+      // SAT knowledge graph. Lets the tutor name the root cause of a wrong answer
+      // from our own taxonomy instead of inferring it from a thin explanation.
+      // Also per-question stable → rides the cached stable prefix.
+      const knowledgeBlock = isPracticeQuestion
+        ? buildTutorKnowledgeContext({ skills: practiceContext?.skills })
+        : '';
+      const studentProfileStr = [buildStudentProfile(), skillHistoryBlock, knowledgeBlock].filter(Boolean).join('\n\n');
 
       // Build learning memory context for cross-session awareness
       const learningMemoryCtx = (learningMemory || recentSessions.length > 0)
