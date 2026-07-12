@@ -67,9 +67,268 @@
   font-size: 1.06rem;
   line-height: 1.72;
 }
-/* The .tb-* renderer defaults to a narrower canvas; let it fill the column. */
+
+/* ══════════════════════════════════════════════════════════════════════════
+   Reader content blocks — scoped restyle of the shared .tb-* renderer.
+   EVERY selector here is prefixed with .cr-content so it applies ONLY inside
+   the chapter reader column; LearnWorkspace (which renders the same .tb-*
+   classes without a .cr-content ancestor) is deliberately left untouched.
+   ══════════════════════════════════════════════════════════════════════════ */
+
+/* Single-column reading flow. The shared renderer lays .tb-article out as a
+   12-column "dashboard grid" that, at wide viewports, squeezes tables /
+   formulas / asides into HALF the column (grid-column: span 6) — the cramped
+   look. In a reading column every block should own the full width. */
 .cr-content .tb-stage,
 .cr-content .tb-article { max-width: 100%; }
+.cr-content .tb-article {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.cr-content .tb-article > .tb-table-wrap,
+.cr-content .tb-article > .tb-formula,
+.cr-content .tb-article > .tb-formula-grid,
+.cr-content .tb-article > .tb-aside,
+.cr-content .tb-article > .tb-prose-section,
+.cr-content .tb-article > .tb-worked-example,
+.cr-content .tb-article > .tb-exercise,
+.cr-content .tb-article > .tb-figure,
+.cr-content .tb-article > .tb-comparison {
+  grid-column: 1 / -1;
+  width: 100%;
+}
+
+/* Opening paragraph reads as a lede. */
+.cr-content .tb-article > .tb-body:first-child {
+  font-size: 1.22rem;
+  line-height: 1.62;
+  color: var(--cr-ink-2);
+  border-left: 3px solid var(--color-brand-primary, #ea580c);
+  padding-left: 20px;
+  margin: 2px 0 26px;
+}
+
+/* Body + headings. */
+.cr-content .tb-body {
+  font-family: var(--cr-font-body);
+  font-size: 1.135rem;
+  line-height: 1.72;
+  color: var(--cr-ink);
+  margin: 0 0 22px;
+}
+.cr-content .tb-heading {
+  font-family: var(--cr-font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: var(--cr-ink);
+  border-bottom: 1px solid var(--cr-line);
+  padding-bottom: 12px;
+  margin: 42px 0 22px;
+}
+.cr-content .tb-heading--spaced { margin-top: 42px; }
+.cr-content .tb-subhead {
+  font-family: var(--cr-font-display);
+  font-size: 1.08rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--cr-ink);
+}
+
+/* ── Table: full-width, breathing room, no cramped wrapping ── */
+.cr-content .tb-table-wrap {
+  background: #fff;
+  border: 1px solid var(--cr-line);
+  border-radius: 14px;
+  box-shadow: 0 1px 2px rgba(20, 22, 28, 0.04);
+  overflow-x: auto;
+  margin: 6px 0 26px;
+}
+.cr-content .tb-table-wrap .tb-caption {
+  padding: 12px 20px;
+  margin: 0;
+  border-bottom: 1px solid var(--cr-line);
+  color: var(--cr-ink-3);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+.cr-content .tb-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--cr-font-body);
+  font-size: 0.99rem;
+  line-height: 1.5;
+}
+.cr-content .tb-table th {
+  background: var(--cr-accent-soft);
+  color: var(--cr-accent);
+  font-family: var(--cr-font-display);
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 13px 20px;
+  vertical-align: bottom;
+  border-bottom: 1px solid var(--cr-line);
+}
+.cr-content .tb-table td {
+  padding: 15px 20px;
+  color: var(--cr-ink-2);
+  vertical-align: top;
+  border-bottom: 1px solid var(--cr-line);
+}
+.cr-content .tb-table tr:last-child td { border-bottom: none; }
+.cr-content .tb-table tbody td:first-child {
+  color: var(--cr-ink);
+  font-weight: 700;
+  font-family: var(--cr-font-display);
+  white-space: nowrap;
+}
+.cr-content .tb-table tbody tr:hover td { background: #f7f5f2; }
+
+/* ── keyInsight → clean purple key-idea callout ── */
+.cr-content .tb-prose-section {
+  background: var(--cr-accent-soft);
+  border: 1px solid rgba(90, 62, 142, 0.18);
+  border-left: 4px solid var(--cr-accent);
+  border-radius: 12px;
+  padding: 18px 20px;
+  box-shadow: none;
+  margin: 6px 0 26px;
+}
+.cr-content .tb-prose-section .tb-body { margin: 0; font-size: 1.04rem; line-height: 1.6; }
+
+/* ── callout / tip (tb-aside) ── */
+.cr-content .tb-aside {
+  background: #f7f5f2;
+  border-left: 4px solid var(--cr-ink-3);
+  border-radius: 0 12px 12px 0;
+  padding: 16px 20px;
+  box-shadow: none;
+  margin: 6px 0 26px;
+}
+.cr-content .tb-aside--example { background: #e9f3e5; border-left-color: #3f7a2e; }
+.cr-content .tb-aside--warning { background: #fdf3e3; border-left-color: #d0891f; }
+.cr-content .tb-aside-title { font-family: var(--cr-font-display); color: var(--cr-ink); }
+.cr-content .tb-aside .tb-body { margin: 0; }
+
+/* ── Worked example: purple→orange rule, cleaner timeline ── */
+.cr-content .tb-worked-example {
+  background: #fff;
+  border: 1px solid var(--cr-line);
+  border-radius: 16px;
+  box-shadow: 0 1px 2px rgba(20, 22, 28, 0.04), 0 8px 24px rgba(20, 22, 28, 0.05);
+  padding: 28px 30px 30px;
+  margin: 8px 0 26px;
+}
+.cr-content .tb-worked-example::before {
+  height: 5px;
+  background: linear-gradient(90deg, var(--cr-accent), var(--color-brand-primary, #ea580c));
+}
+.cr-content .tb-worked-example > .tb-subhead {
+  font-size: 0.74rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--cr-accent);
+  margin: 0 0 16px;
+}
+.cr-content .tb-problem {
+  font-size: 1.08rem;
+  line-height: 1.6;
+  color: var(--cr-ink);
+  border-bottom: 1px solid var(--cr-line);
+}
+.cr-content .tb-step-num {
+  color: var(--cr-accent);
+  border-color: var(--cr-accent);
+  box-shadow: none;
+}
+.cr-content .tb-step:not(:last-child)::after { background: rgba(90, 62, 142, 0.25); }
+.cr-content .tb-step--final .tb-step-num {
+  color: #fff;
+  background: #3f7a2e;
+  border-color: #3f7a2e;
+  box-shadow: none;
+}
+.cr-content .tb-step-body { color: var(--cr-ink-2); }
+.cr-content .tb-step-label { color: var(--cr-ink); }
+
+/* ── Checkpoint (tb-exercise): orange rule + reveal ── */
+.cr-content .tb-exercise {
+  background: #fff;
+  border: 1px solid var(--cr-line);
+  border-radius: 16px;
+  box-shadow: 0 1px 2px rgba(20, 22, 28, 0.04), 0 8px 24px rgba(20, 22, 28, 0.05);
+  padding: 26px 30px;
+  margin: 8px 0 26px;
+}
+.cr-content .tb-exercise::before {
+  height: 5px;
+  background: var(--color-brand-primary, #ea580c);
+}
+.cr-content .tb-exercise > .tb-subhead {
+  font-size: 0.74rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--color-brand-primary, #ea580c);
+  margin: 0 0 12px;
+}
+.cr-content .tb-reveal-btn {
+  background: var(--color-brand-primary, #ea580c);
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 11px 20px;
+  font-family: var(--cr-font-display);
+  font-weight: 700;
+  font-size: 0.92rem;
+  box-shadow: 0 2px 10px rgba(234, 88, 12, 0.3);
+}
+.cr-content .tb-reveal-btn:hover {
+  background: var(--color-brand-primary-hover, #c2410c);
+  color: #fff;
+  border-color: transparent;
+  transform: none;
+  box-shadow: 0 2px 10px rgba(234, 88, 12, 0.3);
+}
+.cr-content .tb-reveal-content {
+  background: #e9f3e5;
+  border: 1px solid rgba(63, 122, 46, 0.28);
+  border-radius: 12px;
+  box-shadow: none;
+  padding: 16px 18px;
+}
+
+/* ── Formula / formula grid ── */
+.cr-content .tb-formula {
+  border: 1px solid var(--cr-line);
+  border-radius: 14px;
+  box-shadow: 0 1px 2px rgba(20, 22, 28, 0.04);
+  margin: 6px 0 26px;
+}
+.cr-content .tb-formula-label { color: var(--color-brand-primary, #ea580c); }
+.cr-content .tb-formula-grid { margin: 6px 0 26px; }
+.cr-content .tb-formula-grid .tb-formula { margin: 0; }
+
+/* ── Comparison / figure ── */
+.cr-content .tb-comparison { margin: 6px 0 26px; }
+.cr-content .tb-figure {
+  border: 1px solid var(--cr-line);
+  border-radius: 14px;
+  box-shadow: 0 1px 2px rgba(20, 22, 28, 0.04);
+  margin: 6px 0 26px;
+}
+
+@media (max-width: 640px) {
+  .cr-content .tb-worked-example,
+  .cr-content .tb-exercise { padding: 22px 20px; }
+  .cr-content .tb-heading { margin-top: 30px; }
+}
 
 .cr-loading,
 .cr-missing {
