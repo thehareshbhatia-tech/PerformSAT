@@ -98,6 +98,24 @@ export const formStructureAndSenseBlocks = [
       { label: 'Wrong', content: '*Each of the volunteers were assigned a separate trail.* The verb was matched to *volunteers* — but the subject is *each*, and *each* is always singular.', variant: 'wrong' },
     ],
   },
+  {
+    type: 'text',
+    content: 'Two more number rules run the opposite of the ear. First, a small family of quantifiers **borrows** its number: **some, most, all, none, any,** and *a lot* take the number of the noun in their **of-phrase**. Here — and only here — the of-phrase is not scenery, it is the deciding word. *Most of the water was gone* is singular because *water* is one mass; *most of the samples were gone* is plural because *samples* count. Run the of-phrase noun and let it set the verb. This is the single bucket that reads the of-phrase — *each, every, either, neither* never do, no matter what plural trails behind them. Second, when *either… or* or *neither… nor* joins two subjects, the verb agrees with the noun **nearest to it**. *Neither the manager nor the workers were informed* is correct; flip the pair to *Neither the workers nor the manager was informed* and the verb flips with it. Do not hunt for a "real" subject in a *nor* pair — put your finger on the noun closest to the verb.',
+  },
+  {
+    type: 'comparison',
+    items: [
+      { label: 'Right', content: '*Most of the funding was withdrawn before the trial ended.* *Funding* is one mass, so the of-phrase noun makes the verb singular.', variant: 'right' },
+      { label: 'Wrong', content: '*Most of the funding were withdrawn before the trial ended.* *Most* was read as automatically plural — but *some / most / all* borrow their number from the of-phrase, and *funding* is singular.', variant: 'wrong' },
+    ],
+  },
+  {
+    type: 'comparison',
+    items: [
+      { label: 'Right', content: '*Neither the director nor the editors were told about the change.* With *neither… nor*, the verb agrees with the nearer noun — *editors*, plural.', variant: 'right' },
+      { label: 'Wrong', content: '*Neither the director nor the editors was told about the change.* The verb was matched to *director*, the farther noun; in a *nor* pair only the **nearer** noun counts.', variant: 'wrong' },
+    ],
+  },
 
   { type: 'heading', content: 'Rule 3 — Verb tense follows the passage’s timeline' },
   {
@@ -109,6 +127,17 @@ export const formStructureAndSenseBlocks = [
     items: [
       { label: 'Right', content: '*Since 2015 the survey has recorded a steady decline.* *Since* marks something that started in the past and still holds, which takes *has* + verb.', variant: 'right' },
       { label: 'Wrong', content: '*Since 2015 the survey recorded a steady decline.* Simple past says finished-and-over; it cannot carry a *since* that reaches into the present.', variant: 'wrong' },
+    ],
+  },
+  {
+    type: 'text',
+    content: 'One tense shape is fixed, and the ear gets it exactly backward: the **past-counterfactual** — an *if* that imagines an alternate past. Its two halves take different forms. The *if*-side takes **had + past participle**; the result-side takes **would have + past participle**. *If the sensor had failed, the alarm would have sounded.* The classic tested error is **would have on both sides** — *if the sensor would have failed…* — because the symmetry sounds balanced. It is wrong: only the result clause speculates with *would have*, while the *if* clause states the alternate past plainly with *had*. One more habit for compound predicates: each verb conjugates for its own slot, so a single shared auxiliary cannot cover two different times — check every verb separately.',
+  },
+  {
+    type: 'comparison',
+    items: [
+      { label: 'Right', content: '*If the funding had arrived on time, the lab would have finished the trial.* The *if*-side takes *had* + participle; only the result-side carries *would have*.', variant: 'right' },
+      { label: 'Wrong', content: '*If the funding would have arrived on time, the lab would have finished the trial.* *Would have* on the *if*-side is the signature error — the *if* clause states the alternate past with *had*, never *would have*.', variant: 'wrong' },
     ],
   },
 
@@ -211,6 +240,17 @@ export const formStructureAndSenseBlocks = [
     items: [
       { label: 'Right', content: '*The wingspan of the condor exceeds that of the golden eagle.* *That of* stands in for "the wingspan of" — measurement against measurement.', variant: 'right' },
       { label: 'Wrong', content: '*The wingspan of the condor exceeds the golden eagle.* This weighs a measurement against a bird.', variant: 'wrong' },
+    ],
+  },
+  {
+    type: 'text',
+    content: 'One quantity decision in this family is fully deterministic — everyday speech blurs it, but the tested standard never does. **Fewer, many,** and *number* go with **count** nouns (things you can count one by one); **less, much,** and *amount* go with **mass** nouns (things you measure but cannot count). The whole test is one question: can you put a number in front of the noun? *Three species* works, so it is *fewer species* / *many species*; *three biodiversity* does not, so it is *less biodiversity* / *much biodiversity*. The trap pairs two near-identical noun phrases in one sentence so the ear cannot separate them — *many species* against *less biodiversity* — each demanding a different word. Run the number test on each noun; ignore what sounds normal.',
+  },
+  {
+    type: 'comparison',
+    items: [
+      { label: 'Right', content: '*The reserve now supports fewer species but no less biodiversity than it did a decade ago.* *Species* counts (you can say *three species*), so *fewer*; *biodiversity* cannot be counted, so *less*.', variant: 'right' },
+      { label: 'Wrong', content: '*The reserve now supports less species but no fewer biodiversity than it did a decade ago.* The number test settles both — *species* is countable and takes *fewer*; *biodiversity* is a mass noun and takes *less*.', variant: 'wrong' },
     ],
   },
 
@@ -320,6 +360,12 @@ export const formStructureAndSenseBlocks = [
     question: 'A choice set reads *has remained / have remained / remains / remain*. What two axes vary, and which do you settle first?',
     answer: 'Number (singular *has remained / remains* against plural *have remained / remain*) and time (perfect against simple present). Settle number first: find the true subject, strike half the set, then let the passage’s timeline pick between the survivors (Rules 1 and 3). **Why:** number is decided by one noun and is silent to the ear — the axis the test most often hides under audible tense noise.',
   },
+  {
+    type: 'checkpointQuestion',
+    number: 7,
+    question: '*Most of the sediment ______ removed before testing began.* Singular or plural verb — and which word decides? Now change *sediment* to *samples*.',
+    answer: 'Singular — *was removed*. *Most* borrows its number from the of-phrase noun, and *sediment* is one mass (Rule 2). Change it to *most of the samples* and the verb flips to *were* — *samples* count. **Why:** *some / most / all* are the one quantifier bucket that reads the of-phrase; *each / every / either* never do.',
+  },
   { type: 'heading', content: 'One-page summary' },
   {
     type: 'table',
@@ -327,7 +373,7 @@ export const formStructureAndSenseBlocks = [
     headers: ['Choice-set signal', 'Rule', 'The check'],
     rows: [
       ['Verb number splits (is / are, was / were)', 'R1', 'Strip the camouflage; the true subject — never the nearest noun — sets the verb'],
-      ['Tricky subject (each, every, a number of, a collective)', 'R2', 'Assign number by grammar: each / every / either singular; and = plural; along with adds nothing'],
+      ['Tricky subject (each, every, a number of, a collective, some / most of…, neither… nor)', 'R2', 'Assign number by grammar: each / every / either singular; and = plural; along with adds nothing; some / most / all take the of-phrase’s number; either… or / neither… nor use the nearer noun'],
       ['Verb time splits (walked / has walked / had walked)', 'R3', 'Match the neighboring verbs unless a cue (since / for, a date, by the time) licenses a marked form'],
       ['Pronoun number splits (it / they, its / their)', 'R4', 'Point at the stated antecedent on the page; copy its written number'],
       ['Pronoun vs. a named noun; bare this / which', 'R5', 'Count the candidates: two, or zero, means the specific noun wins'],
@@ -335,7 +381,7 @@ export const formStructureAndSenseBlocks = [
       ['Opening words differ after an intro phrase', 'R7', 'Name the doer first; it must be the first noun after the comma — head noun, not possessive'],
       ['A list or pair item changes shape', 'R8', 'Find the anchor in fixed text and match its form; word pairs are welded templates'],
       ['Apostrophes shuffle (visitors / visitor’s / visitors’; its / it’s)', 'R9', 'Nouns: the next-word test. Pronouns: expand the contraction and re-read'],
-      ['Second half of a pair swaps; that of / those of appear', 'R10', 'Weigh like against like; the stand-in must match its noun’s number'],
+      ['Second half of a pair swaps; that of / those of appear; fewer vs. less', 'R10', 'Weigh like against like; the stand-in matches its noun’s number; fewer / many for count nouns, less / much for mass (can you put a number in front?)'],
     ],
   },
   {

@@ -238,6 +238,71 @@ export const centralIdeasBlocks = [
     question: 'A choice describes a researcher’s method as *"more accurate than any earlier technique."* The passage praises the method but never compares it to older ones. Keep or cut — and which word made the decision?',
     answer: 'Cut. **Why:** the weakest-word audit fails at *more* — the comparison is a claim the passage never makes, so the choice is unsupported no matter how well the rest of it matches. One unsupported word sinks the whole choice.',
   },
+  { type: 'heading', content: 'Literary passages: poetry and period fiction' },
+  {
+    type: 'text',
+    content: 'The Stage 3 opener gave you the stance for literary excerpts — aggressive literalism, graded by the words on the page. Fiction rewards it directly: track who is present, what each one wants, and what changes between the first line and the last. Poetry needs that same stance plus a short method of its own, because a poem buries its point inside compressed, inverted lines instead of announcing it in a topic sentence. A handful of moves turn a poem back into prose you can grade — and the *supported, not stated* gate from the rest of this chapter applies to verse exactly as it does to a science paragraph.',
+  },
+  {
+    type: 'text',
+    content: 'Start above the poem, not inside it. The italic blurb that frames a literary passage names the author, the era, and the situation — who is speaking, and when. Read it first: it is free orientation, and it occasionally contradicts a choice outright, retiring a distractor before you reach the verse. A choice that assumes a modern setting dies on a blurb that dates the scene two centuries back.',
+  },
+  {
+    type: 'steps',
+    title: 'Reading a poem',
+    items: [
+      'Read the blurb — speaker, era, situation — before the first line.',
+      'Find the turn: the point where the poem shifts — a change of image, tense, who is addressed, or stance. Mark it; what changes across it is usually the point.',
+      'Paraphrase line by line — un-invert the word order, restore the dropped connectives, and say who is doing what to whom in flat prose.',
+      'Take the most modest reading that still accounts for the whole poem: the smallest defensible claim, never the most dramatic or most symbolic.',
+      'Calibrate the tone down — literary attitude is usually quiet and mixed, not the extreme emotion a decoy offers.',
+    ],
+  },
+  { type: 'heading', content: 'Find the turn' },
+  {
+    type: 'text',
+    content: 'Most SAT poems pivot. Somewhere — often at a stanza break, a dash, or a hinge word like *yet*, *now*, or *but* — the poem changes something: the image it dwells on, the tense it speaks in, the person it addresses, or the stance it takes toward its subject. Locate that hinge, because the question usually rides on it. What the poem says *before* the turn and what it says *after* are two halves, and the credited main-idea answer names the relation between them. A poem that opens on a remembered summer and closes *now, the orchard bare* is not about summer and not about the bare orchard — it is about the distance the turn measures between them.',
+  },
+  { type: 'heading', content: 'Paraphrase the lines to plain prose' },
+  {
+    type: 'text',
+    content: 'Before judging a single choice, convert the verse into flat sentences. Poets invert word order and drop the connectives prose spells out, so the raw line resists a quick read. Do the mechanical work first: put the subject back in front of its verb, restore the missing *and*, *because*, or *that*, and state who is doing what to whom. Interpret only after the line is plain — un-invert first, read for meaning second. The paraphrase is what you grade the choices against; a mood you absorbed without paraphrasing is a guess.',
+  },
+  {
+    type: 'comparison',
+    items: [
+      { label: 'Right — un-invert, then interpret', content: 'The line *Long into the frost-bright dark she watched.* Un-inverted: *she watched long into the frost-bright dark.* Plain sentence: a woman stayed awake, watching, late, in the cold. Now a choice can be checked against that flat claim — she was watching, at night, in winter — word by word.', variant: 'right' },
+      { label: 'Wrong — grade by mood', content: 'Reading the same line for atmosphere alone — *cold, lonely, sad* — and picking whichever choice feels the saddest. The line never says lonely or sad; it says she watched, in the cold, late. The feeling was imported; the plain sentence is the only evidence.', variant: 'wrong' },
+    ],
+  },
+  {
+    type: 'keyInsight',
+    content: '**The most modest reading wins.** For an indirect or figurative poem, the credited answer is the smallest claim that still accounts for the *whole* text — never the most dramatic or most symbolic one. This is the chapter’s *supported, not stated* gate applied to verse: a reading you cannot pin to specific words is a guess, however profound it sounds. When two readings both fit, take the plainer one. The poem earns whatever drama it has; you do not add more.',
+  },
+  {
+    type: 'trapCard',
+    title: 'The inflated tone',
+    wrong: '**The inflated tone.** A tone or attitude choice offers a strong emotion — *despairing, ecstatic, furious* — and it feels right because the poem is plainly *about* something emotional. You reach for the vivid word.',
+    correction: 'Literary attitude is almost always muted and mixed — *wistful, wry, ambivalent, fond* — not the extremes the decoys wave. Collect the poem’s actual evaluative words and match their temperature, not your impression. Before reading the choices, bin the mood as mild, moderate, or strong; a poem that is quietly rueful cannot support *despairing*. Calibrate down: on literary tone items the strong-emotion choice is the manufactured trap.',
+  },
+  {
+    type: 'checkpointQuestion',
+    number: 6,
+    question: 'A poem spends three lines on a ship leaving harbor, then breaks to a final line: *and still the lighthouse turns for no one now.* Where is the turn, what changes across it, and why does that decide the question?',
+    answer: 'The turn is the final line — the break from the departing ship to the emptied lighthouse. What changes: the focus shifts from motion and departure to what is left behind, and the tense settles into a bare *now*. **Why it decides the question:** the point of most SAT poems lives in that contrast, so a credited main-idea answer names the relation between the two halves — absence after departure — not either image on its own.',
+  },
+  {
+    type: 'example',
+    difficulty: 'Medium',
+    problem: 'The following is an excerpt from a poem. The speaker describes an older woman alone in a farmhouse kitchen at daybreak.\n\nAt dawn she oiled the hinges one by one,\ncounted the empty pegs along the wall,\nand set two cups, from habit, in the sun —\nthen, catching herself, put back the small\nchipped one, and left the other where it stood.\n\nWhich choice best states the main idea of the text?\n\n(A) The woman is preparing the house to welcome an expected visitor.\n(B) The woman’s morning routine still carries the shape of a companionship that is no longer there.\n(C) The woman resents the chores that fill her solitary mornings.\n(D) The woman has decided to leave the farmhouse for good.',
+    steps: [
+      { label: 'Read the blurb, then find the turn', content: 'The blurb sets the scene: an older woman, alone, at daybreak. The turn is *then, catching herself* — before it she moves on autopilot; after it she corrects one small act. The poem is two halves hinged on that self-correction.' },
+      { label: 'Paraphrase the halves', content: 'Before: she oils the hinges, counts the *empty* pegs, and sets *two* cups *from habit*. After: realizing it, she puts one cup back and leaves the other standing. Flat prose: her morning runs on a routine built for two, and she catches it running that way.' },
+      { label: 'Take the most modest reading', content: 'The smallest claim that covers both halves: the routine still carries the shape of a second person who is not there. The *empty pegs* and the *two cups from habit* support it, and nothing more dramatic is needed to cover the whole poem.' },
+      { label: 'Grade the choices', content: '(A) invents an expected visitor — the cups are *habit*, not preparation, and no guest is named. (C) adds resentment the words never carry, an inflated tone the poem does not license. (D) overreads *left the other where it stood* — that is a cup on a table, not a decision to leave. (B) is the modest reading both halves support.' },
+      { label: 'Answer', content: '**(B).** The turn and the two-cups habit carry the point; the dramatic and the tidy choices were the traps.' },
+    ],
+  },
   { type: 'heading', content: 'One-page summary' },
   {
     type: 'table',

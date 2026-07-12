@@ -25,7 +25,7 @@ export const boundariesBlocks = [
     title: 'How this chapter is built',
     items: [
       '**Stage 1 · Foundations.** What a clause is, complete vs. incomplete, and the one test you will reuse on every question.',
-      '**Stage 2 · The rulebook.** Seven numbered rules, each in the same shape: the rule, a right example, a wrong example, and the why.',
+      '**Stage 2 · The rulebook.** Nine numbered rules, each in the same shape: the rule, a right example, a wrong example, and the why.',
       '**Stage 3 · On the test.** A decision flow that routes you to the right rule, the traps the test sets, worked examples, and a one-page summary.',
     ],
   },
@@ -78,7 +78,7 @@ export const boundariesBlocks = [
   { type: 'heading', content: 'Stage 2 · The rulebook' },
   {
     type: 'text',
-    content: 'Seven rules cover every Boundaries question. Each follows the same shape: the **rule**, a **right** example, a **wrong** example, and the **why**.',
+    content: 'Nine rules cover every Boundaries question. Each follows the same shape: the **rule**, a **right** example, a **wrong** example, and the **why**.',
   },
 
   { type: 'heading', content: 'Rule 1 — Two complete thoughts take a strong join' },
@@ -154,6 +154,27 @@ export const boundariesBlocks = [
       { label: 'Essential — no commas', content: '*The runner who finished first set a record.* Remove "who finished first" and you no longer know which runner.', variant: 'right' },
     ],
   },
+  {
+    type: 'text',
+    content: 'The remove-it test settles most items, but three special cases need a sharper rule, because the commas here are a claim about **meaning**, not a pause. First, *that* versus *which*. **A restrictive *that* never takes a comma** — *that* only ever narrows which thing you mean, so no comma may touch it. Switch to *which* or *who* with commas and you flip the sentence into an aside: *the results that surprised us* points to a specific subset, while *the results, which surprised us,* means all of them, surprising by the way.',
+  },
+  {
+    type: 'text',
+    content: 'Second, a name after a noun rides on **uniqueness.** Ask: in this sentence, does the noun already point to exactly one thing? If yes, the name is *extra* and takes commas — *her only sister, Maren, moved abroad* (there is just one sister, so *Maren* only adds a label). If the noun could be many and the name is what picks one out, the name is *essential* and takes **no** commas — *the poet Maren Vale* (of many poets, the name does the choosing). Third, a **title used to pick out a person takes no commas**: *microbiologist Ana Reyes*, *the novelist Toni Morrison* — the label restricts, so it attaches bare.',
+  },
+  {
+    type: 'comparison',
+    items: [
+      { label: 'Essential name — no commas', content: '*The composer Lia Ferro reworked the finale.* Of many composers, the name picks out one, so it is essential — no commas, and no lone comma before *Lia* either.', variant: 'right' },
+      { label: 'Extra name — comma pair', content: '*The panel had one dissenter, Judge Ortega, who wrote separately.* Only one dissenter, so the name just labels her — wrap it in a matching pair.', variant: 'right' },
+    ],
+  },
+  {
+    type: 'trapCard',
+    title: 'The single comma before a name',
+    wrong: '**The single comma before a name.** A choice drops one lone comma between a noun and the name that follows it — *the microbiologist, Ana Reyes analyzed the culture* — and it reads like a polite pause before a name, so you accept it.',
+    correction: 'One comma before a name is always wrong. A name is either essential (bare, no commas) or extra (a matching pair, comma…comma) — never half-bracketed. Ask the uniqueness question first: many microbiologists means the name restricts, so no comma at all. If the sentence truly means just one, the name needs a comma on *both* sides, not one.',
+  },
 
   { type: 'heading', content: 'Rule 6 — Semicolons separate list items that contain commas' },
   {
@@ -189,6 +210,32 @@ export const boundariesBlocks = [
     number: 6,
     question: '*The engineer who designed the bridge and later inspected it, kept detailed notes.* The comma feels natural. What job is it doing, and does it survive?',
     answer: 'It has no job — delete it. It is a lone comma between the subject (*the engineer who designed the bridge and later inspected it*) and its verb (*kept*). **Why:** a long subject invites a spoken pause, but a single comma may never separate subject from verb; only a complete two-comma aside can sit there.',
+  },
+
+  { type: 'heading', content: 'Rule 8 — Trailing modifiers and asides attach by meaning' },
+  {
+    type: 'text',
+    content: 'Rule 2 covered the opener seam. The other half is what trails **after** a complete sentence. Three tails earn a comma. A **participial tail** — a phrase opening with an *-ing* or *-ed* word that comments on the whole clause — attaches with a comma: *The coalition held, surprising analysts.* The comma is what tells the reader the phrase modifies the whole sentence, not the nearest noun. A **trailing *which* clause** is always an aside and hangs off a comma: *The vote passed, which no one had predicted.* And the exception to remember: most trailing dependent clauses drop the comma, **but a strong-contrast opener — *although*, *whereas*, or *while* meaning *whereas* — keeps its comma** even at the tail.',
+  },
+  {
+    type: 'comparison',
+    items: [
+      { label: 'Right', content: '*The trial succeeded, exceeding every projection.* Comma before the *-ing* tail that comments on the whole clause. Also right: *Funding rose, although enrollment fell.* — the strong-contrast tail keeps its comma.', variant: 'right' },
+      { label: 'Wrong', content: '*The trial succeeded exceeding every projection.* No comma, so the tail glues to *succeeded* and blurs into the sentence instead of commenting on it.', variant: 'wrong' },
+    ],
+  },
+
+  { type: 'heading', content: 'Rule 9 — An embedded question ends in a period' },
+  {
+    type: 'text',
+    content: 'A sentence can *contain* a question without *being* one. When a questioning clause is folded inside a larger statement — introduced by *whether*, *if*, *why*, *how*, or *what* — it uses **statement word order and ends with a period, not a question mark.** *She asked whether the samples had thawed.* is an assertion: the sentence tells you what she asked, so it takes a period. Only a true, stand-alone question takes *?* — *Had the samples thawed?* The end mark punctuates what the whole sentence **does**, not what its topic is about. A stem soaked in uncertainty is not a reason to reach for a question mark.',
+  },
+  {
+    type: 'comparison',
+    items: [
+      { label: 'Right', content: '*The report examines why the levels dropped.* Statement order, embedded *why* clause, period.', variant: 'right' },
+      { label: 'Wrong', content: '*The report examines why did the levels drop?* Inverted order and a question mark inside a sentence that only asserts.', variant: 'wrong' },
+    ],
   },
 
   // ── Stage 3 · On the test ──────────────────────────────────────────────
@@ -290,6 +337,12 @@ export const boundariesBlocks = [
     question: 'Scanning a choice set, you spot both *"trail; the"* and *"trail. The"* among the four options. Before doing any grammar at all, what do you know?',
     answer: '**Both are wrong.** A semicolon and a period are the same join in two costumes, and only one choice can be correct — twins cancel (the equivalence check). The answer is one of the other two choices; recount the clauses to pick between them.',
   },
+  {
+    type: 'checkpointQuestion',
+    number: 7,
+    question: 'Two sentences: (a) *The novel ______ that won the prize sold out overnight.* (b) *The city hired one auditor ______ Dana Cole ______ to review the books.* Where do commas go, and where do they stay away?',
+    answer: 'In **(a)** the answer is *no comma* — *that* is restrictive, so it never takes a comma; the clause tells you which novel. In **(b)** the answer is a **matching comma pair** around *Dana Cole*: there is only *one* auditor, so the name is extra, not the thing that picks the auditor out — one auditor, one comma before and one after (a lone comma before the name would be wrong). **Why this matters:** these commas are a claim about meaning — *that* narrows, and a name is bracketed only when the noun already points to exactly one thing.',
+  },
   { type: 'heading', content: 'One-page summary' },
   {
     type: 'table',
@@ -303,6 +356,8 @@ export const boundariesBlocks = [
       ['R5', 'Removable extra info', 'Commas around it; essential info takes none (remove-it test)'],
       ['R6', 'List items containing commas', 'Semicolons between items'],
       ['R7', 'Any other comma in a choice', 'Guilty until employed — no nameable job means delete it (never between subject and verb, never touching a preposition, never in a shared-subject pair)'],
+      ['R8', 'Trailing tail after a complete sentence', 'Comma before an -ing/-ed tail or a trailing which-clause; strong-contrast tail (although/whereas) keeps its comma'],
+      ['R9', 'Embedded question inside a statement', 'Statement word order and a period — a question mark marks only a true stand-alone question'],
     ],
   },
   {
