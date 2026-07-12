@@ -10,7 +10,7 @@
  *
  * Keyed by chapter id. Each body file exports one blocks array following the
  * locked textbook template (docs/LEARN_TEXTBOOK_OVERHAUL_PLAN.md §4), gated
- * by src/data/chapters/__tests__/rwBodies.test.js.
+ * by src/data/chapters/__tests__/bodies.test.js.
  */
 
 import { boundariesBlocks } from './boundaries';
@@ -24,8 +24,18 @@ import { rhetoricalSynthesisBlocks } from './rhetoricalSynthesis';
 import { textStructureAndPurposeBlocks } from './textStructureAndPurpose';
 import { transitionsBlocks } from './transitions';
 import { wordsInContextBlocks } from './wordsInContext';
+import { inequalitiesBlocks } from './inequalities';
+import { nonlinearEquationsBlocks } from './nonlinearEquations';
+import { twoVariableDataBlocks } from './twoVariableData';
+import { statisticalClaimsBlocks } from './statisticalClaims';
 
 export const CHAPTER_BODIES = {
+  // Math (source.kind 'body')
+  'math-inequalities': inequalitiesBlocks,
+  'math-nonlinear-equations': nonlinearEquationsBlocks,
+  'math-two-variable-data': twoVariableDataBlocks,
+  'math-statistical-claims': statisticalClaimsBlocks,
+  // Reading & Writing
   'rw-central-ideas': centralIdeasBlocks,
   'rw-inferences': inferencesBlocks,
   'rw-command-of-evidence-textual': commandOfEvidenceTextualBlocks,

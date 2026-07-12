@@ -14,16 +14,21 @@
  * composeChapterBlocks.test.js pins the estimate to the data.
  */
 
-/** @type {Array<{id:string,unitId:string,title:string,blurb:string,readMinutes:number,cbSkills:string[],source:{kind:'contentTab',moduleId:string}}>} */
+/**
+ * Most math chapters wrap an existing lesson module (source.kind 'contentTab');
+ * chapters authored to the locked textbook template carry a body id instead
+ * (source.kind 'body'), resolved from ./bodies via ChapterReader.
+ * @type {Array<{id:string,unitId:string,title:string,blurb:string,readMinutes:number,cbSkills:string[],source:({kind:'contentTab',moduleId:string}|{kind:'body',bodyId:string})}>}
+ */
 export const mathChapters = [
   // ── Algebra ────────────────────────────────────────────────────────────────
   {
     id: 'math-linear-equations',
     unitId: 'math-algebra',
-    title: 'Linear Equations & Inequalities',
-    blurb: 'Solve, rearrange, and interpret lines and inequalities across one and two variables.',
+    title: 'Linear Equations',
+    blurb: 'Solve, rearrange, and interpret lines across one and two variables.',
     readMinutes: 21,
-    cbSkills: ['linear-equations-one-variable', 'linear-equations-two-variables', 'linear-inequalities'],
+    cbSkills: ['linear-equations-one-variable', 'linear-equations-two-variables'],
     source: { kind: 'contentTab', moduleId: 'linear-equations' },
   },
   {
@@ -43,6 +48,15 @@ export const mathChapters = [
     readMinutes: 16,
     cbSkills: ['linear-systems'],
     source: { kind: 'contentTab', moduleId: 'systems' },
+  },
+  {
+    id: 'math-inequalities',
+    unitId: 'math-algebra',
+    title: 'Inequalities & Absolute Value',
+    blurb: 'Solve one- and two-variable inequalities, compound chains, and absolute value read as distance — with the one rule that flips the sign.',
+    readMinutes: 17,
+    cbSkills: ['linear-inequalities'],
+    source: { kind: 'body', bodyId: 'math-inequalities' },
   },
 
   // ── Advanced Math ───────────────────────────────────────────────────────────
@@ -82,6 +96,15 @@ export const mathChapters = [
     cbSkills: ['nonlinear-functions'],
     source: { kind: 'contentTab', moduleId: 'transformations' },
   },
+  {
+    id: 'math-nonlinear-equations',
+    unitId: 'math-advanced',
+    title: 'Radicals, Rationals & Hidden Quadratics',
+    blurb: 'Solve radical and rational equations, hidden quadratics, remainders, and line-parabola systems — always checking against the original.',
+    readMinutes: 18,
+    cbSkills: ['nonlinear-equations'],
+    source: { kind: 'body', bodyId: 'math-nonlinear-equations' },
+  },
 
   // ── Problem-Solving and Data Analysis ───────────────────────────────────────
   {
@@ -97,10 +120,28 @@ export const mathChapters = [
     id: 'math-statistics',
     unitId: 'math-problem-solving',
     title: 'Statistics & Data',
-    blurb: 'Interpret center and spread, read scatterplots, and reason about lines of best fit.',
+    blurb: 'Interpret center and spread, read distributions, and reason about probability and margin of error.',
     readMinutes: 24,
-    cbSkills: ['one-variable-data', 'two-variable-data'],
+    cbSkills: ['one-variable-data', 'probability', 'inference-margin-of-error'],
     source: { kind: 'contentTab', moduleId: 'statistics' },
+  },
+  {
+    id: 'math-two-variable-data',
+    unitId: 'math-problem-solving',
+    title: 'Scatterplots & Data Models',
+    blurb: 'Read scatterplots and lines of best fit, tell predicted from actual, and choose linear vs exponential models.',
+    readMinutes: 16,
+    cbSkills: ['two-variable-data'],
+    source: { kind: 'body', bodyId: 'math-two-variable-data' },
+  },
+  {
+    id: 'math-statistical-claims',
+    unitId: 'math-problem-solving',
+    title: 'Studies, Samples & Statistical Claims',
+    blurb: 'Judge what a study can and cannot conclude — sampling, cause vs association, and margin of error.',
+    readMinutes: 15,
+    cbSkills: ['statistical-claims', 'inference-margin-of-error'],
+    source: { kind: 'body', bodyId: 'math-statistical-claims' },
   },
   {
     id: 'math-dimensional-analysis',

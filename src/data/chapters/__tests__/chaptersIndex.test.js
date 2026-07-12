@@ -25,10 +25,10 @@ describe('LEARN_UNITS', () => {
     expect(LEARN_SECTIONS.map((s) => s.id)).toEqual(['strategy', 'math', 'rw']);
   });
 
-  test('the four math units carry the 14 math chapters', () => {
+  test('the four math units carry the 18 math chapters', () => {
     const mathIds = LEARN_UNITS.filter((u) => u.section === 'math').flatMap((u) => u.chapterIds);
-    expect(mathIds).toHaveLength(14);
-    expect(new Set(mathIds).size).toBe(14); // no dupes
+    expect(mathIds).toHaveLength(18);
+    expect(new Set(mathIds).size).toBe(18); // no dupes
   });
 });
 
@@ -58,10 +58,21 @@ describe('getChapter + ALL_CHAPTERS', () => {
 
 describe('math chapter contentTab wiring', () => {
   test('every contentTab-source moduleId exists in allContentTabs', () => {
-    mathChapters.forEach((c) => {
-      expect(c.source.kind).toBe('contentTab');
-      expect(allContentTabs[c.source.moduleId]).toBeTruthy();
-      expect(allContentTabs[c.source.moduleId].sections.learn).toBeTruthy();
-    });
+    mathChapters
+      .filter((c) => c.source.kind === 'contentTab')
+      .forEach((c) => {
+        expect(allContentTabs[c.source.moduleId]).toBeTruthy();
+        expect(allContentTabs[c.source.moduleId].sections.learn).toBeTruthy();
+      });
+  });
+
+  test('every body-source math chapter has a registered body', () => {
+    const { CHAPTER_BODIES } = require('../bodies');
+    mathChapters
+      .filter((c) => c.source.kind === 'body')
+      .forEach((c) => {
+        expect(Array.isArray(CHAPTER_BODIES[c.source.bodyId])).toBe(true);
+        expect(CHAPTER_BODIES[c.source.bodyId].length).toBeGreaterThan(0);
+      });
   });
 });

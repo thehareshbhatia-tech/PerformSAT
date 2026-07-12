@@ -10,6 +10,10 @@
 import { composeChapterSection } from '../composeChapterBlocks';
 import { mathChapters } from '../mathChapters';
 
+// Only contentTab-source chapters compose from lesson tabs; body-source math
+// chapters (source.kind 'body') are validated by bodies.test.js instead.
+const composedChapters = mathChapters.filter((c) => c.source.kind === 'contentTab');
+
 /** Recursively extracts every string value from a block tree into one string. */
 const extractText = (node) => {
   if (typeof node === 'string') return ` ${node}`;
@@ -37,7 +41,7 @@ describe('composeChapterSection', () => {
   });
 
   test('every math chapter composes a non-trivial body with checkpoints', () => {
-    mathChapters.forEach((c) => {
+    composedChapters.forEach((c) => {
       const s = statsFor(c.source.moduleId);
       expect(s.blocks).toBeGreaterThan(5);
       // Floor of 1500 chars: equivalent-expressions and radians-degrees are
@@ -52,7 +56,7 @@ describe('composeChapterSection', () => {
   });
 
   test('readMinutes in mathChapters roughly matches composed volume (~180wpm)', () => {
-    mathChapters.forEach((c) => {
+    composedChapters.forEach((c) => {
       const s = statsFor(c.source.moduleId);
       const estimated = Math.max(1, Math.round(s.words / 180));
       // Allow slack — readMinutes is an editorial estimate, not a formula.
