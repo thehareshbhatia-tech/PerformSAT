@@ -1,17 +1,18 @@
 /**
  * Learn tab — Reading & Writing chapters (metadata only).
  *
- * One chapter per College Board R&W skill (11 total), grouped into the four
- * official R&W units. Every chapter is a full teach-from-zero textbook
- * chapter following the locked template (docs/LEARN_TEXTBOOK_OVERHAUL_PLAN.md
- * §4): roadmap → foundations → numbered method/rulebook with right/wrong
- * pairs → decision flow, traps, worked examples, checkpoints, and a one-page
- * summary. Grounded in the SAT knowledge graph (knowledge/graph/rw).
+ * One focused lesson per SAT skill, grouped into the four official R&W units
+ * (Reading: Information & Ideas, Craft & Structure; Writing & Grammar:
+ * Expression of Ideas, Standard English Conventions). The Writing & Grammar
+ * lessons follow the LEAN "review / cheat-sheet" style (short sectioned
+ * teaching + a couple of worked examples and check-yourself questions); the
+ * Reading lessons are pending the same lean rewrite. Grounded in the SAT
+ * knowledge graph (knowledge/graph/rw).
  *
- * The heavy chapter BODIES live in ./bodies/ (source.kind 'body',
- * keyed by chapter id) and are dynamic-imported by ChapterReader — keep this
- * module light and NEVER import the bodies corpus from here.
- * `unitId` values match index.js UNIT_REGISTRY (section 'rw').
+ * The lesson BODIES live in ./bodies/ (source.kind 'body', keyed by chapter
+ * id) and are dynamic-imported by ChapterReader — keep this module light and
+ * NEVER import the bodies corpus from here. `unitId` values match the reading
+ * and writing units in index.js UNIT_REGISTRY.
  */
 
 export const rwChapters = [
@@ -101,8 +102,8 @@ export const rwChapters = [
     id: 'rw-transitions',
     unitId: 'rw-expression-ideas',
     title: 'Transitions',
-    blurb: 'Choose the linking word that matches the real logical relationship between two sentences.',
-    readMinutes: 18,
+    blurb: 'Predict the relationship between two sentences, then match the linking word to it.',
+    readMinutes: 4,
     cbSkills: ['transitions'],
     source: { kind: 'body', bodyId: 'rw-transitions' },
   },
@@ -111,33 +112,84 @@ export const rwChapters = [
     id: 'rw-rhetorical-synthesis',
     unitId: 'rw-expression-ideas',
     title: 'Rhetorical Synthesis',
-    blurb: 'Use a set of bulleted notes to accomplish one specific goal stated in the question.',
-    readMinutes: 15,
+    blurb: 'Read the goal first, treat it as a checklist, and pick the sentence that hits every part.',
+    readMinutes: 4,
     cbSkills: ['rhetorical-synthesis'],
     source: { kind: 'body', bodyId: 'rw-rhetorical-synthesis' },
   },
 
   // ══════════════════════════════════════════════════════════════════════
   // UNIT: Standard English Conventions  (rw-conventions)
+  // One focused lesson per grammar skill.
   // ══════════════════════════════════════════════════════════════════════
 
   {
-    id: 'rw-boundaries',
+    id: 'rw-sentence-boundaries',
     unitId: 'rw-conventions',
-    title: 'Boundaries (Punctuation)',
-    blurb: 'End, join, and separate the parts of a sentence with rules you can prove: count the clauses, look up the mark, cancel the twins.',
-    readMinutes: 16,
+    title: 'Sentence Boundaries',
+    blurb: 'Join or split sentences correctly: count the complete thoughts, then pick period, semicolon, or comma + FANBOYS.',
+    readMinutes: 4,
     cbSkills: ['boundaries'],
-    source: { kind: 'body', bodyId: 'rw-boundaries' },
+    source: { kind: 'body', bodyId: 'rw-sentence-boundaries' },
   },
 
   {
-    id: 'rw-form-structure-and-sense',
+    id: 'rw-commas',
     unitId: 'rw-conventions',
-    title: 'Form, Structure & Sense',
-    blurb: 'Fix verbs, subject-verb agreement, pronouns, modifiers, and parallel form so the sentence reads correctly.',
-    readMinutes: 20,
+    title: 'Commas & Nonessential Elements',
+    blurb: 'The remove-it test: extra info gets commas, essential info gets none — and every comma needs a job.',
+    readMinutes: 4,
+    cbSkills: ['boundaries'],
+    source: { kind: 'body', bodyId: 'rw-commas' },
+  },
+
+  {
+    id: 'rw-subject-verb-agreement',
+    unitId: 'rw-conventions',
+    title: 'Subject-Verb Agreement',
+    blurb: 'Find the real subject after the sentence hides it, then match the verb to it — never to the nearest noun.',
+    readMinutes: 3,
     cbSkills: ['form-structure-and-sense'],
-    source: { kind: 'body', bodyId: 'rw-form-structure-and-sense' },
+    source: { kind: 'body', bodyId: 'rw-subject-verb-agreement' },
+  },
+
+  {
+    id: 'rw-pronouns',
+    unitId: 'rw-conventions',
+    title: 'Pronouns',
+    blurb: 'Make every pronoun match its noun in number and point clearly to exactly one thing.',
+    readMinutes: 3,
+    cbSkills: ['form-structure-and-sense'],
+    source: { kind: 'body', bodyId: 'rw-pronouns' },
+  },
+
+  {
+    id: 'rw-verbs',
+    unitId: 'rw-conventions',
+    title: 'Verbs: Tense & Form',
+    blurb: 'Match the verb tense to the sentence’s own time markers, not to what sounds right.',
+    readMinutes: 3,
+    cbSkills: ['form-structure-and-sense'],
+    source: { kind: 'body', bodyId: 'rw-verbs' },
+  },
+
+  {
+    id: 'rw-modifiers-parallelism',
+    unitId: 'rw-conventions',
+    title: 'Modifiers & Parallelism',
+    blurb: 'Keep a describing phrase next to what it describes, and match the form of items in a list or comparison.',
+    readMinutes: 4,
+    cbSkills: ['form-structure-and-sense'],
+    source: { kind: 'body', bodyId: 'rw-modifiers-parallelism' },
+  },
+
+  {
+    id: 'rw-apostrophes',
+    unitId: 'rw-conventions',
+    title: 'Apostrophes & Possessives',
+    blurb: 'Tell plural from possessive, and its from it’s, with two quick tests.',
+    readMinutes: 3,
+    cbSkills: ['form-structure-and-sense'],
+    source: { kind: 'body', bodyId: 'rw-apostrophes' },
   },
 ];

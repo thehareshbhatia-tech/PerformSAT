@@ -1,12 +1,11 @@
 /**
- * Quality gate for the textbook chapter bodies corpus (R&W + math).
+ * Quality gate for the Learn-tab lesson bodies corpus (R&W + math).
  *
- * Pins the locked chapter template (docs/LEARN_TEXTBOOK_OVERHAUL_PLAN.md §4):
- * every rebuilt chapter must carry the full spine — headings (roadmap through
- * one-page summary), a numbered method/rulebook, right/wrong comparisons,
- * multiple worked examples, traps, checkpoints, and a summary table — in
- * block types the renderer actually supports, with no low-signal filler, no
- * emojis, and no reference-book fingerprints.
+ * Pins the LEAN "review / cheat-sheet" contract (adopted 2026-07-12, replacing
+ * the old dense-textbook template): each body is a focused per-skill lesson —
+ * short sectioned teaching in plain language, then a couple of worked examples
+ * and check-yourself questions — in block types the renderer actually supports,
+ * with no low-signal filler, no emojis, and no reference-book fingerprints.
  */
 
 import { CHAPTER_BODIES } from '../bodies';
@@ -42,7 +41,7 @@ const REQUIRED_FIELDS = {
 // Source-book fingerprints that must never appear (originality invariant from
 // knowledge/SCHEMA.md). Checked case-insensitively against all body text.
 const FORBIDDEN_SOURCES = [
-  /meltzer/i, /erica\b/i, /1600\.io/i, /orange book/i, /college panda/i,
+  /meltzer/i, /\berica\b/i, /1600\.io/i, /orange book/i, /college panda/i,
   /\bpanda\b/i, /barron/i, /kaplan/i, /princeton review/i, /khan academy/i,
 ];
 
@@ -90,19 +89,19 @@ describe.each(bodyIds)('bodies template contract: %s', (bodyId) => {
     });
   });
 
-  test('carries the full template spine', () => {
+  test('carries the lean review spine', () => {
     const count = (type) => blocks.filter((b) => b.type === type).length;
-    expect(blocks.length).toBeGreaterThanOrEqual(25);      // real chapter, not a stub
-    expect(count('heading')).toBeGreaterThanOrEqual(5);    // staged structure
-    expect(count('steps')).toBeGreaterThanOrEqual(2);      // roadmap + decision flow
-    expect(count('comparison')).toBeGreaterThanOrEqual(3); // right/wrong pairs
-    expect(count('example')).toBeGreaterThanOrEqual(3);    // 3-5 worked examples
-    expect(count('trapCard')).toBeGreaterThanOrEqual(2);   // trap catalog
-    expect(count('checkpointQuestion')).toBeGreaterThanOrEqual(4);
-    expect(count('table')).toBeGreaterThanOrEqual(1);      // one-page summary
+    // Lean "review / cheat-sheet" contract (replaced the old dense-textbook
+    // spine on 2026-07-12): a focused per-skill lesson teaches in short
+    // sections, then lets the student practice. No forced comparison grids,
+    // trap-card catalogs, or summary tables.
+    expect(blocks.length).toBeGreaterThanOrEqual(8);        // a real lesson, not a stub
+    expect(count('heading')).toBeGreaterThanOrEqual(3);     // sectioned teaching
+    expect(count('example')).toBeGreaterThanOrEqual(2);     // 2-3 worked examples
+    expect(count('checkpointQuestion')).toBeGreaterThanOrEqual(2); // check-yourself
   });
 
-  test('worked examples span difficulty and carry solution steps', () => {
+  test('worked examples carry a valid difficulty and solution steps', () => {
     const examples = blocks.filter((b) => b.type === 'example');
     examples.forEach((ex) => {
       expect(['Easy', 'Medium', 'Hard']).toContain(ex.difficulty);
@@ -112,7 +111,6 @@ describe.each(bodyIds)('bodies template contract: %s', (bodyId) => {
         expect(typeof s.content).toBe('string');
       });
     });
-    expect(new Set(examples.map((e) => e.difficulty)).size).toBeGreaterThanOrEqual(2);
   });
 
   test('no low-signal filler phrasing', () => {

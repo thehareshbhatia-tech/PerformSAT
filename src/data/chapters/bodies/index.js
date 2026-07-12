@@ -13,17 +13,24 @@
  * by src/data/chapters/__tests__/bodies.test.js.
  */
 
-import { boundariesBlocks } from './boundaries';
 import { centralIdeasBlocks } from './centralIdeas';
 import { commandOfEvidenceQuantitativeBlocks } from './commandOfEvidenceQuantitative';
 import { commandOfEvidenceTextualBlocks } from './commandOfEvidenceTextual';
 import { crossTextConnectionsBlocks } from './crossTextConnections';
-import { formStructureAndSenseBlocks } from './formStructureAndSense';
 import { inferencesBlocks } from './inferences';
-import { rhetoricalSynthesisBlocks } from './rhetoricalSynthesis';
 import { textStructureAndPurposeBlocks } from './textStructureAndPurpose';
-import { transitionsBlocks } from './transitions';
 import { wordsInContextBlocks } from './wordsInContext';
+// Grammar / Writing — lean per-skill lessons (replaced the dense boundaries +
+// formStructureAndSense + transitions + rhetoricalSynthesis bodies 2026-07-12)
+import { gTransitionsBlocks } from './gTransitions';
+import { gRhetoricalSynthesisBlocks } from './gRhetoricalSynthesis';
+import { gSentenceBoundariesBlocks } from './gSentenceBoundaries';
+import { gCommasBlocks } from './gCommas';
+import { gSubjectVerbAgreementBlocks } from './gSubjectVerbAgreement';
+import { gPronounsBlocks } from './gPronouns';
+import { gVerbsBlocks } from './gVerbs';
+import { gModifiersParallelismBlocks } from './gModifiersParallelism';
+import { gApostrophesBlocks } from './gApostrophes';
 import { inequalitiesBlocks } from './inequalities';
 import { nonlinearEquationsBlocks } from './nonlinearEquations';
 import { twoVariableDataBlocks } from './twoVariableData';
@@ -43,7 +50,7 @@ export const CHAPTER_BODIES = {
   'math-lines-angles': linesAnglesBlocks,
   'math-solving-equations': solvingEquationsBlocks,
   'math-equivalent-expressions': expressionsBlocks,
-  // Reading & Writing
+  // Reading (still dense — lean rewrite pending in a later wave)
   'rw-central-ideas': centralIdeasBlocks,
   'rw-inferences': inferencesBlocks,
   'rw-command-of-evidence-textual': commandOfEvidenceTextualBlocks,
@@ -51,8 +58,14 @@ export const CHAPTER_BODIES = {
   'rw-words-in-context': wordsInContextBlocks,
   'rw-text-structure-and-purpose': textStructureAndPurposeBlocks,
   'rw-cross-text-connections': crossTextConnectionsBlocks,
-  'rw-transitions': transitionsBlocks,
-  'rw-rhetorical-synthesis': rhetoricalSynthesisBlocks,
-  'rw-boundaries': boundariesBlocks,
-  'rw-form-structure-and-sense': formStructureAndSenseBlocks,
+  // Writing & Grammar — lean per-skill lessons
+  'rw-transitions': gTransitionsBlocks,
+  'rw-rhetorical-synthesis': gRhetoricalSynthesisBlocks,
+  'rw-sentence-boundaries': gSentenceBoundariesBlocks,
+  'rw-commas': gCommasBlocks,
+  'rw-subject-verb-agreement': gSubjectVerbAgreementBlocks,
+  'rw-pronouns': gPronounsBlocks,
+  'rw-verbs': gVerbsBlocks,
+  'rw-modifiers-parallelism': gModifiersParallelismBlocks,
+  'rw-apostrophes': gApostrophesBlocks,
 };
