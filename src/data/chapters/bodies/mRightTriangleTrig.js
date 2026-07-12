@@ -18,7 +18,7 @@ export const mRightTriangleTrigBlocks = [
   { type: 'heading', content: 'The three ratios' },
   {
     type: 'text',
-    content: 'Pick one acute angle. Every side is named **relative to that angle**: the side across from it is the **opposite**, the side touching it (that is not the hypotenuse) is the **adjacent**, and the longest side — across from the right angle — is always the **hypotenuse**.',
+    content: 'Pick one acute angle to work from. Every side is named **relative to that angle**: the side across from it is the **opposite**, the side touching it (that is not the hypotenuse) is the **adjacent**, and the longest side — across from the right angle — is always the **hypotenuse**. This naming is the whole game, because each ratio is just a fixed pairing of two of these sides. Get the labels right for your chosen angle and picking sine, cosine, or tangent becomes automatic.',
   },
   {
     type: 'formulaGrid',
@@ -53,7 +53,7 @@ export const mRightTriangleTrigBlocks = [
   { type: 'heading', content: 'The cofunction shortcut' },
   {
     type: 'text',
-    content: 'The two acute angles of a right triangle add to $90°$ — and one angle\'s opposite side is the other angle\'s adjacent side. That gives the identity $\\sin\\theta = \\cos(90° - \\theta)$.',
+    content: 'The two acute angles of a right triangle add to $90°$, so they are complementary. Now notice that one angle\'s **opposite** side is the other angle\'s **adjacent** side — the very same leg, just seen from the other corner. That swap is exactly why the sine of one angle equals the cosine of the other, which gives the identity $\\sin\\theta = \\cos(90° - \\theta)$.',
   },
   {
     type: 'tip',
@@ -82,6 +82,16 @@ export const mRightTriangleTrigBlocks = [
   },
   {
     type: 'example',
+    difficulty: 'Medium',
+    problem: 'From a point $30$ feet from the base of a tree, the angle of elevation to the top is $40°$. Which expression gives the tree\'s height $h$?\n\n(A) $30\\tan(40°)$\n(B) $30\\sin(40°)$\n(C) $\\dfrac{30}{\\tan(40°)}$',
+    steps: [
+      { label: 'Name the sides', content: 'The height is **opposite** the $40°$ angle; the $30$-foot ground distance is **adjacent** to it.' },
+      { label: 'Choose the ratio', content: 'Opposite over adjacent is tangent: $\\tan(40°) = \\dfrac{h}{30}$.' },
+      { label: 'Solve for h', content: 'Multiply both sides by $30$: $h = 30\\tan(40°)$ → **(A)**.' },
+    ],
+  },
+  {
+    type: 'example',
     difficulty: 'Hard',
     problem: 'For acute angles, $\\sin(2x + 10)° = \\cos(3x - 5)°$. What is the value of $x$?',
     steps: [
@@ -102,6 +112,11 @@ export const mRightTriangleTrigBlocks = [
     type: 'checkpointQuestion',
     question: 'If $\\sin(x°) = \\cos(y°)$ and both angles are acute, what is $x + y$?',
     answer: '**$90$.** By the cofunction identity the two angles are complementary, so they add to $90$ — no triangle or calculator needed.',
+  },
+  {
+    type: 'checkpointQuestion',
+    question: 'In a right triangle, angle $\\theta$ has opposite side $7$ and adjacent side $24$. What is $\\tan\\theta$, and what is the hypotenuse?',
+    answer: '$\\tan\\theta = \\dfrac{\\text{opp}}{\\text{adj}} = \\dfrac{7}{24}$. The hypotenuse is the $7\\text{-}24\\text{-}25$ triple (or $\\sqrt{7^2 + 24^2} = \\sqrt{625} = 25$), so it is $25$.',
   },
 
   {

@@ -26,7 +26,7 @@ export const gSentenceBoundariesBlocks = [
   { type: 'heading', content: 'Joining two complete sentences: three legal moves' },
   {
     type: 'text',
-    content: 'When there is a complete sentence on **each** side of the seam, you have exactly three ways to join them, and only three: a **period**, a **semicolon**, or a **comma + a FANBOYS word** (*and, but, or, so, for, nor, yet*). A comma by itself is not on that list.',
+    content: 'When there is a complete sentence on **each** side of the seam, you have exactly three ways to join them, and only three: a **period**, a **semicolon**, or a **comma + a FANBOYS word** (*and, but, or, so, for, nor, yet*). Your ear resists the period because the two ideas feel connected — but connection is never a license to use a lone comma. The semicolon exists for exactly this case (two complete sentences that belong together), and the comma + FANBOYS does the same job while naming the relationship out loud. A comma by itself is not on that list.',
   },
   {
     type: 'table',
@@ -98,6 +98,17 @@ export const gSentenceBoundariesBlocks = [
     ],
   },
 
+  {
+    type: 'example',
+    difficulty: 'Medium',
+    problem: 'Although the recipe looked complicated ______ took only twenty minutes to prepare.\n\n(A) , it\n(B) ; it\n(C) it',
+    steps: [
+      { label: 'Count the sides', content: '*Although the recipe looked complicated* opens with *although*, so it is **incomplete**. *it took only twenty minutes to prepare* is a complete sentence.' },
+      { label: 'One side incomplete → comma', content: 'An opening dependent clause attaches to the complete sentence that follows with a **comma** → **(A)**.' },
+      { label: 'Kill the rest', content: '(B) a semicolon demands a complete sentence on its *left*, but the *Although* clause is a fragment. (C) glues the two pieces with no mark at all.' },
+    ],
+  },
+
   { type: 'heading', content: 'Check yourself' },
   {
     type: 'checkpointQuestion',
@@ -108,6 +119,11 @@ export const gSentenceBoundariesBlocks = [
     type: 'checkpointQuestion',
     question: 'Two of the four answer choices are "word. Next" and "word; next." Can either one be correct? Why?',
     answer: '**No — both are wrong.** A period and a semicolon are the same move (a full stop between two complete sentences), so if one worked the other would too. A question has a single answer, so twin choices cancel each other out.',
+  },
+  {
+    type: 'checkpointQuestion',
+    question: 'Because the trail was icy, the rangers closed it for the weekend. Is that comma legal, or a splice?',
+    answer: '**Legal.** *Because the trail was icy* is an incomplete piece (it opens with *because*), and an opening dependent clause attaches to the complete sentence that follows with a comma. A splice needs a *complete* sentence on both sides of the comma; here the left side is a fragment, so this is the ordinary "incomplete + complete → comma" rule.',
   },
 
   {

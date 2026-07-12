@@ -24,7 +24,7 @@ export const mStatisticsBlocks = [
   { type: 'heading', content: 'Mean vs. median' },
   {
     type: 'text',
-    content: 'The **mean** is $\\text{total} \\div \\text{count}$. The **median** is the middle value once the list is sorted by position — with an even count, it is the average of the two middle values.',
+    content: 'The **mean** is $\\text{total} \\div \\text{count}$. The **median** is the middle value once the list is sorted by position — with an even count, it is the average of the two middle values. They answer different questions: the mean shares the total out evenly, so every value tugs on it, while the median only asks "who is standing in the middle?" That is why the SAT picks one on purpose — knowing which one a question means is half the battle.',
   },
   {
     type: 'keyInsight',
@@ -40,7 +40,7 @@ export const mStatisticsBlocks = [
   { type: 'heading', content: 'Spread: range and standard deviation' },
   {
     type: 'text',
-    content: 'Two ways to measure how spread out data is. **Range** $= \\text{max} - \\text{min}$, so only the two extremes matter. **Standard deviation (SD)** measures how tightly the values cluster around the mean — a bigger SD means more spread.',
+    content: 'Two ways to measure how spread out data is. **Range** $= \\text{max} - \\text{min}$, so only the two extremes matter and one stray value can blow it up. **Standard deviation (SD)** measures how tightly *all* the values cluster around the mean — a bigger SD means more spread. Spread is a separate axis from center: two sets can share the same mean and still look nothing alike, and the SAT tests exactly that gap.',
   },
   {
     type: 'tip',
@@ -50,13 +50,13 @@ export const mStatisticsBlocks = [
   { type: 'heading', content: 'Probability is a share of the pool' },
   {
     type: 'text',
-    content: 'A probability is $\\dfrac{\\text{favorable outcomes}}{\\text{total pool}}$ — a fraction between $0$ and $1$. The whole skill is counting both numbers correctly: what you want on top, and what you are drawing from on the bottom.',
+    content: 'A probability is $\\dfrac{\\text{favorable outcomes}}{\\text{total pool}}$ — a fraction between $0$ and $1$. The whole skill is counting both numbers correctly: what you want on top, and what you are drawing from on the bottom. Almost every miss here is a wrong *bottom* — using the grand total when the question quietly restricted the pool. So read the question for the pool before you count anything else.',
   },
 
   { type: 'heading', content: 'Two-way tables: pick the right pool' },
   {
     type: 'text',
-    content: 'A "given that…" or "if a ___ is selected" clause shrinks the pool to a single row or column — divide by *that* group\'s total, not the grand total. Read the clause first, find its total, then find the qualifying cell inside it.',
+    content: 'A "given that…" or "if a ___ is selected" clause shrinks the pool to a single row or column — divide by *that* group\'s total, not the grand total. The clause is the whole trick: it quietly moves the denominator off the corner total and onto a row or column edge. Read the clause first, find its total, then find the qualifying cell inside it — the numerator is always the cell where the row and column meet.',
   },
   {
     type: 'table',
@@ -109,6 +109,16 @@ export const mStatisticsBlocks = [
   },
   {
     type: 'example',
+    difficulty: 'Medium',
+    problem: 'Set $P = \\{40, 50, 60\\}$ and set $Q = \\{49, 50, 51\\}$. Both have mean $50$. Which set has the larger standard deviation?',
+    steps: [
+      { label: 'Same center, compare spread', content: 'Both means are $50$, so center is a tie. SD is about how far the values sit from that mean, not how big they are.' },
+      { label: 'Look at the distances', content: 'In $P$ the values are $10$ away from $50$; in $Q$ they are only $1$ away. $P$ is more spread out.' },
+      { label: 'Answer', content: '**Set $P$** has the larger SD — no calculation needed, just compare the clustering. On the SAT you never compute SD, only judge which set is tighter.' },
+    ],
+  },
+  {
+    type: 'example',
     difficulty: 'Hard',
     problem: 'A data set is $\\{3, 4, 5, 6, 7\\}$. A sixth value, $100$, is then added. Describe what happens to the mean and to the median.',
     steps: [
@@ -129,6 +139,11 @@ export const mStatisticsBlocks = [
     type: 'checkpointQuestion',
     question: 'A poll estimates that $42\\%$ of a town supports a measure, with a margin of error of $3\\%$. A choice says "exactly $42\\%$ of the town supports it." Why is that wrong?',
     answer: 'The estimate is a best guess with a stated band: the plausible range for the true town-wide support is $42\\% \\pm 3\\%$, or about $39\\%$ to $45\\%$. Stating "exactly $42\\%$" drops the band and treats a sample estimate as the certain population value.',
+  },
+  {
+    type: 'checkpointQuestion',
+    question: 'The mean of $6$ test scores is $80$. The lowest score, a $50$, is dropped. What is the mean of the remaining $5$ scores?',
+    answer: '**$86$.** Work with the total, not the mean: $\\text{total} = 80 \\times 6 = 480$. Remove the $50$: $480 - 50 = 430$, now over $5$ scores, so $430 \\div 5 = 86$. Dropping the lowest value pulls the mean up.',
   },
 
   {

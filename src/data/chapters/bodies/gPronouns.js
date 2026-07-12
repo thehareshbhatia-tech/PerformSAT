@@ -15,7 +15,7 @@ export const gPronounsBlocks = [
   { type: 'heading', content: 'What is actually tested' },
   {
     type: 'text',
-    content: 'You already say *the dog… it* and *the dogs… they* without thinking. The SAT hides the real noun so your ear grabs the wrong one, or leaves the noun so vague that *it* could mean two things. The fix is always the same move: **find the actual noun on the page.**',
+    content: 'You already say *the dog… it* and *the dogs… they* without thinking, so the SAT never tests the easy version. Instead it hides the real noun behind other nouns so your ear grabs the wrong one, or it leaves the noun so vague that *it* could point at two things at once. Both traps work because a pronoun feels right as long as *something* nearby could be its noun — and that feel is exactly what fails you. The fix is always the same move: **find the actual noun on the page** and check it, instead of trusting how the sentence sounds.',
   },
 
   { type: 'heading', content: 'Job 1 — Match the number' },
@@ -54,7 +54,7 @@ export const gPronounsBlocks = [
   { type: 'heading', content: 'Job 3 — who / whom / that / which / whose' },
   {
     type: 'text',
-    content: 'Two quick sorts pick the word: first **what kind of thing** it refers to, then — for *who / whom* — **what slot** it fills.',
+    content: 'Two quick sorts pick the word: first **what kind of thing** it refers to, then — for *who / whom* — **what slot** it fills. This family trips people up because all five words can open the same kind of clause, so they sound interchangeable. They are not: picking wrong here is a pure paper decision, like the apostrophe questions. Run the two sorts in order and only one word survives.',
   },
   {
     type: 'table',
@@ -102,6 +102,15 @@ export const gPronounsBlocks = [
       { label: 'Answer', content: '**(A) who.** *Whom* before a verb is the classic wrong answer; *whose* would need a possession.' },
     ],
   },
+  {
+    type: 'example',
+    difficulty: 'Easy',
+    problem: 'The orchestra tuned ______ instruments before the concert began.\n\n(A) its\n(B) their',
+    steps: [
+      { label: 'Find the real noun', content: 'What owns the instruments? The **orchestra** — a collective noun naming one group.' },
+      { label: 'Match number', content: 'Collectives (*orchestra, team, jury*) count as singular → singular pronoun. **(A) its.** *Their* is baited by picturing the many individual players.' },
+    ],
+  },
 
   { type: 'heading', content: 'Check yourself' },
   {
@@ -113,6 +122,11 @@ export const gPronounsBlocks = [
     type: 'checkpointQuestion',
     question: 'A friend to ______ I owe a great deal is visiting. Is it *who* or *whom* — and how do you know?',
     answer: '**whom.** It follows the preposition *to,* so use the object form. Flip it around: *I owe a great deal to her* (not *she*), which confirms *whom.*',
+  },
+  {
+    type: 'checkpointQuestion',
+    question: 'Each of the paintings has lost ______ original frame over the years. Fill the blank and explain.',
+    answer: '**its.** *Each* is singular no matter how many paintings follow it, so it takes the singular *its*; *of the paintings* is a decoy of-phrase, not the real noun.',
   },
 
   {

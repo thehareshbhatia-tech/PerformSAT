@@ -66,7 +66,7 @@ export const ratiosProportionsBlocks = [
   { type: 'heading', content: 'Working together: rates add, times don\'t' },
   {
     type: 'text',
-    content: 'When two pipes or workers run *together*, the thing that adds is the **rate**, not the time. Turn each solo time into a rate ($\\frac{1}{\\text{time}}$), add the rates, then flip back to a time.',
+    content: 'When two pipes or workers run *together*, the thing that adds is the **rate**, not the time. Times cannot add, because while one worker finishes, the other is working the same clock — summing the times double-counts it and, worse, makes the job take *longer* with help, which is nonsense. Rates add cleanly: in one hour worker A does his fraction of the job and worker B does hers, and those fractions stack. Turn each solo time into a rate ($\\frac{1}{\\text{time}}$), add the rates, then flip back to a time.',
   },
   {
     type: 'formula',
@@ -104,6 +104,16 @@ export const ratiosProportionsBlocks = [
   },
   {
     type: 'example',
+    difficulty: 'Medium',
+    problem: 'A car travels at $90$ kilometers per hour. How many meters does it travel per minute? ($1\\text{ km} = 1000\\text{ m}$, $1\\text{ hr} = 60\\text{ min}$.)',
+    steps: [
+      { label: 'Chain factors to cancel', content: 'Start from the given rate and multiply by factors equal to $1$: $\\dfrac{90\\ \\text{km}}{1\\ \\text{hr}} \\times \\dfrac{1000\\ \\text{m}}{1\\ \\text{km}} \\times \\dfrac{1\\ \\text{hr}}{60\\ \\text{min}}$.' },
+      { label: 'Cancel and compute', content: 'Kilometers and hours cancel, leaving meters per minute: $\\dfrac{90 \\times 1000}{60} = 1500\\ \\text{m/min}$.' },
+      { label: 'Size check', content: 'Meters and minutes are both smaller units than km and hours, so the number should be sizeable — $1500$ passes. A flipped factor would give a tiny number.' },
+    ],
+  },
+  {
+    type: 'example',
     difficulty: 'Hard',
     problem: 'One pump fills a tank in $6$ hours, another in $3$ hours. Working together, how long to fill the tank?',
     steps: [
@@ -123,6 +133,11 @@ export const ratiosProportionsBlocks = [
     type: 'checkpointQuestion',
     question: 'You need the cost of $200$ grams at $\\$8$ per pound, with $1$ pound $= 454$ grams. Sketch the chain — which way does each factor go?',
     answer: 'Route grams → pounds → dollars: $200\\ \\text{g} \\times \\frac{1\\ \\text{lb}}{454\\ \\text{g}} \\times \\frac{\\$8}{1\\ \\text{lb}} \\approx \\$3.52$. Grams sits on the bottom of the first factor to cancel grams; pounds on the bottom of the second to cancel pounds. Each factor is oriented by *what unit must die*, never memorized.',
+  },
+  {
+    type: 'checkpointQuestion',
+    question: 'A printer produces $8$ pages every $20$ seconds. At that rate, how long does it take to print $30$ pages?',
+    answer: '**$75$ seconds.** Line the units up — seconds over pages on both sides: $\\frac{t}{30} = \\frac{20}{8}$, so $t = 30 \\times \\frac{20}{8} = 75$ seconds. (Or find the unit rate $20 \\div 8 = 2.5$ seconds per page, then $2.5 \\times 30 = 75$.)',
   },
 
   {

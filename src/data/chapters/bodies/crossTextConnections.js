@@ -20,13 +20,13 @@ export const crossTextConnectionsBlocks = [
   { type: 'heading', content: 'What is actually tested' },
   {
     type: 'text',
-    content: 'The test wants to know if you can hold **two separate positions** without blending them into one mushy "what the passages say." The #1 error is mixing the voices — grabbing a detail from Text 1 and calling it Text 2\'s view. So the real skill is bookkeeping: whose claim is whose.',
+    content: 'The test wants to know if you can hold **two separate positions** without blending them into one mushy "what the passages say." The #1 error is mixing the voices — grabbing a detail from Text 1 and calling it Text 2\'s view. It happens because both texts share a topic, so their claims blur together after one read. So the real skill is bookkeeping: label whose claim is whose before any choice can tempt you.',
   },
 
   { type: 'heading', content: 'Step 1 — Pin each claim separately' },
   {
     type: 'text',
-    content: 'After Text 1, say its point in one short phrase with a label: *T1: street trees cut summer energy use.* Do the same for Text 2: *T2: only where the canopies connect.* A good line is a **claim someone could dispute**, not a topic. "Both are about trees and heat" is a topic — nothing can agree or disagree with it.',
+    content: 'After Text 1, say its point in one short phrase with a label: *T1: street trees cut summer energy use.* Do the same for Text 2: *T2: only where the canopies connect.* A good line is a **claim someone could dispute**, not a topic. "Both are about trees and heat" is a topic — nothing can agree or disagree with it, so it gives you no traction on the question. Force each label into a sentence one author would defend and the other might challenge.',
   },
   {
     type: 'keyInsight',
@@ -94,6 +94,17 @@ export const crossTextConnectionsBlocks = [
       { label: 'Match', content: '**(A)** grants the ash point and objects only where licensed. (B) denies shared ground he never disputes. (C) overshoots — his text says the mortar *also* has fragments, keeping ash in the story; "alone" and "discarded" push him to an extreme he never took.' },
     ],
   },
+  {
+    type: 'example',
+    difficulty: 'Medium',
+    problem: 'Text 1: A biologist argues that the songbird\'s elaborate melodies evolved mainly to attract mates, since males with the richest songs pair off earliest each spring.\n\nText 2: Richer songs do help males win mates. But field recordings show males singing those same complex songs to drive rivals off a territory, long after mating season ends — the melodies clearly do more than one job.\n\nHow would the author of Text 2 most likely respond to Text 1?\n\n(A) The mating explanation is right as far as it goes, but the same songs also serve a second purpose it leaves out\n(B) Elaborate songs have nothing to do with attracting mates and are purely territorial warnings\n(C) Complex songs give males no real advantage of any kind',
+    steps: [
+      { label: 'Pin each claim', content: 'T1: elaborate songs evolved *mainly* to attract mates. T2: songs help attract mates *and also* warn off rivals — they serve more than one purpose.' },
+      { label: 'Name the relationship', content: 'One adds to the other. There is no conflict at the shared point: T2 explicitly agrees richer songs help win mates. T2 just supplies a second function T1 left out.' },
+      { label: 'Predict', content: 'A welcome-and-extend response: *the mate-attraction claim is correct, but it is incomplete — the songs do another job too.*' },
+      { label: 'Match', content: '**(A)** accepts the shared claim and adds the missing piece, exactly what the text licenses. (B) denies the mate-attraction point T2 openly grants — wrong side of the shared ground. (C) contradicts both texts. The additive answer is the least combative one on offer.' },
+    ],
+  },
 
   { type: 'heading', content: 'Check yourself' },
   {
@@ -105,6 +116,11 @@ export const crossTextConnectionsBlocks = [
     type: 'checkpointQuestion',
     question: 'Why predict Author 2\'s response *before* reading the four choices instead of just weighing them directly?',
     answer: 'Because a prediction is checked once, while a blank impression gets rebuilt four times — one full re-read per choice. With a prediction from the author\'s actual commitments, three choices fail on direction or scope in seconds.',
+  },
+  {
+    type: 'checkpointQuestion',
+    question: 'The stem asks how the author of Text 2 would respond, and one choice is a flawless summary of Text 1\'s own argument. Keep or cut?',
+    answer: '**Cut.** It has the right words but the wrong voice — it describes Author 1, not Author 2\'s response. Mixing the two voices is the single most common error on these items, so always confirm the choice speaks for the exact author the stem names before you credit it.',
   },
 
   {

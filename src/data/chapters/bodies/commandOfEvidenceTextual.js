@@ -14,7 +14,7 @@
 export const commandOfEvidenceTextualBlocks = [
   {
     type: 'text',
-    content: 'These questions hand you a claim and four candidates for backing it up. Your job is not to find the choice on the right *topic* — it is to find the one that pushes in the right *direction* on that exact claim. **Direction, not topic.**',
+    content: 'These questions hand you a claim and four candidates for backing it up. All four choices sit on the same *topic* as the claim, so topic is useless for telling them apart — the test builds them that way on purpose. Your job is to find the one that pushes in the right *direction* on that exact claim. **Direction, not topic.**',
   },
 
   { type: 'heading', content: 'The two shapes' },
@@ -26,7 +26,7 @@ export const commandOfEvidenceTextualBlocks = [
   { type: 'heading', content: 'Step 1 — Say the claim in your own words' },
   {
     type: 'text',
-    content: 'Before the choices, find the sentence being tested and restate it plainly, keeping every qualifier (*only in winter*, *because of the coating*, *this species*). Passages often carry two views — a common one and a new proposal — so check **whose** claim the stem names. Judge every choice against that one claim.',
+    content: 'Before the choices, find the sentence being tested and restate it plainly, keeping every qualifier (*only in winter*, *because of the coating*, *this species*). Those qualifiers are usually where the right and wrong choices split — drop *only in winter* from the claim and a summer finding suddenly looks relevant when it should not. Passages often carry two views — a common one and a new proposal — so check **whose** claim the stem names. Judge every choice against that one claim.',
   },
 
   { type: 'heading', content: 'Step 2 — Decide the direction you need' },
@@ -87,6 +87,17 @@ export const commandOfEvidenceTextualBlocks = [
     ],
   },
 
+  {
+    type: 'example',
+    difficulty: 'Medium',
+    problem: 'Claim: A researcher argues that it is the clay lining, *not the depth*, that keeps the old reservoir from leaking.\n\nWhich finding, if true, most directly supports the claim?\n\n(A) A nearby reservoir of the same depth, but with no clay lining, loses its water quickly.\n(B) The old reservoir is one of the deepest in the region.\n(C) The clay for the lining was carried in from a riverbed miles away.',
+    steps: [
+      { label: 'State the claim', content: 'The claim isolates one cause: *the clay* seals the reservoir, *not the depth*. To support it, I want evidence that points to clay specifically and away from depth.' },
+      { label: 'Test each choice', content: '(B) is about depth — the very factor the claim dismisses, so it cannot support this claim. (C) is a true fact about the clay\'s origin but says nothing about whether clay stops leaks — an on-topic bystander. (A) holds depth the same and removes only the clay: without clay, it leaks.' },
+      { label: 'Answer', content: '**(A).** By matching the depth and changing only the clay, it isolates the clay as what stops the leaking — exactly the direction the claim needs.' },
+    ],
+  },
+
   { type: 'heading', content: 'Check yourself' },
   {
     type: 'checkpointQuestion',
@@ -97,6 +108,11 @@ export const commandOfEvidenceTextualBlocks = [
     type: 'checkpointQuestion',
     question: 'On a weaken item, a student eliminates a choice because "the passage never mentions this experiment." Sound reasoning?',
     answer: 'No. *If true* stamps every choice as a new fact — none of them is supposed to appear in the passage. The only question is which way the finding pushes the named claim. Demanding passage-verification imports a rule from a different question type.',
+  },
+  {
+    type: 'checkpointQuestion',
+    question: 'A support item\'s claim: a new vaccine reduced infections in the treated village. A choice reads *"Infections there dropped by half — the same drop seen that year in every untreated village nearby."* Does it support the claim?',
+    answer: 'No. The opening looks like support (infections fell), but the final clause shows the identical drop everywhere, treated or not — so the vaccine is not what caused it. Read every choice to its last clause: the ending can quietly reverse the opening.',
   },
 
   {

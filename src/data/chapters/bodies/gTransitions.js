@@ -41,7 +41,7 @@ export const gTransitionsBlocks = [
   { type: 'heading', content: 'The three families' },
   {
     type: 'text',
-    content: 'Every transition does one of three jobs. Learn the families, not a giant word list.',
+    content: 'Every transition does one of exactly three jobs. Once you know which job the sentence needs, you only have to recognize the family — the words inside a family are close enough that the SAT rarely makes you split hairs between them. That is why naming the relationship first beats memorizing a giant word list: you are choosing a *direction*, and any word pointing that way will do.',
   },
   {
     type: 'table',
@@ -96,6 +96,17 @@ export const gTransitionsBlocks = [
     ],
   },
 
+  {
+    type: 'example',
+    difficulty: 'Medium',
+    problem: 'The city planted thousands of trees downtown. ______, it added rooftop gardens to dozens of public buildings.\n\n(A) However\n(B) In addition\n(C) For example',
+    steps: [
+      { label: 'Gist each sentence', content: 'Before: the city planted trees. After: it added rooftop gardens — another green measure.' },
+      { label: 'Name the relationship', content: 'The second idea piles a further step onto the first, same direction → **continue / add**.' },
+      { label: 'Match', content: '**(B) In addition.** *However* would signal a reversal that isn\'t there; *For example* would need rooftop gardens to be an *instance* of tree-planting, but it is a separate measure.' },
+    ],
+  },
+
   { type: 'heading', content: 'Check yourself' },
   {
     type: 'checkpointQuestion',
@@ -106,6 +117,11 @@ export const gTransitionsBlocks = [
     type: 'checkpointQuestion',
     question: 'The recipe calls for fresh basil. ______, dried basil works fine if that is all you have. Which family, and would you pick "moreover" or "that said"?',
     answer: '**Contrast (a concession) → that said.** The second sentence walks back the "fresh basil" requirement, so you need a "despite that" word. *Moreover* would add to the requirement, the opposite of what the sentence does.',
+  },
+  {
+    type: 'checkpointQuestion',
+    question: 'The prototype passed every lab test. ______, it failed the moment real customers used it. Which family, and pick (moreover / therefore / however)?',
+    answer: '**Contrast → however.** The second sentence reverses the success of the lab tests. *Moreover* would tack on another success, and *therefore* would (wrongly) make the failure a *result* of passing the tests — the opposite of what happened.',
   },
 
   {

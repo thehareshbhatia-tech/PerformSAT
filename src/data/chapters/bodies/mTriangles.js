@@ -45,7 +45,7 @@ export const mTrianglesBlocks = [
   { type: 'heading', content: 'Memorize the two triples' },
   {
     type: 'text',
-    content: 'Some right triangles have whole-number sides. Recognizing them lets you skip $a^2+b^2=c^2$ entirely. Any multiple counts too — a $6\\text{-}8\\text{-}10$ triangle is just $3\\text{-}4\\text{-}5$ doubled.',
+    content: 'Some right triangles have whole-number sides, and recognizing them lets you skip $a^2+b^2=c^2$ entirely. Any multiple of a triple counts too — a $6\\text{-}8\\text{-}10$ triangle is just $3\\text{-}4\\text{-}5$ doubled — so match by the ratio, not the raw numbers. This is exactly where the test either saves you time or trips you up: spot the pattern and the third side is instant, miss it and you burn a minute on arithmetic.',
   },
   {
     type: 'table',
@@ -63,7 +63,7 @@ export const mTrianglesBlocks = [
   { type: 'heading', content: 'The two special right triangles' },
   {
     type: 'text',
-    content: 'When you see a $45°$ or a $30°/60°$ angle, you know all three sides from one of them. Assign the roles **from the angles** — smallest angle faces the shortest side — then scale.',
+    content: 'When you see a $45°$ angle or a $30°/60°$ pair in a right triangle, you already know all three sides from one of these two templates — no Pythagorean work needed. Assign the roles **from the angles**: the smallest angle always faces the shortest side, and the hypotenuse faces the $90°$. Then scale the whole ratio by whatever matches the one side you are handed. The trap is grabbing the ratio in the wrong order, so anchor on the angles, never on how the triangle happens to be drawn.',
   },
   {
     type: 'table',
@@ -110,6 +110,16 @@ export const mTrianglesBlocks = [
   },
   {
     type: 'example',
+    difficulty: 'Medium',
+    problem: 'An equilateral triangle has side length $6$. What is its height?',
+    steps: [
+      { label: 'Cut it in half', content: 'The height drops from a vertex to the midpoint of the base, splitting the equilateral triangle into two $30\\text{-}60\\text{-}90$ triangles.' },
+      { label: 'Name the sides', content: 'The short side (opposite $30°$) is half the base, $3$; the hypotenuse (opposite $90°$) is the full side, $6$; the height is opposite $60°$.' },
+      { label: 'Scale the ratio', content: 'For $30\\text{-}60\\text{-}90$ the side opposite $60°$ is short side $\\times \\sqrt3$, so the height is $3\\sqrt3$.' },
+    ],
+  },
+  {
+    type: 'example',
     difficulty: 'Hard',
     problem: 'In a triangle, a line parallel to the base cuts the two other sides, forming a small triangle on top. The small triangle has a base of $6$ and the full triangle has a base of $10$. If the left side of the small triangle is $9$, how long is the left side of the full triangle?',
     steps: [
@@ -129,6 +139,11 @@ export const mTrianglesBlocks = [
     type: 'checkpointQuestion',
     question: 'In a $30\\text{-}60\\text{-}90$ triangle, the shortest side is $4$. What are the other two sides?',
     answer: 'The ratio is $1 : \\sqrt3 : 2$, so scale by $4$: the side opposite $60°$ is $4\\sqrt3$ and the hypotenuse is $8$.',
+  },
+  {
+    type: 'checkpointQuestion',
+    question: 'A triangle has angles measuring $50°$ and $60°$. Which side is the longest?',
+    answer: 'The third angle is $180° - 50° - 60° = 70°$, the largest of the three. The longest side sits **opposite the largest angle**, so it is the side across from the $70°$ angle.',
   },
 
   {

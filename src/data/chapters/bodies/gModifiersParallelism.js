@@ -37,11 +37,11 @@ export const gModifiersParallelismBlocks = [
   { type: 'heading', content: '2. Parallelism — items in a list share one form' },
   {
     type: 'text',
-    content: 'When ideas are joined — in a series, or across a pairing word — they must share the same grammatical shape: all *-ing*, all plain nouns, all *to ___*. Mixing shapes breaks it: *She likes **hiking**, **swimming**, and **to bike*** should read *hiking, swimming, and **biking***.',
+    content: 'When ideas are joined — in a series, or across a pairing word — they must share the same grammatical shape: all *-ing*, all plain nouns, all *to ___*. Mixing shapes breaks it: *She likes **hiking**, **swimming**, and **to bike*** should read *hiking, swimming, and **biking***. The reason is that a list asks the reader to hold several items on equal footing, and a shape change quietly signals the items are not really equal. On the SAT the mismatched item is almost always the last one, sitting right in or beside the underline.',
   },
   {
     type: 'text',
-    content: 'One item is always locked in the fixed (non-underlined) text — the **anchor**. Find it, name its form, and keep only the choice that matches. Pairing words work the same way: what follows the second half must match what follows the first.',
+    content: 'One item is always locked in the fixed (non-underlined) text — the **anchor**. Find it, name its form, and keep only the choice that matches; you never get to change the anchor, so it quietly dictates the answer. Pairing words work the same way: what follows the second half must match what follows the first.',
   },
   {
     type: 'table',
@@ -97,6 +97,15 @@ export const gModifiersParallelismBlocks = [
       { label: 'Balance with a stand-in', content: '*That of* stands in for "the population of," making the inland side a population too. **(B) that of**. (C) doubles *than*, which the stem already provides.' },
     ],
   },
+  {
+    type: 'example',
+    difficulty: 'Easy',
+    problem: 'The revised checkpoint policy created ______ delays for travelers.\n\n(A) fewer\n(B) less',
+    steps: [
+      { label: 'Can you count it?', content: 'Delays come in separate units you can count — one delay, two delays, three delays.' },
+      { label: 'Match', content: 'Countable things take *fewer*, not *less* → **(A) fewer**. Save *less* for amounts you cannot count, like *less traffic*.' },
+    ],
+  },
 
   { type: 'heading', content: 'Check yourself' },
   {
@@ -108,6 +117,11 @@ export const gModifiersParallelismBlocks = [
     type: 'checkpointQuestion',
     question: 'Which is parallel — *The coach valued discipline, teamwork, and being on time* or *…discipline, teamwork, and punctuality*? Why?',
     answer: 'The second. *Discipline* and *teamwork* are plain nouns, so the third item must be a noun too — **punctuality**, not the *-ing* phrase *being on time*.',
+  },
+  {
+    type: 'checkpointQuestion',
+    question: 'Is this comparison balanced — *The salary of a nurse is often higher than a teacher*? If not, fix it.',
+    answer: 'Not balanced — it compares a *salary* to a *teacher* (a person). Make both sides salaries: *…higher than **that of a teacher*** or *…higher than **a teacher\'s***.',
   },
 
   {

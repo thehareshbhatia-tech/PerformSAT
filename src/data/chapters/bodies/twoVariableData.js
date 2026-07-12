@@ -24,7 +24,7 @@ export const twoVariableDataBlocks = [
   { type: 'heading', content: 'The line summarizes, it does not connect' },
   {
     type: 'text',
-    content: 'A **line of best fit** balances the dots above it against the dots below it. It does *not* connect the dots — a perfectly good fit line can pass through zero of them. It has its own slope, intercept, and equation, exactly like any line from algebra, and line questions use that equation, not the dots.',
+    content: 'A **line of best fit** balances the dots above it against the dots below it. It does *not* connect the dots — a perfectly good fit line can pass through zero of them. Its job is to describe the overall trend in one clean equation, which is why any single dot can sit off it without the line being "wrong." It has its own slope, intercept, and equation, exactly like any line from algebra, and line questions use that equation, not the dots.',
   },
   {
     type: 'keyInsight',
@@ -52,7 +52,7 @@ export const twoVariableDataBlocks = [
   { type: 'heading', content: 'Linear or exponential: amount or multiple?' },
   {
     type: 'text',
-    content: 'When a question asks which *kind* of model fits, every change-over-time story is one of two species. **Linear**: a fixed *amount* is added each step → constant **difference** between consecutive values → straight line. **Exponential**: multiplied by a fixed *factor* each step → constant **ratio** → a curve. Ask one question: each period, same amount or same multiple?',
+    content: 'When a question asks which *kind* of model fits, every change-over-time story is one of two species. **Linear**: a fixed *amount* is added each step → constant **difference** between consecutive values → straight line. **Exponential**: multiplied by a fixed *factor* each step → constant **ratio** → a curve. The two feel similar over one step but diverge fast, because an exponential change compounds on a moving base while a linear one keeps adding the same block. Ask one question: each period, same amount or same multiple?',
   },
   {
     type: 'formulaGrid',
@@ -89,6 +89,16 @@ export const twoVariableDataBlocks = [
   },
   {
     type: 'example',
+    difficulty: 'Medium',
+    problem: 'A linear model for weekly ad spots (x) vs. units sold (y) is $\\hat{y} = 3x + 12$. One week aired 20 spots and actually sold 80 units. Does the model overestimate or underestimate that week, and by how much?',
+    steps: [
+      { label: 'Predict with the line', content: 'Predicted uses the equation: $\\hat{y} = 3(20) + 12 = 72$ units.' },
+      { label: 'Compare actual to predicted', content: 'Actual is $80$, above the predicted $72$, so the dot sits above the line.' },
+      { label: 'Name the direction', content: 'Error $= \\text{actual} - \\text{predicted} = 80 - 72 = 8$, positive → the model came in low, so it **underestimates** by 8 units. "Above the line" means the model guessed too small, not too big.' },
+    ],
+  },
+  {
+    type: 'example',
     difficulty: 'Hard',
     problem: 'A machine\'s resale value at one-year steps is 8000, 6000, 4500, 3375. Which models the value $v$ after $t$ years?\n\n(A) $v = 8000 - 2000t$\n(B) $v = 8000(0.75)^t$',
     steps: [
@@ -108,6 +118,11 @@ export const twoVariableDataBlocks = [
     type: 'checkpointQuestion',
     question: 'A fit line rises 12 units for every 4-unit run along the x-axis (x in years). A choice says the model predicts "about 12 people per year." What went wrong?',
     answer: 'The slope was read per sampling interval, not per **one x-unit**. Rise 12 over run 4 gives $m = 3$ → about **3 people per year**. The run is measured in years no matter how far apart the dots sit.',
+  },
+  {
+    type: 'checkpointQuestion',
+    question: 'A quantity is measured at equal one-year steps as $50, 45, 40, 35$. Is a linear or an exponential model the better fit, and what is the tell?',
+    answer: '**Linear.** Subtract consecutive values: $-5, -5, -5$ — a constant *difference*, a fixed amount removed each step, which is the signature of a linear model. The ratios are not constant ($45/50 = 0.9$ but $40/45 \\approx 0.89$), so it is not exponential.',
   },
 
   {

@@ -13,19 +13,19 @@
 export const mFunctionsBlocks = [
   {
     type: 'text',
-    content: 'A function is a machine: you drop an input in, one output comes out. Everything on this topic is a variation on that one picture — read the notation, feed the machine, read the answer.',
+    content: 'A function is a machine: you drop an input in, one output comes out. Everything on this topic is a variation on that one picture — read the notation, feed the machine, read the answer. The one guarantee that makes it a function is that each input gives back exactly one output, so feed the same value twice and you get the same result twice. Almost every question is just this machine wearing a different costume, and once the picture is solid the notation stops being scary.',
   },
 
   { type: 'heading', content: 'The machine and its slot' },
   {
     type: 'text',
-    content: 'In $f(x) = 3x - 5$, the $f$ names the rule and the $x$ marks an empty slot. The letter in the slot means nothing on its own — it is a blank waiting to be filled, and whatever you put in fills **every** copy of the slot. A rule written as $f(t) = 3t - 5$ is the exact same machine.',
+    content: 'In $f(x) = 3x - 5$, the $f$ names the rule and the $x$ marks an empty slot. The letter in the slot means nothing on its own — it is a blank waiting to be filled, and whatever you put in fills **every** copy of the slot. A rule written as $f(t) = 3t - 5$ is the exact same machine. This is worth internalizing because the test deliberately swaps the slot letter to rattle you — $f(t)$, $f(a)$, $f(\\ )$ all describe one identical rule. What matters is the *pattern* of operations, never the name of the placeholder.',
   },
 
   { type: 'heading', content: '$f(3)$ means "put 3 in," not "f times 3"' },
   {
     type: 'text',
-    content: 'To find $f(3)$, paste $3$ into the slot: $f(3) = 3(3) - 5 = 4$. The $f$ is a rule name, not a number, so $f(3)$ is never $f \\times 3$. When the input is negative or an expression, wrap it in parentheses first: for $f(x) = x^2$, $f(-2) = (-2)^2 = 4$, and $f(2x) = (2x)^2 = 4x^2$ — not $2x^2$.',
+    content: 'To find $f(3)$, paste $3$ into the slot: $f(3) = 3(3) - 5 = 4$. The $f$ is a rule name, not a number, so $f(3)$ is never $f \\times 3$ — treating it as multiplication is the single most common beginner error, and it quietly wrecks every step after it. When the input is negative or an expression, wrap it in parentheses first: for $f(x) = x^2$, $f(-2) = (-2)^2 = 4$, and $f(2x) = (2x)^2 = 4x^2$ — not $2x^2$. The parentheses habit matters just as much, because without them a negative input loses its sign and a compound input like $2x$ only gets partly squared.',
   },
   {
     type: 'keyInsight',
@@ -35,13 +35,13 @@ export const mFunctionsBlocks = [
   { type: 'heading', content: 'Forward and backward' },
   {
     type: 'text',
-    content: 'Two directions, same machine. **Forward:** you are given the input, so you compute the output — $f(3)$. **Backward:** you are given the output and hunt for the input — "for what $x$ is $f(x) = 7$?" Set the rule equal to $7$ and solve. Backward is not a new topic; it is the same input-output pair read the other way.',
+    content: 'Two directions, same machine. **Forward:** you are given the input, so you compute the output — $f(3)$. **Backward:** you are given the output and hunt for the input — "for what $x$ is $f(x) = 7$?" Set the rule equal to $7$ and solve. Recognizing which direction you are in is half the battle: a forward question hands you the number that goes inside the parentheses, while a backward one hands you the value the whole expression equals. The moment you see a value being *set equal* to the rule, it turns into an ordinary solve-for-$x$ problem you already know how to do.',
   },
 
   { type: 'heading', content: 'Composition: do the inside first' },
   {
     type: 'text',
-    content: 'A composition like $f(g(2))$ chains two machines: run $g$ on $2$, then feed whatever came out into $f$. Always work from the inside out — the inner call is a value waiting to be computed, so resolve it first and pass the result outward.',
+    content: 'A composition like $f(g(2))$ chains two machines: run $g$ on $2$, then feed whatever came out into $f$. Always work from the inside out — the inner call is a value waiting to be computed, so resolve it first and pass the result outward. The order is not a style choice: the outer machine literally cannot run until it has a number to receive, and that number is whatever the inner machine produced. Reaching for the outer rule first is how students end up combining the two rules wrong and losing an otherwise easy point.',
   },
   {
     type: 'tip',
@@ -51,7 +51,7 @@ export const mFunctionsBlocks = [
   { type: 'heading', content: 'A graph is a set of (input, output) pairs' },
   {
     type: 'text',
-    content: 'Every point on $y = f(x)$ is an (input, output) pair: the $x$-coordinate went into the machine, the $y$-coordinate came out. So $f(a)$ is just the height of the curve at $x = a$, and solving $f(x) = k$ means finding where the curve reaches height $k$. Translate first, then read.',
+    content: 'Every point on $y = f(x)$ is an (input, output) pair: the $x$-coordinate went into the machine, the $y$-coordinate came out. So $f(a)$ is just the height of the curve at $x = a$, and solving $f(x) = k$ means finding where the curve reaches height $k$. This one translation unlocks most "graph of $f$" questions, which look intimidating but are really asking you to read a coordinate. Keep the roles straight — $x$ is always the input you feed in, $y$ is always the output you read off — and a question about $f$ becomes a question about a point you can put your finger on.',
   },
   {
     type: 'table',
@@ -95,6 +95,16 @@ export const mFunctionsBlocks = [
       { label: 'Finish', content: '$f(g(3)) = 13$. (Going the other way, $g(f(3)) = g(7) = 49$ — order changes the answer.)' },
     ],
   },
+  {
+    type: 'example',
+    difficulty: 'Medium',
+    problem: 'If $f(x) = x^2 + 1$, what is $f(x + 3)$?',
+    steps: [
+      { label: 'Paste the whole input', content: 'Replace every $x$ with $(x + 3)$, parentheses and all: $f(x + 3) = (x + 3)^2 + 1$.' },
+      { label: 'Expand the square', content: '$(x + 3)^2 = x^2 + 6x + 9$, so $f(x + 3) = x^2 + 6x + 9 + 1$.' },
+      { label: 'Finish', content: 'Combine the constants: $f(x + 3) = x^2 + 6x + 10$. (Writing $x^2 + 3$ would be the trap — the input is the whole $x + 3$, not just $x$.)' },
+    ],
+  },
 
   { type: 'heading', content: 'Check yourself' },
   {
@@ -106,6 +116,11 @@ export const mFunctionsBlocks = [
     type: 'checkpointQuestion',
     question: 'If $f(x) = 2x$ and $g(x) = x - 5$, what is $g(f(4))$?',
     answer: '**3.** Inside first: $f(4) = 2(4) = 8$. Then $g(8) = 8 - 5 = 3$. Feeding the inner output into the outer machine, not the other way around.',
+  },
+  {
+    type: 'checkpointQuestion',
+    question: 'If $f(x) = 3x + 7$, for what value of $x$ is $f(x) = 1$?',
+    answer: '**$-2$.** This is the backward direction: set the rule equal to the output, $3x + 7 = 1$. Subtract $7$: $3x = -6$, so $x = -2$. Check: $f(-2) = 3(-2) + 7 = 1$.',
   },
 
   {

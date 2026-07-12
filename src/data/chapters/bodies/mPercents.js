@@ -13,7 +13,7 @@
 export const mPercentsBlocks = [
   {
     type: 'text',
-    content: 'Every percent question is one of four moves. Learn to see a percent as a **multiplier** and the whole topic collapses into multiply, divide, or chain.',
+    content: 'Every percent question is one of four moves. The hard part is never the arithmetic — it is deciding whether to multiply, divide, or chain, and off *which* base. Learn to see a percent as a **multiplier** and that decision gets easy: the whole topic collapses into multiply, divide, or chain.',
   },
 
   { type: 'heading', content: 'A percent is a multiplier' },
@@ -42,7 +42,7 @@ export const mPercentsBlocks = [
   { type: 'heading', content: 'Three slots: part, whole, percent' },
   {
     type: 'text',
-    content: 'Static percent problems always fit one sentence: $\\text{part} = \\frac{p}{100}\\times\\text{whole}$. Two of the three numbers are given; solve for the third. The one that feels backwards — "$12$ is $30\\%$ of what?" — is a **division**, not a multiplication: $\\text{whole} = 12 \\div 0.30 = 40$.',
+    content: 'Static percent problems always fit one sentence: $\\text{part} = \\frac{p}{100}\\times\\text{whole}$. Two of the three numbers are given; solve for the third. The trap is grabbing the two numbers and multiplying on autopilot, so label which slot is *missing* first. The one that feels backwards — "$12$ is $30\\%$ of what?" — has the whole missing, which means you **divide**, not multiply: $\\text{whole} = 12 \\div 0.30 = 40$.',
   },
 
   { type: 'heading', content: 'Worked examples' },
@@ -69,7 +69,7 @@ export const mPercentsBlocks = [
   { type: 'heading', content: 'Reverse percent: divide, never subtract' },
   {
     type: 'text',
-    content: 'If a price **after** a $20\\%$ increase is $\\$60$, the original satisfies $\\text{original}\\times 1.20 = 60$, so $\\text{original} = 60 \\div 1.20 = 50$. Never take $20\\%$ off the $\\$60$ — that $20\\%$ was a percent of the original, not of the new price.',
+    content: 'If a price **after** a $20\\%$ increase is $\\$60$, the original satisfies $\\text{original}\\times 1.20 = 60$, so $\\text{original} = 60 \\div 1.20 = 50$. Never take $20\\%$ off the $\\$60$ — that $20\\%$ was a percent of the original, not of the new price, so subtracting it uses the wrong base and lands you near $48$ instead of $50$. The tell for a reverse problem is that the number you are handed is the *result* of the change, not the starting point; whenever you read "after," write the forward equation and divide.',
   },
   {
     type: 'example',
@@ -111,6 +111,11 @@ export const mPercentsBlocks = [
     type: 'checkpointQuestion',
     question: 'A price goes up $20\\%$, then the new price goes up another $50\\%$. By what single percent did it change overall?',
     answer: '**$80\\%$ increase.** Chain the factors: $1.20 \\times 1.50 = 1.80$, which is $80\\%$ more than the start — not $20 + 50 = 70\\%$.',
+  },
+  {
+    type: 'checkpointQuestion',
+    question: 'A shirt is marked down from $\\$40$ to $\\$30$. What is the percent decrease?',
+    answer: '**$25\\%$ decrease.** Percent change is $\\dfrac{\\text{change}}{\\text{original}}$, and the base is the *original* price. The change is $40 - 30 = 10$, so $10 \\div 40 = 0.25 = 25\\%$. Dividing by the new $\\$30$ (giving about $33\\%$) uses the wrong base.',
   },
 
   {

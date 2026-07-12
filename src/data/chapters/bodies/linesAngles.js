@@ -19,11 +19,26 @@ export const linesAnglesBlocks = [
   { type: 'heading', content: 'The two budgets' },
   {
     type: 'text',
-    content: 'Angles along a **straight line** add to $180^\\circ$. Angles filling a full turn **around a point** add to $360^\\circ$. A right angle is exactly half a line, $90^\\circ$. Almost every answer is just a share of one of these two budgets.',
+    content: 'Angles along a **straight line** add to $180^\\circ$. Angles filling a full turn **around a point** add to $360^\\circ$. A right angle is exactly half a line, $90^\\circ$, and a full turn is just two straight lines back to back. Almost every angle you are ever asked for is a share of one of these two budgets, so the habit is: spot which budget the angles sit in, subtract the ones you already know, and the leftover is the answer.',
   },
   {
     type: 'keyInsight',
     content: 'When two lines cross, the angles **directly across** from each other are equal (vertical angles), and each neighbor along the line is the supplement. So a crossing holds only two values: $x$ and $180^\\circ - x$.',
+  },
+  {
+    type: 'example',
+    difficulty: 'Medium',
+    problem: 'Four rays from a single point split the full turn around it into angles of $x$, $2x$, $3x$, and $120^\\circ$. Find $x$.',
+    steps: [
+      { label: 'Pick the budget', content: 'The four angles go all the way around one point, so they spend the full-turn budget and add to $360^\\circ$.' },
+      { label: 'Set up and solve', content: '$x + 2x + 3x + 120^\\circ = 360^\\circ$, so $6x = 240^\\circ$ and $x = 40^\\circ$.' },
+      { label: 'Check', content: 'The four angles are $40^\\circ, 80^\\circ, 120^\\circ, 120^\\circ$, which sum to $360^\\circ$. Balances.' },
+    ],
+  },
+  {
+    type: 'checkpointQuestion',
+    question: 'Two straight lines cross, and one of the four angles measures $115^\\circ$. What are the other three angles?',
+    answer: 'The angle **directly across** is vertical to it, so it is also $115^\\circ$. Each of the two **neighbors** along a line is the supplement, $180^\\circ - 115^\\circ = 65^\\circ$. So the four angles are $115^\\circ, 115^\\circ, 65^\\circ, 65^\\circ$.',
   },
 
   { type: 'heading', content: 'Parallel lines make just two angle sizes' },
@@ -85,7 +100,7 @@ export const linesAnglesBlocks = [
   { type: 'heading', content: 'Area by cutting, and scaling by k' },
   {
     type: 'text',
-    content: 'For a strange shaded region, do not hunt for a formula — **cut** it into rectangles and right triangles, or enclose it in a rectangle and **subtract the hole**. A triangle is $A = \\tfrac{1}{2} b h$, where $h$ is the *perpendicular* height, not a slanted side.',
+    content: 'For a strange shaded region, do not hunt for a special formula — **cut** it into rectangles and right triangles you already know, or enclose it in a rectangle and **subtract the hole**. A triangle is $A = \\tfrac{1}{2} b h$, where $h$ is the *perpendicular* height to the base, never a slanted side. Reaching for a slant length is the most common area mistake here, because the figure usually draws that slanted side right on the region and leaves the true perpendicular height off the picture.',
   },
   {
     type: 'formula',

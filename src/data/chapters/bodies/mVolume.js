@@ -35,7 +35,7 @@ export const mVolumeBlocks = [
   { type: 'heading', content: 'The move: name the base, then plug in' },
   {
     type: 'text',
-    content: 'Almost every volume item is the same three steps. Match the shape to a formula, put each length in the slot that names it, and compute — leaving $\\pi$ in the answer if the choices do.',
+    content: 'Almost every volume item is the same three steps, no matter the shape. Match the solid to a formula, put each given length into the slot that names it — radius, height, side — and compute, leaving $\\pi$ in the answer if the choices do. The mistakes here are almost never the formula; they are slotting a diameter where a radius belongs, or rounding $\\pi$ too early. Slow down on the labeling and the arithmetic takes care of itself.',
   },
   {
     type: 'steps',
@@ -63,7 +63,7 @@ export const mVolumeBlocks = [
   { type: 'heading', content: 'Density links mass to volume' },
   {
     type: 'text',
-    content: 'Density is not a new formula to fear — it is just a rate that ties a physical amount to how much space it takes up. The unit tells you the relationship: $\\text{g/cm}^3$ literally reads "grams **per** cubic centimeter."',
+    content: 'Density is not a new formula to fear — it is just a rate that ties a physical amount to how much space it takes up. The unit tells you the whole relationship: $\\text{g/cm}^3$ literally reads "grams **per** cubic centimeter," so multiplying by a volume in $\\text{cm}^3$ leaves grams. When you are unsure whether to multiply or divide, let the units cancel — they point to the right operation every time.',
   },
   {
     type: 'formula',
@@ -89,6 +89,16 @@ export const mVolumeBlocks = [
       { label: 'Name the solid', content: 'It is a cylinder, so $V = \\pi r^2 h$.' },
       { label: 'Slot the lengths', content: 'Radius $r = 4$, height $h = 9$: $V = \\pi (4)^2 (9)$.' },
       { label: 'Compute', content: '$\\pi \\cdot 16 \\cdot 9 = 144\\pi \\approx 452$ cubic feet. Leave it as $144\\pi$ if the choices keep $\\pi$.' },
+    ],
+  },
+  {
+    type: 'example',
+    difficulty: 'Medium',
+    problem: 'A spherical ball has radius $3$ cm. What is its volume, in terms of $\\pi$?',
+    steps: [
+      { label: 'Name the solid', content: 'It is a sphere, so $V = \\tfrac{4}{3}\\pi r^3$ — only the radius matters.' },
+      { label: 'Slot and cube', content: 'With $r = 3$: $r^3 = 3^3 = 27$, so $V = \\tfrac{4}{3}\\pi (27)$.' },
+      { label: 'Compute', content: '$\\tfrac{4}{3}\\cdot 27 = 36$, so $V = 36\\pi$ cubic centimeters.' },
     ],
   },
   {
@@ -123,6 +133,11 @@ export const mVolumeBlocks = [
     type: 'checkpointQuestion',
     question: 'A cone and a cylinder have the same radius and the same height. The cylinder holds $60$ cm$^3$. How much does the cone hold?',
     answer: '**$20$ cm$^3$.** A cone is exactly one-third of the cylinder that surrounds it: $\\tfrac{1}{3} \\times 60 = 20$.',
+  },
+  {
+    type: 'checkpointQuestion',
+    question: 'If every edge of a cube is tripled, how many times larger is its volume?',
+    answer: '**$27$ times.** Volume scales by the cube of the length factor: $3^3 = 27$. (Not $3$, and not $9$ — that $9$ would be how the surface area grows.)',
   },
 
   {

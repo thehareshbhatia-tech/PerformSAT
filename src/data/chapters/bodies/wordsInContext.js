@@ -20,7 +20,7 @@ export const wordsInContextBlocks = [
   { type: 'heading', content: 'What is actually tested' },
   {
     type: 'text',
-    content: 'A big word list barely helps. Every item plants **evidence** — a few nearby words that pin the blank to exactly one meaning. Your job is to find that evidence and read what it forces, the same way you would solve for an unknown in an equation.',
+    content: 'A big word list barely helps. Every item plants **evidence** — a few nearby words that pin the blank to exactly one meaning. Your job is to find that evidence and read what it forces, the same way you would solve for an unknown in an equation. The test writers count on you skipping straight to the choices and picking the word that "sounds smart," so the fix is to slow down and let the sentence, not your vocabulary, cast the vote.',
   },
 
   { type: 'heading', content: 'The method: predict, then match' },
@@ -47,7 +47,7 @@ export const wordsInContextBlocks = [
   { type: 'heading', content: 'Watch the connector' },
   {
     type: 'text',
-    content: 'A **connector** tells you how the evidence aims at the blank. Only three families — and the same evidence with a different connector flips the answer.',
+    content: 'A **connector** tells you how the evidence aims at the blank — whether the blank should echo the nearby idea or reverse it. There are really only three families, and the same evidence with a different connector flips the answer: *praised, and its ______* wants a positive word, while *praised, but its ______* wants a negative one. Read the connector before you predict, because it decides which direction the evidence points.',
   },
   {
     type: 'table',
@@ -66,7 +66,7 @@ export const wordsInContextBlocks = [
   { type: 'heading', content: 'The second-sense trap' },
   {
     type: 'text',
-    content: 'The tested word is often a **common word used in a second, less-common sense.** Do not assume the everyday meaning — the test picks these words precisely because the familiar sense fails, then prints the familiar sense as bait.',
+    content: 'The tested word is often a **common word used in a second, less-common sense.** Do not assume the everyday meaning — the test picks these words precisely because the familiar sense fails, then prints the familiar sense as bait. When you see an easy, everyday word being asked about, treat that as a signal to be *more* careful, not less: substitute each choice back into the sentence and keep only the one the surrounding words actually pay for.',
   },
   {
     type: 'callout',
@@ -104,6 +104,16 @@ export const wordsInContextBlocks = [
       { label: 'Substitute', content: '"It *verified* the surges" and "it *examined* the surges" make no sense. **(B) restrained** — the *hold back* sense — is the one the evidence pays for.' },
     ],
   },
+  {
+    type: 'example',
+    difficulty: 'Medium',
+    problem: 'The professor\'s lectures were famously ______: she raced through three centuries of history in a single hour, rarely pausing to take a breath.\n\n(A) meandering\n(B) brisk\n(C) muddled',
+    steps: [
+      { label: 'Read the colon as evidence', content: 'The colon is a silent explainer — read it as *namely*. Whatever follows it defines the blank: she *raced through* the material and *rarely paused*.' },
+      { label: 'Predict', content: 'That describes speed. Prediction: "something like *fast-paced*." Charge here is neutral-to-positive — it is stated as a fame, not a flaw.' },
+      { label: 'Match', content: '*Meandering* is the opposite — slow and wandering. *Muddled* means confused, which the evidence never claims; racing through material in order is not the same as disorganized. **(B) brisk** is the only word the "raced through, rarely paused" evidence pays for.' },
+    ],
+  },
 
   { type: 'heading', content: 'Check yourself' },
   {
@@ -115,6 +125,11 @@ export const wordsInContextBlocks = [
     type: 'checkpointQuestion',
     question: 'Two surviving choices both have the right charge. What decides between them?',
     answer: '**Precision.** Hold each full meaning against the evidence and keep the one whose every implication is paid for. Wrong answers that pass the charge screen usually overshoot — extra intensity or a claim the sentence never makes.',
+  },
+  {
+    type: 'checkpointQuestion',
+    question: 'A colon sits right before the blank, and the sentence has no *because* or *so* anywhere. Is there still a connector doing work?',
+    answer: '**Yes.** A colon (or a dash) is a silent explainer — read it as *namely* or *because*. The clause after it defines the blank, so that is exactly where your evidence lives. Students who say "there were no clue words" almost always skipped a colon.',
   },
 
   {

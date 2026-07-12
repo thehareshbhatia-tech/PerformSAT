@@ -18,7 +18,7 @@ export const mTransformationsBlocks = [
   { type: 'heading', content: 'Outside edits move it vertically (and behave normally)' },
   {
     type: 'text',
-    content: 'An edit *outside* the function changes the output after the rule runs, so the graph moves **up or down**, in the direction the sign says. $f(x)+3$ shifts up $3$. $f(x)-3$ shifts down $3$. And $-f(x)$ flips the whole graph over the **x-axis**. No surprises here.',
+    content: 'An edit *outside* the function changes the output after the rule runs, so the graph moves **up or down**, in the direction the sign says. These feel natural because they act *last* — the function finishes its job, then you add to or negate the result, so the change lands directly on the y-values you already have. $f(x)+3$ shifts up $3$. $f(x)-3$ shifts down $3$. And $-f(x)$ flips the whole graph over the **x-axis**. No surprises here.',
   },
 
   { type: 'heading', content: 'Inside edits move it horizontally (and behave backward)' },
@@ -54,7 +54,7 @@ export const mTransformationsBlocks = [
   { type: 'heading', content: 'Combine shifts one edit at a time' },
   {
     type: 'text',
-    content: 'A graph can have both edits at once. Classify each separately: in $f(x+1)-4$, the inside $+1$ moves it **left $1$**, and the outside $-4$ moves it **down $4$**. Order does not matter — you land on the same graph either way.',
+    content: 'A graph can have both edits at once, and the safe way through is to never mix them. Classify each separately: in $f(x+1)-4$, the inside $+1$ moves it **left $1$**, and the outside $-4$ moves it **down $4$**. This works because vertical and horizontal moves are independent — one touches $x$, the other touches $y$ — so they never interfere. Order does not matter; you land on the same graph either way.',
   },
 
   { type: 'heading', content: 'Worked examples' },
@@ -89,6 +89,16 @@ export const mTransformationsBlocks = [
     ],
   },
 
+  {
+    type: 'example',
+    difficulty: 'Medium',
+    problem: 'The point $(3, 5)$ lies on $y=f(x)$. What point must lie on $y=f(-x)$?',
+    steps: [
+      { label: 'Classify the edit', content: 'The negative is *inside*, attached to $x$, so $f(-x)$ reflects the graph over the **y-axis**.' },
+      { label: 'Move the point', content: 'A y-axis reflection negates the x-coordinate and leaves y alone: $(3,5)\\to(-3,5)$. Check: $f(-(-3))=f(3)=5$, so $(-3,5)$ is on the new graph.' },
+    ],
+  },
+
   { type: 'heading', content: 'Check yourself' },
   {
     type: 'checkpointQuestion',
@@ -99,6 +109,11 @@ export const mTransformationsBlocks = [
     type: 'checkpointQuestion',
     question: 'A student says $y=-f(x)$ flips the graph over the y-axis. Are they right?',
     answer: 'No — **it flips over the x-axis.** The negative is *outside* the function, so it changes the output (the y-values) and reflects vertically. $f(-x)$, with the negative inside, is the one that flips over the y-axis.',
+  },
+  {
+    type: 'checkpointQuestion',
+    question: 'The point $(2, 7)$ lies on $y=f(x)$. What point lies on $y=f(x)-3$?',
+    answer: '**$(2, 4)$.** The $-3$ is outside, so it changes only the output: $7-3=4$. The x-coordinate stays $2$ because outside edits never move the graph sideways.',
   },
 
   {

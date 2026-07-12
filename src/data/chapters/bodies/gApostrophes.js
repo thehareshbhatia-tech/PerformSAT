@@ -19,7 +19,7 @@ export const gApostrophesBlocks = [
   { type: 'heading', content: 'What is actually tested' },
   {
     type: 'text',
-    content: 'The SAT never asks whether *dogs* rhymes with *dog\'s* — it asks which spelling the sentence needs. Two questions settle every item: **how many?** (one vs more than one) and **whose?** (is something being owned). Answer those and the apostrophe places itself.',
+    content: 'The SAT never asks whether *dogs* rhymes with *dog\'s* — it asks which spelling the sentence needs. Two questions settle every item: **how many?** (one vs more than one) and **whose?** (is something being owned). Because every choice sounds identical read aloud, this is a spelling decision you make with your eyes, not your ear — students who "sound it out" miss these every time. Answer the two questions and the apostrophe places itself.',
   },
 
   { type: 'heading', content: 'The four noun cases' },
@@ -41,7 +41,7 @@ export const gApostrophesBlocks = [
   { type: 'heading', content: 'The next-word test (for nouns)' },
   {
     type: 'text',
-    content: 'Look at the word right after the noun. Another **noun** follows → something is being owned → an apostrophe belongs. A verb, a preposition, or the end of the sentence follows → no apostrophe. *The **teacher\'s** desk* (noun *desk* follows → owning) vs *The **teachers** met* (verb *met* follows → just plural).',
+    content: 'Look at the word right after the noun. Another **noun** follows → something is being owned → an apostrophe belongs. A verb, a preposition, or the end of the sentence follows → no apostrophe. *The **teacher\'s** desk* (noun *desk* follows → owning) vs *The **teachers** met* (verb *met* follows → just plural). The next word decides even when the noun is long or unfamiliar — length never earns an apostrophe.',
   },
 
   { type: 'heading', content: 'The "is/has" test (for its, it\'s, and friends)' },
@@ -94,17 +94,31 @@ export const gApostrophesBlocks = [
       { label: 'Choose', content: '**(C) they\'re**. (Note *survey\'s results* is correct as written — one survey owns the results.)' },
     ],
   },
+  {
+    type: 'example',
+    difficulty: 'Medium',
+    problem: 'The scientist ______ theory reshaped the field went on to win the prize.\n\n(A) who\'s\n(B) whose',
+    steps: [
+      { label: 'Run the is/has test', content: 'Read (A) *who\'s* as *who is*: "the scientist **who is** theory reshaped the field" — nonsense.' },
+      { label: 'Choose', content: 'The theory belongs to the scientist, so use the possessive **(B) whose** — no apostrophe. A noun (*theory*) follows, confirming ownership.' },
+    ],
+  },
 
   { type: 'heading', content: 'Check yourself' },
   {
     type: 'checkpointQuestion',
     question: 'The band recorded three albums, but only one of ______ songs became a hit. Fill the blank: *its*, *it\'s*, or *their*?',
-    answer: '**their.** The owner is *the band* referred to as a group of members here — plural *their*. Test *it\'s* = *it is*: "one of **it is** songs" fails, so no apostrophe form. *Their* owns the noun *songs*.',
+    answer: '**its.** *Band* is a collective noun — treated as singular on the SAT — so its possessive is *its*. Test *it\'s* = *it is*: "one of **it is** songs" fails, so the apostrophe form is out; and *their* would need a plural owner, but *band* is singular.',
   },
   {
     type: 'checkpointQuestion',
     question: 'Choose the right spelling: *The two witness\'s / witnesses\' / witnesses accounts matched.* Why?',
     answer: '**witnesses\'.** *Two* witnesses = plural, and a noun (*accounts*) follows, so the accounts are owned by many owners already ending in s → **s\'**. Plain *witnesses* would wrongly say nothing is owned.',
+  },
+  {
+    type: 'checkpointQuestion',
+    question: 'Fill each blank: *The company redesigned ______ logo, and now ______ everywhere.* Use *its* or *it\'s* for each.',
+    answer: 'First blank **its** — the company owns the logo, so the no-apostrophe possessive. Second blank **it\'s** — it means *it is* everywhere, a contraction. Test by expanding: "redesigned **it is** logo" fails → *its*; "now **it is** everywhere" works → *it\'s*.',
   },
 
   {

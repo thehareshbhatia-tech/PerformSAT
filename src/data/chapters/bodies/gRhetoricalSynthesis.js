@@ -26,7 +26,7 @@ export const gRhetoricalSynthesisBlocks = [
   { type: 'heading', content: 'Step 1 — Skip the notes, read the goal' },
   {
     type: 'text',
-    content: 'Do not read the bullets top to bottom. Jump straight to the goal sentence ("The student wants to ..."). The bullets are just the box the answer came in — you inspect them only as a tiebreaker, and usually not even then.',
+    content: 'Do not read the bullets top to bottom. Jump straight to the goal sentence ("The student wants to ..."). Reading the four notes first burns time and loads your head with true-but-irrelevant facts, which makes every choice feel plausible and slows you down. The bullets are just the box the answer came in — you inspect them only as a tiebreaker, and usually not even then.',
   },
 
   { type: 'heading', content: 'Step 2 — Decompose the goal' },
@@ -88,6 +88,17 @@ export const gRhetoricalSynthesisBlocks = [
     ],
   },
 
+  {
+    type: 'example',
+    difficulty: 'Medium',
+    problem: 'Notes:\n- Researchers studied how honeybees find their way home.\n- They tracked the bees using tiny radar tags.\n- The study ran across two summers.\n- Bees returned to the hive even from unfamiliar terrain.\n\nGoal: The student wants to present the aim of the researchers\' study. Which choice best accomplishes this?\n\n(A) The study ran across two full summers of fieldwork.\n(B) The researchers set out to learn how honeybees find their way home.\n(C) The bees returned to the hive even from unfamiliar terrain.',
+    steps: [
+      { label: 'Decompose', content: 'Verb = *present*, focus = *the aim of the study*. Signature: the answer states what the researchers **set out to learn**, not what they found or how long it took.' },
+      { label: 'Scan for the feature', content: '(A) is method and duration — off-focus. (C) is a *finding*. Only (B) frames intent: "set out to learn how...".' },
+      { label: 'Commit', content: '**(B)** — it names the goal. The finding in (C) sounds the most interesting, which is exactly the bait: "aim" demands the intent, never the result.' },
+    ],
+  },
+
   { type: 'heading', content: 'Check yourself' },
   {
     type: 'checkpointQuestion',
@@ -98,6 +109,11 @@ export const gRhetoricalSynthesisBlocks = [
     type: 'checkpointQuestion',
     question: 'A goal says: "introduce the aim of the study." One choice reports that the study found a 20% increase; another says the researchers wanted to test whether sleep affects memory. Which fits the goal?',
     answer: '**The second one.** "Aim" means what they *set out to learn*, which is intent framing ("wanted to test whether..."). The 20% result is a finding — often the more interesting-sounding choice, which is exactly the bait.',
+  },
+  {
+    type: 'checkpointQuestion',
+    question: 'A goal says: "introduce the painter Lena Ruiz to readers already familiar with her work." One choice opens "Lena Ruiz, a painter born in 1970, ..."; another says "Ruiz\'s later murals grew steadily more abstract." Which fits the goal?',
+    answer: '**The second one.** The audience already knows Ruiz, so background — full identity, birth year, "a painter" — is redundant, and re-explaining the known is the wrong-answer tell for a *familiar-audience* goal. The choice that skips the introduction and moves straight to a specific point is the one that fits.',
   },
 
   {

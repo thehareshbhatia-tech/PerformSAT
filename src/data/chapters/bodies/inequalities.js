@@ -12,13 +12,13 @@
 export const inequalitiesBlocks = [
   {
     type: 'text',
-    content: 'An inequality is just an equation with $<$, $\\le$, $>$, or $\\ge$ in place of the equals sign. Solve it almost exactly like an equation — with **one extra rule** — and read absolute value as **distance**. That is the whole topic.',
+    content: 'An inequality is just an equation with $<$, $\\le$, $>$, or $\\ge$ in place of the equals sign. Solve it almost exactly like an equation — with **one extra rule** — and read absolute value as **distance**. That is the whole topic. The difference from an equation is that the answer is a whole *range* of numbers, not a single value, so what you report is a direction and a boundary rather than one point. Everything you already know about isolating a variable still applies; only one move behaves differently, which is why this is mostly review.',
   },
 
   { type: 'heading', content: 'Solve it like an equation — one exception' },
   {
     type: 'text',
-    content: 'Add, subtract, multiply, and divide both sides just like an equation. The only new rule: **when you multiply or divide both sides by a negative, flip the sign.** So $-2x < 6$ becomes $x > -3$ (divide by $-2$, flip $<$ to $>$). Adding or subtracting never flips anything, and a negative answer by itself is not a trigger — only *scaling by a negative* flips.',
+    content: 'Add, subtract, multiply, and divide both sides just like an equation. The only new rule: **when you multiply or divide both sides by a negative, flip the sign.** The flip happens because multiplying by a negative reverses the order of the number line — $3 < 5$ is true, but $-3 < -5$ is false, so the symbol has to turn around to stay honest. So $-2x < 6$ becomes $x > -3$ (divide by $-2$, flip $<$ to $>$). Adding or subtracting never flips anything, and a negative answer by itself is not a trigger — only *scaling by a negative* flips.',
   },
   {
     type: 'keyInsight',
@@ -28,13 +28,13 @@ export const inequalitiesBlocks = [
   { type: 'heading', content: 'Compound inequalities: do it to all three parts' },
   {
     type: 'text',
-    content: 'A chain like $2 < 3x - 1 \\le 11$ means $x$ is squeezed between two bounds. Whatever you do, do it to **all three parts** at once: add $1$ everywhere to get $3 < 3x \\le 12$, then divide everything by $3$ to get $1 < x \\le 4$. (If a step divides by a negative, both signs flip.)',
+    content: 'A chain like $2 < 3x - 1 \\le 11$ means $x$ is squeezed between two bounds. Whatever you do, do it to **all three parts** at once: add $1$ everywhere to get $3 < 3x \\le 12$, then divide everything by $3$ to get $1 < x \\le 4$. Hitting all three parts keeps the chain balanced the same way doing a move to both sides keeps an equation balanced — skip the middle and the bounds stop describing the same $x$. The payoff is a single tidy interval that names exactly which numbers work. (If a step divides by a negative, both signs flip.)',
   },
 
   { type: 'heading', content: 'Absolute value = distance from a point' },
   {
     type: 'text',
-    content: '$|x|$ is the distance from $x$ to $0$, so it is never negative. The useful version: $|x - c|$ is the distance from $x$ to $c$. That makes the inequalities readable with no case work — $|x - c| < r$ means "$x$ is **within** $r$ of $c$," and $|x - c| > r$ means "$x$ is **more than** $r$ away."',
+    content: '$|x|$ is the distance from $x$ to $0$, so it is never negative. The useful version: $|x - c|$ is the distance from $x$ to $c$. That makes the inequalities readable with no case work — $|x - c| < r$ means "$x$ is **within** $r$ of $c$," and $|x - c| > r$ means "$x$ is **more than** $r$ away." Reading absolute value as distance is what saves you from the error-prone two-case algebra most people are taught, because the picture already tells you whether the answer is one band or two rays. Once you see $c$ as a center and $r$ as a radius, you can practically write the answer down without solving.',
   },
   {
     type: 'formulaGrid',
@@ -52,7 +52,7 @@ export const inequalitiesBlocks = [
   { type: 'heading', content: 'Two variables: shade a half-plane, test a point' },
   {
     type: 'text',
-    content: 'An inequality like $y \\le 2x + 1$ is solved by a **half-plane** — the line $y = 2x + 1$ plus everything on one side. To pick the side, **test an easy point**: try $(0, 0)$. If it makes the inequality true, shade the side it is on; if false, shade the other side. For a system, the answer region is where the shaded areas **overlap**, and a point counts only if it satisfies *every* inequality.',
+    content: 'An inequality like $y \\le 2x + 1$ is solved by a **half-plane** — the line $y = 2x + 1$ plus everything on one side. To pick the side, **test an easy point**: try $(0, 0)$. Testing one point works because the boundary line splits the plane into two sides, and every point on a given side gives the same true-or-false answer — so a single test settles the whole region. If it makes the inequality true, shade the side it is on; if false, shade the other side. For a system, the answer region is where the shaded areas **overlap**, and a point counts only if it satisfies *every* inequality.',
   },
 
   { type: 'heading', content: 'Words to symbols (watch the boundary)' },
@@ -68,7 +68,7 @@ export const inequalitiesBlocks = [
   },
   {
     type: 'text',
-    content: 'When the answer must be a whole number (buses, tickets, crates), round toward the side that actually works: **up** for a minimum, **down** for a maximum. If $x \\ge 14.2$ boxes are needed, the answer is $15$ — $14$ is not enough.',
+    content: 'When the answer must be a whole number (buses, tickets, crates), round toward the side that actually works: **up** for a minimum, **down** for a maximum. This is not the usual "round to nearest" — the direction is dictated by which whole number still satisfies the constraint. If $x \\ge 14.2$ boxes are needed, the answer is $15$, because $14$ is not enough; round the wrong way and you report a number that literally fails the requirement, which is exactly the trap these questions are built around.',
   },
 
   { type: 'heading', content: 'Worked examples' },
@@ -102,6 +102,16 @@ export const inequalitiesBlocks = [
       { label: 'Write both pieces', content: 'Beyond means outside: $x < -2$ or $x > 8$. Check $x = 0$: $|0 - 3| = 3 > 5$ is false, and $0$ is correctly *not* in either ray.' },
     ],
   },
+  {
+    type: 'example',
+    difficulty: 'Medium',
+    problem: 'Solve $-1 \\le 2x + 3 < 9$ for $x$.',
+    steps: [
+      { label: 'Subtract 3 from all three parts', content: 'Do the same move to every part: $-1 - 3 \\le 2x < 9 - 3$, which is $-4 \\le 2x < 6$.' },
+      { label: 'Divide all three by 2', content: 'Dividing by a positive number keeps both signs the same: $-2 \\le x < 3$.' },
+      { label: 'Read the interval', content: '$x$ runs from $-2$ (included) up to $3$ (not included). Check $x = 0$: $2(0) + 3 = 3$, and $-1 \\le 3 < 9$ is true.' },
+    ],
+  },
 
   { type: 'heading', content: 'Check yourself' },
   {
@@ -113,6 +123,11 @@ export const inequalitiesBlocks = [
     type: 'checkpointQuestion',
     question: 'A tank must hold **at least** 300 gallons and fills at 12 gallons per minute. Write the constraint. Does exactly 25 minutes satisfy it?',
     answer: '$12m \\ge 300$, and yes — $12(25) = 300$, and "at least" is $\\ge$, so the boundary itself counts. Under "more than 300," the same 25 minutes would fail.',
+  },
+  {
+    type: 'checkpointQuestion',
+    question: 'Solve $|x - 4| \\le 3$. What is the solution set?',
+    answer: '$1 \\le x \\le 7$. Read it as distance: "$x$ is **within** $3$ of $4$," which is one band, $4 - 3 \\le x \\le 4 + 3$. Check $x = 4$: $|4 - 4| = 0 \\le 3$, true, and $4$ sits right in the middle of the interval.',
   },
 
   {

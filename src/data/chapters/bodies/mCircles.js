@@ -34,7 +34,7 @@ export const mCirclesBlocks = [
   { type: 'heading', content: 'When the equation is expanded: complete the square' },
   {
     type: 'text',
-    content: 'If the equation is multiplied out — like $x^2 + y^2 - 6x + 4y - 12 = 0$ — you cannot read anything yet. Rebuild the two squares to get back to standard form.',
+    content: 'If the equation is multiplied out — like $x^2 + y^2 - 6x + 4y - 12 = 0$ — the center and radius are hidden and you cannot read anything yet. Completing the square rebuilds the two perfect squares, folding those loose $-6x$ and $+4y$ terms back inside parentheses. Once you are back in standard form, reading off the center and radius is the same one-line move as before — so the whole task is just getting there.',
   },
   {
     type: 'steps',
@@ -75,7 +75,7 @@ export const mCirclesBlocks = [
   { type: 'heading', content: 'Two facts that unlock figures' },
   {
     type: 'text',
-    content: 'A **central angle** (vertex at the center) equals the degree measure of the arc it opens up — they are the same number. And a **tangent line** touches the circle at exactly one point and meets the radius drawn to that point at a perfect $90°$. When a problem says "tangent," draw that radius and look for the right angle.',
+    content: 'A **central angle** (vertex at the center) equals the degree measure of the arc it opens up — they are literally the same number, which is what lets you jump freely between an angle and its arc. And a **tangent line** touches the circle at exactly one point and meets the radius drawn to that point at a perfect $90°$. So whenever a problem says "tangent," draw that radius immediately: the right angle it creates is almost always the key that unlocks the rest of the figure.',
   },
 
   { type: 'heading', content: 'Worked examples' },
@@ -109,6 +109,15 @@ export const mCirclesBlocks = [
       { label: 'Take the slice', content: 'Arc length $= \\frac{1}{9}\\cdot 18\\pi = 2\\pi$.' },
     ],
   },
+  {
+    type: 'example',
+    difficulty: 'Medium',
+    problem: 'A circle has circumference $10\\pi$. What is its area?',
+    steps: [
+      { label: 'Find the radius first', content: 'Circumference is $C = 2\\pi r$, so $10\\pi = 2\\pi r$ gives $r = 5$.' },
+      { label: 'Go out to area', content: 'Area is $A = \\pi r^2 = \\pi (5)^2 = 25\\pi$. Always route through $r$ — don\'t try to jump from $C$ to $A$ directly.' },
+    ],
+  },
 
   { type: 'heading', content: 'Check yourself' },
   {
@@ -120,6 +129,11 @@ export const mCirclesBlocks = [
     type: 'checkpointQuestion',
     question: 'A circle has radius $6$. What is the area of a sector whose central angle is $90°$?',
     answer: 'A $90°$ angle is $\\frac{90}{360} = \\frac{1}{4}$ of the circle. The full area is $\\pi r^2 = 36\\pi$, so the sector is $\\frac{1}{4}\\cdot 36\\pi = 9\\pi$.',
+  },
+  {
+    type: 'checkpointQuestion',
+    question: 'A circle has area $49\\pi$. What is its circumference?',
+    answer: 'Find $r$ first: $\\pi r^2 = 49\\pi$ gives $r^2 = 49$, so $r = 7$. Then the circumference is $C = 2\\pi r = 2\\pi(7) = 14\\pi$.',
   },
 
   {

@@ -13,7 +13,7 @@
 export const mQuadraticsBlocks = [
   {
     type: 'text',
-    content: 'Every quadratic can be cracked by more than one method, and the fast route is usually printed on the page. The whole skill is two moves: **let the answer choices pick your method**, then read the parabola instead of grinding it.',
+    content: 'Every quadratic can be cracked by more than one method, and the fast route is usually printed on the page. Most students default to a single method for everything — always factor, or always run the formula — and burn time on problems that were begging for a quicker route. The whole skill is two moves: **let the answer choices pick your method**, then read the parabola instead of grinding it.',
   },
 
   { type: 'heading', content: 'Pick the method before you write anything' },
@@ -25,7 +25,7 @@ export const mQuadraticsBlocks = [
   { type: 'heading', content: 'Zeros = roots = x-intercepts = factors' },
   {
     type: 'text',
-    content: 'These four words all name the same thing: an input that makes the quadratic equal $0$. If $(x-3)(x+2)=0$, then one factor must be $0$, so $x=3$ or $x=-2$. Notice the sign flip — the root is the value that *kills* the factor, so $(x+2)$ is zero at $x=-2$, not $+2$.',
+    content: 'These four words all name the same thing: an input that makes the quadratic equal $0$. The SAT swaps them freely inside one question — an item may ask for "zeros" while the graph is labeled with "x-intercepts" — so treating them as synonyms keeps you from freezing. If $(x-3)(x+2)=0$, then one factor must be $0$, so $x=3$ or $x=-2$. Notice the sign flip — the root is the value that *kills* the factor, so $(x+2)$ is zero at $x=-2$, not $+2$.',
   },
   {
     type: 'keyInsight',
@@ -52,7 +52,7 @@ export const mQuadraticsBlocks = [
   { type: 'heading', content: 'Read the parabola from its form' },
   {
     type: 'text',
-    content: 'A parabola is a mirror-symmetric U. The same quadratic can be written three ways, and each form hands you a different feature for free.',
+    content: 'A parabola is a mirror-symmetric U. The same quadratic can be written three ways, and each form hands you a different feature for free. Choosing the form is itself the strategy: the feature a question wants — roots, vertex, or y-intercept — sits in plain view in exactly one of them, so match the form to the ask instead of converting blindly.',
   },
   {
     type: 'table',
@@ -101,6 +101,15 @@ export const mQuadraticsBlocks = [
     content: 'When the question asks only for the **sum** or **product** of the solutions, you never need the roots themselves. For $ax^2+bx+c=0$: the roots sum to $-\\dfrac{b}{a}$ and multiply to $\\dfrac{c}{a}$ — read straight off the coefficients. This is the one situation where algebra beats both factoring and Desmos.',
   },
   {
+    type: 'example',
+    difficulty: 'Medium',
+    problem: 'What is the product of the solutions of $3x^2 - 12x + 5 = 0$? (Do not solve for the roots.)',
+    steps: [
+      { label: 'Read the coefficients', content: 'In standard form, $a=3$, $b=-12$, $c=5$.' },
+      { label: 'Use the product rule', content: 'The product of the roots is $\\dfrac{c}{a}=\\dfrac{5}{3}$ — read straight off, no solving. The $\\div a$ matters here since $a=3$, not $1$.' },
+    ],
+  },
+  {
     type: 'tip',
     content: 'Two fragile spots: the leading minus on the sum ($-b/a$, not $b/a$), and the $\\div a$ when the leading coefficient is not $1$. Get the equation into standard form before reading $a$, $b$, $c$.',
   },
@@ -115,6 +124,11 @@ export const mQuadraticsBlocks = [
     type: 'checkpointQuestion',
     question: 'A parabola crosses the x-axis at $x=-4$ and $x=2$. Write a factored equation, and give the x-coordinate of its vertex.',
     answer: '**$y=a(x+4)(x-2)$**, vertex x $=\\dfrac{-4+2}{2}=-1$. Each factor is $0$ at a root, and the vertex sits halfway between them.',
+  },
+  {
+    type: 'checkpointQuestion',
+    question: 'Without solving, how many real solutions does $2x^2 - 4x + 5 = 0$ have?',
+    answer: '**None.** The discriminant is $b^2-4ac=(-4)^2-4(2)(5)=16-40=-24$, which is negative — a negative discriminant means no real solutions. Only the sign matters, so you never actually solve.',
   },
 
   {

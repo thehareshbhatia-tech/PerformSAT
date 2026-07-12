@@ -14,13 +14,13 @@
 export const expressionsBlocks = [
   {
     type: 'text',
-    content: 'Expression items never ask you to *solve* — they ask you to **rewrite one expression as an equivalent one**. Expand, factor, or match a form. The whole skill runs on two moves that are opposites, three templates worth memorizing, and one habit: treat a chunk as a single thing.',
+    content: 'Expression items never ask you to *solve* — they ask you to **rewrite one expression as an equivalent one**. Expand, factor, or match a form. What makes them feel hard is reflex: there is no equation and nothing to solve for, so grinding gets you nowhere — the work is *recognizing* which form the item wants. The whole skill runs on two moves that are opposites, three templates worth memorizing, and one habit: treat a chunk as a single thing.',
   },
 
   { type: 'heading', content: 'Expand and factor are the same move, reversed' },
   {
     type: 'text',
-    content: '**Expanding** multiplies out to kill parentheses: $(x+2)(x+3)\\to x^2+5x+6$. **Factoring** runs it backward, pulling a product out of a sum: $x^2+5x+6\\to(x+2)(x+3)$. Neither changes the value — same quantity, different outfit. The verb tells you the direction: "expand / multiply" go forward, "factor / write as a product" go backward.',
+    content: '**Expanding** multiplies out to kill parentheses: $(x+2)(x+3)\\to x^2+5x+6$. **Factoring** runs it backward, pulling a product out of a sum: $x^2+5x+6\\to(x+2)(x+3)$. Neither changes the value — same quantity, different outfit. The verb tells you the direction: "expand / multiply" go forward, "factor / write as a product" go backward. Read that instruction word before you touch the algebra — picking the wrong direction means real work toward a shape the item never asked for.',
   },
   {
     type: 'keyInsight',
@@ -30,7 +30,7 @@ export const expressionsBlocks = [
   { type: 'heading', content: 'Factor: pull the GCF first, then split the trinomial' },
   {
     type: 'text',
-    content: 'Factoring has a fixed first step: **pull out the greatest common factor before anything else.** $6x^2+9x=3x(2x+3)$. A trinomial that looks impossible often turns friendly once the common piece leaves. Then, for $x^2+bx+c$, find **two numbers that multiply to $c$ and add to $b$** — those are the constants in $(x+\\square)(x+\\square)$.',
+    content: 'Factoring has a fixed first step: **pull out the greatest common factor before anything else.** $6x^2+9x=3x(2x+3)$. A trinomial that looks impossible often turns friendly once the common piece leaves — skipping this step is the top reason a perfectly factorable expression looks prime. Then, for $x^2+bx+c$, find **two numbers that multiply to $c$ and add to $b$** — those are the constants in $(x+\\square)(x+\\square)$.',
   },
 
   { type: 'heading', content: 'The three templates — know them both directions' },
@@ -51,13 +51,13 @@ export const expressionsBlocks = [
   { type: 'heading', content: 'Equal for all x? Match coefficients' },
   {
     type: 'text',
-    content: 'When an item says two forms are equal **"for all values of $x$,"** stop solving — two polynomials agree everywhere only if they are the *same* polynomial. So **match the coefficients of like terms.** If $x^2+bx+12=(x+3)(x+k)$ for all $x$, expand the right side to $x^2+(3+k)x+3k$: the constants give $3k=12\\Rightarrow k=4$, then $b=3+k=7$.',
+    content: 'When an item says two forms are equal **"for all values of $x$,"** stop solving — that exact phrase is the trigger, and it means something different from "solve for $x$." One value of $x$ would be an equation to solve; *for all* $x$ means the two polynomials must be identical, which happens only when their matching terms match. So **match the coefficients of like terms.** If $x^2+bx+12=(x+3)(x+k)$ for all $x$, expand the right side to $x^2+(3+k)x+3k$: the constants give $3k=12\\Rightarrow k=4$, then $b=3+k=7$.',
   },
 
   { type: 'heading', content: 'Treat a chunk as one unit' },
   {
     type: 'text',
-    content: 'A compound piece like $(x+y)$ or $(x+1)$ can be handled as a **single sealed object.** If $3(x+y)=24$ and the question wants $x+y$, just divide: $x+y=8$ — you never need $x$ or $y$ alone. And a repeated block factors like one letter: $6(x+1)^2-5(x+1)=(x+1)\\big[6(x+1)-5\\big]=(x+1)(6x+1)$.',
+    content: 'A compound piece like $(x+y)$ or $(x+1)$ can be handled as a **single sealed object.** The reason people struggle here is instinct — they try to crack the block open and find $x$ and $y$ on their own, when the block itself is what the question wants. If $3(x+y)=24$ and the question wants $x+y$, just divide: $x+y=8$ — you never need $x$ or $y$ alone. And a repeated block factors like one letter: $6(x+1)^2-5(x+1)=(x+1)\\big[6(x+1)-5\\big]=(x+1)(6x+1)$.',
   },
   {
     type: 'tip',
@@ -96,6 +96,17 @@ export const expressionsBlocks = [
     ],
   },
 
+  {
+    type: 'example',
+    difficulty: 'Medium',
+    problem: 'Which is equivalent to $9x^2+12x+4$?\n\n(A) $(3x+2)^2$\n(B) $(3x+4)^2$\n(C) $(9x+2)^2$',
+    steps: [
+      { label: 'Check the ends', content: 'Both outer terms are squares: $9x^2=(3x)^2$ and $4=2^2$. That hints at a perfect square.' },
+      { label: 'Check the middle', content: 'Twice the product of $3x$ and $2$ is $2\\cdot3x\\cdot2=12x$ — it matches the middle term, so it really is a perfect square.' },
+      { label: 'Answer', content: '**(A) $(3x+2)^2$.** (C) uses $9x$ instead of $\\sqrt{9x^2}=3x$; (B) breaks the twice-the-product check ($2\\cdot3x\\cdot4=24x\\ne12x$).' },
+    ],
+  },
+
   { type: 'heading', content: 'Check yourself' },
   {
     type: 'checkpointQuestion',
@@ -106,6 +117,11 @@ export const expressionsBlocks = [
     type: 'checkpointQuestion',
     question: 'You are told $x+y=6$ and $xy=4$. What is $x^2+y^2$?',
     answer: '**$28$.** Read the square-of-a-sum backward: $x^2+y^2=(x+y)^2-2xy=6^2-2(4)=36-8=28$. Treat $x+y$ and $xy$ as sealed units — no need to find $x$ and $y$ separately.',
+  },
+  {
+    type: 'checkpointQuestion',
+    question: 'Expand $(2x-5)^2$. What is the middle term, and why is it negative?',
+    answer: '**$4x^2-20x+25$.** Use the square-of-a-difference template: the ends are $(2x)^2=4x^2$ and $(-5)^2=25$, and the middle is twice the product, $2\\cdot2x\\cdot(-5)=-20x$. It is negative because the $-5$ carries its sign into the product — squaring a difference flips only the middle term.',
   },
 
   {

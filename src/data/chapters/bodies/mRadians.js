@@ -18,7 +18,7 @@ export const mRadiansBlocks = [
   { type: 'heading', content: 'The one anchor: $180° = \\pi$' },
   {
     type: 'text',
-    content: 'Remember $\\pi$ is just a number, about $3.14$. So $\\pi$ radians is a bit more than $3$ radians — and that is exactly a half-circle, $180°$. Double it and a full circle is $360° = 2\\pi$ radians.',
+    content: 'Remember $\\pi$ is just a number, about $3.14$. So $\\pi$ radians is a bit more than $3$ radians — and that is exactly a half-circle, $180°$. Double it and a full circle is $360° = 2\\pi$ radians; halve it and a right angle is $90° = \\frac{\\pi}{2}$. Anchor every conversion and every unit-circle value to this one equivalence and you never have to memorize the rest.',
   },
 
   { type: 'heading', content: 'Converting: multiply so the unit cancels' },
@@ -34,7 +34,7 @@ export const mRadiansBlocks = [
   { type: 'heading', content: 'Arc length and sector area' },
   {
     type: 'text',
-    content: 'When the angle $\\theta$ is **in radians**, arc length is just $s = r\\theta$ — radius times angle, no conversion. A sector (pie slice) is that same fraction of the circle, so its area is $A = \\tfrac{1}{2}r^2\\theta$. If the angle is in degrees, convert to radians first, or use the fraction $\\frac{\\theta}{360}$ of the whole circle.',
+    content: 'When the angle $\\theta$ is **in radians**, arc length is just $s = r\\theta$ — radius times angle, no conversion. This clean formula is the main reason radians exist: the angle measures the arc directly in radius-lengths. A sector (pie slice) is that same fraction of the circle, so its area is $A = \\tfrac{1}{2}r^2\\theta$. If the angle is given in degrees, convert to radians first or take the fraction $\\frac{\\theta}{360}$ of the whole circle — dropping a degree angle straight into $r\\theta$ is the trap.',
   },
   {
     type: 'tip',
@@ -87,6 +87,16 @@ export const mRadiansBlocks = [
   },
   {
     type: 'example',
+    difficulty: 'Medium',
+    problem: 'A circle has radius $4$. Find the area of a sector with central angle $\\frac{\\pi}{6}$ radians.',
+    steps: [
+      { label: 'Choose the formula', content: 'The angle is in radians, so use $A = \\tfrac{1}{2}r^2\\theta$ directly.' },
+      { label: 'Substitute', content: '$A = \\tfrac{1}{2}(4)^2\\left(\\frac{\\pi}{6}\\right) = \\tfrac{1}{2}\\cdot 16 \\cdot \\frac{\\pi}{6}$.' },
+      { label: 'Compute', content: '$8 \\cdot \\frac{\\pi}{6} = \\frac{8\\pi}{6} = \\frac{4\\pi}{3}$.' },
+    ],
+  },
+  {
+    type: 'example',
     difficulty: 'Hard',
     problem: 'What is $\\cos\\left(\\frac{2\\pi}{3}\\right)$?',
     steps: [
@@ -106,6 +116,11 @@ export const mRadiansBlocks = [
     type: 'checkpointQuestion',
     question: 'What is $\\sin\\left(\\frac{\\pi}{2}\\right)$, and how can you read it off the unit circle?',
     answer: '**$1$.** At $\\frac{\\pi}{2}$ ($90°$) the point on the unit circle is $(0, 1)$; sine is the $y$-coordinate, so $\\sin\\frac{\\pi}{2} = 1$.',
+  },
+  {
+    type: 'checkpointQuestion',
+    question: 'What is $\\sin\\left(\\frac{7\\pi}{6}\\right)$?',
+    answer: '**$-\\frac{1}{2}$.** $\\frac{7\\pi}{6} = 210°$ lands in Quadrant III, where $y$ is negative and sine follows $y$. The reference angle is $30° = \\frac{\\pi}{6}$ with $\\sin = \\frac{1}{2}$, so the signed value is $-\\frac{1}{2}$.',
   },
 
   {

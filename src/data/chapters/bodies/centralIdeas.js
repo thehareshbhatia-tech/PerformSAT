@@ -30,7 +30,7 @@ export const centralIdeasBlocks = [
   { type: 'heading', content: 'The right answer is a paraphrase' },
   {
     type: 'text',
-    content: 'The credited choice says the passage\'s idea in **different words** — usually one step more general. The passage says *"the tool they built caught fainter signals"*; the answer says *"their new instrument improved measurements."* Same claim, new words.',
+    content: 'The credited choice says the passage\'s idea in **different words** — usually one step more general. The test does this on purpose: if the answer echoed the passage word for word, you could match it by sight without ever understanding the point, so the real answer is almost always a translation. The passage says *"the tool they built caught fainter signals"*; the answer says *"their new instrument improved measurements."* Same claim, new words.',
   },
   {
     type: 'tip',
@@ -44,7 +44,7 @@ export const centralIdeasBlocks = [
   { type: 'heading', content: 'Detail questions: go back and read' },
   {
     type: 'text',
-    content: 'For *"according to the text, why did X happen?"*, do not answer from memory. Find the sentence that actually discusses X and **read it from its first word** — the qualifier that decides the answer often sits in the front half, before the spot a keyword scan lands on. There is nothing to figure out; only something to find and match.',
+    content: 'For *"according to the text, why did X happen?"*, do not answer from memory. Memory blurs the details into a vague gist, and the wrong choices are built to match that gist — close enough to feel right, off on the one word that matters. Find the sentence that actually discusses X and **read it from its first word** — the qualifier that decides the answer often sits in the front half, before the spot a keyword scan lands on. There is nothing to figure out; only something to find and match.',
   },
 
   { type: 'heading', content: 'Literary passages' },
@@ -85,6 +85,17 @@ export const centralIdeasBlocks = [
     ],
   },
 
+  {
+    type: 'example',
+    difficulty: 'Medium',
+    problem: 'For decades, curators stored the oldest manuscripts in cool, perfectly still vaults, sure that stillness preserved them best. Newer conservation work points the other way: pages kept in motionless air trap the faint acids they give off, while gentle, filtered air circulation carries those acids away and slows the paper\'s decay.\n\nWhich choice best states the main idea of the text?\n\n(A) Curators have long stored old manuscripts in cool, still vaults.\n(B) Gentle air circulation can preserve old manuscripts better than perfectly still storage.\n(C) Still air is the single greatest threat facing every historical document.',
+    steps: [
+      { label: 'Find the point', content: 'The pivot is *points the other way* — the point lives after it. The passage says still air traps the acids and moving air clears them, so circulation preserves the pages better.' },
+      { label: 'Say it in your own words', content: '*"Gentle airflow beats still air for keeping old paper."*' },
+      { label: 'Match', content: '**(B)** restates that in new words. (A) is a true detail, but it states the old belief the passage exists to correct. (C) over-reads: *single greatest threat* and *every document* are rankings the text never makes.' },
+    ],
+  },
+
   { type: 'heading', content: 'Check yourself' },
   {
     type: 'checkpointQuestion',
@@ -95,6 +106,11 @@ export const centralIdeasBlocks = [
     type: 'checkpointQuestion',
     question: 'On a main-idea question, two choices both use exact phrases from the passage. One names a single statistic; the other restates the whole argument. Which is more likely right, and why?',
     answer: 'The one restating the **whole argument.** The statistic covers only one sentence, so it fails the point test — it is a detail, not the main idea. And matching the passage\'s exact words is a lure, not proof.',
+  },
+  {
+    type: 'checkpointQuestion',
+    question: 'A choice restates the passage\'s main claim perfectly but adds the word *always* — where the passage said the method *often* works. Keep it or cut it?',
+    answer: '**Cut it.** *Always* is one unsupported word: the passage said *often*, not *always*, and going from "often" to "always" is a claim the text never makes. Supported, not stated — a single overreaching word sinks an otherwise perfect choice.',
   },
 
   {

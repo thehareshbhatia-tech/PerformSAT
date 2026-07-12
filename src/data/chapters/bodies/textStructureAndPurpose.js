@@ -13,13 +13,13 @@
 export const textStructureAndPurposeBlocks = [
   {
     type: 'text',
-    content: 'Purpose and function questions ask **why** something is on the page — the job it does — not **what** it says. The trick is to answer with a *verb*: *to introduce, to qualify, to give an example.*',
+    content: 'Purpose and function questions ask **why** something is on the page — the job it does — not **what** it says. The trick is to answer with a *verb*: *to introduce, to qualify, to give an example.* Students lose these by re-telling the content, because a summary and a purpose sound similar but live on different levels — one reports the words, the other reports the work those words do.',
   },
 
   { type: 'heading', content: 'The one question behind three stems' },
   {
     type: 'text',
-    content: 'You will see *"main purpose of the text,"* *"overall structure of the text,"* and *"function of the underlined sentence."* All three ask the same thing: **why did the author write this?** So stop summarizing what the passage *says* — the right answer names what it *does*.',
+    content: 'You will see *"main purpose of the text,"* *"overall structure of the text,"* and *"function of the underlined sentence."* All three ask the same thing: **why did the author write this?** So stop summarizing what the passage *says* — the right answer names what it *does*. Once you hear the shared question under all three stems, the same move solves every one: name the job, lead with a verb, and check it covers the grain the stem asks about.',
   },
 
   { type: 'heading', content: 'Answer with a verb' },
@@ -100,6 +100,17 @@ export const textStructureAndPurposeBlocks = [
       { label: 'Answer', content: '**(A).** *Admires* earns approval, and nothing pushes it to a stronger word.' },
     ],
   },
+  {
+    type: 'example',
+    difficulty: 'Medium',
+    problem: 'For years, engineers blamed the footbridge\'s alarming sway on gusts of wind. But new sensors traced most of the motion to the crowd itself: pedestrians unconsciously fell into step with the bridge\'s wobble, feeding it. The finding is now reshaping how busy walkways are designed.\n\nWhich choice best describes the overall structure of the text?\n\n(A) A long-accepted explanation is presented and then replaced by a better-supported one.\n(B) A problem is described, and several competing solutions are weighed against each other.\n(C) A general claim is stated and then supported with a series of examples.',
+    steps: [
+      { label: 'Trace the shape, not the topic', content: 'Beat one: the old belief (wind). Beat two, on *but*: new sensor evidence points to the crowd instead. Beat three: that finding now changes design. The arc is old view, then a replacement.' },
+      { label: 'Say it as a structure', content: 'Prediction: *an accepted explanation is overturned by new evidence.* Lead with the shape, not any single detail.' },
+      { label: 'Eliminate', content: '(B) *competing solutions weighed* — the passage weighs two causes, not solutions, and never lines up rival fixes. (C) *a series of examples* — there is one cause and one study, not a list of examples.' },
+      { label: 'Answer', content: '**(A).** It names the whole three-beat shape — old explanation, better-supported replacement — at the right altitude.' },
+    ],
+  },
 
   { type: 'heading', content: 'Check yourself' },
   {
@@ -111,6 +122,11 @@ export const textStructureAndPurposeBlocks = [
     type: 'checkpointQuestion',
     question: 'On a main-purpose item, a choice says the passage *"mocks the early theorists."* The passage calls their conclusion reasonable for its time, then presents newer data. Keep or cut?',
     answer: '**Cut, on the verb.** *Mocks* has the wrong direction and far too much force — the passage corrects respectfully, it does not ridicule. A verb the wording does not earn kills the choice even when the topic is right.',
+  },
+  {
+    type: 'checkpointQuestion',
+    question: 'On a *main purpose of the text* item, a choice accurately describes the passage\'s single most vivid example. Keep or cut, and why?',
+    answer: '**Cut, on the grain.** A main-purpose answer must cover the *whole* passage, and one example is only a piece of it — true, but far too small. The credited choice names the job the entire text does; a choice fixed on one memorable detail is at the wrong altitude.',
   },
 
   {

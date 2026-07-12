@@ -12,13 +12,13 @@
 export const statisticalClaimsBlocks = [
   {
     type: 'text',
-    content: 'These questions hand you a short study — who was measured, how they were chosen, what was found — and four possible conclusions. There is usually no math. The whole skill is one question: **what is this study actually allowed to claim?** Two design choices decide it.',
+    content: 'These questions hand you a short study — who was measured, how they were chosen, what was found — and four possible conclusions. There is usually no math; the wrong choices are wrong because they claim *more* than the study earned, not because the arithmetic slipped. The whole skill is one question: **what is this study actually allowed to claim?** Two design choices decide it, so find them before you weigh a single answer.',
   },
 
   { type: 'heading', content: 'The two dials' },
   {
     type: 'text',
-    content: 'Every study has two independent switches, and each one unlocks a different kind of claim. **Random sampling** (how people got *into* the study) lets you generalize to the whole population. **Random assignment** (how people got *sorted into groups*) lets you claim cause. Check them separately, in that order, before you read a single answer choice.',
+    content: 'Every study has two independent switches, and each one unlocks a different kind of claim. **Random sampling** (how people got *into* the study) lets you generalize to the whole population. **Random assignment** (how people got *sorted into groups*) lets you claim cause. They are independent, so a study can have one, both, or neither — and each on-switch buys you exactly one new power. Check them separately, in that order, before you read a single answer choice.',
   },
 
   { type: 'heading', content: 'Dial 1 — random sampling lets you generalize' },
@@ -76,6 +76,16 @@ export const statisticalClaimsBlocks = [
   },
   {
     type: 'example',
+    difficulty: 'Medium',
+    problem: 'A morning radio host invites listeners to call in whether the city should build a new stadium; of 4,000 callers, 72% say yes. The host concludes most residents support the stadium. What is the primary flaw in this conclusion?\n\n(A) The sample of 4,000 is too small to represent the city.\n(B) The callers chose to respond, so the sample is self-selected rather than random.\n(C) The result should have been reported with a margin of error.\n(D) The survey asked about only one proposed stadium.',
+    steps: [
+      { label: 'Check dial 1', content: 'Listeners opted in by calling — nobody was drawn at random. That is a self-selected sample, and people with strong opinions call disproportionately.' },
+      { label: 'Rule out "too small"', content: '4,000 is a large sample, and size never repairs bias — a big biased sample is still biased. So (A) misdiagnoses it.' },
+      { label: 'Answer', content: '**(B)** — the non-random, self-selected sampling is the flaw. The result describes the callers, not the city.' },
+    ],
+  },
+  {
+    type: 'example',
     difficulty: 'Hard',
     problem: 'Researchers randomly selected 500 adults from a city\'s voter roll and asked about gardening and stress. Adults who gardened weekly reported lower stress. Which conclusion is most appropriate?\n\n(A) Gardening reduces stress for adults in the city.\n(B) Gardening reduces stress for adults everywhere.\n(C) Among adults in the city, weekly gardening is associated with lower reported stress.\n(D) Any adult in the city who starts gardening will report lower stress.',
     steps: [
@@ -95,6 +105,11 @@ export const statisticalClaimsBlocks = [
     type: 'checkpointQuestion',
     question: 'Sixty volunteers are randomly assigned to two groups; one uses a new stretching routine and later shows greater flexibility gains. Can you say the routine *causes* the gains, and for whom?',
     answer: 'Yes, a causal claim is legal — random assignment (dial 2 on) spread hidden traits evenly, so the routine earns the credit. But dial 1 is off (volunteers, not a random draw from any population), so the cause holds only **for people like the sixty volunteers**, not the general public.',
+  },
+  {
+    type: 'checkpointQuestion',
+    question: 'A researcher randomly samples 300 employees at one company and finds 40% bike to work; the company has 2,400 employees. Estimate the number of bike commuters, and can that be generalized to all workers in the city?',
+    answer: 'Estimate: the random sample lets you scale the proportion to the frame, so $0.40 \\times 2400 = 960$ bike commuters at that company. But generalization stops at the frame — this one company\'s employees — not the whole city, because nobody outside the company was ever in the pool.',
   },
 
   {

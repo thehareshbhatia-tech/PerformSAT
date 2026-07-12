@@ -14,7 +14,7 @@
 export const commandOfEvidenceQuantitativeBlocks = [
   {
     type: 'text',
-    content: 'These give you a **table or graph plus a claim**, then ask which choice uses the data to complete or support that claim. The whole skill is one thing: **let the claim tell you which numbers to go get, and ignore the rest of the graphic.**',
+    content: 'These give you a **table or graph plus a claim**, then ask which choice uses the data to complete or support that claim. The graphic always holds far more numbers than the claim needs, and reaching for the wrong ones is how most of the misses happen. The whole skill is one thing: **let the claim tell you which numbers to go get, and ignore the rest of the graphic.**',
   },
 
   { type: 'heading', content: 'What is actually tested' },
@@ -26,7 +26,7 @@ export const commandOfEvidenceQuantitativeBlocks = [
   { type: 'heading', content: 'Step 1 — Read the frame before any number' },
   {
     type: 'text',
-    content: 'Spend ten seconds on the graphic\'s labels before you touch a value: the **title** (what is this about?), the **axis labels or column headers** (what is measured?), and the **units** (a count? a percent? a rate?). Then read every value *with* its unit — "about 40 **percent**," never a bare "about 40."',
+    content: 'Spend ten seconds on the graphic\'s labels before you touch a value: the **title** (what is this about?), the **axis labels or column headers** (what is measured?), and the **units** (a count? a percent? a rate?). A number with no label attached is just a loose digit, and most wrong choices are built from real digits lifted off the wrong row or read in the wrong unit. Then read every value *with* its unit — "about 40 **percent**," never a bare "about 40."',
   },
   {
     type: 'keyInsight',
@@ -70,13 +70,34 @@ export const commandOfEvidenceQuantitativeBlocks = [
   },
   {
     type: 'table',
+    title: 'Data for the insulation example — monthly heating cost per home (\\$)',
+    headers: ['Home group', 'Before insulation', 'After insulation'],
+    rows: [
+      ['Group A', '180', '120'],
+      ['Group B', '165', '110'],
+      ['Group C', '172', '118'],
+    ],
+  },
+  {
+    type: 'example',
+    difficulty: 'Medium',
+    problem: 'A claim states that adding insulation **lowered heating cost for every group** of homes studied.\n\nWhich choice best supports the claim?\n\n(A) After insulation, every group\'s cost fell — $180 to $120, $165 to $110, and $172 to $118.\n(B) Before insulation, Group A paid the most, at $180.\n(C) After insulation, Group B paid the least, at $110.',
+    steps: [
+      { label: 'Claim needs', content: '"Every group" sets two conditions: (1) cover **all three** groups, (2) each one\'s After value is lower than its Before value.' },
+      { label: 'Check the table', content: 'Read each row: 180 to 120, 165 to 110, 172 to 118 — all three fall. So the "every group" claim really is backed by the data.' },
+      { label: 'Test the choices', content: '(B) is a "most before" level fact about a single group — it names no change. (C) is a "least after" level fact — also a ranking, not a drop. Only (A) reports the fall for all three groups.' },
+      { label: 'Answer', content: '**(A)** — right rows, right direction, and its scope covers every group the claim names. (B) and (C) quote real numbers that say nothing about the change.' },
+    ],
+  },
+  {
+    type: 'table',
     title: 'Data for the Medium example — bike-share rides by season',
     headers: ['Season', 'Rides in Year 1', 'Rides in Year 2'],
     rows: [
       ['Winter', '1,200', '1,450'],
       ['Spring', '2,100', '2,600'],
       ['Summer', '3,400', '3,750'],
-      ['Fall', '2,000', '1,900'],
+      ['Fall', '2,000', '2,150'],
     ],
   },
   {
@@ -85,9 +106,9 @@ export const commandOfEvidenceQuantitativeBlocks = [
     problem: 'A claim states that ridership grew **in every season** from Year 1 to Year 2.\n\nWhich choice best supports the claim?\n\n(A) In spring, rides rose from 2,100 to 2,600.\n(B) Rides rose in every season, from winter (1,200 to 1,450) through fall.\n(C) Summer had the most rides in both years.',
     steps: [
       { label: 'Claim needs', content: '"Every season" sets two conditions: (1) cover **all four** seasons, (2) each one\'s Year 2 value beats Year 1.' },
-      { label: 'Check the table', content: 'Read each row: 1,200 to 1,450, 2,100 to 2,600, 3,400 to 3,750 — but Fall goes 2,000 to **1,900**, a drop. So the "every season" claim is not actually backed for Fall.' },
+      { label: 'Check the table', content: 'Read each row: 1,200 to 1,450, 2,100 to 2,600, 3,400 to 3,750, and 2,000 to 2,150 — all four seasons rise. So the "every season" claim really is backed by the data.' },
       { label: 'Test the choices', content: '(A) is true but covers one season — a single row cannot prove an *every* claim. (C) is a "most rides" (level) fact, but the claim is about *growth* — irrelevant. (B) is the only choice that even claims the full set.' },
-      { label: 'Answer', content: '**(B)** — it is the choice whose scope matches "every season." (A) and (C) fail the claim even though their numbers are real.' },
+      { label: 'Answer', content: '**(B)** — it is the only choice that covers *every* season, matching the claim\'s scope, and every number is true to the table. (A) is true but names just one season, so it can\'t support an "every season" claim; (C) is a real number that says nothing about growth.' },
     ],
   },
   {
@@ -122,6 +143,11 @@ export const commandOfEvidenceQuantitativeBlocks = [
     type: 'checkpointQuestion',
     question: 'A claim says attendance "more than doubled," from 40 up to 68. A choice cites both numbers as support. Keep it?',
     answer: '**Cut it.** "More than doubled" means the later value must beat 80 (twice 40), and 68 falls short. Size words are conditions, not decoration — a real rise is still not *this* rise.',
+  },
+  {
+    type: 'checkpointQuestion',
+    question: 'A claim says sales grew from Q1 to Q2. A choice reads *"Q2 had the highest sales of any quarter."* Does it support the claim?',
+    answer: '**No.** "Highest of any quarter" is a level fact — a ranking at one moment — but the claim is about *growth* from Q1 to Q2. A choice that never compares Q1 with Q2 cannot back a change claim, no matter how real the number is.',
   },
 
   {

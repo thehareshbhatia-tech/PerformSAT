@@ -97,8 +97,8 @@ describe.each(bodyIds)('bodies template contract: %s', (bodyId) => {
     // trap-card catalogs, or summary tables.
     expect(blocks.length).toBeGreaterThanOrEqual(8);        // a real lesson, not a stub
     expect(count('heading')).toBeGreaterThanOrEqual(3);     // sectioned teaching
-    expect(count('example')).toBeGreaterThanOrEqual(2);     // 2-3 worked examples
-    expect(count('checkpointQuestion')).toBeGreaterThanOrEqual(2); // check-yourself
+    expect(count('example')).toBeGreaterThanOrEqual(4);     // balanced-bump: 4 worked examples
+    expect(count('checkpointQuestion')).toBeGreaterThanOrEqual(3); // balanced-bump: 3 check-yourself
   });
 
   test('worked examples carry a valid difficulty and solution steps', () => {

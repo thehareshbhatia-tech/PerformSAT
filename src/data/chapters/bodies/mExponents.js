@@ -13,7 +13,7 @@
 export const mExponentsBlocks = [
   {
     type: 'text',
-    content: 'An exponent is just a **count of how many copies of the base are multiplied**. Every rule below — and every SAT exponent question — falls out of that one idea, so there is almost nothing to memorize.',
+    content: 'An exponent is just a **count of how many copies of the base are multiplied**. Every rule below — and every SAT exponent question — falls out of that one idea, so there is almost nothing to memorize. Where students lose points is not hard arithmetic but forcing a rule onto a shape it does not fit, like trying to merge a *sum* of powers. Fall back to counting factors and those traps disappear.',
   },
 
   { type: 'heading', content: 'The three rules are just counting' },
@@ -44,7 +44,7 @@ export const mExponentsBlocks = [
   { type: 'heading', content: 'Same base on both sides? Set the exponents equal' },
   {
     type: 'text',
-    content: 'When an equation has powers on both sides, rewrite everything over **one shared base**. Numbers like $4$, $8$, $16$ are all powers of $2$; once each side is a single power of the same base, the exponents form an ordinary equation. $4^x = 8$ becomes $2^{2x} = 2^{3}$, so $2x = 3$.',
+    content: 'When an equation has powers on both sides, rewrite everything over **one shared base**. Numbers like $4$, $8$, $16$ are all powers of $2$; once each side is a single power of the same base, the exponents form an ordinary equation. This works because an exponential base is one-to-one — $2^{\\text{something}}$ hits each value exactly once, so if two powers of $2$ are equal, their exponents must be equal too. $4^x = 8$ becomes $2^{2x} = 2^{3}$, so $2x = 3$.',
   },
 
   { type: 'heading', content: 'The exponential model $y = a\\cdot b^{t}$' },
@@ -68,10 +68,19 @@ export const mExponentsBlocks = [
   { type: 'heading', content: 'Changing the time unit' },
   {
     type: 'text',
-    content: 'If the input is measured in different units than the rate, rescale the exponent so **one full rate-period advances it by exactly 1**. A yearly factor $b$ read monthly becomes $b^{t/12}$: after 12 months the exponent is $1$, so exactly one yearly step has happened. Finer unit → **divide** in the exponent (more small steps per change).',
+    content: 'If the input is measured in different units than the rate, rescale the exponent so **one full rate-period advances it by exactly 1**. A yearly factor $b$ read monthly becomes $b^{t/12}$: after 12 months the exponent is $1$, so exactly one yearly step has happened. Finer unit → **divide** in the exponent (more small steps per change). The trap is guessing whether to multiply or divide by that number; anchor instead on the checkpoint that one whole rate-period must move the exponent by exactly $1$, and the direction settles itself.',
   },
 
   { type: 'heading', content: 'Worked examples' },
+  {
+    type: 'example',
+    difficulty: 'Easy',
+    problem: 'Simplify $2^{5}\\cdot 2^{-2}$.',
+    steps: [
+      { label: 'Same base, add the counts', content: 'Multiplying like bases adds exponents: $5+(-2)=3$.' },
+      { label: 'Evaluate', content: '$2^{3}=8$. (The negative exponent just subtracts from the count — it does not make the answer negative.)' },
+    ],
+  },
   {
     type: 'example',
     difficulty: 'Medium',
@@ -112,6 +121,11 @@ export const mExponentsBlocks = [
     type: 'checkpointQuestion',
     question: 'A population grows 8% per year and starts at 500. What are $a$ and $b$ in $y = a\\cdot b^{t}$?',
     answer: '$a = 500$ (the start) and $b = 1.08$ (an 8% increase keeps 100% and adds 8%). Do not use $b = 8$ or $b = 0.08$.',
+  },
+  {
+    type: 'checkpointQuestion',
+    question: 'Solve $8^{x} = 32$ by rewriting both sides over a shared base.',
+    answer: '$x = \\dfrac{5}{3}$. Both are powers of $2$: $8 = 2^3$ and $32 = 2^5$, so $2^{3x} = 2^{5}$. Same base forces the exponents equal: $3x = 5$, so $x = \\dfrac{5}{3}$.',
   },
 
   {

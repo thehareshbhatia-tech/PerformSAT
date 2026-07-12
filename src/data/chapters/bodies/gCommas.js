@@ -13,7 +13,7 @@
 export const gCommasBlocks = [
   {
     type: 'text',
-    content: 'Most comma questions are one question in disguise: **is this information extra, or is it needed to tell you which one?** Extra info gets commas. Needed info gets none.',
+    content: 'Most comma questions are one question in disguise: **is this information extra, or is it needed to tell you which one?** Extra info gets commas. Needed info gets none. The SAT almost never rewards the pause-for-breath comma you learned by ear; it tests this single either/or decision over and over. So before you place any comma, force the sentence to answer that one question — everything else follows from it.',
   },
 
   { type: 'heading', content: 'The remove-it test' },
@@ -115,6 +115,17 @@ export const gCommasBlocks = [
     ],
   },
 
+  {
+    type: 'example',
+    difficulty: 'Medium',
+    problem: 'The students who studied together every night ______ the hardest exam of the term.\n\n(A) , passed\n(B) passed\n(C) passed,',
+    steps: [
+      { label: 'Find the subject and verb', content: 'The subject is *The students who studied together every night* — the *who* clause is essential, telling us **which** students, so it takes no commas. The verb is *passed*.' },
+      { label: 'No comma splits them', content: 'A comma between a subject and its verb has no legal job, no matter how long the subject runs → **(B)**.' },
+      { label: 'Reject the rest', content: '(A) drops a lone comma right before the verb; (C) strands one between the verb and its object *the hardest exam*. Neither comma can name a job.' },
+    ],
+  },
+
   { type: 'heading', content: 'Check yourself' },
   {
     type: 'checkpointQuestion',
@@ -125,6 +136,11 @@ export const gCommasBlocks = [
     type: 'checkpointQuestion',
     question: 'The researchers wondered whether the effect was real. Question mark or period?',
     answer: '**Period.** This is an embedded question — the sentence reports that they wondered; it does not ask you anything. *whether* is the tell.',
+  },
+  {
+    type: 'checkpointQuestion',
+    question: 'For the school play, the lead role went to Ana, and the understudy was Theo. Does the comma before "and" have a job?',
+    answer: '**Yes.** *the lead role went to Ana* and *the understudy was Theo* are both complete sentences, so the comma before the FANBOYS word *and* is doing its legal join-two-sentences job. (Drop the *and* and that lone comma would become a splice.)',
   },
 
   {

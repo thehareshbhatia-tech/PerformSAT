@@ -29,7 +29,7 @@ export const nonlinearEquationsBlocks = [
   { type: 'heading', content: 'Rational equations: clear denominators, ban zero-makers' },
   {
     type: 'text',
-    content: 'When the variable sits in a denominator, multiply both sides by that denominator to clear the fraction, then solve. But a value that makes any original denominator $0$ is **not allowed** — the fraction is undefined there. Read the *original* equation to decide what is legal, then strike any candidate that zeroes a denominator.',
+    content: 'When the variable sits in a denominator, multiply both sides by that denominator to clear the fraction, then solve. But a value that makes any original denominator $0$ is **not allowed** — the fraction is undefined there, and multiplying it away hides that the value was illegal all along. Read the *original* equation to decide what is legal, then strike any candidate that zeroes a denominator. This is the exact mirror of the radical case: clearing the fraction, like squaring, can slip in a value the original never permitted.',
   },
   {
     type: 'tip',
@@ -45,7 +45,7 @@ export const nonlinearEquationsBlocks = [
   { type: 'heading', content: 'Line meets parabola, and the remainder shortcut' },
   {
     type: 'text',
-    content: 'To find where a line and a parabola meet, set them **equal** and solve the single quadratic that results. The discriminant $b^2 - 4ac$ gives the count without coordinates: positive = two points, zero = tangent (one), negative = none. Set it to $0$ to find a tangent line.',
+    content: 'To find where a line and a parabola meet, set them **equal** and solve the single quadratic that results — an intersection is just a point that satisfies both equations at once, so equating the right sides finds every shared x-value in one step. The discriminant $b^2 - 4ac$ gives the count without coordinates: positive = two points, zero = tangent (one), negative = none. Set it to $0$ to find a tangent line.',
   },
   {
     type: 'text',
@@ -83,6 +83,18 @@ export const nonlinearEquationsBlocks = [
       { label: 'Tangent means discriminant zero', content: 'One intersection, so $b^2 - 4ac = 0$: $(-6)^2 - 4(1)(2 - c) = 0 \\Rightarrow 36 - 8 + 4c = 0$.' },
       { label: 'Solve for c', content: '$28 + 4c = 0 \\Rightarrow c = -7$.' },
       { label: 'Answer', content: '**$c = -7$** — the one line in the family that just touches the parabola.' },
+    ],
+  },
+
+  {
+    type: 'example',
+    difficulty: 'Medium',
+    problem: 'Solve $\\;\\dfrac{x^2 - 9}{x - 3} = 5\\;$.',
+    steps: [
+      { label: 'Flag the restriction', content: 'The denominator is $0$ at $x = 3$, so $x \\ne 3$ — that value is banned before you solve anything.' },
+      { label: 'Clear the denominator', content: 'Multiply both sides by $(x-3)$: $x^2 - 9 = 5(x - 3)$.' },
+      { label: 'Solve the quadratic', content: '$x^2 - 9 = 5x - 15 \\Rightarrow x^2 - 5x + 6 = 0 \\Rightarrow (x-2)(x-3) = 0 \\Rightarrow x = 2$ or $x = 3$.' },
+      { label: 'Discard the banned value', content: '$x = 3$ zeroes the original denominator, so it is extraneous. **$x = 2$ only** — and it checks: $\\dfrac{4-9}{2-3} = \\dfrac{-5}{-1} = 5$.' },
     ],
   },
 

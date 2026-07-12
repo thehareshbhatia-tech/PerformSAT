@@ -18,13 +18,13 @@ export const gVerbsBlocks = [
   { type: 'heading', content: 'What is actually tested' },
   {
     type: 'text',
-    content: 'You get a blank verb and four time-forms: *walks, walked, has walked, had walked.* Often three of them are perfectly grammatical in the blank alone. The test is whether you can look at the **surrounding verbs and time words** and choose the form that matches when things happened.',
+    content: 'You get a blank verb and four time-forms: *walks, walked, has walked, had walked.* Often three of them are perfectly grammatical in the blank alone. The test is whether you can look at the **surrounding verbs and time words** and choose the form that matches when things happened. That is why reading by ear fails here: every option can sound natural in isolation, and only the timeline the rest of the sentence builds tells you which one is actually right.',
   },
 
   { type: 'heading', content: 'Default: match the neighbors' },
   {
     type: 'text',
-    content: 'The safe first move is to match the tense the sentences around the blank already use. If the passage is telling a story in the past, keep the verb in the past too. Only break from that when a time word tells you to.',
+    content: 'The safe first move is to match the tense the sentences around the blank already use. If the passage is telling a story in the past, keep the verb in the past too. Only break from that when a time word tells you to. Test writers count on you reaching for the most elaborate-looking tense, but the plain form that echoes its neighbors is usually the answer.',
   },
   {
     type: 'keyInsight',
@@ -93,6 +93,16 @@ export const gVerbsBlocks = [
       { label: 'Apply the rule', content: 'The *if*-side takes *had* + participle → **(A) had caught**. Not (B): *"would have... would have"* is the trademark error the question is baiting.' },
     ],
   },
+  {
+    type: 'example',
+    difficulty: 'Medium',
+    problem: 'Construction crews broke ground last month, and next spring the new library ______ its doors to the public.\n\n(A) opens\n(B) opened\n(C) will open\n(D) had opened',
+    steps: [
+      { label: 'Find the time signal', content: 'The phrase **next spring** points to a time that has not arrived yet — the future.' },
+      { label: 'Match the signal', content: 'A future point → simple future → **(C) will open**.' },
+      { label: 'Rule out the rest', content: '*opens* and *opened* stay in the present or past despite the future cue; *had opened* would need an even earlier past event to sit before, and there is none.' },
+    ],
+  },
 
   { type: 'heading', content: 'Check yourself' },
   {
@@ -104,6 +114,11 @@ export const gVerbsBlocks = [
     type: 'checkpointQuestion',
     question: 'The committee ______ the same procedure since it was founded in 2001. Which fits: (followed / has followed)?',
     answer: '**has followed.** *Since 2001* marks an action that began in the past and is still going, which calls for present perfect: *has followed.*',
+  },
+  {
+    type: 'checkpointQuestion',
+    question: 'By the time the alarm sounded, the technicians ______ the reactor. Which fits: (shut down / had shut down)?',
+    answer: '**had shut down.** There are two past events — the alarm sounding and the shutdown — and the shutdown happened first, so the earlier action takes past perfect: *had shut down.*',
   },
 
   {

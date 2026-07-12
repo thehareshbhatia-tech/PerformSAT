@@ -13,7 +13,7 @@
 export const inferencesBlocks = [
   {
     type: 'text',
-    content: 'An inference question — *"which choice most logically completes the text"* or *"the passage implies"* — is not asking you to read between the lines. It wants the one conclusion the passage\'s facts **force** you to reach: no more, no less.',
+    content: 'An inference question — *"which choice most logically completes the text"* or *"the passage implies"* — is not asking you to read between the lines. The word *infer* tricks people into supplying their own reasoning, and that outside reasoning is exactly what the wrong answers are built to reward. What the question actually wants is the one conclusion the passage\'s facts **force** you to reach: no more, no less.',
   },
 
   { type: 'heading', content: 'What is actually tested' },
@@ -53,7 +53,7 @@ export const inferencesBlocks = [
   { type: 'heading', content: 'Let the transition word steer you' },
   {
     type: 'text',
-    content: 'A word right before the blank tells you what **kind** of statement belongs there — decide the kind before you weigh the content.',
+    content: 'A word right before the blank tells you what **kind** of statement belongs there — decide the kind before you weigh the content. This is the fastest elimination on the whole question: a choice can be perfectly true and still be the wrong *kind* of statement for the slot, and you can cut it without checking a single fact. Settle the kind first, then judge which remaining choice has the right content.',
   },
   {
     type: 'table',
@@ -97,6 +97,17 @@ export const inferencesBlocks = [
     ],
   },
 
+  {
+    type: 'example',
+    difficulty: 'Medium',
+    problem: 'The museum hangs its rarest paintings in a room with no windows, and it keeps the lights there dimmer than in any other gallery. This arrangement suggests that the paintings ______\n\n(A) are the most valuable works the museum owns.\n(B) are especially sensitive to light.\n(C) were painted more recently than the works in the other galleries.',
+    steps: [
+      { label: 'Predict first', content: 'No windows plus the dimmest lights means the room is built to keep light off these paintings. Jot: *they must be easily damaged by light.*' },
+      { label: 'Match', content: '**(B)** says exactly that, in new words — protecting them from light is only worth doing if light harms them.' },
+      { label: 'Kill the rest', content: '(A) adds a fact never given: rare and carefully protected is not the same as *most valuable*. (C) invents an age the passage never mentions. Both step outside the closed room.' },
+    ],
+  },
+
   { type: 'heading', content: 'Check yourself' },
   {
     type: 'checkpointQuestion',
@@ -107,6 +118,11 @@ export const inferencesBlocks = [
     type: 'checkpointQuestion',
     question: 'The blank follows *for example, ______.* One choice accurately restates the passage\'s overall conclusion. Keep it or cut it?',
     answer: '**Cut it.** *For example* demands a specific instance of the idea just stated. A conclusion — even a correct one — is the wrong kind of statement in that slot. The transition word decides the kind before content matters.',
+  },
+  {
+    type: 'checkpointQuestion',
+    question: 'A choice completing an inference reads *this method never fails.* The passage gave three separate cases where the method worked. Keep it or cut it?',
+    answer: '**Cut it.** Three successes cannot force *never fails* — *never* is an overstatement, and nothing in the three cases rules out a fourth case that fails. The most the facts support is that the method *has worked before*, so the smaller claim is the safe one.',
   },
 
   {
