@@ -33,6 +33,7 @@ import { gModifiersParallelismBlocks } from './gModifiersParallelism';
 import { gApostrophesBlocks } from './gApostrophes';
 // Math — lean per-skill lessons (every math chapter is now source.kind 'body';
 // the dense contentTab composition path was retired 2026-07-12).
+import { mFoundationsBlocks } from './mFoundations';
 import { solvingEquationsBlocks } from './solvingEquations';
 import { mLinearEquationsBlocks } from './mLinearEquations';
 import { mFunctionsBlocks } from './mFunctions';
@@ -57,6 +58,7 @@ import { mVolumeBlocks } from './mVolume';
 
 export const CHAPTER_BODIES = {
   // Math (source.kind 'body') — lean per-skill lessons
+  'math-foundations': mFoundationsBlocks,
   'math-solving-equations': solvingEquationsBlocks,
   'math-linear-equations': mLinearEquationsBlocks,
   'math-functions': mFunctionsBlocks,

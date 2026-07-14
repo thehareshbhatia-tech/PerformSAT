@@ -1,10 +1,11 @@
 /**
  * Learn lesson body — Commas & Nonessential Elements (Standard English Conventions).
  *
- * NEW lean "review / cheat-sheet" style (matches gSubjectVerbAgreement.js — the
- * VOICE + SHAPE exemplar): one SAT skill per lesson, plain language, one idea per
- * short section, a scannable cheat-list/table, then 2-3 worked examples and a
- * couple of check-yourself questions. Gated by bodies.test.js (lean contract).
+ * TUTOR VOICE (adopted 2026-07-14, user-approved exemplar mLinearEquations.js):
+ * coaching direct-address — talks TO the student, anticipates the mistake
+ * before it happens, everyday anchor first and rule second, concrete decision
+ * rules ("cover the phrase and reread"). Lean structure unchanged; gated by
+ * chapters/__tests__/bodies.test.js (lean contract).
  *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
@@ -13,35 +14,35 @@
 export const gCommasBlocks = [
   {
     type: 'text',
-    content: 'Most comma questions are one question in disguise: **is this information extra, or is it needed to tell you which one?** Extra info gets commas. Needed info gets none. The SAT almost never rewards the pause-for-breath comma you learned by ear; it tests this single either/or decision over and over. So before you place any comma, force the sentence to answer that one question — everything else follows from it.',
+    content: 'Every comma question is secretly the same question: **if I covered this phrase, would you still know which one I mean?** Extra info gets commas. Identifying info gets none. Forget the pause-for-breath comma you learned in school — the test never rewards it. Ask the extra-or-needed question first, every time, and the rest of this lesson falls out of it.',
   },
 
   { type: 'heading', content: 'The remove-it test' },
   {
     type: 'text',
-    content: 'Cover the phrase and reread the sentence. If it still makes sense and still points to the same thing, the phrase is **extra** — set it off with a comma (or a pair of commas). If removing it leaves you asking *which one?*, the phrase is **essential** — no commas. *My brother, who lives in Denver, is visiting* → drop *who lives in Denver* and you still know who is visiting → extra → commas.',
+    content: 'Cover the phrase and read the sentence without it. Still makes sense, still points at the same thing? The phrase is **extra** — wall it off with a comma (or a matching pair). Does removing it leave you asking *which one?* Then the phrase is **essential** — no commas anywhere near it. *My brother, who lives in Denver, is visiting* → cover *who lives in Denver* and you still know exactly who\'s visiting → extra → commas.',
   },
 
   { type: 'heading', content: 'Essential info gets NO commas' },
   {
     type: 'text',
-    content: 'When the phrase is doing the work of *identifying which one*, taking it out breaks the sentence — so it stays comma-free. *The student who scored highest won a prize* — remove *who scored highest* and you no longer know which student. It is essential, so no commas.',
+    content: 'When a phrase is doing the job of telling you *which one*, deleting it breaks the sentence — so it rides comma-free. *The student who scored highest won a prize* — take out *who scored highest* and you\'ve lost which student we\'re talking about. Essential. No commas.',
   },
   {
     type: 'keyInsight',
-    content: 'Commas around a phrase are a claim: **"you can delete this and lose nothing."** If deleting it loses the meaning, the commas are wrong.',
+    content: 'Commas around a phrase make a promise: **"delete this and you lose nothing."** If deleting it loses the meaning, the commas are lying — and lying commas are wrong.',
   },
 
   { type: 'heading', content: 'That vs which / who' },
   {
     type: 'text',
-    content: '*That* is **always** essential — never put a comma before it: *the report that changed everything*. A comma’d *which* or *who* flips the meaning to "extra, by the way": *the report, which changed everything, ...*. Same words, different claim — the commas decide it.',
+    content: '*That* is **always** essential, so a comma never sits in front of it: *the report that changed everything*. Put commas around a *which* or *who* clause and you\'ve flipped its meaning to "extra, by the way": *the report, which changed everything, ...*. Same words, different claim — the commas alone decide it. When you spot *, that* in an answer choice, cross it out on sight.',
   },
 
   { type: 'heading', content: 'Names: one of many, or the only one?' },
   {
     type: 'text',
-    content: 'A name takes commas only when the noun before it **already points to one thing**. Ask: is there just one, or several?',
+    content: 'Before you comma a name, ask one question: does the noun in front of it **already point to one person**? Only one exists → the name is extra → commas. Several exist → the name is doing the identifying → no commas.',
   },
   {
     type: 'table',
@@ -56,13 +57,13 @@ export const gCommasBlocks = [
   { type: 'heading', content: 'A mid-sentence aside needs a matching pair' },
   {
     type: 'text',
-    content: 'When you interrupt a sentence with an aside, both ends must use the **same** mark: comma…comma or dash…dash — never one of each. *The results — surprising to everyone, were published.* is wrong (dash then comma). Fix it to match: *The results — surprising to everyone — were published.*',
+    content: 'Interrupt a sentence and you owe it a matched set: comma…comma or dash…dash — never one of each. *The results — surprising to everyone, were published.* opens with a dash and tries to close with a comma. That mismatch is easy to sail past, because your eye checks the first mark and coasts. Check both ends: *The results — surprising to everyone — were published.*',
   },
 
   { type: 'heading', content: 'Every comma needs a job' },
   {
     type: 'text',
-    content: 'A comma is guilty until it can name a job. If you can’t say what job a comma is doing, delete it. The legal jobs:',
+    content: 'Treat every comma as guilty until it names its job. If you can\'t say what a comma is doing, delete it. The legal jobs:',
   },
   {
     type: 'table',
@@ -76,11 +77,11 @@ export const gCommasBlocks = [
   },
   {
     type: 'callout',
-    content: 'The forbidden one: a comma **never splits a subject from its verb**, no matter how long the subject gets. *The students who studied all week, passed.* is wrong — that lone comma has no job.',
+    content: 'The forbidden one: a comma **never splits a subject from its verb**, no matter how long the subject runs. *The students who studied all week, passed.* is wrong — that comma has no job. Long subjects beg for a breath-comma; don\'t give them one.',
   },
   {
     type: 'tip',
-    content: 'An embedded question ends with a **period**, not a question mark: *She asked whether it worked.* The sentence is telling you something, not asking you.',
+    content: 'An embedded question ends with a **period**, not a question mark: *She asked whether it worked.* The sentence is telling you something, not asking you anything — *whether* is your tell.',
   },
 
   { type: 'heading', content: 'Worked examples' },
@@ -89,9 +90,9 @@ export const gCommasBlocks = [
     difficulty: 'Medium',
     problem: 'The novel ______ won every major award that year, sold millions of copies.\n\n(A) , which\n(B) that\n(C) which\n(D) , that',
     steps: [
-      { label: 'Read the claim', content: 'The phrase adds a fact about the novel but the sentence already knows which novel — so it is **extra**.' },
-      { label: 'Extra means comma + which', content: '*That* can never take a comma, which kills (B) and (D). Bare *which* (C) would signal essential, wrong here.' },
-      { label: 'Answer', content: '**(A) , which** — a comma’d *which* correctly marks the aside.' },
+      { label: 'Read the claim', content: 'The phrase adds a fact about the novel, but you already know which novel — so it\'s **extra**.' },
+      { label: 'Extra means comma + which', content: '*That* never takes a comma, which kills (B) and (D) on sight. Bare *which* (C) would claim the phrase is essential — it isn\'t.' },
+      { label: 'Answer', content: '**(A) , which** — the comma\'d *which* marks the aside correctly.' },
     ],
   },
   {
@@ -99,9 +100,9 @@ export const gCommasBlocks = [
     difficulty: 'Medium',
     problem: 'Choose the correct version:\n\n(A) The chemist, Rosa Lind, discovered the compound.\n(B) The chemist Rosa Lind discovered the compound.',
     steps: [
-      { label: 'One of many, or the only one?', content: '*The chemist* does not point to a single person on its own — the name is telling us **which** chemist.' },
-      { label: 'Identifying = no commas', content: 'Because the name identifies, it is essential. Commas would falsely claim there is only one chemist in play.' },
-      { label: 'Answer', content: '**(B)** — no commas. (Compare *microbiologist Ana Reyes*: a title before a name never gets one.)' },
+      { label: 'One of many, or the only one?', content: '*The chemist* doesn\'t point to one person by itself — the name is telling you **which** chemist.' },
+      { label: 'Identifying = no commas', content: 'The name identifies, so it\'s essential. Commas here would falsely promise there\'s only one chemist in play.' },
+      { label: 'Answer', content: '**(B)** — no commas. (Compare *microbiologist Ana Reyes*: a title in front of a name never takes one.)' },
     ],
   },
   {
@@ -109,9 +110,9 @@ export const gCommasBlocks = [
     difficulty: 'Hard',
     problem: 'The bridge, a marvel of engineering ______ reopened last spring.\n\n(A) ,\n(B) —\n(C) (no mark)\n(D) ;',
     steps: [
-      { label: 'Spot the open bracket', content: 'A comma already opened an aside after *bridge*: *, a marvel of engineering*. The aside must close.' },
-      { label: 'Match the mark', content: 'It opened with a comma, so it closes with a **comma** — like closes like. A dash (B) would be a mismatched pair.' },
-      { label: 'Answer', content: '**(A) ,** — the pair is comma…comma. A semicolon (D) would leave a fragment on one side.' },
+      { label: 'Spot the open bracket', content: 'A comma already opened an aside after *bridge*: *, a marvel of engineering*. An open aside has to close.' },
+      { label: 'Match the mark', content: 'It opened with a comma, so it closes with a **comma** — like closes like. The dash in (B) would make a mismatched pair.' },
+      { label: 'Answer', content: '**(A) ,** — the pair is comma…comma. A semicolon (D) would strand a fragment on one side.' },
     ],
   },
 
@@ -120,9 +121,9 @@ export const gCommasBlocks = [
     difficulty: 'Medium',
     problem: 'The students who studied together every night ______ the hardest exam of the term.\n\n(A) , passed\n(B) passed\n(C) passed,',
     steps: [
-      { label: 'Find the subject and verb', content: 'The subject is *The students who studied together every night* — the *who* clause is essential, telling us **which** students, so it takes no commas. The verb is *passed*.' },
-      { label: 'No comma splits them', content: 'A comma between a subject and its verb has no legal job, no matter how long the subject runs → **(B)**.' },
-      { label: 'Reject the rest', content: '(A) drops a lone comma right before the verb; (C) strands one between the verb and its object *the hardest exam*. Neither comma can name a job.' },
+      { label: 'Find the subject and verb', content: 'The subject is *The students who studied together every night* — that *who* clause tells you **which** students, so it\'s essential and rides comma-free. The verb is *passed*.' },
+      { label: 'No comma splits them', content: 'A comma between a subject and its verb has no legal job, however long the subject runs → **(B)**.' },
+      { label: 'Reject the rest', content: '(A) drops a lone comma right in front of the verb; (C) strands one between *passed* and its object *the hardest exam*. Ask either comma its job — silence.' },
     ],
   },
 
@@ -130,21 +131,21 @@ export const gCommasBlocks = [
   {
     type: 'checkpointQuestion',
     question: 'The lab, that we toured on Friday, has since expanded. What is wrong here?',
-    answer: '**Two things.** *That* can never take a comma. And "which we toured on Friday" is the aside intended — but if the sentence needs to identify *which* lab, it should be *The lab that we toured on Friday has expanded* (no commas, no *which*). Pick one: extra info uses *, which ,*; identifying info uses bare *that*.',
+    answer: '**Two things.** *That* never takes a comma — that\'s an instant flag. Then decide what the sentence means: if the tour detail is just an aside, write *, which we toured on Friday,*; if it identifies **which** lab, write *The lab that we toured on Friday has expanded* — no commas, no *which*. Pick one claim and punctuate it honestly.',
   },
   {
     type: 'checkpointQuestion',
     question: 'The researchers wondered whether the effect was real. Question mark or period?',
-    answer: '**Period.** This is an embedded question — the sentence reports that they wondered; it does not ask you anything. *whether* is the tell.',
+    answer: '**Period.** It\'s an embedded question — the sentence reports that they wondered; it doesn\'t ask you anything. *Whether* is the tell.',
   },
   {
     type: 'checkpointQuestion',
     question: 'For the school play, the lead role went to Ana, and the understudy was Theo. Does the comma before "and" have a job?',
-    answer: '**Yes.** *the lead role went to Ana* and *the understudy was Theo* are both complete sentences, so the comma before the FANBOYS word *and* is doing its legal join-two-sentences job. (Drop the *and* and that lone comma would become a splice.)',
+    answer: '**Yes.** *The lead role went to Ana* and *the understudy was Theo* both stand alone, so the comma before the FANBOYS word *and* is doing its legal join-two-sentences job. (Cover the *and* and that same comma becomes a splice — the FANBOYS word is what keeps it legal.)',
   },
 
   {
     type: 'text',
-    content: '**The move, every time:** run the remove-it test → extra gets commas, essential gets none → make asides a matching pair → and if a comma can’t name its job, cut it.',
+    content: '**The move, every time:** cover the phrase and reread → extra gets commas, identifying gets none → an aside closes with the same mark that opened it → and any comma that can\'t name its job gets deleted.',
   },
 ];

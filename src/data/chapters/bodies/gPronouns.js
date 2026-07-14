@@ -1,31 +1,34 @@
 /**
  * Learn lesson body — Pronouns (Standard English Conventions).
  *
- * Lean "review / cheat-sheet" style — voice + shape follow the exemplar
- * gSubjectVerbAgreement.js. Gated by bodies.test.js (lean contract).
- * Rendered by SectionContent; loaded lazily via bodies/index.js.
+ * TUTOR VOICE (adopted 2026-07-14, user-approved exemplar mLinearEquations.js):
+ * coaching direct-address — talks TO the student, anticipates the mistake
+ * before it happens, everyday anchor first and rule second, concrete decision
+ * rules ("put your finger on the actual noun"). Gated by bodies.test.js
+ * (lean contract). Rendered by SectionContent; loaded lazily via
+ * bodies/index.js.
  */
 
 export const gPronounsBlocks = [
   {
     type: 'text',
-    content: 'A pronoun is a stand-in for a noun — *it, they, this, who.* It has to do two things: **match the noun it replaces**, and **point clearly at one noun.** Almost every pronoun question is one of those two checks.',
+    content: 'A pronoun is you pointing across a room: *it, they, this, who* all mean "that one over there." Pointing only works when two things are true — you\'re pointing at exactly **one** thing, and your point **matches** what it lands on. Nearly every pronoun question is just checking one of those two.',
   },
 
   { type: 'heading', content: 'What is actually tested' },
   {
     type: 'text',
-    content: 'You already say *the dog… it* and *the dogs… they* without thinking, so the SAT never tests the easy version. Instead it hides the real noun behind other nouns so your ear grabs the wrong one, or it leaves the noun so vague that *it* could point at two things at once. Both traps work because a pronoun feels right as long as *something* nearby could be its noun — and that feel is exactly what fails you. The fix is always the same move: **find the actual noun on the page** and check it, instead of trusting how the sentence sounds.',
+    content: 'You already say *the dog… it* and *the dogs… they* without thinking, so the easy version never shows up. Instead, the real noun hides behind other nouns so your ear grabs the wrong one — or the sentence is built so *it* could point at two things at once. Both traps run on the same weakness: a pronoun *feels* right as long as *something* nearby could be its noun. That feeling is exactly what fails you. The fix never changes: **put your finger on the actual noun on the page** and check it, instead of trusting how the sentence sounds.',
   },
 
   { type: 'heading', content: 'Job 1 — Match the number' },
   {
     type: 'text',
-    content: 'A pronoun copies the number of the noun it stands for: singular noun → *it / its,* plural noun → *they / their.* Point at the real noun and read its ending; don\'t go by feel, and the noun must be **printed in the sentence** — a plural idea that is only implied doesn\'t count. The trap is the one used on verbs: a wrong-number noun sits right before the pronoun as a decoy. *The **shipment** of new phones arrived, but ______ was damaged* → the noun is *shipment,* so *it,* not *they* (*phones* is the decoy).',
+    content: 'A pronoun copies the number of the noun it stands for: singular noun → *it / its*, plural noun → *they / their*. Point at the real noun and read its ending — and the noun has to be **printed in the sentence**; a plural idea that\'s only implied doesn\'t count. The trap here is the same one used against verbs: a wrong-number noun parked right before the pronoun as a decoy. *The **shipment** of new phones arrived, but ______ was damaged* → the noun is *shipment*, so *it*, not *they* — *phones* is the decoy.',
   },
   {
     type: 'keyInsight',
-    content: 'Match the pronoun to the noun it truly stands for, never to the nearest noun. Collective nouns (*team, company, committee, jury*) count as **singular** — *the team lost its lead.*',
+    content: 'Match the pronoun to the noun it truly stands for, never to the nearest noun. And collective nouns (*team, company, committee, jury*) count as **singular** — *the team lost its lead*, even though a team is full of people.',
   },
 
   { type: 'heading', content: 'Number cheat-sheet' },
@@ -44,17 +47,17 @@ export const gPronounsBlocks = [
   { type: 'heading', content: 'Job 2 — Point at ONE noun' },
   {
     type: 'text',
-    content: 'A pronoun must have exactly one noun it could mean. If *it, they,* or *this* could point at two nouns, it is wrong — even if it sounds fine. Vague: *The report criticized the study because **it** was rushed.* What was rushed, the report or the study? Fix by naming it: *…because **the study** was rushed.* When a choice set mixes a pronoun with a specific noun and the pronoun is ambiguous, **take the noun.**',
+    content: 'A pronoun gets exactly one noun it could mean. If *it, they,* or *this* could land on two different nouns, it\'s wrong — even when it sounds perfectly natural. *The report criticized the study because **it** was rushed.* Which was rushed — the report or the study? You can\'t tell, so the pronoun fails. Fix it by naming the thing: *…because **the study** was rushed.* When the choices offer a pronoun and a specific noun, and the pronoun could point two ways, **take the noun.**',
   },
   {
     type: 'tip',
-    content: 'Bare *this* / *that* is usually too vague on its own. Prefer *this* + a noun: not *This shows growth,* but *This **increase** shows growth.* Ask "this what?" — if the sentence can\'t answer, add the noun.',
+    content: 'Bare *this* or *that* is usually pointing at fog. Ask "this *what*?" — if the sentence can\'t answer, add the noun: not *This shows growth,* but *This **increase** shows growth.*',
   },
 
   { type: 'heading', content: 'Job 3 — who / whom / that / which / whose' },
   {
     type: 'text',
-    content: 'Two quick sorts pick the word: first **what kind of thing** it refers to, then — for *who / whom* — **what slot** it fills. This family trips people up because all five words can open the same kind of clause, so they sound interchangeable. They are not: picking wrong here is a pure paper decision, like the apostrophe questions. Run the two sorts in order and only one word survives.',
+    content: 'Five words, one clause type — and they all sound interchangeable, which is exactly why people miss these. They\'re not interchangeable, and your ear won\'t sort them; this is a paper decision, like the apostrophe questions. Run two sorts in order: first, **what kind of thing** does it refer to? Then, for *who / whom*, **what slot** does it fill? Only one word survives both sorts.',
   },
   {
     type: 'table',
@@ -68,7 +71,7 @@ export const gPronounsBlocks = [
   },
   {
     type: 'text',
-    content: 'Quick *who / whom* check: if the next word is a **verb**, use *who* (*who **called***). If a **preposition** comes just before, use *whom* (*with **whom***). *Whom* directly in front of a verb is the error signature.',
+    content: 'The fastest *who / whom* check you\'ll ever use: look at the neighboring word. A **verb** right after → *who* (*who **called***). A **preposition** just before → *whom* (*with **whom***). And *whom* sitting directly in front of a verb is the error signature — spot it and it\'s wrong.',
   },
 
   { type: 'heading', content: 'Worked examples' },
@@ -77,9 +80,9 @@ export const gPronounsBlocks = [
     difficulty: 'Medium',
     problem: 'The collection of fossils, gathered over decades, finally found ______ permanent home in the museum.\n\n(A) its\n(B) their',
     steps: [
-      { label: 'Find the real noun', content: 'What found a home? The **collection** — singular. *of fossils* is a decoy phrase.' },
+      { label: 'Find the real noun', content: 'What found a home? The **collection** — singular. *Of fossils* is the decoy phrase.' },
       { label: 'Match number', content: '*Collection* is singular → singular pronoun.' },
-      { label: 'Answer', content: '**(A) its.** *Their* is baited by *fossils* sitting right before the blank.' },
+      { label: 'Answer', content: '**(A) its.** *Their* is bait — *fossils* sits right before the blank so your ear grabs the plural.' },
     ],
   },
   {
@@ -87,9 +90,9 @@ export const gPronounsBlocks = [
     difficulty: 'Hard',
     problem: 'The novelist praised her editor\'s revision, saying ______ made the ending far stronger.\n\n(A) it\n(B) the change\n(C) they\n(D) this',
     steps: [
-      { label: 'Check the pronouns', content: '*It / this* could mean the revision, the praise, or the ending — ambiguous. *They* has no plural noun to match.' },
-      { label: 'Prefer the specific noun', content: 'Only **the change** names one clear thing.' },
-      { label: 'Answer', content: '**(B) the change.** When a pronoun could point two ways, the named noun wins.' },
+      { label: 'Check the pronouns', content: '*It / this* could mean the revision, the praise, or the ending — three candidates, so the point fails. *They* has no plural noun anywhere to match.' },
+      { label: 'Prefer the specific noun', content: 'Only **the change** points at one clear thing.' },
+      { label: 'Answer', content: '**(B) the change.** When a pronoun could land two places, the named noun wins.' },
     ],
   },
   {
@@ -97,9 +100,9 @@ export const gPronounsBlocks = [
     difficulty: 'Medium',
     problem: 'She is the researcher ______ first mapped the migration route.\n\n(A) who\n(B) whom\n(C) which\n(D) whose',
     steps: [
-      { label: 'What kind of thing?', content: 'A **person** (the researcher) → rules out *which.*' },
-      { label: 'Who or whom?', content: 'The next word is a verb, *mapped* — the researcher is doing the action → subject form.' },
-      { label: 'Answer', content: '**(A) who.** *Whom* before a verb is the classic wrong answer; *whose* would need a possession.' },
+      { label: 'What kind of thing?', content: 'A **person** (the researcher) → *which* is out.' },
+      { label: 'Who or whom?', content: 'Look right after the blank: *mapped* — a verb. The researcher is doing the action → subject form.' },
+      { label: 'Answer', content: '**(A) who.** *Whom* in front of a verb is the classic bait; *whose* would need something possessed.' },
     ],
   },
   {
@@ -108,7 +111,7 @@ export const gPronounsBlocks = [
     problem: 'The orchestra tuned ______ instruments before the concert began.\n\n(A) its\n(B) their',
     steps: [
       { label: 'Find the real noun', content: 'What owns the instruments? The **orchestra** — a collective noun naming one group.' },
-      { label: 'Match number', content: 'Collectives (*orchestra, team, jury*) count as singular → singular pronoun. **(A) its.** *Their* is baited by picturing the many individual players.' },
+      { label: 'Match number', content: 'Collectives (*orchestra, team, jury*) count as singular → **(A) its**. *Their* baits you into picturing all those individual players — but the noun on the page is one orchestra.' },
     ],
   },
 
@@ -116,21 +119,21 @@ export const gPronounsBlocks = [
   {
     type: 'checkpointQuestion',
     question: 'The company announced that ______ would relocate its headquarters. Fill the blank and say why.',
-    answer: '**it.** *Company* is a collective noun — treated as singular — so it takes *it / its,* not *they / their.*',
+    answer: '**it.** *Company* is a collective — one group, treated as singular — so it takes *it / its*, not *they / their*. Picture one building, not the many people inside it.',
   },
   {
     type: 'checkpointQuestion',
     question: 'A friend to ______ I owe a great deal is visiting. Is it *who* or *whom* — and how do you know?',
-    answer: '**whom.** It follows the preposition *to,* so use the object form. Flip it around: *I owe a great deal to her* (not *she*), which confirms *whom.*',
+    answer: '**whom.** It follows the preposition *to*, so you want the object form. Prove it by flipping the clause around: *I owe a great deal to her* — *her*, not *she* — which confirms *whom*.',
   },
   {
     type: 'checkpointQuestion',
     question: 'Each of the paintings has lost ______ original frame over the years. Fill the blank and explain.',
-    answer: '**its.** *Each* is singular no matter how many paintings follow it, so it takes the singular *its*; *of the paintings* is a decoy of-phrase, not the real noun.',
+    answer: '**its.** *Each* is singular no matter how many paintings line up after it. *Of the paintings* is the decoy of-phrase — the real noun is *each*, so the pronoun is singular.',
   },
 
   {
     type: 'text',
-    content: '**The move, every time:** find the real noun on the page → match its number, or name it if the pronoun is vague → for *who / whom,* sort person-vs-thing, then verb-after (*who*) vs preposition-before (*whom*).',
+    content: '**The move, every time:** put your finger on the real noun → match its number, or name the thing outright if the pronoun could point two ways → and for *who / whom*, sort person-vs-thing, then check the neighboring word: verb after → *who*, preposition before → *whom*.',
   },
 ];
