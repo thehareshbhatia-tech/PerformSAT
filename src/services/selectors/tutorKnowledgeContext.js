@@ -223,7 +223,7 @@ export const buildTutorKnowledgeContext = ({ skills, masteryPct } = {}) => {
   const tier = teachTierOf(masteryPct);
   const parts = [
     '>>> EXPERT MISCONCEPTION MAP <<<',
-    "When the student errs, match their move to a belief below, confirm it with the detect cue, and coach the FIX — name the root cause, don't just re-explain the right answer. When they solve, reinforce the expert method so the approach sticks.",
+    "Private notes for YOU, in dense expert shorthand — never quote, recite, or list them to the student, and never say these labels out loud. When the student errs, find the belief behind their move (the detect cue confirms it) and coach the fix as ONE plain-words insight — name the root cause the way you'd say it across a table. When they solve, reinforce the expert method in your own voice.",
   ];
   for (const cb of cbSlugs) {
     const k = TUTOR_KNOWLEDGE[cb];
@@ -268,7 +268,7 @@ export const buildTutorPlaybookContext = ({ section } = {}) => {
   if (!Array.isArray(lines) || lines.length === 0) return '';
   const parts = [
     `>>> SAT EXPERT PLAYBOOK (${section === 'rw' ? 'READING & WRITING' : 'MATH'}) <<<`,
-    'Section-wide habits every top scorer runs. Weave them into your coaching whenever the moment fits — especially after an error they would have prevented:',
+    'Private notes for YOU — the habits every top scorer runs. Never recite this list. When a moment fits one (especially right after a mistake it would have prevented), teach that ONE habit in plain, conversational words:',
     ...lines.map((l) => `- ${l}`),
   ];
   let block = parts.join('\n');

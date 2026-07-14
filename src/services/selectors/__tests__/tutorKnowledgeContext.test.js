@@ -42,6 +42,14 @@ describe('buildTutorKnowledgeContext', () => {
     expect(block.split('\n').some((l) => l.startsWith('- '))).toBe(true);
   });
 
+  it('frames the notes as private shorthand to translate, never recite', () => {
+    // The blocks are written in the graph authors' dense register; without this
+    // contract the tutor mirrors it and starts sounding like a textbook.
+    expect(buildTutorKnowledgeContext({ skills: ['boundaries'] })).toContain('Private notes for YOU');
+    expect(buildTutorPlaybookContext({ section: 'math' })).toContain('Private notes for YOU');
+    expect(buildTutorPlaybookContext({ section: 'rw' })).toContain('Never recite');
+  });
+
   it('resolves a math bank skill through to knowledge', () => {
     const block = buildTutorKnowledgeContext({ skills: ['slope-intercept-form'] });
     expect(block).toContain('>>> EXPERT MISCONCEPTION MAP <<<');
