@@ -28,6 +28,16 @@ function firstSentence(s, max = 220) {
   const m = t.match(/^.*?[.!?](?:\s|$)/);
   return (m ? m[0] : t).trim().slice(0, max);
 }
+// Lead text up to `max` chars, cut at the last full sentence that fits (unlike
+// firstSentence, keeps MULTIPLE sentences — used where one sentence is too thin,
+// e.g. teaching-notes tiers and mastery criteria).
+function leadText(s, max = 230) {
+  const t = delink(s).replace(/\*\*/g, '').replace(/\s+/g, ' ').trim();
+  if (t.length <= max) return t;
+  const head = t.slice(0, max);
+  const cut = Math.max(head.lastIndexOf('. '), head.lastIndexOf('! '), head.lastIndexOf('? '));
+  return cut > 60 ? head.slice(0, cut + 1) : head.trimEnd() + '…';
+}
 function section(body, name) {
   const re = new RegExp(`## ${name}\\s*\\n([\\s\\S]*?)(?:\\n## |\\n?$)`);
   const m = body.match(re);
@@ -92,7 +102,7 @@ function expertApproach(body) {
   if (items.length === 0) items = ('\n' + s).split(/\n\s*-\s+/).slice(1); // fallback: bullets
   const steps = [];
   for (const raw of items) {
-    if (steps.length >= 2) break;
+    if (steps.length >= 4) break;
     let step = delink(raw).replace(/\*\*/g, '').replace(/\s+/g, ' ').trim();
     step = step.replace(/\(\s*(?:un)?verified-claim[^)]*\)/gi, '')
                .replace(/\([^)]*owns the routing[^)]*\)/gi, '')
@@ -101,6 +111,25 @@ function expertApproach(body) {
     if (step.length > 15) steps.push(step);
   }
   return steps;
+}
+// Level-differentiated coaching lines from "## Teaching notes". Nodes author four
+// tiers — Struggling / Average / Advanced / 1500+ — in two bold formats
+// ("- **Struggling**: ..." and "- **Struggling:** ...") plus a merged
+// "**Advanced / 1500+**" variant. Returns { s, a, v, x } (whichever tiers exist).
+function teachingTiers(body) {
+  const s = section(body, 'Teaching notes');
+  if (!s) return null;
+  const tiers = {};
+  const KEY = { struggling: 's', average: 'a', advanced: 'v', '1500+': 'x' };
+  const re = /\n\s*-\s+\*\*(Struggling|Average|Advanced\s*\/\s*1500\+|Advanced|1500\+)\s*(?:\*\*\s*[:—-]|[:—-]?\s*\*\*\s*[:—-]?)\s*([\s\S]*?)(?=\n\s*-\s+\*\*|\n## |$)/gi;
+  for (const m of ('\n' + s).matchAll(re)) {
+    const label = m[1].toLowerCase().replace(/\s+/g, ' ').trim();
+    const text = leadText(m[2], 230);
+    if (!text) continue;
+    if (label.startsWith('advanced /')) { tiers.v ??= text; tiers.x ??= text; }
+    else if (KEY[label] && !tiers[KEY[label]]) tiers[KEY[label]] = text;
+  }
+  return Object.keys(tiers).length ? tiers : null;
 }
 function parseNode(file) {
   const raw = fs.readFileSync(file, 'utf8');
@@ -126,7 +155,9 @@ function parseNode(file) {
   const order = [];
   const om = ('\n' + section(body, 'Misconceptions')).matchAll(/\n\s*-\s*\*\*([a-z0-9-]+)\*\*/g);
   for (const x of om) order.push(x[1]);
-  return { id, domain: fm.domain, skills, mentalModel, approach: expertApproach(body), misc, diag, rem, diagFirst, remFirst, order };
+  const teach = teachingTiers(body);
+  const mastery = leadText(section(body, 'Mastery criteria'), 200);
+  return { id, domain: fm.domain, skills, mentalModel, approach: expertApproach(body), misc, diag, rem, diagFirst, remFirst, order, teach, mastery };
 }
 
 const nodes = {};
@@ -193,7 +224,7 @@ for (const n of Object.values(nodes)) {
 for (const [cb, ids] of Object.entries(MATH_MAP)) cbToNodes[cb] = ids.slice();
 
 // ---- assemble the compact brief per CB skill --------------------------------
-const MAX_MODELS = 2, MAX_MISC = 4;
+const MAX_MODELS = 2, MAX_MISC = 8;
 function clip(s, n) { s = (s || '').replace(/\s+/g, ' ').trim(); return s.length > n ? s.slice(0, n - 1).trimEnd() + '…' : s; }
 
 const KNOWLEDGE = {};
@@ -203,27 +234,67 @@ for (const [cb, idsRaw] of Object.entries(cbToNodes)) {
   // mental models: from the first (most central) nodes
   const models = [];
   for (const id of ids) { if (nodes[id].mentalModel) models.push(clip(nodes[id].mentalModel, 180)); if (models.length >= MAX_MODELS) break; }
-  // misconceptions: the leading (root) misconception of each node, in map order, deduped
+  // misconceptions: pass 1 takes each node's ROOT misconception (breadth across the
+  // skill's concepts); pass 2 goes back for the 2nd/3rd misconception of each node
+  // (depth) until the cap. The positional diagFirst/remFirst fallback aligns only
+  // with the ROOT, so depth-pass entries use exact-id detect/fix matches only.
   const seen = new Set(), misc = [];
-  for (const id of ids) {
-    const n = nodes[id];
-    const mid = n.order[0];
-    if (!mid || seen.has(mid)) continue;
-    seen.add(mid);
+  const addMisc = (n, mid, positionalOk) => {
+    if (!mid || seen.has(mid) || misc.length >= MAX_MISC) return;
     const belief = clip(firstSentence(n.misc[mid] || '', 200), 180);
-    // detect/fix: exact misconception-id match, else the section's first bullet — which
-    // aligns with the lead misconception the brief renders (recovers cues from nodes whose
-    // Diagnostic/Remediation sections key their bullets differently than Misconceptions).
-    const tell = clip(firstSentence(n.diag[mid] || n.diagFirst || '', 160), 150);
-    const fix = clip(firstSentence(n.rem[mid] || n.remFirst || '', 160), 150);
-    if (belief) misc.push({ b: belief, t: tell, f: fix });
-    if (misc.length >= MAX_MISC) break;
+    if (!belief) return;
+    seen.add(mid);
+    const tell = clip(firstSentence(n.diag[mid] || (positionalOk ? n.diagFirst : '') || '', 160), 150);
+    const fix = clip(firstSentence(n.rem[mid] || (positionalOk ? n.remFirst : '') || '', 160), 150);
+    misc.push({ b: belief, t: tell, f: fix });
+  };
+  // Primary (skill-specific) nodes fill the map first — breadth then depth; the
+  // cross-cutting META nodes only take leftover slots (their habits live in the
+  // playbook now, so they must not crowd out real skill misconceptions).
+  const primaryIds = idsRaw.filter(id => nodes[id]);
+  for (const id of primaryIds) { addMisc(nodes[id], nodes[id].order[0], true); if (misc.length >= MAX_MISC) break; }
+  depth: for (let rank = 1; rank <= 2; rank++) {
+    for (const id of primaryIds) { addMisc(nodes[id], nodes[id].order[rank], false); if (misc.length >= MAX_MISC) break depth; }
   }
+  for (const id of ids) { addMisc(nodes[id], nodes[id].order[0], true); if (misc.length >= MAX_MISC) break; }
   // expert method: the leading solve-steps from the central (first available) node —
   // the "how an expert works this" that complements the misconception map.
   let approach = [];
-  for (const id of ids) { if (nodes[id].approach?.length) { approach = nodes[id].approach.slice(0, 2); break; } }
-  KNOWLEDGE[cb] = { models, approach, misc };
+  for (const id of ids) { if (nodes[id].approach?.length) { approach = nodes[id].approach.slice(0, 4); break; } }
+  // mastery criteria + level-differentiated teaching notes: from the first node
+  // that carries them (the primary node for the skill, in practice).
+  let mastery = '', teach = null;
+  for (const id of ids) {
+    if (!mastery && nodes[id].mastery) mastery = clip(nodes[id].mastery, 200);
+    if (!teach && nodes[id].teach) teach = nodes[id].teach;
+    if (mastery && teach) break;
+  }
+  KNOWLEDGE[cb] = { models, approach, misc, mastery, teach };
+}
+
+// ---- cross-cutting expert playbook (per section) -----------------------------
+// The graph's Cross-cutting strategy nodes hold the authors' section-wide habits
+// (triage, elimination discipline, Desmos judgment, sanity checks). None of them
+// key to a single CB skill, so they never ride the per-skill briefs — they are
+// emitted here as an always-on playbook the tutor injects once per conversation.
+const PLAYBOOK_NODES = {
+  math: ['answer-the-asked-question', 'method-selection-by-answer-form', 'magnitude-sanity-checks',
+         'desmos-decision-framework', 'engineered-shortcut-recognition', 'expression-as-unit'],
+  rw: ['question-first-reading-protocol', 'predict-then-verify', 'distractor-species-taxonomy',
+       'polarity-first-elimination', 'context-window-discipline', 'test-writer-mental-model'],
+};
+const PLAYBOOK = { math: [], rw: [] };
+for (const [sec, ids] of Object.entries(PLAYBOOK_NODES)) {
+  for (const id of ids) {
+    const n = nodes[id];
+    if (!n) continue;
+    // one line per habit: the vivid mental-model headline + the first expert move
+    let line = n.mentalModel || '';
+    const step = n.approach?.[0] || '';
+    if (step && line.length + step.length < 290) line = line ? `${line} ${step}` : step;
+    line = clip(line, 290);
+    if (line) PLAYBOOK[sec].push(line);
+  }
 }
 
 // ---- emit --------------------------------------------------------------------
@@ -235,12 +306,20 @@ const header = `/**
  * src/services/selectors/tutorKnowledgeContext.js to inject root-cause guidance
  * into the AI tutor's cached system prefix. Regenerate after graph edits.
  *
- * Shape: { [cbSkillSlug]: { models: string[], approach: string[], misc: [{ b, t, f }] } }
+ * Shape: { [cbSkillSlug]: { models, approach, misc, mastery, teach } }
  *   models   = mental-model one-liners (the hook/metaphor)
  *   approach = expert solve-steps distilled from "Expert reasoning process" (the method)
- *   misc     = { b: belief/why, t: how to detect, f: how to fix }
+ *   misc     = { b: belief/why, t: how to detect, f: how to fix } — roots first, then depth
+ *   mastery  = what mastery of this skill looks like (from "Mastery criteria")
+ *   teach    = level-differentiated coaching { s: struggling, a: average, v: advanced, x: 1500+ }
+ *
+ * EXPERT_PLAYBOOK: cross-cutting section-wide expert habits (triage, elimination,
+ * Desmos judgment, sanity checks) — one array per section, injected once per
+ * conversation by buildTutorPlaybookContext.
  */
 export const TUTOR_KNOWLEDGE = ${JSON.stringify(KNOWLEDGE, null, 2)};
+
+export const EXPERT_PLAYBOOK = ${JSON.stringify(PLAYBOOK, null, 2)};
 
 export default TUTOR_KNOWLEDGE;
 `;
@@ -253,7 +332,12 @@ const bytes = Buffer.byteLength(header);
 console.log(`wrote ${OUT}`);
 console.log(`  CB skills covered: ${Object.keys(KNOWLEDGE).length}  (${Object.keys(cbToNodes).filter(k=>RW_CB_SLUGS.has(k)).length} RW + ${Object.keys(MATH_MAP).length} math)`);
 console.log(`  misconception briefs: ${nMisc}   expert-method steps: ${nApproach}   file size: ${(bytes/1024).toFixed(1)}KB`);
+console.log(`  playbook lines: math ${PLAYBOOK.math.length} / rw ${PLAYBOOK.rw.length}`);
 const empties = Object.entries(KNOWLEDGE).filter(([, v]) => v.misc.length === 0).map(([k]) => k);
 if (empties.length) console.log(`  WARN empty briefs: ${empties.join(', ')}`);
 const noApproach = Object.entries(KNOWLEDGE).filter(([, v]) => !v.approach?.length).map(([k]) => k);
 if (noApproach.length) console.log(`  WARN no expert-method: ${noApproach.join(', ')}`);
+const noMastery = Object.entries(KNOWLEDGE).filter(([, v]) => !v.mastery).map(([k]) => k);
+if (noMastery.length) console.log(`  WARN no mastery line: ${noMastery.join(', ')}`);
+const noTeach = Object.entries(KNOWLEDGE).filter(([, v]) => !v.teach).map(([k]) => k);
+if (noTeach.length) console.log(`  WARN no teaching tiers: ${noTeach.join(', ')}`);

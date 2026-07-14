@@ -26,7 +26,7 @@ import { buildTrendContext } from '../services/trendContextBuilder';
 import { startIntervention, inferApproach, computeApproachEffectiveness } from '../services/interventionTracker';
 import { buildIntelligenceContext, getRecommendedApproach } from '../services/intelligenceContextBuilder';
 import { buildTutorSkillContext } from '../services/selectors/tutorSkillContext';
-import { buildTutorKnowledgeContext } from '../services/selectors/tutorKnowledgeContext';
+import { buildTutorKnowledgeContext, buildTutorPlaybookContext } from '../services/selectors/tutorKnowledgeContext';
 import { extractChoiceMisconceptions } from '../services/selectors/choiceMisconceptions';
 import { buildFollowUpPrompts, buildTrapWelcome } from '../services/selectors/tutorEngagement';
 import { noteTutorExchange, makeQuestionKey } from '../services/tutorExchangeTracker';
@@ -1317,11 +1317,23 @@ Your goal is to build their problem-solving instincts. Every question they solve
       // Expert misconception map for THIS question's skill(s), distilled from the
       // SAT knowledge graph. Lets the tutor name the root cause of a wrong answer
       // from our own taxonomy instead of inferring it from a thin explanation.
+      // masteryPct selects the level-matched coaching tier (struggling/…/1500+);
+      // it only shifts on a bucket boundary, so the prefix stays cache-stable.
       // Also per-question stable → rides the cached stable prefix.
+      let knowledgeMasteryPct;
+      if (isPracticeQuestion && skillProgress && Array.isArray(practiceContext?.skills)) {
+        for (const s of practiceContext.skills) {
+          const m = skillProgress[s]?.mastery;
+          if (typeof m === 'number') { knowledgeMasteryPct = m; break; }
+        }
+      }
       const knowledgeBlock = isPracticeQuestion
-        ? buildTutorKnowledgeContext({ skills: practiceContext?.skills })
+        ? buildTutorKnowledgeContext({ skills: practiceContext?.skills, masteryPct: knowledgeMasteryPct })
         : '';
-      const studentProfileStr = [buildStudentProfile(), skillHistoryBlock, knowledgeBlock].filter(Boolean).join('\n\n');
+      // Section-wide expert playbook (triage, elimination, Desmos judgment …) —
+      // constant per section, so it too rides the cached stable prefix.
+      const playbookBlock = isPracticeQuestion ? buildTutorPlaybookContext({ section }) : '';
+      const studentProfileStr = [buildStudentProfile(), skillHistoryBlock, playbookBlock, knowledgeBlock].filter(Boolean).join('\n\n');
 
       // Build learning memory context for cross-session awareness
       const learningMemoryCtx = (learningMemory || recentSessions.length > 0)

@@ -11,14 +11,19 @@
  *
  * Rides the cached stable prefix (per-question-stable, like the skill-history
  * block). Hard char cap keeps it from ballooning the prompt / latency.
+ *
+ * Also exports buildTutorPlaybookContext: the graph's cross-cutting expert habits
+ * for the whole section (triage, elimination discipline, Desmos judgment, sanity
+ * checks) — constant per section, injected once per conversation.
  */
 
-import { TUTOR_KNOWLEDGE } from '../../data/knowledge/tutorKnowledge';
+import { TUTOR_KNOWLEDGE, EXPERT_PLAYBOOK } from '../../data/knowledge/tutorKnowledge';
 import { getCBSkillForPattern } from '../../data/questions/cbSkillTaxonomy';
 
-const MAX_CHARS = 2000; // rides the CACHED prefix, so a richer block is ~free after the first call
+const MAX_CHARS = 3600; // rides the CACHED prefix, so a richer block is ~free after the first call
 const MAX_SKILLS = 2;   // most questions test 1; cap the rare multi-skill case
-const MAX_MISC = 3;     // top misconceptions per skill (authors lead with the root)
+const MAX_MISC = 5;     // top misconceptions per skill (roots first, then depth)
+const MAX_PLAYBOOK_CHARS = 2000; // the per-section expert-playbook block
 
 // Bank items store a fine-grained internal `skills` vocabulary that is neither the
 // CB skill slug nor the drill `pattern` slug. R&W items already carry a CB slug in
@@ -173,18 +178,38 @@ export const resolveCbSkill = (skill) => {
   return null;
 };
 
+// Map a mastery percentage onto the graph's teaching tiers. No data (new student /
+// unpracticed skill) defaults to the middle tier — its advice is safe at any level,
+// where the struggling tier ("don't teach this yet") could actively mislead.
+const teachTierOf = (pct) => {
+  if (typeof pct !== 'number' || Number.isNaN(pct)) return 'a';
+  if (pct < 50) return 's';
+  if (pct < 80) return 'a';
+  if (pct < 90) return 'v';
+  return 'x';
+};
+const TIER_LABEL = {
+  s: 'they are still building this skill',
+  a: 'they are at a developing level here',
+  v: 'they are strong at this skill',
+  x: 'they are pushing for a top score',
+};
+
 /**
  * Build the `>>> EXPERT MISCONCEPTION MAP <<<` block for the tutor prompt.
  * For each skill the current question tests, emit the expert mental model, the
- * expert method (how an expert actually works the problem), and the top
- * misconceptions (belief + how to detect + how to fix). Returns '' when no
- * skill resolves. Pure — safe to memoize per question.
+ * expert method (how an expert actually works the problem), what mastery looks
+ * like, the top misconceptions (belief + how to detect + how to fix), and a
+ * coaching angle matched to this student's demonstrated level. Returns '' when
+ * no skill resolves. Pure — safe to memoize per question.
  *
  * @param {Object} args
  * @param {string[]} [args.skills] - item skill tokens the active question tests
+ * @param {number} [args.masteryPct] - student's mastery % on this skill (0-100),
+ *   used to pick the teaching tier; omit when unknown (defaults to mid-tier)
  * @returns {string} the prompt block, or '' when there is nothing to say
  */
-export const buildTutorKnowledgeContext = ({ skills } = {}) => {
+export const buildTutorKnowledgeContext = ({ skills, masteryPct } = {}) => {
   if (!Array.isArray(skills) || skills.length === 0) return '';
 
   const cbSlugs = [];
@@ -195,21 +220,25 @@ export const buildTutorKnowledgeContext = ({ skills } = {}) => {
   }
   if (cbSlugs.length === 0) return '';
 
+  const tier = teachTierOf(masteryPct);
   const parts = [
     '>>> EXPERT MISCONCEPTION MAP <<<',
-    'When the student errs, diagnose the ROOT CAUSE below — do not just mark it wrong. Our expert misconception map for the skill(s) this question tests:',
+    "When the student errs, match their move to a belief below, confirm it with the detect cue, and coach the FIX — name the root cause, don't just re-explain the right answer. When they solve, reinforce the expert method so the approach sticks.",
   ];
   for (const cb of cbSlugs) {
     const k = TUTOR_KNOWLEDGE[cb];
     if (!k) continue;
     if (k.models && k.models[0]) parts.push(`How an expert holds this skill: ${k.models[0]}`);
     if (k.approach && k.approach.length) parts.push(`How an expert works it: ${k.approach.join(' → ')}`);
+    if (k.mastery) parts.push(`What mastery looks like: ${k.mastery}`);
     (k.misc || []).slice(0, MAX_MISC).forEach((m) => {
       let line = `- ${m.b}`;
       if (m.t) line += ` [detect: ${m.t}]`;
       if (m.f) line += ` [fix: ${m.f}]`;
       parts.push(line);
     });
+    const teachLine = k.teach && (k.teach[tier] || k.teach.a || k.teach.s || k.teach.v || k.teach.x);
+    if (teachLine) parts.push(`Coaching angle for THIS student (${TIER_LABEL[tier]}): ${teachLine}`);
   }
   if (parts.length <= 2) return '';
 
@@ -220,6 +249,32 @@ export const buildTutorKnowledgeContext = ({ skills } = {}) => {
     while (parts.length > 3 && parts.join('\n').length > MAX_CHARS) parts.pop();
     block = parts.join('\n');
     if (block.length > MAX_CHARS) block = block.slice(0, MAX_CHARS);
+  }
+  return block;
+};
+
+/**
+ * Build the `>>> SAT EXPERT PLAYBOOK <<<` block: the graph's cross-cutting
+ * section-wide expert habits (triage, elimination discipline, Desmos judgment,
+ * magnitude sanity checks) that no single skill owns. Stable per section, so it
+ * rides the cached prefix for the whole conversation. Pure.
+ *
+ * @param {Object} args
+ * @param {'math'|'rw'} [args.section] - subject of the active question
+ * @returns {string} the prompt block, or '' when the section has no playbook
+ */
+export const buildTutorPlaybookContext = ({ section } = {}) => {
+  const lines = EXPERT_PLAYBOOK[section];
+  if (!Array.isArray(lines) || lines.length === 0) return '';
+  const parts = [
+    `>>> SAT EXPERT PLAYBOOK (${section === 'rw' ? 'READING & WRITING' : 'MATH'}) <<<`,
+    'Section-wide habits every top scorer runs. Weave them into your coaching whenever the moment fits — especially after an error they would have prevented:',
+    ...lines.map((l) => `- ${l}`),
+  ];
+  let block = parts.join('\n');
+  if (block.length > MAX_PLAYBOOK_CHARS) {
+    while (parts.length > 3 && parts.join('\n').length > MAX_PLAYBOOK_CHARS) parts.pop();
+    block = parts.join('\n');
   }
   return block;
 };

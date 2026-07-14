@@ -6,10 +6,16 @@
  * src/services/selectors/tutorKnowledgeContext.js to inject root-cause guidance
  * into the AI tutor's cached system prefix. Regenerate after graph edits.
  *
- * Shape: { [cbSkillSlug]: { models: string[], approach: string[], misc: [{ b, t, f }] } }
+ * Shape: { [cbSkillSlug]: { models, approach, misc, mastery, teach } }
  *   models   = mental-model one-liners (the hook/metaphor)
  *   approach = expert solve-steps distilled from "Expert reasoning process" (the method)
- *   misc     = { b: belief/why, t: how to detect, f: how to fix }
+ *   misc     = { b: belief/why, t: how to detect, f: how to fix } — roots first, then depth
+ *   mastery  = what mastery of this skill looks like (from "Mastery criteria")
+ *   teach    = level-differentiated coaching { s: struggling, a: average, v: advanced, x: 1500+ }
+ *
+ * EXPERT_PLAYBOOK: cross-cutting section-wide expert habits (triage, elimination,
+ * Desmos judgment, sanity checks) — one array per section, injected once per
+ * conversation by buildTutorPlaybookContext.
  */
 export const TUTOR_KNOWLEDGE = {
   "central-ideas-and-details": {
@@ -19,7 +25,9 @@ export const TUTOR_KNOWLEDGE = {
     ],
     "approach": [
       "Pin the passage's claim in concrete terms: who/what, did what, to what, with what qualifier.",
-      "Climb one rung: restate it generically in your own plain words (this becomes your prediction — see predict then verify)."
+      "Climb one rung: restate it generically in your own plain words (this becomes your prediction — see predict then verify).",
+      "Match choices against the RELATIONSHIP in your restatement, not against shared topic nouns.",
+      "Scope-check the climb: does the choice's subject stay at the passage's number and breadth (this researcher, not researchers; this practice, not the category)?"
     ],
     "misc": [
       {
@@ -41,8 +49,35 @@ export const TUTOR_KNOWLEDGE = {
         "b": "\"Reading misses are just how I read; the wrong ones were tricky.\" Formed because Reading feedback feels less rule-governed than math or grammar.",
         "t": "Repeated species 2/3 picks → abstraction-ladder scope problem (abstraction ladder paraphrase).",
         "f": "autopsy ritual — student must name the species of their last 10 misses using the bestiary card; the moment misses become nameable, review starts work…"
+      },
+      {
+        "b": "Giving every sentence equal attention because \"careful means thorough.\" Formed by close-reading schooling and fear of missing something.",
+        "t": "flat per-sentence dwell in reading telemetry; slow overall pace; detail-promotion misses.",
+        "f": "two-speed drill — student marks each sentence of a passage \"slow\" or \"fast\" BEFORE answering, then compares with where the answer actually lived; rep…"
+      },
+      {
+        "b": "Assuming literary passages demand deep interpretation, so speculating past the text.",
+        "t": "picks theme-heavy unsupported choices on fiction items; explanations invoke \"represents,\" \"symbolizes,\" \"the deeper meaning.\"",
+        "f": "the words-on-page gate — every answer defense must point to specific words; contrast a credited literal choice with a beautiful unsupported one and s…"
+      },
+      {
+        "b": "Reading the choices as a menu of possibilities and picking the most attractive.",
+        "t": "telemetry shows choice-area engagement almost immediately after passage read; miss species vary with distractor design rather than clustering.",
+        "f": "cover-the-choices drill — choices physically hidden until a prediction is spoken/typed; compare accuracy with and without to make the payoff visible."
+      },
+      {
+        "b": "\"You have to read the passage before you can answer anything about it.\" Formed by every school reading assignment ever (text arrives first, questions after).",
+        "t": "item timing shows long dwell before first answer interaction even on short vocab items; student can retell the passage but hesitates on what was aske…",
+        "f": "forced-order drill — show the stem alone for 10 seconds, require the student to state the attention plan out loud, then reveal the passage."
       }
-    ]
+    ],
+    "mastery": "Student can (a) generate a one-rung-up restatement of any passage sentence, (b) sort four restatements by rung and mark where support ends, and (c) reject near-synonyms via substitution with a stated…",
+    "teach": {
+      "s": "start below the test — bare phrase pairs, concrete and short, yes/no equivalence. The ladder metaphor with three physical rungs drawn out. No timed work.",
+      "a": "rung-labeling and substitution drills inside real items; teach the \"one rung up\" expectation as the default shape of right answers.",
+      "v": "crooked-climb discrimination — curated near-synonym contrast sets; downward-ladder work for evidence items (general claim → which datum instantiates it).",
+      "x": "hardest composition cases — abstraction plus referent compression plus qualifier tracking in one item; and calibration on when a credited answer is LESS general than expected (the direction is a strong prior, not a law)."
+    }
   },
   "inferences": {
     "models": [
@@ -51,7 +86,9 @@ export const TUTOR_KNOWLEDGE = {
     ],
     "approach": [
       "Pin the passage's claim in concrete terms: who/what, did what, to what, with what qualifier.",
-      "Climb one rung: restate it generically in your own plain words (this becomes your prediction — see predict then verify)."
+      "Climb one rung: restate it generically in your own plain words (this becomes your prediction — see predict then verify).",
+      "Match choices against the RELATIONSHIP in your restatement, not against shared topic nouns.",
+      "Scope-check the climb: does the choice's subject stay at the passage's number and breadth (this researcher, not researchers; this practice, not the category)?"
     ],
     "misc": [
       {
@@ -73,8 +110,35 @@ export const TUTOR_KNOWLEDGE = {
         "b": "\"Reading misses are just how I read; the wrong ones were tricky.\" Formed because Reading feedback feels less rule-governed than math or grammar.",
         "t": "Repeated species 2/3 picks → abstraction-ladder scope problem (abstraction ladder paraphrase).",
         "f": "autopsy ritual — student must name the species of their last 10 misses using the bestiary card; the moment misses become nameable, review starts work…"
+      },
+      {
+        "b": "Students believe a good inference adds something the author didn't say, because English classes reward reading between the lines.",
+        "t": "*inference-means-leap*: student rejects the correct answer as \"too obvious\"; picks the speculation distractor; explanation includes \"you can kind of…",
+        "f": "*inference-means-leap*: reframe the task — \"state what the text forces, not what it inspires.\" Contrast pair: one classroom-style interpretive questi…"
+      },
+      {
+        "b": "Assuming literary passages demand deep interpretation, so speculating past the text.",
+        "t": "picks theme-heavy unsupported choices on fiction items; explanations invoke \"represents,\" \"symbolizes,\" \"the deeper meaning.\"",
+        "f": "the words-on-page gate — every answer defense must point to specific words; contrast a credited literal choice with a beautiful unsupported one and s…"
+      },
+      {
+        "b": "Reading the choices as a menu of possibilities and picking the most attractive.",
+        "t": "telemetry shows choice-area engagement almost immediately after passage read; miss species vary with distractor design rather than clustering.",
+        "f": "cover-the-choices drill — choices physically hidden until a prediction is spoken/typed; compare accuracy with and without to make the payoff visible."
+      },
+      {
+        "b": "Students treat everything with the word \"support\" or an academic passage as the same \"evidence question,\" applying one habit everywhere.",
+        "t": "*passage-verification-error*: student explains an elimination with \"it's not in the passage\" on an if-true item; timing shows them re-scanning the pa…",
+        "f": "*one-task-illusion*: teach the two stems side by side as a contrast pair — same passage, one completion stem, one if-true stem; show that the correct…"
       }
-    ]
+    ],
+    "mastery": "Student can (a) generate a one-rung-up restatement of any passage sentence, (b) sort four restatements by rung and mark where support ends, and (c) reject near-synonyms via substitution with a stated…",
+    "teach": {
+      "s": "start below the test — bare phrase pairs, concrete and short, yes/no equivalence. The ladder metaphor with three physical rungs drawn out. No timed work.",
+      "a": "rung-labeling and substitution drills inside real items; teach the \"one rung up\" expectation as the default shape of right answers.",
+      "v": "crooked-climb discrimination — curated near-synonym contrast sets; downward-ladder work for evidence items (general claim → which datum instantiates it).",
+      "x": "hardest composition cases — abstraction plus referent compression plus qualifier tracking in one item; and calibration on when a credited answer is LESS general than expected (the direction is a strong prior, not a law)."
+    }
   },
   "command-of-evidence-textual": {
     "models": [
@@ -83,7 +147,9 @@ export const TUTOR_KNOWLEDGE = {
     ],
     "approach": [
       "Pin the passage's claim in concrete terms: who/what, did what, to what, with what qualifier.",
-      "Climb one rung: restate it generically in your own plain words (this becomes your prediction — see predict then verify)."
+      "Climb one rung: restate it generically in your own plain words (this becomes your prediction — see predict then verify).",
+      "Match choices against the RELATIONSHIP in your restatement, not against shared topic nouns.",
+      "Scope-check the climb: does the choice's subject stay at the passage's number and breadth (this researcher, not researchers; this practice, not the category)?"
     ],
     "misc": [
       {
@@ -105,8 +171,35 @@ export const TUTOR_KNOWLEDGE = {
         "b": "Students verify a choice is relevant but never check polarity, picking a strengthener on a weaken stem or vice versa — especially when the claim or choice contains negation.",
         "t": "*direction-blindness*: wrong answers are exact mirror images of correct ones; error rate roughly doubles on items containing negations; student's exp…",
         "f": "*direction-blindness*: mandate arrow notation for two weeks — claim arrows plus a written target line on every support/weaken item."
+      },
+      {
+        "b": "\"Reading misses are just how I read; the wrong ones were tricky.\" Formed because Reading feedback feels less rule-governed than math or grammar.",
+        "t": "Repeated species 2/3 picks → abstraction-ladder scope problem (abstraction ladder paraphrase).",
+        "f": "autopsy ritual — student must name the species of their last 10 misses using the bestiary card; the moment misses become nameable, review starts work…"
+      },
+      {
+        "b": "Giving every sentence equal attention because \"careful means thorough.\" Formed by close-reading schooling and fear of missing something.",
+        "t": "flat per-sentence dwell in reading telemetry; slow overall pace; detail-promotion misses.",
+        "f": "two-speed drill — student marks each sentence of a passage \"slow\" or \"fast\" BEFORE answering, then compares with where the answer actually lived; rep…"
+      },
+      {
+        "b": "Students select the most emotionally resonant or thematically colored lines rather than translating literally.",
+        "t": "*poetry-vibe-matching*: wrong picks are the most lyrical/emotive options; student justifies with mood words (\"it feels mournful\") rather than a parap…",
+        "f": "*poetry-vibe-matching* / *translation-avoidance*: make translation the entire exercise for a session — quotations only, no questions, rendered into f…"
+      },
+      {
+        "b": "Reading the choices as a menu of possibilities and picking the most attractive.",
+        "t": "telemetry shows choice-area engagement almost immediately after passage read; miss species vary with distractor design rather than clustering.",
+        "f": "cover-the-choices drill — choices physically hidden until a prediction is spoken/typed; compare accuracy with and without to make the payoff visible."
       }
-    ]
+    ],
+    "mastery": "Student can (a) generate a one-rung-up restatement of any passage sentence, (b) sort four restatements by rung and mark where support ends, and (c) reject near-synonyms via substitution with a stated…",
+    "teach": {
+      "s": "start below the test — bare phrase pairs, concrete and short, yes/no equivalence. The ladder metaphor with three physical rungs drawn out. No timed work.",
+      "a": "rung-labeling and substitution drills inside real items; teach the \"one rung up\" expectation as the default shape of right answers.",
+      "v": "crooked-climb discrimination — curated near-synonym contrast sets; downward-ladder work for evidence items (general claim → which datum instantiates it).",
+      "x": "hardest composition cases — abstraction plus referent compression plus qualifier tracking in one item; and calibration on when a credited answer is LESS general than expected (the direction is a strong prior, not a law)."
+    }
   },
   "form-structure-and-sense": {
     "models": [
@@ -115,7 +208,9 @@ export const TUTOR_KNOWLEDGE = {
     ],
     "approach": [
       "Triage (choice set diagnosis): choices permuting apostrophe placement or homophone spellings → this node.",
-      "Kill impossible forms and apostrophized second-nouns immediately — form-based eliminations are free."
+      "Kill impossible forms and apostrophized second-nouns immediately — form-based eliminations are free.",
+      "If number also varies across choices, settle number FIRST (from the referent, via grammatical number assignment / pronoun antecedent agreement) — it eliminates half the grid before any punct",
+      "Nouns: run the next-word test; if possession, set apostrophe position from the owner's number (one owner → 's; many owners → s'; no-s plural → 's)."
     ],
     "misc": [
       {
@@ -137,8 +232,35 @@ export const TUTOR_KNOWLEDGE = {
         "b": "number is assigned semantically: a group of people acting is \"they,\" an activity involving many samples is \"many.\" Forms because spoken English (and British English exposure via m…",
         "t": "Plural verb chosen for a collective or gerund subject, with the student's explanation referencing the people/things involved → feels-plural-is-plural.",
         "f": "teach the bounded-unit question with a contrast pair — \"the committee meets\" vs \"the members meet\" — showing that English gives you a plural word whe…"
+      },
+      {
+        "b": "the student accepts a dangling opener because the intended meaning is obvious.",
+        "t": "Picks grammatical, concise choices whose boundary noun mismatches the fixed modifier → choices-first-solving / meaning-rescues-syntax.",
+        "f": "the literal-reading drill — read the assembled sentence deadpan-literally and say what it claims (the absurd image does the teaching)."
+      },
+      {
+        "b": "any item conveying the right idea is accepted, since all four choices paraphrase the same fact.",
+        "t": "Picks a clause-ified or infinitive paraphrase of a gerund/noun anchor → meaning-over-form; ask them to name the anchor's form — inability to classify…",
+        "f": "form-classification micro-drill — given ten phrases, label each noun / gerund / infinitive / finite verb / clause."
+      },
+      {
+        "b": "the student accepts a plural pronoun because the plural concept is obviously intended, though only a singular noun appears (or only a possessive form of it).",
+        "t": "Picks the plural pronoun when only a singular noun (or its possessive) is on the page, and defends it with \"but it obviously means all of them\" → imp…",
+        "f": "the point-at-it drill — the student must physically point at (or quote) the antecedent noun before answering; if they point at a word that isn't a no…"
+      },
+      {
+        "b": "the student accepts an ambiguous pronoun because context makes the intended referent guessable.",
+        "t": "Picks a grammatical pronoun where two same-type candidates exist; explanation appeals to what the passage \"obviously means\" → reader-can-figure-it-ou…",
+        "f": "adversarial-reading drill — for each pronoun choice, the student must construct the OTHER reading (the unintended referent)."
       }
-    ]
+    ],
+    "mastery": "Runs the next-word and expansion tests unprompted and can state WHY each works; solves fused number × apostrophe sets in the correct order (number first); never picks an impossible form or an apostro…",
+    "teach": {
+      "s": "teach the two tests as physical rituals (point at the next word; say the expansion aloud). Don't present the full grid until the tests are habitual — the grid without the tests reads as four things to memorize.",
+      "a": "full grid + position-as-code + the pronoun inversion with the his-anchor. Introduce the number-first ordering on mixed sets.",
+      "v": "two-noun stacks, irregular plurals, the noun-'s-as-contraction reading, and speed (form-based eliminations should be instant).",
+      "x": "the only misses left are fused sets under time pressure and exotic plurals."
+    }
   },
   "boundaries": {
     "models": [
@@ -147,7 +269,9 @@ export const TUTOR_KNOWLEDGE = {
     ],
     "approach": [
       "Triage (choice set diagnosis): choices permuting apostrophe placement or homophone spellings → this node.",
-      "Kill impossible forms and apostrophized second-nouns immediately — form-based eliminations are free."
+      "Kill impossible forms and apostrophized second-nouns immediately — form-based eliminations are free.",
+      "If number also varies across choices, settle number FIRST (from the referent, via grammatical number assignment / pronoun antecedent agreement) — it eliminates half the grid before any punct",
+      "Nouns: run the next-word test; if possession, set apostrophe position from the owner's number (one owner → 's; many owners → s'; no-s plural → 's)."
     ],
     "misc": [
       {
@@ -169,8 +293,35 @@ export const TUTOR_KNOWLEDGE = {
         "b": "the student reads each choice into the sentence and picks what sounds smoothest.",
         "t": "Picks a wrong-number verb but explains their choice with tense reasoning → solve-by-sound / fell for the number-flip-with-tense-noise design (route t…",
         "f": "contrast pair — one item where the smooth-sounding choice is wrong on number; have the student find the axis in the choices FIRST, out loud."
+      },
+      {
+        "b": "The upstream failure class: the student's parse is broken (misses a verb, counts an -ing form as a verb, doesn't demote a subordinated clause, loses the subject in a preposition c…",
+        "t": "the student misclassifies a SIDE when asked (\"is what follows the blank a complete sentence?\" → wrong answer); accepts fragments in one-word-repair d…",
+        "f": "drop back to sentence vs fragment slot-checking; do NOT reteach punctuation rules — they aren't the problem."
+      },
+      {
+        "b": "the belief that a comma always precedes \"and.\" Formed by over-generalizing two true rules (the list rule and the compound-sentence rule) into one false universal.",
+        "t": "adds the comma on compound-predicate items; when asked to run period-substitution, either doesn't know the test or runs it and overrides it \"because…",
+        "f": "drill period-substitution on ten mixed items (half compounds, half true two-clause joins) until the test is reflexive."
+      },
+      {
+        "b": "Commas are \"small pauses,\" so a long breath between clauses feels comma-worthy; the test writes long first clauses to make the splice feel natural.",
+        "t": "accepts splice choices specifically after long first clauses; sound vocabulary in explanations; bidirectional comma errors elsewhere (punctuating by…",
+        "f": "the betrayal confrontation in punctuating by ear, then re-anchor: a comma is never a bridge between two things that could each end with a period."
+      },
+      {
+        "b": "Over-generalizing the bracket schema to ANY comma pair.",
+        "t": "on wrong-span items, the student reports the sentence \"works without it\" while quoting a deletion across unrelated commas; their span endpoints don't…",
+        "f": "teach the comma-jobs inventory (essential vs nonessential): before bracketing, name each comma's job; only a matched PAIR of doing-nothing-else comma…"
       }
-    ]
+    ],
+    "mastery": "Runs the next-word and expansion tests unprompted and can state WHY each works; solves fused number × apostrophe sets in the correct order (number first); never picks an impossible form or an apostro…",
+    "teach": {
+      "s": "teach the two tests as physical rituals (point at the next word; say the expansion aloud). Don't present the full grid until the tests are habitual — the grid without the tests reads as four things to memorize.",
+      "a": "full grid + position-as-code + the pronoun inversion with the his-anchor. Introduce the number-first ordering on mixed sets.",
+      "v": "two-noun stacks, irregular plurals, the noun-'s-as-contraction reading, and speed (form-based eliminations should be instant).",
+      "x": "the only misses left are fused sets under time pressure and exotic plurals."
+    }
   },
   "command-of-evidence-quantitative": {
     "models": [
@@ -179,7 +330,9 @@ export const TUTOR_KNOWLEDGE = {
     ],
     "approach": [
       "Read the question stem first and grab its task verb (complete / support / weaken / illustrate) and the claim-holder (\"the researchers' hypothesis,\" \"the student's conclusion\").",
-      "Scan the passage for the sentence where that holder asserts something — expect it late; verbs like *hypothesize, propose, conclude, suggest* mark it."
+      "Scan the passage for the sentence where that holder asserts something — expect it late; verbs like *hypothesize, propose, conclude, suggest* mark it.",
+      "Restate the claim plainly in your own words.",
+      "Tag the evidence sentences and the mechanism (WHICH component or condition is said to carry the effect)."
     ],
     "misc": [
       {
@@ -201,8 +354,35 @@ export const TUTOR_KNOWLEDGE = {
         "b": "Students verify a choice is relevant but never check polarity, picking a strengthener on a weaken stem or vice versa — especially when the claim or choice contains negation.",
         "t": "*direction-blindness*: wrong answers are exact mirror images of correct ones; error rate roughly doubles on items containing negations; student's exp…",
         "f": "*direction-blindness*: mandate arrow notation for two weeks — claim arrows plus a written target line on every support/weaken item."
+      },
+      {
+        "b": "Students treat everything with the word \"support\" or an academic passage as the same \"evidence question,\" applying one habit everywhere.",
+        "t": "*passage-verification-error*: student explains an elimination with \"it's not in the passage\" on an if-true item; timing shows them re-scanning the pa…",
+        "f": "*one-task-illusion*: teach the two stems side by side as a contrast pair — same passage, one completion stem, one if-true stem; show that the correct…"
+      },
+      {
+        "b": "Student organizes difficulty by subject matter (\"I'm bad at science passages\") rather than by question family.",
+        "t": "student's self-report of weaknesses names subjects, not question types; error log shows misses spread across topics but concentrated in one or two fa…",
+        "f": "have the student re-sort their own last 20 misses by stem family instead of subject; the resulting histogram usually reorders their study plan on the…"
+      },
+      {
+        "b": "Students treat all passage content as equally load-bearing, so any choice touching any sentence feels \"supported.\" Formed by comprehension-quiz habits where any detail could be as…",
+        "t": "",
+        "f": ""
+      },
+      {
+        "b": "Students lock onto the wrong line/bar after a correct legend read, or the legend read never happens; all values extracted thereafter are internally consistent and entirely wrong.",
+        "t": "",
+        "f": ""
       }
-    ]
+    ],
+    "mastery": "Given any Information & Ideas short passage, the student can (a) point to the claim sentence within ~15 seconds, (b) restate it in under 10 words preserving direction, scope, and subject, and (c) say…",
+    "teach": {
+      "s": "physicalize it. Print short passages; three highlighter colors for claim/evidence/background. No questions at all until the sort is fast.",
+      "a": "teach the stem-verb-first habit and the late-claim expectation. Their sort is usually fine; their failure is not *doing* it under time. Assign the 3–6 word written compression as a non-skippable step for two weeks.",
+      "v": "focus on qualifiers and claim-holder discipline — the only spine errors they still make. Drill two-position passages and magnitude-qualified claims.",
+      "x": "compress the routine to a glance: stem verb → last-sentence check → mental arrow notation."
+    }
   },
   "cross-text-connections": {
     "models": [
@@ -211,7 +391,9 @@ export const TUTOR_KNOWLEDGE = {
     ],
     "approach": [
       "Opening sentence contains hedged-belief language → pre-load the template immediately.",
-      "Forecast: \"old idea = X; a pivot is coming; the point will be some revision of X.\""
+      "Forecast: \"old idea = X; a pivot is coming; the point will be some revision of X.\"",
+      "Hit the pivot; read the post-pivot material as the point.",
+      "Derive attitudes without further reading: author leans away from old, toward new — then verify temperature against actual word choices (the lean can be respectful revision, not demolition)."
     ],
     "misc": [
       {
@@ -233,8 +415,35 @@ export const TUTOR_KNOWLEDGE = {
         "b": "The student compares full meanings of all four choices immediately, overloading working memory and running out of time.",
         "t": "long time-per-item across all difficulties; scratch work shows definitions of all four choices; accuracy fine untimed, poor timed.",
         "f": "impose the two-pass protocol explicitly — first pass may ONLY mark +/−/0 per choice, no meaning allowed."
+      },
+      {
+        "b": "Status belief: \"I can hold it in my head; notes are training wheels.\" Held most strongly by fluent readers — the exact population that suffers polarity flips, because their fluenc…",
+        "t": "zero scratch/jot activity in telemetry despite polarity-flip and hybrid misses; strong reader profile otherwise (fast, high easy/medium accuracy).",
+        "f": "evidence confrontation — show their own polarity-flip miss next to the 4-word note that would have prevented it; prescribe jotting ONLY on template p…"
+      },
+      {
+        "b": "Student organizes difficulty by subject matter (\"I'm bad at science passages\") rather than by question family.",
+        "t": "student's self-report of weaknesses names subjects, not question types; error log shows misses spread across topics but concentrated in one or two fa…",
+        "f": "have the student re-sort their own last 20 misses by stem family instead of subject; the resulting histogram usually reorders their study plan on the…"
+      },
+      {
+        "b": "Treating disagreements with the answer key as the key's errors.",
+        "t": "review sessions produce justifications of the missed choice rather than diagnoses; repeated identical species of miss over weeks (nothing updates).",
+        "f": "install the post-mortem grammar — every miss review must complete \"I misread/overextended ___\" before moving on; the tutor refuses \"the answer was ba…"
+      },
+      {
+        "b": "The student merges both texts into one \"what the passage says\" summary, because all prior schooling treats a reading as a single source of truth; two texts on one topic feel like…",
+        "t": "picks cross-text misattribution distractors; when asked to summarize, produces one topic summary rather than two positions; uses \"the passage\" (singu…",
+        "f": "impose the ledger as a physical ritual — two labeled lines written before choices, every paired item, no exceptions."
       }
-    ]
+    ],
+    "mastery": "Given only a passage's first sentence, the student can state whether the template is likely active and, if so, forecast the pivot and the point's direction; on full passages they extract old idea, ne…",
+    "teach": {
+      "s": "teach the skeleton as a story shape — \"people used to think X; surprise: actually Y\" — and drill only the question \"which sentence is the surprise?\" Point identification comes free once the surprise is found.",
+      "a": "full template with the signal inventory and the two-sided jot; polarity distractor autopsies.",
+      "v": "revision-vs-refutation temperature calibration; paired-text template mapping; forecasting practice (read the opener, predict the rest, then check).",
+      "x": "the edge cases — passages that defend the old view against a challenge (template inverted), post-pivot counterarguments (rare and brief, per the pattern — unverified-claim), and template-as-prior discipline: the forecast is held l…"
+    }
   },
   "words-in-context": {
     "models": [
@@ -243,7 +452,9 @@ export const TUTOR_KNOWLEDGE = {
     ],
     "approach": [
       "Establish the idea-level stance from evidence + connector family, as usual.",
-      "Scan the span between evidence and slot for modifiers: overt negations (not, never, fails to), downgraders (less, smaller, hardly, scarcely), privatives (without, lacking), reversal connecto"
+      "Scan the span between evidence and slot for modifiers: overt negations (not, never, fails to), downgraders (less, smaller, hardly, scarcely), privatives (without, lacking), reversal connecto",
+      "Hand the computed word-sign to the normal polarity sweep (polarity first elimination).",
+      "Verify at substitution time by reading the *whole* composed phrase aloud — the final coherence check catches miscounts."
     ],
     "misc": [
       {
@@ -265,8 +476,35 @@ export const TUTOR_KNOWLEDGE = {
         "b": "Each word has the one meaning I learned.",
         "t": "on word-probe items, picks the choice matching the target's everyday sense; explanation is a dictionary recital, no passage evidence cited.",
         "f": "show three sentences forcing three different meanings from one common word — meaning is location-dependent, full stop."
+      },
+      {
+        "b": "The student compares full meanings of all four choices immediately, overloading working memory and running out of time.",
+        "t": "long time-per-item across all difficulties; scratch work shows definitions of all four choices; accuracy fine untimed, poor timed.",
+        "f": "impose the two-pass protocol explicitly — first pass may ONLY mark +/−/0 per choice, no meaning allowed."
+      },
+      {
+        "b": "The student instantly kills the choice that \"isn't even the right kind of word.\" Forms from fast grammatical pattern-matching, usually a *good* instinct.",
+        "t": "the credited answer is among their first eliminations on second-sense items; explanation: \"that's a noun/adjective, it can't go there.\" Fast eliminat…",
+        "f": "teach the POS-uniformity cue as a *reversal* of their instinct: \"looks-wrong-POS = examine harder, not eliminate.\" Drill sets seeded with one costume…"
+      },
+      {
+        "b": "Student organizes difficulty by subject matter (\"I'm bad at science passages\") rather than by question family.",
+        "t": "student's self-report of weaknesses names subjects, not question types; error log shows misses spread across topics but concentrated in one or two fa…",
+        "f": "have the student re-sort their own last 20 misses by stem family instead of subject; the resulting histogram usually reorders their study plan on the…"
+      },
+      {
+        "b": "The student reads a passage about extinction or disease as \"negative\" because the subject is sad.",
+        "t": "wrong-polarity errors clustered on passages with emotionally loaded subjects but neutral stances; explanation cites facts, not framing words.",
+        "f": "the deletion drill — remove all factual content and list what's left; if nothing evaluative remains, the stance is neutral regardless of how the topi…"
       }
-    ]
+    ],
+    "mastery": "On items with one or more modifiers before the slot, the student writes (or states) the composed word-sign before reading choices and no longer picks charge-flip decoys — demonstrated across soft dow…",
+    "teach": {
+      "s": "usually shouldn't be here yet — confirm polarity first elimination is solid. If teaching anyway, use only single overt negations with exaggerated examples and the write-the-sign habit from day one.",
+      "a": "teach the sign-arithmetic frame explicitly; drill the flipper inventory; insist signs go on paper — mental tracking is the failure mode.",
+      "v": "stacked and soft-modifier items under time; postmortem every miss by re-running the multiplication aloud.",
+      "x": "run the arithmetic silently but verify on substitution; explore edge cases where a \"downgrader\" is actually part of a fixed phrase and doesn't flip (idiom interference) — connects to the small class of idioms whose surface reading…"
+    }
   },
   "transitions": {
     "models": [
@@ -275,7 +513,9 @@ export const TUTOR_KNOWLEDGE = {
     ],
     "approach": [
       "Locate the decision point (blank, underlined portion, transition slot, or referenced sentence).",
-      "Scan for explicit connectors touching it — sentence-initial words, mid-sentence conjunctions — AND for silent connectors: colon, dash, semicolon, parallel construction."
+      "Scan for explicit connectors touching it — sentence-initial words, mid-sentence conjunctions — AND for silent connectors: colon, dash, semicolon, parallel construction.",
+      "Classify the arrow: same-direction, cause/effect-explanation, or reversal.",
+      "Identify what the arrow connects: the specific idea on each side, not just \"the sentences.\" (A reversal reverses *something particular* — name it.)"
     ],
     "misc": [
       {
@@ -297,8 +537,35 @@ export const TUTOR_KNOWLEDGE = {
         "b": "the student treats all continuers as interchangeable (adding ≈ exemplifying ≈ emphasizing).",
         "t": "wrong answers cluster on same-family distractors (a continuer chosen where a different continuer was right); accuracy is fine on cross-family items b…",
         "f": "contrast pair — one sentence pair completed twice, once with an adder, once with an example-introducer, showing the second sentence must *be* an inst…"
+      },
+      {
+        "b": "the belief that a fluent reader can *hear* correctness.",
+        "t": "the student changes correct answers to smoother-sounding wrong ones (answer-revision telemetry); explanations use \"sounds right/wrong\" with no rule n…",
+        "f": "adversarial pair — one smooth-sounding wrong answer next to one stiff-sounding correct one, resolved by rule; the moment a student watches their ear…"
+      },
+      {
+        "b": "the student reads \"over a minute per question\" as license to work slowly everywhere.",
+        "t": "per-item timing shows writing items consuming near-average time despite high accuracy; unanswered or panic-speed items at the module tail; the studen…",
+        "f": "measured proof — time the student on ten classified writing items; the observed seconds-per-item, contrasted with their average, makes the purse mode…"
+      },
+      {
+        "b": "The student knows \"however\" flips direction but doesn't register that a colon or dash imposes an explanation relationship.",
+        "t": "accuracy drops specifically on items where the arrow is a colon/dash; says \"there was no transition word.\"",
+        "f": "re-derivation — show that \"X: Y\" always survives the paraphrase \"X, that is/because, Y.\" Have the student read colons aloud as \"namely/because.\""
+      },
+      {
+        "b": "the student links the transition to the *next* sentence (\"it's setting up what comes after\").",
+        "t": "the student's justification quotes the following sentence; errors vanish when the item is the paragraph's last sentence.",
+        "f": "cover the following sentence with a card (or truncate the passage) and show the item still resolves; then show a case where the forward reading picks…"
       }
-    ]
+    ],
+    "mastery": "Given any sentence pair (or blank-bearing sentence), the student can tag the arrow family and name what it connects in under ~15 seconds, across all three families, including punctuation-only and off…",
+    "teach": {
+      "s": "teach only the three arrows with hand gestures / drawn arrows; drill tagging without answering questions at all. One family per session. Colon = \"here comes the why.\"",
+      "a": "full three-family sort including punctuation; introduce the \"name what's being reversed\" second step; mixed drills where the task is stating the required idea in their own words before choices.",
+      "v": "off-list connectors, double-arrow sentences, arrow-tagging in 19th-century prose; timed arrow-tagging as a warm-up ritual.",
+      "x": "adversarial cases — items where the surface connector points one way but a larger structural reversal dominates; discuss how test writers build wrong-direction distractors and have the student author one."
+    }
   },
   "text-structure-and-purpose": {
     "models": [
@@ -307,7 +574,9 @@ export const TUTOR_KNOWLEDGE = {
     ],
     "approach": [
       "Locate the decision point (blank, underlined portion, transition slot, or referenced sentence).",
-      "Scan for explicit connectors touching it — sentence-initial words, mid-sentence conjunctions — AND for silent connectors: colon, dash, semicolon, parallel construction."
+      "Scan for explicit connectors touching it — sentence-initial words, mid-sentence conjunctions — AND for silent connectors: colon, dash, semicolon, parallel construction.",
+      "Classify the arrow: same-direction, cause/effect-explanation, or reversal.",
+      "Identify what the arrow connects: the specific idea on each side, not just \"the sentences.\" (A reversal reverses *something particular* — name it.)"
     ],
     "misc": [
       {
@@ -329,8 +598,35 @@ export const TUTOR_KNOWLEDGE = {
         "b": "Giving every sentence equal attention because \"careful means thorough.\" Formed by close-reading schooling and fear of missing something.",
         "t": "flat per-sentence dwell in reading telemetry; slow overall pace; detail-promotion misses.",
         "f": "two-speed drill — student marks each sentence of a passage \"slow\" or \"fast\" BEFORE answering, then compares with where the answer actually lived; rep…"
+      },
+      {
+        "b": "Assuming literary passages demand deep interpretation, so speculating past the text.",
+        "t": "picks theme-heavy unsupported choices on fiction items; explanations invoke \"represents,\" \"symbolizes,\" \"the deeper meaning.\"",
+        "f": "the words-on-page gate — every answer defense must point to specific words; contrast a credited literal choice with a beautiful unsupported one and s…"
+      },
+      {
+        "b": "The student hunts for their main-point sentence verbatim among the choices and panics when nothing matches, because purpose choices are cast as rhetorical verbs plus generalized o…",
+        "t": "reports \"none of the choices said what the passage said\"; picks the choice with maximum word overlap; strong on point questions, weak on purpose ques…",
+        "f": "teach the two-step transform explicitly — write the point, then rewrite it as \"to [verb] [generalized object].\" Drill the noun-generalization move al…"
+      },
+      {
+        "b": "The student compares full meanings of all four choices immediately, overloading working memory and running out of time.",
+        "t": "long time-per-item across all difficulties; scratch work shows definitions of all four choices; accuracy fine untimed, poor timed.",
+        "f": "impose the two-pass protocol explicitly — first pass may ONLY mark +/−/0 per choice, no meaning allowed."
+      },
+      {
+        "b": "Reading the choices as a menu of possibilities and picking the most attractive.",
+        "t": "telemetry shows choice-area engagement almost immediately after passage read; miss species vary with distractor design rather than clustering.",
+        "f": "cover-the-choices drill — choices physically hidden until a prediction is spoken/typed; compare accuracy with and without to make the payoff visible."
       }
-    ]
+    ],
+    "mastery": "Given any sentence pair (or blank-bearing sentence), the student can tag the arrow family and name what it connects in under ~15 seconds, across all three families, including punctuation-only and off…",
+    "teach": {
+      "s": "teach only the three arrows with hand gestures / drawn arrows; drill tagging without answering questions at all. One family per session. Colon = \"here comes the why.\"",
+      "a": "full three-family sort including punctuation; introduce the \"name what's being reversed\" second step; mixed drills where the task is stating the required idea in their own words before choices.",
+      "v": "off-list connectors, double-arrow sentences, arrow-tagging in 19th-century prose; timed arrow-tagging as a warm-up ritual.",
+      "x": "adversarial cases — items where the surface connector points one way but a larger structural reversal dominates; discuss how test writers build wrong-direction distractors and have the student author one."
+    }
   },
   "rhetorical-synthesis": {
     "models": [
@@ -339,7 +635,9 @@ export const TUTOR_KNOWLEDGE = {
     ],
     "approach": [
       "From the decomposed goal (goal decomposition checklist), classify the goal type.",
-      "Recall the fingerprint: which surface features are mandatory, which are disqualifying."
+      "Recall the fingerprint: which surface features are mandatory, which are disqualifying.",
+      "Scan choices at feature level first — presence/absence of the marker word, the background clause, the plural enumeration — before reading any choice for full meaning.",
+      "On feature survivors, run the full checklist."
     ],
     "misc": [
       {
@@ -361,8 +659,35 @@ export const TUTOR_KNOWLEDGE = {
         "b": "the belief that a fluent reader can *hear* correctness.",
         "t": "the student changes correct answers to smoother-sounding wrong ones (answer-revision telemetry); explanations use \"sounds right/wrong\" with no rule n…",
         "f": "adversarial pair — one smooth-sounding wrong answer next to one stiff-sounding correct one, resolved by rule; the moment a student watches their ear…"
+      },
+      {
+        "b": "the student reads \"over a minute per question\" as license to work slowly everywhere.",
+        "t": "per-item timing shows writing items consuming near-average time despite high accuracy; unanswered or panic-speed items at the module tail; the studen…",
+        "f": "measured proof — time the student on ten classified writing items; the observed seconds-per-item, contrasted with their average, makes the purse mode…"
+      },
+      {
+        "b": "on study-aim goals, the student gravitates to findings because results feel like the newsworthy content; school science writing rewards leading with conclusions.",
+        "t": "",
+        "f": "reframe drill — given a finding-framed sentence, rewrite it as intent-framed and vice versa; once the student can transform the framing, they can see…"
+      },
+      {
+        "b": "the student lets a semantically related category satisfy the focus (sound for movement, a work's awards for its materials).",
+        "t": "misses land on the near-category choice; asked to point at the goal's focus phrase, the student paraphrases it a level too loosely.",
+        "f": "category-ladder drill — given a focus phrase, have the student generate the exact match, a neighbor, and a superset, then classify choices into those…"
+      },
+      {
+        "b": "the student believes a factually accurate, notes-supported statement must be right.",
+        "t": "wrong answers are the informative-but-wrong-job distractors; the student defends a miss with \"but it's right there in the notes.\"",
+        "f": "show all four choices verified true against the notes, then ask \"so what actually differs?\" — forcing the discovery that the rhetorical job is the on…"
       }
-    ]
+    ],
+    "mastery": "Given a goal sentence alone, the student can predict the fingerprint (\"the answer will contain a difference word\"; \"the answer will introduce her with a full name and a role\") before seeing choices,…",
+    "teach": {
+      "s": "teach two signatures only — comparison-needs-a-marker and new-audience-needs-background — as concrete rules with circled words. Breadth comes later.",
+      "a": "the full catalog as a goal-type → fingerprint table they can reproduce; drill one goal type at a time, then mixed.",
+      "v": "trap-first teaching — show the six distractor designs and have the student author the *wrong* answers for a given goal; building traps inoculates against them.",
+      "x": "the marginal gains are the subtle cues — framing reads (intent vs result), the last-name-only signal, and disciplined skepticism about the unverified length cue (usable as a tiebreaker instinct, never as primary evidence)."
+    }
   },
   "linear-equations-one-variable": {
     "models": [
@@ -371,7 +696,9 @@ export const TUTOR_KNOWLEDGE = {
     ],
     "approach": [
       "Read the ask first — confirm the target is actually the lone variable and not a combination of it (if a combination, jump to solve for the asked quantity).",
-      "Sweep: combine like terms on each side."
+      "Sweep: combine like terms on each side.",
+      "If fractions appear anywhere in the equation, multiply both sides through by the denominator(s) immediately — an equation has a second side to absorb the multiplication, so this converts a f",
+      "Peel outside-in: move the additive terms across, then divide by the coefficient."
     ],
     "misc": [
       {
@@ -393,8 +720,35 @@ export const TUTOR_KNOWLEDGE = {
         "b": "Computing a/b + c/d as (a+c)/(b+d).",
         "t": "fraction-addition results that match the (a+c)/(b+d) distractor; errors concentrated on sum/difference, not product.",
         "f": "re-teach common denominators as \"same-size pieces\" with a concrete pie/number-line image; contrast explicitly with multiplication's legal straight-ac…"
+      },
+      {
+        "b": "grinding out individual values when the target is one transformation away.",
+        "t": "long time-on-question with correct final answer, or timeout; scratch work shows full isolation of individuals.",
+        "f": "contrast pair — same item solved both ways side by side, counting the moves (one vs."
+      },
+      {
+        "b": "Solving |x − c| = r for only x = c + r.",
+        "t": "absolute-value equation items answered with the single positive root; the negative root is the chosen distractor's complement.",
+        "f": "re-anchor on the number line — literally ask \"what points are r away?\" and require both before any algebra."
+      },
+      {
+        "b": "distributing −k as if it were k past the first term.",
+        "t": "",
+        "f": ""
+      },
+      {
+        "b": "moving target terms together but dividing by only part of the cofactor, or forgetting a term entirely when factoring.",
+        "t": "picks the choice missing one term in the denominator; scratch work shows collection done, factoring botched.",
+        "f": "re-derivation — factoring as reverse distribution; check by redistributing before dividing."
       }
-    ]
+    ],
+    "mastery": "Student can solve any linear equation in one variable — fractions, distribution, variables on both sides — without written intermediate errors, and can state WHY each move is legal (both-sides princi…",
+    "teach": {
+      "s": "physical balance-scale imagery first; do not proceed to moves until the student agrees WHY both sides must receive the operation. Then one move per line, reason stated per line.",
+      "a": "drill the peel order (outermost first) and the clear-fractions-immediately habit; most errors at this level are fraction-management, not concept.",
+      "v": "compress to two-line solves but keep the narrated distribution habit for negatives; introduce the reciprocal-coefficient one-move finish.",
+      "x": "the concept is invisible fluency; the coaching point is exclusively hygiene under speed — sign discipline while distributing, and recognizing when NOT to solve (target-first reading, handing off to solve for the asked quantity)."
+    }
   },
   "linear-functions": {
     "models": [
@@ -403,7 +757,9 @@ export const TUTOR_KNOWLEDGE = {
     ],
     "approach": [
       "On any line item, get the slope first — almost nothing about a line is answerable without it.",
-      "Choose the route: clean drawn graph → count a step between two gridline crossings (never estimate fractional coordinates; anchor only where the line crosses lattice intersections)."
+      "Choose the route: clean drawn graph → count a step between two gridline crossings (never estimate fractional coordinates; anchor only where the line crosses lattice intersections).",
+      "A table is just a point list: subtract adjacent rows for Δx and Δy; the ratio must be constant (that constancy is also the test for \"is this linear?\"); non-adjacent rows scale the same ratio",
+      "Normalize before comparing to answers: reduce p/q, or convert to per-1-unit form."
     ],
     "misc": [
       {
@@ -425,8 +781,35 @@ export const TUTOR_KNOWLEDGE = {
         "b": "the student can evaluate but freezes when the output is given, not seeing that the total substitutes into the other side.",
         "t": "accuracy gap between evaluate items and given-the-total items on the same models; scratch work on backward items shows the model written but nothing…",
         "f": "mirrored pair drill — same model, one item each direction, solved in adjacent columns; the only difference is which slot got the given."
+      },
+      {
+        "b": "putting the per-unit number where the start belongs or vice versa, especially when both arrive as letters.",
+        "t": "picks the structurally-correct choice with m and b exchanged; explain-back reveals positional language (\"the first number goes with x\").",
+        "f": "semantic relabeling — cover the equation, ask \"which number is there before anything happens?"
+      },
+      {
+        "b": "(y₂ − y₁)/(x₁ − x₂): treating the two subtractions as independent instead of one consistent traversal.",
+        "t": "picks the sign-flipped distractor; scratch work shows points labeled inconsistently.",
+        "f": "teach traversal, not formula — pick the leftmost point, walk right; or physically draw the arrow between points and subtract head-minus-tail in both…"
+      },
+      {
+        "b": "choosing an interpretation that \"sounds like a rate\" without checking it against the variable definitions.",
+        "t": "picks fluent-sounding choices naming unmodeled quantities; cannot point to which variable the choice's noun corresponds to.",
+        "f": "install the noun-scan — for each choice, underline its quantity and demand it match a defined variable."
+      },
+      {
+        "b": "reading slope p/q as \"q output per p input.\" Forms because the fraction bar carries no unit labels; nothing in the symbols corrects a flipped reading.",
+        "t": "picks the inverted-units choice; when asked to state the slope's units, answers input-per-output.",
+        "f": "write units INTO the slope fraction explicitly (miles on top, hours on bottom) for a full session; the labeled bar retrains the reading."
       }
-    ]
+    ],
+    "mastery": "Student extracts the correct signed slope from a graph, a point pair, and a table, normalizes rate forms, and uses Δy = m·Δx for interval questions — with no reciprocal or sign-variant distractor pic…",
+    "teach": {
+      "s": "staircase imagery and step-counting on clean graphs ONLY until sign and direction are automatic; delay the formula — it's a fallback, not the foundation.",
+      "a": "formula with the consistent-order rule taught as traversal; tables as point lists; the Δy = m·Δx shortcut.",
+      "v": "unknown-coordinate template; normalization against rescaled distractors; slope through function notation (f(b) − f(a) over b − a).",
+      "x": "parameterized and composed items — slope of one function defined via another, ratio-of-coordinates through the origin; coach recognizing slope questions that never mention slope, and bounding by size class when the item supplies n…"
+    }
   },
   "linear-equations-two-variables": {
     "models": [
@@ -435,7 +818,9 @@ export const TUTOR_KNOWLEDGE = {
     ],
     "approach": [
       "Classify the given information's shape first; write in the form that transcribes it with zero manipulation.",
-      "To read slope/intercept from standard form: either isolate y (robust, always works) or use slope = −A/B, y-intercept = C/B (fast, derived from the isolation — understand the derivation once"
+      "To read slope/intercept from standard form: either isolate y (robust, always works) or use slope = −A/B, y-intercept = C/B (fast, derived from the isolation — understand the derivation once",
+      "To convert slope-intercept → standard: move the x-term across; clear fractional coefficients by multiplying the whole equation through; normalize to match choice conventions (integer coeffic",
+      "Recognize equivalents: before eliminating a choice, check whether it's your result rescaled, negated, or with terms reordered."
     ],
     "misc": [
       {
@@ -457,8 +842,35 @@ export const TUTOR_KNOWLEDGE = {
         "b": "the student finds m, writes y = mx + b, and stalls, never realizing the given point substitutes for x and y.",
         "t": "scratch work shows correct m and the template written, then abandonment or the point's y-value dropped into b; picks that distractor.",
         "f": "teach the master key explicitly — \"every point on the line makes the equation true, so feed the point in.\" Then one drill set of slope + non-intercep…"
+      },
+      {
+        "b": "flipping without negating, or negating without flipping.",
+        "t": "picks the merely-flipped or merely-negated slope choice; explain-back says one beat (\"flip it\") without the other.",
+        "f": "install the two-beat verbalization (\"flip, negate\") plus the product check m₁·m₂ = −1 as a mandatory verify; the check catches the half-transform eve…"
+      },
+      {
+        "b": "trying to cram a two-rate-plus-total story into y = mx + b, mangling which quantity is \"y.\" Forms because slope-intercept is the only modeling template school installs; the studen…",
+        "t": "scratch work shows y = attempts on two-rate stories; long setup times; picks model choices with a lone constant term where none belongs.",
+        "f": "transcription drills — five two-rate stories, write the equation ONLY (no solving); the direct path becomes visibly effortless."
+      },
+      {
+        "b": "(y₂ − y₁)/(x₁ − x₂): treating the two subtractions as independent instead of one consistent traversal.",
+        "t": "picks the sign-flipped distractor; scratch work shows points labeled inconsistently.",
+        "f": "teach traversal, not formula — pick the leftmost point, walk right; or physically draw the arrow between points and subtract head-minus-tail in both…"
+      },
+      {
+        "b": "believing a table without an x = 0 row, or a graph cropped before the axis, makes b unknowable.",
+        "t": "picks the first table row's y-value as b; on graphs, answers only when the crossing is drawn, skips otherwise.",
+        "f": "extend-the-table demonstration — step the deltas backward to x = 0; then the substitution route on the same item."
       }
-    ]
+    ],
+    "mastery": "Student extracts slope and both intercepts from any form (including renamed/reordered context equations), converts in both directions with normalization, recognizes rescaled equivalents, and — decisi…",
+    "teach": {
+      "s": "one form at a time; slope-intercept as roles (rate/start) with context stories before symbols; delay standard form until roles are solid.",
+      "a": "the −A/B derivation done once by hand; conversion drills both directions; the three-way decision rule as a flowchart.",
+      "v": "equivalence-recognition sets (every choice is the same line in disguise except one); normalization conventions; letter-renamed items.",
+      "x": "abstract-coefficient items and form-choice speed; coach reading an unfamiliar equation by ROLE-scanning in the first two seconds rather than converting reflexively."
+    }
   },
   "linear-systems": {
     "models": [
@@ -467,7 +879,9 @@ export const TUTOR_KNOWLEDGE = {
     ],
     "approach": [
       "Read the ASK before touching the system: full point, one coordinate, or a combination expression.",
-      "Scan coefficients."
+      "Scan coefficients.",
+      "Standard form both rows → elimination.",
+      "Scale with whole numbers (LCM of the target coefficients), never fractions."
     ],
     "misc": [
       {
@@ -489,8 +903,35 @@ export const TUTOR_KNOWLEDGE = {
         "b": "Attaching the money/weight total to the count equation and the item total to the value equation (x + y = 260, 5x + 8y = 40).",
         "t": "picks the swapped-totals system on which-system items; unit-check question (\"what are the units of each side here?\") stalls them.",
         "f": "teach the unit-check as a mandatory gate; one deliberate demonstration of a mixed-unit equation failing the check usually lands it."
+      },
+      {
+        "b": "Grinding out x and y individually even when asked for x + y.",
+        "t": "correct answers but outlier time-on-item; scratch work shows full elimination with back-substitution on items solvable in one line.",
+        "f": "run a timed contrast — same item solved both ways — so the cost is felt; then install the pre-solve combination scan as a mandatory first move."
+      },
+      {
+        "b": "Attempting substitution/elimination on a parameterized system, producing expressions in x, y, and the constant with no exit.",
+        "t": "long time-on-item, scratch work full of x/y manipulation, often a blank or guessed answer.",
+        "f": "reframe the item class out loud — \"nobody is asking you to solve; the count is a fact about the equations' relationship.\" Re-derive one no-solution s…"
+      },
+      {
+        "b": "Saying substitution means \"set the two equations equal to each other.\" True only when both are solved for the same variable; applied blindly it equates non-comparable expressions.",
+        "t": "writes `equation1 = equation2` verbatim in work; describes substitution as \"make them equal.\"",
+        "f": "contrast pair — two equations both solved for y (setting expressions equal works) vs one solved for x (it doesn't); name the rule \"equal expressions,…"
+      },
+      {
+        "b": "Reporting (y, x) instead of (x, y), or picking the choice with the right two numbers in the wrong slots.",
+        "t": "picks the transposed-pair distractor; explains \"the intersection is at 3 and 5\" without committing to which is x.",
+        "f": "drill the habit \"x is the walk, y is the climb — walk before you climb,\" and require the student to label the axes of every read-off."
       }
-    ]
+    ],
+    "mastery": "Student can name the intended method (or Desmos) within ~10 seconds of seeing a system, execute any of the three cleanly, and articulate WHY that route was cheapest.",
+    "teach": {
+      "s": "teach ONE method to reliability first (substitution with a pre-isolated variable), then add elimination as \"adding two true things gives a true thing.\" Introduce the decision scan only after both routes feel safe.",
+      "a": "lead with the decision scan as the actual skill; run method-mixed sets where the grade is \"did you pick the cheap route,\" not just the answer.",
+      "v": "add the chunk-substitution and negate-then-add refinements; race algebra against Desmos on the same items to calibrate personal crossover points.",
+      "x": "focus on the read-the-ask discipline (step 1) — at this level the residual errors are wrong-variable and sign slips under speed, so rehearse endgame checkpoints, not mechanics."
+    }
   },
   "linear-inequalities": {
     "models": [
@@ -499,7 +940,9 @@ export const TUTOR_KNOWLEDGE = {
     ],
     "approach": [
       "Solve exactly as if it were an equation, but at each step ask ONE question: \"did I just multiply or divide both sides by a negative?\" Yes → flip now, deliberately.",
-      "When the variable's coefficient is negative (−3x < 12), choose a route consciously: (a) divide by −3 and flip in the same breath, or (b) add 3x to both sides, then isolate — no flip needed."
+      "When the variable's coefficient is negative (−3x < 12), choose a route consciously: (a) divide by −3 and flip in the same breath, or (b) add 3x to both sides, then isolate — no flip needed.",
+      "The endgame −x < 4 counts as a real operation: multiplying by −1 flips to x > −4.",
+      "To combine two inequalities, ADD them only when their signs point the same way; never subtract inequalities."
     ],
     "misc": [
       {
@@ -521,8 +964,35 @@ export const TUTOR_KNOWLEDGE = {
         "b": "Scaling all three parts by a negative but flipping only one of the two signs, producing an impossible chain (e.g., 5 < x < −2).",
         "t": "submits impossible or reversed chains specifically on negative-divide items; doesn't flag 5 < x < −2 as nonsense when asked to re-read it.",
         "f": "mirror demonstration on a full chain — take 1 < 2 < 3, multiply by −1, watch all order reverse to −1 > −2 > −3; then rule: \"the mirror hits the whole…"
+      },
+      {
+        "b": "Solving |x − c| = r for only x = c + r.",
+        "t": "absolute-value equation items answered with the single positive root; the negative root is the chosen distractor's complement.",
+        "f": "re-anchor on the number line — literally ask \"what points are r away?\" and require both before any algebra."
+      },
+      {
+        "b": "Flipping whenever negatives appear anywhere: subtracting a negative, a negative constant on one side, a negative answer.",
+        "t": "direction errors on items with NO negative scaling anywhere; when asked to state the rule, says \"negatives flip the sign\" with no operation condition.",
+        "f": "sort exercise — a list of ten steps, student marks which trigger a flip (only ×/÷-both-sides-by-negative ones do)."
+      },
+      {
+        "b": "Choosing above/below by visual instinct or by the sign as written in STANDARD form (≥ \"means above\"), without isolating y or testing a point.",
+        "t": "errors concentrate on negative-y-coefficient boundaries; explains side choice as \"greater means above\" with the inequality still in standard form.",
+        "f": "one contrast demonstration — shade y ≤ 2x + 1 and −y ≤ 2x + 1 (equivalently y ≥ −2x − 1) — showing the rearrangement flipping the side; then install…"
+      },
+      {
+        "b": "Reporting the algebraic boundary (3.75 buses) as the answer, or gridding it.",
+        "t": "grids decimals for discrete quantities; multiple-choice picks the boundary-value distractor when offered.",
+        "f": ""
       }
-    ]
+    ],
+    "mastery": "Student solves one-variable inequalities with negative coefficients at equation speed with correct direction, can DERIVE the flip from the mirror picture on demand, can demonstrate the no-flip transp…",
+    "teach": {
+      "s": "number line and mirror only — no rule statement until they've physically watched three pairs reverse order under negation. Then teach ONLY the transposition route first; introduce deliberate flipping later as the shortcut.",
+      "a": "derive the mirror, name the exact trigger, then run mixed bait sets (negatives present vs negative scaling) so over- and under-flipping both get exercised.",
+      "v": "pressure-proof the endgame (−x items), add the never-subtract-inequalities rule with its counterexample, and install the ten-second test-value verification as a habit.",
+      "x": "the concept is trivially held; what matters is where it hides — rehearse the flip inside compound chains, absolute-value branch two, and standard-form-to-slope-form rearrangements, where 1500+ students actually drop it."
+    }
   },
   "equivalent-expressions": {
     "models": [
@@ -531,7 +1001,9 @@ export const TUTOR_KNOWLEDGE = {
     ],
     "approach": [
       "Classify numerator and denominator: product / sum / single term.",
-      "Sum anywhere → try to factor it (GCF first, then binomial templates)."
+      "Sum anywhere → try to factor it (GCF first, then binomial templates).",
+      "Scan for shared structure BEFORE expanding anything: shared monomial factor, shared whole binomial, repeated chunk (chunking repeated structure).",
+      "Subtraction of a parenthesized polynomial: rewrite with ALL interior signs flipped as a discrete written step — distractors are built from partial flips."
     ],
     "misc": [
       {
@@ -553,8 +1025,35 @@ export const TUTOR_KNOWLEDGE = {
         "b": "reading \"true for all x\" and isolating x anyway.",
         "t": "work shows x isolated; answer is an x-value on an item asking for a constant; says \"I solved the equation.\"",
         "f": "solve-for-x-reflex → teach the category by contrast pair: same-looking equation once with \"for all x\" (identity → match) and once with \"for what valu…"
+      },
+      {
+        "b": "reporting the u-value as the answer.",
+        "t": "picks the distractor equal to a root of the u-quadratic; work stops at u = …; timing normal (they believe they finished).",
+        "f": "u-forgetting → make back-conversion a named mandatory step: the last line of every chunked solution must read \"x = …\"."
+      },
+      {
+        "b": "multiplying exponents on a same-base product (or adding on a power of a power).",
+        "t": "picks the distractor whose exponent is the product where the sum is right (or vice versa); explains with \"you multiply the exponents\" without saying…",
+        "f": "wrong-rule-slogan → expand-and-count: write x³·x⁴ as seven explicit factors, count."
+      },
+      {
+        "b": "reading x^(m/n) as \"root m, power n.\" Forms because the notation carries no visual cue for which slot is which; both readings feel equally plausible.",
+        "t": "picks the reciprocal-exponent twin; when asked to read x^(2/3) aloud says \"square root of the cube\" and \"cube root of the square\" interchangeably.",
+        "f": "inverted-slot → re-derive the anchor: x^(1/2)·x^(1/2) = x, so ½-power must be the square root; then generalize (denominator = root because n copies o…"
+      },
+      {
+        "b": "believing √16 is ±4.",
+        "t": "says \"square root of 16 is plus or minus 4\" when explaining; accepts extraneous candidates on radical-equation items (watch for this pairing — it's t…",
+        "f": "plus-minus-root → the two-claims contrast: write \"solve x² = 16\" and \"evaluate √16\" side by side and have the student articulate why the answers diff…"
       }
-    ]
+    ],
+    "mastery": "Classifies numerator/denominator instantly and either produces the factored-then-cancelled form or declares \"already simplest\" — both are passing answers; zero illegal-move distractor picks across a…",
+    "teach": {
+      "s": "everything through numeric counterexamples first — the illegal moves must FAIL in arithmetic they trust before symbols enter. One rule per session.",
+      "a": "the classify-before-cancel routine as a checklist; legal/illegal contrast drills (show a manipulation, ask legal-or-not, demand the why) — this adjacent-counterexample format is the strongest teaching device for this node.",
+      "v": "economy of computation as a correctness strategy — premature expansion multiplies slip opportunities; LCD minimalism; anti-expansion instinct (scan for shared structure first).",
+      "x": "hard-band composites and sign discipline (negative shared factors); domain awareness — why stems attach constraints like x ≠ 2 when a factor was cancelled (the cancelled factor's zero left the expression's domain), which foreshado…"
+    }
   },
   "nonlinear-equations": {
     "models": [
@@ -563,7 +1062,9 @@ export const TUTOR_KNOWLEDGE = {
     ],
     "approach": [
       "Confirm this route is warranted: radicals in the choices, or a failed 10-second factor scan .",
-      "Completing the square: pre-simplify b/2 ONCE before anything (it's used twice — in the binomial and squared as the compensation)."
+      "Completing the square: pre-simplify b/2 ONCE before anything (it's used twice — in the binomial and squared as the compensation).",
+      "Take the even root with an explicit ± on the line where it happens; two answers exist from that moment.",
+      "Formula route: substitute with parentheses around every negative before evaluating; compute the discriminant b² − 4ac as its own line; simplify the surd fully (radical simplification princip"
     ],
     "misc": [
       {
@@ -585,8 +1086,35 @@ export const TUTOR_KNOWLEDGE = {
         "b": "(x + 3) read as \"zero at +3.\" Forms because the opposite-sign rule feels arbitrary when never derived by actually setting the factor to 0; students memorize a label instead of a m…",
         "t": "picks the sign-mirrored root; errors spike on (ax − b) factors; fast confident responses.",
         "f": "forbid label-reading for a session — every factor must be solved as factor = 0, in writing."
+      },
+      {
+        "b": "Computing the discriminant and then using or comparing its VALUE (bigger discriminant = more solutions, or feeding it onward).",
+        "t": "scratch work carries the discriminant's value into further computation; explanations mention its size.",
+        "f": "contrast pair — discriminants 4 and 400, same bucket; state the sign-only principle as a boxed invariant."
+      },
+      {
+        "b": "the parent belief: legal moves preserve the solution set, so whatever falls out is correct.",
+        "t": "picks the full unfiltered root list on solution-set items (the signature distractor); work shows correct algebra with no substitution step; on \"no so…",
+        "f": "algebra-always-faithful → teach the three-exception inventory explicitly: of all the moves you know, exactly three are one-way — even powers and mult…"
+      },
+      {
+        "b": "computing both roots, then adding/multiplying.",
+        "t": "correct but slow on clean aggregate items; blank or brute-force swamp on parameterized ones — the parameterized failure is the clean diagnostic.",
+        "f": "solve-then-aggregate → build trust with receipts: solve one item by brute force, then re-answer via the lookup and watch them agree; then a parameter…"
+      },
+      {
+        "b": "Grinding out the intersection coordinates when the item only asks how many there are.",
+        "t": "long scratch work with full coordinate solving on count-only items; right answer but far over time, or arithmetic slip.",
+        "f": "drill ask-classification first — sort a mixed set into \"wants coordinates\" vs \"wants a count\" before solving anything."
       }
-    ]
+    ],
+    "mastery": "Executes both routes error-free on negative-coefficient quadratics; produces fully simplified surds and matches templates correctly; states WHY the compensation is always positive.",
+    "teach": {
+      "s": "formula only, with the parenthesize-protocol and the discriminant as a separate line. Completing the square is a distraction at this stage; robustness beats elegance.",
+      "a": "formula fluency first, then CtS introduced via its derivation payoff (it explains where the formula comes from — no more black box). The ± habit drilled on every un-squaring.",
+      "v": "CtS as the lighter tool on non-factorable items (smaller numbers, less nesting); template-matching workflow; b/2 pre-simplification.",
+      "x": "CtS-primary policy is a legitimate optimization at this band — it can be run mentally, feeds vertex form and circle equations directly, and out-paces the formula on most non-factorable items."
+    }
   },
   "nonlinear-functions": {
     "models": [
@@ -595,7 +1123,9 @@ export const TUTOR_KNOWLEDGE = {
     ],
     "approach": [
       "Identify the input.",
-      "Rewrite the rule as a skeleton with empty parentheses in every slot, then fill each blank with the whole input, parenthesized."
+      "Rewrite the rule as a skeleton with empty parentheses in every slot, then fill each blank with the whole input, parenthesized.",
+      "Simplify with strict order of operations — exponentiate the substituted value (sign included) before applying coefficients.",
+      "If the prompt gives an output (\"for what x is f(x) = 7\"), set the rule equal to the output and solve — recognize this as backward mode, not a new topic."
     ],
     "misc": [
       {
@@ -617,8 +1147,35 @@ export const TUTOR_KNOWLEDGE = {
         "b": "Reading f(x + 2) as f(x) + 2.",
         "t": "consistently picks the mirror-direction choice on horizontal items; vertical items fine.",
         "f": "teach the delayed-input story, then CONFIRM with a table of values — compute f(x − 2) rows next to f(x) rows and watch every feature arrive 2 later."
+      },
+      {
+        "b": "Believing f(bx − c) is f translated by c/b.",
+        "t": "describes f(2x − 6) as \"f moved right 3\" in tutor chat or teach-back; misses items where compression changes a second feature's location.",
+        "f": "one decisive Desmos demo — plot f(x), f(x − 3), f(2x − 3) for an f with two visible features; the third curve's features do NOT all sit 1.5 right of…"
+      },
+      {
+        "b": "Believing root sum/product/other-root questions require solving the quadratic.",
+        "t": "solve times 2-3x band norm on Vieta-designed items; scratch shows quadratic-formula work with ugly radicals.",
+        "f": "price both routes live on one Vieta item (timer, side by side); then drill sum/product reads with no solving allowed."
+      },
+      {
+        "b": "Believing a only controls direction.",
+        "t": "misses only on width/steepness comparisons; sign items fine.",
+        "f": "plot y = x², y = 3x², y = ¼x² together (Desmos shines here); width becomes visible in seconds."
+      },
+      {
+        "b": "Reading y = (x + 1)² − 2 as vertex x = +1.",
+        "t": "picks (−h, k)-mirrored vertex; fast and confident; error rate independent of difficulty band.",
+        "f": "replace label-reading with the inside-zero question, drilled on mixed signs including (x + h) and (bx − c) insides; see inside zero anchor for the fu…"
       }
-    ]
+    ],
+    "mastery": "The student can evaluate a two-slot rule at a negative number, at an expression, and backward from a given output — cold, without the skeleton crutch written out — and can articulate why f defined wi…",
+    "teach": {
+      "s": "machine metaphor plus the empty-parentheses ritual, numeric inputs only until fluent. Do not introduce expression inputs until the ritual is automatic.",
+      "a": "attack the parameter/argument distinction head-on with the nonsense-input demo; then expression inputs and backward solves in the same session so forward/backward register as one relationship.",
+      "v": "shifted-argument definitions and \"answer the asked coordinate\" discipline; teach the Desmos define-and-evaluate verification habit.",
+      "x": "speed and selectivity — recognizing when a symbolic-input item is really a coefficient-matching item, and when Desmos is a dead end (unknown parameters) vs a 10-second check."
+    }
   },
   "ratios-rates-proportions": {
     "models": [
@@ -627,7 +1184,9 @@ export const TUTOR_KNOWLEDGE = {
     ],
     "approach": [
       "Identify the two corresponding quantity pairs and name the roles out loud (\"inches on the map / actual miles\").",
-      "Write the LEFT ratio with the unknown in the numerator; its denominator is the unknown's partner quantity."
+      "Write the LEFT ratio with the unknown in the numerator; its denominator is the unknown's partner quantity.",
+      "Mirror the same role-arrangement on the right with the known pair.",
+      "Multiply both sides by the left denominator; type the whole right side as one Desmos line."
     ],
     "misc": [
       {
@@ -649,8 +1208,35 @@ export const TUTOR_KNOWLEDGE = {
         "b": "student has no magnitude expectation at all; any output is accepted because conversions were learned as symbol-pushing with no quantity meaning.",
         "t": "Accepts answers that are reciprocal-chain results (feel-check-absent): the wrong choice differs from the key by k² for a conversion factor k, and the…",
         "f": "install via anchor pairs the student already owns (height in cm vs feet; a movie in minutes vs hours)."
+      },
+      {
+        "b": "student sets up with x on the bottom, then fumbles the two-step algebra (cross-multiply, divide) and loses a factor.",
+        "t": "",
+        "f": "don't fix the algebra — fix the setup."
+      },
+      {
+        "b": "student always divides by the largest/most visible total because school probability drilled \"favorable over TOTAL.\" When the selection clause restricts to a row, column, or catego…",
+        "t": "",
+        "f": "have the student read the selection clause aloud and literally circle the group it names before looking at any number."
+      },
+      {
+        "b": "student forces decoy givens into the computation because homework historically used all data.",
+        "t": "",
+        "f": "teach goal-first triage explicitly — route first, then select facts."
+      },
+      {
+        "b": "student expects \"converting to a bigger unit makes the number bigger\" because bigger units sound like more.",
+        "t": "",
+        "f": "the ruler image — measure one pencil in cm then in m; the count of pieces vs the size of pieces distinction lands physically."
       }
-    ]
+    ],
+    "mastery": "Student can set up and solve any single-proportion stem in under 45 seconds with the unknown top-left, can articulate WHY correspondence matters (not just the ritual), handles one inverse-variation i…",
+    "teach": {
+      "s": "start from unit rates (\"$3 for 2 pounds → how much for 1 pound?\") and let the proportion emerge as two equal unit-rates. Avoid \"cross-multiply\" language until setup is reliable — it's the ritual that enables role-blindness.",
+      "a": "install the top-left template plus the role-naming step; drill 5 setups with NO solving (setup-only reps isolate the actual skill).",
+      "v": "transposability (swap across/down freely), inverse variation, and spotting when a \"function\" problem (y = kx) is just a proportion.",
+      "x": "speed framing — the right side is a one-line Desmos chain; type it once, never round. Teach the deliberate skip: if answer choices are unsimplified expressions, match structure and don't evaluate at all."
+    }
   },
   "percentages": {
     "models": [
@@ -659,7 +1245,9 @@ export const TUTOR_KNOWLEDGE = {
     ],
     "approach": [
       "Translate every percent clause into its factor as you read, before any other move.",
-      "Decide what the question wants: the amount removed, or the amount remaining?"
+      "Decide what the question wants: the amount removed, or the amount remaining?",
+      "Identify the base: the quantity after \"than\" (or \"of\") anchors the comparison.",
+      "For percent-change-between-two-values questions: compute new = p·old and read p against 1 — p = 1.2 means 20% growth, p = 0.85 means 15% decline."
     ],
     "misc": [
       {
@@ -681,8 +1269,35 @@ export const TUTOR_KNOWLEDGE = {
         "b": "to undo +8%, the student takes 8% off the final (final × 0.92) instead of final ÷ 1.08.",
         "t": "Picks final × (1 ∓ p) on recover-the-original items (opposite-percent): the chosen value is on the correct SIDE of the final but wrong by the second-…",
         "f": "numeric self-demolition — apply +25% to 80 (→100), then take 25% off (→75 ≠ 80)."
+      },
+      {
+        "b": "\"80% less\" → ×0.80; \"250% greater\" → ×2.5.",
+        "t": "",
+        "f": ""
+      },
+      {
+        "b": "0.6% → 0.06, or 210% → 0.21.",
+        "t": "",
+        "f": ""
+      },
+      {
+        "b": "student computes step by step (correctly in principle) but takes some percent of the wrong intermediate, or rounds intermediates and drifts.",
+        "t": "",
+        "f": ""
+      },
+      {
+        "b": "deeper version: the student genuinely believes the stated percent is a percent of the final value, because the final is the only concrete number on the page.",
+        "t": "",
+        "f": ""
       }
-    ]
+    ],
+    "mastery": "Student translates any change clause — including uncommon and variable percents — into its factor in one step, both directions (factor → percent statement too); identifies the \"than\"-anchor correctly…",
+    "teach": {
+      "s": "pick-100 everything — start at 100, apply the change, look at where you land; the factor is just \"where you landed ÷ 100.\" Build the translation table (percent clause → factor) WITH the student rather than handing it over.",
+      "a": "drill translate-only reps (no solving): ten clauses → ten factors, edge cases included; then back-translation the other way. Multiplier fluency is a vocabulary, and vocabularies are drilled bidirectionally.",
+      "v": "multipliers on expressions, variable percents with the p/100 discipline, factor-quotient relations between multiple variables.",
+      "x": "this model IS the speed play: expression-form answers ((0.87)(1.11)(5400)) are readable without evaluation, and any chain evaluates as one Desmos line — reason first, one-line chain second, never round intermediates."
+    }
   },
   "one-variable-data": {
     "models": [
@@ -691,7 +1306,9 @@ export const TUTOR_KNOWLEDGE = {
     ],
     "approach": [
       "Convert every average statement to a sum immediately.",
-      "For frequency tables: total = Σ(value × frequency), count = Σ(frequencies); the mean falls out without expanding anything."
+      "For frequency tables: total = Σ(value × frequency), count = Σ(frequencies); the mean falls out without expanding anything.",
+      "For combined groups: add the *totals*, add the *counts*, divide — the combined mean is count-weighted, never the midpoint of the two means unless the groups are equal-sized.",
+      "For an unknown roster size, the sum identity yields one linear equation in n; solve it."
     ],
     "misc": [
       {
@@ -713,8 +1330,35 @@ export const TUTOR_KNOWLEDGE = {
         "b": "assuming whatever raises the mean raises the median and range too.",
         "t": "On I/II/III effect items, selects the option where all measures move in unison → measures-move-together.",
         "f": "the decoupling demonstration — one edit, four verdicts."
+      },
+      {
+        "b": "reading a wide quarter as containing more data.",
+        "t": "Proportion answers proportional to drawn segment widths → box-width-equals-count.",
+        "f": "build a box plot together from 8 known values, then stretch one quarter by moving values apart *without changing membership* — same counts, different…"
+      },
+      {
+        "b": "reporting the y-value when the x is asked (or vice versa).",
+        "t": "Picks the correct point but the wrong coordinate of it → wrong-coordinate-readoff.",
+        "f": "drill the restatement move — before reading, say which axis the answer lives on."
+      },
+      {
+        "b": "treating mean and median as interchangeable \"averages.\" Forms because school data is mostly symmetric, where they coincide.",
+        "t": "",
+        "f": "contrast pair {1,2,3} vs {1,2,300} — median frozen, mean launched."
+      },
+      {
+        "b": "for 100 values: the 50th?",
+        "t": "",
+        "f": "install halve-and-step-up and verify it on n=4 and n=5 where they can check by eye."
       }
-    ]
+    ],
+    "mastery": "Translates any average statement to a sum without prompting; solves combined-group, missing-value, corrected-value, and unknown-count items via totals; compares means qualitatively via the balance po…",
+    "teach": {
+      "s": "one identity, chanted: total = mean × count. Every exercise starts by writing the total. Concrete rosters (test scores in a small class) keep the sums meaningful.",
+      "a": "the merge counterexample (weighted vs midpoint) plus roster-change drills; introduce balance-point comparisons so they stop recomputing when only direction is asked.",
+      "v": "unknown-n equations and corrected-value items; insist means never get manipulated directly — every move happens at the total level.",
+      "x": "constraint optimization — push free values to extremes, one inequality, done. Frame the hard band honestly: these are algebra items keyed by one statistical identity, and the students who see that finish them in under a minute."
+    }
   },
   "two-variable-data": {
     "models": [
@@ -723,7 +1367,9 @@ export const TUTOR_KNOWLEDGE = {
     ],
     "approach": [
       "Read both axis labels and any multiplier/unit before looking at any data.",
-      "Restate the question as a coordinate instruction: which axis holds the answer, which axis holds the condition."
+      "Restate the question as a coordinate instruction: which axis holds the answer, which axis holds the condition.",
+      "If the question needs information not in the figure (a price, a per-unit value), treat extraction and computation as two separate stages: write down the extracted values first, then compute.",
+      "For \"greatest average rate of change\" between plotted points: rank segments by steepness visually; compute rise/run only for finalists, and always when intervals span unequal x-widths (a tal"
     ],
     "misc": [
       {
@@ -745,8 +1391,35 @@ export const TUTOR_KNOWLEDGE = {
         "b": "2.4% → 1.24 (or 24% → 1.024).",
         "t": "Picks the misplaced-decimal base (1.24 for 2.4%): factor-decimal-slip — the most common single error; concentrate diagnosis on sub-10% rate items.",
         "f": "micro-drill rate→factor both directions with the trap cases isolated (2.4%, 0.25%, 24%, 160%); require writing the intermediate decimal (2.4% = 0.024…"
+      },
+      {
+        "b": "answering 250 when the axis says \"thousands.\" Forms because axis labels get treated as decoration; answer sets deliberately include the unscaled number.",
+        "t": "",
+        "f": "one counterexample where the unscaled answer is absurd in context (a country of 250 people)."
+      },
+      {
+        "b": "any phrase containing \"rate\" triggers a linear model, because rate was taught as slope.",
+        "t": "",
+        "f": ""
+      },
+      {
+        "b": "the starting amount wandering into the base or the exponent (500^t, or b^(500t)).",
+        "t": "",
+        "f": ""
+      },
+      {
+        "b": "writing b = 2.4 or b = 0.024 because the stated number is visually available and the slot needs a number.",
+        "t": "",
+        "f": ""
       }
-    ]
+    ],
+    "mastery": "Can state, before touching any figure, which axis holds the answer and which holds the condition; reads values with units correctly applied; ranks rates by steepness and knows when unequal intervals…",
+    "teach": {
+      "s": "teach exactly one ritual — axes first, say the units aloud, then find the point. Volume of varied displays beats theory; this skill is learned by exposure, not derivation.",
+      "a": "focus on the question→axis restatement and the inverted read (identifier of an extreme). Give mixed sets where the asked coordinate alternates.",
+      "v": "unequal-interval rate ranking and model-vs-data separation; introduce estimation tolerance (\"closest to\" means don't over-compute).",
+      "x": "hybrid fusion items under time pressure — the skill is recognizing that the display is a costume and the real work is a one-line model."
+    }
   },
   "probability": {
     "models": [
@@ -755,7 +1428,9 @@ export const TUTOR_KNOWLEDGE = {
     ],
     "approach": [
       "Name the pool from the selection sentence: who or what is being drawn from?",
-      "Name the qualifying condition."
+      "Name the qualifying condition.",
+      "For \"either/or\" over non-overlapping categories: add the category counts; keep the full pool.",
+      "For \"not X\": subtract X's count from the pool, or sum the non-X counts — same number, pick the cheaper one."
     ],
     "misc": [
       {
@@ -769,6 +1444,26 @@ export const TUTOR_KNOWLEDGE = {
         "f": "contrast pair on one table — \"P(A and B)\" vs \"P(A given B)\" — computing both and naming which question each answers."
       },
       {
+        "b": "believing a second roll is less likely to repeat the first (\"it has to balance out\").",
+        "t": "",
+        "f": "re-derive from the pool: the second roll's pool is the same six faces; nothing about the die changed."
+      },
+      {
+        "b": "computing P(B given A) when P(A given B) is asked: dividing by the target's margin instead of the condition's.",
+        "t": "",
+        "f": "teach the stripe move physically — cover every row/column except the conditioned one, then answer inside what remains."
+      },
+      {
+        "b": "for \"not X,\" complementing the wrong thing (building the complement of the pool instead of the target), or leaving an algebraic complement half-formed when counts are symbolic (n…",
+        "t": "",
+        "f": "write the complement as pool-minus-want *before* dividing; verify on a tiny concrete set (10 fish, 3 guppies)."
+      },
+      {
+        "b": "narrowing the denominator for \"either A or B\" as if \"or\" conditioned the draw, or double-counting overlapping cells.",
+        "t": "",
+        "f": "re-anchor the two-decision rule: \"or\" edits the want, \"given/selected-from\" edits the pool."
+      },
+      {
         "b": "the belief that finding your computed number among the choices validates the work.",
         "t": "Picked the choice equal to the raw solved variable when a derived quantity was asked → premature-answer reflex.",
         "f": "show them one item's full distractor set annotated: every partial result appears."
@@ -778,7 +1473,14 @@ export const TUTOR_KNOWLEDGE = {
         "t": "consistently slow on non-factorable quadratics but accurate → one-true-method (they factored first, failed, then switched).",
         "f": "the routing table above, taught as a decision rule, then a mixed quadratic set where the student must WRITE the method choice before solving."
       }
-    ]
+    ],
+    "mastery": "Sets up want/pool correctly across phrasings (or, not, given, at least); solves reverse items with one multiplication; handles symbolic counts; never produces a probability outside [0, 1].",
+    "teach": {
+      "s": "strip all vocabulary. Everything is \"how many do you want, out of how many could you grab?\" Count on concrete small sets; delay symbols.",
+      "a": "drill the two-decision separation with mixed or/not/given sets where the *same* table generates all three answers — make the student say which number each word changes.",
+      "v": "symbolic counts and reverse items; insist on the one-multiplication solve rather than proportion machinery.",
+      "x": "construct-the-pool items — the give-away that this band's difficulty is modeling, not probability."
+    }
   },
   "inference-margin-of-error": {
     "models": [
@@ -787,7 +1489,9 @@ export const TUTOR_KNOWLEDGE = {
     ],
     "approach": [
       "Compute the interval first: estimate − MoE to estimate + MoE.",
-      "Run the legality scan on each choice: does it (a) talk about the population *parameter* — not individuals, not the sample, not \"most members\"; (b) stay hedged (\"plausible/likely\" — not \"is e"
+      "Run the legality scan on each choice: does it (a) talk about the population *parameter* — not individuals, not the sample, not \"most members\"; (b) stay hedged (\"plausible/likely\" — not \"is e",
+      "Eliminate on form alone: exactness claims, impossibility claims, individual-member claims, and sample-uncertainty claims die without checking numbers.",
+      "For driver comparisons: bigger sample ⇒ smaller MoE; more spread in the measured quantity ⇒ bigger MoE."
     ],
     "misc": [
       {
@@ -801,6 +1505,26 @@ export const TUTOR_KNOWLEDGE = {
         "f": "make \"X% *of what?*\" a written annotation before multiplying; drill with items whose choices are the same percent applied to four different bases."
       },
       {
+        "b": "upgrading \"not plausible\" to \"impossible.\" Forms from binary true/false schooling; hedged probabilistic claims have no school precedent.",
+        "t": "",
+        "f": "ladder the language: guaranteed > plausible > implausible > impossible; the band separates the middle two only."
+      },
+      {
+        "b": "distrusting a correct projection because no answer choice matches it exactly, then \"fixing\" the work into a wrong choice.",
+        "t": "",
+        "f": "reframe once — a projection is a *best estimate*, so \"closest to\" is the honest phrasing; then show the same item with deliberately off-round choices."
+      },
+      {
+        "b": "stating the sample estimate as the true population value, or claiming a repeat sample \"would\" reproduce it.",
+        "t": "",
+        "f": "reframe the estimate as a *best guess with a stated blur*; show two random samples from one population giving different estimates."
+      },
+      {
+        "b": "reporting the proportion when a count is asked, or vice versa (0.35 vs 35,000).",
+        "t": "",
+        "f": "units drill — every answer gets a unit written next to it (people vs share); mismatch becomes visible."
+      },
+      {
         "b": "the belief that finding your computed number among the choices validates the work.",
         "t": "Picked the choice equal to the raw solved variable when a derived quantity was asked → premature-answer reflex.",
         "f": "show them one item's full distractor set annotated: every partial result appears."
@@ -810,7 +1534,14 @@ export const TUTOR_KNOWLEDGE = {
         "t": "consistently slow on non-factorable quadratics but accurate → one-true-method (they factored first, failed, then switched).",
         "f": "the routing table above, taught as a decision rule, then a mixed quadratic set where the student must WRITE the method choice before solving."
       }
-    ]
+    ],
+    "mastery": "Computes the band instantly and then selects the unique legally-phrased interpretation; rejects individual/exact/impossible/sample-level phrasings on form; explains MoE differences using only the two…",
+    "teach": {
+      "s": "skip \"margin of error\" as vocabulary; teach \"best guess ± wiggle room, about the *average*, not about anyone in particular.\" The grandma-style absurdity example is the whole first lesson.",
+      "a": "the legality scan as a checklist (parameter? hedged? inside the band?) applied to real four-option sets; students grade each option, not just pick one.",
+      "v": "the two drivers with direction-only reasoning, plus the not-inferable list (the estimates themselves are not ordered by n — a subtle and heavily-tested boundary).",
+      "x": "quantifier-level reading. The remaining errors at this band come from skimming \"the mean weight of\" vs \"the weights of\" — train word-level differencing between the two closest options before choosing."
+    }
   },
   "statistical-claims": {
     "models": [
@@ -819,7 +1550,9 @@ export const TUTOR_KNOWLEDGE = {
     ],
     "approach": [
       "Establish what the design licenses, using the two dials (sampling validity two dials): random selection?",
-      "If a margin of error is present, compute the band (margin of error interpretation)."
+      "If a margin of error is present, compute the band (margin of error interpretation).",
+      "Read each option and tag its strength: exact?",
+      "Eliminate every tag the design doesn't license."
     ],
     "misc": [
       {
@@ -833,6 +1566,26 @@ export const TUTOR_KNOWLEDGE = {
         "f": "teach the precision/validity split — size tunes the error band (margin of error interpretation); randomness decides whether there's anything to band…"
       },
       {
+        "b": "gravitating to confident phrasings because hedged claims feel weak or evasive.",
+        "t": "",
+        "f": "the claim-strength ladder drawn once, with the exam's reward inverted from school's: on this test, the modest claim wins."
+      },
+      {
+        "b": "extending results to a broader group than the frame (mall shoppers → the whole town).",
+        "t": "",
+        "f": "frame-underlining drill — physically mark who was sampled in ten stems; then answer only with the marked group."
+      },
+      {
+        "b": "converting a statistical tendency into a per-member rule (\"any student who exercises more will improve\").",
+        "t": "",
+        "f": "tendency-vs-rule contrast — a group trend with a visible counterexample member inside it."
+      },
+      {
+        "b": "reading association in observational data as causal.",
+        "t": "",
+        "f": "the confound story — give a rival explanation for the correlation (exercisers also sleep more); once students can generate confounds themselves, caus…"
+      },
+      {
         "b": "the belief that finding your computed number among the choices validates the work.",
         "t": "Picked the choice equal to the raw solved variable when a derived quantity was asked → premature-answer reflex.",
         "f": "show them one item's full distractor set annotated: every partial result appears."
@@ -842,7 +1595,14 @@ export const TUTOR_KNOWLEDGE = {
         "t": "consistently slow on non-factorable quadratics but accurate → one-true-method (they factored first, failed, then switched).",
         "f": "the routing table above, taught as a decision rule, then a mixed quadratic set where the student must WRITE the method choice before solving."
       }
-    ]
+    ],
+    "mastery": "Tags all four options by claim strength quickly; eliminates on form without needing the numbers; states *why* each rejected option is illegal (names the archetype); survives items where the two close…",
+    "teach": {
+      "s": "don't teach the ladder abstractly. One rejection type per session, with three items each (\"today we hunt 'proves'\"). The taxonomy is learnable as a spotting game long before it's understood as statistics.",
+      "a": "the full five-archetype taxonomy as a checklist; students annotate every option with its violation (or \"legal\") before answering. Accuracy jumps when elimination replaces selection.",
+      "v": "licensing logic — derive each rejection from the design (no random assignment → no causal verb) rather than from surface keywords, so novel phrasings can't sneak past.",
+      "x": "adversarial pairs — two hedged, frame-correct options differing in one word."
+    }
   },
   "area-and-volume": {
     "models": [
@@ -851,7 +1611,9 @@ export const TUTOR_KNOWLEDGE = {
     ],
     "approach": [
       "Extract the linear factor first.",
-      "Raise k to the target's dimension: area factor k², volume factor k³."
+      "Raise k to the target's dimension: area factor k², volume factor k³.",
+      "Reverse direction = root first: given an area or volume ratio, take the square/cube root to recover k *before* touching any specific length.",
+      "Mixed factors: write the formula, substitute each dimension as (factor × original) WITH parentheses — π(1.3r)²h, not π·1.3r²·h — then collect the numeric coefficient."
     ],
     "misc": [
       {
@@ -870,11 +1632,38 @@ export const TUTOR_KNOWLEDGE = {
         "f": "three-sentence normalization (π ≈ 3.14; a radian ≈ 57.3°; bend the radius along the rim), then immediately compare π/4, 1, and π/2 against 0.5, 0.79,…"
       },
       {
-        "b": "the belief that finding your computed number among the choices validates the work.",
-        "t": "Picked the choice equal to the raw solved variable when a derived quantity was asked → premature-answer reflex.",
-        "f": "show them one item's full distractor set annotated: every partial result appears."
+        "b": "substituting a scaled dimension without parentheses (π·1.30r² instead of π(1.30r)²), so the factor never gets squared.",
+        "t": "",
+        "f": "pure symbolic drill — substitute (2x), (1.3r), (kh) into five formulas, expanding each."
+      },
+      {
+        "b": "using sides-equal ⇒ angles-equal but not the converse; the student sees two equal angles and doesn't harvest the equal sides.",
+        "t": "",
+        "f": "symmetry re-derivation — fold argument (the mirror line swaps the two base angles AND the two sides), then two items where only the converse directio…"
+      },
+      {
+        "b": "memorizing \"multiply by π/180\" as a ritual with no units attached; under pressure the ritual reverses.",
+        "t": "",
+        "f": "teach unit cancellation as physics-style dimensional analysis — write the units, make them cancel visibly, for five conversions each direction."
+      },
+      {
+        "b": "reporting a 1.69× result as \"169% greater,\" or \"69% greater\" as \"69 times.\" Forms because everyday speech blurs \"times more\" and \"percent more.\" Distractors include 169 alongside…",
+        "t": "",
+        "f": "two-column translation table (factor | percent-greater) filled by the student: 1.3→30%, 1.69→69%, 2→100%, 3→200%."
+      },
+      {
+        "b": "believing the side opposite 60° is twice the side opposite 30° \"because 60 is twice 30.\" Forms by over-generalizing similar-triangle proportionality from *between* triangles to *w…",
+        "t": "",
+        "f": "one decisive counterexample — compute the real sides of a 30-60-90 with hypotenuse 2 (1 and √3 ≈ 1.73, not 1 and 2)."
       }
-    ]
+    ],
+    "mastery": "Student states the dimension of the asked quantity before computing, applies k/k²/k³ in both directions (roots included), handles mixed factors via parenthesized substitution, and translates factor↔p…",
+    "teach": {
+      "s": "unit-square counting only, in 2D, until \"scale 3 → 9 squares\" is automatic. Delay volume and percent language.",
+      "a": "earn the shortcut — three problems by full substitution (with the parentheses hazard flagged), then compress to the k²/k³ rule. Teach the reverse direction the same day so forward doesn't monopolize the pattern.",
+      "v": "mixed-factor items and percent-language reversals; drill the sanity-check habit (dimension of the answer vs. dimension of the given).",
+      "x": "the law as a 10-second tool inside composites — spheres with percent changes, similar-triangle area ratios feeding perimeter answers, and spotting the ONE non-similar setup in a set where the shortcut is illegal."
+    }
   },
   "lines-angles-triangles": {
     "models": [
@@ -883,7 +1672,9 @@ export const TUTOR_KNOWLEDGE = {
     ],
     "approach": [
       "Redraw or heavily annotate.",
-      "Extend segments into full lines where parallels are involved, to expose the transversal picture."
+      "Extend segments into full lines where parallels are involved, to expose the transversal picture.",
+      "Loop the generators: straight line 180 / vertical angles / right angle 90 / triangle 180 + exterior shortcut / isosceles base angles / parallel families / angles around a point 360.",
+      "In dense multi-triangle figures, chase triangle by triangle, harvesting 180-sums and vertical angles at each intersection — never try to grasp the whole figure at once."
     ],
     "misc": [
       {
@@ -905,8 +1696,35 @@ export const TUTOR_KNOWLEDGE = {
         "b": "assuming the given angle must be the repeated one, producing exactly one of the two candidate answers.",
         "t": "On \"greatest possible angle\" items, answers with the smaller case's value → unique-isosceles (enumerated only one placement).",
         "f": "force the branch — for three problems, require both candidate triangles drawn before any arithmetic."
+      },
+      {
+        "b": "assuming two sides + a non-included angle lock a triangle, because SSA \"feels like\" SAS (same letters, different order).",
+        "t": "Picks the SSA choice on sufficiency items → ssa-counts.",
+        "f": "the swinging-door construction — fix one side and the angle at its end, swing the second side like a door and show it landing on the base twice."
+      },
+      {
+        "b": "certifying similarity from visual resemblance, and *denying* it for rotated or flipped pairs.",
+        "t": "Rejects similarity on flipped/rotated pairs, or asserts it on angle-mismatched lookalikes → similar-by-eyeball.",
+        "f": "re-anchor on the certificate — \"similar means I found two angle matches, not that it looks alike.\" Drill: five pairs, some flipped-similar, some look…"
+      },
+      {
+        "b": "in a parallel-cut figure, using a segment (a piece of a crossed side) as if it were a full side of a similar triangle.",
+        "t": "Answer equals the piece-ratio scale factor (e.g., 3 when 4 is correct) → piece-equals-side.",
+        "f": "the conversion mantra — \"pieces add up to sides.\" Drill: three parallel-cut figures where the student must write both crossed sides as piece-sums BEF…"
+      },
+      {
+        "b": "seeing 3 and 4 (or 6 and 10) and asserting the 3:4:5 completion without checking which side is the hypotenuse.",
+        "t": "Answers 5 where √7 is correct (or analogous completions) → triple-autopilot.",
+        "f": "the √7 counterexample, worked once, then a rule installed: \"name the hypotenuse BEFORE pattern-matching.\" Follow with a mixed set where half the item…"
       }
-    ]
+    ],
+    "mastery": "Student completes 4–6-step chases on overlapping-triangle figures with full annotation and ≥80% accuracy, starts writing within 20 seconds (no freeze), and never cites the figure's appearance as just…",
+    "teach": {
+      "s": "reduce the generator list to three (straight line, vertical, triangle sum) and drill two-step chains until the annotate-then-look loop is automatic. Celebrate written intermediate values, not just answers.",
+      "a": "teach the full generator checklist as a literal scan order; enforce the redraw-and-label discipline; introduce not-to-scale traps early.",
+      "v": "dense figures where the first move is a construction (extend a line, add a parallel); ask them to narrate which generator they're checking to expose tunnel vision.",
+      "x": "speed and selectivity — recognizing which single deduction unlocks the chain, and when an exterior-angle shortcut or a similarity observation replaces three chase steps entirely."
+    }
   },
   "right-triangles-trig": {
     "models": [
@@ -915,7 +1733,9 @@ export const TUTOR_KNOWLEDGE = {
     ],
     "approach": [
       "Label from the angle's perspective, every time.",
-      "Pick the ratio containing exactly (known, wanted)."
+      "Pick the ratio containing exactly (known, wanted).",
+      "Complement swap on sight.",
+      "Convenient-lengths completion."
     ],
     "misc": [
       {
@@ -937,8 +1757,35 @@ export const TUTOR_KNOWLEDGE = {
         "b": "treating π-containing values as a different species of number: freezing on conversions, refusing to compare π/4 against decimal choices.",
         "t": "Skips or slow-guesses any item with π in the choices, while equivalent degree items are fine → radians-are-alien.",
         "f": "three-sentence normalization (π ≈ 3.14; a radian ≈ 57.3°; bend the radius along the rim), then immediately compare π/4, 1, and π/2 against 0.5, 0.79,…"
+      },
+      {
+        "b": "computing a trig ratio from a non-right triangle's sides because an angle and two sides are visible.",
+        "t": "",
+        "f": "re-derive the definitions to show the right angle is load-bearing; then one oblique item fixed by dropping an altitude, so the student learns the rep…"
+      },
+      {
+        "b": "expecting the side opposite 60° to be twice the side opposite 30°.",
+        "t": "",
+        "f": "measure a drawn 30-60-90 — the long leg is visibly less than double the short."
+      },
+      {
+        "b": "putting a leg in the c-slot when the right angle's position is given only verbally (no figure).",
+        "t": "",
+        "f": "mandatory-sketch protocol for verbal setups — three figure-free items where the student draws, marks the right angle, and labels c before computing."
+      },
+      {
+        "b": "memorizing \"multiply by π/180\" as a ritual with no units attached; under pressure the ritual reverses.",
+        "t": "",
+        "f": "teach unit cancellation as physics-style dimensional analysis — write the units, make them cancel visibly, for five conversions each direction."
       }
-    ]
+    ],
+    "mastery": "Student labels sides from the chosen angle unprompted, selects the correct ratio on represent-the-length items (symbolic answers), executes cofunction swaps in both numeric and algebraic costume, com…",
+    "teach": {
+      "s": "one concrete 3-4-5 triangle carries the definitions; the acronym arrives only after the ratios are motivated. Drill labeling-from-the-angle as a physical pointing exercise before any computation.",
+      "a": "sell the similarity insight — WHY sin 30° is always 1/2 (nested similar triangles). Teach the cofunction identity from the shared-legs picture, not as a formula; drill ratio selection on represent-the-length items.",
+      "v": "convenient-lengths as a general move; algebraic cofunction; trig transfer with correspondence bookkeeping under flipped figures.",
+      "x": "trig values as instant similarity classes (ratio → triple → whole triangle in one step); constructed right triangles inside oblique and circle figures; leave everything symbolic until the final keystroke."
+    }
   },
   "circles": {
     "models": [
@@ -947,7 +1794,9 @@ export const TUTOR_KNOWLEDGE = {
     ],
     "approach": [
       "Demystify π first: it's just a number ≈ 3.14.",
-      "Convert by unit cancellation, never by memorized direction."
+      "Convert by unit cancellation, never by memorized direction.",
+      "Sanity-check by size: 45° should become a smallish number (π/4 ≈ 0.79); if you got ≈ 2578, the factor was inverted.",
+      "Arc length with radians: multiply and stop."
     ],
     "misc": [
       {
@@ -966,12 +1815,58 @@ export const TUTOR_KNOWLEDGE = {
         "f": "the unit-square proof above, made physical — draw a 1×1 square, scale by 3, count the 9 squares."
       },
       {
-        "b": "the belief that finding your computed number among the choices validates the work.",
-        "t": "Picked the choice equal to the raw solved variable when a derived quantity was asked → premature-answer reflex.",
-        "f": "show them one item's full distractor set annotated: every partial result appears."
+        "b": "memorizing \"multiply by π/180\" as a ritual with no units attached; under pressure the ritual reverses.",
+        "t": "",
+        "f": "teach unit cancellation as physics-style dimensional analysis — write the units, make them cancel visibly, for five conversions each direction."
+      },
+      {
+        "b": "putting a leg in the c-slot when the right angle's position is given only verbally (no figure).",
+        "t": "",
+        "f": "mandatory-sketch protocol for verbal setups — three figure-free items where the student draws, marks the right angle, and labels c before computing."
+      },
+      {
+        "b": "substituting a scaled dimension without parentheses (π·1.30r² instead of π(1.30r)²), so the factor never gets squared.",
+        "t": "",
+        "f": "pure symbolic drill — substitute (2x), (1.3r), (kh) into five formulas, expanding each."
+      },
+      {
+        "b": "believing a radian measure is only valid written with π, so \"3.4 radians\" reads as an error.",
+        "t": "",
+        "f": "one decimal-radian grid-in worked fully (3.4 × 180/π ≈ 194.8°) plus the observation that 3.4 rad is just \"3.4 radii of arc.\""
+      },
+      {
+        "b": "computing a leg via a² + b² instead of c² − a².",
+        "t": "",
+        "f": "re-derive the leg form from the theorem (c² − a² = b²) instead of teaching it as a second formula; then the sanity check \"a leg is always shorter tha…"
       }
-    ]
+    ],
+    "mastery": "Student converts both directions via unit cancellation with a magnitude sanity check, computes arc lengths as rθ with zero degree detours, reasons in fractions of 2π on circle composites, and demonst…",
+    "teach": {
+      "s": "the bent-radius picture and π-as-a-number, before ANY procedure. One conversion direction at a time, always with units written.",
+      "a": "unit cancellation as the only conversion method taught; the arc-ratio definition connected to L = rθ so the formula is a restatement, not a fact (\"θ radians of angle = θ radii of arc\").",
+      "v": "fraction-of-2π reasoning on composites; mixed-unit trap items; introduce the calculator mode hazard with the sin(30) burn demo.",
+      "x": "radians-native fluency — solving circle composites without ever thinking in degrees, coterminal stripping on ugly angles, and treating any π-in-the-expression trig evaluation as an automatic radian-mode assertion."
+    }
   }
+};
+
+export const EXPERT_PLAYBOOK = {
+  "math": [
+    "The solve ends at the question, not at x. On first read, extract and mark the target — the exact quantity requested, with its units and time reference.",
+    "The choices are the problem's X-ray. Read the stem's target, then flick eyes to the choices BEFORE computing (2 seconds).",
+    "Every quantity wears a straitjacket — know it before you compute. At read-time, tag the target's straitjacket (type + range + sign) in the same breath as tagging the target itself (answer the asked question).",
+    "Desmos is a power tool: fastest on the right job, slower than your hands on the wrong one, and dangerous with the wrong blade fitted.",
+    "Every hard item has a door and a wall. Check the door first, but carry a sledgehammer. Read the target first.",
+    "A bundle is a crate: move it, weigh it, stack it — never unpack it unless the answer is inside. Match the target's shape against the givens."
+  ],
+  "rw": [
+    "Attention flows top-down from the question, not bottom-up from the text. Read the stem slowly and completely.",
+    "Order the meal before the waiter recites the specials. After the targeted read, state your own answer in ≤10 words (jot it if the item is hard — shorthand note discipline).",
+    "Wrong answers are counterfeit bills, and each counterfeit has a signature flaw. Predict the answer first (predict then verify) so distractors are compared against YOUR standard, not each other.",
+    "Cheap-and-certain before expensive-and-uncertain. From the evidence (connector family, tone words, relationship between texts), compute the required answer's charge.",
+    "The question's pointer is a location, not a boundary. Read the target sentence for content.",
+    "You're not answering the question; you're predicting what the answer key says. Pre-rank choices by the aesthetic: moderate, bounded, paraphrastic ones float; extreme, bold, verbatim ones sink."
+  ]
 };
 
 export default TUTOR_KNOWLEDGE;
