@@ -289,6 +289,7 @@ Outstanding follow-ups (low priority): formal `decideTier(weakness)` exported he
 
 When the user's request matches a /skill, invoke it with the Skill tool first instead of free-handing the work:
 
+- **architecture / "what calls X" / "how does Y connect" / "where is Z handled" (source code)** → **query the graphify code graph first** instead of grepping the tree: from the repo root run `graphify query "<question>"` (or `graphify path "A" "B"` / `graphify explain "X"`). A built graph exists at `graphify-out/graph.json` — scope is `src/` **minus `src/data/`** (bank content excluded via `src/.graphifyignore`); `functions/` is **not** in it yet; refresh after code changes with `graphify update` (free, AST-only). Complements gbrain, which indexes docs/transcripts but **not** source symbols.
 - "ship", "deploy", "create a PR" → invoke `/ship`
 - "qa", "test the site", "find bugs" → invoke `/qa`
 - "review my diff", "code review" → invoke `/review`
@@ -334,3 +335,13 @@ The brain auto-syncs incrementally on every gstack skill start. Run `/sync-gbrai
 Restart Claude Code (this session won't see the new MCP) to use `mcp__gbrain__*` tools directly instead of shelling out to `gbrain`.
 
 <!-- gstack-gbrain-search-guidance:end -->
+
+## graphify
+
+This project has a knowledge graph at graphify-out/ with god nodes, community structure, and cross-file relationships.
+
+Rules:
+- For codebase questions, first run `graphify query "<question>"` when graphify-out/graph.json exists. Use `graphify path "<A>" "<B>"` for relationships and `graphify explain "<concept>"` for focused concepts. These return a scoped subgraph, usually much smaller than GRAPH_REPORT.md or raw grep output.
+- If graphify-out/wiki/index.md exists, use it for broad navigation instead of raw source browsing.
+- Read graphify-out/GRAPH_REPORT.md only for broad architecture review or when query/path/explain do not surface enough context.
+- After modifying code, run `graphify update` (bare — uses the saved `src` scan-root; do NOT pass `.`, which would scan the whole repo incl. `node_modules`/`src/data`) to keep the graph current (AST-only, no API cost).

@@ -1,0 +1,6 @@
+# Exclude question-bank / content DATA from the graphify code map.
+# These are large data corpora (~108k LOC), not app architecture — including
+# them would trip the 500-file guardrail and drown the real code structure.
+# Delete this file to include them. (Added 2026-07-14 for the code-architecture graph.)
+data/
+dataconnect-generated/

@@ -11,6 +11,12 @@
 # production
 /build
 
+# graphify knowledge-graph output (regenerable; ~6MB — never deploy)
+graphify-out/
+
+# Claude Code local/personal settings (machine-specific; not shared)
+.claude/settings.local.json
+
 # misc
 .DS_Store
 .env
