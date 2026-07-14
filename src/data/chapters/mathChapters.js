@@ -18,6 +18,15 @@
 export const mathChapters = [
   // ── Algebra ────────────────────────────────────────────────────────────────
   {
+    id: 'math-foundations',
+    unitId: 'math-algebra',
+    title: 'Number Foundations',
+    blurb: 'Fractions, negative signs, order of operations, and the number line — the quiet arithmetic every other math question is built on.',
+    readMinutes: 9,
+    cbSkills: [],
+    source: { kind: 'body', bodyId: 'math-foundations' },
+  },
+  {
     id: 'math-solving-equations',
     unitId: 'math-algebra',
     title: 'Solving Equations & Rearranging Formulas',
