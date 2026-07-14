@@ -3,9 +3,16 @@ import { LEARN_UNITS, getChapter } from '../../data/chapters';
 import { SectionContent } from '../learn/ContentTabRenderer';
 import './ChapterReader.css';
 
-// Flat, registry-ordered list of chapter ids across the whole TOC — drives
-// Prev/Next. Built once at module load from the unit registry.
-const ORDERED_CHAPTER_IDS = LEARN_UNITS.flatMap((u) => u.chapterIds);
+// Per-section, registry-ordered chapter ids — drives Prev/Next. Navigation is
+// deliberately fenced inside one section so the last Math chapter doesn't
+// "Next" into the first Reading chapter (a real disorientation we shipped
+// once: a Reading chapter offered "Previous: Area & Volume").
+const SECTION_ORDERED_IDS = LEARN_UNITS.reduce((acc, u) => {
+  if (!acc[u.section]) acc[u.section] = [];
+  acc[u.section].push(...u.chapterIds);
+  return acc;
+}, {});
+const SECTION_OF_UNIT = new Map(LEARN_UNITS.map((u) => [u.id, u.section]));
 
 const ArrowLeft = () => (
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -104,13 +111,14 @@ const ChapterReader = ({
   );
 
   const { prevChapter, nextChapter } = useMemo(() => {
-    const idx = ORDERED_CHAPTER_IDS.indexOf(chapterId);
+    const section = SECTION_OF_UNIT.get(chapter?.unitId);
+    const ids = SECTION_ORDERED_IDS[section] || [];
+    const idx = ids.indexOf(chapterId);
     return {
-      prevChapter: idx > 0 ? getChapter(ORDERED_CHAPTER_IDS[idx - 1]) : null,
-      nextChapter: idx >= 0 && idx < ORDERED_CHAPTER_IDS.length - 1
-        ? getChapter(ORDERED_CHAPTER_IDS[idx + 1]) : null,
+      prevChapter: idx > 0 ? getChapter(ids[idx - 1]) : null,
+      nextChapter: idx >= 0 && idx < ids.length - 1 ? getChapter(ids[idx + 1]) : null,
     };
-  }, [chapterId]);
+  }, [chapterId, chapter?.unitId]);
 
   if (!chapter) {
     return (

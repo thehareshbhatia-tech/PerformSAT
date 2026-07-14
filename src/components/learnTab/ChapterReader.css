@@ -139,10 +139,10 @@
 
 /* ── Table: full-width, breathing room, no cramped wrapping ── */
 .cr-content .tb-table-wrap {
-  background: #fff;
+  background: transparent;
   border: 1px solid var(--cr-line);
-  border-radius: 14px;
-  box-shadow: 0 1px 2px rgba(20, 22, 28, 0.04);
+  border-radius: 10px;
+  box-shadow: none;
   overflow-x: auto;
   margin: 6px 0 26px;
 }
@@ -189,15 +189,16 @@
 }
 .cr-content .tb-table tbody tr:hover td { background: #f7f5f2; }
 
-/* ── keyInsight → clean purple key-idea callout ── */
+/* ── keyInsight → flat purple key-idea callout (left rule + soft tint) ── */
 .cr-content .tb-prose-section {
   background: var(--cr-accent-soft);
-  border: 1px solid rgba(90, 62, 142, 0.18);
-  border-left: 4px solid var(--cr-accent);
-  border-radius: 12px;
-  padding: 18px 20px;
+  border: none;
+  border-left: 3px solid var(--cr-accent);
+  border-radius: 0 10px 10px 0;
+  padding: 16px 20px;
   box-shadow: none;
   margin: 6px 0 26px;
+  overflow: visible;
 }
 .cr-content .tb-prose-section .tb-body { margin: 0; font-size: 1.04rem; line-height: 1.6; }
 
@@ -215,118 +216,147 @@
 .cr-content .tb-aside-title { font-family: var(--cr-font-display); color: var(--cr-ink); }
 .cr-content .tb-aside .tb-body { margin: 0; }
 
-/* ── Worked example: purple→orange rule, cleaner timeline ── */
+/* ── Worked example: FLAT, book-like. No card, no shadow, no gradient bar —
+   an indented passage set off by a hairline purple rule, the way a printed
+   textbook sets an example. (User rejected the boxed-card look, 2026-07-14.) ── */
 .cr-content .tb-worked-example {
-  background: #fff;
-  border: 1px solid var(--cr-line);
-  border-radius: 16px;
-  box-shadow: 0 1px 2px rgba(20, 22, 28, 0.04), 0 8px 24px rgba(20, 22, 28, 0.05);
-  padding: 28px 30px 30px;
-  margin: 8px 0 26px;
+  background: transparent;
+  border: none;
+  border-left: 3px solid rgba(90, 62, 142, 0.3);
+  border-radius: 0;
+  box-shadow: none;
+  padding: 4px 0 4px 24px;
+  margin: 30px 0 34px;
+  overflow: visible;
 }
-.cr-content .tb-worked-example::before {
-  height: 5px;
-  background: linear-gradient(90deg, var(--cr-accent), var(--color-brand-primary, #ea580c));
-}
+.cr-content .tb-worked-example::before { display: none; }
 .cr-content .tb-worked-example > .tb-subhead {
   font-size: 0.74rem;
   font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.07em;
+  letter-spacing: 0.08em;
   color: var(--cr-accent);
-  margin: 0 0 16px;
+  margin: 0 0 12px;
 }
 .cr-content .tb-problem {
   font-size: 1.08rem;
-  line-height: 1.6;
+  line-height: 1.65;
   color: var(--cr-ink);
-  border-bottom: 1px solid var(--cr-line);
+  font-weight: 400;
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 18px;
 }
+.cr-content .tb-solution-steps { gap: 14px; }
+.cr-content .tb-step { gap: 14px; }
+.cr-content .tb-step:not(:last-child)::after { display: none; }
 .cr-content .tb-step-num {
+  width: auto;
+  height: auto;
+  min-width: 22px;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  font-family: var(--cr-font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
   color: var(--cr-accent);
-  border-color: var(--cr-accent);
-  box-shadow: none;
+  justify-content: flex-start;
+  padding-top: 2px;
 }
-.cr-content .tb-step:not(:last-child)::after { background: rgba(90, 62, 142, 0.25); }
 .cr-content .tb-step--final .tb-step-num {
-  color: #fff;
-  background: #3f7a2e;
-  border-color: #3f7a2e;
+  background: transparent;
+  border: none;
+  color: #3f7a2e;
   box-shadow: none;
 }
-.cr-content .tb-step-body { color: var(--cr-ink-2); }
+.cr-content .tb-step-body { color: var(--cr-ink); font-size: 1.03rem; }
 .cr-content .tb-step-label { color: var(--cr-ink); }
 
-/* ── Checkpoint (tb-exercise): orange rule + reveal ── */
+/* ── Checkpoint (tb-exercise): FLAT — orange hairline rule, question as
+   prose, reveal as a quiet text control instead of a pill in a card. ── */
 .cr-content .tb-exercise {
-  background: #fff;
-  border: 1px solid var(--cr-line);
-  border-radius: 16px;
-  box-shadow: 0 1px 2px rgba(20, 22, 28, 0.04), 0 8px 24px rgba(20, 22, 28, 0.05);
-  padding: 26px 30px;
-  margin: 8px 0 26px;
+  background: transparent;
+  border: none;
+  border-left: 3px solid rgba(234, 88, 12, 0.4);
+  border-radius: 0;
+  box-shadow: none;
+  padding: 4px 0 4px 24px;
+  margin: 30px 0 34px;
 }
-.cr-content .tb-exercise::before {
-  height: 5px;
-  background: var(--color-brand-primary, #ea580c);
-}
+.cr-content .tb-exercise::before { display: none; }
 .cr-content .tb-exercise > .tb-subhead {
   font-size: 0.74rem;
   font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.07em;
+  letter-spacing: 0.08em;
   color: var(--color-brand-primary, #ea580c);
-  margin: 0 0 12px;
+  margin: 0 0 10px;
 }
+.cr-content .tb-exercise .tb-body { margin-bottom: 4px; }
 .cr-content .tb-reveal-btn {
-  background: var(--color-brand-primary, #ea580c);
-  color: #fff;
+  background: transparent;
+  color: var(--color-brand-primary, #ea580c);
   border: none;
-  border-radius: 999px;
-  padding: 11px 20px;
-  font-family: var(--cr-font-display);
+  border-radius: 6px;
+  padding: 6px 2px;
+  margin-top: 10px;
+  font-family: var(--cr-font-body);
   font-weight: 700;
-  font-size: 0.92rem;
-  box-shadow: 0 2px 10px rgba(234, 88, 12, 0.3);
+  font-size: 0.95rem;
+  box-shadow: none;
+  gap: 0.45rem;
 }
 .cr-content .tb-reveal-btn:hover {
-  background: var(--color-brand-primary-hover, #c2410c);
-  color: #fff;
+  background: transparent;
+  color: var(--color-brand-primary-hover, #c2410c);
   border-color: transparent;
   transform: none;
-  box-shadow: 0 2px 10px rgba(234, 88, 12, 0.3);
+  box-shadow: none;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 .cr-content .tb-reveal-content {
-  background: #e9f3e5;
-  border: 1px solid rgba(63, 122, 46, 0.28);
-  border-radius: 12px;
+  background: transparent;
+  border: none;
+  border-left: 3px solid rgba(63, 122, 46, 0.45);
+  border-radius: 0;
   box-shadow: none;
-  padding: 16px 18px;
+  padding: 2px 0 2px 18px;
+  margin-top: 14px;
 }
 
-/* ── Formula / formula grid ── */
+/* ── Formula / formula grid: flat, centered, hairline rules ── */
 .cr-content .tb-formula {
-  border: 1px solid var(--cr-line);
-  border-radius: 14px;
-  box-shadow: 0 1px 2px rgba(20, 22, 28, 0.04);
+  background: transparent;
+  border: none;
+  border-top: 1px solid var(--cr-line);
+  border-bottom: 1px solid var(--cr-line);
+  border-radius: 0;
+  box-shadow: none;
+  padding: 20px 12px;
   margin: 6px 0 26px;
 }
+.cr-content .tb-formula::before { display: none; }
 .cr-content .tb-formula-label { color: var(--color-brand-primary, #ea580c); }
 .cr-content .tb-formula-grid { margin: 6px 0 26px; }
-.cr-content .tb-formula-grid .tb-formula { margin: 0; }
+.cr-content .tb-formula-grid .tb-formula { margin: 0; border: 1px solid var(--cr-line); border-radius: 10px; padding: 16px; }
 
-/* ── Comparison / figure ── */
+/* ── Comparison / figure: figures lose the card frame, keep the caption ── */
 .cr-content .tb-comparison { margin: 6px 0 26px; }
 .cr-content .tb-figure {
-  border: 1px solid var(--cr-line);
-  border-radius: 14px;
-  box-shadow: 0 1px 2px rgba(20, 22, 28, 0.04);
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 8px 0;
   margin: 6px 0 26px;
 }
 
 @media (max-width: 640px) {
   .cr-content .tb-worked-example,
-  .cr-content .tb-exercise { padding: 22px 20px; }
+  .cr-content .tb-exercise { padding-left: 16px; }
   .cr-content .tb-heading { margin-top: 30px; }
 }
 

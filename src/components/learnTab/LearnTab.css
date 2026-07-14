@@ -39,6 +39,41 @@
   margin: 0;
 }
 
+/* ── Section switcher (All / The Digital SAT / Reading / Writing / Math) —
+   same pill pattern as the Study Plan's .sp-seg control. ── */
+.lt-seg {
+  display: inline-flex;
+  background: var(--lt-surface);
+  border: 1px solid var(--lt-line-2);
+  border-radius: 999px;
+  padding: 3px;
+  gap: 2px;
+  margin-bottom: 36px;
+}
+.lt-seg-btn {
+  border: none;
+  background: transparent;
+  color: var(--lt-ink-2);
+  font-family: var(--lt-font-body);
+  font-weight: 600;
+  font-size: 13px;
+  padding: 7px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 120ms ease, color 120ms ease;
+}
+.lt-seg-btn:hover { color: var(--lt-ink); }
+.lt-seg-btn.is-active {
+  background: var(--lt-ink);
+  color: var(--lt-surface);
+  font-weight: 700;
+}
+.lt-seg-btn:focus-visible {
+  outline: 2px solid var(--lt-accent);
+  outline-offset: 1px;
+}
+
 .lt-section {
   margin-bottom: 44px;
 }
@@ -175,6 +210,8 @@
 
 @media (max-width: 640px) {
   .lt-root { padding: 28px 16px 88px; }
+  .lt-seg { max-width: 100%; overflow-x: auto; }
+  .lt-seg-btn { font-size: 12px; padding: 6px 11px; }
   .lt-page-title { font-size: 1.8rem; }
   .lt-chapter-row { gap: 12px; padding: 14px 6px; }
   .lt-chapter-blurb { display: none; }

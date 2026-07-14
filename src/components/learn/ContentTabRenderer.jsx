@@ -281,8 +281,10 @@ export const SectionContent = ({ section }) => {
         }
         const element = renderer(block, idx);
         if (React.isValidElement(element)) {
+          // Stagger is capped: with 40+ blocks an uncapped idx*0.05s delay left
+          // below-the-fold content invisible for seconds ('both' fill mode).
           return React.cloneElement(element, {
-            style: { ...element.props.style, animation: `fadeInUp 0.5s ease ${idx * 0.05}s both` }
+            style: { ...element.props.style, animation: `fadeInUp 0.5s ease ${Math.min(idx * 0.05, 0.35)}s both` }
           });
         }
         return element;

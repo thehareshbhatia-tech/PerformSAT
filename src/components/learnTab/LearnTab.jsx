@@ -1,6 +1,25 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import { LEARN_SECTIONS, LEARN_UNITS, getChapter } from '../../data/chapters';
 import './LearnTab.css';
+
+// Pill labels for the section switcher — short forms of the section headers.
+const SECTION_PILL_LABELS = {
+  strategy: 'The Digital SAT',
+  reading: 'Reading',
+  writing: 'Writing',
+  math: 'Math',
+};
+
+const FILTER_STORAGE_KEY = 'learn:sectionFilter';
+
+const readStoredFilter = () => {
+  try {
+    const v = window.localStorage.getItem(FILTER_STORAGE_KEY);
+    return v === 'all' || LEARN_SECTIONS.some((s) => s.id === v) ? v : 'all';
+  } catch {
+    return 'all';
+  }
+};
 
 const CheckIcon = () => (
   <svg className="lt-check" width="18" height="18" viewBox="0 0 24 24" fill="none"
@@ -24,6 +43,15 @@ const CheckIcon = () => (
  */
 const LearnTab = ({ chaptersRead = {}, onOpenChapter }) => {
   const isRead = (id) => !!chaptersRead[id]?.completed;
+
+  // Section filter (All / The Digital SAT / Reading / Writing / Math) —
+  // mirrors the Study Plan's segmented control. Persisted so returning from
+  // a chapter (or a later visit) lands on the same section.
+  const [sectionFilter, setSectionFilter] = useState(readStoredFilter);
+  const selectFilter = (id) => {
+    setSectionFilter(id);
+    try { window.localStorage.setItem(FILTER_STORAGE_KEY, id); } catch { /* private mode */ }
+  };
 
   // Build the render model once: sections → units → numbered chapters, with
   // per-section progress. Chapters are numbered continuously within a section.
@@ -60,7 +88,22 @@ const LearnTab = ({ chaptersRead = {}, onOpenChapter }) => {
         <p className="lt-page-sub">Read the SEVA textbook, one chapter at a time. Everything the digital SAT tests, explained plainly.</p>
       </header>
 
-      {sections.map((section) => (
+      <div className="lt-seg" role="tablist" aria-label="Filter chapters by section">
+        {[{ id: 'all', label: 'All' }, ...LEARN_SECTIONS.map((s) => ({ id: s.id, label: SECTION_PILL_LABELS[s.id] || s.label }))].map((tab) => (
+          <button
+            key={tab.id}
+            type="button"
+            role="tab"
+            aria-selected={sectionFilter === tab.id}
+            className={`lt-seg-btn${sectionFilter === tab.id ? ' is-active' : ''}`}
+            onClick={() => selectFilter(tab.id)}
+          >
+            {tab.label}
+          </button>
+        ))}
+      </div>
+
+      {sections.filter((s) => sectionFilter === 'all' || s.id === sectionFilter).map((section) => (
         <section key={section.id} className="lt-section">
           <div className="lt-section-head">
             <h2 className="lt-section-title">{section.label}</h2>
