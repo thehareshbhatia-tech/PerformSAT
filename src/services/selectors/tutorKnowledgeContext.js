@@ -16,7 +16,7 @@
 import { TUTOR_KNOWLEDGE } from '../../data/knowledge/tutorKnowledge';
 import { getCBSkillForPattern } from '../../data/questions/cbSkillTaxonomy';
 
-const MAX_CHARS = 1400;
+const MAX_CHARS = 2000; // rides the CACHED prefix, so a richer block is ~free after the first call
 const MAX_SKILLS = 2;   // most questions test 1; cap the rare multi-skill case
 const MAX_MISC = 3;     // top misconceptions per skill (authors lead with the root)
 
@@ -140,6 +140,21 @@ const BANK_SKILL_TO_CB = {
   'circle-parts': 'circles',
   'completing-square-circles': 'circles',
   'tangent-lines': 'circles',
+  // Topic-file tokens (merged into the runtime bank via bank/index.js) — the last
+  // resolution gaps found in the 2026-07-14 coverage audit, so ~100% of drilled items
+  // get an expert-map injection. (`answer-choice-method` is a solving strategy, not a
+  // content skill, so it stays unmapped; its items resolve via their content sibling.)
+  'graph-to-equation': 'linear-functions',
+  'standard-form': 'linear-equations-two-variables',
+  'solving-linear-equations': 'linear-equations-one-variable',
+  'no-solution-equation': 'linear-equations-one-variable',
+  'system-of-equations': 'linear-systems',
+  'system-no-solution': 'linear-systems',
+  'algebraic-manipulation': 'equivalent-expressions',
+  'function-notation-to-equation': 'nonlinear-functions',
+  'combined-transformations': 'nonlinear-functions',
+  'x-intercepts': 'nonlinear-functions',
+  'best-fit-line': 'two-variable-data',
 };
 
 /**
@@ -160,8 +175,9 @@ export const resolveCbSkill = (skill) => {
 
 /**
  * Build the `>>> EXPERT MISCONCEPTION MAP <<<` block for the tutor prompt.
- * For each skill the current question tests, emit the expert mental model and the
- * top misconceptions (belief + how to detect + how to fix). Returns '' when no
+ * For each skill the current question tests, emit the expert mental model, the
+ * expert method (how an expert actually works the problem), and the top
+ * misconceptions (belief + how to detect + how to fix). Returns '' when no
  * skill resolves. Pure — safe to memoize per question.
  *
  * @param {Object} args
@@ -187,6 +203,7 @@ export const buildTutorKnowledgeContext = ({ skills } = {}) => {
     const k = TUTOR_KNOWLEDGE[cb];
     if (!k) continue;
     if (k.models && k.models[0]) parts.push(`How an expert holds this skill: ${k.models[0]}`);
+    if (k.approach && k.approach.length) parts.push(`How an expert works it: ${k.approach.join(' → ')}`);
     (k.misc || []).slice(0, MAX_MISC).forEach((m) => {
       let line = `- ${m.b}`;
       if (m.t) line += ` [detect: ${m.t}]`;

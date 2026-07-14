@@ -18,6 +18,14 @@ describe('resolveCbSkill', () => {
     expect(resolveCbSkill('')).toBeNull();
     expect(resolveCbSkill(undefined)).toBeNull();
   });
+  it('resolves the topic-file tokens closed in the 2026-07-14 coverage audit', () => {
+    expect(resolveCbSkill('graph-to-equation')).toBe('linear-functions');
+    expect(resolveCbSkill('best-fit-line')).toBe('two-variable-data');
+    expect(resolveCbSkill('system-of-equations')).toBe('linear-systems');
+    // the one previously-uncovered bank item (linearEquations "Deriving Equations", id 7)
+    // carries both graph-to-equation and best-fit-line — with both mapped it now injects.
+    expect(buildTutorKnowledgeContext({ skills: ['graph-to-equation', 'best-fit-line'] })).not.toBe('');
+  });
 });
 
 describe('buildTutorKnowledgeContext', () => {
@@ -43,7 +51,17 @@ describe('buildTutorKnowledgeContext', () => {
   it('respects the hard char cap', () => {
     // two content-rich skills should not blow past the cap
     const block = buildTutorKnowledgeContext({ skills: ['boundaries', 'nonlinear-functions'] });
-    expect(block.length).toBeLessThanOrEqual(1400);
+    expect(block.length).toBeLessThanOrEqual(2000);
+  });
+
+  it('injects the expert method (solve-steps), not just the misconception map', () => {
+    const block = buildTutorKnowledgeContext({ skills: ['slope-intercept-form'] });
+    expect(block).toContain('How an expert works it:');
+  });
+
+  it('every generated knowledge entry has an expert-method approach', () => {
+    const empties = Object.entries(TUTOR_KNOWLEDGE).filter(([, v]) => !v.approach || v.approach.length === 0);
+    expect(empties).toEqual([]);
   });
 
   it('caps the number of skills injected', () => {

@@ -52,13 +52,55 @@ function mentalModelOf(body) {
 // Strategy: split into bullets, read the leading kebab token as the id, take the rest.
 function keyedBullets(text) {
   const out = {};
-  const bullets = text.split(/\n\s*-\s+/).slice(1); // drop preamble before first bullet
+  // '\n'+ so bullet #1 (no preceding newline after the header) is also a split boundary —
+  // otherwise slice(1) drops it, silently losing each node's ROOT (lead) misconception.
+  const bullets = ('\n' + text).split(/\n\s*-\s+/).slice(1);
   for (const raw of bullets) {
     const b = raw.replace(/\*\*/g, '').trim();               // strip bold markers
     const m = b.match(/^([a-z][a-z0-9-]{3,})\b\s*(?:signals)?\s*[:—-]\s*([\s\S]+)/);
     if (m && !out[m[1]]) out[m[1]] = m[2].replace(/\s+/g, ' ').trim();
   }
   return out;
+}
+// First bullet of a section as plain text, any leading "id:" / "id —" / "a / b:" key stripped.
+// Positional fallback for detect/fix: some nodes key Diagnostic/Remediation bullets by an
+// abbreviated id or write them as prose, so an exact misconception-id lookup misses. Sections
+// are authored lead-misconception-first, so bullet #1 aligns with the lead misconception —
+// which is exactly the one the brief renders (order[0]).
+function firstBullet(text) {
+  const t = '\n' + (text || '');
+  // dash bullet first; fall back to a numbered-list item — some nodes author their
+  // Diagnostic/Remediation sections as numbered process lists ("1. …/2. …"), and a
+  // dash-only match would leave the lead misconception's cue empty (e.g. dropped-middle-term).
+  let m = t.match(/\n\s*-\s+([\s\S]*?)(?=\n\s*-\s+|\n## |$)/);
+  if (!m) m = t.match(/\n\s*\d+\.\s+([\s\S]*?)(?=\n\s*\d+\.\s+|\n## |$)/);
+  if (!m) return '';
+  let b = delink(m[1]).replace(/\*\*/g, '').replace(/\s+/g, ' ').trim();
+  b = b.replace(/^[a-z][a-z0-9-]{3,}(?:\s*\/\s*[a-z][a-z0-9-]+)*\s*(?:signals)?\s*[:—-]\s+/i, '');
+  return b.trim();
+}
+// The "Expert reasoning process" section leads with the highest-leverage moves —
+// the actual how-an-expert-solves-it method. Distill its first 1-2 steps into
+// compact lines (the tutor's "skillful" half, complementing the misconception map),
+// stripped of wikilinks, bold, routing pointers, and unverified-claim flags.
+function expertApproach(body) {
+  const s = section(body, 'Expert reasoning process');
+  if (!s) return [];
+  // Prepend '\n' so the FIRST step (which has no preceding newline after the header)
+  // is also a split boundary — otherwise slice(1) would silently drop step 1.
+  let items = ('\n' + s).split(/\n\s*\d+\.\s+/).slice(1);        // numbered steps
+  if (items.length === 0) items = ('\n' + s).split(/\n\s*-\s+/).slice(1); // fallback: bullets
+  const steps = [];
+  for (const raw of items) {
+    if (steps.length >= 2) break;
+    let step = delink(raw).replace(/\*\*/g, '').replace(/\s+/g, ' ').trim();
+    step = step.replace(/\(\s*(?:un)?verified-claim[^)]*\)/gi, '')
+               .replace(/\([^)]*owns the routing[^)]*\)/gi, '')
+               .replace(/\s{2,}/g, ' ').trim();
+    step = firstSentence(step, 190).trim();
+    if (step.length > 15) steps.push(step);
+  }
+  return steps;
 }
 function parseNode(file) {
   const raw = fs.readFileSync(file, 'utf8');
@@ -73,13 +115,18 @@ function parseNode(file) {
   const skills = (fm.skill || '').replace(/[[\]]/g, '').split(',').map(s => s.trim()).filter(Boolean);
   const mentalModel = mentalModelOf(body);
   const misc = keyedBullets(section(body, 'Misconceptions'));
-  const diag = keyedBullets(section(body, 'Diagnostic indicators'));
-  const rem = keyedBullets(section(body, 'Remediation pathways'));
-  // ordered misconception ids as they appear (authors lead with the root cause)
+  const diagSec = section(body, 'Diagnostic indicators');
+  const remSec = section(body, 'Remediation pathways');
+  const diag = keyedBullets(diagSec);
+  const rem = keyedBullets(remSec);
+  const diagFirst = firstBullet(diagSec);   // positional fallback (lead misconception)
+  const remFirst = firstBullet(remSec);
+  // ordered misconception ids as they appear (authors lead with the root cause).
+  // '\n'+ so the FIRST (root) misconception — which has no preceding newline — is captured.
   const order = [];
-  const om = section(body, 'Misconceptions').matchAll(/\n\s*-\s*\*\*([a-z0-9-]+)\*\*/g);
+  const om = ('\n' + section(body, 'Misconceptions')).matchAll(/\n\s*-\s*\*\*([a-z0-9-]+)\*\*/g);
   for (const x of om) order.push(x[1]);
-  return { id, domain: fm.domain, skills, mentalModel, misc, diag, rem, order };
+  return { id, domain: fm.domain, skills, mentalModel, approach: expertApproach(body), misc, diag, rem, diagFirst, remFirst, order };
 }
 
 const nodes = {};
@@ -164,12 +211,19 @@ for (const [cb, idsRaw] of Object.entries(cbToNodes)) {
     if (!mid || seen.has(mid)) continue;
     seen.add(mid);
     const belief = clip(firstSentence(n.misc[mid] || '', 200), 180);
-    const tell = clip(firstSentence(n.diag[mid] || '', 160), 150);
-    const fix = clip(firstSentence(n.rem[mid] || '', 160), 150);
+    // detect/fix: exact misconception-id match, else the section's first bullet — which
+    // aligns with the lead misconception the brief renders (recovers cues from nodes whose
+    // Diagnostic/Remediation sections key their bullets differently than Misconceptions).
+    const tell = clip(firstSentence(n.diag[mid] || n.diagFirst || '', 160), 150);
+    const fix = clip(firstSentence(n.rem[mid] || n.remFirst || '', 160), 150);
     if (belief) misc.push({ b: belief, t: tell, f: fix });
     if (misc.length >= MAX_MISC) break;
   }
-  KNOWLEDGE[cb] = { models, misc };
+  // expert method: the leading solve-steps from the central (first available) node —
+  // the "how an expert works this" that complements the misconception map.
+  let approach = [];
+  for (const id of ids) { if (nodes[id].approach?.length) { approach = nodes[id].approach.slice(0, 2); break; } }
+  KNOWLEDGE[cb] = { models, approach, misc };
 }
 
 // ---- emit --------------------------------------------------------------------
@@ -181,8 +235,10 @@ const header = `/**
  * src/services/selectors/tutorKnowledgeContext.js to inject root-cause guidance
  * into the AI tutor's cached system prefix. Regenerate after graph edits.
  *
- * Shape: { [cbSkillSlug]: { models: string[], misc: [{ b, t, f }] } }
- *   models = mental-model one-liners; misc = { b: belief/why, t: how to detect, f: how to fix }
+ * Shape: { [cbSkillSlug]: { models: string[], approach: string[], misc: [{ b, t, f }] } }
+ *   models   = mental-model one-liners (the hook/metaphor)
+ *   approach = expert solve-steps distilled from "Expert reasoning process" (the method)
+ *   misc     = { b: belief/why, t: how to detect, f: how to fix }
  */
 export const TUTOR_KNOWLEDGE = ${JSON.stringify(KNOWLEDGE, null, 2)};
 
@@ -192,9 +248,12 @@ fs.mkdirSync(path.dirname(OUT), { recursive: true });
 fs.writeFileSync(OUT, header);
 
 const nMisc = Object.values(KNOWLEDGE).reduce((a, k) => a + k.misc.length, 0);
+const nApproach = Object.values(KNOWLEDGE).reduce((a, k) => a + (k.approach?.length || 0), 0);
 const bytes = Buffer.byteLength(header);
 console.log(`wrote ${OUT}`);
 console.log(`  CB skills covered: ${Object.keys(KNOWLEDGE).length}  (${Object.keys(cbToNodes).filter(k=>RW_CB_SLUGS.has(k)).length} RW + ${Object.keys(MATH_MAP).length} math)`);
-console.log(`  misconception briefs: ${nMisc}   file size: ${(bytes/1024).toFixed(1)}KB`);
+console.log(`  misconception briefs: ${nMisc}   expert-method steps: ${nApproach}   file size: ${(bytes/1024).toFixed(1)}KB`);
 const empties = Object.entries(KNOWLEDGE).filter(([, v]) => v.misc.length === 0).map(([k]) => k);
 if (empties.length) console.log(`  WARN empty briefs: ${empties.join(', ')}`);
+const noApproach = Object.entries(KNOWLEDGE).filter(([, v]) => !v.approach?.length).map(([k]) => k);
+if (noApproach.length) console.log(`  WARN no expert-method: ${noApproach.join(', ')}`);
