@@ -1351,7 +1351,9 @@ Your goal is to build their problem-solving instincts. Every question they solve
       intelligenceContext: intelligenceCtx,
       section,
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // Deps are deliberately narrower than everything buildPrefixContexts
+    // reads: the warm should fire once per question-open, not on every
+    // progress-state change.
   }, [isOpen, prewarmEnabled, moduleId, lessonId, practiceContext?.questionId]);
 
   const handleSend = async (overrideText, regenBase) => {
