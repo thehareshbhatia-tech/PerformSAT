@@ -86,8 +86,11 @@ const extractLiteral = (constName) => {
 };
 
 const TUTOR_VOICE = extractLiteral('TUTOR_VOICE');
-// The prompts interpolate ${TUTOR_VOICE}; substitute it the way the bundle does.
-const SYSTEM_PROMPT = extractLiteral('SYSTEM_PROMPT').replace('${TUTOR_VOICE}', TUTOR_VOICE);
+const TUTOR_LAYOUT = extractLiteral('TUTOR_LAYOUT');
+// The prompts interpolate ${TUTOR_VOICE} + ${TUTOR_LAYOUT}; substitute them the way the bundle does.
+const SYSTEM_PROMPT = extractLiteral('SYSTEM_PROMPT')
+  .replace('${TUTOR_VOICE}', TUTOR_VOICE)
+  .replace('${TUTOR_LAYOUT}', TUTOR_LAYOUT);
 
 // ── Scenarios: realistic practice contexts + student messages ───────────────
 const QUESTION_CONTEXT = `
@@ -142,6 +145,12 @@ const SCENARIOS = [
     ],
   },
   {
+    id: 'walkthrough',
+    label: 'Full walkthrough after a miss (LAYOUT check)',
+    system: SYSTEM_PROMPT + '\n\n' + QUESTION_CONTEXT,
+    messages: [{ role: 'user', content: "i got this wrong. can you walk me through the whole thing start to finish — i want to actually get it" }],
+  },
+  {
     id: 'wantsanswer',
     label: 'Wants the answer (Socratic, pre-reveal)',
     system: SYSTEM_PROMPT + '\n\n' + QUESTION_CONTEXT.replace(/>>> ANSWER HAS BEEN REVEALED[\s\S]*$/, ''),
@@ -178,6 +187,18 @@ const lintReply = (text) => {
   // Bullet-pointed conversation: lists in a short reply.
   const bullets = (text.match(/^\s*[-*•]\s/gm) || []).length;
   if (bullets > 0 && text.length < 500) problems.push(`${bullets} bullets in a short reply`);
+  // LAYOUT contract (2026-07-15): a long teaching reply must be scannable.
+  // Mid-length replies (>900 chars) need bold on the deciding words and no
+  // wall paragraphs — bullets + short paragraphs already make them scannable.
+  // Full walkthroughs (>1400 chars) additionally need ### subheadings.
+  if (text.length > 900) {
+    if (!/\*\*[^*\n]+\*\*/.test(text)) problems.push('long reply with no **bold** (LAYOUT)');
+    const wallParagraphs = text.split(/\n\s*\n/).filter((p) => p.replace(/\s+/g, ' ').length > 420).length;
+    if (wallParagraphs > 0) problems.push(`${wallParagraphs} wall paragraph(s) >420 chars (LAYOUT)`);
+  }
+  if (text.length > 1400 && !/^###\s/m.test(text)) {
+    problems.push('walkthrough-length reply with no ### subheadings (LAYOUT)');
+  }
   return problems;
 };
 
