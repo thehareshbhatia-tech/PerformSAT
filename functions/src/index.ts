@@ -269,6 +269,11 @@ export const aiTutor = onRequest(
     // gets its own higher ceiling so a burst of concurrent tutoring sessions
     // queues at Anthropic's rate limit, not at our instance cap.
     maxInstances: 30,
+    // One always-warm instance: a gen2 cold start adds 2-5s before the first
+    // token of the FIRST tutor message after any idle period — the single
+    // biggest chunk of "the tutor is slow" for light traffic. Costs roughly
+    // $5-10/month idle for 512MiB; revisit if traffic makes it redundant.
+    minInstances: 1,
   },
   async (request, response) => {
     if (request.method !== "POST") {
@@ -283,19 +288,21 @@ export const aiTutor = onRequest(
       return;
     }
 
-    // Rate limit: AI tutor calls per hour per user. 60/hr was too low for an
-    // active tutoring session (a student working through problems + the occasional
-    // retry trips it fast, and the client then shows a misleading error).
-    if (!(await checkRateLimit(user.uid, "aiTutor", 200))) {
+    // Rate limit (200/hr — 60 was too low for an active tutoring session) and
+    // the SEVA Premium gate (the tutor is the one endpoint with real marginal
+    // cost; accounts with NO entitlement doc are allowed — see
+    // hasEntitlementAccess). Both key on uid only, so they run in PARALLEL:
+    // each is its own Firestore round-trip (the limiter is a transaction),
+    // and serially they added ~100-200ms before every tutor reply.
+    const [rateOk, entitled] = await Promise.all([
+      checkRateLimit(user.uid, "aiTutor", 200),
+      hasEntitlementAccess(user.uid),
+    ]);
+    if (!rateOk) {
       response.status(429).json({error: "Too many requests. Please wait a minute and try again."});
       return;
     }
-
-    // SEVA Premium gate — the tutor is the one endpoint with real marginal
-    // cost (Anthropic tokens), so it enforces server-side; client gates are
-    // cosmetic. Accounts with NO entitlement doc are allowed (pre-launch
-    // compatibility — see hasEntitlementAccess).
-    if (!(await hasEntitlementAccess(user.uid))) {
+    if (!entitled) {
       response.status(402).json({error: "subscription_required"});
       return;
     }
@@ -347,11 +354,18 @@ export const aiTutor = onRequest(
         return;
       }
 
+      // Pre-warm requests (client sends prewarm:true when the tutor panel
+      // OPENS) run prefill only: max_tokens 0 writes the cacheable system
+      // prefix into the Anthropic prompt cache so the student's first real
+      // message hits a warm cache. Everything else about the request body
+      // stays IDENTICAL to a real turn — the cache is an exact prefix match.
+      const isPrewarm = request.body.prewarm === true;
+
       // Default to streaming so the student sees the answer type in live instead
       // of staring at a spinner through a long thinking pass. The client sends
       // stream:false to use the buffered fallback path (and retries that way if
       // the stream yields nothing), so a streaming hiccup can never break chat.
-      const useStream = request.body.stream !== false;
+      const useStream = !isPrewarm && request.body.stream !== false;
 
       const anthropicResponse = await fetch(
         "https://api.anthropic.com/v1/messages",
@@ -370,7 +384,8 @@ export const aiTutor = onRequest(
             // client shows a truncation note. 3000 clears the observed breakdown
             // sizes while still guarding against a runaway response. (Thinking is
             // off — see below — so no thinking tokens count toward this.)
-            max_tokens: 3000,
+            // Pre-warm: max_tokens 0 = prefill-only (cache write, no output).
+            max_tokens: isPrewarm ? 0 : 3000,
             // Thinking DISABLED for the interactive tutor. Adaptive thinking ran
             // a reasoning pass before every reply, so the student stared at a
             // spinner before the first streamed token — the single biggest
@@ -413,6 +428,15 @@ export const aiTutor = onRequest(
         } else {
           response.status(502).json({error: "The AI service is temporarily unavailable. Please try again."});
         }
+        return;
+      }
+
+      // ── Pre-warm path: the upstream call existed only to write the prompt
+      // cache; there is no content to return. Drain the (empty) body so the
+      // socket is released, then acknowledge.
+      if (isPrewarm) {
+        await anthropicResponse.json().catch(() => ({}));
+        response.json({ok: true, prewarmed: true});
         return;
       }
 

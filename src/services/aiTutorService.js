@@ -713,6 +713,106 @@ const buildVideoContext = (transcriptContext, videoTimestamp) => {
   return context;
 };
 
+/**
+ * Build the CACHED stable system-prompt prefix for one tutor question/session.
+ * Persona + student profile + learning memory + intelligence + strategy +
+ * lesson context — everything that is constant across the turns of one
+ * question. BYTE-IDENTITY CONTRACT: chatWithTutor and prewarmTutor must build
+ * this prefix through this ONE function; the Anthropic prompt cache is an
+ * exact prefix match, so any drift between the two call sites makes the
+ * pre-warm useless (silently — no error, just a cold cache).
+ * @returns {string} the stable prefix (cache key for systemBlocks[0])
+ */
+const buildStablePrefix = ({
+  section,
+  currentModuleId,
+  currentLessonId,
+  studentProfile,
+  learningMemoryContext,
+  strategyContext,
+  intelligenceContext,
+}) => {
+  const lessonContext = getLessonContext(currentModuleId, currentLessonId);
+
+  // Student profile rides right after the persona (highest-priority context).
+  let stablePrefix = getSystemPrompt(section);
+  if (studentProfile) {
+    stablePrefix += '\n\n' + studentProfile;
+  }
+
+  // Persistent learning memory (cross-session context)
+  if (learningMemoryContext) {
+    stablePrefix += buildLearningMemoryBlock(learningMemoryContext);
+  }
+
+  // Data loop intelligence context (fingerprint, predictions, approach guidance)
+  if (intelligenceContext) {
+    stablePrefix += intelligenceContext;
+  }
+
+  // Targeted strategy guides based on error patterns. The strategy corpus
+  // (knowledgeBase) is math-only, so only inject it for math items — an R&W
+  // session must not receive Desmos/algebra strategy text.
+  if (section === 'math' && (strategyContext?.errorPatterns || strategyContext?.weakSkillIds)) {
+    const strategies = getRelevantStrategyContext(
+      strategyContext.errorPatterns,
+      strategyContext.weakSkillIds
+    );
+    if (strategies) {
+      stablePrefix += '\n' + strategies;
+    }
+  }
+
+  if (lessonContext) {
+    stablePrefix += buildContextMessage(lessonContext);
+  }
+
+  return stablePrefix;
+};
+
+/**
+ * Pre-warm the Anthropic prompt cache for a tutor session. Fire-and-forget:
+ * call it when the tutor panel OPENS, before the student has typed anything.
+ * The server issues a max_tokens:0 request that runs prefill only — writing
+ * the ~10k-token stable prefix into the prompt cache — so the student's first
+ * real message hits a warm cache and streams its first token seconds sooner.
+ * Failures are swallowed: a failed pre-warm just means the old (cold) speed.
+ * @returns {Promise<void>} resolves when the warm request settles
+ */
+export const prewarmTutor = async ({
+  currentModuleId,
+  currentLessonId,
+  studentProfile = '',
+  learningMemoryContext = null,
+  strategyContext = null,
+  intelligenceContext = '',
+  section = 'math',
+} = {}) => {
+  try {
+    const stablePrefix = buildStablePrefix({
+      section,
+      currentModuleId,
+      currentLessonId,
+      studentProfile,
+      learningMemoryContext,
+      strategyContext,
+      intelligenceContext,
+    });
+    await authFetch(AI_TUTOR_URL, {
+      method: 'POST',
+      body: JSON.stringify({
+        prewarm: true,
+        messages: [{ role: 'user', content: 'warmup' }],
+        system: stablePrefix,
+        systemBlocks: [{ text: stablePrefix, cache: true }],
+        stream: false,
+      }),
+    });
+  } catch {
+    // Pre-warm is best-effort by design — never surface an error for it.
+  }
+};
+
 // Main chat function - uses Firebase Cloud Function (secure)
 export const chatWithTutor = async (
   messages,
@@ -730,13 +830,11 @@ export const chatWithTutor = async (
   onChunk = null, // optional (fullTextSoFar: string) => void — when provided, stream the answer in live
   signal = null // optional AbortSignal — lets the caller cancel an in-flight request (e.g. on unmount)
 ) => {
-  // Get lesson context
-  const lessonContext = getLessonContext(currentModuleId, currentLessonId);
-
   // Get the latest user message
   const latestUserMessage = messages[messages.length - 1];
 
-  // Search for additional relevant content
+  // Search for additional relevant content (per-turn — rides the VOLATILE
+  // block below, never the cached stable prefix; see buildStablePrefix).
   const searchResults = searchKnowledge(
     latestUserMessage.content,
     currentModuleId,
@@ -747,65 +845,51 @@ export const chatWithTutor = async (
   // The system prompt is assembled in two parts so the aiTutor proxy can mark
   // the stable half with cache_control: ephemeral:
   //   STABLE prefix   — base persona + studentProfile + learningMemory +
-  //                     intelligence + strategy corpus + lesson + search.
-  //                     Constant across turns within one question/session, so
-  //                     it is the cache key.
-  //   VOLATILE suffix — video (changing currentTime) + practiceContext
-  //                     (per-turn emotional state) + coachMode overlay.
+  //                     intelligence + strategy corpus + lesson. Constant
+  //                     across turns within one question/session, so it is
+  //                     the cache key (and what prewarmTutor pre-warms).
+  //   VOLATILE suffix — search results (keyed on the latest user message,
+  //                     changes EVERY turn) + video (changing currentTime) +
+  //                     practiceContext (per-turn emotional state) + coachMode
+  //                     overlay.
   // We send BOTH `system` (the exact concatenation, for old servers that ignore
   // unknown fields) and `systemBlocks` (the two-part form). By construction
   // stablePrefix + volatileSuffix === enhancedSystem, so behavior is identical
   // whichever path the server takes.
 
-  // Add student profile right after system prompt (highest priority context)
-  let stablePrefix = getSystemPrompt(section);
-  if (studentProfile) {
-    stablePrefix += '\n\n' + studentProfile;
-  }
+  // Stable (cached) prefix — shared builder; see the byte-identity contract
+  // on buildStablePrefix.
+  const stablePrefix = buildStablePrefix({
+    section,
+    currentModuleId,
+    currentLessonId,
+    studentProfile,
+    learningMemoryContext,
+    strategyContext,
+    intelligenceContext,
+  });
 
-  // Add persistent learning memory (cross-session context)
-  if (learningMemoryContext) {
-    stablePrefix += buildLearningMemoryBlock(learningMemoryContext);
-  }
+  // ── Volatile suffix — changes turn-to-turn, kept out of the cache key ──
+  let volatileSuffix = '';
 
-  // Add data loop intelligence context (fingerprint, predictions, approach guidance)
-  if (intelligenceContext) {
-    stablePrefix += intelligenceContext;
-  }
-
-  // Add targeted strategy guides based on error patterns.
-  // The strategy corpus (knowledgeBase) is math-only, so only inject it for
-  // math items — an R&W session must not receive Desmos/algebra strategy text.
-  if (section === 'math' && (strategyContext?.errorPatterns || strategyContext?.weakSkillIds)) {
-    const strategies = getRelevantStrategyContext(
-      strategyContext.errorPatterns,
-      strategyContext.weakSkillIds
-    );
-    if (strategies) {
-      stablePrefix += '\n' + strategies;
-    }
-  }
-
-  // Add lesson context
-  if (lessonContext) {
-    stablePrefix += buildContextMessage(lessonContext);
-  }
-
-  // Add search results
+  // Search results are keyed on the LATEST USER MESSAGE, so they change every
+  // turn. They used to sit at the end of the cached stable prefix, which made
+  // the prefix bytes differ turn-to-turn and SILENTLY BUSTED THE PROMPT CACHE
+  // ON EVERY MESSAGE — the full ~10k-token prefix re-ingested each turn (the
+  // dominant first-token latency, plus full input cost). Keeping them first in
+  // the volatile block preserves the exact same concatenated prompt text while
+  // letting the stable prefix actually cache. (Found 2026-07-15.)
   if (searchResults.length > 0) {
-    stablePrefix += '\n\n--- ADDITIONAL RELEVANT CONTENT ---\n';
+    volatileSuffix += '\n\n--- ADDITIONAL RELEVANT CONTENT ---\n';
     searchResults.forEach(result => {
       if (result.content.length > 0) {
-        stablePrefix += `\n${result.title}:\n`;
+        volatileSuffix += `\n${result.title}:\n`;
         result.content.slice(0, 3).forEach(c => {
-          stablePrefix += `- ${c}\n`;
+          volatileSuffix += `- ${c}\n`;
         });
       }
     });
   }
-
-  // ── Volatile suffix — changes turn-to-turn, kept out of the cache key ──
-  let volatileSuffix = '';
 
   // Add video transcript context if available (most important for "why did he do that")
   if (videoContext?.transcript && videoContext?.currentTime !== undefined) {

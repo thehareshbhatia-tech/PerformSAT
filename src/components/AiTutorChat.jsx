@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
-import { chatWithTutor, checkTutorMath } from '../services/aiTutorService';
+import { chatWithTutor, checkTutorMath, prewarmTutor } from '../services/aiTutorService';
 import CoachModePicker from './CoachModePicker';
 import { trackCoachModeUsed, trackEvent } from '../services/analyticsService';
 import ProactiveHint from './ProactiveHint';
@@ -30,6 +30,7 @@ import { buildTutorKnowledgeContext, buildTutorPlaybookContext } from '../servic
 import { extractChoiceMisconceptions } from '../services/selectors/choiceMisconceptions';
 import { buildFollowUpPrompts, buildTrapWelcome } from '../services/selectors/tutorEngagement';
 import { noteTutorExchange, makeQuestionKey } from '../services/tutorExchangeTracker';
+import { useFeatureFlag } from '../hooks/useFeatureFlag';
 import Mark from './ui/Mark';
 
 // The tutor's identity mark, app-wide: the tri-color SEVA "S" on the brand-navy
@@ -1230,6 +1231,129 @@ Your goal is to build their problem-solving instincts. Every question they solve
   // the student fell for; null keeps the generic copy below.
   const trapWelcome = isPracticeQuestion ? buildTrapWelcome(practiceContext) : null;
 
+  // ── Stable-prefix contexts — ONE assembly for send AND pre-warm ─────────
+  // Everything that rides the CACHED stable system-prompt prefix (persona +
+  // profile + skill history + playbook + knowledge briefs + memory + strategy
+  // + intelligence). handleSend and the pre-warm effect below must both build
+  // these through this ONE function: the Anthropic prompt cache is an exact
+  // prefix match, so any drift makes the pre-warm silently useless.
+  const buildPrefixContexts = () => {
+    // Subject of the active item — selects the system prompt + gates math-only context.
+    const section = practiceContext?.section === 'rw' ? 'rw' : 'math';
+
+    // Skill-history block (the +6pp lever): demonstrated level on THIS
+    // question's skills + related weak areas so the tutor calibrates depth.
+    const skillHistoryBlock = isPracticeQuestion
+      ? buildTutorSkillContext({ practiceTestResults, skills: practiceContext?.skills })
+      : '';
+    // Expert misconception map for THIS question's skill(s), distilled from the
+    // SAT knowledge graph. masteryPct selects the level-matched coaching tier;
+    // it only shifts on a bucket boundary, so the prefix stays cache-stable.
+    let knowledgeMasteryPct;
+    if (isPracticeQuestion && skillProgress && Array.isArray(practiceContext?.skills)) {
+      for (const s of practiceContext.skills) {
+        const m = skillProgress[s]?.mastery;
+        if (typeof m === 'number') { knowledgeMasteryPct = m; break; }
+      }
+    }
+    const knowledgeBlock = isPracticeQuestion
+      ? buildTutorKnowledgeContext({ skills: practiceContext?.skills, masteryPct: knowledgeMasteryPct })
+      : '';
+    // Section-wide expert playbook (triage, elimination, Desmos judgment …) —
+    // constant per section.
+    const playbookBlock = isPracticeQuestion ? buildTutorPlaybookContext({ section }) : '';
+    const studentProfileStr = [buildStudentProfile(), skillHistoryBlock, playbookBlock, knowledgeBlock].filter(Boolean).join('\n\n');
+
+    // Learning memory context for cross-session awareness
+    const learningMemoryCtx = (learningMemory || recentSessions.length > 0)
+      ? { memory: learningMemory, recentSessions }
+      : null;
+
+    // Strategy context from error patterns and weak skills
+    let strategyCtx = null;
+    if (skillProgress) {
+      const weakSkillIds = Object.entries(skillProgress)
+        .filter(([_, d]) => d.attempts >= 3 && d.mastery < 60)
+        .map(([id]) => id);
+      // Get error patterns from most recent test attempt
+      let errorPatterns = null;
+      if (practiceTestResults) {
+        const allAttempts = [];
+        Object.values(practiceTestResults).forEach(r => {
+          if (r?.attempts) allAttempts.push(...r.attempts);
+        });
+        allAttempts.sort((a, b) => new Date(b.completedAt) - new Date(a.completedAt));
+        if (allAttempts[0]?.diagnosticData?.errorPatterns?.counts) {
+          errorPatterns = allAttempts[0].diagnosticData.errorPatterns.counts;
+        }
+      }
+      if (weakSkillIds.length > 0 || errorPatterns) {
+        strategyCtx = { errorPatterns, weakSkillIds };
+      }
+    }
+
+    // Intelligence context from data loop
+    let intelligenceCtx = '';
+    if (studentFingerprint || interventionLog?.length > 0 || predictionLog?.length > 0) {
+      // Get approach guidance for current skills
+      let approachGuidance = null;
+      const currentSkills = practiceContext?.skills || [];
+      if (currentSkills.length > 0 && interventionLog?.length > 0) {
+        const effectiveness = computeApproachEffectiveness(interventionLog, currentSkills[0]);
+        approachGuidance = getRecommendedApproach(effectiveness, studentFingerprint, currentSkills);
+      } else if (studentFingerprint) {
+        approachGuidance = getRecommendedApproach(null, studentFingerprint, currentSkills);
+      }
+
+      const latestPrediction = predictionLog?.length > 0
+        ? predictionLog[predictionLog.length - 1]
+        : null;
+
+      intelligenceCtx = buildIntelligenceContext(
+        studentFingerprint,
+        latestPrediction,
+        interventionLog,
+        approachGuidance,
+        section
+      );
+    }
+
+    return { section, studentProfileStr, learningMemoryCtx, strategyCtx, intelligenceCtx };
+  };
+
+  // ── Prompt-cache pre-warm ────────────────────────────────────────────────
+  // When the panel opens, fire a max_tokens:0 warm request so the ~10k-token
+  // stable prefix is already in the Anthropic prompt cache before the student
+  // finishes typing their first message — the first reply then streams its
+  // first token seconds sooner. Best-effort and deduped per question: a failed
+  // or stale warm just means the old (cold) speed. Cost note: the cache write
+  // happens anyway on the first real message; the pre-warm only moves it
+  // earlier, so the marginal cost is panels opened with no message sent.
+  // DARK until the aiTutor function that understands prewarm:true is deployed:
+  // the OLD server would treat a pre-warm as a real buffered turn and generate
+  // a full (paid, invisible) reply on every panel open. Flip ON via
+  // REACT_APP_FF_TUTOR_PREWARM=true (or localStorage 'ff:tutorPrewarm'='1')
+  // only AFTER `firebase deploy --only functions`.
+  const prewarmEnabled = useFeatureFlag('tutorPrewarm');
+  const prewarmedKeyRef = useRef(null);
+  useEffect(() => {
+    if (!isOpen || !prewarmEnabled) return;
+    const key = `${moduleId}|${lessonId}|${practiceContext?.questionId || ''}`;
+    if (prewarmedKeyRef.current === key) return;
+    prewarmedKeyRef.current = key;
+    const { section, studentProfileStr, learningMemoryCtx, strategyCtx, intelligenceCtx } = buildPrefixContexts();
+    prewarmTutor({
+      currentModuleId: moduleId,
+      currentLessonId: lessonId,
+      studentProfile: studentProfileStr,
+      learningMemoryContext: learningMemoryCtx,
+      strategyContext: strategyCtx,
+      intelligenceContext: intelligenceCtx,
+      section,
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isOpen, prewarmEnabled, moduleId, lessonId, practiceContext?.questionId]);
+
   const handleSend = async (overrideText, regenBase) => {
     const now = Date.now();
     // overrideText lets a suggestion chip or the error Retry button send
@@ -1274,8 +1398,9 @@ Your goal is to build their problem-solving instincts. Every question they solve
         currentTime: videoTimestamp
       } : null;
 
-      // Subject of the active item — selects the system prompt + gates math-only context.
-      const section = practiceContext?.section === 'rw' ? 'rw' : 'math';
+      // Stable-prefix contexts — built through the SAME function as the
+      // pre-warm effect (byte-identity contract on buildPrefixContexts).
+      const { section, studentProfileStr, learningMemoryCtx, strategyCtx, intelligenceCtx } = buildPrefixContexts();
 
       // Next-item-correctness telemetry: remember which question the student is
       // asking the tutor about, so the drill answer path can later tell whether
@@ -1304,89 +1429,6 @@ Your goal is to build their problem-solving instincts. Every question they solve
       // prefix (it used to live in buildStudentProfile and busted the cache).
       if (newMessages.length > 6) {
         practiceContextStr += `\n\nSESSION NOTE: This is message ${newMessages.length} in the conversation. The student has been engaged for a while — maintain energy and keep explanations focused.`;
-      }
-
-      // Build student profile for personalization. Fold in the skill-history
-      // block (the +6pp lever): demonstrated level on THIS question's skills +
-      // related weak areas so the tutor calibrates depth. It is per-question
-      // stable, so passing it via the studentProfile param lands it in the
-      // cached (stable) prompt prefix.
-      const skillHistoryBlock = isPracticeQuestion
-        ? buildTutorSkillContext({ practiceTestResults, skills: practiceContext?.skills })
-        : '';
-      // Expert misconception map for THIS question's skill(s), distilled from the
-      // SAT knowledge graph. Lets the tutor name the root cause of a wrong answer
-      // from our own taxonomy instead of inferring it from a thin explanation.
-      // masteryPct selects the level-matched coaching tier (struggling/…/1500+);
-      // it only shifts on a bucket boundary, so the prefix stays cache-stable.
-      // Also per-question stable → rides the cached stable prefix.
-      let knowledgeMasteryPct;
-      if (isPracticeQuestion && skillProgress && Array.isArray(practiceContext?.skills)) {
-        for (const s of practiceContext.skills) {
-          const m = skillProgress[s]?.mastery;
-          if (typeof m === 'number') { knowledgeMasteryPct = m; break; }
-        }
-      }
-      const knowledgeBlock = isPracticeQuestion
-        ? buildTutorKnowledgeContext({ skills: practiceContext?.skills, masteryPct: knowledgeMasteryPct })
-        : '';
-      // Section-wide expert playbook (triage, elimination, Desmos judgment …) —
-      // constant per section, so it too rides the cached stable prefix.
-      const playbookBlock = isPracticeQuestion ? buildTutorPlaybookContext({ section }) : '';
-      const studentProfileStr = [buildStudentProfile(), skillHistoryBlock, playbookBlock, knowledgeBlock].filter(Boolean).join('\n\n');
-
-      // Build learning memory context for cross-session awareness
-      const learningMemoryCtx = (learningMemory || recentSessions.length > 0)
-        ? { memory: learningMemory, recentSessions }
-        : null;
-
-      // Build strategy context from error patterns and weak skills
-      let strategyCtx = null;
-      if (skillProgress) {
-        const weakSkillIds = Object.entries(skillProgress)
-          .filter(([_, d]) => d.attempts >= 3 && d.mastery < 60)
-          .map(([id]) => id);
-        // Get error patterns from most recent test attempt
-        let errorPatterns = null;
-        if (practiceTestResults) {
-          const allAttempts = [];
-          Object.values(practiceTestResults).forEach(r => {
-            if (r?.attempts) allAttempts.push(...r.attempts);
-          });
-          allAttempts.sort((a, b) => new Date(b.completedAt) - new Date(a.completedAt));
-          if (allAttempts[0]?.diagnosticData?.errorPatterns?.counts) {
-            errorPatterns = allAttempts[0].diagnosticData.errorPatterns.counts;
-          }
-        }
-        if (weakSkillIds.length > 0 || errorPatterns) {
-          strategyCtx = { errorPatterns, weakSkillIds };
-        }
-      }
-
-      // Build intelligence context from data loop
-      let intelligenceCtx = '';
-      if (studentFingerprint || interventionLog?.length > 0 || predictionLog?.length > 0) {
-        // Get approach guidance for current skills
-        let approachGuidance = null;
-        const currentSkills = practiceContext?.skills || [];
-        if (currentSkills.length > 0 && interventionLog?.length > 0) {
-          const effectiveness = computeApproachEffectiveness(interventionLog, currentSkills[0]);
-          approachGuidance = getRecommendedApproach(effectiveness, studentFingerprint, currentSkills);
-        } else if (studentFingerprint) {
-          approachGuidance = getRecommendedApproach(null, studentFingerprint, currentSkills);
-        }
-
-        const latestPrediction = predictionLog?.length > 0
-          ? predictionLog[predictionLog.length - 1]
-          : null;
-
-        intelligenceCtx = buildIntelligenceContext(
-          studentFingerprint,
-          latestPrediction,
-          interventionLog,
-          approachGuidance,
-          section
-        );
       }
 
       // Coach mode: when a structured mode is active, pass its id + a context
