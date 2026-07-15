@@ -343,8 +343,39 @@
 .cr-content .tb-formula-grid { margin: 6px 0 26px; }
 .cr-content .tb-formula-grid .tb-formula { margin: 0; border: 1px solid var(--cr-line); border-radius: 10px; padding: 16px; }
 
-/* ── Comparison / figure: figures lose the card frame, keep the caption ── */
+/* ── Comparison: flat side-by-side passages with hairline left rules — the
+   shared renderer draws white cards with 6px red/green top bars (the boxed
+   look the user rejected). ── */
 .cr-content .tb-comparison { margin: 6px 0 26px; }
+.cr-content .tb-compare-col {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 2px 0 2px 18px;
+}
+.cr-content .tb-compare-col--wrong { border-left: 3px solid rgba(191, 44, 35, 0.45); }
+.cr-content .tb-compare-col--right { border-left: 3px solid rgba(63, 122, 46, 0.45); }
+.cr-content .tb-compare-col--wrong .tb-caption { color: #bf2c23; }
+.cr-content .tb-compare-col--right .tb-caption { color: #3f7a2e; }
+.cr-content .tb-compare-col .tb-body { margin: 0; font-size: 1.03rem; }
+
+/* ── Badges (trapCard / strategyCard): quiet small-caps labels, not floating
+   pills with shadows. ── */
+.cr-content .tb-badge {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+}
+.cr-content .tb-badge--error { color: #bf2c23; }
+.cr-content .tb-badge--success { color: #3f7a2e; }
+.cr-content .tb-badge--strategy { color: var(--color-brand-primary, #ea580c); }
 .cr-content .tb-figure {
   background: transparent;
   border: none;
