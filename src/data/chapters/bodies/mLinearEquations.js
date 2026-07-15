@@ -1,11 +1,15 @@
 /**
  * Learn lesson body — Linear Equations & Lines (Math).
  *
- * TUTOR VOICE (adopted 2026-07-14, user-approved exemplar): coaching
- * direct-address — talks TO the student, anticipates the mistake before it
- * happens, everyday anchor first and formula second, concrete decision rules
- * ("the word 'per' IS the slope"). Lean structure unchanged: short headed
- * sections, 4 worked examples, 3 checkpoints. Gated by bodies.test.js.
+ * VOICE (adopted 2026-07-15, user-directed revision; this file is the
+ * exemplar): professional textbook narrative. Teaches directly in flowing
+ * prose — concept, why it works, how to apply it, where students commonly
+ * err — in the measured register of a well-edited textbook. Concrete
+ * real-world contexts are allowed when framed plainly as examples
+ * ("Consider a taxi fare of..."); extended metaphors, cute headings,
+ * pep-talk, and test-personification are out. Headings name the concept.
+ * Lean structure unchanged: short headed sections, 4 worked examples,
+ * 3 checkpoints. Gated by bodies.test.js.
  *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
@@ -18,67 +22,67 @@
 export const mLinearEquationsBlocks = [
   {
     type: 'text',
-    content: "Here's the only thing a line ever does: it starts somewhere and climbs at one steady rate. That's the whole equation — $y = mx + b$, where $b$ is where you start and $m$ is how fast you climb. Nearly every line question, no matter how wordy, is secretly asking one of two things: what's the rate, or what's the start?",
+    content: "Every linear equation describes the same underlying situation: a quantity that begins at some starting value and changes at a constant rate. The slope-intercept form $y = mx + b$ names both numbers directly — $b$ is the starting value and $m$ is the rate of change. Most questions about lines, however they are worded, reduce to identifying one of these two quantities.",
   },
 
-  { type: 'heading', content: 'Read a line like a taxi meter' },
+  { type: 'heading', content: 'Rate and starting value' },
   {
     type: 'text',
-    content: "Picture a taxi: a $\\$3$ flat fee the moment you sit down, then $\\$2$ per mile. The $3$ is $b$ — you pay it once, at the start. The $2$ is $m$ — it repeats every mile. Fare $= 2x + 3$. Every line in existence works like that meter: one fixed amount, one repeating amount. When a problem hands you a rate and a starting value, don't set anything up — you already have the line.",
+    content: "A linear relationship combines one fixed quantity with one repeating quantity. Consider a taxi fare consisting of a $\\$3$ base charge plus $\\$2$ per mile: the $3$ is paid once, at the start, so it is $b$; the $2$ recurs with every mile, so it is $m$. The fare after $x$ miles is $2x + 3$. Any situation built from a one-time amount and a per-unit amount has this same structure, and when a problem states a rate and a starting value, the equation of the line follows immediately — no setup is required.",
   },
   {
     type: 'text',
-    content: "One catch: the equation only shows you $m$ and $b$ after it's solved for $y$. If you're staring at $3x + 2y = 8$, the $3$ is **not** the slope — solve for $y$ first, then read. Reading numbers off an unsolved equation is the single easiest wrong answer to hand in on this topic.",
+    content: "One caution: the equation displays $m$ and $b$ only once it is solved for $y$. In $3x + 2y = 8$, the coefficient $3$ is **not** the slope. Rewrite the equation in slope-intercept form first, then read off the values. Reading coefficients from an unsolved equation is the most frequent error on this topic.",
   },
   {
     type: 'keyInsight',
-    content: 'A rate plus a starting amount IS the line: the rate is $m$, the start is $b$. The word "per" — per mile, per month, per ticket — is your slope signal, every time.',
+    content: 'A constant rate together with a starting amount defines a line: the rate is $m$ and the starting amount is $b$. The word "per" — per mile, per month, per ticket — identifies the rate, and therefore the slope.',
   },
 
   { type: 'heading', content: 'Slope from two points' },
   {
     type: 'text',
-    content: "Two points give you the slope: $m = \\dfrac{y_2 - y_1}{x_2 - x_1}$ — how much $y$ changed, over how much $x$ changed. Before you touch the numbers, decide which point is \"first,\" and keep it first on top **and** bottom. Swap the order in just one place and the sign flips with it — that's the classic slope mistake, and it turns a falling line into a rising one. Cheap insurance: glance at the two points. If $y$ drops as $x$ grows, your slope had better come out negative.",
+    content: "Two points determine the slope: $m = \\dfrac{y_2 - y_1}{x_2 - x_1}$ — the change in $y$ divided by the change in $x$. Subtract the coordinates in the same order in the numerator and the denominator. Reversing the order in only one place flips the sign of the result, turning a falling line into a rising one; this sign error is the standard mistake in slope calculations. A quick inspection guards against it: if $y$ decreases as $x$ increases, the slope must come out negative.",
   },
   {
     type: 'example',
     difficulty: 'Medium',
     problem: 'Find the slope of the line through $(-2,\\ 5)$ and $(4,\\ -7)$.',
     steps: [
-      { label: 'Pick an order and stick to it', content: 'Call $(-2, 5)$ the first point in both places: $m = \\dfrac{-7 - 5}{4 - (-2)}$.' },
+      { label: 'Subtract in a consistent order', content: 'Treat $(-2, 5)$ as the first point in both the numerator and the denominator: $m = \\dfrac{-7 - 5}{4 - (-2)}$.' },
       { label: 'Simplify', content: '$= \\dfrac{-12}{6} = -2$.' },
-      { label: 'Sanity-check the sign', content: 'As $x$ climbs from $-2$ to $4$, $y$ falls from $5$ to $-7$. Falling line, negative slope — the $-2$ checks out.' },
+      { label: 'Check the sign', content: 'As $x$ increases from $-2$ to $4$, $y$ decreases from $5$ to $-7$. A falling line has a negative slope, so $-2$ is consistent.' },
     ],
   },
 
-  { type: 'heading', content: 'Build the line from what you have' },
+  { type: 'heading', content: 'Writing the equation of a line' },
   {
     type: 'text',
-    content: "Once you know $m$ and any single point, the whole line is yours — the slope fixes the tilt, and one point pins that tilt in place. Drop the point into $y = mx + b$ and solve for $b$. Any known point works and they all give the same answer, so pick the one with the friendliest numbers. (Point-slope form $y - y_1 = m(x - x_1)$ does the same job in one move, if you like it better.)",
+    content: "A slope and any single point determine a line completely: the slope fixes the direction, and the point anchors the line in place. Substitute the known point into $y = mx + b$ and solve for $b$. Every point on the line produces the same value of $b$, so choose whichever point has the simplest coordinates. Point-slope form, $y - y_1 = m(x - x_1)$, accomplishes the same task in a single step and is worth using when the arithmetic is awkward.",
   },
   {
     type: 'example',
     difficulty: 'Medium',
     problem: 'A line passes through $(2, 3)$ and $(6, 11)$. Write its equation.',
     steps: [
-      { label: 'Slope first', content: '$m = \\dfrac{11 - 3}{6 - 2} = \\dfrac{8}{4} = 2$.' },
-      { label: 'Pin down b', content: 'Use $(2, 3)$: $3 = 2(2) + b$, so $b = -1$.' },
-      { label: 'Write it and test it', content: '$y = 2x - 1$. Feed it the other point: $2(6) - 1 = 11$. It reproduces both points, so it is the line.' },
+      { label: 'Find the slope', content: '$m = \\dfrac{11 - 3}{6 - 2} = \\dfrac{8}{4} = 2$.' },
+      { label: 'Solve for b', content: 'Substitute $(2, 3)$: $3 = 2(2) + b$, so $b = -1$.' },
+      { label: 'Write and verify', content: '$y = 2x - 1$. The second point confirms it: $2(6) - 1 = 11$. The equation reproduces both points, so it is correct.' },
     ],
   },
 
-  { type: 'heading', content: 'What m and b mean in a story' },
+  { type: 'heading', content: 'Interpreting m and b in context' },
   {
     type: 'text',
-    content: "This is the test's favorite disguise: hand you $C = 5x + 30$ for a gym plan and ask what the $30$ \"represents.\" Ask one question of each number: does it happen **once**, or **every time**? Once = $b$ (the join fee, the deposit, the starting amount). Every time = $m$ (the per-class charge, the monthly rate). Sort those two roles and the question is finished — there's nothing else to compute.",
+    content: "Applied questions present an equation such as $C = 5x + 30$ for a gym membership and ask what the $30$ represents. Classify each number by asking whether it occurs **once** or **with every unit**. A one-time quantity — a joining fee, a deposit, an initial amount — is the constant term $b$. A quantity that recurs with each unit — a per-class charge, a monthly rate — is the coefficient $m$. Assigning these two roles answers the question completely; no computation is involved.",
   },
   {
     type: 'table',
     headers: ['In the equation', 'What it means in words'],
     rows: [
-      ['$b$ (the constant)', 'Happens once: starting value, base fee, the $y$ when $x = 0$'],
-      ['$m$ (coefficient of $x$)', 'Happens every time: per hour, per item, per year'],
-      ['sign of $m$', 'Positive = growing, negative = shrinking'],
+      ['$b$ (the constant term)', 'Occurs once: the starting value, the base fee, the value of $y$ when $x = 0$'],
+      ['$m$ (the coefficient of $x$)', 'Occurs with every unit: per hour, per item, per year'],
+      ['the sign of $m$', 'Positive means the quantity grows; negative means it shrinks'],
     ],
   },
   {
@@ -86,56 +90,56 @@ export const mLinearEquationsBlocks = [
     difficulty: 'Easy',
     problem: 'A tank holds $y = 200 - 8x$ liters after $x$ minutes. What do $200$ and $-8$ mean?',
     steps: [
-      { label: 'The once number', content: '$200$ is $b$ — the liters in the tank before any time passes.' },
-      { label: 'The every-time number', content: '$-8$ is $m$ — the tank loses $8$ liters each minute. Negative slope, draining tank.' },
+      { label: 'The one-time number', content: '$200$ is $b$ — the amount in the tank before any time has passed.' },
+      { label: 'The per-unit number', content: '$-8$ is $m$ — the tank loses $8$ liters each minute. The negative slope indicates a draining tank.' },
     ],
   },
 
-  { type: 'heading', content: 'Parallel and perpendicular' },
+  { type: 'heading', content: 'Parallel and perpendicular lines' },
   {
     type: 'text',
-    content: "**Parallel** lines never meet because they climb at the same rate — same $m$, different $b$. **Perpendicular** slopes take two moves: flip the fraction, then switch the sign. $\\frac{2}{3}$ becomes $-\\frac{3}{2}$. Here's where points get dropped: almost everyone does one move and stops. Flip without negating (or negate without flipping) and the answer looks plausible — the test builds a wrong choice out of exactly that half-step.",
+    content: "**Parallel** lines never intersect because they change at the same rate — same $m$, different $b$. The slope of a **perpendicular** line is the negative reciprocal of the original: invert the fraction, then change the sign, so $\\frac{2}{3}$ becomes $-\\frac{3}{2}$. Both operations are required. Performing only one — inverting without negating, or negating without inverting — produces a plausible-looking result, and wrong answer choices are routinely constructed from exactly that half-step.",
   },
   {
     type: 'callout',
-    content: 'Perpendicular check: the two slopes must multiply to $-1$. If yours don\'t, you skipped a move — go back and find whether it was the flip or the sign.',
+    content: 'To verify a perpendicular slope, multiply the two slopes: the product must equal $-1$. If it does not, one of the two operations — the inversion or the sign change — was skipped.',
   },
   {
     type: 'example',
     difficulty: 'Hard',
     problem: 'Line $\\ell$ is perpendicular to $y = \\dfrac{3}{4}x + 5$ and passes through $(4, 1)$. Write its equation.',
     steps: [
-      { label: 'Both moves', content: 'Given slope $\\frac{3}{4}$: flip to $\\frac{4}{3}$, negate to $-\\frac{4}{3}$. Check: $\\frac{3}{4} \\cdot \\left(-\\frac{4}{3}\\right) = -1$.' },
-      { label: 'Pin down b', content: 'Use $(4, 1)$: $1 = -\\frac{4}{3}(4) + b = -\\frac{16}{3} + b$, so $b = \\frac{19}{3}$.' },
-      { label: 'Write it', content: '$y = -\\dfrac{4}{3}x + \\dfrac{19}{3}$.' },
+      { label: 'Apply both operations', content: 'Starting from $\\frac{3}{4}$: invert to $\\frac{4}{3}$, then negate to $-\\frac{4}{3}$. Verify: $\\frac{3}{4} \\cdot \\left(-\\frac{4}{3}\\right) = -1$.' },
+      { label: 'Solve for b', content: 'Substitute $(4, 1)$: $1 = -\\frac{4}{3}(4) + b = -\\frac{16}{3} + b$, so $b = \\frac{19}{3}$.' },
+      { label: 'Write the equation', content: '$y = -\\dfrac{4}{3}x + \\dfrac{19}{3}$.' },
     ],
   },
 
-  { type: 'heading', content: 'Intercepts are free points' },
+  { type: 'heading', content: 'Finding intercepts' },
   {
     type: 'text',
-    content: "Need a point on the line fast? Take an intercept — each one zeroes out a variable and leaves a one-step solve. Set $x = 0$ and you get the y-intercept; set $y = 0$ and you get the x-intercept. When a question shows a graph and asks which equation matches, check where the line crosses the axes before you test any full $(x, y)$ point — it's faster and much harder to fumble.",
+    content: "The intercepts are the fastest points to find on any line, because each one sets a variable to zero and leaves a one-step calculation. Setting $x = 0$ gives the y-intercept; setting $y = 0$ gives the x-intercept. When a question shows a graph and asks which equation matches it, compare where the line crosses the axes before testing any full $(x, y)$ point — the intercept check is quicker and less error-prone.",
   },
 
   { type: 'heading', content: 'Check yourself' },
   {
     type: 'checkpointQuestion',
     question: 'A line passes through $(0, 4)$ and $(3, 10)$. What are its slope and y-intercept?',
-    answer: '**Slope $= 2$, y-intercept $= 4$.** $m = \\frac{10 - 4}{3 - 0} = 2$ — and notice $(0, 4)$ already sits at $x = 0$, so $b = 4$ is free. No solving needed: the line is $y = 2x + 4$.',
+    answer: '**Slope $= 2$, y-intercept $= 4$.** $m = \\frac{10 - 4}{3 - 0} = 2$. Because $(0, 4)$ lies on the y-axis, it is itself the y-intercept, so $b = 4$ requires no solving. The line is $y = 2x + 4$.',
   },
   {
     type: 'checkpointQuestion',
     question: 'A line is parallel to $y = -5x + 1$ and passes through $(0, -2)$. What is its equation?',
-    answer: '**$y = -5x - 2$.** Parallel means copy the slope: $-5$. And $(0, -2)$ hands you $b = -2$ directly — both numbers were free.',
+    answer: '**$y = -5x - 2$.** Parallel lines share a slope, so $m = -5$. The point $(0, -2)$ lies on the y-axis, which gives $b = -2$ directly.',
   },
   {
     type: 'checkpointQuestion',
     question: 'A rental costs $C = 0.20m + 45$ dollars for $m$ miles driven. What do $0.20$ and $45$ mean, and what does 100 miles cost?',
-    answer: '**$0.20$ happens every mile — the rate (slope). $45$ happens once — the base fee (intercept). 100 miles costs $\\$65$:** $0.20(100) + 45 = 65$. The words "per mile" flagged the slope before you did any math.',
+    answer: '**$0.20$ is the per-mile rate — the slope. $45$ is the one-time base fee — the intercept. Driving 100 miles costs $\\$65$:** $0.20(100) + 45 = 65$. The phrase "per mile" identifies the slope before any calculation.',
   },
 
   {
     type: 'text',
-    content: "**The move, every time:** find the once number ($b$) and the every-time number ($m$). Two points give $m$; one point plus $m$ gives $b$; parallel copies $m$; perpendicular flips it *and* negates it.",
+    content: "**In summary:** identify the one-time quantity ($b$) and the per-unit quantity ($m$). Two points determine $m$; one point together with $m$ determines $b$; a parallel line copies $m$; a perpendicular line inverts $m$ and changes its sign.",
   },
 ];

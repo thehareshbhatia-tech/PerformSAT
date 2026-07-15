@@ -1,12 +1,12 @@
 /**
  * Learn lesson body — Inferences (Information and Ideas).
  *
- * TUTOR VOICE (adopted 2026-07-14, user-approved exemplar:
- * bodies/mLinearEquations.js): coaching direct-address — talks TO the student,
- * everyday anchor first ("closed room", "puzzle piece"), anticipates the trap
- * before it fires, concrete decision rules ("predict before you peek").
- * Invented passages and answer choices inside example blocks stay authentic
- * test material. Lean structure unchanged; gated by bodies.test.js.
+ * VOICE (adopted 2026-07-15, exemplar: mLinearEquations.js): professional
+ * textbook narrative — teaches directly in flowing prose (concept, why it
+ * works, how to apply, common errors) in the measured register of a
+ * well-edited textbook. Concrete contexts framed plainly as examples;
+ * extended metaphors, cute headings, and pep-talk are out. Headings name
+ * the concept. Gated by bodies.test.js.
  *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
@@ -15,47 +15,47 @@
 export const inferencesBlocks = [
   {
     type: 'text',
-    content: "An inference question — *\"which choice most logically completes the text\"* or *\"the passage implies\"* — isn't asking you to read between the lines. The word *infer* baits you into supplying your own reasoning, and that outside reasoning is exactly what the wrong answers are built to reward. What the question actually wants is the one conclusion the passage's facts **force** you to reach: no more, no less.",
+    content: "An inference question — *\"which choice most logically completes the text\"* or *\"the passage implies\"* — does not ask for reading between the lines. The word *infer* invites outside reasoning, and incorrect choices are routinely constructed to reward exactly that. What the question requires is the one conclusion the passage's facts **force**: no more, no less.",
   },
 
   { type: 'heading', content: 'What is actually tested' },
   {
     type: 'text',
-    content: "In English class an inference is a smart guess — you add what the author probably meant. On the SAT it's the reverse: the answer is already **contained in the facts on the page**, like the last puzzle piece whose shape is cut by the pieces around it. Run this test on any choice: if every stated fact can be true while the choice is false, it isn't forced — cut it. Treat the passage as a closed room. Nothing from outside gets in, including your own good ideas.",
+    content: "In a classroom, an inference is an informed guess that adds what the author probably meant. On the test the relationship is reversed: the answer is already **contained in the facts on the page**, determined entirely by the statements around it. Apply this test to any choice: if every stated fact can be true while the choice is false, the choice is not forced — eliminate it. Treat the passage as a self-contained body of evidence; nothing from outside it counts, including plausible ideas of your own.",
   },
 
-  { type: 'heading', content: 'Predict before you read the choices' },
+  { type: 'heading', content: 'Predicting before reading the choices' },
   {
     type: 'text',
-    content: "Finish the passage in your own words *before* you peek at the answers — ten words or fewer, rough is fine. Then shop for the choice that matches your prediction. Read the choices cold and *they* set the standard, and they're written to make wrong sound reasonable. Predict first and **you** set the standard — the choices just get graded against it.",
+    content: "Complete the passage in your own words *before* reading the answers — ten words or fewer, and a rough phrasing is sufficient. Then select the choice that matches the prediction. Reading the choices cold allows them to set the standard, and incorrect choices are written to sound reasonable in isolation. Predicting first reverses the arrangement: the prediction sets the standard, and each choice is graded against it.",
   },
   {
     type: 'keyInsight',
-    content: "The right answer usually feels small, even obvious. That's the design, not a warning sign. The clever-sounding choice is almost always the trap.",
+    content: "The correct answer usually reads as small, even obvious. That is by design, not a warning sign. The choice that sounds cleverest is very often incorrect.",
   },
 
   { type: 'heading', content: 'The right answer stays inside the text' },
   {
     type: 'text',
-    content: "The proof lives in the passage, but the answer won't use the passage's words — it's a **paraphrase** that says the forced idea in fresh words. So treat recycled wording as a red flag: a choice that echoes the passage exactly is cheap bait. And grade every choice by its weakest word — one unsupported word sinks the whole thing.",
+    content: "The proof lies in the passage, but the credited answer rarely uses the passage's words — it is a **paraphrase** that states the forced idea in fresh language. Recycled wording therefore deserves suspicion: a choice that echoes the passage exactly is a standard distractor construction. Grade every choice by its weakest word — a single unsupported word disqualifies the entire choice.",
   },
 
-  { type: 'heading', content: 'How wrong answers cheat' },
+  { type: 'heading', content: 'Patterns in incorrect choices' },
   {
     type: 'table',
-    headers: ['The trap', 'What it does', 'Tell'],
+    headers: ['Pattern', 'What it does', 'Identifying feature'],
     rows: [
-      ['Adds new info', 'Brings in a fact the passage never gave you', 'You have to *assume* something to pick it'],
-      ['Overstates', 'Widens a modest claim into a rule', 'Watch for *all, never, always, best, only, every*'],
-      ['Outside logic', "Sounds smart but the facts don't require it", 'A motive, a *should*, a prediction about the future'],
-      ['Word recycler', 'Reuses passage words with the meaning scrambled', 'Familiar phrases, but who-did-what is flipped'],
+      ['Adds new information', 'Introduces a fact the passage never supplies', 'Selecting it requires an *assumption*'],
+      ['Overstates', 'Widens a modest claim into a rule', '*all, never, always, best, only, every*'],
+      ['Outside logic', 'Sounds reasonable but is not required by the facts', 'A motive, a *should*, a prediction about the future'],
+      ['Recycled wording', 'Reuses passage words with the relationships altered', 'Familiar phrases, but who-did-what is reversed'],
     ],
   },
 
-  { type: 'heading', content: 'Let the transition word steer you' },
+  { type: 'heading', content: 'Transition words before the blank' },
   {
     type: 'text',
-    content: "One word right before the blank tells you what **kind** of statement belongs there — and kind gets decided before content. This is the fastest elimination you'll make on the whole question: a choice can be perfectly true and still be the wrong *kind* of statement for the slot, and you get to cut it without checking a single fact. Settle the kind first, then judge which surviving choice has the right content.",
+    content: "A single word immediately before the blank determines what **kind** of statement belongs there, and kind is decided before content. This yields the fastest elimination available on the question: a choice can be entirely true and still be the wrong *kind* of statement for the slot, in which case it can be eliminated without checking a single fact. Settle the kind first, then judge which surviving choice carries the right content.",
   },
   {
     type: 'table',
@@ -74,9 +74,9 @@ export const inferencesBlocks = [
     difficulty: 'Medium',
     problem: 'A café doubled its coffee prices, and it sold the same number of cups as before. The owner concluded that her regular customers ______\n\n(A) had been getting a bargain for years.\n(B) were not choosing the café based on price.\n(C) should be charged even more.',
     steps: [
-      { label: 'Predict first', content: "Prices doubled and sales didn't move — so price isn't what brings these customers in. Jot it: *they don't decide on price.*" },
-      { label: 'Match', content: "**(B)** says your prediction back to you in new words." },
-      { label: 'Kill the rest', content: "(A) adds a fact you were never given (that the old price was a bargain). (C) is a *should* — advice the facts don't force. Both walk out of the closed room." },
+      { label: 'Predict first', content: "Prices doubled and sales did not move, so price is not what brings these customers in. A working prediction: *they do not decide based on price.*" },
+      { label: 'Match', content: "**(B)** states the prediction in new words." },
+      { label: 'Eliminate the rest', content: "(A) adds a fact the passage never supplies (that the old price was a bargain). (C) is a *should* — a recommendation the facts do not force. Both reach outside the stated evidence." },
     ],
   },
   {
@@ -84,7 +84,7 @@ export const inferencesBlocks = [
     difficulty: 'Easy',
     problem: 'Of the town\'s forty firefighters, only three are trained to pilot the rescue helicopter. This means that ______\n\n(A) most of the firefighters cannot pilot the helicopter.\n(B) the town should train more pilots.',
     steps: [
-      { label: 'What do the numbers force?', content: "Three of forty can fly it, so thirty-seven of forty can't — and thirty-seven of forty is *most*. The arithmetic IS the inference." },
+      { label: 'Compute what the numbers force', content: "Three of forty can fly it, so thirty-seven of forty cannot — and thirty-seven of forty is *most*. The arithmetic itself is the inference." },
       { label: 'Match', content: "**(A)** — a straight restatement of the numbers. (B) is a recommendation the facts never make." },
     ],
   },
@@ -93,9 +93,9 @@ export const inferencesBlocks = [
     difficulty: 'Hard',
     problem: 'Early collectors transcribed the mountain ballads\' melodies with great care. However, ______\n\n(A) the melodies were preserved with remarkable accuracy.\n(B) they rewrote the lyrics freely to suit their own taste.',
     steps: [
-      { label: 'Read the transition', content: "The blank follows *however* — so before you weigh any content, you know its job: **contrast** with the careful preservation just described." },
-      { label: 'Test each choice', content: "(A) keeps the same idea going (still careful, still accurate) — wrong *kind* of statement after *however*. Cut it without checking a single fact." },
-      { label: 'Answer', content: "**(B)** delivers the contrast: careful with melodies, loose with lyrics. The transition word did most of the work for you." },
+      { label: 'Read the transition', content: "The blank follows *however*, which fixes its job before any content is weighed: it must **contrast** with the careful preservation just described." },
+      { label: 'Test each choice', content: "(A) continues the same idea (still careful, still accurate) — the wrong *kind* of statement after *however*. It can be eliminated without checking a single fact." },
+      { label: 'Select the answer', content: "**(B)** delivers the contrast: careful with the melodies, free with the lyrics. The transition word does most of the work." },
     ],
   },
 
@@ -104,9 +104,9 @@ export const inferencesBlocks = [
     difficulty: 'Medium',
     problem: 'The museum hangs its rarest paintings in a room with no windows, and it keeps the lights there dimmer than in any other gallery. This arrangement suggests that the paintings ______\n\n(A) are the most valuable works the museum owns.\n(B) are especially sensitive to light.\n(C) were painted more recently than the works in the other galleries.',
     steps: [
-      { label: 'Predict first', content: "No windows plus the dimmest lights in the building — the room exists to keep light off these paintings. Jot: *light must damage them.*" },
-      { label: 'Match', content: "**(B)** says exactly that, in new words — protecting them from light is only worth doing if light harms them." },
-      { label: 'Kill the rest', content: "(A) adds a fact you were never given: rare and carefully protected isn't the same as *most valuable*. (C) invents an age the passage never mentions. Both step outside the closed room." },
+      { label: 'Predict first', content: "No windows and the dimmest lights in the building indicate that the room exists to keep light off these paintings. Prediction: *light must damage them.*" },
+      { label: 'Match', content: "**(B)** states exactly that in new words — protecting the paintings from light is warranted only if light harms them." },
+      { label: 'Eliminate the rest', content: "(A) adds a fact the passage never supplies: rare and carefully protected is not the same as *most valuable*. (C) invents an age the passage never mentions. Both reach outside the stated facts." },
     ],
   },
 
@@ -114,21 +114,21 @@ export const inferencesBlocks = [
   {
     type: 'checkpointQuestion',
     question: 'A passage says a lab used radiocarbon dating to age a set of bones. A choice completes it with *radiocarbon dating is the best method for dating bone.* Keep it or cut it?',
-    answer: "**Cut it.** Using a method proves nothing about whether it's the *best* one — that's an overstatement the facts never force. Writing a note with a pen doesn't make pens the best pen. The most the text supports is that radiocarbon dating *can* be used on bone.",
+    answer: "**Cut it.** Using a method establishes nothing about whether it is the *best* method — that is an overstatement the facts never force. That a tool was used shows only that it can be used, not that it outperforms every alternative. The most the text supports is that radiocarbon dating *can* be used on bone.",
   },
   {
     type: 'checkpointQuestion',
     question: 'The blank follows *for example, ______.* One choice accurately restates the passage\'s overall conclusion. Keep it or cut it?',
-    answer: "**Cut it.** *For example* demands a specific instance of the idea just stated. A conclusion — even a perfectly correct one — is the wrong *kind* of statement for that slot. The transition word decides the kind before content ever gets a vote.",
+    answer: "**Cut it.** *For example* requires a specific instance of the idea just stated. A conclusion — even an entirely accurate one — is the wrong *kind* of statement for that slot. The transition word settles the kind before content is ever considered.",
   },
   {
     type: 'checkpointQuestion',
     question: 'A choice completing an inference reads *this method never fails.* The passage gave three separate cases where the method worked. Keep it or cut it?',
-    answer: "**Cut it.** Three successes can't force *never fails* — nothing in three good cases rules out a fourth that flops. The most the facts support is that the method *has worked before*. When two readings are on the table, the smaller claim is the safe one.",
+    answer: "**Cut it.** Three successes cannot force *never fails* — nothing in three favorable cases rules out a fourth that fails. The most the facts support is that the method *has worked before*. When two conclusions are both available, the smaller claim is the defensible one.",
   },
 
   {
     type: 'text',
-    content: "**The move, every time:** treat the passage as facts in a closed room → predict the ending in your own words → let the transition word set the *kind* of statement → pick the paraphrase that stays inside the facts, and drop anything that adds, overstates, or reaches outside.",
+    content: "**In summary:** treat the passage as a self-contained set of facts; predict the completion in your own words; let the transition word determine the *kind* of statement required; then select the paraphrase that stays inside the facts, eliminating any choice that adds, overstates, or reaches outside them.",
   },
 ];

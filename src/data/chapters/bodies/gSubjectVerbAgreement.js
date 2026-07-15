@@ -1,12 +1,12 @@
 /**
  * Learn lesson body — Subject-Verb Agreement (Standard English Conventions).
  *
- * TUTOR VOICE (adopted 2026-07-14, user-approved exemplar mLinearEquations.js):
- * coaching direct-address — talks TO the student, anticipates the mistake
- * before it happens, everyday anchor first and rule second, concrete decision
- * rules ("cross out the middle, then match"). Balanced-bump depth retained:
- * four worked examples, three check-yourself questions. Gated by
- * chapters/__tests__/bodies.test.js (lean contract).
+ * VOICE (adopted 2026-07-15, exemplar: mLinearEquations.js): professional
+ * textbook narrative — teaches directly in flowing prose (concept, why it
+ * works, how to apply, common errors) in the measured register of a
+ * well-edited textbook. Concrete contexts framed plainly as examples;
+ * extended metaphors, cute headings, and pep-talk are out. Headings name
+ * the concept. Gated by bodies.test.js.
  *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
@@ -15,41 +15,41 @@
 export const gSubjectVerbAgreementBlocks = [
   {
     type: 'text',
-    content: '*The dog barks. The dogs bark.* You\'ve matched subjects to verbs since before you could read — so why does a whole question type exist for it? Because the rule was never the skill. The skill is one thing: **can you still find the subject after the sentence buries it?** Every hard version of this question is just the subject hidden well.',
+    content: '*The dog barks. The dogs bark.* Matching a verb to its subject is automatic in simple sentences, which is why the tested versions are never simple. The rule itself is not the skill; the skill is **locating the subject after the sentence has buried it**. Every difficult version of this question is simply the subject well hidden.',
   },
 
   { type: 'heading', content: 'What is actually tested' },
   {
     type: 'text',
-    content: 'Here\'s the setup you\'ll face: extra words slide in between the subject and the verb, so the noun sitting closest to the verb is the *wrong* one. Your ear grabs that nearby noun, hears its number, and hands you the matching — wrong — verb. That miss happens in under a second, which is exactly why the trap works. Beat it by locating the true subject **before** you let your ear vote.',
+    content: 'The standard construction places extra words between the subject and the verb, so that the noun nearest the verb is not the subject. The ear registers that nearby noun, takes its number, and supplies the matching — incorrect — verb. The error occurs in under a second, which is why the construction is effective. The defense is to locate the true subject **before** judging the verb by sound.',
   },
 
   { type: 'heading', content: 'Step 1 — Find the subject' },
   {
     type: 'text',
-    content: 'Find the verb first, then ask out loud: **who or what is doing this?** That noun is the subject — the only word in the whole sentence the verb answers to. *The scientist **conducts** research* — who conducts? *Scientist*, singular, so *conducts*. Asking the who-is-doing-it question is what stops your ear from grabbing whatever noun happens to sit nearby.',
+    content: 'Locate the verb first, then ask **who or what performs the action**. That noun is the subject — the only word in the sentence whose number the verb must match. In *The scientist **conducts** research*, the one who conducts is the *scientist*, singular, so the verb is *conducts*. Framing the question this way prevents the ear from settling on whatever noun happens to sit nearest the verb.',
   },
 
   { type: 'heading', content: 'Step 2 — Cross out the middle' },
   {
     type: 'text',
-    content: 'The stuff between subject and verb exists to bury the subject — so unbury it, physically. Bracket out everything between them and read what\'s left. *The collection ~~of rare books~~ (is / are) on display* → *The collection **is** on display.* With the middle gone, the right verb is obvious. This one crossing-out habit defuses most of the questions in this skill.',
+    content: 'The material between subject and verb serves only to obscure the subject, and it can be removed without changing the grammar. Bracket out everything between the two and read what remains: *The collection ~~of rare books~~ (is / are) on display* → *The collection **is** on display.* With the interruption removed, the correct verb is evident. This single deletion step resolves most questions in this skill.',
   },
   {
     type: 'keyInsight',
-    content: 'The noun sitting right before the verb is usually a decoy, planted there on purpose. Match the verb to the **subject** — never to the nearest noun.',
+    content: 'The noun immediately before the verb is usually a distractor: incorrect choices are routinely built around it. Match the verb to the **subject** — never to the nearest noun.',
   },
 
-  { type: 'heading', content: 'The phrases that are always decoys' },
+  { type: 'heading', content: 'Interrupting phrases that never change the subject' },
   {
     type: 'text',
-    content: 'Some phrases add detail but *never* change the subject or its number — pure padding between subject and verb. Cross them out on sight: **of… · along with… · as well as… · including… · together with… · in addition to… · accompanied by… · rather than…** *The teacher, ~~along with her students~~, **is** leaving* — the subject is still just *teacher*, no matter how many students tag along. Watch *along with* especially: it feels like *and*, but it never makes a subject plural.',
+    content: 'Certain phrases add detail but *never* change the subject or its number — they are interruptions between subject and verb. Cross them out on sight: **of… · along with… · as well as… · including… · together with… · in addition to… · accompanied by… · rather than…** In *The teacher, ~~along with her students~~, **is** leaving*, the subject remains *teacher* alone, regardless of how many students accompany her. *Along with* deserves particular attention: it resembles *and* in meaning, but it never makes a subject plural.',
   },
 
-  { type: 'heading', content: 'The subjects people get wrong' },
+  { type: 'heading', content: 'Subjects with counterintuitive number' },
   {
     type: 'text',
-    content: 'A few subject types refuse to behave the way your ear expects — and those are exactly the ones the questions reach for. Get these cold and the hard versions turn routine:',
+    content: 'A few subject types take a number the ear does not expect, and these are precisely the types the questions favor. Knowing them outright makes the difficult versions routine:',
   },
   {
     type: 'table',
@@ -71,9 +71,9 @@ export const gSubjectVerbAgreementBlocks = [
     problem: 'The bouquet of roses that was picked for the ceremony ______ on the stage.\n\n(A) is\n(B) are',
     steps: [
       { label: 'Find the verb', content: 'The blank is the verb: ______ on the stage.' },
-      { label: 'Who is on the stage?', content: 'The **bouquet** — that\'s your subject.' },
-      { label: 'Cross out the middle', content: 'Delete *of roses* and *that was picked for the ceremony*. You\'re left with: *The bouquet ______ on the stage.*' },
-      { label: 'Match', content: '*Bouquet* is singular → **(A) is**. *Roses* sits right next to the blank precisely so you\'ll reach for *are* — that\'s the decoy doing its job.' },
+      { label: 'Identify the subject', content: 'What is on the stage is the **bouquet** — that noun is the subject.' },
+      { label: 'Cross out the middle', content: 'Delete *of roses* and *that was picked for the ceremony*. What remains: *The bouquet ______ on the stage.*' },
+      { label: 'Match the number', content: '*Bouquet* is singular → **(A) is**. *Roses* sits beside the blank precisely to invite *are* — the standard distractor placement.' },
     ],
   },
   {
@@ -81,8 +81,8 @@ export const gSubjectVerbAgreementBlocks = [
     difficulty: 'Easy',
     problem: 'The list of ingredients ______ printed on the back of the box.\n\n(A) is\n(B) are',
     steps: [
-      { label: 'Subject?', content: 'What is printed? The **list**, not the ingredients.' },
-      { label: 'Match', content: '*List* is singular → **(A) is**. *Of ingredients* is a decoy phrase — cross it out and the sentence reads *The list is printed.*' },
+      { label: 'Identify the subject', content: 'What is printed is the **list**, not the ingredients.' },
+      { label: 'Match the number', content: '*List* is singular → **(A) is**. *Of ingredients* is an interrupting phrase — remove it and the sentence reads *The list is printed.*' },
     ],
   },
   {
@@ -90,9 +90,9 @@ export const gSubjectVerbAgreementBlocks = [
     difficulty: 'Medium',
     problem: 'On the top shelf, beneath the old yearbooks, ______ the trophies the team won last spring.\n\n(A) sits\n(B) sit',
     steps: [
-      { label: 'Notice the sentence is flipped', content: 'It opens with location phrases, so the subject comes *after* the verb. Don\'t let *shelf* or *yearbooks* pull you in — neither one is doing anything.' },
-      { label: 'Who is doing the sitting?', content: 'The **trophies** sit there — that\'s your subject.' },
-      { label: 'Match', content: '*Trophies* is plural → **(B) sit**. When a sentence flips, hunt for the real subject after the verb and match that.' },
+      { label: 'Recognize the inversion', content: 'The sentence opens with location phrases, so the subject follows the verb. Neither *shelf* nor *yearbooks* performs the action.' },
+      { label: 'Identify the subject', content: 'The **trophies** are what sit there — that is the subject.' },
+      { label: 'Match the number', content: '*Trophies* is plural → **(B) sit**. In an inverted sentence, locate the true subject after the verb and match it.' },
     ],
   },
   {
@@ -100,9 +100,9 @@ export const gSubjectVerbAgreementBlocks = [
     difficulty: 'Hard',
     problem: 'Neither the director nor the producers ______ willing to change the ending.\n\n(A) was\n(B) were',
     steps: [
-      { label: 'Spot the pair', content: '*Neither…nor* — the verb matches the **nearer** noun, not both nouns together.' },
-      { label: 'Which noun is nearer?', content: '*Producers* (plural) sits right before the verb → **(B) were**.' },
-      { label: 'Prove the rule', content: 'Flip the order — *Neither the producers nor the director* — and the verb flips to *was*. It tracks whichever noun is closest, every time.' },
+      { label: 'Identify the construction', content: '*Neither…nor* — the verb matches the **nearer** noun, not the two nouns combined.' },
+      { label: 'Find the nearer noun', content: '*Producers* (plural) sits immediately before the verb → **(B) were**.' },
+      { label: 'Verify with the rule', content: 'Reversing the order — *Neither the producers nor the director* — changes the verb to *was*. The verb tracks whichever noun is nearer.' },
     ],
   },
 
@@ -110,21 +110,21 @@ export const gSubjectVerbAgreementBlocks = [
   {
     type: 'checkpointQuestion',
     question: 'The set of tools in the red toolbox (belong / belongs) to the mechanic. Which verb, and why?',
-    answer: '**belongs.** The subject is *set* — singular. Everything after it, *of tools in the red toolbox*, is describing-phrase padding. Cross it out and read what\'s left: *The set belongs.*',
+    answer: '**belongs.** The subject is *set* — singular. Everything after it, *of tools in the red toolbox*, is descriptive interruption. Remove it and read what remains: *The set belongs.*',
   },
   {
     type: 'checkpointQuestion',
     question: 'Every one of the applicants (was / were) interviewed twice. Which verb?',
-    answer: '**was.** *Every one* is singular no matter how many applicants stand behind it. *Of the applicants* is the decoy of-phrase — your ear hears the plural and reaches for *were*. Don\'t take the bait.',
+    answer: '**was.** *Every one* is singular regardless of how many applicants follow it. *Of the applicants* is the interrupting of-phrase — the ear registers the plural noun and supplies *were*, but the of-phrase never controls the verb.',
   },
   {
     type: 'checkpointQuestion',
     question: 'There (is / are) a notebook and two pens on the desk. Which verb?',
-    answer: '**are.** In a "there is/are" sentence the real subject comes after the verb — here it\'s *a notebook and two pens*, joined by *and*, so it\'s plural. Your ear votes *is* because *a notebook* comes first; the whole subject outvotes it.',
+    answer: '**are.** In a "there is/are" sentence the true subject follows the verb — here it is *a notebook and two pens*, joined by *and*, and therefore plural. The ear favors *is* because *a notebook* comes first, but the full compound subject is plural.',
   },
 
   {
     type: 'text',
-    content: '**The move, every time:** find the verb → ask who\'s doing it → cross out the describing phrases → match. Buried, flipped, or one of the tricky types above — the same four-step move gets all of them.',
+    content: '**In summary:** find the verb, ask who or what performs the action, cross out the interrupting phrases, and match. Whether the subject is buried, inverted, or one of the counterintuitive types above, the same four-step method applies.',
   },
 ];

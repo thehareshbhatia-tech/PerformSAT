@@ -1,11 +1,12 @@
 /**
  * Learn lesson body — Sentence Boundaries (joining, run-ons, fragments).
  *
- * TUTOR VOICE (adopted 2026-07-14, user-approved exemplar mLinearEquations.js):
- * coaching direct-address — talks TO the student, anticipates the mistake
- * before it happens, everyday anchor first and rule second, concrete decision
- * rules ("count the complete sentences, then pick"). Lean structure unchanged;
- * gated by chapters/__tests__/bodies.test.js (lean contract).
+ * VOICE (adopted 2026-07-15, exemplar: mLinearEquations.js): professional
+ * textbook narrative — teaches directly in flowing prose (concept, why it
+ * works, how to apply, common errors) in the measured register of a
+ * well-edited textbook. Concrete contexts framed plainly as examples;
+ * extended metaphors, cute headings, and pep-talk are out. Headings name
+ * the concept. Gated by bodies.test.js.
  *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
@@ -14,19 +15,19 @@
 export const gSentenceBoundariesBlocks = [
   {
     type: 'text',
-    content: "Here's the whole game in one question: **how many complete sentences are touching that punctuation mark — one, or two?** Count them and the answer picks itself. Don't listen for a pause, and don't ask which choice sounds smoothest — your ear will lie to you all day on this one. Count.",
+    content: "Every boundary question reduces to a single count: **how many complete sentences touch the punctuation mark — one, or two?** That count determines the answer. Judging by sound — listening for a pause, or choosing whichever option reads most smoothly — is unreliable here, because incorrect joins routinely sound natural. Count the complete sentences instead.",
   },
 
   { type: 'heading', content: 'What counts as a complete sentence' },
   {
     type: 'text',
-    content: "A complete sentence has a subject, a verb, and no hanging opener. Say *The reef recovered.* out loud — done, finished, it stands alone. Now say *Because the reef recovered* and stop. Feel that? You're left waiting for the payoff. Words like *because, although, when, since, if,* and *while* create that wait — a clause that opens with one of them can't stand alone, no matter how many words follow it.",
+    content: "A complete sentence contains a subject and a verb and does not open with a subordinating word. *The reef recovered.* expresses a finished thought and stands alone. *Because the reef recovered*, by contrast, leaves the thought unresolved — the reader is still waiting for the consequence. Words such as *because, although, when, since, if,* and *while* create that dependence: a clause that opens with one of them cannot stand alone, however many words follow it.",
   },
 
-  { type: 'heading', content: 'Joining two complete sentences: three legal moves' },
+  { type: 'heading', content: 'Joining two complete sentences' },
   {
     type: 'text',
-    content: "When a complete sentence sits on **each** side of the seam, you have exactly three ways to join them, and only three: a **period**, a **semicolon**, or a **comma + a FANBOYS word** (*and, but, or, so, for, nor, yet*). Here's where your ear betrays you: the two ideas feel connected, so a bare comma feels friendly and right. Connection is not a license. If the sentences belong together, that's exactly what the semicolon was built for — and comma + FANBOYS does the same job while naming the relationship out loud. A lone comma is not on the list, ever.",
+    content: "When a complete sentence sits on **each** side of the boundary, exactly three joins are grammatical: a **period**, a **semicolon**, or a **comma + a FANBOYS word** (*and, but, or, so, for, nor, yet*). The common error arises from meaning: because the two ideas are closely related, a bare comma feels appropriate. Relatedness does not license a comma. When two sentences belong together, the semicolon exists for precisely that purpose, and comma + FANBOYS performs the same join while stating the relationship explicitly. A lone comma is never among the grammatical options.",
   },
   {
     type: 'table',
@@ -39,29 +40,29 @@ export const gSentenceBoundariesBlocks = [
   },
   {
     type: 'keyInsight',
-    content: 'A period and a semicolon do the **exact same job** — a full stop between two complete sentences. So when two answer choices are just "period" and "semicolon," cross out **both**: a question has one answer, and twins can\'t both be it. That\'s two eliminations before you\'ve even parsed the sentence.',
+    content: 'A period and a semicolon perform the **same grammatical function** — a full stop between two complete sentences. When two answer choices offer only "period" and "semicolon," eliminate **both**: a question has one correct answer, and two equivalent choices cannot both be it. That is two eliminations available before the sentence is even parsed.',
   },
 
   { type: 'heading', content: 'The two illegal joins' },
   {
     type: 'text',
-    content: "Two complete sentences held together by a lone **comma** is a *comma splice*. Held together by **nothing** is a *run-on*. Both are wrong every single time — no matter how short the sentences are or how tightly the ideas hug each other. *The reef recovered, it now supports hundreds of species* is a splice. Upgrade that comma: period, semicolon, or comma + *and*.",
+    content: "Two complete sentences joined by a lone **comma** form a *comma splice*; joined by **nothing at all**, they form a *run-on*. Both constructions are always incorrect, regardless of how short the sentences are or how closely the ideas relate. *The reef recovered, it now supports hundreds of species* is a splice. The repair replaces the comma with a period, a semicolon, or comma + *and*.",
   },
 
   { type: 'heading', content: 'Attaching an incomplete piece' },
   {
     type: 'text',
-    content: "An incomplete piece — a *because* / *although* clause, a list, a description with no verb — hangs onto a complete sentence with a plain **comma**. And once the left side is a complete sentence, a **colon** or a **dash** can also introduce what follows. *Although the survey found damage, the reef held.* — *The reef held: the coral had adapted.*",
+    content: "An incomplete piece — a *because* / *although* clause, a list, a description with no verb — attaches to a complete sentence with a plain **comma**. When the left side is itself a complete sentence, a **colon** or a **dash** may also introduce what follows. *Although the survey found damage, the reef held.* — *The reef held: the coral had adapted.*",
   },
 
-  { type: 'heading', content: 'The fast method: count, then pick' },
+  { type: 'heading', content: 'The method: count, then choose' },
   {
     type: 'steps',
     items: [
-      'Read the whole sentence — not just the four words hugging the punctuation.',
-      'Count each side: complete sentence, or incomplete piece?',
-      'Two complete sentences → period, semicolon, or comma + FANBOYS. Nothing else.',
-      'One side incomplete → a comma (a colon or dash also works when the left side is complete).',
+      'Read the whole sentence, not only the words immediately surrounding the punctuation.',
+      'Classify each side: complete sentence, or incomplete piece.',
+      'Two complete sentences → period, semicolon, or comma + FANBOYS; no other join is grammatical.',
+      'One side incomplete → a comma (a colon or dash is also acceptable when the left side is complete).',
     ],
   },
 
@@ -71,10 +72,10 @@ export const gSentenceBoundariesBlocks = [
     difficulty: 'Medium',
     problem: 'The museum’s new wing opened last spring ______ already draws record crowds.\n\n(A) spring, it\n(B) spring; it\n(C) spring it\n(D) spring, however it',
     steps: [
-      { label: 'Count the sides', content: '*The museum’s new wing opened last spring* stands alone; *it already draws record crowds* stands alone too — the pronoun *it* is a real subject.' },
-      { label: 'Two sentences → three legal moves', content: 'You want a period, a semicolon, or a comma + FANBOYS at that seam. Nothing else qualifies.' },
-      { label: 'Kill the illegal joins', content: '(A) is a comma alone — splice. (C) is nothing — run-on. (D) sneaks in *however*, but *however* has no gluing power; comma + *however* is still a splice.' },
-      { label: 'Answer', content: '**(B)** — the semicolon is one of your three legal moves.' },
+      { label: 'Classify each side', content: '*The museum’s new wing opened last spring* stands alone; *it already draws record crowds* also stands alone — the pronoun *it* serves as a full subject.' },
+      { label: 'Identify the grammatical joins', content: 'Two complete sentences permit a period, a semicolon, or a comma + FANBOYS at the boundary — nothing else qualifies.' },
+      { label: 'Eliminate the illegal joins', content: '(A) is a comma alone — a splice. (C) is nothing — a run-on. (D) inserts *however*, but *however* is an adverb with no joining power; comma + *however* remains a splice.' },
+      { label: 'Select the answer', content: '**(B)** — the semicolon is one of the three grammatical joins.' },
     ],
   },
   {
@@ -82,10 +83,10 @@ export const gSentenceBoundariesBlocks = [
     difficulty: 'Hard',
     problem: 'The team had one goal ______ a finished bridge before the first snow.\n\n(A) goal; a\n(B) goal. A\n(C) goal: a\n(D) goal a',
     steps: [
-      { label: 'Count the sides', content: '*The team had one goal* stands alone. *a finished bridge before the first snow* has no verb — it\'s **incomplete**.' },
-      { label: 'Full stops need two sentences', content: 'A period and a semicolon each demand a complete sentence on both sides, so (A) and (B) die on the fragment.' },
-      { label: 'Colon fits', content: 'A colon is legal when the left side is complete and what follows unpacks it — and the bridge is exactly what the goal was → **(C)**.' },
-      { label: 'Reject the run-on', content: '(D) jams the two pieces together with no mark at all.' },
+      { label: 'Classify each side', content: '*The team had one goal* stands alone. *a finished bridge before the first snow* contains no verb — it is **incomplete**.' },
+      { label: 'Eliminate the full stops', content: 'A period and a semicolon each require a complete sentence on both sides, so (A) and (B) fail on the fragment.' },
+      { label: 'Apply the colon rule', content: 'A colon is grammatical when the left side is complete and what follows explains it — the bridge is precisely what the goal was → **(C)**.' },
+      { label: 'Reject the run-on', content: '(D) joins the two pieces with no mark at all.' },
     ],
   },
   {
@@ -93,8 +94,8 @@ export const gSentenceBoundariesBlocks = [
     difficulty: 'Easy',
     problem: 'The rehearsal ran late ______ actors stayed to finish the scene.\n\n(A) late, the\n(B) late, so the\n(C) late the',
     steps: [
-      { label: 'Count the sides', content: '*The rehearsal ran late* stands alone; *the actors stayed to finish the scene* stands alone.' },
-      { label: 'Pick the legal move', content: 'Two complete sentences take a comma **only with** a FANBOYS word → **(B)** comma + *so*. (A) comma alone is a splice; (C) nothing is a run-on.' },
+      { label: 'Classify each side', content: '*The rehearsal ran late* stands alone; *the actors stayed to finish the scene* stands alone.' },
+      { label: 'Choose the grammatical join', content: 'Two complete sentences take a comma **only with** a FANBOYS word → **(B)** comma + *so*. (A), a comma alone, is a splice; (C), with no mark, is a run-on.' },
     ],
   },
 
@@ -103,9 +104,9 @@ export const gSentenceBoundariesBlocks = [
     difficulty: 'Medium',
     problem: 'Although the recipe looked complicated ______ took only twenty minutes to prepare.\n\n(A) , it\n(B) ; it\n(C) it',
     steps: [
-      { label: 'Count the sides', content: '*Although the recipe looked complicated* opens with *although* — say it and stop, and you\'re left hanging. **Incomplete.** *it took only twenty minutes to prepare* stands alone.' },
-      { label: 'One side incomplete → comma', content: 'An opening dependent clause hangs onto the complete sentence after it with a **comma** → **(A)**.' },
-      { label: 'Kill the rest', content: '(B) a semicolon demands a complete sentence on its *left*, and the *Although* clause isn\'t one. (C) glues the two pieces together with no mark at all.' },
+      { label: 'Classify each side', content: '*Although the recipe looked complicated* opens with *although*, so it cannot stand alone — it is **incomplete**. *it took only twenty minutes to prepare* stands alone.' },
+      { label: 'Apply the comma rule', content: 'An opening dependent clause attaches to the complete sentence after it with a **comma** → **(A)**.' },
+      { label: 'Eliminate the rest', content: '(B) fails because a semicolon requires a complete sentence on its *left*, and the *Although* clause is not one. (C) joins the two pieces with no mark at all.' },
     ],
   },
 
@@ -113,21 +114,21 @@ export const gSentenceBoundariesBlocks = [
   {
     type: 'checkpointQuestion',
     question: 'The lecture ended early, the students lingered to ask questions. Legal, or a comma splice? How would you fix it?',
-    answer: '**Comma splice.** Both sides stand alone, so a lone comma can\'t hold them. You have three fixes: a period (*early. The*), a semicolon (*early; the*), or comma + FANBOYS (*early, and the*) — any of the three is legal.',
+    answer: '**Comma splice.** Both sides stand alone, so a lone comma cannot join them. Three repairs are available: a period (*early. The*), a semicolon (*early; the*), or comma + FANBOYS (*early, and the*) — any of the three is grammatical.',
   },
   {
     type: 'checkpointQuestion',
     question: 'Two of the four answer choices are "word. Next" and "word; next." Can either one be correct? Why?',
-    answer: '**No — cross out both.** A period and a semicolon are the same move: a full stop between two complete sentences. If one worked, the other would too, and a question only gets one answer. Twin choices eliminate each other — that\'s two down for free.',
+    answer: '**No — eliminate both.** A period and a semicolon perform the same function: a full stop between two complete sentences. If one were correct, the other would be as well, and a question has only one answer. Equivalent choices therefore eliminate each other.',
   },
   {
     type: 'checkpointQuestion',
     question: 'Because the trail was icy, the rangers closed it for the weekend. Is that comma legal, or a splice?',
-    answer: '**Legal.** *Because the trail was icy* opens with *because*, so it\'s an incomplete piece — and an opening dependent clause takes a comma before the complete sentence that follows. A splice needs a *complete* sentence on both sides of the comma; here the left side can\'t stand alone, so this is the ordinary "incomplete + complete → comma" rule doing its job.',
+    answer: '**Legal.** *Because the trail was icy* opens with *because*, so it is an incomplete piece — and an opening dependent clause takes a comma before the complete sentence that follows. A splice requires a *complete* sentence on both sides of the comma; here the left side cannot stand alone, so this is the ordinary incomplete + complete → comma pattern.',
   },
 
   {
     type: 'text',
-    content: '**The move, every time:** count the complete sentences touching the mark. Two → period, semicolon, or comma + FANBOYS. One side incomplete → a comma (or a colon / dash after a complete left side). A lone comma between two complete sentences is always wrong — no matter how good it sounds.',
+    content: '**In summary:** count the complete sentences touching the mark. Two → period, semicolon, or comma + FANBOYS. One side incomplete → a comma (or a colon / dash after a complete left side). A lone comma between two complete sentences is always incorrect, however natural it sounds.',
   },
 ];

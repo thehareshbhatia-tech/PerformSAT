@@ -1,11 +1,12 @@
 /**
  * Learn lesson body — Commas & Nonessential Elements (Standard English Conventions).
  *
- * TUTOR VOICE (adopted 2026-07-14, user-approved exemplar mLinearEquations.js):
- * coaching direct-address — talks TO the student, anticipates the mistake
- * before it happens, everyday anchor first and rule second, concrete decision
- * rules ("cover the phrase and reread"). Lean structure unchanged; gated by
- * chapters/__tests__/bodies.test.js (lean contract).
+ * VOICE (adopted 2026-07-15, exemplar: mLinearEquations.js): professional
+ * textbook narrative — teaches directly in flowing prose (concept, why it
+ * works, how to apply, common errors) in the measured register of a
+ * well-edited textbook. Concrete contexts framed plainly as examples;
+ * extended metaphors, cute headings, and pep-talk are out. Headings name
+ * the concept. Gated by bodies.test.js.
  *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
@@ -14,74 +15,74 @@
 export const gCommasBlocks = [
   {
     type: 'text',
-    content: 'Every comma question is secretly the same question: **if I covered this phrase, would you still know which one I mean?** Extra info gets commas. Identifying info gets none. Forget the pause-for-breath comma you learned in school — the test never rewards it. Ask the extra-or-needed question first, every time, and the rest of this lesson falls out of it.',
+    content: 'Nearly every comma question reduces to one distinction: does the phrase supply extra information or identifying information? **Extra information takes commas; identifying information takes none.** The pause-for-breath comma taught informally is never the basis of a correct answer. Apply the extra-or-identifying test first, and most comma decisions follow from it.',
   },
 
-  { type: 'heading', content: 'The remove-it test' },
+  { type: 'heading', content: 'The removal test' },
   {
     type: 'text',
-    content: 'Cover the phrase and read the sentence without it. Still makes sense, still points at the same thing? The phrase is **extra** — wall it off with a comma (or a matching pair). Does removing it leave you asking *which one?* Then the phrase is **essential** — no commas anywhere near it. *My brother, who lives in Denver, is visiting* → cover *who lives in Denver* and you still know exactly who\'s visiting → extra → commas.',
+    content: 'Cover the phrase and read the sentence without it. If the sentence still makes sense and still refers to the same thing, the phrase is **extra** — set it off with a comma or a matching pair. If removing it leaves the question *which one?* unanswered, the phrase is **essential** and takes no commas. In *My brother, who lives in Denver, is visiting*, covering *who lives in Denver* leaves the referent perfectly clear — the clause is extra, so it takes commas.',
   },
 
-  { type: 'heading', content: 'Essential info gets NO commas' },
+  { type: 'heading', content: 'Essential elements take no commas' },
   {
     type: 'text',
-    content: 'When a phrase is doing the job of telling you *which one*, deleting it breaks the sentence — so it rides comma-free. *The student who scored highest won a prize* — take out *who scored highest* and you\'ve lost which student we\'re talking about. Essential. No commas.',
+    content: 'When a phrase identifies *which one*, deleting it removes information the sentence depends on, so it takes no commas. In *The student who scored highest won a prize*, removing *who scored highest* loses which student is meant. The clause is essential, and it is written without commas.',
   },
   {
     type: 'keyInsight',
-    content: 'Commas around a phrase make a promise: **"delete this and you lose nothing."** If deleting it loses the meaning, the commas are lying — and lying commas are wrong.',
+    content: 'Commas around a phrase assert that the phrase is removable — **the sentence loses nothing without it.** If deleting the phrase changes the meaning, the commas make a false claim and are incorrect.',
   },
 
   { type: 'heading', content: 'That vs which / who' },
   {
     type: 'text',
-    content: '*That* is **always** essential, so a comma never sits in front of it: *the report that changed everything*. Put commas around a *which* or *who* clause and you\'ve flipped its meaning to "extra, by the way": *the report, which changed everything, ...*. Same words, different claim — the commas alone decide it. When you spot *, that* in an answer choice, cross it out on sight.',
+    content: 'A clause beginning with *that* is **always** essential, so a comma never precedes it: *the report that changed everything*. Commas around a *which* or *who* clause mark it as extra, incidental information: *the report, which changed everything, ...*. The words are identical; the commas alone determine which claim the sentence makes. An answer choice containing *, that* can be eliminated immediately.',
   },
 
-  { type: 'heading', content: 'Names: one of many, or the only one?' },
+  { type: 'heading', content: 'Names as essential or extra information' },
   {
     type: 'text',
-    content: 'Before you comma a name, ask one question: does the noun in front of it **already point to one person**? Only one exists → the name is extra → commas. Several exist → the name is doing the identifying → no commas.',
+    content: 'To punctuate a name, ask whether the noun before it **already identifies one unique person**. If only one such person exists, the name is extra and takes commas. If several exist, the name performs the identification and takes none.',
   },
   {
     type: 'table',
     headers: ['Sentence', 'Commas?', 'Why'],
     rows: [
       ['*Her only sister, Maren, called.*', 'Yes', 'Only one sister — the name is extra'],
-      ['*The poet Maren Vale spoke.*', 'No', 'One poet of many — the name says which'],
+      ['*The poet Maren Vale spoke.*', 'No', 'One poet among many — the name identifies which'],
       ['*microbiologist Ana Reyes*', 'No', 'A title before a name never takes a comma'],
     ],
   },
 
-  { type: 'heading', content: 'A mid-sentence aside needs a matching pair' },
+  { type: 'heading', content: 'Matching punctuation around interruptions' },
   {
     type: 'text',
-    content: 'Interrupt a sentence and you owe it a matched set: comma…comma or dash…dash — never one of each. *The results — surprising to everyone, were published.* opens with a dash and tries to close with a comma. That mismatch is easy to sail past, because your eye checks the first mark and coasts. Check both ends: *The results — surprising to everyone — were published.*',
+    content: 'An interrupting phrase requires a matched set of marks: comma…comma or dash…dash — never one of each. *The results — surprising to everyone, were published.* opens with a dash and closes with a comma. Mismatches of this kind are easy to overlook, because a reader verifies the first mark and skims past the second. Check both ends: *The results — surprising to everyone — were published.*',
   },
 
-  { type: 'heading', content: 'Every comma needs a job' },
+  { type: 'heading', content: 'Every comma must serve a function' },
   {
     type: 'text',
-    content: 'Treat every comma as guilty until it names its job. If you can\'t say what a comma is doing, delete it. The legal jobs:',
+    content: 'A comma is justified only by an identifiable function; a comma whose function cannot be named should be deleted. The recognized functions:',
   },
   {
     type: 'table',
-    headers: ['Job', 'Example'],
+    headers: ['Function', 'Example'],
     rows: [
       ['Separate items in a list', '*red, white, and blue*'],
-      ['After an opener', '*After the storm, we left.*'],
-      ['One half of a matching aside pair', '*Ravi, our captain, agreed.*'],
-      ['Before a FANBOYS joining two full sentences', '*She ran, and he walked.*'],
+      ['After an introductory phrase', '*After the storm, we left.*'],
+      ['One half of a matched pair around extra information', '*Ravi, our captain, agreed.*'],
+      ['Before a FANBOYS conjunction joining two full sentences', '*She ran, and he walked.*'],
     ],
   },
   {
     type: 'callout',
-    content: 'The forbidden one: a comma **never splits a subject from its verb**, no matter how long the subject runs. *The students who studied all week, passed.* is wrong — that comma has no job. Long subjects beg for a breath-comma; don\'t give them one.',
+    content: 'One placement is never correct: a comma **never separates a subject from its verb**, however long the subject runs. *The students who studied all week, passed.* is wrong — the comma serves no function. Long subjects invite an intuitive pause-comma; the convention does not permit one.',
   },
   {
     type: 'tip',
-    content: 'An embedded question ends with a **period**, not a question mark: *She asked whether it worked.* The sentence is telling you something, not asking you anything — *whether* is your tell.',
+    content: 'An embedded question ends with a **period**, not a question mark: *She asked whether it worked.* The sentence reports information rather than posing a question — the word *whether* signals the embedded form.',
   },
 
   { type: 'heading', content: 'Worked examples' },
@@ -90,9 +91,9 @@ export const gCommasBlocks = [
     difficulty: 'Medium',
     problem: 'The novel ______ won every major award that year, sold millions of copies.\n\n(A) , which\n(B) that\n(C) which\n(D) , that',
     steps: [
-      { label: 'Read the claim', content: 'The phrase adds a fact about the novel, but you already know which novel — so it\'s **extra**.' },
-      { label: 'Extra means comma + which', content: '*That* never takes a comma, which kills (B) and (D) on sight. Bare *which* (C) would claim the phrase is essential — it isn\'t.' },
-      { label: 'Answer', content: '**(A) , which** — the comma\'d *which* marks the aside correctly.' },
+      { label: 'Classify the phrase', content: 'The phrase adds a fact about the novel, but the novel is already identified — the phrase is **extra**.' },
+      { label: 'Apply the that/which rule', content: '*That* marks an essential clause and never follows a comma, which eliminates (B) and (D). Bare *which* in (C) would present the phrase as essential — it is not.' },
+      { label: 'Answer', content: '**(A) , which** — the comma with *which* correctly marks the extra information.' },
     ],
   },
   {
@@ -100,9 +101,9 @@ export const gCommasBlocks = [
     difficulty: 'Medium',
     problem: 'Choose the correct version:\n\n(A) The chemist, Rosa Lind, discovered the compound.\n(B) The chemist Rosa Lind discovered the compound.',
     steps: [
-      { label: 'One of many, or the only one?', content: '*The chemist* doesn\'t point to one person by itself — the name is telling you **which** chemist.' },
-      { label: 'Identifying = no commas', content: 'The name identifies, so it\'s essential. Commas here would falsely promise there\'s only one chemist in play.' },
-      { label: 'Answer', content: '**(B)** — no commas. (Compare *microbiologist Ana Reyes*: a title in front of a name never takes one.)' },
+      { label: 'Test for uniqueness', content: '*The chemist* does not identify one unique person by itself — the name specifies **which** chemist.' },
+      { label: 'Apply the rule', content: 'The name is identifying, so it is essential. Commas here would incorrectly assert that only one chemist is under discussion.' },
+      { label: 'Answer', content: '**(B)** — no commas. Compare *microbiologist Ana Reyes*: a title before a name never takes a comma.' },
     ],
   },
   {
@@ -110,9 +111,9 @@ export const gCommasBlocks = [
     difficulty: 'Hard',
     problem: 'The bridge, a marvel of engineering ______ reopened last spring.\n\n(A) ,\n(B) —\n(C) (no mark)\n(D) ;',
     steps: [
-      { label: 'Spot the open bracket', content: 'A comma already opened an aside after *bridge*: *, a marvel of engineering*. An open aside has to close.' },
-      { label: 'Match the mark', content: 'It opened with a comma, so it closes with a **comma** — like closes like. The dash in (B) would make a mismatched pair.' },
-      { label: 'Answer', content: '**(A) ,** — the pair is comma…comma. A semicolon (D) would strand a fragment on one side.' },
+      { label: 'Identify the opened pair', content: 'A comma has already opened an interruption after *bridge*: *, a marvel of engineering*. An opened interruption must close.' },
+      { label: 'Match the opening mark', content: 'The interruption opened with a comma, so it closes with a **comma** — the two marks must match. The dash in (B) would create a mismatched pair.' },
+      { label: 'Answer', content: '**(A) ,** — the pair is comma…comma. A semicolon in (D) would leave a fragment on one side.' },
     ],
   },
 
@@ -121,9 +122,9 @@ export const gCommasBlocks = [
     difficulty: 'Medium',
     problem: 'The students who studied together every night ______ the hardest exam of the term.\n\n(A) , passed\n(B) passed\n(C) passed,',
     steps: [
-      { label: 'Find the subject and verb', content: 'The subject is *The students who studied together every night* — that *who* clause tells you **which** students, so it\'s essential and rides comma-free. The verb is *passed*.' },
-      { label: 'No comma splits them', content: 'A comma between a subject and its verb has no legal job, however long the subject runs → **(B)**.' },
-      { label: 'Reject the rest', content: '(A) drops a lone comma right in front of the verb; (C) strands one between *passed* and its object *the hardest exam*. Ask either comma its job — silence.' },
+      { label: 'Find the subject and verb', content: 'The subject is *The students who studied together every night* — the *who* clause identifies **which** students, so it is essential and takes no commas. The verb is *passed*.' },
+      { label: 'Apply the subject-verb rule', content: 'A comma between a subject and its verb serves no function, however long the subject runs → **(B)**.' },
+      { label: 'Eliminate the alternatives', content: '(A) places a lone comma directly before the verb; (C) places one between *passed* and its object *the hardest exam*. Neither comma serves any identifiable function.' },
     ],
   },
 
@@ -131,21 +132,21 @@ export const gCommasBlocks = [
   {
     type: 'checkpointQuestion',
     question: 'The lab, that we toured on Friday, has since expanded. What is wrong here?',
-    answer: '**Two things.** *That* never takes a comma — that\'s an instant flag. Then decide what the sentence means: if the tour detail is just an aside, write *, which we toured on Friday,*; if it identifies **which** lab, write *The lab that we toured on Friday has expanded* — no commas, no *which*. Pick one claim and punctuate it honestly.',
+    answer: '**Two errors.** *That* never follows a comma — an immediate flag. The correction depends on the intended meaning: if the tour detail is extra information, write *, which we toured on Friday,*; if it identifies **which** lab, write *The lab that we toured on Friday has expanded* — no commas and no *which*. The sentence must commit to one claim and punctuate it consistently.',
   },
   {
     type: 'checkpointQuestion',
     question: 'The researchers wondered whether the effect was real. Question mark or period?',
-    answer: '**Period.** It\'s an embedded question — the sentence reports that they wondered; it doesn\'t ask you anything. *Whether* is the tell.',
+    answer: '**Period.** This is an embedded question — the sentence reports that they wondered; it does not itself pose a question. The word *whether* signals the embedded form.',
   },
   {
     type: 'checkpointQuestion',
     question: 'For the school play, the lead role went to Ana, and the understudy was Theo. Does the comma before "and" have a job?',
-    answer: '**Yes.** *The lead role went to Ana* and *the understudy was Theo* both stand alone, so the comma before the FANBOYS word *and* is doing its legal join-two-sentences job. (Cover the *and* and that same comma becomes a splice — the FANBOYS word is what keeps it legal.)',
+    answer: '**Yes.** *The lead role went to Ana* and *the understudy was Theo* each stand alone as complete sentences, so the comma before the FANBOYS conjunction *and* performs its recognized function of joining two full sentences. Without the *and*, the same comma would create a comma splice — the conjunction is what makes the join grammatical.',
   },
 
   {
     type: 'text',
-    content: '**The move, every time:** cover the phrase and reread → extra gets commas, identifying gets none → an aside closes with the same mark that opened it → and any comma that can\'t name its job gets deleted.',
+    content: '**In summary:** cover the phrase and reread — extra information takes commas, identifying information takes none; an interruption closes with the same mark that opened it; and a comma with no identifiable function should be deleted.',
   },
 ];

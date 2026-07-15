@@ -1,10 +1,12 @@
 /**
  * Learn lesson body — Percents (Problem-Solving & Data Analysis).
  *
- * TUTOR VOICE (adopted 2026-07-14, exemplar: ./mLinearEquations.js): coaching
- * direct-address — talks TO the student, anticipates the mistake before it
- * happens, everyday anchor first ("a percent is a multiplier") and setup
- * second. Lean structure unchanged. Gated by bodies.test.js. $...$ is KaTeX.
+ * VOICE (adopted 2026-07-15, exemplar: mLinearEquations.js): professional
+ * textbook narrative — teaches directly in flowing prose (concept, why it
+ * works, how to apply, common errors) in the measured register of a
+ * well-edited textbook. Concrete contexts framed plainly as examples;
+ * extended metaphors, cute headings, and pep-talk are out. Headings name
+ * the concept. Gated by bodies.test.js.
  *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
@@ -13,17 +15,17 @@
 export const mPercentsBlocks = [
   {
     type: 'text',
-    content: "Every percent question is one of four moves, and the arithmetic is never what beats you. What beats you is deciding whether to multiply, divide, or chain — and off *which* base. Train one habit and the deciding gets easy: see every percent as a **multiplier**. The whole topic collapses into multiply, divide, or chain.",
+    content: "Every percent question reduces to a small set of moves, and the arithmetic is rarely the source of error. The difficulty lies in deciding whether to multiply, divide, or chain — and, above all, off *which* base. One habit organizes every such decision: treat each percent as a **multiplier**. The whole topic then collapses into multiplying, dividing, or chaining factors.",
   },
 
   { type: 'heading', content: 'A percent is a multiplier' },
   {
     type: 'text',
-    content: "Turn the words into one factor as you read them. \"Increase by $20\\%$\" means $\\times 1.20$. \"Decrease by $20\\%$\" means $\\times 0.80$ — the decrease factor is the part *left over*, not the part removed. \"$p\\%$ of\" means $\\times \\frac{p}{100}$. Do this translation first, every time, before any arithmetic touches the page.",
+    content: "Translate the words into a single factor as you read them. \"Increase by $20\\%$\" means $\\times 1.20$. \"Decrease by $20\\%$\" means $\\times 0.80$ — the decrease factor is the part *left over*, not the part removed. \"$p\\%$ of\" means $\\times \\frac{p}{100}$. Perform this translation first, before any other arithmetic.",
   },
   {
     type: 'keyInsight',
-    content: 'A decrease keeps the rest: down $30\\%$ is $\\times 0.70$, not $\\times 0.30$. Down $80\\%$ is $\\times 0.20$. Build the factor from what **remains**.',
+    content: 'A decrease keeps the remainder: down $30\\%$ is $\\times 0.70$, not $\\times 0.30$; down $80\\%$ is $\\times 0.20$. Build the factor from what **remains**.',
   },
 
   { type: 'heading', content: 'Translate any change into a factor' },
@@ -39,10 +41,10 @@ export const mPercentsBlocks = [
     ],
   },
 
-  { type: 'heading', content: 'Three slots: part, whole, percent' },
+  { type: 'heading', content: 'Part, whole, and percent' },
   {
     type: 'text',
-    content: "Every static percent problem fits one sentence: $\\text{part} = \\frac{p}{100}\\times\\text{whole}$. You're given two of the three numbers; solve for the third. Here's where autopilot costs you: grabbing the two given numbers and multiplying without asking which slot is empty. Label the missing slot first. The shape that feels backwards — \"$12$ is $30\\%$ of what?\" — is missing the *whole*, and a missing whole means you **divide**: $\\text{whole} = 12 \\div 0.30 = 40$.",
+    content: "Every static percent problem fits one equation: $\\text{part} = \\frac{p}{100}\\times\\text{whole}$. Two of the three quantities are given; solve for the third. The standard error is to take the two given numbers and multiply without first identifying which quantity is missing. Label the missing quantity first. The form that reads in reverse — \"$12$ is $30\\%$ of what?\" — is missing the *whole*, and a missing whole calls for **division**: $\\text{whole} = 12 \\div 0.30 = 40$.",
   },
 
   { type: 'heading', content: 'Worked examples' },
@@ -51,7 +53,7 @@ export const mPercentsBlocks = [
     difficulty: 'Easy',
     problem: 'A jacket costs $\\$80$. During a sale the price drops by $25\\%$. What is the sale price?',
     steps: [
-      { label: 'Factor', content: 'Down $25\\%$ keeps $75\\%$, so the factor is $\\times 0.75$.' },
+      { label: 'Build the factor', content: 'Down $25\\%$ keeps $75\\%$, so the factor is $\\times 0.75$.' },
       { label: 'Multiply', content: '$80 \\times 0.75 = 60$. The sale price is $\\$60$.' },
     ],
   },
@@ -60,16 +62,16 @@ export const mPercentsBlocks = [
     difficulty: 'Medium',
     problem: 'In a survey, $18$ students chose art, which was $30\\%$ of all respondents. How many students responded?',
     steps: [
-      { label: 'Name the slots', content: 'Part $= 18$, percent $= 30\\%$, and the whole is what\'s missing. This is the "$18$ is $30\\%$ of what?" shape.' },
-      { label: 'Divide, do not multiply', content: 'A missing whole means divide: $18 \\div 0.30$, because $18 = 0.30 \\times \\text{whole}$.' },
-      { label: 'Answer', content: '$18 \\div 0.30 = 60$ students. Had you multiplied, $0.30 \\times 18 = 5.4$ — smaller than the part itself, which is impossible for a whole.' },
+      { label: 'Identify the quantities', content: 'Part $= 18$, percent $= 30\\%$, and the whole is missing. This is the "$18$ is $30\\%$ of what?" form.' },
+      { label: 'Divide, do not multiply', content: 'A missing whole calls for division: $18 \\div 0.30$, because $18 = 0.30 \\times \\text{whole}$.' },
+      { label: 'Compute', content: '$18 \\div 0.30 = 60$ students. Multiplying instead gives $0.30 \\times 18 = 5.4$ — smaller than the part itself, which is impossible for a whole.' },
     ],
   },
 
-  { type: 'heading', content: 'Reverse percent: divide, never subtract' },
+  { type: 'heading', content: 'Reversing a percent change' },
   {
     type: 'text',
-    content: "A price **after** a $20\\%$ increase is $\\$60$ — what was it before? Write the change forward: $\\text{original}\\times 1.20 = 60$, so $\\text{original} = 60 \\div 1.20 = 50$. Whatever you do, don't take $20\\%$ off the $\\$60$. That $20\\%$ was a percent *of the original*, not of the new price — subtract it from the wrong base and you land near $48$, an answer choice that will absolutely be sitting there. Your tell for a reverse problem: the number in your hand is the *result* of the change, not the start. See the word \"after,\" write the forward equation, divide.",
+    content: "Suppose a price **after** a $20\\%$ increase is $\\$60$, and the original price is required. Write the change forward: $\\text{original}\\times 1.20 = 60$, so $\\text{original} = 60 \\div 1.20 = 50$. Do not take $20\\%$ off the $\\$60$: that $20\\%$ was a percent *of the original*, not of the new price, and subtracting from the wrong base lands near $48$ — a value routinely placed among the answer choices. The signal of a reverse problem is that the given number is the *result* of the change, not the start. On the word \"after,\" write the forward equation and divide.",
   },
   {
     type: 'example',
@@ -83,13 +85,13 @@ export const mPercentsBlocks = [
   },
   {
     type: 'keyInsight',
-    content: 'To undo a change, **divide** by its factor. Undoing an increase should give you a smaller number; undoing a decrease, a larger one. Check that direction before you commit.',
+    content: 'To undo a change, **divide** by its factor. Undoing an increase should give a smaller number; undoing a decrease, a larger one. Check that direction before accepting the result.',
   },
 
   { type: 'heading', content: "Successive percents don't add" },
   {
     type: 'text',
-    content: "Each change acts on whatever value the previous change left behind — so you **chain the factors**, never sum the percents. A $10\\%$ raise then a $10\\%$ cut feels like it cancels out. It doesn't: $\\times 1.10 \\times 0.90 = 0.99$, a net $1\\%$ loss. Up-then-down by the same percent always lands you below where you started, because the cut bites the bigger number.",
+    content: "Each change acts on whatever value the previous change produced, so **chain the factors** rather than summing the percents. A $10\\%$ increase followed by a $10\\%$ decrease appears to cancel, but does not: $\\times 1.10 \\times 0.90 = 0.99$, a net $1\\%$ loss. An increase and a decrease by the same percent always finish below the starting value, because the decrease acts on the larger, post-increase number.",
   },
   {
     type: 'example',
@@ -97,7 +99,7 @@ export const mPercentsBlocks = [
     problem: 'A stock rises $40\\%$ one week, then falls $40\\%$ the next. What is the net percent change?',
     steps: [
       { label: 'Chain the factors', content: 'Up $40\\%$ is $\\times 1.40$; down $40\\%$ is $\\times 0.60$. Together: $1.40 \\times 0.60 = 0.84$.' },
-      { label: 'Read against 1', content: "$0.84$ means $84\\%$ of the start — a net **$16\\%$ decrease**, not $0\\%$. The $40\\%$ drop bites the larger, post-rise value, so it takes away more than the rise added." },
+      { label: 'Compare with 1', content: "$0.84$ means $84\\%$ of the start — a net **$16\\%$ decrease**, not $0\\%$. The $40\\%$ drop acts on the larger, post-rise value, so it removes more than the rise added." },
     ],
   },
 
@@ -105,7 +107,7 @@ export const mPercentsBlocks = [
   {
     type: 'checkpointQuestion',
     question: 'A population grows by $25\\%$ to reach $500$. What was it before the growth?',
-    answer: "**$400$.** The $500$ is the *after* number, so work backward by dividing: $\\text{original}\\times 1.25 = 500$, so $\\text{original} = 500 \\div 1.25 = 400$. Subtracting $25\\%$ of $500$ uses the wrong base.",
+    answer: "**$400$.** The $500$ is the *after* value, so work backward by dividing: $\\text{original}\\times 1.25 = 500$, so $\\text{original} = 500 \\div 1.25 = 400$. Subtracting $25\\%$ of $500$ uses the wrong base.",
   },
   {
     type: 'checkpointQuestion',
@@ -115,11 +117,11 @@ export const mPercentsBlocks = [
   {
     type: 'checkpointQuestion',
     question: 'A shirt is marked down from $\\$40$ to $\\$30$. What is the percent decrease?',
-    answer: "**$25\\%$ decrease.** Percent change is $\\dfrac{\\text{change}}{\\text{original}}$ — and the base is the *original* price. The change is $40 - 30 = 10$, so $10 \\div 40 = 0.25 = 25\\%$. Divide by the new $\\$30$ instead and you get about $33\\%$ — right arithmetic, wrong base.",
+    answer: "**$25\\%$ decrease.** Percent change is $\\dfrac{\\text{change}}{\\text{original}}$ — the base is the *original* price. The change is $40 - 30 = 10$, so $10 \\div 40 = 0.25 = 25\\%$. Dividing by the new $\\$30$ instead gives about $33\\%$ — correct arithmetic on the wrong base.",
   },
 
   {
     type: 'text',
-    content: "**The move, every time:** turn each percent into a factor before anything else. One change is a multiply, a missing whole is a divide, an \"after\" value works backward by dividing, and stacked changes multiply their factors. That's the whole topic.",
+    content: "**In summary:** convert each percent into a factor before anything else. A single change is a multiplication, a missing whole is a division, an \"after\" value works backward by division, and successive changes multiply their factors.",
   },
 ];

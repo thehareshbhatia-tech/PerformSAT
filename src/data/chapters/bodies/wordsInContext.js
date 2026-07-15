@@ -1,13 +1,12 @@
 /**
  * Learn lesson body — Words in Context (Craft and Structure).
  *
- * TUTOR VOICE (adopted 2026-07-14, user-approved exemplar:
- * bodies/mLinearEquations.js): coaching direct-address — talks TO the student,
- * anticipates the mistake before it happens, everyday anchor first and method
- * second, concrete decision rules. Lean structure unchanged: short headed
- * sections, a method, a connector table, 4 worked examples, 3 checkpoints.
- * Invented passages/choices inside examples stay authentic test material.
- * Gated by bodies.test.js.
+ * VOICE (adopted 2026-07-15, exemplar: mLinearEquations.js): professional
+ * textbook narrative — teaches directly in flowing prose (concept, why it
+ * works, how to apply, common errors) in the measured register of a
+ * well-edited textbook. Concrete contexts framed plainly as examples;
+ * extended metaphors, cute headings, and pep-talk are out. Headings name
+ * the concept. Gated by bodies.test.js.
  *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
@@ -16,40 +15,40 @@
 export const wordsInContextBlocks = [
   {
     type: 'text',
-    content: "Here's the secret behind every one of these: the blank isn't testing whether you know a word — the sentence already told you which word belongs. Treat the blank like a **variable** and the sentence like the equation that defines it. This was never a vocabulary quiz; it's a reading question in a costume. **The evidence in the sentence decides the meaning — the dictionary never gets a vote.**",
+    content: "A words-in-context question does not test whether a word is already known — the sentence itself determines which word belongs in the blank. Despite its appearance, this question type is not a vocabulary quiz; it is a reading question, and the sentence contains everything required to answer it. **The evidence in the sentence decides the meaning — a dictionary definition on its own decides nothing.**",
   },
 
   { type: 'heading', content: 'What is actually tested' },
   {
     type: 'text',
-    content: "A giant word list barely helps here, and that's good news. Every item plants **evidence** — a few nearby words that pin the blank to exactly one meaning — and your whole job is to find that evidence and read what it forces, the way you'd solve for an unknown. The test writers are betting you'll skip straight to the choices and grab whatever sounds smartest. That's the trap working as designed: the smartest-sounding word was picked to sound smart. The right word is picked by the sentence — so slow down and let the sentence cast the vote.",
+    content: "Memorized word lists offer limited help on these items. Every item plants **evidence** — a few nearby words that pin the blank to exactly one meaning — and the task is to find that evidence and read what it forces. The predictable error is skipping straight to the choices and selecting whatever sounds most sophisticated; the most sophisticated-sounding word is routinely included precisely because it sounds impressive while failing the sentence. The correct word is the one the sentence selects, so read the evidence before weighing any choice.",
   },
 
   { type: 'heading', content: 'The method: predict, then match' },
   {
     type: 'steps',
-    title: 'Do this every time',
+    title: 'The three-step routine',
     items: [
-      "**Cover the choices.** Four options are four salespeople — don't let them pitch you before you've decided what you're shopping for.",
-      '**Predict your own word** from the evidence in the sentence. Rough is fine: "something like *cautious*" beats a blank stare.',
-      '**Uncover and match** the choice closest to your predicted word. Then read it back into the sentence to confirm it earns its seat.',
+      "**Cover the choices.** Reading them first allows plausible-sounding options to shape judgment before the sentence has defined the target.",
+      '**Predict your own word** from the evidence in the sentence. A rough approximation is sufficient: "something like *cautious*" is a workable prediction.',
+      '**Uncover and match** the choice closest to the predicted word, then read it back into the sentence to confirm that the surrounding words support it.',
     ],
   },
   {
     type: 'keyInsight',
-    content: 'Predicting first flips the power. You set the target and the choices get graded against it — instead of the cleverest distractor setting the target for you.',
+    content: 'Predicting first reverses the dynamic: the prediction sets the target and the choices are graded against it, rather than the most persuasive distractor setting the target itself.',
   },
 
-  { type: 'heading', content: 'Charge points the direction' },
+  { type: 'heading', content: 'The charge of the blank' },
   {
     type: 'text',
-    content: "Before you define anything, read the sign before the number: tag the **charge** the blank needs — positive, negative, or neutral. The sentence almost always tips it through its own praise or damage words, and a choice on the wrong side of the charge line dies instantly, no fine meaning work required. *Critics called the plan reckless, and its ______ soon showed* — that blank is negative territory: *flaws* or *costs*, never *benefits*.",
+    content: "Before defining anything precisely, identify the **charge** the blank requires — positive, negative, or neutral. The sentence almost always signals it through its own words of praise or criticism, and a choice on the wrong side of the charge can be eliminated immediately, with no finer meaning work required. In *Critics called the plan reckless, and its ______ soon showed*, the blank is negative: *flaws* or *costs*, never *benefits*.",
   },
 
-  { type: 'heading', content: 'Watch the connector' },
+  { type: 'heading', content: 'The connector between evidence and blank' },
   {
     type: 'text',
-    content: "The **connector** is the hinge between the evidence and the blank — it tells you whether the blank echoes the nearby idea or reverses it. Same evidence, different hinge, opposite answer: *praised, and its ______* wants a positive word; *praised, but its ______* wants a negative one. Read the hinge before you predict, because it decides which way the evidence points. There are really only three families:",
+    content: "The **connector** links the evidence to the blank and indicates whether the blank echoes the nearby idea or reverses it. The same evidence with a different connector yields the opposite answer: *praised, and its ______* calls for a positive word; *praised, but its ______* calls for a negative one. Read the connector before predicting, because it determines which direction the evidence points. Connectors fall into three families:",
   },
   {
     type: 'table',
@@ -62,17 +61,17 @@ export const wordsInContextBlocks = [
   },
   {
     type: 'tip',
-    content: 'Read every colon as *namely* or *because*. *The design had one flaw: the hinge* — one flaw, namely the hinge. A colon or dash is a silent explainer, and it sits exactly where students swear "there were no clue words." There were. One of them was punctuation.',
+    content: 'Read every colon as *namely* or *because*. *The design had one flaw: the hinge* — one flaw, namely the hinge. A colon or dash is an unmarked explainer, and it sits precisely where students report finding no clue words. In those sentences, the clue is the punctuation itself.',
   },
 
-  { type: 'heading', content: 'The second-sense trap' },
+  { type: 'heading', content: 'Common words in secondary senses' },
   {
     type: 'text',
-    content: "When an easy, everyday word gets asked about, slow down — that's not a gift, that's the trap. The tested word is often a **common word used in a second, less-common sense**, picked precisely because the familiar meaning fails in this sentence. Then the familiar meaning gets printed as a choice. It feels safe because you've known the word since third grade — and that comfort is exactly what the wrong answer is built from. Substitute each choice back into the sentence and keep only the one the surrounding words actually pay for.",
+    content: "An easy, everyday word in the question calls for extra care rather than relief. The tested word is often a **common word used in a second, less-common sense**, selected precisely because the familiar meaning fails in that particular sentence — and the familiar meaning then appears among the choices. Its familiarity makes it feel safe, which is exactly the property incorrect choices are built on. Substitute each choice back into the sentence and keep only the one the surrounding words actually support.",
   },
   {
     type: 'callout',
-    content: 'One word, three meanings: *She checked the math* (verified). *Sandbags checked the flood* (held back). *A check on power* (restraint). Same letters every time; the surroundings cast the deciding vote.',
+    content: 'One word, three meanings: *She checked the math* (verified). *Sandbags checked the flood* (held back). *A check on power* (restraint). The word is identical in each case; the surrounding words determine the sense.',
   },
 
   { type: 'heading', content: 'Worked examples' },
@@ -81,9 +80,9 @@ export const wordsInContextBlocks = [
     difficulty: 'Easy',
     problem: 'The new coating made the engine far quieter, ______ the rattle that had annoyed drivers for years.\n\n(A) eliminating\n(B) amplifying\n(C) predicting',
     steps: [
-      { label: 'Cover and read evidence', content: 'Cover the choices first. The coating made the engine *quieter* — a positive fix. The blank names what that fix did to the *rattle*.' },
-      { label: 'Predict', content: "Something like *removing*. You're getting rid of a bad thing." },
-      { label: 'Match', content: '*Amplifying* runs the wrong direction; *predicting* does the wrong job entirely. **(A) eliminating** matches your prediction and reads back cleanly.' },
+      { label: 'Read the evidence first', content: 'With the choices covered, read the sentence: the coating made the engine *quieter* — an improvement. The blank names what that improvement did to the *rattle*.' },
+      { label: 'Predict', content: "Something like *removing* — the sentence describes getting rid of an unwanted noise." },
+      { label: 'Match', content: '*Amplifying* runs in the wrong direction; *predicting* performs the wrong task entirely. **(A) eliminating** matches the prediction and reads back cleanly.' },
     ],
   },
   {
@@ -91,9 +90,9 @@ export const wordsInContextBlocks = [
     difficulty: 'Medium',
     problem: 'Early reviewers praised the memoir\'s candor, but a few readers found the same frankness ______.\n\n(A) refreshing\n(B) off-putting\n(C) accurate',
     steps: [
-      { label: 'Find the hinge', content: '*but* is a reverser — whatever the first half praised, the second half pushes against.' },
-      { label: 'Predict', content: 'Reviewers admired the candor; these readers went the other way. Your word is negative: "something like *distasteful*."' },
-      { label: 'Match', content: '*Refreshing* sits on the wrong side of the charge line — cut it without a second read. *Accurate* is neutral and ducks the contrast. **(B) off-putting** is the un-admiring word the reverser demands.' },
+      { label: 'Find the connector', content: '*but* is a reverser — whatever the first half praised, the second half pushes against.' },
+      { label: 'Predict', content: 'Reviewers admired the candor; these readers responded in the opposite way. The word is negative: "something like *distasteful*."' },
+      { label: 'Match', content: '*Refreshing* carries the wrong charge and can be eliminated on that basis alone. *Accurate* is neutral and avoids the contrast. **(B) off-putting** is the negative word the reverser requires.' },
     ],
   },
   {
@@ -101,9 +100,9 @@ export const wordsInContextBlocks = [
     difficulty: 'Hard',
     problem: 'The dam never stopped flooding entirely, but it checked the worst surges, which rarely rose above the walls afterward.\n\nAs used here, "checked" most nearly means:\n\n(A) verified\n(B) restrained\n(C) examined',
     steps: [
-      { label: 'Distrust the familiar sense', content: "You've read *checked* as *verified* or *examined* your whole life — and both are printed here as bait. On a second-sense item, the everyday meaning is your first suspect, not your first answer." },
+      { label: 'Distrust the familiar sense', content: "The familiar senses of *checked* — *verified* and *examined* — both appear among the choices. On a second-sense item, the everyday meaning is the first sense to test skeptically, not the default answer." },
       { label: 'Read the evidence', content: 'The dam did something to the *surges* so they *rarely rose above the walls* — it held them back, short of stopping them.' },
-      { label: 'Substitute', content: '"It *verified* the surges"? "It *examined* the surges"? Neither survives being read aloud. **(B) restrained** — the *hold back* sense — is the one the evidence pays for.' },
+      { label: 'Substitute', content: 'Reading each sense back into the sentence, "verified the surges" and "examined the surges" both fail. **(B) restrained** — the *hold back* sense — is the one the evidence supports.' },
     ],
   },
   {
@@ -111,9 +110,9 @@ export const wordsInContextBlocks = [
     difficulty: 'Medium',
     problem: 'The professor\'s lectures were famously ______: she raced through three centuries of history in a single hour, rarely pausing to take a breath.\n\n(A) meandering\n(B) brisk\n(C) muddled',
     steps: [
-      { label: 'Read the colon as evidence', content: 'That colon is your silent explainer — read it as *namely*. Everything after it defines the blank: she *raced through* the material and *rarely paused*.' },
-      { label: 'Predict', content: 'That describes speed. Predict "something like *fast-paced*." And notice the charge is neutral-to-positive — the sentence reports a fame, not a flaw.' },
-      { label: 'Match', content: "*Meandering* is the exact opposite — slow and wandering. *Muddled* means confused, and racing through material in order isn't disorganized; the evidence never pays for it. **(B) brisk** is the only word the \"raced through, rarely paused\" evidence buys." },
+      { label: 'Read the colon as evidence', content: 'The colon functions as an explainer — read it as *namely*. Everything after it defines the blank: she *raced through* the material and *rarely paused*.' },
+      { label: 'Predict', content: 'The evidence describes speed, so predict "something like *fast-paced*." The charge is neutral-to-positive — the sentence reports a reputation, not a flaw.' },
+      { label: 'Match', content: "*Meandering* is the exact opposite — slow and wandering. *Muddled* means confused, and racing through material in order is not disorganized; the evidence never supports it. **(B) brisk** is the only word the \"raced through, rarely paused\" evidence justifies." },
     ],
   },
 
@@ -121,21 +120,21 @@ export const wordsInContextBlocks = [
   {
     type: 'checkpointQuestion',
     question: 'The renovation did little to ______ the theater\'s echo. The sentence reports a failure — so what charge does the blank *word* carry?',
-    answer: "**Positive** — a fixing word like *remedy* or *reduce*. The negative lives in *did little to*, the flipper standing right before the blank. Don't hand the sentence's bad news to the word itself — the sentence's idea and the word's own charge are two separate readings.",
+    answer: "**Positive** — a fixing word such as *remedy* or *reduce*. The negative charge lives in *did little to*, the reversing phrase directly before the blank. The sentence's bad news does not transfer to the word itself: the sentence's overall meaning and the blank word's own charge are two separate judgments.",
   },
   {
     type: 'checkpointQuestion',
     question: 'Two surviving choices both have the right charge. What decides between them?',
-    answer: "**Precision.** Hold each full meaning against the evidence and keep the one whose every implication gets paid for. The wrong answer that survives the charge screen usually overshoots — extra intensity, or a claim the sentence never makes. If you can't point to the words that pay for it, it isn't your answer.",
+    answer: "**Precision.** Hold each word's full meaning against the evidence and keep the one whose every implication is supported. The incorrect choice that survives the charge screen usually overshoots — added intensity, or a claim the sentence never makes. A choice earns credit only when specific words in the sentence support it.",
   },
   {
     type: 'checkpointQuestion',
     question: 'A colon sits right before the blank, and the sentence has no *because* or *so* anywhere. Is there still a connector doing work?',
-    answer: '**Yes.** A colon (or a dash) is a silent explainer — read it as *namely* or *because*. The clause after it defines the blank, so that\'s exactly where your evidence lives. When you catch yourself thinking "there were no clue words," go back and check the punctuation — you almost certainly skipped a colon.',
+    answer: '**Yes.** A colon (or a dash) is an unmarked explainer — read it as *namely* or *because*. The clause after it defines the blank, so the evidence lives exactly there. A sentence that appears to contain no clue words usually carries one in its punctuation, and the colon is the most commonly overlooked case.',
   },
 
   {
     type: 'text',
-    content: '**The move, every time:** cover the choices → predict from the evidence → check charge and hinge → match the closest word → read it back. The words change on every test; your routine never does.',
+    content: '**In summary:** cover the choices, predict from the evidence, check the charge and the connector, match the closest word, and read it back into the sentence. The tested words change from test to test; the routine does not.',
   },
 ];

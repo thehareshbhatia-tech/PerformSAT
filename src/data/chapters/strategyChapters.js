@@ -6,9 +6,10 @@
  * match index.js UNIT_REGISTRY (section 'strategy'): 'strategy-foundations' |
  * 'strategy-tactics'.
  *
- * TUTOR VOICE (adopted 2026-07-14, matches bodies/mLinearEquations.js): coaching
- * direct-address — talks TO the student, everyday anchor first and rule second,
- * anticipates the specific mistake before it happens, memorable decision rules.
+ * VOICE (adopted 2026-07-15, exemplar: bodies/mLinearEquations.js):
+ * professional textbook narrative — teaches directly in flowing prose in
+ * the measured register of a well-edited textbook. Extended metaphors,
+ * cute headings, and pep-talk are out. Headings name the concept.
  *
  * Pure data — no app imports. Block field shapes mirror src/data/contentTabs/
  * (text / keyInsight / trapCard / strategyCard / example / checkpointQuestion /
@@ -40,15 +41,15 @@ export const strategyChapters = [
       blocks: [
         {
           type: 'text',
-          content: "Before you fight a test, get a map of it. The Digital SAT runs on the **Bluebook app** and has two scored sections — **Reading and Writing** first, then **Math** — each split into two timed halves called **modules**. Four modules total, one short break between the sections, a little over two hours end to end. That's the whole terrain.",
+          content: "The Digital SAT runs on the **Bluebook app** and consists of two scored sections — **Reading and Writing** first, then **Math** — each of which is split into two timed halves called **modules**. That makes four modules in total, separated by one short break between the sections, with a running time of a little over two hours end to end. This structure frames every strategic decision that follows.",
         },
         {
           type: 'text',
-          content: "Now the clock. **Reading and Writing** gives you 32 minutes for about 27 questions in each module — call it *1 minute 10 seconds* apiece. Every R&W question brings its own short passage, so you're reading a lot of tiny texts, fast. **Math** gives you 35 minutes for about 22 questions in each module — roughly *1 minute 35 seconds* each — and hands you the **built-in Desmos calculator** on every single question, plus a formula reference sheet. Math pays you more time per question because it expects more steps in return.",
+          content: "The timing differs by section. **Reading and Writing** allows 32 minutes for about 27 questions in each module — about *1 minute 10 seconds* apiece. Every R&W question brings its own short passage, so the section requires reading many brief texts at a steady pace. **Math** allows 35 minutes for about 22 questions in each module — roughly *1 minute 35 seconds* each — and provides the **built-in Desmos calculator** on every single question, along with a formula reference sheet. Math allots more time per question because its problems generally require more steps.",
         },
         {
           type: 'text',
-          content: "Here's the fact that changes how you play: the test is **adaptive by module**. Module 1 of each section is a fixed mix of easy, medium, and hard questions — and **how you do on Module 1 decides which Module 2 you get**. Do well and you unlock the *harder, higher-ceiling* Module 2, the one that can carry you to a top score. Miss too many and you're routed to the easier Module 2, where the score ceiling is capped no matter how much of it you ace. The test sizes you up in the first half and sets your price range for the second.",
+          content: "The design feature with the largest strategic consequence is that the test is **adaptive by module**. Module 1 of each section is a fixed mix of easy, medium, and hard questions, and **performance on Module 1 determines which Module 2 follows**. Strong Module 1 accuracy routes you to the *harder, higher-ceiling* Module 2 — the one that can carry a section to a top score. Missing too many questions routes you to the easier Module 2, where the score ceiling is capped no matter how many of its questions you answer correctly. The first half of each section therefore sets the scoring range available in the second half.",
         },
         {
           type: 'diagramRef',
@@ -57,15 +58,15 @@ export const strategyChapters = [
         },
         {
           type: 'text',
-          content: "A few ground rules fall out of that design. Once a module is submitted — or its timer runs out — it's locked; there's no going back, and no returning to Reading and Writing once Math starts. *Within* a module, though, you're free: skip around, answer the easy ones first, flag the hard ones with Bluebook's flag tool, and come back with whatever time is left. The countdown stays on screen the whole way, and Math keeps Desmos and the formula sheet one click away. Notice what this design rewards — not obscure memorized facts, just steady accuracy on the questions you can already do.",
+          content: "Several ground rules follow from this design. Once a module is submitted — or its timer runs out — it is locked; there is no returning to it, and no returning to Reading and Writing once Math begins. *Within* a module, however, navigation is free: skip around, answer the easier questions first, flag the harder ones with Bluebook's flag tool, and return to them with whatever time remains. The countdown stays on screen throughout, and Math keeps Desmos and the formula sheet one click away. What this design rewards is not recall of obscure facts but steady accuracy on the questions already within reach.",
         },
         {
           type: 'keyInsight',
-          content: "Module 1 is worth more than it looks. Every point there does double duty: it scores the question *and* helps unlock the high-ceiling Module 2. That makes a careless slip on an easy Module 1 question the most expensive mistake on the whole test — you can afford to lose a genuinely hard question; you can't afford to donate an easy one.",
+          content: "Module 1 carries more weight than its questions suggest. Every point there does double duty: it scores the question *and* helps unlock the high-ceiling Module 2. A careless slip on an easy Module 1 question is therefore the most expensive mistake on the whole test — losing a genuinely hard question is affordable; giving away an easy one is not.",
         },
         {
           type: 'text',
-          content: "Scoring runs **400 to 1600**: each section scores **200 to 800**, and the two just add. And here's the rule that settles your guessing policy forever: **a wrong answer costs nothing**. A blank and a wrong answer both score zero, but a guess can score. So the commitment is absolute — *never leave a question blank*. On a four-choice question a blind guess is a free 1-in-4 shot; a blank is a guaranteed zero.",
+          content: "Scoring runs **400 to 1600**: each section scores **200 to 800**, and the two section scores simply add. One scoring rule settles guessing policy permanently: **a wrong answer costs nothing**. A blank and a wrong answer both score zero, but a guess can score, so the sound policy is absolute — *never leave a question blank*. On a four-choice question a blind guess carries a 1-in-4 chance of the point; a blank is a guaranteed zero.",
         },
         {
           type: 'diagramRef',
@@ -79,15 +80,15 @@ export const strategyChapters = [
           steps: [
             {
               label: 'Look past the raw count',
-              content: "Same number right, but not the same test from here on — the adaptive engine reads Module 1 accuracy to decide which Module 2 each student unlocks.",
+              content: "The raw counts match, but the two tests diverge from here: the adaptive engine reads Module 1 accuracy to decide which Module 2 each student receives.",
             },
             {
-              label: 'Price the careless misses',
-              content: "Maya donated three points she had the skill to earn. Devon lost only the questions at the edge of his ability. A careless miss is the one kind of miss you could have prevented.",
+              label: 'Weigh the careless misses',
+              content: "Maya gave up three points she had the skill to earn, while Devon lost only questions at the edge of his ability. A careless miss is the one kind of miss that was preventable.",
             },
             {
               label: 'Answer',
-              content: "Devon. He converts his ability into points and keeps the high-ceiling path open; Maya leaks points she already owns. On an adaptive test, protecting the easy and medium questions is the whole game.",
+              content: "Devon. He converts his ability into points and keeps the high-ceiling path open; Maya loses points her skill had already earned. On an adaptive test, protecting the easy and medium questions matters more than conquering the hardest ones.",
             },
           ],
         },
@@ -95,19 +96,19 @@ export const strategyChapters = [
           type: 'checkpointQuestion',
           number: 1,
           question: 'How many scored modules are on the Digital SAT, and how are they grouped?',
-          answer: 'Four modules — two in Reading and Writing, then two in Math. **Why:** each section splits into Module 1 and Module 2, and your Module 1 performance routes which Module 2 you get.',
+          answer: 'Four modules — two in Reading and Writing, then two in Math. **Why:** each section splits into Module 1 and Module 2, and Module 1 performance determines which Module 2 follows.',
         },
         {
           type: 'checkpointQuestion',
           number: 2,
           question: 'You finish a module with two minutes left and one question still blank. What do you do, and why?',
-          answer: 'Put an answer down — any answer — before time runs out. **Why:** there is no guessing penalty, so a blank scores exactly what a wrong guess scores, while the guess has a real shot at the point.',
+          answer: 'Enter an answer — any answer — before time runs out. **Why:** there is no guessing penalty, so a blank scores exactly what a wrong guess scores, while the guess carries a real chance at the point.',
         },
         {
           type: 'checkpointQuestion',
           number: 3,
           question: 'Why does missing an easy Module 1 question hurt more than missing a hard Module 2 question?',
-          answer: 'Because Module 1 accuracy helps decide whether you unlock the high-ceiling Module 2. **Why:** an easy miss costs the point *and* can lower the ceiling you are allowed to reach — a double loss.',
+          answer: 'Because Module 1 accuracy helps determine whether the high-ceiling Module 2 is unlocked. **Why:** an easy miss costs the point *and* can lower the ceiling of the entire section — a double loss.',
         },
       ],
     },
@@ -117,7 +118,7 @@ export const strategyChapters = [
     id: 'strategy-test-day-tactics',
     unitId: 'strategy-tactics',
     title: 'Pacing & Test-Day Tactics',
-    blurb: 'A per-module pacing plan, mark-and-move and elimination, the smartest Desmos plays, and how to set yourself up the night before.',
+    blurb: 'A per-module pacing plan, mark-and-move and elimination, the highest-value Desmos techniques, and how to prepare the night before.',
     readMinutes: 5,
     cbSkills: [],
     source: {
@@ -125,7 +126,7 @@ export const strategyChapters = [
       blocks: [
         {
           type: 'text',
-          content: "Treat the clock like money, not like a stopwatch. In **Reading and Writing** the average allowance is about *1 minute 10 seconds* per question — but averages are for spreadsheets. The grammar (conventions) questions resolve fast once you spot the rule, so take them in **under 40 seconds** and bank the change. That banked time is what funds the inference and synthesis questions that take real reading. In **Math** you average about *1 minute 35 seconds*, and the early questions in each module are the quickest — move briskly through them so the multi-step problems at the back get the minutes they actually cost.",
+          content: "Effective pacing treats the per-question average as a budget to redistribute, not a rate to hold. In **Reading and Writing** the average allowance is about *1 minute 10 seconds* per question, but the questions do not cost equal amounts. The grammar (conventions) questions resolve quickly once the rule is identified, so complete them in **under 40 seconds** and carry the surplus forward; that surplus is what funds the inference and synthesis questions that require sustained reading. In **Math** the average is about *1 minute 35 seconds*, and the early questions in each module are the quickest — move through them briskly so the multi-step problems at the back receive the minutes they genuinely require.",
         },
         {
           type: 'diagramRef',
@@ -134,25 +135,25 @@ export const strategyChapters = [
         },
         {
           type: 'text',
-          content: "**Mark and move.** Bluebook lets you flag any question and return to it, so here's the rule: if a question hasn't clicked in about 30 seconds, put down your best guess, flag it, and go. One stubborn problem can quietly eat the time of three answerable ones — and it pays exactly the same single point each of them does. Sweep the whole module first; then spend whatever's left on the flags.",
+          content: "**Mark and move.** Bluebook allows any question to be flagged and revisited, which supports a simple rule: if a question has not yielded a path forward in about 30 seconds, record your best guess, flag it, and move on. A single stubborn problem can quietly absorb the time of three answerable ones while paying exactly the same single point each of them does. Sweep the whole module first; then spend whatever time remains on the flagged questions.",
         },
         {
           type: 'text',
-          content: "**Eliminate before you guess.** When nothing jumps out, work backwards — cross off what *can't* be right. In R&W, be suspicious of a choice that reverses the passage, overreaches with \"every\" or \"always,\" or parrots an exact passage word to look familiar. In Math, kill choices with the wrong sign or an impossible size. Getting from four choices down to two turns a blind guess into a coin flip — and yes, you always take the flip: **never leave a blank.**",
+          content: "**Eliminate before guessing.** When no choice stands out, work in reverse — cross off what *cannot* be right. In R&W, treat with suspicion any choice that reverses the passage, overreaches with \"every\" or \"always,\" or repeats an exact passage word to appear familiar. In Math, eliminate choices with the wrong sign or an impossible size. Narrowing four choices to two converts a blind guess into even odds — and the guess is always worth taking: **never leave a blank.**",
         },
         {
           type: 'text',
-          content: "Math builds the **Desmos graphing calculator** into every question, and three plays buy the most points for the least work. **Systems of equations:** type both equations exactly as written and click the intersection — the coordinates are your solution, about 15 seconds flat. **Quadratics:** type $y =$ the quadratic and click the curve; Desmos marks the vertex (for max/min questions) and the x-intercepts (for roots and zeros), so the answer is sitting right on the graph. **Line or curve of best fit:** build a table, type $y_1 \\sim m x_1 + b$ with a tilde, and Desmos hands you the slope and intercept.",
+          content: "Math builds the **Desmos graphing calculator** into every question, and three uses return the most points for the least work. **Systems of equations:** enter both equations exactly as written and click the intersection — the coordinates are the solution, in about 15 seconds. **Quadratics:** enter $y =$ the quadratic and click the curve; Desmos marks the vertex (for max/min questions) and the x-intercepts (for roots and zeros), so the answer appears directly on the graph. **Line or curve of best fit:** build a table, enter $y_1 \\sim m x_1 + b$ with a tilde, and Desmos reports the slope and intercept.",
         },
         {
           type: 'trapCard',
-          title: 'The silent Desmos mistake: wrong angle mode',
-          wrong: "You dive into a trig question and start typing, never noticing the calculator's angle mode. Desmos returns a clean, confident-looking number that is simply wrong — no error, no warning, nothing to catch.",
-          correction: "Before any trigonometry, open the wrench (settings) icon and confirm the angle mode matches the question — the test defaults to *degrees*, while the desktop Desmos you may have practiced on defaults to *radians*. One more habit: Desmos isn't always the fast lane. On one-step arithmetic, your head or paper beats the typing.",
+          title: 'A silent Desmos error: wrong angle mode',
+          wrong: "A student begins a trigonometry question without checking the calculator's angle mode. Desmos returns a clean, plausible-looking number that is simply wrong — no error message, no warning, nothing to signal the problem.",
+          correction: "Before any trigonometry, open the wrench (settings) icon and confirm the angle mode matches the question — the test defaults to *degrees*, while the desktop Desmos many students practice on defaults to *radians*. A related habit: Desmos is not always the faster route. On one-step arithmetic, mental math or paper beats the typing.",
         },
         {
           type: 'keyInsight',
-          content: "Use Desmos where it pays: systems, solution-count and tangency conditions, regressions, statistics, and messy numbers. Skip it where it doesn't: one-step arithmetic, where typing costs more than thinking. When you're torn, solve by hand and spend five seconds confirming on the graph — cheap insurance.",
+          content: "Use Desmos where it pays: systems, solution-count and tangency conditions, regressions, statistics, and unwieldy numbers. Skip it where it does not: one-step arithmetic, where typing costs more than thinking. When the choice is unclear, solve by hand and spend five seconds confirming on the graph — inexpensive insurance.",
         },
         {
           type: 'example',
@@ -160,28 +161,28 @@ export const strategyChapters = [
           problem: 'You are 25 minutes into a 32-minute R&W module with 9 questions left. Two of them are dense inference questions you keep re-reading; the rest are quick grammar and vocabulary items. How do you spend the last 7 minutes?',
           steps: [
             {
-              label: 'Bank the fast points first',
-              content: "Knock out the seven quick grammar and vocabulary items at under 40 seconds each — that's under 5 minutes, and each one pays the same point a hard question does.",
+              label: 'Secure the fast points first',
+              content: "Complete the seven quick grammar and vocabulary items at under 40 seconds each — under 5 minutes in total, and each one pays the same point a hard question does.",
             },
             {
-              label: 'Then fund the hard two',
-              content: "With the sure points banked, give the remaining time to the two inference questions. If one still refuses to resolve, eliminate down to two choices and take the coin flip.",
+              label: 'Allocate the remainder to the hard two',
+              content: "With the sure points secured, give the remaining time to the two inference questions. If one still does not resolve, eliminate down to two choices and guess.",
             },
             {
               label: 'Answer',
-              content: "Fast points first, hard points last, no blanks at the buzzer. Grinding the two hard ones first risks leaving five easy points on the table — the worst trade on the menu.",
+              content: "Fast points first, hard points last, and no blanks when time expires. Working the two hard questions first risks forfeiting five easier points — the worst available trade.",
             },
           ],
         },
         {
           type: 'text',
-          content: "**The night before and the morning of.** Skip the cramming — a light pass over your own trap checklist beats any new material the night before. Pack the admission ticket, a photo ID, a charged device or your approved calculator, and a snack for the break. Then protect your sleep; it's the highest-value prep left. In the morning: eat something real, arrive early, and treat the first few easy questions like the points that matter most — because on an adaptive test, they are.",
+          content: "**The night before and the morning of.** New material studied the night before adds little; a light review of your own error checklist is more useful than cramming. Pack the admission ticket, a photo ID, a charged device or your approved calculator, and a snack for the break, then protect your sleep — it is the highest-value preparation remaining. In the morning, eat a real breakfast, arrive early, and give the first few easy questions full attention: on an adaptive test, those are the points that matter most.",
         },
         {
           type: 'checkpointQuestion',
           number: 1,
           question: 'A grammar question and a hard inference question are worth the same points, but the grammar one is faster. How should that shape your pacing in R&W?',
-          answer: 'Take the fast grammar questions quickly — aim under 40 seconds — to bank time for the slow inference questions. **Why:** every question pays the same point, so you secure the quick ones and spend the surplus where the reading is genuinely hard.',
+          answer: 'Complete the fast grammar questions quickly — under 40 seconds each — to save time for the slow inference questions. **Why:** every question pays the same point, so secure the quick ones and spend the surplus where the reading is genuinely demanding.',
         },
         {
           type: 'checkpointQuestion',
@@ -193,7 +194,7 @@ export const strategyChapters = [
           type: 'checkpointQuestion',
           number: 3,
           question: 'A question has not clicked after 30 seconds. What is the mark-and-move play?',
-          answer: 'Put down your best guess, flag it, and move on; come back after sweeping the rest of the module. **Why:** one stuck question can drain the time of several answerable ones, and each pays the same single point.',
+          answer: 'Record your best guess, flag it, and move on; return after sweeping the rest of the module. **Why:** one stalled question can drain the time of several answerable ones, and each pays the same single point.',
         },
       ],
     },
@@ -203,7 +204,7 @@ export const strategyChapters = [
     id: 'strategy-test-writer',
     unitId: 'strategy-tactics',
     title: 'Think Like the Test Writer',
-    blurb: 'How the wrong answers are manufactured — and the habits that beat them: answer the asked question, sanity-check size and units, route Desmos deliberately, and bank the cheap points first.',
+    blurb: 'How wrong answers are constructed — and the habits that counter them: answer the question as asked, check answers for plausible size and units, use Desmos deliberately, and secure the fast points first.',
     readMinutes: 9,
     cbSkills: [],
     source: {
@@ -211,33 +212,33 @@ export const strategyChapters = [
       blocks: [
         {
           type: 'text',
-          content: "Every question you'll face was written twice. Someone wrote the question — and then someone built three wrong answers designed to get picked. Those wrong answers aren't leftovers; they're manufactured from the specific mistakes students actually make. That's bad news if you play naive, and great news if you don't: a manufactured trap has manufacturing marks, and once you can read them, the test gets a lot more predictable.",
+          content: "Every multiple-choice question is written twice: someone writes the question, and someone builds three wrong answers designed to be chosen. Those wrong answers are not arbitrary leftovers; they are constructed from the specific mistakes students actually make. That design cuts both ways — it punishes an unguarded solver, but a constructed wrong answer carries the marks of its construction, and once those marks are legible, the test becomes considerably more predictable.",
         },
 
-        { type: 'heading', content: 'Wrong answers have a recipe' },
+        { type: 'heading', content: 'How wrong answers are constructed' },
         {
           type: 'text',
-          content: "Start with Reading and Writing. The credited answer there has a house style you can learn to recognize: it's *cautious*, it stays *inside the passage*, and it's usually a *re-wording* of the text rather than a copy. The wrong answers tend to be louder — they overreach with words like \"always\" and \"proves,\" they borrow the passage's exact words to feel familiar, or they say something true about the world that the passage never actually establishes. Your job isn't to pick the answer you'd argue for at dinner; it's to predict what the answer key credits.",
+          content: "In Reading and Writing, the credited answer has a recognizable house style: it is *cautious*, it stays *inside the passage*, and it is usually a *re-wording* of the text rather than a copy. The wrong answers tend to be louder — they overreach with words like \"always\" and \"proves,\" they borrow the passage's exact words to feel familiar, or they state something true about the world that the passage never actually establishes. The task is not to select the answer you would defend in conversation; it is to predict what the answer key credits.",
         },
         {
           type: 'strategyCard',
           title: 'The pointing test',
-          content: "Before you commit to an answer, ask: which exact words in the passage could I point to as proof? For the credited answer, those words exist. If you can't imagine doing the pointing, you haven't verified — you've just liked the choice.",
+          content: "Before committing to an answer, identify the exact words in the passage that serve as proof. For the credited answer, those words exist. An answer that cannot be tied to specific passage language has not been verified — it has merely been preferred.",
         },
         {
           type: 'text',
-          content: "One warning about the house style: it's a lean, not a law. On the hardest questions, the strongly-worded choice is occasionally the right one — fully supported, just bold — built precisely to catch students who auto-kill anything extreme. So rank the cautious, re-worded choices first, then let the passage cast the deciding vote. And when you review a miss, resist the urge to argue with the key. \"My answer was defensible\" teaches you nothing; \"here's what I misread\" fixes the next ten questions.",
+          content: "One qualification: the house style is a tendency, not a law. On the hardest questions, the strongly worded choice is occasionally correct — fully supported, simply bold — and such questions are built precisely to catch students who reflexively eliminate anything extreme. Rank the cautious, re-worded choices first, then let the passage cast the deciding vote. When reviewing a miss, resist the urge to argue with the key: \"my answer was defensible\" teaches nothing, while \"here is what I misread\" corrects the next ten questions.",
         },
 
         { type: 'heading', content: 'Answer the question that was asked' },
         {
           type: 'text',
-          content: "Now the Math section's favorite manufacturing trick. You solve the equation, get $x = 5$, glance at the choices — and there's 5, sitting in choice B like a reward. Except the question asked for $x + 4$. Every multi-step problem has two finish lines: the algebra finish line ($x = 5$) and the question finish line (\"so the answer is 9\"). Crossing the first one produces the full feeling of being done — and the test plants your halfway number in the choices to confirm that feeling. It's the most reliable way the test converts correct math into lost points.",
+          content: "The Math section's most common construction follows a single template. A student solves the equation, obtains $x = 5$, and finds 5 waiting among the choices — but the question asked for $x + 4$. Every multi-step problem has two finish lines: the algebra finish line ($x = 5$) and the question finish line (the answer, 9). Crossing the first produces the full sensation of being done, and the intermediate value is placed among the choices precisely to confirm that sensation. This device converts correct mathematics into lost points more reliably than any other.",
         },
         {
           type: 'strategyCard',
-          title: 'The last-sentence ritual',
-          content: "Before you touch an answer choice, re-read the last sentence of the question — every time, not just when something feels off. The trap works precisely because nothing feels off. And flip the logic around: on a multi-step problem, finding your intermediate value among the choices is a *warning* the question was built around this trap, not a confirmation you're right.",
+          title: 'The last-sentence check',
+          content: "Before examining any answer choice, re-read the last sentence of the question — on every problem, not only when something feels wrong, because this trap operates precisely when nothing feels wrong. The logic also runs in reverse: on a multi-step problem, finding an intermediate value among the choices is a *warning* that the question was built around this trap, not a confirmation of being right.",
         },
         {
           type: 'example',
@@ -245,28 +246,28 @@ export const strategyChapters = [
           problem: 'If $2x - 3 = 7$, what is the value of $x + 4$?',
           steps: [
             {
-              label: 'Solve — first finish line',
-              content: "Add 3, divide by 2: $x = 5$. And sure enough, 5 is one of the answer choices, waiting.",
+              label: 'Solve — the algebra finish line',
+              content: "Add 3, then divide by 2: $x = 5$. Note that 5 appears among the answer choices.",
             },
             {
               label: 'Re-read the target',
-              content: "The last sentence asks for $x + 4$, not $x$. That 5 in the choices is the manufactured trap for everyone who stopped at the algebra finish line.",
+              content: "The last sentence asks for $x + 4$, not $x$. The 5 among the choices is the constructed trap for anyone who stopped at the algebra finish line.",
             },
             {
-              label: 'Cross the second finish line',
-              content: "$x + 4 = 9$. Pick 9 — and file away what this trap looks like from the inside: your own halfway number, smiling at you from the choices.",
+              label: 'Cross the question finish line',
+              content: "$x + 4 = 9$. Select 9 — and note what this trap looks like in practice: the solver's own intermediate value, present among the choices.",
             },
           ],
         },
 
-        { type: 'heading', content: 'The two-second sanity check' },
+        { type: 'heading', content: 'Sanity checks on size, sign, and units' },
         {
           type: 'text',
-          content: "Every quantity on the test wears a straitjacket — a range of values it's even allowed to take. A probability can't exceed 1. Two people painting a room together finish faster than the faster painter alone. A length is never negative, and neither is a principal square root. A 15% tip on a $\\$40$ dinner is not $\\$60$. The test writers build wrong answers that violate these constraints on purpose, because a student grinding through algebra head-down never looks up to notice. Run the check twice: scan the choices *before* solving (sometimes the straitjacket kills three of the four and the question is over), and audit your own answer *after* — right sign? possible size? Two seconds, every time.",
+          content: "Every quantity in a problem has a constrained range of values it can legitimately take. A probability cannot exceed 1. Two people painting a room together finish faster than the faster painter alone. A length is never negative, and neither is a principal square root. A 15% tip on a $\\$40$ dinner is not $\\$60$. Test writers deliberately build wrong answers that violate these constraints, because a student working through the algebra head-down rarely pauses to notice. Run the check twice: scan the choices *before* solving — the constraints sometimes eliminate three of the four and end the question — and audit your own answer *after*: correct sign, plausible size. The whole habit costs about two seconds.",
         },
         {
           type: 'text',
-          content: "Unit conversions get their own filter: **smaller ruler, bigger count.** Measure the same thing in a smaller unit and the number gets bigger — your height in centimeters is a bigger number than in feet. So commit to a direction before you convert: \"the answer in minutes runs about 60 times the hours number.\" If 3 hours somehow becomes 0.05 minutes, skip the arithmetic review — the setup is upside down, and no amount of careful multiplying fixes an inverted fraction.",
+          content: "Unit conversions have their own filter: **a smaller unit produces a larger number.** Measuring the same quantity in a smaller unit increases the count — a height in centimeters is a larger number than the same height in feet. Commit to a direction before converting: the answer in minutes runs about 60 times the hours figure. If 3 hours somehow becomes 0.05 minutes, reviewing the arithmetic is pointless — the setup is inverted, and careful multiplication cannot repair an inverted fraction.",
         },
         {
           type: 'table',
@@ -281,20 +282,20 @@ export const strategyChapters = [
         },
         {
           type: 'tip',
-          content: "On student-produced response questions there are no answer choices to warn you — the sanity check is the only safety net you get. Sign, size, straitjacket, submit.",
+          content: "On student-produced response questions there are no answer choices to flag an error — the sanity check is the only safeguard available. Confirm the sign and the size before submitting.",
         },
 
-        { type: 'heading', content: 'Desmos: right tool or trap?' },
+        { type: 'heading', content: 'Choosing when to use Desmos' },
         {
           type: 'text',
-          content: "The pacing chapter covered *how* to run the big Desmos plays. Here's the *whether* — because the calculator is a power tool: fastest on the right job, slower than your own hands on the wrong one. Route every Math question with three quick questions. Is the answer a *picture fact* — an intersection, a vertex, a zero, a count of solutions? Graph it. Is the answer an *exact form* — a radical, a fraction, something with $\\pi$? Keep Desmos closed; a pixel readout can't tell $\\sqrt{2}$ from $1.41$. Unsure of your hand work? Solve first, then spend five seconds graphing to verify.",
+          content: "The pacing chapter covered *how* to run the major Desmos techniques; the remaining question is *when*. The calculator is fastest on the right task and slower than hand work on the wrong one, so route every Math question through three quick tests. If the answer is a *picture fact* — an intersection, a vertex, a zero, a count of solutions — graph it. If the answer is an *exact form* — a radical, a fraction, an expression involving $\\pi$ — keep Desmos closed, because a pixel readout cannot distinguish $\\sqrt{2}$ from $1.41$. If the hand work feels uncertain, solve first, then spend five seconds graphing to verify.",
         },
         {
           type: 'comparison',
           items: [
             {
               label: 'Graph it',
-              content: 'Intersections and systems with messy numbers; vertex, max, or min with hostile coefficients; "how many solutions?"; "which graph matches?"; regressions from a table.',
+              content: 'Intersections and systems with messy numbers; vertex, max, or min with awkward coefficients; "how many solutions?"; "which graph matches?"; regressions from a table.',
             },
             {
               label: 'Keep it closed',
@@ -304,48 +305,48 @@ export const strategyChapters = [
         },
         {
           type: 'trapCard',
-          title: 'The window is not the whole graph',
-          wrong: "A question asks how many solutions an equation has. You graph both sides, see one intersection in the default window, and answer \"one.\" The second intersection was sitting just off-screen the whole time.",
-          correction: "Zoom out before you count — the default window is a porthole, not the ocean. Cross-check the count against what the algebra allows (a line and a parabola can meet at most twice). And when the choices come in exact form, confirm by hand: Desmos traces read $1.414214$, and only you can recognize that as $\\sqrt{2}$.",
+          title: 'The default window can hide solutions',
+          wrong: "A question asks how many solutions an equation has. You graph both sides, see one intersection in the default window, and answer \"one.\" The second intersection sat just off-screen the entire time.",
+          correction: "Zoom out before counting — the default window shows only a small region of the plane. Cross-check the count against what the algebra allows (a line and a parabola can meet at most twice). When the choices come in exact form, confirm by hand: a Desmos trace reads $1.414214$, and recognizing that value as $\\sqrt{2}$ requires the solver, not the calculator.",
         },
 
-        { type: 'heading', content: 'Every question pays the same' },
+        { type: 'heading', content: 'Equal point values' },
         {
           type: 'text',
-          content: "Here's the economic fact that organizes the whole test: a brutal three-minute question and a 25-second gimme pay out exactly the same single point. The test doesn't tip for effort. So play it like a budget, not a gauntlet — bank the cheap points first, then spend the surplus on the expensive ones. That rule holds in both sections, and most students run it backwards: they burn their best minutes proving they can crack the hardest question on the page while easy points sit unclaimed behind it.",
+          content: "One economic fact organizes the entire test: a demanding three-minute question and a 25-second routine question pay exactly the same single point. Difficulty earns no premium. The efficient approach treats each module as a budget — secure the inexpensive points first, then spend the surplus on the expensive ones. The rule holds in both sections, and most students run it backwards, spending their best minutes on the hardest question on the page while easier points sit unclaimed behind it.",
         },
         {
           type: 'text',
-          content: "Reading and Writing even hands you a map: each module opens with vocabulary and closes with the notes-synthesis questions — the most mechanical, formula-driven points on the section, each earnable in under a minute. Run out of clock and those are exactly the points you forfeit. Protect the tail. And learn to price a question from its stem alone: the phrasings come from a small, standardized set, so \"a find-the-evidence question that happens to be about biology\" tells you the procedure — and the price — before you've read a word of the passage. Sort your practice misses the same way, by question job rather than by topic: \"I miss evidence questions\" is a plan; \"I'm bad at science passages\" is a shrug.",
+          content: "Reading and Writing makes this ordering straightforward: each module opens with vocabulary and closes with the notes-synthesis questions — the most mechanical, formula-driven points on the section, each earnable in under a minute. Running out of time forfeits exactly those points, so protect the end of the module. The cost of a question can also be estimated from its stem alone: the phrasings come from a small, standardized set, so a find-the-evidence question that happens to be about biology reveals its procedure — and its time cost — before a word of the passage is read. Sort practice misses the same way, by question type rather than by topic: \"I miss evidence questions\" supports a plan; \"I am bad at science passages\" does not.",
         },
         {
           type: 'keyInsight',
-          content: "Module 1 is not your warm-up. On an adaptive test a cold start is the most expensive way to begin, because early careless misses can cap the ceiling of your whole section — so warm up *before* the test with a few questions you own, and walk in at full speed. And reframe the flag while you're at it: a flagged guess isn't giving up, it's a budgeting decision. That's the whole system working as designed.",
+          content: "Module 1 is not a warm-up. On an adaptive test a cold start is the most expensive way to begin, because early careless misses can cap the ceiling of the whole section — so warm up *before* the test with a few familiar questions and begin at full speed. The flag deserves the same reframing: a flagged guess is not surrender but a budgeting decision, and using it is the system working as designed.",
         },
 
         {
           type: 'checkpointQuestion',
           number: 1,
           question: 'You solve a problem and get $x = 3$ — and 3 is choice A. The question asks for the value of $2x + 1$. What is choice A doing there, and what do you answer?',
-          answer: 'Choice A is the manufactured trap — your halfway number, planted to reward stopping early. **Why:** the solve ends at the question, not at $x$. Re-read the last sentence, convert, and answer $2(3) + 1 = 7$.',
+          answer: 'Choice A is the constructed trap — the intermediate value, placed to reward stopping early. **Why:** the problem ends at the question, not at $x$. Re-read the last sentence, convert, and answer $2(3) + 1 = 7$.',
         },
         {
           type: 'checkpointQuestion',
           number: 2,
           question: 'Your answer says two people working together take 8 hours — but the faster one alone takes 6. What does the sanity check say?',
-          answer: 'Reject it before you submit it. **Why:** working together always beats the faster worker alone, so a joint time above 6 hours is structurally impossible — the setup is inverted, not the arithmetic.',
+          answer: 'Reject the answer before submitting it. **Why:** two people working together always finish faster than the faster worker alone, so a joint time above 6 hours is structurally impossible — the setup is inverted, not the arithmetic.',
         },
         {
           type: 'checkpointQuestion',
           number: 3,
           question: 'Desmos shows an intersection at $x = 1.414214$, and the choices include both $1.41$ and $\\sqrt{2}$. Which do you pick?',
-          answer: '$\\sqrt{2}$. **Why:** a trace readout is an approximation — $1.414214$ is $\\sqrt{2}$ rounded, while exactly $1.41$ is a different, wrong number. Exact-form choices get confirmed by hand, not by pixels.',
+          answer: '$\\sqrt{2}$. **Why:** a trace readout is an approximation — $1.414214$ is $\\sqrt{2}$ rounded, while exactly $1.41$ is a different, incorrect number. Exact-form choices are confirmed by hand, not by a decimal readout.',
         },
         {
           type: 'checkpointQuestion',
           number: 4,
           question: "You're down to two choices on a reading question: one is cautious and re-worded from the passage, the other is bold and repeats the passage's exact words. How do you decide?",
-          answer: "Rank the cautious paraphrase first — that's the answer key's house style — then verify it with the pointing test: find the passage words that prove it. **Why:** the style is a lean, not a law; the passage, not the vibe, casts the deciding vote.",
+          answer: "Rank the cautious paraphrase first — that matches the answer key's house style — then verify it with the pointing test: find the passage words that prove it. **Why:** the style is a tendency, not a law; the passage, not an impression, casts the deciding vote.",
         },
       ],
     },
