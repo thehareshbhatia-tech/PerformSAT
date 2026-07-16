@@ -240,7 +240,6 @@ const fmt = (n) => Number(n).toLocaleString('en-US');
 const Arrow = ({ size = 15 }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
 );
-const Chev = () => (<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6" /></svg>);
 const Bolt = () => (<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9z" /></svg>);
 const Book = () => (<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" /><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" /></svg>);
 const Sliders = () => (<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6" /></svg>);
@@ -274,15 +273,6 @@ const PracticeBank = ({ onStartPractice, onStartAdaptive, bankPractice = {}, wea
   const browseRef = useRef(null);
   const lastFocusToken = useRef(null);
   const [focusPulse, setFocusPulse] = useState(null); // { domain, skillSlugs }
-  // Expanded topic rows — a topic with derived question types opens to show
-  // them (e.g. Form, Structure, and Sense → Subject-verb agreement, Verb
-  // tense, Pronouns …) so a student can drill ONE specific type.
-  const [openTopics, setOpenTopics] = useState(() => new Set());
-  const toggleTopic = (slug) => setOpenTopics(prev => {
-    const next = new Set(prev);
-    if (next.has(slug)) next.delete(slug); else next.add(slug);
-    return next;
-  });
 
   // ── Custom drill builder (modal) ───────────────────────────────────────────
   const [builderOpen, setBuilderOpen] = useState(false);
@@ -697,33 +687,29 @@ const PracticeBank = ({ onStartPractice, onStartAdaptive, bankPractice = {}, wea
                     const tm = masteryByKey.get(`topic:${skill.slug}`) || EMPTY_MASTERY;
                     const skillPulse = !!focusPulse && focusPulse.skillSlugs.includes(skill.slug);
                     // Question-type tiles are a GRAMMAR-only affordance
-                    // (user, 2026-07-16): conventions topics expand so a
-                    // student can drill exactly Subject-verb agreement; every
-                    // other topic (math + R&W reading) keeps the plain row
-                    // that launches the whole-topic round. skill.patterns
-                    // stays populated for ALL topics — the For-you
-                    // recommendation engine reads it (exact-pattern weakness
-                    // pools, new-territory) — so gate the tiles here, never
-                    // in the category data.
-                    const showTypeTiles = skill.domain === 'standard-english-conventions';
-                    const types = showTypeTiles ? (skill.patterns?.length || 0) : 0;
-                    const open = types > 0 && openTopics.has(skill.slug);
+                    // (user, 2026-07-16): conventions topics list their types
+                    // FLAT below the row — always visible, no accordion (the
+                    // dropdown was explicitly rejected) — so a student can
+                    // drill exactly Subject-verb agreement. Every other topic
+                    // (math + R&W reading) is a plain row that launches the
+                    // whole-topic round. skill.patterns stays populated for
+                    // ALL topics — the For-you recommendation engine reads it
+                    // (exact-pattern weakness pools, new-territory) — so gate
+                    // the tiles here, never in the category data.
+                    const typeTiles = skill.domain === 'standard-english-conventions' ? (skill.patterns || []) : [];
                     return (
                       <React.Fragment key={skill.slug}>
                         <div
                           className={`pb-trow-head${skillPulse ? ' pb-focus-pulse-row' : ''}`}
                           role="button"
                           tabIndex={0}
-                          aria-expanded={types > 0 ? open : undefined}
-                          onClick={() => { if (types > 0) toggleTopic(skill.slug); else launchSkillDrill(skill); }}
-                          onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); if (types > 0) toggleTopic(skill.slug); else launchSkillDrill(skill); } }}
+                          onClick={() => launchSkillDrill(skill)}
+                          onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); launchSkillDrill(skill); } }}
                         >
-                          {types > 0
-                            ? <span className={`pb-trow-chev${open ? ' is-open' : ''}`}><Chev /></span>
-                            : <span className="pb-trow-chev is-empty" aria-hidden="true" />}
+                          <span className="pb-trow-chev is-empty" aria-hidden="true" />
                           <span className="pb-trow-main">
                             <span className="pb-trow-name">{skill.label}</span>
-                            <span className="pb-trow-meta">{fmt(total)} questions{types > 0 ? ` · ${types} question types` : ''}</span>
+                            <span className="pb-trow-meta">{fmt(total)} questions</span>
                           </span>
                           <BandChip m={tm} />
                           <button
@@ -735,9 +721,9 @@ const PracticeBank = ({ onStartPractice, onStartAdaptive, bankPractice = {}, wea
                             Practice <Arrow size={13} />
                           </button>
                         </div>
-                        {open && (
+                        {typeTiles.length > 0 && (
                           <div className="pb-trow-types">
-                            {skill.patterns.map((p) => {
+                            {typeTiles.map((p) => {
                               const pm = masteryByKey.get(`type:${p.slug}`) || EMPTY_MASTERY;
                               const band = pm.band;
                               const seen = band !== MASTERY_BANDS.UNSEEN && pm.accuracy != null;
