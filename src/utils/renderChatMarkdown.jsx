@@ -196,6 +196,29 @@ const renderProse = (text) => {
       continue;
     }
 
+    // Blockquote: consecutive `>` lines group into one quote block with a
+    // hairline left rule. The escape pass has already run, so a leading `>`
+    // arrives here as `&gt;`. The tutor uses these for example sentences and
+    // passage quotes — without this branch they render as a literal "> ".
+    if (/^&gt;(\s|$)/.test(line.trim())) {
+      flushList();
+      const quoteLines = [];
+      while (idx < lines.length && /^&gt;(\s|$)/.test(lines[idx].trim())) {
+        quoteLines.push(lines[idx].trim().replace(/^&gt;\s?/, ''));
+        idx++;
+      }
+      elements.push(
+        <div key={`quote-${idx}`} style={{ borderLeft: '3px solid rgba(0,0,0,0.14)', margin: '12px 0', padding: '2px 0 2px 14px' }}>
+          {quoteLines.map((q, qi) => (
+            q === ''
+              ? <div key={qi} style={{ height: '8px' }} />
+              : <p key={qi} style={{ margin: qi === quoteLines.length - 1 ? 0 : '0 0 6px 0', lineHeight: '1.55', color: designColors.text.secondary }} dangerouslySetInnerHTML={{ __html: processInlineMarkdown(q) }} />
+          ))}
+        </div>
+      );
+      continue;
+    }
+
     flushList();
 
     if (line.trim() === '') {
@@ -208,8 +231,11 @@ const renderProse = (text) => {
     if (headerMatch) {
       const level = headerMatch[1].length;
       const headerText = headerMatch[2];
-      const sizes = { 1: '1.25em', 2: '1.15em', 3: '1.05em', 4: '1em' };
-      const weights = { 1: '600', 2: '600', 3: '600', 4: '600' };
+      // 700 weight + a real size step: at chat body size, 1.05em/600 was
+      // visually indistinguishable from bold body text, so "subheadings"
+      // didn't read as subheadings.
+      const sizes = { 1: '1.25em', 2: '1.17em', 3: '1.1em', 4: '1em' };
+      const weights = { 1: '700', 2: '700', 3: '700', 4: '700' };
       elements.push(
         <div
           key={idx}

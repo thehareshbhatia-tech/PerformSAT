@@ -182,6 +182,34 @@ describe('renderChatMarkdown blocks', () => {
     expect(html).toContain('surface match');
     expect(html).toContain('scope shift');
   });
+
+  test('renders a > line as a quote block, not a literal "&gt;"', () => {
+    const html = renderToHtml('Look at this:\n\n> Hungry and tired, the pizza was eaten quickly.\n\nSee the problem?');
+    expect(html).toContain('border-left');
+    expect(html).toContain('Hungry and tired, the pizza was eaten quickly.');
+    // The > marker itself must not leak into the visible text.
+    expect(html).not.toContain('&gt; Hungry');
+  });
+
+  test('groups consecutive > lines into one quote block', () => {
+    const html = renderToHtml('> First quoted line.\n> Second quoted line.');
+    const ruleCount = (html.match(/border-left/g) || []).length;
+    expect(ruleCount).toBe(1);
+    expect(html).toContain('First quoted line.');
+    expect(html).toContain('Second quoted line.');
+  });
+
+  test('inline markdown and escaping still apply inside a quote block', () => {
+    const html = renderToHtml('> The **first noun** decides it. <img src=x onerror=alert(1)>');
+    expect(html).toContain('<strong>first noun</strong>');
+    expect(html).not.toContain('<img');
+  });
+
+  test('a mid-line > comparison is not treated as a quote', () => {
+    const html = renderToHtml('The count is 5 > 3 here.');
+    expect(html).not.toContain('border-left');
+    expect(html).toContain('5 &gt; 3');
+  });
 });
 
 // Currency-vs-math: the tutor now emits $...$ LaTeX (the LaTeX ban was flipped),
