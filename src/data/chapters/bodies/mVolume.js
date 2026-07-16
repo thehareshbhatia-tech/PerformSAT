@@ -52,6 +52,12 @@ export const mVolumeBlocks = [
     content: "When the volume is **given** and a length is missing, the same formula runs **backward**: substitute every known value and solve for the unknown. A tank of volume $90\\pi$ and radius $3$ gives $90\\pi = \\pi(3)^2 h$, so $h = 10$.",
   },
 
+  { type: 'heading', content: 'Slant height is not height' },
+  {
+    type: 'text',
+    content: "A cone or pyramid carries two different lengths that figures deliberately place side by side. The **height** $h$ runs straight from the apex down to the center of the base, perpendicular to it; the **slant height** $\\ell$ runs along the outside surface from the apex to the edge of the base. The slant is the **hypotenuse** of a right triangle whose legs are the height and the radius (for a pyramid, half the base edge), so $h^2 + r^2 = \\ell^2$ and the slant is always the longer of the two. Volume formulas take the perpendicular height only. When a problem supplies the slant, recover the height first — $h = \\sqrt{\\ell^2 - r^2}$ — and only then apply the volume formula; substituting the slant directly into $\\tfrac{1}{3}\\pi r^2 h$ produces an inflated volume that the wrong answer choices are built to match.",
+  },
+
   { type: 'heading', content: 'Composite figures: add or subtract known pieces' },
   {
     type: 'text',
@@ -60,6 +66,34 @@ export const mVolumeBlocks = [
   {
     type: 'tip',
     content: "Any \"leftover\" solid — space not filled, material remaining after a hole — is almost always **the larger volume minus the smaller volume**. Compute each piece separately, then subtract.",
+  },
+
+  { type: 'heading', content: 'Surface area as a face inventory' },
+  {
+    type: 'text',
+    content: "**Surface area** measures the total area of a solid's outer faces — the wrapping, where volume is the filling. It requires no new formula list: take a **face inventory**. Count the faces, compute the area of each, and add. A rectangular box has three matching pairs of faces; a cube has six identical squares; a cylinder unrolls into two circular ends plus one rectangular wrapper whose width is the circumference of the base.",
+  },
+  {
+    type: 'formulaGrid',
+    items: [
+      { label: 'Cube', formula: '$SA = 6s^2$', note: 'Six identical square faces.' },
+      { label: 'Rectangular box', formula: '$SA = 2\\ell w + 2\\ell h + 2wh$', note: 'Three pairs: top/bottom, front/back, left/right.' },
+      { label: 'Cylinder', formula: '$SA = 2\\pi r^2 + 2\\pi r h$', note: 'Two circular ends plus the unrolled side — a rectangle measuring $2\\pi r$ by $h$.' },
+    ],
+  },
+  {
+    type: 'text',
+    content: "Surface area also opens a two-link chain: a problem states the surface area, expects an edge or radius to be recovered from it, and then asks for the volume. Work one link at a time — solve the surface-area equation for the length, then substitute that length into the volume formula. Surface area never converts to volume directly; the length is the required intermediate, just as the radius links a circle's circumference to its area.",
+  },
+  {
+    type: 'example',
+    difficulty: 'Medium',
+    problem: 'A cube has a surface area of $150$ square inches. What is its volume, in cubic inches?',
+    steps: [
+      { label: 'Recover the edge', content: 'Six square faces share the total: $6s^2 = 150$, so $s^2 = 25$ and $s = 5$ inches.' },
+      { label: 'Compute the volume', content: '$V = s^3 = 5^3 = 125$ cubic inches.' },
+      { label: 'Confirm the route', content: 'The surface area was never converted to volume in one step — the edge length is the bridge between the two quantities.' },
+    ],
   },
 
   { type: 'heading', content: 'Density relates mass to volume' },
@@ -141,9 +175,14 @@ export const mVolumeBlocks = [
     question: 'If every edge of a cube is tripled, how many times larger is its volume?',
     answer: "**$27$ times.** Volume scales by the cube of the length factor: $3^3 = 27$. The answer is neither $3$ nor $9$ — the $9$ is how the *surface area* grows ($3^2$), and wrong answer choices are routinely constructed from that squared factor.",
   },
+  {
+    type: 'checkpointQuestion',
+    question: 'A cone has radius $6$ and slant height $10$. What is its volume, in terms of $\\pi$?',
+    answer: "**$96\\pi$.** The slant is the hypotenuse, so the height is $h = \\sqrt{10^2 - 6^2} = \\sqrt{64} = 8$ — the $6\\text{-}8\\text{-}10$ triple. Then $V = \\tfrac{1}{3}\\pi r^2 h = \\tfrac{1}{3}\\pi(6)^2(8) = \\tfrac{1}{3}\\pi(36)(8) = 96\\pi$. Substituting the slant directly gives $120\\pi$ — the inflated volume the figure is built to invite.",
+  },
 
   {
     type: 'text',
-    content: "**In summary:** identify the solid, take its formula from the reference sheet, substitute each length (halving any diameter), and compute. Decompose an irregular figure into known pieces and add or subtract. For density, compute the volume first, then let the units determine whether to multiply or divide.",
+    content: "**In summary:** identify the solid, take its formula from the reference sheet, substitute each length (halving any diameter, and converting a slant height to a perpendicular height first), and compute. Decompose an irregular figure into known pieces and add or subtract; inventory the faces for surface area. For density, compute the volume first, then let the units determine whether to multiply or divide.",
   },
 ];

@@ -44,6 +44,26 @@ export const solvingEquationsBlocks = [
     content: "The splitting rule for fractions runs in one direction only: a sum in a *numerator* splits ($\\frac{r+s}{t} = \\frac{r}{t} + \\frac{s}{t}$), but a sum in a *denominator* never does — $\\frac{r}{s+t}$ is **not** $\\frac{r}{s} + \\frac{r}{t}$. Splitting a denominator produces a tidy-looking expression that is incorrect.",
   },
 
+  { type: 'heading', content: 'Rearranging with squares and square roots' },
+  {
+    type: 'text',
+    content: "The reverse-order principle extends to formulas in which the target variable is squared. In $A = \\pi r^2$, the $r$ was squared first and then multiplied by $\\pi$ — so undo the multiplication first (divide both sides by $\\pi$) and the square last (take the square root of both sides): $r^2 = \\dfrac{A}{\\pi}$, then $r = \\sqrt{\\dfrac{A}{\\pi}}$. Dividing first keeps the algebra clean: the root then applies to one isolated expression rather than to a product that would have to be untangled afterward. Because $r$ is a radius, the **principal (positive) square root** is the one that applies — a geometric length cannot be negative, so the $\\pm$ that accompanies square roots in pure equation-solving drops away.",
+  },
+  {
+    type: 'text',
+    content: "When the target sits *under* a square root, the same principle runs in the opposite direction: isolate the radical first, and square both sides **last**. To solve $T = 2\\pi\\sqrt{\\dfrac{L}{g}}$ for $L$, divide both sides by $2\\pi$ before squaring, so the radical stands alone: $\\dfrac{T}{2\\pi} = \\sqrt{\\dfrac{L}{g}}$, then square both sides to get $\\dfrac{T^2}{4\\pi^2} = \\dfrac{L}{g}$, and multiply by $g$. Squaring while other factors still sit beside the radical forces every one of those factors to be squared as well — the $2\\pi$ becomes $4\\pi^2$ — and a factor left unsquared during that step is the standard error in this rearrangement.",
+  },
+  {
+    type: 'example',
+    difficulty: 'Medium',
+    problem: 'The area of a circle is $A = \\pi r^2$. Solve for $r$ in terms of $A$.',
+    steps: [
+      { label: 'Undo the multiplication first', content: "The square was applied to $r$ before the multiplication by $\\pi$, so the $\\pi$ comes off first. Divide both sides by $\\pi$: $r^2 = \\dfrac{A}{\\pi}$." },
+      { label: 'Undo the square last', content: "Take the principal square root of both sides: $r = \\sqrt{\\dfrac{A}{\\pi}}$. The positive root applies because $r$ is a length." },
+      { label: 'Check with values', content: "A circle with $r = 3$ has area $A = 9\\pi$. Substituting back: $\\sqrt{\\dfrac{9\\pi}{\\pi}} = \\sqrt{9} = 3$, as expected." },
+    ],
+  },
+
   { type: 'heading', content: 'The combined-total form $Ax + By = C$' },
   {
     type: 'text',
@@ -121,6 +141,6 @@ export const solvingEquationsBlocks = [
 
   {
     type: 'text',
-    content: "**In summary:** apply every operation to both entire sides, undo operations in reverse order, treat other letters as fixed constants when rearranging a formula, and report the exact quantity the question requests.",
+    content: "**In summary:** apply every operation to both entire sides, undo operations in reverse order, and treat other letters as fixed constants when rearranging a formula. Isolate a squared term before taking the principal square root, and isolate a radical before squaring. Report the exact quantity the question requests.",
   },
 ];

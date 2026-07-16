@@ -27,7 +27,7 @@ export const inferencesBlocks = [
   { type: 'heading', content: 'Predicting before reading the choices' },
   {
     type: 'text',
-    content: "Complete the passage in your own words *before* reading the answers — ten words or fewer, and a rough phrasing is sufficient. Then select the choice that matches the prediction. Reading the choices cold allows them to set the standard, and incorrect choices are written to sound reasonable in isolation. Predicting first reverses the arrangement: the prediction sets the standard, and each choice is graded against it.",
+    content: "Complete the passage in your own words *before* reading the answers — ten words or fewer, and a rough phrasing is sufficient. Then select the choice that matches the prediction. Reading the choices cold allows them to set the standard, and incorrect choices are written to sound reasonable in isolation. Predicting first reverses the arrangement: the prediction sets the standard, and each choice is graded against it. When the sentence holding the blank leans on a compressed reference — *this discrepancy*, *such an approach* — restate that referent in full before predicting; the method is covered in the Central Ideas & Details chapter under *Tracking what \"this\" points to*.",
   },
   {
     type: 'keyInsight',

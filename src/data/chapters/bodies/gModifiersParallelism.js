@@ -60,6 +60,28 @@ export const gModifiersParallelismBlocks = [
     content: "A repeated shared word (a second *to*, another *the*) is optional — *to teach and inspire* is exactly as parallel as *to teach and to inspire*. A choice should not be eliminated merely for dropping the repeated word; **form** is what must match.",
   },
 
+  { type: 'heading', content: 'Correlative pairs are fixed templates' },
+  {
+    type: 'text',
+    content: "The pairing words are **fixed two-part templates**: the moment the first half appears, the second half is already determined, and no near-synonym may substitute for it. *Neither* mandates *nor* — *neither efficient **or** attractive* is wrong however natural it reads; the sentence requires *neither efficient **nor** attractive*. *Not only* mandates *but also*, *both* mandates *and*, and *as* pairs with a second *as*: *as durable **as** steel*, never *as durable than steel*. The two range templates — *between… and* and *from… to* — may not trade halves: *between 1990 **to** 2000* and *from May **and** October* each weld half of one template to half of the other; the correct forms are *between 1990 and 2000* and *from May to October*.",
+  },
+  {
+    type: 'table',
+    headers: ['First half', 'Mandated partner', 'Wrong partner to reject'],
+    rows: [
+      ['neither…', 'nor', '*or*'],
+      ['either…', 'or', '*nor*'],
+      ['not only…', 'but also', '*and*'],
+      ['both…', 'and', '*as well as*'],
+      ['as (durable)…', 'as', '*than*'],
+      ['between… / from…', 'and / to', 'the halves swapped: *between… to*, *from… and*'],
+    ],
+  },
+  {
+    type: 'text',
+    content: 'The template supplies the words; parallelism still governs **what follows them**. Whatever grammatical form trails the first half must trail the second: *The playwright not only **wrote the script** but also **directed the premiere*** balances two verb phrases. *not only wrote the script but also the premiere* breaks — a verb phrase after the first half, a bare noun after the second. A correlative is checked twice: right partner, then matching forms.',
+  },
+
   { type: 'heading', content: '3. Comparisons — like must be compared with like' },
   {
     type: 'text',
@@ -88,6 +110,16 @@ export const gModifiersParallelismBlocks = [
     steps: [
       { label: 'Find the anchor', content: 'The fixed list reads *to analyze… , to write… , and ______*. The anchor form is **"to ___"** (infinitive).' },
       { label: 'Match the form', content: '(A) is an *-ing* phrase and (C) is a full clause — both break the pattern. Only **(B) to present** matches *to analyze / to write*.' },
+    ],
+  },
+  {
+    type: 'example',
+    difficulty: 'Medium',
+    problem: 'The restoration both stabilized the mural ______ revealed pigments hidden for centuries.\n\n(A) and\n(B) but also\n(C) as well as\n(D) or',
+    steps: [
+      { label: 'Identify the template', content: 'The fixed text contains *both* — the first half of *both… and*. The partner is determined the moment *both* appears.' },
+      { label: 'Reject the wrong partners', content: '(B) *but also* completes *not only*, and (D) *or* completes *either* — each belongs to a different template. (C) *as well as* is the near-synonym swap: natural-sounding, but not the mandated partner.' },
+      { label: 'Confirm the parallel halves', content: '*stabilized the mural* and *revealed pigments hidden for centuries* are both verb phrases, so the halves match → **(A) and**.' },
     ],
   },
   {

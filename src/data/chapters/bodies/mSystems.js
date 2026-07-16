@@ -60,6 +60,22 @@ export const mSystemsBlocks = [
     content: "The efficient test: rewrite both equations in $y = mx + b$ and compare the slopes first. If the slopes differ, the analysis ends — exactly one solution, regardless of the intercepts. If the slopes are equal, the intercept $b$ decides: different $b$ means parallel (no solution), and the same $b$ means identical (infinitely many). The slope settles the question whenever it can; the intercept matters only when the slopes agree.",
   },
 
+  { type: 'heading', content: 'Choosing a constant for a target solution count' },
+  {
+    type: 'text',
+    content: "Some questions run the analysis in reverse: the system contains an unknown constant, and the question asks which value of that constant produces no solution or infinitely many. The conditions come directly from the slope comparison. **No solution** requires parallel lines — scale one equation so its $x$- and $y$-coefficients match the other's exactly, and the totals must still *differ*. **Infinitely many** requires the same line written twice — every coefficient *and* the constant must scale by the same factor, making one equation an exact multiple of the other. The distinction is precise: matching left sides with different totals gives parallel lines, while matching everything gives a single line.",
+  },
+  {
+    type: 'example',
+    difficulty: 'Medium',
+    problem: 'In the system below, $c$ is a constant. For what value of $c$ does the system have no solution?\n\n$2x + 5y = 9$\n$6x + cy = 21$',
+    steps: [
+      { label: 'Scale to compare coefficients', content: "Multiply the first equation by $3$ so the $x$-coefficients match: $6x + 15y = 27$." },
+      { label: 'Match the left sides', content: "Parallel lines require identical left sides, so $cy$ must equal $15y$: $c = 15$." },
+      { label: 'Confirm the totals differ', content: "With $c = 15$ the left sides are identical but the totals are $27$ and $21$ — one expression cannot equal two different numbers, so the lines are parallel and the system has no solution. (Had the second total been $27$ as well, the two equations would describe the same line, giving infinitely many solutions instead.)" },
+    ],
+  },
+
   { type: 'heading', content: 'Building a system from a word problem' },
   {
     type: 'text',
@@ -68,6 +84,18 @@ export const mSystemsBlocks = [
   {
     type: 'callout',
     content: "Mixture problems follow the same structure, with **two totals: substance and volume.** The amounts of pure substance add, and the total volumes add. Water contributes $0$ to the substance equation; a pure ingredient contributes all of itself.",
+  },
+
+  {
+    type: 'example',
+    difficulty: 'Hard',
+    problem: 'A chemist mixes a 10% acid solution with a 25% acid solution to produce 30 liters of a 20% acid solution. How many liters of each are used?',
+    steps: [
+      { label: 'Define variables and write the volume equation', content: "Let $a$ = liters of the 10% solution and $b$ = liters of the 25% solution. The volumes combine to the stated total: $a + b = 30$." },
+      { label: 'Write the pure-substance equation', content: "Each term is concentration times volume — the liters of pure acid each solution contributes. The acid amounts also combine: $0.10a + 0.25b = 0.20(30) = 6$. (Had one ingredient been plain water, its term would be $0 \\cdot a$ — water contributes no acid.)" },
+      { label: 'Substitute and solve', content: "From the volume equation, $a = 30 - b$. Then $0.10(30 - b) + 0.25b = 6$, so $3 + 0.15b = 6$, giving $0.15b = 3$ and $b = 20$. Back-substitute: $a = 10$." },
+      { label: 'Check both conserved totals', content: "Volume: $10 + 20 = 30$ liters. Acid: $0.10(10) + 0.25(20) = 1 + 5 = 6$ liters of pure acid in $30$ liters — a 20% concentration, matching the target." },
+    ],
   },
 
   { type: 'heading', content: 'Worked examples' },
@@ -129,6 +157,12 @@ export const mSystemsBlocks = [
     type: 'checkpointQuestion',
     question: 'How many solutions does the system $y = 2x + 1$ and $6x - 3y = -3$ have?',
     answer: "**Infinitely many.** Solve the second equation for $y$: $6x - 3y = -3 \\Rightarrow -3y = -6x - 3 \\Rightarrow y = 2x + 1$ — identical to the first equation. The system describes one line written twice, so every point on it satisfies both.",
+  },
+
+  {
+    type: 'checkpointQuestion',
+    question: 'In the system $x + 3y = 7$ and $2x + 6y = c$, for what value of $c$ does the system have infinitely many solutions?',
+    answer: "**$c = 14$.** The left side of the second equation is exactly double the first, so the equations describe the same line only when the total doubles as well: $c = 2(7) = 14$. For any other value of $c$ the left sides still match after scaling but the totals differ — parallel lines, no solution. No value of $c$ gives exactly one solution, because the slopes agree for every $c$.",
   },
 
   {

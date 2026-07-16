@@ -9,13 +9,14 @@
  * ("Consider a taxi fare of..."); extended metaphors, cute headings,
  * pep-talk, and test-personification are out. Headings name the concept.
  * Lean structure unchanged: short headed sections, 4 worked examples,
- * 3 checkpoints. Gated by bodies.test.js.
+ * 4 checkpoints. Gated by bodies.test.js.
  *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
  *
- * Scope: what a line means, slope from two points, writing a line, reading
- * $m$ and $b$ in context, parallel/perpendicular, and intercepts as anchors.
+ * Scope: what a line means, slope from two points, horizontal and vertical
+ * lines, writing a line, converting among the three forms, reading $m$ and
+ * $b$ in context, parallel/perpendicular, and intercepts as anchors.
  * Solving/rearranging equations is a SEPARATE lesson — not re-taught here.
  */
 
@@ -55,6 +56,12 @@ export const mLinearEquationsBlocks = [
     ],
   },
 
+  { type: 'heading', content: 'Horizontal and vertical lines' },
+  {
+    type: 'text',
+    content: "Two special cases sit at the extremes of slope. A **horizontal line** has slope $0$: the $y$-value never changes, so the rise is zero and the equation is simply $y = c$, where $c$ is the $y$-coordinate shared by every point on the line. A **vertical line** has an **undefined** slope: the run is zero, and the slope formula would divide by zero. Its equation is $x = c$, and it is the one kind of line that is not a function — the single input $x = c$ is paired with every $y$-value at once. In both cases the equation names the coordinate that stays fixed: the horizontal line through $(3, 5)$ is $y = 5$, and the vertical line through $(3, 5)$ is $x = 3$. Writing $x = 3$ for the horizontal line — attaching the equation to the coordinate that varies rather than the one that is constant — is the standard reversal on these items.",
+  },
+
   { type: 'heading', content: 'Writing the equation of a line' },
   {
     type: 'text',
@@ -69,6 +76,12 @@ export const mLinearEquationsBlocks = [
       { label: 'Solve for b', content: 'Substitute $(2, 3)$: $3 = 2(2) + b$, so $b = -1$.' },
       { label: 'Write and verify', content: '$y = 2x - 1$. The second point confirms it: $2(6) - 1 = 11$. The equation reproduces both points, so it is correct.' },
     ],
+  },
+
+  { type: 'heading', content: 'Converting among the three forms' },
+  {
+    type: 'text',
+    content: "The same line can be written in three standard ways, and each form makes a different piece of information immediate. Slope-intercept form $y = mx + b$ displays the slope and the y-intercept, so it is fastest for graphing and for comparing two lines. Point-slope form $y - y_1 = m(x - x_1)$ is built directly from a slope and one known point, so it is fastest for *writing* a line from that data — no solving for $b$ is required. Standard form $Ax + By = C$ arises naturally from combined-total situations and yields both intercepts quickly, since setting either variable to $0$ leaves a one-step equation. Converting among the forms uses only algebra already in hand: distributing and collecting terms turns point-slope into slope-intercept, and moving the $x$-term across the equals sign turns slope-intercept into standard form. The efficient habit is to work in whichever form matches the given information, converting only when the question requests a particular form.",
   },
 
   { type: 'heading', content: 'Interpreting m and b in context' },
@@ -139,7 +152,13 @@ export const mLinearEquationsBlocks = [
   },
 
   {
+    type: 'checkpointQuestion',
+    question: 'Write the equations of the horizontal line and the vertical line through $(-2, 7)$. Which of the two is not a function?',
+    answer: '**Horizontal: $y = 7$. Vertical: $x = -2$. The vertical line is not a function.** Each equation names the coordinate that stays fixed: every point on the horizontal line has $y = 7$, and every point on the vertical line has $x = -2$. The vertical line pairs the single input $x = -2$ with every $y$-value, so it fails the definition of a function; the horizontal line is a function with slope $0$.',
+  },
+
+  {
     type: 'text',
-    content: "**In summary:** identify the one-time quantity ($b$) and the per-unit quantity ($m$). Two points determine $m$; one point together with $m$ determines $b$; a parallel line copies $m$; a perpendicular line inverts $m$ and changes its sign.",
+    content: "**In summary:** identify the one-time quantity ($b$) and the per-unit quantity ($m$). Two points determine $m$; one point together with $m$ determines $b$; a parallel line copies $m$; a perpendicular line inverts $m$ and changes its sign. A horizontal line is $y = c$ with slope $0$; a vertical line is $x = c$ with undefined slope.",
   },
 ];

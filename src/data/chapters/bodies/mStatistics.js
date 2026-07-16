@@ -51,6 +51,38 @@ export const mStatisticsBlocks = [
     content: "Standard deviation is compared on this test, never computed. Determine which set clusters more tightly around its own mean: $\\{20, 20, 20\\}$ has SD $0$, while $\\{5, 20, 35\\}$ has a large one. Larger values do not imply a larger SD; wider spacing does.",
   },
 
+  { type: 'heading', content: 'Center and spread from frequency tables and dot plots' },
+  {
+    type: 'text',
+    content: "Data often arrive already grouped: a frequency table lists each value once alongside how many times it occurs, and a dot plot draws the same information as stacked dots over a number line — the height of each stack is that value's count. The mean still runs on the total: multiply each value by its count, add those products, and divide by the **total count**, never by the number of rows. The median comes from a cumulative walk: add the counts row by row, in value order, until the running total reaches the middle position (for $n$ values, position $\\frac{n+1}{2}$; for even $n$, average the values at positions $\\frac{n}{2}$ and $\\frac{n}{2}+1$). A histogram is coarser. It reports how many values fall in each bin but not where they sit inside it, so the same cumulative walk can locate the *bin* that contains the median — while the exact median, and the exact mean, cannot be computed from a histogram at all.",
+  },
+  {
+    type: 'example',
+    difficulty: 'Medium',
+    problem: 'A frequency table records the number of books $20$ students read over a summer: $0$ books, $3$ students; $1$ book, $5$ students; $2$ books, $6$ students; $3$ books, $4$ students; $4$ books, $2$ students. Find the mean and the median.',
+    steps: [
+      { label: 'Mean: weight each value by its count', content: 'Total books $= 0(3) + 1(5) + 2(6) + 3(4) + 4(2) = 0 + 5 + 12 + 12 + 8 = 37$. Mean $= 37 \\div 20 = 1.85$. Dividing by the $5$ rows instead of the $20$ students is the error this layout invites.' },
+      { label: 'Median: walk the cumulative counts', content: 'With $20$ values, the median averages the $10$th and $11$th. Running totals: $3$ through value $0$, then $8$ through value $1$, then $14$ through value $2$ — so positions $9$ through $14$ all hold the value $2$, including the $10$th and $11$th.' },
+      { label: 'Report both', content: 'Mean $= 1.85$; median $= 2$. The two need not agree, and a question that names one of them is not answered by the other.' },
+    ],
+  },
+
+  { type: 'heading', content: 'Combining groups: weighted means' },
+  {
+    type: 'text',
+    content: "The mean of two combined groups is not, in general, the average of the two group means. Each group contributes through its **total**, so the means must be weighted by group size: combined mean $= \\dfrac{n_1 \\bar{x}_1 + n_2 \\bar{x}_2}{n_1 + n_2}$. Averaging the two means is correct only when the groups are exactly the same size; otherwise the combined mean sits closer to the mean of the larger group, and the unweighted average is precisely the wrong answer waiting among the choices.",
+  },
+  {
+    type: 'example',
+    difficulty: 'Medium',
+    problem: 'A class of $20$ students has a mean test score of $80$, and a class of $30$ students has a mean of $90$. What is the mean score across both classes?',
+    steps: [
+      { label: 'Recover each total', content: 'First class: $20 \\times 80 = 1600$ points. Second class: $30 \\times 90 = 2700$ points.' },
+      { label: 'Combine totals and counts', content: 'Combined mean $= \\dfrac{1600 + 2700}{20 + 30} = \\dfrac{4300}{50} = 86$.' },
+      { label: 'Rule out the average of averages', content: 'Averaging $80$ and $90$ gives $85$, which is wrong here: the $30$-student class carries more weight, so the true mean lands closer to $90$ than the midpoint.' },
+    ],
+  },
+
   { type: 'heading', content: 'Probability as a share of the pool' },
   {
     type: 'text',
@@ -148,6 +180,11 @@ export const mStatisticsBlocks = [
     type: 'checkpointQuestion',
     question: 'The mean of $6$ test scores is $80$. The lowest score, a $50$, is dropped. What is the mean of the remaining $5$ scores?',
     answer: "**$86$.** A value changed, so work with the total: $80 \\times 6 = 480$. Removing the $50$ leaves $480 - 50 = 430$ across $5$ scores, so $430 \\div 5 = 86$. Dropping the lowest score raises the mean; confirming that the direction of change is sensible provides a quick check on the arithmetic.",
+  },
+  {
+    type: 'checkpointQuestion',
+    question: 'A histogram of $25$ values shows $8$ values in the $0$–$10$ bin, $9$ in the $10$–$20$ bin, and $8$ in the $20$–$30$ bin. What can be determined about the median, and what cannot?',
+    answer: "**The median lies in the $10$–$20$ bin; its exact value cannot be determined.** With $25$ values the median is the $13$th. The cumulative walk gives $8$ through the first bin and $17$ through the second, so the $13$th value falls in $10$–$20$. A histogram records only how many values land in each bin — not where they sit inside it — so neither the exact median nor the exact mean can be computed from one.",
   },
 
   {

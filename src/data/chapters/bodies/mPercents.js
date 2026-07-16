@@ -103,6 +103,25 @@ export const mPercentsBlocks = [
     ],
   },
 
+  { type: 'heading', content: 'Nested percents and shifting bases' },
+  {
+    type: 'text',
+    content: "A percent *of* a percent chains multiplicatively, because the second percent acts on the group the first one carved out. If $40\\%$ of a class walks to school and $20\\%$ of those walkers carry umbrellas, the umbrella-carrying walkers are $0.40 \\times 0.20 = 0.08$ of the class — $8\\%$ of the whole, not $20\\%$. The phrase \"of those\" announces the base switch; read it as a factor applied to the previous result.",
+  },
+  {
+    type: 'text',
+    content: "When the rate is a variable, the factor must divide by $100$ explicitly: a price of $x$ dollars reduced by $p$ percent is $x\\left(1 - \\frac{p}{100}\\right)$, not $x(1 - p)$. A test value exposes the difference at once — at $p = 20$, the first gives $0.8x$, while $x(1 - 20) = -19x$. Bases also shift between sentences: \"$x$ is $80\\%$ of $y$\" means $x = 0.80y$, so $y = \\frac{x}{0.80} = 1.25x$ — measured against $x$, $y$ is $25\\%$ larger, not $20\\%$. A percent relationship read in reverse changes its number, because the base changes.",
+  },
+  {
+    type: 'example',
+    difficulty: 'Medium',
+    problem: 'At a company, $40\\%$ of the employees work remotely, and $25\\%$ of the remote employees live abroad. What percent of all employees are remote workers living abroad?',
+    steps: [
+      { label: 'Track the base of each percent', content: 'The $40\\%$ is a share of all employees; the $25\\%$ is a share of the remote group only — "of the remote employees" switches the base.' },
+      { label: 'Chain the shares', content: '$0.40 \\times 0.25 = 0.10$, so $\\mathbf{10\\%}$ of all employees. On a staff of $200$: $80$ work remotely, and $25\\%$ of $80$ is $20$ people — indeed $20 \\div 200 = 10\\%$.' },
+    ],
+  },
+
   { type: 'heading', content: 'Check yourself' },
   {
     type: 'checkpointQuestion',

@@ -38,6 +38,21 @@ export const nonlinearEquationsBlocks = [
     content: "Cancel only a **factor**, never a term across a plus or minus. $\\dfrac{(x-3)(x+2)}{x-3}$ cancels to $x+2$ (with $x \\ne 3$), but $\\dfrac{x+2}{x}$ does **not** become $\\dfrac{2}{1}$.",
   },
 
+  { type: 'heading', content: 'Dividing both sides by a variable expression' },
+  {
+    type: 'text',
+    content: "A third non-reversible move joins squaring and fraction-clearing: **dividing both sides by an expression that contains the variable.** Division is valid only when the divisor is nonzero, so dividing by $x$ builds in the silent assumption $x \\ne 0$ — and any root that makes the divisor zero disappears without a trace. In $x^2 = 5x$, dividing both sides by $x$ yields $x = 5$ and looks finished, yet $x = 0$ satisfies the original equation ($0 = 0$) and has been discarded. Unlike an extraneous root, which the final check exposes, a discarded root leaves nothing behind to check: the work simply reports one solution where there were two.",
+  },
+  {
+    type: 'trapCard',
+    wrong: 'To solve $x^2 = 5x$, divide both sides by $x$: $\\;x = 5$.',
+    correction: 'Dividing by $x$ assumes $x \\ne 0$ and discards the root $x = 0$. Move every term to one side and factor instead: $x^2 - 5x = 0 \\Rightarrow x(x - 5) = 0 \\Rightarrow x = 0$ or $x = 5$.',
+  },
+  {
+    type: 'text',
+    content: "The rule extends beyond a lone $x$: cancelling $(x-1)$ from both sides of $(x-1)(x+2) = 4(x-1)$ discards the solution $x = 1$. Whenever the same variable factor appears on both sides, subtract to bring everything to one side and factor it out — $(x-1)(x+2) - 4(x-1) = (x-1)(x-2) = 0$, so $x = 1$ or $x = 2$. Factoring preserves every root; cancelling erases one.",
+  },
+
   { type: 'heading', content: 'Hidden quadratics and substitution' },
   {
     type: 'text',
@@ -115,6 +130,11 @@ export const nonlinearEquationsBlocks = [
     type: 'checkpointQuestion',
     question: 'A quadratic formed by setting a line equal to a parabola has discriminant $-12$. How many times do they intersect?',
     answer: "**Zero times.** A negative discriminant means the quadratic has no real solutions, so the curves never meet. The discriminant counts the intersections without computing a single coordinate — that is precisely its use.",
+  },
+  {
+    type: 'checkpointQuestion',
+    question: 'Solving $3x^2 = 12x$ by dividing both sides by $3x$ gives $x = 4$. What was lost, and what is the full solution set?',
+    answer: "**$x = 0$ was lost; the solutions are $x = 0$ and $x = 4$.** Dividing by $3x$ is valid only when $x \\ne 0$, so the root that makes the divisor zero vanished — with no extraneous candidate left behind to flag the error. Factoring keeps both: $3x^2 - 12x = 0 \\Rightarrow 3x(x - 4) = 0 \\Rightarrow x = 0$ or $x = 4$.",
   },
 
   {

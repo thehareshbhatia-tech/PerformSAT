@@ -48,10 +48,57 @@ export const centralIdeasBlocks = [
     content: "For a question of the form *\"according to the text, why did X happen?\"*, memory supplies an answer instantly, and that answer is unreliable. Memory stores an approximate gist, and incorrect choices are routinely written to match that gist — close enough to sound right, wrong on the one word that decides the question. Locate the sentence that actually discusses X and **read it from its first word**: the qualifier that settles the answer usually sits in the front half of the sentence, exactly where a keyword scan passes over it. Nothing on these questions requires deduction; the task is to find and match.",
   },
 
+  { type: 'heading', content: 'Tracking what "this" points to' },
+  {
+    type: 'text',
+    content: "Academic prose rarely repeats an idea in full. Once a claim has been stated, the next sentence compresses it into a short phrase — *this phenomenon*, *this discrepancy*, *such an approach*, sometimes a bare *this* — and builds on the compressed version. These phrases name **ideas, not objects:** the referent of *this discrepancy* is usually an entire prior sentence, occasionally two. A question that turns on one of these phrases is really testing whether the compressed idea has been unpacked, so hunting for a single nearby noun to serve as the referent misses the point of the construction.",
+  },
+  {
+    type: 'text',
+    content: "The method is mechanical. The referent sits **behind** the phrase, so rereading the phrase itself — or reading onward from it — never resolves it. Back up to the previous sentence, read forward from its beginning, and **restate the referent in full** before looking at any choice: *the surveys found far fewer birds than the recordings implied*, not a one-word label. Two refinements complete the method. First, referents do not carry over: the same *this* can point to a new idea one paragraph later, so each occurrence is resolved fresh. Second, *the former* and *the latter* index into the **original** pair — *former* names the item listed first, *latter* the item listed second — regardless of which one the follow-up sentence happens to discuss first.",
+  },
+  {
+    type: 'tip',
+    content: "**Test a referent by substitution.** Replace *this discrepancy* with the restated idea and reread the sentence. If the sentence still makes sense, the referent holds; if it turns strange, the phrase was pointing somewhere else.",
+  },
+  {
+    type: 'example',
+    difficulty: 'Hard',
+    problem: 'Ground surveys of the island recorded barely two hundred nesting pairs of shearwaters. Yet acoustic monitors, listening through the same seasons, logged call activity consistent with a colony several times that size. This discrepancy, researchers now argue, says less about the birds than about the counting: shearwaters return to their burrows only in full darkness, hours after survey teams have gone.\n\nAs used in the text, "this discrepancy" refers to the difference between\n\n(A) the colony size the surveys recorded and the larger size the acoustic monitors implied.\n(B) the counting methods favored by rival teams of researchers.\n(C) the hours the survey teams worked and the hours the shearwaters were active.',
+    steps: [
+      { label: 'Back up to the referent', content: "*This discrepancy* compresses the two sentences before it, so the answer lies behind the phrase. Return to the start of the first sentence and read forward: surveys counted about two hundred pairs; the monitors implied several times that number." },
+      { label: 'Restate it in full', content: "The discrepancy is the mismatch between two measurements of colony size — a whole comparison, not any single noun in the passage." },
+      { label: 'Match', content: "**(A)** states that comparison. (B) invents a rivalry — two instruments disagree, not two camps of researchers. (C) names the *explanation* for the discrepancy (the timing of the visits), not the discrepancy itself: a true fact from the passage attached to the wrong referent." },
+    ],
+  },
+  {
+    type: 'checkpointQuestion',
+    question: 'A passage introduces two proposals — a tax first, a subsidy second — and a later paragraph says *"the latter proved cheaper,"* after discussing the subsidy first in that paragraph. Which proposal is *the latter*?',
+    answer: "The **subsidy** — but not because the later paragraph mentions it first. *Former* and *latter* index into the original pair by original order: the tax was listed first (*former*), the subsidy second (*latter*). Order of mention in the follow-up sentence never changes the assignment; passages exploit exactly that reversal.",
+  },
+
+  { type: 'heading', content: 'Beliefs set up to be challenged' },
+  {
+    type: 'text',
+    content: "Many informational passages open with a belief the author does not hold. The set-up is marked by **distance language**: *it was long thought*, *conventional wisdom held*, *many assumed*, *scientists once believed*, or a bare *historically*. Each phrase attributes the belief to other people rather than asserting it — and an author who attributes a belief instead of owning it is usually preparing to correct it. The hedge is therefore a forecast: expect a pivot (*but*, *however*, *yet*, *recent evidence suggests*), and expect the author's actual position in the sentences after the turn. On such a passage the most dependable wrong answer can be predicted before the choices appear: the one that crowns the **opening belief** as the main idea.",
+  },
+  {
+    type: 'text',
+    content: "The forecast is a prediction to verify, not a rule to impose. Some passages simply describe a topic, and some genuinely defend the established view; in those, no turn ever arrives, and the opening claim really is the point. A hedge raises the expectation of a pivot — only the pivot itself confirms it. A second calibration: the new idea does not always demolish the old one. Often it merely qualifies it, and the old view survives in limited form; choices announcing that the passage *disproves* or *rejects* the earlier belief overshoot a passage that only refines it.",
+  },
+
   { type: 'heading', content: 'Literary passages' },
   {
     type: 'text',
     content: "A story or poem does not argue a thesis, so read it **literally** rather than searching for one. Track who is present, what they want, and what changes from the first line to the last. Locate the **turn** — a shift in image, tense, or addressee — because the point usually resides there. Then adopt the **most modest reading** that still fits the whole passage, not the most dramatic or symbolic one. When students miss literary questions, the cause is almost never reading too shallowly; it is reading in drama that does not appear on the page.",
+  },
+  {
+    type: 'text',
+    content: "Older fiction raises the difficulty through **language, not logic** — inverted word order, period vocabulary, formal address. When a word or phrase is opaque, read around it: the sentence's skeleton (who did what, who wants what) usually survives even when an adjective or a period term does not, and the question is answerable from the readable parts. Extract that ledger of persons and wants, and leave the ornament unresolved rather than guessing at it.",
+  },
+  {
+    type: 'text',
+    content: "Two further disciplines govern period settings. First, modern social assumptions stay out: what a formal visit, an inheritance, or a mode of address implies in the passage's era is whatever the passage itself establishes, nothing more. Second, match the temperature of the words. Wrong answers on literary items routinely inflate a mild observation into grand drama — wistfulness into despair, fondness into passion, a quiet difference of opinion into a bitter feud. The credited answer stays as calm as the words on the page.",
   },
 
   { type: 'heading', content: 'Worked examples' },

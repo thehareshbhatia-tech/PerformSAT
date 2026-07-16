@@ -68,6 +68,30 @@ export const textStructureAndPurposeBlocks = [
     content: 'State the answer in your own words before reading any choice. Then eliminate by **verb first** — cut any verb with the wrong direction or excessive force — and only then check the noun. Many choices can be eliminated on their first word.',
   },
 
+  { type: 'heading', content: 'Poetry as structure: the turn' },
+  {
+    type: 'text',
+    content: "A poem's structure yields to the same analysis as prose once its units are identified: **treat stanzas as paragraphs** — each one advances, develops, or reverses what came before — and read line breaks as pauses rather than stops. The structural hinge of most tested poems is the **turn**: the point where something shifts — the speaker's stance, the time frame, the addressee, or the governing image. A structure answer for a poem almost always names the two sides of the turn and the relation between them: *a memory is recounted, then its meaning is reconsidered*; *a scene is described, then the speaker addresses the person absent from it.*",
+  },
+  {
+    type: 'table',
+    headers: ['Device', 'What it looks like', 'The job it typically performs'],
+    rows: [
+      ['direct address', 'the speaker turns to speak *to* a person or thing (*O river...*, *you who come after*)', 'shifts description into appeal; often marks the turn itself'],
+      ['extended comparison', 'one comparison sustained across stanzas (memory treated as a locked house throughout)', 'organizes the whole poem — the framework for the subject, not a description of real objects'],
+      ['concrete image', 'a single physical detail set amid abstract statement', 'grounds or sharpens the abstract claim beside it — judged by what it does *for* that claim'],
+    ],
+  },
+  {
+    type: 'text',
+    content: "Function questions on these devices follow the prose standard exactly: the credited answer names the **job**, not the content. When a poem sustains one comparison for four stanzas, the comparison is the poem's organizing framework, and its function is to structure the treatment of the subject — a choice that reads the image literally, as though the poem were about the house rather than about memory, mistakes the device for the topic.",
+  },
+  {
+    type: 'checkpointQuestion',
+    question: 'A poem describes a coastline in the past tense for three stanzas; the final stanza shifts to the present and addresses the sea directly. A structure choice says the poem *"catalogs the physical features of a shoreline."* Keep or cut?',
+    answer: "**Cut, on the scope.** The final stanza is the turn — tense and addressee both shift — and a structure answer covers both sides of it. A catalog-of-features choice describes only the first three stanzas and misses the shift that organizes the poem. Scope fails here exactly as it does on a prose main-purpose item.",
+  },
+
   { type: 'heading', content: 'Worked examples' },
   {
     type: 'example',

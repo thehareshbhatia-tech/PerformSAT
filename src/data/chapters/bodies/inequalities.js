@@ -52,6 +52,26 @@ export const inequalitiesBlocks = [
     content: "A distance can never be negative, so $|x - 6| = -2$ has **no solution**. Recognizing this immediately avoids algebra that cannot produce an answer.",
   },
 
+  { type: 'heading', content: 'The absolute-value function' },
+  {
+    type: 'text',
+    content: "Graphed, $y = |x|$ forms a **V**. For $x \\ge 0$ the graph coincides with the line $y = x$; for $x < 0$ the negative outputs are flipped to positive, producing the mirror-image arm $y = -x$. The two arms meet in a corner at the origin — the **vertex** — where the output reaches its minimum value of $0$. The right arm rises with slope $1$, the left arm falls with slope $-1$, and the graph is symmetric about the vertical line through the vertex.",
+  },
+  {
+    type: 'text',
+    content: "The general form $y = a|x - h| + k$ moves and reshapes this V exactly as the parabola's vertex form $y = a(x - h)^2 + k$ moves a parabola: the vertex sits at $(h, k)$, a positive $a$ opens the V upward and a negative $a$ opens it downward, and the arms have slopes $+a$ and $-a$. The sign of $h$ follows the same convention as in the parabola: $|x - 3|$ places the vertex at $x = 3$, while $|x + 3|$ — which is $|x - (-3)|$ — places it at $x = -3$. To match an equation to a graph, locate the corner first: it fixes $h$ and $k$ immediately, and the steepness and direction of the arms then determine $a$.",
+  },
+  {
+    type: 'example',
+    difficulty: 'Medium',
+    problem: 'What is the vertex of the graph of $y = 2|x - 3| - 4$, and where does the graph cross the x-axis?',
+    steps: [
+      { label: 'Read the vertex', content: "Match against $y = a|x - h| + k$: $h = 3$ and $k = -4$, so the vertex is $(3, -4)$. The subtraction inside the bars means $h$ is $+3$, not $-3$." },
+      { label: 'Determine the shape', content: "$a = 2$ is positive, so the V opens upward from the vertex, with arms of slope $2$ and $-2$. The vertex lies below the x-axis and the graph opens upward, so it crosses the axis twice." },
+      { label: 'Find the x-intercepts', content: "Set $y = 0$: $2|x - 3| = 4$, so $|x - 3| = 2$ — the points at distance $2$ from $3$, namely $x = 1$ and $x = 5$. The two intercepts sit symmetrically about the vertex's $x$-coordinate, as the V's shape requires." },
+    ],
+  },
+
   { type: 'heading', content: 'Two-variable inequalities: half-planes and test points' },
   {
     type: 'text',
@@ -135,6 +155,6 @@ export const inequalitiesBlocks = [
 
   {
     type: 'text',
-    content: "**In summary:** solve as with an equation, reversing the symbol only on a negative multiplication or division; apply every operation to all three parts of a compound inequality; read $|x - c|$ as distance from $c$; test one point to select the shaded side; and match boundary phrases to $\\ge / \\le / > / <$. Substituting one number from the result verifies the direction.",
+    content: "**In summary:** solve as with an equation, reversing the symbol only on a negative multiplication or division; apply every operation to all three parts of a compound inequality; read $|x - c|$ as distance from $c$; test one point to select the shaded side; and match boundary phrases to $\\ge / \\le / > / <$. The graph of $y = a|x - h| + k$ is a V with its vertex at $(h, k)$ and arm slopes $\\pm a$. Substituting one number from the result verifies the direction.",
   },
 ];

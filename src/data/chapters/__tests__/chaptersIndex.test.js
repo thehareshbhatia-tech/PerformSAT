@@ -25,10 +25,10 @@ describe('LEARN_UNITS', () => {
     expect(LEARN_SECTIONS.map((s) => s.id)).toEqual(['strategy', 'reading', 'writing', 'math']);
   });
 
-  test('the four math units carry the 22 math chapters', () => {
+  test('the four math units carry the 23 math chapters', () => {
     const mathIds = LEARN_UNITS.filter((u) => u.section === 'math').flatMap((u) => u.chapterIds);
-    expect(mathIds).toHaveLength(22);
-    expect(new Set(mathIds).size).toBe(22); // no dupes
+    expect(mathIds).toHaveLength(23);
+    expect(new Set(mathIds).size).toBe(23); // no dupes
   });
 });
 

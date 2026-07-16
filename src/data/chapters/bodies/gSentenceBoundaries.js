@@ -23,6 +23,10 @@ export const gSentenceBoundariesBlocks = [
     type: 'text',
     content: "A complete sentence contains a subject and a verb and does not open with a subordinating word. *The reef recovered.* expresses a finished thought and stands alone. *Because the reef recovered*, by contrast, leaves the thought unresolved — the reader is still waiting for the consequence. Words such as *because, although, when, since, if,* and *while* create that dependence: a clause that opens with one of them cannot stand alone, however many words follow it.",
   },
+  {
+    type: 'callout',
+    content: 'An *-ing* form or a *to* form **never fills the verb slot by itself**. *The committee reviewing the proposal.* and *To qualify for the grant.* are fragments, however long they run — *reviewing* needs a helping verb before it counts (*is reviewing, was reviewing, has been reviewing*), and a *to* form is never the sentence’s verb. A word group whose only verb candidate is a bare *-ing* or *to* form has no verb at all, and no punctuation choice can rescue it.',
+  },
 
   { type: 'heading', content: 'Joining two complete sentences' },
   {
@@ -53,6 +57,18 @@ export const gSentenceBoundariesBlocks = [
   {
     type: 'text',
     content: "An incomplete piece — a *because* / *although* clause, a list, a description with no verb — attaches to a complete sentence with a plain **comma**. When the left side is itself a complete sentence, a **colon** or a **dash** may also introduce what follows. *Although the survey found damage, the reef held.* — *The reef held: the coral had adapted.*",
+  },
+
+  { type: 'heading', content: 'One join, one connector' },
+  {
+    type: 'text',
+    content: 'Joining two clauses takes **exactly one connector** — the subordinator or the coordinator, never both. *Although the survey found damage, but the reef held.* doubles up: *although* demotes the first clause to a dependent piece, and *but* demands a complete sentence before it, so with both installed no clause is left standing as the main assertion. Either word alone repairs the sentence — *Although the survey found damage, the reef held.* or *The survey found damage, but the reef held.* The doubled version survives casual reading because each half sounds fine locally, and the first connector often sits at the very start of a long sentence, far from the choices. Sweep the whole sentence for connectors already present before selecting one: when one exists, any choice that adds a second is wrong, and the punctuation-only choice usually wins.',
+  },
+
+  { type: 'heading', content: 'Participial tails' },
+  {
+    type: 'text',
+    content: 'A comma followed by an *-ing* phrase at the end of a sentence modifies the **whole preceding clause** and creates no splice: *The company expanded rapidly, opening six offices in two years.* The tail *opening six offices in two years* has no subject and cannot stand alone — it is an incomplete piece legally attached by the comma, and the comma is what marks the phrase as describing the clause’s action rather than gluing to the nearest word. The construction turns illegal the moment a subject appears: *The company expanded rapidly, it opened six offices in two years* upgrades the tail to a complete sentence and the comma to a splice. Choices that differ only by that inserted pronoun are testing exactly this line.',
   },
 
   { type: 'heading', content: 'The method: count, then choose' },
@@ -125,6 +141,11 @@ export const gSentenceBoundariesBlocks = [
     type: 'checkpointQuestion',
     question: 'Because the trail was icy, the rangers closed it for the weekend. Is that comma legal, or a splice?',
     answer: '**Legal.** *Because the trail was icy* opens with *because*, so it is an incomplete piece — and an opening dependent clause takes a comma before the complete sentence that follows. A splice requires a *complete* sentence on both sides of the comma; here the left side cannot stand alone, so this is the ordinary incomplete + complete → comma pattern.',
+  },
+  {
+    type: 'checkpointQuestion',
+    question: 'Although the storm delayed every flight, but the passengers stayed calm. What is wrong, and what are the repairs?',
+    answer: '**A doubled connector.** One join takes exactly one connector, and this sentence installs two — *although* and *but* — leaving no clause standing as the main assertion. Delete either one: *Although the storm delayed every flight, the passengers stayed calm.* or *The storm delayed every flight, but the passengers stayed calm.*',
   },
 
   {

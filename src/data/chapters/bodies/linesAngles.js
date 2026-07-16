@@ -80,6 +80,33 @@ export const linesAnglesBlocks = [
     answer: "**$x = 30^\\circ$; the exterior angle is $150^\\circ$.** $x + 2x + 3x = 6x = 180^\\circ$, so $x = 30^\\circ$. Two routes give the exterior angle, and they agree: the supplement, $180^\\circ - 30^\\circ = 150^\\circ$, or the sum of the two remote angles, $2x + 3x = 60^\\circ + 90^\\circ = 150^\\circ$. Agreement between the two routes confirms the result.",
   },
 
+  { type: 'heading', content: 'Polygon angle sums' },
+  {
+    type: 'text',
+    content: "The triangle total extends to every polygon. Drawing all diagonals from one vertex splits an $n$-sided polygon into $n - 2$ triangles, so the interior angles sum to $180^\\circ(n - 2)$: $360^\\circ$ for a quadrilateral, $540^\\circ$ for a pentagon, $720^\\circ$ for a hexagon. In a **regular** polygon — all sides and all angles equal — each interior angle is that sum divided by $n$. The **exterior** angles behave more simply still: taking one at each vertex, they total $360^\\circ$ for *every* polygon, regardless of $n$, because walking once around the perimeter turns through exactly one full revolution. Each exterior angle of a regular polygon is therefore $\\dfrac{360^\\circ}{n}$, and interior $+$ exterior $= 180^\\circ$ at every vertex — frequently the fastest route to an interior angle.",
+  },
+  {
+    type: 'formula',
+    label: 'Polygon angle facts',
+    content: '$\\text{interior sum} = 180^\\circ(n - 2) \\qquad \\text{exterior sum} = 360^\\circ$',
+    note: 'The interior sum grows with $n$; the exterior sum never does.',
+  },
+  {
+    type: 'example',
+    difficulty: 'Medium',
+    problem: 'What is the measure of one interior angle of a regular octagon?',
+    steps: [
+      { label: 'Route 1: divide the interior sum', content: 'With $n = 8$, the interior angles total $180^\\circ(8 - 2) = 1080^\\circ$. Regular means equal shares: $1080^\\circ \\div 8 = 135^\\circ$.' },
+      { label: 'Route 2: through the exterior angle', content: 'The eight exterior angles total $360^\\circ$, so each is $360^\\circ \\div 8 = 45^\\circ$, and the interior angle is its supplement: $180^\\circ - 45^\\circ = 135^\\circ$.' },
+      { label: 'Compare the routes', content: 'Both give $135^\\circ$. The exterior route runs on smaller numbers and is usually faster for regular polygons.' },
+    ],
+  },
+  {
+    type: 'checkpointQuestion',
+    question: 'Each exterior angle of a regular polygon measures $24^\\circ$. How many sides does the polygon have, and what is the measure of each interior angle?',
+    answer: "**$15$ sides; each interior angle is $156^\\circ$.** Exterior angles always total $360^\\circ$, so $n = 360^\\circ \\div 24^\\circ = 15$. Each interior angle is the supplement of its exterior angle: $180^\\circ - 24^\\circ = 156^\\circ$. The long route agrees: $180^\\circ(15 - 2) \\div 15 = 2340^\\circ \\div 15 = 156^\\circ$.",
+  },
+
   { type: 'heading', content: 'Congruence criteria' },
   {
     type: 'text',

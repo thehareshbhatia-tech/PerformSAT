@@ -53,6 +53,12 @@ export const ratiosProportionsBlocks = [
     content: 'A share above $1$ is impossible and signals that the whole was never built. Check for an unstated third category before concluding that the whole is $a+b$.',
   },
 
+  { type: 'heading', content: 'Three-term ratios and shares of a remainder' },
+  {
+    type: 'text',
+    content: "A three-term ratio such as $2:3:5$ works exactly like a two-term one: the whole is $2 + 3 + 5 = 10$ parts, and each share is its own term over that sum — $\\frac{2}{10}$, $\\frac{3}{10}$, $\\frac{5}{10}$. Any pair inside it can also be read on its own: the second and third quantities stand in the ratio $3:5$. A related construction hands out fractions in sequence: a student spends $\\frac{1}{3}$ of $\\$120$, then $\\frac{1}{4}$ *of the remainder*. Each new fraction acts on whatever is left, not on the original amount — $\\frac{1}{3}$ of $120$ is $40$, leaving $80$; then $\\frac{1}{4}$ of $80$ is $20$, leaving $60$. Applying both fractions to the original $120$ misreads the base; the phrase \"of the remainder\" resets it at every step.",
+  },
+
   { type: 'heading', content: 'Unit conversion: multiply by fractions equal to 1' },
   {
     type: 'text',
@@ -75,6 +81,28 @@ export const ratiosProportionsBlocks = [
     label: 'Add the rates, flip back to time',
     content: '$\\dfrac{1}{t_1} + \\dfrac{1}{t_2} = \\dfrac{1}{t}$',
     note: 'The sum is a rate; the question asks for a time, so one final reciprocal converts back. A useful bound: a helper can only shorten the job, so the combined time must be less than the faster solo time — a check that alone eliminates the "average the times" and "add the times" answer choices.',
+  },
+
+  { type: 'heading', content: 'Average speed over a whole trip' },
+  {
+    type: 'text',
+    content: "Average speed is defined by one fraction — $\\text{average speed} = \\dfrac{\\text{total distance}}{\\text{total time}}$ — and by nothing else. When a trip has legs at different speeds, averaging the speeds themselves fails whenever the legs take different amounts of time, because the slower leg occupies a larger share of the trip. Compute each leg's time, add the distances, add the times, and divide once at the end. The mean of the two speeds is routinely offered among the answer choices; it is correct only in the special case of equal *times*, not equal distances.",
+  },
+  {
+    type: 'example',
+    difficulty: 'Medium',
+    problem: 'A driver travels $60$ miles to a city at $30$ miles per hour and returns along the same $60$-mile route at $60$ miles per hour. What is the average speed for the round trip?',
+    steps: [
+      { label: "Find each leg's time", content: 'Going: $60 \\div 30 = 2$ hours. Returning: $60 \\div 60 = 1$ hour.' },
+      { label: 'Divide total distance by total time', content: 'Total distance $= 120$ miles; total time $= 3$ hours. Average speed $= 120 \\div 3 = 40$ miles per hour.' },
+      { label: 'Rule out the mean of the speeds', content: 'Averaging $30$ and $60$ gives $45$, which overweights the faster leg: the trip spends two hours at $30$ mph and only one at $60$ mph. On any equal-distance round trip, the true average lands *below* the midpoint of the two speeds.' },
+    ],
+  },
+
+  { type: 'heading', content: 'Direct and inverse variation' },
+  {
+    type: 'text',
+    content: "\"$y$ varies directly with $x$\" means $y = kx$ for some constant $k$: doubling $x$ doubles $y$, and the graph is a line through the origin. \"$y$ varies inversely with $x$\" means $y = \\dfrac{k}{x}$: doubling $x$ halves $y$, and the *product* $xy$ stays fixed at $k$. Either way the procedure is the same — substitute the given pair of values to find $k$ first, then answer from the completed equation. The trap runs in both directions: setting up a proportion for an inverse relationship, or holding $xy$ constant for a direct one, produces a clean-looking wrong number, so classify the relationship from the wording before any arithmetic.",
   },
 
   { type: 'heading', content: 'Size check: smaller unit, bigger number' },

@@ -26,6 +26,11 @@
  * are the standard Digital SAT structure; where a count could vary, it is
  * hedged with "about" / "roughly". cbSkills is empty — these chapters are not
  * tied to a content skill.
+ *
+ * The SPR entry rules in the tactics chapter (fraction/decimal equivalence,
+ * no mixed numbers, 5-character field / 6 with a negative sign, fill-the-field
+ * for long or repeating decimals, no symbols, one answer when several are
+ * correct) match current Bluebook behavior as of 2026-07.
  */
 
 export const strategyChapters = [
@@ -74,6 +79,10 @@ export const strategyChapters = [
           description: 'The composite is just the two section scores added together: 200 to 800 each, 400 to 1600 total.',
         },
         {
+          type: 'text',
+          content: "The conversion from answers to a scaled score is **not a raw count**. The Digital SAT scores with a statistical model called **item response theory (IRT)**: every question carries measured properties — its *difficulty* and its *discrimination*, how sharply it separates stronger performers from weaker ones — and the model estimates ability from *which* questions were answered correctly, not merely how many. Layered on top of that estimate is the module route: the easier Module 2 bounds the section's final range from above, while the harder one keeps the full ceiling in play. Together these two mechanisms explain a result that surprises many students — two test-takers with the same number correct can land meaningfully different scores — and they give Module 1 accuracy its standing in scoring terms, not just routing terms: the questions that unlock the harder Module 2 are the ones worth protecting most.",
+        },
+        {
           type: 'example',
           difficulty: 'Easy',
           problem: 'Two students take the same test. Maya rushes the easy questions early in R&W Module 1, drops three of them to careless misreads, but nails most of the hard ones. Devon slows down on the early easy ones, gets them all, and misses a couple of the hardest. Both finish Module 1 with the same number correct. Who is set up better, and why?',
@@ -118,8 +127,8 @@ export const strategyChapters = [
     id: 'strategy-test-day-tactics',
     unitId: 'strategy-tactics',
     title: 'Pacing & Test-Day Tactics',
-    blurb: 'A per-module pacing plan, mark-and-move and elimination, the highest-value Desmos techniques, and how to prepare the night before.',
-    readMinutes: 5,
+    blurb: "A per-module pacing plan, mark-and-move and elimination, Bluebook's on-screen tools, the highest-value Desmos techniques, the student-produced response entry rules, and how to prepare the night before.",
+    readMinutes: 7,
     cbSkills: [],
     source: {
       kind: 'blocks',
@@ -140,6 +149,10 @@ export const strategyChapters = [
         {
           type: 'text',
           content: "**Eliminate before guessing.** When no choice stands out, work in reverse — cross off what *cannot* be right. In R&W, treat with suspicion any choice that reverses the passage, overreaches with \"every\" or \"always,\" or repeats an exact passage word to appear familiar. In Math, eliminate choices with the wrong sign or an impossible size. Narrowing four choices to two converts a blind guess into even odds — and the guess is always worth taking: **never leave a blank.**",
+        },
+        {
+          type: 'text',
+          content: "Bluebook backs these habits with on-screen tools, and using them keeps decisions from being made twice. The **annotate tool** highlights any stretch of passage text and can attach a note — mark the claim the question hangs on, so a second read starts at the evidence rather than at the top of the passage. The **answer eliminator** (the small ABC toggle) crosses out choices directly on screen: a ruled-out choice stays visibly ruled out, so a later reread does not quietly reconsider what has already been rejected. And the **mark-for-review flag** feeds the module's **review page** — a grid of every question showing which are answered, which are flagged, and which are blank — so the end-of-module return trip is one click per flagged item instead of a scroll back through the whole module.",
         },
         {
           type: 'text',
@@ -174,6 +187,36 @@ export const strategyChapters = [
             },
           ],
         },
+
+        { type: 'heading', content: 'Entering student-produced responses' },
+        {
+          type: 'text',
+          content: "About a quarter of the Math questions offer no answer choices at all: **student-produced response (SPR)** questions end in an empty entry field, and the field has rules of its own — a correctly solved problem scores zero if the entry does not conform. The field holds **up to 5 characters**, or **6 for a negative answer**, because the negative sign claims a character of its own. Negative answers are allowed; symbols are not — **no percent signs, no dollar signs, no commas**, and no units of any kind. And when a question has more than one correct value, the field wants exactly one: **enter any single correct answer**, never an attempt at listing several.",
+        },
+        {
+          type: 'text',
+          content: "Fractions and decimals are interchangeable — for an answer of $\\frac{5}{4}$, both **5/4** and **1.25** earn the point. The one forbidden form is the **mixed number**: the field has no way to read the space in $1\\frac{1}{4}$, so an entry of 1 1/4 is scored as the fraction $\\frac{11}{4}$ — a wrong answer manufactured from correct work. Convert every mixed number to an improper fraction or a decimal before entering. Decimals that run past the field follow the last rule: **a long or repeating decimal must fill the field**, truncated or rounded at the final digit that fits. For $\\frac{2}{3}$, the entries .6666 and .6667 both score; .66 and .67 do not, because an entry is graded as exactly the number typed — and .66 is a different, less accurate number than $\\frac{2}{3}$.",
+        },
+        {
+          type: 'example',
+          difficulty: 'Easy',
+          problem: 'A student-produced response question has the answer $\\frac{2}{3}$. Which entries earn the point, and which near-misses score zero?',
+          steps: [
+            {
+              label: 'Start with the fraction',
+              content: "**2/3** fits inside the five-character field and is exact. A fraction that fits is always the safest entry — no truncating or rounding decision to make.",
+            },
+            {
+              label: 'Fill the field with a decimal form',
+              content: "As a decimal, $\\frac{2}{3} = 0.666...$ never terminates, so the entry must fill the field: **.6666** (truncated) and **.6667** (rounded) both score. With a leading zero the field fits one fewer decimal place, so **0.666** and **0.667** score as well.",
+            },
+            {
+              label: 'Recognize the zero-point entries',
+              content: "**.66**, **.67**, **0.66**, and **0.67** all fail — each stops before the field is full and is graded as exactly the number typed, not as an approximation of $\\frac{2}{3}$. The same logic rejects a mixed number anywhere on the section: 1 1/4 reads as $\\frac{11}{4}$, so the entry here would be a full-field decimal or the fraction itself.",
+            },
+          ],
+        },
+
         {
           type: 'text',
           content: "**The night before and the morning of.** New material studied the night before adds little; a light review of your own error checklist is more useful than cramming. Pack the admission ticket, a photo ID, a charged device or your approved calculator, and a snack for the break, then protect your sleep — it is the highest-value preparation remaining. In the morning, eat a real breakfast, arrive early, and give the first few easy questions full attention: on an adaptive test, those are the points that matter most.",
@@ -196,6 +239,12 @@ export const strategyChapters = [
           question: 'A question has not clicked after 30 seconds. What is the mark-and-move play?',
           answer: 'Record your best guess, flag it, and move on; return after sweeping the rest of the module. **Why:** one stalled question can drain the time of several answerable ones, and each pays the same single point.',
         },
+        {
+          type: 'checkpointQuestion',
+          number: 4,
+          question: 'Your work on an SPR question produces the mixed number $1\\frac{1}{4}$. What do you enter, and what would typing 1 1/4 cost you?',
+          answer: 'Enter 5/4 or 1.25 — either form scores. **Why:** the field cannot read a mixed number, so 1 1/4 is graded as the fraction $\\frac{11}{4}$ — a wrong answer produced from correct work. Convert to an improper fraction or a decimal before entering.',
+        },
       ],
     },
   },
@@ -204,8 +253,8 @@ export const strategyChapters = [
     id: 'strategy-test-writer',
     unitId: 'strategy-tactics',
     title: 'Think Like the Test Writer',
-    blurb: 'How wrong answers are constructed — and the habits that counter them: answer the question as asked, check answers for plausible size and units, use Desmos deliberately, and secure the fast points first.',
-    readMinutes: 9,
+    blurb: 'How wrong answers are constructed — and the habits that counter them: read the choices to see what a grammar question tests, answer the question as asked, check answers for plausible size and units, use Desmos deliberately, and secure the fast points first.',
+    readMinutes: 10,
     cbSkills: [],
     source: {
       kind: 'blocks',
@@ -228,6 +277,16 @@ export const strategyChapters = [
         {
           type: 'text',
           content: "One qualification: the house style is a tendency, not a law. On the hardest questions, the strongly worded choice is occasionally correct — fully supported, simply bold — and such questions are built precisely to catch students who reflexively eliminate anything extreme. Rank the cautious, re-worded choices first, then let the passage cast the deciding vote. When reviewing a miss, resist the urge to argue with the key: \"my answer was defensible\" teaches nothing, while \"here is what I misread\" corrects the next ten questions.",
+        },
+
+        { type: 'heading', content: 'On grammar questions, the choices reveal the test' },
+        {
+          type: 'text',
+          content: "Conventions questions all wear the same disguise. The stem is generic — *Which choice completes the text so that it conforms to the conventions of Standard English?* — and it reads identically whether the question tests a comma splice or subject-verb agreement, so the stem carries no information about what is on trial. The diagnosis lives in the **answer choices**: read all four and note what *changes* between them. If the words match and only the punctuation moves, the question is about joining or separating clauses — find where one complete thought ends. If verb forms vary — *was* against *were*, *has* against *have* — the question is testing agreement or tense, and the first job is locating the verb's true subject. Diffing the choices names the rule being tested before a word of the passage has been re-read.",
+        },
+        {
+          type: 'text',
+          content: "One elimination habit does more harm than good here: crossing off a choice because it is written in the **passive voice**. The SAT does not test a preference for active over passive — a passive construction is never wrong *on its own*, and the credited answer is sometimes passive. Wrong answers on conventions questions are wrong because they break a rule: a boundary error, a dangling modifier, a verb that disagrees with its subject. Eliminate for grammar, not for style.",
         },
 
         { type: 'heading', content: 'Answer the question that was asked' },

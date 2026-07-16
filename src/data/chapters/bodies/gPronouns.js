@@ -76,6 +76,31 @@ export const gPronounsBlocks = [
     content: 'The quickest *who / whom* check examines the neighboring word. A **verb** immediately after → *who* (*who **called***). A **preposition** immediately before → *whom* (*with **whom***). *Whom* directly in front of a verb is the signature error of this question type — the combination is incorrect wherever it appears.',
   },
 
+  { type: 'heading', content: 'Where, when, and preposition + which' },
+  {
+    type: 'text',
+    content: '*Where* stands in for a **physical place** — somewhere a person could actually stand: *the lab where the tests ran* means *the lab in which the tests ran*. *When* does the same work for a **time**: *the year when the dam failed*. For anything that is neither a real place nor a time — a study, a novel, a policy, a situation — *where* and *when* are unavailable, and the formal substitute **preposition + which** does the work: *the study in which participants kept sleep diaries*, not *the study where participants kept sleep diaries* — a study cannot be stood in. The substitute reads stiffly, and the stiffness is not an error: an awkward-sounding *in which* is correct wherever the antecedent is abstract, while the smoother *where* is wrong there.',
+  },
+  {
+    type: 'table',
+    headers: ['The antecedent is…', 'Use', 'Example'],
+    rows: [
+      ['a physical place', '*where* (or *in / at which*)', '*the harbor where the ferry docks*'],
+      ['a time', '*when* (or *in / during which*)', '*the decade when the dam was built*'],
+      ['anything abstract — a study, a book, a theory', '*preposition + which* only', '*the study in which the effect appeared*'],
+    ],
+  },
+  {
+    type: 'text',
+    content: 'One further check: **one preposition per relation.** Once *in which* has been written, the preposition is spent — *the house in which she grew up in* uses it twice. Either form alone is correct: *the house in which she grew up*, or *the house she grew up in*.',
+  },
+
+  { type: 'heading', content: 'Pronoun case in compounds' },
+  {
+    type: 'text',
+    content: 'Case survives compounding: adding *and* plus another person changes nothing about which pronoun form a position requires. A subject position takes subject forms — *He and I went to the archive*, never *Him and me went* — and an object position, after a verb or a preposition, takes object forms: *The curator gave the keys to him and me.* *Between* is a preposition, so the phrase is *between you and me* — *between you and I* is always incorrect, however formal it sounds. The reliable check is the **drop-the-other-person test**: remove the other person and read what remains. *I went* survives; *me went* does not. *Gave the keys to me* survives; *gave the keys to I* does not. The error runs on politeness — *and I* is learned early as the courteous form and then invades object positions, where courtesy does not change the case.',
+  },
+
   { type: 'heading', content: 'Worked examples' },
   {
     type: 'example',
@@ -132,6 +157,11 @@ export const gPronounsBlocks = [
     type: 'checkpointQuestion',
     question: 'Each of the paintings has lost ______ original frame over the years. Fill the blank and explain.',
     answer: '**its.** *Each* is singular regardless of how many paintings follow it. *Of the paintings* is the interrupting of-phrase — the true noun is *each*, so the pronoun is singular.',
+  },
+  {
+    type: 'checkpointQuestion',
+    question: 'The panel invited my adviser and (I / me) to present the findings. Which form, and how do you check?',
+    answer: '**me.** Drop the other person: *The panel invited me to present the findings* survives, while *invited I* fails. The pronoun is the object of *invited*, and object positions take object forms no matter how many people share them — the same logic that makes *between you and me* correct and *between you and I* wrong.',
   },
 
   {

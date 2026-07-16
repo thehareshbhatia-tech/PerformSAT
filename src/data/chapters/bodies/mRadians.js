@@ -67,6 +67,12 @@ export const mRadiansBlocks = [
     content: "The table supplies the magnitude; the quadrant supplies the sign. Cosine takes the sign of $x$ and sine takes the sign of $y$, without exception. In Quadrant II, where $x$ is negative and $y$ is positive, cosine is negative and sine is positive. No sign chart needs to be memorized: determine whether $x$ and $y$ are positive or negative in the given quadrant, and the signs follow.",
   },
 
+  { type: 'heading', content: 'Coterminal angles and points off the unit circle' },
+  {
+    type: 'text',
+    content: "Two extensions complete the picture. First, an angle of $2\\pi$ or more has wrapped past a full turn, and a negative angle has wrapped backward — but full revolutions leave the terminal point unchanged. Subtract $2\\pi$ (or add it, for negative angles) until the result lands in $[0, 2\\pi)$; the reduced angle is **coterminal** with the original — same terminal point, same cosine, same sine. Thus $\\frac{9\\pi}{4} - 2\\pi = \\frac{\\pi}{4}$, so $\\cos\\frac{9\\pi}{4} = \\cos\\frac{\\pi}{4} = \\frac{\\sqrt{2}}{2}$. Second, a point $(x, y)$ on a circle of radius other than $1$ still yields its angle's cosine and sine: divide each coordinate by the point's distance from the origin, $r = \\sqrt{x^2 + y^2}$, so that $\\cos\\theta = \\frac{x}{r}$ and $\\sin\\theta = \\frac{y}{r}$. The unit circle is simply the case $r = 1$, where the division changes nothing and the coordinates are the values themselves.",
+  },
+
   { type: 'heading', content: 'Worked examples' },
   {
     type: 'example',
@@ -125,9 +131,14 @@ export const mRadiansBlocks = [
     question: 'What is $\\sin\\left(\\frac{7\\pi}{6}\\right)$?',
     answer: "**$-\\frac{1}{2}$.** $\\frac{7\\pi}{6} = 210°$ lies in Quadrant III, where $y$ is negative, and sine takes the sign of $y$. The reference angle is $30° = \\frac{\\pi}{6}$ with $\\sin = \\frac{1}{2}$, so the signed value is $-\\frac{1}{2}$.",
   },
+  {
+    type: 'checkpointQuestion',
+    question: 'The point $(-6, 8)$ lies on a circle centered at the origin, on the terminal side of an angle $\\theta$. What are $\\cos\\theta$ and $\\sin\\theta$?',
+    answer: "**$\\cos\\theta = -\\frac{3}{5}$ and $\\sin\\theta = \\frac{4}{5}$.** The point's distance from the origin is $r = \\sqrt{(-6)^2 + 8^2} = \\sqrt{36 + 64} = \\sqrt{100} = 10$. Dividing each coordinate by $r$: $\\cos\\theta = \\frac{-6}{10} = -\\frac{3}{5}$ and $\\sin\\theta = \\frac{8}{10} = \\frac{4}{5}$. The signs check against the quadrant: $(-6, 8)$ lies in Quadrant II, where cosine is negative and sine is positive.",
+  },
 
   {
     type: 'text',
-    content: "**In summary:** anchor every conversion on $180° = \\pi$, choose the factor that cancels the departing unit, apply $s = r\\theta$ only when the angle is in radians, and read $\\cos$ and $\\sin$ as the $x$- and $y$-coordinates of the unit-circle point — magnitude from the reference angle, sign from the quadrant.",
+    content: "**In summary:** anchor every conversion on $180° = \\pi$, choose the factor that cancels the departing unit, apply $s = r\\theta$ only when the angle is in radians, and read $\\cos$ and $\\sin$ as the $x$- and $y$-coordinates of the unit-circle point — magnitude from the reference angle, sign from the quadrant. Strip full turns of $2\\pi$ from an oversized angle first, and divide by $r = \\sqrt{x^2 + y^2}$ when the point sits on a larger circle.",
   },
 ];

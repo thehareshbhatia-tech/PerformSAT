@@ -17,7 +17,7 @@
 export const mTrianglesBlocks = [
   {
     type: 'text',
-    content: "Triangle questions draw on four tools: the **angle sum**, the **area formula**, the **Pythagorean theorem** (together with the integer triples that bypass its arithmetic), and **similar triangles**. The productive first step is identification rather than computation — determining which tool the figure calls for. Once the tool is named, the remaining work is brief.",
+    content: "Triangle questions draw on a short list of tools: the **angle sum** (with the isosceles and side-length facts that follow from it), the **area formula**, the **Pythagorean theorem** (together with the integer triples that bypass its arithmetic), and **similar triangles**. The productive first step is identification rather than computation — determining which tool the figure calls for. Once the tool is named, the remaining work is brief.",
   },
 
   { type: 'heading', content: 'Three facts every triangle obeys' },
@@ -33,6 +33,42 @@ export const mTrianglesBlocks = [
   {
     type: 'keyInsight',
     content: "In the area formula, $h$ is the **perpendicular** distance to the base — a slanted side never serves as the height. When the height is not drawn, finding it is usually the substance of the problem, typically through the Pythagorean theorem or a special right triangle.",
+  },
+
+  { type: 'heading', content: 'Isosceles triangles' },
+  {
+    type: 'text',
+    content: "An **isosceles** triangle has two equal sides, and the base angles — the angles opposite those sides — are equal as well. The relationship runs in both directions: equal sides force equal opposite angles, and equal angles force equal opposite sides. A figure that marks two sides equal has therefore already given two angles, and a figure that marks two angles equal has already given two sides; either mark alone unlocks the other.",
+  },
+  {
+    type: 'text',
+    content: "When a problem names an isosceles triangle without saying which angle repeats, the stated angle plays one of two roles: it is a base angle and repeats, or it is the apex angle and the other two split the remainder equally. Enumerate both cases, then check each against the $180°$ sum — the sum eliminates impossible cases. An isosceles triangle with a $100°$ angle, for instance, cannot repeat it, since $100° + 100°$ already exceeds $180°$; the $100°$ must be the apex, leaving base angles of $40°$ each.",
+  },
+  {
+    type: 'example',
+    difficulty: 'Medium',
+    problem: 'An isosceles triangle has angles measuring $50°$ and $x°$. What are all possible values of $x$?',
+    steps: [
+      { label: 'Case: the 50° angle repeats', content: 'If $50°$ is a base angle, the angles are $50°$, $50°$, and $180° - 100° = 80°$ — the sum checks. The other two angles are $50°$ and $80°$, so $x$ can be $50$ or $80$.' },
+      { label: 'Case: the 50° angle is the apex', content: 'The two base angles share $180° - 50° = 130°$ equally, so each is $65°$ — the sum checks again. Here $x = 65$.' },
+      { label: 'Collect the values', content: '$x$ can be $50$, $65$, or $80$. Stopping after the first case is the standard incomplete answer; the case split is the substance of the question.' },
+    ],
+  },
+
+  { type: 'heading', content: 'The triangle inequality' },
+  {
+    type: 'text',
+    content: "Three lengths form a triangle only when every side is shorter than the sum of the other two. With two sides $a$ and $b$ known, the condition compresses to a single interval: the third side lies **strictly between** $|a - b|$ and $a + b$. The endpoints fail — at either extreme the triangle flattens into a straight segment — so neither bound is ever attainable. Questions on this fact take two forms: whether three given lengths can form a triangle, and how many integer lengths the third side can take. The counting version is answered by listing the integers strictly inside the interval.",
+  },
+  {
+    type: 'example',
+    difficulty: 'Medium',
+    problem: 'Two sides of a triangle have lengths $5$ and $9$. How many integer values are possible for the length of the third side?',
+    steps: [
+      { label: 'Bound the third side', content: 'The third side lies strictly between $|9 - 5| = 4$ and $9 + 5 = 14$, so $4 < c < 14$.' },
+      { label: 'Count the integers', content: 'The integers strictly between $4$ and $14$ run from $5$ through $13$: that is $13 - 5 + 1 = 9$ values.' },
+      { label: 'Exclude the endpoints', content: 'Neither $4$ nor $14$ qualifies — sides of $4, 5, 9$ or $5, 9, 14$ collapse flat, because one length exactly equals the sum of the other two. Counting an endpoint produces $10$ or $11$, the standard off-by-one wrong answers.' },
+    ],
   },
 
   { type: 'heading', content: 'The Pythagorean theorem' },
@@ -89,6 +125,14 @@ export const mTrianglesBlocks = [
   {
     type: 'tip',
     content: "Arrange the proportion so corresponding sides occupy corresponding positions — $\\dfrac{\\text{small side}}{\\text{big side}} = \\dfrac{\\text{small side}}{\\text{big side}}$ — then cross-multiply. Placing a small-triangle side in a large-triangle position is the usual source of error.",
+  },
+  {
+    type: 'text',
+    content: "Three configurations account for nearly every similarity question. In the **parallel cut**, a line parallel to one side of a triangle crosses the other two sides and slices off a smaller triangle similar to the whole — the final worked example below is this figure. In the **bowtie**, two segments cross and a triangle sits on each side of the crossing; the vertical angles at the crossing are equal, so one more equal pair — usually from marked parallel segments — completes the similarity. In the **altitude to the hypotenuse**, the altitude drawn from the right angle of a right triangle to its hypotenuse splits the figure into two smaller right triangles, each similar to the original and to each other: three similar triangles in a single figure.",
+  },
+  {
+    type: 'keyInsight',
+    content: "The parallel cut carries a hazard: each side of the small triangle corresponds to the **whole** side of the large triangle, never to the leftover piece below the cut. If the cut splits a side into $9$ above and $6$ below, the similarity ratio is $\\dfrac{9}{9 + 6} = \\dfrac{9}{15}$ — piece to whole — not $\\dfrac{9}{6}$. Equating a small-triangle side to the leftover piece is the dominant error in this configuration.",
   },
 
   { type: 'heading', content: 'Worked examples' },
@@ -148,9 +192,14 @@ export const mTrianglesBlocks = [
     question: 'A triangle has angles measuring $50°$ and $60°$. Which side is the longest?',
     answer: "**The side opposite the $70°$ angle.** The third angle is $180° - 50° - 60° = 70°$ — the largest of the three, and the longest side lies opposite the largest angle. No side length needs to be computed; the ordering fact alone answers the question.",
   },
+  {
+    type: 'checkpointQuestion',
+    question: 'Can side lengths $3$, $4$, and $8$ form a triangle? What about $3$, $4$, and $6$?',
+    answer: "**$3, 4, 8$ cannot; $3, 4, 6$ can.** The quick test compares the two shorter sides against the longest: $3 + 4 = 7 < 8$, so the first set cannot close into a triangle. In the second, $3 + 4 = 7 > 6$, and indeed $6$ lies strictly between $4 - 3 = 1$ and $4 + 3 = 7$.",
+  },
 
   {
     type: 'text',
-    content: "**In summary:** identify what the figure provides — two angles, a right angle, a shared angle with a parallel line — select the one tool that configuration calls for, then check the answer against the ordering facts: the longest side lies opposite the largest angle, and no leg exceeds the hypotenuse.",
+    content: "**In summary:** identify what the figure provides — two angles, a pair of equal sides, a right angle, a shared angle with a parallel line — select the one tool that configuration calls for, then check the answer against the ordering facts: the longest side lies opposite the largest angle, no leg exceeds the hypotenuse, and no side reaches the sum of the other two.",
   },
 ];

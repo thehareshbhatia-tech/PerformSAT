@@ -66,6 +66,24 @@ export const expressionsBlocks = [
     content: "To test whether two forms are equivalent, **substitute one number** (avoiding $0$ or $1$) and compare the resulting values. $(x+5)^2$ versus $x^2+25$ at $x=1$: $36$ versus $26$ — not equivalent, and the question is settled.",
   },
 
+  { type: 'heading', content: 'Rational expressions' },
+  {
+    type: 'text',
+    content: "A rational expression is a fraction whose numerator and denominator are polynomials, and it simplifies the way a numeric fraction does: **factor both, then cancel the factors common to the whole numerator and the whole denominator.** $\\dfrac{x^2-9}{x^2+5x+6}=\\dfrac{(x-3)(x+3)}{(x+2)(x+3)}=\\dfrac{x-3}{x+2}$. Cancelling is a division of top and bottom by the same quantity, so only a complete factor qualifies — a term joined by $+$ or $-$ never cancels. Striking the two $x^2$ terms before factoring changes the expression's value; factoring first is what makes the cancellation legitimate.",
+  },
+  {
+    type: 'keyInsight',
+    content: "Cancel **factors**, never terms. A cancellation is valid exactly when the numerator and denominator are both written as products and share an identical factor — $\\dfrac{x+6}{6}$ does not simplify, because the $6$ on top is a term, not a factor.",
+  },
+  {
+    type: 'text',
+    content: "Addition and subtraction require a common denominator, exactly as with numeric fractions: convert each fraction, combine the numerators, and keep the shared denominator. $\\dfrac{1}{x}+\\dfrac{2}{x+1}=\\dfrac{x+1}{x(x+1)}+\\dfrac{2x}{x(x+1)}=\\dfrac{3x+1}{x(x+1)}$. The product of the two denominators always serves as a common denominator. Adding tops and bottoms separately — $\\frac{1}{x}+\\frac{2}{x+1}\\ne\\frac{3}{2x+1}$ — is the error the wrong choices are built from.",
+  },
+  {
+    type: 'text',
+    content: "Division by a fraction is multiplication by its reciprocal: $\\dfrac{a}{b}\\div\\dfrac{c}{d}=\\dfrac{a}{b}\\cdot\\dfrac{d}{c}$. A stacked (complex) fraction states the same thing in different typography — flip the bottom fraction, multiply, and the item becomes an ordinary factor-and-cancel exercise.",
+  },
+
   { type: 'heading', content: 'Worked examples' },
   {
     type: 'example',
@@ -108,6 +126,16 @@ export const expressionsBlocks = [
       { label: 'Answer', content: "**(A) $(3x+2)^2$.** (C) uses $9x$ instead of $\\sqrt{9x^2}=3x$; (B) fails the twice-the-product check ($2\\cdot3x\\cdot4=24x\\ne12x$)." },
     ],
   },
+  {
+    type: 'example',
+    difficulty: 'Medium',
+    problem: 'Which expression is equivalent to $\\dfrac{x^2-4}{x^2+3x+2}\\div\\dfrac{x-2}{x+3}$?',
+    steps: [
+      { label: 'Rewrite as multiplication by the reciprocal', content: "Division by a fraction flips it: $\\dfrac{x^2-4}{x^2+3x+2}\\cdot\\dfrac{x+3}{x-2}$." },
+      { label: 'Factor every polynomial', content: "$x^2-4=(x-2)(x+2)$ and $x^2+3x+2=(x+1)(x+2)$, giving $\\dfrac{(x-2)(x+2)}{(x+1)(x+2)}\\cdot\\dfrac{x+3}{x-2}$." },
+      { label: 'Cancel whole factors', content: "$(x+2)$ cancels top and bottom, then $(x-2)$ cancels across the product. What remains is $\\dfrac{x+3}{x+1}$ — every cancellation removed a complete factor, never a term." },
+    ],
+  },
 
   { type: 'heading', content: 'Check yourself' },
   {
@@ -128,6 +156,6 @@ export const expressionsBlocks = [
 
   {
     type: 'text',
-    content: "**In summary:** identify the direction the item requires; expand by forming every pairwise product, or factor by removing the GCF and reading the form; apply the three templates in both directions; and on \"for all $x$,\" match coefficients. Recognition precedes computation.",
+    content: "**In summary:** identify the direction the item requires; expand by forming every pairwise product, or factor by removing the GCF and reading the form; apply the three templates in both directions; on \"for all $x$,\" match coefficients; and simplify rational expressions by factoring first and cancelling only whole factors. Recognition precedes computation.",
   },
 ];

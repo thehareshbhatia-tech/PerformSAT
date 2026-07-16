@@ -74,15 +74,48 @@ export const gCommasBlocks = [
       ['After an introductory phrase', '*After the storm, we left.*'],
       ['One half of a matched pair around extra information', '*Ravi, our captain, agreed.*'],
       ['Before a FANBOYS conjunction joining two full sentences', '*She ran, and he walked.*'],
+      ['Between coordinate adjectives that each modify the noun', '*a long, tedious meeting*'],
     ],
   },
   {
     type: 'callout',
     content: 'One placement is never correct: a comma **never separates a subject from its verb**, however long the subject runs. *The students who studied all week, passed.* is wrong — the comma serves no function. Long subjects invite an intuitive pause-comma; the convention does not permit one.',
   },
+
+  { type: 'heading', content: 'Coordinate adjectives' },
+  {
+    type: 'text',
+    content: 'When two adjectives each modify the noun independently, they are **coordinate**, and a comma separates them: *a long, tedious meeting*. Two tests confirm the relationship, and both must pass: **swap the adjectives** (*a tedious, long meeting* — still natural) and **insert *and*** (*a long and tedious meeting* — still natural). When either test fails, the adjectives are **cumulative** — the first modifies the adjective-noun unit as a whole — and no comma appears: *an old stone wall*, never *an old, stone wall*, because *a stone old wall* and *an old and stone wall* both fail. One placement is incorrect in every case: no comma ever separates the final adjective from its noun — *a long, tedious, meeting* is wrong regardless of how the adjectives relate.',
+  },
+
+  { type: 'heading', content: 'Compound predicates' },
+  {
+    type: 'text',
+    content: 'One subject performing two actions is a **compound predicate**, and no comma precedes the *and* that joins the two verbs: *She wrote the report and filed it.* The comma-before-FANBOYS function applies only when a complete sentence stands on each side, and here the subject is not restated — *filed it* has no subject of its own. The **period-substitution test** decides these instantly: replace the comma + conjunction with a period and demand two complete sentences. *She wrote the report. Filed it.* fails — the second piece is not a sentence — so *She wrote the report, and filed it* is incorrect. A long second verb phrase invites the comma by feel; the test is what rules it out.',
+  },
+
+  { type: 'heading', content: 'Semicolons in lists' },
+  {
+    type: 'text',
+    content: 'When list items contain commas of their own, commas alone cannot show where one item ends and the next begins, so **semicolons take over as the list separators**: *The symposium drew scholars from Lima, Peru; Accra, Ghana; and Hanoi, Vietnam.* Written with commas throughout, the sentence appears to list six places rather than three. One requirement accompanies the upgrade: separators must be uniform. Either every boundary in the list takes a semicolon or none does — a list that alternates commas and semicolons as separators is incorrect on its face.',
+  },
   {
     type: 'tip',
     content: 'An embedded question ends with a **period**, not a question mark: *She asked whether it worked.* The sentence reports information rather than posing a question — the word *whether* signals the embedded form.',
+  },
+
+  { type: 'heading', content: 'Direct questions vs. embedded questions' },
+  {
+    type: 'text',
+    content: 'A **direct question** asks: it inverts the word order, placing the verb before the subject, and it ends with a question mark — *Did the trial succeed?* An **embedded question** folds the questioning content inside a statement — typically after *whether, if, what, why,* or *how* — so it keeps statement order, subject before verb, and the sentence ends with a period, because the sentence as a whole asserts rather than asks: *The reviewers asked whether the trial had succeeded.* The two signals must agree. *She wondered why the results varied?* pairs statement order with a question mark; *asked whether had the trial succeeded* forces inverted order into an embedded clause. Both mismatches fail on internal inconsistency alone — the end mark punctuates what the sentence does, not whether its topic is uncertain.',
+  },
+  {
+    type: 'table',
+    headers: ['Form', 'Word order', 'End mark'],
+    rows: [
+      ['Direct question', 'inverted — verb before subject: *Did the trial succeed*', 'question mark'],
+      ['Embedded question', 'statement order — subject before verb: *whether the trial succeeded*', 'period'],
+    ],
   },
 
   { type: 'heading', content: 'Worked examples' },
@@ -143,6 +176,11 @@ export const gCommasBlocks = [
     type: 'checkpointQuestion',
     question: 'For the school play, the lead role went to Ana, and the understudy was Theo. Does the comma before "and" have a job?',
     answer: '**Yes.** *The lead role went to Ana* and *the understudy was Theo* each stand alone as complete sentences, so the comma before the FANBOYS conjunction *and* performs its recognized function of joining two full sentences. Without the *and*, the same comma would create a comma splice — the conjunction is what makes the join grammatical.',
+  },
+  {
+    type: 'checkpointQuestion',
+    question: 'She proofread the essay, and submitted it before the deadline. Does that comma have a job?',
+    answer: '**No — delete it.** Run period-substitution: *She proofread the essay. Submitted it before the deadline.* The second piece is not a sentence, so this is one subject with two verbs — a compound predicate — not two sentences joined by *and*. The comma-before-FANBOYS function requires a complete sentence on each side: *She proofread the essay and submitted it before the deadline.*',
   },
 
   {

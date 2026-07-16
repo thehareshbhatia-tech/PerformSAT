@@ -134,6 +134,39 @@ export const commandOfEvidenceQuantitativeBlocks = [
     ],
   },
 
+  { type: 'heading', content: 'Beyond the simple table' },
+  {
+    type: 'text',
+    content: "Not every graphic is a table. A **bar chart** compares levels across categories; a **line graph** tracks a quantity over time; a **scatterplot** shows individual observations as points, and the question it usually supports concerns the **association** — whether the points drift upward or downward together (direction) and how tightly they cluster around that drift (strength). A point far from the cloud is an **outlier**, and it is a legitimate target of a question in its own right: an observation the general pattern fails to describe. Whatever the format, the discipline is unchanged — frame first, then values read with their units.",
+  },
+  {
+    type: 'text',
+    content: "Line graphs introduce a distinction tables mostly hide: **level versus trend**. The level is how large the quantity is; the trend is how it is changing. The two answer different questions — the *highest point* on a curve is a level fact, while the *fastest growth* is a trend fact, found where the curve is steepest, not where it is tallest. The distinction matters most on flattening curves: a line that rises steeply and then rises gently is **still rising**. \"Increasing more slowly\" describes the trend, not a fall in the level, and wrong choices are built to convert that slowdown into a decrease.",
+  },
+  {
+    type: 'tip',
+    content: "**Touch the legend on every read.** On a chart with more than one line or bar series, verify the series each time a value is pulled, not once at the start. Values taken from the wrong series are internally consistent — every number really is on the chart — which makes the error invisible to later checking. Rereading the legend costs a second; trusting memory of which line was dashed costs the question.",
+  },
+  {
+    type: 'text',
+    content: "Axis scales are chosen, and the choice shapes the picture. A vertical axis that starts at 90 rather than zero displays only the slice above 90, so a gap of a few units can look severalfold, and bar heights then exaggerate the true difference. Judge magnitude from the **values, not the ink**: read the numbers off the axis and compare them arithmetically before accepting any *far more*, *nearly double*, or *sharply higher* in a choice.",
+  },
+  {
+    type: 'example',
+    difficulty: 'Medium',
+    problem: 'A line graph tracks a reserve\'s wolf population from 2010 to 2020. The line climbs steeply from 40 wolves in 2010 to 62 in 2014, then continues upward more gradually, reaching 70 by 2020. A researcher claims that after 2014 the reserve\'s wolf population began to decline.\n\nWhich choice best evaluates the claim?\n\n(A) The claim is supported: the line flattens noticeably after 2014.\n(B) The claim is not supported: the population kept rising after 2014, from 62 to 70, though more slowly than before.\n(C) The claim is supported: the population grew by 22 wolves before 2014 but by only 8 afterward.',
+    steps: [
+      { label: 'Separate level from trend', content: "Two different facts live on this curve. The trend slows after 2014 — 22 new wolves over four years, then 8 over six. The level never falls: 40, then 62, then 70." },
+      { label: 'Test the claim against the level', content: "\"Began to decline\" is a claim about the level — the count itself dropping. From 2014 to 2020 the count went 62 to 70, a rise. The claim converts a flattening line into a falling one." },
+      { label: 'Answer', content: "**(B).** (A) treats a gentler slope as a decline — the flattening changes the growth rate, not the direction. (C) quotes accurate numbers, but a smaller increase is still an increase; the figures it cites contradict the very claim they are offered to support." },
+    ],
+  },
+  {
+    type: 'checkpointQuestion',
+    question: 'A bar chart\'s vertical axis runs from 90 to 100. One bar reads 92 and another 98, and the second bar is drawn roughly four times as tall. A choice calls the second value *"several times larger."* Keep it or cut it?',
+    answer: "**Cut it.** The axis starts at 90, so the bars show only the slice above 90 — the drawing exaggerates the gap. Computed from the values, 98 is about seven percent more than 92, nowhere near *several times larger*. Magnitude claims are settled by arithmetic on the read values, never by comparing ink.",
+  },
+
   { type: 'heading', content: 'Check yourself' },
   {
     type: 'checkpointQuestion',

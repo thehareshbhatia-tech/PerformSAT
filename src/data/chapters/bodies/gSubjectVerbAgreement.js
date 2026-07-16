@@ -64,6 +64,18 @@ export const gSubjectVerbAgreementBlocks = [
     ],
   },
 
+  { type: 'heading', content: 'The number of vs. a number of' },
+  {
+    type: 'text',
+    content: 'One article flips the number. ***The** number of…* names a single quantity and takes a **singular** verb: *The number of volunteers **has** doubled since spring.* ***A** number of…* means *several* and takes a **plural** verb: *A number of volunteers **have** signed up for the night shift.* Writing *The number of volunteers have doubled* mismatches — the subject is the quantity itself, one number, however many volunteers it counts.',
+  },
+
+  { type: 'heading', content: 'One of the… who' },
+  {
+    type: 'text',
+    content: 'When *one of the [plural noun]* stands alone as the subject, the verb matches *one* — singular: *One of the turbines **is** offline.* Inside a *who* or *that* clause, however, the pronoun reaches back to the **plural noun**, so the verb inside the clause is plural: *She is one of the engineers who **design** the turbines* — *who* stands for *engineers*, the group that designs, and she belongs to it. *One of the engineers who designs the turbines* mismatches. Rearranging exposes the logic: *Of the engineers who design the turbines, she is one.*',
+  },
+
   { type: 'heading', content: 'Worked examples' },
   {
     type: 'example',
@@ -121,6 +133,11 @@ export const gSubjectVerbAgreementBlocks = [
     type: 'checkpointQuestion',
     question: 'There (is / are) a notebook and two pens on the desk. Which verb?',
     answer: '**are.** In a "there is/are" sentence the true subject follows the verb — here it is *a notebook and two pens*, joined by *and*, and therefore plural. The ear favors *is* because *a notebook* comes first, but the full compound subject is plural.',
+  },
+  {
+    type: 'checkpointQuestion',
+    question: 'A number of the manuscripts (was / were) damaged in the flood, and the number of legible pages (continue / continues) to shrink. Which verbs?',
+    answer: '**were** and **continues.** *A number of* means *several* — plural, so the manuscripts *were* damaged. *The number of* names one quantity — singular, so it *continues* to shrink. The single article carries the whole decision.',
   },
 
   {

@@ -43,6 +43,26 @@ export const mExponentsBlocks = [
     content: "A **negative exponent indicates a reciprocal**, not a negative value: $x^{-2} = \\dfrac{1}{x^2}$. The factor moves across the fraction bar, and the value remains positive. A **fractional exponent indicates a root**: $x^{1/2}=\\sqrt{x}$ and $x^{1/3}=\\sqrt[3]{x}$. In general $x^{m/n}$ reads \"power $m$, root $n$\" — the numerator is the power and the denominator is the root.",
   },
 
+  { type: 'heading', content: 'Simplifying radicals' },
+  {
+    type: 'text',
+    content: "Square roots obey a product rule: $\\sqrt{ab} = \\sqrt{a}\\cdot\\sqrt{b}$ for nonnegative $a$ and $b$. Read left to right, the rule simplifies a radical by **factoring out perfect squares**: $\\sqrt{12} = \\sqrt{4 \\cdot 3} = \\sqrt{4}\\cdot\\sqrt{3} = 2\\sqrt{3}$. Search the number for its largest perfect-square factor — $4$, $9$, $16$, $25$, $36$, and so on; the square comes out as its root, and the leftover factor stays under the radical. The same rule multiplies radicals directly, sometimes producing a whole number: $\\sqrt{2}\\cdot\\sqrt{8} = \\sqrt{16} = 4$. Division works the same way: $\\dfrac{\\sqrt{50}}{\\sqrt{2}} = \\sqrt{25} = 5$. The rule holds for products and quotients only — $\\sqrt{a + b}$ does **not** split into $\\sqrt{a} + \\sqrt{b}$, the same boundary that stops exponent rules at a plus sign.",
+  },
+  {
+    type: 'text',
+    content: "Read right to left, the product rule pushes a coefficient **back under** the radical: $2\\sqrt{3} = \\sqrt{4}\\cdot\\sqrt{3} = \\sqrt{12}$. The coefficient enters as its square. This reverse move compares a mixed form such as $3\\sqrt{5}$ against a plain number, or matches an answer choice written as a single radical. One scope note: rationalizing a denominator — rewriting $\\tfrac{1}{\\sqrt{2}}$ as $\\tfrac{\\sqrt{2}}{2}$ — is a classroom convention the test does not require; simplifying, multiplying, and recombining radicals as above covers the forms that appear.",
+  },
+  {
+    type: 'example',
+    difficulty: 'Medium',
+    problem: 'Simplify $\\sqrt{72}$ completely.',
+    steps: [
+      { label: 'Factor out the largest perfect square', content: "$72 = 36 \\cdot 2$, and $36$ is a perfect square: $\\sqrt{72} = \\sqrt{36}\\cdot\\sqrt{2} = 6\\sqrt{2}$." },
+      { label: 'Confirm nothing square remains', content: "The leftover factor is $2$, which has no perfect-square factor beyond $1$, so $6\\sqrt{2}$ is fully simplified. (Starting from a smaller square also works but takes a second pass: $\\sqrt{4 \\cdot 18} = 2\\sqrt{18}$ still hides a square inside $18 = 9 \\cdot 2$, and continuing gives $2 \\cdot 3\\sqrt{2} = 6\\sqrt{2}$.)" },
+      { label: 'Check by reversing', content: "Push the coefficient back under the radical: $6\\sqrt{2} = \\sqrt{36}\\cdot\\sqrt{2} = \\sqrt{72}$. The round trip returns the original, confirming the simplification." },
+    ],
+  },
+
   { type: 'heading', content: 'Solving equations by matching bases' },
   {
     type: 'text',
@@ -131,7 +151,13 @@ export const mExponentsBlocks = [
   },
 
   {
+    type: 'checkpointQuestion',
+    question: 'Which is greater, $3\\sqrt{7}$ or $8$?',
+    answer: "**$8$.** Push the coefficient under the radical so both numbers take the same form: $3\\sqrt{7} = \\sqrt{9}\\cdot\\sqrt{7} = \\sqrt{63}$, while $8 = \\sqrt{64}$. Since $63 < 64$, it follows that $3\\sqrt{7} < 8$. The coefficient enters as its square — writing $\\sqrt{21}$ comes from multiplying the $3$ in without squaring it.",
+  },
+
+  {
     type: 'text',
-    content: "**In summary:** exponents count factors, so add, subtract, or multiply the counts as the operation requires; a negative exponent takes a reciprocal and a fractional exponent takes a root; equal powers of a shared base have equal exponents; and in $a\\cdot b^{t}$, $a$ is the starting value and $b$ is the factor applied at each step.",
+    content: "**In summary:** exponents count factors, so add, subtract, or multiply the counts as the operation requires; a negative exponent takes a reciprocal and a fractional exponent takes a root; radicals split over products and quotients — factor out perfect squares, and move a coefficient back under as its square — but never over a sum; equal powers of a shared base have equal exponents; and in $a\\cdot b^{t}$, $a$ is the starting value and $b$ is the factor applied at each step.",
   },
 ];

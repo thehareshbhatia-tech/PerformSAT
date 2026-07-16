@@ -36,7 +36,7 @@ export const twoVariableDataBlocks = [
   { type: 'heading', content: 'Predicted vs. actual: the vertical gap' },
   {
     type: 'text',
-    content: "The **predicted** value at some x is the *line's* height there. The **actual** value is the *dot's* height. The error is the gap between them, measured **vertically** — never horizontally. The direction of the language is the standard source of error here: a dot *above* the line means the actual value exceeded the prediction, so the model **underestimates** there; below the line, it **overestimates**. \"Over\" and \"under\" describe the *model's prediction*, not the dot's position — fix that referent before answering.",
+    content: "The **predicted** value at some x is the *line's* height there. The **actual** value is the *dot's* height. The error is the gap between them, measured **vertically** — never horizontally. This signed difference, actual minus predicted, is called the **residual**. The direction of the language is the standard source of error here: a dot *above* the line means the actual value exceeded the prediction, so the model **underestimates** there; below the line, it **overestimates**. \"Over\" and \"under\" describe the *model's prediction*, not the dot's position — fix that referent before answering.",
   },
   {
     type: 'formula',
@@ -66,6 +66,20 @@ export const twoVariableDataBlocks = [
   {
     type: 'tip',
     content: "Percent wording requires care. \"4% of the *current* balance\" describes a moving base — exponential. \"4% of the *initial* deposit\" describes the same dollar amount every year — linear, despite the percent phrasing. From a table: subtract consecutive values (constant difference → linear), then divide them (constant ratio → exponential).",
+  },
+
+  { type: 'heading', content: 'Reading data displays under time pressure' },
+  {
+    type: 'text',
+    content: "Charts of a quantity over time invite one persistent confusion: **level** versus **change**. The highest point on the graph is the largest *value*; the fastest growth is the *steepest climb*, and the two rarely coincide. A question asking where sales *grew the most* concerns the jump from one reading to the next; a question asking where sales *were greatest* concerns a single reading. Match the question's verb to the right feature before scanning the figure.",
+  },
+  {
+    type: 'text',
+    content: "Comparing growth across intervals of *different widths* requires a rate, not a raw rise. The average rate of change over an interval is the slope of the segment connecting its endpoints, $\\frac{\\Delta y}{\\Delta x}$ — and a larger total rise over a much wider interval can still be the slower rate. Divide every candidate's rise by its own run; raw rises are comparable only when the runs happen to be equal.",
+  },
+  {
+    type: 'text',
+    content: "Graphs that tell a story — typically *distance from home* against time — read by segments: a rising segment is motion away, a falling segment is motion back toward the start, and a flat segment is a stop. The graph's height at any moment is the *net* distance from the start, so a walker who returns home finishes at height $0$ regardless of how far she traveled; the *total* distance adds the sizes of every rise and fall. On a chart with several data series, the legend is part of the data — identify which series the question names before reading any value, since pulling a number from the neighboring line is the routine error on multi-series items.",
   },
 
   { type: 'heading', content: 'Worked examples' },
@@ -109,6 +123,15 @@ export const twoVariableDataBlocks = [
       { label: 'Answer', content: '**(B)** $v = 8000(0.75)^t$.' },
     ],
   },
+  {
+    type: 'example',
+    difficulty: 'Medium',
+    problem: "A graph of a bookstore's annual revenue shows $\\$2{,}400$ in year 2, $\\$3{,}000$ in year 5, and $\\$3{,}500$ in year 7. Which interval had the greater average rate of change — year 2 to year 5, or year 5 to year 7?",
+    steps: [
+      { label: 'Divide each rise by its own run', content: 'Year 2 to 5: $\\dfrac{3000 - 2400}{5 - 2} = \\dfrac{600}{3} = 200$ dollars per year. Year 5 to 7: $\\dfrac{3500 - 3000}{7 - 5} = \\dfrac{500}{2} = 250$ dollars per year.' },
+      { label: 'Compare rates, not rises', content: 'The first interval has the larger total rise ($600$ vs. $500$), but the second has the greater *rate*: $250 > 200$ dollars per year. **Year 5 to year 7.** Unequal runs leave raw rises incomparable; the division settles it.' },
+    ],
+  },
 
   { type: 'heading', content: 'Check yourself' },
   {
@@ -125,6 +148,11 @@ export const twoVariableDataBlocks = [
     type: 'checkpointQuestion',
     question: 'A quantity is measured at equal one-year steps as $50, 45, 40, 35$. Is a linear or an exponential model the better fit, and what is the tell?',
     answer: "**Linear.** Subtracting consecutive values gives $-5, -5, -5$ — a constant *difference*, the same amount removed each step, which is the linear signature. Dividing them shows drifting ratios ($45/50 = 0.9$ but $40/45 \\approx 0.89$), which rules out an exponential model.",
+  },
+  {
+    type: 'checkpointQuestion',
+    question: 'A graph of distance from home shows a hiker walking out $3$ miles in the first hour, resting for half an hour (the graph is flat), then returning home over the next hour and a half. What are her total distance traveled and her final distance from home — and which of the two does the graph\'s ending height show?',
+    answer: "**Total distance $= 6$ miles; final distance from home $= 0$ miles — and the ending height shows the $0$.** The rise covers $3$ miles out and the fall covers $3$ miles back; the flat segment adds nothing, since a flat stretch means she is standing still. Height on this graph is *distance from home* — the net figure — so the accumulated $6$-mile total never appears on the axis; it comes from adding the sizes of the rise and the fall.",
   },
 
   {

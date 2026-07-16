@@ -13,8 +13,9 @@
  *
  * Scope: the basic-arithmetic primer the rest of the math section quietly
  * assumes — fraction operations, negative-number sign rules, order of
- * operations (including the fraction-bar grouping trap), and number-line
- * order vs distance. Solving equations starts in the NEXT lesson.
+ * operations (including the fraction-bar grouping trap), number-line
+ * order vs distance, and the coordinate plane. Solving equations starts
+ * in the NEXT lesson.
  */
 
 export const mFoundationsBlocks = [
@@ -138,6 +139,35 @@ export const mFoundationsBlocks = [
     ],
   },
 
+  { type: 'heading', content: 'The coordinate plane' },
+  {
+    type: 'text',
+    content: "The coordinate plane extends the number line into two dimensions: a horizontal **x-axis** and a vertical **y-axis** crossing at the **origin**, the point $(0, 0)$. Every point is named by an ordered pair $(x, y)$ — the first coordinate gives the horizontal position, the second the vertical. The order is fixed and matters: $(3, 5)$ lies 3 to the right and 5 up, while $(5, 3)$ lies 5 to the right and 3 up — two different points. To plot a point, start at the origin, move horizontally by the first coordinate (right if positive, left if negative), then vertically by the second (up if positive, down if negative). To read a point's coordinates from a graph, run the same trip in reverse: trace straight down or up to the x-axis for the first coordinate, and straight across to the y-axis for the second.",
+  },
+  {
+    type: 'text',
+    content: "The axes divide the plane into four **quadrants**, numbered counterclockwise starting from the upper right. Each quadrant corresponds to one combination of coordinate signs, so a point's quadrant can be read from its signs alone, without plotting. A point with a zero coordinate lies on an axis and belongs to no quadrant.",
+  },
+  {
+    type: 'table',
+    headers: ['Quadrant', 'Location', 'Signs of $(x, y)$'],
+    rows: [
+      ['I', 'upper right', '$(+,\\ +)$'],
+      ['II', 'upper left', '$(-,\\ +)$'],
+      ['III', 'lower left', '$(-,\\ -)$'],
+      ['IV', 'lower right', '$(+,\\ -)$'],
+    ],
+  },
+  {
+    type: 'example',
+    difficulty: 'Easy',
+    problem: 'In which quadrant does the point $(-4, 3)$ lie, and how is it plotted?',
+    steps: [
+      { label: 'Read the coordinates in order', content: 'The first coordinate is horizontal: $-4$ means 4 units left of the origin. The second is vertical: $3$ means 3 units up.' },
+      { label: 'Classify by signs', content: 'The sign pair is $(-,\\ +)$ — left and up — which places the point in the upper left: Quadrant II. Reversing the order and plotting $(3, -4)$ instead lands in Quadrant IV, a different point entirely.' },
+    ],
+  },
+
   { type: 'heading', content: 'Check yourself' },
   {
     type: 'checkpointQuestion',
@@ -156,7 +186,13 @@ export const mFoundationsBlocks = [
   },
 
   {
+    type: 'checkpointQuestion',
+    question: 'A point lies 5 units to the left of the origin and 2 units below it. What are its coordinates, and in which quadrant does it lie?',
+    answer: '**$(-5, -2)$, Quadrant III.** Left of the origin makes the first coordinate negative, and below it makes the second negative. The sign pair $(-,\\ -)$ belongs to the lower left, which is Quadrant III. Writing $(-2, -5)$ instead swaps the axes: the horizontal position always comes first.',
+  },
+
+  {
     type: 'text',
-    content: "**In summary:** match denominators before adding or subtracting, and combine only the numerators. Invert the divisor to divide. Work with absolute values first and settle the sign by counting negative factors. Distribute a leading negative through every term and verify the last one. Evaluate exponents before applying a leading negative: $-3^2$ is $-9$. Treat every fraction bar as an implied pair of parentheses. And read the number line left to right: further left is smaller.",
+    content: "**In summary:** match denominators before adding or subtracting, and combine only the numerators. Invert the divisor to divide. Work with absolute values first and settle the sign by counting negative factors. Distribute a leading negative through every term and verify the last one. Evaluate exponents before applying a leading negative: $-3^2$ is $-9$. Treat every fraction bar as an implied pair of parentheses. Read the number line left to right: further left is smaller. And on the coordinate plane, read and plot $(x, y)$ in order — horizontal first, vertical second — with the quadrant determined by the pair of signs.",
   },
 ];

@@ -46,6 +46,7 @@ import { mTransformationsBlocks } from './mTransformations';
 import { nonlinearEquationsBlocks } from './nonlinearEquations';
 import { mPercentsBlocks } from './mPercents';
 import { mStatisticsBlocks } from './mStatistics';
+import { mProbabilityBlocks } from './mProbability';
 import { twoVariableDataBlocks } from './twoVariableData';
 import { statisticalClaimsBlocks } from './statisticalClaims';
 import { ratiosProportionsBlocks } from './ratiosProportions';
@@ -71,6 +72,7 @@ export const CHAPTER_BODIES = {
   'math-nonlinear-equations': nonlinearEquationsBlocks,
   'math-percents': mPercentsBlocks,
   'math-statistics': mStatisticsBlocks,
+  'math-probability': mProbabilityBlocks,
   'math-two-variable-data': twoVariableDataBlocks,
   'math-statistical-claims': statisticalClaimsBlocks,
   'math-dimensional-analysis': ratiosProportionsBlocks,
