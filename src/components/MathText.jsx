@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react';
 import katex from 'katex';
+import { pairInlineMath } from '../utils/inlineMathScan';
 
 // HTML-escape the five significant characters so raw (LLM-generated or
 // AI-authored bank) text can never inject markup into the dangerouslySetInnerHTML
@@ -79,7 +80,19 @@ const renderMath = (inputText) => {
         return stashHtml(html);
       };
       let out = str.replace(/\$\$([\s\S]*?)\$\$/g, (m, latex) => renderSeg(latex, true, m));
-      out = out.replace(/\$([^\$]+?)\$/g, (m, latex) => renderSeg(latex, false, m));
+      // Inline $...$ via the shared strict scanner (2026-07-15, replacing the
+      // naive non-greedy regex): an unbalanced or misread $ now stays a
+      // literal dollar instead of swallowing everything up to the next $ —
+      // the failure mode that garbled AI-generated narratives ("$1,200 and
+      // $x$" pairing "1,200 and " as math). Spans stop at line breaks (real
+      // newlines are NEWLINE_PLACEHOLDER by now, so that is the boundary).
+      out = pairInlineMath(out, (latex, original) => renderSeg(latex, false, original), {
+        lineBreakChars: '\n' + NEWLINE_PLACEHOLDER,
+        // Authored-bank idiom: "$|expr| = $ a negative number" closes after an
+        // operator + space. Safe here because MathText input is authored and
+        // lint-gated; chat/AI rendering keeps the strict closer rule.
+        operatorSpacedClose: true,
+      });
       return out;
     };
 

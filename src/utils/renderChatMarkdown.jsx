@@ -1,6 +1,7 @@
 import React from 'react';
 import katex from 'katex';
 import normalizeFractions from './normalizeFractions';
+import { pairInlineMath } from './inlineMathScan';
 import { colors as designColors } from '../design/tokens';
 import { extractGraphSpec } from './graphSpec';
 import TutorGraph from '../components/TutorGraph';
@@ -72,36 +73,13 @@ const renderProse = (text) => {
     // Anything that fails every rule stays a literal dollar sign — so money
     // ("$10 and $1,200") needs no special-casing, and one model typo can no
     // longer cascade past its own line.
-    {
-      let out = '';
-      let i = 0;
-      while (i < result.length) {
-        const ch = result[i];
-        if (ch !== '$') { out += ch; i += 1; continue; }
-        const next = result[i + 1];
-        if (next === undefined || next === '$' || /\s/.test(next)) { out += ch; i += 1; continue; }
-        const close = result.indexOf('$', i + 1);
-        const span = close === -1 ? null : result.slice(i + 1, close);
-        const afterClose = close === -1 ? undefined : result[close + 1];
-        const valid = span !== null
-          && span.length <= 200
-          && !span.includes('\n')
-          && !/\s/.test(result[close - 1])
-          && !(afterClose !== undefined && /\d/.test(afterClose));
-        if (valid) {
-          try {
-            out += stash(katex.renderToString(span.trim(), { displayMode: false, throwOnError: false, output: 'htmlAndMathml' }));
-          } catch {
-            out += result.slice(i, close + 1);
-          }
-          i = close + 1;
-        } else {
-          out += ch;
-          i += 1;
-        }
+    result = pairInlineMath(result, (latex, original) => {
+      try {
+        return stash(katex.renderToString(latex.trim(), { displayMode: false, throwOnError: false, output: 'htmlAndMathml' }));
+      } catch {
+        return original;
       }
-      result = out;
-    }
+    }, { maxLen: 200 });
     // Inline math: \(...\)
     result = result.replace(/\\\(([^)]+)\\\)/g, (_, latex) => {
       try { return stash(katex.renderToString(latex.trim(), { displayMode: false, throwOnError: false, output: 'htmlAndMathml' })); }
