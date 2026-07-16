@@ -696,12 +696,18 @@ const PracticeBank = ({ onStartPractice, onStartAdaptive, bankPractice = {}, wea
                     const total = section === 'math' ? skill.total : skill.count;
                     const tm = masteryByKey.get(`topic:${skill.slug}`) || EMPTY_MASTERY;
                     const skillPulse = !!focusPulse && focusPulse.skillSlugs.includes(skill.slug);
-                    const types = skill.patterns?.length || 0;
+                    // Question-type tiles are a GRAMMAR-only affordance
+                    // (user, 2026-07-16): conventions topics expand so a
+                    // student can drill exactly Subject-verb agreement; every
+                    // other topic (math + R&W reading) keeps the plain row
+                    // that launches the whole-topic round. skill.patterns
+                    // stays populated for ALL topics — the For-you
+                    // recommendation engine reads it (exact-pattern weakness
+                    // pools, new-territory) — so gate the tiles here, never
+                    // in the category data.
+                    const showTypeTiles = skill.domain === 'standard-english-conventions';
+                    const types = showTypeTiles ? (skill.patterns?.length || 0) : 0;
                     const open = types > 0 && openTopics.has(skill.slug);
-                    // Row click EXPANDS the question-type list when the topic
-                    // has one (so a student can drill exactly Subject-verb
-                    // agreement); the Practice chip still launches the whole
-                    // topic. Topics with no derived types launch directly.
                     return (
                       <React.Fragment key={skill.slug}>
                         <div
