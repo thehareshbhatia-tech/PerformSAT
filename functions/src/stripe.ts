@@ -1,11 +1,11 @@
 /**
- * SEVA Premium billing endpoints (Stripe) — CARD-UP-FRONT 7-day trial.
+ * SEVA Premium billing endpoints (Stripe) — CARD-UP-FRONT 3-day trial.
  *
  * Four endpoints + one gate helper:
  *   ensureEntitlement     — idempotently creates the entitlement doc in a
  *                           NO-ACCESS state ("none") until Checkout completes
  *   createCheckoutSession — hosted Stripe Checkout (subscription mode) that
- *                           collects a card up front and starts a 7-day trial
+ *                           collects a card up front and starts a 3-day trial
  *   createPortalSession   — Stripe Customer Portal (manage/cancel/card)
  *   stripeWebhook         — signature-verified event sink -> entitlements/{uid}
  *   hasEntitlementAccess  — server-side gate used by aiTutor (402)
@@ -438,7 +438,7 @@ export const createCheckoutSession = onRequest(
       // Exactly ONE trial per customer: once the entitlement carries the
       // durable trialUsed marker (stamped by the webhook the first time this
       // customer trialed), a re-subscribe after a cancel gets NO fresh trial —
-      // billing starts immediately. Otherwise the standard 7-day trial.
+      // billing starts immediately. Otherwise the standard 3-day trial.
       const trialDays = trialDaysForCheckout(existing);
       const subscriptionData: Stripe.Checkout.SessionCreateParams
         .SubscriptionData = {

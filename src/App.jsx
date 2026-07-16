@@ -457,7 +457,7 @@ const PerformSAT = () => {
   // ── SEVA Premium entitlement (billing spec 2026-07-01) ───────────────────
   // Dark until REACT_APP_FF_BILLING flips: with the flag off the hook returns
   // a static permissive value and performs zero reads/calls. With it on, the
-  // 7-day trial clock + subscription state live in the server-write-only
+  // 3-day trial clock + subscription state live in the server-write-only
   // entitlements/{uid} doc.
   const entitlement = useEntitlement(user);
   const entitlementStateRef = useRef(entitlement);
@@ -720,7 +720,7 @@ const PerformSAT = () => {
         awaitingCheckoutRef.current = Date.now();
         showToast({
           type: 'success',
-          message: 'Card saved — your 7-day free trial is starting.',
+          message: 'Card saved — your 3-day free trial is starting.',
           duration: 6000,
         });
       } else if (checkout === 'canceled') {

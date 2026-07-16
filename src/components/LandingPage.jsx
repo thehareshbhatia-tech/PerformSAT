@@ -97,7 +97,7 @@ const PRICING_INCLUDES = [
 const LandingPage = () => {
   // Billing dark-launch: pricing copy flips with the same flag as the app's
   // paywall so the landing page never promises "free forever" once the
-  // 7-day-trial model is live (and never promises a trial before it exists).
+  // 3-day-trial model is live (and never promises a trial before it exists).
   const billingLive = useFeatureFlag('billing');
   const [showAuth, setShowAuth] = useState(false); // login modal
   const [showFunnel, setShowFunnel] = useState(false); // signup quiz funnel
@@ -233,7 +233,7 @@ const LandingPage = () => {
               <a className="lp-btn-ghost-bordered" href="#how" onClick={scrollTo('how')}>See how it works</a>
             </div>
             {billingLive ? (
-              <p className="lp-hero-note">Free for 7 days, then $50/month or $250/year. Cancel anytime before day 7 and you won't be charged.</p>
+              <p className="lp-hero-note">Free for 3 days, then $85/month or $425/year. Cancel anytime before day 3 and you won't be charged.</p>
             ) : (
               <div className="lp-hero-trust">
                 <span><CheckMark />Free to start</span>
@@ -467,7 +467,7 @@ const LandingPage = () => {
           </h2>
           <p className="lp-section-sub">
             {billingLive
-              ? "Start with a 7-day free trial. You won't be charged until day 7, and you can cancel anytime before then. Then keep going month to month, or save with an annual plan."
+              ? "Start with a 3-day free trial. You won't be charged until day 3, and you can cancel anytime before then. Then keep going month to month, or save with an annual plan."
               : 'SEVA is free during early access — the full product, everything included. One plan.'}
           </p>
         </div>
@@ -489,19 +489,19 @@ const LandingPage = () => {
             <div className="lp-pricing-cards">
               <div className="lp-pricing-card">
                 <h3 className="lp-plan-name">Monthly</h3>
-                <div className="lp-plan-amount"><span className="lp-plan-price">$50</span><span className="lp-plan-period">/month</span></div>
+                <div className="lp-plan-amount"><span className="lp-plan-price">$85</span><span className="lp-plan-period">/month</span></div>
                 <p className="lp-plan-note">Billed monthly. Cancel anytime.</p>
-                <button type="button" className="lp-pricing-cta" onClick={() => openAuth(false)}>Start your 7-day free trial</button>
+                <button type="button" className="lp-pricing-cta" onClick={() => openAuth(false)}>Start your 3-day free trial</button>
               </div>
               <div className="lp-pricing-card is-featured">
                 <span className="lp-pricing-badge">Best value</span>
                 <h3 className="lp-plan-name">Annual</h3>
-                <div className="lp-plan-amount"><span className="lp-plan-price">$250</span><span className="lp-plan-period">/year</span></div>
-                <p className="lp-plan-savings">$20.83/mo billed annually — save $350/year</p>
-                <button type="button" className="lp-pricing-cta" onClick={() => openAuth(false)}>Start your 7-day free trial</button>
+                <div className="lp-plan-amount"><span className="lp-plan-price">$425</span><span className="lp-plan-period">/year</span></div>
+                <p className="lp-plan-savings">$35.42/mo billed annually — save $595/year</p>
+                <button type="button" className="lp-pricing-cta" onClick={() => openAuth(false)}>Start your 3-day free trial</button>
               </div>
             </div>
-            <p className="lp-pricing-reassurance">Cancel anytime before day 7 and you won't be charged.</p>
+            <p className="lp-pricing-reassurance">Cancel anytime before day 3 and you won't be charged.</p>
           </>
         ) : (
           <div className="lp-pricing-cards is-single">
@@ -525,7 +525,7 @@ const LandingPage = () => {
           <h2 className="lp-final-title">Ready to find your next 200 points?</h2>
           <p className="lp-final-sub">
             {billingLive
-              ? "Take the free diagnostic. In 15 minutes you'll know exactly where they are — then try everything free for 7 days."
+              ? "Take the free diagnostic. In 15 minutes you'll know exactly where they are — then try everything free for 3 days."
               : "Take the free diagnostic. In 15 minutes you'll know exactly where they are."}
           </p>
           <button type="button" className="lp-final-cta" onClick={() => openAuth(false)}>

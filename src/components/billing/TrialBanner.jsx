@@ -1,5 +1,5 @@
 /**
- * TrialBanner — quiet fixed chip during the card-up-front 7-day trial (and a
+ * TrialBanner — quiet fixed chip during the card-up-front 3-day trial (and a
  * payment-issue notice during dunning grace). The card is already on file, so
  * the trial chip reassures ("won't be charged until <date> · cancel anytime")
  * and links to the Customer Portal to cancel/manage — there is nothing to

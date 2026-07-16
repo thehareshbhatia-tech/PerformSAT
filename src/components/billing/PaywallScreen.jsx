@@ -1,10 +1,10 @@
 /**
- * PaywallScreen — the SEVA Premium subscribe wall (card-up-front 7-day trial).
+ * PaywallScreen — the SEVA Premium subscribe wall (card-up-front 3-day trial).
  *
  * Mounted at view='paywall'. Two states:
- *   (a) never-subscribed  → "Start your 7-day free trial" — a card is required
+ *   (a) never-subscribed  → "Start your 3-day free trial" — a card is required
  *       via hosted Stripe Checkout to START the trial; nothing is charged
- *       until day 7. This is a HARD gate (no card = no access), so the
+ *       until day 3. This is a HARD gate (no card = no access), so the
  *       "Back to dashboard" escape is hidden.
  *   (b) lapsed/canceled   → "Your access has ended" — re-subscribe via
  *       Checkout. These accounts keep read-only score access, so the back
@@ -135,8 +135,8 @@ function PaywallScreen({ entitlement, onBack }) {
   const hardGated = !entitlement?.hasAccess && !entitlement?.hasBillingAccount;
   const startCta = mode === 'start' ? 'Start free trial' : 'Subscribe';
 
-  let title = 'Start your 7-day free trial';
-  let sub = 'Add a card to unlock everything free for 7 days. You will not be charged until day 7 — cancel anytime before then and you pay nothing.';
+  let title = 'Start your 3-day free trial';
+  let sub = 'Add a card to unlock everything free for 3 days. You will not be charged until day 3 — cancel anytime before then and you pay nothing.';
   if (mode === 'resubscribe') {
     title = 'Your access has ended';
     sub = 'Your scores and progress are saved. Subscribe to pick up exactly where you left off — every test, drill, and tutor session unlocks instantly.';
@@ -180,10 +180,10 @@ function PaywallScreen({ entitlement, onBack }) {
             <div className="pw-plan">
               <h2 className="pw-plan-name">Monthly</h2>
               <div className="pw-plan-price">
-                <span className="pw-plan-amount">$50</span>
+                <span className="pw-plan-amount">$85</span>
                 <span className="pw-plan-cadence">/ month</span>
               </div>
-              <p className="pw-plan-note">Free for 7 days, then $50/month. Cancel anytime.</p>
+              <p className="pw-plan-note">Free for 3 days, then $85/month. Cancel anytime.</p>
               <button
                 type="button"
                 className="pw-plan-cta is-secondary"
@@ -203,10 +203,10 @@ function PaywallScreen({ entitlement, onBack }) {
               <span className="pw-plan-flag">Best value</span>
               <h2 className="pw-plan-name">Annual</h2>
               <div className="pw-plan-price">
-                <span className="pw-plan-amount">$250</span>
+                <span className="pw-plan-amount">$425</span>
                 <span className="pw-plan-cadence">/ year</span>
               </div>
-              <p className="pw-plan-note">Free for 7 days, then $250/year — save $350 vs monthly.</p>
+              <p className="pw-plan-note">Free for 3 days, then $425/year — save $595 vs monthly.</p>
               <button
                 type="button"
                 className="pw-plan-cta is-primary"
@@ -258,7 +258,7 @@ function PaywallScreen({ entitlement, onBack }) {
         <p className="pw-fineprint">
           Secure checkout by Stripe. {mode === 'grace'
             ? 'Manage or cancel your plan anytime from Profile.'
-            : 'You will not be charged until your 7-day free trial ends — cancel anytime before then and you pay nothing. Manage or cancel anytime from Profile.'}{' '}
+            : 'You will not be charged until your 3-day free trial ends — cancel anytime before then and you pay nothing. Manage or cancel anytime from Profile.'}{' '}
           By {mode === 'start' ? 'starting your trial' : 'subscribing'} you agree
           to the <a href="/terms" target="_blank" rel="noreferrer">Terms</a> and{' '}
           <a href="/privacy" target="_blank" rel="noreferrer">Privacy Policy</a>.

@@ -2,10 +2,10 @@
  * Pure billing/entitlement policy — no Firebase or Stripe SDK imports, so it
  * is unit-testable with node --test (same pattern as reengagementPolicy.ts).
  *
- * The entitlement model (CARD-UP-FRONT 7-day trial, 2026-07-03):
+ * The entitlement model (CARD-UP-FRONT 3-day trial, 2026-07-03):
  *   - Signup grants NO access. To start a 7-day free trial the student must
  *     enter a card via hosted Stripe Checkout (payment_method_collection
- *     stays "always"; subscription_data.trial_period_days = 7).
+ *     stays "always"; subscription_data.trial_period_days = 3).
  *   - During the trial the Stripe subscription status is "trialing" — full
  *     access, card on file, not yet charged. Stripe owns the trial clock
  *     (subscription.trial_end); the app never stamps it.
@@ -64,7 +64,7 @@ export interface StripeSubscriptionLike {
   };
 }
 
-export const TRIAL_DAYS = 7;
+export const TRIAL_DAYS = 3;
 export const DAY_MS = 86400000;
 
 /**

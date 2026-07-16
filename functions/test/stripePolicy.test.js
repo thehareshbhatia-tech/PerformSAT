@@ -27,7 +27,7 @@ const ANNUAL = "price_annual_test";
 // TRIAL_DAYS is the source of truth reused by createCheckoutSession's
 // subscription_data.trial_period_days — pin it so a stray edit is caught.
 test("trial length constant is 7 days", () => {
-  assert.strictEqual(TRIAL_DAYS, 7);
+  assert.strictEqual(TRIAL_DAYS, 3);
 });
 
 // ── mapStripeStatus ──────────────────────────────────────────────────────

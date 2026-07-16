@@ -78,8 +78,8 @@ describe('LandingPage content', () => {
     // The pricing section exists, but with the billing flag OFF it must render
     // the single "free during early access" card — never paid dollar prices
     // that would contradict the free packaging elsewhere on the page.
-    expect(html).not.toContain('$50');
-    expect(html).not.toContain('$250');
+    expect(html).not.toContain('$85');
+    expect(html).not.toContain('$425');
   });
 
   test('contains no known-false or unverifiable claims', () => {

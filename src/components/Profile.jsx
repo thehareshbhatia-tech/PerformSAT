@@ -408,7 +408,7 @@ const Profile = ({
                   ? `${entitlement.trialDaysLeft} day${entitlement.trialDaysLeft === 1 ? '' : 's'} left — you won't be charged until ${new Date(entitlement.endsAtMs).toLocaleDateString(undefined, { month: 'long', day: 'numeric', year: 'numeric' })}. Cancel anytime before then.`
                   : `${entitlement.trialDaysLeft} day${entitlement.trialDaysLeft === 1 ? '' : 's'} left — cancel anytime before you're charged.`)}
                 {entitlement.phase === 'comped' && 'Complimentary access — thanks for being an early SEVA user. You won’t be charged.'}
-                {entitlement.phase === 'none' && 'Start your 7-day free trial to unlock tests, drills, and the AI tutor.'}
+                {entitlement.phase === 'none' && 'Start your 3-day free trial to unlock tests, drills, and the AI tutor.'}
                 {entitlement.phase === 'expired' && 'Subscribe to unlock tests, drills, and the AI tutor.'}
               </p>
             </div>
