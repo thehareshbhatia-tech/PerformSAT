@@ -497,7 +497,7 @@ const LandingPage = () => {
                 <span className="lp-pricing-badge">Best value</span>
                 <h3 className="lp-plan-name">Annual</h3>
                 <div className="lp-plan-amount"><span className="lp-plan-price">$349</span><span className="lp-plan-period">/year</span></div>
-                <p className="lp-plan-savings">$29.08/mo billed annually — save $671/year</p>
+                <p className="lp-plan-savings">One payment of $349 per year — save $671 vs monthly</p>
                 <button type="button" className="lp-pricing-cta" onClick={() => openAuth(false)}>Start your 3-day free trial</button>
               </div>
             </div>
