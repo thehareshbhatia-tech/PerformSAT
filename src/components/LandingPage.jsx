@@ -233,7 +233,7 @@ const LandingPage = () => {
               <a className="lp-btn-ghost-bordered" href="#how" onClick={scrollTo('how')}>See how it works</a>
             </div>
             {billingLive ? (
-              <p className="lp-hero-note">Free for 3 days, then $85/month or $425/year. Cancel anytime before day 3 and you won't be charged.</p>
+              <p className="lp-hero-note">Free for 3 days, then $85/month or $349/year. Cancel anytime before day 3 and you won't be charged.</p>
             ) : (
               <div className="lp-hero-trust">
                 <span><CheckMark />Free to start</span>
@@ -496,8 +496,8 @@ const LandingPage = () => {
               <div className="lp-pricing-card is-featured">
                 <span className="lp-pricing-badge">Best value</span>
                 <h3 className="lp-plan-name">Annual</h3>
-                <div className="lp-plan-amount"><span className="lp-plan-price">$425</span><span className="lp-plan-period">/year</span></div>
-                <p className="lp-plan-savings">$35.42/mo billed annually — save $595/year</p>
+                <div className="lp-plan-amount"><span className="lp-plan-price">$349</span><span className="lp-plan-period">/year</span></div>
+                <p className="lp-plan-savings">$29.08/mo billed annually — save $671/year</p>
                 <button type="button" className="lp-pricing-cta" onClick={() => openAuth(false)}>Start your 3-day free trial</button>
               </div>
             </div>

@@ -79,7 +79,7 @@ describe('LandingPage content', () => {
     // the single "free during early access" card — never paid dollar prices
     // that would contradict the free packaging elsewhere on the page.
     expect(html).not.toContain('$85');
-    expect(html).not.toContain('$425');
+    expect(html).not.toContain('$349');
   });
 
   test('contains no known-false or unverifiable claims', () => {

@@ -203,10 +203,10 @@ function PaywallScreen({ entitlement, onBack }) {
               <span className="pw-plan-flag">Best value</span>
               <h2 className="pw-plan-name">Annual</h2>
               <div className="pw-plan-price">
-                <span className="pw-plan-amount">$425</span>
+                <span className="pw-plan-amount">$349</span>
                 <span className="pw-plan-cadence">/ year</span>
               </div>
-              <p className="pw-plan-note">Free for 3 days, then $425/year — save $595 vs monthly.</p>
+              <p className="pw-plan-note">Free for 3 days, then $349/year — save $671 vs monthly.</p>
               <button
                 type="button"
                 className="pw-plan-cta is-primary"
