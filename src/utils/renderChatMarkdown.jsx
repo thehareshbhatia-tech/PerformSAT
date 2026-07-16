@@ -56,23 +56,53 @@ const renderProse = (text) => {
       try { return stash(katex.renderToString(latex.trim(), { displayMode: true, throwOnError: false, output: 'htmlAndMathml' })); }
       catch { return _; }
     });
-    // Protect currency: a lone `$` directly before a money amount (digits, with
-    // optional thousands commas and cents) that is NOT the start of a math token.
-    // So "$10", "$1,200", "$5.50", "$5/hr" keep a literal dollar sign, while a
-    // math span like "$2x = 4$" is left intact. Runs AFTER $$/\[ display
-    // extraction (so a display delimiter is never mistaken for currency) and
-    // BEFORE the inline $...$ pairing — otherwise that pairing swallows the text
-    // between a money `$` and a real math `$` and renders it as garbled math.
-    // The money amount must be "terminal": not followed by a word char, another
-    // `$`, or a math continuation (`\` command, `^`, `_`, `{`). That keeps
-    // "$5/hour" / "$10." as currency while "$50\%$", "$30^\circ$", "$2x$" render
-    // as math.
-    result = result.replace(/\$(?=\d[\d,]*(?:\.\d{1,2})?(?![\w$\\^_{}]))/g, ESC);
-    // Inline math: $...$ and \(...\)
-    result = result.replace(/\$([^\$]+?)\$/g, (_, latex) => {
-      try { return stash(katex.renderToString(latex.trim(), { displayMode: false, throwOnError: false, output: 'htmlAndMathml' })); }
-      catch { return _; }
-    });
+    // Inline math: $...$ via a strict left-to-right scanner (replaced the old
+    // currency-lookahead + naive non-greedy regex on 2026-07-15). The old pair
+    // had two failure modes that could garble a whole tutor reply:
+    //   1. The currency guard escaped the OPENING $ of math that starts with a
+    //      bare number ("$3 + 4 = 7$" — digit then space read as "money"),
+    //      orphaning its closer; every later span then paired off-by-one and
+    //      whole sentences of prose rendered as spaced-out math symbols.
+    //   2. Any unbalanced $ let the pairing swallow prose across sentences
+    //      (and lines) into math mode.
+    // Pairing rules (KaTeX auto-render / pandoc conventions): the opener must
+    // be followed by a non-space; the closer is the FIRST later $ on the same
+    // line, must be preceded by a non-space, and must NOT be followed by a
+    // digit (protects "$5-$10" money ranges); spans are capped at 200 chars.
+    // Anything that fails every rule stays a literal dollar sign — so money
+    // ("$10 and $1,200") needs no special-casing, and one model typo can no
+    // longer cascade past its own line.
+    {
+      let out = '';
+      let i = 0;
+      while (i < result.length) {
+        const ch = result[i];
+        if (ch !== '$') { out += ch; i += 1; continue; }
+        const next = result[i + 1];
+        if (next === undefined || next === '$' || /\s/.test(next)) { out += ch; i += 1; continue; }
+        const close = result.indexOf('$', i + 1);
+        const span = close === -1 ? null : result.slice(i + 1, close);
+        const afterClose = close === -1 ? undefined : result[close + 1];
+        const valid = span !== null
+          && span.length <= 200
+          && !span.includes('\n')
+          && !/\s/.test(result[close - 1])
+          && !(afterClose !== undefined && /\d/.test(afterClose));
+        if (valid) {
+          try {
+            out += stash(katex.renderToString(span.trim(), { displayMode: false, throwOnError: false, output: 'htmlAndMathml' }));
+          } catch {
+            out += result.slice(i, close + 1);
+          }
+          i = close + 1;
+        } else {
+          out += ch;
+          i += 1;
+        }
+      }
+      result = out;
+    }
+    // Inline math: \(...\)
     result = result.replace(/\\\(([^)]+)\\\)/g, (_, latex) => {
       try { return stash(katex.renderToString(latex.trim(), { displayMode: false, throwOnError: false, output: 'htmlAndMathml' })); }
       catch { return _; }

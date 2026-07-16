@@ -335,3 +335,56 @@ describe('renderChatMarkdown emphasis vs operators', () => {
     expect(html).toContain('<strong>important</strong>');
   });
 });
+
+describe('math delimiter robustness (garbled-tutor-reply regression, 2026-07-15)', () => {
+  // Root cause of the garbled reply: the old currency lookahead escaped the
+  // opening $ of "$3 + 4 = 7$" (digit-then-space read as money), orphaning
+  // its closer — every later $ then paired off-by-one and prose rendered as
+  // spaced-out math. These pin the scanner that replaced it.
+  test('math starting with a bare number pairs correctly; following prose stays prose', () => {
+    const html = renderToHtml(
+      'The solutions are $3$ and $4$, and $3 + 4 = 7$. This is exactly the trap you fell into — you saw $-7$ in the equation and picked it directly.'
+    );
+    expect(html).toContain('katex');
+    expect(html).toContain('This is exactly the trap you fell into');
+    expect(html).toContain('in the equation and picked it directly');
+  });
+
+  test('an unbalanced dollar stays literal and cannot swallow the rest of the message', () => {
+    const html = renderToHtml(
+      'you saw $-7 in the equation and picked it directly as the answer. That move is the most common one here.'
+    );
+    expect(html).toContain('$-7 in the equation and picked it directly');
+    expect(html).not.toContain('katex');
+  });
+
+  test('an unbalanced dollar cannot pair across a line break', () => {
+    const html = renderToHtml('the cost is $5 short\nof the target $x = 2$ here');
+    expect(html).toContain('$5 short');
+    expect(html).toContain('katex'); // the real span on line 2 still renders
+  });
+
+  test('currency stays literal: plain amounts, thousands, and ranges', () => {
+    const html = renderToHtml('It costs $10 and $1,200 total, or between $5-$10 per person.');
+    expect(html).not.toContain('katex');
+    expect(html).toContain('$10 and $1,200 total');
+    expect(html).toContain('$5-$10');
+  });
+
+  test('currency and real math coexist in one sentence', () => {
+    const html = renderToHtml('You pay $10 once, so $C = 10 + 5x$ models the total cost.');
+    expect(html).toContain('katex');
+    expect(html).toContain('$10 once');
+  });
+
+  test('ordinary inline math still renders: exponents, percents, negatives', () => {
+    const html = renderToHtml('Compute $x^2 - 7x + 12$ and $50\\%$ of $-b$.');
+    const katexCount = (html.match(/katex/g) || []).length;
+    expect(katexCount).toBeGreaterThan(2);
+  });
+
+  test('display math still renders across lines', () => {
+    const html = renderToHtml('Start here:\n$$x^2 - 7x + 12 = 0$$\nand factor.');
+    expect(html).toContain('katex-display');
+  });
+});
