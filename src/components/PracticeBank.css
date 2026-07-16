@@ -344,8 +344,12 @@
   text-align: left; font-family: var(--pb-font-body); cursor: pointer;
   transition: background 120ms ease;
 }
-.pb-trow-head + .pb-trow-head { border-top: 1px solid var(--pb-line); }
+.pb-trow-head + .pb-trow-head,
+.pb-trow-types + .pb-trow-head { border-top: 1px solid var(--pb-line); }
 .pb-trow-head:hover { background: var(--pb-inset); }
+.pb-trow-chev { width: 16px; height: 16px; flex: none; color: var(--pb-text-3); display: inline-flex; transition: transform 200ms ease; }
+.pb-trow-chev.is-open { transform: rotate(90deg); }
+.pb-trow-chev.is-empty { visibility: hidden; }
 .pb-trow-main { flex: 1; min-width: 0; }
 .pb-trow-name { font-weight: 600; font-size: 14px; line-height: 1.25; color: var(--pb-text); }
 .pb-trow-meta { display: block; font-size: 11px; color: var(--pb-text-3); font-weight: 600; margin-top: 1px; }
