@@ -22,19 +22,28 @@ const readStoredFilter = () => {
 };
 
 const CheckIcon = () => (
-  <svg className="lt-check" width="18" height="18" viewBox="0 0 24 24" fill="none"
-       stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
+       stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
     <path d="M20 6 9 17l-5-5" />
+  </svg>
+);
+const ChevronRight = () => (
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+       stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <path d="M9 18l6-6-6-6" />
   </svg>
 );
 
 /**
- * Learn tab — a single-page table of contents for the SEVA textbook.
+ * Learn tab — the SEVA textbook's table of contents.
  *
- * Renders the top-level sections (The Digital SAT, Reading Comprehension,
- * Writing & Grammar, Math) in a fixed order, each with the units it contains
- * and a simple numbered chapter list. Empty units/sections are skipped.
- * Clicking a row opens the reader.
+ * DESIGN (2026-07-17): rebuilt from the user's "SEVA Learn Index (standalone)"
+ * mockup, the TOC companion to the chapter-reader rebuild: warm cream canvas,
+ * "The SEVA Textbook" masthead, navy-active segmented section filter, and
+ * 2-column chapter cards (purple number chip → lime check once read, title +
+ * read time, blurb, hover chevron). Systems unchanged: section filter persists
+ * to localStorage, chapters number continuously within a section, read state
+ * comes from the chaptersRead map.
  *
  * @param {Object} props
  * @param {Object} props.chaptersRead - map of { [chapterId]: { completed } }
@@ -44,9 +53,6 @@ const CheckIcon = () => (
 const LearnTab = ({ chaptersRead = {}, onOpenChapter }) => {
   const isRead = (id) => !!chaptersRead[id]?.completed;
 
-  // Section filter (All / The Digital SAT / Reading / Writing / Math) —
-  // mirrors the Study Plan's segmented control. Persisted so returning from
-  // a chapter (or a later visit) lands on the same section.
   const [sectionFilter, setSectionFilter] = useState(readStoredFilter);
   const selectFilter = (id) => {
     setSectionFilter(id);
@@ -54,7 +60,7 @@ const LearnTab = ({ chaptersRead = {}, onOpenChapter }) => {
   };
 
   // Build the render model once: sections → units → numbered chapters, with
-  // per-section progress. Chapters are numbered continuously within a section.
+  // per-section read counts. Chapters are numbered continuously within a section.
   const sections = useMemo(() => {
     return LEARN_SECTIONS.map((section) => {
       const units = LEARN_UNITS
@@ -83,70 +89,67 @@ const LearnTab = ({ chaptersRead = {}, onOpenChapter }) => {
 
   return (
     <div className="lt-root">
-      <header className="lt-page-head">
-        <h1 className="lt-page-title">Learn</h1>
-        <p className="lt-page-sub">Read the SEVA textbook, one chapter at a time. Everything the digital SAT tests, explained plainly.</p>
-      </header>
+      <div className="lt-container">
+        <header className="lt-page-head">
+          <h1 className="lt-page-title">The SEVA Textbook</h1>
+          <p className="lt-page-sub">Everything the digital SAT tests, explained plainly — one chapter at a time.</p>
+        </header>
 
-      <div className="lt-seg" role="tablist" aria-label="Filter chapters by section">
-        {[{ id: 'all', label: 'All' }, ...LEARN_SECTIONS.map((s) => ({ id: s.id, label: SECTION_PILL_LABELS[s.id] || s.label }))].map((tab) => (
-          <button
-            key={tab.id}
-            type="button"
-            role="tab"
-            aria-selected={sectionFilter === tab.id}
-            className={`lt-seg-btn${sectionFilter === tab.id ? ' is-active' : ''}`}
-            onClick={() => selectFilter(tab.id)}
-          >
-            {tab.label}
-          </button>
-        ))}
-      </div>
+        <div className="lt-seg" role="tablist" aria-label="Filter chapters by section">
+          {[{ id: 'all', label: 'All' }, ...LEARN_SECTIONS.map((s) => ({ id: s.id, label: SECTION_PILL_LABELS[s.id] || s.label }))].map((tab) => (
+            <button
+              key={tab.id}
+              type="button"
+              role="tab"
+              aria-selected={sectionFilter === tab.id}
+              className={`lt-seg-btn${sectionFilter === tab.id ? ' is-active' : ''}`}
+              onClick={() => selectFilter(tab.id)}
+            >
+              {tab.label}
+            </button>
+          ))}
+        </div>
 
-      {sections.filter((s) => sectionFilter === 'all' || s.id === sectionFilter).map((section) => (
-        <section key={section.id} className="lt-section">
-          <div className="lt-section-head">
-            <h2 className="lt-section-title">{section.label}</h2>
-            <span className="lt-section-progress">{section.completed} of {section.total}</span>
-          </div>
-          <div className="lt-progress-track" aria-hidden="true">
-            <div
-              className="lt-progress-fill"
-              style={{ width: `${section.total ? Math.round((section.completed / section.total) * 100) : 0}%` }}
-            />
-          </div>
+        {sections.filter((s) => sectionFilter === 'all' || s.id === sectionFilter).map((section) => (
+          <section key={section.id} className="lt-section">
+            <div className="lt-section-head">
+              <h2 className="lt-section-title">{section.label}</h2>
+              <span className="lt-section-progress">{section.completed} of {section.total} read</span>
+            </div>
 
-          {section.units.map((unit) => (
-            <div key={unit.id} className="lt-unit">
-              <h3 className="lt-unit-title">{unit.label}</h3>
-              <ul className="lt-chapter-list">
-                {unit.chapters.map(({ chapter, number }) => {
-                  const read = isRead(chapter.id);
-                  return (
-                    <li key={chapter.id}>
+            {section.units.map((unit) => (
+              <div key={unit.id} className="lt-unit">
+                <h3 className="lt-unit-title">{unit.label}</h3>
+                <div className="lt-card-grid">
+                  {unit.chapters.map(({ chapter, number }) => {
+                    const read = isRead(chapter.id);
+                    return (
                       <button
+                        key={chapter.id}
                         type="button"
-                        className={`lt-chapter-row${read ? ' is-read' : ''}`}
+                        className={`lt-card${read ? ' is-read' : ''}`}
                         onClick={() => onOpenChapter(chapter.id)}
                       >
-                        <span className="lt-chapter-num">{number}</span>
-                        <span className="lt-chapter-body">
-                          <span className="lt-chapter-title">{chapter.title}</span>
-                          <span className="lt-chapter-blurb">{chapter.blurb}</span>
+                        <span className="lt-card-num" aria-hidden="true">
+                          {read ? <CheckIcon /> : number}
                         </span>
-                        <span className="lt-chapter-meta">
-                          <span className="lt-chapter-time">{chapter.readMinutes} min</span>
-                          {read && <CheckIcon />}
+                        <span className="lt-card-body">
+                          <span className="lt-card-toprow">
+                            <span className="lt-card-title">{chapter.title}</span>
+                            <span className="lt-card-time">{read ? 'Read' : `${chapter.readMinutes} min`}</span>
+                          </span>
+                          <span className="lt-card-blurb">{chapter.blurb}</span>
                         </span>
+                        <span className="lt-card-go" aria-hidden="true"><ChevronRight /></span>
                       </button>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-          ))}
-        </section>
-      ))}
+                    );
+                  })}
+                </div>
+              </div>
+            ))}
+          </section>
+        ))}
+      </div>
     </div>
   );
 };

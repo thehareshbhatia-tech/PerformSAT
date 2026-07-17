@@ -1,218 +1,213 @@
-/* Learn tab (TOC) — scoped .lt-* / --lt-*. Textbook-simple: no search, no
-   filters, no gamification. Bricolage display + Hanken body, matching the app. */
+/* Learn tab (TOC) — scoped .lt-*.
+   DESIGN (2026-07-17): rebuilt from the user's "SEVA Learn Index (standalone)"
+   mockup — the TOC companion to the chapter-reader rebuild. Warm cream canvas,
+   "The SEVA Textbook" masthead, navy-active segmented filter, and 2-column
+   chapter cards (purple number chip → lime check once read). Shares the
+   reader's palette (ChapterReader.css). */
+
 .lt-root {
   --lt-font-display: 'Bricolage Grotesque', 'Inter', system-ui, sans-serif;
   --lt-font-body: 'Hanken Grotesk', 'Inter', system-ui, sans-serif;
-  --lt-ink: #1c2333;
-  --lt-ink-2: #4a5468;
-  --lt-ink-3: #8791a3;
-  --lt-line: #eceef2;
-  --lt-line-2: #e2e5eb;
-  --lt-surface: #ffffff;
-  --lt-hover: #faf7f4;
-  --lt-accent: var(--color-brand-purple-text, #5A3E8E);
-  --lt-accent-soft: var(--color-brand-purple-soft, #F2ECFB);
-  --lt-done: var(--color-brand-green-text, #3F5B1E);
 
-  max-width: 780px;
-  margin: 0 auto;
-  padding: 44px 24px 96px;
+  --lt-bg: #F6F4EF;
+  --lt-surface: #FFFFFF;
+  --lt-surface-2: #F1EEE7;
+  --lt-inset: #FAF8F3;
+  --lt-line: #E7E3D9;
+  --lt-line-strong: #D9D4C7;
+  --lt-ink: #15171C;
+  --lt-ink-2: #5B6068;
+  --lt-ink-3: #9A9EA6;
+  --lt-navy: #0C1026;
+  --lt-orange: var(--color-brand-primary, #EA580C);
+  --lt-purple: #7C5CC7;
+  --lt-purple-tint: #F1ECFA;
+  --lt-lime-deep: #5A8A16;
+
+  background: var(--lt-bg);
+  min-height: 100vh;
   font-family: var(--lt-font-body);
   color: var(--lt-ink);
+  display: flex;
+  justify-content: center;
+  padding: 36px 40px 90px;
 }
 
-.lt-page-head {
-  margin-bottom: 40px;
+.lt-container {
+  width: 100%;
+  max-width: 1080px;
 }
+
+/* ── Masthead. ───────────────────────────────────────────────────────────── */
+.lt-page-head { margin: 0; }
 .lt-page-title {
   font-family: var(--lt-font-display);
-  font-size: 2.15rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  margin: 0 0 8px;
-}
-.lt-page-sub {
-  font-size: 1.02rem;
-  line-height: 1.55;
-  color: var(--lt-ink-2);
-  max-width: 46ch;
+  font-weight: 800;
+  font-size: 38px;
+  letter-spacing: -0.025em;
+  line-height: 1;
   margin: 0;
 }
+.lt-page-sub {
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--lt-ink-2);
+  max-width: 520px;
+  margin: 12px 0 0;
+}
 
-/* ── Section switcher (All / The Digital SAT / Reading / Writing / Math) —
-   same pill pattern as the Study Plan's .sp-seg control. ── */
+/* ── Section filter — navy-active segmented control. ─────────────────────── */
 .lt-seg {
   display: inline-flex;
-  background: var(--lt-surface);
-  border: 1px solid var(--lt-line-2);
-  border-radius: 999px;
-  padding: 3px;
-  gap: 2px;
-  margin-bottom: 36px;
+  gap: 3px;
+  background: var(--lt-surface-2);
+  border: 1px solid var(--lt-line);
+  border-radius: 13px;
+  padding: 4px;
+  margin-top: 28px;
 }
 .lt-seg-btn {
   border: none;
-  background: transparent;
-  color: var(--lt-ink-2);
+  cursor: pointer;
   font-family: var(--lt-font-body);
   font-weight: 600;
-  font-size: 13px;
-  padding: 7px 14px;
-  border-radius: 999px;
-  cursor: pointer;
-  white-space: nowrap;
-  transition: background 120ms ease, color 120ms ease;
+  font-size: 14px;
+  padding: 9px 18px;
+  border-radius: 9px;
+  background: transparent;
+  color: var(--lt-ink-2);
 }
 .lt-seg-btn:hover { color: var(--lt-ink); }
 .lt-seg-btn.is-active {
-  background: var(--lt-ink);
-  color: var(--lt-surface);
-  font-weight: 700;
+  background: var(--lt-navy);
+  color: #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
 }
-.lt-seg-btn:focus-visible {
-  outline: 2px solid var(--lt-accent);
-  outline-offset: 1px;
-}
+.lt-seg-btn.is-active:hover { color: #fff; }
 
-.lt-section {
-  margin-bottom: 44px;
-}
+/* ── Sections + units. ───────────────────────────────────────────────────── */
+.lt-section { margin: 0; }
 .lt-section-head {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 10px;
+  gap: 16px;
+  margin: 44px 0 24px;
 }
 .lt-section-title {
   font-family: var(--lt-font-display);
-  font-size: 1.4rem;
   font-weight: 700;
+  font-size: 24px;
   letter-spacing: -0.01em;
   margin: 0;
 }
 .lt-section-progress {
-  font-size: 0.82rem;
+  font-size: 13px;
   font-weight: 600;
   color: var(--lt-ink-3);
-  white-space: nowrap;
-}
-.lt-progress-track {
-  height: 4px;
-  border-radius: 999px;
-  background: var(--lt-line);
-  overflow: hidden;
-  margin-bottom: 24px;
-}
-.lt-progress-fill {
-  height: 100%;
-  border-radius: 999px;
-  background: var(--lt-accent);
-  transition: width 0.4s ease;
+  flex: none;
 }
 
-.lt-unit {
-  margin-bottom: 26px;
-}
+.lt-unit { margin: 0 0 32px; }
+.lt-unit:last-child { margin-bottom: 0; }
 .lt-unit-title {
-  font-family: var(--lt-font-display);
-  font-size: 0.78rem;
+  font-family: var(--lt-font-body);
   font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.13em;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
   color: var(--lt-ink-3);
-  margin: 0 0 8px;
+  margin: 0 0 14px;
 }
 
-.lt-chapter-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  border-top: 1px solid var(--lt-line);
-}
-
-.lt-chapter-row {
-  width: 100%;
-  display: flex;
-  align-items: center;
+/* ── Chapter cards. ──────────────────────────────────────────────────────── */
+.lt-card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 16px;
-  padding: 15px 12px;
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid var(--lt-line);
+}
+.lt-card {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  background: var(--lt-surface);
+  border: 1px solid var(--lt-line);
+  border-radius: 16px;
+  padding: 22px;
+  font-family: var(--lt-font-body);
   text-align: left;
   cursor: pointer;
-  font-family: inherit;
-  border-radius: 8px;
-  transition: background 0.15s ease;
-}
-.lt-chapter-row:hover {
-  background: var(--lt-hover);
-}
-.lt-chapter-row:focus-visible {
-  outline: 2px solid var(--lt-accent);
-  outline-offset: -2px;
-}
-
-.lt-chapter-num {
-  flex: 0 0 auto;
-  width: 30px;
-  height: 30px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 999px;
-  background: var(--lt-accent-soft);
-  color: var(--lt-accent);
-  font-family: var(--lt-font-display);
-  font-size: 0.86rem;
-  font-weight: 700;
-}
-.lt-chapter-row.is-read .lt-chapter-num {
-  background: var(--color-brand-green-soft, #F0F8DC);
-  color: var(--lt-done);
-}
-
-.lt-chapter-body {
-  flex: 1 1 auto;
+  transition: border-color 0.16s, background 0.16s;
   min-width: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
 }
-.lt-chapter-title {
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--lt-ink);
-  line-height: 1.3;
+.lt-card:hover {
+  border-color: var(--lt-line-strong);
+  background: var(--lt-inset);
 }
-.lt-chapter-blurb {
-  font-size: 0.86rem;
-  line-height: 1.4;
-  color: var(--lt-ink-2);
+.lt-card:hover .lt-card-go { color: var(--lt-orange); }
+
+.lt-card-num {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  flex: none;
+  display: grid;
+  place-items: center;
+  background: var(--lt-purple-tint);
+  color: var(--lt-purple);
+  font-family: var(--lt-font-display);
+  font-weight: 700;
+  font-size: 15px;
+  margin-top: 1px;
+}
+.lt-card.is-read .lt-card-num {
+  background: var(--lt-lime-deep);
+  color: #fff;
 }
 
-.lt-chapter-meta {
-  flex: 0 0 auto;
+.lt-card-body { flex: 1; min-width: 0; }
+.lt-card-toprow {
   display: flex;
-  align-items: center;
+  align-items: baseline;
+  justify-content: space-between;
   gap: 10px;
 }
-.lt-chapter-time {
-  font-size: 0.8rem;
+.lt-card-title {
+  font-family: var(--lt-font-display);
+  font-weight: 700;
+  font-size: 17px;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  color: var(--lt-ink);
+}
+.lt-card-time {
+  font-size: 12px;
   font-weight: 600;
   color: var(--lt-ink-3);
-  white-space: nowrap;
+  flex: none;
 }
-.lt-check {
-  color: var(--lt-done);
+.lt-card.is-read .lt-card-time { color: var(--lt-lime-deep); }
+.lt-card-blurb {
+  display: block;
+  font-size: 14px;
+  color: var(--lt-ink-2);
+  line-height: 1.55;
+  margin-top: 7px;
+}
+.lt-card-go {
+  color: var(--lt-ink-3);
+  flex: none;
+  margin-top: 4px;
+  transition: color 0.16s;
+  display: inline-flex;
 }
 
-@media (max-width: 640px) {
-  .lt-root { padding: 28px 16px 88px; }
-  .lt-seg { max-width: 100%; overflow-x: auto; }
-  .lt-seg-btn { font-size: 12px; padding: 6px 11px; }
-  .lt-page-title { font-size: 1.8rem; }
-  .lt-chapter-row { gap: 12px; padding: 14px 6px; }
-  .lt-chapter-blurb { display: none; }
+/* ── Responsive. ─────────────────────────────────────────────────────────── */
+@media (max-width: 940px) {
+  .lt-card-grid { grid-template-columns: 1fr; }
+  .lt-root { padding: 28px 20px 80px; }
+}
+@media (max-width: 560px) {
+  .lt-page-title { font-size: 30px; }
+  .lt-seg { display: flex; flex-wrap: wrap; }
 }
