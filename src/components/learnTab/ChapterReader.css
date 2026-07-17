@@ -1,84 +1,251 @@
-/* Chapter reader — scoped .cr-*. Clean article column; the block content itself
-   is rendered by ContentTabRenderer's .tb-* styles (imported via SectionContent). */
+/* Chapter reader — scoped .cr-*.
+   DESIGN (2026-07-17): rebuilt from the user's "SEVA Learn (standalone)" mockup.
+   Warm cream canvas, Newsreader serif reading text, Bricolage display headings,
+   a lesson rail with per-lesson read states, a scroll-progress bar, and a card
+   vocabulary for content blocks (white cards with soft shadow + accent borders;
+   supersedes the 07-15 flat hairline-rule look).
+   Block content is rendered by ContentTabRenderer's .tb-* markup; EVERY block
+   override below is prefixed with .cr-content so LearnWorkspace (same .tb-*
+   classes, no .cr-content ancestor) is untouched. */
+
 .cr-root {
   --cr-font-display: 'Bricolage Grotesque', 'Inter', system-ui, sans-serif;
   --cr-font-body: 'Hanken Grotesk', 'Inter', system-ui, sans-serif;
-  --cr-ink: #1c2333;
-  --cr-ink-2: #4a5468;
-  --cr-ink-3: #8791a3;
-  --cr-line: #e7e9ee;
-  --cr-accent: var(--color-brand-purple-text, #5A3E8E);
-  --cr-accent-soft: var(--color-brand-purple-soft, #F2ECFB);
+  --cr-font-serif: 'Newsreader', Georgia, serif;
 
-  max-width: 760px;
-  margin: 0 auto;
-  padding: 28px 24px 100px;
+  --cr-bg: #F6F4EF;
+  --cr-surface: #FFFFFF;
+  --cr-surface-2: #F1EEE7;
+  --cr-inset: #FAF8F3;
+  --cr-line: #E7E3D9;
+  --cr-line-strong: #D9D4C7;
+  --cr-ink: #15171C;
+  --cr-ink-2: #5B6068;
+  --cr-ink-3: #9A9EA6;
+  --cr-read: #23252C;
+  --cr-orange: var(--color-brand-primary, #EA580C);
+  --cr-orange-tint: rgba(234, 88, 12, 0.1);
+  --cr-lime-deep: #5A8A16;
+  --cr-purple: #7C5CC7;
+  --cr-purple-tint: #F1ECFA;
+  --cr-navy: #0C1026;
+  --cr-red: #B23528;
+  --cr-red-tint: rgba(217, 72, 59, 0.12);
+  --cr-lime-tint: rgba(90, 138, 22, 0.14);
+  --cr-shadow: 0 1px 2px rgba(20, 22, 28, 0.04), 0 6px 18px rgba(20, 22, 28, 0.05);
+
+  background: var(--cr-bg);
+  min-height: 100vh;
   font-family: var(--cr-font-body);
   color: var(--cr-ink);
+}
+
+/* ── Reading progress bar — sticks just under the 64px app topbar. ───────── */
+.cr-progress {
+  position: sticky;
+  top: 64px;
+  height: 3px;
+  z-index: 20;
+  margin-bottom: -3px;
+  pointer-events: none;
+}
+.cr-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--cr-orange), #F2865C);
+  transition: width 80ms linear;
+}
+
+.cr-columns {
+  display: flex;
+  align-items: flex-start;
+}
+
+/* ── Lesson rail. ────────────────────────────────────────────────────────── */
+.cr-rail {
+  width: 270px;
+  flex: none;
+  position: sticky;
+  top: 64px;
+  height: calc(100vh - 64px);
+  overflow-y: auto;
+  background: var(--cr-surface);
+  border-right: 1px solid var(--cr-line);
+  padding: 26px 20px;
 }
 
 .cr-back {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   background: transparent;
   border: none;
-  padding: 6px 0;
-  margin-bottom: 20px;
+  padding: 0;
   font-family: var(--cr-font-body);
-  font-size: 0.9rem;
+  font-size: 13px;
   font-weight: 600;
-  color: var(--cr-ink-2);
+  color: var(--cr-ink-3);
   cursor: pointer;
 }
-.cr-back:hover { color: var(--cr-accent); }
+.cr-back:hover { color: var(--cr-ink); }
+.cr-back--inline { display: none; margin-bottom: 22px; }
 
-.cr-article { max-width: 720px; }
-
-.cr-head {
-  margin-bottom: 28px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid var(--cr-line);
-}
-.cr-eyebrow {
-  font-family: var(--cr-font-display);
-  font-size: 0.75rem;
+.cr-rail-unit {
+  margin-top: 22px;
   font-weight: 700;
+  font-size: 10.5px;
+  letter-spacing: 0.13em;
   text-transform: uppercase;
-  letter-spacing: 0.09em;
-  color: var(--cr-accent);
-  margin-bottom: 10px;
+  color: var(--cr-purple);
 }
-.cr-title {
-  font-family: var(--cr-font-display);
-  font-size: 2rem;
+.cr-rail-progress {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+}
+.cr-rail-track {
+  flex: 1;
+  height: 6px;
+  border-radius: 5px;
+  background: var(--cr-surface-2);
+  overflow: hidden;
+}
+.cr-rail-fill {
+  height: 100%;
+  border-radius: 5px;
+  background: var(--cr-lime-deep);
+}
+.cr-rail-count {
+  font-size: 11.5px;
   font-weight: 700;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-  margin: 0 0 10px;
-}
-.cr-meta {
-  font-size: 0.86rem;
-  font-weight: 600;
   color: var(--cr-ink-3);
 }
 
-.cr-content {
-  font-size: 1.06rem;
-  line-height: 1.72;
+.cr-rail-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: 20px;
+}
+.cr-lesson {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 12px;
+  border: none;
+  border-radius: 11px;
+  background: transparent;
+  font-family: var(--cr-font-body);
+  text-align: left;
+  cursor: pointer;
+}
+.cr-lesson:hover { background: var(--cr-surface-2); }
+.cr-lesson.is-current { background: var(--cr-orange-tint); }
+.cr-lesson.is-current:hover { background: var(--cr-orange-tint); }
+
+.cr-lesson-dot {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  flex: none;
+  display: grid;
+  place-items: center;
+  border: 2px solid var(--cr-line-strong);
+  color: var(--cr-ink-3);
+  font-family: var(--cr-font-display);
+  font-weight: 700;
+  font-size: 11px;
+}
+.cr-lesson.is-read .cr-lesson-dot {
+  background: var(--cr-lime-deep);
+  border: none;
+  color: #fff;
+}
+.cr-lesson.is-current .cr-lesson-dot {
+  background: var(--cr-orange);
+  border: none;
+  color: #fff;
+}
+
+.cr-lesson-body { flex: 1; min-width: 0; }
+.cr-lesson-title {
+  display: block;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--cr-ink-2);
+  line-height: 1.25;
+}
+.cr-lesson.is-current .cr-lesson-title { font-weight: 700; color: var(--cr-ink); }
+.cr-lesson-meta {
+  display: block;
+  font-size: 11.5px;
+  color: var(--cr-ink-3);
+  margin-top: 1px;
+}
+
+/* ── Article column. ─────────────────────────────────────────────────────── */
+.cr-stage {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  justify-content: center;
+  padding: 52px 56px 120px;
+}
+.cr-article {
+  width: 100%;
+  max-width: 800px;
+}
+
+.cr-head { margin-bottom: 4px; }
+.cr-eyebrow {
+  font-weight: 700;
+  font-size: 11.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cr-purple);
+}
+.cr-title {
+  font-family: var(--cr-font-display);
+  font-weight: 800;
+  font-size: 46px;
+  letter-spacing: -0.025em;
+  line-height: 1.04;
+  margin: 12px 0 0;
+  color: var(--cr-ink);
+}
+.cr-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 16px;
+  font-size: 13.5px;
+  color: var(--cr-ink-3);
+  font-weight: 600;
+}
+.cr-meta-item { display: inline-flex; align-items: center; gap: 6px; }
+.cr-meta-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--cr-line-strong);
+}
+.cr-meta-read { color: var(--cr-lime-deep); }
+
+.cr-missing,
+.cr-loading {
+  font-size: 1rem;
+  color: var(--cr-ink-2);
+  padding: 40px 0;
 }
 
 /* ══════════════════════════════════════════════════════════════════════════
    Reader content blocks — scoped restyle of the shared .tb-* renderer.
-   EVERY selector here is prefixed with .cr-content so it applies ONLY inside
-   the chapter reader column; LearnWorkspace (which renders the same .tb-*
-   classes without a .cr-content ancestor) is deliberately left untouched.
    ══════════════════════════════════════════════════════════════════════════ */
 
-/* Single-column reading flow. The shared renderer lays .tb-article out as a
-   12-column "dashboard grid" that, at wide viewports, squeezes tables /
-   formulas / asides into HALF the column (grid-column: span 6) — the cramped
-   look. In a reading column every block should own the full width. */
+/* Single-column reading flow: the shared renderer's 12-col grid squeezes
+   tables/formulas/asides to half-width at desktop; flatten it. */
 .cr-content .tb-stage,
 .cr-content .tb-article { max-width: 100%; }
 .cr-content .tb-article {
@@ -86,435 +253,603 @@
   flex-direction: column;
   gap: 0;
 }
-.cr-content .tb-article > .tb-table-wrap,
-.cr-content .tb-article > .tb-formula,
-.cr-content .tb-article > .tb-formula-grid,
-.cr-content .tb-article > .tb-aside,
-.cr-content .tb-article > .tb-prose-section,
-.cr-content .tb-article > .tb-worked-example,
-.cr-content .tb-article > .tb-exercise,
-.cr-content .tb-article > .tb-figure,
-.cr-content .tb-article > .tb-comparison {
-  grid-column: 1 / -1;
-  width: 100%;
-}
+.cr-content .tb-article > * { grid-column: 1 / -1; width: 100%; }
 
-/* Opening paragraph reads as a lede. */
-.cr-content .tb-article > .tb-body:first-child {
-  font-size: 1.22rem;
-  line-height: 1.62;
-  color: var(--cr-ink-2);
-  border-left: 3px solid var(--color-brand-primary, #ea580c);
-  padding-left: 20px;
-  margin: 2px 0 26px;
-}
-
-/* Body + headings. */
+/* Reading text — Newsreader serif, the mockup's 21px measure. */
 .cr-content .tb-body {
-  font-family: var(--cr-font-body);
-  font-size: 1.135rem;
+  font-family: var(--cr-font-serif);
+  font-size: 21px;
   line-height: 1.72;
-  color: var(--cr-ink);
-  margin: 0 0 22px;
+  color: var(--cr-read);
+  margin: 0 0 24px;
 }
-.cr-content .tb-list-wrap { margin: 0 0 22px; }
-.cr-content .tb-list-wrap .tb-list-title { margin-bottom: 8px; }
-.cr-content .tb-list {
-  font-family: var(--cr-font-body);
-  font-size: 1.135rem;
-  line-height: 1.72;
-  color: var(--cr-ink);
-  margin: 0;
-  padding-left: 1.4rem;
+.cr-content .tb-article > .tb-body:first-child {
+  margin-top: 32px;
 }
-.cr-content .tb-list li { margin-bottom: 8px; }
+.cr-content .tb-body strong { font-weight: 600; color: var(--cr-ink); }
+
+/* Section headings — Bricolage with the short orange accent bar. */
 .cr-content .tb-heading {
   font-family: var(--cr-font-display);
-  font-size: 1.5rem;
-  font-weight: 800;
-  letter-spacing: -0.02em;
+  font-weight: 700;
+  font-size: 27px;
+  letter-spacing: -0.01em;
   line-height: 1.2;
   color: var(--cr-ink);
-  border-bottom: 1px solid var(--cr-line);
-  padding-bottom: 12px;
-  margin: 42px 0 22px;
+  margin: 52px 0 22px;
 }
-.cr-content .tb-heading--spaced { margin-top: 42px; }
+.cr-content .tb-heading::after {
+  content: '';
+  display: block;
+  height: 3px;
+  width: 44px;
+  background: var(--cr-orange);
+  border-radius: 2px;
+  margin-top: 12px;
+}
+.cr-content .tb-heading--spaced { margin-top: 52px; }
+
 .cr-content .tb-subhead {
   font-family: var(--cr-font-display);
-  font-size: 1.08rem;
   font-weight: 700;
-  letter-spacing: -0.01em;
+  font-size: 15px;
   color: var(--cr-ink);
 }
 
-/* ── Table: full-width, breathing room, no cramped wrapping ── */
-.cr-content .tb-table-wrap {
-  background: transparent;
+/* List block — the mockup's numbered-criteria card: white, orange left
+   border, uppercase orange title, numbered chips via CSS counters. */
+.cr-content .tb-list-wrap {
+  background: var(--cr-surface);
   border: 1px solid var(--cr-line);
-  border-radius: 10px;
-  box-shadow: none;
+  border-left: 4px solid var(--cr-orange);
+  border-radius: 14px;
+  padding: 22px 26px;
+  margin: 4px 0 28px;
+  box-shadow: var(--cr-shadow);
+}
+.cr-content .tb-list-wrap .tb-list-title {
+  font-family: var(--cr-font-body);
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--cr-orange);
+  margin: 0 0 14px;
+}
+.cr-content .tb-list-wrap .tb-list-title strong { color: var(--cr-orange); }
+.cr-content .tb-list {
+  list-style: none;
+  counter-reset: cr-list;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  font-family: var(--cr-font-body);
+  font-size: 16.5px;
+  line-height: 1.5;
+  color: var(--cr-ink);
+}
+.cr-content .tb-list li {
+  counter-increment: cr-list;
+  position: relative;
+  padding-left: 34px;
+  margin: 0;
+}
+.cr-content .tb-list li::before {
+  content: counter(cr-list);
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 22px;
+  height: 22px;
+  border-radius: 7px;
+  background: var(--cr-orange-tint);
+  color: var(--cr-orange);
+  font-family: var(--cr-font-display);
+  font-weight: 700;
+  font-size: 12px;
+  display: grid;
+  place-items: center;
+}
+
+/* keyInsight — the lime "rule" callout. */
+.cr-content .tb-prose-section {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  background: rgba(90, 138, 22, 0.08);
+  border: 1px solid rgba(90, 138, 22, 0.22);
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin: 4px 0 28px;
+}
+.cr-content .tb-prose-section::before {
+  content: '';
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  flex: none;
+  background-color: var(--cr-lime-deep);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='17' height='17' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 11l3 3L22 4'/%3E%3Cpath d='M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.cr-content .tb-prose-section .tb-body {
+  font-family: var(--cr-font-body);
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--cr-ink);
+  margin: 0;
+}
+.cr-content .tb-prose-section .tb-body strong { font-weight: 700; }
+
+/* callout / tip — white card with the orange accent border. */
+.cr-content .tb-aside {
+  background: var(--cr-surface);
+  border: 1px solid var(--cr-line);
+  border-left: 4px solid var(--cr-orange);
+  border-radius: 14px;
+  padding: 20px 24px;
+  margin: 4px 0 28px;
+  box-shadow: var(--cr-shadow);
+}
+.cr-content .tb-aside--example { border-left-color: var(--cr-lime-deep); }
+.cr-content .tb-aside--warning { border-left-color: var(--cr-orange); }
+.cr-content .tb-aside-title {
+  display: block;
+  font-family: var(--cr-font-display);
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--cr-ink);
+  margin-bottom: 8px;
+}
+.cr-content .tb-aside .tb-body {
+  font-family: var(--cr-font-body);
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--cr-ink);
+  margin: 0;
+}
+
+/* Trap card — the "wrong vs corrected" card. */
+.cr-content .tb-trap-section,
+.cr-content .tb-strategy-section {
+  display: block;
+  background: var(--cr-surface);
+  border: 1px solid var(--cr-line);
+  border-radius: 18px;
+  padding: 22px 26px;
+  margin: 4px 0 28px;
+  box-shadow: var(--cr-shadow);
+}
+.cr-content .tb-strategy-section { border-left: 4px solid var(--cr-purple); }
+.cr-content .tb-trap-section::before,
+.cr-content .tb-strategy-section::before { display: none; }
+.cr-content .tb-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--cr-font-body);
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 7px;
+  padding: 4px 9px;
+  margin-bottom: 10px;
+}
+.cr-content .tb-badge--error { background: var(--cr-red-tint); color: var(--cr-red); }
+.cr-content .tb-badge--success { background: var(--cr-lime-tint); color: var(--cr-lime-deep); }
+.cr-content .tb-badge--strategy { background: var(--cr-purple-tint); color: var(--cr-purple); padding: 4px 10px; }
+.cr-content .tb-trap-section .tb-body {
+  font-family: var(--cr-font-serif);
+  font-size: 19px;
+  line-height: 1.55;
+  margin: 0 0 14px;
+}
+.cr-content .tb-trap-section .tb-body:last-child { margin-bottom: 0; }
+.cr-content .tb-strategy-section .tb-body {
+  font-family: var(--cr-font-body);
+  font-size: 16px;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* Worked example + steps — white card, orange number chips, green check. */
+.cr-content .tb-worked-example {
+  background: var(--cr-surface);
+  border: 1px solid var(--cr-line);
+  border-radius: 18px;
+  padding: 6px 26px 24px;
+  margin: 4px 0 30px;
+  box-shadow: var(--cr-shadow);
+}
+.cr-content .tb-worked-example::before { display: none; }
+.cr-content .tb-worked-example > .tb-subhead {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 18px 0 16px;
+  margin: 0 0 18px;
+  border-bottom: 1px solid var(--cr-line);
+  font-family: var(--cr-font-display);
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--cr-ink);
+}
+.cr-content .tb-worked-example > .tb-subhead::before {
+  content: '';
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  flex: none;
+  background-color: var(--cr-purple-tint);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15' height='15' viewBox='0 0 24 24' fill='none' stroke='%237C5CC7' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z'/%3E%3Ccircle cx='12' cy='12' r='3'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.cr-content .tb-problem {
+  font-family: var(--cr-font-serif);
+  font-size: 19px;
+  line-height: 1.6;
+  color: var(--cr-read);
+  margin-bottom: 20px;
+  white-space: pre-line;
+}
+.cr-content .tb-solution-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.cr-content .tb-step { display: flex; gap: 15px; align-items: flex-start; }
+.cr-content .tb-step:not(:last-child)::after { display: none; }
+.cr-content .tb-step-num {
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  flex: none;
+  background: var(--cr-orange);
+  color: #fff;
+  font-family: var(--cr-font-display);
+  font-weight: 700;
+  font-size: 15px;
+  display: grid;
+  place-items: center;
+  border: none;
+}
+.cr-content .tb-step--final .tb-step-num {
+  background: var(--cr-lime-deep);
+  color: #fff;
+}
+.cr-content .tb-step-body {
+  font-family: var(--cr-font-body);
+  font-size: 15.5px;
+  line-height: 1.55;
+  color: var(--cr-ink-2);
+  padding-top: 3px;
+}
+.cr-content .tb-step-label {
+  display: block;
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--cr-ink);
+  margin-bottom: 2px;
+}
+
+/* Checkpoint — white card, purple accent, quiet reveal. */
+.cr-content .tb-exercise {
+  background: var(--cr-surface);
+  border: 1px solid var(--cr-line);
+  border-left: 4px solid var(--cr-purple);
+  border-radius: 14px;
+  padding: 20px 24px;
+  margin: 4px 0 20px;
+  box-shadow: var(--cr-shadow);
+}
+.cr-content .tb-exercise::before { display: none; }
+.cr-content .tb-exercise > .tb-subhead {
+  font-family: var(--cr-font-body);
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--cr-purple);
+  margin: 0 0 12px;
+}
+.cr-content .tb-exercise .tb-body {
+  font-family: var(--cr-font-serif);
+  font-size: 19px;
+  line-height: 1.6;
+  margin: 0 0 12px;
+}
+.cr-content .tb-reveal-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  padding: 2px 0;
+  font-family: var(--cr-font-body);
+  font-weight: 700;
+  font-size: 13.5px;
+  color: var(--cr-orange);
+  cursor: pointer;
+}
+.cr-content .tb-reveal-btn:hover { color: #c2410c; }
+.cr-content .tb-reveal-chevron { transition: transform 160ms ease; display: inline-block; }
+.cr-content .tb-reveal-chevron--open { transform: rotate(180deg); }
+.cr-content .tb-reveal-content {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--cr-line);
+  font-family: var(--cr-font-body) !important;
+  font-size: 16px !important;
+  line-height: 1.55;
+  color: var(--cr-ink);
+}
+
+/* Tables — white card wrap. */
+.cr-content .tb-table-wrap {
+  background: var(--cr-surface);
+  border: 1px solid var(--cr-line);
+  border-radius: 14px;
+  padding: 6px 10px 10px;
+  margin: 4px 0 28px;
+  box-shadow: var(--cr-shadow);
   overflow-x: auto;
-  margin: 6px 0 26px;
 }
 .cr-content .tb-table-wrap .tb-caption {
-  padding: 12px 20px;
-  margin: 0;
-  border-bottom: 1px solid var(--cr-line);
-  color: var(--cr-ink-3);
-  font-size: 0.76rem;
+  font-family: var(--cr-font-body);
   font-weight: 700;
-  letter-spacing: 0.05em;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--cr-ink-3);
+  padding: 12px 12px 4px;
+  margin: 0;
 }
 .cr-content .tb-table {
   width: 100%;
   border-collapse: collapse;
   font-family: var(--cr-font-body);
-  font-size: 0.99rem;
-  line-height: 1.5;
+  font-size: 15.5px;
 }
 .cr-content .tb-table th {
-  background: var(--cr-accent-soft);
-  color: var(--cr-accent);
-  font-family: var(--cr-font-display);
-  font-size: 0.76rem;
+  text-align: left;
   font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding: 13px 20px;
-  vertical-align: bottom;
-  border-bottom: 1px solid var(--cr-line);
+  color: var(--cr-ink-3);
+  background: transparent;
+  border-bottom: 1px solid var(--cr-line-strong);
+  padding: 12px;
 }
 .cr-content .tb-table td {
-  padding: 15px 20px;
-  color: var(--cr-ink-2);
-  vertical-align: top;
+  padding: 12px;
   border-bottom: 1px solid var(--cr-line);
+  color: var(--cr-ink);
+  line-height: 1.5;
+  vertical-align: top;
 }
 .cr-content .tb-table tr:last-child td { border-bottom: none; }
-.cr-content .tb-table tbody td:first-child {
-  color: var(--cr-ink);
-  font-weight: 700;
-  font-family: var(--cr-font-display);
-  white-space: nowrap;
-}
-.cr-content .tb-table tbody tr:hover td { background: #f7f5f2; }
+.cr-content .tb-table tbody td:first-child { font-weight: 600; }
+.cr-content .tb-table tbody tr:hover td { background: var(--cr-inset); }
 
-/* ── keyInsight → flat purple key-idea callout (left rule + soft tint) ── */
-.cr-content .tb-prose-section {
-  background: var(--cr-accent-soft);
-  border: none;
-  border-left: 3px solid var(--cr-accent);
-  border-radius: 0 10px 10px 0;
-  padding: 16px 20px;
-  box-shadow: none;
-  margin: 6px 0 26px;
-  overflow: visible;
+/* Comparison — the two-column inset grid. */
+.cr-content .tb-comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 4px 0 28px;
 }
-.cr-content .tb-prose-section .tb-body { margin: 0; font-size: 1.04rem; line-height: 1.6; }
-
-/* ── callout / tip (tb-aside) ── */
-.cr-content .tb-aside {
-  background: #f7f5f2;
-  border-left: 4px solid var(--cr-ink-3);
-  border-radius: 0 12px 12px 0;
-  padding: 16px 20px;
-  box-shadow: none;
-  margin: 6px 0 26px;
+.cr-content .tb-compare-col {
+  background: var(--cr-inset);
+  border: 1px solid var(--cr-line);
+  border-radius: 14px;
+  padding: 20px 22px;
 }
-.cr-content .tb-aside--example { background: #e9f3e5; border-left-color: #3f7a2e; }
-.cr-content .tb-aside--warning { background: #fdf3e3; border-left-color: #d0891f; }
-.cr-content .tb-aside-title { font-family: var(--cr-font-display); color: var(--cr-ink); }
-.cr-content .tb-aside .tb-body { margin: 0; }
-
-/* ── Worked example: FLAT, book-like. No card, no shadow, no gradient bar —
-   an indented passage set off by a hairline purple rule, the way a printed
-   textbook sets an example. (User rejected the boxed-card look, 2026-07-14.) ── */
-.cr-content .tb-worked-example {
-  background: transparent;
-  border: none;
-  border-left: 3px solid rgba(90, 62, 142, 0.3);
-  border-radius: 0;
-  box-shadow: none;
-  padding: 4px 0 4px 24px;
-  margin: 30px 0 34px;
-  overflow: visible;
-}
-.cr-content .tb-worked-example::before { display: none; }
-.cr-content .tb-worked-example > .tb-subhead {
-  font-size: 0.74rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--cr-accent);
-  margin: 0 0 12px;
-}
-.cr-content .tb-problem {
-  font-size: 1.08rem;
-  line-height: 1.65;
-  color: var(--cr-ink);
-  font-weight: 400;
-  border-bottom: none;
-  padding-bottom: 0;
-  margin-bottom: 18px;
-}
-.cr-content .tb-solution-steps { gap: 14px; }
-.cr-content .tb-step { gap: 14px; }
-.cr-content .tb-step:not(:last-child)::after { display: none; }
-.cr-content .tb-step-num {
-  width: auto;
-  height: auto;
-  min-width: 22px;
-  background: transparent;
-  border: none;
-  border-radius: 0;
-  box-shadow: none;
-  font-family: var(--cr-font-display);
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: var(--cr-accent);
-  justify-content: flex-start;
-  padding-top: 2px;
-}
-.cr-content .tb-step--final .tb-step-num {
-  background: transparent;
-  border: none;
-  color: #3f7a2e;
-  box-shadow: none;
-}
-.cr-content .tb-step-body { color: var(--cr-ink); font-size: 1.03rem; }
-.cr-content .tb-step-label { color: var(--cr-ink); }
-
-/* ── Checkpoint (tb-exercise): FLAT — orange hairline rule, question as
-   prose, reveal as a quiet text control instead of a pill in a card. ── */
-.cr-content .tb-exercise {
-  background: transparent;
-  border: none;
-  border-left: 3px solid rgba(234, 88, 12, 0.4);
-  border-radius: 0;
-  box-shadow: none;
-  padding: 4px 0 4px 24px;
-  margin: 30px 0 34px;
-}
-.cr-content .tb-exercise::before { display: none; }
-.cr-content .tb-exercise > .tb-subhead {
-  font-size: 0.74rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--color-brand-primary, #ea580c);
-  margin: 0 0 10px;
-}
-.cr-content .tb-exercise .tb-body { margin-bottom: 4px; }
-.cr-content .tb-reveal-btn {
-  background: transparent;
-  color: var(--color-brand-primary, #ea580c);
-  border: none;
-  border-radius: 6px;
-  padding: 6px 2px;
-  margin-top: 10px;
+.cr-content .tb-compare-col .tb-caption {
   font-family: var(--cr-font-body);
   font-weight: 700;
-  font-size: 0.95rem;
-  box-shadow: none;
-  gap: 0.45rem;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--cr-ink-3);
+  margin: 0 0 10px;
 }
-.cr-content .tb-reveal-btn:hover {
-  background: transparent;
-  color: var(--color-brand-primary-hover, #c2410c);
-  border-color: transparent;
-  transform: none;
-  box-shadow: none;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-.cr-content .tb-reveal-content {
-  background: transparent;
-  border: none;
-  border-left: 3px solid rgba(63, 122, 46, 0.45);
-  border-radius: 0;
-  box-shadow: none;
-  padding: 2px 0 2px 18px;
-  margin-top: 14px;
+.cr-content .tb-compare-col--wrong { border-left: 3px solid rgba(178, 53, 40, 0.5); }
+.cr-content .tb-compare-col--right { border-left: 3px solid rgba(90, 138, 22, 0.55); }
+.cr-content .tb-compare-col--wrong .tb-caption { color: var(--cr-red); }
+.cr-content .tb-compare-col--right .tb-caption { color: var(--cr-lime-deep); }
+.cr-content .tb-compare-col .tb-body {
+  font-family: var(--cr-font-body);
+  font-size: 15.5px;
+  line-height: 1.55;
+  color: var(--cr-ink-2);
+  margin: 0;
 }
 
-/* ── Formula / formula grid: flat, centered, hairline rules ── */
+/* Formulas. */
 .cr-content .tb-formula {
-  background: transparent;
-  border: none;
-  border-top: 1px solid var(--cr-line);
-  border-bottom: 1px solid var(--cr-line);
-  border-radius: 0;
-  box-shadow: none;
-  padding: 20px 12px;
-  margin: 6px 0 26px;
+  background: var(--cr-surface);
+  border: 1px solid var(--cr-line);
+  border-radius: 14px;
+  padding: 20px 24px;
+  margin: 4px 0 28px;
+  box-shadow: var(--cr-shadow);
+  text-align: center;
 }
 .cr-content .tb-formula::before { display: none; }
-.cr-content .tb-formula-label { color: var(--color-brand-primary, #ea580c); }
-.cr-content .tb-formula-grid { margin: 6px 0 26px; }
-.cr-content .tb-formula-grid .tb-formula { margin: 0; border: 1px solid var(--cr-line); border-radius: 10px; padding: 16px; }
-
-/* ── Comparison: flat side-by-side passages with hairline left rules — the
-   shared renderer draws white cards with 6px red/green top bars (the boxed
-   look the user rejected). ── */
-.cr-content .tb-comparison { margin: 6px 0 26px; }
-.cr-content .tb-compare-col {
-  background: transparent;
-  border: none;
-  border-radius: 0;
-  box-shadow: none;
-  padding: 2px 0 2px 18px;
-}
-.cr-content .tb-compare-col--wrong { border-left: 3px solid rgba(191, 44, 35, 0.45); }
-.cr-content .tb-compare-col--right { border-left: 3px solid rgba(63, 122, 46, 0.45); }
-.cr-content .tb-compare-col--wrong .tb-caption { color: #bf2c23; }
-.cr-content .tb-compare-col--right .tb-caption { color: #3f7a2e; }
-.cr-content .tb-compare-col .tb-body { margin: 0; font-size: 1.03rem; }
-
-/* ── Badges (trapCard / strategyCard): quiet small-caps labels, not floating
-   pills with shadows. ── */
-.cr-content .tb-badge {
-  background: transparent;
-  border: none;
-  border-radius: 0;
-  box-shadow: none;
-  padding: 0;
-  font-size: 0.74rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
+.cr-content .tb-formula-label {
+  font-family: var(--cr-font-body);
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--cr-orange);
   margin-bottom: 8px;
 }
-.cr-content .tb-badge--error { color: #bf2c23; }
-.cr-content .tb-badge--success { color: #3f7a2e; }
-.cr-content .tb-badge--strategy { color: var(--color-brand-primary, #ea580c); }
+.cr-content .tb-formula-note {
+  font-family: var(--cr-font-body);
+  font-size: 14.5px;
+  color: var(--cr-ink-2);
+  margin-top: 10px;
+}
+.cr-content .tb-formula-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin: 4px 0 28px;
+}
+.cr-content .tb-formula-grid .tb-formula { margin: 0; }
+
+/* Figures / diagrams — frameless. */
 .cr-content .tb-figure {
   background: transparent;
   border: none;
-  border-radius: 0;
-  box-shadow: none;
-  padding: 8px 0;
-  margin: 6px 0 26px;
+  padding: 0;
+  margin: 4px 0 28px;
 }
 
-@media (max-width: 640px) {
-  .cr-content .tb-worked-example,
-  .cr-content .tb-exercise { padding-left: 16px; }
-  .cr-content .tb-heading { margin-top: 30px; }
-}
+/* Block entrance stagger inherited from ContentTabRenderer is fine. */
 
-.cr-loading,
-.cr-missing {
-  padding: 32px 0;
-  color: var(--cr-ink-3);
-  font-size: 0.98rem;
-}
+/* ── Footer: read toggle, drill CTA, prev/next cards. ────────────────────── */
+.cr-footer { margin-top: 44px; }
 
-/* ── Footer ── */
-.cr-footer {
-  margin-top: 40px;
-  padding-top: 28px;
-  border-top: 1px solid var(--cr-line);
-}
-
-.cr-complete-btn {
+.cr-readtoggle {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 12px 22px;
-  border-radius: 10px;
-  border: none;
-  background: var(--color-brand-primary, #ea580c);
-  color: #fff;
-  font-family: var(--cr-font-display);
-  font-size: 0.98rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: background 0.15s ease, box-shadow 0.15s ease;
-  box-shadow: 0 2px 10px rgba(234, 88, 12, 0.22);
-}
-.cr-complete-btn:hover { background: var(--color-brand-primary-hover, #c2410c); }
-.cr-complete-btn.is-done {
-  background: var(--color-brand-green-text, #3F5B1E);
-  box-shadow: 0 2px 10px rgba(63, 91, 30, 0.2);
-}
-
-.cr-keepgoing {
-  margin-top: 28px;
-}
-.cr-keepgoing-label {
-  display: block;
-  font-family: var(--cr-font-display);
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--cr-ink-3);
-  margin-bottom: 12px;
-}
-.cr-keepgoing-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-.cr-ghost-btn {
-  padding: 10px 18px;
-  border-radius: 10px;
-  border: 1px solid var(--cr-line);
-  background: #fff;
+  background: var(--cr-surface);
+  border: 1px solid var(--cr-line-strong);
+  border-radius: 999px;
+  padding: 10px 20px;
   font-family: var(--cr-font-body);
-  font-size: 0.92rem;
-  font-weight: 600;
-  color: var(--cr-ink);
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--cr-ink-2);
   cursor: pointer;
-  transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease;
 }
-.cr-ghost-btn:hover {
-  border-color: var(--cr-accent);
-  background: var(--cr-accent-soft);
-  color: var(--cr-accent);
+.cr-readtoggle:hover { background: var(--cr-surface-2); }
+.cr-readtoggle.is-done {
+  background: var(--cr-lime-tint);
+  border-color: rgba(90, 138, 22, 0.4);
+  color: var(--cr-lime-deep);
 }
 
-.cr-prevnext {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin-top: 36px;
-}
-.cr-prevnext-btn {
+.cr-drill-card {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 14px 16px;
-  border-radius: 12px;
-  border: 1px solid var(--cr-line);
-  background: #fff;
-  cursor: pointer;
-  text-align: left;
-  color: var(--cr-ink-2);
-  transition: border-color 0.15s ease, background 0.15s ease;
+  gap: 18px;
+  background: var(--cr-navy);
+  border-radius: 18px;
+  padding: 24px 28px;
+  margin-top: 20px;
+  color: #fff;
 }
-.cr-prevnext-btn:hover { border-color: var(--cr-accent); background: var(--cr-accent-soft); }
-.cr-prevnext-btn--next { justify-content: flex-end; text-align: right; }
-.cr-prevnext-body { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
-.cr-prevnext-dir {
-  font-size: 0.72rem;
+.cr-drill-copy { flex: 1; min-width: 0; }
+.cr-drill-title {
+  font-family: var(--cr-font-display);
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.07em;
+  font-size: 19px;
+}
+.cr-drill-sub {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.65);
+  margin-top: 3px;
+}
+.cr-drill-btn {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--cr-orange);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 13px 22px;
+  font-family: var(--cr-font-body);
+  font-weight: 700;
+  font-size: 14.5px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(234, 88, 12, 0.32);
+}
+.cr-drill-btn:hover { background: #d9500b; }
+
+.cr-videos-link {
+  display: inline-block;
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin-top: 16px;
+  font-family: var(--cr-font-body);
+  font-weight: 600;
+  font-size: 13.5px;
   color: var(--cr-ink-3);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+.cr-videos-link:hover { color: var(--cr-ink); }
+
+.cr-prevnext {
+  display: flex;
+  gap: 14px;
+  margin-top: 20px;
+}
+.cr-prevnext > span { flex: 1; }
+.cr-prevnext-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--cr-surface);
+  border: 1px solid var(--cr-line);
+  border-radius: 16px;
+  padding: 18px 20px;
+  font-family: var(--cr-font-body);
+  text-align: left;
+  cursor: pointer;
+  min-width: 0;
+}
+.cr-prevnext-btn:hover { background: var(--cr-inset); }
+.cr-prevnext-btn--next {
+  justify-content: flex-end;
+  border-color: var(--cr-line-strong);
+  text-align: right;
+}
+.cr-prevnext-arrow { color: var(--cr-ink-3); flex: none; display: inline-flex; }
+.cr-prevnext-arrow--next { color: var(--cr-orange); }
+.cr-prevnext-body { min-width: 0; }
+.cr-prevnext-dir {
+  display: block;
+  font-size: 11.5px;
+  color: var(--cr-ink-3);
+  font-weight: 600;
 }
 .cr-prevnext-title {
-  font-family: var(--cr-font-display);
-  font-size: 0.95rem;
-  font-weight: 600;
+  display: block;
+  font-weight: 700;
+  font-size: 15px;
   color: var(--cr-ink);
-  line-height: 1.25;
+  margin-top: 1px;
 }
 
-@media (max-width: 640px) {
-  .cr-root { padding: 20px 16px 88px; }
-  .cr-title { font-size: 1.6rem; }
-  .cr-content { font-size: 1rem; }
-  .cr-prevnext { grid-template-columns: 1fr; }
-  .cr-prevnext-btn--next { justify-content: flex-start; text-align: left; flex-direction: row-reverse; }
+/* ── Responsive. ─────────────────────────────────────────────────────────── */
+@media (max-width: 1100px) {
+  .cr-rail { display: none; }
+  .cr-back--inline { display: inline-flex; }
+  .cr-stage { padding: 32px 20px 90px; }
+  .cr-title { font-size: 34px; }
+  .cr-content .tb-body { font-size: 19px; }
+  .cr-content .tb-comparison,
+  .cr-content .tb-formula-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+  .cr-progress { top: 56px; }
+  .cr-stage { padding: 24px 16px 80px; }
+  .cr-title { font-size: 30px; }
+  .cr-drill-card { flex-direction: column; align-items: flex-start; }
 }
