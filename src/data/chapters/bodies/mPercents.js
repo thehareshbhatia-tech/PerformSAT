@@ -15,7 +15,7 @@
 export const mPercentsBlocks = [
   {
     type: 'text',
-    content: "Every percent question reduces to a small set of moves, and the arithmetic is rarely the source of error. The difficulty lies in deciding whether to multiply, divide, or chain — and, above all, off *which* base. One habit organizes every such decision: treat each percent as a **multiplier**. The whole topic then collapses into multiplying, dividing, or chaining factors.",
+    content: "A percent is the most common special case of the ratio reasoning just established — a ratio whose base is fixed at $100$ — and the discipline of tracking that base carries over whole. The arithmetic is rarely the source of error; the difficulty lies in deciding whether to multiply, divide, or chain — and, above all, off *which* base. One habit organizes every such decision: treat each percent as a **multiplier**. The whole topic then collapses into multiplying, dividing, or chaining factors.",
   },
 
   { type: 'heading', content: 'A percent is a multiplier' },

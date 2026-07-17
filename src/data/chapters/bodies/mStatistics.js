@@ -22,7 +22,7 @@
 export const mStatisticsBlocks = [
   {
     type: 'text',
-    content: "Data questions cover several distinct ideas — measures of center, spread, probability, box plots, and margin of error — but each individual question reduces to a single identifiable rule. Classifying which rule a question calls for, before any computation, is the core skill.",
+    content: "Computing the chance of a single outcome gives way here to summarizing an entire data set — its center, its spread, and the displays that carry them. Data questions cover several distinct ideas — measures of center, spread, probability, box plots, and margin of error — but each individual question reduces to a single identifiable rule. Classifying which rule a question calls for, before any computation, is the core skill.",
   },
 
   { type: 'heading', content: 'Mean vs. median' },

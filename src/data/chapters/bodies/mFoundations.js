@@ -21,7 +21,7 @@
 export const mFoundationsBlocks = [
   {
     type: 'text',
-    content: "Fraction arithmetic, negative-number sign rules, and order of operations rarely receive questions of their own, but they run underneath nearly every algebra, rate, and geometry item, so when one of them slips, the miss is usually attributed to the topic sitting on top. Most errors labeled careless are not careless at all: each is a specific, predictable slip, and each slip is prevented by a definite working habit.",
+    content: "Everything in the math chapters ahead rests on a small amount of quiet arithmetic. Fraction arithmetic, negative-number sign rules, and order of operations rarely receive questions of their own, but they run underneath nearly every algebra, rate, and geometry item, so when one of them slips, the miss is usually attributed to the topic sitting on top. Most errors labeled careless are not careless at all: each is a specific, predictable slip, and each slip is prevented by a definite working habit.",
   },
 
   { type: 'heading', content: 'Adding and subtracting fractions' },

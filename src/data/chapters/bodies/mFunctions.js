@@ -15,7 +15,7 @@
 export const mFunctionsBlocks = [
   {
     type: 'text',
-    content: "A function is a rule that assigns to each input exactly one output. Every question on this topic reduces to the same procedure: read the notation, substitute the input into the rule, and evaluate. The defining guarantee is consistency — the same input always produces the same output. The notation, however it is written, only ever describes this pairing of inputs with outputs, and reading it correctly is most of the work.",
+    content: "The relationships studied so far have all been lines. Function notation names the input-output rule itself, and naming the rule is what allows the work to extend beyond the linear — the subject of the Advanced Math unit that follows. A function is a rule that assigns to each input exactly one output, and the defining guarantee is consistency: the same input always produces the same output. Every question on this topic reduces to the same procedure — read the notation, substitute the input into the rule, and evaluate — and since the notation only ever describes this pairing of inputs with outputs, reading it correctly is most of the work.",
   },
 
   { type: 'heading', content: 'Function notation' },

@@ -15,7 +15,7 @@
 export const commandOfEvidenceTextualBlocks = [
   {
     type: 'text',
-    content: "Textual command-of-evidence questions present a claim and four candidate findings that might bear on it. All four choices address the claim's topic, so topic alone cannot separate them; a choice can be accurate, on-topic, and still leave the claim exactly where it stood. The credited answer is the one that moves the specific claim named in the question, in the direction the question requires. **Direction, not topic.**",
+    content: "Where an inference question moves forward — from stated facts to the conclusion they force — textual command-of-evidence questions run the operation in reverse: a claim is stated, and four candidate findings must be tested against it. All four choices address the claim's topic, so topic alone cannot separate them; a choice can be accurate, on-topic, and still leave the claim exactly where it stood. The credited answer is the one that moves the specific claim named in the question, in the direction the question requires. **Direction, not topic.**",
   },
 
   { type: 'heading', content: 'The two question formats' },

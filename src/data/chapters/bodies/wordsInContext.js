@@ -15,7 +15,7 @@
 export const wordsInContextBlocks = [
   {
     type: 'text',
-    content: "A words-in-context question does not test whether a word is already known — the sentence itself determines which word belongs in the blank. Despite its appearance, this question type is not a vocabulary quiz; it is a reading question, and the sentence contains everything required to answer it. **The evidence in the sentence decides the meaning — a dictionary definition on its own decides nothing.**",
+    content: "The previous chapters worked with what a passage states, implies, and can prove; attention now turns to how a passage is built, beginning at the smallest scale — the single word. A words-in-context question does not test whether a word is already known: the sentence itself determines which word belongs in the blank. Despite its appearance, this question type is not a vocabulary quiz; it is a reading question, and the sentence contains everything required to answer it. **The evidence in the sentence decides the meaning — a dictionary definition on its own decides nothing.**",
   },
 
   { type: 'heading', content: 'What is actually tested' },

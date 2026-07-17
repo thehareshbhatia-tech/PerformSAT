@@ -19,7 +19,7 @@
 export const gModifiersParallelismBlocks = [
   {
     type: 'text',
-    content: "Three question types share a single underlying principle: **each element must connect to, match, or be measured against the right thing.** A modifying phrase must sit beside what it describes, items in a list must share one grammatical form, and a comparison must set like against like. The same three checks resolve all of them.",
+    content: "The matching discipline built so far — verb to subject, pronoun to antecedent, tense to timeline — extends beyond single words to phrases and lists. Three question types share the same underlying principle: **each element must connect to, match, or be measured against the right thing.** A modifying phrase must sit beside what it describes, items in a list must share one grammatical form, and a comparison must set like against like. The same three checks resolve all of them.",
   },
 
   { type: 'heading', content: '1. Modifiers — a modifier must sit beside what it describes' },

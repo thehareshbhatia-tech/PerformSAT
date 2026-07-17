@@ -15,7 +15,7 @@
 export const nonlinearEquationsBlocks = [
   {
     type: 'text',
-    content: "An equation with the variable under a square root, an equation with the variable in a denominator, a quartic with quadratic structure, and a polynomial presented through division — four equation types, each with its own solution method. One principle governs all of them: **the operations that clear roots and fractions can introduce false solutions or conceal restrictions, so the original equation is the final authority on which candidates count.** Solve directly, then verify against the original.",
+    content: "The unit closes with the equation types that draw on every tool assembled so far: an equation with the variable under a square root, an equation with the variable in a denominator, a quartic with quadratic structure, and a polynomial presented through division — four types, each with its own solution method. One principle governs all of them: **the operations that clear roots and fractions can introduce false solutions or conceal restrictions, so the original equation is the final authority on which candidates count.** Solve directly, then verify against the original.",
   },
 
   { type: 'heading', content: 'Radical equations: isolate, square, and verify' },

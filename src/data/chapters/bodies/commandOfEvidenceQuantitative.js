@@ -15,7 +15,7 @@
 export const commandOfEvidenceQuantitativeBlocks = [
   {
     type: 'text',
-    content: "Quantitative command-of-evidence questions pair a **table or graph with a claim** and ask which choice uses the data to complete or support that claim. The graphic deliberately contains far more information than the claim requires, and most errors begin with unguided browsing of it. The entire skill reduces to one discipline: **let the claim determine which values to retrieve, and ignore the rest of the graphic.**",
+    content: "Quantitative command-of-evidence questions carry the previous chapter's verification skill into a new medium: the claim now arrives paired with a **table or graph**, and the question asks which choice uses the data to complete or support it. The graphic deliberately contains far more information than the claim requires, and most errors begin with unguided browsing of it. The entire skill reduces to one discipline: **let the claim determine which values to retrieve, and ignore the rest of the graphic.**",
   },
 
   { type: 'heading', content: 'What is actually tested' },

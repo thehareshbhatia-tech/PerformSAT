@@ -15,7 +15,7 @@
 export const mTransformationsBlocks = [
   {
     type: 'text',
-    content: "Every transformation question turns on a single distinction: **is the change applied outside the function or inside it?** A change outside the function acts on the output, so the graph moves vertically and the sign behaves as written. A change inside the function acts on the input, so the graph moves horizontally — and the direction is the opposite of what the sign suggests.",
+    content: "Solving a quadratic located the parabola's roots and vertex; transformation questions move the graph itself and ask how the equation records the move. Every such question turns on a single distinction: **is the change applied outside the function or inside it?** A change outside the function acts on the output, so the graph moves vertically and the sign behaves as written. A change inside the function acts on the input, so the graph moves horizontally — and the direction is the opposite of what the sign suggests.",
   },
 
   { type: 'heading', content: 'Changes outside the function: vertical effects' },

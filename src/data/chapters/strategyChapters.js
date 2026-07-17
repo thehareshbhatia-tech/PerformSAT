@@ -46,7 +46,7 @@ export const strategyChapters = [
       blocks: [
         {
           type: 'text',
-          content: "The Digital SAT runs on the **Bluebook app** and consists of two scored sections — **Reading and Writing** first, then **Math** — each of which is split into two timed halves called **modules**. That makes four modules in total, separated by one short break between the sections, with a running time of a little over two hours end to end. This structure frames every strategic decision that follows.",
+          content: "The Digital SAT runs on the **Bluebook app** and consists of two scored sections — **Reading and Writing** first, then **Math** — each of which is split into two timed halves called **modules**. That makes four modules in total, separated by one short break between the sections, with a running time of a little over two hours end to end. This structure frames every strategic decision that follows — and everything after strategy, from reading and writing to math, starts from the shape of the test itself.",
         },
         {
           type: 'text',
@@ -135,7 +135,7 @@ export const strategyChapters = [
       blocks: [
         {
           type: 'text',
-          content: "Effective pacing treats the per-question average as a budget to redistribute, not a rate to hold. In **Reading and Writing** the average allowance is about *1 minute 10 seconds* per question, but the questions do not cost equal amounts. The grammar (conventions) questions resolve quickly once the rule is identified, so complete them in **under 40 seconds** and carry the surplus forward; that surplus is what funds the inference and synthesis questions that require sustained reading. In **Math** the average is about *1 minute 35 seconds*, and the early questions in each module are the quickest — move through them briskly so the multi-step problems at the back receive the minutes they genuinely require.",
+          content: "The four-module structure fixes the budget: each module runs on its own timer, locks when that timer expires, and — through Module 1 accuracy — decides which second module follows. What remains is spending that budget, and effective pacing treats the per-question average as a budget to redistribute, not a rate to hold. In **Reading and Writing** the average allowance is about *1 minute 10 seconds* per question, but the questions do not cost equal amounts: the grammar (conventions) questions resolve quickly once the rule is identified, so complete them in **under 40 seconds** and carry the surplus forward — that surplus is what funds the inference and synthesis questions that require sustained reading. In **Math** the average is about *1 minute 35 seconds*, and the early questions in each module are the quickest — move through them briskly so the multi-step problems at the back receive the minutes they genuinely require.",
         },
         {
           type: 'diagramRef',
@@ -261,7 +261,7 @@ export const strategyChapters = [
       blocks: [
         {
           type: 'text',
-          content: "Every multiple-choice question is written twice: someone writes the question, and someone builds three wrong answers designed to be chosen. Those wrong answers are not arbitrary leftovers; they are constructed from the specific mistakes students actually make. That design cuts both ways — it punishes an unguarded solver, but a constructed wrong answer carries the marks of its construction, and once those marks are legible, the test becomes considerably more predictable.",
+          content: "Pacing plans, on-screen tools, and entry mechanics are execution habits: they protect the points already within reach. The remaining edge comes from understanding how the questions themselves are built. Every multiple-choice question is written twice — someone writes the question, and someone builds three wrong answers designed to be chosen, constructed not as arbitrary leftovers but from the specific mistakes students actually make. That design cuts both ways: it punishes an unguarded solver, yet a constructed wrong answer carries the marks of its construction, and once those marks are legible, the test becomes considerably more predictable. The skill chapters that follow teach the content the test measures; this chapter teaches how the test frames it.",
         },
 
         { type: 'heading', content: 'How wrong answers are constructed' },

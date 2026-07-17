@@ -15,7 +15,7 @@
 export const gRhetoricalSynthesisBlocks = [
   {
     type: 'text',
-    content: 'A rhetorical synthesis question presents a set of bullet-point notes, a sentence stating what "the student wants to" accomplish, and four sentences to choose from. It is the one question type that states in writing exactly what the correct answer must do. The entire skill reduces to a single principle: **read the goal first, and treat its wording as the criteria the answer must satisfy.**',
+    content: 'Where a transition links two sentences, rhetorical synthesis asks for something larger: a single sentence built to serve a stated purpose. The question presents a set of bullet-point notes, a sentence stating what "the student wants to" accomplish, and four sentences to choose from — and it closes the Reading and Writing sequence by drawing at once on reading for a point, grammatical control, and logical connection. Yet it is also the one question type that states in writing exactly what the correct answer must do, so the entire skill reduces to a single principle: **read the goal first, and treat its wording as the criteria the answer must satisfy.**',
   },
 
   { type: 'heading', content: 'What is actually tested' },

@@ -15,7 +15,7 @@
 export const crossTextConnectionsBlocks = [
   {
     type: 'text',
-    content: "Cross-text questions present two short passages on one topic — Text 1 and Text 2 — followed by a question such as *\"How would the author of Text 2 respond to Text 1?\"* Although the stem appears to call for speculation, everything each author believes is already stated in that author's own words. The skill these questions measure is **keeping the two positions straight**.",
+    content: "Every reading skill to this point — tracing ideas, drawing inferences, weighing evidence, parsing structure — has operated inside a single passage; this chapter, which completes the reading toolkit, sets two passages in conversation. Cross-text questions present two short passages on one topic — Text 1 and Text 2 — followed by a question such as *\"How would the author of Text 2 respond to Text 1?\"* Although the stem appears to call for speculation, everything each author believes is already stated in that author's own words. The skill these questions measure is **keeping the two positions straight**.",
   },
 
   { type: 'heading', content: 'What is actually tested' },

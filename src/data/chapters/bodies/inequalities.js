@@ -15,7 +15,7 @@
 export const inequalitiesBlocks = [
   {
     type: 'text',
-    content: "An inequality replaces the equals sign of an equation with $<$, $\\le$, $>$, or $\\ge$. Solving one follows the same procedure as solving an equation, with **one additional rule**, and absolute value is read as **distance**. The essential difference lies in the answer: an inequality is satisfied by an entire *range* of numbers rather than a single value, so the solution reports a boundary and a direction instead of one point. Every technique for isolating a variable carries over unchanged.",
+    content: "An inequality replaces the equals sign of an equation with $<$, $\\le$, $>$, or $\\ge$. The solving procedure just established for equations carries over intact — every technique for isolating a variable applies unchanged — with **one additional rule**, and with absolute value acquiring a new reading as **distance**. The essential difference lies in the answer: an inequality is satisfied by an entire *range* of numbers rather than a single value, so the solution reports a boundary and a direction instead of one point.",
   },
 
   { type: 'heading', content: 'Solving inequalities: the sign-reversal rule' },

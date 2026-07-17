@@ -15,7 +15,7 @@
 export const gApostrophesBlocks = [
   {
     type: 'text',
-    content: "Spoken aloud, *dogs*, *dog's*, and *dogs'* are indistinguishable — which is why the ear cannot resolve apostrophe questions. The decision is made on the page, with two questions: **how many, and does someone own something?**",
+    content: "After rules that operate at the level of clauses and phrases, the conventions close with the smallest mark on the page. Spoken aloud, *dogs*, *dog's*, and *dogs'* are indistinguishable — which is why the ear cannot resolve apostrophe questions. The decision is made on the page, with two questions: **how many, and does someone own something?**",
   },
 
   { type: 'heading', content: 'What is actually tested' },

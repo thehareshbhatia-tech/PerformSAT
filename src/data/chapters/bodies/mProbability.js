@@ -22,7 +22,7 @@
 export const mProbabilityBlocks = [
   {
     type: 'text',
-    content: "Every probability is a fraction with two separate jobs: the denominator names the pool being drawn from, and the numerator counts the outcomes of interest inside that pool. The two decisions are independent, and nearly every wrong answer on this topic comes from settling one of them carelessly — almost always the denominator. Deciding who is in the pool, before counting anything favorable, is the discipline the whole topic rests on.",
+    content: "Probability extends the same part-to-whole reasoning to chance. Every probability is a fraction with two separate jobs: the denominator names the pool being drawn from — anchoring the fraction the way a base anchors a percent — and the numerator counts the outcomes of interest inside that pool. The two decisions are independent, and nearly every wrong answer on this topic comes from settling one of them carelessly — almost always the denominator. Deciding who is in the pool, before counting anything favorable, is the discipline the whole topic rests on.",
   },
 
   { type: 'heading', content: 'Probability as a share of the pool' },

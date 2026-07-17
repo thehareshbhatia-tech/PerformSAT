@@ -15,7 +15,7 @@
 export const twoVariableDataBlocks = [
   {
     type: 'text',
-    content: "A scatterplot presents two distinct objects, and the entire skill lies in keeping them straight: **the dots are data — what actually happened; the line is a model — a summary constructed afterward.** Determining which object a question concerns, before anything else, resolves most questions in this family.",
+    content: "The measures of the previous chapter summarize one variable at a time; a scatterplot sets two variables against each other, one observation per point. It presents two distinct objects, and the entire skill lies in keeping them straight: **the dots are data — what actually happened; the line is a model — a summary constructed afterward.** Determining which object a question concerns, before anything else, resolves most questions in this family.",
   },
 
   {

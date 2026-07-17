@@ -15,7 +15,7 @@
 export const centralIdeasBlocks = [
   {
     type: 'text',
-    content: "Central ideas and details questions present a short paragraph and one of two tasks: identify the main idea, or report what the text says about a particular subject. Both tasks are open-book — the answer is present on the screen. The work consists of reading for the passage's one point, then finding the choice that states that point in different words.",
+    content: "Reading on this test progresses from what a text states, to what it implies, to what would prove it — and it begins with finding the point. Central ideas and details questions present a short paragraph and one of two tasks: identify the main idea, or report what the text says about a particular subject. Both tasks are open-book — the answer is present on the screen. The work consists of reading for the passage's one point, then finding the choice that states that point in different words.",
   },
 
   { type: 'heading', content: 'Topic vs. point' },

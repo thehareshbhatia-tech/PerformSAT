@@ -15,7 +15,7 @@
 export const gVerbsBlocks = [
   {
     type: 'text',
-    content: "Verb-tense questions present choices that all sound acceptable in isolation — the construction is deliberate. The skill is not grammar by ear but **timeline** reasoning: the rest of the sentence establishes when events happened, and the task is to choose the form that occupies the correct position on that line.",
+    content: "After matching in number and in reference, the third match is time: the verb must agree with the sentence's own timeline. Verb-tense questions present choices that all sound acceptable in isolation — the construction is deliberate. The skill is not grammar by ear but **timeline** reasoning: the rest of the sentence establishes when events happened, and the task is to choose the form that occupies the correct position on that line.",
   },
 
   { type: 'heading', content: 'What is actually tested' },

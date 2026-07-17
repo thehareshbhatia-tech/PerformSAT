@@ -15,7 +15,7 @@
 export const gSubjectVerbAgreementBlocks = [
   {
     type: 'text',
-    content: '*The dog barks. The dogs bark.* Matching a verb to its subject is automatic in simple sentences, which is why the tested versions are never simple. The rule itself is not the skill; the skill is **locating the subject after the sentence has buried it**. Every difficult version of this question is simply the subject well hidden.',
+    content: 'Punctuation governs how clauses meet; the conventions turn next to the machinery inside them, and the first matching rule is that a verb agrees with its subject in number. *The dog barks. The dogs bark.* The match is automatic in simple sentences, which is why the tested versions are never simple. The rule itself is not the skill; the skill is **locating the subject after the sentence has buried it**. Every difficult version of this question is simply the subject well hidden.',
   },
 
   { type: 'heading', content: 'What is actually tested' },

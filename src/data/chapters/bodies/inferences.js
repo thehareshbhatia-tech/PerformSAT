@@ -15,7 +15,7 @@
 export const inferencesBlocks = [
   {
     type: 'text',
-    content: "An inference question — *\"which choice most logically completes the text\"* or *\"the passage implies\"* — does not ask for reading between the lines. The word *infer* invites outside reasoning, and incorrect choices are routinely constructed to reward exactly that. What the question requires is the one conclusion the passage's facts **force**: no more, no less.",
+    content: "The previous chapter located what a passage states; an inference question — *\"which choice most logically completes the text\"* or *\"the passage implies\"* — asks for the one conclusion those stated facts **force**. Despite its name, the task is not reading between the lines: the word *infer* invites outside reasoning, and incorrect choices are routinely constructed to reward exactly that. What the question requires is the conclusion the facts on the page compel: no more, no less.",
   },
 
   { type: 'heading', content: 'What is actually tested' },

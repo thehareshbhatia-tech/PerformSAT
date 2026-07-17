@@ -9,6 +9,14 @@
  * imports the bodies corpus. (Chapters previously wrapped the video-lesson
  * contentTabs corpus via composeChapterBlocks; that dense path is retired.)
  *
+ * NARRATIVE ORDER (adopted 2026-07-17): chapters within each unit are in
+ * reading order — each chapter's opening paragraph builds on what the
+ * previous chapter established. Algebra runs one-variable → two-variable;
+ * Advanced runs expressions → quadratics → graphs → exponentials → capstone;
+ * Problem-Solving runs proportional reasoning → chance → data → studies;
+ * Geometry runs angles → triangles → trig → circles → radians → solids.
+ * Reordering a chapter means re-checking the ledes on both sides of the move.
+ *
  * unitIds match the four math units in index.js UNIT_REGISTRY.
  * cbSkills are slugs from src/data/questions/cbSkillTaxonomy.js (CB_MATH_SKILLS).
  * readMinutes are lean-lesson editorial estimates (short read + a few examples).
@@ -36,6 +44,15 @@ export const mathChapters = [
     source: { kind: 'body', bodyId: 'math-solving-equations' },
   },
   {
+    id: 'math-inequalities',
+    unitId: 'math-algebra',
+    title: 'Inequalities & Absolute Value',
+    blurb: 'Solve one- and two-variable inequalities, compound chains, and absolute value read as distance — with the one rule that flips the sign.',
+    readMinutes: 5,
+    cbSkills: ['linear-inequalities', 'linear-equations-one-variable'],
+    source: { kind: 'body', bodyId: 'math-inequalities' },
+  },
+  {
     id: 'math-linear-equations',
     unitId: 'math-algebra',
     title: 'Linear Equations',
@@ -43,15 +60,6 @@ export const mathChapters = [
     readMinutes: 5,
     cbSkills: ['linear-equations-two-variables', 'linear-functions'],
     source: { kind: 'body', bodyId: 'math-linear-equations' },
-  },
-  {
-    id: 'math-functions',
-    unitId: 'math-algebra',
-    title: 'Functions',
-    blurb: 'Read function notation, evaluate inputs and outputs, and interpret slope as a rate of change.',
-    readMinutes: 4,
-    cbSkills: ['linear-functions', 'nonlinear-functions'],
-    source: { kind: 'body', bodyId: 'math-functions' },
   },
   {
     id: 'math-systems',
@@ -63,13 +71,13 @@ export const mathChapters = [
     source: { kind: 'body', bodyId: 'math-systems' },
   },
   {
-    id: 'math-inequalities',
+    id: 'math-functions',
     unitId: 'math-algebra',
-    title: 'Inequalities & Absolute Value',
-    blurb: 'Solve one- and two-variable inequalities, compound chains, and absolute value read as distance — with the one rule that flips the sign.',
-    readMinutes: 5,
-    cbSkills: ['linear-inequalities', 'linear-equations-one-variable'],
-    source: { kind: 'body', bodyId: 'math-inequalities' },
+    title: 'Functions',
+    blurb: 'Read function notation, evaluate inputs and outputs, and interpret slope as a rate of change.',
+    readMinutes: 4,
+    cbSkills: ['linear-functions', 'nonlinear-functions'],
+    source: { kind: 'body', bodyId: 'math-functions' },
   },
 
   // ── Advanced Math ───────────────────────────────────────────────────────────
@@ -81,15 +89,6 @@ export const mathChapters = [
     readMinutes: 6,
     cbSkills: ['equivalent-expressions'],
     source: { kind: 'body', bodyId: 'math-equivalent-expressions' },
-  },
-  {
-    id: 'math-exponents',
-    unitId: 'math-advanced',
-    title: 'Exponents & Exponential Functions',
-    blurb: 'Apply exponent and radical rules and model growth and decay with exponential functions.',
-    readMinutes: 5,
-    cbSkills: ['equivalent-expressions', 'nonlinear-functions'],
-    source: { kind: 'body', bodyId: 'math-exponents' },
   },
   {
     id: 'math-quadratics',
@@ -110,6 +109,15 @@ export const mathChapters = [
     source: { kind: 'body', bodyId: 'math-transformations' },
   },
   {
+    id: 'math-exponents',
+    unitId: 'math-advanced',
+    title: 'Exponents & Exponential Functions',
+    blurb: 'Apply exponent and radical rules and model growth and decay with exponential functions.',
+    readMinutes: 5,
+    cbSkills: ['equivalent-expressions', 'nonlinear-functions'],
+    source: { kind: 'body', bodyId: 'math-exponents' },
+  },
+  {
     id: 'math-nonlinear-equations',
     unitId: 'math-advanced',
     title: 'Radicals, Rationals & Hidden Quadratics',
@@ -121,6 +129,15 @@ export const mathChapters = [
 
   // ── Problem-Solving and Data Analysis ───────────────────────────────────────
   {
+    id: 'math-dimensional-analysis',
+    unitId: 'math-problem-solving',
+    title: 'Ratios, Rates & Proportions',
+    blurb: 'Set up proportions, split ratios into parts, combine rates, and chain unit conversions with a magnitude check.',
+    readMinutes: 6,
+    cbSkills: ['ratios-rates-proportions'],
+    source: { kind: 'body', bodyId: 'math-dimensional-analysis' },
+  },
+  {
     id: 'math-percents',
     unitId: 'math-problem-solving',
     title: 'Percents',
@@ -130,15 +147,6 @@ export const mathChapters = [
     source: { kind: 'body', bodyId: 'math-percents' },
   },
   {
-    id: 'math-statistics',
-    unitId: 'math-problem-solving',
-    title: 'Statistics & Data',
-    blurb: 'Interpret center and spread from lists, tables, and plots, and reason about margin of error.',
-    readMinutes: 6,
-    cbSkills: ['one-variable-data', 'inference-margin-of-error'],
-    source: { kind: 'body', bodyId: 'math-statistics' },
-  },
-  {
     id: 'math-probability',
     unitId: 'math-problem-solving',
     title: 'Probability',
@@ -146,6 +154,15 @@ export const mathChapters = [
     readMinutes: 8,
     cbSkills: ['probability'],
     source: { kind: 'body', bodyId: 'math-probability' },
+  },
+  {
+    id: 'math-statistics',
+    unitId: 'math-problem-solving',
+    title: 'Statistics & Data',
+    blurb: 'Interpret center and spread from lists, tables, and plots, and reason about margin of error.',
+    readMinutes: 6,
+    cbSkills: ['one-variable-data', 'inference-margin-of-error'],
+    source: { kind: 'body', bodyId: 'math-statistics' },
   },
   {
     id: 'math-two-variable-data',
@@ -165,15 +182,6 @@ export const mathChapters = [
     cbSkills: ['statistical-claims', 'inference-margin-of-error'],
     source: { kind: 'body', bodyId: 'math-statistical-claims' },
   },
-  {
-    id: 'math-dimensional-analysis',
-    unitId: 'math-problem-solving',
-    title: 'Ratios, Rates & Proportions',
-    blurb: 'Set up proportions, split ratios into parts, combine rates, and chain unit conversions with a magnitude check.',
-    readMinutes: 6,
-    cbSkills: ['ratios-rates-proportions'],
-    source: { kind: 'body', bodyId: 'math-dimensional-analysis' },
-  },
 
   // ── Geometry and Trigonometry ───────────────────────────────────────────────
   {
@@ -184,15 +192,6 @@ export const mathChapters = [
     readMinutes: 5,
     cbSkills: ['lines-angles-triangles', 'area-and-volume'],
     source: { kind: 'body', bodyId: 'math-lines-angles' },
-  },
-  {
-    id: 'math-radians-degrees',
-    unitId: 'math-geometry',
-    title: 'Radians & Degrees',
-    blurb: 'Convert between radians and degrees and place angles on the unit circle.',
-    readMinutes: 5,
-    cbSkills: ['right-triangles-trig', 'circles'],
-    source: { kind: 'body', bodyId: 'math-radians-degrees' },
   },
   {
     id: 'math-triangles',
@@ -220,6 +219,15 @@ export const mathChapters = [
     readMinutes: 6,
     cbSkills: ['circles'],
     source: { kind: 'body', bodyId: 'math-circles' },
+  },
+  {
+    id: 'math-radians-degrees',
+    unitId: 'math-geometry',
+    title: 'Radians & Degrees',
+    blurb: 'Convert between radians and degrees and place angles on the unit circle.',
+    readMinutes: 5,
+    cbSkills: ['right-triangles-trig', 'circles'],
+    source: { kind: 'body', bodyId: 'math-radians-degrees' },
   },
   {
     id: 'math-volume',

@@ -15,7 +15,7 @@
 export const textStructureAndPurposeBlocks = [
   {
     type: 'text',
-    content: "Purpose and function questions ask **why** something appears on the page — the job it performs — not **what** it says. The most common error is retelling the content: a summary and a purpose sound nearly identical, but they operate on different levels — one reports the words, the other reports the work those words do. Framing the answer as a *verb* — *to introduce, to qualify, to give an example* — places it on the correct level automatically.",
+    content: "From the precision of a single word, attention now widens to the architecture of the whole passage — why a sentence or paragraph is there at all. Purpose and function questions ask **why** something appears on the page — the job it performs — not **what** it says. The most common error is retelling the content: a summary and a purpose sound nearly identical, but they operate on different levels — one reports the words, the other reports the work those words do. Framing the answer as a *verb* — *to introduce, to qualify, to give an example* — places it on the correct level automatically.",
   },
 
   { type: 'heading', content: 'The one question behind three stems' },

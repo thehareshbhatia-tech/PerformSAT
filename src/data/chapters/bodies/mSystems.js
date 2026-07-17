@@ -15,7 +15,7 @@
 export const mSystemsBlocks = [
   {
     type: 'text',
-    content: "A system consists of **two equations sharing the same two unknowns**. One equation alone admits infinitely many solutions; the second narrows the set to the single point that satisfies both. The central decision is choosing the fastest way to eliminate one variable — and when the question asks for a combination such as $x+y$, the most efficient path often bypasses solving for the variables entirely. Most of the difficulty lies in selecting the least-work method, not in the algebra itself.",
+    content: "Any one line admits infinitely many solution points, so the natural next question is what happens when two lines are imposed at once. A system consists of **two equations sharing the same two unknowns**: one equation alone admits infinitely many solutions, and the second narrows the set to the single point that satisfies both. The central decision is choosing the fastest way to eliminate one variable — and when the question asks for a combination such as $x+y$, the most efficient path often bypasses solving for the variables entirely. Most of the difficulty lies in selecting the least-work method, not in the algebra itself.",
   },
 
   { type: 'heading', content: 'Substitution: when a variable is already isolated' },

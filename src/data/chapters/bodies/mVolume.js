@@ -15,7 +15,7 @@
 export const mVolumeBlocks = [
   {
     type: 'text',
-    content: "**Every volume formula needed on the test is printed on the reference sheet**, available on every math question. Volume questions therefore do not test memorization; they test three separate skills — selecting the correct formula, substituting each given length into the correct position, and, for irregular figures, decomposing the solid into familiar pieces.",
+    content: "The unit's final step leads out of the plane: the figures studied so far become the bases and cross-sections of solids. **Every volume formula needed on the test is printed on the reference sheet**, available on every math question, so volume questions do not test memorization; they test selecting the correct formula, substituting each given length into the correct position, and, for irregular figures, decomposing the solid into familiar pieces. The scaling laws that opened the unit also return here in completed form: scaling a figure by $k$ multiplies lengths by $k$, areas by $k^2$, and volumes by $k^3$.",
   },
 
   { type: 'heading', content: 'The reference-sheet formulas' },

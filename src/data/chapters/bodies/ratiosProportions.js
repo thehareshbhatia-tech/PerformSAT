@@ -15,7 +15,7 @@
 export const ratiosProportionsBlocks = [
   {
     type: 'text',
-    content: "These questions present a relationship — miles per gallon, two parts sand to five parts cement, a job one worker finishes in six hours — and ask that it be scaled, split, converted, or combined. The arithmetic is rarely the difficulty; the **setup** carries nearly all of it. Name the units first, and the remaining steps follow directly.",
+    content: "This unit trades equation-solving for reasoning about real quantities, and proportional thinking is its spine. The questions present a relationship — miles per gallon, two parts sand to five parts cement, a job one worker finishes in six hours — and ask that it be scaled, split, converted, or combined. The arithmetic is rarely the difficulty; the **setup** carries nearly all of it. Name the units first, and the remaining steps follow directly.",
   },
 
   { type: 'heading', content: 'A proportion is two equal ratios' },

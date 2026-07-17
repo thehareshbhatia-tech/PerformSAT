@@ -15,7 +15,7 @@
 export const solvingEquationsBlocks = [
   {
     type: 'text',
-    content: "An equation asserts that two expressions have the same value. Every solving technique follows from one principle: **apply the same operation to both entire sides until the target variable stands alone.** An operation applied to only one side changes the relationship and produces a different equation with a different solution. With this principle in place, even a messy multi-step equation reduces to a short, repeatable sequence of steps.",
+    content: "Once the underlying arithmetic is secure, algebra proper begins. An equation asserts that two expressions have the same value, and every solving technique follows from one principle: **apply the same operation to both entire sides until the target variable stands alone.** An operation applied to only one side changes the relationship and produces a different equation with a different solution. With this principle in place, even a messy multi-step equation reduces to a short, repeatable sequence of steps.",
   },
 
   { type: 'heading', content: 'Undoing operations in reverse order' },

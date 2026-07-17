@@ -19,7 +19,7 @@
 export const mCirclesBlocks = [
   {
     type: 'text',
-    content: "Nearly every circle question reduces to identifying two quantities: the **center** and the **radius**. Once both are known, the equation, the circumference, an arc length, or a sector area follows in a single further step. The skill this topic rewards is extracting the center and radius from whatever form the problem supplies — standard form, an expanded equation, or a stated circumference or area.",
+    content: "After figures built from straight segments, the circle is defined by a single condition: every point lies at the same distance from one center. That definition is why nearly every circle question reduces to identifying two quantities — the **center** and the **radius**. Once both are known, the equation, the circumference, an arc length, or a sector area follows in a single further step. The skill this topic rewards is extracting the center and radius from whatever form the problem supplies — standard form, an expanded equation, or a stated circumference or area.",
   },
 
   { type: 'heading', content: 'The circle equation' },

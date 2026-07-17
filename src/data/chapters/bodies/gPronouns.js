@@ -14,7 +14,7 @@
 export const gPronounsBlocks = [
   {
     type: 'text',
-    content: 'A pronoun stands in for a noun named elsewhere in the sentence: *it, they, this,* and *who* all refer back to something already stated. The reference works only under two conditions — the pronoun refers to exactly **one** noun, and it **matches** that noun in number. Nearly every pronoun question tests one of the two.',
+    content: 'Agreement does not end with the verb: the same matching discipline extends to pronouns. A pronoun stands in for a noun named elsewhere in the sentence — *it, they, this,* and *who* all refer back to something already stated — and the reference works only under two conditions: the pronoun refers to exactly **one** noun, and it **matches** that noun in number. Nearly every pronoun question tests one of the two.',
   },
 
   { type: 'heading', content: 'What is actually tested' },

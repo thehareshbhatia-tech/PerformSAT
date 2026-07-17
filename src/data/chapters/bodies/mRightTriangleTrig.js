@@ -15,7 +15,7 @@
 export const mRightTriangleTrigBlocks = [
   {
     type: 'text',
-    content: "Right-triangle trigonometry rests less on sine and cosine themselves than on labeling the sides correctly. One acronym — **SOH-CAH-TOA** — together with one shortcut for the recurring $\\sin(x°) = \\cos(y°)$ question covers nearly all of it, with little calculator work involved. Once the side labels are assigned correctly for the chosen angle, the ratios follow automatically.",
+    content: "Among the triangle tools just assembled, similarity is the one that makes trigonometry possible: fixing an acute angle of a right triangle fixes the ratios of its sides, and sine, cosine, and tangent simply name those ratios. In practice, though, right-triangle trigonometry rests less on the ratios themselves than on labeling the sides correctly. One acronym — **SOH-CAH-TOA** — together with one shortcut for the recurring $\\sin(x°) = \\cos(y°)$ question covers nearly all of it, with little calculator work involved. Once the side labels are assigned correctly for the chosen angle, the ratios follow automatically.",
   },
 
   { type: 'heading', content: 'The three ratios' },

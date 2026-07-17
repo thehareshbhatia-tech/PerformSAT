@@ -15,7 +15,7 @@
 export const statisticalClaimsBlocks = [
   {
     type: 'text',
-    content: "These questions present a short study — who was measured, how they were chosen, what was found — and four possible conclusions. Little arithmetic is involved: the wrong choices are wrong not because of computation but because they claim *more than the study supports*. Every question therefore reduces to one issue — **what is this study entitled to claim?** Two design features decide it, and both should be identified before weighing any option.",
+    content: "With the tools for reading data now in hand — ratios, percents, probabilities, summaries, models — this final chapter asks the question standing behind them all: **what is a study entitled to claim?** The questions present a short study — who was measured, how they were chosen, what was found — and four possible conclusions. Little arithmetic is involved: the wrong choices are wrong not because of computation but because they claim *more than the study supports*. Two design features decide the issue, and both should be identified before weighing any option.",
   },
 
   { type: 'heading', content: 'Two design features, two kinds of claims' },

@@ -15,7 +15,7 @@
 export const gCommasBlocks = [
   {
     type: 'text',
-    content: 'Nearly every comma question reduces to one distinction: does the phrase supply extra information or identifying information? **Extra information takes commas; identifying information takes none.** The pause-for-breath comma taught informally is never the basis of a correct answer. Apply the extra-or-identifying test first, and most comma decisions follow from it.',
+    content: 'The previous chapter settled which marks can stand between two complete sentences; the comma — the one mark that cannot stand there alone — has jobs of its own inside the sentence. Nearly every comma question reduces to one distinction: does the phrase supply extra information or identifying information? **Extra information takes commas; identifying information takes none.** The pause-for-breath comma taught informally is never the basis of a correct answer. Apply the extra-or-identifying test first, and most comma decisions follow from it.',
   },
 
   { type: 'heading', content: 'The removal test' },

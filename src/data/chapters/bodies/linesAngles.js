@@ -15,7 +15,7 @@
 export const linesAnglesBlocks = [
   {
     type: 'text',
-    content: "One working habit organizes this entire topic: each time an angle's measure is determined, write it on the figure. Every recorded angle exposes the next one, and the target angle typically emerges after a short chain of such steps. Underneath, everything rests on two fixed **angle totals** — with one caution before using them: when a figure says *\"not drawn to scale,\"* take the statement literally. The drawing's proportions are unreliable; the printed labels are not.",
+    content: "Geometry on this test is a chain of small deductions rather than long computations, and one working habit organizes the entire subject: each time an angle's measure is determined, write it on the figure. Every recorded angle exposes the next one, and the target angle typically emerges after a short chain of such steps. Underneath, everything rests on two fixed **angle totals** — with one caution before using them: when a figure says *\"not drawn to scale,\"* take the statement literally. The drawing's proportions are unreliable; the printed labels are not.",
   },
 
   { type: 'heading', content: 'Angles on a line and around a point' },

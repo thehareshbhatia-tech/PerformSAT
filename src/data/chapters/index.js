@@ -61,8 +61,11 @@ const UNIT_REGISTRY = [
   { id: 'rw-craft-structure', label: 'Craft and Structure', section: 'reading' },
 
   // ── Writing & Grammar (section header: "Writing & Grammar") ──
-  { id: 'rw-expression-ideas', label: 'Expression of Ideas', section: 'writing' },
+  // Conventions precede Expression of Ideas: the narrative builds from the
+  // mechanics of a correct sentence up to the craft of connecting sentences
+  // (Transitions lean on boundary punctuation; Rhetorical Synthesis caps R&W).
   { id: 'rw-conventions', label: 'Standard English Conventions', section: 'writing' },
+  { id: 'rw-expression-ideas', label: 'Expression of Ideas', section: 'writing' },
 ];
 
 /** Flat list of every chapter across all sections, in registry-unit order. */

@@ -15,7 +15,7 @@
 export const mExponentsBlocks = [
   {
     type: 'text',
-    content: "An exponent counts **how many copies of the base are multiplied together**. With that definition in place, little remains to memorize: every rule follows from counting factors. Errors on this topic rarely come from difficult arithmetic; they come from applying a rule to a shape it does not fit — attempting to merge a *sum* of powers, for instance. When an expression looks unfamiliar, write out the factors and count them rather than reciting rules.",
+    content: "Shifts and stretches reshape a graph already in hand, but some quantities call for a different kind of function altogether — one that grows by repeated multiplication. That is what an exponent records: **how many copies of the base are multiplied together**. With that definition in place, little remains to memorize, because every rule follows from counting factors. Errors on this topic rarely come from difficult arithmetic; they come from applying a rule to a shape it does not fit — attempting to merge a *sum* of powers, for instance. When an expression looks unfamiliar, write out the factors and count them rather than reciting rules.",
   },
 
   { type: 'heading', content: 'The product, quotient, and power rules' },

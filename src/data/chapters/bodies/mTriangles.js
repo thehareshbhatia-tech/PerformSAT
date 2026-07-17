@@ -17,7 +17,7 @@
 export const mTrianglesBlocks = [
   {
     type: 'text',
-    content: "Triangle questions draw on a short list of tools: the **angle sum** (with the isosceles and side-length facts that follow from it), the **area formula**, the **Pythagorean theorem** (together with the integer triples that bypass its arithmetic), and **similar triangles**. The productive first step is identification rather than computation — determining which tool the figure calls for. Once the tool is named, the remaining work is brief.",
+    content: "The angle relationships just established concentrate in one figure — the triangle, where most geometry questions on this test actually live. Triangle questions draw on a short list of tools: the **angle sum** (with the isosceles and side-length facts that follow from it), the **area formula**, the **Pythagorean theorem** (together with the integer triples that bypass its arithmetic), and **similar triangles**. The productive first step is identification rather than computation — determining which tool the figure calls for. Once the tool is named, the remaining work is brief.",
   },
 
   { type: 'heading', content: 'Three facts every triangle obeys' },

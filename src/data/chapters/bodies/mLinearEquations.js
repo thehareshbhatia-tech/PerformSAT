@@ -23,7 +23,7 @@
 export const mLinearEquationsBlocks = [
   {
     type: 'text',
-    content: "Every linear equation describes the same underlying situation: a quantity that begins at some starting value and changes at a constant rate. The slope-intercept form $y = mx + b$ names both numbers directly — $b$ is the starting value and $m$ is the rate of change. Most questions about lines, however they are worded, reduce to identifying one of these two quantities.",
+    content: "So far each equation has contained a single unknown with a single value to find. A linear equation in two variables describes something new — two quantities moving together, one beginning at some starting value and changing at a constant rate as the other advances — and drawn in the coordinate plane, that relationship is a line. The slope-intercept form $y = mx + b$ names both defining numbers directly: $b$ is the starting value and $m$ is the rate of change. Most questions about lines, however they are worded, reduce to identifying one of these two quantities.",
   },
 
   { type: 'heading', content: 'Rate and starting value' },

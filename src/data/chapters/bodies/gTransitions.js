@@ -15,7 +15,7 @@
 export const gTransitionsBlocks = [
   {
     type: 'text',
-    content: "A transition carries no information of its own — its single function is to **name the relationship between the idea before it and the idea after it**: continuation, cause and effect, or contrast. Identify the relationship correctly, and the word follows directly.",
+    content: "The conventions chapters governed the correct sentence — its boundaries, its agreement, its punctuation. Expression of Ideas questions ask what those chapters did not: whether sentences connect logically to one another, and a transition word sits exactly on the boundary between two sentences. The word carries no information of its own — its single function is to **name the relationship between the idea before it and the idea after it**: continuation, cause and effect, or contrast. Choosing it therefore begins with the relationship, not the word: identify the relationship correctly, and the word follows directly.",
   },
 
   { type: 'heading', content: 'What is actually tested' },

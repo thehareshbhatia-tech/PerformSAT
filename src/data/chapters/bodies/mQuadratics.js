@@ -15,7 +15,7 @@
 export const mQuadraticsBlocks = [
   {
     type: 'text',
-    content: "The costliest habit on quadratics is committing to a single method — always factoring, or always applying the quadratic formula — and grinding through a problem that a quicker route would settle in seconds. The efficient route is usually visible on the page itself. Two principles organize this topic: **let the answer choices determine the method**, and read the parabola's features directly from whichever form the equation is given in.",
+    content: "The factoring templates just assembled pay off immediately: a quadratic equation is where rewriting becomes solving, since a factored quadratic set equal to zero reads its solutions off directly. The costliest habit on quadratics is committing to a single method — always factoring, or always applying the quadratic formula — and grinding through a problem that a quicker route would settle in seconds. The efficient route is usually visible on the page itself. Two principles organize this topic: **let the answer choices determine the method**, and read the parabola's features directly from whichever form the equation is given in.",
   },
 
   { type: 'heading', content: 'Choosing a method' },

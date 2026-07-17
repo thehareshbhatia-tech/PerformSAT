@@ -16,7 +16,7 @@
 export const expressionsBlocks = [
   {
     type: 'text',
-    content: "Expression items contain nothing to solve: no equation, no unknown to determine — only a single expression to be **rewritten as an equivalent one**. The task is to expand it, factor it, or match a target form. These items can feel unfamiliar at first precisely because the solving reflex has no application, and extended computation earns nothing. The skill is *recognizing* which form the item requires. The entire topic rests on two operations that reverse each other, three templates worth memorizing, and one habit — treating a compound piece as a single unit.",
+    content: "Algebra closed with functions that reach beyond the linear, and work on nonlinear functions runs on one prerequisite skill: rewriting expressions. Expression items contain nothing to solve — no equation, no unknown to determine, only a single expression to be **rewritten as an equivalent one** by expanding it, factoring it, or matching a target form. These items can feel unfamiliar at first precisely because the solving reflex has no application, and extended computation earns nothing; the skill is *recognizing* which form the item requires. The entire topic rests on two operations that reverse each other, three templates worth memorizing, and one habit — treating a compound piece as a single unit.",
   },
 
   { type: 'heading', content: 'Expanding and factoring as inverse operations' },

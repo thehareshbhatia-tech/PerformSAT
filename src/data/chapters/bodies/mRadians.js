@@ -15,7 +15,7 @@
 export const mRadiansBlocks = [
   {
     type: 'text',
-    content: "A radian is an alternative unit for the same quantity a degree measures — the size of an angle — just as feet and meters are alternative units for length. One equivalence organizes the entire topic: **a half-turn is $180°$, and that same half-turn is $\\pi$ radians.** Every conversion and every unit-circle value below follows from that single fact.",
+    content: "The circle supplies a second, more natural way to measure the angles this unit has used from the start: measure by the arc an angle cuts from a circle rather than by degrees. A radian is thus an alternative unit for the same quantity a degree measures — the size of an angle — just as feet and meters are alternative units for length. One equivalence organizes the entire topic: **a half-turn is $180°$, and that same half-turn is $\\pi$ radians.** Every conversion and every unit-circle value below follows from that single fact.",
   },
 
   { type: 'heading', content: 'The equivalence $180° = \\pi$ radians' },

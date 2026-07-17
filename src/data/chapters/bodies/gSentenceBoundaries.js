@@ -15,7 +15,7 @@
 export const gSentenceBoundariesBlocks = [
   {
     type: 'text',
-    content: "Every boundary question reduces to a single count: **how many complete sentences touch the punctuation mark — one, or two?** That count determines the answer. Judging by sound — listening for a pause, or choosing whichever option reads most smoothly — is unreliable here, because incorrect joins routinely sound natural. Count the complete sentences instead.",
+    content: "The reading chapters analyzed finished passages; the chapters that follow take the editor's seat, and editing begins with the sentence itself — with where one sentence ends and the next begins. Every boundary question reduces to a single count: **how many complete sentences touch the punctuation mark — one, or two?** That count determines the answer. Judging by sound — listening for a pause, or choosing whichever option reads most smoothly — is unreliable here, because incorrect joins routinely sound natural. Count the complete sentences instead.",
   },
 
   { type: 'heading', content: 'What counts as a complete sentence' },
