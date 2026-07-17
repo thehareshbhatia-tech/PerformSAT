@@ -1,12 +1,10 @@
 /**
  * Learn lesson body — Probability (Problem-Solving & Data Analysis).
  *
- * VOICE (adopted 2026-07-15, exemplar: mLinearEquations.js): professional
- * textbook narrative — teaches directly in flowing prose (concept, why it
- * works, how to apply, common errors) in the measured register of a
- * well-edited textbook. Concrete contexts framed plainly as examples;
- * extended metaphors, cute headings, and pep-talk are out. Headings name
- * the concept. Gated by bodies.test.js.
+ * VOICE v3 (adopted 2026-07-17, exemplar: bodies/centralIdeas.js): scannable
+ * instructional register — direct address, contractions, 1-3 sentence text
+ * blocks, list blocks for criteria, steps blocks for procedures; no analogies,
+ * no pep-talk, no emojis. All substance of the v2 textbook version preserved.
  *
  * Scope: probability as favorable-over-pool, complements and unions,
  * probability-to-count reversals, two-way tables and conditional
@@ -22,13 +20,32 @@
 export const mProbabilityBlocks = [
   {
     type: 'text',
-    content: "Probability extends the same part-to-whole reasoning to chance. Every probability is a fraction with two separate jobs: the denominator names the pool being drawn from — anchoring the fraction the way a base anchors a percent — and the numerator counts the outcomes of interest inside that pool. The two decisions are independent, and nearly every wrong answer on this topic comes from settling one of them carelessly — almost always the denominator. Deciding who is in the pool, before counting anything favorable, is the discipline the whole topic rests on.",
+    content: 'Probability extends the same part-to-whole reasoning to chance. Every probability is a fraction with two separate jobs.',
+  },
+  {
+    type: 'list',
+    items: [
+      'The **denominator** names the pool being drawn from — it anchors the fraction the way a base anchors a percent.',
+      'The **numerator** counts the outcomes of interest inside that pool.',
+    ],
+  },
+  {
+    type: 'text',
+    content: "The two decisions are independent, and nearly every wrong answer on this topic comes from settling one of them carelessly — almost always the denominator. Decide who's in the pool before counting anything favorable.",
   },
 
   { type: 'heading', content: 'Probability as a share of the pool' },
   {
     type: 'text',
-    content: "The probability that a randomly selected member of a group has some property is $\\dfrac{\\text{favorable outcomes}}{\\text{total pool}}$ — a number from $0$ (impossible) to $1$ (certain). The phrase describing *what is being asked about* edits the numerator. The phrase describing *who is being selected* edits the denominator. In \"a student is chosen at random from those who passed,\" the words \"from those who passed\" shrink the pool before the question even states its event; a probability computed over the full class answers a different question.",
+    content: 'The probability that a randomly selected member of a group has some property is $\\dfrac{\\text{favorable outcomes}}{\\text{total pool}}$ — a number from $0$ (impossible) to $1$ (certain).',
+  },
+  {
+    type: 'text',
+    content: "The phrase describing *what's being asked about* edits the numerator. The phrase describing *who's being selected* edits the denominator.",
+  },
+  {
+    type: 'text',
+    content: 'In "a student is chosen at random from those who passed," the words "from those who passed" shrink the pool before the question even states its event. A probability computed over the full class answers a different question.',
   },
   {
     type: 'keyInsight',
@@ -38,7 +55,15 @@ export const mProbabilityBlocks = [
   { type: 'heading', content: 'Complements and unions' },
   {
     type: 'text',
-    content: "The **complement** of an event is everything the event is not, so the two probabilities split the pool between them: $P(\\text{not } X) = 1 - P(X)$. When an event is awkward to count directly — \"at least one,\" \"not both,\" \"anything except\" — its complement is often a single clean case, and one subtraction finishes the problem. For \"$A$ or $B$\" questions, adding $P(A)$ and $P(B)$ counts anyone in both groups twice, so the overlap comes back out once.",
+    content: 'The **complement** of an event is everything the event is not, so the two probabilities split the pool between them: $P(\\text{not } X) = 1 - P(X)$.',
+  },
+  {
+    type: 'text',
+    content: 'When an event is awkward to count directly — "at least one," "not both," "anything except" — its complement is often a single clean case, and one subtraction finishes the problem.',
+  },
+  {
+    type: 'text',
+    content: 'For "$A$ or $B$" questions, adding $P(A)$ and $P(B)$ counts anyone in both groups twice, so the overlap comes back out once.',
   },
   {
     type: 'formula',
@@ -50,7 +75,15 @@ export const mProbabilityBlocks = [
   { type: 'heading', content: 'From a probability back to a count' },
   {
     type: 'text',
-    content: "Some items run the definition in reverse: the probability is given and an actual count is requested. The same fraction rearranges: $\\text{count} = \\text{probability} \\times \\text{pool size}$, and likewise $\\text{pool size} = \\text{count} \\div \\text{probability}$. A probability alone never determines a count — the pool size must appear somewhere in the problem, and locating it is the first move.",
+    content: "Some items run the definition in reverse: you're given the probability and asked for an actual count.",
+  },
+  {
+    type: 'text',
+    content: 'The same fraction rearranges: $\\text{count} = \\text{probability} \\times \\text{pool size}$, and likewise $\\text{pool size} = \\text{count} \\div \\text{probability}$.',
+  },
+  {
+    type: 'text',
+    content: 'A probability alone never determines a count — the pool size has to appear somewhere in the problem, and locating it is the first move.',
   },
   {
     type: 'example',
@@ -66,7 +99,16 @@ export const mProbabilityBlocks = [
   { type: 'heading', content: 'Two-way tables and conditional probability' },
   {
     type: 'text',
-    content: "A two-way table classifies one group along two traits at once, and every probability read from it is some cell — or sum of cells — divided by some total. The vocabulary tracks which total. A **joint** probability (junior *and* plays a sport) divides one interior cell by the grand total. A **marginal** probability (junior, regardless of sport) divides a row or column total by the grand total. A **conditional** probability restricts the pool first: \"given that the student plays a sport\" discards every non-player before the counting begins, so the denominator is that group's total, never the table's corner.",
+    content: 'A two-way table classifies one group along two traits at once. Every probability read from it is some cell — or sum of cells — divided by some total, and the vocabulary tracks which total.',
+  },
+  {
+    type: 'list',
+    title: 'Three reads of the same table',
+    items: [
+      '**Joint** (junior *and* plays a sport): one interior cell over the grand total.',
+      '**Marginal** (junior, regardless of sport): a row or column total over the grand total.',
+      "**Conditional** (\"given that the student plays a sport\"): restrict the pool first — every non-player is discarded before the counting begins, so the denominator is that group's total, never the table's corner.",
+    ],
   },
   {
     type: 'table',
@@ -80,11 +122,28 @@ export const mProbabilityBlocks = [
   },
   {
     type: 'text',
-    content: "The notation $P(A \\mid B)$ reads \"the probability of $A$ given $B$\": whatever stands *behind the bar* names the pool. Order matters, because the two directions use different denominators even though they share a numerator cell. From the table, $P(\\text{junior} \\mid \\text{plays a sport}) = \\frac{36}{80} = 0.45$ — the pool is the $80$ players. But $P(\\text{plays a sport} \\mid \\text{junior}) = \\frac{36}{60} = 0.60$ — the pool is the $60$ juniors. Same cell on top, different questions, different answers. Wrong answer choices are routinely built from the swapped direction, so identify the pool from the wording rather than from which numbers look familiar.",
+    content: 'The notation $P(A \\mid B)$ reads "the probability of $A$ given $B$": whatever stands *behind the bar* names the pool.',
   },
   {
     type: 'text',
-    content: "A condition can also name a combined group rather than a single row: \"given that the student is not a senior,\" or, in a table of car ownership, \"given that the household owns at least one car.\" Aggregate every row or column the condition admits into one pool total, then take the favorable cells from inside that same slice. The denominator is the aggregate — never the grand total, and never just one of the admitted rows.",
+    content: 'Order matters, because the two directions use different denominators even though they share a numerator cell. From the table, $P(\\text{junior} \\mid \\text{plays a sport}) = \\frac{36}{80} = 0.45$ — the pool is the $80$ players. But $P(\\text{plays a sport} \\mid \\text{junior}) = \\frac{36}{60} = 0.60$ — the pool is the $60$ juniors.',
+  },
+  {
+    type: 'text',
+    content: 'Same cell on top, different questions, different answers. Wrong choices are routinely built from the swapped direction, so identify the pool from the wording, not from which numbers look familiar.',
+  },
+  {
+    type: 'text',
+    content: 'A condition can also name a combined group rather than a single row: "given that the student is not a senior," or, in a table of car ownership, "given that the household owns at least one car."',
+  },
+  {
+    type: 'list',
+    title: 'Fixing the pool for a combined condition',
+    items: [
+      'Aggregate every row or column the condition admits into one pool total.',
+      'Take the favorable cells from inside that same slice.',
+      'The denominator is the aggregate — never the grand total, and never just one of the admitted rows.',
+    ],
   },
   {
     type: 'example',
@@ -110,7 +169,11 @@ export const mProbabilityBlocks = [
   { type: 'heading', content: 'Sequential draws without replacement' },
   {
     type: 'text',
-    content: "When two items are drawn and the first is not returned, the second draw faces a smaller pool: the denominator drops by one, and if the first draw removed a favorable outcome, the numerator drops by one as well. Multiply the probabilities along the sequence, updating both counts at every step. Reusing the original pool for the second draw quietly assumes the first item was put back — a different experiment with a different answer.",
+    content: "When two items are drawn and the first isn't returned, the second draw faces a smaller pool: the denominator drops by one, and if the first draw removed a favorable outcome, the numerator drops by one as well.",
+  },
+  {
+    type: 'text',
+    content: 'Multiply the probabilities along the sequence, updating both counts at every step. Reusing the original pool for the second draw quietly assumes the first item was put back — a different experiment with a different answer.',
   },
   {
     type: 'example',
@@ -120,6 +183,18 @@ export const mProbabilityBlocks = [
       { label: 'First draw', content: '$P(\\text{red}) = \\frac{5}{8}$ — five reds in a pool of eight.' },
       { label: 'Second draw, updated pool', content: 'One red is gone, so $4$ reds remain in a pool of $7$: $P = \\frac{4}{7}$.' },
       { label: 'Multiply along the sequence', content: '$\\frac{5}{8} \\times \\frac{4}{7} = \\frac{20}{56} = \\frac{5}{14}$. With replacement the answer would be $\\frac{5}{8} \\times \\frac{5}{8} = \\frac{25}{64}$ — the shrinking pool is the entire difference.' },
+    ],
+  },
+
+  {
+    type: 'steps',
+    title: 'How to approach these questions',
+    items: [
+      '**Fix the pool first.** Selection wording — "chosen from," "of those who," "given that," whatever stands behind the bar — names the denominator; a combined condition aggregates every row it admits.',
+      '**Count favorables inside that pool.** The event being asked about edits the numerator only.',
+      '**Reroute awkward counts.** "At least one" and "not both" often go faster through the complement; "or" adds the two probabilities and removes the overlap once.',
+      '**Update after every draw.** Without replacement, the pool shrinks by one — and the favorable count does too, if a favorable outcome left.',
+      '**Reverse when asked for a count.** Count $=$ probability $\\times$ pool size, so locate the pool size in the problem.',
     ],
   },
 
@@ -142,6 +217,6 @@ export const mProbabilityBlocks = [
 
   {
     type: 'text',
-    content: "**In summary:** a probability is favorable over pool, and the pool is decided first. Complements subtract from $1$; unions add and remove the overlap once; a count is probability times pool size; in a two-way table, whatever stands behind the bar in $P(A \\mid B)$ names the denominator; and a draw without replacement shrinks both counts for the next draw.",
+    content: '**The whole topic in one rule:** a probability is favorable over pool, and the pool is decided first. Complements subtract from $1$, unions add and remove the overlap once, a count is probability times pool size, whatever stands behind the bar in $P(A \\mid B)$ names the denominator, and a draw without replacement shrinks both counts for the next draw.',
   },
 ];

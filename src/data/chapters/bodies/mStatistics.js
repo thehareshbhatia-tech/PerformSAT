@@ -1,12 +1,10 @@
 /**
  * Learn lesson body — Statistics & Data (Problem-Solving and Data Analysis).
  *
- * VOICE (adopted 2026-07-15, exemplar: mLinearEquations.js): professional
- * textbook narrative — teaches directly in flowing prose (concept, why it
- * works, how to apply, common errors) in the measured register of a
- * well-edited textbook. Concrete contexts framed plainly as examples;
- * extended metaphors, cute headings, and pep-talk are out. Headings name
- * the concept. Gated by bodies.test.js.
+ * VOICE v3 (adopted 2026-07-17, exemplar: bodies/centralIdeas.js): scannable
+ * instructional register — direct address, contractions, 1-3 sentence text
+ * blocks, list blocks for criteria, steps blocks for procedures; no analogies,
+ * no pep-talk, no emojis. All substance of the v2 textbook version preserved.
  *
  * This skill spans several sub-ideas (center, spread, probability, box plots,
  * margin of error) — each section stays short so the whole thing reads fast.
@@ -22,55 +20,105 @@
 export const mStatisticsBlocks = [
   {
     type: 'text',
-    content: "Computing the chance of a single outcome gives way here to summarizing an entire data set — its center, its spread, and the displays that carry them. Data questions cover several distinct ideas — measures of center, spread, probability, box plots, and margin of error — but each individual question reduces to a single identifiable rule. Classifying which rule a question calls for, before any computation, is the core skill.",
+    content: "Probability gave us the chance of a single outcome. Now we zoom out and summarize an entire data set — its center, its spread, and the displays that carry them.",
+  },
+  {
+    type: 'text',
+    content: "These questions span several distinct ideas — center, spread, probability, box plots, margin of error — but each individual question runs on a single rule. Name the rule first, before any computing; that classification is the core skill here.",
   },
 
   { type: 'heading', content: 'Mean vs. median' },
   {
     type: 'text',
-    content: "Consider five friends dividing a dinner bill evenly. The **mean** is each person's equal share — $\\text{total} \\div \\text{count}$ — so every value in the set contributes to it. The **median** is the middle value once the data are sorted: order the values first, then locate the middle (for an even count, average the two middle values). The two measures answer different questions: the mean distributes the total evenly, while the median reports only the center position. A question that specifies one of them does so deliberately; identify which measure is called for before computing anything.",
+    content: "Picture five friends splitting a dinner bill evenly — the **mean** is each person's equal share. The **median** is the middle value once the data are sorted.",
+  },
+  {
+    type: 'list',
+    title: 'The two measures of center:',
+    items: [
+      "**Mean** $= \\text{total} \\div \\text{count}$ — every value in the set contributes to it.",
+      "**Median** — sort the values first, then take the middle one (even count: average the two middle values). It depends on position only.",
+    ],
+  },
+  {
+    type: 'text',
+    content: "The two answer different questions: the mean spreads the total evenly, while the median reports only the center position. A question that names one of them does so deliberately — identify which measure is asked for before computing anything.",
   },
   {
     type: 'keyInsight',
-    content: "The mean formula rearranges to $\\text{total} = \\text{mean} \\times \\text{count}$. Whenever a value is added, removed, or corrected, work with the **total** rather than the mean — that one rearrangement resolves nearly every difficult average question.",
+    content: "The mean formula rearranges to $\\text{total} = \\text{mean} \\times \\text{count}$. Whenever a value is added, removed, or corrected, work with the **total** rather than the mean — that one rearrangement cracks nearly every hard average question.",
   },
 
   { type: 'heading', content: 'Outliers pull the mean, not the median' },
   {
     type: 'text',
-    content: "Consider adding one billionaire to a room of ten people: the *average* income rises dramatically, while the middle income barely changes. One extreme value drags the **mean** toward itself and leaves the **median** nearly unchanged, because the median depends on position, never on distance. In a skewed data set, the mean drifts toward the long tail while the median remains with the bulk of the data.",
+    content: "Add one billionaire to a room of ten people. The *average* income jumps dramatically — while the middle income barely moves.",
+  },
+  {
+    type: 'text',
+    content: "That's the whole principle: one extreme value drags the **mean** toward itself and leaves the **median** nearly unchanged, because the median depends on position, never on distance. In a skewed data set, the mean drifts toward the long tail while the median stays with the bulk of the data.",
   },
 
   { type: 'heading', content: 'Spread: range and standard deviation' },
   {
     type: 'text',
-    content: "Two measures describe how spread out data are. **Range** $= \\text{max} - \\text{min}$ depends only on the two endpoints, so a single stray value can inflate it. **Standard deviation (SD)** measures how tightly *all* the values cluster around the mean: tight clustering yields a small SD, wide scatter a large one. Spread is a separate question from center — two sets can share a mean of $50$ and be distributed very differently, and questions are routinely built on exactly that distinction.",
+    content: "Center is one question; how spread out the data are is a separate one. Two sets can share a mean of $50$ and be distributed very differently — and questions are routinely built on exactly that distinction.",
+  },
+  {
+    type: 'list',
+    title: 'The two measures of spread:',
+    items: [
+      "**Range** $= \\text{max} - \\text{min}$ — it depends only on the two endpoints, so a single stray value can inflate it.",
+      "**Standard deviation (SD)** — how tightly *all* the values cluster around the mean: tight clustering means a small SD, wide scatter a large one.",
+    ],
   },
   {
     type: 'tip',
-    content: "Standard deviation is compared on this test, never computed. Determine which set clusters more tightly around its own mean: $\\{20, 20, 20\\}$ has SD $0$, while $\\{5, 20, 35\\}$ has a large one. Larger values do not imply a larger SD; wider spacing does.",
+    content: "SD is compared on this test, never computed. Ask which set clusters more tightly around its own mean: $\\{20, 20, 20\\}$ has SD $0$, while $\\{5, 20, 35\\}$ has a large one. Bigger values don't mean a bigger SD — wider spacing does.",
   },
 
-  { type: 'heading', content: 'Center and spread from frequency tables and dot plots' },
+  { type: 'heading', content: 'Frequency tables and dot plots' },
   {
     type: 'text',
-    content: "Data often arrive already grouped: a frequency table lists each value once alongside how many times it occurs, and a dot plot draws the same information as stacked dots over a number line — the height of each stack is that value's count. The mean still runs on the total: multiply each value by its count, add those products, and divide by the **total count**, never by the number of rows. The median comes from a cumulative walk: add the counts row by row, in value order, until the running total reaches the middle position (for $n$ values, position $\\frac{n+1}{2}$; for even $n$, average the values at positions $\\frac{n}{2}$ and $\\frac{n}{2}+1$). A histogram is coarser. It reports how many values fall in each bin but not where they sit inside it, so the same cumulative walk can locate the *bin* that contains the median — while the exact median, and the exact mean, cannot be computed from a histogram at all.",
+    content: "Data often arrive already grouped. A frequency table lists each value once alongside how many times it occurs; a dot plot draws the same information as stacked dots over a number line, where the height of each stack is that value's count.",
+  },
+  {
+    type: 'text',
+    content: "The mean still runs on the total: multiply each value by its count, add the products, and divide by the **total count** — never by the number of rows.",
+  },
+  {
+    type: 'text',
+    content: "The median comes from a cumulative walk. Add the counts row by row, in value order, until the running total reaches the middle position — for $n$ values, position $\\frac{n+1}{2}$ (for even $n$, average the values at positions $\\frac{n}{2}$ and $\\frac{n}{2}+1$).",
+  },
+  {
+    type: 'text',
+    content: "A histogram is coarser: it shows how many values fall in each bin, but not where they sit inside it. The same cumulative walk can locate the *bin* that contains the median — but the exact median, and the exact mean, can't be computed from a histogram at all.",
   },
   {
     type: 'example',
     difficulty: 'Medium',
     problem: 'A frequency table records the number of books $20$ students read over a summer: $0$ books, $3$ students; $1$ book, $5$ students; $2$ books, $6$ students; $3$ books, $4$ students; $4$ books, $2$ students. Find the mean and the median.',
     steps: [
-      { label: 'Mean: weight each value by its count', content: 'Total books $= 0(3) + 1(5) + 2(6) + 3(4) + 4(2) = 0 + 5 + 12 + 12 + 8 = 37$. Mean $= 37 \\div 20 = 1.85$. Dividing by the $5$ rows instead of the $20$ students is the error this layout invites.' },
+      { label: 'Mean: weight each value by its count', content: 'Total books $= 0(3) + 1(5) + 2(6) + 3(4) + 4(2) = 0 + 5 + 12 + 12 + 8 = 37$. Mean $= 37 \\div 20 = 1.85$. Dividing by the $5$ rows instead of the $20$ students is the trap this layout sets.' },
       { label: 'Median: walk the cumulative counts', content: 'With $20$ values, the median averages the $10$th and $11$th. Running totals: $3$ through value $0$, then $8$ through value $1$, then $14$ through value $2$ — so positions $9$ through $14$ all hold the value $2$, including the $10$th and $11$th.' },
-      { label: 'Report both', content: 'Mean $= 1.85$; median $= 2$. The two need not agree, and a question that names one of them is not answered by the other.' },
+      { label: 'Report both', content: "Mean $= 1.85$; median $= 2$. They don't have to agree — and a question that names one of them isn't answered by the other." },
     ],
   },
 
   { type: 'heading', content: 'Combining groups: weighted means' },
   {
     type: 'text',
-    content: "The mean of two combined groups is not, in general, the average of the two group means. Each group contributes through its **total**, so the means must be weighted by group size: combined mean $= \\dfrac{n_1 \\bar{x}_1 + n_2 \\bar{x}_2}{n_1 + n_2}$. Averaging the two means is correct only when the groups are exactly the same size; otherwise the combined mean sits closer to the mean of the larger group, and the unweighted average is precisely the wrong answer waiting among the choices.",
+    content: "The mean of two combined groups is not, in general, the average of the two group means. Each group contributes through its **total**, so the group means get weighted by group size:",
+  },
+  {
+    type: 'formula',
+    label: 'Combined mean',
+    content: '$\\text{combined mean} = \\dfrac{n_1 \\bar{x}_1 + n_2 \\bar{x}_2}{n_1 + n_2}$',
+    note: 'Averaging the two means is right only when the groups are exactly the same size.',
+  },
+  {
+    type: 'text',
+    content: "Otherwise the combined mean sits closer to the mean of the larger group — and the unweighted average of the two means is precisely the wrong answer waiting among the choices.",
   },
   {
     type: 'example',
@@ -83,16 +131,33 @@ export const mStatisticsBlocks = [
     ],
   },
 
-  { type: 'heading', content: 'Probability as a share of the pool' },
+  { type: 'heading', content: 'Probability: a share of the pool' },
   {
     type: 'text',
-    content: "Every probability is $\\dfrac{\\text{favorable outcomes}}{\\text{total pool}}$ — the outcomes of interest over the pool being drawn from, a fraction between $0$ and $1$. Errors concentrate in the **denominator**. Question wording often restricts the pool, and the standard mistake is dividing by the grand total anyway. Identify the pool first, before counting a single favorable outcome.",
+    content: "Every probability is $\\dfrac{\\text{favorable outcomes}}{\\text{total pool}}$ — the outcomes you want, over the pool being drawn from. It's always a fraction between $0$ and $1$.",
+  },
+  {
+    type: 'text',
+    content: "Errors concentrate in the **denominator**. Question wording often restricts the pool, and the standard mistake is dividing by the grand total anyway — so pin down the pool before counting a single favorable outcome.",
   },
 
-  { type: 'heading', content: 'Two-way tables: identifying the pool' },
+  { type: 'heading', content: 'Two-way tables: find the pool' },
   {
     type: 'text',
-    content: "A \"given that…\" or \"if a ___ is selected\" clause controls the entire question. It restricts the pool to one row or one column, so the denominator is *that* group's total, never the corner total. Proceed in order: locate the clause, find its group's total, then take the cell where the row and column intersect as the numerator. Working in that order rules out the standard wrong answer — the favorable count over the grand total.",
+    content: "A \"given that…\" or \"if a ___ is selected\" clause controls the entire question: it restricts the pool to one row or one column.",
+  },
+  {
+    type: 'steps',
+    title: 'Reading a probability from a two-way table',
+    items: [
+      "**Locate the restricting clause.** \"Given that…\" or \"if a ___ is selected\" names the group being drawn from.",
+      "**Take that group's total as the denominator.** One row total or one column total — never the corner total.",
+      "**Take the intersection cell as the numerator.** The cell where the row and column meet counts the favorable outcomes.",
+    ],
+  },
+  {
+    type: 'text',
+    content: "Working in that order rules out the standard wrong answer: the favorable count over the grand total.",
   },
   {
     type: 'table',
@@ -108,18 +173,46 @@ export const mStatisticsBlocks = [
   { type: 'heading', content: 'Box plots: the five-number summary' },
   {
     type: 'text',
-    content: "A box plot displays five numbers: minimum, first quartile ($Q_1$), median, third quartile ($Q_3$), and maximum. The **interquartile range** is $\\text{IQR} = Q_3 - Q_1$. Each of the four segments holds about $25\\%$ of the data — every segment, regardless of how wide it is drawn. A long segment means that quarter of the data is *spread out*, not that it contains more values; that misreading is precisely what these questions are constructed around.",
+    content: "A box plot displays exactly five numbers: minimum, first quartile ($Q_1$), median, third quartile ($Q_3$), and maximum. The **interquartile range** is $\\text{IQR} = Q_3 - Q_1$.",
+  },
+  {
+    type: 'text',
+    content: "Each of the four segments holds about $25\\%$ of the data — every segment, no matter how wide it's drawn. A long segment means that quarter of the data is *spread out*, not that it holds more values, and that misreading is exactly what these questions are built around.",
   },
   {
     type: 'callout',
     title: 'What a box plot cannot show',
-    content: "A box plot conveys the five-number summary, the range, and the skew — nothing more. It never shows the mean, the count, or any individual value. When a question compares means from two box plots, \"cannot be determined\" is a legitimate option and is sometimes the correct one.",
+    content: "A box plot gives you the five-number summary, the range, and the skew — nothing more. It never shows the mean, the count, or any individual value. When a question compares means from two box plots, \"cannot be determined\" is a legitimate option, and sometimes the right one.",
   },
 
   { type: 'heading', content: 'Margin of error' },
   {
     type: 'text',
-    content: "A survey produces not the true value but an estimate with an interval of uncertainty around it: $\\text{estimate} \\pm \\text{margin}$. That interval is a claim about the *population value* (a mean or a proportion), not about any one individual in it. Two factors narrow it: a larger sample, or less underlying variability. These questions test exactly two things — what the interval describes, and what makes it narrower.",
+    content: "A survey doesn't produce the true value — it produces an estimate with an interval of uncertainty around it: $\\text{estimate} \\pm \\text{margin}$. That interval is a claim about the *population value* (a mean or a proportion), not about any one individual in it.",
+  },
+  {
+    type: 'list',
+    title: 'Two things narrow the interval:',
+    items: [
+      'a larger sample',
+      'less underlying variability in the data',
+    ],
+  },
+  {
+    type: 'text',
+    content: "These questions test exactly two things: what the interval describes, and what makes it narrower.",
+  },
+
+  { type: 'heading', content: 'How to approach these questions' },
+  {
+    type: 'steps',
+    items: [
+      "**Classify the question.** Total, position, spread, pool, or interval — every data question runs on one of these.",
+      "**Mean problems: go to the total.** Compute $\\text{total} = \\text{mean} \\times \\text{count}$, adjust it, and divide back.",
+      "**Median problems: sort, then count to the middle.** Position decides everything; distance never does.",
+      "**Probability problems: pin the pool first.** The restricting clause sets the denominator before any counting starts.",
+      "**Spread problems: compare clustering.** Decide which set hugs its own mean more tightly — no SD formula ever runs.",
+    ],
   },
 
   { type: 'heading', content: 'Worked examples' },
@@ -130,7 +223,7 @@ export const mStatisticsBlocks = [
     steps: [
       { label: 'Recover the total', content: "The mean determines the total: total $= \\text{mean} \\times \\text{count} = 12 \\times 5 = 60$." },
       { label: 'Subtract the known four', content: 'The four known values sum to $8 + 10 + 14 + 15 = 47$.' },
-      { label: 'Solve', content: "Fifth number $= 60 - 47 = \\mathbf{13}$. After the first step, the mean itself is no longer needed; the entire computation runs on the total." },
+      { label: 'Solve', content: "Fifth number $= 60 - 47 = \\mathbf{13}$. After the first step, the mean itself is out of the picture — the whole computation runs on the total." },
     ],
   },
   {
@@ -140,7 +233,7 @@ export const mStatisticsBlocks = [
     steps: [
       { label: 'Identify the pool', content: "The clause \"a band member is selected\" restricts the pool to band members — the \"In band\" column total, $19$." },
       { label: 'Count the favorable', content: 'Juniors within that pool occupy the junior/in-band cell: $9$.' },
-      { label: 'Divide', content: "Probability $= \\dfrac{9}{19}$. The result $\\dfrac{9}{40}$ comes from dividing by the grand total — the standard error on restricted-pool questions." },
+      { label: 'Divide', content: "Probability $= \\dfrac{9}{19}$. The answer $\\dfrac{9}{40}$ comes from dividing by the grand total — the standard miss on restricted-pool questions." },
     ],
   },
   {
@@ -148,9 +241,9 @@ export const mStatisticsBlocks = [
     difficulty: 'Medium',
     problem: 'Set $P = \\{40, 50, 60\\}$ and set $Q = \\{49, 50, 51\\}$. Both have mean $50$. Which set has the larger standard deviation?',
     steps: [
-      { label: 'Compare spread, not center', content: "Both means equal $50$, so the center provides no distinction. The comparison rests entirely on which set clusters more tightly around that mean." },
-      { label: 'Compare the distances', content: "$P$'s values lie $10$ away from $50$; $Q$'s lie only $1$ away. $P$ is widely spread, $Q$ tightly clustered." },
-      { label: 'Answer', content: "**Set $P$** has the larger SD. No calculation is required — comparing the clustering settles it, which is the form every SD question on this test takes." },
+      { label: 'Compare spread, not center', content: "Both means equal $50$, so the center settles nothing. The comparison rests entirely on which set clusters more tightly around that mean." },
+      { label: 'Compare the distances', content: "$P$'s values sit $10$ away from $50$; $Q$'s sit only $1$ away. $P$ is widely spread, $Q$ tightly clustered." },
+      { label: 'Answer', content: "**Set $P$** has the larger SD. No calculation needed — comparing the clustering settles it, and that's the form every SD question on this test takes." },
     ],
   },
   {
@@ -169,17 +262,17 @@ export const mStatisticsBlocks = [
   {
     type: 'checkpointQuestion',
     question: 'A box plot has minimum $12$, $Q_1 = 20$, median $26$, $Q_3 = 34$, and maximum $50$. What is the IQR, and about what fraction of the data lies between $20$ and $34$?',
-    answer: "**IQR $= 14$, and about $50\\%$ of the data.** $\\text{IQR} = Q_3 - Q_1 = 34 - 20 = 14$. The interval from $Q_1$ to $Q_3$ contains the middle two quarters, so about $50\\%$ of the data lies there — a fact read from the quartile structure, not from how wide the box is drawn.",
+    answer: "**IQR $= 14$, and about $50\\%$ of the data.** $\\text{IQR} = Q_3 - Q_1 = 34 - 20 = 14$. The interval from $Q_1$ to $Q_3$ holds the middle two quarters, so about $50\\%$ of the data lies there — a fact you read from the quartile structure, not from how wide the box is drawn.",
   },
   {
     type: 'checkpointQuestion',
     question: 'A poll estimates that $42\\%$ of a town supports a measure, with a margin of error of $3\\%$. A choice says "exactly $42\\%$ of the town supports it." Why is that wrong?',
-    answer: "**The poll supports an interval, not a single certain value.** The plausible range for the true town-wide support is $42\\% \\pm 3\\%$, about $39\\%$ to $45\\%$. Claiming \"exactly $42\\%$\" discards the interval and treats a sample estimate as the certain population value; the word \"exactly\" is what makes the choice wrong.",
+    answer: "**The poll supports an interval, not a single certain value.** The plausible range for the true town-wide support is $42\\% \\pm 3\\%$, about $39\\%$ to $45\\%$. Claiming \"exactly $42\\%$\" throws away the interval and treats a sample estimate as the certain population value — the word \"exactly\" is what sinks the choice.",
   },
   {
     type: 'checkpointQuestion',
     question: 'The mean of $6$ test scores is $80$. The lowest score, a $50$, is dropped. What is the mean of the remaining $5$ scores?',
-    answer: "**$86$.** A value changed, so work with the total: $80 \\times 6 = 480$. Removing the $50$ leaves $480 - 50 = 430$ across $5$ scores, so $430 \\div 5 = 86$. Dropping the lowest score raises the mean; confirming that the direction of change is sensible provides a quick check on the arithmetic.",
+    answer: "**$86$.** A value changed, so work with the total: $80 \\times 6 = 480$. Removing the $50$ leaves $480 - 50 = 430$ across $5$ scores, so $430 \\div 5 = 86$. Dropping the lowest score raises the mean — checking that the direction of change is sensible is a quick check on the arithmetic.",
   },
   {
     type: 'checkpointQuestion',
@@ -189,6 +282,6 @@ export const mStatisticsBlocks = [
 
   {
     type: 'text',
-    content: "**In summary:** classify what the question concerns — total, position, spread, pool, or interval — then apply that one rule. The mean works through the total; the median works through position; outliers move only the mean; SD is compared, never computed; probability is favorable over pool; and a box plot never shows the mean.",
+    content: "**The whole topic in one habit:** classify what the question concerns — total, position, spread, pool, or interval — then run that one rule. The mean works through the total; the median works through position; outliers move only the mean; SD is compared, never computed; probability is favorable over pool; and a box plot never shows the mean.",
   },
 ];

@@ -1,12 +1,10 @@
 /**
  * Learn lesson body — Number Foundations (Math).
  *
- * VOICE (adopted 2026-07-15, exemplar: mLinearEquations.js): professional
- * textbook narrative — teaches directly in flowing prose (concept, why it
- * works, how to apply, common errors) in the measured register of a
- * well-edited textbook. Concrete contexts framed plainly as examples;
- * extended metaphors, cute headings, and pep-talk are out. Headings name
- * the concept. Gated by bodies.test.js.
+ * VOICE v3 (adopted 2026-07-17, exemplar: bodies/centralIdeas.js): scannable
+ * instructional register — direct address, contractions, 1-3 sentence text
+ * blocks, list blocks for criteria, steps blocks for procedures; no analogies,
+ * no pep-talk, no emojis. All substance of the v2 textbook version preserved.
  *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
@@ -21,21 +19,38 @@
 export const mFoundationsBlocks = [
   {
     type: 'text',
-    content: "Everything in the math chapters ahead rests on a small amount of quiet arithmetic. Fraction arithmetic, negative-number sign rules, and order of operations rarely receive questions of their own, but they run underneath nearly every algebra, rate, and geometry item, so when one of them slips, the miss is usually attributed to the topic sitting on top. Most errors labeled careless are not careless at all: each is a specific, predictable slip, and each slip is prevented by a definite working habit.",
+    content: "Everything in the math chapters ahead rests on a small amount of quiet arithmetic. Fraction operations, negative-number sign rules, and order of operations rarely get questions of their own — but they run underneath nearly every algebra, rate, and geometry item.",
+  },
+  {
+    type: 'text',
+    content: "When one of them slips, the miss usually gets blamed on the topic sitting on top. Most errors labeled careless aren't careless at all: each is a specific, predictable slip, and each slip has a working habit that prevents it.",
   },
 
   { type: 'heading', content: 'Adding and subtracting fractions' },
   {
     type: 'text',
-    content: "The fractions $\\frac{1}{2}$ and $\\frac{1}{3}$ cannot be added as written, for the same reason that 2 feet and 3 inches cannot be added without converting: the pieces are of different sizes. A common denominator rewrites both fractions in pieces of a single size — sixths, here — and once the pieces match, addition is a matter of counting them: add the numerators and keep the denominator. The denominator names the unit being counted, and units do not add.",
+    content: "You can't add $\\frac{1}{2}$ and $\\frac{1}{3}$ as written, for the same reason you can't add 2 feet and 3 inches without converting: the pieces are different sizes.",
   },
   {
     type: 'text',
-    content: "The incorrect shortcut $\\frac{a}{b} + \\frac{c}{d} = \\frac{a+c}{b+d}$ is tempting because combining straight across is exactly how multiplication works. Addition follows the other rule: match the denominators first, then combine only the numerators. A denominator that changed during an addition or subtraction is the sign of this error.",
+    content: "A common denominator rewrites both fractions in pieces of one size — sixths, here. Once the pieces match, addition is just counting them.",
+  },
+  {
+    type: 'list',
+    title: 'To add or subtract fractions:',
+    items: [
+      'Match the denominators first.',
+      'Add or subtract the numerators only.',
+      "Keep the denominator — it names the unit being counted, and units don't add.",
+    ],
+  },
+  {
+    type: 'text',
+    content: "The shortcut $\\frac{a}{b} + \\frac{c}{d} = \\frac{a+c}{b+d}$ is tempting because straight-across is exactly how multiplication works. Addition follows the other rule — and a denominator that changed during an addition or subtraction is the sign of this error.",
   },
   {
     type: 'keyInsight',
-    content: 'To add or subtract fractions, find a common denominator first, then combine the numerators and keep the denominator unchanged. Combining straight across — numerator with numerator, denominator with denominator — is valid for multiplication only.',
+    content: 'Find a common denominator first, then combine the numerators and keep the denominator unchanged. Combining straight across — numerator with numerator, denominator with denominator — is valid for multiplication only.',
   },
   {
     type: 'example',
@@ -43,18 +58,26 @@ export const mFoundationsBlocks = [
     problem: 'Compute $\\dfrac{3}{4} - \\dfrac{2}{3}$.',
     steps: [
       { label: 'Convert to a common denominator', content: 'Both fractions convert to twelfths: $\\frac{3}{4} = \\frac{9}{12}$ and $\\frac{2}{3} = \\frac{8}{12}$.' },
-      { label: 'Subtract the numerators', content: '$\\frac{9}{12} - \\frac{8}{12} = \\frac{1}{12}$. The denominator remains $12$ — it names the size of the pieces and does not enter the arithmetic.' },
+      { label: 'Subtract the numerators', content: "$\\frac{9}{12} - \\frac{8}{12} = \\frac{1}{12}$. The denominator stays $12$ — it names the size of the pieces and doesn't enter the arithmetic." },
     ],
   },
 
   { type: 'heading', content: 'Multiplying and dividing fractions' },
   {
     type: 'text',
-    content: "Multiplication proceeds straight across: numerator times numerator over denominator times denominator. Cancel shared factors before multiplying so the numbers stay small. Division is one rewrite away: dividing by a fraction is equivalent to multiplying by its reciprocal, because $\\div \\frac{3}{4}$ asks how many three-quarters fit inside the dividend, and inverting the fraction answers exactly that. Invert the second fraction — the divisor — and then multiply. Inverting the first fraction instead, or inverting and then still dividing, answers a different question.",
+    content: "Multiplication goes straight across: numerator times numerator over denominator times denominator. Cancel shared factors before multiplying so the numbers stay small.",
+  },
+  {
+    type: 'text',
+    content: "Division is one rewrite away: dividing by a fraction is multiplying by its reciprocal. That's because $\\div \\frac{3}{4}$ asks how many three-quarters fit inside the dividend, and inverting the fraction answers exactly that.",
+  },
+  {
+    type: 'text',
+    content: "Invert the **second** fraction — the divisor — then multiply. Inverting the first fraction instead, or inverting and then still dividing, answers a different question.",
   },
   {
     type: 'tip',
-    content: "Convert any mixed number to an improper fraction before computing: $2\\frac{1}{2}$ becomes $\\frac{5}{2}$. Mixed form places an addition where a single factor belongs, so it multiplies incorrectly — and the free-response answer field cannot accept it: entered as $21/2$, it is read as twenty-one halves.",
+    content: "Convert any mixed number to an improper fraction before computing: $2\\frac{1}{2}$ becomes $\\frac{5}{2}$. Mixed form hides an addition where a single factor belongs, so it multiplies incorrectly — and the free-response answer field can't accept it: entered as $21/2$, it reads as twenty-one halves.",
   },
   {
     type: 'example',
@@ -70,17 +93,42 @@ export const mFoundationsBlocks = [
   { type: 'heading', content: 'Sign rules for negative numbers' },
   {
     type: 'text',
-    content: "Carry out an involved computation in two passes: work with the absolute values first, then determine the sign once at the end. For multiplication and division, the sign follows a parity count — an even number of negative factors gives a positive result, an odd number gives a negative one. $(-2)(-3)(-5)$ contains three negative factors, an odd count, so the product is $-30$. This removes any need to track the sign step by step.",
+    content: "For multiplication and division, work in two passes: handle the sizes first, then settle the sign once at the end.",
+  },
+  {
+    type: 'steps',
+    title: 'Settling the sign in two passes',
+    items: [
+      '**Work with absolute values first.** Run the arithmetic as if every number were positive.',
+      '**Count the negative factors.** An even count makes the result positive; an odd count makes it negative.',
+      '**Attach the sign once, at the end.** $(-2)(-3)(-5)$ has three negative factors — an odd count — so the product is $-30$.',
+    ],
   },
   {
     type: 'text',
-    content: "Subtraction of a negative deserves its own rule: $a - (-b)$ equals $a + b$, and the reliable habit is to rewrite it in that form before computing. Read quickly, the double minus tends to collapse into a single minus — the mechanism by which $8 - (-3)$ is computed as $5$ instead of $11$. The number line confirms the correct direction: subtracting a negative moves the result to the right.",
+    content: "That's the whole rule for multiplication and division. No step-by-step sign tracking required.",
+  },
+  {
+    type: 'text',
+    content: "Subtracting a negative gets its own rule: $a - (-b)$ equals $a + b$. The reliable habit is to rewrite it in that form before computing anything.",
+  },
+  {
+    type: 'text',
+    content: "Read quickly, the double minus tends to collapse into a single minus — that's how $8 - (-3)$ turns into $5$ instead of $11$. The number line confirms the direction: subtracting a negative moves the result to the right.",
   },
 
   { type: 'heading', content: 'Distributing a negative sign' },
   {
     type: 'text',
-    content: "A negative sign in front of parentheses distributes to every term inside: each term changes sign, and the parentheses are then removed. The term most often missed is the last one — the minus visually attaches to the first term, so $a - (b - c)$ is frequently written as $a - b - c$ when the correct result is $a - b + c$. After distributing, check the final term specifically: if it kept its original sign, the distribution stopped early.",
+    content: "A negative sign in front of parentheses distributes to every term inside: each term changes sign, then the parentheses come off.",
+  },
+  {
+    type: 'text',
+    content: "The last term is the one most often missed. The minus visually attaches to the first term, so $a - (b - c)$ gets written as $a - b - c$ when the correct result is $a - b + c$.",
+  },
+  {
+    type: 'text',
+    content: "After distributing, check the final term specifically. If it kept its original sign, the distribution stopped early.",
   },
   {
     type: 'trapCard',
@@ -101,17 +149,46 @@ export const mFoundationsBlocks = [
   { type: 'heading', content: 'Order of operations: exponents before negation' },
   {
     type: 'text',
-    content: "An expression evaluates in layers: grouping first, then exponents, then multiplication and division left to right, then addition and subtraction left to right. Thus $2 + 3 \\times 4$ is $14$, not $20$ — the multiplication takes precedence over reading order. The costliest case involves a negative sign: in $-3^2$, the exponent applies to the $3$ before the negation does, so $-3^2 = -9$ while $(-3)^2 = 9$. The two values differ by a single pair of parentheses, and the incorrect one routinely appears among the answer choices.",
+    content: "An expression evaluates in layers:",
+  },
+  {
+    type: 'list',
+    items: [
+      'Grouping symbols first.',
+      'Then exponents.',
+      'Then multiplication and division, left to right.',
+      'Then addition and subtraction, left to right.',
+    ],
+  },
+  {
+    type: 'text',
+    content: "So $2 + 3 \\times 4$ is $14$, not $20$ — the multiplication outranks reading order.",
+  },
+  {
+    type: 'text',
+    content: "The costliest case involves a negative sign. In $-3^2$, the exponent applies to the $3$ before the negation does, so $-3^2 = -9$ while $(-3)^2 = 9$.",
+  },
+  {
+    type: 'text',
+    content: "The two values differ by a single pair of parentheses, and the incorrect one routinely appears among the answer choices.",
   },
   {
     type: 'callout',
-    content: "When substituting a negative value, enclose it in parentheses: $x = -3$ goes into $x^2$ as $(-3)^2 = 9$. Written bare, $-3^2$ silently computes to $-9$. The parentheses are not decoration — they are what keeps the sign inside the squaring.",
+    content: "When you substitute a negative value, enclose it in parentheses: $x = -3$ goes into $x^2$ as $(-3)^2 = 9$. Written bare, $-3^2$ silently computes to $-9$. The parentheses aren't decoration — they're what keeps the sign inside the squaring.",
   },
 
   { type: 'heading', content: 'The fraction bar as a grouping symbol' },
   {
     type: 'text',
-    content: "A fraction bar groups everything above it and everything below it, even though no parentheses appear in print. $\\dfrac{8+4}{2+2}$ means $(8+4) \\div (2+2) = 3$; entered into a calculator left to right as $8 + 4 \\div 2 + 2$, it evaluates to $12$. Radicals group in the same way — everything under the bar resolves first. When a stacked expression looks ambiguous, rewrite it with the parentheses the bar implies, then evaluate from the inside out. This grouping is the one step a calculator cannot supply: Desmos computes exactly what is typed, so the parentheses must be entered explicitly.",
+    content: "A fraction bar groups everything above it and everything below it, even though no parentheses appear in print. $\\dfrac{8+4}{2+2}$ means $(8+4) \\div (2+2) = 3$.",
+  },
+  {
+    type: 'text',
+    content: "Typed into a calculator left to right as $8 + 4 \\div 2 + 2$, the same expression evaluates to $12$. Desmos computes exactly what you type, so the parentheses the bar implies have to be entered explicitly — that grouping is the one step a calculator can't supply.",
+  },
+  {
+    type: 'text',
+    content: "Radicals group the same way — everything under the bar resolves first. When a stacked expression looks ambiguous, rewrite it with the parentheses the bar implies, then evaluate from the inside out.",
   },
   {
     type: 'example',
@@ -127,7 +204,19 @@ export const mFoundationsBlocks = [
   { type: 'heading', content: 'Order and distance on the number line' },
   {
     type: 'text',
-    content: "The number line answers two distinct questions, and conflating them converts a finished problem into a miss at the final step. Order: the number further left is smaller. Thus $-9 < -2$, even though $9$ is the larger digit — on the negative side, a larger digit means farther from zero to the left, which is smaller. Whenever a comparison involves a negative, place both numbers on the line and read left to right rather than comparing digit sizes. Distance is the other question: the gap between two numbers, $|a - b|$, is never negative — subtracting in either order yields the same size gap. A related fact: the midpoint of two numbers is their average, the point equally far from both.",
+    content: "The number line answers two different questions, and mixing them up turns a finished problem into a miss at the last step.",
+  },
+  {
+    type: 'text',
+    content: "**Order:** the number further left is smaller. So $-9 < -2$, even though $9$ is the bigger digit — on the negative side, a bigger digit means farther from zero to the left, which is smaller.",
+  },
+  {
+    type: 'text',
+    content: "Whenever a comparison involves a negative, place both numbers on the line and read left to right instead of comparing digit sizes.",
+  },
+  {
+    type: 'text',
+    content: "**Distance** is the other question: the gap between two numbers, $|a - b|$, is never negative — subtracting in either order gives the same size gap. One related fact: the midpoint of two numbers is their average, the point equally far from both.",
   },
   {
     type: 'example',
@@ -135,18 +224,39 @@ export const mFoundationsBlocks = [
     problem: 'The temperature at midnight is $-9^{\\circ}\\text{C}$; by noon it reaches $-2^{\\circ}\\text{C}$. Did it warm up or cool down, and by how many degrees?',
     steps: [
       { label: 'Compare positions', content: '$-9$ sits to the left of $-2$, so $-9$ is the colder reading. Moving from $-9$ to $-2$ is moving right: it warmed up.' },
-      { label: 'Compute the distance', content: 'The gap is $|-2 - (-9)| = |-2 + 9| = 7$ degrees. Subtracting in the other order gives $-7$, but distance is the size of the gap: $7$ in either case.' },
+      { label: 'Compute the distance', content: 'The gap is $|-2 - (-9)| = |-2 + 9| = 7$ degrees. Subtracting in the other order gives $-7$, but distance is the size of the gap: $7$ either way.' },
     ],
   },
 
   { type: 'heading', content: 'The coordinate plane' },
   {
     type: 'text',
-    content: "The coordinate plane extends the number line into two dimensions: a horizontal **x-axis** and a vertical **y-axis** crossing at the **origin**, the point $(0, 0)$. Every point is named by an ordered pair $(x, y)$ — the first coordinate gives the horizontal position, the second the vertical. The order is fixed and matters: $(3, 5)$ lies 3 to the right and 5 up, while $(5, 3)$ lies 5 to the right and 3 up — two different points. To plot a point, start at the origin, move horizontally by the first coordinate (right if positive, left if negative), then vertically by the second (up if positive, down if negative). To read a point's coordinates from a graph, run the same trip in reverse: trace straight down or up to the x-axis for the first coordinate, and straight across to the y-axis for the second.",
+    content: "The coordinate plane extends the number line into two dimensions: a horizontal **x-axis** and a vertical **y-axis** crossing at the **origin**, the point $(0, 0)$.",
   },
   {
     type: 'text',
-    content: "The axes divide the plane into four **quadrants**, numbered counterclockwise starting from the upper right. Each quadrant corresponds to one combination of coordinate signs, so a point's quadrant can be read from its signs alone, without plotting. A point with a zero coordinate lies on an axis and belongs to no quadrant.",
+    content: "Every point gets an ordered pair $(x, y)$ — horizontal position first, vertical second. The order is fixed and matters: $(3, 5)$ lies 3 right and 5 up, while $(5, 3)$ lies 5 right and 3 up — two different points.",
+  },
+  {
+    type: 'steps',
+    title: 'Plotting a point',
+    items: [
+      '**Start at the origin.**',
+      '**Move horizontally** by the first coordinate — right if positive, left if negative.',
+      '**Move vertically** by the second — up if positive, down if negative.',
+    ],
+  },
+  {
+    type: 'text',
+    content: "To read a point's coordinates off a graph, run the same trip in reverse: trace straight down or up to the x-axis for the first coordinate, and straight across to the y-axis for the second.",
+  },
+  {
+    type: 'text',
+    content: "The axes divide the plane into four **quadrants**, numbered counterclockwise from the upper right. Each quadrant matches one combination of coordinate signs, so you can read a point's quadrant from its signs alone — no plotting needed.",
+  },
+  {
+    type: 'text',
+    content: "A point with a zero coordinate lies on an axis and belongs to no quadrant.",
   },
   {
     type: 'table',
@@ -172,27 +282,36 @@ export const mFoundationsBlocks = [
   {
     type: 'checkpointQuestion',
     question: 'Compute $\\dfrac{2}{3} + \\dfrac{1}{4}$.',
-    answer: '**$\\frac{11}{12}$.** Convert to a common denominator first: $\\frac{8}{12} + \\frac{3}{12} = \\frac{11}{12}$. Adding straight across — $\\frac{2+1}{3+4} = \\frac{3}{7}$ — combines pieces of different sizes; straight-across combination is valid for multiplication only.',
+    answer: '**$\\frac{11}{12}$.** Convert to a common denominator first: $\\frac{8}{12} + \\frac{3}{12} = \\frac{11}{12}$. Adding straight across — $\\frac{2+1}{3+4} = \\frac{3}{7}$ — combines pieces of different sizes; straight-across combination works for multiplication only.',
   },
   {
     type: 'checkpointQuestion',
     question: 'Simplify $12 - (5 - x)$. Then evaluate $-x^2$ at $x = 4$.',
-    answer: '**$7 + x$, and $-16$.** The negative distributes to both terms: $12 - 5 + x = 7 + x$ — the inside $-x$ becomes $+x$. And $-x^2$ at $x = 4$ is $-(4^2) = -16$: the exponent applies to the $4$ before the negation. An answer of $16$ indicates the sign was placed inside the squaring.',
+    answer: '**$7 + x$, and $-16$.** The negative distributes to both terms: $12 - 5 + x = 7 + x$ — the inside $-x$ becomes $+x$. And $-x^2$ at $x = 4$ is $-(4^2) = -16$: the exponent applies to the $4$ before the negation. An answer of $16$ means the sign slipped inside the squaring.',
   },
   {
     type: 'checkpointQuestion',
     question: 'Which is smaller, $-12$ or $-5$? And what is the distance between them?',
-    answer: '**$-12$ is smaller; the distance is $7$.** $-12$ lies further left on the number line, and the number further left is smaller — the larger digit means only greater distance from zero. Distance: $|-12 - (-5)| = |-7| = 7$, never negative and the same in either order.',
+    answer: '**$-12$ is smaller; the distance is $7$.** $-12$ lies further left on the number line, and further left is smaller — the bigger digit only means greater distance from zero. Distance: $|-12 - (-5)| = |-7| = 7$, never negative and the same in either order.',
   },
-
   {
     type: 'checkpointQuestion',
     question: 'A point lies 5 units to the left of the origin and 2 units below it. What are its coordinates, and in which quadrant does it lie?',
-    answer: '**$(-5, -2)$, Quadrant III.** Left of the origin makes the first coordinate negative, and below it makes the second negative. The sign pair $(-,\\ -)$ belongs to the lower left, which is Quadrant III. Writing $(-2, -5)$ instead swaps the axes: the horizontal position always comes first.',
+    answer: '**$(-5, -2)$, Quadrant III.** Left of the origin makes the first coordinate negative, and below it makes the second negative. The sign pair $(-,\\ -)$ belongs to the lower left — Quadrant III. Writing $(-2, -5)$ instead swaps the axes: the horizontal position always comes first.',
   },
 
   {
-    type: 'text',
-    content: "**In summary:** match denominators before adding or subtracting, and combine only the numerators. Invert the divisor to divide. Work with absolute values first and settle the sign by counting negative factors. Distribute a leading negative through every term and verify the last one. Evaluate exponents before applying a leading negative: $-3^2$ is $-9$. Treat every fraction bar as an implied pair of parentheses. Read the number line left to right: further left is smaller. And on the coordinate plane, read and plot $(x, y)$ in order — horizontal first, vertical second — with the quadrant determined by the pair of signs.",
+    type: 'list',
+    title: '**The habits in one place:**',
+    items: [
+      'Match denominators before adding or subtracting; combine only the numerators.',
+      'Invert the divisor to divide fractions.',
+      'Work with absolute values first; settle the sign by counting negative factors.',
+      'Distribute a leading negative through every term — then verify the last one.',
+      'Evaluate exponents before a leading negative: $-3^2$ is $-9$.',
+      'Treat every fraction bar as an implied pair of parentheses.',
+      'Read the number line left to right: further left is smaller.',
+      'Read and plot $(x, y)$ in order — horizontal first, vertical second — with the quadrant set by the pair of signs.',
+    ],
   },
 ];

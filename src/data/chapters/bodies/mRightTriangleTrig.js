@@ -1,12 +1,10 @@
 /**
  * Learn lesson body — Right-Triangle Trigonometry (Geometry & Trigonometry).
  *
- * VOICE (adopted 2026-07-15, exemplar: mLinearEquations.js): professional
- * textbook narrative — teaches directly in flowing prose (concept, why it
- * works, how to apply, common errors) in the measured register of a
- * well-edited textbook. Concrete contexts framed plainly as examples;
- * extended metaphors, cute headings, and pep-talk are out. Headings name
- * the concept. Gated by bodies.test.js.
+ * VOICE v3 (adopted 2026-07-17, exemplar: bodies/centralIdeas.js): scannable
+ * instructional register — direct address, contractions, 1-3 sentence text
+ * blocks, list blocks for criteria, steps blocks for procedures; no analogies,
+ * no pep-talk, no emojis. All substance of the v2 textbook version preserved.
  *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
@@ -15,13 +13,30 @@
 export const mRightTriangleTrigBlocks = [
   {
     type: 'text',
-    content: "Among the triangle tools just assembled, similarity is the one that makes trigonometry possible: fixing an acute angle of a right triangle fixes the ratios of its sides, and sine, cosine, and tangent simply name those ratios. In practice, though, right-triangle trigonometry rests less on the ratios themselves than on labeling the sides correctly. One acronym — **SOH-CAH-TOA** — together with one shortcut for the recurring $\\sin(x°) = \\cos(y°)$ question covers nearly all of it, with little calculator work involved. Once the side labels are assigned correctly for the chosen angle, the ratios follow automatically.",
+    content: "Of the triangle tools from the last chapter, similarity is the one that makes trigonometry possible: fix an acute angle of a right triangle and you've fixed the ratios of its sides. Sine, cosine, and tangent simply name those ratios.",
+  },
+  {
+    type: 'text',
+    content: "In practice, the work rests less on the ratios themselves than on labeling the sides correctly. One acronym — **SOH-CAH-TOA** — plus one shortcut for the recurring $\\sin(x°) = \\cos(y°)$ question covers nearly all of it, with little calculator work involved.",
   },
 
   { type: 'heading', content: 'The three ratios' },
   {
     type: 'text',
-    content: "Choose one acute angle and describe the triangle from that vertex. The side across from the chosen angle is the **opposite**. The side touching the angle that is not the longest side is the **adjacent**. The longest side — always across from the right angle — is the **hypotenuse**, regardless of which angle was chosen. This labeling carries the entire method, because each ratio is nothing more than a fixed pairing of two of these names. Once the labels are assigned, the choice of sine, cosine, or tangent is determined.",
+    content: "Choose one acute angle and describe the triangle from that vertex.",
+  },
+  {
+    type: 'list',
+    title: 'The three side labels:',
+    items: [
+      '**Opposite** — the side across from the chosen angle.',
+      "**Adjacent** — the side touching the angle that isn't the longest side.",
+      '**Hypotenuse** — the longest side, always across from the right angle, no matter which angle you chose.',
+    ],
+  },
+  {
+    type: 'text',
+    content: "This labeling carries the entire method — each ratio is nothing more than a fixed pairing of two of these names. Once the labels are assigned, the choice of sine, cosine, or tangent is determined.",
   },
   {
     type: 'formulaGrid',
@@ -32,16 +47,20 @@ export const mRightTriangleTrigBlocks = [
     ],
   },
 
-  { type: 'heading', content: 'Labeling from the chosen angle' },
+  { type: 'heading', content: 'Labels come from the angle, not the drawing' },
   {
     type: 'keyInsight',
-    content: "The same leg is \"opposite\" for one acute angle and \"adjacent\" for the other — so labels come from the chosen angle's vertex, never from how the figure happens to be turned. A trigonometric value is also independent of size: every right triangle with a $30°$ angle has $\\sin 30° = \\tfrac{1}{2}$, whatever its dimensions. The angle alone determines the ratio.",
+    content: "The same leg is \"opposite\" for one acute angle and \"adjacent\" for the other — so labels come from the chosen angle's vertex, never from how the figure happens to be turned. A trig value is also independent of size: every right triangle with a $30°$ angle has $\\sin 30° = \\tfrac{1}{2}$, whatever its dimensions. The angle alone determines the ratio.",
   },
 
   { type: 'heading', content: 'Finding a missing side' },
   {
     type: 'text',
-    content: "Every missing-side problem turns on one selection: the ratio that connects the side that is **given** to the side that is **required**. Name that ratio, set it equal to its fraction, and solve. Resist converting to a decimal — the answer choices are usually **expressions**, so $12\\sin(40°)$ is not an unfinished answer. It is the answer in its expected form.",
+    content: "Every missing-side problem turns on one selection: the ratio that connects the side you're **given** to the side you **want**. Name that ratio, set it equal to its fraction, and solve.",
+  },
+  {
+    type: 'tip',
+    content: "Resist converting to a decimal. The answer choices are usually **expressions**, so $12\\sin(40°)$ isn't an unfinished answer — it's the answer in its expected form.",
   },
   {
     type: 'table',
@@ -56,11 +75,27 @@ export const mRightTriangleTrigBlocks = [
   { type: 'heading', content: 'The cofunction identity' },
   {
     type: 'text',
-    content: "The two acute angles of a right triangle are complementary — together they account for $90°$. Viewed from one acute angle, a given leg is **opposite**; viewed from the other, the same leg is **adjacent**. This exchange of roles is the reason one angle's sine equals the other angle's cosine — the identity $\\sin\\theta = \\cos(90° - \\theta)$.",
+    content: "The two acute angles of a right triangle are complementary — together they account for $90°$.",
+  },
+  {
+    type: 'text',
+    content: "Viewed from one acute angle, a given leg is **opposite**; viewed from the other, the same leg is **adjacent**. That exchange of roles is why one angle's sine equals the other angle's cosine: $\\sin\\theta = \\cos(90° - \\theta)$.",
   },
   {
     type: 'tip',
-    content: "When a problem states $\\sin(x°) = \\cos(y°)$ for acute angles, no triangle needs to be constructed. The angles are complementary, so **$x + y = 90$.** Writing that single equation resolves the standard version of this question directly.",
+    content: "When a problem states $\\sin(x°) = \\cos(y°)$ for acute angles, no triangle needs to be drawn. The angles are complementary, so **$x + y = 90$** — that single equation settles the standard version of this question.",
+  },
+
+  {
+    type: 'steps',
+    title: 'How to approach these questions',
+    items: [
+      '**Mark the angle in use.** Every label is assigned from that vertex.',
+      '**Label the three sides.** Opposite across from the angle, adjacent touching it, hypotenuse across from the right angle.',
+      '**Pick the one ratio linking given to required.** SOH, CAH, or TOA — the pairing of sides decides it.',
+      '**Solve, and leave the expression.** $12\\sin(40°)$ is a finished answer.',
+      '**Watch for the shortcut.** $\\sin(x°) = \\cos(y°)$ with acute angles means $x + y = 90$, no triangle required.',
+    ],
   },
 
   { type: 'heading', content: 'Worked examples' },
@@ -80,7 +115,7 @@ export const mRightTriangleTrigBlocks = [
     steps: [
       { label: 'Name the sides', content: 'The height is **opposite** the $18°$ angle; the ramp itself is the **hypotenuse**.' },
       { label: 'Choose the ratio', content: 'Opposite paired with hypotenuse is sine: $\\sin(18°) = \\dfrac{h}{12}$.' },
-      { label: 'Solve for h', content: 'Multiply both sides by $12$: $h = 12\\sin(18°)$ → **(A)**. Choice (B) results from mislabeling the height as \"adjacent\" — the incorrect label is the entire source of the error.' },
+      { label: 'Solve for h', content: 'Multiply both sides by $12$: $h = 12\\sin(18°)$ → **(A)**. Choice (B) comes from mislabeling the height as \"adjacent\" — the wrong label is the entire error.' },
     ],
   },
   {
@@ -88,8 +123,8 @@ export const mRightTriangleTrigBlocks = [
     difficulty: 'Medium',
     problem: 'From a point $30$ feet from the base of a tree, the angle of elevation to the top is $40°$. Which expression gives the tree\'s height $h$?\n\n(A) $30\\tan(40°)$\n(B) $30\\sin(40°)$\n(C) $\\dfrac{30}{\\tan(40°)}$',
     steps: [
-      { label: 'Name the sides', content: "The tree's height is **opposite** the $40°$ angle; the $30$-foot ground distance touches the angle, so it is **adjacent**." },
-      { label: 'Choose the ratio', content: 'Opposite paired with adjacent is tangent — the hypotenuse is not involved, so sine does not apply: $\\tan(40°) = \\dfrac{h}{30}$.' },
+      { label: 'Name the sides', content: "The tree's height is **opposite** the $40°$ angle; the $30$-foot ground distance touches the angle, so it's **adjacent**." },
+      { label: 'Choose the ratio', content: "Opposite paired with adjacent is tangent — the hypotenuse isn't involved, so sine doesn't apply: $\\tan(40°) = \\dfrac{h}{30}$." },
       { label: 'Solve for h', content: 'Multiply both sides by $30$: $h = 30\\tan(40°)$ → **(A)**.' },
     ],
   },
@@ -114,7 +149,7 @@ export const mRightTriangleTrigBlocks = [
   {
     type: 'checkpointQuestion',
     question: 'If $\\sin(x°) = \\cos(y°)$ and both angles are acute, what is $x + y$?',
-    answer: "**$90$.** For acute angles, $\\sin(x°) = \\cos(y°)$ means the two angles are complementary — the cofunction identity. No triangle is required; the equation $x + y = 90$ is the complete answer.",
+    answer: "**$90$.** For acute angles, $\\sin(x°) = \\cos(y°)$ means the two angles are complementary — the cofunction identity. No triangle required; the equation $x + y = 90$ is the complete answer.",
   },
   {
     type: 'checkpointQuestion',
@@ -124,6 +159,6 @@ export const mRightTriangleTrigBlocks = [
 
   {
     type: 'text',
-    content: "**In summary:** mark the angle in use, label opposite, adjacent, and hypotenuse from that vertex, then select the one ratio linking the given side to the required side. When a problem states $\\sin = \\cos$ for acute angles, no triangle is needed — the two angles sum to $90$.",
+    content: "**The whole method:** mark the angle in use, label opposite, adjacent, and hypotenuse from that vertex, then pick the one ratio linking the given side to the required side. When a problem states $\\sin = \\cos$ for acute angles, skip the triangle — the two angles sum to $90$.",
   },
 ];

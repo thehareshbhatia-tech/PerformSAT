@@ -15,7 +15,7 @@ import { LOW_SIGNAL_PATTERNS } from '../../contentTabs/schema';
 // Block types SectionContent (ContentTabRenderer) renders that R&W chapter
 // bodies are allowed to use. Anything else would silently render as null.
 const ALLOWED_TYPES = new Set([
-  'heading', 'text', 'table', 'callout', 'tip', 'keyInsight', 'trapCard',
+  'heading', 'text', 'list', 'table', 'callout', 'tip', 'keyInsight', 'trapCard',
   'strategyCard', 'example', 'steps', 'checkpointQuestion', 'comparison',
   'diagramRef', 'formula', 'formulaGrid',
 ]);
@@ -23,6 +23,7 @@ const ALLOWED_TYPES = new Set([
 const REQUIRED_FIELDS = {
   heading: ['content'],
   text: ['content'],
+  list: ['items'],
   table: ['headers', 'rows'],
   callout: ['content'],
   tip: ['content'],

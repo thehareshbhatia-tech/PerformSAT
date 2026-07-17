@@ -1,12 +1,11 @@
 /**
  * Learn lesson body — Functions (Advanced Math).
  *
- * VOICE (adopted 2026-07-15, exemplar: mLinearEquations.js): professional
- * textbook narrative — teaches directly in flowing prose (concept, why it
- * works, how to apply, common errors) in the measured register of a
- * well-edited textbook. Concrete contexts framed plainly as examples;
- * extended metaphors, cute headings, and pep-talk are out. Headings name
- * the concept. Gated by bodies.test.js.
+ * VOICE v3 (adopted 2026-07-17, exemplar: bodies/centralIdeas.js): scannable
+ * instructional register — direct address, contractions, 1-3 sentence text
+ * blocks, list blocks for criteria, steps blocks for procedures; no
+ * analogies, no pep-talk, no emojis. All substance of the v2 textbook
+ * version preserved.
  *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
@@ -15,45 +14,100 @@
 export const mFunctionsBlocks = [
   {
     type: 'text',
-    content: "The relationships studied so far have all been lines. Function notation names the input-output rule itself, and naming the rule is what allows the work to extend beyond the linear — the subject of the Advanced Math unit that follows. A function is a rule that assigns to each input exactly one output, and the defining guarantee is consistency: the same input always produces the same output. Every question on this topic reduces to the same procedure — read the notation, substitute the input into the rule, and evaluate — and since the notation only ever describes this pairing of inputs with outputs, reading it correctly is most of the work.",
+    content: "Lines, then systems of lines — every relationship so far has been linear. Function notation names the input-output rule itself, and naming the rule is what lets the work extend beyond the linear into the Advanced Math unit that follows.",
+  },
+  {
+    type: 'text',
+    content: "A function is a rule that assigns to each input exactly one output. The defining guarantee is consistency: the same input always produces the same output.",
+  },
+  {
+    type: 'text',
+    content: "Every question on this topic reduces to the same procedure — read the notation, substitute the input into the rule, evaluate. The notation only ever describes this pairing of inputs with outputs, so reading it correctly is most of the work.",
   },
 
   { type: 'heading', content: 'Function notation' },
   {
     type: 'text',
-    content: "In $f(x) = 3x - 5$, the letter $f$ names the function and the letter $x$ marks the position where the input goes. The input variable has no meaning of its own — it is a placeholder, and whatever value is substituted replaces **every** copy of it. A rule written as $f(t) = 3t - 5$ defines exactly the same function. Questions routinely change the placeholder letter — $f(t)$, $f(a)$, $f(\\ )$ all name one identical rule. What matters is the *pattern* of operations, never the placeholder's name.",
+    content: "In $f(x) = 3x - 5$, the letter $f$ names the function and the letter $x$ marks the position where the input goes.",
+  },
+  {
+    type: 'text',
+    content: "The input variable has no meaning of its own — it's a placeholder, and whatever value you substitute replaces **every** copy of it. A rule written as $f(t) = 3t - 5$ defines exactly the same function.",
+  },
+  {
+    type: 'text',
+    content: "Questions routinely change the placeholder letter — $f(t)$, $f(a)$, $f(\\ )$ all name one identical rule. What matters is the *pattern* of operations, never the placeholder's name.",
   },
 
   { type: 'heading', content: 'Evaluating a function' },
   {
     type: 'text',
-    content: "To find $f(3)$, substitute $3$ for the input variable: $f(3) = 3(3) - 5 = 4$. The symbol $f$ is a name, not a number — $f(3)$ never means $f \\times 3$, and reading it as multiplication invalidates every step that follows. When the input is negative or is itself an expression, enclose it in parentheses before substituting: for $f(x) = x^2$, $f(-2) = (-2)^2 = 4$, and $f(2x) = (2x)^2 = 4x^2$ — not $2x^2$. Omitting the parentheses drops the sign of a negative input or squares only part of a compound input such as $2x$.",
+    content: "To find $f(3)$, substitute $3$ for the input variable: $f(3) = 3(3) - 5 = 4$.",
+  },
+  {
+    type: 'text',
+    content: "The symbol $f$ is a name, not a number. $f(3)$ never means $f \\times 3$, and reading it as multiplication invalidates every step that follows.",
+  },
+  {
+    type: 'text',
+    content: "When the input is negative or is itself an expression, enclose it in parentheses before substituting: for $f(x) = x^2$, $f(-2) = (-2)^2 = 4$, and $f(2x) = (2x)^2 = 4x^2$ — not $2x^2$.",
+  },
+  {
+    type: 'text',
+    content: "Skipping the parentheses drops the sign of a negative input, or squares only part of a compound input such as $2x$.",
   },
   {
     type: 'keyInsight',
-    content: "Rewrite the rule with an empty position — $f(\\ ) = (\\ )^2$ — and substitute the entire input, parentheses included. This single habit prevents both standard errors: writing $2x^2$ for $(2x)^2$, and dropping the sign of a negative input.",
+    content: "Rewrite the rule with an empty position — $f(\\ ) = (\\ )^2$ — and substitute the entire input, parentheses included. This one habit prevents both standard errors: writing $2x^2$ for $(2x)^2$, and dropping the sign of a negative input.",
   },
 
-  { type: 'heading', content: 'Evaluating versus solving' },
+  { type: 'heading', content: 'Evaluating vs. solving' },
   {
     type: 'text',
-    content: "The same rule is used in two directions. **Evaluating:** the input is given, and the task is to compute the output — $f(3)$. **Solving:** the output is given, and the task is to find the input — \"for what $x$ is $f(x) = 7$?\" Set the rule equal to $7$ and solve. Identifying the direction settles the setup: an evaluation supplies the number inside the parentheses, while a solving question supplies the value the whole expression equals. Once a value is set equal to the rule, the problem is an ordinary equation in $x$.",
+    content: "The same rule gets used in two directions, and naming the direction settles the setup.",
+  },
+  {
+    type: 'list',
+    items: [
+      '**Evaluating** — the input is given; compute the output. *What is $f(3)$?* The question supplies the number inside the parentheses.',
+      '**Solving** — the output is given; find the input. *For what $x$ is $f(x) = 7$?* Set the rule equal to $7$ and solve.',
+    ],
+  },
+  {
+    type: 'text',
+    content: "Once a value is set equal to the rule, the problem is an ordinary equation in $x$.",
   },
 
-  { type: 'heading', content: 'Composition of functions' },
+  { type: 'heading', content: 'Composition: a function inside a function' },
   {
     type: 'text',
-    content: "$f(g(2))$ applies two functions in sequence: evaluate $g$ at $2$, then use the result as the input to $f$. Work from the inside out — this order is not a stylistic preference. The outer function cannot be evaluated until it has a value to receive, and that value is the output of the inner function. Beginning with the outer rule instead leads to combining the two rules incorrectly, turning a routine evaluation into a lost point.",
+    content: "$f(g(2))$ applies two functions in sequence: evaluate $g$ at $2$, then use the result as the input to $f$.",
+  },
+  {
+    type: 'text',
+    content: "Work from the inside out — this order isn't a stylistic preference. The outer function can't be evaluated until it has a value to receive, and that value is the output of the inner function.",
+  },
+  {
+    type: 'text',
+    content: "Starting with the outer rule instead leads to combining the two rules incorrectly, turning a routine evaluation into a lost point.",
   },
   {
     type: 'tip',
     content: "In general, $f(g(2))$ and $g(f(2))$ are different numbers. Confirm which one the question asks for before computing.",
   },
 
-  { type: 'heading', content: 'A graph is a set of (input, output) pairs' },
+  { type: 'heading', content: 'Reading a function from its graph' },
   {
     type: 'text',
-    content: "Every point on $y = f(x)$ records one input-output pair: the $x$-coordinate is the input, and the $y$-coordinate is the corresponding output. It follows that $f(a)$ is the height of the curve at $x = a$, and solving $f(x) = k$ means finding where the curve reaches height $k$. This translation resolves most questions about the graph of $f$ — however elaborate the wording, the task is to read a coordinate. The roles never change: $x$ is always the input and $y$ is always the output, so a question about $f$ corresponds to a specific point on the graph.",
+    content: "Every point on $y = f(x)$ records one input-output pair: the $x$-coordinate is the input, and the $y$-coordinate is the corresponding output.",
+  },
+  {
+    type: 'text',
+    content: "So $f(a)$ is the height of the curve at $x = a$, and solving $f(x) = k$ means finding where the curve reaches height $k$.",
+  },
+  {
+    type: 'text',
+    content: "That translation resolves most questions about the graph of $f$ — however elaborate the wording, the task is to read a coordinate. The roles never change: $x$ is always the input, $y$ is always the output, so a question about $f$ corresponds to a specific point on the graph.",
   },
   {
     type: 'table',
@@ -63,6 +117,17 @@ export const mFunctionsBlocks = [
       ['solve $f(x) = 3$', 'the $x$ where the curve hits height $3$'],
       ['where is $f$ greatest', 'the highest point ($x$ of the peak)'],
       ['$f(x) = 0$', 'the $x$-intercepts (where the curve meets the $x$-axis)'],
+    ],
+  },
+
+  { type: 'heading', content: 'How to approach these questions' },
+  {
+    type: 'steps',
+    items: [
+      '**Name the direction.** Input given → evaluate. Output given → set the rule equal to that value and solve.',
+      '**Substitute the whole input.** Rewrite the rule with an empty position — $f(\\ ) = (\\ )^2$ — and drop the entire input, parentheses included, into every copy of the variable.',
+      '**For compositions, work inside out.** Evaluate the inner function first, then feed its output to the outer one.',
+      '**On a graph, translate to coordinates.** $f(a)$ is the height at $x = a$; solving $f(x) = k$ means finding where the curve reaches height $k$.',
     ],
   },
 
@@ -127,6 +192,10 @@ export const mFunctionsBlocks = [
 
   {
     type: 'text',
-    content: "**In summary:** read $f(\\text{input})$ as an instruction to apply the rule, substitute the entire input into every copy of the variable, and evaluate a composition from the inside out. On a graph, $f(a)$ is a height and $f(x) = k$ locates a crossing.",
+    content: "**The whole chapter in three moves:** read $f(\\text{input})$ as an instruction to apply the rule, substitute the entire input into every copy of the variable, and evaluate a composition from the inside out. On a graph, $f(a)$ is a height and $f(x) = k$ locates a crossing.",
+  },
+  {
+    type: 'text',
+    content: "That closes the Algebra unit. Advanced Math keeps this exact notation and points it at new rules — quadratics, exponentials, polynomials — where the curve changes but the reading of $f(x)$ never does.",
   },
 ];

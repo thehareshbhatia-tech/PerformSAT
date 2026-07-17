@@ -3,12 +3,11 @@
  * formulas, circumference/area, arcs and sectors, central angles and
  * tangents, inscribed angles, chords and radii).
  *
- * VOICE (adopted 2026-07-15, exemplar: mLinearEquations.js): professional
- * textbook narrative — teaches directly in flowing prose (concept, why it
- * works, how to apply, common errors) in the measured register of a
- * well-edited textbook. Concrete contexts framed plainly as examples;
- * extended metaphors, cute headings, and pep-talk are out. Headings name
- * the concept. Gated by bodies.test.js.
+ * VOICE v3 (adopted 2026-07-17, exemplar: bodies/centralIdeas.js): scannable
+ * instructional register — direct address, contractions, 1-3 sentence text
+ * blocks, list blocks for criteria, steps blocks for procedures; no
+ * analogies, no pep-talk, no emojis. All substance of the v2 textbook
+ * version preserved. Gated by bodies.test.js.
  * All math is wrapped in $...$ KaTeX delimiters, including
  * `formula`/`formulaGrid` blocks.
  *
@@ -19,41 +18,65 @@
 export const mCirclesBlocks = [
   {
     type: 'text',
-    content: "After figures built from straight segments, the circle is defined by a single condition: every point lies at the same distance from one center. That definition is why nearly every circle question reduces to identifying two quantities — the **center** and the **radius**. Once both are known, the equation, the circumference, an arc length, or a sector area follows in a single further step. The skill this topic rewards is extracting the center and radius from whatever form the problem supplies — standard form, an expanded equation, or a stated circumference or area.",
+    content: "The last few chapters worked with figures built from straight segments. The circle runs on a single condition instead: every point lies the same distance from one center.",
+  },
+  {
+    type: 'text',
+    content: "That definition is why nearly every circle question reduces to two quantities — the **center** and the **radius**. Once you have both, the equation, the circumference, an arc length, or a sector area is one step away.",
+  },
+  {
+    type: 'text',
+    content: "The skill this topic rewards is extraction: pulling the center and radius out of whatever form the problem supplies — standard form, an expanded equation, or a stated circumference or area.",
   },
 
   { type: 'heading', content: 'The circle equation' },
   {
     type: 'text',
-    content: "A circle centered at $(h, k)$ with radius $r$ consists of every point $(x, y)$ whose distance from the center is exactly $r$ — and the equation states that condition through the Pythagorean theorem. The horizontal difference $(x-h)$ and the vertical difference $(y-k)$ are the legs of a right triangle; the radius is the hypotenuse.",
+    content: "A circle centered at $(h, k)$ with radius $r$ is every point $(x, y)$ whose distance from the center is exactly $r$. The equation states that condition through the Pythagorean theorem: the horizontal difference $(x-h)$ and the vertical difference $(y-k)$ are the legs, and the radius is the hypotenuse.",
   },
   {
     type: 'formula',
     content: '$(x - h)^2 + (y - k)^2 = r^2$',
   },
   {
+    type: 'list',
+    title: 'Reading standard form:',
+    items: [
+      "**Flip the sign for the center.** Each parenthesis equals zero at the center coordinate: $(x + 5)^2$ is zero at $x = -5$, so that center coordinate is $-5$ — the opposite of the printed sign.",
+      "**Square-root the right side for the radius.** The right side is $r^2$, not $r$: $= 100$ means $r = \\sqrt{100} = 10$.",
+    ],
+  },
+  {
     type: 'keyInsight',
-    content: "Standard form is read, not solved. Each parenthesis equals zero at the corresponding center coordinate: $(x + 5)^2$ is zero at $x = -5$, so that center coordinate is $-5$ — the sign is the opposite of the one printed. The right side is $r^2$, not $r$: $= 100$ means $r = \\sqrt{100} = 10$. These two reads are also the two standard errors on this topic.",
+    content: "Standard form is read, not solved — and those two reads are also the two standard errors on this topic.",
   },
 
   { type: 'heading', content: 'Completing the square' },
   {
     type: 'text',
-    content: "An expanded equation — such as $x^2 + y^2 - 6x + 4y - 12 = 0$ — describes the same circle with the squared parentheses multiplied out, so the center and radius are not yet visible. Completing the square restores them: the linear terms $-6x$ and $+4y$ are folded back into perfect squares, which returns the equation to standard form. The entire task is recovering standard form.",
+    content: "An expanded equation — say $x^2 + y^2 - 6x + 4y - 12 = 0$ — is the same circle with the squared parentheses multiplied out, so the center and radius aren't visible yet.",
+  },
+  {
+    type: 'text',
+    content: "Completing the square restores them: fold the linear terms $-6x$ and $+4y$ back into perfect squares, and the equation returns to standard form. The entire task is recovering standard form.",
   },
   {
     type: 'steps',
     items: [
-      'Group the $x$-terms, group the $y$-terms, and move the constant to the right side.',
-      'For each variable: take half of its linear coefficient, square it, and add that to **both** sides — adding to one side only changes the circle.',
-      'Rewrite each group as a squared parenthesis, then read the center and radius from standard form.',
+      '**Group and move.** Group the $x$-terms, group the $y$-terms, and move the constant to the right side.',
+      '**Complete each square.** For each variable, take half of its linear coefficient, square it, and add that to **both** sides — adding to one side only changes the circle.',
+      '**Read off the answer.** Rewrite each group as a squared parenthesis, then read the center and radius from standard form.',
     ],
   },
 
   { type: 'heading', content: 'Building the equation from points' },
   {
     type: 'text',
-    content: "Some problems supply no equation at all — only points — and two coordinate tools build one from scratch. The **distance formula** measures the segment between $(x_1, y_1)$ and $(x_2, y_2)$; it is the Pythagorean theorem applied to the horizontal and vertical differences between the points. The **midpoint formula** locates the point halfway between them by averaging the coordinates. Neither formula appears on the reference sheet, and both recur throughout coordinate geometry.",
+    content: "Some problems supply no equation at all — only points. Two coordinate tools build one from scratch, and neither appears on the reference sheet.",
+  },
+  {
+    type: 'text',
+    content: "The **distance formula** measures the segment between $(x_1, y_1)$ and $(x_2, y_2)$ — the Pythagorean theorem applied to the coordinate differences. The **midpoint formula** locates the point halfway between them by averaging the coordinates. Both recur throughout coordinate geometry.",
   },
   {
     type: 'formulaGrid',
@@ -63,12 +86,41 @@ export const mCirclesBlocks = [
     ],
   },
   {
-    type: 'text',
-    content: "When the two given points are the **endpoints of a diameter**, these two tools produce the entire equation: the center is the midpoint of the diameter, and the radius is **half** the distance between the endpoints. Using the full diameter as $r$ — skipping the halving — is the standard error in this setup, and it inflates $r^2$ by a factor of four.",
+    type: 'list',
+    title: 'When the two points are the **endpoints of a diameter**, these tools produce the whole equation:',
+    items: [
+      'The center is the midpoint of the diameter.',
+      'The radius is **half** the distance between the endpoints.',
+    ],
   },
   {
     type: 'text',
-    content: "Two further reads come straight from the completed equation. A circle **tangent to an axis** touches it at exactly one point, so the distance from the center to that axis equals the radius: tangent to the $x$-axis means $r = |k|$, and tangent to the $y$-axis means $r = |h|$. And to place a point relative to a circle, compare its squared distance from the center with $r^2$: less than $r^2$ puts the point inside, equal puts it on the circle, greater puts it outside. Comparing squared distances avoids computing any square root.",
+    content: "Using the full diameter as $r$ — skipping the halving — is the standard error in this setup, and it inflates $r^2$ by a factor of four.",
+  },
+  {
+    type: 'text',
+    content: "Two further reads come straight from the completed equation.",
+  },
+  {
+    type: 'list',
+    title: 'Tangent to an axis:',
+    items: [
+      'A circle tangent to an axis touches it at exactly one point, so the distance from the center to that axis equals the radius.',
+      'Tangent to the $x$-axis: $r = |k|$. Tangent to the $y$-axis: $r = |h|$.',
+    ],
+  },
+  {
+    type: 'list',
+    title: "Placing a point — compare its squared distance from the center with $r^2$:",
+    items: [
+      'Less than $r^2$: the point lies inside the circle.',
+      'Equal to $r^2$: it lies on the circle.',
+      'Greater than $r^2$: it lies outside.',
+    ],
+  },
+  {
+    type: 'text',
+    content: "Comparing squared distances skips the square root entirely.",
   },
   {
     type: 'example',
@@ -92,13 +144,21 @@ export const mCirclesBlocks = [
   },
   {
     type: 'tip',
-    content: "The radius $r$, the diameter $d = 2r$, the circumference $C$, and the area $A$ each determine the others. Given any one and asked for another, work through the radius: solve for $r$ first, then compute the requested quantity. No formula connects $C$ and $A$ directly.",
+    content: "The radius $r$, the diameter $d = 2r$, the circumference $C$, and the area $A$ each determine the others. Given any one and asked for another, go through the radius: solve for $r$ first, then compute what's asked. No formula connects $C$ and $A$ directly.",
   },
 
   { type: 'heading', content: 'Arcs and sectors' },
   {
     type: 'text',
-    content: "An **arc** is a portion of the circle's boundary; a **sector** is the region between two radii and the arc they cut off. Both follow one principle: each is the same fraction of the whole circle that its central angle is of a full turn — $\\frac{\\theta}{360}$ in degrees, $\\frac{\\theta}{2\\pi}$ in radians, which simplifies to the compact radian formulas below. One restriction applies: $s = r\\theta$ and $\\tfrac{1}{2}r^2\\theta$ are valid only when $\\theta$ is in **radians** and give incorrect results for degree inputs. For degrees, use the $\\frac{\\theta}{360}$ fraction or convert first ($180° = \\pi$ radians).",
+    content: "An **arc** is a portion of the circle's boundary; a **sector** is the region between two radii and the arc they cut off.",
+  },
+  {
+    type: 'text',
+    content: "Both follow one principle: each is the same fraction of the whole circle that its central angle is of a full turn — $\\frac{\\theta}{360}$ in degrees, $\\frac{\\theta}{2\\pi}$ in radians. The radian fraction simplifies to the compact formulas in the table below.",
+  },
+  {
+    type: 'text',
+    content: "One restriction: $s = r\\theta$ and $\\tfrac{1}{2}r^2\\theta$ are valid only when $\\theta$ is in **radians** — they give incorrect results for degree inputs. For degrees, use the $\\frac{\\theta}{360}$ fraction or convert first ($180° = \\pi$ radians).",
   },
   {
     type: 'table',
@@ -112,13 +172,36 @@ export const mCirclesBlocks = [
   { type: 'heading', content: 'Central angles and tangent lines' },
   {
     type: 'text',
-    content: "Two facts resolve most circle figures. A **central angle** — one with its vertex at the center — equals the degree measure of the arc it intercepts; the two measures are the same number, so an angle and its arc are interchangeable. A **tangent line** touches the circle at exactly one point and meets the radius drawn to that point at $90°$. When a problem mentions a tangent, draw that radius: the right angle it creates usually supplies the relationship the solution requires.",
+    content: "Two facts resolve most circle figures.",
+  },
+  {
+    type: 'list',
+    items: [
+      "**A central angle equals its arc.** An angle with its vertex at the center equals the degree measure of the arc it intercepts — the two measures are the same number, so angle and arc are interchangeable.",
+      "**A tangent meets its radius at $90°$.** A tangent line touches the circle at exactly one point and is perpendicular to the radius drawn to that point.",
+    ],
+  },
+  {
+    type: 'text',
+    content: "When a problem mentions a tangent, draw that radius. The right angle it creates usually supplies the relationship the solution requires.",
   },
 
   { type: 'heading', content: 'Inscribed angles' },
   {
     type: 'text',
-    content: "An **inscribed angle** has its vertex on the circle itself rather than at the center, and it measures exactly **half** of the central angle intercepting the same arc — equivalently, half the arc's degree measure. The center's view of an arc is always twice as wide as the view from the boundary. Two consequences follow directly. First, all inscribed angles intercepting the same arc are equal, no matter where on the circle their vertices sit. Second, an angle inscribed in a **semicircle** — one intercepting a $180°$ arc — is a right angle, since half of $180°$ is $90°$; a triangle with one side lying along a diameter is therefore automatically a right triangle, a fact harder circle problems quietly depend on.",
+    content: "An **inscribed angle** has its vertex on the circle itself rather than at the center. It measures exactly **half** of the central angle intercepting the same arc — equivalently, half the arc's degree measure.",
+  },
+  {
+    type: 'text',
+    content: "The center's view of an arc is always twice as wide as the view from the boundary.",
+  },
+  {
+    type: 'list',
+    title: 'Two consequences follow directly:',
+    items: [
+      'All inscribed angles intercepting the same arc are equal, no matter where on the circle their vertices sit.',
+      "An angle inscribed in a **semicircle** — one intercepting a $180°$ arc — is a right angle, since half of $180°$ is $90°$. So a triangle with one side along a diameter is automatically a right triangle, a fact harder circle problems quietly depend on.",
+    ],
   },
   {
     type: 'example',
@@ -134,11 +217,31 @@ export const mCirclesBlocks = [
   { type: 'heading', content: 'Chords and radii' },
   {
     type: 'text',
-    content: "A **chord** is a segment whose endpoints both lie on the circle; the diameter is the longest chord. A radius drawn perpendicular to a chord **bisects** it — cuts it into two equal halves — and that perpendicular creates the right triangle in which nearly every chord problem is solved: the hypotenuse is a radius $r$ drawn to an endpoint of the chord, one leg is half the chord, and the other leg is the distance from the center to the chord. The Pythagorean theorem ties the three together, so any two of the quantities determine the third.",
+    content: "A **chord** is a segment whose endpoints both lie on the circle; the diameter is the longest chord.",
   },
   {
     type: 'text',
-    content: "When a circle figure offers no visible right triangle, draw radii to every marked point on the circle. All radii are equal, so any two of them form an **isosceles** triangle with the chord joining their endpoints — equal sides, and therefore equal base angles. Most chord-and-arc figures surrender their unknown angle once these isosceles triangles are marked.",
+    content: "A radius drawn perpendicular to a chord **bisects** it — cuts it into two equal halves. That perpendicular creates the right triangle where nearly every chord problem is solved:",
+  },
+  {
+    type: 'list',
+    items: [
+      'Hypotenuse: a radius $r$ drawn to an endpoint of the chord.',
+      'One leg: half the chord.',
+      'Other leg: the distance from the center to the chord.',
+    ],
+  },
+  {
+    type: 'text',
+    content: "The Pythagorean theorem ties the three together, so any two of the quantities determine the third.",
+  },
+  {
+    type: 'text',
+    content: "When a circle figure offers no visible right triangle, draw radii to every marked point on the circle. All radii are equal, so any two of them form an **isosceles** triangle with the chord joining their endpoints — equal sides, and therefore equal base angles.",
+  },
+  {
+    type: 'text',
+    content: "Most chord-and-arc figures surrender their unknown angle once these isosceles triangles are marked.",
   },
   {
     type: 'example',
@@ -216,6 +319,6 @@ export const mCirclesBlocks = [
 
   {
     type: 'text',
-    content: "**In summary:** identify the center and radius first — read them from standard form, complete the square to recover it, or build them from the endpoints of a diameter with the midpoint and distance formulas — then answer whatever is asked (circumference, arc, sector) as a fraction of the whole circle. The two recurring errors do not change: the sign reverses in $(x - h)$, and the right side of the equation is $r^2$, not $r$.",
+    content: "**The whole topic in one move:** find the center and radius first — read them from standard form, complete the square to recover it, or build them from a diameter's endpoints with the midpoint and distance formulas. Then answer whatever's asked (circumference, arc, sector) as a fraction of the whole circle. The two recurring errors never change: the sign flips in $(x - h)$, and the right side is $r^2$, not $r$.",
   },
 ];

@@ -1,12 +1,11 @@
 /**
  * Learn lesson body — Systems of Equations (Algebra, Math).
  *
- * VOICE (adopted 2026-07-15, exemplar: mLinearEquations.js): professional
- * textbook narrative — teaches directly in flowing prose (concept, why it
- * works, how to apply, common errors) in the measured register of a
- * well-edited textbook. Concrete contexts framed plainly as examples;
- * extended metaphors, cute headings, and pep-talk are out. Headings name
- * the concept. Gated by bodies.test.js.
+ * VOICE v3 (adopted 2026-07-17, exemplar: bodies/centralIdeas.js): scannable
+ * instructional register — direct address, contractions, 1-3 sentence text
+ * blocks, list blocks for criteria, steps blocks for procedures; no
+ * analogies, no pep-talk, no emojis. All substance of the v2 textbook
+ * version preserved.
  *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
@@ -15,27 +14,57 @@
 export const mSystemsBlocks = [
   {
     type: 'text',
-    content: "Any one line admits infinitely many solution points, so the natural next question is what happens when two lines are imposed at once. A system consists of **two equations sharing the same two unknowns**: one equation alone admits infinitely many solutions, and the second narrows the set to the single point that satisfies both. The central decision is choosing the fastest way to eliminate one variable — and when the question asks for a combination such as $x+y$, the most efficient path often bypasses solving for the variables entirely. Most of the difficulty lies in selecting the least-work method, not in the algebra itself.",
+    content: "Any one line admits infinitely many solution points — that was the last chapter. The natural next question: what happens when two lines are imposed at once?",
   },
-
-  { type: 'heading', content: 'Substitution: when a variable is already isolated' },
   {
     type: 'text',
-    content: "When one equation already presents a variable by itself — $y = 2x - 1$ — substitution is the natural choice. Substitute that expression into the *other* equation, producing one equation in one unknown. Solve it, then back-substitute to find the second variable. Substitution is efficient in this situation precisely because the demanding step — isolating a variable — has already been done. One rule keeps the method sound: substitute into the *other* equation, without exception. Substituting back into the same equation collapses it into a true but uninformative statement that determines nothing.",
+    content: "A system is **two equations sharing the same two unknowns**. One equation alone admits infinitely many solutions; the second narrows the set to the single point that satisfies both.",
+  },
+  {
+    type: 'text',
+    content: "The central decision is choosing the fastest way to eliminate one variable. Most of the difficulty lies in selecting the least-work method, not in the algebra itself — and when the question asks for a combination such as $x+y$, the most efficient path often bypasses solving for the variables entirely.",
+  },
+
+  { type: 'heading', content: 'Substitution: a variable is already isolated' },
+  {
+    type: 'text',
+    content: "When one equation already presents a variable by itself — $y = 2x - 1$ — substitution is the natural choice. It's efficient in this situation precisely because the demanding step, isolating a variable, is already done.",
+  },
+  {
+    type: 'steps',
+    title: 'Substitution',
+    items: [
+      '**Substitute the isolated expression** into the *other* equation. That produces one equation in one unknown.',
+      '**Solve** that single equation.',
+      '**Back-substitute** to find the second variable.',
+    ],
+  },
+  {
+    type: 'callout',
+    content: "One rule keeps the method sound: substitute into the *other* equation, without exception. Substituting back into the same equation collapses it into a true but uninformative statement that determines nothing.",
   },
   {
     type: 'keyInsight',
     content: "Substitution means replacing a variable with an **equal expression** — not setting the two equations equal to each other. Set them equal only when *both* are solved for the same variable.",
   },
 
-  { type: 'heading', content: 'Elimination: when both equations are in standard form' },
+  { type: 'heading', content: 'Elimination: both equations in standard form' },
   {
     type: 'text',
-    content: "When both equations take the form $ax + by = c$, align them so that like terms form columns, then add or subtract so that one variable cancels. Elimination suits standard form because aligned columns cancel cleanly. When the coefficients do not match, scale one equation (or both) by a whole number first so that one variable's coefficients become exact opposites — such as $+3y$ and $-3y$. This is the entire purpose of scaling: once a column contains opposites, adding the equations removes that variable and leaves a single equation in the other.",
+    content: "When both equations take the form $ax + by = c$, elimination is the fit — aligned columns cancel cleanly.",
+  },
+  {
+    type: 'steps',
+    title: 'Elimination',
+    items: [
+      '**Align the equations** so like terms form columns.',
+      "**Scale one equation (or both)** by a whole number so one variable's coefficients become exact opposites — such as $+3y$ and $-3y$. That's the entire purpose of scaling.",
+      '**Add the equations.** The column of opposites cancels, leaving a single equation in the other variable.',
+    ],
   },
   {
     type: 'tip',
-    content: "Subtracting one equation from another invites sign errors. Instead of subtracting, multiply one equation by $-1$ and **add**; addition is the only combining step required. Eliminate the variable the question does *not* ask for, so the surviving variable is the one requested.",
+    content: "Subtracting one equation from another invites sign errors. Multiply one equation by $-1$ and **add** instead — addition is the only combining step required. And eliminate the variable the question does *not* ask for, so the survivor is the one requested.",
   },
 
   { type: 'heading', content: 'Choosing the method' },
@@ -50,20 +79,47 @@ export const mSystemsBlocks = [
     ],
   },
 
-  { type: 'heading', content: 'One, none, or infinitely many solutions' },
+  { type: 'heading', content: 'One, none, or infinitely many solutions?' },
   {
     type: 'text',
-    content: "Two lines admit exactly three configurations: intersecting once, parallel, or identical. **Different slopes** intersect once → one solution. **Same slope, different intercept** → parallel lines that never meet → no solution. **The same line written twice** → every point satisfies both → infinitely many solutions. Questions emphasize the last two cases, because they turn on a slope comparison rather than on computing a point of intersection.",
+    content: "Two lines admit exactly three configurations.",
+  },
+  {
+    type: 'list',
+    items: [
+      '**Different slopes** — the lines intersect once → one solution.',
+      '**Same slope, different intercept** — parallel lines that never meet → no solution.',
+      '**The same line written twice** — every point satisfies both → infinitely many solutions.',
+    ],
   },
   {
     type: 'text',
-    content: "The efficient test: rewrite both equations in $y = mx + b$ and compare the slopes first. If the slopes differ, the analysis ends — exactly one solution, regardless of the intercepts. If the slopes are equal, the intercept $b$ decides: different $b$ means parallel (no solution), and the same $b$ means identical (infinitely many). The slope settles the question whenever it can; the intercept matters only when the slopes agree.",
+    content: "Questions emphasize the last two cases, because they turn on a slope comparison rather than on computing a point of intersection.",
+  },
+  {
+    type: 'text',
+    content: "The efficient test: rewrite both equations in $y = mx + b$ and compare the slopes first. If the slopes differ, the analysis ends — exactly one solution, regardless of the intercepts.",
+  },
+  {
+    type: 'text',
+    content: "If the slopes are equal, the intercept $b$ decides: different $b$ means parallel (no solution), and the same $b$ means identical (infinitely many). The slope settles the question whenever it can; the intercept matters only when the slopes agree.",
   },
 
   { type: 'heading', content: 'Choosing a constant for a target solution count' },
   {
     type: 'text',
-    content: "Some questions run the analysis in reverse: the system contains an unknown constant, and the question asks which value of that constant produces no solution or infinitely many. The conditions come directly from the slope comparison. **No solution** requires parallel lines — scale one equation so its $x$- and $y$-coefficients match the other's exactly, and the totals must still *differ*. **Infinitely many** requires the same line written twice — every coefficient *and* the constant must scale by the same factor, making one equation an exact multiple of the other. The distinction is precise: matching left sides with different totals gives parallel lines, while matching everything gives a single line.",
+    content: "Some questions run the analysis in reverse: the system contains an unknown constant, and you're asked which value of that constant produces no solution or infinitely many. The conditions come straight from the slope comparison.",
+  },
+  {
+    type: 'list',
+    items: [
+      "**No solution** requires parallel lines: scale one equation so its $x$- and $y$-coefficients match the other's exactly, and the totals must still *differ*.",
+      '**Infinitely many** requires the same line written twice: every coefficient *and* the constant must scale by the same factor, making one equation an exact multiple of the other.',
+    ],
+  },
+  {
+    type: 'text',
+    content: "The distinction is precise: matching left sides with different totals gives parallel lines, while matching everything gives a single line.",
   },
   {
     type: 'example',
@@ -72,14 +128,25 @@ export const mSystemsBlocks = [
     steps: [
       { label: 'Scale to compare coefficients', content: "Multiply the first equation by $3$ so the $x$-coefficients match: $6x + 15y = 27$." },
       { label: 'Match the left sides', content: "Parallel lines require identical left sides, so $cy$ must equal $15y$: $c = 15$." },
-      { label: 'Confirm the totals differ', content: "With $c = 15$ the left sides are identical but the totals are $27$ and $21$ — one expression cannot equal two different numbers, so the lines are parallel and the system has no solution. (Had the second total been $27$ as well, the two equations would describe the same line, giving infinitely many solutions instead.)" },
+      { label: 'Confirm the totals differ', content: "With $c = 15$ the left sides are identical but the totals are $27$ and $21$ — one expression can't equal two different numbers, so the lines are parallel and the system has no solution. (Had the second total been $27$ as well, the two equations would describe the same line, giving infinitely many solutions instead.)" },
     ],
   },
 
   { type: 'heading', content: 'Building a system from a word problem' },
   {
     type: 'text',
-    content: "Most word-problem systems pair a **count** equation (the quantities sum to a total: $x + y = 40$) with a **value** equation (each quantity times its price or weight sums to a second total: $5x + 8y = 260$). Realistic scenarios pin down two separate totals — how many, and how much — which is why this pairing recurs so often. Define the variables in words first, then keep the units consistent: items add to items, dollars add to dollars. That discipline prevents the classic error of adding a count to a dollar amount — an equation with no meaning.",
+    content: "Most word-problem systems pair two equations built from two separate totals — how many, and how much. Realistic scenarios pin down both, which is why this pairing recurs so often.",
+  },
+  {
+    type: 'list',
+    items: [
+      '**The count equation** — the quantities sum to a total: $x + y = 40$.',
+      '**The value equation** — each quantity times its price or weight sums to a second total: $5x + 8y = 260$.',
+    ],
+  },
+  {
+    type: 'text',
+    content: "Define the variables in words first, then keep the units consistent: items add to items, dollars add to dollars. That discipline blocks the classic error of adding a count to a dollar amount — an equation with no meaning.",
   },
   {
     type: 'callout',
@@ -146,7 +213,7 @@ export const mSystemsBlocks = [
   {
     type: 'checkpointQuestion',
     question: 'The system $6x + 2y = 10$ and $3x + y = 4$ — how many solutions does it have?',
-    answer: "**None.** Divide the first equation by $2$: $3x + y = 5$. This has the same left side as $3x + y = 4$ but a different total, and one expression cannot equal two different numbers. The lines are parallel and never intersect.",
+    answer: "**None.** Divide the first equation by $2$: $3x + y = 5$. That's the same left side as $3x + y = 4$ with a different total — and one expression can't equal two different numbers. The lines are parallel and never intersect.",
   },
   {
     type: 'checkpointQuestion',
@@ -158,15 +225,14 @@ export const mSystemsBlocks = [
     question: 'How many solutions does the system $y = 2x + 1$ and $6x - 3y = -3$ have?',
     answer: "**Infinitely many.** Solve the second equation for $y$: $6x - 3y = -3 \\Rightarrow -3y = -6x - 3 \\Rightarrow y = 2x + 1$ — identical to the first equation. The system describes one line written twice, so every point on it satisfies both.",
   },
-
   {
     type: 'checkpointQuestion',
     question: 'In the system $x + 3y = 7$ and $2x + 6y = c$, for what value of $c$ does the system have infinitely many solutions?',
-    answer: "**$c = 14$.** The left side of the second equation is exactly double the first, so the equations describe the same line only when the total doubles as well: $c = 2(7) = 14$. For any other value of $c$ the left sides still match after scaling but the totals differ — parallel lines, no solution. No value of $c$ gives exactly one solution, because the slopes agree for every $c$.",
+    answer: "**$c = 14$.** The left side of the second equation is exactly double the first, so the equations describe the same line only when the total doubles as well: $c = 2(7) = 14$. For any other value of $c$ the left sides still match after scaling but the totals differ — parallel lines, no solution. And no value of $c$ gives exactly one solution, because the slopes agree for every $c$.",
   },
 
   {
     type: 'text',
-    content: "**In summary:** identify the requested quantity first. For a combination such as $x+y$, add or subtract the equations directly; otherwise substitute when a variable is already isolated, or scale and eliminate when both equations are in standard form. Report the exact quantity the question asks for.",
+    content: "**The whole chapter in one pass:** identify the requested quantity first. For a combination such as $x+y$, add or subtract the equations directly; otherwise substitute when a variable is already isolated, or scale and eliminate when both equations are in standard form. Report the exact quantity the question asks for.",
   },
 ];

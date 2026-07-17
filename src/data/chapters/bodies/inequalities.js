@@ -1,12 +1,10 @@
 /**
  * Learn lesson body — Inequalities & Absolute Value (Algebra).
  *
- * VOICE (adopted 2026-07-15, exemplar: mLinearEquations.js): professional
- * textbook narrative — teaches directly in flowing prose (concept, why it
- * works, how to apply, common errors) in the measured register of a
- * well-edited textbook. Concrete contexts framed plainly as examples;
- * extended metaphors, cute headings, and pep-talk are out. Headings name
- * the concept. Gated by bodies.test.js.
+ * VOICE v3 (adopted 2026-07-17, exemplar: bodies/centralIdeas.js): scannable
+ * instructional register — direct address, contractions, 1-3 sentence text
+ * blocks, list blocks for criteria, steps blocks for procedures; no analogies,
+ * no pep-talk, no emojis. All substance of the v2 textbook version preserved.
  *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
@@ -15,29 +13,65 @@
 export const inequalitiesBlocks = [
   {
     type: 'text',
-    content: "An inequality replaces the equals sign of an equation with $<$, $\\le$, $>$, or $\\ge$. The solving procedure just established for equations carries over intact — every technique for isolating a variable applies unchanged — with **one additional rule**, and with absolute value acquiring a new reading as **distance**. The essential difference lies in the answer: an inequality is satisfied by an entire *range* of numbers rather than a single value, so the solution reports a boundary and a direction instead of one point.",
+    content: "An inequality swaps the equals sign of an equation for $<$, $\\le$, $>$, or $\\ge$. Everything from the last chapter carries over intact — every technique for isolating a variable still applies — with **one new rule**, plus a new reading of absolute value as **distance**.",
   },
-
-  { type: 'heading', content: 'Solving inequalities: the sign-reversal rule' },
   {
     type: 'text',
-    content: "Adding, subtracting, multiplying, and dividing both sides all proceed exactly as they do for equations. The one new rule: **multiplying or dividing both sides by a negative number reverses the inequality symbol.** The reason is that a negative factor reverses the order of the number line — $3 < 5$ is true, but $-3 < -5$ is false, so the symbol must turn around for the statement to remain accurate. $-2x < 6$ becomes $x > -3$ (divide by $-2$, and $<$ becomes $>$). Two situations never trigger a reversal: adding or subtracting any quantity, and a solution that merely happens to be negative. Only *scaling by a negative* reverses the symbol.",
+    content: "The real difference lies in the answer. An inequality is satisfied by an entire *range* of numbers rather than a single value, so the solution reports a boundary and a direction instead of one point.",
+  },
+
+  { type: 'heading', content: 'The sign-reversal rule' },
+  {
+    type: 'text',
+    content: "Adding, subtracting, multiplying, and dividing both sides all work exactly as they do for equations. The one new rule: **multiplying or dividing both sides by a negative number reverses the inequality symbol.**",
+  },
+  {
+    type: 'text',
+    content: "Why? A negative factor reverses the order of the number line — $3 < 5$ is true, but $-3 < -5$ is false — so the symbol has to turn around for the statement to stay accurate.",
+  },
+  {
+    type: 'text',
+    content: "$-2x < 6$ becomes $x > -3$: divide by $-2$, and $<$ becomes $>$.",
+  },
+  {
+    type: 'list',
+    title: 'What never triggers a reversal:',
+    items: [
+      'Adding or subtracting any quantity.',
+      'A solution that merely happens to come out negative.',
+    ],
+  },
+  {
+    type: 'text',
+    content: "Only *scaling by a negative* reverses the symbol.",
   },
   {
     type: 'keyInsight',
-    content: "To confirm the direction of the symbol, substitute one number from the proposed solution set into the *original* inequality. A true statement confirms the direction; a false one indicates a missed reversal. This brief check catches every direction error.",
+    content: "To confirm the direction of the symbol, substitute one number from your proposed solution set into the *original* inequality. A true statement confirms the direction; a false one means a reversal was missed. This brief check catches every direction error.",
   },
 
   { type: 'heading', content: 'Compound inequalities: operate on all three parts' },
   {
     type: 'text',
-    content: "A compound inequality such as $2 < 3x - 1 \\le 11$ confines $x$ between two boundaries. Every operation must be applied to **all three parts** at once: add $1$ throughout to get $3 < 3x \\le 12$, then divide throughout by $3$ to get $1 < x \\le 4$. Operating on all three parts preserves the chain the same way operating on both sides preserves an equation; omitting one part leaves the boundaries describing a different quantity than the middle. The result is a single interval naming exactly which numbers satisfy the statement. (If a step divides by a negative, both symbols reverse.)",
+    content: "A compound inequality like $2 < 3x - 1 \\le 11$ pins $x$ between two boundaries. Every operation applies to **all three parts** at once.",
+  },
+  {
+    type: 'text',
+    content: "Add $1$ throughout: $3 < 3x \\le 12$. Divide throughout by $3$: $1 < x \\le 4$ — a single interval naming exactly which numbers satisfy the statement.",
+  },
+  {
+    type: 'text',
+    content: "Operating on all three parts preserves the chain the same way operating on both sides preserves an equation. Skip one part and the boundaries end up describing a different quantity than the middle. (And if a step divides by a negative, both symbols reverse.)",
   },
 
   { type: 'heading', content: 'Absolute value as distance' },
   {
     type: 'text',
-    content: "$|x|$ measures the distance from $x$ to zero, and distance is never negative. The generalization does most of the work: $|x - c|$ is the distance from $x$ to $c$. With that reading, the inequalities translate directly — $|x - c| < r$ states that $x$ lies **within** $r$ of $c$ (a single interval around a center), and $|x - c| > r$ states that $x$ lies **more than** $r$ away (two rays extending outward). Reading $c$ as a center and $r$ as a radius often yields the answer without two-case algebra or sign manipulation, because the distance interpretation determines in advance whether the solution is one interval or two rays.",
+    content: "$|x|$ measures the distance from $x$ to zero, and distance is never negative. The generalization does most of the work: $|x - c|$ is the distance from $x$ to $c$.",
+  },
+  {
+    type: 'text',
+    content: "Read $c$ as a center and $r$ as a radius, and the inequalities translate directly — often with no two-case algebra or sign manipulation, because the distance reading tells you in advance whether the solution is one interval or two rays.",
   },
   {
     type: 'formulaGrid',
@@ -49,17 +83,35 @@ export const inequalitiesBlocks = [
   },
   {
     type: 'tip',
-    content: "A distance can never be negative, so $|x - 6| = -2$ has **no solution**. Recognizing this immediately avoids algebra that cannot produce an answer.",
+    content: "A distance can never be negative, so $|x - 6| = -2$ has **no solution**. Spotting this immediately saves you from algebra that can't produce an answer.",
   },
 
   { type: 'heading', content: 'The absolute-value function' },
   {
     type: 'text',
-    content: "Graphed, $y = |x|$ forms a **V**. For $x \\ge 0$ the graph coincides with the line $y = x$; for $x < 0$ the negative outputs are flipped to positive, producing the mirror-image arm $y = -x$. The two arms meet in a corner at the origin — the **vertex** — where the output reaches its minimum value of $0$. The right arm rises with slope $1$, the left arm falls with slope $-1$, and the graph is symmetric about the vertical line through the vertex.",
+    content: "Graphed, $y = |x|$ forms a **V**. For $x \\ge 0$ the graph coincides with the line $y = x$; for $x < 0$ the negative outputs flip to positive, producing the mirror-image arm $y = -x$.",
   },
   {
     type: 'text',
-    content: "The general form $y = a|x - h| + k$ moves and reshapes this V exactly as the parabola's vertex form $y = a(x - h)^2 + k$ moves a parabola: the vertex sits at $(h, k)$, a positive $a$ opens the V upward and a negative $a$ opens it downward, and the arms have slopes $+a$ and $-a$. The sign of $h$ follows the same convention as in the parabola: $|x - 3|$ places the vertex at $x = 3$, while $|x + 3|$ — which is $|x - (-3)|$ — places it at $x = -3$. To match an equation to a graph, locate the corner first: it fixes $h$ and $k$ immediately, and the steepness and direction of the arms then determine $a$.",
+    content: "The two arms meet in a corner at the origin — the **vertex** — where the output reaches its minimum value of $0$. The right arm rises with slope $1$, the left arm falls with slope $-1$, and the graph is symmetric about the vertical line through the vertex.",
+  },
+  {
+    type: 'text',
+    content: "The general form $y = a|x - h| + k$ moves and reshapes this V exactly the way the parabola's vertex form $y = a(x - h)^2 + k$ moves a parabola.",
+  },
+  {
+    type: 'list',
+    title: 'Reading $y = a|x - h| + k$:',
+    items: [
+      'The vertex sits at $(h, k)$.',
+      'Positive $a$ opens the V upward; negative $a$ opens it downward.',
+      'The arms have slopes $+a$ and $-a$.',
+      'The sign of $h$ follows the parabola convention: $|x - 3|$ puts the vertex at $x = 3$, while $|x + 3|$ — which is $|x - (-3)|$ — puts it at $x = -3$.',
+    ],
+  },
+  {
+    type: 'text',
+    content: "Matching an equation to a graph? Locate the corner first — it fixes $h$ and $k$ immediately, and the steepness and direction of the arms then determine $a$.",
   },
   {
     type: 'example',
@@ -75,7 +127,15 @@ export const inequalitiesBlocks = [
   { type: 'heading', content: 'Two-variable inequalities: half-planes and test points' },
   {
     type: 'text',
-    content: "The solution of $y \\le 2x + 1$ is not a number but a region: the line $y = 2x + 1$ together with everything on one side of it. To determine which side, **test a single convenient point**, typically $(0, 0)$. The boundary line divides the plane in two, and every point on a given side produces the same true-or-false result, so one test settles the entire region. If the test point satisfies the inequality, shade its side; if not, shade the other. For a system, the solution lies where the shaded regions **overlap** — a point qualifies only if it satisfies *every* inequality.",
+    content: "The solution of $y \\le 2x + 1$ isn't a number — it's a region: the line $y = 2x + 1$ together with everything on one side of it.",
+  },
+  {
+    type: 'text',
+    content: "To find which side, **test a single convenient point**, typically $(0, 0)$. The boundary line divides the plane in two, and every point on a given side produces the same true-or-false result, so one test settles the entire region.",
+  },
+  {
+    type: 'text',
+    content: "If the test point satisfies the inequality, shade its side; if not, shade the other. For a system, the solution lies where the shaded regions **overlap** — a point qualifies only if it satisfies *every* inequality.",
   },
 
   { type: 'heading', content: 'Translating boundary phrases into symbols' },
@@ -91,7 +151,23 @@ export const inequalitiesBlocks = [
   },
   {
     type: 'text',
-    content: "When the answer must be a whole number — buses, tickets, crates — round toward the side that satisfies the constraint: **up** for a minimum, **down** for a maximum. This is not round-to-nearest; the constraint determines the direction. If a task requires $x \\ge 14.2$ boxes, the answer is $15$, because $14$ is insufficient. Rounding in the wrong direction reports a number that fails the stated requirement, and wrong answer choices are routinely constructed from exactly that misstep.",
+    content: "When the answer has to be a whole number — buses, tickets, crates — round toward the side that satisfies the constraint: **up** for a minimum, **down** for a maximum.",
+  },
+  {
+    type: 'text',
+    content: "This isn't round-to-nearest; the constraint sets the direction. If a task requires $x \\ge 14.2$ boxes, the answer is $15$, because $14$ falls short. Round the wrong way and the reported number fails the stated requirement — wrong answer choices are built from exactly that misstep.",
+  },
+
+  {
+    type: 'steps',
+    title: 'How to approach these questions',
+    items: [
+      '**Solve like an equation.** Every isolation technique carries over unchanged.',
+      '**Reverse on negative scaling.** Multiplying or dividing by a negative flips the symbol; adding and subtracting never do. In a compound inequality, operate on all three parts.',
+      '**Read absolute value as distance.** $|x - c| < r$ is one interval around $c$; $|x - c| > r$ is two rays.',
+      '**Translate boundary words precisely.** At least / at most include the boundary; more than / fewer than exclude it — and round whole-number answers toward the side that satisfies the constraint.',
+      '**Check with one number.** Substitute a value from your solution set into the original inequality to confirm the direction.',
+    ],
   },
 
   { type: 'heading', content: 'Worked examples' },
@@ -102,7 +178,7 @@ export const inequalitiesBlocks = [
     steps: [
       { label: 'Subtract 9', content: "$-4x > 12$. Subtraction never reverses the symbol." },
       { label: 'Divide by $-4$ and reverse', content: "Dividing by a negative reverses $>$ to $<$: $x < -3$." },
-      { label: 'Check', content: "Substitute $x = -5$: $-4(-5) + 9 = 29 > 21$, true. Answer **(B)**. Choice (A) is the same boundary with the reversal omitted — the standard distractor for this step." },
+      { label: 'Check', content: "Substitute $x = -5$: $-4(-5) + 9 = 29 > 21$, true. Answer **(B)**. Choice (A) is the same boundary with the reversal skipped — the standard distractor for this step." },
     ],
   },
   {
@@ -140,7 +216,7 @@ export const inequalitiesBlocks = [
   {
     type: 'checkpointQuestion',
     question: 'Solve $-\\dfrac{x}{2} + 1 \\ge 4$. What is the solution set?',
-    answer: "**$x \\le -6$.** Subtract $1$: $-\\frac{x}{2} \\ge 3$. Multiply both sides by $-2$ and **reverse the symbol**: $x \\le -6$. Check $x = -10$: $5 + 1 = 6 \\ge 4$, true — the direction is confirmed.",
+    answer: "**$x \\le -6$.** Subtract $1$: $-\\frac{x}{2} \\ge 3$. Multiply both sides by $-2$ and **reverse the symbol**: $x \\le -6$. Check $x = -10$: $5 + 1 = 6 \\ge 4$, true — the direction holds.",
   },
   {
     type: 'checkpointQuestion',
@@ -154,7 +230,15 @@ export const inequalitiesBlocks = [
   },
 
   {
-    type: 'text',
-    content: "**In summary:** solve as with an equation, reversing the symbol only on a negative multiplication or division; apply every operation to all three parts of a compound inequality; read $|x - c|$ as distance from $c$; test one point to select the shaded side; and match boundary phrases to $\\ge / \\le / > / <$. The graph of $y = a|x - h| + k$ is a V with its vertex at $(h, k)$ and arm slopes $\\pm a$. Substituting one number from the result verifies the direction.",
+    type: 'list',
+    title: '**The rules in one place:**',
+    items: [
+      'Solve as with an equation; reverse the symbol only on a negative multiplication or division.',
+      'Apply every operation to all three parts of a compound inequality.',
+      'Read $|x - c|$ as distance from $c$: $< r$ is one interval, $> r$ is two rays.',
+      "Test one point to select the shaded side; a system's solution is the overlap.",
+      'Match boundary phrases to $\\ge / \\le / > / <$, and round toward the side that satisfies the constraint.',
+      'The graph of $y = a|x - h| + k$ is a V with vertex $(h, k)$ and arm slopes $\\pm a$ — and substituting one number from the result verifies the direction.',
+    ],
   },
 ];

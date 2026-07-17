@@ -1,12 +1,10 @@
 /**
  * Learn lesson body — Scatterplots & Data Models (Two-Variable Data).
  *
- * VOICE (adopted 2026-07-15, exemplar: mLinearEquations.js): professional
- * textbook narrative — teaches directly in flowing prose (concept, why it
- * works, how to apply, common errors) in the measured register of a
- * well-edited textbook. Concrete contexts framed plainly as examples;
- * extended metaphors, cute headings, and pep-talk are out. Headings name
- * the concept. Gated by bodies.test.js.
+ * VOICE v3 (adopted 2026-07-17, exemplar: bodies/centralIdeas.js): scannable
+ * instructional register — direct address, contractions, 1-3 sentence text
+ * blocks, list blocks for criteria, steps blocks for procedures; no analogies,
+ * no pep-talk, no emojis. All substance of the v2 textbook version preserved.
  *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
@@ -15,18 +13,44 @@
 export const twoVariableDataBlocks = [
   {
     type: 'text',
-    content: "The measures of the previous chapter summarize one variable at a time; a scatterplot sets two variables against each other, one observation per point. It presents two distinct objects, and the entire skill lies in keeping them straight: **the dots are data — what actually happened; the line is a model — a summary constructed afterward.** Determining which object a question concerns, before anything else, resolves most questions in this family.",
+    content: "The last chapter summarized one variable at a time. A scatterplot sets two variables against each other — one point per observation.",
   },
-
   {
     type: 'text',
-    content: "Read the frame before any dot: both axis labels, *units included*. One dot represents one observation — on a plot of study hours vs. score, the dot at $(5, 62)$ is one student who studied 5 hours and scored 62. If an axis reads \"population (thousands),\" a gridline at 40 means 40{,}000. The printed number does not give the quantity until the unit is applied, and overlooked axis units are a routine source of missed questions.",
+    content: "Every plot holds two distinct objects, and the entire skill is keeping them straight:",
   },
-
-  { type: 'heading', content: 'The line of best fit summarizes the data' },
+  {
+    type: 'list',
+    items: [
+      '**The dots are data** — what actually happened.',
+      '**The line is a model** — a summary constructed afterward.',
+    ],
+  },
   {
     type: 'text',
-    content: "A **line of best fit** balances the cloud of points: dots above it offset dots below it. It does *not* connect the points — a well-fitted line can pass through none of them. Its purpose is to compress the trend into one clean equation, which is why a dot lying off the line does not make the line \"wrong.\" It is also a genuine line — slope, intercept, equation, everything from algebra — so questions about the line are answered from that equation, not from the dots.",
+    content: "Decide which object a question concerns before anything else. That one call resolves most questions in this family.",
+  },
+  {
+    type: 'text',
+    content: "And read the frame before any dot: both axis labels, *units included*. One dot represents one observation — on a plot of study hours vs. score, the dot at $(5, 62)$ is one student who studied 5 hours and scored 62.",
+  },
+  {
+    type: 'text',
+    content: "If an axis reads \"population (thousands),\" a gridline at 40 means 40{,}000. The printed number isn't the quantity until the unit is applied, and overlooked axis units sink otherwise easy questions.",
+  },
+
+  { type: 'heading', content: 'What the line of best fit does' },
+  {
+    type: 'text',
+    content: "A **line of best fit** balances the cloud of points: dots above it offset dots below it. It does *not* connect the points — a well-fitted line can pass through none of them.",
+  },
+  {
+    type: 'text',
+    content: "Its job is to compress the trend into one clean equation. That's why a dot lying off the line doesn't make the line \"wrong.\"",
+  },
+  {
+    type: 'text',
+    content: "It's also a genuine line — slope, intercept, equation, everything from algebra. Questions about the line get answered from that equation, not from the dots.",
   },
   {
     type: 'keyInsight',
@@ -36,7 +60,15 @@ export const twoVariableDataBlocks = [
   { type: 'heading', content: 'Predicted vs. actual: the vertical gap' },
   {
     type: 'text',
-    content: "The **predicted** value at some x is the *line's* height there. The **actual** value is the *dot's* height. The error is the gap between them, measured **vertically** — never horizontally. This signed difference, actual minus predicted, is called the **residual**. The direction of the language is the standard source of error here: a dot *above* the line means the actual value exceeded the prediction, so the model **underestimates** there; below the line, it **overestimates**. \"Over\" and \"under\" describe the *model's prediction*, not the dot's position — fix that referent before answering.",
+    content: "The **predicted** value at some x is the *line's* height there. The **actual** value is the *dot's* height. The error is the gap between them, measured **vertically** — never horizontally.",
+  },
+  {
+    type: 'text',
+    content: "This signed difference, actual minus predicted, is called the **residual**.",
+  },
+  {
+    type: 'text',
+    content: "The direction language is where these questions bite. A dot *above* the line means the actual value beat the prediction, so the model **underestimates** there; below the line, it **overestimates**. \"Over\" and \"under\" describe the *model's prediction*, not the dot's position — fix that referent before answering.",
   },
   {
     type: 'formula',
@@ -45,16 +77,37 @@ export const twoVariableDataBlocks = [
     note: 'Dot above the line → positive error → the model predicted low (underestimate). Below → predicted high (overestimate).',
   },
 
-  { type: 'heading', content: 'Slope of the fit line: use points on the line' },
+  { type: 'heading', content: 'Slope of the fit line' },
   {
     type: 'text',
-    content: "The fit line is a line, so its slope is $\\dfrac{y_2 - y_1}{x_2 - x_1}$ — but both points must be taken **from the line itself**, at gridline crossings, spaced as far apart as possible. Never use two data dots: wrong answer choices are routinely computed from exactly such a dot pair. Then report the slope per **one x-unit** — per year, even when the plotted points sit 4 years apart — and phrase interpretations as *predictions*: \"predicted,\" \"on average,\" never as facts about individual data points.",
+    content: "The fit line is a line, so its slope is $\\dfrac{y_2 - y_1}{x_2 - x_1}$. The care is in where the two points come from — and in how the slope gets reported.",
+  },
+  {
+    type: 'steps',
+    title: 'Finding and interpreting the slope',
+    items: [
+      "**Take both points from the line itself.** Pick gridline crossings, spaced as far apart as possible. Never use two data dots — wrong answer choices are routinely computed from exactly such a pair.",
+      "**Compute rise over run** from those two line points.",
+      "**Report the slope per one x-unit.** Per year — even when the plotted points sit 4 years apart.",
+      "**Phrase interpretations as predictions.** \"Predicted,\" \"on average\" — never as facts about individual data points.",
+    ],
   },
 
   { type: 'heading', content: 'Linear vs. exponential models' },
   {
     type: 'text',
-    content: "When a question asks which *kind* of model fits, one distinction sorts every change-over-time situation: whether each step changes the quantity by the same *amount* or by the same *multiple*. A $\\$5$ raise every year is **linear** — a constant **difference** between consecutive values, producing a straight line. A $5\\%$ raise every year is **exponential** — a constant **ratio**, producing a curve that compounds on a moving base. The two look similar for a step or two, then diverge sharply, because the exponential grows from an ever-larger base while the linear adds the same amount each step.",
+    content: "When a question asks which *kind* of model fits, one distinction sorts every change-over-time situation: does each step change the quantity by the same *amount*, or by the same *multiple*?",
+  },
+  {
+    type: 'list',
+    items: [
+      "A $\\$5$ raise every year is **linear** — a constant **difference** between consecutive values, producing a straight line.",
+      "A $5\\%$ raise every year is **exponential** — a constant **ratio**, producing a curve that compounds on a moving base.",
+    ],
+  },
+  {
+    type: 'text',
+    content: "The two look similar for a step or two, then diverge sharply: the exponential grows from an ever-larger base, while the linear adds the same amount each step.",
   },
   {
     type: 'formulaGrid',
@@ -65,21 +118,56 @@ export const twoVariableDataBlocks = [
   },
   {
     type: 'tip',
-    content: "Percent wording requires care. \"4% of the *current* balance\" describes a moving base — exponential. \"4% of the *initial* deposit\" describes the same dollar amount every year — linear, despite the percent phrasing. From a table: subtract consecutive values (constant difference → linear), then divide them (constant ratio → exponential).",
+    content: "Percent wording deserves a second read. \"4% of the *current* balance\" is a moving base — exponential. \"4% of the *initial* deposit\" is the same dollar amount every year — linear, despite the percent phrasing. From a table: subtract consecutive values (constant difference → linear), then divide them (constant ratio → exponential).",
   },
 
-  { type: 'heading', content: 'Reading data displays under time pressure' },
+  { type: 'heading', content: 'Reading data displays' },
   {
     type: 'text',
-    content: "Charts of a quantity over time invite one persistent confusion: **level** versus **change**. The highest point on the graph is the largest *value*; the fastest growth is the *steepest climb*, and the two rarely coincide. A question asking where sales *grew the most* concerns the jump from one reading to the next; a question asking where sales *were greatest* concerns a single reading. Match the question's verb to the right feature before scanning the figure.",
+    content: "Charts of a quantity over time invite one persistent confusion: **level** versus **change**. The highest point on the graph is the largest *value*; the fastest growth is the *steepest climb* — and the two rarely coincide.",
   },
   {
     type: 'text',
-    content: "Comparing growth across intervals of *different widths* requires a rate, not a raw rise. The average rate of change over an interval is the slope of the segment connecting its endpoints, $\\frac{\\Delta y}{\\Delta x}$ — and a larger total rise over a much wider interval can still be the slower rate. Divide every candidate's rise by its own run; raw rises are comparable only when the runs happen to be equal.",
+    content: "So match the question's verb to the right feature. Where sales *grew the most* concerns the jump from one reading to the next; where sales *were greatest* concerns a single reading.",
   },
   {
     type: 'text',
-    content: "Graphs that tell a story — typically *distance from home* against time — read by segments: a rising segment is motion away, a falling segment is motion back toward the start, and a flat segment is a stop. The graph's height at any moment is the *net* distance from the start, so a walker who returns home finishes at height $0$ regardless of how far she traveled; the *total* distance adds the sizes of every rise and fall. On a chart with several data series, the legend is part of the data — identify which series the question names before reading any value, since pulling a number from the neighboring line is the routine error on multi-series items.",
+    content: "Comparing growth across intervals of *different widths* takes a rate, not a raw rise. The average rate of change over an interval is the slope between its endpoints, $\\frac{\\Delta y}{\\Delta x}$ — and a larger total rise over a much wider interval can still be the slower rate.",
+  },
+  {
+    type: 'text',
+    content: "Divide every candidate's rise by its own run. Raw rises compare fairly only when the runs happen to be equal.",
+  },
+  {
+    type: 'text',
+    content: "Graphs that tell a story — typically *distance from home* against time — read by segments:",
+  },
+  {
+    type: 'list',
+    items: [
+      'A rising segment is motion away from the start.',
+      'A falling segment is motion back toward it.',
+      'A flat segment is a stop.',
+    ],
+  },
+  {
+    type: 'text',
+    content: "The graph's height at any moment is the *net* distance from the start — a walker who returns home finishes at height $0$ no matter how far she traveled. The *total* distance adds the sizes of every rise and fall.",
+  },
+  {
+    type: 'text',
+    content: "On a chart with several data series, the legend is part of the data. Identify which series the question names before reading any value — pulling a number from the neighboring line is the routine miss on multi-series items.",
+  },
+
+  { type: 'heading', content: 'How to approach these questions' },
+  {
+    type: 'steps',
+    items: [
+      "**Read the frame.** Both axis labels with their units, plus the legend on multi-series charts.",
+      "**Name the object.** Dot, line, or the vertical gap between them — the question's wording (*actual*, *predicted*, *error*) tells you which.",
+      "**Answer from that object only.** Line questions run on the line's equation; data questions run on the dots.",
+      "**For over/under questions, compute the sign.** $\\text{error} = \\text{actual} - \\text{predicted}$: positive means the model predicted low.",
+    ],
   },
 
   { type: 'heading', content: 'Worked examples' },
@@ -99,7 +187,7 @@ export const twoVariableDataBlocks = [
     problem: 'A line of best fit for car age (x, years) vs. price (y, thousands of dollars) passes through $(1, 27)$ and $(9, 11)$. Which is the best interpretation of its slope?\n\n(A) Each additional year reduces the actual price of every car by \\$2,000.\n(B) For each additional year, the predicted price decreases by about \\$2,000.',
     steps: [
       { label: 'Slope from line points', content: '$(11 - 27)/(9 - 1) = -16/8 = -2$ — a decrease of two thousand dollars per one year.' },
-      { label: 'Evaluate the wording', content: "(A) claims **actual** prices, for *every* car. A fit line does not support that claim — it supports only predicted, on-average language." },
+      { label: 'Evaluate the wording', content: "(A) claims **actual** prices, for *every* car. A fit line doesn't support that claim — it supports only predicted, on-average language." },
       { label: 'Answer', content: '**(B)** — per one year, predicted price, about \\$2,000 lower.' },
     ],
   },
@@ -110,7 +198,7 @@ export const twoVariableDataBlocks = [
     steps: [
       { label: 'Predict with the line', content: "The model's prediction comes from the equation: $\\hat{y} = 3(20) + 12 = 72$ units." },
       { label: 'Compare actual to predicted', content: 'Actual is $80$, above the predicted $72$ — the dot sits above the line.' },
-      { label: 'Determine the direction', content: "Error $= \\text{actual} - \\text{predicted} = 80 - 72 = 8$, positive — the model predicted low, so it **underestimates** by 8 units. A dot above the line means the prediction was too *small*, not too large; that reversal is the point to verify." },
+      { label: 'Determine the direction', content: "Error $= \\text{actual} - \\text{predicted} = 80 - 72 = 8$, positive — the model predicted low, so it **underestimates** by 8 units. A dot above the line means the prediction was too *small*, not too large; that reversal is the thing to double-check." },
     ],
   },
   {
@@ -119,7 +207,7 @@ export const twoVariableDataBlocks = [
     problem: 'A machine\'s resale value at one-year steps is 8000, 6000, 4500, 3375. Which models the value $v$ after $t$ years?\n\n(A) $v = 8000 - 2000t$\n(B) $v = 8000(0.75)^t$',
     steps: [
       { label: 'Test the differences', content: 'Consecutive differences: $-2000, -1500, -1125$. Not constant, so the model is not linear; (A) matches only the first drop.' },
-      { label: 'Test the ratios', content: '$6000/8000 = 0.75$, $4500/6000 = 0.75$, $3375/4500 = 0.75$. A constant ratio indicates an exponential model with factor $0.75$ — the machine retains 75% of its value each year.' },
+      { label: 'Test the ratios', content: '$6000/8000 = 0.75$, $4500/6000 = 0.75$, $3375/4500 = 0.75$. A constant ratio means an exponential model with factor $0.75$ — the machine keeps 75% of its value each year.' },
       { label: 'Answer', content: '**(B)** $v = 8000(0.75)^t$.' },
     ],
   },
@@ -137,7 +225,7 @@ export const twoVariableDataBlocks = [
   {
     type: 'checkpointQuestion',
     question: 'On a scatterplot with a fit line, 4 dots sit above the line, 5 below, and 1 exactly on it. For how many points does the model overestimate?',
-    answer: "**5** — the dots below the line, where the model's prediction lies above the actual value. Overestimate describes the *prediction*, not the dot. The dot on the line is predicted exactly and counts for neither side.",
+    answer: "**5** — the dots below the line, where the model's prediction sits above the actual value. Overestimate describes the *prediction*, not the dot. The dot on the line is predicted exactly and counts for neither side.",
   },
   {
     type: 'checkpointQuestion',
@@ -157,6 +245,6 @@ export const twoVariableDataBlocks = [
 
   {
     type: 'text',
-    content: "**In summary:** identify the object first — dot, line, or the gap between them — and read only that object. The dots record what happened, the line records what the model predicts, and the vertical gap measures the size of the prediction's error.",
+    content: "**In summary:** name the object first — dot, line, or the gap between them — and read only that object. The dots record what happened, the line records what the model predicts, and the vertical gap measures the size of the prediction's error.",
   },
 ];

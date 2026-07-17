@@ -136,6 +136,31 @@
   margin-bottom: 1rem;
 }
 
+.tb-list-wrap {
+  margin-bottom: 1rem;
+}
+
+.tb-list-wrap .tb-list-title {
+  margin-bottom: 0.375rem;
+}
+
+.tb-list {
+  font-family: var(--font-ui);
+  font-size: 1.125rem;
+  line-height: 1.65;
+  color: var(--color-slate-800);
+  margin: 0;
+  padding-left: 1.35rem;
+}
+
+.tb-list li {
+  margin-bottom: 0.375rem;
+}
+
+.tb-list li::marker {
+  color: var(--color-slate-500);
+}
+
 .tb-caption {
   font-size: 0.8125rem;
   font-weight: 600;

@@ -1,12 +1,10 @@
 /**
  * Learn lesson body — Rhetorical Synthesis (Expression of Ideas).
  *
- * VOICE (adopted 2026-07-15, exemplar: mLinearEquations.js): professional
- * textbook narrative — teaches directly in flowing prose (concept, why it
- * works, how to apply, common errors) in the measured register of a
- * well-edited textbook. Concrete contexts framed plainly as examples;
- * extended metaphors, cute headings, and pep-talk are out. Headings name
- * the concept. Gated by bodies.test.js.
+ * VOICE v3 (adopted 2026-07-17, exemplar: bodies/centralIdeas.js): scannable
+ * instructional register — direct address, contractions, 1-3 sentence text
+ * blocks, list blocks for criteria, steps blocks for procedures; no analogies,
+ * no pep-talk, no emojis. All substance of the v2 textbook version preserved.
  *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
@@ -15,35 +13,67 @@
 export const gRhetoricalSynthesisBlocks = [
   {
     type: 'text',
-    content: 'Where a transition links two sentences, rhetorical synthesis asks for something larger: a single sentence built to serve a stated purpose. The question presents a set of bullet-point notes, a sentence stating what "the student wants to" accomplish, and four sentences to choose from — and it closes the Reading and Writing sequence by drawing at once on reading for a point, grammatical control, and logical connection. Yet it is also the one question type that states in writing exactly what the correct answer must do, so the entire skill reduces to a single principle: **read the goal first, and treat its wording as the criteria the answer must satisfy.**',
+    content: 'A transition links two sentences. Rhetorical synthesis asks for something larger: a single sentence built to serve a stated purpose.',
   },
-
-  { type: 'heading', content: 'What is actually tested' },
   {
     type: 'text',
-    content: "Every choice is drawn faithfully from the notes, so every choice is *true*. This has an immediate consequence: truth cannot separate the choices, and fact-checking them against the bullets is wasted effort. What separates them is **function** — whether the sentence performs the task the goal specifies. The correct answer is usually the goal itself restated in new words, which means the question supplies its own answer key.",
+    content: 'Each question gives you a set of bullet-point notes, a sentence stating what "the student wants to" accomplish, and four sentences to choose from. It closes the Reading and Writing sequence by drawing on everything at once — reading for a point, grammatical control, logical connection.',
   },
-
-  { type: 'heading', content: 'Reading the goal before the notes' },
   {
     type: 'text',
-    content: "Resist the instinct to read the bullets from top to bottom. Doing so costs time and, worse, fills working memory with true but irrelevant facts that make every choice sound plausible. Begin instead with the goal sentence (\"The student wants to ...\"). The notes are only the raw material the answer was built from; consult them as a tiebreaker between two surviving choices, and often not even then.",
+    content: "It's also the one question type that states in writing exactly what the correct answer must do. The entire skill reduces to a single principle: **read the goal first, and treat its wording as the criteria the answer must satisfy.**",
   },
 
-  { type: 'heading', content: 'Decomposing the goal' },
+  { type: 'heading', content: "What's actually tested" },
   {
     type: 'text',
-    content: 'Break the goal into its components: the **verb** (introduce, emphasize, compare, specify), the **focus** (the exact thing it names), and any **qualifier** (an audience such as "for readers unfamiliar with X," or a relation such as "the similarity between A and B"). The correct answer must satisfy *every* component. The most common error is selecting a choice that satisfies the verb and the focus but omits the qualifier — incorrect choices are routinely constructed from exactly that near-miss.',
+    content: "Every choice is drawn faithfully from the notes, so every choice is *true*. That has an immediate consequence: truth can't separate the choices, and fact-checking them against the bullets is wasted effort.",
+  },
+  {
+    type: 'text',
+    content: "What separates them is **function** — whether the sentence performs the task the goal specifies. The credited answer is usually the goal itself restated in new words, which means the question supplies its own answer key.",
+  },
+
+  { type: 'heading', content: 'Read the goal before the notes' },
+  {
+    type: 'text',
+    content: "Resist the instinct to read the bullets top to bottom. That costs time and, worse, fills your working memory with true-but-irrelevant facts that make every choice sound plausible.",
+  },
+  {
+    type: 'text',
+    content: 'Start with the goal sentence instead ("The student wants to ..."). The notes are only the raw material the answer was built from — consult them as a tiebreaker between two surviving choices, and often not even then.',
+  },
+
+  { type: 'heading', content: 'Break the goal into parts' },
+  {
+    type: 'text',
+    content: 'Break the goal into its components — the correct answer must satisfy *every one* of them:',
+  },
+  {
+    type: 'list',
+    items: [
+      'the **verb** — introduce, emphasize, compare, specify',
+      'the **focus** — the exact thing the goal names',
+      'any **qualifier** — an audience such as "for readers unfamiliar with X," or a relation such as "the similarity between A and B"',
+    ],
+  },
+  {
+    type: 'text',
+    content: 'The most frequent miss: a choice that satisfies the verb and the focus but drops the qualifier. Wrong choices are routinely built from exactly that near-miss.',
   },
   {
     type: 'keyInsight',
-    content: 'Treat the goal as a set of criteria, not a general impression. A choice that satisfies part of the goal and sounds complete is the standard near-miss. Verify every component before committing to an answer.',
+    content: 'Treat the goal as a set of criteria, not a general impression. A choice that satisfies part of the goal and sounds complete is the standard near-miss — verify every component before committing.',
   },
 
-  { type: 'heading', content: 'Matching goal types to answer features' },
+  { type: 'heading', content: 'Match the goal type to a surface feature' },
   {
     type: 'text',
-    content: "Each goal type imposes a characteristic surface feature that the correct answer must display. Predict that feature from the goal, then scan the choices for it before reading any choice in full. At that point the task is identifying a marker, not weighing prose.",
+    content: "Each goal type forces a characteristic surface feature the correct answer has to display. Predict that feature from the goal, then scan the choices for it before reading any choice in full.",
+  },
+  {
+    type: 'text',
+    content: "At that point you're identifying a marker, not weighing prose.",
   },
   {
     type: 'table',
@@ -54,6 +84,18 @@ export const gRhetoricalSynthesisBlocks = [
       ['for an audience already familiar with X', 'omit background — a choice that re-explains familiar material is incorrect for this goal'],
       ['introduce the aim / goal of a study', 'state what researchers **set out to learn**, not what they found'],
       ['emphasize the range / variety of X', 'name **several** kinds — a single vivid example does not satisfy the goal'],
+    ],
+  },
+
+  { type: 'heading', content: 'How to approach these questions' },
+  {
+    type: 'steps',
+    items: [
+      '**Read the goal first.** Skip the bullets — go straight to "The student wants to ...".',
+      '**Break it into verb, focus, and qualifier.** The answer has to satisfy all three.',
+      '**Predict the surface feature.** A comparison word, background for a newcomer, intent framing — the goal tells you what to look for.',
+      '**Scan the choices for that feature.** Cut every choice that lacks it, however true it sounds.',
+      '**Confirm every component.** Return to the notes only to break a tie between two survivors.',
     ],
   },
 
@@ -75,7 +117,7 @@ export const gRhetoricalSynthesisBlocks = [
     steps: [
       { label: 'Decompose the goal', content: 'Verb = *introduce*, focus = *Ada Lovelace*, qualifier = *readers unfamiliar with her*. The qualifier requires the answer to supply **background** — who she is.' },
       { label: 'Test the qualifier', content: '(A) and (B) assume prior knowledge of Lovelace — neither performs an introduction. Only (C) names her and tells an unfamiliar reader *what she is* (a 19th-century mathematician) and *what she did*.' },
-      { label: 'Confirm the match', content: "**(C)** — it joins identity (full name and role) to the focus. The background clause is not padding; the qualifier makes it mandatory." },
+      { label: 'Confirm the match', content: "**(C)** — it joins identity (full name and role) to the focus. The background clause isn't padding; the qualifier makes it mandatory." },
     ],
   },
   {
@@ -84,11 +126,10 @@ export const gRhetoricalSynthesisBlocks = [
     problem: 'Notes:\n- Both maple and pine trees grow across North America.\n- Maples drop their leaves each autumn.\n- Pines keep their needles all year.\n- Both provide shelter for birds.\n\nGoal: The student wants to emphasize a difference between maples and pines. Which choice best accomplishes this?\n\n(A) Both maples and pines grow across North America and shelter birds.\n(B) Maples and pines are two common types of North American trees.\n(C) Unlike pines, which keep their needles year-round, maples drop their leaves each autumn.',
     steps: [
       { label: 'Predict the required feature', content: 'The goal says *emphasize a difference*, so the answer must contain a **difference marker** — it has to assert how the two trees actually differ.' },
-      { label: 'Test each choice', content: '(A) and (B) both *mention* maples and pines together, but neither states a difference. This is the standard error pattern on comparison goals: naming both items without relating them. Co-mention is not comparison.' },
+      { label: 'Test each choice', content: '(A) and (B) both *mention* maples and pines together, but neither states a difference. That is the standard error pattern on comparison goals: naming both items without relating them. Co-mention is not comparison.' },
       { label: 'Confirm the match', content: '**(C)** — "Unlike ... year-round ... each autumn" states the contrast outright. The marker word performs the task the goal assigns.' },
     ],
   },
-
   {
     type: 'example',
     difficulty: 'Medium',
@@ -114,11 +155,11 @@ export const gRhetoricalSynthesisBlocks = [
   {
     type: 'checkpointQuestion',
     question: 'A goal says: "introduce the painter Lena Ruiz to readers already familiar with her work." One choice opens "Lena Ruiz, a painter born in 1970, ..."; another says "Ruiz\'s later murals grew steadily more abstract." Which fits the goal?',
-    answer: '**The second one.** These readers already know Ruiz, so background — full identity, birth year, "a painter" — is unnecessary, and re-explaining familiar material is the characteristic mark of a wrong answer on a *familiar-audience* goal. The correct choice omits the introduction and advances a specific point.',
+    answer: '**The second one.** These readers already know Ruiz, so background — full identity, birth year, "a painter" — is unnecessary, and re-explaining familiar material is the characteristic mark of a wrong answer on a *familiar-audience* goal. The correct choice skips the introduction and advances a specific point.',
   },
 
   {
     type: 'text',
-    content: "**In summary:** read the goal before the notes; break it into verb, focus, and qualifier; predict the surface feature the answer must display; scan the choices for that feature; and select the choice that satisfies every component. Once this routine is established, these questions are among the fastest on the module.",
+    content: "**The whole skill in one routine:** read the goal before the notes; break it into verb, focus, and qualifier; predict the surface feature the answer must display; scan the choices for that feature; and pick the choice that satisfies every component. Once the routine settles in, these are among the fastest questions on the module.",
   },
 ];

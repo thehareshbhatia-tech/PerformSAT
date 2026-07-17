@@ -48,6 +48,17 @@ const BlockRenderers = {
     </p>
   ),
 
+  list: (block, idx) => (
+    <div key={idx} className="tb-list-wrap">
+      {block.title && <p className="tb-body tb-list-title">{renderRichText(block.title)}</p>}
+      <ul className="tb-list">
+        {block.items.map((item, li) => (
+          <li key={li}>{renderRichText(item)}</li>
+        ))}
+      </ul>
+    </div>
+  ),
+
   formula: (block, idx) => (
     <figure key={idx} className="tb-formula">
       {block.label && <figcaption className="tb-formula-label">{block.label}</figcaption>}

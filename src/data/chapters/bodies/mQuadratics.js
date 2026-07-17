@@ -1,12 +1,11 @@
 /**
  * Learn lesson body — Quadratic Functions & Equations (Advanced Math).
  *
- * VOICE (adopted 2026-07-15, exemplar: mLinearEquations.js): professional
- * textbook narrative — teaches directly in flowing prose (concept, why it
- * works, how to apply, common errors) in the measured register of a
- * well-edited textbook. Concrete contexts framed plainly as examples;
- * extended metaphors, cute headings, and pep-talk are out. Headings name
- * the concept. Gated by bodies.test.js.
+ * VOICE v3 (adopted 2026-07-17, exemplar: bodies/centralIdeas.js): scannable
+ * instructional register — direct address, contractions, 1-3 sentence text
+ * blocks, list blocks for criteria, steps blocks for procedures; no analogies,
+ * no pep-talk, no emojis. All substance of the v2 textbook version preserved.
+ * Gated by bodies.test.js.
  *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
@@ -15,51 +14,98 @@
 export const mQuadraticsBlocks = [
   {
     type: 'text',
-    content: "The factoring templates just assembled pay off immediately: a quadratic equation is where rewriting becomes solving, since a factored quadratic set equal to zero reads its solutions off directly. The costliest habit on quadratics is committing to a single method — always factoring, or always applying the quadratic formula — and grinding through a problem that a quicker route would settle in seconds. The efficient route is usually visible on the page itself. Two principles organize this topic: **let the answer choices determine the method**, and read the parabola's features directly from whichever form the equation is given in.",
+    content: "The factoring templates you just built pay off immediately: a quadratic equation is where rewriting becomes solving, because a factored quadratic set equal to zero reads its solutions off directly.",
+  },
+  {
+    type: 'text',
+    content: "The costliest habit on quadratics is committing to a single method — always factoring, or always the quadratic formula — and grinding through a problem a quicker route would settle in seconds. The efficient route is usually visible on the page itself.",
+  },
+  {
+    type: 'text',
+    content: "Two principles organize this topic: **let the answer choices pick the method**, and read the parabola's features straight from whichever form the equation is given in.",
   },
 
   { type: 'heading', content: 'Choosing a method' },
   {
     type: 'text',
-    content: "Before any algebra, inspect the answer choices — they indicate which method applies. **Whole-number choices → the quadratic factors.** **Radicals such as $3\\pm\\sqrt5$ → factoring will fail; use the quadratic formula.** **A question asking for the sum or product of the solutions → do not solve at all; the coefficient relations read the answer directly.** **Awkward decimals or a coordinate → graph the equation in Desmos.** This brief inspection saves more time than any individual technique.",
+    content: "Before any algebra, look at the answer choices — they tell you which method applies.",
+  },
+  {
+    type: 'list',
+    title: 'What the choices signal:',
+    items: [
+      '**Whole-number choices** — the quadratic factors.',
+      '**Radicals such as $3\\pm\\sqrt5$** — factoring will fail; use the quadratic formula.',
+      "**A question asking for the sum or product of the solutions** — don't solve at all; the coefficient relations read the answer directly.",
+      '**Awkward decimals or a coordinate** — graph the equation in Desmos.',
+    ],
+  },
+  {
+    type: 'text',
+    content: "This brief inspection saves more time than any individual technique.",
   },
 
   { type: 'heading', content: 'Zeros = roots = x-intercepts = factors' },
   {
     type: 'text',
-    content: "Zeros, roots, x-intercepts, solutions — four terms for one object: an input that makes the quadratic equal $0$. Questions routinely mix the vocabulary — a stem may ask for \"zeros\" while the graph is labeled with \"x-intercepts\" — and treating the words as four separate ideas creates hesitation where none is needed. They are synonyms. If $(x-3)(x+2)=0$, one factor must equal $0$, so $x=3$ or $x=-2$. Note the sign reversal: the root is the value that makes its factor zero, so $(x+2)$ vanishes at $x=-2$, not $+2$.",
+    content: "Zeros, roots, x-intercepts, solutions — four names for one object: an input that makes the quadratic equal $0$.",
+  },
+  {
+    type: 'text',
+    content: "Questions mix the vocabulary freely — a stem may ask for \"zeros\" while the graph is labeled with \"x-intercepts.\" They're synonyms, and treating them as four separate ideas creates hesitation where none is needed.",
+  },
+  {
+    type: 'text',
+    content: "If $(x-3)(x+2)=0$, one factor must equal $0$, so $x=3$ or $x=-2$. Watch the sign reversal: the root is the value that makes its factor zero, so $(x+2)$ vanishes at $x=-2$, not $+2$.",
   },
   {
     type: 'keyInsight',
-    content: "A product equals $0$ only when one of its factors equals $0$. This is why every term is moved to one side before factoring — $0$ is the only value that forces a conclusion about an individual factor.",
+    content: "A product equals $0$ only when one of its factors equals $0$. That's why every term moves to one side before factoring — $0$ is the only value that forces a conclusion about an individual factor.",
   },
 
   { type: 'heading', content: 'Solving by factoring' },
   {
     type: 'text',
-    content: "For $x^2+bx+c=0$, find two numbers that **add to $b$** and **multiply to $c$**. Reversing their signs gives the roots. The signs narrow the search before it begins: if $c$ is positive, both numbers share the sign of $b$; if $c$ is negative, one is positive and one is negative.",
+    content: "For $x^2+bx+c=0$, find two numbers that **add to $b$** and **multiply to $c$**. Reversing their signs gives the roots.",
+  },
+  {
+    type: 'list',
+    title: 'The signs narrow the search before it starts:',
+    items: [
+      'If $c$ is positive, both numbers share the sign of $b$.',
+      'If $c$ is negative, one is positive and one is negative.',
+    ],
   },
   {
     type: 'example',
     difficulty: 'Easy',
     problem: 'Solve $x^2 - x - 6 = 0$.',
     steps: [
-      { label: 'Identify the sum and product', content: 'Two numbers are needed that add to $-1$ and multiply to $-6$.' },
+      { label: 'Identify the sum and product', content: 'We need two numbers that add to $-1$ and multiply to $-6$.' },
       { label: 'Find the pair', content: '$-3$ and $2$: $(-3)+2=-1$ and $(-3)(2)=-6$.' },
       { label: 'Write the factors', content: '$(x-3)(x+2)=0$.' },
       { label: 'Reverse the signs', content: 'Each factor is zero at its root: $x=3$ and $x=-2$.' },
     ],
   },
   {
+    type: 'steps',
+    title: "When the leading coefficient isn't 1",
+    items: [
+      "**Multiply $a \\cdot c$.** The search runs through that product rather than $c$ alone: find two numbers that multiply to $a \\cdot c$ and add to $b$.",
+      '**Split the middle term** into those two pieces.',
+      '**Factor by grouping.**',
+    ],
+  },
+  {
     type: 'text',
-    content: "When the leading coefficient is not $1$, the search runs through the product $a \\cdot c$ rather than $c$ alone: find two numbers that **multiply to $a \\cdot c$** and **add to $b$**, split the middle term into those two pieces, and factor by grouping. One caution carries over from the $a=1$ case with a twist — the number pair no longer reverses signs into the roots directly. The roots come from the finished factors, not from the pair.",
+    content: "One caution carries over from the $a=1$ case with a twist — the number pair no longer reverses signs into the roots directly. The roots come from the finished factors, not from the pair.",
   },
   {
     type: 'example',
     difficulty: 'Medium',
     problem: 'Solve $2x^2 + 7x - 4 = 0$.',
     steps: [
-      { label: 'Multiply a and c', content: '$a \\cdot c = 2(-4) = -8$. Two numbers are needed that multiply to $-8$ and add to $7$.' },
+      { label: 'Multiply a and c', content: '$a \\cdot c = 2(-4) = -8$. We need two numbers that multiply to $-8$ and add to $7$.' },
       { label: 'Find the pair and split the middle term', content: '$8$ and $-1$: rewrite $7x$ as $8x - x$, giving $2x^2 + 8x - x - 4 = 0$.' },
       { label: 'Factor by grouping', content: '$2x(x+4) - 1(x+4) = 0$, and the shared factor collects: $(x+4)(2x-1) = 0$.' },
       { label: 'Solve each factor', content: '$x = -4$ or $x = \\dfrac{1}{2}$. The root $\\frac{1}{2}$ is not the reversed pair-number $-1$ — with $a \\ne 1$, each root is the value that makes its factor zero, and nothing shorter.' },
@@ -67,40 +113,72 @@ export const mQuadraticsBlocks = [
   },
   {
     type: 'text',
-    content: "When the constant term is absent, $x$ itself is a common factor and the equation factors immediately: $3x^2 - 12x = 0$ becomes $3x(x - 4) = 0$, so $x = 0$ or $x = 4$. The tempting shortcut — dividing both sides by $x$ — is invalid at exactly one value, $x = 0$, and that value is one of the solutions. Dividing discards it silently; factoring the $x$ out keeps it as an ordinary root.",
+    content: "When the constant term is missing, $x$ itself is a common factor and the equation factors immediately: $3x^2 - 12x = 0$ becomes $3x(x - 4) = 0$, so $x = 0$ or $x = 4$.",
+  },
+  {
+    type: 'text',
+    content: "The tempting shortcut — dividing both sides by $x$ — is invalid at exactly one value, $x = 0$, and that value is one of the solutions. Dividing discards it silently; factoring the $x$ out keeps it as an ordinary root.",
   },
 
   { type: 'heading', content: 'The quadratic formula' },
   {
     type: 'text',
-    content: "When no integer pair fits — the sum-and-product search comes up empty, or the answer choices carry radicals such as $3\\pm\\sqrt5$ — the quadratic formula solves any quadratic directly from its coefficients. Radical answer choices are the clearest signal: irrational roots mean the quadratic does not factor over the integers, and time spent hunting for a pair is wasted. Put the equation in standard form $ax^2+bx+c=0$ first; the formula reads $a$, $b$, and $c$ from that form and no other.",
+    content: "When no integer pair fits — the sum-and-product search comes up empty, or the answer choices carry radicals such as $3\\pm\\sqrt5$ — the quadratic formula solves any quadratic straight from its coefficients.",
+  },
+  {
+    type: 'text',
+    content: "Radical answer choices are the clearest signal: irrational roots mean the quadratic doesn't factor over the integers, and time spent hunting for a pair is wasted.",
+  },
+  {
+    type: 'text',
+    content: "Put the equation in standard form $ax^2+bx+c=0$ first. The formula reads $a$, $b$, and $c$ from that form and no other.",
   },
   {
     type: 'formula',
     label: 'The quadratic formula',
     content: '$x = \\dfrac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$',
-    note: 'The expression under the radical is the discriminant, the same $b^2 - 4ac$ that counts the solutions. When it is a perfect square the roots are rational and the quadratic would also have factored; when it is not, the formula is the only algebraic route.',
+    note: "The expression under the radical is the discriminant, the same $b^2 - 4ac$ that counts the solutions. When it's a perfect square the roots are rational and the quadratic would also have factored; when it isn't, the formula is the only algebraic route.",
+  },
+  {
+    type: 'list',
+    title: 'Two substitution errors account for most wrong answers:',
+    items: [
+      'The leading $-b$ negates the coefficient **with its sign**: when $b = -6$, the numerator starts $-(-6) = 6$, not $-6$.',
+      'The denominator $2a$ divides the **entire numerator** — the $-b$ term and the radical together, not the radical alone.',
+    ],
   },
   {
     type: 'text',
-    content: "Two substitution errors account for most wrong answers here. First, the leading $-b$ negates the coefficient **with its sign**: when $b = -6$, the numerator begins $-(-6) = 6$, not $-6$. Second, the denominator $2a$ divides the **entire numerator** — the $-b$ term and the radical together, not the radical alone. Writing the whole numerator over one fraction bar before simplifying keeps that structure visible.",
+    content: "Writing the whole numerator over one fraction bar before simplifying keeps that structure visible.",
   },
   {
     type: 'example',
     difficulty: 'Medium',
     problem: 'Solve $x^2 - 6x + 4 = 0$.',
     steps: [
-      { label: 'Confirm that factoring fails', content: 'A pair multiplying to $4$ and adding to $-6$ would be needed: $(-1)(-4)$ sums to $-5$, $(-2)(-2)$ sums to $-4$. No integer pair works, so apply the formula with $a=1$, $b=-6$, $c=4$.' },
+      { label: 'Confirm that factoring fails', content: "We'd need a pair multiplying to $4$ and adding to $-6$: $(-1)(-4)$ sums to $-5$, $(-2)(-2)$ sums to $-4$. No integer pair works, so apply the formula with $a=1$, $b=-6$, $c=4$." },
       { label: 'Substitute with signs intact', content: '$x = \\dfrac{-(-6) \\pm \\sqrt{(-6)^2 - 4(1)(4)}}{2(1)} = \\dfrac{6 \\pm \\sqrt{36 - 16}}{2} = \\dfrac{6 \\pm \\sqrt{20}}{2}$. The leading term is $+6$ because $b$ is negative.' },
       { label: 'Simplify the radical', content: '$\\sqrt{20} = \\sqrt{4 \\cdot 5} = 2\\sqrt5$, so $x = \\dfrac{6 \\pm 2\\sqrt5}{2}$.' },
-      { label: 'Divide every term by 2', content: 'Both the $6$ and the $2\\sqrt5$ are divided: $x = 3 \\pm \\sqrt5$. Dividing only the $6$ gives $3 \\pm 2\\sqrt5$ — a standard wrong answer choice built from exactly that slip.' },
+      { label: 'Divide every term by 2', content: 'Both the $6$ and the $2\\sqrt5$ get divided: $x = 3 \\pm \\sqrt5$. Dividing only the $6$ gives $3 \\pm 2\\sqrt5$ — a standard wrong answer choice built from exactly that slip.' },
     ],
   },
 
   { type: 'heading', content: 'Completing the square' },
   {
     type: 'text',
-    content: "Completing the square rewrites $x^2 + bx$ as a perfect square plus a correction, and rests on one identity: $\\left(x + \\frac{b}{2}\\right)^2 = x^2 + bx + \\frac{b^2}{4}$. The move is mechanical — **halve the coefficient of $x$, then square the result** — and adding and subtracting that square leaves the expression's value unchanged: $x^2 + bx = \\left(x + \\frac{b}{2}\\right)^2 - \\frac{b^2}{4}$. Applied to a full quadratic, the technique converts standard form to vertex form, which displays the vertex directly.",
+    content: "Completing the square rewrites $x^2 + bx$ as a perfect square plus a correction. It rests on one identity: $\\left(x + \\frac{b}{2}\\right)^2 = x^2 + bx + \\frac{b^2}{4}$.",
+  },
+  {
+    type: 'steps',
+    title: 'The move is mechanical',
+    items: [
+      '**Halve the coefficient of $x$, then square the result.**',
+      "**Add and subtract that square.** The expression's value doesn't change: $x^2 + bx = \\left(x + \\frac{b}{2}\\right)^2 - \\frac{b^2}{4}$.",
+    ],
+  },
+  {
+    type: 'text',
+    content: "Applied to a full quadratic, the technique converts standard form to vertex form — which displays the vertex directly.",
   },
   {
     type: 'example',
@@ -115,13 +193,17 @@ export const mQuadraticsBlocks = [
   },
   {
     type: 'text',
-    content: "The same halve-and-square move reads a circle's equation. A circle given as $x^2 + y^2 - 6x + 4y = 3$ conceals its center and radius; completing the square in $x$ and in $y$ separately gives $(x - 3)^2 + (y + 2)^2 = 16$ — center $(3,\\,-2)$, radius $\\sqrt{16} = 4$. One technique serves both question types.",
+    content: "The same halve-and-square move reads a circle's equation. A circle given as $x^2 + y^2 - 6x + 4y = 3$ hides its center and radius; completing the square in $x$ and in $y$ separately gives $(x - 3)^2 + (y + 2)^2 = 16$ — center $(3,\\,-2)$, radius $\\sqrt{16} = 4$. One technique serves both question types.",
   },
 
   { type: 'heading', content: 'Reading the parabola from its form' },
   {
     type: 'text',
-    content: "A parabola is symmetric about a vertical axis, and the same quadratic can be written in three forms. Each form displays a different feature directly — so match the form to the feature the question asks for rather than converting by default. Deriving the vertex from standard form when the problem supplies factored form is unnecessary work.",
+    content: "A parabola is symmetric about a vertical axis, and the same quadratic can be written in three forms. Each form displays a different feature directly.",
+  },
+  {
+    type: 'text',
+    content: "So match the form to the feature the question asks about, rather than converting by default. Deriving the vertex from standard form when the problem hands you factored form is unnecessary work.",
   },
   {
     type: 'table',
@@ -134,7 +216,7 @@ export const mQuadraticsBlocks = [
   },
   {
     type: 'text',
-    content: "The vertex lies on the axis of symmetry — exactly **halfway between the roots**. When the roots are known, their average gives the x-coordinate of the vertex; no formula or conversion is required.",
+    content: "The vertex sits on the axis of symmetry — exactly **halfway between the roots**. When you know the roots, their average gives the x-coordinate of the vertex; no formula, no conversion.",
   },
   {
     type: 'example',
@@ -142,7 +224,7 @@ export const mQuadraticsBlocks = [
     problem: 'The graph of $y=(x-1)(x-5)$ is a parabola. Find its vertex.',
     steps: [
       { label: 'Read the roots', content: 'Factored form displays them directly: $x=1$ and $x=5$.' },
-      { label: 'Average the roots', content: 'The vertex x-coordinate lies halfway between them: $\\frac{1+5}{2}=3$.' },
+      { label: 'Average the roots', content: 'The vertex x-coordinate sits halfway between them: $\\frac{1+5}{2}=3$.' },
       { label: 'Substitute back', content: '$y=(3-1)(3-5)=(2)(-2)=-4$.' },
       { label: 'State the vertex', content: 'The vertex is $(3,\\,-4)$.' },
     ],
@@ -151,7 +233,19 @@ export const mQuadraticsBlocks = [
   { type: 'heading', content: 'The discriminant' },
   {
     type: 'text',
-    content: "The discriminant $b^2-4ac$ — the expression under the radical in the quadratic formula — counts the real solutions by its sign alone: **positive → two**, **zero → one** (a repeated root; the parabola touches the axis at a single point), **negative → none**. One point is often overanalyzed: the magnitude carries no information. A discriminant of $-24$ says nothing more than a discriminant of $-1$ — only the sign matters.",
+    content: "The discriminant $b^2-4ac$ — the expression under the radical in the quadratic formula — counts the real solutions by its sign alone.",
+  },
+  {
+    type: 'list',
+    items: [
+      '**Positive** — two real solutions.',
+      '**Zero** — one (a repeated root; the parabola touches the axis at a single point).',
+      '**Negative** — none.',
+    ],
+  },
+  {
+    type: 'text',
+    content: "One point gets overanalyzed: the magnitude carries no information. A discriminant of $-24$ says nothing more than a discriminant of $-1$ — only the sign matters.",
   },
   {
     type: 'example',
@@ -167,7 +261,19 @@ export const mQuadraticsBlocks = [
   { type: 'heading', content: 'Sum and product without solving' },
   {
     type: 'text',
-    content: "When a question asks only for the **sum** or **product** of the solutions, computing the individual roots is wasted effort. For $ax^2+bx+c=0$: the roots sum to $-\\dfrac{b}{a}$ and multiply to $\\dfrac{c}{a}$ — both values read directly from the coefficients. On these questions the coefficient relations are faster than either factoring or graphing in Desmos.",
+    content: "When a question asks only for the **sum** or **product** of the solutions, computing the individual roots is wasted effort.",
+  },
+  {
+    type: 'list',
+    title: 'For $ax^2+bx+c=0$:',
+    items: [
+      'The roots **sum** to $-\\dfrac{b}{a}$.',
+      'The roots **multiply** to $\\dfrac{c}{a}$.',
+    ],
+  },
+  {
+    type: 'text',
+    content: "Both values read straight off the coefficients. On these questions the relations are faster than either factoring or graphing in Desmos.",
   },
   {
     type: 'example',
@@ -180,17 +286,41 @@ export const mQuadraticsBlocks = [
   },
   {
     type: 'tip',
-    content: "Two details account for most errors here: the leading negative in the sum ($-b/a$, not $b/a$), and the division by $a$ when the leading coefficient is not $1$. Put the equation in standard form before reading off $a$, $b$, and $c$.",
+    content: "Two details account for most errors here: the leading negative in the sum ($-b/a$, not $b/a$), and the division by $a$ when the leading coefficient isn't $1$. Put the equation in standard form before reading off $a$, $b$, and $c$.",
   },
 
   { type: 'heading', content: 'Polynomial graphs beyond the parabola' },
   {
     type: 'text',
-    content: "The factor-zero identity is not limited to quadratics: for any polynomial, $(x - r)$ is a factor exactly when the graph meets the x-axis at $r$. What a higher-degree graph adds is **multiplicity** — the power on each factor. An odd power **crosses** the axis at its zero; an even power **touches** the axis and turns back without crossing, because a squared factor such as $(x - r)^2$ is never negative and so cannot change the sign of the output there. A graph that bounces off the axis at $x = r$ therefore forces an even power of $(x - r)$ in the equation — a fact that eliminates answer choices without any computation.",
+    content: "The factor-zero identity isn't limited to quadratics: for any polynomial, $(x - r)$ is a factor exactly when the graph meets the x-axis at $r$. What a higher-degree graph adds is **multiplicity** — the power on each factor.",
+  },
+  {
+    type: 'list',
+    title: 'What the power does at its zero:',
+    items: [
+      'An **odd** power **crosses** the axis.',
+      "An **even** power **touches** the axis and turns back without crossing — a squared factor such as $(x - r)^2$ is never negative, so it can't change the sign of the output there.",
+    ],
   },
   {
     type: 'text',
-    content: "The two ends of the graph are governed by the leading term alone, because for large $|x|$ it dwarfs every other term. **Odd degree** sends the ends in opposite directions — down on the left and up on the right when the leading coefficient is positive, the reverse when it is negative. **Even degree** sends both ends the same way — both up for a positive leading coefficient, both down for a negative one. Degree parity and the sign of the leading term settle every end-behavior question; the middle terms never participate.",
+    content: "A graph that bounces off the axis at $x = r$ therefore forces an even power of $(x - r)$ in the equation — a fact that eliminates answer choices without any computation.",
+  },
+  {
+    type: 'text',
+    content: "The two ends of the graph are governed by the leading term alone, because for large $|x|$ it dwarfs every other term.",
+  },
+  {
+    type: 'list',
+    title: 'End behavior:',
+    items: [
+      "**Odd degree** sends the ends in opposite directions — down on the left and up on the right when the leading coefficient is positive, the reverse when it's negative.",
+      '**Even degree** sends both ends the same way — both up for a positive leading coefficient, both down for a negative one.',
+    ],
+  },
+  {
+    type: 'text',
+    content: "Degree parity and the sign of the leading term settle every end-behavior question. The middle terms never participate.",
   },
   {
     type: 'example',
@@ -212,12 +342,12 @@ export const mQuadraticsBlocks = [
   {
     type: 'checkpointQuestion',
     question: 'A parabola crosses the x-axis at $x=-4$ and $x=2$. Write a factored equation, and give the x-coordinate of its vertex.',
-    answer: "**$y=a(x+4)(x-2)$**, vertex x $=\\dfrac{-4+2}{2}=-1$. Each factor is zero at its root — the root $x=-4$ corresponds to the factor $(x+4)$ — and the vertex lies halfway between the roots.",
+    answer: "**$y=a(x+4)(x-2)$**, vertex x $=\\dfrac{-4+2}{2}=-1$. Each factor is zero at its root — the root $x=-4$ corresponds to the factor $(x+4)$ — and the vertex sits halfway between the roots.",
   },
   {
     type: 'checkpointQuestion',
     question: 'Without solving, how many real solutions does $2x^2 - 4x + 5 = 0$ have?',
-    answer: "**None.** The discriminant is $b^2-4ac=(-4)^2-4(2)(5)=16-40=-24$ — negative, so there are no real solutions. No solving is required; the sign of the discriminant settles the question.",
+    answer: "**None.** The discriminant is $b^2-4ac=(-4)^2-4(2)(5)=16-40=-24$ — negative, so there are no real solutions. No solving required; the sign of the discriminant settles it.",
   },
   {
     type: 'checkpointQuestion',
@@ -232,6 +362,6 @@ export const mQuadraticsBlocks = [
 
   {
     type: 'text',
-    content: "**In summary:** the answer choices indicate the method; the zeros are the values that make each factor zero; the quadratic formula solves what factoring cannot, once the equation is in standard form; halving and squaring the middle coefficient converts to vertex form; the vertex lies halfway between the roots; the sign of the discriminant counts the real solutions; and on higher-degree graphs, even powers touch, odd powers cross, and the leading term sets the ends.",
+    content: "**The whole topic in one pass:** the answer choices name the method; a zero is the value that makes its factor zero; the quadratic formula solves what factoring can't, once the equation is in standard form; halving and squaring the middle coefficient converts to vertex form; the vertex sits halfway between the roots; the sign of the discriminant counts the real solutions; and on higher-degree graphs, even powers touch, odd powers cross, and the leading term sets the ends.",
   },
 ];
