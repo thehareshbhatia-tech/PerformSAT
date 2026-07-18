@@ -96,10 +96,15 @@ const renderMath = (inputText) => {
       return out;
     };
 
-    // Markdown italic *foo* → <em>foo</em>, run on already-escaped text (so the
-    // only `<`/`>` it produces are its own tags). Single-line, single-*; we
-    // don't use **bold** in the bank.
-    const applyItalic = (str) => str.replace(/\*([^*\n]+?)\*/g, '<em>$1</em>');
+    // Markdown bold **foo** → <strong>foo</strong> and italic *foo* → <em>foo</em>,
+    // both run on already-escaped text (so the only `<`/`>` they produce are their
+    // own tags — same trusted-transform contract). Bold MUST run before italic so
+    // the doubled stars are consumed first; the leftover single stars — including
+    // the outer *…* of a *sentence with a **bold** word*, which the Learn bodies
+    // use in grammar tables — then italicize correctly. Single-line; content
+    // excludes `*` so the passes never overlap.
+    const applyBold = (str) => str.replace(/\*\*([^*\n]+?)\*\*/g, '<strong>$1</strong>');
+    const applyItalic = (str) => applyBold(str).replace(/\*([^*\n]+?)\*/g, '<em>$1</em>');
 
     // Step 0: Protect escaped dollar signs (\$) BEFORE any processing.
     // Handles \$25 style currency notation.

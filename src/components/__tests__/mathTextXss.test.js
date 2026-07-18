@@ -78,6 +78,38 @@ describe('MathText XSS hardening', () => {
     expect(m).toContain('katex');
   });
 
+  // Bold support (added 2026-07-18): the Learn grammar tables render **bold**
+  // (and *italic* sentences carrying a **bold** word) through MathText. Before
+  // this, MathText only did single-* italic, so **word** surfaced literal
+  // asterisks in table cells. These pin the render and its escape-safety.
+  describe('markdown bold', () => {
+    it('renders **word** as <strong>, no literal asterisks', () => {
+      const html = render("**it's** = it is / it has");
+      expect(html).toContain('<strong>');
+      expect(html).toContain('</strong>');
+      expect(html).not.toContain('**');
+    });
+    it('renders an outer *italic* sentence with a nested **bold** word', () => {
+      const html = render('*The **dogs** ran across the yard.*');
+      expect(html).toContain('<em>');
+      expect(html).toContain('<strong>dogs</strong>');
+      expect(html).not.toContain('**');
+    });
+    it('renders bold inside a markdown table cell', () => {
+      const table = ['| A | B |', '| --- | --- |', "| **it's** | its |"].join('\n');
+      const html = render(table);
+      expect(html).toContain('<table');
+      expect(html).toContain('<strong>');
+      expect(html).not.toContain('**');
+    });
+    it('escapes markup inside bold (bold runs on already-escaped text)', () => {
+      const html = render('**<img src=x onerror="alert(1)">**');
+      expect(html).not.toContain('<img');
+      expect(html).toContain('&lt;img');
+      expect(html).toContain('<strong>');
+    });
+  });
+
   // KaTeX HTML is stashed as "trusted" and injected raw (that is how real math
   // reaches the DOM). The invariant that keeps that safe is KaTeX's default
   // trust:false — no call site may pass trust:true or a global config that
