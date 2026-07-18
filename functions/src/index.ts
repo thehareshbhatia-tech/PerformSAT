@@ -1941,6 +1941,21 @@ export const summarizeChatSession = onDocumentUpdated(
       return;
     }
 
+    // Cross-session per-user ceiling: the per-session guards above bound ONE
+    // session, but a client can create unlimited aiChatSessions docs, so a
+    // per-session cap alone leaves total (paid Haiku) summarizations unbounded
+    // per user. Enforce a per-user hourly cap too. Over the cap → skip: the
+    // summary is a best-effort personalization aid, never user-facing, so not
+    // generating it is a safe degradation.
+    const SUMMARIES_PER_USER_PER_HOUR = 30;
+    const underUserCap = await checkRateLimit(
+      userId, "summarizeChatSession", SUMMARIES_PER_USER_PER_HOUR,
+    );
+    if (!underUserCap) {
+      logger.info(`Skipping summary for ${sessionId} — per-user hourly cap reached`);
+      return;
+    }
+
     logger.info(`Summarizing chat session ${sessionId} for user ${userId}`);
 
     const apiKey = anthropicApiKey.value();
