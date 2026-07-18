@@ -45,6 +45,7 @@ import {
 import {
   validateSystemBlocks,
   toAnthropicSystem,
+  withOperatingConstraint,
   AnthropicSystemBlock,
 } from "./tutorSystemBlocks";
 import {parseMathCheckResult, MathCheckResult} from "./tutorMathCheckPolicy";
@@ -346,6 +347,11 @@ export const aiTutor = onRequest(
           }] :
           "";
       }
+      // Append the server-owned operating constraint LAST. The persona is
+      // client-authored, so without this a caller could send an arbitrary
+      // system prompt and use aiTutor as a general LLM proxy on our key; the
+      // constraint keeps the endpoint on-task regardless of client input.
+      const constrainedSystem = withOperatingConstraint(anthropicSystem);
 
       const apiKey = anthropicApiKey.value();
       if (!apiKey) {
@@ -404,7 +410,8 @@ export const aiTutor = onRequest(
             // above) lets the client cache ONLY the stable blocks and keep
             // per-turn volatile framing uncached, so the cache prefix actually
             // matches turn-to-turn. Legacy single-string `system` still works.
-            system: anthropicSystem,
+            // The server-owned operating constraint is appended last.
+            system: constrainedSystem,
             messages: messages,
             stream: useStream,
           }),
