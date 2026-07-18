@@ -115,10 +115,23 @@ describe('deriveEntitlementAccess', () => {
     expect(v.phase).toBe('ending');
   });
 
-  it('past_due keeps access (dunning grace)', () => {
-    const v = deriveEntitlementAccess({ status: 'past_due' }, NOW);
-    expect(v.hasAccess).toBe(true);
-    expect(v.phase).toBe('grace');
+  it('past_due keeps access within the 14-day dunning grace, then locks', () => {
+    // Inside grace: card is being retried on a period that ended yesterday.
+    const inGrace = deriveEntitlementAccess(
+      { status: 'past_due', currentPeriodEnd: NOW - 1 * DAY },
+      NOW,
+    );
+    expect(inGrace.hasAccess).toBe(true);
+    expect(inGrace.phase).toBe('grace');
+    // Past the ceiling: a permanently failing card no longer shows premium.
+    const expired = deriveEntitlementAccess(
+      { status: 'past_due', currentPeriodEnd: NOW - 15 * DAY },
+      NOW,
+    );
+    expect(expired.hasAccess).toBe(false);
+    expect(expired.phase).toBe('expired');
+    // No recorded period end -> deny (matches the server gate).
+    expect(deriveEntitlementAccess({ status: 'past_due' }, NOW).hasAccess).toBe(false);
   });
 
   it('canceled with future period end: access until it passes', () => {

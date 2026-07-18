@@ -67,6 +67,14 @@ export interface StripeSubscriptionLike {
 export const TRIAL_DAYS = 3;
 export const DAY_MS = 86400000;
 
+// Dunning grace for a past_due subscription: how long a subscriber keeps
+// access AFTER their paid period ends while Stripe retries the card. Bounds
+// what was previously unconditional past_due access — a permanently failing
+// card must not grant premium forever. Stripe's smart-retry schedule runs up
+// to ~2 weeks before the subscription transitions, so 14 days covers legitimate
+// dunning without an open-ended free ride. Tunable.
+export const PAST_DUE_GRACE_MS = 14 * DAY_MS;
+
 /**
  * Map Stripe's subscription status to our four-state entitlement status.
  * "trialing" is now a first-class state — the card-up-front trial IS a Stripe
@@ -208,7 +216,10 @@ export interface EntitlementAccessInput {
  *                NOT re-gate on a local clock and risk locking a paying
  *                customer during the trial->active webhook window)
  *   active    -> access (covers cancel-at-period-end until Stripe flips it)
- *   past_due  -> access (dunning grace)
+ *   past_due  -> access only through currentPeriodEnd + PAST_DUE_GRACE_MS
+ *               (bounded dunning grace; a permanently failing card must not
+ *               keep premium forever). Falls back to a bare grace window when
+ *               no period end is recorded, so it never grants unconditionally.
  *   canceled  -> access only until any still-future currentPeriodEnd
  *   anything else (incl. "none"/undefined) -> NO access
  * @param {EntitlementAccessInput|null} doc plain-ms entitlement view
@@ -224,14 +235,48 @@ export function hasAccessMs(
   case "comped":
   case "trialing":
   case "active":
-  case "past_due":
     return true;
+  case "past_due":
+    // Bounded grace: keep access while Stripe retries, but never forever.
+    // A past_due doc normally carries the period end; if it's missing, deny
+    // rather than grant (conservative — Stripe always writes it on the sub).
+    return typeof doc.currentPeriodEndMs === "number" &&
+        doc.currentPeriodEndMs + PAST_DUE_GRACE_MS > nowMs;
   case "canceled":
     return typeof doc.currentPeriodEndMs === "number" &&
         doc.currentPeriodEndMs > nowMs;
   default:
     return false;
   }
+}
+
+/**
+ * Access decision when an account has NO entitlement doc yet.
+ *
+ * The doc is seeded only by the client's ensureEntitlement call, which runs
+ * ONLY while billing is enabled (REACT_APP_FF_BILLING). So a missing doc means
+ * either (a) billing is still dark — nobody should be walled — or (b) billing
+ * is live and this is a brand-new/never-seeded account.
+ *
+ * When enforcement is OFF, allow (preserves the pre-launch "nobody is walled"
+ * behavior). When enforcement is ON, a missing doc must NOT blanket-grant the
+ * paid tutor — otherwise the paywall is opt-in for any client that simply
+ * never calls ensureEntitlement. Fall back to the grandfather rule: a pre-epoch
+ * account is comped (allow); a post-epoch account with no doc has no
+ * subscription and is denied until it subscribes.
+ *
+ * @param {number|null} accountCreatedMs Auth creation time (unix ms)
+ * @param {number|null} launchEpochMs billing-launch cutoff (unix ms)
+ * @param {boolean} enforced whether server-side billing enforcement is on
+ * @return {boolean} whether to grant access in the absence of a doc
+ */
+export function accessOnMissingDoc(
+  accountCreatedMs: number | null | undefined,
+  launchEpochMs: number | null | undefined,
+  enforced: boolean,
+): boolean {
+  if (!enforced) return true;
+  return isGrandfathered(accountCreatedMs, launchEpochMs);
 }
 
 /**

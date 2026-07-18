@@ -10,7 +10,7 @@
  *                clock — trialEndsAt is display-only). cancel-at-period-end
  *                during the trial keeps access until day 7.
  *   active    -> access ('ending' phase when cancel-at-period-end is set)
- *   past_due  -> access (Stripe dunning grace)
+ *   past_due  -> access only through currentPeriodEnd + 14d dunning grace
  *   canceled  -> access only until a still-future currentPeriodEnd
  *   none / anything else -> NO access (the ensureEntitlement no-access seed
  *                state and lapsed trials both land here)
@@ -20,6 +20,11 @@
  */
 
 const DAY_MS = 86400000;
+// Bounded dunning grace for a past_due subscription — MUST match
+// PAST_DUE_GRACE_MS in functions/src/stripePolicy.ts (server gate). Keeps the
+// client's shown access in sync with the server's 402 so a permanently failing
+// card doesn't display premium after the server has locked it.
+const PAST_DUE_GRACE_MS = 14 * DAY_MS;
 
 /**
  * Coerce a Firestore Timestamp / {seconds} shape / number / ISO string into
@@ -105,15 +110,20 @@ export function deriveEntitlementAccess(doc, nowMs = Date.now()) {
         plan,
         cancelAtPeriodEnd,
       };
-    case 'past_due':
+    case 'past_due': {
+      // Bounded dunning grace (matches the server gate): access only through
+      // periodEnd + PAST_DUE_GRACE_MS. A missing period end denies, so a
+      // permanently failing card can't display premium forever.
+      const inGrace = periodEndMs != null && periodEndMs + PAST_DUE_GRACE_MS > nowMs;
       return {
         ...base,
-        hasAccess: true,
-        phase: 'grace',
+        hasAccess: inGrace,
+        phase: inGrace ? 'grace' : 'expired',
         endsAtMs: periodEndMs,
         plan,
         cancelAtPeriodEnd,
       };
+    }
     case 'canceled': {
       const stillPaid = periodEndMs != null && periodEndMs > nowMs;
       return {

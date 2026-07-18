@@ -39,6 +39,7 @@ import {
   subscriptionToEntitlementPatch,
   shouldApplyEvent,
   hasAccessMs,
+  accessOnMissingDoc,
   isGrandfathered,
   shouldGrandfatherExisting,
   normalizePromoCode,
@@ -59,6 +60,15 @@ const appBaseUrl = defineString("BILLING_APP_BASE_URL", {
 // early-access cohort and get permanent comped access; accounts created at/
 // after it must start a paid trial. Set to the moment billing goes live.
 const billingLaunchEpoch = defineString("BILLING_LAUNCH_EPOCH", {default: ""});
+// Server-side billing ENFORCEMENT switch (separate from the client
+// REACT_APP_FF_BILLING flag). "false" (default) = the server gate never walls
+// a missing-doc account — the pre-launch/dark state where nobody is charged or
+// blocked. Flip to "true" TOGETHER with the client billing flag at launch so
+// the paid endpoints actually fail closed for un-seeded post-epoch accounts
+// (otherwise the paywall is opt-in: any client that skips ensureEntitlement
+// gets the paid tutor for free). Kept as a distinct param — the launch epoch
+// governs grandfathering, NOT whether enforcement is live.
+const billingEnforced = defineString("BILLING_ENFORCED", {default: "false"});
 
 const getStripe = () => new Stripe(stripeSecretKey.value());
 
@@ -75,19 +85,43 @@ const tsToMs = (v: unknown): number | null => {
 };
 
 /**
- * Server-side access gate. Missing doc => ALLOW: entitlement docs only start
- * existing once the billing client (ensureEntitlement caller) has shipped, so
- * fail-open here is what keeps pre-launch accounts working while the feature
- * flag is off. After launch every session creates its doc at boot, so a
- * missing doc is only ever a brand-new/pre-launch account. Errors also allow —
- * availability over enforcement for a tutoring session.
+ * Server-side access gate for the paid endpoints (aiTutor / tutorMathCheck).
+ *
+ * Missing-doc policy is gated by BILLING_ENFORCED (see accessOnMissingDoc):
+ *   - enforcement OFF (dark/pre-launch): missing doc => ALLOW, and a Firestore
+ *     error => ALLOW (availability over enforcement; nobody is being charged).
+ *   - enforcement ON (post-launch): a missing doc falls back to the grandfather
+ *     rule (pre-epoch allow, post-epoch deny) instead of blanket-allowing, so
+ *     the paywall can't be bypassed by simply never calling ensureEntitlement;
+ *     and a Firestore error fails CLOSED (a transient blip must not hand out
+ *     paid Anthropic calls). A present doc is always evaluated by hasAccessMs.
  * @param {string} uid the authenticated caller's uid
  * @return {Promise<boolean>} whether the account has premium/trial access
  */
 export async function hasEntitlementAccess(uid: string): Promise<boolean> {
+  const enforced = billingEnforced.value() === "true";
   try {
     const snap = await entitlementRef(uid).get();
-    if (!snap.exists) return true;
+    if (!snap.exists) {
+      // No doc: decide by enforcement + grandfather (unspoofable Auth time).
+      if (!enforced) return true;
+      let createdMs: number | null = null;
+      try {
+        const authUser = await getAuth().getUser(uid);
+        const parsed = Date.parse(authUser.metadata.creationTime);
+        createdMs = Number.isNaN(parsed) ? null : parsed;
+      } catch (ghErr) {
+        // Can't establish creation time while enforcing -> deny (fail closed).
+        logger.warn(`hasEntitlementAccess: creation-time lookup failed for ${uid} — denying`, ghErr);
+        return false;
+      }
+      const epochMs = Date.parse(billingLaunchEpoch.value());
+      return accessOnMissingDoc(
+        createdMs,
+        Number.isNaN(epochMs) ? null : epochMs,
+        enforced,
+      );
+    }
     const doc = snap.data() || {};
     return hasAccessMs(
       {
@@ -98,8 +132,10 @@ export async function hasEntitlementAccess(uid: string): Promise<boolean> {
       Date.now(),
     );
   } catch (err) {
-    logger.error("hasEntitlementAccess failed — allowing", err);
-    return true;
+    // Fail open only while billing is dark; fail closed once enforcing so a
+    // Firestore error can't be used to farm free paid calls.
+    logger.error(`hasEntitlementAccess failed — ${enforced ? "denying" : "allowing"}`, err);
+    return !enforced;
   }
 }
 

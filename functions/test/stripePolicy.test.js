@@ -14,6 +14,8 @@ const {
   subscriptionToEntitlementPatch,
   shouldApplyEvent,
   hasAccessMs,
+  accessOnMissingDoc,
+  PAST_DUE_GRACE_MS,
   isGrandfathered,
   shouldGrandfatherExisting,
   subscriptionPatchUsedTrial,
@@ -241,9 +243,27 @@ test("access: trialing always has access (Stripe owns the clock)", () => {
   );
 });
 
-test("access: active and past_due always have access", () => {
+test("access: active always has access", () => {
   assert.strictEqual(hasAccessMs({status: "active"}, NOW), true);
-  assert.strictEqual(hasAccessMs({status: "past_due"}, NOW), true);
+});
+
+test("access: past_due grants BOUNDED dunning grace, not forever", () => {
+  // Within currentPeriodEnd + PAST_DUE_GRACE_MS -> access (card being retried).
+  assert.strictEqual(
+    hasAccessMs({status: "past_due", currentPeriodEndMs: NOW - 1 * DAY_MS}, NOW),
+    true,
+  );
+  // Past the grace ceiling -> locked (a permanently failing card must not keep
+  // premium indefinitely).
+  assert.strictEqual(
+    hasAccessMs(
+      {status: "past_due", currentPeriodEndMs: NOW - (PAST_DUE_GRACE_MS + DAY_MS)},
+      NOW,
+    ),
+    false,
+  );
+  // No recorded period end -> deny (conservative; Stripe always writes it).
+  assert.strictEqual(hasAccessMs({status: "past_due"}, NOW), false);
 });
 
 test("access: the no-access seed state ('none') locks", () => {
@@ -290,6 +310,31 @@ test("access: null doc and unknown status lock", () => {
   assert.strictEqual(hasAccessMs(null, NOW), false);
   assert.strictEqual(hasAccessMs({status: "weird"}, NOW), false);
   assert.strictEqual(hasAccessMs({}, NOW), false);
+});
+
+// ── accessOnMissingDoc (the server gate's no-doc rule) ───────────────────
+const EPOCH = 1_700_000_000_000; // arbitrary fixed billing-launch cutoff
+const BEFORE = EPOCH - DAY_MS; // pre-launch account (grandfathered)
+const AFTER = EPOCH + DAY_MS; // post-launch account (must subscribe)
+
+test("missing doc: enforcement OFF always allows (dark/pre-launch)", () => {
+  // Nobody is walled while billing is dark, regardless of when they signed up.
+  assert.strictEqual(accessOnMissingDoc(BEFORE, EPOCH, false), true);
+  assert.strictEqual(accessOnMissingDoc(AFTER, EPOCH, false), true);
+  assert.strictEqual(accessOnMissingDoc(null, EPOCH, false), true);
+});
+
+test("missing doc: enforcement ON falls back to the grandfather rule", () => {
+  // Pre-epoch account with no doc -> still comped (allow). Post-epoch account
+  // with no doc has no subscription -> deny (closes the paywall-bypass hole).
+  assert.strictEqual(accessOnMissingDoc(BEFORE, EPOCH, true), true);
+  assert.strictEqual(accessOnMissingDoc(AFTER, EPOCH, true), false);
+});
+
+test("missing doc: enforcement ON denies when the clock is unknown", () => {
+  // A missing/unparseable creation time or epoch must not silently grant access.
+  assert.strictEqual(accessOnMissingDoc(null, EPOCH, true), false);
+  assert.strictEqual(accessOnMissingDoc(AFTER, null, true), false);
 });
 
 // ── isGrandfathered (existing-user grandfather rule) ─────────────────────
