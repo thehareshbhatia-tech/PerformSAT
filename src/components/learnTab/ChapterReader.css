@@ -705,12 +705,25 @@
 }
 .cr-content .tb-formula-grid .tb-formula { margin: 0; }
 
-/* Figures / diagrams — frameless. */
+/* Figures / diagrams — white card, matching the reader's card vocabulary. */
 .cr-content .tb-figure {
-  background: transparent;
-  border: none;
-  padding: 0;
+  background: var(--cr-surface);
+  border: 1px solid var(--cr-line);
+  border-radius: 18px;
+  padding: 22px 22px 16px;
   margin: 4px 0 28px;
+  box-shadow: var(--cr-shadow);
+  text-align: center;
+}
+.cr-content .tb-figcaption {
+  font-family: var(--cr-font-body);
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: var(--cr-ink-2);
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--cr-line);
+  text-align: left;
 }
 
 /* Block entrance stagger inherited from ContentTabRenderer is fine. */

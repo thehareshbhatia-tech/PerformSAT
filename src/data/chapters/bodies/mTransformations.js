@@ -34,6 +34,11 @@ export const mTransformationsBlocks = [
     content: "A change written *outside* the function applies after the rule has produced its output. The output is computed first, then added to or negated — so the change lands directly on the y-values.",
   },
   {
+    type: 'diagramRef',
+    visualType: 'verticalShiftDiagram',
+    description: "The graph of $f(x)$ (dashed) and $f(x)+2$: adding outside the function lifts every point straight up by $2$, exactly as the sign says.",
+  },
+  {
     type: 'list',
     items: [
       '$f(x)+3$ shifts the graph up $3$',
@@ -50,6 +55,11 @@ export const mTransformationsBlocks = [
   {
     type: 'text',
     content: "A change written *inside* the parentheses — attached to the $x$ — alters the input before the rule is applied. So the graph moves **left or right**, in the direction opposite the sign.",
+  },
+  {
+    type: 'diagramRef',
+    visualType: 'horizontalShiftDiagram',
+    description: "The graph of $f(x)$ (dashed) and $f(x-2)$: subtracting $2$ inside the parentheses moves the graph right $2$ — the direction opposite the sign.",
   },
   {
     type: 'list',

@@ -58,6 +58,11 @@ export const mStatisticsBlocks = [
     type: 'text',
     content: "That's the whole principle: one extreme value drags the **mean** toward itself and leaves the **median** nearly unchanged, because the median depends on position, never on distance. In a skewed data set, the mean drifts toward the long tail while the median stays with the bulk of the data.",
   },
+  {
+    type: 'diagramRef',
+    visualType: 'meanMedianDiagram',
+    description: "A dot plot with the mean and median marked: one outlier drags the mean toward itself, while the median, which depends only on position, barely moves.",
+  },
 
   { type: 'heading', content: 'Spread: range and standard deviation' },
   {

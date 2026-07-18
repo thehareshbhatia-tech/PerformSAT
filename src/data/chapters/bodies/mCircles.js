@@ -25,6 +25,11 @@ export const mCirclesBlocks = [
     content: "That definition is why nearly every circle question reduces to two quantities — the **center** and the **radius**. Once you have both, the equation, the circumference, an arc length, or a sector area is one step away.",
   },
   {
+    type: 'diagramRef',
+    visualType: 'circlePartsDiagram',
+    description: "The parts of a circle: the radius runs from the center to the boundary, the diameter passes through the center at twice the radius, and the circumference is the distance around.",
+  },
+  {
     type: 'text',
     content: "The skill this topic rewards is extraction: pulling the center and radius out of whatever form the problem supplies — standard form, an expanded equation, or a stated circumference or area.",
   },
@@ -37,6 +42,11 @@ export const mCirclesBlocks = [
   {
     type: 'formula',
     content: '$(x - h)^2 + (y - k)^2 = r^2$',
+  },
+  {
+    type: 'diagramRef',
+    visualType: 'circleEquationDiagram',
+    description: "A circle on the coordinate plane with center $(h, k)$ and radius $r$: every point satisfies $(x - h)^2 + (y - k)^2 = r^2$, so the center and radius are read directly from standard form.",
   },
   {
     type: 'list',
@@ -155,6 +165,11 @@ export const mCirclesBlocks = [
   {
     type: 'text',
     content: "Both follow one principle: each is the same fraction of the whole circle that its central angle is of a full turn — $\\frac{\\theta}{360}$ in degrees, $\\frac{\\theta}{2\\pi}$ in radians. The radian fraction simplifies to the compact formulas in the table below.",
+  },
+  {
+    type: 'diagramRef',
+    visualType: 'arcLengthDiagram',
+    description: "A central angle cuts an arc from the boundary and a sector from the interior: each takes the same fraction of the whole circle that the angle is of a full turn.",
   },
   {
     type: 'text',

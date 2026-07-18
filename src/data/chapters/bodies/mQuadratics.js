@@ -219,6 +219,11 @@ export const mQuadraticsBlocks = [
     content: "The vertex sits on the axis of symmetry — exactly **halfway between the roots**. When you know the roots, their average gives the x-coordinate of the vertex; no formula, no conversion.",
   },
   {
+    type: 'diagramRef',
+    visualType: 'parabolaFromGraphDiagram',
+    description: "The graph of $y=2(x-2)^2-3$: the vertex $(2,\\,-3)$ sits on the axis of symmetry, and the y-intercept $(0,\\,5)$ reflects across that axis to the mirror point $(4,\\,5)$ — one known point off the axis always gives you a second.",
+  },
+  {
     type: 'example',
     difficulty: 'Medium',
     problem: 'The graph of $y=(x-1)(x-5)$ is a parabola. Find its vertex.',

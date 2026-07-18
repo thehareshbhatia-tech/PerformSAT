@@ -120,6 +120,11 @@ export const mTrianglesBlocks = [
     content: 'a^2 + b^2 = c^2',
   },
   {
+    type: 'diagramRef',
+    visualType: 'rightTriangleDiagram',
+    description: "A right triangle with legs $a$ and $b$ and hypotenuse $c$ opposite the right angle: the three sides satisfy $a^2 + b^2 = c^2$.",
+  },
+  {
     type: 'text',
     content: "When the unknown is a leg rather than the hypotenuse, subtract rather than add: $b^2 = c^2 - a^2$.",
   },
@@ -172,6 +177,11 @@ export const mTrianglesBlocks = [
     ],
   },
   {
+    type: 'diagramRef',
+    visualType: 'specialTrianglesDiagram',
+    description: "The two side-ratio templates side by side: the $45\\text{-}45\\text{-}90$ triangle with legs $1 : 1$ and hypotenuse $\\sqrt2$, and the $30\\text{-}60\\text{-}90$ triangle with sides $1 : \\sqrt3 : 2$ opposite the $30°$, $60°$, and $90°$ angles.",
+  },
+  {
     type: 'keyInsight',
     content: "The side opposite $60°$ is $\\sqrt3$ times the short side — about $1.7$ times, **not** double. Doubling applies to exactly one side: the hypotenuse, opposite the $90°$ angle.",
   },
@@ -180,6 +190,11 @@ export const mTrianglesBlocks = [
   {
     type: 'text',
     content: "Two triangles whose angles match are **similar** — one is a scaled copy of the other, so every pair of corresponding sides shares the same ratio.",
+  },
+  {
+    type: 'diagramRef',
+    visualType: 'similarTrianglesDiagram',
+    description: "Two similar triangles with matching angles and corresponding sides marked: every pair of corresponding sides shares the same ratio, so one triangle is a scaled copy of the other.",
   },
   {
     type: 'text',

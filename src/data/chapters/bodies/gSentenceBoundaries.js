@@ -61,6 +61,11 @@ export const gSentenceBoundariesBlocks = [
     ],
   },
   {
+    type: 'diagramRef',
+    visualType: 'sentenceBoundaryDiagram',
+    description: "Two complete sentences with the three legal joins — a period, a semicolon, and a comma + FANBOYS — while the lone comma between them is marked wrong: a comma splice.",
+  },
+  {
     type: 'text',
     content: "The classic error comes from meaning: the two ideas are closely related, so a bare comma feels right. Relatedness doesn't license a comma.",
   },

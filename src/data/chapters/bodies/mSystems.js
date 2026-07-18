@@ -21,6 +21,11 @@ export const mSystemsBlocks = [
     content: "A system is **two equations sharing the same two unknowns**. One equation alone admits infinitely many solutions; the second narrows the set to the single point that satisfies both.",
   },
   {
+    type: 'diagramRef',
+    visualType: 'systemsIntersectionDiagram',
+    description: "The lines $y = x + 1$ and $y = -x + 5$ cross at $(2, 3)$ — the one point that sits on both lines, and therefore the solution of the system.",
+  },
+  {
     type: 'text',
     content: "The central decision is choosing the fastest way to eliminate one variable. Most of the difficulty lies in selecting the least-work method, not in the algebra itself — and when the question asks for a combination such as $x+y$, the most efficient path often bypasses solving for the variables entirely.",
   },

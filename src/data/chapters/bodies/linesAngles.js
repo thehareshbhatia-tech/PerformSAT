@@ -85,6 +85,11 @@ export const linesAnglesBlocks = [
     content: "The names \"corresponding\" and \"alternate interior\" all label special cases of this single fact. One condition: the lines have to be *marked* parallel — appearing parallel in the drawing isn't enough.",
   },
   {
+    type: 'diagramRef',
+    visualType: 'transversalAnglesDiagram',
+    description: "Two parallel lines cut by a transversal, with the corresponding angles marked $a^\\circ$ at both intersections and the co-interior angle marked $180^\\circ - a^\\circ$: matching corners are equal, and same-side interior angles add to $180^\\circ$.",
+  },
+  {
     type: 'example',
     difficulty: 'Easy',
     problem: 'Parallel lines are crossed by a transversal. One angle measures $47^\\circ$. What is the obtuse angle the transversal makes with the other parallel line?\n\n(A) $43^\\circ$\n(B) $47^\\circ$\n(C) $133^\\circ$',

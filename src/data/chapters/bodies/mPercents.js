@@ -41,6 +41,11 @@ export const mPercentsBlocks = [
     type: 'keyInsight',
     content: 'A decrease keeps the remainder: down $30\\%$ is $\\times 0.70$, not $\\times 0.30$; down $80\\%$ is $\\times 0.20$. Build the factor from what **remains**.',
   },
+  {
+    type: 'diagramRef',
+    visualType: 'percentChangeDiagram',
+    description: 'A quantity before and after a percent change, annotated with the single multiplier that carries the old value to the new one.',
+  },
 
   { type: 'heading', content: 'Translate any change into a factor' },
   {

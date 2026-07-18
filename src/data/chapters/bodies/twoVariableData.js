@@ -31,6 +31,11 @@ export const twoVariableDataBlocks = [
     content: "Decide which object a question concerns before anything else. That one call resolves most questions in this family.",
   },
   {
+    type: 'diagramRef',
+    visualType: 'scatterplotModelDiagram',
+    description: "A scatterplot with its fitted line: the dots record what actually happened, the line is the model summarizing them, and the vertical gap at the highlighted point is the difference between an actual value and the value the line predicts.",
+  },
+  {
     type: 'text',
     content: "And read the frame before any dot: both axis labels, *units included*. One dot represents one observation — on a plot of study hours vs. score, the dot at $(5, 62)$ is one student who studied 5 hours and scored 62.",
   },

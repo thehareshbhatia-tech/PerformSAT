@@ -88,6 +88,11 @@ export const gTransitionsBlocks = [
     type: 'text',
     content: "When every available choice is a continuer, decide which of these sub-jobs the sentence requires.",
   },
+  {
+    type: 'diagramRef',
+    visualType: 'transitionMapDiagram',
+    description: "The five transition families — Contrast, Cause/Result, Addition, Example, and Time — each with its signal words: name the relationship between the two sentences first, and the family hands you the word.",
+  },
 
   { type: 'heading', content: 'Check the direction on cause and contrast' },
   {

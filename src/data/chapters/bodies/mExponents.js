@@ -137,6 +137,11 @@ export const mExponentsBlocks = [
     type: 'keyInsight',
     content: 'Build the base from the **fraction kept**, not the percent of change. A 5% increase gives $b = 1.05$; a 5% decrease gives $b = 0.95$. Place the decimal carefully: 2.4% growth gives $b = 1.024$, not $1.24$.',
   },
+  {
+    type: 'diagramRef',
+    visualType: 'exponentialGrowthDiagram',
+    description: "Growth and decay on the same axes: a base $b>1$ climbs faster with every step, while a base between $0$ and $1$ falls toward the x-axis — the size of $b$ alone decides which shape you get.",
+  },
 
   { type: 'heading', content: 'Changing the time unit' },
   {

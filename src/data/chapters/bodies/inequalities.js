@@ -19,6 +19,11 @@ export const inequalitiesBlocks = [
     type: 'text',
     content: "The real difference lies in the answer. An inequality is satisfied by an entire *range* of numbers rather than a single value, so the solution reports a boundary and a direction instead of one point.",
   },
+  {
+    type: 'diagramRef',
+    visualType: 'inequalityNumberLineDiagram',
+    description: "Number-line graphs of $x > 2$ and $x \\le -1$: each solution is a boundary plus a direction, where an open circle excludes the boundary value and a closed circle includes it.",
+  },
 
   { type: 'heading', content: 'The sign-reversal rule' },
   {

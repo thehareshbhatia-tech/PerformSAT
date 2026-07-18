@@ -39,6 +39,11 @@ export const mRadiansBlocks = [
     type: 'text',
     content: "Anchor every conversion and every unit-circle value on this one equivalence, and there's nothing further to memorize.",
   },
+  {
+    type: 'diagramRef',
+    visualType: 'radianArcDiagram',
+    description: "A circle in which an arc exactly one radius long spans an angle of $1$ radian, anchored by $180° = \\pi$ radians with the conversion factors $\\times \\frac{\\pi}{180}$ to radians and $\\times \\frac{180}{\\pi}$ to degrees.",
+  },
 
   { type: 'heading', content: 'Converting between degrees and radians' },
   {

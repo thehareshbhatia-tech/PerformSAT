@@ -40,6 +40,11 @@ export const mLinearEquationsBlocks = [
     content: "The $3$ is paid once, at the start — so it's $b$. The $2$ recurs with every mile — so it's $m$. The fare after $x$ miles is $2x + 3$.",
   },
   {
+    type: 'diagramRef',
+    visualType: 'yInterceptDiagram',
+    description: "On the graph, $b$ is where the line crosses the y-axis — the starting value of the relationship, before any per-unit change accumulates.",
+  },
+  {
     type: 'text',
     content: "Any situation built from a one-time amount and a per-unit amount has this same structure. When a problem states a rate and a starting value, the equation of the line follows immediately — no setup required.",
   },
@@ -56,6 +61,11 @@ export const mLinearEquationsBlocks = [
   {
     type: 'text',
     content: "Two points determine the slope: $m = \\dfrac{y_2 - y_1}{x_2 - x_1}$ — the change in $y$ divided by the change in $x$.",
+  },
+  {
+    type: 'diagramRef',
+    visualType: 'slopeFromGraphDiagram',
+    description: "A line through $(0, 4)$ and $(5, 1)$ with its rise/run triangle: the rise is $-3$ and the run is $5$, so the slope is $-\\frac{3}{5}$.",
   },
   {
     type: 'text',
@@ -193,8 +203,18 @@ export const mLinearEquationsBlocks = [
     content: "**Parallel** lines never intersect because they change at the same rate — same $m$, different $b$.",
   },
   {
+    type: 'diagramRef',
+    visualType: 'parallelLinesDiagram',
+    description: "The lines $y = 2x + 1$ and $y = 2x - 2$ with matching slope triangles: the same $m$ keeps them the same distance apart, so they never intersect.",
+  },
+  {
     type: 'text',
     content: "The slope of a **perpendicular** line is the negative reciprocal of the original: invert the fraction, then change the sign, so $\\frac{2}{3}$ becomes $-\\frac{3}{2}$.",
+  },
+  {
+    type: 'diagramRef',
+    visualType: 'perpendicularLinesDiagram',
+    description: "The lines $y = 2x$ and $y = -\\frac{x}{2}$ meet at a right angle: the slopes are negative reciprocals, and their product is $-1$.",
   },
   {
     type: 'text',

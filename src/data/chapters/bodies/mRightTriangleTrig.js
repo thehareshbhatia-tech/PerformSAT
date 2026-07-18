@@ -39,6 +39,11 @@ export const mRightTriangleTrigBlocks = [
     content: "This labeling carries the entire method — each ratio is nothing more than a fixed pairing of two of these names. Once the labels are assigned, the choice of sine, cosine, or tangent is determined.",
   },
   {
+    type: 'diagramRef',
+    visualType: 'trigSideLabelingDiagram',
+    description: "A right triangle labeled from the acute angle $\\theta$: the adjacent side touches $\\theta$, the opposite side sits across from it, the hypotenuse faces the right angle, and the SOH-CAH-TOA strip pairs each ratio with its two sides.",
+  },
+  {
     type: 'formulaGrid',
     items: [
       { label: 'SOH', formula: '$\\sin\\theta = \\dfrac{\\text{opposite}}{\\text{hypotenuse}}$', note: 'sine = opposite over hypotenuse.' },

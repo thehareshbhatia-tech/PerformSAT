@@ -62,6 +62,11 @@ export const gSubjectVerbAgreementBlocks = [
     content: "With the interruption gone, the correct verb is evident. This single deletion step resolves most questions in this skill.",
   },
   {
+    type: 'diagramRef',
+    visualType: 'subjectVerbAgreementDiagram',
+    description: "A subject buried behind an interrupting phrase: the distractor noun beside the verb is crossed out, and the true subject links straight to its verb — the only pair whose numbers must match.",
+  },
+  {
     type: 'keyInsight',
     content: "The noun immediately before the verb is usually a distractor — incorrect choices are routinely built around it. Match the verb to the **subject**, never to the nearest noun.",
   },

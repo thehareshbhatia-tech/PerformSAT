@@ -84,7 +84,7 @@ export const solvingEquationsBlocks = [
     content: "Because $r$ is a radius, the **principal (positive) square root** is the one that applies — a geometric length can't be negative, so the $\\pm$ that accompanies square roots in pure equation-solving drops away.",
   },
   {
-    type: 'text',
+    type: 'keyInsight',
     content: "When the target sits *under* a square root, the same principle runs the other way: isolate the radical first, and square both sides **last**.",
   },
   {

@@ -44,6 +44,16 @@ export const mVolumeBlocks = [
       { label: 'Pyramid', formula: '$V = \\tfrac{1}{3}(\\text{base area})\\,h$', note: 'one-third of the enclosing box.' },
     ],
   },
+  {
+    type: 'diagramRef',
+    visualType: 'rectangularPrismDiagram',
+    description: "A rectangular box with its length $\\ell$, width $w$, and height $h$ labeled: the volume multiplies the three dimensions, $V = \\ell wh$.",
+  },
+  {
+    type: 'diagramRef',
+    visualType: 'cylinderDiagram',
+    description: "A cylinder with its radius $r$ and height $h$ labeled: the circular base area $\\pi r^2$ times the height gives $V = \\pi r^2 h$.",
+  },
 
   { type: 'heading', content: 'Pick the formula, then substitute' },
   {
@@ -82,6 +92,11 @@ export const mVolumeBlocks = [
   {
     type: 'text',
     content: "The slant is the **hypotenuse** of a right triangle whose legs are the height and the radius (for a pyramid, half the base edge). So $h^2 + r^2 = \\ell^2$, and the slant is always the longer of the two.",
+  },
+  {
+    type: 'diagramRef',
+    visualType: 'coneDiagram',
+    description: "A cone with the perpendicular height $h$ dropping from the apex to the center of the base and the slant height $\\ell$ running along the outside surface: the slant is the hypotenuse, so it is always the longer of the two.",
   },
   {
     type: 'text',

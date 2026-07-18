@@ -2076,6 +2076,336 @@ const TransitionMapDiagram = () => {
 };
 
 /* ═══════════════════════════════════════════════════════════════
+   30. INEQUALITY NUMBER LINE  (Algebra — Inequalities)
+      x > 2 (open circle, shade right) and x ≤ −1 (closed, shade left).
+   ═══════════════════════════════════════════════════════════════ */
+const InequalityNumberLineDiagram = () => {
+  const W = 560, H = 300;
+  const oX = 280, sc = 44;
+  const px = (v) => oX + v * sc;
+  const ticks = [-4, -3, -2, -1, 0, 1, 2, 3, 4];
+
+  const NumberLine = ({ y }) => (
+    <g>
+      <line x1={50} y1={y} x2={510} y2={y} stroke={COLORS.axis} strokeWidth="2" />
+      <polygon points={`510,${y} 502,${y - 4} 502,${y + 4}`} fill={COLORS.axis} />
+      <polygon points={`50,${y} 58,${y - 4} 58,${y + 4}`} fill={COLORS.axis} />
+      {ticks.map((t) => (
+        <g key={t}>
+          <line x1={px(t)} y1={y - 5} x2={px(t)} y2={y + 5} stroke={COLORS.axis} strokeWidth="1.5" />
+          <text x={px(t)} y={y + 22} fontSize="11" fill={COLORS.axisLabel} textAnchor="middle" fontFamily={FONT}>{t}</text>
+        </g>
+      ))}
+    </g>
+  );
+
+  return (
+    <div style={DIAGRAM_STYLE}>
+      <svg viewBox={`0 0 ${W} ${H}`} style={{ maxWidth: 580, width: '100%' }}
+        aria-label="Number lines for x greater than 2 with an open circle shaded right, and x less than or equal to negative 1 with a closed circle shaded left">
+        <defs>
+          <linearGradient id="inl-bg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stopColor={COLORS.bgSubtle} />
+            <stop offset="100%" stopColor="#f1f5f9" />
+          </linearGradient>
+        </defs>
+        <rect width={W} height={H} fill="url(#inl-bg)" rx="12" />
+
+        {/* Row 1: x > 2 — open circle at 2, shade right */}
+        <text x={50} y={52} fontSize="15" fill={COLORS.secondary} fontWeight="800" fontFamily={FONT}>x &gt; 2</text>
+        <NumberLine y={92} />
+        <line x1={px(2)} y1={92} x2={504} y2={92} stroke={COLORS.secondary} strokeWidth="5" strokeLinecap="round" />
+        <polygon points={`512,92 500,86 500,98`} fill={COLORS.secondary} />
+        <circle cx={px(2)} cy={92} r="7" fill="#fff" stroke={COLORS.secondary} strokeWidth="3" />
+
+        {/* Row 2: x ≤ −1 — closed circle at −1, shade left */}
+        <text x={50} y={162} fontSize="15" fill={COLORS.primary} fontWeight="800" fontFamily={FONT}>x ≤ −1</text>
+        <NumberLine y={202} />
+        <line x1={56} y1={202} x2={px(-1)} y2={202} stroke={COLORS.primary} strokeWidth="5" strokeLinecap="round" />
+        <polygon points={`48,202 60,196 60,208`} fill={COLORS.primary} />
+        <circle cx={px(-1)} cy={202} r="7" fill={COLORS.primary} stroke="#fff" strokeWidth="2.5" />
+
+        <CalloutCard x={80} y={252} width={400} color={COLORS.warning}
+          text="Open circle: endpoint excluded · Closed circle: endpoint included" />
+      </svg>
+    </div>
+  );
+};
+
+/* ═══════════════════════════════════════════════════════════════
+   31. SYSTEMS INTERSECTION  (Algebra — Systems of Equations)
+      y = x + 1 and y = −x + 5 crossing at the solution (2, 3).
+   ═══════════════════════════════════════════════════════════════ */
+const SystemsIntersectionDiagram = () => {
+  const W = 500, H = 440;
+  const oX = 115, oY = 350, sc = 45;
+  const px = (x, y) => [oX + x * sc, oY - y * sc];
+  const [ix, iy] = px(2, 3);
+
+  return (
+    <div style={DIAGRAM_STYLE}>
+      <svg viewBox={`0 0 ${W} ${H}`} style={{ maxWidth: 540, width: '100%' }}
+        aria-label="Two lines, y equals x plus 1 and y equals negative x plus 5, crossing at the single solution point (2, 3)">
+        <defs>
+          <linearGradient id="sys-bg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stopColor={COLORS.bgSubtle} />
+            <stop offset="100%" stopColor="#f1f5f9" />
+          </linearGradient>
+        </defs>
+        <rect width={W} height={H} fill="url(#sys-bg)" rx="12" />
+
+        {renderGrid({ originX: oX, originY: oY, scale: sc, xRange: [-2, 8], yRange: [-1, 6], width: W, height: H })}
+        {renderAxes({ originX: oX, originY: oY, width: W, height: H })}
+        {renderAxisLabels({ originX: oX, originY: oY, scale: sc,
+          xTicks: [-1, 1, 2, 3, 4, 5, 6, 7], yTicks: [1, 2, 3, 4, 5] })}
+
+        {/* y = x + 1 */}
+        <line x1={px(-1.6, -0.6)[0]} y1={px(-1.6, -0.6)[1]} x2={px(4.6, 5.6)[0]} y2={px(4.6, 5.6)[1]}
+          stroke={COLORS.primary} strokeWidth="3" strokeLinecap="round" />
+        <PillLabel x={px(4.4, 5.9)[0]} y={px(4.4, 5.9)[1]} text="y = x + 1" color={COLORS.primary}
+          bgColor="#fff" fontSize={12} />
+
+        {/* y = −x + 5 */}
+        <line x1={px(-0.6, 5.6)[0]} y1={px(-0.6, 5.6)[1]} x2={px(6.4, -1.4)[0]} y2={px(6.4, -1.4)[1]}
+          stroke={COLORS.secondary} strokeWidth="3" strokeLinecap="round" />
+        <PillLabel x={px(0.2, 6)[0] + 10} y={px(0.2, 6)[1] - 4} text="y = −x + 5" color={COLORS.secondary}
+          bgColor="#fff" fontSize={12} />
+
+        {/* Solution point */}
+        <circle cx={ix} cy={iy} r="9" fill={COLORS.warning} stroke="#fff" strokeWidth="3" />
+        <PillLabel x={ix + 62} y={iy - 16} text="(2, 3)" color={COLORS.text}
+          bgColor="#fff" borderColor={COLORS.grid} fontSize={13} />
+
+        <CalloutCard x={90} y={H - 52} width={340} color={COLORS.warning}
+          text="One point sits on both lines — that point is the solution." />
+      </svg>
+    </div>
+  );
+};
+
+/* ═══════════════════════════════════════════════════════════════
+   32. SCATTERPLOT MODEL  (PSDA — Scatterplots & Data Models)
+      Dots = data, line = model; one point annotated actual vs predicted.
+   ═══════════════════════════════════════════════════════════════ */
+const ScatterplotModelDiagram = () => {
+  const W = 520, H = 440;
+  const oX = 60, oY = 360, sc = 44;
+  const px = (x, y) => [oX + x * sc, oY - y * sc];
+  const pts = [
+    [1, 1.8], [2, 2.0], [2.6, 3.1], [3.5, 2.9], [4.2, 3.9],
+    [5, 3.6], [6.5, 4.6], [7.2, 5.7], [7.8, 5.3],
+  ];
+  const m = 0.55, b = 1.2;
+  const hx = 5.8, hyActual = 4.9, hyPred = m * hx + b;
+  const [ax, ay] = px(hx, hyActual);
+  const [qx, qy] = px(hx, hyPred);
+
+  return (
+    <div style={DIAGRAM_STYLE}>
+      <svg viewBox={`0 0 ${W} ${H}`} style={{ maxWidth: 560, width: '100%' }}
+        aria-label="Scatterplot with a line of best fit: dots are the data, the line is the model, and one highlighted point shows the gap between its actual value and the value the line predicts">
+        <defs>
+          <linearGradient id="scm-bg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stopColor={COLORS.bgSubtle} />
+            <stop offset="100%" stopColor="#f1f5f9" />
+          </linearGradient>
+        </defs>
+        <rect width={W} height={H} fill="url(#scm-bg)" rx="12" />
+
+        {renderAxes({ originX: oX, originY: oY, width: W, height: H })}
+
+        {/* Model line */}
+        <line x1={px(0.4, m * 0.4 + b)[0]} y1={px(0.4, m * 0.4 + b)[1]}
+          x2={px(8.4, m * 8.4 + b)[0]} y2={px(8.4, m * 8.4 + b)[1]}
+          stroke={COLORS.primary} strokeWidth="3" strokeLinecap="round" />
+
+        {/* Data dots */}
+        {pts.map(([x, y], i) => {
+          const [cx, cy] = px(x, y);
+          return <circle key={i} cx={cx} cy={cy} r="6" fill={COLORS.warning} stroke="#fff" strokeWidth="2" />;
+        })}
+
+        {/* Highlighted point: actual vs predicted */}
+        <line x1={ax} y1={ay} x2={qx} y2={qy} stroke={COLORS.accent2} strokeWidth="2" strokeDasharray="5 3" />
+        <circle cx={ax} cy={ay} r="7" fill={COLORS.accent2} stroke="#fff" strokeWidth="2.5" />
+        <circle cx={qx} cy={qy} r="6" fill={COLORS.primary} stroke="#fff" strokeWidth="2.5" />
+        <PillLabel x={ax + 62} y={ay - 8} text="actual (data)" color={COLORS.accent2} bgColor="#fff" fontSize={12} />
+        <PillLabel x={qx + 84} y={qy + 22} text="predicted (line)" color={COLORS.primary} bgColor="#fff" fontSize={12} />
+
+        {/* Legend pills */}
+        <PillLabel x={150} y={52} text="dots = what happened" color={COLORS.warning} bgColor="#fff" fontSize={12} />
+        <PillLabel x={368} y={52} text="line = the model" color={COLORS.primary} bgColor="#fff" fontSize={12} />
+
+        <CalloutCard x={70} y={H - 48} width={380} color={COLORS.warning}
+          text="Always ask which one the question is about: the dots, or the line." />
+      </svg>
+    </div>
+  );
+};
+
+/* ═══════════════════════════════════════════════════════════════
+   33. TRANSVERSAL ANGLES  (Geometry — Lines, Angles & Congruence)
+      Parallel lines cut by a transversal: equal corresponding angles,
+      co-interior pair summing to 180°.
+   ═══════════════════════════════════════════════════════════════ */
+const TransversalAnglesDiagram = () => {
+  const W = 560, H = 400;
+  const y1 = 130, y2 = 270;
+  // Transversal through both lines
+  const tx = (y) => 150 + (y - 40) / 1.19;
+  const ix1 = tx(y1), ix2 = tx(y2);
+
+  return (
+    <div style={DIAGRAM_STYLE}>
+      <svg viewBox={`0 0 ${W} ${H}`} style={{ maxWidth: 580, width: '100%' }}
+        aria-label="Two parallel lines cut by a transversal: corresponding angles marked equal, and a co-interior pair adding to 180 degrees">
+        <defs>
+          <linearGradient id="tv-bg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stopColor={COLORS.bgSubtle} />
+            <stop offset="100%" stopColor="#f1f5f9" />
+          </linearGradient>
+        </defs>
+        <rect width={W} height={H} fill="url(#tv-bg)" rx="12" />
+
+        {/* Parallel lines with direction arrows */}
+        {[y1, y2].map((y) => (
+          <g key={y}>
+            <line x1={55} y1={y} x2={505} y2={y} stroke={COLORS.axis} strokeWidth="2.5" />
+            <polygon points={`470,${y} 458,${y - 6} 458,${y + 6}`} fill={COLORS.axisLabel} />
+          </g>
+        ))}
+
+        {/* Transversal */}
+        <line x1={150} y1={40} x2={410} y2={350} stroke={COLORS.primary} strokeWidth="2.5" />
+
+        {/* Corresponding angles (equal) — below-right at each intersection */}
+        <path d={`M ${ix1 + 34} ${y1} A 34 34 0 0 1 ${ix1 + 22} ${y1 + 26}`} fill="none" stroke={COLORS.success} strokeWidth="3" />
+        <text x={ix1 + 52} y={y1 + 28} fontSize="15" fill={COLORS.success} fontWeight="800" fontFamily={FONT}>a°</text>
+        <path d={`M ${ix2 + 34} ${y2} A 34 34 0 0 1 ${ix2 + 22} ${y2 + 26}`} fill="none" stroke={COLORS.success} strokeWidth="3" />
+        <text x={ix2 + 52} y={y2 + 28} fontSize="15" fill={COLORS.success} fontWeight="800" fontFamily={FONT}>a°</text>
+
+        {/* Co-interior angle — above-right at the lower intersection */}
+        <path d={`M ${ix2 + 34} ${y2} A 34 34 0 0 0 ${ix2 - 22} ${y2 - 26}`} fill="none" stroke={COLORS.secondary} strokeWidth="3" />
+        <text x={ix2 + 44} y={y2 - 34} fontSize="14" fill={COLORS.secondary} fontWeight="800" fontFamily={FONT}>180° − a°</text>
+
+        <CalloutCard x={70} y={H - 52} width={430} color={COLORS.success}
+          text="Matching corners are equal · same-side interior angles add to 180°" />
+      </svg>
+    </div>
+  );
+};
+
+/* ═══════════════════════════════════════════════════════════════
+   34. RADIAN ARC  (Geometry — Radians & Degrees)
+      An arc exactly one radius long marks 1 radian; 180° = π anchors
+      every conversion.
+   ═══════════════════════════════════════════════════════════════ */
+const RadianArcDiagram = () => {
+  const W = 560, H = 400;
+  const cx = 170, cy = 205, r = 125;
+  const rad = 57.3 * (Math.PI / 180);
+  const ex = cx + r * Math.cos(rad), ey = cy - r * Math.sin(rad);
+
+  return (
+    <div style={DIAGRAM_STYLE}>
+      <svg viewBox={`0 0 ${W} ${H}`} style={{ maxWidth: 580, width: '100%' }}
+        aria-label="A circle where an arc exactly one radius long spans an angle of 1 radian, with the anchor fact that 180 degrees equals pi radians">
+        <defs>
+          <linearGradient id="ra-bg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stopColor={COLORS.bgSubtle} />
+            <stop offset="100%" stopColor="#f1f5f9" />
+          </linearGradient>
+        </defs>
+        <rect width={W} height={H} fill="url(#ra-bg)" rx="12" />
+
+        <circle cx={cx} cy={cy} r={r} fill="none" stroke={COLORS.grid} strokeWidth="2" />
+        <circle cx={cx} cy={cy} r="4" fill={COLORS.axis} />
+
+        {/* Two radii bounding the 1-radian angle */}
+        <line x1={cx} y1={cy} x2={cx + r} y2={cy} stroke={COLORS.axis} strokeWidth="2.5" />
+        <line x1={cx} y1={cy} x2={ex} y2={ey} stroke={COLORS.axis} strokeWidth="2.5" />
+        <text x={cx + r / 2 - 8} y={cy + 20} fontSize="15" fill={COLORS.text} fontWeight="700" fontFamily={FONT}>r</text>
+
+        {/* The arc of length r */}
+        <path d={`M ${cx + r} ${cy} A ${r} ${r} 0 0 0 ${ex} ${ey}`}
+          fill="none" stroke={COLORS.accent2} strokeWidth="5" strokeLinecap="round" />
+        <PillLabel x={cx + r + 4} y={cy - r / 2 - 14} text="arc length = r" color={COLORS.accent2} bgColor="#fff" fontSize={12} />
+
+        {/* Angle marker */}
+        <path d={`M ${cx + 38} ${cy} A 38 38 0 0 0 ${cx + 38 * Math.cos(rad)} ${cy - 38 * Math.sin(rad)}`}
+          fill="none" stroke={COLORS.primary} strokeWidth="2.5" />
+        <text x={cx + 52} y={cy - 16} fontSize="13" fill={COLORS.primary} fontWeight="800" fontFamily={FONT}>1 rad</text>
+
+        {/* Anchor + conversion cards */}
+        <CalloutCard x={330} y={120} width={200} color={COLORS.primary} text="180° = π radians" />
+        <CalloutCard x={330} y={166} width={200} color={COLORS.secondary} text="° → rad: × π⁄180" fontSize={12} />
+        <CalloutCard x={330} y={212} width={200} color={COLORS.secondary} text="rad → °: × 180⁄π" fontSize={12} />
+
+        <CalloutCard x={70} y={H - 52} width={420} color={COLORS.accent2}
+          text="1 radian: the angle whose arc is exactly one radius long" />
+      </svg>
+    </div>
+  );
+};
+
+/* ═══════════════════════════════════════════════════════════════
+   35. TRIG SIDE LABELING  (Geometry — Right-Triangle Trigonometry)
+      Opposite / adjacent / hypotenuse relative to θ + SOH-CAH-TOA.
+   ═══════════════════════════════════════════════════════════════ */
+const TrigSideLabelingDiagram = () => {
+  const W = 560, H = 400;
+  const A = [110, 300], B = [430, 300], C = [430, 110];
+
+  return (
+    <div style={DIAGRAM_STYLE}>
+      <svg viewBox={`0 0 ${W} ${H}`} style={{ maxWidth: 580, width: '100%' }}
+        aria-label="Right triangle with the angle theta marked: the opposite side faces theta, the adjacent side touches it, and the hypotenuse is across from the right angle">
+        <defs>
+          <linearGradient id="tsl-bg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stopColor={COLORS.bgSubtle} />
+            <stop offset="100%" stopColor="#f1f5f9" />
+          </linearGradient>
+        </defs>
+        <rect width={W} height={H} fill="url(#tsl-bg)" rx="12" />
+
+        {/* Sides */}
+        <line x1={A[0]} y1={A[1]} x2={B[0]} y2={B[1]} stroke={COLORS.success} strokeWidth="4" strokeLinecap="round" />
+        <line x1={B[0]} y1={B[1]} x2={C[0]} y2={C[1]} stroke={COLORS.accent2} strokeWidth="4" strokeLinecap="round" />
+        <line x1={A[0]} y1={A[1]} x2={C[0]} y2={C[1]} stroke={COLORS.primary} strokeWidth="4" strokeLinecap="round" />
+
+        {/* Right-angle marker at B */}
+        <path d={`M ${B[0] - 18} ${B[1]} L ${B[0] - 18} ${B[1] - 18} L ${B[0]} ${B[1] - 18}`}
+          fill="none" stroke={COLORS.axis} strokeWidth="2" />
+
+        {/* θ at A */}
+        <path d={`M ${A[0] + 46} ${A[1]} A 46 46 0 0 0 ${A[0] + 38} ${A[1] - 25}`}
+          fill="none" stroke={COLORS.warning} strokeWidth="3" />
+        <text x={A[0] + 58} y={A[1] - 12} fontSize="17" fill={COLORS.warning} fontWeight="800" fontFamily={FONT}>θ</text>
+
+        {/* Side labels */}
+        <text x={(A[0] + B[0]) / 2} y={A[1] + 26} fontSize="14" fill={COLORS.success} fontWeight="800"
+          textAnchor="middle" fontFamily={FONT}>adjacent — touches θ</text>
+        <text x={B[0] + 14} y={(B[1] + C[1]) / 2 + 5} fontSize="14" fill={COLORS.accent2} fontWeight="800"
+          fontFamily={FONT}>opposite</text>
+        <text x={(A[0] + C[0]) / 2 - 24} y={(A[1] + C[1]) / 2 - 16} fontSize="14" fill={COLORS.primary} fontWeight="800"
+          textAnchor="end" fontFamily={FONT}>hypotenuse</text>
+
+        {/* SOH-CAH-TOA card */}
+        <rect x={70} y={H - 64} width={420} height={44} rx="10" fill="#fff" stroke={COLORS.grid} strokeWidth="1" />
+        <rect x={70} y={H - 64} width="4" height={44} rx="2" fill={COLORS.warning} />
+        <text x={100} y={H - 37} fontSize="13.5" fontWeight="700" fontFamily={FONT}>
+          <tspan fill={COLORS.accent2}>sin θ = opp⁄hyp</tspan>
+          <tspan fill={COLORS.text} dx="14">·</tspan>
+          <tspan fill={COLORS.success} dx="14">cos θ = adj⁄hyp</tspan>
+          <tspan fill={COLORS.text} dx="14">·</tspan>
+          <tspan fill={COLORS.primary} dx="14">tan θ = opp⁄adj</tspan>
+        </text>
+      </svg>
+    </div>
+  );
+};
+
+/* ═══════════════════════════════════════════════════════════════
    REGISTRY — maps visualType strings to components
    ═══════════════════════════════════════════════════════════════ */
 const visualRegistry = {
@@ -2108,6 +2438,12 @@ const visualRegistry = {
   sentenceBoundaryDiagram: SentenceBoundaryDiagram,
   subjectVerbAgreementDiagram: SubjectVerbAgreementDiagram,
   transitionMapDiagram: TransitionMapDiagram,
+  inequalityNumberLineDiagram: InequalityNumberLineDiagram,
+  systemsIntersectionDiagram: SystemsIntersectionDiagram,
+  scatterplotModelDiagram: ScatterplotModelDiagram,
+  transversalAnglesDiagram: TransversalAnglesDiagram,
+  radianArcDiagram: RadianArcDiagram,
+  trigSideLabelingDiagram: TrigSideLabelingDiagram,
 };
 
 const LessonVisualRenderer = ({ type }) => {
