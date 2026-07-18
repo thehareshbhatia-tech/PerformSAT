@@ -61,3 +61,6 @@ scripts/.last-content-tab-generation-report.json
 # Auditing pipeline regenerable output
 scripts/audit-output/
 .vercel
+
+# Source-book PDFs (copyrighted — local reference only, never commit)
+knowledge/books/

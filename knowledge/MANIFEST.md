@@ -1,11 +1,12 @@
 # Extraction Manifest — book → chapter → page map
 
-Rendered page images are session-scratchpad artifacts (gone once the session's scratchpad is
-cleaned). Re-render with PyMuPDF at 150 DPI / JPEG q80. As of 2026-07-18 the four source PDFs
-are no longer on the Desktop — they sit in the iCloud Trash
-(`~/Library/Mobile Documents/.Trash/`), so rescue them to a durable location before they're
-purged. JPG page numbering equals PDF page numbering (verified: page counts 175/218/425/212
-match the tables below).
+**Canonical book location (2026-07-18): `knowledge/books/` — gitignored, NEVER commit** (the
+PDFs are copyrighted; the repo pushes to GitHub). Contents: `reading.pdf`, `grammar.pdf`,
+`math-orange.pdf`, `math-panda.pdf`, plus every page pre-rendered to
+`knowledge/books/pages/<book>/pNNNN.jpg` (150 DPI / JPEG q80) so an agent can Read any page
+image directly with no PDF tooling. pNNNN = PDF page number, 1-based, matching the chapter
+tables below (verified: page counts 175/218/425/212). Re-render or add books with
+`python3 scripts/renderBookPages.py` (tracked, idempotent, requires PyMuPDF).
 
 Status legend: [ ] pending, [~] extracting, [x] raw notes done
 
