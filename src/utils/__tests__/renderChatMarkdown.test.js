@@ -415,4 +415,28 @@ describe('math delimiter robustness (garbled-tutor-reply regression, 2026-07-15)
     const html = renderToHtml('Start here:\n$$x^2 - 7x + 12 = 0$$\nand factor.');
     expect(html).toContain('katex-display');
   });
+
+  // The tutor renders assistant KaTeX output raw (stashed as a trusted chunk,
+  // exempt from the escape-first pass). That is only safe under KaTeX's default
+  // trust:false. Pin it: a model reply containing \href/\htmlData must never
+  // become a live anchor or event handler. Fails loudly if trust is ever
+  // enabled globally or at a call site.
+  describe('KaTeX trust:false invariant (assistant math stays inert)', () => {
+    // trust:false degrades these to inert error nodes (mathcolor #cc0000); the
+    // payload survives only as escaped <annotation> text. Assert no injected
+    // element and no live handler/scheme ATTRIBUTE (quote-delimited), not a bare
+    // substring that would false-positive on the annotation echo.
+    test('\\href javascript: URL in a reply produces no live anchor', () => {
+      const html = renderToHtml('Sure: $\\href{javascript:alert(1)}{tap}$ to see.');
+      expect(html).not.toMatch(/<a\b/i);
+      expect(html).not.toMatch(/(href|src)\s*=\s*"javascript:/i);
+      expect(html).toContain('#cc0000');
+    });
+
+    test('\\htmlData in a reply injects no event handler', () => {
+      const html = renderToHtml('Try $\\htmlData{onclick=alert(1)}{x}$ here.');
+      expect(html).not.toMatch(/\son\w+\s*=\s*"/i);
+      expect(html).toContain('#cc0000');
+    });
+  });
 });

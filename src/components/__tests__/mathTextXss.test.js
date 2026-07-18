@@ -77,4 +77,41 @@ describe('MathText XSS hardening', () => {
     const m = render('Compute $$x = \\frac{1}{2}$$.');
     expect(m).toContain('katex');
   });
+
+  // KaTeX HTML is stashed as "trusted" and injected raw (that is how real math
+  // reaches the DOM). The invariant that keeps that safe is KaTeX's default
+  // trust:false — no call site may pass trust:true or a global config that
+  // enables HTML commands. If anyone ever flips that, \href / \htmlData would
+  // become live HTML injection with no other guard. These tests fail loudly if
+  // that invariant breaks. (Escape-first protects everything EXCEPT the trusted
+  // KaTeX chunk, so this is the one path the byte-escaping can't cover.)
+  // With trust:false, KaTeX renders these HTML-injecting commands as inert red
+  // ERROR nodes (mathcolor #cc0000) — the raw source echoes only inside the
+  // escaped <annotation> text, never as a live element or attribute. The robust
+  // signal is therefore: no injected element (<a>/<img>/<iframe>) and no live
+  // handler/scheme ATTRIBUTE (on…="…", href="javascript:"). A plain substring
+  // like "onclick=" would false-positive on the inert annotation echo, so these
+  // assert the attribute form (quote-delimited), which only trust:true emits.
+  describe('KaTeX trust:false invariant (raw-injected math must stay inert)', () => {
+    it('\\href with a javascript: URL produces no live anchor', () => {
+      const html = render('Click $\\href{javascript:alert(1)}{here}$ now.');
+      expect(html).not.toMatch(/<a\b/i);
+      expect(html).not.toMatch(/(href|src)\s*=\s*"javascript:/i);
+      // Proof trust:false is active: \href degraded to a KaTeX error node.
+      expect(html).toContain('#cc0000');
+    });
+
+    it('\\htmlData / \\htmlId inject no live attributes', () => {
+      const html = render('$x \\htmlData{onclick=alert(1)}{y}$ and $\\htmlId{z}{w}$');
+      expect(html).not.toMatch(/\son\w+\s*=\s*"/i); // no live event-handler attr
+      expect(html).not.toMatch(/\sid\s*=\s*"z"/i); // \htmlId did not set an id
+      expect(html).toContain('#cc0000');
+    });
+
+    it('\\includegraphics injects no <img>', () => {
+      const html = render('$\\includegraphics{https://x/y.png}$');
+      expect(html).not.toMatch(/<img\b/i);
+      expect(html).toContain('#cc0000');
+    });
+  });
 });

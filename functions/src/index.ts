@@ -509,7 +509,15 @@ export const aiTutor = onRequest(
             } else if (evt.type === "message_delta" && evt.delta?.stop_reason) {
               stopReason = evt.delta.stop_reason;
             } else if (evt.type === "error") {
-              send({type: "error", message: evt.error?.message || "stream error"});
+              // Never forward the upstream (Anthropic) error string to the
+              // client: the buffered path deliberately maps upstream errors to
+              // stable generic strings because the client string-matches error
+              // text to pick its failure UI, and a leaked "overloaded"/"rate
+              // limit"-flavored message can mis-fire that branch (e.g. show a
+              // paying student a "session expired" screen). Log the detail
+              // server-side; send the same stable string the catch path uses.
+              logger.warn("AI Tutor upstream stream error:", evt.error?.message);
+              send({type: "error", message: "stream interrupted"});
             }
           }
         }
