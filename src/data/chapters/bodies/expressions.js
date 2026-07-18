@@ -1,10 +1,12 @@
 /**
  * Learn lesson body — Working with Expressions (Algebra / Advanced Math).
  *
- * VOICE v3 (adopted 2026-07-17, exemplar: bodies/centralIdeas.js): scannable
- * instructional register — direct address, contractions, 1-3 sentence text
- * blocks, list blocks for criteria, steps blocks for procedures; no analogies,
- * no pep-talk, no emojis. All substance of the v2 textbook version preserved.
+ * VOICE v4 (adopted 2026-07-18, exemplar: bodies/centralIdeas.js): practiced-tutor
+ * register — developed 2-5 sentence paragraphs with connective tissue; every rule
+ * earns its "because"; student-psychology named concretely; math teaching is
+ * example-led; varied rhythm, no aphorism-per-block. Bans carried from v3: no
+ * analogies, no pep talk, no exclamation marks, no emojis, no
+ * test-personification. All v3 teaching claims preserved.
  * Gated by bodies.test.js.
  * $...$ is KaTeX.
  *
@@ -15,25 +17,13 @@
 export const expressionsBlocks = [
   {
     type: 'text',
-    content: "Algebra closed with functions that reach beyond the linear, and everything nonlinear runs on one prerequisite skill: rewriting expressions. These questions hand you nothing to solve — no equation, no unknown to find. Just one expression to **rewrite as an equivalent one** by expanding it, factoring it, or matching a target form.",
-  },
-  {
-    type: 'text',
-    content: "That can feel unfamiliar at first, precisely because the solving reflex has nothing to do here — and long computation earns nothing. The skill is *recognizing* which form the question wants.",
-  },
-  {
-    type: 'text',
-    content: "The whole topic rests on two operations that reverse each other, three templates worth memorizing, and one habit: treating a compound piece as a single unit.",
+    content: "Algebra closed with functions that reach beyond the linear, and everything nonlinear runs on one prerequisite skill: rewriting expressions. These questions hand you nothing to solve — no equation, no unknown to find, just one expression to **rewrite as an equivalent one** by expanding it, factoring it, or matching a target form. That can feel unfamiliar at first, precisely because the solving reflex has nothing to do here and long computation earns nothing; the skill is *recognizing* which form the question wants. The whole topic rests on two operations that reverse each other, three templates worth memorizing, and one habit — treating a compound piece as a single unit.",
   },
 
   { type: 'heading', content: 'Expanding and factoring: two directions' },
   {
     type: 'text',
-    content: "**Expanding** multiplies out to remove parentheses: $(x+2)(x+3)\\to x^2+5x+6$. **Factoring** reverses it, rewriting a sum as a product: $x^2+5x+6\\to(x+2)(x+3)$. Neither changes the value — the two forms are the same quantity.",
-  },
-  {
-    type: 'text',
-    content: "The instruction verb tells you the direction. \"Expand\" or \"multiply\" goes forward; \"factor\" or \"write as a product\" goes backward. Find that verb before starting the algebra — working in the wrong direction is real effort toward a form the question never asked for.",
+    content: "**Expanding** multiplies out to remove parentheses: $(x+2)(x+3)\\to x^2+5x+6$. **Factoring** reverses it, rewriting a sum as a product: $x^2+5x+6\\to(x+2)(x+3)$. Neither changes the value — the two forms are the same quantity written two ways — so the instruction verb is what tells you which direction to work: \"expand\" or \"multiply\" goes forward, \"factor\" or \"write as a product\" goes backward. Find that verb before starting the algebra, because working in the wrong direction is real effort spent on a form the question never asked for.",
   },
   {
     type: 'keyInsight',
@@ -62,21 +52,13 @@ export const expressionsBlocks = [
   },
   {
     type: 'text',
-    content: "The backward direction carries most of the value. A difference of two squares with no middle term factors immediately: $x^2-49=(x+7)(x-7)$.",
-  },
-  {
-    type: 'text',
-    content: "When both end terms are squares and the middle equals twice the product of their roots, you're holding a perfect square: $x^2+12x+36=(x+6)^2$, since $2\\cdot x\\cdot6=12x$. Spotting the form and applying the template replaces the longer computation entirely.",
+    content: "The backward direction carries most of the value. A difference of two squares with no middle term factors immediately — $x^2-49=(x+7)(x-7)$ — and when both end terms are squares while the middle equals twice the product of their roots, you're holding a perfect square: $x^2+12x+36=(x+6)^2$, since $2\\cdot x\\cdot6=12x$. Spotting the form and applying the template replaces the longer computation entirely.",
   },
 
   { type: 'heading', content: 'What "for all values of x" means' },
   {
     type: 'text',
-    content: "The phrase **\"for all values of $x$\"** signals an identity, not an equation to solve. An equation that holds at one value of $x$ gets solved for that value; holding for *all* $x$ means the two polynomials are the same polynomial.",
-  },
-  {
-    type: 'text',
-    content: "Two polynomials are the same only when their corresponding terms agree. So the method is to **match the coefficients of like terms.**",
+    content: "The phrase **\"for all values of $x$\"** signals an identity, not an equation to solve. An equation that holds at one value of $x$ gets solved for that value; holding for *all* $x$ means the two polynomials are the same polynomial, and two polynomials are the same only when their corresponding terms agree. So the method is to **match the coefficients of like terms** — nothing gets solved except for the constants that make the match work.",
   },
   {
     type: 'text',
@@ -86,15 +68,7 @@ export const expressionsBlocks = [
   { type: 'heading', content: 'Treat a compound piece as one unit' },
   {
     type: 'text',
-    content: "A compound piece such as $(x+y)$ or $(x+1)$ can be handled as a **single unit.** The instinct to break it apart and pin down $x$ and $y$ individually is misplaced here — the unit itself is the quantity the question asks for.",
-  },
-  {
-    type: 'text',
-    content: "If $3(x+y)=24$ and the question wants $x+y$, one division does it: $x+y=8$. The individual values never enter.",
-  },
-  {
-    type: 'text',
-    content: "A repeated unit even factors like a single variable: $6(x+1)^2-5(x+1)=(x+1)\\big[6(x+1)-5\\big]=(x+1)(6x+1)$.",
+    content: "If $3(x+y)=24$ and the question wants $x+y$, one division does it: $x+y=8$. The instinct to break the pair apart and pin down $x$ and $y$ individually is misplaced here, because the unit itself is the quantity the question asks for — the individual values never enter. A compound piece such as $(x+y)$ or $(x+1)$ can be handled as a **single unit**, and a repeated unit even factors like a single variable: $6(x+1)^2-5(x+1)=(x+1)\\big[6(x+1)-5\\big]=(x+1)(6x+1)$.",
   },
   {
     type: 'tip',
@@ -104,11 +78,7 @@ export const expressionsBlocks = [
   { type: 'heading', content: 'Rational expressions' },
   {
     type: 'text',
-    content: "A rational expression is a fraction whose numerator and denominator are polynomials, and it simplifies the way a numeric fraction does: **factor both, then cancel the factors** the whole top and the whole bottom share. $\\dfrac{x^2-9}{x^2+5x+6}=\\dfrac{(x-3)(x+3)}{(x+2)(x+3)}=\\dfrac{x-3}{x+2}$.",
-  },
-  {
-    type: 'text',
-    content: "Cancelling is dividing top and bottom by the same quantity, so only a complete factor qualifies — a term joined by $+$ or $-$ never cancels. Striking the two $x^2$ terms before factoring changes the expression's value; factoring first is what makes the cancellation legitimate.",
+    content: "A rational expression is a fraction whose numerator and denominator are polynomials, and it simplifies the way a numeric fraction does: **factor both, then cancel the factors** the whole top and the whole bottom share. $\\dfrac{x^2-9}{x^2+5x+6}=\\dfrac{(x-3)(x+3)}{(x+2)(x+3)}=\\dfrac{x-3}{x+2}$. Why factor first? Because cancelling is dividing top and bottom by the same quantity, so only a complete factor qualifies — a term joined by $+$ or $-$ never cancels, and striking the two $x^2$ terms before factoring changes the expression's value. Factoring first is what makes the cancellation legitimate.",
   },
   {
     type: 'keyInsight',
@@ -128,11 +98,7 @@ export const expressionsBlocks = [
   },
   {
     type: 'text',
-    content: "Adding tops and bottoms separately — $\\frac{1}{x}+\\frac{2}{x+1}\\ne\\frac{3}{2x+1}$ — is the error the wrong choices are built from.",
-  },
-  {
-    type: 'text',
-    content: "Division by a fraction is multiplication by its reciprocal: $\\dfrac{a}{b}\\div\\dfrac{c}{d}=\\dfrac{a}{b}\\cdot\\dfrac{d}{c}$. A stacked (complex) fraction says the same thing in different typography — flip the bottom fraction, multiply, and the question becomes an ordinary factor-and-cancel exercise.",
+    content: "Adding tops and bottoms separately — $\\frac{1}{x}+\\frac{2}{x+1}\\ne\\frac{3}{2x+1}$ — is the error the wrong choices are built from; it's the straight-across slip from numeric fractions, translated into polynomials. Division by a fraction is multiplication by its reciprocal: $\\dfrac{a}{b}\\div\\dfrac{c}{d}=\\dfrac{a}{b}\\cdot\\dfrac{d}{c}$. A stacked (complex) fraction says the same thing in different typography — flip the bottom fraction, multiply, and the question becomes an ordinary factor-and-cancel exercise.",
   },
 
   { type: 'heading', content: 'How to approach these questions' },

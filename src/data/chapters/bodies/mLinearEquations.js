@@ -1,11 +1,12 @@
 /**
  * Learn lesson body — Linear Equations & Lines (Math).
  *
- * VOICE v3 (adopted 2026-07-17, exemplar: bodies/centralIdeas.js): scannable
- * instructional register — direct address, contractions, 1-3 sentence text
- * blocks, list blocks for criteria, steps blocks for procedures; no
- * analogies, no pep-talk, no emojis. All substance of the v2 textbook
- * version preserved.
+ * VOICE v4 (adopted 2026-07-18, exemplar: bodies/centralIdeas.js): practiced-tutor
+ * register — developed 2-5 sentence paragraphs with connective tissue; every rule
+ * earns its "because"; student-psychology named concretely; math teaching is
+ * example-led; varied rhythm, no aphorism-per-block. Bans carried from v3: no
+ * analogies, no pep talk, no exclamation marks, no emojis, no
+ * test-personification. All v3 teaching claims preserved.
  *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
@@ -19,34 +20,18 @@
 export const mLinearEquationsBlocks = [
   {
     type: 'text',
-    content: "Every equation so far — the inequalities and absolute values included — held a single unknown. A linear equation in two variables describes something new: two quantities moving together, one starting at some value and changing at a constant rate as the other advances.",
-  },
-  {
-    type: 'text',
-    content: "Drawn in the coordinate plane, that relationship is a line. Slope-intercept form $y = mx + b$ names both defining numbers directly: $b$ is the starting value and $m$ is the rate of change.",
-  },
-  {
-    type: 'text',
-    content: "Most questions about lines, however they're worded, reduce to identifying one of these two quantities.",
+    content: "Every equation so far — the inequalities and absolute values included — held a single unknown. A linear equation in two variables describes something new: two quantities moving together, one starting at some value and changing at a constant rate as the other advances. Drawn in the coordinate plane, that relationship is a line, and slope-intercept form $y = mx + b$ names its two defining numbers directly — $b$ is the starting value, $m$ is the rate of change. However a line question is worded, it almost always reduces to identifying one of those two quantities.",
   },
 
   { type: 'heading', content: 'Rate and starting value' },
   {
     type: 'text',
-    content: "A linear relationship combines one fixed quantity with one repeating quantity. Consider a taxi fare: a $\\$3$ base charge plus $\\$2$ per mile.",
-  },
-  {
-    type: 'text',
-    content: "The $3$ is paid once, at the start — so it's $b$. The $2$ recurs with every mile — so it's $m$. The fare after $x$ miles is $2x + 3$.",
+    content: "Take a taxi fare: a $\\$3$ base charge plus $\\$2$ per mile. The $3$ is paid once, at the start — that's $b$. The $2$ recurs with every mile — that's $m$. So the fare after $x$ miles is $2x + 3$, and any situation built from a one-time amount and a per-unit amount has this same structure; when a problem states a rate and a starting value, the equation of the line follows immediately, no setup required.",
   },
   {
     type: 'diagramRef',
     visualType: 'yInterceptDiagram',
     description: "On the graph, $b$ is where the line crosses the y-axis — the starting value of the relationship, before any per-unit change accumulates.",
-  },
-  {
-    type: 'text',
-    content: "Any situation built from a one-time amount and a per-unit amount has this same structure. When a problem states a rate and a starting value, the equation of the line follows immediately — no setup required.",
   },
   {
     type: 'callout',
@@ -60,16 +45,12 @@ export const mLinearEquationsBlocks = [
   { type: 'heading', content: 'Slope from two points' },
   {
     type: 'text',
-    content: "Two points determine the slope: $m = \\dfrac{y_2 - y_1}{x_2 - x_1}$ — the change in $y$ divided by the change in $x$.",
+    content: "Two points determine the slope: $m = \\dfrac{y_2 - y_1}{x_2 - x_1}$ — the change in $y$ divided by the change in $x$. The formula's one demand is consistency: subtract the coordinates in the same order in the numerator and the denominator. Why so strict? Because reversing the order in only one place flips the sign of the result, turning a falling line into a rising one — the standard mistake in slope calculations.",
   },
   {
     type: 'diagramRef',
     visualType: 'slopeFromGraphDiagram',
     description: "A line through $(0, 4)$ and $(5, 1)$ with its rise/run triangle: the rise is $-3$ and the run is $5$, so the slope is $-\\frac{3}{5}$.",
-  },
-  {
-    type: 'text',
-    content: "Subtract the coordinates in the same order in the numerator and the denominator. Reversing the order in only one place flips the sign of the result, turning a falling line into a rising one — the standard mistake in slope calculations.",
   },
   {
     type: 'tip',
@@ -89,7 +70,7 @@ export const mLinearEquationsBlocks = [
   { type: 'heading', content: 'Horizontal and vertical lines' },
   {
     type: 'text',
-    content: "Two special cases sit at the extremes of slope.",
+    content: "Two special cases sit at the extremes of slope, and in both, the equation simply names the coordinate that stays fixed.",
   },
   {
     type: 'list',
@@ -100,21 +81,13 @@ export const mLinearEquationsBlocks = [
   },
   {
     type: 'text',
-    content: "The vertical line is also the one kind of line that isn't a function: the single input $x = c$ is paired with every $y$-value at once.",
-  },
-  {
-    type: 'text',
-    content: "In both cases the equation names the coordinate that stays fixed. The horizontal line through $(3, 5)$ is $y = 5$; the vertical line through $(3, 5)$ is $x = 3$.",
-  },
-  {
-    type: 'callout',
-    content: "The standard reversal on these items: writing $x = 3$ for the horizontal line — attaching the equation to the coordinate that varies rather than the one that stays constant.",
+    content: "So the horizontal line through $(3, 5)$ is $y = 5$, and the vertical line through the same point is $x = 3$. The vertical line is also the one kind of line that isn't a function, because the single input $x = c$ is paired with every $y$-value at once. The standard reversal on these items is writing $x = 3$ for the *horizontal* line — attaching the equation to the coordinate that varies rather than the one that stays constant. Asking which coordinate is the same for every point on the line settles it each time.",
   },
 
   { type: 'heading', content: 'Writing the equation of a line' },
   {
     type: 'text',
-    content: "A slope and any single point determine a line completely: the slope fixes the direction, and the point anchors the line in place.",
+    content: "A slope and any single point determine a line completely: the slope fixes the direction, and the point anchors the line in place. That's why the procedure below asks for so little.",
   },
   {
     type: 'steps',
@@ -143,7 +116,7 @@ export const mLinearEquationsBlocks = [
   { type: 'heading', content: 'The three forms of a line' },
   {
     type: 'text',
-    content: "The same line can be written in three standard ways, and each form makes a different piece of information immediate.",
+    content: "The same line can be written in three standard ways, and the reason all three survive is that each makes a different piece of information immediate.",
   },
   {
     type: 'list',
@@ -155,28 +128,13 @@ export const mLinearEquationsBlocks = [
   },
   {
     type: 'text',
-    content: "Converting uses only algebra already in hand. Distributing and collecting terms turns point-slope into slope-intercept; moving the $x$-term across the equals sign turns slope-intercept into standard form.",
-  },
-  {
-    type: 'text',
-    content: "The efficient habit: work in whichever form matches the given information, and convert only when the question requests a particular form.",
+    content: "Converting among them uses only algebra already in hand: distributing and collecting terms turns point-slope into slope-intercept, and moving the $x$-term across the equals sign turns slope-intercept into standard form. The efficient habit is to work in whichever form matches the given information, and to convert only when the question requests a particular form.",
   },
 
   { type: 'heading', content: 'What do m and b mean in context?' },
   {
     type: 'text',
-    content: "Applied questions present an equation such as $C = 5x + 30$ for a gym membership and ask what the $30$ represents. Classify each number by asking whether it occurs **once** or **with every unit**.",
-  },
-  {
-    type: 'list',
-    items: [
-      'A one-time quantity — a joining fee, a deposit, an initial amount — is the constant term $b$.',
-      'A quantity that recurs with each unit — a per-class charge, a monthly rate — is the coefficient $m$.',
-    ],
-  },
-  {
-    type: 'text',
-    content: "Assigning these two roles answers the question completely — no computation involved.",
+    content: "Applied questions present an equation such as $C = 5x + 30$ for a gym membership and ask what the $30$ represents. One classification answers every question in the family: does the number occur **once**, or **with every unit**? A one-time quantity — a joining fee, a deposit, an initial amount — is the constant term $b$; a quantity that recurs with each unit — a per-class charge, a monthly rate — is the coefficient $m$. Assigning those two roles answers the question completely, with no computation involved.",
   },
   {
     type: 'table',
@@ -200,7 +158,7 @@ export const mLinearEquationsBlocks = [
   { type: 'heading', content: 'Parallel and perpendicular lines' },
   {
     type: 'text',
-    content: "**Parallel** lines never intersect because they change at the same rate — same $m$, different $b$.",
+    content: "**Parallel** lines never intersect, and the slope is the reason: they change at the same rate — same $m$, different $b$ — so the gap between them never closes.",
   },
   {
     type: 'diagramRef',
@@ -209,7 +167,7 @@ export const mLinearEquationsBlocks = [
   },
   {
     type: 'text',
-    content: "The slope of a **perpendicular** line is the negative reciprocal of the original: invert the fraction, then change the sign, so $\\frac{2}{3}$ becomes $-\\frac{3}{2}$.",
+    content: "A **perpendicular** line has to do more than change at a different rate — it has to cross at a right angle, and the slope that accomplishes that is the **negative reciprocal** of the original: invert the fraction, then change the sign, so $\\frac{2}{3}$ becomes $-\\frac{3}{2}$.",
   },
   {
     type: 'diagramRef',
@@ -218,11 +176,7 @@ export const mLinearEquationsBlocks = [
   },
   {
     type: 'text',
-    content: "Both operations are required. Doing only one — inverting without negating, or negating without inverting — produces a plausible-looking result, and wrong answer choices are routinely built from exactly that half-step.",
-  },
-  {
-    type: 'callout',
-    content: "To verify a perpendicular slope, multiply the two slopes: the product must equal $-1$. If it doesn't, one of the two operations — the inversion or the sign change — got skipped.",
+    content: "Both operations are required, and wrong answer choices are routinely built from the half-steps — inverting without negating, or negating without inverting, each of which produces a plausible-looking slope. That's what makes the verification worth its three seconds: multiply the two slopes, and the product must equal $-1$. If it doesn't, one of the two operations got skipped.",
   },
   {
     type: 'example',
@@ -238,14 +192,7 @@ export const mLinearEquationsBlocks = [
   { type: 'heading', content: 'Finding intercepts' },
   {
     type: 'text',
-    content: "The intercepts are the fastest points to find on any line, because each one sets a variable to zero and leaves a one-step calculation.",
-  },
-  {
-    type: 'list',
-    items: [
-      'Set $x = 0$ → the y-intercept.',
-      'Set $y = 0$ → the x-intercept.',
-    ],
+    content: "The intercepts are the fastest points to find on any line, because each one sets a variable to zero and leaves a one-step calculation: set $x = 0$ for the y-intercept, set $y = 0$ for the x-intercept.",
   },
   {
     type: 'tip',

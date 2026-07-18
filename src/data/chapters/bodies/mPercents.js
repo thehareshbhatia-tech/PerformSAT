@@ -1,10 +1,13 @@
 /**
  * Learn lesson body — Percents (Problem-Solving & Data Analysis).
  *
- * VOICE v3 (adopted 2026-07-17, exemplar: bodies/centralIdeas.js): scannable
- * instructional register — direct address, contractions, 1-3 sentence text
- * blocks, list blocks for criteria, steps blocks for procedures; no analogies,
- * no pep-talk, no emojis. All substance of the v2 textbook version preserved.
+ * VOICE v4 (adopted 2026-07-18, exemplar: bodies/centralIdeas.js):
+ * practiced-tutor register — developed 2-5 sentence paragraphs with
+ * connective tissue; every rule earns its "because"; student-psychology
+ * named concretely; math teaching is example-led; varied rhythm, no
+ * aphorism-per-block. Bans carried from v3: no analogies, no pep talk,
+ * no exclamation marks, no emojis, no test-personification. All v3
+ * teaching claims preserved.
  *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
@@ -13,41 +16,31 @@
 export const mPercentsBlocks = [
   {
     type: 'text',
-    content: 'A percent is the most common special case of the ratio reasoning we just built — a ratio whose base is fixed at $100$ — and the discipline of tracking the base carries over whole.',
-  },
-  {
-    type: 'text',
-    content: 'The arithmetic here is rarely where errors come from. The real decision is whether to multiply, divide, or chain — and, above all, off *which* base.',
-  },
-  {
-    type: 'text',
-    content: 'One habit organizes every one of those decisions: treat each percent as a **multiplier**. The whole topic then collapses into multiplying, dividing, or chaining factors.',
+    content: 'A percent is the most common special case of the ratio reasoning we just built — a ratio whose base is fixed at $100$ — and the discipline of tracking the base carries over whole. The arithmetic in this chapter is rarely where points are lost. The setup is: whether to multiply, divide, or chain, and above all, off *which* base. Watch how one question settles most of that at once.',
   },
 
   { type: 'heading', content: 'A percent is a multiplier' },
   {
     type: 'text',
-    content: 'Translate the words into a single factor as you read them — before any other arithmetic.',
+    content: "Take a question the test asks constantly: a jacket priced at $x$ dollars is marked up by $18\\%$, and you need the new price in terms of $x$. The instinct from school is to handle the increase separately — find $18\\%$ of $x$, then add it back on. That works, but look at what it becomes when you write it as one step: $x + 0.18x = 1.18x$. One factor, $\\times 1.18$, does the whole job.",
   },
   {
-    type: 'list',
-    items: [
-      '"Increase by $20\\%$" means $\\times 1.20$.',
-      '"Decrease by $20\\%$" means $\\times 0.80$ — the decrease factor is the part *left over*, not the part removed.',
-      '"$p\\%$ of" means $\\times \\frac{p}{100}$.',
-    ],
+    type: 'text',
+    content: "Why $1.18$? Because the new price keeps all of the original — that's the $1$ — plus $18\\%$ more on top — that's the $.18$. A decrease builds its factor the same way, but from what's *left*: drop a price by $30\\%$ and you keep $70\\%$ of it, so the factor is $\\times 0.70$. Students who reach for $\\times 0.30$ have built the factor from the part that's *gone*, and the test always lists the answer that mistake produces.",
   },
   {
     type: 'keyInsight',
-    content: 'A decrease keeps the remainder: down $30\\%$ is $\\times 0.70$, not $\\times 0.30$; down $80\\%$ is $\\times 0.20$. Build the factor from what **remains**.',
+    content: 'A decrease keeps the remainder: down $30\\%$ is $\\times 0.70$; down $80\\%$ is $\\times 0.20$. Build the factor from what **remains**.',
   },
   {
     type: 'diagramRef',
     visualType: 'percentChangeDiagram',
     description: 'A quantity before and after a percent change, annotated with the single multiplier that carries the old value to the new one.',
   },
-
-  { type: 'heading', content: 'Translate any change into a factor' },
+  {
+    type: 'text',
+    content: "This one habit — translating each percent phrase into a single factor the moment you read it, before any other arithmetic — is most of the chapter. Everything that follows is that habit applied in different directions.",
+  },
   {
     type: 'table',
     headers: ['The words', 'The factor'],
@@ -63,15 +56,11 @@ export const mPercentsBlocks = [
   { type: 'heading', content: 'Part, whole, and percent' },
   {
     type: 'text',
-    content: 'Every static percent problem fits one equation: $\\text{part} = \\frac{p}{100}\\times\\text{whole}$. Two of the three quantities are given; solve for the third.',
+    content: "Here is the form that trips the reflex: $12$ is $30\\%$ of what number? Two numbers sit in the sentence, and the instinct is to multiply them — $12 \\times 0.30 = 3.6$ — but $3.6$ cannot be the whole, because a whole can never be smaller than its own part. The mistake wasn't arithmetic; it was skipping the naming step. Every static percent problem fits one equation, $\\text{part} = \\frac{p}{100}\\times\\text{whole}$, with two of the three quantities given — and which one is *missing* decides the operation.",
   },
   {
     type: 'text',
-    content: 'The standard error is taking the two given numbers and multiplying without first identifying which quantity is missing. Label the missing quantity first.',
-  },
-  {
-    type: 'text',
-    content: "The form that reads in reverse — \"$12$ is $30\\%$ of what?\" — is missing the *whole*, and a missing whole calls for **division**: $\\text{whole} = 12 \\div 0.30 = 40$.",
+    content: 'Here the whole is missing, and a missing whole calls for **division**: $12 = 0.30 \\times \\text{whole}$, so $\\text{whole} = 12 \\div 0.30 = 40$. Label the missing quantity before touching the numbers, and the multiply-whatever-is-given reflex never gets the chance to fire.',
   },
 
   {
@@ -109,15 +98,11 @@ export const mPercentsBlocks = [
   { type: 'heading', content: 'Reversing a percent change' },
   {
     type: 'text',
-    content: 'Suppose a price **after** a $20\\%$ increase is $\\$60$, and you want the original. Write the change forward: $\\text{original}\\times 1.20 = 60$, so $\\text{original} = 60 \\div 1.20 = 50$.',
+    content: "A price **after** a $20\\%$ increase is $\\$60$, and the question asks for the original. The natural move is to take $20\\%$ off: $60 \\times 0.80 = 48$. But that $20\\%$ was a percent *of the original*, not of the new price — the increase was built on the smaller number, so removing $20\\%$ of the larger one takes off too much. Check it: $48 \\times 1.20 = 57.60$, not $60$. A value near $48$ is nonetheless routinely placed among the answer choices, because subtracting from the number in front of you is the path of least resistance.",
   },
   {
     type: 'text',
-    content: "Don't take $20\\%$ off the $\\$60$. That $20\\%$ was a percent *of the original*, not of the new price, and subtracting from the wrong base lands near $48$ — a value routinely placed among the answer choices.",
-  },
-  {
-    type: 'text',
-    content: 'The signal of a reverse problem: the given number is the *result* of the change, not the start. On the word "after," write the forward equation and divide.',
+    content: 'The reliable route is to write the change *forward* and undo it by division: $\\text{original} \\times 1.20 = 60$, so $\\text{original} = 60 \\div 1.20 = 50$. The signal of a reverse problem is that the given number is the *result* of the change, not the start — on the word "after," write the forward equation and divide.',
   },
   {
     type: 'example',
@@ -137,15 +122,19 @@ export const mPercentsBlocks = [
   { type: 'heading', content: "Successive percents don't add" },
   {
     type: 'text',
-    content: 'Each change acts on whatever value the previous change produced, so **chain the factors** rather than summing the percents.',
+    content: "Now the situation the multiplier habit was built for. A store marks a jacket up $20\\%$, and a rewards card then takes $25\\%$ off the marked-up price. Most students work it one step at a time: a $\\$100$ jacket goes to $\\$120$, then $25\\%$ of $\\$120$ is $\\$30$, take it off, $\\$90$. The answer is right, but the route created two intermediate values, each one a chance to slip — and on the real test, the wrong base (taking $25\\%$ off the *original* $\\$100$) is always sitting among the choices.",
   },
   {
     type: 'text',
-    content: "A $10\\%$ increase followed by a $10\\%$ decrease looks like it cancels, but doesn't: $\\times 1.10 \\times 0.90 = 0.99$, a net $1\\%$ loss.",
+    content: "With multipliers, the whole history is one product: $1.20 \\times 0.75 = 0.90$. The customer pays $90\\%$ of the original price — a markup and a discount collapsed into a single factor, no intermediate values anywhere. And notice what the product just proved: up $20\\%$ then down $25\\%$ is *not* down $5\\%$. Percents never add across steps, because each change acts on whatever value the previous change produced.",
+  },
+  {
+    type: 'tip',
+    content: "For chained percent changes, skip the intermediate values entirely: **multiply the factors and read the total change off the product.** A sales tax on top? Append $\\times 1.05$ to the same chain.",
   },
   {
     type: 'text',
-    content: 'An increase and a decrease by the same percent always finish below the starting value, because the decrease acts on the larger, post-increase number.',
+    content: "The same product settles the most tempting cancellation of all: up $10\\%$ then down $10\\%$ multiplies out to $1.10 \\times 0.90 = 0.99$, a net $1\\%$ loss. An increase and a decrease by the same percent always finish below the starting value, because the decrease acts on the larger, post-increase number — it removes more than the increase added.",
   },
   {
     type: 'example',
@@ -160,15 +149,7 @@ export const mPercentsBlocks = [
   { type: 'heading', content: 'Nested percents and shifting bases' },
   {
     type: 'text',
-    content: 'A percent *of* a percent chains multiplicatively, because the second percent acts on the group the first one carved out.',
-  },
-  {
-    type: 'text',
-    content: 'If $40\\%$ of a class walks to school and $20\\%$ of those walkers carry umbrellas, the umbrella-carrying walkers are $0.40 \\times 0.20 = 0.08$ of the class — $8\\%$ of the whole, not $20\\%$.',
-  },
-  {
-    type: 'text',
-    content: 'The phrase "of those" announces the base switch. Read it as a factor applied to the previous result.',
+    content: 'Suppose $40\\%$ of a class walks to school, and $20\\%$ of those walkers carry umbrellas. Asked what share of the whole class carries an umbrella on foot, plenty of students answer $20\\%$ — but that $20\\%$ never applied to the class. The phrase "of those" announced a base switch to the walkers, so the second percent chains onto the first as a factor: $0.40 \\times 0.20 = 0.08$, which is $8\\%$ of the whole class. A percent *of* a percent always multiplies, because the second percent acts only on the group the first one carved out.',
   },
   {
     type: 'text',
@@ -176,7 +157,7 @@ export const mPercentsBlocks = [
   },
   {
     type: 'text',
-    content: 'Bases also shift between sentences. "$x$ is $80\\%$ of $y$" means $x = 0.80y$, so $y = \\frac{x}{0.80} = 1.25x$ — measured against $x$, $y$ is $25\\%$ larger, not $20\\%$. A percent relationship read in reverse changes its number, because the base changes.',
+    content: 'Bases also shift between sentences, which is how a percent relationship changes its number when read in reverse. "$x$ is $80\\%$ of $y$" means $x = 0.80y$, so $y = \\frac{x}{0.80} = 1.25x$ — measured against $x$, $y$ is $25\\%$ larger, not $20\\%$. The percent moved because the base moved: the $20\\%$ gap was measured against $y$, and the $25\\%$ is measured against the smaller $x$.',
   },
   {
     type: 'example',
@@ -207,6 +188,6 @@ export const mPercentsBlocks = [
 
   {
     type: 'text',
-    content: '**The whole topic in one move:** convert each percent into a factor before anything else. A single change is a multiplication, a missing whole is a division, an "after" value works backward by division, and successive changes multiply their factors.',
+    content: '**The whole topic in one move:** convert each percent into a factor the moment you read it, and keep track of the base each factor acts on. A single change is a multiplication, a missing whole is a division, an "after" value works backward by division, and successive changes multiply their factors into one.',
   },
 ];

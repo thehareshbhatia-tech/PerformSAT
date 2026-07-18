@@ -1,10 +1,12 @@
 /**
  * Learn lesson body — Rhetorical Synthesis (Expression of Ideas).
  *
- * VOICE v3 (adopted 2026-07-17, exemplar: bodies/centralIdeas.js): scannable
- * instructional register — direct address, contractions, 1-3 sentence text
- * blocks, list blocks for criteria, steps blocks for procedures; no analogies,
- * no pep-talk, no emojis. All substance of the v2 textbook version preserved.
+ * VOICE v4 (adopted 2026-07-18, exemplar: bodies/centralIdeas.js): practiced-tutor
+ * register — developed 2-5 sentence paragraphs with connective tissue; every rule
+ * earns its "because"; student-psychology named concretely; math teaching is
+ * example-led; varied rhythm, no aphorism-per-block. Bans carried from v3: no
+ * analogies, no pep talk, no exclamation marks, no emojis, no test-personification.
+ * All v3 teaching claims preserved.
  *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
@@ -13,41 +15,29 @@
 export const gRhetoricalSynthesisBlocks = [
   {
     type: 'text',
-    content: 'A transition links two sentences. Rhetorical synthesis asks for something larger: a single sentence built to serve a stated purpose.',
+    content: 'A transition links two sentences; rhetorical synthesis asks for something larger — a single sentence built to serve a stated purpose. Each question hands you a set of bullet-point notes, a sentence stating what "the student wants to" accomplish, and four sentences to choose from. The type closes the Reading and Writing sequence because it draws on everything at once: reading for a point, grammatical control, logical connection.',
   },
   {
     type: 'text',
-    content: 'Each question gives you a set of bullet-point notes, a sentence stating what "the student wants to" accomplish, and four sentences to choose from. It closes the Reading and Writing sequence by drawing on everything at once — reading for a point, grammatical control, logical connection.',
-  },
-  {
-    type: 'text',
-    content: "It's also the one question type that states in writing exactly what the correct answer must do. The entire skill reduces to a single principle: **read the goal first, and treat its wording as the criteria the answer must satisfy.**",
+    content: "It's also the one question type that states in writing exactly what the correct answer must do. That written goal changes how the whole question should be worked, and the entire skill reduces to a single principle: **read the goal first, and treat its wording as the criteria the answer must satisfy.**",
   },
 
   { type: 'heading', content: "What's actually tested" },
   {
     type: 'text',
-    content: "Every choice is drawn faithfully from the notes, so every choice is *true*. That has an immediate consequence: truth can't separate the choices, and fact-checking them against the bullets is wasted effort.",
-  },
-  {
-    type: 'text',
-    content: "What separates them is **function** — whether the sentence performs the task the goal specifies. The credited answer is usually the goal itself restated in new words, which means the question supplies its own answer key.",
+    content: "Every choice is drawn faithfully from the notes, so every choice is *true* — and that fact has an immediate consequence. Truth can't separate the choices, which means fact-checking them against the bullets is wasted effort no matter how diligent it feels. What separates them is **function**: whether the sentence performs the task the goal specifies. The credited answer is usually the goal itself restated in new words, so the question supplies its own answer key.",
   },
 
   { type: 'heading', content: 'Read the goal before the notes' },
   {
     type: 'text',
-    content: "Resist the instinct to read the bullets top to bottom. That costs time and, worse, fills your working memory with true-but-irrelevant facts that make every choice sound plausible.",
-  },
-  {
-    type: 'text',
-    content: 'Start with the goal sentence instead ("The student wants to ..."). The notes are only the raw material the answer was built from — consult them as a tiebreaker between two surviving choices, and often not even then.',
+    content: "That's why reading order matters more here than on any neighboring question type. The instinct is to read the bullets top to bottom, the way the page presents them — and that instinct costs time and, worse, loads your working memory with true-but-irrelevant facts that make every choice sound plausible. Start with the goal sentence instead (\"The student wants to ...\"). The notes are only the raw material the answer was built from; consult them as a tiebreaker between two surviving choices, and often not even then.",
   },
 
   { type: 'heading', content: 'Break the goal into parts' },
   {
     type: 'text',
-    content: 'Break the goal into its components — the correct answer must satisfy *every one* of them:',
+    content: 'Break the goal into its components, because the correct answer must satisfy *every one* of them:',
   },
   {
     type: 'list',
@@ -59,7 +49,7 @@ export const gRhetoricalSynthesisBlocks = [
   },
   {
     type: 'text',
-    content: 'The most frequent miss: a choice that satisfies the verb and the focus but drops the qualifier. Wrong choices are routinely built from exactly that near-miss.',
+    content: 'The most frequent miss is a choice that satisfies the verb and the focus but drops the qualifier — it introduces the right subject and simply ignores *for readers unfamiliar with X*. Wrong choices are routinely built from exactly that near-miss, because a student holding only a general impression of the goal has nothing precise to notice the gap against.',
   },
   {
     type: 'keyInsight',
@@ -69,11 +59,7 @@ export const gRhetoricalSynthesisBlocks = [
   { type: 'heading', content: 'Match the goal type to a surface feature' },
   {
     type: 'text',
-    content: "Each goal type forces a characteristic surface feature the correct answer has to display. Predict that feature from the goal, then scan the choices for it before reading any choice in full.",
-  },
-  {
-    type: 'text',
-    content: "At that point you're identifying a marker, not weighing prose.",
+    content: "Each goal type forces a characteristic surface feature the correct answer has to display — a comparison goal forces an actual comparison word, an unfamiliar-audience goal forces background. So predict the feature from the goal, then scan the choices for it before reading any choice in full. At that point you're identifying a marker rather than weighing prose, and a marker is much harder to argue yourself out of.",
   },
   {
     type: 'table',

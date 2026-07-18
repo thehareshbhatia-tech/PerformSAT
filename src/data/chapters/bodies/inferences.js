@@ -1,11 +1,13 @@
 /**
  * Learn lesson body — Inferences (Information and Ideas).
  *
- * VOICE v3 (adopted 2026-07-17, exemplar: bodies/centralIdeas.js): scannable
- * instructional register — direct address, contractions, 1-3 sentence text
- * blocks, list blocks for criteria, steps blocks for procedures; no
- * analogies, no pep-talk, no emojis. All substance of the v2 textbook
- * version preserved.
+ * VOICE v4 (adopted 2026-07-18, exemplar: bodies/centralIdeas.js):
+ * practiced-tutor register — developed 2-5 sentence paragraphs with
+ * connective tissue; every rule earns its "because"; student-psychology
+ * named concretely; math teaching is example-led; varied rhythm, no
+ * aphorism-per-block. Bans carried from v3: no analogies, no pep talk,
+ * no exclamation marks, no emojis, no test-personification. All v3
+ * teaching claims preserved.
  *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
@@ -14,47 +16,27 @@
 export const inferencesBlocks = [
   {
     type: 'text',
-    content: "Central Ideas & Details located what a passage states. Inference questions — *\"which choice most logically completes the text\"* or *\"the passage implies\"* — ask for the one conclusion those stated facts **force**.",
-  },
-  {
-    type: 'text',
-    content: "Despite the name, the task isn't reading between the lines. The word *infer* invites outside reasoning, and wrong choices are routinely built to reward exactly that.",
-  },
-  {
-    type: 'text',
-    content: "What the question requires is the conclusion the facts on the page compel — no more, no less.",
+    content: "Central Ideas & Details located what a passage states. Inference questions — *\"which choice most logically completes the text\"* or *\"the passage implies\"* — ask for the one conclusion those stated facts **force**. Despite the name, the task isn't reading between the lines, and that's worth saying plainly, because the word *infer* invites outside reasoning — and wrong choices are routinely built to reward exactly the student who supplies it. What the question requires is the conclusion the facts on the page compel: no more, no less.",
   },
 
   { type: 'heading', content: 'What counts as an inference here' },
   {
     type: 'text',
-    content: "In a classroom, an inference is an informed guess — you add what the author probably meant. On the test the relationship flips: the answer is already **contained in the facts on the page**, determined entirely by the statements around it.",
+    content: "In a classroom, an inference is an informed guess — you add what the author probably meant, and the richest reading earns the credit. On the test the relationship flips: the answer is already **contained in the facts on the page**, determined entirely by the statements around it. So treat the passage as a self-contained body of evidence. Nothing from outside it counts — including plausible ideas of your own, because plausibility is precisely the quality wrong answers are engineered to have.",
   },
   {
     type: 'keyInsight',
     content: "The forcing test: if every stated fact can be true while a choice is false, that choice isn't forced. Eliminate it.",
   },
-  {
-    type: 'text',
-    content: "Treat the passage as a self-contained body of evidence. Nothing from outside it counts — including plausible ideas of your own.",
-  },
 
   { type: 'heading', content: 'Predict before you read the choices' },
   {
     type: 'text',
-    content: "Complete the passage in your own words *before* reading the answers — ten words or fewer, and a rough phrasing is enough. Then pick the choice that matches your prediction.",
+    content: "Complete the passage in your own words *before* reading the answers — ten words or fewer, and a rough phrasing is enough — then pick the choice that matches your prediction. The order is the point. Reading the choices cold lets them set the standard, and wrong choices are written to sound reasonable in isolation; predicting first reverses that, so each choice gets graded against your prediction instead of against your general sense of what sounds sensible.",
   },
   {
     type: 'text',
-    content: "The order matters. Reading the choices cold lets them set the standard, and wrong choices are written to sound reasonable in isolation.",
-  },
-  {
-    type: 'text',
-    content: "Predicting first reverses that: your prediction sets the standard, and each choice gets graded against it.",
-  },
-  {
-    type: 'text',
-    content: "One setup move: when the sentence holding the blank leans on a compressed reference — *this discrepancy*, *such an approach* — restate that referent in full before predicting. The Central Ideas & Details chapter covers the method under *When the text says \"this\"*.",
+    content: "One setup move is worth building into the routine. When the sentence holding the blank leans on a compressed reference — *this discrepancy*, *such an approach* — restate that referent in full before predicting, because you can't complete a sentence whose subject you're still holding as an unresolved label. The Central Ideas & Details chapter covers the method under *When the text says \"this\"*.",
   },
   {
     type: 'keyInsight',
@@ -64,18 +46,14 @@ export const inferencesBlocks = [
   { type: 'heading', content: 'The right answer stays inside the text' },
   {
     type: 'text',
-    content: "The proof lies in the passage, but the credited answer rarely uses the passage's words. It's a **paraphrase** — the forced idea stated in fresh language.",
-  },
-  {
-    type: 'text',
-    content: "So recycled wording deserves suspicion: a choice that echoes the passage exactly is a standard distractor construction.",
-  },
-  {
-    type: 'text',
-    content: "And grade every choice by its weakest word. A single unsupported word disqualifies the whole choice.",
+    content: "The proof lies in the passage, but the credited answer rarely uses the passage's words — it's a **paraphrase**, the forced idea stated in fresh language. That flips how recycled wording deserves to be read: a choice that echoes the passage exactly is a standard distractor construction, borrowing familiar phrases to buy a trust it hasn't earned. And grade every choice by its weakest word, because a single unsupported word disqualifies the whole choice — the credited answer has to hold all the way through, not just in its general drift.",
   },
 
   { type: 'heading', content: 'Four patterns in wrong choices' },
+  {
+    type: 'text',
+    content: "Wrong choices on these items aren't written at random — they follow four recognizable patterns, each aimed at a reader doing something that feels reasonable in the moment:",
+  },
   {
     type: 'table',
     headers: ['Pattern', 'What it does', 'Identifying feature'],
@@ -90,15 +68,7 @@ export const inferencesBlocks = [
   { type: 'heading', content: 'The word before the blank' },
   {
     type: 'text',
-    content: "A single word immediately before the blank decides what **kind** of statement belongs there — and kind gets decided before content.",
-  },
-  {
-    type: 'text',
-    content: "That's the fastest elimination available on the question. A choice can be entirely true and still be the wrong *kind* of statement for the slot — you can cut it without checking a single fact.",
-  },
-  {
-    type: 'text',
-    content: "Settle the kind first. Then judge which surviving choice carries the right content.",
+    content: "A single word immediately before the blank decides what **kind** of statement belongs there, and kind gets decided before content because it's the fastest elimination the question offers. A choice can be entirely true and still be the wrong *kind* of statement for the slot — after *however*, a smooth continuation dies no matter how accurate it is — and you can cut it without checking a single fact. Settle the kind first; then judge which surviving choice carries the right content.",
   },
   {
     type: 'table',
@@ -183,6 +153,6 @@ export const inferencesBlocks = [
 
   {
     type: 'text',
-    content: "**The whole skill in four moves:** treat the passage as a closed set of facts, predict the completion in your own words, let the transition word fix the *kind* of statement required, then keep the paraphrase that stays inside the facts — cutting any choice that adds, overstates, or reaches outside them.",
+    content: "**The whole skill in four moves:** treat the passage as a closed set of facts, let the word before the blank fix the *kind* of statement required, predict the completion in your own words, and keep the paraphrase that stays inside the facts — cutting any choice that adds, overstates, or reaches outside them. The evidence chapters ahead ask a related question — not what the facts force, but what would prove a claim — and they reward the same discipline of staying on the page.",
   },
 ];

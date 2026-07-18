@@ -1,10 +1,12 @@
 /**
  * Learn lesson body — Transitions (Expression of Ideas).
  *
- * VOICE v3 (adopted 2026-07-17, exemplar: bodies/centralIdeas.js): scannable
- * instructional register — direct address, contractions, 1-3 sentence text
- * blocks, list blocks for criteria, steps blocks for procedures; no analogies,
- * no pep-talk, no emojis. All substance of the v2 textbook version preserved.
+ * VOICE v4 (adopted 2026-07-18, exemplar: bodies/centralIdeas.js): practiced-tutor
+ * register — developed 2-5 sentence paragraphs with connective tissue; every rule
+ * earns its "because"; student-psychology named concretely; math teaching is
+ * example-led; varied rhythm, no aphorism-per-block. Bans carried from v3: no
+ * analogies, no pep talk, no exclamation marks, no emojis, no test-personification.
+ * All v3 teaching claims preserved.
  *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
@@ -13,59 +15,39 @@
 export const gTransitionsBlocks = [
   {
     type: 'text',
-    content: "The Conventions chapters handled the correct sentence — its boundaries, its agreement, its punctuation. Expression of Ideas questions ask what those chapters didn't: do the sentences connect logically to one another?",
+    content: "The Conventions chapters handled the correct sentence — its boundaries, its agreement, its punctuation. Expression of Ideas questions ask what those chapters never did: do the sentences connect logically to one another? A transition word sits exactly on that boundary between two sentences. It carries no information of its own — its one job is to **name the relationship** between the idea before it and the idea after it: continuation, cause and effect, or contrast.",
   },
   {
     type: 'text',
-    content: "A transition word sits exactly on that boundary between two sentences. It carries no information of its own — its one job is to **name the relationship** between the idea before it and the idea after it: continuation, cause and effect, or contrast.",
-  },
-  {
-    type: 'text',
-    content: "So the choice starts with the relationship, not the word. Name the relationship correctly, and the word follows.",
+    content: "That job description settles the method. Because the word only ever names a relationship, the choice starts with the relationship, not the word — name the relationship correctly, and the word follows.",
   },
 
   { type: 'heading', content: "What's actually tested" },
   {
     type: 'text',
-    content: "These items look like vocabulary questions, which invites a plug-in-and-listen approach — but they aren't vocabulary questions. All four choices are genuine transition words, and every one fits grammatically; the choices are built that way.",
-  },
-  {
-    type: 'text',
-    content: "What's actually assessed is whether you've tracked the *logic* between two sentences. The effective method isn't knowing what *nevertheless* means — it's deciding what kind of word the sentence requires before reading any choice.",
+    content: "These items look like vocabulary questions, and the look invites a plug-in-and-listen approach: read the sentence four times with a different word in the blank and pick whichever sounds smoothest. That approach fails because the choices are built for it — all four are genuine transition words, and every one fits grammatically. What's actually assessed is whether you've tracked the *logic* between two sentences, so the working method isn't knowing what *nevertheless* means; it's deciding what kind of word the sentence requires before reading any choice.",
   },
 
   { type: 'heading', content: 'A transition points backward' },
   {
     type: 'text',
-    content: "Wherever the blank sits — start of the sentence, middle, or end — the transition connects its sentence to the one **immediately before it**.",
-  },
-  {
-    type: 'text',
-    content: "So cover the answers, read the sentence before the blank and the sentence containing it, and decide what the second does to the first. The choices come last.",
+    content: "Wherever the blank sits — the start of its sentence, the middle, or the end — the transition connects that sentence to the one **immediately before it**. So the reading assignment never changes: cover the answers, read the sentence before the blank and the sentence containing it, and decide what the second does to the first. The choices come last.",
   },
   {
     type: 'keyInsight',
-    content: "Cover the choices first. Testing words one at a time is unreliable — wrong choices are routinely built to sound plausible in isolation. Decide the relationship on your own, then select the word that matches it.",
+    content: "Cover the choices first. Testing words one at a time is unreliable because wrong choices are routinely built to sound plausible in isolation — plausibility is the trap, not a clue. Decide the relationship on your own, then select the word that matches it.",
   },
 
   { type: 'heading', content: 'Predict, then match' },
   {
     type: 'text',
-    content: "Reduce each sentence to a short gist. Then say, in plain words, what the second does to the first: *continues it*, *results from it*, or *pushes against it*.",
-  },
-  {
-    type: 'text',
-    content: "That prediction — *a contrast word is needed* — defines the target. Scan the choices for the one that fits it. Now you're matching a word to a decision already made, not weighing four candidates in turn.",
+    content: "Reduce each sentence to a short gist, then say in plain words what the second does to the first: *continues it*, *results from it*, or *pushes against it*. That prediction — *a contrast word is needed* — defines the target, and the trip through the choices becomes a match against a decision already made rather than a weighing of four candidates in turn. The difference matters under time pressure: matching is fast and stable, while weighing reopens the door to whichever wrong choice sounds best.",
   },
 
   { type: 'heading', content: 'The three transition families' },
   {
     type: 'text',
-    content: "Every transition does one of exactly three jobs. Once you've named the required job, you only have to recognize the family — the words within a family sit close enough in meaning that fine distinctions among them rarely matter.",
-  },
-  {
-    type: 'text',
-    content: "That's why naming the relationship first beats memorizing a long word list: the choice is a *direction*, and any word pointing in that direction will serve.",
+    content: "Every transition does one of exactly three jobs, and that small number is why naming the relationship first beats memorizing a long word list. Once you've named the required job, you only have to recognize the family — the words within a family sit close enough in meaning that fine distinctions among them rarely matter. The choice is a *direction*, and any word pointing in that direction will serve.",
   },
   {
     type: 'table',
@@ -86,7 +68,7 @@ export const gTransitionsBlocks = [
   },
   {
     type: 'text',
-    content: "When every available choice is a continuer, decide which of these sub-jobs the sentence requires.",
+    content: "When every available choice is a continuer, the family test alone can't separate them — that's the signal to decide which of these narrower jobs the sentence requires.",
   },
   {
     type: 'diagramRef',
@@ -97,15 +79,11 @@ export const gTransitionsBlocks = [
   { type: 'heading', content: 'Check the direction on cause and contrast' },
   {
     type: 'text',
-    content: "Cause-and-effect words are directional. *Therefore* introduces the **result**; *because* introduces the **reason**.",
+    content: "Cause-and-effect words are directional: *therefore* introduces the **result**, while *because* introduces the **reason**. Place a result word where a reason belongs and the logic runs backward — and wrong choices are routinely built from exactly that reversal, because a backward *therefore* still sounds authoritative to a reader who hasn't fixed the direction in advance.",
   },
   {
     type: 'text',
-    content: "Place a result word where a reason belongs and the logic runs backward — wrong choices are routinely built from exactly that reversal.",
-  },
-  {
-    type: 'text',
-    content: "Contrast carries a distinction of its own: plain difference takes *however*, while a concession — *despite that* — calls for *nevertheless* or *still*. Same family, different shade.",
+    content: "Contrast carries a distinction of its own. Plain difference takes *however*, while a concession — *despite that, this still holds* — calls for *nevertheless* or *still*. Same family, different shade — and when two surviving choices both come from the contrast family, the shade is what separates them.",
   },
 
   { type: 'heading', content: 'How to approach these questions' },
@@ -182,6 +160,6 @@ export const gTransitionsBlocks = [
 
   {
     type: 'text',
-    content: "**The whole skill in one pass:** cover the choices, gist the sentence before the blank and the sentence containing it, name the relationship — continue, cause/effect, or contrast — and match one word to it. You're never testing choices one by one.",
+    content: "**The whole skill in one pass:** cover the choices, gist the sentence before the blank and the sentence containing it, name the relationship — continue, cause/effect, or contrast — and match one word to it. You're never testing choices one by one; the whole method exists so you never have to.",
   },
 ];

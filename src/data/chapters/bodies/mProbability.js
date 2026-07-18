@@ -1,10 +1,13 @@
 /**
  * Learn lesson body — Probability (Problem-Solving & Data Analysis).
  *
- * VOICE v3 (adopted 2026-07-17, exemplar: bodies/centralIdeas.js): scannable
- * instructional register — direct address, contractions, 1-3 sentence text
- * blocks, list blocks for criteria, steps blocks for procedures; no analogies,
- * no pep-talk, no emojis. All substance of the v2 textbook version preserved.
+ * VOICE v4 (adopted 2026-07-18, exemplar: bodies/centralIdeas.js):
+ * practiced-tutor register — developed 2-5 sentence paragraphs with
+ * connective tissue; every rule earns its "because"; student-psychology
+ * named concretely; math teaching is example-led; varied rhythm, no
+ * aphorism-per-block. Bans carried from v3: no analogies, no pep talk,
+ * no exclamation marks, no emojis, no test-personification. All v3
+ * teaching claims preserved.
  *
  * Scope: probability as favorable-over-pool, complements and unions,
  * probability-to-count reversals, two-way tables and conditional
@@ -20,32 +23,13 @@
 export const mProbabilityBlocks = [
   {
     type: 'text',
-    content: 'Probability extends the same part-to-whole reasoning to chance. Every probability is a fraction with two separate jobs.',
-  },
-  {
-    type: 'list',
-    items: [
-      'The **denominator** names the pool being drawn from — it anchors the fraction the way a base anchors a percent.',
-      'The **numerator** counts the outcomes of interest inside that pool.',
-    ],
-  },
-  {
-    type: 'text',
-    content: "The two decisions are independent, and nearly every wrong answer on this topic comes from settling one of them carelessly — almost always the denominator. Decide who's in the pool before counting anything favorable.",
+    content: "Probability extends the same part-to-whole reasoning to chance. Every probability is a fraction with two separate jobs: the **denominator** names the pool being drawn from — it anchors the fraction the way a base anchors a percent — and the **numerator** counts the outcomes of interest inside that pool. The two decisions are independent, and nearly every wrong answer on this topic comes from settling one of them carelessly, almost always the denominator. So the standing order of operations is this: decide who's in the pool before counting anything favorable.",
   },
 
   { type: 'heading', content: 'Probability as a share of the pool' },
   {
     type: 'text',
-    content: 'The probability that a randomly selected member of a group has some property is $\\dfrac{\\text{favorable outcomes}}{\\text{total pool}}$ — a number from $0$ (impossible) to $1$ (certain).',
-  },
-  {
-    type: 'text',
-    content: "The phrase describing *what's being asked about* edits the numerator. The phrase describing *who's being selected* edits the denominator.",
-  },
-  {
-    type: 'text',
-    content: 'In "a student is chosen at random from those who passed," the words "from those who passed" shrink the pool before the question even states its event. A probability computed over the full class answers a different question.',
+    content: "Read one phrase closely: \"a student is chosen at random *from those who passed*.\" Before the question has even stated its event, the pool has already shrunk — everyone who didn't pass is out of the experiment. A probability computed over the full class answers a different question, and the number that computation produces is reliably listed among the choices. The definition itself is plain: the probability that a randomly selected member of a group has some property is $\\dfrac{\\text{favorable outcomes}}{\\text{total pool}}$, a number from $0$ (impossible) to $1$ (certain). What takes discipline is noticing that the two phrases in a problem do different jobs — the words describing *who's being selected* edit the denominator, while the words describing *what's being asked about* edit only the numerator.",
   },
   {
     type: 'keyInsight',
@@ -55,15 +39,11 @@ export const mProbabilityBlocks = [
   { type: 'heading', content: 'Complements and unions' },
   {
     type: 'text',
-    content: 'The **complement** of an event is everything the event is not, so the two probabilities split the pool between them: $P(\\text{not } X) = 1 - P(X)$.',
+    content: 'The **complement** of an event is everything the event is not, so the two probabilities split the pool between them: $P(\\text{not } X) = 1 - P(X)$. That identity earns its keep whenever an event is awkward to count directly — "at least one," "not both," "anything except" — because the complement of an awkward event is often a single clean case, and one subtraction finishes the problem.',
   },
   {
     type: 'text',
-    content: 'When an event is awkward to count directly — "at least one," "not both," "anything except" — its complement is often a single clean case, and one subtraction finishes the problem.',
-  },
-  {
-    type: 'text',
-    content: 'For "$A$ or $B$" questions, adding $P(A)$ and $P(B)$ counts anyone in both groups twice, so the overlap comes back out once.',
+    content: '"Or" questions carry their own standard error. Adding $P(A)$ and $P(B)$ counts anyone who belongs to both groups twice — once inside each probability — so the overlap has to come back out exactly once.',
   },
   {
     type: 'formula',
@@ -75,15 +55,7 @@ export const mProbabilityBlocks = [
   { type: 'heading', content: 'From a probability back to a count' },
   {
     type: 'text',
-    content: "Some items run the definition in reverse: you're given the probability and asked for an actual count.",
-  },
-  {
-    type: 'text',
-    content: 'The same fraction rearranges: $\\text{count} = \\text{probability} \\times \\text{pool size}$, and likewise $\\text{pool size} = \\text{count} \\div \\text{probability}$.',
-  },
-  {
-    type: 'text',
-    content: 'A probability alone never determines a count — the pool size has to appear somewhere in the problem, and locating it is the first move.',
+    content: "Some items run the definition in reverse: the probability is given, and the question asks for an actual count. The same fraction simply rearranges — $\\text{count} = \\text{probability} \\times \\text{pool size}$, and likewise $\\text{pool size} = \\text{count} \\div \\text{probability}$. But a probability alone never determines a count; the pool size has to appear somewhere in the problem, and locating it is the first move, not an afterthought.",
   },
   {
     type: 'example',
@@ -99,7 +71,7 @@ export const mProbabilityBlocks = [
   { type: 'heading', content: 'Two-way tables and conditional probability' },
   {
     type: 'text',
-    content: 'A two-way table classifies one group along two traits at once. Every probability read from it is some cell — or sum of cells — divided by some total, and the vocabulary tracks which total.',
+    content: 'A two-way table classifies one group along two traits at once, and every probability read from it is some cell — or sum of cells — divided by some total. The entire vocabulary of these questions exists to track *which* total.',
   },
   {
     type: 'list',
@@ -122,19 +94,11 @@ export const mProbabilityBlocks = [
   },
   {
     type: 'text',
-    content: 'The notation $P(A \\mid B)$ reads "the probability of $A$ given $B$": whatever stands *behind the bar* names the pool.',
+    content: 'The notation $P(A \\mid B)$ reads "the probability of $A$ given $B$," and whatever stands *behind the bar* names the pool. Order matters more than it looks like it should, because the two directions share a numerator cell but divide by different totals. From the table, $P(\\text{junior} \\mid \\text{plays a sport}) = \\frac{36}{80} = 0.45$ — behind the bar is the sport, so the pool is the $80$ players. Reverse it and $P(\\text{plays a sport} \\mid \\text{junior}) = \\frac{36}{60} = 0.60$ — now the pool is the $60$ juniors. Same cell on top, different questions, different answers; wrong choices are routinely built from the swapped direction, so identify the pool from the wording, never from which numbers look familiar.',
   },
   {
     type: 'text',
-    content: 'Order matters, because the two directions use different denominators even though they share a numerator cell. From the table, $P(\\text{junior} \\mid \\text{plays a sport}) = \\frac{36}{80} = 0.45$ — the pool is the $80$ players. But $P(\\text{plays a sport} \\mid \\text{junior}) = \\frac{36}{60} = 0.60$ — the pool is the $60$ juniors.',
-  },
-  {
-    type: 'text',
-    content: 'Same cell on top, different questions, different answers. Wrong choices are routinely built from the swapped direction, so identify the pool from the wording, not from which numbers look familiar.',
-  },
-  {
-    type: 'text',
-    content: 'A condition can also name a combined group rather than a single row: "given that the student is not a senior," or, in a table of car ownership, "given that the household owns at least one car."',
+    content: 'A condition can also name a combined group rather than a single row: "given that the student is not a senior," or, in a table of car ownership, "given that the household owns at least one car." The pool is then built by aggregation, and the same discipline applies.',
   },
   {
     type: 'list',
@@ -169,11 +133,7 @@ export const mProbabilityBlocks = [
   { type: 'heading', content: 'Sequential draws without replacement' },
   {
     type: 'text',
-    content: "When two items are drawn and the first isn't returned, the second draw faces a smaller pool: the denominator drops by one, and if the first draw removed a favorable outcome, the numerator drops by one as well.",
-  },
-  {
-    type: 'text',
-    content: 'Multiply the probabilities along the sequence, updating both counts at every step. Reusing the original pool for the second draw quietly assumes the first item was put back — a different experiment with a different answer.',
+    content: "When two items are drawn and the first isn't returned, the second draw faces a changed world: the pool is one smaller, and if the first draw removed a favorable outcome, the favorable count is one smaller too. So multiply the probabilities along the sequence, updating both counts at every step. Reusing the original pool for the second draw quietly assumes the first item was put back — which is a different experiment, with a different answer.",
   },
   {
     type: 'example',

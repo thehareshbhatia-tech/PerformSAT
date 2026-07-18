@@ -1,10 +1,12 @@
 /**
  * Learn lesson body — Pronouns (Standard English Conventions).
  *
- * VOICE v3 (adopted 2026-07-17, exemplar: bodies/centralIdeas.js): scannable
- * instructional register — direct address, contractions, 1-3 sentence text
- * blocks, list blocks for criteria, steps blocks for procedures; no analogies,
- * no pep-talk, no emojis. All substance of the v2 textbook version preserved.
+ * VOICE v4 (adopted 2026-07-18, exemplar: bodies/centralIdeas.js): practiced-tutor
+ * register — developed 2-5 sentence paragraphs with connective tissue; every rule
+ * earns its "because"; student-psychology named concretely; math teaching is
+ * example-led; varied rhythm, no aphorism-per-block. Bans carried from v3: no
+ * analogies, no pep talk, no exclamation marks, no emojis, no test-personification.
+ * All v3 teaching claims preserved.
  *
  * Rendered by SectionContent; loaded lazily via bodies/index.js.
  */
@@ -12,39 +14,19 @@
 export const gPronounsBlocks = [
   {
     type: 'text',
-    content: "Agreement doesn't end with the verb — the same matching discipline extends to pronouns. A pronoun stands in for a noun named elsewhere in the sentence: *it, they, this,* and *who* all refer back to something already stated.",
-  },
-  {
-    type: 'text',
-    content: "The reference works only under two conditions: the pronoun refers to exactly **one** noun, and it **matches** that noun in number. Nearly every pronoun question tests one of the two.",
+    content: "Agreement doesn't end with the verb. The same matching discipline extends to pronouns — the words that stand in for a noun named elsewhere in the sentence: *it, they, this,* and *who* all point back at something already stated. The pointing works only under two conditions: the pronoun refers to exactly **one** noun, and it **matches** that noun in number. Nearly every pronoun question breaks one of the two and asks whether you noticed.",
   },
 
   { type: 'heading', content: "What's actually tested" },
   {
     type: 'text',
-    content: "Simple pairings — *the dog… it*, *the dogs… they* — are automatic, so the tested versions are never simple.",
-  },
-  {
-    type: 'text',
-    content: "Either the true noun sits behind other nouns so your ear settles on the wrong one, or the sentence is built so *it* could refer to two things at once.",
-  },
-  {
-    type: 'text',
-    content: "Both designs exploit the same weakness: a pronoun *sounds* right whenever any nearby noun could plausibly be its referent — and that impression is unreliable. The method doesn't change: **identify the actual noun on the page** and check it, rather than judging by sound.",
+    content: "Simple pairings — *the dog… it*, *the dogs… they* — are automatic, so the tested versions are never simple. Either the true noun sits behind other nouns so your ear settles on the wrong one, or the sentence is built so *it* could point at two things at once. Both designs exploit the same weakness: a pronoun *sounds* right whenever any nearby noun could plausibly be its referent, so a sentence can be wrong while sounding entirely natural. The method is the one the agreement chapter already taught — **identify the actual noun on the page** and check it, rather than trusting the impression.",
   },
 
   { type: 'heading', content: 'Job 1 — Match the number' },
   {
     type: 'text',
-    content: "A pronoun copies the number of the noun it stands for: singular noun → *it / its*, plural noun → *they / their*.",
-  },
-  {
-    type: 'text',
-    content: "Identify the true noun and read its form. The noun must be **printed in the sentence** — a plural idea that's merely implied doesn't qualify.",
-  },
-  {
-    type: 'text',
-    content: "The construction mirrors the one in agreement questions: a noun of the wrong number sits immediately before the pronoun as a distractor. In *The **shipment** of new phones arrived, but ______ was damaged*, the noun is *shipment*, so the pronoun is *it*, not *they* — *phones* is the distractor.",
+    content: "A pronoun copies the number of the noun it stands for — singular noun, *it / its*; plural noun, *they / their*. So identify the true noun and read its form off the page. It has to be **printed in the sentence**, because a pronoun can only inherit number from a noun that's actually there; a plural idea that's merely implied doesn't qualify. And the construction mirrors the one in agreement questions: a noun of the wrong number sits immediately before the pronoun as bait. In *The **shipment** of new phones arrived, but ______ was damaged*, what arrived and was damaged is the *shipment*, so the pronoun is *it* — *phones*, parked right beside the blank, exists to sell *they*.",
   },
   {
     type: 'keyInsight',
@@ -67,15 +49,11 @@ export const gPronounsBlocks = [
   { type: 'heading', content: 'Job 2 — Refer to one noun only' },
   {
     type: 'text',
-    content: "A pronoun must have exactly one possible referent. If *it, they,* or *this* could refer to two different nouns, the pronoun is incorrect — even when the sentence sounds entirely natural.",
+    content: "A pronoun must have exactly one possible referent, and this rule bites even when the sentence sounds completely natural. Take *The report criticized the study because **it** was rushed.* Every reader supplies a referent for *it* — and different readers supply different ones, because nothing in the sentence settles whether the report or the study was rushed. That's why the pronoun fails: not because it sounds wrong, but because it leaves the sentence undecidable.",
   },
   {
     type: 'text',
-    content: "Take *The report criticized the study because **it** was rushed*. Whether the report or the study was rushed can't be determined, so the pronoun fails.",
-  },
-  {
-    type: 'text',
-    content: "The repair names the noun outright: *…because **the study** was rushed.* When the choices offer both a pronoun and a specific noun, and the pronoun is ambiguous, **the specific noun is correct.**",
+    content: "The repair names the noun outright: *…because **the study** was rushed.* So when the choices offer both a pronoun and a specific noun, and the pronoun could point two ways, **the specific noun is correct** — precision wins whenever the reference is contested.",
   },
   {
     type: 'tip',
@@ -85,7 +63,7 @@ export const gPronounsBlocks = [
   { type: 'heading', content: 'Job 3 — who / whom / that / which / whose' },
   {
     type: 'text',
-    content: "These five words introduce the same clause type and sound interchangeable. They're not — and sound won't distinguish them; the decision is made on the page, as with apostrophe questions.",
+    content: "These five words introduce the same clause type and sound interchangeable, which is precisely why sound can't distinguish them — the decision gets made on the page, as with apostrophe questions. Two sorts, applied in order, leave exactly one word standing:",
   },
   {
     type: 'list',
@@ -94,10 +72,6 @@ export const gPronounsBlocks = [
       '**What kind of thing** does the word refer to — a person, or a thing?',
       '**What role** does it play in its clause (for *who / whom*) — doing the action, or receiving it?',
     ],
-  },
-  {
-    type: 'text',
-    content: "Only one word survives both sorts.",
   },
   {
     type: 'table',
@@ -111,29 +85,17 @@ export const gPronounsBlocks = [
   },
   {
     type: 'text',
-    content: "The quickest *who / whom* check looks at the neighboring word. A **verb** right after → *who* (*who **called***). A **preposition** right before → *whom* (*with **whom***).",
-  },
-  {
-    type: 'text',
-    content: "*Whom* directly in front of a verb is the signature error of this question type — the combination is incorrect wherever it appears.",
+    content: "For *who / whom*, the quickest check reads the neighboring word. A **verb** right after means the person performs the action — *who* (*who **called***). A **preposition** right before means the person receives it — *whom* (*with **whom***). And *whom* directly in front of a verb is the signature error of this question type, because the object form can't perform an action — the combination is incorrect wherever it appears.",
   },
 
   { type: 'heading', content: 'Where, when, and preposition + which' },
   {
     type: 'text',
-    content: "*Where* stands in for a **physical place** — somewhere a person could actually stand: *the lab where the tests ran* means *the lab in which the tests ran*.",
+    content: "*Where* stands in for a **physical place** — somewhere a person could actually stand: *the lab where the tests ran* means *the lab in which the tests ran*. *When* does the same work for a **time**: *the year when the dam failed*.",
   },
   {
     type: 'text',
-    content: "*When* does the same work for a **time**: *the year when the dam failed*.",
-  },
-  {
-    type: 'text',
-    content: "For anything that's neither a real place nor a time — a study, a novel, a policy, a situation — *where* and *when* are unavailable. The formal substitute **preposition + which** does the work: *the study in which participants kept sleep diaries*, not *the study where participants kept sleep diaries* — a study can't be stood in.",
-  },
-  {
-    type: 'text',
-    content: "The substitute reads stiffly, and the stiffness isn't an error. An awkward-sounding *in which* is correct wherever the antecedent is abstract; the smoother *where* is wrong there.",
+    content: "For anything that's neither a real place nor a time — a study, a novel, a policy, a situation — *where* and *when* are unavailable, and the formal substitute **preposition + which** does the work: *the study in which participants kept sleep diaries*, not *the study where participants kept sleep diaries*. Why is the smoother version wrong? Because a study can't be stood in — *where* asserts a location the antecedent doesn't have. The substitute reads stiffly, and the stiffness isn't an error: an awkward-sounding *in which* is correct wherever the antecedent is abstract, and the friendlier *where* is wrong there — students who edit by ear make the swap at exactly the moment the question is checking whether they will.",
   },
   {
     type: 'table',
@@ -146,29 +108,17 @@ export const gPronounsBlocks = [
   },
   {
     type: 'text',
-    content: "One further check: **one preposition per relation.** Once *in which* is written, the preposition is spent — *the house in which she grew up in* uses it twice. Either form alone is correct: *the house in which she grew up*, or *the house she grew up in*.",
+    content: "One further check: **one preposition per relation.** Once *in which* is written, the preposition is spent, so *the house in which she grew up in* pays twice for a single relation. Either form alone is correct — *the house in which she grew up*, or *the house she grew up in*.",
   },
 
   { type: 'heading', content: 'Pronoun case in compounds' },
   {
     type: 'text',
-    content: "Case survives compounding: adding *and* plus another person changes nothing about which pronoun form a position requires.",
+    content: "Case survives compounding: adding *and* plus another person changes nothing about which pronoun form a position requires. A subject position takes subject forms — *He and I went to the archive*, never *Him and me went* — and an object position, after a verb or a preposition, takes object forms: *The curator gave the keys to him and me.* *Between* is a preposition, so the phrase is *between you and me*; *between you and I* is always incorrect, however formal it sounds.",
   },
   {
     type: 'text',
-    content: "A subject position takes subject forms — *He and I went to the archive*, never *Him and me went*. An object position, after a verb or a preposition, takes object forms: *The curator gave the keys to him and me.*",
-  },
-  {
-    type: 'text',
-    content: "*Between* is a preposition, so the phrase is *between you and me* — *between you and I* is always incorrect, however formal it sounds.",
-  },
-  {
-    type: 'text',
-    content: "The reliable check is the **drop-the-other-person test**: remove the other person and read what remains. *I went* survives; *me went* doesn't. *Gave the keys to me* survives; *gave the keys to I* doesn't.",
-  },
-  {
-    type: 'text',
-    content: "The error runs on politeness — *and I* is learned early as the courteous form and then invades object positions, where courtesy doesn't change the case.",
+    content: "The reliable check is the **drop-the-other-person test**: remove the other person and read what remains. *I went* survives; *me went* doesn't. *Gave the keys to me* survives; *gave the keys to I* doesn't. There's a reason this error runs on politeness — *and I* is drilled early as the courteous correction, and the courtesy then invades object positions, where it changes nothing about the case. A student who writes *between you and I* isn't being careless; they're being polite in a spot where grammar doesn't credit it.",
   },
 
   { type: 'heading', content: 'How to approach these questions' },

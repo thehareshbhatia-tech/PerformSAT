@@ -1,10 +1,12 @@
 /**
  * Learn lesson body — Sentence Boundaries (joining, run-ons, fragments).
  *
- * VOICE v3 (adopted 2026-07-17, exemplar: bodies/centralIdeas.js): scannable
- * instructional register — direct address, contractions, 1-3 sentence text
- * blocks, list blocks for criteria, steps blocks for procedures; no analogies,
- * no pep-talk, no emojis. All substance of the v2 textbook version preserved.
+ * VOICE v4 (adopted 2026-07-18, exemplar: bodies/centralIdeas.js): practiced-tutor
+ * register — developed 2-5 sentence paragraphs with connective tissue; every rule
+ * earns its "because"; student-psychology named concretely; math teaching is
+ * example-led; varied rhythm, no aphorism-per-block. Bans carried from v3: no
+ * analogies, no pep talk, no exclamation marks, no emojis, no test-personification.
+ * All v3 teaching claims preserved.
  *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
@@ -13,25 +15,17 @@
 export const gSentenceBoundariesBlocks = [
   {
     type: 'text',
-    content: "The reading chapters analyzed finished passages. Now we take the editor's seat — and editing starts with the sentence itself, with where one sentence ends and the next begins.",
+    content: "The reading chapters analyzed finished passages; the conventions chapters put you in the editor's seat, and editing starts with the sentence itself — with where one sentence ends and the next begins. Every boundary question reduces to a single count: **how many complete sentences touch the punctuation mark — one, or two?** Settle that count and the grammatical options settle themselves.",
   },
   {
     type: 'text',
-    content: "Every boundary question reduces to a single count: **how many complete sentences touch the punctuation mark — one, or two?** That count determines the answer.",
-  },
-  {
-    type: 'text',
-    content: "Don't judge by sound. Listening for a pause — or picking whichever option reads most smoothly — is unreliable here, because incorrect joins routinely sound natural. Count the complete sentences instead.",
+    content: "The one method that fails here is the one most students trust: sound. Reading each option aloud and picking whichever flows most smoothly feels like judgment, but incorrect joins routinely sound natural — a comma splice reads as a graceful pause, and the wrong answers are built out of exactly that grace. So don't listen. Count the complete sentences instead; everything in this chapter feeds that count.",
   },
 
   { type: 'heading', content: 'What counts as a complete sentence?' },
   {
     type: 'text',
-    content: "A complete sentence has a subject and a verb, and it doesn't open with a subordinating word. *The reef recovered.* expresses a finished thought and stands alone.",
-  },
-  {
-    type: 'text',
-    content: "*Because the reef recovered*, by contrast, leaves the thought unresolved — the reader is still waiting for the consequence.",
+    content: "A complete sentence has a subject and a verb, and it doesn't open with a subordinating word. *The reef recovered.* qualifies — something is named, something happens, and the thought closes. *Because the reef recovered* contains the same subject and the same verb, yet it no longer stands alone: the word *because* promises a consequence, and until that consequence arrives, the reader is left waiting. That's what a subordinating word does — it turns a finished thought into half of one, and no amount of added length turns it back.",
   },
   {
     type: 'list',
@@ -39,12 +33,8 @@ export const gSentenceBoundariesBlocks = [
     items: ['*because*', '*although*', '*when*', '*since*', '*if*', '*while*'],
   },
   {
-    type: 'text',
-    content: "A clause that opens with one of these can't stand alone, however many words follow it.",
-  },
-  {
     type: 'callout',
-    content: "An *-ing* form or a *to* form **never fills the verb slot by itself**. *The committee reviewing the proposal.* and *To qualify for the grant.* are fragments, however long they run — *reviewing* needs a helping verb before it counts (*is reviewing, was reviewing, has been reviewing*), and a *to* form is never the sentence's verb. A word group whose only verb candidate is a bare *-ing* or *to* form has no verb at all, and no punctuation choice can rescue it.",
+    content: "An *-ing* form or a *to* form **never fills the verb slot by itself**. *The committee reviewing the proposal.* and *To qualify for the grant.* are fragments however long they run, because *reviewing* needs a helping verb before it counts (*is reviewing, was reviewing, has been reviewing*) and a *to* form is never the sentence's verb. A word group whose only verb candidate is a bare *-ing* or *to* form has no verb at all — and no punctuation choice can rescue it.",
   },
 
   { type: 'heading', content: 'Joining two complete sentences' },
@@ -67,11 +57,7 @@ export const gSentenceBoundariesBlocks = [
   },
   {
     type: 'text',
-    content: "The classic error comes from meaning: the two ideas are closely related, so a bare comma feels right. Relatedness doesn't license a comma.",
-  },
-  {
-    type: 'text',
-    content: "When two sentences belong together, the semicolon exists for exactly that purpose — and comma + FANBOYS makes the same join while stating the relationship outright. A lone comma is never among the grammatical options.",
+    content: "The classic error comes from meaning. A student who accepts a bare comma between two complete sentences has noticed, correctly, that the two ideas belong together — and has let that closeness license the comma. It doesn't, because relatedness is exactly what the semicolon exists to signal, and comma + FANBOYS makes the same join while stating the relationship outright. A lone comma is never among the grammatical options, however tightly the ideas connect.",
   },
   {
     type: 'table',
@@ -89,70 +75,38 @@ export const gSentenceBoundariesBlocks = [
 
   { type: 'heading', content: 'The two illegal joins' },
   {
-    type: 'list',
-    title: 'Two complete sentences joined by:',
-    items: [
-      'a lone **comma** → a *comma splice*',
-      'no mark at all → a *run-on*',
-    ],
-  },
-  {
     type: 'text',
-    content: "Both are always incorrect — no matter how short the sentences are or how closely the ideas relate. *The reef recovered, it now supports hundreds of species* is a splice.",
-  },
-  {
-    type: 'text',
-    content: "The repair replaces the comma with a period, a semicolon, or comma + *and*.",
+    content: "That leaves the two joins that are never legal. Two complete sentences fused by a lone comma make a *comma splice*; fused with no mark at all, they make a *run-on*. Both are always incorrect — no matter how short the sentences are or how closely the ideas relate. *The reef recovered, it now supports hundreds of species* is a splice even though it's short, natural-sounding, and true, and the repair is any of the three legal joins: replace the comma with a period, a semicolon, or comma + *and*.",
   },
 
   { type: 'heading', content: 'Attaching an incomplete piece' },
   {
     type: 'text',
-    content: "An incomplete piece — a *because* / *although* clause, a list, a description with no verb — attaches to a complete sentence with a plain **comma**.",
-  },
-  {
-    type: 'text',
-    content: "When the left side is itself a complete sentence, a **colon** or a **dash** can also introduce what follows. *Although the survey found damage, the reef held.* — *The reef held: the coral had adapted.*",
+    content: "Not every boundary has a complete sentence on both sides, and the rules relax when one side can't stand alone. An incomplete piece — a *because* / *although* clause, a list, a description with no verb — attaches to a complete sentence with a plain **comma**: *Although the survey found damage, the reef held.* When the left side is itself a complete sentence, a **colon** or a **dash** can also introduce what follows: *The reef held: the coral had adapted.* Why does the colon need a complete left side? Because a colon announces that what came before is about to be explained — and a fragment hasn't finished saying anything to explain.",
   },
 
   { type: 'heading', content: 'One join, one connector' },
   {
     type: 'text',
-    content: "Joining two clauses takes **exactly one connector** — the subordinator or the coordinator, never both.",
+    content: "Joining two clauses takes **exactly one connector** — the subordinator or the coordinator, never both. *Although the survey found damage, but the reef held.* installs two, and the doubling quietly dismantles the sentence: *although* demotes the first clause to a dependent piece, *but* demands a complete sentence before it, and with both in place no clause is left standing as the main assertion. Either word alone repairs it — *Although the survey found damage, the reef held.* or *The survey found damage, but the reef held.*",
   },
   {
     type: 'text',
-    content: "*Although the survey found damage, but the reef held.* doubles up. *Although* demotes the first clause to a dependent piece, and *but* demands a complete sentence before it — with both installed, no clause is left standing as the main assertion.",
-  },
-  {
-    type: 'text',
-    content: "Either word alone repairs the sentence: *Although the survey found damage, the reef held.* or *The survey found damage, but the reef held.*",
-  },
-  {
-    type: 'text',
-    content: "The doubled version survives casual reading because each half sounds fine on its own — and the first connector often sits at the very start of a long sentence, far from the choices.",
+    content: "The doubled version survives casual reading for two reasons: each half sounds fine on its own, and the first connector often sits at the very start of a long sentence, far from the choices. A student who reads only the words around the blank never sees the *although* — which is precisely the reading the sentence was built for.",
   },
   {
     type: 'tip',
-    content: "**Sweep the whole sentence for connectors before you choose.** When one is already there, any choice that adds a second is wrong — and the punctuation-only choice usually wins.",
+    content: "**Sweep the whole sentence for connectors before you choose.** When one is already present, any choice that adds a second is wrong — and the punctuation-only choice usually wins.",
   },
 
   { type: 'heading', content: 'Participial tails' },
   {
     type: 'text',
-    content: "A comma followed by an *-ing* phrase at the end of a sentence modifies the **whole preceding clause**, and it creates no splice: *The company expanded rapidly, opening six offices in two years.*",
+    content: "One legal construction looks enough like a splice to cost points in the other direction. A comma followed by an *-ing* phrase at the end of a sentence — *The company expanded rapidly, opening six offices in two years* — modifies the **whole preceding clause**, and it creates no splice. The tail *opening six offices in two years* has no subject and can't stand alone, so it's an incomplete piece legally attached by the comma; the comma is also what marks the phrase as describing the clause's action rather than gluing to the nearest word.",
   },
   {
     type: 'text',
-    content: "The tail *opening six offices in two years* has no subject and can't stand alone. It's an incomplete piece legally attached by the comma — and the comma is what marks the phrase as describing the clause's action rather than gluing to the nearest word.",
-  },
-  {
-    type: 'text',
-    content: "The construction turns illegal the moment a subject appears: *The company expanded rapidly, it opened six offices in two years* upgrades the tail to a complete sentence — and the comma to a splice.",
-  },
-  {
-    type: 'text',
-    content: "Choices that differ only by that inserted pronoun are testing exactly this line.",
+    content: "The construction turns illegal the moment a subject appears. *The company expanded rapidly, it opened six offices in two years* upgrades the tail to a complete sentence — and the comma to a splice. Choices that differ only by that inserted pronoun are testing exactly this line, so when two options match word for word except for an *it* after the comma, the count is the whole question.",
   },
 
   { type: 'heading', content: 'How to approach these questions' },

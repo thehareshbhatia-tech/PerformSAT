@@ -1,10 +1,12 @@
 /**
  * Learn lesson body — Quadratic Functions & Equations (Advanced Math).
  *
- * VOICE v3 (adopted 2026-07-17, exemplar: bodies/centralIdeas.js): scannable
- * instructional register — direct address, contractions, 1-3 sentence text
- * blocks, list blocks for criteria, steps blocks for procedures; no analogies,
- * no pep-talk, no emojis. All substance of the v2 textbook version preserved.
+ * VOICE v4 (adopted 2026-07-18, exemplar: bodies/centralIdeas.js): practiced-tutor
+ * register — developed 2-5 sentence paragraphs with connective tissue; every rule
+ * earns its "because"; student-psychology named concretely; math teaching is
+ * example-led; varied rhythm, no aphorism-per-block. Bans carried from v3: no
+ * analogies, no pep talk, no exclamation marks, no emojis, no
+ * test-personification. All v3 teaching claims preserved.
  * Gated by bodies.test.js.
  *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
@@ -14,21 +16,13 @@
 export const mQuadraticsBlocks = [
   {
     type: 'text',
-    content: "The factoring templates you just built pay off immediately: a quadratic equation is where rewriting becomes solving, because a factored quadratic set equal to zero reads its solutions off directly.",
-  },
-  {
-    type: 'text',
-    content: "The costliest habit on quadratics is committing to a single method — always factoring, or always the quadratic formula — and grinding through a problem a quicker route would settle in seconds. The efficient route is usually visible on the page itself.",
-  },
-  {
-    type: 'text',
-    content: "Two principles organize this topic: **let the answer choices pick the method**, and read the parabola's features straight from whichever form the equation is given in.",
+    content: "The factoring templates you just built pay off immediately, because a quadratic equation is where rewriting becomes solving: a factored quadratic set equal to zero reads its solutions off directly. The costliest habit on these questions isn't a wrong technique — it's committing to a single one. Students who always factor, or always reach for the quadratic formula, grind through problems a quicker route would settle in seconds, and the efficient route is usually visible on the page itself. Two principles organize the whole topic: **let the answer choices pick the method**, and read the parabola's features straight from whichever form the equation is given in.",
   },
 
   { type: 'heading', content: 'Choosing a method' },
   {
     type: 'text',
-    content: "Before any algebra, look at the answer choices — they tell you which method applies.",
+    content: "Before any algebra, look at the answer choices. The form of the answers is the fingerprint of the technique that produced them — whole numbers come out of factoring, radicals come out of the formula — so the choices tell you which method applies before you commit to one.",
   },
   {
     type: 'list',
@@ -42,17 +36,13 @@ export const mQuadraticsBlocks = [
   },
   {
     type: 'text',
-    content: "This brief inspection saves more time than any individual technique.",
+    content: "This inspection takes a few seconds and saves more time than any individual technique.",
   },
 
   { type: 'heading', content: 'Zeros = roots = x-intercepts = factors' },
   {
     type: 'text',
-    content: "Zeros, roots, x-intercepts, solutions — four names for one object: an input that makes the quadratic equal $0$.",
-  },
-  {
-    type: 'text',
-    content: "Questions mix the vocabulary freely — a stem may ask for \"zeros\" while the graph is labeled with \"x-intercepts.\" They're synonyms, and treating them as four separate ideas creates hesitation where none is needed.",
+    content: "Zeros, roots, x-intercepts, solutions — four names for one object: an input that makes the quadratic equal $0$. Questions mix the vocabulary freely, so a stem may ask for \"zeros\" while the graph is labeled with \"x-intercepts.\" They're synonyms, and students who treat them as four separate ideas hesitate at exactly the moments the question was built to be immediate.",
   },
   {
     type: 'text',
@@ -66,15 +56,7 @@ export const mQuadraticsBlocks = [
   { type: 'heading', content: 'Solving by factoring' },
   {
     type: 'text',
-    content: "For $x^2+bx+c=0$, find two numbers that **add to $b$** and **multiply to $c$**. Reversing their signs gives the roots.",
-  },
-  {
-    type: 'list',
-    title: 'The signs narrow the search before it starts:',
-    items: [
-      'If $c$ is positive, both numbers share the sign of $b$.',
-      'If $c$ is negative, one is positive and one is negative.',
-    ],
+    content: "For $x^2+bx+c=0$, find two numbers that **add to $b$** and **multiply to $c$**; reversing their signs gives the roots. Why sum and product? Because expanding $(x+p)(x+q)$ produces $x^2 + (p+q)x + pq$ — the middle coefficient is the pair's sum and the constant is its product, so factoring is just running that expansion backward. The signs narrow the search before it starts: if $c$ is positive, both numbers share the sign of $b$; if $c$ is negative, one is positive and one is negative.",
   },
   {
     type: 'example',
@@ -113,25 +95,13 @@ export const mQuadraticsBlocks = [
   },
   {
     type: 'text',
-    content: "When the constant term is missing, $x$ itself is a common factor and the equation factors immediately: $3x^2 - 12x = 0$ becomes $3x(x - 4) = 0$, so $x = 0$ or $x = 4$.",
-  },
-  {
-    type: 'text',
-    content: "The tempting shortcut — dividing both sides by $x$ — is invalid at exactly one value, $x = 0$, and that value is one of the solutions. Dividing discards it silently; factoring the $x$ out keeps it as an ordinary root.",
+    content: "When the constant term is missing, $x$ itself is a common factor and the equation factors immediately: $3x^2 - 12x = 0$ becomes $3x(x - 4) = 0$, so $x = 0$ or $x = 4$. The tempting shortcut — dividing both sides by $x$ — looks like harmless simplifying, but the division is invalid at exactly one value, $x = 0$, and that value is one of the solutions. Dividing discards it silently; factoring the $x$ out keeps it as an ordinary root.",
   },
 
   { type: 'heading', content: 'The quadratic formula' },
   {
     type: 'text',
-    content: "When no integer pair fits — the sum-and-product search comes up empty, or the answer choices carry radicals such as $3\\pm\\sqrt5$ — the quadratic formula solves any quadratic straight from its coefficients.",
-  },
-  {
-    type: 'text',
-    content: "Radical answer choices are the clearest signal: irrational roots mean the quadratic doesn't factor over the integers, and time spent hunting for a pair is wasted.",
-  },
-  {
-    type: 'text',
-    content: "Put the equation in standard form $ax^2+bx+c=0$ first. The formula reads $a$, $b$, and $c$ from that form and no other.",
+    content: "When no integer pair fits — the sum-and-product search comes up empty, or the answer choices carry radicals such as $3\\pm\\sqrt5$ — the quadratic formula solves any quadratic straight from its coefficients. Radical choices are the clearest signal of the two, because irrational roots mean the quadratic doesn't factor over the integers, and every minute spent hunting for a pair is wasted. Put the equation in standard form $ax^2+bx+c=0$ first: the formula reads $a$, $b$, and $c$ from that form and no other.",
   },
   {
     type: 'formula',
@@ -166,7 +136,7 @@ export const mQuadraticsBlocks = [
   { type: 'heading', content: 'Completing the square' },
   {
     type: 'text',
-    content: "Completing the square rewrites $x^2 + bx$ as a perfect square plus a correction. It rests on one identity: $\\left(x + \\frac{b}{2}\\right)^2 = x^2 + bx + \\frac{b^2}{4}$.",
+    content: "Completing the square rewrites $x^2 + bx$ as a perfect square plus a correction, and it rests on one identity: $\\left(x + \\frac{b}{2}\\right)^2 = x^2 + bx + \\frac{b^2}{4}$.",
   },
   {
     type: 'steps',
@@ -199,11 +169,7 @@ export const mQuadraticsBlocks = [
   { type: 'heading', content: 'Reading the parabola from its form' },
   {
     type: 'text',
-    content: "A parabola is symmetric about a vertical axis, and the same quadratic can be written in three forms. Each form displays a different feature directly.",
-  },
-  {
-    type: 'text',
-    content: "So match the form to the feature the question asks about, rather than converting by default. Deriving the vertex from standard form when the problem hands you factored form is unnecessary work.",
+    content: "A parabola is symmetric about a vertical axis, and the same quadratic can be written in three forms, each displaying a different feature directly. So match the form to the feature the question asks about, rather than converting by default — deriving the vertex from standard form when the problem hands you factored form is unnecessary work, and the timer collects for it.",
   },
   {
     type: 'table',
@@ -216,7 +182,7 @@ export const mQuadraticsBlocks = [
   },
   {
     type: 'text',
-    content: "The vertex sits on the axis of symmetry — exactly **halfway between the roots**. When you know the roots, their average gives the x-coordinate of the vertex; no formula, no conversion.",
+    content: "The vertex sits on the axis of symmetry — exactly **halfway between the roots**, because the two roots are mirror images across that axis. When you know the roots, their average gives the x-coordinate of the vertex; no formula, no conversion.",
   },
   {
     type: 'diagramRef',
@@ -238,7 +204,7 @@ export const mQuadraticsBlocks = [
   { type: 'heading', content: 'The discriminant' },
   {
     type: 'text',
-    content: "The discriminant $b^2-4ac$ — the expression under the radical in the quadratic formula — counts the real solutions by its sign alone.",
+    content: "The discriminant $b^2-4ac$ — the expression under the radical in the quadratic formula — counts the real solutions by its sign alone, because the radical is where a solution can fail to exist: a positive number has two square roots, zero has one, and a negative number has none that are real.",
   },
   {
     type: 'list',
@@ -266,7 +232,7 @@ export const mQuadraticsBlocks = [
   { type: 'heading', content: 'Sum and product without solving' },
   {
     type: 'text',
-    content: "When a question asks only for the **sum** or **product** of the solutions, computing the individual roots is wasted effort.",
+    content: "When a question asks only for the **sum** or **product** of the solutions, computing the individual roots is wasted effort — the coefficients already carry both values.",
   },
   {
     type: 'list',
@@ -297,19 +263,11 @@ export const mQuadraticsBlocks = [
   { type: 'heading', content: 'Polynomial graphs beyond the parabola' },
   {
     type: 'text',
-    content: "The factor-zero identity isn't limited to quadratics: for any polynomial, $(x - r)$ is a factor exactly when the graph meets the x-axis at $r$. What a higher-degree graph adds is **multiplicity** — the power on each factor.",
-  },
-  {
-    type: 'list',
-    title: 'What the power does at its zero:',
-    items: [
-      'An **odd** power **crosses** the axis.',
-      "An **even** power **touches** the axis and turns back without crossing — a squared factor such as $(x - r)^2$ is never negative, so it can't change the sign of the output there.",
-    ],
+    content: "The factor-zero identity isn't limited to quadratics: for any polynomial, $(x - r)$ is a factor exactly when the graph meets the x-axis at $r$. What a higher-degree graph adds is **multiplicity** — the power on each factor — and the power controls what the graph does at its zero. An **odd** power **crosses** the axis. An **even** power **touches** the axis and turns back without crossing, because a squared factor such as $(x - r)^2$ is never negative and so can't change the sign of the output there.",
   },
   {
     type: 'text',
-    content: "A graph that bounces off the axis at $x = r$ therefore forces an even power of $(x - r)$ in the equation — a fact that eliminates answer choices without any computation.",
+    content: "Run that logic in reverse and it becomes an elimination tool: a graph that bounces off the axis at $x = r$ forces an even power of $(x - r)$ in the equation, a fact that rules out answer choices without any computation.",
   },
   {
     type: 'text',

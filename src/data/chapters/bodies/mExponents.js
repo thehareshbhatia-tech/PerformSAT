@@ -1,11 +1,12 @@
 /**
  * Learn lesson body — Exponents & Exponential Functions (Advanced Math).
  *
- * VOICE v3 (adopted 2026-07-17, exemplar: bodies/centralIdeas.js): scannable
- * instructional register — direct address, contractions, 1-3 sentence text
- * blocks, list blocks for criteria, steps blocks for procedures; no
- * analogies, no pep-talk, no emojis. All substance of the v2 textbook
- * version preserved.
+ * VOICE v4 (adopted 2026-07-18, exemplar: bodies/centralIdeas.js): practiced-tutor
+ * register — developed 2-5 sentence paragraphs with connective tissue; every rule
+ * earns its "because"; student-psychology named concretely; math teaching is
+ * example-led; varied rhythm, no aphorism-per-block. Bans carried from v3: no
+ * analogies, no pep talk, no exclamation marks, no emojis, no
+ * test-personification. All v3 teaching claims preserved.
  *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
@@ -14,29 +15,17 @@
 export const mExponentsBlocks = [
   {
     type: 'text',
-    content: "Shifts and stretches reshape a graph you already have. Some quantities call for a different kind of function altogether — one that grows by repeated multiplication.",
+    content: "Shifts and stretches reshape a graph you already have. Some quantities call for a different kind of function altogether — one that grows by repeated multiplication — and that's what an exponent records: **how many copies of the base are multiplied together**. Hold onto that definition and there's little left to memorize, because every rule in this chapter follows from counting factors.",
   },
   {
     type: 'text',
-    content: "That's what an exponent records: **how many copies of the base are multiplied together**. Hold onto that definition and there's little left to memorize, because every rule follows from counting factors.",
-  },
-  {
-    type: 'text',
-    content: "Errors here rarely come from hard arithmetic. They come from applying a rule to a shape it doesn't fit — trying to merge a *sum* of powers, for instance. When an expression looks unfamiliar, write out the factors and count them instead of reciting rules.",
+    content: "It's worth saying up front where the points are actually lost, because it's rarely the arithmetic. Misses here come from applying a rule to a shape it doesn't fit — trying to merge a *sum* of powers, for instance, with a rule built for products. So whenever an expression looks unfamiliar, don't recite rules at it; write out the factors and count them.",
   },
 
   { type: 'heading', content: 'The product, quotient, and power rules' },
   {
     type: 'text',
-    content: "Write the factors out and count them.",
-  },
-  {
-    type: 'list',
-    items: [
-      "**Multiply, same base — add the exponents:** $x^3\\cdot x^4 = x^7$, seven $x$'s in a row",
-      "**Divide, same base — subtract them:** $x^5 / x^2 = x^3$, five $x$'s with two cancelled",
-      '**Power of a power — multiply them:** $(x^3)^4 = x^{12}$, four groups of three',
-    ],
+    content: "Take $x^3\\cdot x^4$ and write the factors out: three $x$'s followed by four more, seven $x$'s in a row, so $x^3\\cdot x^4 = x^7$. Multiplying like bases *adds* the exponents, because multiplication just pools the factor counts. Division runs the count backward — $x^5 / x^2$ is five $x$'s with two cancelled, leaving $x^3$ — so dividing subtracts. And a power of a power repeats the whole count: $(x^3)^4$ is four groups of three, twelve factors, $x^{12}$, so stacked exponents multiply.",
   },
   {
     type: 'table',
@@ -49,51 +38,31 @@ export const mExponentsBlocks = [
   },
   {
     type: 'keyInsight',
-    content: 'An outer exponent distributes onto **every factor** in a product — never across a $+$ sign. $(x^3+x^5)$ does **not** collapse to $x^8$; a sum of powers can be factored, but its terms never merge.',
+    content: 'An outer exponent distributes onto **every factor** in a product — never across a $+$ sign, because the counting argument only works when the whole expression is a product. $(x^3+x^5)$ does **not** collapse to $x^8$; a sum of powers can be factored, but its terms never merge.',
   },
 
   { type: 'heading', content: 'Negative and fractional exponents' },
   {
     type: 'text',
-    content: "A **negative exponent means a reciprocal**, not a negative value: $x^{-2} = \\dfrac{1}{x^2}$. The factor moves across the fraction bar, and the value stays positive.",
+    content: "Run the quotient rule past zero and see what it produces: $x^2 / x^5 = x^{-3}$ by subtraction, but writing out the factors shows two $x$'s cancelling against five, leaving three in the *denominator*. So a **negative exponent means a reciprocal**, not a negative value: $x^{-2} = \\dfrac{1}{x^2}$. The factor moves across the fraction bar, and the value stays positive.",
   },
   {
     type: 'text',
-    content: "A **fractional exponent means a root**: $x^{1/2}=\\sqrt{x}$ and $x^{1/3}=\\sqrt[3]{x}$. In general, $x^{m/n}$ reads \"power $m$, root $n$\" — the numerator is the power, the denominator is the root.",
+    content: "A **fractional exponent means a root**, and the product rule says why: $x^{1/2}\\cdot x^{1/2} = x^1$, so $x^{1/2}$ has to be the number that multiplies by itself to give $x$ — that is, $\\sqrt{x}$. Likewise $x^{1/3}=\\sqrt[3]{x}$. In general, $x^{m/n}$ reads \"power $m$, root $n$\" — the numerator is the power, the denominator is the root.",
   },
 
   { type: 'heading', content: 'Simplifying radicals' },
   {
     type: 'text',
-    content: "Square roots obey a product rule: $\\sqrt{ab} = \\sqrt{a}\\cdot\\sqrt{b}$ for nonnegative $a$ and $b$. Read left to right, it simplifies a radical by **factoring out perfect squares**.",
+    content: "Square roots obey a product rule of their own: $\\sqrt{ab} = \\sqrt{a}\\cdot\\sqrt{b}$ for nonnegative $a$ and $b$. Read left to right, it simplifies a radical by **factoring out perfect squares**: $\\sqrt{12} = \\sqrt{4 \\cdot 3} = \\sqrt{4}\\cdot\\sqrt{3} = 2\\sqrt{3}$. Search the number for its largest perfect-square factor — $4$, $9$, $16$, $25$, $36$, and so on — and the square comes out as its root while the leftover factor stays under the radical.",
   },
   {
     type: 'text',
-    content: "$\\sqrt{12} = \\sqrt{4 \\cdot 3} = \\sqrt{4}\\cdot\\sqrt{3} = 2\\sqrt{3}$. Search the number for its largest perfect-square factor — $4$, $9$, $16$, $25$, $36$, and so on. The square comes out as its root; the leftover factor stays under the radical.",
-  },
-  {
-    type: 'list',
-    title: 'The same rule works on whole radicals:',
-    items: [
-      'Multiply them directly — sometimes a whole number appears: $\\sqrt{2}\\cdot\\sqrt{8} = \\sqrt{16} = 4$',
-      'Divide the same way: $\\dfrac{\\sqrt{50}}{\\sqrt{2}} = \\sqrt{25} = 5$',
-    ],
+    content: "The same rule multiplies and divides whole radicals directly, and sometimes a plain number falls out: $\\sqrt{2}\\cdot\\sqrt{8} = \\sqrt{16} = 4$, and $\\dfrac{\\sqrt{50}}{\\sqrt{2}} = \\sqrt{25} = 5$. But the rule holds for products and quotients only — $\\sqrt{a + b}$ does **not** split into $\\sqrt{a} + \\sqrt{b}$. It's the same boundary that stops exponent rules at a plus sign, and for the same reason.",
   },
   {
     type: 'text',
-    content: "The rule holds for products and quotients only. $\\sqrt{a + b}$ does **not** split into $\\sqrt{a} + \\sqrt{b}$ — the same boundary that stops exponent rules at a plus sign.",
-  },
-  {
-    type: 'text',
-    content: "Read right to left, the product rule pushes a coefficient **back under** the radical: $2\\sqrt{3} = \\sqrt{4}\\cdot\\sqrt{3} = \\sqrt{12}$. The coefficient enters as its square.",
-  },
-  {
-    type: 'text',
-    content: "This reverse move compares a mixed form like $3\\sqrt{5}$ against a plain number, or matches an answer choice written as a single radical.",
-  },
-  {
-    type: 'text',
-    content: "One scope note: rationalizing a denominator — rewriting $\\tfrac{1}{\\sqrt{2}}$ as $\\tfrac{\\sqrt{2}}{2}$ — is a classroom convention the test doesn't require. Simplifying, multiplying, and recombining radicals as above covers the forms that appear.",
+    content: "Read right to left, the product rule pushes a coefficient **back under** the radical, and the coefficient enters as its square: $2\\sqrt{3} = \\sqrt{4}\\cdot\\sqrt{3} = \\sqrt{12}$. This reverse move is how you compare a mixed form like $3\\sqrt{5}$ against a plain number, or match an answer choice written as a single radical. One scope note: rationalizing a denominator — rewriting $\\tfrac{1}{\\sqrt{2}}$ as $\\tfrac{\\sqrt{2}}{2}$ — is a classroom convention the test doesn't require, so simplifying, multiplying, and recombining radicals as above covers the forms that appear.",
   },
   {
     type: 'example',
@@ -109,21 +78,17 @@ export const mExponentsBlocks = [
   { type: 'heading', content: 'Solving equations by matching bases' },
   {
     type: 'text',
-    content: "When an equation has powers on both sides, rewrite everything over **one shared base**. Numbers like $4$, $8$, and $16$ are all powers of $2$.",
+    content: "Nothing about $4^x = 8$ yields to ordinary isolation — the $x$ is trapped in an exponent, out of reach of adding or dividing. The route in is to rewrite everything over **one shared base**: $4$, $8$, and $16$ are all powers of $2$, so $4^x = 8$ becomes $2^{2x} = 2^{3}$. Once each side is a single power of the same base, the exponents alone form an ordinary equation: $2x = 3$.",
   },
   {
     type: 'text',
-    content: "Once each side is a single power of the same base, the exponents alone form an ordinary equation: $4^x = 8$ becomes $2^{2x} = 2^{3}$, so $2x = 3$.",
-  },
-  {
-    type: 'text',
-    content: "The step is justified because $2^{\\text{something}}$ takes each value exactly once — if two powers of $2$ are equal, their exponents have to match.",
+    content: "Why is equating the exponents legal? Because $2^{\\text{something}}$ takes each value exactly once — if two powers of $2$ are equal, their exponents have no choice but to match.",
   },
 
   { type: 'heading', content: 'The exponential model $y = a\\cdot b^{t}$' },
   {
     type: 'text',
-    content: "This form underlies every growth and decay word problem. Only two quantities carry meaning:",
+    content: "Repeated multiplication is exactly what the form $y = a\\cdot b^{t}$ records: start at $a$, apply the factor $b$ once per step, and after $t$ steps the exponent has counted the applications. This form underlies every growth and decay word problem, and only two of its quantities carry meaning:",
   },
   {
     type: 'table',
@@ -135,7 +100,7 @@ export const mExponentsBlocks = [
   },
   {
     type: 'keyInsight',
-    content: 'Build the base from the **fraction kept**, not the percent of change. A 5% increase gives $b = 1.05$; a 5% decrease gives $b = 0.95$. Place the decimal carefully: 2.4% growth gives $b = 1.024$, not $1.24$.',
+    content: 'Build the base from the **fraction kept**, not the percent of change. A 5% increase keeps everything and adds 5%, so $b = 1.05$; a 5% decrease keeps 95%, so $b = 0.95$. Place the decimal carefully: 2.4% growth gives $b = 1.024$, not $1.24$.',
   },
   {
     type: 'diagramRef',
@@ -146,15 +111,11 @@ export const mExponentsBlocks = [
   { type: 'heading', content: 'Changing the time unit' },
   {
     type: 'text',
-    content: "If the input is measured in different units than the rate, rescale the exponent so that **one full rate-period advances it by exactly 1**.",
+    content: "When the input is measured in different units than the rate — a yearly rate, an input in months — rescale the exponent so that **one full rate-period advances it by exactly 1**. A yearly factor $b$ applied to months becomes $b^{t/12}$: after 12 months the exponent equals $1$, so exactly one yearly step has happened, which is what a year should do.",
   },
   {
     type: 'text',
-    content: "A yearly factor $b$ applied to months becomes $b^{t/12}$: after 12 months the exponent equals $1$, so exactly one yearly step has happened.",
-  },
-  {
-    type: 'text',
-    content: "The characteristic error is guessing whether to multiply or divide by the $12$. Don't guess — check that one whole rate-period moves the exponent to exactly $1$, and the direction settles itself. (A finer unit divides: more small steps per change.)",
+    content: "The characteristic error here is guessing whether to multiply or divide by the $12$, and students guess because both look plausible on the page. Don't guess — run the check instead: one whole rate-period must move the exponent to exactly $1$, and the direction settles itself. (A finer unit divides: more small steps per change.)",
   },
 
   { type: 'heading', content: 'How to approach these questions' },

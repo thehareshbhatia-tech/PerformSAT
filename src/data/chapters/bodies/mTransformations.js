@@ -1,11 +1,13 @@
 /**
  * Learn lesson body — Function Transformations (Advanced Math).
  *
- * VOICE v3 (adopted 2026-07-17, exemplar: bodies/centralIdeas.js): scannable
- * instructional register — direct address, contractions, 1-3 sentence text
- * blocks, list blocks for criteria, steps blocks for procedures; no
- * analogies, no pep-talk, no emojis. All substance of the v2 textbook
- * version preserved.
+ * VOICE v4 (adopted 2026-07-18, exemplar: bodies/centralIdeas.js):
+ * practiced-tutor register — developed 2-5 sentence paragraphs with
+ * connective tissue; every rule earns its "because"; student-psychology
+ * named concretely; math teaching is example-led; varied rhythm, no
+ * aphorism-per-block. Bans carried from v3: no analogies, no pep talk,
+ * no exclamation marks, no emojis, no test-personification. All v3
+ * teaching claims preserved.
  *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
@@ -14,24 +16,13 @@
 export const mTransformationsBlocks = [
   {
     type: 'text',
-    content: "Solving a quadratic told us where a parabola sits — its roots and vertex. Transformation questions move the graph itself and ask how the equation records the move.",
-  },
-  {
-    type: 'text',
-    content: "Every one of these questions turns on a single distinction: **is the change applied outside the function or inside it?**",
-  },
-  {
-    type: 'list',
-    items: [
-      '**Outside the function** — the change acts on the output, so the graph moves vertically and the sign behaves as written.',
-      '**Inside the function** — the change acts on the input, so the graph moves horizontally, and the direction is the opposite of what the sign suggests.',
-    ],
+    content: "Solving a quadratic told us where a parabola sits — its roots and vertex. Transformation questions move the graph itself and ask how the equation records the move, and every one of them turns on a single distinction: **is the change applied outside the function or inside it?** Outside, the change acts on the output, so the graph moves vertically and the sign behaves as written. Inside, it acts on the input, so the graph moves horizontally — and the direction is the opposite of what the sign suggests. There's a reason for that asymmetry, and watching it happen once is worth more than memorizing the rule.",
   },
 
   { type: 'heading', content: 'Outside the function: vertical moves' },
   {
     type: 'text',
-    content: "A change written *outside* the function applies after the rule has produced its output. The output is computed first, then added to or negated — so the change lands directly on the y-values.",
+    content: "Start with $f(x)+2$. By the time the $+2$ arrives, the rule has already run — an input went in, an output came out, and only then was $2$ added. So the change lands directly on the y-values: every point on the graph rises exactly $2$, and nothing moves sideways, because no input was ever touched.",
   },
   {
     type: 'diagramRef',
@@ -39,22 +30,14 @@ export const mTransformationsBlocks = [
     description: "The graph of $f(x)$ (dashed) and $f(x)+2$: adding outside the function lifts every point straight up by $2$, exactly as the sign says.",
   },
   {
-    type: 'list',
-    items: [
-      '$f(x)+3$ shifts the graph up $3$',
-      '$f(x)-3$ shifts it down $3$',
-      '$-f(x)$ reflects the entire graph over the **x-axis**',
-    ],
-  },
-  {
     type: 'text',
-    content: "These behave intuitively. Outside the function, the sign means exactly what it says.",
+    content: "Everything written outside behaves this way. $f(x)-3$ computes the output first and then drops it by $3$; $-f(x)$ negates every output, which flips the whole graph over the **x-axis**. Outside the function, the sign means exactly what it says — plus is up, minus is down. The intuitive half of the topic ends here.",
   },
 
   { type: 'heading', content: 'Inside the function: horizontal moves' },
   {
     type: 'text',
-    content: "A change written *inside* the parentheses — attached to the $x$ — alters the input before the rule is applied. So the graph moves **left or right**, in the direction opposite the sign.",
+    content: "Now put the change inside the parentheses: $f(x-2)$. Nearly every student reads the minus sign and says left — and that answer choice is waiting on the test every time the question is asked. But track one point instead of trusting the sign. Whatever output $f$ produced at $x=0$, the new function produces at $x=2$, because $f(2-2)=f(0)$. Every feature of the graph now happens $2$ units later than it used to — the graph has moved **right**, opposite the sign.",
   },
   {
     type: 'diagramRef',
@@ -62,16 +45,8 @@ export const mTransformationsBlocks = [
     description: "The graph of $f(x)$ (dashed) and $f(x-2)$: subtracting $2$ inside the parentheses moves the graph right $2$ — the direction opposite the sign.",
   },
   {
-    type: 'list',
-    items: [
-      '$f(x-2)$ shifts **right** $2$ — not left',
-      '$f(x+2)$ shifts **left** $2$',
-      '$f(-x)$ reflects the graph over the **y-axis**',
-    ],
-  },
-  {
     type: 'text',
-    content: "This reversal is the central difficulty of the topic. The incorrect reading \"left $2$\" for $f(x-2)$ appears routinely among the wrong answer choices.",
+    content: "The same logic runs through every inside change: the expression alters the input *before* the rule sees it, so the graph compensates by sliding the other way. $f(x+2)$ hands the rule inputs that are $2$ ahead of schedule, so the graph shifts **left** $2$; $f(-x)$ feeds the rule mirrored inputs, reflecting the graph over the **y-axis**. This reversal is the central difficulty of the whole topic — which is precisely why the misread \"left $2$\" for $f(x-2)$ appears so routinely among the wrong answers.",
   },
   {
     type: 'keyInsight',
@@ -95,25 +70,13 @@ export const mTransformationsBlocks = [
   { type: 'heading', content: 'A shortcut: set the inside to zero' },
   {
     type: 'text',
-    content: "Instead of memorizing the sign reversal, find **the value of $x$ that makes the inside expression equal zero**. That value is where the graph has moved.",
-  },
-  {
-    type: 'text',
-    content: "For $f(x-5)$, the inside is zero at $x=5$, so the graph shifted to $x=5$: right $5$. The method extends cleanly to fractions: $f(x-\\tfrac{3}{2})$ has a zero inside at $x=\\tfrac{3}{2}$, so the shift is right $\\tfrac{3}{2}$.",
+    content: "If the sign reversal refuses to stick, there's a method that never needs it: find **the value of $x$ that makes the inside expression equal zero**. For $f(x-5)$, the inside is zero at $x=5$, so the graph has moved to $x=5$ — right $5$. Why does that work? Because the input that zeroes the inside is exactly the input where the new function reproduces $f(0)$, so it marks where the graph's old starting point has landed. The method extends cleanly to fractions: $f(x-\\tfrac{3}{2})$ has a zero inside at $x=\\tfrac{3}{2}$, so the shift is right $\\tfrac{3}{2}$, with no sign-flipping anywhere in the reasoning.",
   },
 
   { type: 'heading', content: 'Combining transformations' },
   {
     type: 'text',
-    content: "A single expression can carry both kinds of change. The reliable approach: classify each one separately.",
-  },
-  {
-    type: 'text',
-    content: "In $f(x+1)-4$, the inside $+1$ moves the graph **left $1$**, and the outside $-4$ moves it **down $4$**.",
-  },
-  {
-    type: 'text',
-    content: "The decomposition works because vertical and horizontal moves are independent — one acts on $x$, the other on $y$ — so they never interfere. Applying them in either order produces the same graph.",
+    content: "A single expression can carry both kinds of change at once. In $f(x+1)-4$, the inside $+1$ moves the graph **left $1$** and the outside $-4$ moves it **down $4$** — and the reliable approach is simply to classify each change separately and stack the results. The decomposition is safe because the two moves are independent: one acts on $x$, the other on $y$, so they never interfere, and applying them in either order produces the same graph.",
   },
 
   { type: 'heading', content: 'How to approach these questions' },
@@ -188,6 +151,6 @@ export const mTransformationsBlocks = [
 
   {
     type: 'text',
-    content: "**In summary:** classify each change as outside or inside. Outside is vertical and follows its sign; inside is horizontal and reverses it. For any horizontal shift, set the inside expression to zero to find the graph's new position.",
+    content: "**The whole topic in one classification:** locate each change before reading its sign. Outside means vertical, and the sign behaves as written; inside means horizontal, and the sign reverses — or sidestep the reversal entirely by setting the inside expression to zero to find where the graph has gone. A combined change is nothing more than the two classifications stacked.",
   },
 ];

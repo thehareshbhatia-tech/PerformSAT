@@ -1,11 +1,12 @@
 /**
  * Learn lesson body — Radicals, Rationals & Hidden Quadratics (Advanced Math).
  *
- * VOICE v3 (adopted 2026-07-17, exemplar: bodies/centralIdeas.js): scannable
- * instructional register — direct address, contractions, 1-3 sentence text
- * blocks, list blocks for criteria, steps blocks for procedures; no
- * analogies, no pep-talk, no emojis. All substance of the v2 textbook
- * version preserved.
+ * VOICE v4 (adopted 2026-07-18, exemplar: bodies/centralIdeas.js): practiced-tutor
+ * register — developed 2-5 sentence paragraphs with connective tissue; every rule
+ * earns its "because"; student-psychology named concretely; math teaching is
+ * example-led; varied rhythm, no aphorism-per-block. Bans carried from v3: no
+ * analogies, no pep talk, no exclamation marks, no emojis, no
+ * test-personification. All v3 teaching claims preserved.
  *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
@@ -14,24 +15,14 @@
 export const nonlinearEquationsBlocks = [
   {
     type: 'text',
-    content: "The unit closes with four equation types that draw on every tool we've assembled so far — each with its own solution method.",
-  },
-  {
-    type: 'list',
-    title: 'The four types:',
-    items: [
-      'the variable under a square root',
-      'the variable in a denominator',
-      'a quartic with quadratic structure',
-      'a polynomial presented through division',
-    ],
-  },
-  {
-    type: 'text',
-    content: "One principle governs all four: **the moves that clear roots and fractions can introduce false solutions or hide restrictions.** The original equation is the final authority on which candidates count — solve directly, then verify against it.",
+    content: "The unit closes with four equation types that draw on every tool we've assembled so far: the variable under a square root, the variable in a denominator, a quartic with quadratic structure, and a polynomial presented through division. Each has its own solution method, but one principle governs all four — **the moves that clear roots and fractions can introduce false solutions or hide restrictions.** The original equation is the final authority on which candidates count: solve directly, then verify against it.",
   },
 
   { type: 'heading', content: 'Radical equations: isolate, square, verify' },
+  {
+    type: 'text',
+    content: "Start with an equation that has no solution at all: $\\sqrt{x} = -3$. A square root can't be negative, so nothing satisfies it — yet squaring both sides produces $x = 9$ anyway, and $\\sqrt{9} = 3$, not $-3$. Squaring manufactured a candidate out of nothing, because squaring is **not reversible**: squaring $\\sqrt{A} = B$ also solves $\\sqrt{A} = -B$, a different equation. That failure is the whole reason the method ends with a check.",
+  },
   {
     type: 'steps',
     title: 'Solving a radical equation',
@@ -43,11 +34,7 @@ export const nonlinearEquationsBlocks = [
   },
   {
     type: 'text',
-    content: "The check isn't optional, because squaring is **not reversible**. Squaring $\\sqrt{A} = B$ also solves $\\sqrt{A} = -B$, a different equation — so a candidate can appear that the original never had.",
-  },
-  {
-    type: 'text',
-    content: "Skipping the check is how a correctly executed method still lands on a wrong answer.",
+    content: "The check is the step students skip, because by the time they reach it the algebra feels finished. It isn't optional — skipping it is how a correctly executed method still lands on a wrong answer, and the extraneous candidate is routinely listed among the choices.",
   },
   {
     type: 'keyInsight',
@@ -57,15 +44,7 @@ export const nonlinearEquationsBlocks = [
   { type: 'heading', content: 'Rational equations and domain restrictions' },
   {
     type: 'text',
-    content: "When the variable sits in a denominator, multiply both sides by that denominator to clear the fraction, then solve.",
-  },
-  {
-    type: 'text',
-    content: "One restriction applies: any value that makes an *original* denominator $0$ was never admissible — the fraction is undefined there, and clearing the denominator removes the visible evidence. Strike any candidate that zeroes an original denominator.",
-  },
-  {
-    type: 'text',
-    content: "The parallel with radicals holds: clearing a fraction, like squaring, can admit a value the original equation never permitted.",
+    content: "When the variable sits in a denominator, multiply both sides by that denominator to clear the fraction, then solve. One restriction applies, and it applies before the algebra starts: any value that makes an *original* denominator $0$ was never admissible, because the fraction is undefined there — and clearing the denominator removes the visible evidence. So strike any candidate that zeroes an original denominator. The parallel with radicals holds exactly: clearing a fraction, like squaring, can admit a value the original equation never permitted.",
   },
   {
     type: 'tip',
@@ -75,19 +54,11 @@ export const nonlinearEquationsBlocks = [
   { type: 'heading', content: 'Dividing both sides by a variable expression' },
   {
     type: 'text',
-    content: "A third non-reversible move joins squaring and fraction-clearing: **dividing both sides by an expression that contains the variable.**",
+    content: "Take $x^2 = 5x$. Dividing both sides by $x$ gives $x = 5$, and the work looks finished. Yet $x = 0$ satisfies the original equation — $0 = 0$ — and it has been discarded, because division is valid only when the divisor is nonzero, so dividing by $x$ builds in the silent assumption $x \\ne 0$. Any root that makes the divisor zero disappears without a trace.",
   },
   {
     type: 'text',
-    content: "Division is valid only when the divisor is nonzero, so dividing by $x$ builds in the silent assumption $x \\ne 0$ — and any root that makes the divisor zero disappears without a trace.",
-  },
-  {
-    type: 'text',
-    content: "In $x^2 = 5x$, dividing both sides by $x$ gives $x = 5$ and looks finished. Yet $x = 0$ satisfies the original equation ($0 = 0$) and has been discarded.",
-  },
-  {
-    type: 'text',
-    content: "Unlike an extraneous root, which the final check exposes, a discarded root leaves nothing behind to check. The work simply reports one solution where there were two.",
+    content: "This makes the mistake worse than an extraneous root. An extraneous candidate at least shows up in the final check and gets caught; a discarded root leaves nothing behind to check. The work simply reports one solution where there were two, and no later step ever flags the loss.",
   },
   {
     type: 'trapCard',
@@ -96,31 +67,23 @@ export const nonlinearEquationsBlocks = [
   },
   {
     type: 'text',
-    content: "The rule extends beyond a lone $x$: cancelling $(x-1)$ from both sides of $(x-1)(x+2) = 4(x-1)$ discards the solution $x = 1$.",
-  },
-  {
-    type: 'text',
-    content: "Whenever the same variable factor appears on both sides, subtract to bring everything to one side and factor it out: $(x-1)(x+2) - 4(x-1) = (x-1)(x-2) = 0$, so $x = 1$ or $x = 2$. Factoring preserves every root; cancelling erases one.",
+    content: "The rule extends beyond a lone $x$: cancelling $(x-1)$ from both sides of $(x-1)(x+2) = 4(x-1)$ discards the solution $x = 1$ the same way. Whenever the same variable factor appears on both sides, subtract to bring everything to one side and factor it out: $(x-1)(x+2) - 4(x-1) = (x-1)(x-2) = 0$, so $x = 1$ or $x = 2$. Factoring preserves every root; cancelling erases one.",
   },
 
   { type: 'heading', content: 'Hidden quadratics and substitution' },
   {
     type: 'text',
-    content: "When the same expression appears twice in an equation, a quadratic structure is hiding in it. $x^4 - 5x^2 + 4 = 0$ opens up through substitution: let $u = x^2$, and the equation becomes $u^2 - 5u + 4 = 0$ — an ordinary quadratic.",
+    content: "When the same expression appears twice in an equation, a quadratic structure is hiding in it. $x^4 - 5x^2 + 4 = 0$ opens up through substitution: let $u = x^2$, and the equation becomes $u^2 - 5u + 4 = 0$ — an ordinary quadratic. The same substitution handles $(x-3)^2 + 5(x-3) + 6 = 0$ with $u = x-3$.",
   },
   {
     type: 'text',
-    content: "Solve for $u$, then complete the step that gets skipped most often: **substitute back**, translating every value of $u$ into values of $x$.",
-  },
-  {
-    type: 'text',
-    content: "That's where solutions get lost — $u$ is an intermediate variable, not the answer, and stopping at $u$ reports the wrong quantity. The same substitution handles $(x-3)^2 + 5(x-3) + 6 = 0$ (let $u = x-3$).",
+    content: "Solve for $u$, then complete the step that gets skipped most often: **substitute back**, translating every value of $u$ into values of $x$. It gets skipped because solving for $u$ feels like finishing — but $u$ is an intermediate variable, not the answer, and stopping at $u$ reports the wrong quantity. That final translation is where solutions get lost.",
   },
 
   { type: 'heading', content: 'Line-parabola intersections and the remainder theorem' },
   {
     type: 'text',
-    content: "To find where a line and a parabola intersect, set the two expressions **equal** and solve the single quadratic that results. An intersection point lies on both curves at once, so equating the right-hand sides finds every shared x-value in one step.",
+    content: "To find where a line and a parabola intersect, set the two expressions **equal** and solve the single quadratic that results. Why does one equation capture both curves? Because an intersection point lies on both at once, so equating the right-hand sides finds every shared x-value in one step.",
   },
   {
     type: 'list',
@@ -137,11 +100,7 @@ export const nonlinearEquationsBlocks = [
   },
   {
     type: 'text',
-    content: "The remainder theorem: dividing a polynomial $P(x)$ by $(x - a)$ leaves remainder **$P(a)$** — a single evaluation replaces long division entirely. A remainder of $0$ means $(x - a)$ is a factor.",
-  },
-  {
-    type: 'text',
-    content: "Watch the converse error: $P(6) = 4$ establishes that the remainder is $4$. It does **not** make $(x-6)$ a factor.",
+    content: "The remainder theorem: dividing a polynomial $P(x)$ by $(x - a)$ leaves remainder **$P(a)$** — a single evaluation replaces long division entirely. There's a reason it works: division means $P(x) = (x-a)\\,Q(x) + r$, and plugging in $x = a$ kills the first term, leaving $P(a) = r$. A remainder of $0$ means $(x - a)$ is a factor. Watch the converse error, though — $P(6) = 4$ establishes that the remainder is $4$, and it does **not** make $(x-6)$ a factor.",
   },
 
   { type: 'heading', content: 'How to approach these questions' },

@@ -1,11 +1,13 @@
 /**
  * Learn lesson body — Area & Volume (Geometry & Trigonometry).
  *
- * VOICE v3 (adopted 2026-07-17, exemplar: bodies/centralIdeas.js): scannable
- * instructional register — direct address, contractions, 1-3 sentence text
- * blocks, list blocks for criteria, steps blocks for procedures; no
- * analogies, no pep-talk, no emojis. All substance of the v2 textbook
- * version preserved. Gated by bodies.test.js.
+ * VOICE v4 (adopted 2026-07-18, exemplar: bodies/centralIdeas.js):
+ * practiced-tutor register — developed 2-5 sentence paragraphs with
+ * connective tissue; every rule earns its "because"; student-psychology
+ * named concretely; math teaching is example-led; varied rhythm, no
+ * aphorism-per-block. Bans carried from v3: no analogies, no pep talk,
+ * no exclamation marks, no emojis, no test-personification. All v3
+ * teaching claims preserved. Gated by bodies.test.js.
  *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
@@ -14,25 +16,17 @@
 export const mVolumeBlocks = [
   {
     type: 'text',
-    content: "The unit's final step leads out of the plane: the triangles and circles we've been working with become the bases and cross-sections of solids.",
+    content: "The unit's final step leads out of the plane: the triangles and circles we've been working with become the bases and cross-sections of solids. And the pressure here is lower than it looks, because **every volume formula on the test is printed on the reference sheet**, available on every math question. So volume questions can't be testing memorization — what they actually test is the part no sheet can supply: picking the right formula, substituting each length into the right position, and, for irregular figures, splitting the solid into familiar pieces.",
   },
   {
     type: 'text',
-    content: "Here's the good news up front — **every volume formula on the test is printed on the reference sheet**, available on every math question. So volume questions don't test memorization; they test picking the right formula, substituting each length into the right position, and, for irregular figures, splitting the solid into familiar pieces.",
-  },
-  {
-    type: 'text',
-    content: "The scaling laws that opened this unit also return here in completed form: scale a figure by $k$, and lengths multiply by $k$, areas by $k^2$, volumes by $k^3$.",
+    content: "The scaling laws that opened this unit also return here in completed form. Scale a figure by $k$ and lengths multiply by $k$, areas by $k^2$, and volumes by $k^3$ — the third power is the new piece, and the closing sections put it to work.",
   },
 
   { type: 'heading', content: 'The reference-sheet formulas' },
   {
     type: 'text',
-    content: "Review the reference sheet until each solid is recognizable on sight; once the formula's identified, what's left is substitution.",
-  },
-  {
-    type: 'text',
-    content: "The formulas also share a structure worth noticing: a box and a cylinder are both **base area times height**, and a cone or pyramid is exactly **one-third** of the straight solid that would enclose it. That pattern collapses five formulas into one idea.",
+    content: "Review the reference sheet until each solid is recognizable on sight, because once the formula's identified, what's left is substitution. The formulas also share a structure worth noticing: a box and a cylinder are both **base area times height** — a flat base swept straight upward — and a cone or pyramid holds exactly **one-third** of the straight solid that would enclose it. That pattern collapses five formulas into one idea, which is far easier to carry into the test than five separate strings of symbols.",
   },
   {
     type: 'formulaGrid',
@@ -58,11 +52,7 @@ export const mVolumeBlocks = [
   { type: 'heading', content: 'Pick the formula, then substitute' },
   {
     type: 'text',
-    content: "The procedure is the same for every solid: match the figure to a formula, place each given length in the position that names it, and compute.",
-  },
-  {
-    type: 'text',
-    content: "Errors rarely happen at the formula stage — they happen in the substitution. A **diameter dropped into a radius position** is the most frequent error in this family, with premature rounding of $\\pi$ a close second; watching the labels on the given lengths prevents both.",
+    content: "Say a cylindrical tank has a diameter of $10$ and a height of $4$. The formula is the easy part — it's printed — but the student who writes $V = \\pi(10)^2(4)$ has already lost the question, because the formula's $r$ position takes a radius and $10$ is the diameter: the correct substitution halves it first, $V = \\pi(5)^2(4) = 100\\pi$. A **diameter dropped into a radius position** is the most frequent error in this family, with premature rounding of $\\pi$ a close second, and both are prevented the same way — read the label on each given length before it enters the formula.",
   },
   {
     type: 'steps',
@@ -80,18 +70,7 @@ export const mVolumeBlocks = [
   { type: 'heading', content: 'Slant height is not height' },
   {
     type: 'text',
-    content: "A cone or pyramid carries two different lengths that figures deliberately place side by side.",
-  },
-  {
-    type: 'list',
-    items: [
-      'The **height** $h$ runs straight from the apex down to the center of the base, perpendicular to it.',
-      'The **slant height** $\\ell$ runs along the outside surface, from the apex to the edge of the base.',
-    ],
-  },
-  {
-    type: 'text',
-    content: "The slant is the **hypotenuse** of a right triangle whose legs are the height and the radius (for a pyramid, half the base edge). So $h^2 + r^2 = \\ell^2$, and the slant is always the longer of the two.",
+    content: "A cone or pyramid carries two different lengths, and figures deliberately place them side by side. The **height** $h$ runs straight from the apex down to the center of the base, perpendicular to it; the **slant height** $\\ell$ runs along the outside surface, from the apex to the edge of the base. The slant is the **hypotenuse** of a right triangle whose legs are the height and the radius (for a pyramid, half the base edge), so $h^2 + r^2 = \\ell^2$ — and because it's the hypotenuse, the slant is always the longer of the two.",
   },
   {
     type: 'diagramRef',
@@ -100,13 +79,13 @@ export const mVolumeBlocks = [
   },
   {
     type: 'text',
-    content: "Volume formulas take the perpendicular height only. When a problem supplies the slant, recover the height first — $h = \\sqrt{\\ell^2 - r^2}$ — and only then apply the volume formula. Substituting the slant directly into $\\tfrac{1}{3}\\pi r^2 h$ produces an inflated volume that the wrong answer choices are built to match.",
+    content: "Volume formulas take the perpendicular height only. When a problem supplies the slant, recover the height first — $h = \\sqrt{\\ell^2 - r^2}$ — and only then apply the volume formula. Substituting the slant directly into $\\tfrac{1}{3}\\pi r^2 h$ puts a longer length where the shorter one belongs, so it produces an inflated volume — and the wrong answer choices are built to match exactly that inflated value.",
   },
 
   { type: 'heading', content: 'Composite figures: add or subtract known pieces' },
   {
     type: 'text',
-    content: "When no single formula matches the figure, **decompose it into shapes that have formulas** and combine the results.",
+    content: "When no single formula matches the figure, that absence is itself the instruction: **decompose the figure into shapes that do have formulas** and combine the results. Every piece will be a familiar solid — the real skill is choosing the decomposition.",
   },
   {
     type: 'list',
@@ -116,10 +95,6 @@ export const mVolumeBlocks = [
     ],
   },
   {
-    type: 'text',
-    content: "Every piece is a familiar solid; the skill is choosing the decomposition.",
-  },
-  {
     type: 'tip',
     content: "Any \"leftover\" solid — space not filled, material remaining after a hole — is almost always **the larger volume minus the smaller volume**. Compute each piece separately, then subtract.",
   },
@@ -127,11 +102,7 @@ export const mVolumeBlocks = [
   { type: 'heading', content: 'Surface area: take a face inventory' },
   {
     type: 'text',
-    content: "**Surface area** measures the total area of a solid's outer faces — the wrapping, where volume is the filling.",
-  },
-  {
-    type: 'text',
-    content: "No new formula list required. Take a **face inventory**: count the faces, compute the area of each, and add.",
+    content: "**Surface area** measures the total area of a solid's outer faces — the wrapping, where volume is the filling — and it requires no new formula list. Take a **face inventory** instead: count the faces, compute the area of each, and add. The method works because a surface is nothing more than its faces, so accounting for each face exactly once is the entire computation.",
   },
   {
     type: 'list',
@@ -151,11 +122,7 @@ export const mVolumeBlocks = [
   },
   {
     type: 'text',
-    content: "Surface area also opens a two-link chain: the problem states the surface area, expects you to recover an edge or radius from it, and then asks for the volume.",
-  },
-  {
-    type: 'text',
-    content: "Work one link at a time — solve the surface-area equation for the length, then substitute that length into the volume formula. Surface area never converts to volume directly; the length is the required in-between, just as the radius links a circle's circumference to its area.",
+    content: "Surface area also opens a two-link chain: the problem states the surface area, expects you to recover an edge or radius from it, and then asks for the volume. Work one link at a time — solve the surface-area equation for the length, then substitute that length into the volume formula. Surface area never converts to volume directly; the length is the required in-between, just as the radius links a circle's circumference to its area.",
   },
   {
     type: 'example',
@@ -171,11 +138,7 @@ export const mVolumeBlocks = [
   { type: 'heading', content: 'Density relates mass to volume' },
   {
     type: 'text',
-    content: "Density is a rate relating mass to the space it occupies, and the unit states its own instructions.",
-  },
-  {
-    type: 'text',
-    content: "$\\text{g/cm}^3$ reads \"grams **per** cubic centimeter,\" so multiplying by a volume in $\\text{cm}^3$ cancels the $\\text{cm}^3$ and leaves grams. Unsure whether to multiply or divide? Track the units — the operation that cancels them correctly is the right one.",
+    content: "Density is a rate relating mass to the space it occupies, and the unit states its own instructions: $\\text{g/cm}^3$ reads \"grams **per** cubic centimeter,\" so multiplying by a volume in $\\text{cm}^3$ cancels the $\\text{cm}^3$ and leaves grams. Unsure whether to multiply or divide? Track the units — the operation that cancels them correctly is the right one, because an answer in grams can only come from arithmetic whose units reduce to grams.",
   },
   {
     type: 'formula',
@@ -183,7 +146,7 @@ export const mVolumeBlocks = [
   },
   {
     type: 'text',
-    content: "Density items usually chain two steps: compute the **volume** from the dimensions first, then apply the density to convert it to mass (or divide to recover a missing quantity). \"How many fit\" and \"how much fills it\" questions follow the same two-step structure.",
+    content: "Density items usually chain two steps: compute the **volume** from the dimensions first, then apply the density to convert it to mass, or divide to recover a missing quantity. \"How many fit\" and \"how much fills it\" questions follow the same two-step structure, with the volume always computed before anything else happens.",
   },
   {
     type: 'list',
@@ -196,7 +159,7 @@ export const mVolumeBlocks = [
   },
   {
     type: 'text',
-    content: "Doubling the radius of a sphere multiplies its volume by $2^3 = 8$, not by $2$ — and wrong answer choices are routinely constructed from the un-cubed factor.",
+    content: "So doubling the radius of a sphere multiplies its volume by $2^3 = 8$, not by $2$ — the factor lands once for each of the three dimensions, and it compounds. Wrong answer choices are routinely constructed from the un-cubed factor, so a volume answer that only doubled deserves a second look.",
   },
 
   { type: 'heading', content: 'Worked examples' },
@@ -266,10 +229,6 @@ export const mVolumeBlocks = [
 
   {
     type: 'text',
-    content: "**The whole topic in one route:** identify the solid, take its formula from the reference sheet, substitute each length — halving any diameter, converting a slant to a perpendicular height first — and compute. Decompose an irregular figure into known pieces and add or subtract; inventory the faces for surface area. For density, find the volume first, then let the units decide whether to multiply or divide.",
-  },
-  {
-    type: 'text',
-    content: "And the laws that opened this unit close it: scale any figure by $k$, and lengths grow by $k$, areas by $k^2$, volumes by $k^3$.",
+    content: "**The whole topic in one route:** identify the solid, take its formula from the reference sheet, substitute each length — halving any diameter, converting a slant to a perpendicular height first — and compute. Decompose an irregular figure into known pieces and add or subtract; inventory the faces for surface area; for density, find the volume first and let the units decide whether to multiply or divide. And the laws that opened this unit close it: scale any figure by $k$, and lengths grow by $k$, areas by $k^2$, volumes by $k^3$.",
   },
 ];

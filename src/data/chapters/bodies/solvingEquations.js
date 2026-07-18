@@ -1,10 +1,12 @@
 /**
  * Learn lesson body — Solving Equations & Rearranging Formulas (Algebra).
  *
- * VOICE v3 (adopted 2026-07-17, exemplar: bodies/centralIdeas.js): scannable
- * instructional register — direct address, contractions, 1-3 sentence text
- * blocks, list blocks for criteria, steps blocks for procedures; no analogies,
- * no pep-talk, no emojis. All substance of the v2 textbook version preserved.
+ * VOICE v4 (adopted 2026-07-18, exemplar: bodies/centralIdeas.js): practiced-tutor
+ * register — developed 2-5 sentence paragraphs with connective tissue; every rule
+ * earns its "because"; student-psychology named concretely; math teaching is
+ * example-led; varied rhythm, no aphorism-per-block. Bans carried from v3: no
+ * analogies, no pep talk, no exclamation marks, no emojis, no
+ * test-personification. All v3 teaching claims preserved.
  *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
@@ -13,25 +15,13 @@
 export const solvingEquationsBlocks = [
   {
     type: 'text',
-    content: "With the arithmetic from Number Foundations secure, algebra proper begins. An equation says two expressions have the same value — and every solving technique follows from one principle.",
-  },
-  {
-    type: 'text',
-    content: "**Apply the same operation to both entire sides until the target variable stands alone.** Do something to only one side and you've changed the relationship — you're now solving a different equation with a different solution.",
+    content: "With the arithmetic from Number Foundations secure, algebra proper begins. An equation says two expressions have the same value, and every solving technique in the chapter follows from one principle: **apply the same operation to both entire sides until the target variable stands alone**. Why both sides? Because the equation asserts that the two sides are equal — do something to only one of them and the assertion no longer holds, and you're now solving a different equation with a different solution.",
   },
 
   { type: 'heading', content: 'Undoing operations in reverse order' },
   {
     type: 'text',
-    content: "An expression is built by applying operations to the variable in sequence. To unwind it, undo those operations in reverse: whatever was applied last comes off first.",
-  },
-  {
-    type: 'text',
-    content: "In $2x + 1 = 9$, the $x$ was multiplied by $2$ and then had $1$ added. So remove the $+1$ first (subtract $1$ from both sides), then the $\\times 2$ (divide both sides by $2$): $x = 4$.",
-  },
-  {
-    type: 'text',
-    content: "Undoing out of order forces a division that reaches only part of the expression while the leftover terms get dragged along incorrectly. That's where the arithmetic in multi-step solving typically breaks down.",
+    content: "Take $2x + 1 = 9$. The left side was built in a sequence — the $x$ was multiplied by $2$, then had $1$ added — and unwinding it means undoing those operations in reverse: whatever was applied last comes off first. So the $+1$ goes first (subtract $1$ from both sides), then the $\\times 2$ (divide both sides by $2$), and $x = 4$. Undo out of order and the division reaches only part of the expression while the leftover terms get dragged along incorrectly — which is where the arithmetic in multi-step solving typically breaks down.",
   },
   {
     type: 'keyInsight',
@@ -41,29 +31,13 @@ export const solvingEquationsBlocks = [
   { type: 'heading', content: 'Variables on both sides' },
   {
     type: 'text',
-    content: "When the variable shows up on both sides, collect the variable terms on one side and the constants on the other, then isolate as usual. A variable can't be isolated while copies of it sit on both sides of the equation.",
-  },
-  {
-    type: 'text',
-    content: "One prerequisite comes first: if a grouped expression is multiplied by a factor, **distribute the factor to every term in the group**. $-2(x-5) = -2x + 10$, not $-2x - 5$.",
-  },
-  {
-    type: 'text',
-    content: "Rushed distribution that drops the sign on the second term is the most frequent slip in this procedure — and wrong answer choices are built from exactly that slip.",
+    content: "When the variable shows up on both sides, collect the variable terms on one side and the constants on the other, then isolate as usual — a variable can't be isolated while copies of it sit on both sides of the equation. One prerequisite comes first: a factor multiplying a grouped expression **distributes to every term in the group**, so $-2(x-5)$ is $-2x + 10$, not $-2x - 5$. Rushed distribution that drops the sign on the second term is the most frequent slip in this procedure, and wrong answer choices are built from exactly that slip.",
   },
 
   { type: 'heading', content: 'Rearranging formulas' },
   {
     type: 'text',
-    content: "Rearranging a formula is the same procedure as solving a numeric equation. Treat every letter except the target variable as a fixed constant and run the same sequence of inverse operations.",
-  },
-  {
-    type: 'text',
-    content: "To solve $A = \\tfrac{1}{2}bh$ for $h$: multiply both sides by $2$ to get $2A = bh$, then divide both sides by $b$ to get $h = \\dfrac{2A}{b}$.",
-  },
-  {
-    type: 'text',
-    content: "The extra letters can look like they demand special handling. They don't — $A$ and $b$ obey the same algebraic rules a specific number like $7$ would. Classify each letter as either the target or a constant, then proceed as usual.",
+    content: "Solve $A = \\tfrac{1}{2}bh$ for $h$. The extra letters can look like they demand special handling, and they don't: $A$ and $b$ obey the same algebraic rules a specific number like $7$ would. So classify each letter as either the target or a fixed constant, then run the same sequence of inverse operations as always — multiply both sides by $2$ to get $2A = bh$, then divide both sides by $b$ to get $h = \\dfrac{2A}{b}$. Rearranging a formula is not a new skill; it's the numeric procedure with letters standing where the numbers stood.",
   },
   {
     type: 'keyInsight',
@@ -73,15 +47,7 @@ export const solvingEquationsBlocks = [
   { type: 'heading', content: 'Squares and square roots' },
   {
     type: 'text',
-    content: "The reverse-order principle extends to formulas where the target variable is squared. In $A = \\pi r^2$, the $r$ was squared first and then multiplied by $\\pi$ — so undo the multiplication first (divide both sides by $\\pi$) and the square last (take the square root): $r^2 = \\dfrac{A}{\\pi}$, then $r = \\sqrt{\\dfrac{A}{\\pi}}$.",
-  },
-  {
-    type: 'text',
-    content: "Dividing first keeps the algebra clean: the root then applies to one isolated expression instead of a product you'd have to untangle afterward.",
-  },
-  {
-    type: 'text',
-    content: "Because $r$ is a radius, the **principal (positive) square root** is the one that applies — a geometric length can't be negative, so the $\\pm$ that accompanies square roots in pure equation-solving drops away.",
+    content: "The reverse-order principle extends to formulas where the target variable is squared. In $A = \\pi r^2$, the $r$ was squared first and then multiplied by $\\pi$ — so undo the multiplication first (divide both sides by $\\pi$ to get $r^2 = \\dfrac{A}{\\pi}$) and the square last ($r = \\sqrt{\\dfrac{A}{\\pi}}$). Dividing first keeps the algebra clean, because the root then applies to one isolated expression instead of a product you'd have to untangle afterward. And since $r$ is a radius, the **principal (positive) square root** is the one that applies: a geometric length can't be negative, so the $\\pm$ that accompanies square roots in pure equation-solving drops away.",
   },
   {
     type: 'keyInsight',
@@ -89,11 +55,7 @@ export const solvingEquationsBlocks = [
   },
   {
     type: 'text',
-    content: "To solve $T = 2\\pi\\sqrt{\\dfrac{L}{g}}$ for $L$: divide both sides by $2\\pi$ so the radical stands alone — $\\dfrac{T}{2\\pi} = \\sqrt{\\dfrac{L}{g}}$ — then square both sides to get $\\dfrac{T^2}{4\\pi^2} = \\dfrac{L}{g}$, and multiply by $g$.",
-  },
-  {
-    type: 'text',
-    content: "Square while other factors still sit beside the radical, and every one of those factors gets squared too — the $2\\pi$ becomes $4\\pi^2$. A factor left unsquared during that step is the standard error in this rearrangement.",
+    content: "To solve $T = 2\\pi\\sqrt{\\dfrac{L}{g}}$ for $L$, divide both sides by $2\\pi$ so the radical stands alone — $\\dfrac{T}{2\\pi} = \\sqrt{\\dfrac{L}{g}}$ — then square both sides to get $\\dfrac{T^2}{4\\pi^2} = \\dfrac{L}{g}$, and multiply by $g$. The order matters more than it looks. Square while other factors still sit beside the radical and every one of those factors gets squared too — that's how the $2\\pi$ becomes $4\\pi^2$ — and a factor left unsquared during that step is the standard error in this rearrangement.",
   },
   {
     type: 'example',
@@ -109,29 +71,21 @@ export const solvingEquationsBlocks = [
   { type: 'heading', content: 'The combined-total form $Ax + By = C$' },
   {
     type: 'text',
-    content: "When a problem prices *two* items and states their combined total, the equation follows straight from that structure: price times quantity, plus price times quantity, equals total.",
+    content: "When a problem prices *two* items and states their combined total, the equation follows straight from that structure: price times quantity, plus price times quantity, equals total. Adult tickets at $\\$8$ and child tickets at $\\$5$ with total spending of $\\$120$ becomes $8a + 5c = 120$, and no slope-intercept form is involved. Students reach for $y = mx + b$ out of habit here, but the situation is simply two costs filling a budget — $Ax + By = C$ is its native shape.",
   },
   {
     type: 'text',
-    content: "Adult tickets at $\\$8$ and child tickets at $\\$5$ with total spending of $\\$120$: the equation is $8a + 5c = 120$, and no slope-intercept form is involved. Reaching for $y = mx + b$ out of habit is the standard misstep when the situation is simply two costs filling a budget.",
-  },
-  {
-    type: 'text',
-    content: "Setting one variable to $0$ reads off an **intercept**: with $a = 0$, $5c = 120$, so $c = 24$ children — the case where only one item type is purchased, and a quick consistency check for any proposed answer.",
+    content: "Setting one variable to $0$ reads off an **intercept**: with $a = 0$, $5c = 120$, so $c = 24$ children. That's the case where only one item type is purchased — and a quick consistency check for any proposed answer.",
   },
 
   { type: 'heading', content: 'Answering the quantity asked for' },
   {
     type: 'text',
-    content: "Many questions ask for a *combination* like $x + y$ or $2t$ rather than a single variable — and the combination is often one step away, no individual values required. These items are built to reward spotting the shortcut over solving at length.",
+    content: "Given $3x + 3y = 21$, what is $x + y$? You can't find $x$ and $y$ separately from one equation — and you don't have to, because the question never asked for them. Factor: $3(x+y) = 21$, divide by $3$, and $x + y = 7$ falls out immediately.",
   },
   {
     type: 'text',
-    content: "Given $3x + 3y = 21$, you can't find $x$ and $y$ separately from one equation — and you don't have to. Factor: $3(x+y) = 21$, divide by $3$, and $x + y = 7$ falls out immediately.",
-  },
-  {
-    type: 'text',
-    content: "Matching coefficients are the signal that the combination can be extracted directly.",
+    content: "Many questions ask for a *combination* like $x + y$ or $2t$ rather than a single variable, and the combination is often one step away with no individual values required — these items are built to reward spotting the shortcut over solving at length. Matching coefficients are the signal that the combination can be extracted directly.",
   },
   {
     type: 'tip',

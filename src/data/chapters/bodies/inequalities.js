@@ -1,10 +1,12 @@
 /**
  * Learn lesson body — Inequalities & Absolute Value (Algebra).
  *
- * VOICE v3 (adopted 2026-07-17, exemplar: bodies/centralIdeas.js): scannable
- * instructional register — direct address, contractions, 1-3 sentence text
- * blocks, list blocks for criteria, steps blocks for procedures; no analogies,
- * no pep-talk, no emojis. All substance of the v2 textbook version preserved.
+ * VOICE v4 (adopted 2026-07-18, exemplar: bodies/centralIdeas.js): practiced-tutor
+ * register — developed 2-5 sentence paragraphs with connective tissue; every rule
+ * earns its "because"; student-psychology named concretely; math teaching is
+ * example-led; varied rhythm, no aphorism-per-block. Bans carried from v3: no
+ * analogies, no pep talk, no exclamation marks, no emojis, no
+ * test-personification. All v3 teaching claims preserved.
  *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
@@ -13,11 +15,7 @@
 export const inequalitiesBlocks = [
   {
     type: 'text',
-    content: "An inequality swaps the equals sign of an equation for $<$, $\\le$, $>$, or $\\ge$. Everything from the last chapter carries over intact — every technique for isolating a variable still applies — with **one new rule**, plus a new reading of absolute value as **distance**.",
-  },
-  {
-    type: 'text',
-    content: "The real difference lies in the answer. An inequality is satisfied by an entire *range* of numbers rather than a single value, so the solution reports a boundary and a direction instead of one point.",
+    content: "An inequality swaps the equals sign of an equation for $<$, $\\le$, $>$, or $\\ge$, and at first the swap looks like it should change everything. It changes almost nothing. Every isolation technique from the last chapter carries over intact — add to both sides, divide away a coefficient, all of it — with exactly one new rule, plus a new reading of absolute value as **distance**. What genuinely changes is the answer: an equation names a single value, while an inequality is satisfied by an entire *range* of numbers, so the solution reports a boundary and a direction instead of one point.",
   },
   {
     type: 'diagramRef',
@@ -28,27 +26,15 @@ export const inequalitiesBlocks = [
   { type: 'heading', content: 'The sign-reversal rule' },
   {
     type: 'text',
-    content: "Adding, subtracting, multiplying, and dividing both sides all work exactly as they do for equations. The one new rule: **multiplying or dividing both sides by a negative number reverses the inequality symbol.**",
+    content: "Start with $-2x < 6$. The school-trained move is automatic: divide both sides by $-2$ and write $x < -3$. Now test that answer — it includes $x = -5$, so put $-5$ back into the original: $-2(-5) = 10$, and $10 < 6$ is false. The routine division produced a solution set full of numbers that fail, which means dividing by $-2$ broke something an equation never has to worry about.",
   },
   {
     type: 'text',
-    content: "Why? A negative factor reverses the order of the number line — $3 < 5$ is true, but $-3 < -5$ is false — so the symbol has to turn around for the statement to stay accurate.",
+    content: "What it broke is the order of the number line. Multiplying or dividing by a negative reverses that order — $3 < 5$ is true, but $-3 < -5$ is false — so the symbol has to turn around for the statement to stay accurate. That is the chapter's one new rule: **multiplying or dividing both sides by a negative number reverses the inequality symbol.** Done correctly, $-2x < 6$ becomes $x > -3$.",
   },
   {
     type: 'text',
-    content: "$-2x < 6$ becomes $x > -3$: divide by $-2$, and $<$ becomes $>$.",
-  },
-  {
-    type: 'list',
-    title: 'What never triggers a reversal:',
-    items: [
-      'Adding or subtracting any quantity.',
-      'A solution that merely happens to come out negative.',
-    ],
-  },
-  {
-    type: 'text',
-    content: "Only *scaling by a negative* reverses the symbol.",
+    content: "Just as important is what never triggers a reversal: adding or subtracting any quantity, and a solution that merely happens to come out negative. Students who have half-learned the rule flip the symbol whenever a minus sign appears anywhere in the problem, and the answer that habit produces is always listed among the choices. Only *scaling by a negative* reverses the symbol.",
   },
   {
     type: 'keyInsight',
@@ -58,25 +44,21 @@ export const inequalitiesBlocks = [
   { type: 'heading', content: 'Compound inequalities: operate on all three parts' },
   {
     type: 'text',
-    content: "A compound inequality like $2 < 3x - 1 \\le 11$ pins $x$ between two boundaries. Every operation applies to **all three parts** at once.",
+    content: "A compound inequality like $2 < 3x - 1 \\le 11$ pins $x$ between two boundaries, and solving it is the same isolation game played on three parts at once. Add $1$ throughout: $3 < 3x \\le 12$. Divide throughout by $3$: $1 < x \\le 4$ — a single interval naming exactly which numbers satisfy the statement.",
   },
   {
     type: 'text',
-    content: "Add $1$ throughout: $3 < 3x \\le 12$. Divide throughout by $3$: $1 < x \\le 4$ — a single interval naming exactly which numbers satisfy the statement.",
-  },
-  {
-    type: 'text',
-    content: "Operating on all three parts preserves the chain the same way operating on both sides preserves an equation. Skip one part and the boundaries end up describing a different quantity than the middle. (And if a step divides by a negative, both symbols reverse.)",
+    content: "Why all three parts? Because the chain is really two inequalities sharing a middle, and operating on every part preserves both of them the same way operating on both sides preserves an equation. Skip one part and the boundaries end up describing a different quantity than the middle — the interval you report belongs to a different problem. And if a step divides by a negative, both symbols reverse at once.",
   },
 
   { type: 'heading', content: 'Absolute value as distance' },
   {
     type: 'text',
-    content: "$|x|$ measures the distance from $x$ to zero, and distance is never negative. The generalization does most of the work: $|x - c|$ is the distance from $x$ to $c$.",
+    content: "Which numbers satisfy $|x - 6| = 2$? The algebraic route splits into two cases, carries a sign through each, and eventually lands on $x = 4$ and $x = 8$. The distance reading gets there in one step: $|x|$ measures the distance from $x$ to zero, and the generalization $|x - c|$ measures the distance from $x$ to $c$ — so the equation is asking for the numbers exactly $2$ away from $6$, one step up and one step down, $8$ and $4$.",
   },
   {
     type: 'text',
-    content: "Read $c$ as a center and $r$ as a radius, and the inequalities translate directly — often with no two-case algebra or sign manipulation, because the distance reading tells you in advance whether the solution is one interval or two rays.",
+    content: "That reading does most of the chapter's work, because it tells you the *shape* of a solution before any algebra starts. Read $c$ as a center and $r$ as a radius, and the three cases translate directly: within $r$ of the center is one interval, beyond $r$ is two rays, exactly $r$ is two points — often with no two-case algebra or sign manipulation at all.",
   },
   {
     type: 'formulaGrid',
@@ -88,21 +70,17 @@ export const inequalitiesBlocks = [
   },
   {
     type: 'tip',
-    content: "A distance can never be negative, so $|x - 6| = -2$ has **no solution**. Spotting this immediately saves you from algebra that can't produce an answer.",
+    content: "A distance can never be negative, so $|x - 6| = -2$ has **no solution**. Spotting this on sight saves you from two cases of algebra that could never produce an answer.",
   },
 
   { type: 'heading', content: 'The absolute-value function' },
   {
     type: 'text',
-    content: "Graphed, $y = |x|$ forms a **V**. For $x \\ge 0$ the graph coincides with the line $y = x$; for $x < 0$ the negative outputs flip to positive, producing the mirror-image arm $y = -x$.",
+    content: "Graphed, $y = |x|$ forms a **V**, and the shape follows straight from the definition. For $x \\ge 0$ the bars change nothing, so the graph coincides with the line $y = x$; for $x < 0$ the negative outputs flip to positive, producing the mirror-image arm $y = -x$. The two arms meet in a corner at the origin — the **vertex** — where the output reaches its minimum value of $0$. The right arm rises with slope $1$, the left arm falls with slope $-1$, and the graph is symmetric about the vertical line through the vertex.",
   },
   {
     type: 'text',
-    content: "The two arms meet in a corner at the origin — the **vertex** — where the output reaches its minimum value of $0$. The right arm rises with slope $1$, the left arm falls with slope $-1$, and the graph is symmetric about the vertical line through the vertex.",
-  },
-  {
-    type: 'text',
-    content: "The general form $y = a|x - h| + k$ moves and reshapes this V exactly the way the parabola's vertex form $y = a(x - h)^2 + k$ moves a parabola.",
+    content: "The general form $y = a|x - h| + k$ moves and reshapes this V exactly the way the parabola's vertex form $y = a(x - h)^2 + k$ moves a parabola, and it reads the same way:",
   },
   {
     type: 'list',
@@ -116,7 +94,7 @@ export const inequalitiesBlocks = [
   },
   {
     type: 'text',
-    content: "Matching an equation to a graph? Locate the corner first — it fixes $h$ and $k$ immediately, and the steepness and direction of the arms then determine $a$.",
+    content: "Matching an equation to a graph, locate the corner first — it fixes $h$ and $k$ immediately, and the steepness and direction of the arms then determine $a$.",
   },
   {
     type: 'example',
@@ -132,15 +110,11 @@ export const inequalitiesBlocks = [
   { type: 'heading', content: 'Two-variable inequalities: half-planes and test points' },
   {
     type: 'text',
-    content: "The solution of $y \\le 2x + 1$ isn't a number — it's a region: the line $y = 2x + 1$ together with everything on one side of it.",
+    content: "The solution of $y \\le 2x + 1$ isn't a number — it's a region: the line $y = 2x + 1$ together with everything on one side of it. Which side? Test a single convenient point, typically $(0, 0)$: here $0 \\le 2(0) + 1$ is true, so the origin's side is the solution region. One test settles the entire half-plane because the boundary line is exactly where the two sides of the inequality tie — every point on a given side produces the same true-or-false result, and the verdict changes only when you cross the line.",
   },
   {
     type: 'text',
-    content: "To find which side, **test a single convenient point**, typically $(0, 0)$. The boundary line divides the plane in two, and every point on a given side produces the same true-or-false result, so one test settles the entire region.",
-  },
-  {
-    type: 'text',
-    content: "If the test point satisfies the inequality, shade its side; if not, shade the other. For a system, the solution lies where the shaded regions **overlap** — a point qualifies only if it satisfies *every* inequality.",
+    content: "If the test point satisfies the inequality, shade its side; if it fails, shade the other. For a system, the solution lies where the shaded regions **overlap**, because a point qualifies only if it satisfies *every* inequality at once.",
   },
 
   { type: 'heading', content: 'Translating boundary phrases into symbols' },
@@ -156,11 +130,7 @@ export const inequalitiesBlocks = [
   },
   {
     type: 'text',
-    content: "When the answer has to be a whole number — buses, tickets, crates — round toward the side that satisfies the constraint: **up** for a minimum, **down** for a maximum.",
-  },
-  {
-    type: 'text',
-    content: "This isn't round-to-nearest; the constraint sets the direction. If a task requires $x \\ge 14.2$ boxes, the answer is $15$, because $14$ falls short. Round the wrong way and the reported number fails the stated requirement — wrong answer choices are built from exactly that misstep.",
+    content: "When the answer has to be a whole number — buses, tickets, crates — the rounding direction comes from the constraint, not from the nearest integer. Suppose a job requires $x \\ge 14.2$ boxes. Rounding to $14$ feels natural, because that is what every rounding lesson since grade school has trained, but $14$ boxes falls short of the stated requirement — the correct answer is $15$. So round **up** for a minimum and **down** for a maximum, toward the side that satisfies the constraint; the round-to-nearest answer is always among the choices.",
   },
 
   {
@@ -243,7 +213,8 @@ export const inequalitiesBlocks = [
       'Read $|x - c|$ as distance from $c$: $< r$ is one interval, $> r$ is two rays.',
       "Test one point to select the shaded side; a system's solution is the overlap.",
       'Match boundary phrases to $\\ge / \\le / > / <$, and round toward the side that satisfies the constraint.',
-      'The graph of $y = a|x - h| + k$ is a V with vertex $(h, k)$ and arm slopes $\\pm a$ — and substituting one number from the result verifies the direction.',
+      'The graph of $y = a|x - h| + k$ is a V with vertex $(h, k)$ and arm slopes $\\pm a$.',
+      'Substituting one number from your result into the original inequality verifies the direction.',
     ],
   },
 ];

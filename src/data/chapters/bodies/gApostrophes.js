@@ -1,11 +1,12 @@
 /**
  * Learn lesson body — Apostrophes & Possessives (Standard English Conventions).
  *
- * VOICE v3 (adopted 2026-07-17, exemplar: bodies/centralIdeas.js): scannable
- * instructional register — direct address, contractions, 1-3 sentence text
- * blocks, list blocks for criteria, steps blocks for procedures; no
- * analogies, no pep-talk, no emojis. All substance of the v2 textbook
- * version preserved. Gated by bodies.test.js.
+ * VOICE v4 (adopted 2026-07-18, exemplar: bodies/centralIdeas.js): practiced-tutor
+ * register — developed 2-5 sentence paragraphs with connective tissue; every rule
+ * earns its "because"; student-psychology named concretely; math teaching is
+ * example-led; varied rhythm, no aphorism-per-block. Bans carried from v3: no
+ * analogies, no pep talk, no exclamation marks, no emojis, no test-personification.
+ * All v3 teaching claims preserved. Gated by bodies.test.js.
  *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
@@ -14,21 +15,13 @@
 export const gApostrophesBlocks = [
   {
     type: 'text',
-    content: "Modifiers, lists, comparisons — the conventions have been shrinking in scope, and they end here, at the smallest mark on the page.",
-  },
-  {
-    type: 'text',
-    content: "Say *dogs*, *dog's*, and *dogs'* out loud and they're identical — which is why your ear can't resolve apostrophe questions. The call gets made on the page, with two questions: **how many, and does someone own something?**",
+    content: "Modifiers, lists, comparisons — the conventions have been shrinking in scope, and they end here, at the smallest mark on the page. Say *dogs*, *dog's*, and *dogs'* out loud and the three are identical, which is why your ear can't resolve an apostrophe question no matter how carefully it listens. The call gets made on the page, with two questions: **how many, and does someone own something?**",
   },
 
   { type: 'heading', content: 'What these questions test' },
   {
     type: 'text',
-    content: "The question is never about pronunciation. It's about which spelling the sentence requires, and the two checks settle every item: **how many?** (one versus more than one) and **whose?** (whether something is being owned).",
-  },
-  {
-    type: 'text',
-    content: "Every choice sounds the same read aloud, so a student who sounds out the options is guessing without realizing it. Answer the two questions and the apostrophe places itself.",
+    content: "The question is never about pronunciation; it's about which spelling the sentence requires, and the two checks settle every item — **how many?** (one, or more than one) and **whose?** (whether anything is being owned). The distinction matters because a student who sounds out the options is guessing without realizing it: every choice passes the read-aloud test, so the ear reports a tie and the student picks on feel. Answer the two questions instead, and the apostrophe places itself.",
   },
 
   { type: 'heading', content: 'The four noun cases' },
@@ -50,7 +43,7 @@ export const gApostrophesBlocks = [
   { type: 'heading', content: 'The next-word test (for nouns)' },
   {
     type: 'text',
-    content: "Look at the word immediately to the right of the noun.",
+    content: "There's a mechanical way to answer the *whose* question: look at the word immediately to the right of the noun, because ownership shows up in what follows.",
   },
   {
     type: 'list',
@@ -61,21 +54,13 @@ export const gApostrophesBlocks = [
   },
   {
     type: 'text',
-    content: "Compare *The **teacher's** desk* (the noun *desk* follows → possession) with *The **teachers** met* (the verb *met* follows → plain plural).",
-  },
-  {
-    type: 'text',
-    content: "Run the test even when the noun is long and technical — those are the nouns most often handed an apostrophe they haven't earned.",
+    content: "Compare *The **teacher's** desk* — the noun *desk* follows, so something is owned — with *The **teachers** met*, where the verb *met* follows and the word is a plain plural. Run the test even when the noun is long and technical, because those are the nouns most often handed an apostrophe they haven't earned: a word like *organizations* looks weighty enough to deserve extra punctuation, and weight is not a criterion.",
   },
 
   { type: 'heading', content: 'The "is/has" test (for its, it\'s, and other pronouns)' },
   {
     type: 'text',
-    content: "Pronouns reverse the noun rule, and that reversal drives most of the errors on these items. **Possessive pronouns take no apostrophe** (*its, their, whose, your*) — a pronoun *with* an apostrophe is always a contraction.",
-  },
-  {
-    type: 'text',
-    content: "So expand the apostrophe to **\"is\" or \"has\"**. If the sentence still makes sense, the apostrophe form is correct; if the expansion turns to nonsense, the no-apostrophe possessive is the one.",
+    content: "Pronouns reverse the noun rule, and the reversal drives most of the errors on these items: **possessive pronouns take no apostrophe** (*its, their, whose, your*), so a pronoun *with* an apostrophe is always a contraction — the mark stands for a squeezed-out letter, not for ownership. That gives you the test. Expand the apostrophe to **\"is\" or \"has\"** and reread: if the sentence still makes sense, the contraction is correct; if the expansion turns to nonsense, the sentence needed the no-apostrophe possessive.",
   },
   {
     type: 'table',

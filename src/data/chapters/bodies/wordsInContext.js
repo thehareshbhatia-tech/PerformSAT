@@ -1,10 +1,13 @@
 /**
  * Learn lesson body — Words in Context (Craft and Structure).
  *
- * VOICE v3 (adopted 2026-07-17, exemplar: bodies/centralIdeas.js): scannable
- * instructional register — direct address, contractions, 1-3 sentence text
- * blocks, list blocks for criteria, steps blocks for procedures; no analogies,
- * no pep-talk, no emojis. All substance of the v2 textbook version preserved.
+ * VOICE v4 (adopted 2026-07-18, exemplar: bodies/centralIdeas.js):
+ * practiced-tutor register — developed 2-5 sentence paragraphs with
+ * connective tissue; every rule earns its "because"; student-psychology
+ * named concretely; math teaching is example-led; varied rhythm, no
+ * aphorism-per-block. Bans carried from v3: no analogies, no pep talk,
+ * no exclamation marks, no emojis, no test-personification. All v3
+ * teaching claims preserved.
  *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
@@ -13,29 +16,17 @@
 export const wordsInContextBlocks = [
   {
     type: 'text',
-    content: "So far we've worked with what a passage states, implies, and can prove. Now we turn to how a passage is built — starting at the smallest scale, the single word.",
-  },
-  {
-    type: 'text',
-    content: "A words-in-context question doesn't test whether you already know a word. The sentence itself decides which word belongs in the blank.",
-  },
-  {
-    type: 'text',
-    content: "So despite its looks, this isn't a vocabulary quiz — it's a reading question, and the sentence contains everything you need. **The evidence in the sentence decides the meaning — a dictionary definition on its own decides nothing.**",
+    content: "So far we've worked with what a passage states, implies, and can prove. Now we turn to how a passage is built — starting at the smallest scale, the single word. A words-in-context question looks for all the world like a vocabulary quiz, but it doesn't test whether you already know a word: the sentence itself decides which word belongs in the blank, and it contains everything you need. That makes this a reading question in disguise, and it's why **the evidence in the sentence decides the meaning — a dictionary definition on its own decides nothing**.",
   },
 
   { type: 'heading', content: "What's actually tested" },
   {
     type: 'text',
-    content: "Memorized word lists won't carry you far here. Every item plants **evidence** — a few nearby words that pin the blank to exactly one meaning — and your job is to find that evidence and read what it forces.",
+    content: "Memorized word lists won't carry you far here, and the reason is structural. Every item plants **evidence** — a few nearby words that pin the blank to exactly one meaning — so the job is never to recall a definition; it's to find that evidence and read what it forces. A large vocabulary helps you recognize the choices, but only the sentence tells you which one it will take.",
   },
   {
     type: 'text',
-    content: "The predictable mistake: skipping straight to the choices and picking whatever sounds most sophisticated. That word is routinely included precisely because it sounds impressive while failing the sentence.",
-  },
-  {
-    type: 'text',
-    content: "The right word is the one the sentence selects. So read the evidence before weighing any choice.",
+    content: "There's a predictable way to miss these questions, and the choices are built around it. The student who skips straight to the options picks whatever sounds most sophisticated — and that word is routinely included precisely because it sounds impressive while failing the sentence. The right word is the one the sentence selects, not the one that sounds smartest on its own, so read the evidence before weighing any choice.",
   },
 
   { type: 'heading', content: 'The method: predict, then match' },
@@ -56,29 +47,13 @@ export const wordsInContextBlocks = [
   { type: 'heading', content: 'Check the charge first' },
   {
     type: 'text',
-    content: "Before defining anything precisely, decide the **charge** the blank requires:",
-  },
-  {
-    type: 'list',
-    items: [
-      "**Positive** — the sentence's own words praise",
-      '**Negative** — they criticize',
-      '**Neutral** — they simply report',
-    ],
-  },
-  {
-    type: 'text',
-    content: "The sentence almost always signals the charge, and a choice on the wrong side of it is out immediately — no finer meaning work required. In *Critics called the plan reckless, and its ______ soon showed*, the blank is negative: *flaws* or *costs*, never *benefits*.",
+    content: "Before defining anything precisely, decide the **charge** the blank requires: positive if the sentence's own words praise, negative if they criticize, neutral if they simply report. Charge comes first because it's the cheapest judgment the sentence offers — it's almost always signaled, and a choice on the wrong side of it is out immediately, no finer meaning work required. In *Critics called the plan reckless, and its ______ soon showed*, the blank is negative: *flaws* or *costs*, never *benefits*.",
   },
 
   { type: 'heading', content: 'Connectors: which way does the evidence point?' },
   {
     type: 'text',
-    content: "The **connector** links the evidence to the blank and tells you whether the blank echoes the nearby idea or reverses it. Same evidence, different connector, opposite answer: *praised, and its ______* wants a positive word; *praised, but its ______* wants a negative one.",
-  },
-  {
-    type: 'text',
-    content: "Read the connector before you predict — it decides which direction the evidence points. Connectors come in three families:",
+    content: "Evidence alone doesn't settle a blank, because the same evidence can point in opposite directions. The **connector** links the evidence to the blank and tells you whether the blank echoes the nearby idea or reverses it: *praised, and its ______* takes a positive word; *praised, but its ______* takes a negative one. Same evidence, different connector, opposite answer — which is why the connector gets read before you predict. It decides which direction the evidence points, and it comes in three families:",
   },
   {
     type: 'table',
@@ -97,15 +72,7 @@ export const wordsInContextBlocks = [
   { type: 'heading', content: 'When the word looks easy' },
   {
     type: 'text',
-    content: "An easy, everyday word in the question calls for extra care, not relief.",
-  },
-  {
-    type: 'text',
-    content: "The tested word is often a **common word used in a second, less-common sense** — chosen precisely because the familiar meaning fails in that particular sentence. The familiar meaning then shows up among the choices.",
-  },
-  {
-    type: 'text',
-    content: "Its familiarity makes it feel safe, which is exactly the property wrong choices are built on. Substitute each choice back into the sentence and keep only the one the surrounding words actually support.",
+    content: "An easy, everyday word in the question calls for extra care, not relief. The tested word is often a **common word used in a second, less-common sense** — chosen precisely because the familiar meaning fails in that particular sentence — and the familiar meaning then shows up among the choices. Why does that trap keep working? Because familiarity feels like safety: a word you've known for years doesn't seem worth double-checking, and that unearned trust is exactly the property wrong choices are built on. Substitute each choice back into the sentence and keep only the one the surrounding words actually support.",
   },
   {
     type: 'callout',
@@ -173,6 +140,6 @@ export const wordsInContextBlocks = [
 
   {
     type: 'text',
-    content: "**The routine in one line:** cover the choices, predict from the evidence, check the charge and the connector, match the closest word, and read it back into the sentence. The tested words change from test to test; the routine doesn't.",
+    content: "**The routine in one line:** cover the choices, predict from the evidence, check the charge and the connector, match the closest word, and read it back into the sentence. The tested words change from test to test; the routine doesn't. The next chapter widens out from the single word to the architecture of the whole passage, but the habit underneath stays constant — the sentence supplies the evidence, and the evidence decides.",
   },
 ];

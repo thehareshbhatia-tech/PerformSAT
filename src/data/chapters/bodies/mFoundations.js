@@ -1,10 +1,12 @@
 /**
  * Learn lesson body — Number Foundations (Math).
  *
- * VOICE v3 (adopted 2026-07-17, exemplar: bodies/centralIdeas.js): scannable
- * instructional register — direct address, contractions, 1-3 sentence text
- * blocks, list blocks for criteria, steps blocks for procedures; no analogies,
- * no pep-talk, no emojis. All substance of the v2 textbook version preserved.
+ * VOICE v4 (adopted 2026-07-18, exemplar: bodies/centralIdeas.js): practiced-tutor
+ * register — developed 2-5 sentence paragraphs with connective tissue; every rule
+ * earns its "because"; student-psychology named concretely; math teaching is
+ * example-led; varied rhythm, no aphorism-per-block. Bans carried from v3: no
+ * analogies, no pep talk, no exclamation marks, no emojis, no
+ * test-personification. All v3 teaching claims preserved.
  *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
@@ -19,34 +21,21 @@
 export const mFoundationsBlocks = [
   {
     type: 'text',
-    content: "Everything in the math chapters ahead rests on a small amount of quiet arithmetic. Fraction operations, negative-number sign rules, and order of operations rarely get questions of their own — but they run underneath nearly every algebra, rate, and geometry item.",
-  },
-  {
-    type: 'text',
-    content: "When one of them slips, the miss usually gets blamed on the topic sitting on top. Most errors labeled careless aren't careless at all: each is a specific, predictable slip, and each slip has a working habit that prevents it.",
+    content: "Everything in the math chapters ahead rests on a small amount of quiet arithmetic — fraction operations, negative-number sign rules, order of operations. These rarely get questions of their own, but they run underneath nearly every algebra, rate, and geometry item, so when one of them slips mid-problem, the miss gets blamed on the topic sitting on top. That's also why most errors labeled careless aren't careless at all. Each is a specific, predictable slip, and each slip has a working habit that prevents it — this chapter is those habits.",
   },
 
   { type: 'heading', content: 'Adding and subtracting fractions' },
   {
     type: 'text',
-    content: "You can't add $\\frac{1}{2}$ and $\\frac{1}{3}$ as written, for the same reason you can't add 2 feet and 3 inches without converting: the pieces are different sizes.",
+    content: "Start with the smallest question that goes wrong: what is $\\frac{1}{2} + \\frac{1}{3}$? The route that tempts nearly everyone is straight across — add the tops, add the bottoms — which produces $\\frac{2}{5}$. But $\\frac{2}{5}$ is *less* than the $\\frac{1}{2}$ you started with, so adding a positive amount somehow shrank the total; the shortcut can't be right. The real obstacle is that halves and thirds are pieces of different sizes, and they can no more be added as written than 2 feet and 3 inches can be added without converting.",
   },
   {
     type: 'text',
-    content: "A common denominator rewrites both fractions in pieces of one size — sixths, here. Once the pieces match, addition is just counting them.",
-  },
-  {
-    type: 'list',
-    title: 'To add or subtract fractions:',
-    items: [
-      'Match the denominators first.',
-      'Add or subtract the numerators only.',
-      "Keep the denominator — it names the unit being counted, and units don't add.",
-    ],
+    content: "A common denominator is the conversion: rewrite both fractions in pieces of one size — sixths, here — and the sum is $\\frac{3}{6} + \\frac{2}{6} = \\frac{5}{6}$. Once the pieces match, addition is just counting them, which is why only the numerators combine. The denominator stays put because it names the unit being counted, and units don't add.",
   },
   {
     type: 'text',
-    content: "The shortcut $\\frac{a}{b} + \\frac{c}{d} = \\frac{a+c}{b+d}$ is tempting because straight-across is exactly how multiplication works. Addition follows the other rule — and a denominator that changed during an addition or subtraction is the sign of this error.",
+    content: "Straight across stays tempting for a reason: it's exactly how *multiplication* works, and the two rules blur under time pressure. The tell that it happened is a denominator that changed during an addition or subtraction — when one shows up in your own work, this is the error to suspect.",
   },
   {
     type: 'keyInsight',
@@ -65,15 +54,11 @@ export const mFoundationsBlocks = [
   { type: 'heading', content: 'Multiplying and dividing fractions' },
   {
     type: 'text',
-    content: "Multiplication goes straight across: numerator times numerator over denominator times denominator. Cancel shared factors before multiplying so the numbers stay small.",
+    content: "Multiplication is the operation that genuinely goes straight across: numerator times numerator over denominator times denominator, cancelling shared factors before multiplying so the numbers stay small. Division is one rewrite away. Dividing by a fraction is multiplying by its reciprocal — and the rewrite is legitimate because $\\div \\frac{3}{4}$ asks how many three-quarters fit inside the dividend, and inverting the fraction answers exactly that question.",
   },
   {
     type: 'text',
-    content: "Division is one rewrite away: dividing by a fraction is multiplying by its reciprocal. That's because $\\div \\frac{3}{4}$ asks how many three-quarters fit inside the dividend, and inverting the fraction answers exactly that.",
-  },
-  {
-    type: 'text',
-    content: "Invert the **second** fraction — the divisor — then multiply. Inverting the first fraction instead, or inverting and then still dividing, answers a different question.",
+    content: "The detail that decides these questions is *which* fraction gets inverted: the **second** one, the divisor. Students who invert the first fraction instead, or who invert and then still divide, have answered a different question — and the result looks plausible enough to survive a glance.",
   },
   {
     type: 'tip',
@@ -93,42 +78,17 @@ export const mFoundationsBlocks = [
   { type: 'heading', content: 'Sign rules for negative numbers' },
   {
     type: 'text',
-    content: "For multiplication and division, work in two passes: handle the sizes first, then settle the sign once at the end.",
-  },
-  {
-    type: 'steps',
-    title: 'Settling the sign in two passes',
-    items: [
-      '**Work with absolute values first.** Run the arithmetic as if every number were positive.',
-      '**Count the negative factors.** An even count makes the result positive; an odd count makes it negative.',
-      '**Attach the sign once, at the end.** $(-2)(-3)(-5)$ has three negative factors — an odd count — so the product is $-30$.',
-    ],
+    content: "What is $(-2)(-3)(-5)$? Tracking the sign through each pairing invites a slip at every step, so don't track it at all. Run the arithmetic on the sizes first, as if every number were positive — $2 \\times 3 \\times 5 = 30$ — then settle the sign once at the end by counting the negative factors: an even count makes the result positive, an odd count makes it negative. Here three factors are negative, an odd count, so the product is $-30$. Why does counting work? Because negatives cancel in pairs, and only an unpaired negative survives to the answer.",
   },
   {
     type: 'text',
-    content: "That's the whole rule for multiplication and division. No step-by-step sign tracking required.",
-  },
-  {
-    type: 'text',
-    content: "Subtracting a negative gets its own rule: $a - (-b)$ equals $a + b$. The reliable habit is to rewrite it in that form before computing anything.",
-  },
-  {
-    type: 'text',
-    content: "Read quickly, the double minus tends to collapse into a single minus — that's how $8 - (-3)$ turns into $5$ instead of $11$. The number line confirms the direction: subtracting a negative moves the result to the right.",
+    content: "That's the whole rule for multiplication and division — no step-by-step sign tracking required. Subtraction brings its own trap: $a - (-b)$ equals $a + b$, and the reliable habit is to rewrite it in that form before computing anything. Read quickly, the double minus tends to collapse into a single minus — that's how $8 - (-3)$ turns into $5$ instead of $11$. The number line confirms the direction: subtracting a negative moves the result to the right.",
   },
 
   { type: 'heading', content: 'Distributing a negative sign' },
   {
     type: 'text',
-    content: "A negative sign in front of parentheses distributes to every term inside: each term changes sign, then the parentheses come off.",
-  },
-  {
-    type: 'text',
-    content: "The last term is the one most often missed. The minus visually attaches to the first term, so $a - (b - c)$ gets written as $a - b - c$ when the correct result is $a - b + c$.",
-  },
-  {
-    type: 'text',
-    content: "After distributing, check the final term specifically. If it kept its original sign, the distribution stopped early.",
+    content: "A negative sign in front of parentheses distributes to every term inside — each term changes sign, then the parentheses come off. The term that gets missed is almost always the last one, and there's a reason it's the last one: the minus visually attaches to the first term it touches, so $a - (b - c)$ gets written as $a - b - c$ when the correct result is $a - b + c$. The fix is a targeted check. After distributing, look at the final term specifically — if it kept its original sign, the distribution stopped early.",
   },
   {
     type: 'trapCard',
@@ -149,7 +109,7 @@ export const mFoundationsBlocks = [
   { type: 'heading', content: 'Order of operations: exponents before negation' },
   {
     type: 'text',
-    content: "An expression evaluates in layers:",
+    content: "Evaluate $2 + 3 \\times 4$. Reading order says $20$; the correct value is $14$, because an expression doesn't resolve left to right — it resolves in layers:",
   },
   {
     type: 'list',
@@ -162,15 +122,7 @@ export const mFoundationsBlocks = [
   },
   {
     type: 'text',
-    content: "So $2 + 3 \\times 4$ is $14$, not $20$ — the multiplication outranks reading order.",
-  },
-  {
-    type: 'text',
-    content: "The costliest case involves a negative sign. In $-3^2$, the exponent applies to the $3$ before the negation does, so $-3^2 = -9$ while $(-3)^2 = 9$.",
-  },
-  {
-    type: 'text',
-    content: "The two values differ by a single pair of parentheses, and the incorrect one routinely appears among the answer choices.",
+    content: "The costliest case in this topic puts a negative sign next to an exponent. In $-3^2$, the exponent applies to the $3$ before the negation does, so $-3^2 = -9$ while $(-3)^2 = 9$ — two values separated by nothing but a pair of parentheses. The incorrect one routinely appears among the answer choices.",
   },
   {
     type: 'callout',
@@ -180,11 +132,7 @@ export const mFoundationsBlocks = [
   { type: 'heading', content: 'The fraction bar as a grouping symbol' },
   {
     type: 'text',
-    content: "A fraction bar groups everything above it and everything below it, even though no parentheses appear in print. $\\dfrac{8+4}{2+2}$ means $(8+4) \\div (2+2) = 3$.",
-  },
-  {
-    type: 'text',
-    content: "Typed into a calculator left to right as $8 + 4 \\div 2 + 2$, the same expression evaluates to $12$. Desmos computes exactly what you type, so the parentheses the bar implies have to be entered explicitly — that grouping is the one step a calculator can't supply.",
+    content: "A fraction bar groups everything above it and everything below it, even though no parentheses appear in print: $\\dfrac{8+4}{2+2}$ means $(8+4) \\div (2+2) = 3$. Type the same expression into a calculator left to right, though — $8 + 4 \\div 2 + 2$ — and it evaluates to $12$. Desmos computes exactly what you type, so the parentheses the bar implies have to be entered explicitly; that grouping is the one step a calculator can't supply.",
   },
   {
     type: 'text',
@@ -204,19 +152,11 @@ export const mFoundationsBlocks = [
   { type: 'heading', content: 'Order and distance on the number line' },
   {
     type: 'text',
-    content: "The number line answers two different questions, and mixing them up turns a finished problem into a miss at the last step.",
+    content: "Which is smaller, $-9$ or $-2$? The digit comparison — $9$ is the bigger digit — pulls toward the wrong answer, because on the negative side a bigger digit means farther from zero to the *left*, which is smaller. The number line settles it: **the number further left is smaller**, so $-9 < -2$. Whenever a comparison involves a negative, place both numbers on the line and read left to right instead of comparing digit sizes.",
   },
   {
     type: 'text',
-    content: "**Order:** the number further left is smaller. So $-9 < -2$, even though $9$ is the bigger digit — on the negative side, a bigger digit means farther from zero to the left, which is smaller.",
-  },
-  {
-    type: 'text',
-    content: "Whenever a comparison involves a negative, place both numbers on the line and read left to right instead of comparing digit sizes.",
-  },
-  {
-    type: 'text',
-    content: "**Distance** is the other question: the gap between two numbers, $|a - b|$, is never negative — subtracting in either order gives the same size gap. One related fact: the midpoint of two numbers is their average, the point equally far from both.",
+    content: "Distance is the number line's other question, and confusing the two turns a finished problem into a miss at the last step. The gap between two numbers, $|a - b|$, is never negative — subtracting in either order gives the same size gap. One related fact rides along: the midpoint of two numbers is their average, the point equally far from both.",
   },
   {
     type: 'example',
@@ -231,11 +171,7 @@ export const mFoundationsBlocks = [
   { type: 'heading', content: 'The coordinate plane' },
   {
     type: 'text',
-    content: "The coordinate plane extends the number line into two dimensions: a horizontal **x-axis** and a vertical **y-axis** crossing at the **origin**, the point $(0, 0)$.",
-  },
-  {
-    type: 'text',
-    content: "Every point gets an ordered pair $(x, y)$ — horizontal position first, vertical second. The order is fixed and matters: $(3, 5)$ lies 3 right and 5 up, while $(5, 3)$ lies 5 right and 3 up — two different points.",
+    content: "The coordinate plane extends the number line into two dimensions: a horizontal **x-axis** and a vertical **y-axis** crossing at the **origin**, the point $(0, 0)$. Every point gets an ordered pair $(x, y)$ — horizontal position first, vertical second — and the order is fixed because it carries the meaning: $(3, 5)$ lies 3 right and 5 up, while $(5, 3)$ lies 5 right and 3 up. Same two numbers, two different points.",
   },
   {
     type: 'steps',
@@ -252,11 +188,7 @@ export const mFoundationsBlocks = [
   },
   {
     type: 'text',
-    content: "The axes divide the plane into four **quadrants**, numbered counterclockwise from the upper right. Each quadrant matches one combination of coordinate signs, so you can read a point's quadrant from its signs alone — no plotting needed.",
-  },
-  {
-    type: 'text',
-    content: "A point with a zero coordinate lies on an axis and belongs to no quadrant.",
+    content: "The axes divide the plane into four **quadrants**, numbered counterclockwise from the upper right, and each quadrant matches one combination of coordinate signs. That correspondence means you can read a point's quadrant from its signs alone, no plotting needed. The one exception: a point with a zero coordinate lies on an axis and belongs to no quadrant.",
   },
   {
     type: 'table',

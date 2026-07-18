@@ -1,11 +1,12 @@
 /**
  * Learn lesson body — Systems of Equations (Algebra, Math).
  *
- * VOICE v3 (adopted 2026-07-17, exemplar: bodies/centralIdeas.js): scannable
- * instructional register — direct address, contractions, 1-3 sentence text
- * blocks, list blocks for criteria, steps blocks for procedures; no
- * analogies, no pep-talk, no emojis. All substance of the v2 textbook
- * version preserved.
+ * VOICE v4 (adopted 2026-07-18, exemplar: bodies/centralIdeas.js): practiced-tutor
+ * register — developed 2-5 sentence paragraphs with connective tissue; every rule
+ * earns its "because"; student-psychology named concretely; math teaching is
+ * example-led; varied rhythm, no aphorism-per-block. Bans carried from v3: no
+ * analogies, no pep talk, no exclamation marks, no emojis, no
+ * test-personification. All v3 teaching claims preserved.
  *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
@@ -14,11 +15,7 @@
 export const mSystemsBlocks = [
   {
     type: 'text',
-    content: "Any one line admits infinitely many solution points — that was the last chapter. The natural next question: what happens when two lines are imposed at once?",
-  },
-  {
-    type: 'text',
-    content: "A system is **two equations sharing the same two unknowns**. One equation alone admits infinitely many solutions; the second narrows the set to the single point that satisfies both.",
+    content: "Any one line admits infinitely many solution points — that was the last chapter. The natural next question is what happens when two lines are imposed at once. A system is **two equations sharing the same two unknowns**, and the second equation is what changes everything: one equation alone admits infinitely many solutions, while the second narrows the set to the single point that satisfies both.",
   },
   {
     type: 'diagramRef',
@@ -27,13 +24,13 @@ export const mSystemsBlocks = [
   },
   {
     type: 'text',
-    content: "The central decision is choosing the fastest way to eliminate one variable. Most of the difficulty lies in selecting the least-work method, not in the algebra itself — and when the question asks for a combination such as $x+y$, the most efficient path often bypasses solving for the variables entirely.",
+    content: "The central decision on these questions is choosing the fastest way to eliminate one variable. Most of the difficulty lies in selecting the least-work method, not in the algebra itself — and when the question asks for a combination such as $x+y$, the most efficient path often bypasses solving for the variables entirely.",
   },
 
   { type: 'heading', content: 'Substitution: a variable is already isolated' },
   {
     type: 'text',
-    content: "When one equation already presents a variable by itself — $y = 2x - 1$ — substitution is the natural choice. It's efficient in this situation precisely because the demanding step, isolating a variable, is already done.",
+    content: "When one equation already presents a variable by itself — $y = 2x - 1$ — substitution is the natural choice, and it's efficient here for a concrete reason: the demanding step, isolating a variable, is already done.",
   },
   {
     type: 'steps',
@@ -45,8 +42,8 @@ export const mSystemsBlocks = [
     ],
   },
   {
-    type: 'callout',
-    content: "One rule keeps the method sound: substitute into the *other* equation, without exception. Substituting back into the same equation collapses it into a true but uninformative statement that determines nothing.",
+    type: 'text',
+    content: "One rule keeps the method sound: substitute into the *other* equation, without exception. Why? Because the expression came from the first equation, and feeding it back into the same equation collapses everything into a true but uninformative statement — $2x - 1 = 2x - 1$ — that determines nothing.",
   },
   {
     type: 'keyInsight',
@@ -56,7 +53,7 @@ export const mSystemsBlocks = [
   { type: 'heading', content: 'Elimination: both equations in standard form' },
   {
     type: 'text',
-    content: "When both equations take the form $ax + by = c$, elimination is the fit — aligned columns cancel cleanly.",
+    content: "When both equations take the form $ax + by = c$, elimination is the fit: the like terms already sit in columns, and a column of exact opposites vanishes when the equations are added. The whole method is engineering that cancellation.",
   },
   {
     type: 'steps',
@@ -87,7 +84,7 @@ export const mSystemsBlocks = [
   { type: 'heading', content: 'One, none, or infinitely many solutions?' },
   {
     type: 'text',
-    content: "Two lines admit exactly three configurations.",
+    content: "Not every system pins down a single point — two lines admit exactly three configurations.",
   },
   {
     type: 'list',
@@ -99,21 +96,13 @@ export const mSystemsBlocks = [
   },
   {
     type: 'text',
-    content: "Questions emphasize the last two cases, because they turn on a slope comparison rather than on computing a point of intersection.",
-  },
-  {
-    type: 'text',
-    content: "The efficient test: rewrite both equations in $y = mx + b$ and compare the slopes first. If the slopes differ, the analysis ends — exactly one solution, regardless of the intercepts.",
-  },
-  {
-    type: 'text',
-    content: "If the slopes are equal, the intercept $b$ decides: different $b$ means parallel (no solution), and the same $b$ means identical (infinitely many). The slope settles the question whenever it can; the intercept matters only when the slopes agree.",
+    content: "Questions emphasize the last two cases, because they turn on a slope comparison rather than on computing a point of intersection. So run the efficient test: rewrite both equations in $y = mx + b$ and compare the slopes first. If the slopes differ, the analysis ends — exactly one solution, regardless of the intercepts. If the slopes are equal, the intercept decides: different $b$ means parallel lines and no solution, while the same $b$ means the same line written twice and infinitely many. The slope settles the question whenever it can; the intercept matters only when the slopes agree.",
   },
 
   { type: 'heading', content: 'Choosing a constant for a target solution count' },
   {
     type: 'text',
-    content: "Some questions run the analysis in reverse: the system contains an unknown constant, and you're asked which value of that constant produces no solution or infinitely many. The conditions come straight from the slope comparison.",
+    content: "Some questions run the analysis in reverse: the system contains an unknown constant, and you're asked which value of that constant produces no solution or infinitely many. The conditions come straight from the slope comparison, and the distinction between them is precise — matching left sides with different totals gives parallel lines, while matching everything gives a single line.",
   },
   {
     type: 'list',
@@ -121,10 +110,6 @@ export const mSystemsBlocks = [
       "**No solution** requires parallel lines: scale one equation so its $x$- and $y$-coefficients match the other's exactly, and the totals must still *differ*.",
       '**Infinitely many** requires the same line written twice: every coefficient *and* the constant must scale by the same factor, making one equation an exact multiple of the other.',
     ],
-  },
-  {
-    type: 'text',
-    content: "The distinction is precise: matching left sides with different totals gives parallel lines, while matching everything gives a single line.",
   },
   {
     type: 'example',
@@ -140,7 +125,7 @@ export const mSystemsBlocks = [
   { type: 'heading', content: 'Building a system from a word problem' },
   {
     type: 'text',
-    content: "Most word-problem systems pair two equations built from two separate totals — how many, and how much. Realistic scenarios pin down both, which is why this pairing recurs so often.",
+    content: "Most word-problem systems pair two equations built from two separate totals — how many, and how much. There's a reason the pairing recurs: a realistic scenario usually pins down both a head count and a cost, and each total becomes one equation.",
   },
   {
     type: 'list',

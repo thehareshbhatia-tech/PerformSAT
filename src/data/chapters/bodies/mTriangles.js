@@ -1,10 +1,13 @@
 /**
  * Learn lesson body — Triangles (geometry half of the triangle skill).
  *
- * VOICE v3 (adopted 2026-07-17, exemplar: bodies/centralIdeas.js): scannable
- * instructional register — direct address, contractions, 1-3 sentence text
- * blocks, list blocks for criteria, steps blocks for procedures; no analogies,
- * no pep-talk, no emojis. All substance of the v2 textbook version preserved.
+ * VOICE v4 (adopted 2026-07-18, exemplar: bodies/centralIdeas.js):
+ * practiced-tutor register — developed 2-5 sentence paragraphs with
+ * connective tissue; every rule earns its "because"; student-psychology
+ * named concretely; math teaching is example-led; varied rhythm, no
+ * aphorism-per-block. Bans carried from v3: no analogies, no pep talk,
+ * no exclamation marks, no emojis, no test-personification. All v3
+ * teaching claims preserved.
  * Right-triangle TRIG (sine/cosine/tangent) is a SEPARATE lesson and is
  * deliberately NOT taught here.
  *
@@ -15,7 +18,7 @@
 export const mTrianglesBlocks = [
   {
     type: 'text',
-    content: "The angle relationships from the last chapter concentrate in one figure: the triangle, where most geometry questions on this test actually live.",
+    content: "The angle relationships from the last chapter concentrate in one figure: the triangle, where most geometry questions on this test actually live. The toolkit is short, and that shortness is the point — your first move on any triangle question is identification, not computation. Decide which tool the figure calls for, because once the tool is named, the remaining work is brief.",
   },
   {
     type: 'list',
@@ -26,10 +29,6 @@ export const mTrianglesBlocks = [
       'the **Pythagorean theorem**, plus the integer triples that bypass its arithmetic',
       '**similar triangles**',
     ],
-  },
-  {
-    type: 'text',
-    content: "Your first move is identification, not computation — decide which tool the figure calls for. Once the tool is named, the remaining work is brief.",
   },
 
   { type: 'heading', content: 'Three facts every triangle obeys' },
@@ -50,26 +49,11 @@ export const mTrianglesBlocks = [
   { type: 'heading', content: 'Isosceles triangles' },
   {
     type: 'text',
-    content: "An **isosceles** triangle has two equal sides, and the base angles — the angles opposite those sides — are equal as well.",
+    content: "An **isosceles** triangle has two equal sides, and the base angles — the angles opposite those sides — are equal as well. The relationship runs in both directions: equal sides force equal opposite angles, and equal angles force equal opposite sides, so either mark alone unlocks the other.",
   },
   {
     type: 'text',
-    content: "The relationship runs in both directions: equal sides force equal opposite angles, and equal angles force equal opposite sides. Either mark alone unlocks the other.",
-  },
-  {
-    type: 'text',
-    content: "When a problem names an isosceles triangle without saying which angle repeats, the stated angle plays one of two roles:",
-  },
-  {
-    type: 'list',
-    items: [
-      "It's a **base angle**, and it repeats.",
-      "It's the **apex angle**, and the other two split the remainder equally.",
-    ],
-  },
-  {
-    type: 'text',
-    content: "Enumerate both cases, then check each against the $180°$ sum — the sum eliminates impossible ones. A $100°$ angle can't repeat, since $100° + 100°$ already exceeds $180°$; it has to be the apex, leaving base angles of $40°$ each.",
+    content: "When a problem names an isosceles triangle without saying which angle repeats, the stated angle plays one of two roles: either it's a **base angle** and it repeats, or it's the **apex angle** and the other two split the remainder equally. Enumerate both cases, then check each against the $180°$ sum, because the sum is what eliminates the impossible ones — a $100°$ angle can't repeat, since $100° + 100°$ already exceeds $180°$, so it has to be the apex, leaving base angles of $40°$ each. Students who run the first case that occurs to them and stop are exactly who the partial-answer choices are written for.",
   },
   {
     type: 'example',
@@ -85,19 +69,7 @@ export const mTrianglesBlocks = [
   { type: 'heading', content: 'The triangle inequality' },
   {
     type: 'text',
-    content: "Three lengths form a triangle only when every side is shorter than the sum of the other two.",
-  },
-  {
-    type: 'text',
-    content: "With two sides $a$ and $b$ known, that compresses to a single interval: the third side lies **strictly between** $|a - b|$ and $a + b$. The endpoints fail — at either extreme the triangle flattens into a straight segment — so neither bound is ever attainable.",
-  },
-  {
-    type: 'list',
-    title: 'The two question forms:',
-    items: [
-      'Can three given lengths form a triangle?',
-      'How many integer lengths can the third side take? List the integers strictly inside the interval.',
-    ],
+    content: "Three lengths form a triangle only when every side is shorter than the sum of the other two — at the moment one side exactly equals the other two combined, the \"triangle\" flattens into a straight segment. With two sides $a$ and $b$ known, the condition compresses to a single interval: the third side lies **strictly between** $|a - b|$ and $a + b$, and because the endpoints are where the flattening happens, neither bound is ever attainable. The questions come in two forms — can three given lengths form a triangle, and how many integer lengths can the third side take — and the second is answered by listing the integers strictly inside the interval.",
   },
   {
     type: 'example',
@@ -126,7 +98,7 @@ export const mTrianglesBlocks = [
   },
   {
     type: 'text',
-    content: "When the unknown is a leg rather than the hypotenuse, subtract rather than add: $b^2 = c^2 - a^2$.",
+    content: "The direction of the algebra depends on which side is missing. Solving for the hypotenuse means adding the squared legs; solving for a leg means subtracting instead, $b^2 = c^2 - a^2$ — and under time pressure, plenty of students add by reflex either way.",
   },
   {
     type: 'tip',
@@ -136,11 +108,7 @@ export const mTrianglesBlocks = [
   { type: 'heading', content: 'The two Pythagorean triples' },
   {
     type: 'text',
-    content: "Certain right triangles have whole-number sides, and recognizing one supplies the third side — no squaring, no square roots.",
-  },
-  {
-    type: 'text',
-    content: "Any scaled copy qualifies: a $6\\text{-}8\\text{-}10$ triangle is $3\\text{-}4\\text{-}5$ doubled, so match the RATIO, not the raw numbers. A triple spotted on sight replaces a full Pythagorean calculation that was never necessary.",
+    content: "Certain right triangles have whole-number sides, and recognizing one supplies the third side with no squaring and no square roots. Any scaled copy qualifies — a $6\\text{-}8\\text{-}10$ triangle is $3\\text{-}4\\text{-}5$ doubled — so match the RATIO, not the raw numbers. A triple spotted on sight replaces a full Pythagorean calculation that was never necessary.",
   },
   {
     type: 'table',
@@ -158,15 +126,7 @@ export const mTrianglesBlocks = [
   { type: 'heading', content: 'The two special right triangles' },
   {
     type: 'text',
-    content: "A right triangle containing a $45°$ angle, or a $30°/60°$ pair, has all three sides locked to a fixed ratio — one template for each case, no Pythagorean work required.",
-  },
-  {
-    type: 'text',
-    content: "Assign the roles **from the angles**: the smallest angle faces the shortest side, and the $90°$ angle faces the hypotenuse. Then scale the whole template to fit the one side you're given.",
-  },
-  {
-    type: 'text',
-    content: "The standard error is reading the ratio in the order the triangle happens to be drawn. Figures rotate and reflect, but the angles fix each side's role regardless of orientation — anchor on the angles.",
+    content: "A right triangle containing a $45°$ angle, or a $30°/60°$ pair, has all three sides locked to a fixed ratio — one template for each case, no Pythagorean work required. Assign the roles **from the angles**: the smallest angle faces the shortest side, the $90°$ angle faces the hypotenuse, and the whole template then scales to fit the one side you're given. The standard error is reading the ratio in the order the triangle happens to be drawn — but figures rotate and reflect, while the angles fix each side's role regardless of orientation, so anchoring on the angles is what makes the drawing unable to mislead you.",
   },
   {
     type: 'table',
@@ -189,16 +149,12 @@ export const mTrianglesBlocks = [
   { type: 'heading', content: 'Similar triangles' },
   {
     type: 'text',
-    content: "Two triangles whose angles match are **similar** — one is a scaled copy of the other, so every pair of corresponding sides shares the same ratio.",
+    content: "Two triangles whose angles match are **similar** — one is a scaled copy of the other, so every pair of corresponding sides shares the same ratio. Matching **two** angles is enough to establish it, because the angle sum forces the third pair to match on its own. Once similarity is established, a missing side follows from a single proportion.",
   },
   {
     type: 'diagramRef',
     visualType: 'similarTrianglesDiagram',
     description: "Two similar triangles with matching angles and corresponding sides marked: every pair of corresponding sides shares the same ratio, so one triangle is a scaled copy of the other.",
-  },
-  {
-    type: 'text',
-    content: "Matching **two** angles is enough, since the angle sum forces the third to match. Once similarity is established, a missing side follows from a single proportion.",
   },
   {
     type: 'tip',

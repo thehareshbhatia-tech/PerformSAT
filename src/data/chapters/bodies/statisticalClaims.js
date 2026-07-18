@@ -1,10 +1,12 @@
 /**
  * Learn lesson body — Studies, Samples & Statistical Claims (Math · PSDA).
  *
- * VOICE v3 (adopted 2026-07-17, exemplar: bodies/centralIdeas.js): scannable
- * instructional register — direct address, contractions, 1-3 sentence text
- * blocks, list blocks for criteria, steps blocks for procedures; no analogies,
- * no pep-talk, no emojis. All substance of the v2 textbook version preserved.
+ * VOICE v4 (adopted 2026-07-18, exemplar: bodies/centralIdeas.js): practiced-tutor
+ * register — developed 2-5 sentence paragraphs with connective tissue; every rule
+ * earns its "because"; student-psychology named concretely; math teaching is
+ * example-led; varied rhythm, no aphorism-per-block. Bans carried from v3: no
+ * analogies, no pep talk, no exclamation marks, no emojis, no
+ * test-personification. All v3 teaching claims preserved.
  *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via the
  * chapter-bodies index — never static-import this from the chapter index.
@@ -13,15 +15,11 @@
 export const statisticalClaimsBlocks = [
   {
     type: 'text',
-    content: "You now have the whole toolkit for reading data — ratios, percents, probabilities, summaries, models. This closing chapter asks the question standing behind all of it: **what is a study entitled to claim?**",
+    content: "You now have the whole toolkit for reading data — ratios, percents, probabilities, summaries, models. This closing chapter asks the question standing behind all of it: **what is a study entitled to claim?** Each question presents a short study — who was measured, how they were chosen, what was found — and four possible conclusions, with little arithmetic involved. The wrong choices fail not on computation but on reach: they claim *more than the study supports*, and they're written to be the conclusions a reader would naturally want to draw.",
   },
   {
     type: 'text',
-    content: "Each question presents a short study — who was measured, how they were chosen, what was found — and four possible conclusions. Little arithmetic is involved: the wrong choices fail not on computation but because they claim *more than the study supports*.",
-  },
-  {
-    type: 'text',
-    content: "Two design features decide the issue. Identify both before weighing any option.",
+    content: "Two design features decide what any study can claim, and the whole skill comes down to identifying both before weighing a single option.",
   },
 
   { type: 'heading', content: 'Two design features, two kinds of claims' },
@@ -34,35 +32,27 @@ export const statisticalClaimsBlocks = [
   },
   {
     type: 'text',
-    content: "The two features are independent: a study can have either, both, or neither. Each supports exactly one kind of claim, never the other's.",
-  },
-  {
-    type: 'text',
-    content: "Check them separately, sampling first, before reading any answer choice.",
+    content: "The two features are independent: a study can have either, both, or neither, and each supports exactly one kind of claim, never the other's. That independence is what these questions probe — a huge random sample earns a study wide generalization and still earns it nothing about cause. So check the two features separately, sampling first, before reading any answer choice.",
   },
 
   { type: 'heading', content: 'Random sampling permits generalization' },
   {
     type: 'text',
-    content: "When participants are drawn *at random* from a population, the results generalize to that population — **exactly** that population, no wider and no narrower.",
+    content: "When participants are drawn *at random* from a population, the results generalize to that population — **exactly** that population, no wider and no narrower. The pool actually drawn from is called the **frame**, and it bounds every conclusion, because the study could only ever hear from people who were in the pool to begin with. A random sample of one school's juniors supports claims about that school's juniors — not all teenagers, not the whole school, not the seniors in the next hallway.",
   },
   {
     type: 'text',
-    content: "The pool actually drawn from is called the **frame**, and it bounds every conclusion. A random sample of one school's juniors supports claims about that school's juniors — not all teenagers, not the whole school, not the seniors in the next hallway.",
-  },
-  {
-    type: 'text',
-    content: "And when selection wasn't random — volunteers, whoever replied to an email, whoever walked by — the results describe the people who participated, and no one else.",
+    content: "And when selection wasn't random — volunteers, whoever replied to an email, whoever walked by — the results describe the people who participated, and no one else. The reason is the same every time: people who put themselves into a study differ from people who don't, so the sample no longer stands in for anyone beyond itself.",
   },
 
   { type: 'heading', content: 'Random assignment permits causal claims' },
   {
     type: 'text',
-    content: "When a study compares groups, a claim that one thing **caused** another holds only if participants were *randomly assigned* to treatments. Random assignment spreads every hidden trait evenly across the groups, leaving the treatment as the only systematic difference between them.",
+    content: "When a study compares groups, a claim that one thing **caused** another holds only if participants were *randomly assigned* to treatments. Why does assignment carry that much weight? Because random assignment spreads every hidden trait — age, health, wealth, temperament — evenly across the groups, leaving the treatment as the only systematic difference between them. If the groups then differ in outcome, the treatment is the only thing left to credit.",
   },
   {
     type: 'text',
-    content: "When participants chose their own group — chose to garden, chose to join chess — some hidden trait came along with the choice. That trait is a **confounding variable**, and it limits the claim to an **association**: the two quantities move together, cause undetermined.",
+    content: "When participants chose their own group instead — chose to garden, chose to join chess — some hidden trait came along with the choice, and the groups differed before the treatment ever touched them. That trait is a **confounding variable**, and it limits the claim to an **association**: the two quantities move together, cause undetermined.",
   },
   {
     type: 'keyInsight',
@@ -72,25 +62,21 @@ export const statisticalClaimsBlocks = [
   { type: 'heading', content: 'A biased sample supports nothing' },
   {
     type: 'text',
-    content: "A recurring wrong answer in this family reads \"the sample was too small.\" Size is almost never the flaw — **selection** is.",
+    content: "A recurring wrong answer in this family reads \"the sample was too small,\" and students reach for it because a big number feels like a study's most solid credential. Size is almost never the flaw — **selection** is. Ten thousand people who chose to answer an online poll are still ten thousand self-selected people: a large quantity of biased data.",
   },
   {
     type: 'text',
-    content: "Ten thousand people who chose to answer an online poll are still ten thousand self-selected people: a large quantity of biased data.",
-  },
-  {
-    type: 'text',
-    content: "Size buys precision; only randomness buys validity. A small *random* sample beats an enormous *biased* one, and no sample size repairs a flawed selection method.",
+    content: "The division of labor is worth stating plainly: size buys precision, and only randomness buys validity. A small *random* sample therefore beats an enormous *biased* one, and no sample size repairs a flawed selection method — collecting more of the wrong people just pins down the wrong answer more exactly.",
   },
 
   { type: 'heading', content: 'Estimating a population count' },
   {
     type: 'text',
-    content: "When the sample *is* random, scaling up is fair: take the sample's fraction with the trait and multiply by the population size $N$. If 30% of a random sample studies late and the school has 1,200 students, the estimate is $0.30 \\times 1200 = 360$.",
+    content: "When the sample *is* random, scaling up is fair, because a random draw makes the sample's proportion a trustworthy stand-in for the population's. Take the sample's fraction with the trait and multiply by the population size $N$: if 30% of a random sample studies late and the school has 1,200 students, the estimate is $0.30 \\times 1200 = 360$.",
   },
   {
     type: 'text',
-    content: "A **margin of error** then converts that single number into a plausible interval — from the estimate minus the margin to the estimate plus the margin. A larger random sample narrows the interval.",
+    content: "That single number is an estimate, not a census, so a **margin of error** converts it into a plausible interval — from the estimate minus the margin to the estimate plus the margin. A larger random sample narrows the interval, which is the honest version of what sample size buys: precision, never validity.",
   },
   {
     type: 'tip',
@@ -169,6 +155,6 @@ export const statisticalClaimsBlocks = [
 
   {
     type: 'text',
-    content: "**In summary:** establish who was actually sampled, check the sampling (a random sample generalizes to the frame), check the assignment (random assignment supports a claim of cause), and take the most modest conclusion the design supports.",
+    content: "**In summary:** establish who was actually sampled, check the sampling (a random draw generalizes to the frame, and no further), check the assignment (only random assignment supports a claim of cause), and take the most modest conclusion the design supports. Every wrong answer in this family overreaches in one of those directions — a wider group, a stronger verb, a per-person guarantee — and naming which one is usually faster than debating the choice on its merits.",
   },
 ];

@@ -1,10 +1,12 @@
 /**
  * Learn lesson body — Commas & Nonessential Elements (Standard English Conventions).
  *
- * VOICE v3 (adopted 2026-07-17, exemplar: bodies/centralIdeas.js): scannable
- * instructional register — direct address, contractions, 1-3 sentence text
- * blocks, list blocks for criteria, steps blocks for procedures; no analogies,
- * no pep-talk, no emojis. All substance of the v2 textbook version preserved.
+ * VOICE v4 (adopted 2026-07-18, exemplar: bodies/centralIdeas.js): practiced-tutor
+ * register — developed 2-5 sentence paragraphs with connective tissue; every rule
+ * earns its "because"; student-psychology named concretely; math teaching is
+ * example-led; varied rhythm, no aphorism-per-block. Bans carried from v3: no
+ * analogies, no pep talk, no exclamation marks, no emojis, no test-personification.
+ * All v3 teaching claims preserved.
  *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
@@ -13,21 +15,17 @@
 export const gCommasBlocks = [
   {
     type: 'text',
-    content: "Sentence boundaries settled which marks can stand between two complete sentences. The comma — the one mark that can't stand there alone — has jobs of its own inside the sentence.",
+    content: "Sentence boundaries settled which marks can stand between two complete sentences, and the comma was the notable exclusion — the one mark that can't hold that position alone. Inside the sentence, though, the comma has real jobs of its own, and nearly every comma question reduces to one distinction: is the phrase extra information, or identifying information? **Extra information takes commas; identifying information takes none.**",
   },
   {
     type: 'text',
-    content: "Nearly every comma question reduces to one distinction: is the phrase extra information, or identifying information? **Extra information takes commas; identifying information takes none.**",
-  },
-  {
-    type: 'text',
-    content: "The pause-for-breath comma taught informally is never the basis of a correct answer. Run the extra-or-identifying test first, and most comma decisions follow from it.",
+    content: "Notice what that rule never mentions: pausing. Most students carry an informal rule from somewhere in middle school — put a comma where you'd take a breath — and these questions punish it, because a long sentence invites a breath in places no comma belongs. The pause-for-breath comma is never the basis of a correct answer. Run the extra-or-identifying test first, and most comma decisions follow from it.",
   },
 
   { type: 'heading', content: 'The removal test' },
   {
     type: 'text',
-    content: "Cover the phrase and read the sentence without it. Then sort:",
+    content: "The test for extra versus identifying is physical: cover the phrase and read the sentence without it. What remains tells you which kind of phrase you're holding.",
   },
   {
     type: 'list',
@@ -38,48 +36,33 @@ export const gCommasBlocks = [
   },
   {
     type: 'text',
-    content: "In *My brother, who lives in Denver, is visiting*, covering *who lives in Denver* leaves the referent perfectly clear — the clause is extra, so it takes commas.",
+    content: "Try it on *My brother, who lives in Denver, is visiting*. Cover *who lives in Denver* and the sentence still points at the same person — you know exactly who's visiting, Denver or no Denver. The clause is extra, so it takes commas.",
   },
 
   { type: 'heading', content: 'Essential elements take no commas' },
   {
     type: 'text',
-    content: "When a phrase identifies *which one*, deleting it removes information the sentence depends on — so it takes no commas.",
-  },
-  {
-    type: 'text',
-    content: "In *The student who scored highest won a prize*, removing *who scored highest* loses which student is meant. The clause is essential, and it's written without commas.",
+    content: "Now run the same test where it lands the other way. In *The student who scored highest won a prize*, covering *who scored highest* collapses the sentence to *the student won a prize* — and immediately you're asking *which student?* The clause was carrying the identification, so the sentence depends on it, and a phrase the sentence depends on is written without commas.",
   },
   {
     type: 'keyInsight',
-    content: "Commas around a phrase assert that the phrase is removable — **the sentence loses nothing without it.** If deleting the phrase changes the meaning, the commas make a false claim and are incorrect.",
+    content: "Commas around a phrase are a claim: they assert the phrase is removable — **the sentence loses nothing without it.** If deleting the phrase changes the meaning, the commas are making a false claim, and a false claim about the sentence's own structure is a wrong answer.",
   },
 
   { type: 'heading', content: 'That vs. which / who' },
   {
     type: 'text',
-    content: "A clause beginning with *that* is **always** essential, so a comma never comes before it: *the report that changed everything*.",
-  },
-  {
-    type: 'text',
-    content: "Commas around a *which* or *who* clause mark it as extra, incidental information: *the report, which changed everything, ...*. The words are identical; the commas alone decide which claim the sentence makes.",
+    content: "One pair of words carries this distinction on its surface. A clause beginning with *that* is **always** essential — *the report that changed everything* — so a comma never comes before *that*. Commas around a *which* or *who* clause mark it as extra, incidental information: *the report, which changed everything, ...*. Read those two versions side by side, because the words inside the clauses are identical; the commas alone decide which claim the sentence makes.",
   },
   {
     type: 'tip',
-    content: "An answer choice containing *, that* can be eliminated on sight.",
+    content: "An answer choice containing *, that* can be eliminated on sight — no rereading of the rest of the sentence required.",
   },
 
   { type: 'heading', content: 'Names: essential or extra?' },
   {
     type: 'text',
-    content: "To punctuate a name, ask whether the noun before it **already identifies one unique person**.",
-  },
-  {
-    type: 'list',
-    items: [
-      'Only one such person exists → the name is extra and takes commas.',
-      'Several exist → the name does the identifying and takes none.',
-    ],
+    content: "Names trip students up because both punctuations look reasonable on the page. The deciding question is whether the noun before the name **already identifies one unique person**. If it does — *her only sister* can be exactly one person — the name adds nothing the sentence needs in order to point at her, so it's extra and takes commas. If it doesn't — *the chemist* could be any of thousands — then the name is doing the identifying, and identifying information takes none.",
   },
   {
     type: 'table',
@@ -94,21 +77,17 @@ export const gCommasBlocks = [
   { type: 'heading', content: 'Matching marks around interruptions' },
   {
     type: 'text',
-    content: "An interrupting phrase takes a matched set of marks: comma…comma or dash…dash — never one of each.",
+    content: "An interruption that opens has to close, and it closes with the same mark that opened it: comma…comma or dash…dash, never one of each. *The results — surprising to everyone, were published.* opens with a dash and closes with a comma, and plenty of careful readers sail right past it. There's a reason the mismatch survives: a reader verifies the first mark, decides the interruption is legal, and skims the second — and wrong answers are built around exactly that half-check.",
   },
   {
     type: 'text',
-    content: "*The results — surprising to everyone, were published.* opens with a dash and closes with a comma. Mismatches like this are easy to miss, because a reader verifies the first mark and skims past the second.",
-  },
-  {
-    type: 'text',
-    content: "Check both ends: *The results — surprising to everyone — were published.*",
+    content: "So check both ends every time. The corrected pair reads *The results — surprising to everyone — were published.*",
   },
 
   { type: 'heading', content: 'Every comma must serve a function' },
   {
     type: 'text',
-    content: "A comma is justified only by a function you can name. If no function can be named, delete the comma. The recognized functions:",
+    content: "Behind all of these cases sits one accounting principle: a comma is justified only by a function you can name — not a feeling that the sentence wants a break, but a job from a short, closed list. If no function can be named, the comma gets deleted. The recognized functions:",
   },
   {
     type: 'table',
@@ -123,13 +102,13 @@ export const gCommasBlocks = [
   },
   {
     type: 'callout',
-    content: "One placement is never correct: a comma **never separates a subject from its verb**, however long the subject runs. *The students who studied all week, passed.* is wrong — the comma serves no function. Long subjects invite an intuitive pause-comma; the convention doesn't permit one.",
+    content: "One placement is never correct: a comma **never separates a subject from its verb**, however long the subject runs. *The students who studied all week, passed.* is wrong because that comma serves no nameable function — and long subjects are where the error thrives, because by the time you finally reach the verb, the sentence feels overdue for a pause. The convention doesn't permit one.",
   },
 
   { type: 'heading', content: 'Coordinate adjectives' },
   {
     type: 'text',
-    content: "When two adjectives each modify the noun independently, they're **coordinate**, and a comma separates them: *a long, tedious meeting*.",
+    content: "When two adjectives each modify the noun independently — *a long, tedious meeting*, where the meeting is long and the meeting is also tedious — they're **coordinate**, and a comma separates them.",
   },
   {
     type: 'list',
@@ -141,61 +120,41 @@ export const gCommasBlocks = [
   },
   {
     type: 'text',
-    content: "When either test fails, the adjectives are **cumulative** — the first modifies the adjective-noun unit as a whole — and no comma appears: *an old stone wall*, never *an old, stone wall*, because *a stone old wall* and *an old and stone wall* both fail.",
-  },
-  {
-    type: 'text',
-    content: "And one placement is wrong in every case: no comma ever separates the final adjective from its noun. *a long, tedious, meeting* is incorrect regardless of how the adjectives relate.",
+    content: "When either test fails, the adjectives are **cumulative**: the first modifies the adjective-noun unit as a whole, not the noun alone. That's why *an old stone wall* takes no comma — it describes an old [stone wall], and both tests break: *a stone old wall* and *an old and stone wall* are equally unnatural. And one placement is wrong no matter how the adjectives relate: no comma ever separates the final adjective from its noun, so *a long, tedious, meeting* is incorrect in every case.",
   },
 
   { type: 'heading', content: 'Compound predicates' },
   {
     type: 'text',
-    content: "One subject performing two actions is a **compound predicate**, and no comma comes before the *and* that joins the two verbs: *She wrote the report and filed it.*",
+    content: "One subject performing two actions is a **compound predicate**, and no comma comes before the *and* that joins the two verbs: *She wrote the report and filed it.* Why no comma, when comma-before-FANBOYS is on the approved list? Because that function requires a complete sentence on each side of the conjunction, and here the subject is never restated — *filed it* has no subject of its own.",
   },
   {
     type: 'text',
-    content: "The comma-before-FANBOYS function applies only when a complete sentence stands on each side — and here the subject isn't restated. *filed it* has no subject of its own.",
-  },
-  {
-    type: 'text',
-    content: "The **period-substitution test** decides these instantly. Replace the comma + conjunction with a period and demand two complete sentences: *She wrote the report. Filed it.* fails — the second piece isn't a sentence — so *She wrote the report, and filed it* is incorrect.",
-  },
-  {
-    type: 'text',
-    content: "A long second verb phrase invites the comma by feel; the test is what rules it out.",
+    content: "The **period-substitution test** decides these instantly. Replace the comma and conjunction with a period and demand two complete sentences: *She wrote the report. Filed it.* The second piece fails, so *She wrote the report, and filed it* is incorrect. The versions that trip students almost always carry a long second verb phrase — length invites the comma by feel, which is precisely the feel these items exploit — so let the mechanical verdict overrule your ear.",
   },
 
   { type: 'heading', content: 'Semicolons in lists' },
   {
     type: 'text',
-    content: "When list items contain commas of their own, commas alone can't show where one item ends and the next begins — so **semicolons take over as the list separators**: *The symposium drew scholars from Lima, Peru; Accra, Ghana; and Hanoi, Vietnam.*",
+    content: "When list items contain commas of their own, commas alone can't show where one item ends and the next begins — written comma-only, *scholars from Lima, Peru, Accra, Ghana, and Hanoi, Vietnam* appears to list six places rather than three. So **semicolons take over as the list separators**: *The symposium drew scholars from Lima, Peru; Accra, Ghana; and Hanoi, Vietnam.* The stronger mark carves the item boundaries, and the commas keep doing their local work inside each item.",
   },
   {
     type: 'text',
-    content: "Written with commas throughout, the sentence appears to list six places rather than three.",
-  },
-  {
-    type: 'text',
-    content: "One requirement comes with the upgrade: separators must be uniform. Either every boundary in the list takes a semicolon or none does — a list that alternates commas and semicolons as separators is wrong on its face.",
-  },
-  {
-    type: 'tip',
-    content: "An embedded question ends with a **period**, not a question mark: *She asked whether it worked.* The sentence reports information rather than posing a question — the word *whether* signals the embedded form.",
+    content: "One requirement comes with the upgrade: the separators must be uniform. Either every boundary in the list takes a semicolon or none does — a list that alternates commas and semicolons as separators is wrong on its face.",
   },
 
   { type: 'heading', content: 'Direct vs. embedded questions' },
   {
     type: 'text',
-    content: "A **direct question** asks. It inverts the word order — verb before subject — and ends with a question mark: *Did the trial succeed?*",
+    content: "A **direct question** asks. It inverts the word order — verb before subject — and ends with a question mark: *Did the trial succeed?* An **embedded question** folds that questioning content inside a statement, typically after *whether, if, what, why,* or *how*: *The reviewers asked whether the trial had succeeded.* It keeps statement order, subject before verb, and it ends with a period, because the sentence as a whole asserts something — that the reviewers asked — rather than asking anything itself.",
   },
   {
     type: 'text',
-    content: "An **embedded question** folds the questioning content inside a statement, typically after *whether, if, what, why,* or *how*. It keeps statement order, subject before verb, and ends with a period — the sentence as a whole asserts rather than asks: *The reviewers asked whether the trial had succeeded.*",
+    content: "The two signals must agree, and that agreement is what gets tested. *She wondered why the results varied?* pairs statement order with a question mark; *asked whether had the trial succeeded* forces inverted order into an embedded clause. Both fail on internal inconsistency alone. Students reach for the question mark whenever the topic feels uncertain — but the end mark punctuates what the sentence does, not whether its subject matter is in doubt.",
   },
   {
-    type: 'text',
-    content: "The two signals must agree. *She wondered why the results varied?* pairs statement order with a question mark; *asked whether had the trial succeeded* forces inverted order into an embedded clause. Both fail on internal inconsistency alone — the end mark punctuates what the sentence does, not whether its topic is uncertain.",
+    type: 'tip',
+    content: "An embedded question ends with a **period**, not a question mark: *She asked whether it worked.* The sentence reports information rather than posing a question — the word *whether* is the signal of the embedded form.",
   },
   {
     type: 'table',
@@ -284,6 +243,6 @@ export const gCommasBlocks = [
 
   {
     type: 'text',
-    content: "**The whole skill in three checks:** cover the phrase and reread — extra information takes commas, identifying information takes none; an interruption closes with the same mark that opened it; and a comma with no nameable function gets deleted.",
+    content: "**The whole skill in three checks:** cover the phrase and reread — extra information takes commas, identifying information takes none; an interruption closes with the same mark that opened it; and a comma with no nameable function gets deleted. Each check replaces the pause-by-ear habit with a reason you can point to, and a reason you can point to is the only kind these questions credit.",
   },
 ];

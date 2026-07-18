@@ -1,11 +1,12 @@
 /**
  * Learn lesson body — Verbs: Tense & Form (Standard English Conventions).
  *
- * VOICE v3 (adopted 2026-07-17, exemplar: bodies/centralIdeas.js): scannable
- * instructional register — direct address, contractions, 1-3 sentence text
- * blocks, list blocks for criteria, steps blocks for procedures; no
- * analogies, no pep-talk, no emojis. All substance of the v2 textbook
- * version preserved. Gated by bodies.test.js.
+ * VOICE v4 (adopted 2026-07-18, exemplar: bodies/centralIdeas.js): practiced-tutor
+ * register — developed 2-5 sentence paragraphs with connective tissue; every rule
+ * earns its "because"; student-psychology named concretely; math teaching is
+ * example-led; varied rhythm, no aphorism-per-block. Bans carried from v3: no
+ * analogies, no pep talk, no exclamation marks, no emojis, no test-personification.
+ * All v3 teaching claims preserved. Gated by bodies.test.js.
  *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
@@ -14,31 +15,19 @@
 export const gVerbsBlocks = [
   {
     type: 'text',
-    content: "You've matched verbs to their subjects and pronouns to their antecedents. One match is left: time — the verb has to agree with the sentence's own timeline.",
-  },
-  {
-    type: 'text',
-    content: "Tense questions are built so every choice sounds acceptable on its own. That's deliberate: the rest of the sentence sets when events happened, and your job is to pick the form that lands in the right spot on that line — not the form that sounds best.",
+    content: "You've matched verbs to their subjects and pronouns to their antecedents. One match remains, and it's the one your ear is least equipped to check: time — the verb has to agree with the sentence's own timeline. Tense questions are built so that every choice sounds acceptable on its own, and that's deliberate: the rest of the sentence sets when events happened, and your job is to pick the form that lands in the right spot on that line, not the form that reads most smoothly.",
   },
 
   { type: 'heading', content: 'What these questions test' },
   {
     type: 'text',
-    content: "A typical item gives you a blank and four forms of the same verb: *walks, walked, has walked, had walked.* Read the blank by itself and often three of them sound fine.",
-  },
-  {
-    type: 'text',
-    content: "That's why your ear is unreliable here — it judges each option in isolation, and in isolation every option passes. The **surrounding verbs and time words** are what decide which form matches when events happened.",
+    content: "A typical item gives you a blank and four forms of the same verb: *walks, walked, has walked, had walked.* Read the blank by itself and often three of them sound fine — which is exactly why the ear fails here. It judges each option in isolation, and in isolation every option passes; only the **surrounding verbs and time words** can decide which form matches when the events actually happened. The evidence lives outside the blank.",
   },
 
   { type: 'heading', content: 'The default: match the neighbors' },
   {
     type: 'text',
-    content: "The default rule takes no analysis: use the tense the sentences around the blank are already using. A passage narrated in the past keeps the blank in the past.",
-  },
-  {
-    type: 'text',
-    content: "Depart from the neighboring tense only when a time word requires it. One caution about instinct: the elaborate form tends to look more sophisticated, and that appearance attracts errors — the plain form that echoes its neighbors is usually right.",
+    content: "The default rule takes no analysis: use the tense the sentences around the blank are already using, so a passage narrated in the past keeps its blank in the past. Depart from the neighboring tense only when a time word requires it. One caution about instinct, because it costs real points: the elaborate form tends to look more sophisticated, and students reach for it on the theory that a harder question deserves a fancier verb — the wrong answers are written for exactly that theory. The plain form that echoes its neighbors is usually right.",
   },
   {
     type: 'keyInsight',
@@ -48,7 +37,7 @@ export const gVerbsBlocks = [
   { type: 'heading', content: 'When a time word overrides the default' },
   {
     type: 'text',
-    content: 'Certain words fix the tense regardless of what the neighboring verbs are doing. When one of these shows up, it outranks everything else in the sentence:',
+    content: 'Certain words fix the tense outright, regardless of what the neighboring verbs are doing. When one of these appears, it outranks everything else in the sentence:',
   },
   {
     type: 'table',
@@ -65,17 +54,17 @@ export const gVerbsBlocks = [
   { type: 'heading', content: 'Two past events: the earlier one gets "had"' },
   {
     type: 'text',
-    content: "When one past event happened *before* another past event, the earlier action takes the past perfect (*had* + participle) and the later one stays in the simple past. In *The train **had left** before we **reached** the platform*, the leaving came first, so it carries the *had*.",
+    content: "When one past event happened *before* another past event, the earlier action takes the past perfect — *had* + participle — and the later one stays in the simple past. In *The train **had left** before we **reached** the platform*, the leaving came first, so it carries the *had*; the *had* is what tells the reader the two events are staggered rather than simultaneous.",
   },
   {
     type: 'text',
-    content: "The restriction matters as much as the rule: with no second past event, there's nothing for the *had* action to be earlier *than*. An unjustified past perfect is wrong.",
+    content: "The restriction matters as much as the rule. With no second past event in the sentence, there's nothing for the *had* action to be earlier *than*, so an unjustified past perfect is wrong — and it turns up as a wrong answer often, precisely because it looks more considered than the simple past.",
   },
 
   { type: 'heading', content: 'The if / would-have pattern' },
   {
     type: 'text',
-    content: 'A hypothetical about the past divides its forms between the two clauses — the halves are **not** identical.',
+    content: 'A hypothetical about the past — what would have happened if something else had happened — divides its forms between the two clauses, and the halves are **not** identical.',
   },
   {
     type: 'list',
@@ -87,7 +76,7 @@ export const gVerbsBlocks = [
   },
   {
     type: 'text',
-    content: "The characteristic error puts *would have* in both clauses. *If she would have trained* is wrong every time.",
+    content: "The characteristic error puts *would have* in both clauses, and it tempts students because the doubled version sounds balanced, as though the two halves ought to match. They don't: *If she would have trained* is wrong every time it appears.",
   },
   {
     type: 'keyInsight',

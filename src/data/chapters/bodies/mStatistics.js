@@ -1,10 +1,13 @@
 /**
  * Learn lesson body — Statistics & Data (Problem-Solving and Data Analysis).
  *
- * VOICE v3 (adopted 2026-07-17, exemplar: bodies/centralIdeas.js): scannable
- * instructional register — direct address, contractions, 1-3 sentence text
- * blocks, list blocks for criteria, steps blocks for procedures; no analogies,
- * no pep-talk, no emojis. All substance of the v2 textbook version preserved.
+ * VOICE v4 (adopted 2026-07-18, exemplar: bodies/centralIdeas.js):
+ * practiced-tutor register — developed 2-5 sentence paragraphs with
+ * connective tissue; every rule earns its "because"; student-psychology
+ * named concretely; math teaching is example-led; varied rhythm, no
+ * aphorism-per-block. Bans carried from v3: no analogies, no pep talk,
+ * no exclamation marks, no emojis, no test-personification. All v3
+ * teaching claims preserved.
  *
  * This skill spans several sub-ideas (center, spread, probability, box plots,
  * margin of error) — each section stays short so the whole thing reads fast.
@@ -20,43 +23,31 @@
 export const mStatisticsBlocks = [
   {
     type: 'text',
-    content: "Probability gave us the chance of a single outcome. Now we zoom out and summarize an entire data set — its center, its spread, and the displays that carry them.",
-  },
-  {
-    type: 'text',
-    content: "These questions span several distinct ideas — center, spread, probability, box plots, margin of error — but each individual question runs on a single rule. Name the rule first, before any computing; that classification is the core skill here.",
+    content: "Probability, in the last chapter, asked about one outcome at a time — a single draw, a single chance. This chapter zooms out and summarizes an entire data set: where its center sits, how widely its values spread, and how displays like frequency tables and box plots carry that information. The questions span several distinct ideas — center, spread, probability, box plots, margin of error — but each individual question runs on exactly one rule, so the core skill here is classification. Name the rule the question concerns before computing anything, because most misses in this topic come from running the right procedure on the wrong quantity, and the choices always list what that produces.",
   },
 
   { type: 'heading', content: 'Mean vs. median' },
   {
     type: 'text',
-    content: "Picture five friends splitting a dinner bill evenly — the **mean** is each person's equal share. The **median** is the middle value once the data are sorted.",
-  },
-  {
-    type: 'list',
-    title: 'The two measures of center:',
-    items: [
-      "**Mean** $= \\text{total} \\div \\text{count}$ — every value in the set contributes to it.",
-      "**Median** — sort the values first, then take the middle one (even count: average the two middle values). It depends on position only.",
-    ],
+    content: "Start with five friends splitting a $\\$115$ dinner bill evenly: each pays $\\$23$, and that number is the **mean** — the total redistributed into equal shares, $\\text{total} \\div \\text{count}$, so every value in the set contributes to it. The **median** comes from a different operation entirely: sort the values and take the middle one, averaging the two middle values when the count is even. Nothing gets added or divided along the way — the median depends on position only.",
   },
   {
     type: 'text',
-    content: "The two answer different questions: the mean spreads the total evenly, while the median reports only the center position. A question that names one of them does so deliberately — identify which measure is asked for before computing anything.",
+    content: "So the two measures answer different questions: the mean reports what an equal share would be, while the median reports where the center of the sorted list sits. A question that names one of them does so deliberately, usually because the data were chosen to make the two disagree — so identify which measure is asked for before computing anything, since the answer built from the other measure is generally waiting among the choices.",
   },
   {
     type: 'keyInsight',
-    content: "The mean formula rearranges to $\\text{total} = \\text{mean} \\times \\text{count}$. Whenever a value is added, removed, or corrected, work with the **total** rather than the mean — that one rearrangement cracks nearly every hard average question.",
+    content: "The mean formula rearranges to $\\text{total} = \\text{mean} \\times \\text{count}$. Whenever a value is added, removed, or corrected, work with the **total** rather than the mean — the change alters the total by an exact, known amount, while its effect on the mean stays hidden until the final division. That one rearrangement cracks nearly every hard average question.",
   },
 
   { type: 'heading', content: 'Outliers pull the mean, not the median' },
   {
     type: 'text',
-    content: "Add one billionaire to a room of ten people. The *average* income jumps dramatically — while the middle income barely moves.",
+    content: "Put ten people in a room, each earning about $\\$60{,}000$, and the mean and median income both sit near $\\$60{,}000$. Now add one billionaire. The total leaps by a billion dollars, so the mean rockets into the tens of millions — yet sort the eleven incomes and the middle value is still about $\\$60{,}000$. Why the split? Because the mean feeds on distance — every extra dollar flows through the total — while the median registers position only, and the billionaire occupies exactly one position at the end of the sorted list.",
   },
   {
     type: 'text',
-    content: "That's the whole principle: one extreme value drags the **mean** toward itself and leaves the **median** nearly unchanged, because the median depends on position, never on distance. In a skewed data set, the mean drifts toward the long tail while the median stays with the bulk of the data.",
+    content: "The same asymmetry shapes whole distributions: in a skewed data set the mean drifts toward the long tail, dragged by the extreme values out there, while the median stays with the bulk of the data. When a question asks which measure resists outliers, this is the fact being tested.",
   },
   {
     type: 'diagramRef',
@@ -67,15 +58,11 @@ export const mStatisticsBlocks = [
   { type: 'heading', content: 'Spread: range and standard deviation' },
   {
     type: 'text',
-    content: "Center is one question; how spread out the data are is a separate one. Two sets can share a mean of $50$ and be distributed very differently — and questions are routinely built on exactly that distinction.",
+    content: "Center settles only half the description. The sets $\\{49, 50, 51\\}$ and $\\{5, 50, 95\\}$ share a mean of $50$ and describe completely different situations — one tightly packed, the other scattered — and questions are routinely built on exactly that distinction. Spread therefore gets its own two measures.",
   },
   {
-    type: 'list',
-    title: 'The two measures of spread:',
-    items: [
-      "**Range** $= \\text{max} - \\text{min}$ — it depends only on the two endpoints, so a single stray value can inflate it.",
-      "**Standard deviation (SD)** — how tightly *all* the values cluster around the mean: tight clustering means a small SD, wide scatter a large one.",
-    ],
+    type: 'text',
+    content: "The **range**, $\\text{max} - \\text{min}$, consults only the two endpoints, and that is precisely its weakness: a single stray value resets an endpoint and inflates the range while every other value sits still. **Standard deviation (SD)** consults every value at once — it measures how tightly the whole set clusters around its own mean, so tight clustering means a small SD and wide scatter a large one.",
   },
   {
     type: 'tip',
@@ -85,19 +72,19 @@ export const mStatisticsBlocks = [
   { type: 'heading', content: 'Frequency tables and dot plots' },
   {
     type: 'text',
-    content: "Data often arrive already grouped. A frequency table lists each value once alongside how many times it occurs; a dot plot draws the same information as stacked dots over a number line, where the height of each stack is that value's count.",
+    content: "Data often arrive already grouped. A frequency table lists each value once alongside how many times it occurs, and a dot plot draws the same information as stacked dots over a number line, where the height of each stack is that value's count. The grouping changes nothing about the definitions — but it changes where students go wrong.",
   },
   {
     type: 'text',
-    content: "The mean still runs on the total: multiply each value by its count, add the products, and divide by the **total count** — never by the number of rows.",
+    content: "The mean still runs on the total, so each value has to be weighted by its count: multiply, add the products, and divide by the **total count**. Students who divide by the number of rows instead have averaged the table's layout rather than its data — a five-row table describing twenty students divides by $20$, never by $5$ — and the row-count answer is reliably among the choices.",
   },
   {
     type: 'text',
-    content: "The median comes from a cumulative walk. Add the counts row by row, in value order, until the running total reaches the middle position — for $n$ values, position $\\frac{n+1}{2}$ (for even $n$, average the values at positions $\\frac{n}{2}$ and $\\frac{n}{2}+1$).",
+    content: "The median comes from a cumulative walk. Add the counts row by row, in value order, until the running total reaches the middle position — for $n$ values, position $\\frac{n+1}{2}$ (for even $n$, average the values at positions $\\frac{n}{2}$ and $\\frac{n}{2}+1$). The walk works because the table is already sorted: value order is size order, so counting down the rows is the same as counting along the sorted list.",
   },
   {
     type: 'text',
-    content: "A histogram is coarser: it shows how many values fall in each bin, but not where they sit inside it. The same cumulative walk can locate the *bin* that contains the median — but the exact median, and the exact mean, can't be computed from a histogram at all.",
+    content: "A histogram is coarser. It records how many values fall in each bin but not where they sit inside it, so the same cumulative walk can locate the *bin* that contains the median — while the exact median, and the exact mean, can't be computed from a histogram at all. Some questions are built entirely on knowing where that line falls.",
   },
   {
     type: 'example',
@@ -113,17 +100,13 @@ export const mStatisticsBlocks = [
   { type: 'heading', content: 'Combining groups: weighted means' },
   {
     type: 'text',
-    content: "The mean of two combined groups is not, in general, the average of the two group means. Each group contributes through its **total**, so the group means get weighted by group size:",
+    content: "Two classes take the same test: one averages $80$, the other $90$. The instinct is to split the difference and report $85$ — and that unweighted average of the two means is precisely the wrong answer waiting among the choices. It fails because each class contributes through its **total**, and a larger class carries a larger total; unless the groups are exactly the same size, the combined mean gets pulled toward the mean of the larger group.",
   },
   {
     type: 'formula',
     label: 'Combined mean',
     content: '$\\text{combined mean} = \\dfrac{n_1 \\bar{x}_1 + n_2 \\bar{x}_2}{n_1 + n_2}$',
     note: 'Averaging the two means is right only when the groups are exactly the same size.',
-  },
-  {
-    type: 'text',
-    content: "Otherwise the combined mean sits closer to the mean of the larger group — and the unweighted average of the two means is precisely the wrong answer waiting among the choices.",
   },
   {
     type: 'example',
@@ -139,17 +122,13 @@ export const mStatisticsBlocks = [
   { type: 'heading', content: 'Probability: a share of the pool' },
   {
     type: 'text',
-    content: "Every probability is $\\dfrac{\\text{favorable outcomes}}{\\text{total pool}}$ — the outcomes you want, over the pool being drawn from. It's always a fraction between $0$ and $1$.",
-  },
-  {
-    type: 'text',
-    content: "Errors concentrate in the **denominator**. Question wording often restricts the pool, and the standard mistake is dividing by the grand total anyway — so pin down the pool before counting a single favorable outcome.",
+    content: "Every probability on this test is the same fraction — $\\dfrac{\\text{favorable outcomes}}{\\text{total pool}}$, the outcomes you want over the pool being drawn from — and it always lands between $0$ and $1$. The numerator is rarely where things go wrong. Errors concentrate in the **denominator**, because question wording often restricts the pool to a subgroup and the standard mistake is dividing by the grand total anyway. So pin down the pool before counting a single favorable outcome.",
   },
 
   { type: 'heading', content: 'Two-way tables: find the pool' },
   {
     type: 'text',
-    content: "A \"given that…\" or \"if a ___ is selected\" clause controls the entire question: it restricts the pool to one row or one column.",
+    content: "A \"given that…\" or \"if a ___ is selected\" clause controls the entire question, because it names the group being drawn from — one row or one column, never the whole table.",
   },
   {
     type: 'steps',
@@ -162,7 +141,7 @@ export const mStatisticsBlocks = [
   },
   {
     type: 'text',
-    content: "Working in that order rules out the standard wrong answer: the favorable count over the grand total.",
+    content: "Working in that order rules out the standard wrong answer — the favorable count over the grand total — because the denominator is settled before any counting begins, and the corner total never gets a chance to look tempting.",
   },
   {
     type: 'table',
@@ -178,11 +157,11 @@ export const mStatisticsBlocks = [
   { type: 'heading', content: 'Box plots: the five-number summary' },
   {
     type: 'text',
-    content: "A box plot displays exactly five numbers: minimum, first quartile ($Q_1$), median, third quartile ($Q_3$), and maximum. The **interquartile range** is $\\text{IQR} = Q_3 - Q_1$.",
+    content: "A box plot displays exactly five numbers — minimum, first quartile ($Q_1$), median, third quartile ($Q_3$), and maximum — and the **interquartile range** is $\\text{IQR} = Q_3 - Q_1$. All five are position facts: the quartiles cut the sorted data into four pieces with equal counts.",
   },
   {
     type: 'text',
-    content: "Each of the four segments holds about $25\\%$ of the data — every segment, no matter how wide it's drawn. A long segment means that quarter of the data is *spread out*, not that it holds more values, and that misreading is exactly what these questions are built around.",
+    content: "That is why each of the four segments holds about $25\\%$ of the data, no matter how wide it's drawn. Width shows spread, not quantity — a long segment means that quarter of the data is stretched across a wide interval, not that it holds more values. Students reliably read a long box or whisker as \"more data over there,\" and that misreading is exactly what these questions are built around.",
   },
   {
     type: 'callout',
@@ -193,19 +172,11 @@ export const mStatisticsBlocks = [
   { type: 'heading', content: 'Margin of error' },
   {
     type: 'text',
-    content: "A survey doesn't produce the true value — it produces an estimate with an interval of uncertainty around it: $\\text{estimate} \\pm \\text{margin}$. That interval is a claim about the *population value* (a mean or a proportion), not about any one individual in it.",
-  },
-  {
-    type: 'list',
-    title: 'Two things narrow the interval:',
-    items: [
-      'a larger sample',
-      'less underlying variability in the data',
-    ],
+    content: "A survey doesn't produce the true value — it produces an estimate with an interval of uncertainty around it: $\\text{estimate} \\pm \\text{margin}$. That interval is a claim about the *population value* (a mean or a proportion), never about any one individual in it.",
   },
   {
     type: 'text',
-    content: "These questions test exactly two things: what the interval describes, and what makes it narrower.",
+    content: "Two things narrow the interval: a larger sample, and less underlying variability in the data. Both work for the same reason — each makes the sample a steadier reflection of the population, so the plausible range for the true value tightens. These questions test exactly two things: what the interval describes, and what makes it narrower.",
   },
 
   { type: 'heading', content: 'How to approach these questions' },

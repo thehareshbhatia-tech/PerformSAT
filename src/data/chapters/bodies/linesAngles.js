@@ -1,10 +1,13 @@
 /**
  * Learn lesson body — Lines, Angles & Congruence (Geometry).
  *
- * VOICE v3 (adopted 2026-07-17, exemplar: bodies/centralIdeas.js): scannable
- * instructional register — direct address, contractions, 1-3 sentence text
- * blocks, list blocks for criteria, steps blocks for procedures; no analogies,
- * no pep-talk, no emojis. All substance of the v2 textbook version preserved.
+ * VOICE v4 (adopted 2026-07-18, exemplar: bodies/centralIdeas.js):
+ * practiced-tutor register — developed 2-5 sentence paragraphs with
+ * connective tissue; every rule earns its "because"; student-psychology
+ * named concretely; math teaching is example-led; varied rhythm, no
+ * aphorism-per-block. Bans carried from v3: no analogies, no pep talk,
+ * no exclamation marks, no emojis, no test-personification. All v3
+ * teaching claims preserved.
  *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
@@ -13,11 +16,7 @@
 export const linesAnglesBlocks = [
   {
     type: 'text',
-    content: "Geometry on this test is a chain of small deductions, not long computations. You find one angle, that angle exposes the next, and the target falls after a short chain.",
-  },
-  {
-    type: 'text',
-    content: "The habit that organizes the whole subject: every time you determine an angle's measure, write it on the figure. Underneath, everything rests on two fixed **angle totals**.",
+    content: "Geometry on this test is a chain of small deductions, not long computations: you find one angle, that angle exposes the next, and the target falls after a short chain. Two habits organize the whole subject. First, every time you determine an angle's measure, write it on the figure — a recorded angle is what exposes the one after it, and students who keep the values in their head lose the chain two steps in. Second, underneath everything sit two fixed **angle totals**, and nearly every deduction is a subtraction from one of them.",
   },
   {
     type: 'tip',
@@ -35,11 +34,7 @@ export const linesAnglesBlocks = [
   },
   {
     type: 'text',
-    content: "That's the entire inventory. A right angle is half a line, $90^\\circ$, and a full turn is two straight lines back to back.",
-  },
-  {
-    type: 'text',
-    content: "So the productive question isn't which named rule applies — it's which total the unknown angle belongs to.",
+    content: "That's the entire inventory, because every other figure is built from these two: a right angle is half a line, $90^\\circ$, and a full turn is two straight lines back to back. So the productive question on any angle problem isn't which named rule applies — it's which total the unknown angle belongs to, since once the total is identified, the unknown is just the total minus everything already known.",
   },
   {
     type: 'steps',
@@ -74,15 +69,11 @@ export const linesAnglesBlocks = [
   { type: 'heading', content: 'Parallel lines: only two sizes' },
   {
     type: 'text',
-    content: "A line crossing two **parallel** lines appears to create eight different angles. Only two sizes actually occur.",
+    content: "A line crossing two **parallel** lines appears to create eight different angles, but only two sizes actually occur. Why just two? Because parallel lines run in the same direction, the transversal meets the second line at exactly the same tilt as the first — the second crossing is a copy of the first, and a single crossing already holds only two values. Call the acute one $x$: every angle in the figure is either $x$ or $180^\\circ - x$, angles of the same size are equal, and angles of different sizes are supplementary.",
   },
   {
     type: 'text',
-    content: "Call the acute one $x$: every angle in the figure is either $x$ or $180^\\circ - x$. Angles of the same size are equal; angles of different sizes are supplementary.",
-  },
-  {
-    type: 'text',
-    content: "The names \"corresponding\" and \"alternate interior\" all label special cases of this single fact. One condition: the lines have to be *marked* parallel — appearing parallel in the drawing isn't enough.",
+    content: "The names \"corresponding\" and \"alternate interior\" all label special cases of this single fact, so no question ever requires reciting them. One condition guards the shortcut, though: the lines have to be *marked* parallel — appearing parallel in the drawing isn't enough, because the drawing's proportions were never promised in the first place.",
   },
   {
     type: 'diagramRef',
@@ -103,11 +94,7 @@ export const linesAnglesBlocks = [
   { type: 'heading', content: 'Triangles and the exterior angle' },
   {
     type: 'text',
-    content: "The three angles of any triangle sum to exactly $180^\\circ$ — no exceptions.",
-  },
-  {
-    type: 'text',
-    content: "Extending a side buys a shortcut: the **exterior angle** created equals the sum of the two *remote* interior angles — the two it doesn't touch. You can read it directly, without stopping to find the third interior angle first.",
+    content: "The three angles of any triangle sum to exactly $180^\\circ$ — no exceptions. Extending a side buys a shortcut on top of that sum: the **exterior angle** created equals the sum of the two *remote* interior angles, the two it doesn't touch. There's a reason the shortcut works — the exterior angle is the supplement of the interior angle beside it, and the two remote angles are exactly what the $180^\\circ$ sum leaves for that supplement. So the exterior angle can be read directly, without stopping to find the third interior angle first.",
   },
   {
     type: 'example',
@@ -128,7 +115,7 @@ export const linesAnglesBlocks = [
   { type: 'heading', content: 'Polygon angle sums' },
   {
     type: 'text',
-    content: "The triangle total extends to every polygon. Draw all diagonals from one vertex and an $n$-sided polygon splits into $n - 2$ triangles, so the interior angles sum to $180^\\circ(n - 2)$.",
+    content: "The triangle total extends to every polygon, because every polygon is triangles in disguise: draw all the diagonals from one vertex and an $n$-sided polygon splits into $n - 2$ triangles, each contributing $180^\\circ$. So the interior angles sum to $180^\\circ(n - 2)$.",
   },
   {
     type: 'list',
@@ -141,15 +128,7 @@ export const linesAnglesBlocks = [
   },
   {
     type: 'text',
-    content: "In a **regular** polygon — all sides and all angles equal — each interior angle is that sum divided by $n$.",
-  },
-  {
-    type: 'text',
-    content: "Exterior angles behave more simply. Take one at each vertex and they total $360^\\circ$ for *every* polygon, regardless of $n$ — walking once around the perimeter turns through exactly one full revolution.",
-  },
-  {
-    type: 'text',
-    content: "So each exterior angle of a regular polygon is $\\dfrac{360^\\circ}{n}$, and interior $+$ exterior $= 180^\\circ$ at every vertex — often the fastest route to an interior angle.",
+    content: "In a **regular** polygon — all sides and all angles equal — each interior angle is that sum divided by $n$. Exterior angles behave more simply: take one at each vertex and they total $360^\\circ$ for *every* polygon, regardless of $n$, because walking once around the perimeter turns through exactly one full revolution no matter how many corners the walk has. So each exterior angle of a regular polygon is $\\dfrac{360^\\circ}{n}$, and interior $+$ exterior $= 180^\\circ$ at every vertex — often the fastest route to an interior angle, since $360^\\circ \\div n$ runs on much smaller numbers than the interior sum does.",
   },
   {
     type: 'formula',
@@ -176,7 +155,7 @@ export const linesAnglesBlocks = [
   { type: 'heading', content: 'What proves two triangles congruent?' },
   {
     type: 'text',
-    content: "Congruent means same shape *and* same size — an exact copy. Proving it doesn't require checking all six parts; any one of these sets is enough.",
+    content: "Congruent means same shape *and* same size — an exact copy. Proving it doesn't require checking all six parts, because a triangle is rigid: fix the right three parts and the remaining three have no freedom left. Any one of these sets is enough.",
   },
   {
     type: 'list',
@@ -189,7 +168,7 @@ export const linesAnglesBlocks = [
   },
   {
     type: 'text',
-    content: "Two plausible-looking criteria fail. **SSA** fails because the unconstrained side can swing into two different triangles; **AAA** fails because it fixes the shape while placing no constraint on the size.",
+    content: "Two plausible-looking criteria fail, and each fails for its own reason. **SSA** fails because the unconstrained side can swing into two different triangles — same given parts, two shapes. **AAA** fails because it fixes the shape while placing no constraint on the size: three matching angles produce a scaled copy, not necessarily an equal one.",
   },
   {
     type: 'table',
@@ -208,15 +187,11 @@ export const linesAnglesBlocks = [
   { type: 'heading', content: 'Composite area and the scaling laws' },
   {
     type: 'text',
-    content: "An irregular shaded region has no dedicated formula — and none is expected. **Divide** it into rectangles and right triangles you have formulas for, or enclose it in a rectangle and **subtract the unshaded part**.",
+    content: "An irregular shaded region has no dedicated formula — and none is expected. **Divide** it into rectangles and right triangles you have formulas for, or enclose it in a rectangle and **subtract the unshaded part**; either way, every piece becomes computable. For the triangle pieces, $A = \\tfrac{1}{2} b h$, where $h$ is the *perpendicular* height to the base — never a slanted side.",
   },
   {
     type: 'text',
-    content: "For triangles, $A = \\tfrac{1}{2} b h$ — and $h$ is the *perpendicular* height to the base, never a slanted side.",
-  },
-  {
-    type: 'text',
-    content: "The error arrives in a predictable way: the figure draws the slanted side prominently on the region while leaving the true height out of the drawing entirely. The drawn length becomes the tempting wrong choice.",
+    content: "The height error arrives in a predictable costume: the figure draws the slanted side prominently on the region while leaving the true height out of the drawing entirely. Students who take their lengths from what's drawn rather than from the definition hand in the slanted side, and the drawn length is the tempting wrong choice for exactly that reason.",
   },
   {
     type: 'formula',
@@ -242,6 +217,6 @@ export const linesAnglesBlocks = [
 
   {
     type: 'text',
-    content: "**The whole subject in one habit:** don't trust the drawing. Take each value from a printed label or from one of the two fixed totals — $180^\\circ$ along a line, $360^\\circ$ around a point — write it on the figure, and let each recorded angle supply the next one.",
+    content: "**The whole subject in one habit:** don't trust the drawing. Take each value from a printed label or from one of the two fixed totals — $180^\\circ$ along a line, $360^\\circ$ around a point — write it on the figure, and let each recorded angle supply the next one. The chains are short; keeping every link on paper is what keeps them from breaking.",
   },
 ];

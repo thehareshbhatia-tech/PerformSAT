@@ -1,10 +1,13 @@
 /**
  * Learn lesson body — Text Structure & Purpose (Craft & Structure).
  *
- * VOICE v3 (adopted 2026-07-17, exemplar: bodies/centralIdeas.js): scannable
- * instructional register — direct address, contractions, 1-3 sentence text
- * blocks, list blocks for criteria, steps blocks for procedures; no analogies,
- * no pep-talk, no emojis. All substance of the v2 textbook version preserved.
+ * VOICE v4 (adopted 2026-07-18, exemplar: bodies/centralIdeas.js):
+ * practiced-tutor register — developed 2-5 sentence paragraphs with
+ * connective tissue; every rule earns its "because"; student-psychology
+ * named concretely; math teaching is example-led; varied rhythm, no
+ * aphorism-per-block. Bans carried from v3: no analogies, no pep talk,
+ * no exclamation marks, no emojis, no test-personification. All v3
+ * teaching claims preserved.
  *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
@@ -13,43 +16,23 @@
 export const textStructureAndPurposeBlocks = [
   {
     type: 'text',
-    content: "We've been working at the scale of a single word. Now we widen out to the architecture of the whole passage — why a sentence or paragraph is there at all.",
+    content: "We've been working at the scale of a single word. Now we widen out to the architecture of the whole passage — why a sentence or paragraph is there at all. Purpose and function questions ask **why** something appears on the page — the job it does — not **what** it says, and that one-level difference is where nearly every miss on these items comes from.",
   },
   {
     type: 'text',
-    content: "Purpose and function questions ask **why** something appears on the page — the job it does — not **what** it says.",
-  },
-  {
-    type: 'text',
-    content: "The classic mistake is retelling the content. A summary and a purpose sound nearly identical, but they work on different levels: one reports the words, the other reports the work those words do.",
-  },
-  {
-    type: 'text',
-    content: "Frame your answer as a *verb* — *to introduce, to qualify, to give an example* — and you land on the right level automatically.",
+    content: "The classic mistake is retelling the content, and it's an understandable one, because a summary and a purpose sound nearly identical. They work on different levels, though: one reports the words, the other reports the work those words do. The fix is grammatical — frame your answer as a *verb*, *to introduce, to qualify, to give an example*, and you land on the right level automatically, because a verb can only ever name a job.",
   },
 
   { type: 'heading', content: 'Three stems, one question' },
   {
     type: 'text',
-    content: "Three stems recur: *\"main purpose of the text,\"* *\"overall structure of the text,\"* and *\"function of the underlined sentence.\"* All three ask the same underlying question: **why did the author write this?**",
-  },
-  {
-    type: 'text',
-    content: "So the credited answer names what the passage *does*, not what it *says*. And one method serves every version: name the job, lead with a verb, and check that your answer covers the span the stem asks about.",
+    content: "Three stems recur: *\"main purpose of the text,\"* *\"overall structure of the text,\"* and *\"function of the underlined sentence.\"* All three ask the same underlying question — **why did the author write this?** — so the credited answer names what the passage *does*, not what it *says*. That shared root is convenient, because one method then serves every version: name the job, lead with a verb, and check that your answer covers the span the stem asks about.",
   },
 
   { type: 'heading', content: 'Answer with a verb' },
   {
     type: 'text',
-    content: "Purpose answers start with an infinitive: *to explain, to challenge, to illustrate.*",
-  },
-  {
-    type: 'text',
-    content: "A quick self-test: if your answer is a claim somebody could argue with, it's still describing the *point*, not the *job* — move one level up. \"Trees save cities money\" is a point; *to argue that trees save cities money* is a job.",
-  },
-  {
-    type: 'text',
-    content: "The answer choices are built from a small set of recurring verbs:",
+    content: "Purpose answers start with an infinitive — *to explain, to challenge, to illustrate* — and there's a quick self-test for whether you've actually produced one. If your answer is a claim somebody could argue with, it's still describing the *point*, not the *job*, and you've stopped one level too low: \"trees save cities money\" is a point, while *to argue that trees save cities money* is a job. The answer choices themselves are built from a small set of recurring verbs, each with conditions the passage has to meet before the verb is earned:",
   },
   {
     type: 'table',
@@ -67,20 +50,7 @@ export const textStructureAndPurposeBlocks = [
   { type: 'heading', content: 'Function of an underlined sentence' },
   {
     type: 'text',
-    content: "A sentence's function exists only in relation to its neighbors, so don't judge it in isolation. Read one sentence above and one below, and work out what job it does for the sentences **around** it:",
-  },
-  {
-    type: 'list',
-    items: [
-      'setting up a contrast',
-      'giving evidence for the claim before it',
-      'defining a term',
-      'conceding a point',
-    ],
-  },
-  {
-    type: 'text',
-    content: "One reliable directional pattern: support points *upward* — the claim a detail serves almost always sits just before it.",
+    content: "A sentence's function exists only in relation to its neighbors, so judging it in isolation isn't just risky — there's nothing there to judge. Read one sentence above and one below, and work out what job the underlined sentence does for the sentences **around** it: setting up a contrast, giving evidence for the claim before it, defining a term, conceding a point. One directional pattern is reliable enough to lean on — support points *upward*, because the claim a detail serves almost always sits just before it.",
   },
   {
     type: 'keyInsight',
@@ -90,38 +60,17 @@ export const textStructureAndPurposeBlocks = [
   { type: 'heading', content: 'Scope: the whole passage, not the best sentence' },
   {
     type: 'text',
-    content: "For *\"main purpose of the text,\"* compress the whole passage into one line that leads with a verb: *to correct a widespread belief about X.*",
-  },
-  {
-    type: 'text',
-    content: "Then check the scope. The right answer covers the **whole** passage, not its most memorable sentence.",
-  },
-  {
-    type: 'text',
-    content: "The passage's most vivid detail supplies the most attractive wrong answer: true, but too narrow. Those choices fail on scope, not on facts.",
+    content: "For *\"main purpose of the text,\"* compress the whole passage into one line that leads with a verb — *to correct a widespread belief about X* — and then check the scope, because scope is where these items are actually lost. The right answer covers the **whole** passage, not its most memorable sentence. The passage's most vivid detail supplies the most attractive wrong answer, written for the reader who remembers that detail best: true in every word, and too narrow to be the purpose of the text. Those choices fail on scope, not on facts, which is why checking facts alone never catches them.",
   },
 
   { type: 'heading', content: "Tone: the author's stance" },
   {
     type: 'text',
-    content: "Tone is how the *author* regards the topic — a separate question from whether the subject itself is somber or cheerful.",
+    content: "Tone is how the *author* regards the topic, and that's a separate question from whether the subject itself is somber or cheerful — a passage about a shipwreck can be written with cool detachment, and a passage about gravel can glow with admiration. Read the stance from the **evaluative words**, the small judgments the author drops in: *striking*, *dubious*, *so-called*, *elegant*. Those words are the only places the author's own attitude touches the page, so they outrank any impression the subject matter leaves.",
   },
   {
     type: 'text',
-    content: "Read it from the **evaluative words** — the small judgments the author drops in:",
-  },
-  {
-    type: 'list',
-    items: [
-      '*striking*',
-      '*dubious*',
-      '*so-called*',
-      '*elegant*',
-    ],
-  },
-  {
-    type: 'text',
-    content: "Test passages are written in a measured register, so extreme stances (*mocks, ridicules, proves*) are almost always wrong. When two verbs point the same direction, take the calmer one: *questions* over *ridicules*, *suggests* over *proves.*",
+    content: "Test passages are written in a measured register, and that fact does elimination work for you: extreme stances (*mocks, ridicules, proves*) are almost always wrong because the prose never runs that hot. When two verbs point the same direction, take the calmer one — *questions* over *ridicules*, *suggests* over *proves.*",
   },
   {
     type: 'tip',
@@ -131,15 +80,11 @@ export const textStructureAndPurposeBlocks = [
   { type: 'heading', content: 'Poetry: find the turn' },
   {
     type: 'text',
-    content: "A poem's structure yields to the same analysis as prose once you identify its units. **Treat stanzas as paragraphs** — each one advances, develops, or reverses what came before — and read line breaks as pauses, not stops.",
+    content: "A poem's structure yields to the same analysis as prose once you identify its units. **Treat stanzas as paragraphs** — each one advances, develops, or reverses what came before — and read line breaks as pauses rather than stops, because a poem's sentences routinely run across several lines and the meaning lives in the sentence, not the line.",
   },
   {
     type: 'text',
-    content: "The structural hinge of most tested poems is the **turn**: the point where something shifts — the speaker's stance, the time frame, the addressee, or the governing image.",
-  },
-  {
-    type: 'text',
-    content: "A structure answer for a poem almost always names the two sides of the turn and the relation between them: *a memory is recounted, then its meaning is reconsidered*; *a scene is described, then the speaker addresses the person absent from it.*",
+    content: "The structural hinge of most tested poems is the **turn**: the point where something shifts — the speaker's stance, the time frame, the addressee, or the governing image. That hinge is why a structure answer for a poem almost always names the two sides of the turn and the relation between them: *a memory is recounted, then its meaning is reconsidered*; *a scene is described, then the speaker addresses the person absent from it.*",
   },
   {
     type: 'table',
@@ -152,11 +97,7 @@ export const textStructureAndPurposeBlocks = [
   },
   {
     type: 'text',
-    content: "Function questions on these devices follow the prose standard exactly: the credited answer names the **job**, not the content.",
-  },
-  {
-    type: 'text',
-    content: "When a poem sustains one comparison for four stanzas, that comparison is the poem's organizing framework — its function is to structure the treatment of the subject. A choice that reads the image literally, as though the poem were about the house rather than about memory, mistakes the device for the topic.",
+    content: "Function questions on these devices follow the prose standard exactly: the credited answer names the **job**, not the content. So when a poem sustains one comparison for four stanzas, that comparison is the poem's organizing framework, and its function is to structure the treatment of the subject. A choice that reads the image literally — as though the poem were about the house rather than about memory — has mistaken the device for the topic.",
   },
   {
     type: 'checkpointQuestion',
@@ -241,6 +182,6 @@ export const textStructureAndPurposeBlocks = [
 
   {
     type: 'text',
-    content: "**In summary:** ask why the sentence or passage is there, answer with a verb, check the verb's direction and force, and confirm your answer covers the full span the stem asks about. When two verbs survive, take the calmer one.",
+    content: "**The whole skill in four checks:** ask why the sentence or passage is there, answer with a verb, test the verb's direction and force, and confirm the answer covers the full span the stem asks about. When two verbs survive, take the calmer one — the measured register of these passages makes the quieter verb the better bet, and it always will.",
   },
 ];

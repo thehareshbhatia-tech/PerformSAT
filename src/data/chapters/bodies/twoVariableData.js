@@ -1,10 +1,13 @@
 /**
  * Learn lesson body — Scatterplots & Data Models (Two-Variable Data).
  *
- * VOICE v3 (adopted 2026-07-17, exemplar: bodies/centralIdeas.js): scannable
- * instructional register — direct address, contractions, 1-3 sentence text
- * blocks, list blocks for criteria, steps blocks for procedures; no analogies,
- * no pep-talk, no emojis. All substance of the v2 textbook version preserved.
+ * VOICE v4 (adopted 2026-07-18, exemplar: bodies/centralIdeas.js):
+ * practiced-tutor register — developed 2-5 sentence paragraphs with
+ * connective tissue; every rule earns its "because"; student-psychology
+ * named concretely; math teaching is example-led; varied rhythm, no
+ * aphorism-per-block. Bans carried from v3: no analogies, no pep talk,
+ * no exclamation marks, no emojis, no test-personification. All v3
+ * teaching claims preserved.
  *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
@@ -13,22 +16,7 @@
 export const twoVariableDataBlocks = [
   {
     type: 'text',
-    content: "The last chapter summarized one variable at a time. A scatterplot sets two variables against each other — one point per observation.",
-  },
-  {
-    type: 'text',
-    content: "Every plot holds two distinct objects, and the entire skill is keeping them straight:",
-  },
-  {
-    type: 'list',
-    items: [
-      '**The dots are data** — what actually happened.',
-      '**The line is a model** — a summary constructed afterward.',
-    ],
-  },
-  {
-    type: 'text',
-    content: "Decide which object a question concerns before anything else. That one call resolves most questions in this family.",
+    content: "The last chapter summarized one variable at a time; a scatterplot sets two variables against each other, one point per observation. Every such plot holds two distinct objects, and the entire skill of this chapter is keeping them straight: the **dots are data** — what actually happened — while the **line is a model**, a summary constructed afterward. Decide which object a question concerns before anything else, because that one call resolves most questions in this family.",
   },
   {
     type: 'diagramRef',
@@ -37,25 +25,17 @@ export const twoVariableDataBlocks = [
   },
   {
     type: 'text',
-    content: "And read the frame before any dot: both axis labels, *units included*. One dot represents one observation — on a plot of study hours vs. score, the dot at $(5, 62)$ is one student who studied 5 hours and scored 62.",
-  },
-  {
-    type: 'text',
-    content: "If an axis reads \"population (thousands),\" a gridline at 40 means 40{,}000. The printed number isn't the quantity until the unit is applied, and overlooked axis units sink otherwise easy questions.",
+    content: "And read the frame before any dot: both axis labels, *units included*. One dot represents one observation — on a plot of study hours vs. score, the dot at $(5, 62)$ is one student who studied 5 hours and scored 62. The units matter because the printed number isn't the quantity until the unit is applied: if an axis reads \"population (thousands),\" a gridline at 40 means 40{,}000, and overlooked axis units sink otherwise easy questions.",
   },
 
   { type: 'heading', content: 'What the line of best fit does' },
   {
     type: 'text',
-    content: "A **line of best fit** balances the cloud of points: dots above it offset dots below it. It does *not* connect the points — a well-fitted line can pass through none of them.",
+    content: "A **line of best fit** balances the cloud of points — dots above it offset dots below it — and that balancing is all it promises. It does *not* connect the points; a well-fitted line can pass through none of them, because its job is to compress the trend into one clean equation rather than to visit every observation. That's also why a dot lying off the line doesn't make the line \"wrong\" — the line never claimed to pass through it.",
   },
   {
     type: 'text',
-    content: "Its job is to compress the trend into one clean equation. That's why a dot lying off the line doesn't make the line \"wrong.\"",
-  },
-  {
-    type: 'text',
-    content: "It's also a genuine line — slope, intercept, equation, everything from algebra. Questions about the line get answered from that equation, not from the dots.",
+    content: "At the same time, it's a genuine line: slope, intercept, equation, everything from algebra carries over intact. So questions about the line get answered from that equation, not from the dots.",
   },
   {
     type: 'keyInsight',
@@ -65,15 +45,11 @@ export const twoVariableDataBlocks = [
   { type: 'heading', content: 'Predicted vs. actual: the vertical gap' },
   {
     type: 'text',
-    content: "The **predicted** value at some x is the *line's* height there. The **actual** value is the *dot's* height. The error is the gap between them, measured **vertically** — never horizontally.",
+    content: "The **predicted** value at some x is the *line's* height there; the **actual** value is the *dot's* height; and the error is the gap between them, measured **vertically** — never horizontally, because both values answer to the same x. This signed difference, actual minus predicted, is called the **residual**.",
   },
   {
     type: 'text',
-    content: "This signed difference, actual minus predicted, is called the **residual**.",
-  },
-  {
-    type: 'text',
-    content: "The direction language is where these questions bite. A dot *above* the line means the actual value beat the prediction, so the model **underestimates** there; below the line, it **overestimates**. \"Over\" and \"under\" describe the *model's prediction*, not the dot's position — fix that referent before answering.",
+    content: "The direction language is where these questions bite. A dot *above* the line means the actual value beat the prediction, so the model **underestimates** there; below the line, it **overestimates**. Students reverse this constantly, and the cause is a misplaced referent — a high dot feels like \"over.\" But \"over\" and \"under\" describe the *model's prediction*, not the dot's position. Fix that referent before answering, and the reversal never gets started.",
   },
   {
     type: 'formula',
@@ -85,7 +61,7 @@ export const twoVariableDataBlocks = [
   { type: 'heading', content: 'Slope of the fit line' },
   {
     type: 'text',
-    content: "The fit line is a line, so its slope is $\\dfrac{y_2 - y_1}{x_2 - x_1}$. The care is in where the two points come from — and in how the slope gets reported.",
+    content: "The fit line is a line, so its slope is $\\dfrac{y_2 - y_1}{x_2 - x_1}$ — nothing new there. The care is in where the two points come from, and in how the slope gets reported once you have it.",
   },
   {
     type: 'steps',
@@ -101,18 +77,7 @@ export const twoVariableDataBlocks = [
   { type: 'heading', content: 'Linear vs. exponential models' },
   {
     type: 'text',
-    content: "When a question asks which *kind* of model fits, one distinction sorts every change-over-time situation: does each step change the quantity by the same *amount*, or by the same *multiple*?",
-  },
-  {
-    type: 'list',
-    items: [
-      "A $\\$5$ raise every year is **linear** — a constant **difference** between consecutive values, producing a straight line.",
-      "A $5\\%$ raise every year is **exponential** — a constant **ratio**, producing a curve that compounds on a moving base.",
-    ],
-  },
-  {
-    type: 'text',
-    content: "The two look similar for a step or two, then diverge sharply: the exponential grows from an ever-larger base, while the linear adds the same amount each step.",
+    content: "When a question asks which *kind* of model fits, one distinction sorts every change-over-time situation: does each step change the quantity by the same *amount*, or by the same *multiple*? A $\\$5$ raise every year is **linear** — a constant difference between consecutive values, producing a straight line. A $5\\%$ raise every year is **exponential** — a constant ratio, producing a curve, because each year's $5\\%$ is computed on a base the previous year already enlarged. The two look similar for a step or two, then diverge sharply: the exponential grows from an ever-larger base, while the linear adds the same amount each step.",
   },
   {
     type: 'formulaGrid',
@@ -129,19 +94,11 @@ export const twoVariableDataBlocks = [
   { type: 'heading', content: 'Reading data displays' },
   {
     type: 'text',
-    content: "Charts of a quantity over time invite one persistent confusion: **level** versus **change**. The highest point on the graph is the largest *value*; the fastest growth is the *steepest climb* — and the two rarely coincide.",
+    content: "Charts of a quantity over time invite one persistent confusion: **level** versus **change**. The highest point on the graph is the largest *value*; the fastest growth is the *steepest climb* — and the two rarely coincide. So match the question's verb to the right feature: where sales *grew the most* concerns the jump from one reading to the next, while where sales *were greatest* concerns a single reading.",
   },
   {
     type: 'text',
-    content: "So match the question's verb to the right feature. Where sales *grew the most* concerns the jump from one reading to the next; where sales *were greatest* concerns a single reading.",
-  },
-  {
-    type: 'text',
-    content: "Comparing growth across intervals of *different widths* takes a rate, not a raw rise. The average rate of change over an interval is the slope between its endpoints, $\\frac{\\Delta y}{\\Delta x}$ — and a larger total rise over a much wider interval can still be the slower rate.",
-  },
-  {
-    type: 'text',
-    content: "Divide every candidate's rise by its own run. Raw rises compare fairly only when the runs happen to be equal.",
+    content: "Comparing growth across intervals of *different widths* takes a rate, not a raw rise, because a larger total rise spread over a much wider interval can still be the slower climb. The average rate of change over an interval is the slope between its endpoints, $\\frac{\\Delta y}{\\Delta x}$ — so divide every candidate's rise by its own run. Raw rises compare fairly only when the runs happen to be equal.",
   },
   {
     type: 'text',
@@ -157,11 +114,7 @@ export const twoVariableDataBlocks = [
   },
   {
     type: 'text',
-    content: "The graph's height at any moment is the *net* distance from the start — a walker who returns home finishes at height $0$ no matter how far she traveled. The *total* distance adds the sizes of every rise and fall.",
-  },
-  {
-    type: 'text',
-    content: "On a chart with several data series, the legend is part of the data. Identify which series the question names before reading any value — pulling a number from the neighboring line is the routine miss on multi-series items.",
+    content: "The graph's height at any moment is the *net* distance from the start, which is why a walker who returns home finishes at height $0$ no matter how far she traveled; the *total* distance adds the sizes of every rise and fall, and it never appears on the axis. One more habit for crowded charts: on a plot with several data series, the legend is part of the data. Identify which series the question names before reading any value — pulling a number from the neighboring line is the routine miss on multi-series items.",
   },
 
   { type: 'heading', content: 'How to approach these questions' },
@@ -250,6 +203,6 @@ export const twoVariableDataBlocks = [
 
   {
     type: 'text',
-    content: "**In summary:** name the object first — dot, line, or the gap between them — and read only that object. The dots record what happened, the line records what the model predicts, and the vertical gap measures the size of the prediction's error.",
+    content: "**The whole chapter in one call:** name the object first — dot, line, or the vertical gap between them — and read only that object. The dots record what happened, the line records what the model predicts, and the gap measures how far the prediction missed. Every rule here, from vertical error to per-one-unit slope to prediction language, is that identification carried through.",
   },
 ];

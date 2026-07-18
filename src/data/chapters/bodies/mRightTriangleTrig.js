@@ -1,10 +1,13 @@
 /**
  * Learn lesson body — Right-Triangle Trigonometry (Geometry & Trigonometry).
  *
- * VOICE v3 (adopted 2026-07-17, exemplar: bodies/centralIdeas.js): scannable
- * instructional register — direct address, contractions, 1-3 sentence text
- * blocks, list blocks for criteria, steps blocks for procedures; no analogies,
- * no pep-talk, no emojis. All substance of the v2 textbook version preserved.
+ * VOICE v4 (adopted 2026-07-18, exemplar: bodies/centralIdeas.js):
+ * practiced-tutor register — developed 2-5 sentence paragraphs with
+ * connective tissue; every rule earns its "because"; student-psychology
+ * named concretely; math teaching is example-led; varied rhythm, no
+ * aphorism-per-block. Bans carried from v3: no analogies, no pep talk,
+ * no exclamation marks, no emojis, no test-personification. All v3
+ * teaching claims preserved.
  *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
@@ -13,17 +16,13 @@
 export const mRightTriangleTrigBlocks = [
   {
     type: 'text',
-    content: "Of the triangle tools from the last chapter, similarity is the one that makes trigonometry possible: fix an acute angle of a right triangle and you've fixed the ratios of its sides. Sine, cosine, and tangent simply name those ratios.",
-  },
-  {
-    type: 'text',
-    content: "In practice, the work rests less on the ratios themselves than on labeling the sides correctly. One acronym — **SOH-CAH-TOA** — plus one shortcut for the recurring $\\sin(x°) = \\cos(y°)$ question covers nearly all of it, with little calculator work involved.",
+    content: "Of the triangle tools from the last chapter, similarity is the one that makes trigonometry possible. Fix an acute angle of a right triangle and you've fixed the ratios of its sides, because every right triangle with that angle is a scaled copy of every other — and sine, cosine, and tangent simply name those ratios. In practice, the work rests less on the ratios themselves than on labeling the sides correctly: one acronym, **SOH-CAH-TOA**, plus one shortcut for the recurring $\\sin(x°) = \\cos(y°)$ question covers nearly all of it, with little calculator work involved.",
   },
 
   { type: 'heading', content: 'The three ratios' },
   {
     type: 'text',
-    content: "Choose one acute angle and describe the triangle from that vertex.",
+    content: "Choose one acute angle and describe the whole triangle from that vertex — every label that follows is assigned relative to the angle you chose.",
   },
   {
     type: 'list',
@@ -36,7 +35,7 @@ export const mRightTriangleTrigBlocks = [
   },
   {
     type: 'text',
-    content: "This labeling carries the entire method — each ratio is nothing more than a fixed pairing of two of these names. Once the labels are assigned, the choice of sine, cosine, or tangent is determined.",
+    content: "This labeling carries the entire method, because each ratio is nothing more than a fixed pairing of two of these names. Once the labels are assigned, the choice of sine, cosine, or tangent is determined — no judgment call remains.",
   },
   {
     type: 'diagramRef',
@@ -54,6 +53,10 @@ export const mRightTriangleTrigBlocks = [
 
   { type: 'heading', content: 'Labels come from the angle, not the drawing' },
   {
+    type: 'text',
+    content: "Draw a right triangle with legs $5$ and $12$. From one acute angle, the $5$ leg sits across the figure — opposite; walk to the other acute angle and the same leg now touches the vertex — adjacent. Nothing about the side changed; the vertex you measured from did. That is why the labels have to be reassigned from scratch whenever the angle of interest changes, and why they can never be read off the drawing's orientation.",
+  },
+  {
     type: 'keyInsight',
     content: "The same leg is \"opposite\" for one acute angle and \"adjacent\" for the other — so labels come from the chosen angle's vertex, never from how the figure happens to be turned. A trig value is also independent of size: every right triangle with a $30°$ angle has $\\sin 30° = \\tfrac{1}{2}$, whatever its dimensions. The angle alone determines the ratio.",
   },
@@ -61,7 +64,7 @@ export const mRightTriangleTrigBlocks = [
   { type: 'heading', content: 'Finding a missing side' },
   {
     type: 'text',
-    content: "Every missing-side problem turns on one selection: the ratio that connects the side you're **given** to the side you **want**. Name that ratio, set it equal to its fraction, and solve.",
+    content: "Every missing-side problem turns on one selection: the ratio that connects the side you're **given** to the side you **want**. Name that ratio, set it equal to its fraction, and solve — the equation is one line long, and the labeling has already done the hard part.",
   },
   {
     type: 'tip',
@@ -80,11 +83,7 @@ export const mRightTriangleTrigBlocks = [
   { type: 'heading', content: 'The cofunction identity' },
   {
     type: 'text',
-    content: "The two acute angles of a right triangle are complementary — together they account for $90°$.",
-  },
-  {
-    type: 'text',
-    content: "Viewed from one acute angle, a given leg is **opposite**; viewed from the other, the same leg is **adjacent**. That exchange of roles is why one angle's sine equals the other angle's cosine: $\\sin\\theta = \\cos(90° - \\theta)$.",
+    content: "The two acute angles of a right triangle are complementary — together they account for the $90°$ the right angle leaves behind. Now recall the relabeling fact: viewed from one acute angle, a given leg is **opposite**, while viewed from the other, the same leg is **adjacent**. That exchange of roles is exactly why one angle's sine equals the other angle's cosine — the two ratios use the same leg over the same hypotenuse — so $\\sin\\theta = \\cos(90° - \\theta)$.",
   },
   {
     type: 'tip',

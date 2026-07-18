@@ -1,10 +1,13 @@
 /**
  * Learn lesson body — Cross-Text Connections (Craft and Structure).
  *
- * VOICE v3 (adopted 2026-07-17, exemplar: bodies/centralIdeas.js): scannable
- * instructional register — direct address, contractions, 1-3 sentence text
- * blocks, list blocks for criteria, steps blocks for procedures; no analogies,
- * no pep-talk, no emojis. All substance of the v2 textbook version preserved.
+ * VOICE v4 (adopted 2026-07-18, exemplar: bodies/centralIdeas.js):
+ * practiced-tutor register — developed 2-5 sentence paragraphs with
+ * connective tissue; every rule earns its "because"; student-psychology
+ * named concretely; math teaching is example-led; varied rhythm, no
+ * aphorism-per-block. Bans carried from v3: no analogies, no pep talk,
+ * no exclamation marks, no emojis, no test-personification. All v3
+ * teaching claims preserved.
  *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
@@ -13,43 +16,19 @@
 export const crossTextConnectionsBlocks = [
   {
     type: 'text',
-    content: "Every reading skill so far — tracing ideas, drawing inferences, weighing evidence, parsing structure — has worked inside a single passage. This chapter completes the reading toolkit by setting two passages in conversation.",
-  },
-  {
-    type: 'text',
-    content: "Cross-text questions give you two short passages on one topic — Text 1 and Text 2 — then ask something like *\"How would the author of Text 2 respond to Text 1?\"*",
-  },
-  {
-    type: 'text',
-    content: "The stem sounds like a call for speculation. It isn't: everything each author believes is already stated in that author's own words. What these questions measure is **keeping the two positions straight**.",
+    content: "Every reading skill so far — tracing ideas, drawing inferences, weighing evidence, parsing structure — has worked inside a single passage. This chapter completes the reading toolkit by setting two passages in conversation. Cross-text questions give you two short passages on one topic — Text 1 and Text 2 — then ask something like *\"How would the author of Text 2 respond to Text 1?\"* The stem sounds like a call for speculation, but it isn't: everything each author believes is already stated in that author's own words, so what these questions actually measure is **keeping the two positions straight**.",
   },
 
   { type: 'heading', content: "What's actually tested" },
   {
     type: 'text',
-    content: "These items check whether you can hold **two separate positions** without blending them into one impression of \"what the passages say.\"",
-  },
-  {
-    type: 'text',
-    content: "The most frequent error is mixing the voices — attributing a detail from Text 1 to Text 2. It happens naturally: the texts share a topic, so after one read their claims blur together.",
-  },
-  {
-    type: 'text',
-    content: "The fix is procedural, not interpretive: label whose claim is whose before evaluating any answer choice.",
+    content: "These items check whether you can hold **two separate positions** without blending them into one impression of \"what the passages say.\" The most frequent error is mixing the voices — attributing a detail from Text 1 to Text 2 — and it happens to careful readers, not just careless ones, because the texts share a topic and after one read their claims naturally blur together. The wrong answers are built for exactly that blur: accurate-sounding statements attached to the wrong author. So the fix is procedural, not interpretive — label whose claim is whose before evaluating any answer choice.",
   },
 
   { type: 'heading', content: 'Step 1: state each claim separately' },
   {
     type: 'text',
-    content: "After finishing Text 1, state its point in one short labeled phrase: *T1: street trees cut summer energy use.* Then do the same for Text 2: *T2: only where the canopies connect.*",
-  },
-  {
-    type: 'text',
-    content: "The standard for a good restatement: it's a **claim someone could dispute**, not a topic. \"Both are about trees and heat\" is a topic — nothing can agree or disagree with it, so it gives you no traction on the question.",
-  },
-  {
-    type: 'text',
-    content: "Refine each label until it's a sentence one author would defend and the other might challenge.",
+    content: "After finishing Text 1, state its point in one short labeled phrase: *T1: street trees cut summer energy use.* Then do the same for Text 2: *T2: only where the canopies connect.* The standard for a good restatement is that it's a **claim someone could dispute**, not a topic — \"both are about trees and heat\" is a topic, and since nothing can agree or disagree with a topic, it gives you no traction on a question about how one author would answer the other. Refine each label until it's a sentence one author would defend and the other might challenge.",
   },
   {
     type: 'keyInsight',
@@ -59,11 +38,7 @@ export const crossTextConnectionsBlocks = [
   { type: 'heading', content: 'Step 2: name the relationship' },
   {
     type: 'text',
-    content: "Read your two lines against each other and name **how** they relate — precisely, not just \"they agree\" or \"they disagree.\"",
-  },
-  {
-    type: 'text',
-    content: "State *where* the agreement ends: \"Both accept the transplants survive; they split on whether the method scales.\" That boundary is the hinge of the question, and finding it usually decides the answer.",
+    content: "Now read your two lines against each other and name **how** they relate — precisely, not just \"they agree\" or \"they disagree,\" because almost no tested pair does either completely. State *where* the agreement ends: \"both accept the transplants survive; they split on whether the method scales.\" That boundary is the hinge of the question — the credited response almost always lives exactly at it, and finding it usually decides the answer before you've read a single choice.",
   },
   {
     type: 'table',
@@ -80,15 +55,7 @@ export const crossTextConnectionsBlocks = [
   { type: 'heading', content: 'Step 3: predict, then match' },
   {
     type: 'text',
-    content: "Before reading the choices, state Author 2's likely response in one sentence — limited to what the text actually **commits the author to**.",
-  },
-  {
-    type: 'text',
-    content: "However reasonable a real-world objection sounds, if no sentence licenses it, it isn't that author's response.",
-  },
-  {
-    type: 'text',
-    content: "Then sort the choices by direction — approve, object, qualify — and cut the ones pointing the wrong way before weighing any wording.",
+    content: "Before reading the choices, state Author 2's likely response in one sentence, limited to what the text actually **commits the author to**. That limit is the whole discipline, because a response can be perfectly sensible and still be wrong: however reasonable a real-world objection sounds, if no sentence licenses it, it isn't that author's response — it's yours. Then sort the choices by direction — approve, object, qualify — and cut the ones pointing the wrong way before weighing any wording.",
   },
   {
     type: 'tip',
@@ -160,6 +127,6 @@ export const crossTextConnectionsBlocks = [
 
   {
     type: 'text',
-    content: "**In summary:** state each claim under its own label, name the relationship and its hinge, predict Author 2's response from what the text commits the author to, and match by direction first. Once the two positions stay separate, there's no speculation left in the question.",
+    content: "**The whole skill in four moves:** state each claim under its own label, name the relationship and its hinge, predict Author 2's response from what the text commits the author to, and match by direction first. Keep the two positions separate and there's no speculation left in the question — every answer is already on the page, filed under the right name.",
   },
 ];

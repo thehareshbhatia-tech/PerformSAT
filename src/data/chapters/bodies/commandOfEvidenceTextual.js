@@ -1,11 +1,12 @@
 /**
  * Learn lesson body — Command of Evidence, Textual (Information and Ideas).
  *
- * VOICE v3 (adopted 2026-07-17, exemplar: bodies/centralIdeas.js): scannable
- * instructional register — direct address, contractions, 1-3 sentence text
- * blocks, list blocks for criteria, steps blocks for procedures; no
- * analogies, no pep-talk, no emojis. All substance of the v2 textbook
- * version preserved.
+ * VOICE v4 (adopted 2026-07-18, exemplar: bodies/centralIdeas.js): practiced-tutor
+ * register — developed 2-5 sentence paragraphs with connective tissue; every rule
+ * earns its "because"; student-psychology named concretely; math teaching is
+ * example-led; varied rhythm, no aphorism-per-block. Bans carried from v3: no
+ * analogies, no pep talk, no exclamation marks, no emojis, no
+ * test-personification. All v3 teaching claims preserved.
  *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
@@ -14,15 +15,15 @@
 export const commandOfEvidenceTextualBlocks = [
   {
     type: 'text',
-    content: "Inference questions move forward — from stated facts to the conclusion they force. Textual command-of-evidence questions run the same operation in reverse: the claim comes first, and four candidate findings get tested against it.",
+    content: "The inference questions of the last chapter moved forward: the text supplied the facts, and you supplied the conclusion they force. Textual command-of-evidence questions run the same operation in reverse. Here the claim comes first — a hypothesis, a finding, a reading of a poem — and four candidate findings get tested against it, with the question asking which one would support it, weaken it, or best illustrate it.",
   },
   {
     type: 'text',
-    content: "All four choices address the claim's topic, so topic alone can't separate them. A choice can be accurate, on-topic, and still leave the claim exactly where it stood.",
+    content: "What makes these questions harder than they sound is that every choice is written to be about the claim's subject. All four will mention the streetlights, the species, the orchard — so topic alone can't separate them, and a student who screens choices by asking whether each one is relevant collects four yeses and no answer. The question that actually separates them is different, because a choice can be accurate, on-topic, and still leave the claim exactly as proven or unproven as it stood.",
   },
   {
     type: 'keyInsight',
-    content: "The credited answer is the one that moves the specific claim named in the question, in the direction the question requires. **Direction, not topic.**",
+    content: "The credited answer is the one that **moves the specific claim named in the question**, in the direction the question requires. Direction, not topic, decides these items.",
   },
 
   { type: 'heading', content: 'The two question formats' },
@@ -35,27 +36,23 @@ export const commandOfEvidenceTextualBlocks = [
   },
   {
     type: 'text',
-    content: "The same method handles both.",
+    content: "The surfaces differ — one format deals in findings, the other in quotations — but underneath they are the same task, because both ask whether a piece of evidence actually does the work the claim needs done. The three steps below handle both.",
   },
 
   { type: 'heading', content: 'Step 1: restate the claim precisely' },
   {
     type: 'text',
-    content: "Before reading the choices, find the sentence being tested and restate it plainly — keeping every qualifier (*only in winter*, *because of the coating*, *this species*).",
+    content: "Before reading a single choice, find the sentence being tested and restate it plainly — keeping every qualifier it carries: *only in winter*, *because of the coating*, *this species*. The qualifiers are where right and wrong answers separate, because distractors are built to fit a looser version of the claim than the passage actually made. A restatement that drops *only in winter* makes a summer finding look relevant when it isn't.",
   },
   {
     type: 'text',
-    content: "The qualifiers are where right and wrong answers separate. A restatement that drops *only in winter* makes a summer finding look relevant when it isn't.",
-  },
-  {
-    type: 'text',
-    content: "When a passage presents two views — a common belief and a new proposal — confirm **whose** claim the stem names before evaluating anything. Every choice gets measured against that one claim.",
+    content: "One more check belongs in this step. When a passage presents two views — a common belief and a researcher's new proposal — confirm **whose claim the stem names** before evaluating anything, because a passage that stages a disagreement hands you two claims and credits evidence for only one of them. Every choice gets measured against that one claim.",
   },
 
   { type: 'heading', content: 'Step 2: identify the required direction' },
   {
     type: 'text',
-    content: "The task verb sets the direction:",
+    content: "The task verb sets the direction you're looking for:",
   },
   {
     type: 'list',
@@ -66,7 +63,7 @@ export const commandOfEvidenceTextualBlocks = [
   },
   {
     type: 'text',
-    content: "Weakening doesn't require proving the claim false — only being the finding *most inconsistent* with it. A flat \"no difference was found\" does weaken a claim that asserts a difference.",
+    content: "Weakening deserves a moment, because students set the bar for it too high. A weakener doesn't have to prove the claim false — no single finding could. It only has to be the finding *most inconsistent* with the claim, which is why a flat \"no difference was found\" genuinely weakens a claim that asserts a difference: the claim predicts a gap between two groups, and the finding shows none.",
   },
   {
     type: 'keyInsight',
@@ -76,37 +73,32 @@ export const commandOfEvidenceTextualBlocks = [
   { type: 'heading', content: 'Step 3: test each choice against the exact claim' },
   {
     type: 'text',
-    content: "Sort each choice into one of three bins: right direction, wrong direction, or no bearing.",
+    content: "Now sort each choice into one of three bins: right direction, wrong direction, or no bearing. Wrong-direction choices tend to eliminate themselves; the no-bearing bin is where the real distractors live, and two patterns account for most of them:",
   },
   {
     type: 'list',
-    title: 'Two error patterns account for most misses:',
     items: [
       "**The on-topic bystander** — a true fact about the subject that never moves the claim.",
-      "**The wrong condition** — the right effect attached to a component or group the claim didn't name. If the claim says *ingredient X causes the benefit*, a result about the *whole product* doesn't isolate X.",
+      "**The wrong condition** — the right effect attached to a component or group the claim didn't name. If the claim says *ingredient X causes the benefit*, a result about the *whole product* doesn't isolate X — the benefit could belong to any ingredient in it.",
     ],
   },
   {
     type: 'tip',
-    content: "Read every choice to its final clause. Wrong choices routinely open with exactly the finding the claim needs, then undercut it in a closing clause (\"...at a site where it never froze anyway\").",
+    content: "**Read every choice to its final clause.** Wrong choices routinely open with exactly the finding the claim needs, then undercut it in a closing clause (\"...at a site where it never froze anyway\") — the reversal sits at the end because students commit to a choice on the strength of its opening.",
   },
   {
     type: 'text',
-    content: "A related signal: if connecting a choice to the claim requires building an extra story, that effort is itself the verdict — the choice is wrong.",
+    content: "One more signal is worth trusting. If connecting a choice to the claim requires building an extra story — a chain of maybes about how the fact *could eventually* matter — that effort is itself the verdict, because the question asks for the finding that *most directly* supports or weakens. The credited answer never needs help reaching the claim.",
   },
 
   { type: 'heading', content: 'Illustration questions: performing the claim' },
   {
     type: 'text',
-    content: "The correct quotation must actually *perform* the claim, not just share its mood.",
+    content: "On illustrate items, the claim describes something a line of poetry or prose *does* — the speaker urges, the poem contrasts, the narrator regrets — and the correct quotation must actually **perform that act**, not just share its mood. So translate each candidate line into flat prose and check the act against the claim's verb. If the claim says the speaker *urges*, the line must tell someone to do something; if the claim names a *contrast*, two things must actually be contrasted — and the right two.",
   },
   {
     type: 'text',
-    content: "Translate each line into flat prose, then check the act. If the claim says the speaker *urges*, the line must tell someone to do something; if the claim names a *contrast*, two things must actually be contrasted — the right two.",
-  },
-  {
-    type: 'text',
-    content: "The classic miss is a striking line in the right mood that performs the wrong act.",
+    content: "The classic miss here is the most striking line in the set: right mood, right imagery, wrong act. Students pick it because it feels like the passage's best line, and the test includes it for exactly that reason. Enactment, not beauty, is the standard.",
   },
 
   { type: 'heading', content: 'How to approach these questions' },
@@ -182,6 +174,6 @@ export const commandOfEvidenceTextualBlocks = [
 
   {
     type: 'text',
-    content: "**The whole skill in three checks:** restate the claim plainly, set the required direction (support or weaken), and keep the one choice that pushes *that* claim in that direction — reading each choice to its final clause. Topic proves nothing; direction decides the answer.",
+    content: "**The whole skill in three checks:** restate the claim plainly with its qualifiers intact, set the required direction, and keep the one choice that pushes *that* claim in that direction — reading each choice to its final clause before committing. Topic proves nothing; direction decides the answer. The next chapter keeps this entire method and changes only the medium: the findings become rows and axes, and the claim tells you which numbers to read.",
   },
 ];

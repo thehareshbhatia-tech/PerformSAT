@@ -1,11 +1,12 @@
 /**
  * Learn lesson body — Command of Evidence: Quantitative (Information and Ideas).
  *
- * VOICE v3 (adopted 2026-07-17, exemplar: bodies/centralIdeas.js): scannable
- * instructional register — direct address, contractions, 1-3 sentence text
- * blocks, list blocks for criteria, steps blocks for procedures; no
- * analogies, no pep-talk, no emojis. All substance of the v2 textbook
- * version preserved.
+ * VOICE v4 (adopted 2026-07-18, exemplar: bodies/centralIdeas.js): practiced-tutor
+ * register — developed 2-5 sentence paragraphs with connective tissue; every rule
+ * earns its "because"; student-psychology named concretely; math teaching is
+ * example-led; varied rhythm, no aphorism-per-block. Bans carried from v3: no
+ * analogies, no pep talk, no exclamation marks, no emojis, no
+ * test-personification. All v3 teaching claims preserved.
  *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
@@ -14,11 +15,11 @@
 export const commandOfEvidenceQuantitativeBlocks = [
   {
     type: 'text',
-    content: "The last chapter tested claims against findings. Quantitative command-of-evidence questions run the same verification in a new medium: the claim now arrives paired with a **table or graph**, and the question asks which choice uses the data to complete or support it.",
+    content: "The last chapter tested claims against findings. Quantitative command-of-evidence questions run the same verification in a new medium: the claim now arrives paired with a **table or graph**, and the question asks which choice uses the data to complete or support it. The method survives the change of medium intact — what changes is where the evidence lives.",
   },
   {
     type: 'text',
-    content: "The graphic deliberately holds far more information than the claim requires, and most errors start with unguided browsing of it.",
+    content: "The graphic deliberately holds far more information than the claim requires, and that surplus is not decoration. Every extra row and unused series is a place a wrong answer can pull a real number from, which is why most errors on these items start the same way: with unguided browsing of the display before the claim has said what to look for.",
   },
   {
     type: 'keyInsight',
@@ -28,17 +29,13 @@ export const commandOfEvidenceQuantitativeBlocks = [
   { type: 'heading', content: 'These are matching questions' },
   {
     type: 'text',
-    content: "These items look like chart-reading tests. They're matching questions — the display is deliberately overloaded with values that go unused.",
-  },
-  {
-    type: 'text',
-    content: "The job isn't to understand the whole graphic. It's to retrieve the **two or three values the claim concerns** and check each answer choice against them.",
+    content: "These items look like chart-reading tests, and students treat them that way — studying the whole display before glancing at the claim. They are actually matching questions: the display is overloaded with values that go unused, so understanding all of it is wasted work. The job is to retrieve the **two or three values the claim concerns** and check each answer choice against them.",
   },
 
   { type: 'heading', content: 'Step 1: read the frame before any number' },
   {
     type: 'text',
-    content: "Before reading any value, examine the frame:",
+    content: "Before reading any value, examine the frame — the parts of the display that say what its numbers mean:",
   },
   {
     type: 'list',
@@ -50,21 +47,17 @@ export const commandOfEvidenceQuantitativeBlocks = [
   },
   {
     type: 'text',
-    content: "A number without its label carries no meaning, and most wrong choices quote real digits lifted from the wrong row or read in the wrong unit.",
+    content: "There's a reason the frame comes first: a number without its label carries no meaning, and most wrong choices quote real digits — lifted from the wrong row, or read in the wrong unit. Because the digits themselves check out against the graphic, the error is invisible to a student who verifies numbers but not labels. Almost every misreading on these items is a **frame error** of exactly that kind: the right number pulled from the wrong row, or a percent treated as a raw count.",
   },
   {
     type: 'text',
-    content: "So read every value *with* its unit — \"about 40 **percent**,\" never a bare \"about 40.\"",
-  },
-  {
-    type: 'keyInsight',
-    content: "Almost every misreading is a **frame error**: the right number pulled from the wrong row, or a percent treated as a raw count. Attach both labels — row and unit — to every value you take from the graphic.",
+    content: "So read every value *with* its unit — \"about 40 **percent**,\" never a bare \"about 40\" — and let both labels, row and unit, travel with every value you take from the graphic.",
   },
 
   { type: 'heading', content: 'Step 2: let the claim select the values' },
   {
     type: 'text',
-    content: "The claim usually sits in the passage's last sentence, or in the sentence the blank interrupts. Each of its words is an instruction:",
+    content: "The claim usually sits in the passage's last sentence, or in the sentence the blank interrupts, and each of its words is an instruction about what to retrieve:",
   },
   {
     type: 'list',
@@ -76,7 +69,7 @@ export const commandOfEvidenceQuantitativeBlocks = [
   },
   {
     type: 'text',
-    content: "Convert the claim into a short checklist, then retrieve only the cells that checklist names. Nothing more.",
+    content: "Convert the claim into that short checklist, then retrieve only the cells the checklist names — nothing more. The restraint is the point. A student who has browsed the whole display arrives at the choices holding a dozen true facts, any of which can make a wrong answer feel verified; a student holding a checklist knows which two or three numbers can settle the question and treats everything else as noise.",
   },
   {
     type: 'tip',
@@ -97,7 +90,7 @@ export const commandOfEvidenceQuantitativeBlocks = [
   },
   {
     type: 'text',
-    content: "Wrong answers typically pass exactly one condition. They misread the graphic, or they quote an accurate number that has no bearing on the claim.",
+    content: "Wrong answers typically pass exactly one condition: they misread the graphic, or they quote an accurate number that has no bearing on the claim. The second family is the more dangerous, because checking its numbers against the chart feels like verification and the numbers hold — accuracy was never the thing in question. It takes both conditions, every time.",
   },
   {
     type: 'comparison',
@@ -210,23 +203,15 @@ export const commandOfEvidenceQuantitativeBlocks = [
   },
   {
     type: 'text',
-    content: "A point far from the cloud is an **outlier** — an observation the general pattern fails to describe, and a legitimate question target in its own right.",
+    content: "On a scatterplot, a point far from the cloud is an **outlier** — an observation the general pattern fails to describe, and a legitimate question target in its own right. Whatever the format, though, the discipline doesn't change: frame first, then values read with their units.",
   },
   {
     type: 'text',
-    content: "Whatever the format, the discipline doesn't change: frame first, then values read with their units.",
+    content: "Line graphs introduce a distinction tables mostly hide: **level versus trend**. The level is how large the quantity is; the trend is how it's changing — and the two answer different questions. The *highest point* on a curve is a level fact, while the *fastest growth* is a trend fact, found where the curve is steepest, not where it's tallest.",
   },
   {
     type: 'text',
-    content: "Line graphs introduce a distinction tables mostly hide: **level versus trend**. The level is how large the quantity is; the trend is how it's changing.",
-  },
-  {
-    type: 'text',
-    content: "The two answer different questions. The *highest point* on a curve is a level fact, while the *fastest growth* is a trend fact — found where the curve is steepest, not where it's tallest.",
-  },
-  {
-    type: 'text',
-    content: "The distinction matters most on flattening curves. A line that rises steeply and then rises gently is **still rising** — \"increasing more slowly\" describes the trend, not a fall in the level, and wrong choices are built to convert that slowdown into a decrease.",
+    content: "The distinction matters most on flattening curves, because a slowdown reads to the eye like an ending. A line that rises steeply and then rises gently is **still rising** — \"increasing more slowly\" describes the trend, not a fall in the level — and wrong choices are built to convert that slowdown into a decrease, counting on students to report what the shape suggests rather than what the values say.",
   },
   {
     type: 'tip',
@@ -234,11 +219,7 @@ export const commandOfEvidenceQuantitativeBlocks = [
   },
   {
     type: 'text',
-    content: "Axis scales are chosen, and the choice shapes the picture. A vertical axis that starts at 90 rather than zero shows only the slice above 90, so a gap of a few units can look severalfold — and bar heights then exaggerate the true difference.",
-  },
-  {
-    type: 'text',
-    content: "Judge magnitude from the **values, not the ink**. Read the numbers off the axis and compare them arithmetically before accepting any *far more*, *nearly double*, or *sharply higher* in a choice.",
+    content: "One last habit for graphs: axis scales are chosen, and the choice shapes the picture. A vertical axis that starts at 90 rather than zero shows only the slice above 90, so a gap of a few units can look severalfold — the drawing exaggerates a difference the numbers don't support. Judge magnitude from the **values, not the ink**: read the numbers off the axis and compare them arithmetically before accepting any *far more*, *nearly double*, or *sharply higher* a choice offers.",
   },
   {
     type: 'example',
@@ -275,6 +256,6 @@ export const commandOfEvidenceQuantitativeBlocks = [
 
   {
     type: 'text',
-    content: "**The whole skill in four moves:** read the frame, convert the claim into a short checklist, retrieve only the cells that checklist names, and keep the one choice that's both true to the data *and* about the claim. The claim directs the reading; the data confirm it.",
+    content: "**The whole skill in four moves:** read the frame, convert the claim into a short checklist, retrieve only the cells that checklist names, and keep the one choice that is both true to the data *and* about the claim. Every distractor in this family fails one of those two conditions while advertising the other. The claim directs the reading; the data confirm it.",
   },
 ];

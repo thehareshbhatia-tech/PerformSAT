@@ -1,10 +1,12 @@
 /**
  * Learn lesson body — Subject-Verb Agreement (Standard English Conventions).
  *
- * VOICE v3 (adopted 2026-07-17, exemplar: bodies/centralIdeas.js): scannable
- * instructional register — direct address, contractions, 1-3 sentence text
- * blocks, list blocks for criteria, steps blocks for procedures; no analogies,
- * no pep-talk, no emojis. All substance of the v2 textbook version preserved.
+ * VOICE v4 (adopted 2026-07-18, exemplar: bodies/centralIdeas.js): practiced-tutor
+ * register — developed 2-5 sentence paragraphs with connective tissue; every rule
+ * earns its "because"; student-psychology named concretely; math teaching is
+ * example-led; varied rhythm, no aphorism-per-block. Bans carried from v3: no
+ * analogies, no pep talk, no exclamation marks, no emojis, no test-personification.
+ * All v3 teaching claims preserved.
  *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
@@ -13,53 +15,25 @@
 export const gSubjectVerbAgreementBlocks = [
   {
     type: 'text',
-    content: "Punctuation governs how clauses meet. Now we turn to the machinery inside them — and the first matching rule is that a verb agrees with its subject in number: *The dog barks. The dogs bark.*",
-  },
-  {
-    type: 'text',
-    content: "The match is automatic in simple sentences, which is why the tested versions are never simple. The rule itself isn't the skill — the skill is **locating the subject after the sentence has buried it**.",
-  },
-  {
-    type: 'text',
-    content: "Every difficult version of this question is simply the subject well hidden.",
+    content: "Punctuation governed how clauses meet; now we turn to the machinery inside them, and the first matching rule is the simplest one in the section: a verb agrees with its subject in number. *The dog barks. The dogs bark.* Nobody misses that pair, which is exactly the problem — the match is automatic in simple sentences, so the tested versions are never simple. The rule itself isn't the skill. The skill is **locating the subject after the sentence has buried it**, because every difficult version of this question is simply the subject well hidden.",
   },
 
   { type: 'heading', content: "What's actually tested" },
   {
     type: 'text',
-    content: "The standard construction places extra words between the subject and the verb, so the noun nearest the verb isn't the subject.",
-  },
-  {
-    type: 'text',
-    content: "Your ear registers that nearby noun, takes its number, and supplies the matching — incorrect — verb. The error happens in under a second, which is why the construction works.",
-  },
-  {
-    type: 'text',
-    content: "The defense: locate the true subject **before** judging the verb by sound.",
+    content: "The standard construction places a stack of extra words between the subject and its verb, so the noun nearest the verb isn't the subject at all. Your ear doesn't know that: it registers the nearby noun, borrows its number, and supplies the matching — incorrect — verb, all in under a second. That speed is why the construction keeps working on students who know the rule perfectly, and it's why the defense has to be procedural: locate the true subject **before** letting your ear judge the verb.",
   },
 
   { type: 'heading', content: 'Step 1 — Find the subject' },
   {
     type: 'text',
-    content: "Locate the verb first, then ask **who or what performs the action**. That noun is the subject — the only word in the sentence whose number the verb must match.",
-  },
-  {
-    type: 'text',
-    content: "In *The scientist **conducts** research*, the one who conducts is the *scientist*, singular, so the verb is *conducts*. Framing the question this way keeps your ear from settling on whatever noun happens to sit nearest the verb.",
+    content: "Locate the verb first, then ask **who or what performs the action**. That noun is the subject — the only word in the sentence whose number the verb must match. In *The scientist **conducts** research*, the one who conducts is the *scientist*, singular, so the verb is *conducts*. The order of the two questions matters, because asking *who performs it* forces you past whatever noun happens to sit nearest the verb.",
   },
 
   { type: 'heading', content: 'Step 2 — Cross out the middle' },
   {
     type: 'text',
-    content: "The material between subject and verb exists to obscure the subject — and you can remove it without changing the grammar.",
-  },
-  {
-    type: 'text',
-    content: "Bracket out everything between the two and read what remains: *The collection ~~of rare books~~ (is / are) on display* → *The collection **is** on display.*",
-  },
-  {
-    type: 'text',
-    content: "With the interruption gone, the correct verb is evident. This single deletion step resolves most questions in this skill.",
+    content: "The material between subject and verb exists to obscure the subject, and you can delete it without changing the grammar — an of-phrase or a descriptive clause adds detail, never a new subject. So bracket out everything between the two and read what remains: *The collection ~~of rare books~~ (is / are) on display* becomes *The collection **is** on display*, and with the interruption gone the correct verb is evident. This single deletion resolves most questions in this skill.",
   },
   {
     type: 'diagramRef',
@@ -74,7 +48,7 @@ export const gSubjectVerbAgreementBlocks = [
   { type: 'heading', content: 'Phrases that never change the subject' },
   {
     type: 'text',
-    content: "Certain phrases add detail but *never* change the subject or its number — they're interruptions between subject and verb. Cross them out on sight:",
+    content: "Certain phrases add companions to the subject without ever changing its number — grammatically they're interruptions, whatever they add in meaning. Cross them out on sight:",
   },
   {
     type: 'list',
@@ -91,17 +65,17 @@ export const gSubjectVerbAgreementBlocks = [
   },
   {
     type: 'text',
-    content: "In *The teacher, ~~along with her students~~, **is** leaving*, the subject stays *teacher* alone, no matter how many students come along.",
+    content: "In *The teacher, ~~along with her students~~, **is** leaving*, the subject stays *teacher* alone, no matter how many students come along. The phrase feels additive — more people are leaving, after all — but the verb counts only the noun that owns it, and none of these phrases ever hands over that ownership.",
   },
   {
     type: 'tip',
-    content: "**Watch *along with*.** It resembles *and* in meaning, but it never makes a subject plural.",
+    content: "**Watch *along with*.** It resembles *and* in meaning, but only *and* builds a compound subject — *along with* leaves the original subject, and its number, untouched.",
   },
 
   { type: 'heading', content: 'Subjects with counterintuitive number' },
   {
     type: 'text',
-    content: "A few subject types take a number the ear doesn't expect — and those are exactly the types the questions favor. Knowing them outright makes the difficult versions routine:",
+    content: "A few subject types take a number the ear doesn't expect — and those are exactly the types the questions favor, because a subject the ear gets right for free tests nothing. Knowing this short set outright makes the difficult versions routine:",
   },
   {
     type: 'table',
@@ -119,32 +93,17 @@ export const gSubjectVerbAgreementBlocks = [
   { type: 'heading', content: 'The number of vs. a number of' },
   {
     type: 'text',
-    content: "One article flips the number.",
-  },
-  {
-    type: 'list',
-    items: [
-      '***The** number of…* names a single quantity → **singular** verb: *The number of volunteers **has** doubled since spring.*',
-      '***A** number of…* means *several* → **plural** verb: *A number of volunteers **have** signed up for the night shift.*',
-    ],
-  },
-  {
-    type: 'text',
-    content: "*The number of volunteers have doubled* mismatches — the subject is the quantity itself, one number, however many volunteers it counts.",
+    content: "One pair deserves separate treatment, because a single article flips the verb. ***The** number of…* names a quantity — one number — so it takes a **singular** verb: *The number of volunteers **has** doubled since spring.* ***A** number of…* simply means *several*, so it takes a **plural** verb: *A number of volunteers **have** signed up for the night shift.* The mismatch to catch is *The number of volunteers have doubled* — the subject is the quantity itself, one number, however many volunteers it counts.",
   },
 
   { type: 'heading', content: 'One of the… who' },
   {
     type: 'text',
-    content: "When *one of the [plural noun]* stands alone as the subject, the verb matches *one* — singular: *One of the turbines **is** offline.*",
+    content: "When *one of the [plural noun]* stands alone as the subject, the verb matches *one* — singular: *One of the turbines **is** offline.* Put the same phrase inside a *who* or *that* clause, though, and the verb flips, because the pronoun reaches back to the **plural noun**: in *She is one of the engineers who **design** the turbines*, *who* stands for *engineers* — the group that designs — and she belongs to it.",
   },
   {
     type: 'text',
-    content: "Inside a *who* or *that* clause, though, the pronoun reaches back to the **plural noun**, so the verb inside the clause is plural: *She is one of the engineers who **design** the turbines* — *who* stands for *engineers*, the group that designs, and she belongs to it.",
-  },
-  {
-    type: 'text',
-    content: "*One of the engineers who designs the turbines* mismatches. Rearranging exposes the logic: *Of the engineers who design the turbines, she is one.*",
+    content: "So *one of the engineers who designs the turbines* mismatches, and rearranging the sentence exposes why: *Of the engineers who design the turbines, she is one.* The designing belongs to the whole group; the *one* only picks her out of it.",
   },
 
   { type: 'heading', content: 'How to approach these questions' },

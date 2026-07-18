@@ -1,18 +1,18 @@
 /**
  * Learn lesson body — Central Ideas & Details (Information and Ideas).
  *
- * VOICE v3 (ADOPTED 2026-07-17 — THIS FILE IS THE EXEMPLAR; user-approved,
- * rolled out corpus-wide): scannable instructional register in
- * the style of Khan Academy. Direct address ("we" for shared work, "you" for
- * the student's move), contractions, SHORT text blocks (1-3 sentences),
- * question-form or plain headings, bullet `list` blocks for criteria,
- * `steps` blocks for procedures, mild reassurance used sparingly.
- * Still OUT (carried over from the 07-15 contract): extended metaphors and
- * analogy-coaching, pep-talk paragraphs, exclamation marks, emojis,
- * test-personification. Density is the enemy; substance is not — every
- * teaching claim of the 07-15 textbook version is preserved, reformatted.
- * Narrative bridge to the previous chapter stays (one light opening clause).
- * Gated by bodies.test.js.
+ * VOICE v4 (ADOPTED 2026-07-18 — THIS FILE IS THE EXEMPLAR; user-approved, rolled out corpus-wide): practiced-tutor
+ * register. Developed paragraphs (2-5 sentences) with real connective tissue,
+ * not aphoristic fragments; every rule earns its "because," sometimes
+ * self-interrogated ("Why X? Because…"); the prose knows real students — it
+ * names what they actually do and why the test profits from it; teaching
+ * leads with or extracts from examples; bold lands mid-sentence on the
+ * load-bearing claim, and box blocks (keyInsight / tip) are rationed to the
+ * few genuinely load-bearing moves. Rhythm varies — a short sentence lands
+ * only after long ones have earned it. Still OUT (carried from v3): extended
+ * metaphors and analogy-coaching, pep talk, exclamation marks, emojis,
+ * test-personification. All teaching claims of v3 preserved.
+ * Narrative bridge to the previous chapter stays.
  *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
@@ -21,31 +21,31 @@
 export const centralIdeasBlocks = [
   {
     type: 'text',
-    content: "Reading questions on this test build in layers — what a text says, what it implies, what would prove it. Central ideas and details questions are the first layer, and the most straightforward: no outside knowledge, no deep analysis. We read a short passage carefully and find what it says.",
+    content: "Reading questions on this test build in layers — what a text says, what it implies, what would prove it. Central ideas and details questions are the first layer, and every test you take will include them. They are also the most honest questions on the exam: no outside knowledge helps, no deep analysis is required, and the answer is sitting on the screen. Each one hands you a short paragraph and one of two tasks — identify the main idea, or report what the text says about one specific thing.",
   },
   {
     type: 'text',
-    content: "Each question gives you a short paragraph and one of two tasks: identify the main idea, or report what the text says about one specific thing. Both are open-book — the answer is sitting on the screen.",
+    content: "That sounds like the kind of question nobody should miss, and yet plenty of strong readers do. Almost every miss traces back to one of two habits: summarizing the passage as a subject instead of a claim, or answering from memory instead of from the sentence. This chapter is about replacing both.",
   },
 
   { type: 'heading', content: 'Topic vs. point' },
   {
     type: 'text',
-    content: "A **topic** names a subject. A **point** makes a claim about that subject. Main-idea questions always want the point.",
+    content: "A **topic** names a subject. A **point** makes a claim about that subject. Say a passage spends its six sentences on city street trees. *\"The text is about street trees\"* is a topic — accurate, but it's just a label, and no answer choice gets credited for being a label. *\"Street trees pay a city back several times over\"* is a point: the topic plus a commitment to saying something about it.",
   },
   {
     type: 'text',
-    content: "Say the passage discusses city street trees. *\"The text is about street trees\"* is a topic — accurate, but just a label. *\"Street trees pay a city back several times over\"* is a point: the topic plus an answer to *so what?*",
+    content: "Main-idea questions always want the point, and the distinction matters more than it looks. A student who summarizes a passage as *\"it's about X\"* has done the easy half of the work and stopped — and the test writes wrong answers specifically for that student: choices that name the right topic while making the wrong claim about it. If you arrive at the choices holding only a topic, those options all look equally plausible, and you're reduced to picking the one that sounds nicest.",
   },
   {
     type: 'keyInsight',
-    content: "The **so-what test:** if your summary starts *\"it's about…\"*, you have a topic, not a point. Ask *so what?* until the summary becomes a claim with a verb — *pays back, spreads faster, was misread*.",
+    content: "The **so-what test:** if your summary starts *\"it's about…\"*, you're holding a topic, not a point. Ask *so what?* until the summary becomes a claim with a verb — street trees *pay the city back*, the method *was misread*. Now you have something the choices can be checked against.",
   },
 
   { type: 'heading', content: 'What the right answer looks like' },
   {
     type: 'text',
-    content: "The credited choice restates the passage's point in **different words** — usually one step more general. An answer that copied the passage word for word could be matched by sight, without any comprehension, so the test almost never writes one.",
+    content: "The credited choice restates the passage's point in **different words**, usually one step more general. There's a reason it works this way: an answer that repeated the passage word for word could be matched by sight, without any comprehension, so the test almost never writes one. That produces a rule of thumb most students find backwards at first — the choice that sounds most like the passage is often a trap, and the choice that has rephrased everything is often the answer.",
   },
   {
     type: 'list',
@@ -67,31 +67,27 @@ export const centralIdeasBlocks = [
   },
   {
     type: 'tip',
-    content: "**Same words: suspect. Same meaning, different words: promising.** Distractors borrow the passage's exact phrases — they sound safe while quietly changing the claim. A choice that sounds exactly like the text has earned a second, slower read.",
+    content: "**Same words: suspect. Same meaning, different words: promising.** Distractors borrow the passage's exact phrases because familiar words feel safe. A choice that echoes the text verbatim hasn't earned your trust — it has earned a second, slower read to see what claim it's actually making.",
   },
   {
     type: 'text',
-    content: "And one unsupported word is enough to sink a choice. If the passage says a method *often* works and the choice says it *always* does, the choice is out — every word has to be backed by the text.",
+    content: "And be strict about scope, because one unsupported word is enough to sink a choice. If the passage says a method *often* works and a choice says it *always* does, that single word is the whole question. Every word of the credited answer has to be backed by the text — the test grades the whole sentence, not its general drift.",
   },
 
-  { type: 'heading', content: 'Details questions: find the sentence' },
+  { type: 'heading', content: 'Details questions: go back and read' },
   {
     type: 'text',
-    content: "A details question asks something specific: *according to the text, why did X happen?* Your memory will offer an answer instantly — don't trust it. Wrong choices are written to match the gist memory stores: close enough to sound right, wrong on the one word that decides it.",
+    content: "A details question asks something specific: *according to the text, why did X happen?* The tempting move is to answer from memory, because memory offers something instantly — and what it offers is exactly what the wrong answers are built to match. Memory stores the gist of a passage, not its qualifiers, and detail distractors are the gist with one word changed.",
   },
   {
     type: 'text',
-    content: "So go back. The question's own wording points you to the right part of the passage. Find the sentence that actually discusses X and read it from its first word — the qualifier that settles the answer usually sits early in the sentence, right where a keyword scan skips past it.",
-  },
-  {
-    type: 'text',
-    content: "Nothing here requires deduction. It's find and match.",
+    content: "So make going back to the text a reflex rather than a backup plan. The question's own wording tells you where to look. Find the sentence that actually discusses X and read it from its first word — the qualifier that settles the answer usually sits early in the sentence, right where a keyword scan skips past it. Nothing here requires deduction. It is, honestly, find and match; what's being tested is whether you'll actually look.",
   },
 
   { type: 'heading', content: 'When the text says "this"' },
   {
     type: 'text',
-    content: "Academic prose rarely repeats an idea in full. Once a claim is stated, the next sentence compresses it into a short phrase — *this phenomenon*, *this discrepancy*, *such an approach* — and builds on the compressed version. These phrases point at **ideas, not objects**: the referent of *this discrepancy* is usually a whole prior sentence.",
+    content: "Academic prose almost never repeats an idea in full. Once a claim is on the page, the next sentence compresses it into a short phrase — *this phenomenon*, *this discrepancy*, *such an approach* — and builds on the compressed version. These phrases point at **ideas, not objects**: the referent of *this discrepancy* is usually an entire prior sentence, not any single noun inside it. Questions about these phrases reward one specific physical habit — moving your eyes backward.",
   },
   {
     type: 'steps',
@@ -99,12 +95,12 @@ export const centralIdeasBlocks = [
     items: [
       "Back up. The referent sits **behind** the phrase, so rereading the phrase — or reading onward from it — never finds it.",
       'Read the previous sentence from its beginning.',
-      "Restate the referent in full before checking any choice: *the surveys found far fewer birds than the recordings implied* — not a one-word label.",
+      "Restate the referent in full before checking any choice: *the surveys found far fewer birds than the recordings implied* — a whole idea, not a one-word label.",
     ],
   },
   {
     type: 'text',
-    content: "Two refinements. Referents don't carry over — the same *this* can point to a new idea a paragraph later, so resolve each one fresh. And *the former* / *the latter* index into the **original** pair: *former* is the item listed first, *latter* the second, no matter which one the follow-up sentence happens to discuss first.",
+    content: "Two refinements, because the test knows students learn the basic move. Referents don't carry over — the same *this* can point to a new idea a paragraph later, so resolve each one fresh. And *the former* / *the latter* index into the **original** pair in the order it was first listed: *former* is the item named first, *latter* the second, no matter which one the follow-up sentence happens to discuss first. Passages exploit exactly that reversal.",
   },
   {
     type: 'tip',
@@ -129,7 +125,7 @@ export const centralIdeasBlocks = [
   { type: 'heading', content: 'Beliefs set up to be challenged' },
   {
     type: 'text',
-    content: "Many passages open with a belief the author doesn't hold. The giveaway is **distance language**:",
+    content: "Many passages open with a belief the author doesn't actually hold, and a large share of wrong answers on main-idea questions come from crowning that opening belief as the point. The giveaway is **distance language**:",
   },
   {
     type: 'list',
@@ -143,36 +139,32 @@ export const centralIdeasBlocks = [
   },
   {
     type: 'text',
-    content: "Each phrase pins the belief on other people. An author who attributes a belief instead of owning it is usually about to correct it — so expect a pivot (*but*, *however*, *yet*), and expect the author's real position right after the turn.",
+    content: "Each phrase pins the belief on other people, and an author who goes out of the way to attribute a belief instead of owning it is usually about to correct it. So when a passage opens at arm's length, expect a pivot — *but*, *however*, *yet* — and expect the author's real position right after the turn. You can often predict the classic wrong answer before reading a single choice: it will state the opening belief, accurately and in convincing detail.",
   },
   {
     type: 'text',
-    content: "That lets you predict the classic wrong answer before you read a single choice: the one that crowns the **opening belief** as the main idea.",
-  },
-  {
-    type: 'text',
-    content: "Two calibrations. The hedge is a forecast, not a guarantee — some passages genuinely defend the old view, and if no pivot arrives, the opening claim really is the point. And the new idea doesn't always demolish the old one; often it only qualifies it, so a choice claiming the passage *disproves* the earlier belief overshoots a passage that merely refines it.",
+    content: "Two calibrations keep this from becoming a reflex that misfires. The hedge is a forecast, not a guarantee — some passages genuinely defend the old view, and if no pivot ever arrives, the opening claim really is the point. And the new idea doesn't always demolish the old one; often it only qualifies it, so a choice claiming the passage *disproves* the earlier belief overshoots a passage that merely refines it.",
   },
 
   { type: 'heading', content: 'Literary passages' },
   {
     type: 'text',
-    content: "A story or poem doesn't argue a thesis, so don't hunt for one. Read it literally: who is present, what they want, what changes from the first line to the last.",
+    content: "A story or poem doesn't argue a thesis, so don't hunt for one. Read it literally — who is present, what they want, what changes between the first line and the last — and then find the **turn**: a shift in image, tense, or addressee. The point of a literary passage usually lives at its turn.",
   },
   {
     type: 'text',
-    content: "Then find the **turn** — a shift in image, tense, or addressee — because the point usually lives there. And take the **most modest reading** that fits the whole passage: students who miss literary questions almost never read too shallowly. They read in drama that isn't on the page.",
+    content: "When you reach the choices, take the **most modest reading** that covers the whole passage. Students who miss literary questions almost never miss by reading too shallowly; they read in drama that isn't on the page — wistfulness inflated into despair, a quiet disagreement into a bitter feud. The credited answer stays as calm as the page itself.",
   },
   {
     type: 'text',
-    content: "Older fiction is hard through **language, not logic** — inverted word order, period vocabulary, formal address. When a phrase is opaque, read around it: the sentence's skeleton (who did what, who wants what) usually survives, and the question is answerable from the readable parts.",
+    content: "Older fiction is hard through **language, not logic** — inverted word order, period vocabulary, formal address. When a phrase goes opaque, read around it: the sentence's skeleton (who did what, who wants what) usually survives, and the question is answerable from the readable parts.",
   },
   {
     type: 'list',
     title: 'Two rules for period settings:',
     items: [
       'Leave modern social assumptions out. A formal visit or an inheritance means whatever the passage says it means — nothing more.',
-      'Match the temperature of the words. Wrong answers inflate wistfulness into despair and a quiet disagreement into a bitter feud; the credited answer stays as calm as the page.',
+      'Match the temperature of the words. Wrong answers run hotter than the text; the credited answer never does.',
     ],
   },
 
@@ -180,7 +172,7 @@ export const centralIdeasBlocks = [
   {
     type: 'steps',
     items: [
-      "**Summarize as you read.** Don't skim. Read closely and put the ideas in your own words — by the end, you have the passage's point in hand.",
+      "**Summarize as you read.** Don't skim. Read closely and put the ideas in your own words — by the end, you're holding the passage's point instead of hunting for it.",
       '**Name the task.** Main idea, or one specific detail? The question tells you which.',
       '**Revisit the text.** For a main idea, check your summary for the overarching claim. For a detail, go to the sentence that discusses it and read it from the start.',
       "**Predict, then match.** Answer in your own words before reading the choices, then find the choice that says the same thing. Stuck between two? Cut the one that echoes exact wording, adds something new, or contradicts the text.",
@@ -248,6 +240,6 @@ export const centralIdeasBlocks = [
 
   {
     type: 'text',
-    content: "**The whole skill in three checks:** find the point (the topic plus its *so what*), expect the credited answer to paraphrase it, and cut any choice that echoes exact wording, adds an unstated claim, or leans on memory instead of the sentence itself.",
+    content: "**The whole skill in three checks:** find the point (the topic plus its *so what*), expect the credited answer to paraphrase it, and cut any choice that echoes exact wording, adds an unstated claim, or leans on memory instead of the sentence itself. Everything the later reading chapters add — inference, evidence, comparison — is built on top of this one habit of reading for the point.",
   },
 ];

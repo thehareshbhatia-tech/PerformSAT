@@ -1,11 +1,13 @@
 /**
  * Learn lesson body — Radians, Degrees & the Unit Circle (Geometry & Trig).
  *
- * VOICE v3 (adopted 2026-07-17, exemplar: bodies/centralIdeas.js): scannable
- * instructional register — direct address, contractions, 1-3 sentence text
- * blocks, list blocks for criteria, steps blocks for procedures; no
- * analogies, no pep-talk, no emojis. All substance of the v2 textbook
- * version preserved. Gated by bodies.test.js.
+ * VOICE v4 (adopted 2026-07-18, exemplar: bodies/centralIdeas.js):
+ * practiced-tutor register — developed 2-5 sentence paragraphs with
+ * connective tissue; every rule earns its "because"; student-psychology
+ * named concretely; math teaching is example-led; varied rhythm, no
+ * aphorism-per-block. Bans carried from v3: no analogies, no pep talk, no
+ * exclamation marks, no emojis, no test-personification. All v3 teaching
+ * claims preserved. Gated by bodies.test.js.
  *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
@@ -14,30 +16,17 @@
 export const mRadiansBlocks = [
   {
     type: 'text',
-    content: "The circle we just studied supplies a second, more natural way to measure angles: by the arc an angle cuts from a circle rather than by degrees. A radian is simply another unit for the same quantity a degree measures — the size of an angle — just as feet and meters are alternative units for length.",
+    content: "The circle we just studied handed every angle its measure in degrees. This chapter re-measures the same angles in a second, more natural unit that comes from the circle itself: a **radian** sizes an angle by the arc it cuts off — by how many radius-lengths that arc contains — rather than by splitting a turn into $360$ equal parts. A radian is simply another unit for the same quantity a degree measures, the size of an angle, just as feet and meters are alternative units for the same length.",
   },
   {
     type: 'text',
-    content: "One equivalence organizes the entire topic: **a half-turn is $180°$, and that same half-turn is $\\pi$ radians.** Every conversion and every unit-circle value below follows from that single fact.",
+    content: "One equivalence organizes the entire topic: **a half-turn is $180°$, and that same half-turn is $\\pi$ radians.** Every conversion and every unit-circle value below follows from that single fact — which is why a chapter that looks formula-heavy asks surprisingly little of your memory.",
   },
 
   { type: 'heading', content: 'The equivalence $180° = \\pi$ radians' },
   {
     type: 'text',
-    content: "The symbol $\\pi$ denotes a number, approximately $3.14$, so $\\pi$ radians is slightly more than $3$ radians — and that measure is exactly a half-circle, $180°$.",
-  },
-  {
-    type: 'list',
-    title: 'Everything scales from the one anchor:',
-    items: [
-      'Half circle: $180° = \\pi$ radians.',
-      'Full circle (doubling): $360° = 2\\pi$.',
-      'Right angle (halving): $90° = \\frac{\\pi}{2}$.',
-    ],
-  },
-  {
-    type: 'text',
-    content: "Anchor every conversion and every unit-circle value on this one equivalence, and there's nothing further to memorize.",
+    content: "Start with what the statement actually says, because $\\pi$ radians sounds more exotic than it is. The symbol $\\pi$ denotes a number, approximately $3.14$, so $\\pi$ radians is slightly more than $3$ radians — and that measure is exactly a half-circle, $180°$. From there the landmarks scale on their own: double the anchor and a full circle is $360° = 2\\pi$; halve it and a right angle is $90° = \\frac{\\pi}{2}$. Anchor every conversion and every unit-circle value on this one equivalence, and there is nothing further to memorize.",
   },
   {
     type: 'diagramRef',
@@ -48,50 +37,39 @@ export const mRadiansBlocks = [
   { type: 'heading', content: 'Converting between degrees and radians' },
   {
     type: 'text',
-    content: "Skip memorizing whether to multiply or divide by $\\frac{\\pi}{180}$ — a rule that flips easily under time pressure. Instead, choose the fraction that **cancels the unit you're leaving behind**.",
+    content: "Convert $60°$ to radians and the whole method is visible in one line. The school move is to memorize which operation applies — multiply by $\\frac{\\pi}{180}$, or was it divide? — and a memorized rule with no reason behind it is exactly the kind that flips under time pressure. So store the reason instead: read $\\frac{\\pi}{180}$ as $\\pi$ radians per $180$ degrees, and multiplying $60°$ by it cancels the degrees, leaving $\\frac{60\\pi}{180} = \\frac{\\pi}{3}$ — a pure radian measure. The correct factor is always the fraction that **cancels the unit you're leaving behind**.",
   },
   {
     type: 'list',
+    title: 'Both directions run on that one principle:',
     items: [
       'To radians: multiply by $\\frac{\\pi}{180}$ — the degrees cancel.',
       'To degrees: multiply by $\\frac{180}{\\pi}$ — the radians cancel.',
     ],
   },
   {
-    type: 'text',
-    content: "The units themselves pick the correct factor.",
-  },
-  {
     type: 'keyInsight',
-    content: 'Check the magnitude of the result. $45°$ should convert to a small value — $\\frac{\\pi}{4}\\approx 0.79$ — not a large one. A result far too large means the conversion fraction was inverted.',
+    content: 'Check the magnitude of the result. $45°$ is a smallish angle, so it should convert to a smallish number — $\\frac{\\pi}{4}\\approx 0.79$ — and a result that comes out far too large means the conversion fraction was inverted. The check takes two seconds and catches the standard error before it costs anything.',
   },
 
   { type: 'heading', content: 'Arc length and sector area' },
   {
     type: 'text',
-    content: "When the angle $\\theta$ is **in radians**, arc length is $s = r\\theta$ — radius times angle, no conversion required. That simplicity is the reason radians exist: a radian angle measures its arc directly in radius-lengths.",
+    content: "A circle has radius $5$, and a central angle of $2$ radians cuts an arc from it. With the angle in radians, the arc's length is a single multiplication: $s = r\\theta = 5 \\cdot 2 = 10$. There is a reason it collapses like that — a radian angle measures its arc directly in radius-lengths, so an angle of $2$ radians spans an arc exactly two radii long. That simplicity is why radians exist at all, and it is why no conversion belongs anywhere in the formula.",
   },
   {
     type: 'text',
-    content: "A sector occupies that same fraction of the circle, so its area is $A = \\tfrac{1}{2}r^2\\theta$.",
-  },
-  {
-    type: 'text',
-    content: "The standard error is dropping a *degree* angle straight into $r\\theta$. Given degrees, convert to radians first — or take the fraction $\\frac{\\theta}{360}$ of the whole circle instead.",
+    content: "A sector occupies the same fraction of the circle's interior that its arc occupies of the boundary, so its area follows the same radian rule: $A = \\tfrac{1}{2}r^2\\theta$. The error that actually costs points here is dropping a *degree* angle straight into either formula. Walk that wrong path once with numbers: $60°$ on the radius-$5$ circle would give $r\\theta = 5 \\cdot 60 = 300$, an arc nearly ten times the circle's entire circumference of $10\\pi \\approx 31.4$. Given degrees, convert to radians first — or take the fraction $\\frac{\\theta}{360}$ of the whole circle instead.",
   },
   {
     type: 'tip',
-    content: 'If a problem gives the angle in radians and asks for arc length, compute $r\\theta$ directly. Converting to degrees first adds an unnecessary step and another chance to slip.',
+    content: 'If a problem gives the angle in radians and asks for arc length, compute $r\\theta$ directly. Converting to degrees first adds an unnecessary step and another chance to slip — the formula was built for the unit you were handed.',
   },
 
   { type: 'heading', content: 'The unit circle: $(\\cos\\theta,\\ \\sin\\theta)$' },
   {
     type: 'text',
-    content: "The unit circle has radius $1$ and is centered at the origin. A point on it at angle $\\theta$, measured from the positive $x$-axis, has coordinates $(\\cos\\theta,\\ \\sin\\theta)$.",
-  },
-  {
-    type: 'text',
-    content: "So the $x$-coordinate **is** the cosine and the $y$-coordinate **is** the sine. You read these values straight off the point's position — no computing.",
+    content: "The unit circle — radius $1$, centered at the origin — turns cosine and sine from calculations into coordinates. A point on it at angle $\\theta$, measured from the positive $x$-axis, sits at $(\\cos\\theta,\\ \\sin\\theta)$: the $x$-coordinate **is** the cosine and the $y$-coordinate **is** the sine. So at $\\theta = 0$ the point is $(1, 0)$, and that position is the entire computation of $\\cos 0 = 1$ and $\\sin 0 = 0$. The values are read off the point, not worked out.",
   },
   {
     type: 'table',
@@ -108,40 +86,17 @@ export const mRadiansBlocks = [
   { type: 'heading', content: 'Which sign? Check the quadrant' },
   {
     type: 'text',
-    content: "The table supplies the magnitude; the quadrant supplies the sign.",
-  },
-  {
-    type: 'list',
-    items: [
-      'Cosine takes the sign of $x$ — without exception.',
-      'Sine takes the sign of $y$ — without exception.',
-    ],
-  },
-  {
-    type: 'text',
-    content: "In Quadrant II, where $x$ is negative and $y$ is positive, cosine is negative and sine is positive. No sign chart to memorize: work out whether $x$ and $y$ are positive or negative in the given quadrant, and the signs follow.",
+    content: "The table supplies the magnitude; the quadrant supplies the sign. Why does the split work? Because cosine and sine *are* the point's coordinates, cosine takes the sign of $x$ and sine takes the sign of $y$ — without exception, in every quadrant. In Quadrant II, for instance, $x$ is negative and $y$ is positive, so cosine is negative and sine is positive. No sign chart earns its memorization here: work out whether $x$ and $y$ are positive or negative where the angle lands, and the signs follow.",
   },
 
   { type: 'heading', content: 'Coterminal angles and points off the unit circle' },
   {
     type: 'text',
-    content: "Two extensions complete the picture.",
+    content: "What is $\\cos\\frac{9\\pi}{4}$? The angle is larger than $2\\pi$, which means it has wrapped past a full turn — and a full revolution returns the terminal point to exactly where it started, so the wrap changes nothing that cosine or sine can detect. Subtract $2\\pi$: $\\frac{9\\pi}{4} - 2\\pi = \\frac{\\pi}{4}$. The reduced angle is **coterminal** with the original — same terminal point, same cosine, same sine — so $\\cos\\frac{9\\pi}{4} = \\cos\\frac{\\pi}{4} = \\frac{\\sqrt{2}}{2}$. A negative angle has wrapped backward and unwinds the same way: add $2\\pi$ instead, repeating either move until the result lands in $[0, 2\\pi)$.",
   },
   {
     type: 'text',
-    content: "First, an angle of $2\\pi$ or more has wrapped past a full turn, and a negative angle has wrapped backward — but full revolutions leave the terminal point unchanged. Subtract $2\\pi$ (or add it, for negative angles) until the result lands in $[0, 2\\pi)$.",
-  },
-  {
-    type: 'text',
-    content: "The reduced angle is **coterminal** with the original — same terminal point, same cosine, same sine. So $\\frac{9\\pi}{4} - 2\\pi = \\frac{\\pi}{4}$, and $\\cos\\frac{9\\pi}{4} = \\cos\\frac{\\pi}{4} = \\frac{\\sqrt{2}}{2}$.",
-  },
-  {
-    type: 'text',
-    content: "Second, a point $(x, y)$ on a circle whose radius isn't $1$ still yields its angle's cosine and sine: divide each coordinate by the point's distance from the origin, $r = \\sqrt{x^2 + y^2}$, so that $\\cos\\theta = \\frac{x}{r}$ and $\\sin\\theta = \\frac{y}{r}$.",
-  },
-  {
-    type: 'text',
-    content: "The unit circle is simply the case $r = 1$, where the division changes nothing and the coordinates are the values themselves.",
+    content: "The other extension handles points that sit on some larger circle. Take $(3, 4)$: its distance from the origin is $r = \\sqrt{3^2 + 4^2} = 5$, so it lies on a circle of radius $5$, not $1$. Dividing each coordinate by that distance — in general, $r = \\sqrt{x^2 + y^2}$ — rescales the point onto the unit circle without moving its angle, which is why $\\cos\\theta = \\frac{x}{r} = \\frac{3}{5}$ and $\\sin\\theta = \\frac{y}{r} = \\frac{4}{5}$. The unit circle is simply the case $r = 1$, where the division changes nothing and the coordinates are the values themselves.",
   },
 
   {
@@ -162,9 +117,9 @@ export const mRadiansBlocks = [
     difficulty: 'Easy',
     problem: 'Convert $135°$ to radians.',
     steps: [
-      { label: 'Choose the factor', content: "The conversion leaves degrees, so multiply by $\\frac{\\pi}{180}$ — that way the degrees cancel." },
+      { label: 'Choose the factor', content: "The conversion leaves degrees behind, so multiply by $\\frac{\\pi}{180}$ — the fraction that cancels them." },
       { label: 'Multiply', content: '$135 \\cdot \\frac{\\pi}{180} = \\frac{135\\pi}{180}$.' },
-      { label: 'Simplify', content: 'Divide numerator and denominator by $45$: $\\frac{3\\pi}{4}$. As a check, the result is slightly more than $\\frac{\\pi}{2}$, consistent with an angle just past $90°$.' },
+      { label: 'Simplify', content: 'Divide numerator and denominator by $45$ to get $\\frac{3\\pi}{4}$. As a check, the result is slightly more than $\\frac{\\pi}{2}$ — consistent with an angle just past $90°$.' },
     ],
   },
   {
@@ -174,7 +129,7 @@ export const mRadiansBlocks = [
     steps: [
       { label: 'Choose the formula', content: 'The angle is already in radians, so $s = r\\theta$ applies directly with no conversion.' },
       { label: 'Substitute', content: '$s = 6 \\cdot \\frac{\\pi}{3}$.' },
-      { label: 'Compute', content: '$\\frac{6\\pi}{3} = 2\\pi$. The arc is $2\\pi$ units long; no further conversion is needed.' },
+      { label: 'Compute', content: '$\\frac{6\\pi}{3} = 2\\pi$. The arc is $2\\pi$ units long, and no conversion was ever needed — the angle arrived in the unit the formula was built for.' },
     ],
   },
   {

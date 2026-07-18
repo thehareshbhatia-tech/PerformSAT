@@ -1,11 +1,12 @@
 /**
  * Learn lesson body — Modifiers & Parallelism (Standard English Conventions).
  *
- * VOICE v3 (adopted 2026-07-17, exemplar: bodies/centralIdeas.js): scannable
- * instructional register — direct address, contractions, 1-3 sentence text
- * blocks, list blocks for criteria, steps blocks for procedures; no
- * analogies, no pep-talk, no emojis. All substance of the v2 textbook
- * version preserved. Gated by bodies.test.js.
+ * VOICE v4 (adopted 2026-07-18, exemplar: bodies/centralIdeas.js): practiced-tutor
+ * register — developed 2-5 sentence paragraphs with connective tissue; every rule
+ * earns its "because"; student-psychology named concretely; math teaching is
+ * example-led; varied rhythm, no aphorism-per-block. Bans carried from v3: no
+ * analogies, no pep talk, no exclamation marks, no emojis, no test-personification.
+ * All v3 teaching claims preserved.
  *
  * This lesson covers three related "matching" ideas — a modifier must touch
  * what it describes, listed items must share a form, and comparisons must
@@ -18,11 +19,7 @@
 export const gModifiersParallelismBlocks = [
   {
     type: 'text',
-    content: "Verb to subject, pronoun to antecedent, tense to timeline — the whole unit so far has been matching. That matching now stretches past single words to phrases, lists, and comparisons.",
-  },
-  {
-    type: 'text',
-    content: "Three question types share one principle: **each element has to connect to, match, or be measured against the right thing.**",
+    content: "Verb to subject, pronoun to antecedent, tense to timeline — everything in this unit so far has been matching, one word to another. This chapter stretches the same principle past single words to phrases, lists, and comparisons. Three question types live here, and they share one requirement: **each element has to connect to, match, or be measured against the right thing.**",
   },
   {
     type: 'list',
@@ -36,41 +33,29 @@ export const gModifiersParallelismBlocks = [
   { type: 'heading', content: '1. Modifiers: the noun after the comma' },
   {
     type: 'text',
-    content: "Read literally, *Walking to school, the rain started* claims the rain went for a walk. That absurdity is the rule at work: an opening phrase before a comma describes **whatever noun comes right after the comma** — no exceptions, no appeal to what the writer meant.",
-  },
-  {
-    type: 'text',
-    content: "The fix puts the true agent at the comma: *Walking to school, **I** got caught in the rain.*",
+    content: "Read literally, *Walking to school, the rain started* claims the rain went for a walk. That absurdity isn't a glitch — it's the rule at work: an opening phrase before a comma describes **whatever noun comes right after the comma**, with no exceptions and no appeal to what the writer meant, because grammar reads position, not intention. The fix puts the true agent at the comma: *Walking to school, **I** got caught in the rain.*",
   },
   {
     type: 'keyInsight',
-    content: 'Cover the choices, read the opening phrase, and ask **"who or what is doing this?"** The answer has to be the very next noun — name it before you look at a single choice.',
+    content: "Cover the choices, read the opening phrase, and ask **\"who or what is doing this?\"** The answer has to be the very next noun — name it before you look at a single choice, because once a choice's smooth phrasing is in your head, the misplaced noun stops sounding wrong.",
   },
   {
     type: 'list',
     title: 'Two setups that still dangle:',
     items: [
-      "**A possessive.** *Curie's discovery* names a discovery, not Curie — so *Studying radioactivity, Curie's discovery…* puts the wrong noun at the comma.",
-      '**A non-*-ing* opener.** *A patient researcher, Curie…* and *In her lab, Curie…* raise the same who-or-what question.',
+      "**A possessive.** *Curie's discovery* names a discovery, not Curie — so *Studying radioactivity, Curie's discovery…* puts the wrong noun at the comma even though Curie's name sits right there on the page. That visibility is what makes the possessive the classic disguise.",
+      '**A non-*-ing* opener.** *A patient researcher, Curie…* and *In her lab, Curie…* raise the same who-or-what question — the rule never depended on the phrase ending in *-ing*.',
     ],
   },
 
   { type: 'heading', content: '2. Parallelism: one list, one form' },
   {
     type: 'text',
-    content: "Ideas that are joined — in a series, or across a pairing construction — share one grammatical form: all *-ing*, all plain nouns, all *to ___*. *She likes **hiking**, **swimming**, and **to bike*** breaks the pattern; the parallel version is *hiking, swimming, and **biking***.",
+    content: "Ideas that are joined — in a series, or across a pairing construction — share one grammatical form: all *-ing*, all plain nouns, all *to ___*. *She likes **hiking**, **swimming**, and **to bike*** breaks the pattern; the parallel version is *hiking, swimming, and **biking***. The requirement isn't arbitrary. A list presents its items on equal footing, and a change of form quietly signals that the items aren't truly equivalent — the grammar stops agreeing with the meaning.",
   },
   {
     type: 'text',
-    content: "The requirement isn't arbitrary. A list presents its items on equal footing, and a change of form quietly signals that the items aren't truly equivalent.",
-  },
-  {
-    type: 'text',
-    content: "On test questions, the mismatched item is almost always the last one, sitting in or beside the underlined portion.",
-  },
-  {
-    type: 'text',
-    content: "One item always lives in the fixed, non-underlined text — the **anchor**. It can't change, so it dictates the answer: find it, name its grammatical form, and keep only the choice that matches.",
+    content: "On test questions the mismatched item is almost always the last one, sitting in or beside the underlined portion — and that placement hands you the method. One item always lives in the fixed, non-underlined text: the **anchor**. It can't change, so it dictates the answer — find it, name its grammatical form, and keep only the choice that matches. Students who skip the anchor end up judging the choices by ear, and the smooth-sounding wrong answer is exactly what the ear picks.",
   },
   {
     type: 'text',
@@ -94,11 +79,7 @@ export const gModifiersParallelismBlocks = [
   { type: 'heading', content: 'Correlative pairs are fixed templates' },
   {
     type: 'text',
-    content: "The pairing words are **fixed two-part templates**: the moment the first half appears, the second half is already decided, and no near-synonym can stand in for it.",
-  },
-  {
-    type: 'text',
-    content: "*Neither* mandates *nor* — *neither efficient **or** attractive* is wrong however natural it reads; the sentence requires *neither efficient **nor** attractive*. Likewise *not only* mandates *but also*, *both* mandates *and*, and *as* pairs with a second *as*: *as durable **as** steel*, never *as durable than steel*.",
+    content: "The pairing words themselves are **fixed two-part templates**: the moment the first half appears, the second half is already decided, and no near-synonym can stand in for it. *Neither* mandates *nor* — *neither efficient **or** attractive* is wrong however natural it reads; the sentence requires *neither efficient **nor** attractive*. Likewise *not only* mandates *but also*, *both* mandates *and*, and *as* pairs with a second *as*: *as durable **as** steel*, never *as durable than steel*.",
   },
   {
     type: 'text',
@@ -118,21 +99,13 @@ export const gModifiersParallelismBlocks = [
   },
   {
     type: 'text',
-    content: 'The template supplies the words; parallelism still governs **what follows them**. *The playwright not only **wrote the script** but also **directed the premiere*** balances two verb phrases — *not only wrote the script but also the premiere* breaks, a verb phrase against a bare noun.',
-  },
-  {
-    type: 'text',
-    content: 'So a correlative gets checked twice: right partner first, then matching forms.',
+    content: 'The template supplies the words; parallelism still governs **what follows them**. *The playwright not only **wrote the script** but also **directed the premiere*** balances two verb phrases, while *not only wrote the script but also the premiere* sets a verb phrase against a bare noun and breaks. So a correlative gets checked twice: right partner first, then matching forms after each half.',
   },
 
   { type: 'heading', content: '3. Comparisons: like against like' },
   {
     type: 'text',
-    content: "A comparison holds up only when both sides carry the same kind of thing. *Her novels are longer than **Dickens*** compares novels with a person.",
-  },
-  {
-    type: 'text',
-    content: "The fix makes both sides works: *…longer than **Dickens's*** (Dickens's novels) or *…than **those of Dickens***. Before judging any choice, state what stands on each side — novels set against a person can never balance.",
+    content: "A comparison holds up only when both sides carry the same kind of thing, and the broken version reads smoothly — which is what makes it worth testing. *Her novels are longer than **Dickens*** compares novels with a person, but the ear rarely objects, because the intended meaning arrives anyway. The fix makes both sides works: *…longer than **Dickens's*** (Dickens's novels) or *…than **those of Dickens***. So before judging any choice, state what stands on each side — novels set against a person can never balance, and naming the two sides is what makes the mismatch visible.",
   },
   {
     type: 'text',
@@ -228,6 +201,6 @@ export const gModifiersParallelismBlocks = [
 
   {
     type: 'text',
-    content: "**Three checks, one habit:** for a modifier, name who or what performs the action and confirm it's the noun at the comma. For a list, name the anchor's form and match it. For a comparison, state what stands on each side and confirm both are the same kind of thing.",
+    content: "**Three checks, one habit:** for a modifier, name who or what performs the action and confirm it's the noun at the comma. For a list, name the anchor's form and match it. For a comparison, state what stands on each side and confirm both are the same kind of thing. Each check replaces the ear with a named element — the doer, the anchor, the two sides — and the named element is what every choice gets measured against.",
   },
 ];
