@@ -18,6 +18,8 @@ const ALLOWED_TYPES = new Set([
   'heading', 'text', 'list', 'table', 'callout', 'tip', 'keyInsight', 'trapCard',
   'strategyCard', 'example', 'steps', 'checkpointQuestion', 'comparison',
   'diagramRef', 'formula', 'formulaGrid',
+  // Composed-mode ("authored textbook") furniture (2026-07-18).
+  'chapterOpener', 'aside', 'summary',
 ]);
 
 const REQUIRED_FIELDS = {
@@ -37,6 +39,9 @@ const REQUIRED_FIELDS = {
   diagramRef: ['visualType'],
   formula: ['content'],
   formulaGrid: ['items'],
+  chapterOpener: ['lede'],
+  aside: ['content'],
+  summary: ['points'],
 };
 
 // Source-book fingerprints that must never appear (originality invariant from

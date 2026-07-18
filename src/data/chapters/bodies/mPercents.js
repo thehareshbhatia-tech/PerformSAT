@@ -4,10 +4,15 @@
  * VOICE v4 (adopted 2026-07-18, exemplar: bodies/centralIdeas.js):
  * practiced-tutor register — developed 2-5 sentence paragraphs with
  * connective tissue; every rule earns its "because"; student-psychology
- * named concretely; math teaching is example-led; varied rhythm, no
- * aphorism-per-block. Bans carried from v3: no analogies, no pep talk,
- * no exclamation marks, no emojis, no test-personification. All v3
- * teaching claims preserved.
+ * named concretely; math teaching is example-led; varied rhythm.
+ *
+ * COMPOSED MODE (2026-07-18 — THIS FILE IS THE STRUCTURE EXEMPLAR, pending
+ * user approval before corpus rollout): opens with a `chapterOpener` block,
+ * which turns on authored-textbook furniture in SectionContent — numbered
+ * sections, numbered worked examples (interspersed in their concept section,
+ * not batched), numbered+captioned figures referenced in prose, margin-note
+ * `aside` blocks, and a closing `summary`. Non-composed chapters omit the
+ * opener and render exactly as before.
  *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
@@ -15,8 +20,8 @@
 
 export const mPercentsBlocks = [
   {
-    type: 'text',
-    content: 'A percent is the most common special case of the ratio reasoning we just built — a ratio whose base is fixed at $100$ — and the discipline of tracking the base carries over whole. The arithmetic in this chapter is rarely where points are lost. The setup is: whether to multiply, divide, or chain, and above all, off *which* base. Watch how one question settles most of that at once.',
+    type: 'chapterOpener',
+    lede: 'A percent is the most common special case of the ratio reasoning we just built — a ratio whose base is fixed at $100$. The arithmetic is rarely where points are lost; the real decision is whether to multiply, divide, or chain, and above all, off *which* base. One habit settles most of it.',
   },
 
   { type: 'heading', content: 'A percent is a multiplier' },
@@ -35,11 +40,11 @@ export const mPercentsBlocks = [
   {
     type: 'diagramRef',
     visualType: 'percentChangeDiagram',
-    description: 'A quantity before and after a percent change, annotated with the single multiplier that carries the old value to the new one.',
+    description: 'A quantity before and after a percent change — one multiplier carries the old value to the new one, and dividing by it walks the change backward.',
   },
   {
     type: 'text',
-    content: "This one habit — translating each percent phrase into a single factor the moment you read it, before any other arithmetic — is most of the chapter. Everything that follows is that habit applied in different directions.",
+    content: "Figure 1 is the whole chapter in miniature: translating each percent phrase into a single factor the moment you read it, before any other arithmetic. Everything that follows is that one habit applied in different directions — and the table below is the phrasebook.",
   },
   {
     type: 'table',
@@ -52,6 +57,15 @@ export const mPercentsBlocks = [
       ['$0.4\\%$ of a number', '$\\times 0.004$'],
     ],
   },
+  {
+    type: 'example',
+    difficulty: 'Easy',
+    problem: 'A jacket costs $\\$80$. During a sale the price drops by $25\\%$. What is the sale price?',
+    steps: [
+      { label: 'Build the factor', content: 'Down $25\\%$ keeps $75\\%$, so the factor is $\\times 0.75$.' },
+      { label: 'Multiply', content: '$80 \\times 0.75 = 60$. The sale price is $\\$60$.' },
+    ],
+  },
 
   { type: 'heading', content: 'Part, whole, and percent' },
   {
@@ -62,7 +76,11 @@ export const mPercentsBlocks = [
     type: 'text',
     content: 'Here the whole is missing, and a missing whole calls for **division**: $12 = 0.30 \\times \\text{whole}$, so $\\text{whole} = 12 \\div 0.30 = 40$. Label the missing quantity before touching the numbers, and the multiply-whatever-is-given reflex never gets the chance to fire.',
   },
-
+  {
+    type: 'aside',
+    kind: 'watch',
+    content: "If an answer comes out **smaller than a number the problem already handed you** as a part, you multiplied where you should have divided. A whole is never smaller than its part — that impossibility is the fastest check you have.",
+  },
   {
     type: 'steps',
     title: 'How to approach these questions',
@@ -71,17 +89,6 @@ export const mPercentsBlocks = [
       '**Name the base.** Each factor acts on the value right before it — "of those" switches the base, and "after" means the given number is a result, not a start.',
       '**Pick the operation.** A single change multiplies, a missing whole divides, an "after" value works backward by division, and successive changes chain their factors.',
       '**Check the direction.** Undoing an increase gives a smaller number; undoing a decrease, a larger one.',
-    ],
-  },
-
-  { type: 'heading', content: 'Worked examples' },
-  {
-    type: 'example',
-    difficulty: 'Easy',
-    problem: 'A jacket costs $\\$80$. During a sale the price drops by $25\\%$. What is the sale price?',
-    steps: [
-      { label: 'Build the factor', content: 'Down $25\\%$ keeps $75\\%$, so the factor is $\\times 0.75$.' },
-      { label: 'Multiply', content: '$80 \\times 0.75 = 60$. The sale price is $\\$60$.' },
     ],
   },
   {
@@ -156,8 +163,9 @@ export const mPercentsBlocks = [
     content: 'When the rate is a variable, the factor divides by $100$ explicitly: a price of $x$ dollars reduced by $p$ percent is $x\\left(1 - \\frac{p}{100}\\right)$, not $x(1 - p)$. A test value exposes the difference at once — at $p = 20$, the first gives $0.8x$, while $x(1 - 20) = -19x$.',
   },
   {
-    type: 'text',
-    content: 'Bases also shift between sentences, which is how a percent relationship changes its number when read in reverse. "$x$ is $80\\%$ of $y$" means $x = 0.80y$, so $y = \\frac{x}{0.80} = 1.25x$ — measured against $x$, $y$ is $25\\%$ larger, not $20\\%$. The percent moved because the base moved: the $20\\%$ gap was measured against $y$, and the $25\\%$ is measured against the smaller $x$.',
+    type: 'aside',
+    kind: 'remember',
+    content: 'A percent relationship changes its number when read in reverse, because the base moves. "$x$ is $80\\%$ of $y$" means $x = 0.80y$, so $y = \\frac{x}{0.80} = 1.25x$: measured against $x$, $y$ is $25\\%$ larger, not $20\\%$. The $20\\%$ gap was measured against $y$; the $25\\%$ against the smaller $x$.',
   },
   {
     type: 'example',
@@ -187,7 +195,14 @@ export const mPercentsBlocks = [
   },
 
   {
-    type: 'text',
-    content: '**The whole topic in one move:** convert each percent into a factor the moment you read it, and keep track of the base each factor acts on. A single change is a multiplication, a missing whole is a division, an "after" value works backward by division, and successive changes multiply their factors into one.',
+    type: 'summary',
+    title: 'The chapter in five moves',
+    points: [
+      'Turn every percent into a **factor** the instant you read it: up $p\\%$ is $\\times(1+\\frac{p}{100})$, down $p\\%$ is $\\times(1-\\frac{p}{100})$.',
+      'A single change **multiplies**; a missing whole **divides**; an "after" value works **backward** by division.',
+      'Track the **base** each factor acts on — "of those" and "after" are the words that switch it.',
+      'Successive changes **multiply** their factors into one product. They never add, and same-size up-then-down always finishes below the start.',
+      'Percent change is always measured against the **original**, so a relationship read in reverse changes its number.',
+    ],
   },
 ];

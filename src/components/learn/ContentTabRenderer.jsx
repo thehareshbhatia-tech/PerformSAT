@@ -35,8 +35,13 @@ const BlockRenderers = {
     // Generate a simple ID from the content, fallback to heading-idx if it's math/complex
     const simpleText = block.content.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
     const id = simpleText ? `tb-heading-${simpleText}` : `tb-heading-${idx}`;
+    // Composed mode (see SectionContent): the section carries an auto number so
+    // the chapter reads like a numbered textbook section rather than a bare bold
+    // line. Non-composed chapters pass no _sectionNum and render exactly as before.
     return (
-      <h3 key={idx} id={id} className={`tb-heading ${idx > 0 ? 'tb-heading--spaced' : ''}`}>
+      <h3 key={idx} id={id}
+        className={`tb-heading ${idx > 0 ? 'tb-heading--spaced' : ''} ${block._sectionNum ? 'tb-heading--numbered' : ''}`}>
+        {block._sectionNum && <span className="tb-section-num">{block._sectionNum}</span>}
         <MathText>{block.content}</MathText>
       </h3>
     );
@@ -157,8 +162,13 @@ const BlockRenderers = {
   ),
 
   example: (block, idx) => (
-    <div key={idx} className="tb-worked-example">
-      <h4 className="tb-subhead">Worked Example</h4>
+    <div key={idx} className={`tb-worked-example ${block._exampleNum ? 'tb-worked-example--numbered' : ''}`}>
+      <h4 className="tb-subhead">
+        {block._exampleNum ? `Example ${block._exampleNum}` : 'Worked Example'}
+        {block._exampleNum && block.difficulty && (
+          <span className={`tb-ex-diff tb-ex-diff--${block.difficulty.toLowerCase()}`}>{block.difficulty}</span>
+        )}
+      </h4>
       {block.problem && (
         <div className="tb-problem">
           {renderRichText(block.problem)}
@@ -222,22 +232,66 @@ const BlockRenderers = {
   ),
 
   diagramRef: (block, idx) => {
+    // Composed mode: figures are numbered ("Figure N.") so prose can reference
+    // them ("see Figure 1"), the way an authored textbook does.
+    const figLabel = block._figNum ? (
+      <span className="tb-fig-num">Figure {block._figNum}.</span>
+    ) : null;
     if (block.visualType && visualRegistry[block.visualType]) {
       return (
-        <figure key={idx} className="tb-figure">
+        <figure key={idx} className={`tb-figure ${block._figNum ? 'tb-figure--numbered' : ''}`}>
           <LessonVisualRenderer type={block.visualType} />
-          {block.description && <figcaption className="tb-figcaption">{renderRichText(block.description)}</figcaption>}
+          {block.description && (
+            <figcaption className="tb-figcaption">{figLabel}{renderRichText(block.description)}</figcaption>
+          )}
         </figure>
       );
     }
     return (
       <figure key={idx} className="tb-figure">
         <figcaption className="tb-figcaption">
-          {renderRichText(block.description || 'Refer to the visual model in the lesson content.')}
+          {figLabel}{renderRichText(block.description || 'Refer to the visual model in the lesson content.')}
         </figcaption>
       </figure>
     );
   },
+
+  // Composed-mode chapter opener: an orienting lede set apart from body, the
+  // way a textbook chapter opens under its title. The reader already renders
+  // the chapter title + unit label + read time, so the opener does NOT repeat
+  // them — it contributes the lede and, by its presence, turns on composed
+  // numbering for the whole article.
+  chapterOpener: (block, idx) => (
+    <header key={idx} className="tb-chapter-opener">
+      {block.lede && <p className="tb-opener-lede">{renderRichText(block.lede)}</p>}
+    </header>
+  ),
+
+  // Margin-note aside: a short "teacher in the margin" note. kind sets the label.
+  aside: (block, idx) => {
+    const label = block.label || (
+      block.kind === 'watch' ? 'Watch out' :
+      block.kind === 'remember' ? 'Remember' : 'Note'
+    );
+    return (
+      <aside key={idx} className={`tb-marginnote tb-marginnote--${block.kind || 'note'}`}>
+        <span className="tb-marginnote-label">{label}</span>
+        <div className="tb-body">{renderRichText(block.content)}</div>
+      </aside>
+    );
+  },
+
+  // Composed chapter recap: a titled list of the load-bearing takeaways.
+  summary: (block, idx) => (
+    <section key={idx} className="tb-summary">
+      <h3 className="tb-summary-title">{renderRichText(block.title || 'The chapter in short')}</h3>
+      <ol className="tb-summary-list">
+        {block.points.map((p, pi) => (
+          <li key={pi}>{renderRichText(p)}</li>
+        ))}
+      </ol>
+    </section>
+  ),
 
   parallelLinesDiagram: (_block, idx) => (
     <figure key={idx} className="tb-figure">
@@ -274,15 +328,32 @@ const BlockRenderers = {
 export const SectionContent = ({ section }) => {
   if (!section || !section.blocks) return null;
 
+  // Composed ("authored textbook") mode is opt-in: a chapter whose first block
+  // is a chapterOpener gets auto-numbered sections, worked examples, and
+  // figures. Every other chapter passes through unchanged, so this is a safe
+  // additive layer while the composed structure rolls out chapter by chapter.
+  const composed = section.blocks[0]?.type === 'chapterOpener';
+  let sectionN = 0;
+  let exampleN = 0;
+  let figureN = 0;
+  const numberFor = (block) => {
+    if (!composed) return block;
+    if (block.type === 'heading') return { ...block, _sectionNum: ++sectionN };
+    if (block.type === 'example') return { ...block, _exampleNum: ++exampleN };
+    if (block.type === 'diagramRef') return { ...block, _figNum: ++figureN };
+    return block;
+  };
+
   return (
-    <article className="tb-article">
-      {section.summary && (
+    <article className={`tb-article ${composed ? 'tb-article--composed' : ''}`}>
+      {section.summary && !composed && (
         <p className="tb-lead">
           {renderRichText(section.summary)}
         </p>
       )}
 
-      {section.blocks.map((block, idx) => {
+      {section.blocks.map((rawBlock, idx) => {
+        const block = numberFor(rawBlock);
         const renderer = BlockRenderers[block.type];
         if (!renderer) {
           if (process.env.NODE_ENV === 'development') {

@@ -866,3 +866,196 @@
   .cr-title { font-size: 30px; }
   .cr-drill-card { flex-direction: column; align-items: flex-start; }
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   COMPOSED MODE — "authored textbook" furniture (2026-07-18)
+   Opt-in via a chapterOpener block. Numbered sections + worked examples +
+   figures, a composed opener and summary, and margin-note asides — the
+   structure that separates a human-authored chapter from a flat block stream.
+   Styled in the existing flat-reader language (Bricolage display, Newsreader
+   serif, brand accents). Non-composed chapters are untouched.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Chapter opener — number eyebrow, display title, serif lede, closing rule. */
+.cr-content .tb-chapter-opener {
+  margin: 4px 0 8px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid var(--cr-line);
+}
+.cr-content .tb-opener-eyebrow {
+  font-family: var(--cr-font-body);
+  font-weight: 700;
+  font-size: 11.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cr-orange);
+  margin-bottom: 16px;
+}
+.cr-content .tb-opener-title {
+  font-family: var(--cr-font-display);
+  font-weight: 700;
+  font-size: 42px;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--cr-ink);
+  margin: 0 0 18px;
+}
+.cr-content .tb-opener-lede {
+  font-family: var(--cr-font-serif);
+  font-size: 20px;
+  line-height: 1.6;
+  color: var(--cr-read);
+  margin: 0;
+  max-width: 62ch;
+}
+
+/* Numbered section headings — the number replaces the orange accent bar and
+   sits in a lime-tinted chip, so each section reads as "§N Title". */
+.cr-content .tb-heading--numbered {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-top: 56px;
+}
+.cr-content .tb-heading--numbered::after { display: none; }
+.cr-content .tb-section-num {
+  flex: none;
+  font-family: var(--cr-font-display);
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1;
+  color: var(--cr-orange);
+  padding: 8px 0 0;
+  min-width: 1.2em;
+  border-top: 3px solid var(--cr-orange);
+}
+
+/* Numbered worked examples — "Example N" replaces the generic eye-icon subhead;
+   a quiet difficulty tag rides at the right. */
+.cr-content .tb-worked-example--numbered > .tb-subhead {
+  justify-content: flex-start;
+  gap: 12px;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--cr-purple);
+}
+.cr-content .tb-worked-example--numbered > .tb-subhead::before {
+  content: '';
+  width: 22px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--cr-purple);
+  background-image: none;
+}
+.cr-content .tb-ex-diff {
+  margin-left: auto;
+  font-family: var(--cr-font-body);
+  font-weight: 700;
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: 999px;
+}
+.cr-content .tb-ex-diff--easy { color: var(--cr-lime-deep); background: var(--cr-lime-tint); }
+.cr-content .tb-ex-diff--medium { color: var(--cr-orange); background: var(--cr-orange-tint); }
+.cr-content .tb-ex-diff--hard { color: var(--cr-red); background: var(--cr-red-tint); }
+
+/* Numbered figures — a bold serif "Figure N." leads the caption. */
+.cr-content .tb-figure--numbered .tb-figcaption { text-align: center; }
+.cr-content .tb-fig-num {
+  font-family: var(--cr-font-serif);
+  font-weight: 600;
+  font-style: normal;
+  color: var(--cr-ink);
+  margin-right: 6px;
+}
+
+/* Margin-note aside — the "teacher in the margin". Lighter than the example
+   cards: an inset strip with a small-caps label, colored by kind. */
+.cr-content .tb-marginnote {
+  position: relative;
+  background: var(--cr-inset);
+  border: 1px solid var(--cr-line);
+  border-left: 3px solid var(--cr-slate, #8A8577);
+  border-radius: 10px;
+  padding: 15px 20px;
+  margin: 4px 0 28px;
+}
+.cr-content .tb-marginnote-label {
+  display: block;
+  font-family: var(--cr-font-body);
+  font-weight: 700;
+  font-size: 10.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 7px;
+  color: #8A8577;
+}
+.cr-content .tb-marginnote .tb-body { margin: 0; font-size: 16px; }
+.cr-content .tb-marginnote--watch { border-left-color: var(--cr-orange); }
+.cr-content .tb-marginnote--watch .tb-marginnote-label { color: var(--cr-orange); }
+.cr-content .tb-marginnote--remember { border-left-color: var(--cr-purple); }
+.cr-content .tb-marginnote--remember .tb-marginnote-label { color: var(--cr-purple); }
+
+/* Chapter summary — a composed close: navy-tinted panel, display title, a
+   numbered serif list of the load-bearing takeaways. */
+.cr-content .tb-summary {
+  background: var(--cr-navy);
+  border-radius: 18px;
+  padding: 28px 30px 30px;
+  margin: 44px 0 8px;
+}
+.cr-content .tb-summary-title {
+  font-family: var(--cr-font-display);
+  font-weight: 700;
+  font-size: 19px;
+  color: #FFFFFF;
+  margin: 0 0 18px;
+}
+.cr-content .tb-summary-title::after { display: none; }
+.cr-content .tb-summary-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: cr-sum;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.cr-content .tb-summary-list li {
+  counter-increment: cr-sum;
+  position: relative;
+  padding-left: 34px;
+  font-family: var(--cr-font-serif);
+  font-size: 17px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.9);
+}
+.cr-content .tb-summary-list li::before {
+  content: counter(cr-sum);
+  position: absolute;
+  left: 0;
+  top: 1px;
+  width: 22px;
+  height: 22px;
+  border-radius: 7px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #FFFFFF;
+  font-family: var(--cr-font-display);
+  font-weight: 700;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* renderRichText sets an inline dark color on <strong>; override it on the
+   navy panel so bold stays legible (inline style needs !important to beat). */
+.cr-content .tb-summary-list strong { color: #FFFFFF !important; }
+.cr-content .tb-summary-list em { color: #FFB27A !important; font-style: normal; }
+
+@media (max-width: 640px) {
+  .cr-content .tb-opener-title { font-size: 32px; }
+  .cr-content .tb-opener-lede { font-size: 18px; }
+}
