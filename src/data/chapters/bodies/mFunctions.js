@@ -8,14 +8,17 @@
  * analogies, no pep talk, no exclamation marks, no emojis, no
  * test-personification. All v3 teaching claims preserved.
  *
+ * COMPOSED MODE (2026-07-18): chapterOpener lede + auto-numbered sections/examples/figures +
+ * aside margin-notes + summary close (exemplar: bodies/mPercents.js).
+ *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
  */
 
 export const mFunctionsBlocks = [
   {
-    type: 'text',
-    content: "Lines, then systems of lines — every relationship so far has been linear. Function notation names the input-output rule itself, and naming the rule is what lets the work extend beyond the linear into the Advanced Math unit that follows. A function is a rule that assigns to each input exactly one output, and its defining guarantee is consistency: the same input always produces the same output. Every question on this topic reduces to the same procedure — read the notation, substitute the input into the rule, evaluate — so reading the notation correctly is most of the work.",
+    type: 'chapterOpener',
+    lede: "Lines, then systems of lines — every relationship so far has been linear. Function notation names the input-output rule itself, and naming the rule is what lets the work extend beyond the linear into the Advanced Math unit that follows. A function is a rule that assigns to each input exactly one output, and its defining guarantee is consistency: the same input always produces the same output. Every question on this topic reduces to the same procedure — read the notation, substitute the input into the rule, evaluate — so reading the notation correctly is most of the work.",
   },
 
   { type: 'heading', content: 'Function notation' },
@@ -27,15 +30,41 @@ export const mFunctionsBlocks = [
   { type: 'heading', content: 'Evaluating a function' },
   {
     type: 'text',
-    content: "To find $f(3)$, substitute $3$ for the input variable: $f(3) = 3(3) - 5 = 4$. One reading error poisons everything downstream, so settle it now: the symbol $f$ is a name, not a number. $f(3)$ never means $f \\times 3$, and reading it as multiplication invalidates every step that follows.",
+    content: "To find $f(3)$, substitute $3$ for the input variable: $f(3) = 3(3) - 5 = 4$.",
+  },
+  {
+    type: 'aside',
+    kind: 'watch',
+    content: "One reading error poisons everything downstream, so settle it now: the symbol $f$ is a name, not a number. $f(3)$ never means $f \\times 3$, and reading it as multiplication invalidates every step that follows.",
   },
   {
     type: 'text',
     content: "When the input is negative or is itself an expression, enclose it in parentheses before substituting: for $f(x) = x^2$, $f(-2) = (-2)^2 = 4$, and $f(2x) = (2x)^2 = 4x^2$ — not $2x^2$. Why insist on the parentheses? Because without them the exponent grabs only the nearest symbol: skipping them drops the sign of a negative input, or squares only part of a compound input such as $2x$, and the answer those slips produce is always among the choices.",
   },
   {
-    type: 'keyInsight',
+    type: 'aside',
+    kind: 'remember',
     content: "Rewrite the rule with an empty position — $f(\\ ) = (\\ )^2$ — and substitute the entire input, parentheses included. This one habit prevents both standard errors: writing $2x^2$ for $(2x)^2$, and dropping the sign of a negative input.",
+  },
+  {
+    type: 'example',
+    difficulty: 'Easy',
+    problem: 'If $f(x) = 2x^2 - 1$, what is $f(-3)$?',
+    steps: [
+      { label: 'Substitute the input', content: "Replace every copy of the variable with $-3$, in parentheses: $f(-3) = 2(-3)^2 - 1$." },
+      { label: 'Apply the exponent first', content: "Square before multiplying: $(-3)^2 = 9$. Then $2(9) - 1$." },
+      { label: 'Simplify', content: "$18 - 1 = 17$. So $f(-3) = 17$." },
+    ],
+  },
+  {
+    type: 'example',
+    difficulty: 'Medium',
+    problem: 'If $f(x) = x^2 + 1$, what is $f(x + 3)$?',
+    steps: [
+      { label: 'Substitute the full expression', content: "Replace every $x$ with $(x + 3)$, parentheses included: $f(x + 3) = (x + 3)^2 + 1$." },
+      { label: 'Expand the square', content: "$(x + 3)^2 = x^2 + 6x + 9$, so $f(x + 3) = x^2 + 6x + 9 + 1$." },
+      { label: 'Combine constants', content: "Combine the constants: $f(x + 3) = x^2 + 6x + 10$. (The frequent error $x^2 + 3$ comes from substituting $x$ alone rather than the whole $x + 3$.)" },
+    ],
   },
 
   { type: 'heading', content: 'Evaluating vs. solving' },
@@ -54,6 +83,16 @@ export const mFunctionsBlocks = [
     type: 'text',
     content: "Once a value is set equal to the rule, the problem is an ordinary equation in $x$ — nothing about the notation changes how equations are solved.",
   },
+  {
+    type: 'example',
+    difficulty: 'Medium',
+    problem: 'If $f(x) = 4x - 5$, for what value of $x$ is $f(x) = 11$?',
+    steps: [
+      { label: 'Set the rule equal to the output', content: "The output is given, so set the rule equal to it: $4x - 5 = 11$." },
+      { label: 'Solve', content: "Add $5$: $4x = 16$. Divide by $4$: $x = 4$." },
+      { label: 'Check', content: "Evaluate to confirm: $f(4) = 4(4) - 5 = 11$. The value checks, so $x = 4$." },
+    ],
+  },
 
   { type: 'heading', content: 'Composition: a function inside a function' },
   {
@@ -61,8 +100,19 @@ export const mFunctionsBlocks = [
     content: "$f(g(2))$ applies two functions in sequence: evaluate $g$ at $2$, then use the result as the input to $f$. Work from the inside out — and this order isn't a stylistic preference, because the outer function can't be evaluated until it has a value to receive, and that value is the output of the inner function. Students who start with the outer rule instead end up combining the two rules incorrectly, turning a routine evaluation into a lost point.",
   },
   {
-    type: 'tip',
+    type: 'aside',
+    kind: 'note',
     content: "In general, $f(g(2))$ and $g(f(2))$ are different numbers. Confirm which one the question asks for before computing.",
+  },
+  {
+    type: 'example',
+    difficulty: 'Hard',
+    problem: 'If $f(x) = x + 4$ and $g(x) = x^2$, what is $f(g(3))$?',
+    steps: [
+      { label: 'Evaluate the inner function', content: "The inner expression is $g(3)$: $g(3) = 3^2 = 9$." },
+      { label: 'Substitute into the outer function', content: "The input to $f$ is $9$: $f(9) = 9 + 4$." },
+      { label: 'State the result', content: "$f(g(3)) = 13$. (In the reverse order, $g(f(3)) = g(7) = 49$ — composition depends on order.)" },
+    ],
   },
 
   { type: 'heading', content: 'Reading a function from its graph' },
@@ -81,56 +131,14 @@ export const mFunctionsBlocks = [
     ],
   },
 
-  { type: 'heading', content: 'How to approach these questions' },
   {
     type: 'steps',
+    title: 'How to approach these questions',
     items: [
       '**Name the direction.** Input given → evaluate. Output given → set the rule equal to that value and solve.',
       '**Substitute the whole input.** Rewrite the rule with an empty position — $f(\\ ) = (\\ )^2$ — and drop the entire input, parentheses included, into every copy of the variable.',
       '**For compositions, work inside out.** Evaluate the inner function first, then feed its output to the outer one.',
       '**On a graph, translate to coordinates.** $f(a)$ is the height at $x = a$; solving $f(x) = k$ means finding where the curve reaches height $k$.',
-    ],
-  },
-
-  { type: 'heading', content: 'Worked examples' },
-  {
-    type: 'example',
-    difficulty: 'Easy',
-    problem: 'If $f(x) = 2x^2 - 1$, what is $f(-3)$?',
-    steps: [
-      { label: 'Substitute the input', content: "Replace every copy of the variable with $-3$, in parentheses: $f(-3) = 2(-3)^2 - 1$." },
-      { label: 'Apply the exponent first', content: "Square before multiplying: $(-3)^2 = 9$. Then $2(9) - 1$." },
-      { label: 'Simplify', content: "$18 - 1 = 17$. So $f(-3) = 17$." },
-    ],
-  },
-  {
-    type: 'example',
-    difficulty: 'Medium',
-    problem: 'If $f(x) = 4x - 5$, for what value of $x$ is $f(x) = 11$?',
-    steps: [
-      { label: 'Set the rule equal to the output', content: "The output is given, so set the rule equal to it: $4x - 5 = 11$." },
-      { label: 'Solve', content: "Add $5$: $4x = 16$. Divide by $4$: $x = 4$." },
-      { label: 'Check', content: "Evaluate to confirm: $f(4) = 4(4) - 5 = 11$. The value checks, so $x = 4$." },
-    ],
-  },
-  {
-    type: 'example',
-    difficulty: 'Hard',
-    problem: 'If $f(x) = x + 4$ and $g(x) = x^2$, what is $f(g(3))$?',
-    steps: [
-      { label: 'Evaluate the inner function', content: "The inner expression is $g(3)$: $g(3) = 3^2 = 9$." },
-      { label: 'Substitute into the outer function', content: "The input to $f$ is $9$: $f(9) = 9 + 4$." },
-      { label: 'State the result', content: "$f(g(3)) = 13$. (In the reverse order, $g(f(3)) = g(7) = 49$ — composition depends on order.)" },
-    ],
-  },
-  {
-    type: 'example',
-    difficulty: 'Medium',
-    problem: 'If $f(x) = x^2 + 1$, what is $f(x + 3)$?',
-    steps: [
-      { label: 'Substitute the full expression', content: "Replace every $x$ with $(x + 3)$, parentheses included: $f(x + 3) = (x + 3)^2 + 1$." },
-      { label: 'Expand the square', content: "$(x + 3)^2 = x^2 + 6x + 9$, so $f(x + 3) = x^2 + 6x + 9 + 1$." },
-      { label: 'Combine constants', content: "Combine the constants: $f(x + 3) = x^2 + 6x + 10$. (The frequent error $x^2 + 3$ comes from substituting $x$ alone rather than the whole $x + 3$.)" },
     ],
   },
 
@@ -153,10 +161,16 @@ export const mFunctionsBlocks = [
 
   {
     type: 'text',
-    content: "**The whole chapter in three moves:** read $f(\\text{input})$ as an instruction to apply the rule, substitute the entire input into every copy of the variable, and evaluate a composition from the inside out. On a graph, $f(a)$ is a height and $f(x) = k$ locates a crossing.",
+    content: "That closes the Algebra unit. Advanced Math keeps this exact notation and points it at new rules — quadratics, exponentials, polynomials — where the curve changes but the reading of $f(x)$ never does.",
   },
   {
-    type: 'text',
-    content: "That closes the Algebra unit. Advanced Math keeps this exact notation and points it at new rules — quadratics, exponentials, polynomials — where the curve changes but the reading of $f(x)$ never does.",
+    type: 'summary',
+    title: 'The chapter in short',
+    points: [
+      'Read $f(\\text{input})$ as an **instruction to apply the rule**, never as multiplication.',
+      '**Substitute the entire input** — parentheses included — into every copy of the variable.',
+      'Evaluate a composition from the **inside out**, feeding the inner output to the outer rule.',
+      'On a graph, $f(a)$ is a **height** and $f(x) = k$ locates a crossing.',
+    ],
   },
 ];

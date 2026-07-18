@@ -9,14 +9,18 @@
  * no exclamation marks, no emojis, no test-personification. All v3
  * teaching claims preserved.
  *
+ * COMPOSED MODE (2026-07-18): chapterOpener lede + auto-numbered
+ * sections/examples/figures + aside margin-notes + summary close
+ * (exemplar: bodies/mPercents.js).
+ *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
  */
 
 export const textStructureAndPurposeBlocks = [
   {
-    type: 'text',
-    content: "We've been working at the scale of a single word. Now we widen out to the architecture of the whole passage — why a sentence or paragraph is there at all. Purpose and function questions ask **why** something appears on the page — the job it does — not **what** it says, and that one-level difference is where nearly every miss on these items comes from.",
+    type: 'chapterOpener',
+    lede: "We've been working at the scale of a single word. Now we widen out to the architecture of the whole passage — why a sentence or paragraph is there at all. Purpose and function questions ask **why** something appears on the page — the job it does — not **what** it says, and that one-level difference is where nearly every miss on these items comes from.",
   },
   {
     type: 'text',
@@ -53,7 +57,8 @@ export const textStructureAndPurposeBlocks = [
     content: "A sentence's function exists only in relation to its neighbors, so judging it in isolation isn't just risky — there's nothing there to judge. Read one sentence above and one below, and work out what job the underlined sentence does for the sentences **around** it: setting up a contrast, giving evidence for the claim before it, defining a term, conceding a point. One directional pattern is reliable enough to lean on — support points *upward*, because the claim a detail serves almost always sits just before it.",
   },
   {
-    type: 'keyInsight',
+    type: 'aside',
+    kind: 'watch',
     content: "The standard trap on a function question is the choice that merely **restates what the sentence says** — attractive precisely because every word of it is true. A summary names no job. The credited answer carries a verb — *supports, introduces, qualifies* — plus the claim it serves.",
   },
 
@@ -69,7 +74,8 @@ export const textStructureAndPurposeBlocks = [
     content: "Tone is how the *author* regards the topic, and that's a separate question from whether the subject itself is somber or cheerful — a passage about a shipwreck can be written with cool detachment, and a passage about gravel can glow with admiration. Read the stance from the **evaluative words**, the small judgments the author drops in: *striking*, *dubious*, *so-called*, *elegant*. Those words are the only places the author's own attitude touches the page, so they outrank any impression the subject matter leaves.",
   },
   {
-    type: 'text',
+    type: 'aside',
+    kind: 'remember',
     content: "Test passages are written in a measured register, and that fact does elimination work for you: extreme stances (*mocks, ridicules, proves*) are almost always wrong because the prose never runs that hot. When two verbs point the same direction, take the calmer one — *questions* over *ridicules*, *suggests* over *proves.*",
   },
   {
@@ -181,7 +187,13 @@ export const textStructureAndPurposeBlocks = [
   },
 
   {
-    type: 'text',
-    content: "**The whole skill in four checks:** ask why the sentence or passage is there, answer with a verb, test the verb's direction and force, and confirm the answer covers the full span the stem asks about. When two verbs survive, take the calmer one — the measured register of these passages makes the quieter verb the better bet, and it always will.",
+    type: 'summary',
+    title: 'The whole skill in four checks',
+    points: [
+      'Ask **why** the sentence or passage is there — the job it does, not what it says.',
+      'Answer with a **verb** — an infinitive that names a job, not a claim someone could argue with.',
+      "Test the verb's **direction and force**; when two verbs survive, take the calmer one.",
+      'Confirm the answer covers the full **span** the stem asks about — not just the most vivid detail.',
+    ],
   },
 ];

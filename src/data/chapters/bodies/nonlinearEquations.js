@@ -8,14 +8,17 @@
  * analogies, no pep talk, no exclamation marks, no emojis, no
  * test-personification. All v3 teaching claims preserved.
  *
+ * COMPOSED MODE (2026-07-18): chapterOpener lede + auto-numbered sections/examples/figures +
+ * aside margin-notes + summary close (exemplar: bodies/mPercents.js).
+ *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
  */
 
 export const nonlinearEquationsBlocks = [
   {
-    type: 'text',
-    content: "The unit closes with four equation types that draw on every tool we've assembled so far: the variable under a square root, the variable in a denominator, a quartic with quadratic structure, and a polynomial presented through division. Each has its own solution method, but one principle governs all four — **the moves that clear roots and fractions can introduce false solutions or hide restrictions.** The original equation is the final authority on which candidates count: solve directly, then verify against it.",
+    type: 'chapterOpener',
+    lede: "The unit closes with four equation types that draw on every tool we've assembled so far: the variable under a square root, the variable in a denominator, a quartic with quadratic structure, and a polynomial presented through division. Each has its own solution method, but one principle governs all four — **the moves that clear roots and fractions can introduce false solutions or hide restrictions.** The original equation is the final authority on which candidates count: solve directly, then verify against it.",
   },
 
   { type: 'heading', content: 'Radical equations: isolate, square, verify' },
@@ -37,8 +40,20 @@ export const nonlinearEquationsBlocks = [
     content: "The check is the step students skip, because by the time they reach it the algebra feels finished. It isn't optional — skipping it is how a correctly executed method still lands on a wrong answer, and the extraneous candidate is routinely listed among the choices.",
   },
   {
-    type: 'keyInsight',
+    type: 'aside',
+    kind: 'remember',
     content: "A square root symbol always means the non-negative value: $\\sqrt{9} = 3$, never $\\pm 3$. The $\\pm$ arises only when a root is taken during solving — it's never part of the symbol itself.",
+  },
+  {
+    type: 'example',
+    difficulty: 'Medium',
+    problem: 'Solve $\\;x = \\sqrt{2x + 3}\\;$.',
+    steps: [
+      { label: 'Square both sides', content: "The radical is already isolated: $x^2 = 2x + 3$." },
+      { label: 'Solve the quadratic', content: "$x^2 - 2x - 3 = 0 \\Rightarrow (x-3)(x+1) = 0 \\Rightarrow x = 3$ or $x = -1$." },
+      { label: 'Check both in the original', content: "$x=3$: $\\sqrt{9} = 3$, valid. $x=-1$: $\\sqrt{1} = 1 \\ne -1$, extraneous." },
+      { label: 'State the solution', content: "**$x = 3$ only** — squaring introduced $x = -1$, and the check eliminated it." },
+    ],
   },
 
   { type: 'heading', content: 'Rational equations and domain restrictions' },
@@ -47,8 +62,20 @@ export const nonlinearEquationsBlocks = [
     content: "When the variable sits in a denominator, multiply both sides by that denominator to clear the fraction, then solve. One restriction applies, and it applies before the algebra starts: any value that makes an *original* denominator $0$ was never admissible, because the fraction is undefined there — and clearing the denominator removes the visible evidence. So strike any candidate that zeroes an original denominator. The parallel with radicals holds exactly: clearing a fraction, like squaring, can admit a value the original equation never permitted.",
   },
   {
-    type: 'tip',
+    type: 'aside',
+    kind: 'watch',
     content: "Cancel only a **factor**, never a term across a plus or minus. $\\dfrac{(x-3)(x+2)}{x-3}$ cancels to $x+2$ (with $x \\ne 3$), but $\\dfrac{x+2}{x}$ does **not** become $\\dfrac{2}{1}$.",
+  },
+  {
+    type: 'example',
+    difficulty: 'Medium',
+    problem: 'Solve $\\;\\dfrac{x^2 - 9}{x - 3} = 5\\;$.',
+    steps: [
+      { label: 'Flag the restriction', content: "The denominator is $0$ at $x = 3$, so $x \\ne 3$ — record that before solving." },
+      { label: 'Clear the denominator', content: "Multiply both sides by $(x-3)$: $x^2 - 9 = 5(x - 3)$." },
+      { label: 'Solve the quadratic', content: "$x^2 - 9 = 5x - 15 \\Rightarrow x^2 - 5x + 6 = 0 \\Rightarrow (x-2)(x-3) = 0 \\Rightarrow x = 2$ or $x = 3$." },
+      { label: 'Discard the restricted value', content: "$x = 3$ makes the original denominator zero, so it is extraneous. **$x = 2$ only** — and it verifies: $\\dfrac{4-9}{2-3} = \\dfrac{-5}{-1} = 5$." },
+    ],
   },
 
   { type: 'heading', content: 'Dividing both sides by a variable expression' },
@@ -99,32 +126,19 @@ export const nonlinearEquationsBlocks = [
     content: "To find a tangent line, set the discriminant equal to $0$ and solve.",
   },
   {
+    type: 'example',
+    difficulty: 'Hard',
+    problem: 'For what value of $c$ is the line $y = 6x + c$ tangent to the parabola $y = x^2 + 2$?',
+    steps: [
+      { label: 'Set the expressions equal', content: "$x^2 + 2 = 6x + c \\Rightarrow x^2 - 6x + (2 - c) = 0$." },
+      { label: 'Set the discriminant to zero', content: "Tangency means one intersection, so $b^2 - 4ac = 0$: $(-6)^2 - 4(1)(2 - c) = 0 \\Rightarrow 36 - 8 + 4c = 0$." },
+      { label: 'Solve for c', content: "$28 + 4c = 0 \\Rightarrow c = -7$." },
+      { label: 'State the value', content: "**$c = -7$** — the single value for which the line touches the parabola at exactly one point." },
+    ],
+  },
+  {
     type: 'text',
     content: "The remainder theorem: dividing a polynomial $P(x)$ by $(x - a)$ leaves remainder **$P(a)$** — a single evaluation replaces long division entirely. There's a reason it works: division means $P(x) = (x-a)\\,Q(x) + r$, and plugging in $x = a$ kills the first term, leaving $P(a) = r$. A remainder of $0$ means $(x - a)$ is a factor. Watch the converse error, though — $P(6) = 4$ establishes that the remainder is $4$, and it does **not** make $(x-6)$ a factor.",
-  },
-
-  { type: 'heading', content: 'How to approach these questions' },
-  {
-    type: 'steps',
-    items: [
-      '**Record restrictions first.** Before any algebra, note every value that makes an original denominator zero.',
-      '**Clear the obstacle.** Isolate and square a radical, multiply away a denominator, or substitute $u$ for a repeated expression.',
-      '**Never divide by a variable expression.** Bring every term to one side and factor — factoring keeps every root, cancelling erases one.',
-      '**Check each candidate against the original equation.** Discard the extraneous ones, and translate every $u$ back into $x$ before counting solutions.',
-    ],
-  },
-
-  { type: 'heading', content: 'Worked examples' },
-  {
-    type: 'example',
-    difficulty: 'Medium',
-    problem: 'Solve $\\;x = \\sqrt{2x + 3}\\;$.',
-    steps: [
-      { label: 'Square both sides', content: "The radical is already isolated: $x^2 = 2x + 3$." },
-      { label: 'Solve the quadratic', content: "$x^2 - 2x - 3 = 0 \\Rightarrow (x-3)(x+1) = 0 \\Rightarrow x = 3$ or $x = -1$." },
-      { label: 'Check both in the original', content: "$x=3$: $\\sqrt{9} = 3$, valid. $x=-1$: $\\sqrt{1} = 1 \\ne -1$, extraneous." },
-      { label: 'State the solution', content: "**$x = 3$ only** — squaring introduced $x = -1$, and the check eliminated it." },
-    ],
   },
   {
     type: 'example',
@@ -136,27 +150,15 @@ export const nonlinearEquationsBlocks = [
       { label: 'Interpret the result', content: "**The remainder is $-7$.** It isn't $0$, so $(x-1)$ is not a factor." },
     ],
   },
-  {
-    type: 'example',
-    difficulty: 'Hard',
-    problem: 'For what value of $c$ is the line $y = 6x + c$ tangent to the parabola $y = x^2 + 2$?',
-    steps: [
-      { label: 'Set the expressions equal', content: "$x^2 + 2 = 6x + c \\Rightarrow x^2 - 6x + (2 - c) = 0$." },
-      { label: 'Set the discriminant to zero', content: "Tangency means one intersection, so $b^2 - 4ac = 0$: $(-6)^2 - 4(1)(2 - c) = 0 \\Rightarrow 36 - 8 + 4c = 0$." },
-      { label: 'Solve for c', content: "$28 + 4c = 0 \\Rightarrow c = -7$." },
-      { label: 'State the value', content: "**$c = -7$** — the single value for which the line touches the parabola at exactly one point." },
-    ],
-  },
 
   {
-    type: 'example',
-    difficulty: 'Medium',
-    problem: 'Solve $\\;\\dfrac{x^2 - 9}{x - 3} = 5\\;$.',
-    steps: [
-      { label: 'Flag the restriction', content: "The denominator is $0$ at $x = 3$, so $x \\ne 3$ — record that before solving." },
-      { label: 'Clear the denominator', content: "Multiply both sides by $(x-3)$: $x^2 - 9 = 5(x - 3)$." },
-      { label: 'Solve the quadratic', content: "$x^2 - 9 = 5x - 15 \\Rightarrow x^2 - 5x + 6 = 0 \\Rightarrow (x-2)(x-3) = 0 \\Rightarrow x = 2$ or $x = 3$." },
-      { label: 'Discard the restricted value', content: "$x = 3$ makes the original denominator zero, so it is extraneous. **$x = 2$ only** — and it verifies: $\\dfrac{4-9}{2-3} = \\dfrac{-5}{-1} = 5$." },
+    type: 'steps',
+    title: 'How to approach these questions',
+    items: [
+      '**Record restrictions first.** Before any algebra, note every value that makes an original denominator zero.',
+      '**Clear the obstacle.** Isolate and square a radical, multiply away a denominator, or substitute $u$ for a repeated expression.',
+      '**Never divide by a variable expression.** Bring every term to one side and factor — factoring keeps every root, cancelling erases one.',
+      '**Check each candidate against the original equation.** Discard the extraneous ones, and translate every $u$ back into $x$ before counting solutions.',
     ],
   },
 
@@ -183,7 +185,14 @@ export const nonlinearEquationsBlocks = [
   },
 
   {
-    type: 'text',
-    content: "**In summary:** clear the root or fraction, solve, then check every candidate against the *original* equation — squaring, clearing, and dividing aren't fully reversible. Substitute for a repeated expression to expose a quadratic, set intersecting curves equal to get one quadratic, and evaluate $P(a)$ for remainders.",
+    type: 'summary',
+    title: 'The chapter in five checks',
+    points: [
+      'Clear the root or fraction, solve, then **check every candidate against the original equation** — squaring, clearing, and dividing are not fully reversible.',
+      '**Never divide by a variable expression**; factor instead, because dividing silently discards the root that zeroes the divisor.',
+      '**Substitute** for a repeated expression to expose a hidden quadratic, then translate every value back into the original variable before counting.',
+      'Set two intersecting curves **equal** to get one quadratic, whose discriminant counts the crossings without finding them.',
+      'Evaluate **$P(a)$** for the remainder on division by $(x - a)$; a remainder of $0$ means $(x - a)$ is a factor.',
+    ],
   },
 ];

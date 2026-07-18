@@ -8,14 +8,18 @@
  * analogies, no pep talk, no exclamation marks, no emojis, no
  * test-personification. All v3 teaching claims preserved.
  *
+ * COMPOSED MODE (2026-07-18): chapterOpener lede + auto-numbered
+ * sections/examples/figures + aside margin-notes + summary close
+ * (exemplar: bodies/mPercents.js).
+ *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via the
  * chapter-bodies index — never static-import this from the chapter index.
  */
 
 export const statisticalClaimsBlocks = [
   {
-    type: 'text',
-    content: "You now have the whole toolkit for reading data — ratios, percents, probabilities, summaries, models. This closing chapter asks the question standing behind all of it: **what is a study entitled to claim?** Each question presents a short study — who was measured, how they were chosen, what was found — and four possible conclusions, with little arithmetic involved. The wrong choices fail not on computation but on reach: they claim *more than the study supports*, and they're written to be the conclusions a reader would naturally want to draw.",
+    type: 'chapterOpener',
+    lede: "You now have the whole toolkit for reading data — ratios, percents, probabilities, summaries, models. This closing chapter asks the question standing behind all of it: **what is a study entitled to claim?** Each question presents a short study — who was measured, how they were chosen, what was found — and four possible conclusions, with little arithmetic involved. The wrong choices fail not on computation but on reach: they claim *more than the study supports*, and they're written to be the conclusions a reader would naturally want to draw.",
   },
   {
     type: 'text',
@@ -44,6 +48,16 @@ export const statisticalClaimsBlocks = [
     type: 'text',
     content: "And when selection wasn't random — volunteers, whoever replied to an email, whoever walked by — the results describe the people who participated, and no one else. The reason is the same every time: people who put themselves into a study differ from people who don't, so the sample no longer stands in for anyone beyond itself.",
   },
+  {
+    type: 'example',
+    difficulty: 'Easy',
+    problem: 'A researcher selects 200 students at random from the full roster of juniors at Brookfield High and finds 62% carry a reusable water bottle. The results can be generalized to which group?\n\n(A) All high school students in the state\n(B) All students at Brookfield High\n(C) All juniors at Brookfield High\n(D) Only the 200 students selected',
+    steps: [
+      { label: 'Identify the frame', content: "The pool drawn from is the *juniors at Brookfield High*. That pool is the frame, and it bounds any conclusion." },
+      { label: 'Check the sampling', content: "Selection was random, so the result generalizes to the whole frame, not just the 200 students asked — (D) understates what the study supports." },
+      { label: 'Eliminate the overreaches', content: "(A) and (B) extend beyond the frame — other schools, other grades, people never in the pool. Answer: **(C)**, exactly the frame, no wider and no narrower." },
+    ],
+  },
 
   { type: 'heading', content: 'Random assignment permits causal claims' },
   {
@@ -55,8 +69,19 @@ export const statisticalClaimsBlocks = [
     content: "When participants chose their own group instead — chose to garden, chose to join chess — some hidden trait came along with the choice, and the groups differed before the treatment ever touched them. That trait is a **confounding variable**, and it limits the claim to an **association**: the two quantities move together, cause undetermined.",
   },
   {
-    type: 'keyInsight',
+    type: 'aside',
+    kind: 'remember',
     content: "Match the verb to the design. Without random assignment, causal verbs — *causes, improves, reduces* — aren't supported; the strongest defensible wording is *is associated with*. An observational study, where participants chose their own behavior, can't support a causal claim no matter how large or how random the sample is.",
+  },
+  {
+    type: 'example',
+    difficulty: 'Hard',
+    problem: 'Researchers randomly selected 500 adults from a city\'s voter roll and asked about gardening and stress. Adults who gardened weekly reported lower stress. Which conclusion is most appropriate?\n\n(A) Gardening reduces stress for adults in the city.\n(B) Gardening reduces stress for adults everywhere.\n(C) Among adults in the city, weekly gardening is associated with lower reported stress.\n(D) Any adult in the city who starts gardening will report lower stress.',
+    steps: [
+      { label: 'Check both design features', content: "Sampling was random — a draw from the city's adults — so a claim about that group is supported. Assignment was not random: no one assigned gardening; people chose it. The study is observational, so no causal verb is defensible." },
+      { label: 'Eliminate the causal verbs', content: "(A) and (B) both say \"reduces\" — a causal claim without random assignment, eliminated on wording alone. Calm adults with ample free time may both garden more *and* report less stress; this design can't separate those possibilities." },
+      { label: 'Check scope and quantifier', content: "(B) also exceeds the frame (\"everywhere\"), and (D) converts a group tendency into a per-person guarantee. Answer: **(C)** — associative, bounded by the frame, with no claim of cause." },
+    ],
   },
 
   { type: 'heading', content: 'A biased sample supports nothing' },
@@ -67,6 +92,16 @@ export const statisticalClaimsBlocks = [
   {
     type: 'text',
     content: "The division of labor is worth stating plainly: size buys precision, and only randomness buys validity. A small *random* sample therefore beats an enormous *biased* one, and no sample size repairs a flawed selection method — collecting more of the wrong people just pins down the wrong answer more exactly.",
+  },
+  {
+    type: 'example',
+    difficulty: 'Medium',
+    problem: 'A morning radio host invites listeners to call in whether the city should build a new stadium; of 4,000 callers, 72% say yes. The host concludes most residents support the stadium. What is the primary flaw in this conclusion?\n\n(A) The sample of 4,000 is too small to represent the city.\n(B) The callers chose to respond, so the sample is self-selected rather than random.\n(C) The result should have been reported with a margin of error.\n(D) The survey asked about only one proposed stadium.',
+    steps: [
+      { label: 'Check the sampling', content: "No one selected these callers — they selected themselves. The sample is self-selected, and people with strong stadium opinions call in at many times the rate of everyone else." },
+      { label: 'Rule out "too small"', content: "The sample of 4,000 is large, which is precisely the point: size doesn't repair bias. A large biased sample is still a biased sample, so (A) misdiagnoses the flaw." },
+      { label: 'Answer', content: "**(B)** — the non-random, self-selected sampling is the flaw. The 72% describes the callers and no one else in the city." },
+    ],
   },
 
   { type: 'heading', content: 'Estimating a population count' },
@@ -79,31 +114,9 @@ export const statisticalClaimsBlocks = [
     content: "That single number is an estimate, not a census, so a **margin of error** converts it into a plausible interval — from the estimate minus the margin to the estimate plus the margin. A larger random sample narrows the interval, which is the honest version of what sample size buys: precision, never validity.",
   },
   {
-    type: 'tip',
+    type: 'aside',
+    kind: 'watch',
     content: "The interval describes the *population value* — not any individual, and not the sample itself. A value outside the interval is unlikely, not impossible. Answer options that say \"cannot\" or \"exactly\" overstate what the interval supports and can be eliminated.",
-  },
-
-  { type: 'heading', content: 'How to approach these questions' },
-  {
-    type: 'steps',
-    items: [
-      "**Pin the frame.** Who was actually in the pool being drawn from? No conclusion reaches past that group.",
-      "**Check the sampling.** A random draw generalizes to the whole frame; a self-selected one describes only the participants.",
-      "**Check the assignment.** Only random assignment to groups supports a causal verb — otherwise the ceiling is *is associated with*.",
-      "**Take the most modest conclusion the design supports.** Overreach — a wider group, a stronger verb, a per-person guarantee — is what makes a choice wrong.",
-    ],
-  },
-
-  { type: 'heading', content: 'Worked examples' },
-  {
-    type: 'example',
-    difficulty: 'Easy',
-    problem: 'A researcher selects 200 students at random from the full roster of juniors at Brookfield High and finds 62% carry a reusable water bottle. The results can be generalized to which group?\n\n(A) All high school students in the state\n(B) All students at Brookfield High\n(C) All juniors at Brookfield High\n(D) Only the 200 students selected',
-    steps: [
-      { label: 'Identify the frame', content: "The pool drawn from is the *juniors at Brookfield High*. That pool is the frame, and it bounds any conclusion." },
-      { label: 'Check the sampling', content: "Selection was random, so the result generalizes to the whole frame, not just the 200 students asked — (D) understates what the study supports." },
-      { label: 'Eliminate the overreaches', content: "(A) and (B) extend beyond the frame — other schools, other grades, people never in the pool. Answer: **(C)**, exactly the frame, no wider and no narrower." },
-    ],
   },
   {
     type: 'example',
@@ -115,24 +128,15 @@ export const statisticalClaimsBlocks = [
       { label: 'Answer', content: "**(C) 3,600.** Note the base: choice (A), 120, is 24% of the *500 sampled* — a wrong answer built by scaling the wrong number." },
     ],
   },
+
+  { type: 'heading', content: 'How to approach these questions' },
   {
-    type: 'example',
-    difficulty: 'Medium',
-    problem: 'A morning radio host invites listeners to call in whether the city should build a new stadium; of 4,000 callers, 72% say yes. The host concludes most residents support the stadium. What is the primary flaw in this conclusion?\n\n(A) The sample of 4,000 is too small to represent the city.\n(B) The callers chose to respond, so the sample is self-selected rather than random.\n(C) The result should have been reported with a margin of error.\n(D) The survey asked about only one proposed stadium.',
-    steps: [
-      { label: 'Check the sampling', content: "No one selected these callers — they selected themselves. The sample is self-selected, and people with strong stadium opinions call in at many times the rate of everyone else." },
-      { label: 'Rule out "too small"', content: "The sample of 4,000 is large, which is precisely the point: size doesn't repair bias. A large biased sample is still a biased sample, so (A) misdiagnoses the flaw." },
-      { label: 'Answer', content: "**(B)** — the non-random, self-selected sampling is the flaw. The 72% describes the callers and no one else in the city." },
-    ],
-  },
-  {
-    type: 'example',
-    difficulty: 'Hard',
-    problem: 'Researchers randomly selected 500 adults from a city\'s voter roll and asked about gardening and stress. Adults who gardened weekly reported lower stress. Which conclusion is most appropriate?\n\n(A) Gardening reduces stress for adults in the city.\n(B) Gardening reduces stress for adults everywhere.\n(C) Among adults in the city, weekly gardening is associated with lower reported stress.\n(D) Any adult in the city who starts gardening will report lower stress.',
-    steps: [
-      { label: 'Check both design features', content: "Sampling was random — a draw from the city's adults — so a claim about that group is supported. Assignment was not random: no one assigned gardening; people chose it. The study is observational, so no causal verb is defensible." },
-      { label: 'Eliminate the causal verbs', content: "(A) and (B) both say \"reduces\" — a causal claim without random assignment, eliminated on wording alone. Calm adults with ample free time may both garden more *and* report less stress; this design can't separate those possibilities." },
-      { label: 'Check scope and quantifier', content: "(B) also exceeds the frame (\"everywhere\"), and (D) converts a group tendency into a per-person guarantee. Answer: **(C)** — associative, bounded by the frame, with no claim of cause." },
+    type: 'steps',
+    items: [
+      "**Pin the frame.** Who was actually in the pool being drawn from? No conclusion reaches past that group.",
+      "**Check the sampling.** A random draw generalizes to the whole frame; a self-selected one describes only the participants.",
+      "**Check the assignment.** Only random assignment to groups supports a causal verb — otherwise the ceiling is *is associated with*.",
+      "**Take the most modest conclusion the design supports.** Overreach — a wider group, a stronger verb, a per-person guarantee — is what makes a choice wrong.",
     ],
   },
 
@@ -154,7 +158,13 @@ export const statisticalClaimsBlocks = [
   },
 
   {
-    type: 'text',
-    content: "**In summary:** establish who was actually sampled, check the sampling (a random draw generalizes to the frame, and no further), check the assignment (only random assignment supports a claim of cause), and take the most modest conclusion the design supports. Every wrong answer in this family overreaches in one of those directions — a wider group, a stronger verb, a per-person guarantee — and naming which one is usually faster than debating the choice on its merits.",
+    type: 'summary',
+    title: 'The whole skill in four checks',
+    points: [
+      'Establish **who was actually sampled** — the frame — because no conclusion reaches past that group.',
+      'Check the **sampling**: a random draw generalizes to the whole frame and no further; a self-selected one describes only the participants.',
+      'Check the **assignment**: only random assignment to groups supports a causal verb — otherwise the ceiling is *is associated with*.',
+      'Take the **most modest conclusion** the design supports; every wrong answer overreaches — a wider group, a stronger verb, a per-person guarantee.',
+    ],
   },
 ];

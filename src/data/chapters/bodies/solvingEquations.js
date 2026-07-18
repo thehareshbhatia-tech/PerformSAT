@@ -8,14 +8,18 @@
  * analogies, no pep talk, no exclamation marks, no emojis, no
  * test-personification. All v3 teaching claims preserved.
  *
+ * COMPOSED MODE (2026-07-18): chapterOpener lede + auto-numbered
+ * sections/examples/figures + aside margin-notes + summary close
+ * (exemplar: bodies/mPercents.js).
+ *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
  */
 
 export const solvingEquationsBlocks = [
   {
-    type: 'text',
-    content: "With the arithmetic from Number Foundations secure, algebra proper begins. An equation says two expressions have the same value, and every solving technique in the chapter follows from one principle: **apply the same operation to both entire sides until the target variable stands alone**. Why both sides? Because the equation asserts that the two sides are equal — do something to only one of them and the assertion no longer holds, and you're now solving a different equation with a different solution.",
+    type: 'chapterOpener',
+    lede: "With the arithmetic from Number Foundations secure, algebra proper begins. An equation says two expressions have the same value, and every solving technique in the chapter follows from one principle: **apply the same operation to both entire sides until the target variable stands alone**. Why both sides? Because the equation asserts that the two sides are equal — do something to only one of them and the assertion no longer holds, and you're now solving a different equation with a different solution.",
   },
 
   { type: 'heading', content: 'Undoing operations in reverse order' },
@@ -28,10 +32,32 @@ export const solvingEquationsBlocks = [
     content: "Every operation applies to **both entire sides**, never to a single term. And substituting the result back into the original equation — $2(4)+1 = 9$ — verifies the solution on its own, before you look at the answer choices.",
   },
 
+  {
+    type: 'example',
+    difficulty: 'Easy',
+    problem: 'If $\\dfrac{x}{5} + 3 = 8$, what is the value of $x$?',
+    steps: [
+      { label: 'Undo the addition first', content: "The $+3$ was applied last, so remove it first. Subtract $3$ from both sides: $\\dfrac{x}{5} = 5$." },
+      { label: 'Undo the division', content: "The $x$ is divided by $5$, so multiply both sides by $5$: $x = 25$." },
+      { label: 'Check', content: "$\\dfrac{25}{5} + 3 = 5 + 3 = 8$. The equation holds, confirming the solution." },
+    ],
+  },
+
   { type: 'heading', content: 'Variables on both sides' },
   {
     type: 'text',
     content: "When the variable shows up on both sides, collect the variable terms on one side and the constants on the other, then isolate as usual — a variable can't be isolated while copies of it sit on both sides of the equation. One prerequisite comes first: a factor multiplying a grouped expression **distributes to every term in the group**, so $-2(x-5)$ is $-2x + 10$, not $-2x - 5$. Rushed distribution that drops the sign on the second term is the most frequent slip in this procedure, and wrong answer choices are built from exactly that slip.",
+  },
+
+  {
+    type: 'example',
+    difficulty: 'Medium',
+    problem: 'Solve $4(t - 1) = 2t + 6$ for $t$.',
+    steps: [
+      { label: 'Distribute across the group', content: "The $4$ multiplies both terms inside the parentheses: $4t - 4 = 2t + 6$ (not $4t - 1$)." },
+      { label: 'Collect variables and constants', content: "Subtract $2t$: $2t - 4 = 6$. Add $4$: $2t = 10$." },
+      { label: 'Solve and check', content: "Divide by $2$: $t = 5$. Verify: $4(5-1) = 16$ and $2(5)+6 = 16$. Both sides agree." },
+    ],
   },
 
   { type: 'heading', content: 'Rearranging formulas' },
@@ -40,8 +66,30 @@ export const solvingEquationsBlocks = [
     content: "Solve $A = \\tfrac{1}{2}bh$ for $h$. The extra letters can look like they demand special handling, and they don't: $A$ and $b$ obey the same algebraic rules a specific number like $7$ would. So classify each letter as either the target or a fixed constant, then run the same sequence of inverse operations as always — multiply both sides by $2$ to get $2A = bh$, then divide both sides by $b$ to get $h = \\dfrac{2A}{b}$. Rearranging a formula is not a new skill; it's the numeric procedure with letters standing where the numbers stood.",
   },
   {
-    type: 'keyInsight',
+    type: 'aside',
+    kind: 'watch',
     content: "The splitting rule for fractions runs in one direction only: a sum in a *numerator* splits ($\\frac{r+s}{t} = \\frac{r}{t} + \\frac{s}{t}$), but a sum in a *denominator* never does — $\\frac{r}{s+t}$ is **not** $\\frac{r}{s} + \\frac{r}{t}$. Splitting a denominator produces a tidy-looking expression that's wrong.",
+  },
+
+  {
+    type: 'example',
+    difficulty: 'Medium',
+    problem: 'Solve $P = 2\\ell + 2w$ for $w$.',
+    steps: [
+      { label: 'Treat other letters as constants', content: "Treat $P$ and $\\ell$ as constants. Subtract $2\\ell$ from both sides: $P - 2\\ell = 2w$." },
+      { label: 'Divide to isolate', content: "Divide both sides by $2$: $w = \\dfrac{P - 2\\ell}{2}$." },
+      { label: 'Check with values', content: "Substitute $P = 20,\\ \\ell = 3$: $w = 7$, and $2(3) + 2(7) = 20$. The formula holds." },
+    ],
+  },
+  {
+    type: 'example',
+    difficulty: 'Hard',
+    problem: 'The formula $F = \\dfrac{9}{5}C + 32$ converts a Celsius temperature to Fahrenheit. Solve for $C$ in terms of $F$.',
+    steps: [
+      { label: 'Undo the addition first', content: "Treat $F$ as a constant. The $+32$ was applied last, so subtract $32$ from both sides: $F - 32 = \\dfrac{9}{5}C$." },
+      { label: 'Undo the fraction', content: "The $C$ is multiplied by $\\dfrac{9}{5}$, so multiply both sides by its reciprocal $\\dfrac{5}{9}$: $C = \\dfrac{5}{9}(F - 32)$." },
+      { label: 'Check with a known value', content: "Substitute $F = 212$: $C = \\dfrac{5}{9}(180) = 100$, the known boiling point, as expected." },
+    ],
   },
 
   { type: 'heading', content: 'Squares and square roots' },
@@ -88,7 +136,8 @@ export const solvingEquationsBlocks = [
     content: "Many questions ask for a *combination* like $x + y$ or $2t$ rather than a single variable, and the combination is often one step away with no individual values required — these items are built to reward spotting the shortcut over solving at length. Matching coefficients are the signal that the combination can be extracted directly.",
   },
   {
-    type: 'tip',
+    type: 'aside',
+    kind: 'remember',
     content: "Before recording an answer, re-read the final line of the question and name the exact quantity it wants — $x+y$, $2t$, or a single variable. Correct algebra followed by reporting the wrong quantity is one of the most frequent ways credit is lost on the math section.",
   },
 
@@ -101,48 +150,6 @@ export const solvingEquationsBlocks = [
       '**Undo in reverse order.** Whatever was applied to the variable last comes off first, applied to both entire sides.',
       '**Check by substitution.** Put the result back into the original equation and confirm both sides agree.',
       '**Answer what was asked.** Re-read the final line — the requested quantity may be $x + y$ or $2t$, not $x$.',
-    ],
-  },
-
-  { type: 'heading', content: 'Worked examples' },
-  {
-    type: 'example',
-    difficulty: 'Easy',
-    problem: 'If $\\dfrac{x}{5} + 3 = 8$, what is the value of $x$?',
-    steps: [
-      { label: 'Undo the addition first', content: "The $+3$ was applied last, so remove it first. Subtract $3$ from both sides: $\\dfrac{x}{5} = 5$." },
-      { label: 'Undo the division', content: "The $x$ is divided by $5$, so multiply both sides by $5$: $x = 25$." },
-      { label: 'Check', content: "$\\dfrac{25}{5} + 3 = 5 + 3 = 8$. The equation holds, confirming the solution." },
-    ],
-  },
-  {
-    type: 'example',
-    difficulty: 'Medium',
-    problem: 'Solve $4(t - 1) = 2t + 6$ for $t$.',
-    steps: [
-      { label: 'Distribute across the group', content: "The $4$ multiplies both terms inside the parentheses: $4t - 4 = 2t + 6$ (not $4t - 1$)." },
-      { label: 'Collect variables and constants', content: "Subtract $2t$: $2t - 4 = 6$. Add $4$: $2t = 10$." },
-      { label: 'Solve and check', content: "Divide by $2$: $t = 5$. Verify: $4(5-1) = 16$ and $2(5)+6 = 16$. Both sides agree." },
-    ],
-  },
-  {
-    type: 'example',
-    difficulty: 'Medium',
-    problem: 'Solve $P = 2\\ell + 2w$ for $w$.',
-    steps: [
-      { label: 'Treat other letters as constants', content: "Treat $P$ and $\\ell$ as constants. Subtract $2\\ell$ from both sides: $P - 2\\ell = 2w$." },
-      { label: 'Divide to isolate', content: "Divide both sides by $2$: $w = \\dfrac{P - 2\\ell}{2}$." },
-      { label: 'Check with values', content: "Substitute $P = 20,\\ \\ell = 3$: $w = 7$, and $2(3) + 2(7) = 20$. The formula holds." },
-    ],
-  },
-  {
-    type: 'example',
-    difficulty: 'Hard',
-    problem: 'The formula $F = \\dfrac{9}{5}C + 32$ converts a Celsius temperature to Fahrenheit. Solve for $C$ in terms of $F$.',
-    steps: [
-      { label: 'Undo the addition first', content: "Treat $F$ as a constant. The $+32$ was applied last, so subtract $32$ from both sides: $F - 32 = \\dfrac{9}{5}C$." },
-      { label: 'Undo the fraction', content: "The $C$ is multiplied by $\\dfrac{9}{5}$, so multiply both sides by its reciprocal $\\dfrac{5}{9}$: $C = \\dfrac{5}{9}(F - 32)$." },
-      { label: 'Check with a known value', content: "Substitute $F = 212$: $C = \\dfrac{5}{9}(180) = 100$, the known boiling point, as expected." },
     ],
   },
 
@@ -164,14 +171,14 @@ export const solvingEquationsBlocks = [
   },
 
   {
-    type: 'list',
-    title: '**The method in one place:**',
-    items: [
-      'Apply every operation to both entire sides.',
-      'Undo operations in reverse order.',
-      'Treat other letters as fixed constants when rearranging a formula.',
-      'Isolate a squared term before taking the principal square root; isolate a radical before squaring.',
-      'Report the exact quantity the question requests.',
+    type: 'summary',
+    title: 'The method in one place',
+    points: [
+      'Apply every operation to **both entire sides**.',
+      '**Undo** operations in **reverse order**.',
+      'Treat other letters as **fixed constants** when rearranging a formula.',
+      'Isolate a **squared term** before taking the principal square root; isolate a **radical** before squaring.',
+      'Report the **exact quantity** the question requests.',
     ],
   },
 ];

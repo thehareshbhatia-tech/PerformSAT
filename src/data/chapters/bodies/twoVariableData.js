@@ -9,19 +9,27 @@
  * no exclamation marks, no emojis, no test-personification. All v3
  * teaching claims preserved.
  *
+ * COMPOSED MODE (2026-07-18): chapterOpener lede + auto-numbered
+ * sections/examples/figures + aside margin-notes + summary close
+ * (exemplar: bodies/mPercents.js).
+ *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
  */
 
 export const twoVariableDataBlocks = [
   {
-    type: 'text',
-    content: "The last chapter summarized one variable at a time; a scatterplot sets two variables against each other, one point per observation. Every such plot holds two distinct objects, and the entire skill of this chapter is keeping them straight: the **dots are data** — what actually happened — while the **line is a model**, a summary constructed afterward. Decide which object a question concerns before anything else, because that one call resolves most questions in this family.",
+    type: 'chapterOpener',
+    lede: "The last chapter summarized one variable at a time; a scatterplot sets two variables against each other, one point per observation. Every such plot holds two distinct objects, and the entire skill of this chapter is keeping them straight: the **dots are data** — what actually happened — while the **line is a model**, a summary constructed afterward. Decide which object a question concerns before anything else, because that one call resolves most questions in this family.",
   },
   {
     type: 'diagramRef',
     visualType: 'scatterplotModelDiagram',
     description: "A scatterplot with its fitted line: the dots record what actually happened, the line is the model summarizing them, and the vertical gap at the highlighted point is the difference between an actual value and the value the line predicts.",
+  },
+  {
+    type: 'text',
+    content: "Figure 1 puts the chapter's whole task in one frame: every question here is about one of three things — a dot, the line, or the vertical gap between them — and answering it starts by deciding which.",
   },
   {
     type: 'text',
@@ -31,7 +39,12 @@ export const twoVariableDataBlocks = [
   { type: 'heading', content: 'What the line of best fit does' },
   {
     type: 'text',
-    content: "A **line of best fit** balances the cloud of points — dots above it offset dots below it — and that balancing is all it promises. It does *not* connect the points; a well-fitted line can pass through none of them, because its job is to compress the trend into one clean equation rather than to visit every observation. That's also why a dot lying off the line doesn't make the line \"wrong\" — the line never claimed to pass through it.",
+    content: "A **line of best fit** balances the cloud of points — dots above it offset dots below it — and that balancing is all it promises. It does *not* connect the points; a well-fitted line can pass through none of them, because its job is to compress the trend into one clean equation rather than to visit every observation.",
+  },
+  {
+    type: 'aside',
+    kind: 'remember',
+    content: 'A dot lying off the line does not make the line "wrong" — the line summarizes the trend and never claimed to pass through that particular dot.',
   },
   {
     type: 'text',
@@ -49,13 +62,38 @@ export const twoVariableDataBlocks = [
   },
   {
     type: 'text',
-    content: "The direction language is where these questions bite. A dot *above* the line means the actual value beat the prediction, so the model **underestimates** there; below the line, it **overestimates**. Students reverse this constantly, and the cause is a misplaced referent — a high dot feels like \"over.\" But \"over\" and \"under\" describe the *model's prediction*, not the dot's position. Fix that referent before answering, and the reversal never gets started.",
+    content: "The direction language is where these questions bite. A dot *above* the line means the actual value beat the prediction, so the model **underestimates** there; below the line, it **overestimates**.",
+  },
+  {
+    type: 'aside',
+    kind: 'watch',
+    content: "Students reverse over and under constantly, because a high dot *feels* like \"over.\" But \"over\" and \"under\" describe the model's prediction, not the dot's position. Fix that referent before answering, and the reversal never gets started.",
   },
   {
     type: 'formula',
     label: 'Prediction error',
     content: '$\\text{error} = \\text{actual} - \\text{predicted}$',
     note: 'Dot above the line → positive error → the model predicted low (underestimate). Below → predicted high (overestimate).',
+  },
+  {
+    type: 'example',
+    difficulty: 'Easy',
+    problem: 'A scatterplot of light (x, hours/day) vs. height (y, cm) has a line of best fit through $(2, 14)$ and $(12, 34)$. One seedling that got 8 hours of light grew to 32 cm. How much does its actual height exceed the height predicted by the line?',
+    steps: [
+      { label: 'Identify the object', content: "\"Actual\" refers to the dot (8 h, 32 cm); \"predicted by the line\" refers to the line's height at $x = 8$. The question asks for the vertical gap." },
+      { label: 'Evaluate the line at x = 8', content: 'Slope $= (34 - 14)/(12 - 2) = 2$. Through $(2, 14)$: $y = 2x + 10$. At $x = 8$: $2(8) + 10 = 26$ cm.' },
+      { label: 'Subtract', content: 'Error $= 32 - 26 = 6$, positive — the dot sits above the line. **6 cm.**' },
+    ],
+  },
+  {
+    type: 'example',
+    difficulty: 'Medium',
+    problem: 'A linear model for weekly ad spots (x) vs. units sold (y) is $\\hat{y} = 3x + 12$. One week aired 20 spots and actually sold 80 units. Does the model overestimate or underestimate that week, and by how much?',
+    steps: [
+      { label: 'Predict with the line', content: "The model's prediction comes from the equation: $\\hat{y} = 3(20) + 12 = 72$ units." },
+      { label: 'Compare actual to predicted', content: 'Actual is $80$, above the predicted $72$ — the dot sits above the line.' },
+      { label: 'Determine the direction', content: "Error $= \\text{actual} - \\text{predicted} = 80 - 72 = 8$, positive — the model predicted low, so it **underestimates** by 8 units. A dot above the line means the prediction was too *small*, not too large; that reversal is the thing to double-check." },
+    ],
   },
 
   { type: 'heading', content: 'Slope of the fit line' },
@@ -71,6 +109,16 @@ export const twoVariableDataBlocks = [
       "**Compute rise over run** from those two line points.",
       "**Report the slope per one x-unit.** Per year — even when the plotted points sit 4 years apart.",
       "**Phrase interpretations as predictions.** \"Predicted,\" \"on average\" — never as facts about individual data points.",
+    ],
+  },
+  {
+    type: 'example',
+    difficulty: 'Medium',
+    problem: 'A line of best fit for car age (x, years) vs. price (y, thousands of dollars) passes through $(1, 27)$ and $(9, 11)$. Which is the best interpretation of its slope?\n\n(A) Each additional year reduces the actual price of every car by \\$2,000.\n(B) For each additional year, the predicted price decreases by about \\$2,000.',
+    steps: [
+      { label: 'Slope from line points', content: '$(11 - 27)/(9 - 1) = -16/8 = -2$ — a decrease of two thousand dollars per one year.' },
+      { label: 'Evaluate the wording', content: "(A) claims **actual** prices, for *every* car. A fit line doesn't support that claim — it supports only predicted, on-average language." },
+      { label: 'Answer', content: '**(B)** — per one year, predicted price, about \\$2,000 lower.' },
     ],
   },
 
@@ -90,6 +138,16 @@ export const twoVariableDataBlocks = [
     type: 'tip',
     content: "Percent wording deserves a second read. \"4% of the *current* balance\" is a moving base — exponential. \"4% of the *initial* deposit\" is the same dollar amount every year — linear, despite the percent phrasing. From a table: subtract consecutive values (constant difference → linear), then divide them (constant ratio → exponential).",
   },
+  {
+    type: 'example',
+    difficulty: 'Hard',
+    problem: 'A machine\'s resale value at one-year steps is 8000, 6000, 4500, 3375. Which models the value $v$ after $t$ years?\n\n(A) $v = 8000 - 2000t$\n(B) $v = 8000(0.75)^t$',
+    steps: [
+      { label: 'Test the differences', content: 'Consecutive differences: $-2000, -1500, -1125$. Not constant, so the model is not linear; (A) matches only the first drop.' },
+      { label: 'Test the ratios', content: '$6000/8000 = 0.75$, $4500/6000 = 0.75$, $3375/4500 = 0.75$. A constant ratio means an exponential model with factor $0.75$ — the machine keeps 75% of its value each year.' },
+      { label: 'Answer', content: '**(B)** $v = 8000(0.75)^t$.' },
+    ],
+  },
 
   { type: 'heading', content: 'Reading data displays' },
   {
@@ -99,6 +157,15 @@ export const twoVariableDataBlocks = [
   {
     type: 'text',
     content: "Comparing growth across intervals of *different widths* takes a rate, not a raw rise, because a larger total rise spread over a much wider interval can still be the slower climb. The average rate of change over an interval is the slope between its endpoints, $\\frac{\\Delta y}{\\Delta x}$ — so divide every candidate's rise by its own run. Raw rises compare fairly only when the runs happen to be equal.",
+  },
+  {
+    type: 'example',
+    difficulty: 'Medium',
+    problem: "A graph of a bookstore's annual revenue shows $\\$2{,}400$ in year 2, $\\$3{,}000$ in year 5, and $\\$3{,}500$ in year 7. Which interval had the greater average rate of change — year 2 to year 5, or year 5 to year 7?",
+    steps: [
+      { label: 'Divide each rise by its own run', content: 'Year 2 to 5: $\\dfrac{3000 - 2400}{5 - 2} = \\dfrac{600}{3} = 200$ dollars per year. Year 5 to 7: $\\dfrac{3500 - 3000}{7 - 5} = \\dfrac{500}{2} = 250$ dollars per year.' },
+      { label: 'Compare rates, not rises', content: 'The first interval has the larger total rise ($600$ vs. $500$), but the second has the greater *rate*: $250 > 200$ dollars per year. **Year 5 to year 7.** Unequal runs leave raw rises incomparable; the division settles it.' },
+    ],
   },
   {
     type: 'text',
@@ -114,68 +181,22 @@ export const twoVariableDataBlocks = [
   },
   {
     type: 'text',
-    content: "The graph's height at any moment is the *net* distance from the start, which is why a walker who returns home finishes at height $0$ no matter how far she traveled; the *total* distance adds the sizes of every rise and fall, and it never appears on the axis. One more habit for crowded charts: on a plot with several data series, the legend is part of the data. Identify which series the question names before reading any value — pulling a number from the neighboring line is the routine miss on multi-series items.",
+    content: "The graph's height at any moment is the *net* distance from the start, which is why a walker who returns home finishes at height $0$ no matter how far she traveled; the *total* distance adds the sizes of every rise and fall, and it never appears on the axis.",
+  },
+  {
+    type: 'aside',
+    kind: 'note',
+    content: "On a plot with several data series, the legend is part of the data. Identify which series the question names before reading any value — pulling a number from the neighboring line is the routine miss on multi-series items.",
   },
 
-  { type: 'heading', content: 'How to approach these questions' },
   {
     type: 'steps',
+    title: 'How to approach these questions',
     items: [
       "**Read the frame.** Both axis labels with their units, plus the legend on multi-series charts.",
       "**Name the object.** Dot, line, or the vertical gap between them — the question's wording (*actual*, *predicted*, *error*) tells you which.",
       "**Answer from that object only.** Line questions run on the line's equation; data questions run on the dots.",
       "**For over/under questions, compute the sign.** $\\text{error} = \\text{actual} - \\text{predicted}$: positive means the model predicted low.",
-    ],
-  },
-
-  { type: 'heading', content: 'Worked examples' },
-  {
-    type: 'example',
-    difficulty: 'Easy',
-    problem: 'A scatterplot of light (x, hours/day) vs. height (y, cm) has a line of best fit through $(2, 14)$ and $(12, 34)$. One seedling that got 8 hours of light grew to 32 cm. How much does its actual height exceed the height predicted by the line?',
-    steps: [
-      { label: 'Identify the object', content: "\"Actual\" refers to the dot (8 h, 32 cm); \"predicted by the line\" refers to the line's height at $x = 8$. The question asks for the vertical gap." },
-      { label: 'Evaluate the line at x = 8', content: 'Slope $= (34 - 14)/(12 - 2) = 2$. Through $(2, 14)$: $y = 2x + 10$. At $x = 8$: $2(8) + 10 = 26$ cm.' },
-      { label: 'Subtract', content: 'Error $= 32 - 26 = 6$, positive — the dot sits above the line. **6 cm.**' },
-    ],
-  },
-  {
-    type: 'example',
-    difficulty: 'Medium',
-    problem: 'A line of best fit for car age (x, years) vs. price (y, thousands of dollars) passes through $(1, 27)$ and $(9, 11)$. Which is the best interpretation of its slope?\n\n(A) Each additional year reduces the actual price of every car by \\$2,000.\n(B) For each additional year, the predicted price decreases by about \\$2,000.',
-    steps: [
-      { label: 'Slope from line points', content: '$(11 - 27)/(9 - 1) = -16/8 = -2$ — a decrease of two thousand dollars per one year.' },
-      { label: 'Evaluate the wording', content: "(A) claims **actual** prices, for *every* car. A fit line doesn't support that claim — it supports only predicted, on-average language." },
-      { label: 'Answer', content: '**(B)** — per one year, predicted price, about \\$2,000 lower.' },
-    ],
-  },
-  {
-    type: 'example',
-    difficulty: 'Medium',
-    problem: 'A linear model for weekly ad spots (x) vs. units sold (y) is $\\hat{y} = 3x + 12$. One week aired 20 spots and actually sold 80 units. Does the model overestimate or underestimate that week, and by how much?',
-    steps: [
-      { label: 'Predict with the line', content: "The model's prediction comes from the equation: $\\hat{y} = 3(20) + 12 = 72$ units." },
-      { label: 'Compare actual to predicted', content: 'Actual is $80$, above the predicted $72$ — the dot sits above the line.' },
-      { label: 'Determine the direction', content: "Error $= \\text{actual} - \\text{predicted} = 80 - 72 = 8$, positive — the model predicted low, so it **underestimates** by 8 units. A dot above the line means the prediction was too *small*, not too large; that reversal is the thing to double-check." },
-    ],
-  },
-  {
-    type: 'example',
-    difficulty: 'Hard',
-    problem: 'A machine\'s resale value at one-year steps is 8000, 6000, 4500, 3375. Which models the value $v$ after $t$ years?\n\n(A) $v = 8000 - 2000t$\n(B) $v = 8000(0.75)^t$',
-    steps: [
-      { label: 'Test the differences', content: 'Consecutive differences: $-2000, -1500, -1125$. Not constant, so the model is not linear; (A) matches only the first drop.' },
-      { label: 'Test the ratios', content: '$6000/8000 = 0.75$, $4500/6000 = 0.75$, $3375/4500 = 0.75$. A constant ratio means an exponential model with factor $0.75$ — the machine keeps 75% of its value each year.' },
-      { label: 'Answer', content: '**(B)** $v = 8000(0.75)^t$.' },
-    ],
-  },
-  {
-    type: 'example',
-    difficulty: 'Medium',
-    problem: "A graph of a bookstore's annual revenue shows $\\$2{,}400$ in year 2, $\\$3{,}000$ in year 5, and $\\$3{,}500$ in year 7. Which interval had the greater average rate of change — year 2 to year 5, or year 5 to year 7?",
-    steps: [
-      { label: 'Divide each rise by its own run', content: 'Year 2 to 5: $\\dfrac{3000 - 2400}{5 - 2} = \\dfrac{600}{3} = 200$ dollars per year. Year 5 to 7: $\\dfrac{3500 - 3000}{7 - 5} = \\dfrac{500}{2} = 250$ dollars per year.' },
-      { label: 'Compare rates, not rises', content: 'The first interval has the larger total rise ($600$ vs. $500$), but the second has the greater *rate*: $250 > 200$ dollars per year. **Year 5 to year 7.** Unequal runs leave raw rises incomparable; the division settles it.' },
     ],
   },
 
@@ -202,7 +223,14 @@ export const twoVariableDataBlocks = [
   },
 
   {
-    type: 'text',
-    content: "**The whole chapter in one call:** name the object first — dot, line, or the vertical gap between them — and read only that object. The dots record what happened, the line records what the model predicts, and the gap measures how far the prediction missed. Every rule here, from vertical error to per-one-unit slope to prediction language, is that identification carried through.",
+    type: 'summary',
+    title: 'The chapter in one call',
+    points: [
+      'Name the **object** first — dot, line, or the vertical gap between them — and read only that object.',
+      'The **dots record what happened**; the **line records what the model predicts**; the **gap** measures how far the prediction missed.',
+      "Report a fit line's slope **per one x-unit**, taken from two points on the line, never from data dots.",
+      'A **constant difference** signals a linear model; a **constant ratio** signals an exponential one.',
+      'For over/under questions, compute $\\text{error} = \\text{actual} - \\text{predicted}$: a positive sign means the model **predicted low**.',
+    ],
   },
 ];

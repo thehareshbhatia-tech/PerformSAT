@@ -9,14 +9,18 @@
  * no exclamation marks, no emojis, no test-personification. All v3
  * teaching claims preserved.
  *
+ * COMPOSED MODE (2026-07-18): chapterOpener lede + auto-numbered
+ * sections/examples/figures + aside margin-notes + summary close
+ * (exemplar: bodies/mPercents.js).
+ *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
  */
 
 export const inferencesBlocks = [
   {
-    type: 'text',
-    content: "Central Ideas & Details located what a passage states. Inference questions — *\"which choice most logically completes the text\"* or *\"the passage implies\"* — ask for the one conclusion those stated facts **force**. Despite the name, the task isn't reading between the lines, and that's worth saying plainly, because the word *infer* invites outside reasoning — and wrong choices are routinely built to reward exactly the student who supplies it. What the question requires is the conclusion the facts on the page compel: no more, no less.",
+    type: 'chapterOpener',
+    lede: "Central Ideas & Details located what a passage states. Inference questions — *\"which choice most logically completes the text\"* or *\"the passage implies\"* — ask for the one conclusion those stated facts **force**. Despite the name, the task isn't reading between the lines, and that's worth saying plainly, because the word *infer* invites outside reasoning — and wrong choices are routinely built to reward exactly the student who supplies it. What the question requires is the conclusion the facts on the page compel: no more, no less.",
   },
 
   { type: 'heading', content: 'What counts as an inference here' },
@@ -25,7 +29,8 @@ export const inferencesBlocks = [
     content: "In a classroom, an inference is an informed guess — you add what the author probably meant, and the richest reading earns the credit. On the test the relationship flips: the answer is already **contained in the facts on the page**, determined entirely by the statements around it. So treat the passage as a self-contained body of evidence. Nothing from outside it counts — including plausible ideas of your own, because plausibility is precisely the quality wrong answers are engineered to have.",
   },
   {
-    type: 'keyInsight',
+    type: 'aside',
+    kind: 'remember',
     content: "The forcing test: if every stated fact can be true while a choice is false, that choice isn't forced. Eliminate it.",
   },
 
@@ -39,7 +44,8 @@ export const inferencesBlocks = [
     content: "One setup move is worth building into the routine. When the sentence holding the blank leans on a compressed reference — *this discrepancy*, *such an approach* — restate that referent in full before predicting, because you can't complete a sentence whose subject you're still holding as an unresolved label. The Central Ideas & Details chapter covers the method under *When the text says \"this\"*.",
   },
   {
-    type: 'keyInsight',
+    type: 'aside',
+    kind: 'watch',
     content: "The right answer usually reads as small, even obvious. That's by design, not a warning sign — the choice that sounds cleverest is very often wrong.",
   },
 
@@ -152,7 +158,13 @@ export const inferencesBlocks = [
   },
 
   {
-    type: 'text',
-    content: "**The whole skill in four moves:** treat the passage as a closed set of facts, let the word before the blank fix the *kind* of statement required, predict the completion in your own words, and keep the paraphrase that stays inside the facts — cutting any choice that adds, overstates, or reaches outside them. The evidence chapters ahead ask a related question — not what the facts force, but what would prove a claim — and they reward the same discipline of staying on the page.",
+    type: 'summary',
+    title: 'The whole skill in four moves',
+    points: [
+      'Treat the passage as a **closed set** of facts — nothing outside it counts.',
+      'Let the **word before the blank** fix the kind of statement the slot requires.',
+      'Predict the completion in your **own words**, before reading a single choice.',
+      'Keep the **paraphrase** that stays inside the facts, cutting any choice that adds, overstates, or reaches outside them — the evidence chapters ahead ask what would *prove* a claim, rewarding the same on-the-page discipline.',
+    ],
   },
 ];

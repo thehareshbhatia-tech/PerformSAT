@@ -9,14 +9,18 @@
  * no exclamation marks, no emojis, no test-personification. All v3
  * teaching claims preserved.
  *
+ * COMPOSED MODE (2026-07-18): chapterOpener lede + auto-numbered
+ * sections/examples/figures + aside margin-notes + summary close
+ * (exemplar: bodies/mPercents.js).
+ *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
  */
 
 export const wordsInContextBlocks = [
   {
-    type: 'text',
-    content: "So far we've worked with what a passage states, implies, and can prove. Now we turn to how a passage is built — starting at the smallest scale, the single word. A words-in-context question looks for all the world like a vocabulary quiz, but it doesn't test whether you already know a word: the sentence itself decides which word belongs in the blank, and it contains everything you need. That makes this a reading question in disguise, and it's why **the evidence in the sentence decides the meaning — a dictionary definition on its own decides nothing**.",
+    type: 'chapterOpener',
+    lede: "So far we've worked with what a passage states, implies, and can prove. Now we turn to how a passage is built — starting at the smallest scale, the single word. A words-in-context question looks for all the world like a vocabulary quiz, but it doesn't test whether you already know a word: the sentence itself decides which word belongs in the blank, and it contains everything you need. That makes this a reading question in disguise, and it's why **the evidence in the sentence decides the meaning — a dictionary definition on its own decides nothing**.",
   },
 
   { type: 'heading', content: "What's actually tested" },
@@ -65,14 +69,20 @@ export const wordsInContextBlocks = [
     ],
   },
   {
-    type: 'tip',
+    type: 'aside',
+    kind: 'remember',
     content: "Read every colon as *namely* or *because*. *The design had one flaw: the hinge* — one flaw, namely the hinge. A colon or dash is an unmarked explainer, and it sits exactly where students report finding no clue words — in those sentences, the clue is the punctuation itself.",
   },
 
   { type: 'heading', content: 'When the word looks easy' },
   {
     type: 'text',
-    content: "An easy, everyday word in the question calls for extra care, not relief. The tested word is often a **common word used in a second, less-common sense** — chosen precisely because the familiar meaning fails in that particular sentence — and the familiar meaning then shows up among the choices. Why does that trap keep working? Because familiarity feels like safety: a word you've known for years doesn't seem worth double-checking, and that unearned trust is exactly the property wrong choices are built on. Substitute each choice back into the sentence and keep only the one the surrounding words actually support.",
+    content: "An easy, everyday word in the question calls for extra care, not relief. The tested word is often a **common word used in a second, less-common sense** — chosen precisely because the familiar meaning fails in that particular sentence — and the familiar meaning then shows up among the choices. Substitute each choice back into the sentence and keep only the one the surrounding words actually support.",
+  },
+  {
+    type: 'aside',
+    kind: 'watch',
+    content: "Why does the easy-word trap keep working? Because familiarity feels like safety: a word you've known for years doesn't seem worth double-checking, and that unearned trust is exactly the property wrong choices are built on.",
   },
   {
     type: 'callout',
@@ -139,7 +149,14 @@ export const wordsInContextBlocks = [
   },
 
   {
-    type: 'text',
-    content: "**The routine in one line:** cover the choices, predict from the evidence, check the charge and the connector, match the closest word, and read it back into the sentence. The tested words change from test to test; the routine doesn't. The next chapter widens out from the single word to the architecture of the whole passage, but the habit underneath stays constant — the sentence supplies the evidence, and the evidence decides.",
+    type: 'summary',
+    title: 'The routine in five steps',
+    points: [
+      'Cover the choices first, so a persuasive **distractor** cannot set your target before the sentence does.',
+      'Predict your own **word** from the evidence in the sentence — rough phrasing is fine.',
+      'Check the **charge**, then the **connector**: together they fix which direction the evidence points.',
+      'Match the closest choice and read it **back into the sentence** to confirm the surrounding words support it.',
+      "The tested words change from test to test; the **routine** doesn't — the sentence supplies the evidence, and that same habit scales up to the whole passage ahead.",
+    ],
   },
 ];

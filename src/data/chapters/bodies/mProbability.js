@@ -9,6 +9,10 @@
  * no exclamation marks, no emojis, no test-personification. All v3
  * teaching claims preserved.
  *
+ * COMPOSED MODE (2026-07-18): chapterOpener lede + auto-numbered
+ * sections/examples/figures + aside margin-notes + summary close
+ * (exemplar: bodies/mPercents.js).
+ *
  * Scope: probability as favorable-over-pool, complements and unions,
  * probability-to-count reversals, two-way tables and conditional
  * probability (joint vs marginal vs conditional, "given that" pools,
@@ -22,8 +26,8 @@
 
 export const mProbabilityBlocks = [
   {
-    type: 'text',
-    content: "Probability extends the same part-to-whole reasoning to chance. Every probability is a fraction with two separate jobs: the **denominator** names the pool being drawn from — it anchors the fraction the way a base anchors a percent — and the **numerator** counts the outcomes of interest inside that pool. The two decisions are independent, and nearly every wrong answer on this topic comes from settling one of them carelessly, almost always the denominator. So the standing order of operations is this: decide who's in the pool before counting anything favorable.",
+    type: 'chapterOpener',
+    lede: "Probability extends the same part-to-whole reasoning to chance. Every probability is a fraction with two separate jobs: the **denominator** names the pool being drawn from — it anchors the fraction the way a base anchors a percent — and the **numerator** counts the outcomes of interest inside that pool. The two decisions are independent, and nearly every wrong answer on this topic comes from settling one of them carelessly, almost always the denominator. So the standing order of operations is this: decide who's in the pool before counting anything favorable.",
   },
 
   { type: 'heading', content: 'Probability as a share of the pool' },
@@ -39,7 +43,12 @@ export const mProbabilityBlocks = [
   { type: 'heading', content: 'Complements and unions' },
   {
     type: 'text',
-    content: 'The **complement** of an event is everything the event is not, so the two probabilities split the pool between them: $P(\\text{not } X) = 1 - P(X)$. That identity earns its keep whenever an event is awkward to count directly — "at least one," "not both," "anything except" — because the complement of an awkward event is often a single clean case, and one subtraction finishes the problem.',
+    content: 'The **complement** of an event is everything the event is not, so the two probabilities split the pool between them: $P(\\text{not } X) = 1 - P(X)$.',
+  },
+  {
+    type: 'aside',
+    kind: 'remember',
+    content: 'The complement identity earns its keep whenever an event is awkward to count directly — "at least one," "not both," "anything except." The complement of an awkward event is often a single clean case, and one subtraction finishes the problem.',
   },
   {
     type: 'text',
@@ -94,7 +103,12 @@ export const mProbabilityBlocks = [
   },
   {
     type: 'text',
-    content: 'The notation $P(A \\mid B)$ reads "the probability of $A$ given $B$," and whatever stands *behind the bar* names the pool. Order matters more than it looks like it should, because the two directions share a numerator cell but divide by different totals. From the table, $P(\\text{junior} \\mid \\text{plays a sport}) = \\frac{36}{80} = 0.45$ — behind the bar is the sport, so the pool is the $80$ players. Reverse it and $P(\\text{plays a sport} \\mid \\text{junior}) = \\frac{36}{60} = 0.60$ — now the pool is the $60$ juniors. Same cell on top, different questions, different answers; wrong choices are routinely built from the swapped direction, so identify the pool from the wording, never from which numbers look familiar.',
+    content: 'The notation $P(A \\mid B)$ reads "the probability of $A$ given $B$," and whatever stands *behind the bar* names the pool. Order matters more than it looks like it should, because the two directions share a numerator cell but divide by different totals. From the table, $P(\\text{junior} \\mid \\text{plays a sport}) = \\frac{36}{80} = 0.45$ — behind the bar is the sport, so the pool is the $80$ players. Reverse it and $P(\\text{plays a sport} \\mid \\text{junior}) = \\frac{36}{60} = 0.60$ — now the pool is the $60$ juniors. Same cell on top, different questions, different answers.',
+  },
+  {
+    type: 'aside',
+    kind: 'watch',
+    content: 'Wrong choices are routinely built from the swapped direction — $P(B \\mid A)$ where the question asked $P(A \\mid B)$. Identify the pool from the wording, never from which numbers look familiar.',
   },
   {
     type: 'text',
@@ -176,7 +190,14 @@ export const mProbabilityBlocks = [
   },
 
   {
-    type: 'text',
-    content: '**The whole topic in one rule:** a probability is favorable over pool, and the pool is decided first. Complements subtract from $1$, unions add and remove the overlap once, a count is probability times pool size, whatever stands behind the bar in $P(A \\mid B)$ names the denominator, and a draw without replacement shrinks both counts for the next draw.',
+    type: 'summary',
+    title: 'The chapter in one rule',
+    points: [
+      'A probability is **favorable over pool**, and the pool is decided first — selection wording sets the denominator.',
+      '**Complements** subtract from $1$; reach for them on "at least one" and "not both."',
+      '**Unions** add the two probabilities and remove the overlap once.',
+      'A **count** is probability times pool size, so locate the pool size in the problem.',
+      'Whatever stands **behind the bar** in $P(A \\mid B)$ names the denominator, and a draw **without replacement** shrinks both counts for the next draw.',
+    ],
   },
 ];

@@ -8,14 +8,18 @@
  * analogies, no pep talk, no exclamation marks, no emojis, no test-personification.
  * All v3 teaching claims preserved. Gated by bodies.test.js.
  *
+ * COMPOSED MODE (2026-07-18): chapterOpener lede + auto-numbered
+ * sections/examples/figures + aside margin-notes + summary close
+ * (exemplar: bodies/mPercents.js).
+ *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
  */
 
 export const gVerbsBlocks = [
   {
-    type: 'text',
-    content: "You've matched verbs to their subjects and pronouns to their antecedents. One match remains, and it's the one your ear is least equipped to check: time — the verb has to agree with the sentence's own timeline. Tense questions are built so that every choice sounds acceptable on its own, and that's deliberate: the rest of the sentence sets when events happened, and your job is to pick the form that lands in the right spot on that line, not the form that reads most smoothly.",
+    type: 'chapterOpener',
+    lede: "You've matched verbs to their subjects and pronouns to their antecedents. One match remains, and it's the one your ear is least equipped to check: time — the verb has to agree with the sentence's own timeline. Tense questions are built so that every choice sounds acceptable on its own, and that's deliberate: the rest of the sentence sets when events happened, and your job is to pick the form that lands in the right spot on that line, not the form that reads most smoothly.",
   },
 
   { type: 'heading', content: 'What these questions test' },
@@ -30,7 +34,8 @@ export const gVerbsBlocks = [
     content: "The default rule takes no analysis: use the tense the sentences around the blank are already using, so a passage narrated in the past keeps its blank in the past. Depart from the neighboring tense only when a time word requires it. One caution about instinct, because it costs real points: the elaborate form tends to look more sophisticated, and students reach for it on the theory that a harder question deserves a fancier verb — the wrong answers are written for exactly that theory. The plain form that echoes its neighbors is usually right.",
   },
   {
-    type: 'keyInsight',
+    type: 'aside',
+    kind: 'remember',
     content: 'The elaborate tense (*had studied, would have gone, will have finished*) is usually the wrong choice. A marked tense requires **a time word that justifies it** — with no such signal, the plain form wins.',
   },
 
@@ -79,7 +84,8 @@ export const gVerbsBlocks = [
     content: "The characteristic error puts *would have* in both clauses, and it tempts students because the doubled version sounds balanced, as though the two halves ought to match. They don't: *If she would have trained* is wrong every time it appears.",
   },
   {
-    type: 'keyInsight',
+    type: 'aside',
+    kind: 'watch',
     content: 'One *had* + participle in the *if*-clause, one *would have* + participle in the result clause. Never *"would have... would have."*',
   },
 
@@ -152,7 +158,12 @@ export const gVerbsBlocks = [
   },
 
   {
-    type: 'text',
-    content: '**The whole skill in two moves:** default to the tense the neighboring sentences use, then scan for a signal — *since / for*, a specific date, a second past event, *if… would have* — that forces a different form. No signal means the plain form is right; a marked tense has to earn its place with a time word.',
+    type: 'summary',
+    title: 'The whole skill in two moves',
+    points: [
+      'Default to the tense the **neighboring sentences** already use.',
+      'Scan for a **time signal** — *since / for*, a specific date, a second past event, *if… would have* — that forces a different form.',
+      'No signal means the **plain form** is right; a marked tense has to earn its place with a time word.',
+    ],
   },
 ];

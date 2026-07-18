@@ -8,19 +8,17 @@
  * analogies, no pep talk, no exclamation marks, no emojis, no
  * test-personification. All v3 teaching claims preserved.
  *
+ * COMPOSED MODE (2026-07-18): chapterOpener lede + auto-numbered sections/examples/figures +
+ * aside margin-notes + summary close (exemplar: bodies/mPercents.js).
+ *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
  */
 
 export const inequalitiesBlocks = [
   {
-    type: 'text',
-    content: "An inequality swaps the equals sign of an equation for $<$, $\\le$, $>$, or $\\ge$, and at first the swap looks like it should change everything. It changes almost nothing. Every isolation technique from the last chapter carries over intact — add to both sides, divide away a coefficient, all of it — with exactly one new rule, plus a new reading of absolute value as **distance**. What genuinely changes is the answer: an equation names a single value, while an inequality is satisfied by an entire *range* of numbers, so the solution reports a boundary and a direction instead of one point.",
-  },
-  {
-    type: 'diagramRef',
-    visualType: 'inequalityNumberLineDiagram',
-    description: "Number-line graphs of $x > 2$ and $x \\le -1$: each solution is a boundary plus a direction, where an open circle excludes the boundary value and a closed circle includes it.",
+    type: 'chapterOpener',
+    lede: "An inequality swaps the equals sign of an equation for $<$, $\\le$, $>$, or $\\ge$, and at first the swap looks like it should change everything. It changes almost nothing. Every isolation technique from the last chapter carries over intact — add to both sides, divide away a coefficient, all of it — with exactly one new rule, plus a new reading of absolute value as **distance**. What genuinely changes is the answer: an equation names a single value, while an inequality is satisfied by an entire *range* of numbers, so the solution reports a boundary and a direction instead of one point.",
   },
 
   { type: 'heading', content: 'The sign-reversal rule' },
@@ -33,12 +31,32 @@ export const inequalitiesBlocks = [
     content: "What it broke is the order of the number line. Multiplying or dividing by a negative reverses that order — $3 < 5$ is true, but $-3 < -5$ is false — so the symbol has to turn around for the statement to stay accurate. That is the chapter's one new rule: **multiplying or dividing both sides by a negative number reverses the inequality symbol.** Done correctly, $-2x < 6$ becomes $x > -3$.",
   },
   {
+    type: 'diagramRef',
+    visualType: 'inequalityNumberLineDiagram',
+    description: "Number-line graphs of $x > 2$ and $x \\le -1$: each solution is a boundary plus a direction, where an open circle excludes the boundary value and a closed circle includes it.",
+  },
+  {
     type: 'text',
+    content: "Figure 1 shows the shape every inequality solution takes: a boundary at a single point and a direction leading away from it, drawn with an open circle when the boundary is excluded and a closed circle when it is included.",
+  },
+  {
+    type: 'aside',
+    kind: 'remember',
     content: "Just as important is what never triggers a reversal: adding or subtracting any quantity, and a solution that merely happens to come out negative. Students who have half-learned the rule flip the symbol whenever a minus sign appears anywhere in the problem, and the answer that habit produces is always listed among the choices. Only *scaling by a negative* reverses the symbol.",
   },
   {
     type: 'keyInsight',
     content: "To confirm the direction of the symbol, substitute one number from your proposed solution set into the *original* inequality. A true statement confirms the direction; a false one means a reversal was missed. This brief check catches every direction error.",
+  },
+  {
+    type: 'example',
+    difficulty: 'Easy',
+    problem: 'Which represents all solutions of $-4x + 9 > 21$?\n\n(A) $x > -3$\n(B) $x < -3$\n(C) $x > 3$\n(D) $x < 3$',
+    steps: [
+      { label: 'Subtract 9', content: "$-4x > 12$. Subtraction never reverses the symbol." },
+      { label: 'Divide by $-4$ and reverse', content: "Dividing by a negative reverses $>$ to $<$: $x < -3$." },
+      { label: 'Check', content: "Substitute $x = -5$: $-4(-5) + 9 = 29 > 21$, true. Answer **(B)**. Choice (A) is the same boundary with the reversal skipped — the standard distractor for this step." },
+    ],
   },
 
   { type: 'heading', content: 'Compound inequalities: operate on all three parts' },
@@ -49,6 +67,16 @@ export const inequalitiesBlocks = [
   {
     type: 'text',
     content: "Why all three parts? Because the chain is really two inequalities sharing a middle, and operating on every part preserves both of them the same way operating on both sides preserves an equation. Skip one part and the boundaries end up describing a different quantity than the middle — the interval you report belongs to a different problem. And if a step divides by a negative, both symbols reverse at once.",
+  },
+  {
+    type: 'example',
+    difficulty: 'Medium',
+    problem: 'Solve $-1 \\le 2x + 3 < 9$ for $x$.',
+    steps: [
+      { label: 'Subtract 3 from all three parts', content: "Apply the operation to every part: $-1 - 3 \\le 2x < 9 - 3$, which is $-4 \\le 2x < 6$." },
+      { label: 'Divide all three by 2', content: "Dividing by a positive number leaves both symbols unchanged: $-2 \\le x < 3$." },
+      { label: 'Read the interval', content: "$x$ runs from $-2$ (included) up to $3$ (not included). Check $x = 0$: $2(0) + 3 = 3$, and $-1 \\le 3 < 9$ is true." },
+    ],
   },
 
   { type: 'heading', content: 'Absolute value as distance' },
@@ -69,8 +97,19 @@ export const inequalitiesBlocks = [
     ],
   },
   {
-    type: 'tip',
+    type: 'aside',
+    kind: 'watch',
     content: "A distance can never be negative, so $|x - 6| = -2$ has **no solution**. Spotting this on sight saves you from two cases of algebra that could never produce an answer.",
+  },
+  {
+    type: 'example',
+    difficulty: 'Hard',
+    problem: 'Solve $|x - 3| > 5$.',
+    steps: [
+      { label: 'Read as distance', content: "The statement describes points **more than** $5$ away from $3$ — two rays, not one interval." },
+      { label: 'Locate the boundary points', content: "The boundary points lie at $3 - 5 = -2$ and $3 + 5 = 8$." },
+      { label: 'Write both pieces', content: "Distances greater than $5$ lie outside the interval: $x < -2$ or $x > 8$. Check $x = 0$: $|0 - 3| = 3 > 5$ is false, and $0$ correctly falls in neither ray." },
+    ],
   },
 
   { type: 'heading', content: 'The absolute-value function' },
@@ -132,30 +171,6 @@ export const inequalitiesBlocks = [
     type: 'text',
     content: "When the answer has to be a whole number — buses, tickets, crates — the rounding direction comes from the constraint, not from the nearest integer. Suppose a job requires $x \\ge 14.2$ boxes. Rounding to $14$ feels natural, because that is what every rounding lesson since grade school has trained, but $14$ boxes falls short of the stated requirement — the correct answer is $15$. So round **up** for a minimum and **down** for a maximum, toward the side that satisfies the constraint; the round-to-nearest answer is always among the choices.",
   },
-
-  {
-    type: 'steps',
-    title: 'How to approach these questions',
-    items: [
-      '**Solve like an equation.** Every isolation technique carries over unchanged.',
-      '**Reverse on negative scaling.** Multiplying or dividing by a negative flips the symbol; adding and subtracting never do. In a compound inequality, operate on all three parts.',
-      '**Read absolute value as distance.** $|x - c| < r$ is one interval around $c$; $|x - c| > r$ is two rays.',
-      '**Translate boundary words precisely.** At least / at most include the boundary; more than / fewer than exclude it — and round whole-number answers toward the side that satisfies the constraint.',
-      '**Check with one number.** Substitute a value from your solution set into the original inequality to confirm the direction.',
-    ],
-  },
-
-  { type: 'heading', content: 'Worked examples' },
-  {
-    type: 'example',
-    difficulty: 'Easy',
-    problem: 'Which represents all solutions of $-4x + 9 > 21$?\n\n(A) $x > -3$\n(B) $x < -3$\n(C) $x > 3$\n(D) $x < 3$',
-    steps: [
-      { label: 'Subtract 9', content: "$-4x > 12$. Subtraction never reverses the symbol." },
-      { label: 'Divide by $-4$ and reverse', content: "Dividing by a negative reverses $>$ to $<$: $x < -3$." },
-      { label: 'Check', content: "Substitute $x = -5$: $-4(-5) + 9 = 29 > 21$, true. Answer **(B)**. Choice (A) is the same boundary with the reversal skipped — the standard distractor for this step." },
-    ],
-  },
   {
     type: 'example',
     difficulty: 'Medium',
@@ -166,24 +181,16 @@ export const inequalitiesBlocks = [
       { label: 'Round down', content: "Crates come in whole numbers and the constraint is a maximum, so round *down* to **37**. Check: $55(38) + 160 = 2250 > 2200$ fails, while $55(37) + 160 = 2195$ satisfies the limit." },
     ],
   },
+
   {
-    type: 'example',
-    difficulty: 'Hard',
-    problem: 'Solve $|x - 3| > 5$.',
-    steps: [
-      { label: 'Read as distance', content: "The statement describes points **more than** $5$ away from $3$ — two rays, not one interval." },
-      { label: 'Locate the boundary points', content: "The boundary points lie at $3 - 5 = -2$ and $3 + 5 = 8$." },
-      { label: 'Write both pieces', content: "Distances greater than $5$ lie outside the interval: $x < -2$ or $x > 8$. Check $x = 0$: $|0 - 3| = 3 > 5$ is false, and $0$ correctly falls in neither ray." },
-    ],
-  },
-  {
-    type: 'example',
-    difficulty: 'Medium',
-    problem: 'Solve $-1 \\le 2x + 3 < 9$ for $x$.',
-    steps: [
-      { label: 'Subtract 3 from all three parts', content: "Apply the operation to every part: $-1 - 3 \\le 2x < 9 - 3$, which is $-4 \\le 2x < 6$." },
-      { label: 'Divide all three by 2', content: "Dividing by a positive number leaves both symbols unchanged: $-2 \\le x < 3$." },
-      { label: 'Read the interval', content: "$x$ runs from $-2$ (included) up to $3$ (not included). Check $x = 0$: $2(0) + 3 = 3$, and $-1 \\le 3 < 9$ is true." },
+    type: 'steps',
+    title: 'How to approach these questions',
+    items: [
+      '**Solve like an equation.** Every isolation technique carries over unchanged.',
+      '**Reverse on negative scaling.** Multiplying or dividing by a negative flips the symbol; adding and subtracting never do. In a compound inequality, operate on all three parts.',
+      '**Read absolute value as distance.** $|x - c| < r$ is one interval around $c$; $|x - c| > r$ is two rays.',
+      '**Translate boundary words precisely.** At least / at most include the boundary; more than / fewer than exclude it — and round whole-number answers toward the side that satisfies the constraint.',
+      '**Check with one number.** Substitute a value from your solution set into the original inequality to confirm the direction.',
     ],
   },
 
@@ -205,16 +212,14 @@ export const inequalitiesBlocks = [
   },
 
   {
-    type: 'list',
-    title: '**The rules in one place:**',
-    items: [
-      'Solve as with an equation; reverse the symbol only on a negative multiplication or division.',
-      'Apply every operation to all three parts of a compound inequality.',
-      'Read $|x - c|$ as distance from $c$: $< r$ is one interval, $> r$ is two rays.',
-      "Test one point to select the shaded side; a system's solution is the overlap.",
-      'Match boundary phrases to $\\ge / \\le / > / <$, and round toward the side that satisfies the constraint.',
-      'The graph of $y = a|x - h| + k$ is a V with vertex $(h, k)$ and arm slopes $\\pm a$.',
-      'Substituting one number from your result into the original inequality verifies the direction.',
+    type: 'summary',
+    title: 'The rules in one place',
+    points: [
+      'Solve exactly like an equation, but **reverse the symbol whenever you multiply or divide by a negative** — and apply every step to all three parts of a compound inequality.',
+      'Read $|x - c|$ as **distance from $c$**: within $r$ is one interval, beyond $r$ is two rays, exactly $r$ is two points, and a negative distance has no solution.',
+      'Graph $y = a|x - h| + k$ as a **V** with vertex $(h, k)$ and arm slopes $\\pm a$.',
+      'For a two-variable inequality, **test one point** to choose the shaded side; a system\'s solution is where the regions overlap.',
+      'Match boundary words to $\\ge$, $\\le$, $>$, or $<$, **round toward the side that satisfies the constraint**, and substitute one value back to confirm the direction.',
     ],
   },
 ];

@@ -8,14 +8,18 @@
  * analogies, no pep talk, no exclamation marks, no emojis, no
  * test-personification. All v3 teaching claims preserved.
  *
+ * COMPOSED MODE (2026-07-18): chapterOpener lede + auto-numbered
+ * sections/examples/figures + aside margin-notes + summary close (exemplar:
+ * bodies/mPercents.js).
+ *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
  */
 
 export const mSystemsBlocks = [
   {
-    type: 'text',
-    content: "Any one line admits infinitely many solution points — that was the last chapter. The natural next question is what happens when two lines are imposed at once. A system is **two equations sharing the same two unknowns**, and the second equation is what changes everything: one equation alone admits infinitely many solutions, while the second narrows the set to the single point that satisfies both.",
+    type: 'chapterOpener',
+    lede: "Any one line admits infinitely many solution points — that was the last chapter. The natural next question is what happens when two lines are imposed at once. A system is **two equations sharing the same two unknowns**, and the second equation is what changes everything: one equation alone admits infinitely many solutions, while the second narrows the set to the single point that satisfies both.",
   },
   {
     type: 'diagramRef',
@@ -24,7 +28,7 @@ export const mSystemsBlocks = [
   },
   {
     type: 'text',
-    content: "The central decision on these questions is choosing the fastest way to eliminate one variable. Most of the difficulty lies in selecting the least-work method, not in the algebra itself — and when the question asks for a combination such as $x+y$, the most efficient path often bypasses solving for the variables entirely.",
+    content: "Figure 1 makes the definition concrete: two lines, one crossing point, and that point is the solution. The central decision on these questions is choosing the fastest way to eliminate one variable. Most of the difficulty lies in selecting the least-work method, not in the algebra itself — and when the question asks for a combination such as $x+y$, the most efficient path often bypasses solving for the variables entirely.",
   },
 
   { type: 'heading', content: 'Substitution: a variable is already isolated' },
@@ -46,8 +50,19 @@ export const mSystemsBlocks = [
     content: "One rule keeps the method sound: substitute into the *other* equation, without exception. Why? Because the expression came from the first equation, and feeding it back into the same equation collapses everything into a true but uninformative statement — $2x - 1 = 2x - 1$ — that determines nothing.",
   },
   {
-    type: 'keyInsight',
+    type: 'aside',
+    kind: 'watch',
     content: "Substitution means replacing a variable with an **equal expression** — not setting the two equations equal to each other. Set them equal only when *both* are solved for the same variable.",
+  },
+  {
+    type: 'example',
+    difficulty: 'Easy',
+    problem: 'Solve the system:\n\n$y = 3x - 4$\n$2x + y = 6$',
+    steps: [
+      { label: 'Identify the isolated variable', content: "$y$ is already isolated in the first equation, so substitute $3x - 4$ for $y$ in the second." },
+      { label: 'Solve the single equation', content: "$2x + (3x - 4) = 6 \\Rightarrow 5x - 4 = 6 \\Rightarrow 5x = 10 \\Rightarrow x = 2$." },
+      { label: 'Back-substitute', content: "$y = 3(2) - 4 = 2$. Solution: $(2,\\, 2)$." },
+    ],
   },
 
   { type: 'heading', content: 'Elimination: both equations in standard form' },
@@ -65,8 +80,29 @@ export const mSystemsBlocks = [
     ],
   },
   {
-    type: 'tip',
+    type: 'aside',
+    kind: 'remember',
     content: "Subtracting one equation from another invites sign errors. Multiply one equation by $-1$ and **add** instead — addition is the only combining step required. And eliminate the variable the question does *not* ask for, so the survivor is the one requested.",
+  },
+  {
+    type: 'example',
+    difficulty: 'Medium',
+    problem: 'If $4x + 3y = 19$ and $4x - 3y = 5$, what is the value of $x$?',
+    steps: [
+      { label: 'Inspect the coefficients', content: "The $3y$ terms are already opposites, so adding the two equations cancels $y$ immediately." },
+      { label: 'Add the equations', content: "$(4x + 3y) + (4x - 3y) = 19 + 5 \\Rightarrow 8x = 24$." },
+      { label: 'Solve for what was asked', content: "$x = 3$. Stop here — the question asks only for $x$, and computing $y$ adds nothing." },
+    ],
+  },
+  {
+    type: 'example',
+    difficulty: 'Medium',
+    problem: 'Solve the system:\n\n$2x + 3y = 12$\n$x + y = 5$',
+    steps: [
+      { label: 'Scale to create opposites', content: "The $x$-coefficients are $2$ and $1$. Multiply the second equation by $-2$ so that its $x$-coefficient becomes the opposite: $-2x - 2y = -10$." },
+      { label: 'Add the equations to cancel $x$', content: "$(2x + 3y) + (-2x - 2y) = 12 + (-10) \\Rightarrow y = 2$." },
+      { label: 'Back-substitute', content: "Substitute $y = 2$ into $x + y = 5$: $x = 3$. Solution: $(3,\\, 2)$. Check: $2(3) + 3(2) = 12$." },
+    ],
   },
 
   { type: 'heading', content: 'Choosing the method' },
@@ -139,44 +175,6 @@ export const mSystemsBlocks = [
     content: "Define the variables in words first, then keep the units consistent: items add to items, dollars add to dollars. That discipline blocks the classic error of adding a count to a dollar amount — an equation with no meaning.",
   },
   {
-    type: 'callout',
-    content: "Mixture problems follow the same structure, with **two totals: substance and volume.** The amounts of pure substance add, and the total volumes add. Water contributes $0$ to the substance equation; a pure ingredient contributes all of itself.",
-  },
-
-  {
-    type: 'example',
-    difficulty: 'Hard',
-    problem: 'A chemist mixes a 10% acid solution with a 25% acid solution to produce 30 liters of a 20% acid solution. How many liters of each are used?',
-    steps: [
-      { label: 'Define variables and write the volume equation', content: "Let $a$ = liters of the 10% solution and $b$ = liters of the 25% solution. The volumes combine to the stated total: $a + b = 30$." },
-      { label: 'Write the pure-substance equation', content: "Each term is concentration times volume — the liters of pure acid each solution contributes. The acid amounts also combine: $0.10a + 0.25b = 0.20(30) = 6$. (Had one ingredient been plain water, its term would be $0 \\cdot a$ — water contributes no acid.)" },
-      { label: 'Substitute and solve', content: "From the volume equation, $a = 30 - b$. Then $0.10(30 - b) + 0.25b = 6$, so $3 + 0.15b = 6$, giving $0.15b = 3$ and $b = 20$. Back-substitute: $a = 10$." },
-      { label: 'Check both conserved totals', content: "Volume: $10 + 20 = 30$ liters. Acid: $0.10(10) + 0.25(20) = 1 + 5 = 6$ liters of pure acid in $30$ liters — a 20% concentration, matching the target." },
-    ],
-  },
-
-  { type: 'heading', content: 'Worked examples' },
-  {
-    type: 'example',
-    difficulty: 'Easy',
-    problem: 'Solve the system:\n\n$y = 3x - 4$\n$2x + y = 6$',
-    steps: [
-      { label: 'Identify the isolated variable', content: "$y$ is already isolated in the first equation, so substitute $3x - 4$ for $y$ in the second." },
-      { label: 'Solve the single equation', content: "$2x + (3x - 4) = 6 \\Rightarrow 5x - 4 = 6 \\Rightarrow 5x = 10 \\Rightarrow x = 2$." },
-      { label: 'Back-substitute', content: "$y = 3(2) - 4 = 2$. Solution: $(2,\\, 2)$." },
-    ],
-  },
-  {
-    type: 'example',
-    difficulty: 'Medium',
-    problem: 'If $4x + 3y = 19$ and $4x - 3y = 5$, what is the value of $x$?',
-    steps: [
-      { label: 'Inspect the coefficients', content: "The $3y$ terms are already opposites, so adding the two equations cancels $y$ immediately." },
-      { label: 'Add the equations', content: "$(4x + 3y) + (4x - 3y) = 19 + 5 \\Rightarrow 8x = 24$." },
-      { label: 'Solve for what was asked', content: "$x = 3$. Stop here — the question asks only for $x$, and computing $y$ adds nothing." },
-    ],
-  },
-  {
     type: 'example',
     difficulty: 'Hard',
     problem: 'A vendor sells 30 items — some at \\$4 each, the rest at \\$7 each — for \\$153 total. How many \\$7 items were sold?',
@@ -189,13 +187,18 @@ export const mSystemsBlocks = [
     ],
   },
   {
+    type: 'callout',
+    content: "Mixture problems follow the same structure, with **two totals: substance and volume.** The amounts of pure substance add, and the total volumes add. Water contributes $0$ to the substance equation; a pure ingredient contributes all of itself.",
+  },
+  {
     type: 'example',
-    difficulty: 'Medium',
-    problem: 'Solve the system:\n\n$2x + 3y = 12$\n$x + y = 5$',
+    difficulty: 'Hard',
+    problem: 'A chemist mixes a 10% acid solution with a 25% acid solution to produce 30 liters of a 20% acid solution. How many liters of each are used?',
     steps: [
-      { label: 'Scale to create opposites', content: "The $x$-coefficients are $2$ and $1$. Multiply the second equation by $-2$ so that its $x$-coefficient becomes the opposite: $-2x - 2y = -10$." },
-      { label: 'Add the equations to cancel $x$', content: "$(2x + 3y) + (-2x - 2y) = 12 + (-10) \\Rightarrow y = 2$." },
-      { label: 'Back-substitute', content: "Substitute $y = 2$ into $x + y = 5$: $x = 3$. Solution: $(3,\\, 2)$. Check: $2(3) + 3(2) = 12$." },
+      { label: 'Define variables and write the volume equation', content: "Let $a$ = liters of the 10% solution and $b$ = liters of the 25% solution. The volumes combine to the stated total: $a + b = 30$." },
+      { label: 'Write the pure-substance equation', content: "Each term is concentration times volume — the liters of pure acid each solution contributes. The acid amounts also combine: $0.10a + 0.25b = 0.20(30) = 6$. (Had one ingredient been plain water, its term would be $0 \\cdot a$ — water contributes no acid.)" },
+      { label: 'Substitute and solve', content: "From the volume equation, $a = 30 - b$. Then $0.10(30 - b) + 0.25b = 6$, so $3 + 0.15b = 6$, giving $0.15b = 3$ and $b = 20$. Back-substitute: $a = 10$." },
+      { label: 'Check both conserved totals', content: "Volume: $10 + 20 = 30$ liters. Acid: $0.10(10) + 0.25(20) = 1 + 5 = 6$ liters of pure acid in $30$ liters — a 20% concentration, matching the target." },
     ],
   },
 
@@ -222,7 +225,13 @@ export const mSystemsBlocks = [
   },
 
   {
-    type: 'text',
-    content: "**The whole chapter in one pass:** identify the requested quantity first. For a combination such as $x+y$, add or subtract the equations directly; otherwise substitute when a variable is already isolated, or scale and eliminate when both equations are in standard form. Report the exact quantity the question asks for.",
+    type: 'summary',
+    title: 'The whole chapter in four moves',
+    points: [
+      'Identify the **requested quantity** first — the target decides which method is fastest.',
+      'For a combination such as $x+y$ or $x-y$, **add or subtract the equations directly** rather than solving for each variable.',
+      'Otherwise **substitute** when a variable is already isolated, or **scale and eliminate** when both equations are in standard form.',
+      'Report the **exact quantity the question asks for**, and no more.',
+    ],
   },
 ];

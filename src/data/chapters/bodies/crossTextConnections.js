@@ -9,14 +9,18 @@
  * no exclamation marks, no emojis, no test-personification. All v3
  * teaching claims preserved.
  *
+ * COMPOSED MODE (2026-07-18): chapterOpener lede + auto-numbered
+ * sections/examples/figures + aside margin-notes + summary close
+ * (exemplar: bodies/mPercents.js).
+ *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
  */
 
 export const crossTextConnectionsBlocks = [
   {
-    type: 'text',
-    content: "Every reading skill so far — tracing ideas, drawing inferences, weighing evidence, parsing structure — has worked inside a single passage. This chapter completes the reading toolkit by setting two passages in conversation. Cross-text questions give you two short passages on one topic — Text 1 and Text 2 — then ask something like *\"How would the author of Text 2 respond to Text 1?\"* The stem sounds like a call for speculation, but it isn't: everything each author believes is already stated in that author's own words, so what these questions actually measure is **keeping the two positions straight**.",
+    type: 'chapterOpener',
+    lede: "Every reading skill so far — tracing ideas, drawing inferences, weighing evidence, parsing structure — has worked inside a single passage. This chapter completes the reading toolkit by setting two passages in conversation. Cross-text questions give you two short passages on one topic — Text 1 and Text 2 — then ask something like *\"How would the author of Text 2 respond to Text 1?\"* The stem sounds like a call for speculation, but it isn't: everything each author believes is already stated in that author's own words, so what these questions actually measure is **keeping the two positions straight**.",
   },
 
   { type: 'heading', content: "What's actually tested" },
@@ -31,7 +35,8 @@ export const crossTextConnectionsBlocks = [
     content: "After finishing Text 1, state its point in one short labeled phrase: *T1: street trees cut summer energy use.* Then do the same for Text 2: *T2: only where the canopies connect.* The standard for a good restatement is that it's a **claim someone could dispute**, not a topic — \"both are about trees and heat\" is a topic, and since nothing can agree or disagree with a topic, it gives you no traction on a question about how one author would answer the other. Refine each label until it's a sentence one author would defend and the other might challenge.",
   },
   {
-    type: 'keyInsight',
+    type: 'aside',
+    kind: 'remember',
     content: "Write two labeled lines before reading any choice. Every detail carries a source — ask of each one, *which text did this come from?*",
   },
 
@@ -58,7 +63,8 @@ export const crossTextConnectionsBlocks = [
     content: "Before reading the choices, state Author 2's likely response in one sentence, limited to what the text actually **commits the author to**. That limit is the whole discipline, because a response can be perfectly sensible and still be wrong: however reasonable a real-world objection sounds, if no sentence licenses it, it isn't that author's response — it's yours. Then sort the choices by direction — approve, object, qualify — and cut the ones pointing the wrong way before weighing any wording.",
   },
   {
-    type: 'tip',
+    type: 'aside',
+    kind: 'watch',
     content: "Confirm *whose* response the stem requests. \"How would Author 2 respond?\" asks about Author 2 — a choice that accurately describes **Author 1's** view is wrong even if every word of it matches the passage. Accurate wording in the wrong voice earns no credit.",
   },
 
@@ -126,7 +132,13 @@ export const crossTextConnectionsBlocks = [
   },
 
   {
-    type: 'text',
-    content: "**The whole skill in four moves:** state each claim under its own label, name the relationship and its hinge, predict Author 2's response from what the text commits the author to, and match by direction first. Keep the two positions separate and there's no speculation left in the question — every answer is already on the page, filed under the right name.",
+    type: 'summary',
+    title: 'The whole skill in four moves',
+    points: [
+      'State each claim under its **own label** — a sentence someone could dispute, not a shared topic.',
+      'Name the **relationship** and its hinge: the exact point where the agreement ends.',
+      "Predict Author 2's response from what the text **commits the author to**, and nothing more.",
+      'Match by **direction** first, then keep the two positions **separate** — every answer is already on the page, filed under the right name.',
+    ],
   },
 ];

@@ -9,14 +9,17 @@
  * no exclamation marks, no emojis, no test-personification. All v3
  * teaching claims preserved. Gated by bodies.test.js.
  *
+ * COMPOSED MODE (2026-07-18): chapterOpener lede + auto-numbered sections/examples/figures +
+ * aside margin-notes + summary close (exemplar: bodies/mPercents.js).
+ *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
  */
 
 export const mVolumeBlocks = [
   {
-    type: 'text',
-    content: "The unit's final step leads out of the plane: the triangles and circles we've been working with become the bases and cross-sections of solids. And the pressure here is lower than it looks, because **every volume formula on the test is printed on the reference sheet**, available on every math question. So volume questions can't be testing memorization — what they actually test is the part no sheet can supply: picking the right formula, substituting each length into the right position, and, for irregular figures, splitting the solid into familiar pieces.",
+    type: 'chapterOpener',
+    lede: "The unit's final step leads out of the plane: the triangles and circles we've been working with become the bases and cross-sections of solids. And the pressure here is lower than it looks, because **every volume formula on the test is printed on the reference sheet**, available on every math question. So volume questions can't be testing memorization — what they actually test is the part no sheet can supply: picking the right formula, substituting each length into the right position, and, for irregular figures, splitting the solid into familiar pieces.",
   },
   {
     type: 'text',
@@ -48,11 +51,20 @@ export const mVolumeBlocks = [
     visualType: 'cylinderDiagram',
     description: "A cylinder with its radius $r$ and height $h$ labeled: the circular base area $\\pi r^2$ times the height gives $V = \\pi r^2 h$.",
   },
+  {
+    type: 'text',
+    content: "Figure 1 and Figure 2 make the shared pattern visible: the box sweeps a rectangle straight up and the cylinder sweeps a circle, so each is simply base area times height.",
+  },
 
   { type: 'heading', content: 'Pick the formula, then substitute' },
   {
     type: 'text',
     content: "Say a cylindrical tank has a diameter of $10$ and a height of $4$. The formula is the easy part — it's printed — but the student who writes $V = \\pi(10)^2(4)$ has already lost the question, because the formula's $r$ position takes a radius and $10$ is the diameter: the correct substitution halves it first, $V = \\pi(5)^2(4) = 100\\pi$. A **diameter dropped into a radius position** is the most frequent error in this family, with premature rounding of $\\pi$ a close second, and both are prevented the same way — read the label on each given length before it enters the formula.",
+  },
+  {
+    type: 'aside',
+    kind: 'watch',
+    content: "A cylinder or cone hands you a **diameter**; the formula wants a radius. Forget to halve and the volume comes out $4$ times too big — the diameter-for-radius slip gets squared inside $r^2$.",
   },
   {
     type: 'steps',
@@ -67,6 +79,27 @@ export const mVolumeBlocks = [
     content: "When the volume is **given** and a length is missing, the same formula runs **backward**: substitute every known value and solve for the unknown. A tank of volume $90\\pi$ and radius $3$ gives $90\\pi = \\pi(3)^2 h$, so $h = 10$.",
   },
 
+  {
+    type: 'example',
+    difficulty: 'Medium',
+    problem: 'A cylindrical water tank has radius $4$ ft and height $9$ ft. What is its volume, in cubic feet?',
+    steps: [
+      { label: 'Identify the solid', content: 'Cylinder: $V = \\pi r^2 h$, taken directly from the reference sheet.' },
+      { label: 'Substitute the lengths', content: '$r = 4$ is given as a radius, so no halving is needed, and $h = 9$: $V = \\pi (4)^2 (9)$.' },
+      { label: 'Compute', content: "$\\pi \\cdot 16 \\cdot 9 = 144\\pi \\approx 452$ cubic feet. If the answer choices are expressed in terms of $\\pi$, report $144\\pi$." },
+    ],
+  },
+  {
+    type: 'example',
+    difficulty: 'Medium',
+    problem: 'A spherical ball has radius $3$ cm. What is its volume, in terms of $\\pi$?',
+    steps: [
+      { label: 'Identify the solid', content: 'Sphere: $V = \\tfrac{4}{3}\\pi r^3$; the radius is the only dimension required.' },
+      { label: 'Substitute and cube', content: 'With $r = 3$: $r^3 = 3^3 = 27$, so $V = \\tfrac{4}{3}\\pi (27)$.' },
+      { label: 'Compute', content: '$\\tfrac{4}{3}\\cdot 27 = 36$, so $V = 36\\pi$ cubic centimeters.' },
+    ],
+  },
+
   { type: 'heading', content: 'Slant height is not height' },
   {
     type: 'text',
@@ -79,7 +112,7 @@ export const mVolumeBlocks = [
   },
   {
     type: 'text',
-    content: "Volume formulas take the perpendicular height only. When a problem supplies the slant, recover the height first — $h = \\sqrt{\\ell^2 - r^2}$ — and only then apply the volume formula. Substituting the slant directly into $\\tfrac{1}{3}\\pi r^2 h$ puts a longer length where the shorter one belongs, so it produces an inflated volume — and the wrong answer choices are built to match exactly that inflated value.",
+    content: "Figure 3 keeps the two lengths distinct, and volume formulas take the perpendicular height only. When a problem supplies the slant, recover the height first — $h = \\sqrt{\\ell^2 - r^2}$ — and only then apply the volume formula. Substituting the slant directly into $\\tfrac{1}{3}\\pi r^2 h$ puts a longer length where the shorter one belongs, so it produces an inflated volume — and the wrong answer choices are built to match exactly that inflated value.",
   },
 
   { type: 'heading', content: 'Composite figures: add or subtract known pieces' },
@@ -95,8 +128,21 @@ export const mVolumeBlocks = [
     ],
   },
   {
-    type: 'tip',
+    type: 'aside',
+    kind: 'remember',
     content: "Any \"leftover\" solid — space not filled, material remaining after a hole — is almost always **the larger volume minus the smaller volume**. Compute each piece separately, then subtract.",
+  },
+
+  {
+    type: 'example',
+    difficulty: 'Hard',
+    problem: 'A rectangular wooden block measures $6$ cm by $4$ cm by $10$ cm. A cylindrical hole of radius $1$ cm is drilled straight through the $10$ cm length. What volume of wood remains? (Use $\\pi \\approx 3.14$.)',
+    steps: [
+      { label: 'Set up the subtraction', content: 'The remaining wood equals the block volume minus the cylinder volume — two familiar solids and one subtraction.' },
+      { label: 'Compute the block', content: '$V_{\\text{block}} = 6 \\times 4 \\times 10 = 240$ cm$^3$.' },
+      { label: 'Compute the hole', content: 'The hole runs the full $10$ cm length: $V_{\\text{hole}} = \\pi (1)^2 (10) = 10\\pi \\approx 31.4$ cm$^3$.' },
+      { label: 'Subtract', content: '$240 - 31.4 = 208.6$ cm$^3$ of wood remains.' },
+    ],
   },
 
   { type: 'heading', content: 'Surface area: take a face inventory' },
@@ -162,27 +208,6 @@ export const mVolumeBlocks = [
     content: "So doubling the radius of a sphere multiplies its volume by $2^3 = 8$, not by $2$ — the factor lands once for each of the three dimensions, and it compounds. Wrong answer choices are routinely constructed from the un-cubed factor, so a volume answer that only doubled deserves a second look.",
   },
 
-  { type: 'heading', content: 'Worked examples' },
-  {
-    type: 'example',
-    difficulty: 'Medium',
-    problem: 'A cylindrical water tank has radius $4$ ft and height $9$ ft. What is its volume, in cubic feet?',
-    steps: [
-      { label: 'Identify the solid', content: 'Cylinder: $V = \\pi r^2 h$, taken directly from the reference sheet.' },
-      { label: 'Substitute the lengths', content: '$r = 4$ is given as a radius, so no halving is needed, and $h = 9$: $V = \\pi (4)^2 (9)$.' },
-      { label: 'Compute', content: "$\\pi \\cdot 16 \\cdot 9 = 144\\pi \\approx 452$ cubic feet. If the answer choices are expressed in terms of $\\pi$, report $144\\pi$." },
-    ],
-  },
-  {
-    type: 'example',
-    difficulty: 'Medium',
-    problem: 'A spherical ball has radius $3$ cm. What is its volume, in terms of $\\pi$?',
-    steps: [
-      { label: 'Identify the solid', content: 'Sphere: $V = \\tfrac{4}{3}\\pi r^3$; the radius is the only dimension required.' },
-      { label: 'Substitute and cube', content: 'With $r = 3$: $r^3 = 3^3 = 27$, so $V = \\tfrac{4}{3}\\pi (27)$.' },
-      { label: 'Compute', content: '$\\tfrac{4}{3}\\cdot 27 = 36$, so $V = 36\\pi$ cubic centimeters.' },
-    ],
-  },
   {
     type: 'example',
     difficulty: 'Medium',
@@ -191,17 +216,6 @@ export const mVolumeBlocks = [
       { label: 'Compute the volume', content: 'A cube is a box with equal edges: $V = 5 \\times 5 \\times 5 = 125$ cm$^3$.' },
       { label: 'Apply the density', content: '$\\text{mass} = \\text{density} \\times \\text{volume} = 8 \\times 125$.' },
       { label: 'Compute', content: '$8 \\times 125 = 1000$ grams. The units confirm the operation: $\\tfrac{\\text{g}}{\\text{cm}^3} \\times \\text{cm}^3 = \\text{g}$.' },
-    ],
-  },
-  {
-    type: 'example',
-    difficulty: 'Hard',
-    problem: 'A rectangular wooden block measures $6$ cm by $4$ cm by $10$ cm. A cylindrical hole of radius $1$ cm is drilled straight through the $10$ cm length. What volume of wood remains? (Use $\\pi \\approx 3.14$.)',
-    steps: [
-      { label: 'Set up the subtraction', content: 'The remaining wood equals the block volume minus the cylinder volume — two familiar solids and one subtraction.' },
-      { label: 'Compute the block', content: '$V_{\\text{block}} = 6 \\times 4 \\times 10 = 240$ cm$^3$.' },
-      { label: 'Compute the hole', content: 'The hole runs the full $10$ cm length: $V_{\\text{hole}} = \\pi (1)^2 (10) = 10\\pi \\approx 31.4$ cm$^3$.' },
-      { label: 'Subtract', content: '$240 - 31.4 = 208.6$ cm$^3$ of wood remains.' },
     ],
   },
 
@@ -228,7 +242,14 @@ export const mVolumeBlocks = [
   },
 
   {
-    type: 'text',
-    content: "**The whole topic in one route:** identify the solid, take its formula from the reference sheet, substitute each length — halving any diameter, converting a slant to a perpendicular height first — and compute. Decompose an irregular figure into known pieces and add or subtract; inventory the faces for surface area; for density, find the volume first and let the units decide whether to multiply or divide. And the laws that opened this unit close it: scale any figure by $k$, and lengths grow by $k$, areas by $k^2$, volumes by $k^3$.",
+    type: 'summary',
+    title: 'The whole topic in one route',
+    points: [
+      '**Identify the solid**, take its formula from the reference sheet, and substitute each length by name — halving any diameter first.',
+      'Convert a **slant height** to the perpendicular height before it enters a volume formula.',
+      '**Decompose** an irregular figure into known pieces and add or subtract; take a **face inventory** for surface area.',
+      'For **density**, find the volume first and let the units decide whether to multiply or divide.',
+      'Scale a figure by $k$ and lengths grow by $k$, **areas by $k^2$ and volumes by $k^3$**.',
+    ],
   },
 ];

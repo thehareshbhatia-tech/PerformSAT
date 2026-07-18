@@ -8,14 +8,18 @@
  * analogies, no pep talk, no exclamation marks, no emojis, no
  * test-personification. All v3 teaching claims preserved.
  *
+ * COMPOSED MODE (2026-07-18): chapterOpener lede + auto-numbered
+ * sections/examples/figures + aside margin-notes + summary close
+ * (exemplar: bodies/mPercents.js).
+ *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
  */
 
 export const commandOfEvidenceQuantitativeBlocks = [
   {
-    type: 'text',
-    content: "The last chapter tested claims against findings. Quantitative command-of-evidence questions run the same verification in a new medium: the claim now arrives paired with a **table or graph**, and the question asks which choice uses the data to complete or support it. The method survives the change of medium intact — what changes is where the evidence lives.",
+    type: 'chapterOpener',
+    lede: "The last chapter tested claims against findings. Quantitative command-of-evidence questions run the same verification in a new medium: the claim now arrives paired with a **table or graph**, and the question asks which choice uses the data to complete or support it. The method survives the change of medium intact — what changes is where the evidence lives.",
   },
   {
     type: 'text',
@@ -72,7 +76,8 @@ export const commandOfEvidenceQuantitativeBlocks = [
     content: "Convert the claim into that short checklist, then retrieve only the cells the checklist names — nothing more. The restraint is the point. A student who has browsed the whole display arrives at the choices holding a dozen true facts, any of which can make a wrong answer feel verified; a student holding a checklist knows which two or three numbers can settle the question and treats everything else as noise.",
   },
   {
-    type: 'tip',
+    type: 'aside',
+    kind: 'watch',
     content: "Watch the scope words — **each, all, every**. A claim about \"every region\" takes evidence covering *all* the regions, so a choice quoting a single strong region fails the claim's scope however accurate its numbers are.",
   },
 
@@ -214,7 +219,8 @@ export const commandOfEvidenceQuantitativeBlocks = [
     content: "The distinction matters most on flattening curves, because a slowdown reads to the eye like an ending. A line that rises steeply and then rises gently is **still rising** — \"increasing more slowly\" describes the trend, not a fall in the level — and wrong choices are built to convert that slowdown into a decrease, counting on students to report what the shape suggests rather than what the values say.",
   },
   {
-    type: 'tip',
+    type: 'aside',
+    kind: 'remember',
     content: "**Touch the legend on every read.** On a chart with more than one line or bar series, verify the series each time you pull a value — not once at the start. Values taken from the wrong series are internally consistent (every number really is on the chart), which makes the error invisible to later checking. Rereading the legend costs a second; trusting your memory of which line was dashed costs the question.",
   },
   {
@@ -255,7 +261,13 @@ export const commandOfEvidenceQuantitativeBlocks = [
   },
 
   {
-    type: 'text',
-    content: "**The whole skill in four moves:** read the frame, convert the claim into a short checklist, retrieve only the cells that checklist names, and keep the one choice that is both true to the data *and* about the claim. Every distractor in this family fails one of those two conditions while advertising the other. The claim directs the reading; the data confirm it.",
+    type: 'summary',
+    title: 'The whole skill in four moves',
+    points: [
+      'Read the **frame** first — title, axis or column labels, and units — before any number.',
+      'Turn the claim into a short **checklist**: subject, direction, size, and any scope words.',
+      '**Retrieve only the cells** the checklist names, each value carrying its row and unit.',
+      'Keep the one choice that is both **true to the data** and **about the claim**; every distractor fails one of those conditions while advertising the other, because the claim directs the reading and the data only confirm it.',
+    ],
   },
 ];

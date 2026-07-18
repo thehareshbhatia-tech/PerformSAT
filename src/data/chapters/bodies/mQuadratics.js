@@ -9,14 +9,17 @@
  * test-personification. All v3 teaching claims preserved.
  * Gated by bodies.test.js.
  *
+ * COMPOSED MODE (2026-07-18): chapterOpener lede + auto-numbered sections/examples/figures +
+ * aside margin-notes + summary close (exemplar: bodies/mPercents.js).
+ *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
  */
 
 export const mQuadraticsBlocks = [
   {
-    type: 'text',
-    content: "The factoring templates you just built pay off immediately, because a quadratic equation is where rewriting becomes solving: a factored quadratic set equal to zero reads its solutions off directly. The costliest habit on these questions isn't a wrong technique — it's committing to a single one. Students who always factor, or always reach for the quadratic formula, grind through problems a quicker route would settle in seconds, and the efficient route is usually visible on the page itself. Two principles organize the whole topic: **let the answer choices pick the method**, and read the parabola's features straight from whichever form the equation is given in.",
+    type: 'chapterOpener',
+    lede: "The factoring templates you just built pay off immediately, because a quadratic equation is where rewriting becomes solving: a factored quadratic set equal to zero reads its solutions off directly. The costliest habit on these questions isn't a wrong technique — it's committing to a single one. Students who always factor, or always reach for the quadratic formula, grind through problems a quicker route would settle in seconds, and the efficient route is usually visible on the page itself. Two principles organize the whole topic: **let the answer choices pick the method**, and read the parabola's features straight from whichever form the equation is given in.",
   },
 
   { type: 'heading', content: 'Choosing a method' },
@@ -95,7 +98,12 @@ export const mQuadraticsBlocks = [
   },
   {
     type: 'text',
-    content: "When the constant term is missing, $x$ itself is a common factor and the equation factors immediately: $3x^2 - 12x = 0$ becomes $3x(x - 4) = 0$, so $x = 0$ or $x = 4$. The tempting shortcut — dividing both sides by $x$ — looks like harmless simplifying, but the division is invalid at exactly one value, $x = 0$, and that value is one of the solutions. Dividing discards it silently; factoring the $x$ out keeps it as an ordinary root.",
+    content: "When the constant term is missing, $x$ itself is a common factor and the equation factors immediately: $3x^2 - 12x = 0$ becomes $3x(x - 4) = 0$, so $x = 0$ or $x = 4$.",
+  },
+  {
+    type: 'aside',
+    kind: 'watch',
+    content: "The tempting shortcut — dividing both sides by $x$ — looks like harmless simplifying, but the division is invalid at exactly one value, $x = 0$, and that value is one of the solutions. Dividing discards it silently; factoring the $x$ out keeps it as an ordinary root.",
   },
 
   { type: 'heading', content: 'The quadratic formula' },
@@ -190,6 +198,10 @@ export const mQuadraticsBlocks = [
     description: "The graph of $y=2(x-2)^2-3$: the vertex $(2,\\,-3)$ sits on the axis of symmetry, and the y-intercept $(0,\\,5)$ reflects across that axis to the mirror point $(4,\\,5)$ — one known point off the axis always gives you a second.",
   },
   {
+    type: 'text',
+    content: "Figure 1 makes that symmetry concrete: the axis of symmetry runs vertically through the vertex, and every point on the parabola has a mirror twin at the same height on the far side — so one known point off the axis hands you a second for free.",
+  },
+  {
     type: 'example',
     difficulty: 'Medium',
     problem: 'The graph of $y=(x-1)(x-5)$ is a parabola. Find its vertex.',
@@ -215,7 +227,8 @@ export const mQuadraticsBlocks = [
     ],
   },
   {
-    type: 'text',
+    type: 'aside',
+    kind: 'note',
     content: "One point gets overanalyzed: the magnitude carries no information. A discriminant of $-24$ says nothing more than a discriminant of $-1$ — only the sign matters.",
   },
   {
@@ -256,7 +269,8 @@ export const mQuadraticsBlocks = [
     ],
   },
   {
-    type: 'tip',
+    type: 'aside',
+    kind: 'remember',
     content: "Two details account for most errors here: the leading negative in the sum ($-b/a$, not $b/a$), and the division by $a$ when the leading coefficient isn't $1$. Put the equation in standard form before reading off $a$, $b$, and $c$.",
   },
 
@@ -324,7 +338,14 @@ export const mQuadraticsBlocks = [
   },
 
   {
-    type: 'text',
-    content: "**The whole topic in one pass:** the answer choices name the method; a zero is the value that makes its factor zero; the quadratic formula solves what factoring can't, once the equation is in standard form; halving and squaring the middle coefficient converts to vertex form; the vertex sits halfway between the roots; the sign of the discriminant counts the real solutions; and on higher-degree graphs, even powers touch, odd powers cross, and the leading term sets the ends.",
+    type: 'summary',
+    title: 'The whole topic in one pass',
+    points: [
+      'The **answer choices name the method** — whole numbers point to factoring, radicals to the formula, a sum-or-product question to the coefficient relations.',
+      'A zero is the value that makes its **factor zero**, so move every term to one side before factoring.',
+      "The **quadratic formula** solves what factoring can't once the equation is in standard form, and completing the square converts standard form to **vertex form**.",
+      'The **vertex sits halfway between the roots**, and the sign of the **discriminant** counts the real solutions.',
+      'On higher-degree graphs, **even powers touch** the axis, **odd powers cross**, and the leading term sets the end behavior.',
+    ],
   },
 ];

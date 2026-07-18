@@ -9,17 +9,21 @@
  * no exclamation marks, no emojis, no test-personification. All v3
  * teaching claims preserved.
  *
+ * COMPOSED MODE (2026-07-18): chapterOpener lede + auto-numbered sections/examples/figures +
+ * aside margin-notes + summary close (exemplar: bodies/mPercents.js).
+ *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
  */
 
 export const linesAnglesBlocks = [
   {
-    type: 'text',
-    content: "Geometry on this test is a chain of small deductions, not long computations: you find one angle, that angle exposes the next, and the target falls after a short chain. Two habits organize the whole subject. First, every time you determine an angle's measure, write it on the figure — a recorded angle is what exposes the one after it, and students who keep the values in their head lose the chain two steps in. Second, underneath everything sit two fixed **angle totals**, and nearly every deduction is a subtraction from one of them.",
+    type: 'chapterOpener',
+    lede: "Geometry on this test is a chain of small deductions, not long computations: you find one angle, that angle exposes the next, and the target falls after a short chain. Two habits organize the whole subject. First, every time you determine an angle's measure, write it on the figure — a recorded angle is what exposes the one after it, and students who keep the values in their head lose the chain two steps in. Second, underneath everything sit two fixed **angle totals**, and nearly every deduction is a subtraction from one of them.",
   },
   {
-    type: 'tip',
+    type: 'aside',
+    kind: 'watch',
     content: "When a figure says *\"not drawn to scale,\"* take it literally. The drawing's proportions are unreliable — the printed labels are not.",
   },
 
@@ -60,12 +64,6 @@ export const linesAnglesBlocks = [
       { label: 'Check', content: "Add them back: $40^\\circ + 80^\\circ + 120^\\circ + 120^\\circ = 360^\\circ$. The full turn is accounted for, so the solution holds." },
     ],
   },
-  {
-    type: 'checkpointQuestion',
-    question: 'Two straight lines cross, and one of the four angles measures $115^\\circ$. What are the other three angles?',
-    answer: "**$115^\\circ, 115^\\circ, 65^\\circ, 65^\\circ$.** The angle **directly across** is the vertical angle, $115^\\circ$. Each **neighbor** along a line is the supplement, $180^\\circ - 115^\\circ = 65^\\circ$. Four angles, two values — a crossing never holds more than two.",
-  },
-
   { type: 'heading', content: 'Parallel lines: only two sizes' },
   {
     type: 'text',
@@ -79,6 +77,10 @@ export const linesAnglesBlocks = [
     type: 'diagramRef',
     visualType: 'transversalAnglesDiagram',
     description: "Two parallel lines cut by a transversal, with the corresponding angles marked $a^\\circ$ at both intersections and the co-interior angle marked $180^\\circ - a^\\circ$: matching corners are equal, and same-side interior angles add to $180^\\circ$.",
+  },
+  {
+    type: 'text',
+    content: "Figure 1 marks the same two sizes at both crossings — matching corners equal, same-side interior angles supplementary — so once one angle is known, every angle in the figure follows.",
   },
   {
     type: 'example',
@@ -106,12 +108,6 @@ export const linesAnglesBlocks = [
       { label: 'Check', content: "The interior angle at $C$ is $180^\\circ - 118^\\circ = 62^\\circ$, and $42 + 76 + 62 = 180$. Watch for $62^\\circ$ among the choices — it's what finding the interior angle and stopping there produces." },
     ],
   },
-  {
-    type: 'checkpointQuestion',
-    question: 'A triangle has angles $x$, $2x$, and $3x$. Find $x$. Then find the exterior angle at the $x$ vertex.',
-    answer: "**$x = 30^\\circ$; the exterior angle is $150^\\circ$.** $x + 2x + 3x = 6x = 180^\\circ$, so $x = 30^\\circ$. Two routes give the exterior angle, and they agree: the supplement, $180^\\circ - 30^\\circ = 150^\\circ$, or the sum of the two remote angles, $2x + 3x = 60^\\circ + 90^\\circ = 150^\\circ$.",
-  },
-
   { type: 'heading', content: 'Polygon angle sums' },
   {
     type: 'text',
@@ -146,12 +142,6 @@ export const linesAnglesBlocks = [
       { label: 'Compare the routes', content: 'Both give $135^\\circ$. The exterior route runs on smaller numbers and is usually faster for regular polygons.' },
     ],
   },
-  {
-    type: 'checkpointQuestion',
-    question: 'Each exterior angle of a regular polygon measures $24^\\circ$. How many sides does the polygon have, and what is the measure of each interior angle?',
-    answer: "**$15$ sides; each interior angle is $156^\\circ$.** Exterior angles always total $360^\\circ$, so $n = 360^\\circ \\div 24^\\circ = 15$. Each interior angle is the supplement of its exterior angle: $180^\\circ - 24^\\circ = 156^\\circ$. The long route agrees: $180^\\circ(15 - 2) \\div 15 = 2340^\\circ \\div 15 = 156^\\circ$.",
-  },
-
   { type: 'heading', content: 'What proves two triangles congruent?' },
   {
     type: 'text',
@@ -180,7 +170,8 @@ export const linesAnglesBlocks = [
     ],
   },
   {
-    type: 'tip',
+    type: 'aside',
+    kind: 'remember',
     content: "Match parts by **letter order**, never by position on the page. In $\\triangle ABC \\cong \\triangle DEF$, side $AB$ corresponds to $DE$ and angle $C$ corresponds to $F$ — even when one triangle is reflected or rotated. The drawing can mislead; the letter correspondence can't.",
   },
 
@@ -209,6 +200,22 @@ export const linesAnglesBlocks = [
       { label: 'Scale the length', content: 'Now scale: $8 \\times \\dfrac{3}{2} = 12$. An answer of $18$ comes from scaling a length by the *area* ratio — the skipped square root that wrong choices are built around.' },
     ],
   },
+  { type: 'heading', content: 'Check yourself' },
+  {
+    type: 'checkpointQuestion',
+    question: 'Two straight lines cross, and one of the four angles measures $115^\\circ$. What are the other three angles?',
+    answer: "**$115^\\circ, 115^\\circ, 65^\\circ, 65^\\circ$.** The angle **directly across** is the vertical angle, $115^\\circ$. Each **neighbor** along a line is the supplement, $180^\\circ - 115^\\circ = 65^\\circ$. Four angles, two values — a crossing never holds more than two.",
+  },
+  {
+    type: 'checkpointQuestion',
+    question: 'A triangle has angles $x$, $2x$, and $3x$. Find $x$. Then find the exterior angle at the $x$ vertex.',
+    answer: "**$x = 30^\\circ$; the exterior angle is $150^\\circ$.** $x + 2x + 3x = 6x = 180^\\circ$, so $x = 30^\\circ$. Two routes give the exterior angle, and they agree: the supplement, $180^\\circ - 30^\\circ = 150^\\circ$, or the sum of the two remote angles, $2x + 3x = 60^\\circ + 90^\\circ = 150^\\circ$.",
+  },
+  {
+    type: 'checkpointQuestion',
+    question: 'Each exterior angle of a regular polygon measures $24^\\circ$. How many sides does the polygon have, and what is the measure of each interior angle?',
+    answer: "**$15$ sides; each interior angle is $156^\\circ$.** Exterior angles always total $360^\\circ$, so $n = 360^\\circ \\div 24^\\circ = 15$. Each interior angle is the supplement of its exterior angle: $180^\\circ - 24^\\circ = 156^\\circ$. The long route agrees: $180^\\circ(15 - 2) \\div 15 = 2340^\\circ \\div 15 = 156^\\circ$.",
+  },
   {
     type: 'checkpointQuestion',
     question: 'Square A has $9$ times the area of square B. How do their side lengths compare, and their perimeters?',
@@ -216,7 +223,13 @@ export const linesAnglesBlocks = [
   },
 
   {
-    type: 'text',
-    content: "**The whole subject in one habit:** don't trust the drawing. Take each value from a printed label or from one of the two fixed totals — $180^\\circ$ along a line, $360^\\circ$ around a point — write it on the figure, and let each recorded angle supply the next one. The chains are short; keeping every link on paper is what keeps them from breaking.",
+    type: 'summary',
+    title: 'The whole subject in one habit',
+    points: [
+      'Never trust the drawing — take each value from a **printed label**, not from how the figure looks.',
+      'Every deduction is a subtraction from one of two fixed totals: **$180^\\circ$ along a line, $360^\\circ$ around a point**.',
+      '**Write each angle on the figure** as you find it; a recorded angle is what exposes the next one.',
+      'The chains are short, so keeping every link on paper is what keeps them from breaking.',
+    ],
   },
 ];

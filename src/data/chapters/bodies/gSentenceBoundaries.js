@@ -8,14 +8,18 @@
  * analogies, no pep talk, no exclamation marks, no emojis, no test-personification.
  * All v3 teaching claims preserved.
  *
+ * COMPOSED MODE (2026-07-18): chapterOpener lede + auto-numbered
+ * sections/examples/figures + aside margin-notes + summary close
+ * (exemplar: bodies/mPercents.js).
+ *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
  */
 
 export const gSentenceBoundariesBlocks = [
   {
-    type: 'text',
-    content: "The reading chapters analyzed finished passages; the conventions chapters put you in the editor's seat, and editing starts with the sentence itself — with where one sentence ends and the next begins. Every boundary question reduces to a single count: **how many complete sentences touch the punctuation mark — one, or two?** Settle that count and the grammatical options settle themselves.",
+    type: 'chapterOpener',
+    lede: "The reading chapters analyzed finished passages; the conventions chapters put you in the editor's seat, and editing starts with the sentence itself — with where one sentence ends and the next begins. Every boundary question reduces to a single count: **how many complete sentences touch the punctuation mark — one, or two?** Settle that count and the grammatical options settle themselves.",
   },
   {
     type: 'text',
@@ -57,7 +61,7 @@ export const gSentenceBoundariesBlocks = [
   },
   {
     type: 'text',
-    content: "The classic error comes from meaning. A student who accepts a bare comma between two complete sentences has noticed, correctly, that the two ideas belong together — and has let that closeness license the comma. It doesn't, because relatedness is exactly what the semicolon exists to signal, and comma + FANBOYS makes the same join while stating the relationship outright. A lone comma is never among the grammatical options, however tightly the ideas connect.",
+    content: "Figure 1 sets the three legal joins against the lone comma that is never one of them. The classic error comes from meaning. A student who accepts a bare comma between two complete sentences has noticed, correctly, that the two ideas belong together — and has let that closeness license the comma. It doesn't, because relatedness is exactly what the semicolon exists to signal, and comma + FANBOYS makes the same join while stating the relationship outright. A lone comma is never among the grammatical options, however tightly the ideas connect.",
   },
   {
     type: 'table',
@@ -69,7 +73,8 @@ export const gSentenceBoundariesBlocks = [
     ],
   },
   {
-    type: 'keyInsight',
+    type: 'aside',
+    kind: 'remember',
     content: 'A period and a semicolon do the **same grammatical job** — a full stop between two complete sentences. When two answer choices offer only "period" and "semicolon," eliminate **both**: a question has one correct answer, and two equivalent choices can\'t both be it. That\'s two eliminations before the sentence is even parsed.',
   },
 
@@ -95,7 +100,8 @@ export const gSentenceBoundariesBlocks = [
     content: "The doubled version survives casual reading for two reasons: each half sounds fine on its own, and the first connector often sits at the very start of a long sentence, far from the choices. A student who reads only the words around the blank never sees the *although* — which is precisely the reading the sentence was built for.",
   },
   {
-    type: 'tip',
+    type: 'aside',
+    kind: 'watch',
     content: "**Sweep the whole sentence for connectors before you choose.** When one is already present, any choice that adds a second is wrong — and the punctuation-only choice usually wins.",
   },
 
@@ -187,7 +193,13 @@ export const gSentenceBoundariesBlocks = [
   },
 
   {
-    type: 'text',
-    content: '**The whole skill in one count:** how many complete sentences touch the mark. Two → period, semicolon, or comma + FANBOYS. One side incomplete → a comma (or a colon / dash after a complete left side). A lone comma between two complete sentences is always wrong, however natural it sounds.',
+    type: 'summary',
+    title: 'The whole skill in one count',
+    points: [
+      'Every boundary reduces to one question: **how many complete sentences** touch the mark — one, or two?',
+      'Two complete sentences take a **period, a semicolon, or a comma + FANBOYS**, and nothing else.',
+      'When one side is incomplete, a **comma** joins them — or a colon or dash after a complete left side.',
+      'A **lone comma** between two complete sentences is always wrong, however natural it sounds.',
+    ],
   },
 ];

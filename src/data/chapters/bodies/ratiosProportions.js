@@ -9,14 +9,18 @@
  * no exclamation marks, no emojis, no test-personification. All v3
  * teaching claims preserved.
  *
+ * COMPOSED MODE (2026-07-18): chapterOpener lede + auto-numbered
+ * sections/examples/figures + aside margin-notes + summary close
+ * (exemplar: bodies/mPercents.js).
+ *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
  */
 
 export const ratiosProportionsBlocks = [
   {
-    type: 'text',
-    content: "This unit trades equation-solving for reasoning about real quantities, and proportional thinking is its spine. A question hands you a relationship — miles per gallon, two parts sand to five parts cement, a job one worker finishes in six hours — and asks you to scale it, split it, convert it, or combine it. The arithmetic in these problems is rarely the hard part; the **setup** carries nearly all of it. Name the units first, and the remaining steps mostly write themselves.",
+    type: 'chapterOpener',
+    lede: "This unit trades equation-solving for reasoning about real quantities, and proportional thinking is its spine. A question hands you a relationship — miles per gallon, two parts sand to five parts cement, a job one worker finishes in six hours — and asks you to scale it, split it, convert it, or combine it. The arithmetic in these problems is rarely the hard part; the **setup** carries nearly all of it. Name the units first, and the remaining steps mostly write themselves.",
   },
 
   { type: 'heading', content: 'A proportion is two equal ratios' },
@@ -38,6 +42,16 @@ export const ratiosProportionsBlocks = [
     type: 'keyInsight',
     content: 'A proportion set up with the roles swapped produces the reciprocal of the correct answer — built from all the right numbers, so it survives a casual glance. Confirm that both numerators name the same kind of quantity before solving.',
   },
+  {
+    type: 'example',
+    difficulty: 'Easy',
+    problem: 'A recipe that serves $4$ people uses $6$ cups of flour. At the same ratio, how many cups serve $10$ people?',
+    steps: [
+      { label: 'Align the units', content: 'Cups over people on both sides, unknown on top: $\\frac{x\\text{ cups}}{10\\text{ people}} = \\frac{6\\text{ cups}}{4\\text{ people}}$.' },
+      { label: 'Solve with one multiplication', content: 'Multiply both sides by $10$: $x = 10 \\cdot \\frac{6}{4} = 15$ cups.' },
+      { label: 'Check the size', content: 'Ten people is more than the four the recipe serves, so the answer has to exceed $6$ cups. **$15$ cups** fits.' },
+    ],
+  },
 
   { type: 'heading', content: 'Part-to-part ratios and the whole' },
   {
@@ -54,8 +68,19 @@ export const ratiosProportionsBlocks = [
     ],
   },
   {
-    type: 'tip',
+    type: 'aside',
+    kind: 'watch',
     content: 'A share above $1$ is impossible — it signals the whole was never built. Check for an unstated third category before concluding that the whole is $a+b$.',
+  },
+  {
+    type: 'example',
+    difficulty: 'Medium',
+    problem: 'A class of $30$ has boys to girls in the ratio $2:3$. How many girls are in the class?',
+    steps: [
+      { label: 'Build the whole', content: 'The ratio is part-to-part, so build the whole first: $2 + 3 = 5$ parts.' },
+      { label: 'Take the share', content: 'Girls are $\\frac{3}{5}$ of the class: $\\frac{3}{5} \\cdot 30 = 18$ girls.' },
+      { label: 'Rule out the misread', content: 'Reading $\\frac{3}{2}$ as the share gives $45$ girls — more than the whole class, which is impossible. Building the whole first blocks that misreading.' },
+    ],
   },
 
   { type: 'heading', content: 'Three-term ratios and shares of a remainder' },
@@ -79,6 +104,16 @@ export const ratiosProportionsBlocks = [
     content: '$120\\ \\cancel{\\text{min}} \\times \\dfrac{1\\ \\text{hr}}{60\\ \\cancel{\\text{min}}} = 2\\ \\text{hr}$',
     note: 'Place the unwanted unit on the bottom so it cancels diagonally. For area, square the factor ($\\times 100^2$ for m² to cm²); for volume, cube it. Not every given number is needed — a value off the conversion route is a distractor.',
   },
+  {
+    type: 'example',
+    difficulty: 'Medium',
+    problem: 'A car travels at $90$ kilometers per hour. How many meters does it travel per minute? ($1\\text{ km} = 1000\\text{ m}$, $1\\text{ hr} = 60\\text{ min}$.)',
+    steps: [
+      { label: 'Chain factors to cancel', content: 'Start from the given rate and multiply by factors equal to $1$: $\\dfrac{90\\ \\text{km}}{1\\ \\text{hr}} \\times \\dfrac{1000\\ \\text{m}}{1\\ \\text{km}} \\times \\dfrac{1\\ \\text{hr}}{60\\ \\text{min}}$.' },
+      { label: 'Cancel and compute', content: 'Kilometers and hours cancel, leaving meters per minute: $\\dfrac{90 \\times 1000}{60} = 1500\\ \\text{m/min}$.' },
+      { label: 'Check the size', content: 'Meters and minutes are both smaller units than kilometers and hours, so expect a large number — $1500$ fits. An inverted factor would have produced a very small result.' },
+    ],
+  },
 
   { type: 'heading', content: 'Combined work: rates add, times do not' },
   {
@@ -98,7 +133,21 @@ export const ratiosProportionsBlocks = [
     type: 'formula',
     label: 'Add the rates, flip back to time',
     content: '$\\dfrac{1}{t_1} + \\dfrac{1}{t_2} = \\dfrac{1}{t}$',
-    note: 'A useful bound: a helper can only shorten the job, so the combined time must be less than the faster solo time — a check that alone eliminates the "average the times" and "add the times" answer choices.',
+  },
+  {
+    type: 'aside',
+    kind: 'remember',
+    content: 'A useful bound: a helper can only shorten the job, so the combined time must be less than the faster solo time — a check that alone eliminates the "average the times" and "add the times" answer choices.',
+  },
+  {
+    type: 'example',
+    difficulty: 'Hard',
+    problem: 'One pump fills a tank in $6$ hours, another in $3$ hours. Working together, how long to fill the tank?',
+    steps: [
+      { label: 'Convert times to rates', content: 'Rates add, not times. Per hour: $\\frac{1}{6} + \\frac{1}{3} = \\frac{1}{6} + \\frac{2}{6} = \\frac{3}{6} = \\frac{1}{2}$ tank per hour.' },
+      { label: 'Take the reciprocal', content: 'The combined time is the reciprocal of the combined rate: $t = \\frac{1}{\\,1/2\\,} = 2$ hours.' },
+      { label: 'Check the bound', content: "A second pump can only shorten the job, so the answer must be less than the faster pump's $3$ hours — **$2$ hours** is. Averaging ($4.5$ h) or adding ($9$ h) both exceed $3$ h, so both are impossible." },
+    ],
   },
 
   { type: 'heading', content: 'Average speed over a whole trip' },
@@ -148,48 +197,6 @@ export const ratiosProportionsBlocks = [
     ],
   },
 
-  { type: 'heading', content: 'Worked examples' },
-  {
-    type: 'example',
-    difficulty: 'Easy',
-    problem: 'A recipe that serves $4$ people uses $6$ cups of flour. At the same ratio, how many cups serve $10$ people?',
-    steps: [
-      { label: 'Align the units', content: 'Cups over people on both sides, unknown on top: $\\frac{x\\text{ cups}}{10\\text{ people}} = \\frac{6\\text{ cups}}{4\\text{ people}}$.' },
-      { label: 'Solve with one multiplication', content: 'Multiply both sides by $10$: $x = 10 \\cdot \\frac{6}{4} = 15$ cups.' },
-      { label: 'Check the size', content: 'Ten people is more than the four the recipe serves, so the answer has to exceed $6$ cups. **$15$ cups** fits.' },
-    ],
-  },
-  {
-    type: 'example',
-    difficulty: 'Medium',
-    problem: 'A class of $30$ has boys to girls in the ratio $2:3$. How many girls are in the class?',
-    steps: [
-      { label: 'Build the whole', content: 'The ratio is part-to-part, so build the whole first: $2 + 3 = 5$ parts.' },
-      { label: 'Take the share', content: 'Girls are $\\frac{3}{5}$ of the class: $\\frac{3}{5} \\cdot 30 = 18$ girls.' },
-      { label: 'Rule out the misread', content: 'Reading $\\frac{3}{2}$ as the share gives $45$ girls — more than the whole class, which is impossible. Building the whole first blocks that misreading.' },
-    ],
-  },
-  {
-    type: 'example',
-    difficulty: 'Medium',
-    problem: 'A car travels at $90$ kilometers per hour. How many meters does it travel per minute? ($1\\text{ km} = 1000\\text{ m}$, $1\\text{ hr} = 60\\text{ min}$.)',
-    steps: [
-      { label: 'Chain factors to cancel', content: 'Start from the given rate and multiply by factors equal to $1$: $\\dfrac{90\\ \\text{km}}{1\\ \\text{hr}} \\times \\dfrac{1000\\ \\text{m}}{1\\ \\text{km}} \\times \\dfrac{1\\ \\text{hr}}{60\\ \\text{min}}$.' },
-      { label: 'Cancel and compute', content: 'Kilometers and hours cancel, leaving meters per minute: $\\dfrac{90 \\times 1000}{60} = 1500\\ \\text{m/min}$.' },
-      { label: 'Check the size', content: 'Meters and minutes are both smaller units than kilometers and hours, so expect a large number — $1500$ fits. An inverted factor would have produced a very small result.' },
-    ],
-  },
-  {
-    type: 'example',
-    difficulty: 'Hard',
-    problem: 'One pump fills a tank in $6$ hours, another in $3$ hours. Working together, how long to fill the tank?',
-    steps: [
-      { label: 'Convert times to rates', content: 'Rates add, not times. Per hour: $\\frac{1}{6} + \\frac{1}{3} = \\frac{1}{6} + \\frac{2}{6} = \\frac{3}{6} = \\frac{1}{2}$ tank per hour.' },
-      { label: 'Take the reciprocal', content: 'The combined time is the reciprocal of the combined rate: $t = \\frac{1}{\\,1/2\\,} = 2$ hours.' },
-      { label: 'Check the bound', content: "A second pump can only shorten the job, so the answer must be less than the faster pump's $3$ hours — **$2$ hours** is. Averaging ($4.5$ h) or adding ($9$ h) both exceed $3$ h, so both are impossible." },
-    ],
-  },
-
   { type: 'heading', content: 'Check yourself' },
   {
     type: 'checkpointQuestion',
@@ -208,7 +215,14 @@ export const ratiosProportionsBlocks = [
   },
 
   {
-    type: 'text',
-    content: '**The whole topic in one habit:** name the units before touching the numbers. Set proportions with the roles aligned, build the whole before reading any share, orient each conversion factor to cancel a unit, add rates rather than times — and finish with a size check whose direction you called in advance.',
+    type: 'summary',
+    title: 'The chapter in one habit',
+    points: [
+      'Name the **units** before touching any number — the setup carries these problems, not the arithmetic.',
+      'Set proportions with the **roles aligned**: the same quantity on top of both fractions.',
+      'Build the **whole** before reading any share; a part-to-part ratio never names the whole itself.',
+      'Orient each conversion factor to **cancel** the unwanted unit, and add **rates**, never times, for combined work.',
+      'Finish with a **size check** whose direction you called in advance.',
+    ],
   },
 ];

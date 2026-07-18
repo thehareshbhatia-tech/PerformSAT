@@ -8,13 +8,17 @@
  * analogies, no pep talk, no exclamation marks, no emojis, no test-personification.
  * All v3 teaching claims preserved.
  *
+ * COMPOSED MODE (2026-07-18): chapterOpener lede + auto-numbered
+ * sections/examples/figures + aside margin-notes + summary close
+ * (exemplar: bodies/mPercents.js).
+ *
  * Rendered by SectionContent; loaded lazily via bodies/index.js.
  */
 
 export const gPronounsBlocks = [
   {
-    type: 'text',
-    content: "Agreement doesn't end with the verb. The same matching discipline extends to pronouns — the words that stand in for a noun named elsewhere in the sentence: *it, they, this,* and *who* all point back at something already stated. The pointing works only under two conditions: the pronoun refers to exactly **one** noun, and it **matches** that noun in number. Nearly every pronoun question breaks one of the two and asks whether you noticed.",
+    type: 'chapterOpener',
+    lede: "Agreement doesn't end with the verb. The same matching discipline extends to pronouns — the words that stand in for a noun named elsewhere in the sentence: *it, they, this,* and *who* all point back at something already stated. The pointing works only under two conditions: the pronoun refers to exactly **one** noun, and it **matches** that noun in number. Nearly every pronoun question breaks one of the two and asks whether you noticed.",
   },
 
   { type: 'heading', content: "What's actually tested" },
@@ -29,7 +33,8 @@ export const gPronounsBlocks = [
     content: "A pronoun copies the number of the noun it stands for — singular noun, *it / its*; plural noun, *they / their*. So identify the true noun and read its form off the page. It has to be **printed in the sentence**, because a pronoun can only inherit number from a noun that's actually there; a plural idea that's merely implied doesn't qualify. And the construction mirrors the one in agreement questions: a noun of the wrong number sits immediately before the pronoun as bait. In *The **shipment** of new phones arrived, but ______ was damaged*, what arrived and was damaged is the *shipment*, so the pronoun is *it* — *phones*, parked right beside the blank, exists to sell *they*.",
   },
   {
-    type: 'keyInsight',
+    type: 'aside',
+    kind: 'remember',
     content: "Match the pronoun to the noun it truly stands for, never to the nearest noun. Collective nouns (*team, company, committee, jury*) are grammatically **singular** — *the team lost its lead* — even though a team consists of many people.",
   },
 
@@ -56,7 +61,8 @@ export const gPronounsBlocks = [
     content: "The repair names the noun outright: *…because **the study** was rushed.* So when the choices offer both a pronoun and a specific noun, and the pronoun could point two ways, **the specific noun is correct** — precision wins whenever the reference is contested.",
   },
   {
-    type: 'tip',
+    type: 'aside',
+    kind: 'watch',
     content: 'A bare *this* or *that* frequently lacks a clear referent. Test it by asking "this *what*?" — if the sentence can\'t supply the noun, add one: not *This shows growth,* but *This **increase** shows growth.*',
   },
 
@@ -196,7 +202,12 @@ export const gPronounsBlocks = [
   },
 
   {
-    type: 'text',
-    content: "**The whole skill in three checks:** identify the true noun and match its number; when the pronoun could point to more than one noun, name the noun outright; and for *who / whom*, sort person versus thing, then check the neighboring word — a verb after → *who*, a preposition before → *whom*.",
+    type: 'summary',
+    title: 'The whole skill in three checks',
+    points: [
+      'Identify the **true noun** the pronoun stands for, and match its number.',
+      'When the pronoun could point to **more than one noun**, name the noun outright.',
+      'For *who / whom*, sort **person versus thing**, then read the neighboring word — a verb after → *who*, a preposition before → *whom*.',
+    ],
   },
 ];

@@ -16,14 +16,17 @@
  * probability-as-pool-share, two-way-table-probability, box-plot-reading,
  * margin-of-error-interpretation).
  *
+ * COMPOSED MODE (2026-07-18): chapterOpener lede + auto-numbered sections/examples/figures +
+ * aside margin-notes + summary close (exemplar: bodies/mPercents.js).
+ *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via the bodies
  * index — never import this from the chapter index.
  */
 
 export const mStatisticsBlocks = [
   {
-    type: 'text',
-    content: "Probability, in the last chapter, asked about one outcome at a time — a single draw, a single chance. This chapter zooms out and summarizes an entire data set: where its center sits, how widely its values spread, and how displays like frequency tables and box plots carry that information. The questions span several distinct ideas — center, spread, probability, box plots, margin of error — but each individual question runs on exactly one rule, so the core skill here is classification. Name the rule the question concerns before computing anything, because most misses in this topic come from running the right procedure on the wrong quantity, and the choices always list what that produces.",
+    type: 'chapterOpener',
+    lede: "Probability, in the last chapter, asked about one outcome at a time — a single draw, a single chance. This chapter zooms out and summarizes an entire data set: where its center sits, how widely its values spread, and how displays like frequency tables and box plots carry that information. The questions span several distinct ideas — center, spread, probability, box plots, margin of error — but each individual question runs on exactly one rule, so the core skill here is classification. Name the rule the question concerns before computing anything, because most misses in this topic come from running the right procedure on the wrong quantity, and the choices always list what that produces.",
   },
 
   { type: 'heading', content: 'Mean vs. median' },
@@ -40,6 +43,17 @@ export const mStatisticsBlocks = [
     content: "The mean formula rearranges to $\\text{total} = \\text{mean} \\times \\text{count}$. Whenever a value is added, removed, or corrected, work with the **total** rather than the mean — the change alters the total by an exact, known amount, while its effect on the mean stays hidden until the final division. That one rearrangement cracks nearly every hard average question.",
   },
 
+  {
+    type: 'example',
+    difficulty: 'Easy',
+    problem: 'The mean of 5 numbers is $12$. Four of the numbers are $8$, $10$, $14$, and $15$. What is the fifth number?',
+    steps: [
+      { label: 'Recover the total', content: "The mean determines the total: total $= \\text{mean} \\times \\text{count} = 12 \\times 5 = 60$." },
+      { label: 'Subtract the known four', content: 'The four known values sum to $8 + 10 + 14 + 15 = 47$.' },
+      { label: 'Solve', content: "Fifth number $= 60 - 47 = \\mathbf{13}$. After the first step, the mean itself is out of the picture — the whole computation runs on the total." },
+    ],
+  },
+
   { type: 'heading', content: 'Outliers pull the mean, not the median' },
   {
     type: 'text',
@@ -54,6 +68,22 @@ export const mStatisticsBlocks = [
     visualType: 'meanMedianDiagram',
     description: "A dot plot with the mean and median marked: one outlier drags the mean toward itself, while the median, which depends only on position, barely moves.",
   },
+  {
+    type: 'text',
+    content: "Figure 1 shows the mechanism directly: the lone high value hauls the mean out toward the tail, while the median, pinned to the middle position, barely shifts.",
+  },
+
+  {
+    type: 'example',
+    difficulty: 'Hard',
+    problem: 'A data set is $\\{3, 4, 5, 6, 7\\}$. A sixth value, $100$, is then added. Describe what happens to the mean and to the median.',
+    steps: [
+      { label: 'Before', content: 'Mean $= 25 \\div 5 = 5$; median $= 5$ (the middle value).' },
+      { label: 'After — mean', content: 'New total $= 25 + 100 = 125$ over $6$ values, so mean $= 125 \\div 6 \\approx 20.8$. The outlier pulls it up sharply.' },
+      { label: 'After — median', content: 'Sorted list $\\{3,4,5,6,7,100\\}$ has middle values $5$ and $6$, so median $= 5.5$ — a minimal shift.' },
+      { label: 'Conclusion', content: 'One extreme value moves the **mean** substantially and the **median** hardly at all. When a question asks for the measure that resists outliers, the answer is the median.' },
+    ],
+  },
 
   { type: 'heading', content: 'Spread: range and standard deviation' },
   {
@@ -65,8 +95,20 @@ export const mStatisticsBlocks = [
     content: "The **range**, $\\text{max} - \\text{min}$, consults only the two endpoints, and that is precisely its weakness: a single stray value resets an endpoint and inflates the range while every other value sits still. **Standard deviation (SD)** consults every value at once — it measures how tightly the whole set clusters around its own mean, so tight clustering means a small SD and wide scatter a large one.",
   },
   {
-    type: 'tip',
+    type: 'aside',
+    kind: 'remember',
     content: "SD is compared on this test, never computed. Ask which set clusters more tightly around its own mean: $\\{20, 20, 20\\}$ has SD $0$, while $\\{5, 20, 35\\}$ has a large one. Bigger values don't mean a bigger SD — wider spacing does.",
+  },
+
+  {
+    type: 'example',
+    difficulty: 'Medium',
+    problem: 'Set $P = \\{40, 50, 60\\}$ and set $Q = \\{49, 50, 51\\}$. Both have mean $50$. Which set has the larger standard deviation?',
+    steps: [
+      { label: 'Compare spread, not center', content: "Both means equal $50$, so the center settles nothing. The comparison rests entirely on which set clusters more tightly around that mean." },
+      { label: 'Compare the distances', content: "$P$'s values sit $10$ away from $50$; $Q$'s sit only $1$ away. $P$ is widely spread, $Q$ tightly clustered." },
+      { label: 'Answer', content: "**Set $P$** has the larger SD. No calculation needed — comparing the clustering settles it, and that's the form every SD question on this test takes." },
+    ],
   },
 
   { type: 'heading', content: 'Frequency tables and dot plots' },
@@ -124,6 +166,11 @@ export const mStatisticsBlocks = [
     type: 'text',
     content: "Every probability on this test is the same fraction — $\\dfrac{\\text{favorable outcomes}}{\\text{total pool}}$, the outcomes you want over the pool being drawn from — and it always lands between $0$ and $1$. The numerator is rarely where things go wrong. Errors concentrate in the **denominator**, because question wording often restricts the pool to a subgroup and the standard mistake is dividing by the grand total anyway. So pin down the pool before counting a single favorable outcome.",
   },
+  {
+    type: 'aside',
+    kind: 'watch',
+    content: "When the wording restricts the draw to a subgroup — a single row or column — the denominator is that subgroup's total, not the grand total. Dividing by the corner total is the standard miss on restricted-pool questions.",
+  },
 
   { type: 'heading', content: 'Two-way tables: find the pool' },
   {
@@ -151,6 +198,17 @@ export const mStatisticsBlocks = [
       ['Juniors', '9', '6', '15'],
       ['Seniors', '10', '15', '25'],
       ['Total', '19', '21', '40'],
+    ],
+  },
+
+  {
+    type: 'example',
+    difficulty: 'Medium',
+    problem: 'Using the members table above, if a band member is selected at random, what is the probability that the member is a junior?',
+    steps: [
+      { label: 'Identify the pool', content: "The clause \"a band member is selected\" restricts the pool to band members — the \"In band\" column total, $19$." },
+      { label: 'Count the favorable', content: 'Juniors within that pool occupy the junior/in-band cell: $9$.' },
+      { label: 'Divide', content: "Probability $= \\dfrac{9}{19}$. The answer $\\dfrac{9}{40}$ comes from dividing by the grand total — the standard miss on restricted-pool questions." },
     ],
   },
 
@@ -191,49 +249,6 @@ export const mStatisticsBlocks = [
     ],
   },
 
-  { type: 'heading', content: 'Worked examples' },
-  {
-    type: 'example',
-    difficulty: 'Easy',
-    problem: 'The mean of 5 numbers is $12$. Four of the numbers are $8$, $10$, $14$, and $15$. What is the fifth number?',
-    steps: [
-      { label: 'Recover the total', content: "The mean determines the total: total $= \\text{mean} \\times \\text{count} = 12 \\times 5 = 60$." },
-      { label: 'Subtract the known four', content: 'The four known values sum to $8 + 10 + 14 + 15 = 47$.' },
-      { label: 'Solve', content: "Fifth number $= 60 - 47 = \\mathbf{13}$. After the first step, the mean itself is out of the picture — the whole computation runs on the total." },
-    ],
-  },
-  {
-    type: 'example',
-    difficulty: 'Medium',
-    problem: 'Using the members table above, if a band member is selected at random, what is the probability that the member is a junior?',
-    steps: [
-      { label: 'Identify the pool', content: "The clause \"a band member is selected\" restricts the pool to band members — the \"In band\" column total, $19$." },
-      { label: 'Count the favorable', content: 'Juniors within that pool occupy the junior/in-band cell: $9$.' },
-      { label: 'Divide', content: "Probability $= \\dfrac{9}{19}$. The answer $\\dfrac{9}{40}$ comes from dividing by the grand total — the standard miss on restricted-pool questions." },
-    ],
-  },
-  {
-    type: 'example',
-    difficulty: 'Medium',
-    problem: 'Set $P = \\{40, 50, 60\\}$ and set $Q = \\{49, 50, 51\\}$. Both have mean $50$. Which set has the larger standard deviation?',
-    steps: [
-      { label: 'Compare spread, not center', content: "Both means equal $50$, so the center settles nothing. The comparison rests entirely on which set clusters more tightly around that mean." },
-      { label: 'Compare the distances', content: "$P$'s values sit $10$ away from $50$; $Q$'s sit only $1$ away. $P$ is widely spread, $Q$ tightly clustered." },
-      { label: 'Answer', content: "**Set $P$** has the larger SD. No calculation needed — comparing the clustering settles it, and that's the form every SD question on this test takes." },
-    ],
-  },
-  {
-    type: 'example',
-    difficulty: 'Hard',
-    problem: 'A data set is $\\{3, 4, 5, 6, 7\\}$. A sixth value, $100$, is then added. Describe what happens to the mean and to the median.',
-    steps: [
-      { label: 'Before', content: 'Mean $= 25 \\div 5 = 5$; median $= 5$ (the middle value).' },
-      { label: 'After — mean', content: 'New total $= 25 + 100 = 125$ over $6$ values, so mean $= 125 \\div 6 \\approx 20.8$. The outlier pulls it up sharply.' },
-      { label: 'After — median', content: 'Sorted list $\\{3,4,5,6,7,100\\}$ has middle values $5$ and $6$, so median $= 5.5$ — a minimal shift.' },
-      { label: 'Conclusion', content: 'One extreme value moves the **mean** substantially and the **median** hardly at all. When a question asks for the measure that resists outliers, the answer is the median.' },
-    ],
-  },
-
   { type: 'heading', content: 'Check yourself' },
   {
     type: 'checkpointQuestion',
@@ -257,7 +272,14 @@ export const mStatisticsBlocks = [
   },
 
   {
-    type: 'text',
-    content: "**The whole topic in one habit:** classify what the question concerns — total, position, spread, pool, or interval — then run that one rule. The mean works through the total; the median works through position; outliers move only the mean; SD is compared, never computed; probability is favorable over pool; and a box plot never shows the mean.",
+    type: 'summary',
+    title: 'The whole topic in one habit',
+    points: [
+      'Every data question runs on one rule — **classify** it first: total, position, spread, pool, or interval.',
+      'The mean works through the **total**; the median works through **position**, and distance never touches it.',
+      '**Outliers** move the mean and leave the median almost still; **SD** is compared, never computed.',
+      '**Probability** is favorable outcomes over the pool — pin the pool down before counting anything.',
+      'A **box plot** shows the five-number summary but never the mean, the count, or any single value.',
+    ],
   },
 ];

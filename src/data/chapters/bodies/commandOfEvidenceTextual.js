@@ -8,14 +8,18 @@
  * analogies, no pep talk, no exclamation marks, no emojis, no
  * test-personification. All v3 teaching claims preserved.
  *
+ * COMPOSED MODE (2026-07-18): chapterOpener lede + auto-numbered
+ * sections/examples/figures + aside margin-notes + summary close
+ * (exemplar: bodies/mPercents.js).
+ *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
  */
 
 export const commandOfEvidenceTextualBlocks = [
   {
-    type: 'text',
-    content: "The inference questions of the last chapter moved forward: the text supplied the facts, and you supplied the conclusion they force. Textual command-of-evidence questions run the same operation in reverse. Here the claim comes first — a hypothesis, a finding, a reading of a poem — and four candidate findings get tested against it, with the question asking which one would support it, weaken it, or best illustrate it.",
+    type: 'chapterOpener',
+    lede: "The inference questions of the last chapter moved forward: the text supplied the facts, and you supplied the conclusion they force. Textual command-of-evidence questions run the same operation in reverse. Here the claim comes first — a hypothesis, a finding, a reading of a poem — and four candidate findings get tested against it, with the question asking which one would support it, weaken it, or best illustrate it.",
   },
   {
     type: 'text',
@@ -66,7 +70,8 @@ export const commandOfEvidenceTextualBlocks = [
     content: "Weakening deserves a moment, because students set the bar for it too high. A weakener doesn't have to prove the claim false — no single finding could. It only has to be the finding *most inconsistent* with the claim, which is why a flat \"no difference was found\" genuinely weakens a claim that asserts a difference: the claim predicts a gap between two groups, and the finding shows none.",
   },
   {
-    type: 'keyInsight',
+    type: 'aside',
+    kind: 'remember',
     content: "A choice can be **true, on-topic, and still have no effect** on the claim. Ask of each one: *if this is true, does the claim become more likely, less likely, or stay unchanged?* Unchanged means wrong, however accurate the choice is.",
   },
 
@@ -83,7 +88,8 @@ export const commandOfEvidenceTextualBlocks = [
     ],
   },
   {
-    type: 'tip',
+    type: 'aside',
+    kind: 'watch',
     content: "**Read every choice to its final clause.** Wrong choices routinely open with exactly the finding the claim needs, then undercut it in a closing clause (\"...at a site where it never froze anyway\") — the reversal sits at the end because students commit to a choice on the strength of its opening.",
   },
   {
@@ -173,7 +179,13 @@ export const commandOfEvidenceTextualBlocks = [
   },
 
   {
-    type: 'text',
-    content: "**The whole skill in three checks:** restate the claim plainly with its qualifiers intact, set the required direction, and keep the one choice that pushes *that* claim in that direction — reading each choice to its final clause before committing. Topic proves nothing; direction decides the answer. The next chapter keeps this entire method and changes only the medium: the findings become rows and axes, and the claim tells you which numbers to read.",
+    type: 'summary',
+    title: 'The whole skill in three checks',
+    points: [
+      'Restate the claim in plain words, with **every qualifier intact**.',
+      'Set the required **direction** — support points the same way; weaken points the opposite way, shows no relationship, or supplies a counterexample.',
+      'Keep the one choice that pushes **that** claim in that direction, reading each choice to its final clause before committing.',
+      'Topic proves nothing; **direction** decides the answer, and the next chapter keeps this method — only now the findings become rows and axes, and the claim tells you which numbers to read.',
+    ],
   },
 ];

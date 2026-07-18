@@ -8,6 +8,10 @@
  * analogies, no pep talk, no exclamation marks, no emojis, no
  * test-personification. All v3 teaching claims preserved.
  *
+ * COMPOSED MODE (2026-07-18): chapterOpener lede + auto-numbered
+ * sections/examples/figures + aside margin-notes + summary close
+ * (exemplar: bodies/mPercents.js).
+ *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
  *
@@ -19,14 +23,14 @@
 
 export const mLinearEquationsBlocks = [
   {
-    type: 'text',
-    content: "Every equation so far — the inequalities and absolute values included — held a single unknown. A linear equation in two variables describes something new: two quantities moving together, one starting at some value and changing at a constant rate as the other advances. Drawn in the coordinate plane, that relationship is a line, and slope-intercept form $y = mx + b$ names its two defining numbers directly — $b$ is the starting value, $m$ is the rate of change. However a line question is worded, it almost always reduces to identifying one of those two quantities.",
+    type: 'chapterOpener',
+    lede: "Every equation so far — the inequalities and absolute values included — held a single unknown. A linear equation in two variables describes something new: two quantities moving together, one starting at some value and changing at a constant rate as the other advances. Drawn in the coordinate plane, that relationship is a line, and slope-intercept form $y = mx + b$ names its two defining numbers directly — $b$ is the starting value, $m$ is the rate of change. However a line question is worded, it almost always reduces to identifying one of those two quantities.",
   },
 
   { type: 'heading', content: 'Rate and starting value' },
   {
     type: 'text',
-    content: "Take a taxi fare: a $\\$3$ base charge plus $\\$2$ per mile. The $3$ is paid once, at the start — that's $b$. The $2$ recurs with every mile — that's $m$. So the fare after $x$ miles is $2x + 3$, and any situation built from a one-time amount and a per-unit amount has this same structure; when a problem states a rate and a starting value, the equation of the line follows immediately, no setup required.",
+    content: "Take a taxi fare: a $\\$3$ base charge plus $\\$2$ per mile. The $3$ is paid once, at the start — that's $b$. The $2$ recurs with every mile — that's $m$. So the fare after $x$ miles is $2x + 3$, and any situation built from a one-time amount and a per-unit amount has this same structure; when a problem states a rate and a starting value, the equation of the line follows immediately, no setup required. Figure 1 gives that starting value a picture: $b$ is the height at which the line crosses the y-axis.",
   },
   {
     type: 'diagramRef',
@@ -34,8 +38,9 @@ export const mLinearEquationsBlocks = [
     description: "On the graph, $b$ is where the line crosses the y-axis — the starting value of the relationship, before any per-unit change accumulates.",
   },
   {
-    type: 'callout',
-    content: "One caution: the equation displays $m$ and $b$ only once it's solved for $y$. In $3x + 2y = 8$, the coefficient $3$ is **not** the slope — rewrite in slope-intercept form first, then read off the values. Reading coefficients from an unsolved equation is the most frequent error on this topic.",
+    type: 'aside',
+    kind: 'watch',
+    content: "The equation displays $m$ and $b$ only once it's solved for $y$. In $3x + 2y = 8$, the coefficient $3$ is **not** the slope — rewrite in slope-intercept form first, then read off the values. Reading coefficients from an unsolved equation is the most frequent error on this topic.",
   },
   {
     type: 'keyInsight',
@@ -45,7 +50,7 @@ export const mLinearEquationsBlocks = [
   { type: 'heading', content: 'Slope from two points' },
   {
     type: 'text',
-    content: "Two points determine the slope: $m = \\dfrac{y_2 - y_1}{x_2 - x_1}$ — the change in $y$ divided by the change in $x$. The formula's one demand is consistency: subtract the coordinates in the same order in the numerator and the denominator. Why so strict? Because reversing the order in only one place flips the sign of the result, turning a falling line into a rising one — the standard mistake in slope calculations.",
+    content: "Two points determine the slope: $m = \\dfrac{y_2 - y_1}{x_2 - x_1}$ — the change in $y$ divided by the change in $x$. The formula's one demand is consistency: subtract the coordinates in the same order in the numerator and the denominator. Why so strict? Because reversing the order in only one place flips the sign of the result, turning a falling line into a rising one — the standard mistake in slope calculations. Figure 2 shows the same slope read straight off a graph: the rise and run of the triangle between two points give $m$ directly.",
   },
   {
     type: 'diagramRef',
@@ -158,7 +163,7 @@ export const mLinearEquationsBlocks = [
   { type: 'heading', content: 'Parallel and perpendicular lines' },
   {
     type: 'text',
-    content: "**Parallel** lines never intersect, and the slope is the reason: they change at the same rate — same $m$, different $b$ — so the gap between them never closes.",
+    content: "**Parallel** lines never intersect, and the slope is the reason: they change at the same rate — same $m$, different $b$ — so the gap between them never closes. Figure 3 shows why the distance holds: the slope triangles on the two lines are identical.",
   },
   {
     type: 'diagramRef',
@@ -167,7 +172,7 @@ export const mLinearEquationsBlocks = [
   },
   {
     type: 'text',
-    content: "A **perpendicular** line has to do more than change at a different rate — it has to cross at a right angle, and the slope that accomplishes that is the **negative reciprocal** of the original: invert the fraction, then change the sign, so $\\frac{2}{3}$ becomes $-\\frac{3}{2}$.",
+    content: "A **perpendicular** line has to do more than change at a different rate — it has to cross at a right angle, and the slope that accomplishes that is the **negative reciprocal** of the original: invert the fraction, then change the sign, so $\\frac{2}{3}$ becomes $-\\frac{3}{2}$. Figure 4 shows the payoff — the two lines cross at a right angle once the slope is inverted and its sign flipped.",
   },
   {
     type: 'diagramRef',
@@ -176,7 +181,12 @@ export const mLinearEquationsBlocks = [
   },
   {
     type: 'text',
-    content: "Both operations are required, and wrong answer choices are routinely built from the half-steps — inverting without negating, or negating without inverting, each of which produces a plausible-looking slope. That's what makes the verification worth its three seconds: multiply the two slopes, and the product must equal $-1$. If it doesn't, one of the two operations got skipped.",
+    content: "Both operations are required, and wrong answer choices are routinely built from the half-steps — inverting without negating, or negating without inverting, each of which produces a plausible-looking slope.",
+  },
+  {
+    type: 'aside',
+    kind: 'remember',
+    content: "The verification is worth its three seconds: multiply the two slopes, and the product must equal $-1$. If it doesn't, one of the two operations got skipped.",
   },
   {
     type: 'example',
@@ -223,7 +233,13 @@ export const mLinearEquationsBlocks = [
   },
 
   {
-    type: 'text',
-    content: "**The whole chapter in one pass:** find the one-time quantity ($b$) and the per-unit quantity ($m$). Two points give $m$; one point plus $m$ gives $b$; a parallel line copies $m$; a perpendicular line inverts $m$ and changes its sign. A horizontal line is $y = c$ with slope $0$; a vertical line is $x = c$ with undefined slope.",
+    type: 'summary',
+    title: 'The chapter in one pass',
+    points: [
+      'Find the **one-time quantity** ($b$) and the **per-unit quantity** ($m$) — most line questions come down to which is which.',
+      '**Two points** give $m$; **one point plus $m$** gives $b$.',
+      'A **parallel** line copies $m$; a **perpendicular** line inverts $m$ and changes its sign.',
+      'A **horizontal** line is $y = c$ with slope $0$; a **vertical** line is $x = c$ with undefined slope.',
+    ],
   },
 ];

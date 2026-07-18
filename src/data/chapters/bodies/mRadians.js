@@ -9,21 +9,25 @@
  * exclamation marks, no emojis, no test-personification. All v3 teaching
  * claims preserved. Gated by bodies.test.js.
  *
+ * COMPOSED MODE (2026-07-18): chapterOpener lede + auto-numbered
+ * sections/examples/figures + aside margin-notes + summary close (exemplar:
+ * bodies/mPercents.js).
+ *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
  */
 
 export const mRadiansBlocks = [
   {
-    type: 'text',
-    content: "The circle we just studied handed every angle its measure in degrees. This chapter re-measures the same angles in a second, more natural unit that comes from the circle itself: a **radian** sizes an angle by the arc it cuts off — by how many radius-lengths that arc contains — rather than by splitting a turn into $360$ equal parts. A radian is simply another unit for the same quantity a degree measures, the size of an angle, just as feet and meters are alternative units for the same length.",
+    type: 'chapterOpener',
+    lede: "The circle we just studied handed every angle its measure in degrees. This chapter re-measures the same angles in a second, more natural unit that comes from the circle itself: a **radian** sizes an angle by the arc it cuts off — by how many radius-lengths that arc contains — rather than by splitting a turn into $360$ equal parts. A radian is simply another unit for the same quantity a degree measures, the size of an angle, just as feet and meters are alternative units for the same length.",
   },
+
+  { type: 'heading', content: 'The equivalence $180° = \\pi$ radians' },
   {
     type: 'text',
     content: "One equivalence organizes the entire topic: **a half-turn is $180°$, and that same half-turn is $\\pi$ radians.** Every conversion and every unit-circle value below follows from that single fact — which is why a chapter that looks formula-heavy asks surprisingly little of your memory.",
   },
-
-  { type: 'heading', content: 'The equivalence $180° = \\pi$ radians' },
   {
     type: 'text',
     content: "Start with what the statement actually says, because $\\pi$ radians sounds more exotic than it is. The symbol $\\pi$ denotes a number, approximately $3.14$, so $\\pi$ radians is slightly more than $3$ radians — and that measure is exactly a half-circle, $180°$. From there the landmarks scale on their own: double the anchor and a full circle is $360° = 2\\pi$; halve it and a right angle is $90° = \\frac{\\pi}{2}$. Anchor every conversion and every unit-circle value on this one equivalence, and there is nothing further to memorize.",
@@ -32,6 +36,10 @@ export const mRadiansBlocks = [
     type: 'diagramRef',
     visualType: 'radianArcDiagram',
     description: "A circle in which an arc exactly one radius long spans an angle of $1$ radian, anchored by $180° = \\pi$ radians with the conversion factors $\\times \\frac{\\pi}{180}$ to radians and $\\times \\frac{180}{\\pi}$ to degrees.",
+  },
+  {
+    type: 'text',
+    content: "Figure 1 shows where the unit comes from: an arc exactly one radius long spans an angle of one radian, with the anchor $180° = \\pi$ and both conversion factors attached to it.",
   },
 
   { type: 'heading', content: 'Converting between degrees and radians' },
@@ -48,8 +56,19 @@ export const mRadiansBlocks = [
     ],
   },
   {
-    type: 'keyInsight',
+    type: 'aside',
+    kind: 'watch',
     content: 'Check the magnitude of the result. $45°$ is a smallish angle, so it should convert to a smallish number — $\\frac{\\pi}{4}\\approx 0.79$ — and a result that comes out far too large means the conversion fraction was inverted. The check takes two seconds and catches the standard error before it costs anything.',
+  },
+  {
+    type: 'example',
+    difficulty: 'Easy',
+    problem: 'Convert $135°$ to radians.',
+    steps: [
+      { label: 'Choose the factor', content: "The conversion leaves degrees behind, so multiply by $\\frac{\\pi}{180}$ — the fraction that cancels them." },
+      { label: 'Multiply', content: '$135 \\cdot \\frac{\\pi}{180} = \\frac{135\\pi}{180}$.' },
+      { label: 'Simplify', content: 'Divide numerator and denominator by $45$ to get $\\frac{3\\pi}{4}$. As a check, the result is slightly more than $\\frac{\\pi}{2}$ — consistent with an angle just past $90°$.' },
+    ],
   },
 
   { type: 'heading', content: 'Arc length and sector area' },
@@ -62,8 +81,29 @@ export const mRadiansBlocks = [
     content: "A sector occupies the same fraction of the circle's interior that its arc occupies of the boundary, so its area follows the same radian rule: $A = \\tfrac{1}{2}r^2\\theta$. The error that actually costs points here is dropping a *degree* angle straight into either formula. Walk that wrong path once with numbers: $60°$ on the radius-$5$ circle would give $r\\theta = 5 \\cdot 60 = 300$, an arc nearly ten times the circle's entire circumference of $10\\pi \\approx 31.4$. Given degrees, convert to radians first — or take the fraction $\\frac{\\theta}{360}$ of the whole circle instead.",
   },
   {
-    type: 'tip',
+    type: 'aside',
+    kind: 'note',
     content: 'If a problem gives the angle in radians and asks for arc length, compute $r\\theta$ directly. Converting to degrees first adds an unnecessary step and another chance to slip — the formula was built for the unit you were handed.',
+  },
+  {
+    type: 'example',
+    difficulty: 'Medium',
+    problem: 'A circle has radius $6$. Find the length of the arc cut off by a central angle of $\\frac{\\pi}{3}$ radians.',
+    steps: [
+      { label: 'Choose the formula', content: 'The angle is already in radians, so $s = r\\theta$ applies directly with no conversion.' },
+      { label: 'Substitute', content: '$s = 6 \\cdot \\frac{\\pi}{3}$.' },
+      { label: 'Compute', content: '$\\frac{6\\pi}{3} = 2\\pi$. The arc is $2\\pi$ units long, and no conversion was ever needed — the angle arrived in the unit the formula was built for.' },
+    ],
+  },
+  {
+    type: 'example',
+    difficulty: 'Medium',
+    problem: 'A circle has radius $4$. Find the area of a sector with central angle $\\frac{\\pi}{6}$ radians.',
+    steps: [
+      { label: 'Choose the formula', content: 'The angle is in radians, so $A = \\tfrac{1}{2}r^2\\theta$ applies directly.' },
+      { label: 'Substitute', content: '$A = \\tfrac{1}{2}(4)^2\\left(\\frac{\\pi}{6}\\right) = \\tfrac{1}{2}\\cdot 16 \\cdot \\frac{\\pi}{6}$.' },
+      { label: 'Compute', content: '$8 \\cdot \\frac{\\pi}{6} = \\frac{8\\pi}{6} = \\frac{4\\pi}{3}$.' },
+    ],
   },
 
   { type: 'heading', content: 'The unit circle: $(\\cos\\theta,\\ \\sin\\theta)$' },
@@ -88,6 +128,16 @@ export const mRadiansBlocks = [
     type: 'text',
     content: "The table supplies the magnitude; the quadrant supplies the sign. Why does the split work? Because cosine and sine *are* the point's coordinates, cosine takes the sign of $x$ and sine takes the sign of $y$ — without exception, in every quadrant. In Quadrant II, for instance, $x$ is negative and $y$ is positive, so cosine is negative and sine is positive. No sign chart earns its memorization here: work out whether $x$ and $y$ are positive or negative where the angle lands, and the signs follow.",
   },
+  {
+    type: 'example',
+    difficulty: 'Hard',
+    problem: 'What is $\\cos\\left(\\frac{2\\pi}{3}\\right)$?',
+    steps: [
+      { label: 'Locate the angle', content: '$\\frac{2\\pi}{3} = 120°$, which lands in Quadrant II (between $90°$ and $180°$).' },
+      { label: 'Find the magnitude', content: 'Its reference angle is $60° = \\frac{\\pi}{3}$, and $\\cos\\frac{\\pi}{3} = \\frac{1}{2}$.' },
+      { label: 'Attach the sign', content: 'In Quadrant II the $x$-coordinate is negative, and cosine takes the sign of $x$, so $\\cos\\left(\\frac{2\\pi}{3}\\right) = -\\frac{1}{2}$. The table supplies the magnitude; the quadrant supplies the sign.' },
+    ],
+  },
 
   { type: 'heading', content: 'Coterminal angles and points off the unit circle' },
   {
@@ -98,7 +148,6 @@ export const mRadiansBlocks = [
     type: 'text',
     content: "The other extension handles points that sit on some larger circle. Take $(3, 4)$: its distance from the origin is $r = \\sqrt{3^2 + 4^2} = 5$, so it lies on a circle of radius $5$, not $1$. Dividing each coordinate by that distance — in general, $r = \\sqrt{x^2 + y^2}$ — rescales the point onto the unit circle without moving its angle, which is why $\\cos\\theta = \\frac{x}{r} = \\frac{3}{5}$ and $\\sin\\theta = \\frac{y}{r} = \\frac{4}{5}$. The unit circle is simply the case $r = 1$, where the division changes nothing and the coordinates are the values themselves.",
   },
-
   {
     type: 'steps',
     title: 'How to approach these questions',
@@ -108,48 +157,6 @@ export const mRadiansBlocks = [
       "**Match the formula to the unit.** $s = r\\theta$ and $A = \\tfrac{1}{2}r^2\\theta$ take radians only; for degrees, use the $\\frac{\\theta}{360}$ fraction or convert first.",
       "**Read the unit circle.** Magnitude from the reference angle in the table, sign from the quadrant — cosine follows $x$, sine follows $y$.",
       "**Reduce oversized angles.** Strip full turns of $2\\pi$ to reach the coterminal angle, and divide coordinates by $r = \\sqrt{x^2 + y^2}$ when the point sits on a larger circle.",
-    ],
-  },
-
-  { type: 'heading', content: 'Worked examples' },
-  {
-    type: 'example',
-    difficulty: 'Easy',
-    problem: 'Convert $135°$ to radians.',
-    steps: [
-      { label: 'Choose the factor', content: "The conversion leaves degrees behind, so multiply by $\\frac{\\pi}{180}$ — the fraction that cancels them." },
-      { label: 'Multiply', content: '$135 \\cdot \\frac{\\pi}{180} = \\frac{135\\pi}{180}$.' },
-      { label: 'Simplify', content: 'Divide numerator and denominator by $45$ to get $\\frac{3\\pi}{4}$. As a check, the result is slightly more than $\\frac{\\pi}{2}$ — consistent with an angle just past $90°$.' },
-    ],
-  },
-  {
-    type: 'example',
-    difficulty: 'Medium',
-    problem: 'A circle has radius $6$. Find the length of the arc cut off by a central angle of $\\frac{\\pi}{3}$ radians.',
-    steps: [
-      { label: 'Choose the formula', content: 'The angle is already in radians, so $s = r\\theta$ applies directly with no conversion.' },
-      { label: 'Substitute', content: '$s = 6 \\cdot \\frac{\\pi}{3}$.' },
-      { label: 'Compute', content: '$\\frac{6\\pi}{3} = 2\\pi$. The arc is $2\\pi$ units long, and no conversion was ever needed — the angle arrived in the unit the formula was built for.' },
-    ],
-  },
-  {
-    type: 'example',
-    difficulty: 'Medium',
-    problem: 'A circle has radius $4$. Find the area of a sector with central angle $\\frac{\\pi}{6}$ radians.',
-    steps: [
-      { label: 'Choose the formula', content: 'The angle is in radians, so $A = \\tfrac{1}{2}r^2\\theta$ applies directly.' },
-      { label: 'Substitute', content: '$A = \\tfrac{1}{2}(4)^2\\left(\\frac{\\pi}{6}\\right) = \\tfrac{1}{2}\\cdot 16 \\cdot \\frac{\\pi}{6}$.' },
-      { label: 'Compute', content: '$8 \\cdot \\frac{\\pi}{6} = \\frac{8\\pi}{6} = \\frac{4\\pi}{3}$.' },
-    ],
-  },
-  {
-    type: 'example',
-    difficulty: 'Hard',
-    problem: 'What is $\\cos\\left(\\frac{2\\pi}{3}\\right)$?',
-    steps: [
-      { label: 'Locate the angle', content: '$\\frac{2\\pi}{3} = 120°$, which lands in Quadrant II (between $90°$ and $180°$).' },
-      { label: 'Find the magnitude', content: 'Its reference angle is $60° = \\frac{\\pi}{3}$, and $\\cos\\frac{\\pi}{3} = \\frac{1}{2}$.' },
-      { label: 'Attach the sign', content: 'In Quadrant II the $x$-coordinate is negative, and cosine takes the sign of $x$, so $\\cos\\left(\\frac{2\\pi}{3}\\right) = -\\frac{1}{2}$. The table supplies the magnitude; the quadrant supplies the sign.' },
     ],
   },
 
@@ -176,7 +183,14 @@ export const mRadiansBlocks = [
   },
 
   {
-    type: 'text',
-    content: "**The whole topic in one anchor:** $180° = \\pi$. Convert with the factor that cancels the departing unit, apply $s = r\\theta$ only when the angle is in radians, and read $\\cos$ and $\\sin$ as the $x$- and $y$-coordinates of the unit-circle point — magnitude from the reference angle, sign from the quadrant. Strip full turns of $2\\pi$ from an oversized angle first, and divide by $r = \\sqrt{x^2 + y^2}$ when the point sits on a larger circle.",
+    type: 'summary',
+    title: 'The whole topic in five moves',
+    points: [
+      'The whole topic rests on one anchor: **$180° = \\pi$ radians**.',
+      "Convert by multiplying by the factor that **cancels the departing unit** — $\\frac{\\pi}{180}$ to radians, $\\frac{180}{\\pi}$ to degrees.",
+      'Apply $s = r\\theta$ and $A = \\tfrac{1}{2}r^2\\theta$ **only when the angle is in radians**.',
+      'Read $\\cos\\theta$ and $\\sin\\theta$ as the **$x$- and $y$-coordinates** of the unit-circle point — magnitude from the reference angle, sign from the quadrant.',
+      'Reduce an oversized angle by stripping full turns of **$2\\pi$**, and divide by $r = \\sqrt{x^2 + y^2}$ when the point sits on a larger circle.',
+    ],
   },
 ];

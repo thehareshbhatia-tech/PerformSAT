@@ -8,14 +8,18 @@
  * analogies, no pep talk, no exclamation marks, no emojis, no test-personification.
  * All v3 teaching claims preserved.
  *
+ * COMPOSED MODE (2026-07-18): chapterOpener lede + auto-numbered
+ * sections/examples/figures + aside margin-notes + summary close
+ * (exemplar: bodies/mPercents.js).
+ *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
  */
 
 export const gRhetoricalSynthesisBlocks = [
   {
-    type: 'text',
-    content: 'A transition links two sentences; rhetorical synthesis asks for something larger — a single sentence built to serve a stated purpose. Each question hands you a set of bullet-point notes, a sentence stating what "the student wants to" accomplish, and four sentences to choose from. The type closes the Reading and Writing sequence because it draws on everything at once: reading for a point, grammatical control, logical connection.',
+    type: 'chapterOpener',
+    lede: 'A transition links two sentences; rhetorical synthesis asks for something larger — a single sentence built to serve a stated purpose. Each question hands you a set of bullet-point notes, a sentence stating what "the student wants to" accomplish, and four sentences to choose from. The type closes the Reading and Writing sequence because it draws on everything at once: reading for a point, grammatical control, logical connection.',
   },
   {
     type: 'text',
@@ -25,7 +29,12 @@ export const gRhetoricalSynthesisBlocks = [
   { type: 'heading', content: "What's actually tested" },
   {
     type: 'text',
-    content: "Every choice is drawn faithfully from the notes, so every choice is *true* — and that fact has an immediate consequence. Truth can't separate the choices, which means fact-checking them against the bullets is wasted effort no matter how diligent it feels. What separates them is **function**: whether the sentence performs the task the goal specifies. The credited answer is usually the goal itself restated in new words, so the question supplies its own answer key.",
+    content: "Every choice is drawn faithfully from the notes, so every choice is *true* — and that fact has an immediate consequence. Truth can't separate the choices, which means fact-checking them against the bullets is wasted effort no matter how diligent it feels. What separates them is **function**: whether the sentence performs the task the goal specifies.",
+  },
+  {
+    type: 'aside',
+    kind: 'remember',
+    content: 'The credited answer is usually the goal itself restated in new words, so the question supplies its own answer key.',
   },
 
   { type: 'heading', content: 'Read the goal before the notes' },
@@ -52,7 +61,8 @@ export const gRhetoricalSynthesisBlocks = [
     content: 'The most frequent miss is a choice that satisfies the verb and the focus but drops the qualifier — it introduces the right subject and simply ignores *for readers unfamiliar with X*. Wrong choices are routinely built from exactly that near-miss, because a student holding only a general impression of the goal has nothing precise to notice the gap against.',
   },
   {
-    type: 'keyInsight',
+    type: 'aside',
+    kind: 'watch',
     content: 'Treat the goal as a set of criteria, not a general impression. A choice that satisfies part of the goal and sounds complete is the standard near-miss — verify every component before committing.',
   },
 
@@ -145,7 +155,14 @@ export const gRhetoricalSynthesisBlocks = [
   },
 
   {
-    type: 'text',
-    content: "**The whole skill in one routine:** read the goal before the notes; break it into verb, focus, and qualifier; predict the surface feature the answer must display; scan the choices for that feature; and pick the choice that satisfies every component. Once the routine settles in, these are among the fastest questions on the module.",
+    type: 'summary',
+    title: 'The whole skill in one routine',
+    points: [
+      'Read the **goal** before the notes — skip the bullets and go straight to "The student wants to ...".',
+      'Break the goal into **verb, focus, and qualifier**; the answer must satisfy all three.',
+      'Predict the **surface feature** the answer must display — a comparison word, background, or intent framing.',
+      'Scan the choices for that feature and cut every one that **lacks it**, however true it sounds.',
+      'Confirm the survivor satisfies **every component**; return to the notes only to break a tie.',
+    ],
   },
 ];

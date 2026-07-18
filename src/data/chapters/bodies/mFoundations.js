@@ -8,6 +8,10 @@
  * analogies, no pep talk, no exclamation marks, no emojis, no
  * test-personification. All v3 teaching claims preserved.
  *
+ * COMPOSED MODE (2026-07-18): chapterOpener lede + auto-numbered
+ * sections/examples/figures + aside margin-notes + summary close
+ * (exemplar: bodies/mPercents.js).
+ *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
  *
@@ -20,8 +24,8 @@
 
 export const mFoundationsBlocks = [
   {
-    type: 'text',
-    content: "Everything in the math chapters ahead rests on a small amount of quiet arithmetic — fraction operations, negative-number sign rules, order of operations. These rarely get questions of their own, but they run underneath nearly every algebra, rate, and geometry item, so when one of them slips mid-problem, the miss gets blamed on the topic sitting on top. That's also why most errors labeled careless aren't careless at all. Each is a specific, predictable slip, and each slip has a working habit that prevents it — this chapter is those habits.",
+    type: 'chapterOpener',
+    lede: "Everything in the math chapters ahead rests on a small amount of quiet arithmetic — fraction operations, negative-number sign rules, order of operations. These rarely get questions of their own, but they run underneath nearly every algebra, rate, and geometry item, so when one of them slips mid-problem, the miss gets blamed on the topic sitting on top. That's also why most errors labeled careless aren't careless at all. Each is a specific, predictable slip, and each slip has a working habit that prevents it — this chapter is those habits.",
   },
 
   { type: 'heading', content: 'Adding and subtracting fractions' },
@@ -34,7 +38,8 @@ export const mFoundationsBlocks = [
     content: "A common denominator is the conversion: rewrite both fractions in pieces of one size — sixths, here — and the sum is $\\frac{3}{6} + \\frac{2}{6} = \\frac{5}{6}$. Once the pieces match, addition is just counting them, which is why only the numerators combine. The denominator stays put because it names the unit being counted, and units don't add.",
   },
   {
-    type: 'text',
+    type: 'aside',
+    kind: 'watch',
     content: "Straight across stays tempting for a reason: it's exactly how *multiplication* works, and the two rules blur under time pressure. The tell that it happened is a denominator that changed during an addition or subtraction — when one shows up in your own work, this is the error to suspect.",
   },
   {
@@ -125,7 +130,8 @@ export const mFoundationsBlocks = [
     content: "The costliest case in this topic puts a negative sign next to an exponent. In $-3^2$, the exponent applies to the $3$ before the negation does, so $-3^2 = -9$ while $(-3)^2 = 9$ — two values separated by nothing but a pair of parentheses. The incorrect one routinely appears among the answer choices.",
   },
   {
-    type: 'callout',
+    type: 'aside',
+    kind: 'remember',
     content: "When you substitute a negative value, enclose it in parentheses: $x = -3$ goes into $x^2$ as $(-3)^2 = 9$. Written bare, $-3^2$ silently computes to $-9$. The parentheses aren't decoration — they're what keeps the sign inside the squaring.",
   },
 
@@ -233,17 +239,14 @@ export const mFoundationsBlocks = [
   },
 
   {
-    type: 'list',
-    title: '**The habits in one place:**',
-    items: [
-      'Match denominators before adding or subtracting; combine only the numerators.',
-      'Invert the divisor to divide fractions.',
-      'Work with absolute values first; settle the sign by counting negative factors.',
-      'Distribute a leading negative through every term — then verify the last one.',
-      'Evaluate exponents before a leading negative: $-3^2$ is $-9$.',
-      'Treat every fraction bar as an implied pair of parentheses.',
-      'Read the number line left to right: further left is smaller.',
-      'Read and plot $(x, y)$ in order — horizontal first, vertical second — with the quadrant set by the pair of signs.',
+    type: 'summary',
+    title: 'The habits in one place',
+    points: [
+      'Fractions: **match denominators** before adding or subtracting (combine only the numerators), and **invert the divisor** to divide.',
+      'Settle a sign by working with **absolute values first**, then **counting the negative factors**.',
+      'Distribute a leading **negative** through every term — then verify the **last** one.',
+      'Evaluate **exponents before a leading negative** ($-3^2$ is $-9$), and treat every **fraction bar** as an implied pair of parentheses.',
+      'On the number line, **further left is smaller**; in the plane, read and plot $(x, y)$ **in order** — horizontal first, vertical second — with the quadrant set by the pair of signs.',
     ],
   },
 ];

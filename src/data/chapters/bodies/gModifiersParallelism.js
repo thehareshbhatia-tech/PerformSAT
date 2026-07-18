@@ -12,14 +12,18 @@
  * what it describes, listed items must share a form, and comparisons must
  * weigh like things — one short section each.
  *
+ * COMPOSED MODE (2026-07-18): chapterOpener lede + auto-numbered
+ * sections/examples/figures + aside margin-notes + summary close
+ * (exemplar: bodies/mPercents.js).
+ *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
  */
 
 export const gModifiersParallelismBlocks = [
   {
-    type: 'text',
-    content: "Verb to subject, pronoun to antecedent, tense to timeline — everything in this unit so far has been matching, one word to another. This chapter stretches the same principle past single words to phrases, lists, and comparisons. Three question types live here, and they share one requirement: **each element has to connect to, match, or be measured against the right thing.**",
+    type: 'chapterOpener',
+    lede: "Verb to subject, pronoun to antecedent, tense to timeline — everything in this unit so far has been matching, one word to another. This chapter stretches the same principle past single words to phrases, lists, and comparisons. Three question types live here, and they share one requirement: **each element has to connect to, match, or be measured against the right thing.**",
   },
   {
     type: 'list',
@@ -30,13 +34,14 @@ export const gModifiersParallelismBlocks = [
     ],
   },
 
-  { type: 'heading', content: '1. Modifiers: the noun after the comma' },
+  { type: 'heading', content: 'Modifiers: the noun after the comma' },
   {
     type: 'text',
     content: "Read literally, *Walking to school, the rain started* claims the rain went for a walk. That absurdity isn't a glitch — it's the rule at work: an opening phrase before a comma describes **whatever noun comes right after the comma**, with no exceptions and no appeal to what the writer meant, because grammar reads position, not intention. The fix puts the true agent at the comma: *Walking to school, **I** got caught in the rain.*",
   },
   {
-    type: 'keyInsight',
+    type: 'aside',
+    kind: 'remember',
     content: "Cover the choices, read the opening phrase, and ask **\"who or what is doing this?\"** The answer has to be the very next noun — name it before you look at a single choice, because once a choice's smooth phrasing is in your head, the misplaced noun stops sounding wrong.",
   },
   {
@@ -48,7 +53,7 @@ export const gModifiersParallelismBlocks = [
     ],
   },
 
-  { type: 'heading', content: '2. Parallelism: one list, one form' },
+  { type: 'heading', content: 'Parallelism: one list, one form' },
   {
     type: 'text',
     content: "Ideas that are joined — in a series, or across a pairing construction — share one grammatical form: all *-ing*, all plain nouns, all *to ___*. *She likes **hiking**, **swimming**, and **to bike*** breaks the pattern; the parallel version is *hiking, swimming, and **biking***. The requirement isn't arbitrary. A list presents its items on equal footing, and a change of form quietly signals that the items aren't truly equivalent — the grammar stops agreeing with the meaning.",
@@ -72,7 +77,8 @@ export const gModifiersParallelismBlocks = [
     ],
   },
   {
-    type: 'tip',
+    type: 'aside',
+    kind: 'watch',
     content: "A repeated shared word (a second *to*, another *the*) is optional — *to teach and inspire* is exactly as parallel as *to teach and to inspire*. Don't cut a choice just for dropping the repeated word; **form** is what has to match.",
   },
 
@@ -102,7 +108,7 @@ export const gModifiersParallelismBlocks = [
     content: 'The template supplies the words; parallelism still governs **what follows them**. *The playwright not only **wrote the script** but also **directed the premiere*** balances two verb phrases, while *not only wrote the script but also the premiere* sets a verb phrase against a bare noun and breaks. So a correlative gets checked twice: right partner first, then matching forms after each half.',
   },
 
-  { type: 'heading', content: '3. Comparisons: like against like' },
+  { type: 'heading', content: 'Comparisons: like against like' },
   {
     type: 'text',
     content: "A comparison holds up only when both sides carry the same kind of thing, and the broken version reads smoothly — which is what makes it worth testing. *Her novels are longer than **Dickens*** compares novels with a person, but the ear rarely objects, because the intended meaning arrives anyway. The fix makes both sides works: *…longer than **Dickens's*** (Dickens's novels) or *…than **those of Dickens***. So before judging any choice, state what stands on each side — novels set against a person can never balance, and naming the two sides is what makes the mismatch visible.",
@@ -200,7 +206,13 @@ export const gModifiersParallelismBlocks = [
   },
 
   {
-    type: 'text',
-    content: "**Three checks, one habit:** for a modifier, name who or what performs the action and confirm it's the noun at the comma. For a list, name the anchor's form and match it. For a comparison, state what stands on each side and confirm both are the same kind of thing. Each check replaces the ear with a named element — the doer, the anchor, the two sides — and the named element is what every choice gets measured against.",
+    type: 'summary',
+    title: 'Three checks, one habit',
+    points: [
+      "For a **modifier**, name who or what performs the action and confirm it is the noun at the comma.",
+      "For a **list**, name the anchor's form in the fixed text and keep only the choice that matches it.",
+      "For a **comparison**, state what stands on each side and confirm both are the same kind of thing.",
+      "Each check trades the ear for a **named element** — the doer, the anchor, the two sides — and that is what every choice is measured against.",
+    ],
   },
 ];

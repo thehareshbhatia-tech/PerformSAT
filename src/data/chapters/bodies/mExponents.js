@@ -8,18 +8,17 @@
  * analogies, no pep talk, no exclamation marks, no emojis, no
  * test-personification. All v3 teaching claims preserved.
  *
+ * COMPOSED MODE (2026-07-18): chapterOpener lede + auto-numbered sections/examples/figures +
+ * aside margin-notes + summary close (exemplar: bodies/mPercents.js).
+ *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
  */
 
 export const mExponentsBlocks = [
   {
-    type: 'text',
-    content: "Shifts and stretches reshape a graph you already have. Some quantities call for a different kind of function altogether — one that grows by repeated multiplication — and that's what an exponent records: **how many copies of the base are multiplied together**. Hold onto that definition and there's little left to memorize, because every rule in this chapter follows from counting factors.",
-  },
-  {
-    type: 'text',
-    content: "It's worth saying up front where the points are actually lost, because it's rarely the arithmetic. Misses here come from applying a rule to a shape it doesn't fit — trying to merge a *sum* of powers, for instance, with a rule built for products. So whenever an expression looks unfamiliar, don't recite rules at it; write out the factors and count them.",
+    type: 'chapterOpener',
+    lede: "Shifts and stretches reshape a graph you already have. Some quantities call for a different kind of function altogether — one that grows by repeated multiplication — and that's what an exponent records: **how many copies of the base are multiplied together**. Hold onto that definition and there's little left to memorize, because every rule in this chapter follows from counting factors.",
   },
 
   { type: 'heading', content: 'The product, quotient, and power rules' },
@@ -40,6 +39,20 @@ export const mExponentsBlocks = [
     type: 'keyInsight',
     content: 'An outer exponent distributes onto **every factor** in a product — never across a $+$ sign, because the counting argument only works when the whole expression is a product. $(x^3+x^5)$ does **not** collapse to $x^8$; a sum of powers can be factored, but its terms never merge.',
   },
+  {
+    type: 'aside',
+    kind: 'watch',
+    content: "It's worth saying up front where the points are actually lost, because it's rarely the arithmetic. Misses here come from applying a rule to a shape it doesn't fit — trying to merge a *sum* of powers, for instance, with a rule built for products. So whenever an expression looks unfamiliar, don't recite rules at it; write out the factors and count them.",
+  },
+  {
+    type: 'example',
+    difficulty: 'Medium',
+    problem: 'Which is equivalent to $\\dfrac{(x^3)^4}{x^5}$ for $x>0$?',
+    steps: [
+      { label: 'Apply the power rule', content: 'Multiply the exponents: $(x^3)^4 = x^{12}$.' },
+      { label: 'Apply the quotient rule', content: 'Subtract the exponents: $\\dfrac{x^{12}}{x^5} = x^{12-5} = x^{7}$.' },
+    ],
+  },
 
   { type: 'heading', content: 'Negative and fractional exponents' },
   {
@@ -49,6 +62,15 @@ export const mExponentsBlocks = [
   {
     type: 'text',
     content: "A **fractional exponent means a root**, and the product rule says why: $x^{1/2}\\cdot x^{1/2} = x^1$, so $x^{1/2}$ has to be the number that multiplies by itself to give $x$ — that is, $\\sqrt{x}$. Likewise $x^{1/3}=\\sqrt[3]{x}$. In general, $x^{m/n}$ reads \"power $m$, root $n$\" — the numerator is the power, the denominator is the root.",
+  },
+  {
+    type: 'example',
+    difficulty: 'Easy',
+    problem: 'Simplify $2^{5}\\cdot 2^{-2}$.',
+    steps: [
+      { label: 'Add the exponents', content: 'Multiplying like bases adds exponents: $5+(-2)=3$.' },
+      { label: 'Evaluate', content: "$2^{3}=8$. The negative exponent only subtracted from the count — it didn't make the result negative." },
+    ],
   },
 
   { type: 'heading', content: 'Simplifying radicals' },
@@ -62,7 +84,12 @@ export const mExponentsBlocks = [
   },
   {
     type: 'text',
-    content: "Read right to left, the product rule pushes a coefficient **back under** the radical, and the coefficient enters as its square: $2\\sqrt{3} = \\sqrt{4}\\cdot\\sqrt{3} = \\sqrt{12}$. This reverse move is how you compare a mixed form like $3\\sqrt{5}$ against a plain number, or match an answer choice written as a single radical. One scope note: rationalizing a denominator — rewriting $\\tfrac{1}{\\sqrt{2}}$ as $\\tfrac{\\sqrt{2}}{2}$ — is a classroom convention the test doesn't require, so simplifying, multiplying, and recombining radicals as above covers the forms that appear.",
+    content: "Read right to left, the product rule pushes a coefficient **back under** the radical, and the coefficient enters as its square: $2\\sqrt{3} = \\sqrt{4}\\cdot\\sqrt{3} = \\sqrt{12}$. This reverse move is how you compare a mixed form like $3\\sqrt{5}$ against a plain number, or match an answer choice written as a single radical.",
+  },
+  {
+    type: 'aside',
+    kind: 'note',
+    content: "Rationalizing a denominator — rewriting $\\tfrac{1}{\\sqrt{2}}$ as $\\tfrac{\\sqrt{2}}{2}$ — is a classroom convention the test doesn't require. Simplifying, multiplying, and recombining radicals as above covers the forms that appear.",
   },
   {
     type: 'example',
@@ -84,6 +111,16 @@ export const mExponentsBlocks = [
     type: 'text',
     content: "Why is equating the exponents legal? Because $2^{\\text{something}}$ takes each value exactly once — if two powers of $2$ are equal, their exponents have no choice but to match.",
   },
+  {
+    type: 'example',
+    difficulty: 'Medium',
+    problem: 'Solve $9^{x} = 27$.',
+    steps: [
+      { label: 'Find a shared base', content: 'Both are powers of $3$: $9 = 3^2$ and $27 = 3^3$, so $3^{2x} = 3^{3}$.' },
+      { label: 'Equate the exponents', content: 'Equal powers of the same base force $2x = 3$.' },
+      { label: 'Solve', content: '$x = \\dfrac{3}{2}$.' },
+    ],
+  },
 
   { type: 'heading', content: 'The exponential model $y = a\\cdot b^{t}$' },
   {
@@ -99,13 +136,28 @@ export const mExponentsBlocks = [
     ],
   },
   {
-    type: 'keyInsight',
+    type: 'aside',
+    kind: 'remember',
     content: 'Build the base from the **fraction kept**, not the percent of change. A 5% increase keeps everything and adds 5%, so $b = 1.05$; a 5% decrease keeps 95%, so $b = 0.95$. Place the decimal carefully: 2.4% growth gives $b = 1.024$, not $1.24$.',
   },
   {
     type: 'diagramRef',
     visualType: 'exponentialGrowthDiagram',
     description: "Growth and decay on the same axes: a base $b>1$ climbs faster with every step, while a base between $0$ and $1$ falls toward the x-axis — the size of $b$ alone decides which shape you get.",
+  },
+  {
+    type: 'text',
+    content: "Figure 1 puts the two cases side by side: whether the curve climbs or decays is settled entirely by the size of $b$ — above $1$ it grows, between $0$ and $1$ it shrinks — so you can read the direction of a model off $b$ before computing a single value.",
+  },
+  {
+    type: 'example',
+    difficulty: 'Hard',
+    problem: 'A $\\$4{,}000$ investment loses 3% of its value each year. Write a model for its value $V$ after $t$ years, then say what it is worth after 2 years.',
+    steps: [
+      { label: 'Identify the start value', content: '$a = 4000$ — the amount at $t = 0$.' },
+      { label: 'Build the decay factor', content: "Losing 3% keeps 97%, so $b = 0.97$ — not $0.03$, which would strip away 97% each year. Model: $V = 4000\\,(0.97)^{t}$." },
+      { label: 'Evaluate at $t=2$', content: '$V = 4000\\,(0.97)^2 = 4000(0.9409) = \\$3763.60$.' },
+    ],
   },
 
   { type: 'heading', content: 'Changing the time unit' },
@@ -118,55 +170,15 @@ export const mExponentsBlocks = [
     content: "The characteristic error here is guessing whether to multiply or divide by the $12$, and students guess because both look plausible on the page. Don't guess — run the check instead: one whole rate-period must move the exponent to exactly $1$, and the direction settles itself. (A finer unit divides: more small steps per change.)",
   },
 
-  { type: 'heading', content: 'How to approach these questions' },
   {
     type: 'steps',
+    title: 'How to approach these questions',
     items: [
       '**Name the operation.** Multiplying like bases adds exponents, dividing subtracts, a power of a power multiplies — and no rule crosses a plus sign.',
       '**Translate unusual exponents.** Negative means reciprocal; fractional means power over root.',
       '**Powers on both sides? Find a shared base.** Rewrite each side over it, then set the exponents equal.',
       '**Growth or decay story? Build $y = a\\cdot b^{t}$.** $a$ is the starting value, $b$ is the fraction kept each step — and rescale the exponent if the time unit differs from the rate.',
       '**Unfamiliar expression? Count factors.** Write the powers out and the right rule reappears on its own.',
-    ],
-  },
-
-  { type: 'heading', content: 'Worked examples' },
-  {
-    type: 'example',
-    difficulty: 'Easy',
-    problem: 'Simplify $2^{5}\\cdot 2^{-2}$.',
-    steps: [
-      { label: 'Add the exponents', content: 'Multiplying like bases adds exponents: $5+(-2)=3$.' },
-      { label: 'Evaluate', content: "$2^{3}=8$. The negative exponent only subtracted from the count — it didn't make the result negative." },
-    ],
-  },
-  {
-    type: 'example',
-    difficulty: 'Medium',
-    problem: 'Which is equivalent to $\\dfrac{(x^3)^4}{x^5}$ for $x>0$?',
-    steps: [
-      { label: 'Apply the power rule', content: 'Multiply the exponents: $(x^3)^4 = x^{12}$.' },
-      { label: 'Apply the quotient rule', content: 'Subtract the exponents: $\\dfrac{x^{12}}{x^5} = x^{12-5} = x^{7}$.' },
-    ],
-  },
-  {
-    type: 'example',
-    difficulty: 'Medium',
-    problem: 'Solve $9^{x} = 27$.',
-    steps: [
-      { label: 'Find a shared base', content: 'Both are powers of $3$: $9 = 3^2$ and $27 = 3^3$, so $3^{2x} = 3^{3}$.' },
-      { label: 'Equate the exponents', content: 'Equal powers of the same base force $2x = 3$.' },
-      { label: 'Solve', content: '$x = \\dfrac{3}{2}$.' },
-    ],
-  },
-  {
-    type: 'example',
-    difficulty: 'Hard',
-    problem: 'A $\\$4{,}000$ investment loses 3% of its value each year. Write a model for its value $V$ after $t$ years, then say what it is worth after 2 years.',
-    steps: [
-      { label: 'Identify the start value', content: '$a = 4000$ — the amount at $t = 0$.' },
-      { label: 'Build the decay factor', content: "Losing 3% keeps 97%, so $b = 0.97$ — not $0.03$, which would strip away 97% each year. Model: $V = 4000\\,(0.97)^{t}$." },
-      { label: 'Evaluate at $t=2$', content: '$V = 4000\\,(0.97)^2 = 4000(0.9409) = \\$3763.60$.' },
     ],
   },
 
@@ -186,7 +198,6 @@ export const mExponentsBlocks = [
     question: 'Solve $8^{x} = 32$ by rewriting both sides over a shared base.',
     answer: '**$x = \\dfrac{5}{3}$.** Both are powers of $2$: $8 = 2^3$ and $32 = 2^5$, so $2^{3x} = 2^{5}$. Equal powers of the same base force the exponents equal: $3x = 5$, so $x = \\dfrac{5}{3}$.',
   },
-
   {
     type: 'checkpointQuestion',
     question: 'Which is greater, $3\\sqrt{7}$ or $8$?',
@@ -194,14 +205,14 @@ export const mExponentsBlocks = [
   },
 
   {
-    type: 'list',
-    title: '**In summary:**',
-    items: [
-      'Exponents count factors — add, subtract, or multiply the counts as the operation requires.',
-      'A negative exponent takes a reciprocal; a fractional exponent takes a root.',
-      'Radicals split over products and quotients — factor out perfect squares, move a coefficient back under as its square — but never over a sum.',
-      'Equal powers of a shared base have equal exponents.',
-      'In $a\\cdot b^{t}$, $a$ is the starting value and $b$ is the factor applied each step.',
+    type: 'summary',
+    title: 'The chapter in five rules',
+    points: [
+      'Exponents **count factors** — add, subtract, or multiply the counts as the operation requires.',
+      'A **negative exponent** takes a reciprocal; a **fractional exponent** takes a root.',
+      'Radicals split over **products and quotients** — factor out perfect squares, move a coefficient back under as its square — but never over a sum.',
+      'Equal powers of a **shared base** have equal exponents.',
+      'In $a\\cdot b^{t}$, $a$ is the **starting value** and $b$ is the factor applied each step.',
     ],
   },
 ];

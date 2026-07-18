@@ -8,14 +8,18 @@
  * analogies, no pep talk, no exclamation marks, no emojis, no test-personification.
  * All v3 teaching claims preserved.
  *
+ * COMPOSED MODE (2026-07-18): chapterOpener lede + auto-numbered
+ * sections/examples/figures + aside margin-notes + summary close
+ * (exemplar: bodies/mPercents.js).
+ *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
  */
 
 export const gTransitionsBlocks = [
   {
-    type: 'text',
-    content: "The Conventions chapters handled the correct sentence — its boundaries, its agreement, its punctuation. Expression of Ideas questions ask what those chapters never did: do the sentences connect logically to one another? A transition word sits exactly on that boundary between two sentences. It carries no information of its own — its one job is to **name the relationship** between the idea before it and the idea after it: continuation, cause and effect, or contrast.",
+    type: 'chapterOpener',
+    lede: "The Conventions chapters handled the correct sentence — its boundaries, its agreement, its punctuation. Expression of Ideas questions ask what those chapters never did: do the sentences connect logically to one another? A transition word sits exactly on that boundary between two sentences. It carries no information of its own — its one job is to **name the relationship** between the idea before it and the idea after it: continuation, cause and effect, or contrast.",
   },
   {
     type: 'text',
@@ -34,7 +38,8 @@ export const gTransitionsBlocks = [
     content: "Wherever the blank sits — the start of its sentence, the middle, or the end — the transition connects that sentence to the one **immediately before it**. So the reading assignment never changes: cover the answers, read the sentence before the blank and the sentence containing it, and decide what the second does to the first. The choices come last.",
   },
   {
-    type: 'keyInsight',
+    type: 'aside',
+    kind: 'watch',
     content: "Cover the choices first. Testing words one at a time is unreliable because wrong choices are routinely built to sound plausible in isolation — plausibility is the trap, not a clue. Decide the relationship on your own, then select the word that matches it.",
   },
 
@@ -75,6 +80,10 @@ export const gTransitionsBlocks = [
     visualType: 'transitionMapDiagram',
     description: "The five transition families — Contrast, Cause/Result, Addition, Example, and Time — each with its signal words: name the relationship between the two sentences first, and the family hands you the word.",
   },
+  {
+    type: 'text',
+    content: "Figure 1 gathers all five families onto a single map — the three core relationships, plus Example and Time nested inside the continue family. It works as a lookup you reach for once the relationship is named, not a menu to skim before deciding.",
+  },
 
   { type: 'heading', content: 'Check the direction on cause and contrast' },
   {
@@ -82,7 +91,8 @@ export const gTransitionsBlocks = [
     content: "Cause-and-effect words are directional: *therefore* introduces the **result**, while *because* introduces the **reason**. Place a result word where a reason belongs and the logic runs backward — and wrong choices are routinely built from exactly that reversal, because a backward *therefore* still sounds authoritative to a reader who hasn't fixed the direction in advance.",
   },
   {
-    type: 'text',
+    type: 'aside',
+    kind: 'remember',
     content: "Contrast carries a distinction of its own. Plain difference takes *however*, while a concession — *despite that, this still holds* — calls for *nevertheless* or *still*. Same family, different shade — and when two surviving choices both come from the contrast family, the shade is what separates them.",
   },
 
@@ -159,7 +169,13 @@ export const gTransitionsBlocks = [
   },
 
   {
-    type: 'text',
-    content: "**The whole skill in one pass:** cover the choices, gist the sentence before the blank and the sentence containing it, name the relationship — continue, cause/effect, or contrast — and match one word to it. You're never testing choices one by one; the whole method exists so you never have to.",
+    type: 'summary',
+    title: 'The whole skill in one pass',
+    points: [
+      'Cover the choices, then read the **sentence before the blank** and the sentence containing it — nothing else yet.',
+      'Reduce each to a **gist**, and name what the second does to the first: continue, cause/effect, or contrast.',
+      'On cause/effect and contrast, fix the **direction** — reason versus result, plain difference versus concession.',
+      '**Match** one word to the relationship you named; you never test the four choices one by one.',
+    ],
   },
 ];

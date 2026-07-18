@@ -8,14 +8,18 @@
  * analogies, no pep talk, no exclamation marks, no emojis, no test-personification.
  * All v3 teaching claims preserved.
  *
+ * COMPOSED MODE (2026-07-18): chapterOpener lede + auto-numbered
+ * sections/examples/figures + aside margin-notes + summary close
+ * (exemplar: bodies/mPercents.js).
+ *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
  */
 
 export const gSubjectVerbAgreementBlocks = [
   {
-    type: 'text',
-    content: "Punctuation governed how clauses meet; now we turn to the machinery inside them, and the first matching rule is the simplest one in the section: a verb agrees with its subject in number. *The dog barks. The dogs bark.* Nobody misses that pair, which is exactly the problem — the match is automatic in simple sentences, so the tested versions are never simple. The rule itself isn't the skill. The skill is **locating the subject after the sentence has buried it**, because every difficult version of this question is simply the subject well hidden.",
+    type: 'chapterOpener',
+    lede: "Punctuation governed how clauses meet; now we turn to the machinery inside them, and the first matching rule is the simplest one in the section: a verb agrees with its subject in number. *The dog barks. The dogs bark.* Nobody misses that pair, which is exactly the problem — the match is automatic in simple sentences, so the tested versions are never simple. The rule itself isn't the skill. The skill is **locating the subject after the sentence has buried it**, because every difficult version of this question is simply the subject well hidden.",
   },
 
   { type: 'heading', content: "What's actually tested" },
@@ -33,7 +37,7 @@ export const gSubjectVerbAgreementBlocks = [
   { type: 'heading', content: 'Step 2 — Cross out the middle' },
   {
     type: 'text',
-    content: "The material between subject and verb exists to obscure the subject, and you can delete it without changing the grammar — an of-phrase or a descriptive clause adds detail, never a new subject. So bracket out everything between the two and read what remains: *The collection ~~of rare books~~ (is / are) on display* becomes *The collection **is** on display*, and with the interruption gone the correct verb is evident. This single deletion resolves most questions in this skill.",
+    content: "The material between subject and verb exists to obscure the subject, and you can delete it without changing the grammar — an of-phrase or a descriptive clause adds detail, never a new subject. So bracket out everything between the two and read what remains: *The collection ~~of rare books~~ (is / are) on display* becomes *The collection **is** on display*, and with the interruption gone the correct verb is evident. This single deletion resolves most questions in this skill. Figure 1 shows the move: the distractor noun beside the verb struck out, the true subject linked straight to the verb it must match.",
   },
   {
     type: 'diagramRef',
@@ -41,7 +45,8 @@ export const gSubjectVerbAgreementBlocks = [
     description: "A subject buried behind an interrupting phrase: the distractor noun beside the verb is crossed out, and the true subject links straight to its verb — the only pair whose numbers must match.",
   },
   {
-    type: 'keyInsight',
+    type: 'aside',
+    kind: 'remember',
     content: "The noun immediately before the verb is usually a distractor — incorrect choices are routinely built around it. Match the verb to the **subject**, never to the nearest noun.",
   },
 
@@ -68,7 +73,8 @@ export const gSubjectVerbAgreementBlocks = [
     content: "In *The teacher, ~~along with her students~~, **is** leaving*, the subject stays *teacher* alone, no matter how many students come along. The phrase feels additive — more people are leaving, after all — but the verb counts only the noun that owns it, and none of these phrases ever hands over that ownership.",
   },
   {
-    type: 'tip',
+    type: 'aside',
+    kind: 'watch',
     content: "**Watch *along with*.** It resembles *and* in meaning, but only *and* builds a compound subject — *along with* leaves the original subject, and its number, untouched.",
   },
 
@@ -182,7 +188,13 @@ export const gSubjectVerbAgreementBlocks = [
   },
 
   {
-    type: 'text',
-    content: "**The whole method in four moves:** find the verb, ask who or what performs the action, cross out the interrupting phrases, and match. Buried, inverted, or counterintuitive — the same four moves apply.",
+    type: 'summary',
+    title: 'The whole method in four moves',
+    points: [
+      'Find the **verb**, then ask who or what performs the action — that noun is the subject.',
+      'Match the verb to that **subject**, never to the noun sitting nearest it.',
+      'Cross out the **interrupting phrases** and read what remains before you decide.',
+      'Buried, inverted, or counterintuitive, the **same four moves** apply.',
+    ],
   },
 ];

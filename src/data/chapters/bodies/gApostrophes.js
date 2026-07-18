@@ -8,14 +8,18 @@
  * analogies, no pep talk, no exclamation marks, no emojis, no test-personification.
  * All v3 teaching claims preserved. Gated by bodies.test.js.
  *
+ * COMPOSED MODE (2026-07-18): chapterOpener lede + auto-numbered
+ * sections/examples/figures + aside margin-notes + summary close
+ * (exemplar: bodies/mPercents.js).
+ *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
  */
 
 export const gApostrophesBlocks = [
   {
-    type: 'text',
-    content: "Modifiers, lists, comparisons — the conventions have been shrinking in scope, and they end here, at the smallest mark on the page. Say *dogs*, *dog's*, and *dogs'* out loud and the three are identical, which is why your ear can't resolve an apostrophe question no matter how carefully it listens. The call gets made on the page, with two questions: **how many, and does someone own something?**",
+    type: 'chapterOpener',
+    lede: "Modifiers, lists, comparisons — the conventions have been shrinking in scope, and they end here, at the smallest mark on the page. Say *dogs*, *dog's*, and *dogs'* out loud and the three are identical, which is why your ear can't resolve an apostrophe question no matter how carefully it listens. The call gets made on the page, with two questions: **how many, and does someone own something?**",
   },
 
   { type: 'heading', content: 'What these questions test' },
@@ -36,7 +40,8 @@ export const gApostrophesBlocks = [
     ],
   },
   {
-    type: 'keyInsight',
+    type: 'aside',
+    kind: 'remember',
     content: "Forming a plural **never** takes an apostrophe. If nothing is being owned, the apostrophe is wrong — however long or unfamiliar the word looks. Length doesn't change punctuation.",
   },
 
@@ -73,7 +78,8 @@ export const gApostrophesBlocks = [
     ],
   },
   {
-    type: 'tip',
+    type: 'aside',
+    kind: 'note',
     content: "*There* is a third look-alike, and it's neither a possessive nor a contraction — it points to a **place** or states existence: *The books are over **there**.* Check for a location meaning before weighing the other two forms.",
   },
 
@@ -146,7 +152,12 @@ export const gApostrophesBlocks = [
   },
 
   {
-    type: 'text',
-    content: "**The whole skill in two questions:** how many, and whose? For pronouns, expand the apostrophe to *is/has* and check whether the sentence survives. Where nothing is owned, no apostrophe belongs.",
+    type: 'summary',
+    title: 'The whole skill in two questions',
+    points: [
+      'For nouns, settle two questions — **how many** owners, and is **anything owned**?',
+      'For pronouns, expand the apostrophe to **is / has** and check whether the sentence survives.',
+      'Where **nothing is owned**, no apostrophe belongs.',
+    ],
   },
 ];

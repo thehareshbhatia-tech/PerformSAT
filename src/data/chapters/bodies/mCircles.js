@@ -13,14 +13,18 @@
  * All math is wrapped in $...$ KaTeX delimiters, including
  * `formula`/`formulaGrid` blocks.
  *
+ * COMPOSED MODE (2026-07-18): chapterOpener lede + auto-numbered
+ * sections/examples/figures + aside margin-notes + summary close (exemplar:
+ * bodies/mPercents.js).
+ *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
  */
 
 export const mCirclesBlocks = [
   {
-    type: 'text',
-    content: "The last few chapters worked with figures built from straight segments. The circle runs on a single condition instead — every point lies the same distance from one center — and that definition is why nearly every circle question reduces to two quantities, the **center** and the **radius**. Once you hold both, the equation, the circumference, an arc length, or a sector area is one step away.",
+    type: 'chapterOpener',
+    lede: "The last few chapters worked with figures built from straight segments. The circle runs on a single condition instead — every point lies the same distance from one center — and that definition is why nearly every circle question reduces to two quantities, the **center** and the **radius**. Once you hold both, the equation, the circumference, an arc length, or a sector area is one step away.",
   },
   {
     type: 'diagramRef',
@@ -29,7 +33,7 @@ export const mCirclesBlocks = [
   },
   {
     type: 'text',
-    content: "So the skill this topic rewards is extraction: pulling the center and radius out of whatever form the problem supplies — standard form, an expanded equation, or a stated circumference or area. Each section below is one of those forms and the move that recovers the two quantities from it.",
+    content: "Figure 1 names the parts every circle question leans on — radius, diameter, circumference. So the skill this topic rewards is extraction: pulling the center and radius out of whatever form the problem supplies — standard form, an expanded equation, or a stated circumference or area. Each section below is one of those forms and the move that recovers the two quantities from it.",
   },
 
   { type: 'heading', content: 'The circle equation' },
@@ -48,11 +52,21 @@ export const mCirclesBlocks = [
   },
   {
     type: 'text',
-    content: "Reading the form takes more care than it looks like it should. Give a class $(x + 5)^2 + (y - 3)^2 = 100$ and a large share will report a center of $(5, 3)$, a radius of $100$, or both — and each of those misreads sits among the answer choices whenever this equation appears. The parenthesis $(x + 5)^2$ equals zero at $x = -5$, so that center coordinate is $-5$, the **opposite of the printed sign**. And the right side is $r^2$, not $r$: $= 100$ means $r = \\sqrt{100} = 10$.",
+    content: "Figure 2 shows the center and radius encoded directly in standard form. Reading the form takes more care than it looks like it should. Give a class $(x + 5)^2 + (y - 3)^2 = 100$ and a large share will report a center of $(5, 3)$, a radius of $100$, or both — and each of those misreads sits among the answer choices whenever this equation appears. The parenthesis $(x + 5)^2$ equals zero at $x = -5$, so that center coordinate is $-5$, the **opposite of the printed sign**. And the right side is $r^2$, not $r$: $= 100$ means $r = \\sqrt{100} = 10$.",
   },
   {
-    type: 'keyInsight',
+    type: 'aside',
+    kind: 'watch',
     content: "Standard form is read, not solved: flip the printed sign for each center coordinate, and square-root the right side for the radius. Those two reads are also the two standard errors on this topic.",
+  },
+  {
+    type: 'example',
+    difficulty: 'Easy',
+    problem: 'A circle has equation $(x + 1)^2 + (y - 4)^2 = 36$. What are its center and radius?',
+    steps: [
+      { label: 'Set each parenthesis to zero', content: '$x + 1 = 0$ gives $x = -1$; $y - 4 = 0$ gives $y = 4$. The center is $(-1, 4)$ — each coordinate has the opposite sign from the one printed.' },
+      { label: 'Take the square root', content: "$r^2 = 36$, so $r = \\sqrt{36} = 6$. The right side is $r^2$, not the radius itself; reading it as $r = 36$ produces a standard wrong answer." },
+    ],
   },
 
   { type: 'heading', content: 'Completing the square' },
@@ -66,6 +80,17 @@ export const mCirclesBlocks = [
       '**Group and move.** Group the $x$-terms, group the $y$-terms, and move the constant to the right side.',
       '**Complete each square.** For each variable, take half of its linear coefficient, square it, and add that to **both** sides — adding to one side only changes the circle.',
       '**Read off the answer.** Rewrite each group as a squared parenthesis, then read the center and radius from standard form.',
+    ],
+  },
+  {
+    type: 'example',
+    difficulty: 'Medium',
+    problem: 'Find the center and radius of the circle $x^2 + y^2 - 6x + 4y - 12 = 0$.',
+    steps: [
+      { label: 'Group and move the constant', content: 'Rearrange to $(x^2 - 6x) + (y^2 + 4y) = 12$.' },
+      { label: 'Complete the square in $x$', content: 'Half of $-6$ is $-3$; squared, $9$. Add $9$ to both sides: $(x - 3)^2 + (y^2 + 4y) = 21$.' },
+      { label: 'Complete the square in $y$', content: 'Half of $4$ is $2$; squared, $4$. Add $4$ to both sides: $(x - 3)^2 + (y + 2)^2 = 25$.' },
+      { label: 'Read the result', content: 'Center $(3, -2)$, radius $\\sqrt{25} = 5$.' },
     ],
   },
 
@@ -119,8 +144,18 @@ export const mCirclesBlocks = [
     ],
   },
   {
-    type: 'tip',
+    type: 'aside',
+    kind: 'remember',
     content: "The radius $r$, the diameter $d = 2r$, the circumference $C$, and the area $A$ each determine the others. Given any one and asked for another, go through the radius: solve for $r$ first, then compute what's asked. No formula connects $C$ and $A$ directly.",
+  },
+  {
+    type: 'example',
+    difficulty: 'Medium',
+    problem: 'A circle has circumference $10\\pi$. What is its area?',
+    steps: [
+      { label: 'Find the radius first', content: '$C = 2\\pi r$, so $10\\pi = 2\\pi r$ gives $r = 5$. The radius links the two formulas.' },
+      { label: 'Compute the area', content: "$A = \\pi r^2 = \\pi (5)^2 = 25\\pi$. No formula converts $C$ to $A$ directly; the calculation passes through $r$." },
+    ],
   },
 
   { type: 'heading', content: 'Arcs and sectors' },
@@ -135,7 +170,7 @@ export const mCirclesBlocks = [
   },
   {
     type: 'text',
-    content: "One restriction guards those compact forms: $s = r\\theta$ and $\\tfrac{1}{2}r^2\\theta$ are valid only when $\\theta$ is in **radians**, and they return incorrect results for degree inputs — a degree number is $\\frac{180}{\\pi}$ times too large for formulas built on radius-lengths. Given degrees, use the $\\frac{\\theta}{360}$ fraction or convert first ($180° = \\pi$ radians).",
+    content: "Figure 3 shows one central angle making both cuts at once — the arc from the boundary, the sector from the interior. One restriction guards those compact forms: $s = r\\theta$ and $\\tfrac{1}{2}r^2\\theta$ are valid only when $\\theta$ is in **radians**, and they return incorrect results for degree inputs — a degree number is $\\frac{180}{\\pi}$ times too large for formulas built on radius-lengths. Given degrees, use the $\\frac{\\theta}{360}$ fraction or convert first ($180° = \\pi$ radians).",
   },
   {
     type: 'table',
@@ -143,6 +178,16 @@ export const mCirclesBlocks = [
     rows: [
       ['Arc length', '$\\dfrac{\\theta}{360}\\cdot 2\\pi r$', '$s = r\\theta$'],
       ['Sector area', '$\\dfrac{\\theta}{360}\\cdot \\pi r^2$', '$\\dfrac{1}{2}r^2\\theta$'],
+    ],
+  },
+  {
+    type: 'example',
+    difficulty: 'Medium',
+    problem: 'A circle has radius $9$. A sector has a central angle of $40°$. What is the length of the sector\'s arc?',
+    steps: [
+      { label: 'Find the fraction of the circle', content: '$\\frac{40}{360} = \\frac{1}{9}$ of a full turn, so the arc is $\\frac{1}{9}$ of the circumference.' },
+      { label: 'Compute the full circumference', content: '$C = 2\\pi r = 2\\pi(9) = 18\\pi$.' },
+      { label: 'Take the fraction', content: 'Arc length $= \\frac{1}{9}\\cdot 18\\pi = 2\\pi$.' },
     ],
   },
 
@@ -213,47 +258,6 @@ export const mCirclesBlocks = [
     ],
   },
 
-  { type: 'heading', content: 'Worked examples' },
-  {
-    type: 'example',
-    difficulty: 'Easy',
-    problem: 'A circle has equation $(x + 1)^2 + (y - 4)^2 = 36$. What are its center and radius?',
-    steps: [
-      { label: 'Set each parenthesis to zero', content: '$x + 1 = 0$ gives $x = -1$; $y - 4 = 0$ gives $y = 4$. The center is $(-1, 4)$ — each coordinate has the opposite sign from the one printed.' },
-      { label: 'Take the square root', content: "$r^2 = 36$, so $r = \\sqrt{36} = 6$. The right side is $r^2$, not the radius itself; reading it as $r = 36$ produces a standard wrong answer." },
-    ],
-  },
-  {
-    type: 'example',
-    difficulty: 'Medium',
-    problem: 'Find the center and radius of the circle $x^2 + y^2 - 6x + 4y - 12 = 0$.',
-    steps: [
-      { label: 'Group and move the constant', content: 'Rearrange to $(x^2 - 6x) + (y^2 + 4y) = 12$.' },
-      { label: 'Complete the square in $x$', content: 'Half of $-6$ is $-3$; squared, $9$. Add $9$ to both sides: $(x - 3)^2 + (y^2 + 4y) = 21$.' },
-      { label: 'Complete the square in $y$', content: 'Half of $4$ is $2$; squared, $4$. Add $4$ to both sides: $(x - 3)^2 + (y + 2)^2 = 25$.' },
-      { label: 'Read the result', content: 'Center $(3, -2)$, radius $\\sqrt{25} = 5$.' },
-    ],
-  },
-  {
-    type: 'example',
-    difficulty: 'Medium',
-    problem: 'A circle has radius $9$. A sector has a central angle of $40°$. What is the length of the sector\'s arc?',
-    steps: [
-      { label: 'Find the fraction of the circle', content: '$\\frac{40}{360} = \\frac{1}{9}$ of a full turn, so the arc is $\\frac{1}{9}$ of the circumference.' },
-      { label: 'Compute the full circumference', content: '$C = 2\\pi r = 2\\pi(9) = 18\\pi$.' },
-      { label: 'Take the fraction', content: 'Arc length $= \\frac{1}{9}\\cdot 18\\pi = 2\\pi$.' },
-    ],
-  },
-  {
-    type: 'example',
-    difficulty: 'Medium',
-    problem: 'A circle has circumference $10\\pi$. What is its area?',
-    steps: [
-      { label: 'Find the radius first', content: '$C = 2\\pi r$, so $10\\pi = 2\\pi r$ gives $r = 5$. The radius links the two formulas.' },
-      { label: 'Compute the area', content: "$A = \\pi r^2 = \\pi (5)^2 = 25\\pi$. No formula converts $C$ to $A$ directly; the calculation passes through $r$." },
-    ],
-  },
-
   { type: 'heading', content: 'Check yourself' },
   {
     type: 'checkpointQuestion',
@@ -277,7 +281,13 @@ export const mCirclesBlocks = [
   },
 
   {
-    type: 'text',
-    content: "**The whole topic in one move:** find the center and radius first — read them from standard form, complete the square to recover it, or build them from a diameter's endpoints with the midpoint and distance formulas. Then answer whatever is asked — circumference, arc, sector — as a fraction of the whole circle. The two recurring errors never change: the sign flips in $(x - h)$, and the right side is $r^2$, not $r$.",
+    type: 'summary',
+    title: 'The whole topic in four moves',
+    points: [
+      'Find the **center and radius** first — every circle question reduces to those two quantities.',
+      "Recover them by reading **standard form**, **completing the square**, or building from a diameter's endpoints with the midpoint and distance formulas.",
+      'Answer circumference, arc, or sector as a **fraction of the whole circle** — $\\frac{\\theta}{360}$ in degrees, $\\frac{\\theta}{2\\pi}$ in radians.',
+      'The two recurring errors never change: the **sign flips** in $(x - h)$, and the right side is $r^2$, **not $r$**.',
+    ],
   },
 ];

@@ -14,14 +14,18 @@
  * test-personification. All teaching claims of v3 preserved.
  * Narrative bridge to the previous chapter stays.
  *
+ * COMPOSED MODE (2026-07-18): chapterOpener lede + auto-numbered
+ * sections/examples/figures + aside margin-notes + summary close
+ * (exemplar: bodies/mPercents.js).
+ *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
  */
 
 export const centralIdeasBlocks = [
   {
-    type: 'text',
-    content: "Reading questions on this test build in layers — what a text says, what it implies, what would prove it. Central ideas and details questions are the first layer, and every test you take will include them. They are also the most honest questions on the exam: no outside knowledge helps, no deep analysis is required, and the answer is sitting on the screen. Each one hands you a short paragraph and one of two tasks — identify the main idea, or report what the text says about one specific thing.",
+    type: 'chapterOpener',
+    lede: "Reading questions on this test build in layers — what a text says, what it implies, what would prove it. Central ideas and details questions are the first layer, and every test you take will include them. They are also the most honest questions on the exam: no outside knowledge helps, no deep analysis is required, and the answer is sitting on the screen. Each one hands you a short paragraph and one of two tasks — identify the main idea, or report what the text says about one specific thing.",
   },
   {
     type: 'text',
@@ -66,7 +70,8 @@ export const centralIdeasBlocks = [
     ],
   },
   {
-    type: 'tip',
+    type: 'aside',
+    kind: 'watch',
     content: "**Same words: suspect. Same meaning, different words: promising.** Distractors borrow the passage's exact phrases because familiar words feel safe. A choice that echoes the text verbatim hasn't earned your trust — it has earned a second, slower read to see what claim it's actually making.",
   },
   {
@@ -103,7 +108,8 @@ export const centralIdeasBlocks = [
     content: "Two refinements, because the test knows students learn the basic move. Referents don't carry over — the same *this* can point to a new idea a paragraph later, so resolve each one fresh. And *the former* / *the latter* index into the **original** pair in the order it was first listed: *former* is the item named first, *latter* the second, no matter which one the follow-up sentence happens to discuss first. Passages exploit exactly that reversal.",
   },
   {
-    type: 'tip',
+    type: 'aside',
+    kind: 'note',
     content: "**Test a referent by substitution.** Swap your restated idea in for *this discrepancy* and reread the sentence. Still makes sense? The referent holds. Turns strange? The phrase was pointing somewhere else.",
   },
   {
@@ -239,7 +245,13 @@ export const centralIdeasBlocks = [
   },
 
   {
-    type: 'text',
-    content: "**The whole skill in three checks:** find the point (the topic plus its *so what*), expect the credited answer to paraphrase it, and cut any choice that echoes exact wording, adds an unstated claim, or leans on memory instead of the sentence itself. Everything the later reading chapters add — inference, evidence, comparison — is built on top of this one habit of reading for the point.",
+    type: 'summary',
+    title: 'The whole skill in three checks',
+    points: [
+      '**Find the point** — the topic plus its *so what*, a claim with a verb, not a bare label.',
+      "Expect the credited answer to **paraphrase** the point in new words, not echo the passage's exact phrasing.",
+      'Cut any choice that echoes **exact wording**, adds an unstated claim, or leans on memory instead of the sentence itself.',
+      'Everything the later reading chapters add — inference, evidence, comparison — is built on this one habit of **reading for the point**.',
+    ],
   },
 ];

@@ -8,14 +8,18 @@
  * analogies, no pep talk, no exclamation marks, no emojis, no test-personification.
  * All v3 teaching claims preserved.
  *
+ * COMPOSED MODE (2026-07-18): chapterOpener lede + auto-numbered
+ * sections/examples/figures + aside margin-notes + summary close
+ * (exemplar: bodies/mPercents.js).
+ *
  * Rendered by SectionContent (ContentTabRenderer). Loaded lazily via
  * bodies/index.js — never import this from the chapter index.
  */
 
 export const gCommasBlocks = [
   {
-    type: 'text',
-    content: "Sentence boundaries settled which marks can stand between two complete sentences, and the comma was the notable exclusion — the one mark that can't hold that position alone. Inside the sentence, though, the comma has real jobs of its own, and nearly every comma question reduces to one distinction: is the phrase extra information, or identifying information? **Extra information takes commas; identifying information takes none.**",
+    type: 'chapterOpener',
+    lede: "Sentence boundaries settled which marks can stand between two complete sentences, and the comma was the notable exclusion — the one mark that can't hold that position alone. Inside the sentence, though, the comma has real jobs of its own, and nearly every comma question reduces to one distinction: is the phrase extra information, or identifying information? **Extra information takes commas; identifying information takes none.**",
   },
   {
     type: 'text',
@@ -55,7 +59,8 @@ export const gCommasBlocks = [
     content: "One pair of words carries this distinction on its surface. A clause beginning with *that* is **always** essential — *the report that changed everything* — so a comma never comes before *that*. Commas around a *which* or *who* clause mark it as extra, incidental information: *the report, which changed everything, ...*. Read those two versions side by side, because the words inside the clauses are identical; the commas alone decide which claim the sentence makes.",
   },
   {
-    type: 'tip',
+    type: 'aside',
+    kind: 'remember',
     content: "An answer choice containing *, that* can be eliminated on sight — no rereading of the rest of the sentence required.",
   },
 
@@ -101,7 +106,8 @@ export const gCommasBlocks = [
     ],
   },
   {
-    type: 'callout',
+    type: 'aside',
+    kind: 'watch',
     content: "One placement is never correct: a comma **never separates a subject from its verb**, however long the subject runs. *The students who studied all week, passed.* is wrong because that comma serves no nameable function — and long subjects are where the error thrives, because by the time you finally reach the verb, the sentence feels overdue for a pause. The convention doesn't permit one.",
   },
 
@@ -242,7 +248,13 @@ export const gCommasBlocks = [
   },
 
   {
-    type: 'text',
-    content: "**The whole skill in three checks:** cover the phrase and reread — extra information takes commas, identifying information takes none; an interruption closes with the same mark that opened it; and a comma with no nameable function gets deleted. Each check replaces the pause-by-ear habit with a reason you can point to, and a reason you can point to is the only kind these questions credit.",
+    type: 'summary',
+    title: 'The whole skill in three checks',
+    points: [
+      'Cover the phrase and reread: **extra information takes commas**, identifying information takes none.',
+      'An interruption closes with the **same mark that opened it** — never a comma paired with a dash.',
+      'A comma survives only with a **nameable function**; one that serves none gets deleted.',
+      'Two placements are never legal — no comma before **that**, and none between a subject and its verb.',
+    ],
   },
 ];
