@@ -1,8 +1,11 @@
 # Extraction Manifest — book → chapter → page map
 
-Rendered page images live in the session scratchpad:
-`/private/tmp/claude-501/-Users-hareshbhatia/730d3115-ce36-4b1c-9503-18b5a8c5386e/scratchpad/books/pages/<book>/pNNNN.jpg`
-(re-render from the Desktop PDFs with PyMuPDF at 150 DPI / JPEG q80 if the scratchpad is gone).
+Rendered page images are session-scratchpad artifacts (gone once the session's scratchpad is
+cleaned). Re-render with PyMuPDF at 150 DPI / JPEG q80. As of 2026-07-18 the four source PDFs
+are no longer on the Desktop — they sit in the iCloud Trash
+(`~/Library/Mobile Documents/.Trash/`), so rescue them to a durable location before they're
+purged. JPG page numbering equals PDF page numbering (verified: page counts 175/218/425/212
+match the tables below).
 
 Status legend: [ ] pending, [~] extracting, [x] raw notes done
 
