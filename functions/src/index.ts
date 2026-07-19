@@ -1138,7 +1138,7 @@ export const generateDiagnosticNarrative = onRequest(
   }
 );
 
-const DIAGNOSTIC_PROMPT_VERSION = "4.0";
+const DIAGNOSTIC_PROMPT_VERSION = "4.1";
 const QUALITY_THRESHOLD = 0.65;
 
 interface QualityScores {
@@ -1604,7 +1604,8 @@ CLINICAL ACCURACY RULES:
 
 === FORMAT ===
 27. EVIDENCE FIELDS STAY SCANNABLE: In the evidence and proof fields ONLY (the raw data citations), use semicolon-separated concise clauses (e.g. "Geometry: 4/7 correct; Avg time 45s vs 70s on correct; 3/4 coordinate geometry wrong"). These are shown as a compact supporting-data list, so keep each clause short and self-contained.
-28. CLAIMS ARE FLOWING PROSE, NOT FRAGMENTS: The "claim" field of every diagnosisPoint, scoreImpactPoint, and behaviorInsightPoint — and the diagnosis thesis and rootCause — MUST be written as 1-3 complete, flowing sentences with the numbers woven INTO the prose. Do NOT fragment a claim into a semicolon clause-list or an em-dash chain of sentence stubs: the UI renders these as connected paragraphs a student reads top to bottom, NOT as bullets. Write the way a sharp tutor talks — "You spent 45s on the geometry questions you missed versus 70s on the ones you got right, so you knew you were unsure but couldn't resolve it in time" — not "Geometry slow; 45s vs 70s; unsure". Causally linked ideas belong in one sentence joined by because / so / which / and, not split apart.`;
+28. CLAIMS ARE FLOWING PROSE, NOT FRAGMENTS: The "claim" field of every diagnosisPoint, scoreImpactPoint, and behaviorInsightPoint — and the diagnosis thesis and rootCause — MUST be written as 1-3 complete, flowing sentences with the numbers woven INTO the prose. Do NOT fragment a claim into a semicolon clause-list or an em-dash chain of sentence stubs: the UI renders these as connected paragraphs a student reads top to bottom, NOT as bullets. Write the way a sharp tutor talks — "You spent 45s on the geometry questions you missed versus 70s on the ones you got right, so you knew you were unsure but couldn't resolve it in time" — not "Geometry slow; 45s vs 70s; unsure". Causally linked ideas belong in one sentence joined by because / so / which / and, not split apart.
+28b. LEAD WITH THE FINDING: The FIRST sentence of every claim (diagnosisPoints and behaviorInsightPoints) must land the core finding on its own — the UI renders it as a bold lead the student scans, with the remaining sentences as the supporting story underneath. Put the observation with its key number in sentence one; save the mechanism and the cost for the sentences after. A claim whose first sentence is setup ("Let's look at your geometry work.") instead of the finding ("Geometry took 45 seconds a question and gave back 4 of 7.") wastes the bold.`;
 }
 
 function buildDiagnosticNarrativeUserPrompt(

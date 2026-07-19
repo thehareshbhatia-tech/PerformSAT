@@ -20,7 +20,52 @@ import {
 } from '../services/scoring';
 import { getDomainInfo } from '../data/skillTaxonomy';
 import { buildDomainSkillTable } from '../services/selectors/domainSkillTable';
+import { buildScannable, emphasizeNumbers } from '../services/scoring/scannableProse';
 import QuestionInsightCard from './QuestionInsightCard';
+
+/**
+ * Render one paragraph of prose with its numeric phrases bolded — the
+ * deciding words of a diagnosis pop without breaking the sentence.
+ */
+function EmphasizedProse({ text }) {
+  const segs = emphasizeNumbers(text);
+  if (segs.length === 0) return null;
+  return segs.map((s, i) => s.bold
+    ? <strong key={i} style={{ fontWeight: 700, color: 'var(--color-slate-900)' }}><MathText>{s.text}</MathText></strong>
+    : <MathText key={i}>{s.text}</MathText>);
+}
+
+/**
+ * Scannable finding: the first sentence renders as a bold lead the eye can
+ * catch, the remaining sentences follow as short paragraphs with numbers
+ * bolded inline. Same words, scannable shape (2026-07-19 layout ruling —
+ * the diagnosis follows the tutor's TUTOR_LAYOUT, never book paragraphs).
+ */
+function ScannableProse({ text, leadSize = '1.0625rem', bodySize = '1rem' }) {
+  const s = buildScannable(text);
+  if (!s) return null;
+  return (
+    <div>
+      {s.lead && (
+        <p style={{
+          fontFamily: 'var(--font-ui)', fontSize: leadSize, fontWeight: 650,
+          color: 'var(--color-brand-navy)', lineHeight: '1.55', margin: 0,
+        }}>
+          <MathText>{s.lead}</MathText>
+        </p>
+      )}
+      {s.rest.map((para, i) => (
+        <p key={i} style={{
+          fontFamily: 'var(--font-ui)', fontSize: bodySize, fontWeight: 400,
+          color: 'var(--color-slate-700)', lineHeight: '1.65',
+          margin: 0, marginTop: (i === 0 && !s.lead) ? 0 : i === 0 ? '8px' : '10px',
+        }}>
+          <EmphasizedProse text={para} />
+        </p>
+      ))}
+    </div>
+  );
+}
 
 /**
  * Resolve the scores to DISPLAY on the results screen. Prefers the authoritative
@@ -1445,24 +1490,44 @@ const TestResults = ({
               borderRadius: '16px',
               padding: '28px 32px',
             }}>
-              {nar.thesis && (
-                <p style={{
-                  fontFamily: 'var(--font-ui)', fontSize: '1.3125rem', fontWeight: '600',
-                  color: 'var(--color-brand-navy)', lineHeight: '1.45', letterSpacing: '-0.01em',
-                  margin: 0, marginBottom: nar.paragraphs.length > 0 ? '18px' : 0,
-                }}>
-                  <MathText>{nar.thesis}</MathText>
-                </p>
-              )}
-              {nar.paragraphs.map((p, i) => (
-                <p key={i} style={{
-                  fontFamily: 'var(--font-ui)', fontSize: '1.0625rem', fontWeight: '400',
-                  color: 'var(--color-slate-700)', lineHeight: '1.7',
-                  margin: 0, marginTop: i === 0 ? 0 : '14px',
-                }}>
-                  <MathText>{p.text}</MathText>
-                </p>
-              ))}
+              {nar.thesis && (() => {
+                // The thesis headline is sentence ONE only — a multi-sentence
+                // thesis rendered entirely bold at headline size is exactly
+                // the wall the scannable ruling bans. Later sentences drop
+                // into body weight with their numbers bolded.
+                const t = buildScannable(nar.thesis) || { lead: nar.thesis, rest: [] };
+                const hasBody = t.rest.length > 0 || nar.paragraphs.length > 0;
+                return (
+                  <>
+                    {t.lead && (
+                    <p style={{
+                      fontFamily: 'var(--font-ui)', fontSize: '1.3125rem', fontWeight: '600',
+                      color: 'var(--color-brand-navy)', lineHeight: '1.45', letterSpacing: '-0.01em',
+                      margin: 0, marginBottom: hasBody ? '14px' : 0,
+                    }}>
+                      <MathText>{t.lead}</MathText>
+                    </p>
+                    )}
+                    {t.rest.map((para, i) => (
+                      <p key={i} style={{
+                        fontFamily: 'var(--font-ui)', fontSize: '1.0625rem', fontWeight: '400',
+                        color: 'var(--color-slate-700)', lineHeight: '1.65',
+                        margin: 0, marginBottom: (i === t.rest.length - 1 && nar.paragraphs.length > 0) ? '18px' : '10px',
+                      }}>
+                        <EmphasizedProse text={para} />
+                      </p>
+                    ))}
+                  </>
+                );
+              })()}
+              {/* Each finding renders scannable: bold lead sentence, short
+                  follow-up paragraphs, numbers bolded inline — never a
+                  book-paragraph wall (2026-07-19 layout ruling). */}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '22px' }}>
+                {nar.paragraphs.map((p, i) => (
+                  <ScannableProse key={i} text={p.text} />
+                ))}
+              </div>
               {nar.closingCause && (
                 <div style={{ marginTop: '20px', paddingTop: '18px', borderTop: '1px solid var(--color-slate-200)' }}>
                   <div style={{ fontFamily: 'var(--font-ui)', fontSize: '11px', fontWeight: '800', letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--color-slate-500)', marginBottom: '6px' }}>The bottom line</div>
@@ -1490,14 +1555,7 @@ const TestResults = ({
               const text = typeof rawPt === 'string' ? rawPt : rawPt.text;
               if (!text || text.trim() === '') return null;
               if (scoreRestateRe.test(text.trim())) return null;
-              return (
-                <p key={i} style={{
-                  fontFamily: 'var(--font-ui)', fontSize: '1.0625rem', fontWeight: '400',
-                  color: 'var(--color-slate-700)', lineHeight: '1.7', margin: 0,
-                }}>
-                  <MathText>{text}</MathText>
-                </p>
-              );
+              return <ScannableProse key={i} text={text} />;
             })}
           </div>
         );
@@ -1565,9 +1623,7 @@ const TestResults = ({
                   borderRadius: '16px',
                   padding: '24px 32px',
                 }}>
-                  <p style={{ fontFamily: 'var(--font-ui)', fontSize: '1.0625rem', color: 'var(--color-slate-700)', lineHeight: '1.7', fontWeight: '400', margin: 0 }}>
-                    <MathText>{cleanedClaim}</MathText>
-                  </p>
+                  <ScannableProse text={cleanedClaim} />
                 </div>
               );
             })}
@@ -2069,9 +2125,7 @@ const TestResults = ({
               borderRadius: '16px',
               padding: '24px 32px',
             }}>
-              <p style={{ fontFamily: 'var(--font-ui)', fontSize: '1.0625rem', color: 'var(--color-slate-700)', lineHeight: '1.7', margin: 0 }}>
-                <MathText>{uni.changesSinceLast}</MathText>
-              </p>
+              <ScannableProse text={uni.changesSinceLast} />
             </div>
           </div>
         )}
