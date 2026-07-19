@@ -246,32 +246,18 @@ export const generateStudyPlan = (diagnostic, userProfile = {}, completedLessons
     isFirstPlan
   );
 
-  // ═══ Generate milestones ═══
-  // Milestones interpolate current→target, so they only make sense on the
-  // gap basis's single scale; without one, anchor on the headline score
-  // with a modest default climb.
-  const milestoneBasis = gapBasis || { current: currentScore, target: currentScore + 80, label: '' };
-  const milestones = generateMilestones(weeklyPlan, milestoneBasis.current, milestoneBasis.target, effectiveWeeks);
-
   // ═══ Generate the executive summary ═══
   const summary = generatePlanSummary(
     diagnostic, weeklyPlan, intensity, effectiveWeeks,
     daysUntilTest, currentScore, targetScore, skillGaps, gapBasis
   );
 
-  // Generate spaced repetition schedule for mastered-but-weak skills
-  const spacedRepetitionSchedule = generateSpacedRepetition(skillGaps, effectiveWeeks);
-
-  // Generate daily micro-goals for engagement
-  const microGoals = generateMicroGoals(diagnostic, skillGaps, effectiveWeeks);
-
-  // Calculate plan adherence metrics (for returning students).
-  // Runs on the gap basis's single scale with a scale-correct ceiling — the
-  // old hardcoded 800 cap clamped every composite projection.
-  const adherenceProjection = calculateAdherenceProjection(
-    weeklyPlan, milestoneBasis.current, milestoneBasis.target, effectiveWeeks,
-    milestoneBasis.target > 800 || milestoneBasis.current > 800 ? 1600 : 800
-  );
+  // NOTE (2026-07-19): milestones, spacedRepetitionSchedule, microGoals, and
+  // adherenceProjection were generated + persisted here for months with zero
+  // consumers anywhere in the UI — pure artifact bloat, and their numbers were
+  // invented interpolation curves that contradicted predictionEngine. If a
+  // milestone/adherence surface ever ships, ground it in predictionEngine
+  // instead of resurrecting those generators (see git history).
 
   const nextAction = deriveSignalAwareNextAction(weeklyPlan, diagnostic);
 
@@ -348,7 +334,6 @@ export const generateStudyPlan = (diagnostic, userProfile = {}, completedLessons
   return {
     // Core plan data
     weeks: weeklyPlan,
-    milestones,
     summary,
     nextAction,
 
@@ -363,11 +348,6 @@ export const generateStudyPlan = (diagnostic, userProfile = {}, completedLessons
     targetedQuestionIds,
     practiceAssignments,
     assignmentSummary,
-
-    // Advanced features
-    spacedRepetitionSchedule,
-    microGoals,
-    adherenceProjection,
 
     // Metadata
     intensity,
@@ -934,71 +914,6 @@ const distributeAcrossWeeks = (activities, strategyActivities, totalWeeks, minut
 };
 
 // ═══════════════════════════════════════════════════════════════════════════
-// MILESTONES
-// ═══════════════════════════════════════════════════════════════════════════
-
-/**
- * Generate milestones — checkpoints where the student should see measurable progress.
- */
-const generateMilestones = (weeklyPlan, currentScore, targetScore, totalWeeks) => {
-  const milestones = [];
-  const scorePerWeek = totalWeeks > 0 ? (targetScore - currentScore) / totalWeeks : 0;
-
-  // Milestone 1: After first week (quick wins)
-  milestones.push({
-    weekNumber: 1,
-    title: 'Foundation Set',
-    description: 'Review your test mistakes and start addressing your biggest gaps',
-    targetScore: Math.round(currentScore + scorePerWeek * 0.5),
-    type: 'checkpoint',
-  });
-
-  // Milestone 2: First practice test (usually week 3)
-  const firstTestWeek = weeklyPlan.find(w => w.isTestWeek && w.weekNumber > 1);
-  if (firstTestWeek) {
-    milestones.push({
-      weekNumber: firstTestWeek.weekNumber,
-      title: 'First Progress Check',
-      description: 'Take a practice test to measure improvement',
-      targetScore: Math.round(currentScore + scorePerWeek * firstTestWeek.weekNumber * 0.7),
-      type: 'test',
-    });
-  }
-
-  // Milestone 3: Midpoint
-  const midWeek = Math.ceil(totalWeeks / 2);
-  milestones.push({
-    weekNumber: midWeek,
-    title: 'Halfway There',
-    description: 'By now you should have addressed your biggest weaknesses',
-    targetScore: Math.round(currentScore + (targetScore - currentScore) * 0.5),
-    type: 'checkpoint',
-  });
-
-  // Milestone 4: Final push
-  if (totalWeeks > 3) {
-    milestones.push({
-      weekNumber: totalWeeks - 1,
-      title: 'Final Review',
-      description: 'Polish your skills and focus on test strategy',
-      targetScore: Math.round(targetScore - 10),
-      type: 'checkpoint',
-    });
-  }
-
-  // Milestone 5: Test day
-  milestones.push({
-    weekNumber: totalWeeks,
-    title: 'Test Ready',
-    description: 'You should be hitting your target score consistently',
-    targetScore: targetScore,
-    type: 'goal',
-  });
-
-  return milestones;
-};
-
-// ═══════════════════════════════════════════════════════════════════════════
 // SUMMARY & MESSAGING
 // ═══════════════════════════════════════════════════════════════════════════
 
@@ -1437,232 +1352,6 @@ const generateComparisonMessage = (scoreChange, improved, worsened) => {
     return `Score dipped ${Math.abs(scoreChange)} points — ${worsened[0].name} drove the slide. The plan adds reps there.`;
   }
   return `Score dropped ${Math.abs(scoreChange)} points. One test is noise, not a verdict — the plan refocuses on what this one revealed.`;
-};
-
-// ═══════════════════════════════════════════════════════════════════════════
-// SPACED REPETITION SCHEDULER
-// ═══════════════════════════════════════════════════════════════════════════
-
-/**
- * Generates a spaced repetition schedule based on the Ebbinghaus forgetting curve.
- * Skills are reviewed at increasing intervals: 1 day, 3 days, 7 days, 14 days.
- * This ensures students don't forget previously learned material.
- */
-const generateSpacedRepetition = (skillGaps, totalWeeks) => {
-  const schedule = [];
-
-  // Only schedule repetition for skills with some mastery (30-80%)
-  // Pure conceptual gaps need learning first, not repetition
-  const reviewableSkills = skillGaps.filter(g =>
-    g.testAccuracy >= 20 && g.testAccuracy < 85
-  ).slice(0, 10); // Cap at 10 skills to keep manageable
-
-  reviewableSkills.forEach((gap, idx) => {
-    const urgency = gap.priority > 150 ? 'high' : gap.priority > 100 ? 'medium' : 'low';
-
-    // Determine review intervals based on current mastery
-    let intervals;
-    if (gap.testAccuracy < 40) {
-      // Weak: review more frequently
-      intervals = [1, 3, 7, 14, 21];
-    } else if (gap.testAccuracy < 60) {
-      // Moderate: standard spacing
-      intervals = [2, 5, 12, 21];
-    } else {
-      // Stronger: wider spacing
-      intervals = [3, 10, 21];
-    }
-
-    // Cap intervals to available weeks
-    const maxDays = totalWeeks * 7;
-    const validIntervals = intervals.filter(d => d <= maxDays);
-
-    schedule.push({
-      skillId: gap.skillId,
-      skillName: gap.skillName,
-      currentMastery: gap.testAccuracy,
-      urgency,
-      reviewDays: validIntervals,
-      reviewCount: validIntervals.length,
-      nextReviewDay: validIntervals[0] || 1,
-      estimatedRetention: Math.round(gap.testAccuracy + (100 - gap.testAccuracy) * 0.6),
-    });
-  });
-
-  return {
-    skills: schedule,
-    totalReviews: schedule.reduce((s, sk) => s + sk.reviewCount, 0),
-    message: schedule.length > 0
-      ? `${schedule.length} skills scheduled for spaced review to lock in your gains`
-      : 'No spaced repetition needed yet — focus on learning new material first',
-  };
-};
-
-// ═══════════════════════════════════════════════════════════════════════════
-// MICRO-GOALS — Daily bite-sized objectives for engagement
-// ═══════════════════════════════════════════════════════════════════════════
-
-/**
- * Generates daily micro-goals — quick 3-5 minute activities
- * that keep students engaged even on busy days.
- * Research shows small daily commitments build habits better than
- * big weekly sessions.
- */
-const generateMicroGoals = (diagnostic, skillGaps, totalWeeks) => {
-  const goals = [];
-  const { errorPatterns, domainAnalysis, difficultyAnalysis } = diagnostic;
-
-  // Pool of micro-goal templates
-  const templates = [
-    {
-      condition: () => errorPatterns?.summary?.find(s => s.type === 'CARELESS_ERROR' && s.count >= 1),
-      goals: [
-        { title: 'Slow Down Challenge', description: 'Solve 3 easy questions but spend at least 90 seconds on each. Check every step.', duration: 5, category: 'precision', icon: null },
-        { title: 'Double-Check Drill', description: 'After solving each problem, re-read the question before submitting. Do 5 problems.', duration: 5, category: 'precision', icon: null },
-      ]
-    },
-    {
-      condition: () => errorPatterns?.summary?.find(s => s.type === 'TRAP_SUSCEPTIBILITY' && s.count >= 1),
-      goals: [
-        { title: 'Trap Spotter', description: 'Look at 5 wrong answer choices and predict which trap each one sets. Check explanations.', duration: 5, category: 'strategy', icon: null },
-        { title: 'Eliminate First', description: 'Before solving, cross out 2 obviously wrong answers first. Do 5 problems this way.', duration: 5, category: 'strategy', icon: null },
-      ]
-    },
-    {
-      condition: () => errorPatterns?.summary?.find(s => s.type === 'TIME_PRESSURE' && s.count >= 1),
-      goals: [
-        { title: 'Speed Round', description: 'Set a 5-minute timer and solve as many easy questions as you can. Beat your record!', duration: 5, category: 'speed', icon: null },
-        { title: 'Quick Scan', description: 'Practice reading a word problem and identifying what formula/approach to use within 15 seconds. Do 10 problems.', duration: 5, category: 'speed', icon: null },
-      ]
-    },
-    {
-      condition: () => true, // Always available
-      goals: [
-        { title: 'Error Journal', description: 'Review 3 questions you got wrong. For each, write one sentence about what went wrong.', duration: 3, category: 'reflection', icon: null },
-        { title: 'Mental Math Warm-Up', description: 'Do 10 arithmetic problems in your head: fractions, percents, squares. No calculator.', duration: 3, category: 'fundamentals', icon: null },
-        { title: 'Formula Flash', description: 'Write down 5 key formulas from memory, then check if you got them right.', duration: 3, category: 'memory', icon: null },
-      ]
-    },
-    {
-      // R&W warm-ups join the rotation when the diagnosis has R&W gaps.
-      condition: () => skillGaps.some(g => g.section === 'rw'),
-      goals: [
-        { title: 'Words in Context Warm-Up', description: 'Read 3 sentences with a blank or hard word and predict the meaning from context before checking.', duration: 3, category: 'fundamentals', icon: null },
-        { title: 'Transition Check', description: 'Find 3 transition words in anything you read today and name the relationship each one signals.', duration: 3, category: 'fundamentals', icon: null },
-      ]
-    },
-  ];
-
-  // Collect applicable goals
-  templates.forEach(t => {
-    if (t.condition()) {
-      goals.push(...t.goals);
-    }
-  });
-
-  // Add skill-specific micro-goals
-  const topGaps = skillGaps.slice(0, 3);
-  topGaps.forEach(gap => {
-    goals.push({
-      title: `Quick Practice: ${gap.skillName}`,
-      description: `Solve 3 questions on ${gap.skillName}. Focus on understanding, not speed.`,
-      duration: 5,
-      category: 'practice',
-      icon: null,
-      skillId: gap.skillId,
-    });
-  });
-
-  // Distribute across days of the week
-  const dailyGoals = [];
-  const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-  const goalsPerDay = 1;
-
-  for (let week = 0; week < Math.min(totalWeeks, 4); week++) {
-    daysOfWeek.forEach((day, dayIdx) => {
-      const goalIdx = (week * 7 + dayIdx) % goals.length;
-      dailyGoals.push({
-        ...goals[goalIdx],
-        week: week + 1,
-        day,
-        dayOfWeek: dayIdx,
-      });
-    });
-  }
-
-  return {
-    goals: dailyGoals,
-    uniqueGoalCount: goals.length,
-    totalDays: dailyGoals.length,
-    message: 'Complete one micro-goal each day — even 3 minutes helps build your SAT muscle!',
-  };
-};
-
-// ═══════════════════════════════════════════════════════════════════════════
-// ADHERENCE PROJECTION
-// ═══════════════════════════════════════════════════════════════════════════
-
-/**
- * Projects outcomes based on different adherence levels.
- * Shows students: "If you do 100% of the plan → X score,
- * if you do 75% → Y score, if you do 50% → Z score"
- */
-const calculateAdherenceProjection = (weeklyPlan, currentScore, targetScore, totalWeeks, scoreCeiling = 800) => {
-  const scoreGap = targetScore - currentScore;
-  const totalActivities = weeklyPlan.reduce((s, w) =>
-    s + w.activities.length, 0
-  );
-
-  // Model: score improvement is roughly proportional to activities completed
-  // with diminishing returns at high adherence (logarithmic)
-  const projectScore = (adherencePct) => {
-    const fraction = adherencePct / 100;
-    // Diminishing returns: first 50% of activities give 65% of gains
-    const effectiveFraction = Math.pow(fraction, 0.85);
-    const projectedGain = Math.round(scoreGap * effectiveFraction);
-    // Ceiling matches the basis scale (1600 composite / 800 section) —
-    // the old hardcoded 800 clamped every composite projection.
-    return Math.min(scoreCeiling, currentScore + projectedGain);
-  };
-
-  return {
-    scenarios: [
-      {
-        label: 'Full Commitment',
-        adherence: 100,
-        activitiesPerWeek: Math.round(totalActivities / Math.max(1, totalWeeks)),
-        projectedScore: projectScore(100),
-        emoji: null,
-        description: 'Complete every activity in the plan',
-      },
-      {
-        label: 'Strong Effort',
-        adherence: 75,
-        activitiesPerWeek: Math.round((totalActivities * 0.75) / Math.max(1, totalWeeks)),
-        projectedScore: projectScore(75),
-        emoji: null,
-        description: 'Complete most activities, skip some practice sets',
-      },
-      {
-        label: 'Moderate',
-        adherence: 50,
-        activitiesPerWeek: Math.round((totalActivities * 0.5) / Math.max(1, totalWeeks)),
-        projectedScore: projectScore(50),
-        emoji: null,
-        description: 'Complete about half the activities',
-      },
-      {
-        label: 'Light',
-        adherence: 25,
-        activitiesPerWeek: Math.round((totalActivities * 0.25) / Math.max(1, totalWeeks)),
-        projectedScore: projectScore(25),
-        emoji: null,
-        description: 'Minimal effort — a few activities per week',
-      },
-    ],
-    totalActivities,
-    message: `Your plan has ${totalActivities} activities across ${totalWeeks} weeks. The more you complete, the higher your score.`,
-  };
 };
 
 // ═══════════════════════════════════════════════════════════════════════════

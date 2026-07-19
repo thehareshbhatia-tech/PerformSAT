@@ -118,18 +118,3 @@ describe('generateStudyPlan — scale-guarded score gap', () => {
   });
 });
 
-describe('generateStudyPlan — strategy/micro-goal copy follows the section mix', () => {
-  test('R&W gaps add R&W warm-ups to the micro-goal rotation', () => {
-    const plan = generateStudyPlan(mkDiag(), { targetScore: 750 });
-    const titles = (plan.microGoals?.goals || []).map(g => g.title);
-    expect(titles).toContain('Words in Context Warm-Up');
-  });
-
-  test('math-only diagnosis keeps the math-only rotation', () => {
-    const diag = mkDiag();
-    diag.skillAnalysis.weakSkills = diag.skillAnalysis.weakSkills.filter(s => s.section !== 'rw');
-    const plan = generateStudyPlan(diag, { targetScore: 750 });
-    const titles = (plan.microGoals?.goals || []).map(g => g.title);
-    expect(titles).not.toContain('Words in Context Warm-Up');
-  });
-});
