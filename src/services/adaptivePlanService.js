@@ -177,7 +177,7 @@ export const reprioritizePlan = (
     }
   });
 
-  const longitudinal = buildLongitudinalEvidence(practiceTestResults);
+  const longitudinal = buildLongitudinalEvidence(practiceTestResults, skillProgress);
 
   const classifiedGaps = (currentPlan.skillGaps || []).map(gap => {
     const delta = classifySkillDelta(gap.skillId, planBaseline, mergedAccuracy);

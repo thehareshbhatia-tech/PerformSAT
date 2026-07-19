@@ -179,6 +179,24 @@ const ERROR_TYPES = {
   UNANSWERED: 'unanswered',
 };
 
+// How much a miss of each error class counts toward flagging a CONCEPT gap
+// (analyzeSkills.gapEvidence). Careless/rushed misses are real problems but
+// not knowledge problems — they route to precision/pacing strategy work, not
+// multi-week skill rebuilds.
+const GAP_ERROR_WEIGHT = {
+  [ERROR_TYPES.CONCEPTUAL_GAP]: 1.0,
+  [ERROR_TYPES.PROCEDURAL_ERROR]: 1.0,
+  [ERROR_TYPES.TRAP_SUSCEPTIBILITY]: 0.7,
+  [ERROR_TYPES.CARELESS_ERROR]: 0.35,
+  [ERROR_TYPES.TIME_PRESSURE]: 0.25,
+  [ERROR_TYPES.UNANSWERED]: 0,
+};
+
+// Missing an EASY item is stronger evidence of a real gap than missing a hard
+// one — this also softens the adaptive-route pooling problem (easy-route M2
+// students meet easier items; their misses on them still register fully).
+const GAP_DIFFICULTY_WEIGHT = { easy: 1.25, medium: 1.0, hard: 0.75 };
+
 // Human-readable labels for error types
 const ERROR_TYPE_LABELS = {
   [ERROR_TYPES.CONCEPTUAL_GAP]: 'Conceptual Gap',
@@ -1065,6 +1083,8 @@ const analyzeSkills = (questionAnalysis, skillProgress = {}) => {
           section: isRW ? 'rw' : 'math',
           correct: 0,
           total: 0,
+          blanks: 0,
+          gapEvidence: 0,
           errorTypes: [],
           // Drill-routing: collects distinct SAT Patterns for wrong items
           // attributable to this skill. Feeds Tier 1 of the cascade in
@@ -1078,10 +1098,34 @@ const analyzeSkills = (questionAnalysis, skillProgress = {}) => {
         };
       }
       skillMap[skillId].total++;
+      // A blank is a pacing/coverage fact, not knowledge evidence — track it
+      // separately so a student who ran out of time doesn't get end-of-module
+      // skills flagged as concept gaps. Detected off the answer itself (the
+      // TIME_PRESSURE/UNANSWERED error split can't distinguish a blank from a
+      // rushed wrong pick).
+      const isBlank = q.userAnswer === undefined || q.userAnswer === null || q.userAnswer === '';
+      if (isBlank && !q.isCorrect) skillMap[skillId].blanks++;
       if (q.isCorrect) {
         skillMap[skillId].correct++;
       } else {
         skillMap[skillId].errorTypes.push(q.errorType);
+        // Weighted "is this a real knowledge gap?" evidence. A careless slip
+        // or rushed miss is weak evidence of a concept gap (it feeds the
+        // strategy/precision activities instead); a missed EASY item is
+        // stronger evidence than a missed hard one. Legacy/unknown error
+        // types weight 1.0 so old snapshots keep the old behavior.
+        if (!isBlank) {
+          // TIME_PRESSURE with no recorded timing means ABSENT telemetry
+          // (classifyError reads timeSpent 0 as "rushed"), not real rushing —
+          // weight it as an ordinary miss so telemetry-less snapshots (legacy
+          // attempts, seeded tests) don't have their gap evidence discounted.
+          const timingIsReal = (q.timeSpent || 0) > 0;
+          const errW = (q.errorType === ERROR_TYPES.TIME_PRESSURE && !timingIsReal)
+            ? 1.0
+            : (GAP_ERROR_WEIGHT[q.errorType] ?? 1.0);
+          const diffW = GAP_DIFFICULTY_WEIGHT[q.difficulty] ?? 1.0;
+          skillMap[skillId].gapEvidence += errW * diffW;
+        }
         // Only wrong items contribute to missedPatterns. Items lacking
         // a parseable SAT Pattern (satPattern === null) are skipped —
         // they participate in Tier 3 (skill) fallback only.
@@ -1095,19 +1139,32 @@ const analyzeSkills = (questionAnalysis, skillProgress = {}) => {
   // Calculate accuracies and sort by weakness
   const skills = Object.values(skillMap).map(s => {
     const { missedPatternsSet, ...rest } = s;
+    const attempted = s.total - s.blanks;
+    const attemptedAccuracy = attempted > 0 ? s.correct / attempted : 0;
     return {
       ...rest,
       missedPatterns: [...missedPatternsSet],
       testAccuracy: s.total > 0 ? Math.round((s.correct / s.total) * 100) : 0,
-      // Require >=2 attempts so a single 0/1 miss doesn't flag a skill weak
-      // and poison the whole study plan with first-diagnostic noise. (1.7)
-      isWeak: s.total >= 2 && (s.correct / s.total) < 0.5,
-      isStrong: s.total > 0 && (s.correct / s.total) >= 0.8,
+      // Blank-excluded accuracy — the honest knowledge signal. testAccuracy
+      // (all-items basis) is kept for display continuity.
+      contentAccuracy: Math.round(attemptedAccuracy * 100),
+      attempted,
+      // Weak = the student ACTUALLY ATTEMPTED it at least twice, got under
+      // half right, AND the misses carry at least ~one real-gap-equivalent of
+      // weighted evidence (two purely-careless slips: 2×0.35 = 0.7 → not a
+      // concept focus area; they surface through the strategy activities).
+      isWeak: attempted >= 2 && attemptedAccuracy < 0.5 && s.gapEvidence >= 0.9,
+      // Strong now requires n>=2 — one lucky correct answer used to mark a
+      // skill a "strength" and feed the strength-focus assignments.
+      isStrong: attempted >= 2 && attemptedAccuracy >= 0.8,
+      // Sample-size honesty flag consumed by the study plan: 'suspected'
+      // weaknesses get probe-sized time, not multi-week commitments.
+      evidenceLevel: attempted >= 4 ? 'confirmed' : 'suspected',
       primaryErrorType: getMostCommonErrorType(s.errorTypes),
     };
   });
 
-  const weakSkills = skills.filter(s => s.isWeak).sort((a, b) => a.testAccuracy - b.testAccuracy);
+  const weakSkills = skills.filter(s => s.isWeak).sort((a, b) => a.contentAccuracy - b.contentAccuracy);
   const strongSkills = skills.filter(s => s.isStrong).sort((a, b) => b.testAccuracy - a.testAccuracy);
   const allSkills = skills.sort((a, b) => a.testAccuracy - b.testAccuracy);
 

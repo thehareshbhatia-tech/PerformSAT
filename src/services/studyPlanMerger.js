@@ -7,6 +7,7 @@
  */
 
 import { isBlankAttempt } from './selectors/latestTestStats';
+import { getLastTestMs, getRecentDrillStats, DRILL_SIGNAL_MIN_ATTEMPTS } from './selectors/focusAreaProgress';
 
 export const MERGE_VERSION = '1.2';
 
@@ -24,11 +25,30 @@ function normalizeQuestionDetails(raw) {
   return [];
 }
 
+/** Per-test recency decay for weightedAccuracy: latest test 1.0, one back
+ *  0.65, two back 0.42… A skill fixed two tests ago stops dragging on the
+ *  average the way the old undecayed lifetime correct/attempts did. */
+const TEST_RECENCY_DECAY = 0.65;
+
+/** Recent-drill evidence weight relative to the latest test (drills are
+ *  FRESHER than the last test, so at full sample they outweigh it). Scaled by
+ *  sample size: weight = 1.2 × min(attempts, 10)/10. */
+const DRILL_EVIDENCE_WEIGHT = 1.2;
+
+/** Recent drill performance that clears this bar (accuracy ≥ 70 over ≥ 4
+ *  attempts) marks a historically-weak skill RECOVERED: it leaves
+ *  persistentWeaknesses and is reported in recoveredSkills instead. */
+const DRILL_RECOVERY_ACCURACY = 70;
+const DRILL_RECOVERY_MIN_ATTEMPTS = 4;
+
 /**
- * Build longitudinal evidence from all practice test attempts.
+ * Build longitudinal evidence from all practice test attempts, plus (when
+ * provided) drill evidence from skillProgress. Drills previously never moved
+ * a skill's history — a student could drill a gap from 25% to 80% and have
+ * the next plan re-flag it from stale test data.
  * Handles questionDetails stored as either an array or keyed object.
  */
-export const buildLongitudinalEvidence = (practiceTestResults = {}) => {
+export const buildLongitudinalEvidence = (practiceTestResults = {}, skillProgress = null) => {
   const allAttempts = [];
   Object.values(practiceTestResults).forEach(test => {
     (test.attempts || []).forEach(attempt => {
@@ -80,11 +100,96 @@ export const buildLongitudinalEvidence = (practiceTestResults = {}) => {
     });
   });
 
-  const persistentWeaknesses = Object.entries(skillHistory)
-    .filter(([, data]) => data.attempts >= 2 && (data.correct / data.attempts) < 0.5)
+  // ═══ Recency-weighted accuracy per skill ═══
+  // Chronological test order for the decay exponent (allAttempts is already
+  // sorted ascending; first-seen order of testIds = oldest → newest).
+  const testOrder = [];
+  allAttempts.forEach(a => { if (!testOrder.includes(a.testId)) testOrder.push(a.testId); });
+
+  Object.values(skillHistory).forEach(data => {
+    const byTest = new Map();
+    data.appearances.forEach(app => {
+      if (!byTest.has(app.testId)) byTest.set(app.testId, { attempts: 0, correct: 0 });
+      const t = byTest.get(app.testId);
+      t.attempts += 1;
+      if (app.correct) t.correct += 1;
+    });
+    let wSum = 0;
+    let accSum = 0;
+    byTest.forEach((t, testId) => {
+      const idx = testOrder.indexOf(testId);
+      const testsFromLatest = idx === -1 ? testOrder.length : (testOrder.length - 1 - idx);
+      const w = Math.pow(TEST_RECENCY_DECAY, testsFromLatest);
+      wSum += w;
+      accSum += (t.correct / t.attempts) * 100 * w;
+    });
+    data.weightedAccuracy = wSum > 0 ? Math.round(accSum / wSum) : null;
+  });
+
+  // ═══ Fold in drill evidence since the last test ═══
+  // getRecentDrillStats reuses the Focus Area card machinery: skillProgress
+  // history entries stamped after the last full test (+ grace window).
+  if (skillProgress && typeof skillProgress === 'object') {
+    const lastTestMs = getLastTestMs(practiceTestResults);
+    Object.entries(skillProgress).forEach(([skillId, record]) => {
+      const stats = getRecentDrillStats(record, lastTestMs);
+      if (!stats || stats.attempts < DRILL_SIGNAL_MIN_ATTEMPTS) return;
+      if (!skillHistory[skillId]) {
+        skillHistory[skillId] = { attempts: 0, correct: 0, appearances: [], weightedAccuracy: null };
+      }
+      const data = skillHistory[skillId];
+      data.recentDrill = stats;
+      const wDrill = DRILL_EVIDENCE_WEIGHT * Math.min(stats.attempts, 10) / 10;
+      if (data.weightedAccuracy === null) {
+        data.weightedAccuracy = stats.accuracy;
+      } else {
+        // Re-blend: test-weighted average carries total weight ~Σw ≈ 1 for the
+        // latest test alone; approximate by re-weighting the existing figure
+        // at 1.0 against the drill evidence.
+        data.weightedAccuracy = Math.round(
+          (data.weightedAccuracy + stats.accuracy * wDrill) / (1 + wDrill)
+        );
+      }
+    });
+  }
+
+  // ═══ Persistent weaknesses — cross-test, recency-weighted, drill-aware ═══
+  // "Persistent" now means what it says: weak across ≥ 2 DISTINCT tests (a
+  // skill missed twice in one test was previously enough). A skill whose
+  // recent drills clear the recovery bar leaves the list — it is reported in
+  // recoveredSkills so the narrative can credit the work instead of nagging.
+  const hasRecovered = (data) => {
+    const drill = data.recentDrill;
+    return !!drill
+      && drill.attempts >= DRILL_RECOVERY_MIN_ATTEMPTS
+      && drill.accuracy >= DRILL_RECOVERY_ACCURACY;
+  };
+
+  const recoveredSkills = Object.entries(skillHistory)
+    .filter(([, data]) => {
+      if (!hasRecovered(data)) return false;
+      const testAcc = data.attempts > 0 ? (data.correct / data.attempts) * 100 : null;
+      return testAcc !== null && testAcc < 50;
+    })
     .map(([skillId, data]) => ({
       skillId,
-      accuracy: Math.round((data.correct / data.attempts) * 100),
+      testAccuracy: Math.round((data.correct / data.attempts) * 100),
+      drillAccuracy: data.recentDrill.accuracy,
+      drillAttempts: data.recentDrill.attempts,
+    }));
+
+  const persistentWeaknesses = Object.entries(skillHistory)
+    .filter(([, data]) => {
+      if (data.attempts < 2) return false;
+      const acc = data.weightedAccuracy ?? Math.round((data.correct / data.attempts) * 100);
+      if (acc >= 50) return false;
+      const testCount = new Set(data.appearances.map(a => a.testId)).size;
+      if (testCount < 2) return false;
+      return !hasRecovered(data);
+    })
+    .map(([skillId, data]) => ({
+      skillId,
+      accuracy: data.weightedAccuracy ?? Math.round((data.correct / data.attempts) * 100),
       testCount: new Set(data.appearances.map(a => a.testId)).size,
       trend: computeSkillTrend(data.appearances),
     }))
@@ -96,6 +201,7 @@ export const buildLongitudinalEvidence = (practiceTestResults = {}) => {
     scoreTrajectory,
     skillHistory,
     persistentWeaknesses,
+    recoveredSkills,
     latestAttempt: allAttempts[allAttempts.length - 1] || null,
   };
 };

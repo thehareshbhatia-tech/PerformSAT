@@ -398,6 +398,12 @@ const gatherSkillGaps = (diagnostic) => {
       section: skill.section || 'math',
       missedPatterns: skill.missedPatterns || [],
       testAccuracy: skill.testAccuracy,
+      // Blank-excluded accuracy + sample size + honesty tier from
+      // analyzeSkills. 'suspected' (n < 4 attempted) gaps get discounted
+      // priority and probe-sized time instead of multi-week commitments.
+      contentAccuracy: skill.contentAccuracy ?? skill.testAccuracy,
+      attempted: skill.attempted ?? null,
+      evidenceLevel: skill.evidenceLevel || 'suspected',
       historicalMastery: skill.historicalMastery,
       primaryErrorType: skill.primaryErrorType,
       modules: moduleMatches,
@@ -419,6 +425,7 @@ const gatherSkillGaps = (diagnostic) => {
         skillId: action.skillId,
         skillName: action.title.replace('Master: ', ''),
         section: getSkillSection(action.skillId), // actions carry no tag; derive from the R&W taxonomy
+        evidenceLevel: 'suspected', // prioritizedActions carry no attempt counts
         missedPatterns: [],
         modules: action.modules?.map(m => ({ moduleId: m, lessons: [], sections: [] })) || [],
         sections: action.sections || [],
@@ -737,11 +744,18 @@ const distributeAcrossWeeks = (activities, strategyActivities, totalWeeks, minut
       }
     }
 
-    // Check longitudinal skill trends — reduce priority for improving skills
+    // Check longitudinal skill trends — reduce priority for improving skills.
+    // Recent drill evidence (fresher than any test) outranks the recency-
+    // weighted test accuracy: a student who drilled a gap to 70%+ since the
+    // last test shouldn't have the new plan re-prescribe it at full priority.
     if (longitudinal?.skillHistory && act.skillId) {
       const history = longitudinal.skillHistory[act.skillId];
-      if (history && history.attempts >= 3) {
-        const accuracy = history.correct / history.attempts;
+      if (history?.recentDrill && history.recentDrill.accuracy >= 70) {
+        priorityBoost -= 25;
+      } else if (history && history.attempts >= 3) {
+        const accuracy = history.weightedAccuracy != null
+          ? history.weightedAccuracy / 100
+          : history.correct / history.attempts;
         if (accuracy >= 0.7) {
           priorityBoost -= 10; // Reduce priority for skills student is mastering
         }
@@ -1195,10 +1209,18 @@ const calculateGapPriority = (skill, diagnostic) => {
   // Bonus for declining trend
   if (skill.trend === 'declining') priority += 15;
 
+  // Thin evidence (fewer than 4 attempted items behind the flag) — the gap
+  // may be one unlucky test. Discount so confirmed gaps outrank it; its
+  // first activity doubles as the probe that confirms or clears it.
+  if (skill.evidenceLevel === 'suspected') priority *= 0.65;
+
   return priority;
 };
 
 const estimateTimeToFix = (skill) => {
+  // Suspected gaps get a probe, not a rebuild: enough questions to confirm
+  // the gap is real before the next plan commits serious minutes to it.
+  if (skill.evidenceLevel === 'suspected') return 15;
   const errorType = skill.primaryErrorType;
   if (errorType === ERROR_TYPES.CONCEPTUAL_GAP) return 45; // Lessons + practice
   if (errorType === ERROR_TYPES.PROCEDURAL_ERROR) return 30; // Practice focused

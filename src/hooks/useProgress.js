@@ -269,7 +269,7 @@ export const useProgress = (userId) => {
                 // rather than read from the (possibly stale) stored artifact —
                 // so the Score History strip drops a reset test's dot
                 // immediately instead of waiting for the next plan regeneration.
-                setStudyPlanArtifact({ plan: art.plan, delta: art.delta || null, longitudinal: buildLongitudinalEvidence(data.practiceTestResults || {}), version: art.version || null });
+                setStudyPlanArtifact({ plan: art.plan, delta: art.delta || null, longitudinal: buildLongitudinalEvidence(data.practiceTestResults || {}, data.skillProgress || null), version: art.version || null });
                 studyPlanWriteInFlight.current = false;
                 setStudyPlanMeta(prev => ({ ...prev, artifactId: art.id }));
               } else if (incomingPlan?.weeks?.length) {
@@ -323,7 +323,7 @@ export const useProgress = (userId) => {
                 // rather than read from the (possibly stale) stored artifact —
                 // so the Score History strip drops a reset test's dot
                 // immediately instead of waiting for the next plan regeneration.
-                setStudyPlanArtifact({ plan: art.plan, delta: art.delta || null, longitudinal: buildLongitudinalEvidence(data.practiceTestResults || {}), version: art.version || null });
+                setStudyPlanArtifact({ plan: art.plan, delta: art.delta || null, longitudinal: buildLongitudinalEvidence(data.practiceTestResults || {}, data.skillProgress || null), version: art.version || null });
                 studyPlanWriteInFlight.current = false;
                 setStudyPlanMeta(prev => ({ ...prev, artifactId: art.id }));
               } else if (orphan) {

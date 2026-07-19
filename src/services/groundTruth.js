@@ -107,6 +107,11 @@ export function buildGroundTruthDiagnosis(diagReport, rawTelemetry) {
       skill: s.name,
       evidence: `${s.correct}/${s.total} correct, primary error: ${errLabel}${timeNote}${historyNote}${trendNote}`,
       accuracy: s.testAccuracy,
+      // Blank-excluded accuracy + sample-size honesty tier (additive fields;
+      // legacy weaknesses without them read as before via the ?? fallbacks
+      // in consumers).
+      contentAccuracy: s.contentAccuracy ?? s.testAccuracy,
+      evidenceLevel: s.evidenceLevel || 'suspected',
       errorType: errLabel,
       domain: s.domain,
       modules: s.modules || [],

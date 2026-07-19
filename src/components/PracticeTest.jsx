@@ -1204,7 +1204,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
         try {
           const diagReport = diagnosticReportRef.current;
           const groundTruth = buildGroundTruthDiagnosis(diagReport, questionTelemetry.current);
-          const longitudinalEvidence = buildLongitudinalEvidence(practiceTestResults || {});
+          const longitudinalEvidence = buildLongitudinalEvidence(practiceTestResults || {}, skillProgress || null);
           const detPlan = generateDeterministicPlan(
             diagReport,
             { targetScore: user.targetScore, testDate: user.testDate },
@@ -1250,6 +1250,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
                 completedLessons,
                 practiceProgress,
                 practiceTestResults: practiceTestResults || {},
+                skillProgress: skillProgress || null,
                 previousPlan: existingPlan,
                 // Without answeredQuestionIds the Phase-2 plan re-assigns
                 // questions the student already answered (Phase 1 passes it).

@@ -152,13 +152,14 @@ export const generateAndPersistHybridPlan = async ({
   completedLessons = {},
   practiceProgress = {},
   practiceTestResults = {},
+  skillProgress = null,
   previousPlan = null,
   attemptId = null,
   aiArtifactId = null,
   groundTruth = null,
   answeredQuestionIds = [],
 }) => {
-  const longitudinal = buildLongitudinalEvidence(practiceTestResults);
+  const longitudinal = buildLongitudinalEvidence(practiceTestResults, skillProgress);
 
   // Thread longitudinal + answeredQuestionIds through to the deterministic
   // generator. Dropping `longitudinal` here made `testsWithData` always 1,

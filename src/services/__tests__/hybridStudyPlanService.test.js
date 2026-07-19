@@ -142,7 +142,9 @@ describe('buildLongitudinalEvidence', () => {
     expect(evidence.persistentWeaknesses.length).toBeGreaterThanOrEqual(1);
     const slopeWeak = evidence.persistentWeaknesses.find(w => w.skillId === 'slope-intercept-form');
     expect(slopeWeak).toBeTruthy();
-    expect(slopeWeak.accuracy).toBe(25);
+    // Recency-weighted: latest test (1/2 = 50%) at weight 1.0, older test
+    // (0/2 = 0%) at 0.65 → (50 + 0×0.65)/1.65 ≈ 30. Was 25 (lifetime avg).
+    expect(slopeWeak.accuracy).toBe(30);
     expect(slopeWeak.testCount).toBe(2);
   });
 
@@ -182,7 +184,8 @@ describe('buildLongitudinalEvidence', () => {
     const evidence = buildLongitudinalEvidence(results);
     const factoringWeak = evidence.persistentWeaknesses.find(w => w.skillId === 'factoring');
     expect(factoringWeak).toBeTruthy();
-    expect(factoringWeak.accuracy).toBe(25);
+    // Recency-weighted (see comment above): (50×1.0 + 0×0.65)/1.65 ≈ 30.
+    expect(factoringWeak.accuracy).toBe(30);
     expect(factoringWeak.testCount).toBe(2);
   });
 
