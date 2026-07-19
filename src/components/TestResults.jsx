@@ -48,21 +48,111 @@ function ScannableProse({ text, leadSize = '1.0625rem', bodySize = '1rem' }) {
     <div>
       {s.lead && (
         <p style={{
-          fontFamily: 'var(--font-ui)', fontSize: leadSize, fontWeight: 650,
-          color: 'var(--color-brand-navy)', lineHeight: '1.55', margin: 0,
+          fontSize: leadSize, fontWeight: 650,
+          color: 'var(--trx-text)', lineHeight: '1.55', margin: 0,
         }}>
           <MathText>{s.lead}</MathText>
         </p>
       )}
       {s.rest.map((para, i) => (
         <p key={i} style={{
-          fontFamily: 'var(--font-ui)', fontSize: bodySize, fontWeight: 400,
-          color: 'var(--color-slate-700)', lineHeight: '1.65',
+          fontSize: bodySize, fontWeight: 400,
+          color: 'var(--trx-text-2)', lineHeight: '1.65',
           margin: 0, marginTop: (i === 0 && !s.lead) ? 0 : i === 0 ? '8px' : '10px',
         }}>
           <EmphasizedProse text={para} />
         </p>
       ))}
+    </div>
+  );
+}
+
+const canonKey = (t) => (t || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+
+/** Short cost stat from an estimatedImpact string ("~30 points" → "~30 pts"). */
+function shortCost(impact) {
+  const m = String(impact || '').match(/([~≈+\-]?\d[\d,]*(?:\s*[-–]\s*\d[\d,]*)?)\s*(?:points?|pts)/i);
+  return m ? `${m[1]} pts` : null;
+}
+
+/** Semicolon-cited evidence → up to 4 short data pills. */
+function evidencePills(evidence) {
+  if (!evidence || typeof evidence !== 'string') return [];
+  return evidence.split(';')
+    .map(s => s.trim().replace(/[.]$/, ''))
+    .filter(s => s.length > 1)
+    .slice(0, 4)
+    .map(s => (s.length > 64 ? `${s.slice(0, 61)}…` : s));
+}
+
+/**
+ * One diagnosis finding as a structured card (2026-07-19, third round of
+ * layout feedback — "still paragraph reading"): the AI already returns each
+ * insight as claim + mechanism + impact + evidence citations, so render
+ * those FIELDS in the trx design language — headline, short story, a "Why"
+ * rule, a Bricolage cost stat, and the citations as data pills — instead of
+ * flattening them back into prose. Voice untouched; structure visible.
+ */
+function FindingCard({ point, index }) {
+  const isStructured = typeof point === 'object' && point !== null;
+  const claim = (isStructured ? (point.text || '') : String(point || '')).replace(/^(\(\d+\)|\d+\.)\s*/, '');
+  if (!claim.trim()) return null;
+
+  const s = buildScannable(claim) || { lead: null, rest: [claim] };
+  const cost = isStructured ? shortCost(point.estimatedImpact) : null;
+  const pills = isStructured ? evidencePills(point.evidence) : [];
+  const mech = isStructured ? String(point.causalMechanism || '').trim() : '';
+  const mechDistinct = mech.length > 15
+    && !canonKey(claim).includes(canonKey(mech).slice(0, 40))
+    && !canonKey(mech).includes(canonKey(claim).slice(0, 40));
+
+  return (
+    <div className="trx-card trx-finding">
+      <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '16px' }}>
+        <div style={{ minWidth: 0, flex: 1 }}>
+          {index != null && (
+            <span style={{
+              display: 'inline-grid', placeItems: 'center', width: '24px', height: '24px', borderRadius: '8px',
+              background: 'var(--trx-purple-tint)', color: 'var(--trx-purple)',
+              fontFamily: 'var(--trx-display)', fontWeight: 700, fontSize: '13px', marginBottom: '10px',
+            }}>{index}</span>
+          )}
+          {s.lead ? (
+            <p style={{ fontSize: '16.5px', fontWeight: 700, color: 'var(--trx-text)', lineHeight: 1.45, margin: 0 }}>
+              <MathText>{s.lead}</MathText>
+            </p>
+          ) : null}
+          {s.rest.map((para, i) => (
+            <p key={i} style={{ fontSize: '14.5px', fontWeight: 400, color: 'var(--trx-text-2)', lineHeight: 1.6, margin: 0, marginTop: (i === 0 && !s.lead) ? 0 : '8px' }}>
+              <EmphasizedProse text={para} />
+            </p>
+          ))}
+        </div>
+        {cost && (
+          <div style={{ flex: 'none', textAlign: 'right' }}>
+            <div style={{ fontFamily: 'var(--trx-display)', fontWeight: 700, fontSize: '22px', lineHeight: 1, color: 'var(--trx-orange)', whiteSpace: 'nowrap', fontVariantNumeric: 'tabular-nums' }}>{cost}</div>
+            <div style={{ fontWeight: 700, fontSize: '9.5px', letterSpacing: '.09em', textTransform: 'uppercase', color: 'var(--trx-text-3)', marginTop: '5px' }}>est. cost</div>
+          </div>
+        )}
+      </div>
+      {mechDistinct && (
+        <p style={{ margin: '12px 0 0', paddingLeft: '12px', borderLeft: '2.5px solid rgba(124,92,199,.35)', fontSize: '14px', color: 'var(--trx-text-2)', lineHeight: 1.55 }}>
+          <strong style={{ fontWeight: 700, color: 'var(--trx-text)' }}>Why: </strong>
+          <MathText>{mech}</MathText>
+        </p>
+      )}
+      {pills.length > 0 && (
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginTop: '14px' }}>
+          {pills.map((pill, i) => (
+            <span key={i} style={{
+              fontSize: '11.5px', fontWeight: 600, fontVariantNumeric: 'tabular-nums',
+              padding: '4px 9px', borderRadius: '7px',
+              background: 'var(--trx-surface-2)', border: '1px solid var(--trx-line)', color: 'var(--trx-text-2)',
+              whiteSpace: 'nowrap',
+            }}>{pill}</span>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
@@ -1356,89 +1446,61 @@ const TestResults = ({
 
     const renderBlock = (block, idx) => {
       if (block.id === 'context') {
-        const scoreRestateRe = /^(you scored|you're scoring|your score|you got \d+\/|you are \d+ points|your percentile|scoring at the \d+)/i;
+        const scoreRestateRe = /^(you scored|you'?re (at|scoring) ?\d|your score|you got \d+\/|you are \d+ points|your percentile|scoring at the \d+)/i;
         const nar = block.narrative;
-        const hasNarrative = nar && (nar.thesis || (nar.paragraphs && nar.paragraphs.length > 0));
 
-        // Coherent tutor-voice narrative: a headline thesis, connected evidence-backed
-        // paragraphs (numbers woven inline, never shredded into bullets), and an
-        // optional bottom-line root cause. Replaces the old disconnected numbered boxes.
-        if (hasNarrative) {
-          return (
-            <div key={block.id} className="diag-narrative" style={{
-              background: '#fff',
-              border: '1px solid var(--color-slate-200)',
-              borderLeft: '3px solid var(--color-brand-purple-deep)',
-              borderRadius: '16px',
-              padding: '28px 32px',
-            }}>
-              {nar.thesis && (() => {
-                // The thesis headline is sentence ONE only — a multi-sentence
-                // thesis rendered entirely bold at headline size is exactly
-                // the wall the scannable ruling bans. Later sentences drop
-                // into body weight with their numbers bolded.
-                const t = buildScannable(nar.thesis) || { lead: nar.thesis, rest: [] };
-                const hasBody = t.rest.length > 0 || nar.paragraphs.length > 0;
-                return (
-                  <>
-                    {t.lead && (
-                    <p style={{
-                      fontFamily: 'var(--font-ui)', fontSize: '1.3125rem', fontWeight: '600',
-                      color: 'var(--color-brand-navy)', lineHeight: '1.45', letterSpacing: '-0.01em',
-                      margin: 0, marginBottom: hasBody ? '14px' : 0,
-                    }}>
-                      <MathText>{t.lead}</MathText>
-                    </p>
-                    )}
-                    {t.rest.map((para, i) => (
-                      <p key={i} style={{
-                        fontFamily: 'var(--font-ui)', fontSize: '1.0625rem', fontWeight: '400',
-                        color: 'var(--color-slate-700)', lineHeight: '1.65',
-                        margin: 0, marginBottom: (i === t.rest.length - 1 && nar.paragraphs.length > 0) ? '18px' : '10px',
-                      }}>
-                        <EmphasizedProse text={para} />
-                      </p>
-                    ))}
-                  </>
-                );
-              })()}
-              {/* Each finding renders scannable: bold lead sentence, short
-                  follow-up paragraphs, numbers bolded inline — never a
-                  book-paragraph wall (2026-07-19 layout ruling). */}
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '22px' }}>
-                {nar.paragraphs.map((p, i) => (
-                  <ScannableProse key={i} text={p.text} />
-                ))}
-              </div>
-              {nar.closingCause && (
-                <div style={{ marginTop: '20px', paddingTop: '18px', borderTop: '1px solid var(--color-slate-200)' }}>
-                  <div style={{ fontFamily: 'var(--font-ui)', fontSize: '11px', fontWeight: '800', letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--color-slate-500)', marginBottom: '6px' }}>The bottom line</div>
-                  <p style={{ fontFamily: 'var(--font-ui)', fontSize: '1.0625rem', fontWeight: '600', color: 'var(--color-brand-navy)', lineHeight: '1.55', margin: 0 }}>
-                    <MathText>{nar.closingCause}</MathText>
-                  </p>
-                </div>
-              )}
-            </div>
-          );
-        }
+        // Structured diagnosis (2026-07-19, third layout round): the thesis
+        // opens as its own statement card, every finding renders as a
+        // FindingCard (headline + story + Why rule + cost stat + evidence
+        // pills — the AI's own fields, no longer flattened into prose), and
+        // the root cause closes the section as a navy band.
+        const thesis = nar?.thesis || null;
+        const thesisCanon = canonKey(thesis);
+        const cardPoints = (block.items || []).filter(pt => {
+          const text = (typeof pt === 'string' ? pt : (pt && pt.text) || '').trim();
+          if (!text || scoreRestateRe.test(text)) return false;
+          const k = canonKey(text).slice(0, 45);
+          return !(k && thesisCanon.includes(k));
+        });
 
-        // Fallback (no synthesized narrative): render the points as clean connected
-        // paragraphs — still no shredding into bullets.
+        if (!thesis && cardPoints.length === 0) return null;
+
         return (
-          <div key={block.id} className="diag-narrative" style={{
-            background: '#fff',
-            border: '1px solid var(--color-slate-200)',
-            borderLeft: '3px solid var(--color-brand-purple-deep)',
-            borderRadius: '16px',
-            padding: '28px 32px',
-            display: 'flex', flexDirection: 'column', gap: '14px',
-          }}>
-            {block.items.map((rawPt, i) => {
-              const text = typeof rawPt === 'string' ? rawPt : rawPt.text;
-              if (!text || text.trim() === '') return null;
-              if (scoreRestateRe.test(text.trim())) return null;
-              return <ScannableProse key={i} text={text} />;
-            })}
+          <div key={block.id} className="diag-narrative" style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+            {thesis && (() => {
+              const t = buildScannable(thesis) || { lead: thesis, rest: [] };
+              return (
+                <div className="trx-card" style={{ borderLeft: '3px solid var(--trx-purple)' }}>
+                  {(t.lead || t.rest.length === 0) && (
+                    <p style={{
+                      fontFamily: 'var(--trx-display)', fontSize: '20px', fontWeight: 700,
+                      color: 'var(--trx-text)', lineHeight: 1.4, letterSpacing: '-0.01em',
+                      margin: 0,
+                    }}>
+                      <MathText>{t.lead || thesis}</MathText>
+                    </p>
+                  )}
+                  {t.rest.map((para, i) => (
+                    <p key={i} style={{ fontSize: '15px', fontWeight: 400, color: 'var(--trx-text-2)', lineHeight: 1.6, margin: 0, marginTop: (i === 0 && t.lead) ? '10px' : i === 0 ? 0 : '8px' }}>
+                      <EmphasizedProse text={para} />
+                    </p>
+                  ))}
+                </div>
+              );
+            })()}
+
+            {cardPoints.map((pt, i) => (
+              <FindingCard key={i} point={pt} index={cardPoints.length > 1 ? i + 1 : null} />
+            ))}
+
+            {nar?.closingCause && (
+              <div style={{ background: 'var(--trx-navy)', borderRadius: '16px', padding: '20px 26px', color: '#fff' }}>
+                <div style={{ fontWeight: 700, fontSize: '10.5px', letterSpacing: '.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,.55)', marginBottom: '7px' }}>The bottom line</div>
+                <p style={{ fontSize: '15.5px', fontWeight: 600, lineHeight: 1.55, margin: 0 }}>
+                  <MathText>{nar.closingCause}</MathText>
+                </p>
+              </div>
+            )}
           </div>
         );
       }
@@ -1475,40 +1537,28 @@ const TestResults = ({
           return bFill - aFill;
         });
 
-        // Pure narrative (de-slop 2026-07-19): each behavior insight renders as
-        // ONE flowing tutor-voice paragraph — no splitToScannable shredding
-        // into headline+bullets (the pattern removed from the main diagnosis
-        // on 2026-06-25 for reading like AI), and no canned "What to do"
-        // template chips (tips belong in the study plan, not the diagnosis).
+        // Behavior insights use the same FindingCard anatomy as the diagnosis
+        // (2026-07-19 third layout round) — headline + story + Why + cost +
+        // evidence pills from the structured fields. No advice chips: pills
+        // are data citations, and tips still live in the study plan only.
         //
         // Cross-section dedupe: older stored narratives repeat changesSinceLast
         // verbatim as a behavior point — and it now has its own "Since Your
         // Last Test" section, so the same paragraph rendered twice.
-        const canon = (t) => (t || '').toLowerCase().replace(/[^a-z0-9]/g, '');
-        const changesKey = canon(uni.changesSinceLast).slice(0, 45);
+        const changesKey = canonKey(uni.changesSinceLast).slice(0, 45);
+        const visibleItems = sortedItems.filter(item => {
+          const claimText = typeof item === 'object' && item !== null ? (item.text || '') : (typeof item === 'string' ? item : '');
+          const cleaned = claimText.replace(/^(\(\d+\)|\d+\.)\s*/, '');
+          if (!cleaned) return false;
+          return !(changesKey && canonKey(cleaned).includes(changesKey));
+        });
+        if (visibleItems.length === 0) return null;
         return (
-          <div key={block.id} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-            <div style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', color: 'var(--color-slate-600)', marginBottom: '8px' }}>These patterns in your test-taking behavior affected your score.</div>
-
-            {sortedItems.map((item, i) => {
-              const isStructured = typeof item === 'object' && item !== null;
-              const claimText = isStructured ? (item.text || '') : (typeof item === 'string' ? item : '');
-              const cleanedClaim = claimText.replace(/^(\(\d+\)|\d+\.)\s*/, '');
-              if (!cleanedClaim) return null;
-              if (changesKey && canon(cleanedClaim).includes(changesKey)) return null;
-
-              return (
-                <div key={i} style={{
-                  background: '#fff',
-                  border: '1px solid var(--color-slate-200)',
-                  borderLeft: '3px solid var(--color-accent-purple)',
-                  borderRadius: '16px',
-                  padding: '24px 32px',
-                }}>
-                  <ScannableProse text={cleanedClaim} />
-                </div>
-              );
-            })}
+          <div key={block.id} style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+            <div style={{ fontSize: '14.5px', color: 'var(--trx-text-2)', marginBottom: '4px' }}>These patterns in your test-taking behavior affected your score.</div>
+            {visibleItems.map((item, i) => (
+              <FindingCard key={i} point={item} index={null} />
+            ))}
           </div>
         );
       }
@@ -2000,13 +2050,7 @@ const TestResults = ({
         {uni.changesSinceLast && (
           <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
             <SectionHeader number={++sectionNum} title="Since Your Last Test" deck="What moved between then and now." />
-            <div style={{
-              background: '#fff',
-              border: '1px solid var(--color-slate-200)',
-              borderLeft: '3px solid var(--color-success-600)',
-              borderRadius: '16px',
-              padding: '24px 32px',
-            }}>
+            <div className="trx-card" style={{ borderLeft: '3px solid var(--trx-lime-deep)' }}>
               <ScannableProse text={uni.changesSinceLast} />
             </div>
           </div>

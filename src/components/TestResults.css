@@ -959,3 +959,6 @@
 .trx .ds-bar-fill { border-radius: 5px; }
 .trx .ds-domain-pct { font-family: var(--trx-display); font-weight: 700; font-size: 15px; width: 52px; }
 .trx .ds-domain-count { font-size: 12.5px; font-weight: 600; color: var(--trx-text-3); width: 44px; }
+
+/* Diagnosis finding cards (structured layout, 2026-07-19 third round). */
+.trx-finding { padding: 22px 26px; }
