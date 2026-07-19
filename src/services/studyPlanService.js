@@ -1,5 +1,3 @@
-import { db } from '../firebase/config';
-import { doc, getDoc, updateDoc, setDoc, collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { authFetch } from './authFetch';
 
 const STUDY_PLAN_URL = process.env.REACT_APP_STUDY_PLAN_URL ||
@@ -50,72 +48,6 @@ export const generateStudyPlan = async (diagnosticReport, userProfile = {}, prev
 
   const { plan, generatedAt, model } = await response.json();
   return { plan, generatedAt, model };
-};
-
-/**
- * Persists a study plan artifact and updates the pointer on the progress doc.
- */
-export const saveStudyPlanArtifact = async (userId, plan, metadata = {}) => {
-  if (!userId || !plan) return null;
-
-  const progressRef = doc(db, 'progress', userId);
-  const artifactData = {
-    plan,
-    generatedAt: metadata.generatedAt || new Date().toISOString(),
-    sourceTestId: metadata.sourceTestId || null,
-    model: metadata.model || 'unknown',
-    status: 'active',
-    createdAt: serverTimestamp(),
-  };
-
-  const artifactRef = await addDoc(
-    collection(db, 'progress', userId, 'studyPlanArtifacts'),
-    artifactData
-  );
-
-  const preview = {
-    headline: plan.summary?.headline || 'Study Plan',
-    weeksCount: plan.weeks?.length || 0,
-    generatedAt: artifactData.generatedAt,
-    totalActivities: (plan.weeks || []).reduce((s, w) => s + (w.activities?.length || 0), 0),
-  };
-
-  const progressSnap = await getDoc(progressRef);
-  const updatePayload = {
-    currentStudyPlanArtifactId: artifactRef.id,
-    studyPlanPreview: preview,
-    studyPlan: plan,
-    lastUpdated: serverTimestamp(),
-  };
-
-  if (progressSnap.exists()) {
-    await updateDoc(progressRef, updatePayload);
-  } else {
-    await setDoc(progressRef, { userId, ...updatePayload }, { merge: true });
-  }
-
-  return artifactRef.id;
-};
-
-/**
- * Fetches the latest study plan artifact for a user.
- */
-export const getLatestStudyPlanArtifact = async (userId) => {
-  if (!userId) return null;
-
-  const progressRef = doc(db, 'progress', userId);
-  const snap = await getDoc(progressRef);
-  if (!snap.exists()) return null;
-
-  const data = snap.data();
-  const artifactId = data.currentStudyPlanArtifactId;
-  if (!artifactId) return null;
-
-  const artifactRef = doc(db, 'progress', userId, 'studyPlanArtifacts', artifactId);
-  const artifactSnap = await getDoc(artifactRef);
-  if (!artifactSnap.exists()) return null;
-
-  return { id: artifactSnap.id, ...artifactSnap.data() };
 };
 
 export function sanitizeDiagnostic(report) {

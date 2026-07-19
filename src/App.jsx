@@ -65,8 +65,6 @@ import { reprioritizePlan } from './services/adaptivePlanService';
 import { findMatchingPlanActivity } from './services/selectors/planActivityMatch';
 import { buildTestFlagEntries } from './services/selectors/flaggedQuestions';
 import { DEFAULT_GOAL_SCORE } from './services/selectors/goalProgress';
-import { buildLongitudinalEvidence } from './services/studyPlanMerger';
-import { generateStudyPlan as generateAIPlan } from './services/studyPlanService';
 import { logInfo, logWarn } from './utils/log';
 import { CB_MATH_SKILLS, CB_RW_SKILLS } from './data/questions/cbSkillTaxonomy';
 
@@ -463,13 +461,6 @@ const PerformSAT = () => {
   const entitlementStateRef = useRef(entitlement);
   useEffect(() => { entitlementStateRef.current = entitlement; }, [entitlement]);
 
-  // Freshest studyPlan snapshot for the fire-and-forget AI merge in
-  // handleSaveStudyPlan (Step 5). The AI Cloud Function can take ~68s; during
-  // that window the student may check off / edit activities. Merging the AI
-  // fields onto the studyPlan captured in the closure would clobber those live
-  // edits (checkmarks vanish), so the merge re-reads this ref instead.
-  const studyPlanRef = useRef(studyPlan);
-  useEffect(() => { studyPlanRef.current = studyPlan; }, [studyPlan]);
 
   // Lazy-load the lesson catalog on entry to the Learn/Modules views. The
   // render paths below read `lessons` (the resolved allLessons map); until the
@@ -946,13 +937,18 @@ const PerformSAT = () => {
     </React.Suspense>
   );
 
-  // Adaptive study plan pipeline: fast path (deterministic) + slow path (AI)
-  const handleSaveStudyPlan = async (deterministicPlan, diagnosticReport) => {
+  // Study plan fast path: reprioritize + save the deterministic plan so the UI
+  // has a plan immediately. AI augmentation happens ONLY in the hybrid
+  // artifact pipeline (PracticeTest Phase 2 → generateAndPersistHybridPlan) —
+  // a second fire-and-forget AI call used to live here and raced that path,
+  // doubling the Anthropic spend per test to write a root field the artifact
+  // hydration shadows anyway.
+  const handleSaveStudyPlan = async (deterministicPlan) => {
     if (!deterministicPlan || !user?.uid) return;
 
     const isFirstTest = Object.keys(practiceTestResults || {}).length <= 1;
 
-    // Step 1: Re-prioritize (skip on test 1 — no prior plan to reprioritize)
+    // Re-prioritize (skip on test 1 — no prior plan to reprioritize)
     const planToSave = isFirstTest
       ? deterministicPlan
       : reprioritizePlan(
@@ -963,62 +959,7 @@ const PerformSAT = () => {
           user?.testDate
         );
 
-    // Step 2: Build longitudinal context from all prior tests
-    const longitudinalContext = buildLongitudinalEvidence(practiceTestResults);
-
-    // Step 3: Collect previous plan summaries (last 2)
-    const previousPlans = [];
-    if (studyPlan?.summary) {
-      previousPlans.push({ summary: studyPlan.summary });
-    }
-
-    // Step 4: Save reprioritized deterministic plan immediately (fast path)
     await saveStudyPlan(planToSave);
-
-    // Step 5: AI augmentation — FIRE-AND-FORGET. This is the slow path (an LLM
-    // Cloud Function that can take tens of seconds or hang), so it must never
-    // gate the caller. Awaiting it here stranded the mini-diagnostic on
-    // "Building your starter plan" indefinitely whenever generateStudyPlan was
-    // slow, because handleOnRampFinished awaits handleSaveStudyPlan before the
-    // shell shows results. The deterministic plan (Step 4) already drives the
-    // UI; when the AI call returns it saves the enhanced plan and useProgress's
-    // onSnapshot refreshes the view. Errors/timeouts are swallowed — the
-    // deterministic plan stands.
-    if (diagnosticReport && (longitudinalContext.totalTests > 0 || !isFirstTest)) {
-      (async () => {
-        try {
-          const { plan: aiPlan } = await generateAIPlan(
-            diagnosticReport,
-            { targetScore: user?.targetScore || DEFAULT_GOAL_SCORE, testDate: user?.testDate },
-            previousPlans,
-            longitudinalContext
-          );
-
-          if (aiPlan?.summary?.diagnosis) {
-            // Read-before-merge against the FRESHEST plan (studyPlanRef), not
-            // the studyPlan captured when this closure was created ~68s ago.
-            // The student can complete/edit activities during the LLM call; we
-            // merge ONLY the AI-generated fields onto their current plan so
-            // completed flags and other user edits survive.
-            const currentPlan = studyPlanRef.current || planToSave;
-            const enhanced = {
-              ...currentPlan,
-              summary: {
-                ...currentPlan.summary,
-                diagnosis: aiPlan.summary.diagnosis,
-                headline: aiPlan.summary.headline || currentPlan.summary?.headline,
-              },
-              nextAction: aiPlan.nextAction || currentPlan.nextAction,
-              deltaFromPrevious: aiPlan.deltaFromPrevious || null,
-              persistentWeaknessStrategy: aiPlan.persistentWeaknessStrategy || null,
-            };
-            await saveStudyPlan(enhanced);
-          }
-        } catch (err) {
-          console.warn('[handleSaveStudyPlan] AI augmentation failed, using deterministic plan:', err.message);
-        }
-      })();
-    }
   };
 
   // Prescriptive practice - auto-selects difficulty based on performance
