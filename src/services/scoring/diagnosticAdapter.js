@@ -1921,17 +1921,45 @@ export function buildDiagnosisNarrative(uni) {
     bodyPoints = points.slice(1);
   }
 
-  let paragraphs = bodyPoints.slice(0, 3).map(p => ({ text: composeDiagnosisProse(p) })).filter(p => p.text);
-
-  // If the lead thesis and the first body paragraph say essentially the same thing
-  // (common when the AI thesis summarizes its own top point), drop the duplicate.
-  if (thesis && paragraphs.length > 0) {
-    const tKey = canonicalKey(thesis);
-    const pKey = canonicalKey(paragraphs[0].text);
-    if (tKey && pKey && (tKey.includes(pKey.slice(0, 45)) || pKey.includes(tKey.slice(0, 45)))) {
-      paragraphs = paragraphs.slice(1);
+  // Older stored narratives open the thesis with a score restatement the
+  // prompt has always banned ("You're at 490/800 with a 220-point gap...").
+  // The score is displayed right above this card — strip that leading
+  // sentence so the thesis starts at the actual insight.
+  if (thesis) {
+    const lead = thesis.match(/^[^.!?]*[.!?]\s*/);
+    if (lead && /^(you'?re (at|scoring)|you scored|your score|you are \d|you got \d)/i.test(lead[0].trim())) {
+      const rest = thesis.slice(lead[0].length).trim();
+      if (rest.length > 20) thesis = rest;
     }
   }
+
+  let paragraphs = bodyPoints.slice(0, 3).map(p => ({ text: composeDiagnosisProse(p) })).filter(p => p.text);
+
+  // Drop any body paragraph the thesis already contains. The old check
+  // compared 60-char-truncated keys of thesis vs FIRST paragraph only — a
+  // long thesis that restated a paragraph past the cap (or repeated the
+  // second paragraph) rendered the same text twice back to back.
+  if (thesis && paragraphs.length > 0) {
+    const fullCanon = (t) => (t || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+    const tFull = fullCanon(thesis);
+    paragraphs = paragraphs.filter(p => {
+      const pKey = fullCanon(p.text).slice(0, 45);
+      return !(pKey && tFull.includes(pKey));
+    });
+  }
+
+  // Same score-restatement strip for body paragraphs ("You're at 490/800…"
+  // isn't covered by the legacy restate patterns); drop a paragraph that was
+  // ONLY the restatement.
+  paragraphs = paragraphs
+    .map(p => {
+      const lead = p.text.match(/^[^.!?]*[.!?]\s*/);
+      if (lead && /^(you'?re (at|scoring)|you scored|your score|you are \d|you got \d)/i.test(lead[0].trim())) {
+        return { text: p.text.slice(lead[0].length).trim() };
+      }
+      return p;
+    })
+    .filter(p => p.text.length > 20);
 
   const aiRoot = (meta.aiRootCause || '').trim();
   const closingCause = (aiRoot && !isGenericClaim(aiRoot)) ? endSentence(aiRoot) : null;

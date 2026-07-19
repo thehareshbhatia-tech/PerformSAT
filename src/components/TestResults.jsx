@@ -20,6 +20,7 @@ import {
 } from '../services/scoring';
 import { getDomainInfo } from '../data/skillTaxonomy';
 import { buildDomainSkillTable } from '../services/selectors/domainSkillTable';
+import QuestionInsightCard from './QuestionInsightCard';
 
 /**
  * Resolve the scores to DISPLAY on the results screen. Prefers the authoritative
@@ -295,9 +296,12 @@ const DonutLegend = () => (
   </div>
 );
 
-// Reusable Section Header Component
-const SectionHeader = ({ number, title }) => (
-  <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '32px' }}>
+// Reusable Section Header Component. `deck` is an optional one-line editorial
+// subtitle under the header — it tells the student what this section IS
+// before they read it, which is most of what "organized" feels like.
+const SectionHeader = ({ number, title, deck }) => (
+  <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: deck ? '24px' : '32px' }}>
+  <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
     <div style={{
       width: '28px', height: '28px', borderRadius: '50%',
       background: 'var(--color-brand-primary)', color: '#fff',
@@ -313,6 +317,15 @@ const SectionHeader = ({ number, title }) => (
       {title}
     </h2>
     <div style={{ flex: 1, height: '1px', background: 'var(--color-slate-200)' }} />
+  </div>
+  {deck && (
+    <p style={{
+      fontFamily: 'var(--font-ui)', fontSize: '14px', fontStyle: 'italic',
+      color: 'var(--color-slate-500)', lineHeight: '1.5', margin: 0, paddingLeft: '44px',
+    }}>
+      {deck}
+    </p>
+  )}
   </div>
 );
 
@@ -1517,6 +1530,12 @@ const TestResults = ({
         // into headline+bullets (the pattern removed from the main diagnosis
         // on 2026-06-25 for reading like AI), and no canned "What to do"
         // template chips (tips belong in the study plan, not the diagnosis).
+        //
+        // Cross-section dedupe: older stored narratives repeat changesSinceLast
+        // verbatim as a behavior point — and it now has its own "Since Your
+        // Last Test" section, so the same paragraph rendered twice.
+        const canon = (t) => (t || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+        const changesKey = canon(uni.changesSinceLast).slice(0, 45);
         return (
           <div key={block.id} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
             <div style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', color: 'var(--color-slate-600)', marginBottom: '8px' }}>These patterns in your test-taking behavior affected your score.</div>
@@ -1526,6 +1545,7 @@ const TestResults = ({
               const claimText = isStructured ? (item.text || '') : (typeof item === 'string' ? item : '');
               const cleanedClaim = claimText.replace(/^(\(\d+\)|\d+\.)\s*/, '');
               if (!cleanedClaim) return null;
+              if (changesKey && canon(cleanedClaim).includes(changesKey)) return null;
 
               return (
                 <div key={i} style={{
@@ -2023,10 +2043,28 @@ const TestResults = ({
           </div>
         ) : getBlock('context') ? (
           <div className="diag-story-section">
-            <SectionHeader number={++sectionNum} title="Your Diagnosis" />
+            <SectionHeader number={++sectionNum} title="Your Diagnosis" deck="The story of this test — what happened, and why." />
             {renderBlock(getBlock('context'), 0)}
           </div>
         ) : null}
+
+        {/* ═══════ SINCE YOUR LAST TEST (returning students) ═══════ */}
+        {uni.changesSinceLast && (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+            <SectionHeader number={++sectionNum} title="Since Your Last Test" deck="What moved between then and now." />
+            <div style={{
+              background: '#fff',
+              border: '1px solid var(--color-slate-200)',
+              borderLeft: '3px solid var(--color-success-600)',
+              borderRadius: '16px',
+              padding: '24px 32px',
+            }}>
+              <p style={{ fontFamily: 'var(--font-ui)', fontSize: '1.0625rem', color: 'var(--color-slate-700)', lineHeight: '1.7', margin: 0 }}>
+                <MathText>{uni.changesSinceLast}</MathText>
+              </p>
+            </div>
+          </div>
+        )}
 
         {/* Skill-gap-by-domain detail intentionally lives on the TEST OVERVIEW
             tab now (the organized, expandable "Domains & Skills" block with
@@ -2036,18 +2074,50 @@ const TestResults = ({
             sortedDomains computation is retained above — it feeds the
             protected "Biggest Lever" tile. */}
 
-        {/* ═══════ ③ HOW YOU TOOK THE TEST (via renderBlock) ═══════ */}
+        {/* ═══════ HOW YOU TOOK THE TEST (via renderBlock) ═══════ */}
         {getBlock('behaviorAmplifier') && getBlock('behaviorAmplifier').items.length > 0 && (
           <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-            <SectionHeader number={++sectionNum} title="How You Took the Test" />
+            <SectionHeader number={++sectionNum} title="How You Took the Test" deck="The habits under pressure that shaped this score." />
             {renderBlock(getBlock('behaviorAmplifier'), 2)}
           </div>
         )}
 
-        {/* ═══════ ④ WHAT TO FOCUS ON NEXT (via renderBlock) ═══════ */}
+        {/* ═══════ THE QUESTIONS THAT GOT YOU (trap stories) ═══════ */}
+        {Array.isArray(uni.questionInsights) && uni.questionInsights.length > 0 && (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+            <SectionHeader
+              number={++sectionNum}
+              title="The Questions That Got You"
+              deck={`${uni.questionInsights.length} wrong answer${uni.questionInsights.length === 1 ? '' : 's'} worth a second look — the trap each one set, and the way through it.`}
+            />
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+              {uni.questionInsights.slice(0, 5).map((qi) => {
+                const [modIdx, qIdx] = String(qi.questionKey || '').split('-').map(Number);
+                const label = Number.isFinite(modIdx) && Number.isFinite(qIdx)
+                  ? `Module ${modIdx + 1} · Q${qIdx + 1}`
+                  : 'Question';
+                return <QuestionInsightCard key={qi.questionKey || label} insight={qi} questionLabel={label} />;
+              })}
+            </div>
+          </div>
+        )}
+
+        {/* ═══════ WHERE THE EVIDENCE IS THIN (honesty footnote — unnumbered) ═══════ */}
+        {uni.uncertainties && (
+          <div style={{ borderLeft: '3px solid var(--color-slate-300)', paddingLeft: '20px' }}>
+            <div style={{ fontFamily: 'var(--font-ui)', fontSize: '11px', fontWeight: '800', letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--color-slate-500)', marginBottom: '6px' }}>
+              Where the evidence is thin
+            </div>
+            <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', fontStyle: 'italic', color: 'var(--color-slate-600)', lineHeight: '1.6', margin: 0 }}>
+              <MathText>{uni.uncertainties}</MathText>
+            </p>
+          </div>
+        )}
+
+        {/* ═══════ WHAT TO FOCUS ON NEXT (via renderBlock) ═══════ */}
         {getBlock('nextMove') && (
           <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-            <SectionHeader number={++sectionNum} title="What to Focus on Next" />
+            <SectionHeader number={++sectionNum} title="What to Focus on Next" deck="Where the next points come from." />
             {renderBlock(getBlock('nextMove'), 3)}
           </div>
         )}
