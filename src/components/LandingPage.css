@@ -490,3 +490,166 @@
 .auth-form-toggle:hover {
   color: var(--color-brand-orange-500);
 }
+
+/* ============================================================================
+   Scroll-craft layer (2026-07-19 "make something amazing" pass):
+   tri-color progress bar, hero entrance choreography, parallax glows,
+   pointer tilt, count-ups, skill marquee, product finding card, and the
+   self-drawing trajectory chart. Everything honors prefers-reduced-motion.
+   ========================================================================== */
+
+/* Tri-color scroll progress — the brand S stretched across the top. */
+.lp-progress {
+  position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 90;
+  background: linear-gradient(90deg, #EA580C 0%, #EA580C 34%, #7C5CC7 34%, #7C5CC7 67%, #C2E83A 67%, #C2E83A 100%);
+  transform: scaleX(0); transform-origin: 0 50%;
+  pointer-events: none;
+}
+
+/* Nav elevates once the page starts moving. */
+.lp-nav { transition: box-shadow .25s ease, background .25s ease; }
+.lp-nav.is-scrolled {
+  background: rgba(246, 244, 239, .93);
+  box-shadow: 0 1px 0 var(--lp-line), 0 8px 24px rgba(20, 22, 28, .07);
+  border-bottom-color: transparent;
+}
+
+/* Hero entrance: choreographed rise on load (no observer needed above the fold). */
+.lp-enter { opacity: 0; transform: translateY(22px); animation: lp-enter .8s cubic-bezier(.2, .7, .2, 1) forwards; animation-delay: var(--d, 0ms); }
+@keyframes lp-enter { to { opacity: 1; transform: none; } }
+.lp-hero-title .lp-enter { display: inline-block; }
+
+/* Reveal variants (data-anim on .lp-reveal). */
+.lp-reveal[data-anim="left"] { transform: translateX(-36px); }
+.lp-reveal[data-anim="right"] { transform: translateX(36px); }
+.lp-reveal[data-anim="scale"] { transform: scale(.94); }
+.lp-reveal[data-anim].in { transform: none; }
+
+/* Parallax glows: the scroll pass writes --lp-plx; blobs drift on it. */
+.lp-plx { transform: translate3d(0, var(--lp-plx, 0px), 0); will-change: transform; }
+
+/* Pointer tilt on the hero product panel. */
+.lp-tilt {
+  transform: perspective(1100px) rotateX(var(--lp-tilt-x, 0deg)) rotateY(var(--lp-tilt-y, 0deg));
+  transition: transform .18s ease-out;
+  transform-style: preserve-3d;
+}
+
+/* Purple stat accent (stats strip). */
+.lp-stat-num.is-purple { color: var(--lp-purple); }
+
+/* ── Skill marquee ─────────────────────────────────────────────────────── */
+.lp-marquee { padding: 10px 0 26px; overflow: hidden; display: flex; flex-direction: column; gap: 12px; }
+.lp-marquee-row {
+  overflow: hidden; white-space: nowrap;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.lp-marquee-track { display: inline-flex; gap: 10px; padding-right: 10px; width: max-content; animation: lp-marq 44s linear infinite; }
+.lp-marquee-row.is-reverse .lp-marquee-track { animation-direction: reverse; animation-duration: 52s; }
+.lp-marquee-row:hover .lp-marquee-track { animation-play-state: paused; }
+@keyframes lp-marq { to { transform: translateX(-50%); } }
+.lp-chip {
+  display: inline-flex; align-items: center;
+  font-size: 13px; font-weight: 600; color: var(--lp-text-2);
+  background: var(--lp-inset); border: 1px solid var(--lp-line);
+  border-radius: 999px; padding: 8px 16px; white-space: nowrap;
+}
+.lp-chip.is-alt { background: var(--lp-purple-tint); border-color: rgba(124, 92, 199, .18); color: #5b4694; }
+
+/* ── The Diagnosis section ─────────────────────────────────────────────── */
+.lp-diag { padding: 96px 32px; }
+.lp-diag-grid {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;
+}
+.lp-section-title.is-left { text-align: left; }
+.lp-diag-sub { font-size: 16.5px; color: var(--lp-text-2); line-height: 1.65; margin: 18px 0 26px; max-width: 460px; }
+.lp-diag-rows { display: flex; flex-direction: column; gap: 14px; }
+.lp-diag-row { display: flex; align-items: center; gap: 13px; font-size: 15px; color: var(--lp-text-2); font-weight: 500; }
+.lp-diag-row-icon { width: 34px; height: 34px; border-radius: 10px; display: grid; place-items: center; flex: none; }
+
+.lp-finding {
+  background: var(--lp-inset); border: 1px solid var(--lp-line); border-radius: 20px;
+  padding: 26px 28px; box-shadow: var(--lp-shadow-lg);
+}
+.lp-finding-head { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 12px; }
+.lp-finding-chip {
+  display: inline-grid; place-items: center; width: 26px; height: 26px; border-radius: 8px;
+  background: var(--lp-purple-tint); color: var(--lp-purple);
+  font-family: var(--lp-display); font-weight: 700; font-size: 14px;
+}
+.lp-finding-cost { text-align: right; }
+.lp-finding-cost-num { font-family: var(--lp-display); font-weight: 700; font-size: 24px; line-height: 1; color: var(--lp-orange); }
+.lp-finding-cost-label { font-weight: 700; font-size: 9.5px; letter-spacing: .09em; text-transform: uppercase; color: var(--lp-text-3); margin-top: 5px; }
+.lp-finding-headline { font-size: 17.5px; font-weight: 700; color: var(--lp-text); line-height: 1.45; margin: 0; }
+.lp-finding-story { font-size: 14.5px; color: var(--lp-text-2); line-height: 1.6; margin: 9px 0 0; }
+.lp-finding-story strong { font-weight: 700; color: var(--lp-text); }
+.lp-finding-why {
+  margin: 13px 0 0; padding-left: 12px; border-left: 2.5px solid rgba(124, 92, 199, .35);
+  font-size: 14px; color: var(--lp-text-2); line-height: 1.55;
+}
+.lp-finding-why strong { font-weight: 700; color: var(--lp-text); }
+.lp-finding-pills { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 15px; }
+.lp-finding-pills span {
+  font-size: 11.5px; font-weight: 600; font-variant-numeric: tabular-nums;
+  padding: 4px 9px; border-radius: 7px; white-space: nowrap;
+  background: var(--lp-surface-2); border: 1px solid var(--lp-line); color: var(--lp-text-2);
+}
+
+/* ── Trajectory section ────────────────────────────────────────────────── */
+.lp-traj { padding: 40px 32px 96px; }
+.lp-traj-panel {
+  position: relative; overflow: hidden;
+  max-width: 900px; margin: 40px auto 0;
+  background: var(--lp-navy); border-radius: 24px;
+  padding: 34px 30px 22px; box-shadow: var(--lp-shadow-lg);
+}
+.lp-traj-blob {
+  position: absolute; right: -90px; top: -110px; width: 340px; height: 340px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(234, 88, 12, .3), transparent 70%);
+}
+.lp-traj-chart svg { width: 100%; height: auto; display: block; position: relative; }
+.lp-traj-line { fill: none; stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; transition: stroke-dashoffset 2s cubic-bezier(.4, 0, .2, 1) .25s; }
+.lp-traj-goal { stroke: #C2E83A; stroke-width: 1.5; stroke-dasharray: 5 6; opacity: .75; }
+.lp-traj-goal-label { fill: #C2E83A; font-family: var(--lp-body); font-weight: 700; font-size: 10px; letter-spacing: .1em; }
+.lp-traj-area { opacity: 0; transition: opacity 1s ease 1.6s; }
+.lp-traj-chart.is-drawn .lp-traj-area { opacity: 1; }
+.lp-traj-pt { opacity: 0; transform: translateY(6px); transition: opacity .5s ease, transform .5s cubic-bezier(.2, .7, .2, 1); }
+.lp-traj-chart.is-drawn .lp-traj-pt { opacity: 1; transform: none; }
+.lp-traj-pt circle { fill: #fff; stroke: #EA580C; stroke-width: 3; }
+.lp-traj-score { fill: #fff; font-family: var(--lp-display); font-weight: 700; font-size: 14px; }
+.lp-traj-xlabel { fill: rgba(255, 255, 255, .45); font-family: var(--lp-body); font-weight: 600; font-size: 10.5px; letter-spacing: .04em; }
+
+/* ── Philosophy word-by-word reveal ────────────────────────────────────── */
+.lp-philosophy-title .lp-word {
+  display: inline-block; opacity: 0; transform: translateY(16px);
+  transition: opacity .55s cubic-bezier(.2, .7, .2, 1), transform .55s cubic-bezier(.2, .7, .2, 1);
+}
+.lp-philosophy.in .lp-word { opacity: 1; transform: none; }
+
+/* ── How-it-works connector draws in ───────────────────────────────────── */
+.lp-steps-line { transform: scaleX(0); transform-origin: 0 50%; transition: transform 1.1s cubic-bezier(.4, 0, .2, 1) .2s; }
+.lp-how.in .lp-steps-line, .lp-steps.in .lp-steps-line { transform: scaleX(1); }
+
+/* ── Featured result card breathes in on change ────────────────────────── */
+.lp-featcard { animation: lp-cardin .45s cubic-bezier(.2, .7, .2, 1); }
+@keyframes lp-cardin { from { opacity: 0; transform: translateY(10px) scale(.985); } to { opacity: 1; transform: none; } }
+
+@media (max-width: 900px) {
+  .lp-diag-grid { grid-template-columns: 1fr; gap: 40px; }
+  .lp-traj-panel { padding: 22px 12px 12px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lp-progress { display: none; }
+  .lp-enter { animation: none; opacity: 1; transform: none; }
+  .lp-marquee-track { animation: none; }
+  .lp-tilt { transform: none !important; transition: none; }
+  .lp-plx { transform: none !important; }
+  .lp-traj-line { transition: none; stroke-dashoffset: 0 !important; }
+  .lp-traj-pt, .lp-traj-area { opacity: 1 !important; transform: none !important; transition: none; }
+  .lp-philosophy-title .lp-word { opacity: 1; transform: none; transition: none; }
+  .lp-steps-line { transform: scaleX(1); transition: none; }
+  .lp-featcard { animation: none; }
+}

@@ -58,8 +58,14 @@ describe('LandingPage content', () => {
   test('claims the derived (rounded-down) content inventory', () => {
     expect(html).toContain('2,200+'); // honest question-bank floor (actual ~2,280)
     expect(html).toContain('Hand-authored questions'); // stats strip
-    expect(html).toContain('SAT domains covered'); // stats strip
-    expect(html).toContain('Aligned to Bluebook format'); // stats strip
+    // Stats strip (2026-07-19 rebuild): 12 tests / 42 chapters / 161 types.
+    // 42 = strategyChapters(3) + mathChapters(23) + rwChapters(16);
+    // 161 = 121 surfaced math types + 40 R&W types — "covered", NOT
+    // "drilled" (reading types are browse-only; drill routing is skill-level).
+    expect(html).toContain('Full-length adaptive tests');
+    expect(html).toContain('Textbook chapters');
+    expect(html).toContain('Question types covered');
+    expect(html).toContain('Bluebook-format'); // format claim lives in the features grid
     expect(html).toContain('12 full-length adaptive practice tests'); // pricing "includes" list
   });
 

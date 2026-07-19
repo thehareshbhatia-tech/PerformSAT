@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useAuth } from '../hooks/useAuth';
 import { useFeatureFlag } from '../hooks/useFeatureFlag';
 import { Modal } from './ui/Modal';
@@ -9,6 +9,9 @@ import './LandingPage.css';
 // light (it's an eager import in App.jsx), and most visitors bounce before
 // clicking a CTA.
 const OnboardingFunnel = React.lazy(() => import('./onboarding/OnboardingFunnel'));
+
+const prefersReducedMotion = () =>
+  typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
 
 /* ── Inline icon helpers (match the mockup's SVGs exactly) ──────────────── */
 const svgBase = { fill: 'none', strokeLinecap: 'round', strokeLinejoin: 'round' };
@@ -21,6 +24,113 @@ const CheckMark = ({ size = 15, stroke = 'var(--lp-lime-deep)', sw = 2.4 }) => (
 const XMark = ({ size = 12 }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" stroke="var(--lp-text-3)" strokeWidth="2.8" strokeLinecap="round"><path d="M18 6 6 18M6 6l12 12" /></svg>
 );
+
+/* ── Count-up: animates 0 → `to` when the number scrolls into view ──────── */
+const CountUp = ({ to, suffix = '', duration = 1500, className, style }) => {
+  const ref = useRef(null);
+  const [val, setVal] = useState(0);
+  const started = useRef(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return undefined;
+    if (prefersReducedMotion() || !('IntersectionObserver' in window)) { setVal(to); return undefined; }
+    const io = new IntersectionObserver(([en]) => {
+      if (!en.isIntersecting || started.current) return;
+      started.current = true;
+      io.disconnect();
+      const t0 = performance.now();
+      const tick = (t) => {
+        const p = Math.min(1, (t - t0) / duration);
+        const eased = p === 1 ? 1 : 1 - Math.pow(2, -10 * p);
+        setVal(Math.round(to * eased));
+        if (p < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    }, { threshold: 0.5 });
+    io.observe(el);
+    return () => io.disconnect();
+  }, [to, duration]);
+  return <span ref={ref} className={className} style={style}>{val.toLocaleString('en-US')}{suffix}</span>;
+};
+
+/* ── Score-trajectory chart: the line draws itself when scrolled into view ─ */
+const TRAJ = [
+  { score: 1190, label: 'Diagnostic' },
+  { score: 1240, label: 'Test 2' },
+  { score: 1310, label: 'Test 3' },
+  { score: 1360, label: 'Test 4' },
+  { score: 1450, label: 'Test 5' },
+];
+const TrajectoryChart = () => {
+  const wrapRef = useRef(null);
+  const pathRef = useRef(null);
+  const [drawn, setDrawn] = useState(false);
+  const [len, setLen] = useState(1200);
+
+  const W = 680; const H = 320; const PX = 56; const PT = 46; const PB = 58;
+  const MIN = 1120; const MAX = 1560;
+  const x = (i) => PX + (i / (TRAJ.length - 1)) * (W - PX * 2);
+  const y = (s) => PT + (1 - (s - MIN) / (MAX - MIN)) * (H - PT - PB);
+  const d = TRAJ.map((p, i) => `${i === 0 ? 'M' : 'L'}${x(i)},${y(p.score)}`).join(' ');
+  const goalY = y(1500);
+  const areaD = `${d} L${x(TRAJ.length - 1)},${H - PB} L${x(0)},${H - PB} Z`;
+
+  useEffect(() => {
+    if (pathRef.current) setLen(pathRef.current.getTotalLength() + 2);
+  }, []);
+  useEffect(() => {
+    const el = wrapRef.current;
+    if (!el) return undefined;
+    if (prefersReducedMotion() || !('IntersectionObserver' in window)) { setDrawn(true); return undefined; }
+    const io = new IntersectionObserver(([en]) => {
+      if (en.isIntersecting) { setDrawn(true); io.disconnect(); }
+    }, { threshold: 0.45 });
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  return (
+    <div ref={wrapRef} className={`lp-traj-chart${drawn ? ' is-drawn' : ''}`}>
+      <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label="Score trajectory from 1190 to 1450, approaching a 1500 goal">
+        <defs>
+          <linearGradient id="lpTrajLine" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stopColor="#F2865C" />
+            <stop offset="100%" stopColor="#EA580C" />
+          </linearGradient>
+          <linearGradient id="lpTrajArea" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="rgba(234,88,12,.28)" />
+            <stop offset="100%" stopColor="rgba(234,88,12,0)" />
+          </linearGradient>
+        </defs>
+
+        {/* Goal line */}
+        <line className="lp-traj-goal" x1={PX - 10} y1={goalY} x2={W - PX + 10} y2={goalY} />
+        <text className="lp-traj-goal-label" x={W - PX + 10} y={goalY - 9} textAnchor="end">GOAL 1500</text>
+
+        {/* Area under the line */}
+        <path className="lp-traj-area" d={areaD} fill="url(#lpTrajArea)" />
+
+        {/* The line itself — drawn via dashoffset */}
+        <path
+          ref={pathRef}
+          className="lp-traj-line"
+          d={d}
+          stroke="url(#lpTrajLine)"
+          style={{ strokeDasharray: len, strokeDashoffset: drawn ? 0 : len }}
+        />
+
+        {/* Dots + score labels pop in sequence as the line reaches them */}
+        {TRAJ.map((p, i) => (
+          <g key={p.label} className="lp-traj-pt" style={{ transitionDelay: `${350 + i * 320}ms` }}>
+            <circle cx={x(i)} cy={y(p.score)} r={i === TRAJ.length - 1 ? 7 : 5.5} />
+            <text className="lp-traj-score" x={x(i)} y={y(p.score) - 15} textAnchor="middle">{p.score}</text>
+            <text className="lp-traj-xlabel" x={x(i)} y={H - PB + 26} textAnchor="middle">{p.label}</text>
+          </g>
+        ))}
+      </svg>
+    </div>
+  );
+};
 
 // Testimonial avatar: renders the student's initials, then overlays their
 // photo from public/testimonials/ when it exists. onError hides a missing
@@ -94,6 +204,18 @@ const PRICING_INCLUDES = [
   'A study plan built around your gaps',
 ];
 
+// Skill marquee rows — real skills from the bank, math up top, R&W below.
+const SKILLS_MATH = ['Linear equations', 'Systems of equations', 'Quadratic functions', 'Exponential growth', 'Percents', 'Ratios & rates', 'Probability', 'Scatterplots', 'Circle theorems', 'Right triangles', 'Function notation', 'Absolute value'];
+const SKILLS_RW = ['Transitions', 'Command of Evidence', 'Words in Context', 'Central Ideas', 'Sentence boundaries', 'Subject-verb agreement', 'Pronouns', 'Verb tense', 'Rhetorical synthesis', 'Cross-text connections', 'Text structure', 'Inferences'];
+
+// Philosophy statement, revealed word by word on scroll.
+const PHILOSOPHY_WORDS = [
+  ...("We don't promise you a score.".split(' ').map((w) => ({ w }))),
+  { br: true },
+  ...('We build the'.split(' ').map((w) => ({ w }))),
+  ...('student that earns it.'.split(' ').map((w) => ({ w, cls: 'lp-c-orange' }))),
+];
+
 const LandingPage = () => {
   // Billing dark-launch: pricing copy flips with the same flag as the app's
   // paywall so the landing page never promises "free forever" once the
@@ -102,6 +224,7 @@ const LandingPage = () => {
   const [showAuth, setShowAuth] = useState(false); // login modal
   const [showFunnel, setShowFunnel] = useState(false); // signup quiz funnel
   const [active, setActive] = useState(0); // results carousel index (can go +/-, wrapped on read)
+  const [navScrolled, setNavScrolled] = useState(false);
 
   // Login Form State (signup now lives inside the funnel)
   const [email, setEmail] = useState('');
@@ -111,10 +234,16 @@ const LandingPage = () => {
 
   const { signup, login } = useAuth();
   const rootRef = useRef(null);
+  const progressRef = useRef(null);
+  const heroVisRef = useRef(null);
+  const plxRefs = useRef([]);
+  const addPlx = useCallback((el) => {
+    if (el && !plxRefs.current.includes(el)) plxRefs.current.push(el);
+  }, []);
 
-  // Scroll-reveal: fade sections up as they enter the viewport (mirrors the
-  // mockup's IntersectionObserver). Stagger the children of `.lp-stag`.
-  // Re-runs when we come back from the funnel so the observers re-attach.
+  // Scroll-reveal: fade sections up as they enter the viewport. `data-anim`
+  // variants slide from the left/right or scale in; `.lp-stag` staggers its
+  // children. Re-runs when we come back from the funnel.
   useEffect(() => {
     if (showFunnel) return undefined;
     const root = rootRef.current;
@@ -138,6 +267,74 @@ const LandingPage = () => {
     els.forEach((e) => io.observe(e));
     const fallback = setTimeout(() => els.forEach((e) => e.classList.add('in')), 2800);
     return () => { io.disconnect(); clearTimeout(fallback); };
+  }, [showFunnel]);
+
+  // One scroll pass drives everything scroll-linked: the tri-color progress
+  // bar, the nav elevation, and the parallax glow blobs. rAF-throttled,
+  // passive, transform-only — no layout writes outside the frame.
+  useEffect(() => {
+    if (showFunnel) return undefined;
+    const reduced = prefersReducedMotion();
+    plxRefs.current = plxRefs.current.filter((el) => el && el.isConnected);
+    let raf = 0;
+    const update = () => {
+      raf = 0;
+      const sY = window.scrollY;
+      const doc = document.documentElement;
+      const denom = doc.scrollHeight - doc.clientHeight;
+      if (progressRef.current) progressRef.current.style.transform = `scaleX(${denom > 0 ? sY / denom : 0})`;
+      setNavScrolled(sY > 8);
+      if (!reduced) {
+        const vh2 = window.innerHeight / 2;
+        plxRefs.current.forEach((el) => {
+          const r = el.getBoundingClientRect();
+          const mid = r.top + r.height / 2 - vh2;
+          el.style.setProperty('--lp-plx', `${(mid * -parseFloat(el.dataset.speed || '0.08')).toFixed(1)}px`);
+        });
+      }
+    };
+    const onScroll = () => { if (!raf) raf = requestAnimationFrame(update); };
+    update();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+      cancelAnimationFrame(raf);
+    };
+  }, [showFunnel]);
+
+  // Pointer tilt on the hero product panel — desktop pointers only.
+  useEffect(() => {
+    if (showFunnel) return undefined;
+    const el = heroVisRef.current;
+    if (!el) return undefined;
+    if (prefersReducedMotion() || window.matchMedia?.('(pointer: coarse)').matches) return undefined;
+    let raf = 0;
+    const onMove = (e) => {
+      const r = el.getBoundingClientRect();
+      const dx = (e.clientX - r.left) / r.width - 0.5;
+      const dy = (e.clientY - r.top) / r.height - 0.5;
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        el.style.setProperty('--lp-tilt-x', `${(dy * -4.5).toFixed(2)}deg`);
+        el.style.setProperty('--lp-tilt-y', `${(dx * 6.5).toFixed(2)}deg`);
+      });
+    };
+    const onLeave = () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        el.style.setProperty('--lp-tilt-x', '0deg');
+        el.style.setProperty('--lp-tilt-y', '0deg');
+      });
+    };
+    el.addEventListener('pointermove', onMove);
+    el.addEventListener('pointerleave', onLeave);
+    return () => {
+      el.removeEventListener('pointermove', onMove);
+      el.removeEventListener('pointerleave', onLeave);
+      cancelAnimationFrame(raf);
+    };
   }, [showFunnel]);
 
   const handleSubmit = async (e) => {
@@ -195,11 +392,15 @@ const LandingPage = () => {
 
   return (
     <div className="landing-container" ref={rootRef}>
+      {/* Tri-color scroll progress — the brand S, stretched across the page. */}
+      <div className="lp-progress" ref={progressRef} aria-hidden="true" />
+
       {/* ===== NAV ===== */}
-      <nav className="lp-nav">
+      <nav className={`lp-nav${navScrolled ? ' is-scrolled' : ''}`}>
         <div className="lp-nav-inner">
           <a href="/" className="brand-logo" aria-label="SEVA"><Wordmark size="lg" tone="dark" /></a>
           <div className="lp-nav-links">
+            <a className="lp-nav-link" href="#diagnosis" onClick={scrollTo('diagnosis')}>The diagnosis</a>
             <a className="lp-nav-link" href="#features" onClick={scrollTo('features')}>Features</a>
             <a className="lp-nav-link" href="#how" onClick={scrollTo('how')}>How it works</a>
             <a className="lp-nav-link" href="#why" onClick={scrollTo('why')}>Why SEVA</a>
@@ -213,37 +414,37 @@ const LandingPage = () => {
 
       {/* ===== HERO ===== */}
       <header className="lp-hero">
-        <div className="lp-hero-blob lp-hero-blob-a" aria-hidden="true" />
-        <div className="lp-hero-blob lp-hero-blob-b" aria-hidden="true" />
+        <div className="lp-hero-blob lp-hero-blob-a lp-plx" data-speed="0.10" ref={addPlx} aria-hidden="true" />
+        <div className="lp-hero-blob lp-hero-blob-b lp-plx" data-speed="0.16" ref={addPlx} aria-hidden="true" />
         <div className="lp-hero-inner">
           <div>
-            <span className="lp-badge"><span className="lp-badge-dot" />Built for the Digital SAT</span>
+            <span className="lp-badge lp-enter" style={{ '--d': '0ms' }}><span className="lp-badge-dot" />Built for the Digital SAT</span>
             <h1 className="lp-hero-title">
-              Knows you like <span className="lp-c-orange">no&nbsp;course&nbsp;can</span>.<br />
-              Shows up like <span className="lp-c-purple">no&nbsp;tutor&nbsp;does</span>.<br />
-              Tells you the truth <span className="lp-c-lime">neither&nbsp;does</span>.
+              <span className="lp-enter" style={{ '--d': '60ms' }}>Knows you like <span className="lp-c-orange">no&nbsp;course&nbsp;can</span>.</span><br />
+              <span className="lp-enter" style={{ '--d': '160ms' }}>Shows up like <span className="lp-c-purple">no&nbsp;tutor&nbsp;does</span>.</span><br />
+              <span className="lp-enter" style={{ '--d': '260ms' }}>Tells you the truth <span className="lp-c-lime">neither&nbsp;does</span>.</span>
             </h1>
-            <p className="lp-hero-desc">
+            <p className="lp-hero-desc lp-enter" style={{ '--d': '380ms' }}>
               SEVA is AI-powered Digital SAT prep that diagnoses exactly <i>why</i> you miss each question — then builds the plan that fixes it.
             </p>
-            <div className="lp-hero-actions">
+            <div className="lp-hero-actions lp-enter" style={{ '--d': '470ms' }}>
               <button type="button" className="lp-btn lp-btn-orange lp-btn-orange-lg" onClick={() => openAuth(false)}>
                 Start your free diagnostic<ArrowRight />
               </button>
               <a className="lp-btn-ghost-bordered" href="#how" onClick={scrollTo('how')}>See how it works</a>
             </div>
             {billingLive ? (
-              <p className="lp-hero-note">Free for 3 days, then $85/month or $349/year. Cancel anytime before day 3 and you won't be charged.</p>
+              <p className="lp-hero-note lp-enter" style={{ '--d': '560ms' }}>Free for 3 days, then $85/month or $349/year. Cancel anytime before day 3 and you won't be charged.</p>
             ) : (
-              <div className="lp-hero-trust">
+              <div className="lp-hero-trust lp-enter" style={{ '--d': '560ms' }}>
                 <span><CheckMark />Free to start</span>
                 <span><CheckMark />No credit card</span>
               </div>
             )}
           </div>
 
-          <div className="lp-hero-visual">
-            <div className="lp-demo-panel">
+          <div className="lp-hero-visual lp-enter" style={{ '--d': '300ms' }} ref={heroVisRef}>
+            <div className="lp-demo-panel lp-tilt">
               <div className="lp-demo-blob-a" aria-hidden="true" />
               <div className="lp-demo-blob-b" aria-hidden="true" />
               <div className="lp-demo-head">
@@ -258,7 +459,7 @@ const LandingPage = () => {
                   </span>
                 </div>
                 <div className="lp-demo-scorerow">
-                  <span className="lp-demo-score">1280</span>
+                  <CountUp className="lp-demo-score" to={1280} duration={1900} />
                   <span className="lp-demo-scoremax">/ 1600</span>
                 </div>
                 <div className="lp-demo-bar">
@@ -291,26 +492,40 @@ const LandingPage = () => {
         </div>
       </header>
 
-      {/* ===== STATS STRIP ===== */}
+      {/* ===== STATS STRIP (count-up on scroll) ===== */}
       <section className="lp-stats lp-reveal">
         <div className="lp-stats-inner lp-stag">
-          <div className="lp-stat"><div className="lp-stat-num">2,200+</div><div className="lp-stat-label">Hand-authored questions</div></div>
-          <div className="lp-stat"><div className="lp-stat-num is-lime">8</div><div className="lp-stat-label">SAT domains covered</div></div>
-          <div className="lp-stat"><div className="lp-stat-num">100%</div><div className="lp-stat-label">Aligned to Bluebook format</div></div>
-          <div className="lp-stat"><div className="lp-stat-num is-orange">24/7</div><div className="lp-stat-label">AI tutor on every question</div></div>
+          <div className="lp-stat"><div className="lp-stat-num"><CountUp to={2200} suffix="+" /></div><div className="lp-stat-label">Hand-authored questions</div></div>
+          <div className="lp-stat"><div className="lp-stat-num is-lime"><CountUp to={12} duration={1100} /></div><div className="lp-stat-label">Full-length adaptive tests</div></div>
+          <div className="lp-stat"><div className="lp-stat-num is-purple"><CountUp to={42} duration={1300} /></div><div className="lp-stat-label">Textbook chapters</div></div>
+          <div className="lp-stat"><div className="lp-stat-num is-orange"><CountUp to={161} duration={1600} /></div><div className="lp-stat-label">Question types covered</div></div>
+        </div>
+      </section>
+
+      {/* ===== SKILL MARQUEE ===== */}
+      <section className="lp-marquee" aria-hidden="true">
+        <div className="lp-marquee-row">
+          <div className="lp-marquee-track">
+            {[...SKILLS_MATH, ...SKILLS_MATH].map((s, i) => <span className="lp-chip" key={`m${i}`}>{s}</span>)}
+          </div>
+        </div>
+        <div className="lp-marquee-row is-reverse">
+          <div className="lp-marquee-track">
+            {[...SKILLS_RW, ...SKILLS_RW].map((s, i) => <span className="lp-chip is-alt" key={`r${i}`}>{s}</span>)}
+          </div>
         </div>
       </section>
 
       {/* ===== COMPARISON ===== */}
-      <section className="lp-compare lp-reveal">
-        <div className="lp-compare-head">
+      <section className="lp-compare">
+        <div className="lp-compare-head lp-reveal">
           <h2 className="lp-compare-title">
             A prep course tells you <span className="muted">what to study</span>.<br />
             SEVA tells you <span className="lp-c-orange">why you missed it</span>.
           </h2>
         </div>
         <div className="lp-compare-grid">
-          <div className="lp-compare-card lp-compare-card-neg">
+          <div className="lp-compare-card lp-compare-card-neg lp-reveal" data-anim="left">
             <div className="lp-compare-eyebrow">A typical prep course</div>
             <div className="lp-compare-list">
               {['The same syllabus for every student', "You're left to find your own weak spots", 'Help only when class is in session'].map((t) => (
@@ -321,7 +536,7 @@ const LandingPage = () => {
               ))}
             </div>
           </div>
-          <div className="lp-compare-card lp-compare-card-pos">
+          <div className="lp-compare-card lp-compare-card-pos lp-reveal" data-anim="right">
             <div className="lp-compare-blob" aria-hidden="true" />
             <div className="lp-compare-eyebrow">With SEVA</div>
             <div className="lp-compare-list">
@@ -333,6 +548,70 @@ const LandingPage = () => {
               ))}
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* ===== THE DIAGNOSIS (product-true finding card) ===== */}
+      <section id="diagnosis" className="lp-diag">
+        <div className="lp-diag-grid">
+          <div className="lp-diag-copy lp-reveal" data-anim="left">
+            <span className="lp-eyebrow">The diagnosis</span>
+            <h2 className="lp-section-title is-left">It doesn't just grade you.<br />It <span className="lp-c-purple">explains you</span>.</h2>
+            <p className="lp-diag-sub">
+              After every test, SEVA reads your timing, your error patterns, and your answer changes — then hands you the why behind every miss, with the points each one is worth.
+            </p>
+            <div className="lp-diag-rows">
+              <div className="lp-diag-row">
+                <span className="lp-diag-row-icon" style={{ background: 'var(--lp-orange-tint)', color: 'var(--lp-orange)' }}>
+                  <svg width="17" height="17" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" {...svgBase}><path d="M12 2a10 10 0 1 0 10 10" /><path d="M12 12V2a10 10 0 0 1 10 10z" /></svg>
+                </span>
+                <span>Every finding priced in points, so you know what it costs you</span>
+              </div>
+              <div className="lp-diag-row">
+                <span className="lp-diag-row-icon" style={{ background: 'var(--lp-purple-tint)', color: 'var(--lp-purple)' }}>
+                  <svg width="17" height="17" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" {...svgBase}><circle cx="11" cy="11" r="7" /><path d="m21 21-4.3-4.3" /></svg>
+                </span>
+                <span>The habit underneath the misses, not just the topic name</span>
+              </div>
+              <div className="lp-diag-row">
+                <span className="lp-diag-row-icon" style={{ background: 'rgba(90,138,22,.12)', color: 'var(--lp-lime-deep)' }}>
+                  <svg width="17" height="17" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" {...svgBase}><path d="M3 3v18h18" /><rect x="7" y="12" width="3" height="6" rx="1" /><rect x="12" y="8" width="3" height="10" rx="1" /><rect x="17" y="5" width="3" height="13" rx="1" /></svg>
+                </span>
+                <span>Backed by your actual numbers — never a generic tip</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="lp-finding lp-stag" aria-label="Example diagnosis finding">
+            <div className="lp-finding-head">
+              <span className="lp-finding-chip">1</span>
+              <div className="lp-finding-cost">
+                <div className="lp-finding-cost-num">~40 pts</div>
+                <div className="lp-finding-cost-label">est. cost</div>
+              </div>
+            </div>
+            <p className="lp-finding-headline">Word problems break at the translation step, not the algebra.</p>
+            <p className="lp-finding-story">You set up the wrong relationship before the math even starts — and you give these <strong>38 seconds</strong> against <strong>64</strong> on the ones you get right.</p>
+            <p className="lp-finding-why"><strong>Why:</strong> you feel the uncertainty early and rush to commit instead of re-reading the setup.</p>
+            <div className="lp-finding-pills">
+              <span>Word problems: 2/7</span>
+              <span>38s vs 64s on correct</span>
+              <span>4 misses · same setup slip</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== TRAJECTORY (line draws on scroll) ===== */}
+      <section className="lp-traj lp-reveal">
+        <div className="lp-section-head">
+          <span className="lp-eyebrow">The payoff</span>
+          <h2 className="lp-section-title">Watch the line move.</h2>
+          <p className="lp-section-sub">Every test updates your trajectory. Every drill bends it toward your goal.</p>
+        </div>
+        <div className="lp-traj-panel">
+          <div className="lp-traj-blob lp-plx" data-speed="0.07" ref={addPlx} aria-hidden="true" />
+          <TrajectoryChart />
         </div>
       </section>
 
@@ -359,8 +638,8 @@ const LandingPage = () => {
       {/* ===== BRAND MOMENT ===== */}
       <section id="why" className="lp-brand lp-reveal">
         <div className="lp-brand-card">
-          <div className="lp-brand-blob-a" aria-hidden="true" />
-          <div className="lp-brand-blob-b" aria-hidden="true" />
+          <div className="lp-brand-blob-a lp-plx" data-speed="0.06" ref={addPlx} aria-hidden="true" />
+          <div className="lp-brand-blob-b lp-plx" data-speed="0.1" ref={addPlx} aria-hidden="true" />
           <div className="lp-brand-grid">
             <div>
               <div className="lp-brand-kicker">
@@ -395,10 +674,16 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* ===== PHILOSOPHY ===== */}
+      {/* ===== PHILOSOPHY (word-by-word reveal) ===== */}
       <section className="lp-philosophy lp-reveal">
         <div className="lp-philosophy-eyebrow">Our philosophy</div>
-        <h2 className="lp-philosophy-title">We don't promise you a score.<br />We build the <span className="lp-c-orange">student that earns it</span>.</h2>
+        <h2 className="lp-philosophy-title">
+          {PHILOSOPHY_WORDS.map((item, i) => (
+            item.br
+              ? <br key={`br${i}`} />
+              : <span key={i} className={`lp-word${item.cls ? ` ${item.cls}` : ''}`} style={{ transitionDelay: `${i * 70}ms` }}>{item.w}&nbsp;</span>
+          ))}
+        </h2>
       </section>
 
       {/* ===== HOW IT WORKS ===== */}
@@ -435,7 +720,7 @@ const LandingPage = () => {
             <span className="lp-peek-pill">{nextCard.from} → {nextCard.to}</span>
             <p className="lp-peek-quote">“{nextCard.quote}”</p>
           </div>
-          <div className="lp-featcard">
+          <div className="lp-featcard" key={ri}>
             <span className="lp-result-pill">{cur.from} <span className="to">→</span> {cur.to}</span>
             <p className="lp-result-quote">“{cur.quote}”</p>
             <div className="lp-result-person">
@@ -517,10 +802,10 @@ const LandingPage = () => {
       </section>
 
       {/* ===== FINAL CTA ===== */}
-      <section className="lp-final lp-reveal">
+      <section className="lp-final lp-reveal" data-anim="scale">
         <div className="lp-final-card">
-          <div className="lp-final-blob-a" aria-hidden="true" />
-          <div className="lp-final-blob-b" aria-hidden="true" />
+          <div className="lp-final-blob-a lp-plx" data-speed="0.08" ref={addPlx} aria-hidden="true" />
+          <div className="lp-final-blob-b lp-plx" data-speed="0.12" ref={addPlx} aria-hidden="true" />
           <div className="lp-final-eyebrow">Everything a tutor sees. Nothing a tutor costs.</div>
           <h2 className="lp-final-title">Ready to find your next 200 points?</h2>
           <p className="lp-final-sub">
