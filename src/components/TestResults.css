@@ -778,21 +778,10 @@
   padding: 14px 16px;
   background: transparent;
   border: none;
-  cursor: pointer;
   text-align: left;
   font-family: var(--font-ui);
   transition: background 0.15s ease;
 }
-.ds-domain-row:hover { background: rgba(0, 0, 0, 0.02); }
-.ds-domain.is-strong .ds-domain-row:hover { background: rgba(34, 197, 94, 0.06); }
-
-.ds-chevron {
-  flex-shrink: 0;
-  color: var(--color-slate-400, #94a3b8);
-  transition: transform 0.2s ease;
-}
-.ds-chevron.is-open { transform: rotate(90deg); }
-
 .ds-domain-name {
   font-size: 14px;
   font-weight: 700;
@@ -843,71 +832,8 @@
   text-align: right;
 }
 
-.ds-skills {
-  display: flex;
-  flex-direction: column;
-  padding: 4px 12px 12px 34px;
-  gap: 2px;
-}
-.ds-skill-row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 8px 4px;
-  border-top: 1px solid rgba(0, 0, 0, 0.04);
-}
-.ds-skill-name {
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--color-slate-700, #334155);
-}
-.ds-skill-miss {
-  font-size: 10px;
-  font-weight: 700;
-  color: var(--color-slate-500, #64748b);
-  background: rgba(0, 0, 0, 0.04);
-  padding: 2px 6px;
-  border-radius: 6px;
-  white-space: nowrap;
-}
-.ds-skill-count {
-  font-size: 12px;
-  font-weight: 700;
-  font-variant-numeric: tabular-nums;
-  min-width: 34px;
-  text-align: right;
-}
-
-.ds-link-btn,
-.ds-drill-btn {
-  flex-shrink: 0;
-  font-family: var(--font-ui);
-  font-size: 12px;
-  font-weight: 700;
-  padding: 5px 12px;
-  border-radius: 8px;
-  cursor: pointer;
-  white-space: nowrap;
-  transition: all 0.15s ease;
-}
-/* Neutral secondary — navigation into the answer review. */
-.ds-link-btn {
-  background: transparent;
-  border: 1px solid var(--color-slate-200, #e2e8f0);
-  color: var(--color-slate-600, #475569);
-}
-.ds-link-btn:hover { background: var(--color-slate-100, #f1f5f9); }
-/* Orange — the action/CTA (launches a targeted drill). */
-.ds-drill-btn {
-  background: rgba(234, 88, 12, 0.08);
-  border: 1px solid rgba(234, 88, 12, 0.22);
-  color: #ea580c;
-}
-.ds-drill-btn:hover { background: rgba(234, 88, 12, 0.14); }
-
 @media (max-width: 520px) {
   .ds-bar { display: none; }
-  .ds-skills { padding-left: 20px; }
 }
 
 /* ═══════════════════════════════════════════════════════════════════════
@@ -1026,8 +952,8 @@
 /* Domains & Skills rows re-skinned inside the trx scope (markup unchanged —
    expansion, deep-links, and drill buttons keep their existing wiring). */
 .trx .ds-domain { border: none; background: none; }
-.trx .ds-domain-row { padding: 14px 12px; border-radius: 12px; border-bottom: 1px solid var(--trx-line); gap: 14px; }
-.trx .ds-domain-row:hover { background: var(--trx-surface-2); }
+.trx .ds-domain-row { padding: 14px 12px; border-radius: 12px; border-bottom: 1px solid var(--trx-line); gap: 14px; cursor: default; }
+.trx .ds-domain-row:hover { background: transparent; }
 .trx .ds-domain-name { font-weight: 700; font-size: 15px; color: var(--trx-text); }
 .trx .ds-bar { width: 150px; height: 7px; border-radius: 5px; background: var(--trx-surface-2); }
 .trx .ds-bar-fill { border-radius: 5px; }

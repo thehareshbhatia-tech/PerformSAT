@@ -99,17 +99,9 @@ export function resolveDisplayScores(storedResult, fallbackScored) {
 }
 
 // (splitToScannable / extractMetrics / cleanBullet removed 2026-07-19 —
-// the diagnosis renders flowing tutor-voice prose, never shredded bullets.)
-
-/**
- * Format a skill name for display: convert hyphens to spaces, title case.
- */
-function formatSkillName(name) {
-  if (!name || typeof name !== 'string') return '';
-  return name
-    .replace(/-/g, ' ')
-    .replace(/\b\w/g, c => c.toUpperCase());
-}
+// the diagnosis renders flowing tutor-voice prose, never shredded bullets.
+// formatSkillName removed 2026-07-19 with the Domains & Skills dropdown:
+// its only call sites were the per-skill expansion rows.)
 
 // Donut Chart Component for difficulty breakdown
 const DonutChart = ({ correct, incorrect, unanswered, label, size = 100 }) => {
@@ -464,7 +456,6 @@ const TestResults = ({
   const [showQuestionInsights, setShowQuestionInsights] = useState(false);
   // Domains & Skills block: which domain rows are expanded to their skills.
   // Keyed `${section}:${domainId}`. Collapsed by default (empty set).
-  const [expandedDomains, setExpandedDomains] = useState(() => new Set());
   const [diagEntrance, setDiagEntrance] = useState(true);
   const diagEntranceTimer = useRef(null);
   // Latches once the post-test save fails so the banner can keep narrating
@@ -637,14 +628,6 @@ const TestResults = ({
   // accuracy block. Folds the old math-only "Domain Performance" bars and the
   // diagnostic tab's "Skill Gaps by Domain" grid into a single hierarchy with
   // per-skill deep-links (into the answer review) and drill actions.
-  const toggleDomain = (key) => {
-    setExpandedDomains(prev => {
-      const next = new Set(prev);
-      if (next.has(key)) next.delete(key); else next.add(key);
-      return next;
-    });
-  };
-
   const renderDomainSkills = () => {
     if (!domainSkillTable || domainSkillTable.sections.length === 0) return null;
     const multiSection = domainSkillTable.sections.length > 1;
@@ -661,7 +644,7 @@ const TestResults = ({
           <div className="trx-micro">Domains &amp; Skills</div>
         </div>
         <p style={{ fontSize: '13.5px', color: 'var(--trx-text-2)', lineHeight: 1.5, marginTop: '6px', marginBottom: 0 }}>
-          Accuracy by content domain. Expand a domain to see each skill, jump to the questions you missed, or drill it.
+          Accuracy by content domain across this test.
         </p>
 
         {domainSkillTable.sections.map((sec, sIdx) => (
@@ -679,7 +662,6 @@ const TestResults = ({
             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
               {sec.domains.map((dom, dIdx) => {
                 const key = `${sec.section}:${dom.domainId}`;
-                const open = expandedDomains.has(key);
                 // Weakest domain in the section (and not already strong) is the
                 // focus area — purple tag (purple = focus/study-plan role).
                 const isFocus = dIdx === 0 && !dom.isStrong && dom.total > 0;
@@ -689,14 +671,10 @@ const TestResults = ({
                     key={key}
                     className={`ds-domain${dom.isStrong ? ' is-strong' : ''}`}
                   >
-                    <button
-                      type="button"
-                      className="ds-domain-row"
-                      onClick={() => toggleDomain(key)}
-                      aria-expanded={open}
+                    <div
+                      className="ds-domain-row is-static"
                       aria-label={`${dom.domainName}, ${dom.accuracy} percent, ${dom.correct} of ${dom.total} correct`}
                     >
-                      <svg className={`ds-chevron${open ? ' is-open' : ''}`} width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><polyline points="9 6 15 12 9 18" /></svg>
                       <span className="ds-domain-name">{dom.domainName}</span>
                       {isFocus && <span className="ds-tag ds-tag-focus">Focus</span>}
                       {dom.isStrong && <span className="ds-tag ds-tag-strong">Strong</span>}
@@ -704,46 +682,7 @@ const TestResults = ({
                       <span className="ds-bar" aria-hidden="true"><span className="ds-bar-fill" style={{ width: `${dom.accuracy}%`, background: barCol(dom.accuracy) }} /></span>
                       <span className="ds-domain-pct" style={{ color: pctColor }}>{dom.accuracy}%</span>
                       <span className="ds-domain-count">{dom.correct}/{dom.total}</span>
-                    </button>
-
-                    {open && (
-                      <div className="ds-skills">
-                        {dom.skills.map(sk => (
-                          <div key={sk.skillId} className="ds-skill-row">
-                            <span className="ds-skill-name">{formatSkillName(sk.skillName)}</span>
-                            {sk.misses > 0 && <span className="ds-skill-miss">{sk.misses} missed</span>}
-                            <span className="ds-flex-spacer" />
-                            <span className="ds-skill-count" style={{ color: sk.isStrong ? 'var(--color-brand-green-text)' : colors.text.secondary }}>{sk.correct}/{sk.total}</span>
-                            {sk.misses > 0 && onReviewModule && sk.firstMissModuleIndex != null && (
-                              <button
-                                type="button"
-                                className="ds-link-btn"
-                                onClick={() => onReviewModule(sk.firstMissModuleIndex)}
-                                aria-label={`Review your missed ${formatSkillName(sk.skillName)} questions`}
-                              >
-                                Review
-                              </button>
-                            )}
-                            {sk.misses > 0 && onDrillWeakness && (
-                              <button
-                                type="button"
-                                className="ds-drill-btn"
-                                onClick={() => onDrillWeakness({
-                                  skillId: sk.skillId,
-                                  skill: sk.skillName,
-                                  domain: sk.domainId,
-                                  section: sk.section,
-                                  missedPatterns: sk.missedPatterns,
-                                })}
-                                aria-label={`Drill ${formatSkillName(sk.skillName)}`}
-                              >
-                                Drill
-                              </button>
-                            )}
-                          </div>
-                        ))}
-                      </div>
-                    )}
+                    </div>
                   </div>
                 );
               })}
