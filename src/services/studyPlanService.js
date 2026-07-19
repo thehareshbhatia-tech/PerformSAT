@@ -11,18 +11,41 @@ const STUDY_PLAN_URL = process.env.REACT_APP_STUDY_PLAN_URL ||
 const AI_PLAN_TIMEOUT_MS = 120000;
 
 /**
- * Calls the Cloud Function to generate a study plan from diagnostic data.
- * Returns the structured plan object. Aborts after AI_PLAN_TIMEOUT_MS so a
- * slow/hung function rejects instead of hanging the caller indefinitely.
+ * Calls the Cloud Function to narrate a study plan from diagnostic data.
+ * The deterministic plan's structure is passed IN (compact weeks) so the
+ * model narrates the real weeks instead of inventing a parallel plan the
+ * merger would discard. Returns the structured narration object. Aborts
+ * after AI_PLAN_TIMEOUT_MS so a slow/hung function rejects instead of
+ * hanging the caller indefinitely.
  */
-export const generateStudyPlan = async (diagnosticReport, userProfile = {}, previousPlans = [], longitudinalContext = null) => {
+export const generateStudyPlan = async (diagnosticReport, userProfile = {}, previousPlans = [], longitudinalContext = null, deterministicPlan = null) => {
   const payload = {
     diagnosticReport: sanitizeDiagnostic(diagnosticReport),
     userProfile,
-    previousPlans: previousPlans.slice(-2).map(p => ({ summary: p.summary })),
+    // Previous plan: summary + compact week structure so deltaFromPrevious
+    // can compare real plans (the server used to see only the last headline).
+    previousPlans: previousPlans.slice(-2).map(p => ({
+      summary: p.summary,
+      weeks: (p.weeks || []).slice(0, 6).map(w => ({
+        weekNumber: w.weekNumber,
+        title: w.title,
+        focusSkills: (w.focusSkills || []).slice(0, 3),
+      })),
+    })),
   };
   if (longitudinalContext) {
     payload.longitudinalContext = longitudinalContext;
+  }
+  if (deterministicPlan?.weeks?.length) {
+    payload.deterministicWeeks = deterministicPlan.weeks.map(w => ({
+      weekNumber: w.weekNumber,
+      focusSkills: (w.focusSkills || []).slice(0, 3),
+      activities: (w.activities || []).slice(0, 10).map(a => ({
+        type: a.type,
+        title: a.title,
+        skillName: a.skillName || null,
+      })),
+    }));
   }
 
   const controller = new AbortController();
@@ -71,6 +94,8 @@ export function sanitizeDiagnostic(report) {
     skillAnalysis: {
       weakSkills: (report.skillAnalysis?.weakSkills || []).slice(0, 8).map(s => ({
         name: s.name, testAccuracy: s.testAccuracy, primaryErrorType: s.primaryErrorType,
+        // Blank-excluded accuracy + sample-size honesty tier (evidence rework)
+        contentAccuracy: s.contentAccuracy, evidenceLevel: s.evidenceLevel,
         modules: s.modules, sections: s.sections,
       })),
       strongSkills: (report.skillAnalysis?.strongSkills || []).slice(0, 5).map(s => ({
@@ -81,6 +106,15 @@ export function sanitizeDiagnostic(report) {
     timeAnalysis: report.timeAnalysis ? {
       avgTimePerQuestion: report.timeAnalysis.avgTimePerQuestion,
       fadeEffect: report.timeAnalysis.fadeEffect,
+    } : {},
+    // The prompt's "## Stamina" section keyed on stamina.hasData was dead for
+    // months — this sanitizer never included the field.
+    stamina: report.stamina?.hasData ? {
+      hasData: true,
+      rating: report.stamina.rating,
+      staminaScore: report.stamina.staminaScore,
+      dropoff: report.stamina.dropoff,
+      message: report.stamina.message,
     } : {},
     trendAnalysis: report.trendAnalysis ? {
       hasHistory: report.trendAnalysis.hasHistory,

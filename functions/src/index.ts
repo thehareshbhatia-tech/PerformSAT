@@ -781,14 +781,14 @@ export const generateStudyPlan = onRequest(
     }
 
     try {
-      const {diagnosticReport, userProfile, previousPlans, longitudinalContext} = request.body;
+      const {diagnosticReport, userProfile, previousPlans, longitudinalContext, deterministicWeeks} = request.body;
 
       if (!diagnosticReport) {
         response.status(400).json({error: "diagnosticReport is required"});
         return;
       }
 
-      if (exceedsRequestBodyCap(diagnosticReport, userProfile, previousPlans, longitudinalContext)) {
+      if (exceedsRequestBodyCap(diagnosticReport, userProfile, previousPlans, longitudinalContext, deterministicWeeks)) {
         response.status(400).json({error: "Request too large", code: "payload_too_large"});
         return;
       }
@@ -803,14 +803,22 @@ export const generateStudyPlan = onRequest(
       const lc = longitudinalContext || null;
       const isFirstTest = !lc || ((lc as Record<string, unknown>).totalTests as number || 0) <= 1;
       const persistentWeaknessCount = ((lc as Record<string, unknown>)?.persistentWeaknesses as unknown[] || []).length;
+      const detWeeks = Array.isArray(deterministicWeeks) ? deterministicWeeks : [];
       const systemPrompt = buildStudyPlanSystemPrompt(isFirstTest, persistentWeaknessCount);
       const userPrompt = buildStudyPlanUserPrompt(
         diagnosticReport,
         userProfile || {},
         previousPlans || [],
-        lc
+        lc,
+        detWeeks
       );
 
+      // Narration-only task (the deterministic generator owns the plan
+      // structure; the model writes the coach voice over it), so: Sonnet 5,
+      // adaptive thinking at low effort, structured output schema, and a small
+      // max_tokens. This replaced a 6000-token Sonnet 4.6 call with a 3000-token
+      // thinking budget whose generated weeks/activities were discarded by the
+      // merger anyway.
       const anthropicResponse = await fetch(
         "https://api.anthropic.com/v1/messages",
         {
@@ -821,11 +829,12 @@ export const generateStudyPlan = onRequest(
             "anthropic-version": "2023-06-01",
           },
           body: JSON.stringify({
-            model: "claude-sonnet-4-6",
-            max_tokens: 6000,
-            thinking: {
-              type: "enabled",
-              budget_tokens: 3000,
+            model: STUDY_PLAN_MODEL,
+            max_tokens: 2500,
+            thinking: {type: "adaptive"},
+            output_config: {
+              effort: "low",
+              format: {type: "json_schema", schema: STUDY_PLAN_NARRATION_SCHEMA},
             },
             system: systemPrompt,
             messages: [{role: "user", content: userPrompt}],
@@ -849,19 +858,24 @@ export const generateStudyPlan = onRequest(
       }
 
       const data = await anthropicResponse.json();
-      // With thinking enabled, content has both thinking and text blocks — find the text block
+      // Adaptive thinking may emit a thinking block before the text block.
       const textBlock = data.content.find((b: Record<string, unknown>) => b.type === "text");
       const rawContent = (textBlock?.text as string) || (data.content[0]?.text as string) || "";
 
-      let plan;
+      let parsed;
       try {
+        // Structured outputs constrain this to pure JSON; the brace-match is a
+        // belt-and-suspenders fallback for any provider edge case.
         const jsonMatch = rawContent.match(/\{[\s\S]*\}/);
-        plan = jsonMatch ? JSON.parse(jsonMatch[0]) : null;
+        parsed = jsonMatch ? JSON.parse(jsonMatch[0]) : null;
       } catch {
-        logger.warn("Failed to parse plan JSON, returning raw");
-        plan = null;
+        logger.warn("Failed to parse plan JSON");
+        parsed = null;
       }
 
+      // Shape validation — the old path trusted any syntactically-valid JSON
+      // and the merger positionally grafted whatever came back.
+      const plan = validateNarrationPlan(parsed, detWeeks);
       if (!plan) {
         response.status(500).json({error: "Failed to parse structured plan"});
         return;
@@ -870,7 +884,7 @@ export const generateStudyPlan = onRequest(
       response.json({
         plan,
         generatedAt: new Date().toISOString(),
-        model: "claude-sonnet-4-6",
+        model: STUDY_PLAN_MODEL,
       });
     } catch (error) {
       logger.error("Study plan generation error:", error);
@@ -1642,26 +1656,126 @@ function buildDiagnosticNarrativeUserPrompt(
   return sections.join("\n");
 }
 
+const STUDY_PLAN_MODEL = "claude-sonnet-5";
+
+// Structured-output schema for the narration task. The deterministic client
+// generator owns weeks/activities/assignments; the model contributes ONLY the
+// coach-voice prose fields below. Structured outputs guarantee shape at the
+// API layer; validateNarrationPlan still clamps content server-side.
+const STUDY_PLAN_NARRATION_SCHEMA = {
+  type: "object",
+  additionalProperties: false,
+  required: ["summary", "weeks", "nextActionReason", "deltaFromPrevious", "persistentWeaknessStrategy"],
+  properties: {
+    summary: {
+      type: "object",
+      additionalProperties: false,
+      required: ["headline", "diagnosis"],
+      properties: {
+        headline: {type: "string"},
+        diagnosis: {type: "string"},
+      },
+    },
+    weeks: {
+      type: "array",
+      items: {
+        type: "object",
+        additionalProperties: false,
+        required: ["weekNumber", "title", "goalDescription", "rationale"],
+        properties: {
+          weekNumber: {type: "integer"},
+          title: {type: "string"},
+          goalDescription: {type: "string"},
+          rationale: {type: "string"},
+        },
+      },
+    },
+    nextActionReason: {anyOf: [{type: "string"}, {type: "null"}]},
+    deltaFromPrevious: {anyOf: [{type: "string"}, {type: "null"}]},
+    persistentWeaknessStrategy: {anyOf: [{type: "string"}, {type: "null"}]},
+  },
+};
+
+/**
+ * Validate + clamp the model's narration output. Returns null when the shape
+ * is unusable (caller 500s; the client falls back to the deterministic plan).
+ * Week entries whose weekNumber doesn't match a provided deterministic week
+ * are dropped — the merger matches by weekNumber, so a stray entry can no
+ * longer mislabel someone else's week.
+ */
+function validateNarrationPlan(
+  parsed: unknown,
+  detWeeks: Array<Record<string, unknown>>
+): Record<string, unknown> | null {
+  if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) return null;
+  const p = parsed as Record<string, unknown>;
+
+  const str = (v: unknown, max: number): string | null => {
+    if (typeof v !== "string") return null;
+    const trimmed = v.trim();
+    if (!trimmed) return null;
+    return trimmed.length > max ? trimmed.slice(0, max) : trimmed;
+  };
+
+  const summary = p.summary as Record<string, unknown> | undefined;
+  const headline = str(summary?.headline, 160);
+  const diagnosis = str(summary?.diagnosis, 700);
+  if (!headline || !diagnosis) return null;
+
+  const allowedWeekNumbers = new Set(
+    detWeeks.map((w) => Number(w.weekNumber)).filter((n) => Number.isFinite(n))
+  );
+  const seenWeeks = new Set<number>();
+  const weeks: Array<Record<string, unknown>> = [];
+  if (Array.isArray(p.weeks)) {
+    for (const raw of p.weeks) {
+      if (!raw || typeof raw !== "object") continue;
+      const w = raw as Record<string, unknown>;
+      const weekNumber = Number(w.weekNumber);
+      if (!Number.isFinite(weekNumber) || seenWeeks.has(weekNumber)) continue;
+      if (allowedWeekNumbers.size > 0 && !allowedWeekNumbers.has(weekNumber)) continue;
+      const entry: Record<string, unknown> = {weekNumber};
+      const title = str(w.title, 60);
+      const goal = str(w.goalDescription, 160);
+      const rationale = str(w.rationale, 220);
+      if (title) entry.title = title;
+      if (goal) entry.goalDescription = goal;
+      if (rationale) entry.rationale = rationale;
+      if (title || goal || rationale) {
+        seenWeeks.add(weekNumber);
+        weeks.push(entry);
+      }
+    }
+  }
+
+  return {
+    summary: {headline, diagnosis},
+    weeks,
+    nextActionReason: str(p.nextActionReason, 200),
+    deltaFromPrevious: str(p.deltaFromPrevious, 400),
+    persistentWeaknessStrategy: str(p.persistentWeaknessStrategy, 400),
+  };
+}
+
 function buildStudyPlanSystemPrompt(isFirstTest: boolean, persistentWeaknessCount: number): string {
   const contextBlock = isFirstTest ? `
 ## CONTEXT: FIRST TEST
-This is the student's first diagnostic. Build a comprehensive plan from scratch.
-Prioritize: (1) highest-frequency SAT domains by weight, (2) biggest error-type
-clusters, (3) easiest quick wins on careless/trap errors before conceptual gaps.
-Do NOT assume any prior PerformSAT lesson work.
+This is the student's first diagnostic. Narrate the plan as a starting point:
+the diagnosis explains what this one test revealed, and the week rationales
+explain why the engine starts where it starts. Do NOT reference prior work.
+deltaFromPrevious is null.
 ` : `
 ## CONTEXT: RETURNING STUDENT (test 2+)
-The student has prior test history. The plan MUST differ from the previous one.
-Rules:
-1. Skills that IMPROVED since last test get ≤1 activity (reinforcement only).
-   Do not assign 3 lessons to a skill the student now gets 80%+ correct.
-2. Skills that REGRESSED or newly appeared get top priority.
-3. Skills that have been weak across EVERY test (persistent weaknesses) need
-   a different pedagogical approach — not "more practice" but "reteach from
-   concept level." Call this out explicitly in persistentWeaknessStrategy.
-4. deltaFromPrevious MUST be a specific 1-sentence summary of what changed
-   (e.g. "Quadratics improved 30→65% so removed 4 lessons; statistics added
-   as new priority at 40% accuracy").
+The student has prior test history and the provided plan was rebuilt from it.
+Narration rules:
+1. deltaFromPrevious MUST name specific changes between the previous plan
+   (summarized in the user message) and this one, citing accuracy shifts
+   (e.g. "Quadratics moved 30% to 65%, so it's out of your weeks. Statistics
+   is the new week-1 focus at 40%.").
+2. Skills listed as RECOVERED were drilled back to health — credit that work.
+3. Skills weak across EVERY test (persistent weaknesses) get
+   persistentWeaknessStrategy: name them and say why the plan reteaches them
+   from the concept up instead of assigning more practice.
 `;
 
   const persistentBlock = persistentWeaknessCount > 0 ? `
@@ -1671,78 +1785,51 @@ These students are stuck — not just untaught. The plan must include a
 "reteach from first principles" activity for each, not just practice questions.
 ` : "";
 
-  return `You are the PerformSAT AI Study Strategist. Produce a focused, actionable weekly study plan from Digital SAT diagnostics. The test may cover Math only, Reading & Writing only, or both sections (a 400–1600 composite) — the score overview and domain data tell you which; target the section(s) actually present and never assume the plan is Math-only.
+  return `You are the PerformSAT AI Study Strategist. The student's weekly study plan has ALREADY been built by a deterministic engine — the user message includes it under "The Plan". Your job is to NARRATE that plan in a coach's voice, grounded in the diagnostic data: name why each week targets what it targets, diagnose the root cause of the score gap, and (for returning students) explain what changed since last time. You do NOT design the plan, choose activities, or invent weeks. The test may cover Math only, Reading & Writing only, or both sections (a 400–1600 composite) — the score overview and domain data tell you which; never assume the plan is Math-only.
 ${contextBlock}${persistentBlock}
-IMPORTANT: Strengths and weaknesses are computed deterministically. Do NOT generate them. Focus entirely on the weekly plan and a brief diagnosis.
+IMPORTANT: Strengths, weaknesses, weeks, and activities are computed deterministically. Do NOT generate them. Narrate only.
 
 Output MUST be valid JSON (no markdown fences) matching this schema:
 
 {
   "summary": {
     "headline": "string — max 12 words. State the core strategy, not the score. Must reference this student's specific dominant error pattern or weakest skill by name. Write it as a coach speaking to the student, not a strategy memo: 'Fix pacing first — the clock cost you 12 questions' is right; '12 time-pressure errors demand pacing overhaul' is wrong.",
-    "diagnosis": "string — 2-3 sentences. Synthesize the root cause of the score gap using the exact data provided. Reference at least: (1) the dominant error type with count, (2) the weakest skill by name with accuracy %. No motivational filler. Example: 'You missed 6/8 algebra questions, mostly from conceptual gaps in slope-intercept form (25% accuracy). Careless errors on easy questions cost 3 more — fixing those alone adds ~30 points.'",
-    "stats": { "weeksInPlan": number, "totalLessons": number, "totalPractice": number, "minutesPerDay": number }
-  },
-  "nextAction": {
-    "title": "string — max 10 words. The single most important thing to do first.",
-    "reason": "string — max 25 words. Why this action pays the most points, citing the specific evidence (e.g. '3/4 wrong in linear equations — the concept needs rebuilding before practice').",
-    "type": "lesson|practice|strategy|review|test",
-    "duration": number,
-    "moduleId": "string|null",
-    "lessonId": "string|null"
+    "diagnosis": "string — 2-3 sentences. Synthesize the root cause of the score gap using the exact data provided. Reference at least: (1) the dominant error type with count, (2) the weakest skill by name with accuracy %. No motivational filler. Example: 'You missed 6/8 algebra questions, mostly from conceptual gaps in slope-intercept form (25% accuracy). Careless errors on easy questions cost 3 more — fixing those alone adds ~30 points.'"
   },
   "weeks": [
     {
-      "weekNumber": number,
-      "title": "string — max 6 words",
-      "goalDescription": "string — max 20 words. One clear measurable outcome that references the specific skill or error type this week targets.",
-      "rationale": "string — max 25 words. Why this week's focus was chosen given the diagnosis (e.g. 'Slope-intercept is your biggest gap at 25% — fixing it unlocks 5+ questions per test').",
-      "focusSkills": ["string"],
-      "activities": [
-        {
-          "title": "string — max 10 words. Be specific: name the skill or topic.",
-          "subtitle": "string — max 20 words. State WHY this activity matters for the score using evidence.",
-          "type": "lesson|practice|strategy|review|test",
-          "duration": number,
-          "moduleId": "string|null",
-          "lessonId": "string|null",
-          "sectionName": "string|null",
-          "completed": false
-        }
-      ]
+      "weekNumber": number — MUST be a weekNumber that appears in The Plan. One entry per provided week, in order.
+      "title": "string — max 6 words. A student-facing name for what THAT week's listed activities actually do.",
+      "goalDescription": "string — max 20 words. One clear measurable outcome referencing the specific skill or error type that week's activities target.",
+      "rationale": "string — max 25 words. Why the engine's focus for that week is right for THIS student, citing their gap data (e.g. 'Slope-intercept is your biggest gap at 25% — fixing it unlocks 5+ questions per test')."
     }
   ],
-  "deltaFromPrevious": "string|null — 2-3 SHORT sentences (max 20 words each): what changed since the last plan and why, citing score or skill accuracy changes. Never one long run-on sentence.",
-  "persistentWeaknessStrategy": "string|null — 1-2 short sentences: the new approach for multi-test weaknesses, naming the specific skills and why more practice alone won't fix them"
+  "nextActionReason": "string|null — max 25 words. Why the plan's FIRST activity (marked in The Plan) pays the most points for this student, citing specific evidence.",
+  "deltaFromPrevious": "string|null — 2-3 SHORT sentences (max 20 words each): what changed since the last plan and why, citing score or skill accuracy changes. Null on a first test.",
+  "persistentWeaknessStrategy": "string|null — 1-2 short sentences: the new approach for multi-test weaknesses, naming the specific skills and why more practice alone won't fix them. Null when there are none."
 }
 
-PERSONALIZATION RULES (these differentiate plans between students):
-P1. summary.diagnosis MUST cite this student's actual data: dominant error type + count, weakest skill + accuracy %, and if available, stamina/timing evidence.
-P2. Each week's rationale MUST explain why that week targets what it does, referencing the student's specific gap data.
-P3. nextAction.reason MUST cite the specific evidence that makes this the highest-ROI activity for THIS student.
-P4. When persistent weaknesses exist (weak across multiple tests), the plan must change approach: reteach from scratch rather than just more practice. Name the specific skills.
-P5. When stamina/timing data shows accuracy drop-off, week 1 must include a pacing strategy activity.
+PERSONALIZATION RULES:
+P1. summary.diagnosis MUST cite this student's actual data: dominant error type + count, weakest skill + accuracy %, and if available, stamina/timing/pacing evidence.
+P2. Each week's title/goal/rationale MUST describe what that week's PROVIDED activities do — never describe work the plan doesn't contain.
+P3. nextActionReason MUST cite the specific evidence that makes the provided first activity the highest-ROI start for THIS student.
+P4. When persistent weaknesses exist (weak across multiple tests), persistentWeaknessStrategy names the specific skills and why practice alone won't fix them. When recovered skills are listed, credit the drilling that fixed them in deltaFromPrevious instead of nagging about them.
+P5. When stamina/timing data shows accuracy drop-off, the diagnosis must mention it.
 
 GENERAL RULES:
 1. NO EMOJIS anywhere in the output. This is strictly enforced.
 2. NO motivational filler — no "You can do it!", "Great job!", "Keep going!", "Don't worry!". State facts only.
 3. NO vague advice — never say "review your mistakes", "practice more", "focus on weak areas". Name the specific topic/skill.
-4. Plan 2-4 weeks depending on score gap. Week 1 = quick wins (careless errors, easy-question misses).
-5. Address conceptual gaps before procedural polish. Include 1 practice test per cycle.
-6. Each week: 4-8 activities, each 10-30 minutes.
-7. Use moduleIds: algebra, advanced-math, problem-solving, geometry.
-8. Every activity subtitle must answer "why this helps your score" in concrete terms (e.g. "You missed 3/4 of these — fixing them adds ~20 points").
-9. nextAction must be the single highest-ROI activity from week 1.
-10. When longitudinal context is provided, persistent weaknesses that span multiple tests get top priority — they need reteaching, not just more practice.
-11. Keep all text concise. Prefer short declarative sentences. No padding.
-12. VOICE: You are a coach talking to a 16-year-old who just took this test. Second person. Max ~20 words per sentence — split long thoughts into two sentences. Plain words only: never "remediation", "execution collapse", "pivot", "escalate", "overhaul", "demand", "leverage", or any consulting/engineering jargon. Every sentence should sound like a person who watched the test, not a report about it.`;
+4. Keep all text concise. Prefer short declarative sentences. No padding.
+5. VOICE: You are a coach talking to a 16-year-old who just took this test. Second person. Max ~20 words per sentence — split long thoughts into two sentences. Plain words only: never "remediation", "execution collapse", "pivot", "escalate", "overhaul", "demand", "leverage", or any consulting/engineering jargon. Every sentence should sound like a person who watched the test, not a report about it.`;
 }
 
 function buildStudyPlanUserPrompt(
   diagnosticReport: Record<string, unknown>,
   userProfile: Record<string, unknown>,
   previousPlans: unknown[],
-  longitudinalContext: Record<string, unknown> | null = null
+  longitudinalContext: Record<string, unknown> | null = null,
+  deterministicWeeks: Array<Record<string, unknown>> = []
 ): string {
   const score = diagnosticReport.score as Record<string, unknown> || {};
   const errorPatterns = diagnosticReport.errorPatterns as Record<string, unknown> || {};
@@ -1797,7 +1884,10 @@ ${mistakeFingerprint.archetypeDescription || ""}`);
   const weak = (skillAnalysis.weakSkills as Array<Record<string, unknown>>) || [];
   const strong = (skillAnalysis.strongSkills as Array<Record<string, unknown>>) || [];
   if (weak.length > 0) {
-    sections.push(`\n## Weak Skills\n${weak.slice(0, 8).map((s) => `- ${s.name}: ${s.testAccuracy}% (error: ${s.primaryErrorType || "mixed"})`).join("\n")}`);
+    sections.push(`\n## Weak Skills\n${weak.slice(0, 8).map((s) => {
+      const ev = s.evidenceLevel === "suspected" ? ", thin evidence — plan probes it first" : "";
+      return `- ${s.name}: ${s.contentAccuracy ?? s.testAccuracy}% (error: ${s.primaryErrorType || "mixed"}${ev})`;
+    }).join("\n")}`);
   }
   if (strong.length > 0) {
     sections.push(`\n## Strong Skills\n${strong.slice(0, 5).map((s) => `- ${s.name}: ${s.testAccuracy}%`).join("\n")}`);
@@ -1839,8 +1929,34 @@ ${stamina.message || ""}`);
   if (previousPlans.length > 0) {
     const prev = previousPlans[previousPlans.length - 1] as Record<string, unknown>;
     const prevSummary = prev?.summary as Record<string, unknown>;
-    sections.push(`\n## Previous Plan Summary: "${prevSummary?.headline || "N/A"}"
-Note what changed and why in your deltaFromPrevious field.`);
+    const prevLines = [`\n## Previous Plan Summary: "${prevSummary?.headline || "N/A"}"`];
+    // Compact prior-plan structure (week titles + focus skills) so
+    // deltaFromPrevious can compare real plans instead of guessing from one
+    // headline — the old prompt demanded a specific delta while showing the
+    // model essentially nothing about the previous plan.
+    const prevWeeks = prev?.weeks as Array<Record<string, unknown>> | undefined;
+    if (Array.isArray(prevWeeks) && prevWeeks.length > 0) {
+      prevWeeks.slice(0, 6).forEach((w) => {
+        const skills = Array.isArray(w.focusSkills) ? (w.focusSkills as string[]).slice(0, 3).join(", ") : "";
+        prevLines.push(`- Week ${w.weekNumber}: ${w.title || "untitled"}${skills ? ` (${skills})` : ""}`);
+      });
+    }
+    prevLines.push("Note what changed and why in your deltaFromPrevious field.");
+    sections.push(prevLines.join("\n"));
+  }
+
+  if (deterministicWeeks.length > 0) {
+    const planLines: string[] = ["\n## The Plan (already built — narrate THIS, do not redesign it)"];
+    deterministicWeeks.forEach((w, wi) => {
+      const skills = Array.isArray(w.focusSkills) ? (w.focusSkills as string[]).join(", ") : "";
+      planLines.push(`Week ${w.weekNumber}${skills ? ` — focus: ${skills}` : ""}`);
+      const acts = Array.isArray(w.activities) ? (w.activities as Array<Record<string, unknown>>) : [];
+      acts.forEach((a, ai) => {
+        const first = wi === 0 && ai === 0 ? " <- FIRST ACTIVITY (nextActionReason narrates this)" : "";
+        planLines.push(`  - [${a.type}] ${a.title}${a.skillName ? ` (${a.skillName})` : ""}${first}`);
+      });
+    });
+    sections.push(planLines.join("\n"));
   }
 
   if (longitudinalContext) {
@@ -1865,7 +1981,16 @@ Note what changed and why in your deltaFromPrevious field.`);
         const trend = pw.trend === "declining" ? "↓ declining" : pw.trend === "flat" ? "→ flat" : "↑ improving";
         sections.push(`  - ${pw.skillId}: ${pw.accuracy}% avg accuracy across ${pw.testCount} tests (${trend})`);
       });
-      sections.push(`For each persistent weakness: Week 1 activity MUST be "Reteach from concept level" not "More practice questions". These students have practiced incorrectly — practice reinforces the wrong approach.`);
+    }
+
+    // Skills the student drilled back to health since the last test — the
+    // narration should credit this work, not re-flag the skill.
+    const recovered = lc.recoveredSkills as Array<Record<string, unknown>> || [];
+    if (recovered.length > 0) {
+      sections.push(`\nRECOVERED SINCE LAST TEST (drilled back to health — credit this, don't nag):`);
+      recovered.forEach(r => {
+        sections.push(`  - ${r.skillId}: was ${r.testAccuracy}% on tests, now ${r.drillAccuracy}% over ${r.drillAttempts} recent drills`);
+      });
     }
 
     // Identify skills that improved since last plan — de-emphasize these
@@ -1889,10 +2014,10 @@ Note what changed and why in your deltaFromPrevious field.`);
       sections.push(`\nNew regressions — add to plan immediately: ${newWeaknesses.join(", ")}`);
     }
 
-    sections.push(`\nCRITICAL: The plan deltaFromPrevious field must explicitly name what changed and why. Example: "Quadratics improved 30% to 65%, so those lessons are gone. Statistics is the new week-1 priority (40% this test). Slope-intercept gets retaught from scratch — it's been weak across all 3 tests."`);
+    sections.push(`\nCRITICAL: deltaFromPrevious must explicitly name what changed and why. Example: "Quadratics moved 30% to 65%, so it's out of your weeks. Statistics is the new week-1 focus (40% this test). Slope-intercept gets retaught from the concept up — it's been weak across all 3 tests."`);
   }
 
-  sections.push(`\nGenerate the JSON study plan now.`);
+  sections.push(`\nGenerate the JSON narration now.`);
   return sections.join("\n");
 }
 

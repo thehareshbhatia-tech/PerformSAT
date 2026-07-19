@@ -181,6 +181,7 @@ export const generateAndPersistHybridPlan = async ({
       totalTests: longitudinal.totalTests,
       totalAttempts: longitudinal.totalAttempts,
       persistentWeaknesses: longitudinal.persistentWeaknesses.slice(0, 8),
+      recoveredSkills: (longitudinal.recoveredSkills || []).slice(0, 6),
       scoreTrajectory: longitudinal.scoreTrajectory.slice(-6),
       // Per-test aggregated skill history. The Cloud Function's prompt
       // builder reads lc.skillHistory[skillId].appearances[i].accuracy to
@@ -195,6 +196,7 @@ export const generateAndPersistHybridPlan = async ({
       userProfile,
       previousPlan ? [previousPlan] : [],
       longitudinalForAI,
+      deterministicPlan, // narrate the REAL weeks, not an invented parallel plan
     );
     aiPlan = aiResult;
   } catch (err) {

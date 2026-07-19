@@ -457,31 +457,24 @@ export const mergeHybridPlan = (deterministicPlan, aiPlan = null) => {
     }
 
     if (ai.weeks?.length) {
-      base.weeks = base.weeks.map((week, i) => {
-        const aiWeek = ai.weeks[i];
+      // Match by weekNumber, not position — the AI narrates the deterministic
+      // weeks it was shown, and a stray/missing entry must not shift every
+      // subsequent week's narration onto the wrong week.
+      base.weeks = base.weeks.map((week) => {
+        const aiWeek = ai.weeks.find(w => Number(w?.weekNumber) === Number(week.weekNumber));
         if (!aiWeek) return week;
         const aiTitle = stripEmojis(aiWeek.title || '');
         const aiGoal = stripEmojis(aiWeek.goalDescription || '');
         const aiRationale = stripEmojis(aiWeek.rationale || '');
         return {
           ...week,
-          title: (aiTitle.length > 0 && aiTitle.length <= week.title?.length * 1.5) ? aiTitle : week.title,
-          goalDescription: (aiGoal.length > 0 && aiGoal.length <= 120) ? aiGoal : week.goalDescription,
+          title: (aiTitle.length > 0 && aiTitle.length <= 60) ? aiTitle : week.title,
+          goalDescription: (aiGoal.length > 0 && aiGoal.length <= 160) ? aiGoal : week.goalDescription,
           rationale: aiRationale.length > 0 ? aiRationale : week.rationale || null,
         };
       });
     }
 
-    if (ai.nextAction) {
-      base.nextAction = {
-        title: stripEmojis(ai.nextAction.title || ''),
-        reason: stripEmojis(ai.nextAction.reason || ''),
-        type: ai.nextAction.type,
-        duration: ai.nextAction.duration,
-        moduleId: ai.nextAction.moduleId || null,
-        lessonId: ai.nextAction.lessonId || null,
-      };
-    }
 
     if (ai.targetedQuestions) {
       base.targetedQuestions = ai.targetedQuestions;
@@ -528,6 +521,18 @@ export const mergeHybridPlan = (deterministicPlan, aiPlan = null) => {
   // Ensure nextAction exists — derive from first incomplete activity if missing
   if (!base.nextAction) {
     base.nextAction = deriveNextAction(base.weeks);
+  }
+
+  // The AI no longer authors nextAction (its title/moduleId/lessonId came back
+  // unvalidated and could point at content that doesn't exist). The
+  // deterministic nextAction stands; the AI contributes only the coach-voice
+  // reason for it. Applied AFTER derivation so it lands whether the base plan
+  // carried a nextAction or one was just derived.
+  if (aiPlan?.plan?.nextActionReason && base.nextAction) {
+    base.nextAction = {
+      ...base.nextAction,
+      reason: stripEmojis(aiPlan.plan.nextActionReason),
+    };
   }
 
   // Sanitize top-level summary text

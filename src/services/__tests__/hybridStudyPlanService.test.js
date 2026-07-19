@@ -449,20 +449,26 @@ describe('mergeHybridPlan', () => {
     expect(result.nextAction.moduleId).toBe('algebra');
   });
 
-  test('prefers AI nextAction over derived one', () => {
+  test('AI nextActionReason overlays the reason; deterministic action stands', () => {
+    // Narration contract (2026-07-19): the AI never authors nextAction — its
+    // unvalidated title/moduleId/lessonId could point at content that doesn't
+    // exist. It contributes only the coach-voice reason for the deterministic
+    // first action.
     const det = {
       summary: { headline: 'Plan' },
-      weeks: [{ weekNumber: 1, title: 'W1', activities: [{ title: 'Det first', subtitle: 'Sub', type: 'lesson', duration: 10 }] }],
+      weeks: [{ weekNumber: 1, title: 'W1', activities: [{ title: 'Det first', subtitle: 'Sub', type: 'lesson', duration: 10, moduleId: 'algebra' }] }],
     };
     const ai = {
       plan: {
+        nextActionReason: '3/4 wrong in linear equations — rebuild the concept first',
+        // Legacy full-object shape is ignored entirely:
         nextAction: { title: 'AI priority action', reason: 'Biggest ROI', type: 'practice', duration: 20, moduleId: 'geometry' },
       },
     };
     const result = mergeHybridPlan(det, ai);
-    expect(result.nextAction.title).toBe('AI priority action');
-    expect(result.nextAction.reason).toBe('Biggest ROI');
-    expect(result.nextAction.moduleId).toBe('geometry');
+    expect(result.nextAction.title).toBe('Det first');
+    expect(result.nextAction.moduleId).toBe('algebra');
+    expect(result.nextAction.reason).toBe('3/4 wrong in linear equations — rebuild the concept first');
   });
 
   test('preserves targeted questions from AI plan', () => {
@@ -495,18 +501,39 @@ describe('mergeHybridPlan', () => {
     expect(result.summary.diagnosis).toBe('AI-generated evidence-linked diagnosis');
   });
 
-  test('preserves rationale from AI weeks', () => {
+  test('preserves rationale from AI weeks (matched by weekNumber)', () => {
     const det = {
       summary: { headline: 'Plan' },
       weeks: [{ weekNumber: 1, title: 'W1', goalDescription: 'Goal 1', activities: [] }],
     };
     const ai = {
       plan: {
-        weeks: [{ title: 'AI W1', goalDescription: 'AI goal', rationale: 'Slope-intercept is 25% accuracy — biggest gap' }],
+        weeks: [{ weekNumber: 1, title: 'AI W1', goalDescription: 'AI goal', rationale: 'Slope-intercept is 25% accuracy — biggest gap' }],
       },
     };
     const result = mergeHybridPlan(det, ai);
     expect(result.weeks[0].rationale).toBe('Slope-intercept is 25% accuracy — biggest gap');
+  });
+
+  test('AI week narration without a matching weekNumber does NOT graft onto other weeks', () => {
+    // The old positional merge let the AI label week 2 "Quadratics deep-dive"
+    // over deterministic statistics activities. weekNumber matching kills that.
+    const det = {
+      summary: { headline: 'Plan' },
+      weeks: [
+        { weekNumber: 1, title: 'Det W1', goalDescription: 'G1', activities: [] },
+        { weekNumber: 2, title: 'Det W2', goalDescription: 'G2', activities: [] },
+      ],
+    };
+    const ai = {
+      plan: {
+        weeks: [{ weekNumber: 5, title: 'Stray', goalDescription: 'Wrong week', rationale: 'nope' }],
+      },
+    };
+    const result = mergeHybridPlan(det, ai);
+    expect(result.weeks[0].title).toBe('Det W1');
+    expect(result.weeks[1].title).toBe('Det W2');
+    expect(result.weeks[1].goalDescription).toBe('G2');
   });
 
   test('preserves deltaFromPrevious and persistentWeaknessStrategy from AI', () => {
