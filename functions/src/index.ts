@@ -1119,6 +1119,7 @@ export const generateDiagnosticNarrative = onRequest(
         contradictionPenalty: quality.contradictionPenalty,
         redundancyPenalty: quality.redundancyPenalty,
         genericPenalty: quality.genericPenalty,
+        slopPenalty: quality.slopPenalty,
       });
 
       response.json({
@@ -1137,7 +1138,7 @@ export const generateDiagnosticNarrative = onRequest(
   }
 );
 
-const DIAGNOSTIC_PROMPT_VERSION = "3.2";
+const DIAGNOSTIC_PROMPT_VERSION = "4.0";
 const QUALITY_THRESHOLD = 0.65;
 
 interface QualityScores {
@@ -1151,6 +1152,7 @@ interface QualityScores {
   genericPenalty: number;
   surfacePenalty: number;
   behaviorDepthPenalty: number;
+  slopPenalty: number;
   total: number;
   repaired?: boolean;
   repairFailed?: boolean;
@@ -1308,7 +1310,11 @@ function scoreNarrativeQuality(narrative: Record<string, unknown>, hasHistory = 
         mechanism.length < 20 ||
         impact.length < 3 ||
         !numericPattern.test(claim) ||
-        !/\b(because|leads to|causes|results in|due to|driven by|stems from|suggesting|indicates|compounded|rooted in|rather than|confirms|accounts for)\b/i.test(claim + " " + mechanism);
+        // Causal language check — includes the conversational connectives the
+        // tutor voice uses (so/which/that's why), not just report connectives.
+        // The old list required words like "stems from"/"suggesting", which
+        // REWARDED exactly the register the prompt now bans.
+        !/\b(because|so|which|leads to|causes|results in|due to|driven by|that's why|every time|the moment|rooted in|rather than|accounts for|costs?|worth)\b/i.test(claim + " " + mechanism);
       if (isSurface) surfaceCount++;
     });
     surfacePenalty = (surfaceCount / diagPts.length) * 0.15;
@@ -1334,6 +1340,18 @@ function scoreNarrativeQuality(narrative: Record<string, unknown>, hasHistory = 
     behaviorDepthPenalty = (shallowBehavior / behaviorPts.length) * 0.08;
   }
 
+  // ─── AI-slop detection: report language + shredded claims ───
+  // The prompt (v4.0) bans consulting/report register in student-facing prose;
+  // this catches relapses so the repair pass rewrites them. Semicolon chains
+  // belong ONLY in evidence/proof fields — 2+ in a claim means the thought was
+  // shredded into fragments instead of written as sentences.
+  const SLOP_RE = /\b(remediation|leverage[sd]?|utiliz\w+|furthermore|additionally|moreover|notably|suboptimal|deficit(s)?|compounded by|stems? from|attributable|systematic(ally)?|demonstrates?|exhibits?|holistic|actionable|delve)\b/gi;
+  const slopMatches = (allClaimsJoined.match(SLOP_RE) || []).length;
+  const claimOnlyTexts = [...diagPts, ...scorePts, ...behaviorPts]
+    .map((p) => typeof p === "string" ? p : (p.claim as string || ""));
+  const shreddedClaims = claimOnlyTexts.filter((c) => (c.match(/;/g) || []).length >= 2).length;
+  const slopPenalty = Math.min(0.12, slopMatches * 0.03 + shreddedClaims * 0.04);
+
   // ─── Question insights bonus (not mandatory — rewards but doesn't penalize) ───
   const questionInsights = narrative.questionInsights as Array<Record<string, unknown>> || [];
   const questionInsightsBonus = questionInsights.length >= 1 ? 0.01 : 0;
@@ -1345,7 +1363,7 @@ function scoreNarrativeQuality(narrative: Record<string, unknown>, hasHistory = 
     (schemaCompleteness * 0.12) +
     (causalDepth * 0.23) +
     (crossTestUtilization * 0.10) +
-    (0.27 - contradictionPenalty - redundancyPenalty - genericPenalty - surfacePenalty - behaviorDepthPenalty) +
+    (0.27 - contradictionPenalty - redundancyPenalty - genericPenalty - surfacePenalty - behaviorDepthPenalty - slopPenalty) +
     questionInsightsBonus
   ));
 
@@ -1360,6 +1378,7 @@ function scoreNarrativeQuality(narrative: Record<string, unknown>, hasHistory = 
     genericPenalty: Math.round(genericPenalty * 100) / 100,
     surfacePenalty: Math.round(surfacePenalty * 100) / 100,
     behaviorDepthPenalty: Math.round(behaviorDepthPenalty * 100) / 100,
+    slopPenalty: Math.round(slopPenalty * 100) / 100,
     total: Math.round(total * 100) / 100,
   };
 }
@@ -1380,8 +1399,9 @@ async function attemptNarrativeRepair(
   if (quality.contradictionPenalty > 0) issues.push("The narrative contains contradictory claims about trends. Remove or reconcile conflicting statements. If signals are mixed, note ambiguity in 'uncertainties'.");
   if (quality.redundancyPenalty > 0) issues.push("Some claims are redundant/duplicated across sections. Remove duplicates — each insight should appear only once, with a distinct angle in each section.");
   if (quality.genericPenalty > 0) issues.push("The narrative contains generic language (e.g. 'review your mistakes', 'practice more', 'needs improvement'). Replace every generic phrase with a specific, data-backed observation.");
-  if (quality.surfacePenalty > 0.05) issues.push("Some diagnosis points are surface-level — they describe WHAT happened but not WHY. Each diagnosisPoints claim must follow a 3-part structure: observation (with number) -> mechanism (cognitive/strategic root cause) -> impact (point cost). The causalMechanism must go at least 2 levels deep and use causal language (because, leads to, driven by, stems from). Synthesize at least 2 data signals per claim.");
-  if (quality.behaviorDepthPenalty > 0.03) issues.push("behaviorInsightPoints are shallow. Each must follow: BEHAVIOR (specific numbers) -> MECHANISM (cognitive/strategic root cause in causalMechanism, >20 chars) -> CONSEQUENCE (quantified in estimatedImpact). Evidence must cite 2+ semicolon-separated data signals. Bad: 'You rushed.' Good: 'Wrong-answer avg 25s vs correct avg 55s (ratio 0.45x) — premature commitment to trap answers from surface-level reading, costing ~25 pts.'");
+  if (quality.surfacePenalty > 0.05) issues.push("Some diagnosis points are surface-level — they describe WHAT happened but not WHY. Each claim must carry observation (with number), root cause, and point cost woven into flowing sentences, with conversational causal language (because, so, which is why). Synthesize at least 2 data signals per claim.");
+  if ((quality.slopPenalty || 0) >= 0.03) issues.push("The prose has report/consulting language or shredded fragments. Rewrite in plain tutor voice: remove words like 'stems from', 'demonstrates', 'furthermore', 'systematic', 'compounded by'; merge any semicolon-chained claim fragments into complete flowing sentences (semicolons belong only in evidence fields); keep everything second person, said the way a tutor would say it out loud.");
+  if (quality.behaviorDepthPenalty > 0.03) issues.push("behaviorInsightPoints are shallow. Each must carry the behavior (specific numbers), the habit underneath (causalMechanism, >20 chars), and the quantified cost (estimatedImpact) — woven into flowing tutor-voice sentences. Evidence must cite 2+ semicolon-separated data signals. Bad: 'You rushed.' Good: 'You gave the answers you got wrong 25 seconds each and the ones you got right nearly a minute — when you weren't sure, you grabbed the familiar-looking choice instead of slowing down. That cost about 25 points.'");
   if (quality.schemaCompleteness < 0.8) issues.push("Some required schema fields are missing. Ensure all fields from the schema are populated.");
   const repairQuestionInsights = Array.isArray(original.questionInsights) ? original.questionInsights : [];
   if (repairQuestionInsights.length === 0) issues.push("questionInsights is missing or empty. Generate 3-5 question-level insights for the most instructive wrong questions. Each needs questionKey, trapType, trapExplanation, correctApproach, and relatedSkillId. Prioritize trap_susceptibility and conceptual_gap errors.");
@@ -1456,18 +1476,24 @@ Return ONLY the corrected JSON.`;
 }
 
 function buildDiagnosticNarrativeSystemPrompt(): string {
-  return `You are a senior SAT psychometrician and test diagnostician performing a deep-dive analysis. Given rich evidence from a student's Digital SAT practice test, produce a clinically precise structured diagnostic that explains the CAUSAL MECHANISMS behind performance, not just what happened. The test may cover Math only, Reading & Writing only, or both sections (a 400–1600 composite) — the score header and domain data tell you which. Frame every observation to the section(s) actually present; never assume the test is Math, and never reference a domain or skill that isn't in the data. Every claim MUST be anchored to numeric evidence from the data provided. Do NOT fabricate numbers — use only the data given.
+  return `You are a sharp SAT tutor who just sat through this student's test and is now explaining, face to face, WHY the score came out the way it did. You have the full data in front of you, but you talk like a person who watched them work — not like a report. Second person, always. The test may cover Math only, Reading & Writing only, or both sections (a 400–1600 composite) — the score header and domain data tell you which. Frame every observation to the section(s) actually present; never assume the test is Math, and never reference a domain or skill that isn't in the data. Every claim MUST be anchored to numeric evidence from the data provided, with the numbers woven INTO your sentences. Do NOT fabricate numbers — use only the data given.
+
+THE VOICE (this matters as much as the content):
+- Write the way a tutor talks to a 16-year-old across a table. "You spent 45 seconds on the geometry questions you missed and 70 on the ones you got right — you knew when you were stuck, you just couldn't get unstuck in time." That is the register. Every sentence should sound like it could only have been written about THIS student.
+- Plain words only. BANNED: "remediation", "execution", "systematic", "concentrated in", "stems from", "attributable", "leverage", "utilize", "demonstrates", "furthermore", "additionally", "moreover", "notably", "significant" (as filler), "suboptimal", "deficits", "compounded by", and any word you would not say out loud to a teenager.
+- Developed flowing sentences, not fragments. Never shred a thought into semicolon clauses or dash-chains inside a claim — semicolons belong ONLY in the evidence/proof citation fields. Prefer 10-20 word sentences; split anything longer into two.
+- Causation lives INSIDE the sentence, joined by because / so / which / and — not appended as a separate clinical clause.
 
 Your output MUST be valid JSON (no markdown fences) matching this schema:
 
 {
   "promptVersion": "${DIAGNOSTIC_PROMPT_VERSION}",
-  "diagnosis": "string — THE THESIS: 1-2 sentences that name the SINGLE dominant story of this test by integrating the student's top 2 linked causes into one coherent takeaway a tutor would open with. This is the headline the whole narrative hangs on, so it must connect the dots, not list facts. Good: 'Your score comes down to one thing: you understand the math but you're losing it to the clock — strong concept accuracy collapses in the back half, where rushing turns easy questions into careless misses.' Do NOT restate the score, percentile, or target gap. Focus on the WHY, and make it feel written for THIS student.",
+  "diagnosis": "string — THE THESIS: 1-2 sentences that name the SINGLE dominant story of this test by tying the student's top 2 linked causes into one takeaway a tutor would open with. It must connect the dots, not list facts. Good: 'Your score comes down to one thing: you know the math, but the clock is taking it from you — your accuracy holds up beautifully until the back half, where rushing turns easy questions into misses.' Do NOT restate the score, percentile, or target gap. Focus on the WHY, and make it feel written for THIS student.",
   "diagnosisPoints": [
     {
-      "claim": "string — one sharp diagnostic INSIGHT following the 3-part causal chain: OBSERVATION (what the data shows, with a specific number) -> MECHANISM (why it happens) -> IMPACT (how many points it costs). Must answer WHY the score is what it is, not WHAT it is. Bad: 'You missed 4 geometry questions.' Good: '62% of your errors stem from conceptual gaps concentrated in geometry and advanced algebra, where you average 45s per question vs 70s on topics you understand — this single pattern accounts for roughly 40 of your 50-point gap.' Do NOT restate the score, percentile, or target gap. Each claim must synthesize at least 2 data signals (e.g. error type + domain accuracy, or time data + difficulty level).",
-      "evidence": "string — 2-4 semicolon-separated specific data citations that anchor this claim (e.g. 'Conceptual Gap errors: 8/13 wrong; Geometry: 4/7 correct; Avg time on geometry wrong answers: 45s; 3/4 hard geometry missed'). Cite from multiple data dimensions when possible.",
-      "causalMechanism": "string — the underlying reason this pattern exists, going at least one level deeper than the observation. Do NOT just restate the claim. Explain the cognitive or strategic root cause. Bad: 'You got geometry wrong because you lack geometry skills.' Good: 'Missing foundational understanding of coordinate geometry leads to systematic errors on both easy and hard questions in that domain, suggesting the gap is conceptual rather than procedural — you know the steps but misapply them when spatial reasoning is required.'",
+      "claim": "string — 2-4 flowing tutor-voice sentences that tell one insight as a small story: what you saw them do (with the numbers in the prose), why it happens, and what it costs. Bad: 'You missed 4 geometry questions.' Bad (report-speak): '62% of your errors stem from conceptual gaps concentrated in geometry.' Good: 'Most of your misses trace back to two topics — geometry and the harder algebra. You gave those questions 45 seconds each and your correct answers 70, so you felt the uncertainty and moved on before working through it. Those two topics alone are worth about 40 of your 50-point gap.' Each claim must weave together at least 2 data signals (error type + domain accuracy, or time + difficulty).",
+      "evidence": "string — 2-4 semicolon-separated specific data citations that anchor this claim (e.g. 'Conceptual Gap errors: 8/13 wrong; Geometry: 4/7 correct; Avg time on geometry wrong answers: 45s; 3/4 hard geometry missed'). This is the ONLY place semicolon fragments belong.",
+      "causalMechanism": "string — ONE plain-words sentence naming the root habit or gap underneath the pattern, without repeating the claim. Bad: 'You got geometry wrong because you lack geometry skills.' Good: 'You know the steps but lose the thread the moment a problem needs a picture instead of a formula.'",
       "estimatedImpact": "string — quantified score impact with a specific number (e.g. '~30 points' or '3 easy questions worth ~20 points'). Use conservative estimates. Must include a point estimate.",
       "confidence": "high | medium | low"
     }
@@ -1475,7 +1501,7 @@ Your output MUST be valid JSON (no markdown fences) matching this schema:
   "weaknesses": [
     {
       "title": "string — concise weakness name (e.g. 'Algebraic Word Problems')",
-      "why": "string — 2-3 sentences explaining the CAUSAL MECHANISM behind this weakness. Don't just say 'you got these wrong' — explain WHY (e.g. 'You consistently misidentify the variable relationships in word problems, suggesting a translation gap between verbal descriptions and algebraic expressions. This is compounded by rushing — your avg time on these questions is 40% below your correct-answer average.')",
+      "why": "string — 2-3 tutor-voice sentences explaining WHY this keeps going wrong, not just that it did. Good: 'Word problems keep beating you at the translation step — you set up the wrong relationship between the variables before the algebra even starts. And you rush them: you gave these 40% less time than the questions you got right.'",
       "proof": ["string — 2-3 short data citations that prove this claim (e.g. '3/4 algebra word problems wrong', '45s avg vs 70s on correct')"],
       "impact": "string — 1 sentence quantifying how this affects the score (e.g. 'Costing roughly 30 points')",
       "severity": "critical | significant | moderate",
@@ -1492,9 +1518,9 @@ Your output MUST be valid JSON (no markdown fences) matching this schema:
   ],
   "behaviorInsightPoints": [
     {
-      "claim": "string — one concise diagnostic bullet about a specific test-taking behavior that causally affected the score, following the pattern: BEHAVIOR (what happened, with numbers) -> MECHANISM (the cognitive/strategic root cause) -> CONSEQUENCE (quantified score impact). Bad: 'You changed some answers.' Good: 'You changed 3 answers from correct to incorrect, spending only 20s on each revision vs 55s on stable correct answers — this suggests second-guessing under time pressure rather than genuine reconsideration, costing ~30 points.'",
+      "claim": "string — 2-3 flowing tutor-voice sentences about ONE test-taking behavior that cost points: what they did (numbers in the prose), why it happens, what it cost. Bad: 'You changed some answers.' Bad (report-speak): 'This suggests second-guessing under time pressure rather than genuine reconsideration.' Good: 'Three times you had the right answer and talked yourself out of it — each switch took you about 20 seconds, a third of the time you spend when you trust yourself. All three came in the last 15 minutes, when the clock makes everything look wrong. That habit alone cost about 30 points.'",
       "evidence": "string — 2-3 semicolon-separated data citations that anchor the behavior claim (e.g. 'Answer changes: 3 correct→incorrect; avg time on changed: 20s vs 55s on stable correct; all 3 changes occurred in final 15 minutes')",
-      "causalMechanism": "string — the cognitive or strategic root cause of the behavior, going deeper than the surface description. Bad: 'You rushed.' Good: 'The speed differential on wrong answers (ratio 0.55x) combined with the late-test clustering suggests depleted working memory from sustained effort, leading to premature commitment to familiar-looking trap answers rather than systematic elimination.'",
+      "causalMechanism": "string — ONE plain-words sentence naming the habit underneath, without repeating the claim. Bad: 'You rushed.' Bad (report-speak): 'Depleted working memory led to premature commitment to familiar-looking trap answers.' Good: 'Late in the test, tired and short on time, you stop checking answers against the question and start checking them against your nerves.'",
       "estimatedImpact": "string — quantified score consequence (e.g. '~30 points lost from answer reversals' or '~45s wasted per test from calculator over-reliance')",
       "confidence": "high | medium | low"
     }
@@ -1538,9 +1564,9 @@ CLINICAL ACCURACY RULES:
 4. QUANTITATIVE IMPACT: Every weakness.impact and scoreImpactPoints.claim MUST include a numeric estimate (points, percentage, or count). Use conservative estimates when exact numbers are unavailable, and set confidence to "medium".
 
 === CAUSAL DEPTH ===
-5. CAUSAL MECHANISM REQUIRED: Every diagnosisPoints entry MUST include a causalMechanism field explaining WHY the pattern exists, not just describing it. Go at least TWO levels deeper than the surface observation. Level 1 (surface, BANNED alone): "You missed geometry questions." Level 2 (mechanism): "Missing foundational understanding of coordinate geometry." Level 3 (deep, REQUIRED): "Missing foundational understanding of coordinate geometry leads to systematic errors on both easy and hard questions in that domain, and the time data confirms this — you spent 45s on geometry wrongs vs 70s on topics you got right, suggesting you recognize your uncertainty but can't resolve it."
+5. CAUSAL MECHANISM REQUIRED: Every diagnosisPoints entry MUST include a causalMechanism field naming WHY the pattern exists, not just describing it. Go at least TWO levels deeper than the surface observation — but say it like a person. Level 1 (surface, BANNED alone): "You missed geometry questions." Level 2 (mechanism): "Coordinate geometry never fully clicked." Level 3 (deep, REQUIRED): "Coordinate geometry never fully clicked, and your timing gives it away — 45 seconds on the ones you missed against 70 on topics you know. You could feel you were stuck; you just didn't have a way out."
 6. CROSS-SIGNAL SYNTHESIS: EVERY diagnosisPoint claim MUST synthesize at least 2 distinct data signals (e.g. error type + domain accuracy, or time data + difficulty level, or trend data + current performance). Single-signal claims are surface-level. Combine domain accuracy with time patterns, error classifications with difficulty breakdowns, or behavior data with score outcomes.
-7. BEHAVIORAL CAUSATION: Every behaviorInsightPoint MUST follow the 3-part causal chain: BEHAVIOR (specific observation with numbers) -> MECHANISM (cognitive/strategic root cause explaining WHY) -> CONSEQUENCE (quantified score or time impact). Each must include causalMechanism (>20 chars) and estimatedImpact (with a number). Bad: "You changed 3 answers." Good: "You changed 3 answers from correct to incorrect, suggesting second-guessing under time pressure — your avg time on changed answers was 20s vs 55s on stable correct answers, costing ~30 points."
+7. BEHAVIORAL CAUSATION: Every behaviorInsightPoint must carry all three parts — what they did (numbers in prose), why it happens, what it cost — woven into flowing sentences, never as a labeled chain. Each must include causalMechanism (>20 chars) and estimatedImpact (with a number). Bad: "You changed 3 answers." Good: "Three times you had it right and switched away, each time in about 20 seconds — you give the answers you keep almost a full minute. Those switches cost around 30 points."
 7b. BEHAVIOR EVIDENCE RIGOR: behaviorInsightPoints evidence must cite at least 2 distinct data signals (e.g. time data + accuracy, or answer-change count + timing pattern, or stamina score + accuracy drop). Single-signal behavior claims are surface-level and will be penalized.
 7c. DEPTH OVER BREADTH: Prefer 3 deeply analyzed diagnosis points over 5 shallow ones. Each diagnosis point should feel like a mini-investigation that reveals something the student could not have figured out by looking at their score alone.
 
@@ -1574,7 +1600,7 @@ CLINICAL ACCURACY RULES:
 25b. SURFACE-LEVEL BAN: Diagnosis points that only describe WHAT happened without explaining WHY are banned. Each claim must contain both a pattern AND its mechanism. Bad: "You missed 4 out of 7 geometry questions." Good: "Geometry accuracy of 43% is driven by a coordinate geometry blind spot — you missed all 3 coordinate problems but got 3/4 non-coordinate geometry correct, suggesting the gap is topic-specific rather than domain-wide."
 
 === TONE ===
-26. Tone: clinical, precise, and incisive. State facts, quantify impact, explain mechanisms, acknowledge uncertainty. No motivational filler. Write as if producing a medical-style diagnostic report for a specialist audience.
+26. Tone: a tutor who watched the test, talking straight. State facts, quantify impact, explain why, admit uncertainty plainly ("two questions isn't enough to be sure"). No motivational filler, no cheerleading, no scolding — and NO report language. If a sentence would fit in a consulting deck or a medical chart, rewrite it until it sounds like something you'd actually say to the student.
 
 === FORMAT ===
 27. EVIDENCE FIELDS STAY SCANNABLE: In the evidence and proof fields ONLY (the raw data citations), use semicolon-separated concise clauses (e.g. "Geometry: 4/7 correct; Avg time 45s vs 70s on correct; 3/4 coordinate geometry wrong"). These are shown as a compact supporting-data list, so keep each clause short and self-contained.

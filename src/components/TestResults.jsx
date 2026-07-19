@@ -52,110 +52,8 @@ export function resolveDisplayScores(storedResult, fallbackScored) {
   };
 }
 
-/**
- * Clean up a bullet point: capitalize first letter, strip leading conjunctions.
- */
-function cleanBullet(text) {
-  if (!text || typeof text !== 'string') return typeof text === 'string' ? text : '';
-  // Strip leading conjunctions
-  let cleaned = text.replace(/^(and |or |but |while |plus )/i, '').trim();
-  // Capitalize first letter
-  if (cleaned.length > 0) {
-    cleaned = cleaned.charAt(0).toUpperCase() + cleaned.slice(1);
-  }
-  return cleaned;
-}
-
-/**
- * Format a skill name for display: convert hyphens to spaces, title case.
- */
-function formatSkillName(name) {
-  if (!name || typeof name !== 'string') return '';
-  return name
-    .replace(/-/g, ' ')
-    .replace(/\b\w/g, c => c.toUpperCase());
-}
-
-/**
- * Aggressively split long text into short scannable bullets.
- * Splits on: semicolons, em-dashes, sentence boundaries, commas before conjunctions.
- * Returns array of cleaned strings, or null if text is already short enough.
- */
-function splitToScannable(text) {
-  if (!text || typeof text !== 'string') return null;
-  if (text.length <= 60) return null;
-
-  // First try semicolons and em-dashes (strongest delimiters)
-  let parts = text.split(/\s*;\s*|\s*[—–]\s*/).map(s => cleanBullet(s)).filter(s => s.length > 5);
-  if (parts.length >= 2) return parts;
-
-  // Then try sentence boundaries
-  parts = text.split(/(?<=[.!?])\s+(?=[A-Z])/).map(s => cleanBullet(s)).filter(s => s.length > 5);
-  if (parts.length >= 2) return parts;
-
-  // Then try comma + conjunction ("losing X, gaining Y, and Z")
-  parts = text.split(/,\s*(?=and |or |but |while |plus |losing |gaining |~)/).map(s => cleanBullet(s)).filter(s => s.length > 5);
-  if (parts.length >= 2) return parts;
-
-  return null;
-}
-
-/**
- * Extract parenthetical numeric metrics from diagnosis text, attaching each
- * to the preceding clause so the bullet retains semantic meaning.
- *
- * Returns { cleanedText, metricItems: [{ label, value }] }.
- * When a reliable label cannot be derived, the metric stays inline.
- */
-const METRIC_PAREN_RE = /\s*\(([^)]*\d[^)]*)\)/g;
-const CLAUSE_SPLIT_RE = /[,;:—–]\s*/;
-function extractMetrics(text) {
-  if (!text || typeof text !== 'string') return { cleanedText: text || '', metricItems: [] };
-
-  const metricItems = [];
-  const kept = [];
-
-  let lastIdx = 0;
-  let match;
-  METRIC_PAREN_RE.lastIndex = 0;
-  while ((match = METRIC_PAREN_RE.exec(text)) !== null) {
-    const inner = match[1].trim();
-    if (inner.length < 3 || inner.length > 120) continue;
-    if (!/\d/.test(inner)) continue;
-    if (/^(e\.g\.|i\.e\.|vs\.?)$/i.test(inner)) continue;
-
-    const before = text.slice(lastIdx, match.index);
-    const clauses = before.split(CLAUSE_SPLIT_RE).map(s => s.trim()).filter(Boolean);
-    const label = clauses.length > 0 ? clauses[clauses.length - 1] : '';
-
-    if (label.length >= 4 && !/^\d+$/.test(label)) {
-      metricItems.push({ label, value: inner });
-      kept.push({ start: match.index, end: METRIC_PAREN_RE.lastIndex });
-    }
-  }
-
-  if (metricItems.length === 0) return { cleanedText: text, metricItems: [] };
-
-  let cleaned = '';
-  let cursor = 0;
-  for (const span of kept) {
-    cleaned += text.slice(cursor, span.start);
-    cursor = span.end;
-  }
-  cleaned += text.slice(cursor);
-  cleaned = cleaned.replace(/\s{2,}/g, ' ').replace(/\s+([.,;:])/g, '$1').trim();
-  if (cleaned.endsWith(' —') || cleaned.endsWith(' -')) cleaned = cleaned.slice(0, -2).trim();
-
-  const seen = new Set();
-  const deduped = metricItems.filter(m => {
-    const key = `${m.label}||${m.value}`;
-    if (seen.has(key)) return false;
-    seen.add(key);
-    return true;
-  });
-
-  return { cleanedText: cleaned, metricItems: deduped };
-}
+// (splitToScannable / extractMetrics / cleanBullet removed 2026-07-19 —
+// the diagnosis renders flowing tutor-voice prose, never shredded bullets.)
 
 // Donut Chart Component for difficulty breakdown
 const DonutChart = ({ correct, incorrect, unanswered, label, size = 100 }) => {
@@ -1614,18 +1512,11 @@ const TestResults = ({
           return bFill - aFill;
         });
 
-        function deriveAction(claim, mech) {
-          const src = (mech || claim || '').toLowerCase();
-          if (/rush|too fast|speed/i.test(src)) return 'Practice slowing down on questions you find straightforward — the extra seconds catch careless errors.';
-          if (/slow|time.*(run|out|pressure)|overtime/i.test(src)) return 'Drill timed sets to build speed on familiar question types, freeing time for harder ones.';
-          if (/guess|random|eliminat/i.test(src)) return 'Before guessing, eliminate at least one option — even partial elimination boosts your odds.';
-          if (/stamina|fatigue|fade|drop.*off|later/i.test(src)) return 'Simulate full-length practice sessions to build endurance for the final section.';
-          if (/skip|unanswer|blank|omit/i.test(src)) return 'Answer every question — there is no penalty for guessing, so never leave a blank.';
-          if (/chang|switch|revis|erase/i.test(src)) return 'Trust your first instinct more often — data shows initial answers are usually right.';
-          if (/focus|attention|careless|silly/i.test(src)) return 'Flag tricky questions to revisit, and double-check your work on the easiest ones.';
-          return null;
-        }
-
+        // Pure narrative (de-slop 2026-07-19): each behavior insight renders as
+        // ONE flowing tutor-voice paragraph — no splitToScannable shredding
+        // into headline+bullets (the pattern removed from the main diagnosis
+        // on 2026-06-25 for reading like AI), and no canned "What to do"
+        // template chips (tips belong in the study plan, not the diagnosis).
         return (
           <div key={block.id} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
             <div style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', color: 'var(--color-slate-600)', marginBottom: '8px' }}>These patterns in your test-taking behavior affected your score.</div>
@@ -1633,60 +1524,20 @@ const TestResults = ({
             {sortedItems.map((item, i) => {
               const isStructured = typeof item === 'object' && item !== null;
               const claimText = isStructured ? (item.text || '') : (typeof item === 'string' ? item : '');
-              const rawClaim = claimText.replace(/^(\(\d+\)|\d+\.)\s*/, '');
-              const { cleanedText: cleanedClaim, metricItems: behaviorMetrics } = extractMetrics(rawClaim);
-              const mechanism = isStructured ? item.mechanism : null;
-              const action = deriveAction(rawClaim, mechanism);
-              const parts = splitToScannable(cleanedClaim);
-              const hasParts = parts && parts.length > 1;
+              const cleanedClaim = claimText.replace(/^(\(\d+\)|\d+\.)\s*/, '');
+              if (!cleanedClaim) return null;
 
               return (
-                <div key={i} style={{ 
-                  background: 'linear-gradient(135deg, rgba(176, 146, 221, 0.1) 0%, rgba(176, 146, 221, 0.05) 100%)', 
-                  borderRadius: 'var(--radius-xl)', 
+                <div key={i} style={{
+                  background: '#fff',
+                  border: '1px solid var(--color-slate-200)',
+                  borderLeft: '3px solid var(--color-accent-purple)',
+                  borderRadius: '16px',
                   padding: '24px 32px',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '16px',
-                  border: '1px solid rgba(176, 146, 221, 0.2)'
                 }}>
-                  <div style={{ display: 'flex', alignItems: 'flex-start', gap: '16px' }}>
-                    <div style={{ 
-                      width: '32px', height: '32px', borderRadius: '50%', 
-                      background: 'var(--color-accent-purple)', color: '#fff', 
-                      display: 'flex', alignItems: 'center', justifyContent: 'center', 
-                      fontSize: '14px', fontWeight: '800', flexShrink: 0
-                    }}>
-                      {i + 1}
-                    </div>
-                    <div style={{ flex: 1 }}>
-                      {hasParts ? (
-                        <>
-                          <div style={{ fontFamily: 'var(--font-ui)', fontSize: '1.25rem', color: 'var(--color-brand-navy)', lineHeight: '1.4', fontWeight: '600', letterSpacing: '-0.01em', marginBottom: '12px' }}>
-                            <MathText>{parts[0]}</MathText>
-                          </div>
-                          <ul style={{ margin: 0, paddingLeft: '24px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                            {parts.slice(1).map((p, pIdx) => (
-                              <li key={pIdx} style={{ fontFamily: 'var(--font-ui)', fontSize: '1.1rem', color: 'var(--color-slate-700)', lineHeight: '1.5', fontWeight: '400' }}>
-                                <MathText>{p}</MathText>
-                              </li>
-                            ))}
-                          </ul>
-                        </>
-                      ) : (
-                        <div style={{ fontFamily: 'var(--font-ui)', fontSize: '1.25rem', color: 'var(--color-brand-navy)', lineHeight: '1.6', fontWeight: '400', letterSpacing: '-0.01em' }}>
-                          <MathText>{cleanedClaim}</MathText>
-                        </div>
-                      )}
-                      
-                      {action && (
-                        <div style={{ marginTop: '16px', padding: '16px', borderRadius: '12px', background: 'rgba(255,255,255,0.6)', border: '1px solid rgba(255,255,255,0.8)' }}>
-                          <div style={{ fontFamily: 'var(--font-ui)', fontSize: '11px', fontWeight: '800', color: 'var(--color-accent-purple)', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '4px' }}>What to do</div>
-                          <div style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', color: 'var(--color-slate-700)', fontWeight: '500', lineHeight: '1.5' }}>{action}</div>
-                        </div>
-                      )}
-                    </div>
-                  </div>
+                  <p style={{ fontFamily: 'var(--font-ui)', fontSize: '1.0625rem', color: 'var(--color-slate-700)', lineHeight: '1.7', fontWeight: '400', margin: 0 }}>
+                    <MathText>{cleanedClaim}</MathText>
+                  </p>
                 </div>
               );
             })}
@@ -1816,14 +1667,12 @@ const TestResults = ({
 
       if (block.id === 'nextMove') {
         const item = block.items[0] || {};
-        const parts = splitToScannable(item.text);
-        const hasParts = parts && parts.length > 1;
 
         return (
           <div key={block.id} style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-            <div style={{ 
-              background: 'linear-gradient(135deg, rgba(198, 244, 50, 0.15) 0%, rgba(198, 244, 50, 0.05) 100%)', 
-              borderRadius: 'var(--radius-xl)', 
+            <div style={{
+              background: 'linear-gradient(135deg, rgba(198, 244, 50, 0.15) 0%, rgba(198, 244, 50, 0.05) 100%)',
+              borderRadius: 'var(--radius-xl)',
               padding: '32px 40px',
               border: '1px solid rgba(198, 244, 50, 0.3)',
               display: 'flex', flexDirection: 'column', gap: '24px'
@@ -1831,24 +1680,10 @@ const TestResults = ({
               {block.transition && (
                 <div style={{ fontFamily: 'var(--font-ui)', fontSize: '16px', color: 'var(--color-accent-dark-green)', lineHeight: '1.6', fontWeight: '500' }}><MathText>{block.transition}</MathText></div>
               )}
-              {hasParts ? (
-                <>
-                  <div style={{ fontFamily: 'var(--font-ui)', fontSize: '1.5rem', fontWeight: '600', color: 'var(--color-accent-dark-green)', lineHeight: '1.4', letterSpacing: '-0.02em' }}>
-                    <MathText>{parts[0]}</MathText>
-                  </div>
-                  <ul style={{ margin: 0, paddingLeft: '24px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                    {parts.slice(1).map((p, pIdx) => (
-                      <li key={pIdx} style={{ fontFamily: 'var(--font-ui)', fontSize: '1.125rem', color: 'var(--color-accent-dark-green)', lineHeight: '1.5', fontWeight: '400' }}>
-                        <MathText>{p}</MathText>
-                      </li>
-                    ))}
-                  </ul>
-                </>
-              ) : (
-                <div style={{ fontFamily: 'var(--font-ui)', fontSize: '1.5rem', fontWeight: '400', color: 'var(--color-accent-dark-green)', lineHeight: '1.5', letterSpacing: '-0.02em' }}>
-                  <MathText>{item.text}</MathText>
-                </div>
-              )}
+              {/* Whole flowing sentence — never shredded into headline+bullets */}
+              <div style={{ fontFamily: 'var(--font-ui)', fontSize: '1.5rem', fontWeight: '400', color: 'var(--color-accent-dark-green)', lineHeight: '1.5', letterSpacing: '-0.02em' }}>
+                <MathText>{item.text}</MathText>
+              </div>
               {item.reasons?.length > 0 && (
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginTop: '8px' }}>
                   {item.reasons.map((r, i) => {
