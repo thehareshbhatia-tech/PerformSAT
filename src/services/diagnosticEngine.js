@@ -2596,22 +2596,32 @@ export function formatDiagnosticSentence(weakness) {
   const facts = parseEvidenceFacts(weakness.evidence);
   const miss = missPhrase(facts, weakness.accuracy);
 
+  // Sample-size honesty (evidence rework): a 'suspected' flag means fewer
+  // than 4 attempted questions sit behind this card. Say so — students trust
+  // a diagnosis more when it admits how much evidence it rests on, and the
+  // first drill doubles as the probe that confirms or clears it.
+  const suspectedClause = weakness.evidenceLevel === 'suspected'
+    ? (typeof weakness.attempted === 'number' && weakness.attempted > 0
+      ? ` That read comes from just ${weakness.attempted} question${weakness.attempted === 1 ? '' : 's'} — the first drill here confirms it.`
+      : ' Thin evidence so far — the first drill here confirms it.')
+    : '';
+
   if (errorTypeId && FRAMES_BY_ERROR_TYPE[errorTypeId] && skill && miss) {
     const frames = FRAMES_BY_ERROR_TYPE[errorTypeId];
     const frame = frames[frameIndexFor(weakness.skillId || skill, frames.length)];
-    return frame({ skill, miss, hist: historyClause(facts) });
+    return frame({ skill, miss, hist: historyClause(facts) }) + suspectedClause;
   }
 
   // Fallback — generic prose that still reads like editorial.
   if (typeof weakness.accuracy === 'number') {
     const acc = Math.round(weakness.accuracy);
     if (skill) {
-      return `${skill}: ${acc}% this test${historyClause(facts)}. Worth a closer look before it costs more points.`;
+      return `${skill}: ${acc}% this test${historyClause(facts)}. Worth a closer look before it costs more points.${suspectedClause}`;
     }
-    return `${acc}% here. Worth a closer look before it costs more points.`;
+    return `${acc}% here. Worth a closer look before it costs more points.${suspectedClause}`;
   }
   if (skill) {
-    return `${skill} is the next focus area.`;
+    return `${skill} is the next focus area.${suspectedClause}`;
   }
   return '';
 }

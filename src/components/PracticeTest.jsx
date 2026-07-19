@@ -1219,7 +1219,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
             answeredQuestionIds || [],
           );
           // Attach plan diff for the "What Changed" banner
-          detPlan._diff = computePlanDelta(savedStudyPlan, detPlan);
+          detPlan._diff = computePlanDelta(savedStudyPlan, detPlan, longitudinalEvidence.recoveredSkills);
           const plan = enrichPlanWithGroundTruth({ ...detPlan }, groundTruth);
           // Attach difficulty profile so dashboard can match question difficulty to student level
           if (diagReport.difficultyAnalysis) {

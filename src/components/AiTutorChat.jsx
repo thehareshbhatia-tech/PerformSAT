@@ -1244,7 +1244,7 @@ Your goal is to build their problem-solving instincts. Every question they solve
     // Skill-history block (the +6pp lever): demonstrated level on THIS
     // question's skills + related weak areas so the tutor calibrates depth.
     const skillHistoryBlock = isPracticeQuestion
-      ? buildTutorSkillContext({ practiceTestResults, skills: practiceContext?.skills })
+      ? buildTutorSkillContext({ practiceTestResults, skillProgress, skills: practiceContext?.skills })
       : '';
     // Expert misconception map for THIS question's skill(s), distilled from the
     // SAT knowledge graph. masteryPct selects the level-matched coaching tier;

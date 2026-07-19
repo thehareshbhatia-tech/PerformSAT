@@ -199,7 +199,13 @@ export const reprioritizePlan = (
   });
 
   const newWeakSkills = Object.entries(mergedAccuracy)
-    .filter(([skillId, data]) => data.accuracy < 50 && !planBaseline[skillId])
+    // Sample-size gate (mirrors the diagnostic engine's evidence rework): a
+    // single 0/1 miss used to inject a "new gap" at priority 100+ into the
+    // overlay. Require at least 2 observations behind the accuracy figure.
+    .filter(([skillId, data]) =>
+      data.accuracy < 50 &&
+      !planBaseline[skillId] &&
+      (data.attempts ?? data.sampleSize ?? 0) >= 2)
     .map(([skillId, data]) => ({
       skillId,
       skillName: skillId.replace(/-/g, ' '),

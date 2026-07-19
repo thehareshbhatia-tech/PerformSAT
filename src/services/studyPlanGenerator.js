@@ -1042,7 +1042,7 @@ const generatePlanSummary = (diagnostic, weeklyPlan, intensity, totalWeeks, days
     keyInsight = {
       title: `Critical gap: ${topGap?.skillName || 'foundational concepts'}`,
       message: topGap && typeof topGap.testAccuracy === 'number'
-        ? `Most of your misses trace to concepts that never landed — ${topGap.skillName} is at ${topGap.testAccuracy}%. The plan rebuilds it from the definition before any timed work.`
+        ? `Most of your misses trace to concepts that never landed — ${topGap.skillName} is at ${topGap.contentAccuracy ?? topGap.testAccuracy}%. The plan rebuilds it from the definition before any timed work.`
         : topGap
           ? `Most of your misses trace to concepts that never landed — starting with ${topGap.skillName}. The plan rebuilds it from the definition before any timed work.`
           : `Most of your misses trace to concepts that never landed. The plan rebuilds them from the definition before any timed work.`,
@@ -1096,7 +1096,7 @@ const generatePlanSummary = (diagnostic, weeklyPlan, intensity, totalWeeks, days
     },
     topFocusAreas: skillGaps.slice(0, 3).map(g => ({
       name: g.skillName,
-      accuracy: g.testAccuracy,
+      accuracy: g.contentAccuracy ?? g.testAccuracy,
       domain: g.domain,
     })),
     errorBreakdown: diagnostic.errorPatterns.summary,
@@ -1191,7 +1191,8 @@ const buildDeterministicDiagnosis = (diagnostic, skillGaps) => {
   }
 
   if (parts.length === 0 && topGaps.length > 0) {
-    parts.push(`Weakest areas: ${topGaps.map(g => `${g.skillName} (${g.testAccuracy}%)`).join(', ')}`);
+    // contentAccuracy is blank-excluded — the honest knowledge figure.
+    parts.push(`Weakest areas: ${topGaps.map(g => `${g.skillName} (${g.contentAccuracy ?? g.testAccuracy}%)`).join(', ')}`);
   }
 
   return parts.join('. ') + (parts.length > 0 ? '.' : '');

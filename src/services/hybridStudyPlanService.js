@@ -216,7 +216,7 @@ export const generateAndPersistHybridPlan = async ({
     mergedPlan.staminaInsight = groundTruth.staminaInsight;
   }
 
-  const delta = computePlanDelta(previousPlan, mergedPlan);
+  const delta = computePlanDelta(previousPlan, mergedPlan, longitudinal.recoveredSkills);
 
   const artifact = {
     plan: mergedPlan,

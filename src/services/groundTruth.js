@@ -102,11 +102,16 @@ export function buildGroundTruthDiagnosis(diagReport, rawTelemetry) {
       ? `, historical mastery ${s.historicalMastery}%`
       : ', first time tested';
     const trendNote = s.trend === 'improving' ? ' (improving)' : s.trend === 'declining' ? ' (declining)' : '';
+    // Blanks are pacing facts, not knowledge misses — say so in the evidence
+    // line instead of letting "2/6 correct" imply four wrong answers.
+    const blankNote = s.blanks > 0 ? ` (${s.blanks} left blank)` : '';
     return {
       skillId: s.skillId,
       skill: s.name,
-      evidence: `${s.correct}/${s.total} correct, primary error: ${errLabel}${timeNote}${historyNote}${trendNote}`,
+      evidence: `${s.correct}/${s.total} correct${blankNote}, primary error: ${errLabel}${timeNote}${historyNote}${trendNote}`,
       accuracy: s.testAccuracy,
+      attempted: s.attempted ?? null,
+      blanks: s.blanks ?? 0,
       // Blank-excluded accuracy + sample-size honesty tier (additive fields;
       // legacy weaknesses without them read as before via the ?? fallbacks
       // in consumers).

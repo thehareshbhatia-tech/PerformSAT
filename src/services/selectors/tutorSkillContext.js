@@ -38,16 +38,20 @@ const trendOf = (appearances = []) => {
  *
  * @param {Object} args
  * @param {Object} [args.practiceTestResults] - useProgress practiceTestResults map
+ * @param {Object} [args.skillProgress] - useProgress skillProgress map (drill evidence)
  * @param {string[]} [args.skills] - skill ids the active question tests
  * @returns {string} the prompt block, or '' when there is nothing to say
  */
-export const buildTutorSkillContext = ({ practiceTestResults, skills } = {}) => {
+export const buildTutorSkillContext = ({ practiceTestResults, skillProgress = null, skills } = {}) => {
   if (!Array.isArray(skills) || skills.length === 0) return '';
   if (!practiceTestResults || Object.keys(practiceTestResults).length === 0) return '';
 
   let evidence;
   try {
-    evidence = buildLongitudinalEvidence(practiceTestResults);
+    // skillProgress folds recent drill results into weightedAccuracy — without
+    // it the tutor kept telling students they were weak at skills they had
+    // already drilled back to health since the last test.
+    evidence = buildLongitudinalEvidence(practiceTestResults, skillProgress);
   } catch {
     return '';
   }
@@ -64,10 +68,18 @@ export const buildTutorSkillContext = ({ practiceTestResults, skills } = {}) => 
     const data = rawHistory[id];
     const domain = getSkillById(id)?.domain;
     if (domain) domains.add(domain);
-    if (!data || data.attempts < 1) return;
-    const accuracy = Math.round((data.correct / data.attempts) * 100);
+    if (!data || (data.attempts < 1 && !data.recentDrill)) return;
+    // Recency-weighted, drill-blended figure when available; lifetime average
+    // as the legacy fallback.
+    const accuracy = data.weightedAccuracy
+      ?? (data.attempts > 0 ? Math.round((data.correct / data.attempts) * 100) : null);
+    if (accuracy === null) return;
     const trend = trendOf(forAI[id]?.appearances);
-    currentLines.push(`- ${skillName(id)}: ${accuracy}% over ${data.attempts} past attempts (${trend}).`);
+    const drillNote = data.recentDrill
+      ? `; ${data.recentDrill.accuracy}% over ${data.recentDrill.attempts} recent drills`
+      : '';
+    const testCount = data.attempts > 0 ? `${data.attempts} past attempts` : 'no test attempts yet';
+    currentLines.push(`- ${skillName(id)}: ${accuracy}% (${testCount}${drillNote}) (${trend}).`);
   });
 
   // ── Weakest OTHER skills in the same domain(s) ──

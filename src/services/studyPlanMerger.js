@@ -289,9 +289,12 @@ function computeSkillTrend(appearances) {
 }
 
 /**
- * Compute delta between previous and current plan.
+ * Compute delta between previous and current plan. `recoveredSkills` (from
+ * buildLongitudinalEvidence) credits gaps the student drilled back to health
+ * between tests — the deterministic fallback narrative should say so even
+ * when the AI narration call fails.
  */
-export const computePlanDelta = (previousPlan, currentPlan) => {
+export const computePlanDelta = (previousPlan, currentPlan, recoveredSkills = []) => {
   if (!previousPlan) return { isFirst: true, changes: [], skillChanges: [], headline: null };
 
   const changes = [];
@@ -318,6 +321,14 @@ export const computePlanDelta = (previousPlan, currentPlan) => {
   }
   if (resolvedGaps.length > 0) {
     changes.push({ type: 'resolved_gaps', label: `${resolvedGaps.length} skill gap${resolvedGaps.length > 1 ? 's' : ''} resolved`, skillIds: resolvedGaps });
+  }
+  const recovered = Array.isArray(recoveredSkills) ? recoveredSkills.filter(r => r?.skillId) : [];
+  if (recovered.length > 0) {
+    changes.push({
+      type: 'recovered',
+      label: `${recovered.length} skill${recovered.length > 1 ? 's' : ''} drilled back to health since the last test`,
+      skillIds: recovered.map(r => r.skillId),
+    });
   }
 
   const intensityChange = previousPlan.intensity !== currentPlan.intensity
@@ -382,7 +393,13 @@ export const computePlanDelta = (previousPlan, currentPlan) => {
 
   // Coach voice: cite the numbers, skip the cheerleading. Every line should
   // read like someone who watched the test, not a notification template.
-  if (improved.length > 0 && worsened.length > 0) {
+  // Drill recovery leads when present — it's the work the student actually
+  // put in between tests, and crediting it beats any generic delta line.
+  if (recovered.length > 0) {
+    const r = recovered[0];
+    const name = r.skillId.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+    headline = `Your drilling worked: ${name} went ${r.testAccuracy}% on tests to ${r.drillAccuracy}% in recent practice${recovered.length > 1 ? `, and ${recovered.length - 1} more skill${recovered.length > 2 ? 's' : ''} recovered too` : ''}. The plan moves on to what's still costing points.`;
+  } else if (improved.length > 0 && worsened.length > 0) {
     headline = `${improved[0].skill} climbed ${improved[0].oldAccuracy}% to ${improved[0].newAccuracy}%. Focus shifts to ${worsened[0].skill}, which slipped to ${worsened[0].newAccuracy}%.`;
   } else if (improved.length > 0) {
     headline = `${improved[0].skill} climbed ${improved[0].oldAccuracy}% to ${improved[0].newAccuracy}%${improved.length > 1 ? `, with ${improved.length - 1} more skill${improved.length > 2 ? 's' : ''} up` : ''}. Your practice moves to what's still costing points.`;

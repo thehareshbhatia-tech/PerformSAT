@@ -38,7 +38,41 @@ describe('buildTutorSkillContext', () => {
     const block = buildTutorSkillContext({ practiceTestResults, skills: ['slope-from-points'] });
     expect(block).toContain('>>> STUDENT SKILL HISTORY <<<');
     expect(block).toContain('This question tests:');
-    expect(block).toContain('25% over 4 past attempts'); // 1/4 correct
+    expect(block).toContain('25% (4 past attempts'); // 1/4 correct, recency-weighted format
+  });
+
+  it('recent drills lift the figure and are named in the line (drill-aware)', () => {
+    const practiceTestResults = {
+      t1: {
+        attempts: [
+          attempt('t1', '2026-01-01T00:00:00Z', [
+            q(false, ['slope-from-points']),
+            q(false, ['slope-from-points']),
+            q(false, ['slope-from-points']),
+            q(true, ['slope-from-points']),
+          ]),
+        ],
+      },
+    };
+    const lastTestMs = Date.parse('2026-01-01T00:00:00Z');
+    const skillProgress = {
+      'slope-from-points': {
+        attempts: 6,
+        correct: 5,
+        history: Array.from({ length: 6 }, (_, i) => ({
+          correct: i < 5,
+          timestamp: lastTestMs + 10 * 60000 + i * 60000, // after the grace window
+        })),
+      },
+    };
+    const withDrills = buildTutorSkillContext({ practiceTestResults, skillProgress, skills: ['slope-from-points'] });
+    const withoutDrills = buildTutorSkillContext({ practiceTestResults, skills: ['slope-from-points'] });
+
+    expect(withDrills).toContain('recent drills');
+    expect(withoutDrills).not.toContain('recent drills');
+    // Drill-blended weighted accuracy beats the raw 25% test figure.
+    const figure = Number((withDrills.match(/slope[^:]*: (\d+)%/i) || [])[1]);
+    expect(figure).toBeGreaterThan(25);
   });
 
   it('lists weakest OTHER skills in the same domain as related weak areas', () => {
