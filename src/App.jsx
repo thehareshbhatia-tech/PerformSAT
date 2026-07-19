@@ -2532,6 +2532,9 @@ const PerformSAT = () => {
 
         {/* Learn — Chapter Reader */}
         {view === 'learnChapter' && selectedChapterId && (
+          // Scoped boundary: a malformed content block used to bubble to the
+          // ROOT boundary and take down the whole shell, not just the article.
+          <ErrorBoundary message="This chapter hit a rendering problem. Go back to All Chapters and try again.">
           <ChapterReader
             chapterId={selectedChapterId}
             isChapterComplete={isChapterComplete}
@@ -2539,7 +2542,13 @@ const PerformSAT = () => {
               if (isChapterComplete(id)) unmarkChapterComplete(id);
               else markChapterComplete(id, meta || {});
             }}
-            onBack={() => { setView('learnTab'); setSelectedChapterId(null); }}
+            onBack={() => {
+              setView('learnTab');
+              setSelectedChapterId(null);
+              // A long chapter leaves deep scroll behind; without this the
+              // 42-card TOC opens mid-list.
+              window.scrollTo(0, 0);
+            }}
             onOpenChapter={(id) => setSelectedChapterId(id)}
             onPracticeSkills={focusPracticeOnChapter}
             onWatchVideos={(moduleId) => {
@@ -2549,6 +2558,7 @@ const PerformSAT = () => {
               setView('learn');
             }}
           />
+          </ErrorBoundary>
         )}
 
         {/* Videos — Module Catalog View */}

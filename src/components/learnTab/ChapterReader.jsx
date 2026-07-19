@@ -127,6 +127,9 @@ const ChapterReader = ({
   // Lazily-loaded body (see JSDoc above) — keeps the corpus out of the bundle.
   const [tabSection, setTabSection] = useState(null);
   const [tabError, setTabError] = useState(false);
+  // Bumped by the Retry button on a failed body load — re-runs the load
+  // effect without requiring the student to navigate away and back.
+  const [loadNonce, setLoadNonce] = useState(0);
   const isContentTab = chapter?.source?.kind === 'contentTab';
   const isBody = chapter?.source?.kind === 'body';
 
@@ -176,7 +179,7 @@ const ChapterReader = ({
       })
       .catch(() => { if (!cancelled) setTabError(true); });
     return () => { cancelled = true; };
-  }, [isContentTab, isBody, chapter?.source?.moduleId, chapter?.source?.bodyId]);
+  }, [isContentTab, isBody, chapter?.source?.moduleId, chapter?.source?.bodyId, loadNonce]);
 
   const unit = useMemo(
     () => (chapter ? LEARN_UNITS.find((u) => u.id === chapter.unitId) : null),
@@ -271,7 +274,17 @@ const ChapterReader = ({
                 tabSection ? (
                   <SectionContent section={tabSection} />
                 ) : tabError ? (
-                  <p className="cr-missing">We could not load this chapter. Check your connection and try again.</p>
+                  <p className="cr-missing">
+                    We could not load this chapter. Check your connection and try again.{' '}
+                    <button
+                      type="button"
+                      className="cr-retry-btn"
+                      onClick={() => setLoadNonce((n) => n + 1)}
+                      style={{ background: 'none', border: 'none', padding: 0, color: 'inherit', font: 'inherit', textDecoration: 'underline', cursor: 'pointer' }}
+                    >
+                      Retry
+                    </button>
+                  </p>
                 ) : (
                   <div className="cr-loading" aria-live="polite">Loading chapter…</div>
                 )

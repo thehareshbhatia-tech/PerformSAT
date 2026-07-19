@@ -325,7 +325,7 @@ const BlockRenderers = {
   ),
 };
 
-export const SectionContent = ({ section }) => {
+const SectionContentImpl = ({ section }) => {
   if (!section || !section.blocks) return null;
 
   // Composed ("authored textbook") mode is opt-in: a chapter whose first block
@@ -361,7 +361,18 @@ export const SectionContent = ({ section }) => {
           }
           return null;
         }
-        const element = renderer(block, idx);
+        // One bad block must cost ONE block, not the article (and previously
+        // the whole app shell — renderers assume well-typed fields, and the
+        // content gate can't catch every malformed shape).
+        let element;
+        try {
+          element = renderer(block, idx);
+        } catch (err) {
+          if (process.env.NODE_ENV === 'development') {
+            console.warn(`ContentTabRenderer: block "${block.type}" at index ${idx} failed to render`, err);
+          }
+          return null;
+        }
         if (React.isValidElement(element)) {
           // Stagger is capped: with 40+ blocks an uncapped idx*0.05s delay left
           // below-the-fold content invisible for seconds ('both' fill mode).
@@ -374,6 +385,12 @@ export const SectionContent = ({ section }) => {
     </article>
   );
 };
+
+// Memoized: the reader's scroll-progress state lives at the reader root, so
+// every rAF scroll tick re-rendered 40-120 blocks (renderRichText regex work
+// per block per frame). `section` is referentially stable, so memo makes the
+// article skip those re-renders entirely.
+export const SectionContent = React.memo(SectionContentImpl);
 
 const TAB_ICONS = { learn: '\u{1F4D6}', practice: '\u{270F}\uFE0F' };
 
