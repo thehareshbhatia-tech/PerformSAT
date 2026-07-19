@@ -909,3 +909,127 @@
   .ds-bar { display: none; }
   .ds-skills { padding-left: 20px; }
 }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   Test Overview redesign — from the user's 2026-07-19 mockup
+   ("SEVA Test Results (standalone).html"). Scoped under .trx: warm inset
+   cards, Bricolage display numbers, underline tabs, navy score hero.
+   ═══════════════════════════════════════════════════════════════════════ */
+.trx {
+  --trx-inset: #FAF8F3;
+  --trx-surface-2: #F1EEE7;
+  --trx-line: #E7E3D9;
+  --trx-text: #15171C;
+  --trx-text-2: #5B6068;
+  --trx-text-3: #9A9EA6;
+  --trx-navy: #0C1026;
+  --trx-orange: #EC5C2B;
+  --trx-orange-tint: rgba(236, 92, 43, .1);
+  --trx-lime: #C2E83A;
+  --trx-lime-deep: #5A8A16;
+  --trx-lime-ink: #1d2f0e;
+  --trx-purple: #7C5CC7;
+  --trx-purple-tint: #F1ECFA;
+  --trx-amber: #C98A12;
+  --trx-red: #D9483B;
+  --trx-shadow: 0 1px 2px rgba(20, 22, 28, .04), 0 6px 18px rgba(20, 22, 28, .05);
+  --trx-display: 'Bricolage Grotesque', 'Inter', system-ui, sans-serif;
+  --trx-body: 'Hanken Grotesk', 'Inter', system-ui, sans-serif;
+  font-family: var(--trx-body);
+}
+
+.trx-tabs {
+  display: flex;
+  gap: 4px;
+  border-bottom: 1px solid var(--trx-line);
+  margin-bottom: 26px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.trx-tab {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--trx-body);
+  font-weight: 700;
+  font-size: 13.5px;
+  color: var(--trx-text-3);
+  padding: 11px 14px;
+  white-space: nowrap;
+  border-bottom: 2.5px solid transparent;
+  margin-bottom: -1px;
+}
+.trx-tab.on { color: var(--trx-text); border-bottom-color: var(--trx-orange); }
+
+.trx-card {
+  background: var(--trx-inset);
+  border: 1px solid var(--trx-line);
+  border-radius: 20px;
+  padding: 26px 28px;
+  box-shadow: var(--trx-shadow);
+}
+.trx-lift { transition: transform .16s, box-shadow .16s; }
+.trx-lift:hover { transform: translateY(-2px); box-shadow: 0 2px 6px rgba(20, 22, 28, .05), 0 16px 34px rgba(20, 22, 28, .09); }
+
+.trx-micro {
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  color: var(--trx-text-3);
+}
+.trx-icon-chip {
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  display: grid;
+  place-items: center;
+  flex: none;
+}
+
+.trx-kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 14px; }
+@media (max-width: 860px) { .trx-kpis { grid-template-columns: repeat(2, 1fr); } }
+.trx-snapshot { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; }
+@media (max-width: 860px) { .trx-snapshot { grid-template-columns: repeat(3, 1fr); row-gap: 22px; } }
+.trx-two-up { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
+@media (max-width: 700px) { .trx-two-up { grid-template-columns: 1fr; } }
+.trx-diff-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+@media (max-width: 640px) { .trx-diff-grid { grid-template-columns: 1fr; } }
+
+.trx-hero-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--trx-orange);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 13px 24px;
+  font-family: var(--trx-body);
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(236, 92, 43, .32);
+}
+.trx-hero-btn-ghost {
+  background: rgba(255, 255, 255, .08);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, .18);
+  border-radius: 12px;
+  padding: 13px 24px;
+  font-family: var(--trx-body);
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* Domains & Skills rows re-skinned inside the trx scope (markup unchanged —
+   expansion, deep-links, and drill buttons keep their existing wiring). */
+.trx .ds-domain { border: none; background: none; }
+.trx .ds-domain-row { padding: 14px 12px; border-radius: 12px; border-bottom: 1px solid var(--trx-line); gap: 14px; }
+.trx .ds-domain-row:hover { background: var(--trx-surface-2); }
+.trx .ds-domain-name { font-weight: 700; font-size: 15px; color: var(--trx-text); }
+.trx .ds-bar { width: 150px; height: 7px; border-radius: 5px; background: var(--trx-surface-2); }
+.trx .ds-bar-fill { border-radius: 5px; }
+.trx .ds-domain-pct { font-family: var(--trx-display); font-weight: 700; font-size: 15px; width: 52px; }
+.trx .ds-domain-count { font-size: 12.5px; font-weight: 600; color: var(--trx-text-3); width: 44px; }

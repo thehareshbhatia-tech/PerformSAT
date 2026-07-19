@@ -607,32 +607,31 @@ const TestResults = ({
     })
   );
 
+  // Header meta: total attempt time ("1h 13m") from telemetry, when present.
+  const headerTimeSeconds = Object.values(diagnosticData?.questionDetails || {})
+    .reduce((s, q) => s + (q.timeSpent || 0), 0);
+  const headerTimeLabel = headerTimeSeconds > 0
+    ? (headerTimeSeconds >= 3600
+      ? `${Math.floor(headerTimeSeconds / 3600)}h ${Math.round((headerTimeSeconds % 3600) / 60)}m`
+      : `${Math.round(headerTimeSeconds / 60)}m`)
+    : null;
+
   // Tab navigation
   const tabs = [
-    { id: 'summary', label: 'TEST OVERVIEW' },
-    { id: 'diagnostic', label: 'DIAGNOSTIC INSIGHTS' },
+    { id: 'summary', label: 'Test Overview' },
+    { id: 'diagnostic', label: 'Diagnostic Insights' },
     ...test.modules.map((mod, idx) => {
       const sec = mod.section || (test.section === 'reading-writing' ? 'reading-writing' : 'math');
       const sectionMods = test.modules.filter(m => (m.section || test.section) === sec);
       const idxWithinSection = sectionMods.indexOf(mod) + 1;
-      const prefix = sec === 'reading-writing' ? 'R&W' : 'MATH';
+      const prefix = sec === 'reading-writing' ? 'R&W' : 'Math';
       return {
         id: `module-${idx}`,
-        label: `${prefix}: MODULE ${idxWithinSection}`,
+        label: `${prefix}: Module ${idxWithinSection}`,
       };
     })
   ];
 
-  const cardBase = {
-    background: 'rgba(255, 255, 255, 0.85)',
-    backdropFilter: 'saturate(180%) blur(24px)',
-    WebkitBackdropFilter: 'saturate(180%) blur(24px)',
-    borderRadius: '24px',
-    border: '1px solid rgba(255, 255, 255, 0.6)',
-    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.04), 0 2px 8px rgba(0, 0, 0, 0.02)',
-    padding: '32px',
-  };
-  const sectionTitle = { fontSize: '11px', fontWeight: '700', color: colors.text.secondary, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '16px' };
 
   // ── Domains & Skills: one organized, expandable Math / R&W → domain → skill
   // accuracy block. Folds the old math-only "Domain Performance" bars and the
@@ -649,26 +648,33 @@ const TestResults = ({
   const renderDomainSkills = () => {
     if (!domainSkillTable || domainSkillTable.sections.length === 0) return null;
     const multiSection = domainSkillTable.sections.length > 1;
-    const GREEN_BAR = '#22c55e';
-    const NEUTRAL_BAR = '#94a3b8';
+    // Accuracy bar palette from the 07-19 mockup: red < 25, amber < 50,
+    // purple < 75, deep lime above.
+    const barCol = (p) => p < 25 ? 'var(--trx-red)' : p < 50 ? 'var(--trx-amber)' : p < 75 ? 'var(--trx-purple)' : 'var(--trx-lime-deep)';
 
     return (
-      <div style={cardBase} data-testid="domain-skills">
-        <div style={sectionTitle}>Domains &amp; Skills</div>
-        <p style={{ fontSize: '13px', color: colors.text.muted, marginTop: '-8px', marginBottom: '20px', lineHeight: 1.5 }}>
+      <div className="trx-card trx-lift" data-testid="domain-skills">
+        <div style={{ display: 'flex', alignItems: 'center', gap: '11px' }}>
+          <span className="trx-icon-chip" style={{ background: 'var(--trx-purple-tint)', color: 'var(--trx-purple)' }}>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 3v18h18" /><rect x="7" y="12" width="3" height="6" rx="1" /><rect x="12" y="8" width="3" height="10" rx="1" /><rect x="17" y="5" width="3" height="13" rx="1" /></svg>
+          </span>
+          <div className="trx-micro">Domains &amp; Skills</div>
+        </div>
+        <p style={{ fontSize: '13.5px', color: 'var(--trx-text-2)', lineHeight: 1.5, marginTop: '6px', marginBottom: 0 }}>
           Accuracy by content domain. Expand a domain to see each skill, jump to the questions you missed, or drill it.
         </p>
 
         {domainSkillTable.sections.map((sec, sIdx) => (
-          <div key={sec.section} style={{ marginTop: sIdx === 0 ? 0 : '28px' }}>
+          <div key={sec.section}>
             {multiSection && (
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '12px' }}>
-                <span style={{ fontSize: '13px', fontWeight: 800, color: colors.text.primary, letterSpacing: '-0.01em' }}>{sec.label}</span>
-                <span style={{ fontSize: '12px', fontWeight: 600, color: colors.text.muted, fontVariantNumeric: 'tabular-nums' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', margin: sIdx === 0 ? '24px 0 12px' : '28px 0 12px' }}>
+                <span style={{ fontFamily: 'var(--trx-display)', fontWeight: 700, fontSize: '17px', color: 'var(--trx-text)' }}>{sec.label}</span>
+                <span style={{ fontSize: '13px', fontWeight: 700, color: 'var(--trx-text-3)', fontVariantNumeric: 'tabular-nums' }}>
                   {sec.accuracy}% · {sec.correct}/{sec.total}
                 </span>
               </div>
             )}
+            {!multiSection && sIdx === 0 && <div style={{ height: '18px' }} />}
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
               {sec.domains.map((dom, dIdx) => {
@@ -677,7 +683,7 @@ const TestResults = ({
                 // Weakest domain in the section (and not already strong) is the
                 // focus area — purple tag (purple = focus/study-plan role).
                 const isFocus = dIdx === 0 && !dom.isStrong && dom.total > 0;
-                const pctColor = dom.isStrong ? 'var(--color-brand-green-text)' : colors.text.primary;
+                const pctColor = dom.isStrong ? 'var(--trx-lime-deep)' : 'var(--trx-text)';
                 return (
                   <div
                     key={key}
@@ -695,7 +701,7 @@ const TestResults = ({
                       {isFocus && <span className="ds-tag ds-tag-focus">Focus</span>}
                       {dom.isStrong && <span className="ds-tag ds-tag-strong">Strong</span>}
                       <span className="ds-flex-spacer" />
-                      <span className="ds-bar" aria-hidden="true"><span className="ds-bar-fill" style={{ width: `${dom.accuracy}%`, background: dom.isStrong ? GREEN_BAR : NEUTRAL_BAR }} /></span>
+                      <span className="ds-bar" aria-hidden="true"><span className="ds-bar-fill" style={{ width: `${dom.accuracy}%`, background: barCol(dom.accuracy) }} /></span>
                       <span className="ds-domain-pct" style={{ color: pctColor }}>{dom.accuracy}%</span>
                       <span className="ds-domain-count">{dom.correct}/{dom.total}</span>
                     </button>
@@ -873,190 +879,112 @@ const TestResults = ({
       return s > 0 ? `${m}m ${s}s` : `${m}m`;
     };
 
+    // Progress toward the goal (drives the hero's center caption). The bar
+    // fill stays positional on the 400-1600 / 200-800 scale; this caption is
+    // distance covered from scale floor to the goal, per the 07-19 mockup.
+    const goalProgressPct = targetComparable && targetScore > gaugeMin
+      ? Math.min(100, Math.round(((satScore - gaugeMin) / (targetScore - gaugeMin)) * 100))
+      : null;
+
     return (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', padding: '16px 0' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', padding: '8px 0' }}>
 
-        {/* ═══════════ BLOCK 1: SCORE + MAIN ACTIONS ═══════════ */}
-        <div style={{ ...cardBase, padding: '40px 24px 32px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-
-          {/* Score number */}
-          <div style={{ textAlign: 'center', marginBottom: '32px' }}>
-            <div style={{ fontSize: '72px', fontWeight: '800', color: colors.text.primary, letterSpacing: '-0.05em', lineHeight: 1 }}>
-              {satScore}
-            </div>
-            <div style={{ fontSize: '13px', fontWeight: '600', color: colors.text.secondary, marginTop: '8px', letterSpacing: '0.02em', textTransform: 'uppercase' }}>{headlineLabel}</div>
-            {isMultiSection && (
-              <div style={{ display: 'flex', gap: '24px', justifyContent: 'center', marginTop: '12px' }}>
-                {sectionScores['reading-writing'] !== undefined && (
-                  <div style={{ textAlign: 'center' }}>
-                    <div style={{ fontSize: '24px', fontWeight: '700', color: colors.text.primary }}>{sectionScores['reading-writing']}</div>
-                    <div style={{ fontSize: '10px', fontWeight: '600', color: colors.text.secondary, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Reading & Writing</div>
+        {/* ═══════════ SCORE HERO (navy, from the 07-19 mockup) ═══════════ */}
+        <div style={{ background: 'var(--trx-navy)', borderRadius: '22px', padding: '32px 34px', boxShadow: 'var(--trx-shadow)', position: 'relative', overflow: 'hidden', color: '#fff' }}>
+          <div style={{ position: 'absolute', right: '-70px', top: '-80px', width: '280px', height: '280px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(236,92,43,.28), transparent 70%)' }} />
+          <div style={{ position: 'absolute', left: '24%', bottom: '-140px', width: '300px', height: '300px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(124,92,229,.22), transparent 70%)' }} />
+          <div style={{ position: 'relative' }}>
+            <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: '24px', flexWrap: 'wrap' }}>
+              <div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}>
+                  <div style={{ fontWeight: 700, fontSize: '11px', letterSpacing: '.14em', textTransform: 'uppercase', color: 'rgba(255,255,255,.55)' }}>
+                    {isMultiSection ? 'Current Score' : headlineLabel}
                   </div>
-                )}
-                {sectionScores['math'] !== undefined && (
-                  <div style={{ textAlign: 'center' }}>
-                    <div style={{ fontSize: '24px', fontWeight: '700', color: colors.text.primary }}>{sectionScores['math']}</div>
-                    <div style={{ fontSize: '10px', fontWeight: '600', color: colors.text.secondary, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Math</div>
-                  </div>
-                )}
-              </div>
-            )}
-          </div>
-
-          {/* Linear score gauge (box-and-whisker style) */}
-          <div style={{ width: '100%', maxWidth: '480px', padding: '0 8px', marginBottom: '40px' }}>
-            {/* Score + Target labels above the bar */}
-            <div style={{ position: 'relative', height: '32px', marginBottom: '6px' }}>
-              {/* Score label */}
-              <div style={{
-                position: 'absolute',
-                left: `${scorePct}%`, transform: 'translateX(-50%)',
-                display: 'flex', flexDirection: 'column', alignItems: 'center',
-              }}>
-                <div style={{
-                  fontSize: '13px', fontWeight: '800', color: accentHex,
-                  background: `${accentHex}12`, padding: '4px 10px', borderRadius: '8px',
-                  fontVariantNumeric: 'tabular-nums', whiteSpace: 'nowrap',
-                  boxShadow: `0 2px 8px ${accentHex}20`
-                }}>
-                  {satScore}
+                  {targetComparable && !isAtTarget && (
+                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: '5px', background: 'rgba(194,232,58,.16)', color: 'var(--trx-lime)', fontWeight: 700, fontSize: '12.5px', padding: '5px 11px', borderRadius: '20px' }}>
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17 17 7M9 7h8v8" /></svg>
+                      {gap} to goal
+                    </span>
+                  )}
+                  {targetComparable && isAtTarget && (
+                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: '5px', background: 'rgba(194,232,58,.16)', color: 'var(--trx-lime)', fontWeight: 700, fontSize: '12.5px', padding: '5px 11px', borderRadius: '20px' }}>
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+                      Goal reached
+                    </span>
+                  )}
+                </div>
+                <div style={{ marginTop: '12px' }}>
+                  <span style={{ fontFamily: 'var(--trx-display)', fontWeight: 700, fontSize: '78px', lineHeight: .8, letterSpacing: '-.03em' }}>{satScore}</span>
                 </div>
               </div>
-              {/* Target label (only if comparable + not overlapping score) */}
-              {targetComparable && !isAtTarget && Math.abs(scorePct - targetPct) > 8 && (
-                <div style={{
-                  position: 'absolute',
-                  left: `${targetPct}%`, transform: 'translateX(-50%)',
-                  display: 'flex', flexDirection: 'column', alignItems: 'center',
-                }}>
-                  <div style={{
-                    fontSize: '11px', fontWeight: '700', color: '#f97316',
-                    whiteSpace: 'nowrap', marginTop: '4px'
-                  }}>
-                    Target {targetScore}
-                  </div>
+              {isMultiSection && (
+                <div style={{ display: 'flex', gap: '12px', flex: 'none' }}>
+                  {sectionScores['math'] !== undefined && (
+                    <div style={{ background: 'rgba(255,255,255,.07)', border: '1px solid rgba(255,255,255,.12)', borderRadius: '13px', padding: '14px 22px', textAlign: 'center', minWidth: '104px' }}>
+                      <div style={{ fontWeight: 700, fontSize: '10px', letterSpacing: '.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,.5)' }}>Math</div>
+                      <div style={{ fontFamily: 'var(--trx-display)', fontWeight: 700, fontSize: '28px', marginTop: '4px' }}>{sectionScores['math']}</div>
+                    </div>
+                  )}
+                  {sectionScores['reading-writing'] !== undefined && (
+                    <div style={{ background: 'rgba(255,255,255,.07)', border: '1px solid rgba(255,255,255,.12)', borderRadius: '13px', padding: '14px 22px', textAlign: 'center', minWidth: '104px' }}>
+                      <div style={{ fontWeight: 700, fontSize: '10px', letterSpacing: '.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,.5)' }}>R&W</div>
+                      <div style={{ fontFamily: 'var(--trx-display)', fontWeight: 700, fontSize: '28px', marginTop: '4px' }}>{sectionScores['reading-writing']}</div>
+                    </div>
+                  )}
                 </div>
               )}
             </div>
-
-            {/* The gauge track */}
-            <div style={{ position: 'relative', height: '16px' }}>
-              {/* Background track with range zones */}
-              <div style={{
-                position: 'absolute', inset: 0, borderRadius: '8px', overflow: 'hidden',
-                display: 'flex',
-                boxShadow: 'inset 0 1px 3px rgba(0,0,0,0.06)'
-              }}>
-                <div style={{ flex: 1, background: 'linear-gradient(90deg, #fee2e2, #fef08a)' }} />
-                <div style={{ flex: 1, background: 'linear-gradient(90deg, #fef08a, #bbf7d0)' }} />
-                <div style={{ flex: 1, background: 'linear-gradient(90deg, #bbf7d0, #86efac)' }} />
+            <div style={{ marginTop: '26px' }}>
+              <div style={{ position: 'relative', height: '9px', borderRadius: '6px', background: 'rgba(255,255,255,.12)' }}>
+                <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: `${scorePct}%`, borderRadius: '6px', background: 'linear-gradient(90deg, #EC5C2B, #F2865C)' }} />
+                {targetComparable && (
+                  <div style={{ position: 'absolute', left: `${targetPct}%`, top: '-3px', bottom: '-3px', width: '2.5px', borderRadius: '2px', background: 'var(--trx-lime)' }} />
+                )}
               </div>
-
-              {/* Filled portion up to score */}
-              <div style={{
-                position: 'absolute', top: '2px', bottom: '2px', left: '2px',
-                width: `calc(${scorePct}% - 4px)`,
-                borderRadius: '6px',
-                background: `linear-gradient(90deg, ${accentHex}99, ${accentHex})`,
-                boxShadow: `0 0 12px ${accentHex}50`,
-                transition: 'width 1s cubic-bezier(0.34,1.56,0.64,1)',
-              }} />
-
-              {/* Target marker line */}
-              {targetComparable && !isAtTarget && (
-                <div style={{
-                  position: 'absolute', top: '-6px', bottom: '-6px',
-                  left: `${targetPct}%`, transform: 'translateX(-50%)',
-                  width: '2px', background: '#f97316',
-                  borderRadius: '1px',
-                  boxShadow: '0 0 4px rgba(249,115,22,0.4)',
-                }}>
-                  <div style={{
-                    position: 'absolute', top: '-2px', left: '50%', transform: 'translateX(-50%)',
-                    width: '8px', height: '4px', borderRadius: '2px 2px 0 0',
-                    background: '#f97316',
-                  }} />
-                  <div style={{
-                    position: 'absolute', bottom: '-2px', left: '50%', transform: 'translateX(-50%)',
-                    width: '8px', height: '4px', borderRadius: '0 0 2px 2px',
-                    background: '#f97316',
-                  }} />
-                </div>
-              )}
-
-              {/* Score marker dot */}
-              <div style={{
-                position: 'absolute', top: '50%', left: `${scorePct}%`,
-                transform: 'translate(-50%, -50%)',
-                width: '22px', height: '22px', borderRadius: '50%',
-                background: '#fff',
-                border: `5px solid ${accentHex}`,
-                boxShadow: `0 2px 12px ${accentHex}60, 0 1px 3px rgba(0,0,0,0.1)`,
-                transition: 'left 1s cubic-bezier(0.34,1.56,0.64,1)',
-              }} />
-            </div>
-
-            {/* Scale labels */}
-            <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '8px' }}>
-              {(isMultiSection ? [400, 800, 1200, 1600] : [200, 400, 600, 800]).map(v => (
-                <span key={v} style={{ fontSize: '11px', fontWeight: '600', color: colors.text.muted, fontVariantNumeric: 'tabular-nums' }}>{v}</span>
-              ))}
+              <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '9px', fontSize: '12px', fontWeight: 600 }}>
+                <span style={{ color: 'rgba(255,255,255,.5)' }}>{gaugeMin}</span>
+                {goalProgressPct !== null && (
+                  <span style={{ color: 'rgba(255,255,255,.82)' }}>You're {goalProgressPct}% of the way there</span>
+                )}
+                {targetComparable
+                  ? <span style={{ color: 'var(--trx-lime)' }}>Goal {targetScore}</span>
+                  : <span style={{ color: 'rgba(255,255,255,.5)' }}>{gaugeMax}</span>}
+              </div>
             </div>
           </div>
-
-          {/* Primary Action Row */}
-          <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', width: '100%', flexWrap: 'wrap' }}>
-            <button onClick={onReview} style={{
-              flex: '1 1 auto', maxWidth: '320px',
-              padding: '16px 28px', background: 'linear-gradient(180deg, #1e293b 0%, #0f172a 100%)', color: '#fff',
-              border: '1px solid #020617', borderRadius: '18px',
-              fontSize: '15px', fontWeight: '600', cursor: 'pointer',
-              boxShadow: '0 8px 24px rgba(15,23,42,0.2), inset 0 1px 1px rgba(255,255,255,0.1)',
-              transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
-              display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px'
-            }}>
-              Review Answers <ArrowRightIcon size={16} />
+          <div style={{ position: 'relative', display: 'flex', gap: '12px', marginTop: '24px', paddingTop: '22px', borderTop: '1px solid rgba(255,255,255,.1)', flexWrap: 'wrap' }}>
+            <button className="trx-hero-btn-primary" onClick={onReview}>
+              Review Answers
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
             </button>
-            <button onClick={onRetake} style={{
-              flex: '0 1 auto',
-              padding: '16px 28px', background: 'linear-gradient(180deg, #ffffff 0%, #f8fafc 100%)', color: colors.text.primary,
-              border: '1px solid rgba(0,0,0,0.08)', borderRadius: '18px',
-              fontSize: '15px', fontWeight: '600', cursor: 'pointer',
-              boxShadow: '0 4px 12px rgba(0,0,0,0.03), inset 0 1px 1px #fff',
-              transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
-            }}>
-              Retake
-            </button>
+            <button className="trx-hero-btn-ghost" onClick={onRetake}>Retake</button>
           </div>
         </div>
 
-        {/* ═══════════ SECONDARY STATS ROW ═══════════ */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '16px' }}>
-          <div style={{ ...cardBase, padding: '24px' }}>
-            <div style={{ display: 'flex', gap: '12px', justifyContent: 'space-between', alignItems: 'center' }}>
-              <div>
-                <div style={{ fontSize: '11px', fontWeight: '600', color: colors.text.secondary, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Percentile</div>
-                <div style={{ fontSize: '28px', fontWeight: '800', color: percentile >= 75 ? '#22c55e' : percentile >= 50 ? '#06b6d4' : '#eab308', marginTop: '4px', lineHeight: 1 }}>{percentile}th</div>
-              </div>
-              <div style={{ textAlign: 'right' }}>
-                <div style={{ fontSize: '11px', fontWeight: '600', color: colors.text.secondary, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Accuracy</div>
-                <div style={{ fontSize: '28px', fontWeight: '800', color: accuracyPct >= 80 ? '#22c55e' : accuracyPct >= 60 ? '#06b6d4' : '#eab308', marginTop: '4px', lineHeight: 1 }}>{accuracyPct}%</div>
-              </div>
-            </div>
+          {/* ═══════════ KPI ROW ═══════════ */}
+        <div className="trx-kpis">
+          <div className="trx-lift" style={{ background: 'var(--trx-orange)', borderRadius: '18px', padding: '22px 20px', color: '#fff' }}>
+            <div style={{ fontFamily: 'var(--trx-display)', fontWeight: 700, fontSize: '34px', lineHeight: 1 }}>{accuracyPct}<span style={{ fontSize: '20px' }}>%</span></div>
+            <div style={{ fontWeight: 700, fontSize: '10.5px', letterSpacing: '.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,.88)', marginTop: '11px' }}>Accuracy</div>
+            <div style={{ fontSize: '12px', color: 'rgba(255,255,255,.8)', marginTop: '2px' }}>{totalCorrect} of {totalQuestions} correct</div>
           </div>
-          
-          <div style={{ ...cardBase, padding: '24px', display: 'flex', gap: '12px', justifyContent: 'space-between', alignItems: 'center' }}>
-            <div style={{ flex: 1 }}>
-              <div style={{ fontSize: '11px', fontWeight: '600', color: colors.text.secondary, textTransform: 'uppercase', letterSpacing: '0.04em' }}>{statModuleLabel} 1</div>
-              <div style={{ fontSize: '20px', fontWeight: '700', color: colors.text.primary, marginTop: '4px' }}>{mod1Pct}%</div>
-            </div>
-            {mod2Pct !== null && (
-              <div style={{ flex: 1, textAlign: 'right' }}>
-                <div style={{ fontSize: '11px', fontWeight: '600', color: colors.text.secondary, textTransform: 'uppercase', letterSpacing: '0.04em' }}>{statModuleLabel} 2 {mod2Hard && <span style={{ color: '#f97316' }}>(Hard)</span>}</div>
-                <div style={{ fontSize: '20px', fontWeight: '700', color: colors.text.primary, marginTop: '4px' }}>{mod2Pct}%</div>
-              </div>
-            )}
+          <div className="trx-lift" style={{ background: 'var(--trx-lime)', borderRadius: '18px', padding: '22px 20px', color: 'var(--trx-lime-ink)' }}>
+            <div style={{ fontFamily: 'var(--trx-display)', fontWeight: 700, fontSize: '34px', lineHeight: 1 }}>{percentile}<span style={{ fontSize: '20px' }}>th</span></div>
+            <div style={{ fontWeight: 700, fontSize: '10.5px', letterSpacing: '.1em', textTransform: 'uppercase', opacity: .72, marginTop: '11px' }}>Percentile</div>
+            <div style={{ fontSize: '12px', opacity: .7, marginTop: '2px' }}>national rank</div>
           </div>
+          <div className="trx-lift" style={{ background: 'var(--trx-navy)', borderRadius: '18px', padding: '22px 20px', color: '#fff' }}>
+            <div style={{ fontFamily: 'var(--trx-display)', fontWeight: 700, fontSize: '34px', lineHeight: 1 }}>{mod1Pct}<span style={{ fontSize: '20px', color: 'rgba(255,255,255,.5)' }}>%</span></div>
+            <div style={{ fontWeight: 700, fontSize: '10.5px', letterSpacing: '.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,.6)', marginTop: '11px' }}>{statModuleLabel} 1</div>
+            <div style={{ fontSize: '12px', color: 'rgba(255,255,255,.5)', marginTop: '2px' }}>standard</div>
+          </div>
+          {mod2Pct !== null && (
+            <div className="trx-lift" style={{ background: 'var(--trx-purple)', borderRadius: '18px', padding: '22px 20px', color: '#fff' }}>
+              <div style={{ fontFamily: 'var(--trx-display)', fontWeight: 700, fontSize: '34px', lineHeight: 1 }}>{mod2Pct}<span style={{ fontSize: '20px', color: 'rgba(255,255,255,.6)' }}>%</span></div>
+              <div style={{ fontWeight: 700, fontSize: '10.5px', letterSpacing: '.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,.85)', marginTop: '11px' }}>{statModuleLabel} 2</div>
+              <div style={{ fontSize: '12px', color: '#fff', fontWeight: mod2Hard ? 700 : 400, marginTop: '2px' }}>{mod2Hard ? 'Hard module' : 'standard'}</div>
+            </div>
+          )}
         </div>
 
         {/* ═══════════ DOMAINS & SKILLS (organized, expandable) ═══════════ */}
@@ -1066,21 +994,27 @@ const TestResults = ({
         <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
 
           {/* ── 2A  ATTEMPT SNAPSHOT ── */}
-          <div style={cardBase}>
-            <div style={sectionTitle}>Attempt Snapshot</div>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(100px, 1fr))', gap: '16px' }}>
+          <div className="trx-card trx-lift">
+            <div style={{ display: 'flex', alignItems: 'center', gap: '11px', marginBottom: '20px' }}>
+              <span className="trx-icon-chip" style={{ background: 'rgba(90,138,22,.12)', color: 'var(--trx-lime-deep)' }}>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="13" r="8" /><path d="M12 9v4l2 1.5" /><path d="M9 2h6" /></svg>
+              </span>
+              <div className="trx-micro">Attempt Snapshot</div>
+            </div>
+            <div className="trx-snapshot">
               {[
-                { label: 'Total Time', value: hasTelemetry ? formatTime(totalTimeSpent) : '—', sub: null },
-                { label: 'Avg / Question', value: hasTelemetry ? formatTime(avgTimePerQ) : '—', sub: hasTelemetry && avgTimePerQ > 90 ? 'Slow' : null, subColor: '#f97316' },
-                { label: 'Incorrect', value: `${incorrectEntries.length}`, sub: totalQuestions > 0 ? `of ${totalQuestions}` : null, subColor: '#ef4444' },
-                { label: 'Unanswered', value: `${unansweredCount}`, sub: null, subColor: '#eab308' },
-                { label: 'Easy Missed', value: `${easyMissed}`, sub: easyMissed > 0 ? 'Recoverable' : null, subColor: '#f97316' },
-                { label: 'Flagged', value: `${reviewedCount}`, sub: null },
+                { label: 'Total Time', value: hasTelemetry ? formatTime(totalTimeSpent) : '—' },
+                { label: 'Avg / Question', value: hasTelemetry ? formatTime(avgTimePerQ) : '—' },
+                { label: 'Incorrect', value: `${incorrectEntries.length}`, color: 'var(--trx-red)', subLabel: `of ${totalQuestions}`, subColor: 'var(--trx-red)' },
+                { label: 'Unanswered', value: `${unansweredCount}` },
+                { label: 'Easy Missed', value: `${easyMissed}`, color: easyMissed > 0 ? 'var(--trx-orange)' : undefined, subLabel: easyMissed > 0 ? 'recoverable' : null, subColor: 'var(--trx-orange)' },
+                { label: 'Flagged', value: `${reviewedCount}` },
               ].map((m, i) => (
-                <div key={i} style={{ textAlign: 'center', padding: '12px 8px' }}>
-                  <div style={{ fontSize: '24px', fontWeight: '800', color: colors.text.primary, fontVariantNumeric: 'tabular-nums', lineHeight: 1 }}>{m.value}</div>
-                  <div style={{ fontSize: '11px', fontWeight: '600', color: colors.text.secondary, marginTop: '6px', textTransform: 'uppercase', letterSpacing: '0.04em' }}>{m.label}</div>
-                  {m.sub && <div style={{ fontSize: '10px', fontWeight: '700', color: m.subColor || colors.text.muted, marginTop: '2px' }}>{m.sub}</div>}
+                <div key={i}>
+                  <div style={{ fontFamily: 'var(--trx-display)', fontWeight: 700, fontSize: '26px', lineHeight: 1, color: m.color || 'var(--trx-text)', fontVariantNumeric: 'tabular-nums', whiteSpace: 'nowrap' }}>{m.value}</div>
+                  <div style={{ fontWeight: 700, fontSize: '10px', letterSpacing: '.08em', textTransform: 'uppercase', color: 'var(--trx-text-3)', marginTop: '7px' }}>
+                    {m.label}{m.subLabel && <> <span style={{ color: m.subColor }}>{m.subLabel}</span></>}
+                  </div>
                 </div>
               ))}
             </div>
@@ -1088,61 +1022,72 @@ const TestResults = ({
 
           {/* ── 2B  POINT-LOSS BREAKDOWN ── */}
           {incorrectEntries.length > 0 && (
-            <div style={cardBase}>
-              <div style={sectionTitle}>Point-Loss Breakdown</div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+            <div className="trx-card trx-lift">
+              <div style={{ display: 'flex', alignItems: 'center', gap: '11px', marginBottom: '20px' }}>
+                <span className="trx-icon-chip" style={{ background: 'var(--trx-orange-tint)', color: 'var(--trx-orange)' }}>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2a10 10 0 1 0 10 10" /><path d="M12 12V2a10 10 0 0 1 10 10z" /></svg>
+                </span>
+                <div className="trx-micro">Point-Loss Breakdown</div>
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
                 {[
-                  { label: 'Careless Errors', count: carelessCount, color: '#eab308', desc: 'Easy Qs wrong or rushed answers' },
-                  { label: 'Time Pressure', count: timePressureCount, color: '#f97316', desc: 'Spent 50%+ more time than average' },
-                  { label: 'Content Gaps', count: contentGapCount, color: '#ef4444', desc: 'Skill or concept not yet learned' },
+                  { label: 'Careless Errors', count: carelessCount, color: 'var(--trx-amber)', desc: 'Easy Qs wrong or rushed answers' },
+                  { label: 'Time Pressure', count: timePressureCount, color: 'var(--trx-orange)', desc: 'Spent 50%+ more time than average' },
+                  { label: 'Content Gaps', count: contentGapCount, color: 'var(--trx-red)', desc: 'Skill or concept not yet learned' },
                 ].map(b => {
                   const pct = incorrectEntries.length > 0 ? Math.round((b.count / incorrectEntries.length) * 100) : 0;
                   return (
                     <div key={b.label}>
-                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '6px', flexWrap: 'wrap', gap: '4px' }}>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', minWidth: 0 }}>
-                          <span style={{ fontSize: '14px', fontWeight: '700', color: colors.text.primary, whiteSpace: 'nowrap' }}>{b.label}</span>
-                          <span style={{ fontSize: '12px', color: colors.text.muted, whiteSpace: 'nowrap' }}>{b.desc}</span>
-                        </div>
-                        <div style={{ display: 'flex', alignItems: 'baseline', gap: '6px', flexShrink: 0 }}>
-                          <span style={{ fontSize: '18px', fontWeight: '800', color: b.color, fontVariantNumeric: 'tabular-nums' }}>{b.count}</span>
-                          <span style={{ fontSize: '12px', fontWeight: '600', color: colors.text.muted }}>{pct}%</span>
-                        </div>
+                      <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: '12px', marginBottom: '8px', flexWrap: 'wrap' }}>
+                        <span style={{ fontSize: '15px' }}>
+                          <strong style={{ fontWeight: 700, color: 'var(--trx-text)' }}>{b.label}</strong>{' '}
+                          <span style={{ color: 'var(--trx-text-3)' }}>{b.desc}</span>
+                        </span>
+                        <span style={{ flex: 'none' }}>
+                          <span style={{ fontFamily: 'var(--trx-display)', fontWeight: 700, fontSize: '17px', color: b.color, fontVariantNumeric: 'tabular-nums' }}>{b.count}</span>{' '}
+                          <span style={{ fontSize: '13px', fontWeight: 600, color: 'var(--trx-text-3)' }}>{pct}%</span>
+                        </span>
                       </div>
-                      <div style={{ height: '8px', background: 'rgba(0,0,0,0.04)', borderRadius: '4px', overflow: 'hidden' }}>
-                        <div style={{
-                          width: `${pct}%`, height: '100%', background: b.color, borderRadius: '4px',
-                          transition: 'width 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)',
-                        }} />
+                      <div style={{ height: '8px', borderRadius: '5px', background: 'var(--trx-surface-2)', overflow: 'hidden' }}>
+                        <div style={{ height: '100%', borderRadius: '5px', width: `${pct}%`, background: b.color, transition: 'width 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)' }} />
                       </div>
                     </div>
                   );
                 })}
-                <div style={{ fontSize: '12px', color: colors.text.muted, marginTop: '4px', fontVariantNumeric: 'tabular-nums' }}>
-                  {incorrectEntries.length} incorrect out of {totalQuestions} total
-                </div>
               </div>
+              <p style={{ fontSize: '13px', color: 'var(--trx-text-3)', marginTop: '18px', marginBottom: 0, fontVariantNumeric: 'tabular-nums' }}>
+                {incorrectEntries.length} incorrect out of {totalQuestions} total.
+              </p>
             </div>
           )}
 
           {/* ── 2C  PERFORMANCE BY DIFFICULTY ── */}
-          <div style={cardBase}>
-            <div style={sectionTitle}>Performance by Difficulty</div>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px' }}>
+          <div className="trx-card trx-lift">
+            <div style={{ display: 'flex', alignItems: 'center', gap: '11px', marginBottom: '22px' }}>
+              <span className="trx-icon-chip" style={{ background: 'var(--trx-purple-tint)', color: 'var(--trx-purple)' }}>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 20V10" /><path d="M18 20V4" /><path d="M6 20v-4" /></svg>
+              </span>
+              <div className="trx-micro">Performance by Difficulty</div>
+            </div>
+            <div className="trx-diff-grid">
               {diffLevels.map(d => {
                 const stats = diffAll[d];
                 const pct = stats.total > 0 ? Math.round((stats.correct / stats.total) * 100) : 0;
-                const accent = d === 'easy' ? '#22c55e' : d === 'medium' ? '#06b6d4' : '#f97316';
+                const tone = d === 'easy'
+                  ? { bg: 'rgba(90,138,22,.1)', fg: 'var(--trx-lime-deep)', track: 'rgba(90,138,22,.16)' }
+                  : d === 'medium'
+                    ? { bg: 'var(--trx-purple-tint)', fg: 'var(--trx-purple)', track: 'rgba(124,92,199,.18)' }
+                    : { bg: 'var(--trx-orange-tint)', fg: 'var(--trx-orange)', track: 'rgba(236,92,43,.18)' };
                 return (
-                  <div key={d} style={{ textAlign: 'center' }}>
-                    <div style={{ fontSize: '28px', fontWeight: '800', color: accent, fontVariantNumeric: 'tabular-nums', lineHeight: 1 }}>{pct}%</div>
-                    <div style={{ fontSize: '12px', fontWeight: '600', color: colors.text.secondary, marginTop: '6px', textTransform: 'capitalize' }}>{d}</div>
-                    <div style={{ fontSize: '11px', color: colors.text.muted, marginTop: '2px', fontVariantNumeric: 'tabular-nums' }}>{stats.correct}/{stats.total}</div>
-                    <div style={{ height: '6px', background: 'rgba(0,0,0,0.04)', borderRadius: '3px', overflow: 'hidden', marginTop: '10px' }}>
-                      <div style={{ width: `${pct}%`, height: '100%', background: accent, borderRadius: '3px', transition: 'width 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)' }} />
+                  <div key={d} style={{ background: tone.bg, borderRadius: '16px', padding: '22px 18px', textAlign: 'center' }}>
+                    <div style={{ fontFamily: 'var(--trx-display)', fontWeight: 700, fontSize: '38px', lineHeight: 1, color: tone.fg, fontVariantNumeric: 'tabular-nums' }}>{pct}%</div>
+                    <div style={{ fontWeight: 700, fontSize: '13.5px', marginTop: '8px', textTransform: 'capitalize', color: 'var(--trx-text)' }}>{d}</div>
+                    <div style={{ fontSize: '12.5px', color: 'var(--trx-text-3)', fontVariantNumeric: 'tabular-nums' }}>{stats.correct}/{stats.total}</div>
+                    <div style={{ height: '7px', borderRadius: '5px', background: tone.track, overflow: 'hidden', marginTop: '12px' }}>
+                      <div style={{ height: '100%', width: `${pct}%`, borderRadius: '5px', background: tone.fg, transition: 'width 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)' }} />
                     </div>
                     {diffCliff && diffCliff.to === d && diffCliff.drop > 10 && (
-                      <div style={{ fontSize: '10px', fontWeight: '700', color: '#ef4444', marginTop: '6px' }}>-{diffCliff.drop}pp drop</div>
+                      <div style={{ fontSize: '10px', fontWeight: 700, color: 'var(--trx-red)', marginTop: '8px' }}>-{diffCliff.drop}pp drop</div>
                     )}
                   </div>
                 );
@@ -1153,45 +1098,42 @@ const TestResults = ({
           {/* Domain & skill mastery now lives in the organized "Domains &
               Skills" block above (both sections, expandable, deep-linked). */}
 
-          {/* ── 2E  STAMINA & BEHAVIOR ── */}
+          {/* ── 2E  STAMINA & BEHAVIOR (two-up, from the 07-19 mockup) ── */}
           {hasTelemetry && (
-            <div style={cardBase}>
-              <div style={sectionTitle}>Stamina &amp; Behavior</div>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px' }}>
-
-                {/* First-half vs second-half */}
-                <div style={{ padding: '16px', background: 'rgba(255,255,255,0.5)', borderRadius: '16px', border: '1px solid rgba(0,0,0,0.03)' }}>
-                  <div style={{ fontSize: '12px', fontWeight: '700', color: colors.text.secondary, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '12px' }}>Accuracy Split</div>
-                  <div style={{ display: 'flex', gap: '16px', alignItems: 'flex-end' }}>
-                    <div style={{ flex: 1, textAlign: 'center' }}>
-                      <div style={{ fontSize: '22px', fontWeight: '800', color: colors.text.primary, fontVariantNumeric: 'tabular-nums' }}>{Math.round(firstHalfAcc * 100)}%</div>
-                      <div style={{ fontSize: '11px', color: colors.text.muted, marginTop: '4px' }}>1st Half</div>
-                    </div>
-                    <div style={{ fontSize: '14px', fontWeight: '700', color: staminaDrop > 5 ? '#f97316' : staminaDrop < -5 ? '#22c55e' : colors.text.muted, paddingBottom: '4px' }}>
-                      {staminaDrop > 0 ? `−${staminaDrop}pp` : staminaDrop < 0 ? `+${Math.abs(staminaDrop)}pp` : '='}
-                    </div>
-                    <div style={{ flex: 1, textAlign: 'center' }}>
-                      <div style={{ fontSize: '22px', fontWeight: '800', color: colors.text.primary, fontVariantNumeric: 'tabular-nums' }}>{Math.round(secondHalfAcc * 100)}%</div>
-                      <div style={{ fontSize: '11px', color: colors.text.muted, marginTop: '4px' }}>2nd Half</div>
-                    </div>
+            <div className="trx-two-up" style={{ marginTop: 0 }}>
+              <div className="trx-card" style={{ padding: '24px 26px' }}>
+                <div className="trx-micro" style={{ marginBottom: '20px' }}>Accuracy Split</div>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '20px' }}>
+                  <div style={{ textAlign: 'center' }}>
+                    <div style={{ fontFamily: 'var(--trx-display)', fontWeight: 700, fontSize: '34px', lineHeight: 1, fontVariantNumeric: 'tabular-nums' }}>{Math.round(firstHalfAcc * 100)}%</div>
+                    <div style={{ fontSize: '12px', color: 'var(--trx-text-3)', marginTop: '4px' }}>1st Half</div>
+                  </div>
+                  <span style={{
+                    background: staminaDrop > 5 ? 'var(--trx-orange-tint)' : 'rgba(90,138,22,.12)',
+                    color: staminaDrop > 5 ? 'var(--trx-orange)' : 'var(--trx-lime-deep)',
+                    fontFamily: 'var(--trx-display)', fontWeight: 700, fontSize: '14px', padding: '6px 12px', borderRadius: '20px',
+                  }}>
+                    {staminaDrop > 0 ? `−${staminaDrop}pp` : staminaDrop < 0 ? `+${Math.abs(staminaDrop)}pp` : '='}
+                  </span>
+                  <div style={{ textAlign: 'center' }}>
+                    <div style={{ fontFamily: 'var(--trx-display)', fontWeight: 700, fontSize: '34px', lineHeight: 1, fontVariantNumeric: 'tabular-nums' }}>{Math.round(secondHalfAcc * 100)}%</div>
+                    <div style={{ fontSize: '12px', color: 'var(--trx-text-3)', marginTop: '4px' }}>2nd Half</div>
                   </div>
                 </div>
-
-                {/* Behavior metrics */}
-                <div style={{ padding: '16px', background: 'rgba(255,255,255,0.5)', borderRadius: '16px', border: '1px solid rgba(0,0,0,0.03)' }}>
-                  <div style={{ fontSize: '12px', fontWeight: '700', color: colors.text.secondary, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '12px' }}>Test Behavior</div>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                    {[
-                      { label: 'Answer Changes', value: totalAnswerChanges },
-                      { label: 'Flagged for Review', value: reviewedCount },
-                      { label: 'Navigation Style', value: navPattern === 'strategic-skip' ? 'Strategic Skip' : navPattern === 'jumping' ? 'Jumping' : 'Linear' },
-                    ].map((row, i) => (
-                      <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                        <span style={{ fontSize: '13px', color: colors.text.secondary }}>{row.label}</span>
-                        <span style={{ fontSize: '14px', fontWeight: '700', color: colors.text.primary, fontVariantNumeric: 'tabular-nums' }}>{row.value}</span>
-                      </div>
-                    ))}
-                  </div>
+              </div>
+              <div className="trx-card" style={{ padding: '24px 26px' }}>
+                <div className="trx-micro" style={{ marginBottom: '16px' }}>Test Behavior</div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                  {[
+                    { label: 'Answer Changes', value: totalAnswerChanges },
+                    { label: 'Flagged for Review', value: reviewedCount },
+                    { label: 'Navigation Style', value: navPattern === 'strategic-skip' ? 'Strategic Skip' : navPattern === 'jumping' ? 'Jumping' : 'Linear' },
+                  ].map((row, i) => (
+                    <div key={i} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderTop: i > 0 ? '1px solid var(--trx-line)' : 'none', paddingTop: i > 0 ? '12px' : 0 }}>
+                      <span style={{ fontSize: '14px', color: 'var(--trx-text-2)' }}>{row.label}</span>
+                      <span style={{ fontFamily: 'var(--trx-display)', fontWeight: 700, fontSize: '16px', color: 'var(--trx-text)', fontVariantNumeric: 'tabular-nums' }}>{row.value}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -1202,13 +1144,14 @@ const TestResults = ({
         {(() => {
           if (!hasHistory && attempts.length <= 1) {
             return (
-              <div style={cardBase}>
-                <div style={sectionTitle}>Score Trajectory</div>
-                <div style={{ textAlign: 'center', padding: '16px 0' }}>
-                  <div style={{ fontSize: '13px', color: colors.text.secondary }}>
-                    This is your first recorded attempt. Retake to start tracking progress.
-                  </div>
+              <div className="trx-card" style={{ padding: '34px 28px', textAlign: 'center' }}>
+                <div className="trx-micro" style={{ marginBottom: '16px' }}>Score Trajectory</div>
+                <div style={{ width: '48px', height: '48px', borderRadius: '14px', background: '#fff', display: 'grid', placeItems: 'center', color: 'var(--trx-text-3)', margin: '0 auto 14px' }}>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><path d="M3 3v18h18" /><path d="m7 14 3-3 3 3 5-6" /></svg>
                 </div>
+                <p style={{ fontSize: '14.5px', color: 'var(--trx-text-2)', maxWidth: '400px', margin: '0 auto', lineHeight: 1.5 }}>
+                  This is your first recorded attempt. Retake to start tracking your progress over time.
+                </p>
               </div>
             );
           }
@@ -1236,9 +1179,9 @@ const TestResults = ({
           const linePath = pts.map((p, i) => `${i === 0 ? 'M' : 'L'}${p.x},${p.y}`).join(' ');
 
           return (
-            <div style={cardBase}>
+            <div className="trx-card">
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '24px' }}>
-                <div style={sectionTitle}>Score Trajectory</div>
+                <div className="trx-micro">Score Trajectory</div>
                 <div style={{ display: 'flex', gap: '16px' }}>
                   {[
                     { label: 'Best', value: bestScore },
@@ -2318,7 +2261,7 @@ const TestResults = ({
   };
 
   return (
-    <div style={{ maxWidth: '100%', margin: '0 auto', padding: '0 0 40px', fontFamily: 'var(--font-ui)' }}>
+    <div className="trx" style={{ maxWidth: '900px', margin: '0 auto', padding: '0 0 40px' }}>
       {/* Back navigation */}
       <div style={{ paddingTop: '16px', marginBottom: '4px' }}>
         <button
@@ -2355,73 +2298,36 @@ const TestResults = ({
         gap: '16px',
         flexWrap: 'wrap',
       }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', minWidth: 0 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '16px', minWidth: 0 }}>
           <Avatar user={user} size={AVATAR_SIZES.md} />
           <div style={{ minWidth: 0 }}>
             <h1 style={{
-              fontSize: '32px',
-              fontWeight: '800',
-              color: colors.text.primary,
-              letterSpacing: '-0.04em',
-              marginBottom: '4px'
+              fontFamily: 'var(--trx-display)',
+              fontSize: '29px',
+              fontWeight: '700',
+              color: 'var(--trx-text)',
+              letterSpacing: '-0.02em',
+              lineHeight: 1.05,
+              margin: 0,
             }}>
               {user?.firstName ? `${user.firstName}'s results — ${test.title}` : test.title}
             </h1>
-            <div style={{ fontSize: '15px', color: colors.text.secondary, fontWeight: '500' }}>
-              Completed on {new Date(test.completedAt || Date.now()).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+            <div style={{ fontSize: '13.5px', color: 'var(--trx-text-2)', marginTop: '4px' }}>
+              Completed {new Date(test.completedAt || Date.now()).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+              {` · ${totalQuestions} questions`}
+              {headerTimeLabel ? ` · ${headerTimeLabel}` : ''}
             </div>
           </div>
         </div>
-        {activeTab !== 'diagnostic' && (
-          <button
-            type="button"
-            onClick={() => setActiveTab('diagnostic')}
-            style={{
-              display: 'flex', alignItems: 'center', gap: '6px',
-              padding: '10px 16px', minHeight: '44px',
-              borderRadius: '10px', border: '1px solid var(--color-slate-200)',
-              background: '#ffffff', cursor: 'pointer',
-              fontSize: '14px', fontWeight: '600', color: colors.text.primary,
-              whiteSpace: 'nowrap', flexShrink: 0,
-            }}
-          >
-            See why <ArrowRightIcon size={15} />
-          </button>
-        )}
       </div>
 
-      {/* Tab Navigation */}
-      <div style={{
-        display: 'flex',
-        background: 'var(--color-slate-100)',
-        padding: '6px',
-        borderRadius: '9999px',
-        marginBottom: '32px',
-        width: 'fit-content',
-        maxWidth: '100%',
-        overflowX: 'auto',
-        WebkitOverflowScrolling: 'touch',
-        gap: '4px'
-      }}>
+      {/* Tab Navigation — underline style from the 07-19 mockup */}
+      <div className="trx-tabs">
         {tabs.map(tab => (
           <button
             key={tab.id}
+            className={`trx-tab${activeTab === tab.id ? ' on' : ''}`}
             onClick={() => setActiveTab(tab.id)}
-            style={{
-              padding: '10px 24px',
-              background: activeTab === tab.id ? '#ffffff' : 'transparent',
-              border: 'none',
-              borderRadius: '9999px',
-              color: activeTab === tab.id ? 'var(--color-slate-900)' : 'var(--color-slate-600)',
-              fontSize: '14px',
-              fontWeight: '700',
-              letterSpacing: '0.02em',
-              textTransform: 'uppercase',
-              cursor: 'pointer',
-              whiteSpace: 'nowrap',
-              transition: 'all 0.2s ease',
-              boxShadow: activeTab === tab.id ? 'var(--shadow-sm)' : 'none'
-            }}
           >
             {tab.label}
           </button>
