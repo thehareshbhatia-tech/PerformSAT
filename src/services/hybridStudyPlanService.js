@@ -17,6 +17,7 @@ import {
   doc, getDoc, updateDoc, setDoc,
   collection, addDoc, getDocs,
   query, orderBy, limit, serverTimestamp,
+  runTransaction,
 } from 'firebase/firestore';
 import { isSafeFirestoreFieldPathKey } from './firestoreFieldPath';
 import { generateStudyPlan as generateDeterministic } from './studyPlanGenerator';
@@ -419,22 +420,32 @@ export const patchAdaptivePracticeState = async (userId, artifactId, serializedS
   if (!userId || !artifactId || !serializedState) return;
 
   try {
-    const artRef = doc(db, 'progress', userId, 'studyPlanArtifacts', artifactId);
-    await updateDoc(artRef, { 'plan.adaptivePracticeState': serializedState });
-
     const answeredCount = serializedState.answered?.length || 0;
     const correctCount = serializedState.correct || 0;
     const mastery = answeredCount > 0 ? Math.round((correctCount / answeredCount) * 100) : 0;
 
     const progressRef = doc(db, 'progress', userId);
-    await updateDoc(progressRef, {
-      'studyPlanPreview.adaptiveProgress': {
-        answered: answeredCount,
-        target: serializedState.targetQuestions || 15,
-        mastery,
-        isCompleted: serializedState.isCompleted || false,
-        completedAt: serializedState.completedAt || null,
-      },
+    const artRef = doc(db, 'progress', userId, 'studyPlanArtifacts', artifactId);
+
+    // One transaction, pointer-checked. The old two-updateDoc version could
+    // interleave with a Phase-2 plan swap: the session's patch (targeting the
+    // OLD artifact) landed its preview write after the new plan's preview,
+    // stamping a superseded session's numbers onto the new plan's card — and
+    // a second device mid-drill kept doing so indefinitely.
+    await runTransaction(db, async (txn) => {
+      const progressSnap = await txn.get(progressRef);
+      const currentPointer = progressSnap.exists() ? progressSnap.data().currentStudyPlanArtifactId : null;
+      if (currentPointer !== artifactId) return; // superseded — drop silently
+      txn.update(artRef, { 'plan.adaptivePracticeState': serializedState });
+      txn.update(progressRef, {
+        'studyPlanPreview.adaptiveProgress': {
+          answered: answeredCount,
+          target: serializedState.targetQuestions || 15,
+          mastery,
+          isCompleted: serializedState.isCompleted || false,
+          completedAt: serializedState.completedAt || null,
+        },
+      });
     });
   } catch (err) {
     console.warn('[hybridStudyPlanService] Failed to patch adaptive state:', err.message);

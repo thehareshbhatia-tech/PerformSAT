@@ -107,6 +107,13 @@ export const useProgress = (userId) => {
   const studyPlanWriteInFlight = useRef(false);
   const hydratingArtifact = useRef(false);
   const artifactHydrationFailed = useRef(false); // prevent retry flood on permission errors
+  // Pointer-race bookkeeping: the current pointer from the FRESHEST snapshot,
+  // the freshest snapshot data (for fallbacks when a re-kicked fetch runs off
+  // a dropped snapshot), and a dedupe stamp so a burst of snapshots doesn't
+  // re-fetch the same unchanged artifact on every one.
+  const latestPointerRef = useRef(null);
+  const latestSnapDataRef = useRef(null);
+  const lastArtifactFetchRef = useRef({ id: null, ts: 0 });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   // Test-save-specific status — deliberately separate from the shared `error`
@@ -154,6 +161,14 @@ export const useProgress = (userId) => {
     // keep study-plan hydration disabled for the rest of the session — and
     // even for a DIFFERENT account signing in on the same tab.
     artifactHydrationFailed.current = false;
+    // Same account-switch hazard for the other latches: a fetch or write hung
+    // when the previous user signed out would leave these true and silently
+    // disable ALL plan hydration for the next account on this tab.
+    hydratingArtifact.current = false;
+    studyPlanWriteInFlight.current = false;
+    latestPointerRef.current = null;
+    latestSnapDataRef.current = null;
+    lastArtifactFetchRef.current = { id: null, ts: 0 };
 
     const progressRef = doc(db, 'progress', userId);
 
@@ -234,16 +249,30 @@ export const useProgress = (userId) => {
             preview: data.studyPlanPreview || null,
           });
 
+          // Track the freshest pointer + snapshot data for the re-kick path:
+          // a snapshot arriving while a fetch is in flight is DROPPED by the
+          // hydratingArtifact guard, so the fetch's finally must be able to
+          // notice the pointer moved and hydrate the newer artifact itself.
+          latestPointerRef.current = artifactId;
+          latestSnapDataRef.current = data;
+
           // When an artifact pointer exists, always hydrate from the artifact
           // subcollection — it carries practiceAssignments and full plan data
           // that the legacy root studyPlan field may lack.
-          if (artifactId && !hydratingArtifact.current && !studyPlanWriteInFlight.current && !artifactHydrationFailed.current) {
+          const hydrateFromPointer = (targetId) => {
+            const snapData = latestSnapDataRef.current || {};
+            const rootPlan = snapData.studyPlan || null;
+            // Dedupe: same artifact fetched successfully moments ago — a
+            // burst of unrelated progress-doc writes (drill saves, flags)
+            // doesn't need a re-read per snapshot.
+            const last = lastArtifactFetchRef.current;
+            if (last.id === targetId && Date.now() - last.ts < 2000) return;
             hydratingArtifact.current = true;
-            const source = `pointer:${artifactId}`;
+            const source = `pointer:${targetId}`;
             console.log('[useProgress] Hydrating study plan via', source);
 
             import('../services/hybridStudyPlanService')
-              .then(({ getStudyPlanArtifact }) => getStudyPlanArtifact(userId, artifactId))
+              .then(({ getStudyPlanArtifact }) => getStudyPlanArtifact(userId, targetId))
               .then(art => {
               // Stale-resolve guard: account switched while this fetch was in
               // flight — do not write the previous user's plan into state.
@@ -251,8 +280,12 @@ export const useProgress = (userId) => {
               // Fetch resolved: clear the failure latch so a later transient
               // failure only skips retries until the next success or session.
               artifactHydrationFailed.current = false;
+              // Pointer moved while we fetched — drop this stale result
+              // silently; the finally block re-kicks for the current pointer.
+              if (latestPointerRef.current !== targetId) return;
               if (art?.plan?.weeks?.length) {
                 console.log('[useProgress] Artifact hydrated OK via', source, '— weeks:', art.plan.weeks.length);
+                lastArtifactFetchRef.current = { id: targetId, ts: Date.now() };
                 // Overlay graft (adaptivity audit item 3): reprioritizePlan's
                 // adaptiveOverlay is persisted on the ROOT studyPlan field
                 // (saveStudyPlan), but the artifact copy — which wins here by
@@ -261,20 +294,18 @@ export const useProgress = (userId) => {
                 // PLAN itself (that contract is load-bearing: it carries
                 // practiceAssignments + full plan data the root field may
                 // lack); only the overlay rides across from the root copy.
-                const hydratedPlan = (!art.plan.adaptiveOverlay && incomingPlan?.adaptiveOverlay)
-                  ? { ...art.plan, adaptiveOverlay: incomingPlan.adaptiveOverlay }
+                const hydratedPlan = (!art.plan.adaptiveOverlay && rootPlan?.adaptiveOverlay)
+                  ? { ...art.plan, adaptiveOverlay: rootPlan.adaptiveOverlay }
                   : art.plan;
                 setStudyPlan(hydratedPlan);
                 // longitudinal is recomputed live from the CURRENT test results
                 // rather than read from the (possibly stale) stored artifact —
                 // so the Score History strip drops a reset test's dot
                 // immediately instead of waiting for the next plan regeneration.
-                setStudyPlanArtifact({ plan: art.plan, delta: art.delta || null, longitudinal: buildLongitudinalEvidence(data.practiceTestResults || {}, data.skillProgress || null), version: art.version || null });
-                studyPlanWriteInFlight.current = false;
+                setStudyPlanArtifact({ plan: art.plan, delta: art.delta || null, longitudinal: buildLongitudinalEvidence(snapData.practiceTestResults || {}, snapData.skillProgress || null), version: art.version || null });
                 setStudyPlanMeta(prev => ({ ...prev, artifactId: art.id }));
-              } else if (incomingPlan?.weeks?.length) {
-                setStudyPlan(incomingPlan);
-                studyPlanWriteInFlight.current = false;
+              } else if (rootPlan?.weeks?.length) {
+                setStudyPlan(rootPlan);
               } else if (!studyPlanWriteInFlight.current) {
                 setStudyPlan(prev => prev?.weeks?.length ? prev : null);
               }
@@ -282,17 +313,30 @@ export const useProgress = (userId) => {
               if (cancelled) return;
               console.warn('[useProgress] Artifact hydration skipped:', err.code || err.message);
               artifactHydrationFailed.current = true; // stop retrying on every snapshot
-              if (incomingPlan?.weeks?.length) {
-                setStudyPlan(incomingPlan);
+              if (rootPlan?.weeks?.length) {
+                setStudyPlan(rootPlan);
               } else if (!studyPlanWriteInFlight.current) {
                 setStudyPlan(prev => prev?.weeks?.length ? prev : null);
               }
             }).finally(() => {
               hydratingArtifact.current = false;
+              // Re-kick when the pointer moved during this fetch — the
+              // snapshot that carried the new pointer was dropped by the
+              // in-flight guard, and nothing else would hydrate it.
+              if (!cancelled &&
+                  latestPointerRef.current &&
+                  latestPointerRef.current !== targetId &&
+                  !studyPlanWriteInFlight.current &&
+                  !artifactHydrationFailed.current) {
+                hydrateFromPointer(latestPointerRef.current);
+              }
             });
+          };
+
+          if (artifactId && !hydratingArtifact.current && !studyPlanWriteInFlight.current && !artifactHydrationFailed.current) {
+            hydrateFromPointer(artifactId);
           } else if (incomingPlan?.weeks?.length && !studyPlanWriteInFlight.current) {
             setStudyPlan(incomingPlan);
-            studyPlanWriteInFlight.current = false;
           } else if (!artifactId && !hydratingArtifact.current && !studyPlanWriteInFlight.current && !artifactHydrationFailed.current) {
             hydratingArtifact.current = true;
             console.log('[useProgress] Hydrating study plan via latest-query');
@@ -324,7 +368,11 @@ export const useProgress = (userId) => {
                 // so the Score History strip drops a reset test's dot
                 // immediately instead of waiting for the next plan regeneration.
                 setStudyPlanArtifact({ plan: art.plan, delta: art.delta || null, longitudinal: buildLongitudinalEvidence(data.practiceTestResults || {}, data.skillProgress || null), version: art.version || null });
-                studyPlanWriteInFlight.current = false;
+                // NOTE: studyPlanWriteInFlight is OWNED by the writers
+                // (saveStudyPlan / saveEditedStudyPlan / plan-upgrade), each
+                // of which clears it in a finally. Hydration clearing it here
+                // let a slow stale fetch re-open the door for stale snapshots
+                // to clobber an optimistic write still in flight.
                 setStudyPlanMeta(prev => ({ ...prev, artifactId: art.id }));
               } else if (orphan) {
                 setStudyPlan(null);
@@ -1346,6 +1394,13 @@ export const useProgress = (userId) => {
         const artRef = artId ? doc(db, 'progress', userId, 'studyPlanArtifacts', artId) : null;
         const artSnap = artRef ? await txn.get(artRef) : null;
         const progressSnap = await txn.get(progressRef);
+        // Whole-plan replacement is last-writer-wins for what the editor
+        // EDITS — but adaptive session state is not something the editor
+        // touches, and the editor's captured copy can be minutes stale
+        // (another device drilling). Carry the freshest persisted adaptive
+        // state across so a plan edit never rolls back drill progress.
+        const freshAdaptive = artSnap?.exists() ? artSnap.data()?.plan?.adaptivePracticeState : null;
+        if (freshAdaptive) sanitized.adaptivePracticeState = freshAdaptive;
         if (artSnap?.exists()) {
           txn.update(artRef, { plan: sanitized, editedAt: serverTimestamp() });
         }

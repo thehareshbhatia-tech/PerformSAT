@@ -11,7 +11,7 @@ import AnswerChoiceList from './shared/AnswerChoiceList';
 import HighlightablePassage, { mergeHighlights } from './rw/HighlightablePassage';
 import { sectionModuleShort } from '../services/selectors/moduleLabel';
 import { deriveRWQuestionType } from '../data/questions/rwBank/deriveRWPattern';
-import { recordSkillAttempts } from '../services/skillService';
+import { recordSkillAttemptsBatch } from '../services/skillService';
 import { showToast } from './ui/Toaster';
 import { buildTestReviewEntry } from '../services/reviewQueueResolve';
 import { pickInitialModuleIndex } from '../services/selectors/initialModule';
@@ -1180,12 +1180,17 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
           });
         });
         console.log('[PracticeTest] Skill entries to record:', skillEntries.length);
-        // Record sequentially to prevent concurrent Firestore read-modify-write conflicts
+        // ONE transaction for the whole test. The old per-question loop ran
+        // ~98 sequential runTransactions against the same progress doc —
+        // 30-60s of writes that contended with the result-save transaction
+        // (spurious "save failed" banners) and fired a snapshot →
+        // artifact-refetch cycle per question on the results screen.
         (async () => {
           try {
-            for (const entry of skillEntries) {
-              await recordSkillAttempts(user.uid, entry.skills, entry.isCorrect);
-            }
+            await recordSkillAttemptsBatch(
+              user.uid,
+              skillEntries.map(e => ({ skills: e.skills, correct: e.isCorrect })),
+            );
             console.log('[PracticeTest] All skill recordings complete');
           } catch (err) {
             console.error('[PracticeTest] Skill recording error:', err);
