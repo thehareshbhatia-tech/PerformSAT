@@ -3,7 +3,7 @@
  * is unit-testable with node --test (same pattern as reengagementPolicy.ts).
  *
  * The entitlement model (CARD-UP-FRONT 3-day trial, 2026-07-03):
- *   - Signup grants NO access. To start a 7-day free trial the student must
+ *   - Signup grants NO access. To start the free trial (TRIAL_DAYS) the student must
  *     enter a card via hosted Stripe Checkout (payment_method_collection
  *     stays "always"; subscription_data.trial_period_days = 3).
  *   - During the trial the Stripe subscription status is "trialing" — full
@@ -172,7 +172,7 @@ export function subscriptionPatchUsedTrial(
  * How many trial days a NEW Checkout should grant this customer. Returns null
  * (omit trial_period_days entirely — start billing immediately) once the
  * entitlement carries the durable `trialUsed` marker, so a canceled customer
- * who re-runs Checkout on the same Stripe customer can't mint a fresh 7-day
+ * who re-runs Checkout on the same Stripe customer can't mint a fresh
  * trial forever. Otherwise the standard TRIAL_DAYS.
  * @param {object|null} existing the current entitlement doc (reads trialUsed)
  * @return {number|null} trial days to pass, or null to omit the trial
@@ -186,18 +186,34 @@ export function trialDaysForCheckout(
 
 /**
  * Webhook ordering guard: Stripe does not guarantee event delivery order, so
- * an older subscription.updated must never overwrite a newer one. Events with
- * the same created second re-apply (idempotent absolute-state writes).
+ * an older subscription.updated must never overwrite a newer one.
+ *
+ * Same-second ties: a replay of the SAME event id re-applies (idempotent
+ * absolute-state writes). A DIFFERENT event created in the same second applies
+ * only when it is terminal — subscription.deleted must win ties, because an
+ * updated(active) re-applied after a same-second deleted would resurrect a
+ * canceled subscription until the next event. Callers without id information
+ * keep the legacy idempotent-replay behavior.
  * @param {number} eventCreatedSec event.created (unix seconds)
  * @param {number|null|undefined} lastAppliedEventSec stored watermark
+ * @param {string|null} eventId incoming Stripe event id
+ * @param {string|null} lastEventId stored id of the last applied event
+ * @param {boolean} isTerminalEvent true for customer.subscription.deleted
  * @return {boolean} true when the event should be applied
  */
 export function shouldApplyEvent(
   eventCreatedSec: number,
   lastAppliedEventSec: number | null | undefined,
+  eventId: string | null = null,
+  lastEventId: string | null = null,
+  isTerminalEvent = false,
 ): boolean {
   if (typeof lastAppliedEventSec !== "number") return true;
-  return eventCreatedSec >= lastAppliedEventSec;
+  if (eventCreatedSec > lastAppliedEventSec) return true;
+  if (eventCreatedSec < lastAppliedEventSec) return false;
+  if (!eventId || !lastEventId) return true;
+  if (eventId === lastEventId) return true;
+  return isTerminalEvent;
 }
 
 /** Plain-ms view of an entitlement doc for access decisions. */

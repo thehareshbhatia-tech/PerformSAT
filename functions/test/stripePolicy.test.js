@@ -223,6 +223,21 @@ test("event ordering: newer and same-second apply, older is skipped", () => {
   assert.strictEqual(shouldApplyEvent(999, 1000), false); // stale event
 });
 
+test("event ordering: same-second ties break by event id + terminality", () => {
+  // Replay of the SAME event id: idempotent, applies.
+  assert.strictEqual(shouldApplyEvent(1000, 1000, "evt_a", "evt_a", false), true);
+  // DIFFERENT non-terminal event in the same second: skipped — an
+  // updated(active) must not resurrect a same-second deleted.
+  assert.strictEqual(shouldApplyEvent(1000, 1000, "evt_b", "evt_a", false), false);
+  // DIFFERENT terminal event (subscription.deleted) wins the tie.
+  assert.strictEqual(shouldApplyEvent(1000, 1000, "evt_b", "evt_a", true), true);
+  // No stored id (legacy docs): legacy idempotent-replay behavior.
+  assert.strictEqual(shouldApplyEvent(1000, 1000, "evt_b", null, false), true);
+  // Ordering still dominates ids.
+  assert.strictEqual(shouldApplyEvent(999, 1000, "evt_b", "evt_a", true), false);
+  assert.strictEqual(shouldApplyEvent(2000, 1000, "evt_b", "evt_a", false), true);
+});
+
 // ── hasAccessMs (THE access rule) ────────────────────────────────────────
 
 test("access: trialing always has access (Stripe owns the clock)", () => {

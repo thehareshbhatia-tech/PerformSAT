@@ -484,7 +484,8 @@ export const createCheckoutSession = onRequest(
           metadata: {uid: user.uid},
         };
       if (trialDays != null) {
-        // Card-up-front 7-day free trial: the saved card is charged only
+        // Card-up-front free trial (TRIAL_DAYS in stripePolicy.ts is authoritative):
+        // the saved card is charged only
         // when the trial ends (unless canceled first).
         subscriptionData.trial_period_days = trialDays;
         // Safety net: if the trial somehow ends with no usable payment
@@ -562,18 +563,28 @@ export const createPortalSession = onRequest(
  * @param {EntitlementPatch} patch absolute state from the event
  * @param {string|null} stripeCustomerId customer to record, when known
  * @param {number} eventCreatedSec event.created watermark (unix seconds)
+ * @param {string|null} eventId Stripe event id (same-second tie-breaking)
+ * @param {boolean} isTerminalEvent true for customer.subscription.deleted
  */
 async function applyEntitlementPatch(
   uid: string,
   patch: EntitlementPatch,
   stripeCustomerId: string | null,
   eventCreatedSec: number,
+  eventId: string | null = null,
+  isTerminalEvent = false,
 ): Promise<void> {
   const ref = entitlementRef(uid);
   await getFirestore().runTransaction(async (tx) => {
     const snap = await tx.get(ref);
     const existing = snap.exists ? snap.data() : null;
-    if (!shouldApplyEvent(eventCreatedSec, existing?.lastEventCreated)) {
+    if (!shouldApplyEvent(
+      eventCreatedSec,
+      existing?.lastEventCreated,
+      eventId,
+      existing?.lastEventId || null,
+      isTerminalEvent,
+    )) {
       logger.info(`Skipping stale Stripe event for ${uid}`);
       return;
     }
@@ -598,6 +609,7 @@ async function applyEntitlementPatch(
       // createCheckoutSession via trialDaysForCheckout.
       ...(subscriptionPatchUsedTrial(patch) ? {trialUsed: true} : {}),
       lastEventCreated: eventCreatedSec,
+      lastEventId: eventId,
       updatedAt: FieldValue.serverTimestamp(),
     }, {merge: true});
   });
@@ -671,7 +683,7 @@ export const stripeWebhook = onRequest(
         // Fetch the subscription for authoritative status + period end.
         const sub = await getStripe().subscriptions.retrieve(subId);
         const patch = subscriptionToEntitlementPatch(sub, monthly, annual);
-        await applyEntitlementPatch(uid, patch, customerId, event.created);
+        await applyEntitlementPatch(uid, patch, customerId, event.created, event.id, false);
         logger.info(`Entitlement activated for ${uid} (${patch.plan})`);
         break;
       }
@@ -688,7 +700,10 @@ export const stripeWebhook = onRequest(
         const customerId = typeof sub.customer === "string" ?
           sub.customer :
           sub.customer?.id || null;
-        await applyEntitlementPatch(uid, patch, customerId, event.created);
+        await applyEntitlementPatch(
+          uid, patch, customerId, event.created, event.id,
+          event.type === "customer.subscription.deleted",
+        );
         break;
       }
       default:

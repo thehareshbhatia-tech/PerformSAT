@@ -37,6 +37,11 @@ export const generateStudyPlan = async (diagnosticReport, userProfile = {}, prev
     payload.longitudinalContext = longitudinalContext;
   }
   if (deterministicPlan?.weeks?.length) {
+    // The signal-aware Do-This-First pick — the server marks THIS activity in
+    // the prompt so nextActionReason narrates the CTA it's attached to.
+    if (deterministicPlan.nextAction?.title) {
+      payload.nextActionTitle = deterministicPlan.nextAction.title;
+    }
     payload.deterministicWeeks = deterministicPlan.weeks.map(w => ({
       weekNumber: w.weekNumber,
       focusSkills: (w.focusSkills || []).slice(0, 3),

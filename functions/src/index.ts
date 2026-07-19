@@ -324,6 +324,26 @@ export const aiTutor = onRequest(
         return;
       }
 
+      // Messages are forwarded with role/content ONLY, and content blocks are
+      // stripped of cache_control — the systemBlocks sanitizer already
+      // guaranteed nothing could be smuggled into `system`, but raw message
+      // pass-through let a modified client attach its own cache breakpoints
+      // (arbitrary-TTL cache writes at 2x, or >4 breakpoints → upstream 400
+      // surfaced as a confusing 502).
+      const sanitizedMessages = (messages as Array<Record<string, unknown>>).map((m) => {
+        if (!m || typeof m !== "object") return m;
+        const content = (m as Record<string, unknown>).content;
+        if (!Array.isArray(content)) return {role: m.role, content};
+        return {
+          role: m.role,
+          content: content.map((b) => {
+            if (!b || typeof b !== "object") return b;
+            const {cache_control: _cc, ...rest} = b as Record<string, unknown>;
+            return rest;
+          }),
+        };
+      });
+
       // systemBlocks v2: when present, a small array of cacheable {text, cache}
       // blocks takes precedence over the legacy `system` string. We construct
       // the Anthropic system array ourselves (only .text/.cache survive) so no
@@ -412,7 +432,7 @@ export const aiTutor = onRequest(
             // matches turn-to-turn. Legacy single-string `system` still works.
             // The server-owned operating constraint is appended last.
             system: constrainedSystem,
-            messages: messages,
+            messages: sanitizedMessages,
             stream: useStream,
           }),
         }
@@ -775,13 +795,24 @@ export const generateStudyPlan = onRequest(
       return;
     }
 
-    if (!(await checkRateLimit(user.uid, "studyPlan", 10))) {
+    // Entitlement gate matches aiTutor: a locked-out account must not burn
+    // Sonnet tokens here post-billing-launch (no-op while BILLING_ENFORCED
+    // is false — hasEntitlementAccess allows missing docs then).
+    const [rateOk, entitled] = await Promise.all([
+      checkRateLimit(user.uid, "studyPlan", 10),
+      hasEntitlementAccess(user.uid),
+    ]);
+    if (!rateOk) {
       response.status(429).json({error: "Too many requests. Please try again later."});
+      return;
+    }
+    if (!entitled) {
+      response.status(402).json({error: "subscription_required"});
       return;
     }
 
     try {
-      const {diagnosticReport, userProfile, previousPlans, longitudinalContext, deterministicWeeks} = request.body;
+      const {diagnosticReport, userProfile, previousPlans, longitudinalContext, deterministicWeeks, nextActionTitle} = request.body;
 
       if (!diagnosticReport) {
         response.status(400).json({error: "diagnosticReport is required"});
@@ -810,7 +841,8 @@ export const generateStudyPlan = onRequest(
         userProfile || {},
         previousPlans || [],
         lc,
-        detWeeks
+        detWeeks,
+        typeof nextActionTitle === "string" ? nextActionTitle : null
       );
 
       // Narration-only task (the deterministic generator owns the plan
@@ -830,7 +862,10 @@ export const generateStudyPlan = onRequest(
           },
           body: JSON.stringify({
             model: STUDY_PLAN_MODEL,
-            max_tokens: 2500,
+            // Headroom matters: adaptive thinking shares this cap with the
+            // JSON output, and a truncated response is a paid-then-discarded
+            // 500. Typical narrations use a fraction of this.
+            max_tokens: 4000,
             thinking: {type: "adaptive"},
             output_config: {
               effort: "low",
@@ -877,6 +912,12 @@ export const generateStudyPlan = onRequest(
       // and the merger positionally grafted whatever came back.
       const plan = validateNarrationPlan(parsed, detWeeks);
       if (!plan) {
+        // Distinguish the failure classes in logs: truncation (max_tokens)
+        // and safety refusal are actionable signals, not parse noise.
+        logger.warn("Narration unusable", {
+          stopReason: data.stop_reason || null,
+          hadText: rawContent.length > 0,
+        });
         response.status(500).json({error: "Failed to parse structured plan"});
         return;
       }
@@ -915,8 +956,18 @@ export const generateDiagnosticNarrative = onRequest(
       return;
     }
 
-    if (!(await checkRateLimit(user.uid, "diagnosticNarrative", 10))) {
+    // Entitlement gate matches aiTutor (see generateStudyPlan) — this
+    // endpoint pays for TWO Sonnet passes per call.
+    const [rateOk, entitled] = await Promise.all([
+      checkRateLimit(user.uid, "diagnosticNarrative", 10),
+      hasEntitlementAccess(user.uid),
+    ]);
+    if (!rateOk) {
       response.status(429).json({error: "Too many requests. Please try again later."});
+      return;
+    }
+    if (!entitled) {
+      response.status(402).json({error: "subscription_required"});
       return;
     }
 
@@ -971,8 +1022,9 @@ export const generateDiagnosticNarrative = onRequest(
             thinking: {type: "disabled"},
             output_config: {effort: "high"},
             // Cache the static, section-neutral system prompt as an ephemeral block so
-            // PASS 1, the repair pass, and end-of-test bursts re-read it at ~0.1x
-            // instead of paying full prefill every time. All per-test framing lives in
+            // repeated PASS-1 calls (end-of-test bursts) re-read it at ~0.1x
+            // instead of paying full prefill every time. (The repair pass uses
+            // its own short uncached system string — below the cache floor.) All per-test framing lives in
             // the user prompt (below), which stays uncached — so the cache key never
             // fragments by test type.
             system: [{
@@ -1000,7 +1052,15 @@ export const generateDiagnosticNarrative = onRequest(
       }
 
       const data = await anthropicResponse.json();
-      const rawContent = data.content[0].text;
+      // Guarded: a refusal/empty-content response has no content[0], and the
+      // unguarded read threw a TypeError that buried the real cause in a
+      // generic 500 stack trace.
+      const firstText = Array.isArray(data.content) ?
+        data.content.find((b: Record<string, unknown>) => b.type === "text") : null;
+      const rawContent = (firstText?.text as string) || "";
+      if (!rawContent) {
+        logger.warn("Narrative pass 1 returned no text", {stopReason: data.stop_reason || null});
+      }
 
       let narrative;
       try {
@@ -1066,7 +1126,9 @@ export const generateDiagnosticNarrative = onRequest(
         generatedAt: new Date().toISOString(),
         model: generateModel,
         promptVersion: DIAGNOSTIC_PROMPT_VERSION,
-        quality,
+        // Post-repair scores when a repair ran — the pre-repair object told
+        // analytics the returned (repaired) narrative scored lower than it did.
+        quality: (narrative._quality as QualityScores) || quality,
       });
     } catch (error) {
       logger.error("Diagnostic narrative generation error:", error);
@@ -1102,7 +1164,7 @@ function scoreNarrativeQuality(narrative: Record<string, unknown>, hasHistory = 
 
   const numericPattern = /\d+/;
 
-  const diagPts = narrative.diagnosisPoints as Array<Record<string, unknown>> || [];
+  const diagPts = Array.isArray(narrative.diagnosisPoints) ? narrative.diagnosisPoints as Array<Record<string, unknown>> : [];
   diagPts.forEach((pt) => {
     evidenceTotal++;
     numericTotal++;
@@ -1112,7 +1174,7 @@ function scoreNarrativeQuality(narrative: Record<string, unknown>, hasHistory = 
     if (numericPattern.test(claim)) numericHits++;
   });
 
-  const scorePts = narrative.scoreImpactPoints as Array<Record<string, unknown>> || [];
+  const scorePts = Array.isArray(narrative.scoreImpactPoints) ? narrative.scoreImpactPoints as Array<Record<string, unknown>> : [];
   scorePts.forEach((pt) => {
     evidenceTotal++;
     numericTotal++;
@@ -1122,7 +1184,7 @@ function scoreNarrativeQuality(narrative: Record<string, unknown>, hasHistory = 
     if (numericPattern.test(claim)) numericHits++;
   });
 
-  const behaviorPts = narrative.behaviorInsightPoints as Array<Record<string, unknown>> || [];
+  const behaviorPts = Array.isArray(narrative.behaviorInsightPoints) ? narrative.behaviorInsightPoints as Array<Record<string, unknown>> : [];
   behaviorPts.forEach((pt) => {
     evidenceTotal++;
     numericTotal++;
@@ -1132,11 +1194,11 @@ function scoreNarrativeQuality(narrative: Record<string, unknown>, hasHistory = 
     if (numericPattern.test(claim)) numericHits++;
   });
 
-  const weaknesses = narrative.weaknesses as Array<Record<string, unknown>> || [];
+  const weaknesses = Array.isArray(narrative.weaknesses) ? narrative.weaknesses as Array<Record<string, unknown>> : [];
   weaknesses.forEach((w) => {
     evidenceTotal++;
     numericTotal++;
-    const proof = w.proof as string[] || [];
+    const proof = Array.isArray(w.proof) ? w.proof as string[] : [];
     if (proof.length > 0 && proof.some((p: string) => numericPattern.test(p))) evidenceHits++;
     const impact = w.impact as string || "";
     if (numericPattern.test(impact)) numericHits++;
@@ -1366,10 +1428,15 @@ Return ONLY the corrected JSON.`;
         body: JSON.stringify({
           model: "claude-sonnet-4-6",
           max_tokens: 5000,
-          // Match PASS 1: same model + low temperature + thinking off, so the repaired
-          // narrative keeps one consistent voice and the repair stays fast.
+          // Match PASS 1: same model + low temperature + thinking off + explicit
+          // effort (relying on the API default silently coupled repair quality
+          // to a default that can change), so the repaired narrative keeps one
+          // consistent voice and the repair stays fast. NOTE: this short system
+          // string is deliberately uncached — it is far below the cache floor;
+          // only PASS 1's large system block participates in prompt caching.
           temperature: 0.4,
           thinking: {type: "disabled"},
+          output_config: {effort: "high"},
           system: "You are a quality assurance editor for diagnostic narratives. You enforce clinical precision, causal depth, evidence rigor, and cross-test awareness. Fix the issues and return valid JSON only.",
           messages: [{role: "user", content: repairPrompt}],
         }),
@@ -1751,6 +1818,10 @@ function validateNarrationPlan(
       const weekNumber = Number(w.weekNumber);
       if (!Number.isFinite(weekNumber) || seenWeeks.has(weekNumber)) continue;
       if (allowedWeekNumbers.size > 0 && !allowedWeekNumbers.has(weekNumber)) continue;
+      // Integers only (floats slip past Number() on the brace-match fallback
+      // path), and a sane range when detWeeks came back empty (old clients)
+      // so validation is never fully disabled.
+      if (!Number.isInteger(weekNumber) || weekNumber < 1 || weekNumber > 12) continue;
       const entry: Record<string, unknown> = {weekNumber};
       const title = str(w.title, 60);
       const goal = str(w.goalDescription, 160);
@@ -1846,7 +1917,8 @@ function buildStudyPlanUserPrompt(
   userProfile: Record<string, unknown>,
   previousPlans: unknown[],
   longitudinalContext: Record<string, unknown> | null = null,
-  deterministicWeeks: Array<Record<string, unknown>> = []
+  deterministicWeeks: Array<Record<string, unknown>> = [],
+  nextActionTitle: string | null = null
 ): string {
   const score = diagnosticReport.score as Record<string, unknown> || {};
   const errorPatterns = diagnosticReport.errorPatterns as Record<string, unknown> || {};
@@ -1963,16 +2035,30 @@ ${stamina.message || ""}`);
   }
 
   if (deterministicWeeks.length > 0) {
+    // The Do-This-First card is the SIGNAL-AWARE pick (deriveSignalAwareNextAction),
+    // which is routinely not week-1's first listed activity — marking activity
+    // [0][0] made nextActionReason narrate a different activity than the CTA
+    // it's attached to. Mark the actual nextAction; fall back to [0][0] only
+    // when no title was provided or nothing matches.
+    let firstMarked = false;
+    const markFor = (title: unknown) =>
+      !firstMarked && nextActionTitle && title === nextActionTitle;
     const planLines: string[] = ["\n## The Plan (already built — narrate THIS, do not redesign it)"];
-    deterministicWeeks.forEach((w, wi) => {
+    deterministicWeeks.forEach((w) => {
       const skills = Array.isArray(w.focusSkills) ? (w.focusSkills as string[]).join(", ") : "";
       planLines.push(`Week ${w.weekNumber}${skills ? ` — focus: ${skills}` : ""}`);
       const acts = Array.isArray(w.activities) ? (w.activities as Array<Record<string, unknown>>) : [];
-      acts.forEach((a, ai) => {
-        const first = wi === 0 && ai === 0 ? " <- FIRST ACTIVITY (nextActionReason narrates this)" : "";
-        planLines.push(`  - [${a.type}] ${a.title}${a.skillName ? ` (${a.skillName})` : ""}${first}`);
+      acts.forEach((a) => {
+        const isMarked = markFor(a.title);
+        if (isMarked) firstMarked = true;
+        planLines.push(`  - [${a.type}] ${a.title}${a.skillName ? ` (${a.skillName})` : ""}${isMarked ? " <- DO-THIS-FIRST (nextActionReason narrates this)" : ""}`);
       });
     });
+    if (!firstMarked) {
+      // No match — mark week 1's first activity by rewriting its line.
+      const firstActIdx = planLines.findIndex((l) => l.startsWith("  - "));
+      if (firstActIdx !== -1) planLines[firstActIdx] += " <- DO-THIS-FIRST (nextActionReason narrates this)";
+    }
     sections.push(planLines.join("\n"));
   }
 
@@ -2106,9 +2192,11 @@ export const summarizeChatSession = onDocumentUpdated(
       return;
     }
 
-    const messages = after.messages || [];
+    // Client-writable doc: a non-array `messages` (or non-string content)
+    // must not throw outside the try below.
+    const messages = Array.isArray(after.messages) ? after.messages : [];
     const conversationText = messages
-      .map((m: {role: string; content: string}) => `${m.role}: ${m.content}`)
+      .map((m: {role: string; content: string}) => `${m?.role || "user"}: ${typeof m?.content === "string" ? m.content : ""}`)
       .join("\n")
       .slice(0, 4000); // Limit to ~4000 chars
 
@@ -2255,20 +2343,23 @@ ${conversationText}`;
  */
 export const cleanupRateLimits = onSchedule("every day 03:00", async () => {
   const cutoff = new Date(Date.now() - 24 * 60 * 60 * 1000); // 24 hours ago
-  const snapshot = await db.collection("_rateLimits")
-    .where("updatedAt", "<", cutoff)
-    .limit(500)
-    .get();
-
-  if (snapshot.empty) {
-    logger.info("[cleanupRateLimits] No stale docs to clean up");
-    return;
+  // Loop batches: a single 500-doc pass fell behind whenever daily active
+  // uid×endpoint churn exceeded 500, growing the backlog forever. Bounded at
+  // 10 batches/run (5000 docs) as a runaway guard.
+  let totalDeleted = 0;
+  for (let i = 0; i < 10; i++) {
+    const snapshot = await db.collection("_rateLimits")
+      .where("updatedAt", "<", cutoff)
+      .limit(500)
+      .get();
+    if (snapshot.empty) break;
+    const batch = db.batch();
+    snapshot.docs.forEach((doc) => batch.delete(doc.ref));
+    await batch.commit();
+    totalDeleted += snapshot.size;
+    if (snapshot.size < 500) break;
   }
-
-  const batch = db.batch();
-  snapshot.docs.forEach((doc) => batch.delete(doc.ref));
-  await batch.commit();
-  logger.info(`[cleanupRateLimits] Deleted ${snapshot.size} stale rate limit docs`);
+  logger.info(`[cleanupRateLimits] Deleted ${totalDeleted} stale rate limit docs`);
 });
 
 // ─── Re-engagement nudges (Phase 3) ──────────────────────────────────────────
