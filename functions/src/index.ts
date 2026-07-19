@@ -1075,7 +1075,7 @@ export const generateDiagnosticNarrative = onRequest(
   }
 );
 
-const DIAGNOSTIC_PROMPT_VERSION = "3.1";
+const DIAGNOSTIC_PROMPT_VERSION = "3.2";
 const QUALITY_THRESHOLD = 0.65;
 
 interface QualityScores {
@@ -1465,6 +1465,8 @@ CLINICAL ACCURACY RULES:
 === EVIDENCE RIGOR ===
 1. EVIDENCE BINDING: Every claim in diagnosisPoints, scoreImpactPoints, behaviorInsightPoints, and weaknesses MUST include an evidence field citing a SPECIFIC number from the provided data. If you cannot cite a specific number, set confidence to "low".
 2. NO FABRICATION: Only use numbers that appear in the evidence provided. Do not infer or estimate numbers not in the data. If the data says "3/4 wrong", say "3/4 wrong" — do not say "75% wrong" unless the data explicitly says 75%.
+2b. BLANKS ARE NOT MISSES: A question marked LEFT BLANK is a pacing/coverage fact, not knowledge evidence — never attribute a blank to a concept gap. When a weak skill shows an "attempted-only" figure, use THAT figure for knowledge claims and attribute the blanks separately (to time, pacing, or coverage). "30% on slope" when 2 of 6 were blanks is a misdiagnosis; the honest claim is "50% on the 4 you attempted, plus 2 left blank in the final stretch".
+2c. THIN EVIDENCE DISCIPLINE: A weak skill tagged [THIN EVIDENCE] rests on fewer than 4 attempted questions. Cap every claim about it at confidence "medium", frame it as a lead rather than a verdict, and name it in the uncertainties field. Do not build the diagnosis thesis primarily on a thin-evidence skill when a well-evidenced pattern exists.
 3. EVIDENCE TIGHTNESS: The evidence field must directly support the claim — not just be tangentially related. Bad: claim about geometry errors, evidence about overall time. Good: claim about geometry errors, evidence citing geometry-specific accuracy and error types.
 4. QUANTITATIVE IMPACT: Every weakness.impact and scoreImpactPoints.claim MUST include a numeric estimate (points, percentage, or count). Use conservative estimates when exact numbers are unavailable, and set confidence to "medium".
 
@@ -1479,6 +1481,7 @@ CLINICAL ACCURACY RULES:
 8. TREND EXPLOITATION: When trend data is available, EVERY diagnosis must incorporate it. Note persistent weaknesses explicitly. If a skill has been weak across 3+ tests, call it out as a structural gap, not a one-time miss. Use the persistenceFlag field on weaknesses.
 9. REGRESSION DETECTION: If performance declined in an area that was previously strong, flag it prominently in changesSinceLast with specific numbers. This is more important than stable weaknesses.
 10. IMPROVEMENT VALIDATION: If scores improved, analyze WHETHER the improvement is in the right areas. Improving on easy questions while still missing conceptual items is a different story than genuine skill growth.
+10b. DRILL TRANSFER: When "Drill Work Before This Test" data is present, it is high-value evidence — compare each drilled skill's drill accuracy against its performance on this test. Practice that held up under test conditions is TRANSFER (credit it with numbers); practice that collapsed on the test is a transfer gap, and the mechanism is usually pacing, pressure, or format rather than knowledge — say which, using the timing data. Never scold a student for weakness on a skill they drilled to a high accuracy right before the test without addressing the transfer question.
 
 === CONSISTENCY GUARDRAILS ===
 11. CONTRADICTION BAN: Do NOT produce claims that contradict each other. If trendDirection is "improving", no claim may say performance is declining in the same scope. If you detect conflicting signals, flag the ambiguity in uncertainties.
@@ -1570,10 +1573,15 @@ function buildDiagnosticNarrativeUserPrompt(
   const sa = evidence.skillAnalysis as Record<string, unknown>;
   const weak = (sa?.weakSkills as Array<Record<string, unknown>>) || [];
   if (weak.length > 0) {
-    sections.push(`\n## Weak Skills\n${weak.map(s =>
-      `- ${s.name} (${s.domain}): ${s.testAccuracy}%, ${s.correct}/${s.total}, error: ${s.primaryErrorType || "mixed"}, ` +
-      `mastery: ${s.historicalMastery !== null && s.historicalMastery !== undefined ? s.historicalMastery + "%" : "first time"}, trend: ${s.trend || "unknown"}`
-    ).join("\n")}`);
+    sections.push(`\n## Weak Skills\n${weak.map(s => {
+      const blanks = Number(s.blanks) || 0;
+      const attempted = s.attempted != null ? Number(s.attempted) : null;
+      const attemptedNote = blanks > 0 && attempted != null ?
+        `, attempted-only: ${s.contentAccuracy}% over ${attempted} (${blanks} left blank)` : "";
+      const evNote = s.evidenceLevel === "suspected" ? " [THIN EVIDENCE — under 4 attempted]" : "";
+      return `- ${s.name} (${s.domain}): ${s.testAccuracy}%, ${s.correct}/${s.total}${attemptedNote}, error: ${s.primaryErrorType || "mixed"}, ` +
+        `mastery: ${s.historicalMastery !== null && s.historicalMastery !== undefined ? s.historicalMastery + "%" : "first time"}, trend: ${s.trend || "unknown"}${evNote}`;
+    }).join("\n")}`);
   }
 
   const wq = evidence.wrongQuestions as Array<Record<string, unknown>>;
@@ -1581,11 +1589,20 @@ function buildDiagnosticNarrativeUserPrompt(
     sections.push(`\n## Wrong Questions (${wq.length} total)\n${wq.slice(0, 15).map(q =>
       `- ${q.key} [${q.difficulty}/${q.domain}]: ${q.errorType} (conf ${q.confidence}), ` +
       `${q.timeSpent}s (${q.timeVsDifficulty}), skills: ${(q.skillNames as string[] || []).join(", ")}` +
+      `${q.wasBlank ? ", LEFT BLANK" : (q.userAnswer != null && q.correctAnswer != null ? `, picked ${q.userAnswer} (correct: ${q.correctAnswer})` : "")}` +
       `${(q.answerChangeCount as number) > 0 ? `, ${q.answerChangeCount} answer change(s)` : ""}` +
       `${q.usedCalculator ? ", used calc" : ""}` +
       `${q.markedForReview ? ", flagged" : ""}` +
       ` — ${q.reasoning || "no reasoning"}`
     ).join("\n")}`);
+  }
+
+  const drill = evidence.drillEvidence as Record<string, unknown> | null;
+  const recentDrills = (drill?.recentDrills as Array<Record<string, unknown>>) || [];
+  if (recentDrills.length > 0) {
+    sections.push(`\n## Drill Work Before This Test (practice since the previous test, on skills this test covered)\n${recentDrills.map(d =>
+      `- ${d.skillId}: ${d.accuracy}% over ${d.attempts} drill questions`
+    ).join("\n")}\nCompare each drilled skill's drill accuracy against its performance on THIS test: if it held up, the practice TRANSFERRED — credit it in changesSinceLast or a diagnosis point. If it collapsed under test conditions, that transfer gap (drills fine, test misses) is itself a diagnosis — usually pacing, pressure, or format, not knowledge.`);
   }
 
   const rcc = evidence.rootCauseClusters as Array<Record<string, unknown>>;

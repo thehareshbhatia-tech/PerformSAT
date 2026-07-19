@@ -22,10 +22,13 @@ const DIAGNOSTIC_TIMEOUT_MS = 35000;
 
 /**
  * Calls the Cloud Function to generate an AI diagnostic narrative
- * from the full evidence graph.
+ * from the full evidence graph. `drillEvidence` ({recentDrills:[{skillId,
+ * accuracy, attempts}]}) is pre-test drill work on skills this test covered —
+ * it lets the diagnosis speak to drill-to-test TRANSFER, which no single-test
+ * signal can.
  */
-export const generateDiagnosticNarrative = async (diagnosticReport, userProfile = {}) => {
-  const payload = serializeForNarrative(diagnosticReport);
+export const generateDiagnosticNarrative = async (diagnosticReport, userProfile = {}, drillEvidence = null) => {
+  const payload = serializeForNarrative(diagnosticReport, drillEvidence);
 
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), DIAGNOSTIC_TIMEOUT_MS);
@@ -60,7 +63,7 @@ export const generateDiagnosticNarrative = async (diagnosticReport, userProfile 
  * than the study-plan sanitizer so the model can produce specific,
  * evidence-backed diagnosis.
  */
-export function serializeForNarrative(report) {
+export function serializeForNarrative(report, drillEvidence = null) {
   if (!report) return {};
 
   const { questionAnalysis = [] } = report;
@@ -82,6 +85,12 @@ export function serializeForNarrative(report) {
       usedCalculator: q.usedCalculator,
       markedForReview: q.markedForReview,
       eliminatedChoices: (q.eliminatedChoices || []).length,
+      // The actual pick — lets trapExplanation name the trap the student
+      // fell for instead of guessing. Blank flag separates no-answer from
+      // wrong-answer (they are different diagnoses).
+      userAnswer: q.userAnswer ?? null,
+      correctAnswer: q.correctAnswer ?? null,
+      wasBlank: q.userAnswer === undefined || q.userAnswer === null || q.userAnswer === '',
     }));
 
   return {
@@ -114,6 +123,12 @@ export function serializeForNarrative(report) {
         name: s.name,
         domain: s.domain,
         testAccuracy: s.testAccuracy,
+        // Evidence rework: blank-excluded accuracy, sample size, and the
+        // confirmed|suspected honesty tier.
+        contentAccuracy: s.contentAccuracy,
+        attempted: s.attempted,
+        blanks: s.blanks,
+        evidenceLevel: s.evidenceLevel,
         correct: s.correct,
         total: s.total,
         primaryErrorType: s.primaryErrorType,
@@ -206,5 +221,12 @@ export function serializeForNarrative(report) {
       title: a.title, category: a.category, estimatedGain: a.estimatedGain,
       description: a.description,
     })),
+
+    // Pre-test drill work on skills this test covered — the transfer signal.
+    drillEvidence: drillEvidence?.recentDrills?.length ? {
+      recentDrills: drillEvidence.recentDrills.slice(0, 8).map(d => ({
+        skillId: d.skillId, accuracy: d.accuracy, attempts: d.attempts,
+      })),
+    } : null,
   };
 }

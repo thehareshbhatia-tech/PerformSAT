@@ -16,6 +16,7 @@ import { showToast } from './ui/Toaster';
 import { buildTestReviewEntry } from '../services/reviewQueueResolve';
 import { pickInitialModuleIndex } from '../services/selectors/initialModule';
 import { generateDiagnosticNarrative } from '../services/diagnosticNarrativeService';
+import { getLastTestMs, getRecentDrillStats, DRILL_SIGNAL_MIN_ATTEMPTS } from '../services/selectors/focusAreaProgress';
 import {
   createAiDiagnosticArtifact,
   completeAiDiagnosticArtifact,
@@ -1318,9 +1319,37 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
           console.warn('[PracticeTest] Artifact creation failed (non-blocking):', storeErr.message);
         }
 
+        // Pre-test drill work on the skills THIS test covered — the
+        // drill-to-test transfer signal. Everything is windowed to strictly
+        // BEFORE this attempt: the just-finished test may already be in
+        // practiceTestResults and its own skillProgress writes land at
+        // completion time, and either would masquerade as drill work.
+        const attemptMs = Date.parse(attemptTs) || Date.now();
+        const cutoffMs = attemptMs - 60000;
+        const priorResults = {};
+        Object.entries(practiceTestResults || {}).forEach(([id, t]) => {
+          const priorAttempts = (t.attempts || []).filter(
+            a => (Date.parse(a.completedAt) || 0) < cutoffMs
+          );
+          if (priorAttempts.length) priorResults[id] = { ...t, attempts: priorAttempts };
+        });
+        const prevTestMs = getLastTestMs(priorResults);
+        const testedSkills = new Set();
+        (diagReport.questionAnalysis || []).forEach(q => (q.skills || []).forEach(s => testedSkills.add(s)));
+        const recentDrills = [];
+        Object.entries(skillProgress || {}).forEach(([skillId, record]) => {
+          if (!testedSkills.has(skillId) || !Array.isArray(record?.history)) return;
+          const preTest = { ...record, history: record.history.filter(h => h.timestamp < cutoffMs) };
+          const stats = getRecentDrillStats(preTest, prevTestMs);
+          if (stats && stats.attempts >= DRILL_SIGNAL_MIN_ATTEMPTS) {
+            recentDrills.push({ skillId, accuracy: stats.accuracy, attempts: stats.attempts });
+          }
+        });
+
         const { narrative, generatedAt, model, promptVersion, quality } = await generateDiagnosticNarrative(
           diagReport,
           { targetScore: user.targetScore, testDate: user.testDate },
+          recentDrills.length > 0 ? { recentDrills } : null,
         );
 
         if (artifactId) {
@@ -1342,7 +1371,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
         setAiDiagnosticState({ status: 'failed', narrative: null, error: err.message || 'Failed to generate AI analysis' });
       }
     })();
-  }, [user, test]);
+  }, [user, test, practiceTestResults, skillProgress]);
 
   useEffect(() => {
     if (!resultSaved || diagnosticNarrativeAttempted.current || !user?.uid) return;
