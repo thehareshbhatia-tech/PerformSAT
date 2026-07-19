@@ -116,7 +116,7 @@ function QuestionSidebar({ questions, currentIndex, answers, onNavigate, onBack,
 // Extracts a clean text preview from a question. Handles the various
 // question shapes: plain string, segments array, object form, fill-in
 // stems with passages, etc. Always returns a single-line string.
-function stemPreview(q) {
+export function stemPreview(q) {
   // Prefer the passage's first sentence for R&W; otherwise the question.
   let raw = '';
   if (typeof q?.passage === 'string') raw = q.passage;
@@ -126,9 +126,14 @@ function stemPreview(q) {
   else if (q?.question?.segments) raw = q.question.segments.map(s => s.text || s.math || '').join(' ');
   else if (q?.question && typeof q.question === 'object') raw = q.question.text || '';
   if (!raw) return q?.id || 'Question';
-  // Strip LaTeX delimiters and collapse whitespace
+  // Strip LaTeX delimiters and collapse whitespace. Escaped dollars (money
+  // amounts like `$\$8{,}400$`) must be protected BEFORE the $-pair strip:
+  // the naive pair regex ate `$\$` as a pair, leaving `\8,400` in the
+  // sidebar and an orphaned `$` that mis-paired the rest of the line.
   return raw
+    .replace(/\\\$/g, '\uE000')
     .replace(/\$([^$]*)\$/g, '$1')
+    .replace(/\uE000/g, '$')
     .replace(/\\[a-zA-Z]+/g, '')
     .replace(/[{}]/g, '')
     .replace(/\s+/g, ' ')
