@@ -221,8 +221,32 @@ export const generateStudyPlan = (diagnostic, userProfile = {}, completedLessons
 
   // ═══ Determine study intensity ═══
   // Null gap (cross-scale, no per-section data) → a moderate default climb.
-  const intensity = calculateIntensity(scoreGap ?? 100, daysUntilTest);
-  const intensityConfig = INTENSITY_LEVELS[intensity];
+  let intensity = calculateIntensity(scoreGap ?? 100, daysUntilTest);
+
+  // Adherence right-sizing: intensity used to come purely from score gap ÷
+  // days, so a student who completed 20% of a 50-min/day plan got prescribed
+  // MORE. If they finished under 40% of the previous plan, step one band down
+  // (floor at moderate) — a plan they'll actually do beats one they won't.
+  const prevCompletion = computePlanCompletionRate(previousPlan);
+  if (prevCompletion !== null && prevCompletion < 0.4) {
+    const order = ['light', 'moderate', 'focused', 'intensive', 'marathon'];
+    const idx = order.indexOf(intensity);
+    if (idx > 1) intensity = order[idx - 1];
+  }
+
+  let intensityConfig = INTENSITY_LEVELS[intensity];
+
+  // The student's explicit pacing edit (Study Plan editor → setPacing writes
+  // plan.userPrefs) survives regeneration — their stated minutes/day beats
+  // the band's prescription.
+  const userPrefs = previousPlan?.userPrefs?.edited ? previousPlan.userPrefs : null;
+  const userMinutes = userPrefs && Number.isFinite(userPrefs.minutesPerDay) && userPrefs.minutesPerDay > 0
+    ? Math.round(userPrefs.minutesPerDay)
+    : null;
+  if (userMinutes) {
+    intensityConfig = { ...intensityConfig, minutesPerDay: userMinutes };
+  }
+
   const minutesPerWeek = intensityConfig.minutesPerDay * intensityConfig.daysPerWeek;
 
   // ═══ Gather all skill gaps from the diagnostic ═══
@@ -251,6 +275,11 @@ export const generateStudyPlan = (diagnostic, userProfile = {}, completedLessons
     diagnostic, weeklyPlan, intensity, effectiveWeeks,
     daysUntilTest, currentScore, targetScore, skillGaps, gapBasis
   );
+  // Summary stats read the band's minutes; the student's explicit pacing
+  // preference wins there too.
+  if (userMinutes && summary?.stats) {
+    summary.stats.minutesPerDay = userMinutes;
+  }
 
   // NOTE (2026-07-19): milestones, spacedRepetitionSchedule, microGoals, and
   // adherenceProjection were generated + persisted here for months with zero
@@ -352,6 +381,10 @@ export const generateStudyPlan = (diagnostic, userProfile = {}, completedLessons
     // Metadata
     intensity,
     intensityConfig,
+    // Sticky pacing preference: setPacing writes this on the plan; carrying
+    // it across regenerations is what makes the student's edit durable.
+    userPrefs: userPrefs || null,
+    previousPlanCompletion: prevCompletion,
     currentScore,
     targetScore,
     scoreGap, // null when current/target scales can't be honestly compared
@@ -1162,6 +1195,26 @@ const buildDeterministicDiagnosis = (diagnostic, skillGaps) => {
   }
 
   return parts.join('. ') + (parts.length > 0 ? '.' : '');
+};
+
+/**
+ * Fraction of the previous plan's activities the student completed, or null
+ * when there's no meaningful signal (no previous plan, or fewer than 5
+ * scheduled activities). Drives the adherence step-down in generateStudyPlan.
+ */
+const computePlanCompletionRate = (previousPlan) => {
+  const weeks = previousPlan?.weeks;
+  if (!Array.isArray(weeks) || weeks.length === 0) return null;
+  let total = 0;
+  let completed = 0;
+  weeks.forEach(w => {
+    (w.activities || []).forEach(a => {
+      total += 1;
+      if (a.completed) completed += 1;
+    });
+  });
+  if (total < 5) return null;
+  return completed / total;
 };
 
 const getDaysUntil = (dateStr) => {

@@ -940,6 +940,10 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
             markedForReview: telem.markedForReview || false,
             eliminatedChoices: eliminatedChoices[elimKey] || [],
             isCorrect: correct,
+            // The chosen answer (null when blank). Without it the persisted
+            // record couldn't distinguish blank from wrong, and longitudinal
+            // distractor/trap analysis was impossible.
+            userAnswer: userAnswer ?? null,
             difficulty: q.difficulty || null,
             // getQuestionSkills normalizes math (q.skills: array) and R&W
             // (q.skill: string) shapes — reading q.skills directly persisted

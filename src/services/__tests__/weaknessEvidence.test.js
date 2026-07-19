@@ -219,3 +219,65 @@ describe('drill evidence feeds longitudinal history', () => {
     expect(evidence.persistentWeaknesses).toHaveLength(0);
   });
 });
+
+describe('intensity respects behavior and preference', () => {
+  const bigGapDiag = () => ({
+    testId: 'diag-2',
+    testTitle: 'Diag',
+    score: { scaled: 400, isMultiSection: false, sections: null, percentCorrect: 35 },
+    skillAnalysis: { weakSkills: [], strongSkills: [], allSkills: [] },
+    prioritizedActions: [],
+    errorPatterns: { totalWrong: 15, counts: {}, summary: [], dominantPattern: null },
+    timeAnalysis: { fadeEffect: 0 },
+    scoreProjection: { easyWins: { count: 0, description: '' }, errorTypeProjections: [] },
+    difficultyAnalysis: null,
+    domainAnalysis: [],
+  });
+
+  const soonTestDate = () => {
+    const d = new Date();
+    d.setDate(d.getDate() + 21);
+    return d.toISOString().slice(0, 10);
+  };
+
+  const prevPlanWithCompletion = (completedCount, totalCount, extra = {}) => ({
+    weeks: [{
+      weekNumber: 1,
+      title: 'W1',
+      activities: Array.from({ length: totalCount }, (_, i) => ({
+        title: `A${i}`, type: 'practice', duration: 15, completed: i < completedCount,
+      })),
+    }],
+    ...extra,
+  });
+
+  it('low adherence steps intensity down one band', () => {
+    const profile = { targetScore: 750, testDate: soonTestDate() };
+    const order = ['light', 'moderate', 'focused', 'intensive', 'marathon'];
+
+    const eager = generateStudyPlan(bigGapDiag(), profile, {}, {}, prevPlanWithCompletion(9, 10));
+    const struggling = generateStudyPlan(bigGapDiag(), profile, {}, {}, prevPlanWithCompletion(1, 10));
+
+    expect(order.indexOf(struggling.intensity)).toBe(order.indexOf(eager.intensity) - 1);
+    expect(struggling.previousPlanCompletion).toBeCloseTo(0.1);
+  });
+
+  it('explicit pacing edit (setPacing userPrefs) survives regeneration', () => {
+    const prev = prevPlanWithCompletion(8, 10, {
+      userPrefs: { minutesPerDay: 20, examDate: null, edited: true },
+    });
+    const plan = generateStudyPlan(bigGapDiag(), { targetScore: 750, testDate: soonTestDate() }, {}, {}, prev);
+    expect(plan.intensityConfig.minutesPerDay).toBe(20);
+    expect(plan.summary.stats.minutesPerDay).toBe(20);
+    // Sticky: carried onto the new plan so the NEXT regeneration sees it too.
+    expect(plan.userPrefs).toEqual(prev.userPrefs);
+  });
+
+  it('tiny previous plans (<5 activities) carry no adherence signal', () => {
+    const profile = { targetScore: 750, testDate: soonTestDate() };
+    const withTinyPrev = generateStudyPlan(bigGapDiag(), profile, {}, {}, prevPlanWithCompletion(0, 3));
+    const withoutPrev = generateStudyPlan(bigGapDiag(), profile, {}, {}, null);
+    expect(withTinyPrev.intensity).toBe(withoutPrev.intensity);
+    expect(withTinyPrev.previousPlanCompletion).toBeNull();
+  });
+});
