@@ -16,7 +16,7 @@ import { showToast } from './ui/Toaster';
 import { buildTestReviewEntry } from '../services/reviewQueueResolve';
 import { pickInitialModuleIndex } from '../services/selectors/initialModule';
 import { generateDiagnosticNarrative } from '../services/diagnosticNarrativeService';
-import { getLastTestMs, getRecentDrillStats, DRILL_SIGNAL_MIN_ATTEMPTS } from '../services/selectors/focusAreaProgress';
+import { getLastTestMs, getRecentDrillStats, DRILL_SIGNAL_MIN_ATTEMPTS, toMillis } from '../services/selectors/focusAreaProgress';
 import {
   createAiDiagnosticArtifact,
   completeAiDiagnosticArtifact,
@@ -26,7 +26,7 @@ import {
   linkArtifactToAttempt,
 } from '../services/practiceTestService';
 import { generateAndPersistHybridPlan, fetchCurrentStudyPlan, persistDeterministicArtifact } from '../services/hybridStudyPlanService';
-import { buildLongitudinalEvidence, computePlanDelta } from '../services/studyPlanMerger';
+import { buildLongitudinalEvidence, computePlanDelta, reconcileDrillEvidenceWithTest } from '../services/studyPlanMerger';
 import { generateStudyPlan as generateDeterministicPlan } from '../services/studyPlanGenerator';
 import { runDiagnostic, getQuestionSkills } from '../services/diagnosticEngine';
 import { buildGroundTruthDiagnosis, enrichPlanWithGroundTruth } from '../services/groundTruth';
@@ -1205,50 +1205,79 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
       // This runs inline so there is zero chance of a missed effect.
       if (user?.uid && diagnosticReportRef.current && !planGenerationAttempted.current) {
         planGenerationAttempted.current = true;
+        // Capture generation identity NOW. A retake overwrites attemptIdRef
+        // while the async phases run; every post-await write below must use
+        // this captured id, and persistence aborts once a newer attempt owns
+        // the plan-of-record — otherwise attempt A's slow Phase 2 could link
+        // its artifact to attempt B and regress the pointer to A's diagnosis.
+        const genAttemptId = attemptIdRef.current;
+        const genIsStale = () => attemptIdRef.current !== genAttemptId;
         console.log('[PracticeTest] Study plan generation starting (artifact-first)');
-        try {
-          const diagReport = diagnosticReportRef.current;
-          const groundTruth = buildGroundTruthDiagnosis(diagReport, questionTelemetry.current);
-          const longitudinalEvidence = buildLongitudinalEvidence(practiceTestResults || {}, skillProgress || null);
-          const detPlan = generateDeterministicPlan(
-            diagReport,
-            { targetScore: user.targetScore, testDate: user.testDate },
-            completedLessons,
-            practiceProgress,
-            savedStudyPlan,
-            longitudinalEvidence,
-            answeredQuestionIds || [],
-          );
-          // Attach plan diff for the "What Changed" banner
-          detPlan._diff = computePlanDelta(savedStudyPlan, detPlan, longitudinalEvidence.recoveredSkills);
-          const plan = enrichPlanWithGroundTruth({ ...detPlan }, groundTruth);
-          // Attach difficulty profile so dashboard can match question difficulty to student level
-          if (diagReport.difficultyAnalysis) {
-            plan.difficultyAnalysis = diagReport.difficultyAnalysis;
-          }
-          setSavedStudyPlan(plan);
+        (async () => {
+          try {
+            const diagReport = diagnosticReportRef.current;
+            const groundTruth = buildGroundTruthDiagnosis(diagReport, questionTelemetry.current);
 
-          // Phase 1: persist deterministic artifact (subcollection write)
-          persistDeterministicArtifact(user.uid, plan, {
-            attemptId: attemptIdRef.current,
-            sourceTestId: test?.id || null,
-          }).then((result) => {
-            console.log('[PracticeTest] Phase 1 artifact persisted:', result?.artifactId);
-          }).catch((err) => {
-            console.error('[PracticeTest] Phase 1 artifact write FAILED:', err);
-          });
+            // The GENUINE previous plan, fetched once before any write of
+            // ours, and shared by both phases. Using local savedStudyPlan
+            // (null on every fresh mount) made every Phase-1 delta read
+            // "first plan" and dropped the student's sticky userPrefs; letting
+            // Phase 2 re-fetch AFTER Phase 1 persisted made the generator
+            // read its own seconds-old artifact as "the previous plan" and
+            // step intensity down against its trivially-0% completion.
+            const previousPlan = await fetchCurrentStudyPlan(user.uid).catch(() => null);
 
-          // Propagate to in-memory state for immediate rendering (pass diagnostic for AI augmentation)
-          if (onSaveStudyPlan) {
-            try { onSaveStudyPlan(plan, diagReport); } catch (e) { console.error('[PracticeTest] onSaveStudyPlan error:', e); }
-          }
+            // Drill evidence the just-finished test contradicted must not be
+            // credited (transfer failure) — reconcile before generating.
+            const longitudinalEvidence = reconcileDrillEvidenceWithTest(
+              buildLongitudinalEvidence(practiceTestResults || {}, skillProgress || null),
+              diagReport,
+            );
+            const detPlan = generateDeterministicPlan(
+              diagReport,
+              { targetScore: user.targetScore, testDate: user.testDate },
+              completedLessons,
+              practiceProgress,
+              previousPlan,
+              longitudinalEvidence,
+              answeredQuestionIds || [],
+            );
+            // Attach plan diff for the "What Changed" banner
+            detPlan._diff = computePlanDelta(previousPlan, detPlan, longitudinalEvidence.recoveredSkills);
+            const plan = enrichPlanWithGroundTruth({ ...detPlan }, groundTruth);
+            // Attach difficulty profile so dashboard can match question difficulty to student level
+            if (diagReport.difficultyAnalysis) {
+              plan.difficultyAnalysis = diagReport.difficultyAnalysis;
+            }
+            if (!genIsStale()) {
+              setSavedStudyPlan(plan);
+              // Propagate to in-memory state for immediate rendering
+              if (onSaveStudyPlan) {
+                try { onSaveStudyPlan(plan, diagReport); } catch (e) { console.error('[PracticeTest] onSaveStudyPlan error:', e); }
+              }
+            }
 
-          // Phase 2: async hybrid plan (AI-augmented) — replaces Phase 1 artifact
-          (async () => {
+            // Phase 1: persist deterministic artifact — AWAITED so the
+            // Phase-2 pointer write can never race it (the un-awaited version
+            // let a fast-failing AI call land Phase 2's pointer first, then
+            // Phase 1 regressed it and orphaned the richer artifact).
+            if (!genIsStale()) {
+              try {
+                const result = await persistDeterministicArtifact(user.uid, plan, {
+                  attemptId: genAttemptId,
+                  sourceTestId: test?.id || null,
+                });
+                console.log('[PracticeTest] Phase 1 artifact persisted:', result?.artifactId);
+              } catch (err) {
+                console.error('[PracticeTest] Phase 1 artifact write FAILED:', err);
+              }
+            }
+
+            // Phase 2: hybrid plan (AI-narrated) — sequential after Phase 1,
+            // same pre-test previousPlan, stale-abort threaded through.
             try {
               console.log('[PracticeTest] Phase 2 — hybrid plan generation starting...');
-              const existingPlan = await fetchCurrentStudyPlan(user.uid);
-              const { artifactId, artifact } = await generateAndPersistHybridPlan({
+              const phase2 = await generateAndPersistHybridPlan({
                 userId: user.uid,
                 diagnostic: diagReport,
                 userProfile: { targetScore: user.targetScore, testDate: user.testDate },
@@ -1256,23 +1285,30 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
                 practiceProgress,
                 practiceTestResults: practiceTestResults || {},
                 skillProgress: skillProgress || null,
-                previousPlan: existingPlan,
+                previousPlan,
                 // Without answeredQuestionIds the Phase-2 plan re-assigns
                 // questions the student already answered (Phase 1 passes it).
                 answeredQuestionIds: answeredQuestionIds || [],
-                attemptId: attemptIdRef.current,
+                attemptId: genAttemptId,
                 aiArtifactId: null,
                 groundTruth,
+                abortIfStale: genIsStale,
               });
+              if (!phase2) {
+                console.log('[PracticeTest] Phase 2 skipped — superseded by a newer attempt');
+                return;
+              }
 
               const hybridPlan = enrichPlanWithGroundTruth(
-                { ...(artifact.plan || {}) },
+                { ...(phase2.artifact.plan || {}) },
                 groundTruth,
               );
 
-              if (attemptIdRef.current && artifactId) {
-                linkArtifactToAttempt(user.uid, test.id, attemptIdRef.current, {
-                  studyPlanArtifactId: artifactId,
+              if (genIsStale()) return;
+
+              if (genAttemptId && phase2.artifactId) {
+                linkArtifactToAttempt(user.uid, test.id, genAttemptId, {
+                  studyPlanArtifactId: phase2.artifactId,
                 }).catch(() => {});
               }
 
@@ -1280,14 +1316,14 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
               if (onSaveStudyPlan) {
                 try { onSaveStudyPlan(hybridPlan, null); } catch (e) { /* already logged */ }
               }
-              console.log('[PracticeTest] Phase 2 — hybrid artifact saved:', artifactId);
+              console.log('[PracticeTest] Phase 2 — hybrid artifact saved:', phase2.artifactId);
             } catch (err) {
               console.error('[PracticeTest] Hybrid plan generation failed; deterministic artifact remains:', err);
             }
-          })();
-        } catch (err) {
-          console.error('[PracticeTest] Study plan generation CRASHED:', err);
-        }
+          } catch (err) {
+            console.error('[PracticeTest] Study plan generation CRASHED:', err);
+          }
+        })();
       }
     }, 0);
 
@@ -1304,6 +1340,10 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
   const retryAiDiagnostic = useCallback(() => {
     const diagReport = diagnosticReportRef.current;
     const attemptTs = attemptTimestampRef.current;
+    // Captured now: a retake overwrites attemptIdRef while the narrative
+    // generates, and linking the finished artifact to the NEW attempt would
+    // attach this test's diagnosis to a different test's record.
+    const genAttemptId = attemptIdRef.current;
     if (!diagReport || !user?.uid || !attemptTs) return;
 
     setAiDiagnosticState({ status: 'generating', narrative: null, error: null });
@@ -1329,7 +1369,11 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
         const priorResults = {};
         Object.entries(practiceTestResults || {}).forEach(([id, t]) => {
           const priorAttempts = (t.attempts || []).filter(
-            a => (Date.parse(a.completedAt) || 0) < cutoffMs
+            // toMillis tolerates ISO strings, Date objects, and Firestore
+            // Timestamp shapes — bare Date.parse turned a Timestamp into NaN,
+            // which made the just-finished attempt count as "prior" and
+            // silently emptied the drill-transfer signal.
+            a => (toMillis(a.completedAt) || 0) < cutoffMs
           );
           if (priorAttempts.length) priorResults[id] = { ...t, attempts: priorAttempts };
         });
@@ -1354,8 +1398,8 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
 
         if (artifactId) {
           await completeAiDiagnosticArtifact(user.uid, artifactId, narrative, { generatedAt, model, promptVersion, quality }).catch(() => {});
-          if (attemptIdRef.current) {
-            linkArtifactToAttempt(user.uid, test.id, attemptIdRef.current, {
+          if (genAttemptId) {
+            linkArtifactToAttempt(user.uid, test.id, genAttemptId, {
               aiArtifactId: artifactId,
             }).catch(() => {});
           }

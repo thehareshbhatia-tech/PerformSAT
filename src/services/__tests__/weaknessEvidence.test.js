@@ -57,6 +57,30 @@ describe('blanks are excluded from the weak flag', () => {
   });
 });
 
+describe('deliberate skips are knowledge evidence; end-of-test blanks are not', () => {
+  it('a skill skipped with real time spent still flags weak', () => {
+    // timeSpent >= 5s on a blank → classifyError UNANSWERED (read it, moved
+    // on) — that is "saw it, could not do it", not pacing.
+    const test = mkTest([
+      mkQ(1, ['ratios']),
+      mkQ(2, ['ratios']),
+      mkQ(3, ['ratios']),
+    ]);
+    const telemetry = {
+      questionDetails: {
+        '0-0': { timeSpent: 30 },
+        '0-1': { timeSpent: 25 },
+        '0-2': { timeSpent: 28 },
+      },
+    };
+    const result = runDiagnostic(test, {}, telemetry);
+    const weak = result.skillAnalysis.weakSkills.find((w) => w.skillId === 'ratios');
+    expect(weak).toBeDefined();
+    expect(weak.blanks).toBe(0); // deliberate skips are attempted, not pacing blanks
+    expect(weak.attempted).toBe(3);
+  });
+});
+
 describe('careless-only misses do not become concept focus areas', () => {
   it('two fast-slip misses with strong mastery stay off weakSkills', () => {
     const test = mkTest([

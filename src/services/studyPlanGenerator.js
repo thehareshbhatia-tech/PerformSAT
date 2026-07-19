@@ -36,6 +36,9 @@ import { getSkillSection } from '../data/questions/rwBank/taxonomy';
 // and upgraded activities have one shape. planFormatUpgrade is corpus-free.
 import { buildSkillDrillActivity, PLAN_FORMAT_VERSION } from './planFormatUpgrade';
 import { parseLocalDate } from '../utils/localDate';
+// Display-band mapping shared with the plan editor's setPacing so a
+// user-minutes override keeps intensity/label/minutes mutually consistent.
+import { intensityForMinutes } from './studyPlanEditor';
 
 // R&W domain weights for gap priority — the math side reads
 // skillTaxonomy.domains[..].satWeight; the R&W taxonomy has no weight field.
@@ -227,7 +230,19 @@ export const generateStudyPlan = (diagnostic, userProfile = {}, completedLessons
   // days, so a student who completed 20% of a 50-min/day plan got prescribed
   // MORE. If they finished under 40% of the previous plan, step one band down
   // (floor at moderate) — a plan they'll actually do beats one they won't.
-  const prevCompletion = computePlanCompletionRate(previousPlan);
+  //
+  // Self-echo guard: a "previous plan" generated from THIS SAME test within
+  // the last few hours is our own Phase-1 artifact (or a rapid re-run), whose
+  // activities are all trivially incomplete — 0% completion there is not
+  // adherence evidence. Without this, the Phase-2 hybrid plan stepped
+  // intensity down on ~every test.
+  const planIsFromThisTest = !!(
+    previousPlan?.basedOnTest &&
+    previousPlan.basedOnTest === diagnostic.testId &&
+    previousPlan.generatedAt &&
+    (Date.now() - Date.parse(previousPlan.generatedAt)) < 6 * 3600 * 1000
+  );
+  const prevCompletion = planIsFromThisTest ? null : computePlanCompletionRate(previousPlan);
   if (prevCompletion !== null && prevCompletion < 0.4) {
     const order = ['light', 'moderate', 'focused', 'intensive', 'marathon'];
     const idx = order.indexOf(intensity);
@@ -244,7 +259,11 @@ export const generateStudyPlan = (diagnostic, userProfile = {}, completedLessons
     ? Math.round(userPrefs.minutesPerDay)
     : null;
   if (userMinutes) {
-    intensityConfig = { ...intensityConfig, minutesPerDay: userMinutes };
+    // Recompute the band from the user's minutes so intensity, label, and
+    // description stay consistent — patching minutesPerDay alone persisted
+    // "Intensive / 75 min/day — aggressive improvement" beside 20 minutes.
+    intensity = intensityForMinutes(userMinutes);
+    intensityConfig = { ...INTENSITY_LEVELS[intensity], minutesPerDay: userMinutes };
   }
 
   const minutesPerWeek = intensityConfig.minutesPerDay * intensityConfig.daysPerWeek;
@@ -462,9 +481,12 @@ const gatherSkillGaps = (diagnostic) => {
         missedPatterns: [],
         modules: action.modules?.map(m => ({ moduleId: m, lessons: [], sections: [] })) || [],
         sections: action.sections || [],
-        priority: action.estimatedGain,
+        // Same suspected-evidence treatment as weakSkills-derived gaps: these
+        // carry zero attempt counts, so raw estimatedGain must not outrank a
+        // thin-but-real evidence gap, and they get a probe, not a rebuild.
+        priority: Math.round((action.estimatedGain || 0) * 0.65),
         primaryErrorType: action.primaryErrorType,
-        estimatedMinutes: 30,
+        estimatedMinutes: 15,
       });
     });
 
@@ -1246,8 +1268,10 @@ const calculateIntensity = (scoreGap, daysLeft) => {
 const calculateGapPriority = (skill, diagnostic) => {
   let priority = 0;
 
-  // Base: inverse of accuracy (0% = 100 priority, 100% = 0)
-  priority += (100 - (skill.testAccuracy || 0));
+  // Base: inverse of accuracy (0% = 100 priority, 100% = 0). Blank-excluded
+  // contentAccuracy is the knowledge figure; testAccuracy is the legacy
+  // fallback.
+  priority += (100 - (skill.contentAccuracy ?? skill.testAccuracy ?? 0));
 
   // Bonus for domain weight — math domains from the taxonomy, R&W domains
   // from the local share map (the generic 0.15 fallback systematically

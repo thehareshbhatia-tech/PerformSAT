@@ -1098,17 +1098,24 @@ const analyzeSkills = (questionAnalysis, skillProgress = {}) => {
         };
       }
       skillMap[skillId].total++;
-      // A blank is a pacing/coverage fact, not knowledge evidence — track it
-      // separately so a student who ran out of time doesn't get end-of-module
-      // skills flagged as concept gaps. Detected off the answer itself (the
-      // TIME_PRESSURE/UNANSWERED error split can't distinguish a blank from a
-      // rushed wrong pick).
+      // Blanks split two ways. An END-OF-TEST blank (classifyError →
+      // TIME_PRESSURE: near-zero time, never really seen) is a pacing fact —
+      // excluded from knowledge evidence entirely. A DELIBERATE SKIP
+      // (classifyError → UNANSWERED: the student spent real time, read it,
+      // and moved on) is "saw it, couldn't do it" — genuine knowledge
+      // evidence at a discount. Treating every blank as pacing made a skill
+      // left entirely blank on purpose vanish from the weakness list.
       const isBlank = q.userAnswer === undefined || q.userAnswer === null || q.userAnswer === '';
-      if (isBlank && !q.isCorrect) skillMap[skillId].blanks++;
+      const isDeliberateSkip = isBlank && !q.isCorrect && q.errorType === ERROR_TYPES.UNANSWERED;
+      if (isBlank && !q.isCorrect && !isDeliberateSkip) skillMap[skillId].blanks++;
       if (q.isCorrect) {
         skillMap[skillId].correct++;
       } else {
         skillMap[skillId].errorTypes.push(q.errorType);
+        if (isDeliberateSkip) {
+          const diffW = GAP_DIFFICULTY_WEIGHT[q.difficulty] ?? 1.0;
+          skillMap[skillId].gapEvidence += 0.6 * diffW;
+        }
         // Weighted "is this a real knowledge gap?" evidence. A careless slip
         // or rushed miss is weak evidence of a concept gap (it feeds the
         // strategy/precision activities instead); a missed EASY item is

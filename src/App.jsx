@@ -946,7 +946,10 @@ const PerformSAT = () => {
   const handleSaveStudyPlan = async (deterministicPlan) => {
     if (!deterministicPlan || !user?.uid) return;
 
-    const isFirstTest = Object.keys(practiceTestResults || {}).length <= 1;
+    // The closure predates the optimistic insert of the just-saved attempt,
+    // so on a student's SECOND test the map still has 1 entry — `<= 1` made
+    // reprioritization first fire on test 3. Zero prior entries = first test.
+    const isFirstTest = Object.keys(practiceTestResults || {}).length < 1;
 
     // Re-prioritize (skip on test 1 — no prior plan to reprioritize)
     const planToSave = isFirstTest

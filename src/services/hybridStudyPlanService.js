@@ -26,6 +26,7 @@ import {
   buildSkillHistoryForAI,
   computePlanDelta,
   mergeHybridPlan,
+  reconcileDrillEvidenceWithTest,
   MERGE_VERSION,
 } from './studyPlanMerger';
 
@@ -158,8 +159,18 @@ export const generateAndPersistHybridPlan = async ({
   aiArtifactId = null,
   groundTruth = null,
   answeredQuestionIds = [],
+  // Retake guard: when provided and returning true, the pipeline stops before
+  // any persistence — a newer attempt's generation owns the plan-of-record
+  // now, and a stale write here would regress the pointer to an older
+  // diagnosis. Returns null in that case.
+  abortIfStale = null,
 }) => {
-  const longitudinal = buildLongitudinalEvidence(practiceTestResults, skillProgress);
+  // Drills that the just-finished test proved didn't transfer must not be
+  // credited as recovered (see reconcileDrillEvidenceWithTest).
+  const longitudinal = reconcileDrillEvidenceWithTest(
+    buildLongitudinalEvidence(practiceTestResults, skillProgress),
+    diagnostic,
+  );
 
   // Thread longitudinal + answeredQuestionIds through to the deterministic
   // generator. Dropping `longitudinal` here made `testsWithData` always 1,
@@ -174,6 +185,9 @@ export const generateAndPersistHybridPlan = async ({
     longitudinal,
     answeredQuestionIds || [],
   );
+
+  // Superseded before the (expensive) AI call — stop here, spend nothing.
+  if (abortIfStale && abortIfStale()) return null;
 
   let aiPlan = null;
   try {
@@ -245,6 +259,11 @@ export const generateAndPersistHybridPlan = async ({
     generatedAt: new Date().toISOString(),
     createdAt: serverTimestamp(),
   };
+
+  // Final stale check AFTER the slow AI call, immediately before persistence:
+  // a retake completed during the call means this artifact would point the
+  // plan-of-record at the superseded diagnosis.
+  if (abortIfStale && abortIfStale()) return null;
 
   const artifactId = await persistHybridArtifact(userId, artifact);
 

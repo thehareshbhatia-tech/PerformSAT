@@ -29,7 +29,7 @@ export const DRILL_SIGNAL_MIN_ATTEMPTS = 3;
  *  the test's own skill writes, not drill work. */
 export const TEST_WRITE_GRACE_MS = 5 * 60 * 1000;
 
-function toMillis(ts) {
+export function toMillis(ts) {
   if (!ts) return null;
   if (typeof ts === 'number') return ts;
   if (ts instanceof Date) return ts.getTime();

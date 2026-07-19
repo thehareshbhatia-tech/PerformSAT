@@ -101,10 +101,20 @@ export const buildLongitudinalEvidence = (practiceTestResults = {}, skillProgres
   });
 
   // ═══ Recency-weighted accuracy per skill ═══
-  // Chronological test order for the decay exponent (allAttempts is already
-  // sorted ascending; first-seen order of testIds = oldest → newest).
-  const testOrder = [];
-  allAttempts.forEach(a => { if (!testOrder.includes(a.testId)) testOrder.push(a.testId); });
+  // Test order for the decay exponent uses each test's LATEST attempt time —
+  // first-seen order breaks on retakes: retaking January's test in March made
+  // its bucket decay as "two tests old" while stale February data kept full
+  // weight, so the freshest evidence was discounted hardest.
+  const latestAttemptMs = new Map();
+  allAttempts.forEach(a => {
+    const t = Date.parse(a.completedAt) || 0;
+    if (!latestAttemptMs.has(a.testId) || t > latestAttemptMs.get(a.testId)) {
+      latestAttemptMs.set(a.testId, t);
+    }
+  });
+  const testOrder = [...latestAttemptMs.keys()].sort(
+    (x, y) => latestAttemptMs.get(x) - latestAttemptMs.get(y)
+  );
 
   Object.values(skillHistory).forEach(data => {
     const byTest = new Map();
@@ -124,6 +134,10 @@ export const buildLongitudinalEvidence = (practiceTestResults = {}, skillProgres
       accSum += (t.correct / t.attempts) * 100 * w;
     });
     data.weightedAccuracy = wSum > 0 ? Math.round(accSum / wSum) : null;
+    // Snapshot BEFORE any drill blend: the recovery gate below must judge
+    // "was this skill weak on TESTS?" — the blended figure is pushed up by
+    // the very drills whose recovery we're testing for.
+    data.testWeightedAccuracy = data.weightedAccuracy;
   });
 
   // ═══ Fold in drill evidence since the last test ═══
@@ -168,12 +182,17 @@ export const buildLongitudinalEvidence = (practiceTestResults = {}, skillProgres
   const recoveredSkills = Object.entries(skillHistory)
     .filter(([, data]) => {
       if (!hasRecovered(data)) return false;
-      const testAcc = data.attempts > 0 ? (data.correct / data.attempts) * 100 : null;
+      // Recency-weighted TEST accuracy (pre-drill-blend) — the lifetime
+      // average cited stale figures when the latest test already showed
+      // partial improvement.
+      const testAcc = data.testWeightedAccuracy
+        ?? (data.attempts > 0 ? Math.round((data.correct / data.attempts) * 100) : null);
       return testAcc !== null && testAcc < 50;
     })
     .map(([skillId, data]) => ({
       skillId,
-      testAccuracy: Math.round((data.correct / data.attempts) * 100),
+      testAccuracy: data.testWeightedAccuracy
+        ?? Math.round((data.correct / data.attempts) * 100),
       drillAccuracy: data.recentDrill.accuracy,
       drillAttempts: data.recentDrill.attempts,
     }));
@@ -203,6 +222,44 @@ export const buildLongitudinalEvidence = (practiceTestResults = {}, skillProgres
     persistentWeaknesses,
     recoveredSkills,
     latestAttempt: allAttempts[allAttempts.length - 1] || null,
+  };
+};
+
+/**
+ * Reconcile drill evidence against the test that JUST finished. The plan
+ * pipeline runs in the completion effect with a pre-test closure, so
+ * "recent drills" are drills done BEFORE this test — if the test then showed
+ * the skill still broken (attempted >= 2, under 50%), the drilling did NOT
+ * transfer. Without this, the new plan would dock the skill's priority,
+ * list it as recovered, and lead the delta banner with "Your drilling
+ * worked" — contradicting the test the student just took (and the AI
+ * diagnosis, which correctly calls the same case a transfer gap).
+ * Pure: returns a new longitudinal object; inputs are not mutated.
+ */
+export const reconcileDrillEvidenceWithTest = (longitudinal, diagnostic) => {
+  if (!longitudinal || !diagnostic) return longitudinal;
+  const skills = diagnostic.skillAnalysis?.allSkills?.length
+    ? diagnostic.skillAnalysis.allSkills
+    : (diagnostic.skillAnalysis?.weakSkills || []);
+  const transferFailed = new Set();
+  skills.forEach(s => {
+    const attempted = s.attempted ?? s.total ?? 0;
+    const acc = s.contentAccuracy ?? s.testAccuracy;
+    if (attempted >= 2 && typeof acc === 'number' && acc < 50) transferFailed.add(s.skillId);
+  });
+  if (transferFailed.size === 0) return longitudinal;
+
+  const skillHistory = { ...longitudinal.skillHistory };
+  transferFailed.forEach(id => {
+    if (skillHistory[id]?.recentDrill) {
+      const { recentDrill, ...rest } = skillHistory[id];
+      skillHistory[id] = rest;
+    }
+  });
+  return {
+    ...longitudinal,
+    skillHistory,
+    recoveredSkills: (longitudinal.recoveredSkills || []).filter(r => !transferFailed.has(r.skillId)),
   };
 };
 
