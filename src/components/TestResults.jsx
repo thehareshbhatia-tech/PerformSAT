@@ -56,6 +56,16 @@ export function resolveDisplayScores(storedResult, fallbackScored) {
 // (splitToScannable / extractMetrics / cleanBullet removed 2026-07-19 —
 // the diagnosis renders flowing tutor-voice prose, never shredded bullets.)
 
+/**
+ * Format a skill name for display: convert hyphens to spaces, title case.
+ */
+function formatSkillName(name) {
+  if (!name || typeof name !== 'string') return '';
+  return name
+    .replace(/-/g, ' ')
+    .replace(/\b\w/g, c => c.toUpperCase());
+}
+
 // Donut Chart Component for difficulty breakdown
 const DonutChart = ({ correct, incorrect, unanswered, label, size = 100 }) => {
   const total = correct + incorrect + unanswered;
