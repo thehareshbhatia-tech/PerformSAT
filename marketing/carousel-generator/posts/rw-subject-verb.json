@@ -1,0 +1,56 @@
+{
+  "slug": "rw-subject-verb",
+  "caption": "Subject-verb agreement questions bury the subject behind a prepositional phrase — cross it out and the answer picks itself. Comment your answer to the one inside.\n\nSeva tells you WHY you missed it. Free trial — link in bio.\n\n#SAT #SATprep #SATreading #satenglish #digitalSAT #grammar #sattips #studytok",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "Reading & Writing",
+      "title": "Subject-verb agreement: ==ignore== the middle of the sentence",
+      "badge": "The subject is never where they want you to look"
+    },
+    {
+      "type": "rule",
+      "eyebrow": "Grammar",
+      "title": "Cross out the prepositional phrase",
+      "words": "of · in · with · along with",
+      "body": "The subject of a sentence never lives inside a prepositional phrase. Cross the phrase out, read what's left, and the verb picks itself."
+    },
+    {
+      "type": "question",
+      "eyebrow": "Spot the trap",
+      "stem": "The collection of rare paintings ______ on display until March.",
+      "choices": [
+        "were",
+        "are",
+        "is",
+        "have been"
+      ],
+      "prompt": "The SAT put a plural noun right next to the blank on purpose. Comment yours."
+    },
+    {
+      "type": "reveal",
+      "eyebrow": "The answer",
+      "title": "C — is",
+      "body": "The subject is *collection* — singular. \"Of rare paintings\" is the distractor parked next to the blank. Cross it out: \"The collection... is on display.\"",
+      "tip": "Trap type: proximity bait",
+      "choices": [
+        "were",
+        "are",
+        "is",
+        "have been"
+      ],
+      "correct": 2,
+      "trap": 1
+    },
+    {
+      "type": "cta",
+      "eyebrow": "Why you actually miss questions",
+      "title": "Seva doesn't just grade you. It tells you *why* you fell for the trap.",
+      "points": [
+        "Every miss diagnosed: content gap, trap answer, or rushing",
+        "A study plan that rebuilds itself around your mistakes",
+        "Real Bluebook-style practice tests and drills"
+      ]
+    }
+  ]
+}

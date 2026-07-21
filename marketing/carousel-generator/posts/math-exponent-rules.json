@@ -1,0 +1,69 @@
+{
+  "slug": "math-exponent-rules",
+  "caption": "Exponent rules show up on every SAT module — and the wrong answers are always the swapped rules. Save this.\n\nSeva tells you WHY you missed a question, not just that you missed it. Free trial — link in bio.\n\n#SAT #SATprep #SATmath #augustSAT #digitalSAT #sattips #studytok #testprep",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "August SAT",
+      "title": "Exponent rules the SAT bets you'll ==mix up==",
+      "badge": "Save this for test week"
+    },
+    {
+      "type": "formula",
+      "eyebrow": "Exponents",
+      "title": "The two rules students swap",
+      "formula": [
+        "x^{2} · x^{3} = x^{5}",
+        "(x^{2})^{3} = x^{6}"
+      ],
+      "cases": [
+        [
+          "Multiplying",
+          "same base — add exponents"
+        ],
+        [
+          "Power of a power",
+          "multiply exponents"
+        ]
+      ],
+      "tip": "The swapped answer is always one of the choices"
+    },
+    {
+      "type": "trap",
+      "eyebrow": "Exponents",
+      "title": "Negative exponents",
+      "formula": "x^{−n} = \\frac{1}{x^{n}}",
+      "body": "A negative exponent means \"flip it under 1.\" It never makes the answer negative. `2^{−3} = \\frac{1}{8}` — and −8 is the bait in the choices."
+    },
+    {
+      "type": "formula",
+      "eyebrow": "Exponents",
+      "title": "Fractional exponents",
+      "formula": [
+        "x^{½} = \\sqrt{x}",
+        "x^{⅔} = (\\sqrt[3]{x})^{2}"
+      ],
+      "cases": [
+        [
+          "Bottom number",
+          "the root"
+        ],
+        [
+          "Top number",
+          "the power"
+        ]
+      ],
+      "tip": "Root at the bottom — like the root of a tree"
+    },
+    {
+      "type": "cta",
+      "eyebrow": "Why you actually miss questions",
+      "title": "Seva doesn't just grade you. It tells you *why* you fell for the trap.",
+      "points": [
+        "Every miss diagnosed: content gap, trap answer, or rushing",
+        "A study plan that rebuilds itself around your mistakes",
+        "Real Bluebook-style practice tests and drills"
+      ]
+    }
+  ]
+}

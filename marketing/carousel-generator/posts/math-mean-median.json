@@ -1,0 +1,56 @@
+{
+  "slug": "math-mean-median",
+  "caption": "Mean vs median questions are free points — if you know what an outlier actually does. Comment your answer to the one inside.\n\nSeva tells you WHY you missed it. Free trial — link in bio.\n\n#SAT #SATprep #SATmath #digitalSAT #statistics #sattips #studytok #testprep",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "August SAT",
+      "title": "Mean vs median: the outlier question is ==free points==",
+      "badge": "One rule answers every version"
+    },
+    {
+      "type": "rule",
+      "eyebrow": "Statistics",
+      "title": "What an outlier does",
+      "words": "mean moves · median stays",
+      "body": "An outlier pulls the mean toward it. The median barely moves. Find the outlier and you already know which one is bigger."
+    },
+    {
+      "type": "question",
+      "eyebrow": "Spot the trap",
+      "stem": "Five salaries: $40k, $45k, $50k, $55k, $500k. Which statement is true?",
+      "choices": [
+        "The mean is greater",
+        "The median is greater",
+        "They are equal",
+        "Cannot be determined"
+      ],
+      "prompt": "No calculator needed. Comment your answer."
+    },
+    {
+      "type": "reveal",
+      "eyebrow": "The answer",
+      "title": "A — mean > median",
+      "body": "The median stays at $50k no matter what. The $500k outlier drags the mean far above it — no math needed.",
+      "tip": "Trap type: computing when you could reason",
+      "choices": [
+        "Mean > median",
+        "Median > mean",
+        "They are equal",
+        "Cannot determine"
+      ],
+      "correct": 0,
+      "trap": 3
+    },
+    {
+      "type": "cta",
+      "eyebrow": "Why you actually miss questions",
+      "title": "Seva doesn't just grade you. It tells you *why* you fell for the trap.",
+      "points": [
+        "Every miss diagnosed: content gap, trap answer, or rushing",
+        "A study plan that rebuilds itself around your mistakes",
+        "Real Bluebook-style practice tests and drills"
+      ]
+    }
+  ]
+}

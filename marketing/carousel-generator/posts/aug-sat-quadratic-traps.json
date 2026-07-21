@@ -1,0 +1,77 @@
+{
+  "slug": "aug-sat-quadratic-traps",
+  "caption": "Quadratics show up on every single SAT — and the traps are the same every time. Save this for the August test.\n\nSeva tells you WHY you missed a question, not just that you missed it. Link in bio for a free trial.\n\n#SAT #SATprep #SATmath #augustSAT #digitalSAT #sattips #studytok #testprep",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "August SAT",
+      "title": "5 quadratic facts the SAT turns into ^^traps^^",
+      "badge": "Save this for test week"
+    },
+    {
+      "type": "formula",
+      "eyebrow": "Quadratics",
+      "title": "Discriminant",
+      "formula": "D = b² − 4ac",
+      "cases": [
+        [
+          "D > 0",
+          "two real solutions"
+        ],
+        [
+          "D = 0",
+          "exactly one real solution"
+        ],
+        [
+          "D < 0",
+          "no real solutions"
+        ]
+      ],
+      "tip": "\"How many solutions?\" = they want D, not the roots"
+    },
+    {
+      "type": "formula",
+      "eyebrow": "Quadratics",
+      "title": "Sum and product of roots",
+      "formula": [
+        "sum = \\frac{−b}{a}",
+        "product = \\frac{c}{a}"
+      ],
+      "cases": [
+        [
+          "Sum",
+          "watch the minus sign"
+        ],
+        [
+          "Product",
+          "no minus sign"
+        ]
+      ],
+      "tip": "You never need to solve — just read the coefficients"
+    },
+    {
+      "type": "trap",
+      "eyebrow": "Quadratics",
+      "title": "Vertex form",
+      "formula": "y = a(x − h)² + k",
+      "body": "See `(x + 3)²`? The vertex is at `x = −3`, not 3. Flip the sign of the number inside the parentheses. The unflipped version is always one of the choices."
+    },
+    {
+      "type": "trap",
+      "eyebrow": "Rates",
+      "title": "Average speed",
+      "formula": "\\frac{total distance}{total time}",
+      "body": "Don't average the two speeds. Add up ALL the distance, add up ALL the time, then divide. The simple average of the speeds is always a wrong answer choice."
+    },
+    {
+      "type": "cta",
+      "eyebrow": "Why you actually miss questions",
+      "title": "Seva doesn't just grade you. It tells you *why* you fell for the trap.",
+      "points": [
+        "Every miss diagnosed: content gap, trap answer, or rushing",
+        "A study plan that rebuilds itself around your mistakes",
+        "Real Bluebook-style practice tests and drills"
+      ]
+    }
+  ]
+}

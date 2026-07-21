@@ -1,0 +1,72 @@
+{
+  "slug": "math-percent-traps",
+  "caption": "Percent questions look easy — that's exactly why they cost you points. The obvious answer is the trap. Comment your answer to the question inside.\n\nSeva tells you WHY you missed it: content gap, trap answer, or rushing. Free trial — link in bio.\n\n#SAT #SATprep #SATmath #digitalSAT #percentages #sattips #studytok #testprep",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "August SAT",
+      "title": "Percent problems: where ^^obvious answers^^ go to die",
+      "badge": "The trap is always one of the choices"
+    },
+    {
+      "type": "formula",
+      "eyebrow": "Percent change",
+      "title": "Divide by the original",
+      "formula": "% change = \\frac{new − old}{old} × 100",
+      "cases": [
+        [
+          "Right",
+          "divide by the *original* value"
+        ],
+        [
+          "The trap",
+          "dividing by the new value"
+        ]
+      ]
+    },
+    {
+      "type": "trap",
+      "eyebrow": "Percent change",
+      "title": "Up 20%, down 20% ≠ even",
+      "formula": "$100 → $120 → $96",
+      "body": "The second 20% is taken from a *bigger* number, so it removes more than the first 20% added. You end at $96 — down 4%, not back to even."
+    },
+    {
+      "type": "question",
+      "eyebrow": "Spot the trap",
+      "stem": "A shirt costs $80 after a 20% discount. What was the original price?",
+      "choices": [
+        "$96",
+        "$100",
+        "$64",
+        "$104"
+      ],
+      "prompt": "Most students pick the same wrong answer. Comment yours."
+    },
+    {
+      "type": "reveal",
+      "eyebrow": "The answer",
+      "title": "B — $100",
+      "body": "$96 is the bait — it takes 20% of the *sale* price. To undo a 20% discount, divide by 0.8. The discount came off the original, not off $80.",
+      "tip": "Trap type: wrong base",
+      "choices": [
+        "$96",
+        "$100",
+        "$64",
+        "$104"
+      ],
+      "correct": 1,
+      "trap": 0
+    },
+    {
+      "type": "cta",
+      "eyebrow": "Why you actually miss questions",
+      "title": "Seva doesn't just grade you. It tells you *why* you fell for the trap.",
+      "points": [
+        "Every miss diagnosed: content gap, trap answer, or rushing",
+        "A study plan that rebuilds itself around your mistakes",
+        "Real Bluebook-style practice tests and drills"
+      ]
+    }
+  ]
+}

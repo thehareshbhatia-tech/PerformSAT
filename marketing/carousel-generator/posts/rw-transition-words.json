@@ -1,0 +1,64 @@
+{
+  "slug": "rw-transition-words",
+  "caption": "Transition questions are free points once you stop reading the answer choices first. Decide the relationship, THEN look.\n\nSeva tells you WHY you missed a question — content gap, trap answer, or rushing. Link in bio for a free trial.\n\n#SAT #SATprep #SATreading #digitalSAT #satenglish #sattips #studytok #testprep",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "Reading & Writing",
+      "title": "Transition words: the ==4-second== decision",
+      "badge": "Decide the relationship before you read the choices"
+    },
+    {
+      "type": "rule",
+      "eyebrow": "Contrast",
+      "title": "Opposite directions",
+      "words": "however · nevertheless · in contrast",
+      "body": "Use these only when the two sentences pull in opposite directions. Expected one thing, got another? That is contrast.",
+      "tip": "The SAT's favorite — it appears on almost every module"
+    },
+    {
+      "type": "rule",
+      "eyebrow": "Cause and effect",
+      "title": "Result, not restatement",
+      "words": "therefore · thus · consequently",
+      "body": "Use these only when the second sentence is a *result* of the first. If it just repeats the idea in new words, you need \"in other words\" instead."
+    },
+    {
+      "type": "question",
+      "eyebrow": "Spot the trap",
+      "stem": "The scientists expected the coral to bleach in the warmer water; ______, it thrived.",
+      "choices": [
+        "similarly",
+        "however",
+        "for example",
+        "in addition"
+      ],
+      "prompt": "Most students answer in under 5 seconds. Comment yours."
+    },
+    {
+      "type": "reveal",
+      "eyebrow": "The answer",
+      "title": "B — however",
+      "body": "They expected bleaching. They got the opposite. Opposite direction means contrast, so *however*. \"Similarly\" is the bait if you skimmed.",
+      "tip": "Trap type: rushed relationship call",
+      "choices": [
+        "similarly",
+        "however",
+        "for example",
+        "in addition"
+      ],
+      "correct": 1,
+      "trap": 0
+    },
+    {
+      "type": "cta",
+      "eyebrow": "Why you actually miss questions",
+      "title": "Seva doesn't just grade you. It tells you *why* you fell for the trap.",
+      "points": [
+        "Every miss diagnosed: content gap, trap answer, or rushing",
+        "A study plan that rebuilds itself around your mistakes",
+        "Real Bluebook-style practice tests and drills"
+      ]
+    }
+  ]
+}

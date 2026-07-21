@@ -1,0 +1,46 @@
+{
+  "slug": "math-circle-equation",
+  "caption": "The circle equation hides two traps in one formula — the flipped signs and r². Save this so neither gets you in August.\n\nSeva tells you WHY you missed a question, not just that you missed it. Free trial — link in bio.\n\n#SAT #SATprep #SATmath #digitalSAT #geometry #sattips #studytok #testprep",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "August SAT",
+      "title": "The circle equation: ^^two traps^^ in one formula",
+      "badge": "Save this for test week"
+    },
+    {
+      "type": "formula",
+      "eyebrow": "Circles",
+      "title": "Standard form",
+      "formula": "(x − h)² + (y − k)² = r²",
+      "cases": [
+        [
+          "Center",
+          "(h, k) — flip the signs you see"
+        ],
+        [
+          "Radius",
+          "r — square-root the right side"
+        ]
+      ],
+      "tip": "The equation shows r squared, never r"
+    },
+    {
+      "type": "trap",
+      "eyebrow": "Circles",
+      "title": "Both baits, same question",
+      "formula": "(x + 4)² + (y − 1)² = 25",
+      "body": "Flip the signs to read the center: `(−4, 1)`. Square-root the right side to get the radius: 5. The unflipped center and the unrooted 25 are both in the choices."
+    },
+    {
+      "type": "cta",
+      "eyebrow": "Why you actually miss questions",
+      "title": "Seva doesn't just grade you. It tells you *why* you fell for the trap.",
+      "points": [
+        "Every miss diagnosed: content gap, trap answer, or rushing",
+        "A study plan that rebuilds itself around your mistakes",
+        "Real Bluebook-style practice tests and drills"
+      ]
+    }
+  ]
+}

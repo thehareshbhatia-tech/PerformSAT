@@ -1,0 +1,56 @@
+{
+  "slug": "rw-words-in-context",
+  "caption": "Words-in-context questions punish dictionary thinking. Predict your own word BEFORE reading the choices. Comment your answer to the one inside.\n\nSeva tells you WHY you missed it. Free trial — link in bio.\n\n#SAT #SATprep #SATreading #digitalSAT #vocabulary #sattips #studytok",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "Reading & Writing",
+      "title": "Words in context: the ^^dictionary^^ is the trap",
+      "badge": "Predict before you peek"
+    },
+    {
+      "type": "rule",
+      "eyebrow": "Vocabulary",
+      "title": "Cover the choices",
+      "words": "sentence first · choices last",
+      "body": "Read the sentence and predict your own word for the blank. *Then* look. The trap answer is a real meaning of the word — just not the meaning **this** sentence needs."
+    },
+    {
+      "type": "question",
+      "eyebrow": "Spot the trap",
+      "stem": "The scientist's approach was remarkably economical, using just three variables. \"Economical\" most nearly means ______.",
+      "choices": [
+        "inexpensive",
+        "thrifty",
+        "efficient",
+        "profitable"
+      ],
+      "prompt": "Three of these are about money. The sentence isn't. Comment yours."
+    },
+    {
+      "type": "reveal",
+      "eyebrow": "The answer",
+      "title": "C — efficient",
+      "body": "*Inexpensive* is the dictionary bait — there's no money anywhere in the sentence. The context is doing a lot with only three variables: efficiency. Context beats definition.",
+      "tip": "Trap type: dictionary reflex",
+      "choices": [
+        "inexpensive",
+        "thrifty",
+        "efficient",
+        "profitable"
+      ],
+      "correct": 2,
+      "trap": 0
+    },
+    {
+      "type": "cta",
+      "eyebrow": "Why you actually miss questions",
+      "title": "Seva doesn't just grade you. It tells you *why* you fell for the trap.",
+      "points": [
+        "Every miss diagnosed: content gap, trap answer, or rushing",
+        "A study plan that rebuilds itself around your mistakes",
+        "Real Bluebook-style practice tests and drills"
+      ]
+    }
+  ]
+}
