@@ -1,0 +1,32 @@
+{
+  "defaults": {
+    "commission": { "annualBounty": 70, "monthlyPerInvoice": 15, "monthlyInvoiceCap": 3 },
+    "audienceDiscount": { "percentOff": 20, "duration": "repeating", "durationInMonths": 3 }
+  },
+  "creators": [
+    {
+      "slug": "example",
+      "name": "Example Creator",
+      "email": "creator@example.com",
+      "handles": { "tiktok": "@example" },
+      "followers": 10000,
+      "status": "contacted",
+      "contactedAt": "2026-01-01",
+      "lastTouchAt": "2026-01-01",
+      "nextAction": "Follow up if no reply.",
+      "plannedCode": "EXAMPLE20",
+      "promoCode": null,
+      "basePay": {
+        "perVideoUsd": 50,
+        "videosAgreed": 5,
+        "videosPosted": 0,
+        "viewBonusUsd": 25,
+        "viewBonusThreshold": 10000,
+        "videosOverThreshold": 0
+      },
+      "paidToDateUsd": 0,
+      "excludeCustomerEmails": ["creator@example.com"],
+      "notes": "Copy this file to creators.json (gitignored) and fill in real people."
+    }
+  ]
+}

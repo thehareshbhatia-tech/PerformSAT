@@ -68,3 +68,7 @@ knowledge/books/
 # Copyrighted reference PDFs (dev-only source material — never commit, esp. public repo)
 reference/
 /*.pdf
+
+# Creator roster: personal emails + private deal terms (repo is public)
+marketing/creators/creators.json
+marketing/creators/payout-report*.json
