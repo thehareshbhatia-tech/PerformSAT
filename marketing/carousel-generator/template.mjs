@@ -83,6 +83,7 @@ const RENDER = {
   cover: (s) => `
     ${tribars}
     <div class="chiprow">${chip(s.eyebrow)}</div>
+    ${s.stamp ? `<div class="stamp">${md(s.stamp)}</div>` : ''}
     <h1>${md(s.title)}</h1>
     ${s.badge ? callout(s.badge, 'SAVE') : ''}
     <div class="swipe">swipe &rarr;</div>`,
@@ -249,6 +250,15 @@ export function buildHtml(post) {
   }
   .chip.purple { background:${B.logoPurple}; }
   .chip.orange { background:${B.logoOrange}; }
+
+  /* ---- cover date-stamp (the test-date plate; distinct from chips and marks) ---- */
+  .stamp {
+    display:inline-block; font-family:${B.fontDisplay}; font-weight:800; font-size:48px;
+    letter-spacing:.08em; text-transform:uppercase;
+    background:${B.logoLime}; color:${B.navy};
+    padding:20px 38px; border-radius:14px; margin-bottom:44px;
+    box-shadow:0 12px 32px rgba(0,0,0,.3);
+  }
 
   /* ---- type ---- */
   h1 { font-family:${B.fontDisplay}; font-weight:800; font-size:96px; line-height:1.1; margin-bottom:56px; }
