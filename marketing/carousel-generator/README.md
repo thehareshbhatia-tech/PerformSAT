@@ -20,7 +20,7 @@ Slide types:
 
 | type | fields | use for |
 |---|---|---|
-| `cover` | eyebrow, title, badge?, stamp? | searchable hook + save-bait; stamp renders the lime test-date plate ("August SAT · Aug 22") |
+| `cover` | eyebrow, title, badge?, stamp? | searchable hook + save-bait; stamp renders the lime test plate ("August SAT") |
 | `formula` | eyebrow, title, formula, cases? `[["D > 0","two real solutions"]]`, tip? | formula slides (saves) |
 | `rule` | eyebrow, title, words?, body, tip? | R&W rules / word lists |
 | `trap` | eyebrow, title, formula?, body, tip? | the Seva angle — why students miss it |
