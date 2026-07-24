@@ -41,6 +41,17 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 for (const file of postFiles) {
   const post = JSON.parse(readFileSync(file, 'utf8'));
   const slug = post.slug || basename(file, '.json');
+  // Inline Desmos screenshots (shots/<name>.png) as data URIs for 'shot' slides.
+  for (const s of post.slides) {
+    if (s.type === 'shot') {
+      const shotPath = join(HERE, 'shots', s.shot);
+      if (!existsSync(shotPath)) {
+        console.error(`${slug}: missing shot ${s.shot} — run desmos-shot.mjs first.`);
+        process.exit(1);
+      }
+      s._shotData = `data:image/png;base64,${readFileSync(shotPath).toString('base64')}`;
+    }
+  }
   const outDir = join(HERE, 'out', slug);
   mkdirSync(outDir, { recursive: true });
 

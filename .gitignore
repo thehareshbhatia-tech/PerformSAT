@@ -72,3 +72,6 @@ reference/
 # Creator roster: personal emails + private deal terms (repo is public)
 marketing/creators/creators.json
 marketing/creators/payout-report*.json
+
+# nested deps (marketing tooling)
+marketing/carousel-generator/node_modules/

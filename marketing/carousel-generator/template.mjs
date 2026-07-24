@@ -137,6 +137,14 @@ const RENDER = {
     <div class="body">${md(s.body)}</div>
     ${s.tip ? callout(s.tip, 'WHY') : ''}`,
 
+  // Real Desmos screenshot slide — s._shotData is a data URI injected by generate.mjs
+  // from shots/<s.shot>. The white card frames the calculator UI like a device window.
+  shot: (s) => `
+    <div class="chiprow">${chip(s.eyebrow)}${s.step ? chip(s.step, 'orange') : ''}</div>
+    <h2>${md(s.title)}</h2>
+    <div class="shot-card"><img src="${s._shotData}"></div>
+    ${s.tip ? callout(s.tip, 'TIP') : ''}`,
+
   cta: (s) => `
     ${tribars}
     <div class="chiprow">${chip(s.eyebrow)}</div>
@@ -353,6 +361,13 @@ export function buildHtml(post) {
     font-family:${B.fontDisplay}; font-weight:800; font-size:28px; letter-spacing:.1em;
     color:${B.logoOrange}; flex:none;
   }
+
+  /* ---- desmos shot ---- */
+  .shot-card {
+    background:#fff; border-radius:24px; padding:16px; width:100%;
+    box-shadow:0 16px 44px rgba(0,0,0,.28); margin-bottom:8px;
+  }
+  .shot-card img { width:100%; display:block; border-radius:14px; }
 
   .swipe {
     position:absolute; bottom:150px; right:96px;
