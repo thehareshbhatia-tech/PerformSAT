@@ -1,0 +1,44 @@
+{
+  "slug": "aug-sat-desmos-tilde",
+  "caption": "One Desmos symbol solves every \"true for all x, find the constant\" question — and almost nobody uses it.\n\nType the identity with ~ instead of = and Desmos fits the constant for you. Real screenshot inside, from one of the hardest official question types on the test. Save this for Module 2.\n\nSeva's practice tests have the same built-in calculator — drill the ~ trick until it's reflex. Free trial — link in bio.\n\n#SAT #SATprep #SATmath #satdesmos #desmos #justusedesmos #sathacks #digitalsathacks #augustSAT #digitalSAT #sattips #studytok #testprep #highschoolparents",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "SAT Math",
+      "title": "One symbol solves ==\"find the constant\"== instantly",
+      "badge": "The ~ trick — hardest questions on the test",
+      "stamp": "August SAT"
+    },
+    {
+      "type": "trap",
+      "eyebrow": "The setup",
+      "title": "\"True for all x. What is a?\"",
+      "formula": "\\frac{24x² + 25x − 47}{ax − 2} = −8x − 3 − \\frac{53}{ax − 2}",
+      "body": "This is a real official hard-Module-2 question type. The algebra route is polynomial division — two minutes and three chances to slip. The trap is doing it by hand at all."
+    },
+    {
+      "type": "shot",
+      "eyebrow": "The move",
+      "title": "Swap = for ~ and Desmos finds a",
+      "shot": "tilde-constant.png",
+      "tip": "Tiny x-table, identity with ~, read: a = −3"
+    },
+    {
+      "type": "rule",
+      "eyebrow": "Why it works",
+      "title": "= draws. ~ solves.",
+      "body": "With =, Desmos draws exactly what you typed. With ~, it treats unknown letters as parameters and finds the values that make both sides match — which is precisely what \"true for all x\" is asking. RMSE of zero means the fit is perfect: the dashed and solid curves are the same curve.",
+      "tip": "Works on any find-the-constant identity"
+    },
+    {
+      "type": "cta",
+      "eyebrow": "Why you actually miss questions",
+      "title": "Seva's practice tests have this exact calculator built in.",
+      "points": [
+        "Drill the ~ trick until it's reflex, not rescue",
+        "Every miss diagnosed: content gap, trap answer, or rushing",
+        "Real Bluebook-style adaptive practice tests"
+      ]
+    }
+  ]
+}

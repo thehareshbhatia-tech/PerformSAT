@@ -1,0 +1,45 @@
+{
+  "name": "tilde-constant",
+  "fontSize": 20,
+  "expressions": [
+    {
+      "type": "table",
+      "columns": [
+        {
+          "latex": "x_1",
+          "values": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reg",
+      "latex": "\\frac{24x_1^2+25x_1-47}{ax_1-2}\\sim-8x_1-3-\\frac{53}{ax_1-2}"
+    },
+    {
+      "id": "p",
+      "latex": "y=\\frac{24x^2+25x-47}{-3x-2}",
+      "color": "#9A72C8",
+      "lineWidth": 4
+    },
+    {
+      "id": "q",
+      "latex": "y=-8x-3-\\frac{53}{-3x-2}",
+      "color": "#D5572B",
+      "lineWidth": 4,
+      "lineStyle": "DASHED"
+    }
+  ],
+  "bounds": {
+    "left": -9,
+    "right": 9,
+    "bottom": -32,
+    "top": 28
+  },
+  "height": 880
+}
