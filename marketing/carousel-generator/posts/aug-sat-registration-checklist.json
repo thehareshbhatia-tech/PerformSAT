@@ -1,0 +1,58 @@
+{
+  "slug": "aug-sat-registration-checklist",
+  "caption": "26 days until the August SAT — and regular registration closes Aug 7.\n\nAfter that it's the late window (extra fee) until Aug 11, and test centers near you may already be full. Thirty seconds today: register, pick your center, download Bluebook.\n\nSend this to a friend who hasn't registered yet.\n\nSeva tells you WHY you missed it: content gap, trap answer, or rushing. Free trial — link in bio.\n\n#SAT #SATprep #augustSAT #digitalSAT #satregistration #sattips #studytok #testprep",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "SAT Logistics",
+      "title": "Not registered yet? ^^Aug 7^^ is the line",
+      "badge": "Send this to a friend who forgot",
+      "stamp": "August SAT"
+    },
+    {
+      "type": "formula",
+      "eyebrow": "The dates",
+      "title": "Three dates that matter",
+      "formula": "Aug 7 → Aug 11 → Aug 22",
+      "cases": [
+        [
+          "Aug 7",
+          "regular registration closes"
+        ],
+        [
+          "Aug 11",
+          "late window closes — extra fee"
+        ],
+        [
+          "Aug 22",
+          "test day"
+        ]
+      ],
+      "tip": "Deadlines run to 11:59 PM ET"
+    },
+    {
+      "type": "trap",
+      "eyebrow": "Why waiting costs you",
+      "title": "The late window is not a safety net",
+      "body": "Test centers assign seats first-come. Wait past Aug 7 and you're paying an extra fee for whatever centers are *left* — and near you, that may be none. The students who register on time take the close seats.",
+      "tip": "Register first, build the study plan second"
+    },
+    {
+      "type": "rule",
+      "eyebrow": "The checklist",
+      "title": "Thirty seconds and you're done",
+      "body": "Register at satsuite.collegeboard.org and pick the closest center while seats exist. Then download Bluebook and run the device check the week before — because a test-day tech problem is the one miss you can't review.",
+      "tip": "Registered? Send this to a friend who isn't"
+    },
+    {
+      "type": "cta",
+      "eyebrow": "Why you actually miss questions",
+      "title": "Seva doesn't just grade you. It tells you *why* you fell for the trap.",
+      "points": [
+        "Every miss diagnosed: content gap, trap answer, or rushing",
+        "A study plan that rebuilds itself around your mistakes",
+        "Real Bluebook-style practice tests and drills"
+      ]
+    }
+  ]
+}
