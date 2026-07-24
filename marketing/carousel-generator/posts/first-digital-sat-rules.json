@@ -1,0 +1,44 @@
+{
+  "slug": "first-digital-sat-rules",
+  "caption": "20 days until the August SAT.\n\nTaking your first digital SAT on Aug 22? These are the Bluebook rules nobody tells you — the ones that cost points when you learn them on test day instead of now. Send this to someone taking their first SAT.\n\nSeva tells you WHY you missed it: content gap, trap answer, or rushing. Free trial — link in bio.\n\n#SAT #SATprep #augustSAT #digitalSAT #firstSAT #bluebook #sattips #studytok #testprep",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "SAT Strategy",
+      "title": "What nobody tells you before your ==first digital SAT==",
+      "badge": "Send this to a first-timer",
+      "stamp": "August SAT"
+    },
+    {
+      "type": "rule",
+      "eyebrow": "Rule 1",
+      "title": "Desmos is on every math question",
+      "body": "The calculator is built into Bluebook, one click away, allowed on everything — there is no no-calculator section anymore. If you're not fluent in it before test day, you're leaving whole minutes on the table.",
+      "tip": "Practice with it open from day one"
+    },
+    {
+      "type": "rule",
+      "eyebrow": "Rule 2",
+      "title": "Flag it, move on, come back",
+      "body": "Marking a question for review costs nothing and rescues your pacing — stubbornness on one hard question is how students run out of clock. And never leave a blank, because there is no penalty for a wrong guess.",
+      "tip": "A blank is the only guaranteed zero"
+    },
+    {
+      "type": "rule",
+      "eyebrow": "Rule 3",
+      "title": "Each module locks behind you",
+      "body": "When a module's time ends, it's gone — you can't scroll back from Module 2 to fix Module 1. Review your flagged questions *inside* the module, in the time you banked on the easy ones.",
+      "tip": "Bank time early, spend it before the lock"
+    },
+    {
+      "type": "cta",
+      "eyebrow": "Why you actually miss questions",
+      "title": "Seva doesn't just grade you. It tells you *why* you fell for the trap.",
+      "points": [
+        "Every miss diagnosed: content gap, trap answer, or rushing",
+        "A study plan that rebuilds itself around your mistakes",
+        "Real Bluebook-style practice tests and drills"
+      ]
+    }
+  ]
+}

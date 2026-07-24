@@ -1,0 +1,57 @@
+{
+  "slug": "challenge-comma-splice",
+  "caption": "22 days until the August SAT.\n\nPick the right punctuation in 10 seconds. One choice is right, two are comma splices, one is a run-on — and most students pick the same wrong one. Comment yours.\n\nSeva tells you WHY you missed it: content gap, trap answer, or rushing. Free trial — link in bio.\n\n#SAT #SATprep #SATreading #augustSAT #digitalSAT #satgrammar #sattips #studytok #testprep",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "Reading & Writing",
+      "title": "Pick the right punctuation in ==10 seconds==",
+      "badge": "The SAT's favorite trap is in here",
+      "stamp": "August SAT"
+    },
+    {
+      "type": "question",
+      "eyebrow": "The 10-second test",
+      "stem": "The experiment failed ______ the team learned more from it than they expected.",
+      "choices": [
+        "failed, the",
+        "failed; the",
+        "failed the",
+        "failed, however, the"
+      ],
+      "prompt": "Most students pick the same wrong answer. Comment yours."
+    },
+    {
+      "type": "reveal",
+      "eyebrow": "The answer",
+      "title": "B — the semicolon",
+      "body": "Both sides are complete sentences, and a comma alone can't hold two apart — that's the comma splice. \"However\" between commas doesn't fix it, and C fuses the sentences with nothing at all.",
+      "tip": "Trap type: comma splice",
+      "choices": [
+        "failed, the",
+        "failed; the",
+        "failed the",
+        "failed, however, the"
+      ],
+      "correct": 1,
+      "trap": 0
+    },
+    {
+      "type": "rule",
+      "eyebrow": "The pattern",
+      "title": "The 10-second punctuation check",
+      "body": "Cover the punctuation and read each side alone. Two complete sentences? You need a period, a semicolon, or a comma *with* and/but/so. A comma by itself is never enough — no matter what word comes after it.",
+      "tip": "Complete + complete = semicolon territory"
+    },
+    {
+      "type": "cta",
+      "eyebrow": "Why you actually miss questions",
+      "title": "Seva doesn't just grade you. It tells you *why* you fell for the trap.",
+      "points": [
+        "Every miss diagnosed: content gap, trap answer, or rushing",
+        "A study plan that rebuilds itself around your mistakes",
+        "Real Bluebook-style practice tests and drills"
+      ]
+    }
+  ]
+}

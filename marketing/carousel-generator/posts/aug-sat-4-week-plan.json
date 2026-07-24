@@ -1,0 +1,44 @@
+{
+  "slug": "aug-sat-4-week-plan",
+  "caption": "23 days until the August SAT.\n\n\"Is one month enough?\" — it is, if you spend it right. The 4-week plan that actually moves scores: diagnose first, drill your leaks (not full tests every day), then taper. Save this — it's your August roadmap.\n\nSeva builds this exact plan for you from one diagnostic, then rebuilds it around every mistake you make. Free trial — link in bio.\n\n#SAT #SATprep #augustSAT #digitalSAT #satstudyplan #sattips #studytok #testprep",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "SAT Strategy",
+      "title": "One month out: the ==4-week plan== that actually works",
+      "badge": "Save this — your August roadmap",
+      "stamp": "August SAT"
+    },
+    {
+      "type": "rule",
+      "eyebrow": "Week 1",
+      "title": "Find your leaks first",
+      "body": "Take one full timed practice test and list every miss by skill, because you can't fix what you haven't named. Most students skip straight to grinding — and spend four weeks polishing skills they already had.",
+      "tip": "Diagnosis before drills, always"
+    },
+    {
+      "type": "rule",
+      "eyebrow": "Weeks 2–3",
+      "title": "Drill the leaks, not the test",
+      "body": "Daily targeted drills on your weakest three or four skills, plus *one* full timed test each week with every miss reviewed the same day. A full test every day is the classic burnout trap — volume without review teaches you nothing new.",
+      "tip": "Review beats volume, every time"
+    },
+    {
+      "type": "rule",
+      "eyebrow": "Week 4",
+      "title": "Taper and sharpen",
+      "body": "Pacing runs, Desmos fluency, light review of your trap list — nothing new after Wednesday. The night before is for sleep, because test-day sharpness is worth more than one more practice set.",
+      "tip": "Confidence is a skill; train it too"
+    },
+    {
+      "type": "cta",
+      "eyebrow": "Why you actually miss questions",
+      "title": "Seva doesn't just grade you. It tells you *why* you fell for the trap.",
+      "points": [
+        "Every miss diagnosed: content gap, trap answer, or rushing",
+        "A study plan that rebuilds itself around your mistakes",
+        "Real Bluebook-style practice tests and drills"
+      ]
+    }
+  ]
+}

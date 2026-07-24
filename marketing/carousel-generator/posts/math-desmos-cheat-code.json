@@ -1,0 +1,44 @@
+{
+  "slug": "math-desmos-cheat-code",
+  "caption": "24 days until the August SAT.\n\nDesmos is built into Bluebook on every single math question — and most students never open it. Three tricks that turn algebra problems into clicking. Save this and practice them before Aug 22.\n\nSeva's practice tests have the same built-in calculator, so you can drill these until they're automatic. Free trial — link in bio.\n\n#SAT #SATprep #SATmath #satdesmos #desmos #sathacks #augustSAT #digitalSAT #sattips #studytok #testprep",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "SAT Math",
+      "title": "The SAT gives you a ==cheat code== — most students never open it",
+      "badge": "Desmos is built into Bluebook",
+      "stamp": "August SAT"
+    },
+    {
+      "type": "rule",
+      "eyebrow": "Trick 1",
+      "title": "Graph both sides of any equation",
+      "body": "Solving for x? Type the left side as one graph and the right side as another. The x-value where they cross *is* the answer, because two graphs meet exactly where the two sides are equal. Works on linear, quadratic, exponential — anything with one variable.",
+      "tip": "\"Solve for x\" without doing algebra"
+    },
+    {
+      "type": "rule",
+      "eyebrow": "Trick 2",
+      "title": "Quadratics, decoded on sight",
+      "body": "Type the quadratic in and Desmos marks the zeros and the vertex as gray points — click them to see the values. \"How many solutions?\" becomes counting where the parabola crosses the x-axis. No discriminant, no factoring, no formula.",
+      "tip": "The discriminant, without the discriminant"
+    },
+    {
+      "type": "rule",
+      "eyebrow": "Trick 3",
+      "title": "Systems in seconds",
+      "body": "Type both equations and click the intersection point — that ordered pair is the solution. Parallel lines that never touch? That's what \"no solution\" looks like. The graph answers the question before the algebra would have started.",
+      "tip": "Practice these until they're reflex, not rescue"
+    },
+    {
+      "type": "cta",
+      "eyebrow": "Why you actually miss questions",
+      "title": "Seva doesn't just grade you. It tells you *why* you fell for the trap.",
+      "points": [
+        "Every miss diagnosed: content gap, trap answer, or rushing",
+        "A study plan that rebuilds itself around your mistakes",
+        "Real Bluebook-style practice tests and drills"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "slug": "practice-score-lies",
+  "caption": "21 days until the August SAT.\n\nYour practice score is lying to you — in three specific ways. Untimed tests, unreviewed misses, and comfort drills all inflate the number without moving the real one. Save this before your next practice test.\n\nSeva tells you WHY you missed it: content gap, trap answer, or rushing. Free trial — link in bio.\n\n#SAT #SATprep #augustSAT #digitalSAT #satscores #sattips #studytok #testprep",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "SAT Strategy",
+      "title": "Your practice score is ^^lying^^ to you",
+      "badge": "Three ways it happens",
+      "stamp": "August SAT"
+    },
+    {
+      "type": "trap",
+      "eyebrow": "Lie 1",
+      "title": "The untimed test",
+      "body": "Untimed, you get to think. Timed, you get about 95 seconds per math question. A 1400 with the clock off can be a 1250 with it on — because pacing isn't a side condition, it *is* the test.",
+      "tip": "Always practice on the clock"
+    },
+    {
+      "type": "trap",
+      "eyebrow": "Lie 2",
+      "title": "The unreviewed miss",
+      "body": "Finishing a test and checking the score is where most students stop. But the score isn't the data — the misses are. Ten minutes per miss: what was the trap, and why did you take it. Skip that and you'll take the same test forever.",
+      "tip": "Review beats volume"
+    },
+    {
+      "type": "trap",
+      "eyebrow": "Lie 3",
+      "title": "The comfort drill",
+      "body": "Re-drilling skills you've already mastered feels productive and moves nothing, because your score climbs where your weakest skills climb. Practice that never feels uncomfortable isn't practice — it's rehearsal of what you already knew.",
+      "tip": "Drill what you miss, not what you like"
+    },
+    {
+      "type": "cta",
+      "eyebrow": "Why you actually miss questions",
+      "title": "Seva doesn't just grade you. It tells you *why* you fell for the trap.",
+      "points": [
+        "Every miss diagnosed: content gap, trap answer, or rushing",
+        "A study plan that rebuilds itself around your mistakes",
+        "Real Bluebook-style practice tests and drills"
+      ]
+    }
+  ]
+}
