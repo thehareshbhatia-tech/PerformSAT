@@ -258,36 +258,29 @@ async function shoot(bodyHtml, outPath, work, idx) {
 
 const dataUri = (p) => `data:image/png;base64,${readFileSync(p).toString('base64')}`;
 
-// ── Audio ────────────────────────────────────────────────────────────────────
-// Keystroke ticks and a soft reveal chime, synthesised so there is nothing to
-// license. The trending sound still goes on top in the TikTok app.
-function buildAudio(work, clickTimes, revealTime, totalSec) {
-  const click = join(work, 'click.wav');
-  ff(['-f', 'lavfi', '-i', 'anoisesrc=d=0.06:c=white:a=0.9', '-af',
-    'highpass=f=1400,lowpass=f=7000,afade=t=out:st=0.004:d=0.05,volume=0.5',
-    '-ar', '44100', '-ac', '2', '-y', click]);
+// ── Narration ────────────────────────────────────────────────────────────────
+// The voice track is the spine: each beat is spoken first, its real duration is
+// measured, and the matching visual is held for exactly that long. Timing is
+// therefore derived from the speech rather than guessed at.
+function durationOf(path) {
+  let out = '';
+  try {
+    execFileSync(FFMPEG, ['-i', path], { stdio: ['ignore', 'ignore', 'pipe'] });
+  } catch (e) {
+    out = e.stderr ? e.stderr.toString() : '';
+  }
+  const m = out.match(/Duration:\s*(\d+):(\d+):(\d+\.\d+)/);
+  if (!m) throw new Error(`could not read duration of ${path}`);
+  return Number(m[1]) * 3600 + Number(m[2]) * 60 + Number(m[3]);
+}
 
-  const chime = join(work, 'chime.wav');
-  ff(['-f', 'lavfi', '-i', 'sine=frequency=784:duration=0.5', '-af',
-    'afade=t=out:st=0.05:d=0.45,volume=0.16', '-ar', '44100', '-ac', '2', '-y', chime]);
-
-  const inputs = [];
-  const parts = [];
-  clickTimes.forEach((t, i) => {
-    inputs.push('-i', click);
-    parts.push(`[${i}:a]adelay=${Math.round(t * 1000)}|${Math.round(t * 1000)}[c${i}]`);
-  });
-  const ci = clickTimes.length;
-  inputs.push('-i', chime);
-  parts.push(`[${ci}:a]adelay=${Math.round(revealTime * 1000)}|${Math.round(revealTime * 1000)}[c${ci}]`);
-
-  const labels = clickTimes.map((_, i) => `[c${i}]`).join('') + `[c${ci}]`;
-  const filter = `${parts.join(';')};${labels}amix=inputs=${ci + 1}:normalize=0,apad=whole_dur=${totalSec}[a]`;
-
-  const out = join(work, 'audio.wav');
-  ff([...inputs, '-filter_complex', filter, '-map', '[a]', '-t', String(totalSec),
-    '-ar', '44100', '-ac', '2', '-y', out]);
-  return out;
+function speak(spec, work, idx, text) {
+  const aiff = join(work, `vo-${idx}.aiff`);
+  const wav = join(work, `vo-${idx}.wav`);
+  execFileSync('say', ['-v', spec.voice || 'Samantha', '-r', String(spec.rate || 178),
+    '-o', aiff, text]);
+  ff(['-i', aiff, '-ar', '44100', '-ac', '2', '-y', wav]);
+  return { wav, seconds: durationOf(wav) };
 }
 
 // ── Main ─────────────────────────────────────────────────────────────────────
@@ -299,65 +292,96 @@ for (const file of specFiles) {
   mkdirSync(outDir, { recursive: true });
 
   const calc = await captureDesmos(spec, work);
-
-  const plan = [];
-  const push = (html, seconds, tag) => plan.push({ html, seconds, tag });
-
-  const q = question(spec);
   const typed = spec.desmos.typed;
-  push(`${q}<div class="sticker">SOLVED IN<br>${spec.seconds} SECONDS</div>`, 1.9, 'hook');
-  push(`${q}${panel(dataUri(calc.empty), { caret: true })}`, 0.45, 'open');
-  calc.typing.forEach((f, i) => {
-    push(`${q}${panel(dataUri(f), { typed: typed.slice(0, i + 1), caret: true })}`, 0.13, 'key');
-  });
-  push(`${q}${panel(dataUri(calc.settled), { typed })}`, 0.7, 'settle');
-  push(`${q}${panel(dataUri(calc.vertex), { typed })}`, 2.4, 'vertex');
-  push(
-    `${question(spec, { revealCorrect: true, showTrap: true })}
-     <div class="note win">${spec.takeaway}</div>`,
-    3.2,
-    'reveal'
-  );
-  push(
-    `${question(spec, { revealCorrect: true, showTrap: true })}
-     <div class="note">${spec.trapNote}</div>`,
-    2.6,
-    'trap'
-  );
+  const q = question(spec);
+  const answered = question(spec, { revealCorrect: true, showTrap: true });
 
-  const pngs = [];
-  for (const [i, step] of plan.entries()) {
-    const p = join(work, `out-${String(i).padStart(3, '0')}.png`);
-    await shoot(step.html, p, work, i);
-    pngs.push(p);
+  // A beat holds one narration line. `frames` lets a beat animate across its
+  // own duration (the typing beat) instead of sitting on a single still.
+  const visual = {
+    hook: () => [`${q}<div class="sticker">SOLVED IN<br>${spec.seconds} SECONDS</div>`],
+    read: () => [q],
+    type: () => [
+      `${q}${panel(dataUri(calc.empty), { caret: true })}`,
+      ...calc.typing.map((f, i) =>
+        `${q}${panel(dataUri(f), { typed: typed.slice(0, i + 1), caret: true })}`),
+    ],
+    graph: () => [`${q}${panel(dataUri(calc.settled), { typed })}`],
+    vertex: () => [`${q}${panel(dataUri(calc.vertex), { typed })}`],
+    compute: () => [
+      `${q}${panel(dataUri(calc.vertex), { typed })}<div class="note win">${spec.takeaway}</div>`,
+    ],
+    trap: () => [`${answered}<div class="note">${spec.trapNote}</div>`],
+    answer: () => [`${answered}<div class="note win">${spec.takeaway}</div>`],
+  };
+
+  const beats = [];
+  for (const [i, line] of spec.narration.entries()) {
+    const make = visual[line.stage];
+    if (!make) throw new Error(`unknown narration stage: ${line.stage}`);
+    const vo = speak(spec, work, i, line.text);
+    beats.push({ ...line, ...vo, htmls: make() });
   }
 
-  // Cue sheet from the same plan that drives the video, so audio cannot drift.
-  const clickTimes = [];
-  let revealTime = 0;
-  let t = 0;
-  for (const step of plan) {
-    if (step.tag === 'key') clickTimes.push(t + 0.02);
-    if (step.tag === 'reveal') revealTime = t;
-    t += step.seconds;
+  // Render every distinct frame once.
+  const pngFor = new Map();
+  let frameIdx = 0;
+  for (const b of beats) {
+    b.pngs = [];
+    for (const html of b.htmls) {
+      if (!pngFor.has(html)) {
+        const p = join(work, `f-${String(frameIdx++).padStart(3, '0')}.png`);
+        await shoot(html, p, work, frameIdx);
+        pngFor.set(html, p);
+      }
+      b.pngs.push(pngFor.get(html));
+    }
   }
-  const total = t;
+
+  // Video: each beat's frames divide that beat's spoken duration, plus a short
+  // breath so lines do not run together.
+  const GAP = 0.32;
+  const segments = [];
+  for (const b of beats) {
+    const span = b.seconds + GAP;
+    const per = span / b.pngs.length;
+    b.pngs.forEach((p) => segments.push({ png: p, seconds: per }));
+  }
 
   const silent = join(work, 'silent.mp4');
   const vArgs = [];
-  plan.forEach((step, i) => vArgs.push('-loop', '1', '-t', String(step.seconds), '-i', pngs[i]));
-  const concat = plan.map((_, i) => `[${i}:v]`).join('') + `concat=n=${plan.length}:v=1:a=0[v]`;
+  segments.forEach((s) => vArgs.push('-loop', '1', '-t', s.seconds.toFixed(3), '-i', s.png));
+  const concat = segments.map((_, i) => `[${i}:v]`).join('') + `concat=n=${segments.length}:v=1:a=0[v]`;
   ff([...vArgs, '-filter_complex', concat, '-map', '[v]', '-r', '30', '-pix_fmt', 'yuv420p',
     '-c:v', 'libx264', '-preset', 'medium', '-crf', '20', '-y', silent]);
 
-  const audio = buildAudio(work, clickTimes, revealTime, total);
+  // Audio: the same beat order, each line delayed to where its visual starts.
+  const aArgs = [];
+  const aParts = [];
+  let t = 0;
+  beats.forEach((b, i) => {
+    aArgs.push('-i', b.wav);
+    aParts.push(`[${i}:a]adelay=${Math.round(t * 1000)}|${Math.round(t * 1000)}[v${i}]`);
+    t += b.seconds + GAP;
+  });
+  const total = t;
+  const mixed = beats.map((_, i) => `[v${i}]`).join('');
+  const audio = join(work, 'narration.wav');
+  ff([...aArgs, '-filter_complex',
+    `${aParts.join(';')};${mixed}amix=inputs=${beats.length}:normalize=0,` +
+    `apad=whole_dur=${total.toFixed(3)},loudnorm=I=-16:TP=-1.5:LRA=11[a]`,
+    '-map', '[a]', '-t', total.toFixed(3), '-ar', '44100', '-ac', '2', '-y', audio]);
+
   const mp4 = join(outDir, `${slug}.mp4`);
   ff(['-i', silent, '-i', audio, '-c:v', 'copy', '-c:a', 'aac', '-b:a', '160k',
     '-shortest', '-y', mp4]);
 
-  copyFileSync(pngs[0], join(outDir, 'cover.png'));
+  copyFileSync(pngFor.get(beats[0].htmls[0]), join(outDir, 'cover.png'));
   if (spec.caption) writeFileSync(join(outDir, 'caption.txt'), `${spec.caption}\n`);
+  writeFileSync(join(outDir, 'script.txt'),
+    `${beats.map((b) => `[${b.stage}] ${b.text}`).join('\n\n')}\n`);
   console.log(
-    `${slug}: ${plan.length} frames, ${total.toFixed(1)}s, ${clickTimes.length} keystrokes -> out/${slug}/${slug}.mp4`
+    `${slug}: ${beats.length} narrated beats, ${segments.length} frames, ` +
+    `${total.toFixed(1)}s -> out/${slug}/${slug}.mp4`
   );
 }

@@ -7,12 +7,24 @@
   "correct": 3,
   "trap": 2,
   "seconds": 8,
+  "voice": "Samantha",
+  "rate": 178,
   "desmos": {
     "typed": "y=(x-14)(x+19)",
     "bounds": { "left": -32, "right": 27, "bottom": -330, "top": 190 },
     "vertex": { "x": -2.5, "y": -272.25 }
   },
-  "trapNote": "−33/2 averages the zeros as (−19 − 14)/2 — a sign slip on the 14.",
+  "narration": [
+    { "stage": "hook", "text": "Question twenty one. Most people expand this. Watch how fast it actually goes." },
+    { "stage": "read", "text": "It's already factored, so the zeros are sitting right there. Fourteen, and negative nineteen." },
+    { "stage": "type", "text": "Drop it straight into Desmos, exactly as written." },
+    { "stage": "graph", "text": "And there's the parabola." },
+    { "stage": "vertex", "text": "Here's the whole trick. The minimum of a parabola always sits exactly halfway between its two zeros." },
+    { "stage": "compute", "text": "So just average them. Fourteen plus negative nineteen is negative five. Divide by two. Negative five halves." },
+    { "stage": "trap", "text": "Now watch the sign, because this is where it gets you. Negative nineteen minus fourteen, over two, gives negative thirty three over two. That's choice C, and it is sitting right there waiting." },
+    { "stage": "answer", "text": "The answer is D. Negative five halves. Average the zeros, and you never expand anything." }
+  ],
   "takeaway": "The minimum of a parabola sits exactly halfway between its zeros. The zeros are 14 and −19, so the vertex is at their average: −5/2.",
+  "trapNote": "−33/2 averages the zeros as (−19 − 14)/2 — a sign slip on the 14.",
   "caption": "SAT Math, solved in 8 seconds.\n\nTwo factors means two zeros: 14 and −19. The minimum is always halfway between them, so average the zeros and you are done. Most students expand the whole thing first and lose a minute.\n\nWatch for the sign: (−19 − 14)/2 gives −33/2, and that wrong answer is sitting right there in the choices.\n\nSeva tells you WHY you missed it: content gap, trap answer, or rushing. Free trial — link in bio.\n\n#SAT #SATprep #SATmath #digitalSAT #desmos #sathacks #augustSAT #studytok #testprep"
 }
