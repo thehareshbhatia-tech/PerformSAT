@@ -1,0 +1,35 @@
+{
+  "name": "exp-decay-target",
+  "expressions": [
+    {
+      "id": "a",
+      "latex": "y=1200(0.85)^x",
+      "color": "#9A72C8",
+      "lineWidth": 4
+    },
+    {
+      "id": "b",
+      "latex": "y=600",
+      "color": "#8a8a8a",
+      "lineWidth": 3
+    },
+    {
+      "id": "p",
+      "latex": "(4.265,600)",
+      "color": "#D5572B",
+      "pointSize": 13,
+      "label": "drops below 600 at x = 4.27",
+      "showLabel": true,
+      "labelSize": "large",
+      "secret": true
+    }
+  ],
+  "bounds": {
+    "left": -1,
+    "right": 16,
+    "bottom": -120,
+    "top": 1350
+  },
+  "fontSize": 28,
+  "height": 880
+}

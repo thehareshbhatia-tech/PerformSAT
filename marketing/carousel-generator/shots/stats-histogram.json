@@ -1,0 +1,23 @@
+{
+  "name": "stats-histogram",
+  "expressions": [
+    {
+      "id": "l",
+      "latex": "L=[3,4,4,5,6,6,7,8,9,48]",
+      "color": "#1D2B3A"
+    },
+    {
+      "id": "p",
+      "latex": "\\operatorname{histogram}(L)",
+      "color": "#9A72C8"
+    }
+  ],
+  "bounds": {
+    "left": -3,
+    "right": 53,
+    "bottom": -0.7,
+    "top": 3.4
+  },
+  "fontSize": 22,
+  "height": 880
+}

@@ -1,0 +1,25 @@
+{
+  "name": "system-inequalities",
+  "expressions": [
+    {
+      "id": "a",
+      "latex": "y\\le-x+8",
+      "color": "#9A72C8",
+      "lineWidth": 4
+    },
+    {
+      "id": "b",
+      "latex": "y\\ge2x-4",
+      "color": "#D5572B",
+      "lineWidth": 4
+    }
+  ],
+  "bounds": {
+    "left": -4,
+    "right": 12,
+    "bottom": -6,
+    "top": 12
+  },
+  "fontSize": 28,
+  "height": 880
+}

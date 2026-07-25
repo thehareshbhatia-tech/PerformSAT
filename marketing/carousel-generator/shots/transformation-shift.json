@@ -1,0 +1,35 @@
+{
+  "name": "transformation-shift",
+  "expressions": [
+    {
+      "id": "a",
+      "latex": "y=x^2",
+      "color": "#8a8a8a",
+      "lineWidth": 3
+    },
+    {
+      "id": "b",
+      "latex": "y=(x-3)^2+2",
+      "color": "#9A72C8",
+      "lineWidth": 4
+    },
+    {
+      "id": "v",
+      "latex": "(3,2)",
+      "color": "#D5572B",
+      "pointSize": 13,
+      "label": "vertex moved to (3, 2)",
+      "showLabel": true,
+      "labelSize": "large",
+      "secret": true
+    }
+  ],
+  "bounds": {
+    "left": -6,
+    "right": 10,
+    "bottom": -2,
+    "top": 12
+  },
+  "fontSize": 28,
+  "height": 880
+}

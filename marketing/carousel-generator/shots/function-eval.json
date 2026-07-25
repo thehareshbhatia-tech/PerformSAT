@@ -1,0 +1,29 @@
+{
+  "name": "function-eval",
+  "expressions": [
+    {
+      "id": "f",
+      "latex": "f(x)=2x-7",
+      "color": "#9A72C8",
+      "lineWidth": 4
+    },
+    {
+      "id": "p",
+      "latex": "(5,f(5))",
+      "color": "#D5572B",
+      "pointSize": 13,
+      "label": "f(5) = 3",
+      "showLabel": true,
+      "labelSize": "large",
+      "secret": true
+    }
+  ],
+  "bounds": {
+    "left": -3,
+    "right": 11,
+    "bottom": -11,
+    "top": 7
+  },
+  "fontSize": 28,
+  "height": 880
+}

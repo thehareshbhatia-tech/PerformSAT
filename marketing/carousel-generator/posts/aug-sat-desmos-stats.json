@@ -1,0 +1,44 @@
+{
+  "slug": "aug-sat-desmos-stats",
+  "caption": "17 days until the August SAT.\n\nTen numbers, three ways to see them. Type the list once and Desmos gives you the mean, the shape and the five-number summary \u2014 no formulas, nothing added up by hand.\n\nSave this and try all three tonight. Seva's practice tests have the same calculator built in, so you can drill them until they're reflex. Free trial \u2014 link in bio.\n\n#SAT #SATprep #SATmath #satdesmos #desmos #justusedesmos #sathacks #digitalsathacks #augustSAT #digitalSAT #sattips #studytok #testprep #highschoolparents",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "SAT Math",
+      "title": "Every stats question, ==without a single formula==",
+      "badge": "Real screenshots \u2014 try each one tonight",
+      "stamp": "August SAT"
+    },
+    {
+      "type": "shot",
+      "eyebrow": "Move 1",
+      "title": "One outlier drags the mean, never the median",
+      "shot": "stats-mean-median.png",
+      "tip": "That 48 moves the mean to 10 and leaves the median at 6"
+    },
+    {
+      "type": "shot",
+      "eyebrow": "Move 2",
+      "title": "Type histogram(L) and the shape appears",
+      "shot": "stats-histogram.png",
+      "tip": "Same ten numbers \u2014 one long tail to the right"
+    },
+    {
+      "type": "shot",
+      "eyebrow": "Move 3",
+      "title": "boxplot(L) gives the five-number summary",
+      "shot": "stats-boxplot.png",
+      "tip": "The box holds the middle half of the data"
+    },
+    {
+      "type": "cta",
+      "eyebrow": "Why you actually miss questions",
+      "title": "Seva's practice tests have this exact calculator built in.",
+      "points": [
+        "Drill every move until it's reflex, not rescue",
+        "Every miss diagnosed: content gap, trap answer, or rushing",
+        "Real Bluebook-style adaptive practice tests"
+      ]
+    }
+  ]
+}

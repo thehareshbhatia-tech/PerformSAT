@@ -1,0 +1,44 @@
+{
+  "slug": "aug-sat-desmos-functions",
+  "caption": "11 days until the August SAT.\n\nDesmos understands function notation. Define f, then ask it for f of anything \u2014 and let it show you what a transformation actually does.\n\nSave this and try all three tonight. Seva's practice tests have the same calculator built in, so you can drill them until they're reflex. Free trial \u2014 link in bio.\n\n#SAT #SATprep #SATmath #satdesmos #desmos #justusedesmos #sathacks #digitalsathacks #augustSAT #digitalSAT #sattips #studytok #testprep #highschoolparents",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "SAT Math",
+      "title": "Function questions, ==answered by clicking==",
+      "badge": "Real screenshots \u2014 try each one tonight",
+      "stamp": "August SAT"
+    },
+    {
+      "type": "shot",
+      "eyebrow": "Move 1",
+      "title": "f(5) without substituting anything",
+      "shot": "function-eval.png",
+      "tip": "Define f, then plot the point (5, f(5))"
+    },
+    {
+      "type": "shot",
+      "eyebrow": "Move 2",
+      "title": "See exactly what a transformation does",
+      "shot": "transformation-shift.png",
+      "tip": "Minus 3 inside moves right, plus 2 outside moves up"
+    },
+    {
+      "type": "shot",
+      "eyebrow": "Move 3",
+      "title": "Line meets parabola: click both points",
+      "shot": "line-parabola.png",
+      "tip": "Two intersections, no quadratic formula"
+    },
+    {
+      "type": "cta",
+      "eyebrow": "Why you actually miss questions",
+      "title": "Seva's practice tests have this exact calculator built in.",
+      "points": [
+        "Drill every move until it's reflex, not rescue",
+        "Every miss diagnosed: content gap, trap answer, or rushing",
+        "Real Bluebook-style adaptive practice tests"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "name": "parallel-no-solution",
+  "expressions": [
+    {
+      "id": "a",
+      "latex": "y=2x+3",
+      "color": "#9A72C8",
+      "lineWidth": 4
+    },
+    {
+      "id": "b",
+      "latex": "y=2x-5",
+      "color": "#D5572B",
+      "lineWidth": 4
+    },
+    {
+      "id": "n",
+      "latex": "(2,-1)",
+      "color": "#1D2B3A",
+      "pointSize": 1,
+      "label": "they never meet: no solution",
+      "showLabel": true,
+      "labelSize": "large",
+      "secret": true
+    }
+  ],
+  "bounds": {
+    "left": -6,
+    "right": 10,
+    "bottom": -10,
+    "top": 12
+  },
+  "fontSize": 28,
+  "height": 880
+}

@@ -1,0 +1,44 @@
+{
+  "slug": "aug-sat-desmos-systems",
+  "caption": "8 days until the August SAT.\n\nEvery system question is really a picture. Graph both, and the answer is wherever they cross \u2014 or the fact that they never do.\n\nSave this and try all three tonight. Seva's practice tests have the same calculator built in, so you can drill them until they're reflex. Free trial \u2014 link in bio.\n\n#SAT #SATprep #SATmath #satdesmos #desmos #justusedesmos #sathacks #digitalsathacks #augustSAT #digitalSAT #sattips #studytok #testprep #highschoolparents",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "SAT Math",
+      "title": "Systems: the answer is ==a point you click==",
+      "badge": "Real screenshots \u2014 try each one tonight",
+      "stamp": "August SAT"
+    },
+    {
+      "type": "shot",
+      "eyebrow": "Move 1",
+      "title": "Two inequalities: the answer is the overlap",
+      "shot": "system-inequalities.png",
+      "tip": "The darker wedge satisfies both at once"
+    },
+    {
+      "type": "shot",
+      "eyebrow": "Move 2",
+      "title": "Same slope means no solution, and you can see it",
+      "shot": "parallel-no-solution.png",
+      "tip": "Parallel lines never cross, so there is no solution"
+    },
+    {
+      "type": "shot",
+      "eyebrow": "Move 3",
+      "title": "Quadratic and line: two answers, both clickable",
+      "shot": "quadratic-system.png",
+      "tip": "Intersections at (1, 5) and (4, 8)"
+    },
+    {
+      "type": "cta",
+      "eyebrow": "Why you actually miss questions",
+      "title": "Seva's practice tests have this exact calculator built in.",
+      "points": [
+        "Drill every move until it's reflex, not rescue",
+        "Every miss diagnosed: content gap, trap answer, or rushing",
+        "Real Bluebook-style adaptive practice tests"
+      ]
+    }
+  ]
+}
