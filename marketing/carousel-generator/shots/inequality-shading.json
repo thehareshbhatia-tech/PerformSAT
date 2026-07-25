@@ -1,5 +1,7 @@
 {
   "name": "inequality-shading",
+  "fontSize": 30,
+  "height": 760,
   "expressions": [
     {
       "id": "a",
@@ -12,10 +14,6 @@
       "latex": "(0,0)",
       "color": "#D5572B",
       "pointSize": 16,
-      "showLabel": true,
-      "label": "",
-      "labelSize": "1.0",
-      "labelOrientation": "right",
       "dragMode": "NONE",
       "secret": true
     }
@@ -26,6 +24,14 @@
     "bottom": -6,
     "top": 9
   },
-  "fontSize": 30,
-  "height": 760
+  "readouts": [
+    {
+      "point": [
+        0,
+        0
+      ],
+      "text": "(0, 0) works",
+      "place": "right"
+    }
+  ]
 }

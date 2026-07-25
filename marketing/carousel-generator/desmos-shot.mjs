@@ -90,5 +90,27 @@ for (const file of specFiles) {
   const tmpPng = join(work, `${name}.png`);
   browse('screenshot', '--selector', '#calc', tmpPng);
   copyFileSync(tmpPng, join(HERE, 'shots', `${name}.png`));
+
+  // Desmos draws its labels as bare text straight over the gridlines, which is
+  // unreadable once a curve runs behind them. Instead of labelling in Desmos,
+  // emit the pixel position of each point so the carousel can draw a boxed
+  // readout on top — the same white bubble Desmos shows when you click a point.
+  if (Array.isArray(spec.readouts) && spec.readouts.length) {
+    const gb = JSON.parse(browse('js', 'JSON.stringify(window.calculator.graphpaperBounds)'));
+    const m = gb.mathCoordinates;
+    const px = gb.pixelCoordinates;
+    const placed = spec.readouts.map((r) => {
+      const [mx, my] = r.point;
+      const x = px.left + ((mx - m.left) / m.width) * px.width;
+      const y = px.top + ((m.top - my) / m.height) * px.height;
+      return {
+        text: r.text,
+        place: r.place || 'right',
+        leftPct: Number(((x / W) * 100).toFixed(3)),
+        topPct: Number(((y / H) * 100).toFixed(3)),
+      };
+    });
+    writeFileSync(join(HERE, 'shots', `${name}.readouts.json`), `${JSON.stringify(placed, null, 2)}\n`);
+  }
   console.log(`${name}: ${W}x${H} -> shots/${name}.png`);
 }

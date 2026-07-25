@@ -1,5 +1,7 @@
 {
   "name": "quadratic-system",
+  "fontSize": 26,
+  "height": 760,
   "expressions": [
     {
       "id": "a",
@@ -18,10 +20,6 @@
       "latex": "(1,5)",
       "color": "#1D2B3A",
       "pointSize": 15,
-      "showLabel": true,
-      "label": "",
-      "labelSize": "1.0",
-      "labelOrientation": "below",
       "dragMode": "NONE",
       "secret": true
     },
@@ -30,10 +28,6 @@
       "latex": "(4,8)",
       "color": "#1D2B3A",
       "pointSize": 15,
-      "showLabel": true,
-      "label": "",
-      "labelSize": "1.0",
-      "labelOrientation": "above",
       "dragMode": "NONE",
       "secret": true
     }
@@ -44,6 +38,22 @@
     "bottom": -2,
     "top": 11
   },
-  "fontSize": 26,
-  "height": 760
+  "readouts": [
+    {
+      "point": [
+        1,
+        5
+      ],
+      "text": "(1, 5)",
+      "place": "left"
+    },
+    {
+      "point": [
+        4,
+        8
+      ],
+      "text": "(4, 8)",
+      "place": "right"
+    }
+  ]
 }

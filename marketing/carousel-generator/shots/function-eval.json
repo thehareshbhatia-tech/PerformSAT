@@ -1,5 +1,7 @@
 {
   "name": "function-eval",
+  "fontSize": 26,
+  "height": 760,
   "expressions": [
     {
       "id": "f",
@@ -17,10 +19,6 @@
       "latex": "(5,3)",
       "color": "#D5572B",
       "pointSize": 16,
-      "showLabel": true,
-      "label": "",
-      "labelSize": "1.0",
-      "labelOrientation": "above",
       "dragMode": "NONE",
       "secret": true
     }
@@ -31,6 +29,14 @@
     "bottom": -10,
     "top": 6
   },
-  "fontSize": 26,
-  "height": 760
+  "readouts": [
+    {
+      "point": [
+        5,
+        3
+      ],
+      "text": "(5, 3)",
+      "place": "above"
+    }
+  ]
 }

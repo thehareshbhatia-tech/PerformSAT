@@ -1,5 +1,7 @@
 {
   "name": "exp-growth",
+  "fontSize": 26,
+  "height": 760,
   "expressions": [
     {
       "id": "a",
@@ -17,10 +19,6 @@
       "latex": "(3,2700)",
       "color": "#D5572B",
       "pointSize": 16,
-      "showLabel": true,
-      "label": "",
-      "labelSize": "1.0",
-      "labelOrientation": "above",
       "dragMode": "NONE",
       "secret": true
     }
@@ -31,6 +29,14 @@
     "bottom": -200,
     "top": 3400
   },
-  "fontSize": 26,
-  "height": 760
+  "readouts": [
+    {
+      "point": [
+        3,
+        2700
+      ],
+      "text": "(3, 2700)",
+      "place": "left"
+    }
+  ]
 }

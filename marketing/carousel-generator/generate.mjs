@@ -50,6 +50,9 @@ for (const file of postFiles) {
         process.exit(1);
       }
       s._shotData = `data:image/png;base64,${readFileSync(shotPath).toString('base64')}`;
+      // Boxed coordinate readouts drawn over the shot (see desmos-shot.mjs).
+      const readoutPath = shotPath.replace(/\.png$/, '.readouts.json');
+      if (existsSync(readoutPath)) s._readouts = JSON.parse(readFileSync(readoutPath, 'utf8'));
     }
   }
   const outDir = join(HERE, 'out', slug);

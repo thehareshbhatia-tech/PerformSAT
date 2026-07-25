@@ -1,5 +1,7 @@
 {
   "name": "exp-half-life",
+  "fontSize": 26,
+  "height": 760,
   "expressions": [
     {
       "id": "a",
@@ -17,10 +19,6 @@
       "latex": "(3,80)",
       "color": "#D5572B",
       "pointSize": 16,
-      "showLabel": true,
-      "label": "",
-      "labelSize": "1.0",
-      "labelOrientation": "right",
       "dragMode": "NONE",
       "secret": true
     }
@@ -31,6 +29,14 @@
     "bottom": -12,
     "top": 180
   },
-  "fontSize": 26,
-  "height": 760
+  "readouts": [
+    {
+      "point": [
+        3,
+        80
+      ],
+      "text": "(3, 80)",
+      "place": "right"
+    }
+  ]
 }

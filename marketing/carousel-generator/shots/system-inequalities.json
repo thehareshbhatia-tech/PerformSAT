@@ -1,5 +1,7 @@
 {
   "name": "system-inequalities",
+  "fontSize": 26,
+  "height": 760,
   "expressions": [
     {
       "id": "a",
@@ -18,10 +20,6 @@
       "latex": "(4,4)",
       "color": "#1D2B3A",
       "pointSize": 16,
-      "showLabel": true,
-      "label": "",
-      "labelSize": "1.0",
-      "labelOrientation": "right",
       "dragMode": "NONE",
       "secret": true
     }
@@ -32,6 +30,14 @@
     "bottom": -5,
     "top": 11
   },
-  "fontSize": 26,
-  "height": 760
+  "readouts": [
+    {
+      "point": [
+        4,
+        4
+      ],
+      "text": "(4, 4)",
+      "place": "right"
+    }
+  ]
 }

@@ -1,5 +1,7 @@
 {
   "name": "abs-value-transform",
+  "fontSize": 26,
+  "height": 760,
   "expressions": [
     {
       "id": "a",
@@ -18,10 +20,6 @@
       "latex": "(2,-3)",
       "color": "#D5572B",
       "pointSize": 16,
-      "showLabel": true,
-      "label": "",
-      "labelSize": "1.0",
-      "labelOrientation": "below",
       "dragMode": "NONE",
       "secret": true
     }
@@ -32,6 +30,14 @@
     "bottom": -5,
     "top": 8
   },
-  "fontSize": 26,
-  "height": 760
+  "readouts": [
+    {
+      "point": [
+        2,
+        -3
+      ],
+      "text": "(2, -3)",
+      "place": "below"
+    }
+  ]
 }

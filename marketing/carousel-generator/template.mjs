@@ -142,7 +142,11 @@ const RENDER = {
   shot: (s) => `
     <div class="chiprow">${chip(s.eyebrow)}${s.step ? chip(s.step, 'orange') : ''}</div>
     <h2>${md(s.title)}</h2>
-    <div class="shot-card"><img src="${s._shotData}"></div>
+    <div class="shot-card"><div class="shot-figure"><img src="${s._shotData}">${
+      (s._readouts || []).map((r) =>
+        `<span class="readout ${r.place}" style="left:${r.leftPct}%;top:${r.topPct}%">${r.text}</span>`
+      ).join('')
+    }</div></div>
     ${s.tip ? callout(s.tip, 'TIP') : ''}`,
 
   cta: (s) => `
@@ -368,6 +372,22 @@ export function buildHtml(post) {
     box-shadow:0 16px 44px rgba(0,0,0,.28); margin-bottom:8px;
   }
   .shot-card img { width:100%; display:block; border-radius:14px; }
+
+  /* Coordinate readouts drawn over the graph. Desmos' own labels are bare text
+     on the gridlines and become unreadable the moment a curve runs behind them,
+     so these carry an opaque plate — the same white bubble the calculator shows
+     when you click a point. */
+  .shot-figure { position:relative; }
+  .readout {
+    position:absolute; white-space:nowrap; background:#fff;
+    border:2px solid ${B.navy}; border-radius:10px;
+    padding:8px 16px; font-size:30px; font-weight:700; color:${B.navy};
+    box-shadow:0 6px 18px rgba(0,0,0,.22); z-index:2;
+  }
+  .readout.right  { transform:translate(20px, -50%); }
+  .readout.left   { transform:translate(calc(-100% - 20px), -50%); }
+  .readout.above  { transform:translate(-50%, calc(-100% - 18px)); }
+  .readout.below  { transform:translate(-50%, 18px); }
 
   .swipe {
     position:absolute; bottom:150px; right:96px;

@@ -26,7 +26,7 @@
     {
       "type": "shot",
       "eyebrow": "Minimum",
-      "title": "Ugly numbers don't make it harder",
+      "title": "The minimum needs no algebra at all",
       "shot": "vertex-from-factored.png",
       "tip": "The minimum always sits halfway between the zeros \u2014 here, halfway between -7 and 3."
     },

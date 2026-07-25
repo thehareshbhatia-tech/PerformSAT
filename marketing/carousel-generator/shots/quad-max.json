@@ -1,5 +1,7 @@
 {
   "name": "quad-max",
+  "fontSize": 26,
+  "height": 760,
   "expressions": [
     {
       "id": "a",
@@ -12,10 +14,6 @@
       "latex": "(2,11)",
       "color": "#D5572B",
       "pointSize": 16,
-      "showLabel": true,
-      "label": "",
-      "labelSize": "1.0",
-      "labelOrientation": "above",
       "dragMode": "NONE",
       "secret": true
     }
@@ -26,6 +24,14 @@
     "bottom": -4,
     "top": 14
   },
-  "fontSize": 26,
-  "height": 760
+  "readouts": [
+    {
+      "point": [
+        2,
+        11
+      ],
+      "text": "(2, 11)",
+      "place": "above"
+    }
+  ]
 }

@@ -22,18 +22,6 @@
       "pointSize": 16,
       "dragMode": "NONE",
       "secret": true
-    },
-    {
-      "id": "t",
-      "latex": "(4.0,90)",
-      "color": "#1D2B3A",
-      "pointSize": 1,
-      "showLabel": true,
-      "label": "`(2.5, 137.5)`",
-      "labelSize": "1.0",
-      "labelOrientation": "default",
-      "dragMode": "NONE",
-      "secret": true
     }
   ],
   "bounds": {
@@ -41,5 +29,15 @@
     "right": 6,
     "bottom": -15,
     "top": 300
-  }
+  },
+  "readouts": [
+    {
+      "point": [
+        2.5,
+        137.5
+      ],
+      "text": "(2.5, 137.5)",
+      "place": "right"
+    }
+  ]
 }

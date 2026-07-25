@@ -13,7 +13,7 @@
       "id": "z1",
       "latex": "(-7,0)",
       "color": "#D5572B",
-      "pointSize": 15,
+      "pointSize": 16,
       "dragMode": "NONE",
       "secret": true
     },
@@ -21,7 +21,7 @@
       "id": "z2",
       "latex": "(3,0)",
       "color": "#D5572B",
-      "pointSize": 15,
+      "pointSize": 16,
       "dragMode": "NONE",
       "secret": true
     },
@@ -32,42 +32,6 @@
       "pointSize": 16,
       "dragMode": "NONE",
       "secret": true
-    },
-    {
-      "id": "t1",
-      "latex": "(-9.2,5.5)",
-      "color": "#D5572B",
-      "pointSize": 1,
-      "showLabel": true,
-      "label": "`(-7, 0)`",
-      "labelSize": "1.0",
-      "labelOrientation": "default",
-      "dragMode": "NONE",
-      "secret": true
-    },
-    {
-      "id": "t2",
-      "latex": "(5.2,5.5)",
-      "color": "#D5572B",
-      "pointSize": 1,
-      "showLabel": true,
-      "label": "`(3, 0)`",
-      "labelSize": "1.0",
-      "labelOrientation": "default",
-      "dragMode": "NONE",
-      "secret": true
-    },
-    {
-      "id": "t3",
-      "latex": "(-2,-29)",
-      "color": "#1D2B3A",
-      "pointSize": 1,
-      "showLabel": true,
-      "label": "`(-2, -25)`",
-      "labelSize": "1.0",
-      "labelOrientation": "default",
-      "dragMode": "NONE",
-      "secret": true
     }
   ],
   "bounds": {
@@ -75,5 +39,31 @@
     "right": 7.5,
     "bottom": -32,
     "top": 12
-  }
+  },
+  "readouts": [
+    {
+      "point": [
+        -7,
+        0
+      ],
+      "text": "(-7, 0)",
+      "place": "left"
+    },
+    {
+      "point": [
+        3,
+        0
+      ],
+      "text": "(3, 0)",
+      "place": "right"
+    },
+    {
+      "point": [
+        -2,
+        -25
+      ],
+      "text": "(-2, -25)",
+      "place": "below"
+    }
+  ]
 }
