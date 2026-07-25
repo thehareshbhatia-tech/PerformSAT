@@ -1,6 +1,6 @@
 3 days until the August SAT.
 
-Desmos understands function notation. Define f once, then ask it for f of anything — and let it show you what a transformation actually does instead of memorising which way the sign moves it.
+Desmos understands function notation. Define f once and you can ask it for f of anything — and when a graph shifts, it will show you which way instead of you memorising the rule.
 
 Save this one — it's the whole topic in one place. Seva's practice tests have the same calculator built in, so you can drill these until they're reflex. Free trial — link in bio.
 
