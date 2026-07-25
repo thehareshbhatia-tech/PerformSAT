@@ -1,6 +1,6 @@
 6 days until the August SAT.
 
-Every percent-growth question is the same move: type the model, then read the answer off the curve instead of solving for the exponent.
+Name the model once, then just ask Desmos for the value you want. Every percent-growth question becomes typing p(10) instead of solving for an exponent.
 
 Save this one — it's the whole topic in one place. Seva's practice tests have the same calculator built in, so you can drill these until they're reflex. Free trial — link in bio.
 
