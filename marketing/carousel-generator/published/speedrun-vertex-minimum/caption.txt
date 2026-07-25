@@ -1,0 +1,9 @@
+SAT Math, solved in 8 seconds.
+
+Two factors means two zeros: 14 and −19. The minimum is always halfway between them, so average the zeros and you are done. Most students expand the whole thing first and lose a minute.
+
+Watch for the sign: (−19 − 14)/2 gives −33/2, and that wrong answer is sitting right there in the choices.
+
+Seva tells you WHY you missed it: content gap, trap answer, or rushing. Free trial — link in bio.
+
+#SAT #SATprep #SATmath #digitalSAT #desmos #sathacks #augustSAT #studytok #testprep
