@@ -1,0 +1,18 @@
+{
+  "slug": "speedrun-vertex-minimum",
+  "number": 21,
+  "equation": "f(x) = (x − 14)(x + 19)",
+  "stem": "The function f is defined by the given equation. For what value of x does f(x) reach its minimum?",
+  "choices": ["−19", "14", "−33/2", "−5/2"],
+  "correct": 3,
+  "trap": 2,
+  "seconds": 8,
+  "desmos": {
+    "typed": "y=(x-14)(x+19)",
+    "bounds": { "left": -32, "right": 27, "bottom": -330, "top": 190 },
+    "vertex": { "x": -2.5, "y": -272.25 }
+  },
+  "trapNote": "−33/2 averages the zeros as (−19 − 14)/2 — a sign slip on the 14.",
+  "takeaway": "The minimum of a parabola sits exactly halfway between its zeros. The zeros are 14 and −19, so the vertex is at their average: −5/2.",
+  "caption": "SAT Math, solved in 8 seconds.\n\nTwo factors means two zeros: 14 and −19. The minimum is always halfway between them, so average the zeros and you are done. Most students expand the whole thing first and lose a minute.\n\nWatch for the sign: (−19 − 14)/2 gives −33/2, and that wrong answer is sitting right there in the choices.\n\nSeva tells you WHY you missed it: content gap, trap answer, or rushing. Free trial — link in bio.\n\n#SAT #SATprep #SATmath #digitalSAT #desmos #sathacks #augustSAT #studytok #testprep"
+}
