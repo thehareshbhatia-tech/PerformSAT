@@ -20,19 +20,22 @@
       "id": "pts",
       "latex": "(L,0)",
       "color": "#1D2B3A",
-      "pointSize": 13
+      "pointSize": 13,
+      "secret": true
     },
     {
       "id": "lm",
       "latex": "x=\\operatorname{mean}(L)",
       "color": "#D5572B",
-      "lineWidth": 6
+      "lineWidth": 6,
+      "secret": true
     },
     {
       "id": "ld",
       "latex": "x=\\operatorname{median}(L)",
       "color": "#9A72C8",
-      "lineWidth": 6
+      "lineWidth": 6,
+      "secret": true
     }
   ],
   "bounds": {
@@ -41,6 +44,24 @@
     "bottom": -1.2,
     "top": 1.6
   },
-  "fontSize": 22,
-  "height": 760
+  "fontSize": 18,
+  "height": 760,
+  "readouts": [
+    {
+      "point": [
+        10,
+        1.05
+      ],
+      "text": "mean = 10",
+      "place": "right"
+    },
+    {
+      "point": [
+        6,
+        -0.75
+      ],
+      "text": "median = 6",
+      "place": "left"
+    }
+  ]
 }

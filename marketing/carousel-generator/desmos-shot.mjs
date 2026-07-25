@@ -86,6 +86,12 @@ for (const file of specFiles) {
     process.exit(1);
   }
   await sleep(600);
+  // Strip the interactive chrome before capturing: the delete X on each row and
+  // the histogram/boxplot settings block ("Bar Heights", "Exclude Outliers").
+  // These are DOM, so a style override works — unlike the attribution badge,
+  // which Desmos draws into the graph canvas itself.
+  browse('js', `document.querySelectorAll('.dcg-top-level-delete, .dcg-visualization-parameters-container, .dcg-toggles-container').forEach((e) => e.style.setProperty('display', 'none', 'important')); 'ok'`);
+  await sleep(200);
   mkdirSync(join(HERE, 'shots'), { recursive: true });
   const tmpPng = join(work, `${name}.png`);
   browse('screenshot', '--selector', '#calc', tmpPng);
