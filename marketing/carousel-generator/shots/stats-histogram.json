@@ -7,7 +7,7 @@
       "color": "#1D2B3A"
     },
     {
-      "id": "p",
+      "id": "h",
       "latex": "\\operatorname{histogram}(L)",
       "color": "#9A72C8"
     }
@@ -15,8 +15,8 @@
   "bounds": {
     "left": -3,
     "right": 53,
-    "bottom": -0.7,
-    "top": 3.4
+    "bottom": -0.5,
+    "top": 3.2
   },
   "fontSize": 22,
   "height": 880

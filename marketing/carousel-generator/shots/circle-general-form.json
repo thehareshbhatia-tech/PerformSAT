@@ -5,25 +5,19 @@
       "id": "a",
       "latex": "x^2+y^2+8x-10y+5=0",
       "color": "#9A72C8",
-      "lineWidth": 4
+      "lineWidth": 7
     },
     {
       "id": "c",
       "latex": "(-4,5)",
       "color": "#D5572B",
-      "pointSize": 14,
-      "label": "center (-4, 5)",
+      "pointSize": 16,
       "showLabel": true,
-      "labelSize": "large",
+      "label": "",
+      "labelSize": "1.0",
+      "labelOrientation": "right",
+      "dragMode": "NONE",
       "secret": true
-    },
-    {
-      "id": "r",
-      "latex": "((-4)+6\\cos(t),5+6\\sin(t))",
-      "color": "#C6EE4E",
-      "lineWidth": 2,
-      "secret": true,
-      "hidden": true
     }
   ],
   "bounds": {
@@ -32,6 +26,6 @@
     "bottom": -3,
     "top": 13
   },
-  "height": 880,
-  "fontSize": 23
+  "fontSize": 23,
+  "height": 880
 }

@@ -14,7 +14,7 @@
       "eyebrow": "Move 1",
       "title": "Exponential growth: read it, don't solve it",
       "shot": "exp-growth.png",
-      "tip": "7% a year on 500 reaches 983.58 by year 10"
+      "tip": "Read the value off the curve instead of solving for x"
     },
     {
       "type": "shot",

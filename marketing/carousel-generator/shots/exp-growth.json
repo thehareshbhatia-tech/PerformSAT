@@ -5,25 +5,27 @@
       "id": "a",
       "latex": "y=500(1.07)^x",
       "color": "#9A72C8",
-      "lineWidth": 4
+      "lineWidth": 7
     },
     {
       "id": "p",
       "latex": "(10,983.58)",
       "color": "#D5572B",
-      "pointSize": 13,
-      "label": "after 10 years: 983.58",
+      "pointSize": 16,
       "showLabel": true,
-      "labelSize": "large",
+      "label": "",
+      "labelSize": "1.0",
+      "labelOrientation": "left",
+      "dragMode": "NONE",
       "secret": true
     }
   ],
   "bounds": {
-    "left": -1,
-    "right": 16,
-    "bottom": -150,
-    "top": 1500
+    "left": -0.5,
+    "right": 13,
+    "bottom": -60,
+    "top": 1250
   },
-  "fontSize": 28,
+  "fontSize": 26,
   "height": 880
 }

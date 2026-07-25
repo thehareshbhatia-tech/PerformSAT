@@ -4,7 +4,16 @@
 //   node desmos-shot.mjs shots/solve-linear.json      # one spec
 //   node desmos-shot.mjs                              # every spec in shots/
 //
-// Spec JSON: { name, width?, height?, fontSize?, expressions: [...], bounds: {left,right,bottom,top} }
+// Spec JSON: { name, width?, height?, fontSize?, projectorMode?, expressions: [...], bounds: {...} }
+//
+// projectorMode is ON by default: it thickens curves and enlarges axis numbers,
+// which is the difference between a screenshot that survives phone-sized viewing
+// and one that doesn't. Set it false only if a shot needs the thin default.
+//
+// To show a point's coordinates the way Desmos itself does, give the point
+// `showLabel: true` with `label: ""` — an empty label falls back to Desmos'
+// native coordinate readout in its own math type. Add `dragMode: "NONE"` or the
+// point renders with a draggable grey halo.
 // Expression objects pass straight through to Desmos.GraphingCalculator.setExpressions —
 // use secret:true on label-point expressions to keep the expression list showing only
 // the equations you'd actually type.
@@ -59,7 +68,8 @@ for (const file of specFiles) {
 <script>
   window.calculator = Desmos.GraphingCalculator(document.getElementById('calc'), {
     keypad:false, zoomButtons:false, settingsMenu:false, expressionsTopbar:false,
-    border:false, fontSize:${spec.fontSize || 24}, lockViewport:true
+    border:false, fontSize:${spec.fontSize || 24}, lockViewport:true,
+    projectorMode:${spec.projectorMode === false ? 'false' : 'true'}
   });
   window.calculator.setExpressions(${JSON.stringify(spec.expressions)});
   ${spec.bounds ? `window.calculator.setMathBounds(${JSON.stringify(spec.bounds)});` : ''}

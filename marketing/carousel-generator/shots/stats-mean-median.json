@@ -20,49 +20,26 @@
       "id": "pts",
       "latex": "(L,0)",
       "color": "#1D2B3A",
-      "pointSize": 12,
-      "secret": true
+      "pointSize": 13
     },
     {
       "id": "lm",
       "latex": "x=\\operatorname{mean}(L)",
       "color": "#D5572B",
-      "lineWidth": 4,
-      "secret": true
+      "lineWidth": 6
     },
     {
       "id": "ld",
       "latex": "x=\\operatorname{median}(L)",
       "color": "#9A72C8",
-      "lineWidth": 4,
-      "secret": true
-    },
-    {
-      "id": "t1",
-      "latex": "(6,1.75)",
-      "color": "#9A72C8",
-      "pointSize": 1,
-      "label": "median = 6",
-      "showLabel": true,
-      "labelSize": "large",
-      "secret": true
-    },
-    {
-      "id": "t2",
-      "latex": "(10,-0.85)",
-      "color": "#D5572B",
-      "pointSize": 1,
-      "label": "mean = 10, dragged by the 48",
-      "showLabel": true,
-      "labelSize": "large",
-      "secret": true
+      "lineWidth": 6
     }
   ],
   "bounds": {
     "left": -3,
     "right": 53,
-    "bottom": -1.3,
-    "top": 2.3
+    "bottom": -1.2,
+    "top": 1.6
   },
   "fontSize": 22,
   "height": 880

@@ -5,31 +5,33 @@
       "id": "a",
       "latex": "y=50+35x",
       "color": "#9A72C8",
-      "lineWidth": 4
+      "lineWidth": 7
     },
     {
       "id": "b",
       "latex": "y=55x",
       "color": "#D5572B",
-      "lineWidth": 4
+      "lineWidth": 7
     },
     {
       "id": "p",
       "latex": "(2.5,137.5)",
       "color": "#1D2B3A",
-      "pointSize": 14,
-      "label": "they tie at 2.5 hours",
+      "pointSize": 16,
       "showLabel": true,
-      "labelSize": "large",
+      "label": "",
+      "labelSize": "1.0",
+      "labelOrientation": "right",
+      "dragMode": "NONE",
       "secret": true
     }
   ],
   "bounds": {
-    "left": -0.5,
-    "right": 7,
-    "bottom": -30,
-    "top": 330
+    "left": -0.3,
+    "right": 6,
+    "bottom": -15,
+    "top": 300
   },
-  "fontSize": 28,
+  "fontSize": 26,
   "height": 880
 }

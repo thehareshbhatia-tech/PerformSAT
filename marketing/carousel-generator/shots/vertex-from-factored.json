@@ -5,45 +5,51 @@
       "id": "a",
       "latex": "y=(x-14)(x+19)",
       "color": "#9A72C8",
-      "lineWidth": 4
+      "lineWidth": 7
     },
     {
       "id": "z1",
-      "latex": "(14,0)",
+      "latex": "(-19,0)",
       "color": "#D5572B",
-      "pointSize": 13,
-      "label": "zero: x = 14",
+      "pointSize": 15,
       "showLabel": true,
-      "labelSize": "large",
+      "label": "",
+      "labelSize": "1.0",
+      "labelOrientation": "above",
+      "dragMode": "NONE",
       "secret": true
     },
     {
       "id": "z2",
-      "latex": "(-19,0)",
+      "latex": "(14,0)",
       "color": "#D5572B",
-      "pointSize": 13,
-      "label": "zero: x = -19",
+      "pointSize": 15,
       "showLabel": true,
-      "labelSize": "large",
+      "label": "",
+      "labelSize": "1.0",
+      "labelOrientation": "above",
+      "dragMode": "NONE",
       "secret": true
     },
     {
       "id": "v",
       "latex": "(-2.5,-272.25)",
       "color": "#1D2B3A",
-      "pointSize": 13,
-      "label": "minimum at x = -2.5",
+      "pointSize": 16,
       "showLabel": true,
-      "labelSize": "large",
+      "label": "",
+      "labelSize": "1.0",
+      "labelOrientation": "below",
+      "dragMode": "NONE",
       "secret": true
     }
   ],
   "bounds": {
-    "left": -30,
-    "right": 26,
-    "bottom": -340,
-    "top": 150
+    "left": -28,
+    "right": 24,
+    "bottom": -400,
+    "top": 110
   },
-  "height": 880,
-  "fontSize": 30
+  "fontSize": 26,
+  "height": 880
 }
