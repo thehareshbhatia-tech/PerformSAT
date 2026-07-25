@@ -1,0 +1,37 @@
+{
+  "name": "abs-value-transform",
+  "expressions": [
+    {
+      "id": "a",
+      "latex": "y=|x|",
+      "color": "#8a8a8a",
+      "lineWidth": 5
+    },
+    {
+      "id": "b",
+      "latex": "y=|x-2|-3",
+      "color": "#9A72C8",
+      "lineWidth": 7
+    },
+    {
+      "id": "v",
+      "latex": "(2,-3)",
+      "color": "#D5572B",
+      "pointSize": 16,
+      "showLabel": true,
+      "label": "",
+      "labelSize": "1.0",
+      "labelOrientation": "below",
+      "dragMode": "NONE",
+      "secret": true
+    }
+  ],
+  "bounds": {
+    "left": -6,
+    "right": 9,
+    "bottom": -5,
+    "top": 8
+  },
+  "fontSize": 26,
+  "height": 880
+}

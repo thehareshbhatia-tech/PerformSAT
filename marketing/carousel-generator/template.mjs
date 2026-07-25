@@ -156,7 +156,7 @@ const RENDER = {
             .join('')}</div>`
         : ''
     }
-    <div class="cta-btn">${s.button ? md(s.button) : 'Start your free trial'}<span class="cta-site">&rarr; link in bio</span></div>
+    <div class="cta-btn">${s.button ? md(s.button) : 'Start free today'}<span class="cta-site">&rarr; link in bio</span></div>
     <div class="cta-note">${
       s.keyword
         ? `Comment &quot;${esc(s.keyword)}&quot; and we'll DM you the link`

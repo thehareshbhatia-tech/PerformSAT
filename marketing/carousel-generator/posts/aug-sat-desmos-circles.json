@@ -1,0 +1,44 @@
+{
+  "slug": "aug-sat-desmos-circles",
+  "caption": "15 days until the August SAT.\n\nCircle questions look brutal in general form and take about four seconds in Desmos. Type the equation exactly as the SAT prints it and the center, the radius and any intersections are all right there.\n\nSave this one \u2014 it's the whole topic in one place. Seva's practice tests have the same calculator built in, so you can drill these until they're reflex. Free trial \u2014 link in bio.\n\n#SAT #SATprep #SATmath #satdesmos #desmos #justusedesmos #sathacks #digitalsathacks #augustSAT #digitalSAT #sattips #studytok #testprep #highschoolparents",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "SAT Math",
+      "title": "Everything Desmos does for ==circles==",
+      "badge": "Center, radius, intersections \u2014 no algebra",
+      "stamp": "August SAT"
+    },
+    {
+      "type": "shot",
+      "eyebrow": "Center",
+      "title": "Center: type it in general form, don't convert",
+      "shot": "circle-general-form.png",
+      "tip": "No completing the square to find the center"
+    },
+    {
+      "type": "shot",
+      "eyebrow": "Radius",
+      "title": "Radius: count from the center to the edge",
+      "shot": "circle-radius.png",
+      "tip": "Center to rim is 6, so the radius is 6"
+    },
+    {
+      "type": "shot",
+      "eyebrow": "Intersections",
+      "title": "Where a line cuts the circle",
+      "shot": "circle-line.png",
+      "tip": "Both crossing points, no substitution"
+    },
+    {
+      "type": "cta",
+      "eyebrow": "Why you actually miss questions",
+      "title": "Seva's practice tests have this exact calculator built in.",
+      "points": [
+        "Drill every move until it's reflex, not rescue",
+        "Every miss diagnosed: content gap, trap answer, or rushing",
+        "Real Bluebook-style adaptive practice tests"
+      ]
+    }
+  ]
+}

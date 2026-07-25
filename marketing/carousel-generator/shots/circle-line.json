@@ -1,0 +1,49 @@
+{
+  "name": "circle-line",
+  "expressions": [
+    {
+      "id": "a",
+      "latex": "x^2+y^2=25",
+      "color": "#9A72C8",
+      "lineWidth": 7
+    },
+    {
+      "id": "b",
+      "latex": "y=x+1",
+      "color": "#D5572B",
+      "lineWidth": 7
+    },
+    {
+      "id": "p1",
+      "latex": "(-4,-3)",
+      "color": "#1D2B3A",
+      "pointSize": 15,
+      "showLabel": true,
+      "label": "",
+      "labelSize": "1.0",
+      "labelOrientation": "left",
+      "dragMode": "NONE",
+      "secret": true
+    },
+    {
+      "id": "p2",
+      "latex": "(3,4)",
+      "color": "#1D2B3A",
+      "pointSize": 15,
+      "showLabel": true,
+      "label": "",
+      "labelSize": "1.0",
+      "labelOrientation": "right",
+      "dragMode": "NONE",
+      "secret": true
+    }
+  ],
+  "bounds": {
+    "left": -8.3,
+    "right": 8.3,
+    "bottom": -7,
+    "top": 7
+  },
+  "fontSize": 26,
+  "height": 880
+}

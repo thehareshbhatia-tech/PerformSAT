@@ -1,5 +1,5 @@
 {
-  "name": "circle-general-form",
+  "name": "circle-radius",
   "expressions": [
     {
       "id": "a",
@@ -11,6 +11,18 @@
       "id": "c",
       "latex": "(-4,5)",
       "color": "#D5572B",
+      "pointSize": 16,
+      "showLabel": true,
+      "label": "",
+      "labelSize": "1.0",
+      "labelOrientation": "left",
+      "dragMode": "NONE",
+      "secret": true
+    },
+    {
+      "id": "r",
+      "latex": "(2,5)",
+      "color": "#1D2B3A",
       "pointSize": 16,
       "showLabel": true,
       "label": "",

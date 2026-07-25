@@ -1,0 +1,43 @@
+{
+  "name": "quad-zeros",
+  "expressions": [
+    {
+      "id": "a",
+      "latex": "y=x^2-6x+8",
+      "color": "#9A72C8",
+      "lineWidth": 7
+    },
+    {
+      "id": "z1",
+      "latex": "(2,0)",
+      "color": "#D5572B",
+      "pointSize": 15,
+      "showLabel": true,
+      "label": "",
+      "labelSize": "1.0",
+      "labelOrientation": "above",
+      "dragMode": "NONE",
+      "secret": true
+    },
+    {
+      "id": "z2",
+      "latex": "(4,0)",
+      "color": "#D5572B",
+      "pointSize": 15,
+      "showLabel": true,
+      "label": "",
+      "labelSize": "1.0",
+      "labelOrientation": "above",
+      "dragMode": "NONE",
+      "secret": true
+    }
+  ],
+  "bounds": {
+    "left": -1,
+    "right": 7,
+    "bottom": -3,
+    "top": 5
+  },
+  "fontSize": 26,
+  "height": 880
+}

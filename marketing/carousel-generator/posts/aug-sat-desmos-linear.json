@@ -1,0 +1,51 @@
+{
+  "slug": "aug-sat-desmos-linear",
+  "caption": "12 days until the August SAT.\n\nA system is just two lines and a picture. Where they cross is the answer, and when they never cross Desmos shows you that too \u2014 which is the whole no-solution question.\n\nSave this one \u2014 it's the whole topic in one place. Seva's practice tests have the same calculator built in, so you can drill these until they're reflex. Free trial \u2014 link in bio.\n\n#SAT #SATprep #SATmath #satdesmos #desmos #justusedesmos #sathacks #digitalsathacks #augustSAT #digitalSAT #sattips #studytok #testprep #highschoolparents",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "SAT Math",
+      "title": "Everything Desmos does for ==lines and systems==",
+      "badge": "Intersections, no-solution, inequalities",
+      "stamp": "August SAT"
+    },
+    {
+      "type": "shot",
+      "eyebrow": "Intersection",
+      "title": "Break-even is where two costs meet",
+      "shot": "break-even-lines.png",
+      "tip": "The 50 dollar fee is erased at 2.5 hours"
+    },
+    {
+      "type": "shot",
+      "eyebrow": "No solution",
+      "title": "Same slope means no solution, and you see it",
+      "shot": "parallel-no-solution.png",
+      "tip": "Parallel lines never cross, so there is no solution"
+    },
+    {
+      "type": "shot",
+      "eyebrow": "Inequalities",
+      "title": "One inequality: it shades the region",
+      "shot": "inequality-shading.png",
+      "tip": "Test a point \u2014 if it's shaded, it works"
+    },
+    {
+      "type": "shot",
+      "eyebrow": "Overlap",
+      "title": "Two inequalities: the answer is the overlap",
+      "shot": "system-inequalities.png",
+      "tip": "The darker wedge satisfies both at once"
+    },
+    {
+      "type": "cta",
+      "eyebrow": "Why you actually miss questions",
+      "title": "Seva's practice tests have this exact calculator built in.",
+      "points": [
+        "Drill every move until it's reflex, not rescue",
+        "Every miss diagnosed: content gap, trap answer, or rushing",
+        "Real Bluebook-style adaptive practice tests"
+      ]
+    }
+  ]
+}

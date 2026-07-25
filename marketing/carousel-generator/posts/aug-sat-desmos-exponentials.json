@@ -1,0 +1,44 @@
+{
+  "slug": "aug-sat-desmos-exponentials",
+  "caption": "6 days until the August SAT.\n\nEvery percent-growth question is the same move: type the model, then read the answer off the curve instead of solving for the exponent.\n\nSave this one \u2014 it's the whole topic in one place. Seva's practice tests have the same calculator built in, so you can drill these until they're reflex. Free trial \u2014 link in bio.\n\n#SAT #SATprep #SATmath #satdesmos #desmos #justusedesmos #sathacks #digitalsathacks #augustSAT #digitalSAT #sattips #studytok #testprep #highschoolparents",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "SAT Math",
+      "title": "Everything Desmos does for ==growth and decay==",
+      "badge": "Growth, decay, half-life \u2014 read, don't solve",
+      "stamp": "August SAT"
+    },
+    {
+      "type": "shot",
+      "eyebrow": "Growth",
+      "title": "Growth: read the value off the curve",
+      "shot": "exp-growth.png",
+      "tip": "Read the value off the curve instead of solving for x"
+    },
+    {
+      "type": "shot",
+      "eyebrow": "Decay",
+      "title": "\"When does it drop below?\" is an intersection",
+      "shot": "exp-decay-target.png",
+      "tip": "Add the target line and click where they cross"
+    },
+    {
+      "type": "shot",
+      "eyebrow": "Half-life",
+      "title": "Half-life without touching a logarithm",
+      "shot": "exp-half-life.png",
+      "tip": "160 falls to 80 in exactly 3 units"
+    },
+    {
+      "type": "cta",
+      "eyebrow": "Why you actually miss questions",
+      "title": "Seva's practice tests have this exact calculator built in.",
+      "points": [
+        "Drill every move until it's reflex, not rescue",
+        "Every miss diagnosed: content gap, trap answer, or rushing",
+        "Real Bluebook-style adaptive practice tests"
+      ]
+    }
+  ]
+}

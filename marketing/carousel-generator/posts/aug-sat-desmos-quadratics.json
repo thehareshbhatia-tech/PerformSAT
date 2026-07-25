@@ -1,0 +1,51 @@
+{
+  "slug": "aug-sat-desmos-quadratics",
+  "caption": "18 days until the August SAT.\n\nEvery quadratic question on the SAT asks for one of four things: the zeros, the maximum, the minimum, or where it meets a line. Desmos hands you all four without factoring, completing the square, or the quadratic formula.\n\nSave this one \u2014 it's the whole topic in one place. Seva's practice tests have the same calculator built in, so you can drill these until they're reflex. Free trial \u2014 link in bio.\n\n#SAT #SATprep #SATmath #satdesmos #desmos #justusedesmos #sathacks #digitalsathacks #augustSAT #digitalSAT #sattips #studytok #testprep #highschoolparents",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "SAT Math",
+      "title": "Everything Desmos does for ==quadratics==",
+      "badge": "Zeros, max, min, systems \u2014 one screen each",
+      "stamp": "August SAT"
+    },
+    {
+      "type": "shot",
+      "eyebrow": "Zeros",
+      "title": "Zeros: never factor again",
+      "shot": "quad-zeros.png",
+      "tip": "Standard form straight in \u2014 both roots appear"
+    },
+    {
+      "type": "shot",
+      "eyebrow": "Maximum",
+      "title": "Maximum: the vertex is just a point",
+      "shot": "quad-max.png",
+      "tip": "No -b over 2a, no completing the square"
+    },
+    {
+      "type": "shot",
+      "eyebrow": "Minimum",
+      "title": "Minimum, even with ugly numbers",
+      "shot": "vertex-from-factored.png",
+      "tip": "It always sits halfway between the zeros"
+    },
+    {
+      "type": "shot",
+      "eyebrow": "Systems",
+      "title": "Quadratic in a system: click both crossings",
+      "shot": "quadratic-system.png",
+      "tip": "Two crossings means two solutions"
+    },
+    {
+      "type": "cta",
+      "eyebrow": "Why you actually miss questions",
+      "title": "Seva's practice tests have this exact calculator built in.",
+      "points": [
+        "Drill every move until it's reflex, not rescue",
+        "Every miss diagnosed: content gap, trap answer, or rushing",
+        "Real Bluebook-style adaptive practice tests"
+      ]
+    }
+  ]
+}

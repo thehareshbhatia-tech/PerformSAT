@@ -1,15 +1,15 @@
 {
-  "name": "circle-general-form",
+  "name": "exp-half-life",
   "expressions": [
     {
       "id": "a",
-      "latex": "x^2+y^2+8x-10y+5=0",
+      "latex": "y=160(0.5)^{\\frac{x}{3}}",
       "color": "#9A72C8",
       "lineWidth": 7
     },
     {
-      "id": "c",
-      "latex": "(-4,5)",
+      "id": "p",
+      "latex": "(3,80)",
       "color": "#D5572B",
       "pointSize": 16,
       "showLabel": true,
@@ -21,11 +21,11 @@
     }
   ],
   "bounds": {
-    "left": -13.5,
-    "right": 5.4,
-    "bottom": -3,
-    "top": 13
+    "left": -0.5,
+    "right": 13,
+    "bottom": -12,
+    "top": 180
   },
-  "fontSize": 17,
+  "fontSize": 26,
   "height": 880
 }
