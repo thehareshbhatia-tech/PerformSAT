@@ -1,0 +1,44 @@
+{
+  "slug": "aug-sat-desmos-no-algebra",
+  "caption": "18 days until the August SAT.\n\nThree more Desmos moves, real screenshots. Every one of these replaces algebra you were about to do by hand — and the SAT gives you the calculator for free.\n\nSave this and try all three tonight. Seva's practice tests have the same calculator built in, so you can drill them until they're reflex. Free trial — link in bio.\n\n#SAT #SATprep #SATmath #satdesmos #desmos #justusedesmos #sathacks #digitalsathacks #augustSAT #digitalSAT #sattips #studytok #testprep #highschoolparents",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "SAT Math",
+      "title": "3 more Desmos moves that ==skip the algebra==",
+      "badge": "Real screenshots — try each one tonight",
+      "stamp": "August SAT"
+    },
+    {
+      "type": "shot",
+      "eyebrow": "Move 1",
+      "title": "Minimums without a single step of algebra",
+      "shot": "vertex-from-factored.png",
+      "tip": "The minimum sits halfway between the zeros"
+    },
+    {
+      "type": "shot",
+      "eyebrow": "Move 2",
+      "title": "Circles: never complete the square again",
+      "shot": "circle-general-form.png",
+      "tip": "Type it raw — the center is right there"
+    },
+    {
+      "type": "shot",
+      "eyebrow": "Move 3",
+      "title": "Inequalities: let it shade the answer",
+      "shot": "inequality-shading.png",
+      "tip": "Test a point — if it's shaded, it works"
+    },
+    {
+      "type": "cta",
+      "eyebrow": "Why you actually miss questions",
+      "title": "Seva's practice tests have this exact calculator built in.",
+      "points": [
+        "Drill every move until it's reflex, not rescue",
+        "Every miss diagnosed: content gap, trap answer, or rushing",
+        "Real Bluebook-style adaptive practice tests"
+      ]
+    }
+  ]
+}

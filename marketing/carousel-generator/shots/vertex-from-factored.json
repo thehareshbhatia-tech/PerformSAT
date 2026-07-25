@@ -1,0 +1,49 @@
+{
+  "name": "vertex-from-factored",
+  "expressions": [
+    {
+      "id": "a",
+      "latex": "y=(x-14)(x+19)",
+      "color": "#9A72C8",
+      "lineWidth": 4
+    },
+    {
+      "id": "z1",
+      "latex": "(14,0)",
+      "color": "#D5572B",
+      "pointSize": 13,
+      "label": "zero: x = 14",
+      "showLabel": true,
+      "labelSize": "large",
+      "secret": true
+    },
+    {
+      "id": "z2",
+      "latex": "(-19,0)",
+      "color": "#D5572B",
+      "pointSize": 13,
+      "label": "zero: x = -19",
+      "showLabel": true,
+      "labelSize": "large",
+      "secret": true
+    },
+    {
+      "id": "v",
+      "latex": "(-2.5,-272.25)",
+      "color": "#1D2B3A",
+      "pointSize": 13,
+      "label": "minimum at x = -2.5",
+      "showLabel": true,
+      "labelSize": "large",
+      "secret": true
+    }
+  ],
+  "bounds": {
+    "left": -30,
+    "right": 26,
+    "bottom": -340,
+    "top": 150
+  },
+  "height": 880,
+  "fontSize": 30
+}

@@ -1,0 +1,37 @@
+{
+  "name": "circle-general-form",
+  "expressions": [
+    {
+      "id": "a",
+      "latex": "x^2+y^2+8x-10y+5=0",
+      "color": "#9A72C8",
+      "lineWidth": 4
+    },
+    {
+      "id": "c",
+      "latex": "(-4,5)",
+      "color": "#D5572B",
+      "pointSize": 14,
+      "label": "center (-4, 5)",
+      "showLabel": true,
+      "labelSize": "large",
+      "secret": true
+    },
+    {
+      "id": "r",
+      "latex": "((-4)+6\\cos(t),5+6\\sin(t))",
+      "color": "#C6EE4E",
+      "lineWidth": 2,
+      "secret": true,
+      "hidden": true
+    }
+  ],
+  "bounds": {
+    "left": -13.5,
+    "right": 5.4,
+    "bottom": -3,
+    "top": 13
+  },
+  "height": 880,
+  "fontSize": 23
+}
