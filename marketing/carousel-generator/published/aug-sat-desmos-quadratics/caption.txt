@@ -1,6 +1,6 @@
 18 days until the August SAT.
 
-Every quadratic question on the SAT asks for one of four things: the zeros, the maximum, the minimum, or where it meets a line. Desmos hands you all four without factoring, completing the square, or the quadratic formula.
+Every quadratic question asks for one of four things: the zeros, the maximum, the minimum, or where it meets a line. Click the curve and Desmos marks all four for you — no factoring, no completing the square, no quadratic formula.
 
 Save this one — it's the whole topic in one place. Seva's practice tests have the same calculator built in, so you can drill these until they're reflex. Free trial — link in bio.
 
