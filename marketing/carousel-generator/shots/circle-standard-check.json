@@ -1,11 +1,18 @@
 {
-  "name": "circle-general-form",
+  "name": "circle-standard-check",
   "expressions": [
     {
       "id": "a",
       "latex": "x^2+y^2+8x-10y+5=0",
       "color": "#9A72C8",
       "lineWidth": 7
+    },
+    {
+      "id": "b",
+      "latex": "(x+4)^2+(y-5)^2=36",
+      "color": "#7FB800",
+      "lineWidth": 5,
+      "lineStyle": "DASHED"
     }
   ],
   "bounds": {

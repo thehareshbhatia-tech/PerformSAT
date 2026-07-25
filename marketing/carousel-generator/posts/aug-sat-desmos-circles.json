@@ -1,34 +1,41 @@
 {
   "slug": "aug-sat-desmos-circles",
-  "caption": "15 days until the August SAT.\n\nCircle questions look brutal in general form and take about four seconds in Desmos. Type the equation exactly as the SAT prints it and the center, the radius and any intersections are all right there.\n\nSave this one \u2014 it's the whole topic in one place. Seva's practice tests have the same calculator built in, so you can drill these until they're reflex. Free trial \u2014 link in bio.\n\n#SAT #SATprep #SATmath #satdesmos #desmos #justusedesmos #sathacks #digitalsathacks #augustSAT #digitalSAT #sattips #studytok #testprep #highschoolparents",
+  "caption": "15 days until the August SAT.\n\nCircle questions look brutal in general form. Desmos will graph that form exactly as the SAT prints it \u2014 so instead of completing the square, you draw the circle and read what you need off the grid.\n\nSave this one \u2014 it's the whole topic in one place. Seva's practice tests have the same calculator built in, so you can drill these until they're reflex. Free trial \u2014 link in bio.\n\n#SAT #SATprep #SATmath #satdesmos #desmos #justusedesmos #sathacks #digitalsathacks #augustSAT #digitalSAT #sattips #studytok #testprep #highschoolparents",
   "slides": [
     {
       "type": "cover",
       "eyebrow": "SAT Math",
       "title": "Everything Desmos does for ==circles==",
-      "badge": "Center, radius, intersections \u2014 no algebra",
+      "badge": "Graph general form, read the rest off the grid",
       "stamp": "August SAT"
     },
     {
       "type": "shot",
-      "eyebrow": "Center",
-      "title": "Center: type it in general form, don't convert",
+      "eyebrow": "Graphing",
+      "title": "Paste general form in \u2014 it just draws it",
       "shot": "circle-general-form.png",
-      "tip": "No completing the square to find the center"
+      "tip": "Desmos won't hand you the centre, but it will graph the equation without any conversion first."
     },
     {
       "type": "shot",
-      "eyebrow": "Radius",
-      "title": "Radius: count from the center to the edge",
+      "eyebrow": "Centre & radius",
+      "title": "Read them off the gridlines",
       "shot": "circle-radius.png",
-      "tip": "Center to rim is 6, so the radius is 6"
+      "tip": "The middle sits at (-4, 5) and it's 6 squares to the edge, so r = 6. Counting beats algebra."
+    },
+    {
+      "type": "shot",
+      "eyebrow": "Checking",
+      "title": "Prove your completed square is right",
+      "shot": "circle-standard-check.png",
+      "tip": "Graph your standard form on top. If the dashed circle lands exactly on the solid one, you did it correctly."
     },
     {
       "type": "shot",
       "eyebrow": "Intersections",
       "title": "Where a line cuts the circle",
       "shot": "circle-line.png",
-      "tip": "Both crossing points, no substitution"
+      "tip": "Graph both and read the crossings: (-4, -3) and (3, 4). No substitution, no messy quadratic."
     },
     {
       "type": "cta",

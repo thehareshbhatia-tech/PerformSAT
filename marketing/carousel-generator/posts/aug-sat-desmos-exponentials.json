@@ -1,6 +1,6 @@
 {
   "slug": "aug-sat-desmos-exponentials",
-  "caption": "6 days until the August SAT.\n\nEvery percent-growth question is the same move: type the model, then read the answer off the curve instead of solving for the exponent.\n\nSave this one \u2014 it's the whole topic in one place. Seva's practice tests have the same calculator built in, so you can drill these until they're reflex. Free trial \u2014 link in bio.\n\n#SAT #SATprep #SATmath #satdesmos #desmos #justusedesmos #sathacks #digitalsathacks #augustSAT #digitalSAT #sattips #studytok #testprep #highschoolparents",
+  "caption": "6 days until the August SAT.\n\nName the model once, then just ask Desmos for the value you want. Every percent-growth question becomes typing p(10) instead of solving for an exponent.\n\nSave this one \u2014 it's the whole topic in one place. Seva's practice tests have the same calculator built in, so you can drill these until they're reflex. Free trial \u2014 link in bio.\n\n#SAT #SATprep #SATmath #satdesmos #desmos #justusedesmos #sathacks #digitalsathacks #augustSAT #digitalSAT #sattips #studytok #testprep #highschoolparents",
   "slides": [
     {
       "type": "cover",
@@ -12,23 +12,23 @@
     {
       "type": "shot",
       "eyebrow": "Growth",
-      "title": "Growth: read the value off the curve",
+      "title": "Define p(x), then type p(10)",
       "shot": "exp-growth.png",
-      "tip": "Read the value off the curve instead of solving for x"
+      "tip": "Desmos prints the value beside it: 500 growing at 7% a year reaches 983.58 by year 10."
     },
     {
       "type": "shot",
       "eyebrow": "Decay",
-      "title": "\"When does it drop below?\" is an intersection",
+      "title": "\"When does it drop below?\" is a crossing",
       "shot": "exp-decay-target.png",
-      "tip": "Add the target line and click where they cross"
+      "tip": "Graph the target as a flat line and click where the curve meets it \u2014 that's your answer for x."
     },
     {
       "type": "shot",
       "eyebrow": "Half-life",
-      "title": "Half-life without touching a logarithm",
+      "title": "Ask for h(3) and skip the logarithm",
       "shot": "exp-half-life.png",
-      "tip": "160 falls to 80 in exactly 3 units"
+      "tip": "160 falls to exactly 80 in 3 units. Halving questions never need logs on this test."
     },
     {
       "type": "cta",

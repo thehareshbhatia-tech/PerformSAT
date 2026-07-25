@@ -8,8 +8,13 @@
       "lineWidth": 7
     },
     {
+      "id": "v",
+      "latex": "f(5)",
+      "color": "#1D2B3A"
+    },
+    {
       "id": "p",
-      "latex": "(5,f(5))",
+      "latex": "(5,3)",
       "color": "#D5572B",
       "pointSize": 16,
       "showLabel": true,
@@ -27,5 +32,5 @@
     "top": 6
   },
   "fontSize": 26,
-  "height": 880
+  "height": 760
 }

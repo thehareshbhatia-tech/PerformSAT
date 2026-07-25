@@ -15,7 +15,7 @@
       "showLabel": true,
       "label": "",
       "labelSize": "1.0",
-      "labelOrientation": "left",
+      "labelOrientation": "above",
       "dragMode": "NONE",
       "secret": true
     },
@@ -27,17 +27,17 @@
       "showLabel": true,
       "label": "",
       "labelSize": "1.0",
-      "labelOrientation": "right",
+      "labelOrientation": "above",
       "dragMode": "NONE",
       "secret": true
     }
   ],
   "bounds": {
-    "left": -13.5,
-    "right": 5.4,
+    "left": -14.95,
+    "right": 6.95,
     "bottom": -3,
     "top": 13
   },
   "fontSize": 17,
-  "height": 880
+  "height": 760
 }

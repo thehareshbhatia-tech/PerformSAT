@@ -1,34 +1,34 @@
 {
   "slug": "aug-sat-desmos-functions",
-  "caption": "3 days until the August SAT.\n\nDesmos understands function notation. Define f once, then ask it for f of anything \u2014 and let it show you what a transformation actually does instead of memorising which way the sign moves it.\n\nSave this one \u2014 it's the whole topic in one place. Seva's practice tests have the same calculator built in, so you can drill these until they're reflex. Free trial \u2014 link in bio.\n\n#SAT #SATprep #SATmath #satdesmos #desmos #justusedesmos #sathacks #digitalsathacks #augustSAT #digitalSAT #sattips #studytok #testprep #highschoolparents",
+  "caption": "3 days until the August SAT.\n\nDesmos understands function notation. Define f once and you can ask it for f of anything \u2014 and when a graph shifts, it will show you which way instead of you memorising the rule.\n\nSave this one \u2014 it's the whole topic in one place. Seva's practice tests have the same calculator built in, so you can drill these until they're reflex. Free trial \u2014 link in bio.\n\n#SAT #SATprep #SATmath #satdesmos #desmos #justusedesmos #sathacks #digitalsathacks #augustSAT #digitalSAT #sattips #studytok #testprep #highschoolparents",
   "slides": [
     {
       "type": "cover",
       "eyebrow": "SAT Math",
       "title": "Everything Desmos does for ==functions==",
-      "badge": "Evaluate, transform, and see the shift",
+      "badge": "Evaluate and transform, without substituting",
       "stamp": "August SAT"
     },
     {
       "type": "shot",
       "eyebrow": "Evaluate",
-      "title": "f(5) without substituting anything",
+      "title": "Define f, then literally type f(5)",
       "shot": "function-eval.png",
-      "tip": "Define f, then plot the point (5, f(5))"
+      "tip": "Desmos prints = 3 right next to it. No substituting, no arithmetic, no chance of a sign slip."
     },
     {
       "type": "shot",
       "eyebrow": "Transform",
-      "title": "See exactly what a shift does to a parabola",
+      "title": "Put both versions on screen at once",
       "shot": "transformation-shift.png",
-      "tip": "Minus 3 inside moves right, plus 2 outside moves up"
+      "tip": "Minus 3 inside moves it right; plus 2 outside moves it up. The vertex lands at (3, 2)."
     },
     {
       "type": "shot",
-      "eyebrow": "Transform",
-      "title": "The same rule works on any shape",
+      "eyebrow": "Any shape",
+      "title": "The same rule works on absolute value",
       "shot": "abs-value-transform.png",
-      "tip": "Absolute value shifts by the same logic"
+      "tip": "Inside the bars shifts sideways, outside shifts vertically \u2014 identical logic, different shape."
     },
     {
       "type": "cta",

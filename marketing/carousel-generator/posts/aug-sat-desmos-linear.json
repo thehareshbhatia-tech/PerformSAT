@@ -1,6 +1,6 @@
 {
   "slug": "aug-sat-desmos-linear",
-  "caption": "12 days until the August SAT.\n\nA system is just two lines and a picture. Where they cross is the answer, and when they never cross Desmos shows you that too \u2014 which is the whole no-solution question.\n\nSave this one \u2014 it's the whole topic in one place. Seva's practice tests have the same calculator built in, so you can drill these until they're reflex. Free trial \u2014 link in bio.\n\n#SAT #SATprep #SATmath #satdesmos #desmos #justusedesmos #sathacks #digitalsathacks #augustSAT #digitalSAT #sattips #studytok #testprep #highschoolparents",
+  "caption": "12 days until the August SAT.\n\nA system is two lines and a picture. Where they cross is the answer \u2014 and when they never cross, Desmos shows you that too, which is the entire no-solution question.\n\nSave this one \u2014 it's the whole topic in one place. Seva's practice tests have the same calculator built in, so you can drill these until they're reflex. Free trial \u2014 link in bio.\n\n#SAT #SATprep #SATmath #satdesmos #desmos #justusedesmos #sathacks #digitalsathacks #augustSAT #digitalSAT #sattips #studytok #testprep #highschoolparents",
   "slides": [
     {
       "type": "cover",
@@ -12,30 +12,30 @@
     {
       "type": "shot",
       "eyebrow": "Intersection",
-      "title": "Break-even is where two costs meet",
+      "title": "Graph both costs and click where they meet",
       "shot": "break-even-lines.png",
-      "tip": "The 50 dollar fee is erased at 2.5 hours"
+      "tip": "They tie at (2.5, 137.5), so the 50 dollar fee is erased after 2.5 hours."
     },
     {
       "type": "shot",
       "eyebrow": "No solution",
-      "title": "Same slope means no solution, and you see it",
+      "title": "Same slope, and you can see why",
       "shot": "parallel-no-solution.png",
-      "tip": "Parallel lines never cross, so there is no solution"
+      "tip": "Nothing to click here \u2014 the lines never touch, and that's exactly what 'no solution' means."
     },
     {
       "type": "shot",
       "eyebrow": "Inequalities",
-      "title": "One inequality: it shades the region",
+      "title": "Change = to < and it shades",
       "shot": "inequality-shading.png",
-      "tip": "Test a point \u2014 if it's shaded, it works"
+      "tip": "Everything shaded satisfies the inequality. Test any point: if it's in the shading, it works."
     },
     {
       "type": "shot",
       "eyebrow": "Overlap",
-      "title": "Two inequalities: the answer is the overlap",
+      "title": "Two inequalities, one answer region",
       "shot": "system-inequalities.png",
-      "tip": "The darker wedge satisfies both at once"
+      "tip": "The darker wedge is where both shadings overlap \u2014 that's the solution to the system."
     },
     {
       "type": "cta",

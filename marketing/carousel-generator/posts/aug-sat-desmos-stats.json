@@ -1,6 +1,6 @@
 {
   "slug": "aug-sat-desmos-stats",
-  "caption": "9 days until the August SAT.\n\nTen numbers, three ways to see them. Type the list once and Desmos gives you the mean, the shape and the five-number summary \u2014 no formulas, nothing added up by hand.\n\nSave this one \u2014 it's the whole topic in one place. Seva's practice tests have the same calculator built in, so you can drill these until they're reflex. Free trial \u2014 link in bio.\n\n#SAT #SATprep #SATmath #satdesmos #desmos #justusedesmos #sathacks #digitalsathacks #augustSAT #digitalSAT #sattips #studytok #testprep #highschoolparents",
+  "caption": "9 days until the August SAT.\n\nType your data into a list once, and Desmos will compute the mean and median and draw the shape. Nothing gets added up by hand, and no formula gets memorised.\n\nSave this one \u2014 it's the whole topic in one place. Seva's practice tests have the same calculator built in, so you can drill these until they're reflex. Free trial \u2014 link in bio.\n\n#SAT #SATprep #SATmath #satdesmos #desmos #justusedesmos #sathacks #digitalsathacks #augustSAT #digitalSAT #sattips #studytok #testprep #highschoolparents",
   "slides": [
     {
       "type": "cover",
@@ -12,23 +12,23 @@
     {
       "type": "shot",
       "eyebrow": "Mean vs median",
-      "title": "One outlier drags the mean, never the median",
+      "title": "Type mean(L) and median(L)",
       "shot": "stats-mean-median.png",
-      "tip": "That 48 moves the mean to 10 and leaves the median at 6"
+      "tip": "Desmos prints = 10 and = 6. That single 48 drags the mean upward and leaves the median alone."
     },
     {
       "type": "shot",
       "eyebrow": "Shape",
-      "title": "Type histogram(L) and the shape appears",
+      "title": "Type histogram(L)",
       "shot": "stats-histogram.png",
-      "tip": "Same ten numbers \u2014 one long tail to the right"
+      "tip": "The same ten numbers, drawn. One long tail to the right is what 'skewed' actually looks like."
     },
     {
       "type": "shot",
       "eyebrow": "Spread",
-      "title": "boxplot(L) gives the five-number summary",
+      "title": "Type boxplot(L)",
       "shot": "stats-boxplot.png",
-      "tip": "The box holds the middle half of the data"
+      "tip": "The box holds the middle half of the data, so median, quartiles and range all read straight off it."
     },
     {
       "type": "cta",

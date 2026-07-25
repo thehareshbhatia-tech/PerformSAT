@@ -1,6 +1,6 @@
 {
   "slug": "aug-sat-desmos-quadratics",
-  "caption": "18 days until the August SAT.\n\nEvery quadratic question on the SAT asks for one of four things: the zeros, the maximum, the minimum, or where it meets a line. Desmos hands you all four without factoring, completing the square, or the quadratic formula.\n\nSave this one \u2014 it's the whole topic in one place. Seva's practice tests have the same calculator built in, so you can drill these until they're reflex. Free trial \u2014 link in bio.\n\n#SAT #SATprep #SATmath #satdesmos #desmos #justusedesmos #sathacks #digitalsathacks #augustSAT #digitalSAT #sattips #studytok #testprep #highschoolparents",
+  "caption": "18 days until the August SAT.\n\nEvery quadratic question asks for one of four things: the zeros, the maximum, the minimum, or where it meets a line. Click the curve and Desmos marks all four for you \u2014 no factoring, no completing the square, no quadratic formula.\n\nSave this one \u2014 it's the whole topic in one place. Seva's practice tests have the same calculator built in, so you can drill these until they're reflex. Free trial \u2014 link in bio.\n\n#SAT #SATprep #SATmath #satdesmos #desmos #justusedesmos #sathacks #digitalsathacks #augustSAT #digitalSAT #sattips #studytok #testprep #highschoolparents",
   "slides": [
     {
       "type": "cover",
@@ -12,30 +12,30 @@
     {
       "type": "shot",
       "eyebrow": "Zeros",
-      "title": "Zeros: never factor again",
+      "title": "Type it in standard form, then click the curve",
       "shot": "quad-zeros.png",
-      "tip": "Standard form straight in \u2014 both roots appear"
+      "tip": "Desmos marks both roots as grey dots. Click one and it shows (2, 0) \u2014 you never factored anything."
     },
     {
       "type": "shot",
       "eyebrow": "Maximum",
-      "title": "Maximum: the vertex is just a point",
+      "title": "The peak is a point Desmos already knows",
       "shot": "quad-max.png",
-      "tip": "No -b over 2a, no completing the square"
+      "tip": "Click the top of the curve for (2, 11). No -b/2a, and no completing the square to get there."
     },
     {
       "type": "shot",
       "eyebrow": "Minimum",
-      "title": "Minimum, even with ugly numbers",
+      "title": "Ugly numbers don't make it harder",
       "shot": "vertex-from-factored.png",
-      "tip": "It always sits halfway between the zeros"
+      "tip": "The minimum always sits halfway between the zeros \u2014 here, halfway between -19 and 14."
     },
     {
       "type": "shot",
       "eyebrow": "Systems",
-      "title": "Quadratic in a system: click both crossings",
+      "title": "A quadratic and a line cross twice",
       "shot": "quadratic-system.png",
-      "tip": "Two crossings means two solutions"
+      "tip": "Graph both and click each crossing. Two crossings means two solutions to the system."
     },
     {
       "type": "cta",

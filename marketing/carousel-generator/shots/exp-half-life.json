@@ -3,9 +3,14 @@
   "expressions": [
     {
       "id": "a",
-      "latex": "y=160(0.5)^{\\frac{x}{3}}",
+      "latex": "h(x)=160(0.5)^{\\frac{x}{3}}",
       "color": "#9A72C8",
       "lineWidth": 7
+    },
+    {
+      "id": "v",
+      "latex": "h(3)",
+      "color": "#1D2B3A"
     },
     {
       "id": "p",
@@ -27,5 +32,5 @@
     "top": 180
   },
   "fontSize": 26,
-  "height": 880
+  "height": 760
 }
