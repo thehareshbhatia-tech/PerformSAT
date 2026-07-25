@@ -12,16 +12,16 @@
     {
       "type": "shot",
       "eyebrow": "Growth",
-      "title": "Define p(x), then type p(10)",
+      "title": "Define p(x), then type p(3)",
       "shot": "exp-growth.png",
-      "tip": "Desmos prints the value beside it: 500 growing at 7% a year reaches 983.58 by year 10."
+      "tip": "Desmos prints the value beside it: 800 growing at 50% a year reaches 2,700 in 3 years."
     },
     {
       "type": "shot",
       "eyebrow": "Decay",
       "title": "\"When does it drop below?\" is a crossing",
       "shot": "exp-decay-target.png",
-      "tip": "Graph the target as a flat line and click where the curve meets it \u2014 that's your answer for x."
+      "tip": "Graph the target as a flat line: 1,200 halving each year hits 300 at exactly x = 2."
     },
     {
       "type": "shot",

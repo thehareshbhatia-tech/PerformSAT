@@ -21,7 +21,7 @@
       "showLabel": true,
       "label": "",
       "labelSize": "1.0",
-      "labelOrientation": "right",
+      "labelOrientation": "below",
       "dragMode": "NONE",
       "secret": true
     }

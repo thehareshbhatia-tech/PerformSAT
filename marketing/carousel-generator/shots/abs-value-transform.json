@@ -3,13 +3,13 @@
   "expressions": [
     {
       "id": "a",
-      "latex": "y=|x|",
+      "latex": "y=\\left|x\\right|",
       "color": "#8a8a8a",
       "lineWidth": 5
     },
     {
       "id": "b",
-      "latex": "y=|x-2|-3",
+      "latex": "y=\\left|x-2\\right|-3",
       "color": "#9A72C8",
       "lineWidth": 7
     },

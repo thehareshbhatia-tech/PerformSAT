@@ -1,55 +1,79 @@
 {
   "name": "vertex-from-factored",
+  "fontSize": 26,
+  "height": 760,
   "expressions": [
     {
       "id": "a",
-      "latex": "y=(x-14)(x+19)",
+      "latex": "y=(x-3)(x+7)",
       "color": "#9A72C8",
       "lineWidth": 7
     },
     {
       "id": "z1",
-      "latex": "(-19,0)",
+      "latex": "(-7,0)",
       "color": "#D5572B",
       "pointSize": 15,
-      "showLabel": true,
-      "label": "",
-      "labelSize": "1.0",
-      "labelOrientation": "above",
       "dragMode": "NONE",
       "secret": true
     },
     {
       "id": "z2",
-      "latex": "(14,0)",
+      "latex": "(3,0)",
       "color": "#D5572B",
       "pointSize": 15,
-      "showLabel": true,
-      "label": "",
-      "labelSize": "1.0",
-      "labelOrientation": "above",
       "dragMode": "NONE",
       "secret": true
     },
     {
       "id": "v",
-      "latex": "(-2.5,-272.25)",
+      "latex": "(-2,-25)",
       "color": "#1D2B3A",
       "pointSize": 16,
+      "dragMode": "NONE",
+      "secret": true
+    },
+    {
+      "id": "t1",
+      "latex": "(-9.2,5.5)",
+      "color": "#D5572B",
+      "pointSize": 1,
       "showLabel": true,
-      "label": "",
+      "label": "`(-7, 0)`",
       "labelSize": "1.0",
-      "labelOrientation": "below",
+      "labelOrientation": "default",
+      "dragMode": "NONE",
+      "secret": true
+    },
+    {
+      "id": "t2",
+      "latex": "(5.2,5.5)",
+      "color": "#D5572B",
+      "pointSize": 1,
+      "showLabel": true,
+      "label": "`(3, 0)`",
+      "labelSize": "1.0",
+      "labelOrientation": "default",
+      "dragMode": "NONE",
+      "secret": true
+    },
+    {
+      "id": "t3",
+      "latex": "(-2,-29)",
+      "color": "#1D2B3A",
+      "pointSize": 1,
+      "showLabel": true,
+      "label": "`(-2, -25)`",
+      "labelSize": "1.0",
+      "labelOrientation": "default",
       "dragMode": "NONE",
       "secret": true
     }
   ],
   "bounds": {
-    "left": -28,
-    "right": 24,
-    "bottom": -400,
-    "top": 110
-  },
-  "fontSize": 26,
-  "height": 760
+    "left": -11.5,
+    "right": 7.5,
+    "bottom": -32,
+    "top": 12
+  }
 }

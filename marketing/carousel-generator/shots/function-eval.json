@@ -20,7 +20,7 @@
       "showLabel": true,
       "label": "",
       "labelSize": "1.0",
-      "labelOrientation": "right",
+      "labelOrientation": "above",
       "dragMode": "NONE",
       "secret": true
     }

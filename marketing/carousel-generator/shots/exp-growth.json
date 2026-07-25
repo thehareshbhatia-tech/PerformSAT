@@ -3,33 +3,33 @@
   "expressions": [
     {
       "id": "a",
-      "latex": "p(x)=500(1.07)^x",
+      "latex": "p(x)=800(1.5)^x",
       "color": "#9A72C8",
       "lineWidth": 7
     },
     {
       "id": "v",
-      "latex": "p(10)",
+      "latex": "p(3)",
       "color": "#1D2B3A"
     },
     {
       "id": "p",
-      "latex": "(10,983.58)",
+      "latex": "(3,2700)",
       "color": "#D5572B",
       "pointSize": 16,
       "showLabel": true,
       "label": "",
       "labelSize": "1.0",
-      "labelOrientation": "left",
+      "labelOrientation": "above",
       "dragMode": "NONE",
       "secret": true
     }
   ],
   "bounds": {
-    "left": -0.5,
-    "right": 13,
-    "bottom": -60,
-    "top": 1250
+    "left": -0.4,
+    "right": 5.2,
+    "bottom": -200,
+    "top": 3400
   },
   "fontSize": 26,
   "height": 760

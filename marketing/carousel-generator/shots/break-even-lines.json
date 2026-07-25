@@ -1,5 +1,7 @@
 {
   "name": "break-even-lines",
+  "fontSize": 26,
+  "height": 760,
   "expressions": [
     {
       "id": "a",
@@ -18,10 +20,18 @@
       "latex": "(2.5,137.5)",
       "color": "#1D2B3A",
       "pointSize": 16,
+      "dragMode": "NONE",
+      "secret": true
+    },
+    {
+      "id": "t",
+      "latex": "(4.0,90)",
+      "color": "#1D2B3A",
+      "pointSize": 1,
       "showLabel": true,
-      "label": "",
+      "label": "`(2.5, 137.5)`",
       "labelSize": "1.0",
-      "labelOrientation": "right",
+      "labelOrientation": "default",
       "dragMode": "NONE",
       "secret": true
     }
@@ -31,7 +41,5 @@
     "right": 6,
     "bottom": -15,
     "top": 300
-  },
-  "fontSize": 26,
-  "height": 760
+  }
 }

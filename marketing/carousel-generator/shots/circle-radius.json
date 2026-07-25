@@ -12,10 +12,6 @@
       "latex": "(-4,5)",
       "color": "#D5572B",
       "pointSize": 16,
-      "showLabel": true,
-      "label": "",
-      "labelSize": "1.0",
-      "labelOrientation": "above",
       "dragMode": "NONE",
       "secret": true
     },
@@ -24,10 +20,30 @@
       "latex": "(2,5)",
       "color": "#1D2B3A",
       "pointSize": 16,
+      "dragMode": "NONE",
+      "secret": true
+    },
+    {
+      "id": "t1",
+      "latex": "(-4,7.2)",
+      "color": "#D5572B",
+      "pointSize": 1,
       "showLabel": true,
-      "label": "",
+      "label": "`(-4, 5)`",
       "labelSize": "1.0",
-      "labelOrientation": "above",
+      "labelOrientation": "default",
+      "dragMode": "NONE",
+      "secret": true
+    },
+    {
+      "id": "t2",
+      "latex": "(4.6,8.6)",
+      "color": "#1D2B3A",
+      "pointSize": 1,
+      "showLabel": true,
+      "label": "`(2, 5)`",
+      "labelSize": "1.0",
+      "labelOrientation": "default",
       "dragMode": "NONE",
       "secret": true
     }

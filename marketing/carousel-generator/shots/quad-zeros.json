@@ -1,5 +1,7 @@
 {
   "name": "quad-zeros",
+  "fontSize": 26,
+  "height": 760,
   "expressions": [
     {
       "id": "a",
@@ -12,10 +14,6 @@
       "latex": "(2,0)",
       "color": "#D5572B",
       "pointSize": 15,
-      "showLabel": true,
-      "label": "",
-      "labelSize": "1.0",
-      "labelOrientation": "above",
       "dragMode": "NONE",
       "secret": true
     },
@@ -24,10 +22,30 @@
       "latex": "(4,0)",
       "color": "#D5572B",
       "pointSize": 15,
+      "dragMode": "NONE",
+      "secret": true
+    },
+    {
+      "id": "t1",
+      "latex": "(0.75,1.3)",
+      "color": "#D5572B",
+      "pointSize": 1,
       "showLabel": true,
-      "label": "",
+      "label": "`(2, 0)`",
       "labelSize": "1.0",
-      "labelOrientation": "above",
+      "labelOrientation": "default",
+      "dragMode": "NONE",
+      "secret": true
+    },
+    {
+      "id": "t2",
+      "latex": "(5.25,1.3)",
+      "color": "#D5572B",
+      "pointSize": 1,
+      "showLabel": true,
+      "label": "`(4, 0)`",
+      "labelSize": "1.0",
+      "labelOrientation": "default",
       "dragMode": "NONE",
       "secret": true
     }
@@ -37,7 +55,5 @@
     "right": 7,
     "bottom": -3,
     "top": 5
-  },
-  "fontSize": 26,
-  "height": 760
+  }
 }

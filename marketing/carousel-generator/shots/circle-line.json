@@ -1,5 +1,7 @@
 {
   "name": "circle-line",
+  "fontSize": 26,
+  "height": 760,
   "expressions": [
     {
       "id": "a",
@@ -18,10 +20,6 @@
       "latex": "(-4,-3)",
       "color": "#1D2B3A",
       "pointSize": 15,
-      "showLabel": true,
-      "label": "",
-      "labelSize": "1.0",
-      "labelOrientation": "above",
       "dragMode": "NONE",
       "secret": true
     },
@@ -30,10 +28,30 @@
       "latex": "(3,4)",
       "color": "#1D2B3A",
       "pointSize": 15,
+      "dragMode": "NONE",
+      "secret": true
+    },
+    {
+      "id": "t1",
+      "latex": "(-6.6,-4.6)",
+      "color": "#1D2B3A",
+      "pointSize": 1,
       "showLabel": true,
-      "label": "",
+      "label": "`(-4, -3)`",
       "labelSize": "1.0",
-      "labelOrientation": "above",
+      "labelOrientation": "default",
+      "dragMode": "NONE",
+      "secret": true
+    },
+    {
+      "id": "t2",
+      "latex": "(6.0,4.6)",
+      "color": "#1D2B3A",
+      "pointSize": 1,
+      "showLabel": true,
+      "label": "`(3, 4)`",
+      "labelSize": "1.0",
+      "labelOrientation": "default",
       "dragMode": "NONE",
       "secret": true
     }
@@ -43,7 +61,5 @@
     "right": 9.58,
     "bottom": -7,
     "top": 7
-  },
-  "fontSize": 26,
-  "height": 760
+  }
 }
