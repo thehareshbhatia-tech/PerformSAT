@@ -1,6 +1,6 @@
 15 days until the August SAT.
 
-Circle questions look brutal in general form and take about four seconds in Desmos. Type the equation exactly as the SAT prints it and the center, the radius and any intersections are all right there.
+Circle questions look brutal in general form. Desmos will graph that form exactly as the SAT prints it — so instead of completing the square, you draw the circle and read what you need off the grid.
 
 Save this one — it's the whole topic in one place. Seva's practice tests have the same calculator built in, so you can drill these until they're reflex. Free trial — link in bio.
 
