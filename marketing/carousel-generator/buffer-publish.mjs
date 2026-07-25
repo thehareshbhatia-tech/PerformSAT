@@ -102,7 +102,9 @@ if (cmd === 'channels') {
     const dst = join(HERE, 'published', slug);
     if (!existsSync(src)) { console.error(`No such rendered post: out/${slug}`); process.exit(1); }
     mkdirSync(dst, { recursive: true });
-    for (const f of [...slidesOf(src), 'caption.txt'].filter((f) => existsSync(join(src, f)))) {
+    // Speedrun posts stage an mp4 + its cover instead of numbered slides.
+    const assets = [...slidesOf(src), 'caption.txt', 'cover.png', `${slug}.mp4`];
+    for (const f of assets.filter((f) => existsSync(join(src, f)))) {
       copyFileSync(join(src, f), join(dst, f));
     }
     console.log(`staged published/${slug}`);
