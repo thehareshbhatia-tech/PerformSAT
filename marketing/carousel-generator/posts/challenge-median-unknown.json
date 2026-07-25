@@ -1,0 +1,64 @@
+{
+  "slug": "challenge-median-unknown",
+  "_source": {
+    "bankId": "bank-ps-033",
+    "skills": [
+      "find-median"
+    ],
+    "difficulty": "hard",
+    "pattern": "Median After Removal Reasoning"
+  },
+  "caption": "20 days until the August SAT.\n\nRound 10 of the 15-second test: a median question where the honest answer is the one students trust least. Comment your time and your pick.\n\nSeva tells you WHY you missed it: content gap, trap answer, or rushing. Free trial — link in bio.\n\n#SAT #SATprep #SATmath #augustSAT #digitalSAT #sathacks #sattips #studytok #testprep",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "SAT Math",
+      "title": "Delete the two largest values. What happens to the ==median==?",
+      "badge": "The 15-second test, round 10",
+      "stamp": "August SAT"
+    },
+    {
+      "type": "question",
+      "eyebrow": "The 15-second test",
+      "stem": "A data set of 11 values has a median of 45. If the two largest values (both greater than 45) are removed, what is the new median?",
+      "choices": [
+        "Less than 45",
+        "45",
+        "Greater than 45",
+        "Cannot be determined"
+      ],
+      "prompt": "Time yourself. Comment your time and your answer."
+    },
+    {
+      "type": "reveal",
+      "eyebrow": "The answer",
+      "title": "D — Cannot be determined",
+      "body": "The median of 11 values is the 6th. Most students pick A (Less than 45): assumes the 5th value is strictly below 45, but it could equal 45.",
+      "choices": [
+        "Less than 45",
+        "45",
+        "Greater than 45",
+        "Cannot be determined"
+      ],
+      "correct": 3,
+      "trap": 0
+    },
+    {
+      "type": "rule",
+      "eyebrow": "The pattern",
+      "title": "Median After Removal Reasoning",
+      "body": "For removal or insertion problems, check whether the data is constrained enough to fix the new median. \"Cannot be determined\" is the right answer when more than one outcome is consistent with the given facts.",
+      "tip": null
+    },
+    {
+      "type": "cta",
+      "eyebrow": "Why you actually miss questions",
+      "title": "Seva doesn't just grade you. It tells you *why* you fell for the trap.",
+      "points": [
+        "Every miss diagnosed: content gap, trap answer, or rushing",
+        "A study plan that rebuilds itself around your mistakes",
+        "Real Bluebook-style practice tests and drills"
+      ]
+    }
+  ]
+}

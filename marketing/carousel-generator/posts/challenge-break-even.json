@@ -1,0 +1,64 @@
+{
+  "slug": "challenge-break-even",
+  "_source": {
+    "bankId": "bank-alg-018",
+    "skills": [
+      "word-problem-to-equation"
+    ],
+    "difficulty": "hard",
+    "pattern": "Break-Even Equation"
+  },
+  "caption": "22 days until the August SAT.\n\nRound 8 of the 15-second test: two pricing models meeting at a break-even point. Comment your time and your pick.\n\nSeva tells you WHY you missed it: content gap, trap answer, or rushing. Free trial — link in bio.\n\n#SAT #SATprep #SATmath #augustSAT #digitalSAT #sathacks #sattips #studytok #testprep",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "SAT Math",
+      "title": "A ==$50== fee vs a higher hourly rate. When do they tie?",
+      "badge": "The 15-second test, round 8",
+      "stamp": "August SAT"
+    },
+    {
+      "type": "question",
+      "eyebrow": "The 15-second test",
+      "stem": "A landscaper charges $50 for a consultation plus $35 per hour. A second landscaper charges $55 per hour with no consultation fee. After how many hours is the cost the same?",
+      "choices": [
+        "2",
+        "2.5",
+        "3",
+        "5"
+      ],
+      "prompt": "Time yourself. Comment your time and your answer."
+    },
+    {
+      "type": "reveal",
+      "eyebrow": "The answer",
+      "title": "B — 2.5",
+      "body": "Set 50+35h=55h. Most students pick A (2): an arithmetic slip, dividing 50 by a rate gap that is too large.",
+      "choices": [
+        "2",
+        "2.5",
+        "3",
+        "5"
+      ],
+      "correct": 1,
+      "trap": 0
+    },
+    {
+      "type": "rule",
+      "eyebrow": "The pattern",
+      "title": "Break-Even Equation",
+      "body": "Two cost models break even where they are equal. The difference in hourly rates (55−35=20) is how fast the no-fee option erases the fixed consultation fee.",
+      "tip": null
+    },
+    {
+      "type": "cta",
+      "eyebrow": "Why you actually miss questions",
+      "title": "Seva doesn't just grade you. It tells you *why* you fell for the trap.",
+      "points": [
+        "Every miss diagnosed: content gap, trap answer, or rushing",
+        "A study plan that rebuilds itself around your mistakes",
+        "Real Bluebook-style practice tests and drills"
+      ]
+    }
+  ]
+}

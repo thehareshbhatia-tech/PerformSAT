@@ -1,0 +1,65 @@
+{
+  "slug": "challenge-volume-scaling",
+  "_source": {
+    "bankId": "bank-geo-057",
+    "skills": [
+      "volume-sphere",
+      "volume-scaling"
+    ],
+    "difficulty": "hard",
+    "pattern": "Pure Volume Scaling"
+  },
+  "caption": "26 days until the August SAT.\n\nRound 4 of the 15-second test: one sphere has twice the radius of another. Most students answer 2. Comment your time and your pick.\n\nSeva tells you WHY you missed it: content gap, trap answer, or rushing. Free trial — link in bio.\n\n#SAT #SATprep #SATmath #augustSAT #digitalSAT #sathacks #sattips #studytok #testprep",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "SAT Math",
+      "title": "Double the radius. The volume does ==not== double.",
+      "badge": "The 15-second test, round 4",
+      "stamp": "August SAT"
+    },
+    {
+      "type": "question",
+      "eyebrow": "The 15-second test",
+      "stem": "Sphere A has a radius of r and sphere B has a radius of 2r. The volume of sphere B is how many times the volume of sphere A?",
+      "choices": [
+        "2",
+        "4",
+        "6",
+        "8"
+      ],
+      "prompt": "Time yourself. Comment your time and your answer."
+    },
+    {
+      "type": "reveal",
+      "eyebrow": "The answer",
+      "title": "D — 8",
+      "body": "Linear ratio is 2; volume scales by its cube: 2³ = 8. Most students pick A (2): used the linear ratio directly, forgetting volume cubes it.",
+      "choices": [
+        "2",
+        "4",
+        "6",
+        "8"
+      ],
+      "correct": 3,
+      "trap": 0
+    },
+    {
+      "type": "rule",
+      "eyebrow": "The pattern",
+      "title": "Pure Volume Scaling",
+      "body": "Doubling the radius multiplies volume by 8; tripling by 27; halving divides by 8. Volume is always the cube of the linear ratio.",
+      "tip": null
+    },
+    {
+      "type": "cta",
+      "eyebrow": "Why you actually miss questions",
+      "title": "Seva doesn't just grade you. It tells you *why* you fell for the trap.",
+      "points": [
+        "Every miss diagnosed: content gap, trap answer, or rushing",
+        "A study plan that rebuilds itself around your mistakes",
+        "Real Bluebook-style practice tests and drills"
+      ]
+    }
+  ]
+}

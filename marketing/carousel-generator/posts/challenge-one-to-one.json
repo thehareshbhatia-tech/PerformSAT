@@ -1,0 +1,65 @@
+{
+  "slug": "challenge-one-to-one",
+  "_source": {
+    "bankId": "bank-alg-027",
+    "skills": [
+      "function-evaluation",
+      "function-notation"
+    ],
+    "difficulty": "hard",
+    "pattern": "Function Equality (One-to-One Linear)"
+  },
+  "caption": "24 days until the August SAT.\n\nRound 6 of the 15-second test: f(a) = f(2a − 5) — and you don't need to expand anything to solve it. Comment your time and your pick.\n\nSeva tells you WHY you missed it: content gap, trap answer, or rushing. Free trial — link in bio.\n\n#SAT #SATprep #SATmath #augustSAT #digitalSAT #sathacks #sattips #studytok #testprep",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "SAT Math",
+      "title": "Same output, two inputs. There is a ==2-second== shortcut.",
+      "badge": "The 15-second test, round 6",
+      "stamp": "August SAT"
+    },
+    {
+      "type": "question",
+      "eyebrow": "The 15-second test",
+      "stem": "The function f is defined by f(x) = 3x − 7. If f(a) = f(2a − 5), what is the value of a?",
+      "choices": [
+        "3",
+        "5",
+        "7",
+        "10"
+      ],
+      "prompt": "Time yourself. Comment your time and your answer."
+    },
+    {
+      "type": "reveal",
+      "eyebrow": "The answer",
+      "title": "B — 5",
+      "body": "A line with nonzero slope is one-to-one, so f(a)=f(2a−5) forces the inputs to match: a=2a−5 → a=5. Most students pick A (3): set the input equal to a piece of the formula rather than to the other input.",
+      "choices": [
+        "3",
+        "5",
+        "7",
+        "10"
+      ],
+      "correct": 1,
+      "trap": 0
+    },
+    {
+      "type": "rule",
+      "eyebrow": "The pattern",
+      "title": "Function Equality (One-to-One Linear)",
+      "body": "For any linear function with nonzero slope, f(a)=f(b) means a=b — set the inputs equal and skip the algebra.",
+      "tip": null
+    },
+    {
+      "type": "cta",
+      "eyebrow": "Why you actually miss questions",
+      "title": "Seva doesn't just grade you. It tells you *why* you fell for the trap.",
+      "points": [
+        "Every miss diagnosed: content gap, trap answer, or rushing",
+        "A study plan that rebuilds itself around your mistakes",
+        "Real Bluebook-style practice tests and drills"
+      ]
+    }
+  ]
+}

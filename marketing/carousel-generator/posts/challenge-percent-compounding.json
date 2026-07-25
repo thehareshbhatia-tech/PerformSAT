@@ -1,0 +1,64 @@
+{
+  "slug": "challenge-percent-compounding",
+  "_source": {
+    "bankId": "bank-ps-022",
+    "skills": [
+      "successive-percent-change"
+    ],
+    "difficulty": "hard",
+    "pattern": "Net Effect of Successive Percent Changes"
+  },
+  "caption": "27 days until the August SAT.\n\nRound 3 of the 15-second test: an 80% markup followed by a 30% clearance discount. Most students answer 50%. Comment your time and your pick.\n\nSeva tells you WHY you missed it: content gap, trap answer, or rushing. Free trial — link in bio.\n\n#SAT #SATprep #SATmath #augustSAT #digitalSAT #sathacks #sattips #studytok #testprep",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "SAT Math",
+      "title": "Up ==80%==, then ==30% off==. The answer is not 50%.",
+      "badge": "The 15-second test, round 3",
+      "stamp": "August SAT"
+    },
+    {
+      "type": "question",
+      "eyebrow": "The 15-second test",
+      "stem": "A clothing retailer marks up cost by 80% and then offers a 30% clearance discount. What is the overall percent change from cost to the clearance price?",
+      "choices": [
+        "26% increase",
+        "50% increase",
+        "26% decrease",
+        "10% increase"
+      ],
+      "prompt": "Time yourself. Comment your time and your answer."
+    },
+    {
+      "type": "reveal",
+      "eyebrow": "The answer",
+      "title": "A — 26% increase",
+      "body": "Net multiplier = 1.80 × 0.70 = 1.26, a 26% increase. Most students pick B (50% increase): added 80% − 30% = 50% instead of compounding.",
+      "choices": [
+        "26% increase",
+        "50% increase",
+        "26% decrease",
+        "10% increase"
+      ],
+      "correct": 0,
+      "trap": 1
+    },
+    {
+      "type": "rule",
+      "eyebrow": "The pattern",
+      "title": "Net Effect of Successive Percent Changes",
+      "body": "The net change from multipliers m₁ and m₂ is m₁ m₂ − 1 as a percent. Never add or subtract the percent values.",
+      "tip": null
+    },
+    {
+      "type": "cta",
+      "eyebrow": "Why you actually miss questions",
+      "title": "Seva doesn't just grade you. It tells you *why* you fell for the trap.",
+      "points": [
+        "Every miss diagnosed: content gap, trap answer, or rushing",
+        "A study plan that rebuilds itself around your mistakes",
+        "Real Bluebook-style practice tests and drills"
+      ]
+    }
+  ]
+}

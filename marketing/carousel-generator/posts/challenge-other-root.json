@@ -1,0 +1,64 @@
+{
+  "slug": "challenge-other-root",
+  "_source": {
+    "bankId": "bank-am-013",
+    "skills": [
+      "finding-roots-factoring"
+    ],
+    "difficulty": "hard",
+    "pattern": "Back-Solve Parameter, Then Find Other Root"
+  },
+  "caption": "21 days until the August SAT.\n\nRound 9 of the 15-second test: a quadratic with one known root. There is a shortcut that skips solving for k entirely. Comment your time and your pick.\n\nSeva tells you WHY you missed it: content gap, trap answer, or rushing. Free trial — link in bio.\n\n#SAT #SATprep #SATmath #augustSAT #digitalSAT #sathacks #sattips #studytok #testprep",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "SAT Math",
+      "title": "One root is handed to you. Find the other in ==10 seconds==.",
+      "badge": "The 15-second test, round 9",
+      "stamp": "August SAT"
+    },
+    {
+      "type": "question",
+      "eyebrow": "The 15-second test",
+      "stem": "If 3x² + kx − 14 = 0 has x = 2 as a root, what is the other root?",
+      "choices": [
+        "x = −7/3",
+        "x = 7/3",
+        "x = −7",
+        "x = −14/3"
+      ],
+      "prompt": "Time yourself. Comment your time and your answer."
+    },
+    {
+      "type": "reveal",
+      "eyebrow": "The answer",
+      "title": "A — x = −7/3",
+      "body": "Vieta's gives the product of roots as c/a=(−14)/3. Most students pick B (x = 7/3): drops the negative sign on the root.",
+      "choices": [
+        "x = −7/3",
+        "x = 7/3",
+        "x = −7",
+        "x = −14/3"
+      ],
+      "correct": 0,
+      "trap": 1
+    },
+    {
+      "type": "rule",
+      "eyebrow": "The pattern",
+      "title": "Back-Solve Parameter, Then Find Other Root",
+      "body": "When one root of ax²+bx+c=0 is given, use Vieta's: the product of the roots is c/a, so divide by the known root to get the other.",
+      "tip": null
+    },
+    {
+      "type": "cta",
+      "eyebrow": "Why you actually miss questions",
+      "title": "Seva doesn't just grade you. It tells you *why* you fell for the trap.",
+      "points": [
+        "Every miss diagnosed: content gap, trap answer, or rushing",
+        "A study plan that rebuilds itself around your mistakes",
+        "Real Bluebook-style practice tests and drills"
+      ]
+    }
+  ]
+}

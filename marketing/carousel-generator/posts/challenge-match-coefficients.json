@@ -1,0 +1,65 @@
+{
+  "slug": "challenge-match-coefficients",
+  "_source": {
+    "bankId": "bank-am-063",
+    "skills": [
+      "combining-like-terms",
+      "distributive-property"
+    ],
+    "difficulty": "hard",
+    "pattern": "Match Coefficients of Equivalent Polynomials"
+  },
+  "caption": "18 days until the August SAT.\n\nRound 12 of the 15-second test: matching coefficients, where one sign slip flips the whole answer. Comment your time and your pick.\n\nSeva tells you WHY you missed it: content gap, trap answer, or rushing. Free trial — link in bio.\n\n#SAT #SATprep #SATmath #augustSAT #digitalSAT #sathacks #sattips #studytok #testprep",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "SAT Math",
+      "title": "Two expressions are identical. Find ==a + b==.",
+      "badge": "The 15-second test, round 12",
+      "stamp": "August SAT"
+    },
+    {
+      "type": "question",
+      "eyebrow": "The 15-second test",
+      "stem": "The expression 3(2x² + ax) − 2(x² + x − b) is equivalent to 4x² + 16x + 6 for all values of x, where a and b are constants. What is the value of a + b?",
+      "choices": [
+        "3",
+        "6",
+        "9",
+        "12"
+      ],
+      "prompt": "Time yourself. Comment your time and your answer."
+    },
+    {
+      "type": "reveal",
+      "eyebrow": "The answer",
+      "title": "C — 9",
+      "body": "Expand to 4x² + (3a − 2)x + 2b. Most students pick A (3): mishandles the constant sign, solving −2b = 6 to get b = −3, then a + b = 6 + (−3) = 3.",
+      "choices": [
+        "3",
+        "6",
+        "9",
+        "12"
+      ],
+      "correct": 2,
+      "trap": 0
+    },
+    {
+      "type": "rule",
+      "eyebrow": "The pattern",
+      "title": "Match Coefficients of Equivalent Polynomials",
+      "body": "\"Equivalent for all x\" means the two polynomials match term by term. Match each coefficient column separately (x², x, constant), and watch how distribution multiplies the unknown — here the constant is 2b, not b.",
+      "tip": null
+    },
+    {
+      "type": "cta",
+      "eyebrow": "Why you actually miss questions",
+      "title": "Seva doesn't just grade you. It tells you *why* you fell for the trap.",
+      "points": [
+        "Every miss diagnosed: content gap, trap answer, or rushing",
+        "A study plan that rebuilds itself around your mistakes",
+        "Real Bluebook-style practice tests and drills"
+      ]
+    }
+  ]
+}

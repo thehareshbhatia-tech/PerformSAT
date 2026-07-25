@@ -1,0 +1,64 @@
+{
+  "slug": "challenge-perfect-square",
+  "_source": {
+    "bankId": "bank-am-071",
+    "skills": [
+      "perfect-square-trinomial"
+    ],
+    "difficulty": "hard",
+    "pattern": "Find k for Perfect Square Trinomial (Both Signs)"
+  },
+  "caption": "25 days until the August SAT.\n\nRound 5 of the 15-second test: a perfect-square trinomial with two valid values of k. Most students find only the positive one. Comment your time and your pick.\n\nSeva tells you WHY you missed it: content gap, trap answer, or rushing. Free trial — link in bio.\n\n#SAT #SATprep #SATmath #augustSAT #digitalSAT #sathacks #sattips #studytok #testprep",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "SAT Math",
+      "title": "This trinomial has ==two== answers. Most give one.",
+      "badge": "The 15-second test, round 5",
+      "stamp": "August SAT"
+    },
+    {
+      "type": "question",
+      "eyebrow": "The 15-second test",
+      "stem": "If 4x² + kx + 49 is a perfect-square trinomial, what are the possible values of k?",
+      "choices": [
+        "28 only",
+        "−28 only",
+        "28 or −28",
+        "14 or −14"
+      ],
+      "prompt": "Time yourself. Comment your time and your answer."
+    },
+    {
+      "type": "reveal",
+      "eyebrow": "The answer",
+      "title": "C — 28 or −28",
+      "body": "(2x ± 7)² = 4x² ± 28x + 49, so k = 28 or k = −28. Most students pick A (28 only): considers only a = 7 and misses the negative case.",
+      "choices": [
+        "28 only",
+        "−28 only",
+        "28 or −28",
+        "14 or −14"
+      ],
+      "correct": 2,
+      "trap": 0
+    },
+    {
+      "type": "rule",
+      "eyebrow": "The pattern",
+      "title": "Find k for Perfect Square Trinomial (Both Signs)",
+      "body": "A perfect-square trinomial a² ± 2ab + b² allows a positive or negative middle term. Unless the problem restricts the sign, both values of k are valid.",
+      "tip": null
+    },
+    {
+      "type": "cta",
+      "eyebrow": "Why you actually miss questions",
+      "title": "Seva doesn't just grade you. It tells you *why* you fell for the trap.",
+      "points": [
+        "Every miss diagnosed: content gap, trap answer, or rushing",
+        "A study plan that rebuilds itself around your mistakes",
+        "Real Bluebook-style practice tests and drills"
+      ]
+    }
+  ]
+}

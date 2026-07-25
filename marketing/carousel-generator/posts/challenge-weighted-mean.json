@@ -1,0 +1,64 @@
+{
+  "slug": "challenge-weighted-mean",
+  "_source": {
+    "bankId": "bank-ps-027",
+    "skills": [
+      "calculate-mean"
+    ],
+    "difficulty": "hard",
+    "pattern": "Weighted Combined Mean"
+  },
+  "caption": "23 days until the August SAT.\n\nRound 7 of the 15-second test: two groups, two different sizes, one combined mean. Most students average the averages. Comment your time and your pick.\n\nSeva tells you WHY you missed it: content gap, trap answer, or rushing. Free trial — link in bio.\n\n#SAT #SATprep #SATmath #augustSAT #digitalSAT #sathacks #sattips #studytok #testprep",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "SAT Math",
+      "title": "==Never== average two averages.",
+      "badge": "The 15-second test, round 7",
+      "stamp": "August SAT"
+    },
+    {
+      "type": "question",
+      "eyebrow": "The 15-second test",
+      "stem": "Group A has 8 members with a mean score of 72. Group B has 12 members with a mean score of 83. What is the mean score when both groups are combined?",
+      "choices": [
+        "77.5",
+        "78.6",
+        "79.2",
+        "80.0"
+      ],
+      "prompt": "Time yourself. Comment your time and your answer."
+    },
+    {
+      "type": "reveal",
+      "eyebrow": "The answer",
+      "title": "B — 78.6",
+      "body": "Combine sums, not means. Most students pick A (77.5): the simple average (72 + 83)/2, which ignores the different group sizes.",
+      "choices": [
+        "77.5",
+        "78.6",
+        "79.2",
+        "80.0"
+      ],
+      "correct": 1,
+      "trap": 0
+    },
+    {
+      "type": "rule",
+      "eyebrow": "The pattern",
+      "title": "Weighted Combined Mean",
+      "body": "To combine group means of different sizes, never average the means. Compute total sum over total count; the bigger group drags the mean toward its value.",
+      "tip": null
+    },
+    {
+      "type": "cta",
+      "eyebrow": "Why you actually miss questions",
+      "title": "Seva doesn't just grade you. It tells you *why* you fell for the trap.",
+      "points": [
+        "Every miss diagnosed: content gap, trap answer, or rushing",
+        "A study plan that rebuilds itself around your mistakes",
+        "Real Bluebook-style practice tests and drills"
+      ]
+    }
+  ]
+}
