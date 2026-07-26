@@ -31,8 +31,6 @@
     {
       "type": "reveal",
       "eyebrow": "The answer",
-      "title": "A — mean > median",
-      "body": "The median stays at \\$50k no matter what. The \\$500k outlier drags the mean far above it — no math needed.",
       "choices": [
         "The mean is greater",
         "The median is greater",
@@ -41,7 +39,12 @@
       ],
       "correct": 0,
       "trap": 3,
-      "trapWhy": "Trap type: computing when you could reason"
+      "trapWhy": "\"Cannot be determined\" baits overthinkers. Nothing to compute — this is a reasoning question.",
+      "intro": "One giant outlier moves the mean and leaves the median alone.",
+      "steps": [
+        "Median: the middle salary is $\\$50\\text{k}$, outlier or not",
+        "Mean: the $\\$500\\text{k}$ is added in, so it lands far above $\\$50\\text{k}$"
+      ]
     },
     {
       "type": "cta",

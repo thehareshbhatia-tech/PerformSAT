@@ -31,8 +31,6 @@
     {
       "type": "reveal",
       "eyebrow": "The answer",
-      "title": "C — efficient",
-      "body": "*Inexpensive* is the dictionary bait — there's no money anywhere in the sentence. The context is doing a lot with only three variables: efficiency. Context beats definition.",
       "choices": [
         "inexpensive",
         "thrifty",
@@ -41,7 +39,12 @@
       ],
       "correct": 2,
       "trap": 0,
-      "trapWhy": "Trap type: dictionary reflex"
+      "trapWhy": "\"inexpensive\" is the dictionary reflex. There's no money anywhere in the sentence.",
+      "intro": "Ignore the dictionary. Read what the sentence is actually praising.",
+      "steps": [
+        "The clue: the model does a lot with only three variables",
+        "Doing a lot with little is efficiency, so \"efficient\""
+      ]
     },
     {
       "type": "cta",

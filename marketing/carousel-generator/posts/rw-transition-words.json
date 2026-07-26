@@ -39,8 +39,6 @@
     {
       "type": "reveal",
       "eyebrow": "The answer",
-      "title": "B — however",
-      "body": "They expected bleaching. They got the opposite. Opposite direction means contrast, so *however*. \"Similarly\" is the bait if you skimmed.",
       "choices": [
         "similarly",
         "however",
@@ -49,7 +47,13 @@
       ],
       "correct": 1,
       "trap": 0,
-      "trapWhy": "Trap type: rushed relationship call"
+      "trapWhy": "\"similarly\" is the skim bait. It assumes the second sentence agrees with the first.",
+      "intro": "Name the direction between the two sentences first.",
+      "steps": [
+        "Sentence 1 sets up an expectation: bleaching",
+        "Sentence 2 reports the opposite result",
+        "Opposite direction means contrast: however"
+      ]
     },
     {
       "type": "cta",

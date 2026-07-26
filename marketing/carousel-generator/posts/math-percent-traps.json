@@ -47,8 +47,6 @@
     {
       "type": "reveal",
       "eyebrow": "The answer",
-      "title": "B — \\$100",
-      "body": "\\$96 is the bait — it takes 20% of the *sale* price. To undo a 20% discount, divide by 0.8. The discount came off the original, not off \\$80.",
       "choices": [
         "\\$96",
         "\\$100",
@@ -57,7 +55,13 @@
       ],
       "correct": 1,
       "trap": 0,
-      "trapWhy": "Trap type: wrong base"
+      "trapWhy": "$\\$96$ takes $20\\%$ off the sale price. The discount came off the original, never off $\\$80$.",
+      "intro": "A discount is a multiplication. Undo it by dividing.",
+      "steps": [
+        "$\\text{sale price} = \\text{original} \\times (1 - 0.20)$",
+        "$\\$80 = \\text{original} \\times 0.80$",
+        "$\\text{original} = \\$80 \\div 0.80 = \\$100$"
+      ]
     },
     {
       "type": "cta",

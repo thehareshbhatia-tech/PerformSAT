@@ -38,8 +38,6 @@
     {
       "type": "reveal",
       "eyebrow": "The answer",
-      "title": "B — teams'",
-      "body": "The word \"two\" means plural owners: teams. The apostrophe goes after the s: teams'. \"Team's\" is the bait if you missed the word *two*.",
       "choices": [
         "team's",
         "teams'",
@@ -48,7 +46,12 @@
       ],
       "correct": 1,
       "trap": 0,
-      "trapWhy": "Trap type: skipped the count"
+      "trapWhy": "team's is one owner. It misses the word \"two\" sitting right in the sentence.",
+      "intro": "Count the owners first. Then place the apostrophe.",
+      "steps": [
+        "\"two\" means the owners are plural: teams",
+        "A plural ending in s takes the apostrophe after it: teams'"
+      ]
     },
     {
       "type": "cta",

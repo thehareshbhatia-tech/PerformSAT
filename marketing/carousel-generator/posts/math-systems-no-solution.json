@@ -38,8 +38,6 @@
     {
       "type": "reveal",
       "eyebrow": "The answer",
-      "title": "B — 4",
-      "body": "Divide the first equation by 3 and you get `x + 2y = 4`, so k = 4. If you picked 12, you copied the constant without dividing it too.",
       "choices": [
         "2",
         "4",
@@ -48,7 +46,13 @@
       ],
       "correct": 1,
       "trap": 3,
-      "trapWhy": "Trap type: partial pattern match"
+      "trapWhy": "$12$ keeps the old constant after dividing the left side. Divide every term, constant included.",
+      "intro": "Infinitely many solutions means the two equations are the same line.",
+      "steps": [
+        "$3x + 6y = 12$, divided by $3$:",
+        "$x + 2y = 4$",
+        "$k = 4$"
+      ]
     },
     {
       "type": "cta",

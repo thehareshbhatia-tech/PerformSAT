@@ -133,7 +133,8 @@ let mdSeq = 0; // varies underline wobble between uses within one post
 const md = (s) => {
   const math = [];
   const parked = String(s ?? '').replace(/\\\$/g, '\u0001').replace(/\$([^$]+)\$/g, (_, m) => {
-    math.push(katex.renderToString(m, { throwOnError: false }));
+    // Parked literal dollars inside a math run belong to KaTeX as \$.
+    math.push(katex.renderToString(m.replace(/\u0001/g, '\\$'), { throwOnError: false }));
     return `\u0000${math.length - 1}\u0000`;
   });
   return mdBody(esc(parked))

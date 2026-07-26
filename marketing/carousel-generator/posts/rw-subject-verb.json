@@ -31,8 +31,6 @@
     {
       "type": "reveal",
       "eyebrow": "The answer",
-      "title": "C — is",
-      "body": "The subject is *collection* — singular. \"Of rare paintings\" is the distractor parked next to the blank. Cross it out: \"The collection... is on display.\"",
       "choices": [
         "were",
         "are",
@@ -41,7 +39,13 @@
       ],
       "correct": 2,
       "trap": 1,
-      "trapWhy": "Trap type: proximity bait"
+      "trapWhy": "\"are\" agrees with \"paintings\", the noun parked next to the blank. That's the proximity bait.",
+      "intro": "Find the subject. Cross out the phrase between it and the blank.",
+      "steps": [
+        "\"of rare paintings\" is a prepositional phrase: cross it out",
+        "The subject is \"collection\", which is singular",
+        "The collection ... is on display"
+      ]
     },
     {
       "type": "cta",
