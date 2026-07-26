@@ -6,9 +6,10 @@
     "topPct": 62.5
   },
   {
-    "text": "",
+    "text": "(4, 0)",
     "place": "right",
     "leftPct": 74,
-    "topPct": 62.5
+    "topPct": 62.5,
+    "dx": -16
   }
 ]

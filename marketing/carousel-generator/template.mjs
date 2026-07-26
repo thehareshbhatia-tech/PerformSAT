@@ -435,23 +435,23 @@ export function buildHtml(post) {
   .tex { white-space:nowrap; }
   .body { font-size:40px; line-height:1.55; font-weight:400; max-width:880px; color:rgba(250,247,242,.92); }
   .reveal-body { margin-top:36px; font-size:36px; line-height:1.5; }
-  .reveal-intro { margin-top:34px; font-size:34px; line-height:1.5; color:rgba(250,247,242,.92); }
+  .reveal-intro { margin-top:40px; font-size:34px; line-height:1.5; color:rgba(250,247,242,.92); }
   .steps {
-    margin-top:22px; display:flex; flex-direction:column; gap:16px;
-    border-left:3px solid rgba(250,247,242,.28); padding-left:32px;
+    margin-top:28px; display:flex; flex-direction:column; gap:24px;
+    border-left:3px solid rgba(250,247,242,.28); padding-left:36px;
   }
-  .step { font-size:35px; line-height:1.4; }
-  .trap-why { margin-top:28px; font-size:32px; line-height:1.45; color:rgba(250,247,242,.85); }
+  .step { font-size:35px; line-height:1.5; }
+  .trap-why { margin-top:36px; font-size:32px; line-height:1.5; color:rgba(250,247,242,.85); }
   .trap-why-label {
     font-family:${B.fontBody}; font-weight:700; font-size:25px; letter-spacing:.16em;
     text-transform:uppercase; color:${B.orange}; margin-right:18px;
   }
   .is-reveal { padding-top:120px; }
   .reveal-work { width:100%; }
-  .reveal-work.tight .reveal-intro { margin-top:24px; font-size:32px; }
-  .reveal-work.tight .steps { margin-top:16px; gap:10px; }
+  .reveal-work.tight .reveal-intro { margin-top:26px; font-size:32px; }
+  .reveal-work.tight .steps { margin-top:18px; gap:15px; }
   .reveal-work.tight .step { font-size:33px; }
-  .reveal-work.tight .trap-why { margin-top:20px; font-size:30px; }
+  .reveal-work.tight .trap-why { margin-top:24px; font-size:30px; }
   .caption { margin-top:30px; font-size:34px; line-height:1.5; max-width:880px; color:rgba(250,247,242,.75); }
   .nowrap { white-space:nowrap; }
   .frac {
@@ -501,7 +501,7 @@ export function buildHtml(post) {
   .bb-body { padding:38px 44px 42px; }
   .bb-stem { font-family:'Tinos', Georgia, serif; font-size:36px; line-height:1.55; margin-bottom:34px; }
   .bb-stem.long { font-size:32px; }
-  .bb-card.compact .bb-stem { font-size:30px; line-height:1.45; margin-bottom:26px; }
+  .bb-card.compact .bb-stem { font-size:28px; line-height:1.45; margin-bottom:22px; }
   .bb-choices { display:flex; flex-direction:column; gap:16px; }
   .bb-card.compact .bb-choices { gap:13px; }
   .bb-choice {
@@ -509,14 +509,14 @@ export function buildHtml(post) {
     border:1.5px solid #888; border-radius:8px; padding:16px 24px;
     font-family:'Tinos', Georgia, serif; font-size:33px;
   }
-  .bb-card.compact .bb-choice { padding:11px 22px; font-size:30px; }
+  .bb-card.compact .bb-choice { padding:9px 22px; font-size:28px; }
   .bb-pick { position:relative; display:flex; align-items:center; gap:22px; }
   .bb-letter {
     font-family:Arial, sans-serif; font-weight:600; font-size:24px; color:#141414;
     border:2px solid #141414; border-radius:50%; width:44px; height:44px; flex:none;
     display:flex; align-items:center; justify-content:center;
   }
-  .bb-card.compact .bb-letter { width:38px; height:38px; font-size:21px; }
+  .bb-card.compact .bb-letter { width:34px; height:34px; font-size:19px; }
   .bb-choice.is-faded { opacity:.45; }
   .bb-pick .ring-choice { left:-40px; top:-18px; width:calc(100% + 96px); height:calc(100% + 36px); }
   .trap-note {

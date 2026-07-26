@@ -10,11 +10,17 @@
       "stamp": "August SAT"
     },
     {
-      "type": "trap",
+      "type": "question",
       "eyebrow": "The setup",
-      "title": "\"True for all x. What is a?\"",
-      "formula": "$\\frac{24x^2 + 25x - 47}{ax - 2} = -8x - 3 - \\frac{53}{ax - 2}$",
-      "body": "This is a real official hard-Module-2 question type. The algebra route is polynomial division: two minutes of work and three chances to slip. The trap is doing it by hand at all."
+      "qnum": "21",
+      "stem": "The equation\n\n$\\frac{24x^2 + 25x - 47}{ax - 2} = -8x - 3 - \\frac{53}{ax - 2}$\n\nis true for all valid values of $x$, where $a$ is a constant. What is the value of $a$?",
+      "choices": [
+        "$-16$",
+        "$-3$",
+        "$3$",
+        "$16$"
+      ],
+      "hand": "the most feared question on the test"
     },
     {
       "type": "shot",
