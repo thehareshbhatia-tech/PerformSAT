@@ -16,10 +16,11 @@
   },
   {
     "text": "(2, 5)",
-    "place": "above",
+    "place": "below",
     "leftPct": 84.329,
     "topPct": 50,
-    "dx": -20,
+    "dx": 14,
+    "dy": 34,
     "noRing": true
   }
 ]

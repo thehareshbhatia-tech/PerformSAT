@@ -1,6 +1,6 @@
 {
   "name": "tilde-constant",
-  "fontSize": 20,
+  "fontSize": 14,
   "expressions": [
     {
       "type": "table",

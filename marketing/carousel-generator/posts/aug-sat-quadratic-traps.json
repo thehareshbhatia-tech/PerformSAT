@@ -5,7 +5,7 @@
     {
       "type": "cover",
       "eyebrow": "SAT Math",
-      "title": "5 quadratic facts the SAT turns into ^^traps^^",
+      "title": "The 3 quadratic facts the SAT turns into ^^traps^^",
       "stamp": "August SAT",
       "hand": "save this for test week"
     },
@@ -56,13 +56,6 @@
       "title": "Vertex form",
       "formula": "y = a(x − h)² + k",
       "body": "See `(x + 3)²`? The vertex is at `x = −3`, not 3. Flip the sign of the number inside the parentheses. The unflipped version is always one of the choices."
-    },
-    {
-      "type": "trap",
-      "eyebrow": "Rates",
-      "title": "Average speed",
-      "formula": "\\frac{total distance}{total time}",
-      "body": "Don't average the two speeds. Add up ALL the distance, add up ALL the time, then divide. The simple average of the speeds is always a wrong answer choice."
     },
     {
       "type": "cta",

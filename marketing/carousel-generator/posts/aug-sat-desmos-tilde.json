@@ -22,7 +22,7 @@
       "eyebrow": "The move",
       "title": "Swap = for ~ and Desmos finds a",
       "shot": "tilde-constant.png",
-      "question": "The equation above is true for all $x \\ne \\frac{2}{a}$. What is the value of $a$?",
+      "question": "The equation above is true for all valid values of $x$. What is the value of $a$?",
       "caption": "Type the equation with $\\sim$ in place of $=$ and Desmos solves for the parameter.",
       "answer": "$a = -3$"
     },

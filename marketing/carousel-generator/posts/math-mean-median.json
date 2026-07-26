@@ -34,10 +34,10 @@
       "title": "A — mean > median",
       "body": "The median stays at \\$50k no matter what. The \\$500k outlier drags the mean far above it — no math needed.",
       "choices": [
-        "Mean > median",
-        "Median > mean",
+        "The mean is greater",
+        "The median is greater",
         "They are equal",
-        "Cannot determine"
+        "Cannot be determined"
       ],
       "correct": 0,
       "trap": 3,

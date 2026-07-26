@@ -227,7 +227,7 @@ const RENDER = {
     ${hw(s.hand, 'hw-cover')}
     ${q ? `<div class="cover-card"><div class="cover-card-inner">${bluebookCard(q, { seed: `${post.slug}-cover` })}</div></div>` : ''}
     ${s._artData ? `<div class="cover-art"><img src="${s._artData}"></div>` : ''}
-    <div class="swipe">swipe &rarr;</div>`;
+    ${q ? '' : `<div class="swipe">swipe &rarr;</div>`}`;
   },
 
   question: (s, i, post) => `
@@ -510,7 +510,7 @@ export function buildHtml(post) {
   }
   .bb-card.compact .bb-letter { width:38px; height:38px; font-size:21px; }
   .bb-choice.is-faded { opacity:.45; }
-  .bb-pick .ring-choice { left:-38px; top:-18px; width:calc(100% + 78px); height:calc(100% + 36px); }
+  .bb-pick .ring-choice { left:-40px; top:-18px; width:calc(100% + 96px); height:calc(100% + 36px); }
   .trap-note {
     position:absolute; right:18px; top:50%; transform:translateY(-50%) rotate(-2.5deg);
     display:flex; align-items:center; gap:10px;
