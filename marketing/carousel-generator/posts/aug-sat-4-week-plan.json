@@ -1,13 +1,13 @@
 {
   "slug": "aug-sat-4-week-plan",
-  "caption": "23 days until the August SAT.\n\n\"Is one month enough?\" — it is, if you spend it right. The 4-week plan that actually moves scores: diagnose first, drill your leaks (not full tests every day), then taper. Save this — it's your August roadmap.\n\nSeva builds this exact plan for you from one diagnostic, then rebuilds it around every mistake you make. Free trial — link in bio.\n\n#SAT #SATprep #augustSAT #digitalSAT #satstudyplan #sattips #studytok #testprep",
+  "caption": "23 days until the August SAT.\n\n\"Is one month enough?\" — it is, if you spend it right. The 4-week plan that actually moves scores: diagnose first, drill your leaks (not full tests every day), then taper. Save this — it's your August roadmap.\n\nSeva builds this exact plan for you from one diagnostic, then rebuilds it around every mistake you make. Start for free today — link in bio.\n\n#SAT #SATprep #augustSAT #digitalSAT #satstudyplan #sattips #studytok #testprep",
   "slides": [
     {
       "type": "cover",
       "eyebrow": "SAT Strategy",
       "title": "One month out: the ==4-week plan== that actually works",
-      "badge": "Save this — your August roadmap",
-      "stamp": "August SAT"
+      "stamp": "August SAT",
+      "hand": "save this — your august roadmap"
     },
     {
       "type": "rule",
@@ -34,11 +34,7 @@
       "type": "cta",
       "eyebrow": "Why you actually miss questions",
       "title": "Seva doesn't just grade you. It tells you *why* you fell for the trap.",
-      "points": [
-        "Every miss diagnosed: content gap, trap answer, or rushing",
-        "A study plan that rebuilds itself around your mistakes",
-        "Real Bluebook-style practice tests and drills"
-      ]
+      "body": "Every miss diagnosed: content gap, trap answer, or rushing."
     }
   ]
 }

@@ -1,13 +1,13 @@
 {
   "slug": "math-systems-no-solution",
-  "caption": "26 days until the August SAT.\n\n\"No solution\" and \"infinitely many\" questions are 30-second free points once you know what they’re really asking. Comment your answer to the one inside.\n\nSeva tells you WHY you missed it. Free trial — link in bio.\n\n#SAT #SATprep #SATmath #augustSAT #digitalSAT #algebra #sattips #studytok #testprep",
+  "caption": "26 days until the August SAT.\n\n\"No solution\" and \"infinitely many\" questions are 30-second free points once you know what they’re really asking. Comment your answer to the one inside.\n\nSeva tells you WHY you missed it. Start for free today — link in bio.\n\n#SAT #SATprep #SATmath #augustSAT #digitalSAT #algebra #sattips #studytok #testprep",
   "slides": [
     {
       "type": "cover",
       "eyebrow": "SAT Math",
       "title": "Systems with no solution: ==free points== you're leaving behind",
-      "badge": "30 seconds each once you see it",
-      "stamp": "August SAT"
+      "stamp": "August SAT",
+      "hand": "30 seconds each once you see it"
     },
     {
       "type": "rule",
@@ -40,7 +40,6 @@
       "eyebrow": "The answer",
       "title": "B — 4",
       "body": "Divide the first equation by 3 and you get `x + 2y = 4`, so k = 4. If you picked 12, you copied the constant without dividing it too.",
-      "tip": "Trap type: partial pattern match",
       "choices": [
         "2",
         "4",
@@ -48,17 +47,14 @@
         "12"
       ],
       "correct": 1,
-      "trap": 3
+      "trap": 3,
+      "trapWhy": "Trap type: partial pattern match"
     },
     {
       "type": "cta",
       "eyebrow": "Why you actually miss questions",
       "title": "Seva doesn't just grade you. It tells you *why* you fell for the trap.",
-      "points": [
-        "Every miss diagnosed: content gap, trap answer, or rushing",
-        "A study plan that rebuilds itself around your mistakes",
-        "Real Bluebook-style practice tests and drills"
-      ]
+      "body": "Every miss diagnosed: content gap, trap answer, or rushing."
     }
   ]
 }

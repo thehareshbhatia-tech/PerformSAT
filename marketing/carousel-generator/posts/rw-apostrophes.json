@@ -1,13 +1,13 @@
 {
   "slug": "rw-apostrophes",
-  "caption": "27 days until the August SAT.\n\nIt’s vs its — plus the plural possessive rule the SAT actually tests. Comment your answer to the one inside.\n\nSeva tells you WHY you missed it. Free trial — link in bio.\n\n#SAT #SATprep #SATreading #augustSAT #satenglish #digitalSAT #grammar #sattips #studytok",
+  "caption": "27 days until the August SAT.\n\nIt’s vs its — plus the plural possessive rule the SAT actually tests. Comment your answer to the one inside.\n\nSeva tells you WHY you missed it. Start for free today — link in bio.\n\n#SAT #SATprep #SATreading #augustSAT #satenglish #digitalSAT #grammar #sattips #studytok",
   "slides": [
     {
       "type": "cover",
       "eyebrow": "Reading & Writing",
       "title": "Apostrophes: one rule, ^^two traps^^",
-      "badge": "They test this on nearly every module",
-      "stamp": "August SAT"
+      "stamp": "August SAT",
+      "hand": "they test this on nearly every module"
     },
     {
       "type": "rule",
@@ -40,7 +40,6 @@
       "eyebrow": "The answer",
       "title": "B — teams'",
       "body": "The word \"two\" means plural owners: teams. The apostrophe goes after the s: teams'. \"Team's\" is the bait if you missed the word *two*.",
-      "tip": "Trap type: skipped the count",
       "choices": [
         "team's",
         "teams'",
@@ -48,17 +47,14 @@
         "team"
       ],
       "correct": 1,
-      "trap": 0
+      "trap": 0,
+      "trapWhy": "Trap type: skipped the count"
     },
     {
       "type": "cta",
       "eyebrow": "Why you actually miss questions",
       "title": "Seva doesn't just grade you. It tells you *why* you fell for the trap.",
-      "points": [
-        "Every miss diagnosed: content gap, trap answer, or rushing",
-        "A study plan that rebuilds itself around your mistakes",
-        "Real Bluebook-style practice tests and drills"
-      ]
+      "body": "Every miss diagnosed: content gap, trap answer, or rushing."
     }
   ]
 }

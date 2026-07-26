@@ -1,13 +1,13 @@
 {
   "slug": "first-digital-sat-rules",
-  "caption": "20 days until the August SAT.\n\nTaking your first digital SAT on Aug 22? These are the Bluebook rules nobody tells you — the ones that cost points when you learn them on test day instead of now. Send this to someone taking their first SAT.\n\nSeva tells you WHY you missed it: content gap, trap answer, or rushing. Free trial — link in bio.\n\n#SAT #SATprep #augustSAT #digitalSAT #firstSAT #bluebook #sattips #studytok #testprep",
+  "caption": "20 days until the August SAT.\n\nTaking your first digital SAT on Aug 22? These are the Bluebook rules nobody tells you — the ones that cost points when you learn them on test day instead of now. Send this to someone taking their first SAT.\n\nSeva tells you WHY you missed it: content gap, trap answer, or rushing. Start for free today — link in bio.\n\n#SAT #SATprep #augustSAT #digitalSAT #firstSAT #bluebook #sattips #studytok #testprep",
   "slides": [
     {
       "type": "cover",
       "eyebrow": "SAT Strategy",
       "title": "What nobody tells you before your ==first digital SAT==",
-      "badge": "Send this to a first-timer",
-      "stamp": "August SAT"
+      "stamp": "August SAT",
+      "hand": "send this to a first-timer"
     },
     {
       "type": "rule",
@@ -34,11 +34,7 @@
       "type": "cta",
       "eyebrow": "Why you actually miss questions",
       "title": "Seva doesn't just grade you. It tells you *why* you fell for the trap.",
-      "points": [
-        "Every miss diagnosed: content gap, trap answer, or rushing",
-        "A study plan that rebuilds itself around your mistakes",
-        "Real Bluebook-style practice tests and drills"
-      ]
+      "body": "Every miss diagnosed: content gap, trap answer, or rushing."
     }
   ]
 }

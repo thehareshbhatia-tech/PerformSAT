@@ -16,7 +16,8 @@
       "title": "Graph both costs and click where they meet",
       "shot": "break-even-lines.png",
       "question": "One landscaper charges \\$50 plus \\$35 per hour. Another charges \\$55 per hour with no fee. After how many hours do they cost the same?",
-      "caption": "Graph both cost lines and click the crossing: $(2.5, 137.5)$. They tie at $2.5$ hours."
+      "caption": "Graph both cost lines and click the crossing where the costs tie.",
+      "answer": "After $2.5$ hours"
     },
     {
       "type": "shot",
@@ -24,7 +25,8 @@
       "title": "Same slope, and you can see why",
       "shot": "parallel-no-solution.png",
       "question": "How many solutions does the system $y = 2x + 3$, $y = 2x - 5$ have?",
-      "caption": "The lines are parallel and never touch. Zero crossings is what \"no solution\" looks like."
+      "caption": "The lines are parallel and never touch. Zero crossings is what \"no solution\" looks like.",
+      "answer": "Zero solutions"
     },
     {
       "type": "shot",
@@ -32,7 +34,8 @@
       "title": "Change = to < and it shades",
       "shot": "inequality-shading.png",
       "question": "Which of the following points is a solution to $y < -2x + 6$?",
-      "caption": "Type the inequality and Desmos shades every solution. If the point sits in the shading, it works."
+      "caption": "Type the inequality and Desmos shades every solution. If the point sits in the shading, it works.",
+      "answer": "$(0, 0)$ works"
     },
     {
       "type": "shot",
@@ -40,7 +43,8 @@
       "title": "Two inequalities, one answer region",
       "shot": "system-inequalities.png",
       "question": "Which point satisfies both $y \\le -x + 8$ and $y \\ge 2x - 4$?",
-      "caption": "The darker wedge is where the shadings overlap. Any point inside it satisfies both."
+      "caption": "The darker wedge is where the shadings overlap. Any point inside it satisfies both.",
+      "answer": "Any point in the darker wedge, like $(4, 4)$"
     },
     {
       "type": "cta",

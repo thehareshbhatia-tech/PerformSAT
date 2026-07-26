@@ -1,13 +1,13 @@
 {
   "slug": "hard-module-2-good-sign",
-  "caption": "19 days until the August SAT.\n\nModule 2 felt brutal? Good — that means Module 1 went well. How adaptive scoring actually routes you, and why the harder second module is the one you want. Save this so you don't panic on Aug 22.\n\nSeva's practice tests use the same adaptive routing, so test day feels like a rerun. Free trial — link in bio.\n\n#SAT #SATprep #augustSAT #digitalSAT #satscores #adaptivetest #sattips #studytok #testprep",
+  "caption": "19 days until the August SAT.\n\nModule 2 felt brutal? Good — that means Module 1 went well. How adaptive scoring actually routes you, and why the harder second module is the one you want. Save this so you don't panic on Aug 22.\n\nSeva's practice tests use the same adaptive routing, so test day feels like a rerun. Start for free today — link in bio.\n\n#SAT #SATprep #augustSAT #digitalSAT #satscores #adaptivetest #sattips #studytok #testprep",
   "slides": [
     {
       "type": "cover",
       "eyebrow": "SAT Strategy",
       "title": "Module 2 felt brutal? ==Good.== Here's why",
-      "badge": "Adaptive scoring, explained",
-      "stamp": "August SAT"
+      "stamp": "August SAT",
+      "hand": "adaptive scoring, explained"
     },
     {
       "type": "rule",
@@ -34,11 +34,7 @@
       "type": "cta",
       "eyebrow": "Why you actually miss questions",
       "title": "Seva doesn't just grade you. It tells you *why* you fell for the trap.",
-      "points": [
-        "Every miss diagnosed: content gap, trap answer, or rushing",
-        "A study plan that rebuilds itself around your mistakes",
-        "Real Bluebook-style practice tests and drills"
-      ]
+      "body": "Every miss diagnosed: content gap, trap answer, or rushing."
     }
   ]
 }

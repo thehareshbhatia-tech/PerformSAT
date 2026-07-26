@@ -1,13 +1,13 @@
 {
   "slug": "aug-sat-registration-checklist",
-  "caption": "26 days until the August SAT — and regular registration closes Aug 7.\n\nAfter that it's the late window (extra fee) until Aug 11, and test centers near you may already be full. Thirty seconds today: register, pick your center, download Bluebook.\n\nSend this to a friend who hasn't registered yet.\n\nSeva tells you WHY you missed it: content gap, trap answer, or rushing. Free trial — link in bio.\n\n#SAT #SATprep #augustSAT #digitalSAT #satregistration #sattips #studytok #testprep",
+  "caption": "26 days until the August SAT — and regular registration closes Aug 7.\n\nAfter that it's the late window (extra fee) until Aug 11, and test centers near you may already be full. Thirty seconds today: register, pick your center, download Bluebook.\n\nSend this to a friend who hasn't registered yet.\n\nSeva tells you WHY you missed it: content gap, trap answer, or rushing. Start for free today — link in bio.\n\n#SAT #SATprep #augustSAT #digitalSAT #satregistration #sattips #studytok #testprep",
   "slides": [
     {
       "type": "cover",
       "eyebrow": "SAT Logistics",
       "title": "Not registered yet? ^^Aug 7^^ is the line",
-      "badge": "Send this to a friend who forgot",
-      "stamp": "August SAT"
+      "stamp": "August SAT",
+      "hand": "send this to a friend who forgot"
     },
     {
       "type": "formula",
@@ -48,11 +48,7 @@
       "type": "cta",
       "eyebrow": "Why you actually miss questions",
       "title": "Seva doesn't just grade you. It tells you *why* you fell for the trap.",
-      "points": [
-        "Every miss diagnosed: content gap, trap answer, or rushing",
-        "A study plan that rebuilds itself around your mistakes",
-        "Real Bluebook-style practice tests and drills"
-      ]
+      "body": "Every miss diagnosed: content gap, trap answer, or rushing."
     }
   ]
 }

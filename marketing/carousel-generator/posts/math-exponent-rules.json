@@ -1,13 +1,13 @@
 {
   "slug": "math-exponent-rules",
-  "caption": "24 days until the August SAT — and regular registration closes Aug 7.\n\nExponent rules show up on every SAT module — and the wrong answers are always the swapped rules. Save this.\n\nSeva tells you WHY you missed a question, not just that you missed it. Free trial — link in bio.\n\n#SAT #SATprep #SATmath #augustSAT #digitalSAT #sattips #studytok #testprep",
+  "caption": "24 days until the August SAT — and regular registration closes Aug 7.\n\nExponent rules show up on every SAT module — and the wrong answers are always the swapped rules. Save this.\n\nSeva tells you WHY you missed a question, not just that you missed it. Start for free today — link in bio.\n\n#SAT #SATprep #SATmath #augustSAT #digitalSAT #sattips #studytok #testprep",
   "slides": [
     {
       "type": "cover",
       "eyebrow": "SAT Math",
       "title": "Exponent rules the SAT bets you'll ==mix up==",
-      "badge": "Save this for test week",
-      "stamp": "August SAT"
+      "stamp": "August SAT",
+      "hand": "save this for test week"
     },
     {
       "type": "formula",
@@ -60,11 +60,7 @@
       "type": "cta",
       "eyebrow": "Why you actually miss questions",
       "title": "Seva doesn't just grade you. It tells you *why* you fell for the trap.",
-      "points": [
-        "Every miss diagnosed: content gap, trap answer, or rushing",
-        "A study plan that rebuilds itself around your mistakes",
-        "Real Bluebook-style practice tests and drills"
-      ]
+      "body": "Every miss diagnosed: content gap, trap answer, or rushing."
     }
   ]
 }

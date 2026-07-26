@@ -16,7 +16,8 @@
       "title": "Define the function, then ask for a value",
       "shot": "exp-growth.png",
       "question": "A population of $800$ grows by $50\\%$ each year. What is the population after $3$ years?",
-      "caption": "Define $p(x) = 800(1.5)^x$, then type $p(3)$. Desmos prints $2700$ right next to it."
+      "caption": "Define $p(x) = 800(1.5)^x$, then type $p(3)$. Desmos prints the value right next to it.",
+      "answer": "$2{,}700$"
     },
     {
       "type": "shot",
@@ -24,7 +25,8 @@
       "title": "\"When does it drop below?\" is a crossing",
       "shot": "exp-decay-target.png",
       "question": "A sample starts at $1{,}200$ and halves every year. After how many years does it reach $300$?",
-      "caption": "Graph the decay and the target as a flat line $y = 300$. They cross at $x = 2$, and that's the answer."
+      "caption": "Graph the decay and the target as a flat line $y = 300$. The crossing is the answer.",
+      "answer": "After $2$ years"
     },
     {
       "type": "shot",
@@ -32,7 +34,8 @@
       "title": "Half-life questions never need logarithms",
       "shot": "exp-half-life.png",
       "question": "A substance has a half-life of $3$ hours. Starting from $160$ mg, how much remains after $3$ hours?",
-      "caption": "Type $h(3)$ and read $80$. One half-life gone, half the amount left."
+      "caption": "Type $h(3)$. One half-life gone, half the amount left.",
+      "answer": "$80$ mg"
     },
     {
       "type": "cta",

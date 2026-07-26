@@ -148,6 +148,15 @@ const kicker = (text) => (text ? `<div class="kick">${md(text)}</div>` : '');
 // Handwritten margin line — the one loud element a slide gets.
 const hw = (text, cls = '') => (text ? `<div class="hw ${cls}">${md(text)}</div>` : '');
 
+const wordPills = (words) =>
+  `<div class="pills">${String(words)
+    .split('·')
+    .map((w) => `<span class="pill">${md(w.trim())}</span>`)
+    .join('')}</div>`;
+
+const callout = (text, label = 'TIP') =>
+  `<div class="callout"><span class="callout-label">${label}</span><span>${md(text)}</span></div>`;
+
 // ── the Bluebook card ────────────────────────────────────────────────────────
 const flagSvg = `<svg viewBox="0 0 24 24" class="bb-flag"><path d="M6 3v18M6 4h11l-2.5 4L17 12H6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/></svg>`;
 const abcSvg = `<svg viewBox="0 0 64 34" class="bb-abc"><text x="4" y="24" font-size="19" font-weight="600" font-family="Arial" fill="#333" letter-spacing="1">ABC</text><line x1="4" y1="27" x2="58" y2="7" stroke="#333" stroke-width="2"/></svg>`;
@@ -239,7 +248,7 @@ const RENDER = {
     ${kicker(s.eyebrow)}
     <h2 class="shot-title">${md(s.title)}</h2>
     ${s.question ? `<div class="shot-q">${md(s.question)}</div>` : ''}
-    <div class="shot-figure">
+    <div class="shot-figure" style="width:${s.shotW ?? (s.question && s.answer ? 88 : 100)}%">
       <img src="${s._shotData}">
       ${(s._readouts || [])
         .map((r, j) => {
@@ -252,6 +261,7 @@ const RENDER = {
         })
         .join('')}
     </div>
+    ${s.answer ? `<div class="shot-answer"><span class="ans-label">Answer</span>${md(s.answer)}</div>` : ''}
     ${s.caption || s.tip ? `<div class="caption">${md(s.caption || s.tip)}</div>` : ''}
     ${hw(s.hand, 'hw-below')}`,
 
@@ -266,21 +276,26 @@ const RENDER = {
           .map(([k, v]) => `<div class="case"><b>${md(k)}</b><span>${md(v)}</span></div>`)
           .join('')}</div>`
       : ''}
-    ${s.caption || s.tip ? `<div class="caption">${md(s.caption || s.tip)}</div>` : ''}`,
+    ${s.tip ? callout(s.tip) : ''}
+    ${s.caption ? `<div class="caption">${md(s.caption)}</div>` : ''}`,
 
   rule: (s) => `
     ${kicker(s.eyebrow)}
     <h2>${md(s.title)}</h2>
+    ${s.words ? wordPills(s.words) : ''}
     <div class="body">${md(s.body)}</div>
     ${hw(s.hand, 'hw-below')}
-    ${s.caption || s.tip ? `<div class="caption">${md(s.caption || s.tip)}</div>` : ''}`,
+    ${s.tip ? callout(s.tip) : ''}
+    ${s.caption ? `<div class="caption">${md(s.caption)}</div>` : ''}`,
 
   trap: (s) => `
     ${kicker(s.eyebrow ? `${s.eyebrow} &middot; the trap` : 'the trap')}
     <h2>${md(s.title)}</h2>
+    ${s.words ? wordPills(s.words) : ''}
     ${s.formula ? `<div class="formula-group">${(Array.isArray(s.formula) ? s.formula : [s.formula]).map((l) => `<div class="formula">${md(l)}</div>`).join('')}</div>` : ''}
     <div class="body">${md(s.body)}</div>
-    ${s.caption || s.tip ? `<div class="caption">${md(s.caption || s.tip)}</div>` : ''}`,
+    ${s.tip ? callout(s.tip) : ''}
+    ${s.caption ? `<div class="caption">${md(s.caption)}</div>` : ''}`,
 
   cta: (s, i, post) => {
     const r = s.card ? post.slides.find((x) => x.type === 'reveal' && x.choices) : null;
@@ -484,6 +499,24 @@ export function buildHtml(post) {
     white-space:nowrap;
   }
 
+  /* ---- pills + callout (posted-design furniture) ---- */
+  .pills { display:flex; gap:16px; flex-wrap:wrap; margin-bottom:38px; }
+  .pill {
+    background:${B.logoLime}; color:${B.navy}; font-weight:800; font-size:36px;
+    font-family:${B.fontDisplay}; padding:14px 32px; border-radius:999px;
+  }
+  .callout {
+    display:flex; align-items:baseline; gap:24px; width:100%;
+    background:#fff; color:${B.navy}; border-left:14px solid ${B.orange};
+    border-radius:16px; padding:22px 34px; margin-top:36px;
+    font-size:33px; line-height:1.45; font-weight:600;
+    box-shadow:0 10px 28px rgba(0,0,0,.22);
+  }
+  .callout-label {
+    font-family:${B.fontDisplay}; font-weight:800; font-size:27px; letter-spacing:.1em;
+    color:${B.orange}; flex:none; text-transform:uppercase;
+  }
+
   /* ---- Desmos shot ---- */
   /* The question the screenshot answers, styled as a Bluebook fragment so the
      viewer sees test material first, then the calculator move that solves it. */
@@ -493,7 +526,12 @@ export function buildHtml(post) {
     border:1px solid rgba(0,0,0,.25); border-radius:8px; padding:20px 30px;
     margin-bottom:22px; box-shadow:0 14px 34px rgba(0,0,0,.3);
   }
-  .shot-figure { position:relative; width:100%; }
+  .shot-figure { position:relative; width:100%; align-self:center; }
+  .shot-answer { margin-top:28px; font-size:37px; font-weight:600; }
+  .ans-label {
+    font-family:${B.fontDisplay}; font-weight:800; font-size:27px; letter-spacing:.12em;
+    text-transform:uppercase; color:${B.logoLime}; margin-right:20px;
+  }
   .shot-figure img {
     width:100%; display:block; border-radius:10px;
     border:1px solid rgba(0,0,0,.35); box-shadow:0 30px 70px rgba(0,0,0,.45);

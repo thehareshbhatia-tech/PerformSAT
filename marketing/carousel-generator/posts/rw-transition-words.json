@@ -6,8 +6,8 @@
       "type": "cover",
       "eyebrow": "Reading & Writing",
       "title": "Transition words: the ==4-second== decision",
-      "badge": "Decide the relationship before you read the choices",
-      "stamp": "August SAT"
+      "stamp": "August SAT",
+      "hand": "decide the relationship before you read the choices"
     },
     {
       "type": "rule",
@@ -41,7 +41,6 @@
       "eyebrow": "The answer",
       "title": "B — however",
       "body": "They expected bleaching. They got the opposite. Opposite direction means contrast, so *however*. \"Similarly\" is the bait if you skimmed.",
-      "tip": "Trap type: rushed relationship call",
       "choices": [
         "similarly",
         "however",
@@ -49,17 +48,14 @@
         "in addition"
       ],
       "correct": 1,
-      "trap": 0
+      "trap": 0,
+      "trapWhy": "Trap type: rushed relationship call"
     },
     {
       "type": "cta",
       "eyebrow": "Why you actually miss questions",
       "title": "Seva doesn't just grade you. It tells you *why* you fell for the trap.",
-      "points": [
-        "Every miss diagnosed: content gap, trap answer, or rushing",
-        "A study plan that rebuilds itself around your mistakes",
-        "Real Bluebook-style practice tests and drills"
-      ]
+      "body": "Every miss diagnosed: content gap, trap answer, or rushing."
     }
   ]
 }

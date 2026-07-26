@@ -6,8 +6,8 @@
       "type": "cover",
       "eyebrow": "SAT Math",
       "title": "5 quadratic facts the SAT turns into ^^traps^^",
-      "badge": "Save this for test week",
-      "stamp": "August SAT"
+      "stamp": "August SAT",
+      "hand": "save this for test week"
     },
     {
       "type": "formula",
@@ -68,11 +68,7 @@
       "type": "cta",
       "eyebrow": "Why you actually miss questions",
       "title": "Seva doesn't just grade you. It tells you *why* you fell for the trap.",
-      "points": [
-        "Every miss diagnosed: content gap, trap answer, or rushing",
-        "A study plan that rebuilds itself around your mistakes",
-        "Real Bluebook-style practice tests and drills"
-      ]
+      "body": "Every miss diagnosed: content gap, trap answer, or rushing."
     }
   ]
 }

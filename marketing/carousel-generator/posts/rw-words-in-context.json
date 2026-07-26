@@ -1,13 +1,13 @@
 {
   "slug": "rw-words-in-context",
-  "caption": "25 days until the August SAT.\n\nWords-in-context questions punish dictionary thinking. Predict your own word BEFORE reading the choices. Comment your answer to the one inside.\n\nSeva tells you WHY you missed it. Free trial — link in bio.\n\n#SAT #SATprep #SATreading #augustSAT #digitalSAT #vocabulary #sattips #studytok",
+  "caption": "25 days until the August SAT.\n\nWords-in-context questions punish dictionary thinking. Predict your own word BEFORE reading the choices. Comment your answer to the one inside.\n\nSeva tells you WHY you missed it. Start for free today — link in bio.\n\n#SAT #SATprep #SATreading #augustSAT #digitalSAT #vocabulary #sattips #studytok",
   "slides": [
     {
       "type": "cover",
       "eyebrow": "Reading & Writing",
       "title": "Words in context: the ^^dictionary^^ is the trap",
-      "badge": "Predict before you peek",
-      "stamp": "August SAT"
+      "stamp": "August SAT",
+      "hand": "predict before you peek"
     },
     {
       "type": "rule",
@@ -33,7 +33,6 @@
       "eyebrow": "The answer",
       "title": "C — efficient",
       "body": "*Inexpensive* is the dictionary bait — there's no money anywhere in the sentence. The context is doing a lot with only three variables: efficiency. Context beats definition.",
-      "tip": "Trap type: dictionary reflex",
       "choices": [
         "inexpensive",
         "thrifty",
@@ -41,17 +40,14 @@
         "profitable"
       ],
       "correct": 2,
-      "trap": 0
+      "trap": 0,
+      "trapWhy": "Trap type: dictionary reflex"
     },
     {
       "type": "cta",
       "eyebrow": "Why you actually miss questions",
       "title": "Seva doesn't just grade you. It tells you *why* you fell for the trap.",
-      "points": [
-        "Every miss diagnosed: content gap, trap answer, or rushing",
-        "A study plan that rebuilds itself around your mistakes",
-        "Real Bluebook-style practice tests and drills"
-      ]
+      "body": "Every miss diagnosed: content gap, trap answer, or rushing."
     }
   ]
 }

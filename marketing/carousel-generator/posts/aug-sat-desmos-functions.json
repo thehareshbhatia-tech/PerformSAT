@@ -16,7 +16,8 @@
       "title": "Define f, then literally type f(5)",
       "shot": "function-eval.png",
       "question": "If $f(x) = 2x - 7$, what is the value of $f(5)$?",
-      "caption": "Desmos prints $= 3$ right next to it. No substituting, no sign slips."
+      "caption": "Define the function, then literally type $f(5)$. No substituting, no sign slips.",
+      "answer": "$f(5) = 3$"
     },
     {
       "type": "shot",
@@ -24,7 +25,8 @@
       "title": "Put both versions on screen at once",
       "shot": "transformation-shift.png",
       "question": "The graph of $y = x^2$ is shifted $3$ units right and $2$ units up. Which equation gives the new graph?",
-      "caption": "Type your candidate next to the original: $y = (x - 3)^2 + 2$. The vertex lands at $(3, 2)$, exactly where the shift says."
+      "caption": "Type your candidate next to the original. The vertex lands at $(3, 2)$, exactly where the shift says.",
+      "answer": "$y = (x - 3)^2 + 2$"
     },
     {
       "type": "shot",
@@ -32,7 +34,8 @@
       "title": "The same rule works on absolute value",
       "shot": "abs-value-transform.png",
       "question": "The graph of $y = |x|$ is shifted $2$ units right and $3$ units down. Which equation gives the new graph?",
-      "caption": "$y = |x - 2| - 3$. Inside the bars slides it sideways, outside slides it vertically. Same logic, different shape."
+      "caption": "Inside the bars slides it sideways, outside slides it vertically. Same logic, different shape.",
+      "answer": "$y = |x - 2| - 3$"
     },
     {
       "type": "cta",

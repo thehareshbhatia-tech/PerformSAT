@@ -1,13 +1,13 @@
 {
   "slug": "aug-sat-curve-myth",
-  "caption": "27 days until the August SAT.\n\n\"August is curved harder because all the retakers take it\" — this rumor comes back every July, and it's false. Your score is equated against the test form, not against the students in the room. A 1400 in August equals a 1400 in March.\n\nSeva tells you WHY you missed it: content gap, trap answer, or rushing. Free trial — link in bio.\n\n#SAT #SATprep #augustSAT #digitalSAT #satscores #sattips #studytok #testprep",
+  "caption": "27 days until the August SAT.\n\n\"August is curved harder because all the retakers take it\" — this rumor comes back every July, and it's false. Your score is equated against the test form, not against the students in the room. A 1400 in August equals a 1400 in March.\n\nSeva tells you WHY you missed it: content gap, trap answer, or rushing. Start for free today — link in bio.\n\n#SAT #SATprep #augustSAT #digitalSAT #satscores #sattips #studytok #testprep",
   "slides": [
     {
       "type": "cover",
       "eyebrow": "SAT Strategy",
       "title": "The August ^^curve myth^^ is costing you a test date",
-      "badge": "Scores are equated, not curved",
-      "stamp": "August SAT"
+      "stamp": "August SAT",
+      "hand": "scores are equated, not curved"
     },
     {
       "type": "trap",
@@ -33,11 +33,7 @@
       "type": "cta",
       "eyebrow": "Why you actually miss questions",
       "title": "Seva doesn't just grade you. It tells you *why* you fell for the trap.",
-      "points": [
-        "Every miss diagnosed: content gap, trap answer, or rushing",
-        "A study plan that rebuilds itself around your mistakes",
-        "Real Bluebook-style practice tests and drills"
-      ]
+      "body": "Every miss diagnosed: content gap, trap answer, or rushing."
     }
   ]
 }

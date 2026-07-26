@@ -16,7 +16,8 @@
       "title": "Solve any equation without algebra",
       "shot": "solve-linear.png",
       "question": "What value of $x$ satisfies $3x - 7 = 11$?",
-      "caption": "Graph each side as its own line: $y = 3x - 7$ and $y = 11$. The crossing sits at $x = 6$."
+      "caption": "Graph each side as its own line: $y = 3x - 7$ and $y = 11$. The crossing is the answer.",
+      "answer": "$x = 6$"
     },
     {
       "type": "shot",
@@ -24,7 +25,8 @@
       "title": "Quadratics: click, don't factor",
       "shot": "quadratic-zeros.png",
       "question": "What are the solutions to $x^2 - 2x - 8 = 0$?",
-      "caption": "Click the grey dots on the $x$-axis: $x = -2$ and $x = 4$. The vertex is marked too."
+      "caption": "Click the grey dots on the $x$-axis. The vertex is marked too.",
+      "answer": "$x = -2$ and $x = 4$"
     },
     {
       "type": "shot",
@@ -32,7 +34,8 @@
       "title": "Systems: the answer is a point",
       "shot": "system-intersect.png",
       "question": "What is the solution $(x, y)$ to the system $y = 2x + 1$ and $y = -x + 7$?",
-      "caption": "Click where the lines cross: $(2, 5)$. That ordered pair is the whole answer."
+      "caption": "Click where the lines cross. That ordered pair is the whole answer.",
+      "answer": "$(2, 5)$"
     },
     {
       "type": "cta",

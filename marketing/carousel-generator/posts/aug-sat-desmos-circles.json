@@ -16,7 +16,8 @@
       "title": "Paste the general form straight in",
       "shot": "circle-general-form.png",
       "question": "The equation of a circle is $x^2 + y^2 + 8x - 10y + 5 = 0$. What are its center and radius?",
-      "caption": "Desmos graphs the general form with zero algebra. Now the answer is a picture."
+      "caption": "Desmos graphs the general form with zero algebra. Now the answer is a picture.",
+      "answer": "Center $(-4, 5)$, radius $6$"
     },
     {
       "type": "shot",
@@ -24,7 +25,8 @@
       "title": "Read them off the gridlines",
       "shot": "circle-radius.png",
       "question": "The equation of a circle is $x^2 + y^2 + 8x - 10y + 5 = 0$. What are its center and radius?",
-      "caption": "The middle sits at $(-4, 5)$ and it is $6$ squares from center to edge. Center $(-4, 5)$, radius $6$ — counted, not computed."
+      "caption": "The middle sits at $(-4, 5)$ and it is $6$ squares from center to edge. Counted, not computed.",
+      "answer": "Center $(-4, 5)$, radius $6$"
     },
     {
       "type": "shot",
@@ -32,7 +34,8 @@
       "title": "Prove your completed square is right",
       "shot": "circle-standard-check.png",
       "question": "Which equation describes the same circle as $x^2 + y^2 + 8x - 10y + 5 = 0$?",
-      "caption": "Graph your answer on top of the original. $(x + 4)^2 + (y - 5)^2 = 36$ lands exactly on it, so it's correct."
+      "caption": "Graph your answer on top of the original. It lands exactly on the same circle, so it's correct.",
+      "answer": "$(x + 4)^2 + (y - 5)^2 = 36$"
     },
     {
       "type": "shot",
@@ -40,7 +43,8 @@
       "title": "Where a line cuts the circle",
       "shot": "circle-line.png",
       "question": "At how many points does the line $y = x + 1$ intersect the circle $x^2 + y^2 = 25$?",
-      "caption": "Graph both and click the crossings: $(-4, -3)$ and $(3, 4)$. Two points, no substitution."
+      "caption": "Graph both and click the crossings. No substitution, no messy quadratic.",
+      "answer": "Two points: $(-4, -3)$ and $(3, 4)$"
     },
     {
       "type": "cta",

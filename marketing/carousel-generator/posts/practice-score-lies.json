@@ -1,13 +1,13 @@
 {
   "slug": "practice-score-lies",
-  "caption": "21 days until the August SAT.\n\nYour practice score is lying to you — in three specific ways. Untimed tests, unreviewed misses, and comfort drills all inflate the number without moving the real one. Save this before your next practice test.\n\nSeva tells you WHY you missed it: content gap, trap answer, or rushing. Free trial — link in bio.\n\n#SAT #SATprep #augustSAT #digitalSAT #satscores #sattips #studytok #testprep",
+  "caption": "21 days until the August SAT.\n\nYour practice score is lying to you — in three specific ways. Untimed tests, unreviewed misses, and comfort drills all inflate the number without moving the real one. Save this before your next practice test.\n\nSeva tells you WHY you missed it: content gap, trap answer, or rushing. Start for free today — link in bio.\n\n#SAT #SATprep #augustSAT #digitalSAT #satscores #sattips #studytok #testprep",
   "slides": [
     {
       "type": "cover",
       "eyebrow": "SAT Strategy",
       "title": "Your practice score is ^^lying^^ to you",
-      "badge": "Three ways it happens",
-      "stamp": "August SAT"
+      "stamp": "August SAT",
+      "hand": "three ways it happens"
     },
     {
       "type": "trap",
@@ -34,11 +34,7 @@
       "type": "cta",
       "eyebrow": "Why you actually miss questions",
       "title": "Seva doesn't just grade you. It tells you *why* you fell for the trap.",
-      "points": [
-        "Every miss diagnosed: content gap, trap answer, or rushing",
-        "A study plan that rebuilds itself around your mistakes",
-        "Real Bluebook-style practice tests and drills"
-      ]
+      "body": "Every miss diagnosed: content gap, trap answer, or rushing."
     }
   ]
 }

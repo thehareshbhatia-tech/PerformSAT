@@ -1,13 +1,13 @@
 {
   "slug": "rw-main-idea",
-  "caption": "The August SAT is Aug 22 — and main idea questions are guaranteed to be on it.\n\nMain idea questions have two wrong-answer factories: too narrow and too broad. Kill the extremes and the answer is usually what’s left. Save this.\n\nSeva tells you WHY you missed a question. Free trial — link in bio.\n\n#SAT #SATprep #SATreading #augustSAT #digitalSAT #readingcomprehension #sattips #studytok",
+  "caption": "The August SAT is Aug 22 — and main idea questions are guaranteed to be on it.\n\nMain idea questions have two wrong-answer factories: too narrow and too broad. Kill the extremes and the answer is usually what’s left. Save this.\n\nSeva tells you WHY you missed a question. Start for free today — link in bio.\n\n#SAT #SATprep #SATreading #augustSAT #digitalSAT #readingcomprehension #sattips #studytok",
   "slides": [
     {
       "type": "cover",
       "eyebrow": "Reading & Writing",
       "title": "Main idea questions: ==kill the extremes== first",
-      "badge": "Two wrong-answer factories, every time",
-      "stamp": "August SAT"
+      "stamp": "August SAT",
+      "hand": "two wrong-answer factories, every time"
     },
     {
       "type": "rule",
@@ -27,11 +27,7 @@
       "type": "cta",
       "eyebrow": "Why you actually miss questions",
       "title": "Seva doesn't just grade you. It tells you *why* you fell for the trap.",
-      "points": [
-        "Every miss diagnosed: content gap, trap answer, or rushing",
-        "A study plan that rebuilds itself around your mistakes",
-        "Real Bluebook-style practice tests and drills"
-      ]
+      "body": "Every miss diagnosed: content gap, trap answer, or rushing."
     }
   ]
 }

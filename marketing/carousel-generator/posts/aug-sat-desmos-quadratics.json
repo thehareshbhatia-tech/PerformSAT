@@ -15,32 +15,36 @@
       "eyebrow": "Zeros",
       "title": "Type it in standard form, then click the curve",
       "shot": "quad-zeros.png",
-      "caption": "Type the equation and Desmos drops grey dots on both roots. Click one and the label appears: the solutions are $x = 2$ and $x = 4$.",
-      "question": "What are the solutions to $x^2 - 6x + 8 = 0$?"
+      "caption": "Type the equation and Desmos drops grey dots on both roots. Click one and the label appears.",
+      "question": "What are the solutions to $x^2 - 6x + 8 = 0$?",
+      "answer": "$x = 2$ and $x = 4$"
     },
     {
       "type": "shot",
       "eyebrow": "Maximum",
       "title": "The peak is already a point",
       "shot": "quad-max.png",
-      "caption": "Click the peak. The label $(2, 11)$ says the maximum value is $11$, and it happens at $x = 2$.",
-      "question": "What is the maximum value of $y = -2x^2 + 8x + 3$?"
+      "caption": "Click the peak. The label gives you both parts of the answer at once.",
+      "question": "What is the maximum value of $y = -2x^2 + 8x + 3$?",
+      "answer": "Maximum value: $11$, at $x = 2$"
     },
     {
       "type": "shot",
       "eyebrow": "Minimum",
       "title": "The vertex sits halfway between the zeros",
       "shot": "vertex-from-factored.png",
-      "caption": "Halfway between the zeros $3$ and $-7$ is $x = -2$. Click the low point there: the minimum is $-25$.",
-      "question": "What is the minimum value of $y = (x - 3)(x + 7)$?"
+      "caption": "Halfway between the zeros $3$ and $-7$ is $x = -2$. Click the low point there.",
+      "question": "What is the minimum value of $y = (x - 3)(x + 7)$?",
+      "answer": "Minimum value: $-25$"
     },
     {
       "type": "shot",
       "eyebrow": "Systems",
       "title": "A quadratic and a line cross twice",
       "shot": "quadratic-system.png",
-      "caption": "Type both equations exactly as written, then click each crossing. The solutions are $(1, 5)$ and $(4, 8)$.",
-      "question": "At which points do the graphs of $y = -x^2 + 6x$ and $y = x + 4$ intersect?"
+      "caption": "Type both equations exactly as written, then click each crossing.",
+      "question": "At which points do the graphs of $y = -x^2 + 6x$ and $y = x + 4$ intersect?",
+      "answer": "$(1, 5)$ and $(4, 8)$"
     },
     {
       "type": "cta",

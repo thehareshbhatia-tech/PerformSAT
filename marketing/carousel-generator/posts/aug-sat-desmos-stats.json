@@ -14,9 +14,11 @@
       "type": "shot",
       "eyebrow": "Mean vs median",
       "title": "Type mean(L) and median(L)",
-      "shot": "stats-mean-median.png",
+      "shot": "stats-mean-median-panel.png",
       "question": "A data set is $3, 4, 4, 5, 6, 6, 7, 8, 9, 48$. How do its mean and median compare?",
-      "caption": "Desmos prints mean $= 10$ and median $= 6$. The single $48$ drags the mean up and leaves the median alone."
+      "caption": "No graph needed. Type the list, then ask for both. The single $48$ drags the mean up and leaves the median alone.",
+      "answer": "Mean $= 10$, median $= 6$",
+      "shotW": 55
     },
     {
       "type": "shot",
@@ -24,7 +26,8 @@
       "title": "Type histogram(L)",
       "shot": "stats-histogram.png",
       "question": "Which best describes the distribution of the data set $3, 4, 4, 5, 6, 6, 7, 8, 9, 48$?",
-      "caption": "The same ten numbers, drawn. One long tail to the right is what \"skewed right\" looks like."
+      "caption": "The same ten numbers, drawn. One long tail to the right is what \"skewed right\" looks like.",
+      "answer": "Skewed right"
     },
     {
       "type": "shot",
@@ -32,7 +35,8 @@
       "title": "Type boxplot(L)",
       "shot": "stats-boxplot.png",
       "question": "What is the median of the data set $3, 4, 4, 5, 6, 6, 7, 8, 9, 48$?",
-      "caption": "The line inside the box is the median: $6$. The box holds the middle half of the data."
+      "caption": "The line inside the box is the median. The box holds the middle half of the data.",
+      "answer": "Median $= 6$"
     },
     {
       "type": "cta",

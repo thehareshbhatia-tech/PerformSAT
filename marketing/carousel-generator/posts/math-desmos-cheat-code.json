@@ -6,8 +6,8 @@
       "type": "cover",
       "eyebrow": "SAT Math",
       "title": "The SAT gives you a ==cheat code== — most students never open it",
-      "badge": "Desmos is built into Bluebook",
-      "stamp": "August SAT"
+      "stamp": "August SAT",
+      "hand": "desmos is built into bluebook"
     },
     {
       "type": "rule",
@@ -34,11 +34,7 @@
       "type": "cta",
       "eyebrow": "Why you actually miss questions",
       "title": "Seva doesn't just grade you. It tells you *why* you fell for the trap.",
-      "points": [
-        "Every miss diagnosed: content gap, trap answer, or rushing",
-        "A study plan that rebuilds itself around your mistakes",
-        "Real Bluebook-style practice tests and drills"
-      ]
+      "body": "Every miss diagnosed: content gap, trap answer, or rushing."
     }
   ]
 }
