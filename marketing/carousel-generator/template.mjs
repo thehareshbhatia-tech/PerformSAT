@@ -595,7 +595,6 @@ export function buildHtml(post) {
     overflow:hidden;
   }
   .cta-art-inner { transform:rotate(2deg) scale(.96); transform-origin:top center; }
-  .is-cta .footer { display:none; }
   .cta-art-inner img {
     width:100%; display:block; border-radius:10px;
     border:1px solid rgba(0,0,0,.35); box-shadow:0 30px 70px rgba(0,0,0,.45);
