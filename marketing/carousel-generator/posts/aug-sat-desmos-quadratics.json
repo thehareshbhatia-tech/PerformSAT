@@ -1,51 +1,47 @@
 {
   "slug": "aug-sat-desmos-quadratics",
-  "caption": "18 days until the August SAT.\n\nEvery quadratic question asks for one of four things: the zeros, the maximum, the minimum, or where it meets a line. Click the curve and Desmos marks all four for you \u2014 no factoring, no completing the square, no quadratic formula.\n\nSave this one \u2014 it's the whole topic in one place. Seva's practice tests have the same calculator built in, so you can drill these until they're reflex. Free trial \u2014 link in bio.\n\n#SAT #SATprep #SATmath #satdesmos #desmos #justusedesmos #sathacks #digitalsathacks #augustSAT #digitalSAT #sattips #studytok #testprep #highschoolparents",
+  "caption": "Every quadratic question on the SAT wants one of four things: the zeros, the maximum, the minimum, or where the curve meets a line. Desmos hands you all four if you know where to click.\n\nSave this for test week. Seva's practice tests have the same calculator built in, so you can drill the clicks until they're automatic. Free trial, link in bio.\n\n#SAT #SATprep #SATmath #desmos #augustSAT #digitalSAT #sattips #testprep",
   "slides": [
     {
       "type": "cover",
-      "eyebrow": "SAT Math",
-      "title": "Everything Desmos does for ==quadratics==",
-      "badge": "Zeros, max, min, systems \u2014 one screen each",
-      "stamp": "August SAT"
+      "eyebrow": "August SAT · Math",
+      "title": "Desmos will do ==quadratics== for you",
+      "hand": "zeros, vertex, systems. all clicks.",
+      "art": "quad-zeros.png"
     },
     {
       "type": "shot",
       "eyebrow": "Zeros",
       "title": "Type it in standard form, then click the curve",
       "shot": "quad-zeros.png",
-      "tip": "Desmos marks both roots as grey dots. Click one and it shows (2, 0) \u2014 you never factored anything."
+      "caption": "Desmos puts grey dots on both roots. Click one and the point is labeled for you. You never factor anything."
     },
     {
       "type": "shot",
       "eyebrow": "Maximum",
-      "title": "The peak is a point Desmos already knows",
+      "title": "The peak is already a point",
       "shot": "quad-max.png",
-      "tip": "Click the top of the curve for (2, 11). No -b/2a, and no completing the square to get there."
+      "caption": "Click the top of the curve and read the vertex. That is the whole problem."
     },
     {
       "type": "shot",
       "eyebrow": "Minimum",
-      "title": "The minimum needs no algebra at all",
+      "title": "The vertex sits halfway between the zeros",
       "shot": "vertex-from-factored.png",
-      "tip": "The minimum always sits halfway between the zeros \u2014 here, halfway between -7 and 3."
+      "caption": "Here that means halfway between −7 and 3. Click the low point and read the coordinates."
     },
     {
       "type": "shot",
       "eyebrow": "Systems",
       "title": "A quadratic and a line cross twice",
       "shot": "quadratic-system.png",
-      "tip": "Graph both and click each crossing. Two crossings means two solutions to the system."
+      "caption": "Graph both equations. Every crossing is a solution, and Desmos labels each one when you click it."
     },
     {
       "type": "cta",
-      "eyebrow": "Why you actually miss questions",
+      "eyebrow": "Test-day calculator",
       "title": "Seva's practice tests have this exact calculator built in.",
-      "points": [
-        "Drill every move until it's reflex, not rescue",
-        "Every miss diagnosed: content gap, trap answer, or rushing",
-        "Real Bluebook-style adaptive practice tests"
-      ]
+      "body": "Practice the clicks now so they're automatic when it counts."
     }
   ]
 }

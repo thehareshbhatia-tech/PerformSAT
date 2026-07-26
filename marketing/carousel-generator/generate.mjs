@@ -41,7 +41,8 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 for (const file of postFiles) {
   const post = JSON.parse(readFileSync(file, 'utf8'));
   const slug = post.slug || basename(file, '.json');
-  // Inline Desmos screenshots (shots/<name>.png) as data URIs for 'shot' slides.
+  // Inline Desmos screenshots (shots/<name>.png) as data URIs for 'shot' slides,
+  // and `art` teasers (also from shots/) on any slide — covers use these.
   for (const s of post.slides) {
     if (s.type === 'shot') {
       const shotPath = join(HERE, 'shots', s.shot);
@@ -50,9 +51,17 @@ for (const file of postFiles) {
         process.exit(1);
       }
       s._shotData = `data:image/png;base64,${readFileSync(shotPath).toString('base64')}`;
-      // Boxed coordinate readouts drawn over the shot (see desmos-shot.mjs).
+      // Coordinate readouts (see desmos-shot.mjs) — v4 draws them as marker rings.
       const readoutPath = shotPath.replace(/\.png$/, '.readouts.json');
       if (existsSync(readoutPath)) s._readouts = JSON.parse(readFileSync(readoutPath, 'utf8'));
+    }
+    if (s.art) {
+      const artPath = join(HERE, 'shots', s.art);
+      if (!existsSync(artPath)) {
+        console.error(`${slug}: missing art ${s.art} in shots/.`);
+        process.exit(1);
+      }
+      s._artData = `data:image/png;base64,${readFileSync(artPath).toString('base64')}`;
     }
   }
   const outDir = join(HERE, 'out', slug);

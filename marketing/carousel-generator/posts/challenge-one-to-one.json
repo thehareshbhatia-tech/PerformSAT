@@ -2,64 +2,47 @@
   "slug": "challenge-one-to-one",
   "_source": {
     "bankId": "bank-alg-027",
-    "skills": [
-      "function-evaluation",
-      "function-notation"
-    ],
+    "skills": ["function-evaluation", "function-notation"],
     "difficulty": "hard",
     "pattern": "Function Equality (One-to-One Linear)"
   },
-  "caption": "24 days until the August SAT.\n\nRound 6 of the 15-second test: f(a) = f(2a − 5) — and you don't need to expand anything to solve it. Comment your time and your pick.\n\nSeva tells you WHY you missed it: content gap, trap answer, or rushing. Free trial — link in bio.\n\n#SAT #SATprep #SATmath #augustSAT #digitalSAT #sathacks #sattips #studytok #testprep",
+  "caption": "This one's from our hard drill bank. Most people who miss it pick the same wrong answer, and it isn't close. Comment what you got and how long it took you.\n\nThere's a 15-second solve on slide 3 that skips the algebra entirely.\n\nWe built Seva to tell you WHY you miss questions: content gap, trap answer, or rushing. Free 3-day trial, link in bio.\n\n#SAT #SATprep #SATmath #augustSAT #digitalSAT #testprep",
   "slides": [
     {
       "type": "cover",
-      "eyebrow": "SAT Math",
-      "title": "Same output, two inputs. There is a ==2-second== shortcut.",
-      "badge": "The 15-second test, round 6",
-      "stamp": "August SAT"
+      "eyebrow": "SAT Math · Hard",
+      "title": "This one takes ==15 seconds==. If you see it.",
+      "hand": "no calculator, promise"
     },
     {
       "type": "question",
-      "eyebrow": "The 15-second test",
-      "stem": "The function f is defined by f(x) = 3x − 7. If f(a) = f(2a − 5), what is the value of a?",
-      "choices": [
-        "3",
-        "5",
-        "7",
-        "10"
-      ],
-      "prompt": "Time yourself. Comment your time and your answer."
+      "eyebrow": "Try it first",
+      "qnum": "18",
+      "stem": "The function f is defined by `f(x) = 3x − 7`. If `f(a) = f(2a − 5)`, what is the value of a?",
+      "choices": ["3", "5", "7", "10"],
+      "hand": "time yourself — answer in the comments"
     },
     {
       "type": "reveal",
       "eyebrow": "The answer",
-      "title": "B — 5",
-      "body": "A line with nonzero slope is one-to-one, so f(a)=f(2a−5) forces the inputs to match: a=2a−5 → a=5. Most students pick A (3): set the input equal to a piece of the formula rather than to the other input.",
-      "choices": [
-        "3",
-        "5",
-        "7",
-        "10"
-      ],
+      "choices": ["3", "5", "7", "10"],
       "correct": 1,
-      "trap": 0
+      "trap": 0,
+      "trapNote": "the bait",
+      "body": "The 15-second version: a line with slope 3 never repeats an output. So if f(a) and f(2a − 5) are equal, the inputs must be equal. Set a = 2a − 5 and you get a = 5. No expanding, no distributing."
     },
     {
       "type": "rule",
       "eyebrow": "The pattern",
-      "title": "Function Equality (One-to-One Linear)",
-      "body": "For any linear function with nonzero slope, f(a)=f(b) means a=b — set the inputs equal and skip the algebra.",
-      "tip": null
+      "title": "Same output means same input",
+      "body": "Any linear function with a nonzero slope hits each output exactly once. So whenever the SAT sets f(one thing) equal to f(another thing), skip the algebra and set the two inputs equal.\n\nThis shows up about once per test, usually late in Module 2 where time is tightest.",
+      "hand": "steal this"
     },
     {
       "type": "cta",
-      "eyebrow": "Why you actually miss questions",
-      "title": "Seva doesn't just grade you. It tells you *why* you fell for the trap.",
-      "points": [
-        "Every miss diagnosed: content gap, trap answer, or rushing",
-        "A study plan that rebuilds itself around your mistakes",
-        "Real Bluebook-style practice tests and drills"
-      ]
+      "eyebrow": "From a real Seva drill",
+      "title": "When you miss one like this, Seva tells you why.",
+      "body": "A content gap, a trap answer, and rushing all look identical on a score report. They need different fixes. Seva tells them apart and rebuilds your plan around the real one."
     }
   ]
 }
