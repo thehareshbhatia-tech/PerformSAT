@@ -247,12 +247,14 @@ const RENDER = {
           seed: `${post.slug}-r${i}`,
         })
       : `<h2>${md(s.title)}</h2>`}
+    <div class="reveal-work${(s.steps?.length ?? 0) >= 4 ? ' tight' : ''}">
     ${s.intro ? `<div class="reveal-intro">${md(s.intro)}</div>` : ''}
     ${s.steps?.length
       ? `<div class="steps">${s.steps.map((t) => `<div class="step">${md(t)}</div>`).join('')}</div>`
       : ''}
     ${s.trapWhy ? `<div class="trap-why"><span class="trap-why-label">The trap</span>${md(s.trapWhy)}</div>` : ''}
-    ${s.body ? `<div class="body reveal-body">${md(s.body)}</div>` : ''}`,
+    ${s.body ? `<div class="body reveal-body">${md(s.body)}</div>` : ''}
+    </div>`,
 
   // Desmos screenshot straight on the ground — a screenshot, not a framed poster
   // element. Readout coordinates (from desmos-shot.mjs) become marker rings with
@@ -445,6 +447,11 @@ export function buildHtml(post) {
     text-transform:uppercase; color:${B.orange}; margin-right:18px;
   }
   .is-reveal { padding-top:120px; }
+  .reveal-work { width:100%; }
+  .reveal-work.tight .reveal-intro { margin-top:24px; font-size:32px; }
+  .reveal-work.tight .steps { margin-top:16px; gap:10px; }
+  .reveal-work.tight .step { font-size:33px; }
+  .reveal-work.tight .trap-why { margin-top:20px; font-size:30px; }
   .caption { margin-top:30px; font-size:34px; line-height:1.5; max-width:880px; color:rgba(250,247,242,.75); }
   .nowrap { white-space:nowrap; }
   .frac {

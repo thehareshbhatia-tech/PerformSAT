@@ -12,7 +12,6 @@
       "eyebrow": "SAT Math · Hard",
       "title": "Double the radius. ==Eight times== the volume.",
       "hand": "cubes, not doubles",
-      "card": true,
       "stamp": "August SAT"
     },
     {
@@ -40,12 +39,13 @@
       "correct": 3,
       "trap": 0,
       "trapNote": "linear thinking",
-      "intro": "Volume scales with the cube of the length factor.",
+      "intro": "Volume multiplies length three times, so the factor triples up.",
       "steps": [
-        "Radius $\\times\\, 2 \\;\\to\\;$ volume $\\times\\, 2^3$",
-        "$2^3 = 8$"
+        "Every length doubles: $\\times\\, 2$",
+        "Volume $=$ length $\\times$ length $\\times$ length",
+        "$2 \\times 2 \\times 2 = 8$"
       ],
-      "trapWhy": "$2$ treats volume like a length. $4$ treats it like an area."
+      "trapWhy": "$2$ treats volume like a single length. $4$ stops at area. Three dimensions, three doublings."
     },
     {
       "type": "rule",

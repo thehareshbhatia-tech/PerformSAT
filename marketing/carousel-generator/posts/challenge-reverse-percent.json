@@ -12,7 +12,6 @@
       "eyebrow": "SAT Math · Hard",
       "title": "Undo a 30% increase. ==Don't subtract.==",
       "hand": "divide by 1.3",
-      "card": true,
       "stamp": "August SAT"
     },
     {
@@ -40,10 +39,11 @@
       "correct": 2,
       "trap": 0,
       "trapNote": "subtracted 30%",
-      "intro": "Growth of $30\\%$ means the new number is $1.3$ times the old one.",
+      "intro": "Growth of $30\\%$ means the 2020 number was multiplied by $1.30$.",
       "steps": [
-        "new $= 1.3 \\,\\times\\,$ old",
-        "old $= 20{,}800 \\div 1.3 = 16{,}000$"
+        "$\\text{2023 population} = \\text{2020 population} \\times 1.30$",
+        "$\\text{2020 population} = 20{,}800 \\div 1.30 = 16{,}000$",
+        "Check: $16{,}000 \\times 1.30 = 20{,}800$"
       ],
       "trapWhy": "$14{,}560$ subtracts $30\\%$ of the new number, which undoes a change that never happened."
     },
