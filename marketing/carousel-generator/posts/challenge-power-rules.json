@@ -1,0 +1,64 @@
+{
+  "slug": "challenge-power-rules",
+  "_source": {
+    "bankId": "bank-am-123",
+    "difficulty": "hard",
+    "pattern": "Common-Base Exponent Simplification"
+  },
+  "caption": "Everyone remembers to square the x. The 6 is where the point goes.\n\nMost people who miss it pick the same wrong answer. Comment what you got and how long it took you.\n\nWe built Seva to tell you WHY you miss questions: content gap, trap answer, or rushing. Start for free today — link in bio.\n\n#SAT #SATprep #SATmath #augustSAT #digitalSAT #testprep",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "SAT Math · Hard",
+      "stamp": "August SAT",
+      "title": "Square the ==whole== thing",
+      "hand": "the 6 gets squared too"
+    },
+    {
+      "type": "question",
+      "eyebrow": "Try it first",
+      "qnum": "15",
+      "stem": "Which expression is equivalent to\n\n$(6x^4y^{-2})^2 \\cdot (3x^{-1}y^3)$\n\nfor all nonzero values of $x$ and $y$?",
+      "choices": [
+        "$\\frac{108x^7}{y}$",
+        "$\\frac{18x^7}{y}$",
+        "$108x^7y$",
+        "$\\frac{36x^7}{y}$"
+      ],
+      "hand": "coefficients first"
+    },
+    {
+      "type": "reveal",
+      "eyebrow": "The answer",
+      "choices": [
+        "$\\frac{108x^7}{y}$",
+        "$\\frac{18x^7}{y}$",
+        "$108x^7y$",
+        "$\\frac{36x^7}{y}$"
+      ],
+      "correct": 0,
+      "trap": 1,
+      "trapNote": "forgot to square the 6",
+      "intro": "The square hits every factor, the coefficient included.",
+      "steps": [
+        "$(6x^4y^{-2})^2 = 36x^8y^{-4}$",
+        "$36x^8y^{-4} \\cdot 3x^{-1}y^3 = 108x^7y^{-1}$",
+        "$= \\frac{108x^7}{y}$"
+      ],
+      "trapWhy": "$18$ multiplies $6 \\times 3$ without squaring the $6$ first.",
+      "stem": "Which expression is equivalent to $(6x^4y^{-2})^2 \\cdot (3x^{-1}y^3)$?"
+    },
+    {
+      "type": "rule",
+      "eyebrow": "The pattern",
+      "title": "Powers distribute to every factor",
+      "body": "$(abc)^n = a^nb^nc^n$ — the coefficient is a factor like any other.\n\nHandle the numbers, then each variable, then send negative exponents to the denominator last."
+    },
+    {
+      "type": "cta",
+      "eyebrow": "From a real Seva drill",
+      "title": "When you miss one like this, Seva tells you why.",
+      "body": "A content gap, a trap answer, and rushing all look identical on a score report. They need different fixes. Seva tells them apart and rebuilds your plan around the real one."
+    }
+  ]
+}

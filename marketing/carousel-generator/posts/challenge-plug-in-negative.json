@@ -1,0 +1,63 @@
+{
+  "slug": "challenge-plug-in-negative",
+  "_source": {
+    "bankId": "bank-alg-137",
+    "difficulty": "hard",
+    "pattern": "Function Evaluation"
+  },
+  "caption": "A 20-second evaluation with an early exit ramp built into the choices.\n\nMost people who miss it pick the same wrong answer. Comment what you got and how long it took you.\n\nWe built Seva to tell you WHY you miss questions: content gap, trap answer, or rushing. Start for free today — link in bio.\n\n#SAT #SATprep #SATmath #augustSAT #digitalSAT #testprep",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "SAT Math · Hard",
+      "stamp": "August SAT",
+      "title": "Plug in −2. ==Carefully.==",
+      "hand": "the parentheses matter"
+    },
+    {
+      "type": "question",
+      "eyebrow": "Try it first",
+      "qnum": "8",
+      "stem": "The function $f$ is defined by $f(x) = (2x - 1)^2 - 5$. What is the value of $f(-2)$?",
+      "choices": [
+        "$20$",
+        "$25$",
+        "$4$",
+        "$-4$"
+      ],
+      "hand": "20 seconds. go."
+    },
+    {
+      "type": "reveal",
+      "eyebrow": "The answer",
+      "choices": [
+        "$20$",
+        "$25$",
+        "$4$",
+        "$-4$"
+      ],
+      "correct": 0,
+      "trap": 1,
+      "trapNote": "stopped early",
+      "intro": "Work inside out, and keep the $-5$ for the end.",
+      "steps": [
+        "$f(-2) = (2(-2) - 1)^2 - 5$",
+        "$= (-5)^2 - 5$",
+        "$= 25 - 5 = 20$"
+      ],
+      "trapWhy": "$25$ stops at the squaring. The $-5$ outside still has to come off."
+    },
+    {
+      "type": "rule",
+      "eyebrow": "The pattern",
+      "title": "Inside out, always",
+      "body": "Nested expressions unwind from the inside: parentheses, then the exponent, then whatever waits outside.\n\nThe SAT parks tempting mid-calculation values in the choices. If your number appeared before you finished, keep going."
+    },
+    {
+      "type": "cta",
+      "eyebrow": "From a real Seva drill",
+      "title": "When you miss one like this, Seva tells you why.",
+      "body": "A content gap, a trap answer, and rushing all look identical on a score report. They need different fixes. Seva tells them apart and rebuilds your plan around the real one."
+    }
+  ]
+}

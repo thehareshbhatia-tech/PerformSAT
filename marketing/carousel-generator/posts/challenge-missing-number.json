@@ -1,0 +1,63 @@
+{
+  "slug": "challenge-missing-number",
+  "_source": {
+    "bankId": "bank-ps-170",
+    "difficulty": "hard",
+    "pattern": "Mean as Total"
+  },
+  "caption": "Two means, one missing number, zero algebra.\n\nMost people who miss it pick the same wrong answer. Comment what you got and how long it took you.\n\nWe built Seva to tell you WHY you miss questions: content gap, trap answer, or rushing. Start for free today — link in bio.\n\n#SAT #SATprep #SATmath #augustSAT #digitalSAT #testprep",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "SAT Math · Hard",
+      "stamp": "August SAT",
+      "title": "Means are ==totals in disguise==",
+      "hand": "210 minus 192"
+    },
+    {
+      "type": "question",
+      "eyebrow": "Try it first",
+      "qnum": "12",
+      "stem": "A data set of seven numbers has a mean of $30$. When six of the numbers are removed, the mean of those six removed numbers is $32$. What is the value of the remaining number?",
+      "choices": [
+        "$18$",
+        "$30$",
+        "$32$",
+        "$2$"
+      ],
+      "hand": "totals, not means"
+    },
+    {
+      "type": "reveal",
+      "eyebrow": "The answer",
+      "choices": [
+        "$18$",
+        "$30$",
+        "$32$",
+        "$2$"
+      ],
+      "correct": 0,
+      "trap": 1,
+      "trapNote": "just the old mean",
+      "intro": "Means hide totals. Work with the totals.",
+      "steps": [
+        "All seven: $7 \\times 30 = 210$",
+        "The six removed: $6 \\times 32 = 192$",
+        "Remaining: $210 - 192 = 18$"
+      ],
+      "trapWhy": "$30$ and $32$ are both bait. The leftover number balances the totals, not the means."
+    },
+    {
+      "type": "rule",
+      "eyebrow": "The pattern",
+      "title": "Convert every mean to a total",
+      "body": "Mean times count equals total. Turn each mean into its total, and missing-value questions become subtraction.\n\nThe moment two means appear in one problem, totals are the only safe currency."
+    },
+    {
+      "type": "cta",
+      "eyebrow": "From a real Seva drill",
+      "title": "When you miss one like this, Seva tells you why.",
+      "body": "A content gap, a trap answer, and rushing all look identical on a score report. They need different fixes. Seva tells them apart and rebuilds your plan around the real one."
+    }
+  ]
+}

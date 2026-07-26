@@ -1,0 +1,63 @@
+{
+  "slug": "challenge-sector-radians",
+  "_source": {
+    "bankId": "bank-geo-058",
+    "difficulty": "hard",
+    "pattern": "Sector Area in Radians"
+  },
+  "caption": "One formula, one plug-in, and a trap for the cautious.\n\nMost people who miss it pick the same wrong answer. Comment what you got and how long it took you.\n\nWe built Seva to tell you WHY you miss questions: content gap, trap answer, or rushing. Start for free today — link in bio.\n\n#SAT #SATprep #SATmath #augustSAT #digitalSAT #testprep",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "SAT Math · Hard",
+      "stamp": "August SAT",
+      "title": "Sector area, ==no degrees needed==",
+      "hand": "half r squared theta"
+    },
+    {
+      "type": "question",
+      "eyebrow": "Try it first",
+      "qnum": "12",
+      "stem": "A sector of a circle with radius $12$ has a central angle of $\\frac{5\\pi}{6}$ radians. What is the area of the sector?",
+      "choices": [
+        "$60\\pi$",
+        "$30\\pi$",
+        "$120\\pi$",
+        "$10\\pi$"
+      ],
+      "hand": "one formula"
+    },
+    {
+      "type": "reveal",
+      "eyebrow": "The answer",
+      "choices": [
+        "$60\\pi$",
+        "$30\\pi$",
+        "$120\\pi$",
+        "$10\\pi$"
+      ],
+      "correct": 0,
+      "trap": 1,
+      "trapNote": "halved twice",
+      "intro": "One formula, already built for radians.",
+      "steps": [
+        "Area $= \\frac{1}{2}r^2\\theta$",
+        "$= \\frac{1}{2}(144)\\cdot\\frac{5\\pi}{6}$",
+        "$= 72 \\cdot \\frac{5\\pi}{6} = 60\\pi$"
+      ],
+      "trapWhy": "$30\\pi$ halves the answer a second time. The $\\frac{1}{2}$ is already inside the formula."
+    },
+    {
+      "type": "rule",
+      "eyebrow": "The pattern",
+      "title": "Radians make sectors one line",
+      "body": "In radians, sector area is $\\frac{1}{2}r^2\\theta$, done. In degrees it's $\\frac{\\theta}{360}\\pi r^2$.\n\nPick the version that matches the angle's units and apply it once."
+    },
+    {
+      "type": "cta",
+      "eyebrow": "From a real Seva drill",
+      "title": "When you miss one like this, Seva tells you why.",
+      "body": "A content gap, a trap answer, and rushing all look identical on a score report. They need different fixes. Seva tells them apart and rebuilds your plan around the real one."
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "slug": "challenge-elimination",
+  "_source": {
+    "bankId": "bank-alg-058",
+    "difficulty": "hard",
+    "pattern": "Elimination with Scaling"
+  },
+  "caption": "Clean system, clean elimination, and a question that isn't asking for x.\n\nMost people who miss it pick the same wrong answer. Comment what you got and how long it took you.\n\nWe built Seva to tell you WHY you miss questions: content gap, trap answer, or rushing. Start for free today — link in bio.\n\n#SAT #SATprep #SATmath #augustSAT #digitalSAT #testprep",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "SAT Math · Hard",
+      "stamp": "August SAT",
+      "title": "Eliminate, then answer ==what they asked==",
+      "hand": "x + y, not x"
+    },
+    {
+      "type": "question",
+      "eyebrow": "Try it first",
+      "qnum": "14",
+      "stem": "If $3x + 4y = 24$ and $5x - 2y = 14$, what is the value of $x + y$?",
+      "choices": [
+        "$5$",
+        "$6$",
+        "$7$",
+        "$8$"
+      ],
+      "hand": "solve it clean"
+    },
+    {
+      "type": "reveal",
+      "eyebrow": "The answer",
+      "choices": [
+        "$5$",
+        "$6$",
+        "$7$",
+        "$8$"
+      ],
+      "correct": 2,
+      "intro": "Scale the second equation so the $y$ terms cancel.",
+      "steps": [
+        "$2 \\times (5x - 2y = 14) \\;\\to\\; 10x - 4y = 28$",
+        "Add: $13x = 52 \\;\\to\\; x = 4$",
+        "$3(4) + 4y = 24 \\;\\to\\; y = 3$",
+        "$x + y = 7$"
+      ],
+      "trapWhy": "The wrong choices are arithmetic slips. Scale the second equation carefully, and answer $x + y$, not $x$."
+    },
+    {
+      "type": "rule",
+      "eyebrow": "The pattern",
+      "title": "Scale, add, then reread the question",
+      "body": "When no coefficients match, multiply one equation so a variable's coefficients become opposites, then add the equations.\n\nBefore bubbling, reread the ask. Solving for $x$ and answering with $x$ is the most expensive kind of correct work."
+    },
+    {
+      "type": "cta",
+      "eyebrow": "From a real Seva drill",
+      "title": "When you miss one like this, Seva tells you why.",
+      "body": "A content gap, a trap answer, and rushing all look identical on a score report. They need different fixes. Seva tells them apart and rebuilds your plan around the real one."
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "slug": "challenge-ratio-parts",
+  "_source": {
+    "bankId": "bank-ps-162",
+    "difficulty": "hard",
+    "pattern": "Three-Term Ratio"
+  },
+  "caption": "The fastest hard-ish question on the test, if you know the first move.\n\nMost people who miss it pick the same wrong answer. Comment what you got and how long it took you.\n\nWe built Seva to tell you WHY you miss questions: content gap, trap answer, or rushing. Start for free today — link in bio.\n\n#SAT #SATprep #SATmath #augustSAT #digitalSAT #testprep",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "SAT Math · Hard",
+      "stamp": "August SAT",
+      "title": "Ratios are ==parts==, not numbers",
+      "hand": "ten parts of six"
+    },
+    {
+      "type": "question",
+      "eyebrow": "Try it first",
+      "qnum": "7",
+      "stem": "Three numbers are in the ratio $2:3:5$. If their sum is $60$, what is the largest of the three numbers?",
+      "choices": [
+        "$30$",
+        "$25$",
+        "$18$",
+        "$12$"
+      ],
+      "hand": "count the parts"
+    },
+    {
+      "type": "reveal",
+      "eyebrow": "The answer",
+      "choices": [
+        "$30$",
+        "$25$",
+        "$18$",
+        "$12$"
+      ],
+      "correct": 0,
+      "trap": 1,
+      "trapNote": "uneven split",
+      "intro": "Count the parts before splitting the total.",
+      "steps": [
+        "Parts: $2 + 3 + 5 = 10$",
+        "Each part: $60 \\div 10 = 6$",
+        "Largest: $5 \\times 6 = 30$"
+      ],
+      "trapWhy": "$25$ splits $60$ without counting parts first. Every ratio question starts with the part count."
+    },
+    {
+      "type": "rule",
+      "eyebrow": "The pattern",
+      "title": "Total the parts, then scale",
+      "body": "A ratio describes parts of a whole. Add the terms for the part count, divide the total for one part's size, then scale whichever term the question wants.\n\nThree steps, no algebra, works every time."
+    },
+    {
+      "type": "cta",
+      "eyebrow": "From a real Seva drill",
+      "title": "When you miss one like this, Seva tells you why.",
+      "body": "A content gap, a trap answer, and rushing all look identical on a score report. They need different fixes. Seva tells them apart and rebuilds your plan around the real one."
+    }
+  ]
+}

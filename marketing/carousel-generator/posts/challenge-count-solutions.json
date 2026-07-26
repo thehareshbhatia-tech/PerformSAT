@@ -1,0 +1,64 @@
+{
+  "slug": "challenge-count-solutions",
+  "_source": {
+    "bankId": "bank-am-106",
+    "difficulty": "hard",
+    "pattern": "Rational Equation Solution Count"
+  },
+  "caption": "The word \"extraneous\" scares more students than the algebra does.\n\nMost people who miss it pick the same wrong answer. Comment what you got and how long it took you.\n\nWe built Seva to tell you WHY you miss questions: content gap, trap answer, or rushing. Start for free today — link in bio.\n\n#SAT #SATprep #SATmath #augustSAT #digitalSAT #testprep",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "SAT Math · Hard",
+      "stamp": "August SAT",
+      "title": "How many solutions? ==Count carefully.==",
+      "hand": "extraneous has a definition"
+    },
+    {
+      "type": "question",
+      "eyebrow": "Try it first",
+      "qnum": "21",
+      "stem": "How many real solutions does the equation\n\n$\\frac{3}{x - 2} + \\frac{4}{x + 2} = \\frac{14}{x^2 - 4}$\n\nhave?",
+      "choices": [
+        "Zero",
+        "Exactly one",
+        "Exactly two",
+        "Infinitely many"
+      ],
+      "hand": "careful — it's a count"
+    },
+    {
+      "type": "reveal",
+      "eyebrow": "The answer",
+      "choices": [
+        "Zero",
+        "Exactly one",
+        "Exactly two",
+        "Infinitely many"
+      ],
+      "correct": 1,
+      "trap": 0,
+      "trapNote": "over-discarded",
+      "intro": "Clear the denominators, then count what survives.",
+      "steps": [
+        "Multiply by $(x-2)(x+2)$:",
+        "$3(x+2) + 4(x-2) = 14$",
+        "$7x - 2 = 14 \\;\\to\\; x = \\frac{16}{7}$"
+      ],
+      "trapWhy": "Zero throws away $x = \\frac{16}{7}$ as \"extraneous\". It breaks no denominator, so it counts.",
+      "stem": "How many real solutions does the equation have?"
+    },
+    {
+      "type": "rule",
+      "eyebrow": "The pattern",
+      "title": "Extraneous means breaks a denominator",
+      "body": "Multiply by the LCD, solve, then test each root against the original denominators. Discard only the roots that hit zero down there.\n\n$x = \\frac{16}{7}$ makes every denominator perfectly fine, so it stays."
+    },
+    {
+      "type": "cta",
+      "eyebrow": "From a real Seva drill",
+      "title": "When you miss one like this, Seva tells you why.",
+      "body": "A content gap, a trap answer, and rushing all look identical on a score report. They need different fixes. Seva tells them apart and rebuilds your plan around the real one."
+    }
+  ]
+}

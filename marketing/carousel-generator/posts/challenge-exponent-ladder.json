@@ -1,0 +1,62 @@
+{
+  "slug": "challenge-exponent-ladder",
+  "_source": {
+    "bankId": "bank-am-090",
+    "difficulty": "hard",
+    "pattern": "Exponent Rules with Radicals"
+  },
+  "caption": "The exponent question that punishes anyone who solves for a.\n\nMost people who miss it pick the same wrong answer. Comment what you got and how long it took you.\n\nWe built Seva to tell you WHY you miss questions: content gap, trap answer, or rushing. Start for free today — link in bio.\n\n#SAT #SATprep #SATmath #augustSAT #digitalSAT #testprep",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "SAT Math · Hard",
+      "stamp": "August SAT",
+      "title": "Don't solve for ==a==. Ever.",
+      "hand": "stack the exponent instead"
+    },
+    {
+      "type": "question",
+      "eyebrow": "Try it first",
+      "qnum": "17",
+      "stem": "If $a^{2/5} = 9$, where $a > 0$, what is the value of $a^{6/5}$?",
+      "choices": [
+        "$27$",
+        "$72$",
+        "$729$",
+        "$243$"
+      ],
+      "hand": "no fifth roots allowed"
+    },
+    {
+      "type": "reveal",
+      "eyebrow": "The answer",
+      "choices": [
+        "$27$",
+        "$72$",
+        "$729$",
+        "$243$"
+      ],
+      "correct": 2,
+      "trap": 0,
+      "trapNote": "multiplied by 3",
+      "intro": "Notice $\\frac{6}{5} = 3 \\times \\frac{2}{5}$, so cube what you already have.",
+      "steps": [
+        "$a^{6/5} = \\left(a^{2/5}\\right)^3$",
+        "$= 9^3 = 729$"
+      ],
+      "trapWhy": "$27$ multiplies $9 \\times 3$. Raising a power to a power multiplies exponents, not values."
+    },
+    {
+      "type": "rule",
+      "eyebrow": "The pattern",
+      "title": "Build the exponent you need",
+      "body": "When you know $a^n$ and the question wants $a^m$, write $m$ as a multiple of $n$: then $a^m = (a^n)^k$.\n\nSolving for $a$ itself means fifth roots and decimals. The ladder skips all of it."
+    },
+    {
+      "type": "cta",
+      "eyebrow": "From a real Seva drill",
+      "title": "When you miss one like this, Seva tells you why.",
+      "body": "A content gap, a trap answer, and rushing all look identical on a score report. They need different fixes. Seva tells them apart and rebuilds your plan around the real one."
+    }
+  ]
+}

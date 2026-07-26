@@ -1,0 +1,64 @@
+{
+  "slug": "challenge-tangent-line",
+  "_source": {
+    "bankId": "bank-am-130",
+    "difficulty": "hard",
+    "pattern": "Tangent Line and Discriminant"
+  },
+  "caption": "The word \"tangent\" is code. Most students never crack it.\n\nMost people who miss it pick the same wrong answer. Comment what you got and how long it took you.\n\nWe built Seva to tell you WHY you miss questions: content gap, trap answer, or rushing. Start for free today — link in bio.\n\n#SAT #SATprep #SATmath #augustSAT #digitalSAT #testprep",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "SAT Math · Hard",
+      "stamp": "August SAT",
+      "title": "Tangent means ==one touch==",
+      "hand": "set the discriminant to zero"
+    },
+    {
+      "type": "question",
+      "eyebrow": "Try it first",
+      "qnum": "22",
+      "stem": "In the $xy$-plane, the line $y = 6x + b$ is tangent to the parabola $y = 3x^2 - 12$, where $b$ is a constant. What is the value of $b$?",
+      "choices": [
+        "$-15$",
+        "$15$",
+        "$-3$",
+        "$-12$"
+      ],
+      "hand": "hardest one this week"
+    },
+    {
+      "type": "reveal",
+      "eyebrow": "The answer",
+      "choices": [
+        "$-15$",
+        "$15$",
+        "$-3$",
+        "$-12$"
+      ],
+      "correct": 0,
+      "trap": 1,
+      "trapNote": "sign slip",
+      "intro": "Tangent means the system has exactly one solution.",
+      "steps": [
+        "Set equal: $3x^2 - 12 = 6x + b$",
+        "$3x^2 - 6x - (12 + b) = 0$",
+        "Tangent: discriminant $= 0$",
+        "$36 + 12(12 + b) = 0 \\;\\to\\; b = -15$"
+      ],
+      "trapWhy": "$15$ drops a sign in the last line. Slow down exactly there."
+    },
+    {
+      "type": "rule",
+      "eyebrow": "The pattern",
+      "title": "Tangency is a discriminant question",
+      "body": "A line tangent to a parabola touches once, so setting them equal must give exactly one solution: $b^2 - 4ac = 0$.\n\nThis is the standard hard-Module-2 disguise for the discriminant. The word \"tangent\" is the tell."
+    },
+    {
+      "type": "cta",
+      "eyebrow": "From a real Seva drill",
+      "title": "When you miss one like this, Seva tells you why.",
+      "body": "A content gap, a trap answer, and rushing all look identical on a score report. They need different fixes. Seva tells them apart and rebuilds your plan around the real one."
+    }
+  ]
+}

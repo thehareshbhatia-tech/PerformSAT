@@ -1,0 +1,63 @@
+{
+  "slug": "challenge-percent-of-percent",
+  "_source": {
+    "bankId": "bank-ps-154",
+    "difficulty": "hard",
+    "pattern": "Stacked Percent Relationships"
+  },
+  "caption": "Three abstract percents, one concrete substitution.\n\nMost people who miss it pick the same wrong answer. Comment what you got and how long it took you.\n\nWe built Seva to tell you WHY you miss questions: content gap, trap answer, or rushing. Start for free today — link in bio.\n\n#SAT #SATprep #SATmath #augustSAT #digitalSAT #testprep",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "SAT Math · Hard",
+      "stamp": "August SAT",
+      "title": "When percents stack, ==pick a number==",
+      "hand": "let c equal 100"
+    },
+    {
+      "type": "question",
+      "eyebrow": "Try it first",
+      "qnum": "21",
+      "stem": "If $a = 2.5(b + c)$ and $b$ is $40\\%$ of $c$, then $a$ is what percent of $b$?",
+      "choices": [
+        "$875\\%$",
+        "$290\\%$",
+        "$250\\%$",
+        "$625\\%$"
+      ],
+      "hand": "make it concrete"
+    },
+    {
+      "type": "reveal",
+      "eyebrow": "The answer",
+      "choices": [
+        "$875\\%$",
+        "$290\\%$",
+        "$250\\%$",
+        "$625\\%$"
+      ],
+      "correct": 0,
+      "trap": 1,
+      "trapNote": "added percents",
+      "intro": "Plug a clean number into the smallest piece: let $c = 100$.",
+      "steps": [
+        "$c = 100 \\;\\to\\; b = 40$",
+        "$a = 2.5(40 + 100) = 350$",
+        "$\\frac{a}{b} = \\frac{350}{40} = 875\\%$"
+      ],
+      "trapWhy": "$290\\%$ tries to add $250\\% + 40\\%$. Stacked percents only behave through real numbers."
+    },
+    {
+      "type": "rule",
+      "eyebrow": "The pattern",
+      "title": "Concrete numbers beat percent algebra",
+      "body": "When percents chain across relationships, assign the smallest variable a clean value like $100$ and compute forward.\n\n\"$X$ is what percent of $Y$\" is always $\\frac{X}{Y} \\times 100$ — with actual numbers, it's one division."
+    },
+    {
+      "type": "cta",
+      "eyebrow": "From a real Seva drill",
+      "title": "When you miss one like this, Seva tells you why.",
+      "body": "A content gap, a trap answer, and rushing all look identical on a score report. They need different fixes. Seva tells them apart and rebuilds your plan around the real one."
+    }
+  ]
+}

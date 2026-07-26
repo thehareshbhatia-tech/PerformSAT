@@ -1,0 +1,63 @@
+{
+  "slug": "challenge-similar-tanks",
+  "_source": {
+    "bankId": "bank-geo-049",
+    "difficulty": "hard",
+    "pattern": "Volume Scaling by Cube"
+  },
+  "caption": "The tanks are similar. The answers are not.\n\nMost people who miss it pick the same wrong answer. Comment what you got and how long it took you.\n\nWe built Seva to tell you WHY you miss questions: content gap, trap answer, or rushing. Start for free today — link in bio.\n\n#SAT #SATprep #SATmath #augustSAT #digitalSAT #testprep",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "SAT Math · Hard",
+      "stamp": "August SAT",
+      "title": "Similar tanks scale by the ==cube==",
+      "hand": "27 over 8, not 3 over 2"
+    },
+    {
+      "type": "question",
+      "eyebrow": "Try it first",
+      "qnum": "13",
+      "stem": "Two similar cylindrical tanks have heights in the ratio $2:3$. If the smaller tank holds $80$ gallons, how many gallons does the larger tank hold?",
+      "choices": [
+        "$120$",
+        "$180$",
+        "$270$",
+        "$240$"
+      ],
+      "hand": "gallons are volume"
+    },
+    {
+      "type": "reveal",
+      "eyebrow": "The answer",
+      "choices": [
+        "$120$",
+        "$180$",
+        "$270$",
+        "$240$"
+      ],
+      "correct": 2,
+      "trap": 0,
+      "trapNote": "linear thinking",
+      "intro": "Similar solids scale volume by the cube of the linear ratio.",
+      "steps": [
+        "Linear ratio: $\\frac{3}{2}$",
+        "Volume ratio: $\\left(\\frac{3}{2}\\right)^3 = \\frac{27}{8}$",
+        "$80 \\times \\frac{27}{8} = 270$"
+      ],
+      "trapWhy": "$120$ scales linearly. Volume cubes the ratio."
+    },
+    {
+      "type": "rule",
+      "eyebrow": "The pattern",
+      "title": "Similar means one ratio, cubed for volume",
+      "body": "Similar solids share a single linear ratio. Lengths scale by it, areas by its square, volumes by its cube.\n\nAsk what the units measure: gallons are volume, so cube before you scale."
+    },
+    {
+      "type": "cta",
+      "eyebrow": "From a real Seva drill",
+      "title": "When you miss one like this, Seva tells you why.",
+      "body": "A content gap, a trap answer, and rushing all look identical on a score report. They need different fixes. Seva tells them apart and rebuilds your plan around the real one."
+    }
+  ]
+}

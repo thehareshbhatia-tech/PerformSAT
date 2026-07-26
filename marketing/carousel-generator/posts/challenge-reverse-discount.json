@@ -1,0 +1,63 @@
+{
+  "slug": "challenge-reverse-discount",
+  "_source": {
+    "bankId": "bank-ps-114",
+    "difficulty": "hard",
+    "pattern": "Reverse Percent"
+  },
+  "caption": "Everyone's instinct is to add the discount back. The check line shows why that fails.\n\nMost people who miss it pick the same wrong answer. Comment what you got and how long it took you.\n\nWe built Seva to tell you WHY you miss questions: content gap, trap answer, or rushing. Start for free today — link in bio.\n\n#SAT #SATprep #SATmath #augustSAT #digitalSAT #testprep",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "SAT Math · Hard",
+      "stamp": "August SAT",
+      "title": "Undo the discount by ==dividing==",
+      "hand": "divide by 0.85"
+    },
+    {
+      "type": "question",
+      "eyebrow": "Try it first",
+      "qnum": "10",
+      "stem": "A jacket is on sale for $\\$51$, which represents a $15\\%$ discount off the original price. What was the original price of the jacket?",
+      "choices": [
+        "\\$60",
+        "\\$58.65",
+        "\\$340",
+        "\\$43"
+      ],
+      "hand": "the obvious move is wrong"
+    },
+    {
+      "type": "reveal",
+      "eyebrow": "The answer",
+      "choices": [
+        "\\$60",
+        "\\$58.65",
+        "\\$340",
+        "\\$43"
+      ],
+      "correct": 0,
+      "trap": 1,
+      "trapNote": "added 15% back",
+      "intro": "A $15\\%$ discount keeps $85\\%$ of the price.",
+      "steps": [
+        "$\\text{sale} = \\text{original} \\times 0.85$",
+        "$\\text{original} = \\$51 \\div 0.85 = \\$60$",
+        "Check: $\\$60 \\times 0.85 = \\$51$"
+      ],
+      "trapWhy": "$\\$58.65$ adds $15\\%$ back onto $\\$51$. Adding a percent never undoes subtracting it."
+    },
+    {
+      "type": "rule",
+      "eyebrow": "The pattern",
+      "title": "Divide by what remains",
+      "body": "After a $p\\%$ discount, the sale price is $(1 - p)$ of the original. Reverse it by dividing by that retention rate.\n\nFor $15\\%$ off, divide by $0.85$. Never add $15\\%$ back."
+    },
+    {
+      "type": "cta",
+      "eyebrow": "From a real Seva drill",
+      "title": "When you miss one like this, Seva tells you why.",
+      "body": "A content gap, a trap answer, and rushing all look identical on a score report. They need different fixes. Seva tells them apart and rebuilds your plan around the real one."
+    }
+  ]
+}

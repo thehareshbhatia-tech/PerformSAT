@@ -1,0 +1,62 @@
+{
+  "slug": "challenge-coefficient-trick",
+  "_source": {
+    "bankId": "bank-am-059",
+    "difficulty": "hard",
+    "pattern": "Alternating-Sign Coefficient Sum via f(−1)"
+  },
+  "caption": "You can expand the cube for two minutes, or substitute once.\n\nMost people who miss it pick the same wrong answer. Comment what you got and how long it took you.\n\nWe built Seva to tell you WHY you miss questions: content gap, trap answer, or rushing. Start for free today — link in bio.\n\n#SAT #SATprep #SATmath #augustSAT #digitalSAT #testprep",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "SAT Math · Hard",
+      "stamp": "August SAT",
+      "title": "Never expand ==the cube==",
+      "hand": "(x + 2)³ falls to one substitution"
+    },
+    {
+      "type": "question",
+      "eyebrow": "Try it first",
+      "qnum": "19",
+      "stem": "For all values of $x$, $(x + 2)^3 = ax^3 + bx^2 + cx + d$, where $a$, $b$, $c$, and $d$ are constants. What is the value of $a - b + c - d$?",
+      "choices": [
+        "$-27$",
+        "$-1$",
+        "$1$",
+        "$27$"
+      ],
+      "hand": "there's a 10-second route"
+    },
+    {
+      "type": "reveal",
+      "eyebrow": "The answer",
+      "choices": [
+        "$-27$",
+        "$-1$",
+        "$1$",
+        "$27$"
+      ],
+      "correct": 1,
+      "trap": 0,
+      "trapNote": "plugged in 1",
+      "intro": "Alternating signs is the fingerprint of $x = -1$.",
+      "steps": [
+        "At $x = -1$: $-a + b - c + d = (-1 + 2)^3 = 1$",
+        "Flip the sign: $a - b + c - d = -1$"
+      ],
+      "trapWhy": "$-27$ comes from mixing up the substitution. $x = 1$ gives the plain sum; alternating signs need $x = -1$."
+    },
+    {
+      "type": "rule",
+      "eyebrow": "The pattern",
+      "title": "Coefficient sums are substitutions",
+      "body": "Sum of the coefficients: plug in $x = 1$. Alternating sum: plug in $x = -1$. Then match the sign of what you got to the combination the question asks for.\n\nExpanding the cube gets the same answer in four times the time."
+    },
+    {
+      "type": "cta",
+      "eyebrow": "From a real Seva drill",
+      "title": "When you miss one like this, Seva tells you why.",
+      "body": "A content gap, a trap answer, and rushing all look identical on a score report. They need different fixes. Seva tells them apart and rebuilds your plan around the real one."
+    }
+  ]
+}

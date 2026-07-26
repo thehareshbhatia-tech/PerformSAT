@@ -363,7 +363,7 @@ export function buildHtml(post) {
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="${B.fontsHref}" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Tinos:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.18.1/dist/katex.min.css">
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
   body { background:#222; display:flex; flex-direction:column; gap:40px; padding:40px; }
@@ -518,7 +518,7 @@ export function buildHtml(post) {
   }
   .bb-card.compact .bb-letter { width:34px; height:34px; font-size:19px; }
   .bb-choice.is-faded { opacity:.45; }
-  .bb-pick .ring-choice { left:-40px; top:-18px; width:calc(100% + 96px); height:calc(100% + 36px); }
+  .bb-pick .ring-choice { left:-40px; top:-24px; width:calc(100% + 96px); height:calc(100% + 48px); }
   .trap-note {
     position:absolute; right:18px; top:50%; transform:translateY(-50%) rotate(-2.5deg);
     display:flex; align-items:center; gap:10px;

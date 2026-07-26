@@ -1,0 +1,63 @@
+{
+  "slug": "challenge-substitution-slip",
+  "_source": {
+    "bankId": "bank-alg-052",
+    "difficulty": "hard",
+    "pattern": "Substitution with Fraction"
+  },
+  "caption": "One distribution, two terms, and half of everyone only hits the first.\n\nMost people who miss it pick the same wrong answer. Comment what you got and how long it took you.\n\nWe built Seva to tell you WHY you miss questions: content gap, trap answer, or rushing. Start for free today — link in bio.\n\n#SAT #SATprep #SATmath #augustSAT #digitalSAT #testprep",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "SAT Math · Hard",
+      "stamp": "August SAT",
+      "title": "The −2 hits ==both== terms",
+      "hand": "distribute all the way"
+    },
+    {
+      "type": "question",
+      "eyebrow": "Try it first",
+      "qnum": "9",
+      "stem": "If $y = \\frac{1}{2}x + 3$ and $3x - 2y = 10$, what is the value of $x$?",
+      "choices": [
+        "$4$",
+        "$6$",
+        "$8$",
+        "$10$"
+      ],
+      "hand": "watch the distribution"
+    },
+    {
+      "type": "reveal",
+      "eyebrow": "The answer",
+      "choices": [
+        "$4$",
+        "$6$",
+        "$8$",
+        "$10$"
+      ],
+      "correct": 2,
+      "trap": 0,
+      "trapNote": "distribution slip",
+      "intro": "Substitute, then distribute the $-2$ to both terms.",
+      "steps": [
+        "$3x - 2\\left(\\frac{1}{2}x + 3\\right) = 10$",
+        "$3x - x - 6 = 10$",
+        "$2x = 16 \\;\\to\\; x = 8$"
+      ],
+      "trapWhy": "Every wrong choice here is a distribution slip. The $-2$ must hit both the $\\frac{1}{2}x$ and the $3$."
+    },
+    {
+      "type": "rule",
+      "eyebrow": "The pattern",
+      "title": "Distribute to every term",
+      "body": "When a substitution puts parentheses behind a negative, the sign multiplies through everything inside — the fraction term and the constant.\n\nThe dropped constant is one of the most common algebra points lost on this test."
+    },
+    {
+      "type": "cta",
+      "eyebrow": "From a real Seva drill",
+      "title": "When you miss one like this, Seva tells you why.",
+      "body": "A content gap, a trap answer, and rushing all look identical on a score report. They need different fixes. Seva tells them apart and rebuilds your plan around the real one."
+    }
+  ]
+}

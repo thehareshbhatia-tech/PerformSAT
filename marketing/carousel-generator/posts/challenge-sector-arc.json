@@ -1,0 +1,63 @@
+{
+  "slug": "challenge-sector-arc",
+  "_source": {
+    "bankId": "bank-geo-052",
+    "difficulty": "hard",
+    "pattern": "Sector Area from Arc Length"
+  },
+  "caption": "Two tiny formulas, one connecting move, one missing half.\n\nMost people who miss it pick the same wrong answer. Comment what you got and how long it took you.\n\nWe built Seva to tell you WHY you miss questions: content gap, trap answer, or rushing. Start for free today — link in bio.\n\n#SAT #SATprep #SATmath #augustSAT #digitalSAT #testprep",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "SAT Math · Hard",
+      "stamp": "August SAT",
+      "title": "Arc length hides the ==angle==",
+      "hand": "theta equals s over r"
+    },
+    {
+      "type": "question",
+      "eyebrow": "Try it first",
+      "qnum": "19",
+      "stem": "A sector of a circle has an arc length of $3\\pi$ centimeters and a radius of $9$ centimeters. What is the area, in square centimeters, of the sector?",
+      "choices": [
+        "$\\frac{27\\pi}{2}$",
+        "$27\\pi$",
+        "$\\frac{9\\pi}{2}$",
+        "$81\\pi$"
+      ],
+      "hand": "two formulas, one link"
+    },
+    {
+      "type": "reveal",
+      "eyebrow": "The answer",
+      "choices": [
+        "$\\frac{27\\pi}{2}$",
+        "$27\\pi$",
+        "$\\frac{9\\pi}{2}$",
+        "$81\\pi$"
+      ],
+      "correct": 0,
+      "trap": 1,
+      "trapNote": "lost the half",
+      "intro": "Recover the angle from the arc first.",
+      "steps": [
+        "$\\theta = \\frac{s}{r} = \\frac{3\\pi}{9} = \\frac{\\pi}{3}$",
+        "Area $= \\frac{1}{2}r^2\\theta = \\frac{1}{2}(81)\\cdot\\frac{\\pi}{3}$",
+        "$= \\frac{27\\pi}{2}$"
+      ],
+      "trapWhy": "$27\\pi$ is $r^2\\theta$ with the $\\frac{1}{2}$ forgotten."
+    },
+    {
+      "type": "rule",
+      "eyebrow": "The pattern",
+      "title": "Arc to angle to area",
+      "body": "Arc length $s = r\\theta$ unlocks the angle: $\\theta = \\frac{s}{r}$. Then sector area is $\\frac{1}{2}r^2\\theta$.\n\nRadians make both formulas clean. The $\\frac{1}{2}$ is the whole question."
+    },
+    {
+      "type": "cta",
+      "eyebrow": "From a real Seva drill",
+      "title": "When you miss one like this, Seva tells you why.",
+      "body": "A content gap, a trap answer, and rushing all look identical on a score report. They need different fixes. Seva tells them apart and rebuilds your plan around the real one."
+    }
+  ]
+}

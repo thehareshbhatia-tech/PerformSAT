@@ -1,0 +1,63 @@
+{
+  "slug": "challenge-up-down-zero",
+  "_source": {
+    "bankId": "bank-ps-075",
+    "difficulty": "hard",
+    "pattern": "Net Effect of Successive Changes"
+  },
+  "caption": "The rare percent question whose answer is a perfect zero.\n\nMost people who miss it pick the same wrong answer. Comment what you got and how long it took you.\n\nWe built Seva to tell you WHY you miss questions: content gap, trap answer, or rushing. Start for free today — link in bio.\n\n#SAT #SATprep #SATmath #augustSAT #digitalSAT #testprep",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "SAT Math · Hard",
+      "stamp": "August SAT",
+      "title": "Up 25%, down 20%. ==Back to start.==",
+      "hand": "follow a hundred through it"
+    },
+    {
+      "type": "question",
+      "eyebrow": "Try it first",
+      "qnum": "11",
+      "stem": "A laptop's price is increased by $25\\%$, and the new price is then decreased by $20\\%$. What is the net percent change from the original price?",
+      "choices": [
+        "$0\\%$ (no change)",
+        "$5\\%$ increase",
+        "$5\\%$ decrease",
+        "$10\\%$ increase"
+      ],
+      "hand": "gut answer first, then check"
+    },
+    {
+      "type": "reveal",
+      "eyebrow": "The answer",
+      "choices": [
+        "$0\\%$ (no change)",
+        "$5\\%$ increase",
+        "$5\\%$ decrease",
+        "$10\\%$ increase"
+      ],
+      "correct": 0,
+      "trap": 1,
+      "trapNote": "the add trap",
+      "intro": "Follow a $\\$100$ laptop through both changes.",
+      "steps": [
+        "Up $25\\%$: $\\$100 \\times 1.25 = \\$125$",
+        "Down $20\\%$: $\\$125 \\times 0.80 = \\$100$",
+        "Back where it started: $0\\%$"
+      ],
+      "trapWhy": "$5\\%$ adds $25 - 20$. The $20\\%$ cut acts on $\\$125$, so it erases the entire gain."
+    },
+    {
+      "type": "rule",
+      "eyebrow": "The pattern",
+      "title": "Percent changes multiply",
+      "body": "Convert each change to a multiplier and multiply: $1.25 \\times 0.80 = 1.00$.\n\nThe up-then-down pair that lands exactly at zero is one of the SAT's favorite reveals."
+    },
+    {
+      "type": "cta",
+      "eyebrow": "From a real Seva drill",
+      "title": "When you miss one like this, Seva tells you why.",
+      "body": "A content gap, a trap answer, and rushing all look identical on a score report. They need different fixes. Seva tells them apart and rebuilds your plan around the real one."
+    }
+  ]
+}

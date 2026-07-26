@@ -1,0 +1,63 @@
+{
+  "slug": "challenge-shifted-vertex",
+  "_source": {
+    "bankId": "bank-am-114",
+    "difficulty": "hard",
+    "pattern": "Function Transformation"
+  },
+  "caption": "Two shifts, one vertex, and a choice waiting for whoever forgets the second one.\n\nMost people who miss it pick the same wrong answer. Comment what you got and how long it took you.\n\nWe built Seva to tell you WHY you miss questions: content gap, trap answer, or rushing. Start for free today — link in bio.\n\n#SAT #SATprep #SATmath #augustSAT #digitalSAT #testprep",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "SAT Math · Hard",
+      "stamp": "August SAT",
+      "title": "Transformations move ==both== coordinates",
+      "hand": "right 4, up 7. that's it."
+    },
+    {
+      "type": "question",
+      "eyebrow": "Try it first",
+      "qnum": "18",
+      "stem": "The function $f$ is defined by $f(x) = (x + 1)^2 - 2$, and the function $g$ is defined by $g(x) = f(x - 4) + 7$. At what value of $x$ does $g$ attain its minimum, and what is that minimum?",
+      "choices": [
+        "$x = 3$, minimum $5$",
+        "$x = 3$, minimum $-2$",
+        "$x = -5$, minimum $5$",
+        "$x = -1$, minimum $5$"
+      ],
+      "hand": "track both shifts"
+    },
+    {
+      "type": "reveal",
+      "eyebrow": "The answer",
+      "choices": [
+        "$x = 3$, minimum $5$",
+        "$x = 3$, minimum $-2$",
+        "$x = -5$, minimum $5$",
+        "$x = -1$, minimum $5$"
+      ],
+      "correct": 0,
+      "trap": 1,
+      "trapNote": "forgot the +7",
+      "intro": "Move the vertex, both directions.",
+      "steps": [
+        "$f$ has vertex $(-1, -2)$",
+        "$g(x) = f(x - 4) + 7$: right $4$, up $7$",
+        "New vertex: $(3, 5)$"
+      ],
+      "trapWhy": "$(3, -2)$ forgets the $+7$ on the value."
+    },
+    {
+      "type": "rule",
+      "eyebrow": "The pattern",
+      "title": "Shift the vertex, not the formula",
+      "body": "For $f(x - c) + d$, the whole graph moves right $c$ and up $d$, so the vertex does too.\n\nTrack the horizontal and vertical pieces separately and transformation questions become coordinate arithmetic."
+    },
+    {
+      "type": "cta",
+      "eyebrow": "From a real Seva drill",
+      "title": "When you miss one like this, Seva tells you why.",
+      "body": "A content gap, a trap answer, and rushing all look identical on a score report. They need different fixes. Seva tells them apart and rebuilds your plan around the real one."
+    }
+  ]
+}

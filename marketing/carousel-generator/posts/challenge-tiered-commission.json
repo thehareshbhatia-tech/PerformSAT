@@ -1,0 +1,63 @@
+{
+  "slug": "challenge-tiered-commission",
+  "_source": {
+    "bankId": "bank-ps-068",
+    "difficulty": "hard",
+    "pattern": "Tiered Commission"
+  },
+  "caption": "One threshold, two rates, and a one-rate answer waiting in slot A.\n\nMost people who miss it pick the same wrong answer. Comment what you got and how long it took you.\n\nWe built Seva to tell you WHY you miss questions: content gap, trap answer, or rushing. Start for free today — link in bio.\n\n#SAT #SATprep #SATmath #augustSAT #digitalSAT #testprep",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "SAT Math · Hard",
+      "stamp": "August SAT",
+      "title": "Commission comes in ==tiers==",
+      "hand": "split at 10k"
+    },
+    {
+      "type": "question",
+      "eyebrow": "Try it first",
+      "qnum": "13",
+      "stem": "A salesperson earns a $5\\%$ commission on the first $\\$10{,}000$ in sales and $8\\%$ on all sales above $\\$10{,}000$. If the salesperson's total sales are $\\$22{,}000$, what is the total commission?",
+      "choices": [
+        "\\$1,100",
+        "\\$1,460",
+        "\\$1,760",
+        "\\$1,860"
+      ],
+      "hand": "split it first"
+    },
+    {
+      "type": "reveal",
+      "eyebrow": "The answer",
+      "choices": [
+        "\\$1,100",
+        "\\$1,460",
+        "\\$1,760",
+        "\\$1,860"
+      ],
+      "correct": 1,
+      "trap": 0,
+      "trapNote": "one rate for everything",
+      "intro": "Split the sales at the threshold, then rate each slice.",
+      "steps": [
+        "$5\\%$ of $\\$10{,}000$: $\\$500$",
+        "$8\\%$ of the remaining $\\$12{,}000$: $\\$960$",
+        "$\\$500 + \\$960 = \\$1{,}460$"
+      ],
+      "trapWhy": "$\\$1{,}100$ applies $5\\%$ to all $\\$22{,}000$ and ignores the higher tier entirely."
+    },
+    {
+      "type": "rule",
+      "eyebrow": "The pattern",
+      "title": "Slice at every threshold",
+      "body": "Tiered rates never apply one percentage to the whole amount. Split at each threshold, rate each slice, add the pieces.\n\nTaxes, commissions, and phone plans on the SAT all run on this one move."
+    },
+    {
+      "type": "cta",
+      "eyebrow": "From a real Seva drill",
+      "title": "When you miss one like this, Seva tells you why.",
+      "body": "A content gap, a trap answer, and rushing all look identical on a score report. They need different fixes. Seva tells them apart and rebuilds your plan around the real one."
+    }
+  ]
+}

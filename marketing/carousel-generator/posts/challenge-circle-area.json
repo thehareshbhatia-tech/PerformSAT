@@ -1,0 +1,63 @@
+{
+  "slug": "challenge-circle-area",
+  "_source": {
+    "bankId": "bank-geo-046",
+    "difficulty": "hard",
+    "pattern": "Circle Equation to Area"
+  },
+  "caption": "The answer is literally printed by the algebra. Most students root it anyway.\n\nMost people who miss it pick the same wrong answer. Comment what you got and how long it took you.\n\nWe built Seva to tell you WHY you miss questions: content gap, trap answer, or rushing. Start for free today — link in bio.\n\n#SAT #SATprep #SATmath #augustSAT #digitalSAT #testprep",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "SAT Math · Hard",
+      "stamp": "August SAT",
+      "title": "The circle equation ==is== the area",
+      "hand": "r² is sitting right there"
+    },
+    {
+      "type": "question",
+      "eyebrow": "Try it first",
+      "qnum": "16",
+      "stem": "The equation $x^2 + y^2 + 8x - 10y + 5 = 0$ represents a circle in the $xy$-plane. What is the area of this circle?",
+      "choices": [
+        "$36\\pi$",
+        "$6\\pi$",
+        "$5\\pi$",
+        "$16\\pi$"
+      ],
+      "hand": "one complete-the-square"
+    },
+    {
+      "type": "reveal",
+      "eyebrow": "The answer",
+      "choices": [
+        "$36\\pi$",
+        "$6\\pi$",
+        "$5\\pi$",
+        "$16\\pi$"
+      ],
+      "correct": 0,
+      "trap": 1,
+      "trapNote": "used r, not r²",
+      "intro": "Complete the square; the right side is already $r^2$.",
+      "steps": [
+        "$(x + 4)^2 + (y - 5)^2 = 16 + 25 - 5 = 36$",
+        "$r^2 = 36$",
+        "Area $= \\pi r^2 = 36\\pi$"
+      ],
+      "trapWhy": "$6\\pi$ plugs $r = 6$ where the formula wants $r^2$. The $36$ never needed a root."
+    },
+    {
+      "type": "rule",
+      "eyebrow": "The pattern",
+      "title": "The right side is r² already",
+      "body": "Completing the square leaves $r^2$ alone on the right. Area is $\\pi r^2$, so the number is ready the moment the square is complete.\n\nTaking the root and re-squaring is where the wrong answers come from."
+    },
+    {
+      "type": "cta",
+      "eyebrow": "From a real Seva drill",
+      "title": "When you miss one like this, Seva tells you why.",
+      "body": "A content gap, a trap answer, and rushing all look identical on a score report. They need different fixes. Seva tells them apart and rebuilds your plan around the real one."
+    }
+  ]
+}

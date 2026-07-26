@@ -1,0 +1,62 @@
+{
+  "slug": "challenge-vertex-combo",
+  "_source": {
+    "bankId": "bank-am-099",
+    "difficulty": "hard",
+    "pattern": "Vertex Form Reading"
+  },
+  "caption": "All the information is free. The question is whether you read it.\n\nMost people who miss it pick the same wrong answer. Comment what you got and how long it took you.\n\nWe built Seva to tell you WHY you miss questions: content gap, trap answer, or rushing. Start for free today — link in bio.\n\n#SAT #SATprep #SATmath #augustSAT #digitalSAT #testprep",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "SAT Math · Hard",
+      "stamp": "August SAT",
+      "title": "Read the vertex. ==Answer the question.==",
+      "hand": "h minus k, not plus"
+    },
+    {
+      "type": "question",
+      "eyebrow": "Try it first",
+      "qnum": "10",
+      "stem": "The parabola $y = -2(x - h)^2 + k$ has its vertex at $(5, 16)$ and passes through the point $(3, 8)$. What is the value of $h - k$?",
+      "choices": [
+        "$-11$",
+        "$21$",
+        "$11$",
+        "$-21$"
+      ],
+      "hand": "faster than it looks"
+    },
+    {
+      "type": "reveal",
+      "eyebrow": "The answer",
+      "choices": [
+        "$-11$",
+        "$21$",
+        "$11$",
+        "$-21$"
+      ],
+      "correct": 0,
+      "trap": 1,
+      "trapNote": "added instead",
+      "intro": "The vertex hands you $h$ and $k$ directly.",
+      "steps": [
+        "Vertex $(5, 16)$ means $h = 5$ and $k = 16$",
+        "$h - k = 5 - 16 = -11$"
+      ],
+      "trapWhy": "$21$ answers $h + k$. Read the combination twice before bubbling."
+    },
+    {
+      "type": "rule",
+      "eyebrow": "The pattern",
+      "title": "Vertex form is a free read",
+      "body": "In $y = a(x - h)^2 + k$, the vertex is $(h, k)$ — no work required. The extra point in the stem is usually just consistency dressing.\n\nThe real test is whether you answer the exact combination asked."
+    },
+    {
+      "type": "cta",
+      "eyebrow": "From a real Seva drill",
+      "title": "When you miss one like this, Seva tells you why.",
+      "body": "A content gap, a trap answer, and rushing all look identical on a score report. They need different fixes. Seva tells them apart and rebuilds your plan around the real one."
+    }
+  ]
+}
