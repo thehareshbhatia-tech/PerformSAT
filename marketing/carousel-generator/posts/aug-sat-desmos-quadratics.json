@@ -1,13 +1,14 @@
 {
   "slug": "aug-sat-desmos-quadratics",
-  "caption": "Every quadratic question on the SAT wants one of four things: the zeros, the maximum, the minimum, or where the curve meets a line. Desmos hands you all four if you know where to click.\n\nSave this for test week. Seva's practice tests have the same calculator built in, so you can drill the clicks until they're automatic. Free trial, link in bio.\n\n#SAT #SATprep #SATmath #desmos #augustSAT #digitalSAT #sattips #testprep",
+  "caption": "Every quadratic question on the SAT wants one of four things: the zeros, the maximum, the minimum, or where the curve meets a line. Desmos hands you all four if you know where to click.\n\nSave this for test week. Seva's practice tests have the same calculator built in, so you can drill the clicks until they're automatic. Start for free today — link in bio.\n\n#SAT #SATprep #SATmath #desmos #augustSAT #digitalSAT #sattips #testprep",
   "slides": [
     {
       "type": "cover",
-      "eyebrow": "August SAT · Math",
+      "eyebrow": "SAT Math",
       "title": "Desmos will do ==quadratics== for you",
       "hand": "zeros, vertex, systems. all clicks.",
-      "art": "quad-zeros.png"
+      "art": "quad-zeros.png",
+      "stamp": "August SAT"
     },
     {
       "type": "shot",

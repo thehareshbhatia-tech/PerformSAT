@@ -137,7 +137,7 @@ const mdBody = (s) =>
     .replace(/\\sqrt\{([^}]+)\}/g, '<span class="sqrt"><span class="rad">&radic;</span><span class="rdc">$1</span></span>')
     .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
     .replace(/\*(.+?)\*/g, '<em>$1</em>')
-    .replace(/==(.+?)==/g, (_, t) => `<span class="hw-u">${t}${roughUnderline(`u${mdSeq++}${t}`)}</span>`)
+    .replace(/==(.+?)==/g, '<mark class="lime">$1</mark>')
     .replace(/\^\^(.+?)\^\^/g, '<span class="accent">$1</span>')
     .replace(/\^\{([^}]+)\}/g, '<sup>$1</sup>');
 
@@ -201,6 +201,7 @@ const RENDER = {
     const q = s.card ? post.slides.find((x) => x.type === 'question') : null;
     return `
     ${kicker(s.eyebrow)}
+    ${s.stamp ? `<div class="stamp">${md(s.stamp)}</div>` : ''}
     <h1 class="${sizeCls.trim()}">${md(s.title)}</h1>
     ${hw(s.hand, 'hw-cover')}
     ${q ? `<div class="cover-card"><div class="cover-card-inner">${bluebookCard(q, { seed: `${post.slug}-cover` })}</div></div>` : ''}
@@ -288,7 +289,7 @@ const RENDER = {
     ${kicker(s.eyebrow)}
     <h2 class="cta-title">${md(s.title)}</h2>
     ${s.body ? `<div class="body">${md(s.body)}</div>` : ''}
-    ${hw(s.hand || 'free 3-day trial — link in bio', 'hw-cta')}
+    <div class="cta-btn">${s.button ? md(s.button) : 'Start for free today'}<span class="cta-site">&rarr; link in bio</span></div>
     ${s.note ? `<div class="cta-note">${md(s.note)}</div>` : ''}
     ${r ? `<div class="cta-art"><div class="cta-art-inner">${bluebookCard(r, { compact: true, correct: r.correct, seed: `${post.slug}-cta` })}</div></div>` : ''}
     ${s._artData ? `<div class="cta-art"><div class="cta-art-inner"><img src="${s._artData}"></div></div>` : ''}`;
@@ -316,7 +317,7 @@ export function buildHtml(post) {
       const num =
         s.type === 'cover'
           ? `<div class="tribars"><span></span><span></span><span></span></div>`
-          : `<div class="num">${i + 1}<span> / ${total}</span></div>`;
+          : `<div class="num">${String(i + 1).padStart(2, '0')}<span>&thinsp;/&thinsp;${String(total).padStart(2, '0')}</span></div>`;
       return `<div class="slide is-${s.type}" id="s${i + 1}">${num}<div class="col">${render(s, i, post)}</div>${footer}</div>`;
     })
     .join('\n');
@@ -334,7 +335,12 @@ export function buildHtml(post) {
     width:${B.width}px; height:${B.height}px; position:relative; overflow:hidden;
     display:flex; flex-direction:column; justify-content:flex-start;
     font-family:${B.fontBody}, sans-serif; padding:150px 88px 150px;
-    background:${B.navy}; color:${B.cream};
+    background:
+      linear-gradient(rgba(250,247,242,.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(250,247,242,.04) 1px, transparent 1px),
+      ${B.navy};
+    background-size: 56px 56px, 56px 56px, 100% 100%;
+    color:${B.cream};
   }
   .is-cover { justify-content:center; padding-top:120px; }
   .is-cta { justify-content:flex-start; padding-top:170px; }
@@ -343,9 +349,9 @@ export function buildHtml(post) {
   /* ---- quiet chrome ---- */
   .num {
     position:absolute; top:70px; left:88px;
-    font-family:${B.fontBody}; font-weight:700; font-size:28px; color:rgba(250,247,242,.55);
+    font-family:${B.fontDisplay}; font-weight:800; font-size:34px; color:${B.logoLime};
   }
-  .num span { color:rgba(250,247,242,.3); font-size:28px; }
+  .num span { color:rgba(250,247,242,.4); font-size:27px; font-weight:700; }
   .tribars { position:absolute; top:74px; right:88px; display:flex; flex-direction:column; gap:7px; }
   .tribars span { width:64px; height:13px; border-radius:7px; }
   .tribars span:nth-child(1) { background:${B.logoOrange}; }
@@ -369,8 +375,10 @@ export function buildHtml(post) {
   .site { font-size:28px; font-weight:600; letter-spacing:.05em; color:rgba(250,247,242,.4); }
 
   .kick {
-    font-family:${B.fontBody}; font-weight:700; font-size:27px; letter-spacing:.22em;
-    text-transform:uppercase; color:rgba(250,247,242,.5); margin-bottom:34px;
+    display:inline-block; font-family:${B.fontDisplay}; font-weight:700; font-size:30px;
+    letter-spacing:.12em; text-transform:uppercase; color:#fff;
+    background:${B.logoPurple}; padding:12px 30px; border-radius:999px;
+    margin-bottom:38px; align-self:flex-start;
   }
 
   /* ---- type ---- */
@@ -382,6 +390,10 @@ export function buildHtml(post) {
   .cta-title { font-size:66px; max-width:860px; }
   sup { font-size:.6em; }
   .accent { color:${B.orange}; }
+  mark.lime {
+    background:${B.logoLime}; color:${B.navy}; border-radius:12px; padding:0 16px;
+    box-decoration-break:clone; -webkit-box-decoration-break:clone;
+  }
   .katex { font-size:1.06em; }
   .tex { white-space:nowrap; }
   .body { font-size:40px; line-height:1.55; font-weight:400; max-width:880px; color:rgba(250,247,242,.92); }
@@ -500,11 +512,23 @@ export function buildHtml(post) {
   .place-above .readout-label { left:-36px; bottom:42px; transform:rotate(-2.5deg); }
   .place-below .readout-label { left:-36px; top:42px; transform:rotate(-2deg); }
 
+  .stamp {
+    display:inline-block; font-family:${B.fontDisplay}; font-weight:800; font-size:44px;
+    letter-spacing:.08em; text-transform:uppercase;
+    background:${B.logoLime}; color:${B.navy};
+    padding:18px 34px; border-radius:14px; margin-bottom:40px;
+    box-shadow:0 12px 32px rgba(0,0,0,.3); align-self:flex-start;
+  }
+
   /* ---- artifact peeks (cover + cta) ---- */
   .cover-card { margin-top:44px; width:100%; max-height:440px; overflow:hidden; align-self:center; }
   .cover-card-inner { transform:rotate(-2deg) scale(.94); transform-origin:top center; }
-  .cta-art { margin-top:52px; width:100%; max-height:380px; overflow:hidden; }
-  .cta-art-inner { transform:rotate(2deg) scale(.94); transform-origin:top center; }
+  .cta-art {
+    position:absolute; left:88px; right:88px; bottom:0; height:330px;
+    overflow:hidden;
+  }
+  .cta-art-inner { transform:rotate(2deg) scale(.96); transform-origin:top center; }
+  .is-cta .footer { display:none; }
   .cta-art-inner img {
     width:100%; display:block; border-radius:10px;
     border:1px solid rgba(0,0,0,.35); box-shadow:0 30px 70px rgba(0,0,0,.45);
@@ -521,7 +545,7 @@ export function buildHtml(post) {
   .is-cta .col { position:static; }
   .swipe {
     position:absolute; bottom:126px; right:88px;
-    font-weight:600; font-size:30px; color:rgba(250,247,242,.45);
+    font-family:${B.fontDisplay}; font-weight:800; font-size:36px; color:${B.logoLime};
   }
 
   /* ---- formula / cases ---- */
@@ -532,6 +556,14 @@ export function buildHtml(post) {
   .case b { color:${B.logoPurple}; font-weight:800; font-family:${B.fontDisplay}; white-space:nowrap; }
 
   /* ---- CTA ---- */
+  .cta-btn {
+    display:flex; align-items:center; justify-content:space-between; width:100%;
+    background:${B.logoLime}; color:${B.navy};
+    font-family:${B.fontDisplay}; font-weight:800; font-size:44px; line-height:1.2;
+    padding:30px 44px; border-radius:20px; margin-top:48px;
+    white-space:nowrap; box-shadow:0 16px 44px rgba(0,0,0,.35);
+  }
+  .cta-site { font-weight:800; opacity:.75; font-size:40px; }
   .cta-note { margin-top:30px; font-size:32px; font-weight:600; color:rgba(250,247,242,.45); }
 </style>
 ${slides}`;

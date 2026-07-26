@@ -1,13 +1,14 @@
 {
   "slug": "aug-sat-desmos-v2",
-  "caption": "24 days until the August SAT.\n\nThe calculator the SAT gives you is a cheat code — here's what it actually looks like when you use it. Three tricks, real screenshots, zero algebra. Save this and try each one in Desmos tonight.\n\nSeva's practice tests have the same built-in calculator, so you can drill these until they're reflex. Free trial — link in bio.\n\n#SAT #SATprep #SATmath #satdesmos #desmos #justusedesmos #sathacks #digitalsathacks #augustSAT #digitalSAT #sattips #studytok #testprep #highschoolparents",
+  "caption": "24 days until the August SAT.\n\nThe calculator the SAT gives you is a cheat code — here's what it actually looks like when you use it. Three tricks, real screenshots, zero algebra. Save this and try each one in Desmos tonight.\n\nSeva's practice tests have the same built-in calculator, so you can drill these until they're reflex. Start for free today — link in bio.\n\n#SAT #SATprep #SATmath #satdesmos #desmos #justusedesmos #sathacks #digitalsathacks #augustSAT #digitalSAT #sattips #studytok #testprep #highschoolparents",
   "slides": [
     {
       "type": "cover",
-      "eyebrow": "August SAT · Math",
+      "eyebrow": "SAT Math",
       "title": "Three Desmos tricks for ==test day==",
       "hand": "try each one tonight",
-      "art": "quadratic-zeros.png"
+      "art": "quadratic-zeros.png",
+      "stamp": "August SAT"
     },
     {
       "type": "shot",

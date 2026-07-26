@@ -5,14 +5,15 @@
     "difficulty": "hard",
     "pattern": "Perpendicular from Standard Form"
   },
-  "caption": "The perpendicular-line question, with the parallel line sitting right there in the choices.\n\nMost people who miss it pick the same wrong answer. Comment what you got and how long it took you.\n\nWe built Seva to tell you WHY you miss questions: content gap, trap answer, or rushing. Free 3-day trial, link in bio.\n\n#SAT #SATprep #SATmath #augustSAT #digitalSAT #testprep",
+  "caption": "The perpendicular-line question, with the parallel line sitting right there in the choices.\n\nMost people who miss it pick the same wrong answer. Comment what you got and how long it took you.\n\nWe built Seva to tell you WHY you miss questions: content gap, trap answer, or rushing. Start for free today — link in bio.\n\n#SAT #SATprep #SATmath #augustSAT #digitalSAT #testprep",
   "slides": [
     {
       "type": "cover",
       "eyebrow": "SAT Math · Hard",
       "title": "Perpendicular means ==flip and negate==",
       "hand": "most build the parallel line",
-      "card": true
+      "card": true,
+      "stamp": "August SAT"
     },
     {
       "type": "question",

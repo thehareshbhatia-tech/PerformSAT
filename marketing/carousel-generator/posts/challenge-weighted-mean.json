@@ -5,14 +5,15 @@
     "difficulty": "hard",
     "pattern": "Weighted Combined Mean"
   },
-  "caption": "Two groups, two means, one very tempting wrong answer.\n\nMost people who miss it pick the same wrong answer. Comment what you got and how long it took you.\n\nWe built Seva to tell you WHY you miss questions: content gap, trap answer, or rushing. Free 3-day trial, link in bio.\n\n#SAT #SATprep #SATmath #augustSAT #digitalSAT #testprep",
+  "caption": "Two groups, two means, one very tempting wrong answer.\n\nMost people who miss it pick the same wrong answer. Comment what you got and how long it took you.\n\nWe built Seva to tell you WHY you miss questions: content gap, trap answer, or rushing. Start for free today — link in bio.\n\n#SAT #SATprep #SATmath #augustSAT #digitalSAT #testprep",
   "slides": [
     {
       "type": "cover",
       "eyebrow": "SAT Math · Hard",
       "title": "You can't just ==average== the averages",
       "hand": "the bigger group wins",
-      "card": true
+      "card": true,
+      "stamp": "August SAT"
     },
     {
       "type": "question",

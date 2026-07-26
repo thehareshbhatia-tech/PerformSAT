@@ -9,14 +9,15 @@
     "difficulty": "hard",
     "pattern": "Function Equality (One-to-One Linear)"
   },
-  "caption": "This one's from our hard drill bank. Most people who miss it pick the same wrong answer, and it isn't close. Comment what you got and how long it took you.\n\nThere's a 15-second solve on slide 3 that skips the algebra entirely.\n\nWe built Seva to tell you WHY you miss questions: content gap, trap answer, or rushing. Free 3-day trial, link in bio.\n\n#SAT #SATprep #SATmath #augustSAT #digitalSAT #testprep",
+  "caption": "This one's from our hard drill bank. Most people who miss it pick the same wrong answer, and it isn't close. Comment what you got and how long it took you.\n\nThere's a 15-second solve on slide 3 that skips the algebra entirely.\n\nWe built Seva to tell you WHY you miss questions: content gap, trap answer, or rushing. Start for free today — link in bio.\n\n#SAT #SATprep #SATmath #augustSAT #digitalSAT #testprep",
   "slides": [
     {
       "type": "cover",
       "eyebrow": "SAT Math · Hard",
       "title": "This one takes ==15 seconds==. If you see it.",
       "hand": "no calculator, promise",
-      "card": true
+      "card": true,
+      "stamp": "August SAT"
     },
     {
       "type": "question",

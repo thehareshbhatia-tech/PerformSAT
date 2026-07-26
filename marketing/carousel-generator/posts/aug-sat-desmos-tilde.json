@@ -1,13 +1,14 @@
 {
   "slug": "aug-sat-desmos-tilde",
-  "caption": "One Desmos symbol solves every \"true for all x, find the constant\" question — and almost nobody uses it.\n\nType the identity with ~ instead of = and Desmos fits the constant for you. Real screenshot inside, from one of the hardest official question types on the test. Save this for Module 2.\n\nSeva's practice tests have the same built-in calculator — drill the ~ trick until it's reflex. Free trial — link in bio.\n\n#SAT #SATprep #SATmath #satdesmos #desmos #justusedesmos #sathacks #digitalsathacks #augustSAT #digitalSAT #sattips #studytok #testprep #highschoolparents",
+  "caption": "One Desmos symbol solves every \"true for all x, find the constant\" question — and almost nobody uses it.\n\nType the identity with ~ instead of = and Desmos fits the constant for you. Real screenshot inside, from one of the hardest official question types on the test. Save this for Module 2.\n\nSeva's practice tests have the same built-in calculator — drill the ~ trick until it's reflex. Start for free today — link in bio.\n\n#SAT #SATprep #SATmath #satdesmos #desmos #justusedesmos #sathacks #digitalsathacks #augustSAT #digitalSAT #sattips #studytok #testprep #highschoolparents",
   "slides": [
     {
       "type": "cover",
-      "eyebrow": "August SAT · Math",
+      "eyebrow": "SAT Math",
       "title": "The ==~ key== breaks the SAT's hardest question",
       "hand": "one symbol. zero algebra.",
-      "art": "tilde-constant.png"
+      "art": "tilde-constant.png",
+      "stamp": "August SAT"
     },
     {
       "type": "trap",

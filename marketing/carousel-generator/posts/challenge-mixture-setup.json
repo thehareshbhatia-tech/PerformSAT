@@ -5,14 +5,15 @@
     "difficulty": "hard",
     "pattern": "Mixture System Setup"
   },
-  "caption": "Nobody miscalculates this one. They mis-set-it-up.\n\nMost people who miss it pick the same wrong answer. Comment what you got and how long it took you.\n\nWe built Seva to tell you WHY you miss questions: content gap, trap answer, or rushing. Free 3-day trial, link in bio.\n\n#SAT #SATprep #SATmath #augustSAT #digitalSAT #testprep",
+  "caption": "Nobody miscalculates this one. They mis-set-it-up.\n\nMost people who miss it pick the same wrong answer. Comment what you got and how long it took you.\n\nWe built Seva to tell you WHY you miss questions: content gap, trap answer, or rushing. Start for free today — link in bio.\n\n#SAT #SATprep #SATmath #augustSAT #digitalSAT #testprep",
   "slides": [
     {
       "type": "cover",
       "eyebrow": "SAT Math · Hard",
       "title": "The mixture question everyone ==sets up wrong==",
       "hand": "it's the decimals",
-      "card": true
+      "card": true,
+      "stamp": "August SAT"
     },
     {
       "type": "question",

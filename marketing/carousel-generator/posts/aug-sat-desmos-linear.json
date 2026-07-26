@@ -1,13 +1,14 @@
 {
   "slug": "aug-sat-desmos-linear",
-  "caption": "12 days until the August SAT.\n\nA system is two lines and a picture. Where they cross is the answer — and when they never cross, Desmos shows you that too, which is the entire no-solution question.\n\nSave this one — it's the whole topic in one place. Seva's practice tests have the same calculator built in, so you can drill these until they're reflex. Free trial — link in bio.\n\n#SAT #SATprep #SATmath #satdesmos #desmos #justusedesmos #sathacks #digitalsathacks #augustSAT #digitalSAT #sattips #studytok #testprep #highschoolparents",
+  "caption": "12 days until the August SAT.\n\nA system is two lines and a picture. Where they cross is the answer — and when they never cross, Desmos shows you that too, which is the entire no-solution question.\n\nSave this one — it's the whole topic in one place. Seva's practice tests have the same calculator built in, so you can drill these until they're reflex. Start for free today — link in bio.\n\n#SAT #SATprep #SATmath #satdesmos #desmos #justusedesmos #sathacks #digitalsathacks #augustSAT #digitalSAT #sattips #studytok #testprep #highschoolparents",
   "slides": [
     {
       "type": "cover",
-      "eyebrow": "August SAT · Math",
+      "eyebrow": "SAT Math",
       "title": "Every linear question fits on ==one screen==",
       "hand": "intersections, inequalities, no-solution",
-      "art": "break-even-lines.png"
+      "art": "break-even-lines.png",
+      "stamp": "August SAT"
     },
     {
       "type": "shot",

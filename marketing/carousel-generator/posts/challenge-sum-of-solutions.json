@@ -1,13 +1,14 @@
 {
   "slug": "challenge-sum-of-solutions",
-  "caption": "Five seconds, one trap, and about half of everyone falls in it.\n\nMost people who miss it pick the same wrong answer. Comment what you got and how long it took you.\n\nWe built Seva to tell you WHY you miss questions: content gap, trap answer, or rushing. Free 3-day trial, link in bio.\n\n#SAT #SATprep #SATmath #augustSAT #digitalSAT #testprep",
+  "caption": "Five seconds, one trap, and about half of everyone falls in it.\n\nMost people who miss it pick the same wrong answer. Comment what you got and how long it took you.\n\nWe built Seva to tell you WHY you miss questions: content gap, trap answer, or rushing. Start for free today — link in bio.\n\n#SAT #SATprep #SATmath #augustSAT #digitalSAT #testprep",
   "slides": [
     {
       "type": "cover",
       "eyebrow": "SAT Math",
       "title": "The 5-second question ==half get wrong==",
       "hand": "count both roots",
-      "card": true
+      "card": true,
+      "stamp": "August SAT"
     },
     {
       "type": "question",
