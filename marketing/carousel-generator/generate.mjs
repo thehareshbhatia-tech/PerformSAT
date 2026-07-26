@@ -79,7 +79,7 @@ for (const file of postFiles) {
   } catch {
     // Fonts CDN slow to settle — the extra delay below covers it.
   }
-  await sleep(600); // let webfonts finish painting
+  await sleep(1000); // let webfonts + KaTeX finish painting
 
   for (let i = 1; i <= post.slides.length; i++) {
     const name = `slide-${String(i).padStart(2, '0')}.png`;

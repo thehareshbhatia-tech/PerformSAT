@@ -18,6 +18,7 @@
 // Slide types: cover, formula, rule, trap, question, reveal, shot, cta.
 // Text fields support *italic*, **bold**, ==marker underline==, ^^orange^^,
 // x^{2} superscripts, `nowrap`, \frac{a}{b}, \sqrt{x}; newlines become line breaks.
+import katex from 'katex';
 import { BRAND as B } from './brand.mjs';
 
 const esc = (s) =>
@@ -112,9 +113,21 @@ function roughArrow(seed) {
 }
 
 // ── inline markup ────────────────────────────────────────────────────────────
+// $...$ runs are real LaTeX, typeset server-side by KaTeX at build time (the
+// headless renderer doesn't reliably run page scripts). They're parked before
+// the other replacements run so ^{}, *, and \frac inside math reach KaTeX
+// untouched — note math is pulled from the RAW string, before esc().
 let mdSeq = 0; // varies underline wobble between uses within one post
-const md = (s) =>
-  esc(s)
+const md = (s) => {
+  const math = [];
+  const parked = String(s ?? '').replace(/\$([^$]+)\$/g, (_, m) => {
+    math.push(katex.renderToString(m, { throwOnError: false }));
+    return `\u0000${math.length - 1}\u0000`;
+  });
+  return mdBody(esc(parked)).replace(/\u0000(\d+)\u0000/g, (_, i) => `<span class="tex">${math[i]}</span>`);
+};
+const mdBody = (s) =>
+  s
     .replace(/\n/g, '<br>')
     .replace(/`([^`]+)`/g, '<span class="nowrap">$1</span>')
     .replace(/\\frac\{([^}]+)\}\{([^}]+)\}/g, '<span class="frac"><span>$1</span><span>$2</span></span>')
@@ -286,6 +299,7 @@ export function buildHtml(post) {
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="${B.fontsHref}" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Tinos:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
   body { background:#222; display:flex; flex-direction:column; gap:40px; padding:40px; }
@@ -340,6 +354,8 @@ export function buildHtml(post) {
   .cta-title { font-size:66px; max-width:860px; }
   sup { font-size:.6em; }
   .accent { color:${B.orange}; }
+  .katex { font-size:1.06em; }
+  .tex { white-space:nowrap; }
   .body { font-size:40px; line-height:1.55; font-weight:400; max-width:880px; color:rgba(250,247,242,.92); }
   .reveal-body { margin-top:36px; font-size:36px; line-height:1.5; }
   .caption { margin-top:30px; font-size:34px; line-height:1.5; max-width:880px; color:rgba(250,247,242,.75); }

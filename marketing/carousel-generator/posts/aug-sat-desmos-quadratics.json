@@ -14,28 +14,28 @@
       "eyebrow": "Zeros",
       "title": "Type it in standard form, then click the curve",
       "shot": "quad-zeros.png",
-      "caption": "Desmos puts grey dots on both roots. Click one and the point is labeled for you. You never factor anything."
+      "caption": "On the test this reads: what are the solutions to $x^2 - 6x + 8 = 0$? Type the equation, click a grey dot, and the label appears. Your answers are $x = 2$ and $x = 4$."
     },
     {
       "type": "shot",
       "eyebrow": "Maximum",
       "title": "The peak is already a point",
       "shot": "quad-max.png",
-      "caption": "Click the top of the curve and read the vertex. That is the whole problem."
+      "caption": "When a question asks for the maximum value of $y$, click the peak. The label $(2, 11)$ gives you both parts: the maximum value is $11$, and it happens at $x = 2$."
     },
     {
       "type": "shot",
       "eyebrow": "Minimum",
       "title": "The vertex sits halfway between the zeros",
       "shot": "vertex-from-factored.png",
-      "caption": "Here that means halfway between −7 and 3. Click the low point and read the coordinates."
+      "caption": "In factored form the zeros are $3$ and $-7$, so the vertex sits halfway between them at $x = -2$. Click the low point: the minimum value of the function is $-25$."
     },
     {
       "type": "shot",
       "eyebrow": "Systems",
       "title": "A quadratic and a line cross twice",
       "shot": "quadratic-system.png",
-      "caption": "Graph both equations. Every crossing is a solution, and Desmos labels each one when you click it."
+      "caption": "A system question shows you both equations and asks for the point $(x, y)$ that satisfies both. Type them in exactly as written. The circled crossings are your solutions: $x = 1, y = 5$ and $x = 4, y = 8$."
     },
     {
       "type": "cta",

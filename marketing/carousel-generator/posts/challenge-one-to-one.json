@@ -2,7 +2,10 @@
   "slug": "challenge-one-to-one",
   "_source": {
     "bankId": "bank-alg-027",
-    "skills": ["function-evaluation", "function-notation"],
+    "skills": [
+      "function-evaluation",
+      "function-notation"
+    ],
     "difficulty": "hard",
     "pattern": "Function Equality (One-to-One Linear)"
   },
@@ -18,24 +21,34 @@
       "type": "question",
       "eyebrow": "Try it first",
       "qnum": "18",
-      "stem": "The function f is defined by `f(x) = 3x − 7`. If `f(a) = f(2a − 5)`, what is the value of a?",
-      "choices": ["3", "5", "7", "10"],
+      "stem": "The function $f$ is defined by $f(x) = 3x - 7$. If $f(a) = f(2a - 5)$, what is the value of $a$?",
+      "choices": [
+        "$3$",
+        "$5$",
+        "$7$",
+        "$10$"
+      ],
       "hand": "time yourself — answer in the comments"
     },
     {
       "type": "reveal",
       "eyebrow": "The answer",
-      "choices": ["3", "5", "7", "10"],
+      "choices": [
+        "$3$",
+        "$5$",
+        "$7$",
+        "$10$"
+      ],
       "correct": 1,
       "trap": 0,
       "trapNote": "the bait",
-      "body": "The 15-second version: a line with slope 3 never repeats an output. So if f(a) and f(2a − 5) are equal, the inputs must be equal. Set a = 2a − 5 and you get a = 5. No expanding, no distributing."
+      "body": "The 15-second version: a line with slope 3 never repeats an output. So if $f(a)$ and $f(2a - 5)$ are equal, the inputs must be equal. Set $a = 2a - 5$ and you get $a = 5$. No expanding, no distributing."
     },
     {
       "type": "rule",
       "eyebrow": "The pattern",
       "title": "Same output means same input",
-      "body": "Any linear function with a nonzero slope hits each output exactly once. So whenever the SAT sets f(one thing) equal to f(another thing), skip the algebra and set the two inputs equal.\n\nThis shows up about once per test, usually late in Module 2 where time is tightest.",
+      "body": "Any linear function with a nonzero slope hits each output exactly once. So whenever the SAT sets $f(\\text{one thing})$ equal to $f(\\text{another thing})$, skip the algebra and set the two inputs equal.\n\nThis shows up about once per test, usually late in Module 2 where time is tightest.",
       "hand": "steal this"
     },
     {
