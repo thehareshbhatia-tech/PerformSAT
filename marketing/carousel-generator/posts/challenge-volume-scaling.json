@@ -11,7 +11,8 @@
       "type": "cover",
       "eyebrow": "SAT Math · Hard",
       "title": "Double the radius. ==Eight times== the volume.",
-      "hand": "cubes, not doubles"
+      "hand": "cubes, not doubles",
+      "card": true
     },
     {
       "type": "question",
@@ -38,7 +39,12 @@
       "correct": 3,
       "trap": 0,
       "trapNote": "linear thinking",
-      "body": "Volume scales with the cube of the length factor: $2^3 = 8$. You never need the sphere formula — every length doubled, so the volume multiplied by $8$. Answering $2$ is treating volume like a length; $4$ is treating it like an area."
+      "intro": "Volume scales with the cube of the length factor.",
+      "steps": [
+        "Radius $\\times\\, 2 \\;\\to\\;$ volume $\\times\\, 2^3$",
+        "$2^3 = 8$"
+      ],
+      "trapWhy": "$2$ treats volume like a length. $4$ treats it like an area."
     },
     {
       "type": "rule",
@@ -50,7 +56,8 @@
       "type": "cta",
       "eyebrow": "From a real Seva drill",
       "title": "When you miss one like this, Seva tells you why.",
-      "body": "A content gap, a trap answer, and rushing all look identical on a score report. They need different fixes. Seva tells them apart and rebuilds your plan around the real one."
+      "body": "A content gap, a trap answer, and rushing all look identical on a score report. They need different fixes. Seva tells them apart and rebuilds your plan around the real one.",
+      "card": true
     }
   ]
 }

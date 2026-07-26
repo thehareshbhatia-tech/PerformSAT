@@ -11,7 +11,8 @@
       "type": "cover",
       "eyebrow": "SAT Math · Hard",
       "title": "Up 80%, then down 30%. ==Not 50%.==",
-      "hand": "multipliers only"
+      "hand": "multipliers only",
+      "card": true
     },
     {
       "type": "question",
@@ -38,7 +39,13 @@
       "correct": 0,
       "trap": 1,
       "trapNote": "the add trap",
-      "body": "Stack the multipliers: up $80\\%$ is $\\times 1.80$, down $30\\%$ is $\\times 0.70$, and $1.80 \\times 0.70 = 1.26$. That's a $26\\%$ increase. Adding $+80 - 30 = 50$ feels natural, but the discount applies to the bigger marked-up number, not the original."
+      "intro": "Turn each change into a multiplier.",
+      "steps": [
+        "Up $80\\%$: $\\times\\, 1.80$",
+        "Down $30\\%$: $\\times\\, 0.70$",
+        "$1.80 \\times 0.70 = 1.26 \\;\\to\\; 26\\%$ increase"
+      ],
+      "trapWhy": "$50\\%$ comes from adding $80 - 30$. The discount hits the marked-up price, not the original."
     },
     {
       "type": "rule",
@@ -50,7 +57,8 @@
       "type": "cta",
       "eyebrow": "From a real Seva drill",
       "title": "When you miss one like this, Seva tells you why.",
-      "body": "A content gap, a trap answer, and rushing all look identical on a score report. They need different fixes. Seva tells them apart and rebuilds your plan around the real one."
+      "body": "A content gap, a trap answer, and rushing all look identical on a score report. They need different fixes. Seva tells them apart and rebuilds your plan around the real one.",
+      "card": true
     }
   ]
 }

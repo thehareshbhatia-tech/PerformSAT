@@ -5,7 +5,7 @@
     {
       "type": "cover",
       "eyebrow": "August SAT · Math",
-      "title": "Circles without ==completing the square==",
+      "title": "Circles without ==the algebra==",
       "hand": "center, radius, crossings. counted.",
       "art": "circle-radius.png"
     },
@@ -45,7 +45,8 @@
       "type": "cta",
       "eyebrow": "Test-day calculator",
       "title": "Seva's practice tests have this exact calculator built in.",
-      "body": "Practice the clicks now so they're automatic when it counts."
+      "body": "Practice the clicks now so they're automatic when it counts.",
+      "art": "circle-line.png"
     }
   ]
 }

@@ -6,7 +6,8 @@
       "type": "cover",
       "eyebrow": "SAT Reading & Writing",
       "title": "Two sentences. One comma. ==Illegal.==",
-      "hand": "the semicolon saves you"
+      "hand": "the semicolon saves you",
+      "card": true
     },
     {
       "type": "question",
@@ -33,7 +34,14 @@
       "correct": 1,
       "trap": 0,
       "trapNote": "comma splice",
-      "body": "\"The experiment failed\" and \"the team learned more from it\" are both complete sentences, and a comma alone can't join them — that's the comma splice the SAT tests constantly. The semicolon joins them legally. No punctuation runs them together, and \"however\" with one comma strands the sentence."
+      "intro": "Both halves stand alone as complete sentences.",
+      "steps": [
+        "\"The experiment failed\" is a full sentence",
+        "\"the team learned more from it\" is a full sentence",
+        "Joining two sentences takes a semicolon, not a comma"
+      ],
+      "trapWhy": "A is the comma splice. C runs them together. D strands \"however\" with only a comma.",
+      "stem": "The experiment ______ the team learned more from it than they expected."
     },
     {
       "type": "rule",
@@ -45,7 +53,8 @@
       "type": "cta",
       "eyebrow": "From a real Seva drill",
       "title": "When you miss one like this, Seva tells you why.",
-      "body": "A content gap, a trap answer, and rushing all look identical on a score report. They need different fixes. Seva tells them apart and rebuilds your plan around the real one."
+      "body": "A content gap, a trap answer, and rushing all look identical on a score report. They need different fixes. Seva tells them apart and rebuilds your plan around the real one.",
+      "card": true
     }
   ]
 }

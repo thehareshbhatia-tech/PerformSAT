@@ -11,7 +11,8 @@
       "type": "cover",
       "eyebrow": "SAT Math · Hard",
       "title": "Find the other root ==without finding k==",
-      "hand": "product of roots. 15 seconds."
+      "hand": "product of roots. 15 seconds.",
+      "card": true
     },
     {
       "type": "question",
@@ -38,7 +39,12 @@
       "correct": 0,
       "trap": 1,
       "trapNote": "sign slip",
-      "body": "The roots of $ax^2 + bx + c = 0$ multiply to $\\frac{c}{a}$. Here that's $-\\frac{14}{3}$, and one root is $2$, so the other is $-\\frac{7}{3}$. No finding $k$, no quadratic formula. Dropping the negative gives $\\frac{7}{3}$, which is why it's sitting in the choices."
+      "intro": "Use the product of roots. You never need $k$.",
+      "steps": [
+        "The roots multiply to $\\frac{c}{a} = -\\frac{14}{3}$",
+        "$2 \\cdot r = -\\frac{14}{3} \\;\\to\\; r = -\\frac{7}{3}$"
+      ],
+      "trapWhy": "$\\frac{7}{3}$ is the same work with a dropped sign."
     },
     {
       "type": "rule",
@@ -50,7 +56,8 @@
       "type": "cta",
       "eyebrow": "From a real Seva drill",
       "title": "When you miss one like this, Seva tells you why.",
-      "body": "A content gap, a trap answer, and rushing all look identical on a score report. They need different fixes. Seva tells them apart and rebuilds your plan around the real one."
+      "body": "A content gap, a trap answer, and rushing all look identical on a score report. They need different fixes. Seva tells them apart and rebuilds your plan around the real one.",
+      "card": true
     }
   ]
 }

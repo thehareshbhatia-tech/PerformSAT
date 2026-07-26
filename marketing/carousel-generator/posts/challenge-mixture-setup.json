@@ -11,7 +11,8 @@
       "type": "cover",
       "eyebrow": "SAT Math · Hard",
       "title": "The mixture question everyone ==sets up wrong==",
-      "hand": "it's the decimals"
+      "hand": "it's the decimals",
+      "card": true
     },
     {
       "type": "question",
@@ -38,7 +39,12 @@
       "correct": 0,
       "trap": 1,
       "trapNote": "raw percents",
-      "body": "One equation counts liters: $x + y = 60$. The other counts acid: $0.40x + 0.70y$ on the left, and on the right $52\\%$ of the $60$ liters, which is $31.2$. Keeping raw percents like $40x + 70y = 52$ mixes units — percent of nothing equals a bare number."
+      "intro": "One equation counts liters. The other counts acid.",
+      "steps": [
+        "Liters: $x + y = 60$",
+        "Acid: $0.40x + 0.70y = 0.52(60) = 31.2$"
+      ],
+      "trapWhy": "$40x + 70y = 52$ keeps the raw percents: percent of nothing."
     },
     {
       "type": "rule",
@@ -50,7 +56,8 @@
       "type": "cta",
       "eyebrow": "From a real Seva drill",
       "title": "When you miss one like this, Seva tells you why.",
-      "body": "A content gap, a trap answer, and rushing all look identical on a score report. They need different fixes. Seva tells them apart and rebuilds your plan around the real one."
+      "body": "A content gap, a trap answer, and rushing all look identical on a score report. They need different fixes. Seva tells them apart and rebuilds your plan around the real one.",
+      "card": true
     }
   ]
 }

@@ -15,7 +15,8 @@
       "type": "cover",
       "eyebrow": "SAT Math · Hard",
       "title": "This one takes ==15 seconds==. If you see it.",
-      "hand": "no calculator, promise"
+      "hand": "no calculator, promise",
+      "card": true
     },
     {
       "type": "question",
@@ -42,7 +43,12 @@
       "correct": 1,
       "trap": 0,
       "trapNote": "the bait",
-      "body": "The 15-second version: a line with slope 3 never repeats an output. So if $f(a)$ and $f(2a - 5)$ are equal, the inputs must be equal. Set $a = 2a - 5$ and you get $a = 5$. No expanding, no distributing."
+      "intro": "Slope $3$ means $f$ never repeats an output, so equal outputs force equal inputs.",
+      "steps": [
+        "Set the inputs equal: $a = 2a - 5$",
+        "Solve: $a = 5$"
+      ],
+      "trapWhy": "No expanding, no distributing. $3$ is what you get for matching $a$ to a piece of the formula instead of the other input."
     },
     {
       "type": "rule",
@@ -55,7 +61,8 @@
       "type": "cta",
       "eyebrow": "From a real Seva drill",
       "title": "When you miss one like this, Seva tells you why.",
-      "body": "A content gap, a trap answer, and rushing all look identical on a score report. They need different fixes. Seva tells them apart and rebuilds your plan around the real one."
+      "body": "A content gap, a trap answer, and rushing all look identical on a score report. They need different fixes. Seva tells them apart and rebuilds your plan around the real one.",
+      "card": true
     }
   ]
 }

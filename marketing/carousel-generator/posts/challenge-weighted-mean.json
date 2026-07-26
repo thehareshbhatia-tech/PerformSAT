@@ -10,8 +10,9 @@
     {
       "type": "cover",
       "eyebrow": "SAT Math · Hard",
-      "title": "You can't just ==average the averages==",
-      "hand": "the bigger group wins"
+      "title": "You can't just ==average== the averages",
+      "hand": "the bigger group wins",
+      "card": true
     },
     {
       "type": "question",
@@ -38,7 +39,12 @@
       "correct": 1,
       "trap": 0,
       "trapNote": "simple average",
-      "body": "Combine sums, not means: $8 \\times 72 + 12 \\times 83 = 576 + 996 = 1572$, over $20$ people, is $78.6$. Averaging $72$ and $83$ to get $77.5$ ignores that Group B has more members, so the true mean sits closer to $83$."
+      "intro": "Go back to totals: points over people.",
+      "steps": [
+        "$8 \\times 72 + 12 \\times 83 = 1572$",
+        "$1572 \\div 20 = 78.6$"
+      ],
+      "trapWhy": "$77.5$ is the simple average of $72$ and $83$. It ignores that Group B is bigger."
     },
     {
       "type": "rule",
@@ -50,7 +56,8 @@
       "type": "cta",
       "eyebrow": "From a real Seva drill",
       "title": "When you miss one like this, Seva tells you why.",
-      "body": "A content gap, a trap answer, and rushing all look identical on a score report. They need different fixes. Seva tells them apart and rebuilds your plan around the real one."
+      "body": "A content gap, a trap answer, and rushing all look identical on a score report. They need different fixes. Seva tells them apart and rebuilds your plan around the real one.",
+      "card": true
     }
   ]
 }

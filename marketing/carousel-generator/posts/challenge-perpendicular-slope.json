@@ -10,8 +10,9 @@
     {
       "type": "cover",
       "eyebrow": "SAT Math · Hard",
-      "title": "Perpendicular means ==flip it and flip the sign==",
-      "hand": "most build the parallel line"
+      "title": "Perpendicular means ==flip and negate==",
+      "hand": "most build the parallel line",
+      "card": true
     },
     {
       "type": "question",
@@ -38,7 +39,13 @@
       "correct": 0,
       "trap": 1,
       "trapNote": "parallel, not perp",
-      "body": "From $Ax + By = C$, the slope is $-\\frac{A}{B} = -\\frac{2}{6} = -\\frac{1}{3}$. Perpendicular flips and negates: slope $3$. Through $(4, -2)$: $-2 = 3(4) + b$, so $b = -14$ and the line is $y = 3x - 14$. Choice B is what you get if you keep $-\\frac{1}{3}$ — a parallel line through the same point."
+      "intro": "Slope comes straight off standard form.",
+      "steps": [
+        "Slope of $2x + 6y = 18$: $-\\frac{2}{6} = -\\frac{1}{3}$",
+        "Perpendicular flips and negates: $3$",
+        "Through $(4, -2)$: $y = 3x - 14$"
+      ],
+      "trapWhy": "B keeps $-\\frac{1}{3}$: the parallel line through the same point."
     },
     {
       "type": "rule",
@@ -50,7 +57,8 @@
       "type": "cta",
       "eyebrow": "From a real Seva drill",
       "title": "When you miss one like this, Seva tells you why.",
-      "body": "A content gap, a trap answer, and rushing all look identical on a score report. They need different fixes. Seva tells them apart and rebuilds your plan around the real one."
+      "body": "A content gap, a trap answer, and rushing all look identical on a score report. They need different fixes. Seva tells them apart and rebuilds your plan around the real one.",
+      "card": true
     }
   ]
 }

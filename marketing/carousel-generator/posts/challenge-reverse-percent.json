@@ -11,7 +11,8 @@
       "type": "cover",
       "eyebrow": "SAT Math · Hard",
       "title": "Undo a 30% increase. ==Don't subtract.==",
-      "hand": "divide by 1.3"
+      "hand": "divide by 1.3",
+      "card": true
     },
     {
       "type": "question",
@@ -38,7 +39,12 @@
       "correct": 2,
       "trap": 0,
       "trapNote": "subtracted 30%",
-      "body": "Growing by $30\\%$ means the 2023 number is $1.30$ times the 2020 number, so divide: $20{,}800 \\div 1.3 = 16{,}000$. Subtracting $30\\%$ of $20{,}800$ gives $14{,}560$ — but that undoes a $30\\%$ cut of the new number, which is a different change than the one that happened."
+      "intro": "Growth of $30\\%$ means the new number is $1.3$ times the old one.",
+      "steps": [
+        "new $= 1.3 \\,\\times\\,$ old",
+        "old $= 20{,}800 \\div 1.3 = 16{,}000$"
+      ],
+      "trapWhy": "$14{,}560$ subtracts $30\\%$ of the new number, which undoes a change that never happened."
     },
     {
       "type": "rule",
@@ -50,7 +56,8 @@
       "type": "cta",
       "eyebrow": "From a real Seva drill",
       "title": "When you miss one like this, Seva tells you why.",
-      "body": "A content gap, a trap answer, and rushing all look identical on a score report. They need different fixes. Seva tells them apart and rebuilds your plan around the real one."
+      "body": "A content gap, a trap answer, and rushing all look identical on a score report. They need different fixes. Seva tells them apart and rebuilds your plan around the real one.",
+      "card": true
     }
   ]
 }

@@ -6,7 +6,8 @@
       "type": "cover",
       "eyebrow": "SAT Math",
       "title": "The 5-second question ==half get wrong==",
-      "hand": "count both roots"
+      "hand": "count both roots",
+      "card": true
     },
     {
       "type": "question",
@@ -33,7 +34,12 @@
       "correct": 0,
       "trap": 1,
       "trapNote": "dropped a root",
-      "body": "$x^2 = 49$ has two solutions: $7$ and $-7$. They cancel, so the sum is $0$. Answering $7$ means the negative root never crossed your mind — and the SAT counts on exactly that."
+      "intro": "Squares always have two roots.",
+      "steps": [
+        "$x^2 = 49 \\;\\to\\; x = 7$ or $x = -7$",
+        "$7 + (-7) = 0$"
+      ],
+      "trapWhy": "$7$ means the negative root never crossed your mind."
     },
     {
       "type": "rule",
@@ -45,7 +51,8 @@
       "type": "cta",
       "eyebrow": "From a real Seva drill",
       "title": "When you miss one like this, Seva tells you why.",
-      "body": "A content gap, a trap answer, and rushing all look identical on a score report. They need different fixes. Seva tells them apart and rebuilds your plan around the real one."
+      "body": "A content gap, a trap answer, and rushing all look identical on a score report. They need different fixes. Seva tells them apart and rebuilds your plan around the real one.",
+      "card": true
     }
   ]
 }

@@ -11,7 +11,8 @@
       "type": "cover",
       "eyebrow": "SAT Math · Hard",
       "title": "Equivalent for ==all== values of x",
-      "hand": "expand, line up, read off"
+      "hand": "expand, line up, read off",
+      "card": true
     },
     {
       "type": "question",
@@ -38,7 +39,14 @@
       "correct": 2,
       "trap": 0,
       "trapNote": "that's just b",
-      "body": "Expand and collect: $6x^2 + 3ax - 2x^2 - 2x + 2b = 4x^2 + (3a - 2)x + 2b$. Now match term by term: $3a - 2 = 16$ gives $a = 6$, and $2b = 6$ gives $b = 3$. So $a + b = 9$."
+      "intro": "Expand, then line up the coefficients term by term.",
+      "steps": [
+        "Left side: $4x^2 + (3a - 2)x + 2b$",
+        "$3a - 2 = 16 \\;\\to\\; a = 6$",
+        "$2b = 6 \\;\\to\\; b = 3$",
+        "$a + b = 9$"
+      ],
+      "trapWhy": "$3$ is just $b$. The question asks for $a + b$."
     },
     {
       "type": "rule",
@@ -50,7 +58,8 @@
       "type": "cta",
       "eyebrow": "From a real Seva drill",
       "title": "When you miss one like this, Seva tells you why.",
-      "body": "A content gap, a trap answer, and rushing all look identical on a score report. They need different fixes. Seva tells them apart and rebuilds your plan around the real one."
+      "body": "A content gap, a trap answer, and rushing all look identical on a score report. They need different fixes. Seva tells them apart and rebuilds your plan around the real one.",
+      "card": true
     }
   ]
 }

@@ -3,7 +3,8 @@
     "text": "center (-4, 5)",
     "place": "above",
     "leftPct": 65.333,
-    "topPct": 50
+    "topPct": 50,
+    "dx": -80
   },
   {
     "text": "r = 6",

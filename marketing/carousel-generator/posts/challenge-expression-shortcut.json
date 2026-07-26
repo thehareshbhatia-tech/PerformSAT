@@ -6,7 +6,8 @@
       "type": "cover",
       "eyebrow": "SAT Math",
       "title": "The question that ==doesn't need x==",
-      "hand": "double it and go"
+      "hand": "double it and go",
+      "card": true
     },
     {
       "type": "question",
@@ -33,7 +34,12 @@
       "correct": 2,
       "trap": 0,
       "trapNote": "solved for x",
-      "body": "You never need $x$. The target $6x - 14$ is exactly double $3x - 7$, so it's $2 \\times 11 = 22$. The trap is solving the equation, getting $x = 6$, and bubbling that in. The question never asked for $x$."
+      "intro": "Don't solve for $x$. Compare the two expressions first.",
+      "steps": [
+        "$6x - 14 = 2(3x - 7)$",
+        "$= 2 \\times 11 = 22$"
+      ],
+      "trapWhy": "$6$ is the value of $x$. The question never asked for $x$."
     },
     {
       "type": "rule",
@@ -45,7 +51,8 @@
       "type": "cta",
       "eyebrow": "From a real Seva drill",
       "title": "When you miss one like this, Seva tells you why.",
-      "body": "A content gap, a trap answer, and rushing all look identical on a score report. They need different fixes. Seva tells them apart and rebuilds your plan around the real one."
+      "body": "A content gap, a trap answer, and rushing all look identical on a score report. They need different fixes. Seva tells them apart and rebuilds your plan around the real one.",
+      "card": true
     }
   ]
 }

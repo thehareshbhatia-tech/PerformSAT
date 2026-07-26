@@ -191,12 +191,22 @@ function bluebookCard(s, { compact = false, correct = null, trap = null, trapNot
 
 // ── slide renderers ──────────────────────────────────────────────────────────
 const RENDER = {
-  cover: (s, i, post) => `
+  cover: (s, i, post) => {
+    // Long titles (or long ==underline== runs, which cannot wrap) step down in
+    // size instead of clipping at the slide edge.
+    const plain = String(s.title || '').replace(/==|\^\^|\*\*/g, '');
+    const runs = (String(s.title || '').match(/==([^=]+)==/g) || []).map((m) => m.length - 4);
+    const longest = Math.max(0, ...runs);
+    const sizeCls = longest >= 20 || plain.length > 42 ? ' h1-sm' : longest >= 16 || plain.length > 34 ? ' h1-md' : '';
+    const q = s.card ? post.slides.find((x) => x.type === 'question') : null;
+    return `
     ${kicker(s.eyebrow)}
-    <h1>${md(s.title)}</h1>
+    <h1 class="${sizeCls.trim()}">${md(s.title)}</h1>
     ${hw(s.hand, 'hw-cover')}
+    ${q ? `<div class="cover-card"><div class="cover-card-inner">${bluebookCard(q, { seed: `${post.slug}-cover` })}</div></div>` : ''}
     ${s._artData ? `<div class="cover-art"><img src="${s._artData}"></div>` : ''}
-    <div class="swipe">swipe &rarr;</div>`,
+    <div class="swipe">swipe &rarr;</div>`;
+  },
 
   question: (s, i, post) => `
     ${kicker(s.eyebrow)}
@@ -214,7 +224,12 @@ const RENDER = {
           seed: `${post.slug}-r${i}`,
         })
       : `<h2>${md(s.title)}</h2>`}
-    <div class="body reveal-body">${md(s.body)}</div>`,
+    ${s.intro ? `<div class="reveal-intro">${md(s.intro)}</div>` : ''}
+    ${s.steps?.length
+      ? `<div class="steps">${s.steps.map((t) => `<div class="step">${md(t)}</div>`).join('')}</div>`
+      : ''}
+    ${s.trapWhy ? `<div class="trap-why"><span class="trap-why-label">The trap</span>${md(s.trapWhy)}</div>` : ''}
+    ${s.body ? `<div class="body reveal-body">${md(s.body)}</div>` : ''}`,
 
   // Desmos screenshot straight on the ground — a screenshot, not a framed poster
   // element. Readout coordinates (from desmos-shot.mjs) become marker rings with
@@ -231,7 +246,7 @@ const RENDER = {
           // may be omitted (ring only) where the caption already carries the value.
           return `<span class="readout place-${r.place}" style="left:${r.leftPct}%;top:${r.topPct}%">
             ${ring(`${post.slug}-s${i}-${j}`, 'ring-point')}
-            ${r.text ? `<span class="readout-label">${esc(r.text)}</span>` : ''}
+            ${r.text ? `<span class="readout-label" style="${r.dx ? `margin-left:${r.dx}px;` : ''}${r.dy ? `margin-top:${r.dy}px;` : ''}">${esc(r.text)}</span>` : ''}
           </span>`;
         })
         .join('')}
@@ -266,12 +281,18 @@ const RENDER = {
     <div class="body">${md(s.body)}</div>
     ${s.caption || s.tip ? `<div class="caption">${md(s.caption || s.tip)}</div>` : ''}`,
 
-  cta: (s) => `
+  cta: (s, i, post) => {
+    const r = s.card ? post.slides.find((x) => x.type === 'reveal' && x.choices) : null;
+    return `
+    <div class="tribars"><span></span><span></span><span></span></div>
     ${kicker(s.eyebrow)}
     <h2 class="cta-title">${md(s.title)}</h2>
     ${s.body ? `<div class="body">${md(s.body)}</div>` : ''}
     ${hw(s.hand || 'free 3-day trial — link in bio', 'hw-cta')}
-    ${s.note ? `<div class="cta-note">${md(s.note)}</div>` : ''}`,
+    ${s.note ? `<div class="cta-note">${md(s.note)}</div>` : ''}
+    ${r ? `<div class="cta-art"><div class="cta-art-inner">${bluebookCard(r, { compact: true, correct: r.correct, seed: `${post.slug}-cta` })}</div></div>` : ''}
+    ${s._artData ? `<div class="cta-art"><div class="cta-art-inner"><img src="${s._artData}"></div></div>` : ''}`;
+  },
 };
 
 export function buildHtml(post) {
@@ -316,7 +337,7 @@ export function buildHtml(post) {
     background:${B.navy}; color:${B.cream};
   }
   .is-cover { justify-content:center; padding-top:120px; }
-  .is-cta { justify-content:center; padding-top:120px; }
+  .is-cta { justify-content:flex-start; padding-top:170px; }
   .col { display:flex; flex-direction:column; align-items:flex-start; text-align:left; width:100%; position:relative; }
 
   /* ---- quiet chrome ---- */
@@ -354,6 +375,8 @@ export function buildHtml(post) {
 
   /* ---- type ---- */
   h1 { font-family:${B.fontDisplay}; font-weight:800; font-size:92px; line-height:1.12; margin-bottom:40px; }
+  h1.h1-md { font-size:82px; }
+  h1.h1-sm { font-size:70px; }
   h2 { font-family:${B.fontDisplay}; font-weight:800; font-size:58px; line-height:1.16; margin-bottom:32px; }
   .shot-title { font-size:52px; margin-bottom:36px; }
   .cta-title { font-size:66px; max-width:860px; }
@@ -363,6 +386,18 @@ export function buildHtml(post) {
   .tex { white-space:nowrap; }
   .body { font-size:40px; line-height:1.55; font-weight:400; max-width:880px; color:rgba(250,247,242,.92); }
   .reveal-body { margin-top:36px; font-size:36px; line-height:1.5; }
+  .reveal-intro { margin-top:34px; font-size:34px; line-height:1.5; color:rgba(250,247,242,.92); }
+  .steps {
+    margin-top:22px; display:flex; flex-direction:column; gap:16px;
+    border-left:3px solid rgba(250,247,242,.28); padding-left:32px;
+  }
+  .step { font-size:35px; line-height:1.4; }
+  .trap-why { margin-top:28px; font-size:32px; line-height:1.45; color:rgba(250,247,242,.85); }
+  .trap-why-label {
+    font-family:${B.fontBody}; font-weight:700; font-size:25px; letter-spacing:.16em;
+    text-transform:uppercase; color:${B.orange}; margin-right:18px;
+  }
+  .is-reveal { padding-top:120px; }
   .caption { margin-top:30px; font-size:34px; line-height:1.5; max-width:880px; color:rgba(250,247,242,.75); }
   .nowrap { white-space:nowrap; }
   .frac {
@@ -429,7 +464,7 @@ export function buildHtml(post) {
   }
   .bb-card.compact .bb-letter { width:38px; height:38px; font-size:21px; }
   .bb-choice.is-faded { opacity:.45; }
-  .bb-pick .ring-choice { left:-30px; top:-16px; width:calc(100% + 60px); height:calc(100% + 32px); }
+  .bb-pick .ring-choice { left:-38px; top:-18px; width:calc(100% + 78px); height:calc(100% + 36px); }
   .trap-note {
     position:absolute; right:18px; top:50%; transform:translateY(-50%) rotate(-2.5deg);
     display:flex; align-items:center; gap:10px;
@@ -465,6 +500,16 @@ export function buildHtml(post) {
   .place-above .readout-label { left:-36px; bottom:42px; transform:rotate(-2.5deg); }
   .place-below .readout-label { left:-36px; top:42px; transform:rotate(-2deg); }
 
+  /* ---- artifact peeks (cover + cta) ---- */
+  .cover-card { margin-top:44px; width:100%; max-height:440px; overflow:hidden; align-self:center; }
+  .cover-card-inner { transform:rotate(-2deg) scale(.94); transform-origin:top center; }
+  .cta-art { margin-top:52px; width:100%; max-height:380px; overflow:hidden; }
+  .cta-art-inner { transform:rotate(2deg) scale(.94); transform-origin:top center; }
+  .cta-art-inner img {
+    width:100%; display:block; border-radius:10px;
+    border:1px solid rgba(0,0,0,.35); box-shadow:0 30px 70px rgba(0,0,0,.45);
+  }
+
   /* ---- cover ---- */
   .cover-art {
     margin-top:52px; width:88%; align-self:center;
@@ -473,6 +518,7 @@ export function buildHtml(post) {
   }
   .cover-art img { width:100%; display:block; }
   .is-cover .col { position:static; }
+  .is-cta .col { position:static; }
   .swipe {
     position:absolute; bottom:126px; right:88px;
     font-weight:600; font-size:30px; color:rgba(250,247,242,.45);
