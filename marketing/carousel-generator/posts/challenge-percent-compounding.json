@@ -2,63 +2,55 @@
   "slug": "challenge-percent-compounding",
   "_source": {
     "bankId": "bank-ps-022",
-    "skills": [
-      "successive-percent-change"
-    ],
     "difficulty": "hard",
     "pattern": "Net Effect of Successive Percent Changes"
   },
-  "caption": "27 days until the August SAT.\n\nRound 3 of the 15-second test: an 80% markup followed by a 30% clearance discount. Most students answer 50%. Comment your time and your pick.\n\nSeva tells you WHY you missed it: content gap, trap answer, or rushing. Free trial — link in bio.\n\n#SAT #SATprep #SATmath #augustSAT #digitalSAT #sathacks #sattips #studytok #testprep",
+  "caption": "Up 80%, then down 30%. If your gut says 50%, this post is for you.\n\nMost people who miss it pick the same wrong answer. Comment what you got and how long it took you.\n\nWe built Seva to tell you WHY you miss questions: content gap, trap answer, or rushing. Free 3-day trial, link in bio.\n\n#SAT #SATprep #SATmath #augustSAT #digitalSAT #testprep",
   "slides": [
     {
       "type": "cover",
-      "eyebrow": "SAT Math",
-      "title": "Up ==80%==, then ==30% off==. The answer is not 50%.",
-      "badge": "The 15-second test, round 3",
-      "stamp": "August SAT"
+      "eyebrow": "SAT Math · Hard",
+      "title": "Up 80%, then down 30%. ==Not 50%.==",
+      "hand": "multipliers only"
     },
     {
       "type": "question",
-      "eyebrow": "The 15-second test",
-      "stem": "A clothing retailer marks up cost by 80% and then offers a 30% clearance discount. What is the overall percent change from cost to the clearance price?",
+      "eyebrow": "Try it first",
+      "qnum": "16",
+      "stem": "A retailer marks up the cost of a jacket by $80\\%$, then applies a $30\\%$ discount to the marked-up price. The final price represents what percent change from the original cost?",
       "choices": [
-        "26% increase",
-        "50% increase",
-        "26% decrease",
-        "10% increase"
+        "$26\\%$ increase",
+        "$50\\%$ increase",
+        "$26\\%$ decrease",
+        "$10\\%$ increase"
       ],
-      "prompt": "Time yourself. Comment your time and your answer."
+      "hand": "gut answer first, then check"
     },
     {
       "type": "reveal",
       "eyebrow": "The answer",
-      "title": "A — 26% increase",
-      "body": "Net multiplier = 1.80 × 0.70 = 1.26, a 26% increase. Most students pick B (50% increase): added 80% − 30% = 50% instead of compounding.",
       "choices": [
-        "26% increase",
-        "50% increase",
-        "26% decrease",
-        "10% increase"
+        "$26\\%$ increase",
+        "$50\\%$ increase",
+        "$26\\%$ decrease",
+        "$10\\%$ increase"
       ],
       "correct": 0,
-      "trap": 1
+      "trap": 1,
+      "trapNote": "the add trap",
+      "body": "Stack the multipliers: up $80\\%$ is $\\times 1.80$, down $30\\%$ is $\\times 0.70$, and $1.80 \\times 0.70 = 1.26$. That's a $26\\%$ increase. Adding $+80 - 30 = 50$ feels natural, but the discount applies to the bigger marked-up number, not the original."
     },
     {
       "type": "rule",
       "eyebrow": "The pattern",
-      "title": "Net Effect of Successive Percent Changes",
-      "body": "The net change from multipliers m₁ and m₂ is m₁ m₂ − 1 as a percent. Never add or subtract the percent values.",
-      "tip": null
+      "title": "Percent changes multiply",
+      "body": "Convert every percent change to a multiplier and multiply them in one line: $+80\\%$ is $\\times 1.8$, $-30\\%$ is $\\times 0.7$.\n\nSuccessive changes never add. The second change always acts on the number the first one created."
     },
     {
       "type": "cta",
-      "eyebrow": "Why you actually miss questions",
-      "title": "Seva doesn't just grade you. It tells you *why* you fell for the trap.",
-      "points": [
-        "Every miss diagnosed: content gap, trap answer, or rushing",
-        "A study plan that rebuilds itself around your mistakes",
-        "Real Bluebook-style practice tests and drills"
-      ]
+      "eyebrow": "From a real Seva drill",
+      "title": "When you miss one like this, Seva tells you why.",
+      "body": "A content gap, a trap answer, and rushing all look identical on a score report. They need different fixes. Seva tells them apart and rebuilds your plan around the real one."
     }
   ]
 }

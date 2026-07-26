@@ -2,63 +2,55 @@
   "slug": "challenge-other-root",
   "_source": {
     "bankId": "bank-am-013",
-    "skills": [
-      "finding-roots-factoring"
-    ],
     "difficulty": "hard",
     "pattern": "Back-Solve Parameter, Then Find Other Root"
   },
-  "caption": "21 days until the August SAT.\n\nRound 9 of the 15-second test: a quadratic with one known root. There is a shortcut that skips solving for k entirely. Comment your time and your pick.\n\nSeva tells you WHY you missed it: content gap, trap answer, or rushing. Free trial — link in bio.\n\n#SAT #SATprep #SATmath #augustSAT #digitalSAT #sathacks #sattips #studytok #testprep",
+  "caption": "One root is given. The other takes 15 seconds, or 3 minutes, depending on which route you know.\n\nMost people who miss it pick the same wrong answer. Comment what you got and how long it took you.\n\nWe built Seva to tell you WHY you miss questions: content gap, trap answer, or rushing. Free 3-day trial, link in bio.\n\n#SAT #SATprep #SATmath #augustSAT #digitalSAT #testprep",
   "slides": [
     {
       "type": "cover",
-      "eyebrow": "SAT Math",
-      "title": "One root is handed to you. Find the other in ==10 seconds==.",
-      "badge": "The 15-second test, round 9",
-      "stamp": "August SAT"
+      "eyebrow": "SAT Math · Hard",
+      "title": "Find the other root ==without finding k==",
+      "hand": "product of roots. 15 seconds."
     },
     {
       "type": "question",
-      "eyebrow": "The 15-second test",
-      "stem": "If 3x² + kx − 14 = 0 has x = 2 as a root, what is the other root?",
+      "eyebrow": "Try it first",
+      "qnum": "19",
+      "stem": "If $x = 2$ is one solution to the equation $3x^2 + kx - 14 = 0$, where $k$ is a constant, what is the other solution?",
       "choices": [
-        "x = −7/3",
-        "x = 7/3",
-        "x = −7",
-        "x = −14/3"
+        "$-\\frac{7}{3}$",
+        "$\\frac{7}{3}$",
+        "$-7$",
+        "$-\\frac{14}{3}$"
       ],
-      "prompt": "Time yourself. Comment your time and your answer."
+      "hand": "there's a 15-second route"
     },
     {
       "type": "reveal",
       "eyebrow": "The answer",
-      "title": "A — x = −7/3",
-      "body": "Vieta's gives the product of roots as c/a=(−14)/3. Most students pick B (x = 7/3): drops the negative sign on the root.",
       "choices": [
-        "x = −7/3",
-        "x = 7/3",
-        "x = −7",
-        "x = −14/3"
+        "$-\\frac{7}{3}$",
+        "$\\frac{7}{3}$",
+        "$-7$",
+        "$-\\frac{14}{3}$"
       ],
       "correct": 0,
-      "trap": 1
+      "trap": 1,
+      "trapNote": "sign slip",
+      "body": "The roots of $ax^2 + bx + c = 0$ multiply to $\\frac{c}{a}$. Here that's $-\\frac{14}{3}$, and one root is $2$, so the other is $-\\frac{7}{3}$. No finding $k$, no quadratic formula. Dropping the negative gives $\\frac{7}{3}$, which is why it's sitting in the choices."
     },
     {
       "type": "rule",
       "eyebrow": "The pattern",
-      "title": "Back-Solve Parameter, Then Find Other Root",
-      "body": "When one root of ax²+bx+c=0 is given, use Vieta's: the product of the roots is c/a, so divide by the known root to get the other.",
-      "tip": null
+      "title": "Product of roots",
+      "body": "For $ax^2 + bx + c = 0$, the two roots multiply to $\\frac{c}{a}$ and add to $-\\frac{b}{a}$. Know one root and you know the other instantly.\n\nThe long route — plug in $x = 2$, solve for $k$, factor — gets the same answer three minutes later."
     },
     {
       "type": "cta",
-      "eyebrow": "Why you actually miss questions",
-      "title": "Seva doesn't just grade you. It tells you *why* you fell for the trap.",
-      "points": [
-        "Every miss diagnosed: content gap, trap answer, or rushing",
-        "A study plan that rebuilds itself around your mistakes",
-        "Real Bluebook-style practice tests and drills"
-      ]
+      "eyebrow": "From a real Seva drill",
+      "title": "When you miss one like this, Seva tells you why.",
+      "body": "A content gap, a trap answer, and rushing all look identical on a score report. They need different fixes. Seva tells them apart and rebuilds your plan around the real one."
     }
   ]
 }

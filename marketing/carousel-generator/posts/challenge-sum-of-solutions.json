@@ -1,57 +1,51 @@
 {
   "slug": "challenge-sum-of-solutions",
-  "caption": "25 days until the August SAT.\n\nRound 2 of the 15-second test. Most students pick the same wrong answer — comment your time and your pick.\n\nSeva tells you WHY you missed it: content gap, trap answer, or rushing. Free trial — link in bio.\n\n#SAT #SATprep #SATmath #augustSAT #digitalSAT #sathacks #sattips #studytok #testprep",
+  "caption": "Five seconds, one trap, and about half of everyone falls in it.\n\nMost people who miss it pick the same wrong answer. Comment what you got and how long it took you.\n\nWe built Seva to tell you WHY you miss questions: content gap, trap answer, or rushing. Free 3-day trial, link in bio.\n\n#SAT #SATprep #SATmath #augustSAT #digitalSAT #testprep",
   "slides": [
     {
       "type": "cover",
       "eyebrow": "SAT Math",
-      "title": "Solve this in ==15 seconds== — most pick the trap",
-      "badge": "The 15-second test, round 2",
-      "stamp": "August SAT"
+      "title": "The 5-second question ==half get wrong==",
+      "hand": "count both roots"
     },
     {
       "type": "question",
-      "eyebrow": "The 15-second test",
-      "stem": "If x² = 49, what is the sum of all solutions to the equation?",
+      "eyebrow": "Try it first",
+      "qnum": "9",
+      "stem": "If $x^2 = 49$, what is the sum of all solutions to the equation?",
       "choices": [
-        "0",
-        "7",
-        "14",
-        "49"
+        "$0$",
+        "$7$",
+        "$14$",
+        "$49$"
       ],
-      "prompt": "Time yourself. Comment your time and your answer."
+      "hand": "faster than it looks"
     },
     {
       "type": "reveal",
       "eyebrow": "The answer",
-      "title": "A — 0",
-      "body": "x² = 49 has two solutions: 7 and −7. Their sum is 0. Picking 7 means you found one root and stopped — squaring erases the sign, so the negative root is always hiding.",
-      "tip": "Trap type: the forgotten negative",
       "choices": [
-        "0",
-        "7",
-        "14",
-        "49"
+        "$0$",
+        "$7$",
+        "$14$",
+        "$49$"
       ],
       "correct": 0,
-      "trap": 1
+      "trap": 1,
+      "trapNote": "dropped a root",
+      "body": "$x^2 = 49$ has two solutions: $7$ and $-7$. They cancel, so the sum is $0$. Answering $7$ means the negative root never crossed your mind — and the SAT counts on exactly that."
     },
     {
       "type": "rule",
       "eyebrow": "The pattern",
       "title": "Even powers hide negative roots",
-      "body": "Whenever the variable is squared, ask for both roots before you answer — x² = k has two solutions for any positive k, because (−7)² is just as much 49 as 7² is. The SAT writes \"sum of all solutions\" precisely to catch the students who stop at one.",
-      "tip": "See x², think ±"
+      "body": "Squaring erases signs, so $x^2 = 49$ is solved by both $7$ and $-7$. Any time you undo an even power, write $\\pm$ before you write anything else.\n\nOn grid-ins and sum questions, the forgotten negative root is one of the most common lost points on the test."
     },
     {
       "type": "cta",
-      "eyebrow": "Why you actually miss questions",
-      "title": "Seva doesn't just grade you. It tells you *why* you fell for the trap.",
-      "points": [
-        "Every miss diagnosed: content gap, trap answer, or rushing",
-        "A study plan that rebuilds itself around your mistakes",
-        "Real Bluebook-style practice tests and drills"
-      ]
+      "eyebrow": "From a real Seva drill",
+      "title": "When you miss one like this, Seva tells you why.",
+      "body": "A content gap, a trap answer, and rushing all look identical on a score report. They need different fixes. Seva tells them apart and rebuilds your plan around the real one."
     }
   ]
 }

@@ -1,0 +1,56 @@
+{
+  "slug": "challenge-mixture-setup",
+  "_source": {
+    "bankId": "bank-alg-046",
+    "difficulty": "hard",
+    "pattern": "Mixture System Setup"
+  },
+  "caption": "Nobody miscalculates this one. They mis-set-it-up.\n\nMost people who miss it pick the same wrong answer. Comment what you got and how long it took you.\n\nWe built Seva to tell you WHY you miss questions: content gap, trap answer, or rushing. Free 3-day trial, link in bio.\n\n#SAT #SATprep #SATmath #augustSAT #digitalSAT #testprep",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "SAT Math · Hard",
+      "title": "The mixture question everyone ==sets up wrong==",
+      "hand": "it's the decimals"
+    },
+    {
+      "type": "question",
+      "eyebrow": "Try it first",
+      "qnum": "22",
+      "stem": "A chemist mixes a $40\\%$ acid solution with a $70\\%$ acid solution to produce $60$ liters of a $52\\%$ acid solution. If $x$ is the number of liters of the $40\\%$ solution and $y$ is the number of liters of the $70\\%$ solution, which system of equations represents this situation?",
+      "choices": [
+        "$x + y = 60$;  $0.40x + 0.70y = 31.2$",
+        "$x + y = 60$;  $40x + 70y = 52$",
+        "$x + y = 52$;  $0.40x + 0.70y = 60$",
+        "$x + y = 60$;  $0.40x + 0.70y = 52$"
+      ],
+      "hand": "set it up, don't solve it"
+    },
+    {
+      "type": "reveal",
+      "eyebrow": "The answer",
+      "choices": [
+        "$x + y = 60$;  $0.40x + 0.70y = 31.2$",
+        "$x + y = 60$;  $40x + 70y = 52$",
+        "$x + y = 52$;  $0.40x + 0.70y = 60$",
+        "$x + y = 60$;  $0.40x + 0.70y = 52$"
+      ],
+      "correct": 0,
+      "trap": 1,
+      "trapNote": "raw percents",
+      "body": "One equation counts liters: $x + y = 60$. The other counts acid: $0.40x + 0.70y$ on the left, and on the right $52\\%$ of the $60$ liters, which is $31.2$. Keeping raw percents like $40x + 70y = 52$ mixes units — percent of nothing equals a bare number."
+    },
+    {
+      "type": "rule",
+      "eyebrow": "The pattern",
+      "title": "Amount = decimal percent × volume",
+      "body": "In any mixture, the substance amount is the decimal percent times the liters. One equation for total volume, one for total substance, decimals on both sides.\n\nIf your system still shows raw percents, it's wrong before you've solved anything."
+    },
+    {
+      "type": "cta",
+      "eyebrow": "From a real Seva drill",
+      "title": "When you miss one like this, Seva tells you why.",
+      "body": "A content gap, a trap answer, and rushing all look identical on a score report. They need different fixes. Seva tells them apart and rebuilds your plan around the real one."
+    }
+  ]
+}

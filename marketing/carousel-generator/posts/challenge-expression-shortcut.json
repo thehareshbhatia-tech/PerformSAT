@@ -1,57 +1,51 @@
 {
   "slug": "challenge-expression-shortcut",
-  "caption": "28 days until the August SAT.\n\nSolve it in 15 seconds or you're not ready. The fast way skips algebra entirely — comment your time and your answer.\n\nSeva tells you WHY you missed it: content gap, trap answer, or rushing. Free trial — link in bio.\n\n#SAT #SATprep #SATmath #augustSAT #digitalSAT #sathacks #sattips #studytok #testprep",
+  "caption": "This one takes ten seconds if you see it, and a full minute if you don't.\n\nMost people who miss it pick the same wrong answer. Comment what you got and how long it took you.\n\nWe built Seva to tell you WHY you miss questions: content gap, trap answer, or rushing. Free 3-day trial, link in bio.\n\n#SAT #SATprep #SATmath #augustSAT #digitalSAT #testprep",
   "slides": [
     {
       "type": "cover",
       "eyebrow": "SAT Math",
-      "title": "Solve this in ==15 seconds== — or you're not ready",
-      "badge": "1500 scorers see the shortcut",
-      "stamp": "August SAT"
+      "title": "The question that ==doesn't need x==",
+      "hand": "double it and go"
     },
     {
       "type": "question",
-      "eyebrow": "The 15-second test",
-      "stem": "If 3x − 7 = 11, what is the value of 6x − 14?",
+      "eyebrow": "Try it first",
+      "qnum": "14",
+      "stem": "If $3x - 7 = 11$, what is the value of $6x - 14$?",
       "choices": [
-        "6",
-        "18",
-        "22",
-        "36"
+        "$6$",
+        "$18$",
+        "$22$",
+        "$36$"
       ],
-      "prompt": "Time yourself. Comment your time and your answer."
+      "hand": "10 seconds. go."
     },
     {
       "type": "reveal",
       "eyebrow": "The answer",
-      "title": "C — 22",
-      "body": "No algebra needed: 6x − 14 is exactly *double* 3x − 7, so the answer is 2 × 11 = 22. Solving for x = 6 and rebuilding gets there too — the slow way. The SAT is betting you'll spend a minute on a ten-second question.",
-      "tip": "Trap type: answering for x",
       "choices": [
-        "6",
-        "18",
-        "22",
-        "36"
+        "$6$",
+        "$18$",
+        "$22$",
+        "$36$"
       ],
       "correct": 2,
-      "trap": 0
+      "trap": 0,
+      "trapNote": "solved for x",
+      "body": "You never need $x$. The target $6x - 14$ is exactly double $3x - 7$, so it's $2 \\times 11 = 22$. The trap is solving the equation, getting $x = 6$, and bubbling that in. The question never asked for $x$."
     },
     {
       "type": "rule",
       "eyebrow": "The pattern",
-      "title": "Expression questions have a shortcut on purpose",
-      "body": "When the SAT asks for the value of an *expression* instead of the variable, check whether it's a multiple of what you were given — these questions are written so the fast path skips solving entirely. And x = 6 sits in the choices, waiting for everyone who forgot what was asked.",
-      "tip": "Before you solve, re-read what they asked for"
+      "title": "Look at the target first",
+      "body": "When the SAT asks for an expression instead of a variable, compare shapes before solving anything. The target is almost always a clean multiple of what you were given.\n\nSolving for $x$ still works. It just costs a minute you don't have late in Module 2."
     },
     {
       "type": "cta",
-      "eyebrow": "Why you actually miss questions",
-      "title": "Seva doesn't just grade you. It tells you *why* you fell for the trap.",
-      "points": [
-        "Every miss diagnosed: content gap, trap answer, or rushing",
-        "A study plan that rebuilds itself around your mistakes",
-        "Real Bluebook-style practice tests and drills"
-      ]
+      "eyebrow": "From a real Seva drill",
+      "title": "When you miss one like this, Seva tells you why.",
+      "body": "A content gap, a trap answer, and rushing all look identical on a score report. They need different fixes. Seva tells them apart and rebuilds your plan around the real one."
     }
   ]
 }
