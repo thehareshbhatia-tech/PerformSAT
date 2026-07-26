@@ -12,15 +12,6 @@
     },
     {
       "type": "shot",
-      "eyebrow": "Graphing",
-      "title": "Paste the general form straight in",
-      "shot": "circle-general-form.png",
-      "question": "The equation of a circle is $x^2 + y^2 + 8x - 10y + 5 = 0$. What are its center and radius?",
-      "caption": "Desmos graphs the general form with zero algebra. Now the answer is a picture.",
-      "answer": "Center $(-4, 5)$, radius $6$"
-    },
-    {
-      "type": "shot",
       "eyebrow": "Center & radius",
       "title": "Read them off the gridlines",
       "shot": "circle-radius.png",
@@ -50,8 +41,7 @@
       "type": "cta",
       "eyebrow": "Test-day calculator",
       "title": "Seva's practice tests have this exact calculator built in.",
-      "body": "Practice the clicks now so they're automatic when it counts.",
-      "art": "circle-line.png"
+      "body": "Practice the clicks now so they're automatic when it counts."
     }
   ]
 }

@@ -4,12 +4,22 @@
     "place": "above",
     "leftPct": 65.333,
     "topPct": 50,
-    "dx": -80
+    "dx": -80,
+    "noRing": true
   },
   {
-    "text": "r = 6",
-    "place": "below",
+    "seg": true,
+    "leftPct": 65.8,
+    "x2Pct": 83.9,
+    "topPct": 50,
+    "text": "r = 6"
+  },
+  {
+    "text": "(2, 5)",
+    "place": "above",
     "leftPct": 84.329,
-    "topPct": 50
+    "topPct": 50,
+    "dx": -20,
+    "noRing": true
   }
 ]

@@ -101,6 +101,18 @@ function roughUnderline(seed) {
   </svg>`;
 }
 
+// A wavy measured-length line in a 300×40 box with short end ticks.
+function roughSeg(seed) {
+  const rand = mulberry32(seedFrom(seed));
+  const pts = [];
+  for (let i = 0; i <= 6; i++) pts.push([6 + (i / 6) * 288, 20 + (rand() - 0.5) * 6]);
+  return `<svg class="seg-svg" viewBox="0 0 300 40" preserveAspectRatio="none">
+    <path d="${smoothPath(pts)}" vector-effect="non-scaling-stroke"/>
+    <path d="M 6 8 L 6 32" vector-effect="non-scaling-stroke"/>
+    <path d="M 294 8 L 294 32" vector-effect="non-scaling-stroke"/>
+  </svg>`;
+}
+
 // A small rough arrow in a 120×60 box, pointing left toward what the note names.
 function roughArrow(seed) {
   const rand = mulberry32(seedFrom(seed));
@@ -252,10 +264,17 @@ const RENDER = {
       <img src="${s._shotData}">
       ${(s._readouts || [])
         .map((r, j) => {
-          // Placement comes straight from the hand-tuned readouts JSON; labels
-          // may be omitted (ring only) where the caption already carries the value.
+          // Placement comes straight from the hand-tuned readouts JSON. Entries
+          // with x2Pct draw a measured length (wavy line + label below);
+          // noRing entries are label-only; the rest ring their point.
+          if (r.seg) {
+            return `<span class="seg" style="left:${r.leftPct}%;top:${r.topPct}%;width:${r.x2Pct - r.leftPct}%">
+              ${roughSeg(`${post.slug}-s${i}-${j}`)}
+              <span class="seg-label">${esc(r.text)}</span>
+            </span>`;
+          }
           return `<span class="readout place-${r.place}" style="left:${r.leftPct}%;top:${r.topPct}%">
-            ${ring(`${post.slug}-s${i}-${j}`, 'ring-point')}
+            ${r.noRing ? '' : ring(`${post.slug}-s${i}-${j}`, 'ring-point')}
             ${r.text ? `<span class="readout-label" style="${r.dx ? `margin-left:${r.dx}px;` : ''}${r.dy ? `margin-top:${r.dy}px;` : ''}">${esc(r.text)}</span>` : ''}
           </span>`;
         })
@@ -537,6 +556,16 @@ export function buildHtml(post) {
     border:1px solid rgba(0,0,0,.35); box-shadow:0 30px 70px rgba(0,0,0,.45);
   }
   .readout { position:absolute; width:0; height:0; }
+  .seg { position:absolute; height:0; }
+  .seg-svg {
+    position:absolute; left:0; top:-20px; width:100%; height:40px; overflow:visible;
+    fill:none; stroke:${B.orange}; stroke-width:5px; stroke-linecap:round;
+  }
+  .seg-label {
+    position:absolute; left:0; right:0; top:26px; text-align:center; white-space:nowrap;
+    font-family:'Caveat', cursive; font-weight:700; font-size:38px; color:${B.orange};
+    text-shadow:0 0 6px rgba(255,255,255,.85), 0 0 12px rgba(255,255,255,.7);
+  }
   .readout .ring-point {
     left:-52px; top:-34px; width:104px; height:68px;
   }
