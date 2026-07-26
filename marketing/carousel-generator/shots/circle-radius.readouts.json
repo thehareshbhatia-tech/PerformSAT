@@ -1,13 +1,13 @@
 [
   {
-    "text": "centre (-4, 5)",
-    "place": "left",
+    "text": "center (-4, 5)",
+    "place": "above",
     "leftPct": 65.333,
     "topPct": 50
   },
   {
-    "text": "(2, 5)",
-    "place": "right",
+    "text": "r = 6",
+    "place": "below",
     "leftPct": 84.329,
     "topPct": 50
   }

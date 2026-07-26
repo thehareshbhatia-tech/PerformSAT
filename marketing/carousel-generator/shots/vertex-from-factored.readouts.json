@@ -1,19 +1,19 @@
 [
   {
-    "text": "(-7, 0)",
+    "text": "",
     "place": "left",
     "leftPct": 47.088,
     "topPct": 27.273
   },
   {
-    "text": "(3, 0)",
+    "text": "",
     "place": "right",
     "leftPct": 83.579,
     "topPct": 27.273
   },
   {
     "text": "(-2, -25)",
-    "place": "below",
+    "place": "left",
     "leftPct": 65.333,
     "topPct": 84.091
   }

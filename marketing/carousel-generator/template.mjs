@@ -226,12 +226,14 @@ const RENDER = {
     <div class="shot-figure">
       <img src="${s._shotData}">
       ${(s._readouts || [])
-        .map(
-          (r, j) => `<span class="readout place-${r.place}" style="left:${r.leftPct}%;top:${r.topPct}%">
+        .map((r, j) => {
+          // Placement comes straight from the hand-tuned readouts JSON; labels
+          // may be omitted (ring only) where the caption already carries the value.
+          return `<span class="readout place-${r.place}" style="left:${r.leftPct}%;top:${r.topPct}%">
             ${ring(`${post.slug}-s${i}-${j}`, 'ring-point')}
-            <span class="readout-label">${esc(r.text)}</span>
-          </span>`
-        )
+            ${r.text ? `<span class="readout-label">${esc(r.text)}</span>` : ''}
+          </span>`;
+        })
         .join('')}
     </div>
     ${s.caption || s.tip ? `<div class="caption">${md(s.caption || s.tip)}</div>` : ''}
@@ -451,16 +453,17 @@ export function buildHtml(post) {
   }
   .readout { position:absolute; width:0; height:0; }
   .readout .ring-point {
-    left:-62px; top:-40px; width:124px; height:80px;
+    left:-52px; top:-34px; width:104px; height:68px;
   }
   .readout-label {
     position:absolute; white-space:nowrap;
-    font-family:'Caveat', cursive; font-weight:700; font-size:40px; color:${B.orange};
+    font-family:'Caveat', cursive; font-weight:700; font-size:36px; color:${B.orange};
+    text-shadow:0 0 6px rgba(255,255,255,.85), 0 0 12px rgba(255,255,255,.7);
   }
-  .place-right .readout-label { left:72px; top:-26px; transform:rotate(-2deg); }
-  .place-left .readout-label { right:72px; top:-26px; transform:rotate(2deg); }
-  .place-above .readout-label { left:-40px; bottom:48px; transform:rotate(-2.5deg); }
-  .place-below .readout-label { left:-40px; top:48px; transform:rotate(-2deg); }
+  .place-right .readout-label { left:62px; top:-22px; transform:rotate(-2deg); }
+  .place-left .readout-label { right:62px; top:-22px; transform:rotate(2deg); }
+  .place-above .readout-label { left:-36px; bottom:42px; transform:rotate(-2.5deg); }
+  .place-below .readout-label { left:-36px; top:42px; transform:rotate(-2deg); }
 
   /* ---- cover ---- */
   .cover-art {
