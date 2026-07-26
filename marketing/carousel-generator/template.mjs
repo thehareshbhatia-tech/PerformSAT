@@ -120,11 +120,13 @@ function roughArrow(seed) {
 let mdSeq = 0; // varies underline wobble between uses within one post
 const md = (s) => {
   const math = [];
-  const parked = String(s ?? '').replace(/\$([^$]+)\$/g, (_, m) => {
+  const parked = String(s ?? '').replace(/\\\$/g, '\u0001').replace(/\$([^$]+)\$/g, (_, m) => {
     math.push(katex.renderToString(m, { throwOnError: false }));
     return `\u0000${math.length - 1}\u0000`;
   });
-  return mdBody(esc(parked)).replace(/\u0000(\d+)\u0000/g, (_, i) => `<span class="tex">${math[i]}</span>`);
+  return mdBody(esc(parked))
+    .replace(/\u0000(\d+)\u0000/g, (_, i) => `<span class="tex">${math[i]}</span>`)
+    .replace(/\u0001/g, '$');
 };
 const mdBody = (s) =>
   s
@@ -475,7 +477,7 @@ export function buildHtml(post) {
 
   /* ---- formula / cases ---- */
   .formula-group { display:flex; flex-direction:column; gap:26px; width:100%; margin:14px 0 8px; }
-  .formula { font-family:'Tinos', Georgia, serif; font-style:italic; font-size:58px; line-height:1.3; color:${B.cream}; }
+  .formula { font-family:'Tinos', Georgia, serif; font-style:italic; font-size:46px; line-height:1.3; color:${B.cream}; }
   .cases { margin-top:34px; border-top:1px solid rgba(250,247,242,.18); padding-top:26px; width:100%; }
   .case { display:flex; align-items:baseline; gap:26px; font-size:36px; line-height:1.45; padding:7px 0; }
   .case b { color:${B.logoPurple}; font-weight:800; font-family:${B.fontDisplay}; white-space:nowrap; }

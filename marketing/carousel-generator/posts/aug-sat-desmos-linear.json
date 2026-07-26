@@ -1,51 +1,51 @@
 {
   "slug": "aug-sat-desmos-linear",
-  "caption": "12 days until the August SAT.\n\nA system is two lines and a picture. Where they cross is the answer \u2014 and when they never cross, Desmos shows you that too, which is the entire no-solution question.\n\nSave this one \u2014 it's the whole topic in one place. Seva's practice tests have the same calculator built in, so you can drill these until they're reflex. Free trial \u2014 link in bio.\n\n#SAT #SATprep #SATmath #satdesmos #desmos #justusedesmos #sathacks #digitalsathacks #augustSAT #digitalSAT #sattips #studytok #testprep #highschoolparents",
+  "caption": "12 days until the August SAT.\n\nA system is two lines and a picture. Where they cross is the answer — and when they never cross, Desmos shows you that too, which is the entire no-solution question.\n\nSave this one — it's the whole topic in one place. Seva's practice tests have the same calculator built in, so you can drill these until they're reflex. Free trial — link in bio.\n\n#SAT #SATprep #SATmath #satdesmos #desmos #justusedesmos #sathacks #digitalsathacks #augustSAT #digitalSAT #sattips #studytok #testprep #highschoolparents",
   "slides": [
     {
       "type": "cover",
-      "eyebrow": "SAT Math",
-      "title": "Everything Desmos does for ==lines and systems==",
-      "badge": "Intersections, no-solution, inequalities",
-      "stamp": "August SAT"
+      "eyebrow": "August SAT · Math",
+      "title": "Every linear question fits on ==one screen==",
+      "hand": "intersections, inequalities, no-solution",
+      "art": "break-even-lines.png"
     },
     {
       "type": "shot",
       "eyebrow": "Intersection",
       "title": "Graph both costs and click where they meet",
       "shot": "break-even-lines.png",
-      "tip": "They tie at (2.5, 137.5), so the 50 dollar fee is erased after 2.5 hours."
+      "question": "One landscaper charges \\$50 plus \\$35 per hour. Another charges \\$55 per hour with no fee. After how many hours do they cost the same?",
+      "caption": "Graph both cost lines and click the crossing: $(2.5, 137.5)$. They tie at $2.5$ hours."
     },
     {
       "type": "shot",
       "eyebrow": "No solution",
       "title": "Same slope, and you can see why",
       "shot": "parallel-no-solution.png",
-      "tip": "Nothing to click here \u2014 the lines never touch, and that's exactly what 'no solution' means."
+      "question": "How many solutions does the system $y = 2x + 3$, $y = 2x - 5$ have?",
+      "caption": "The lines are parallel and never touch. Zero crossings is what \"no solution\" looks like."
     },
     {
       "type": "shot",
       "eyebrow": "Inequalities",
       "title": "Change = to < and it shades",
       "shot": "inequality-shading.png",
-      "tip": "Everything shaded satisfies the inequality. Test any point: if it's in the shading, it works."
+      "question": "Which of the following points is a solution to $y < -2x + 6$?",
+      "caption": "Type the inequality and Desmos shades every solution. If the point sits in the shading, it works."
     },
     {
       "type": "shot",
       "eyebrow": "Overlap",
       "title": "Two inequalities, one answer region",
       "shot": "system-inequalities.png",
-      "tip": "The darker wedge is where both shadings overlap \u2014 that's the solution to the system."
+      "question": "Which point satisfies both $y \\le -x + 8$ and $y \\ge 2x - 4$?",
+      "caption": "The darker wedge is where the shadings overlap. Any point inside it satisfies both."
     },
     {
       "type": "cta",
-      "eyebrow": "Why you actually miss questions",
+      "eyebrow": "Test-day calculator",
       "title": "Seva's practice tests have this exact calculator built in.",
-      "points": [
-        "Drill every move until it's reflex, not rescue",
-        "Every miss diagnosed: content gap, trap answer, or rushing",
-        "Real Bluebook-style adaptive practice tests"
-      ]
+      "body": "Practice the clicks now so they're automatic when it counts."
     }
   ]
 }

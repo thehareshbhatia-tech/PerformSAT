@@ -4,41 +4,37 @@
   "slides": [
     {
       "type": "cover",
-      "eyebrow": "SAT Math",
-      "title": "One symbol solves ==\"find the constant\"== instantly",
-      "badge": "The ~ trick — hardest questions on the test",
-      "stamp": "August SAT"
+      "eyebrow": "August SAT · Math",
+      "title": "The ==~ key== breaks the SAT's hardest question",
+      "hand": "one symbol. zero algebra.",
+      "art": "tilde-constant.png"
     },
     {
       "type": "trap",
       "eyebrow": "The setup",
       "title": "\"True for all x. What is a?\"",
-      "formula": "\\frac{24x² + 25x − 47}{ax − 2} = −8x − 3 − \\frac{53}{ax − 2}",
-      "body": "This is a real official hard-Module-2 question type. The algebra route is polynomial division — two minutes and three chances to slip. The trap is doing it by hand at all."
+      "formula": "$\\frac{24x^2 + 25x - 47}{ax - 2} = -8x - 3 - \\frac{53}{ax - 2}$",
+      "body": "This is a real official hard-Module-2 question type. The algebra route is polynomial division: two minutes of work and three chances to slip. The trap is doing it by hand at all."
     },
     {
       "type": "shot",
       "eyebrow": "The move",
       "title": "Swap = for ~ and Desmos finds a",
       "shot": "tilde-constant.png",
-      "tip": "Tiny x-table, identity with ~, read: a = −3"
+      "question": "The equation above is true for all $x \\ne \\frac{2}{a}$. What is the value of $a$?",
+      "caption": "Type the equation with $\\sim$ in place of $=$ and Desmos solves for the parameter: $a = -3$."
     },
     {
       "type": "rule",
       "eyebrow": "Why it works",
       "title": "= draws. ~ solves.",
-      "body": "With =, Desmos draws exactly what you typed. With ~, it treats unknown letters as parameters and finds the values that make both sides match — which is precisely what \"true for all x\" is asking. RMSE of zero means the fit is perfect: the dashed and solid curves are the same curve.",
-      "tip": "Works on any find-the-constant identity"
+      "body": "With =, Desmos draws exactly what you typed. With ~, it treats unknown letters as parameters and finds the values that make both sides match — which is precisely what \"true for all x\" is asking. RMSE of zero means the fit is perfect: the dashed and solid curves are the same curve."
     },
     {
       "type": "cta",
-      "eyebrow": "Why you actually miss questions",
+      "eyebrow": "Test-day calculator",
       "title": "Seva's practice tests have this exact calculator built in.",
-      "points": [
-        "Drill the ~ trick until it's reflex, not rescue",
-        "Every miss diagnosed: content gap, trap answer, or rushing",
-        "Real Bluebook-style adaptive practice tests"
-      ]
+      "body": "Practice the clicks now so they're automatic when it counts."
     }
   ]
 }

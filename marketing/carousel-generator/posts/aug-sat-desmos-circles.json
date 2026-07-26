@@ -1,51 +1,51 @@
 {
   "slug": "aug-sat-desmos-circles",
-  "caption": "15 days until the August SAT.\n\nCircle questions look brutal in general form. Desmos will graph that form exactly as the SAT prints it \u2014 so instead of completing the square, you draw the circle and read what you need off the grid.\n\nSave this one \u2014 it's the whole topic in one place. Seva's practice tests have the same calculator built in, so you can drill these until they're reflex. Free trial \u2014 link in bio.\n\n#SAT #SATprep #SATmath #satdesmos #desmos #justusedesmos #sathacks #digitalsathacks #augustSAT #digitalSAT #sattips #studytok #testprep #highschoolparents",
+  "caption": "15 days until the August SAT.\n\nCircle questions look brutal in general form. Desmos will graph that form exactly as the SAT prints it — so instead of completing the square, you draw the circle and read what you need off the grid.\n\nSave this one — it's the whole topic in one place. Seva's practice tests have the same calculator built in, so you can drill these until they're reflex. Free trial — link in bio.\n\n#SAT #SATprep #SATmath #satdesmos #desmos #justusedesmos #sathacks #digitalsathacks #augustSAT #digitalSAT #sattips #studytok #testprep #highschoolparents",
   "slides": [
     {
       "type": "cover",
-      "eyebrow": "SAT Math",
-      "title": "Everything Desmos does for ==circles==",
-      "badge": "Graph general form, read the rest off the grid",
-      "stamp": "August SAT"
+      "eyebrow": "August SAT · Math",
+      "title": "Circles without ==completing the square==",
+      "hand": "center, radius, crossings. counted.",
+      "art": "circle-radius.png"
     },
     {
       "type": "shot",
       "eyebrow": "Graphing",
-      "title": "Paste general form in \u2014 it just draws it",
+      "title": "Paste the general form straight in",
       "shot": "circle-general-form.png",
-      "tip": "Desmos won't hand you the centre, but it will graph the equation without any conversion first."
+      "question": "The equation of a circle is $x^2 + y^2 + 8x - 10y + 5 = 0$. What are its center and radius?",
+      "caption": "Desmos graphs the general form with zero algebra. Now the answer is a picture."
     },
     {
       "type": "shot",
-      "eyebrow": "Centre & radius",
+      "eyebrow": "Center & radius",
       "title": "Read them off the gridlines",
       "shot": "circle-radius.png",
-      "tip": "The middle sits at (-4, 5) and it's 6 squares to the edge, so r = 6. Counting beats algebra."
+      "question": "The equation of a circle is $x^2 + y^2 + 8x - 10y + 5 = 0$. What are its center and radius?",
+      "caption": "The middle sits at $(-4, 5)$ and it is $6$ squares from center to edge. Center $(-4, 5)$, radius $6$ — counted, not computed."
     },
     {
       "type": "shot",
       "eyebrow": "Checking",
       "title": "Prove your completed square is right",
       "shot": "circle-standard-check.png",
-      "tip": "Graph your standard form on top. If the dashed circle lands exactly on the solid one, you did it correctly."
+      "question": "Which equation describes the same circle as $x^2 + y^2 + 8x - 10y + 5 = 0$?",
+      "caption": "Graph your answer on top of the original. $(x + 4)^2 + (y - 5)^2 = 36$ lands exactly on it, so it's correct."
     },
     {
       "type": "shot",
       "eyebrow": "Intersections",
       "title": "Where a line cuts the circle",
       "shot": "circle-line.png",
-      "tip": "Graph both and read the crossings: (-4, -3) and (3, 4). No substitution, no messy quadratic."
+      "question": "At how many points does the line $y = x + 1$ intersect the circle $x^2 + y^2 = 25$?",
+      "caption": "Graph both and click the crossings: $(-4, -3)$ and $(3, 4)$. Two points, no substitution."
     },
     {
       "type": "cta",
-      "eyebrow": "Why you actually miss questions",
+      "eyebrow": "Test-day calculator",
       "title": "Seva's practice tests have this exact calculator built in.",
-      "points": [
-        "Drill every move until it's reflex, not rescue",
-        "Every miss diagnosed: content gap, trap answer, or rushing",
-        "Real Bluebook-style adaptive practice tests"
-      ]
+      "body": "Practice the clicks now so they're automatic when it counts."
     }
   ]
 }

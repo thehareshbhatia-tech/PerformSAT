@@ -1,44 +1,43 @@
 {
   "slug": "aug-sat-desmos-exponentials",
-  "caption": "6 days until the August SAT.\n\nName the model once, then just ask Desmos for the value you want. Every percent-growth question becomes typing p(10) instead of solving for an exponent.\n\nSave this one \u2014 it's the whole topic in one place. Seva's practice tests have the same calculator built in, so you can drill these until they're reflex. Free trial \u2014 link in bio.\n\n#SAT #SATprep #SATmath #satdesmos #desmos #justusedesmos #sathacks #digitalsathacks #augustSAT #digitalSAT #sattips #studytok #testprep #highschoolparents",
+  "caption": "6 days until the August SAT.\n\nName the model once, then just ask Desmos for the value you want. Every percent-growth question becomes typing p(10) instead of solving for an exponent.\n\nSave this one — it's the whole topic in one place. Seva's practice tests have the same calculator built in, so you can drill these until they're reflex. Free trial — link in bio.\n\n#SAT #SATprep #SATmath #satdesmos #desmos #justusedesmos #sathacks #digitalsathacks #augustSAT #digitalSAT #sattips #studytok #testprep #highschoolparents",
   "slides": [
     {
       "type": "cover",
-      "eyebrow": "SAT Math",
-      "title": "Everything Desmos does for ==growth and decay==",
-      "badge": "Growth, decay, half-life \u2014 read, don't solve",
-      "stamp": "August SAT"
+      "eyebrow": "August SAT · Math",
+      "title": "You never need ==logs== on this test",
+      "hand": "type the function, read the answer",
+      "art": "exp-decay-target.png"
     },
     {
       "type": "shot",
       "eyebrow": "Growth",
-      "title": "Define p(x), then type p(3)",
+      "title": "Define the function, then ask for a value",
       "shot": "exp-growth.png",
-      "tip": "Desmos prints the value beside it: 800 growing at 50% a year reaches 2,700 in 3 years."
+      "question": "A population of $800$ grows by $50\\%$ each year. What is the population after $3$ years?",
+      "caption": "Define $p(x) = 800(1.5)^x$, then type $p(3)$. Desmos prints $2700$ right next to it."
     },
     {
       "type": "shot",
       "eyebrow": "Decay",
       "title": "\"When does it drop below?\" is a crossing",
       "shot": "exp-decay-target.png",
-      "tip": "Graph the target as a flat line: 1,200 halving each year hits 300 at exactly x = 2."
+      "question": "A sample starts at $1{,}200$ and halves every year. After how many years does it reach $300$?",
+      "caption": "Graph the decay and the target as a flat line $y = 300$. They cross at $x = 2$, and that's the answer."
     },
     {
       "type": "shot",
       "eyebrow": "Half-life",
-      "title": "Ask for h(3) and skip the logarithm",
+      "title": "Half-life questions never need logarithms",
       "shot": "exp-half-life.png",
-      "tip": "160 falls to exactly 80 in 3 units. Halving questions never need logs on this test."
+      "question": "A substance has a half-life of $3$ hours. Starting from $160$ mg, how much remains after $3$ hours?",
+      "caption": "Type $h(3)$ and read $80$. One half-life gone, half the amount left."
     },
     {
       "type": "cta",
-      "eyebrow": "Why you actually miss questions",
+      "eyebrow": "Test-day calculator",
       "title": "Seva's practice tests have this exact calculator built in.",
-      "points": [
-        "Drill every move until it's reflex, not rescue",
-        "Every miss diagnosed: content gap, trap answer, or rushing",
-        "Real Bluebook-style adaptive practice tests"
-      ]
+      "body": "Practice the clicks now so they're automatic when it counts."
     }
   ]
 }

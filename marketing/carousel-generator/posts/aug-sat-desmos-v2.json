@@ -4,41 +4,40 @@
   "slides": [
     {
       "type": "cover",
-      "eyebrow": "SAT Math",
-      "title": "3 Desmos hacks the SAT ==doesn't want== you to know",
-      "badge": "Real screenshots — try each one tonight",
-      "stamp": "August SAT"
+      "eyebrow": "August SAT · Math",
+      "title": "Three Desmos tricks for ==test day==",
+      "hand": "try each one tonight",
+      "art": "quadratic-zeros.png"
     },
     {
       "type": "shot",
       "eyebrow": "Trick 1",
       "title": "Solve any equation without algebra",
       "shot": "solve-linear.png",
-      "tip": "The intersection is the answer: x = 6"
+      "question": "What value of $x$ satisfies $3x - 7 = 11$?",
+      "caption": "Graph each side as its own line: $y = 3x - 7$ and $y = 11$. The crossing sits at $x = 6$."
     },
     {
       "type": "shot",
       "eyebrow": "Trick 2",
       "title": "Quadratics: click, don't factor",
       "shot": "quadratic-zeros.png",
-      "tip": "The zeros and vertex are already there"
+      "question": "What are the solutions to $x^2 - 2x - 8 = 0$?",
+      "caption": "Click the grey dots on the $x$-axis: $x = -2$ and $x = 4$. The vertex is marked too."
     },
     {
       "type": "shot",
       "eyebrow": "Trick 3",
       "title": "Systems: the answer is a point",
       "shot": "system-intersect.png",
-      "tip": "Click where they cross: (2, 5)"
+      "question": "What is the solution $(x, y)$ to the system $y = 2x + 1$ and $y = -x + 7$?",
+      "caption": "Click where the lines cross: $(2, 5)$. That ordered pair is the whole answer."
     },
     {
       "type": "cta",
-      "eyebrow": "Why you actually miss questions",
+      "eyebrow": "Test-day calculator",
       "title": "Seva's practice tests have this exact calculator built in.",
-      "points": [
-        "Drill every trick until it's reflex, not rescue",
-        "Every miss diagnosed: content gap, trap answer, or rushing",
-        "Real Bluebook-style adaptive practice tests"
-      ]
+      "body": "Practice the clicks now so they're automatic when it counts."
     }
   ]
 }

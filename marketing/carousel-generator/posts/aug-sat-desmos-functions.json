@@ -1,44 +1,43 @@
 {
   "slug": "aug-sat-desmos-functions",
-  "caption": "3 days until the August SAT.\n\nDesmos understands function notation. Define f once and you can ask it for f of anything \u2014 and when a graph shifts, it will show you which way instead of you memorising the rule.\n\nSave this one \u2014 it's the whole topic in one place. Seva's practice tests have the same calculator built in, so you can drill these until they're reflex. Free trial \u2014 link in bio.\n\n#SAT #SATprep #SATmath #satdesmos #desmos #justusedesmos #sathacks #digitalsathacks #augustSAT #digitalSAT #sattips #studytok #testprep #highschoolparents",
+  "caption": "3 days until the August SAT.\n\nDesmos understands function notation. Define f once and you can ask it for f of anything — and when a graph shifts, it will show you which way instead of you memorising the rule.\n\nSave this one — it's the whole topic in one place. Seva's practice tests have the same calculator built in, so you can drill these until they're reflex. Free trial — link in bio.\n\n#SAT #SATprep #SATmath #satdesmos #desmos #justusedesmos #sathacks #digitalsathacks #augustSAT #digitalSAT #sattips #studytok #testprep #highschoolparents",
   "slides": [
     {
       "type": "cover",
-      "eyebrow": "SAT Math",
-      "title": "Everything Desmos does for ==functions==",
-      "badge": "Evaluate and transform, without substituting",
-      "stamp": "August SAT"
+      "eyebrow": "August SAT · Math",
+      "title": "Stop memorizing ==transformation== rules",
+      "hand": "graph both. see the shift.",
+      "art": "transformation-shift.png"
     },
     {
       "type": "shot",
       "eyebrow": "Evaluate",
       "title": "Define f, then literally type f(5)",
       "shot": "function-eval.png",
-      "tip": "Desmos prints = 3 right next to it. No substituting, no arithmetic, no chance of a sign slip."
+      "question": "If $f(x) = 2x - 7$, what is the value of $f(5)$?",
+      "caption": "Desmos prints $= 3$ right next to it. No substituting, no sign slips."
     },
     {
       "type": "shot",
       "eyebrow": "Transform",
       "title": "Put both versions on screen at once",
       "shot": "transformation-shift.png",
-      "tip": "Minus 3 inside moves it right; plus 2 outside moves it up. The vertex lands at (3, 2)."
+      "question": "The graph of $y = x^2$ is shifted $3$ units right and $2$ units up. Which equation gives the new graph?",
+      "caption": "Type your candidate next to the original: $y = (x - 3)^2 + 2$. The vertex lands at $(3, 2)$, exactly where the shift says."
     },
     {
       "type": "shot",
       "eyebrow": "Any shape",
       "title": "The same rule works on absolute value",
       "shot": "abs-value-transform.png",
-      "tip": "Inside the bars shifts sideways, outside shifts vertically \u2014 identical logic, different shape."
+      "question": "The graph of $y = |x|$ is shifted $2$ units right and $3$ units down. Which equation gives the new graph?",
+      "caption": "$y = |x - 2| - 3$. Inside the bars slides it sideways, outside slides it vertically. Same logic, different shape."
     },
     {
       "type": "cta",
-      "eyebrow": "Why you actually miss questions",
+      "eyebrow": "Test-day calculator",
       "title": "Seva's practice tests have this exact calculator built in.",
-      "points": [
-        "Drill every move until it's reflex, not rescue",
-        "Every miss diagnosed: content gap, trap answer, or rushing",
-        "Real Bluebook-style adaptive practice tests"
-      ]
+      "body": "Practice the clicks now so they're automatic when it counts."
     }
   ]
 }
