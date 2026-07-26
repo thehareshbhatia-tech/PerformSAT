@@ -220,6 +220,7 @@ const RENDER = {
   shot: (s, i, post) => `
     ${kicker(s.eyebrow)}
     <h2 class="shot-title">${md(s.title)}</h2>
+    ${s.question ? `<div class="shot-q">${md(s.question)}</div>` : ''}
     <div class="shot-figure">
       <img src="${s._shotData}">
       ${(s._readouts || [])
@@ -433,6 +434,14 @@ export function buildHtml(post) {
   }
 
   /* ---- Desmos shot ---- */
+  /* The question the screenshot answers, styled as a Bluebook fragment so the
+     viewer sees test material first, then the calculator move that solves it. */
+  .shot-q {
+    width:100%; background:#fff; color:#141414;
+    font-family:'Tinos', Georgia, serif; font-size:31px; line-height:1.45;
+    border:1px solid rgba(0,0,0,.25); border-radius:8px; padding:20px 30px;
+    margin-bottom:22px; box-shadow:0 14px 34px rgba(0,0,0,.3);
+  }
   .shot-figure { position:relative; width:100%; }
   .shot-figure img {
     width:100%; display:block; border-radius:10px;
