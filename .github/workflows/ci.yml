@@ -65,7 +65,7 @@ jobs:
         with:
           node-version: 20
           cache: npm
-      - uses: actions/setup-java@v4   # the Firestore emulator runs on the JVM
+      - uses: actions/setup-java@v5   # the Firestore emulator runs on the JVM
         with:
           distribution: temurin
           java-version: 21
