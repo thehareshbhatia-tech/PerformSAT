@@ -51,6 +51,13 @@ const DesmosCalculator = ({ isOpen, onClose }) => {
   // True after the Desmos script fails to load; Retry flips it back to false,
   // which re-runs the init effect and re-attempts the load.
   const [scriptError, setScriptError] = useState(false);
+  // Bluebook parity: closing the calculator HIDES it — it does not destroy the
+  // student's expressions. The instance is created on first open and lives
+  // until this component unmounts (module change / leaving the test). Tracked
+  // as "ever opened" so the init effect is keyed to first-open, not to every
+  // open/close toggle (which used to destroy on close).
+  const [everOpened, setEverOpened] = useState(false);
+  useEffect(() => { if (isOpen) setEverOpened(true); }, [isOpen]);
 
   const CALC_WIDTH = 560;
   const CALC_HEIGHT = 500;
@@ -108,7 +115,7 @@ const DesmosCalculator = ({ isOpen, onClose }) => {
   // used to unmount the container AND run this effect's destroy() cleanup,
   // wiping the student's graphs/expressions on every minimize.
   useEffect(() => {
-    if (!(isOpen && containerRef.current && !scriptError)) return undefined;
+    if (!(everOpened && containerRef.current && !scriptError)) return undefined;
 
     // Effect-scoped guard: a mode switch (or unmount) mid-load must not let a
     // late script resolve build a calculator into a container the effect has
@@ -168,20 +175,23 @@ const DesmosCalculator = ({ isOpen, onClose }) => {
         calculatorRef.current = null;
       }
     };
-  }, [isOpen, calcMode, scriptError]);
+  }, [everOpened, calcMode, scriptError]);
 
-  // Un-minimizing restores the container's real size; nudge Desmos to
-  // re-measure (autosize covers live resizes, but a display:none → visible
-  // flip doesn't reliably emit one).
+  // Un-minimizing or reopening restores the container's real size; nudge
+  // Desmos to re-measure (autosize covers live resizes, but a display:none →
+  // visible flip doesn't reliably emit one).
   useEffect(() => {
-    if (!isMinimized && calculatorRef.current && typeof calculatorRef.current.resize === 'function') {
+    if (isOpen && !isMinimized && calculatorRef.current && typeof calculatorRef.current.resize === 'function') {
       calculatorRef.current.resize();
     }
-  }, [isMinimized]);
+  }, [isMinimized, isOpen]);
 
   const handleRetryScriptLoad = () => setScriptError(false);
 
-  if (!isOpen) return null;
+  // Never opened: nothing to render or preserve. After first open the panel
+  // stays mounted and is hidden via display so the Desmos instance (and the
+  // student's work) survives close/reopen within the module.
+  if (!everOpened) return null;
 
   const modeButtonStyle = (active) => ({
     padding: '4px 12px',
@@ -210,7 +220,7 @@ const DesmosCalculator = ({ isOpen, onClose }) => {
   return (
     <>
     {/* Backdrop overlay for mobile */}
-    {isMobileCalc && (
+    {isMobileCalc && isOpen && (
       <div
         onClick={onClose}
         style={{
@@ -237,7 +247,7 @@ const DesmosCalculator = ({ isOpen, onClose }) => {
         borderRadius: `${radius.lg} ${radius.lg} 0 0`,
         overflow: 'hidden',
         boxShadow: '0 -10px 40px -10px rgba(0, 0, 0, 0.3)',
-        display: 'flex',
+        display: isOpen ? 'flex' : 'none',
         flexDirection: 'column',
         userSelect: 'none'
       } : {
@@ -251,7 +261,7 @@ const DesmosCalculator = ({ isOpen, onClose }) => {
         borderRadius: radius.sm,
         overflow: 'hidden',
         boxShadow: '0 10px 40px -10px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(0, 0, 0, 0.1)',
-        display: 'flex',
+        display: isOpen ? 'flex' : 'none',
         flexDirection: 'column',
         userSelect: 'none'
       }}

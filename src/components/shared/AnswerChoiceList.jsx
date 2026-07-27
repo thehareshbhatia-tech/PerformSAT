@@ -113,6 +113,7 @@ function AnswerChoice({
   onSelect,
   onToggleEliminate,
   crossOut,
+  crossOutControls = true,
 }) {
   // After submit, "selected by user" + "is the correct answer" together
   // determine the result chip / styling.
@@ -193,9 +194,12 @@ function AnswerChoice({
     </div>
   );
 
-  // Bluebook: wrap the card and a separate always-visible cross-out button in
-  // a flex row (state-aware glyph: X-strike letter → solid letter when out).
-  if (bluebook && !showResult && onToggleEliminate) {
+  // Bluebook: wrap the card and a separate cross-out button in a flex row
+  // (state-aware glyph: X-strike letter → solid letter when out). The button
+  // column only renders while the ABC eliminator tool is ON (crossOutControls);
+  // existing strikethroughs stay visible either way — matching Bluebook, where
+  // turning the tool off hides the controls but keeps the cross-outs.
+  if (bluebook && !showResult && onToggleEliminate && crossOutControls) {
     return (
       <div className="answer-choice-row">
         {card}
@@ -249,6 +253,7 @@ function AnswerChoiceList({
   onSelect,
   onToggleEliminate,
   crossOut,
+  crossOutControls = true,
 }) {
   if (!Array.isArray(choices) || choices.length === 0) return null;
 
@@ -265,6 +270,7 @@ function AnswerChoiceList({
           onSelect={onSelect}
           onToggleEliminate={onToggleEliminate}
           crossOut={crossOut}
+          crossOutControls={crossOutControls}
         />
       ))}
     </div>

@@ -1,49 +1,102 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { MathText } from './MathText';
 
-const SATReferenceSheet = ({ isOpen, onClose }) => {
-  if (!isOpen) return null;
+// Bluebook parity: on desktop the reference sheet is a FLOATING, DRAGGABLE
+// panel with no backdrop — the student keeps it open beside the question and
+// keeps working (the old centered modal + blurred backdrop blocked the page).
+// Mobile keeps the near-full-screen sheet with a tap-to-dismiss backdrop.
+const SHEET_WIDTH = 720;
 
+const SATReferenceSheet = ({ isOpen, onClose }) => {
   const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+
+  const [position, setPosition] = useState(() => ({
+    x: typeof window !== 'undefined' ? Math.max(12, (window.innerWidth - SHEET_WIDTH) / 2) : 80,
+    y: 64,
+  }));
+  const [isDragging, setIsDragging] = useState(false);
+  const dragOffsetRef = useRef({ x: 0, y: 0 });
+
+  const handleDragStart = (e) => {
+    if (isMobile) return;
+    if (e.target.tagName === 'BUTTON') return;
+    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+    dragOffsetRef.current = { x: clientX - position.x, y: clientY - position.y };
+    setIsDragging(true);
+  };
+
+  useEffect(() => {
+    if (!isDragging) return undefined;
+    const getClientPos = (e) => (e.touches
+      ? { x: e.touches[0].clientX, y: e.touches[0].clientY }
+      : { x: e.clientX, y: e.clientY });
+    const handleMove = (e) => {
+      const pos = getClientPos(e);
+      setPosition({
+        x: Math.max(0, Math.min(window.innerWidth - 80, pos.x - dragOffsetRef.current.x)),
+        y: Math.max(0, Math.min(window.innerHeight - 50, pos.y - dragOffsetRef.current.y)),
+      });
+    };
+    const handleEnd = () => setIsDragging(false);
+    document.addEventListener('mousemove', handleMove);
+    document.addEventListener('mouseup', handleEnd);
+    document.addEventListener('touchmove', handleMove, { passive: true });
+    document.addEventListener('touchend', handleEnd);
+    return () => {
+      document.removeEventListener('mousemove', handleMove);
+      document.removeEventListener('mouseup', handleEnd);
+      document.removeEventListener('touchmove', handleMove);
+      document.removeEventListener('touchend', handleEnd);
+    };
+  }, [isDragging]);
+
+  if (!isOpen) return null;
 
   return (
     <>
-      {/* Backdrop */}
-      <div
-        onClick={onClose}
-        style={{
-          position: 'fixed', inset: 0, zIndex: 9998,
-          background: 'rgba(0,0,0,0.4)',
-          backdropFilter: 'blur(4px)',
-          WebkitBackdropFilter: 'blur(4px)',
-        }}
-      />
-      {/* Modal */}
+      {/* Backdrop — mobile only; desktop floats over the live question */}
+      {isMobile && (
+        <div
+          onClick={onClose}
+          style={{
+            position: 'fixed', inset: 0, zIndex: 998,
+            background: 'rgba(0,0,0,0.4)',
+            backdropFilter: 'blur(4px)',
+            WebkitBackdropFilter: 'blur(4px)',
+          }}
+        />
+      )}
+      {/* Panel */}
       <div style={{
         position: 'fixed',
-        top: isMobile ? '5%' : '50%',
-        left: isMobile ? '3%' : '50%',
-        transform: isMobile ? 'none' : 'translate(-50%, -50%)',
-        width: isMobile ? '94%' : '720px',
-        maxHeight: isMobile ? '90vh' : '85vh',
+        top: isMobile ? '5%' : position.y,
+        left: isMobile ? '3%' : position.x,
+        width: isMobile ? '94%' : `${SHEET_WIDTH}px`,
+        maxHeight: isMobile ? '90vh' : '80vh',
         background: '#fff',
         borderRadius: '16px',
-        boxShadow: '0 24px 80px rgba(0,0,0,0.25)',
-        zIndex: 9999,
+        boxShadow: '0 24px 80px rgba(0,0,0,0.25), 0 0 0 1px rgba(0,0,0,0.08)',
+        zIndex: 999,
         display: 'flex',
         flexDirection: 'column',
         overflow: 'hidden',
+        userSelect: isDragging ? 'none' : undefined,
       }}>
-        {/* Header */}
-        <div style={{
-          padding: '16px 24px',
-          borderBottom: '1px solid rgba(0,0,0,0.08)',
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          background: '#f8f8fa',
-          flexShrink: 0,
-        }}>
+        {/* Header — drag handle on desktop */}
+        <div
+          onMouseDown={handleDragStart}
+          onTouchStart={handleDragStart}
+          style={{
+            padding: '16px 24px',
+            borderBottom: '1px solid rgba(0,0,0,0.08)',
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            background: '#f8f8fa',
+            flexShrink: 0,
+            cursor: isMobile ? 'default' : (isDragging ? 'grabbing' : 'grab'),
+          }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1d1d1f" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />

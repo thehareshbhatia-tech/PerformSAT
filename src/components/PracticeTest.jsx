@@ -88,12 +88,13 @@ const SAT_COLORS = {
 // browsers throttle in background tabs (the old model gifted free time). The
 // interval is now just a render cadence; visibilitychange/focus snap the clock
 // to true remaining time on refocus. Mount once per module via key={currentModule}.
-const Timer = ({ initialMinutes, onTimeUp, isPaused, timeRef, initialSeconds: savedSeconds }) => {
+const Timer = ({ initialMinutes, onTimeUp, onFiveMinutes, isPaused, timeRef, initialSeconds: savedSeconds }) => {
   const initialRemaining = savedSeconds != null ? savedSeconds : initialMinutes * 60;
 
   const deadlineRef = useRef(null);
   const pauseStartedRef = useRef(null);
   const firedRef = useRef(false); // onTimeUp must fire exactly once
+  const fiveMinFiredRef = useRef(false); // 5-minute warning fires exactly once per module
   // Lazy-anchor the deadline on first render (and on remount via key change).
   if (deadlineRef.current === null) {
     deadlineRef.current = deriveDeadline(initialRemaining, Date.now());
@@ -103,6 +104,8 @@ const Timer = ({ initialMinutes, onTimeUp, isPaused, timeRef, initialSeconds: sa
 
   const onTimeUpRef = useRef(onTimeUp);
   useEffect(() => { onTimeUpRef.current = onTimeUp; }, [onTimeUp]);
+  const onFiveMinutesRef = useRef(onFiveMinutes);
+  useEffect(() => { onFiveMinutesRef.current = onFiveMinutes; }, [onFiveMinutes]);
 
   const tick = useCallback(() => {
     const { remainingSeconds, isUp } = computeRemaining({
@@ -113,6 +116,13 @@ const Timer = ({ initialMinutes, onTimeUp, isPaused, timeRef, initialSeconds: sa
     });
     setDisplaySeconds(remainingSeconds);
     if (timeRef) timeRef.current = remainingSeconds;
+    // Bluebook: crossing the 5-minute mark force-reveals a hidden timer and
+    // surfaces a one-time warning. Fires immediately when a resumed module
+    // starts under 5:00 — the student still needs the signal.
+    if (remainingSeconds <= 300 && !isUp && !fiveMinFiredRef.current) {
+      fiveMinFiredRef.current = true;
+      onFiveMinutesRef.current?.();
+    }
     if (isUp && !firedRef.current) {
       firedRef.current = true;
       onTimeUpRef.current?.();
@@ -172,6 +182,81 @@ const Timer = ({ initialMinutes, onTimeUp, isPaused, timeRef, initialSeconds: sa
       borderRadius: radius.sm
     }}>
       {String(mins).padStart(2, '0')}:{String(secs).padStart(2, '0')}
+    </div>
+  );
+};
+
+// Bluebook-parity section break (between R&W and Math on a full test).
+// 10:00 countdown; "Resume Testing" advances early (Bluebook allows this in
+// PRACTICE mode — the real administration is proctored); at 0:00 the next
+// section starts on its own, exactly like Bluebook. Same wall-clock deadline
+// math as Timer so a backgrounded tab can't stretch the break.
+const BREAK_SECONDS = 600;
+const BreakScreen = ({ nextModuleTitle, onResume }) => {
+  const deadlineRef = useRef(null);
+  if (deadlineRef.current === null) {
+    deadlineRef.current = deriveDeadline(BREAK_SECONDS, Date.now());
+  }
+  const [displaySeconds, setDisplaySeconds] = useState(BREAK_SECONDS);
+  const firedRef = useRef(false); // resume must fire exactly once (auto or click)
+  const onResumeRef = useRef(onResume);
+  useEffect(() => { onResumeRef.current = onResume; }, [onResume]);
+
+  useEffect(() => {
+    const tick = () => {
+      const { remainingSeconds, isUp } = computeRemaining({
+        deadlineTs: deadlineRef.current,
+        nowTs: Date.now(),
+        isPaused: false,
+        pauseStartedTs: null,
+      });
+      setDisplaySeconds(remainingSeconds);
+      if (isUp && !firedRef.current) {
+        firedRef.current = true;
+        onResumeRef.current?.();
+      }
+    };
+    tick();
+    const interval = setInterval(tick, 1000);
+    const onVisible = () => { if (!document.hidden) tick(); };
+    document.addEventListener('visibilitychange', onVisible);
+    window.addEventListener('focus', onVisible);
+    return () => {
+      clearInterval(interval);
+      document.removeEventListener('visibilitychange', onVisible);
+      window.removeEventListener('focus', onVisible);
+    };
+  }, []);
+
+  const handleResumeClick = () => {
+    if (firedRef.current) return;
+    firedRef.current = true;
+    onResumeRef.current?.();
+  };
+
+  const mins = Math.floor(displaySeconds / 60);
+  const secs = displaySeconds % 60;
+
+  return (
+    <div className="test-module-complete">
+      <div className="test-module-complete-card">
+        <div className="test-module-complete-eyebrow">Break</div>
+        <h2 className="test-module-complete-title">Take a 10-minute break</h2>
+        <div style={{
+          fontFamily: 'monospace', fontSize: '44px', fontWeight: 700,
+          margin: '12px 0 4px', letterSpacing: '0.02em',
+        }}>
+          {String(mins).padStart(2, '0')}:{String(secs).padStart(2, '0')}
+        </div>
+        <p className="test-module-complete-note">
+          {nextModuleTitle} starts on its own when the break ends. Stand up,
+          stretch, get water — or resume early if you're ready.
+        </p>
+        <button className="test-module-complete-cta" onClick={handleResumeClick} type="button">
+          Resume Testing
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+      </div>
     </div>
   );
 };
@@ -529,15 +614,31 @@ const renderChoice = (choice) => {
   return <MathText text={choice.text} />;
 };
 
-// Restrict a grid-in (fill-in) entry to the SAT-valid character set as the
-// student types or pastes: digits, one decimal point, a fraction slash, and a
-// leading minus. Folds a unicode minus / en / em dash to ASCII '-' and strips
-// everything else (commas, "$", spaces, letters) so "1,000", "19 / 5" and
-// "$40" can never reach the grader as ungradeable strings. The grader
-// (isAnswerCorrect) normalizes the same way as a second line of defense.
-const sanitizeGridIn = (raw) => String(raw)
-  .replace(/[−–—]/g, '-')      // unicode minus / en / em dash to hyphen
-  .replace(/[^0-9./-]/g, '');   // keep only the SAT grid-in charset
+// Restrict a grid-in (fill-in) entry to the Bluebook SPR rules as the student
+// types or pastes: digits, at most one decimal point, at most one fraction
+// slash, a minus only as the leading character, and the official length cap —
+// 5 characters, or 6 when the answer is negative. Folds a unicode minus / en /
+// em dash to ASCII '-' and strips everything else (commas, "$", spaces,
+// letters) so "1,000", "19 / 5", "5-3" and "1..2" can never reach the grader
+// as ungradeable strings. The grader (isAnswerCorrect) normalizes the same
+// way as a second line of defense.
+const sanitizeGridIn = (raw) => {
+  let s = String(raw)
+    .replace(/[−–—]/g, '-')      // unicode minus / en / em dash to hyphen
+    .replace(/[^0-9./-]/g, '');   // keep only the SAT grid-in charset
+  // '-' is legal only as the first character
+  s = (s[0] === '-' ? '-' : '') + s.replace(/-/g, '');
+  // at most one '.' and one '/' — extra occurrences are dropped as typed
+  let seenDot = false;
+  let seenSlash = false;
+  s = s.split('').filter((ch) => {
+    if (ch === '.') { if (seenDot) return false; seenDot = true; }
+    if (ch === '/') { if (seenSlash) return false; seenSlash = true; }
+    return true;
+  }).join('');
+  // Bluebook length cap: 5 characters, 6 when negative
+  return s.slice(0, s[0] === '-' ? 6 : 5);
+};
 
 const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplete, onSaveProgress, onClearProgress, onSaveStudyPlan, onGoToStudyPlan, savedProgress, isTimed = true, skillProgress = null, user = null, practiceTestResults = null, completedLessons = {}, practiceProgress = {}, onStartPractice, answeredQuestionIds = [], initialReviewModule = null, reviewSnapshotMissing = false, reviewAttemptId = null, initialSection = null, resultSaveStatus = null, onRetrySave = null, tutorLocked = false, onSubscribe = null }) => {
   const [currentModule, setCurrentModule] = useState(
@@ -547,9 +648,24 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
   const [answers, setAnswers] = useState(savedProgress?.answers || {});
   const [markedForReview, setMarkedForReview] = useState(savedProgress?.markedForReview || []);
   const [showQuestionGridPopover, setShowQuestionGridPopover] = useState(false);
-  // Bluebook-style highlights, keyed by `${moduleIdx}-${questionIdx}-${passageKey}`
-  const [highlightsByKey, setHighlightsByKey] = useState({});
+  // Bluebook-style highlights, keyed by `${moduleIdx}-${questionIdx}-${passageKey}`.
+  // Restored from savedProgress so a reload/resume keeps the student's markup.
+  const [highlightsByKey, setHighlightsByKey] = useState(savedProgress?.highlightsByKey || {});
   const [highlightsHidden, setHighlightsHidden] = useState(false);
+  // Bluebook "Check Your Work" page: Next on the last question routes here
+  // (grid of answered/unanswered/flagged) before the module can end.
+  const [onReviewPage, setOnReviewPage] = useState(false);
+  // True when the module ended on the clock (vs a manual submit) — drives the
+  // "Time's up" interstitial copy and the Bluebook auto-advance.
+  const [timeExpired, setTimeExpired] = useState(false);
+  // Bluebook ABC answer-eliminator toggle: cross-out controls stay hidden
+  // until the student turns the tool on. Existing strikethroughs remain
+  // visible either way (matching Bluebook).
+  const [eliminatorMode, setEliminatorMode] = useState(false);
+  // Section directions overlay — auto-opens at the start of a fresh test and
+  // again when the Math section begins; reopenable from the header. The clock
+  // keeps running while it's open, exactly like Bluebook.
+  const [directionsOpen, setDirectionsOpen] = useState(() => !savedProgress && initialReviewModule === null);
   const [eliminatedChoices, setEliminatedChoices] = useState(savedProgress?.eliminatedChoices || {});
   const [showTimer, setShowTimer] = useState(isTimed);
   // Persisted + restored so a resume lands on the module-complete screen (or the
@@ -849,6 +965,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
         answers,
         markedForReview,
         eliminatedChoices,
+        highlightsByKey,
         isTimed,
         timeRemaining: timerSecondsRef.current,
         questionTelemetry: telemetrySnapshot,
@@ -867,7 +984,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
     }, 2000);
 
     return () => clearTimeout(saveTimerRef.current);
-  }, [answers, currentModule, currentQuestion, markedForReview, eliminatedChoices, testCompleted, reviewMode, onSaveProgress, isTimed, module2Variant, m2VariantManuallySet, moduleCompleted]);
+  }, [answers, currentModule, currentQuestion, markedForReview, eliminatedChoices, highlightsByKey, testCompleted, reviewMode, onSaveProgress, isTimed, module2Variant, m2VariantManuallySet, moduleCompleted]);
 
   useEffect(() => {
     if (testCompleted || reviewMode) return;
@@ -1596,7 +1713,16 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
     setCurrentQuestion(idx);
   }, []);
 
+  // Bluebook parity: Next on the last question goes to the "Check Your Work"
+  // page, not straight out of the module. The module only ends from that page
+  // (or when the clock runs out).
+  const handleGoToReview = useCallback(() => {
+    fillInSubmitRef.current?.();
+    setOnReviewPage(true);
+  }, []);
+
   const handleSubmitModule = useCallback(() => {
+    setOnReviewPage(false);
     fillInSubmitRef.current?.();
     // Record time spent on current question before submitting (read from refs, not stale closures)
     const mod = currentModuleRef.current;
@@ -1662,6 +1788,13 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
       // that evidence for every already-submitted module.
       setModuleCompleted(false);
       setResumeTimeRemaining(null);
+      setOnReviewPage(false);
+      setTimeExpired(false);
+      // Bluebook shows the section directions again when the Math section
+      // begins (after the break). Module 0's directions come from initial state.
+      if (mathM1Index !== undefined && nextMod === mathM1Index && mathM1Index > 0) {
+        setDirectionsOpen(true);
+      }
       questionStartTime.current = Date.now();
       prevQuestion.current = { module: nextMod, question: 0 };
     } else {
@@ -1696,7 +1829,34 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
       telemetry.timeSpent += elapsed;
     }
     moduleTimeRemaining.current[currentModuleRef.current] = 0;
+    setOnReviewPage(false);
+    setTimeExpired(true);
     setModuleCompleted(true);
+  }, []);
+
+  // Bluebook parity: when the clock ends a module, the test moves on by
+  // itself — a short beat on the "Time's up" screen, then the next module (or
+  // scoring, on the last one). The R&W→Math boundary is excluded: the break
+  // screen owns that transition and starts Math on its own 10:00 schedule.
+  useEffect(() => {
+    if (!moduleCompleted || testCompleted || !timeExpired) return undefined;
+    const cur = effectiveModules[currentModule];
+    const nxt = effectiveModules[currentModule + 1];
+    const isLast = currentModule === effectiveModules.length - 1;
+    const isSectionBreak = !isLast && isTimed
+      && cur?.section === 'reading-writing'
+      && ((nxt?.section || 'math') !== 'reading-writing');
+    if (isSectionBreak) return undefined;
+    const t = setTimeout(() => handleNextModule(), 5000);
+    return () => clearTimeout(t);
+  }, [moduleCompleted, testCompleted, timeExpired, currentModule, effectiveModules, isTimed, handleNextModule]);
+
+  // Bluebook: at 5:00 remaining a hidden timer force-reveals and the student
+  // gets a one-time warning. Timer remounts per module, so this fires once
+  // per module.
+  const handleFiveMinutesLeft = useCallback(() => {
+    setShowTimer(true);
+    showToast({ type: 'info', message: '5 minutes remaining in this module.' });
   }, []);
 
   const handlePauseToggle = () => {
@@ -1889,19 +2049,36 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
     const remainingModules = effectiveModules.length - currentModule - 1;
     // Like the real digital SAT, the per-module score is never revealed mid-test;
     // the score appears only on the final results screen after the whole test.
-    const nextModuleTitle = effectiveModules[currentModule + 1]?.title;
+    const nextModuleMeta = effectiveModules[currentModule + 1];
+    const nextModuleTitle = nextModuleMeta?.title;
+
+    // Bluebook: a 10-minute break sits between the R&W and Math sections.
+    // Timed tests only — untimed mode has no clocks to break from.
+    const isSectionBreak = !isLastModule && isTimed
+      && module?.section === 'reading-writing'
+      && ((nextModuleMeta?.section || 'math') !== 'reading-writing');
+    if (isSectionBreak) {
+      return <BreakScreen nextModuleTitle={nextModuleTitle} onResume={handleNextModule} />;
+    }
 
     return (
       <div className="test-module-complete">
         <div className="test-module-complete-card">
-          <div className="test-module-complete-eyebrow">Module complete</div>
+          <div className="test-module-complete-eyebrow">{timeExpired ? "Time's up" : 'Module complete'}</div>
           <h2 className="test-module-complete-title">{module.title}</h2>
 
           {!isLastModule && (
             <p className="test-module-complete-note">
-              {remainingModules === 1
-                ? 'One more module to go before your final score.'
-                : `${remainingModules} modules remaining before your final score.`}
+              {timeExpired
+                ? `Moving to ${nextModuleTitle} automatically — just like test day, unused time doesn't carry over.`
+                : remainingModules === 1
+                  ? 'One more module to go before your final score.'
+                  : `${remainingModules} modules remaining before your final score.`}
+            </p>
+          )}
+          {isLastModule && timeExpired && (
+            <p className="test-module-complete-note">
+              That was the last module — scoring your test automatically.
             </p>
           )}
 
@@ -2696,6 +2873,10 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
               setModule2Variant('hard');
               setM2VariantManuallySet(false);
               setResumeTimeRemaining(null);
+              setOnReviewPage(false);
+              setTimeExpired(false);
+              setEliminatorMode(false);
+              setDirectionsOpen(true); // fresh attempt starts at the section directions
             }}
             onReview={() => {
               setReviewMode(true);
@@ -2747,6 +2928,20 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
           outline: 'none', background: 'var(--pt-surface)', color: 'var(--pt-text)',
         }}
       />
+      {/* Bluebook Answer Preview: echoes exactly what will be graded */}
+      {fillInValue !== '' && (
+        <div style={{ marginTop: '10px', fontSize: '13px', color: 'var(--pt-text-soft, #6b7280)' }}>
+          Answer Preview:{' '}
+          <span style={{
+            fontFamily: 'var(--pt-font-serif)', fontSize: '19px',
+            color: 'var(--pt-text)', fontWeight: 600,
+          }}>{fillInValue}</span>
+        </div>
+      )}
+      <div style={{ marginTop: '8px', fontSize: '12px', color: 'var(--pt-text-soft, #6b7280)', lineHeight: 1.5 }}>
+        Up to 5 characters (6 with a minus sign). Enter fractions like 7/2 or
+        decimals like 3.5 — no mixed numbers, symbols, or units.
+      </div>
     </div>
   ) : (
     <AnswerChoiceList
@@ -2756,6 +2951,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
       onSelect={handleSelectAnswer}
       onToggleEliminate={handleToggleEliminate}
       crossOut="bluebook"
+      crossOutControls={eliminatorMode}
     />
   );
 
@@ -2775,6 +2971,9 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
               <span className="test-name-tag">{test.title}</span>
             </>
           )}
+          <button className="test-top-btn" onClick={() => setDirectionsOpen(true)} type="button">
+            Directions
+          </button>
         </div>
 
         <div className="header-center">
@@ -2783,6 +2982,20 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
         </div>
 
         <div className="header-right">
+          {/* Bluebook ABC answer-eliminator toggle — cross-out controls stay
+              hidden until the tool is on; existing strikethroughs always show. */}
+          {question?.type !== 'fill-in' && (
+            <button
+              className="test-top-btn"
+              onClick={() => setEliminatorMode(v => !v)}
+              aria-pressed={eliminatorMode}
+              title={eliminatorMode ? 'Turn off answer eliminator' : 'Turn on answer eliminator'}
+              type="button"
+              style={eliminatorMode ? { textDecoration: 'underline', fontWeight: 700 } : undefined}
+            >
+              <span style={{ textDecoration: 'line-through' }}>ABC</span>
+            </button>
+          )}
           {/* Calculator Button — Math only */}
           {!isReadingWriting && (
             <button
@@ -2840,6 +3053,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
                   key={currentModule}
                   initialMinutes={module.timeLimit || 35}
                   onTimeUp={handleTimeUp}
+                  onFiveMinutes={handleFiveMinutesLeft}
                   isPaused={isPaused}
                   timeRef={timerSecondsRef}
                   initialSeconds={resumeTimeRemaining}
@@ -2876,7 +3090,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
           test ships an Easy variant. Active variant tile is highlighted; the
           other is clickable. Click triggers handleRequestM2Switch, which
           confirms first if there are answers to discard. */}
-      {currentModule === mathM2Index && !!test.module2Easy && !testCompleted && !moduleCompleted && (
+      {currentModule === mathM2Index && !!test.module2Easy && !testCompleted && !moduleCompleted && !onReviewPage && (
         <div style={{
           maxWidth: '1100px',
           margin: '12px auto 0',
@@ -2944,7 +3158,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
       )}
 
       {/* Desktop Nav Strip — chip grid + answered ring (both Math and R&W). */}
-      {!isMobile && (
+      {!isMobile && !onReviewPage && (
         <div className="test-session-nav-strip">
           <QuestionGrid
             questions={questions}
@@ -2976,15 +3190,50 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
       )}
 
       <div className="test-session-body">
+        {/* Floating tools live OUTSIDE the workspace so entering the review
+            page doesn't unmount them — unmounting the calculator destroys the
+            student's Desmos work. Both render position:fixed. */}
+        <DesmosCalculator isOpen={showCalculator} onClose={() => setShowCalculator(false)} />
+        <SATReferenceSheet isOpen={showReference} onClose={() => setShowReference(false)} />
+
+        {onReviewPage ? (
+          /* Bluebook "Check Your Work" page — the only route out of a module
+             besides the clock. Timer stays mounted in the header above. */
+          <div className="test-review-check" style={{ width: '100%', maxWidth: '760px', margin: '0 auto', padding: '40px 20px', overflowY: 'auto' }}>
+            <h2 style={{ fontFamily: 'var(--pt-font-serif)', fontSize: '26px', margin: 0, textAlign: 'center', color: 'var(--pt-text)' }}>
+              Check Your Work
+            </h2>
+            <p style={{ textAlign: 'center', color: 'var(--pt-text-soft, #6b7280)', margin: '10px auto 24px', maxWidth: '540px', fontSize: '14px', lineHeight: 1.6 }}>
+              On test day, you can review and edit this module until time runs
+              out. In practice you can continue when you're ready — unused time
+              doesn't carry over.
+            </p>
+            <QuestionGrid
+              questions={questions}
+              currentIndex={-1}
+              answers={moduleAnswersForGrid}
+              markedForReview={markedForReview}
+              onNavigate={(idx) => { setOnReviewPage(false); handleNavigate(idx); }}
+            />
+            <div className="nav-legend" style={{ marginTop: '16px', justifyContent: 'center' }}>
+              <div className="nav-legend-item"><div className="nav-legend-icon answered"></div><span>Answered</span></div>
+              <div className="nav-legend-item"><div className="nav-legend-icon flagged"></div><span>For Review</span></div>
+              <div className="nav-legend-item"><div className="nav-legend-icon"></div><span>Unanswered</span></div>
+            </div>
+            <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', marginTop: '28px' }}>
+              <button className="bottom-nav-btn" onClick={() => setOnReviewPage(false)} type="button">
+                Back
+              </button>
+              <button className="bottom-nav-btn is-primary" onClick={handleSubmitModule} type="button">
+                Next
+              </button>
+            </div>
+          </div>
+        ) : (
         <div className="test-workspace-main">
 
           {/* Left Pane - Question Stem */}
           <div className="test-workspace-left" ref={leftPaneRef}>
-
-            {/* Desmos Calculator Modal */}
-            <DesmosCalculator isOpen={showCalculator} onClose={() => setShowCalculator(false)} />
-            {/* SAT Reference Sheet Modal */}
-            <SATReferenceSheet isOpen={showReference} onClose={() => setShowReference(false)} />
 
             {isReadingWriting ? (
             <>
@@ -3309,11 +3558,15 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
               <button onClick={handlePrev} disabled={currentQuestion === 0} className="bottom-nav-btn" type="button">
                 Previous
               </button>
-              {currentQuestion === questions.length - 1 ? (
-                <button className="bottom-nav-btn is-primary" onClick={handleSubmitModule} type="button">Submit Section</button>
-              ) : (
-                <button className="bottom-nav-btn is-primary" onClick={handleNext} type="button">Next Question</button>
-              )}
+              {/* Bluebook: the last question's Next goes to Check Your Work,
+                  never straight out of the module. */}
+              <button
+                className="bottom-nav-btn is-primary"
+                onClick={currentQuestion === questions.length - 1 ? handleGoToReview : handleNext}
+                type="button"
+              >
+                Next Question
+              </button>
             </div>
 
             <div className="question-panel">
@@ -3323,7 +3576,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
                   <svg width="15" height="15" viewBox="0 0 24 24" fill={isMarked ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
                   </svg>
-                  {isMarked ? 'Marked for Review' : 'Come Back Later'}
+                  {isMarked ? 'Marked for Review' : 'Mark for Review'}
                 </button>
               </div>
             </div>
@@ -3340,11 +3593,13 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
           <button onClick={handlePrev} disabled={currentQuestion === 0} className="bottom-nav-btn" type="button">
             Back
           </button>
-          {currentQuestion === questions.length - 1 ? (
-            <button className="bottom-nav-btn is-primary" onClick={handleSubmitModule} type="button">Next</button>
-          ) : (
-            <button className="bottom-nav-btn is-primary" onClick={handleNext} type="button">Next</button>
-          )}
+          <button
+            className="bottom-nav-btn is-primary"
+            onClick={currentQuestion === questions.length - 1 ? handleGoToReview : handleNext}
+            type="button"
+          >
+            Next
+          </button>
         </div>
       )}
 
@@ -3376,13 +3631,14 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
         </div>
       )}
       
-      </div> {/* End test-workspace-main */}
+      </div>
+      )} {/* End test-workspace-main / review-page swap */}
 
 
       </div> {/* End test-session-body */}
 
       {/* Bluebook-style bottom nav bar — R&W only */}
-      {isReadingWriting && !isMobile && (
+      {isReadingWriting && !isMobile && !onReviewPage && (
         <div className="test-session-bottom-bar">
           {/* firstName, not displayName — the user doc never carries displayName,
               so this bar always fell back to "Student". */}
@@ -3406,6 +3662,15 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
                   <div className="nav-legend-item"><div className="nav-legend-icon flagged"></div><span>For Review</span></div>
                   <div className="nav-legend-item"><div className="nav-legend-icon"></div><span>Unanswered</span></div>
                 </div>
+                {/* Bluebook: the navigator links to the Check Your Work page */}
+                <button
+                  className="bottom-nav-btn"
+                  style={{ width: '100%', marginTop: '0.75rem' }}
+                  onClick={() => { setShowQuestionGridPopover(false); handleGoToReview(); }}
+                  type="button"
+                >
+                  Go to Review Page
+                </button>
               </div>
             )}
             <button
@@ -3427,11 +3692,12 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
             >
               Back
             </button>
-            {currentQuestion === questions.length - 1 ? (
-              <button className="bottom-nav-btn is-primary" onClick={handleSubmitModule}>Next</button>
-            ) : (
-              <button className="bottom-nav-btn is-primary" onClick={handleNext}>Next</button>
-            )}
+            <button
+              className="bottom-nav-btn is-primary"
+              onClick={currentQuestion === questions.length - 1 ? handleGoToReview : handleNext}
+            >
+              Next
+            </button>
           </div>
         </div>
       )}
@@ -3460,6 +3726,50 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
         <p className="modal-text" style={{ textAlign: 'center' }}>
           {isTimed ? 'Timer is frozen. ' : ''}Your progress has been saved.
         </p>
+      </Modal>
+
+      {/* Section directions — auto-opens at the start of each section and
+          reopenable from the header, like Bluebook. The clock keeps running
+          while it's open (also like Bluebook). */}
+      <Modal
+        isOpen={directionsOpen}
+        onClose={() => setDirectionsOpen(false)}
+        title={isReadingWriting ? 'Reading and Writing — Directions' : 'Math — Directions'}
+        footer={
+          <Button onClick={() => setDirectionsOpen(false)} variant="primary" style={{ width: '100%' }}>
+            Begin
+          </Button>
+        }
+      >
+        {isReadingWriting ? (
+          <div className="modal-text" style={{ fontSize: '14px', lineHeight: 1.65, textAlign: 'left' }}>
+            <p style={{ marginTop: 0 }}>
+              Each question in this section is based on the passage (or pair of
+              passages) shown beside it, which may include a table or graph.
+              Read carefully, then choose the best answer supported by the
+              passage.
+            </p>
+            <p style={{ marginBottom: 0 }}>
+              Every question is multiple-choice with four answer choices and
+              exactly one best answer. You can move freely among the questions
+              in this module until its time runs out.
+            </p>
+          </div>
+        ) : (
+          <div className="modal-text" style={{ fontSize: '14px', lineHeight: 1.65, textAlign: 'left' }}>
+            <p style={{ marginTop: 0 }}>
+              A calculator is allowed on every question — the built-in graphing
+              calculator and the reference sheet stay available from the
+              toolbar. Unless a question says otherwise, variables represent
+              real numbers and figures are drawn to scale.
+            </p>
+            <p style={{ marginBottom: 0 }}>
+              <strong>Student-produced responses:</strong> type up to 5
+              characters (6 if the answer is negative). Enter fractions like
+              7/2 or decimals like 3.5 — no mixed numbers, symbols, or units.
+            </p>
+          </div>
+        )}
       </Modal>
 
       {/* Module 2 variant switch confirmation — surfaces only when the user
