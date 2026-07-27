@@ -50,3 +50,61 @@ jobs:
         run: npx tsc --noEmit
       - name: Functions unit tests
         run: npm test
+
+  # Hermetic browser E2E: production build + Firebase emulators + seeded demo
+  # student. No secrets, no real Firebase project, no real user data — the
+  # dummy REACT_APP_FIREBASE_* values below are never contacted because the
+  # build is emulator-wired at compile time. Pins the test-runner behavioral
+  # contract (e2e/test-runner-bluebook.spec.js) plus the past-test-review
+  # smoke against the seeded account.
+  e2e:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - uses: actions/setup-java@v4   # the Firestore emulator runs on the JVM
+        with:
+          distribution: temurin
+          java-version: 21
+      - run: npm ci
+      - name: Cache Firebase emulator jars
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/firebase/emulators
+          key: firebase-emulators-${{ runner.os }}
+      - name: Emulator-wired production build
+        run: npm run build
+        env:
+          REACT_APP_USE_FIREBASE_EMULATOR: "1"
+          REACT_APP_FIREBASE_API_KEY: demo-key
+          REACT_APP_FIREBASE_AUTH_DOMAIN: localhost
+          REACT_APP_FIREBASE_PROJECT_ID: performsat-demo
+          REACT_APP_FIREBASE_STORAGE_BUCKET: performsat-demo.appspot.com
+          REACT_APP_FIREBASE_MESSAGING_SENDER_ID: "0"
+          REACT_APP_FIREBASE_APP_ID: demo-app-id
+      - name: Install Playwright chromium
+        run: npx playwright install --with-deps chromium
+      - name: Run E2E against emulators
+        run: |
+          npx firebase-tools emulators:exec --only auth,firestore --project performsat-demo '
+            node scripts/seedDemoData.mjs &&
+            npx --yes serve -s build -l 3000 &
+            SERVE_PID=$!
+            npx --yes wait-on -t 60000 http://localhost:3000 &&
+            PERFORMSAT_TEST_EMAIL=demo-student@performsat.local \
+            PERFORMSAT_TEST_PASSWORD=demo-password-123 \
+            npx playwright test
+            STATUS=$?
+            kill $SERVE_PID 2>/dev/null || true
+            exit $STATUS
+          '
+      - name: Upload Playwright report on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 7

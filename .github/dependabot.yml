@@ -1,0 +1,31 @@
+# Dependabot — automated dependency patching for a public repo.
+# Weekly, with minor/patch updates GROUPED into a single PR per ecosystem so
+# the solo maintainer reviews one PR a week, not twenty. Security updates
+# always open immediately regardless of schedule.
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+    groups:
+      minor-and-patch:
+        update-types: ["minor", "patch"]
+    open-pull-requests-limit: 5
+
+  - package-ecosystem: npm
+    directory: /functions
+    schedule:
+      interval: weekly
+      day: monday
+    groups:
+      minor-and-patch:
+        update-types: ["minor", "patch"]
+    open-pull-requests-limit: 5
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday

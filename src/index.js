@@ -28,7 +28,23 @@ if (SENTRY_DSN) {
     dsn: SENTRY_DSN,
     environment: process.env.NODE_ENV,
     sendDefaultPii: false,
+    // Session Replay, error-triggered ONLY: routine sessions are never
+    // recorded (rate 0); when an error fires, Sentry uploads the buffered
+    // minute leading up to it. Combined with maskAllText/blockAllMedia below,
+    // a replay shows the student's clicks and navigation — never their
+    // readable content. This mirrors the PostHog privacy contract
+    // (no routine session recording) while making crash reports debuggable.
+    replaysSessionSampleRate: 0,
+    replaysOnErrorSampleRate: 1.0,
   });
+  // The replay integration is ~45KB gz, so it's lazy-loaded off the boot
+  // path — the entry chunk stays flat. Errors thrown before it attaches
+  // still report normally (just without a replay attached).
+  Sentry.lazyLoadIntegration('replayIntegration')
+    .then((replayIntegration) => {
+      Sentry.addIntegration(replayIntegration({ maskAllText: true, blockAllMedia: true }));
+    })
+    .catch(() => { /* replay is best-effort; error reporting works without it */ });
 } else {
   window.addEventListener('unhandledrejection', (event) => {
     console.error('[performsat:unhandledrejection]', event.reason);

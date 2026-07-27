@@ -28,7 +28,7 @@ import {
 // Shared endpoint helpers (CORS allowlist, bearer auth, rate limiting) —
 // extracted to shared.ts so billing endpoints (stripe.ts) reuse them without
 // a circular import. Same objects, same behavior.
-import {ALLOWED_ORIGINS, verifyAuth, checkRateLimit, RATE_LIMIT_COLLECTION} from "./shared";
+import {ALLOWED_ORIGINS, verifyAuth, verifyAppCheck, checkRateLimit, RATE_LIMIT_COLLECTION, ANTHROPIC_MESSAGES_URL, anthropicHeaders} from "./shared";
 // SEVA Premium billing (spec 2026-07-01): entitlement bootstrap, hosted
 // Checkout, Customer Portal, webhook sink, and the aiTutor access gate.
 import {
@@ -200,6 +200,11 @@ export const getTranscript = onRequest(
       return;
     }
 
+    if (!(await verifyAppCheck(request, "getTranscript"))) {
+      response.status(401).json({error: "App attestation failed"});
+      return;
+    }
+
     if (!(await checkRateLimit(user.uid, "getTranscript", 30))) {
       response.status(429).json({error: "Too many requests. Please try again later."});
       return;
@@ -286,6 +291,11 @@ export const aiTutor = onRequest(
     const user = await verifyAuth(request);
     if (!user) {
       response.status(401).json({error: "Authentication required"});
+      return;
+    }
+
+    if (!(await verifyAppCheck(request, "aiTutor"))) {
+      response.status(401).json({error: "App attestation failed"});
       return;
     }
 
@@ -394,14 +404,12 @@ export const aiTutor = onRequest(
       const useStream = !isPrewarm && request.body.stream !== false;
 
       const anthropicResponse = await fetch(
-        "https://api.anthropic.com/v1/messages",
+        ANTHROPIC_MESSAGES_URL,
         {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "x-api-key": apiKey,
-            "anthropic-version": "2023-06-01",
-          },
+          // Per-student attribution on the hot endpoint — Helicone's cost
+          // dashboard then breaks down tutor spend by uid.
+          headers: anthropicHeaders(apiKey, user.uid),
           body: JSON.stringify({
             model: "claude-sonnet-4-6",
             // Tutor answers are coaching replies, not essays — but the 2026-06-28
@@ -671,6 +679,11 @@ export const tutorMathCheck = onRequest(
       return;
     }
 
+    if (!(await verifyAppCheck(request, "tutorMathCheck"))) {
+      response.status(401).json({error: "App attestation failed"});
+      return;
+    }
+
     // Own rate-limit bucket: fires at most once per tutor reply, so 200/hr
     // comfortably covers an active session while capping abuse independently
     // of the aiTutor bucket.
@@ -715,14 +728,10 @@ export const tutorMathCheck = onRequest(
     let result: MathCheckResult = {ok: true};
     try {
       const anthropicResponse = await fetch(
-        "https://api.anthropic.com/v1/messages",
+        ANTHROPIC_MESSAGES_URL,
         {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "x-api-key": apiKey,
-            "anthropic-version": "2023-06-01",
-          },
+          headers: anthropicHeaders(apiKey),
           body: JSON.stringify({
             // Cheapest fast tier — this is a narrow yes/no verification, not a
             // teaching pass. temperature 0 for a deterministic verdict; thinking
@@ -795,6 +804,11 @@ export const generateStudyPlan = onRequest(
       return;
     }
 
+    if (!(await verifyAppCheck(request, "generateStudyPlan"))) {
+      response.status(401).json({error: "App attestation failed"});
+      return;
+    }
+
     // Entitlement gate matches aiTutor: a locked-out account must not burn
     // Sonnet tokens here post-billing-launch (no-op while BILLING_ENFORCED
     // is false — hasEntitlementAccess allows missing docs then).
@@ -852,14 +866,10 @@ export const generateStudyPlan = onRequest(
       // thinking budget whose generated weeks/activities were discarded by the
       // merger anyway.
       const anthropicResponse = await fetch(
-        "https://api.anthropic.com/v1/messages",
+        ANTHROPIC_MESSAGES_URL,
         {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "x-api-key": apiKey,
-            "anthropic-version": "2023-06-01",
-          },
+          headers: anthropicHeaders(apiKey),
           body: JSON.stringify({
             model: STUDY_PLAN_MODEL,
             // Headroom matters: adaptive thinking shares this cap with the
@@ -956,6 +966,11 @@ export const generateDiagnosticNarrative = onRequest(
       return;
     }
 
+    if (!(await verifyAppCheck(request, "generateDiagnosticNarrative"))) {
+      response.status(401).json({error: "App attestation failed"});
+      return;
+    }
+
     // Entitlement gate matches aiTutor (see generateStudyPlan) — this
     // endpoint pays for TWO Sonnet passes per call.
     const [rateOk, entitled] = await Promise.all([
@@ -1005,14 +1020,10 @@ export const generateDiagnosticNarrative = onRequest(
       // the pre-token spinner from the tutor and is the single biggest latency win.
       const generateModel = "claude-sonnet-4-6";
       const anthropicResponse = await fetch(
-        "https://api.anthropic.com/v1/messages",
+        ANTHROPIC_MESSAGES_URL,
         {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "x-api-key": apiKey,
-            "anthropic-version": "2023-06-01",
-          },
+          headers: anthropicHeaders(apiKey),
           body: JSON.stringify({
             model: generateModel,
             max_tokens: 5000,
@@ -1437,14 +1448,10 @@ Return ONLY the corrected JSON.`;
 
   try {
     const repairResponse = await fetch(
-      "https://api.anthropic.com/v1/messages",
+      ANTHROPIC_MESSAGES_URL,
       {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "x-api-key": apiKey,
-          "anthropic-version": "2023-06-01",
-        },
+        headers: anthropicHeaders(apiKey),
         body: JSON.stringify({
           model: "claude-sonnet-4-6",
           max_tokens: 5000,
@@ -2251,14 +2258,10 @@ ${conversationText}`;
 
     try {
       const response = await fetch(
-        "https://api.anthropic.com/v1/messages",
+        ANTHROPIC_MESSAGES_URL,
         {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "x-api-key": apiKey,
-            "anthropic-version": "2023-06-01",
-          },
+          headers: anthropicHeaders(apiKey),
           body: JSON.stringify({
             model: "claude-haiku-4-5-20251001",
             max_tokens: 1000,
@@ -2540,6 +2543,10 @@ export const deleteAccount = onRequest(
     const user = await verifyAuth(request);
     if (!user) {
       response.status(401).json({error: "Authentication required"});
+      return;
+    }
+    if (!(await verifyAppCheck(request, "deleteAccount"))) {
+      response.status(401).json({error: "App attestation failed"});
       return;
     }
     // Explicit confirmation guard — client must send {confirm: "DELETE"}

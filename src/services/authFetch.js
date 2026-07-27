@@ -2,7 +2,7 @@
  * Authenticated fetch helper — attaches Firebase ID token to requests.
  * Use this for all Cloud Function calls that require authentication.
  */
-import { auth } from '../firebase/config';
+import { auth, appCheckHeaders } from '../firebase/config';
 
 export async function authFetch(url, options = {}) {
   const user = auth.currentUser;
@@ -14,6 +14,9 @@ export async function authFetch(url, options = {}) {
   const headers = {
     'Content-Type': 'application/json',
     'Authorization': `Bearer ${token}`,
+    // App Check attestation ({} until the site key is configured) — proves the
+    // request comes from the real app, not a script hitting our AI endpoints.
+    ...(await appCheckHeaders()),
     ...(options.headers || {}),
   };
 

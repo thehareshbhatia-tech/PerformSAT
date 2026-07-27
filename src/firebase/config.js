@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { initializeAppCheck, ReCaptchaV3Provider } from 'firebase/app-check';
+import { initializeAppCheck, ReCaptchaV3Provider, getToken as getAppCheckToken } from 'firebase/app-check';
 import { getAuth, connectAuthEmulator } from 'firebase/auth';
 import { initializeFirestore, connectFirestoreEmulator } from 'firebase/firestore';
 
@@ -25,11 +25,12 @@ const app = initializeApp(firebaseConfig);
 // fully rolled out locks out every user on a cached old bundle.
 // Never active alongside the emulator (no attestation locally).
 const APPCHECK_SITE_KEY = process.env.REACT_APP_APPCHECK_SITE_KEY;
+let appCheckInstance = null;
 if (APPCHECK_SITE_KEY && typeof window !== 'undefined'
     && process.env.REACT_APP_USE_FIREBASE_EMULATOR !== '1'
     && process.env.REACT_APP_USE_FIREBASE_EMULATOR !== 'true') {
   try {
-    initializeAppCheck(app, {
+    appCheckInstance = initializeAppCheck(app, {
       provider: new ReCaptchaV3Provider(APPCHECK_SITE_KEY),
       isTokenAutoRefreshEnabled: true,
     });
@@ -42,6 +43,25 @@ if (APPCHECK_SITE_KEY && typeof window !== 'undefined'
 }
 
 // Initialize services
+/**
+ * App Check attestation header for Cloud Function calls, or {} when App Check
+ * isn't active (no site key / emulator / init failure). Never throws — an
+ * attestation hiccup must degrade to "unattested request", not a broken one;
+ * the server only hard-rejects unattested calls once APP_CHECK_ENFORCED is
+ * flipped on the functions side.
+ * Use it by spreading into fetch headers (authFetch does this for every
+ * authenticated Cloud Function call).
+ */
+export async function appCheckHeaders() {
+  if (!appCheckInstance) return {};
+  try {
+    const { token } = await getAppCheckToken(appCheckInstance, false);
+    return token ? { 'X-Firebase-AppCheck': token } : {};
+  } catch {
+    return {};
+  }
+}
+
 export const auth = getAuth(app);
 // ignoreUndefinedProperties: without it, ANY undefined field value makes the
 // entire write throw — which silently loses data (a completed test that never

@@ -9,6 +9,7 @@
  */
 
 import {getAuth, DecodedIdToken} from "firebase-admin/auth";
+import {getAppCheck} from "firebase-admin/app-check";
 import {getFirestore, FieldValue} from "firebase-admin/firestore";
 import * as logger from "firebase-functions/logger";
 
@@ -44,6 +45,76 @@ export async function verifyAuth(
     return await getAuth().verifyIdToken(authHeader.substring(7));
   } catch {
     return null;
+  }
+}
+
+// ─── LLM observability (Helicone) ──────────────────────────────────────────
+// When HELICONE_API_KEY is set (functions/.env — gitignored), every Anthropic
+// call routes through Helicone's pass-through gateway: same API and latency
+// profile, but each request is logged with model, tokens, cost, latency, and
+// (where provided) the student uid — the per-student cost/latency dashboard
+// we otherwise fly blind on. Inert without the key: URL and headers collapse
+// to the plain Anthropic values.
+export const ANTHROPIC_MESSAGES_URL = process.env.HELICONE_API_KEY
+  ? "https://anthropic.helicone.ai/v1/messages"
+  : "https://api.anthropic.com/v1/messages";
+
+/**
+ * Standard Anthropic request headers, plus Helicone auth/attribution when
+ * observability is enabled.
+ * @param {string} apiKey Anthropic API key
+ * @param {string} [userId] student uid for per-user cost attribution
+ * @return {Record<string, string>} headers for the /v1/messages fetch
+ */
+export function anthropicHeaders(
+  apiKey: string,
+  userId?: string,
+): Record<string, string> {
+  const headers: Record<string, string> = {
+    "Content-Type": "application/json",
+    "x-api-key": apiKey,
+    "anthropic-version": "2023-06-01",
+  };
+  const heliconeKey = process.env.HELICONE_API_KEY;
+  if (heliconeKey) {
+    headers["Helicone-Auth"] = `Bearer ${heliconeKey}`;
+    if (userId) headers["Helicone-User-Id"] = userId;
+  }
+  return headers;
+}
+
+/**
+ * App Check gate — verifies the X-Firebase-AppCheck attestation header.
+ *
+ * Staged rollout, mirroring the BILLING_ENFORCED pattern:
+ * - APP_CHECK_ENFORCED unset/false (default): NEVER rejects. Unattested or
+ *   invalid tokens are logged (`appcheck_unattested` / `appcheck_invalid`)
+ *   so the attested-request % can be watched in Cloud Logging before any
+ *   enforcement. Zero behavior change on deploy.
+ * - APP_CHECK_ENFORCED=true: requests without a valid attestation are
+ *   rejected by the caller (return false → 401). Flip ONLY after the client
+ *   with REACT_APP_APPCHECK_SITE_KEY has been live long enough that cached
+ *   old bundles are gone, and logs show attested % ~100.
+ * @param {object} request incoming request carrying headers
+ * @param {string} endpoint logical endpoint name (for log lines)
+ * @return {Promise<boolean>} true when the request may proceed
+ */
+export async function verifyAppCheck(
+  request: {headers: {[key: string]: unknown}},
+  endpoint: string,
+): Promise<boolean> {
+  const enforced = process.env.APP_CHECK_ENFORCED === "true";
+  const token = request.headers["x-firebase-appcheck"];
+  if (typeof token !== "string" || token === "") {
+    logger.info(`appcheck_unattested endpoint=${endpoint} enforced=${enforced}`);
+    return !enforced;
+  }
+  try {
+    await getAppCheck().verifyToken(token);
+    return true;
+  } catch (err) {
+    logger.warn(`appcheck_invalid endpoint=${endpoint} enforced=${enforced}`, err);
+    return !enforced;
   }
 }
 

@@ -50,6 +50,9 @@ const auth = getAuth();
 // ───────────────────────────────────────────────────────────────────────
 
 const STUDENT_EMAIL = 'demo-student@performsat.local';
+// Emulator-only credential (never a real account) — lets the E2E suite and
+// local dogfooding log in through the normal email/password form.
+const STUDENT_PASSWORD = 'demo-password-123';
 const STUDENT_UID = 'demo-student-uid';
 const STUDENT_NAME = 'Demo Student';
 
@@ -74,7 +77,18 @@ const completedTestAttempt = {
   isMultiSection: false,
   timedMode: true,
   moduleScores: { 'module-1': 16, 'module-2': 12 },
-  diagnosticData: null,
+  // Minimal item-level telemetry: the Past-Test-Review CTA filters attempts
+  // with getCompletedTests(..., { requireItemDetails: true }), which needs a
+  // non-empty diagnosticData.questionDetails (keys are `${modIdx}-${qIdx}`).
+  // Without this the seeded attempt is invisible to the review surface (and
+  // the e2e smoke that exercises it).
+  diagnosticData: {
+    questionDetails: {
+      '0-0': { timeSpent: 45, visits: 1 },
+      '0-1': { timeSpent: 30, visits: 1 },
+      '0-2': { timeSpent: 62, visits: 2 },
+    },
+  },
   diagnosticReport: null,
   scoringVersion: 'demo-1',
   thetaEstimate: -0.3,
@@ -164,6 +178,7 @@ async function seed() {
   await auth.createUser({
     uid: STUDENT_UID,
     email: STUDENT_EMAIL,
+    password: STUDENT_PASSWORD,
     emailVerified: true,
     displayName: STUDENT_NAME,
   });
@@ -173,7 +188,7 @@ async function seed() {
   await db.collection('progress').doc(STUDENT_UID).set(progress);
 
   console.info('✅ Seeded demo data:');
-  console.info(`   student: ${STUDENT_EMAIL} (uid: ${STUDENT_UID})`);
+  console.info(`   student: ${STUDENT_EMAIL} / ${STUDENT_PASSWORD} (uid: ${STUDENT_UID})`);
   console.info('   1 completed test, 1 study plan, 1 weakness on the current weekday.');
   console.info('');
   console.info('Sign in via the magic-link emulator UI at http://localhost:4000/auth.');

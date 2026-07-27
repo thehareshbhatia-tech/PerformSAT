@@ -50,8 +50,14 @@ test.describe('Past-Test-Review smoke', () => {
     // ── 3. Switch to the Study Plan tab ──
     await page.getByRole('button', { name: /Study Plan/i }).first().click();
 
+    // ── 3.5. Switch to the Weekly View pane — the Acely-polish v2 tab split
+    //         moved the beyond-this-week section (review queue, pacing, and
+    //         the past-test-review CTA) out of the default Today's Tasks pane.
+    await page.getByRole('tab', { name: /Weekly View/i }).click();
+
     // ── 4. The "Review your tests" CTA should appear (ff is on, seed
-    //       includes a completed test). ──
+    //       includes a completed test WITH item-level questionDetails —
+    //       the CTA filters attempts through requireItemDetails). ──
     const reviewCta = page.getByRole('button', { name: /Review your tests/i });
     await expect(reviewCta).toBeVisible({ timeout: 15_000 });
     await reviewCta.click();
