@@ -40,6 +40,11 @@ ui-debug.log
 test-*.js
 check-*.js
 *-test.js
+# …but Playwright E2E specs are real source (they carry only the public
+# emulator demo credentials, never real ones). Without this negation the
+# blanket test-*.js rule silently swallows new specs — e2e/test-runner-
+# bluebook.spec.js was invisible to git for exactly that reason.
+!e2e/*.spec.js
 # Firebase service account key (NEVER commit)
 scripts/serviceAccountKey.json
 
