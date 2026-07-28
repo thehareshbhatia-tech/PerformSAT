@@ -33,6 +33,7 @@ const FLAG_DEFAULTS = {
   rwDrills: true,     // R&W weaknesses route to a real drill (not "coming soon")
   todaysTasks: true,  // dashboard shows the Today's Tasks hero, not the legacy banner
   innerOnboarding: true, // post-signup inner onboarding runs before the diagnostic; kill-switch via REACT_APP_FF_INNER_ONBOARDING=false
+  tutorPrewarm: true, // panel-open cache prewarm (measured: tutor TTFB 6.5s → 3.9s). Safe since the prewarm-aware aiTutor deployed 2026-07-21; kill-switch via REACT_APP_FF_TUTOR_PREWARM=false
 };
 
 function camelToScreamingSnake(key) {
