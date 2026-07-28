@@ -130,9 +130,6 @@ const SATCubicGraph = ({
       {/* Grid */}
       {renderGrid(coordSystem, { xInterval: gridInterval, yInterval: gridInterval })}
 
-      {/* Axes */}
-      {renderAxes(coordSystem, { xTickInterval, yTickInterval })}
-
       {/* Cubic curve (clipped) */}
       <g clipPath={`url(#${clipPathId})`}>
         <path
@@ -142,6 +139,9 @@ const SATCubicGraph = ({
           strokeWidth={styles.strokeWidth.dataLine}
         />
       </g>
+
+      {/* Axes — after the data path so haloed tick labels paint over it */}
+      {renderAxes(coordSystem, { xTickInterval, yTickInterval })}
 
       {/* BUG FIX 2: Only render highlight points if array exists and has elements */}
       {highlightPoints && highlightPoints.length > 0 && highlightPoints.map(([x, y], i) => {

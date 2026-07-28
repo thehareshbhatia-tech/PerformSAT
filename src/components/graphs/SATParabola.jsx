@@ -7,6 +7,7 @@ import {
   renderAxes,
   renderGrid,
   generateId,
+  LABEL_HALO,
 } from './SATGraphCore';
 
 /**
@@ -108,9 +109,6 @@ const SATParabola = ({
       {/* Grid */}
       {renderGrid(coordSystem, { xInterval: gridInterval, yInterval: gridInterval })}
 
-      {/* Axes */}
-      {renderAxes(coordSystem, { xTickInterval, yTickInterval })}
-
       {/* Parabola curve and optional overlay line (clipped) */}
       <g clipPath={`url(#${clipPathId})`}>
         <path
@@ -137,6 +135,9 @@ const SATParabola = ({
         })()}
       </g>
 
+      {/* Axes — after the data path so haloed tick labels paint over it */}
+      {renderAxes(coordSystem, { xTickInterval, yTickInterval })}
+
       {/* Vertex point */}
       {showVertex && (
         <g>
@@ -146,13 +147,18 @@ const SATParabola = ({
             r={styles.dimensions.highlightRadius}
             fill={styles.colors.pointHighlight}
           />
+          {/* Label OUTSIDE the bowl: below a minimum (a>0), above a maximum
+              (a<0) — up-right of a minimum sits inside the curve and the
+              rising branch strikes the text. Halo keeps gridlines off it. */}
           <text
-            x={vertexSVG.x + 10}
-            y={vertexSVG.y - 10}
+            x={vertexSVG.x}
+            y={a > 0 ? vertexSVG.y + 24 : vertexSVG.y - 16}
+            textAnchor="middle"
             fontFamily={styles.font.axis}
             fontSize={styles.fontSize.tickLabel}
             fill={styles.colors.axis}
             fontWeight="500"
+            {...LABEL_HALO}
           >
             ({h}, {k})
           </text>

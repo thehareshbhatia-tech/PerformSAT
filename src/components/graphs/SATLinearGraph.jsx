@@ -100,10 +100,9 @@ const SATLinearGraph = ({
       {/* Grid (behind everything) */}
       {renderGrid(coordSystem, { xInterval: gridInterval, yInterval: gridInterval })}
 
-      {/* Axes */}
-      {renderAxes(coordSystem, { xTickInterval, yTickInterval })}
-
-      {/* Line (clipped to graph area) */}
+      {/* Line (clipped to graph area) — drawn BEFORE the axes so the haloed
+          tick labels paint over it instead of the line striking through them
+          (visible whenever the line crosses the negative-quadrant label margin) */}
       <g clipPath={`url(#${clipPathId})`}>
         <line
           x1={startPoint.x}
@@ -114,6 +113,9 @@ const SATLinearGraph = ({
           strokeWidth={styles.strokeWidth.dataLine}
         />
       </g>
+
+      {/* Axes */}
+      {renderAxes(coordSystem, { xTickInterval, yTickInterval })}
 
       {/* BUG FIX 2: Only render highlight points if array exists and has elements */}
       {highlightPoints && highlightPoints.length > 0 && highlightPoints.map(([x, y], i) => {

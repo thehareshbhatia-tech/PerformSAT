@@ -119,14 +119,6 @@ const SATPiecewiseLinear = ({
       {/* Grid */}
       {renderGrid(coordSystem, { xInterval: gridInterval, yInterval: gridInterval })}
 
-      {/* Axes with labels */}
-      {renderAxes(coordSystem, {
-        xTickInterval: xTick,
-        yTickInterval: yTick,
-        xAxisLabel: xLabel,
-        yAxisLabel: yLabel,
-      })}
-
       {/* Connected line (clipped) */}
       {connectPoints && linePath && (
         <g clipPath={`url(#${clipPathId})`}>
@@ -138,6 +130,14 @@ const SATPiecewiseLinear = ({
           />
         </g>
       )}
+
+      {/* Axes — after the data path so haloed tick labels paint over it */}
+      {renderAxes(coordSystem, {
+        xTickInterval: xTick,
+        yTickInterval: yTick,
+        xAxisLabel: xLabel,
+        yAxisLabel: yLabel,
+      })}
 
       {/* Data points */}
       {showPoints &&

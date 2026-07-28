@@ -8,6 +8,7 @@ import {
   renderAxes,
   renderGrid,
   generateId,
+  LABEL_HALO,
 } from './SATGraphCore';
 import { validateParams, calculateYInterceptFromIntersection, verifyPointOnLine } from './BaseCoordinateSystem';
 
@@ -168,9 +169,6 @@ const SATTwoLineGraph = ({
       {/* Grid */}
       {renderGrid(coordSystem, { xInterval: gridInterval, yInterval: gridInterval })}
 
-      {/* Axes */}
-      {renderAxes(coordSystem, { xTickInterval, yTickInterval })}
-
       {/* Lines (clipped) */}
       <g clipPath={`url(#${clipPathId})`}>
         {/* Line 1 */}
@@ -194,6 +192,9 @@ const SATTwoLineGraph = ({
         />
       </g>
 
+      {/* Axes — after the data path so haloed tick labels paint over it */}
+      {renderAxes(coordSystem, { xTickInterval, yTickInterval })}
+
       {/* Intersection point */}
       {showIntersection && (
         <g>
@@ -210,6 +211,7 @@ const SATTwoLineGraph = ({
             fontSize={styles.fontSize.tickLabel}
             fill={styles.colors.axis}
             fontWeight="500"
+            {...LABEL_HALO}
           >
             ({intersection.x}, {intersection.y})
           </text>
