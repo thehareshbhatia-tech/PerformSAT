@@ -252,7 +252,7 @@ const Figures = ({ figures }) => {
       {f.caption && (
         <figcaption style={{
           marginTop: '6px', fontSize: typography.sizes.xs, color: colors.text.muted,
-          fontStyle: 'italic', lineHeight: '1.5',
+          fontStyle: 'italic', lineHeight: '1.5', maxWidth: '52ch', marginLeft: 'auto', marginRight: 'auto',
         }}>
           <InlineRich text={f.caption} />
         </figcaption>
@@ -524,7 +524,10 @@ const Disclosure = ({ label, sublabel, defaultOpen = false, children }) => {
             {label}
           </span>
           {sublabel && (
-            <span style={{ fontSize: typography.sizes.xs, color: colors.text.muted, whiteSpace: 'nowrap' }}>
+            <span style={{
+              fontSize: typography.sizes.xs, color: colors.text.muted, whiteSpace: 'nowrap',
+              overflow: 'hidden', textOverflow: 'ellipsis', flexShrink: 1, minWidth: 0,
+            }}>
               {sublabel}
             </span>
           )}
