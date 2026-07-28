@@ -28,21 +28,23 @@ yeses from thirty DMs is a win because a dead ambassador costs $0.
 | Base pay | $50/video + view bonus | **None** |
 | Commission | $70/annual, $15 × first 3 monthly invoices | Same |
 | Milestone bonuses | — | $50 at 5 paid signups, $150 at 15, $400 at 40 (cumulative) |
-| Audience code | 20% off, 3 months | Same |
+| Audience offer | 20% off, 3 months (code — partner tier) | 20% off 3 months, AUTO-APPLIED via their link |
 | Cadence expectation | 5 videos over 4-6 wks | 3-5 posts/week, their own account voice |
 | Deal channel | Email, negotiated | DM + short form, standardized — no negotiation |
 
-Commission and codes ride the EXISTING rails unchanged: `payouts.mjs
-create-code <slug>` per ambassador, Stripe first-touch attribution, roster
-`creators.json` (add `"tier": "ambassador"`), `payouts.mjs report` for what's
-owed. Milestone bonuses = manual line in `paidToDateUsd` notes for now.
+FOUNDER DECISION 2026-07-28: ambassadors run on LINKS, not codes. Each gets
+`sevaprep.com/r/<slug>` (bio + captions); the link auto-applies the 20%
+discount at checkout and attribution rides subscription metadata (see README
+"Link-tier attribution"). Setup per ambassador = `seedCreatorRef.mjs --slug
+<slug>` + roster entry with `linkSlug`. `payouts.mjs report` covers both
+tiers. Milestone bonuses = manual line in `paidToDateUsd` notes for now.
 
 ## The offer DM (send from @seva.prep)
 
 > hey! love your study content — we're building SEVA (sevaprep.com), an SAT
 > app that tells you WHY you missed each question. we're taking on a small
-> group of creator partners: you get the app free, a 20% code for your
-> audience, and we pay $70 per annual signup + monthly commissions + cash
+> group of creator partners: you get the app free, a personal link that gives your
+> audience 20% off, and we pay $70 per annual signup + monthly commissions + cash
 > milestones. no posting quotas, no scripts — your account, your voice. want
 > the details?
 
@@ -54,7 +56,7 @@ owed. Milestone bonuses = manual line in `paidToDateUsd` notes for now.
   panel / a figure-bearing explanation — the product IS the b-roll.
 - Rules: FTC disclosure (#ad or "SEVA partner") on every promo post; no
   invented score-gain claims (our public stats language only: 161 question
-  types COVERED, etc.); code in bio + pinned comment.
+  types COVERED, etc.); link in bio + pinned comment.
 
 ## Recruiting recipe (week 1)
 
@@ -68,13 +70,13 @@ owed. Milestone bonuses = manual line in `paidToDateUsd` notes for now.
    than a cheaper app's rev share.
 3. One open-call post on @seva.prep: "we're picking 10 creator partners for
    the August SAT push — DM 'PARTNER'."
-4. Applications → roster entry (`status: "ambassador-applied"`), code minted
-   on acceptance AFTER the discount E2E passes (README checklist still gates).
+4. Applications → roster entry (`status: "ambassador-applied"`); ref slug
+   seeded on acceptance AFTER the discount E2E passes (README checklist gates).
 
 ## Success metrics (evaluate at 30 days)
 
 - ≥8 active ambassadors posting ≥3×/week
-- ≥1 code redemption per active ambassador per week by week 4
+- ≥1 link-attributed signup per active ambassador per week by week 4
 - CAC via ambassadors < $25/paid signup (vs $70-85 partner-tier bounty-only)
 - Kill criteria: <3 active after 30 days → archetype doesn't fit our price
   point; fall back to partner tier only.

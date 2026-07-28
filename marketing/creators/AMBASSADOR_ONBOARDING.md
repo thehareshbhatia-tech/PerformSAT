@@ -14,6 +14,18 @@ we pay you for every subscriber your content brings in.
 There's no fee to join, nothing to buy, and you keep your account — it's
 yours, forever.
 
+## Your personal link (how everything works)
+
+When you join, you get a personal link like **sevaprep.com/r/yourname**.
+
+- It goes in your bio and your captions.
+- Anyone who taps it gets **20% off SEVA for their first 3 months —
+  automatically applied at checkout.** No codes to type, nothing to remember.
+- Every subscription that starts from your link is credited to you — even if
+  they sign up days after clicking. That credit is how you get paid.
+
+One link. That's the whole system.
+
 ## What you'll build
 
 A study account on Instagram and/or TikTok. It can be a brand-new account
@@ -22,8 +34,8 @@ A study account on Instagram and/or TikTok. It can be a brand-new account
 - **Handle:** anything in the "study" space — studywith[name], [name]studies,
   [name]preps. Your name, your style.
 - **Bio layout:** who you are (student), what the account is (SAT/study
-  advice), and your SEVA line — e.g. "Partnered with SEVA" — plus your
-  discount code and link.
+  advice), your SEVA line — e.g. "Partnered with SEVA" — and your personal
+  link.
 - **Profile:** a real photo or clean study aesthetic. Accounts with a face
   and a consistent look grow fastest in this niche.
 
@@ -46,15 +58,10 @@ Roughly 1 in 3 posts mentions SEVA directly. The rest build your audience.
 
 ## How you get paid
 
-You get a personal discount code (20% off for your audience, good for their
-first 3 months). Every subscription that comes through your code is tracked
-automatically in our payment system — attribution is by code, so you get
-credit even if they subscribe days after seeing your post.
-
 | You earn | When |
 |---|---|
-| **$70** | Every annual subscription ($349/yr) through your code |
-| **$15/month, up to 3 months ($45)** | Every monthly subscriber ($85/mo) through your code, for each of their first 3 paid months |
+| **$70** | Every annual subscription ($349/yr) through your link |
+| **$15/month, up to 3 months ($45)** | Every monthly subscriber ($85/mo) through your link, for each of their first 3 paid months |
 | **$50 bonus** | When you reach 5 total paid signups |
 | **$150 bonus** | When you reach 15 total paid signups |
 | **$400 bonus** | When you reach 40 total paid signups |
@@ -67,7 +74,8 @@ Also included: **free full access to SEVA** while you're an active partner
 whatever's easiest (Zelle/PayPal/Venmo).
 
 Free trials that cancel don't count — only paid subscriptions. That's what
-makes the 20% code powerful: it converts people who were on the fence.
+makes your link powerful: 20% off, applied automatically, converts people who
+were on the fence.
 
 ## Ground rules (short but non-negotiable)
 
@@ -76,17 +84,16 @@ makes the 20% code powerful: it converts people who were on the fence.
 2. **No made-up claims.** Don't invent score jumps ("I went up 400 points!")
    or stats. What SEVA actually does is impressive enough — we'll give you
    true numbers you can use.
-3. **Your code lives in your bio and pinned comment**, and in the caption of
+3. **Your link lives in your bio**, and in the caption or pinned comment of
    every promo post.
 4. **Stay active to stay in.** If the account goes quiet for 30+ days we may
-   retire the code so slots stay open for active partners.
+   retire the link so slots stay open for active partners.
 
 ## Getting started
 
 1. Reply to us with: your (planned) handle, which platform(s), and one line
    about you.
-2. We send your personal discount code + your free SEVA access + the content
-   kit.
+2. We send your personal link + your free SEVA access + the content kit.
 3. You set up the bio, post your first content, and we're live.
 
 Questions? Just ask — you'll have a direct line to the founder.

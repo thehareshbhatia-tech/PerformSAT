@@ -43,6 +43,7 @@ import {
   isGrandfathered,
   shouldGrandfatherExisting,
   normalizePromoCode,
+  sanitizeRefSlug,
   evaluatePromoRedemption,
   subscriptionPatchUsedTrial,
   trialDaysForCheckout,
@@ -495,18 +496,41 @@ export const createCheckoutSession = onRequest(
         };
       }
 
+      // Creator link attribution (?ref= landing links → sevaprep.com/r/<slug>).
+      // The ref is only honored when a server-write-only creatorRefs/{slug}
+      // doc exists and is active — otherwise anyone could self-discount by
+      // guessing ?ref= values. A valid ref is stamped into the subscription
+      // metadata (payouts.mjs attributes by it) and, when the shared creator
+      // coupon is configured, auto-applies the audience discount. Stripe
+      // forbids discounts + allow_promotion_codes together, so a ref checkout
+      // drops the manual code box (the link IS the discount).
+      const refSlug = sanitizeRefSlug(request.body?.ref);
+      let refValid = false;
+      if (refSlug) {
+        const refSnap = await getFirestore()
+          .collection("creatorRefs").doc(refSlug).get();
+        refValid = refSnap.exists && refSnap.data()?.active === true;
+      }
+      if (refValid && refSlug) {
+        subscriptionData.metadata = {...subscriptionData.metadata, ref: refSlug};
+      }
+      const creatorCoupon = process.env.CREATOR_LINK_COUPON || "";
+      const useRefDiscount = refValid && !!creatorCoupon;
+
       const base = appBaseUrl.value().replace(/\/$/, "");
       const session = await getStripe().checkout.sessions.create({
         mode: "subscription",
         client_reference_id: user.uid,
         customer: customerId,
         line_items: [{price, quantity: 1}],
-        allow_promotion_codes: true,
+        ...(useRefDiscount ?
+          {discounts: [{coupon: creatorCoupon}]} :
+          {allow_promotion_codes: true}),
         // payment_method_collection stays at its default ("always") so the
         // card IS collected during Checkout even though the first charge is
         // deferred to trial end — that is the whole point of card-up-front.
         subscription_data: subscriptionData,
-        metadata: {uid: user.uid},
+        metadata: {uid: user.uid, ...(refValid && refSlug ? {ref: refSlug} : {})},
         success_url: `${base}/course?checkout=success`,
         cancel_url: `${base}/course?checkout=canceled`,
       });

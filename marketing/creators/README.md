@@ -32,7 +32,8 @@ node track.mjs --active        # hide passed threads
 export STRIPE_SECRET_KEY=$(firebase functions:secrets:access STRIPE_SECRET_KEY)
 node payouts.mjs report        # read-only: signups + $$ owed per creator
 node payouts.mjs report --json # also writes payout-report.json (gitignored)
-node payouts.mjs create-code iksha   # LIVE Stripe mutation: 20% coupon + code
+node payouts.mjs create-code iksha   # LIVE Stripe mutation: 20% coupon + code (partner tier)
+node ../../scripts/seedCreatorRef.mjs --slug bella --note "Ambassador"  # link tier: activates sevaprep.com/r/bella
 ```
 
 ## Before a code goes live (checklist)
@@ -48,3 +49,17 @@ node payouts.mjs create-code iksha   # LIVE Stripe mutation: 20% coupon + code
    invoice alone. Self-cleaning; safe to re-run.
 4. Provision the creator's comped access and add their email to
    `excludeCustomerEmails` BEFORE they can sign themselves up.
+
+
+## Link-tier attribution (ambassadors — 2026-07-28)
+
+Ambassadors use referral LINKS, not codes: `sevaprep.com/r/<slug>` redirects to
+`/?ref=<slug>` (vercel.json), the client stores first-touch for 60 days
+(refTracker), and createCheckoutSession stamps `subscription.metadata.ref`
+after validating the slug against server-write-only `creatorRefs/{slug}`
+(seedCreatorRef.mjs seeds it). When `CREATOR_LINK_COUPON` is set in
+functions/.env, a valid ref auto-applies the shared 20%-for-3-months coupon at
+checkout (and hides the manual code box — Stripe forbids both). payouts.mjs
+attributes by `metadata.ref` → roster `linkSlug` (falls back to `slug`);
+code-based first-touch wins ties. Requires `firebase deploy --only functions`
++ rules deploy + client push before links function.

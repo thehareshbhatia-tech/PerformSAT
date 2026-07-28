@@ -47,7 +47,12 @@ export async function ensureEntitlement() {
 export async function startCheckout(plan) {
   const res = await authFetch(CREATE_CHECKOUT_URL, {
     method: 'POST',
-    body: JSON.stringify({ plan: plan === 'annual' ? 'annual' : 'monthly' }),
+    // ref: creator-link attribution (first-touch, see refTracker). The server
+    // validates it against creatorRefs and silently drops anything invalid.
+    body: JSON.stringify({
+      plan: plan === 'annual' ? 'annual' : 'monthly',
+      ref: getReferral(),
+    }),
   });
   if (res.status === 409) {
     // The account already has a live subscription. Opening a second Checkout

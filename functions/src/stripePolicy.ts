@@ -412,6 +412,22 @@ export function normalizePromoCode(raw: string): string | null {
 }
 
 /**
+ * Canonicalize a creator referral slug from a ?ref= landing link
+ * (sevaprep.com/r/<slug>). Lowercase kebab, 1-32 chars, must start
+ * alphanumeric — anything else returns null so the caller drops the ref
+ * silently (a bad ref must never break checkout).
+ *
+ * @param {string} raw the ref as received from the client
+ * @return {string|null} canonical slug, or null when unusable
+ */
+export function sanitizeRefSlug(raw: unknown): string | null {
+  if (typeof raw !== "string") return null;
+  const slug = raw.trim().toLowerCase();
+  if (!/^[a-z0-9][a-z0-9-]{0,31}$/.test(slug)) return null;
+  return slug;
+}
+
+/**
  * Pure decision for a promo-code redemption. Firestore reads/writes stay in the
  * caller's transaction; this just says what to do given the code state and the
  * caller's current standing. Order matters:

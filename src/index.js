@@ -6,6 +6,11 @@ import './design/global.css';
 import App from './App';
 import * as Sentry from '@sentry/react';
 import { initPostHog } from './services/posthogClient';
+import { captureReferral } from './services/refTracker';
+
+// Creator-link attribution: persist ?ref= (from sevaprep.com/r/<slug>
+// redirects) before anything else can navigate the URL away.
+captureReferral();
 
 // Dev-only diagram preview is code-split so the math bank it imports never
 // rides in the entry chunk. Loaded only when the #__diag= hash is present.

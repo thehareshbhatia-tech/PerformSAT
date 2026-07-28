@@ -113,9 +113,9 @@ const lineInterval = (line) => {
 const buildReport = async () => {
   const { defaults, creators } = roster();
   const tracked = creators.filter((c) => c.promoCode);
-  if (!tracked.length) {
-    console.log('No creator has a live promoCode yet — nothing to attribute.');
-    console.log('Create one with: node payouts.mjs create-code <slug>');
+  // (link-tier creators need no promoCode — their metadata refs attribute below)
+  if (!tracked.length && !creators.length) {
+    console.log('Roster is empty — nothing to attribute.');
   }
 
   // promo code string -> creator slug, via live promotion_code object ids
@@ -152,6 +152,18 @@ const buildReport = async () => {
   for (const sub of subs) {
     for (const d of discountsOf(sub)) {
       attribute(sub.customer?.id ?? sub.customer, sub.customer?.email, promoIdToSlug.get(promoIdOf(d)));
+    }
+  }
+
+  // Link attribution: /r/<slug> landing links stamp subscription.metadata.ref
+  // at checkout (createCheckoutSession validates against creatorRefs first).
+  // Runs AFTER the code loops so code-based first-touch wins ties; links catch
+  // everyone else, including trialing signups with no invoice yet.
+  const linkSlugs = new Map(creators.map((c) => [String(c.linkSlug || c.slug).toLowerCase(), c.slug]));
+  for (const sub of subs) {
+    const ref = String(sub.metadata?.ref || '').toLowerCase();
+    if (ref && linkSlugs.has(ref)) {
+      attribute(sub.customer?.id ?? sub.customer, sub.customer?.email, linkSlugs.get(ref));
     }
   }
 

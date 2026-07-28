@@ -96,5 +96,13 @@ service cloud.firestore {
         allow read, write: if false;
       }
     }
+
+    // Creator referral slugs (sevaprep.com/r/<slug> links) — same posture as
+    // promoCodes: createCheckoutSession (Admin SDK) is the only reader, and
+    // seedCreatorRef.mjs the only writer. A client that could write here could
+    // self-grant the creator audience discount.
+    match /creatorRefs/{slug} {
+      allow read, write: if false;
+    }
   }
 }

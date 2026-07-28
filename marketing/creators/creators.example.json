@@ -53,7 +53,8 @@
         "creator@example.com"
       ],
       "notes": "Copy this file to creators.json (gitignored) and fill in real people.",
-      "tier": "partner"
+      "tier": "partner",
+      "linkSlug": "example"
     }
   ]
 }
