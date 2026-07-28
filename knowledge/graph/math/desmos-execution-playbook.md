@@ -27,6 +27,7 @@ Concrete keystroke-level Desmos moves that turn whole question classes into 30-s
 6. **Circle equations**: graph the circle as given (no completing the square); midpoint() of the extreme points gives the center, distance() gives the radius.
 7. **Function notation**: define f(x)=… once, then evaluate f(2) or transform f(x+2) directly instead of re-deriving.
 8. **Stats one-liners**: mean(), median(), stdev() on a typed list beat hand arithmetic every time; sliders (type a=1) let you SEE a parameter's effect when stuck.
+9. **Unit circle without memorization**: the only fact needed is x = cos θ, y = sin θ — plot (cos(angle), sin(angle)) and read the point; check answer choices by plugging each angle in, mind the degree/radian toggle, and let ~ regression recover an unknown angle on the hard ones.
 
 ## Misconceptions
 - **tilde-is-exotic** — students who know Desmos graphs but never learned ~ treat regression items as pure algebra and burn minutes; the tilde is a routine tool, not an advanced feature.
