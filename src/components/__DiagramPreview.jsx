@@ -9,6 +9,7 @@
 import React from 'react';
 import QuestionDiagram from './QuestionDiagrams';
 import QuestionRenderer from './QuestionRenderer';
+import SolutionExplanation from './SolutionExplanation';
 import { getQuestionById, questionBank } from '../data/questions/bank';
 
 // Walk all practice-test bundles. Test items DON'T live in the bank index, so
@@ -154,6 +155,12 @@ const DiagramPreviewCard = ({ id }) => {
         <div style={{ ...choiceRow(true), marginTop: 16 }}>
           <span style={choiceLetter}>=</span>
           <span>Fill-in answer: <code>{q.correctAnswer}</code></span>
+        </div>
+      )}
+      {q.explanation && (
+        <div style={{ marginTop: 24, borderTop: '1px dashed #d4d4d4', paddingTop: 20 }}>
+          <div style={labelStyle}>SolutionExplanation (as students see it)</div>
+          <SolutionExplanation explanation={q.explanation} isCorrect />
         </div>
       )}
     </div>

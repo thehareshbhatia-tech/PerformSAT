@@ -1,5 +1,35 @@
 # Authoring diagrams for question stems
 
+## Explanation figures (```seva-figure``` blocks) — 2026-07-28
+
+Explanations can carry inline figures too. Embed a fenced block anywhere in the
+explanation string; the body is JSON in the exact `{ type, params }` shape the
+`QuestionDiagram` dispatcher accepts, plus an optional `caption`:
+
+    ```seva-figure
+    {"type":"rightTriangle","params":{"vertices":[[0,0],[9,0],[9,12]],"sideLabels":["9","12","15"],"rightAngleVertex":1},"caption":"The $9$-$12$-$15$ right triangle."}
+    ```
+
+Rules:
+
+- The figure attaches to whatever section it sits in (Fast Way, a step, the
+  Full Solution body, the takeaway…). Put it at the moment the reader needs to
+  SEE the setup — usually right after the sentence that describes it.
+- The figure must match the item's exact numbers. A generic decorative diagram
+  is worse than none.
+- **No backslashes in captions** (plain `$9$`-style math only). Inside the JS
+  string literal a `\\pi` loses an escaping layer and becomes invalid JSON —
+  `npm run bank:validate` catches this, but don't author it.
+- `npm run bank:validate` fails on malformed JSON, unknown types, unclosed
+  fences, and stray ``` runs. The render path strips anything invalid so
+  students never see raw JSON — which is exactly why the lint must gate it.
+- Preview: `http://localhost:3000/#__diag=<id>` now renders the full
+  SolutionExplanation (figures included) under each item.
+
+Pilot references: bank-geo-318 (rightTriangle in Fast Way), bank-alg-108
+(linearGraph), bank-am-019 (parabola), bank-ps-032 (dotPlot), bank-geo-022
+(circleWithSector).
+
 When a question stem references a visual artifact — a scatterplot, a data set,
 a histogram, a figure, a graph, a table — the item **must** carry a `diagram`
 field with the visual data. A stem that says "the scatterplot below shows..."

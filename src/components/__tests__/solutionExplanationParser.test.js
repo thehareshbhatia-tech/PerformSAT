@@ -128,3 +128,94 @@ describe('parseChoiceBullet — why-wrong bullet letter + body', () => {
     expect(parseChoiceBullet('Watch for reversed operations.')).toBeNull();
   });
 });
+
+// ── seva-figure blocks (2026-07-28) ─────────────────────────────────────────
+const FIG = (type, params, caption) =>
+  '```seva-figure\n' + JSON.stringify({ type, params, ...(caption ? { caption } : {}) }) + '\n```';
+
+describe('parseExplanation — inline seva-figure blocks', () => {
+  it('attaches a figure inside a step to that step', () => {
+    const src = `**Choice A is correct.**
+
+**The Full Solution:**
+**Step 1:** Set up the triangle.
+The legs are $9$ and $b$; the hypotenuse is $15$.
+${FIG('rightTriangle', { sideLabels: ['9', '12', '15'] }, 'The completed triangle')}
+**Step 2:** Apply the theorem.
+$b = \\sqrt{15^2 - 9^2} = 12$.`;
+    const parsed = parseExplanation(src);
+    const steps = parsed.sections.filter((s) => s.type === 'step');
+    expect(steps).toHaveLength(2);
+    expect(steps[0].figures).toHaveLength(1);
+    expect(steps[0].figures[0]).toMatchObject({ type: 'rightTriangle', caption: 'The completed triangle' });
+    expect(steps[1].figures).toBeUndefined();
+  });
+
+  it('attaches figures to fastWay / takeaway sections', () => {
+    const src = `**Choice A is correct.**
+
+**The Fast Way (~5s):** See it at a glance.
+${FIG('dotPlot', { values: [1, 2, 2, 5] })}
+
+**Test Day Takeaway:** Draw it.
+${FIG('linearGraph', { slope: 2, yIntercept: 1 })}`;
+    const parsed = parseExplanation(src);
+    expect(parsed.fastWay.figures).toHaveLength(1);
+    expect(parsed.fastWay.figures[0].type).toBe('dotPlot');
+    expect(parsed.takeaway.figures).toHaveLength(1);
+    expect(parsed.takeaway.figures[0].type).toBe('linearGraph');
+  });
+
+  it('keeps a step whose entire body is a figure', () => {
+    const src = `**The Full Solution:**
+**Step 1:**
+${FIG('parabola', { vertex: { h: 1, k: -4 }, a: 1 })}`;
+    const parsed = parseExplanation(src);
+    const steps = parsed.sections.filter((s) => s.type === 'step');
+    expect(steps).toHaveLength(1);
+    expect(steps[0].figures).toHaveLength(1);
+  });
+
+  it('a figure before any section becomes a standalone figure section', () => {
+    const src = `${FIG('dotPlot', { values: [3, 5, 5, 9] })}
+**Test Day Takeaway:** Done.`;
+    const parsed = parseExplanation(src);
+    const standalone = parsed.sections.filter((s) => s.type === 'figure');
+    expect(standalone).toHaveLength(1);
+    expect(standalone[0].figures[0].type).toBe('dotPlot');
+  });
+
+  it('never leaks raw JSON, fences, or placeholder chars into parsed fields', () => {
+    const src = `**Choice A is correct.** Intro.
+${FIG('rightTriangle', { sideLabels: ['3', '4', '5'] })}
+**Test Day Takeaway:** Done.`;
+    const parsed = parseExplanation(src);
+    const everything = JSON.stringify([
+      parsed.answerDetail, parsed.satPattern,
+      parsed.sections.map((s) => s.content + s.bullets.join(' ')),
+      parsed.takeaway?.content,
+    ]);
+    expect(everything).not.toContain('```');
+    expect(everything).not.toContain('sideLabels');
+    expect(everything).not.toContain(String.fromCharCode(1));
+  });
+
+  it('an invalid block degrades to prose-only with no residue', () => {
+    const src = `**Choice A is correct.**
+
+**The Full Solution:**
+**Step 1:** Compute.
+$2 + 2 = 4$.
+\`\`\`seva-figure
+{broken
+\`\`\`
+**Step 2:** Conclude.
+The answer is $4$.`;
+    const parsed = parseExplanation(src);
+    const steps = parsed.sections.filter((s) => s.type === 'step');
+    expect(steps).toHaveLength(2);
+    expect(steps[0].figures).toBeUndefined();
+    expect(JSON.stringify(parsed)).not.toContain('broken');
+    expect(JSON.stringify(parsed)).not.toContain(String.fromCharCode(1));
+  });
+});

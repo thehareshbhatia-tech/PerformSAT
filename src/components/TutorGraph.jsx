@@ -39,6 +39,8 @@ class GraphErrorBoundary extends React.Component {
  *
  * @param {{spec: {type: string, params: object}}} props
  */
+export { GraphErrorBoundary };
+
 const TutorGraph = ({ spec }) => {
   if (!spec || typeof spec.type !== 'string') return null;
   return (

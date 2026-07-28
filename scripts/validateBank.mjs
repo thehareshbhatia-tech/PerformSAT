@@ -20,6 +20,7 @@ import { problemSolvingBank } from '../src/data/questions/bank/problemSolving.js
 import { advancedMathBank } from '../src/data/questions/bank/advancedMath.js';
 import { geometryBank } from '../src/data/questions/bank/geometry.js';
 import { rebalanceAnswerKey } from '../src/data/questions/bank/rebalanceAnswerKey.js';
+import { parseFigureSpec } from '../src/utils/explanationFigures.js';
 
 const VALID_DOMAINS = ['algebra', 'problem-solving', 'advanced-math', 'geometry'];
 const VALID_DIFFICULTIES = ['easy', 'medium', 'hard'];
@@ -99,6 +100,26 @@ bank.forEach((q, i) => {
   // drift early. See docs/DRILL_ROUTING_PLAN.md.
   if (q.explanation && !/\*\*SAT Pattern:\s*([^*]+?)\s*\*\*/.test(q.explanation)) {
     errors.push(`${label}: explanation missing **SAT Pattern: <Title>** header`);
+  }
+
+  // Inline explanation figures (```seva-figure``` blocks). The render path
+  // silently strips anything invalid so students never see raw JSON — which
+  // means a typo'd block would silently LOSE its figure. Authored content must
+  // therefore be fully valid here: every fence closed, every body parseable,
+  // every type known to the QuestionDiagram dispatcher, and no stray ``` runs.
+  if (q.explanation && q.explanation.includes('```')) {
+    const opens = (q.explanation.match(/```[ \t]*seva-figure\b/g) || []).length;
+    const closed = [...q.explanation.matchAll(/```[ \t]*seva-figure\b[^\n]*\n([\s\S]*?)```/g)];
+    const totalFences = (q.explanation.match(/```/g) || []).length;
+    if (closed.length !== opens) errors.push(`${label}: unclosed seva-figure fence`);
+    if (totalFences !== closed.length * 2 + (opens - closed.length)) {
+      errors.push(`${label}: stray \`\`\` in explanation — only seva-figure blocks may use fences`);
+    }
+    closed.forEach((m, i) => {
+      if (!parseFigureSpec(m[1])) {
+        errors.push(`${label}: seva-figure block ${i + 1} is invalid (bad JSON, unknown type, or bad shape)`);
+      }
+    });
   }
 
   (q.skills || []).forEach(s => { skillCoverage[s] = (skillCoverage[s] || 0) + 1; });

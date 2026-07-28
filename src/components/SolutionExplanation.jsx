@@ -1,5 +1,8 @@
 import React, { useState, useMemo } from 'react';
 import { MathText } from './MathText';
+import QuestionDiagram from './QuestionDiagrams';
+import { GraphErrorBoundary } from './TutorGraph';
+import { extractExplanationFigures, FIGURE_PLACEHOLDER_RE } from '../utils/explanationFigures';
 import { colors, typography, spacing, radius, shadows, transitions } from '../design/tokens';
 
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -40,8 +43,13 @@ void convertLatexDiv; void convertSlashDiv; void convertPlainDiv; void cvtSlash;
 // ═══════════════════════════════════════════════════════════════════════════════
 
 function parseExplanation(raw) {
-  const text = preprocessMath(raw);
-  if (!text) return { satPattern: '', answer: '', answerDetail: '', equation: null, fastWay: null, sections: [], whyWrong: null, verification: null, takeaway: null };
+  const pre = preprocessMath(raw);
+  if (!pre) return { satPattern: '', answer: '', answerDetail: '', equation: null, fastWay: null, sections: [], whyWrong: null, verification: null, takeaway: null };
+
+  // Lift ```seva-figure``` blocks out before line parsing — each valid block
+  // becomes a one-line placeholder that attaches the figure to whatever
+  // section is open where the author put it.
+  const { text, figures } = extractExplanationFigures(pre);
 
   const lines = text.split('\n');
   const sections = [];
@@ -49,7 +57,7 @@ function parseExplanation(raw) {
   let fastWay = null, verification = null, takeaway = null, whyWrong = null;
   let cur = null, stepN = 0;
 
-  const flush = () => { if (cur) { cur.content = cur.content.trim(); if (cur.content || cur.bullets.length) sections.push({ ...cur }); } cur = null; };
+  const flush = () => { if (cur) { cur.content = cur.content.trim(); if (cur.content || cur.bullets.length || cur.figures?.length) sections.push({ ...cur }); } cur = null; };
   const make = (type, extra = {}) => { flush(); cur = { type, content: '', bullets: [], ...extra }; };
 
   const extractEq = (str) => {
@@ -62,6 +70,18 @@ function parseExplanation(raw) {
 
   for (const line of lines) {
     const t = line.trim(); if (!t) continue; let m;
+
+    // Figure placeholder — attach to the open section (step, fastWay, whyWrong,
+    // takeaway, …); with no section open it becomes a standalone figure section
+    // rendered at the top of the walkthrough.
+    if ((m = t.match(FIGURE_PLACEHOLDER_RE))) {
+      const spec = figures[+m[1]];
+      if (spec) {
+        if (cur) cur.figures = [...(cur.figures || []), spec];
+        else sections.push({ type: 'figure', content: '', bullets: [], figures: [spec] });
+      }
+      continue;
+    }
 
     // SAT Pattern header (first bold line before the answer)
     if ((m = t.match(/^\*\*SAT Pattern:\s*(.+?)\*\*(.*)$/)) && !satPattern) {
@@ -101,10 +121,14 @@ function parseExplanation(raw) {
     if ((m = t.match(/^\*\*Method (\d+)[:.]\*\*\s*(.*)$/))) { make('method', { number: +m[1], title: m[2] }); continue; }
     if ((m = t.match(/^\*\*Case (\d+)[:.]\*\*\s*(.*)$/))) { make('case', { number: +m[1], title: m[2] }); continue; }
 
-    // Why wrong
+    // Why wrong. Same-line body text (the fill-in house format writes
+    // "**Common Mistakes:** Inverting the formula...") must seed `content` —
+    // discarding the remainder of the header line silently dropped the whole
+    // section for every item that formats it that way.
     if (/^\*\*Why (?:the )?(?:other )?(?:wrong )?(?:choices|answers)/.test(t) || /^\*\*Why simple average/.test(t) || /^\*\*Common (?:Mistakes|errors|wrong answers)/i.test(t)) {
       flush();
-      whyWrong = { content: '', bullets: [] };
+      const rest = t.replace(/^\*\*[^*]+?:?\*\*\s*/, '');
+      whyWrong = { content: rest, bullets: [] };
       cur = whyWrong;
       continue;
     }
@@ -212,6 +236,31 @@ const BulletList = ({ items, color }) => {
   );
 };
 
+// Inline figure(s) authored via ```seva-figure``` blocks — a real SAT-style
+// diagram from the production graph library, centered and scroll-safe, with an
+// optional caption. The error boundary guarantees a figure that can't render
+// never breaks the surrounding explanation.
+const Figures = ({ figures }) => {
+  if (!figures?.length) return null;
+  return figures.map((f, i) => (
+    <figure key={i} style={{ margin: '14px 0 6px', textAlign: 'center' }}>
+      <div style={{ display: 'flex', justifyContent: 'center', maxWidth: '100%', overflowX: 'auto' }}>
+        <GraphErrorBoundary fallback={null}>
+          <QuestionDiagram type={f.type} params={f.params} />
+        </GraphErrorBoundary>
+      </div>
+      {f.caption && (
+        <figcaption style={{
+          marginTop: '6px', fontSize: typography.sizes.xs, color: colors.text.muted,
+          fontStyle: 'italic', lineHeight: '1.5',
+        }}>
+          <InlineRich text={f.caption} />
+        </figcaption>
+      )}
+    </figure>
+  ));
+};
+
 // ═══════════════════════════════════════════════════════════════════════════════
 // SEMANTIC SECTION CARDS
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -224,7 +273,7 @@ const SectionFade = ({ children, delay = 0 }) => (
   </div>
 );
 
-const StepCard = ({ number, title, content, bullets, isLast }) => (
+const StepCard = ({ number, title, content, bullets, figures, isLast }) => (
   <div style={{ display: 'flex', gap: '16px' }}>
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', flexShrink: 0, width: '28px' }}>
       <div style={{
@@ -243,11 +292,12 @@ const StepCard = ({ number, title, content, bullets, isLast }) => (
       )}
       {content && <RichText text={content} />}
       {bullets?.length > 0 && <BulletList items={bullets} />}
+      <Figures figures={figures} />
     </div>
   </div>
 );
 
-const MethodCard = ({ number, title, content, bullets, label }) => (
+const MethodCard = ({ number, title, content, bullets, figures, label }) => (
   <div style={{
     background: colors.surface.white, borderRadius: '16px', overflow: 'hidden',
     border: `1px solid rgba(0,0,0,0.06)`, boxShadow: '0 2px 8px rgba(0,0,0,0.02)'
@@ -261,12 +311,13 @@ const MethodCard = ({ number, title, content, bullets, label }) => (
       </div>
       <RichText text={content} />
       {bullets?.length > 0 && <BulletList items={bullets} />}
+      <Figures figures={figures} />
     </div>
   </div>
 );
 
-const FastWayCard = ({ content, bullets }) => {
-  if (!content && !bullets?.length) return null;
+const FastWayCard = ({ content, bullets, figures }) => {
+  if (!content && !bullets?.length && !figures?.length) return null;
   return (
     <div style={{
       background: 'rgba(34, 197, 94, 0.04)',
@@ -283,6 +334,7 @@ const FastWayCard = ({ content, bullets }) => {
       </div>
       <RichText text={content} color={colors.text.primary} />
       <BulletList items={bullets} />
+      <Figures figures={figures} />
     </div>
   );
 };
@@ -296,7 +348,7 @@ const FastWayCard = ({ content, bullets }) => {
 // at end-of-string), so the body keeps its parens balanced instead.
 const parseChoiceBullet = (item) => item.match(/^(?:Choice\s+)?([A-D])[\s:]+(.+)$/);
 
-const WhyWrongCard = ({ content, bullets, defaultOpen = false }) => {
+const WhyWrongCard = ({ content, bullets, figures, defaultOpen = false }) => {
   const [open, setOpen] = useState(defaultOpen);
   const items = bullets?.length ? bullets : content ? content.split('\n').filter(l => l.trim()) : [];
   if (!items.length) return null;
@@ -381,14 +433,15 @@ const WhyWrongCard = ({ content, bullets, defaultOpen = false }) => {
               </div>
             );
           })}
+          <Figures figures={figures} />
         </div>
       )}
     </div>
   );
 };
 
-const VerificationCard = ({ content, bullets }) => {
-  if (!content && !bullets?.length) return null;
+const VerificationCard = ({ content, bullets, figures }) => {
+  if (!content && !bullets?.length && !figures?.length) return null;
   return (
     <div style={{
       background: colors.surface.white, borderRadius: '16px',
@@ -407,12 +460,13 @@ const VerificationCard = ({ content, bullets }) => {
       </div>
       <RichText text={content} size="15px" color={colors.text.secondary} />
       <BulletList items={bullets} color={colors.text.secondary} />
+      <Figures figures={figures} />
     </div>
   );
 };
 
-const TakeawayCard = ({ content, bullets }) => {
-  if (!content && !bullets?.length) return null;
+const TakeawayCard = ({ content, bullets, figures }) => {
+  if (!content && !bullets?.length && !figures?.length) return null;
   return (
     <div style={{
       background: 'rgba(59, 130, 246, 0.04)',
@@ -432,6 +486,7 @@ const TakeawayCard = ({ content, bullets }) => {
       </div>
       <RichText text={content} size="15px" color={colors.text.primary} />
       <BulletList items={bullets} />
+      <Figures figures={figures} />
     </div>
   );
 };
@@ -487,7 +542,7 @@ const Disclosure = ({ label, sublabel, defaultOpen = false, children }) => {
   );
 };
 
-const CalloutCard = ({ type, content, bullets }) => {
+const CalloutCard = ({ type, content, bullets, figures }) => {
   const cfg = CALLOUT_CONFIG[type] || { label: 'NOTE', color: colors.text.muted };
   return (
     <div style={{
@@ -502,6 +557,7 @@ const CalloutCard = ({ type, content, bullets }) => {
       }}>{cfg.label}</div>
       {content && <RichText text={content} size="15px" color={colors.text.primary} />}
       {bullets?.length > 0 && <BulletList items={bullets} />}
+      <Figures figures={figures} />
     </div>
   );
 };
@@ -545,7 +601,8 @@ const SolutionExplanation = ({ explanation, isCorrect }) => {
   const cases = sections.filter(s => s.type === 'case');
   const calloutTypes = ['key-concept', 'calculator-tip', 'note', 'formula', 'alternative'];
   const callouts = sections.filter(s => calloutTypes.includes(s.type));
-  const hasWalkthrough = !!(solution || steps.length || methods.length || cases.length || callouts.length || verification || equation);
+  const standaloneFigures = sections.filter(s => s.type === 'figure').flatMap(s => s.figures || []);
+  const hasWalkthrough = !!(solution || steps.length || methods.length || cases.length || callouts.length || verification || equation || standaloneFigures.length);
   const hasBody = hasWalkthrough || whyWrong || fastWay || takeaway;
 
   let animDelay = 0;
@@ -597,7 +654,7 @@ const SolutionExplanation = ({ explanation, isCorrect }) => {
       {fastWay && (
         <SectionFade delay={nextDelay()}>
           <div style={{ marginBottom: '12px' }}>
-            <FastWayCard content={fastWay.content} bullets={fastWay.bullets} />
+            <FastWayCard content={fastWay.content} bullets={fastWay.bullets} figures={fastWay.figures} />
           </div>
         </SectionFade>
       )}
@@ -624,10 +681,13 @@ const SolutionExplanation = ({ explanation, isCorrect }) => {
                 </div>
               )}
 
+              {standaloneFigures.length > 0 && <Figures figures={standaloneFigures} />}
+
               {solution && (
                 <div style={{ paddingTop: '4px' }}>
                   <RichText text={solution.content} />
                   <BulletList items={solution.bullets} />
+                  <Figures figures={solution.figures} />
                 </div>
               )}
 
@@ -656,13 +716,13 @@ const SolutionExplanation = ({ explanation, isCorrect }) => {
 
               {callouts.map((c, i) => (
                 <div key={i} style={{ marginTop: '12px' }}>
-                  <CalloutCard type={c.type} content={c.content} bullets={c.bullets} />
+                  <CalloutCard type={c.type} content={c.content} bullets={c.bullets} figures={c.figures} />
                 </div>
               ))}
 
               {verification && (
                 <div style={{ marginTop: '12px' }}>
-                  <VerificationCard content={verification.content} bullets={verification.bullets} />
+                  <VerificationCard content={verification.content} bullets={verification.bullets} figures={verification.figures} />
                 </div>
               )}
 
@@ -675,7 +735,7 @@ const SolutionExplanation = ({ explanation, isCorrect }) => {
       {whyWrong && (
         <SectionFade delay={nextDelay()}>
           <div style={{ marginBottom: '12px' }}>
-            <WhyWrongCard bullets={whyWrong.bullets} content={whyWrong.content} defaultOpen={false} />
+            <WhyWrongCard bullets={whyWrong.bullets} content={whyWrong.content} figures={whyWrong.figures} defaultOpen={false} />
           </div>
         </SectionFade>
       )}
@@ -683,7 +743,7 @@ const SolutionExplanation = ({ explanation, isCorrect }) => {
       {/* ── Takeaway — one sentence, always visible ───────────────── */}
       {takeaway && (
         <SectionFade delay={nextDelay()}>
-          <TakeawayCard content={takeaway.content} bullets={takeaway.bullets} />
+          <TakeawayCard content={takeaway.content} bullets={takeaway.bullets} figures={takeaway.figures} />
         </SectionFade>
       )}
 
