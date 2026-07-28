@@ -210,3 +210,7 @@ Chip-shown ≡ Tier-1 fired ≡ exact pattern match was viable. This effectively
 **Decision:** No action. Tier 2 fires as well as it can with current bank coverage of the `patternToStyle` map. Future option if Tier-2 firing rate becomes a real concern: extend test bundle items to carry `sourceStyleRef`, or expand the `patternToStyle` map by hand-curating it as a standalone file.
 
 ## Completed
+
+## From /qa 2026-07-28 (drill shell, live)
+- [ ] MEDIUM ISSUE-002: drill sidebar question rows are <button>s with pointer cursors but clicking them does NOT navigate to that question — either make them navigate (App.jsx owns practiceState index) or render them as non-interactive status rows. Repro: enter any drill, click a later question in the left rail; main pane stays put.
+- [ ] HIGH (a11y) ISSUE-003: .answer-choice-card is a bare <div> — invisible to the accessibility tree (snapshot -i shows only "Eliminate choice X" buttons). Keyboard/screen-reader users cannot select answers. Fix: role="radio" + tabIndex + Enter/Space handler, or make it a <button>.
